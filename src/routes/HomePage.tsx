@@ -4,7 +4,6 @@ import ServicesSection from '../components/sections/ServicesSection'
 import DoctorsSection from '../components/sections/DoctorsSection'
 import TestimonialsSection from '../components/sections/TestimonialsSection'
 import BlogSection from '../components/sections/BlogSection'
-import CtaSection from '../components/sections/CtaSection'
 import SectionHeader from '../components/ui/SectionHeader'
 import ProductCard from '../components/ui/ProductCard'
 import { products } from '../data/products'
@@ -39,11 +38,11 @@ const HomePage = () => {
                 description={product.shortDescription}
                 badge={product.badge}
                 to={`/shop/${product.slug}`}
+                image={product.image}
               />
             ))}
           </div>
         </section>
-        <CtaSection />
       </main>
     </>
   )

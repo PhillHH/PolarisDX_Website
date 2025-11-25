@@ -11,14 +11,21 @@ const BlogSection = () => {
       />
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {blogPosts.slice(0, 3).map((post) => (
-          <BlogCard
-            key={post.id}
-            title={post.title}
-            excerpt={post.excerpt}
-            to={`/articles/${post.slug}`}
-          />
-        ))}
+        {blogPosts.slice(0, 3).map((post) => {
+          const imageUrl = post.image
+            ? new URL(`../../assets/${post.image}`, import.meta.url).href
+            : undefined
+
+          return (
+            <BlogCard
+              key={post.id}
+              title={post.title}
+              excerpt={post.excerpt}
+              to={`/articles/${post.slug}`}
+              imageUrl={imageUrl}
+            />
+          )
+        })}
       </div>
     </section>
   )

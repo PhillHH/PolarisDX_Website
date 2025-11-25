@@ -49,6 +49,7 @@ const ShopPage = () => {
               description={product.shortDescription}
               badge={product.badge}
               to={`/shop/${product.slug}`}
+              image={product.image}
             />
           ))}
         </div>

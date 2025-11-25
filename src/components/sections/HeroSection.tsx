@@ -13,7 +13,7 @@ const HeroSection = () => {
       <div className="pointer-events-none absolute inset-y-0 left-0 w-80 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-80 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
 
-      <div className="relative z-10 mx-auto flex min-h-[530px] max-w-[1440px] items-stretch px-4 pt-16 pb-0 lg:px-10 lg:pt-20 lg:pb-0">
+      <div className="relative z-10 mx-auto flex min-h-[530px] max-w-container items-stretch px-4 pt-16 pb-0 lg:px-0 lg:pt-20 lg:pb-0">
         <div className="grid w-full gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
         <div className="flex flex-col justify-center space-y-8">
           <div className="inline-flex items-center gap-3">

@@ -9,6 +9,7 @@ const ArticlePage = () => {
   const foundArticle = slug ? getArticleBySlug(slug) : undefined
   const article = foundArticle ?? fallbackArticle
   const otherArticles = articles.filter((a) => a.slug !== article.slug)
+  const articleImage = article.sections.find((s) => s.image)?.image
 
   return (
     <div className="bg-slate-50">
@@ -49,6 +50,16 @@ const ArticlePage = () => {
             title={article.excerpt}
             align="left"
           />
+
+          <div className="w-full overflow-hidden rounded-lg aspect-[8/3] bg-slate-200">
+            {articleImage && (
+              <img
+                src={new URL(`../assets/${articleImage}`, import.meta.url).href}
+                alt={article.title}
+                className="w-full h-full object-cover"
+              />
+            )}
+          </div>
 
           {article.sections.map((section) => (
             <section key={section.heading ?? section.paragraphs[0]?.slice(0, 24)} className="space-y-4">

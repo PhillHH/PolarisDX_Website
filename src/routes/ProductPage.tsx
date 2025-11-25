@@ -44,21 +44,79 @@ const ProductPage = () => {
 
       {/* Content + Sidebar */}
       <main className="mx-auto max-w-container px-4 py-12 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,1.5fr)] lg:items-start lg:gap-12 lg:px-0 lg:py-16">
-        <section className="space-y-6 text-gray-700">
-          <p className="text-sm leading-[32px] text-gray-500 sm:text-base">
-            {product.shortDescription}
-          </p>
+        <section className="space-y-8 text-gray-700">
+          <div className="w-full overflow-hidden rounded-lg aspect-[4/3] bg-slate-200">
+            {product.image && (
+              <img
+                src={new URL(`../assets/${product.image}`, import.meta.url).href}
+                alt={product.name}
+                className="w-full h-full object-cover"
+              />
+            )}
+          </div>
 
-          {product.features.length > 0 && (
+          {/* Detailed Description */}
+          <div className="space-y-2">
+            {product.detailedDescription ? (
+              product.detailedDescription.map((p, i) => (
+                <p key={i} className="text-sm leading-[32px] text-gray-500 sm:text-base">{p}</p>
+              ))
+            ) : (
+              <p className="text-sm leading-[32px] text-gray-500 sm:text-base">
+                {product.shortDescription}
+              </p>
+            )}
+          </div>
+
+          {/* Features */}
+          {product.features && product.features.length > 0 && (
             <div className="space-y-3">
               <h2 className="text-lg font-semibold tracking-tight text-gray-900">
-                Key features
+                Features & Benefits
               </h2>
               <ul className="list-disc space-y-2 pl-5 text-sm leading-[28px] text-gray-500 sm:text-base">
                 {product.features.map((feature) => (
                   <li key={feature}>{feature}</li>
                 ))}
               </ul>
+            </div>
+          )}
+
+          {/* Tech Specs */}
+          {product.techSpecs && product.techSpecs.length > 0 && (
+            <div className="space-y-4">
+              <h2 className="text-lg font-semibold tracking-tight text-gray-900">
+                Technical Specifications
+              </h2>
+              <div className="overflow-x-auto rounded-lg border border-gray-200/80 bg-white">
+                <table className="w-full text-sm">
+                  <tbody className="divide-y divide-gray-200/80">
+                    {product.techSpecs.map((spec) => (
+                      <tr key={spec.parameter} className="divide-x divide-gray-200/80">
+                        <td className="w-1/3 px-4 py-3 font-medium text-gray-800">{spec.parameter}</td>
+                        <td className="px-4 py-3 text-gray-600">{spec.specification}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
+          {/* Delivery Scope */}
+          {product.deliveryScope && product.deliveryScope.length > 0 && (
+            <div className="space-y-3">
+              <h2 className="text-lg font-semibold tracking-tight text-gray-900">
+                What's in the box?
+              </h2>
+              <ul className="list-disc space-y-2 pl-5 text-sm leading-[28px] text-gray-500 sm:text-base">
+                {product.deliveryScope.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              {product.note && (
+                <p className="pt-2 text-xs text-gray-500">{product.note}</p>
+              )}
             </div>
           )}
 

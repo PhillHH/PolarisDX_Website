@@ -10,14 +10,13 @@ const CtaSection = () => {
       <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
         <div className="space-y-4">
           <h2 className="text-3xl font-medium leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-            Looking for professional &amp; trusted medical healthcare?
+            Looking for professional and reliable diagnostic solutions?
           </h2>
           <p className="text-sm leading-relaxed text-white/90 sm:text-base">
-            Don&apos;t hesitate to contact us. Our team is ready to help you book appointments and
-            answer all your questions.
+            Contact us for a non-binding consultation and discover the ideal POCT-solution for your needs.
           </p>
           <PrimaryButton as={Link} to="/contact" variant="secondary">
-            Make Appointment
+            Request a consultation
           </PrimaryButton>
         </div>
 
@@ -26,15 +25,15 @@ const CtaSection = () => {
           <div className="relative flex h-64 flex-col justify-between overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-br from-white/20 via-secondary/40 to-primary/40 p-6 shadow-2xl">
             <div>
               <p className="text-xs font-semibold uppercase tracking-wide text-white/80">
-                Need urgent help?
+                Expert advice
               </p>
               <p className="mt-2 text-lg font-medium text-white">
-                Call our 24/7 medical hotline and talk to a specialist immediately.
+                Our specialists are ready to answer your questions about our POCT-systems.
               </p>
             </div>
             <div className="text-sm text-white/90">
-              <p>+123 456 789</p>
-              <p className="text-white/70">Average response time &lt; 5 minutes</p>
+              <p>+49 (0) 123 456 7890</p>
+              <p className="text-white/70">Response within 24 hours</p>
             </div>
           </div>
         </div>

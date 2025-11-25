@@ -10,7 +10,7 @@ type BlogCardProps = {
 const BlogCard = ({ title, excerpt, imageUrl, to }: BlogCardProps) => {
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-card">
-      <div className="aspect-[4/3] w-full bg-gray-100">
+      <div className="aspect-[3/2] w-full bg-gray-100">
         {imageUrl && (
           <img
             src={imageUrl}

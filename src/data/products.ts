@@ -1,15 +1,77 @@
+export type TechSpec = {
+  parameter: string
+  specification: string
+}
+
 export type Product = {
+
   id: string
+
   slug: string
+
   name: string
+
   category: string
+
   price: number
+
   shortDescription: string
+
+  detailedDescription?: string[]
+
   features: string[]
+
+  techSpecs?: TechSpec[]
+
+  deliveryScope?: string[]
+
+  note?: string
+
   badge?: 'New' | 'Popular' | 'Limited'
+  image?: string
+
 }
 
 export const products: Product[] = [
+  {
+    id: 'igloo-reader-pro',
+    slug: 'igloo-reader-pro-poct-analyzer',
+    name: 'Igloo Reader Pro',
+    category: 'Diagnostics',
+    price: 479, // Placeholder
+    badge: 'New',
+    image: 'Igloo-pro-frontal.png',
+    shortDescription: 'Der Igloo Reader Pro ist ein kompakter, hochmoderner All-in-One-Analysator für die Point-of-Care-Diagnostik (POCT). Er kombiniert Laborgenauigkeit mit den Anforderungen dezentraler Umgebungen. Unterstützt Lateral Flow, Microarray, Fluoreszenz und mehr – die ideale Lösung für schnelle, zuverlässige quantitative und qualitative Testergebnisse.',
+    detailedDescription: [
+      'Der Igloo Reader Pro definiert die mobile Diagnostik neu. Dieses vielseitige Analysegerät wurde speziell für professionelle Umgebungen und dezentrale Point-of-Care-Anwendungen entwickelt und ermöglicht eine schnelle und zuverlässige qualitative und quantitative Testung.',
+      'Der Reader unterstützt eine breite Palette an diagnostischen Tests – von der Infektionskrankheitenvorsorge über kardiale Marker und Hormonprofile bis hin zu Drogenmissbrauchs- und Allergie-Panels. Dank automatisierter Kalibrierung, Cloud-Integration und digitalem Datenexport liefert der Igloo Reader Pro Laborqualität direkt dorthin, wo sie benötigt wird. Er ermöglicht es medizinischem Fachpersonal, schnelle und verlässliche Ergebnisse überall zu erzielen.'
+    ],
+    features: [
+      'Universelle Testplattform: Unterstützt Microarray, Lateral Flow, Kolorimetrie, Fluoreszenz, Dry Chemistry und Mikrofluidik.',
+      'Laborgenauigkeit im POCT-Format: Hohe Präzision durch automatische Selbstkalibrierung vor jeder Messung (CV < 2 % Inter-Reader, CV < 3 % Intra-Reader).',
+      'Kompakt & Mobil: Leichtes Design mit einer Akkulaufzeit von bis zu 24 Stunden ununterbrochener Testung.',
+      'Volle Konnektivität: Integriertes Wi-Fi, Bluetooth und USB-C für nahtlose Datensynchronisation und API-/LIMS-Integration.',
+      'Sichere Cloud-Integration (Dx365 Cloud): Für Test-Updates, Kalibrierungsmanagement und verschlüsselte Datenspeicherung.',
+      'Vielseitige Probenarten: Kompatibel mit Vollblut, Kapillarblut, Serum, Plasma, Urin, Stuhl, Speichel und Haar.'
+    ],
+    techSpecs: [
+      { parameter: 'Geräteabmessungen (L × B × H)', specification: '87,5 × 87,5 × 91 mm' },
+      { parameter: 'Gewicht', specification: 'ca. 270 g' },
+      { parameter: 'Messdauer', specification: 'Wenige Sekunden (exkl. Inkubationszeit)' },
+      { parameter: 'Unterstützte Testmethoden', specification: 'Microarray, Kolorimetrie, Fluoreszenz, Dry Chemistry, Quantum Dots, Mikrofluidik' },
+      { parameter: 'Probenarten', specification: 'Vollblut, Kapillarblut, Serum, Plasma, Urin, Stuhl, Speichel, Haar' },
+      { parameter: 'Ergebnisspeicher', specification: 'Bis zu 10.000 Ergebnisse' },
+      { parameter: 'Batterie', specification: 'Wiederaufladbarer Lithium-Akku, bis zu 24 Stunden kontinuierlicher Testbetrieb' },
+      { parameter: 'Konnektivität', specification: 'USB-C, Wi-Fi (802.11 b/g/n), Bluetooth, API/LIMS-Integration' },
+      { parameter: 'Zertifizierung', specification: 'CE-Kennzeichnung, RoHS-konform' }
+    ],
+    deliveryScope: [
+      '1 × Igloo Reader Pro Analysegerät',
+      '1 × USB-A auf USB-C Kabel',
+      'Elektronisches Benutzerhandbuch'
+    ],
+    note: 'Wichtiger Hinweis: Adapter und QC-Testkits sind separat erhältlich und nicht im Standardlieferumfang enthalten.'
+  },
   {
     id: 'bp-monitor',
     slug: 'digital-blood-pressure-monitor',
