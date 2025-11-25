@@ -13,19 +13,22 @@ const HomePage = () => {
   return (
     <>
       <HeroSection />
-      <main className="mx-auto flex max-w-container flex-col gap-24 px-4 pb-24 pt-16 lg:px-0 lg:gap-32 lg:pb-32">
+      <main className="mx-auto flex max-w-container flex-col gap-24 px-4 pt-16 lg:px-0 lg:gap-32">
         <AboutSection />
         <ServicesSection />
         <DoctorsSection />
+      </main>
+
+      {/* Testimonials section is pulled out to be full-width */}
+      <div className="mt-24 lg:mt-32">
         <TestimonialsSection />
+      </div>
+
+      <main className="mx-auto flex max-w-container flex-col gap-24 px-4 py-24 lg:px-0 lg:gap-32 lg:py-32">
         <BlogSection />
         {/* Shop Teaser */}
         <section className="space-y-8">
-          <SectionHeader
-            caption="Shop"
-            title="Featured medical products"
-            align="left"
-          />
+          <SectionHeader caption="Shop" title="Featured medical products" align="left" />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {products.slice(0, 3).map((product) => (
               <ProductCard

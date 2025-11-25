@@ -1,77 +1,139 @@
-import SectionHeader from '../ui/SectionHeader'
+import { useState, useEffect } from 'react'
+import { testimonials } from '../../data/testimonials'
+import SectionHeader from '~/components/ui/SectionHeader'
+
+// A simple Star SVG component
+const Star = ({ filled }: { filled: boolean }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill={filled ? 'currentColor' : 'none'}
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={`h-5 w-5 ${filled ? 'text-yellow-400' : 'text-gray-400'}`}
+  >
+    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+  </svg>
+)
+
+// Star rating component
+const StarRating = ({ rating }: { rating: number }) => (
+  <div className="flex justify-center">
+    {Array.from({ length: 5 }, (_, i) => (
+      <Star key={i} filled={i < rating} />
+    ))}
+  </div>
+)
 
 const TestimonialsSection = () => {
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex(prevIndex => (prevIndex + 1) % testimonials.length)
+    }, 8000) // Slower slide change: 8 seconds
+
+    return () => clearInterval(interval)
+  }, [])
+
+  const handleDotClick = (index: number) => {
+    setActiveIndex(index)
+  }
+
   return (
     <section
       id="testimonials"
-      className="relative -mx-4 bg-primary py-16 text-white lg:mx-0 lg:rounded-section"
+      className="relative bg-primary py-16 text-white"
     >
       <div className="pointer-events-none absolute inset-y-0 left-0 w-80 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-80 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
 
-      <div className="relative mx-auto flex max-w-container flex-col gap-12 px-4 lg:px-0">
+      <div className="relative mx-auto flex max-w-container flex-col items-center gap-12 px-4 lg:px-8">
         <div className="flex flex-col items-center gap-6 text-center">
           <SectionHeader
-            caption="Testimoni"
-            title="Our Customers & Clients"
+            caption="KUNDENSTIMMEN"
+            title="Was unsere Anwender über das Igloo Pro System sagen"
+            titleClassName="text-white"
           />
-          <p className="max-w-2xl text-sm leading-relaxed text-white/80 sm:text-base">
-            Sit tincidunt commodo tincidunt. Mattis metus purus quam fames in vitae fringilla
-            tempor. Non in in sodales suspendisse egestas integer iaculis semper ultrices.
-          </p>
         </div>
 
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-center">
-          <div className="space-y-6 rounded-2xl bg-white/5 p-8 shadow-2xl backdrop-blur">
-            <div className="flex items-center justify-center gap-4">
-              <div className="h-16 w-16 rounded-full bg-white/20" />
-              <div className="text-left">
-                <p className="text-base font-medium">Robert Fox</p>
-                <p className="text-sm text-white/70">Happy Patient</p>
-              </div>
-            </div>
+        {/* Testimonial Card */}
+        <div className="w-full max-w-4xl space-y-8 rounded-2xl bg-white/5 p-8 shadow-2xl backdrop-blur">
+          {/* Slider Content */}
+          <div className="overflow-hidden">
+            <div
+              className="flex transition-transform duration-1000 ease-in-out"
+              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+            >
+              {testimonials.map((testimonial, index) => (
+                <div
+                  key={index}
+                  className="w-full flex-shrink-0"
+                  role="group"
+                  aria-roledescription="slide"
+                >
+                  <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-start md:gap-8 md:text-left">
+                    {/* Reviewer Image & Stars */}
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="mx-auto h-24 w-24 flex-shrink-0 rounded-full bg-white/20 md:mx-0" />
+                      <StarRating rating={5} />
+                    </div>
 
-            <div className="flex items-center justify-center gap-1">
-              {Array.from({ length: 5 }).map((_, index) => (
-                <span key={index} className="text-yellow-400">
-                  ★
-                </span>
+                    {/* Review Content */}
+                    <div className="flex-grow space-y-4">
+                      <blockquote className="text-lg leading-relaxed text-white/90">
+                        “{testimonial.text}”
+                      </blockquote>
+                      <div>
+                        <p className="font-semibold">{testimonial.name}</p>
+                        <p className="text-sm text-white/70">
+                          {testimonial.title}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               ))}
-            </div>
-
-            <p className="text-center text-sm leading-relaxed text-white/90 sm:text-base">
-              “Sit tincidunt commodo tincidunt. Mattis metus purus quam fames in vitae fringilla
-              tempor. Non in in sodales suspendisse egestas integer iaculis semper ultrices.
-              Lectus dui in pulvinar orci ut fermentum tortor mi, at.”
-            </p>
-
-            <div className="flex justify-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-white" />
-              <span className="h-2 w-2 rounded-full bg-white/40" />
-              <span className="h-2 w-2 rounded-full bg-white/40" />
             </div>
           </div>
 
-          <div className="space-y-6 text-center lg:text-left">
-            <div className="flex justify-center gap-10 text-left lg:justify-start">
-              <div>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-4xl font-medium tracking-tight">4.9</span>
-                </div>
-                <p className="mt-1 text-sm text-white/80">
-                  Overall Rating
-                  <br />
-                  based on 3500+ reviews
-                </p>
-              </div>
-              <div>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-4xl font-medium tracking-tight">99</span>
-                  <span className="text-2xl font-medium text-secondary">%</span>
-                </div>
-                <p className="mt-1 text-sm text-white/80">Positive Review</p>
-              </div>
+          {/* Slider Dots */}
+          <div className="flex justify-center gap-3">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => handleDotClick(index)}
+                className={`h-2.5 w-2.5 rounded-full transition-colors duration-300 ${
+                  activeIndex === index
+                    ? 'bg-white'
+                    : 'bg-white/40 hover:bg-white/60'
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Stats Section */}
+        <div className="flex justify-center gap-10 text-center md:gap-16">
+          <div>
+            <div className="flex items-baseline justify-center gap-1">
+              <span className="text-4xl font-medium tracking-tight">4.9</span>
             </div>
+            <p className="mt-1 text-sm text-white/80">
+              Overall Rating
+              <br />
+              based on 3500+ reviews
+            </p>
+          </div>
+          <div>
+            <div className="flex items-baseline justify-center gap-1">
+              <span className="text-4xl font-medium tracking-tight">99</span>
+              <span className="text-2xl font-medium text-white/80">%</span>
+            </div>
+            <p className="mt-1 text-sm text-white/80">Positive Review</p>
           </div>
         </div>
       </div>
@@ -80,5 +142,3 @@ const TestimonialsSection = () => {
 }
 
 export default TestimonialsSection
-
-

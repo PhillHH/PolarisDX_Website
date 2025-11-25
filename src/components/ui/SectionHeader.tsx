@@ -3,13 +3,17 @@ type SectionHeaderProps = {
   caption: string
   title: string
   align?: 'left' | 'center'
+  titleClassName?: string
 }
 
-const SectionHeader = ({ id, caption, title, align = 'center' }: SectionHeaderProps) => {
-  const alignment =
-    align === 'center'
-      ? 'items-center text-center'
-      : 'items-start text-left'
+const SectionHeader = ({
+  id,
+  caption,
+  title,
+  align = 'center',
+  titleClassName,
+}: SectionHeaderProps) => {
+  const alignment = align === 'center' ? 'items-center text-center' : 'items-start text-left'
 
   return (
     <div id={id} className={`flex flex-col gap-2 ${alignment}`}>
@@ -20,7 +24,11 @@ const SectionHeader = ({ id, caption, title, align = 'center' }: SectionHeaderPr
           </span>
         </div>
       </div>
-      <h2 className="text-[40px] leading-[47px] font-medium tracking-tight text-gray-900 lg:text-[44px] lg:leading-[52px]">
+      <h2
+        className={`text-[40px] leading-[47px] font-medium tracking-tight lg:text-[44px] lg:leading-[52px] ${
+          titleClassName || 'text-gray-900'
+        }`}
+      >
         {title}
       </h2>
     </div>
