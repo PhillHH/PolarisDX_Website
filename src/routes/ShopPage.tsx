@@ -1,0 +1,63 @@
+import { Link } from 'react-router-dom'
+import SectionHeader from '../components/ui/SectionHeader'
+import ProductCard from '../components/ui/ProductCard'
+import { products } from '../data/products'
+
+const ShopPage = () => {
+  return (
+    <div className="bg-slate-50 text-gray-900">
+      {/* Hero / Top */}
+      <section className="relative overflow-hidden bg-primary text-white">
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
+
+        <div className="relative mx-auto flex min-h-[320px] max-w-[1440px] flex-col justify-end px-4 pb-10 pt-28 lg:px-10 lg:pb-14 lg:pt-32">
+          <div className="max-w-container">
+            <div className="mb-3 text-sm text-white/70">
+              <Link to="/" className="hover:text-secondary">
+                Home
+              </Link>{' '}
+              / <span>Shop</span>
+            </div>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
+              MedHealth Shop
+            </p>
+            <h1 className="text-[40px] leading-[47px] font-medium tracking-[-0.02em] sm:text-[48px] sm:leading-[58px] lg:text-[58px] lg:leading-[69px]">
+              Medical supplies &amp; services
+            </h1>
+          </div>
+        </div>
+      </section>
+
+      {/* Products */}
+      <main className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">
+        <div className="mb-8">
+          <SectionHeader
+            caption="Shop"
+            title="Discover our curated products"
+            align="left"
+          />
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {products.map((product) => (
+            <ProductCard
+              key={product.id}
+              name={product.name}
+              category={product.category}
+              price={product.price}
+              description={product.shortDescription}
+              badge={product.badge}
+              to={`/shop/${product.slug}`}
+            />
+          ))}
+        </div>
+      </main>
+    </div>
+  )
+}
+
+export default ShopPage
+
+
+

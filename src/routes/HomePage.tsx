@@ -1,0 +1,51 @@
+import HeroSection from '../components/sections/HeroSection'
+import AboutSection from '../components/sections/AboutSection'
+import ServicesSection from '../components/sections/ServicesSection'
+import DoctorsSection from '../components/sections/DoctorsSection'
+import TestimonialsSection from '../components/sections/TestimonialsSection'
+import BlogSection from '../components/sections/BlogSection'
+import CtaSection from '../components/sections/CtaSection'
+import SectionHeader from '../components/ui/SectionHeader'
+import ProductCard from '../components/ui/ProductCard'
+import { products } from '../data/products'
+
+const HomePage = () => {
+  return (
+    <>
+      <HeroSection />
+      <main className="mx-auto flex max-w-container flex-col gap-24 px-4 pb-24 pt-16 lg:px-0 lg:gap-32 lg:pb-32">
+        <AboutSection />
+        <ServicesSection />
+        <DoctorsSection />
+        <TestimonialsSection />
+        <BlogSection />
+        {/* Shop Teaser */}
+        <section className="space-y-8">
+          <SectionHeader
+            caption="Shop"
+            title="Featured medical products"
+            align="left"
+          />
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {products.slice(0, 3).map((product) => (
+              <ProductCard
+                key={product.id}
+                name={product.name}
+                category={product.category}
+                price={product.price}
+                description={product.shortDescription}
+                badge={product.badge}
+                to={`/shop/${product.slug}`}
+              />
+            ))}
+          </div>
+        </section>
+        <CtaSection />
+      </main>
+    </>
+  )
+}
+
+export default HomePage
+
+

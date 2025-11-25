@@ -1,0 +1,128 @@
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import PrimaryButton from '../ui/PrimaryButton'
+import logo from '../../assets/polaris_white.png'
+
+const navItems = [
+  { label: 'Home', href: '#hero' },
+  { label: 'About', href: '#about' },
+  { label: 'Service', href: '#services' },
+  { label: 'Shop', route: '/shop' as const },
+  { label: 'Blog', href: '#blog' },
+]
+
+const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+
+  useEffect(() => {
+    const handler = () => {
+      setIsScrolled(window.scrollY > 24)
+    }
+    window.addEventListener('scroll', handler)
+    return () => window.removeEventListener('scroll', handler)
+  }, [])
+
+  return (
+    <header
+      className={`fixed inset-x-0 top-0 z-30 transition-all ${
+        isScrolled ? 'bg-primary/95 shadow-lg shadow-primary/20 backdrop-blur' : 'bg-primary'
+      }`}
+    >
+      <div className="mx-auto flex max-w-container items-center justify-between px-4 py-4 lg:px-0">
+        <Link to="/" className="flex items-center gap-3">
+          <img
+            src={logo}
+            alt="PolarisDX logo"
+            className="h-10 w-auto sm:h-12"
+          />
+          <span className="sr-only">PolarisDX</span>
+        </Link>
+
+        <nav className="hidden items-center gap-10 text-sm font-normal tracking-tight text-white lg:flex">
+          {navItems.map((item) =>
+            item.route ? (
+              <Link
+                key={item.label}
+                to={item.route}
+                className="flex items-center gap-1 transition-colors hover:text-secondary"
+              >
+                <span>{item.label}</span>
+              </Link>
+            ) : (
+              <a
+                key={item.label}
+                href={item.href}
+                className={`flex items-center gap-1 transition-colors ${
+                  item.label === 'Home' ? 'text-secondary' : 'hover:text-secondary'
+                }`}
+              >
+                <span>{item.label}</span>
+              </a>
+            ),
+          )}
+        </nav>
+
+        <div className="hidden lg:block">
+          <PrimaryButton as={Link} to="/contact" variant="outline-light">
+            Contact Us
+          </PrimaryButton>
+        </div>
+
+        <button
+          type="button"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white lg:hidden"
+          onClick={() => setIsOpen((prev) => !prev)}
+          aria-label="Toggle navigation"
+        >
+          <span className="sr-only">Toggle navigation</span>
+          <div className="space-y-1.5">
+            <span className="block h-0.5 w-5 bg-white" />
+            <span className="block h-0.5 w-5 bg-white" />
+            <span className="block h-0.5 w-5 bg-white" />
+          </div>
+        </button>
+      </div>
+
+      {isOpen && (
+        <div className="border-t border-white/10 bg-primary/98 lg:hidden">
+          <div className="mx-auto flex max-w-container flex-col gap-4 px-4 py-4">
+            {navItems.map((item) =>
+              item.route ? (
+                <Link
+                  key={item.label}
+                  to={item.route}
+                  className="text-base font-normal tracking-tight text-white"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="text-base font-normal tracking-tight text-white"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ),
+            )}
+            <PrimaryButton
+              as={Link}
+              to="/contact"
+              className="w-full justify-center"
+              onClick={() => setIsOpen(false)}
+            >
+              Contact Us
+            </PrimaryButton>
+          </div>
+        </div>
+      )}
+    </header>
+  )
+}
+
+export default Header
+
+
