@@ -230,6 +230,8 @@
     "cta": "Go to Igloo Pro System"
   },
   "services": {
+    "caption": "Focus diagnostic",
+    "title": "Domaines clés du diagnostic préventif",
     "poc_systemloesungen": {
       "title": "POC System Solutions",
       "description": "Your diagnostic control center. Mobile analyzers delivering lab-accurate results in minutes, directly at the point of care (e.g., Igloo Pro)."
@@ -256,6 +258,10 @@
     }
   },
   "testimonials": {
+    "caption": "Avis clients",
+    "title": "Ce que nos utilisateurs disent du système Igloo Pro",
+    "ratingLabel": "Note globale\nbasée sur plus de 3500 avis",
+    "positiveLabel": "Avis positif",
     "richard_pollock": {
       "role": "Dentist (Verified Review)",
       "title": "Biological Dentist and Implant Surgeon / Chelsea Dental Clinic",
@@ -491,6 +497,10 @@
         }
       ]
     }
+  },
+  "blog": {
+    "caption": "Blog & Actualités",
+    "title": "Nos articles sur la santé"
   },
   "footer": {
     "description": "Comprehensive care and support. Modern health services for you and your family, around the clock.",

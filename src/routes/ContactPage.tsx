@@ -1,5 +1,6 @@
 import PrimaryButton from '../components/ui/PrimaryButton'
 import SectionHeader from '../components/ui/SectionHeader'
+import { useTranslation } from 'react-i18next'
 
 const ContactPage = () => {
   const { t } = useTranslation()
