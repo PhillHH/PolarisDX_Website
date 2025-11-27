@@ -26,7 +26,7 @@ const Header = () => {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-30 transition-all ${
-        isScrolled ? 'bg-primary/95 shadow-lg shadow-primary/20 backdrop-blur' : 'bg-primary'
+        isScrolled ? 'bg-white/95 shadow-lg backdrop-blur' : 'bg-primary'
       }`}
     >
       <div className="mx-auto flex max-w-container items-center justify-between px-4 py-4 lg:px-0">
@@ -39,7 +39,11 @@ const Header = () => {
           <span className="sr-only">PolarisDX</span>
         </Link>
 
-        <nav className="hidden items-center gap-10 text-sm font-normal tracking-tight text-white lg:flex">
+        <nav
+          className={`hidden items-center gap-10 text-sm font-normal tracking-tight lg:flex ${
+            isScrolled ? 'text-primary' : 'text-white'
+          }`}
+        >
           {navItems.map((item) =>
             item.route ? (
               <Link
@@ -64,22 +68,42 @@ const Header = () => {
         </nav>
 
         <div className="hidden lg:block">
-          <PrimaryButton as={Link} to="/contact" variant="outline-light">
+          <PrimaryButton
+            as={Link}
+            to="/contact"
+            variant={isScrolled ? 'primary' : 'outline-light'}
+          >
             Contact Us
           </PrimaryButton>
         </div>
 
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white lg:hidden"
+          className={`flex h-10 w-10 items-center justify-center rounded-full border lg:hidden ${
+            isScrolled
+              ? 'border-primary/20 text-primary'
+              : 'border-white/20 text-white'
+          }`}
           onClick={() => setIsOpen((prev) => !prev)}
           aria-label="Toggle navigation"
         >
           <span className="sr-only">Toggle navigation</span>
           <div className="space-y-1.5">
-            <span className="block h-0.5 w-5 bg-white" />
-            <span className="block h-0.5 w-5 bg-white" />
-            <span className="block h-0.5 w-5 bg-white" />
+            <span
+              className={`block h-0.5 w-5 ${
+                isScrolled ? 'bg-primary' : 'bg-white'
+              }`}
+            />
+            <span
+              className={`block h-0.5 w-5 ${
+                isScrolled ? 'bg-primary' : 'bg-white'
+              }`}
+            />
+            <span
+              className={`block h-0.5 w-5 ${
+                isScrolled ? 'bg-primary' : 'bg-white'
+              }`}
+            />
           </div>
         </button>
       </div>
