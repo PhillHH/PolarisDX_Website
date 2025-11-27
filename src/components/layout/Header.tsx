@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import PrimaryButton from '../ui/PrimaryButton'
 import logo from '../../assets/polaris_white.png'
+import scrolledLogo from '../../assets/PolarisDX_Logo_main.png'
 
 const navItems = [
   { label: 'Home', href: '#hero' },
@@ -32,7 +33,7 @@ const Header = () => {
       <div className="mx-auto flex max-w-container items-center justify-between px-4 py-4 lg:px-0">
         <Link to="/" className="flex items-center gap-3">
           <img
-            src={logo}
+            src={isScrolled ? scrolledLogo : logo}
             alt="PolarisDX logo"
             className="h-10 w-auto sm:h-12"
           />
@@ -109,14 +110,22 @@ const Header = () => {
       </div>
 
       {isOpen && (
-        <div className="border-t border-white/10 bg-primary/98 lg:hidden">
+        <div
+          className={`lg:hidden ${
+            isScrolled
+              ? 'bg-white/95 border-t border-gray-200'
+              : 'bg-primary/98 border-t border-white/10'
+          }`}
+        >
           <div className="mx-auto flex max-w-container flex-col gap-4 px-4 py-4">
             {navItems.map((item) =>
               item.route ? (
                 <Link
                   key={item.label}
                   to={item.route}
-                  className="text-base font-normal tracking-tight text-white"
+                  className={`text-base font-normal tracking-tight ${
+                    isScrolled ? 'text-primary' : 'text-white'
+                  }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
@@ -125,7 +134,9 @@ const Header = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-base font-normal tracking-tight text-white"
+                  className={`text-base font-normal tracking-tight ${
+                    isScrolled ? 'text-primary' : 'text-white'
+                  }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
@@ -137,6 +148,7 @@ const Header = () => {
               to="/contact"
               className="w-full justify-center"
               onClick={() => setIsOpen(false)}
+              variant={isScrolled ? 'primary' : 'outline-light'}
             >
               Contact Us
             </PrimaryButton>
