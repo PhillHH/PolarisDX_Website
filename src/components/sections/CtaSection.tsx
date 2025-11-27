@@ -21,15 +21,16 @@ const CtaSection = () => {
         {/* Text rechts */}
         <div className="space-y-4 text-center lg:text-left">
           <h2 className="text-2xl font-medium leading-tight tracking-tight sm:text-3xl lg:text-4xl">
-            Looking for professional &amp; trusted{' '}
-            <span className="font-semibold">medical healthcare?</span>
+            Sie suchen nach garantierter Performance und POC-Expertise?
           </h2>
           <p className="text-sm leading-relaxed text-white/90 sm:text-base">
-            Don&apos;t hesitate to contact us. Our team is ready to support you and help schedule
-            the right appointment.
+            Sprechen Sie direkt mit unseren IglooPro-Spezialisten. Unser Team ist bereit, Ihre
+            individuellen Workflow-Anforderungen zu analysieren und Ihnen den schnellsten Weg zur
+            validierten Diagnostik zu zeigen. Bei uns erhalten Sie eine maßgeschneiderte Lösung,
+            keine Standard-Lieferung.
           </p>
           <PrimaryButton as={Link} to="/contact" variant="secondary">
-            Make Appointment
+            Jetzt Experten-Analyse buchen
           </PrimaryButton>
         </div>
       </div>

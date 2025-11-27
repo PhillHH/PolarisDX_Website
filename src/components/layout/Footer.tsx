@@ -1,20 +1,30 @@
+import { useLocation } from 'react-router-dom'
 import logo from '../../assets/polarisdx_logo.png'
 import CtaSection from '../sections/CtaSection'
 import { Linkedin, Instagram } from 'lucide-react'
 
 const Footer = () => {
+  const location = useLocation()
+  const isContactPage = location.pathname === '/contact'
+
   return (
     <footer className="mt-24 bg-primary text-white lg:mt-32">
       <div className="relative">
         {/* CTA-Karte in Content-Breite, die in den Footer hineinragt */}
-        <div className="mx-auto max-w-container px-4 lg:px-0">
-          <div className="-translate-y-1/2">
-            <CtaSection />
+        {!isContactPage && (
+          <div className="mx-auto max-w-container px-4 lg:px-0">
+            <div className="-translate-y-1/2">
+              <CtaSection />
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Footer-Inhalte, mit zusätzlichem Padding oben für die überlagernde Karte */}
-        <div className="mx-auto flex max-w-container flex-col gap-10 px-4 pb-12 pt-20 lg:flex-row lg:justify-between lg:px-0 lg:pb-16 lg:pt-24">
+        <div
+          className={`mx-auto flex max-w-container flex-col gap-10 px-4 pb-12 lg:flex-row lg:justify-between lg:px-0 lg:pb-16 ${
+            isContactPage ? 'pt-12 lg:pt-16' : 'pt-20 lg:pt-24'
+          }`}
+        >
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <img

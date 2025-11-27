@@ -169,23 +169,7 @@ const ContactPage = () => {
           </aside>
         </div>
 
-        {/* Abschluss-CTA wie Figma-Card */}
-        <section className="mt-12 rounded-section bg-secondary px-6 py-10 text-white lg:px-10">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1.3fr)] lg:items-center">
-            <div className="space-y-4">
-              <h2 className="text-[40px] leading-[47px] font-medium tracking-[-0.02em] lg:text-[48px] lg:leading-[57px]">
-                Looking for professional &amp; trusted medical healthcare?
-              </h2>
-              <p className="text-sm leading-[32px] text-white/90 sm:text-base">
-                Don&apos;t hesitate to contact us. Our coordinators are ready to help you
-                choose the right doctor and time.
-              </p>
-              <PrimaryButton as={Link} to="/contact" variant="secondary">
-                Make Appointment
-              </PrimaryButton>
-            </div>
-          </div>
-        </section>
+
       </main>
     </div>
   )
