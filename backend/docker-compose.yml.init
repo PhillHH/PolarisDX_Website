@@ -1,0 +1,8 @@
+services:
+  init:
+    image: node:20
+    container_name: backend-init
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: npx create-payload-app@latest ./cms --template blank --no-deps --typescript --skip-prompts
