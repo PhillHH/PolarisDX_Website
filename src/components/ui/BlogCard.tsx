@@ -1,13 +1,17 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 type BlogCardProps = {
-  title: string
-  excerpt: string
+  id: string
   imageUrl?: string
   to?: string
 }
 
-const BlogCard = ({ title, excerpt, imageUrl, to }: BlogCardProps) => {
+const BlogCard = ({ id, imageUrl, to }: BlogCardProps) => {
+  const { t } = useTranslation()
+  const title = t(`articles.${id}.title`)
+  const excerpt = t(`articles.${id}.excerpt`)
+
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-card">
       <div className="aspect-[3/2] w-full bg-gray-100">
@@ -30,7 +34,7 @@ const BlogCard = ({ title, excerpt, imageUrl, to }: BlogCardProps) => {
             to={to}
             className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-secondary"
           >
-            Read More
+            {t('shop.readMore', 'Read More')}
             <span className="transition group-hover:translate-x-1">→</span>
           </Link>
         )}
@@ -40,5 +44,3 @@ const BlogCard = ({ title, excerpt, imageUrl, to }: BlogCardProps) => {
 }
 
 export default BlogCard
-
-

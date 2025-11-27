@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import SectionHeader from '../components/ui/SectionHeader'
 import PrimaryButton from '../components/ui/PrimaryButton'
 
 const ContactPage = () => {
+  const { t } = useTranslation()
+
   return (
     <div className="bg-slate-50 text-gray-900">
       {/* Hero / Top */}
@@ -13,13 +16,13 @@ const ContactPage = () => {
         <div className="relative mx-auto flex min-h-[340px] max-w-[1440px] flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
           <div className="max-w-container">
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
-              Appointment
+              {t('contact.hero.kicker', 'Appointment')}
             </p>
             <h1 className="mb-3 text-[40px] leading-[47px] font-medium tracking-[-0.02em] sm:text-[48px] sm:leading-[58px] lg:text-[58px] lg:leading-[69px]">
-              Make Appointment
+              {t('contact.hero.title', 'Make Appointment')}
             </h1>
             <p className="text-sm text-white/80 sm:text-base">
-              Home / Contact Us
+              {t('contact.hero.breadcrumb', 'Home / Contact Us')}
             </p>
           </div>
         </div>
@@ -31,8 +34,8 @@ const ContactPage = () => {
           {/* Form-Card */}
           <section className="space-y-6 rounded-2xl bg-white p-6 shadow-sm lg:p-8">
             <SectionHeader
-              caption="Appointment"
-              title="Book Appointment"
+              caption={t('contact.hero.kicker', 'Appointment')}
+              title={t('contact.form.title', 'Book Appointment')}
               align="left"
             />
 
@@ -44,7 +47,7 @@ const ContactPage = () => {
                 </span>
                 <div>
                   <p className="text-xs font-medium uppercase tracking-[0.16em] text-gray-500">
-                    Email
+                    {t('contact.form.email', 'Email')}
                   </p>
                   <p>medhealth@gmail.com</p>
                 </div>
@@ -55,7 +58,7 @@ const ContactPage = () => {
                 </span>
                 <div>
                   <p className="text-xs font-medium uppercase tracking-[0.16em] text-gray-500">
-                    Phone
+                    {t('contact.form.phone', 'Phone')}
                   </p>
                   <p>+123 456 789</p>
                 </div>
@@ -67,7 +70,7 @@ const ContactPage = () => {
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="space-y-1">
                   <label className="block text-sm font-medium text-gray-700">
-                    Select Medical Specialties
+                    {t('contact.form.specialty', 'Select Medical Specialties')}
                   </label>
                   <select className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40">
                     <option>General Check-up</option>
@@ -78,10 +81,10 @@ const ContactPage = () => {
                 </div>
                 <div className="space-y-1">
                   <label className="block text-sm font-medium text-gray-700">
-                    Select Doctor
+                    {t('contact.form.doctor', 'Select Doctor')}
                   </label>
                   <select className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40">
-                    <option>Any available doctor</option>
+                    <option>{t('contact.form.any_doctor', 'Any available doctor')}</option>
                     <option>Dr. Amelia Carter</option>
                     <option>Dr. Robert Fox</option>
                   </select>
@@ -90,7 +93,7 @@ const ContactPage = () => {
 
               <div className="space-y-1">
                 <label className="block text-sm font-medium text-gray-700">
-                  Select Date &amp; Time
+                  {t('contact.form.date', 'Select Date & Time')}
                 </label>
                 <input
                   type="datetime-local"
@@ -101,51 +104,51 @@ const ContactPage = () => {
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="space-y-1">
                   <label className="block text-sm font-medium text-gray-700">
-                    Name
+                    {t('contact.form.name', 'Name')}
                   </label>
                   <input
                     type="text"
                     className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40"
-                    placeholder="Your full name"
+                    placeholder={t('contact.form.name_placeholder', 'Your full name')}
                   />
                 </div>
                 <div className="space-y-1">
                   <label className="block text-sm font-medium text-gray-700">
-                    Phone Number
+                    {t('contact.form.phone', 'Phone Number')}
                   </label>
                   <input
                     type="tel"
                     className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40"
-                    placeholder="+123 456 789"
+                    placeholder={t('contact.form.phone_placeholder', '+123 456 789')}
                   />
                 </div>
               </div>
 
               <div className="space-y-1">
                 <label className="block text-sm font-medium text-gray-700">
-                  Email
+                  {t('contact.form.email', 'Email')}
                 </label>
                 <input
                   type="email"
                   className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40"
-                  placeholder="you@example.com"
+                  placeholder={t('contact.form.email_placeholder', 'you@example.com')}
                 />
               </div>
 
               <div className="space-y-1">
                 <label className="block text-sm font-medium text-gray-700">
-                  Message
+                  {t('contact.form.message', 'Message')}
                 </label>
                 <textarea
                   rows={4}
                   className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40"
-                  placeholder="Tell us more about your needs..."
+                  placeholder={t('contact.form.message_placeholder', 'Tell us more about your needs...')}
                 />
               </div>
 
               <div className="pt-2">
                 <PrimaryButton type="submit" className="w-full justify-center md:w-auto">
-                  Make Appointment
+                  {t('contact.form.submit', 'Make Appointment')}
                 </PrimaryButton>
               </div>
             </form>
@@ -155,11 +158,10 @@ const ContactPage = () => {
           <aside className="space-y-6">
             <section className="rounded-2xl bg-white p-6 shadow-sm">
               <h2 className="text-lg font-semibold tracking-tight text-gray-900">
-                Contact Information
+                {t('contact.info.title', 'Contact Information')}
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-gray-600">
-                Our team will get back to you within one business day. For urgent
-                questions, please use the phone number below.
+                {t('contact.info.text', 'Our team will get back to you within one business day. For urgent questions, please use the phone number below.')}
               </p>
               <div className="mt-4 space-y-1 text-sm text-gray-800">
                 <p>medhealth@gmail.com</p>
@@ -174,14 +176,13 @@ const ContactPage = () => {
           <div className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1.3fr)] lg:items-center">
             <div className="space-y-4">
               <h2 className="text-[40px] leading-[47px] font-medium tracking-[-0.02em] lg:text-[48px] lg:leading-[57px]">
-                Looking for professional &amp; trusted medical healthcare?
+                {t('contact.bottom_cta.title', 'Looking for professional & trusted medical healthcare?')}
               </h2>
               <p className="text-sm leading-[32px] text-white/90 sm:text-base">
-                Don&apos;t hesitate to contact us. Our coordinators are ready to help you
-                choose the right doctor and time.
+                {t('contact.bottom_cta.text', "Don't hesitate to contact us. Our coordinators are ready to help you choose the right doctor and time.")}
               </p>
               <PrimaryButton as={Link} to="/contact" variant="secondary">
-                Make Appointment
+                {t('contact.form.submit', 'Make Appointment')}
               </PrimaryButton>
             </div>
           </div>
@@ -192,5 +193,3 @@ const ContactPage = () => {
 }
 
 export default ContactPage
-
-

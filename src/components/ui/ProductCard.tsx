@@ -1,17 +1,23 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 type ProductCardProps = {
-  name: string
+  id: string
   category: string
   price: number
-  description: string
   to: string
   badge?: 'New' | 'Popular' | 'Limited'
   image?: string
 }
 
-const ProductCard = ({ name, category, price, description, to, badge, image }: ProductCardProps) => {
+const ProductCard = ({ id, category, price, to, badge, image }: ProductCardProps) => {
+  const { t } = useTranslation()
   const imageUrl = image ? new URL(`../../assets/${image}`, import.meta.url).href : undefined
+
+  // Transform ID to key format (e.g., "igloo-reader-pro" -> "igloo_reader_pro")
+  // Using simple replacement of - to _ might be fragile if IDs are not consistent,
+  // but looking at data, they use hyphens.
+  const productKey = id.replaceAll('-', '_')
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-card">
@@ -23,7 +29,7 @@ const ProductCard = ({ name, category, price, description, to, badge, image }: P
         {imageUrl && (
           <img
             src={imageUrl}
-            alt={name}
+            alt={t(`products.${productKey}.name`)}
             className="absolute inset-0 h-full w-full object-cover"
           />
         )}
@@ -33,32 +39,32 @@ const ProductCard = ({ name, category, price, description, to, badge, image }: P
           <div>
             {badge && (
               <span className="inline-flex items-center rounded-full bg-secondary px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white">
-                {badge}
+                {t(`badge.${badge}`)}
               </span>
             )}
           </div>
           <span className="rounded-md bg-white/90 px-2 py-1 text-xs font-medium text-gray-700">
-            {category}
+            {t(`category.${category}`)}
           </span>
         </div>
       </div>
       <div className="flex flex-1 flex-col gap-3 p-5">
         <div className="flex items-baseline justify-between gap-2">
           <h3 className="text-base font-semibold tracking-tight text-gray-900">
-            {name}
+            {t(`products.${productKey}.name`)}
           </h3>
           <span className="text-sm font-semibold text-primary">
             ${price}
           </span>
         </div>
         <p className="text-sm leading-relaxed text-gray-500 line-clamp-3">
-          {description}
+          {t(`products.${productKey}.shortDescription`)}
         </p>
         <Link
           to={to}
           className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-secondary"
         >
-          View details
+          {t('shop.viewDetails')}
           <span className="transition group-hover:translate-x-1">→</span>
         </Link>
       </div>
@@ -67,6 +73,3 @@ const ProductCard = ({ name, category, price, description, to, badge, image }: P
 }
 
 export default ProductCard
-
-
-

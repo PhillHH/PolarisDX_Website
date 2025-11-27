@@ -1,8 +1,11 @@
+import { useTranslation } from 'react-i18next'
 import PrimaryButton from '../ui/PrimaryButton'
 import SectionHeader from '../ui/SectionHeader'
 import IglooProImage from '../../assets/Igloo-pro-frontal.png'
 
 const DiagnosticsPitchSection = () => {
+  const { t } = useTranslation()
+
   // Name der Komponente angepasst
   return (
     <section
@@ -12,22 +15,18 @@ const DiagnosticsPitchSection = () => {
       <div className="relative order-2 lg:order-1 lg:col-span-3">
         <SectionHeader
           // Kicker-Text angepasst
-          caption="DIAGNOSTIK-FOKUS"
+          caption={t('doctors.caption', 'DIAGNOSTIK-FOKUS')}
           // Titel auf Kernbotschaft umgestellt
-          title="Präzise Diagnostik. Sofortige Ergebnisse am Point-of-Care."
+          title={t('doctors.title', 'Präzise Diagnostik. Sofortige Ergebnisse am Point-of-Care.')}
           align="left"
         />
         {/* Fließtext auf Mehrwert für Kunden angepasst */}
         <p className="mt-6 text-sm leading-relaxed text-gray-500 sm:text-base">
-          Entdecken Sie mit Systemen wie dem Igloo Pro von DX365, wie Sie
-          Ihre Patientenversorgung optimieren und wichtige Diagnosen direkt am
-          Behandlungsort stellen können – mit laborgenaue Resultaten in
-
-          Minutenschnelle.
+          {t('doctors.description', 'Entdecken Sie mit Systemen wie dem Igloo Pro von DX365...')}
         </p>
         <PrimaryButton as="a" href="/produkte/igloo-pro" className="mt-8">
           {/* Button-Text angepasst */}
-          Zum Igloo Pro System
+          {t('doctors.cta', 'Zum Igloo Pro System')}
         </PrimaryButton>
       </div>
 

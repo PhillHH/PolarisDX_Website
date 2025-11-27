@@ -1,44 +1,45 @@
 export type Service = {
   id: string
-  title: string
-  description: string
+  title: string // Now used as key suffix if needed, or we iterate and construct key
+  description: string // Removed or kept as key?
+  translationKey: string
 }
 
 export const services: Service[] = [
   {
     id: 'poc-systemloesungen',
-    title: 'POC-Systemlösungen',
-    description:
-      'Ihre Schaltzentrale für die Diagnostik. Mobile Analysegeräte, die laborgenaue Ergebnisse in wenigen Minuten direkt am Ort der Behandlung liefern (z.B. Igloo Pro).',
+    title: 'POC-Systemlösungen', // Kept for reference or fallback, but component should use key
+    description: '',
+    translationKey: 'poc_systemloesungen'
   },
   {
     id: 'praeventions-checks',
     title: 'Präventive Gesundheits-Checks',
-    description:
-      'Vorsorge neu gedacht. Schnelle Bestimmung wichtiger Biomarker (z.B. Vitamin D, CRP, HbA1c) zur frühzeitigen Risikoerkennung und individuellen Gesundheitsberatung.',
+    description: '',
+    translationKey: 'praeventions_checks'
   },
   {
     id: 'infektion-entzuendung',
     title: 'Infektion & Entzündungsmarker',
-    description:
-      'Schnelle Antworten in kritischen Fällen. Sofortige Analyse von Entzündungswerten (CRP, PCT, IL-6) und Infektionskrankheiten – essenziell für die Akutversorgung und Triage.',
+    description: '',
+    translationKey: 'infektion_entzuendung'
   },
   {
     id: 'stoffwechsel-herz',
     title: 'Stoffwechsel & Herzgesundheit',
-    description:
-      'Wichtige Indikatoren im Blick. Präzise Messung von HbA1c, Cholesterinprofilen und kardialen Markern (z.B. D-Dimer) zur Überwachung chronischer Erkrankungen.',
+    description: '',
+    translationKey: 'stoffwechsel_herz'
   },
   {
     id: 'hormon-tests',
     title: 'Hormon- & Endokrinologie-Tests',
-    description:
-      'Spezialdiagnostik leicht gemacht. Breites Spektrum an Tests für Schilddrüsen- und Reproduktionshormone (TSH, AMH) für spezialisierte Praxen und Apotheken.',
+    description: '',
+    translationKey: 'hormon_tests'
   },
   {
     id: 'kompatibilitaet-integration',
     title: 'Herstellerübergreifende Kompatibilität',
-    description:
-      'Maximale Flexibilität. Unsere Geräte werten dank universeller Technologie 90% aller auf dem Markt befindlichen Lateral-Flow-Tests aus. Investitionssicherheit durch Offenheit.',
+    description: '',
+    translationKey: 'kompatibilitaet_integration'
   },
 ]

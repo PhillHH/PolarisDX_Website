@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import PrimaryButton from '../ui/PrimaryButton'
 import StatItem from '../ui/StatItem'
 import heroDoctor from '../../assets/hero_doctor.png'
 
 const HeroSection = () => {
+  const { t } = useTranslation()
+
   return (
     <section
       id="hero"
@@ -18,31 +21,34 @@ const HeroSection = () => {
         <div className="flex flex-col justify-center space-y-8">
           <div className="inline-flex items-center gap-3">
             <span className="inline-flex items-center rounded bg-accentBlue px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em]">
-              Point-of-care Performance
+              {t('hero.caption', 'Point-of-care Performance')}
             </span>
           </div>
 
           <div className="space-y-4">
-            <h1 className="max-w-2xl text-[56px] leading-[64px] font-medium tracking-[-0.02em] sm:text-[56px] sm:leading-[64px] lg:text-[64px] lg:leading-[72px]">
-              IglooPro:
-              <br />
-              Point-of-Care. Perfekt. Sofort.
+            <h1 className="max-w-2xl text-[56px] leading-[64px] font-medium tracking-[-0.02em] sm:text-[56px] sm:leading-[64px] lg:text-[64px] lg:leading-[72px] whitespace-pre-line">
+              {t('hero.title', 'IglooPro:\nPoint-of-Care. Perfekt. Sofort.')}
             </h1>
             <p className="max-w-xl text-sm leading-relaxed text-white/80 sm:text-base">
-              Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 48 Stunden einsatzbereit –
-              garantiert.
+              {t('hero.description', 'Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 48 Stunden einsatzbereit – garantiert.')}
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-6">
             <PrimaryButton as={Link} to="/contact" variant="primary">
-              Jetzt 15-Minuten Performance-Analyse buchen
+              {t('hero.cta', 'Jetzt 15-Minuten Performance-Analyse buchen')}
             </PrimaryButton>
           </div>
 
           <div className="mt-4 flex flex-wrap gap-10">
-            <StatItem value="48h" label="Einsatzbereit nach Bestellung" />
-            <StatItem value="CV < 2%" label="Präzision über den gesamten Messbereich" />
+            <StatItem
+              value={t('hero.stat1.value', '48h')}
+              label={t('hero.stat1.label', 'Einsatzbereit nach Bestellung')}
+            />
+            <StatItem
+              value={t('hero.stat2.value', 'CV < 2%')}
+              label={t('hero.stat2.label', 'Präzision über den gesamten Messbereich')}
+            />
           </div>
         </div>
 
@@ -64,5 +70,3 @@ const HeroSection = () => {
 }
 
 export default HeroSection
-
-

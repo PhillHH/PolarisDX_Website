@@ -1,0 +1,50 @@
+{
+  "footer": {
+    "description": "Umfassende Betreuung und Fürsorge. Moderne Gesundheitsdienste für Sie und Ihre Familie, rund um die Uhr.",
+    "links": "Links",
+    "discover": "Entdecken",
+    "london": "London",
+    "hamburg": "Hamburg",
+    "copyright": "Copyright ©PolarisDX 2025 Alle Rechte vorbehalten.",
+    "doctors": "Unsere Ärzte",
+    "testimonials": "Referenzen",
+    "faq": "FAQ",
+    "appointment": "Termin vereinbaren"
+  },
+  "cta": {
+    "title": "Suchen Sie professionelle & vertrauenswürdige <1>medizinische Versorgung?</1>",
+    "description": "Zögern Sie nicht, uns zu kontaktieren. Unser Team ist bereit, Sie zu unterstützen und den richtigen Termin zu planen.",
+    "button": "Termin vereinbaren"
+  },
+  "contact": {
+    "hero": {
+      "kicker": "Termin",
+      "title": "Termin vereinbaren",
+      "breadcrumb": "Home / Kontakt"
+    },
+    "form": {
+      "title": "Termin buchen",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "specialty": "Medizinische Fachrichtung wählen",
+      "doctor": "Arzt wählen",
+      "any_doctor": "Jeder verfügbare Arzt",
+      "date": "Datum & Uhrzeit wählen",
+      "name": "Name",
+      "name_placeholder": "Ihr voller Name",
+      "phone_placeholder": "+123 456 789",
+      "email_placeholder": "sie@beispiel.de",
+      "message": "Nachricht",
+      "message_placeholder": "Erzählen Sie uns mehr über Ihr Anliegen...",
+      "submit": "Termin vereinbaren"
+    },
+    "info": {
+      "title": "Kontaktinformationen",
+      "text": "Unser Team wird sich innerhalb eines Arbeitstages bei Ihnen melden. Für dringende Fragen nutzen Sie bitte die untenstehende Telefonnummer."
+    },
+    "bottom_cta": {
+      "title": "Suchen Sie professionelle & vertrauenswürdige medizinische Versorgung?",
+      "text": "Zögern Sie nicht, uns zu kontaktieren. Unsere Koordinatoren helfen Ihnen gerne bei der Wahl des richtigen Arztes und Zeitpunkts."
+    }
+  }
+}

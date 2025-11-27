@@ -1,10 +1,13 @@
 // Importiert wiederverwendbare UI-Komponenten und Bild-Assets.
+import { useTranslation } from 'react-i18next'
 import PrimaryButton from '../ui/PrimaryButton' // Button-Komponente
 import SectionHeader from '../ui/SectionHeader' // Kopfzeilen-Komponente für Abschnitte
 import aboveTheFold from '../../assets/above_the_fold.png' // Bild für diesen Abschnitt
 
 // Definiert die 'AboutSection'-Komponente, die einen Abschnitt der Webseite darstellt.
 const AboutSection = () => {
+  const { t } = useTranslation()
+
   return (
     // Hauptcontainer des Abschnitts mit der ID 'about' für Anker-Links.
     // Verwendet ein Grid-Layout, das auf großen Bildschirmen zweispaltig wird.
@@ -34,20 +37,20 @@ const AboutSection = () => {
       <div className="space-y-6">
         {/* Kopfzeile des Abschnitts mit Untertitel und Haupttitel. */}
         <SectionHeader
-          caption="IHR PERFORMANCE-GARANT"
-          title="Exzellenz und Sicherheit: Der Standard, den wir setzen."
+          caption={t('about.caption', 'IHR PERFORMANCE-GARANT')}
+          title={t('about.title', 'Exzellenz und Sicherheit: Der Standard, den wir setzen.')}
           align="left"
         />
         {/* Textabsätze mit Platzhaltertext. */}
         <p className="text-sm leading-relaxed text-gray-500 sm:text-base">
-          Das IglooPro ist ein Premium-Gerät. Doch wahre Premium-Leistung entsteht erst durch eine perfektionierte, risikofreie Inbetriebnahme. Eine Standardlieferung überlässt Ihnen die Komplexität. Wir übernehmen die Verantwortung für das Ergebnis.
+          {t('about.text1', 'Das IglooPro ist ein Premium-Gerät...')}
         </p>
         <p className="text-sm leading-relaxed text-gray-500 sm:text-base">
-          Deshalb liefern wir exklusiv das 48-Stunden-Setup-Versprechen. Unsere Performance-Säulen garantieren, dass Ihr POC-Workflow von der ersten Sekunde an optimiert ist und Sie die diagnostische Exzellenz sofort nutzen können.
+          {t('about.text2', 'Deshalb liefern wir exklusiv...')}
         </p>
         {/* Ein primärer Button, der als Link zum 'hero'-Abschnitt fungiert. */}
         <PrimaryButton as="a" href="#hero">
-          Exklusiven Vorteil sichern
+          {t('about.cta', 'Exklusiven Vorteil sichern')}
         </PrimaryButton>
       </div>
     </section>
@@ -56,4 +59,3 @@ const AboutSection = () => {
 
 // Exportiert die Komponente, damit sie in anderen Teilen der Anwendung verwendet werden kann.
 export default AboutSection
-

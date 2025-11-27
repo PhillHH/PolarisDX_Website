@@ -1,13 +1,16 @@
+import { useTranslation } from 'react-i18next'
 import SectionHeader from '../ui/SectionHeader'
 import BlogCard from '../ui/BlogCard'
 import { blogPosts } from '../../data/blogPosts'
 
 const BlogSection = () => {
+  const { t } = useTranslation()
+
   return (
     <section id="blog" className="space-y-10">
       <SectionHeader
-        caption="Blog & News"
-        title="Our Articles About Health"
+        caption={t('blog.caption', 'Blog & News')}
+        title={t('blog.title', 'Our Articles About Health')}
       />
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -19,8 +22,7 @@ const BlogSection = () => {
           return (
             <BlogCard
               key={post.id}
-              title={post.title}
-              excerpt={post.excerpt}
+              id={post.id}
               to={`/articles/${post.slug}`}
               imageUrl={imageUrl}
             />
@@ -32,5 +34,3 @@ const BlogSection = () => {
 }
 
 export default BlogSection
-
-

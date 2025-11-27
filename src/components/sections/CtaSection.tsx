@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom'
+import { useTranslation, Trans } from 'react-i18next'
 import PrimaryButton from '../ui/PrimaryButton'
 import avatar from '../../assets/avatar.png'
 
 const CtaSection = () => {
+  const { t } = useTranslation()
+
   return (
     <section
       id="contact"
@@ -21,15 +24,16 @@ const CtaSection = () => {
         {/* Text rechts */}
         <div className="space-y-4 text-center lg:text-left">
           <h2 className="text-2xl font-medium leading-tight tracking-tight sm:text-3xl lg:text-4xl">
-            Looking for professional &amp; trusted{' '}
-            <span className="font-semibold">medical healthcare?</span>
+            <Trans i18nKey="cta.title">
+              Looking for professional &amp; trusted{' '}
+              <span className="font-semibold">medical healthcare?</span>
+            </Trans>
           </h2>
           <p className="text-sm leading-relaxed text-white/90 sm:text-base">
-            Don&apos;t hesitate to contact us. Our team is ready to support you and help schedule
-            the right appointment.
+            {t('cta.description', "Don't hesitate to contact us. Our team is ready to support you and help schedule the right appointment.")}
           </p>
           <PrimaryButton as={Link} to="/contact" variant="secondary">
-            Make Appointment
+            {t('cta.button', 'Make Appointment')}
           </PrimaryButton>
         </div>
       </div>

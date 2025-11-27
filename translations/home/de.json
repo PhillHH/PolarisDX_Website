@@ -1,0 +1,52 @@
+{
+  "hero": {
+    "caption": "Point-of-care Performance",
+    "title": "IglooPro:\nPoint-of-Care. Perfekt. Sofort.",
+    "description": "Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 48 Stunden einsatzbereit – garantiert.",
+    "cta": "Jetzt 15-Minuten Performance-Analyse buchen",
+    "stat1": {
+      "value": "48h",
+      "label": "Einsatzbereit nach Bestellung"
+    },
+    "stat2": {
+      "value": "CV < 2%",
+      "label": "Präzision über den gesamten Messbereich"
+    }
+  },
+  "about": {
+    "caption": "IHR PERFORMANCE-GARANT",
+    "title": "Exzellenz und Sicherheit: Der Standard, den wir setzen.",
+    "text1": "Das IglooPro ist ein Premium-Gerät. Doch wahre Premium-Leistung entsteht erst durch eine perfektionierte, risikofreie Inbetriebnahme. Eine Standardlieferung überlässt Ihnen die Komplexität. Wir übernehmen die Verantwortung für das Ergebnis.",
+    "text2": "Deshalb liefern wir exklusiv das 48-Stunden-Setup-Versprechen. Unsere Performance-Säulen garantieren, dass Ihr POC-Workflow von der ersten Sekunde an optimiert ist und Sie die diagnostische Exzellenz sofort nutzen können.",
+    "cta": "Exklusiven Vorteil sichern"
+  },
+  "doctors": {
+    "caption": "DIAGNOSTIK-FOKUS",
+    "title": "Präzise Diagnostik. Sofortige Ergebnisse am Point-of-Care.",
+    "description": "Entdecken Sie mit Systemen wie dem Igloo Pro von DX365, wie Sie Ihre Patientenversorgung optimieren und wichtige Diagnosen direkt am Behandlungsort stellen können – mit laborgenaue Resultaten in Minutenschnelle.",
+    "cta": "Zum Igloo Pro System"
+  },
+  "shop": {
+      "features": "Funktionen & Vorteile",
+      "techSpecs": "Technische Daten",
+      "whatsInBox": "Lieferumfang",
+      "demoNote": "Bitte beachten: Dies ist ein Demo-Shop nur zu Design- und Layoutzwecken. Es werden keine echten Bestellungen oder Zahlungen verarbeitet.",
+      "backToShop": "Zurück zum Shop",
+      "needHelp": "Brauchen Sie Hilfe bei der Auswahl?",
+      "contactTeam": "Kontaktieren Sie unser Team",
+      "orderInfo": "Bestellinformationen",
+      "orderInfoText": "Dieses Demo-Layout ahmt eine einfache Bestellbox nach. In einem echten Projekt würden hier Verfügbarkeit, Versandoptionen und ein 'In den Warenkorb'-Button angezeigt.",
+      "addToCart": "In den Warenkorb (Demo)",
+      "youMightLike": "Das könnte Ihnen auch gefallen",
+      "view": "Ansehen",
+      "home": "Home",
+      "article": "Artikel",
+      "articleDisclaimer": "Regelmäßige Untersuchungen und proaktive Pflege sind die Grundlage für langfristige Gesundheit. Wenn Sie Fragen haben, zögern Sie nicht, sich an einen Mediziner zu wenden.",
+      "shareArticle": "Hat Ihnen dieser Artikel gefallen? Teilen Sie ihn mit Freunden und Familie.",
+      "backToHome": "Zurück zur Startseite",
+      "suggestedArticles": "Vorgeschlagene Artikel",
+      "moreArticles": "Weitere Artikel",
+      "contactText": "Unser medizinisches Team steht Ihnen rund um die Uhr zur Verfügung, um dringende Fragen zu beantworten und Ihnen bei der Entscheidung über das weitere Vorgehen zu helfen.",
+      "readMore": "Weiterlesen"
+  }
+}
