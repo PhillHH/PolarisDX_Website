@@ -21,7 +21,7 @@ const HomePage = () => {
         <DoctorsSection />
       </main>
 
-      {/* Testimonials section is pulled out to be full-width */}
+      {/* Testimonials section is po be full-width */}
       <div className="mt-24 lg:mt-32">
         <TestimonialsSection />
       </div>
