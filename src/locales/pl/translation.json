@@ -10,534 +10,544 @@
   "products": {
     "igloo_reader_pro": {
       "name": "Igloo Reader Pro",
-      "shortDescription": "The Igloo Reader Pro is a compact, state-of-the-art all-in-one analyzer for Point-of-Care Testing (POCT). It combines laboratory accuracy with the requirements of decentralized environments. Supports Lateral Flow, Microarray, Fluorescence, and more – the ideal solution for fast, reliable quantitative and qualitative test results.",
+      "shortDescription": "Igloo Reader Pro to kompaktowy, najnowocześniejszy analizator typu all-in-one do diagnostyki przyłóżkowej (POCT). Łączy dokładność laboratoryjną z wymaganiami zdecentralizowanych środowisk. Obsługuje przepływ boczny, mikromacierze, fluorescencję i inne – idealne rozwiązanie dla szybkich, niezawodnych ilościowych i jakościowych wyników testów.",
       "detailedDescription": [
-        "The Igloo Reader Pro redefines mobile diagnostics. Designed specifically for professional environments and decentralized Point-of-Care applications, this versatile analyzer enables fast and reliable qualitative and quantitative testing.",
-        "The reader supports a wide range of diagnostic tests – from infectious disease screening to cardiac markers and hormone profiles, to drug abuse and allergy panels. Thanks to automated calibration, cloud integration, and digital data export, the Igloo Reader Pro delivers laboratory quality directly to where it is needed. It allows medical professionals to achieve fast and reliable results anywhere."
+        "Igloo Reader Pro na nowo definiuje mobilną diagnostykę. Zaprojektowany specjalnie dla środowisk profesjonalnych i zdecentralizowanych zastosowań Point-of-Care, ten wszechstronny analizator umożliwia szybkie i niezawodne testowanie jakościowe i ilościowe.",
+        "Czytnik obsługuje szeroką gamę testów diagnostycznych – od badań przesiewowych chorób zakaźnych po markery sercowe i profile hormonalne, aż po panele narkotykowe i alergiczne. Dzięki automatycznej kalibracji, integracji z chmurą i cyfrowemu eksportowi danych, Igloo Reader Pro dostarcza jakość laboratoryjną bezpośrednio tam, gdzie jest potrzebna. Umożliwia personelowi medycznemu uzyskanie szybkich i wiarygodnych wyników w dowolnym miejscu."
       ],
       "features": [
-        "Universal Test Platform: Supports Microarray, Lateral Flow, Colorimetry, Fluorescence, Dry Chemistry, and Microfluidics.",
-        "Lab Accuracy in POCT Format: High precision through automatic self-calibration before each measurement (CV < 2 % Inter-Reader, CV < 3 % Intra-Reader).",
-        "Compact & Mobile: Lightweight design with a battery life of up to 24 hours of continuous testing.",
-        "Full Connectivity: Integrated Wi-Fi, Bluetooth, and USB-C for seamless data synchronization and API/LIMS integration.",
-        "Secure Cloud Integration (Dx365 Cloud): For test updates, calibration management, and encrypted data storage.",
-        "Versatile Sample Types: Compatible with whole blood, capillary blood, serum, plasma, urine, stool, saliva, and hair."
+        "Uniwersalna platforma testowa: Obsługuje mikromacierze, przepływ boczny, kolorymetrię, fluorescencję, suchą chemię i mikrofluidykę.",
+        "Dokładność laboratoryjna w formacie POCT: Wysoka precyzja dzięki automatycznej autokalibracji przed każdym pomiarem (CV < 2 % między czytnikami, CV < 3 % wewnątrz czytnika).",
+        "Kompaktowy i mobilny: Lekka konstrukcja z żywotnością baterii do 24 godzin ciągłego testowania.",
+        "Pełna łączność: Zintegrowane Wi-Fi, Bluetooth i USB-C dla bezproblemowej synchronizacji danych i integracji z API/LIMS.",
+        "Bezpieczna integracja z chmurą (Dx365 Cloud): Do aktualizacji testów, zarządzania kalibracją i szyfrowanego przechowywania danych.",
+        "Wszechstronne rodzaje próbek: Kompatybilny z krwią pełną, krwią włośniczkową, surowicą, osoczem, moczem, kałem, śliną i włosami."
       ],
       "techSpecs": [
         {
-          "parameter": "Dimensions (L × W × H)",
-          "specification": "87.5 × 87.5 × 91 mm"
+          "parameter": "Wymiary urządzenia (Dł. × Szer. × Wys.)",
+          "specification": "87,5 × 87,5 × 91 mm"
         },
         {
-          "parameter": "Weight",
-          "specification": "approx. 270 g"
+          "parameter": "Waga",
+          "specification": "ok. 270 g"
         },
         {
-          "parameter": "Measurement Time",
-          "specification": "Few seconds (excl. incubation time)"
+          "parameter": "Czas pomiaru",
+          "specification": "Kilka sekund (bez czasu inkubacji)"
         },
         {
-          "parameter": "Supported Test Methods",
-          "specification": "Microarray, Colorimetry, Fluorescence, Dry Chemistry, Quantum Dots, Microfluidics"
+          "parameter": "Obsługiwane metody testowe",
+          "specification": "Mikromacierze, Kolorymetria, Fluorescencja, Sucha Chemia, Kropki Kwantowe, Mikrofluidyka"
         },
         {
-          "parameter": "Sample Types",
-          "specification": "Whole blood, capillary blood, serum, plasma, urine, stool, saliva, hair"
+          "parameter": "Rodzaje próbek",
+          "specification": "Krew pełna, krew włośniczkowa, surowica, osocze, mocz, kał, ślina, włosy"
         },
         {
-          "parameter": "Result Memory",
-          "specification": "Up to 10,000 results"
+          "parameter": "Pamięć wyników",
+          "specification": "Do 10 000 wyników"
         },
         {
-          "parameter": "Battery",
-          "specification": "Rechargeable Lithium battery, up to 24 hours continuous operation"
+          "parameter": "Bateria",
+          "specification": "Akumulator litowy, do 24 godzin ciągłej pracy"
         },
         {
-          "parameter": "Connectivity",
-          "specification": "USB-C, Wi-Fi (802.11 b/g/n), Bluetooth, API/LIMS integration"
+          "parameter": "Łączność",
+          "specification": "USB-C, Wi-Fi (802.11 b/g/n), Bluetooth, integracja API/LIMS"
         },
         {
-          "parameter": "Certification",
-          "specification": "CE Marking, RoHS compliant"
+          "parameter": "Certyfikacja",
+          "specification": "Oznaczenie CE, zgodność z RoHS"
         }
       ],
       "deliveryScope": [
-        "1 × Igloo Reader Pro Analyzer",
-        "1 × USB-A to USB-C Cable",
-        "Electronic User Manual"
+        "1 × Analizator Igloo Reader Pro",
+        "1 × Kabel USB-A na USB-C",
+        "Elektroniczna instrukcja obsługi"
       ],
-      "note": "Important Note: Adapters and QC test kits are sold separately and are not included in the standard delivery scope."
+      "note": "Ważna uwaga: Adaptery i zestawy testowe QC są sprzedawane oddzielnie i nie wchodzą w standardowy zakres dostawy."
     },
     "bp_monitor": {
-      "name": "Digital Blood Pressure Monitor",
-      "shortDescription": "Accurate, easy-to-use blood pressure monitor for home use with memory function.",
+      "name": "Cyfrowy ciśnieniomierz",
+      "shortDescription": "Dokładny, łatwy w użyciu ciśnieniomierz do użytku domowego z funkcją pamięci.",
       "features": [
-        "Upper-arm cuff with adjustable size",
-        "Stores up to 60 readings",
-        "Irregular heartbeat detection"
+        "Mankiet na ramię z regulowanym rozmiarem",
+        "Przechowuje do 60 odczytów",
+        "Wykrywanie nieregularnego bicia serca"
       ]
     },
     "thermometer": {
-      "name": "Contactless Forehead Thermometer",
-      "shortDescription": "Fast, hygienic temperature readings without skin contact — ideal for families.",
+      "name": "Bezdotykowy termometr czołowy",
+      "shortDescription": "Szybki, higieniczny pomiar temperatury bez kontaktu ze skórą – idealny dla rodzin.",
       "features": [
-        "1-second measurement",
-        "Fever alarm indicator",
-        "Backlit display"
+        "Pomiar w 1 sekundę",
+        "Wskaźnik alarmu gorączki",
+        "Podświetlany wyświetlacz"
       ]
     },
     "pulse_oximeter": {
-      "name": "Finger Pulse Oximeter",
-      "shortDescription": "Measure blood oxygen saturation and pulse rate within seconds.",
+      "name": "Pulsoksymetr napalcowy",
+      "shortDescription": "Zmierz saturację tlenem krwi i tętno w kilka sekund.",
       "features": [
-        "SpO₂ and pulse rate display",
-        "Compact and portable",
-        "Auto power-off"
+        "Wyświetlanie SpO₂ i tętna",
+        "Kompaktowy i przenośny",
+        "Automatyczne wyłączanie"
       ]
     },
     "home_care_kit": {
-      "name": "Home Care Starter Kit",
-      "shortDescription": "Essential tools for daily home care, including monitoring and first-aid basics.",
+      "name": "Zestaw startowy do opieki domowej",
+      "shortDescription": "Niezbędne narzędzia do codziennej opieki w domu, w tym urządzenia monitorujące i podstawowe środki pierwszej pomocy.",
       "features": [
-        "Digital thermometer and BP monitor",
-        "Basic wound care supplies",
-        "Compact storage bag"
+        "Termometr cyfrowy i ciśnieniomierz",
+        "Podstawowe materiały opatrunkowe",
+        "Kompaktowa torba do przechowywania"
       ]
     },
     "diabetes_kit": {
-      "name": "Diabetes Monitoring Kit",
-      "shortDescription": "Everything you need to monitor blood glucose levels at home comfortably.",
+      "name": "Zestaw do monitorowania cukrzycy",
+      "shortDescription": "Wszystko, czego potrzebujesz, aby wygodnie monitorować poziom glukozy we krwi w domu.",
       "features": [
-        "Glucose meter with test strips",
-        "Lancing device and lancets",
-        "Carrying case for travel"
+        "Glukometr z paskami testowymi",
+        "Nakłuwacz i lancety",
+        "Etui podróżne"
       ]
     },
     "n95_mask_pack": {
-      "name": "N95 Respirator Mask Pack (10 pcs)",
-      "shortDescription": "Certified N95 masks for reliable respiratory protection.",
+      "name": "Pakiet masek ochronnych N95 (10 szt.)",
+      "shortDescription": "Certyfikowane maski N95 dla niezawodnej ochrony dróg oddechowych.",
       "features": [
-        "Adjustable nose clip",
-        "Comfortable ear loops",
-        "Individually packed"
+        "Regulowany klips na nos",
+        "Wygodne pętle na uszy",
+        "Pakowane pojedynczo"
       ]
     },
     "hand_sanitizer": {
-      "name": "Antibacterial Hand Sanitizer (500 ml)",
-      "shortDescription": "Fast-drying sanitizer with moisturizing ingredients.",
+      "name": "Antybakteryjny żel do rąk (500 ml)",
+      "shortDescription": "Szybkoschnący środek dezynfekujący ze składnikami nawilżającymi.",
       "features": [
-        "Kills 99.9% of germs",
-        "Non-sticky formula",
-        "Fresh, clean scent"
+        "Zabija 99,9% zarazków",
+        "Nielepiąca formuła",
+        "Świeży, czysty zapach"
       ]
     },
     "compression_socks": {
-      "name": "Medical Compression Socks",
-      "shortDescription": "Support circulation during long days on your feet or recovery.",
+      "name": "Medyczne skarpety uciskowe",
+      "shortDescription": "Wspierają krążenie podczas długich dni na nogach lub regeneracji.",
       "features": [
-        "Graduated compression",
-        "Breathable fabric",
-        "Multiple sizes available"
+        "Stopniowany ucisk",
+        "Oddychający materiał",
+        "Dostępne różne rozmiary"
       ]
     },
     "first_aid_kit": {
-      "name": "Compact First Aid Kit",
-      "shortDescription": "A compact kit with essentials for minor injuries and emergencies.",
+      "name": "Kompaktowa apteczka pierwszej pomocy",
+      "shortDescription": "Kompaktowy zestaw z niezbędnymi rzeczami na drobne urazy i nagłe wypadki.",
       "features": [
-        "Bandages and dressings",
-        "Antiseptic wipes",
-        "Instruction leaflet"
+        "Plastry i bandaże",
+        "Chusteczki antyseptyczne",
+        "Ulotka instruktażowa"
       ]
     },
     "online_consult": {
-      "name": "Online Doctor Consultation (30 min)",
-      "shortDescription": "Book a 30-minute video consultation with one of our doctors.",
+      "name": "Konsultacja lekarska online (30 min)",
+      "shortDescription": "Zarezerwuj 30-minutową konsultację wideo z jednym z naszych lekarzy.",
       "features": [
-        "Flexible scheduling options",
-        "Secure video platform",
-        "Summary report after the session"
+        "Elastyczne opcje planowania",
+        "Bezpieczna platforma wideo",
+        "Raport podsumowujący po sesji"
       ]
     }
   },
   "badge": {
-    "New": "New",
-    "Popular": "Popular",
-    "Limited": "Limited"
+    "New": "Nowość",
+    "Popular": "Popularne",
+    "Limited": "Limitowane"
   },
   "category": {
-    "Diagnostics": "Diagnostics",
-    "Monitoring": "Monitoring",
-    "Home Care": "Home Care",
-    "Chronic Care": "Chronic Care",
-    "Protection": "Protection",
-    "Hygiene": "Hygiene",
-    "Recovery": "Recovery",
-    "Emergency": "Emergency",
-    "Service": "Service"
+    "Diagnostics": "Diagnostyka",
+    "Monitoring": "Monitorowanie",
+    "Home Care": "Opieka domowa",
+    "Chronic Care": "Choroby przewlekłe",
+    "Protection": "Ochrona",
+    "Hygiene": "Higiena",
+    "Recovery": "Regeneracja",
+    "Emergency": "Nagłe wypadki",
+    "Service": "Usługi"
   },
   "shop": {
-    "addToCart": "Add to cart (demo)",
-    "orderInfo": "Order information",
-    "orderInfoText": "This demo layout mimics a simple order box. In a real project, this is where you would show availability, shipping options and an “Add to cart” button.",
-    "youMightLike": "You might also like",
-    "view": "View",
-    "viewDetails": "View details",
-    "backToShop": "Back to Shop",
-    "needHelp": "Need help choosing a product?",
-    "contactTeam": "Contact our team",
-    "demoNote": "Please note: This is a demo shop for design and layout purposes only. No real orders or payments are processed.",
-    "whatsInBox": "What's in the box?",
-    "techSpecs": "Technical Specifications",
-    "features": "Features & Benefits",
-    "home": "Home",
-    "title": "Medical supplies & services",
-    "subtitle": "MedHealth Shop",
-    "discoverTitle": "Discover our curated products",
-    "article": "Article",
-    "articleDisclaimer": "Regular check-ups and proactive care are the foundation of long-term health. If you have questions, don't hesitate to reach out to a medical professional.",
-    "shareArticle": "Liked this article? Share it with your friends and family.",
-    "backToHome": "Back to Home",
-    "suggestedArticles": "Suggested articles",
-    "moreArticles": "More articles",
-    "contactText": "Our medical team is available 24/7 to answer urgent questions and help you decide what to do next.",
-    "readMore": "Read More"
+    "addToCart": "Dodaj do koszyka (demo)",
+    "orderInfo": "Informacje o zamówieniu",
+    "orderInfoText": "Ten układ demo naśladuje proste pole zamówienia. W prawdziwym projekcie tutaj wyświetlana byłaby dostępność, opcje wysyłki i przycisk 'Dodaj do koszyka'.",
+    "youMightLike": "Może Ci się spodobać",
+    "view": "Zobacz",
+    "viewDetails": "Zobacz szczegóły",
+    "backToShop": "Powrót do sklepu",
+    "needHelp": "Potrzebujesz pomocy w wyborze?",
+    "contactTeam": "Skontaktuj się z naszym zespołem",
+    "demoNote": "Uwaga: To jest sklep demonstracyjny wyłącznie w celach projektowych i wizualnych. Żadne prawdziwe zamówienia ani płatności nie są przetwarzane.",
+    "whatsInBox": "Co jest w pudełku",
+    "techSpecs": "Specyfikacja techniczna",
+    "features": "Cechy i zalety",
+    "home": "Strona główna",
+    "title": "Artykuły medyczne i usługi",
+    "subtitle": "Sklep MedHealth",
+    "discoverTitle": "Odkryj nasze wybrane produkty",
+    "article": "Artykuł",
+    "articleDisclaimer": "Regularne badania i proaktywna opieka są podstawą długoterminowego zdrowia. Jeśli masz pytania, nie wahaj się skontaktować z profesjonalistą medycznym.",
+    "shareArticle": "Podobał Ci się ten artykuł? Podziel się nim z przyjaciółmi i rodziną.",
+    "backToHome": "Powrót do strony głównej",
+    "suggestedArticles": "Sugerowane artykuły",
+    "moreArticles": "Więcej artykułów",
+    "contactText": "Nasz zespół medyczny jest dostępny 24/7, aby odpowiedzieć na pilne pytania i pomóc Ci zdecydować, co robić dalej.",
+    "readMore": "Czytaj więcej"
   },
   "hero": {
-    "caption": "Point-of-care Performance",
-    "title": "IglooPro:\nPoint-of-Care. Perfect. Instant.",
-    "description": "Secure the performance package: Your IglooPro is ready for use in 48 hours – guaranteed.",
-    "cta": "Book 15-minute performance analysis now",
+    "caption": "Wydajność Point-of-care",
+    "title": "IglooPro:\nPoint-of-Care. Perfekcja. Natychmiast.",
+    "description": "Zapewnij sobie pakiet wydajności: Twój IglooPro jest gotowy do użycia w ciągu 48 godzin – gwarantowane.",
+    "cta": "Zarezerwuj 15-minutową analizę wydajności teraz",
     "stat1": {
       "value": "48h",
-      "label": "Ready for use after order"
+      "label": "Gotowy do użycia po zamówieniu"
     },
     "stat2": {
       "value": "CV < 2%",
-      "label": "Precision across the entire measurement range"
+      "label": "Precyzja w całym zakresie pomiarowym"
     }
   },
   "about": {
-    "caption": "YOUR PERFORMANCE GUARANTOR",
-    "title": "Excellence and Safety: The Standard We Set.",
-    "text1": "The IglooPro is a premium device. But true premium performance only comes from perfect, risk-free commissioning. Standard delivery leaves the complexity to you. We take responsibility for the result.",
-    "text2": "That's why we exclusively deliver the 48-hour setup promise. Our performance pillars guarantee that your POC workflow is optimized from the very first second and that you can use diagnostic excellence immediately.",
-    "cta": "Secure exclusive advantage"
+    "caption": "TWÓJ GWARANT WYDAJNOŚCI",
+    "title": "Doskonałość i Bezpieczeństwo: Standard, który wyznaczamy.",
+    "text1": "IglooPro to urządzenie klasy premium. Ale prawdziwa wydajność premium wynika tylko z perfekcyjnego, pozbawionego ryzyka uruchomienia. Standardowa dostawa pozostawia złożoność Tobie. My bierzemy odpowiedzialność za wynik.",
+    "text2": "Dlatego dostarczamy wyłącznie obietnicę konfiguracji w 48 godzin. Nasze filary wydajności gwarantują, że Twój przepływ pracy POC jest zoptymalizowany od pierwszej sekundy i że możesz natychmiast korzystać z doskonałości diagnostycznej.",
+    "cta": "Zapewnij sobie ekskluzywną korzyść"
   },
   "doctors": {
-    "caption": "DIAGNOSTICS FOCUS",
-    "title": "Precise Diagnostics. Immediate Results at the Point-of-Care.",
-    "description": "Discover with systems like the Igloo Pro from DX365 how you can optimize your patient care and make important diagnoses directly at the point of treatment – with lab-accurate results in minutes.",
-    "cta": "Go to Igloo Pro System"
+    "caption": "FOKUS DIAGNOSTYCZNY",
+    "title": "Precyzyjna diagnostyka. Natychmiastowe wyniki w punkcie opieki.",
+    "description": "Odkryj z systemami takimi jak Igloo Pro od DX365, jak możesz zoptymalizować opiekę nad pacjentem i stawiać ważne diagnozy bezpośrednio w miejscu leczenia – z wynikami o dokładności laboratoryjnej w kilka minut.",
+    "cta": "Do systemu Igloo Pro"
   },
   "services": {
+    "caption": "FOKUS DIAGNOSTYCZNY",
+    "title": "Kluczowe obszary diagnostyki prewencyjnej",
     "poc_systemloesungen": {
-      "title": "POC System Solutions",
-      "description": "Your diagnostic control center. Mobile analyzers delivering lab-accurate results in minutes, directly at the point of care (e.g., Igloo Pro)."
+      "title": "Rozwiązania systemowe POC",
+      "description": "Twoje centrum sterowania diagnostyką. Mobilne analizatory dostarczające wyniki o dokładności laboratoryjnej w kilka minut bezpośrednio w miejscu leczenia (np. Igloo Pro)."
     },
     "praeventions_checks": {
-      "title": "Preventive Health Checks",
-      "description": "Prevention reimagined. Rapid determination of key biomarkers (e.g., Vitamin D, CRP, HbA1c) for early risk detection and individual health counseling."
+      "title": "Prewencyjne badania kontrolne",
+      "description": "Prewencja na nowo. Szybkie oznaczanie kluczowych biomarkerów (np. Witamina D, CRP, HbA1c) w celu wczesnego wykrywania ryzyka i indywidualnego poradnictwa zdrowotnego."
     },
     "infektion_entzuendung": {
-      "title": "Infection & Inflammation Markers",
-      "description": "Fast answers in critical cases. Immediate analysis of inflammation levels (CRP, PCT, IL-6) and infectious diseases – essential for acute care and triage."
+      "title": "Markery infekcji i stanów zapalnych",
+      "description": "Szybkie odpowiedzi w krytycznych przypadkach. Natychmiastowa analiza poziomów zapalnych (CRP, PCT, IL-6) i chorób zakaźnych – niezbędna w ostrej opiece i segregacji."
     },
     "stoffwechsel_herz": {
-      "title": "Metabolism & Heart Health",
-      "description": "Key indicators at a glance. Precise measurement of HbA1c, cholesterol profiles, and cardiac markers (e.g., D-Dimer) for monitoring chronic conditions."
+      "title": "Metabolizm i zdrowie serca",
+      "description": "Kluczowe wskaźniki w jednym miejscu. Precyzyjny pomiar HbA1c, profili cholesterolu i markerów sercowych (np. D-Dimer) do monitorowania chorób przewlekłych."
     },
     "hormon_tests": {
-      "title": "Hormone & Endocrinology Tests",
-      "description": "Specialized diagnostics made easy. Wide range of tests for thyroid and reproductive hormones (TSH, AMH) for specialized practices and pharmacies."
+      "title": "Testy hormonalne i endokrynologiczne",
+      "description": "Specjalistyczna diagnostyka stała się prosta. Szeroka gama testów hormonów tarczycy i rozrodczych (TSH, AMH) dla specjalistycznych gabinetów i aptek."
     },
     "kompatibilitaet_integration": {
-      "title": "Manufacturer-Independent Compatibility",
-      "description": "Maximum flexibility. Thanks to universal technology, our devices evaluate 90% of all lateral flow tests on the market. Investment security through openness."
+      "title": "Kompatybilność niezależna od producenta",
+      "description": "Maksymalna elastyczność. Dzięki uniwersalnej technologii nasze urządzenia oceniają 90% wszystkich testów przepływu bocznego dostępnych na rynku. Bezpieczeństwo inwestycji dzięki otwartości."
     }
   },
   "testimonials": {
+    "caption": "OPINIE KLIENTÓW",
+    "title": "Co nasi użytkownicy mówią o systemie Igloo Pro",
+    "ratingLabel": "Ocena ogólna\nna podstawie 3500+ opinii",
+    "positiveLabel": "Pozytywna opinia",
     "richard_pollock": {
-      "role": "Dentist (Verified Review)",
-      "title": "Biological Dentist and Implant Surgeon / Chelsea Dental Clinic",
-      "focus": "Fast On-Site Health Checks (Prevention, Vitamin D)",
-      "text": "Carrying out analysis of Vitamin D levels and other key health indicators on-site cannot be underestimated. The Igloo Pro enables me to perform a simple capillary blood test, to ascertain patients’ needs and to then guide them as to which additional supplements they might require to optimise treatment. This capability is proving transformative in terms of patient outcomes."
+      "role": "Dentysta (Zweryfikowana opinia)",
+      "title": "Stomatolog biologiczny i chirurg implantolog / Chelsea Dental Clinic",
+      "focus": "Szybkie badania kontrolne na miejscu (Prewencja, Witamina D)",
+      "text": "Przeprowadzanie analizy poziomu witaminy D i innych kluczowych wskaźników zdrowotnych na miejscu nie może być niedoceniane. Igloo Pro pozwala mi wykonać prosty test z krwi włośniczkowej, aby ustalić potrzeby pacjentów, a następnie wskazać im, jakich dodatkowych suplementów mogą potrzebować, aby zoptymalizować leczenie. Ta możliwość okazuje się przełomowa w zakresie wyników pacjentów."
     },
     "eva_schmidt": {
-      "role": "Pharmacy",
-      "title": "Owner / Löwen-Apotheke, Berlin",
-      "focus": "The next step in preventive counseling (Customer loyalty, Speed)",
-      "text": "Since implementing the Igloo Pro system, our role as health advisors has strengthened significantly. Customers greatly appreciate being able to determine important values like CRP or cholesterol in minutes, rather than waiting weeks for appointments. A true win-win situation for customer loyalty and service quality."
+      "role": "Apteka",
+      "title": "Właścicielka / Löwen-Apotheke, Berlin",
+      "focus": "Kolejny krok w poradnictwie profilaktycznym (Lojalność klientów, Szybkość)",
+      "text": "Odkąd wdrożyliśmy system Igloo Pro, nasza rola jako doradców zdrowotnych znacznie się wzmocniła. Klienci bardzo cenią sobie możliwość oznaczenia ważnych wartości, takich jak CRP czy cholesterol, w kilka minut, zamiast czekać tygodniami na wizyty. To prawdziwa sytuacja win-win dla lojalności klientów i jakości usług."
     },
     "martin_fischer": {
-      "role": "General Practitioner/Practice",
-      "title": "Specialist in Internal Medicine / Internal Practice Dr. Fischer",
-      "focus": "Immediate diagnostics for acute patients (Efficiency, Treatment decision)",
-      "text": "The ability to determine inflammation markers like CRP immediately in the practice has revolutionized our treatment workflow. We can decide faster whether antibiotic therapy is necessary for patients with unclear infections, preventing unnecessary referrals. This saves us time and significantly increases patient satisfaction."
+      "role": "Lekarz ogólny/Gabinet",
+      "title": "Specjalista chorób wewnętrznych / Praktyka Internistyczna Dr Fischer",
+      "focus": "Natychmiastowa diagnostyka u pacjentów ostrych (Efektywność, Decyzja terapeutyczna)",
+      "text": "Możliwość natychmiastowego oznaczania markerów stanu zapalnego, takich jak CRP, w gabinecie zrewolucjonizowała nasz przepływ pracy. Możemy szybciej zdecydować, czy antybiotykoterapia jest konieczna u pacjentów z niejasnymi infekcjami, zapobiegając niepotrzebnym skierowaniom. To oszczędza nam czas i znacznie zwiększa zadowolenie pacjentów."
     },
     "julia_bergmann": {
-      "role": "Clinic/Lab",
-      "title": "Head of Lab & Diagnostics / Klinikum Nord",
-      "focus": "System Compatibility & Reliability (Flexibility, Bundling)",
-      "text": "The Igloo Pro is the most flexible Point-of-Care device we have ever evaluated. The manufacturer-independent compatibility for lateral flow tests is a huge advantage, allowing us to standardize our POC devices and save costs without sacrificing the proven reliability of results."
+      "role": "Klinika/Laboratorium",
+      "title": "Kierownik Laboratorium i Diagnostyki / Klinikum Nord",
+      "focus": "Kompatybilność i niezawodność systemu (Elastyczność, Łączenie)",
+      "text": "Igloo Pro to najbardziej elastyczne urządzenie Point-of-Care, jakie kiedykolwiek ocenialiśmy. Niezależna od producenta kompatybilność testów przepływu bocznego to ogromna zaleta, która pozwala nam standaryzować nasze urządzenia POC i oszczędzać koszty bez rezygnacji ze sprawdzonej niezawodności wyników."
     }
   },
   "articles": {
     "ecosystem_of_rapid_tests": {
-      "title": "The Ecosystem of Rapid Tests: Why Compatibility Creates Safety",
-      "excerpt": "From CRP to TSH: Mastering the complexity of compatible Lateral Flow Tests.",
+      "title": "Ekosystem szybkich testów: Dlaczego kompatybilność tworzy bezpieczeństwo",
+      "excerpt": "Od CRP do TSH: Opanowanie złożoności kompatybilnych testów przepływu bocznego.",
       "sections": [
         {
-          "heading": "Introduction",
+          "heading": "Wprowadzenie",
           "paragraphs": [
-            "Point-of-Care Diagnostics (POC) thrives on flexibility. A modern multi-reader system, like the IglooPro, offers the ability to measure a wide range of parameters – from infection markers like CRP to endocrine values like TSH – using Lateral Flow Tests (LFT). This versatility is a huge advantage but harbors a subtle yet critical challenge: the compatibility and safety trap.",
-            "The analytical quality of a measurement result depends 100 percent on the interplay between the POC reader and the specific LFT. Specialized consulting and a clear compatibility guarantee are essential to eliminate the risk of measurement errors, incorrect inventory, and faulty diagnoses."
+            "Diagnostyka Point-of-Care (POC) żyje elastycznością. Nowoczesny system multi-czytnika, taki jak IglooPro, oferuje możliwość pomiaru szerokiego zakresu parametrów – od markerów infekcji, takich jak CRP, po wartości endokrynologiczne, takie jak TSH – za pomocą testów przepływu bocznego (LFT). Ta wszechstronność jest ogromną zaletą, ale kryje subtelne, lecz krytyczne wyzwanie: pułapkę kompatybilności i bezpieczeństwa.",
+            "Jakość analityczna wyniku pomiaru zależy w 100 procentach od współdziałania czytnika POC i konkretnego LFT. Specjalistyczne doradztwo i jasna gwarancja kompatybilności są niezbędne, aby wyeliminować ryzyko błędów pomiarowych, nieprawidłowych stanów magazynowych i błędnych diagnoz."
           ]
         },
         {
-          "heading": "1. The Hidden Danger: Incompatibility",
+          "heading": "1. Ukryte niebezpieczeństwo: Niekompatybilność",
           "paragraphs": [
-            "Lateral Flow Tests are complex chromatographic strips. They differ not only by the analyte to be detected (e.g., Troponin, D-Dimer) but also in their physical and chemical properties relevant to the reader:"
+            "Testy przepływu bocznego to złożone paski chromatograficzne. Różnią się one nie tylko wykrywanym analitem (np. troponina, D-Dimer), ale także właściwościami fizycznymi i chemicznymi istotnymi dla czytnika:"
           ],
           "listItems": [
-            "Batch-Specific Calibration: As explained in ARTICLE 1, each test batch requires a specific calibration curve. If an LFT from an incompatible or unvalidated batch is used, the reader delivers imprecise or completely incorrect quantitative values.",
-            "Optical Properties: The membrane structure, the color of the marker particles (e.g., colloidal gold or fluorescence markers), and the position of the test lines can vary greatly from manufacturer to manufacturer. A universal reader must know exactly which parameters to read for which type of test cassette.",
-            "Faulty Test Cassettes: Using the wrong test cassette for the selected analyte in the reader often leads to nonspecific results or technical errors that stop the diagnostic workflow."
+            "Kalibracja specyficzna dla partii: Jak wyjaśniono w ARTYKULE 1, każda partia testowa (Batch) wymaga specyficznej krzywej kalibracyjnej. Jeśli użyty zostanie LFT z niekompatybilnej lub niezweryfikowanej partii, czytnik dostarczy nieprecyzyjne lub całkowicie błędne wartości ilościowe.",
+            "Właściwości optyczne: Struktura membrany, kolor cząstek znacznikowych (np. koloidalne złoto lub znaczniki fluorescencyjne) i pozycja linii testowych mogą się znacznie różnić w zależności od producenta. Uniwersalny czytnik musi dokładnie wiedzieć, jakie parametry odczytać dla jakiego typu kasety testowej.",
+            "Wadliwe kasety testowe: Użycie niewłaściwej kasety testowej dla wybranego analitu w czytniku często prowadzi do niespecyficznych wyników lub błędów technicznych, które zatrzymują przepływ pracy diagnostycznej."
           ]
         },
         {
-          "heading": "2. The Ecosystem Principle: Consulting and Guarantee",
+          "heading": "2. Zasada ekosystemu: Doradztwo i Gwarancja",
           "paragraphs": [
-            "The safest way to master this complexity is to view the POC setup as a closed diagnostic ecosystem. Here, the provider takes responsibility for the perfect coordination of all components.",
-            "A. The Role of Specialized Consulting: Instead of leaving practices and pharmacies alone with the selection from hundreds of LFT products, strategic consulting is crucial. These experts help with the portfolio decision by identifying the required diagnostic parameters (e.g., inflammation, coagulation, cardiology) and assembling the optimal, compatible LFTs.",
-            "The result is a lean, highly secure workflow tailored to the specific needs of the facility.",
-            "B. The Compatibility Guarantee as a Safety Net: The most important added value is the guarantee of functionality. This means that the POC reader is not only technically capable of reading various tests, but the provider also ensures the analytical validity of every specific combination of reader and test batch."
+            "Najbezpieczniejszym sposobem na opanowanie tej złożoności jest traktowanie konfiguracji POC jako zamkniętego ekosystemu diagnostycznego. Tutaj dostawca bierze odpowiedzialność za idealną koordynację wszystkich komponentów.",
+            "A. Rola specjalistycznego doradztwa: Zamiast pozostawiać gabinety i apteki same z wyborem spośród setek produktów LFT, kluczowe jest doradztwo strategiczne. Eksperci ci pomagają w decyzji dotyczącej portfolio, identyfikując wymagane parametry diagnostyczne (np. stan zapalny, krzepnięcie, kardiologia) i dobierając optymalne, kompatybilne LFT.",
+            "Rezultatem jest smukły, wysoce bezpieczny przepływ pracy, dostosowany do specyficznych potrzeb placówki.",
+            "B. Gwarancja kompatybilności jako siatka bezpieczeństwa: Najważniejszą wartością dodaną jest gwarancja funkcjonalności. Oznacza to, że czytnik POC jest nie tylko technicznie zdolny do odczytu różnych testów, ale dostawca zapewnia również walidację analityczną każdej konkretnej kombinacji czytnika i partii testowej."
           ],
           "listItems": [
-            "Validation in the System: Confirmation that the measurement results of the LFT in conjunction with the specific reader meet clinical requirements.",
-            "Automatic Control: The reader should be able to automatically detect which test has been inserted (e.g., via barcode or RFID) and only perform the measurement with the corresponding, validated calibration curve. In case of incompatibility, a QC lock or warning message occurs."
+            "Walidacja w systemie: Potwierdzenie, że wyniki pomiarów LFT w połączeniu z konkretnym czytnikiem spełniają wymagania kliniczne.",
+            "Automatyczna kontrola: Czytnik powinien być w stanie automatycznie wykryć, jaki test został włożony (np. za pomocą kodu kreskowego lub RFID), i wykonać pomiar tylko z odpowiednią, zwalidowaną krzywą kalibracyjną. W przypadku niekompatybilności następuje blokada QC lub komunikat ostrzegawczy."
           ]
         },
         {
-          "heading": "3. Effects on Workflow and Patient Safety",
+          "heading": "3. Wpływ na przepływ pracy i bezpieczeństwo pacjenta",
           "paragraphs": [
-            "Strategic selection and the compatibility guarantee have direct positive effects on everyday practice:",
-            "Error Reduction: The number of faulty or invalid measurements is drastically reduced as the system proactively excludes incompatibilities.",
-            "Inventory Management: Avoiding the storage of incompatible or unusable test cassettes due to incorrect purchases.",
-            "Unbroken Chain of Precision: Only when the LFTs, the reader, and the IT connection (as described in ARTICLE 2) work together seamlessly and guaranteed, can rapid POC diagnostics offer the same safety and reliability as the central laboratory."
+            "Strategiczny wybór i gwarancja kompatybilności mają bezpośredni pozytywny wpływ na codzienną praktykę:",
+            "Redukcja błędów: Liczba błędnych lub nieważnych pomiarów jest drastycznie redukowana, ponieważ system proaktywnie wyklucza niekompatybilności.",
+            "Zarządzanie zapasami: Unika się przechowywania niekompatybilnych lub niezdatnych do użytku kaset testowych z powodu błędnych zakupów.",
+            "Nieprzerwany łańcuch precyzji: Tylko wtedy, gdy LFT, czytnik i połączenie IT (jak opisano w ARTYKULE 2) współpracują ze sobą płynnie i w sposób gwarantowany, szybka diagnostyka POC może zaoferować takie samo bezpieczeństwo i niezawodność jak laboratorium centralne."
           ]
         },
         {
-          "heading": "Conclusion: Safety through Synergy",
+          "heading": "Wnioski: Bezpieczeństwo poprzez synergię",
           "paragraphs": [
-            "The strength of a multi-reader lies in its ability to cover a wide diagnostic spectrum. However, this strength can only be unleashed through a comprehensive, secured ecosystem of compatible tests. Those investing in a POC reader should simultaneously invest in the expertise and guarantee that secures their diagnostic portfolio. Thus, flexibility does not become a risk, but the highest form of patient safety."
+            "Siła multi-czytnika leży w jego zdolności do pokrycia szerokiego spektrum diagnostycznego. Ta siła może być jednak uwolniona tylko przez kompleksowy, zabezpieczony ekosystem kompatybilnych testów. Kto inwestuje w czytnik POC, powinien jednocześnie inwestować w ekspertyzę i gwarancję, która zabezpiecza jego portfolio diagnostyczne. W ten sposób elastyczność nie staje się ryzykiem, ale najwyższą formą bezpieczeństwa pacjenta."
           ]
         }
       ]
     },
     "48_hour_formula": {
-      "title": "The 48-Hour Formula: Efficiency in POC Diagnostics",
-      "excerpt": "Efficiency instead of training: The path to immediate operational readiness in practice.",
+      "title": "Formuła 48 godzin: Wydajność w diagnostyce POC",
+      "excerpt": "Wydajność zamiast wdrażania: Droga do natychmiastowej gotowości operacyjnej w gabinecie.",
       "sections": [
         {
-          "heading": "Introduction",
+          "heading": "Wprowadzenie",
           "paragraphs": [
-            "The decision for new Point-of-Care (POC) diagnostic devices is often the first step towards better patient care. However, the path from acquisition to full operational readiness is often underestimated. Lengthy training, administrative hurdles, and complex IT integration consume valuable time and tie up staff whose focus should actually be on the patient.",
-            "This bottleneck is a thing of the past. Modern support concepts revolutionize commissioning and reduce the effort for practices and pharmacies to a minimum. The key is the 'Remote Setup' approach, which guarantees immediate operational readiness in just 48 hours."
+            "Decyzja o zakupie nowych urządzeń diagnostycznych Point-of-Care (POC) to często pierwszy krok do lepszej opieki nad pacjentem. Jednak droga od zakupu do pełnej gotowości operacyjnej jest często niedoceniana. Długotrwałe wdrażanie, przeszkody administracyjne i złożona integracja IT pochłaniają cenny czas i angażują personel, którego uwaga powinna być skupiona na pacjencie.",
+            "To wąskie gardło należy do przeszłości. Nowoczesne koncepcje wsparcia rewolucjonizują uruchomienie i redukują wysiłek gabinetów i aptek do minimum. Kluczem jest podejście 'Remote-Setup', które gwarantuje natychmiastową gotowość operacyjną w zaledwie 48 godzin."
           ]
         },
         {
-          "heading": "1. The Efficiency Dilemma: Why Traditional Integration Fails",
+          "heading": "1. Dylemat wydajności: Dlaczego tradycyjna integracja zawodzi",
           "paragraphs": [
-            "Traditionally, integrating a new POC system requires several time-consuming steps that often take weeks:"
+            "Tradycyjnie integracja nowego systemu POC wymaga kilku czasochłonnych kroków, które często zajmują tygodnie:"
           ],
           "listItems": [
-            "Administrative and Regulatory Training: Training staff regarding quality management (e.g., according to RiliBÄK or Qualab) and internal protocols.",
-            "Technical Setup and Calibration: Manual initial commissioning and batch-specific calibration of the device.",
-            "IT Connection and Data Exchange: The complex bidirectional connection between the POC reader and the practice or pharmacy management system (PVS/AVS)."
+            "Wdrożenie administracyjne i regulacyjne: Szkolenie personelu w zakresie zarządzania jakością (np. zgodnie z RiliBÄK lub Qualab) i protokołów wewnętrznych.",
+            "Konfiguracja techniczna i kalibracja: Ręczne pierwsze uruchomienie i specyficzna dla partii kalibracja urządzenia.",
+            "Połączenie IT i wymiana danych: Złożone dwukierunkowe połączenie między czytnikiem POC a systemem zarządzania gabinetem lub apteką (PVS/AVS)."
           ]
         },
         {
-          "heading": "2. The Remote Setup Approach: IT Experts in the Background",
+          "heading": "2. Podejście Remote-Setup: Eksperci IT w tle",
           "paragraphs": [
-            "The Remote Setup approach is based on the digital connectivity of modern POC readers. Instead of needing a service technician on-site, the device is set up and validated remotely by specialized experts.",
-            "Core processes handled remotely:"
+            "Podejście Remote-Setup opiera się na cyfrowej łączności nowoczesnych czytników POC. Zamiast potrzebować technika serwisowego na miejscu, urządzenie jest konfigurowane i walidowane zdalnie przez wyspecjalizowanych ekspertów.",
+            "Kluczowe procesy obsługiwane zdalnie:"
           ],
           "listItems": [
-            "Full Calibration: The technical calibration of the multi-reader to the Lateral Flow Tests (LFTs) used is done externally. This ensures that analytical precision is guaranteed from the start – without practice staff having to perform complex technical steps.",
-            "Seamless IT Integration: Connection to the laboratory or practice information system (LIS/PIS) takes place via secure, web-based interfaces (e.g., POC-IT solutions). External consultants ensure that all measurement values are transferred automatically, securely, and error-free into the patient file.",
-            "Firmware Updates and System Checks: Software updates to ensure compatibility and compliance with new standards can be installed remotely permanently and without interrupting practice operations."
+            "Pełna kalibracja: Techniczna kalibracja multi-czytnika do używanych testów przepływu bocznego (LFT) odbywa się zewnętrznie. Zapewnia to, że precyzja analityczna jest gwarantowana od samego początku – bez konieczności wykonywania skomplikowanych kroków technicznych przez personel gabinetu.",
+            "Płynna integracja IT: Połączenie z systemem informacyjnym laboratorium lub gabinetu (LIS/PIS) odbywa się za pośrednictwem bezpiecznych interfejsów internetowych (np. rozwiązania POC-IT). Zewnętrzni konsultanci zapewniają, że wszystkie wartości pomiarowe są przesyłane automatycznie, bezpiecznie i bezbłędnie do karty pacjenta.",
+            "Aktualizacje oprogramowania układowego i kontrole systemu: Aktualizacje oprogramowania w celu zapewnienia kompatybilności i zgodności z nowymi standardami mogą być instalowane zdalnie na stałe i bez przerywania pracy gabinetu."
           ]
         },
         {
-          "heading": "3. The 48-Hour Formula: The Competitive Advantage",
+          "heading": "3. Formuła 48 godzin: Przewaga konkurencyjna",
           "paragraphs": [
-            "By outsourcing technical and administrative complexity to specialized remote services, practices and pharmacies can reduce the time required from weeks to a minimum.",
-            "Efficiency Gain and Patient Satisfaction: The immediate operational readiness of POC diagnostic devices allows staff to focus immediately on patient care. Time savings in diagnosis, faster therapy decisions, and the elimination of a second appointment lead to significantly higher patient satisfaction. Optimized workflows improve the economic efficiency of the entire facility."
+            "Dzięki outsourcingowi złożoności technicznej i administracyjnej do wyspecjalizowanych usług zdalnych, gabinety i apteki mogą skrócić wymagany czas z tygodni do minimum.",
+            "Zysk wydajności i zadowolenie pacjentów: Natychmiastowa gotowość operacyjna urządzeń diagnostycznych POC pozwala personelowi natychmiast skupić się na opiece nad pacjentem. Oszczędność czasu przy stawianiu diagnozy, szybsze decyzje terapeutyczne i brak konieczności drugiej wizyty prowadzą do znacznie wyższego zadowolenia pacjentów. Zoptymalizowane przepływy pracy poprawiają efektywność ekonomiczną całej placówki."
           ]
         },
         {
-          "heading": "Conclusion: Investment in Time and Safety",
+          "heading": "Wnioski: Inwestycja w czas i bezpieczeństwo",
           "paragraphs": [
-            "Modern Point-of-Care diagnostics is more than just a device: It is a digitally integrated system. Those who rely on Remote Setup invest not only in more precise and faster diagnostics but primarily in the valuable time of their staff. The 48-hour formula is thus synonymous with minimal integration stress and maximum operational readiness in modern healthcare."
+            "Nowoczesna diagnostyka Point-of-Care to więcej niż tylko urządzenie: to cyfrowo zintegrowany system. Kto stawia na Remote-Setup, inwestuje nie tylko w precyzyjniejszą i szybszą diagnostykę, ale przede wszystkim w cenny czas swojego personelu. Formuła 48 godzin jest zatem synonimem minimalnego stresu integracyjnego i maksymalnej gotowości operacyjnej w nowoczesnej opiece zdrowotnej."
           ]
         }
       ]
     },
     "precision_point_of_care": {
-      "title": "Precision in Point-of-Care: The Key to Patient Safety",
-      "excerpt": "Why the validation of Lateral Flow Tests (LFT) goes beyond manufacturer specifications.",
+      "title": "Precyzja w Point-of-Care: Klucz do bezpieczeństwa pacjenta",
+      "excerpt": "Dlaczego walidacja testów przepływu bocznego (LFT) wykracza poza specyfikacje producenta.",
       "sections": [
         {
-          "heading": "The Revolution of Point-of-Care Diagnostics",
+          "heading": "Rewolucja w diagnostyce Point-of-Care",
           "paragraphs": [
-            "Point-of-Care Diagnostics (POC) has revolutionized medical care. It provides results in minutes, enables fast clinical decisions, and relieves central laboratories. The use of Lateral Flow Tests (LFT) – known as 'rapid tests' – has become particularly popular. Their simplicity and speed are undisputed, but their reliability depends largely on correct, validated evaluation.",
-            "The challenge is to transfer the analytical precision of the central laboratory to the decentralized environment. This requires the validation of LFTs to go beyond the manufacturer's primary performance data (such as general sensitivity and specificity) and consider the entire measurement chain, including the reader and the user."
+            "Diagnostyka Point-of-Care (POC) zrewolucjonizowała opiekę medyczną. Dostarcza wyniki w kilka minut, umożliwia szybkie decyzje kliniczne i odciąża laboratoria centralne. Wykorzystanie testów przepływu bocznego (LFT) – znanych jako „szybkie testy” – stało się szczególnie popularne. Ich prostota i szybkość są bezdyskusyjne, ale ich niezawodność zależy w dużej mierze od prawidłowej, zwalidowanej oceny.",
+            "Wyzwaniem jest przeniesienie precyzji analitycznej laboratorium centralnego do środowiska zdecentralizowanego. W tym celu walidacja LFT musi wykraczać poza podstawowe dane dotyczące wydajności producenta (takie jak ogólna czułość i swoistość) i uwzględniać cały łańcuch pomiarowy, w tym czytnik i użytkownika."
           ]
         },
         {
-          "heading": "1. The Human Source of Error: Inter-Reader Variability (IRV)",
+          "heading": "1. Źródło błędu ludzkiego: Zmienność między czytnikami (IRV)",
           "paragraphs": [
-            "Originally, Lateral Flow Tests were developed for qualitative or semi-quantitative evaluation: The mere appearance of a test line (T-line) or the estimation of its intensity. However, this visual interpretation is the Achilles' heel of precision.",
-            "Subjectivity and Intraobserver Variability: The intensity of a color line is subjective. Fatigue, different lighting conditions, but also the mere momentary assessment of the examiner (intraobserver variability) can lead to different diagnoses. What is a weak positive for one person might be a negative result for another.",
-            "The Necessity of Quantitative Results: Modern therapy decisions, such as administering antibiotics for elevated CRP levels (C-reactive protein), are based on exact numerical thresholds. To transform a qualitative test execution into a quantitative, lab-compatible result, eliminating subjective evaluation is mandatory."
+            "Pierwotnie testy przepływu bocznego zostały opracowane do oceny jakościowej lub półilościowej: Samo pojawienie się linii testowej (linii T) lub oszacowanie jej intensywności. Ta wizualna interpretacja jest jednak piętą achillesową precyzji.",
+            "Subiektywność i zmienność wewnątrzobserwacyjna: Intensywność linii kolorowej jest subiektywna. Zmęczenie, różne warunki oświetleniowe, ale także sama chwilowa ocena badającego (zmienność wewnątrzobserwacyjna) mogą prowadzić do różnych diagnoz. Co dla jednej osoby jest słabo dodatnim wynikiem, dla innej może być wynikiem ujemnym.",
+            "Konieczność wyników ilościowych: Nowoczesne decyzje terapeutyczne, takie jak podawanie antybiotyków przy podwyższonym poziomie CRP (białko C-reaktywne), opierają się na dokładnych progach liczbowych. Aby przekształcić jakościowe wykonanie testu w ilościowy, kompatybilny z laboratorium wynik, konieczne jest wyeliminowanie subiektywnej oceny."
           ]
         },
         {
-          "heading": "2. Validation in Clinical Context: More Than Just a Datasheet",
+          "heading": "2. Walidacja w kontekście klinicznym: Więcej niż tylko karta katalogowa",
           "paragraphs": [
-            "Manufacturers provide data on the performance of their tests under idealized laboratory conditions. However, actual use in practice or pharmacy, often in environments with low prevalence or asymptomatic patients, requires application-specific validation.",
-            "As the practice of COVID-19 tests has shown, the detection capability of an LFT depends heavily on the patient's actual viral load. An LFT validation that goes beyond the manufacturer's mere specification must answer the following questions:"
+            "Producenci dostarczają dane na temat wydajności swoich testów w wyidealizowanych warunkach laboratoryjnych. Jednak rzeczywiste zastosowanie w gabinecie lub aptece, często w środowiskach o niskiej częstości występowania lub u pacjentów bezobjawowych, wymaga walidacji specyficznej dla zastosowania.",
+            "Jak pokazała praktyka testów na COVID-19, zdolność detekcji LFT zależy silnie od rzeczywistego ładunku wirusa u pacjenta. Walidacja LFT, która wykracza poza samą specyfikację producenta, musi odpowiedzieć na następujące pytania:"
           ],
           "listItems": [
-            "Comparison with Gold Standard: How exactly do the quantitative values of the LFT correlate with the results of the gold standard (e.g., PCR Ct values or central laboratory devices)?",
-            "Limit of Detection (LoD): Is the critical threshold (LoD) that the test still reliably detects reproducible in the POC environment?",
-            "Robustness: How stable is the result across the entire measurement range (linear range)?"
+            "Porównanie ze złotym standardem: Jak dokładnie wartości ilościowe LFT korelują z wynikami złotego standardu (np. wartościami Ct PCR lub urządzeniami laboratorium centralnego)?",
+            "Granica wykrywalności (LoD): Czy krytyczny próg (LoD), który test nadal niezawodnie wykrywa, jest powtarzalny w środowisku POC?",
+            "Solidność: Jak stabilny jest wynik w całym zakresie pomiarowym (zakres liniowy)?"
           ]
         },
         {
-          "heading": "The Role of Automation and Calibration",
+          "heading": "Rola automatyzacji i kalibracji",
           "paragraphs": [
-            "Only by confirming these analytical quality criteria in clinical reality can POC diagnostics justify the trust of doctors and patients.",
-            "To ensure laboratory precision at the Point-of-Care, the use of automated LFT readers like the IglooPro is essential. These readers perform the necessary, objective evaluation, thus placing analytics on a new foundation.",
-            "A. Elimination of Variability through Objectivity: Modern readers use camera systems or fluorescence technology to objectively capture test and control lines and digitally quantify intensity ratios. The result is a numerical value with a low coefficient of variation (CV) that completely eliminates IRV.",
-            "B. The Necessary Calibration and Quality Assurance (QA): A reader is only as good as its calibration. To ensure precision across different test batches and over the device's lifetime, strict QA procedures are required:"
+            "Tylko poprzez potwierdzenie tych analitycznych kryteriów jakości w rzeczywistości klinicznej diagnostyka POC może uzasadnić zaufanie lekarzy i pacjentów.",
+            "Aby zagwarantować precyzję laboratoryjną w Point-of-Care, niezbędne jest stosowanie zautomatyzowanych czytników LFT, takich jak IglooPro. Czytniki te przeprowadzają niezbędną, obiektywną ocenę, stawiając analitykę na nowych fundamentach.",
+            "A. Eliminacja zmienności poprzez obiektywizm: Nowoczesne czytniki wykorzystują systemy kamer lub technologię fluorescencji do obiektywnego rejestrowania linii testowych i kontrolnych oraz cyfrowego kwantyfikowania stosunków intensywności. Wynikiem jest wartość liczbowa o niskim współczynniku zmienności (CV), która całkowicie eliminuje IRV.",
+            "B. Niezbędna kalibracja i zapewnienie jakości (QA): Czytnik jest tak dobry, jak jego kalibracja. Aby zapewnić precyzję w różnych partiach testowych i przez cały okres eksploatacji urządzenia, wymagane są ścisłe procedury QA:"
           ],
           "listItems": [
-            "Batch-Specific Calibration: Each production batch of LFTs can show slight differences in reaction kinetics or membrane properties. The reader must load this batch-specific data – often automatically via barcode or RFID technology – to correctly convert the LFT-specific signal into the concentration value.",
-            "Quality Control (QC Lock): Modern systems have mechanisms (analogous to RiliBÄK in the central laboratory) that refuse measurement if internal or external quality control (e.g., a control cassette) has not been successfully performed. This guarantees that only validated measurement results are generated."
+            "Kalibracja specyficzna dla partii: Każda partia produkcyjna LFT może wykazywać niewielkie różnice w kinetyce reakcji lub właściwościach membrany. Czytnik musi załadować te dane specyficzne dla partii – często automatycznie za pomocą technologii kodów kreskowych lub RFID – aby poprawnie przekonwertować sygnał specyficzny dla LFT na wartość stężenia.",
+            "Kontrola jakości (Blokada QC): Nowoczesne systemy posiadają mechanizmy (analogiczne do RiliBÄK w laboratorium centralnym), które odmawiają pomiaru, jeśli wewnętrzna lub zewnętrzna kontrola jakości (np. kaseta kontrolna) nie została pomyślnie przeprowadzona. Gwarantuje to, że generowane są tylko zwalidowane wyniki pomiarów."
           ]
         },
         {
-          "heading": "Conclusion: The Promise of POC Diagnostics",
+          "heading": "Wnioski: Obietnica diagnostyki POC",
           "paragraphs": [
-            "The speed of POC diagnostics is an invaluable advantage. However, trust in this speed can only be secured through continuous quality assurance and validation. Point-of-Care diagnostics aiming for laboratory levels must mandatorily rely on the automated, calibrated, and validated evaluation of Lateral Flow Tests.",
-            "Only through the combination of a robust, calibrated reader and strict validation procedures does a rapid test become a reliable diagnostic basis."
+            "Szybkość diagnostyki POC to nieoceniona zaleta. Zaufanie do tej szybkości można jednak zapewnić tylko poprzez ciągłe zapewnienie jakości i walidację. Diagnostyka Point-of-Care dążąca do poziomu laboratoryjnego musi bezwzględnie polegać na zautomatyzowanej, skalibrowanej i zwalidowanej ocenie testów przepływu bocznego.",
+            "Tylko dzięki połączeniu solidnego, skalibrowanego czytnika i ścisłych procedur walidacji szybki test staje się wiarygodną podstawą diagnostyczną."
           ]
         }
       ]
     },
     "first_checkup": {
-      "title": "How to prepare for your first medical check-up",
-      "excerpt": "A short guide to help you feel confident and prepared for your very first comprehensive medical examination.",
+      "title": "Jak przygotować się do pierwszego badania kontrolnego",
+      "excerpt": "Krótki przewodnik, który pomoże Ci poczuć się pewnie i przygotować się do pierwszego kompleksowego badania lekarskiego.",
       "sections": [
         {
-          "heading": "Better care starts with being prepared",
+          "heading": "Lepsza opieka zaczyna się od przygotowania",
           "paragraphs": [
-            "Before your first medical check-up, it's important to collect your medical history, list any current medications, and note symptoms you've experienced recently. This helps your doctor build a complete picture and focus on what matters most to your health."
+            "Przed pierwszym badaniem kontrolnym ważne jest, aby zebrać historię medyczną, spisać aktualne leki i zanotować objawy, których ostatnio doświadczyłeś. Pomaga to lekarzowi zbudować pełny obraz i skupić się na tym, co najważniejsze dla Twojego zdrowia."
           ]
         },
         {
-          "heading": "What to bring to your appointment",
+          "heading": "Co zabrać na wizytę",
           "paragraphs": [
-            "Arriving prepared saves time and ensures a smoother conversation with your doctor."
+            "Przybycie przygotowanym oszczędza czas i zapewnia płynniejszą rozmowę z lekarzem."
           ],
           "listItems": [
-            "Identification and insurance information (if applicable).",
-            "A list of all medications, including supplements and vitamins.",
-            "Previous lab results or reports if you have them.",
-            "Questions you want to ask your doctor."
+            "Dokument tożsamości i informacje o ubezpieczeniu (jeśli dotyczy).",
+            "Lista wszystkich leków, w tym suplementów i witamin.",
+            "Poprzednie wyniki badań laboratoryjnych lub raporty, jeśli je posiadasz.",
+            "Pytania, które chcesz zadać lekarzowi."
           ]
         },
         {
-          "heading": "During the check-up",
+          "heading": "Podczas badania",
           "paragraphs": [
-            "Your doctor will usually check your vital signs, discuss your lifestyle, and perform a physical examination. Be honest about your habits and concerns — this is the best way to receive care that truly fits your situation.",
-            "Regular check-ups are the foundation of preventative medicine. By catching potential issues early, you give yourself more options, more time, and better outcomes."
+            "Twój lekarz zazwyczaj sprawdzi Twoje parametry życiowe, omówi Twój styl życia i przeprowadzi badanie fizykalne. Bądź szczery co do swoich nawyków i obaw — to najlepszy sposób na otrzymanie opieki, która naprawdę pasuje do Twojej sytuacji.",
+            "Regularne badania kontrolne są podstawą medycyny prewencyjnej. Wykrywając potencjalne problemy wcześnie, dajesz sobie więcej opcji, więcej czasu i lepsze wyniki."
           ]
         }
       ]
     },
     "managing_diabetes": {
-      "title": "Managing diabetes with simple daily routines",
-      "excerpt": "Discover how small, consistent habits can dramatically improve blood sugar control and overall wellbeing.",
+      "title": "Zarządzanie cukrzycą za pomocą prostych codziennych rutyn",
+      "excerpt": "Odkryj, jak małe, konsekwentne nawyki mogą drastycznie poprawić kontrolę poziomu cukru we krwi i ogólne samopoczucie.",
       "sections": [
         {
-          "heading": "Start with your morning routine",
+          "heading": "Zacznij od porannej rutyny",
           "paragraphs": [
-            "A stable morning routine sets the tone for the rest of the day. For people living with diabetes, this is especially important."
+            "Stabilna poranna rutyna nadaje ton reszcie dnia. Dla osób żyjących z cukrzycą jest to szczególnie ważne."
           ]
         }
       ]
     },
     "home_care": {
-      "title": "The benefits of professional home care services",
-      "excerpt": "Home care teams can bridge the gap between hospital and everyday life — here is how they support patients and families.",
+      "title": "Korzyści z profesjonalnych usług opieki domowej",
+      "excerpt": "Zespoły opieki domowej mogą wypełnić lukę między szpitalem a codziennym życiem — oto jak wspierają pacjentów i rodziny.",
       "sections": [
         {
-          "heading": "Care that comes to you",
+          "heading": "Opieka, która przychodzi do Ciebie",
           "paragraphs": [
-            "Professional home care services make it easier to recover after surgery or manage chronic conditions without constant hospital visits."
+            "Profesjonalne usługi opieki domowej ułatwiają rekonwalescencję po operacji lub zarządzanie chorobami przewlekłymi bez ciągłych wizyt w szpitalu."
           ]
         }
       ]
     }
   },
+  "blog": {
+    "caption": "Blog i Aktualności",
+    "title": "Nasze artykuły o zdrowiu"
+  },
   "footer": {
-    "description": "Comprehensive care and support. Modern health services for you and your family, around the clock.",
-    "links": "Links",
-    "discover": "Discover",
-    "london": "London",
+    "description": "Kompleksowa opieka i wsparcie. Nowoczesne usługi zdrowotne dla Ciebie i Twojej rodziny, przez całą dobę.",
+    "links": "Linki",
+    "discover": "Odkryj",
+    "london": "Londyn",
     "hamburg": "Hamburg",
-    "copyright": "Copyright ©PolarisDX 2025 All Rights Reserved.",
-    "doctors": "Our Doctors",
-    "testimonials": "Testimonials",
+    "copyright": "Copyright ©PolarisDX 2025 Wszelkie prawa zastrzeżone.",
+    "doctors": "Nasi lekarze",
+    "testimonials": "Referencje",
     "faq": "FAQ",
-    "appointment": "Make Appointment"
+    "appointment": "Umów wizytę"
   },
   "cta": {
-    "title": "Looking for professional & trusted <1>medical healthcare?</1>",
-    "description": "Don't hesitate to contact us. Our team is ready to support you and help schedule the right appointment.",
-    "button": "Make Appointment"
+    "title": "Szukasz profesjonalnej i zaufanej <1>opieki medycznej?</1>",
+    "description": "Nie wahaj się z nami skontaktować. Nasz zespół jest gotowy, aby Cię wesprzeć i pomóc zaplanować odpowiednią wizytę.",
+    "button": "Umów wizytę"
   },
   "contact": {
     "hero": {
-      "kicker": "Appointment",
-      "title": "Make Appointment",
-      "breadcrumb": "Home / Contact Us"
+      "kicker": "Wizyta",
+      "title": "Umów wizytę",
+      "breadcrumb": "Strona główna / Kontakt"
     },
     "form": {
-      "title": "Book Appointment",
-      "email": "Email",
-      "phone": "Phone",
-      "specialty": "Select Medical Specialties",
-      "doctor": "Select Doctor",
-      "any_doctor": "Any available doctor",
-      "date": "Select Date & Time",
-      "name": "Name",
-      "name_placeholder": "Your full name",
+      "title": "Zarezerwuj wizytę",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "specialty": "Wybierz specjalizacje medyczne",
+      "doctor": "Wybierz lekarza",
+      "any_doctor": "Dowolny dostępny lekarz",
+      "date": "Wybierz datę i godzinę",
+      "name": "Imię i nazwisko",
+      "name_placeholder": "Twoje pełne imię i nazwisko",
       "phone_placeholder": "+123 456 789",
-      "email_placeholder": "you@example.com",
-      "message": "Message",
-      "message_placeholder": "Tell us more about your needs...",
-      "submit": "Make Appointment"
+      "email_placeholder": "ty@przyklad.com",
+      "message": "Wiadomość",
+      "message_placeholder": "Powiedz nam więcej o swoich potrzebach...",
+      "submit": "Umów wizytę"
     },
     "info": {
-      "title": "Contact Information",
-      "text": "Our team will get back to you within one business day. For urgent questions, please use the phone number below."
+      "title": "Informacje kontaktowe",
+      "text": "Nasz zespół skontaktuje się z Tobą w ciągu jednego dnia roboczego. W przypadku pilnych pytań prosimy o skorzystanie z poniższego numeru telefonu."
     },
     "bottom_cta": {
-      "title": "Looking for professional & trusted medical healthcare?",
-      "text": "Don't hesitate to contact us. Our coordinators are ready to help you choose the right doctor and time."
+      "title": "Szukasz profesjonalnej i zaufanej opieki medycznej?",
+      "text": "Nie wahaj się z nami skontaktować. Nasi koordynatorzy są gotowi pomóc Ci wybrać odpowiedniego lekarza i termin."
     }
   }
 }

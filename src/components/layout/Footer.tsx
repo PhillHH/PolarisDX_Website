@@ -75,7 +75,7 @@ const Footer = () => {
             </div>
 
             <div className="space-y-3">
-              <h3 className="text-sm font-semibold tracking-tight">London</h3>
+              <h3 className="text-sm font-semibold tracking-tight">{t('footer.london', 'London')}</h3>
               <div className="space-y-1 text-white/70">
                 <p className="font-semibold">PolarisDX LTD</p>
                 <p>262A Fulham Road</p>
