@@ -6,7 +6,7 @@ const CtaSection = () => {
   return (
     <section
       id="contact"
-      className="relative mt-28 rounded-3xl bg-secondary px-6 py-6 text-white shadow-xl shadow-black/10 sm:px-8 sm:py-8 lg:px-10 lg:py-8"
+      className="relative mt-52 rounded-3xl bg-secondary px-6 py-6 text-white shadow-xl shadow-black/10 sm:px-8 sm:py-8 lg:px-10 lg:py-8"
     >
       <div className="grid items-center gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.3fr)]">
         {/* Bild links */}
