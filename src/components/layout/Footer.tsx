@@ -61,7 +61,7 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="grid flex-1 grid-cols-2 gap-8 text-sm lg:grid-cols-4">
+          <div className="grid flex-1 grid-cols-2 gap-8 text-sm lg:grid-cols-3">
             <div className="space-y-3">
               <h3 className="text-sm font-semibold tracking-tight">Links</h3>
               <ul className="space-y-2 text-white/70">
@@ -69,16 +69,6 @@ const Footer = () => {
                 <li><a href="#about" className="hover:text-secondary">Über uns</a></li>
                 <li><a href="#services" className="hover:text-secondary">Leistungen</a></li>
                 <li><a href="#blog" className="hover:text-secondary">Blog</a></li>
-              </ul>
-            </div>
-
-            <div className="space-y-3">
-              <h3 className="text-sm font-semibold tracking-tight">Entdecken</h3>
-              <ul className="space-y-2 text-white/70">
-                <li><a href="#doctors" className="hover:text-secondary">Unsere Ärzte</a></li>
-                <li><a href="#testimonials" className="hover:text-secondary">Referenzen</a></li>
-                <li><a href="#faq" className="hover:text-secondary">FAQ</a></li>
-                <li><a href="/contact" className="hover:text-secondary">Termin vereinbaren</a></li>
               </ul>
             </div>
 
