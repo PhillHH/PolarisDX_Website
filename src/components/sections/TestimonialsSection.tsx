@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { testimonials } from '../../data/testimonials'
 import SectionHeader from '~/components/ui/SectionHeader'
 
@@ -28,6 +29,7 @@ const StarRating = ({ rating }: { rating: number }) => (
 )
 
 const TestimonialsSection = () => {
+  const { t } = useTranslation()
   const [activeIndex, setActiveIndex] = useState(0)
 
   useEffect(() => {
@@ -53,8 +55,8 @@ const TestimonialsSection = () => {
       <div className="relative mx-auto flex max-w-container flex-col items-center gap-12 px-4 lg:px-8">
         <div className="flex flex-col items-center gap-6 text-center">
           <SectionHeader
-            caption="KUNDENSTIMMEN"
-            title="Was unsere Anwender über das Igloo Pro System sagen"
+            caption={t('testimonials.caption', 'KUNDENSTIMMEN')}
+            title={t('testimonials.title', 'Was unsere Anwender über das Igloo Pro System sagen')}
             titleClassName="text-white"
           />
         </div>
@@ -84,12 +86,12 @@ const TestimonialsSection = () => {
                     {/* Review Content */}
                     <div className="flex-grow space-y-4">
                       <blockquote className="text-lg leading-relaxed text-white/90">
-                        “{testimonial.text}”
+                        “{t(`testimonials.${testimonial.id}.text`)}”
                       </blockquote>
                       <div>
                         <p className="font-semibold">{testimonial.name}</p>
                         <p className="text-sm text-white/70">
-                          {testimonial.title}
+                          {t(`testimonials.${testimonial.id}.title`)}
                         </p>
                       </div>
                     </div>
@@ -122,10 +124,8 @@ const TestimonialsSection = () => {
             <div className="flex items-baseline justify-center gap-1">
               <span className="text-4xl font-medium tracking-tight">4.9</span>
             </div>
-            <p className="mt-1 text-sm text-white/80">
-              Overall Rating
-              <br />
-              based on 3500+ reviews
+            <p className="mt-1 text-sm text-white/80 whitespace-pre-line">
+              {t('testimonials.ratingLabel', 'Overall Rating\nbased on 3500+ reviews')}
             </p>
           </div>
           <div>
@@ -133,7 +133,7 @@ const TestimonialsSection = () => {
               <span className="text-4xl font-medium tracking-tight">99</span>
               <span className="text-2xl font-medium text-white/80">%</span>
             </div>
-            <p className="mt-1 text-sm text-white/80">Positive Review</p>
+            <p className="mt-1 text-sm text-white/80">{t('testimonials.positiveLabel', 'Positive Review')}</p>
           </div>
         </div>
       </div>

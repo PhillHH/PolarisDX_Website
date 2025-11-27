@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import SectionHeader from '../components/ui/SectionHeader'
 import ProductCard from '../components/ui/ProductCard'
 import { products } from '../data/products'
 
 const ShopPage = () => {
+  const { t } = useTranslation()
+
   return (
     <div className="bg-slate-50 text-gray-900">
       {/* Hero / Top */}
@@ -15,15 +18,15 @@ const ShopPage = () => {
           <div className="max-w-container">
             <div className="mb-3 text-sm text-white/70">
               <Link to="/" className="hover:text-secondary">
-                Home
+                {t('shop.home')}
               </Link>{' '}
-              / <span>Shop</span>
+              / <span>{t('nav.shop')}</span>
             </div>
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
-              MedHealth Shop
+              {t('shop.subtitle')}
             </p>
             <h1 className="text-[40px] leading-[47px] font-medium tracking-[-0.02em] sm:text-[48px] sm:leading-[58px] lg:text-[58px] lg:leading-[69px]">
-              Medical supplies &amp; services
+              {t('shop.title')}
             </h1>
           </div>
         </div>
@@ -33,8 +36,8 @@ const ShopPage = () => {
       <main className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">
         <div className="mb-8">
           <SectionHeader
-            caption="Shop"
-            title="Discover our curated products"
+            caption={t('nav.shop')}
+            title={t('shop.discoverTitle')}
             align="left"
           />
         </div>
@@ -43,10 +46,9 @@ const ShopPage = () => {
           {products.map((product) => (
             <ProductCard
               key={product.id}
-              name={product.name}
+              id={product.id}
               category={product.category}
               price={product.price}
-              description={product.shortDescription}
               badge={product.badge}
               to={`/shop/${product.slug}`}
               image={product.image}
@@ -59,6 +61,3 @@ const ShopPage = () => {
 }
 
 export default ShopPage
-
-
-

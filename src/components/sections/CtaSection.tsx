@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom'
+import { useTranslation, Trans } from 'react-i18next'
 import PrimaryButton from '../ui/PrimaryButton'
 import avatar from '../../assets/avatar.png'
 
 const CtaSection = () => {
+  const { t } = useTranslation()
+
   return (
     <section
       id="contact"

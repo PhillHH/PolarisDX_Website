@@ -2,6 +2,8 @@ import PrimaryButton from '../components/ui/PrimaryButton'
 import SectionHeader from '../components/ui/SectionHeader'
 
 const ContactPage = () => {
+  const { t } = useTranslation()
+
   return (
     <div className="bg-slate-50 text-gray-900">
       {/* Hero / Top */}
@@ -79,17 +81,17 @@ const ContactPage = () => {
                   <input
                     type="text"
                     className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40"
-                    placeholder="Your full name"
+                    placeholder={t('contact.form.name_placeholder', 'Your full name')}
                   />
                 </div>
                 <div className="space-y-1">
                   <label className="block text-sm font-medium text-gray-700">
-                    Phone Number
+                    {t('contact.form.phone', 'Phone Number')}
                   </label>
                   <input
                     type="tel"
                     className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40"
-                    placeholder="+123 456 789"
+                    placeholder={t('contact.form.phone_placeholder', '+123 456 789')}
                   />
                 </div>
               </div>
@@ -99,7 +101,7 @@ const ContactPage = () => {
                 <input
                   type="email"
                   className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40"
-                  placeholder="you@example.com"
+                  placeholder={t('contact.form.email_placeholder', 'you@example.com')}
                 />
               </div>
 
@@ -139,7 +141,7 @@ const ContactPage = () => {
           <aside className="space-y-6">
             <section className="rounded-2xl bg-white p-6 shadow-sm">
               <h2 className="text-lg font-semibold tracking-tight text-gray-900">
-                Contact Information
+                {t('contact.info.title', 'Contact Information')}
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-gray-600">
                 Our team will get back to you within one business day. For urgent questions,
@@ -158,5 +160,3 @@ const ContactPage = () => {
 }
 
 export default ContactPage
-
-

@@ -2,6 +2,7 @@ import { useLocation } from 'react-router-dom'
 import logo from '../../assets/polarisdx_logo.png'
 import CtaSection from '../sections/CtaSection'
 import { Linkedin, Instagram } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const Footer = () => {
   const location = useLocation()
@@ -34,7 +35,7 @@ const Footer = () => {
               />
             </div>
             <p className="max-w-sm text-sm text-white/70">
-              Umfassende Betreuung und Fürsorge. Moderne Gesundheitsdienste für Sie und Ihre Familie, rund um die Uhr.
+              {t('footer.description', 'Umfassende Betreuung und Fürsorge. Moderne Gesundheitsdienste für Sie und Ihre Familie, rund um die Uhr.')}
             </p>
             <div className="flex gap-4">
               <a
@@ -57,18 +58,18 @@ const Footer = () => {
               </a>
             </div>
             <p className="text-sm text-white/60">
-              Copyright ©PolarisDX 2025 All Rights Reserved.
+              {t('footer.copyright', 'Copyright ©PolarisDX 2025 All Rights Reserved.')}
             </p>
           </div>
 
           <div className="grid flex-1 grid-cols-2 gap-8 text-sm lg:grid-cols-3">
             <div className="space-y-3">
-              <h3 className="text-sm font-semibold tracking-tight">Links</h3>
+              <h3 className="text-sm font-semibold tracking-tight">{t('footer.links', 'Links')}</h3>
               <ul className="space-y-2 text-white/70">
-                <li><a href="#hero" className="hover:text-secondary">Startseite</a></li>
-                <li><a href="#about" className="hover:text-secondary">Über uns</a></li>
-                <li><a href="#services" className="hover:text-secondary">Leistungen</a></li>
-                <li><a href="#blog" className="hover:text-secondary">Blog</a></li>
+                <li><a href="#hero" className="hover:text-secondary">{t('nav.home')}</a></li>
+                <li><a href="#about" className="hover:text-secondary">{t('nav.about')}</a></li>
+                <li><a href="#services" className="hover:text-secondary">{t('nav.service')}</a></li>
+                <li><a href="#blog" className="hover:text-secondary">{t('nav.blog')}</a></li>
               </ul>
             </div>
 
@@ -84,7 +85,7 @@ const Footer = () => {
             </div>
 
             <div className="space-y-3">
-              <h3 className="text-sm font-semibold tracking-tight">Hamburg</h3>
+              <h3 className="text-sm font-semibold tracking-tight">{t('footer.hamburg', 'Hamburg')}</h3>
               <div className="space-y-1 text-white/70">
                 <p className="font-semibold">PolarisDX Europe UG</p>
                 <p>Große Bleichen 1 - 3</p>

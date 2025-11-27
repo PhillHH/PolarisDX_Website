@@ -1,0 +1,52 @@
+{
+  "hero": {
+    "caption": "Point-of-care Performance",
+    "title": "IglooPro:\nPoint-of-Care. Perfect. Instant.",
+    "description": "Secure the performance package: Your IglooPro is ready for use in 48 hours – guaranteed.",
+    "cta": "Book 15-minute performance analysis now",
+    "stat1": {
+      "value": "48h",
+      "label": "Ready for use after order"
+    },
+    "stat2": {
+      "value": "CV < 2%",
+      "label": "Precision across the entire measurement range"
+    }
+  },
+  "about": {
+    "caption": "YOUR PERFORMANCE GUARANTOR",
+    "title": "Excellence and Safety: The Standard We Set.",
+    "text1": "The IglooPro is a premium device. But true premium performance only comes from perfect, risk-free commissioning. Standard delivery leaves the complexity to you. We take responsibility for the result.",
+    "text2": "That's why we exclusively deliver the 48-hour setup promise. Our performance pillars guarantee that your POC workflow is optimized from the very first second and that you can use diagnostic excellence immediately.",
+    "cta": "Secure exclusive advantage"
+  },
+  "doctors": {
+    "caption": "DIAGNOSTICS FOCUS",
+    "title": "Precise Diagnostics. Immediate Results at the Point-of-Care.",
+    "description": "Discover with systems like the Igloo Pro from DX365 how you can optimize your patient care and make important diagnoses directly at the point of treatment – with lab-accurate results in minutes.",
+    "cta": "Go to Igloo Pro System"
+  },
+  "shop": {
+      "features": "Features & Benefits",
+      "techSpecs": "Technical Specifications",
+      "whatsInBox": "What's in the box?",
+      "demoNote": "Please note: This is a demo shop for design and layout purposes only. No real orders or payments are processed.",
+      "backToShop": "Back to Shop",
+      "needHelp": "Need help choosing a product?",
+      "contactTeam": "Contact our team",
+      "orderInfo": "Order information",
+      "orderInfoText": "This demo layout mimics a simple order box. In a real project, this is where you would show availability, shipping options and an “Add to cart” button.",
+      "addToCart": "Add to cart (demo)",
+      "youMightLike": "You might also like",
+      "view": "View",
+      "home": "Home",
+      "article": "Article",
+      "articleDisclaimer": "Regular check-ups and proactive care are the foundation of long-term health. If you have questions, don't hesitate to reach out to a medical professional.",
+      "shareArticle": "Liked this article? Share it with your friends and family.",
+      "backToHome": "Back to Home",
+      "suggestedArticles": "Suggested articles",
+      "moreArticles": "More articles",
+      "contactText": "Our medical team is available 24/7 to answer urgent questions and help you decide what to do next.",
+      "readMore": "Read More"
+  }
+}

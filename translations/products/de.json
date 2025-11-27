@@ -1,0 +1,159 @@
+{
+  "products": {
+    "igloo_reader_pro": {
+      "name": "Igloo Reader Pro",
+      "shortDescription": "Der Igloo Reader Pro ist ein kompakter, hochmoderner All-in-One-Analysator für die Point-of-Care-Diagnostik (POCT). Er kombiniert Laborgenauigkeit mit den Anforderungen dezentraler Umgebungen. Unterstützt Lateral Flow, Microarray, Fluoreszenz und mehr – die ideale Lösung für schnelle, zuverlässige quantitative und qualitative Testergebnisse.",
+      "detailedDescription": [
+        "Der Igloo Reader Pro definiert die mobile Diagnostik neu. Dieses vielseitige Analysegerät wurde speziell für professionelle Umgebungen und dezentrale Point-of-Care-Anwendungen entwickelt und ermöglicht eine schnelle und zuverlässige qualitative und quantitative Testung.",
+        "Der Reader unterstützt eine breite Palette an diagnostischen Tests – von der Infektionskrankheitenvorsorge über kardiale Marker und Hormonprofile bis hin zu Drogenmissbrauchs- und Allergie-Panels. Dank automatisierter Kalibrierung, Cloud-Integration und digitalem Datenexport liefert der Igloo Reader Pro Laborqualität direkt dorthin, wo sie benötigt wird. Er ermöglicht es medizinischem Fachpersonal, schnelle und verlässliche Ergebnisse überall zu erzielen."
+      ],
+      "features": [
+        "Universelle Testplattform: Unterstützt Microarray, Lateral Flow, Kolorimetrie, Fluoreszenz, Dry Chemistry und Mikrofluidik.",
+        "Laborgenauigkeit im POCT-Format: Hohe Präzision durch automatische Selbstkalibrierung vor jeder Messung (CV < 2 % Inter-Reader, CV < 3 % Intra-Reader).",
+        "Kompakt & Mobil: Leichtes Design mit einer Akkulaufzeit von bis zu 24 Stunden ununterbrochener Testung.",
+        "Volle Konnektivität: Integriertes Wi-Fi, Bluetooth und USB-C für nahtlose Datensynchronisation und API-/LIMS-Integration.",
+        "Sichere Cloud-Integration (Dx365 Cloud): Für Test-Updates, Kalibrierungsmanagement und verschlüsselte Datenspeicherung.",
+        "Vielseitige Probenarten: Kompatibel mit Vollblut, Kapillarblut, Serum, Plasma, Urin, Stuhl, Speichel und Haar."
+      ],
+      "techSpecs": [
+        { "parameter": "Geräteabmessungen (L × B × H)", "specification": "87,5 × 87,5 × 91 mm" },
+        { "parameter": "Gewicht", "specification": "ca. 270 g" },
+        { "parameter": "Messdauer", "specification": "Wenige Sekunden (exkl. Inkubationszeit)" },
+        { "parameter": "Unterstützte Testmethoden", "specification": "Microarray, Kolorimetrie, Fluoreszenz, Dry Chemistry, Quantum Dots, Mikrofluidik" },
+        { "parameter": "Probenarten", "specification": "Vollblut, Kapillarblut, Serum, Plasma, Urin, Stuhl, Speichel, Haar" },
+        { "parameter": "Ergebnisspeicher", "specification": "Bis zu 10.000 Ergebnisse" },
+        { "parameter": "Batterie", "specification": "Wiederaufladbarer Lithium-Akku, bis zu 24 Stunden kontinuierlicher Testbetrieb" },
+        { "parameter": "Konnektivität", "specification": "USB-C, Wi-Fi (802.11 b/g/n), Bluetooth, API/LIMS-Integration" },
+        { "parameter": "Zertifizierung", "specification": "CE-Kennzeichnung, RoHS-konform" }
+      ],
+      "deliveryScope": [
+        "1 × Igloo Reader Pro Analysegerät",
+        "1 × USB-A auf USB-C Kabel",
+        "Elektronisches Benutzerhandbuch"
+      ],
+      "note": "Wichtiger Hinweis: Adapter und QC-Testkits sind separat erhältlich und nicht im Standardlieferumfang enthalten."
+    },
+    "bp_monitor": {
+      "name": "Digitales Blutdruckmessgerät",
+      "shortDescription": "Präzises, einfach zu bedienendes Blutdruckmessgerät für den Heimgebrauch mit Speicherfunktion.",
+      "features": [
+        "Oberarmmanschette mit verstellbarer Größe",
+        "Speichert bis zu 60 Messwerte",
+        "Erkennung von unregelmäßigem Herzschlag"
+      ]
+    },
+    "thermometer": {
+      "name": "Kontaktloses Stirnthermometer",
+      "shortDescription": "Schnelle, hygienische Temperaturmessung ohne Hautkontakt – ideal für Familien.",
+      "features": [
+        "1-Sekunden-Messung",
+        "Fieberalarm-Anzeige",
+        "Beleuchtetes Display"
+      ]
+    },
+    "pulse_oximeter": {
+      "name": "Finger-Pulsoximeter",
+      "shortDescription": "Messen Sie die Blutsauerstoffsättigung und die Pulsfrequenz in Sekundenschnelle.",
+      "features": [
+        "Anzeige von SpO₂ und Pulsfrequenz",
+        "Kompakt und tragbar",
+        "Automatische Abschaltung"
+      ]
+    },
+    "home_care_kit": {
+      "name": "Pflege-Starter-Set für Zuhause",
+      "shortDescription": "Wichtige Hilfsmittel für die tägliche Pflege zu Hause, einschließlich Überwachungsgeräten und Erste-Hilfe-Grundausstattung.",
+      "features": [
+        "Digitales Thermometer und Blutdruckmessgerät",
+        "Grundlegende Wundversorgungsmaterialien",
+        "Kompakte Aufbewahrungstasche"
+      ]
+    },
+    "diabetes_kit": {
+      "name": "Diabetes-Überwachungsset",
+      "shortDescription": "Alles, was Sie benötigen, um Ihren Blutzuckerspiegel bequem zu Hause zu überwachen.",
+      "features": [
+        "Blutzuckermessgerät mit Teststreifen",
+        "Stechhilfe und Lanzetten",
+        "Tragetasche für Reisen"
+      ]
+    },
+    "n95_mask_pack": {
+      "name": "N95 Atemschutzmasken-Paket (10 Stk.)",
+      "shortDescription": "Zertifizierte N95-Masken für zuverlässigen Atemschutz.",
+      "features": [
+        "Verstellbarer Nasenbügel",
+        "Komfortable Ohrschlaufen",
+        "Einzeln verpackt"
+      ]
+    },
+    "hand_sanitizer": {
+      "name": "Antibakterielles Handdesinfektionsmittel (500 ml)",
+      "shortDescription": "Schnell trocknendes Desinfektionsmittel mit feuchtigkeitsspendenden Inhaltsstoffen.",
+      "features": [
+        "Tötet 99,9 % der Keime ab",
+        "Klebt nicht",
+        "Frischer, sauberer Duft"
+      ]
+    },
+    "compression_socks": {
+      "name": "Medizinische Kompressionsstrümpfe",
+      "shortDescription": "Unterstützen die Durchblutung an langen Tagen auf den Beinen oder während der Erholung.",
+      "features": [
+        "Abgestufte Kompression",
+        "Atmungsaktives Gewebe",
+        "Verschiedene Größen verfügbar"
+      ]
+    },
+    "first_aid_kit": {
+      "name": "Kompaktes Erste-Hilfe-Set",
+      "shortDescription": "Ein kompaktes Set mit dem Nötigsten für kleinere Verletzungen und Notfälle.",
+      "features": [
+        "Pflaster und Verbände",
+        "Antiseptische Tücher",
+        "Anleitungsheft"
+      ]
+    },
+    "online_consult": {
+      "name": "Online-Arztkonsultation (30 Min.)",
+      "shortDescription": "Buchen Sie eine 30-minütige Videokonsultation mit einem unserer Ärzte.",
+      "features": [
+        "Flexible Terminoptionen",
+        "Sichere Videoplattform",
+        "Zusammenfassender Bericht nach der Sitzung"
+      ]
+    }
+  },
+  "badge": {
+    "New": "Neu",
+    "Popular": "Beliebt",
+    "Limited": "Limitiert"
+  },
+  "category": {
+    "Diagnostics": "Diagnostik",
+    "Monitoring": "Überwachung",
+    "Home Care": "Heimpflege",
+    "Chronic Care": "Chronische Pflege",
+    "Protection": "Schutz",
+    "Hygiene": "Hygiene",
+    "Recovery": "Genesung",
+    "Emergency": "Notfall",
+    "Service": "Service"
+  },
+  "shop": {
+      "addToCart": "In den Warenkorb (Demo)",
+      "orderInfo": "Bestellinformationen",
+      "orderInfoText": "Dieses Demo-Layout ahmt eine einfache Bestellbox nach. In einem echten Projekt würden hier Verfügbarkeit, Versandoptionen und ein 'In den Warenkorb'-Button angezeigt.",
+      "youMightLike": "Das könnte Ihnen auch gefallen",
+      "view": "Ansehen",
+      "viewDetails": "Details ansehen",
+      "backToShop": "Zurück zum Shop",
+      "needHelp": "Brauchen Sie Hilfe bei der Auswahl?",
+      "contactTeam": "Kontaktieren Sie unser Team",
+      "demoNote": "Bitte beachten: Dies ist ein Demo-Shop nur zu Design- und Layoutzwecken. Es werden keine echten Bestellungen oder Zahlungen verarbeitet.",
+      "whatsInBox": "Lieferumfang",
+      "techSpecs": "Technische Daten",
+      "features": "Funktionen & Vorteile",
+      "home": "Home"
+  }
+}

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import HeroSection from '../components/sections/HeroSection'
 import AboutSection from '../components/sections/AboutSection'
 import ServicesSection from '../components/sections/ServicesSection'
@@ -9,6 +10,8 @@ import ProductCard from '../components/ui/ProductCard'
 import { products } from '../data/products'
 
 const HomePage = () => {
+  const { t } = useTranslation()
+
   return (
     <>
       <HeroSection />
@@ -27,15 +30,18 @@ const HomePage = () => {
         <BlogSection />
         {/* Shop Teaser */}
         <section className="space-y-8">
-          <SectionHeader caption="Shop" title="Featured medical products" align="left" />
+          <SectionHeader
+            caption={t('nav.shop', 'Shop')}
+            title={t('shop.discoverTitle', 'Featured medical products')}
+            align="left"
+          />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {products.slice(0, 3).map((product) => (
               <ProductCard
                 key={product.id}
-                name={product.name}
+                id={product.id}
                 category={product.category}
                 price={product.price}
-                description={product.shortDescription}
                 badge={product.badge}
                 to={`/shop/${product.slug}`}
                 image={product.image}
@@ -49,5 +55,3 @@ const HomePage = () => {
 }
 
 export default HomePage
-
-
