@@ -1,18 +1,21 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import PrimaryButton from '../ui/PrimaryButton'
+import LanguageSwitcher from '../ui/LanguageSwitcher'
 import logo from '../../assets/polaris_white.png'
 import scrolledLogo from '../../assets/PolarisDX_Logo_main.png'
 
 const navItems = [
-  { label: 'Home', href: '#hero' },
-  { label: 'About', href: '#about' },
-  { label: 'Service', href: '#services' },
-  { label: 'Shop', route: '/shop' as const },
-  { label: 'Blog', href: '#blog' },
+  { label: 'home', href: '#hero' },
+  { label: 'about', href: '#about' },
+  { label: 'service', href: '#services' },
+  { label: 'shop', route: '/shop' as const },
+  { label: 'blog', href: '#blog' },
 ]
 
 const Header = () => {
+  const { t } = useTranslation()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
 
@@ -52,61 +55,66 @@ const Header = () => {
                 to={item.route}
                 className="flex items-center gap-1 transition-colors hover:text-secondary"
               >
-                <span>{item.label}</span>
+                <span>{t(`nav.${item.label}`)}</span>
               </Link>
             ) : (
               <a
                 key={item.label}
                 href={item.href}
                 className={`flex items-center gap-1 transition-colors ${
-                  item.label === 'Home' ? 'text-secondary' : 'hover:text-secondary'
+                  item.label === 'home' ? 'text-secondary' : 'hover:text-secondary'
                 }`}
               >
-                <span>{item.label}</span>
+                <span>{t(`nav.${item.label}`)}</span>
               </a>
             ),
           )}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex items-center gap-4">
+          <LanguageSwitcher className={isScrolled ? 'text-primary' : 'text-white'} />
           <PrimaryButton
             as={Link}
             to="/contact"
             variant={isScrolled ? 'primary' : 'outline-light'}
           >
-            Contact Us
+             {t('nav.contact')}
           </PrimaryButton>
         </div>
 
-        <button
-          type="button"
-          className={`flex h-10 w-10 items-center justify-center rounded-full border lg:hidden ${
-            isScrolled
-              ? 'border-primary/20 text-primary'
-              : 'border-white/20 text-white'
-          }`}
-          onClick={() => setIsOpen((prev) => !prev)}
-          aria-label="Toggle navigation"
-        >
-          <span className="sr-only">Toggle navigation</span>
-          <div className="space-y-1.5">
-            <span
-              className={`block h-0.5 w-5 ${
-                isScrolled ? 'bg-primary' : 'bg-white'
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-5 ${
-                isScrolled ? 'bg-primary' : 'bg-white'
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-5 ${
-                isScrolled ? 'bg-primary' : 'bg-white'
-              }`}
-            />
-          </div>
-        </button>
+        <div className="lg:hidden flex items-center gap-2">
+           <LanguageSwitcher className={isScrolled ? 'text-primary' : 'text-white'} isMobile />
+
+            <button
+            type="button"
+            className={`flex h-10 w-10 items-center justify-center rounded-full border ${
+                isScrolled
+                ? 'border-primary/20 text-primary'
+                : 'border-white/20 text-white'
+            }`}
+            onClick={() => setIsOpen((prev) => !prev)}
+            aria-label="Toggle navigation"
+            >
+            <span className="sr-only">Toggle navigation</span>
+            <div className="space-y-1.5">
+                <span
+                className={`block h-0.5 w-5 ${
+                    isScrolled ? 'bg-primary' : 'bg-white'
+                }`}
+                />
+                <span
+                className={`block h-0.5 w-5 ${
+                    isScrolled ? 'bg-primary' : 'bg-white'
+                }`}
+                />
+                <span
+                className={`block h-0.5 w-5 ${
+                    isScrolled ? 'bg-primary' : 'bg-white'
+                }`}
+                />
+            </div>
+            </button>
+        </div>
       </div>
 
       {isOpen && (
@@ -128,7 +136,7 @@ const Header = () => {
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
-                  {item.label}
+                   {t(`nav.${item.label}`)}
                 </Link>
               ) : (
                 <a
@@ -139,7 +147,7 @@ const Header = () => {
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
-                  {item.label}
+                   {t(`nav.${item.label}`)}
                 </a>
               ),
             )}
@@ -150,7 +158,7 @@ const Header = () => {
               onClick={() => setIsOpen(false)}
               variant={isScrolled ? 'primary' : 'outline-light'}
             >
-              Contact Us
+               {t('nav.contact')}
             </PrimaryButton>
           </div>
         </div>
@@ -160,5 +168,3 @@ const Header = () => {
 }
 
 export default Header
-
-

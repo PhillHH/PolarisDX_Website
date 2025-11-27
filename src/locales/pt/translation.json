@@ -1,0 +1,10 @@
+{
+  "nav": {
+    "home": "Início",
+    "about": "Sobre nós",
+    "service": "Serviços",
+    "shop": "Loja",
+    "blog": "Blog",
+    "contact": "Contacte-nos"
+  }
+}

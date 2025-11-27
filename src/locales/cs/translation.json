@@ -1,0 +1,10 @@
+{
+  "nav": {
+    "home": "Domů",
+    "about": "O nás",
+    "service": "Služby",
+    "shop": "Obchod",
+    "blog": "Blog",
+    "contact": "Kontaktujte nás"
+  }
+}
