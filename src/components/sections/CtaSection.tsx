@@ -6,16 +6,15 @@ const CtaSection = () => {
   return (
     <section
       id="contact"
-      className="overflow-hidden rounded-3xl bg-secondary px-6 py-6 text-white shadow-xl shadow-black/10 sm:px-8 sm:py-8 lg:px-10 lg:py-8"
+      className="relative rounded-3xl bg-secondary px-6 py-6 text-white shadow-xl shadow-black/10 sm:px-8 sm:py-8 lg:px-10 lg:py-8"
     >
       <div className="grid items-center gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.3fr)]">
         {/* Bild links */}
-        <div className="relative mx-auto h-40 w-40 max-w-full sm:h-48 sm:w-48">
-          <div className="absolute inset-0 rounded-3xl bg-white/10" />
+        <div className="relative mx-auto lg:h-full lg:w-full">
           <img
             src={heroDoctor}
             alt="Doctor ready to help"
-            className="relative h-full w-full object-cover"
+            className="mx-auto w-48 sm:w-64 lg:absolute lg:bottom-[-32px] lg:left-0 lg:w-80 lg:max-w-none xl:w-96"
           />
         </div>
 
