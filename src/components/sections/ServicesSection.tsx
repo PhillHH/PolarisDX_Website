@@ -19,6 +19,7 @@ const ServicesSection = () => {
             key={service.id}
             title={t(`services.${service.translationKey}.title`)}
             description={t(`services.${service.translationKey}.description`)}
+            to={`/services/${service.id}`}
           />
         ))}
       </div>

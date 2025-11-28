@@ -5,6 +5,7 @@ import ArticlePage from './routes/ArticlePage'
 import ContactPage from './routes/ContactPage'
 import ShopPage from './routes/ShopPage'
 import ProductPage from './routes/ProductPage'
+import ServicePage from './routes/ServicePage'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/articles/:slug" element={<ArticlePage />} />
+        <Route path="/services/:slug" element={<ServicePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/shop/:slug" element={<ProductPage />} />
