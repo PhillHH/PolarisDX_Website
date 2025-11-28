@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom'
 import PrimaryButton from '../ui/PrimaryButton'
 import avatar from '../../assets/avatar.png'
+import { useTranslation } from 'react-i18next'
 
 const CtaSection = () => {
+  const { t } = useTranslation('common')
+
   return (
     <section
       id="contact"
@@ -21,16 +24,13 @@ const CtaSection = () => {
         {/* Text rechts */}
         <div className="space-y-4 text-center lg:text-left">
           <h2 className="text-2xl font-medium leading-tight tracking-tight sm:text-3xl lg:text-4xl">
-            Sie suchen nach garantierter Performance und POC-Expertise?
+            {t('cta_section.title')}
           </h2>
           <p className="text-sm leading-relaxed text-white/90 sm:text-base">
-            Sprechen Sie direkt mit unseren IglooPro-Spezialisten. Unser Team ist bereit, Ihre
-            individuellen Workflow-Anforderungen zu analysieren und Ihnen den schnellsten Weg zur
-            validierten Diagnostik zu zeigen. Bei uns erhalten Sie eine maßgeschneiderte Lösung,
-            keine Standard-Lieferung.
+            {t('cta_section.text')}
           </p>
           <PrimaryButton as={Link} to="/contact" variant="secondary">
-            Jetzt Experten-Analyse buchen
+             {t('cta_section.button')}
           </PrimaryButton>
         </div>
       </div>

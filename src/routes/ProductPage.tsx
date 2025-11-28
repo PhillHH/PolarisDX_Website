@@ -9,7 +9,7 @@ type TechSpec = {
 }
 
 const ProductPage = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation(['shop', 'common'])
   const { slug } = useParams<{ slug: string }>()
   const fallbackProduct = products[0]
   const foundProduct = slug ? getProductBySlug(slug) : undefined

@@ -3,7 +3,7 @@ import SectionHeader from '../components/ui/SectionHeader'
 import { useTranslation } from 'react-i18next'
 
 const ContactPage = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation(['contact', 'common'])
 
   return (
     <div className="bg-slate-50 text-gray-900">
@@ -15,12 +15,12 @@ const ContactPage = () => {
         <div className="relative mx-auto flex min-h-[340px] max-w-[1440px] flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
           <div className="max-w-container">
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
-              IHRE PERFORMANCE-ANALYSE
+              {t('page.eyebrow')}
             </p>
             <h1 className="mb-3 text-[40px] leading-[47px] font-medium tracking-[-0.02em] sm:text-[48px] sm:leading-[58px] lg:text-[58px] lg:leading-[69px]">
-              IglooPro Performance-Analyse anfordern
+              {t('page.title')}
             </h1>
-            <p className="text-sm text-white/80 sm:text-base">Home / Contact Us</p>
+            <p className="text-sm text-white/80 sm:text-base">{t('page.breadcrumb')}</p>
           </div>
         </div>
       </section>
@@ -31,8 +31,8 @@ const ContactPage = () => {
           {/* Form-Card */}
           <section className="space-y-6 rounded-2xl bg-white p-6 shadow-sm lg:p-8">
             <SectionHeader
-              caption="IHRE PERFORMANCE-ANALYSE"
-              title="IglooPro Performance-Analyse anfordern"
+              caption={t('page.eyebrow')}
+              title={t('page.title')}
               align="left"
             />
 
@@ -44,7 +44,7 @@ const ContactPage = () => {
                 </span>
                 <div>
                   <p className="text-xs font-medium uppercase tracking-[0.16em] text-gray-500">
-                    EMAIL (24/7 Service)
+                    {t('info.email_label')}
                   </p>
                   <p>kontakt@polarisdx.net</p>
                 </div>
@@ -55,7 +55,7 @@ const ContactPage = () => {
                 </span>
                 <div>
                   <p className="text-xs font-medium uppercase tracking-[0.16em] text-gray-500">
-                    PHONE (Priority-Line)
+                    {t('info.phone_label')}
                   </p>
                   <p>+49 (0) XXXX XXXX</p>
                 </div>
@@ -66,73 +66,73 @@ const ContactPage = () => {
             <form className="mt-4 space-y-5">
               <div className="space-y-1">
                 <label className="block text-sm font-medium text-gray-700">
-                  Name des Unternehmens / der Praxis
+                  {t('form.company_label')}
                 </label>
                 <input
                   type="text"
                   required
                   className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40"
-                  placeholder="z.B. Praxis Dr. Müller oder Löwen-Apotheke"
+                  placeholder={t('form.company_placeholder')}
                 />
               </div>
 
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="space-y-1">
-                  <label className="block text-sm font-medium text-gray-700">Name</label>
+                  <label className="block text-sm font-medium text-gray-700">{t('form.name_label')}</label>
                   <input
                     type="text"
                     className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40"
-                    placeholder={t('contact.form.name_placeholder', 'Your full name')}
+                    placeholder={t('form.name_placeholder')}
                   />
                 </div>
                 <div className="space-y-1">
                   <label className="block text-sm font-medium text-gray-700">
-                    {t('contact.form.phone', 'Phone Number')}
+                    {t('form.phone', 'Phone Number')}
                   </label>
                   <input
                     type="tel"
                     className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40"
-                    placeholder={t('contact.form.phone_placeholder', '+123 456 789')}
+                    placeholder={t('form.phone_placeholder', '+123 456 789')}
                   />
                 </div>
               </div>
 
               <div className="space-y-1">
-                <label className="block text-sm font-medium text-gray-700">Email</label>
+                <label className="block text-sm font-medium text-gray-700">{t('form.email_label')}</label>
                 <input
                   type="email"
                   className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40"
-                  placeholder={t('contact.form.email_placeholder', 'you@example.com')}
+                  placeholder={t('form.email_placeholder', 'you@example.com')}
                 />
               </div>
 
               <div className="space-y-1">
                 <label className="block text-sm font-medium text-gray-700">
-                  Primärer Einsatzbereich
+                  {t('form.area_label')}
                 </label>
                 <select className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40">
-                  <option>Apotheke</option>
-                  <option>Arztpraxis/Klinik</option>
-                  <option>Veterinärmedizin</option>
-                  <option>Forschung/Labor</option>
-                  <option>Sonstiges</option>
+                  <option>{t('form.area_options.pharmacy')}</option>
+                  <option>{t('form.area_options.doctor')}</option>
+                  <option>{t('form.area_options.vet')}</option>
+                  <option>{t('form.area_options.lab')}</option>
+                  <option>{t('form.area_options.other')}</option>
                 </select>
               </div>
 
               <div className="space-y-1">
                 <label className="block text-sm font-medium text-gray-700">
-                  Ihre spezifischen Anforderungen an IglooPro
+                  {t('form.requirements_label')}
                 </label>
                 <textarea
                   rows={4}
                   className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40"
-                  placeholder="Welche Biomarker (z.B. CRP, TSH, HbA1c) sind für Sie primär relevant?"
+                  placeholder={t('form.requirements_placeholder')}
                 />
               </div>
 
               <div className="pt-2">
                 <PrimaryButton type="submit" className="w-full justify-center md:w-auto">
-                  Performance-Analyse jetzt anfordern
+                  {t('form.submit_button')}
                 </PrimaryButton>
               </div>
             </form>
@@ -142,11 +142,10 @@ const ContactPage = () => {
           <aside className="space-y-6">
             <section className="rounded-2xl bg-white p-6 shadow-sm">
               <h2 className="text-lg font-semibold tracking-tight text-gray-900">
-                {t('contact.info.title', 'Contact Information')}
+                {t('info.title', 'Contact Information')}
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-gray-600">
-                Our team will get back to you within one business day. For urgent questions,
-                please use the phone number below.
+                {t('info.text', 'Our team will get back to you within one business day. For urgent questions, please use the phone number below.')}
               </p>
               <div className="mt-4 space-y-1 text-sm text-gray-800">
                 <p>kontakt@polarisdx.net</p>

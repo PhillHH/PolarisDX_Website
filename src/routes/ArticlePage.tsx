@@ -12,7 +12,7 @@ type ArticleSection = {
 }
 
 const ArticlePage = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation(['home', 'common'])
   const { slug } = useParams<{ slug: string }>()
   const fallbackArticle = articles[0]
   const foundArticle = slug ? getArticleBySlug(slug) : undefined

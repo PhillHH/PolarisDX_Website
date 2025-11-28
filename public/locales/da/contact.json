@@ -1,0 +1,53 @@
+{
+  "hero": {
+    "kicker": "Appointment",
+    "title": "Make Appointment",
+    "breadcrumb": "Home / Contact Us"
+  },
+  "form": {
+    "title": "Book Appointment",
+    "email": "Email",
+    "phone": "Phone",
+    "specialty": "Select Medical Specialties",
+    "doctor": "Select Doctor",
+    "any_doctor": "Any available doctor",
+    "date": "Select Date & Time",
+    "name": "Name",
+    "name_placeholder": "Your full name",
+    "phone_placeholder": "+123 456 789",
+    "email_placeholder": "you@example.com",
+    "message": "Message",
+    "message_placeholder": "Tell us more about your needs...",
+    "submit": "Make Appointment",
+    "company_label": "Company / Practice Name",
+    "company_placeholder": "e.g. Dr. Miller Practice or Lion Pharmacy",
+    "name_label": "Name",
+    "email_label": "Email",
+    "area_label": "Primary Field of Application",
+    "area_options": {
+      "pharmacy": "Pharmacy",
+      "doctor": "Doctor's Office/Clinic",
+      "vet": "Veterinary Medicine",
+      "lab": "Research/Lab",
+      "other": "Other"
+    },
+    "requirements_label": "Your Specific Requirements for IglooPro",
+    "requirements_placeholder": "Which biomarkers (e.g. CRP, TSH, HbA1c) are primarily relevant to you?",
+    "submit_button": "Request Performance Analysis Now"
+  },
+  "info": {
+    "title": "Contact Information",
+    "text": "Our team will get back to you within one business day. For urgent questions, please use the phone number below.",
+    "email_label": "EMAIL (24/7 Service)",
+    "phone_label": "PHONE (Priority-Line)"
+  },
+  "bottom_cta": {
+    "title": "Looking for professional & trusted medical healthcare?",
+    "text": "Don't hesitate to contact us. Our coordinators are ready to help you choose the right doctor and time."
+  },
+  "page": {
+    "eyebrow": "YOUR PERFORMANCE ANALYSIS",
+    "title": "Request IglooPro Performance Analysis",
+    "breadcrumb": "Home / Contact Us"
+  }
+}

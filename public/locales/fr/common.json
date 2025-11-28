@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "service": "Service",
+    "shop": "Boutique",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "footer": {
+    "description": "Soins et soutien complets. Des services de santé modernes pour vous et votre famille, 24 heures sur 24.",
+    "links": "Liens",
+    "discover": "Découvrir",
+    "london": "Londres",
+    "hamburg": "Hambourg",
+    "copyright": "Copyright ©PolarisDX 2025 Tous droits réservés.",
+    "doctors": "Nos médecins",
+    "testimonials": "Témoignages",
+    "faq": "FAQ",
+    "appointment": "Prendre rendez-vous"
+  },
+  "badge": {
+    "New": "Nouveau",
+    "Popular": "Populaire",
+    "Limited": "Limité"
+  },
+  "cta_section": {
+    "title": "Vous recherchez une performance garantie et une expertise POC ?",
+    "text": "Parlez directement à nos spécialistes IglooPro. Notre équipe est prête à analyser vos besoins spécifiques en matière de flux de travail et à vous montrer la voie la plus rapide vers un diagnostic validé. Avec nous, vous obtenez une solution sur mesure, pas une livraison standard.",
+    "button": "Réserver une analyse d'expert maintenant"
+  },
+  "cta": {
+    "title": "Vous cherchez des <1>soins médicaux</1> professionnels et de confiance ?",
+    "description": "N'hésitez pas à nous contacter. Notre équipe est prête à vous soutenir et à vous aider à planifier le bon rendez-vous.",
+    "button": "Prendre rendez-vous"
+  }
+}

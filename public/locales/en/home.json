@@ -1,0 +1,302 @@
+{
+  "hero": {
+    "caption": "Point-of-care Performance",
+    "title": "IglooPro:\nPoint-of-Care. Perfect. Instant.",
+    "description": "Secure the performance package: Your IglooPro is ready for use in 48 hours – guaranteed.",
+    "cta": "Book 15-minute performance analysis now",
+    "stat1": {
+      "value": "48h",
+      "label": "Ready for use after order"
+    },
+    "stat2": {
+      "value": "CV < 2%",
+      "label": "Precision across the entire measurement range"
+    }
+  },
+  "about": {
+    "caption": "YOUR PERFORMANCE GUARANTOR",
+    "title": "Excellence and Safety: The Standard We Set.",
+    "text1": "The IglooPro is a premium device. But true premium performance only comes from perfect, risk-free commissioning. Standard delivery leaves the complexity to you. We take responsibility for the result.",
+    "text2": "That's why we exclusively deliver the 48-hour setup promise. Our performance pillars guarantee that your POC workflow is optimized from the very first second and that you can use diagnostic excellence immediately.",
+    "cta": "Secure exclusive advantage"
+  },
+  "doctors": {
+    "caption": "DIAGNOSTICS FOCUS",
+    "title": "Precise Diagnostics. Immediate Results at the Point-of-Care.",
+    "description": "Discover with systems like the Igloo Pro from DX365 how you can optimize your patient care and make important diagnoses directly at the point of treatment – with lab-accurate results in minutes.",
+    "cta": "Go to Igloo Pro System"
+  },
+  "services": {
+    "caption": "Diagnostics Focus",
+    "title": "Key Areas of Preventive Diagnostics",
+    "poc_systemloesungen": {
+      "title": "POC System Solutions",
+      "description": "Your diagnostic control center. Mobile analyzers delivering lab-accurate results in minutes, directly at the point of care (e.g., Igloo Pro)."
+    },
+    "praeventions_checks": {
+      "title": "Preventive Health Checks",
+      "description": "Prevention reimagined. Rapid determination of key biomarkers (e.g., Vitamin D, CRP, HbA1c) for early risk detection and individual health counseling."
+    },
+    "infektion_entzuendung": {
+      "title": "Infection & Inflammation Markers",
+      "description": "Fast answers in critical cases. Immediate analysis of inflammation levels (CRP, PCT, IL-6) and infectious diseases – essential for acute care and triage."
+    },
+    "stoffwechsel_herz": {
+      "title": "Metabolism & Heart Health",
+      "description": "Key indicators at a glance. Precise measurement of HbA1c, cholesterol profiles, and cardiac markers (e.g., D-Dimer) for monitoring chronic conditions."
+    },
+    "hormon_tests": {
+      "title": "Hormone & Endocrinology Tests",
+      "description": "Specialized diagnostics made easy. Wide range of tests for thyroid and reproductive hormones (TSH, AMH) for specialized practices and pharmacies."
+    },
+    "kompatibilitaet_integration": {
+      "title": "Manufacturer-Independent Compatibility",
+      "description": "Maximum flexibility. Thanks to universal technology, our devices evaluate 90% of all lateral flow tests on the market. Investment security through openness."
+    }
+  },
+  "testimonials": {
+    "caption": "Customer Voices",
+    "title": "What our users say about the Igloo Pro system",
+    "ratingLabel": "Overall Rating\nbased on 3500+ reviews",
+    "positiveLabel": "Positive Review",
+    "richard_pollock": {
+      "role": "Dentist (Verified Review)",
+      "title": "Biological Dentist and Implant Surgeon / Chelsea Dental Clinic",
+      "focus": "Fast On-Site Health Checks (Prevention, Vitamin D)",
+      "text": "Carrying out analysis of Vitamin D levels and other key health indicators on-site cannot be underestimated. The Igloo Pro enables me to perform a simple capillary blood test, to ascertain patients’ needs and to then guide them as to which additional supplements they might require to optimise treatment. This capability is proving transformative in terms of patient outcomes."
+    },
+    "eva_schmidt": {
+      "role": "Pharmacy",
+      "title": "Owner / Löwen-Apotheke, Berlin",
+      "focus": "The next step in preventive counseling (Customer loyalty, Speed)",
+      "text": "Since implementing the Igloo Pro system, our role as health advisors has strengthened significantly. Customers greatly appreciate being able to determine important values like CRP or cholesterol in minutes, rather than waiting weeks for appointments. A true win-win situation for customer loyalty and service quality."
+    },
+    "martin_fischer": {
+      "role": "General Practitioner/Practice",
+      "title": "Specialist in Internal Medicine / Internal Practice Dr. Fischer",
+      "focus": "Immediate diagnostics for acute patients (Efficiency, Treatment decision)",
+      "text": "The ability to determine inflammation markers like CRP immediately in the practice has revolutionized our treatment workflow. We can decide faster whether antibiotic therapy is necessary for patients with unclear infections, preventing unnecessary referrals. This saves us time and significantly increases patient satisfaction."
+    },
+    "julia_bergmann": {
+      "role": "Clinic/Lab",
+      "title": "Head of Lab & Diagnostics / Klinikum Nord",
+      "focus": "System Compatibility & Reliability (Flexibility, Bundling)",
+      "text": "The Igloo Pro is the most flexible Point-of-Care device we have ever evaluated. The manufacturer-independent compatibility for lateral flow tests is a huge advantage, allowing us to standardize our POC devices and save costs without sacrificing the proven reliability of results."
+    }
+  },
+  "articles": {
+    "ecosystem_of_rapid_tests": {
+      "title": "The Ecosystem of Rapid Tests: Why Compatibility Creates Safety",
+      "excerpt": "From CRP to TSH: Mastering the complexity of compatible Lateral Flow Tests.",
+      "sections": [
+        {
+          "heading": "Introduction",
+          "paragraphs": [
+            "Point-of-Care Diagnostics (POC) thrives on flexibility. A modern multi-reader system, like the IglooPro, offers the ability to measure a wide range of parameters – from infection markers like CRP to endocrine values like TSH – using Lateral Flow Tests (LFT). This versatility is a huge advantage but harbors a subtle yet critical challenge: the compatibility and safety trap.",
+            "The analytical quality of a measurement result depends 100 percent on the interplay between the POC reader and the specific LFT. Specialized consulting and a clear compatibility guarantee are essential to eliminate the risk of measurement errors, incorrect inventory, and faulty diagnoses."
+          ]
+        },
+        {
+          "heading": "1. The Hidden Danger: Incompatibility",
+          "paragraphs": [
+            "Lateral Flow Tests are complex chromatographic strips. They differ not only by the analyte to be detected (e.g., Troponin, D-Dimer) but also in their physical and chemical properties relevant to the reader:"
+          ],
+          "listItems": [
+            "Batch-Specific Calibration: As explained in ARTICLE 1, each test batch requires a specific calibration curve. If an LFT from an incompatible or unvalidated batch is used, the reader delivers imprecise or completely incorrect quantitative values.",
+            "Optical Properties: The membrane structure, the color of the marker particles (e.g., colloidal gold or fluorescence markers), and the position of the test lines can vary greatly from manufacturer to manufacturer. A universal reader must know exactly which parameters to read for which type of test cassette.",
+            "Faulty Test Cassettes: Using the wrong test cassette for the selected analyte in the reader often leads to nonspecific results or technical errors that stop the diagnostic workflow."
+          ]
+        },
+        {
+          "heading": "2. The Ecosystem Principle: Consulting and Guarantee",
+          "paragraphs": [
+            "The safest way to master this complexity is to view the POC setup as a closed diagnostic ecosystem. Here, the provider takes responsibility for the perfect coordination of all components.",
+            "A. The Role of Specialized Consulting: Instead of leaving practices and pharmacies alone with the selection from hundreds of LFT products, strategic consulting is crucial. These experts help with the portfolio decision by identifying the required diagnostic parameters (e.g., inflammation, coagulation, cardiology) and assembling the optimal, compatible LFTs.",
+            "The result is a lean, highly secure workflow tailored to the specific needs of the facility.",
+            "B. The Compatibility Guarantee as a Safety Net: The most important added value is the guarantee of functionality. This means that the POC reader is not only technically capable of reading various tests, but the provider also ensures the analytical validity of every specific combination of reader and test batch."
+          ],
+          "listItems": [
+            "Validation in the System: Confirmation that the measurement results of the LFT in conjunction with the specific reader meet clinical requirements.",
+            "Automatic Control: The reader should be able to automatically detect which test has been inserted (e.g., via barcode or RFID) and only perform the measurement with the corresponding, validated calibration curve. In case of incompatibility, a QC lock or warning message occurs."
+          ]
+        },
+        {
+          "heading": "3. Effects on Workflow and Patient Safety",
+          "paragraphs": [
+            "Strategic selection and the compatibility guarantee have direct positive effects on everyday practice:",
+            "Error Reduction: The number of faulty or invalid measurements is drastically reduced as the system proactively excludes incompatibilities.",
+            "Inventory Management: Avoiding the storage of incompatible or unusable test cassettes due to incorrect purchases.",
+            "Unbroken Chain of Precision: Only when the LFTs, the reader, and the IT connection (as described in ARTICLE 2) work together seamlessly and guaranteed, can rapid POC diagnostics offer the same safety and reliability as the central laboratory."
+          ]
+        },
+        {
+          "heading": "Conclusion: Safety through Synergy",
+          "paragraphs": [
+            "The strength of a multi-reader lies in its ability to cover a wide diagnostic spectrum. However, this strength can only be unleashed through a comprehensive, secured ecosystem of compatible tests. Those investing in a POC reader should simultaneously invest in the expertise and guarantee that secures their diagnostic portfolio. Thus, flexibility does not become a risk, but the highest form of patient safety."
+          ]
+        }
+      ]
+    },
+    "48_hour_formula": {
+      "title": "The 48-Hour Formula: Efficiency in POC Diagnostics",
+      "excerpt": "Efficiency instead of training: The path to immediate operational readiness in practice.",
+      "sections": [
+        {
+          "heading": "Introduction",
+          "paragraphs": [
+            "The decision for new Point-of-Care (POC) diagnostic devices is often the first step towards better patient care. However, the path from acquisition to full operational readiness is often underestimated. Lengthy training, administrative hurdles, and complex IT integration consume valuable time and tie up staff whose focus should actually be on the patient.",
+            "This bottleneck is a thing of the past. Modern support concepts revolutionize commissioning and reduce the effort for practices and pharmacies to a minimum. The key is the 'Remote Setup' approach, which guarantees immediate operational readiness in just 48 hours."
+          ]
+        },
+        {
+          "heading": "1. The Efficiency Dilemma: Why Traditional Integration Fails",
+          "paragraphs": [
+            "Traditionally, integrating a new POC system requires several time-consuming steps that often take weeks:"
+          ],
+          "listItems": [
+            "Administrative and Regulatory Training: Training staff regarding quality management (e.g., according to RiliBÄK or Qualab) and internal protocols.",
+            "Technical Setup and Calibration: Manual initial commissioning and batch-specific calibration of the device.",
+            "IT Connection and Data Exchange: The complex bidirectional connection between the POC reader and the practice or pharmacy management system (PVS/AVS)."
+          ]
+        },
+        {
+          "heading": "2. The Remote Setup Approach: IT Experts in the Background",
+          "paragraphs": [
+            "The Remote Setup approach is based on the digital connectivity of modern POC readers. Instead of needing a service technician on-site, the device is set up and validated remotely by specialized experts.",
+            "Core processes handled remotely:"
+          ],
+          "listItems": [
+            "Full Calibration: The technical calibration of the multi-reader to the Lateral Flow Tests (LFTs) used is done externally. This ensures that analytical precision is guaranteed from the start – without practice staff having to perform complex technical steps.",
+            "Seamless IT Integration: Connection to the laboratory or practice information system (LIS/PIS) takes place via secure, web-based interfaces (e.g., POC-IT solutions). External consultants ensure that all measurement values are transferred automatically, securely, and error-free into the patient file.",
+            "Firmware Updates and System Checks: Software updates to ensure compatibility and compliance with new standards can be installed remotely permanently and without interrupting practice operations."
+          ]
+        },
+        {
+          "heading": "3. The 48-Hour Formula: The Competitive Advantage",
+          "paragraphs": [
+            "By outsourcing technical and administrative complexity to specialized remote services, practices and pharmacies can reduce the time required from weeks to a minimum.",
+            "Efficiency Gain and Patient Satisfaction: The immediate operational readiness of POC diagnostic devices allows staff to focus immediately on patient care. Time savings in diagnosis, faster therapy decisions, and the elimination of a second appointment lead to significantly higher patient satisfaction. Optimized workflows improve the economic efficiency of the entire facility."
+          ]
+        },
+        {
+          "heading": "Conclusion: Investment in Time and Safety",
+          "paragraphs": [
+            "Modern Point-of-Care diagnostics is more than just a device: It is a digitally integrated system. Those who rely on Remote Setup invest not only in more precise and faster diagnostics but primarily in the valuable time of their staff. The 48-hour formula is thus synonymous with minimal integration stress and maximum operational readiness in modern healthcare."
+          ]
+        }
+      ]
+    },
+    "precision_point_of_care": {
+      "title": "Precision in Point-of-Care: The Key to Patient Safety",
+      "excerpt": "Why the validation of Lateral Flow Tests (LFT) goes beyond manufacturer specifications.",
+      "sections": [
+        {
+          "heading": "The Revolution of Point-of-Care Diagnostics",
+          "paragraphs": [
+            "Point-of-Care Diagnostics (POC) has revolutionized medical care. It provides results in minutes, enables fast clinical decisions, and relieves central laboratories. The use of Lateral Flow Tests (LFT) – known as 'rapid tests' – has become particularly popular. Their simplicity and speed are undisputed, but their reliability depends largely on correct, validated evaluation.",
+            "The challenge is to transfer the analytical precision of the central laboratory to the decentralized environment. This requires the validation of LFTs to go beyond the manufacturer's primary performance data (such as general sensitivity and specificity) and consider the entire measurement chain, including the reader and the user."
+          ]
+        },
+        {
+          "heading": "1. The Human Source of Error: Inter-Reader Variability (IRV)",
+          "paragraphs": [
+            "Originally, Lateral Flow Tests were developed for qualitative or semi-quantitative evaluation: The mere appearance of a test line (T-line) or the estimation of its intensity. However, this visual interpretation is the Achilles' heel of precision.",
+            "Subjectivity and Intraobserver Variability: The intensity of a color line is subjective. Fatigue, different lighting conditions, but also the mere momentary assessment of the examiner (intraobserver variability) can lead to different diagnoses. What is a weak positive for one person might be a negative result for another.",
+            "The Necessity of Quantitative Results: Modern therapy decisions, such as administering antibiotics for elevated CRP levels (C-reactive protein), are based on exact numerical thresholds. To transform a qualitative test execution into a quantitative, lab-compatible result, eliminating subjective evaluation is mandatory."
+          ]
+        },
+        {
+          "heading": "2. Validation in Clinical Context: More Than Just a Datasheet",
+          "paragraphs": [
+            "Manufacturers provide data on the performance of their tests under idealized laboratory conditions. However, actual use in practice or pharmacy, often in environments with low prevalence or asymptomatic patients, requires application-specific validation.",
+            "As the practice of COVID-19 tests has shown, the detection capability of an LFT depends heavily on the patient's actual viral load. An LFT validation that goes beyond the manufacturer's mere specification must answer the following questions:"
+          ],
+          "listItems": [
+            "Comparison with Gold Standard: How exactly do the quantitative values of the LFT correlate with the results of the gold standard (e.g., PCR Ct values or central laboratory devices)?",
+            "Limit of Detection (LoD): Is the critical threshold (LoD) that the test still reliably detects reproducible in the POC environment?",
+            "Robustness: How stable is the result across the entire measurement range (linear range)?"
+          ]
+        },
+        {
+          "heading": "The Role of Automation and Calibration",
+          "paragraphs": [
+            "Only by confirming these analytical quality criteria in clinical reality can POC diagnostics justify the trust of doctors and patients.",
+            "To ensure laboratory precision at the Point-of-Care, the use of automated LFT readers like the IglooPro is essential. These readers perform the necessary, objective evaluation, thus placing analytics on a new foundation.",
+            "A. Elimination of Variability through Objectivity: Modern readers use camera systems or fluorescence technology to objectively capture test and control lines and digitally quantify intensity ratios. The result is a numerical value with a low coefficient of variation (CV) that completely eliminates IRV.",
+            "B. The Necessary Calibration and Quality Assurance (QA): A reader is only as good as its calibration. To ensure precision across different test batches and over the device's lifetime, strict QA procedures are required:"
+          ],
+          "listItems": [
+            "Batch-Specific Calibration: Each production batch of LFTs can show slight differences in reaction kinetics or membrane properties. The reader must load this batch-specific data – often automatically via barcode or RFID technology – to correctly convert the LFT-specific signal into the concentration value.",
+            "Quality Control (QC Lock): Modern systems have mechanisms (analogous to RiliBÄK in the central laboratory) that refuse measurement if internal or external quality control (e.g., a control cassette) has not been successfully performed. This guarantees that only validated measurement results are generated."
+          ]
+        },
+        {
+          "heading": "Conclusion: The Promise of POC Diagnostics",
+          "paragraphs": [
+            "The speed of POC diagnostics is an invaluable advantage. However, trust in this speed can only be secured through continuous quality assurance and validation. Point-of-Care diagnostics aiming for laboratory levels must mandatorily rely on the automated, calibrated, and validated evaluation of Lateral Flow Tests.",
+            "Only through the combination of a robust, calibrated reader and strict validation procedures does a rapid test become a reliable diagnostic basis."
+          ]
+        }
+      ]
+    },
+    "first_checkup": {
+      "title": "How to prepare for your first medical check-up",
+      "excerpt": "A short guide to help you feel confident and prepared for your very first comprehensive medical examination.",
+      "sections": [
+        {
+          "heading": "Better care starts with being prepared",
+          "paragraphs": [
+            "Before your first medical check-up, it's important to collect your medical history, list any current medications, and note symptoms you've experienced recently. This helps your doctor build a complete picture and focus on what matters most to your health."
+          ]
+        },
+        {
+          "heading": "What to bring to your appointment",
+          "paragraphs": [
+            "Arriving prepared saves time and ensures a smoother conversation with your doctor."
+          ],
+          "listItems": [
+            "Identification and insurance information (if applicable).",
+            "A list of all medications, including supplements and vitamins.",
+            "Previous lab results or reports if you have them.",
+            "Questions you want to ask your doctor."
+          ]
+        },
+        {
+          "heading": "During the check-up",
+          "paragraphs": [
+            "Your doctor will usually check your vital signs, discuss your lifestyle, and perform a physical examination. Be honest about your habits and concerns — this is the best way to receive care that truly fits your situation.",
+            "Regular check-ups are the foundation of preventative medicine. By catching potential issues early, you give yourself more options, more time, and better outcomes."
+          ]
+        }
+      ]
+    },
+    "managing_diabetes": {
+      "title": "Managing diabetes with simple daily routines",
+      "excerpt": "Discover how small, consistent habits can dramatically improve blood sugar control and overall wellbeing.",
+      "sections": [
+        {
+          "heading": "Start with your morning routine",
+          "paragraphs": [
+            "A stable morning routine sets the tone for the rest of the day. For people living with diabetes, this is especially important."
+          ]
+        }
+      ]
+    },
+    "home_care": {
+      "title": "The benefits of professional home care services",
+      "excerpt": "Home care teams can bridge the gap between hospital and everyday life — here is how they support patients and families.",
+      "sections": [
+        {
+          "heading": "Care that comes to you",
+          "paragraphs": [
+            "Professional home care services make it easier to recover after surgery or manage chronic conditions without constant hospital visits."
+          ]
+        }
+      ]
+    }
+  },
+  "blog": {
+    "caption": "Blog & News",
+    "title": "Our Articles About Health"
+  }
+}

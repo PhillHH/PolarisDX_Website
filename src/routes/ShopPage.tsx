@@ -5,7 +5,7 @@ import ProductCard from '../components/ui/ProductCard'
 import { products } from '../data/products'
 
 const ShopPage = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation(['shop', 'common'])
 
   return (
     <div className="bg-slate-50 text-gray-900">

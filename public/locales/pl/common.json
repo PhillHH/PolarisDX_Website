@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "home": "Strona główna",
+    "about": "O nas",
+    "service": "Usługi",
+    "shop": "Sklep",
+    "blog": "Blog",
+    "contact": "Kontakt"
+  },
+  "footer": {
+    "description": "Kompleksowa opieka i wsparcie. Nowoczesne usługi zdrowotne dla Ciebie i Twojej rodziny, przez całą dobę.",
+    "links": "Linki",
+    "discover": "Odkryj",
+    "london": "Londyn",
+    "hamburg": "Hamburg",
+    "copyright": "Copyright ©PolarisDX 2025 Wszelkie prawa zastrzeżone.",
+    "doctors": "Nasi lekarze",
+    "testimonials": "Referencje",
+    "faq": "FAQ",
+    "appointment": "Umów wizytę"
+  },
+  "badge": {
+    "New": "Nowość",
+    "Popular": "Popularne",
+    "Limited": "Limitowane"
+  },
+  "cta_section": {
+    "title": "Szukasz gwarantowanej wydajności i ekspertyzy POC?",
+    "text": "Porozmawiaj bezpośrednio z naszymi specjalistami IglooPro. Nasz zespół jest gotowy przeanalizować Twoje indywidualne wymagania dotyczące przepływu pracy i wskazać najszybszą drogę do zwalidowanej diagnostyki. U nas otrzymasz rozwiązanie szyte na miarę, a nie standardową dostawę.",
+    "button": "Zamów analizę ekspercką teraz"
+  },
+  "cta": {
+    "title": "Szukasz profesjonalnej i zaufanej <1>opieki medycznej?</1>",
+    "description": "Nie wahaj się z nami skontaktować. Nasz zespół jest gotowy, aby Cię wesprzeć i pomóc zaplanować odpowiednią wizytę.",
+    "button": "Umów wizytę"
+  }
+}

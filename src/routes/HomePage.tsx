@@ -10,7 +10,7 @@ import ProductCard from '../components/ui/ProductCard'
 import { products } from '../data/products'
 
 const HomePage = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation(['home', 'common'])
 
   return (
     <>

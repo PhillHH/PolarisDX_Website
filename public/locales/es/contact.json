@@ -1,0 +1,53 @@
+{
+  "hero": {
+    "kicker": "Cita",
+    "title": "Hacer cita",
+    "breadcrumb": "Inicio / Contacto"
+  },
+  "form": {
+    "title": "Reservar cita",
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "specialty": "Seleccionar especialidades médicas",
+    "doctor": "Seleccionar médico",
+    "any_doctor": "Cualquier médico disponible",
+    "date": "Seleccionar fecha y hora",
+    "name": "Nombre",
+    "name_placeholder": "Su nombre completo",
+    "phone_placeholder": "+123 456 789",
+    "email_placeholder": "usted@ejemplo.com",
+    "message": "Mensaje",
+    "message_placeholder": "Cuéntenos más sobre sus necesidades...",
+    "submit": "Hacer cita",
+    "company_label": "Nombre de la empresa / consulta",
+    "company_placeholder": "ej. Consulta Dr. Pérez o Farmacia Central",
+    "name_label": "Nombre",
+    "email_label": "Correo electrónico",
+    "area_label": "Campo de aplicación principal",
+    "area_options": {
+      "pharmacy": "Farmacia",
+      "doctor": "Consulta médica/Clínica",
+      "vet": "Medicina veterinaria",
+      "lab": "Investigación/Laboratorio",
+      "other": "Otro"
+    },
+    "requirements_label": "Sus requisitos específicos para IglooPro",
+    "requirements_placeholder": "¿Qué biomarcadores (ej. CRP, TSH, HbA1c) son principalmente relevantes para usted?",
+    "submit_button": "Solicitar análisis de rendimiento ahora"
+  },
+  "info": {
+    "title": "Información de contacto",
+    "text": "Nuestro equipo se pondrá en contacto con usted dentro de un día hábil. Para preguntas urgentes, utilice el número de teléfono a continuación.",
+    "email_label": "CORREO ELECTRÓNICO (Servicio 24/7)",
+    "phone_label": "TELÉFONO (Línea prioritaria)"
+  },
+  "bottom_cta": {
+    "title": "¿Busca atención médica profesional y de confianza?",
+    "text": "No dude en contactarnos. Nuestros coordinadores están listos para ayudarlo a elegir el médico y el momento adecuados."
+  },
+  "page": {
+    "eyebrow": "SU ANALISIS DE RENDIMIENTO",
+    "title": "Solicitar análisis de rendimiento IglooPro",
+    "breadcrumb": "Inicio / Contacto"
+  }
+}

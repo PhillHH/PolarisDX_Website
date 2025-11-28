@@ -1,0 +1,53 @@
+{
+  "hero": {
+    "kicker": "Appuntamento",
+    "title": "Prendi appuntamento",
+    "breadcrumb": "Home / Contatti"
+  },
+  "form": {
+    "title": "Prenota appuntamento",
+    "email": "E-mail",
+    "phone": "Telefono",
+    "specialty": "Seleziona specialità mediche",
+    "doctor": "Seleziona medico",
+    "any_doctor": "Qualsiasi medico disponibile",
+    "date": "Seleziona data e ora",
+    "name": "Nome",
+    "name_placeholder": "Il tuo nome completo",
+    "phone_placeholder": "+123 456 789",
+    "email_placeholder": "tu@esempio.com",
+    "message": "Messaggio",
+    "message_placeholder": "Raccontaci di più sulle tue esigenze...",
+    "submit": "Prendi appuntamento",
+    "company_label": "Nome dell'azienda / studio",
+    "company_placeholder": "es. Studio Dr. Rossi o Farmacia Centrale",
+    "name_label": "Nome",
+    "email_label": "Email",
+    "area_label": "Campo di applicazione primario",
+    "area_options": {
+      "pharmacy": "Farmacia",
+      "doctor": "Studio medico/Clinica",
+      "vet": "Medicina veterinaria",
+      "lab": "Ricerca/Laboratorio",
+      "other": "Altro"
+    },
+    "requirements_label": "Le tue esigenze specifiche per IglooPro",
+    "requirements_placeholder": "Quali biomarcatori (es. CRP, TSH, HbA1c) sono principalmente rilevanti per te?",
+    "submit_button": "Richiedi ora l'analisi delle prestazioni"
+  },
+  "info": {
+    "title": "Informazioni di contatto",
+    "text": "Il nostro team ti risponderà entro un giorno lavorativo. Per domande urgenti, utilizza il numero di telefono qui sotto.",
+    "email_label": "EMAIL (Servizio 24/7)",
+    "phone_label": "TELEFONO (Linea prioritaria)"
+  },
+  "bottom_cta": {
+    "title": "Cerchi assistenza medica professionale e affidabile?",
+    "text": "Non esitare a contattarci. I nostri coordinatori sono pronti ad aiutarti a scegliere il medico e il momento giusti."
+  },
+  "page": {
+    "eyebrow": "LA TUA ANALISI DELLE PRESTAZIONI",
+    "title": "Richiedi analisi delle prestazioni IglooPro",
+    "breadcrumb": "Home / Contatti"
+  }
+}

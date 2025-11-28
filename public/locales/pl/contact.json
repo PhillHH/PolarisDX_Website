@@ -1,0 +1,53 @@
+{
+  "hero": {
+    "kicker": "Wizyta",
+    "title": "Umów wizytę",
+    "breadcrumb": "Strona główna / Kontakt"
+  },
+  "form": {
+    "title": "Zarezerwuj wizytę",
+    "email": "E-mail",
+    "phone": "Telefon",
+    "specialty": "Wybierz specjalizacje medyczne",
+    "doctor": "Wybierz lekarza",
+    "any_doctor": "Dowolny dostępny lekarz",
+    "date": "Wybierz datę i godzinę",
+    "name": "Imię i nazwisko",
+    "name_placeholder": "Twoje imię i nazwisko",
+    "phone_placeholder": "+123 456 789",
+    "email_placeholder": "ty@przyklad.com",
+    "message": "Wiadomość",
+    "message_placeholder": "Powiedz nam więcej o swoich potrzebach...",
+    "submit": "Umów wizytę",
+    "company_label": "Nazwa firmy / praktyki",
+    "company_placeholder": "np. Gabinet Dr. Müllera lub Apteka Lwa",
+    "name_label": "Imię i nazwisko",
+    "email_label": "E-mail",
+    "area_label": "Główny obszar zastosowania",
+    "area_options": {
+      "pharmacy": "Apteka",
+      "doctor": "Gabinet lekarski/Klinika",
+      "vet": "Medycyna weterynaryjna",
+      "lab": "Badania/Laboratorium",
+      "other": "Inne"
+    },
+    "requirements_label": "Twoje specyficzne wymagania dotyczące IglooPro",
+    "requirements_placeholder": "Jakie biomarkery (np. CRP, TSH, HbA1c) są dla Ciebie najważniejsze?",
+    "submit_button": "Zamów analizę wydajności teraz"
+  },
+  "info": {
+    "title": "Informacje kontaktowe",
+    "text": "Nasz zespół skontaktuje się z Tobą w ciągu jednego dnia roboczego. W przypadku pilnych pytań prosimy o skorzystanie z poniższego numeru telefonu.",
+    "email_label": "E-MAIL (Serwis 24/7)",
+    "phone_label": "TELEFON (Linia priorytetowa)"
+  },
+  "bottom_cta": {
+    "title": "Szukasz profesjonalnej i zaufanej opieki medycznej?",
+    "text": "Nie wahaj się z nami skontaktować. Nasi koordynatorzy są gotowi pomóc Ci wybrać odpowiedniego lekarza i termin."
+  },
+  "page": {
+    "eyebrow": "TWOJA ANALIZA WYDAJNOŚCI",
+    "title": "Poproś o analizę wydajności IglooPro",
+    "breadcrumb": "Strona główna / Kontakt"
+  }
+}
