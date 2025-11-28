@@ -2,180 +2,180 @@
   "products": {
     "igloo_reader_pro": {
       "name": "Igloo Reader Pro",
-      "shortDescription": "The Igloo Reader Pro is a compact, state-of-the-art all-in-one analyzer for Point-of-Care Testing (POCT). It combines laboratory accuracy with the requirements of decentralized environments. Supports Lateral Flow, Microarray, Fluorescence, and more – the ideal solution for fast, reliable quantitative and qualitative test results.",
+      "shortDescription": "De Igloo Reader Pro is een compacte, state-of-the-art alles-in-één analysator voor Point-of-Care Testing (POCT). Het combineert laboratoriumnauwkeurigheid met de vereisten van gedecentraliseerde omgevingen. Ondersteunt Lateral Flow, Microarray, Fluorescentie en meer – de ideale oplossing voor snelle, betrouwbare kwantitatieve en kwalitatieve testresultaten.",
       "detailedDescription": [
-        "The Igloo Reader Pro redefines mobile diagnostics. Designed specifically for professional environments and decentralized Point-of-Care applications, this versatile analyzer enables fast and reliable qualitative and quantitative testing.",
-        "The reader supports a wide range of diagnostic tests – from infectious disease screening to cardiac markers and hormone profiles, to drug abuse and allergy panels. Thanks to automated calibration, cloud integration, and digital data export, the Igloo Reader Pro delivers laboratory quality directly to where it is needed. It allows medical professionals to achieve fast and reliable results anywhere."
+        "De Igloo Reader Pro herdefinieert mobiele diagnostiek. Specifiek ontworpen voor professionele omgevingen en gedecentraliseerde Point-of-Care toepassingen, maakt deze veelzijdige analysator snelle en betrouwbare kwalitatieve en kwantitatieve tests mogelijk.",
+        "De lezer ondersteunt een breed scala aan diagnostische tests – van screening op infectieziekten tot hartmarkers en hormoonprofielen, tot drugsgebruik- en allergiepanels. Dankzij geautomatiseerde kalibratie, cloudintegratie en digitale data-export levert de Igloo Reader Pro laboratoriumkwaliteit direct waar het nodig is. Het stelt medische professionals in staat om overal snelle en betrouwbare resultaten te behalen."
       ],
       "features": [
-        "Universal Test Platform: Supports Microarray, Lateral Flow, Colorimetry, Fluorescence, Dry Chemistry, and Microfluidics.",
-        "Lab Accuracy in POCT Format: High precision through automatic self-calibration before each measurement (CV < 2 % Inter-Reader, CV < 3 % Intra-Reader).",
-        "Compact & Mobile: Lightweight design with a battery life of up to 24 hours of continuous testing.",
-        "Full Connectivity: Integrated Wi-Fi, Bluetooth, and USB-C for seamless data synchronization and API/LIMS integration.",
-        "Secure Cloud Integration (Dx365 Cloud): For test updates, calibration management, and encrypted data storage.",
-        "Versatile Sample Types: Compatible with whole blood, capillary blood, serum, plasma, urine, stool, saliva, and hair."
+        "Universeel Testplatform: Ondersteunt Microarray, Lateral Flow, Colorimetrie, Fluorescentie, Droge Chemie en Microfluidica.",
+        "Laboratoriumnauwkeurigheid in POCT-formaat: Hoge precisie door automatische zelfkalibratie voor elke meting (CV < 2 % Inter-Reader, CV < 3 % Intra-Reader).",
+        "Compact & Mobiel: Lichtgewicht ontwerp met een batterijduur van tot wel 24 uur continu testen.",
+        "Volledige Connectiviteit: Geïntegreerde wifi, Bluetooth en USB-C voor naadloze datasynchronisatie en API/LIMS-integratie.",
+        "Veilige Cloudintegratie (Dx365 Cloud): Voor testupdates, kalibratiebeheer en versleutelde gegevensopslag.",
+        "Veelzijdige Monstertypes: Compatibel met volbloed, capillair bloed, serum, plasma, urine, ontlasting, speeksel en haar."
       ],
       "techSpecs": [
         {
-          "parameter": "Dimensions (L × W × H)",
+          "parameter": "Afmetingen (L × B × H)",
           "specification": "87.5 × 87.5 × 91 mm"
         },
         {
-          "parameter": "Weight",
-          "specification": "approx. 270 g"
+          "parameter": "Gewicht",
+          "specification": "ca. 270 g"
         },
         {
-          "parameter": "Measurement Time",
-          "specification": "Few seconds (excl. incubation time)"
+          "parameter": "Meettijd",
+          "specification": "Enkele seconden (excl. incubatietijd)"
         },
         {
-          "parameter": "Supported Test Methods",
-          "specification": "Microarray, Colorimetry, Fluorescence, Dry Chemistry, Quantum Dots, Microfluidics"
+          "parameter": "Ondersteunde Testmethoden",
+          "specification": "Microarray, Colorimetrie, Fluorescentie, Droge Chemie, Quantum Dots, Microfluidica"
         },
         {
-          "parameter": "Sample Types",
-          "specification": "Whole blood, capillary blood, serum, plasma, urine, stool, saliva, hair"
+          "parameter": "Monstertypes",
+          "specification": "Volbloed, capillair bloed, serum, plasma, urine, ontlasting, speeksel, haar"
         },
         {
-          "parameter": "Result Memory",
-          "specification": "Up to 10,000 results"
+          "parameter": "Resultaatgeheugen",
+          "specification": "Tot 10.000 resultaten"
         },
         {
-          "parameter": "Battery",
-          "specification": "Rechargeable Lithium battery, up to 24 hours continuous operation"
+          "parameter": "Batterij",
+          "specification": "Oplaadbare Lithiumbatterij, tot 24 uur continu gebruik"
         },
         {
-          "parameter": "Connectivity",
-          "specification": "USB-C, Wi-Fi (802.11 b/g/n), Bluetooth, API/LIMS integration"
+          "parameter": "Connectiviteit",
+          "specification": "USB-C, wifi (802.11 b/g/n), Bluetooth, API/LIMS-integratie"
         },
         {
-          "parameter": "Certification",
-          "specification": "CE Marking, RoHS compliant"
+          "parameter": "Certificering",
+          "specification": "CE-markering, RoHS-conform"
         }
       ],
       "deliveryScope": [
-        "1 × Igloo Reader Pro Analyzer",
-        "1 × USB-A to USB-C Cable",
-        "Electronic User Manual"
+        "1 × Igloo Reader Pro Analysator",
+        "1 × USB-A naar USB-C Kabel",
+        "Elektronische Gebruikershandleiding"
       ],
-      "note": "Important Note: Adapters and QC test kits are sold separately and are not included in the standard delivery scope."
+      "note": "Belangrijke Opmerking: Adapters en QC-testkits worden apart verkocht en zijn niet inbegrepen in de standaard leveringsomvang."
     },
     "bp_monitor": {
-      "name": "Digital Blood Pressure Monitor",
-      "shortDescription": "Accurate, easy-to-use blood pressure monitor for home use with memory function.",
+      "name": "Digitale Bloeddrukmeter",
+      "shortDescription": "Nauwkeurige, gebruiksvriendelijke bloeddrukmeter voor thuisgebruik met geheugenfunctie.",
       "features": [
-        "Upper-arm cuff with adjustable size",
-        "Stores up to 60 readings",
-        "Irregular heartbeat detection"
+        "Bovenarmmanchet met verstelbare grootte",
+        "Slaat tot 60 metingen op",
+        "Detectie van onregelmatige hartslag"
       ]
     },
     "thermometer": {
-      "name": "Contactless Forehead Thermometer",
-      "shortDescription": "Fast, hygienic temperature readings without skin contact — ideal for families.",
+      "name": "Contactloze Voorhoofdthermometer",
+      "shortDescription": "Snelle, hygiënische temperatuurmetingen zonder huidcontact — ideaal voor gezinnen.",
       "features": [
-        "1-second measurement",
-        "Fever alarm indicator",
-        "Backlit display"
+        "1-seconde meting",
+        "Koortsalarmindicator",
+        "Verlicht display"
       ]
     },
     "pulse_oximeter": {
-      "name": "Finger Pulse Oximeter",
-      "shortDescription": "Measure blood oxygen saturation and pulse rate within seconds.",
+      "name": "Vingerpulsoximeter",
+      "shortDescription": "Meet bloedzuurstofsaturatie en hartslagfrequentie binnen seconden.",
       "features": [
-        "SpO₂ and pulse rate display",
-        "Compact and portable",
-        "Auto power-off"
+        "SpO₂ en hartslagweergave",
+        "Compact en draagbaar",
+        "Automatische uitschakeling"
       ]
     },
     "home_care_kit": {
-      "name": "Home Care Starter Kit",
-      "shortDescription": "Essential tools for daily home care, including monitoring and first-aid basics.",
+      "name": "Thuiszorg Startpakket",
+      "shortDescription": "Essentiële hulpmiddelen voor dagelijkse zorg thuis, inclusief monitoring en basis eerste hulp.",
       "features": [
-        "Digital thermometer and BP monitor",
-        "Basic wound care supplies",
-        "Compact storage bag"
+        "Digitale thermometer en bloeddrukmeter",
+        "Basis wondverzorgingsartikelen",
+        "Compacte opbergtas"
       ]
     },
     "diabetes_kit": {
       "name": "Diabetes Monitoring Kit",
-      "shortDescription": "Everything you need to monitor blood glucose levels at home comfortably.",
+      "shortDescription": "Alles wat u nodig heeft om bloedsuikerspiegels thuis comfortabel te controleren.",
       "features": [
-        "Glucose meter with test strips",
-        "Lancing device and lancets",
-        "Carrying case for travel"
+        "Glucosemeter met teststrips",
+        "Prikpen en lancetten",
+        "Draagtas voor op reis"
       ]
     },
     "n95_mask_pack": {
-      "name": "N95 Respirator Mask Pack (10 pcs)",
-      "shortDescription": "Certified N95 masks for reliable respiratory protection.",
+      "name": "N95 Ademhalingsmasker Pakket (10 st)",
+      "shortDescription": "Gecertificeerde N95 maskers voor betrouwbare ademhalingsbescherming.",
       "features": [
-        "Adjustable nose clip",
-        "Comfortable ear loops",
-        "Individually packed"
+        "Verstelbare neusklem",
+        "Comfortabele oorlussen",
+        "Individueel verpakt"
       ]
     },
     "hand_sanitizer": {
-      "name": "Antibacterial Hand Sanitizer (500 ml)",
-      "shortDescription": "Fast-drying sanitizer with moisturizing ingredients.",
+      "name": "Antibacteriële Handgel (500 ml)",
+      "shortDescription": "Sneldrogende handgel met hydraterende ingrediënten.",
       "features": [
-        "Kills 99.9% of germs",
-        "Non-sticky formula",
-        "Fresh, clean scent"
+        "Doodt 99,9% van de ziektekiemen",
+        "Niet-plakkende formule",
+        "Frisse, schone geur"
       ]
     },
     "compression_socks": {
-      "name": "Medical Compression Socks",
-      "shortDescription": "Support circulation during long days on your feet or recovery.",
+      "name": "Medische Compressiekousen",
+      "shortDescription": "Ondersteunen de bloedsomloop tijdens lange dagen op uw voeten of herstel.",
       "features": [
-        "Graduated compression",
-        "Breathable fabric",
-        "Multiple sizes available"
+        "Gegradueerde compressie",
+        "Ademende stof",
+        "Meerdere maten beschikbaar"
       ]
     },
     "first_aid_kit": {
-      "name": "Compact First Aid Kit",
-      "shortDescription": "A compact kit with essentials for minor injuries and emergencies.",
+      "name": "Compacte EHBO-kit",
+      "shortDescription": "Een compacte kit met benodigdheden voor kleine verwondingen en noodgevallen.",
       "features": [
-        "Bandages and dressings",
-        "Antiseptic wipes",
-        "Instruction leaflet"
+        "Verbanden en pleisters",
+        "Antiseptische doekjes",
+        "Instructiefolder"
       ]
     },
     "online_consult": {
-      "name": "Online Doctor Consultation (30 min)",
-      "shortDescription": "Book a 30-minute video consultation with one of our doctors.",
+      "name": "Online Artsconsult (30 min)",
+      "shortDescription": "Boek een videoconsult van 30 minuten met een van onze artsen.",
       "features": [
-        "Flexible scheduling options",
-        "Secure video platform",
-        "Summary report after the session"
+        "Flexibele planningsopties",
+        "Veilig videoplatform",
+        "Samenvattend rapport na de sessie"
       ]
     }
   },
   "shop": {
-    "addToCart": "Add to cart (demo)",
-    "orderInfo": "Order information",
-    "orderInfoText": "This demo layout mimics a simple order box. In a real project, this is where you would show availability, shipping options and an “Add to cart” button.",
-    "youMightLike": "You might also like",
-    "view": "View",
-    "viewDetails": "View details",
-    "backToShop": "Back to Shop",
-    "needHelp": "Need help choosing a product?",
-    "contactTeam": "Contact our team",
-    "demoNote": "Please note: This is a demo shop for design and layout purposes only. No real orders or payments are processed.",
-    "whatsInBox": "What's in the box?",
-    "techSpecs": "Technical Specifications",
-    "features": "Features & Benefits",
+    "addToCart": "In winkelwagen (demo)",
+    "orderInfo": "Bestelinformatie",
+    "orderInfoText": "Deze demo-layout bootst een eenvoudig bestelvak na. In een echt project zou u hier beschikbaarheid, verzendopties en een 'In winkelwagen'-knop tonen.",
+    "youMightLike": "Misschien vindt u dit ook leuk",
+    "view": "Bekijk",
+    "viewDetails": "Bekijk details",
+    "backToShop": "Terug naar Winkel",
+    "needHelp": "Hulp nodig bij het kiezen van een product?",
+    "contactTeam": "Neem contact op met ons team",
+    "demoNote": "Let op: Dit is een demowinkel alleen voor ontwerp- en lay-outdoeleinden. Er worden geen echte bestellingen of betalingen verwerkt.",
+    "whatsInBox": "Wat zit er in de doos?",
+    "techSpecs": "Technische Specificaties",
+    "features": "Kenmerken & Voordelen",
     "home": "Home",
-    "title": "Medical supplies & services",
-    "subtitle": "MedHealth Shop",
-    "discoverTitle": "Discover our curated products",
-    "article": "Article",
-    "articleDisclaimer": "Regular check-ups and proactive care are the foundation of long-term health. If you have questions, don't hesitate to reach out to a medical professional.",
-    "shareArticle": "Liked this article? Share it with your friends and family.",
-    "backToHome": "Back to Home",
-    "suggestedArticles": "Suggested articles",
-    "moreArticles": "More articles",
-    "contactText": "Our medical team is available 24/7 to answer urgent questions and help you decide what to do next.",
-    "readMore": "Read More"
+    "title": "Medische benodigdheden & diensten",
+    "subtitle": "MedHealth Winkel",
+    "discoverTitle": "Ontdek onze geselecteerde producten",
+    "article": "Artikel",
+    "articleDisclaimer": "Regelmatige controles en proactieve zorg zijn de basis van gezondheid op lange termijn. Als u vragen heeft, aarzel dan niet om contact op te nemen met een medische professional.",
+    "shareArticle": "Vond u dit artikel leuk? Deel het met uw vrienden en familie.",
+    "backToHome": "Terug naar Home",
+    "suggestedArticles": "Aanbevolen artikelen",
+    "moreArticles": "Meer artikelen",
+    "contactText": "Ons medisch team is 24/7 beschikbaar om dringende vragen te beantwoorden en u te helpen beslissen wat u vervolgens moet doen.",
+    "readMore": "Lees Meer"
   }
 }

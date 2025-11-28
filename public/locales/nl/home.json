@@ -1,81 +1,81 @@
 {
   "hero": {
-    "caption": "Point-of-care Performance",
-    "title": "IglooPro:\nPoint-of-Care. Perfect. Instant.",
-    "description": "Secure the performance package: Your IglooPro is ready for use in 48 hours – guaranteed.",
-    "cta": "Book 15-minute performance analysis now",
+    "caption": "Point-of-care Prestaties",
+    "title": "IglooPro:\nPoint-of-Care. Perfect. Direct.",
+    "description": "Verzeker u van het prestatiepakket: Uw IglooPro is binnen 48 uur klaar voor gebruik – gegarandeerd.",
+    "cta": "Boek nu 15-minuten prestatieanalyse",
     "stat1": {
-      "value": "48h",
-      "label": "Ready for use after order"
+      "value": "48u",
+      "label": "Klaar voor gebruik na bestelling"
     },
     "stat2": {
       "value": "CV < 2%",
-      "label": "Precision across the entire measurement range"
+      "label": "Precisie over het gehele meetbereik"
     }
   },
   "about": {
-    "caption": "YOUR PERFORMANCE GUARANTOR",
-    "title": "Excellence and Safety: The Standard We Set.",
-    "text1": "The IglooPro is a premium device. But true premium performance only comes from perfect, risk-free commissioning. Standard delivery leaves the complexity to you. We take responsibility for the result.",
-    "text2": "That's why we exclusively deliver the 48-hour setup promise. Our performance pillars guarantee that your POC workflow is optimized from the very first second and that you can use diagnostic excellence immediately.",
-    "cta": "Secure exclusive advantage"
+    "caption": "UW PRESTATIEGARANT",
+    "title": "Uitmuntendheid en Veiligheid: De Standaard Die Wij Zetten.",
+    "text1": "De IglooPro is een premium apparaat. Maar echte premium prestaties komen alleen voort uit perfecte, risicovrije ingebruikname. Standaardlevering laat de complexiteit aan u over. Wij nemen de verantwoordelijkheid voor het resultaat.",
+    "text2": "Daarom leveren wij exclusief de 48-uurs installatiebelofte. Onze prestatiepijlers garanderen dat uw POC-workflow vanaf de eerste seconde is geoptimaliseerd en dat u diagnostische uitmuntendheid direct kunt gebruiken.",
+    "cta": "Verzeker exclusief voordeel"
   },
   "doctors": {
-    "caption": "DIAGNOSTICS FOCUS",
-    "title": "Precise Diagnostics. Immediate Results at the Point-of-Care.",
-    "description": "Discover with systems like the Igloo Pro from DX365 how you can optimize your patient care and make important diagnoses directly at the point of treatment – with lab-accurate results in minutes.",
-    "cta": "Go to Igloo Pro System"
+    "caption": "DIAGNOSTISCHE FOCUS",
+    "title": "Precieze Diagnostiek. Directe Resultaten op de Point-of-Care.",
+    "description": "Ontdek met systemen zoals de Igloo Pro van DX365 hoe u uw patiëntenzorg kunt optimaliseren en belangrijke diagnoses direct op de behandelplaats kunt stellen – met laboratoriumnauwkeurige resultaten in minuten.",
+    "cta": "Ga naar Igloo Pro Systeem"
   },
   "services": {
     "poc_systemloesungen": {
-      "title": "POC System Solutions",
-      "description": "Your diagnostic control center. Mobile analyzers delivering lab-accurate results in minutes, directly at the point of care (e.g., Igloo Pro)."
+      "title": "POC Systeemoplossingen",
+      "description": "Uw diagnostisch controlecentrum. Mobiele analysatoren die laboratoriumnauwkeurige resultaten leveren in minuten, direct op de point-of-care (bijv. Igloo Pro)."
     },
     "praeventions_checks": {
-      "title": "Preventive Health Checks",
-      "description": "Prevention reimagined. Rapid determination of key biomarkers (e.g., Vitamin D, CRP, HbA1c) for early risk detection and individual health counseling."
+      "title": "Preventieve Gezondheidschecks",
+      "description": "Preventie opnieuw uitgevonden. Snelle bepaling van belangrijke biomarkers (bijv. Vitamine D, CRP, HbA1c) voor vroege risicodetectie en individueel gezondheidsadvies."
     },
     "infektion_entzuendung": {
-      "title": "Infection & Inflammation Markers",
-      "description": "Fast answers in critical cases. Immediate analysis of inflammation levels (CRP, PCT, IL-6) and infectious diseases – essential for acute care and triage."
+      "title": "Infectie- & Ontstekingsmarkers",
+      "description": "Snelle antwoorden in kritieke gevallen. Onmiddellijke analyse van ontstekingsniveaus (CRP, PCT, IL-6) en infectieziekten – essentieel voor acute zorg en triage."
     },
     "stoffwechsel_herz": {
-      "title": "Metabolism & Heart Health",
-      "description": "Key indicators at a glance. Precise measurement of HbA1c, cholesterol profiles, and cardiac markers (e.g., D-Dimer) for monitoring chronic conditions."
+      "title": "Metabolisme & Hartgezondheid",
+      "description": "Belangrijke indicatoren in één oogopslag. Precieze meting van HbA1c, cholesterolprofielen en hartmarkers (bijv. D-Dimeer) voor het monitoren van chronische aandoeningen."
     },
     "hormon_tests": {
-      "title": "Hormone & Endocrinology Tests",
-      "description": "Specialized diagnostics made easy. Wide range of tests for thyroid and reproductive hormones (TSH, AMH) for specialized practices and pharmacies."
+      "title": "Hormoon- & Endocrinologietests",
+      "description": "Gespecialiseerde diagnostiek eenvoudig gemaakt. Breed scala aan tests voor schildklier- en voortplantingshormonen (TSH, AMH) voor gespecialiseerde praktijken en apotheken."
     },
     "kompatibilitaet_integration": {
-      "title": "Manufacturer-Independent Compatibility",
-      "description": "Maximum flexibility. Thanks to universal technology, our devices evaluate 90% of all lateral flow tests on the market. Investment security through openness."
+      "title": "Fabrikantonafhankelijke Compatibiliteit",
+      "description": "Maximale flexibiliteit. Dankzij universele technologie evalueren onze apparaten 90% van alle lateral flow tests op de markt. Investeringszekerheid door openheid."
     }
   },
   "testimonials": {
     "richard_pollock": {
-      "role": "Dentist (Verified Review)",
-      "title": "Biological Dentist and Implant Surgeon / Chelsea Dental Clinic",
-      "focus": "Fast On-Site Health Checks (Prevention, Vitamin D)",
-      "text": "Carrying out analysis of Vitamin D levels and other key health indicators on-site cannot be underestimated. The Igloo Pro enables me to perform a simple capillary blood test, to ascertain patients’ needs and to then guide them as to which additional supplements they might require to optimise treatment. This capability is proving transformative in terms of patient outcomes."
+      "role": "Tandarts (Geverifieerde Review)",
+      "title": "Biologisch Tandarts en Implantaatchirurg / Chelsea Dental Clinic",
+      "focus": "Snelle Gezondheidschecks Ter Plaatse (Preventie, Vitamine D)",
+      "text": "Het ter plaatse uitvoeren van analyses van Vitamine D-niveaus en andere belangrijke gezondheidsindicatoren mag niet worden onderschat. De Igloo Pro stelt mij in staat om een eenvoudige capillaire bloedtest uit te voeren, om de behoeften van patiënten vast te stellen en hen vervolgens te begeleiden over welke aanvullende supplementen zij nodig kunnen hebben om de behandeling te optimaliseren. Deze mogelijkheid blijkt transformerend te zijn in termen van patiëntresultaten."
     },
     "eva_schmidt": {
-      "role": "Pharmacy",
-      "title": "Owner / Löwen-Apotheke, Berlin",
-      "focus": "The next step in preventive counseling (Customer loyalty, Speed)",
-      "text": "Since implementing the Igloo Pro system, our role as health advisors has strengthened significantly. Customers greatly appreciate being able to determine important values like CRP or cholesterol in minutes, rather than waiting weeks for appointments. A true win-win situation for customer loyalty and service quality."
+      "role": "Apotheek",
+      "title": "Eigenaar / Löwen-Apotheke, Berlijn",
+      "focus": "De volgende stap in preventief advies (Klantenbinding, Snelheid)",
+      "text": "Sinds de implementatie van het Igloo Pro-systeem is onze rol als gezondheidsadviseurs aanzienlijk versterkt. Klanten waarderen het enorm om belangrijke waarden zoals CRP of cholesterol in minuten te kunnen bepalen, in plaats van weken te wachten op afspraken. Een echte win-win situatie voor klantenbinding en servicekwaliteit."
     },
     "martin_fischer": {
-      "role": "General Practitioner/Practice",
-      "title": "Specialist in Internal Medicine / Internal Practice Dr. Fischer",
-      "focus": "Immediate diagnostics for acute patients (Efficiency, Treatment decision)",
-      "text": "The ability to determine inflammation markers like CRP immediately in the practice has revolutionized our treatment workflow. We can decide faster whether antibiotic therapy is necessary for patients with unclear infections, preventing unnecessary referrals. This saves us time and significantly increases patient satisfaction."
+      "role": "Huisarts/Praktijk",
+      "title": "Specialist in Interne Geneeskunde / Interne Praktijk Dr. Fischer",
+      "focus": "Onmiddellijke diagnostiek voor acute patiënten (Efficiëntie, Behandelbeslissing)",
+      "text": "De mogelijkheid om ontstekingsmarkers zoals CRP onmiddellijk in de praktijk te bepalen, heeft onze behandelworkflow revolutionair veranderd. We kunnen sneller beslissen of antibioticatherapie nodig is voor patiënten met onduidelijke infecties, waardoor onnodige doorverwijzingen worden voorkomen. Dit bespaart ons tijd en verhoogt de patiënttevredenheid aanzienlijk."
     },
     "julia_bergmann": {
-      "role": "Clinic/Lab",
-      "title": "Head of Lab & Diagnostics / Klinikum Nord",
-      "focus": "System Compatibility & Reliability (Flexibility, Bundling)",
-      "text": "The Igloo Pro is the most flexible Point-of-Care device we have ever evaluated. The manufacturer-independent compatibility for lateral flow tests is a huge advantage, allowing us to standardize our POC devices and save costs without sacrificing the proven reliability of results."
+      "role": "Kliniek/Laboratorium",
+      "title": "Hoofd Laboratorium & Diagnostiek / Klinikum Nord",
+      "focus": "Systeemcompatibiliteit & Betrouwbaarheid (Flexibiliteit, Bundeling)",
+      "text": "De Igloo Pro is het meest flexibele Point-of-Care-apparaat dat we ooit hebben geëvalueerd. De fabrikantonafhankelijke compatibiliteit voor lateral flow tests is een enorm voordeel, waardoor we onze POC-apparaten kunnen standaardiseren en kosten kunnen besparen zonder de bewezen betrouwbaarheid van de resultaten op te offeren."
     }
   }
 }

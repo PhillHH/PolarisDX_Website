@@ -1,33 +1,47 @@
 {
   "contact": {
     "hero": {
-      "kicker": "Appointment",
-      "title": "Make Appointment",
-      "breadcrumb": "Home / Contact Us"
+      "kicker": "VAŠE ANALÝZA VÝKONU",
+      "title": "Požádat o analýzu výkonu IglooPro",
+      "breadcrumb": "Domů / Kontaktujte nás"
     },
     "form": {
-      "title": "Book Appointment",
-      "email": "Email",
-      "phone": "Phone",
-      "specialty": "Select Medical Specialties",
-      "doctor": "Select Doctor",
-      "any_doctor": "Any available doctor",
-      "date": "Select Date & Time",
-      "name": "Name",
-      "name_placeholder": "Your full name",
-      "phone_placeholder": "+123 456 789",
-      "email_placeholder": "you@example.com",
-      "message": "Message",
-      "message_placeholder": "Tell us more about your needs...",
-      "submit": "Make Appointment"
+      "title": "Domluvit schůzku",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "specialty": "Vyberte lékařské specializace",
+      "doctor": "Vyberte lékaře",
+      "any_doctor": "Jakýkoli dostupný lékař",
+      "date": "Vyberte datum a čas",
+      "name": "Jméno",
+      "name_placeholder": "Vaše celé jméno",
+      "phone_placeholder": "+420 123 456 789",
+      "email_placeholder": "vy@priklad.cz",
+      "message": "Zpráva",
+      "message_placeholder": "Řekněte nám více o svých potřebách...",
+      "submit": "Požádat o analýzu výkonu",
+      "company_label": "Název společnosti / praxe",
+      "company_placeholder": "např. Ordinace Dr. Nováka nebo Lékárna Centrum",
+      "area_label": "Primární oblast použití",
+      "area_options": {
+        "pharmacy": "Lékárna",
+        "practice": "Lékařská praxe/Klinika",
+        "vet": "Veterinární medicína",
+        "lab": "Výzkum/Laboratoř",
+        "other": "Jiné"
+      },
+      "requirements_label": "Vaše specifické požadavky na IglooPro",
+      "requirements_placeholder": "Které biomarkery (např. CRP, TSH, HbA1c) jsou pro vás primárně relevantní?"
     },
     "info": {
-      "title": "Contact Information",
-      "text": "Our team will get back to you within one business day. For urgent questions, please use the phone number below."
+      "title": "Kontaktní informace",
+      "text": "Náš tým se vám ozve do jednoho pracovního dne. Pro naléhavé dotazy použijte prosím telefonní číslo níže.",
+      "email_label": "E-MAIL (Služba 24/7)",
+      "phone_label": "TELEFON (Prioritní linka)"
     },
     "bottom_cta": {
-      "title": "Looking for professional & trusted medical healthcare?",
-      "text": "Don't hesitate to contact us. Our coordinators are ready to help you choose the right doctor and time."
+      "title": "Hledáte profesionální a důvěryhodnou lékařskou péči?",
+      "text": "Neváhejte nás kontaktovat. Naši koordinátoři jsou připraveni vám pomoci vybrat toho správného lékaře a čas."
     }
   }
 }

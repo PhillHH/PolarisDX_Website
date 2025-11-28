@@ -1,209 +1,209 @@
 {
   "ecosystem_of_rapid_tests": {
-    "title": "The Ecosystem of Rapid Tests: Why Compatibility Creates Safety",
-    "excerpt": "From CRP to TSH: Mastering the complexity of compatible Lateral Flow Tests.",
+    "title": "Ekosystém rychlých testů: Proč kompatibilita vytváří bezpečnost",
+    "excerpt": "Od CRP po TSH: Zvládnutí složitosti kompatibilních testů laterálního toku.",
     "sections": [
       {
-        "heading": "Introduction",
+        "heading": "Úvod",
         "paragraphs": [
-          "Point-of-Care Diagnostics (POC) thrives on flexibility. A modern multi-reader system, like the IglooPro, offers the ability to measure a wide range of parameters – from infection markers like CRP to endocrine values like TSH – using Lateral Flow Tests (LFT). This versatility is a huge advantage but harbors a subtle yet critical challenge: the compatibility and safety trap.",
-          "The analytical quality of a measurement result depends 100 percent on the interplay between the POC reader and the specific LFT. Specialized consulting and a clear compatibility guarantee are essential to eliminate the risk of measurement errors, incorrect inventory, and faulty diagnoses."
+          "Diagnostika v místě péče (POC) prosperuje díky flexibilitě. Moderní systém s více čtečkami, jako je IglooPro, nabízí možnost měřit širokou škálu parametrů – od infekčních markerů jako CRP po endokrinní hodnoty jako TSH – pomocí testů laterálního toku (LFT). Tato všestrannost je obrovskou výhodou, ale skrývá jemnou, avšak kritickou výzvu: past kompatibility a bezpečnosti.",
+          "Analytická kvalita výsledku měření závisí na 100 procentech na souhře mezi čtečkou POC a specifickým LFT. Specializované poradenství a jasná záruka kompatibility jsou nezbytné pro eliminaci rizika chyb měření, nesprávných zásob a chybných diagnóz."
         ]
       },
       {
-        "heading": "1. The Hidden Danger: Incompatibility",
+        "heading": "1. Skryté nebezpečí: Nekompatibilita",
         "paragraphs": [
-          "Lateral Flow Tests are complex chromatographic strips. They differ not only by the analyte to be detected (e.g., Troponin, D-Dimer) but also in their physical and chemical properties relevant to the reader:"
+          "Testy laterálního toku jsou složité chromatografické proužky. Liší se nejen analytem, který má být detekován (např. Troponin, D-Dimer), ale také svými fyzikálními a chemickými vlastnostmi relevantními pro čtečku:"
         ],
         "listItems": [
-          "Batch-Specific Calibration: As explained in ARTICLE 1, each test batch requires a specific calibration curve. If an LFT from an incompatible or unvalidated batch is used, the reader delivers imprecise or completely incorrect quantitative values.",
-          "Optical Properties: The membrane structure, the color of the marker particles (e.g., colloidal gold or fluorescence markers), and the position of the test lines can vary greatly from manufacturer to manufacturer. A universal reader must know exactly which parameters to read for which type of test cassette.",
-          "Faulty Test Cassettes: Using the wrong test cassette for the selected analyte in the reader often leads to nonspecific results or technical errors that stop the diagnostic workflow."
+          "Specifická kalibrace šarže: Jak bylo vysvětleno v ČLÁNKU 1, každá šarže testů vyžaduje specifickou kalibrační křivku. Pokud je použit LFT z nekompatibilní nebo nevalidované šarže, čtečka dodává nepřesné nebo zcela nesprávné kvantitativní hodnoty.",
+          "Optické vlastnosti: Struktura membrány, barva markerových částic (např. koloidní zlato nebo fluorescenční markery) a poloha testovacích linií se mohou u jednotlivých výrobců značně lišit. Univerzální čtečka musí přesně vědět, které parametry má číst pro který typ testovací kazety.",
+          "Vadné testovací kazety: Použití nesprávné testovací kazety pro vybraný analyt ve čtečce často vede k nespecifickým výsledkům nebo technickým chybám, které zastavují diagnostický pracovní tok."
         ]
       },
       {
-        "heading": "2. The Ecosystem Principle: Consulting and Guarantee",
+        "heading": "2. Princip ekosystému: Poradenství a záruka",
         "paragraphs": [
-          "The safest way to master this complexity is to view the POC setup as a closed diagnostic ecosystem. Here, the provider takes responsibility for the perfect coordination of all components.",
-          "A. The Role of Specialized Consulting: Instead of leaving practices and pharmacies alone with the selection from hundreds of LFT products, strategic consulting is crucial. These experts help with the portfolio decision by identifying the required diagnostic parameters (e.g., inflammation, coagulation, cardiology) and assembling the optimal, compatible LFTs.",
-          "The result is a lean, highly secure workflow tailored to the specific needs of the facility.",
-          "B. The Compatibility Guarantee as a Safety Net: The most important added value is the guarantee of functionality. This means that the POC reader is not only technically capable of reading various tests, but the provider also ensures the analytical validity of every specific combination of reader and test batch."
+          "Nejbezpečnějším způsobem, jak zvládnout tuto složitost, je vnímat nastavení POC jako uzavřený diagnostický ekosystém. Zde poskytovatel přebírá odpovědnost za dokonalou koordinaci všech komponent.",
+          "A. Role specializovaného poradenství: Místo toho, aby nechali praxe a lékárny osamocené s výběrem ze stovek produktů LFT, je klíčové strategické poradenství. Tito odborníci pomáhají s rozhodováním o portfoliu identifikací požadovaných diagnostických parametrů (např. zánět, srážlivost, kardiologie) a sestavením optimálních, kompatibilních LFT.",
+          "Výsledkem je štíhlý, vysoce bezpečný pracovní tok přizpůsobený specifickým potřebám zařízení.",
+          "B. Záruka kompatibility jako záchranná síť: Nejdůležitější přidanou hodnotou je záruka funkčnosti. To znamená, že čtečka POC je nejen technicky schopna číst různé testy, ale poskytovatel také zajišťuje analytickou platnost každé specifické kombinace čtečky a šarže testů."
         ],
         "listItems": [
-          "Validation in the System: Confirmation that the measurement results of the LFT in conjunction with the specific reader meet clinical requirements.",
-          "Automatic Control: The reader should be able to automatically detect which test has been inserted (e.g., via barcode or RFID) and only perform the measurement with the corresponding, validated calibration curve. In case of incompatibility, a QC lock or warning message occurs."
+          "Validace v systému: Potvrzení, že výsledky měření LFT ve spojení se specifickou čtečkou splňují klinické požadavky.",
+          "Automatická kontrola: Čtečka by měla být schopna automaticky detekovat, který test byl vložen (např. pomocí čárového kódu nebo RFID) a provést měření pouze s odpovídající, validovanou kalibrační křivkou. V případě nekompatibility dojde k uzamčení QC nebo varovné zprávě."
         ]
       },
       {
-        "heading": "3. Effects on Workflow and Patient Safety",
+        "heading": "3. Dopady na pracovní tok a bezpečnost pacientů",
         "paragraphs": [
-          "Strategic selection and the compatibility guarantee have direct positive effects on everyday practice:",
-          "Error Reduction: The number of faulty or invalid measurements is drastically reduced as the system proactively excludes incompatibilities.",
-          "Inventory Management: Avoiding the storage of incompatible or unusable test cassettes due to incorrect purchases.",
-          "Unbroken Chain of Precision: Only when the LFTs, the reader, and the IT connection (as described in ARTICLE 2) work together seamlessly and guaranteed, can rapid POC diagnostics offer the same safety and reliability as the central laboratory."
+          "Strategický výběr a záruka kompatibility mají přímé pozitivní dopady na každodenní praxi:",
+          "Redukce chyb: Počet chybných nebo neplatných měření se drasticky snižuje, protože systém proaktivně vylučuje nekompatibility.",
+          "Správa zásob: Zamezení skladování nekompatibilních nebo nepoužitelných testovacích kazet v důsledku nesprávných nákupů.",
+          "Nepřerušený řetězec přesnosti: Pouze tehdy, když LFT, čtečka a IT připojení (jak je popsáno v ČLÁNKU 2) spolupracují hladce a zaručeně, může rychlá diagnostika POC nabídnout stejnou bezpečnost a spolehlivost jako centrální laboratoř."
         ]
       },
       {
-        "heading": "Conclusion: Safety through Synergy",
+        "heading": "Závěr: Bezpečnost prostřednictvím synergie",
         "paragraphs": [
-          "The strength of a multi-reader lies in its ability to cover a wide diagnostic spectrum. However, this strength can only be unleashed through a comprehensive, secured ecosystem of compatible tests. Those investing in a POC reader should simultaneously invest in the expertise and guarantee that secures their diagnostic portfolio. Thus, flexibility does not become a risk, but the highest form of patient safety."
+          "Síla multi-čtečky spočívá v její schopnosti pokrýt široké diagnostické spektrum. Tato síla však může být uvolněna pouze prostřednictvím komplexního, zabezpečeného ekosystému kompatibilních testů. Ti, kteří investují do čtečky POC, by měli současně investovat do odbornosti a záruky, která zajišťuje jejich diagnostické portfolio. Flexibilita se tak nestává rizikem, ale nejvyšší formou bezpečnosti pacientů."
         ]
       }
     ]
   },
   "48_hour_formula": {
-    "title": "The 48-Hour Formula: Efficiency in POC Diagnostics",
-    "excerpt": "Efficiency instead of training: The path to immediate operational readiness in practice.",
+    "title": "48hodinový vzorec: Efektivita v diagnostice POC",
+    "excerpt": "Efektivita místo školení: Cesta k okamžité provozní připravenosti v praxi.",
     "sections": [
       {
-        "heading": "Introduction",
+        "heading": "Úvod",
         "paragraphs": [
-          "The decision for new Point-of-Care (POC) diagnostic devices is often the first step towards better patient care. However, the path from acquisition to full operational readiness is often underestimated. Lengthy training, administrative hurdles, and complex IT integration consume valuable time and tie up staff whose focus should actually be on the patient.",
-          "This bottleneck is a thing of the past. Modern support concepts revolutionize commissioning and reduce the effort for practices and pharmacies to a minimum. The key is the 'Remote Setup' approach, which guarantees immediate operational readiness in just 48 hours."
+          "Rozhodnutí pro nová diagnostická zařízení Point-of-Care (POC) je často prvním krokem k lepší péči o pacienty. Cesta od pořízení k plné provozní připravenosti je však často podceňována. Dlouhé školení, administrativní překážky a složitá IT integrace spotřebovávají cenný čas a vážou personál, jehož pozornost by se měla ve skutečnosti soustředit na pacienta.",
+          "Toto úzké hrdlo je minulostí. Moderní koncepty podpory revolucionalizují uvedení do provozu a snižují úsilí pro praxe a lékárny na minimum. Klíčem je přístup 'Vzdálené nastavení', který zaručuje okamžitou provozní připravenost za pouhých 48 hodin."
         ]
       },
       {
-        "heading": "1. The Efficiency Dilemma: Why Traditional Integration Fails",
+        "heading": "1. Dilema efektivity: Proč tradiční integrace selhává",
         "paragraphs": [
-          "Traditionally, integrating a new POC system requires several time-consuming steps that often take weeks:"
+          "Tradičně vyžaduje integrace nového systému POC několik časově náročných kroků, které často trvají týdny:"
         ],
         "listItems": [
-          "Administrative and Regulatory Training: Training staff regarding quality management (e.g., according to RiliBÄK or Qualab) and internal protocols.",
-          "Technical Setup and Calibration: Manual initial commissioning and batch-specific calibration of the device.",
-          "IT Connection and Data Exchange: The complex bidirectional connection between the POC reader and the practice or pharmacy management system (PVS/AVS)."
+          "Administrativní a regulační školení: Školení personálu ohledně řízení kvality a interních protokolů.",
+          "Technické nastavení a kalibrace: Manuální počáteční uvedení do provozu a specifická kalibrace šarže zařízení.",
+          "IT připojení a výměna dat: Složité obousměrné propojení mezi čtečkou POC a systémem řízení praxe nebo lékárny."
         ]
       },
       {
-        "heading": "2. The Remote Setup Approach: IT Experts in the Background",
+        "heading": "2. Přístup vzdáleného nastavení: IT odborníci v pozadí",
         "paragraphs": [
-          "The Remote Setup approach is based on the digital connectivity of modern POC readers. Instead of needing a service technician on-site, the device is set up and validated remotely by specialized experts.",
-          "Core processes handled remotely:"
+          "Přístup vzdáleného nastavení je založen na digitální konektivitě moderních čteček POC. Místo potřeby servisního technika na místě je zařízení nastaveno a validováno na dálku specializovanými odborníky.",
+          "Klíčové procesy řešené na dálku:"
         ],
         "listItems": [
-          "Full Calibration: The technical calibration of the multi-reader to the Lateral Flow Tests (LFTs) used is done externally. This ensures that analytical precision is guaranteed from the start – without practice staff having to perform complex technical steps.",
-          "Seamless IT Integration: Connection to the laboratory or practice information system (LIS/PIS) takes place via secure, web-based interfaces (e.g., POC-IT solutions). External consultants ensure that all measurement values are transferred automatically, securely, and error-free into the patient file.",
-          "Firmware Updates and System Checks: Software updates to ensure compatibility and compliance with new standards can be installed remotely permanently and without interrupting practice operations."
+          "Plná kalibrace: Technická kalibrace multi-čtečky na použité testy laterálního toku (LFT) se provádí externě. Tím je zajištěno, že analytická přesnost je zaručena od začátku – aniž by personál praxe musel provádět složité technické kroky.",
+          "Bezproblémová IT integrace: Připojení k laboratornímu nebo praktickému informačnímu systému probíhá prostřednictvím bezpečných, webových rozhraní. Externí konzultanti zajišťují, že všechny naměřené hodnoty jsou přenášeny automaticky, bezpečně a bezchybně do karty pacienta.",
+          "Aktualizace firmwaru a systémové kontroly: Aktualizace softwaru pro zajištění kompatibility a souladu s novými standardy lze instalovat na dálku trvale a bez přerušení provozu praxe."
         ]
       },
       {
-        "heading": "3. The 48-Hour Formula: The Competitive Advantage",
+        "heading": "3. 48hodinový vzorec: Konkurenční výhoda",
         "paragraphs": [
-          "By outsourcing technical and administrative complexity to specialized remote services, practices and pharmacies can reduce the time required from weeks to a minimum.",
-          "Efficiency Gain and Patient Satisfaction: The immediate operational readiness of POC diagnostic devices allows staff to focus immediately on patient care. Time savings in diagnosis, faster therapy decisions, and the elimination of a second appointment lead to significantly higher patient satisfaction. Optimized workflows improve the economic efficiency of the entire facility."
+          "Outsourcováním technické a administrativní složitosti na specializované vzdálené služby mohou praxe a lékárny zkrátit potřebný čas z týdnů na minimum.",
+          "Zisk efektivity a spokojenost pacientů: Okamžitá provozní připravenost diagnostických zařízení POC umožňuje personálu okamžitě se soustředit na péči o pacienty. Úspora času při diagnostice, rychlejší rozhodování o terapii a eliminace druhé schůzky vedou k výrazně vyšší spokojenosti pacientů. Optimalizované pracovní toky zlepšují ekonomickou efektivitu celého zařízení."
         ]
       },
       {
-        "heading": "Conclusion: Investment in Time and Safety",
+        "heading": "Závěr: Investice do času a bezpečnosti",
         "paragraphs": [
-          "Modern Point-of-Care diagnostics is more than just a device: It is a digitally integrated system. Those who rely on Remote Setup invest not only in more precise and faster diagnostics but primarily in the valuable time of their staff. The 48-hour formula is thus synonymous with minimal integration stress and maximum operational readiness in modern healthcare."
+          "Moderní diagnostika Point-of-Care je více než jen zařízení: Je to digitálně integrovaný systém. Ti, kteří spoléhají na vzdálené nastavení, investují nejen do přesnější a rychlejší diagnostiky, ale především do cenného času svého personálu. 48hodinový vzorec je tedy synonymem pro minimální integrační stres a maximální provozní připravenost v moderním zdravotnictví."
         ]
       }
     ]
   },
   "precision_point_of_care": {
-    "title": "Precision in Point-of-Care: The Key to Patient Safety",
-    "excerpt": "Why the validation of Lateral Flow Tests (LFT) goes beyond manufacturer specifications.",
+    "title": "Přesnost v místě péče: Klíč k bezpečnosti pacientů",
+    "excerpt": "Proč validace testů laterálního toku (LFT) jde nad rámec specifikací výrobce.",
     "sections": [
       {
-        "heading": "The Revolution of Point-of-Care Diagnostics",
+        "heading": "Revoluce diagnostiky Point-of-Care",
         "paragraphs": [
-          "Point-of-Care Diagnostics (POC) has revolutionized medical care. It provides results in minutes, enables fast clinical decisions, and relieves central laboratories. The use of Lateral Flow Tests (LFT) – known as 'rapid tests' – has become particularly popular. Their simplicity and speed are undisputed, but their reliability depends largely on correct, validated evaluation.",
-          "The challenge is to transfer the analytical precision of the central laboratory to the decentralized environment. This requires the validation of LFTs to go beyond the manufacturer's primary performance data (such as general sensitivity and specificity) and consider the entire measurement chain, including the reader and the user."
+          "Diagnostika Point-of-Care (POC) způsobila revoluci v lékařské péči. Poskytuje výsledky v minutách, umožňuje rychlá klinická rozhodnutí a ulevuje centrálním laboratořím. Použití testů laterálního toku (LFT) – známých jako 'rychlé testy' – se stalo obzvláště populárním. Jejich jednoduchost a rychlost jsou nezpochybnitelné, ale jejich spolehlivost do značné míry závisí na správném, validovaném vyhodnocení.",
+          "Výzvou je přenést analytickou přesnost centrální laboratoře do decentralizovaného prostředí. To vyžaduje, aby validace LFT šla nad rámec primárních výkonnostních údajů výrobce (jako je obecná citlivost a specificita) a zohlednila celý měřicí řetězec, včetně čtečky a uživatele."
         ]
       },
       {
-        "heading": "1. The Human Source of Error: Inter-Reader Variability (IRV)",
+        "heading": "1. Lidský zdroj chyb: Variabilita mezi čtečkami (IRV)",
         "paragraphs": [
-          "Originally, Lateral Flow Tests were developed for qualitative or semi-quantitative evaluation: The mere appearance of a test line (T-line) or the estimation of its intensity. However, this visual interpretation is the Achilles' heel of precision.",
-          "Subjectivity and Intraobserver Variability: The intensity of a color line is subjective. Fatigue, different lighting conditions, but also the mere momentary assessment of the examiner (intraobserver variability) can lead to different diagnoses. What is a weak positive for one person might be a negative result for another.",
-          "The Necessity of Quantitative Results: Modern therapy decisions, such as administering antibiotics for elevated CRP levels (C-reactive protein), are based on exact numerical thresholds. To transform a qualitative test execution into a quantitative, lab-compatible result, eliminating subjective evaluation is mandatory."
+          "Původně byly testy laterálního toku vyvinuty pro kvalitativní nebo semikvantitativní vyhodnocení: Pouhý výskyt testovací linie (T-linie) nebo odhad její intenzity. Tato vizuální interpretace je však Achillovou patou přesnosti.",
+          "Subjektivita a intraobserver variabilita: Intenzita barevné linie je subjektivní. Únava, různé světelné podmínky, ale i pouhé momentální posouzení vyšetřujícího mohou vést k různým diagnózám. Co je pro jednu osobu slabě pozitivní, může být pro jinou negativní výsledek.",
+          "Nutnost kvantitativních výsledků: Moderní rozhodování o terapii, jako je podávání antibiotik při zvýšených hladinách CRP (C-reaktivní protein), je založeno na přesných číselných prahových hodnotách. Pro transformaci kvalitativního provedení testu na kvantitativní výsledek kompatibilní s laboratoří je eliminace subjektivního hodnocení povinná."
         ]
       },
       {
-        "heading": "2. Validation in Clinical Context: More Than Just a Datasheet",
+        "heading": "2. Validace v klinickém kontextu: Více než jen datový list",
         "paragraphs": [
-          "Manufacturers provide data on the performance of their tests under idealized laboratory conditions. However, actual use in practice or pharmacy, often in environments with low prevalence or asymptomatic patients, requires application-specific validation.",
-          "As the practice of COVID-19 tests has shown, the detection capability of an LFT depends heavily on the patient's actual viral load. An LFT validation that goes beyond the manufacturer's mere specification must answer the following questions:"
+          "Výrobci poskytují údaje o výkonu svých testů za idealizovaných laboratorních podmínek. Skutečné použití v praxi nebo lékárně, často v prostředích s nízkou prevalencí nebo asymptomatickými pacienty, však vyžaduje validaci specifickou pro aplikaci.",
+          "Jak ukázala praxe testů na COVID-19, detekční schopnost LFT silně závisí na skutečné virové náloži pacienta. Validace LFT, která jde nad rámec pouhé specifikace výrobce, musí odpovědět na následující otázky:"
         ],
         "listItems": [
-          "Comparison with Gold Standard: How exactly do the quantitative values of the LFT correlate with the results of the gold standard (e.g., PCR Ct values or central laboratory devices)?",
-          "Limit of Detection (LoD): Is the critical threshold (LoD) that the test still reliably detects reproducible in the POC environment?",
-          "Robustness: How stable is the result across the entire measurement range (linear range)?"
+          "Srovnání se zlatým standardem: Jak přesně korelují kvantitativní hodnoty LFT s výsledky zlatého standardu (např. hodnoty Ct PCR nebo centrální laboratorní zařízení)?",
+          "Detekční limit (LoD): Je kritický práh (LoD), který test stále spolehlivě detekuje, reprodukovatelný v prostředí POC?",
+          "Robustnost: Jak stabilní je výsledek v celém měřicím rozsahu (lineární rozsah)?"
         ]
       },
       {
-        "heading": "The Role of Automation and Calibration",
+        "heading": "Role automatizace a kalibrace",
         "paragraphs": [
-          "Only by confirming these analytical quality criteria in clinical reality can POC diagnostics justify the trust of doctors and patients.",
-          "To ensure laboratory precision at the Point-of-Care, the use of automated LFT readers like the IglooPro is essential. These readers perform the necessary, objective evaluation, thus placing analytics on a new foundation.",
-          "A. Elimination of Variability through Objectivity: Modern readers use camera systems or fluorescence technology to objectively capture test and control lines and digitally quantify intensity ratios. The result is a numerical value with a low coefficient of variation (CV) that completely eliminates IRV.",
-          "B. The Necessary Calibration and Quality Assurance (QA): A reader is only as good as its calibration. To ensure precision across different test batches and over the device's lifetime, strict QA procedures are required:"
+          "Pouze potvrzením těchto kritérií analytické kvality v klinické realitě může diagnostika POC ospravedlnit důvěru lékařů a pacientů.",
+          "Pro zajištění laboratorní přesnosti v místě péče je nezbytné použití automatizovaných čteček LFT, jako je IglooPro. Tyto čtečky provádějí nezbytné, objektivní vyhodnocení, čímž staví analýzu na nový základ.",
+          "A. Eliminace variability prostřednictvím objektivity: Moderní čtečky používají kamerové systémy nebo fluorescenční technologii k objektivnímu zachycení testovacích a kontrolních linií a digitální kvantifikaci poměrů intenzity. Výsledkem je číselná hodnota s nízkým variačním koeficientem (CV), která zcela eliminuje IRV.",
+          "B. Nezbytná kalibrace a zajištění kvality (QA): Čtečka je jen tak dobrá, jak dobrá je její kalibrace. Pro zajištění přesnosti u různých šarží testů a po celou dobu životnosti zařízení jsou vyžadovány přísné postupy QA:"
         ],
         "listItems": [
-          "Batch-Specific Calibration: Each production batch of LFTs can show slight differences in reaction kinetics or membrane properties. The reader must load this batch-specific data – often automatically via barcode or RFID technology – to correctly convert the LFT-specific signal into the concentration value.",
-          "Quality Control (QC Lock): Modern systems have mechanisms (analogous to RiliBÄK in the central laboratory) that refuse measurement if internal or external quality control (e.g., a control cassette) has not been successfully performed. This guarantees that only validated measurement results are generated."
+          "Specifická kalibrace šarže: Každá výrobní šarže LFT může vykazovat drobné rozdíly v reakční kinetice nebo vlastnostech membrány. Čtečka musí načíst tato data specifická pro šarži – často automaticky pomocí čárového kódu nebo technologie RFID – aby správně převedla signál specifický pro LFT na hodnotu koncentrace.",
+          "Kontrola kvality (QC Lock): Moderní systémy mají mechanismy, které odmítnou měření, pokud nebyla úspěšně provedena interní nebo externí kontrola kvality (např. kontrolní kazeta). Tím je zaručeno, že jsou generovány pouze validované výsledky měření."
         ]
       },
       {
-        "heading": "Conclusion: The Promise of POC Diagnostics",
+        "heading": "Závěr: Slib diagnostiky POC",
         "paragraphs": [
-          "The speed of POC diagnostics is an invaluable advantage. However, trust in this speed can only be secured through continuous quality assurance and validation. Point-of-Care diagnostics aiming for laboratory levels must mandatorily rely on the automated, calibrated, and validated evaluation of Lateral Flow Tests.",
-          "Only through the combination of a robust, calibrated reader and strict validation procedures does a rapid test become a reliable diagnostic basis."
+          "Rychlost diagnostiky POC je neocenitelnou výhodou. Důvěra v tuto rychlost však může být zajištěna pouze neustálým zajišťováním kvality a validací. Diagnostika Point-of-Care usilující o laboratorní úrovně musí povinně spoléhat na automatizované, kalibrované a validované vyhodnocení testů laterálního toku.",
+          "Pouze kombinací robustní, kalibrované čtečky a přísných validačních postupů se rychlý test stává spolehlivým diagnostickým základem."
         ]
       }
     ]
   },
   "first_checkup": {
-    "title": "How to prepare for your first medical check-up",
-    "excerpt": "A short guide to help you feel confident and prepared for your very first comprehensive medical examination.",
+    "title": "Jak se připravit na první lékařskou prohlídku",
+    "excerpt": "Krátký průvodce, který vám pomůže cítit se sebejistě a připraveně na vaše úplně první komplexní lékařské vyšetření.",
     "sections": [
       {
-        "heading": "Better care starts with being prepared",
+        "heading": "Lepší péče začíná přípravou",
         "paragraphs": [
-          "Before your first medical check-up, it's important to collect your medical history, list any current medications, and note symptoms you've experienced recently. This helps your doctor build a complete picture and focus on what matters most to your health."
+          "Před vaší první lékařskou prohlídkou je důležité shromáždit vaši anamnézu, sepsat seznam všech současných léků a zaznamenat příznaky, které jste v poslední době zaznamenali. To pomáhá vašemu lékaři vytvořit si úplný obrázek a zaměřit se na to, co je pro vaše zdraví nejdůležitější."
         ]
       },
       {
-        "heading": "What to bring to your appointment",
+        "heading": "Co si vzít s sebou na schůzku",
         "paragraphs": [
-          "Arriving prepared saves time and ensures a smoother conversation with your doctor."
+          "Příchod připravený šetří čas a zajišťuje plynulejší konverzaci s vaším lékařem."
         ],
         "listItems": [
-          "Identification and insurance information (if applicable).",
-          "A list of all medications, including supplements and vitamins.",
-          "Previous lab results or reports if you have them.",
-          "Questions you want to ask your doctor."
+          "Identifikace a informace o pojištění (pokud je to relevantní).",
+          "Seznam všech léků, včetně doplňků stravy a vitamínů.",
+          "Předchozí laboratorní výsledky nebo zprávy, pokud je máte.",
+          "Otázky, na které se chcete zeptat svého lékaře."
         ]
       },
       {
-        "heading": "During the check-up",
+        "heading": "Během prohlídky",
         "paragraphs": [
-          "Your doctor will usually check your vital signs, discuss your lifestyle, and perform a physical examination. Be honest about your habits and concerns — this is the best way to receive care that truly fits your situation.",
-          "Regular check-ups are the foundation of preventative medicine. By catching potential issues early, you give yourself more options, more time, and better outcomes."
+          "Váš lékař obvykle zkontroluje vaše životní funkce, probere váš životní styl a provede fyzikální vyšetření. Buďte upřímní ohledně svých zvyků a obav — to je nejlepší způsob, jak získat péči, která skutečně odpovídá vaší situaci.",
+          "Pravidelné kontroly jsou základem preventivní medicíny. Včasným zachycením potenciálních problémů si dáváte více možností, více času a lepší výsledky."
         ]
       }
     ]
   },
   "managing_diabetes": {
-    "title": "Managing diabetes with simple daily routines",
-    "excerpt": "Discover how small, consistent habits can dramatically improve blood sugar control and overall wellbeing.",
+    "title": "Zvládání diabetu pomocí jednoduchých denních rutin",
+    "excerpt": "Objevte, jak malé, konzistentní návyky mohou dramaticky zlepšit kontrolu hladiny cukru v krvi a celkovou pohodu.",
     "sections": [
       {
-        "heading": "Start with your morning routine",
+        "heading": "Začněte svou ranní rutinou",
         "paragraphs": [
-          "A stable morning routine sets the tone for the rest of the day. For people living with diabetes, this is especially important."
+          "Stabilní ranní rutina udává tón pro zbytek dne. Pro lidi žijící s diabetem je to obzvláště důležité."
         ]
       }
     ]
   },
   "home_care": {
-    "title": "The benefits of professional home care services",
-    "excerpt": "Home care teams can bridge the gap between hospital and everyday life — here is how they support patients and families.",
+    "title": "Výhody profesionálních služeb domácí péče",
+    "excerpt": "Týmy domácí péče mohou překlenout propast mezi nemocnicí a každodenním životem — zde je návod, jak podporují pacienty a rodiny.",
     "sections": [
       {
-        "heading": "Care that comes to you",
+        "heading": "Péče, která přichází za vámi",
         "paragraphs": [
-          "Professional home care services make it easier to recover after surgery or manage chronic conditions without constant hospital visits."
+          "Profesionální služby domácí péče usnadňují zotavení po operaci nebo zvládání chronických stavů bez neustálých návštěv nemocnice."
         ]
       }
     ]

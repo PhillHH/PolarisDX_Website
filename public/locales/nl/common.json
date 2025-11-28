@@ -8,36 +8,41 @@
     "contact": "Contact"
   },
   "badge": {
-    "New": "New",
-    "Popular": "Popular",
-    "Limited": "Limited"
+    "New": "Nieuw",
+    "Popular": "Populair",
+    "Limited": "Beperkt"
   },
   "category": {
-    "Diagnostics": "Diagnostics",
+    "Diagnostics": "Diagnostiek",
     "Monitoring": "Monitoring",
-    "Home Care": "Home Care",
-    "Chronic Care": "Chronic Care",
-    "Protection": "Protection",
-    "Hygiene": "Hygiene",
-    "Recovery": "Recovery",
-    "Emergency": "Emergency",
+    "Home Care": "Thuiszorg",
+    "Chronic Care": "Chronische Zorg",
+    "Protection": "Bescherming",
+    "Hygiene": "Hygiëne",
+    "Recovery": "Herstel",
+    "Emergency": "Noodsituatie",
     "Service": "Service"
   },
   "footer": {
-    "description": "Comprehensive care and support. Modern health services for you and your family, around the clock.",
+    "description": "Uitgebreide zorg en ondersteuning. Moderne gezondheidsdiensten voor u en uw gezin, de klok rond.",
     "links": "Links",
-    "discover": "Discover",
-    "london": "London",
+    "discover": "Ontdek",
+    "london": "Londen",
     "hamburg": "Hamburg",
-    "copyright": "Copyright ©PolarisDX 2025 All Rights Reserved.",
-    "doctors": "Our Doctors",
-    "testimonials": "Testimonials",
+    "copyright": "Copyright ©PolarisDX 2025 Alle rechten voorbehouden.",
+    "doctors": "Onze Artsen",
+    "testimonials": "Getuigenissen",
     "faq": "FAQ",
-    "appointment": "Make Appointment"
+    "appointment": "Afspraak Maken"
   },
   "cta": {
-    "title": "Looking for professional & trusted <1>medical healthcare?</1>",
-    "description": "Don't hesitate to contact us. Our team is ready to support you and help schedule the right appointment.",
-    "button": "Make Appointment"
+    "title": "Op zoek naar professionele & vertrouwde <1>medische gezondheidszorg?</1>",
+    "description": "Aarzel niet om contact met ons op te nemen. Ons team staat klaar om u te ondersteunen en te helpen bij het plannen van de juiste afspraak.",
+    "button": "Afspraak Maken"
+  },
+  "cta_section": {
+    "title": "Op zoek naar gegarandeerde prestaties en POC-expertise?",
+    "text": "Spreek direct met onze IglooPro-specialisten. Ons team staat klaar om uw individuele workflowvereisten te analyseren en u de snelste weg naar gevalideerde diagnostiek te tonen. Bij ons krijgt u een oplossing op maat, geen standaardlevering.",
+    "button": "Boek Nu Expertanalyse"
   }
 }

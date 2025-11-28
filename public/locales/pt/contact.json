@@ -1,33 +1,47 @@
 {
   "contact": {
     "hero": {
-      "kicker": "Appointment",
-      "title": "Make Appointment",
-      "breadcrumb": "Home / Contact Us"
+      "kicker": "A SUA ANÁLISE DE DESEMPENHO",
+      "title": "Solicitar Análise de Desempenho IglooPro",
+      "breadcrumb": "Início / Contacte-nos"
     },
     "form": {
-      "title": "Book Appointment",
+      "title": "Marcar Consulta",
       "email": "Email",
-      "phone": "Phone",
-      "specialty": "Select Medical Specialties",
-      "doctor": "Select Doctor",
-      "any_doctor": "Any available doctor",
-      "date": "Select Date & Time",
-      "name": "Name",
-      "name_placeholder": "Your full name",
+      "phone": "Telefone",
+      "specialty": "Selecione Especialidades Médicas",
+      "doctor": "Selecione Médico",
+      "any_doctor": "Qualquer médico disponível",
+      "date": "Selecione Data e Hora",
+      "name": "Nome",
+      "name_placeholder": "O seu nome completo",
       "phone_placeholder": "+123 456 789",
-      "email_placeholder": "you@example.com",
-      "message": "Message",
-      "message_placeholder": "Tell us more about your needs...",
-      "submit": "Make Appointment"
+      "email_placeholder": "voce@exemplo.com",
+      "message": "Mensagem",
+      "message_placeholder": "Conte-nos mais sobre as suas necessidades...",
+      "submit": "Solicitar Análise de Desempenho Agora",
+      "company_label": "Nome da Empresa / Consultório",
+      "company_placeholder": "ex: Consultório Dr. Silva ou Farmácia Central",
+      "area_label": "Área Principal de Aplicação",
+      "area_options": {
+        "pharmacy": "Farmácia",
+        "practice": "Consultório Médico/Clínica",
+        "vet": "Medicina Veterinária",
+        "lab": "Investigação/Laboratório",
+        "other": "Outro"
+      },
+      "requirements_label": "Os seus Requisitos Específicos para o IglooPro",
+      "requirements_placeholder": "Quais biomarcadores (ex: CRP, TSH, HbA1c) são principalmente relevantes para si?"
     },
     "info": {
-      "title": "Contact Information",
-      "text": "Our team will get back to you within one business day. For urgent questions, please use the phone number below."
+      "title": "Informações de Contacto",
+      "text": "A nossa equipa entrará em contacto consigo no prazo de um dia útil. Para questões urgentes, utilize o número de telefone abaixo.",
+      "email_label": "EMAIL (Serviço 24/7)",
+      "phone_label": "TELEFONE (Linha Prioritária)"
     },
     "bottom_cta": {
-      "title": "Looking for professional & trusted medical healthcare?",
-      "text": "Don't hesitate to contact us. Our coordinators are ready to help you choose the right doctor and time."
+      "title": "Procura cuidados de saúde médicos profissionais e de confiança?",
+      "text": "Não hesite em contactar-nos. Os nossos coordenadores estão prontos para ajudar a escolher o médico e horário certos."
     }
   }
 }

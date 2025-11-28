@@ -2,42 +2,47 @@
   "nav": {
     "home": "Hjem",
     "about": "Om os",
-    "service": "Service",
+    "service": "Ydelser",
     "shop": "Butik",
     "blog": "Blog",
-    "contact": "Kontakt os"
+    "contact": "Kontakt"
   },
   "badge": {
-    "New": "New",
-    "Popular": "Popular",
-    "Limited": "Limited"
+    "New": "Ny",
+    "Popular": "Populær",
+    "Limited": "Begrænset"
   },
   "category": {
-    "Diagnostics": "Diagnostics",
-    "Monitoring": "Monitoring",
-    "Home Care": "Home Care",
-    "Chronic Care": "Chronic Care",
-    "Protection": "Protection",
-    "Hygiene": "Hygiene",
-    "Recovery": "Recovery",
-    "Emergency": "Emergency",
+    "Diagnostics": "Diagnostik",
+    "Monitoring": "Overvågning",
+    "Home Care": "Hjemmepleje",
+    "Chronic Care": "Kronisk Pleje",
+    "Protection": "Beskyttelse",
+    "Hygiene": "Hygiejne",
+    "Recovery": "Genoptræning",
+    "Emergency": "Nødsituation",
     "Service": "Service"
   },
   "footer": {
-    "description": "Comprehensive care and support. Modern health services for you and your family, around the clock.",
+    "description": "Omfattende pleje og støtte. Moderne sundhedsydelser til dig og din familie, døgnet rundt.",
     "links": "Links",
-    "discover": "Discover",
+    "discover": "Opdag",
     "london": "London",
-    "hamburg": "Hamburg",
-    "copyright": "Copyright ©PolarisDX 2025 All Rights Reserved.",
-    "doctors": "Our Doctors",
-    "testimonials": "Testimonials",
+    "hamburg": "Hamborg",
+    "copyright": "Copyright ©PolarisDX 2025 Alle rettigheder forbeholdes.",
+    "doctors": "Vores Læger",
+    "testimonials": "Udtalelser",
     "faq": "FAQ",
-    "appointment": "Make Appointment"
+    "appointment": "Bestil Tid"
   },
   "cta": {
-    "title": "Looking for professional & trusted <1>medical healthcare?</1>",
-    "description": "Don't hesitate to contact us. Our team is ready to support you and help schedule the right appointment.",
-    "button": "Make Appointment"
+    "title": "Leder du efter professionel og pålidelig <1>medicinsk sundhedspleje?</1>",
+    "description": "Tøv ikke med at kontakte os. Vores team står klar til at støtte dig og hjælpe med at planlægge den rette tid.",
+    "button": "Bestil Tid"
+  },
+  "cta_section": {
+    "title": "Leder du efter garanteret ydeevne og POC-ekspertise?",
+    "text": "Tal direkte med vores IglooPro-specialister. Vores team står klar til at analysere dine individuelle workflow-krav og vise dig den hurtigste vej til valideret diagnostik. Hos os får du en skræddersyet løsning, ikke en standardlevering.",
+    "button": "Bestil Ekspertanalyse Nu"
   }
 }

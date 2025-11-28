@@ -1,81 +1,81 @@
 {
   "hero": {
-    "caption": "Point-of-care Performance",
-    "title": "IglooPro:\nPoint-of-Care. Perfect. Instant.",
-    "description": "Secure the performance package: Your IglooPro is ready for use in 48 hours – guaranteed.",
-    "cta": "Book 15-minute performance analysis now",
+    "caption": "Point-of-care Ydeevne",
+    "title": "IglooPro:\nPoint-of-Care. Perfekt. Øjeblikkeligt.",
+    "description": "Sikr dig ydeevnepakken: Din IglooPro er klar til brug om 48 timer – garanteret.",
+    "cta": "Bestil 15-minutters ydeevneanalyse nu",
     "stat1": {
-      "value": "48h",
-      "label": "Ready for use after order"
+      "value": "48t",
+      "label": "Klar til brug efter bestilling"
     },
     "stat2": {
       "value": "CV < 2%",
-      "label": "Precision across the entire measurement range"
+      "label": "Præcision over hele måleområdet"
     }
   },
   "about": {
-    "caption": "YOUR PERFORMANCE GUARANTOR",
-    "title": "Excellence and Safety: The Standard We Set.",
-    "text1": "The IglooPro is a premium device. But true premium performance only comes from perfect, risk-free commissioning. Standard delivery leaves the complexity to you. We take responsibility for the result.",
-    "text2": "That's why we exclusively deliver the 48-hour setup promise. Our performance pillars guarantee that your POC workflow is optimized from the very first second and that you can use diagnostic excellence immediately.",
-    "cta": "Secure exclusive advantage"
+    "caption": "DIN YDEEVNEGARANT",
+    "title": "Ekspertise og Sikkerhed: Standarden Vi Sætter.",
+    "text1": "IglooPro er en premium-enhed. Men ægte premium-ydeevne kommer kun fra perfekt, risikofri idriftsættelse. Standardlevering overlader kompleksiteten til dig. Vi tager ansvar for resultatet.",
+    "text2": "Derfor leverer vi udelukkende løftet om opsætning på 48 timer. Vores ydeevnesøjler garanterer, at dit POC-workflow er optimeret fra første sekund, og at du kan bruge diagnostisk ekspertise med det samme.",
+    "cta": "Sikr eksklusiv fordel"
   },
   "doctors": {
-    "caption": "DIAGNOSTICS FOCUS",
-    "title": "Precise Diagnostics. Immediate Results at the Point-of-Care.",
-    "description": "Discover with systems like the Igloo Pro from DX365 how you can optimize your patient care and make important diagnoses directly at the point of treatment – with lab-accurate results in minutes.",
-    "cta": "Go to Igloo Pro System"
+    "caption": "DIAGNOSTISK FOKUS",
+    "title": "Præcis Diagnostik. Øjeblikkelige Resultater ved Point-of-Care.",
+    "description": "Opdag med systemer som Igloo Pro fra DX365, hvordan du kan optimere din patientpleje og stille vigtige diagnoser direkte på behandlingsstedet – med laboratoriepræcise resultater på få minutter.",
+    "cta": "Gå til Igloo Pro System"
   },
   "services": {
     "poc_systemloesungen": {
-      "title": "POC System Solutions",
-      "description": "Your diagnostic control center. Mobile analyzers delivering lab-accurate results in minutes, directly at the point of care (e.g., Igloo Pro)."
+      "title": "POC Systemløsninger",
+      "description": "Dit diagnostiske kontrolcenter. Mobile analysatorer, der leverer laboratoriepræcise resultater på minutter, direkte ved point-of-care (f.eks. Igloo Pro)."
     },
     "praeventions_checks": {
-      "title": "Preventive Health Checks",
-      "description": "Prevention reimagined. Rapid determination of key biomarkers (e.g., Vitamin D, CRP, HbA1c) for early risk detection and individual health counseling."
+      "title": "Forebyggende Helbredstjek",
+      "description": "Forebyggelse gentænkt. Hurtig bestemmelse af nøglebiomarkører (f.eks. D-vitamin, CRP, HbA1c) til tidlig risikodetektion og individuel sundhedsrådgivning."
     },
     "infektion_entzuendung": {
-      "title": "Infection & Inflammation Markers",
-      "description": "Fast answers in critical cases. Immediate analysis of inflammation levels (CRP, PCT, IL-6) and infectious diseases – essential for acute care and triage."
+      "title": "Infektions- & Inflammationsmarkører",
+      "description": "Hurtige svar i kritiske tilfælde. Øjeblikkelig analyse af inflammationsniveauer (CRP, PCT, IL-6) og infektionssygdomme – essentielt for akut pleje og triage."
     },
     "stoffwechsel_herz": {
-      "title": "Metabolism & Heart Health",
-      "description": "Key indicators at a glance. Precise measurement of HbA1c, cholesterol profiles, and cardiac markers (e.g., D-Dimer) for monitoring chronic conditions."
+      "title": "Stofskifte & Hjertesundhed",
+      "description": "Nøgleindikatorer på et øjeblik. Præcis måling af HbA1c, kolesterolprofiler og hjertemarkører (f.eks. D-Dimer) til overvågning af kroniske tilstande."
     },
     "hormon_tests": {
-      "title": "Hormone & Endocrinology Tests",
-      "description": "Specialized diagnostics made easy. Wide range of tests for thyroid and reproductive hormones (TSH, AMH) for specialized practices and pharmacies."
+      "title": "Hormon- & Endokrinologitests",
+      "description": "Specialiseret diagnostik gjort let. Bred vifte af tests for skjoldbruskkirtel- og reproduktionshormoner (TSH, AMH) til specialpraksisser og apoteker."
     },
     "kompatibilitaet_integration": {
-      "title": "Manufacturer-Independent Compatibility",
-      "description": "Maximum flexibility. Thanks to universal technology, our devices evaluate 90% of all lateral flow tests on the market. Investment security through openness."
+      "title": "Producentuafhængig Kompatibilitet",
+      "description": "Maksimal fleksibilitet. Takket være universel teknologi evaluerer vores enheder 90% af alle lateral flow tests på markedet. Investeringssikkerhed gennem åbenhed."
     }
   },
   "testimonials": {
     "richard_pollock": {
-      "role": "Dentist (Verified Review)",
-      "title": "Biological Dentist and Implant Surgeon / Chelsea Dental Clinic",
-      "focus": "Fast On-Site Health Checks (Prevention, Vitamin D)",
-      "text": "Carrying out analysis of Vitamin D levels and other key health indicators on-site cannot be underestimated. The Igloo Pro enables me to perform a simple capillary blood test, to ascertain patients’ needs and to then guide them as to which additional supplements they might require to optimise treatment. This capability is proving transformative in terms of patient outcomes."
+      "role": "Tandlæge (Verificeret Anmeldelse)",
+      "title": "Biologisk Tandlæge og Implantatkirurg / Chelsea Dental Clinic",
+      "focus": "Hurtige Helbredstjek på Stedet (Forebyggelse, D-vitamin)",
+      "text": "At udføre analyse af D-vitaminniveauer og andre nøglesundhedsindikatorer på stedet kan ikke undervurderes. Igloo Pro gør det muligt for mig at udføre en simpel kapillærblodtest for at fastslå patienternes behov og derefter vejlede dem om, hvilke yderligere kosttilskud de måtte have brug for for at optimere behandlingen. Denne kapacitet viser sig at være transformerende med hensyn til patientresultater."
     },
     "eva_schmidt": {
-      "role": "Pharmacy",
-      "title": "Owner / Löwen-Apotheke, Berlin",
-      "focus": "The next step in preventive counseling (Customer loyalty, Speed)",
-      "text": "Since implementing the Igloo Pro system, our role as health advisors has strengthened significantly. Customers greatly appreciate being able to determine important values like CRP or cholesterol in minutes, rather than waiting weeks for appointments. A true win-win situation for customer loyalty and service quality."
+      "role": "Apotek",
+      "title": "Ejer / Løve Apotek, Berlin",
+      "focus": "Næste skridt i forebyggende rådgivning (Kundefacilitet, Hastighed)",
+      "text": "Siden implementeringen af Igloo Pro-systemet er vores rolle som sundhedsrådgivere blevet betydeligt styrket. Kunderne sætter stor pris på at kunne bestemme vigtige værdier som CRP eller kolesterol på minutter i stedet for at vente uger på tider. En sand win-win situation for kundeloyalitet og servicekvalitet."
     },
     "martin_fischer": {
-      "role": "General Practitioner/Practice",
-      "title": "Specialist in Internal Medicine / Internal Practice Dr. Fischer",
-      "focus": "Immediate diagnostics for acute patients (Efficiency, Treatment decision)",
-      "text": "The ability to determine inflammation markers like CRP immediately in the practice has revolutionized our treatment workflow. We can decide faster whether antibiotic therapy is necessary for patients with unclear infections, preventing unnecessary referrals. This saves us time and significantly increases patient satisfaction."
+      "role": "Praktiserende Læge/Praksis",
+      "title": "Specialist i Intern Medicin / Intern Praksis Dr. Fischer",
+      "focus": "Øjeblikkelig diagnostik for akutte patienter (Effektivitet, Behandlingsbeslutning)",
+      "text": "Evnen til at bestemme inflammationsmarkører som CRP øjeblikkeligt i praksissen har revolutioneret vores behandlingsworkflow. Vi kan beslutte hurtigere, om antibiotikabehandling er nødvendig for patienter med uklare infektioner, hvilket forhindrer unødvendige henvisninger. Dette sparer os tid og øger patienttilfredsheden betydeligt."
     },
     "julia_bergmann": {
-      "role": "Clinic/Lab",
-      "title": "Head of Lab & Diagnostics / Klinikum Nord",
-      "focus": "System Compatibility & Reliability (Flexibility, Bundling)",
-      "text": "The Igloo Pro is the most flexible Point-of-Care device we have ever evaluated. The manufacturer-independent compatibility for lateral flow tests is a huge advantage, allowing us to standardize our POC devices and save costs without sacrificing the proven reliability of results."
+      "role": "Klinik/Laboratorium",
+      "title": "Laboratorie- & Diagnostikchef / Klinikum Nord",
+      "focus": "Systemkompatibilitet & Pålidelighed (Fleksibilitet, Bundling)",
+      "text": "Igloo Pro er den mest fleksible Point-of-Care-enhed, vi nogensinde har evalueret. Den producentuafhængige kompatibilitet for lateral flow tests er en kæmpe fordel, der giver os mulighed for at standardisere vores POC-enheder og spare omkostninger uden at ofre den beviste pålidelighed af resultaterne."
     }
   }
 }

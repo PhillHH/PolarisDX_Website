@@ -1,43 +1,48 @@
 {
   "nav": {
     "home": "Início",
-    "about": "Sobre nós",
+    "about": "Sobre",
     "service": "Serviços",
     "shop": "Loja",
     "blog": "Blog",
-    "contact": "Contacte-nos"
+    "contact": "Contactos"
   },
   "badge": {
-    "New": "New",
+    "New": "Novo",
     "Popular": "Popular",
-    "Limited": "Limited"
+    "Limited": "Limitado"
   },
   "category": {
-    "Diagnostics": "Diagnostics",
-    "Monitoring": "Monitoring",
-    "Home Care": "Home Care",
-    "Chronic Care": "Chronic Care",
-    "Protection": "Protection",
-    "Hygiene": "Hygiene",
-    "Recovery": "Recovery",
-    "Emergency": "Emergency",
-    "Service": "Service"
+    "Diagnostics": "Diagnóstico",
+    "Monitoring": "Monitorização",
+    "Home Care": "Cuidados Domiciliários",
+    "Chronic Care": "Doenças Crónicas",
+    "Protection": "Proteção",
+    "Hygiene": "Higiene",
+    "Recovery": "Recuperação",
+    "Emergency": "Emergência",
+    "Service": "Serviço"
   },
   "footer": {
-    "description": "Comprehensive care and support. Modern health services for you and your family, around the clock.",
+    "description": "Cuidados e apoio abrangentes. Serviços de saúde modernos para si e para a sua família, 24 horas por dia.",
     "links": "Links",
-    "discover": "Discover",
-    "london": "London",
-    "hamburg": "Hamburg",
-    "copyright": "Copyright ©PolarisDX 2025 All Rights Reserved.",
-    "doctors": "Our Doctors",
-    "testimonials": "Testimonials",
+    "discover": "Descobrir",
+    "london": "Londres",
+    "hamburg": "Hamburgo",
+    "copyright": "Copyright ©PolarisDX 2025 Todos os direitos reservados.",
+    "doctors": "Os Nossos Médicos",
+    "testimonials": "Testemunhos",
     "faq": "FAQ",
-    "appointment": "Make Appointment"
+    "appointment": "Marcar Consulta"
   },
   "cta": {
-    "title": "Looking for professional & trusted <1>medical healthcare?</1>",
-    "description": "Don't hesitate to contact us. Our team is ready to support you and help schedule the right appointment.",
-    "button": "Make Appointment"
+    "title": "Procura cuidados de saúde <1>médicos profissionais e de confiança?</1>",
+    "description": "Não hesite em contactar-nos. A nossa equipa está pronta para o apoiar e ajudar a marcar a consulta certa.",
+    "button": "Marcar Consulta"
+  },
+  "cta_section": {
+    "title": "Procura desempenho garantido e experiência em POC?",
+    "text": "Fale diretamente com os nossos especialistas IglooPro. A nossa equipa está pronta para analisar os seus requisitos de fluxo de trabalho individuais e mostrar-lhe o caminho mais rápido para diagnósticos validados. Connosco, obtém uma solução personalizada, não uma entrega padrão.",
+    "button": "Agendar Análise Especializada Agora"
   }
 }

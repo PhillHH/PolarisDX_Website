@@ -1,33 +1,47 @@
 {
   "contact": {
     "hero": {
-      "kicker": "Appointment",
-      "title": "Make Appointment",
-      "breadcrumb": "Home / Contact Us"
+      "kicker": "UW PRESTATIEANALYSE",
+      "title": "Vraag IglooPro Prestatieanalyse Aan",
+      "breadcrumb": "Home / Contacteer Ons"
     },
     "form": {
-      "title": "Book Appointment",
-      "email": "Email",
-      "phone": "Phone",
-      "specialty": "Select Medical Specialties",
-      "doctor": "Select Doctor",
-      "any_doctor": "Any available doctor",
-      "date": "Select Date & Time",
-      "name": "Name",
-      "name_placeholder": "Your full name",
-      "phone_placeholder": "+123 456 789",
-      "email_placeholder": "you@example.com",
-      "message": "Message",
-      "message_placeholder": "Tell us more about your needs...",
-      "submit": "Make Appointment"
+      "title": "Afspraak Maken",
+      "email": "E-mail",
+      "phone": "Telefoon",
+      "specialty": "Selecteer Medische Specialismen",
+      "doctor": "Selecteer Arts",
+      "any_doctor": "Elke beschikbare arts",
+      "date": "Selecteer Datum & Tijd",
+      "name": "Naam",
+      "name_placeholder": "Uw volledige naam",
+      "phone_placeholder": "+31 6 12345678",
+      "email_placeholder": "u@voorbeeld.nl",
+      "message": "Bericht",
+      "message_placeholder": "Vertel ons meer over uw behoeften...",
+      "submit": "Vraag Prestatieanalyse Nu Aan",
+      "company_label": "Bedrijfs- / Praktijknaam",
+      "company_placeholder": "bijv. Huisartsenpraktijk Jansen of Apotheek Centrum",
+      "area_label": "Primair Toepassingsgebied",
+      "area_options": {
+        "pharmacy": "Apotheek",
+        "practice": "Huisartsenpraktijk/Kliniek",
+        "vet": "Diergeneeskunde",
+        "lab": "Onderzoek/Laboratorium",
+        "other": "Anders"
+      },
+      "requirements_label": "Uw Specifieke Eisen voor IglooPro",
+      "requirements_placeholder": "Welke biomarkers (bijv. CRP, TSH, HbA1c) zijn primair relevant voor u?"
     },
     "info": {
-      "title": "Contact Information",
-      "text": "Our team will get back to you within one business day. For urgent questions, please use the phone number below."
+      "title": "Contactinformatie",
+      "text": "Ons team neemt binnen één werkdag contact met u op. Voor dringende vragen, gebruik het onderstaande telefoonnummer.",
+      "email_label": "E-MAIL (24/7 Service)",
+      "phone_label": "TELEFOON (Prioriteitslijn)"
     },
     "bottom_cta": {
-      "title": "Looking for professional & trusted medical healthcare?",
-      "text": "Don't hesitate to contact us. Our coordinators are ready to help you choose the right doctor and time."
+      "title": "Op zoek naar professionele & vertrouwde medische gezondheidszorg?",
+      "text": "Aarzel niet om contact met ons op te nemen. Onze coördinatoren staan klaar om u te helpen de juiste arts en tijd te kiezen."
     }
   }
 }

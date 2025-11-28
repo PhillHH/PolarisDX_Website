@@ -2,180 +2,180 @@
   "products": {
     "igloo_reader_pro": {
       "name": "Igloo Reader Pro",
-      "shortDescription": "The Igloo Reader Pro is a compact, state-of-the-art all-in-one analyzer for Point-of-Care Testing (POCT). It combines laboratory accuracy with the requirements of decentralized environments. Supports Lateral Flow, Microarray, Fluorescence, and more – the ideal solution for fast, reliable quantitative and qualitative test results.",
+      "shortDescription": "Igloo Reader Pro je kompaktní, nejmodernější analyzátor vše-v-jednom pro testování v místě péče (POCT). Kombinuje laboratorní přesnost s požadavky decentralizovaných prostředí. Podporuje laterální tok, microarray, fluorescenci a další – ideální řešení pro rychlé, spolehlivé kvantitativní a kvalitativní výsledky testů.",
       "detailedDescription": [
-        "The Igloo Reader Pro redefines mobile diagnostics. Designed specifically for professional environments and decentralized Point-of-Care applications, this versatile analyzer enables fast and reliable qualitative and quantitative testing.",
-        "The reader supports a wide range of diagnostic tests – from infectious disease screening to cardiac markers and hormone profiles, to drug abuse and allergy panels. Thanks to automated calibration, cloud integration, and digital data export, the Igloo Reader Pro delivers laboratory quality directly to where it is needed. It allows medical professionals to achieve fast and reliable results anywhere."
+        "Igloo Reader Pro redefinuje mobilní diagnostiku. Navržen speciálně pro profesionální prostředí a decentralizované aplikace Point-of-Care, tento všestranný analyzátor umožňuje rychlé a spolehlivé kvalitativní a kvantitativní testování.",
+        "Čtečka podporuje širokou škálu diagnostických testů – od screeningu infekčních onemocnění přes srdeční markery a hormonální profily až po panely zneužívání drog a alergií. Díky automatizované kalibraci, integraci cloudu a digitálnímu exportu dat dodává Igloo Reader Pro laboratorní kvalitu přímo tam, kde je potřeba. Umožňuje zdravotnickým pracovníkům dosahovat rychlých a spolehlivých výsledků kdekoli."
       ],
       "features": [
-        "Universal Test Platform: Supports Microarray, Lateral Flow, Colorimetry, Fluorescence, Dry Chemistry, and Microfluidics.",
-        "Lab Accuracy in POCT Format: High precision through automatic self-calibration before each measurement (CV < 2 % Inter-Reader, CV < 3 % Intra-Reader).",
-        "Compact & Mobile: Lightweight design with a battery life of up to 24 hours of continuous testing.",
-        "Full Connectivity: Integrated Wi-Fi, Bluetooth, and USB-C for seamless data synchronization and API/LIMS integration.",
-        "Secure Cloud Integration (Dx365 Cloud): For test updates, calibration management, and encrypted data storage.",
-        "Versatile Sample Types: Compatible with whole blood, capillary blood, serum, plasma, urine, stool, saliva, and hair."
+        "Univerzální testovací platforma: Podporuje microarray, laterální tok, kolorimetrii, fluorescenci, suchou chemii a mikrofluidiku.",
+        "Laboratorní přesnost ve formátu POCT: Vysoká přesnost díky automatické samokalibraci před každým měřením (CV < 2 % Inter-Reader, CV < 3 % Intra-Reader).",
+        "Kompaktní a mobilní: Lehký design s výdrží baterie až 24 hodin nepřetržitého testování.",
+        "Plná konektivita: Integrovaná Wi-Fi, Bluetooth a USB-C pro bezproblémovou synchronizaci dat a integraci API/LIMS.",
+        "Bezpečná integrace cloudu (Dx365 Cloud): Pro aktualizace testů, správu kalibrace a šifrované ukládání dat.",
+        "Všestranné typy vzorků: Kompatibilní s plnou krví, kapilární krví, sérem, plazmou, močí, stolicí, slinami a vlasy."
       ],
       "techSpecs": [
         {
-          "parameter": "Dimensions (L × W × H)",
-          "specification": "87.5 × 87.5 × 91 mm"
+          "parameter": "Rozměry (D × Š × V)",
+          "specification": "87,5 × 87,5 × 91 mm"
         },
         {
-          "parameter": "Weight",
-          "specification": "approx. 270 g"
+          "parameter": "Hmotnost",
+          "specification": "cca 270 g"
         },
         {
-          "parameter": "Measurement Time",
-          "specification": "Few seconds (excl. incubation time)"
+          "parameter": "Doba měření",
+          "specification": "Několik sekund (bez inkubační doby)"
         },
         {
-          "parameter": "Supported Test Methods",
-          "specification": "Microarray, Colorimetry, Fluorescence, Dry Chemistry, Quantum Dots, Microfluidics"
+          "parameter": "Podporované testovací metody",
+          "specification": "Microarray, kolorimetrie, fluorescence, suchá chemie, kvantové tečky, mikrofluidika"
         },
         {
-          "parameter": "Sample Types",
-          "specification": "Whole blood, capillary blood, serum, plasma, urine, stool, saliva, hair"
+          "parameter": "Typy vzorků",
+          "specification": "Plná krev, kapilární krev, sérum, plazma, moč, stolice, sliny, vlasy"
         },
         {
-          "parameter": "Result Memory",
-          "specification": "Up to 10,000 results"
+          "parameter": "Paměť výsledků",
+          "specification": "Až 10 000 výsledků"
         },
         {
-          "parameter": "Battery",
-          "specification": "Rechargeable Lithium battery, up to 24 hours continuous operation"
+          "parameter": "Baterie",
+          "specification": "Dobíjecí lithiová baterie, až 24 hodin nepřetržitého provozu"
         },
         {
-          "parameter": "Connectivity",
-          "specification": "USB-C, Wi-Fi (802.11 b/g/n), Bluetooth, API/LIMS integration"
+          "parameter": "Konektivita",
+          "specification": "USB-C, Wi-Fi (802.11 b/g/n), Bluetooth, integrace API/LIMS"
         },
         {
-          "parameter": "Certification",
-          "specification": "CE Marking, RoHS compliant"
+          "parameter": "Certifikace",
+          "specification": "Označení CE, v souladu s RoHS"
         }
       ],
       "deliveryScope": [
-        "1 × Igloo Reader Pro Analyzer",
-        "1 × USB-A to USB-C Cable",
-        "Electronic User Manual"
+        "1 × Analyzátor Igloo Reader Pro",
+        "1 × Kabel USB-A na USB-C",
+        "Elektronická uživatelská příručka"
       ],
-      "note": "Important Note: Adapters and QC test kits are sold separately and are not included in the standard delivery scope."
+      "note": "Důležitá poznámka: Adaptéry a testovací sady QC se prodávají samostatně a nejsou součástí standardního rozsahu dodávky."
     },
     "bp_monitor": {
-      "name": "Digital Blood Pressure Monitor",
-      "shortDescription": "Accurate, easy-to-use blood pressure monitor for home use with memory function.",
+      "name": "Digitální měřič krevního tlaku",
+      "shortDescription": "Přesný, snadno použitelný měřič krevního tlaku pro domácí použití s funkcí paměti.",
       "features": [
-        "Upper-arm cuff with adjustable size",
-        "Stores up to 60 readings",
-        "Irregular heartbeat detection"
+        "Manžeta na paži s nastavitelnou velikostí",
+        "Ukládá až 60 měření",
+        "Detekce nepravidelného srdečního tepu"
       ]
     },
     "thermometer": {
-      "name": "Contactless Forehead Thermometer",
-      "shortDescription": "Fast, hygienic temperature readings without skin contact — ideal for families.",
+      "name": "Bezkontaktní čelní teploměr",
+      "shortDescription": "Rychlé, hygienické měření teploty bez kontaktu s pokožkou — ideální pro rodiny.",
       "features": [
-        "1-second measurement",
-        "Fever alarm indicator",
-        "Backlit display"
+        "1sekundové měření",
+        "Indikátor alarmu horečky",
+        "Podsvícený displej"
       ]
     },
     "pulse_oximeter": {
-      "name": "Finger Pulse Oximeter",
-      "shortDescription": "Measure blood oxygen saturation and pulse rate within seconds.",
+      "name": "Prstový pulzní oxymetr",
+      "shortDescription": "Změřte saturaci kyslíku v krvi a tepovou frekvenci během několika sekund.",
       "features": [
-        "SpO₂ and pulse rate display",
-        "Compact and portable",
-        "Auto power-off"
+        "Zobrazení SpO₂ a tepové frekvence",
+        "Kompaktní a přenosný",
+        "Automatické vypnutí"
       ]
     },
     "home_care_kit": {
-      "name": "Home Care Starter Kit",
-      "shortDescription": "Essential tools for daily home care, including monitoring and first-aid basics.",
+      "name": "Startovací sada domácí péče",
+      "shortDescription": "Základní nástroje pro každodenní péči doma, včetně monitorování a základů první pomoci.",
       "features": [
-        "Digital thermometer and BP monitor",
-        "Basic wound care supplies",
-        "Compact storage bag"
+        "Digitální teploměr a měřič tlaku",
+        "Základní potřeby pro ošetření ran",
+        "Kompaktní úložná taška"
       ]
     },
     "diabetes_kit": {
-      "name": "Diabetes Monitoring Kit",
-      "shortDescription": "Everything you need to monitor blood glucose levels at home comfortably.",
+      "name": "Sada pro monitorování diabetu",
+      "shortDescription": "Vše, co potřebujete k pohodlnému monitorování hladiny cukru v krvi doma.",
       "features": [
-        "Glucose meter with test strips",
-        "Lancing device and lancets",
-        "Carrying case for travel"
+        "Glukometr s testovacími proužky",
+        "Odběrové pero a lancety",
+        "Cestovní pouzdro"
       ]
     },
     "n95_mask_pack": {
-      "name": "N95 Respirator Mask Pack (10 pcs)",
-      "shortDescription": "Certified N95 masks for reliable respiratory protection.",
+      "name": "Balení respirátorů N95 (10 ks)",
+      "shortDescription": "Certifikované respirátory N95 pro spolehlivou ochranu dýchacích cest.",
       "features": [
-        "Adjustable nose clip",
-        "Comfortable ear loops",
-        "Individually packed"
+        "Nastavitelná nosní svorka",
+        "Pohodlné gumičky za uši",
+        "Individuálně balené"
       ]
     },
     "hand_sanitizer": {
-      "name": "Antibacterial Hand Sanitizer (500 ml)",
-      "shortDescription": "Fast-drying sanitizer with moisturizing ingredients.",
+      "name": "Antibakteriální dezinfekce rukou (500 ml)",
+      "shortDescription": "Rychleschnoucí dezinfekce s hydratačními složkami.",
       "features": [
-        "Kills 99.9% of germs",
-        "Non-sticky formula",
-        "Fresh, clean scent"
+        "Zabíjí 99,9 % bakterií",
+        "Nelepivé složení",
+        "Svěží, čistá vůně"
       ]
     },
     "compression_socks": {
-      "name": "Medical Compression Socks",
-      "shortDescription": "Support circulation during long days on your feet or recovery.",
+      "name": "Lékařské kompresní punčochy",
+      "shortDescription": "Podporují krevní oběh během dlouhých dnů na nohou nebo při zotavení.",
       "features": [
-        "Graduated compression",
-        "Breathable fabric",
-        "Multiple sizes available"
+        "Odstupňovaná komprese",
+        "Prodyšná tkanina",
+        "K dispozici více velikostí"
       ]
     },
     "first_aid_kit": {
-      "name": "Compact First Aid Kit",
-      "shortDescription": "A compact kit with essentials for minor injuries and emergencies.",
+      "name": "Kompaktní lékárnička",
+      "shortDescription": "Kompaktní sada se základními potřebami pro drobná poranění a nouzové situace.",
       "features": [
-        "Bandages and dressings",
-        "Antiseptic wipes",
-        "Instruction leaflet"
+        "Obvazy a náplasti",
+        "Antiseptické ubrousky",
+        "Informační leták"
       ]
     },
     "online_consult": {
-      "name": "Online Doctor Consultation (30 min)",
-      "shortDescription": "Book a 30-minute video consultation with one of our doctors.",
+      "name": "Online lékařská konzultace (30 min)",
+      "shortDescription": "Objednejte si 30minutovou videokonzultaci s jedním z našich lékařů.",
       "features": [
-        "Flexible scheduling options",
-        "Secure video platform",
-        "Summary report after the session"
+        "Flexibilní možnosti plánování",
+        "Bezpečná videoplatforma",
+        "Souhrnná zpráva po sezení"
       ]
     }
   },
   "shop": {
-    "addToCart": "Add to cart (demo)",
-    "orderInfo": "Order information",
-    "orderInfoText": "This demo layout mimics a simple order box. In a real project, this is where you would show availability, shipping options and an “Add to cart” button.",
-    "youMightLike": "You might also like",
-    "view": "View",
-    "viewDetails": "View details",
-    "backToShop": "Back to Shop",
-    "needHelp": "Need help choosing a product?",
-    "contactTeam": "Contact our team",
-    "demoNote": "Please note: This is a demo shop for design and layout purposes only. No real orders or payments are processed.",
-    "whatsInBox": "What's in the box?",
-    "techSpecs": "Technical Specifications",
-    "features": "Features & Benefits",
-    "home": "Home",
-    "title": "Medical supplies & services",
-    "subtitle": "MedHealth Shop",
-    "discoverTitle": "Discover our curated products",
-    "article": "Article",
-    "articleDisclaimer": "Regular check-ups and proactive care are the foundation of long-term health. If you have questions, don't hesitate to reach out to a medical professional.",
-    "shareArticle": "Liked this article? Share it with your friends and family.",
-    "backToHome": "Back to Home",
-    "suggestedArticles": "Suggested articles",
-    "moreArticles": "More articles",
-    "contactText": "Our medical team is available 24/7 to answer urgent questions and help you decide what to do next.",
-    "readMore": "Read More"
+    "addToCart": "Přidat do košíku (demo)",
+    "orderInfo": "Informace o objednávce",
+    "orderInfoText": "Toto demo rozvržení napodobuje jednoduchý objednávkový box. V reálném projektu byste zde zobrazili dostupnost, možnosti dopravy a tlačítko 'Přidat do košíku'.",
+    "youMightLike": "Mohlo by se vám také líbit",
+    "view": "Zobrazit",
+    "viewDetails": "Zobrazit podrobnosti",
+    "backToShop": "Zpět do obchodu",
+    "needHelp": "Potřebujete pomoc s výběrem produktu?",
+    "contactTeam": "Kontaktujte náš tým",
+    "demoNote": "Upozornění: Toto je demo obchod pouze pro účely designu a rozvržení. Nejsou zpracovávány žádné skutečné objednávky ani platby.",
+    "whatsInBox": "Co je v krabici?",
+    "techSpecs": "Technické specifikace",
+    "features": "Funkce a výhody",
+    "home": "Domů",
+    "title": "Zdravotnické potřeby a služby",
+    "subtitle": "Obchod MedHealth",
+    "discoverTitle": "Objevte naše vybrané produkty",
+    "article": "Článek",
+    "articleDisclaimer": "Pravidelné kontroly a proaktivní péče jsou základem dlouhodobého zdraví. Pokud máte dotazy, neváhejte se obrátit na lékařského odborníka.",
+    "shareArticle": "Líbil se vám tento článek? Sdílejte jej se svými přáteli a rodinou.",
+    "backToHome": "Zpět na domovskou stránku",
+    "suggestedArticles": "Doporučené články",
+    "moreArticles": "Další články",
+    "contactText": "Náš lékařský tým je k dispozici 24/7, aby odpověděl na naléhavé otázky a pomohl vám rozhodnout, co dělat dál.",
+    "readMore": "Číst více"
   }
 }
