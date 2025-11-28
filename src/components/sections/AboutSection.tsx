@@ -6,7 +6,7 @@ import aboveTheFold from '../../assets/above_the_fold.png' // Bild für diesen A
 
 // Definiert die 'AboutSection'-Komponente, die einen Abschnitt der Webseite darstellt.
 const AboutSection = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('home')
 
   return (
     // Hauptcontainer des Abschnitts mit der ID 'about' für Anker-Links.

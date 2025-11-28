@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Über uns",
+    "service": "Service",
+    "shop": "Shop",
+    "blog": "Blog",
+    "contact": "Kontakt"
+  },
+  "badge": {
+    "New": "Neu",
+    "Popular": "Beliebt",
+    "Limited": "Limitiert"
+  },
+  "category": {
+    "Diagnostics": "Diagnostik",
+    "Monitoring": "Überwachung",
+    "Home Care": "Heimpflege",
+    "Chronic Care": "Chronische Pflege",
+    "Protection": "Schutz",
+    "Hygiene": "Hygiene",
+    "Recovery": "Genesung",
+    "Emergency": "Notfall",
+    "Service": "Service"
+  },
+  "footer": {
+    "description": "Umfassende Betreuung und Fürsorge. Moderne Gesundheitsdienste für Sie und Ihre Familie, rund um die Uhr.",
+    "links": "Links",
+    "discover": "Entdecken",
+    "london": "London",
+    "hamburg": "Hamburg",
+    "copyright": "Copyright ©PolarisDX 2025 Alle Rechte vorbehalten.",
+    "doctors": "Unsere Ärzte",
+    "testimonials": "Referenzen",
+    "faq": "FAQ",
+    "appointment": "Termin vereinbaren"
+  },
+  "cta": {
+    "title": "Suchen Sie professionelle & vertrauenswürdige <1>medizinische Versorgung?</1>",
+    "description": "Zögern Sie nicht, uns zu kontaktieren. Unser Team ist bereit, Sie zu unterstützen und den richtigen Termin zu planen.",
+    "button": "Termin vereinbaren"
+  },
+  "cta_section": {
+    "title": "Sie suchen nach garantierter Performance und POC-Expertise?",
+    "text": "Sprechen Sie direkt mit unseren IglooPro-Spezialisten. Unser Team ist bereit, Ihre individuellen Workflow-Anforderungen zu analysieren und Ihnen den schnellsten Weg zur validierten Diagnostik zu zeigen. Bei uns erhalten Sie eine maßgeschneiderte Lösung, keine Standard-Lieferung.",
+    "button": "Jetzt Experten-Analyse buchen"
+  }
+}

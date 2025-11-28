@@ -4,7 +4,7 @@ import SectionHeader from '../ui/SectionHeader'
 import IglooProImage from '../../assets/Igloo-pro-frontal.png'
 
 const DiagnosticsPitchSection = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('home')
 
   // Name der Komponente angepasst
   return (

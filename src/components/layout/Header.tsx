@@ -15,7 +15,7 @@ const navItems = [
 ]
 
 const Header = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('common')
   const [isScrolled, setIsScrolled] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
 

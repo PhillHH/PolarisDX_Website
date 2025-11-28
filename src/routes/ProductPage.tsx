@@ -9,7 +9,7 @@ type TechSpec = {
 }
 
 const ProductPage = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation(['shop', 'common'])
   const { slug } = useParams<{ slug: string }>()
   const fallbackProduct = products[0]
   const foundProduct = slug ? getProductBySlug(slug) : undefined
@@ -32,10 +32,10 @@ const ProductPage = () => {
     return Array.isArray(result) ? result as TechSpec[] : []
   }
 
-  const detailedDescription = getList(`products.${productKey}.detailedDescription`)
-  const features = getList(`products.${productKey}.features`)
-  const techSpecs = getTechSpecs(`products.${productKey}.techSpecs`)
-  const deliveryScope = getList(`products.${productKey}.deliveryScope`)
+  const detailedDescription = getList(`shop:products.${productKey}.detailedDescription`)
+  const features = getList(`shop:products.${productKey}.features`)
+  const techSpecs = getTechSpecs(`shop:products.${productKey}.techSpecs`)
+  const deliveryScope = getList(`shop:products.${productKey}.deliveryScope`)
 
   return (
     <div className="bg-slate-50 text-gray-900">
@@ -48,19 +48,19 @@ const ProductPage = () => {
           <div className="max-w-container">
             <div className="mb-3 text-sm text-white/70">
               <Link to="/" className="hover:text-secondary">
-                {t('shop.home')}
+                {t('shop:shop.home')}
               </Link>{' '}
               /{' '}
               <Link to="/shop" className="hover:text-secondary">
                 Shop
               </Link>{' '}
-              / <span>{t(`products.${productKey}.name`)}</span>
+              / <span>{t(`shop:products.${productKey}.name`)}</span>
             </div>
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
-              {t(`category.${product.category}`)}
+              {t(`common:category.${product.category}`)}
             </p>
             <h1 className="text-[32px] leading-[40px] font-medium tracking-[-0.02em] sm:text-[40px] sm:leading-[47px] lg:text-[48px] lg:leading-[58px]">
-              {t(`products.${productKey}.name`)}
+              {t(`shop:products.${productKey}.name`)}
             </h1>
             <p className="mt-3 text-lg font-semibold text-secondary">
               ${product.price}
@@ -76,7 +76,7 @@ const ProductPage = () => {
             {product.image && (
               <img
                 src={new URL(`../assets/${product.image}`, import.meta.url).href}
-                alt={t(`products.${productKey}.name`)}
+                alt={t(`shop:products.${productKey}.name`)}
                 className="w-full h-full object-cover"
               />
             )}
@@ -90,7 +90,7 @@ const ProductPage = () => {
               ))
             ) : (
               <p className="text-sm leading-[32px] text-gray-500 sm:text-base">
-                {t(`products.${productKey}.shortDescription`)}
+                {t(`shop:products.${productKey}.shortDescription`)}
               </p>
             )}
           </div>
@@ -99,7 +99,7 @@ const ProductPage = () => {
           {features.length > 0 && (
             <div className="space-y-3">
               <h2 className="text-lg font-semibold tracking-tight text-gray-900">
-                {t('shop.features')}
+                {t('shop:shop.features')}
               </h2>
               <ul className="list-disc space-y-2 pl-5 text-sm leading-[28px] text-gray-500 sm:text-base">
                 {features.map((feature) => (
@@ -113,7 +113,7 @@ const ProductPage = () => {
           {techSpecs.length > 0 && (
             <div className="space-y-4">
               <h2 className="text-lg font-semibold tracking-tight text-gray-900">
-                {t('shop.techSpecs')}
+                {t('shop:shop.techSpecs')}
               </h2>
               <div className="overflow-x-auto rounded-lg border border-gray-200/80 bg-white">
                 <table className="w-full text-sm">
@@ -134,7 +134,7 @@ const ProductPage = () => {
           {deliveryScope.length > 0 && (
             <div className="space-y-3">
               <h2 className="text-lg font-semibold tracking-tight text-gray-900">
-                {t('shop.whatsInBox')}
+                {t('shop:shop.whatsInBox')}
               </h2>
               <ul className="list-disc space-y-2 pl-5 text-sm leading-[28px] text-gray-500 sm:text-base">
                 {deliveryScope.map((item) => (
@@ -142,24 +142,24 @@ const ProductPage = () => {
                 ))}
               </ul>
               {/* Note is optional, check if key exists or returns same key */}
-              {t(`products.${productKey}.note`) !== `products.${productKey}.note` && (
-                <p className="pt-2 text-xs text-gray-500">{t(`products.${productKey}.note`)}</p>
+              {t(`shop:products.${productKey}.note`) !== `shop:products.${productKey}.note` && (
+                <p className="pt-2 text-xs text-gray-500">{t(`shop:products.${productKey}.note`)}</p>
               )}
             </div>
           )}
 
           <div className="rounded-2xl bg-primary/5 p-6 text-sm leading-[28px] text-gray-600 sm:text-base">
-            {t('shop.demoNote')}
+            {t('shop:shop.demoNote')}
           </div>
 
           <div className="mt-8 flex flex-col gap-4 border-t border-gray-100 pt-8 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
             <PrimaryButton as={Link} to="/shop" variant="secondary">
-              {t('shop.backToShop')}
+              {t('shop:shop.backToShop')}
             </PrimaryButton>
             <span className="text-xs sm:text-sm">
-              {t('shop.needHelp')}{' '}
+              {t('shop:shop.needHelp')}{' '}
               <Link to="/contact" className="font-semibold text-secondary">
-                {t('shop.contactTeam')}
+                {t('shop:shop.contactTeam')}
               </Link>
               .
             </span>
@@ -170,20 +170,20 @@ const ProductPage = () => {
         <aside className="mt-10 space-y-8 lg:mt-0 lg:sticky lg:top-32">
           <section className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
             <h2 className="mb-3 text-sm font-semibold tracking-tight text-gray-900">
-              {t('shop.orderInfo')}
+              {t('shop:shop.orderInfo')}
             </h2>
             <p className="mb-3 text-xs leading-relaxed text-gray-500">
-              {t('shop.orderInfoText')}
+              {t('shop:shop.orderInfoText')}
             </p>
             <PrimaryButton className="w-full justify-center" disabled>
-              {t('shop.addToCart')}
+              {t('shop:shop.addToCart')}
             </PrimaryButton>
           </section>
 
           {otherProducts.length > 0 && (
             <section className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
               <h3 className="mb-3 text-sm font-semibold tracking-tight text-gray-900">
-                {t('shop.youMightLike')}
+                {t('shop:shop.youMightLike')}
               </h3>
               <div className="space-y-3 text-sm">
                 {otherProducts.slice(0, 4).map((p) => (
@@ -193,12 +193,12 @@ const ProductPage = () => {
                     className="flex items-center justify-between rounded-lg p-2 transition hover:bg-slate-50"
                   >
                     <div>
-                      <p className="font-semibold text-gray-900">{t(`products.${p.id.replaceAll('-', '_')}.name`)}</p>
+                      <p className="font-semibold text-gray-900">{t(`shop:products.${p.id.replaceAll('-', '_')}.name`)}</p>
                       <p className="text-xs text-gray-500">
-                        {t(`category.${p.category}`)} · ${p.price}
+                        {t(`common:category.${p.category}`)} · ${p.price}
                       </p>
                     </div>
-                    <span className="text-xs text-secondary">{t('shop.view')}</span>
+                    <span className="text-xs text-secondary">{t('shop:shop.view')}</span>
                   </Link>
                 ))}
               </div>

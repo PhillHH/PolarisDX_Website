@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "home": "Strona główna",
+    "about": "O nas",
+    "service": "Usługi",
+    "shop": "Sklep",
+    "blog": "Blog",
+    "contact": "Kontakt"
+  },
+  "badge": {
+    "New": "Nowość",
+    "Popular": "Popularne",
+    "Limited": "Limitowane"
+  },
+  "category": {
+    "Diagnostics": "Diagnostyka",
+    "Monitoring": "Monitorowanie",
+    "Home Care": "Opieka domowa",
+    "Chronic Care": "Choroby przewlekłe",
+    "Protection": "Ochrona",
+    "Hygiene": "Higiena",
+    "Recovery": "Regeneracja",
+    "Emergency": "Nagłe wypadki",
+    "Service": "Usługi"
+  },
+  "footer": {
+    "description": "Kompleksowa opieka i wsparcie. Nowoczesne usługi zdrowotne dla Ciebie i Twojej rodziny, przez całą dobę.",
+    "links": "Linki",
+    "discover": "Odkryj",
+    "london": "Londyn",
+    "hamburg": "Hamburg",
+    "copyright": "Copyright ©PolarisDX 2025 Wszelkie prawa zastrzeżone.",
+    "doctors": "Nasi lekarze",
+    "testimonials": "Referencje",
+    "faq": "FAQ",
+    "appointment": "Umów wizytę"
+  },
+  "cta": {
+    "title": "Szukasz profesjonalnej i zaufanej <1>opieki medycznej?</1>",
+    "description": "Nie wahaj się z nami skontaktować. Nasz zespół jest gotowy, aby Cię wesprzeć i pomóc zaplanować odpowiednią wizytę.",
+    "button": "Umów wizytę"
+  },
+  "cta_section": {
+    "title": "Szukasz gwarantowanej wydajności i ekspertyzy POC?",
+    "text": "Porozmawiaj bezpośrednio z naszymi specjalistami IglooPro. Nasz zespół jest gotowy przeanalizować Twoje indywidualne wymagania dotyczące przepływu pracy i wskazać najszybszą drogę do zwalidowanej diagnostyki. Z nami otrzymasz rozwiązanie szyte na miarę, a nie standardową dostawę.",
+    "button": "Zarezerwuj analizę ekspercką teraz"
+  }
+}

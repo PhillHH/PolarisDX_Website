@@ -5,7 +5,7 @@ import StatItem from '../ui/StatItem'
 import heroDoctor from '../../assets/hero_doctor.png'
 
 const HeroSection = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('home')
 
   return (
     <section

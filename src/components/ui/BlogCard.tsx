@@ -8,9 +8,9 @@ type BlogCardProps = {
 }
 
 const BlogCard = ({ id, imageUrl, to }: BlogCardProps) => {
-  const { t } = useTranslation()
-  const title = t(`articles.${id}.title`)
-  const excerpt = t(`articles.${id}.excerpt`)
+  const { t } = useTranslation(['articles', 'shop'])
+  const title = t(`articles:${id}.title`)
+  const excerpt = t(`articles:${id}.excerpt`)
 
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-card">
@@ -34,7 +34,7 @@ const BlogCard = ({ id, imageUrl, to }: BlogCardProps) => {
             to={to}
             className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-secondary"
           >
-            {t('shop.readMore', 'Read More')}
+            {t('shop:shop.readMore', 'Read More')}
             <span className="transition group-hover:translate-x-1">→</span>
           </Link>
         )}

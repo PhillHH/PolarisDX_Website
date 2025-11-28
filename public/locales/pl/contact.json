@@ -1,0 +1,47 @@
+{
+  "contact": {
+    "hero": {
+      "kicker": "TWOJA ANALIZA WYDAJNOŚCI",
+      "title": "Zamów analizę wydajności IglooPro",
+      "breadcrumb": "Strona główna / Kontakt"
+    },
+    "form": {
+      "title": "Zarezerwuj wizytę",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "specialty": "Wybierz specjalizacje medyczne",
+      "doctor": "Wybierz lekarza",
+      "any_doctor": "Dowolny dostępny lekarz",
+      "date": "Wybierz datę i godzinę",
+      "name": "Imię i nazwisko",
+      "name_placeholder": "Twoje pełne imię i nazwisko",
+      "phone_placeholder": "+123 456 789",
+      "email_placeholder": "ty@przyklad.com",
+      "message": "Wiadomość",
+      "message_placeholder": "Powiedz nam więcej o swoich potrzebach...",
+      "submit": "Zamów analizę wydajności teraz",
+      "company_label": "Nazwa firmy / praktyki",
+      "company_placeholder": "np. Gabinet Dr. Nowaka lub Apteka Lwa",
+      "area_label": "Główny obszar zastosowania",
+      "area_options": {
+        "pharmacy": "Apteka",
+        "practice": "Gabinet lekarski/Klinika",
+        "vet": "Weterynaria",
+        "lab": "Badania/Laboratorium",
+        "other": "Inne"
+      },
+      "requirements_label": "Twoje specyficzne wymagania dotyczące IglooPro",
+      "requirements_placeholder": "Które biomarkery (np. CRP, TSH, HbA1c) są dla Ciebie najważniejsze?"
+    },
+    "info": {
+      "title": "Informacje kontaktowe",
+      "text": "Nasz zespół skontaktuje się z Tobą w ciągu jednego dnia roboczego. W przypadku pilnych pytań prosimy o kontakt telefoniczny poniżej.",
+      "email_label": "EMAIL (Obsługa 24/7)",
+      "phone_label": "TELEFON (Linia priorytetowa)"
+    },
+    "bottom_cta": {
+      "title": "Szukasz profesjonalnej i zaufanej opieki medycznej?",
+      "text": "Nie wahaj się z nami skontaktować. Nasi koordynatorzy są gotowi pomóc Ci wybrać odpowiedniego lekarza i termin."
+    }
+  }
+}

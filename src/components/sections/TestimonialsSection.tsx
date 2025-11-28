@@ -29,7 +29,7 @@ const StarRating = ({ rating }: { rating: number }) => (
 )
 
 const TestimonialsSection = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('home')
   const [activeIndex, setActiveIndex] = useState(0)
 
   useEffect(() => {

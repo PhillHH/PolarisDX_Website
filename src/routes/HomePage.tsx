@@ -10,7 +10,7 @@ import ProductCard from '../components/ui/ProductCard'
 import { products } from '../data/products'
 
 const HomePage = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation(['home', 'shop', 'common'])
 
   return (
     <>
@@ -31,8 +31,8 @@ const HomePage = () => {
         {/* Shop Teaser */}
         <section className="space-y-8">
           <SectionHeader
-            caption={t('nav.shop', 'Shop')}
-            title={t('shop.discoverTitle', 'Featured medical products')}
+            caption={t('common:nav.shop', 'Shop')}
+            title={t('shop:shop.discoverTitle', 'Featured medical products')}
             align="left"
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

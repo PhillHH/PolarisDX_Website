@@ -1,18 +1,11 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import en from './locales/en/translation.json';
-import de from './locales/de/translation.json';
-import pl from './locales/pl/translation.json';
-import fr from './locales/fr/translation.json';
-import it from './locales/it/translation.json';
-import es from './locales/es/translation.json';
-import pt from './locales/pt/translation.json';
-import da from './locales/da/translation.json';
-import nl from './locales/nl/translation.json';
-import cs from './locales/cs/translation.json';
+import Backend from 'i18next-http-backend';
 
 i18n
+  // load translation using http -> see /public/locales (i.e. https://github.com/i18next/i18next-http-backend)
+  .use(Backend)
   // detect user language
   // learn more: https://github.com/i18next/i18next-browser-languageDetector
   .use(LanguageDetector)
@@ -24,18 +17,13 @@ i18n
     debug: true,
     fallbackLng: 'en',
     supportedLngs: ['de', 'en', 'pl', 'fr', 'it', 'es', 'pt', 'da', 'nl', 'cs'],
-    resources: {
-      en: { translation: en },
-      de: { translation: de },
-      pl: { translation: pl },
-      fr: { translation: fr },
-      it: { translation: it },
-      es: { translation: es },
-      pt: { translation: pt },
-      da: { translation: da },
-      nl: { translation: nl },
-      cs: { translation: cs },
+    ns: ['common'], // default namespace
+    defaultNS: 'common',
+
+    backend: {
+      loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
+
     detection: {
         order: ['querystring', 'cookie', 'localStorage', 'navigator', 'htmlTag'],
         caches: ['localStorage', 'cookie'],

@@ -1,0 +1,47 @@
+{
+  "contact": {
+    "hero": {
+      "kicker": "IHRE PERFORMANCE-ANALYSE",
+      "title": "IglooPro Performance-Analyse anfordern",
+      "breadcrumb": "Home / Kontakt"
+    },
+    "form": {
+      "title": "Termin buchen",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "specialty": "Medizinische Fachrichtung wählen",
+      "doctor": "Arzt wählen",
+      "any_doctor": "Jeder verfügbare Arzt",
+      "date": "Datum & Uhrzeit wählen",
+      "name": "Name",
+      "name_placeholder": "Ihr voller Name",
+      "phone_placeholder": "+123 456 789",
+      "email_placeholder": "sie@beispiel.de",
+      "message": "Nachricht",
+      "message_placeholder": "Erzählen Sie uns mehr über Ihr Anliegen...",
+      "submit": "Performance-Analyse jetzt anfordern",
+      "company_label": "Name des Unternehmens / der Praxis",
+      "company_placeholder": "z.B. Praxis Dr. Müller oder Löwen-Apotheke",
+      "area_label": "Primärer Einsatzbereich",
+      "area_options": {
+        "pharmacy": "Apotheke",
+        "practice": "Arztpraxis/Klinik",
+        "vet": "Veterinärmedizin",
+        "lab": "Forschung/Labor",
+        "other": "Sonstiges"
+      },
+      "requirements_label": "Ihre spezifischen Anforderungen an IglooPro",
+      "requirements_placeholder": "Welche Biomarker (z.B. CRP, TSH, HbA1c) sind für Sie primär relevant?"
+    },
+    "info": {
+      "title": "Kontaktinformationen",
+      "text": "Unser Team wird sich innerhalb eines Arbeitstages bei Ihnen melden. Für dringende Fragen nutzen Sie bitte die untenstehende Telefonnummer.",
+      "email_label": "EMAIL (24/7 Service)",
+      "phone_label": "PHONE (Priority-Line)"
+    },
+    "bottom_cta": {
+      "title": "Suchen Sie professionelle & vertrauenswürdige medizinische Versorgung?",
+      "text": "Zögern Sie nicht, uns zu kontaktieren. Unsere Koordinatoren helfen Ihnen gerne bei der Wahl des richtigen Arztes und Zeitpunkts."
+    }
+  }
+}

@@ -4,7 +4,7 @@ import BlogCard from '../ui/BlogCard'
 import { blogPosts } from '../../data/blogPosts'
 
 const BlogSection = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('home')
 
   return (
     <section id="blog" className="space-y-10">

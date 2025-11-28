@@ -4,7 +4,7 @@ import ServiceCard from '../ui/ServiceCard'
 import { services } from '../../data/services'
 
 const ServicesSection = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('home')
 
   return (
     <section id="services" className="space-y-10">

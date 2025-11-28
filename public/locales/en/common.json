@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "service": "Service",
+    "shop": "Shop",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "badge": {
+    "New": "New",
+    "Popular": "Popular",
+    "Limited": "Limited"
+  },
+  "category": {
+    "Diagnostics": "Diagnostics",
+    "Monitoring": "Monitoring",
+    "Home Care": "Home Care",
+    "Chronic Care": "Chronic Care",
+    "Protection": "Protection",
+    "Hygiene": "Hygiene",
+    "Recovery": "Recovery",
+    "Emergency": "Emergency",
+    "Service": "Service"
+  },
+  "footer": {
+    "description": "Comprehensive care and support. Modern health services for you and your family, around the clock.",
+    "links": "Links",
+    "discover": "Discover",
+    "london": "London",
+    "hamburg": "Hamburg",
+    "copyright": "Copyright ©PolarisDX 2025 All Rights Reserved.",
+    "doctors": "Our Doctors",
+    "testimonials": "Testimonials",
+    "faq": "FAQ",
+    "appointment": "Make Appointment"
+  },
+  "cta": {
+    "title": "Looking for professional & trusted <1>medical healthcare?</1>",
+    "description": "Don't hesitate to contact us. Our team is ready to support you and help schedule the right appointment.",
+    "button": "Make Appointment"
+  },
+  "cta_section": {
+    "title": "Looking for guaranteed performance and POC expertise?",
+    "text": "Speak directly with our IglooPro specialists. Our team is ready to analyze your individual workflow requirements and show you the fastest way to validated diagnostics. With us, you get a tailored solution, not a standard delivery.",
+    "button": "Book Expert Analysis Now"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "service": "Servicio",
+    "shop": "Tienda",
+    "blog": "Blog",
+    "contact": "Contacto"
+  },
+  "badge": {
+    "New": "Nuevo",
+    "Popular": "Popular",
+    "Limited": "Limitado"
+  },
+  "category": {
+    "Diagnostics": "Diagnóstico",
+    "Monitoring": "Monitoreo",
+    "Home Care": "Atención domiciliaria",
+    "Chronic Care": "Atención crónica",
+    "Protection": "Protección",
+    "Hygiene": "Higiene",
+    "Recovery": "Recuperación",
+    "Emergency": "Emergencia",
+    "Service": "Servicio"
+  },
+  "footer": {
+    "description": "Atención y apoyo integral. Servicios de salud modernos para usted y su familia, las 24 horas.",
+    "links": "Enlaces",
+    "discover": "Descubrir",
+    "london": "Londres",
+    "hamburg": "Hamburgo",
+    "copyright": "Copyright ©PolarisDX 2025 Todos los derechos reservados.",
+    "doctors": "Nuestros médicos",
+    "testimonials": "Testimonios",
+    "faq": "Preguntas frecuentes",
+    "appointment": "Hacer cita"
+  },
+  "cta": {
+    "title": "¿Busca <1>atención médica</1> profesional y de confianza?",
+    "description": "No dude en contactarnos. Nuestro equipo está listo para apoyarlo y ayudarlo a programar la cita correcta.",
+    "button": "Hacer cita"
+  },
+  "cta_section": {
+    "title": "¿Busca rendimiento garantizado y experiencia en POC?",
+    "text": "Hable directamente con nuestros especialistas en IglooPro. Nuestro equipo está listo para analizar sus requisitos de flujo de trabajo individuales y mostrarle el camino más rápido hacia un diagnóstico validado. Con nosotros obtiene una solución a medida, no una entrega estándar.",
+    "button": "Reservar análisis de expertos ahora"
+  }
+}

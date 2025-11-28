@@ -5,7 +5,7 @@ import ProductCard from '../components/ui/ProductCard'
 import { products } from '../data/products'
 
 const ShopPage = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation(['shop', 'common'])
 
   return (
     <div className="bg-slate-50 text-gray-900">
@@ -18,15 +18,15 @@ const ShopPage = () => {
           <div className="max-w-container">
             <div className="mb-3 text-sm text-white/70">
               <Link to="/" className="hover:text-secondary">
-                {t('shop.home')}
+                {t('shop:shop.home')}
               </Link>{' '}
-              / <span>{t('nav.shop')}</span>
+              / <span>{t('common:nav.shop')}</span>
             </div>
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
-              {t('shop.subtitle')}
+              {t('shop:shop.subtitle')}
             </p>
             <h1 className="text-[40px] leading-[47px] font-medium tracking-[-0.02em] sm:text-[48px] sm:leading-[58px] lg:text-[58px] lg:leading-[69px]">
-              {t('shop.title')}
+              {t('shop:shop.title')}
             </h1>
           </div>
         </div>
@@ -36,8 +36,8 @@ const ShopPage = () => {
       <main className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">
         <div className="mb-8">
           <SectionHeader
-            caption={t('nav.shop')}
-            title={t('shop.discoverTitle')}
+            caption={t('common:nav.shop')}
+            title={t('shop:shop.discoverTitle')}
             align="left"
           />
         </div>

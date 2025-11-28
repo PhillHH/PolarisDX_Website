@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next'
 const Footer = () => {
   const location = useLocation()
   const isContactPage = location.pathname === '/contact'
-  const { t } = useTranslation()
+  const { t } = useTranslation('common')
 
   return (
     <footer className="mt-24 bg-primary text-white lg:mt-32">
