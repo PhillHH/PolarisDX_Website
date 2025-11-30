@@ -4,6 +4,7 @@ type SectionHeaderProps = {
   title: string
   align?: 'left' | 'center'
   titleClassName?: string
+  className?: string
 }
 
 const SectionHeader = ({
@@ -12,11 +13,12 @@ const SectionHeader = ({
   title,
   align = 'center',
   titleClassName,
+  className = '',
 }: SectionHeaderProps) => {
   const alignment = align === 'center' ? 'items-center text-center' : 'items-start text-left'
 
   return (
-    <div id={id} className={`flex flex-col gap-2 ${alignment}`}>
+    <div id={id} className={`flex flex-col gap-2 ${alignment} ${className}`}>
       <div className="inline-block rounded p-[1px] bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
         <div className="rounded-sm bg-slate-50 px-3 py-1">
           <span className="text-xs font-semibold uppercase tracking-wide text-gray-900">
@@ -36,5 +38,3 @@ const SectionHeader = ({
 }
 
 export default SectionHeader
-
-

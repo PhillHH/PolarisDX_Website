@@ -7,11 +7,11 @@ import logo from '../../assets/polaris_white.png'
 import scrolledLogo from '../../assets/PolarisDX_Logo_main.png'
 
 const navItems = [
-  { label: 'home', href: '#hero' },
-  { label: 'about', href: '#about' },
-  { label: 'service', href: '#services' },
+  { label: 'home', route: '/' as const },
+  { label: 'about', route: '/about' as const },
+  { label: 'service', href: '/#services' },
   { label: 'shop', route: '/shop' as const },
-  { label: 'blog', href: '#blog' },
+  { label: 'blog', href: '/#blog' },
 ]
 
 const Header = () => {
