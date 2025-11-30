@@ -6,6 +6,7 @@ import ContactPage from './routes/ContactPage'
 import ShopPage from './routes/ShopPage'
 import ProductPage from './routes/ProductPage'
 import ServicePage from './routes/ServicePage'
+import DownloadsPage from './routes/DownloadsPage'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/shop/:slug" element={<ProductPage />} />
+        <Route path="/downloads" element={<DownloadsPage />} />
       </Routes>
     </Layout>
   )
