@@ -16,7 +16,8 @@ const AboutSection = () => {
       className="grid items-center gap-10 lg:grid-cols-2"
     >
       {/* Linke Spalte: Container für das Bild und das dekorative Hintergrund-Element. */}
-      <div className="relative mx-auto h-[380px] max-w-md">
+      {/* Mobil ausgeblendet, nur auf Desktop (lg) sichtbar */}
+      <div className="hidden lg:relative lg:mx-auto lg:block lg:h-[380px] lg:max-w-md">
         {/* Dekoratives Hintergrund-Element, das absolut positioniert ist. */}
         {/* Die Position wird durch Tailwind-Klassen ('-left-8', 'top-8') gesteuert. */}
         <div className="absolute -left-8 top-12 h-full w-64 bg-primary" />
@@ -34,7 +35,7 @@ const AboutSection = () => {
       </div>
 
       {/* Rechte Spalte: Container für den Textinhalt. */}
-      <div className="space-y-6">
+      <div className="space-y-10 lg:space-y-6">
         {/* Kopfzeile des Abschnitts mit Untertitel und Haupttitel. */}
         <SectionHeader
           caption={t('about.caption', 'IHR PERFORMANCE-GARANT')}

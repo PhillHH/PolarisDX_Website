@@ -13,7 +13,7 @@ const ServicesSection = () => {
         title={t('services.title', 'Schlüsselbereiche der Präventivdiagnostik')}
       />
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
         {services.map((service) => (
           <ServiceCard
             key={service.id}

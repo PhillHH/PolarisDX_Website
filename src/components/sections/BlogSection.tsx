@@ -13,7 +13,7 @@ const BlogSection = () => {
         title={t('blog.title', 'Our Articles About Health')}
       />
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
         {blogPosts.slice(0, 3).map((post) => {
           const imageUrl = post.image
             ? new URL(`../../assets/${post.image}`, import.meta.url).href

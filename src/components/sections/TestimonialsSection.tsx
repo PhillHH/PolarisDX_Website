@@ -52,8 +52,8 @@ const TestimonialsSection = () => {
       <div className="pointer-events-none absolute inset-y-0 left-0 w-80 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-80 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
 
-      <div className="relative mx-auto flex max-w-container flex-col items-center gap-12 px-4 lg:px-8">
-        <div className="flex flex-col items-center gap-6 text-center">
+      <div className="relative mx-auto flex max-w-container flex-col items-center gap-16 px-4 lg:gap-12 lg:px-8">
+        <div className="flex flex-col items-center gap-8 text-center lg:gap-6">
           <SectionHeader
             caption={t('testimonials.caption', 'KUNDENSTIMMEN')}
             title={t('testimonials.title', 'Was unsere Anwender über das Igloo Pro System sagen')}
@@ -62,7 +62,7 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Testimonial Card */}
-        <div className="w-full max-w-4xl space-y-8 rounded-2xl bg-white/5 p-8 shadow-2xl backdrop-blur">
+        <div className="w-full max-w-4xl space-y-10 rounded-2xl bg-white/5 p-6 shadow-2xl backdrop-blur lg:space-y-8 lg:p-8">
           {/* Slider Content */}
           <div className="overflow-hidden">
             <div
@@ -119,7 +119,7 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="flex justify-center gap-10 text-center md:gap-16">
+        <div className="flex flex-col justify-center gap-10 text-center sm:flex-row md:gap-16">
           <div>
             <div className="flex items-baseline justify-center gap-1">
               <span className="text-4xl font-medium tracking-tight">4.9</span>

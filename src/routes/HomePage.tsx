@@ -15,27 +15,27 @@ const HomePage = () => {
   return (
     <>
       <HeroSection />
-      <main className="mx-auto flex max-w-container flex-col gap-24 px-4 pt-16 lg:px-0 lg:gap-32">
+      <main className="mx-auto flex max-w-container flex-col gap-32 px-4 pt-24 lg:px-0 lg:gap-32 lg:pt-16">
         <AboutSection />
         <ServicesSection />
         <DoctorsSection />
       </main>
 
       {/* Testimonials section is po be full-width */}
-      <div className="mt-24 lg:mt-32">
+      <div className="mt-32 lg:mt-32">
         <TestimonialsSection />
       </div>
 
-      <main className="mx-auto flex max-w-container flex-col gap-24 px-4 py-24 lg:px-0 lg:gap-32 lg:py-32">
+      <main className="mx-auto flex max-w-container flex-col gap-32 px-4 py-32 lg:px-0 lg:gap-32 lg:py-32">
         <BlogSection />
         {/* Shop Teaser */}
-        <section className="space-y-8">
+        <section className="space-y-10 lg:space-y-8">
           <SectionHeader
             caption={t('common:nav.shop', 'Shop')}
             title={t('shop:shop.discoverTitle', 'Featured medical products')}
             align="left"
           />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {products.slice(0, 3).map((product) => (
               <ProductCard
                 key={product.id}
