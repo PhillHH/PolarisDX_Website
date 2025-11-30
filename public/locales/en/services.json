@@ -65,9 +65,9 @@
         "heading": "2. The Immediate Benefit: Test, Know, Act",
         "content": "The greatest strength of POC prevention lies in the immediacy of the results.",
         "listItems": [
-          "1. Patient Engagement: Confrontation with an immediate, clear measured value (e.g., an elevated HbA1c value) drastically increases the patient's awareness and motivation to change behavior.",
-          "2. Efficiency in the Practice: Time-consuming follow-up appointments to discuss laboratory results are eliminated. Consultation can take place directly based on valid data. Studies show that this can reduce patient visits by up to 61% and subsequent correspondence by over 80%.",
-          "3. Economic Advantage: Pharmacies establish themselves as prevention centers and generate relevant additional revenue through the sale of tests and extended consulting."
+          "Patient Engagement: Confrontation with an immediate, clear measured value (e.g., an elevated HbA1c value) drastically increases the patient's awareness and motivation to change behavior.",
+          "Efficiency in the Practice: Time-consuming follow-up appointments to discuss laboratory results are eliminated. Consultation can take place directly based on valid data. Studies show that this can reduce patient visits by up to 61% and subsequent correspondence by over 80%.",
+          "Economic Advantage: Pharmacies establish themselves as prevention centers and generate relevant additional revenue through the sale of tests and extended consulting."
         ]
       },
       {
@@ -121,41 +121,127 @@
     ],
     "conclusion": {
       "heading": "Conclusion: No Compromises in Diagnosis",
-      "text": "In infections and inflammation, time is the critical factor. Only a POC system that combines validity at laboratory level with maximum speed can increase safety in diagnostics and simultaneously optimize antibiotic management. PolarisDX.net delivers this guaranteed performance – from 48-hour commissioning to priority support."
+      "text": "In infections and inflammation, time is the critical factor. Only a POC system, that combines validity at laboratory level with maximum speed, can increase safety in diagnostics and simultaneously optimize antibiotic management. PolarisDX.net delivers this guaranteed performance – from 48-hour commissioning to priority support."
     },
     "cta": "Book Performance Analysis Now"
   },
   "stoffwechsel_herz": {
-    "title": "Metabolism & Heart Health",
-    "headline": "Precise Diagnostics for Metabolism and Heart Health",
-    "intro": ["Learn more about our solutions in metabolism and heart health. (Content to follow)"],
-    "sections": [],
+    "title": "Metabolism & Heart Health: Chronic Monitoring at the Push of a Button",
+    "headline": "Important Indicators in View: Precise Measurement for Therapy Adjustment",
+    "intro": [
+      "Monitoring chronic diseases like diabetes and managing cardiac risks are time-critical tasks. Modern Point-of-Care (POC) systems are becoming an indispensable tool here, as they strengthen patient loyalty and accelerate therapy adjustment.",
+      "The Igloo Pro Reader bundles the necessary precise analytics into a mobile device to determine important metabolic and cardiac markers in a few minutes."
+    ],
+    "sections": [
+      {
+        "heading": "1. Metabolic Excellence: HbA1c and Lipids",
+        "content": "The long-term blood sugar value (HbA1c) is the decisive parameter in diabetes management.",
+        "listItems": [
+          "Direct Therapy Adjustment: The immediate HbA1c measurement at the POC (from a capillary blood sample) provides the average blood sugar value of the last months. If the result is available immediately, the treatment can be adjusted directly. Studies show that this enormously improves compliance and patient satisfaction, as no second appointments for laboratory results are necessary.",
+          "Cholesterol Profiles: The precise determination of total cholesterol and the various lipid fractions is a critical indicator for the risk of arteriosclerosis and cardiovascular events. POC tests enable an immediate risk assessment and advice on lifestyle changes or drug therapy."
+        ]
+      },
+      {
+        "heading": "2. Acute Cardiac Safety: Emergency Parameters",
+        "content": "In cardiac acute care, speed is life-saving. POC systems provide the necessary emergency parameters for this:",
+        "listItems": [
+          "D-Dimer: The quantitative measurement of D-Dimer is essential for the rapid exclusion of deep vein thrombosis (DVT) and pulmonary embolism (PE). A negative result allows for an immediate all-clear, which massively relieves triage in the emergency room or practice.",
+          "Cardiac Troponin (cTnl): Although often measured in the central laboratory, the POC determination of troponin is a highly sensitive marker to support the diagnosis of an acute myocardial infarction (AMI).",
+          "NT-proBNP: This peptide hormone is the key marker for diagnosis and risk stratification in heart failure. Rapid determination allows for an immediate assessment of severity and initiates further treatment."
+        ]
+      },
+      {
+        "heading": "3. The Premium Advantage: Speed and Reliability",
+        "content": "For monitoring chronic diseases and triaging cardiac emergencies, the reliability of POC technology is non-negotiable.",
+        "listItems": [
+          "Lab Accuracy: The Igloo Pro delivers results that correspond to those of the central laboratory (CV < 2% Inter-Reader).",
+          "Multiplex Capability: The system can determine various cardiac parameters simultaneously or in rapid succession, maximizing efficiency in critical situations."
+        ]
+      }
+    ],
     "conclusion": {
-      "heading": "",
-      "text": ""
+      "heading": "Conclusion for Your Practice",
+      "text": "Integrating the Igloo Pro Reader into your workflow means a paradigm shift: From delayed monitoring to immediate, data-based therapy adjustment. With PolarisDX.net, you not only secure the technology for these critical measurements but also the guarantee of smooth implementation and ongoing validation."
     },
-    "cta": "Request Now"
+    "cta": "Book Performance Analysis Now"
   },
   "hormon_tests": {
-    "title": "Hormone & Endocrinology Tests",
-    "headline": "Hormone Diagnostics at the Highest Level",
-    "intro": ["Detailed insights into hormonal balance. (Content to follow)"],
-    "sections": [],
+    "title": "Hormone & Endocrinology Tests: Specialized Diagnostics Made Easy",
+    "headline": "Precision in Endocrinology: Quick Certainty for Complex Diagnoses",
+    "intro": [
+      "Hormonal imbalances are often the cause of complex, chronic complaints, from thyroid dysfunction to fertility disorders. Specialized practices and pharmacies therefore need diagnostics that are not only fast but absolutely precise in order to guide therapy paths based on sound evidence.",
+      "The Igloo Pro Reader makes POC tests accessible for endocrinology and enables the immediate determination of critical hormones directly on the patient."
+    ],
+    "sections": [
+      {
+        "heading": "1. The Thyroid Axis: TSH as Key Marker",
+        "content": "Thyroid-stimulating hormone (TSH) is the most important screening parameter for assessing thyroid function.",
+        "listItems": [
+          "Early Detection: TSH reacts sensitively to minor changes in thyroid hormones (fT3, fT4). An increased or decreased TSH value can indicate a latent dysfunction even before peripheral values deviate.",
+          "Therapy Monitoring: In substitution therapies, the TSH value must be closely monitored. Immediate POC analysis allows for direct adjustment of medication – a decisive factor, especially when trying to conceive or during pregnancy."
+        ]
+      },
+      {
+        "heading": "2. Reproduction Hormones: AMH as Indicator of Time",
+        "content": "Anti-Müllerian Hormone (AMH) has established itself as a central marker for ovarian reserve (egg reserve) in women.",
+        "listItems": [
+          "Fertility Diagnostics: AMH is a reliable indicator of the potential number of eggs capable of maturation. Determination is essential for unfulfilled desire for children, planning assisted reproduction (IVF), or assessing the risk of premature menopause.",
+          "Independence from Cycle: Unlike many other hormones, AMH fluctuates relatively little throughout the menstrual cycle, making POC measurement an extremely practical tool for fast, reliable information.",
+          "PCOS Diagnostics: Very high AMH values can also be an indication of Polycystic Ovary Syndrome (PCOS), enabling rapid clarification and therapeutic management."
+        ]
+      },
+      {
+        "heading": "3. The Premium Requirement for Hormone Analytics",
+        "content": "Endocrinology requires the highest analytical accuracy, as even small deviations are clinically relevant. The Igloo Pro Reader is designed to meet these requirements:",
+        "listItems": [
+          "Analytical Safety: The ability to measure hormone markers with validated precision is crucial to avoid misinterpretations.",
+          "Broad Spectrum: In addition to TSH and AMH, the Reader supports the analysis of other hormones such as Cortisol (stress), Progesterone, FSH, and Testosterone, enabling comprehensive initial endocrinological diagnostics."
+        ]
+      }
+    ],
     "conclusion": {
-      "heading": "",
-      "text": ""
+      "heading": "Conclusion: Specialized Diagnostics Directly in Your Hand",
+      "text": "Hormone and endocrinology tests are often the starting point of complex treatment paths. Through POC diagnostics with the Igloo Pro, you massively shorten the time to diagnosis and therapy decision. polarisDX.net offers you the technology and the LFT compatibility guarantee to integrate this broad spectrum of specialized tests safely and efficiently into your operation."
     },
-    "cta": "Request Now"
+    "cta": "Book Performance Analysis Now"
   },
   "kompatibilitaet_integration": {
-    "title": "Cross-Manufacturer Compatibility",
-    "headline": "Maximum Flexibility for Your Laboratory",
-    "intro": ["Our systems are compatible with leading manufacturers. (Content to follow)"],
-    "sections": [],
+    "title": "Cross-Manufacturer Compatibility: Investment Security through Openness",
+    "headline": "Maximum Flexibility: How Your Igloo Pro Evaluates 90% of All Tests on the Market",
+    "intro": [
+      "In the fast-paced world of diagnostics, the biggest worry with a new investment is investment security. Tomorrow's technology must not be blocked by today's limitations.",
+      "The POC system solution Igloo Pro is the answer to this challenge. It is designed as an open, cross-manufacturer platform that guarantees you maximum flexibility and technological independence."
+    ],
+    "sections": [
+      {
+        "heading": "1. The Principle of Openness: Independence is Your Advantage",
+        "content": "Closed POC systems bind you to a single manufacturer for reagents and tests. This limits your choice, pricing, and ultimately your diagnostic possibilities.",
+        "listItems": [
+          "The Universal Technology: Thanks to highly developed image processing algorithms and universal adapters, the Igloo Pro is able to precisely and quantitatively evaluate the measurement results of around 90% of all Lateral Flow Tests (LFT) on the market.",
+          "Your Freedom: You are no longer limited to the test range of a single provider. You choose the tests that are optimal for your patients and your workflow – whether it concerns cardiac markers, hormones, or infections."
+        ]
+      },
+      {
+        "heading": "2. The Guarantee for Investment Security",
+        "content": "Compatibility is the most important protection for your long-term investment:",
+        "listItems": [
+          "Future Security: Even if new, innovative LFTs from other manufacturers come onto the market, they can usually be quickly integrated into the open system of the Igloo Pro. Your device remains relevant and future-proof.",
+          "Economic Efficiency: Through cross-manufacturer compatibility, you can use competitive advantages in consumables (test strips) and are protected against sudden price increases from a monopolist.",
+          "Standardization Made Easy: With a single analysis device, you can cover a wide range of diagnostic requirements, which simplifies training, reduces sources of error, and standardizes your entire POC workflow."
+        ]
+      },
+      {
+        "heading": "3. The PolarisDX.net Expertise: Compatibility Guaranteed",
+        "content": "The technology of the Igloo Pro is open, but the correct validation of the interaction between device and test is the decisive pillar.",
+        "listItems": [
+          "Our Pillar 2: With the LFT Compatibility Guarantee, we ensure that your selected tests (including those from third-party providers) are correctly calibrated and seamlessly integrated into the Igloo Pro workflow. We deliver not only theoretical openness but practical, validated function."
+        ]
+      }
+    ],
     "conclusion": {
-      "heading": "",
-      "text": ""
+      "heading": "Conclusion: Invest in a Solution, Not a Limitation",
+      "text": "The cross-manufacturer compatibility of the Igloo Pro makes it the smartest investment in POC diagnostics. It offers the flexibility you need today and the investment security you need tomorrow."
     },
-    "cta": "Request Now"
+    "cta": "Book Performance Analysis Now"
   }
 }
