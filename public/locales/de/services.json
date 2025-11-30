@@ -33,7 +33,7 @@
         "heading": "4. Die Digitale Schaltzentrale: Integration und Datensicherheit",
         "content": "Die \"Schaltzentrale für die Diagnostik\" ist nicht nur das Gerät, sondern auch seine Konnektivität.",
         "listItems": [
-          "LIMS/HIS-Anbindung: Über USB-C, Wi-Fi oder Bluetooth erfolgt die nahtlose Integration in bestehende Labor- oder Praxis-Informationssysteme (LIMS/HIS). Dies gewährleistet die automatische Übertragung, Speicherung und Dokumentation von bis zu 10.000 Ergebnissen, was essenziell für die lückenlose Einhaltung der Vorschriften (IVDR, CE) ist.",
+          "LIMS/HIS-Anbindung: Über USB-C, Wi-Fi oder Bluetooth erfolgt die nahtlose Integration in bestehende Labor- oder Praxis-Informationssysteme (LIMS/HIS). Dies gewährleistet die automatische Übertragung, Speicherung und Dokumentation von bis zu 10.000 Ergebnissen, was essenziell für die lückenlose Einhaltung der Vorschriften (IVDR, CE).",
           "Datensicherheit: Die Gewährleistung der DSGVO-Konformität und sichere Speicherung der sensiblen Patientendaten erfolgt durch die Anbindung an spezialisierte Cloud-Lösungen und Apps."
         ]
       }
@@ -122,6 +122,125 @@
     "conclusion": {
       "heading": "Fazit: Keine Kompromisse bei der Diagnose",
       "text": "Bei Infektionen und Entzündungen ist die Zeit der kritische Faktor. Nur ein POC-System, das Validität auf Laborniveau mit maximaler Geschwindigkeit vereint, kann die Sicherheit in der Diagnostik erhöhen und gleichzeitig das Management von Antibiotika optimieren. PolarisDX.net liefert diese garantierte Performance – von der 48-Stunden-Inbetriebnahme bis zum Priority-Support."
+    },
+    "cta": "Jetzt Performance-Analyse buchen"
+  },
+  "stoffwechsel_herz": {
+    "title": "Stoffwechsel & Herzgesundheit: Chronische Überwachung auf Knopfdruck",
+    "headline": "Wichtige Indikatoren im Blick: Präzise Messung für die Therapieanpassung",
+    "intro": [
+      "Die Überwachung chronischer Erkrankungen wie Diabetes und das Management kardialer Risiken sind zeitkritische Aufgaben. Moderne Point-of-Care (POC) Systeme wandeln sich hier zum unverzichtbaren Werkzeug, da sie die Patientenbindung stärken und die Therapieanpassung beschleunigen.",
+      "Der Igloo Pro Reader bündelt die notwendige präzise Analytik in einem mobilen Gerät, um wichtige Stoffwechsel- und kardiale Marker in wenigen Minuten zu bestimmen."
+    ],
+    "sections": [
+      {
+        "heading": "1. Stoffwechsel-Exzellenz: HbA1c und Lipide",
+        "content": "Der Langzeit-Blutzuckerwert (HbA1c) ist der entscheidende Parameter im Diabetes-Management.",
+        "listItems": [
+          "Direkte Therapieanpassung: Die sofortige HbA1c-Messung am POC (aus einer Kapillarblutprobe) liefert den mittleren Blutzuckerwert der letzten Monate. Liegt das Ergebnis sofort vor, kann die Behandlung direkt angepasst werden. Studien zeigen, dass dies die Compliance und die Zufriedenheit der Patienten enorm verbessert, da keine zweiten Termine für Laborergebnisse nötig sind.",
+          "Cholesterinprofile: Die präzise Bestimmung von Gesamtcholesterin und den verschiedenen Lipidfraktionen ist ein kritischer Indikator für das Risiko einer Arteriosklerose und kardiovaskulärer Ereignisse. POC-Tests ermöglichen eine unmittelbare Risikobeurteilung und die Beratung über Lebensstiländerungen oder medikamentöse Therapie."
+        ]
+      },
+      {
+        "heading": "2. Akute kardiale Sicherheit: Die Notfallparameter",
+        "content": "In der kardialen Akutversorgung ist Geschwindigkeit lebensrettend. POC-Systeme liefern hierfür die notwendigen Notfallparameter:",
+        "listItems": [
+          "D-Dimer: Die quantitative Messung von D-Dimer ist essenziell für den schnellen Ausschluss von tiefen Venenthrombosen (TVT) und Lungenembolien (LE). Bei einem negativen Ergebnis kann eine sofortige Entwarnung erfolgen, was die Triage in der Notaufnahme oder Praxis massiv entlastet.",
+          "Kardiales Troponin (cTnl): Obwohl oft im Zentrallabor gemessen, ist die POC-Bestimmung von Troponin ein hochsensitiver Marker zur Unterstützung der Diagnose eines akuten Myokardinfarkts (AMI).",
+          "NT-proBNP: Dieses Peptidhormon ist der Schlüsselmarker zur Diagnose und Risikostratifizierung bei Herzinsuffizienz. Die schnelle Bestimmung ermöglicht eine sofortige Beurteilung des Schweregrads und leitet die weitere Behandlung ein."
+        ]
+      },
+      {
+        "heading": "3. Der Premium-Vorsprung: Geschwindigkeit und Zuverlässigkeit",
+        "content": "Für die Überwachung chronischer Erkrankungen und die Triage kardialer Notfälle ist die Zuverlässigkeit der POC-Technologie nicht verhandelbar.",
+        "listItems": [
+          "Laborgenauigkeit: Der Igloo Pro liefert Resultate, die mit denen des Zentrallabors korrespondieren (CV < 2% Inter-Reader).",
+          "Multiplex-Fähigkeit: Das System kann verschiedene kardiale Parameter gleichzeitig oder in schneller Abfolge bestimmen, was die Effizienz in kritischen Situationen maximiert."
+        ]
+      }
+    ],
+    "conclusion": {
+      "heading": "Fazit für Ihre Praxis",
+      "text": "Die Integration des Igloo Pro Readers in Ihren Workflow bedeutet einen Paradigmenwechsel: Von der zeitverzögerten Überwachung zur sofortigen, datenbasierten Therapieanpassung. Mit PolarisDX.net sichern Sie sich nicht nur die Technologie für diese kritischen Messungen, sondern auch die Garantie auf reibungslose Implementierung und laufende Validierung."
+    },
+    "cta": "Jetzt Performance-Analyse buchen"
+  },
+  "hormon_tests": {
+    "title": "Hormon- & Endokrinologie-Tests: Spezialdiagnostik leicht gemacht",
+    "headline": "Präzision in der Endokrinologie: Schnelle Gewissheit für komplexe Diagnosen",
+    "intro": [
+      "Hormonelle Dysbalancen sind oft die Ursache komplexer, chronischer Beschwerden, von Schilddrüsenfehlfunktionen bis hin zu Fertilitätsstörungen. Spezialisierte Praxen und Apotheken benötigen daher Diagnostik, die nicht nur schnell, sondern absolut präzise ist, um Therapiepfade fundiert zu steuern.",
+      "Der Igloo Pro Reader macht POC-Tests für die Endokrinologie zugänglich und ermöglicht die sofortige Bestimmung kritischer Hormone direkt am Patienten."
+    ],
+    "sections": [
+      {
+        "heading": "1. Die Schilddrüsen-Achse: TSH als Schlüsselmarker",
+        "content": "Das Thyreoidea-stimulierende Hormon (TSH) ist der wichtigste Screening-Parameter zur Beurteilung der Schilddrüsenfunktion.",
+        "listItems": [
+          "Frühe Erkennung: TSH reagiert sensibel auf geringfügige Veränderungen der Schilddrüsenhormone (fT3, fT4). Ein erhöhter oder erniedrigter TSH-Wert kann auf eine latente Fehlfunktion hinweisen, noch bevor die peripheren Werte abweichen.",
+          "Therapie-Monitoring: Bei Substitutionstherapien muss der TSH-Wert engmaschig kontrolliert werden. Die sofortige POC-Analyse ermöglicht eine direkte Anpassung der Medikation – ein entscheidender Faktor, besonders bei Kinderwunsch oder in der Schwangerschaft."
+        ]
+      },
+      {
+        "heading": "2. Reproduktionshormone: AMH als Indikator der Zeit",
+        "content": "Das Anti-Müller-Hormon (AMH) hat sich als zentraler Marker für die ovarielle Reserve (Eizellreserve) bei Frauen etabliert.",
+        "listItems": [
+          "Fertilitätsdiagnostik: AMH ist ein zuverlässiger Indikator für die potenzielle Anzahl reifungsfähiger Eizellen. Die Bestimmung ist essenziell bei unerfülltem Kinderwunsch, der Planung assistierter Reproduktion (IVF) oder zur Einschätzung des Risikos einer vorzeitigen Menopause.",
+          "Unabhängigkeit vom Zyklus: Im Gegensatz zu vielen anderen Hormonen schwankt AMH relativ wenig über den Menstruationszyklus hinweg, was die POC-Messung zu einem extrem praktischen Werkzeug für schnelle, verlässliche Auskünfte macht.",
+          "PCOS-Diagnostik: Sehr hohe AMH-Werte können zudem ein Hinweis auf das Polyzystische Ovarialsyndrom (PCOS) sein, was eine schnelle Abklärung und therapeutische Steuerung ermöglicht."
+        ]
+      },
+      {
+        "heading": "3. Der Premium-Anspruch an die Hormonanalytik",
+        "content": "Die Endokrinologie erfordert höchste analytische Genauigkeit, da bereits kleine Abweichungen klinisch relevant sind. Der Igloo Pro Reader ist darauf ausgelegt, diesen Anforderungen gerecht zu werden:",
+        "listItems": [
+          "Analytische Sicherheit: Die Fähigkeit, Hormonmarker mit validierter Präzision zu messen, ist entscheidend, um Fehlinterpretationen zu vermeiden.",
+          "Breites Spektrum: Neben TSH und AMH unterstützt der Reader die Analyse weiterer Hormone wie Cortisol (Stress), Progesteron, FSH und Testosteron, was eine umfassende endokrinologische Erstdiagnostik ermöglicht."
+        ]
+      }
+    ],
+    "conclusion": {
+      "heading": "Fazit: Spezialdiagnostik direkt in Ihrer Hand",
+      "text": "Die Hormon- und Endokrinologie-Tests sind oft der Ausgangspunkt komplexer Behandlungspfade. Durch die POC-Diagnostik mit dem Igloo Pro verkürzen Sie die Zeit bis zur Diagnose und Therapieentscheidung massiv. polarisDX.net bietet Ihnen die Technologie und die LFT-Kompatibilitäts-Garantie, um dieses breite Spektrum an spezialisierten Tests sicher und effizient in Ihren Betrieb zu integrieren."
+    },
+    "cta": "Jetzt Performance-Analyse buchen"
+  },
+  "kompatibilitaet_integration": {
+    "title": "Herstellerübergreifende Kompatibilität: Investitionssicherheit durch Offenheit",
+    "headline": "Maximale Flexibilität: Wie Ihr Igloo Pro 90% aller Tests auf dem Markt auswertet",
+    "intro": [
+      "In der schnelllebigen Welt der Diagnostik ist die größte Sorge bei einer Neuinvestition die Investitionssicherheit. Die Technologie von morgen darf nicht durch die Einschränkungen von heute blockiert werden.",
+      "Die POC-Systemlösung Igloo Pro ist die Antwort auf diese Herausforderung. Sie ist als offene, herstellerübergreifende Plattform konzipiert, die Ihnen maximale Flexibilität und technologische Unabhängigkeit garantiert."
+    ],
+    "sections": [
+      {
+        "heading": "1. Das Prinzip der Offenheit: Unabhängigkeit ist Ihr Vorteil",
+        "content": "Geschlossene POC-Systeme binden Sie an einen einzigen Hersteller für Reagenzien und Tests. Dies schränkt Ihre Auswahl, Preisgestaltung und letztlich Ihre diagnostischen Möglichkeiten ein.",
+        "listItems": [
+          "Die universelle Technologie: Dank hochentwickelter Bildverarbeitungsalgorithmen und universeller Adapter ist der Igloo Pro in der Lage, die Messergebnisse von rund 90% aller auf dem Markt befindlichen Lateral-Flow-Tests (LFT) präzise und quantitativ auszuwerten.",
+          "Ihre Freiheit: Sie sind nicht mehr auf das Test-Sortiment eines einzelnen Anbieters beschränkt. Sie wählen die Tests, die für Ihre Patienten und Ihren Workflow optimal sind – egal ob es um kardiale Marker, Hormone oder Infektionen geht."
+        ]
+      },
+      {
+        "heading": "2. Die Garantie für Investitionssicherheit",
+        "content": "Die Kompatibilität ist der wichtigste Schutz für Ihre langfristige Investition:",
+        "listItems": [
+          "Zukunftssicherheit: Selbst wenn neue, innovative LFTs anderer Hersteller auf den Markt kommen, können diese in der Regel schnell in das offene System des Igloo Pro integriert werden. Ihr Gerät bleibt relevant und zukunftsfähig.",
+          "Wirtschaftlichkeit: Durch die herstellerübergreifende Kompatibilität können Sie Wettbewerbsvorteile bei den Verbrauchsmaterialien (Teststreifen) nutzen und sind gegen plötzliche Preisanstiege eines Monopolisten geschützt.",
+          "Standardisierung leicht gemacht: Mit einem einzigen Analysegerät können Sie eine breite Palette von Diagnostik-Anforderungen abdecken, was die Schulung vereinfacht, Fehlerquellen reduziert und Ihren gesamten POC-Workflow standardisiert."
+        ]
+      },
+      {
+        "heading": "3. Die PolarisDX.net Expertise: Kompatibilität garantiert",
+        "content": "Die Technologie des Igloo Pro ist offen, doch die korrekte Validierung des Zusammenspiels von Gerät und Test ist die entscheidende Säule.",
+        "listItems": [
+          "Unsere Säule 2: Mit der LFT-Kompatibilitäts-Garantie stellen wir sicher, dass Ihre ausgewählten Tests (auch von Drittanbietern) korrekt kalibriert und reibungslos in den Igloo Pro Workflow integriert werden. Wir liefern nicht nur die theoretische Offenheit, sondern die praktische, validierte Funktion."
+        ]
+      }
+    ],
+    "conclusion": {
+      "heading": "Fazit: Investieren Sie in eine Lösung, nicht in eine Einschränkung",
+      "text": "Die herstellerübergreifende Kompatibilität des Igloo Pro macht ihn zur klügsten Investition in die POC-Diagnostik. Er bietet die Flexibilität, die Sie heute brauchen, und die Investitionssicherheit, die Sie morgen benötigen."
     },
     "cta": "Jetzt Performance-Analyse buchen"
   }
