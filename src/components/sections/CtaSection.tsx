@@ -3,6 +3,11 @@ import PrimaryButton from '../ui/PrimaryButton'
 import avatar from '../../assets/avatar.png'
 import { useTranslation } from 'react-i18next'
 
+/**
+ * CtaSection Komponente.
+ * Ein "Call to Action"-Bereich, der Nutzer auffordert, Kontakt aufzunehmen.
+ * Wird oft überlappend im Footer angezeigt.
+ */
 const CtaSection = () => {
   const { t } = useTranslation('common')
 
@@ -12,7 +17,8 @@ const CtaSection = () => {
       className="relative mt-52 rounded-3xl bg-secondary px-6 py-6 text-white shadow-xl shadow-black/10 sm:px-8 sm:py-8 lg:px-10 lg:py-8"
     >
       <div className="grid items-center gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.3fr)]">
-        {/* Bild links */}
+        {/* Linke Spalte: Bild (Arzt/Person) */}
+        {/* Das Bild ist absolut positioniert auf Desktop, um aus dem Container herauszuragen */}
         <div className="relative mx-auto lg:h-full lg:w-full">
           <img
             src={avatar}
@@ -21,7 +27,7 @@ const CtaSection = () => {
           />
         </div>
 
-        {/* Text rechts */}
+        {/* Rechte Spalte: Text und Button */}
         <div className="space-y-4 text-center lg:text-left">
           <h2 className="text-2xl font-medium leading-tight tracking-tight sm:text-3xl lg:text-4xl">
             {t('cta_section.title')}

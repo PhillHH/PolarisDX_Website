@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { testimonials } from '../../data/testimonials'
 import SectionHeader from '~/components/ui/SectionHeader'
 
-// A simple Star SVG component
+// Einfache Komponente für ein Stern-Icon (SVG)
 const Star = ({ filled }: { filled: boolean }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +19,7 @@ const Star = ({ filled }: { filled: boolean }) => (
   </svg>
 )
 
-// Star rating component
+// Komponente zur Anzeige einer 5-Sterne-Bewertung
 const StarRating = ({ rating }: { rating: number }) => (
   <div className="flex justify-center">
     {Array.from({ length: 5 }, (_, i) => (
@@ -28,18 +28,25 @@ const StarRating = ({ rating }: { rating: number }) => (
   </div>
 )
 
+/**
+ * TestimonialsSection Komponente.
+ * Zeigt einen Slider (Karussell) mit Kundenstimmen an.
+ * Der Slider wechselt automatisch alle 8 Sekunden oder durch Klick auf die Dots.
+ */
 const TestimonialsSection = () => {
   const { t } = useTranslation('home')
   const [activeIndex, setActiveIndex] = useState(0)
 
   useEffect(() => {
+    // Automatisches Weiterschalten des Sliders
     const interval = setInterval(() => {
       setActiveIndex(prevIndex => (prevIndex + 1) % testimonials.length)
-    }, 8000) // Slower slide change: 8 seconds
+    }, 8000) // 8 Sekunden Intervall
 
     return () => clearInterval(interval)
   }, [])
 
+  // Manuelles Wechseln des Slides
   const handleDotClick = (index: number) => {
     setActiveIndex(index)
   }
@@ -49,6 +56,7 @@ const TestimonialsSection = () => {
       id="testimonials"
       className="relative bg-primary py-16 text-white"
     >
+      {/* Hintergrund-Effekte */}
       <div className="pointer-events-none absolute inset-y-0 left-0 w-80 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-80 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
 
@@ -61,9 +69,9 @@ const TestimonialsSection = () => {
           />
         </div>
 
-        {/* Testimonial Card */}
+        {/* Testimonial Karte */}
         <div className="w-full max-w-4xl space-y-10 rounded-2xl bg-white/5 p-6 shadow-2xl backdrop-blur lg:space-y-8 lg:p-8">
-          {/* Slider Content */}
+          {/* Slider Container */}
           <div className="overflow-hidden">
             <div
               className="flex transition-transform duration-1000 ease-in-out"
@@ -77,13 +85,13 @@ const TestimonialsSection = () => {
                   aria-roledescription="slide"
                 >
                   <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-start md:gap-8 md:text-left">
-                    {/* Reviewer Image & Stars */}
+                    {/* Linke Spalte: Bild & Sterne */}
                     <div className="flex flex-col items-center gap-2">
                       <div className="mx-auto h-24 w-24 flex-shrink-0 rounded-full bg-white/20 md:mx-0" />
                       <StarRating rating={5} />
                     </div>
 
-                    {/* Review Content */}
+                    {/* Rechte Spalte: Zitat & Autor */}
                     <div className="flex-grow space-y-4">
                       <blockquote className="text-lg leading-relaxed text-white/90">
                         “{t(`testimonials.${testimonial.id}.text`)}”
@@ -101,7 +109,7 @@ const TestimonialsSection = () => {
             </div>
           </div>
 
-          {/* Slider Dots */}
+          {/* Navigation Dots */}
           <div className="flex justify-center gap-3">
             {testimonials.map((_, index) => (
               <button
@@ -118,7 +126,7 @@ const TestimonialsSection = () => {
           </div>
         </div>
 
-        {/* Stats Section */}
+        {/* Statistik-Bereich */}
         <div className="flex flex-col justify-center gap-10 text-center sm:flex-row md:gap-16">
           <div>
             <div className="flex items-baseline justify-center gap-1">

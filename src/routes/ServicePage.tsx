@@ -5,32 +5,38 @@ import PrimaryButton from '../components/ui/PrimaryButton'
 import { services } from '../data/services'
 import { articles } from '../data/articles'
 
+// Typdefinition für einen Abschnitt einer Dienstleistungsseite
 type ServiceSection = {
   heading?: string
   content?: string
   listItems?: string[]
 }
 
+// Typdefinition für den Fazit-Bereich
 type ServiceConclusion = {
     heading?: string
     text?: string
 }
 
+/**
+ * ServicePage Komponente.
+ * Zeigt die Detailansicht einer Dienstleistung an.
+ */
 const ServicePage = () => {
   const { t } = useTranslation(['services', 'common', 'home', 'articles'])
   const { slug } = useParams<{ slug: string }>()
 
-  // Find service by slug (assuming slug maps to ID, or we check mapping)
-  // In services.ts, id is 'poc-systemloesungen' etc. which matches our URL slug plan.
+  // Dienstleistung anhand der ID (Slug) finden
   const service = services.find((s) => s.id === slug)
 
   if (!service) {
       return <div className="p-20 text-center">Service not found</div>
   }
 
-  // Determine translation key from service data
-  const transKey = service.translationKey // e.g., 'poc_systemloesungen'
+  // Übersetzungsschlüssel aus den Daten abrufen (z.B. 'poc_systemloesungen')
+  const transKey = service.translationKey
 
+  // Lokalisierte Inhalte abrufen
   const title = t(`services:${transKey}.title`, service.title)
   const headline = t(`services:${transKey}.headline`, '')
   const intro = t(`services:${transKey}.intro`, { returnObjects: true }) as string[]
@@ -38,12 +44,15 @@ const ServicePage = () => {
   const conclusion = t(`services:${transKey}.conclusion`, { returnObjects: true }) as ServiceConclusion
   const ctaText = t(`services:${transKey}.cta`, 'Contact Us')
 
+  // Andere Dienstleistungen für die Sidebar filtern
   const otherServices = services.filter(s => s.id !== service.id)
+
+  // Relevante Blog-Artikel für die Sidebar
   const relatedArticles = articles.slice(0, 3)
 
   return (
     <div className="bg-slate-50">
-      {/* Hero / Header */}
+      {/* Hero / Header Bereich */}
       <section className="relative overflow-hidden bg-primary text-white">
         <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
@@ -67,17 +76,18 @@ const ServicePage = () => {
         </div>
       </section>
 
+      {/* Hauptinhalt und Sidebar */}
       <main className="mx-auto flex max-w-container flex-col gap-10 px-4 py-12 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,1.4fr)] lg:items-start lg:gap-12 lg:px-0 lg:py-16">
 
-        {/* Main Content */}
+        {/* Haupt-Artikel */}
         <article className="space-y-8 text-gray-700">
           <SectionHeader
-            caption={service.title} // Fallback title as caption
+            caption={service.title} // Fallback-Titel
             title={headline}
             align="left"
           />
 
-          {/* Intro Text */}
+          {/* Einleitungstext */}
           <div className="space-y-4">
              {Array.isArray(intro) && intro.map((paragraph, index) => (
                  <p key={index} className="text-sm leading-[32px] text-gray-500 sm:text-base">
@@ -86,7 +96,7 @@ const ServicePage = () => {
              ))}
           </div>
 
-          {/* Detailed Sections */}
+          {/* Detaillierte Abschnitte */}
           {Array.isArray(sections) && sections.map((section, index) => (
             <section key={index} className="space-y-4">
               {section.heading && (
@@ -109,7 +119,7 @@ const ServicePage = () => {
             </section>
           ))}
 
-          {/* Conclusion */}
+          {/* Fazit / Zusammenfassung */}
           {(conclusion?.heading || conclusion?.text) && (
               <div className="rounded-2xl bg-primary/5 p-6 text-sm leading-[28px] text-gray-600 sm:text-base">
                   {conclusion.heading && <h3 className="mb-2 font-semibold text-gray-900">{conclusion.heading}</h3>}
@@ -117,7 +127,7 @@ const ServicePage = () => {
               </div>
           )}
 
-          {/* Content CTA Button */}
+          {/* CTA Button am Ende des Artikels */}
           <div className="mt-8 pt-4">
                <PrimaryButton as={Link} to="/contact" variant="primary">
                    {ctaText}
@@ -129,7 +139,7 @@ const ServicePage = () => {
         {/* Sidebar */}
         <aside className="space-y-8 lg:sticky lg:top-32">
 
-          {/* Other Services Widget */}
+          {/* Widget: Andere Dienstleistungen */}
           <section className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
             <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-gray-500">
               {t('home:services.title', 'Key Areas')}
@@ -149,7 +159,7 @@ const ServicePage = () => {
             </div>
           </section>
 
-          {/* Related Articles Widget */}
+          {/* Widget: Verwandte Artikel */}
           <section className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
              <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-gray-500">
                 {t('home:blog.title', 'Blog Articles')}
@@ -175,7 +185,7 @@ const ServicePage = () => {
              </div>
           </section>
 
-          {/* Contact Widget */}
+          {/* Widget: Kontakt */}
           <section className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
             <h3 className="mb-2 text-sm font-semibold tracking-tight text-gray-900">
               {t('shop:shop.needHelp', 'Need help right now?')}

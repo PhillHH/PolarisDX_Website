@@ -1,14 +1,17 @@
+// Typdefinition für eine Dienstleistung
 export type Service = {
-  id: string
-  title: string // Now used as key suffix if needed, or we iterate and construct key
-  description: string // Removed or kept as key?
-  translationKey: string
+  id: string // Dient als URL-Parameter (Slug) und Identifikator
+  title: string // Fallback-Titel (Primärtitel kommt aus Übersetzung)
+  description: string // Veraltet, wird durch i18n ersetzt (kann ggf. entfernt werden)
+  translationKey: string // Schlüssel für den Zugriff auf 'services.json' (z.B. 'poc_systemloesungen')
 }
 
+// Liste aller angebotenen Dienstleistungen
+// Dient zur Generierung der Service-Karten und Routing.
 export const services: Service[] = [
   {
     id: 'poc-systemloesungen',
-    title: 'POC-Systemlösungen', // Kept for reference or fallback, but component should use key
+    title: 'POC-Systemlösungen',
     description: '',
     translationKey: 'poc_systemloesungen'
   },

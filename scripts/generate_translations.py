@@ -1,72 +1,66 @@
 import json
 import os
+import copy
 
+# Liste der Zielsprachen, für die Übersetzungsdateien generiert/aktualisiert werden sollen
 langs = ['pl', 'fr', 'it', 'es', 'pt', 'da', 'nl', 'cs']
-src_file = 'src/locales/en/translation.json'
 
-# Load Source (English)
-with open(src_file, 'r') as f:
-    en_data = json.load(f)
+# Quell-Datei (Englisch), die als Referenz für die Struktur dient
+# Hinweis: Pfad muss ggf. an die neue Struktur (public/locales) angepasst werden
+src_file = 'public/locales/en/common.json'
 
-for lang in langs:
-    target_file = f'src/locales/{lang}/translation.json'
+def deep_update(target, updates):
+    """
+    Rekursive Funktion, um das 'target'-Dictionary mit Werten aus 'updates' zu überschreiben.
+    Behält bestehende Werte bei, überschreibt sie aber, wenn im Update neue Werte vorhanden sind.
+    """
+    for key, value in updates.items():
+        if isinstance(value, dict):
+            target_node = target.setdefault(key, {})
+            deep_update(target_node, value)
+        else:
+            target[key] = value
 
-    # Load existing if present (to keep nav)
-    existing_data = {}
-    if os.path.exists(target_file):
-        try:
-            with open(target_file, 'r') as f:
-                existing_data = json.load(f)
-        except:
-            print(f"Error reading {target_file}, starting fresh.")
-            existing_data = {}
+def process_translations():
+    # Prüfen, ob die Quelldatei existiert
+    if not os.path.exists(src_file):
+        print(f"Fehler: Quelldatei {src_file} nicht gefunden.")
+        return
 
-    # Function to recursively merge (EN is fallback, Existing is priority)
-    # Actually, we want to fill MISSING keys in Existing with EN values.
-    # So we copy EN, then update with Existing.
+    # Laden der englischen Referenzdaten
+    with open(src_file, 'r', encoding='utf-8') as f:
+        en_data = json.load(f)
 
-    # Deep merge helper? No, we can just use a recursive function or assume depth.
-    # Simple dictionary update isn't enough for nested 'products', 'articles'.
+    for lang in langs:
+        # Ziel-Pfad für die jeweilige Sprache
+        target_file = f'public/locales/{lang}/common.json'
 
-    def deep_merge(source, destination):
-        for key, value in source.items():
-            if isinstance(value, dict):
-                # get node or create one
-                node = destination.setdefault(key, {})
-                deep_merge(value, node)
-            else:
-                # If destination doesn't have it, set it
-                if key not in destination:
-                    destination[key] = value
-                # If destination has it, keep it (Preserve existing translations)
+        # Laden existierender Übersetzungen, falls vorhanden
+        existing_data = {}
+        if os.path.exists(target_file):
+            try:
+                with open(target_file, 'r', encoding='utf-8') as f:
+                    existing_data = json.load(f)
+            except Exception as e:
+                print(f"Fehler beim Lesen von {target_file}: {e}. Beginne neu.")
+                existing_data = {}
 
-    # Start with a copy of EN (as the base structure)
-    # But wait, if I modify the copy, I might overwrite existing keys if I'm not careful.
-    # Better: Start with empty, fill with EN, then overwrite with Existing.
-    # No, start with Existing, fill missing from EN.
+        # Strategie:
+        # 1. Wir starten mit einer Kopie der englischen Daten (Struktur + Fallback-Werte).
+        # 2. Wir überschreiben diese mit den bereits existierenden Übersetzungen der Zielsprache.
+        # Ergebnis: Alle Keys aus EN sind vorhanden, bereits übersetzte Werte bleiben erhalten.
 
-    final_data = {}
+        final_data = copy.deepcopy(en_data)
+        deep_update(final_data, existing_data)
 
-    # 1. Fill with EN (Recursively)
-    import copy
-    final_data = copy.deepcopy(en_data)
+        # Sicherstellen, dass das Verzeichnis existiert
+        os.makedirs(os.path.dirname(target_file), exist_ok=True)
 
-    # 2. Overlay Existing (Recursively)
-    # We need a function that overwrites final_data with existing_data values
-    def deep_update(target, updates):
-        for key, value in updates.items():
-            if isinstance(value, dict):
-                target_node = target.setdefault(key, {})
-                deep_update(target_node, value)
-            else:
-                target[key] = value
+        # Schreiben der zusammengeführten Datei
+        with open(target_file, 'w', encoding='utf-8') as f:
+            json.dump(final_data, f, indent=2, ensure_ascii=False)
 
-    deep_update(final_data, existing_data)
+        print(f"Verarbeitet: {lang}")
 
-    # Ensure directory exists
-    os.makedirs(os.path.dirname(target_file), exist_ok=True)
-
-    with open(target_file, 'w') as f:
-        json.dump(final_data, f, indent=2, ensure_ascii=False)
-
-    print(f"Processed {lang}")
+if __name__ == "__main__":
+    process_translations()

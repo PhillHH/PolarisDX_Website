@@ -1,13 +1,19 @@
 import { useTranslation } from 'react-i18next'
 import SectionHeader from '../ui/SectionHeader'
 
+/**
+ * TeamSection Komponente.
+ * Zeigt das Team von PolarisDX mit Bild, Name, Rolle und Biografie.
+ * Die Datenstruktur ist hier lokal definiert, Texte kommen aus i18n.
+ */
 const TeamSection = () => {
   const { t } = useTranslation('about')
 
+  // Lokale Definition der Teammitglieder (IDs mappen auf Übersetzungs-Keys)
   const team = [
     {
       id: 'tim_ritson',
-      image: 'https://placehold.co/400x500',
+      image: 'https://placehold.co/400x500', // Platzhalterbild, sollte durch echtes Asset ersetzt werden
     },
     {
       id: 'adriano_zucalla',
@@ -33,23 +39,26 @@ const TeamSection = () => {
             className="mb-16"
         />
 
+        {/* Grid für Teamkarten */}
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {team.map((member) => (
                 <div key={member.id} className="flex flex-col items-start text-left group">
                     <div className="mb-6 w-full overflow-hidden rounded-2xl bg-gray-100 relative">
-                         {/* Gradient overlay on hover could be nice, keeping it simple for now */}
                         <img
                             src={member.image}
                             alt={t(`team.members.${member.id}.name`)}
                             className="h-[400px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                     </div>
+                    {/* Name */}
                     <h3 className="font-sans text-2xl font-medium text-gray-900">
                         {t(`team.members.${member.id}.name`)}
                     </h3>
+                    {/* Rolle */}
                     <p className="mb-4 font-sans text-base font-normal leading-8 text-secondary">
                          {t(`team.members.${member.id}.role`)}
                     </p>
+                    {/* Biografie */}
                     <p className="text-sm leading-relaxed text-gray-500">
                         {t(`team.members.${member.id}.bio`)}
                     </p>

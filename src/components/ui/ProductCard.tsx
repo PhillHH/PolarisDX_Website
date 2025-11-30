@@ -10,22 +10,26 @@ type ProductCardProps = {
   image?: string
 }
 
+/**
+ * ProductCard Komponente.
+ * Zeigt eine Vorschau-Karte für ein Produkt im Shop an.
+ * Enthält Bild, Preis, Kategorie, Titel, Kurzbeschreibung und ggf. ein Badge.
+ */
 const ProductCard = ({ id, category, price, to, badge, image }: ProductCardProps) => {
   const { t } = useTranslation(['shop', 'common'])
+  // Bild-URL dynamisch auflösen
   const imageUrl = image ? new URL(`../../assets/${image}`, import.meta.url).href : undefined
 
-  // Transform ID to key format (e.g., "igloo-reader-pro" -> "igloo_reader_pro")
-  // Using simple replacement of - to _ might be fragile if IDs are not consistent,
-  // but looking at data, they use hyphens.
+  // Transformation der ID in das Format der Übersetzungsschlüssel (Bindestriche zu Unterstrichen)
   const productKey = id.replaceAll('-', '_')
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-card">
       <div className="relative aspect-[4/3] w-full">
-        {/* Background gradient as a fallback */}
+        {/* Fallback-Hintergrund, falls kein Bild lädt oder als Stilmittel */}
         <div className="h-full w-full bg-gradient-to-br from-primary/5 via-secondary/10 to-accentBlue/10" />
 
-        {/* Image */}
+        {/* Produktbild */}
         {imageUrl && (
           <img
             src={imageUrl}
@@ -34,7 +38,7 @@ const ProductCard = ({ id, category, price, to, badge, image }: ProductCardProps
           />
         )}
 
-        {/* Overlayed UI */}
+        {/* Overlays für Badge und Kategorie */}
         <div className="absolute inset-0 flex flex-col justify-between p-4">
           <div>
             {badge && (
@@ -48,6 +52,8 @@ const ProductCard = ({ id, category, price, to, badge, image }: ProductCardProps
           </span>
         </div>
       </div>
+
+      {/* Inhalt: Titel, Preis, Beschreibung, Link */}
       <div className="flex flex-1 flex-col gap-3 p-5">
         <div className="flex items-baseline justify-between gap-2">
           <h3 className="text-base font-semibold tracking-tight text-gray-900">
@@ -57,6 +63,7 @@ const ProductCard = ({ id, category, price, to, badge, image }: ProductCardProps
             ${price}
           </span>
         </div>
+        {/* Kurzbeschreibung, auf 3 Zeilen begrenzt */}
         <p className="text-sm leading-relaxed text-gray-500 line-clamp-3">
           {t(`shop:products.${productKey}.shortDescription`)}
         </p>

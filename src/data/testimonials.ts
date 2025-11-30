@@ -1,13 +1,16 @@
+// Definition der Struktur für ein Testimonial (Kundenstimme)
 export interface Testimonial {
-  id: string; // added ID for translation lookup
-  role: string;
-  name: string;
-  title: string;
-  focus: string;
-  text: string;
-  avatar?: string;
+  id: string; // Eindeutige ID für den Zugriff auf Übersetzungen (testimonials:<id>.text)
+  role: string; // Rolle oder Beruf (kann statisch sein oder übersetzt werden)
+  name: string; // Name der Person
+  title: string; // Titel oder Position / Firma
+  focus: string; // Fokus-Thema des Testimonials (z.B. "Schnelligkeit", "Prävention")
+  text: string; // Der eigentliche Text (leer, da via i18n geladen)
+  avatar?: string; // Optionales Bild (Dateiname in assets)
 }
 
+// Liste der Testimonials
+// Dient als Gerüst für die Slider-Komponente. Inhalte werden dynamisch geladen.
 export const testimonials: Testimonial[] = [
   {
     id: "richard_pollock",
@@ -15,7 +18,7 @@ export const testimonials: Testimonial[] = [
     name: "Richard Pollock",
     title: "Biological Dentist and Implant Surgeon / Chelsea Dental Clinic",
     focus: "Fast On-Site Health Checks (Prävention, Vitamin D)",
-    text: "",
+    text: "", // Wird dynamisch befüllt
   },
   {
     id: "eva_schmidt",

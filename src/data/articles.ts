@@ -1,25 +1,30 @@
+// Typdefinition für die Struktur eines Artikel-Abschnitts (vor allem für Bilder wichtig)
+// Die eigentlichen Texte (Überschrift, Paragraphen, Listen) werden aus den JSON-Übersetzungsdateien geladen.
 export type ArticleSection = {
-  heading?: string
-  paragraphs: string[]
-  listItems?: string[]
-  image?: string
+  heading?: string // Optional: Kann als Fallback oder Struktur-Referenz dienen
+  paragraphs: string[] // Optional
+  listItems?: string[] // Optional
+  image?: string // WICHTIG: Bildpfad in src/assets/ (Dateiname)
 }
 
+// Typdefinition für einen Artikel
 export type Article = {
-  id: string
-  slug: string
-  // title: string // Removed, use t(`articles.${id}.title`)
-  category: string // key: category.health_article etc.
-  // excerpt: string // Removed, use t(`articles.${id}.excerpt`)
-  author: string
-  date: string
-  readTime: string
-  sections: ArticleSection[] // Only structural info (images), text via translation
+  id: string // Identifikator für den Zugriff auf Übersetzungen (z.B. articles:id.title)
+  slug: string // URL-freundlicher Name für die Route /articles/:slug
+  category: string // Kategorie-Schlüssel, der via common:category.<category> übersetzt wird
+  author: string // Autor des Artikels (statisch oder übersetzbar, hier als String)
+  date: string // Veröffentlichungsdatum
+  readTime: string // Geschätzte Lesezeit
+  sections: ArticleSection[] // Definiert primär die Struktur und Bilder. Texte kommen aus i18n.
 }
 
+/**
+ * Liste aller Blog-Artikel und News.
+ * Dient als "Datenbank" für die Anwendung.
+ */
 export const articles: Article[] = [
   {
-    id: 'ecosystem_of_rapid_tests', // Changed from hyphen to underscore to match key style if consistent
+    id: 'ecosystem_of_rapid_tests',
     slug: 'the-ecosystem-of-rapid-tests-why-compatibility-creates-safety',
     category: 'Health Article',
     author: 'PolarisDX Team',
@@ -28,14 +33,8 @@ export const articles: Article[] = [
     sections: [
       {
         image: 'Testbild1.png',
-        paragraphs: [], // Placeholders or removed
+        paragraphs: [], // Platzhalter, Inhalt wird dynamisch geladen
       },
-      // ... structural sections if needed for images, but simpler to just store image map?
-      // Actually, since sections are now in translation, we don't know the structure here unless we mirror it.
-      // But images are not in translation.
-      // So we need a way to map images to sections.
-      // For now, let's assume images are handled by index or we put image filename in translation (hacky but works).
-      // Or we keep sections here just for the image property.
     ],
   },
   {
@@ -85,5 +84,10 @@ export const articles: Article[] = [
   },
 ]
 
+/**
+ * Sucht einen Artikel anhand seines Slugs.
+ * @param slug - Der URL-Slug des gesuchten Artikels.
+ * @returns Das gefundene Artikel-Objekt oder undefined.
+ */
 export const getArticleBySlug = (slug: string) =>
   articles.find((article) => article.slug === slug)

@@ -7,25 +7,25 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "~": path.resolve(__dirname, "./src"),
+      "~": path.resolve(__dirname, "./src"), // Alias für einfachere Importe aus dem src-Verzeichnis
     },
   },
   
-  // Füge den "server"-Block für Docker-Entwicklung hinzu
+  // Server-Konfiguration für Docker-Umgebungen
   server: {
     // 1. Host: Bindet den Server an 0.0.0.0. 
-    //    Dies ist kritisch, damit der Host-PC (über das Docker-Netzwerk) den Container erreichen kann.
+    //    Dies ist notwendig, damit der Container von außen (Host-System) erreichbar ist.
     host: '0.0.0.0', 
     
-    // 2. HMR (Hot Module Replacement) Konfiguration für Windows/Docker.
+    // 2. HMR (Hot Module Replacement) Konfiguration.
+    //    Wichtig für korrekte Live-Updates in Docker/Windows-Setups.
     hmr: {
-      // clientPort: Stellt sicher, dass der Browser die Verbindung zum korrekten Host-Port herstellt.
-      // Wir verwenden hier Port 3000, da dieser in der docker-compose.yml gemappt wurde (3000:5173).
+      // clientPort: Der Port, über den der Browser die WebSocket-Verbindung herstellt.
+      // Muss mit dem externen Port in docker-compose.yml übereinstimmen (3000:5173).
       clientPort: 3000, 
     },
     
-    // 3. Port (Optional, stellt den internen Container-Port fest)
-    // Wenn du den Port 5173 explizit erzwingen willst:
+    // 3. Port (Optional): Legt den internen Port fest, auf dem Vite lauscht.
     port: 5173 
   }
 })

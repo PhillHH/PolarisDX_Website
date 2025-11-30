@@ -1,73 +1,54 @@
-# React + TypeScript + Vite
+# PolarisDX Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dies ist das offizielle Repository für die PolarisDX Website. Das Projekt basiert auf React, TypeScript und Vite und nutzt Tailwind CSS für das Styling.
 
-Currently, two official plugins are available:
+## Projektstruktur
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   **`src/`**: Quellcode der Frontend-Anwendung.
+    -   **`components/`**: Wiederverwendbare UI-Komponenten (`layout`, `sections`, `ui`).
+    -   **`routes/`**: Seiten-Komponenten für das Routing.
+    -   **`data/`**: Statische Datendefinitionen und Typen.
+    -   **`assets/`**: Bilder und statische Ressourcen.
+-   **`backend/`**: Backend-Dienste und CMS (Payload CMS).
+-   **`public/`**: Öffentliche Assets und Übersetzungsdateien (`locales`).
+-   **`scripts/`**: Hilfsskripte (z.B. für Übersetzungsmanagement).
 
-## React Compiler
+## Erste Schritte
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Voraussetzungen
 
-## Expanding the ESLint configuration
+-   Node.js (Version 18+ empfohlen)
+-   npm
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Installation
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Abhängigkeiten installieren:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Entwicklungsserver starten
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Startet den lokalen Entwicklungsserver unter `http://localhost:5173`:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+### Produktion-Build erstellen
+
+Erstellt eine optimierte Version im `dist/`-Ordner:
+
+```bash
+npm run build
+```
+
+## Dokumentation
+
+Detaillierte technische Informationen finden sich in der Datei [DOCS.md](./DOCS.md).
+Jedes größere Unterverzeichnis enthält zudem eine eigene `README.md` mit spezifischen Informationen.
+
+## Lizenz
+
+© PolarisDX. Alle Rechte vorbehalten.

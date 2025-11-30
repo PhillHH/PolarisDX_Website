@@ -14,11 +14,17 @@ const navItems = [
   { label: 'blog', href: '/#blog' },
 ]
 
+/**
+ * Header-Komponente.
+ * Beinhaltet die Navigation, das Logo und den Sprachumschalter.
+ * Passt das Design beim Scrollen an (Sticky Header).
+ */
 const Header = () => {
   const { t } = useTranslation('common')
   const [isScrolled, setIsScrolled] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
 
+  // Überwacht das Scroll-Verhalten, um den Header-Stil anzupassen
   useEffect(() => {
     const handler = () => {
       setIsScrolled(window.scrollY > 24)
@@ -34,6 +40,7 @@ const Header = () => {
       }`}
     >
       <div className="mx-auto flex max-w-container items-center justify-between px-4 py-4 lg:px-0">
+        {/* Logo */}
         <Link to="/" className="flex items-center gap-3">
           <img
             src={isScrolled ? scrolledLogo : logo}
@@ -43,6 +50,7 @@ const Header = () => {
           <span className="sr-only">PolarisDX</span>
         </Link>
 
+        {/* Desktop Navigation */}
         <nav
           className={`hidden items-center gap-10 text-sm font-normal tracking-tight lg:flex ${
             isScrolled ? 'text-primary' : 'text-white'
@@ -71,6 +79,7 @@ const Header = () => {
           )}
         </nav>
 
+        {/* Desktop Actions (Sprache & Kontakt) */}
         <div className="hidden lg:flex items-center gap-4">
           <LanguageSwitcher className={isScrolled ? 'text-primary' : 'text-white'} />
           <PrimaryButton
@@ -82,6 +91,7 @@ const Header = () => {
           </PrimaryButton>
         </div>
 
+        {/* Mobile Hamburger Menu Button */}
         <div className="lg:hidden flex items-center gap-2">
            <LanguageSwitcher className={isScrolled ? 'text-primary' : 'text-white'} isMobile />
 
@@ -117,6 +127,7 @@ const Header = () => {
         </div>
       </div>
 
+      {/* Mobile Menu Overlay */}
       {isOpen && (
         <div
           className={`lg:hidden ${

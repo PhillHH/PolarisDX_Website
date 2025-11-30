@@ -1,16 +1,18 @@
 import type { ReactNode } from 'react'
 
+// Typdefinition für einen Social-Media-Link
 export type SocialLink = {
-  label: string
-  href: string
-  icon: ReactNode
+  label: string // Name des Netzwerks (für Screenreader/Title)
+  href: string // Ziel-URL
+  icon: ReactNode // Icon-Komponente oder Element
 }
 
+// Liste der Social-Media-Links, die im Footer oder Kontaktbereich verwendet werden
 export const socialLinks: SocialLink[] = [
   {
     label: 'LinkedIn',
     href: '#',
-    icon: <span className="text-xs font-semibold">in</span>,
+    icon: <span className="text-xs font-semibold">in</span>, // Placeholder-Icon (Text)
   },
   {
     label: 'Twitter',
@@ -28,5 +30,3 @@ export const socialLinks: SocialLink[] = [
     icon: <span className="text-xs font-semibold">fb</span>,
   },
 ]
-
-

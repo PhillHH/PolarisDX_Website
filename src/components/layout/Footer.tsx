@@ -4,6 +4,11 @@ import CtaSection from '../sections/CtaSection'
 import { Linkedin, Instagram } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
+/**
+ * Footer-Komponente.
+ * Zeigt den unteren Bereich der Seite an, inklusive Links, Kontaktinformationen und Social-Media-Icons.
+ * Enthält optional eine überlagernde "Call-to-Action"-Karte (außer auf der Kontaktseite).
+ */
 const Footer = () => {
   const location = useLocation()
   const isContactPage = location.pathname === '/contact'
@@ -12,7 +17,7 @@ const Footer = () => {
   return (
     <footer className="mt-24 bg-primary text-white lg:mt-32">
       <div className="relative">
-        {/* CTA-Karte in Content-Breite, die in den Footer hineinragt */}
+        {/* CTA-Karte (Call to Action), die halb in den Footer hineinragt. Wird auf der Kontaktseite ausgeblendet. */}
         {!isContactPage && (
           <div className="mx-auto max-w-container px-4 lg:px-0">
             <div className="-translate-y-1/2">
@@ -21,12 +26,13 @@ const Footer = () => {
           </div>
         )}
 
-        {/* Footer-Inhalte, mit zusätzlichem Padding oben für die überlagernde Karte */}
+        {/* Hauptinhalt des Footers */}
         <div
           className={`mx-auto flex max-w-container flex-col gap-10 px-4 pb-12 lg:flex-row lg:justify-between lg:px-0 lg:pb-16 ${
             isContactPage ? 'pt-12 lg:pt-16' : 'pt-20 lg:pt-24'
           }`}
         >
+          {/* Linke Spalte: Logo, Beschreibung, Social Media */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <img
@@ -63,6 +69,7 @@ const Footer = () => {
             </p>
           </div>
 
+          {/* Rechte Spalte: Navigation und Adressen */}
           <div className="grid flex-1 grid-cols-2 gap-8 text-sm lg:grid-cols-3">
             <div className="space-y-3">
               <h3 className="text-sm font-semibold tracking-tight">{t('footer.links', 'Links')}</h3>

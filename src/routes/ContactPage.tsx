@@ -2,13 +2,18 @@ import PrimaryButton from '../components/ui/PrimaryButton'
 import SectionHeader from '../components/ui/SectionHeader'
 import { useTranslation } from 'react-i18next'
 
+/**
+ * ContactPage Komponente.
+ * Zeigt ein Kontaktformular und Kontaktinformationen an.
+ */
 const ContactPage = () => {
   const { t } = useTranslation('contact')
 
   return (
     <div className="bg-slate-50 text-gray-900">
-      {/* Hero / Top */}
+      {/* Hero / Oberer Bereich */}
       <section className="relative overflow-hidden bg-primary text-white">
+        {/* Dekorative Hintergrundelemente */}
         <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
 
@@ -25,10 +30,11 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* Form + Info */}
+      {/* Hauptbereich: Formular und Info */}
       <main className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,2.1fr)_minmax(0,1.3fr)] lg:items-start">
-          {/* Form-Card */}
+
+          {/* Linke Spalte: Kontaktformular */}
           <section className="space-y-6 rounded-2xl bg-white p-6 shadow-sm lg:p-8">
             <SectionHeader
               caption={t('contact.hero.kicker')}
@@ -36,7 +42,7 @@ const ContactPage = () => {
               align="left"
             />
 
-            {/* Kontakt-Kanäle */}
+            {/* Kontakt-Kanäle (Email/Telefon) */}
             <div className="mt-2 flex flex-col gap-4 text-sm text-gray-600 sm:flex-row sm:gap-8">
               <div className="flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary/20 text-secondary">
@@ -62,7 +68,7 @@ const ContactPage = () => {
               </div>
             </div>
 
-            {/* Formular */}
+            {/* Eingabeformular */}
             <form className="mt-4 space-y-5">
               <div className="space-y-1">
                 <label className="block text-sm font-medium text-gray-700">
@@ -138,7 +144,7 @@ const ContactPage = () => {
             </form>
           </section>
 
-          {/* Info-Spalte / Desktop-Sidebar */}
+          {/* Rechte Spalte: Zusätzliche Informationen */}
           <aside className="space-y-6">
             <section className="rounded-2xl bg-white p-6 shadow-sm">
               <h2 className="text-lg font-semibold tracking-tight text-gray-900">

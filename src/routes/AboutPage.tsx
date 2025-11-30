@@ -3,11 +3,16 @@ import AboutSection from '../components/sections/AboutSection'
 import TeamSection from '../components/sections/TeamSection'
 import SectionHeader from '../components/ui/SectionHeader'
 
+/**
+ * AboutPage Komponente.
+ * Zeigt Informationen über das Unternehmen und das Team.
+ */
 const AboutPage = () => {
   const { t } = useTranslation(['about', 'home'])
 
   return (
     <>
+      {/* Hero-Bereich der About-Seite */}
       <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-primary text-white">
         <div className="mx-auto max-w-container px-4 text-center lg:px-0">
              <SectionHeader
@@ -22,6 +27,7 @@ const AboutPage = () => {
         </div>
       </div>
 
+      {/* Inhalt: Über uns Details und Team-Vorstellung */}
       <main className="mx-auto flex max-w-container flex-col gap-32 px-4 py-24 lg:px-0 lg:gap-32 lg:py-32">
         <AboutSection />
         <TeamSection />

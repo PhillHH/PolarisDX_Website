@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import SectionHeader from '../components/ui/SectionHeader'
 import { FileText, Download } from 'lucide-react'
 
-// Placeholder data structure for downloads
+// Typdefinition für ein Download-Element
 type DownloadItem = {
   id: string
   title: string
@@ -12,10 +12,14 @@ type DownloadItem = {
   date: string
 }
 
+/**
+ * DownloadsPage Komponente.
+ * Zeigt verschiedene Kategorien von herunterladbaren Materialien (Preislisten, Broschüren, Info-Material).
+ */
 const DownloadsPage = () => {
   const { t } = useTranslation(['downloads', 'common'])
 
-  // Placeholder data - in a real app this might come from a prop or API
+  // Platzhalterdaten - in einer echten App würde dies über Props oder eine API kommen
   const priceLists: DownloadItem[] = [
     { id: 'pl-1', title: 'IglooPro Pricing 2024 (EU)', size: '1.2 MB', format: 'PDF', date: '2024-01-15' },
     { id: 'pl-2', title: 'Service Packages Pricing', size: '0.8 MB', format: 'PDF', date: '2024-02-01' },
@@ -35,6 +39,7 @@ const DownloadsPage = () => {
     { id: 'im-3', title: 'Patient Information Leaflet', size: '0.5 MB', format: 'PDF', date: '2023-08-15' },
   ]
 
+  // Hilfsfunktion zum Rendern einer Download-Sektion
   const renderDownloadSection = (title: string, items: DownloadItem[]) => (
     <div className="mb-12 last:mb-0">
       <h3 className="mb-6 text-2xl font-medium text-gray-900">{title}</h3>
@@ -69,8 +74,9 @@ const DownloadsPage = () => {
 
   return (
     <div className="bg-slate-50 text-gray-900">
-      {/* Hero / Top */}
+      {/* Hero / Header Bereich */}
       <section className="relative overflow-hidden bg-primary text-white">
+        {/* Dekorative Elemente */}
         <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
 
@@ -92,7 +98,7 @@ const DownloadsPage = () => {
         </div>
       </section>
 
-      {/* Main Content */}
+      {/* Hauptinhalt: Liste der Downloads gruppiert nach Kategorie */}
       <main className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">
         <div className="mb-10">
           <SectionHeader

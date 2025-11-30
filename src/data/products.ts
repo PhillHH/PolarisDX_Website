@@ -1,24 +1,30 @@
+// Typ für technische Spezifikationen (z.B. für Tabellen auf der Produktseite)
 export type TechSpec = {
   parameter: string
   specification: string
 }
 
+// Typdefinition für ein Produkt
 export type Product = {
-  id: string
-  slug: string
-  // name: Translated via `products.<id>.name`
-  category: string // Translated via `category.<category>`
-  price: number
-  // shortDescription: Translated via `products.<id>.shortDescription`
-  // detailedDescription: Translated via `products.<id>.detailedDescription`
-  // features: Translated via `products.<id>.features`
-  // techSpecs: Translated via `products.<id>.techSpecs`
-  // deliveryScope: Translated via `products.<id>.deliveryScope`
-  // note: Translated via `products.<id>.note`
-  badge?: 'New' | 'Popular' | 'Limited' // Translated via `badge.<badge>`
-  image?: string
+  id: string // Eindeutige ID (wird für Übersetzungsschlüssel verwendet)
+  slug: string // URL-Segment für Routing
+  // name: Wird übersetzt via `products.<id>.name`
+  category: string // Kategorie, übersetzt via `category.<category>`
+  price: number // Preis (statisch, Währungssymbol wird in Komponente hinzugefügt)
+
+  // Die folgenden Felder werden nicht direkt hier definiert, sondern dynamisch aus i18n geladen:
+  // - shortDescription: `products.<id>.shortDescription`
+  // - detailedDescription: `products.<id>.detailedDescription`
+  // - features: `products.<id>.features`
+  // - techSpecs: `products.<id>.techSpecs`
+  // - deliveryScope: `products.<id>.deliveryScope`
+  // - note: `products.<id>.note`
+
+  badge?: 'New' | 'Popular' | 'Limited' // Badge für Produktkarten (übersetzt via `badge.<badge>`)
+  image?: string // Dateiname des Produktbildes in src/assets/
 }
 
+// Liste der verfügbaren Produkte
 export const products: Product[] = [
   {
     id: 'igloo-reader-pro',
@@ -94,5 +100,10 @@ export const products: Product[] = [
   },
 ]
 
+/**
+ * Findet ein Produkt anhand seines Slugs.
+ * @param slug Der gesuchte Slug
+ * @returns Das Produkt-Objekt oder undefined
+ */
 export const getProductBySlug = (slug: string) =>
   products.find((product) => product.slug === slug)
