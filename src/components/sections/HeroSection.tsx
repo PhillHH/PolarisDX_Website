@@ -34,11 +34,11 @@ const HeroSection = () => {
             </p>
           </div>
 
-          <div className="flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:items-center">
-            <PrimaryButton as={Link} to="/contact" variant="primary">
+          <div className="flex flex-row items-center gap-6">
+            <PrimaryButton as={Link} to="/contact" variant="primary" className="whitespace-nowrap">
               {t('hero.cta', 'Jetzt 15-Minuten Performance-Analyse buchen')}
             </PrimaryButton>
-            <PrimaryButton as={Link} to="/downloads" variant="outline-light">
+            <PrimaryButton as={Link} to="/downloads" variant="outline-light" className="whitespace-nowrap">
               {t('hero.cta_downloads', 'Infomaterialien herunterladen')}
             </PrimaryButton>
           </div>
