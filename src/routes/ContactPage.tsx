@@ -46,7 +46,7 @@ const ContactPage = () => {
                   <p className="text-xs font-medium uppercase tracking-[0.16em] text-gray-500">
                     {t('contact.info.email_label')}
                   </p>
-                  <p>kontakt@polarisdx.net</p>
+                  <p>contact@polarisdx.net</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -57,7 +57,7 @@ const ContactPage = () => {
                   <p className="text-xs font-medium uppercase tracking-[0.16em] text-gray-500">
                     {t('contact.info.phone_label')}
                   </p>
-                  <p>+49 (0) XXXX XXXX</p>
+                  <p>+49 151 75011699</p>
                 </div>
               </div>
             </div>
@@ -148,8 +148,8 @@ const ContactPage = () => {
                 {t('contact.info.text')}
               </p>
               <div className="mt-4 space-y-1 text-sm text-gray-800">
-                <p>kontakt@polarisdx.net</p>
-                <p>+49 (0) XXXX XXXX</p>
+                <p>contact@polarisdx.net</p>
+                <p>+49 151 75011699</p>
               </div>
             </section>
           </aside>
