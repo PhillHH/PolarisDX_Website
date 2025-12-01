@@ -5,19 +5,19 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    
+
+    # Mappt den Container-Port (5173, auf dem die Vite/React-App läuft) auf den Host-Port (9000)
     ports:
-      # Mappe den Container-Port (3000) auf den Host-Port (5173)
-      - "3000:5173"
-      
-    # DER WICHTIGSTE TEIL: Volume Mounting für Live-Reload
+      - "9000:5173"
+
+    # Volume Mounting für Live-Reload (Hot Module Replacement)
     volumes:
       # Synchronisiert den aktuellen Ordner (Code) in den Container-Ordner (/app)
       - .:/app
-      # Schließt den node_modules Ordner aus der Synchronisation aus,
-      # um Probleme mit Windows/Linux Dateisystemen zu vermeiden.
+      # Schließt den node_modules Ordner auf dem Host von der Synchronisation aus,
+      # um Kompatibilitätsprobleme zu vermeiden.
       - /app/node_modules 
-      
+
     # Nötig, um die interaktive Konsole offen zu halten
     stdin_open: true
     tty: true
