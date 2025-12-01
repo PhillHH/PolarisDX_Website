@@ -7,19 +7,19 @@ const TeamSection = () => {
   const team = [
     {
       id: 'tim_ritson',
-      image: 'https://placehold.co/400x500',
+      image: 'https://placehold.co/400x400',
     },
     {
       id: 'adriano_zucalla',
-      image: 'https://placehold.co/400x500',
+      image: 'https://placehold.co/400x400',
     },
     {
       id: 'frank_stoffels',
-      image: 'https://placehold.co/400x500',
+      image: 'https://placehold.co/400x400',
     },
     {
       id: 'ulrike_schuerholz',
-      image: 'https://placehold.co/400x500',
+      image: 'https://placehold.co/400x400',
     },
   ]
 
@@ -47,7 +47,7 @@ const TeamSection = () => {
                     <h3 className="font-sans text-2xl font-medium text-gray-900">
                         {t(`team.members.${member.id}.name`)}
                     </h3>
-                    <p className="mb-4 font-sans text-base font-normal leading-8 text-secondary">
+                    <p className="mb-4 font-sans text-base font-normal leading-8 text-secondary h-16">
                          {t(`team.members.${member.id}.role`)}
                     </p>
                     <p className="text-sm leading-relaxed text-gray-500">
