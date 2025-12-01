@@ -19,7 +19,43 @@ export type Article = {
 
 export const articles: Article[] = [
   {
-    id: 'ecosystem_of_rapid_tests', // Changed from hyphen to underscore to match key style if consistent
+    id: 'green_practice',
+    slug: 'die-gruene-praxis',
+    category: 'Sustainability',
+    author: 'PolarisDX Team',
+    date: '28 Nov 2025',
+    readTime: '6 min read',
+    sections: [
+      { image: 'Testbild1.png', paragraphs: [] }
+    ],
+  },
+  {
+    id: 'invisible_patient',
+    slug: 'der-unsichtbare-patient',
+    category: 'Telemedicine',
+    author: 'PolarisDX Team',
+    date: '30 Nov 2025',
+    readTime: '8 min read',
+    sections: [
+        { image: 'Testbild1.png', paragraphs: [] }
+    ],
+  },
+  {
+    id: 'five_minute_diagnosis',
+    slug: 'die-5-minuten-diagnose',
+    category: 'Economics',
+    author: 'PolarisDX Team',
+    date: '02 Dec 2025',
+    readTime: '7 min read',
+    sections: [
+        { image: 'Testbild1.png', paragraphs: [] }
+    ],
+  },
+  // Keeping original articles for now if needed, or commenting them out if they are obsolete.
+  // User said "Artikel Hart reincoden", implies replacing or adding.
+  // I will append them to the top and keep old ones for fallback/demo.
+  {
+    id: 'ecosystem_of_rapid_tests',
     slug: 'the-ecosystem-of-rapid-tests-why-compatibility-creates-safety',
     category: 'Health Article',
     author: 'PolarisDX Team',
@@ -28,14 +64,8 @@ export const articles: Article[] = [
     sections: [
       {
         image: 'Testbild1.png',
-        paragraphs: [], // Placeholders or removed
+        paragraphs: [],
       },
-      // ... structural sections if needed for images, but simpler to just store image map?
-      // Actually, since sections are now in translation, we don't know the structure here unless we mirror it.
-      // But images are not in translation.
-      // So we need a way to map images to sections.
-      // For now, let's assume images are handled by index or we put image filename in translation (hacky but works).
-      // Or we keep sections here just for the image property.
     ],
   },
   {
@@ -54,33 +84,6 @@ export const articles: Article[] = [
     author: 'PolarisDX Team',
     date: '25 Nov 2025',
     readTime: '9 min read',
-    sections: [],
-  },
-  {
-    id: 'first_checkup',
-    slug: 'how-to-prepare-for-your-first-medical-checkup',
-    category: 'Health Article',
-    author: 'MedHealth Team',
-    date: '24 Feb 2025',
-    readTime: '7 min read',
-    sections: [],
-  },
-  {
-    id: 'managing_diabetes',
-    slug: 'managing-diabetes-with-daily-routines',
-    category: 'Chronic Care',
-    author: 'Dr. Amelia Carter',
-    date: '12 Jan 2025',
-    readTime: '8 min read',
-    sections: [],
-  },
-  {
-    id: 'home_care',
-    slug: 'benefits-of-professional-home-care',
-    category: 'Home Care',
-    author: 'MedHealth Homecare',
-    date: '3 Dec 2024',
-    readTime: '6 min read',
     sections: [],
   },
 ]
