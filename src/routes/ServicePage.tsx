@@ -60,7 +60,7 @@ const ServicePage = () => {
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
               {t('home:services.caption', 'DIAGNOSTICS FOCUS')}
             </p>
-            <h1 className="mb-4 text-[32px] leading-[1.2] font-medium tracking-[-0.02em] sm:text-[40px] lg:text-[48px]">
+            <h1 className="mb-4 text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
               {title}
             </h1>
           </div>

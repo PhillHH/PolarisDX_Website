@@ -85,7 +85,7 @@ const DownloadsPage = () => {
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
               {t('downloads:subtitle')}
             </p>
-            <h1 className="text-[40px] leading-[47px] font-medium tracking-[-0.02em] sm:text-[48px] sm:leading-[58px] lg:text-[58px] lg:leading-[69px]">
+            <h1 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
               {t('downloads:title')}
             </h1>
           </div>

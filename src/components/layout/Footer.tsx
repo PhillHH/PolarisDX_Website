@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import logo from '../../assets/polarisdx_logo.png'
 import CtaSection from '../sections/CtaSection'
 import { Linkedin, Instagram } from 'lucide-react'
@@ -67,10 +67,10 @@ const Footer = () => {
             <div className="space-y-3">
               <h3 className="text-sm font-semibold tracking-tight">{t('footer.links', 'Links')}</h3>
               <ul className="space-y-2 text-white/70">
-                <li><a href="#hero" className="hover:text-secondary">{t('nav.home')}</a></li>
-                <li><a href="#about" className="hover:text-secondary">{t('nav.about')}</a></li>
-                <li><a href="#services" className="hover:text-secondary">{t('nav.service')}</a></li>
-                <li><a href="#blog" className="hover:text-secondary">{t('nav.blog')}</a></li>
+                <li><a href="/#hero" className="hover:text-secondary">{t('nav.home')}</a></li>
+                <li><Link to="/about" className="hover:text-secondary">{t('nav.about')}</Link></li>
+                <li><a href="/#services" className="hover:text-secondary">{t('nav.service')}</a></li>
+                <li><Link to="/articles" className="hover:text-secondary">{t('nav.blog')}</Link></li>
               </ul>
             </div>
 
