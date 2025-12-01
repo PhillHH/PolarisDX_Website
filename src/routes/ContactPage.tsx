@@ -2,7 +2,8 @@ import PrimaryButton from '../components/ui/PrimaryButton'
 import SectionHeader from '../components/ui/SectionHeader'
 import { useTranslation } from 'react-i18next'
 import { useState } from 'react'
-import { sendContactEmail, ContactFormData } from '../api/contact'
+import { sendContactEmail } from '../api/contact'
+import type { ContactFormData } from '../api/contact'
 
 const ContactPage = () => {
   const { t } = useTranslation('contact')
