@@ -17,7 +17,7 @@ const ContactPage = () => {
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
               {t('contact.hero.kicker')}
             </p>
-            <h1 className="mb-3 text-[40px] leading-[47px] font-medium tracking-[-0.02em] sm:text-[48px] sm:leading-[58px] lg:text-[58px] lg:leading-[69px]">
+            <h1 className="mb-3 text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
               {t('contact.hero.title')}
             </h1>
             <p className="text-sm text-white/80 sm:text-base">{t('contact.hero.breadcrumb')}</p>
