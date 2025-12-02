@@ -1,5 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import SectionHeader from '../ui/SectionHeader'
+import AdrianoZuccalaJPEG from '../../assets/Adriano Zuccala.jpeg'
+import FrankStoffelsJPG from '../../assets/Frank Stoffels.jpg'
+import UlrikeSchuerholzJPG from '../../assets/Ulrike Schuerholz.jpg'
 
 const TeamSection = () => {
   const { t } = useTranslation('about')
@@ -11,15 +14,15 @@ const TeamSection = () => {
     },
     {
       id: 'adriano_zucalla',
-      image: 'https://placehold.co/400x400',
+      image: AdrianoZuccalaJPEG,
     },
     {
       id: 'frank_stoffels',
-      image: 'https://placehold.co/400x400',
+      image: FrankStoffelsJPG,
     },
     {
       id: 'ulrike_schuerholz',
-      image: 'https://placehold.co/400x400',
+      image: UlrikeSchuerholzJPG,
     },
   ]
 
