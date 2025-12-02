@@ -30,9 +30,6 @@ export default defineConfig({
       // Definiert den Hostnamen, den der Browser für die HMR-Verbindung verwenden soll.
       host: 'relaunch.polarisdx.net', 
 
-      // clientPort: Stellt sicher, dass der Browser die Verbindung zum korrekten,
-      // von Docker gemappten Host-Port herstellt (hier Port 3000).
-      clientPort: 3000, 
     },
     
     // 4. Port (Interner Container-Port, den Vite nutzt)
