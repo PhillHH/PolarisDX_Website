@@ -1,13 +1,11 @@
 const express = require('express');
-const nodemailer = require('nodemailer');
+const sgMail = require('@sendgrid/mail');
 const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
 
 // Middleware
-// In Docker, the frontend might access via reverse proxy on same domain, or direct URL.
-// We allow the configured FRONTEND_URL or default to localhost for dev.
 app.use(cors({
   origin: process.env.FRONTEND_URL || 'http://localhost:3000',
   methods: ['POST', 'OPTIONS'],
@@ -16,26 +14,17 @@ app.use(cors({
 app.use(express.json());
 
 // Validation of required environment variables
-const requiredEnvVars = ['M365_EMAIL_USER', 'M365_PASSWORD', 'CONTACT_RECEIVER'];
+const requiredEnvVars = ['SENDGRID_API_KEY', 'CONTACT_RECEIVER', 'SENDER_EMAIL'];
 const missingEnvVars = requiredEnvVars.filter(key => !process.env[key]);
 
 if (missingEnvVars.length > 0) {
   console.warn(`WARNING: Missing environment variables for email service: ${missingEnvVars.join(', ')}`);
 }
 
-// Nodemailer Transporter Configuration for M365
-const transporter = nodemailer.createTransport({
-  host: 'smtp.office365.com',
-  port: 587,
-  secure: false, // STARTTLS
-  auth: {
-    user: process.env.M365_EMAIL_USER,
-    pass: process.env.M365_PASSWORD
-  },
-  tls: {
-    ciphers: 'SSLv3'
-  }
-});
+// Set SendGrid API Key
+if (process.env.SENDGRID_API_KEY) {
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+}
 
 // API Endpoint
 app.post('/api/contact', async (req, res) => {
@@ -56,10 +45,10 @@ app.post('/api/contact', async (req, res) => {
     }
 
     // Email content construction
-    const mailOptions = {
-      from: process.env.M365_EMAIL_USER, // Must be the authenticated user
+    const msg = {
       to: process.env.CONTACT_RECEIVER,
-      replyTo: email, // Reply to the form submitter
+      from: process.env.SENDER_EMAIL, // Must be a verified sender in SendGrid
+      replyTo: email,
       subject: `Neue Kontaktanfrage von ${name}`,
       text: `
         Neue Kontaktanfrage über das Webseiten-Formular:
@@ -87,13 +76,16 @@ app.post('/api/contact', async (req, res) => {
     };
 
     // Send email
-    const info = await transporter.sendMail(mailOptions);
-    console.log('Email sent: ' + info.messageId);
+    await sgMail.send(msg);
+    console.log('Email sent successfully');
 
-    res.status(200).json({ success: true, messageId: info.messageId });
+    res.status(200).json({ success: true });
 
   } catch (error) {
     console.error('Error sending email:', error);
+    if (error.response) {
+      console.error(error.response.body);
+    }
     res.status(500).json({ success: false, error: 'Failed to send email' });
   }
 });

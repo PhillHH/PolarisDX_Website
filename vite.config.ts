@@ -33,6 +33,15 @@ export default defineConfig({
     },
     
     // 4. Port (Interner Container-Port, den Vite nutzt)
-    port: 5173 
+    port: 5173,
+
+    // 5. Proxy Configuration for API
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+        secure: false,
+      }
+    }
   }
 })

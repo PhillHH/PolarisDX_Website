@@ -10,7 +10,8 @@ export interface ContactFormData {
 
 export const sendContactEmail = async (data: ContactFormData): Promise<boolean> => {
   try {
-    const response = await fetch('http://localhost:5000/api/contact', {
+    // Use relative path '/api/contact' which will be proxied in dev and handled by Nginx in prod
+    const response = await fetch('/api/contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

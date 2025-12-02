@@ -9,6 +9,7 @@ import ContactPage from './routes/ContactPage'
 import ServicePage from './routes/ServicePage'
 import DownloadsPage from './routes/DownloadsPage'
 import AboutPage from './routes/AboutPage'
+import { CookieBanner } from './components/ui/CookieBanner'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         {/* <Route path="/shop/:slug" element={<ProductPage />} /> */}
         <Route path="/downloads" element={<DownloadsPage />} />
       </Routes>
+      <CookieBanner />
     </Layout>
   )
 }
