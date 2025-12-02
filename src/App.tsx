@@ -9,6 +9,8 @@ import ContactPage from './routes/ContactPage'
 import ServicePage from './routes/ServicePage'
 import DownloadsPage from './routes/DownloadsPage'
 import AboutPage from './routes/AboutPage'
+import PrivacyPage from './routes/PrivacyPage'
+import ImprintPage from './routes/ImprintPage'
 import { CookieBanner } from './components/ui/CookieBanner'
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
         <Route path="/articles/:slug" element={<ArticlePage />} />
         <Route path="/services/:slug" element={<ServicePage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/imprint" element={<ImprintPage />} />
         {/* Shop temporarily disabled */}
         {/* <Route path="/shop" element={<ShopPage />} /> */}
         {/* <Route path="/shop/:slug" element={<ProductPage />} /> */}

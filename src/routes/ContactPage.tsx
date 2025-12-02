@@ -193,7 +193,22 @@ const ContactPage = () => {
                 </div>
               )}
 
-              <div className="pt-2">
+              <div className="space-y-4 pt-2">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-6 items-center">
+                    <input
+                      id="consent"
+                      name="consent"
+                      type="checkbox"
+                      required
+                      className="h-4 w-4 rounded border-gray-300 text-secondary focus:ring-secondary"
+                    />
+                  </div>
+                  <label htmlFor="consent" className="text-sm text-gray-600">
+                    {t('contact.form.consent', 'Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und für Rückfragen bis zu 12 Monate gespeichert werden.')}
+                  </label>
+                </div>
+
                 <PrimaryButton type="submit" className="w-full justify-center md:w-auto" disabled={isSubmitting}>
                   {isSubmitting ? 'Sende...' : t('contact.form.submit')}
                 </PrimaryButton>

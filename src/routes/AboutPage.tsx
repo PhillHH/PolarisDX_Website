@@ -26,7 +26,6 @@ const AboutPage = () => {
       </div>
 
       <main className="mx-auto flex max-w-container flex-col gap-32 px-4 py-24 lg:px-0 lg:gap-32 lg:py-32">
-        <AboutSection />
         <TeamSection />
       </main>
     </>

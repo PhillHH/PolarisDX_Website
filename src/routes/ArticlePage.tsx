@@ -104,7 +104,7 @@ const ArticlePage = () => {
         return (
           <section key={index} className="space-y-6">
             {section.heading && (
-              <h2 className="text-xl font-semibold tracking-tight text-gray-900">
+              <h2 className="text-lg font-semibold tracking-tight text-gray-900">
                 {section.heading}
               </h2>
             )}
@@ -189,13 +189,16 @@ const ArticlePage = () => {
             align="left"
           />
 
-          <div className="w-full overflow-hidden rounded-lg aspect-[8/3] bg-slate-200">
+          <div className="relative w-full overflow-hidden rounded-lg aspect-[8/3] bg-slate-200">
             {articleImage && (
-              <img
-                src={new URL(`../assets/${articleImage}`, import.meta.url).href}
-                alt={title}
-                className="w-full h-full object-cover"
-              />
+              <>
+                <img
+                  src={new URL(`../assets/${articleImage}`, import.meta.url).href}
+                  alt={title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
+              </>
             )}
           </div>
 

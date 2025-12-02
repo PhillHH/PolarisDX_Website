@@ -71,6 +71,8 @@ const Footer = () => {
                 <li><Link to="/about" className="hover:text-secondary">{t('nav.about')}</Link></li>
                 <li><a href="/#services" className="hover:text-secondary">{t('nav.service')}</a></li>
                 <li><Link to="/articles" className="hover:text-secondary">{t('nav.blog')}</Link></li>
+                <li><Link to="/imprint" className="hover:text-secondary">Impressum</Link></li>
+                <li><Link to="/privacy" className="hover:text-secondary">Datenschutzerklärung</Link></li>
               </ul>
             </div>
 

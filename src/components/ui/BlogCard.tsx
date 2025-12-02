@@ -14,14 +14,17 @@ const BlogCard = ({ id, imageUrl, to }: BlogCardProps) => {
 
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-card">
-      <div className="aspect-video w-full bg-gray-100">
+      <div className="relative h-64 w-full bg-gray-100">
         {imageUrl && (
-          <img
-            src={imageUrl}
-            alt={title}
-            className="h-full w-full object-cover"
-            loading="lazy"
-          />
+          <>
+            <img
+              src={imageUrl}
+              alt={title}
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
+          </>
         )}
       </div>
       <div className="flex flex-1 flex-col gap-3 p-5">
