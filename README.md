@@ -1,73 +1,77 @@
-# React + TypeScript + Vite
+# PolarisDX Website & Mail Service
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dieses Repository enthält den Quellcode für die PolarisDX-Website (React) und den zugehörigen E-Mail-Service (Node.js).
 
-Currently, two official plugins are available:
+## Projektstruktur
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `src/`: React Frontend-Anwendung.
+- `server/`: Node.js Backend-Service für Kontaktformulare.
+- `public/`: Statische Assets und Übersetzungsdateien.
+- `backend/`: Payload CMS (aktuell in Entwicklung, getrennt vom Haupt-Deployment).
 
-## React Compiler
+## Voraussetzungen
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Docker & Docker Compose
+- Node.js (für lokale Entwicklung ohne Docker)
 
-## Expanding the ESLint configuration
+## Installation & Start (Docker - Empfohlen für Prod & Dev)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Das Projekt ist vollständig dockerisiert, um eine konsistente Umgebung zu gewährleisten.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 1. Umgebungsvariablen setzen
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Erstellen Sie eine `.env` Datei im Root-Verzeichnis (oder stellen Sie sicher, dass die Variablen im Environment gesetzt sind):
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```env
+M365_EMAIL_USER=deine-email@beispiel.com
+M365_PASSWORD=dein-passwort
+CONTACT_RECEIVER=empfaenger@beispiel.com
+FRONTEND_URL=http://localhost  # oder Ihre Domain in Produktion
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Starten mit Docker Compose
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+docker-compose up --build -d
 ```
+
+Die Anwendung ist nun erreichbar unter:
+- Frontend: `http://localhost` (Port 80)
+- Backend API: `http://localhost/api` (via Nginx Proxy)
+
+## Lokale Entwicklung (ohne Docker)
+
+### Frontend
+```bash
+npm install
+npm run dev
+```
+Läuft auf `http://localhost:5173`.
+
+### Backend (Mail Service)
+```bash
+cd server
+npm install
+npm run dev
+```
+Läuft auf `http://localhost:5000`.
+
+*Hinweis: Bei lokaler Entwicklung ohne Docker müssen Sie sicherstellen, dass das Frontend das Backend unter der korrekten URL (Port 5000) erreicht.*
+
+## Deployment
+
+Für das Deployment auf einem Server (z.B. Debian):
+
+1. Repository klonen.
+2. `.env` Datei mit Produktions-Zugangsdaten erstellen.
+3. `docker-compose up --build -d` ausführen.
+
+Nginx kümmert sich um:
+- Auslieferung der statischen React-Dateien.
+- Gzip-Komprimierung für bessere Performance.
+- Caching von Assets.
+- Proxying von `/api/*` Anfragen an den Backend-Container.
+
+## Dokumentation
+
+Weitere technische Details finden Sie in `DOCS.md`.
