@@ -1,23 +1,37 @@
 version: '3.8'
+
 services:
-  dev_app:
-    # Baut das Image basierend auf unserem Dockerfile.dev
+  # Frontend Service (Nginx + React Static Files)
+  frontend:
     build:
       context: .
-      dockerfile: Dockerfile.dev
-    
+      dockerfile: Dockerfile
     ports:
-      # Mappe den Container-Port (3000) auf den Host-Port (5173)
-      - "3000:5173"
-      
-    # DER WICHTIGSTE TEIL: Volume Mounting für Live-Reload
-    volumes:
-      # Synchronisiert den aktuellen Ordner (Code) in den Container-Ordner (/app)
-      - .:/app
-      # Schließt den node_modules Ordner aus der Synchronisation aus,
-      # um Probleme mit Windows/Linux Dateisystemen zu vermeiden.
-      - /app/node_modules 
-      
-    # Nötig, um die interaktive Konsole offen zu halten
-    stdin_open: true
-    tty: true
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+    restart: always
+
+  # Backend Service (Node.js Mailer)
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    expose:
+      - "5000"
+    environment:
+      - PORT=5000
+      - FRONTEND_URL=${FRONTEND_URL:-http://localhost}
+      # Email Service Credentials (passed from host env)
+      - M365_EMAIL_USER=${M365_EMAIL_USER}
+      - M365_PASSWORD=${M365_PASSWORD}
+      - CONTACT_RECEIVER=${CONTACT_RECEIVER}
+    networks:
+      - app-network
+    restart: always
+
+networks:
+  app-network:
+    driver: bridge

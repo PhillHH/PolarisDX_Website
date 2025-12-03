@@ -1,5 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import SectionHeader from '../ui/SectionHeader'
+import AdrianoZuccalaJPEG from '../../assets/Adriano Zuccala.jpeg'
+import FrankStoffelsJPG from '../../assets/Frank Stoffels.jpg'
+import UlrikeSchuerholzJPG from '../../assets/Ulrike Schuerholz.jpg'
 
 const TeamSection = () => {
   const { t } = useTranslation('about')
@@ -7,19 +10,19 @@ const TeamSection = () => {
   const team = [
     {
       id: 'tim_ritson',
-      image: 'https://placehold.co/400x500',
+      image: 'https://placehold.co/400x400',
     },
     {
       id: 'adriano_zucalla',
-      image: 'https://placehold.co/400x500',
+      image: AdrianoZuccalaJPEG,
     },
     {
       id: 'frank_stoffels',
-      image: 'https://placehold.co/400x500',
+      image: FrankStoffelsJPG,
     },
     {
       id: 'ulrike_schuerholz',
-      image: 'https://placehold.co/400x500',
+      image: UlrikeSchuerholzJPG,
     },
   ]
 
@@ -47,7 +50,7 @@ const TeamSection = () => {
                     <h3 className="font-sans text-2xl font-medium text-gray-900">
                         {t(`team.members.${member.id}.name`)}
                     </h3>
-                    <p className="mb-4 font-sans text-base font-normal leading-8 text-secondary">
+                    <p className="mb-4 font-sans text-base font-normal leading-8 text-secondary h-16">
                          {t(`team.members.${member.id}.role`)}
                     </p>
                     <p className="text-sm leading-relaxed text-gray-500">

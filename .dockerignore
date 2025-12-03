@@ -1,0 +1,11 @@
+# Erstellt die .dockerignore Datei mit dem nötigen Inhalt
+@"
+.git
+.gitignore
+node_modules
+**/node_modules
+dist
+build
+DOCS.md
+README.md
+"@ | Set-Content .dockerignore

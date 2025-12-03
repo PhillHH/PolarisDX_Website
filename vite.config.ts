@@ -13,19 +13,35 @@ export default defineConfig({
   
   // Füge den "server"-Block für Docker-Entwicklung hinzu
   server: {
-    // 1. Host: Bindet den Server an 0.0.0.0. 
-    //    Dies ist kritisch, damit der Host-PC (über das Docker-Netzwerk) den Container erreichen kann.
+    // 1. host: Bindet den Server an 0.0.0.0, damit er innerhalb des Docker-Netzwerks erreichbar ist.
     host: '0.0.0.0', 
     
-    // 2. HMR (Hot Module Replacement) Konfiguration für Windows/Docker.
+    // 2. allowedHosts: Erlaubt den Zugriff über diesen spezifischen Hostnamen (behebt 403 Forbidden).
+    allowedHosts: [
+        'relaunch.polarisdx.net'
+    ],
+    
+    // 3. HMR (Hot Module Replacement) Konfiguration
     hmr: {
-      // clientPort: Stellt sicher, dass der Browser die Verbindung zum korrekten Host-Port herstellt.
-      // Wir verwenden hier Port 3000, da dieser in der docker-compose.yml gemappt wurde (3000:5173).
-      clientPort: 3000, 
+      // WICHTIG: Setze das Protokoll explizit auf WSS (Secure WebSocket).
+      // Dies behebt den Fehler, da der Browser WSS erwartet, wenn die Seite über HTTPS geladen wird.
+      protocol: 'wss', 
+      
+      // Definiert den Hostnamen, den der Browser für die HMR-Verbindung verwenden soll.
+      host: 'relaunch.polarisdx.net', 
+
     },
     
-    // 3. Port (Optional, stellt den internen Container-Port fest)
-    // Wenn du den Port 5173 explizit erzwingen willst:
-    port: 5173 
+    // 4. Port (Interner Container-Port, den Vite nutzt)
+    port: 5173,
+
+    // 5. Proxy Configuration for API
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+        secure: false,
+      }
+    }
   }
 })
