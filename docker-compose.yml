@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # Frontend Service (Nginx + React Static Files)
   frontend:
@@ -7,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "80:80"
+      - "2026:80"  # Frontend jetzt auf Port 2026
     depends_on:
       - backend
     networks:
@@ -19,15 +17,10 @@ services:
     build:
       context: ./server
       dockerfile: Dockerfile
-    expose:
-      - "5000"
-    environment:
-      - PORT=5000
-      - FRONTEND_URL=${FRONTEND_URL:-http://localhost}
-      # Email Service Credentials (passed from host env)
-      - M365_EMAIL_USER=${M365_EMAIL_USER}
-      - M365_PASSWORD=${M365_PASSWORD}
-      - CONTACT_RECEIVER=${CONTACT_RECEIVER}
+    ports:
+      - "5000:5000"  # Backend auf Port 5000 extern erreichbar
+    env_file:
+      - .env
     networks:
       - app-network
     restart: always
