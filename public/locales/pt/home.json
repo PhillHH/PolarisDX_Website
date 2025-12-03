@@ -1,12 +1,13 @@
 {
   "hero": {
     "caption": "Desempenho Point-of-Care",
-    "title": "IglooPro:\nPoint-of-Care. Perfeito. Instantâneo.",
-    "description": "Garanta o pacote de desempenho: O seu IglooPro está pronto a usar em 48 horas – garantido.",
-    "cta": "Marcar análise de desempenho de 15 minutos agora",
+    "title": "IglooPro:\nPoint-of-Care. Perfeito. Imediato.",
+    "description": "Garanta o pacote de desempenho: Seu IglooPro está pronto para uso em 48 horas – garantido.",
+    "cta": "Agendar análise de desempenho de 15 minutos agora",
+    "cta_downloads": "Baixar materiais informativos",
     "stat1": {
       "value": "48h",
-      "label": "Pronto a usar após o pedido"
+      "label": "Pronto para uso após o pedido"
     },
     "stat2": {
       "value": "CV < 2%",
@@ -14,68 +15,78 @@
     }
   },
   "about": {
-    "caption": "O SEU GARANTE DE DESEMPENHO",
-    "title": "Excelência e Segurança: O Padrão que Definimos.",
-    "text1": "O IglooPro é um dispositivo premium. Mas o verdadeiro desempenho premium só vem de um comissionamento perfeito e sem riscos. A entrega padrão deixa a complexidade para si. Nós assumimos a responsabilidade pelo resultado.",
-    "text2": "É por isso que entregamos exclusivamente a promessa de configuração em 48 horas. Os nossos pilares de desempenho garantem que o seu fluxo de trabalho POC seja otimizado desde o primeiro segundo e que possa usar a excelência diagnóstica imediatamente.",
-    "cta": "Garantir vantagem exclusiva"
+    "caption": "SEU GARANTE DE DESEMPENHO",
+    "title": "Excelência e Segurança: O padrão que estabelecemos.",
+    "text1": "O IglooPro é um dispositivo premium. Mas o verdadeiro desempenho premium só vem de um comissionamento perfeito e sem riscos. Uma entrega padrão deixa a complexidade para você. Nós assumimos a responsabilidade pelo resultado.",
+    "text2": "É por isso que entregamos exclusivamente a promessa de configuração em 48 horas. Nossos pilares de desempenho garantem que seu fluxo de trabalho POC seja otimizado desde o primeiro segundo e que você possa usar a excelência diagnóstica imediatamente.",
+    "cta": "Garantir benefício exclusivo"
   },
   "doctors": {
     "caption": "FOCO EM DIAGNÓSTICO",
-    "title": "Diagnósticos Precisos. Resultados Imediatos no Point-of-Care.",
-    "description": "Descubra com sistemas como o Igloo Pro da DX365 como pode otimizar o atendimento ao paciente e fazer diagnósticos importantes diretamente no local de tratamento – com resultados precisos de laboratório em minutos.",
-    "cta": "Ir para o Sistema Igloo Pro"
+    "title": "Diagnóstico Preciso. Resultados Imediatos no Point-of-Care.",
+    "description": "Descubra com sistemas como o Igloo Pro da DX365 como você pode otimizar o atendimento ao paciente e fornecer diagnósticos importantes diretamente no local do tratamento – com resultados precisos de laboratório em minutos.",
+    "cta": "Para o Sistema Igloo Pro"
   },
   "services": {
+    "caption": "FOCO EM DIAGNÓSTICO",
+    "title": "Principais Áreas de Diagnóstico Preventivo",
     "poc_systemloesungen": {
       "title": "Soluções de Sistema POC",
-      "description": "O seu centro de controlo de diagnóstico. Analisadores móveis que fornecem resultados precisos de laboratório em minutos, diretamente no local de atendimento (ex: Igloo Pro)."
+      "description": "Seu centro de controle para diagnósticos. Analisadores móveis que fornecem resultados precisos de laboratório em minutos diretamente no local do tratamento (por exemplo, Igloo Pro)."
     },
     "praeventions_checks": {
       "title": "Verificações de Saúde Preventivas",
-      "description": "Prevenção reinventada. Determinação rápida de biomarcadores chave (ex: Vitamina D, CRP, HbA1c) para deteção precoce de riscos e aconselhamento de saúde individual."
+      "description": "Prevenção reinventada. Determinação rápida de biomarcadores importantes (por exemplo, Vitamina D, CRP, HbA1c) para detecção precoce de riscos e aconselhamento de saúde individual."
     },
     "infektion_entzuendung": {
-      "title": "Marcadores de Infeção e Inflamação",
-      "description": "Respostas rápidas em casos críticos. Análise imediata de níveis de inflamação (CRP, PCT, IL-6) e doenças infecciosas – essencial para cuidados agudos e triagem."
+      "title": "Marcadores de Infecção e Inflamação",
+      "description": "Respostas rápidas em casos críticos. Análise imediata de valores de inflamação (CRP, PCT, IL-6) e doenças infecciosas – essencial para cuidados agudos e triagem."
     },
     "stoffwechsel_herz": {
       "title": "Metabolismo e Saúde Cardíaca",
-      "description": "Indicadores chave num relance. Medição precisa de HbA1c, perfis de colesterol e marcadores cardíacos (ex: D-Dímero) para monitorização de doenças crónicas."
+      "description": "Indicadores importantes em um relance. Medição precisa de HbA1c, perfis de colesterol e marcadores cardíacos (por exemplo, Dímero-D) para monitoramento de doenças crônicas."
     },
     "hormon_tests": {
       "title": "Testes Hormonais e Endocrinologia",
-      "description": "Diagnósticos especializados facilitados. Ampla gama de testes para hormonas da tiroide e reprodutivas (TSH, AMH) para consultórios especializados e farmácias."
+      "description": "Diagnóstico especializado facilitado. Ampla gama de testes para hormônios tireoidianos e reprodutivos (TSH, AMH) para práticas especializadas e farmácias."
     },
     "kompatibilitaet_integration": {
-      "title": "Compatibilidade Independente do Fabricante",
-      "description": "Flexibilidade máxima. Graças à tecnologia universal, os nossos dispositivos avaliam 90% de todos os testes de fluxo lateral do mercado. Segurança de investimento através da abertura."
+      "title": "Compatibilidade entre Fabricantes",
+      "description": "Máxima flexibilidade. Graças à tecnologia universal, nossos dispositivos avaliam 90% de todos os testes de fluxo lateral do mercado. Segurança do investimento através da abertura."
     }
   },
   "testimonials": {
+    "caption": "DEPOIMENTOS",
+    "title": "O que nossos usuários dizem sobre o Sistema Igloo Pro",
+    "ratingLabel": "Avaliação Geral\nbaseada em 3500+ avaliações",
+    "positiveLabel": "Avaliação Positiva",
     "richard_pollock": {
-      "role": "Dentista (Avaliação Verificada)",
-      "title": "Dentista Biológico e Cirurgião de Implantes / Clínica Dentária Chelsea",
-      "focus": "Verificações de Saúde Rápidas no Local (Prevenção, Vitamina D)",
-      "text": "A realização de análises dos níveis de Vitamina D e outros indicadores de saúde chave no local não pode ser subestimada. O Igloo Pro permite-me realizar um teste de sangue capilar simples, para determinar as necessidades dos pacientes e, em seguida, orientá-los sobre quais suplementos adicionais podem precisar para otimizar o tratamento. Esta capacidade está a provar ser transformadora em termos de resultados para os pacientes."
+      "role": "Dentista (Avaliação Real)",
+      "title": "Dentista Biológico e Cirurgião de Implantes / Chelsea Dental Clinic",
+      "focus": "Verificações rápidas de saúde no local (Prevenção, Vitamina D)",
+      "text": "A realização de análises dos níveis de Vitamina D e outros indicadores-chave de saúde no local não pode ser subestimada. O Igloo Pro me permite realizar um teste simples de sangue capilar, verificar as necessidades dos pacientes e, em seguida, orientá-los sobre quais suplementos adicionais eles podem precisar para otimizar o tratamento. Essa capacidade está se provando transformadora em termos de resultados para os pacientes."
     },
     "eva_schmidt": {
       "role": "Farmácia",
       "title": "Proprietária / Löwen-Apotheke, Berlim",
-      "focus": "O próximo passo no aconselhamento preventivo (Fidelização do Cliente, Rapidez)",
-      "text": "Desde a implementação do sistema Igloo Pro, o nosso papel como consultores de saúde fortaleceu-se significativamente. Os clientes apreciam muito poder determinar valores importantes como CRP ou colesterol em minutos, em vez de esperar semanas por consultas. Uma verdadeira situação vantajosa para a fidelização do cliente e qualidade do serviço."
+      "focus": "O próximo passo na consultoria de prevenção (Lealdade do cliente, Velocidade)",
+      "text": "Desde que começamos a usar o Sistema Igloo Pro, nosso papel como consultores de saúde foi extremamente fortalecido. Os clientes apreciam muito poder determinar valores importantes como CRP ou colesterol em minutos, em vez de esperar semanas por consultas. Uma verdadeira situação ganha-ganha para a fidelidade do cliente e a qualidade do serviço."
     },
     "martin_fischer": {
-      "role": "Médico de Clínica Geral/Consultório",
-      "title": "Especialista em Medicina Interna / Consultório Interno Dr. Fischer",
-      "focus": "Diagnósticos imediatos para pacientes agudos (Eficiência, Decisão de Tratamento)",
-      "text": "A capacidade de determinar marcadores de inflamação como CRP imediatamente no consultório revolucionou o nosso fluxo de trabalho de tratamento. Podemos decidir mais rapidamente se a terapia antibiótica é necessária para pacientes com infeções pouco claras, evitando encaminhamentos desnecessários. Isso poupa-nos tempo e aumenta significativamente a satisfação do paciente."
+      "role": "Clínico Geral/Consultório",
+      "title": "Especialista em Medicina Interna / Consultório de Medicina Interna Dr. Fischer",
+      "focus": "Diagnóstico imediato para pacientes agudos (Eficiência, Decisão terapêutica)",
+      "text": "A capacidade de determinar marcadores de inflamação como CRP imediatamente no consultório revolucionou nosso fluxo de trabalho de tratamento. Podemos decidir mais rapidamente se a terapia antibiótica é necessária para pacientes com infecções pouco claras e prevenir encaminhamentos desnecessários. Isso nos economiza tempo e aumenta significativamente a satisfação do paciente."
     },
     "julia_bergmann": {
       "role": "Clínica/Laboratório",
       "title": "Chefe de Laboratório e Diagnóstico / Klinikum Nord",
       "focus": "Compatibilidade e Confiabilidade do Sistema (Flexibilidade, Agrupamento)",
-      "text": "O Igloo Pro é o dispositivo Point-of-Care mais flexível que já avaliámos. A compatibilidade independente do fabricante para testes de fluxo lateral é uma enorme vantagem, permitindo-nos padronizar os nossos dispositivos POC e poupar custos sem sacrificar a comprovada confiabilidade dos resultados."
+      "text": "O Igloo Pro é o dispositivo Point-of-Care mais flexível que já avaliamos. A compatibilidade entre fabricantes para testes de fluxo lateral é uma grande vantagem que nos permite padronizar nossos dispositivos POC e economizar custos sem ter que renunciar à confiabilidade comprovada dos resultados."
     }
+  },
+  "blog": {
+    "caption": "Blog e Notícias",
+    "title": "Nossos Artigos sobre Saúde"
   }
 }

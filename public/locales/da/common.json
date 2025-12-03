@@ -2,8 +2,8 @@
   "nav": {
     "home": "Hjem",
     "about": "Om os",
-    "service": "Ydelser",
-    "shop": "Butik",
+    "service": "Service",
+    "shop": "Shop",
     "blog": "Blog",
     "contact": "Kontakt"
   },
@@ -16,33 +16,35 @@
     "Diagnostics": "Diagnostik",
     "Monitoring": "Overvågning",
     "Home Care": "Hjemmepleje",
-    "Chronic Care": "Kronisk Pleje",
+    "Chronic Care": "Kronisk pleje",
     "Protection": "Beskyttelse",
     "Hygiene": "Hygiejne",
-    "Recovery": "Genoptræning",
+    "Recovery": "Restitution",
     "Emergency": "Nødsituation",
     "Service": "Service"
   },
   "footer": {
-    "description": "Omfattende pleje og støtte. Moderne sundhedsydelser til dig og din familie, døgnet rundt.",
+    "description": "Omfattende pleje og støtte. Moderne sundhedstjenester til dig og din familie, døgnet rundt.",
     "links": "Links",
     "discover": "Opdag",
     "london": "London",
     "hamburg": "Hamborg",
     "copyright": "Copyright ©PolarisDX 2025 Alle rettigheder forbeholdes.",
-    "doctors": "Vores Læger",
+    "imprint": "Impressum",
+    "privacy": "Privatlivspolitik",
+    "doctors": "Vores læger",
     "testimonials": "Udtalelser",
     "faq": "FAQ",
-    "appointment": "Bestil Tid"
+    "appointment": "Bestil tid"
   },
   "cta": {
-    "title": "Leder du efter professionel og pålidelig <1>medicinsk sundhedspleje?</1>",
-    "description": "Tøv ikke med at kontakte os. Vores team står klar til at støtte dig og hjælpe med at planlægge den rette tid.",
-    "button": "Bestil Tid"
+    "title": "Leder du efter professionel & betroet <1>lægehjælp?</1>",
+    "description": "Tøv ikke med at kontakte os. Vores team står klar til at støtte dig og planlægge den rette aftale.",
+    "button": "Bestil tid"
   },
   "cta_section": {
     "title": "Leder du efter garanteret ydeevne og POC-ekspertise?",
-    "text": "Tal direkte med vores IglooPro-specialister. Vores team står klar til at analysere dine individuelle workflow-krav og vise dig den hurtigste vej til valideret diagnostik. Hos os får du en skræddersyet løsning, ikke en standardlevering.",
-    "button": "Bestil Ekspertanalyse Nu"
+    "text": "Tal direkte med vores IglooPro-specialister. Vores team er klar til at analysere dine individuelle workflow-krav og vise dig den hurtigste vej til valideret diagnostik. Hos os får du en skræddersyet løsning, ikke en standardlevering.",
+    "button": "Bestil ekspertanalyse nu"
   }
 }

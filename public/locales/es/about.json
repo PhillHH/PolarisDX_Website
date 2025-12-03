@@ -1,0 +1,33 @@
+{
+  "hero": {
+    "caption": "SOBRE NOSOTROS",
+    "title": "Redefiniendo el diagnóstico",
+    "description": "PolarisDX es sinónimo de innovación, precisión y fiabilidad en tecnología médica. Conozca a las personas detrás de nuestra misión."
+  },
+  "team": {
+    "caption": "NUESTRO EQUIPO",
+    "title": "Conozca a nuestros expertos",
+    "members": {
+      "tim_ritson": {
+        "name": "Tim Ritson",
+        "role": "CEO Polaris Diagnostics Limited",
+        "bio": "Como CEO de Polaris Diagnostics Limited en Londres, Tim Ritson lidera la visión estratégica de la empresa. Con décadas de experiencia operativa, dirige la dirección global y el crecimiento de PolarisDX."
+      },
+      "adriano_zucalla": {
+        "name": "Adriano Zuccala",
+        "role": "Director Polaris Diagnostics Europe U.G.",
+        "bio": "Adriano Zuccala es responsable del negocio europeo como Director de Polaris Diagnostics Europe U.G. Su enfoque está en las ventas y el desarrollo estratégico del mercado para hacer accesibles soluciones de diagnóstico innovadoras."
+      },
+      "frank_stoffels": {
+        "name": "Frank Stoffels",
+        "role": "Director de Ventas Polaris Diagnostics Europe",
+        "bio": "Como Director de Ventas, Frank Stoffels aporta una amplia experiencia de la industria MedTech. Es la cara de PolarisDX en ferias internacionales y el primer punto de contacto para nuestros clientes en temas de ventas."
+      },
+      "ulrike_schuerholz": {
+        "name": "Ulrike Schuerholz",
+        "role": "Directora Senior de Operaciones Globales",
+        "bio": "Como Directora Senior de Operaciones Globales, Ulrike Schuerholz gestiona los procesos operativos. Asegura procesos eficientes y la implementación estratégica de nuestros objetivos corporativos en un contexto global."
+      }
+    }
+  }
+}

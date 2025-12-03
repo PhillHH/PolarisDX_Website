@@ -1,9 +1,10 @@
 {
   "hero": {
     "caption": "Point-of-care Ydeevne",
-    "title": "IglooPro:\nPoint-of-Care. Perfekt. Øjeblikkeligt.",
-    "description": "Sikr dig ydeevnepakken: Din IglooPro er klar til brug om 48 timer – garanteret.",
-    "cta": "Bestil 15-minutters ydeevneanalyse nu",
+    "title": "IglooPro:\nPoint-of-Care. Perfekt. Øjeblikkelig.",
+    "description": "Sikr dig præstationspakken: Din IglooPro er klar til brug på 48 timer – garanteret.",
+    "cta": "Book 15-minutters præstationsanalyse nu",
+    "cta_downloads": "Download infomateriale",
     "stat1": {
       "value": "48t",
       "label": "Klar til brug efter bestilling"
@@ -15,67 +16,77 @@
   },
   "about": {
     "caption": "DIN YDEEVNEGARANT",
-    "title": "Ekspertise og Sikkerhed: Standarden Vi Sætter.",
-    "text1": "IglooPro er en premium-enhed. Men ægte premium-ydeevne kommer kun fra perfekt, risikofri idriftsættelse. Standardlevering overlader kompleksiteten til dig. Vi tager ansvar for resultatet.",
-    "text2": "Derfor leverer vi udelukkende løftet om opsætning på 48 timer. Vores ydeevnesøjler garanterer, at dit POC-workflow er optimeret fra første sekund, og at du kan bruge diagnostisk ekspertise med det samme.",
+    "title": "Excellence og Sikkerhed: Standarden vi sætter.",
+    "text1": "IglooPro er en premium enhed. Men ægte premium ydeevne kommer kun fra perfekt, risikofri idriftsættelse. En standardlevering efterlader kompleksiteten til dig. Vi tager ansvaret for resultatet.",
+    "text2": "Derfor leverer vi udelukkende løftet om 48-timers opsætning. Vores præstationssøjler garanterer, at dit POC-workflow er optimeret fra første sekund, og at du kan bruge diagnostisk excellence med det samme.",
     "cta": "Sikr eksklusiv fordel"
   },
   "doctors": {
-    "caption": "DIAGNOSTISK FOKUS",
+    "caption": "DIAGNOSTIK FOKUS",
     "title": "Præcis Diagnostik. Øjeblikkelige Resultater ved Point-of-Care.",
-    "description": "Opdag med systemer som Igloo Pro fra DX365, hvordan du kan optimere din patientpleje og stille vigtige diagnoser direkte på behandlingsstedet – med laboratoriepræcise resultater på få minutter.",
-    "cta": "Gå til Igloo Pro System"
+    "description": "Opdag med systemer som Igloo Pro fra DX365, hvordan du kan optimere din patientpleje og levere vigtige diagnoser direkte på behandlingsstedet – med laboratoriepræcise resultater på minutter.",
+    "cta": "Til Igloo Pro Systemet"
   },
   "services": {
+    "caption": "DIAGNOSTIK FOKUS",
+    "title": "Nøgleområder inden for forebyggende diagnostik",
     "poc_systemloesungen": {
       "title": "POC Systemløsninger",
-      "description": "Dit diagnostiske kontrolcenter. Mobile analysatorer, der leverer laboratoriepræcise resultater på minutter, direkte ved point-of-care (f.eks. Igloo Pro)."
+      "description": "Dit kontrolcenter for diagnostik. Mobile analysatorer, der leverer laboratoriepræcise resultater på minutter direkte på behandlingsstedet (f.eks. Igloo Pro)."
     },
     "praeventions_checks": {
-      "title": "Forebyggende Helbredstjek",
-      "description": "Forebyggelse gentænkt. Hurtig bestemmelse af nøglebiomarkører (f.eks. D-vitamin, CRP, HbA1c) til tidlig risikodetektion og individuel sundhedsrådgivning."
+      "title": "Forebyggende helbredstjek",
+      "description": "Forebyggelse gentænkt. Hurtig bestemmelse af vigtige biomarkører (f.eks. D-vitamin, CRP, HbA1c) til tidlig risikodetektion og individuel sundhedsrådgivning."
     },
     "infektion_entzuendung": {
       "title": "Infektions- & Inflammationsmarkører",
-      "description": "Hurtige svar i kritiske tilfælde. Øjeblikkelig analyse af inflammationsniveauer (CRP, PCT, IL-6) og infektionssygdomme – essentielt for akut pleje og triage."
+      "description": "Hurtige svar i kritiske tilfælde. Øjeblikkelig analyse af inflammationsværdier (CRP, PCT, IL-6) og infektionssygdomme – essentielt for akut pleje og triage."
     },
     "stoffwechsel_herz": {
       "title": "Stofskifte & Hjertesundhed",
-      "description": "Nøgleindikatorer på et øjeblik. Præcis måling af HbA1c, kolesterolprofiler og hjertemarkører (f.eks. D-Dimer) til overvågning af kroniske tilstande."
+      "description": "Vigtige indikatorer på et øjeblik. Præcis måling af HbA1c, kolesterolprofiler og hjertemarkører (f.eks. D-Dimer) til overvågning af kroniske sygdomme."
     },
     "hormon_tests": {
       "title": "Hormon- & Endokrinologitests",
-      "description": "Specialiseret diagnostik gjort let. Bred vifte af tests for skjoldbruskkirtel- og reproduktionshormoner (TSH, AMH) til specialpraksisser og apoteker."
+      "description": "Specialdiagnostik gjort nemt. Bredt udvalg af tests for skjoldbruskkirtel- og reproduktionshormoner (TSH, AMH) til specialiserede praksisser og apoteker."
     },
     "kompatibilitaet_integration": {
-      "title": "Producentuafhængig Kompatibilitet",
-      "description": "Maksimal fleksibilitet. Takket være universel teknologi evaluerer vores enheder 90% af alle lateral flow tests på markedet. Investeringssikkerhed gennem åbenhed."
+      "title": "Kompatibilitet på tværs af producenter",
+      "description": "Maksimal fleksibilitet. Takket være universel teknologi evaluerer vores enheder 90% af alle laterale flow tests på markedet. Investeringssikkerhed gennem åbenhed."
     }
   },
   "testimonials": {
+    "caption": "UDTALELSER",
+    "title": "Hvad vores brugere siger om Igloo Pro Systemet",
+    "ratingLabel": "Samlet vurdering\nbaseret på 3500+ anmeldelser",
+    "positiveLabel": "Positiv vurdering",
     "richard_pollock": {
-      "role": "Tandlæge (Verificeret Anmeldelse)",
-      "title": "Biologisk Tandlæge og Implantatkirurg / Chelsea Dental Clinic",
-      "focus": "Hurtige Helbredstjek på Stedet (Forebyggelse, D-vitamin)",
-      "text": "At udføre analyse af D-vitaminniveauer og andre nøglesundhedsindikatorer på stedet kan ikke undervurderes. Igloo Pro gør det muligt for mig at udføre en simpel kapillærblodtest for at fastslå patienternes behov og derefter vejlede dem om, hvilke yderligere kosttilskud de måtte have brug for for at optimere behandlingen. Denne kapacitet viser sig at være transformerende med hensyn til patientresultater."
+      "role": "Tandlæge (Ægte anmeldelse)",
+      "title": "Biologisk tandlæge og implantatkirurg / Chelsea Dental Clinic",
+      "focus": "Hurtige helbredstjek på stedet (Forebyggelse, D-vitamin)",
+      "text": "At udføre analyse af D-vitamin niveauer og andre vigtige sundhedsindikatorer på stedet kan ikke undervurderes. Igloo Pro gør det muligt for mig at udføre en simpel kapillær blodprøve, fastslå patienternes behov og derefter vejlede dem om, hvilke yderligere kosttilskud de måtte have brug for for at optimere behandlingen. Denne evne viser sig at være transformerende med hensyn til patientresultater."
     },
     "eva_schmidt": {
       "role": "Apotek",
-      "title": "Ejer / Løve Apotek, Berlin",
-      "focus": "Næste skridt i forebyggende rådgivning (Kundefacilitet, Hastighed)",
-      "text": "Siden implementeringen af Igloo Pro-systemet er vores rolle som sundhedsrådgivere blevet betydeligt styrket. Kunderne sætter stor pris på at kunne bestemme vigtige værdier som CRP eller kolesterol på minutter i stedet for at vente uger på tider. En sand win-win situation for kundeloyalitet og servicekvalitet."
+      "title": "Ejer / Löwen-Apotheke, Berlin",
+      "focus": "Næste skridt i forebyggelsesrådgivning (Kundefastholdelse, Hastighed)",
+      "text": "Siden vi begyndte at bruge Igloo Pro Systemet, er vores rolle som sundhedsrådgivere blevet enormt styrket. Kunderne sætter stor pris på at kunne få bestemt vigtige værdier som CRP eller kolesterol på minutter i stedet for at vente ugevis på tider. En ægte win-win situation for kundefastholdelse og servicekvalitet."
     },
     "martin_fischer": {
-      "role": "Praktiserende Læge/Praksis",
-      "title": "Specialist i Intern Medicin / Intern Praksis Dr. Fischer",
-      "focus": "Øjeblikkelig diagnostik for akutte patienter (Effektivitet, Behandlingsbeslutning)",
-      "text": "Evnen til at bestemme inflammationsmarkører som CRP øjeblikkeligt i praksissen har revolutioneret vores behandlingsworkflow. Vi kan beslutte hurtigere, om antibiotikabehandling er nødvendig for patienter med uklare infektioner, hvilket forhindrer unødvendige henvisninger. Dette sparer os tid og øger patienttilfredsheden betydeligt."
+      "role": "Praktiserende læge/Praksis",
+      "title": "Specialist i Intern Medicin / Intern Medicin Praksis Dr. Fischer",
+      "focus": "Øjeblikkelig diagnostik for akutte patienter (Effektivitet, Terapibeslutning)",
+      "text": "Evnen til at bestemme inflammationsmarkører som CRP øjeblikkeligt i praksissen har revolutioneret vores behandlingsworkflow. Vi kan hurtigere beslutte, om antibiotikabehandling er nødvendig for patienter med uklare infektioner og forhindre unødvendige henvisninger. Dette sparer os tid og øger patienttilfredsheden betydeligt."
     },
     "julia_bergmann": {
       "role": "Klinik/Laboratorium",
-      "title": "Laboratorie- & Diagnostikchef / Klinikum Nord",
-      "focus": "Systemkompatibilitet & Pålidelighed (Fleksibilitet, Bundling)",
-      "text": "Igloo Pro er den mest fleksible Point-of-Care-enhed, vi nogensinde har evalueret. Den producentuafhængige kompatibilitet for lateral flow tests er en kæmpe fordel, der giver os mulighed for at standardisere vores POC-enheder og spare omkostninger uden at ofre den beviste pålidelighed af resultaterne."
+      "title": "Leder af Laboratorium & Diagnostik / Klinikum Nord",
+      "focus": "Systemkompatibilitet & Pålidelighed (Fleksibilitet, Samling)",
+      "text": "Igloo Pro er den mest fleksible Point-of-Care enhed, vi nogensinde har evalueret. Kompatibiliteten på tværs af producenter for laterale flow tests er en kæmpe fordel, der giver os mulighed for at standardisere vores POC-enheder og spare omkostninger uden at skulle give afkald på den dokumenterede pålidelighed af resultaterne."
     }
+  },
+  "blog": {
+    "caption": "Blog & Nyheder",
+    "title": "Vores artikler om sundhed"
   }
 }

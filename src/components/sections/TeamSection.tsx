@@ -12,18 +12,26 @@ const TeamSection = () => {
     {
       id: 'tim_ritson',
       image: 'https://placehold.co/400x400',
+      email: 'timr@polarisdx.net',
+      linkedin: 'https://www.linkedin.com/in/tim-ritson-0824491b/',
     },
     {
       id: 'adriano_zucalla',
       image: AdrianoZuccalaJPEG,
+      email: 'adrianoz@polarisdx.net',
+      linkedin: 'https://www.linkedin.com/in/adriano-zuccala-6532691b7/',
     },
     {
       id: 'frank_stoffels',
       image: FrankStoffelsJPG,
+      email: 'franks@polarisdx.net',
+      linkedin: 'https://www.linkedin.com/in/frank-stoffels-a732b0262/',
     },
     {
       id: 'ulrike_schuerholz',
       image: UlrikeSchuerholzJPG,
+      email: 'ulrikes@polarisdx.net',
+      linkedin: 'https://www.linkedin.com/in/ulrike-sch%C3%BCrholz-97b9b7301/',
     },
   ]
 
@@ -59,11 +67,11 @@ const TeamSection = () => {
                     </p>
 
                     <div className="mt-auto flex gap-4">
-                        <a href="#" className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-primary transition-colors">
+                        <a href={`mailto:${member.email}`} className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-primary transition-colors">
                             <Mail className="h-4 w-4" />
                             Email
                         </a>
-                        <a href="#" className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-[#0077b5] transition-colors">
+                        <a href={member.linkedin} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-[#0077b5] transition-colors">
                             <Linkedin className="h-4 w-4" />
                             LinkedIn
                         </a>

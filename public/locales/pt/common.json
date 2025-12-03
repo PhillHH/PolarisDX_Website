@@ -1,11 +1,11 @@
 {
   "nav": {
     "home": "Início",
-    "about": "Sobre",
-    "service": "Serviços",
+    "about": "Sobre nós",
+    "service": "Serviço",
     "shop": "Loja",
     "blog": "Blog",
-    "contact": "Contactos"
+    "contact": "Contato"
   },
   "badge": {
     "New": "Novo",
@@ -14,9 +14,9 @@
   },
   "category": {
     "Diagnostics": "Diagnóstico",
-    "Monitoring": "Monitorização",
-    "Home Care": "Cuidados Domiciliários",
-    "Chronic Care": "Doenças Crónicas",
+    "Monitoring": "Monitoramento",
+    "Home Care": "Cuidados domiciliares",
+    "Chronic Care": "Cuidados crônicos",
     "Protection": "Proteção",
     "Hygiene": "Higiene",
     "Recovery": "Recuperação",
@@ -24,25 +24,27 @@
     "Service": "Serviço"
   },
   "footer": {
-    "description": "Cuidados e apoio abrangentes. Serviços de saúde modernos para si e para a sua família, 24 horas por dia.",
+    "description": "Atendimento abrangente e suporte. Serviços de saúde modernos para você e sua família, 24 horas por dia.",
     "links": "Links",
     "discover": "Descobrir",
     "london": "Londres",
     "hamburg": "Hamburgo",
     "copyright": "Copyright ©PolarisDX 2025 Todos os direitos reservados.",
-    "doctors": "Os Nossos Médicos",
-    "testimonials": "Testemunhos",
+    "imprint": "Ficha técnica",
+    "privacy": "Política de Privacidade",
+    "doctors": "Nossos médicos",
+    "testimonials": "Depoimentos",
     "faq": "FAQ",
-    "appointment": "Marcar Consulta"
+    "appointment": "Agendar consulta"
   },
   "cta": {
-    "title": "Procura cuidados de saúde <1>médicos profissionais e de confiança?</1>",
-    "description": "Não hesite em contactar-nos. A nossa equipa está pronta para o apoiar e ajudar a marcar a consulta certa.",
-    "button": "Marcar Consulta"
+    "title": "Procurando cuidados médicos <1>profissionais e confiáveis?</1>",
+    "description": "Não hesite em nos contatar. Nossa equipe está pronta para apoiá-lo e agendar a consulta certa.",
+    "button": "Agendar consulta"
   },
   "cta_section": {
-    "title": "Procura desempenho garantido e experiência em POC?",
-    "text": "Fale diretamente com os nossos especialistas IglooPro. A nossa equipa está pronta para analisar os seus requisitos de fluxo de trabalho individuais e mostrar-lhe o caminho mais rápido para diagnósticos validados. Connosco, obtém uma solução personalizada, não uma entrega padrão.",
-    "button": "Agendar Análise Especializada Agora"
+    "title": "Procurando desempenho garantido e experiência em POC?",
+    "text": "Fale diretamente com nossos especialistas em IglooPro. Nossa equipe está pronta para analisar seus requisitos de fluxo de trabalho individuais e mostrar o caminho mais rápido para diagnósticos validados. Conosco, você obtém uma solução sob medida, não uma entrega padrão.",
+    "button": "Agendar análise especializada agora"
   }
 }

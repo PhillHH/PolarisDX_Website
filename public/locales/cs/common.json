@@ -30,19 +30,21 @@
     "london": "Londýn",
     "hamburg": "Hamburk",
     "copyright": "Copyright ©PolarisDX 2025 Všechna práva vyhrazena.",
+    "imprint": "Tiráž",
+    "privacy": "Ochrana osobních údajů",
     "doctors": "Naši lékaři",
     "testimonials": "Reference",
     "faq": "FAQ",
-    "appointment": "Domluvit schůzku"
+    "appointment": "Rezervovat termín"
   },
   "cta": {
     "title": "Hledáte profesionální a důvěryhodnou <1>lékařskou péči?</1>",
-    "description": "Neváhejte nás kontaktovat. Náš tým je připraven vás podpořit a pomoci naplánovat tu správnou schůzku.",
-    "button": "Domluvit schůzku"
+    "description": "Neváhejte nás kontaktovat. Náš tým je připraven vás podpořit a naplánovat správný termín.",
+    "button": "Rezervovat termín"
   },
   "cta_section": {
-    "title": "Hledáte zaručený výkon a odbornost v POC?",
-    "text": "Mluvte přímo s našimi specialisty na IglooPro. Náš tým je připraven analyzovat vaše individuální požadavky na pracovní tok a ukázat vám nejrychlejší cestu k validované diagnostice. U nás získáte řešení na míru, nikoli standardní dodávku.",
-    "button": "Objednat odbornou analýzu"
+    "title": "Hledáte zaručený výkon a odbornost POC?",
+    "text": "Mluvte přímo s našimi specialisty na IglooPro. Náš tým je připraven analyzovat vaše individuální požadavky na pracovní tok a ukázat vám nejrychlejší cestu k ověřené diagnostice. U nás získáte řešení na míru, ne standardní dodávku.",
+    "button": "Objednat expertní analýzu nyní"
   }
 }

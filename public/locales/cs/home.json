@@ -1,12 +1,13 @@
 {
   "hero": {
-    "caption": "Point-of-care Výkon",
-    "title": "IglooPro:\nPoint-of-Care. Perfektní. Okamžitý.",
-    "description": "Zajistěte si výkonnostní balíček: Váš IglooPro je připraven k použití za 48 hodin – zaručeně.",
-    "cta": "Objednat 15minutovou analýzu výkonu",
+    "caption": "Výkon v místě péče",
+    "title": "IglooPro:\nPoint-of-Care. Perfektní. Okamžité.",
+    "description": "Zajistěte si balíček výkonu: Váš IglooPro je připraven k použití za 48 hodin – zaručeno.",
+    "cta": "Rezervovat 15-minutovou analýzu výkonu nyní",
+    "cta_downloads": "Stáhnout informační materiály",
     "stat1": {
       "value": "48h",
-      "label": "Připraven k použití po objednání"
+      "label": "Připraveno k použití po objednání"
     },
     "stat2": {
       "value": "CV < 2%",
@@ -15,67 +16,77 @@
   },
   "about": {
     "caption": "VÁŠ GARANT VÝKONU",
-    "title": "Excelence a bezpečnost: Standard, který nastavujeme.",
+    "title": "Dokonalost a Bezpečnost: Standard, který nastavujeme.",
     "text1": "IglooPro je prémiové zařízení. Ale skutečný prémiový výkon pochází pouze z dokonalého uvedení do provozu bez rizika. Standardní dodávka nechává složitost na vás. My přebíráme odpovědnost za výsledek.",
-    "text2": "Proto dodáváme výhradně slib nastavení do 48 hodin. Naše pilíře výkonu zaručují, že váš pracovní tok POC je optimalizován od první sekundy a že můžete okamžitě využívat diagnostickou excelenci.",
+    "text2": "Proto dodáváme výhradně slib nastavení do 48 hodin. Naše pilíře výkonu zaručují, že váš pracovní postup POC je optimalizován od první sekundy a že můžete okamžitě využít diagnostickou dokonalost.",
     "cta": "Zajistit exkluzivní výhodu"
   },
   "doctors": {
-    "caption": "DIAGNOSTICKÉ ZAMĚŘENÍ",
-    "title": "Přesná diagnostika. Okamžité výsledky v místě péče (Point-of-Care).",
-    "description": "Objevte se systémy jako Igloo Pro od DX365, jak můžete optimalizovat péči o pacienty a provádět důležité diagnózy přímo v místě ošetření – s laboratorně přesnými výsledky během několika minut.",
-    "cta": "Přejít na systém Igloo Pro"
+    "caption": "ZAMĚŘENÍ NA DIAGNOSTIKU",
+    "title": "Přesná diagnostika. Okamžité výsledky v Point-of-Care.",
+    "description": "Objevte se systémy jako Igloo Pro od DX365, jak můžete optimalizovat péči o pacienty a poskytovat důležité diagnózy přímo v místě ošetření – s laboratorně přesnými výsledky během několika minut.",
+    "cta": "K systému Igloo Pro"
   },
   "services": {
+    "caption": "ZAMĚŘENÍ NA DIAGNOSTIKU",
+    "title": "Klíčové oblasti preventivní diagnostiky",
     "poc_systemloesungen": {
-      "title": "POC Systémová řešení",
-      "description": "Vaše diagnostické řídicí centrum. Mobilní analyzátory poskytující laboratorně přesné výsledky v minutách, přímo v místě péče (např. Igloo Pro)."
+      "title": "Systémová řešení POC",
+      "description": "Vaše řídicí centrum pro diagnostiku. Mobilní analyzátory, které poskytují laboratorně přesné výsledky během několika minut přímo v místě ošetření (např. Igloo Pro)."
     },
     "praeventions_checks": {
       "title": "Preventivní zdravotní prohlídky",
-      "description": "Prevence nově definována. Rychlé stanovení klíčových biomarkerů (např. Vitamin D, CRP, HbA1c) pro včasnou detekci rizik a individuální zdravotní poradenství."
+      "description": "Prevence nově vymyšlena. Rychlé stanovení důležitých biomarkerů (např. Vitamín D, CRP, HbA1c) pro včasnou detekci rizik a individuální zdravotní poradenství."
     },
     "infektion_entzuendung": {
-      "title": "Infekční a zánětlivé markery",
-      "description": "Rychlé odpovědi v kritických případech. Okamžitá analýza hladin zánětu (CRP, PCT, IL-6) a infekčních onemocnění – nezbytné pro akutní péči a třídění."
+      "title": "Markery infekce a zánětu",
+      "description": "Rychlé odpovědi v kritických případech. Okamžitá analýza zánětlivých hodnot (CRP, PCT, IL-6) a infekčních onemocnění – nezbytné pro akutní péči a třídění."
     },
     "stoffwechsel_herz": {
       "title": "Metabolismus a zdraví srdce",
-      "description": "Klíčové ukazatele na první pohled. Přesné měření HbA1c, cholesterolových profilů a srdečních markerů (např. D-Dimer) pro monitorování chronických stavů."
+      "description": "Důležité ukazatele na první pohled. Přesné měření HbA1c, profilů cholesterolu a srdečních markerů (např. D-Dimer) pro monitorování chronických onemocnění."
     },
     "hormon_tests": {
       "title": "Hormonální a endokrinologické testy",
-      "description": "Specializovaná diagnostika snadno. Široká škála testů pro hormony štítné žlázy a reprodukční hormony (TSH, AMH) pro specializované praxe a lékárny."
+      "description": "Specializovaná diagnostika snadno. Široká škála testů hormonů štítné žlázy a reprodukčních hormonů (TSH, AMH) pro specializované praxe a lékárny."
     },
     "kompatibilitaet_integration": {
-      "title": "Kompatibilita nezávislá na výrobci",
-      "description": "Maximální flexibilita. Díky univerzální technologii vyhodnocují naše zařízení 90 % všech testů laterálního toku na trhu. Investiční jistota díky otevřenosti."
+      "title": "Kompatibilita mezi výrobci",
+      "description": "Maximální flexibilita. Díky univerzální technologii naše zařízení vyhodnocují 90% všech testů s bočním tokem na trhu. Bezpečnost investice díky otevřenosti."
     }
   },
   "testimonials": {
+    "caption": "REFERENCE",
+    "title": "Co říkají naši uživatelé o systému Igloo Pro",
+    "ratingLabel": "Celkové hodnocení\nna základě 3500+ recenzí",
+    "positiveLabel": "Pozitivní hodnocení",
     "richard_pollock": {
-      "role": "Zubní lékař (Ověřená recenze)",
-      "title": "Biologický zubní lékař a implantolog / Chelsea Dental Clinic",
-      "focus": "Rychlé zdravotní kontroly na místě (Prevence, Vitamin D)",
-      "text": "Provádění analýzy hladin Vitaminu D a dalších klíčových zdravotních ukazatelů přímo na místě nelze podceňovat. Igloo Pro mi umožňuje provést jednoduchý test kapilární krve, zjistit potřeby pacientů a poté je vést k tomu, jaké další doplňky by mohli potřebovat k optimalizaci léčby. Tato schopnost se ukazuje jako transformativní z hlediska výsledků pacientů."
+      "role": "Zubař (Skutečná recenze)",
+      "title": "Biologický zubař a implantolog / Chelsea Dental Clinic",
+      "focus": "Rychlé zdravotní kontroly na místě (Prevence, Vitamín D)",
+      "text": "Provádění analýzy hladiny vitamínu D a dalších klíčových zdravotních ukazatelů na místě nelze podceňovat. Igloo Pro mi umožňuje provést jednoduchý test kapilární krve, zjistit potřeby pacientů a poté je nasměrovat k tomu, jaké další doplňky by mohli potřebovat k optimalizaci léčby. Tato schopnost se ukazuje jako transformativní z hlediska výsledků pacientů."
     },
     "eva_schmidt": {
       "role": "Lékárna",
       "title": "Majitelka / Löwen-Apotheke, Berlín",
-      "focus": "Další krok v preventivním poradenství (Věrnost zákazníků, Rychlost)",
-      "text": "Od zavedení systému Igloo Pro se naše role zdravotních poradců výrazně posílila. Zákazníci velmi oceňují možnost určit důležité hodnoty jako CRP nebo cholesterol během několika minut, místo aby čekali týdny na schůzky. Skutečná situace výhodná pro obě strany, pro věrnost zákazníků a kvalitu služeb."
+      "focus": "Další krok v poradenství prevence (Věrnost zákazníků, Rychlost)",
+      "text": "Od té doby, co jsme začali používat systém Igloo Pro, se naše role zdravotních poradců nesmírně posílila. Zákazníci velmi oceňují, že mohou určit důležité hodnoty jako CRP nebo cholesterol během několika minut místo čekání týdnů na termíny. Skutečná win-win situace pro věrnost zákazníků a kvalitu služeb."
     },
     "martin_fischer": {
       "role": "Praktický lékař/Praxe",
       "title": "Specialista na vnitřní lékařství / Interní praxe Dr. Fischer",
-      "focus": "Okamžitá diagnostika pro akutní pacienty (Efektivita, Rozhodnutí o léčbě)",
-      "text": "Schopnost určit zánětlivé markery jako CRP okamžitě v ordinaci způsobila revoluci v našem léčebném pracovním toku. Můžeme se rychleji rozhodnout, zda je antibiotická léčba nezbytná pro pacienty s nejasnými infekcemi, což zabraňuje zbytečným doporučením. To nám šetří čas a výrazně zvyšuje spokojenost pacientů."
+      "focus": "Okamžitá diagnostika pro akutní pacienty (Efektivita, Rozhodnutí o terapii)",
+      "text": "Schopnost okamžitě stanovit zánětlivé markery jako CRP v ordinaci způsobila revoluci v našem léčebném pracovním postupu. Můžeme se rychleji rozhodnout, zda je u pacientů s nejasnými infekcemi nutná antibiotická léčba, a zabránit zbytečným doporučením. To nám šetří čas a výrazně zvyšuje spokojenost pacientů."
     },
     "julia_bergmann": {
       "role": "Klinika/Laboratoř",
       "title": "Vedoucí laboratoře a diagnostiky / Klinikum Nord",
-      "focus": "Systémová kompatibilita a spolehlivost (Flexibilita, Slučování)",
-      "text": "Igloo Pro je nejflexibilnější Point-of-Care zařízení, jaké jsme kdy hodnotili. Kompatibilita nezávislá na výrobci pro testy laterálního toku je obrovskou výhodou, která nám umožňuje standardizovat naše POC zařízení a šetřit náklady bez obětování osvědčené spolehlivosti výsledků."
+      "focus": "Kompatibilita a spolehlivost systému (Flexibilita, Sdružování)",
+      "text": "Igloo Pro je nejflexibilnější Point-of-Care zařízení, jaké jsme kdy hodnotili. Kompatibilita mezi výrobci pro testy s bočním tokem je obrovskou výhodou, která nám umožňuje standardizovat naše zařízení POC a šetřit náklady, aniž bychom museli rezignovat na osvědčenou spolehlivost výsledků."
     }
+  },
+  "blog": {
+    "caption": "Blog a novinky",
+    "title": "Naše články o zdraví"
   }
 }

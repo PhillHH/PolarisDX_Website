@@ -59,7 +59,7 @@ const ArticlePage = () => {
         return (
           <section key={index} className="space-y-4 overflow-x-auto">
              {section.heading && (
-              <h2 className="text-xl font-semibold tracking-tight text-gray-900">
+              <h2 className="text-lg font-semibold tracking-tight text-gray-900">
                 {section.heading}
               </h2>
             )}
@@ -125,7 +125,7 @@ const ArticlePage = () => {
         return (
           <section key={index} className="space-y-4">
             {textSection.heading && (
-              <h2 className="text-xl font-semibold tracking-tight text-gray-900">
+              <h2 className="text-lg font-semibold tracking-tight text-gray-900">
                 {textSection.heading}
               </h2>
             )}
@@ -167,7 +167,7 @@ const ArticlePage = () => {
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
               {t(`common:category.${article.category}`, article.category)}
             </p>
-            <h1 className="mb-4 text-3xl font-medium tracking-tight sm:text-4xl lg:text-4xl">
+            <h1 className="mb-4 text-2xl font-medium tracking-tight sm:text-3xl lg:text-3xl">
               {title}
             </h1>
             <div className="flex flex-wrap items-center gap-3 text-xs text-white/80 sm:text-sm">
@@ -187,6 +187,7 @@ const ArticlePage = () => {
             caption={t('shop:shop.article', 'Article')}
             title={excerpt}
             align="left"
+            titleClassName="text-2xl sm:text-3xl lg:text-3xl"
           />
 
           <div className="relative w-full overflow-hidden rounded-lg aspect-[8/3] bg-slate-200">

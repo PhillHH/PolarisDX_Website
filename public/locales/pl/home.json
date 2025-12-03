@@ -1,9 +1,10 @@
 {
   "hero": {
-    "caption": "Wydajność Point-of-care",
-    "title": "IglooPro:\nPoint-of-Care. Perfekcja. Natychmiast.",
-    "description": "Zapewnij sobie pakiet wydajności: Twój IglooPro jest gotowy do użycia w ciągu 48 godzin – gwarantowane.",
+    "caption": "Wydajność w miejscu opieki",
+    "title": "IglooPro:\nPoint-of-Care. Perfekcyjny. Natychmiastowy.",
+    "description": "Zapewnij sobie pakiet wydajności: Twój IglooPro jest gotowy do użycia w 48 godzin – gwarantowane.",
     "cta": "Zarezerwuj 15-minutową analizę wydajności teraz",
+    "cta_downloads": "Pobierz materiały informacyjne",
     "stat1": {
       "value": "48h",
       "label": "Gotowy do użycia po zamówieniu"
@@ -14,78 +15,78 @@
     }
   },
   "about": {
-    "caption": "TWÓJ GWARANT WYDAJNOŚCI",
+    "caption": "TWOJA GWARANCJA WYDAJNOŚCI",
     "title": "Doskonałość i Bezpieczeństwo: Standard, który wyznaczamy.",
-    "text1": "IglooPro to urządzenie klasy premium. Ale prawdziwa wydajność premium wynika tylko z perfekcyjnego, pozbawionego ryzyka uruchomienia. Standardowa dostawa pozostawia złożoność Tobie. My bierzemy odpowiedzialność za wynik.",
+    "text1": "IglooPro to urządzenie premium. Ale prawdziwa wydajność premium pochodzi tylko z perfekcyjnego, wolnego od ryzyka uruchomienia. Standardowa dostawa pozostawia złożoność Tobie. My bierzemy odpowiedzialność za wynik.",
     "text2": "Dlatego dostarczamy wyłącznie obietnicę konfiguracji w 48 godzin. Nasze filary wydajności gwarantują, że Twój przepływ pracy POC jest zoptymalizowany od pierwszej sekundy i że możesz natychmiast korzystać z doskonałości diagnostycznej.",
-    "cta": "Zapewnij sobie ekskluzywną korzyść"
+    "cta": "Zapewnij ekskluzywną korzyść"
   },
   "doctors": {
-    "caption": "FOKUS DIAGNOSTYCZNY",
-    "title": "Precyzyjna diagnostyka. Natychmiastowe wyniki w punkcie opieki.",
-    "description": "Odkryj z systemami takimi jak Igloo Pro od DX365, jak możesz zoptymalizować opiekę nad pacjentem i stawiać ważne diagnozy bezpośrednio w miejscu leczenia – z wynikami o dokładności laboratoryjnej w kilka minut.",
+    "caption": "FOKUS NA DIAGNOSTYKĘ",
+    "title": "Precyzyjna diagnostyka. Natychmiastowe wyniki w Point-of-Care.",
+    "description": "Odkryj z systemami takimi jak Igloo Pro od DX365, jak możesz zoptymalizować opiekę nad pacjentem i dostarczać ważne diagnozy bezpośrednio w miejscu leczenia – z wynikami laboratoryjnymi w kilka minut.",
     "cta": "Do systemu Igloo Pro"
   },
   "services": {
-    "caption": "FOKUS DIAGNOSTYCZNY",
-    "title": "Kluczowe obszary diagnostyki prewencyjnej",
+    "caption": "FOKUS NA DIAGNOSTYKĘ",
+    "title": "Kluczowe obszary diagnostyki profilaktycznej",
     "poc_systemloesungen": {
       "title": "Rozwiązania systemowe POC",
-      "description": "Twoje centrum sterowania diagnostyką. Mobilne analizatory dostarczające wyniki o dokładności laboratoryjnej w kilka minut bezpośrednio w miejscu leczenia (np. Igloo Pro)."
+      "description": "Twoje centrum sterowania diagnostyką. Mobilne analizatory dostarczające wyniki laboratoryjne w kilka minut bezpośrednio w miejscu leczenia (np. Igloo Pro)."
     },
     "praeventions_checks": {
-      "title": "Prewencyjne badania kontrolne",
-      "description": "Prewencja na nowo. Szybkie oznaczanie kluczowych biomarkerów (np. Witamina D, CRP, HbA1c) w celu wczesnego wykrywania ryzyka i indywidualnego poradnictwa zdrowotnego."
+      "title": "Profilaktyczne badania zdrowotne",
+      "description": "Profilaktyka wymyślona na nowo. Szybkie określanie ważnych biomarkerów (np. Witamina D, CRP, HbA1c) w celu wczesnego wykrywania ryzyka i indywidualnego poradnictwa zdrowotnego."
     },
     "infektion_entzuendung": {
       "title": "Markery infekcji i stanów zapalnych",
-      "description": "Szybkie odpowiedzi w krytycznych przypadkach. Natychmiastowa analiza poziomów zapalnych (CRP, PCT, IL-6) i chorób zakaźnych – niezbędna w ostrej opiece i segregacji."
+      "description": "Szybkie odpowiedzi w krytycznych przypadkach. Natychmiastowa analiza wartości zapalnych (CRP, PCT, IL-6) i chorób zakaźnych – niezbędna w ostrej opiece i segregacji."
     },
     "stoffwechsel_herz": {
       "title": "Metabolizm i zdrowie serca",
-      "description": "Kluczowe wskaźniki w jednym miejscu. Precyzyjny pomiar HbA1c, profili cholesterolu i markerów sercowych (np. D-Dimer) do monitorowania chorób przewlekłych."
+      "description": "Ważne wskaźniki na pierwszy rzut oka. Precyzyjny pomiar HbA1c, profili cholesterolu i markerów sercowych (np. D-Dimer) do monitorowania chorób przewlekłych."
     },
     "hormon_tests": {
-      "title": "Testy hormonalne i endokrynologiczne",
-      "description": "Specjalistyczna diagnostyka stała się prosta. Szeroka gama testów hormonów tarczycy i rozrodczych (TSH, AMH) dla specjalistycznych gabinetów i aptek."
+      "title": "Testy hormonalne i endokrynologia",
+      "description": "Specjalistyczna diagnostyka stała się prosta. Szeroka gama testów hormonów tarczycy i rozrodczych (TSH, AMH) dla specjalistycznych praktyk i aptek."
     },
     "kompatibilitaet_integration": {
-      "title": "Kompatybilność niezależna od producenta",
-      "description": "Maksymalna elastyczność. Dzięki uniwersalnej technologii nasze urządzenia oceniają 90% wszystkich testów przepływu bocznego dostępnych na rynku. Bezpieczeństwo inwestycji dzięki otwartości."
+      "title": "Kompatybilność między producentami",
+      "description": "Maksymalna elastyczność. Dzięki uniwersalnej technologii nasze urządzenia oceniają 90% wszystkich testów przepływu bocznego na rynku. Bezpieczeństwo inwestycji dzięki otwartości."
     }
   },
   "testimonials": {
-    "caption": "OPINIE KLIENTÓW",
+    "caption": "OPINIE",
     "title": "Co nasi użytkownicy mówią o systemie Igloo Pro",
-    "ratingLabel": "Ocena ogólna\nna podstawie 3500+ opinii",
-    "positiveLabel": "Pozytywna opinia",
+    "ratingLabel": "Ogólna ocena\nna podstawie 3500+ recenzji",
+    "positiveLabel": "Pozytywna ocena",
     "richard_pollock": {
-      "role": "Dentysta (Zweryfikowana opinia)",
+      "role": "Dentysta (Prawdziwa recenzja)",
       "title": "Stomatolog biologiczny i chirurg implantolog / Chelsea Dental Clinic",
-      "focus": "Szybkie badania kontrolne na miejscu (Prewencja, Witamina D)",
-      "text": "Przeprowadzanie analizy poziomu witaminy D i innych kluczowych wskaźników zdrowotnych na miejscu nie może być niedoceniane. Igloo Pro pozwala mi wykonać prosty test z krwi włośniczkowej, aby ustalić potrzeby pacjentów, a następnie wskazać im, jakich dodatkowych suplementów mogą potrzebować, aby zoptymalizować leczenie. Ta możliwość okazuje się przełomowa w zakresie wyników pacjentów."
+      "focus": "Szybkie kontrole zdrowia na miejscu (Profilaktyka, Witamina D)",
+      "text": "Przeprowadzanie analizy poziomu Witaminy D i innych kluczowych wskaźników zdrowotnych na miejscu nie może być niedoceniane. Igloo Pro pozwala mi wykonać proste badanie krwi włośniczkowej, ustalić potrzeby pacjentów, a następnie wskazać im, jakie dodatkowe suplementy mogą być potrzebne do optymalizacji leczenia. Ta możliwość okazuje się przełomowa w zakresie wyników pacjentów."
     },
     "eva_schmidt": {
       "role": "Apteka",
       "title": "Właścicielka / Löwen-Apotheke, Berlin",
-      "focus": "Kolejny krok w poradnictwie profilaktycznym (Lojalność klientów, Szybkość)",
-      "text": "Odkąd wdrożyliśmy system Igloo Pro, nasza rola jako doradców zdrowotnych znacznie się wzmocniła. Klienci bardzo cenią sobie możliwość oznaczenia ważnych wartości, takich jak CRP czy cholesterol, w kilka minut, zamiast czekać tygodniami na wizyty. To prawdziwa sytuacja win-win dla lojalności klientów i jakości usług."
+      "focus": "Kolejny krok w doradztwie profilaktycznym (Lojalność klientów, Szybkość)",
+      "text": "Odkąd zaczęliśmy używać systemu Igloo Pro, nasza rola jako doradców zdrowotnych znacznie się wzmocniła. Klienci bardzo cenią możliwość określenia ważnych wartości, takich jak CRP czy cholesterol, w kilka minut zamiast czekać tygodniami na wizyty. Prawdziwa sytuacja win-win dla lojalności klientów i jakości usług."
     },
     "martin_fischer": {
-      "role": "Lekarz ogólny/Gabinet",
+      "role": "Lekarz ogólny/Praktyka",
       "title": "Specjalista chorób wewnętrznych / Praktyka Internistyczna Dr Fischer",
-      "focus": "Natychmiastowa diagnostyka u pacjentów ostrych (Efektywność, Decyzja terapeutyczna)",
-      "text": "Możliwość natychmiastowego oznaczania markerów stanu zapalnego, takich jak CRP, w gabinecie zrewolucjonizowała nasz przepływ pracy. Możemy szybciej zdecydować, czy antybiotykoterapia jest konieczna u pacjentów z niejasnymi infekcjami, zapobiegając niepotrzebnym skierowaniom. To oszczędza nam czas i znacznie zwiększa zadowolenie pacjentów."
+      "focus": "Natychmiastowa diagnostyka dla pacjentów ostrych (Wydajność, Decyzja terapeutyczna)",
+      "text": "Możliwość natychmiastowego określania markerów zapalnych, takich jak CRP, w gabinecie zrewolucjonizowała nasz przepływ pracy. Możemy szybciej zdecydować, czy antybiotykoterapia jest konieczna u pacjentów z niejasnymi infekcjami i zapobiegać niepotrzebnym skierowaniom. To oszczędza nam czas i znacznie zwiększa zadowolenie pacjentów."
     },
     "julia_bergmann": {
       "role": "Klinika/Laboratorium",
       "title": "Kierownik Laboratorium i Diagnostyki / Klinikum Nord",
       "focus": "Kompatybilność i niezawodność systemu (Elastyczność, Łączenie)",
-      "text": "Igloo Pro to najbardziej elastyczne urządzenie Point-of-Care, jakie kiedykolwiek ocenialiśmy. Niezależna od producenta kompatybilność testów przepływu bocznego to ogromna zaleta, która pozwala nam standaryzować nasze urządzenia POC i oszczędzać koszty bez rezygnacji ze sprawdzonej niezawodności wyników."
+      "text": "Igloo Pro to najbardziej elastyczne urządzenie Point-of-Care, jakie kiedykolwiek ocenialiśmy. Kompatybilność między producentami testów przepływu bocznego to ogromna zaleta, która pozwala nam standaryzować nasze urządzenia POC i oszczędzać koszty bez konieczności rezygnowania ze sprawdzonej niezawodności wyników."
     }
   },
   "blog": {
-    "caption": "Blog i Aktualności",
+    "caption": "Blog i nowości",
     "title": "Nasze artykuły o zdrowiu"
   }
 }

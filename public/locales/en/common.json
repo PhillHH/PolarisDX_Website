@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Home",
-    "about": "About",
+    "about": "About Us",
     "service": "Service",
     "shop": "Shop",
     "blog": "Blog",
@@ -30,15 +30,17 @@
     "london": "London",
     "hamburg": "Hamburg",
     "copyright": "Copyright ©PolarisDX 2025 All Rights Reserved.",
+    "imprint": "Imprint",
+    "privacy": "Privacy Policy",
     "doctors": "Our Doctors",
     "testimonials": "Testimonials",
     "faq": "FAQ",
-    "appointment": "Make Appointment"
+    "appointment": "Book Appointment"
   },
   "cta": {
-    "title": "Looking for professional & trusted <1>medical healthcare?</1>",
-    "description": "Don't hesitate to contact us. Our team is ready to support you and help schedule the right appointment.",
-    "button": "Make Appointment"
+    "title": "Looking for professional & trusted <1>medical care?</1>",
+    "description": "Don't hesitate to contact us. Our team is ready to support you and schedule the right appointment.",
+    "button": "Book Appointment"
   },
   "cta_section": {
     "title": "Looking for guaranteed performance and POC expertise?",

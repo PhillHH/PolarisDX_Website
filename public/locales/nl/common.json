@@ -16,33 +16,35 @@
     "Diagnostics": "Diagnostiek",
     "Monitoring": "Monitoring",
     "Home Care": "Thuiszorg",
-    "Chronic Care": "Chronische Zorg",
+    "Chronic Care": "Chronische zorg",
     "Protection": "Bescherming",
     "Hygiene": "Hygiëne",
     "Recovery": "Herstel",
-    "Emergency": "Noodsituatie",
-    "Service": "Service"
+    "Emergency": "Noodgeval",
+    "Service": "Dienst"
   },
   "footer": {
-    "description": "Uitgebreide zorg en ondersteuning. Moderne gezondheidsdiensten voor u en uw gezin, de klok rond.",
+    "description": "Uitgebreide zorg en ondersteuning. Moderne gezondheidsdiensten voor jou en je familie, 24 uur per dag.",
     "links": "Links",
-    "discover": "Ontdek",
+    "discover": "Ontdekken",
     "london": "Londen",
     "hamburg": "Hamburg",
     "copyright": "Copyright ©PolarisDX 2025 Alle rechten voorbehouden.",
-    "doctors": "Onze Artsen",
+    "imprint": "Colofon",
+    "privacy": "Privacybeleid",
+    "doctors": "Onze artsen",
     "testimonials": "Getuigenissen",
     "faq": "FAQ",
-    "appointment": "Afspraak Maken"
+    "appointment": "Afspraak maken"
   },
   "cta": {
-    "title": "Op zoek naar professionele & vertrouwde <1>medische gezondheidszorg?</1>",
-    "description": "Aarzel niet om contact met ons op te nemen. Ons team staat klaar om u te ondersteunen en te helpen bij het plannen van de juiste afspraak.",
-    "button": "Afspraak Maken"
+    "title": "Op zoek naar professionele & vertrouwde <1>medische zorg?</1>",
+    "description": "Aarzel niet om contact met ons op te nemen. Ons team staat klaar om je te ondersteunen en de juiste afspraak te plannen.",
+    "button": "Afspraak maken"
   },
   "cta_section": {
     "title": "Op zoek naar gegarandeerde prestaties en POC-expertise?",
-    "text": "Spreek direct met onze IglooPro-specialisten. Ons team staat klaar om uw individuele workflowvereisten te analyseren en u de snelste weg naar gevalideerde diagnostiek te tonen. Bij ons krijgt u een oplossing op maat, geen standaardlevering.",
-    "button": "Boek Nu Expertanalyse"
+    "text": "Spreek direct met onze IglooPro-specialisten. Ons team staat klaar om jouw individuele workflow-eisen te analyseren en je de snelste weg naar gevalideerde diagnostiek te tonen. Bij ons krijg je een oplossing op maat, geen standaard levering.",
+    "button": "Boek nu een expertanalyse"
   }
 }
