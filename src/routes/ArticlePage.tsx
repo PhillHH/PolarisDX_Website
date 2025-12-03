@@ -167,7 +167,7 @@ const ArticlePage = () => {
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
               {t(`common:category.${article.category}`, article.category)}
             </p>
-            <h1 className="mb-4 text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
+            <h1 className="mb-4 text-3xl font-medium tracking-tight sm:text-4xl lg:text-4xl">
               {title}
             </h1>
             <div className="flex flex-wrap items-center gap-3 text-xs text-white/80 sm:text-sm">

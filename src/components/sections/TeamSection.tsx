@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { Mail, Linkedin } from 'lucide-react'
 import SectionHeader from '../ui/SectionHeader'
 import AdrianoZuccalaJPEG from '../../assets/Adriano Zuccala.jpeg'
 import FrankStoffelsJPG from '../../assets/Frank Stoffels.jpg'
@@ -53,9 +54,20 @@ const TeamSection = () => {
                     <p className="mb-4 font-sans text-base font-normal leading-8 text-secondary h-16">
                          {t(`team.members.${member.id}.role`)}
                     </p>
-                    <p className="text-sm leading-relaxed text-gray-500">
+                    <p className="mb-4 text-sm leading-relaxed text-gray-500">
                         {t(`team.members.${member.id}.bio`)}
                     </p>
+
+                    <div className="mt-auto flex gap-4">
+                        <a href="#" className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-primary transition-colors">
+                            <Mail className="h-4 w-4" />
+                            Email
+                        </a>
+                        <a href="#" className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-[#0077b5] transition-colors">
+                            <Linkedin className="h-4 w-4" />
+                            LinkedIn
+                        </a>
+                    </div>
                 </div>
             ))}
         </div>
