@@ -67,6 +67,7 @@ const Footer = () => {
                 <ul className="space-y-2 text-white/70">
                   <li><Link to="/" className="hover:text-secondary">{t('nav.home')}</Link></li>
                   <li><Link to="/about" className="hover:text-secondary">{t('nav.about')}</Link></li>
+                  <li><Link to="/terms" className="hover:text-secondary">{t('nav.terms')}</Link></li>
                   <li><Link to="/services" className="hover:text-secondary">{t('nav.service')}</Link></li>
                   <li><Link to="/articles" className="hover:text-secondary">{t('nav.blog')}</Link></li>
                 </ul>

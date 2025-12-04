@@ -1,23 +1,38 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { ChevronDown } from 'lucide-react'
 import PrimaryButton from '../ui/PrimaryButton'
 import LanguageSwitcher from '../ui/LanguageSwitcher'
 import logo from '../../assets/polaris_white.png'
 import scrolledLogo from '../../assets/PolarisDX_Logo_main.png'
 
-const navItems = [
-  { label: 'home', route: '/' as const },
-  { label: 'about', route: '/about' as const },
-  { label: 'service', route: '/services' as const },
-  // { label: 'shop', route: '/shop' as const }, // Shop disabled
-  { label: 'blog', route: '/articles' as const },
+interface NavItem {
+  label: string
+  route?: string
+  children?: { label: string; route: string }[]
+}
+
+const navItems: NavItem[] = [
+  { label: 'home', route: '/' },
+  {
+    label: 'about',
+    route: '/about',
+    children: [
+      { label: 'terms', route: '/terms' }
+    ]
+  },
+  { label: 'service', route: '/services' },
+  // { label: 'shop', route: '/shop' }, // Shop disabled
+  { label: 'blog', route: '/articles' },
 ]
 
 const Header = () => {
   const { t } = useTranslation('common')
   const [isScrolled, setIsScrolled] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
+  const location = useLocation()
 
   useEffect(() => {
     const handler = () => {
@@ -28,6 +43,12 @@ const Header = () => {
     window.addEventListener('scroll', handler)
     return () => window.removeEventListener('scroll', handler)
   }, [])
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsOpen(false)
+    setOpenSubmenu(null)
+  }, [location])
 
   return (
     <header
@@ -45,21 +66,50 @@ const Header = () => {
           <span className="sr-only">PolarisDX</span>
         </Link>
 
+        {/* Desktop Nav */}
         <nav
           className={`hidden items-center gap-10 text-sm font-normal tracking-tight lg:flex ${
             isScrolled ? 'text-primary' : 'text-white'
           }`}
         >
           {navItems.map((item) => (
-            <Link
-              key={item.label}
-              to={item.route}
-              className={`flex items-center gap-1 transition-colors hover:text-secondary ${
-                isScrolled ? 'text-primary' : 'text-white'
-              }`}
-            >
-              <span>{t(`nav.${item.label}`)}</span>
-            </Link>
+            <div key={item.label} className="relative group">
+              {item.children ? (
+                 <div className="flex items-center gap-1">
+                   <Link
+                      to={item.route!}
+                      className={`flex items-center gap-1 transition-colors hover:text-secondary ${
+                        isScrolled ? 'text-primary' : 'text-white'
+                      }`}
+                    >
+                      <span>{t(`nav.${item.label}`)}</span>
+                    </Link>
+                    {/* Hover trigger for submenu */}
+                    <div className="absolute top-full left-0 pt-4 hidden group-hover:block min-w-[150px]">
+                      <div className="bg-white shadow-lg rounded-lg py-2 border border-gray-100 overflow-hidden">
+                          {item.children.map(child => (
+                             <Link
+                               key={child.label}
+                               to={child.route}
+                               className="block px-4 py-2 text-primary hover:bg-gray-50 hover:text-secondary transition-colors"
+                             >
+                               {t(`nav.${child.label}`)}
+                             </Link>
+                          ))}
+                      </div>
+                    </div>
+                 </div>
+              ) : (
+                <Link
+                  to={item.route!}
+                  className={`flex items-center gap-1 transition-colors hover:text-secondary ${
+                    isScrolled ? 'text-primary' : 'text-white'
+                  }`}
+                >
+                  <span>{t(`nav.${item.label}`)}</span>
+                </Link>
+              )}
+            </div>
           ))}
         </nav>
 
@@ -74,6 +124,7 @@ const Header = () => {
           </PrimaryButton>
         </div>
 
+        {/* Mobile Nav Toggle */}
         <div className="lg:hidden flex items-center gap-2">
            <LanguageSwitcher className={isScrolled ? 'text-primary' : 'text-white'} isMobile />
 
@@ -109,6 +160,7 @@ const Header = () => {
         </div>
       </div>
 
+      {/* Mobile Menu */}
       {isOpen && (
         <div
           className={`lg:hidden ${
@@ -119,16 +171,61 @@ const Header = () => {
         >
           <div className="mx-auto flex max-w-container flex-col gap-4 px-4 py-4">
             {navItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.route}
-                className={`text-base font-normal tracking-tight ${
-                  isScrolled ? 'text-primary' : 'text-white'
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                  {t(`nav.${item.label}`)}
-              </Link>
+              <div key={item.label}>
+                {item.children ? (
+                  <div>
+                    <div
+                      className={`flex items-center justify-between text-base font-normal tracking-tight cursor-pointer ${
+                        isScrolled ? 'text-primary' : 'text-white'
+                      }`}
+                      onClick={() => setOpenSubmenu(openSubmenu === item.label ? null : item.label)}
+                    >
+                      <span>{t(`nav.${item.label}`)}</span>
+                      <ChevronDown className={`h-4 w-4 transition-transform ${openSubmenu === item.label ? 'rotate-180' : ''}`} />
+                    </div>
+                    {/* Submenu */}
+                    {openSubmenu === item.label && (
+                      <div className="pl-4 mt-2 space-y-2 border-l border-white/20">
+                         {/* Include parent link as well in mobile menu? Usually yes or just rely on the main item.
+                             The user said "Link under über uns". So 'About' is clickable, 'AGB' is under it.
+                             In mobile, usually top item is toggle.
+                             I will add the parent link as a sub-item for clarity if the top is just a toggle,
+                             BUT here I made the top item a toggle.
+                             To keep 'About' accessible, I should add it to the submenu or make the text clickable and the arrow toggle.
+                             Let's make it simple: Text links to page, Arrow toggles menu.
+                          */}
+                          <Link
+                            to={item.route!}
+                            className={`block text-sm ${isScrolled ? 'text-primary/80' : 'text-white/80'}`}
+                            onClick={() => setIsOpen(false)}
+                          >
+                             {t(`nav.${item.label}`)}
+                          </Link>
+                          {item.children.map(child => (
+                            <Link
+                               key={child.label}
+                               to={child.route}
+                               className={`block text-sm ${isScrolled ? 'text-primary/80' : 'text-white/80'}`}
+                               onClick={() => setIsOpen(false)}
+                            >
+                                {t(`nav.${child.label}`)}
+                            </Link>
+                          ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    to={item.route!}
+                    className={`text-base font-normal tracking-tight ${
+                      isScrolled ? 'text-primary' : 'text-white'
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                      {t(`nav.${item.label}`)}
+                  </Link>
+                )}
+              </div>
             ))}
             <PrimaryButton
               as={Link}
