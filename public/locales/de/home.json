@@ -27,6 +27,9 @@
     "description": "Entdecken Sie mit Systemen wie dem Igloo Pro von DX365, wie Sie Ihre Patientenversorgung optimieren und wichtige Diagnosen direkt am Behandlungsort stellen können – mit laborgenaue Resultaten in Minutenschnelle.",
     "cta": "Zum Igloo Pro System"
   },
+  "igloo_widget": {
+    "title": "Anwendungsbereiche"
+  },
   "services": {
     "caption": "DIAGNOSTIK-FOKUS",
     "title": "Schlüsselbereiche der Präventivdiagnostik",

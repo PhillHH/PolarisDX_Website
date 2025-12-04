@@ -1,6 +1,6 @@
 import HeroSection from '../components/sections/HeroSection'
 import AboutSection from '../components/sections/AboutSection'
-import ServicesSection from '../components/sections/ServicesSection'
+import IglooWidgetSection from '../components/sections/IglooWidgetSection'
 import DoctorsSection from '../components/sections/DoctorsSection'
 import TestimonialsSection from '../components/sections/TestimonialsSection'
 import BlogSection from '../components/sections/BlogSection'
@@ -11,7 +11,7 @@ const HomePage = () => {
       <HeroSection />
       <main className="mx-auto flex max-w-container flex-col gap-32 px-4 pt-24 lg:px-0 lg:gap-32 lg:pt-16">
         <AboutSection />
-        <ServicesSection />
+        <IglooWidgetSection />
         <DoctorsSection />
       </main>
 
