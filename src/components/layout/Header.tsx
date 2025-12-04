@@ -23,6 +23,8 @@ const Header = () => {
     const handler = () => {
       setIsScrolled(window.scrollY > 24)
     }
+    // Check initial scroll position
+    handler()
     window.addEventListener('scroll', handler)
     return () => window.removeEventListener('scroll', handler)
   }, [])
@@ -52,7 +54,9 @@ const Header = () => {
             <Link
               key={item.label}
               to={item.route}
-              className="flex items-center gap-1 transition-colors hover:text-secondary"
+              className={`flex items-center gap-1 transition-colors hover:text-secondary ${
+                isScrolled ? 'text-primary' : 'text-white'
+              }`}
             >
               <span>{t(`nav.${item.label}`)}</span>
             </Link>
