@@ -5,7 +5,8 @@
     "service": "Service",
     "shop": "Boutique",
     "blog": "Blog",
-    "contact": "Contact"
+    "contact": "Contact",
+    "terms": "CGV"
   },
   "badge": {
     "New": "Nouveau",
@@ -45,6 +46,6 @@
   "cta_section": {
     "title": "Vous recherchez une performance garantie et une expertise POC ?",
     "text": "Parlez directement avec nos spécialistes IglooPro. Notre équipe est prête à analyser vos exigences de flux de travail individuelles et à vous montrer le chemin le plus rapide vers des diagnostics validés. Avec nous, vous obtenez une solution sur mesure, pas une livraison standard.",
-    "button": "Réserver une analyse d'expert maintenant"
+    "button": "Prendre rendez-vous"
   }
 }

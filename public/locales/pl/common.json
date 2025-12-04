@@ -5,7 +5,8 @@
     "service": "Usługi",
     "shop": "Sklep",
     "blog": "Blog",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "terms": "Regulamin"
   },
   "badge": {
     "New": "Nowość",
@@ -45,6 +46,6 @@
   "cta_section": {
     "title": "Szukasz gwarantowanej wydajności i ekspertyzy POC?",
     "text": "Porozmawiaj bezpośrednio z naszymi specjalistami IglooPro. Nasz zespół jest gotowy przeanalizować Twoje indywidualne wymagania dotyczące przepływu pracy i pokazać najszybszą drogę do sprawdzonej diagnostyki. U nas otrzymujesz rozwiązanie szyte na miarę, a nie standardową dostawę.",
-    "button": "Zamów analizę ekspercką teraz"
+    "button": "Umów wizytę"
   }
 }

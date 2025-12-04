@@ -67,7 +67,6 @@ const Footer = () => {
                 <ul className="space-y-2 text-white/70">
                   <li><Link to="/" className="hover:text-secondary">{t('nav.home')}</Link></li>
                   <li><Link to="/about" className="hover:text-secondary">{t('nav.about')}</Link></li>
-                  <li><Link to="/terms" className="hover:text-secondary">{t('nav.terms')}</Link></li>
                   <li><Link to="/services" className="hover:text-secondary">{t('nav.service')}</Link></li>
                   <li><Link to="/articles" className="hover:text-secondary">{t('nav.blog')}</Link></li>
                 </ul>
@@ -101,6 +100,7 @@ const Footer = () => {
             <div className="flex gap-4 md:gap-8">
               <Link to="/imprint" className="hover:text-white transition-colors">{t('footer.imprint', 'Impressum')}</Link>
               <Link to="/privacy" className="hover:text-white transition-colors">{t('footer.privacy', 'Datenschutzerklärung')}</Link>
+              <Link to="/terms" className="hover:text-white transition-colors">{t('nav.terms')}</Link>
             </div>
           </div>
         </div>

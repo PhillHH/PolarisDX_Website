@@ -5,7 +5,8 @@
     "service": "Služby",
     "shop": "Obchod",
     "blog": "Blog",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "terms": "Obchodní podmínky"
   },
   "badge": {
     "New": "Nové",
@@ -45,6 +46,6 @@
   "cta_section": {
     "title": "Hledáte zaručený výkon a odbornost POC?",
     "text": "Mluvte přímo s našimi specialisty na IglooPro. Náš tým je připraven analyzovat vaše individuální požadavky na pracovní tok a ukázat vám nejrychlejší cestu k ověřené diagnostice. U nás získáte řešení na míru, ne standardní dodávku.",
-    "button": "Objednat expertní analýzu nyní"
+    "button": "Rezervovat termín"
   }
 }

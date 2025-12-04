@@ -5,7 +5,8 @@
     "service": "Servicio",
     "shop": "Tienda",
     "blog": "Blog",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "terms": "Términos y Condiciones"
   },
   "badge": {
     "New": "Nuevo",
@@ -45,6 +46,6 @@
   "cta_section": {
     "title": "¿Busca rendimiento garantizado y experiencia en POC?",
     "text": "Hable directamente con nuestros especialistas en IglooPro. Nuestro equipo está listo para analizar sus requisitos de flujo de trabajo individuales y mostrarle el camino más rápido hacia diagnósticos validados. Con nosotros, obtiene una solución a medida, no una entrega estándar.",
-    "button": "Reservar análisis de expertos ahora"
+    "button": "Reservar cita"
   }
 }
