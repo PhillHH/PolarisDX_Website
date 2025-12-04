@@ -102,15 +102,12 @@ const IglooWidgetSection = () => {
                     shadow-lg transition-all hover:scale-105 hover:shadow-xl
                     w-64 h-40
                     bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 p-[2px]
-                    lg:absolute lg:-translate-x-1/2 lg:-translate-y-1/2
+                    lg:absolute lg:left-[var(--x)] lg:top-[var(--y)] lg:-translate-x-1/2 lg:-translate-y-1/2
                 `}
                 style={{
-                    // These styles only affect layout when position is absolute (lg)
-                    // We need to ensure they don't break mobile layout.
-                    // React style object merges.
-                    left: `${widget.x}px`,
-                    top: `${widget.y}px`
-                }}
+                    '--x': `${widget.x}px`,
+                    '--y': `${widget.y}px`
+                } as React.CSSProperties}
             >
                 {/* Inner white container to create the border effect */}
                 <div className="flex h-full w-full flex-col items-center justify-center rounded-[14px] bg-white p-6">

@@ -163,7 +163,7 @@ const Header = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div
-          className={`lg:hidden ${
+          className={`lg:hidden overflow-y-auto max-h-[80vh] ${
             isScrolled
               ? 'bg-white/95 border-t border-gray-200'
               : 'bg-primary/98 border-t border-white/10'
