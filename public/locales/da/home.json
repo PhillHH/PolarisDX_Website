@@ -3,7 +3,7 @@
     "caption": "Point-of-care Ydeevne",
     "title": "IglooPro:\nPoint-of-Care. Perfekt. Øjeblikkelig.",
     "description": "Sikr dig præstationspakken: Din IglooPro er klar til brug på 48 timer – garanteret.",
-    "cta": "Book 15-minutters præstationsanalyse nu",
+    "cta": "Book tid",
     "cta_downloads": "Download infomateriale",
     "stat1": {
       "value": "48t",
@@ -81,8 +81,8 @@
     "julia_bergmann": {
       "role": "Klinik/Laboratorium",
       "title": "Leder af Laboratorium & Diagnostik / Klinikum Nord",
-      "focus": "Systemkompatibilitet & Pålidelighed (Fleksibilitet, Samling)",
-      "text": "Igloo Pro er den mest fleksible Point-of-Care enhed, vi nogensinde har evalueret. Kompatibiliteten på tværs af producenter for laterale flow tests er en kæmpe fordel, der giver os mulighed for at standardisere vores POC-enheder og spare omkostninger uden at skulle give afkald på den dokumenterede pålidelighed af resultaterne."
+      "focus": "Systemkompatibilitet & Pålidelighed (Fleksibilitet, Bundling)",
+      "text": "Igloo Pro er den mest fleksible Point-of-Care-enhed, vi nogensinde har evalueret. Kompatibiliteten på tværs af producenter for laterale flow-tests er en enorm fordel, der giver os mulighed for at standardisere vores POC-enheder og spare omkostninger uden at gå på kompromis med den dokumenterede pålidelighed af resultaterne."
     }
   },
   "blog": {

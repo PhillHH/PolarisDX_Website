@@ -2,29 +2,29 @@
   "hero": {
     "caption": "Prestazioni Point-of-Care",
     "title": "IglooPro:\nPoint-of-Care. Perfetto. Immediato.",
-    "description": "Assicurati il pacchetto prestazioni: Il tuo IglooPro è pronto all'uso in 48 ore – garantito.",
-    "cta": "Prenota ora l'analisi delle prestazioni di 15 minuti",
+    "description": "Assicurati il pacchetto prestazioni: Il tuo IglooPro è pronto all\'uso in 48 ore – garantito.",
+    "cta": "Prenota appuntamento",
     "cta_downloads": "Scarica materiale informativo",
     "stat1": {
       "value": "48h",
-      "label": "Pronto all'uso dopo l'ordine"
+      "label": "Pronto all\'uso dopo l\'ordine"
     },
     "stat2": {
       "value": "CV < 2%",
-      "label": "Precisione sull'intero intervallo di misurazione"
+      "label": "Precisione sull\'intero intervallo di misurazione"
     }
   },
   "about": {
     "caption": "IL TUO GARANTE DI PRESTAZIONI",
     "title": "Eccellenza e Sicurezza: Lo standard che impostiamo.",
-    "text1": "L'IglooPro è un dispositivo premium. Ma le vere prestazioni premium derivano solo da una messa in servizio perfetta e priva di rischi. Una consegna standard ti lascia la complessità. Noi ci assumiamo la responsabilità del risultato.",
-    "text2": "Ecco perché forniamo esclusivamente la promessa di configurazione in 48 ore. I nostri pilastri delle prestazioni garantiscono che il tuo flusso di lavoro POC sia ottimizzato fin dal primo secondo e che tu possa utilizzare immediatamente l'eccellenza diagnostica.",
+    "text1": "L\'IglooPro è un dispositivo premium. Ma le vere prestazioni premium derivano solo da una messa in servizio perfetta e priva di rischi. Una consegna standard ti lascia la complessità. Noi ci assumiamo la responsabilità del risultato.",
+    "text2": "Ecco perché forniamo esclusivamente la promessa di configurazione in 48 ore. I nostri pilastri delle prestazioni garantiscono che il tuo flusso di lavoro POC sia ottimizzato fin dal primo secondo e che tu possa utilizzare immediatamente l\'eccellenza diagnostica.",
     "cta": "Assicura un vantaggio esclusivo"
   },
   "doctors": {
     "caption": "FOCUS DIAGNOSTICA",
     "title": "Diagnostica precisa. Risultati immediati al Point-of-Care.",
-    "description": "Scopri con sistemi come l'Igloo Pro di DX365 come ottimizzare la cura del paziente e fornire diagnosi importanti direttamente nel luogo del trattamento – con risultati di laboratorio in pochi minuti.",
+    "description": "Scopri con sistemi come l\'Igloo Pro di DX365 come ottimizzare la cura del paziente e fornire diagnosi importanti direttamente nel luogo del trattamento – con risultati di laboratorio in pochi minuti.",
     "cta": "Al sistema Igloo Pro"
   },
   "services": {
@@ -44,7 +44,7 @@
     },
     "stoffwechsel_herz": {
       "title": "Metabolismo e salute cardiaca",
-      "description": "Indicatori importanti a colpo d'occhio. Misurazione precisa di HbA1c, profili di colesterolo e marcatori cardiaci (es. D-Dimero) per il monitoraggio delle malattie croniche."
+      "description": "Indicatori importanti a colpo d\'occhio. Misurazione precisa di HbA1c, profili di colesterolo e marcatori cardiaci (es. D-Dimero) per il monitoraggio delle malattie croniche."
     },
     "hormon_tests": {
       "title": "Test ormonali ed endocrinologia",
@@ -52,7 +52,7 @@
     },
     "kompatibilitaet_integration": {
       "title": "Compatibilità multi-produttore",
-      "description": "Massima flessibilità. Grazie alla tecnologia universale, i nostri dispositivi valutano il 90% di tutti i test a flusso laterale sul mercato. Sicurezza dell'investimento attraverso l'apertura."
+      "description": "Massima flessibilità. Grazie alla tecnologia universale, i nostri dispositivi valutano il 90% di tutti i test a flusso laterale sul mercato. Sicurezza dell\'investimento attraverso l\'apertura."
     }
   },
   "testimonials": {
@@ -64,7 +64,7 @@
       "role": "Dentista (Recensione reale)",
       "title": "Dentista biologico e chirurgo implantare / Chelsea Dental Clinic",
       "focus": "Controlli sanitari rapidi in loco (Prevenzione, Vitamina D)",
-      "text": "L'esecuzione dell'analisi dei livelli di Vitamina D e di altri indicatori sanitari chiave in loco non può essere sottovalutata. L'Igloo Pro mi consente di eseguire un semplice esame del sangue capillare, accertare le esigenze dei pazienti e guidarli su quali integratori aggiuntivi potrebbero richiedere per ottimizzare il trattamento. Questa capacità si sta rivelando trasformativa in termini di risultati per i pazienti."
+      "text": "L\'esecuzione dell\'analisi dei livelli di Vitamina D e di altri indicatori sanitari chiave in loco non può essere sottovalutata. L\'Igloo Pro mi consente di eseguire un semplice esame del sangue capillare, accertare le esigenze dei pazienti e guidarli su quali integratori aggiuntivi potrebbero richiedere per ottimizzare il trattamento. Questa capacità si sta rivelando trasformativa in termini di risultati per i pazienti."
     },
     "eva_schmidt": {
       "role": "Farmacia",
@@ -76,13 +76,13 @@
       "role": "Medico di base/Studio",
       "title": "Specialista in Medicina Interna / Studio di Medicina Interna Dr. Fischer",
       "focus": "Diagnostica immediata per pazienti acuti (Efficienza, Decisione terapeutica)",
-      "text": "La capacità di determinare immediatamente marcatori di infiammazione come la CRP nello studio ha rivoluzionato il nostro flusso di lavoro terapeutico. Possiamo decidere più rapidamente se è necessaria una terapia antibiotica per pazienti con infezioni non chiare e prevenire rinvii non necessari. Questo ci fa risparmiare tempo e aumenta significativamente la soddisfazione del paziente."
+      "text": "La capacità di determinare immediatamente marcatori di infiammazione come la CRP nello studio ha rivoluzionato il nostro flusso di lavoro terapeutico. Possiamo decidere più rapidamente se è necessaria una terapia antibiotica per pazienti con infezioni non chiare e prevenire rinvii non necessari. Questo ci fa risparmiare tempo e aumenta notevolmente la soddisfazione del paziente."
     },
     "julia_bergmann": {
       "role": "Clinica/Laboratorio",
-      "title": "Responsabile Laboratorio e Diagnostica / Klinikum Nord",
+      "title": "Responsabile Laboratorio & Diagnostica / Klinikum Nord",
       "focus": "Compatibilità e affidabilità del sistema (Flessibilità, Raggruppamento)",
-      "text": "L'Igloo Pro è il dispositivo Point-of-Care più flessibile che abbiamo mai valutato. La compatibilità multi-produttore per i test a flusso laterale è un enorme vantaggio che ci consente di standardizzare i nostri dispositivi POC e risparmiare sui costi senza dover rinunciare alla comprovata affidabilità dei risultati."
+      "text": "L\'Igloo Pro è il dispositivo Point-of-Care più flessibile che abbiamo mai valutato. La compatibilità multi-produttore per i test a flusso laterale è un enorme vantaggio che ci consente di standardizzare i nostri dispositivi POC e risparmiare costi senza dover rinunciare alla comprovata affidabilità dei risultati."
     }
   },
   "blog": {
