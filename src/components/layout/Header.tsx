@@ -9,7 +9,7 @@ import scrolledLogo from '../../assets/PolarisDX_Logo_main.png'
 const navItems = [
   { label: 'home', route: '/' as const },
   { label: 'about', route: '/about' as const },
-  { label: 'service', href: '/#services' },
+  { label: 'service', route: '/services' as const },
   // { label: 'shop', route: '/shop' as const }, // Shop disabled
   { label: 'blog', route: '/articles' as const },
 ]
@@ -48,27 +48,15 @@ const Header = () => {
             isScrolled ? 'text-primary' : 'text-white'
           }`}
         >
-          {navItems.map((item) =>
-            item.route ? (
-              <Link
-                key={item.label}
-                to={item.route}
-                className="flex items-center gap-1 transition-colors hover:text-secondary"
-              >
-                <span>{t(`nav.${item.label}`)}</span>
-              </Link>
-            ) : (
-              <a
-                key={item.label}
-                href={item.href}
-                className={`flex items-center gap-1 transition-colors ${
-                  item.label === 'home' ? 'text-secondary' : 'hover:text-secondary'
-                }`}
-              >
-                <span>{t(`nav.${item.label}`)}</span>
-              </a>
-            ),
-          )}
+          {navItems.map((item) => (
+            <Link
+              key={item.label}
+              to={item.route}
+              className="flex items-center gap-1 transition-colors hover:text-secondary"
+            >
+              <span>{t(`nav.${item.label}`)}</span>
+            </Link>
+          ))}
         </nav>
 
         <div className="hidden lg:flex items-center gap-4">
@@ -126,31 +114,18 @@ const Header = () => {
           }`}
         >
           <div className="mx-auto flex max-w-container flex-col gap-4 px-4 py-4">
-            {navItems.map((item) =>
-              item.route ? (
-                <Link
-                  key={item.label}
-                  to={item.route}
-                  className={`text-base font-normal tracking-tight ${
-                    isScrolled ? 'text-primary' : 'text-white'
-                  }`}
-                  onClick={() => setIsOpen(false)}
-                >
-                   {t(`nav.${item.label}`)}
-                </Link>
-              ) : (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className={`text-base font-normal tracking-tight ${
-                    isScrolled ? 'text-primary' : 'text-white'
-                  }`}
-                  onClick={() => setIsOpen(false)}
-                >
-                   {t(`nav.${item.label}`)}
-                </a>
-              ),
-            )}
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                to={item.route}
+                className={`text-base font-normal tracking-tight ${
+                  isScrolled ? 'text-primary' : 'text-white'
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                  {t(`nav.${item.label}`)}
+              </Link>
+            ))}
             <PrimaryButton
               as={Link}
               to="/contact"

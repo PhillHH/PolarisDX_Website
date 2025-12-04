@@ -1,4 +1,88 @@
 {
+  "dental": {
+    "title": "Dental",
+    "headline": "Präzision für die moderne Zahnmedizin",
+    "intro": [
+      "Erweitern Sie Ihr Behandlungsspektrum mit moderner Diagnostik direkt am Behandlungsstuhl. Schnelle Ergebnisse ermöglichen eine sofortige, fundierte Patientenberatung.",
+      "Optimieren Sie Heilungsprozesse und erkennen Sie Risiken frühzeitig."
+    ],
+    "sections": [
+      {
+        "heading": "1. Vitamin D & Wundheilung",
+        "content": "Ein ausreichender Vitamin-D-Spiegel ist essenziell für die Osseointegration von Implantaten und die allgemeine Wundheilung. Messen Sie den Status direkt vor Ort.",
+        "listItems": [
+          "Sofortige Bestimmung des 25-OH-Vitamin D Spiegels.",
+          "Gezielte Supplementierung zur Verbesserung der chirurgischen Ergebnisse."
+        ]
+      },
+      {
+        "heading": "2. Entzündungsmarker",
+        "content": "Erkennen Sie systemische Entzündungen, die Parodontitis beeinflussen können, und überwachen Sie den Therapieerfolg.",
+        "listItems": []
+      }
+    ],
+    "conclusion": {
+      "heading": "Fazit",
+      "text": "Integrieren Sie Diagnostik nahtlos in Ihren Praxisablauf für bessere klinische Ergebnisse."
+    },
+    "cta": "Mehr erfahren"
+  },
+  "beauty": {
+    "title": "Beauty & Ästhetik",
+    "headline": "Schönheit von innen: Datenbasierte Ästhetik",
+    "intro": [
+      "Wahre Schönheit beginnt mit Gesundheit. Nutzen Sie präzise Analysen, um ästhetische Behandlungen mit fundierten Gesundheitsdaten zu untermauern.",
+      "Bieten Sie Ihren Klienten einen ganzheitlichen Ansatz, der über die Oberfläche hinausgeht."
+    ],
+    "sections": [
+      {
+        "heading": "1. Hautgesundheit & Vitamine",
+        "content": "Analysieren Sie den Mikronährstoffstatus, um Hautbild und Anti-Aging-Behandlungen gezielt zu unterstützen.",
+        "listItems": [
+          "Individuelle Beratung basierend auf Blutwerten.",
+          "Optimierung von Kollagenaufbau und Regeneration."
+        ]
+      },
+      {
+        "heading": "2. Hormonelle Balance",
+        "content": "Verstehen Sie den Einfluss von Hormonen auf Haut und Haar und passen Sie Behandlungen entsprechend an.",
+        "listItems": []
+      }
+    ],
+    "conclusion": {
+      "heading": "Fazit",
+      "text": "Heben Sie sich durch wissenschaftlich fundierte Beauty-Konzepte ab."
+    },
+    "cta": "Beratung buchen"
+  },
+  "longevity": {
+    "title": "Longevity",
+    "headline": "Länger gesund leben: Proaktive Prävention",
+    "intro": [
+      "Longevity ist mehr als ein Trend – es ist die Zukunft der Medizin. Ermöglichen Sie Ihren Patienten, ihre biologische Uhr zu verstehen und zu optimieren.",
+      "Setzen Sie auf Biomarker, die Alternsprozesse sichtbar und beeinflussbar machen."
+    ],
+    "sections": [
+      {
+        "heading": "1. Schlüssel-Biomarker des Alterns",
+        "content": "Überwachen Sie metabolische und entzündliche Marker, die als Treiber des Alterns gelten.",
+        "listItems": [
+          "Regelmäßiges Monitoring von HbA1c, Lipiden und hs-CRP.",
+          "Früherkennung von Risikofaktoren für altersbedingte Erkrankungen."
+        ]
+      },
+      {
+        "heading": "2. Personalisierte Strategien",
+        "content": "Entwickeln Sie maßgeschneiderte Pläne für Ernährung, Bewegung und Supplementierung auf Basis valider Daten.",
+        "listItems": []
+      }
+    ],
+    "conclusion": {
+      "heading": "Fazit",
+      "text": "Werden Sie zum Partner für ein langes, gesundes Leben Ihrer Patienten."
+    },
+    "cta": "Starten Sie jetzt"
+  },
   "poc_systemloesungen": {
     "title": "POC-Systemlösungen: Die Schaltzentrale für validierte Diagnostik",
     "headline": "Point-of-Care neu definiert: Laborgenauigkeit trifft auf maximale Agilität",

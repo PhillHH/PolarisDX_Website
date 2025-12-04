@@ -7,6 +7,7 @@ import ContactPage from './routes/ContactPage'
 // import ShopPage from './routes/ShopPage'
 // import ProductPage from './routes/ProductPage'
 import ServicePage from './routes/ServicePage'
+import ServicesOverviewPage from './routes/ServicesOverviewPage'
 import DownloadsPage from './routes/DownloadsPage'
 import AboutPage from './routes/AboutPage'
 import PrivacyPage from './routes/PrivacyPage'
@@ -23,6 +24,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/articles" element={<ArticlesIndexPage />} />
         <Route path="/articles/:slug" element={<ArticlePage />} />
+        <Route path="/services" element={<ServicesOverviewPage />} />
         <Route path="/services/:slug" element={<ServicePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
