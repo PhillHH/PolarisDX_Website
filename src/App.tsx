@@ -10,6 +10,7 @@ import ServicePage from './routes/ServicePage'
 import ServicesOverviewPage from './routes/ServicesOverviewPage'
 import DownloadsPage from './routes/DownloadsPage'
 import AboutPage from './routes/AboutPage'
+import TermsPage from './routes/TermsPage'
 import PrivacyPage from './routes/PrivacyPage'
 import ImprintPage from './routes/ImprintPage'
 import { CookieBanner } from './components/ui/CookieBanner'
@@ -29,6 +30,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/imprint" element={<ImprintPage />} />
+        <Route path="/terms" element={<TermsPage />} />
         {/* Shop temporarily disabled */}
         {/* <Route path="/shop" element={<ShopPage />} /> */}
         {/* <Route path="/shop/:slug" element={<ProductPage />} /> */}
