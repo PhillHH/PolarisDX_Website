@@ -5,25 +5,34 @@ import iglooImage from '../../assets/igloo_front.png'
 const IglooWidgetSection = () => {
   const { t } = useTranslation('home')
 
+  // Coordinates for the symmetrical triangle layout (800x600 container)
+  const positions = {
+    dental: { x: 400, y: 100 },
+    beauty: { x: 130, y: 500 },
+    longevity: { x: 670, y: 500 },
+  }
+
   const widgets = [
     {
       id: 'dental',
       label: 'Dental',
       path: '/services/dental',
-      // Positioning style for the radial layout
-      positionClass: 'top-0 left-1/2 -translate-x-1/2 -translate-y-1/2',
+      x: positions.dental.x,
+      y: positions.dental.y,
     },
     {
       id: 'beauty',
       label: 'Beauty',
       path: '/services/beauty',
-      positionClass: 'bottom-0 left-0 -translate-x-1/4 translate-y-1/4',
+      x: positions.beauty.x,
+      y: positions.beauty.y,
     },
     {
       id: 'longevity',
       label: 'Longevity',
       path: '/services/longevity',
-      positionClass: 'bottom-0 right-0 translate-x-1/4 translate-y-1/4',
+      x: positions.longevity.x,
+      y: positions.longevity.y,
     },
   ]
 
@@ -45,7 +54,7 @@ const IglooWidgetSection = () => {
             <img
             src={iglooImage}
             alt="Igloo Pro"
-            className="w-64 md:w-80 lg:w-96 drop-shadow-2xl"
+            className="w-48 md:w-60 lg:w-72 drop-shadow-2xl transition-all"
             />
         </div>
 
@@ -58,29 +67,55 @@ const IglooWidgetSection = () => {
                 className={`
                     group flex flex-col items-center justify-center
                     rounded-2xl border border-gray-100 bg-white p-6 shadow-lg transition-all hover:scale-105 hover:shadow-xl hover:border-secondary/20
-                    w-48 h-32
-                    lg:absolute ${widget.positionClass}
+                    w-64 h-40
+                    lg:absolute lg:-translate-x-1/2 lg:-translate-y-1/2
                 `}
+                style={{
+                    // These styles only affect layout when position is absolute (lg)
+                    left: `lg:calc(${widget.x}px)`, // Note: inline styles don't support 'lg:' prefix.
+                    // We need to apply 'left' and 'top' conditionally or just let them be overridden by CSS if needed.
+                    // However, standard style prop applies always.
+                    // On mobile (flex-col), left/top have no effect on static position flow.
+                    // So we can safely apply them.
+                    left: `${widget.x}px`,
+                    top: `${widget.y}px`
+                }}
             >
-                <span className="text-xl font-medium text-gray-900 group-hover:text-secondary">
+                <span className="text-2xl font-medium text-gray-900 group-hover:text-secondary">
                 {widget.label}
                 </span>
-                <span className="mt-2 text-sm text-gray-500 group-hover:text-secondary/70">
+                <span className="mt-2 text-base text-gray-500 group-hover:text-secondary/70">
                     {t('common:readMore', 'Mehr erfahren')} →
                 </span>
             </Link>
             ))}
         </div>
 
-        {/* Decorative connecting lines for desktop (optional, visualized via SVG) */}
-        <svg className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none -z-10 text-gray-200">
-             {/* Simple curves connecting widgets to center area */}
-             {/* Top to Center */}
-             <path d="M 400 100 Q 400 200 400 250" stroke="currentColor" strokeWidth="2" fill="none" />
-             {/* Bottom Left to Center */}
-             <path d="M 150 550 Q 250 450 350 350" stroke="currentColor" strokeWidth="2" fill="none" />
-             {/* Bottom Right to Center */}
-             <path d="M 650 550 Q 550 450 450 350" stroke="currentColor" strokeWidth="2" fill="none" />
+        {/* Decorative connecting lines for desktop (Triangle) */}
+        <svg className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none -z-10">
+             <defs>
+                <linearGradient id="animatedGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#22d3ee">
+                        <animate attributeName="stop-color" values="#22d3ee;#3b82f6;#9333ea;#22d3ee" dur="3s" repeatCount="indefinite" />
+                    </stop>
+                    <stop offset="50%" stopColor="#3b82f6">
+                        <animate attributeName="stop-color" values="#3b82f6;#9333ea;#22d3ee;#3b82f6" dur="3s" repeatCount="indefinite" />
+                    </stop>
+                    <stop offset="100%" stopColor="#9333ea">
+                        <animate attributeName="stop-color" values="#9333ea;#22d3ee;#3b82f6;#9333ea" dur="3s" repeatCount="indefinite" />
+                    </stop>
+                </linearGradient>
+             </defs>
+
+             {/* Path connecting the centers of the widgets */}
+             <path
+                d={`M ${positions.dental.x} ${positions.dental.y} L ${positions.beauty.x} ${positions.beauty.y} L ${positions.longevity.x} ${positions.longevity.y} Z`}
+                stroke="url(#animatedGradient)"
+                strokeWidth="4"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+             />
         </svg>
 
       </div>
