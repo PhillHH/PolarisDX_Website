@@ -16,6 +16,9 @@ const SectionHeader = ({
   className = '',
 }: SectionHeaderProps) => {
   const alignment = align === 'center' ? 'items-center text-center' : 'items-start text-left'
+  const titleClasses =
+    titleClassName ||
+    'text-[40px] leading-[47px] font-medium tracking-tight text-gray-900 lg:text-[44px] lg:leading-[52px]'
 
   return (
     <div id={id} className={`flex flex-col gap-2 ${alignment} ${className}`}>
@@ -27,9 +30,7 @@ const SectionHeader = ({
         </div>
       </div>
       <h2
-        className={`text-[40px] leading-[47px] font-medium tracking-tight lg:text-[44px] lg:leading-[52px] ${
-          titleClassName || 'text-gray-900'
-        }`}
+        className={titleClasses}
       >
         {title}
       </h2>

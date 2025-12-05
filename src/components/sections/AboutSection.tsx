@@ -1,5 +1,6 @@
 // Importiert wiederverwendbare UI-Komponenten und Bild-Assets.
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import PrimaryButton from '../ui/PrimaryButton' // Button-Komponente
 import SectionHeader from '../ui/SectionHeader' // Kopfzeilen-Komponente für Abschnitte
 import aboveTheFold from '../../assets/above_the_fold.png' // Bild für diesen Abschnitt
@@ -35,12 +36,13 @@ const AboutSection = () => {
       </div>
 
       {/* Rechte Spalte: Container für den Textinhalt. */}
-      <div className="space-y-10 lg:space-y-6">
+      <div className="space-y-8 lg:space-y-6">
         {/* Kopfzeile des Abschnitts mit Untertitel und Haupttitel. */}
         <SectionHeader
           caption={t('about.caption', 'IHR PERFORMANCE-GARANT')}
           title={t('about.title', 'Exzellenz und Sicherheit: Der Standard, den wir setzen.')}
-          align="left"
+          align="center"
+          titleClassName="text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)] font-medium tracking-[-0.02em] text-gray-900"
         />
         {/* Textabsätze mit Platzhaltertext. */}
         <p className="text-sm leading-relaxed text-gray-500 sm:text-base">
@@ -50,9 +52,11 @@ const AboutSection = () => {
           {t('about.text2', 'Deshalb liefern wir exklusiv...')}
         </p>
         {/* Ein primärer Button, der als Link zum 'hero'-Abschnitt fungiert. */}
-        <PrimaryButton as="a" href="#hero">
-          {t('about.cta', 'Exklusiven Vorteil sichern')}
-        </PrimaryButton>
+        <div className="flex justify-center pt-1 sm:pt-2">
+          <PrimaryButton as={Link} to="/contact">
+            {t('about.cta', 'Exklusiven Vorteil sichern')}
+          </PrimaryButton>
+        </div>
       </div>
     </section>
   )

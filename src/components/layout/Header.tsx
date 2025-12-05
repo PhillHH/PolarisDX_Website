@@ -56,8 +56,8 @@ const Header = () => {
         isScrolled ? 'bg-white/95 shadow-lg backdrop-blur' : 'bg-primary'
       }`}
     >
-      <div className="mx-auto flex max-w-container items-center justify-between px-4 py-4 lg:px-0">
-        <Link to="/" className="flex items-center gap-3">
+      <div className="mx-auto flex max-w-container items-center justify-between px-4 py-3 sm:px-6 lg:px-0 lg:py-4">
+        <Link to="/" className="flex shrink-0 items-center gap-3">
           <img
             src={isScrolled ? scrolledLogo : logo}
             alt="PolarisDX logo"
@@ -68,7 +68,7 @@ const Header = () => {
 
         {/* Desktop Nav */}
         <nav
-          className={`hidden items-center gap-10 text-sm font-normal tracking-tight lg:flex ${
+          className={`hidden flex-wrap items-center gap-6 text-sm font-normal tracking-tight md:flex xl:gap-10 ${
             isScrolled ? 'text-primary' : 'text-white'
           }`}
         >
@@ -113,7 +113,7 @@ const Header = () => {
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3 lg:gap-4">
           <LanguageSwitcher className={isScrolled ? 'text-primary' : 'text-white'} />
           <PrimaryButton
             as={Link}
@@ -125,7 +125,7 @@ const Header = () => {
         </div>
 
         {/* Mobile Nav Toggle */}
-        <div className="lg:hidden flex items-center gap-2">
+        <div className="md:hidden flex items-center gap-2">
            <LanguageSwitcher className={isScrolled ? 'text-primary' : 'text-white'} isMobile />
 
             <button
@@ -137,6 +137,7 @@ const Header = () => {
             }`}
             onClick={() => setIsOpen((prev) => !prev)}
             aria-label="Toggle navigation"
+            aria-expanded={isOpen}
             >
             <span className="sr-only">Toggle navigation</span>
             <div className="space-y-1.5">
@@ -163,7 +164,7 @@ const Header = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div
-          className={`lg:hidden overflow-y-auto max-h-[80vh] ${
+          className={`md:hidden overflow-y-auto max-h-[80vh] ${
             isScrolled
               ? 'bg-white/95 border-t border-gray-200'
               : 'bg-primary/98 border-t border-white/10'
@@ -185,7 +186,11 @@ const Header = () => {
                     </div>
                     {/* Submenu */}
                     {openSubmenu === item.label && (
-                      <div className="pl-4 mt-2 space-y-2 border-l border-white/20">
+                      <div
+                        className={`pl-4 mt-2 space-y-2 border-l ${
+                          isScrolled ? 'border-primary/10' : 'border-white/20'
+                        }`}
+                      >
                          {/* Include parent link as well in mobile menu? Usually yes or just rely on the main item.
                              The user said "Link under über uns". So 'About' is clickable, 'AGB' is under it.
                              In mobile, usually top item is toggle.

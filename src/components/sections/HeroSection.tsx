@@ -26,31 +26,35 @@ const HeroSection = () => {
           </div>
 
           <div className="space-y-6 lg:space-y-4">
-            <h1 className="max-w-3xl text-[56px] leading-[64px] font-medium tracking-[-0.02em] sm:text-[56px] sm:leading-[64px] lg:text-[70px] lg:leading-[78px] whitespace-pre-line">
-              {t('hero.title', 'IglooPro:\nPoint-of-Care. Perfekt. Sofort.')}
+            <h1 className="max-w-3xl font-medium tracking-[-0.02em] text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)]">
+              {t('hero.title', 'Intelligente Diagnostik: Der neue Maßstab für effiziente POC-Workflows.')}
             </h1>
             <p className="max-w-2xl text-sm leading-relaxed text-white/80 sm:text-base">
               {t('hero.description', 'Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 48 Stunden einsatzbereit – garantiert.')}
             </p>
           </div>
 
-          <div className="flex flex-row items-center gap-6">
-            <PrimaryButton as={Link} to="/contact" variant="primary" className="whitespace-nowrap">
+          <div className="flex flex-row items-center gap-4 sm:gap-6">
+            <PrimaryButton as={Link} to="/contact" variant="primary" size="sm" className="whitespace-nowrap">
               {t('hero.cta', 'Termin buchen')}
             </PrimaryButton>
-            <PrimaryButton as={Link} to="/downloads" variant="outline-light" className="whitespace-nowrap">
+            <PrimaryButton as={Link} to="/downloads" variant="outline-light" size="sm" className="whitespace-nowrap">
               {t('hero.cta_downloads', 'Infomaterialien herunterladen')}
             </PrimaryButton>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-12 lg:mt-4 lg:gap-10">
+          <div className="mt-6 grid grid-cols-2 gap-4 sm:gap-6 lg:mt-3">
             <StatItem
               value={t('hero.stat1.value', '48h')}
               label={t('hero.stat1.label', 'Einsatzbereit nach Bestellung')}
+              size="sm"
+              className="px-4 py-2 sm:px-5 sm:py-3"
             />
             <StatItem
               value={t('hero.stat2.value', 'CV < 2%')}
               label={t('hero.stat2.label', 'Präzision über den gesamten Messbereich')}
+              size="sm"
+              className="px-4 py-2 sm:px-5 sm:py-3"
             />
           </div>
         </div>

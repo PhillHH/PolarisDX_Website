@@ -85,7 +85,7 @@ const IglooWidgetSection = () => {
             <img
             src={iglooImage}
             alt="Igloo Pro"
-            className="w-32 md:w-40 lg:w-48 drop-shadow-2xl transition-all"
+            className="w-[260px] sm:w-[300px] lg:w-60 drop-shadow-2xl transition-all"
             />
         </div>
 
@@ -93,24 +93,25 @@ const IglooWidgetSection = () => {
         <div className="flex flex-col gap-6 lg:absolute lg:inset-0 lg:block z-20">
             {widgets.map((widget) => (
             <Link
-                key={widget.id}
-                to={widget.path}
-                className={`
-                    group flex items-center justify-center
-                    relative
-                    rounded-2xl
-                    shadow-lg transition-all hover:scale-105 hover:shadow-xl
-                    w-64 h-40
-                    bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 p-[2px]
-                    lg:absolute lg:left-[var(--x)] lg:top-[var(--y)] lg:-translate-x-1/2 lg:-translate-y-1/2
-                `}
-                style={{
-                    '--x': `${widget.x}px`,
-                    '--y': `${widget.y}px`
-                } as React.CSSProperties}
+              key={widget.id}
+              to={widget.path}
+              className={`
+                group flex items-center justify-center
+                relative
+                rounded-2xl
+                shadow-lg transition-all hover:scale-105 hover:shadow-xl
+                w-[88vw] max-w-[660px] h-[110px] sm:h-[120px]
+                bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 p-[2px]
+                lg:absolute lg:left-[var(--x)] lg:top-[var(--y)] lg:-translate-x-1/2 lg:-translate-y-1/2
+                lg:w-64 lg:h-40
+              `}
+              style={{
+                '--x': `${widget.x}px`,
+                '--y': `${widget.y}px`
+              } as React.CSSProperties}
             >
                 {/* Inner white container to create the border effect */}
-                <div className="flex h-full w-full flex-col items-center justify-center rounded-[14px] bg-white p-6">
+                <div className="flex h-full w-full flex-col items-center justify-center rounded-[14px] bg-white p-3.5 sm:p-4.5">
                     <span className="text-2xl font-medium text-gray-900 group-hover:text-secondary">
                         {widget.label}
                     </span>
