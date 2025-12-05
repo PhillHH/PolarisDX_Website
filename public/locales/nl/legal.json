@@ -1,0 +1,397 @@
+{
+  "imprint": {
+    "title": "Colofon",
+    "section1": {
+      "title": "Informatie volgens § 5 TMG",
+      "london": {
+        "title": "Kantoor Londen",
+        "company": "PolarisDX LTD",
+        "address": [
+          "262A Fulham Road",
+          "Londen SW10 9EL",
+          "Verenigd Koninkrijk"
+        ],
+        "contact": {
+          "label": "Contact:",
+          "phone": "Telefoon: +44 7879 433019",
+          "email": "E-mail: hello@polarisdx.net"
+        }
+      },
+      "hamburg": {
+        "title": "Kantoor Hamburg",
+        "company": "PolarisDX Europe UG",
+        "address": [
+          "Große Bleichen 1 - 3",
+          "20097 Hamburg",
+          "Duitsland"
+        ],
+        "contact": {
+          "label": "Contact:",
+          "email": "E-mail: info@polarisdx.net"
+        }
+      }
+    },
+    "section2": {
+      "title": "Vertegenwoordiging",
+      "content": "Vertegenwoordigd door de directie."
+    },
+    "section3": {
+      "title": "Registerinschrijving",
+      "content": [
+        "Inschrijving in het handelsregister.",
+        "Registerrechtbank: Kantongerecht Hamburg (voor PolarisDX Europe UG)",
+        "Registernummer: [Voeg hier HRB-nummer in]"
+      ]
+    },
+    "section4": {
+      "title": "Btw-ID",
+      "content": [
+        "Btw-identificatienummer volgens §27 a van de Wet op de omzetbelasting:",
+        "[Voeg hier btw-ID in]"
+      ]
+    },
+    "section5": {
+      "title": "Redactioneel verantwoordelijk",
+      "content": [
+        "PolarisDX Management Team",
+        "262A Fulham Road",
+        "Londen SW10 9EL"
+      ]
+    },
+    "section6": {
+      "title": "EU-geschillenbeslechting",
+      "content": "De Europese Commissie biedt een platform voor online geschillenbeslechting (ODR): <1>https://ec.europa.eu/consumers/odr/</1>. U vindt ons e-mailadres hierboven in het colofon."
+    },
+    "section7": {
+      "title": "Geschillenbeslechting consumenten / Universele arbitragecommissie",
+      "content": "Wij zijn niet bereid of verplicht om deel te nemen aan geschillenbeslechtingsprocedures voor een arbitragecommissie voor consumenten."
+    }
+  },
+  "privacy": {
+    "title": "Privacyverklaring",
+    "section1": {
+      "title": "1. Gegevensbescherming in één oogopslag",
+      "general": {
+        "title": "Algemene opmerkingen",
+        "content": "De volgende opmerkingen geven een eenvoudig overzicht van wat er met uw persoonlijke gegevens gebeurt wanneer u deze website bezoekt. Persoonlijke gegevens zijn alle gegevens waarmee u persoonlijk geïdentificeerd kunt worden."
+      },
+      "collection": {
+        "title": "Gegevensverzameling op deze website",
+        "who_title": "Wie is verantwoordelijk voor de gegevensverzameling op deze website?",
+        "who_content": "De gegevensverwerking op deze website wordt uitgevoerd door de websitebeheerder. Zijn contactgegevens vindt u in het colofon van deze website.",
+        "how_title": "Hoe verzamelen wij uw gegevens?",
+        "how_content1": "Uw gegevens worden enerzijds verzameld doordat u deze aan ons meedeelt. Dit kunnen bijvoorbeeld gegevens zijn die u in een contactformulier invoert.",
+        "how_content2": "Andere gegevens worden automatisch of na uw toestemming bij het bezoeken van de website door onze IT-systemen verzameld. Dit zijn voornamelijk technische gegevens (bijv. internetbrowser, besturingssysteem of tijdstip van paginaweergave). De verzameling van deze gegevens vindt automatisch plaats zodra u deze website betreedt."
+      }
+    },
+    "section2": {
+      "title": "2. Hosting",
+      "content": "Wij hosten de inhoud van onze website bij een externe provider. De persoonlijke gegevens die op deze website worden verzameld, worden opgeslagen op de servers van de host. Dit kan onder andere gaan om IP-adressen, contactaanvragen, meta- en communicatiegegevens, contractgegevens, contactgegevens, namen, websitetoegang en andere gegevens die via een website worden gegenereerd."
+    },
+    "section3": {
+      "title": "3. Algemene opmerkingen en verplichte informatie",
+      "protection": {
+        "title": "Gegevensbescherming",
+        "content": "De beheerders van deze pagina's nemen de bescherming van uw persoonlijke gegevens zeer serieus. Wij behandelen uw persoonlijke gegevens vertrouwelijk en in overeenstemming met de wettelijke voorschriften voor gegevensbescherming en deze privacyverklaring."
+      },
+      "responsible": {
+        "title": "Opmerking over de verantwoordelijke instantie",
+        "content": "De verantwoordelijke instantie voor de gegevensverwerking op deze website is:",
+        "address": [
+          "PolarisDX Europe UG",
+          "Große Bleichen 1 - 3",
+          "20097 Hamburg",
+          "E-mail: info@polarisdx.net"
+        ]
+      },
+      "storage": {
+        "title": "Opslagduur",
+        "content": "Tenzij een meer specifieke opslagperiode in deze privacyverklaring is genoemd, blijven uw persoonlijke gegevens bij ons totdat het doel voor de gegevensverwerking vervalt. Als u een legitiem verzoek tot verwijdering indient of uw toestemming voor gegevensverwerking intrekt, worden uw gegevens verwijderd, tenzij wij andere wettelijk toegestane redenen hebben om uw persoonlijke gegevens op te slaan (bijv. fiscale of commerciële bewaartermijnen); in het laatste geval vindt verwijdering plaats nadat deze redenen zijn vervallen."
+      }
+    },
+    "section4": {
+      "title": "4. Gegevensverzameling op deze website",
+      "form": {
+        "title": "Contactformulier",
+        "content1": "Als u ons vragen stuurt via het contactformulier, worden uw gegevens uit het aanvraagformulier, inclusief de contactgegevens die u daar hebt opgegeven, door ons opgeslagen ten behoeve van de verwerking van de aanvraag en in geval van vervolgvragen. Wij geven deze gegevens niet door zonder uw toestemming.",
+        "duration_title": "Opslagduur bij contactaanvragen:",
+        "duration_content": "Wij bewaren uw gegevens uit het contactformulier voor een periode van maximaal 12 maanden om beschikbaar te zijn voor eventuele vervolgvragen, tenzij wettelijke bewaartermijnen een langere opslag vereisen.",
+        "legal_basis": "De verwerking van deze gegevens vindt plaats op basis van art. 6 lid 1 letter b AVG, voor zover uw aanvraag verband houdt met de uitvoering van een contract of noodzakelijk is voor de uitvoering van precontractuele maatregelen. In alle andere gevallen is de verwerking gebaseerd op ons gerechtvaardigd belang bij de effectieve verwerking van de aan ons gerichte aanvragen (art. 6 lid 1 letter f AVG) of op uw toestemming (art. 6 lid 1 letter a AVG) indien deze is gevraagd."
+      }
+    },
+    "section5": {
+      "title": "5. Analysetools en reclame",
+      "content": "Voor zover u uw toestemming hebt gegeven, worden op deze website cookies en vergelijkbare technologieën gebruikt. U kunt uw toestemming op elk moment intrekken via onze cookiebanner of de instellingen in uw browser."
+    }
+  },
+  "agb": {
+    "title": "Algemene Voorwaarden",
+    "subtitle": "Polaris Diagnostics Europe UG (beperkte aansprakelijkheid) | In-vitro-diagnostiek | Medische hulpmiddelen | Software & Cloud-diensten",
+    "date": "Status: December 2025",
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "§ 1 Werkingssfeer",
+        "content": [
+          "§ 1.1 Deze Algemene Voorwaarden (AV) zijn van toepassing op alle zakelijke relaties tussen Polaris Diagnostics Europe UG (beperkte aansprakelijkheid), hierna 'Polaris' genoemd, en de klant. Ze zijn van toepassing op de verkoop en levering van in-vitro-diagnostiek medische hulpmiddelen (IVD), apparatuur, testkits, verbruiksartikelen, software en cloud-diensten.",
+          "§ 1.2 De AV zijn uitsluitend van toepassing. Afwijkende, tegenstrijdige of aanvullende algemene voorwaarden van de klant worden alleen onderdeel van het contract als Polaris uitdrukkelijk schriftelijk heeft ingestemd met de geldigheid ervan.",
+          "§ 1.3 De AV zijn ook van toepassing op alle toekomstige zaken met de klant, voor zover het rechtshandelingen van verwante aard betreft.",
+          "§ 1.4 In individuele gevallen gemaakte individuele afspraken met de klant (inclusief nevenafspraken, aanvullingen en wijzigingen) hebben in elk geval voorrang op deze AV. Voor de inhoud van dergelijke afspraken is een schriftelijk contract of de schriftelijke bevestiging van Polaris doorslaggevend.",
+          "§ 1.5 De aanbiedingen van Polaris richten zich uitsluitend op ondernemers in de zin van § 14 BGB (Duits Burgerlijk Wetboek), rechtspersonen van publiek recht of publiekrechtelijke speciale fondsen (B2B). Consumenttransacties in de zin van § 13 BGB zijn uitgesloten."
+        ]
+      },
+      {
+        "id": "section-2",
+        "title": "§ 2 Contractsluiting",
+        "content": [
+          "§ 2.1 De presentatie van de producten op de website, in catalogi, brochures of ander reclamemateriaal vormt geen juridisch bindend aanbod, maar een vrijblijvende uitnodiging tot het doen van een aanbod.",
+          "§ 2.2 Door een bestelling te plaatsen, verklaart de klant bindend dat hij de bestelde producten wil kopen. De bestelling kan schriftelijk, per e-mail, via de website of telefonisch worden gedaan.",
+          "§ 2.3 Het contract komt pas tot stand door de schriftelijke orderbevestiging van Polaris of door de levering van de goederen. De automatische bevestiging van ontvangst van een online bestelling vormt nog geen acceptatie van het aanbod.",
+          "§ 2.4 Polaris behoudt zich het recht voor om bestellingen zonder opgave van redenen te weigeren, met name in geval van gerechtvaardigde twijfel aan de kredietwaardigheid van de klant of in geval van leveringsknelpunten.",
+          "§ 2.5 De klant is gedurende een periode van 14 dagen aan zijn bestelling gebonden. Het contract kan in het Duits of Engels worden gesloten."
+        ]
+      },
+      {
+        "id": "section-3",
+        "title": "§ 3 Prijzen en betalingsvoorwaarden",
+        "content": [
+          "§ 3.1 De prijzen op het moment van de bestelling volgens de actuele prijslijst van Polaris zijn van toepassing. Alle prijzen zijn in Euro, plus wettelijke btw en eventuele verzendkosten.",
+          "§ 3.2 Tenzij anders overeengekomen, is de koopprijs verschuldigd voor betaling zonder aftrek binnen 14 dagen na factuurdatum. Ontvangst van betaling door Polaris is bepalend voor de tijdigheid van de betaling.",
+          "§ 3.3 In geval van betalingsverzuim heeft Polaris het recht om vertragingsrente in rekening te brengen tegen een tarief van 9 procentpunten boven de respectieve basisrentevoet. Het claimen van hogere vertragingsschade blijft voorbehouden.",
+          "§ 3.4 De klant heeft alleen recht op verrekening als zijn tegenvorderingen rechtsgeldig zijn vastgesteld, onbetwist zijn of door Polaris zijn erkend. De klant is alleen bevoegd om een retentierecht uit te oefenen voor zover zijn tegenvordering gebaseerd is op dezelfde contractuele relatie.",
+          "§ 3.5 Polaris heeft het recht om vooruitbetaling, een aanbetaling of andere zekerheden te eisen van nieuwe klanten of in geval van gerechtvaardigde twijfel aan de solvabiliteit.",
+          "§ 3.6 Voor terugkerende diensten (abonnementen, softwarelicenties, cloud-diensten, onderhoudscontracten) vindt facturering vooraf plaats voor de respectieve factureringsperiode, tenzij anders overeengekomen."
+        ]
+      },
+      {
+        "id": "section-4",
+        "title": "§ 4 Levering en verzending",
+        "content": [
+          "§ 4.1 Levering vindt plaats af magazijn Polaris of rechtstreeks van de fabrikant. Leveringsdata en termijnen zijn alleen bindend als ze uitdrukkelijk schriftelijk als bindend zijn bevestigd door Polaris.",
+          "§ 4.2 Het risico van toevallig verlies en toevallige verslechtering van de goederen gaat over op de klant bij overdracht aan de expediteur, vervoerder of persoon die anderszins is aangewezen om de verzending uit te voeren.",
+          "§ 4.3 Deelleveringen zijn toegestaan voor zover ze redelijk zijn voor de klant. Elke deellevering wordt beschouwd als een onafhankelijke transactie en kan afzonderlijk worden gefactureerd.",
+          "§ 4.4 Als de klant in gebreke blijft met acceptatie of verwijtbaar andere medewerkingsplichten schendt, heeft Polaris het recht om vergoeding te eisen voor de resulterende schade, inclusief eventuele extra kosten.",
+          "§ 4.5 In geval van overmacht, bedrijfsstoringen, stakingen, uitsluitingen, officiële bevelen of andere onvoorziene gebeurtenissen, worden de leveringstermijnen dienovereenkomstig verlengd. Polaris zal de klant onmiddellijk op de hoogte stellen van dergelijke obstakels.",
+          "§ 4.6 Voor temperatuurgevoelige producten (bijv. testkits, reagentia) vindt verzending plaats met inachtneming van de voorgeschreven koudeketen. De klant moet de integriteit en temperatuur bij levering controleren en eventuele gebreken onmiddellijk melden."
+        ]
+      },
+      {
+        "id": "section-5",
+        "title": "§ 5 Garantie en claims voor gebreken",
+        "content": [
+          "§ 5.1 De garantierechten van de klant veronderstellen dat deze naar behoren heeft voldaan aan zijn wettelijke inspectie- en meldingsplichten in overeenstemming met § 377 HGB (Duits Wetboek van Koophandel). Duidelijke gebreken moeten onmiddellijk schriftelijk worden gemeld, uiterlijk binnen 7 werkdagen na ontvangst van de goederen.",
+          "§ 5.2 In geval van gerechtvaardigde claims voor gebreken, heeft Polaris het recht, naar eigen goeddunken, tot rectificatie of vervangende levering. Als de aanvullende prestatie mislukt, kan de klant, naar keuze, prijsvermindering eisen of zich terugtrekken uit het contract.",
+          "§ 5.3 De garantieperiode is 12 maanden vanaf levering, tenzij een kortere houdbaarheid van het product is aangegeven. Voor testkits en verbruiksartikelen geldt de op de verpakking aangegeven houdbaarheid.",
+          "§ 5.4 De garantie is niet van toepassing in geval van onjuiste opslag, hantering of gebruik in strijd met de gebruiksaanwijzing, bij ongeoorloofde wijzigingen of reparaties door de klant of derden, evenals normale slijtage.",
+          "§ 5.5 De garantie voor IVD medische hulpmiddelen is beperkt tot de functie volgens de specificatie. Een garantie voor specifieke diagnostische resultaten of klinische beslissingen wordt niet aangenomen."
+        ]
+      },
+      {
+        "id": "section-6",
+        "title": "§ 6 Aansprakelijkheid en beperking van aansprakelijkheid",
+        "content": [
+          "§ 6.1 Polaris is onbeperkt aansprakelijk voor schade als gevolg van letsel aan leven, lichaam of gezondheid op basis van een opzettelijke of nalatige plichtsverzuim, evenals voor schade gedekt door aansprakelijkheid onder de Wet Productaansprakelijkheid.",
+          "§ 6.2 Voor overige schade is Polaris alleen aansprakelijk in geval van opzet en grove nalatigheid evenals verwijtbare schending van essentiële contractuele verplichtingen. Aansprakelijkheid voor schending van essentiële contractuele verplichtingen is beperkt tot de contract-typische, voorzienbare schade.",
+          "§ 6.3 Aansprakelijkheid voor indirecte schade, gevolgschade, gederfde winst, verlies van gegevens of bedrijfsonderbreking is uitgesloten, tenzij er sprake is van opzet of grove nalatigheid.",
+          "§ 6.4 Polaris is niet aansprakelijk voor schade als gevolg van onjuiste diagnostische beslissingen, mits het product correct functioneerde. De verantwoordelijkheid voor de klinische interpretatie van diagnostische resultaten ligt uitsluitend bij de medische professionals.",
+          "§ 6.5 De bovenstaande uitsluitingen en beperkingen van aansprakelijkheid gelden ook ten gunste van de wettelijke vertegenwoordigers, werknemers en hulppersonen van Polaris."
+        ]
+      },
+      {
+        "id": "section-7",
+        "title": "§ 7 Eigendomsvoorbehoud",
+        "content": [
+          "§ 7.1 De geleverde apparaten (met name Igloo Pro Reader), accessoires en alle softwarelicenties blijven eigendom van Polaris Diagnostics Europe UG (beperkte aansprakelijkheid) totdat alle openstaande vorderingen volledig zijn betaald.",
+          "§ 7.2 Tot volledige betaling ontvangt de klant slechts een herroepelijk, niet-overdraagbaar gebruiksrecht voor het apparaat, de software en cloud-diensten.",
+          "§ 7.3 De klant is verplicht om de goederen onder eigendomsvoorbehoud met zorg te behandelen en ze adequaat te verzekeren tegen brand, water en diefstal. Onderhouds- en inspectiewerkzaamheden moeten tijdig worden uitgevoerd.",
+          "§ 7.4 In geval van inbeslagnames of andere interventies door derden, moet de klant Polaris onmiddellijk schriftelijk op de hoogte stellen en wijzen op het eigendom van Polaris.",
+          "§ 7.5 Verdere verpanding of overdracht als zekerheid van de goederen onder eigendomsvoorbehoud is niet toegestaan zonder voorafgaande schriftelijke toestemming van Polaris."
+        ]
+      },
+      {
+        "id": "section-8",
+        "title": "§ 8 Gebruiksrechten voor Software & Cloud-diensten",
+        "content": [
+          "§ 8.1 Het gebruik van de software, cloud-diensten en digitale functies is uitsluitend toegestaan aan klanten die aan hun contractuele en financiële verplichtingen voldoen.",
+          "§ 8.2 Polaris heeft het recht om functies of toegangen te beperken als dit noodzakelijk is om legitieme belangen te waarborgen, met name in geval van betalingsverzuim.",
+          "§ 8.3 De cloud-diensten worden geleverd met een beschikbaarheid van 99,0% gemiddeld per jaar. Geplande onderhoudsvensters worden ten minste 48 uur van tevoren aangekondigd en tellen niet als downtime.",
+          "§ 8.4 De klant is zelf verantwoordelijk voor de veiligheid van zijn toegangsgegevens. In geval van vermoeden van misbruik moet Polaris onmiddellijk op de hoogte worden gesteld.",
+          "§ 8.5 Gebruik van de software of cloud-diensten buiten de contractueel overeengekomen reikwijdte (bijv. multi-user, extra apparaten) vereist een aparte licentieovereenkomst."
+        ]
+      },
+      {
+        "id": "section-9",
+        "title": "§ 9 Blokkering bij betalingsverzuim",
+        "content": [
+          "§ 9.1 Als de klant meer dan 14 dagen in gebreke is met betaling, heeft Polaris het recht, na schriftelijke kennisgeving, om de toegang tot de software, cloud-diensten of het gebruik van het apparaat gedeeltelijk of volledig te blokkeren na het verstrijken van een periode van 48 uur.",
+          "§ 9.2 De blokkering dient uitsluitend om legitieme betalingsvorderingen af te dwingen en vormt geen productgebrek of servicestoring.",
+          "§ 9.3 Na vereffening van alle openstaande vorderingen wordt de toegang onmiddellijk, uiterlijk binnen 24 uur, weer vrijgegeven.",
+          "§ 9.4 Tijdens de blokkering blijven de contractuele betalingsverplichtingen van de klant volledig van kracht. De blokkering ontslaat niet van de verplichting om lopende kosten te betalen.",
+          "§ 9.5 Polaris heeft het recht om redelijke administratiekosten in rekening te brengen voor heractivering na blokkering."
+        ]
+      },
+      {
+        "id": "section-10",
+        "title": "§ 10 Terugtrekking, Terugvordering & Intrekking van gebruik",
+        "content": [
+          "§ 10.1 Als er ondanks herinnering en dreiging met blokkering binnen nog eens 14 dagen geen betaling plaatsvindt, heeft Polaris het recht om zich terug te trekken uit het contract en het apparaat terug te vorderen in overeenstemming met het eigendomsvoorbehoud.",
+          "§ 10.2 In dit geval vervalt het gebruiksrecht voor software en cloud-diensten automatisch. De klant is verplicht het apparaat onmiddellijk in te leveren.",
+          "§ 10.3 Polaris heeft het recht om de klant te factureren voor kosten gemaakt voor terughalen, transport en administratie.",
+          "§ 10.4 In geval van terugtrekking heeft Polaris het recht om een redelijke gebruiksvergoeding te eisen voor het reeds plaatsgevonden gebruik van het apparaat.",
+          "§ 10.5 De klant heeft geen recht op terugbetaling van reeds betaalde bedragen, voor zover deze toerekenbaar zijn aan geleverde diensten."
+        ]
+      },
+      {
+        "id": "section-11",
+        "title": "§ 11 Uitsluiting van retour bij ingebruikname van medische hulpmiddelen",
+        "content": [
+          "§ 11.1 De geleverde apparaten zijn in-vitro-diagnostiek medische hulpmiddelen volgens Verordening (EU) 2017/746 (IVDR). Retour is uitgesloten zodra het apparaat in gebruik is genomen of is gebruikt met monsters/testkits.",
+          "§ 11.2 Acceptatie van geretourneerde gebruikte medische hulpmiddelen is niet toegestaan om veiligheids-, hygiëne- en regelgevende redenen.",
+          "§ 11.3 De klant kan geen retourrecht claimen in geval van betalingsverzuim. De betalingsverplichting blijft volledig van kracht.",
+          "§ 11.4 Ongerechtvaardigde retourzendingen kunnen door Polaris worden geweigerd of op kosten van de klant worden verwijderd.",
+          "§ 11.5 Testkits en verbruiksartikelen zijn over het algemeen uitgesloten van retour, tenzij er sprake is van een productgebrek.",
+          "§ 11.6 De bepalingen van deze paragraaf dienen ter bescherming van de volksgezondheid en naleving van regelgevende vereisten en zijn daarom verplicht."
+        ]
+      },
+      {
+        "id": "section-12",
+        "title": "§ 12 Productconformiteit en regelgevende vereisten",
+        "content": [
+          "§ 12.1 De door Polaris gedistribueerde in-vitro-diagnostiekproducten voldoen aan de vereisten van Verordening (EU) 2017/746 (IVDR) en dragen de CE-markering in overeenstemming met de toepasselijke conformiteitsbeoordelingsprocedures.",
+          "§ 12.2 De klant verplicht zich om de producten alleen te gebruiken in overeenstemming met hun beoogde doel, de gebruiksaanwijzing en de toepasselijke wettelijke voorschriften.",
+          "§ 12.3 De klant is verplicht om zich er vóór gebruik van de producten van te vergewissen dat hij beschikt over de nodige vergunningen, goedkeuringen en kwalificaties en voldoet aan de regelgevende vereisten van zijn land.",
+          "§ 12.4 In geval van export van de producten naar landen buiten de EU is de klant zelf verantwoordelijk voor de naleving van de aldaar geldende regelgevende vereisten. Een garantie voor goedkeuringsgeschiktheid in derde landen wordt niet aangenomen."
+        ]
+      },
+      {
+        "id": "section-13",
+        "title": "§ 13 Vigilantie en meldingsplichten",
+        "content": [
+          "§ 13.1 De klant verplicht zich om Polaris onmiddellijk te informeren over ernstige incidenten, storingen, kwaliteitsgebreken of veiligheidsrelevante gebeurtenissen in verband met de producten.",
+          "§ 13.2 Polaris zal de bevoegde autoriteiten informeren en met hen samenwerken in geval van incidentmeldingen in overeenstemming met de vereisten van de IVDR en nationale meldingssystemen.",
+          "§ 13.3 De klant ondersteunt Polaris bij het onderzoek naar incidenten door relevante informatie, toegang tot betrokken producten en monsters en documentatie van de gebruiksomstandigheden te verstrekken.",
+          "§ 13.4 In geval van Field Safety Corrective Actions of terugroepacties is de klant verplicht om met Polaris samen te werken en de bevolen maatregelen onmiddellijk uit te voeren."
+        ]
+      },
+      {
+        "id": "section-14",
+        "title": "§ 14 Kwaliteitsborging en documentatie",
+        "content": [
+          "§ 14.1 De klant is verplicht om de producten te gebruiken in overeenstemming met de bijgevoegde gebruiksaanwijzing en met inachtneming van Goede Laboratoriumpraktijken (GLP).",
+          "§ 14.2 De klant voert eigen kwaliteitscontroles uit en documenteert deze naar behoren. Polaris stelt op verzoek kwaliteitscontrolematerialen ter beschikking.",
+          "§ 14.3 De klant bewaart alle relevante gegevens over batchtraceerbaarheid, testresultaten en kwaliteitscontroles ten minste gedurende de periode voorgeschreven in de relevante voorschriften.",
+          "§ 14.4 Polaris verstrekt de klant op verzoek conformiteitsverklaringen, analysecertificaten, veiligheidsinformatiebladen en andere productdocumentatie."
+        ]
+      },
+      {
+        "id": "section-15",
+        "title": "§ 15 Training en technische ondersteuning",
+        "content": [
+          "§ 15.1 Polaris biedt training aan over het juiste gebruik van de producten. Het type, de omvang en de kosten van de training worden afzonderlijk overeengekomen.",
+          "§ 15.2 Technische ondersteuning is beschikbaar tijdens normale kantooruren (Ma-Vr, 9:00-17:00 CET) via e-mail en telefoon. Uitgebreide ondersteuningsdiensten kunnen tegen een meerprijs worden overeengekomen.",
+          "§ 15.3 De klant zorgt ervoor dat alleen adequaat opgeleid personeel de producten bedient. Het doorgeven van trainingsinhoud aan derden vereist de voorafgaande toestemming van Polaris.",
+          "§ 15.4 Voor apparaten met functie voor onderhoud op afstand heeft de klant het recht om Polaris toegang op afstand te verlenen voor onderhouds- en ondersteuningsdoeleinden. Toegang op afstand wordt alleen geactiveerd met de uitdrukkelijke toestemming van de klant."
+        ]
+      },
+      {
+        "id": "section-16",
+        "title": "§ 16 Onderhoud en service",
+        "content": [
+          "§ 16.1 Voor apparaten biedt Polaris onderhoudscontracten aan met verschillende serviceomvang. Omvang, kosten en duur worden geregeld in afzonderlijke onderhoudscontracten.",
+          "§ 16.2 De klant is verplicht om de door de fabrikant aanbevolen regelmatige onderhoudsintervallen na te leven. Het niet naleven kan leiden tot het vervallen van garantieclaims.",
+          "§ 16.3 Reparaties en onderhoudswerkzaamheden mogen alleen worden uitgevoerd door Polaris of door servicepartners die door Polaris zijn geautoriseerd. Ongeoorloofde ingrepen leiden tot het vervallen van de garantie.",
+          "§ 16.4 Voor apparaatreparaties buiten de garantie vindt facturering plaats op basis van tijd en materiaal volgens de actueel geldige prijslijst, tenzij er een onderhoudscontract bestaat."
+        ]
+      },
+      {
+        "id": "section-17",
+        "title": "§ 17 Software-updates en upgrades",
+        "content": [
+          "§ 17.1 Polaris stelt gedurende de looptijd van het actieve gebruikerscontract software-updates beschikbaar die bugfixes en beveiligingsupdates bevatten.",
+          "§ 17.2 Functionele uitbreidingen (upgrades) kunnen in rekening worden gebracht. De klant wordt geïnformeerd over beschikbare upgrades en kan deze vrijwillig kopen.",
+          "§ 17.3 De klant is verplicht om veiligheidsrelevante updates tijdig te installeren. Het niet installeren kan de garantie voor daaruit voortvloeiende storingen ongeldig maken.",
+          "§ 17.4 Polaris behoudt zich het recht voor om ondersteuning voor oudere softwareversies na een redelijke opzegtermijn stop te zetten."
+        ]
+      },
+      {
+        "id": "section-18",
+        "title": "§ 18 Gegevensbescherming en gegevensbeveiliging",
+        "content": [
+          "§ 18.1 Polaris verwerkt persoonlijke gegevens van de klant uitsluitend binnen het kader van de toepasselijke regelgeving inzake gegevensbescherming, met name de AVG, en in overeenstemming met de privacyverklaring op www.polarisdx.net.",
+          "§ 18.2 Als Polaris toegang krijgt tot persoonlijke patiëntgegevens in het kader van cloud-diensten, wordt een afzonderlijke Verwerkersovereenkomst (DPA) conform art. 28 AVG gesloten.",
+          "§ 18.3 De gegevens die in de cloud zijn opgeslagen, worden gehost op servers binnen de Europese Unie. Overdracht naar derde landen vindt alleen plaats met inachtneming van wettelijke vereisten.",
+          "§ 18.4 Polaris neemt passende technische en organisatorische maatregelen om gegevens te beschermen tegen ongeoorloofde toegang, verlies of vernietiging. De klant is verantwoordelijk voor de veiligheid van zijn toegangsgegevens.",
+          "§ 18.5 Na beëindiging van het contract worden klantgegevens opgeslagen in overeenstemming met wettelijke bewaarplichten en vervolgens verwijderd, tenzij er langere bewaarplichten bestaan."
+        ]
+      },
+      {
+        "id": "section-19",
+        "title": "§ 19 Geheimhouding en vertrouwelijkheid",
+        "content": [
+          "§ 19.1 De partijen verplichten zich om alle vertrouwelijke informatie, bedrijfsgeheimen en knowhow verkregen in het kader van de zakelijke relatie strikt vertrouwelijk te behandelen en niet aan derden bekend te maken.",
+          "§ 19.2 Deze verplichting is niet van toepassing op informatie die algemeen bekend is, al bekend was bij de ontvanger, rechtmatig is verkregen van derden of openbaar moet worden gemaakt vanwege wettelijke of officiële bevelen.",
+          "§ 19.3 De geheimhoudingsplicht blijft ook na beëindiging van de zakelijke relatie bestaan, maar ten minste voor een periode van vijf jaar."
+        ]
+      },
+      {
+        "id": "section-20",
+        "title": "§ 20 Intellectueel eigendom",
+        "content": [
+          "§ 20.1 Alle rechten op merken, octrooien, auteursrechten, software, ontwerpen, knowhow en andere industriële eigendomsrechten blijven bij Polaris of de respectieve rechthebbenden.",
+          "§ 20.2 De klant ontvangt een niet-exclusief, niet-overdraagbaar gebruiksrecht voor de software in de omvang van de respectieve licentieovereenkomst. Sublicentie, overdracht of reproductie is verboden zonder schriftelijke toestemming.",
+          "§ 20.3 Reverse engineering, decompilatie of andere pogingen om de broncode van de software te achterhalen zijn verboden, tenzij toegestaan door dwingende wettelijke voorschriften.",
+          "§ 20.4 De klant mag merken en logo's van Polaris alleen gebruiken met voorafgaande schriftelijke toestemming en in overeenstemming met de merkrichtlijnen van Polaris."
+        ]
+      },
+      {
+        "id": "section-21",
+        "title": "§ 21 Exportcontrole en sancties",
+        "content": [
+          "§ 21.1 De klant verplicht zich om alle toepasselijke export- en importvoorschriften evenals sanctiebepalingen van de EU, Duitsland en mogelijk andere relevante jurisdicties na te leven.",
+          "§ 21.2 De klant garandeert dat de geleverde producten niet direct of indirect worden geëxporteerd naar landen waarop embargo's rusten, of geleverd aan personen of entiteiten op sanctielijsten.",
+          "§ 21.3 In geval van schendingen van exportcontrole- of sanctievoorschriften is de klant als enige aansprakelijk voor alle daaruit voortvloeiende schade en vrijwaart Polaris tegen alle aanspraken van derden."
+        ]
+      },
+      {
+        "id": "section-22",
+        "title": "§ 22 Contractduur en opzegging",
+        "content": [
+          "§ 22.1 Koopcontracten voor afzonderlijke producten eindigen bij volledige nakoming. Lopende verplichtingen (softwarelicenties, cloud-diensten, onderhoudscontracten) hebben de duur gespecificeerd in de respectieve contracten.",
+          "§ 22.2 Tenzij anders overeengekomen, worden lopende verplichtingen automatisch verlengd met nog eens 12 maanden als ze niet worden opgezegd met een opzegtermijn van 3 maanden tegen het einde van de looptijd.",
+          "§ 22.3 Het recht op buitengewone opzegging om gewichtige reden blijft onaangetast. Een gewichtige reden bestaat met name in geval van aanzienlijke contractbreuk, insolventie, opening van insolventieprocedures of schending van regelgevende vereisten.",
+          "§ 22.4 Bij opzegging of einde van het contract vervallen alle gebruiksrechten voor software en cloud-diensten. De klant kan zijn gegevens exporteren binnen 30 dagen na het einde van het contract.",
+          "§ 22.5 Reeds betaalde vergoedingen voor niet-gebruikte contractperioden worden niet terugbetaald, tenzij de opzegging wordt gedaan door de klant om redenen die aan Polaris toe te rekenen zijn."
+        ]
+      },
+      {
+        "id": "section-23",
+        "title": "§ 23 Geschillenbeslechting en bevoegde rechter",
+        "content": [
+          "§ 23.1 De partijen verplichten zich om eerst te streven naar een minnelijke schikking in geschillen die voortvloeien uit of verband houden met dit contract.",
+          "§ 23.2 De exclusieve bevoegde rechter voor alle geschillen die voortvloeien uit deze contractuele relatie is de zetel van Polaris, op voorwaarde dat de klant een koopman, een rechtspersoon van publiek recht of een publiekrechtelijk speciaal fonds is.",
+          "§ 23.3 Polaris heeft het recht om de klant ook bij zijn algemene bevoegde rechter aan te klagen.",
+          "§ 23.4 Deelname aan een geschillenbeslechtingsprocedure voor een arbitragecommissie voor consumenten is niet beoogd en wordt niet aangeboden, aangezien de AV uitsluitend gericht zijn op ondernemers."
+        ]
+      },
+      {
+        "id": "section-24",
+        "title": "§ 24 Toepasselijk recht",
+        "content": [
+          "§ 24.1 Het recht van de Bondsrepubliek Duitsland is van toepassing, met uitsluiting van het VN-Verdrag inzake internationale koopovereenkomsten betreffende roerende zaken (CISG) en de verwijzingsregels van het internationaal privaatrecht.",
+          "§ 24.2 Voor zover dwingende wettelijke voorschriften in de gewone verblijfplaats van de klant gunstigere bepalingen voor de klant voorschrijven, zijn deze van toepassing."
+        ]
+      },
+      {
+        "id": "section-25",
+        "title": "§ 25 Slotbepalingen",
+        "content": [
+          "§ 25.1 Wijzigingen en aanvullingen op deze AV vereisen de schriftelijke vorm om effectief te zijn. Dit geldt ook voor het afzien van dit schriftelijkheidsvereiste.",
+          "§ 25.2 Mochten afzonderlijke bepalingen van deze AV geheel of gedeeltelijk ongeldig of niet-afdwingbaar zijn of worden, dan heeft dit geen invloed op de geldigheid van de overige bepalingen. De ongeldige of niet-afdwingbare bepaling wordt vervangen door de geldige en afdwingbare bepaling die het economische doel van de ongeldige bepaling het dichtst benadert.",
+          "§ 25.3 Polaris behoudt zich het recht voor om deze AV op elk moment met werking voor de toekomst te wijzigen. Wijzigingen worden ten minste 4 weken voor inwerkingtreding schriftelijk of per e-mail aan de klant meegedeeld. Als de klant niet binnen 4 weken na ontvangst van de kennisgeving bezwaar maakt, worden de wijzigingen als goedgekeurd beschouwd.",
+          "§ 25.4 Er bestaan geen mondelinge nevenafspraken. Alle afspraken zijn schriftelijk vastgelegd.",
+          "§ 25.5 De Duitse versie van deze AV is doorslaggevend. Vertalingen dienen alleen ter informatie en vestigen geen eigen rechten."
+        ]
+      }
+    ]
+  }
+}

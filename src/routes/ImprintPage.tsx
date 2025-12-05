@@ -1,71 +1,79 @@
+import { useTranslation } from 'react-i18next'
+
 const ImprintPage = () => {
+  const { t } = useTranslation('legal')
+
   return (
     <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-slate-50">
       <div className="mx-auto max-w-container px-4 lg:px-0">
-        <h1 className="text-3xl font-bold mb-8 text-gray-900">Impressum</h1>
+        <h1 className="text-3xl font-bold mb-8 text-gray-900">{t('imprint.title')}</h1>
 
         <div className="space-y-8 text-gray-700 bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
           <section>
-            <h2 className="text-xl font-semibold mb-4 text-gray-900">Angaben gemäß § 5 TMG</h2>
+            <h2 className="text-xl font-semibold mb-4 text-gray-900">{t('imprint.section1.title')}</h2>
 
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="font-semibold mb-2">London Office</h3>
-                <p><strong>PolarisDX LTD</strong></p>
-                <p>262A Fulham Road</p>
-                <p>London SW10 9EL</p>
-                <p>Vereinigtes Königreich</p>
-                <p className="mt-2"><strong>Kontakt:</strong></p>
-                <p>Telefon: +44 7879 433019</p>
-                <p>E-Mail: hello@polarisdx.net</p>
+                <h3 className="font-semibold mb-2">{t('imprint.section1.london.title')}</h3>
+                <p><strong>{t('imprint.section1.london.company')}</strong></p>
+                {(t('imprint.section1.london.address', { returnObjects: true }) as string[]).map((line, idx) => (
+                  <p key={idx}>{line}</p>
+                ))}
+                <p className="mt-2"><strong>{t('imprint.section1.london.contact.label')}</strong></p>
+                <p>{t('imprint.section1.london.contact.phone')}</p>
+                <p>{t('imprint.section1.london.contact.email')}</p>
               </div>
 
               <div>
-                <h3 className="font-semibold mb-2">Hamburg Office</h3>
-                <p><strong>PolarisDX Europe UG</strong></p>
-                <p>Große Bleichen 1 - 3</p>
-                <p>20097 Hamburg</p>
-                <p>Deutschland</p>
-                <p className="mt-2"><strong>Kontakt:</strong></p>
-                <p>E-Mail: info@polarisdx.net</p>
+                <h3 className="font-semibold mb-2">{t('imprint.section1.hamburg.title')}</h3>
+                <p><strong>{t('imprint.section1.hamburg.company')}</strong></p>
+                {(t('imprint.section1.hamburg.address', { returnObjects: true }) as string[]).map((line, idx) => (
+                  <p key={idx}>{line}</p>
+                ))}
+                <p className="mt-2"><strong>{t('imprint.section1.hamburg.contact.label')}</strong></p>
+                <p>{t('imprint.section1.hamburg.contact.email')}</p>
               </div>
             </div>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold mb-4 text-gray-900">Vertretung</h2>
-            <p>Vertreten durch die Geschäftsführung.</p>
+            <h2 className="text-xl font-semibold mb-4 text-gray-900">{t('imprint.section2.title')}</h2>
+            <p>{t('imprint.section2.content')}</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold mb-4 text-gray-900">Registereintrag</h2>
-            <p>Eintragung im Handelsregister.</p>
-            <p>Registergericht: Amtsgericht Hamburg (für PolarisDX Europe UG)</p>
-            <p>Registernummer: [HRB Nummer hier einfügen]</p>
+            <h2 className="text-xl font-semibold mb-4 text-gray-900">{t('imprint.section3.title')}</h2>
+            {(t('imprint.section3.content', { returnObjects: true }) as string[]).map((line, idx) => (
+              <p key={idx}>{line}</p>
+            ))}
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold mb-4 text-gray-900">Umsatzsteuer-ID</h2>
-            <p>Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:</p>
-            <p>[USt-IdNr. hier einfügen]</p>
+            <h2 className="text-xl font-semibold mb-4 text-gray-900">{t('imprint.section4.title')}</h2>
+            {(t('imprint.section4.content', { returnObjects: true }) as string[]).map((line, idx) => (
+              <p key={idx}>{line}</p>
+            ))}
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold mb-4 text-gray-900">Redaktionell verantwortlich</h2>
-            <p>PolarisDX Management Team</p>
-            <p>262A Fulham Road</p>
-            <p>London SW10 9EL</p>
+            <h2 className="text-xl font-semibold mb-4 text-gray-900">{t('imprint.section5.title')}</h2>
+            {(t('imprint.section5.content', { returnObjects: true }) as string[]).map((line, idx) => (
+              <p key={idx}>{line}</p>
+            ))}
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold mb-4 text-gray-900">EU-Streitschlichtung</h2>
-            <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">https://ec.europa.eu/consumers/odr/</a>.</p>
-            <p>Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
+            <h2 className="text-xl font-semibold mb-4 text-gray-900">{t('imprint.section6.title')}</h2>
+            <p>
+              <span dangerouslySetInnerHTML={{
+                __html: t('imprint.section6.content').replace('<1>', '<a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" class="text-secondary hover:underline">').replace('</1>', '</a>')
+              }} />
+            </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold mb-4 text-gray-900">Verbraucherstreitbeilegung / Universalschlichtungsstelle</h2>
-            <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+            <h2 className="text-xl font-semibold mb-4 text-gray-900">{t('imprint.section7.title')}</h2>
+            <p>{t('imprint.section7.content')}</p>
           </section>
         </div>
       </div>

@@ -2,22 +2,22 @@
   "products": {
     "igloo_reader_pro": {
       "name": "Igloo Reader Pro",
-      "shortDescription": "El Igloo Reader Pro es un analizador todo en uno compacto y de última generación para pruebas en el punto de atención (POCT). Combina la precisión del laboratorio con los requisitos de entornos descentralizados. Admite flujo lateral, microarrays, fluorescencia y más: la solución ideal para resultados de pruebas cuantitativos y cualitativos rápidos y fiables.",
+      "shortDescription": "El Igloo Reader Pro es un analizador todo en uno compacto y de última generación para pruebas en el punto de atención (POCT). Combina la precisión de laboratorio con los requisitos de los entornos descentralizados. Admite flujo lateral, microarrays, fluorescencia y más: la solución ideal para resultados de pruebas cuantitativos y cualitativos rápidos y fiables.",
       "detailedDescription": [
-        "El Igloo Reader Pro redefine el diagnóstico móvil. Diseñado específicamente para entornos profesionales y aplicaciones descentralizadas en el punto de atención, este analizador versátil permite pruebas cualitativas y cuantitativas rápidas y fiables.",
-        "El lector admite una amplia gama de pruebas diagnósticas, desde la detección de enfermedades infecciosas hasta marcadores cardíacos y perfiles hormonales, pasando por paneles de abuso de drogas y alergias. Gracias a la calibración automatizada, la integración en la nube y la exportación de datos digitales, el Igloo Reader Pro ofrece calidad de laboratorio directamente donde se necesita. Permite a los profesionales médicos obtener resultados rápidos y fiables en cualquier lugar."
+        "El Igloo Reader Pro redefine el diagnóstico móvil. Diseñado específicamente para entornos profesionales y aplicaciones descentralizadas de Point-of-Care, este versátil analizador permite pruebas cualitativas y cuantitativas rápidas y fiables.",
+        "El lector admite una amplia gama de pruebas diagnósticas, desde el cribado de enfermedades infecciosas hasta marcadores cardíacos y perfiles hormonales, pasando por paneles de drogas y alergias. Gracias a la calibración automatizada, la integración en la nube y la exportación de datos digitales, el Igloo Reader Pro ofrece calidad de laboratorio directamente donde se necesita. Permite a los profesionales médicos obtener resultados rápidos y fiables en cualquier lugar."
       ],
       "features": [
-        "Plataforma de prueba universal: Admite microarrays, flujo lateral, colorimetría, fluorescencia, química seca y microfluídica.",
-        "Precisión de laboratorio en formato POCT: Alta precisión gracias a la autocalibración automática antes de cada medición (CV < 2 % entre lectores, CV < 3 % intra-lector).",
-        "Compacto y móvil: Diseño ligero con una duración de batería de hasta 24 horas de pruebas continuas.",
-        "Conectividad total: Wi-Fi integrado, Bluetooth y USB-C para una sincronización de datos perfecta e integración API/LIMS.",
-        "Integración segura en la nube (Dx365 Cloud): Para actualizaciones de pruebas, gestión de calibración y almacenamiento de datos cifrados.",
-        "Tipos de muestras versátiles: Compatible con sangre total, sangre capilar, suero, plasma, orina, heces, saliva y cabello."
+        "Plataforma de prueba universal: Admite Microarray, Flujo Lateral, Colorimetría, Fluorescencia, Química Seca y Microfluídica.",
+        "Precisión de laboratorio en formato POCT: Alta precisión mediante autocalibración automática antes de cada medición (CV < 2 % Inter-Lector, CV < 3 % Intra-Lector).",
+        "Compacto y móvil: Diseño ligero con una duración de batería de hasta 24 horas de prueba continua.",
+        "Conectividad total: Wi-Fi, Bluetooth y USB-C integrados para una sincronización de datos perfecta e integración API/LIMS.",
+        "Integración segura en la nube (Dx365 Cloud): Para actualizaciones de pruebas, gestión de calibración y almacenamiento de datos cifrado.",
+        "Tipos de muestra versátiles: Compatible con sangre completa, sangre capilar, suero, plasma, orina, heces, saliva y cabello."
       ],
       "techSpecs": [
         {
-          "parameter": "Dimensiones del dispositivo (L × An × Al)",
+          "parameter": "Dimensiones (L × A × Al)",
           "specification": "87,5 × 87,5 × 91 mm"
         },
         {
@@ -30,11 +30,11 @@
         },
         {
           "parameter": "Métodos de prueba admitidos",
-          "specification": "Microarrays, Colorimetría, Fluorescencia, Química seca, Puntos cuánticos, Microfluídica"
+          "specification": "Microarray, Colorimetría, Fluorescencia, Química Seca, Puntos Cuánticos, Microfluídica"
         },
         {
-          "parameter": "Tipos de muestras",
-          "specification": "Sangre total, sangre capilar, suero, plasma, orina, heces, saliva, cabello"
+          "parameter": "Tipos de muestra",
+          "specification": "Sangre completa, sangre capilar, suero, plasma, orina, heces, saliva, cabello"
         },
         {
           "parameter": "Memoria de resultados",
@@ -50,7 +50,7 @@
         },
         {
           "parameter": "Certificación",
-          "specification": "Marcado CE, cumple con RoHS"
+          "specification": "Marcado CE, compatible con RoHS"
         }
       ],
       "deliveryScope": [
@@ -58,13 +58,13 @@
         "1 × Cable USB-A a USB-C",
         "Manual de usuario electrónico"
       ],
-      "note": "Nota importante: Los adaptadores y los kits de prueba de control de calidad se venden por separado y no están incluidos en el volumen de suministro estándar."
+      "note": "Nota importante: Los adaptadores y kits de prueba QC se venden por separado y no están incluidos en el alcance de suministro estándar."
     },
     "bp_monitor": {
-      "name": "Monitor de presión arterial digital",
+      "name": "Monitor digital de presión arterial",
       "shortDescription": "Monitor de presión arterial preciso y fácil de usar para uso doméstico con función de memoria.",
       "features": [
-        "Manguito para brazo con tamaño ajustable",
+        "Manguito de brazo superior con tamaño ajustable",
         "Almacena hasta 60 lecturas",
         "Detección de latidos cardíacos irregulares"
       ]
@@ -73,13 +73,13 @@
       "name": "Termómetro frontal sin contacto",
       "shortDescription": "Lecturas de temperatura rápidas e higiénicas sin contacto con la piel, ideal para familias.",
       "features": [
-        "Medición en 1 segundo",
+        "Medición de 1 segundo",
         "Indicador de alarma de fiebre",
         "Pantalla retroiluminada"
       ]
     },
     "pulse_oximeter": {
-      "name": "Oxímetro de pulso de dedo",
+      "name": "Pulsioxímetro de dedo",
       "shortDescription": "Mida la saturación de oxígeno en sangre y la frecuencia del pulso en segundos.",
       "features": [
         "Visualización de SpO₂ y frecuencia del pulso",
@@ -89,7 +89,7 @@
     },
     "home_care_kit": {
       "name": "Kit de inicio de atención domiciliaria",
-      "shortDescription": "Herramientas esenciales para el cuidado diario en el hogar, incluidos dispositivos de monitoreo y primeros auxilios básicos.",
+      "shortDescription": "Herramientas esenciales para la atención domiciliaria diaria, incluidos monitoreo y conceptos básicos de primeros auxilios.",
       "features": [
         "Termómetro digital y monitor de presión arterial",
         "Suministros básicos para el cuidado de heridas",
@@ -106,44 +106,44 @@
       ]
     },
     "n95_mask_pack": {
-      "name": "Paquete de mascarillas respiratorias N95 (10 uds.)",
+      "name": "Paquete de mascarillas respiratorias N95 (10 uds)",
       "shortDescription": "Mascarillas N95 certificadas para una protección respiratoria fiable.",
       "features": [
         "Clip nasal ajustable",
-        "Buccles para las orejas cómodos",
-        "Empaquetado individualmente"
+        "Gomas para las orejas cómodas",
+        "Empaquetadas individualmente"
       ]
     },
     "hand_sanitizer": {
       "name": "Desinfectante de manos antibacteriano (500 ml)",
       "shortDescription": "Desinfectante de secado rápido con ingredientes hidratantes.",
       "features": [
-        "Mata el 99,9% de los gérmenes",
+        "Mata el 99,9 % de los gérmenes",
         "Fórmula no pegajosa",
         "Aroma fresco y limpio"
       ]
     },
     "compression_socks": {
       "name": "Calcetines de compresión médica",
-      "shortDescription": "Apoyan la circulación durante los largos días de pie o la recuperación.",
+      "shortDescription": "Apoyan la circulación durante largos días de pie o recuperación.",
       "features": [
         "Compresión graduada",
         "Tejido transpirable",
-        "Varios tamaños disponibles"
+        "Múltiples tamaños disponibles"
       ]
     },
     "first_aid_kit": {
       "name": "Botiquín de primeros auxilios compacto",
-      "shortDescription": "Un kit compacto con lo esencial para lesiones menores y emergencias.",
+      "shortDescription": "Un kit compacto con elementos esenciales para lesiones menores y emergencias.",
       "features": [
-        "Tiritas y vendajes",
+        "Vendas y apósitos",
         "Toallitas antisépticas",
         "Folleto de instrucciones"
       ]
     },
     "online_consult": {
       "name": "Consulta médica en línea (30 min)",
-      "shortDescription": "Reserve una consulta de video de 30 minutos con uno de nuestros médicos.",
+      "shortDescription": "Reserve una videoconsulta de 30 minutos con uno de nuestros médicos.",
       "features": [
         "Opciones de programación flexibles",
         "Plataforma de video segura",
@@ -154,28 +154,28 @@
   "shop": {
     "addToCart": "Añadir al carrito (demo)",
     "orderInfo": "Información del pedido",
-    "orderInfoText": "Este diseño de demostración imita un cuadro de pedido simple. En un proyecto real, aquí es donde mostraría la disponibilidad, las opciones de envío y un botón 'Añadir al carrito'.",
+    "orderInfoText": "Este diseño de demostración imita un cuadro de pedido simple. En un proyecto real, aquí es donde mostraría disponibilidad, opciones de envío y un botón 'Añadir al carrito'.",
     "youMightLike": "También te podría gustar",
     "view": "Ver",
     "viewDetails": "Ver detalles",
     "backToShop": "Volver a la tienda",
-    "needHelp": "¿Necesitas ayuda para elegir?",
-    "contactTeam": "Contacta con nuestro equipo",
-    "demoNote": "Tenga en cuenta: Esta es una tienda de demostración solo con fines de diseño y maquetación. No se procesan pedidos ni pagos reales.",
-    "whatsInBox": "Contenido de la caja",
+    "needHelp": "¿Necesita ayuda para elegir un producto?",
+    "contactTeam": "Contacte a nuestro equipo",
+    "demoNote": "Tenga en cuenta: Esta es una tienda de demostración solo para fines de diseño y maquetación. No se procesan pedidos ni pagos reales.",
+    "whatsInBox": "¿Qué hay en la caja?",
     "techSpecs": "Especificaciones técnicas",
     "features": "Características y beneficios",
     "home": "Inicio",
-    "title": "Suministros y servicios médicos",
+    "title": "Suministros médicos y servicios",
     "subtitle": "Tienda MedHealth",
     "discoverTitle": "Descubra nuestros productos seleccionados",
     "article": "Artículo",
     "articleDisclaimer": "Los chequeos regulares y la atención proactiva son la base de la salud a largo plazo. Si tiene preguntas, no dude en comunicarse con un profesional médico.",
-    "shareArticle": "¿Te gustó este artículo? Compártelo con tus amigos y familiares.",
+    "shareArticle": "¿Le gustó este artículo? Compártalo con sus amigos y familiares.",
     "backToHome": "Volver a Inicio",
     "suggestedArticles": "Artículos sugeridos",
     "moreArticles": "Más artículos",
-    "contactText": "Nuestro equipo médico está disponible las 24 horas, los 7 días de la semana para responder preguntas urgentes y ayudarlo a decidir qué hacer a continuación.",
+    "contactText": "Nuestro equipo médico está disponible las 24 horas, los 7 días de la semana para responder preguntas urgentes y ayudarle a decidir qué hacer a continuación.",
     "readMore": "Leer más"
   }
 }

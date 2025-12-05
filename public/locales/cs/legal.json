@@ -1,0 +1,397 @@
+{
+  "imprint": {
+    "title": "Tiráž",
+    "section1": {
+      "title": "Informace podle § 5 TMG",
+      "london": {
+        "title": "Kancelář v Londýně",
+        "company": "PolarisDX LTD",
+        "address": [
+          "262A Fulham Road",
+          "Londýn SW10 9EL",
+          "Spojené království"
+        ],
+        "contact": {
+          "label": "Kontakt:",
+          "phone": "Telefon: +44 7879 433019",
+          "email": "E-mail: hello@polarisdx.net"
+        }
+      },
+      "hamburg": {
+        "title": "Kancelář v Hamburku",
+        "company": "PolarisDX Europe UG",
+        "address": [
+          "Große Bleichen 1 - 3",
+          "20097 Hamburk",
+          "Německo"
+        ],
+        "contact": {
+          "label": "Kontakt:",
+          "email": "E-mail: info@polarisdx.net"
+        }
+      }
+    },
+    "section2": {
+      "title": "Zastoupení",
+      "content": "Zastoupeno vedením společnosti."
+    },
+    "section3": {
+      "title": "Zápis v rejstříku",
+      "content": [
+        "Zápis v obchodním rejstříku.",
+        "Rejstříkový soud: Okresní soud Hamburk (pro PolarisDX Europe UG)",
+        "Registrační číslo: [Zde vložte číslo HRB]"
+      ]
+    },
+    "section4": {
+      "title": "DIČ",
+      "content": [
+        "Daňové identifikační číslo podle § 27 a zákona o dani z přidané hodnoty:",
+        "[Zde vložte DIČ]"
+      ]
+    },
+    "section5": {
+      "title": "Redakční odpovědnost",
+      "content": [
+        "Manažerský tým PolarisDX",
+        "262A Fulham Road",
+        "Londýn SW10 9EL"
+      ]
+    },
+    "section6": {
+      "title": "Řešení sporů EU",
+      "content": "Evropská komise poskytuje platformu pro online řešení sporů (ODR): <1>https://ec.europa.eu/consumers/odr/</1>. Naši e-mailovou adresu naleznete výše v tiráži."
+    },
+    "section7": {
+      "title": "Řešení spotřebitelských sporů / Univerzální rozhodčí rada",
+      "content": "Nejsme ochotni ani povinni účastnit se řízení o řešení sporů před spotřebitelskou rozhodčí radou."
+    }
+  },
+  "privacy": {
+    "title": "Prohlášení o ochraně osobních údajů",
+    "section1": {
+      "title": "1. Ochrana údajů na první pohled",
+      "general": {
+        "title": "Obecné poznámky",
+        "content": "Následující poznámky poskytují jednoduchý přehled o tom, co se děje s vašimi osobními údaji, když navštívíte tuto webovou stránku. Osobní údaje jsou veškeré údaje, pomocí kterých můžete být osobně identifikováni."
+      },
+      "collection": {
+        "title": "Sběr dat na této webové stránce",
+        "who_title": "Kdo je odpovědný za sběr dat na této webové stránce?",
+        "who_content": "Zpracování údajů na této webové stránce provádí provozovatel webu. Jeho kontaktní údaje naleznete v tiráži této webové stránky.",
+        "how_title": "Jak shromažďujeme vaše údaje?",
+        "how_content1": "Vaše údaje jsou shromažďovány jednak tím, že nám je sdělíte. Může se jednat například o údaje, které zadáte do kontaktního formuláře.",
+        "how_content2": "Jiné údaje jsou shromažďovány automaticky nebo po vašem souhlasu při návštěvě webové stránky našimi IT systémy. Jedná se především o technické údaje (např. internetový prohlížeč, operační systém nebo čas zobrazení stránky). Sběr těchto údajů probíhá automaticky, jakmile vstoupíte na tuto webovou stránku."
+      }
+    },
+    "section2": {
+      "title": "2. Hosting",
+      "content": "Obsah naší webové stránky hostujeme u externího poskytovatele. Osobní údaje shromážděné na této webové stránce jsou uloženy na serverech hostitele. Může se jednat zejména o IP adresy, kontaktní žádosti, meta a komunikační údaje, smluvní údaje, kontaktní údaje, jména, přístupy na webové stránky a další údaje generované prostřednictvím webové stránky."
+    },
+    "section3": {
+      "title": "3. Obecné poznámky a povinné informace",
+      "protection": {
+        "title": "Ochrana údajů",
+        "content": "Provozovatelé těchto stránek berou ochranu vašich osobních údajů velmi vážně. Vaše osobní údaje zpracováváme důvěrně a v souladu se zákonnými předpisy o ochraně údajů a tímto prohlášením o ochraně osobních údajů."
+      },
+      "responsible": {
+        "title": "Poznámka k odpovědnému orgánu",
+        "content": "Odpovědným orgánem pro zpracování údajů na této webové stránce je:",
+        "address": [
+          "PolarisDX Europe UG",
+          "Große Bleichen 1 - 3",
+          "20097 Hamburk",
+          "E-mail: info@polarisdx.net"
+        ]
+      },
+      "storage": {
+        "title": "Doba uložení",
+        "content": "Pokud v tomto prohlášení o ochraně osobních údajů nebyla uvedena konkrétnější doba uložení, zůstanou vaše osobní údaje u nás, dokud účel zpracování údajů nepomine. Pokud uplatníte oprávněnou žádost o výmaz nebo odvoláte souhlas se zpracováním údajů, vaše údaje budou vymazány, pokud nemáme jiné zákonem přípustné důvody pro uložení vašich osobních údajů (např. daňové nebo obchodní lhůty pro uchování); v druhém případě dojde k výmazu po pominutí těchto důvodů."
+      }
+    },
+    "section4": {
+      "title": "4. Sběr dat na této webové stránce",
+      "form": {
+        "title": "Kontaktní formulář",
+        "content1": "Pokud nám zašlete dotazy prostřednictvím kontaktního formuláře, vaše údaje z poptávkového formuláře včetně kontaktních údajů, které jste tam uvedli, budou u nás uloženy za účelem zpracování dotazu a pro případ následných otázek. Tyto údaje nepředáváme bez vašeho souhlasu.",
+        "duration_title": "Doba uložení u kontaktních dotazů:",
+        "duration_content": "Vaše údaje z kontaktního formuláře ukládáme po dobu až 12 měsíců, abychom byli k dispozici pro případné následné dotazy, pokud zákonné lhůty pro uchování nevyžadují delší uložení.",
+        "legal_basis": "Zpracování těchto údajů probíhá na základě čl. 6 odst. 1 písm. b GDPR, pokud váš dotaz souvisí s plněním smlouvy nebo je nezbytný pro provedení předsmluvních opatření. Ve všech ostatních případech je zpracování založeno na našem oprávněném zájmu na efektivním zpracování dotazů, které nám byly adresovány (čl. 6 odst. 1 písm. f GDPR) nebo na vašem souhlasu (čl. 6 odst. 1 písm. a GDPR), pokud byl tento vyžádán."
+      }
+    },
+    "section5": {
+      "title": "5. Analytické nástroje a reklama",
+      "content": "Pokud jste udělili souhlas, používají se na této webové stránce soubory cookie a podobné technologie. Svůj souhlas můžete kdykoli odvolat prostřednictvím našeho banneru cookie nebo nastavení ve vašem prohlížeči."
+    }
+  },
+  "agb": {
+    "title": "Všeobecné obchodní podmínky",
+    "subtitle": "Polaris Diagnostics Europe UG (s ručením omezeným) | In-vitro diagnostika | Zdravotnické prostředky | Software a cloudové služby",
+    "date": "Stav: Prosinec 2025",
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "§ 1 Rozsah platnosti",
+        "content": [
+          "§ 1.1 Tyto Všeobecné obchodní podmínky (VOP) platí pro všechny obchodní vztahy mezi společností Polaris Diagnostics Europe UG (s ručením omezeným), dále jen 'Polaris', a zákazníkem. Platí pro prodej a dodávku zdravotnických prostředků in-vitro diagnostiky (IVD), přístrojů, testovacích souprav, spotřebního materiálu, softwaru a cloudových služeb.",
+          "§ 1.2 VOP platí výlučně. Odlišné, protichůdné nebo doplňující všeobecné obchodní podmínky zákazníka se stávají součástí smlouvy pouze tehdy, pokud Polaris s jejich platností výslovně písemně souhlasil.",
+          "§ 1.3 VOP platí také pro všechny budoucí obchody se zákazníkem, pokud se jedná o právní úkony související povahy.",
+          "§ 1.4 Individuální dohody uzavřené se zákazníkem v jednotlivých případech (včetně vedlejších ujednání, doplňků a změn) mají v každém případě přednost před těmito VOP. Pro obsah takových dohod je rozhodující písemná smlouva, resp. písemné potvrzení ze strany Polaris.",
+          "§ 1.5 Nabídky Polaris jsou určeny výhradně podnikatelům ve smyslu § 14 BGB (německý občanský zákoník), právnickým osobám veřejného práva nebo veřejnoprávním zvláštním fondům (B2B). Spotřebitelské obchody ve smyslu § 13 BGB jsou vyloučeny."
+        ]
+      },
+      {
+        "id": "section-2",
+        "title": "§ 2 Uzavření smlouvy",
+        "content": [
+          "§ 2.1 Prezentace produktů na webových stránkách, v katalozích, prospektech nebo jiných reklamních materiálech nepředstavuje právně závaznou nabídku, nýbrž nezávaznou výzvu k podání nabídky.",
+          "§ 2.2 Objednávkou zákazník závazně prohlašuje, že chce objednané produkty zakoupit. Objednávku lze učinit písemně, e-mailem, prostřednictvím webových stránek nebo telefonicky.",
+          "§ 2.3 Smlouva vzniká až písemným potvrzením objednávky ze strany Polaris nebo dodáním zboží. Automatické potvrzení přijetí online objednávky ještě nepředstavuje přijetí nabídky.",
+          "§ 2.4 Polaris si vyhrazuje právo odmítnout objednávky bez udání důvodu, zejména v případě odůvodněných pochybností o bonitě zákazníka nebo v případě úzkých míst v dodávkách.",
+          "§ 2.5 Zákazník je vázán svou objednávkou po dobu 14 dnů. Smlouva může být uzavřena v německém nebo anglickém jazyce."
+        ]
+      },
+      {
+        "id": "section-3",
+        "title": "§ 3 Ceny a platební podmínky",
+        "content": [
+          "§ 3.1 Platí ceny v době objednávky podle aktuálního ceníku Polaris. Všechny ceny jsou v eurech, plus zákonná daň z přidané hodnoty a případné náklady na dopravu.",
+          "§ 3.2 Není-li dohodnuto jinak, je kupní cena splatná bez srážky do 14 dnů od data vystavení faktury. Rozhodující pro včasnost platby je připsání platby na účet Polaris.",
+          "§ 3.3 V případě prodlení s platbou je Polaris oprávněn účtovat úroky z prodlení ve výši 9 procentních bodů nad příslušnou základní úrokovou sazbou. Uplatnění vyšší škody z prodlení zůstává vyhrazeno.",
+          "§ 3.4 Zákazník má právo na započtení pouze tehdy, pokud byly jeho protinároky pravomocně zjištěny, jsou nesporné nebo byly uznány společností Polaris. Zákazník je oprávněn vykonat zadržovací právo pouze v rozsahu, v jakém se jeho protinárok zakládá na stejném smluvním vztahu.",
+          "§ 3.5 Polaris je oprávněn požadovat u nových zákazníků nebo v případě odůvodněných pochybností o platební schopnosti platbu předem, zálohu nebo jiné jistoty.",
+          "§ 3.6 U opakujících se plnění (předplatné, softwarové licence, cloudové služby, smlouvy o údržbě) probíhá fakturace předem za příslušné zúčtovací období, není-li dohodnuto jinak."
+        ]
+      },
+      {
+        "id": "section-4",
+        "title": "§ 4 Dodání a doprava",
+        "content": [
+          "§ 4.1 Dodání probíhá ze skladu Polaris, resp. přímo od výrobce. Termíny a lhůty dodání jsou závazné pouze tehdy, pokud je Polaris výslovně písemně potvrdil jako závazné.",
+          "§ 4.2 Nebezpečí náhodného zániku a náhodného zhoršení zboží přechází na zákazníka předáním speditérovi, dopravci nebo jiné osobě určené k provedení přepravy.",
+          "§ 4.3 Částečné dodávky jsou přípustné, pokud jsou pro zákazníka přijatelné. Každá částečná dodávka se považuje za samostatný obchod a může být fakturována zvlášť.",
+          "§ 4.4 Pokud je zákazník v prodlení s převzetím nebo zaviněně poruší jiné povinnosti součinnosti, je Polaris oprávněn požadovat náhradu vzniklé škody včetně případných vícenákladů.",
+          "§ 4.5 V případě vyšší moci, provozních poruch, stávek, výluk, úředních nařízení nebo jiných nepředvídatelných událostí se dodací lhůty přiměřeně prodlužují. Polaris bude zákazníka o takových překážkách neprodleně informovat.",
+          "§ 4.6 U teplotně citlivých produktů (např. testovací soupravy, činidla) probíhá přeprava za dodržení předepsaného chladicího řetězce. Zákazník je povinen při dodání zkontrolovat neporušenost a teplotu a případné vady neprodleně reklamovat."
+        ]
+      },
+      {
+        "id": "section-5",
+        "title": "§ 5 Záruka a nároky z vad",
+        "content": [
+          "§ 5.1 Záruční práva zákazníka předpokládají, že řádně splnil své zákonné povinnosti kontroly a reklamace podle § 377 HGB (německý obchodní zákoník). Zjevné vady musí být oznámeny písemně neprodleně, nejpozději do 7 pracovních dnů po obdržení zboží.",
+          "§ 5.2 V případě oprávněných nároků z vad je Polaris oprávněn podle vlastního výběru k opravě nebo náhradní dodávce. Pokud náhradní plnění selže, může zákazník podle svého výběru požadovat slevu nebo odstoupit od smlouvy.",
+          "§ 5.3 Záruční doba činí 12 měsíců od dodání, pokud není uvedena kratší doba trvanlivosti produktu. U testovacích souprav a spotřebního materiálu platí doba trvanlivosti uvedená na obalu.",
+          "§ 5.4 Záruka zaniká v případě neodborného skladování, manipulace nebo použití v rozporu s návodem k použití, při svévolných změnách nebo opravách zákazníkem nebo třetími stranami, jakož i při běžném opotřebení.",
+          "§ 5.5 Záruka na IVD zdravotnické prostředky se omezuje na funkci podle specifikace. Záruka za určité diagnostické výsledky nebo klinická rozhodnutí se nepřebírá."
+        ]
+      },
+      {
+        "id": "section-6",
+        "title": "§ 6 Odpovědnost a omezení odpovědnosti",
+        "content": [
+          "§ 6.1 Polaris ručí neomezeně za škody vzniklé zraněním života, těla nebo zdraví, které jsou založeny na úmyslném nebo nedbalostním porušení povinnosti, jakož i za škody, na které se vztahuje odpovědnost podle zákona o odpovědnosti za výrobek.",
+          "§ 6.2 Za ostatní škody ručí Polaris pouze v případě úmyslu a hrubé nedbalosti, jakož i v případě zaviněného porušení podstatných smluvních povinností. Odpovědnost v případě porušení podstatných smluvních povinností je omezena na smluvně typickou, předvídatelnou škodu.",
+          "§ 6.3 Odpovědnost za nepřímé škody, následné škody, ušlý zisk, ztrátu dat nebo přerušení provozu je vyloučena, pokud se nejedná o úmysl nebo hrubou nedbalost.",
+          "§ 6.4 Polaris neručí za škody, které vzniknou chybnými diagnostickými rozhodnutími, pokud produkt fungoval řádně. Odpovědnost za klinickou interpretaci diagnostických výsledků leží výhradně na zdravotnickém odborném personálu.",
+          "§ 6.5 Výše uvedená vyloučení a omezení odpovědnosti platí také ve prospěch zákonných zástupců, zaměstnanců a pomocníků při plnění společnosti Polaris."
+        ]
+      },
+      {
+        "id": "section-7",
+        "title": "§ 7 Výhrada vlastnictví",
+        "content": [
+          "§ 7.1 Dodané přístroje (zejména Igloo Pro Reader), příslušenství a veškeré softwarové licence zůstávají ve vlastnictví Polaris Diagnostics Europe UG (s ručením omezeným) až do úplného zaplacení všech otevřených pohledávek.",
+          "§ 7.2 Do úplného zaplacení obdrží zákazník pouze odvolatelné, nepřenosné užívací právo k přístroji, softwaru a cloudovým službám.",
+          "§ 7.3 Zákazník je povinen zacházet se zbožím s výhradou vlastnictví šetrně a dostatečně jej pojistit proti ohni, vodě a krádeži. Údržbové a inspekční práce musí být prováděny včas.",
+          "§ 7.4 V případě zabavení nebo jiných zásahů třetích stran musí zákazník neprodleně písemně informovat Polaris a upozornit na vlastnictví Polaris.",
+          "§ 7.5 Další zastavení nebo převod zboží s výhradou vlastnictví jako zajištění není povoleno bez předchozího písemného souhlasu Polaris."
+        ]
+      },
+      {
+        "id": "section-8",
+        "title": "§ 8 Užívací práva k softwaru a cloudovým službám",
+        "content": [
+          "§ 8.1 Užívání softwaru, cloudových služeb a digitálních funkcí je povoleno výhradně zákazníkům, kteří plní své smluvní a finanční závazky.",
+          "§ 8.2 Polaris je oprávněn omezit funkce nebo přístupy, pokud je to nezbytné k ochraně oprávněných zájmů, zejména v případě prodlení s platbou.",
+          "§ 8.3 Cloudové služby jsou poskytovány s dostupností 99,0 % v ročním průměru. Plánovaná údržbová okna jsou oznamována minimálně 48 hodin předem a nepovažují se za výpadek.",
+          "§ 8.4 Zákazník je sám odpovědný za bezpečnost svých přístupových údajů. Při podezření na zneužití je třeba neprodleně informovat Polaris.",
+          "§ 8.5 Užívání softwaru nebo cloudových služeb nad rámec smluvně dohodnutého rozsahu (např. více uživatelů, další zařízení) vyžaduje zvláštní licenční smlouvu."
+        ]
+      },
+      {
+        "id": "section-9",
+        "title": "§ 9 Zablokování při prodlení s platbou",
+        "content": [
+          "§ 9.1 Pokud je zákazník v prodlení s platbou déle než 14 dní, je Polaris po písemném oznámení oprávněn částečně nebo úplně zablokovat přístup k softwaru, cloudovým službám nebo užívání přístroje po uplynutí lhůty 48 hodin.",
+          "§ 9.2 Zablokování slouží výhradně k vymáhání oprávněných platebních nároků a nepředstavuje vadu produktu nebo výpadek služby.",
+          "§ 9.3 Po vyrovnání všech otevřených pohledávek bude přístup neprodleně, nejpozději do 24 hodin, opět uvolněn.",
+          "§ 9.4 Během zablokování zůstávají smluvní platební povinnosti zákazníka v plném rozsahu zachovány. Zablokování nezbavuje povinnosti platit běžné poplatky.",
+          "§ 9.5 Polaris je oprávněn účtovat za odblokování po zablokování přiměřený administrativní poplatek."
+        ]
+      },
+      {
+        "id": "section-10",
+        "title": "§ 10 Odstoupení, zpětné vyžádání a odvolání užívání",
+        "content": [
+          "§ 10.1 Pokud navzdory upomínce a hrozbě zablokování nedojde k platbě do dalších 14 dnů, je Polaris oprávněn odstoupit od smlouvy a vyžádat si přístroj zpět podle výhrady vlastnictví.",
+          "§ 10.2 V tomto případě automaticky zaniká užívací právo k softwaru a cloudovým službám. Zákazník je povinen přístroj neprodleně vydat.",
+          "§ 10.3 Polaris je oprávněn fakturovat zákazníkovi vzniklé náklady na zpětný odběr, dopravu a administrativu.",
+          "§ 10.4 V případě odstoupení je Polaris oprávněn požadovat přiměřenou náhradu za již uskutečněné užívání přístroje.",
+          "§ 10.5 Zákazník nemá nárok na vrácení již zaplacených částek, pokud tyto připadají na poskytnuté služby."
+        ]
+      },
+      {
+        "id": "section-11",
+        "title": "§ 11 Vyloučení vrácení při uvedení zdravotnických prostředků do provozu",
+        "content": [
+          "§ 11.1 Dodané přístroje jsou zdravotnické prostředky in-vitro diagnostiky podle nařízení (EU) 2017/746 (IVDR). Vrácení je vyloučeno, jakmile byl přístroj uveden do provozu nebo použit se vzorky/testovacími soupravami.",
+          "§ 11.2 Zpětný odběr použitých zdravotnických prostředků není z bezpečnostních, hygienických a regulačních důvodů přípustný.",
+          "§ 11.3 Zákazník nemůže v případě prodlení s platbou uplatnit právo na vrácení. Platební povinnost zůstává v plném rozsahu zachována.",
+          "§ 11.4 Neoprávněné vrácení může být společností Polaris odmítnuto nebo zlikvidováno na náklady zákazníka.",
+          "§ 11.5 Testovací soupravy a spotřební materiál jsou zásadně vyloučeny z vrácení, ledaže by se jednalo o vadu produktu.",
+          "§ 11.6 Ustanovení tohoto paragrafu slouží ochraně veřejného zdraví a dodržování regulačních požadavků a jsou proto závazná."
+        ]
+      },
+      {
+        "id": "section-12",
+        "title": "§ 12 Shoda produktu a regulační požadavky",
+        "content": [
+          "§ 12.1 Produkty in-vitro diagnostiky distribuované společností Polaris odpovídají požadavkům nařízení (EU) 2017/746 (IVDR) a nesou označení CE podle platných postupů posuzování shody.",
+          "§ 12.2 Zákazník se zavazuje používat produkty pouze v souladu s jejich určeným účelem, návody k použití a platnými zákonnými předpisy.",
+          "§ 12.3 Zákazník je povinen před použitím produktů zajistit, aby disponoval potřebnými povoleními, schváleními a kvalifikacemi a dodržoval regulační požadavky své země.",
+          "§ 12.4 Při exportu produktů do zemí mimo EU je zákazník sám odpovědný za dodržování tam platných regulačních požadavků. Záruka za schvalitelnost ve třetích zemích se nepřebírá."
+        ]
+      },
+      {
+        "id": "section-13",
+        "title": "§ 13 Vigilance a oznamovací povinnosti",
+        "content": [
+          "§ 13.1 Zákazník se zavazuje neprodleně informovat Polaris o závažných nežádoucích příhodách, poruchách, kvalitativních vadách nebo bezpečnostně relevantních událostech v souvislosti s produkty.",
+          "§ 13.2 Polaris bude v případě hlášení nežádoucích příhod informovat příslušné úřady v souladu s požadavky IVDR a národními oznamovacími systémy a spolupracovat s nimi.",
+          "§ 13.3 Zákazník podporuje Polaris při vyšetřování nežádoucích příhod poskytováním relevantních informací, přístupu k dotčeným produktům a vzorkům a dokumentací okolností použití.",
+          "§ 13.4 V případě bezpečnostních nápravných opatření v terénu (Field Safety Corrective Actions) nebo stahování z trhu je zákazník povinen spolupracovat s Polaris a nařízená opatření neprodleně provést."
+        ]
+      },
+      {
+        "id": "section-14",
+        "title": "§ 14 Zajištění kvality a dokumentace",
+        "content": [
+          "§ 14.1 Zákazník je povinen používat produkty v souladu s přiloženými návody k použití a za dodržování správné laboratorní praxe (GLP).",
+          "§ 14.2 Zákazník provádí vlastní kontroly kvality a řádně je dokumentuje. Polaris poskytuje na vyžádání materiály pro kontrolu kvality.",
+          "§ 14.3 Zákazník uchovává všechny relevantní záznamy o sledovatelnosti šarží, výsledcích testů a kontrolách kvality minimálně po dobu předepsanou v příslušných předpisech.",
+          "§ 14.4 Polaris poskytuje zákazníkovi na vyžádání prohlášení o shodě, certifikáty analýzy, bezpečnostní listy a další dokumentaci k produktu."
+        ]
+      },
+      {
+        "id": "section-15",
+        "title": "§ 15 Školení a technická podpora",
+        "content": [
+          "§ 15.1 Polaris nabízí školení o správném používání produktů. Druh, rozsah a náklady na školení se sjednávají zvlášť.",
+          "§ 15.2 Technická podpora je k dispozici během obvyklé pracovní doby (Po-Pá, 9:00-17:00 SEČ) e-mailem a telefonicky. Rozšířené služby podpory lze sjednat za příplatek.",
+          "§ 15.3 Zákazník zajišťuje, aby produkty obsluhoval pouze příslušně vyškolený personál. Předání obsahu školení třetím stranám vyžaduje předchozí souhlas Polaris.",
+          "§ 15.4 U přístrojů s funkcí dálkové údržby je zákazník oprávněn udělit Polaris dálkový přístup pro účely údržby a podpory. Aktivace dálkového přístupu probíhá pouze s výslovným souhlasem zákazníka."
+        ]
+      },
+      {
+        "id": "section-16",
+        "title": "§ 16 Údržba a servis",
+        "content": [
+          "§ 16.1 Pro přístroje nabízí Polaris smlouvy o údržbě s různým rozsahem služeb. Rozsah, náklady a doba trvání jsou upraveny v samostatných smlouvách o údržbě.",
+          "§ 16.2 Zákazník je povinen dodržovat pravidelné intervaly údržby doporučené výrobcem. Nedodržení může vést k zániku záručních nároků.",
+          "§ 16.3 Opravy a údržbářské práce smí provádět pouze Polaris nebo servisní partneři autorizovaní společností Polaris. Svévolné zásahy vedou k zániku záruky.",
+          "§ 16.4 U oprav přístrojů mimo záruku probíhá fakturace podle skutečných nákladů dle aktuálně platného ceníku, pokud neexistuje smlouva o údržbě."
+        ]
+      },
+      {
+        "id": "section-17",
+        "title": "§ 17 Aktualizace a upgrady softwaru",
+        "content": [
+          "§ 17.1 Polaris poskytuje po dobu trvání aktivní uživatelské smlouvy aktualizace softwaru, které zahrnují opravy chyb a bezpečnostní aktualizace.",
+          "§ 17.2 Funkční rozšíření (upgrady) mohou být zpoplatněna. Zákazník bude informován o dostupných upgradech a může si je dobrovolně zakoupit.",
+          "§ 17.3 Zákazník je povinen bezpečnostně relevantní aktualizace nainstalovat včas. Při nenainstalování může záruka za z toho vyplývající poruchy funkce zaniknout.",
+          "§ 17.4 Polaris si vyhrazuje právo po přiměřené lhůtě oznámení již nepodporovat starší verze softwaru."
+        ]
+      },
+      {
+        "id": "section-18",
+        "title": "§ 18 Ochrana údajů a bezpečnost dat",
+        "content": [
+          "§ 18.1 Polaris zpracovává osobní údaje zákazníka výhradně v rámci platných předpisů o ochraně údajů, zejména GDPR, a v souladu s prohlášením o ochraně osobních údajů na www.polarisdx.net.",
+          "§ 18.2 Pokud Polaris v rámci cloudových služeb získá přístup k osobním údajům pacientů, bude uzavřena samostatná smlouva o zpracování osobních údajů (DPA) podle čl. 28 GDPR.",
+          "§ 18.3 Údaje uložené v cloudu jsou hostovány na serverech v rámci Evropské unie. Předávání do třetích zemí probíhá pouze při dodržení zákonných požadavků.",
+          "§ 18.4 Polaris přijímá přiměřená technická a organizační opatření k ochraně údajů před neoprávněným přístupem, ztrátou nebo zničením. Zákazník je sám odpovědný za bezpečnost svých přístupových údajů.",
+          "§ 18.5 Po ukončení smlouvy budou údaje zákazníka uchovány v souladu se zákonnými povinnostmi uchovávání a následně vymazány, pokud neexistují delší povinnosti uchovávání."
+        ]
+      },
+      {
+        "id": "section-19",
+        "title": "§ 19 Mlčenlivost a důvěrnost",
+        "content": [
+          "§ 19.1 Strany se zavazují zacházet se všemi důvěrnými informacemi, obchodními tajemstvími a know-how získanými v rámci obchodního vztahu přísně důvěrně a nepředávat je třetím stranám.",
+          "§ 19.2 Tato povinnost neplatí pro informace, které jsou veřejně známé, byly příjemci již známy, byly oprávněně získány od třetích stran nebo musí být zveřejněny na základě zákonného nebo úředního nařízení.",
+          "§ 19.3 Povinnost mlčenlivosti trvá i po ukončení obchodního vztahu, minimálně však po dobu pěti let."
+        ]
+      },
+      {
+        "id": "section-20",
+        "title": "§ 20 Duševní vlastnictví",
+        "content": [
+          "§ 20.1 Všechna práva k ochranným známkám, patentům, autorským právům, softwaru, designům, know-how a dalším průmyslovým právům zůstávají u Polaris nebo příslušných držitelů práv.",
+          "§ 20.2 Zákazník obdrží nevýhradní, nepřenosné užívací právo k softwaru v rozsahu příslušné licenční smlouvy. Udělování podlicencí, předávání nebo rozmnožování je bez písemného souhlasu zakázáno.",
+          "§ 20.3 Reverzní inženýrství, dekompilace nebo jiné pokusy o zjištění zdrojového kódu softwaru jsou zakázány, pokud to není povoleno kogentními zákonnými předpisy.",
+          "§ 20.4 Zákazník smí používat ochranné známky a loga Polaris pouze s předchozím písemným svolením a v souladu se směrnicemi pro ochranné známky Polaris."
+        ]
+      },
+      {
+        "id": "section-21",
+        "title": "§ 21 Kontrola exportu a sankce",
+        "content": [
+          "§ 21.1 Zákazník se zavazuje dodržovat všechny platné exportní a importní předpisy i sankční ustanovení EU, Německa a případně dalších relevantních jurisdikcí.",
+          "§ 21.2 Zákazník zaručuje, že dodané produkty nebudou přímo ani nepřímo exportovány do zemí, na které jsou uvalena embarga, nebo dodávány osobám či zařízením na sankčních seznamech.",
+          "§ 21.3 V případě porušení předpisů o kontrole exportu nebo sankčních předpisů ručí zákazník sám za všechny z toho vzniklé škody a zprošťuje Polaris veškerých nároků třetích stran."
+        ]
+      },
+      {
+        "id": "section-22",
+        "title": "§ 22 Doba trvání smlouvy a výpověď",
+        "content": [
+          "§ 22.1 Kupní smlouvy na jednotlivé produkty končí úplným splněním. Trvající závazkové vztahy (softwarové licence, cloudové služby, smlouvy o údržbě) mají dobu trvání stanovenou v příslušných smlouvách.",
+          "§ 22.2 Není-li dohodnuto jinak, prodlužují se trvající závazkové vztahy automaticky o dalších 12 měsíců, pokud nejsou vypovězeny s lhůtou 3 měsíců ke konci doby trvání.",
+          "§ 22.3 Právo na mimořádnou výpověď ze závažného důvodu zůstává nedotčeno. Závažný důvod existuje zejména v případech podstatného porušení smlouvy, platební neschopnosti, zahájení insolvenčního řízení nebo porušení regulačních požadavků.",
+          "§ 22.4 Při výpovědi nebo ukončení smlouvy zanikají všechna užívací práva k softwaru a cloudovým službám. Zákazník může svá data exportovat do 30 dnů po ukončení smlouvy.",
+          "§ 22.5 Již zaplacené poplatky za nevyužitá smluvní období se nevracejí, ledaže by výpověď podal zákazník z důvodů, za které odpovídá Polaris."
+        ]
+      },
+      {
+        "id": "section-23",
+        "title": "§ 23 Řešení sporů a soudní příslušnost",
+        "content": [
+          "§ 23.1 Strany se zavazují, že se ve sporech vyplývajících z této smlouvy nebo v souvislosti s ní nejprve pokusí o smírné řešení.",
+          "§ 23.2 Výlučným soudem pro všechny spory z tohoto smluvního vztahu je sídlo Polaris, pokud je zákazník obchodník, právnická osoba veřejného práva nebo veřejnoprávní zvláštní fond.",
+          "§ 23.3 Polaris je oprávněn žalovat zákazníka i u jeho obecného soudu.",
+          "§ 23.4 Účast v řízení o řešení sporů před spotřebitelskou rozhodčí radou není zamýšlena a nenabízí se, protože VOP jsou určeny výhradně podnikatelům."
+        ]
+      },
+      {
+        "id": "section-24",
+        "title": "§ 24 Rozhodné právo",
+        "content": [
+          "§ 24.1 Platí právo Spolkové republiky Německo s vyloučením Úmluvy OSN o smlouvách o mezinárodní koupi zboží (CISG) a kolizních norem mezinárodního práva soukromého.",
+          "§ 24.2 Pokud kogentní předpisy práva v místě obvyklého pobytu zákazníka stanoví pro zákazníka výhodnější ustanovení, použijí se tato ustanovení."
+        ]
+      },
+      {
+        "id": "section-25",
+        "title": "§ 25 Závěrečná ustanovení",
+        "content": [
+          "§ 25.1 Změny a doplňky těchto VOP vyžadují k účinnosti písemnou formu. To platí i pro zrušení tohoto požadavku písemné formy.",
+          "§ 25.2 Pokud by jednotlivá ustanovení těchto VOP byla zcela nebo zčásti neplatná nebo neproveditelná, nebo by se takovými stala, není tím dotčena účinnost ostatních ustanovení. Namísto neplatného nebo neproveditelného ustanovení nastoupí takové platné a proveditelné ustanovení, které se hospodářskému účelu neplatného ustanovení nejvíce blíží.",
+          "§ 25.3 Polaris si vyhrazuje právo tyto VOP kdykoli změnit s účinností do budoucna. Změny budou zákazníkovi oznámeny minimálně 4 týdny před jejich účinností písemně nebo e-mailem. Pokud zákazník do 4 týdnů od doručení oznámení nevznese námitku, považují se změny za schválené.",
+          "§ 25.4 Ústní vedlejší ujednání neexistují. Všechny dohody jsou sepsány písemně.",
+          "§ 25.5 Rozhodující je německé znění těchto VOP. Překlady slouží pouze pro informaci a nezakládají žádná vlastní práva."
+        ]
+      }
+    ]
+  }
+}

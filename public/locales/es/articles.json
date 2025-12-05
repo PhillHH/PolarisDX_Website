@@ -1,166 +1,392 @@
 {
+  "green_practice": {
+    "title": "La 'Práctica Verde': Por qué el camino hacia la sostenibilidad comienza en la sala de espera",
+    "excerpt": "La sostenibilidad en la atención sanitaria no comienza con paneles solares, sino con la logística de diagnóstico. Un alegato a favor del Point-of-Care.",
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Introducción",
+        "paragraphs": [
+          "La sostenibilidad ya no es solo un tema de estilo de vida. Es una necesidad económica y ética que ahora también ha llegado al sector sanitario. Pero mientras se habla mucho de oficinas sin papel e iluminación de bajo consumo, a menudo se pasa por alto el 'elefante en la habitación' de la huella ecológica médica: la logística de diagnóstico. Por qué las pruebas Point-of-Care (PoC) con dispositivos como el IGLO-PRO no solo ahorran tiempo, sino que son el paso decisivo hacia la reducción de CO2 en la medicina moderna.",
+          "Imagine una mañana normal en una consulta de medicina general alemana. A las 11:00, se han tomado docenas de muestras de sangre. Estos tubos se empaquetan, se sellan en bolsas de plástico, se enfrían en cajas de poliestireno y esperan al mensajero.",
+          "A las 12:00, llega una furgoneta diésel. Ya ha visitado otras diez consultas y visitará diez más antes de luchar para volver al laboratorio central a través del tráfico de la ciudad. Una vez allí, comienza un proceso de análisis intensivo en energía. Recibe el resultado – en el mejor de los casos – digitalmente por la noche, pero a menudo solo al día siguiente por fax o carta.",
+          "Este proceso es el estándar. Está probado. Y desde un punto de vista ecológico, es un desastre."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "La huella de CO2 invisible del diagnóstico central",
+        "paragraphs": [
+          "En la discusión sobre 'Green Health', a menudo nos centramos en factores obvios: separación de residuos, electricidad verde o expedientes digitales de pacientes. Estos son pasos importantes. Pero el esfuerzo logístico detrás de un simple análisis de sangre es gigantesco cuando se extrapola a las miles de consultas.",
+          "Cada muestra que no se analiza en la consulta provoca una cadena de emisiones:"
+        ],
+        "listItems": [
+          "Viajes de mensajería: Las recogidas diarias suman millones de kilómetros al año, a menudo en tráfico ineficiente de parar y arrancar en los centros de las ciudades.",
+          "Residuos de embalaje: Las regulaciones de seguridad requieren mucho plástico de un solo uso, acumuladores de frío y embalajes de transporte.",
+          "Energía: Los grandes laboratorios son centros de alto rendimiento que deben estar climatizados y operar las 24 horas."
+        ]
+      },
+      {
+        "type": "infobox",
+        "heading": "Descentralización como clave para la sostenibilidad",
+        "content": "Dispositivos como el IGLO-PRO de Polaris DX marcan un cambio de paradigma. Desplazan el análisis del gran laboratorio lejano directamente al lugar de la acción: al escritorio del médico o directamente al domicilio del paciente. El cálculo ecológico es sorprendentemente simple: Un análisis que nunca sale de la consulta no causa tráfico de transporte."
+      },
+      {
+        "type": "key_points",
+        "heading": "Cuando la logística desaparece",
+        "points": [
+          { "title": "Sin mensajero", "description": "La muestra va del dedo del paciente directamente al dispositivo. Distancia: 30 centímetros." },
+          { "title": "Sin residuos de embalaje", "description": "Sin tubos de transporte, sin avalancha de etiquetas, sin bolsas de seguridad." },
+          { "title": "Micrometodología", "description": "En lugar de procesar mililitros de sangre venosa, una sola gota de sangre capilar es suficiente." }
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "'Green Health' como ventaja competitiva",
+        "paragraphs": [
+          "¿Por qué debería priorizar esto como propietario de una consulta o gerente de una clínica? Además de la responsabilidad ética, la sostenibilidad se está convirtiendo en una verdadera ventaja competitiva: el llamado sello 'Green Practice'.",
+          "Los pacientes de hoy están más informados y son más críticos. Una consulta que no solo está médicamente al día, sino que también demuestra responsabilidad por el medio ambiente y los recursos, vincula a los pacientes más emocionalmente. Si le explica a un paciente: 'Tenemos su resultado en 5 minutos, e incluso protegemos el medio ambiente porque no tenemos que enviar mensajeros por la ciudad', entonces esa es una narrativa fuerte. Muestra: Esta consulta es moderna, eficiente y responsable.",
+          "Esto también juega un papel en la 'guerra por el talento'. Los jóvenes asistentes médicos (MFA) y médicos asistentes buscan empleadores cuyos valores coincidan con los suyos. Un equipamiento altamente moderno y sostenible con herramientas digitales como el IGLO-PRO y la conexión DX365 parece atractivo y progresivo."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Eficiencia y ecología: El doble dividendo",
+        "paragraphs": [
+          "Sin embargo, el argumento más fuerte para cambiar al diagnóstico PoC es que la sostenibilidad aquí no significa sacrificio. Al contrario: La eficiencia ecológica conduce a la eficiencia económica.",
+          "En la 'Práctica Verde', los procesos se entrelazan perfectamente:"
+        ],
+        "listItems": [
+          "Viaje del paciente: El paciente llega con quejas.",
+          "Diagnóstico: La medición (por ejemplo, PCR para distinguir viral/bacteriano) se realiza de inmediato.",
+          "Terapia: La decisión se toma en la misma cita.",
+          "Resultado: El paciente se va a casa con claridad."
+        ]
+      },
+      {
+        "type": "text",
+        "paragraphs": [
+          "Compare esto con la vieja manera: Paciente llega -> Extracción de sangre -> Paciente se va -> Viaje al laboratorio -> Llega el hallazgo -> Médico revisa el hallazgo -> Consulta llama al paciente -> Paciente vuelve para discusión.",
+          "Cada segunda cita evitada no solo ahorra tiempo a su personal en la recepción y al teléfono. También le ahorra al paciente el viaje. Si evitamos 100 visitas de retorno innecesarias por trimestre, hemos ahorrado 200 viajes en coche (ida y vuelta). Eso es reducción activa de CO2 a través de la optimización de procesos."
+        ]
+      },
+      {
+        "type": "infobox",
+        "heading": "La tecnología está madura",
+        "content": "Durante mucho tiempo, el argumento fue que las pruebas rápidas no alcanzan la calidad de los valores de laboratorio y, por lo tanto, son 'solo' un complemento. Con la nueva generación de dispositivos como el IGLO-PRO, este argumento está fuera de la mesa. Hablamos de 'Lab-Quality to Go'. A través de la integración en ecosistemas digitales como la nube DX365, los datos también se documentan de forma segura e inmediata."
+      },
+      {
+        "type": "text",
+        "heading": "Conclusión: Un pequeño pinchazo para el paciente, un gran paso para el medio ambiente",
+        "paragraphs": [
+          "La transformación del sistema sanitario hacia una mayor sostenibilidad no tendrá éxito a través de una sola medida enorme. Tiene éxito a través de miles de pequeños cambios de proceso en las consultas locales.",
+          "La decisión por el diagnóstico móvil es tal cambio. Es una 'obviedad': Ahorra tiempo, mejora la experiencia del paciente, alivia a su equipo y, de paso, hace una contribución medible a la protección del clima al sacar la logística innecesaria de la carretera.",
+          "La 'Práctica Verde' no es una tendencia que desaparecerá. Es el nuevo estándar de oro. Y con el equipo adecuado, es más fácil de lograr de lo que piensa."
+        ]
+      }
+    ]
+  },
+  "invisible_patient": {
+    "title": "El paciente invisible: Cómo el monitoreo remoto libera a la medicina de la consulta",
+    "excerpt": "El paciente ya no tiene que acudir al médico para que se realice el diagnóstico. Cómo IGLO-PRO y DX365 permiten el 'Hospital en casa'.",
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Introducción",
+        "paragraphs": [
+          "Nos dirigimos a una 'tormenta perfecta' en la atención sanitaria. Una sociedad que envejece se encuentra con una dramática escasez de médicos, especialmente en las regiones rurales. Los pacientes asumen horas de conducción y salas de espera llenas solo para que se controlen los valores de rutina. Pero, ¿y si el paciente no tuviera que acudir al diagnóstico en absoluto? Con la combinación de tecnología de laboratorio móvil y conectividad en la nube, el concepto de 'Hospital en casa' finalmente se está convirtiendo en realidad.",
+          "Imagine a la 'Sra. Müller'. Tiene 78 años, vive en un pequeño pueblo y sufre de diabetes tipo 2 e insuficiencia cardíaca incipiente. Su médico de cabecera ejerce en la siguiente ciudad del distrito, a 25 kilómetros de distancia. Para cada control de HbA1c y cada control de presión arterial, está en la carretera medio día. A menudo pospone las citas porque la carga es demasiado grande. Sus valores se deterioran sin que nadie se dé cuenta. Se convierte en la 'paciente invisible', hasta la próxima emergencia."
+        ]
+      },
+      {
+        "type": "infobox",
+        "heading": "Los datos viajan, no el paciente",
+        "content": "La solución radica en desacoplar la experiencia médica y la presencia física. Lo llamamos Monitoreo Remoto de Pacientes (RPM). La idea es simple: La recopilación de datos tiene lugar donde está el paciente. El análisis y la toma de decisiones tienen lugar donde está el médico."
+      },
+      {
+        "type": "text",
+        "paragraphs": [
+          "Hasta ahora, el RPM a menudo fallaba debido a dos obstáculos:",
+          "Falta de calidad de los datos: Los relojes de fitness son agradables, pero ningún médico cambia una dosis de insulina basándose en una estimación de un reloj inteligente.",
+          "Falta de conectividad: Los dispositivos médicos profesionales a menudo estaban 'fuera de línea' y requerían la transferencia manual de valores (Fuente de error n.º 1).",
+          "Aquí es donde el ecosistema de Polaris DX cierra la brecha."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "El dúo dinámico: IGLO-PRO se encuentra con DX365",
+        "paragraphs": [
+          "La revolución en el monitoreo remoto se basa en la fusión perfecta de hardware y software.",
+          "El IGLO-PRO ofrece la calidad de laboratorio necesaria. No estamos hablando de parámetros de estilo de vida, sino de datos clínicos duros: HbA1c, lípidos, PCR. Valores que anteriormente hacían inevitable una visita al laboratorio. Dado que el dispositivo es móvil y funciona con batería, cabe en la bolsa de cada enfermera comunitaria, cada servicio de enfermería o puede entregarse como dispositivo de préstamo a pacientes crónicos.",
+          "Pero un valor en una pantalla es de poca utilidad para el médico distante. Aquí es donde entra en juego DX365.",
+          "DX365 es el puente digital. Tan pronto como el IGLO-PRO determina un valor, este se transmite de forma segura y cifrada a la nube (previa confirmación). Este valor aparece en tiempo real en el panel del médico tratante, independientemente de si está a 500 metros o a 500 kilómetros de distancia."
+        ]
+      },
+      {
+        "type": "key_points",
+        "heading": "Un escenario del futuro (posible hoy)",
+        "points": [
+          { "title": "Visita a domicilio", "description": "Una vez a la semana, pasa el servicio de enfermería móvil o una asistente de atención." },
+          { "title": "Análisis inmediato", "description": "Con el IGLO-PRO se toma una gota de sangre capilar en el lugar, en la sala de estar. Los valores están disponibles de inmediato." },
+          { "title": "Datos en tiempo real", "description": "Mientras la Sra. Müller toma su café, su médico de cabecera en la ciudad ve los valores actuales de HbA1c y lípidos en su portal DX365." },
+          { "title": "Receta y ajuste", "description": "Detecta un ligero deterioro, ajusta la medicación y envía la nueva receta directamente como receta electrónica a la farmacia del pueblo de la Sra. Müller." }
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Seguridad como máxima prioridad",
+        "paragraphs": [
+          "Cuando los datos de salud salen de la consulta, las alarmas suenan con razón para muchos. La protección de datos no es una opción, sino el fundamento.",
+          "Soluciones como DX365 deben vivir 'Security by Design'. Esto significa: Cifrado de extremo a extremo y ubicaciones de servidores sujetas al RGPD. La ventaja de las soluciones modernas en la nube sobre las viejas máquinas de fax o los correos electrónicos no cifrados (que lamentablemente todavía se utilizan) es masiva. En un ecosistema cerrado como el de Polaris DX, las personas no autorizadas no tienen acceso. El médico define quién puede ver qué."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Ventajas para la práctica moderna",
+        "paragraphs": [
+          "Para médicos y clínicas, el RPM no es solo un servicio al paciente, es una palanca de eficiencia masiva."
+        ],
+        "listItems": [
+          "Alivio de la infraestructura: Cada medición que se realiza de forma remota es un paciente menos en la abarrotada sala de espera. Esto crea espacio y tiempo para casos agudos que realmente necesitan un examen físico.",
+          "Mejor ajuste de la terapia: En lugar de una 'instantánea' cada tres meses, los médicos reciben historiales de datos más ajustados. Las terapias se pueden ajustar con mayor precisión, previniendo complicaciones a largo plazo.",
+          "Nuevos modelos de facturación: El sistema sanitario se está abriendo lentamente a los servicios de telemedicina. Quienes construyan la infraestructura ahora están mejor posicionados para las próximas reformas."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Conclusión: Tecnología que crea cercanía humana",
+        "paragraphs": [
+          "Puede sonar paradójico, pero más tecnología puede conducir a más humanidad en la medicina. Si automatizamos y descentralizamos la recopilación rutinaria de datos, liberamos a los médicos y al personal de enfermería de cargas burocráticas y obstáculos logísticos.",
+          "El 'paciente invisible' se vuelve visible a través de los datos. Podemos cuidar de las personas sin que tengan que sentarse frente a nosotros.",
+          "El IGLO-PRO en combinación con DX365 es más que un dispositivo de medición. Es un brazo extendido de la consulta que llega hasta la sala de estar del paciente. Es hora de liberar a la medicina de sus ataduras."
+        ]
+      }
+    ]
+  },
+  "five_minute_diagnosis": {
+    "title": "El diagnóstico de 5 minutos: Por qué el Point-of-Care es un cambio de juego económicamente también",
+    "excerpt": "El tiempo es dinero, especialmente en la práctica. Un análisis económico de por qué el IGLO-PRO es más rentable que el laboratorio central.",
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Introducción",
+        "paragraphs": [
+          "Cuando los médicos hablan de diagnóstico, generalmente se trata de sensibilidad, especificidad y relevancia clínica. Cuando los gerentes de consulta miran el diagnóstico, a menudo ven solo un factor de coste. Pero este cálculo está obsoleto. En la economía moderna de la práctica, el precio de la tira reactiva no es la variable decisiva, sino el recurso que no podemos comprar: el tiempo. Un análisis de por qué el IGLO-PRO es, en última instancia, más rentable que el laboratorio central.",
+          "'El tiempo es dinero'. Es el cliché más antiguo en administración de empresas, pero en las consultas médicas nunca ha sido tan cierto como hoy. Los topes presupuestarios, la escasez de personal y el aumento del número de pacientes obligan a los profesionales a repensar radicalmente sus procesos.",
+          "El camino clásico del diagnóstico de laboratorio es, desde una perspectiva empresarial, una pesadilla de procesos. Se caracteriza por interrupciones de medios, tiempos de espera y pasos de trabajo redundantes. El uso de sistemas modernos Point-of-Care (PoC) como el IGLO-PRO ofrece una salida aquí que vale la pena en efectivo."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "El iceberg de costes ocultos del diagnóstico central",
+        "paragraphs": [
+          "Muchos médicos comparan manzanas con naranjas: Contrastan los costes de una remisión al laboratorio (casi cero para la consulta, ya que se factura externamente) con los costes de adquisición y material de una prueba PoC. A primera vista, el laboratorio externo siempre parece más barato. Pero ese es un cálculo ingenuo. Ignora los costes del proceso."
+        ]
+      },
+      {
+        "type": "table",
+        "heading": "Comparación: Laboratorio Central vs. Flujo de Trabajo IGLO-PRO",
+        "headers": ["Paso", "Diagnóstico Central (Clásico)", "IGLO-PRO (Modelo de una visita)"],
+        "rows": [
+          ["Día 1", "Paciente llega, punción venosa, preparar muestra logísticamente (8 min)", "Paciente llega, sangre capilar en el dedo, análisis se ejecuta en paralelo (3 min)"],
+          ["Día 2", "Llega el hallazgo (Fax/Transferencia de datos), médico revisa, asistente llama (10-15 min)", "Sin proceso (Todo hecho)"],
+          ["Día 3", "Nueva cita para discusión (Tiempo de recepción + Tiempo de médico)", "Sin proceso (Todo hecho)"],
+          ["Resultado", "Expediente tocado 3x, 2 citas bloqueadas, personal ocupado", "Expediente tocado 1x, 1 cita, paciente se va con claridad"]
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "El ROI (Retorno de la Inversión) del tiempo del asistente",
+        "paragraphs": [
+          "Calculemos de forma conservadora. Si ahorra la llamada telefónica posterior y el trabajo administrativo para solo 10 pacientes al día utilizando diagnósticos instantáneos, y estimamos solo 5 minutos por proceso, ahorra 50 minutos de tiempo de trabajo del asistente por día.",
+          "Extrapolado al mes, son aprox. 16 horas. Eso son dos días completos de trabajo de un especialista no dedicados al teléfono, sino a servicios facturables, atención al paciente o simplemente terminar el trabajo a tiempo (lo que aumenta masivamente la retención de empleados)."
+        ]
+      },
+      {
+        "type": "infobox",
+        "heading": "Liquidez a través de servicios opcionales y chequeos",
+        "content": "Además del ahorro de costes a través de la optimización de procesos, el IGLO-PRO abre nuevas fuentes de ingresos. Un panel de lípidos o un valor de HbA1c como servicio preventivo se puede ofrecer de manera excelente como un servicio opcional. Muchos pacientes eligen la opción instantánea. La creación de valor permanece al 100% en su consulta en lugar de fluir hacia el gran laboratorio."
+      },
+      {
+        "type": "text",
+        "heading": "DX365: La automatización ahorra burocracia",
+        "paragraphs": [
+          "Un contraargumento común al PoC solía ser la documentación. 'Entonces tengo que escribir el valor en el PC manualmente'. Con la integración de DX365, este argumento está fuera de la mesa. El IGLO-PRO envía los datos sin problemas a su infraestructura digital. Esto elimina errores de transmisión y asegura que la documentación sea a prueba de auditorías. La automatización es la clave para la escalabilidad."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Conclusión: Inversión en calma y orden",
+        "paragraphs": [
+          "La adquisición de un sistema PoC moderno es una inversión. Pero no es un gasto en 'lujo', sino una inversión en estabilidad de procesos.",
+          "Una consulta que trabaja en el 'Modelo de una visita' es más tranquila. La sala de espera está menos llena porque los pacientes no tienen que volver para discusiones de 2 minutos. El teléfono suena menos a menudo porque los pacientes no tienen que preguntar por sus valores: ya los tienen.",
+          "En tiempos de escasez de trabajadores cualificados, un entorno de trabajo libre de estrés es la mayor palanca económica que tiene. El IGLO-PRO le ayuda no solo a practicar una mejor medicina, sino a gestionar su consulta como un negocio eficiente."
+        ]
+      }
+    ]
+  },
   "ecosystem_of_rapid_tests": {
-    "title": "El ecosistema de las pruebas rápidas: Por qué la compatibilidad crea seguridad",
+    "title": "El ecosistema de pruebas rápidas: Por qué la compatibilidad crea seguridad",
     "excerpt": "De PCR a TSH: Dominando la complejidad de las pruebas de flujo lateral compatibles.",
     "sections": [
       {
         "heading": "Introducción",
         "paragraphs": [
-          "El diagnóstico en el punto de atención (POC) prospera gracias a la flexibilidad. Un moderno sistema multilector, como el IglooPro, ofrece la capacidad de medir una amplia gama de parámetros, desde marcadores de infección como la PCR hasta valores endocrinos como la TSH, utilizando pruebas de flujo lateral (LFT). Esta versatilidad es una gran ventaja, pero alberga un desafío sutil pero crítico: la trampa de la compatibilidad y la seguridad.",
-          "La calidad analítica de un resultado de medición depende al 100 por ciento de la interacción entre el lector POC y el LFT específico. El asesoramiento especializado y una clara garantía de compatibilidad son esenciales para eliminar el riesgo de errores de medición, inventario incorrecto y diagnósticos erróneos."
+          "El Diagnóstico Point-of-Care (POC) prospera gracias a la flexibilidad. Un moderno sistema multilector, como el IglooPro, ofrece la capacidad de medir una amplia gama de parámetros, desde marcadores de infección como PCR hasta valores endocrinos como TSH, utilizando pruebas de flujo lateral (LFT). Esta versatilidad es una gran ventaja, pero alberga un desafío sutil pero crítico: la trampa de la compatibilidad y la seguridad.",
+          "La calidad analítica de un resultado de medición depende al 100 por cien de la interacción entre el lector POC y la LFT específica. El asesoramiento especializado y una clara garantía de compatibilidad son esenciales para eliminar el riesgo de errores de medición, inventario incorrecto y diagnósticos erróneos."
         ]
       },
       {
         "heading": "1. El peligro oculto: Incompatibilidad",
         "paragraphs": [
-          "Las pruebas de flujo lateral son tiras cromatográficas complejas. Difieren no solo por el analito a detectar (por ejemplo, troponina, dímero D), sino también en sus propiedades físicas y químicas relevantes para el lector:"
+          "Las pruebas de flujo lateral son tiras cromatográficas de construcción compleja. Difieren no solo por el analito a detectar (por ejemplo, Troponina, Dímero D), sino también en sus propiedades físicas y químicas relevantes para el lector:"
         ],
         "listItems": [
-          "Calibración específica del lote: Como se explica en el ARTÍCULO 1, cada lote de prueba requiere una curva de calibración específica. Si se utiliza un LFT de un lote incompatible o no validado, el lector entrega valores cuantitativos imprecisos o completamente incorrectos.",
+          "Calibración específica del lote: Como se explicó en el ARTÍCULO 1, cada lote de prueba requiere una curva de calibración específica. Si se utiliza una LFT de un lote incompatible o no validado, el lector entrega valores cuantitativos imprecisos o completamente incorrectos.",
           "Propiedades ópticas: La estructura de la membrana, el color de las partículas marcadoras (por ejemplo, oro coloidal o marcadores fluorescentes) y la posición de las líneas de prueba pueden variar mucho de un fabricante a otro. Un lector universal debe saber exactamente qué parámetros leer para qué tipo de casete de prueba.",
-          "Casetes de prueba defectuosos: El uso del casete de prueba incorrecto para el analito seleccionado en el lector a menudo conduce a resultados inespecíficos o errores técnicos que detienen el flujo de trabajo de diagnóstico."
+          "Casetes de prueba defectuosos: El uso del casete de prueba incorrecto para el analito seleccionado en el lector a menudo conduce a resultados inespecíficos o errores técnicos que detienen el flujo de trabajo diagnóstico."
         ]
       },
       {
-        "heading": "2. El principio del ecosistema: Asesoramiento y Garantía",
+        "heading": "2. El principio del ecosistema: Asesoramiento y garantía",
         "paragraphs": [
-          "La forma más segura de dominar esta complejidad es ver la configuración de POC como un ecosistema de diagnóstico cerrado. Aquí, el proveedor asume la responsabilidad de la perfecta coordinación de todos los componentes.",
-          "A. El papel del asesoramiento especializado: En lugar de dejar a los consultorios y farmacias solos con la selección de cientos de productos LFT, el asesoramiento estratégico es crucial. Estos expertos ayudan con la decisión de la cartera identificando los parámetros de diagnóstico requeridos (por ejemplo, inflamación, coagulación, cardiología) y reuniendo los LFT compatibles óptimos.",
+          "La forma más segura de dominar esta complejidad es ver la configuración de POC como un ecosistema diagnóstico cerrado. Aquí, el proveedor asume la responsabilidad de la perfecta coordinación de todos los componentes.",
+          "A. El papel del asesoramiento especializado: En lugar de dejar a las consultas y farmacias solas con la selección entre cientos de productos LFT, el asesoramiento estratégico es crucial. Estos expertos ayudan con la decisión de la cartera identificando los parámetros diagnósticos requeridos (por ejemplo, inflamación, coagulación, cardiología) y reuniendo las LFT óptimas y compatibles.",
           "El resultado es un flujo de trabajo ágil y altamente seguro adaptado a las necesidades específicas de la instalación.",
           "B. La garantía de compatibilidad como red de seguridad: El valor añadido más importante es la garantía de funcionalidad. Esto significa que el lector POC no solo es técnicamente capaz de leer varias pruebas, sino que el proveedor también garantiza la validez analítica de cada combinación específica de lector y lote de prueba."
         ],
         "listItems": [
-          "Validación en el sistema: Confirmación de que los resultados de medición del LFT junto con el lector específico cumplen con los requisitos clínicos.",
-          "Control automático: El lector debe ser capaz de detectar automáticamente qué prueba se ha insertado (por ejemplo, mediante código de barras o RFID) y solo realizar la medición con la curva de calibración validada correspondiente. En caso de incompatibilidad, se produce un bloqueo de QC o un mensaje de advertencia."
+          "Validación en el sistema: Confirmación de que los resultados de medición de la LFT junto con el lector específico cumplen con los requisitos clínicos.",
+          "Control automático: El lector debe ser capaz de detectar automáticamente qué prueba se ha insertado (por ejemplo, a través de código de barras o RFID) y solo realizar la medición con la curva de calibración validada correspondiente. En caso de incompatibilidad, se produce un bloqueo de control de calidad o un mensaje de advertencia."
         ]
       },
       {
-        "heading": "3. Efectos sobre el flujo de trabajo y la seguridad del paciente",
+        "heading": "3. Efectos en el flujo de trabajo y la seguridad del paciente",
         "paragraphs": [
           "La selección estratégica y la garantía de compatibilidad tienen efectos positivos directos en la práctica diaria:",
           "Reducción de errores: El número de mediciones defectuosas o inválidas se reduce drásticamente ya que el sistema excluye proactivamente las incompatibilidades.",
           "Gestión de inventario: Se evita el almacenamiento de casetes de prueba incompatibles o inutilizables debido a compras incorrectas.",
-          "Cadena ininterrumpida de precisión: Solo cuando los LFT, el lector y la conexión de TI (como se describe en el ARTÍCULO 2) funcionan juntos de manera perfecta y garantizada, el diagnóstico rápido POC puede ofrecer la misma seguridad y fiabilidad que el laboratorio central."
+          "Cadena ininterrumpida de precisión: Solo cuando las LFT, el lector y la conexión informática (como se describe en el ARTÍCULO 2) funcionan juntos sin problemas y con garantía, el diagnóstico rápido POC puede ofrecer la misma seguridad y fiabilidad que el laboratorio central."
         ]
       },
       {
         "heading": "Conclusión: Seguridad a través de la sinergia",
         "paragraphs": [
-          "La fuerza de un multilector reside en su capacidad para cubrir un amplio espectro diagnóstico. Sin embargo, esta fuerza solo puede liberarse a través de un ecosistema integral y seguro de pruebas compatibles. Quien invierte en un lector POC debería invertir simultáneamente en la experiencia y la garantía que asegura su cartera de diagnóstico. Así, la flexibilidad no se convierte en un riesgo, sino en la forma más alta de seguridad del paciente."
+          "La fuerza de un multilector radica en su capacidad para cubrir un amplio espectro diagnóstico. Sin embargo, esta fuerza solo se puede liberar a través de un ecosistema integral y seguro de pruebas compatibles. Aquellos que invierten en un lector POC deben invertir simultáneamente en la experiencia y la garantía que asegura su cartera de diagnósticos. Así, la flexibilidad no se convierte en un riesgo, sino en la forma más alta de seguridad del paciente."
         ]
       }
     ]
   },
   "48_hour_formula": {
     "title": "La fórmula de 48 horas: Eficiencia en el diagnóstico POC",
-    "excerpt": "Eficiencia en lugar de capacitación: El camino hacia la preparación operativa inmediata en la práctica.",
+    "excerpt": "Eficiencia en lugar de formación: El camino hacia la preparación operativa inmediata en la práctica.",
     "sections": [
       {
         "heading": "Introducción",
         "paragraphs": [
-          "La decisión de adquirir nuevos dispositivos de diagnóstico en el punto de atención (POC) es a menudo el primer paso hacia una mejor atención al paciente. Sin embargo, el camino desde la adquisición hasta la plena preparación operativa a menudo se subestima. La capacitación prolongada, los obstáculos administrativos y la compleja integración de TI consumen un tiempo valioso y atan al personal cuyo enfoque debería estar en el paciente.",
-          "Este cuello de botella es cosa del pasado. Los conceptos de soporte modernos revolucionan la puesta en marcha y reducen el esfuerzo para consultorios y farmacias al mínimo. La clave es el enfoque de 'Configuración remota', que garantiza la preparación operativa inmediata en solo 48 horas."
+          "La decisión de adquirir nuevos dispositivos de diagnóstico Point-of-Care (POC) es a menudo el primer paso hacia una mejor atención al paciente. Sin embargo, el camino desde la adquisición hasta la plena preparación operativa a menudo se subestima. La formación prolongada, los obstáculos administrativos y la compleja integración informática consumen un tiempo valioso y atan al personal cuyo enfoque debería estar en el paciente.",
+          "Este cuello de botella es cosa del pasado. Los conceptos de soporte modernos revolucionan la puesta en marcha y reducen el esfuerzo para las consultas y farmacias al mínimo. La clave es el enfoque de 'Configuración remota', que garantiza la preparación operativa inmediata en solo 48 horas."
         ]
       },
       {
         "heading": "1. El dilema de la eficiencia: Por qué falla la integración tradicional",
         "paragraphs": [
-          "Tradicionalmente, la integración de un nuevo sistema POC requiere varios pasos que consumen mucho tiempo y que a menudo llevan semanas:"
+          "Tradicionalmente, integrar un nuevo sistema POC requiere varios pasos que consumen mucho tiempo y que a menudo toman semanas:"
         ],
         "listItems": [
-          "Capacitación administrativa y regulatoria: Capacitación del personal con respecto a la gestión de calidad (por ejemplo, según RiliBÄK o Qualab) y protocolos internos.",
+          "Formación administrativa y regulatoria: Formación del personal con respecto a la gestión de calidad (por ejemplo, según RiliBÄK o Qualab) y protocolos internos.",
           "Configuración técnica y calibración: Puesta en marcha inicial manual y calibración específica del lote del dispositivo.",
-          "Conexión de TI e intercambio de datos: La compleja conexión bidireccional entre el lector POC y el sistema de gestión de consultorios o farmacias (PVS/AVS)."
+          "Conexión informática e intercambio de datos: La compleja conexión bidireccional entre el lector POC y el sistema de gestión de la consulta o farmacia (PVS/AVS)."
         ]
       },
       {
         "heading": "2. El enfoque de configuración remota: Expertos en TI en segundo plano",
         "paragraphs": [
-          "El enfoque de configuración remota se basa en la conectividad digital de los lectores POC modernos. En lugar de necesitar un técnico de servicio en el sitio, el dispositivo es configurado y validado de forma remota por expertos especializados.",
-          "Procesos centrales manejados de forma remota:"
+          "El enfoque de configuración remota se basa en la conectividad digital de los lectores POC modernos. En lugar de necesitar un técnico de servicio en el lugar, el dispositivo es configurado y validado de forma remota por expertos especializados.",
+          "Procesos centrales gestionados de forma remota:"
         ],
         "listItems": [
-          "Calibración completa: La calibración técnica del multilector para las pruebas de flujo lateral (LFT) utilizadas se realiza externamente. Esto asegura que la precisión analítica esté garantizada desde el principio, sin que el personal del consultorio tenga que realizar pasos técnicos complejos.",
-          "Integración de TI perfecta: La conexión al sistema de información de laboratorio o consultorio (LIS/PIS) se realiza a través de interfaces web seguras (por ejemplo, soluciones POC-IT). Los consultores externos se aseguran de que todos los valores de medición se transfieran de forma automática, segura y sin errores al expediente del paciente.",
-          "Actualizaciones de firmware y comprobaciones del sistema: Las actualizaciones de software para garantizar la compatibilidad y el cumplimiento de los nuevos estándares se pueden instalar de forma remota de forma permanente y sin interrumpir las operaciones del consultorio."
+          "Calibración completa: La calibración técnica del multilector a las pruebas de flujo lateral (LFT) utilizadas se realiza externamente. Esto asegura que la precisión analítica esté garantizada desde el principio, sin que el personal de la consulta tenga que realizar pasos técnicos complejos.",
+          "Integración informática perfecta: La conexión al sistema de información de laboratorio o consulta (LIS/PIS) se realiza a través de interfaces seguras basadas en web (por ejemplo, soluciones POC-IT). Los consultores externos aseguran que todos los valores de medición se transfieran de forma automática, segura y sin errores al expediente del paciente.",
+          "Actualizaciones de firmware y comprobaciones del sistema: Las actualizaciones de software para garantizar la compatibilidad y el cumplimiento de nuevos estándares se pueden instalar de forma remota permanentemente y sin interrumpir las operaciones de la consulta."
         ]
       },
       {
         "heading": "3. La fórmula de 48 horas: La ventaja competitiva",
         "paragraphs": [
-          "Al subcontratar la complejidad técnica y administrativa a servicios remotos especializados, los consultorios y farmacias pueden reducir el tiempo requerido de semanas a un mínimo.",
-          "Ganancia de eficiencia y satisfacción del paciente: La preparación operativa inmediata de los dispositivos de diagnóstico POC permite al personal concentrarse inmediatamente en la atención al paciente. El ahorro de tiempo en el diagnóstico, las decisiones terapéuticas más rápidas y la eliminación de una segunda cita conducen a una satisfacción del paciente significativamente mayor. Los flujos de trabajo optimizados mejoran la eficiencia económica de toda la instalación."
+          "Al externalizar la complejidad técnica y administrativa a servicios remotos especializados, las consultas y farmacias pueden reducir el tiempo requerido de semanas a un mínimo.",
+          "Ganancia de eficiencia y satisfacción del paciente: La preparación operativa inmediata de los dispositivos de diagnóstico POC permite al personal centrarse inmediatamente en la atención al paciente. El ahorro de tiempo en el diagnóstico, decisiones de terapia más rápidas y la eliminación de una segunda cita conducen a una satisfacción del paciente significativamente mayor. Los flujos de trabajo optimizados mejoran la eficiencia económica de toda la instalación."
         ]
       },
       {
         "heading": "Conclusión: Inversión en tiempo y seguridad",
         "paragraphs": [
-          "El diagnóstico moderno en el punto de atención es más que un simple dispositivo: es un sistema integrado digitalmente. Quienes confían en la configuración remota invierten no solo en diagnósticos más precisos y rápidos, sino principalmente en el valioso tiempo de su personal. La fórmula de 48 horas es, por lo tanto, sinónimo de estrés de integración mínimo y máxima preparación operativa en la atención médica moderna."
+          "El diagnóstico moderno Point-of-Care es más que un simple dispositivo: es un sistema digitalmente integrado. Aquellos que confían en la configuración remota invierten no solo en diagnósticos más precisos y rápidos, sino principalmente en el valioso tiempo de su personal. La fórmula de 48 horas es, por lo tanto, sinónimo de mínimo estrés de integración y máxima preparación operativa en la atención sanitaria moderna."
         ]
       }
     ]
   },
   "precision_point_of_care": {
-    "title": "Precisión en el punto de atención: La clave para la seguridad del paciente",
-    "excerpt": "Por qué la validación de pruebas de flujo lateral (LFT) va más allá de las especificaciones del fabricante.",
+    "title": "Precisión en Point-of-Care: La clave para la seguridad del paciente",
+    "excerpt": "Por qué la validación de las pruebas de flujo lateral (LFT) va más allá de las especificaciones del fabricante.",
     "sections": [
       {
-        "heading": "La revolución del diagnóstico en el punto de atención",
+        "heading": "La revolución del diagnóstico Point-of-Care",
         "paragraphs": [
-          "El diagnóstico en el punto de atención (POC) ha revolucionado la atención médica. Proporciona resultados en minutos, permite decisiones clínicas rápidas y alivia a los laboratorios centrales. El uso de pruebas de flujo lateral (LFT), conocidas como 'pruebas rápidas', se ha vuelto particularmente popular. Su simplicidad y velocidad son indiscutibles, pero su fiabilidad depende en gran medida de una evaluación correcta y validada.",
-          "El desafío es transferir la precisión analítica del laboratorio central al entorno descentralizado. Esto requiere que la validación de los LFT vaya más allá de los datos de rendimiento primarios del fabricante (como la sensibilidad y especificidad generales) y considere toda la cadena de medición, incluido el lector y el usuario."
+          "El diagnóstico Point-of-Care (POC) ha revolucionado la atención médica. Proporciona resultados en minutos, permite decisiones clínicas rápidas y alivia a los laboratorios centrales. El uso de pruebas de flujo lateral (LFT), conocidas como 'pruebas rápidas', se ha vuelto particularmente popular. Su simplicidad y velocidad son indiscutibles, pero su fiabilidad depende en gran medida de una evaluación correcta y validada.",
+          "El desafío es transferir la precisión analítica del laboratorio central al entorno descentralizado. Esto requiere que la validación de las LFT vaya más allá de los datos de rendimiento primarios del fabricante (como la sensibilidad y especificidad generales) y considere toda la cadena de medición, incluido el lector y el usuario."
         ]
       },
       {
-        "heading": "1. La fuente de error humano: Variabilidad entre lectores (IRV)",
+        "heading": "1. La fuente de error humana: Variabilidad entre lectores (IRV)",
         "paragraphs": [
-          "Originalmente, las pruebas de flujo lateral se desarrollaron para una evaluación cualitativa o semicuantitativa: la mera aparición de una línea de prueba (línea T) o la estimación de su intensidad. Sin embargo, esta interpretación visual es el talón de Aquiles de la precisión.",
-          "Subjetividad y variabilidad intraobservador: La intensidad de una línea de color es subjetiva. La fatiga, las diferentes condiciones de iluminación, pero también la mera evaluación momentánea del examinador (variabilidad intraobservador) pueden conducir a diferentes diagnósticos. Lo que es un positivo débil para una persona podría ser un resultado negativo para otra.",
-          "La necesidad de resultados cuantitativos: Las decisiones terapéuticas modernas, como la administración de antibióticos para niveles elevados de PCR (proteína C reactiva), se basan en umbrales numéricos exactos. Para transformar una ejecución de prueba cualitativa en un resultado cuantitativo compatible con el laboratorio, es obligatorio eliminar la evaluación subjetiva."
+          "Originalmente, las pruebas de flujo lateral se desarrollaron para una evaluación cualitativa o semicuantitativa: La mera aparición de una línea de prueba (línea T) o la estimación de su intensidad. Sin embargo, esta interpretación visual es el talón de Aquiles de la precisión.",
+          "Subjetividad y variabilidad intraobservador: La intensidad de una línea de color es subjetiva. La fatiga, las diferentes condiciones de iluminación, pero también la mera evaluación momentánea del examinador (variabilidad intraobservador) pueden llevar a diferentes diagnósticos. Lo que es un positivo débil para una persona podría ser un resultado negativo para otra.",
+          "La necesidad de resultados cuantitativos: Las decisiones de terapia modernas, como la administración de antibióticos para niveles elevados de PCR (proteína C reactiva), se basan en umbrales numéricos exactos. Para transformar una ejecución de prueba cualitativa en un resultado cuantitativo compatible con laboratorio, es obligatorio eliminar la evaluación subjetiva."
         ]
       },
       {
-        "heading": "2. Validación en contexto clínico: Más que una simple hoja de datos",
+        "heading": "2. Validación en contexto clínico: Más que una hoja de datos",
         "paragraphs": [
-          "Los fabricantes proporcionan datos sobre el rendimiento de sus pruebas en condiciones de laboratorio idealizadas. Sin embargo, el uso real en la práctica o farmacia, a menudo en entornos con baja prevalencia o en pacientes asintomáticos, requiere una validación específica de la aplicación.",
-          "Como ha demostrado la práctica de las pruebas de COVID-19, la capacidad de detección de un LFT depende en gran medida de la carga viral real del paciente. Una validación de LFT que vaya más allá de la mera especificación del fabricante debe responder a las siguientes preguntas:"
+          "Los fabricantes proporcionan datos sobre el rendimiento de sus pruebas en condiciones de laboratorio idealizadas. Sin embargo, el uso real en la consulta o farmacia, a menudo en entornos con baja prevalencia o pacientes asintomáticos, requiere una validación específica de la aplicación.",
+          "Como ha demostrado la práctica de las pruebas de COVID-19, la capacidad de detección de una LFT depende en gran medida de la carga viral real del paciente. Una validación de LFT que va más allá de la mera especificación del fabricante debe responder a las siguientes preguntas:"
         ],
         "listItems": [
-          "Comparación con el estándar de oro: ¿Qué tan exactamente se correlacionan los valores cuantitativos del LFT con los resultados del estándar de oro (por ejemplo, valores Ct de PCR o dispositivos de laboratorio central)?",
-          "Límite de detección (LoD): ¿Es el umbral crítico (LoD) que la prueba aún detecta de manera confiable reproducible en el entorno POC?",
-          "Robustez: ¿Qué tan estable es el resultado en todo el rango de medición (rango lineal)?"
+          "Comparación con el estándar de oro: ¿Con qué exactitud se correlacionan los valores cuantitativos de la LFT con los resultados del estándar de oro (por ejemplo, valores Ct de PCR o dispositivos de laboratorio central)?",
+          "Límite de detección (LoD): ¿Es el umbral crítico (LoD) que la prueba aún detecta de manera fiable reproducible en el entorno POC?",
+          "Robustez: ¿Cuán estable es el resultado en todo el rango de medición (rango lineal)?"
         ]
       },
       {
         "heading": "El papel de la automatización y la calibración",
         "paragraphs": [
           "Solo confirmando estos criterios de calidad analítica en la realidad clínica puede el diagnóstico POC justificar la confianza de médicos y pacientes.",
-          "Para garantizar la precisión del laboratorio en el punto de atención, el uso de lectores LFT automatizados como el IglooPro es esencial. Estos lectores realizan la evaluación objetiva necesaria, colocando así el análisis sobre una nueva base.",
-          "A. Eliminación de la variabilidad a través de la objetividad: Los lectores modernos utilizan sistemas de cámara o tecnología de fluorescencia para capturar objetivamente las líneas de prueba y control y cuantificar digitalmente las relaciones de intensidad. El resultado es un valor numérico con un bajo coeficiente de variación (CV) que elimina por completo la IRV.",
+          "Para garantizar la precisión de laboratorio en el Point-of-Care, el uso de lectores LFT automatizados como el IglooPro es esencial. Estos lectores realizan la evaluación objetiva necesaria, colocando así la analítica sobre una nueva base.",
+          "A. Eliminación de la variabilidad a través de la objetividad: Los lectores modernos utilizan sistemas de cámara o tecnología de fluorescencia para capturar objetivamente las líneas de prueba y control y cuantificar digitalmente las relaciones de intensidad. El resultado es un valor numérico con un bajo coeficiente de variación (CV) que elimina completamente la IRV.",
           "B. La calibración y garantía de calidad (QA) necesarias: Un lector es tan bueno como su calibración. Para garantizar la precisión en diferentes lotes de prueba y durante la vida útil del dispositivo, se requieren procedimientos estrictos de QA:"
         ],
         "listItems": [
-          "Calibración específica del lote: Cada lote de producción de LFT puede mostrar ligeras diferencias en la cinética de reacción o las propiedades de la membrana. El lector debe cargar estos datos específicos del lote, a menudo automáticamente a través de tecnología de código de barras o RFID, para convertir correctamente la señal específica de LFT en el valor de concentración.",
-          "Control de calidad (Bloqueo de QC): Los sistemas modernos tienen mecanismos (análogos a RiliBÄK en el laboratorio central) que rechazan la medición si el control de calidad interno o externo (por ejemplo, un casete de control) no se ha realizado con éxito. Esto garantiza que solo se generen resultados de medición validados."
+          "Calibración específica del lote: Cada lote de producción (Batch) de LFT puede mostrar ligeras diferencias en la cinética de reacción o las propiedades de la membrana. El lector debe cargar estos datos específicos del lote, a menudo automáticamente a través de código de barras o tecnología RFID, para convertir correctamente la señal específica de LFT en el valor de concentración.",
+          "Control de calidad (Bloqueo QC): Los sistemas modernos tienen mecanismos (análogos a RiliBÄK en el laboratorio central) que rechazan la medición si el control de calidad interno o externo (por ejemplo, un casete de control) no se ha realizado con éxito. Esto garantiza que solo se generen resultados de medición validados."
         ]
       },
       {
         "heading": "Conclusión: La promesa del diagnóstico POC",
         "paragraphs": [
-          "La velocidad del diagnóstico POC es una ventaja inestimable. Sin embargo, la confianza en esta velocidad solo se puede asegurar mediante la garantía de calidad y la validación continuas. El diagnóstico en el punto de atención que apunta a niveles de laboratorio debe depender obligatoriamente de la evaluación automatizada, calibrada y validada de las pruebas de flujo lateral.",
-          "Solo a través de la combinación de un lector robusto y calibrado y procedimientos de validación estrictos, una prueba rápida se convierte en una base de diagnóstico confiable."
+          "La velocidad del diagnóstico POC es una ventaja incalculable. Sin embargo, la confianza en esta velocidad solo se puede asegurar a través de la garantía de calidad continua y la validación. El diagnóstico Point-of-Care que aspira a niveles de laboratorio debe basarse obligatoriamente en la evaluación automatizada, calibrada y validada de las pruebas de flujo lateral.",
+          "Solo a través de la combinación de un lector robusto y calibrado y procedimientos de validación estrictos, una prueba rápida se convierte en una base de diagnóstico fiable."
         ]
       }
     ]
   },
   "first_checkup": {
     "title": "Cómo prepararse para su primer chequeo médico",
-    "excerpt": "Una breve guía para ayudarlo a sentirse seguro y preparado para su primer examen médico completo.",
+    "excerpt": "Una breve guía para ayudarle a sentirse seguro y preparado para su primer examen médico completo.",
     "sections": [
       {
         "heading": "Una mejor atención comienza con estar preparado",
         "paragraphs": [
-          "Antes de su primer chequeo médico, es importante recopilar su historial médico, enumerar cualquier medicamento actual y anotar los síntomas que ha experimentado recientemente. Esto ayuda a su médico a construir una imagen completa y concentrarse en lo que más importa para su salud."
+          "Antes de su primer chequeo médico, es importante recopilar su historial médico, enumerar cualquier medicamento actual y anotar los síntomas que ha experimentado recientemente. Esto ayuda a su médico a construir una imagen completa y centrarse en lo que más importa para su salud."
         ]
       },
       {
@@ -171,41 +397,47 @@
         "listItems": [
           "Identificación e información del seguro (si corresponde).",
           "Una lista de todos los medicamentos, incluidos suplementos y vitaminas.",
-          "Resultados de laboratorio o informes anteriores si los tiene.",
+          "Resultados de laboratorio anteriores o informes si los tiene.",
           "Preguntas que desea hacerle a su médico."
         ]
       },
       {
         "heading": "Durante el chequeo",
         "paragraphs": [
-          "Su médico generalmente verificará sus signos vitales, discutirá su estilo de vida y realizará un examen físico. Sea honesto acerca de sus hábitos y preocupaciones; esta es la mejor manera de recibir atención que realmente se adapte a su situación.",
-          "Los chequeos regulares son la base de la medicina preventiva. Al detectar problemas potenciales temprano, se da más opciones, más tiempo y mejores resultados."
+          "Su médico generalmente verificará sus signos vitales, discutirá su estilo de vida y realizará un examen físico. Sea honesto sobre sus hábitos y preocupaciones; esta es la mejor manera de recibir atención que realmente se adapte a su situación.",
+          "Los chequeos regulares son la base de la medicina preventiva. Al detectar problemas potenciales temprano, se da a sí mismo más opciones, más tiempo y mejores resultados."
         ]
       }
     ]
   },
   "managing_diabetes": {
     "title": "Manejo de la diabetes con rutinas diarias simples",
-    "excerpt": "Descubra cómo pequeños hábitos consistentes pueden mejorar drásticamente el control del azúcar en la sangre y el bienestar general.",
+    "excerpt": "Descubra cómo pequeños hábitos constantes pueden mejorar drásticamente el control del azúcar en la sangre y el bienestar general.",
     "sections": [
       {
         "heading": "Comience con su rutina matutina",
         "paragraphs": [
-          "Una rutina matutina estable marca la pauta para el resto del día. Para las personas que viven con diabetes, esto es especialmente importante."
+          "Una rutina matutina estable marca el tono para el resto del día. Para las personas que viven con diabetes, esto es especialmente importante."
         ]
       }
     ]
   },
   "home_care": {
     "title": "Los beneficios de los servicios profesionales de atención domiciliaria",
-    "excerpt": "Los equipos de atención domiciliaria pueden cerrar la brecha entre el hospital y la vida cotidiana: así es como apoyan a los pacientes y las familias.",
+    "excerpt": "Los equipos de atención domiciliaria pueden cerrar la brecha entre el hospital y la vida cotidiana; así es como apoyan a los pacientes y las familias.",
     "sections": [
       {
         "heading": "Atención que llega a usted",
         "paragraphs": [
-          "Los servicios profesionales de atención domiciliaria facilitan la recuperación después de la cirugía o el manejo de enfermedades crónicas sin visitas constantes al hospital."
+          "Los servicios profesionales de atención domiciliaria facilitan la recuperación después de una cirugía o el manejo de afecciones crónicas sin visitas constantes al hospital."
         ]
       }
     ]
+  },
+  "index": {
+    "title": "Nuestra Revista",
+    "subtitle": "Perspectivas, noticias y conocimiento experto sobre diagnósticos modernos y salud.",
+    "heading": "Explore Nuestros Artículos",
+    "caption": "Últimas Publicaciones"
   }
 }

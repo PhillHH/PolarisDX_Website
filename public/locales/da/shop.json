@@ -2,23 +2,23 @@
   "products": {
     "igloo_reader_pro": {
       "name": "Igloo Reader Pro",
-      "shortDescription": "Igloo Reader Pro er en kompakt, topmoderne alt-i-en analysator til Point-of-Care Testing (POCT). Den kombinerer laboratorienøjagtighed med kravene fra decentrale miljøer. Understøtter Lateral Flow, Microarray, Fluorescens og mere – den ideelle løsning til hurtige, pålidelige kvantitative og kvalitative testresultater.",
+      "shortDescription": "Igloo Reader Pro er en kompakt, topmoderne alt-i-en-analysator til Point-of-Care Testing (POCT). Den kombinerer laboratorienøjagtighed med kravene i decentraliserede miljøer. Understøtter Lateral Flow, Microarray, Fluorescens og mere – den ideelle løsning til hurtige, pålidelige kvantitative og kvalitative testresultater.",
       "detailedDescription": [
-        "Igloo Reader Pro omdefinerer mobil diagnostik. Designet specifikt til professionelle miljøer og decentrale Point-of-Care applikationer, muliggør denne alsidige analysator hurtig og pålidelig kvalitativ og kvantitativ testning.",
-        "Læseren understøtter en bred vifte af diagnostiske tests – fra screening af infektionssygdomme til hjertemarkører og hormonprofiler, til stofmisbrugs- og allergipaneler. Takket være automatiseret kalibrering, cloud-integration og digital dataeksport leverer Igloo Reader Pro laboratoriekvalitet direkte, hvor det er nødvendigt. Det giver sundhedspersonale mulighed for at opnå hurtige og pålidelige resultater overalt."
+        "Igloo Reader Pro omdefinerer mobil diagnostik. Designet specifikt til professionelle miljøer og decentraliserede Point-of-Care-applikationer, muliggør denne alsidige analysator hurtig og pålidelig kvalitativ og kvantitativ testning.",
+        "Læseren understøtter en bred vifte af diagnostiske tests – fra screening for infektionssygdomme til hjertemarkører og hormonprofiler, til narkotika- og allergipaneler. Takket være automatiseret kalibrering, cloud-integration og digital dataeksport leverer Igloo Reader Pro laboratoriekvalitet direkte, hvor der er brug for det. Den gør det muligt for sundhedspersonale at opnå hurtige og pålidelige resultater overalt."
       ],
       "features": [
-        "Universel Testplatform: Understøtter Microarray, Lateral Flow, Kolorimetri, Fluorescens, Tørkemi og Mikrofluidik.",
+        "Universel testplatform: Understøtter Microarray, Lateral Flow, Kolorimetri, Fluorescens, Tørkemi og Mikrofluidik.",
         "Laboratorienøjagtighed i POCT-format: Høj præcision gennem automatisk selvkalibrering før hver måling (CV < 2 % Inter-Reader, CV < 3 % Intra-Reader).",
         "Kompakt & Mobil: Letvægtsdesign med en batterilevetid på op til 24 timers kontinuerlig testning.",
-        "Fuld Forbindelse: Integreret Wi-Fi, Bluetooth og USB-C for problemfri datasynkronisering og API/LIMS-integration.",
+        "Fuld konnektivitet: Integreret Wi-Fi, Bluetooth og USB-C for problemfri datasynkronisering og API/LIMS-integration.",
         "Sikker Cloud-integration (Dx365 Cloud): Til testopdateringer, kalibreringsstyring og krypteret datalagring.",
-        "Alsidige Prøvetyper: Kompatibel med fuldblod, kapillærblod, serum, plasma, urin, afføring, spyt og hår."
+        "Alsidige prøvetyper: Kompatibel med fuldblod, kapillærblod, serum, plasma, urin, afføring, spyt og hår."
       ],
       "techSpecs": [
         {
           "parameter": "Dimensioner (L × B × H)",
-          "specification": "87.5 × 87.5 × 91 mm"
+          "specification": "87,5 × 87,5 × 91 mm"
         },
         {
           "parameter": "Vægt",
@@ -29,8 +29,8 @@
           "specification": "Få sekunder (ekskl. inkubationstid)"
         },
         {
-          "parameter": "Understøttede Testmetoder",
-          "specification": "Microarray, Kolorimetri, Fluorescens, Tørkemi, Kvanteprikker, Mikrofluidik"
+          "parameter": "Understøttede testmetoder",
+          "specification": "Microarray, Kolorimetri, Fluorescens, Tørkemi, Quantum Dots, Mikrofluidik"
         },
         {
           "parameter": "Prøvetyper",
@@ -42,10 +42,10 @@
         },
         {
           "parameter": "Batteri",
-          "specification": "Genopladeligt Litiumbatteri, op til 24 timers kontinuerlig drift"
+          "specification": "Genopladeligt lithiumbatteri, op til 24 timers kontinuerlig drift"
         },
         {
-          "parameter": "Forbindelse",
+          "parameter": "Konnektivitet",
           "specification": "USB-C, Wi-Fi (802.11 b/g/n), Bluetooth, API/LIMS-integration"
         },
         {
@@ -56,12 +56,12 @@
       "deliveryScope": [
         "1 × Igloo Reader Pro Analysator",
         "1 × USB-A til USB-C Kabel",
-        "Elektronisk Brugermanual"
+        "Elektronisk brugermanual"
       ],
-      "note": "Vigtig Bemærkning: Adaptere og QC-testkits sælges separat og er ikke inkluderet i standardleveringsomfanget."
+      "note": "Vigtig bemærkning: Adaptere og QC-testkits sælges separat og er ikke inkluderet i standardleveringsomfanget."
     },
     "bp_monitor": {
-      "name": "Digital Blodtryksmåler",
+      "name": "Digital blodtryksmåler",
       "shortDescription": "Nøjagtig, brugervenlig blodtryksmåler til hjemmebrug med hukommelsesfunktion.",
       "features": [
         "Overarmsmanchet med justerbar størrelse",
@@ -70,8 +70,8 @@
       ]
     },
     "thermometer": {
-      "name": "Kontaktfrit Pandetermometer",
-      "shortDescription": "Hurtige, hygiejniske temperaturmålinger uden hudkontakt — ideelt til familier.",
+      "name": "Kontaktfrit pandetermometer",
+      "shortDescription": "Hurtige, hygiejniske temperaturmålinger uden hudkontakt — ideel til familier.",
       "features": [
         "1-sekunds måling",
         "Feberalarmindikator",
@@ -80,52 +80,52 @@
     },
     "pulse_oximeter": {
       "name": "Fingerpulsoximeter",
-      "shortDescription": "Mål iltmætning i blodet og pulsfrekvens på få sekunder.",
+      "shortDescription": "Mål blodets iltmætning og pulsfrekvens inden for få sekunder.",
       "features": [
-        "SpO₂ og pulsfrekvensvisning",
-        "Kompakt og bærbart",
+        "Visning af SpO₂ og pulsfrekvens",
+        "Kompakt og bærbar",
         "Automatisk slukning"
       ]
     },
     "home_care_kit": {
-      "name": "Hjemmepleje Startsæt",
-      "shortDescription": "Væsentlige værktøjer til daglig pleje i hjemmet, herunder overvågning og grundlæggende førstehjælp.",
+      "name": "Startkit til hjemmepleje",
+      "shortDescription": "Væsentlige værktøjer til daglig hjemmepleje, herunder overvågning og førstehjælpsgrundlag.",
       "features": [
-        "Digitalt termometer og BP-måler",
+        "Digitalt termometer og blodtryksmåler",
         "Grundlæggende sårplejeartikler",
         "Kompakt opbevaringstaske"
       ]
     },
     "diabetes_kit": {
-      "name": "Diabetesovervågningssæt",
-      "shortDescription": "Alt hvad du behøver for komfortabelt at overvåge blodsukkerniveauer hjemme.",
+      "name": "Diabetesovervågningskit",
+      "shortDescription": "Alt hvad du behøver for komfortabelt at overvåge blodsukkerniveauet hjemme.",
       "features": [
         "Blodsukkermåler med teststrimler",
-        "Lancetapparat og lancetter",
+        "Fingerprikker og lancetter",
         "Bæretaske til rejser"
       ]
     },
     "n95_mask_pack": {
       "name": "N95 Åndedrætsmaske Pakke (10 stk)",
-      "shortDescription": "Certificerede N95 masker for pålidelig åndedrætsbeskyttelse.",
+      "shortDescription": "Certificerede N95-masker til pålidelig åndedrætsbeskyttelse.",
       "features": [
         "Justerbar næseklemme",
-        "Komfortable øreelastikker",
+        "Komfortable øreloops",
         "Individuelt pakket"
       ]
     },
     "hand_sanitizer": {
-      "name": "Antibakteriel Håndsprit (500 ml)",
+      "name": "Antibakteriel håndsprit (500 ml)",
       "shortDescription": "Hurtigttørrende håndsprit med fugtgivende ingredienser.",
       "features": [
-        "Dræber 99,9% af bakterier",
+        "Dræber 99,9 % af bakterier",
         "Ikke-klistrende formel",
         "Frisk, ren duft"
       ]
     },
     "compression_socks": {
-      "name": "Medicinske Kompressionsstrømper",
-      "shortDescription": "Støtter cirkulationen under lange dage på fødderne eller genoptræning.",
+      "name": "Medicinske kompressionsstrømper",
+      "shortDescription": "Støtter cirkulationen under lange dage på fødderne eller restitution.",
       "features": [
         "Gradueret kompression",
         "Åndbart stof",
@@ -133,8 +133,8 @@
       ]
     },
     "first_aid_kit": {
-      "name": "Kompakt Førstehjælpskasse",
-      "shortDescription": "En kompakt kasse med det væsentlige til mindre skader og nødsituationer.",
+      "name": "Kompakt førstehjælpskasse",
+      "shortDescription": "Et kompakt sæt med nødvendigheder til mindre skader og nødsituationer.",
       "features": [
         "Bandager og forbindinger",
         "Antiseptiske servietter",
@@ -142,40 +142,40 @@
       ]
     },
     "online_consult": {
-      "name": "Online Lægekonsultation (30 min)",
-      "shortDescription": "Bestil en 30-minutters videokonsultation med en af vores læger.",
+      "name": "Online lægekonsultation (30 min)",
+      "shortDescription": "Book en 30-minutters videokonsultation med en af vores læger.",
       "features": [
-        "Fleksible tidsmuligheder",
+        "Fleksible planlægningsmuligheder",
         "Sikker videoplatform",
-        "Opsummerende rapport efter sessionen"
+        "Sammendragsrapport efter sessionen"
       ]
     }
   },
   "shop": {
     "addToCart": "Læg i kurv (demo)",
     "orderInfo": "Bestillingsinformation",
-    "orderInfoText": "Dette demolayout efterligner en simpel bestillingsboks. I et rigtigt projekt ville du her vise tilgængelighed, forsendelsesmuligheder og en 'Læg i kurv'-knap.",
-    "youMightLike": "Du vil måske også synes om",
+    "orderInfoText": "Dette demolayout efterligner en simpel bestillingsboks. I et rigtigt projekt er det her, du ville vise tilgængelighed, forsendelsesmuligheder og en \"Læg i kurv\"-knap.",
+    "youMightLike": "Du vil måske også kunne lide",
     "view": "Vis",
     "viewDetails": "Vis detaljer",
     "backToShop": "Tilbage til Butik",
     "needHelp": "Brug for hjælp til at vælge et produkt?",
     "contactTeam": "Kontakt vores team",
-    "demoNote": "Bemærk venligst: Dette er en demobutik kun til design- og layoutformål. Ingen rigtige ordrer eller betalinger behandles.",
+    "demoNote": "Bemærk venligst: Dette er en demobutik udelukkende til design- og layoutformål. Ingen rigtige ordrer eller betalinger behandles.",
     "whatsInBox": "Hvad er der i kassen?",
-    "techSpecs": "Tekniske Specifikationer",
-    "features": "Funktioner & Fordele",
+    "techSpecs": "Tekniske specifikationer",
+    "features": "Funktioner og fordele",
     "home": "Hjem",
     "title": "Medicinske forsyninger & tjenester",
-    "subtitle": "MedHealth Butik",
+    "subtitle": "MedHealth Shop",
     "discoverTitle": "Opdag vores udvalgte produkter",
     "article": "Artikel",
-    "articleDisclaimer": "Regelmæssige tjek og proaktiv pleje er grundlaget for langsigtet sundhed. Hvis du har spørgsmål, tøv ikke med at kontakte en læge.",
+    "articleDisclaimer": "Regelmæssige tjek og proaktiv pleje er fundamentet for langsigtet sundhed. Hvis du har spørgsmål, tøv ikke med at kontakte en sundhedsfaglig person.",
     "shareArticle": "Kunne du lide denne artikel? Del den med dine venner og familie.",
     "backToHome": "Tilbage til Hjem",
     "suggestedArticles": "Foreslåede artikler",
     "moreArticles": "Flere artikler",
-    "contactText": "Vores lægeteam er tilgængeligt 24/7 for at besvare akutte spørgsmål og hjælpe dig med at beslutte, hvad du skal gøre næste gang.",
-    "readMore": "Læs Mere"
+    "contactText": "Vores medicinske team er tilgængeligt 24/7 for at besvare presserende spørgsmål og hjælpe dig med at beslutte, hvad du skal gøre næste gang.",
+    "readMore": "Læs mere"
   }
 }

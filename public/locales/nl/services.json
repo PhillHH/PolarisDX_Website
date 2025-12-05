@@ -1,247 +1,331 @@
 {
-  "poc_systemloesungen": {
-    "title": "POC Systeemoplossingen: Het Controlecentrum voor Gevalideerde Diagnostiek",
-    "headline": "Point-of-Care Opnieuw Gedefinieerd: Laboratoriumnauwkeurigheid Ontmoet Maximale Agiliteit",
+  "dental": {
+    "title": "Tandheelkunde",
+    "headline": "Precisie voor moderne tandheelkunde",
     "intro": [
-      "Moderne gezondheidszorg vereist beslissingen die snel, maar compromisloos nauwkeurig zijn. Hier komen premium POC systeemoplossingen (Point-of-Care) in beeld. Ze zijn veel meer dan alleen mobiele testapparaten; ze zijn het controlecentrum voor diagnostiek, waardoor de afstand tussen de patiënt en het laboratorium wordt teruggebracht tot slechts enkele minuten.",
-      "Aan de hand van het voorbeeld van de Igloo Pro Reader wordt de evolutie van in-vitro diagnostiek (IVD) duidelijk: Mobiele analyseapparaten leveren resultaten die niet alleen laboratoriumnormen bereiken qua nauwkeurigheid, maar deze kunnen overtreffen dankzij geoptimaliseerde workflows."
+      "Breid uw behandelingsspectrum uit met moderne diagnostiek direct aan de stoel. Snelle resultaten maken onmiddellijk, goed onderbouwd patiëntadvies mogelijk.",
+      "Optimaliseer genezingsprocessen en detecteer risico's vroegtijdig."
     ],
     "sections": [
       {
-        "heading": "1. Het Einde van Onzekerheid: Gevalideerde Precisie",
-        "content": "De centrale vereiste voor elke POC-oplossing is de validiteit van de resultaten. De Igloo Pro maakt gebruik van geavanceerde Lateral Flow Assay (LFA) technologieën in combinatie met methoden zoals immunofluorescentie en colorimetrie.",
+        "heading": "1. Vitamine D & Wondgenezing",
+        "content": "Een voldoende vitamine D-spiegel is essentieel voor de osseointegratie van implantaten en algemene wondgenezing. Meet de status direct ter plaatse.",
         "listItems": [
-          "Het Harde Feit: Hoogwaardige POC-systemen bereiken een variatiecoëfficiënt (CV) van minder dan 2% (inter-reader), een waarde die betrouwbaarheid en reproduceerbaarheid op het hoogste niveau garandeert. Dit is de basis om artsen, apothekers en laboratoriumpersoneel de nodige zekerheid te geven voor onmiddellijk handelen."
+          "Onmiddellijke bepaling van 25-OH-vitamine D-spiegels.",
+          "Gerichte suppletie om chirurgische resultaten te verbeteren."
         ]
       },
       {
-        "heading": "2. Mobiliteit Zonder Compromissen: Agiliteit voor de Workflow",
-        "content": "Het compacte ontwerp en het lage gewicht (de Igloo Pro weegt slechts ca. 400g) maken gebruik mogelijk op elk raakvlak van patiëntenzorg – of het nu in de apotheek is, in de onderzoekskamer of bij mobiele verpleegdiensten.",
+        "heading": "2. Ontstekingsmarkers",
+        "content": "Detecteer systemische ontstekingen die parodontitis kunnen beïnvloeden en monitor therapeutisch succes.",
+        "listItems": []
+      }
+    ],
+    "conclusion": {
+      "heading": "Conclusie",
+      "text": "Integreer diagnostiek naadloos in uw praktijkworkflow voor betere klinische resultaten."
+    },
+    "cta": "Meer weten"
+  },
+  "beauty": {
+    "title": "Schoonheid & Esthetiek",
+    "headline": "Schoonheid van binnenuit: Datagestuurde esthetiek",
+    "intro": [
+      "Echte schoonheid begint met gezondheid. Gebruik nauwkeurige analyses om esthetische behandelingen te onderbouwen met degelijke gezondheidsgegevens.",
+      "Bied uw cliënten een holistische benadering die verder gaat dan het oppervlak."
+    ],
+    "sections": [
+      {
+        "heading": "1. Huidgezondheid & Vitaminen",
+        "content": "Analyseer de micronutriëntenstatus om het huidbeeld en anti-agingbehandelingen specifiek te ondersteunen.",
         "listItems": [
-          "Voordeel voor Je: Uitgerust met een lithiumbatterij die tot 24 uur continu gebruik mogelijk maakt, wordt het apparaat een waar mobiel laboratorium. De noodzaak om patiëntmonsters in te sturen of lange wachttijden te accepteren vervalt. Resultaten voor parameters zoals CRP, HbA1c of Vitamine D zijn vaak beschikbaar in 3 tot 15 minuten."
+          "Individueel advies op basis van bloedwaarden.",
+          "Optimalisatie van collageenvorming en regeneratie."
         ]
       },
       {
-        "heading": "3. Het Open Ecosysteem: Maximale Flexibiliteit",
-        "content": "Een premium POC-systeem moet flexibel zijn. De Igloo Pro is ontworpen als een open platform dat tests van verschillende fabrikanten evalueert. Dit is cruciaal omdat het de afhankelijkheid van één enkele aanbieder elimineert en een breed scala aan diagnostische parameters dekt:",
+        "heading": "2. Hormonale balans",
+        "content": "Begrijp de invloed van hormonen op huid en haar en pas behandelingen dienovereenkomstig aan.",
+        "listItems": []
+      }
+    ],
+    "conclusion": {
+      "heading": "Conclusie",
+      "text": "Onderscheid u met wetenschappelijk onderbouwde schoonheidsconcepten."
+    },
+    "cta": "Consult boeken"
+  },
+  "longevity": {
+    "title": "Levensduur",
+    "headline": "Langer gezond leven: Proactieve preventie",
+    "intro": [
+      "Levensduur is meer dan een trend – het is de toekomst van de geneeskunde. Stel uw patiënten in staat hun biologische klok te begrijpen en te optimaliseren.",
+      "Vertrouw op biomarkers die verouderingsprocessen zichtbaar en beïnvloedbaar maken."
+    ],
+    "sections": [
+      {
+        "heading": "1. Belangrijkste biomarkers van veroudering",
+        "content": "Monitor metabole en inflammatoire markers die worden beschouwd als aanjagers van veroudering.",
         "listItems": [
-          "Breedte van Analyse: Van hartmarkers (D-Dimeer, Troponine) tot ontstekingsparameters (CRP) tot schildklierfunctie (TSH) en diabetescontrole (HbA1c).",
-          "Monstermateriaal: Compatibiliteit met minimaal invasieve monsters (capillair bloed, speeksel, urine) verlaagt de drempel voor tests en verhoogt de patiënttevredenheid."
+          "Regelmatige monitoring van HbA1c, lipiden en hs-CRP.",
+          "Vroegtijdige detectie van risicofactoren voor ouderdomsziekten."
         ]
       },
       {
-        "heading": "4. Het Digitale Controlecentrum: Integratie en Gegevensbeveiliging",
+        "heading": "2. Gepersonaliseerde strategieën",
+        "content": "Ontwikkel op maat gemaakte plannen voor voeding, lichaamsbeweging en suppletie op basis van valide gegevens.",
+        "listItems": []
+      }
+    ],
+    "conclusion": {
+      "heading": "Conclusie",
+      "text": "Word een partner voor een lang, gezond leven voor uw patiënten."
+    },
+    "cta": "Nu starten"
+  },
+  "poc_systemloesungen": {
+    "title": "POC-systeemoplossingen",
+    "headline": "Point-of-Care opnieuw gedefinieerd: Laboratoriumnauwkeurigheid ontmoet maximale flexibiliteit",
+    "intro": [
+      "Moderne gezondheidszorg vereist beslissingen die snel maar compromisloos nauwkeurig zijn. Dit is waar POC (Point-of-Care) systeemoplossingen van topklasse binnenkomen. Ze zijn veel meer dan alleen mobiele testapparaten; ze zijn het controlecentrum voor diagnostiek, waardoor de afstand tussen patiënt en laboratorium tot slechts enkele minuten wordt teruggebracht.",
+      "Aan de hand van het voorbeeld van de Igloo Pro Reader wordt de evolutie van In-vitro Diagnostiek (IVD) duidelijk: Mobiele analyzers leveren resultaten die niet alleen laboratoriumstandaarden bereiken in hun nauwkeurigheid, maar deze kunnen overtreffen door geoptimaliseerde workflows."
+    ],
+    "sections": [
+      {
+        "heading": "1. Het einde van onzekerheid: Gevalideerde precisie",
+        "content": "De centrale vereiste voor elke POC-oplossing is de validiteit van de resultaten. De Igloo Pro gebruikt geavanceerde Lateral-Flow-Assay (LFA) technologieën gecombineerd met methoden zoals immunofluorescentie en colorimetrie.",
+        "listItems": [
+          "Het harde feit: Hoogwaardige POC-systemen bereiken een variatiecoëfficiënt (CV) van minder dan 2% (Inter-Reader), een waarde die betrouwbaarheid en reproduceerbaarheid op het hoogste niveau garandeert. Dit is de basis om artsen, apothekers en laboratoriumpersoneel de nodige zekerheid te geven voor onmiddellijke actie."
+        ]
+      },
+      {
+        "heading": "2. Mobiliteit zonder compromissen: Flexibiliteit voor de workflow",
+        "content": "Het compacte ontwerp en het lage gewicht (de Igloo Pro weegt slechts ca. 400g) maken gebruik mogelijk op elk raakvlak van patiëntenzorg – of het nu in de apotheek, onderzoekskamer of mobiele verpleegkundige dienst is.",
+        "listItems": [
+          "Voordeel voor u: Uitgerust met een lithiumbatterij die tot 24 uur continu gebruik mogelijk maakt, wordt het apparaat een echt mobiel laboratorium. De noodzaak om patiëntmonsters in te sturen of lange wachttijden te accepteren vervalt. Resultaten voor parameters zoals CRP, HbA1c of vitamine D zijn vaak beschikbaar in 3 tot 15 minuten."
+        ]
+      },
+      {
+        "heading": "3. Het open ecosysteem: Maximale flexibiliteit",
+        "content": "Een premium POC-systeem moet flexibel zijn. De Igloo Pro is ontworpen als een open platform dat tests van verschillende fabrikanten evalueert. Dit is cruciaal omdat het afhankelijkheid van één enkele aanbieder elimineert en een breed scala aan diagnostische parameters dekt:",
+        "listItems": [
+          "Breedte van analyses: Van cardiale markers (D-Dimeer, Troponine) tot ontstekingsparameters (CRP) tot schildklierfunctie (TSH) en diabetescontrole (HbA1c).",
+          "Monstermateriaal: Compatibiliteit met minimaal invasieve monsters (capillair bloed, speeksel, urine) verlaagt de drempel voor testen en verhoogt de patiënttevredenheid."
+        ]
+      },
+      {
+        "heading": "4. Het Digitale Controlecentrum: Integratie en gegevensbeveiliging",
         "content": "Het \"controlecentrum voor diagnostiek\" is niet alleen het apparaat, maar ook de connectiviteit.",
         "listItems": [
-          "LIMS/HIS-verbinding: Via USB-C, Wi-Fi of Bluetooth vindt naadloze integratie plaats in bestaande laboratorium- of praktijkinformatiesystemen (LIMS/HIS). Dit zorgt voor automatische verzending, opslag en documentatie van tot 10.000 resultaten, wat essentieel is voor volledige naleving van regelgeving (IVDR, CE).",
-          "Gegevensbeveiliging: Het waarborgen van AVG-naleving en veilige opslag van gevoelige patiëntgegevens wordt bereikt door verbinding met gespecialiseerde cloudoplossingen en apps."
+          "LIMS/HIS-verbinding: Via USB-C, wifi of bluetooth vindt naadloze integratie plaats in bestaande laboratorium- of ziekenhuisinformatiesystemen (LIMS/HIS). Dit zorgt voor automatische overdracht, opslag en documentatie van tot wel 10.000 resultaten, wat essentieel is voor naadloze naleving van regelgeving (IVDR, CE).",
+          "Gegevensbeveiliging: Naleving van de AVG en veilige opslag van gevoelige patiëntgegevens worden gegarandeerd door verbinding met gespecialiseerde cloudoplossingen en apps."
         ]
       }
     ],
     "conclusion": {
-      "heading": "Conclusie voor PolarisDX.net: Meer Dan Alleen Technologie",
-      "text": "De Igloo Pro POC systeemoplossing vertegenwoordigt het toppunt van mobiele diagnostiek. Maar ware prestaties worden pas ontsloten door exclusieve service. PolarisDX.net garandeert niet alleen de levering van deze technologische tool, maar ook de onmiddellijke, gevalideerde en naadloze integratie in jouw bedrijfsvoering. Vertrouw op de agiliteit van mobiele diagnostiek – met de gegarandeerde veiligheid van een expertpartner aan jouw zijde."
+      "heading": "Conclusie voor PolarisDX.net: Meer dan alleen technologie",
+      "text": "De Igloo Pro POC-systeemoplossing vertegenwoordigt het toppunt van mobiele diagnostiek. Maar echte prestaties worden pas ontgrendeld door exclusieve service. PolarisDX.net garandeert niet alleen de levering van dit technologische hulpmiddel, maar ook de onmiddellijke, gevalideerde en naadloze integratie in uw bedrijfsvoering. Vertrouw op de flexibiliteit van mobiele diagnostiek – met de gegarandeerde zekerheid van een expertpartner aan uw zijde."
     },
-    "cta": "Afspraak maken"
+    "cta": "Afspraak boeken"
   },
   "praeventions_checks": {
-    "title": "Preventieve Gezondheidschecks: Preventie Opnieuw Bedacht",
-    "headline": "Snelle Diagnostiek als Fundament van Moderne Preventie",
+    "title": "Preventieve gezondheidschecks",
+    "headline": "Preventie opnieuw bedacht: Snelle diagnostiek als fundament",
     "intro": [
-      "De vraag naar gepersonaliseerde preventieve gezondheidszorg groeit snel. Patiënten en klanten verwachten snelle, betrouwbare antwoorden op kritieke gezondheidsvragen direct aan het Point-of-Care (POC) – of het nu in de apotheek, de huisartsenpraktijk of de kliniek is.",
-      "Hier transformeert mobiele POC-diagnostiek preventie: Het maakt de onmiddellijke bepaling van belangrijke biomarkers mogelijk en maakt gezondheidsadvies onmiddellijk, datagebaseerd en individueel."
+      "De vraag naar gepersonaliseerde preventieve gezondheidszorg groeit snel. Patiënten en klanten verwachten snelle, betrouwbare antwoorden op kritieke gezondheidsvragen direct aan het Point-of-Care (POC) – of het nu in de apotheek, de dokterspraktijk of de kliniek is.",
+      "Hier transformeert mobiele POC-diagnostiek preventie: Het maakt de onmiddellijke bepaling van belangrijke biomarkers mogelijk en maakt gezondheidsadvies direct, op data gebaseerd en individueel."
     ],
     "sections": [
       {
-        "heading": "1. De Verandering in Preventie: Sneltest vs. Laboratorium",
-        "content": "Traditioneel werd preventie geassocieerd met wachttijden. Moderne POC-systemen zoals de Igloo Pro Reader dichten dit gat door laboratoriumnauwkeurige resultaten te leveren in slechts enkele minuten. Dit is de sleutel tot vroege risicodetectie.",
+        "heading": "1. De verschuiving in preventie: Sneltest vs. Laboratorium",
+        "content": "Traditioneel was preventie verbonden met wachttijden. Moderne POC-systemen zoals de Igloo Pro Reader dichten dit gat door binnen enkele minuten laboratoriumnauwkeurige resultaten te leveren. Dit is de sleutel tot vroege risicodetectie.",
         "listItems": [
-          "Vitamine D (25-OH-VD): Essentieel voor botgezondheid, het immuunsysteem en wondgenezing (relevant in tandartspraktijken). Een tekort is wijdverbreid; onmiddellijke meting maakt onmiddellijke suppletie mogelijk.",
-          "CRP (C-reactief Proteïne): Een belangrijke ontstekingsmarker. Snelle bepaling in de apotheek of praktijk geeft in minuten duidelijkheid over de aanwezigheid van een acute ontstekingsreactie en kan helpen onnodige antibioticavoorschriften te vermijden.",
-          "HbA1c (Lange-termijn Bloedsuiker): De gouden standaard voor diabetesmonitoring. Onmiddellijke meting maakt onmiddellijke therapieaanpassing mogelijk en verhoogt de motivatie van de patiënt om zich aan richtlijnen te houden – een factor die bewezen leidt tot betere lange-termijn resultaten."
+          "Vitamine D (25-OH-VD): Essentieel voor botgezondheid, immuunsysteem en wondgenezing (relevant in tandartspraktijken). Tekort is wijdverbreid; onmiddellijke meting maakt onmiddellijke suppletie mogelijk.",
+          "CRP (C-reactief proteïne): Een belangrijke ontstekingsmarker. Snelle bepaling in de apotheek of praktijk geeft binnen enkele minuten duidelijkheid over de aanwezigheid van een acute ontstekingsreactie en kan helpen onnodige antibioticavoorschriften te vermijden.",
+          "HbA1c (Lange-termijn bloedsuiker): De gouden standaard voor diabetesmonitoring. Onmiddellijke meting maakt directe therapieaanpassing mogelijk en verhoogt de motivatie van de patiënt om richtlijnen na te leven – een factor waarvan bewezen is dat deze leidt tot betere langetermijnresultaten."
         ]
       },
       {
-        "heading": "2. Het Onmiddellijke Voordeel: Testen, Weten, Handelen",
+        "heading": "2. Het onmiddellijke voordeel: Testen, Weten, Handelen",
         "content": "De grootste kracht van POC-preventie ligt in de onmiddellijkheid van de resultaten.",
         "listItems": [
-          "Patiëntbetrokkenheid: Confrontatie met een onmiddellijke, duidelijke meetwaarde (bijv. een verhoogde HbA1c-waarde) verhoogt drastisch het bewustzijn en de motivatie van de patiënt om gedrag te veranderen.",
-          "Efficiëntie in de Praktijk: Tijdrovende vervolgafspraken om laboratoriumresultaten te bespreken vervallen. Consultatie kan direct plaatsvinden, gebaseerd op valide data. Studies tonen aan dat dit patiëntbezoeken met tot 61% kan verminderen en daaropvolgende correspondentie met meer dan 80%.",
-          "Economisch Voordeel: Apotheken vestigen zich als preventiecentra en genereren relevante extra omzet door de verkoop van tests en uitgebreid advies."
+          "Patiëntbetrokkenheid: De confrontatie met een onmiddellijke, duidelijke meetwaarde (bijv. een verhoogd HbA1c-niveau) verhoogt het bewustzijn en de motivatie van de patiënt voor gedragsverandering drastisch.",
+          "Efficiëntie in de praktijk: Tijdrovende vervolgafspraken om laboratoriumresultaten te bespreken vervallen. Advies kan direct worden gegeven, op basis van valide gegevens. Studies tonen aan dat dit patiëntbezoeken met tot wel 61% en daaropvolgende correspondentie met meer dan 80% kan verminderen.",
+          "Economisch voordeel: Apotheken vestigen zich als preventiecentra en genereren relevante extra inkomsten door de verkoop van tests en uitgebreid advies."
         ]
       },
       {
-        "heading": "3. Validatie is Niet Onderhandelbaar: De Premium Vereiste",
-        "content": "Het verplaatsen van diagnostiek van het laboratorium naar het Point-of-Care mag nooit ten koste gaan van kwaliteit. Dit is waar premium oplossingen in beeld komen:",
+        "heading": "3. Validatie is niet onderhandelbaar: De Premium-vereiste",
+        "content": "Het verplaatsen van diagnostiek van het laboratorium naar het Point-of-Care mag nooit ten koste gaan van de kwaliteit. Dit is waar premiumoplossingen binnenkomen:",
         "listItems": [
-          "Het gebruik van hoog-precieze, IVDR-gecertificeerde analyseapparaten zoals de Igloo Pro is verplicht.",
-          "Gegarandeerde analytische nauwkeurigheid (bijv. CV < 2%) zorgt ervoor dat de waarden verkregen in de praktijk of apotheek vergelijkbaar zijn met de laboratoriumstandaard."
+          "Het gebruik van uiterst nauwkeurige, IVDR-gecertificeerde analyzers zoals de Igloo Pro is verplicht.",
+          "Gegarandeerde analytische nauwkeurigheid (bijv. CV < 2%) zorgt ervoor dat waarden verkregen in de praktijk of apotheek vergelijkbaar zijn met de laboratoriumstandaard."
         ]
       }
     ],
     "conclusion": {
-      "heading": "Conclusie voor jouw Beslissing",
-      "text": "Investeren in POC systeemoplossingen is een investering in de toekomst van patiëntgerichte zorg en het verhogen van operationele efficiëntie. PolarisDX.net levert niet alleen de technologie voor deze transformatie, maar garandeert door de exclusieve 48-uurs remote setup service en LFT-compatibiliteitsgarantie de soepele en gevalideerde werking ervan. Op deze manier kunt Je het volledige potentieel van preventieve gezondheidschecks onmiddellijk benutten."
+      "heading": "Conclusie voor uw beslissing",
+      "text": "Investeren in POC-systeemoplossingen is een investering in de toekomst van patiëntgerichte zorg en het verhogen van operationele efficiëntie. PolarisDX.net levert niet alleen de technologie voor deze transformatie, maar garandeert de soepele en gevalideerde werking ervan door de exclusieve 48-uurs remote setup service en LFT-compatibiliteitsgarantie. Zo benut u het volledige potentieel van preventieve gezondheidschecks onmiddellijk."
     },
-    "cta": "Afspraak maken"
+    "cta": "Afspraak boeken"
   },
   "infektion_entzuendung": {
-    "title": "Infectie- & Ontstekingsmarkers: Snelle Antwoorden in Kritieke Gevallen",
-    "headline": "Triage in Minuten: Hoe de Igloo Pro Besluitvorming Versnelt",
+    "title": "Infectie & Ontstekingsmarkers",
+    "headline": "Triage in minuten: Hoe de Igloo Pro besluitvorming versnelt",
     "intro": [
-      "In de acute zorg en de poliklinische sector telt elke minuut. De onmiddellijke en betrouwbare bepaling van ontstekingsmarkers en tekenen van infectie is essentieel voor correcte triage, patiëntenzorg en – vandaag belangrijker dan ooit – voor verantwoord antibioticabeheer.",
-      "Premium klasse POC-systemen (Point-of-Care) zijn het controlecentrum om de tijd van monster tot resultaat tot een minimum te beperken en tegelijkertijd maximale klinische veiligheid te garanderen."
+      "In de acute zorg en poliklinische omgevingen telt elke minuut. Onmiddellijke en betrouwbare bepaling van ontstekingsmarkers en tekenen van infectie is essentieel voor correcte triage, patiëntenzorg en – belangrijker dan ooit – voor verantwoord antibioticabeheer.",
+      "POC (Point-of-Care) systemen van de premiumklasse zijn het controlecentrum om de tijd van monster tot resultaat tot een minimum te beperken en tegelijkertijd maximale klinische veiligheid te garanderen."
     ],
     "sections": [
       {
-        "heading": "1. Biomarkers als Basis voor Besluitvorming: CRP, PCT, IL-6",
-        "content": "Snelle analyse van specifieke biomarkers direct bij de patiënt is de basis voor geïnformeerde beslissingen:",
+        "heading": "1. Biomarkers als beslissingsbasis: CRP, PCT, IL-6",
+        "content": "Snelle analyse van specifieke biomarkers direct bij de patiënt is de basis voor goed onderbouwde beslissingen:",
         "listItems": [
-          "CRP (C-reactief Proteïne): De belangrijkste acute-fase parameter bij infecties en ontstekingen. Een snel beschikbare, kwantitatieve CRP-waarde ondersteunt het onderscheid tussen virale en bacteriële infecties en is cruciaal voor therapiemonitoring.",
-          "PCT (Procalcitonine): Vooral in de intensive care en chirurgie wordt PCT geprefereerd voor differentiatie en controle van antibioticatherapie, omdat het vaak een specifiekere indicator is voor bacteriële sepsis dan CRP.",
-          "IL-6 (Interleukine-6): Een vroege cytokinemarker die al in de eerste uren van een ernstige systemische ontsteking (bijv. sepsis) stijgt en daarom essentieel is voor de vroegst mogelijke triage van kritieke patiënten."
+          "CRP (C-reactief proteïne): De belangrijkste acute-fase parameter bij infecties en ontstekingen. Een snel beschikbare, kwantitatieve CRP-waarde ondersteunt de differentiatie tussen virale en bacteriële infecties en is cruciaal voor therapiemonitoring.",
+          "PCT (Procalcitonine): Vooral op de intensive care en chirurgie heeft PCT de voorkeur voor het differentiëren en sturen van antibiotische therapie, omdat het vaak een specifiekere indicator is voor bacteriële sepsis dan CRP.",
+          "IL-6 (Interleukine-6): Een vroege cytokine-marker die al in de eerste uren van ernstige systemische ontsteking (bijv. sepsis) stijgt en daarom onmisbaar is voor de vroegst mogelijke triage van kritieke patiënten."
         ]
       },
       {
-        "heading": "2. De Onmiddellijke Impact: Antibioticabeheer",
-        "content": "De Wereldgezondheidsorganisatie (WHO) benadrukt de noodzaak om onnodig gebruik van antibiotica te beëindigen om resistentie te bestrijden.",
+        "heading": "2. De onmiddellijke impact: Antibioticabeheer",
+        "content": "De Wereldgezondheidsorganisatie (WHO) benadrukt de noodzaak om het onnodige gebruik van antibiotica te beëindigen om resistentie te bestrijden.",
         "listItems": [
-          "Geïnformeerd Voorschrijven: POC-analyses zoals kwantitatieve CRP-meting ondersteunen artsen om alleen antibiotica voor te schrijven wanneer een bacteriële infectie waarschijnlijk is. Studies bewijzen dat POC CRP-tests antibioticavoorschriften voor luchtweginfecties aanzienlijk kunnen verminderen.",
-          "Therapiemonitoring: Real-time meting van markers maakt onmiddellijke controle van therapiesucces mogelijk. Als de CRP-waarde snel daalt, kan antibioticatherapie eerder worden beëindigd, wat kosten verlaagt en de belasting voor de patiënt vermindert."
+          "Goed onderbouwde voorschrijving: POC-analyses zoals kwantitatieve CRP-meting ondersteunen artsen om antibiotica alleen voor te schrijven wanneer een bacteriële infectie waarschijnlijk is. Studies bewijzen dat POC CRP-tests antibiotica-voorschriften voor luchtweginfecties aanzienlijk kunnen verminderen.",
+          "Therapiemonitoring: Realtime meting van markers maakt onmiddellijke controle van therapiesucces mogelijk. Als de CRP-waarde snel daalt, kan antibiotische therapie eerder worden beëindigd, wat kosten en patiëntbelasting vermindert."
         ]
       },
       {
-        "heading": "3. Veiligheid en Snelheid in de Acute Keten",
-        "content": "De Igloo Pro Reader biedt hier het technologische voordeel:",
+        "heading": "3. Veiligheid en snelheid in de acute keten",
+        "content": "De Igloo Pro Reader levert hier technologisch leiderschap:",
         "listItems": [
-          "Snelheid: Resultaten zijn beschikbaar in enkele minuten, waardoor triagebeslissingen onmiddellijk kunnen worden genomen – essentieel op spoedeisende hulpafdelingen of bij het beoordelen van postoperatieve infecties.",
-          "Flexibiliteit: Het open platform maakt de analyse van verschillende lateral flow tests mogelijk die ontsteking, hartmarkers (bijv. D-Dimeer, Troponine) en infectieuze agentia dekken – alles in één compact, mobiel apparaat."
+          "Snelheid: Resultaten zijn beschikbaar in minuten, waardoor triagebeslissingen onmiddellijk kunnen worden genomen – essentieel op spoedeisende hulpafdelingen of bij het beoordelen van postoperatieve infecties.",
+          "Flexibiliteit: Het open platform maakt analyse mogelijk van een grote verscheidenheid aan laterale flowtests die ontsteking, cardiale markers (bijv. D-Dimeer, Troponine) en infectieuze agentia dekken – alles in een compact, mobiel apparaat."
         ]
       }
     ],
     "conclusion": {
-      "heading": "Conclusie: Geen Compromissen in Diagnose",
-      "text": "Bij infecties en ontstekingen is tijd de kritieke factor. Alleen een POC-systeem dat validiteit op laboratoriumniveau combineert met maximale snelheid kan de veiligheid in diagnostiek verhogen en tegelijkertijd antibioticabeheer optimaliseren. PolarisDX.net levert deze gegarandeerde prestatie – van 48-uurs inbedrijfstelling tot prioriteitssupport."
+      "heading": "Conclusie: Geen compromissen bij de diagnose",
+      "text": "Voor infecties en ontstekingen is tijd de kritieke factor. Alleen een POC-systeem dat validiteit op laboratoriumniveau combineert met maximale snelheid kan diagnostische veiligheid verhogen en tegelijkertijd antibioticabeheer optimaliseren. PolarisDX.net levert deze gegarandeerde prestaties – van 48-uurs inbedrijfstelling tot prioriteitsondersteuning."
     },
-    "cta": "Afspraak maken"
+    "cta": "Afspraak boeken"
   },
   "stoffwechsel_herz": {
-    "title": "Metabolisme & Hartgezondheid: Chronische Monitoring met één Druk op de Knop",
-    "headline": "Belangrijke Indicatoren in Zicht: Precieze Meting voor Therapieaanpassing",
+    "title": "Stofwisseling & Hartgezondheid",
+    "headline": "Belangrijke indicatoren in één oogopslag: Nauwkeurige meting voor therapieaanpassing",
     "intro": [
-      "Het monitoren van chronische ziekten zoals diabetes en het beheren van cardiale risico's zijn tijdkritieke taken. Moderne Point-of-Care (POC) systemen worden hier een onmisbaar hulpmiddel, omdat ze patiëntenbinding versterken en therapieaanpassing versnellen.",
-      "De Igloo Pro Reader bundelt de noodzakelijke precieze analytics in een mobiel apparaat om belangrijke metabole en hartmarkers in enkele minuten te bepalen."
+      "Het monitoren van chronische ziekten zoals diabetes en het beheersen van cardiale risico's zijn tijdkritische taken. Moderne Point-of-Care (POC) systemen veranderen hier in onmisbare hulpmiddelen, omdat ze de patiënttrouw versterken en therapieaanpassing versnellen.",
+      "De Igloo Pro Reader bundelt de noodzakelijke nauwkeurige analyses in een mobiel apparaat om belangrijke metabole en cardiale markers in enkele minuten te bepalen."
     ],
     "sections": [
       {
-        "heading": "1. Metabole Excellentie: HbA1c en Lipiden",
+        "heading": "1. Metabole excellentie: HbA1c en Lipiden",
         "content": "De lange-termijn bloedsuikerwaarde (HbA1c) is de beslissende parameter in diabetesbeheer.",
         "listItems": [
-          "Directe Therapieaanpassing: De onmiddellijke HbA1c-meting aan het POC (uit een capillair bloedmonster) levert de gemiddelde bloedsuikerwaarde van de laatste maanden. Als het resultaat onmiddellijk beschikbaar is, kan de behandeling direct worden aangepast. Studies tonen aan dat dit de therapietrouw en patiënttevredenheid enorm verbetert, omdat er geen tweede afspraken voor laboratoriumresultaten nodig zijn.",
-          "Cholesterolprofielen: De precieze bepaling van totaal cholesterol en de verschillende lipidfracties is een kritieke indicator voor het risico op arteriosclerose en cardiovasculaire voorvallen. POC-tests maken een onmiddellijke risicobeoordeling en advies over levensstijlveranderingen of medicamenteuze therapie mogelijk."
+          "Directe therapieaanpassing: Onmiddellijke HbA1c-meting op de POC (van een capillair bloedmonster) geeft de gemiddelde bloedsuikerwaarde van de afgelopen maanden. Als het resultaat onmiddellijk beschikbaar is, kan de behandeling direct worden aangepast. Studies tonen aan dat dit de therapietrouw en tevredenheid van de patiënt enorm verbetert, omdat er geen tweede afspraken voor laboratoriumresultaten nodig zijn.",
+          "Cholesterolprofielen: Nauwkeurige bepaling van totaal cholesterol en verschillende lipidenfracties is een kritieke indicator voor het risico op arteriosclerose en cardiovasculaire voorvallen. POC-tests maken onmiddellijke risicobeoordeling en advies over levensstijlveranderingen of medicamenteuze therapie mogelijk."
         ]
       },
       {
-        "heading": "2. Acute Cardiale Veiligheid: Noodparameters",
-        "content": "In acute hartzorg redt snelheid levens. POC-systemen leveren hiervoor de noodzakelijke noodparameters:",
+        "heading": "2. Acute cardiale veiligheid: Noodparameters",
+        "content": "In de acute hartzorg redt snelheid levens. POC-systemen bieden hiervoor de noodzakelijke noodparameters:",
         "listItems": [
-          "D-Dimeer: De kwantitatieve meting van D-Dimeer is essentieel voor de snelle uitsluiting van diepe veneuze trombose (DVT) en longembolie (LE). Een negatief resultaat maakt een onmiddellijke opheffing van het alarm mogelijk, wat de triage op de spoedeisende hulp of praktijk massaal ontlast.",
-          "Cardiale Troponine (cTnl): Hoewel vaak gemeten in het centrale laboratorium, is POC-bepaling van troponine een zeer gevoelige marker om de diagnose van een acuut myocardinfarct (AMI) te ondersteunen.",
-          "NT-proBNP: Dit peptidehormoon is de sleutelmarker voor diagnose en risicostratificatie bij hartfalen. Snelle bepaling maakt een onmiddellijke beoordeling van de ernst mogelijk en initieert verdere behandeling."
+          "D-Dimeer: Kwantitatieve meting van D-Dimeer is essentieel voor de snelle uitsluiting van diepe veneuze trombose (DVT) en longembolie (PE). Een negatief resultaat maakt onmiddellijke geruststelling mogelijk, wat de triage op de spoedeisende hulp of praktijk massaal ontlast.",
+          "Cardiaal Troponine (cTnl): Hoewel vaak gemeten in het centrale laboratorium, is POC-bepaling van Troponine een zeer gevoelige marker ter ondersteuning van de diagnose van een acuut myocardinfarct (AMI).",
+          "NT-proBNP: Dit peptidehormoon is de sleutelmarker voor diagnose en risicostratificatie bij hartfalen. Snelle bepaling maakt onmiddellijke beoordeling van de ernst mogelijk en initieert verdere behandeling."
         ]
       },
       {
-        "heading": "3. Het Premium Voordeel: Snelheid en Betrouwbaarheid",
-        "content": "Voor het monitoren van chronische ziekten en triage van hartnoodgevallen is de betrouwbaarheid van POC-technologie niet onderhandelbaar.",
+        "heading": "3. Het Premium-voordeel: Snelheid en Betrouwbaarheid",
+        "content": "Voor het monitoren van chronische ziekten en triage van cardiale noodgevallen is de betrouwbaarheid van POC-technologie niet onderhandelbaar.",
         "listItems": [
           "Laboratoriumnauwkeurigheid: De Igloo Pro levert resultaten die overeenkomen met die van het centrale laboratorium (CV < 2% Inter-Reader).",
-          "Multiplex Capaciteit: Het systeem kan verschillende hartmarkers gelijktijdig of in snelle opeenvolging bepalen, wat de efficiëntie in kritieke situaties maximaliseert."
+          "Multiplex-capaciteit: Het systeem kan verschillende cardiale parameters gelijktijdig of snel achter elkaar bepalen, wat de efficiëntie in kritieke situaties maximaliseert."
         ]
       }
     ],
     "conclusion": {
-      "heading": "Conclusie voor jouw Praktijk",
-      "text": "De integratie van de Igloo Pro Reader in jouw workflow betekent een paradigmaverschuiving: Van vertraagde monitoring naar onmiddellijke, datagebaseerde therapieaanpassing. Met PolarisDX.net verzekert Je zich niet alleen van de technologie voor deze kritieke metingen, maar ook van de garantie van soepele implementatie en doorlopende validatie."
+      "heading": "Conclusie voor uw praktijk",
+      "text": "De integratie van de Igloo Pro Reader in uw workflow betekent een paradigmaverschuiving: Van vertraagde monitoring naar onmiddellijke, op data gebaseerde therapieaanpassing. Met PolarisDX.net verzekert u zich niet alleen van de technologie voor deze kritieke metingen, maar ook van de garantie op soepele implementatie en doorlopende validatie."
     },
-    "cta": "Afspraak maken"
+    "cta": "Afspraak boeken"
   },
   "hormon_tests": {
-    "title": "Hormoon- & Endocrinologietests: Gespecialiseerde Diagnostiek Makkelijk Gemaakt",
-    "headline": "Precisie in Endocrinologie: Snelle Zekerheid voor Complexe Diagnoses",
+    "title": "Hormoon- & Endocrinologietests",
+    "headline": "Precisie in endocrinologie: Snelle zekerheid voor complexe diagnoses",
     "intro": [
-      "Hormonale onbalansen zijn vaak de oorzaak van complexe, chronische klachten, van schildklierdisfunctie tot vruchtbaarheidsstoornissen. Gespecialiseerde praktijken en apotheken hebben daarom diagnostiek nodig die niet alleen snel, maar absoluut precies is, om therapietrajecten te sturen op basis van solide bewijs.",
+      "Hormonale onevenwichtigheden zijn vaak de oorzaak van complexe, chronische klachten, van schildklierdisfunctie tot vruchtbaarheidsstoornissen. Gespecialiseerde praktijken en apotheken hebben daarom diagnostiek nodig die niet alleen snel is, maar absoluut nauwkeurig om therapiepaden goed gefundeerd te sturen.",
       "De Igloo Pro Reader maakt POC-tests toegankelijk voor endocrinologie en maakt de onmiddellijke bepaling van kritieke hormonen direct bij de patiënt mogelijk."
     ],
     "sections": [
       {
-        "heading": "1. De Schildklieras: TSH als Sleutelmarker",
-        "content": "Thyroïd-stimulerend hormoon (TSH) is de belangrijkste screeningparameter voor het beoordelen van de schildklierfunctie.",
+        "heading": "1. De schildklieras: TSH als sleutelmarker",
+        "content": "Thyreoïdestimulerend hormoon (TSH) is de belangrijkste screeningsparameter voor het beoordelen van de schildklierfunctie.",
         "listItems": [
-          "Vroege Detectie: TSH reageert gevoelig op kleine veranderingen in schildklierhormonen (fT3, fT4). Een verhoogde of verlaagde TSH-waarde kan wijzen op een latente disfunctie, zelfs voordat perifere waarden afwijken.",
-          "Therapiemonitoring: Bij substitutietherapieën moet de TSH-waarde nauwlettend worden gevolgd. Onmiddellijke POC-analyse maakt directe aanpassing van medicatie mogelijk – een beslissende factor, vooral bij kinderwens of tijdens de zwangerschap."
+          "Vroege detectie: TSH reageert gevoelig op kleine veranderingen in schildklierhormonen (fT3, fT4). Een verhoogde of verlaagde TSH-waarde kan wijzen op latente disfunctie, zelfs voordat perifere waarden afwijken.",
+          "Therapiemonitoring: Bij substitutietherapieën moet de TSH-waarde nauwlettend worden gevolgd. Onmiddellijke POC-analyse maakt directe medicatieaanpassing mogelijk – een beslissende factor, vooral bij kinderwens of tijdens zwangerschap."
         ]
       },
       {
-        "heading": "2. Reproductiehormonen: AMH als Indicator van Tijd",
-        "content": "Anti-Müllers Hormoon (AMH) heeft zich gevestigd als een centrale marker voor ovariële reserve (eicelreserve) bij vrouwen.",
+        "heading": "2. Reproductieve hormonen: AMH als indicator van tijd",
+        "content": "Anti-Müller-hormoon (AMH) heeft zich gevestigd als een centrale marker voor ovariële reserve (eicelreserve) bij vrouwen.",
         "listItems": [
-          "Vruchtbaarheidsdiagnostiek: AMH is een betrouwbare indicator van het potentiële aantal eicellen dat in staat is tot rijping. Bepaling is essentieel bij onvervulde kinderwens, planning van geassisteerde voortplanting (IVF) of beoordeling van het risico op voortijdige menopauze.",
-          "Onafhankelijkheid van Cyclus: In tegenstelling tot veel andere hormonen fluctueert AMH relatief weinig gedurende de menstruatiecyclus, waardoor POC-meting een uiterst praktisch hulpmiddel is voor snelle, betrouwbare informatie.",
-          "PCOS Diagnostiek: Zeer hoge AMH-waarden kunnen ook een indicatie zijn van Polycysteus Ovarium Syndroom (PCOS), wat snelle opheldering en therapeutisch management mogelijk maakt."
+          "Vruchtbaarheidsdiagnostiek: AMH is een betrouwbare indicator van het potentiële aantal eicellen dat kan rijpen. Bepaling is essentieel bij onvervulde kinderwens, planning van geassisteerde voortplanting (IVF) of beoordeling van het risico op voortijdige menopauze.",
+          "Onafhankelijkheid van cyclus: In tegenstelling tot veel andere hormonen fluctueert AMH relatief weinig gedurende de menstruatiecyclus, waardoor POC-meting een uiterst praktisch hulpmiddel is voor snelle, betrouwbare informatie.",
+          "PCOS-diagnostiek: Zeer hoge AMH-waarden kunnen ook een indicatie zijn van Polycysteus Ovarium Syndroom (PCOS), wat snelle opheldering en therapeutische begeleiding mogelijk maakt."
         ]
       },
       {
-        "heading": "3. De Premium Vereiste voor Hormoonanalytiek",
-        "content": "Endocrinologie vereist de hoogste analytische nauwkeurigheid, aangezien zelfs kleine afwijkingen klinisch relevant zijn. De Igloo Pro Reader is ontworpen om aan deze eisen te voldoen:",
+        "heading": "3. De Premium-eis voor hormoonanalyse",
+        "content": "Endocrinologie vereist de hoogste analytische nauwkeurigheid, omdat zelfs kleine afwijkingen klinisch relevant zijn. De Igloo Pro Reader is ontworpen om aan deze eisen te voldoen:",
         "listItems": [
-          "Analytische Veiligheid: Het vermogen om hormoonmarkers met gevalideerde precisie te meten is cruciaal om verkeerde interpretaties te voorkomen.",
-          "Breed Spectrum: Naast TSH en AMH ondersteunt de reader de analyse van andere hormonen zoals Cortisol (stress), Progesteron, FSH en Testosteron, wat uitgebreide endocrinologische initiële diagnostiek mogelijk maakt."
+          "Analytische veiligheid: Het vermogen om hormoonmarkers met gevalideerde precisie te meten is cruciaal om misinterpretaties te voorkomen.",
+          "Breed spectrum: Naast TSH en AMH ondersteunt de reader analyse van andere hormonen zoals Cortisol (stress), Progesteron, FSH en Testosteron, wat een uitgebreide endocrinologische initiële diagnose mogelijk maakt."
         ]
       }
     ],
     "conclusion": {
-      "heading": "Conclusie: Gespecialiseerde Diagnostiek Direct in jouw Hand",
-      "text": "Hormoon- en endocrinologietests zijn vaak het startpunt van complexe behandelingstrajecten. Door POC-diagnostiek met de Igloo Pro verkort Je massaal de tijd tot diagnose en therapiebeslissing. polarisDX.net biedt Je de technologie en de LFT-compatibiliteitsgarantie om dit brede spectrum van gespecialiseerde tests veilig en efficiënt in jouw bedrijfsvoering te integreren."
+      "heading": "Conclusie: Speciale diagnostiek direct in uw hand",
+      "text": "Hormoon- en endocrinologietests zijn vaak het startpunt voor complexe behandeltrajecten. Door POC-diagnostiek met de Igloo Pro verkort u de tijd tot diagnose en therapiebeslissing enorm. polarisDX.net biedt u de technologie en LFT-compatibiliteitsgarantie om dit brede spectrum van gespecialiseerde tests veilig en efficiënt in uw bedrijfsvoering te integreren."
     },
-    "cta": "Afspraak maken"
+    "cta": "Afspraak boeken"
   },
   "kompatibilitaet_integration": {
-    "title": "Compatibiliteit tussen Fabrikanten: Investeringszekerheid door Openheid",
-    "headline": "Maximale Flexibiliteit: Hoe jouw Igloo Pro 90% van Alle Tests op de Markt Evalueert",
+    "title": "Compatibiliteit tussen fabrikanten",
+    "headline": "Maximale flexibiliteit: Hoe uw Igloo Pro 90% van alle tests op de markt evalueert",
     "intro": [
-      "In de snelle wereld van diagnostiek is de grootste zorg bij een nieuwe investering investeringszekerheid. De technologie van morgen mag niet worden geblokkeerd door de beperkingen van vandaag.",
-      "De POC systeemoplossing Igloo Pro is het antwoord op deze uitdaging. Het is ontworpen als een open, fabrikant-overschrijdend platform dat Je maximale flexibiliteit en technologische onafhankelijkheid garandeert."
+      "In de snelle wereld van diagnostiek is de grootste zorg bij nieuwe investeringen de investeringszekerheid. De technologie van morgen mag niet worden geblokkeerd door de beperkingen van vandaag.",
+      "De Igloo Pro POC-systeemoplossing is het antwoord op deze uitdaging. Het is ontworpen als een open, fabrikantoverstijgend platform dat u maximale flexibiliteit en technologische onafhankelijkheid garandeert."
     ],
     "sections": [
       {
-        "heading": "1. Het Principe van Openheid: Onafhankelijkheid is jouw Voordeel",
-        "content": "Gesloten POC-systemen binden Je aan één enkele fabrikant voor reagentia en tests. Dit beperkt jouw keuze, prijsstelling en uiteindelijk jouw diagnostische mogelijkheden.",
+        "heading": "1. Het principe van openheid: Onafhankelijkheid is uw voordeel",
+        "content": "Gesloten POC-systemen binden u aan één enkele fabrikant voor reagentia en tests. Dit beperkt uw keuze, prijsstelling en uiteindelijk uw diagnostische mogelijkheden.",
         "listItems": [
-          "De Universele Technologie: Dankzij hoogontwikkelde beeldverwerkingsalgoritmen en universele adapters is de Igloo Pro in staat om de meetresultaten van ongeveer 90% van alle Lateral Flow Tests (LFT) op de markt nauwkeurig en kwantitatief te evalueren.",
-          "jouw Vrijheid: Je bent niet langer beperkt tot het testassortiment van één enkele aanbieder. Je kiest de tests die optimaal zijn voor jouw patiënten en jouw workflow – of het nu gaat om hartmarkers, hormonen of infecties."
+          "De universele technologie: Dankzij geavanceerde beeldverwerkingsalgoritmen en universele adapters is de Igloo Pro in staat om de meetresultaten van ongeveer 90% van alle laterale flowtests (LFT) op de markt nauwkeurig en kwantitatief te evalueren.",
+          "Uw vrijheid: U bent niet langer beperkt tot het testassortiment van één enkele aanbieder. U kiest de tests die optimaal zijn voor uw patiënten en uw workflow – of het nu gaat om cardiale markers, hormonen of infecties."
         ]
       },
       {
-        "heading": "2. De Garantie voor Investeringszekerheid",
-        "content": "Compatibiliteit is de belangrijkste bescherming voor jouw lange-termijn investering:",
+        "heading": "2. De garantie voor investeringszekerheid",
+        "content": "Compatibiliteit is de belangrijkste bescherming voor uw langetermijninvestering:",
         "listItems": [
-          "Toekomstzekerheid: Zelfs als nieuwe, innovatieve LFT's van andere fabrikanten op de markt komen, kunnen deze meestal snel worden geïntegreerd in het open systeem van de Igloo Pro. jouw apparaat blijft relevant en toekomstbestendig.",
-          "Economische Efficiëntie: Door compatibiliteit tussen fabrikanten kunt Je concurrentievoordelen in verbruiksgoederen (teststrips) gebruiken en bent Je beschermd tegen plotselinge prijsstijgingen van een monopolist.",
-          "Standaardisatie Makkelijk Gemaakt: Met één enkel analyseapparaat kunt Je een breed scala aan diagnostische vereisten dekken, wat training vereenvoudigt, foutbronnen vermindert en jouw hele POC-workflow standaardiseert."
+          "Toekomstbestendig: Zelfs als er nieuwe, innovatieve LFT's van andere fabrikanten op de markt komen, kunnen deze meestal snel worden geïntegreerd in het open systeem van de Igloo Pro. Uw apparaat blijft relevant en toekomstbestendig.",
+          "Economische efficiëntie: Compatibiliteit tussen fabrikanten stelt u in staat te profiteren van concurrentievoordelen bij verbruiksartikelen (teststrips) en beschermt u tegen plotselinge prijsstijgingen van een monopolist.",
+          "Standaardisatie eenvoudig gemaakt: Met één enkele analyzer kunt u een breed scala aan diagnostische vereisten dekken, wat training vereenvoudigt, foutbronnen vermindert en uw hele POC-workflow standaardiseert."
         ]
       },
       {
-        "heading": "3. De PolarisDX.net Expertise: Compatibiliteit Gegarandeerd",
-        "content": "De technologie van de Igloo Pro is open, maar de correcte validatie van de interactie tussen apparaat en test is de beslissende pijler.",
+        "heading": "3. De PolarisDX.net expertise: Compatibiliteit gegarandeerd",
+        "content": "De technologie van de Igloo Pro is open, maar correcte validatie van de interactie tussen apparaat en test is de beslissende pijler.",
         "listItems": [
-          "Onze Pijler 2: Met de LFT Compatibiliteitsgarantie zorgen we ervoor dat jouw geselecteerde tests (inclusief die van externe aanbieders) correct zijn gekalibreerd en naadloos zijn geïntegreerd in de Igloo Pro-workflow. We leveren niet alleen de theoretische openheid, maar de praktische, gevalideerde functie."
+          "Onze Pijler 2: Met de LFT-compatibiliteitsgarantie zorgen we ervoor dat uw geselecteerde tests (zelfs van externe aanbieders) correct worden gekalibreerd en soepel worden geïntegreerd in de Igloo Pro-workflow. Wij leveren niet alleen theoretische openheid, maar praktische, gevalideerde functionaliteit."
         ]
       }
     ],
     "conclusion": {
-      "heading": "Conclusie: Investeer in een Oplossing, Niet in een Beperking",
-      "text": "De compatibiliteit tussen fabrikanten van de Igloo Pro maakt het de slimste investering in POC-diagnostik. Het biedt de flexibiliteit die Je vandaag nodig heeft en de investeringszekerheid die Je morgen nodig zult hebben."
+      "heading": "Conclusie: Investeer in een oplossing, niet in een beperking",
+      "text": "De compatibiliteit tussen fabrikanten van de Igloo Pro maakt het de slimste investering in POC-diagnostiek. Het biedt de flexibiliteit die u vandaag nodig hebt en de investeringszekerheid die u morgen nodig hebt."
     },
-    "cta": "Afspraak maken"
+    "cta": "Afspraak boeken"
   }
 }

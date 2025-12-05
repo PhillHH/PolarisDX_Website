@@ -1,0 +1,397 @@
+{
+  "imprint": {
+    "title": "Impressum",
+    "section1": {
+      "title": "Oplysninger i henhold til § 5 TMG",
+      "london": {
+        "title": "London Office",
+        "company": "PolarisDX LTD",
+        "address": [
+          "262A Fulham Road",
+          "London SW10 9EL",
+          "Storbritannien"
+        ],
+        "contact": {
+          "label": "Kontakt:",
+          "phone": "Telefon: +44 7879 433019",
+          "email": "E-mail: hello@polarisdx.net"
+        }
+      },
+      "hamburg": {
+        "title": "Hamburg Office",
+        "company": "PolarisDX Europe UG",
+        "address": [
+          "Große Bleichen 1 - 3",
+          "20097 Hamborg",
+          "Tyskland"
+        ],
+        "contact": {
+          "label": "Kontakt:",
+          "email": "E-mail: info@polarisdx.net"
+        }
+      }
+    },
+    "section2": {
+      "title": "Repræsentation",
+      "content": "Repræsenteret af ledelsen."
+    },
+    "section3": {
+      "title": "Registerindførsel",
+      "content": [
+        "Indførsel i handelsregistret.",
+        "Registerret: Amtsgericht Hamburg (for PolarisDX Europe UG)",
+        "Registreringsnummer: [Indsæt HRB-nummer her]"
+      ]
+    },
+    "section4": {
+      "title": "Moms-ID",
+      "content": [
+        "Momsidentifikationsnummer i henhold til §27 a i momsloven:",
+        "[Indsæt moms-ID her]"
+      ]
+    },
+    "section5": {
+      "title": "Redaktionelt ansvarlig",
+      "content": [
+        "PolarisDX Management Team",
+        "262A Fulham Road",
+        "London SW10 9EL"
+      ]
+    },
+    "section6": {
+      "title": "EU-tvistbilæggelse",
+      "content": "Europa-Kommissionen stiller en platform til rådighed for online tvistbilæggelse (OTB): <1>https://ec.europa.eu/consumers/odr/</1>. Du finder vores e-mailadresse ovenfor i impressummet."
+    },
+    "section7": {
+      "title": "Forbrugertvistbilæggelse / Universelt voldgiftsnævn",
+      "content": "Vi er ikke villige eller forpligtede til at deltage i tvistbilæggelsesprocedurer ved et forbrugervoldgiftsnævn."
+    }
+  },
+  "privacy": {
+    "title": "Privatlivspolitik",
+    "section1": {
+      "title": "1. Databeskyttelse i overblik",
+      "general": {
+        "title": "Generelle bemærkninger",
+        "content": "De følgende bemærkninger giver et simpelt overblik over, hvad der sker med dine personoplysninger, når du besøger dette websted. Personoplysninger er alle data, hvormed du kan identificeres personligt."
+      },
+      "collection": {
+        "title": "Dataindsamling på dette websted",
+        "who_title": "Hvem er ansvarlig for dataindsamlingen på dette websted?",
+        "who_content": "Databehandlingen på dette websted udføres af webstedsoperatøren. Dennes kontaktoplysninger kan findes i impressummet på dette websted.",
+        "how_title": "Hvordan indsamler vi dine data?",
+        "how_content1": "Dine data indsamles for det første ved, at du meddeler os dem. Dette kan f.eks. være data, som du indtaster i en kontaktformular.",
+        "how_content2": "Andre data indsamles automatisk eller efter dit samtykke ved besøg på webstedet af vores IT-systemer. Det er primært tekniske data (f.eks. internetbrowser, operativsystem eller tidspunkt for sidevisning). Indsamlingen af disse data sker automatisk, så snart du går ind på dette websted."
+      }
+    },
+    "section2": {
+      "title": "2. Hosting",
+      "content": "Vi hoster indholdet af vores websted hos en ekstern udbyder. De personoplysninger, der indsamles på dette websted, gemmes på hostens servere. Dette kan bl.a. dreje sig om IP-adresser, kontaktforespørgsler, meta- og kommunikationsdata, kontraktdata, kontaktoplysninger, navne, webstedsadgang og andre data, der genereres via et websted."
+    },
+    "section3": {
+      "title": "3. Generelle bemærkninger og obligatoriske oplysninger",
+      "protection": {
+        "title": "Databeskyttelse",
+        "content": "Operatørerne af disse sider tager beskyttelsen af dine personlige data meget alvorligt. Vi behandler dine personoplysninger fortroligt og i overensstemmelse med de lovmæssige databeskyttelsesbestemmelser samt denne privatlivspolitik."
+      },
+      "responsible": {
+        "title": "Bemærkning om den ansvarlige instans",
+        "content": "Den ansvarlige instans for databehandlingen på dette websted er:",
+        "address": [
+          "PolarisDX Europe UG",
+          "Große Bleichen 1 - 3",
+          "20097 Hamborg",
+          "E-mail: info@polarisdx.net"
+        ]
+      },
+      "storage": {
+        "title": "Opbevaringsvarighed",
+        "content": "Medmindre en mere specifik opbevaringsvarighed er nævnt i denne privatlivspolitik, forbliver dine personoplysninger hos os, indtil formålet med databehandlingen bortfalder. Hvis du fremsætter en berettiget anmodning om sletning eller tilbagekalder et samtykke til databehandling, slettes dine data, medmindre vi har andre juridisk tilladte grunde til at opbevare dine personoplysninger (f.eks. skatte- eller handelsretlige opbevaringsfrister); i sidstnævnte tilfælde sker sletningen, efter at disse grunde er bortfaldet."
+      }
+    },
+    "section4": {
+      "title": "4. Dataindsamling på dette websted",
+      "form": {
+        "title": "Kontaktformular",
+        "content1": "Hvis du sender os forespørgsler via kontaktformularen, gemmes dine oplysninger fra forespørgselsformularen inklusive de kontaktoplysninger, du har angivet der, hos os med henblik på behandling af forespørgslen og i tilfælde af opfølgende spørgsmål. Vi videregiver ikke disse data uden dit samtykke.",
+        "duration_title": "Opbevaringsvarighed ved kontaktforespørgsler:",
+        "duration_content": "Vi opbevarer dine data fra kontaktformularen i en periode på op til 12 måneder for at være til rådighed for eventuelle opfølgende spørgsmål, medmindre lovmæssige opbevaringsfrister kræver en længere opbevaring.",
+        "legal_basis": "Behandlingen af disse data sker på grundlag af art. 6 stk. 1 litra b GDPR, for så vidt din forespørgsel er relateret til opfyldelsen af en kontrakt eller er nødvendig for gennemførelsen af foranstaltninger forud for kontraktindgåelse. I alle andre tilfælde er behandlingen baseret på vores legitime interesse i en effektiv behandling af de forespørgsler, der er rettet til os (art. 6 stk. 1 litra f GDPR) eller på dit samtykke (art. 6 stk. 1 litra a GDPR), hvis dette er indhentet."
+      }
+    },
+    "section5": {
+      "title": "5. Analyseværktøjer og reklame",
+      "content": "I det omfang du har givet dit samtykke, anvendes cookies og lignende teknologier på dette websted. Du kan til enhver tid tilbagekalde dit samtykke via vores cookie-banner eller indstillingerne i din browser."
+    }
+  },
+  "agb": {
+    "title": "Generelle forretningsbetingelser",
+    "subtitle": "Polaris Diagnostics Europe UG (begrænset ansvar) | In-vitro-diagnostik | Medicinsk udstyr | Software & Cloud-tjenester",
+    "date": "Status: December 2025",
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "§ 1 Gyldighedsområde",
+        "content": [
+          "§ 1.1 Disse generelle forretningsbetingelser (AGB) gælder for alle forretningsforbindelser mellem Polaris Diagnostics Europe UG (begrænset ansvar), i det følgende benævnt 'Polaris', og kunden. De gælder for salg og levering af in-vitro-diagnostik medicinsk udstyr (IVD), apparater, testkits, forbrugsvarer, software og cloud-tjenester.",
+          "§ 1.2 AGB gælder udelukkende. Afvigende, modstridende eller supplerende generelle forretningsbetingelser fra kunden bliver kun en del af kontrakten, hvis Polaris udtrykkeligt skriftligt har accepteret deres gyldighed.",
+          "§ 1.3 AGB gælder også for alle fremtidige forretninger med kunden, for så vidt det drejer sig om retshandler af beslægtet art.",
+          "§ 1.4 Individuelle aftaler indgået med kunden i enkelte tilfælde (herunder sideaftaler, tillæg og ændringer) har under alle omstændigheder forrang for disse AGB. En skriftlig kontrakt eller den skriftlige bekræftelse fra Polaris er afgørende for indholdet af sådanne aftaler.",
+          "§ 1.5 Polaris' tilbud henvender sig udelukkende til erhvervsdrivende i henhold til § 14 BGB (tysk civillovbog), juridiske personer under offentlig ret eller offentligretlige særlige fonde (B2B). Forbrugerhandel i henhold til § 13 BGB er udelukket."
+        ]
+      },
+      {
+        "id": "section-2",
+        "title": "§ 2 Kontraktindgåelse",
+        "content": [
+          "§ 2.1 Præsentationen af produkterne på webstedet, i kataloger, brochurer eller andet reklamemateriale udgør ikke et juridisk bindende tilbud, men en uforpligtende opfordring til at afgive et tilbud.",
+          "§ 2.2 Ved bestillingen erklærer kunden bindende, at de ønsker at erhverve de bestilte produkter. Bestillingen kan ske skriftligt, pr. e-mail, via webstedet eller telefonisk.",
+          "§ 2.3 Kontrakten indgås først ved skriftlig ordrebekræftelse fra Polaris eller ved levering af varen. Den automatiske bekræftelse af modtagelsen af en onlinebestilling udgør endnu ikke en accept af tilbuddet.",
+          "§ 2.4 Polaris forbeholder sig ret til at afvise ordrer uden angivelse af grunde, især i tilfælde af begrundet tvivl om kundens kreditværdighed eller ved leveringsflaskehalse.",
+          "§ 2.5 Kunden er bundet af sin bestilling i en periode på 14 dage. Kontrakten kan indgås på tysk eller engelsk."
+        ]
+      },
+      {
+        "id": "section-3",
+        "title": "§ 3 Priser og betalingsbetingelser",
+        "content": [
+          "§ 3.1 Priserne på bestillingstidspunktet i henhold til Polaris' aktuelle prisliste er gældende. Alle priser er i euro, plus lovpligtig moms og eventuelle forsendelsesomkostninger.",
+          "§ 3.2 Medmindre andet er aftalt, forfalder købsprisen til betaling uden fradrag inden for 14 dage efter fakturadatoen. Afgørende for betalingens rettidighed er betalingens indgang hos Polaris.",
+          "§ 3.3 Ved forsinket betaling er Polaris berettiget til at beregne morarenter på 9 procentpoint over den til enhver tid gældende basisrente. Gørelse af krav på højere forsinkelsesskader forbeholdes.",
+          "§ 3.4 Kunden har kun ret til modregning, hvis deres modkrav er retskraftigt fastslået, ubestridt eller anerkendt af Polaris. Kunden er kun berettiget til at udøve en tilbageholdelsesret, for så vidt deres modkrav er baseret på det samme kontraktforhold.",
+          "§ 3.5 Polaris er berettiget til at kræve forudbetaling, depositum eller andre sikkerheder fra nye kunder eller ved begrundet tvivl om betalingsevnen.",
+          "§ 3.6 For tilbagevendende ydelser (abonnementer, softwarelicenser, cloud-tjenester, vedligeholdelseskontrakter) sker fakturering forud for den respektive faktureringsperiode, medmindre andet er aftalt."
+        ]
+      },
+      {
+        "id": "section-4",
+        "title": "§ 4 Levering og forsendelse",
+        "content": [
+          "§ 4.1 Levering sker ab lager Polaris eller direkte fra producenten. Leveringsterminer og -frister er kun bindende, hvis de udtrykkeligt skriftligt er bekræftet som bindende af Polaris.",
+          "§ 4.2 Risikoen for hændeligt tab og hændelig forringelse af varen overgår til kunden ved overgivelse til speditøren, fragtføreren eller den person, der ellers er udpeget til at udføre forsendelsen.",
+          "§ 4.3 Delleverancer er tilladt, for så vidt de er rimelige for kunden. Hver delleverance betragtes som en selvstændig forretning og kan faktureres separat.",
+          "§ 4.4 Hvis kunden er i misligholdelse med modtagelsen eller skyldigt overtræder andre medvirkningsforpligtelser, er Polaris berettiget til at kræve erstatning for den opståede skade, herunder eventuelle ekstraudgifter.",
+          "§ 4.5 I tilfælde af force majeure, driftsforstyrrelser, strejker, lockouter, officielle påbud eller andre uforudsete begivenheder forlænges leveringsfristerne tilsvarende. Polaris vil informere kunden om sådanne hindringer med det samme.",
+          "§ 4.6 For temperaturfølsomme produkter (f.eks. testkits, reagenser) sker forsendelsen under overholdelse af den foreskrevne kølekæde. Kunden skal ved levering kontrollere integriteten og temperaturen og straks reklamere over eventuelle mangler."
+        ]
+      },
+      {
+        "id": "section-5",
+        "title": "§ 5 Garanti og mangelskrav",
+        "content": [
+          "§ 5.1 Kundens garantirettigheder forudsætter, at denne behørigt har opfyldt sine lovmæssige undersøgelses- og reklamationsforpligtelser i henhold til § 377 HGB (tysk handelslovbog). Åbenlyse mangler skal anmeldes skriftligt straks, senest inden for 7 hverdage efter modtagelse af varen.",
+          "§ 5.2 Ved berettigede mangelskrav er Polaris efter eget valg berettiget til udbedring eller erstatningslevering. Hvis efteropfyldelsen mislykkes, kan kunden efter eget valg kræve afslag eller træde tilbage fra kontrakten.",
+          "§ 5.3 Garantifristen er 12 måneder fra levering, medmindre en kortere holdbarhedstid for produktet er angivet. For testkits og forbrugsvarer gælder den på emballagen angivne holdbarhedstid.",
+          "§ 5.4 Garantien bortfalder ved ukorrekt opbevaring, håndtering eller brug i strid med brugsanvisningen, ved egenmægtige ændringer eller reparationer foretaget af kunden eller tredjeparter samt ved normal slitage.",
+          "§ 5.5 Garantien for IVD-medicinsk udstyr er begrænset til funktionen i henhold til specifikationen. En garanti for bestemte diagnostiske resultater eller kliniske beslutninger overtages ikke."
+        ]
+      },
+      {
+        "id": "section-6",
+        "title": "§ 6 Ansvar og ansvarsbegrænsning",
+        "content": [
+          "§ 6.1 Polaris hæfter ubegrænset for skader som følge af skade på liv, legeme eller helbred, der er baseret på en forsætlig eller uagtsom pligtforsømmelse, samt for skader, der er omfattet af produktansvarsloven.",
+          "§ 6.2 For andre skader hæfter Polaris kun ved forsæt og grov uagtsomhed samt ved skyldig overtrædelse af væsentlige kontraktlige forpligtelser. Ansvaret ved overtrædelse af væsentlige kontraktlige forpligtelser er begrænset til den kontraktmæssige, forudsigelige skade.",
+          "§ 6.3 Et ansvar for indirekte skader, følgeskader, tabt fortjeneste, datatab eller driftsafbrydelse er udelukket, medmindre der foreligger forsæt eller grov uagtsomhed.",
+          "§ 6.4 Polaris hæfter ikke for skader, der opstår som følge af fejlagtige diagnostiske beslutninger, forudsat at produktet har fungeret korrekt. Ansvaret for den kliniske fortolkning af diagnostiske resultater ligger udelukkende hos det medicinske fagpersonale.",
+          "§ 6.5 De ovennævnte ansvarsfraskrivelser og -begrænsninger gælder også til fordel for Polaris' lovlige repræsentanter, medarbejdere og opfyldelseshjælpere."
+        ]
+      },
+      {
+        "id": "section-7",
+        "title": "§ 7 Ejendomsforbehold",
+        "content": [
+          "§ 7.1 De leverede apparater (især Igloo Pro Reader), tilbehørsdele samt samtlige softwarelicenser forbliver Polaris Diagnostics Europe UG (begrænset ansvar) ejendom indtil fuld betaling af alle åbne krav.",
+          "§ 7.2 Indtil fuld betaling modtager kunden kun en genkaldelig, ikke-overdragelig brugsret til apparat, software og cloud-tjenester.",
+          "§ 7.3 Kunden er forpligtet til at behandle varen omfattet af ejendomsforbehold skånsomt og forsikre den tilstrækkeligt mod brand, vand og tyveri. Vedligeholdelses- og inspektionsarbejde skal udføres i tide.",
+          "§ 7.4 Ved udlæg eller andre indgreb fra tredjeparter skal kunden straks underrette Polaris skriftligt og henvise til Polaris' ejendomsret.",
+          "§ 7.5 Videre pantsætning eller sikkerhedsoverdragelse af varen omfattet af ejendomsforbehold er ikke tilladt uden forudgående skriftligt samtykke fra Polaris."
+        ]
+      },
+      {
+        "id": "section-8",
+        "title": "§ 8 Brugsrettigheder til software & cloud-tjenester",
+        "content": [
+          "§ 8.1 Brugen af softwaren, cloud-tjenesterne og digitale funktioner er udelukkende tilladt for kunder, der opfylder deres kontraktlige og økonomiske forpligtelser.",
+          "§ 8.2 Polaris er berettiget til at begrænse funktioner eller adgang, hvis dette er nødvendigt for at varetage legitime interesser, især i tilfælde af forsinket betaling.",
+          "§ 8.3 Cloud-tjenesterne leveres med en tilgængelighed på 99,0 % i gennemsnit over året. Planlagte vedligeholdelsesvinduer annonceres mindst 48 timer i forvejen og tæller ikke som nedetid.",
+          "§ 8.4 Kunden er selv ansvarlig for sikkerheden af sine adgangsdata. Ved mistanke om misbrug skal Polaris informeres straks.",
+          "§ 8.5 Brug af softwaren eller cloud-tjenesterne ud over det kontraktmæssigt aftalte omfang (f.eks. flere brugere, yderligere enheder) kræver en separat licensaftale."
+        ]
+      },
+      {
+        "id": "section-9",
+        "title": "§ 9 Spærring ved forsinket betaling",
+        "content": [
+          "§ 9.1 Hvis kunden er i restance med betalingen i mere end 14 dage, er Polaris efter skriftlig varsel berettiget til delvist eller fuldstændigt at spærre adgangen til software, cloud-tjenester eller brugen af apparatet efter udløb af en frist på 48 timer.",
+          "§ 9.2 Spærringen tjener udelukkende til gennemførelse af berettigede betalingskrav og udgør ikke en produktmangel eller servicefejl.",
+          "§ 9.3 Efter udligning af alle åbne krav vil adgangen straks, senest inden for 24 timer, blive genåbnet.",
+          "§ 9.4 Under spærringen forbliver kundens kontraktlige betalingsforpligtelser fuldt ud gældende. Spærringen fritager ikke for pligten til at betale løbende gebyrer.",
+          "§ 9.5 Polaris er berettiget til at opkræve et rimeligt administrationsgebyr for genåbning efter spærring."
+        ]
+      },
+      {
+        "id": "section-10",
+        "title": "§ 10 Tilbagetræden, tilbagekrævning & tilbagekaldelse af brug",
+        "content": [
+          "§ 10.1 Hvis der trods rykker og trussel om spærring ikke sker betaling inden for yderligere 14 dage, er Polaris berettiget til at træde tilbage fra kontrakten og kræve apparatet tilbage i henhold til ejendomsforbeholdet.",
+          "§ 10.2 I dette tilfælde bortfalder brugsretten til software og cloud-tjenester automatisk. Kunden er forpligtet til straks at udlevere apparatet.",
+          "§ 10.3 Polaris er berettiget til at fakturere kunden for omkostninger til afhentning, transport og administration.",
+          "§ 10.4 I tilfælde af tilbagetræden er Polaris berettiget til at kræve en rimelig brugsgodtgørelse for den allerede skete brug af apparatet.",
+          "§ 10.5 Kunden har ikke krav på tilbagebetaling af allerede betalte beløb, for så vidt disse vedrører leverede ydelser."
+        ]
+      },
+      {
+        "id": "section-11",
+        "title": "§ 11 Udelukkelse af returnering ved ibrugtagning af medicinsk udstyr",
+        "content": [
+          "§ 11.1 De leverede apparater er in-vitro-diagnostik medicinsk udstyr i henhold til forordning (EU) 2017/746 (IVDR). Returnering er udelukket, så snart apparatet er taget i brug eller brugt med prøver/testkits.",
+          "§ 11.2 Tilbagetagelse af brugt medicinsk udstyr er ikke tilladt af sikkerheds-, hygiejne- og lovgivningsmæssige årsager.",
+          "§ 11.3 Kunden kan ikke gøre returret gældende i tilfælde af forsinket betaling. Betalingsforpligtelsen forbliver fuldt ud gældende.",
+          "§ 11.4 Uberettigede returneringer kan afvises af Polaris eller bortskaffes på kundens regning.",
+          "§ 11.5 Testkits og forbrugsvarer er principielt udelukket fra returnering, medmindre der foreligger en produktmangel.",
+          "§ 11.6 Bestemmelserne i denne paragraf tjener til beskyttelse af folkesundheden og overholdelse af lovgivningsmæssige krav og er derfor obligatoriske."
+        ]
+      },
+      {
+        "id": "section-12",
+        "title": "§ 12 Produktkonformitet og lovgivningsmæssige krav",
+        "content": [
+          "§ 12.1 De in-vitro-diagnostikprodukter, der distribueres af Polaris, opfylder kravene i forordning (EU) 2017/746 (IVDR) og bærer CE-mærkning i henhold til de gældende overensstemmelsesvurderingsprocedurer.",
+          "§ 12.2 Kunden forpligter sig til kun at anvende produkterne i overensstemmelse med deres tilsigtede formål, brugsanvisningerne og de gældende lovbestemmelser.",
+          "§ 12.3 Kunden er forpligtet til før brug af produkterne at sikre sig, at de har de nødvendige tilladelser, godkendelser og kvalifikationer og overholder de lovgivningsmæssige krav i deres land.",
+          "§ 12.4 Ved eksport af produkterne til lande uden for EU er kunden selv ansvarlig for overholdelsen af de der gældende lovgivningsmæssige krav. En garanti for godkendelsesmulighed i tredjelande overtages ikke."
+        ]
+      },
+      {
+        "id": "section-13",
+        "title": "§ 13 Vigilance og indberetningspligter",
+        "content": [
+          "§ 13.1 Kunden forpligter sig til straks at informere Polaris om alvorlige hændelser, fejlfunktioner, kvalitetsmangler eller sikkerhedsrelevante begivenheder i forbindelse med produkterne.",
+          "§ 13.2 Polaris vil ved indberetninger om hændelser informere de kompetente myndigheder og samarbejde med disse i henhold til kravene i IVDR og de nationale indberetningssystemer.",
+          "§ 13.3 Kunden støtter Polaris ved undersøgelse af hændelser ved at stille relevante oplysninger, adgang til berørte produkter og prøver samt dokumentation af anvendelsesomstændighederne til rådighed.",
+          "§ 13.4 I tilfælde af sikkerhedskorrigerende handlinger i marken (Field Safety Corrective Actions) eller tilbagekaldelser er kunden forpligtet til at samarbejde med Polaris og straks gennemføre de pålagte foranstaltninger."
+        ]
+      },
+      {
+        "id": "section-14",
+        "title": "§ 14 Kvalitetssikring og dokumentation",
+        "content": [
+          "§ 14.1 Kunden er forpligtet til at anvende produkterne i overensstemmelse med de vedlagte brugsanvisninger og under overholdelse af god laboratoriepraksis (GLP).",
+          "§ 14.2 Kunden udfører egne kvalitetskontroller og dokumenterer disse behørigt. Polaris stiller kvalitetskontrolmaterialer til rådighed på forespørgsel.",
+          "§ 14.3 Kunden opbevarer alle relevante registreringer om batchsporbarhed, testresultater og kvalitetskontroller mindst i den periode, der er foreskrevet i de relevante forskrifter.",
+          "§ 14.4 Polaris stiller overensstemmelseserklæringer, analysecertifikater, sikkerhedsdatablade og anden produktdokumentation til rådighed for kunden på forespørgsel."
+        ]
+      },
+      {
+        "id": "section-15",
+        "title": "§ 15 Uddannelse og teknisk support",
+        "content": [
+          "§ 15.1 Polaris tilbyder uddannelse i korrekt anvendelse af produkterne. Uddannelsens art, omfang og omkostninger aftales særskilt.",
+          "§ 15.2 Teknisk support er tilgængelig i den sædvanlige forretningstid (man-fre, 9:00-17:00 CET) via e-mail og telefon. Udvidede supportydelser kan aftales mod tillæg.",
+          "§ 15.3 Kunden sikrer, at kun tilsvarende uddannet personale betjener produkterne. Videregivelse af uddannelsesindhold til tredjeparter kræver forudgående samtykke fra Polaris.",
+          "§ 15.4 For apparater med fjernvedligeholdelsesfunktion er kunden berettiget til at give Polaris fjernadgang til vedligeholdelses- og supportformål. Aktivering af fjernadgang sker kun med udtrykkeligt samtykke fra kunden."
+        ]
+      },
+      {
+        "id": "section-16",
+        "title": "§ 16 Vedligeholdelse og service",
+        "content": [
+          "§ 16.1 For apparater tilbyder Polaris vedligeholdelseskontrakter med forskelligt serviceomfang. Omfang, omkostninger og varighed reguleres i separate vedligeholdelseskontrakter.",
+          "§ 16.2 Kunden er forpligtet til at overholde de regelmæssige vedligeholdelsesintervaller anbefalet af producenten. Manglende overholdelse kan føre til bortfald af garantikrav.",
+          "§ 16.3 Reparationer og vedligeholdelsesarbejde må kun udføres af Polaris eller af servicepartnere autoriseret af Polaris. Egenmægtige indgreb fører til bortfald af garantien.",
+          "§ 16.4 Ved apparatreparationer uden for garantien sker fakturering efter forbrug i henhold til den til enhver tid gældende prisliste, medmindre der foreligger en vedligeholdelseskontrakt."
+        ]
+      },
+      {
+        "id": "section-17",
+        "title": "§ 17 Softwareopdateringer og opgraderinger",
+        "content": [
+          "§ 17.1 Polaris stiller softwareopdateringer til rådighed i løbet af den aktive brugerkontrakt, som indeholder fejlrettelser og sikkerhedsopdateringer.",
+          "§ 17.2 Funktionelle udvidelser (opgraderinger) kan være gebyrpligtige. Kunden vil blive informeret om tilgængelige opgraderinger og kan købe disse frivilligt.",
+          "§ 17.3 Kunden er forpligtet til at installere sikkerhedsrelevante opdateringer rettidigt. Ved manglende installation kan garantien for deraf følgende fejlfunktioner bortfalde.",
+          "§ 17.4 Polaris forbeholder sig ret til ikke længere at understøtte ældre softwareversioner efter en rimelig varslingsperiode."
+        ]
+      },
+      {
+        "id": "section-18",
+        "title": "§ 18 Databeskyttelse og datasikkerhed",
+        "content": [
+          "§ 18.1 Polaris behandler personoplysninger om kunden udelukkende inden for rammerne af de gældende databeskyttelsesforskrifter, især GDPR, og i overensstemmelse med privatlivspolitikken på www.polarisdx.net.",
+          "§ 18.2 Såfremt Polaris inden for rammerne af cloud-tjenesterne får adgang til personlige patientdata, indgås en separat databehandleraftale (DPA) i henhold til art. 28 GDPR.",
+          "§ 18.3 De data, der er gemt i skyen, hostes på servere inden for den Europæiske Union. En overførsel til tredjelande sker kun under overholdelse af lovmæssige krav.",
+          "§ 18.4 Polaris træffer passende tekniske og organisatoriske foranstaltninger til beskyttelse af data mod uautoriseret adgang, tab eller ødelæggelse. Kunden er selv ansvarlig for sikkerheden af sine adgangsdata.",
+          "§ 18.5 Efter kontraktens ophør opbevares kundedata i henhold til lovmæssige opbevaringspligter og slettes derefter, medmindre der eksisterer længere opbevaringspligter."
+        ]
+      },
+      {
+        "id": "section-19",
+        "title": "§ 19 Tavshedspligt og fortrolighed",
+        "content": [
+          "§ 19.1 Parterne forpligter sig til at behandle alle fortrolige oplysninger, forretningshemmeligheder og knowhow opnået inden for rammerne af forretningsforbindelsen strengt fortroligt og ikke videregive dem til tredjeparter.",
+          "§ 19.2 Denne forpligtelse gælder ikke for oplysninger, der er offentligt kendte, allerede var kendt af modtageren, er opnået lovligt fra tredjeparter eller skal videregives på grund af lovmæssigt eller myndighedsmæssigt påbud.",
+          "§ 19.3 Tavshedspligten gælder også efter ophør af forretningsforbindelsen, dog mindst i en periode på fem år."
+        ]
+      },
+      {
+        "id": "section-20",
+        "title": "§ 20 Intellektuel ejendom",
+        "content": [
+          "§ 20.1 Alle rettigheder til varemærker, patenter, ophavsrettigheder, software, designs, knowhow og andre industrielle ejendomsrettigheder forbliver hos Polaris eller de respektive rettighedshavere.",
+          "§ 20.2 Kunden modtager en ikke-eksklusiv, ikke-overdragelig brugsret til softwaren i omfanget af den respektive licensaftale. Underlicensering, videregivelse eller kopiering er forbudt uden skriftligt samtykke.",
+          "§ 20.3 Reverse engineering, dekompilering eller andre forsøg på at fastslå softwarens kildekode er forbudt, medmindre det er tilladt ved ufravigelige lovbestemmelser.",
+          "§ 20.4 Kunden må kun bruge varemærker og logoer fra Polaris med forudgående skriftlig tilladelse og i henhold til Polaris' varemærkeretningslinjer."
+        ]
+      },
+      {
+        "id": "section-21",
+        "title": "§ 21 Eksportkontrol og sanktioner",
+        "content": [
+          "§ 21.1 Kunden forpligter sig til at overholde alle gældende eksport- og importforskrifter samt sanktionsbestemmelser i EU, Tyskland og eventuelt andre relevante jurisdiktioner.",
+          "§ 21.2 Kunden garanterer, at de leverede produkter ikke direkte eller indirekte eksporteres til lande, mod hvilke der er embargoer, eller leveres til personer eller enheder på sanktionslister.",
+          "§ 21.3 I tilfælde af overtrædelser af eksportkontrol- eller sanktionsforskrifter hæfter kunden alene for alle skader, der måtte opstå heraf, og holder Polaris skadesløs for alle krav fra tredjeparter."
+        ]
+      },
+      {
+        "id": "section-22",
+        "title": "§ 22 Kontraktvarighed og opsigelse",
+        "content": [
+          "§ 22.1 Købskontrakter om enkeltprodukter ophører ved fuldstændig opfyldelse. Løbende forpligtelser (softwarelicenser, cloud-tjenester, vedligeholdelseskontrakter) har den i de respektive kontrakter fastsatte varighed.",
+          "§ 22.2 Medmindre andet er aftalt, forlænges løbende forpligtelser automatisk med yderligere 12 måneder, hvis de ikke opsiges med en frist på 3 måneder til udgangen af løbetiden.",
+          "§ 22.3 Retten til ekstraordinær opsigelse af væsentlig grund forbliver uberørt. En væsentlig grund foreligger især ved væsentlige kontraktbrud, insolvens, åbning af insolvensbehandling eller overtrædelse af lovgivningsmæssige krav.",
+          "§ 22.4 Ved opsigelse eller kontraktophør bortfalder alle brugsrettigheder til software og cloud-tjenester. Kunden kan eksportere sine data inden for 30 dage efter kontraktens udløb.",
+          "§ 22.5 Allerede betalte gebyrer for ikke-benyttede kontraktperioder refunderes ikke, medmindre opsigelsen foretages af kunden af årsager, som Polaris er ansvarlig for."
+        ]
+      },
+      {
+        "id": "section-23",
+        "title": "§ 23 Tvistbilæggelse og værneting",
+        "content": [
+          "§ 23.1 Parterne forpligter sig til først at tilstræbe en mindelig løsning i tvister, der opstår af eller i forbindelse med denne kontrakt.",
+          "§ 23.2 Eksklusivt værneting for alle tvister fra dette kontraktforhold er Polaris' hjemsted, for så vidt kunden er erhvervsdrivende, en juridisk person under offentlig ret eller en offentligretlig særlig fond.",
+          "§ 23.3 Polaris er berettiget til også at sagsøge kunden ved dennes generelle værneting.",
+          "§ 23.4 Deltagelse i en tvistbilæggelsesprocedure for et forbrugervoldgiftsnævn er ikke tilsigtet og tilbydes ikke, da AGB udelukkende henvender sig til erhvervsdrivende."
+        ]
+      },
+      {
+        "id": "section-24",
+        "title": "§ 24 Gældende ret",
+        "content": [
+          "§ 24.1 Forbundsrepublikken Tysklands ret finder anvendelse under udelukkelse af FN-konventionen om aftaler om internationale køb (CISG) og lovvalgsreglerne i international privatret.",
+          "§ 24.2 Såfremt ufravigelige retsregler på kundens sædvanlige opholdssted foreskriver gunstigere bestemmelser for kunden, finder disse anvendelse."
+        ]
+      },
+      {
+        "id": "section-25",
+        "title": "§ 25 Slutbestemmelser",
+        "content": [
+          "§ 25.1 Ændringer og tilføjelser til disse AGB kræver skriftlig form for at være gyldige. Dette gælder også for frafaldelse af dette krav om skriftlighed.",
+          "§ 25.2 Skulle enkelte bestemmelser i disse AGB være helt eller delvist ugyldige eller uigennemførlige, eller blive det, berøres gyldigheden af de øvrige bestemmelser ikke heraf. I stedet for den ugyldige eller uigennemførlige bestemmelse træder den gyldige og gennemførlige bestemmelse, der kommer det økonomiske formål med den ugyldige bestemmelse nærmest.",
+          "§ 25.3 Polaris forbeholder sig ret til at ændre disse AGB til enhver tid med virkning for fremtiden. Ændringer meddeles kunden mindst 4 uger før deres ikrafttræden skriftligt eller pr. e-mail. Hvis kunden ikke gør indsigelse inden for 4 uger efter modtagelse af meddelelsen, anses ændringerne for godkendt.",
+          "§ 25.4 Mundtlige sideaftaler findes ikke. Alle aftaler er nedfældet skriftligt.",
+          "§ 25.5 Den tyske version af disse AGB er afgørende. Oversættelser tjener kun til information og begrunder ingen egne rettigheder."
+        ]
+      }
+    ]
+  }
+}

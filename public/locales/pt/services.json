@@ -1,247 +1,331 @@
 {
-  "poc_systemloesungen": {
-    "title": "Soluções de Sistema POC: O Centro de Controle para Diagnósticos Validados",
-    "headline": "Point-of-Care Redefinido: Precisão de Laboratório Encontra Máxima Agilidade",
+  "dental": {
+    "title": "Dentária",
+    "headline": "Precisão para a odontologia moderna",
     "intro": [
-      "A assistência médica moderna exige decisões rápidas, mas de uma precisão intransigente. É aqui que entram as soluções de sistema POC (Point-of-Care) de classe premium. Elas são muito mais do que simples dispositivos de teste móveis; são o centro de controle para diagnósticos, reduzindo a distância entre o paciente e o laboratório a apenas alguns minutos.",
-      "Usando o Igloo Pro Reader como exemplo, a evolução do diagnóstico in vitro (IVD) torna-se clara: dispositivos de análise móveis fornecem resultados que não apenas atingem os padrões de laboratório em termos de precisão, mas podem superá-los graças a fluxos de trabalho otimizados."
+      "Expanda seu espectro de tratamento com diagnósticos modernos diretamente na cadeira. Resultados rápidos permitem uma consulta imediata e fundamentada ao paciente.",
+      "Otimize processos de cicatrização e detecte riscos precocemente."
     ],
     "sections": [
       {
-        "heading": "1. O Fim da Incerteza: Precisão Validada",
-        "content": "O requisito central para qualquer solução POC é a validade dos resultados. O Igloo Pro utiliza tecnologias avançadas de Lateral Flow Assay (LFA) em combinação com métodos como imunofluorescência e colorimetria.",
+        "heading": "1. Vitamina D e cicatrização de feridas",
+        "content": "Um nível suficiente de Vitamina D é essencial para a osseointegração de implantes e cicatrização geral de feridas. Meça o status diretamente no local.",
         "listItems": [
-          "O Fato Concreto: Sistemas POC de alta qualidade alcançam um coeficiente de variação (CV) inferior a 2% (inter-Reader), um valor que garante confiabilidade e reprodutibilidade no mais alto nível. Esta é a base para dar a médicos, farmacêuticos e pessoal de laboratório a segurança necessária para agir imediatamente."
+          "Determinação imediata dos níveis de 25-OH-Vitamina D.",
+          "Suplementação direcionada para melhorar os resultados cirúrgicos."
         ]
       },
       {
-        "heading": "2. Mobilidade Sem Compromissos: Agilidade para o Fluxo de Trabalho",
-        "content": "O design compacto e o baixo peso (o Igloo Pro pesa apenas aprox. 400g) permitem o uso em qualquer interface de atendimento ao paciente – seja na farmácia, na sala de exames ou em serviços de enfermagem móvel.",
+        "heading": "2. Marcadores de inflamação",
+        "content": "Detecte inflamações sistêmicas que podem influenciar a periodontite e monitore o sucesso terapêutico.",
+        "listItems": []
+      }
+    ],
+    "conclusion": {
+      "heading": "Conclusão",
+      "text": "Integre o diagnóstico perfeitamente ao fluxo de trabalho do seu consultório para melhores resultados clínicos."
+    },
+    "cta": "Saber mais"
+  },
+  "beauty": {
+    "title": "Beleza e Estética",
+    "headline": "Beleza de dentro: Estética baseada em dados",
+    "intro": [
+      "A verdadeira beleza começa com a saúde. Use análises precisas para apoiar tratamentos estéticos com dados de saúde sólidos.",
+      "Ofereça aos seus clientes uma abordagem holística que vai além da superfície."
+    ],
+    "sections": [
+      {
+        "heading": "1. Saúde da pele e Vitaminas",
+        "content": "Analise o status de micronutrientes para apoiar especificamente a aparência da pele e tratamentos antienvelhecimento.",
         "listItems": [
-          "Benefício para você: Equipado com uma bateria de lítio que permite até 24 horas de operação contínua, o dispositivo se torna um verdadeiro laboratório móvel. A necessidade de enviar amostras de pacientes ou aceitar longos tempos de espera é eliminada. Resultados para parâmetros como CRP, HbA1c ou Vitamina D estão frequentemente disponíveis em 3 a 15 minutos."
+          "Aconselhamento individual baseado em valores sanguíneos.",
+          "Otimização da formação de colágeno e regeneração."
         ]
       },
       {
-        "heading": "3. O Ecossistema Aberto: Máxima Flexibilidade",
+        "heading": "2. Equilíbrio hormonal",
+        "content": "Entenda a influência dos hormônios na pele e no cabelo e adapte os tratamentos de acordo.",
+        "listItems": []
+      }
+    ],
+    "conclusion": {
+      "heading": "Conclusão",
+      "text": "Destaque-se com conceitos de beleza cientificamente fundamentados."
+    },
+    "cta": "Agendar consulta"
+  },
+  "longevity": {
+    "title": "Longevidade",
+    "headline": "Viver saudável por mais tempo: Prevenção proativa",
+    "intro": [
+      "Longevidade é mais do que uma tendência – é o futuro da medicina. Permita que seus pacientes entendam e otimizem seu relógio biológico.",
+      "Confie em biomarcadores que tornam os processos de envelhecimento visíveis e influenciáveis."
+    ],
+    "sections": [
+      {
+        "heading": "1. Biomarcadores chave do envelhecimento",
+        "content": "Monitore marcadores metabólicos e inflamatórios considerados impulsionadores do envelhecimento.",
+        "listItems": [
+          "Monitoramento regular de HbA1c, lipídios e hs-CRP.",
+          "Detecção precoce de fatores de risco para doenças relacionadas à idade."
+        ]
+      },
+      {
+        "heading": "2. Estratégias personalizadas",
+        "content": "Desenvolva planos sob medida para nutrição, exercícios e suplementação com base em dados válidos.",
+        "listItems": []
+      }
+    ],
+    "conclusion": {
+      "heading": "Conclusão",
+      "text": "Torne-se um parceiro para uma vida longa e saudável para seus pacientes."
+    },
+    "cta": "Começar agora"
+  },
+  "poc_systemloesungen": {
+    "title": "Soluções de sistema POC",
+    "headline": "Point-of-Care redefinido: Precisão de laboratório encontra agilidade máxima",
+    "intro": [
+      "A assistência médica moderna requer decisões rápidas, mas intransigentemente precisas. É aqui que entram as soluções de sistema POC (Point-of-Care) de classe premium. São muito mais do que apenas dispositivos de teste móveis; são o centro de controle para diagnósticos, reduzindo a distância entre o paciente e o laboratório a apenas alguns minutos.",
+      "Usando o leitor Igloo Pro como exemplo, a evolução do Diagnóstico In-vitro (IVD) torna-se clara: analisadores móveis fornecem resultados que não apenas atingem os padrões de laboratório em sua precisão, mas podem superá-los através do fluxo de trabalho otimizado."
+    ],
+    "sections": [
+      {
+        "heading": "1. O fim da incerteza: Precisão validada",
+        "content": "O requisito central para qualquer solução POC é a validade dos resultados. O Igloo Pro usa tecnologias avançadas de Ensaio de Fluxo Lateral (LFA) combinadas com métodos como imunofluorescência e colorimetria.",
+        "listItems": [
+          "O fato concreto: Sistemas POC de alta qualidade atingem um coeficiente de variação (CV) inferior a 2% (Inter-Leitor), um valor que garante confiabilidade e reprodutibilidade no mais alto nível. Esta é a base para dar a médicos, farmacêuticos e pessoal de laboratório a certeza necessária para uma ação imediata."
+        ]
+      },
+      {
+        "heading": "2. Mobilidade sem compromissos: Agilidade para o fluxo de trabalho",
+        "content": "O design compacto e o baixo peso (o Igloo Pro pesa apenas aprox. 400g) permitem o uso em qualquer interface de atendimento ao paciente – seja na farmácia, na sala de exames ou no serviço de enfermagem móvel.",
+        "listItems": [
+          "Vantagem para você: Equipado com uma bateria de lítio que permite até 24 horas de operação contínua, o dispositivo torna-se um verdadeiro laboratório móvel. A necessidade de enviar amostras de pacientes ou aceitar longos tempos de espera é eliminada. Resultados para parâmetros como CRP, HbA1c ou Vitamina D estão frequentemente disponíveis em 3 a 15 minutos."
+        ]
+      },
+      {
+        "heading": "3. O ecossistema aberto: Flexibilidade máxima",
         "content": "Um sistema POC premium deve ser flexível. O Igloo Pro é projetado como uma plataforma aberta que avalia testes de diferentes fabricantes. Isso é crucial, pois elimina a dependência de um único fornecedor e cobre uma ampla gama de parâmetros diagnósticos:",
         "listItems": [
-          "Amplitude de Análise: De marcadores cardíacos (D-Dímero, Troponina) a parâmetros inflamatórios (CRP) passando pela função tireoidiana (TSH) e controle do diabetes (HbA1c).",
-          "Material de Amostra: A compatibilidade com amostras minimamente invasivas (sangue capilar, saliva, urina) reduz o limite de inibição para testes e aumenta a satisfação do paciente."
+          "Amplitude de análises: De marcadores cardíacos (D-Dímero, Troponina) a parâmetros de inflamação (CRP) a função tireoidiana (TSH) e controle de diabetes (HbA1c).",
+          "Material de amostra: A compatibilidade com amostras minimamente invasivas (sangue capilar, saliva, urina) reduz o limiar de inibição para testes e aumenta a satisfação do paciente."
         ]
       },
       {
-        "heading": "4. O Centro de Controle Digital: Integração e Segurança de Dados",
+        "heading": "4. O Centro de Controle Digital: Integração e segurança de dados",
         "content": "O \"centro de controle para diagnósticos\" não é apenas o dispositivo, mas também sua conectividade.",
         "listItems": [
-          "Conexão LIMS/HIS: Via USB-C, Wi-Fi ou Bluetooth, ocorre uma integração perfeita nos sistemas de informação de laboratório ou consultório existentes (LIMS/HIS). Isso garante a transmissão automática, armazenamento e documentação de até 10.000 resultados, o que é essencial para a conformidade total com os regulamentos (IVDR, CE).",
-          "Segurança de Dados: A garantia da conformidade com o RGPD e o armazenamento seguro de dados sensíveis de pacientes são alcançados através da conexão a soluções em nuvem especializadas e aplicativos."
+          "Conexão LIMS/HIS: A integração perfeita em sistemas de informação de laboratório ou hospitalares existentes (LIMS/HIS) ocorre via USB-C, Wi-Fi ou Bluetooth. Isso garante a transmissão, armazenamento e documentação automáticos de até 10.000 resultados, o que é essencial para a conformidade perfeita com os regulamentos (IVDR, CE).",
+          "Segurança de dados: A conformidade com o RGPD e o armazenamento seguro de dados confidenciais de pacientes são garantidos pela conexão a soluções em nuvem e aplicativos especializados."
         ]
       }
     ],
     "conclusion": {
-      "heading": "Conclusão para PolarisDX.net: Mais do Que Apenas Tecnologia",
-      "text": "A solução de sistema POC Igloo Pro representa o auge do diagnóstico móvel. Mas o verdadeiro desempenho só é desbloqueado através de um serviço exclusivo. A PolarisDX.net garante não apenas a entrega desta ferramenta tecnológica, mas também sua integração imediata, validada e perfeita em sua operação. Confie na agilidade do diagnóstico móvel – com a segurança garantida de um parceiro especialista ao seu lado."
+      "heading": "Conclusão para PolarisDX.net: Mais do que apenas tecnologia",
+      "text": "A solução de sistema POC Igloo Pro representa o auge do diagnóstico móvel. Mas o verdadeiro desempenho só é desbloqueado através do serviço exclusivo. PolarisDX.net garante não apenas a entrega desta ferramenta tecnológica, mas também sua integração imediata, validada e perfeita em sua operação. Confie na agilidade do diagnóstico móvel – com a segurança garantida de um parceiro especialista ao seu lado."
     },
-    "cta": "Reservar Análise de Desempenho Agora"
+    "cta": "Agendar horário"
   },
   "praeventions_checks": {
-    "title": "Check-ups de Saúde Preventivos: Prevenção Reinventada",
-    "headline": "Diagnóstico Rápido como Fundamento da Prevenção Moderna",
+    "title": "Check-ups de saúde preventivos",
+    "headline": "Prevenção reimaginada: Diagnóstico rápido como fundamento",
     "intro": [
-      "A demanda por assistência médica preventiva personalizada está crescendo rapidamente. Pacientes e clientes esperam respostas rápidas e confiáveis para perguntas críticas de saúde diretamente no Point-of-Care (POC) – seja na farmácia, no consultório médico ou na clínica.",
-      "Aqui, o diagnóstico POC móvel transforma a prevenção: Permite a determinação imediata de biomarcadores importantes e torna o aconselhamento de saúde imediato, baseado em dados e individual."
+      "A demanda por cuidados de saúde preventivos personalizados está crescendo rapidamente. Pacientes e clientes esperam respostas rápidas e confiáveis para questões críticas de saúde diretamente no Point-of-Care (POC) – seja na farmácia, no consultório médico ou na clínica.",
+      "Aqui, o diagnóstico móvel POC transforma a prevenção: Permite a determinação imediata de biomarcadores importantes e torna o aconselhamento de saúde imediato, baseado em dados e individual."
     ],
     "sections": [
       {
-        "heading": "1. A Mudança na Prevenção: Teste Rápido vs. Laboratório",
-        "content": "Tradicionalmente, a prevenção estava associada a tempos de espera. Sistemas POC modernos como o Igloo Pro Reader fecham essa lacuna ao fornecer resultados precisos de laboratório em apenas alguns minutos. Esta é a chave para a detecção precoce de riscos.",
+        "heading": "1. A mudança na prevenção: Teste rápido vs. Laboratório",
+        "content": "Tradicionalmente, a prevenção estava associada a tempos de espera. Sistemas POC modernos como o leitor Igloo Pro fecham essa lacuna fornecendo resultados precisos de laboratório em minutos. Esta é a chave para a detecção precoce de riscos.",
         "listItems": [
-          "Vitamina D (25-OH-VD): Essencial para a saúde óssea, o sistema imunológico e a cicatrização de feridas (relevante em consultórios odontológicos). Uma deficiência é generalizada; a medição imediata permite a suplementação imediata.",
-          "CRP (Proteína C-reativa): Um marcador de inflamação importante. A determinação rápida na farmácia ou no consultório fornece clareza em minutos sobre a presença de uma reação inflamatória aguda e pode ajudar a evitar prescrições desnecessárias de antibióticos.",
-          "HbA1c (Glicemia de longo prazo): O padrão-ouro para o monitoramento do diabetes. A medição imediata permite o ajuste imediato da terapia e aumenta a motivação do paciente para aderir às diretrizes – um fator que comprovadamente leva a melhores resultados a longo prazo."
+          "Vitamina D (25-OH-VD): Essencial para a saúde óssea, sistema imunológico e cicatrização de feridas (relevante em consultórios odontológicos). A deficiência é generalizada; a medição imediata permite a suplementação imediata.",
+          "CRP (Proteína C-reativa): Um importante marcador de inflamação. A determinação rápida na farmácia ou consultório fornece clareza em minutos sobre a presença de uma reação inflamatória aguda e pode ajudar a evitar prescrições desnecessárias de antibióticos.",
+          "HbA1c (Açúcar no sangue a longo prazo): O padrão-ouro para monitoramento de diabetes. A medição imediata permite ajuste imediato da terapia e aumenta a motivação do paciente para aderir às diretrizes – um fator comprovado para levar a melhores resultados a longo prazo."
         ]
       },
       {
-        "heading": "2. O Benefício Imediato: Testar, Saber, Agir",
+        "heading": "2. O benefício imediato: Testar, Saber, Agir",
         "content": "A maior força da prevenção POC reside na imediação dos resultados.",
         "listItems": [
-          "Engajamento do Paciente: O confronto com um valor medido imediato e claro (por exemplo, um valor de HbA1c elevado) aumenta drasticamente a consciência e a motivação do paciente para mudar o comportamento.",
-          "Eficiência na Prática: Consultas de acompanhamento demoradas para discutir resultados de laboratório são eliminadas. O aconselhamento pode ocorrer diretamente, com base em dados válidos. Estudos mostram que isso pode reduzir as visitas de pacientes em até 61% e a correspondência subsequente em mais de 80%.",
-          "Vantagem Econômica: As farmácias se estabelecem como centros de prevenção e geram receitas adicionais relevantes através da venda de testes e consultoria estendida."
+          "Engajamento do paciente: O confronto com um valor de medição imediato e claro (por exemplo, um nível elevado de HbA1c) aumenta drasticamente a conscientização e a motivação do paciente para mudança de comportamento.",
+          "Eficiência no consultório: Consultas de acompanhamento demoradas para discutir resultados laboratoriais são eliminadas. O aconselhamento pode ser dado diretamente, com base em dados válidos. Estudos mostram que isso pode reduzir as visitas de pacientes em até 61% e a correspondência subsequente em mais de 80%.",
+          "Vantagem econômica: Farmácias estabelecem-se como centros de prevenção e geram receitas adicionais relevantes através da venda de testes e consultoria estendida."
         ]
       },
       {
-        "heading": "3. A Validação Não é Negociável: O Requisito Premium",
-        "content": "Mover o diagnóstico do laboratório para o Point-of-Care nunca deve ser feito às custas da qualidade. É aqui que entram as soluções premium:",
+        "heading": "3. Validação não é negociável: O requisito Premium",
+        "content": "Mover o diagnóstico do laboratório para o Point-of-Care nunca deve ocorrer à custa da qualidade. É aqui que entram as soluções premium:",
         "listItems": [
-          "O uso de dispositivos de análise de alta precisão certificados pelo IVDR como o Igloo Pro é obrigatório.",
-          "A precisão analítica garantida (por exemplo, CV < 2%) assegura que os valores obtidos no consultório ou farmácia sejam comparáveis ao padrão de laboratório."
+          "O uso de analisadores de alta precisão certificados pelo IVDR como o Igloo Pro é obrigatório.",
+          "A precisão analítica garantida (por exemplo, CV < 2%) garante que os valores obtidos no consultório ou farmácia sejam comparáveis ao padrão laboratorial."
         ]
       }
     ],
     "conclusion": {
-      "heading": "Conclusão para Sua Decisão",
-      "text": "Investir em soluções de sistema POC é um investimento no futuro do atendimento centrado no paciente e no aumento da eficiência operacional. A PolarisDX.net não apenas entrega a tecnologia para essa transformação, mas garante através do serviço exclusivo de configuração remota em 48 horas e da garantia de compatibilidade LFT sua função fluida e validada. Dessa forma, você pode usar todo o potencial dos check-ups de saúde preventivos imediatamente."
+      "heading": "Conclusão para sua decisão",
+      "text": "Investir em soluções de sistema POC é um investimento no futuro do cuidado centrado no paciente e no aumento da eficiência operacional. PolarisDX.net não apenas fornece a tecnologia para essa transformação, mas garante seu funcionamento suave e validado através do serviço exclusivo de configuração remota de 48 horas e garantia de compatibilidade LFT. Assim, você utiliza todo o potencial dos check-ups de saúde preventivos imediatamente."
     },
-    "cta": "Solicitar Análise de Desempenho Agora"
+    "cta": "Agendar horário"
   },
   "infektion_entzuendung": {
-    "title": "Marcadores de Infecção e Inflamação: Respostas Rápidas em Casos Críticos",
-    "headline": "Triagem em Minutos: Como o Igloo Pro Acelera a Tomada de Decisão",
+    "title": "Infecção e marcadores de inflamação",
+    "headline": "Triagem em minutos: Como o Igloo Pro acelera a tomada de decisão",
     "intro": [
-      "No atendimento agudo e no setor ambulatorial, cada minuto conta. A determinação imediata e confiável de marcadores de inflamação e sinais de infecção é essencial para uma triagem correta, atendimento ao paciente e – mais importante hoje do que nunca – para o gerenciamento responsável de antibióticos.",
-      "Sistemas POC (Point-of-Care) de classe premium são o centro de controle para reduzir o tempo da amostra ao resultado ao mínimo, garantindo ao mesmo tempo a máxima segurança clínica."
+      "Em cuidados agudos e ambientes ambulatoriais, cada minuto conta. A determinação imediata e confiável de marcadores de inflamação e sinais de infecção é essencial para a triagem correta, o cuidado ao paciente e – mais importante hoje do que nunca – para o gerenciamento responsável de antibióticos.",
+      "Sistemas POC (Point-of-Care) de classe premium são o centro de controle para reduzir o tempo da amostra ao resultado ao mínimo, garantindo a máxima segurança clínica."
     ],
     "sections": [
       {
-        "heading": "1. Biomarcadores como Base para Tomada de Decisão: CRP, PCT, IL-6",
-        "content": "A análise rápida de biomarcadores específicos diretamente no paciente é a base para decisões informadas:",
+        "heading": "1. Biomarcadores como base de decisão: CRP, PCT, IL-6",
+        "content": "A análise rápida de biomarcadores específicos diretamente no paciente é a base para decisões bem fundamentadas:",
         "listItems": [
-          "CRP (Proteína C-reativa): O parâmetro de fase aguda mais importante em infecções e inflamações. Um valor quantitativo de CRP rapidamente disponível apoia a distinção entre infecções virais e bacterianas e é crucial para o monitoramento da terapia.",
-          "PCT (Procalcitonina): Particularmente em cuidados intensivos e cirurgia, a PCT é preferida para a diferenciação e controle da terapia antibiótica, pois é frequentemente um indicador mais específico para sepse bacteriana do que a CRP.",
-          "IL-6 (Interleucina-6): Um marcador de citocina precoce que aumenta nas primeiras horas de uma inflamação sistêmica grave (por exemplo, sepse) e, portanto, é essencial para a triagem mais precoce possível de pacientes críticos."
+          "CRP (Proteína C-reativa): O parâmetro de fase aguda mais importante em infecções e inflamações. Um valor de CRP quantitativo rapidamente disponível apoia a diferenciação entre infecções virais e bacterianas e é crucial para o monitoramento da terapia.",
+          "PCT (Procalcitonina): Especialmente em cuidados intensivos e cirurgia, a PCT é preferida para diferenciar e guiar a terapia antibiótica, pois é frequentemente um indicador mais específico de sepse bacteriana do que a CRP.",
+          "IL-6 (Interleucina-6): Um marcador de citocina precoce que aumenta nas primeiras horas de inflamação sistêmica grave (por exemplo, sepse) e, portanto, é indispensável para a triagem mais precoce possível de pacientes críticos."
         ]
       },
       {
-        "heading": "2. O Impacto Imediato: Gerenciamento de Antibióticos",
+        "heading": "2. O impacto imediato: Gerenciamento de antibióticos",
         "content": "A Organização Mundial da Saúde (OMS) enfatiza a necessidade de acabar com o uso desnecessário de antibióticos para combater a resistência.",
         "listItems": [
-          "Prescrição Informada: Análises POC como a medição quantitativa de CRP apoiam os médicos a prescrever antibióticos apenas quando uma infecção bacteriana é provável. Estudos comprovam que testes POC CRP podem reduzir significativamente as prescrições de antibióticos para infecções respiratórias.",
-          "Monitoramento de Terapia: A medição de marcadores em tempo real permite o controle imediato do sucesso da terapia. Se o valor de CRP cair rapidamente, a terapia antibiótica pode ser encerrada mais cedo, o que reduz custos e a carga para o paciente."
+          "Prescrição bem fundamentada: Análises POC como medição quantitativa de CRP apoiam os médicos na prescrição de antibióticos apenas quando uma infecção bacteriana é provável. Estudos provam que testes de CRP POC podem reduzir significativamente as prescrições de antibióticos para infecções respiratórias.",
+          "Monitoramento da terapia: A medição em tempo real de marcadores permite o controle imediato do sucesso terapêutico. Se o valor de CRP cair rapidamente, a terapia antibiótica pode ser encerrada mais cedo, reduzindo custos e carga para o paciente."
         ]
       },
       {
-        "heading": "3. Segurança e Velocidade na Cadeia Aguda",
-        "content": "O Igloo Pro Reader fornece aqui a vantagem tecnológica:",
+        "heading": "3. Segurança e velocidade na cadeia aguda",
+        "content": "O leitor Igloo Pro oferece liderança tecnológica aqui:",
         "listItems": [
-          "Velocidade: Os resultados estão disponíveis em poucos minutos, permitindo que decisões de triagem sejam tomadas imediatamente – essencial em salas de emergência ou ao avaliar infecções pós-operatórias.",
-          "Flexibilidade: A plataforma aberta permite a análise de vários Lateral Flow Tests cobrindo inflamação, marcadores cardíacos (por exemplo, D-Dímero, Troponina) e agentes infecciosos – tudo em um dispositivo compacto e móvel."
+          "Velocidade: Os resultados estão disponíveis em minutos, permitindo que decisões de triagem sejam tomadas imediatamente – essencial em salas de emergência ou ao avaliar infecções pós-operatórias.",
+          "Flexibilidade: A plataforma aberta permite a análise de uma ampla variedade de testes de fluxo lateral cobrindo inflamação, marcadores cardíacos (por exemplo, D-Dímero, Troponina) e agentes infecciosos – tudo em um dispositivo compacto e móvel."
         ]
       }
     ],
     "conclusion": {
-      "heading": "Conclusão: Sem Compromissos no Diagnóstico",
-      "text": "Em infecções e inflamações, o tempo é o fator crítico. Apenas um sistema POC, que combina validade em nível de laboratório com velocidade máxima, pode aumentar a segurança no diagnóstico e otimizar simultaneamente o gerenciamento de antibióticos. A PolarisDX.net oferece esse desempenho garantido – desde o comissionamento em 48 horas até o suporte prioritário."
+      "heading": "Conclusão: Sem compromissos no diagnóstico",
+      "text": "Para infecções e inflamações, o tempo é o fator crítico. Apenas um sistema POC que combina validade em nível de laboratório com velocidade máxima pode aumentar a segurança diagnóstica enquanto otimiza o gerenciamento de antibióticos. PolarisDX.net oferece este desempenho garantido – desde o comissionamento em 48 horas até o suporte prioritário."
     },
-    "cta": "Reservar Análise de Desempenho Agora"
+    "cta": "Agendar horário"
   },
   "stoffwechsel_herz": {
-    "title": "Metabolismo e Saúde Cardíaca: Monitoramento Crônico com o Toque de um Botão",
-    "headline": "Indicadores Importantes à Vista: Medição Precisa para Ajuste de Terapia",
+    "title": "Metabolismo e saúde cardíaca",
+    "headline": "Indicadores importantes em resumo: Medição precisa para ajuste de terapia",
     "intro": [
-      "O monitoramento de doenças crônicas como diabetes e o gerenciamento de riscos cardíacos são tarefas críticas em relação ao tempo. Sistemas modernos Point-of-Care (POC) estão se tornando uma ferramenta indispensável aqui, pois fortalecem a fidelidade do paciente e aceleram o ajuste da terapia.",
-      "O Igloo Pro Reader agrupa a análise precisa necessária em um dispositivo móvel para determinar marcadores metabólicos e cardíacos importantes em poucos minutos."
+      "O monitoramento de doenças crônicas como diabetes e o gerenciamento de riscos cardíacos são tarefas críticas em termos de tempo. Sistemas modernos Point-of-Care (POC) estão se transformando em ferramentas indispensáveis aqui, pois fortalecem a fidelidade do paciente e aceleram o ajuste da terapia.",
+      "O leitor Igloo Pro reúne a análise precisa necessária em um dispositivo móvel para determinar importantes marcadores metabólicos e cardíacos em minutos."
     ],
     "sections": [
       {
-        "heading": "1. Excelência Metabólica: HbA1c e Lipídios",
+        "heading": "1. Excelência metabólica: HbA1c e Lipídios",
         "content": "O valor de açúcar no sangue a longo prazo (HbA1c) é o parâmetro decisivo no gerenciamento do diabetes.",
         "listItems": [
-          "Ajuste Direto da Terapia: A medição imediata de HbA1c no POC (a partir de uma amostra de sangue capilar) fornece o valor médio de açúcar no sangue dos últimos meses. Se o resultado estiver disponível imediatamente, o tratamento pode ser ajustado diretamente. Estudos mostram que isso melhora enormemente a adesão e a satisfação dos pacientes, pois não são necessárias segundas consultas para resultados de laboratório.",
-          "Perfis de Colesterol: A determinação precisa do colesterol total e das várias frações lipídicas é um indicador crítico para o risco de arteriosclerose e eventos cardiovasculares. Testes POC permitem uma avaliação imediata do risco e aconselhamento sobre mudanças no estilo de vida ou terapia medicamentosa."
+          "Ajuste direto da terapia: A medição imediata de HbA1c no POC (de uma amostra de sangue capilar) fornece o valor médio de açúcar no sangue dos últimos meses. Se o resultado estiver disponível imediatamente, o tratamento pode ser ajustado diretamente. Estudos mostram que isso melhora enormemente a adesão e a satisfação do paciente, pois não são necessárias segundas consultas para resultados laboratoriais.",
+          "Perfis de colesterol: A determinação precisa do colesterol total e várias frações lipídicas é um indicador crítico do risco de arteriosclerose e eventos cardiovasculares. Testes POC permitem avaliação imediata de risco e aconselhamento sobre mudanças no estilo de vida ou terapia medicamentosa."
         ]
       },
       {
-        "heading": "2. Segurança Cardíaca Aguda: Parâmetros de Emergência",
+        "heading": "2. Segurança cardíaca aguda: Parâmetros de emergência",
         "content": "No atendimento cardíaco agudo, a velocidade salva vidas. Sistemas POC fornecem os parâmetros de emergência necessários para isso:",
         "listItems": [
-          "D-Dímero: A medição quantitativa de D-Dímero é essencial para a exclusão rápida de trombose venosa profunda (TVP) e embolia pulmonar (EP). Um resultado negativo permite um cancelamento imediato do alerta, o que alivia maciçamente a triagem na sala de emergência ou no consultório.",
-          "Troponina Cardíaca (cTnl): Embora frequentemente medida no laboratório central, a determinação POC de troponina é um marcador altamente sensível para apoiar o diagnóstico de um infarto agudo do miocárdio (IAM).",
-          "NT-proBNP: Este hormônio peptídico é o marcador chave para diagnóstico e estratificação de risco em insuficiência cardíaca. A determinação rápida permite uma avaliação imediata da gravidade e inicia o tratamento posterior."
+          "D-Dímero: A medição quantitativa de D-Dímero é essencial para a rápida exclusão de trombose venosa profunda (TVP) e embolia pulmonar (EP). Um resultado negativo permite um sinal verde imediato, aliviando massivamente a triagem na sala de emergência ou consultório.",
+          "Troponina cardíaca (cTnl): Embora frequentemente medida no laboratório central, a determinação POC de Troponina é um marcador altamente sensível para apoiar o diagnóstico de infarto agudo do miocárdio (IAM).",
+          "NT-proBNP: Este hormônio peptídico é o marcador chave para diagnóstico e estratificação de risco na insuficiência cardíaca. A determinação rápida permite avaliação imediata da gravidade e inicia tratamento adicional."
         ]
       },
       {
-        "heading": "3. A Vantagem Premium: Velocidade e Confiabilidade",
-        "content": "Para monitorar doenças crônicas e triar emergências cardíacas, a confiabilidade da tecnologia POC não é negociável.",
+        "heading": "3. A vantagem Premium: Velocidade e Confiabilidade",
+        "content": "Para monitoramento de doenças crônicas e triagem de emergências cardíacas, a confiabilidade da tecnologia POC não é negociável.",
         "listItems": [
-          "Precisão de Laboratorio: O Igloo Pro fornece resultados que correspondem aos do laboratório central (CV < 2% Inter-Reader).",
-          "Capacidade Multiplex: O sistema pode determinar vários parâmetros cardíacos simultaneamente ou em rápida sucessão, maximizando a eficiência em situações críticas."
+          "Precisão de laboratório: O Igloo Pro fornece resultados que correspondem aos do laboratório central (CV < 2% Inter-Leitor).",
+          "Capacidade multiplex: O sistema pode determinar vários parâmetros cardíacos simultaneamente ou em rápida sucessão, maximizando a eficiência em situações críticas."
         ]
       }
     ],
     "conclusion": {
-      "heading": "Conclusão para Sua Prática",
-      "text": "Integrar o Igloo Pro Reader em seu fluxo de trabalho significa uma mudança de paradigma: Do monitoramento atrasado ao ajuste terapêutico imediato, baseado em dados. Com a PolarisDX.net, você garante não apenas a tecnologia para essas medições críticas, mas também a garantia de implementação fluida e validação contínua."
+      "heading": "Conclusão para seu consultório",
+      "text": "Integrar o leitor Igloo Pro em seu fluxo de trabalho significa uma mudança de paradigma: Do monitoramento com atraso de tempo para o ajuste de terapia imediato e baseado em dados. Com PolarisDX.net, você garante não apenas a tecnologia para essas medições críticas, mas também a garantia de implementação suave e validação contínua."
     },
-    "cta": "Reservar Análise de Desempenho Agora"
+    "cta": "Agendar horário"
   },
   "hormon_tests": {
-    "title": "Testes Hormonais e Endocrinológicos: Diagnóstico Especializado Facilitado",
-    "headline": "Precisão em Endocrinologia: Certeza Rápida para Diagnósticos Complexos",
+    "title": "Testes hormonais e de endocrinologia",
+    "headline": "Precisão em endocrinologia: Certeza rápida para diagnósticos complexos",
     "intro": [
-      "Desequilíbrios hormonais são frequentemente a causa de queixas complexas e crônicas, desde disfunções tireoidianas até distúrbios de fertilidade. Consultórios especializados e farmácias precisam, portanto, de diagnósticos que não sejam apenas rápidos, mas absolutamente precisos, para orientar caminhos terapêuticos com base em evidências sólidas.",
-      "O Igloo Pro Reader torna testes POC acessíveis para endocrinologia e permite a determinação imediata de hormônios críticos diretamente no paciente."
+      "Desequilíbrios hormonais são frequentemente a causa de queixas complexas e crônicas, de disfunção tireoidiana a distúrbios de fertilidade. Consultórios especializados e farmácias, portanto, precisam de diagnósticos que não sejam apenas rápidos, mas absolutamente precisos para guiar os caminhos terapêuticos de forma sólida.",
+      "O leitor Igloo Pro torna os testes POC acessíveis para endocrinologia e permite a determinação imediata de hormônios críticos diretamente no paciente."
     ],
     "sections": [
       {
-        "heading": "1. O Eixo Tireoidiano: TSH como Marcador Chave",
+        "heading": "1. O eixo tireoidiano: TSH como marcador chave",
         "content": "O hormônio estimulante da tireoide (TSH) é o parâmetro de triagem mais importante para avaliar a função tireoidiana.",
         "listItems": [
-          "Detecção Precoce: O TSH reage sensivelmente a pequenas alterações nos hormônios tireoidianos (fT3, fT4). Um valor de TSH aumentado ou diminuído pode indicar uma disfunção latente mesmo antes que os valores periféricos se desviem.",
-          "Monitoramento de Terapia: Em terapias de substituição, o valor de TSH deve ser monitorado de perto. A análise POC imediata permite o ajuste direto da medicação – um fator decisivo, especialmente ao tentar engravidar ou durante a gravidez."
+          "Detecção precoce: O TSH reage sensivelmente a pequenas alterações nos hormônios tireoidianos (fT3, fT4). Um valor de TSH elevado ou reduzido pode indicar disfunção latente mesmo antes que os valores periféricos se desviem.",
+          "Monitoramento da terapia: Em terapias de substituição, o valor de TSH deve ser monitorado de perto. A análise POC imediata permite ajuste direto da medicação – um fator decisivo, especialmente ao desejar um filho ou durante a gravidez."
         ]
       },
       {
-        "heading": "2. Hormônios Reprodutivos: AMH como Indicador do Tempo",
-        "content": "O hormônio anti-Mülleriano (AMH) estabeleceu-se como um marcador central para a reserva ovariana (reserva de óvulos) em mulheres.",
+        "heading": "2. Hormônios reprodutivos: AMH como indicador de tempo",
+        "content": "O Hormônio Antimülleriano (AMH) estabeleceu-se como um marcador central para a reserva ovariana (reserva de óvulos) em mulheres.",
         "listItems": [
-          "Diagnóstico de Fertilidade: O AMH é um indicador confiável do número potencial de óvulos capazes de maturação. A determinação é essencial para o desejo não realizado de ter filhos, planejamento de reprodução assistida (FIV) ou avaliação do risco de menopausa prematura.",
-          "Independência do Ciclo: Ao contrário de muitos outros hormônios, o AMH flutua relativamente pouco ao longo do ciclo menstrual, tornando a medição POC uma ferramenta extremamente prática para informações rápidas e confiáveis.",
-          "Diagnóstico de SOP: Valores muito altos de AMH também podem ser uma indicação da Síndrome do Ovário Policístico (SOP), permitindo esclarecimento rápido e gerenciamento terapêutico."
+          "Diagnóstico de fertilidade: O AMH é um indicador confiável do número potencial de óvulos capazes de maturação. A determinação é essencial em caso de desejo não realizado de ter um filho, planejamento de reprodução assistida (FIV) ou avaliação do risco de menopausa prematura.",
+          "Independência do ciclo: Ao contrário de muitos outros hormônios, o AMH flutua relativamente pouco ao longo do ciclo menstrual, tornando a medição POC uma ferramenta extremamente prática para informações rápidas e confiáveis.",
+          "Diagnóstico de SOP: Valores muito altos de AMH também podem ser uma indicação de Síndrome dos Ovários Policísticos (SOP), permitindo rápido esclarecimento e orientação terapêutica."
         ]
       },
       {
-        "heading": "3. O Requisito Premium para Analítica Hormonal",
-        "content": "A endocrinologia exige a mais alta precisão analítica, pois mesmo pequenos desvios são clinicamente relevantes. O Igloo Pro Reader é projetado para atender a esses requisitos:",
+        "heading": "3. A exigência Premium para análise hormonal",
+        "content": "A endocrinologia requer a mais alta precisão analítica, pois mesmo pequenos desvios são clinicamente relevantes. O leitor Igloo Pro foi projetado para atender a esses requisitos:",
         "listItems": [
-          "Segurança Analítica: A capacidade de medir marcadores hormonais com precisão validada é crucial para evitar interpretações errôneas.",
-          "Amplo Espectro: Além de TSH e AMH, o Reader suporta a análise de outros hormônios como Cortisol (estresse), Progesterona, FSH e Testosterona, permitindo um diagnóstico endocrinológico inicial abrangente."
+          "Segurança analítica: A capacidade de medir marcadores hormonais com precisão validada é crucial para evitar interpretações errôneas.",
+          "Amplo espectro: Além de TSH e AMH, o leitor suporta a análise de outros hormônios como Cortisol (estresse), Progesterona, FSH e Testosterona, permitindo um diagnóstico inicial endocrinológico abrangente."
         ]
       }
     ],
     "conclusion": {
-      "heading": "Conclusão: Diagnóstico Especializado Diretamente em Sua Mão",
-      "text": "Testes hormonais e endocrinológicos são frequentemente o ponto de partida de caminhos de tratamento complexos. Através do diagnóstico POC com o Igloo Pro, você encurta massivamente o tempo para diagnóstico e decisão terapêutica. A polarisDX.net oferece a você a tecnologia e a garantia de compatibilidade LFT para integrar esse amplo espectro de testes especializados de forma segura e eficiente em sua operação."
+      "heading": "Conclusão: Diagnóstico especial diretamente em sua mão",
+      "text": "Testes hormonais e de endocrinologia são frequentemente o ponto de partida de caminhos de tratamento complexos. Através do diagnóstico POC com o Igloo Pro, você encurta massivamente o tempo para diagnóstico e decisão terapêutica. polarisDX.net oferece a você a tecnologia e a garantia de compatibilidade LFT para integrar este amplo espectro de testes especializados com segurança e eficiência em sua operação."
     },
-    "cta": "Reservar Análise de Desempenho Agora"
+    "cta": "Agendar horário"
   },
   "kompatibilitaet_integration": {
-    "title": "Compatibilidade entre Fabricantes: Segurança de Investimento através da Abertura",
-    "headline": "Máxima Flexibilidade: Como Seu Igloo Pro Avalia 90% de Todos os Testes no Mercado",
+    "title": "Compatibilidade entre fabricantes",
+    "headline": "Máxima flexibilidade: Como seu Igloo Pro avalia 90% de todos os testes no mercado",
     "intro": [
       "No mundo acelerado do diagnóstico, a maior preocupação com um novo investimento é a segurança do investimento. A tecnologia de amanhã não deve ser bloqueada pelas limitações de hoje.",
-      "A solução de sistema POC Igloo Pro é a resposta a este desafio. É projetada como uma plataforma aberta e entre fabricantes que garante a você máxima flexibilidade e independência tecnológica."
+      "A solução de sistema POC Igloo Pro é a resposta a este desafio. É projetada como uma plataforma aberta entre fabricantes que lhe garante máxima flexibilidade e independência tecnológica."
     ],
     "sections": [
       {
-        "heading": "1. O Princípio da Abertura: A Independência é Sua Vantagem",
-        "content": "Sistemas POC fechados vinculam você a um único fabricante para reagentes e testes. Isso limita sua escolha, preços e, em última análise, suas possibilidades diagnósticas.",
+        "heading": "1. O princípio da abertura: Independência é sua vantagem",
+        "content": "Sistemas POC fechados prendem você a um único fabricante para reagentes e testes. Isso restringe sua escolha, preços e, finalmente, suas possibilidades de diagnóstico.",
         "listItems": [
-          "A Tecnologia Universal: Graças a algoritmos de processamento de imagem altamente desenvolvidos e adaptadores universais, o Igloo Pro é capaz de avaliar com precisão e quantitativamente os resultados de medição de cerca de 90% de todos os Lateral Flow Tests (LFT) no mercado.",
-          "Sua Liberdade: Você não está mais limitado à gama de testes de um único fornecedor. Você escolhe os testes que são ideais para seus pacientes e seu fluxo de trabalho – seja se tratando de marcadores cardíacos, hormônios ou infecções."
+          "A tecnologia universal: Graças a algoritmos avançados de processamento de imagem e adaptadores universais, o Igloo Pro é capaz de avaliar com precisão e quantitativamente os resultados de medição de cerca de 90% de todos os testes de fluxo lateral (LFT) no mercado.",
+          "Sua liberdade: Você não está mais limitado à gama de testes de um único fornecedor. Você escolhe os testes que são ideais para seus pacientes e seu fluxo de trabalho – seja para marcadores cardíacos, hormônios ou infecções."
         ]
       },
       {
-        "heading": "2. A Garantia para a Segurança do Investimento",
-        "content": "A compatibilidade é a proteção mais importante para seu investimento a longo prazo:",
+        "heading": "2. A garantia de segurança do investimento",
+        "content": "A compatibilidade é a proteção mais importante para seu investimento de longo prazo:",
         "listItems": [
-          "Segurança Futura: Mesmo se novos e inovadores testes LFT de outros fabricantes chegarem ao mercado, eles geralmente podem ser integrados rapidamente ao sistema aberto do Igloo Pro. Seu dispositivo permanece relevante e preparado para o futuro.",
-          "Eficiência Econômica: Através da compatibilidade entre fabricantes, você pode usar vantagens competitivas em consumíveis (tiras de teste) e está protegido contra aumentos repentinos de preços de um monopolista.",
-          "Padronização Facilitada: Com um único dispositivo de análise, você pode cobrir uma ampla gama de requisitos diagnósticos, o que simplifica o treinamento, reduz fontes de erro e padroniza todo o seu fluxo de trabalho POC."
+          "À prova de futuro: Mesmo se novos e inovadores LFTs de outros fabricantes chegarem ao mercado, eles geralmente podem ser rapidamente integrados no sistema aberto do Igloo Pro. Seu dispositivo permanece relevante e à prova de futuro.",
+          "Eficiência econômica: A compatibilidade entre fabricantes permite que você aproveite vantagens competitivas em consumíveis (tiras de teste) e protege você contra aumentos repentinos de preços de um monopolista.",
+          "Padronização facilitada: Com um único analisador, você pode cobrir uma ampla gama de requisitos de diagnóstico, simplificando o treinamento, reduzindo fontes de erro e padronizando todo o seu fluxo de trabalho POC."
         ]
       },
       {
-        "heading": "3. A Experiência PolarisDX.net: Compatibilidade Garantida",
+        "heading": "3. A experiência PolarisDX.net: Compatibilidade garantida",
         "content": "A tecnologia do Igloo Pro é aberta, mas a validação correta da interação entre dispositivo e teste é o pilar decisivo.",
         "listItems": [
-          "Nosso Pilar 2: Com a Garantia de Compatibilidade LFT, garantimos que seus testes selecionados (incluindo aqueles de fornecedores terceirizados) sejam corretamente calibrados e perfeitamente integrados ao fluxo de trabalho do Igloo Pro. Entregamos não apenas a abertura teórica, mas a função prática e validada."
+          "Nosso Pilar 2: Com a garantia de compatibilidade LFT, garantimos que seus testes selecionados (mesmo de fornecedores terceirizados) sejam corretamente calibrados e integrados sem problemas ao fluxo de trabalho do Igloo Pro. Entregamos não apenas abertura teórica, mas função prática e validada."
         ]
       }
     ],
     "conclusion": {
-      "heading": "Conclusão: Invista em uma Solução, Não em uma Limitação",
-      "text": "A compatibilidade entre fabricantes do Igloo Pro o torna o investimento mais inteligente em diagnóstico POC. Oferece a flexibilidade que você precisa hoje e a segurança de investimento que você precisará amanhã."
+      "heading": "Conclusão: Invista em uma solução, não em uma limitação",
+      "text": "A compatibilidade entre fabricantes do Igloo Pro torna-o o investimento mais inteligente em diagnóstico POC. Oferece a flexibilidade que você precisa hoje e a segurança de investimento que você precisa amanhã."
     },
-    "cta": "Reservar Análise de Desempenho Agora"
+    "cta": "Agendar horário"
   }
 }

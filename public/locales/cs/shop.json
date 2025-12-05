@@ -2,17 +2,17 @@
   "products": {
     "igloo_reader_pro": {
       "name": "Igloo Reader Pro",
-      "shortDescription": "Igloo Reader Pro je kompaktní, nejmodernější analyzátor vše-v-jednom pro testování v místě péče (POCT). Kombinuje laboratorní přesnost s požadavky decentralizovaných prostředí. Podporuje laterální tok, microarray, fluorescenci a další – ideální řešení pro rychlé, spolehlivé kvantitativní a kvalitativní výsledky testů.",
+      "shortDescription": "Igloo Reader Pro je kompaktní, nejmodernější analyzátor typu vše v jednom pro testování v místě péče (POCT). Kombinuje laboratorní přesnost s požadavky decentralizovaných prostředí. Podporuje Lateral Flow, Microarray, fluorescenci a další – ideální řešení pro rychlé a spolehlivé kvantitativní a kvalitativní výsledky testů.",
       "detailedDescription": [
-        "Igloo Reader Pro redefinuje mobilní diagnostiku. Navržen speciálně pro profesionální prostředí a decentralizované aplikace Point-of-Care, tento všestranný analyzátor umožňuje rychlé a spolehlivé kvalitativní a kvantitativní testování.",
-        "Čtečka podporuje širokou škálu diagnostických testů – od screeningu infekčních onemocnění přes srdeční markery a hormonální profily až po panely zneužívání drog a alergií. Díky automatizované kalibraci, integraci cloudu a digitálnímu exportu dat dodává Igloo Reader Pro laboratorní kvalitu přímo tam, kde je potřeba. Umožňuje zdravotnickým pracovníkům dosahovat rychlých a spolehlivých výsledků kdekoli."
+        "Igloo Reader Pro nově definuje mobilní diagnostiku. Tento všestranný analyzátor, navržený speciálně pro profesionální prostředí a decentralizované aplikace Point-of-Care, umožňuje rychlé a spolehlivé kvalitativní a kvantitativní testování.",
+        "Čtečka podporuje širokou škálu diagnostických testů – od screeningu infekčních chorob přes kardiální markery a hormonální profily až po panely na drogy a alergie. Díky automatizované kalibraci, integraci cloudu a digitálnímu exportu dat přináší Igloo Reader Pro laboratorní kvalitu přímo tam, kde je potřeba. Umožňuje lékařským profesionálům dosahovat rychlých a spolehlivých výsledků kdekoli."
       ],
       "features": [
-        "Univerzální testovací platforma: Podporuje microarray, laterální tok, kolorimetrii, fluorescenci, suchou chemii a mikrofluidiku.",
+        "Univerzální testovací platforma: Podporuje Microarray, Lateral Flow, kolorimetrii, fluorescenci, suchou chemii a mikrofluidiku.",
         "Laboratorní přesnost ve formátu POCT: Vysoká přesnost díky automatické samokalibraci před každým měřením (CV < 2 % Inter-Reader, CV < 3 % Intra-Reader).",
         "Kompaktní a mobilní: Lehký design s výdrží baterie až 24 hodin nepřetržitého testování.",
         "Plná konektivita: Integrovaná Wi-Fi, Bluetooth a USB-C pro bezproblémovou synchronizaci dat a integraci API/LIMS.",
-        "Bezpečná integrace cloudu (Dx365 Cloud): Pro aktualizace testů, správu kalibrace a šifrované ukládání dat.",
+        "Bezpečná integrace cloudu (Dx365 Cloud): Pro aktualizace testů, správu kalibrací a šifrované ukládání dat.",
         "Všestranné typy vzorků: Kompatibilní s plnou krví, kapilární krví, sérem, plazmou, močí, stolicí, slinami a vlasy."
       ],
       "techSpecs": [
@@ -56,31 +56,31 @@
       "deliveryScope": [
         "1 × Analyzátor Igloo Reader Pro",
         "1 × Kabel USB-A na USB-C",
-        "Elektronická uživatelská příručka"
+        "Elektronický uživatelský manuál"
       ],
-      "note": "Důležitá poznámka: Adaptéry a testovací sady QC se prodávají samostatně a nejsou součástí standardního rozsahu dodávky."
+      "note": "Důležité upozornění: Adaptéry a testovací sady QC se prodávají samostatně a nejsou součástí standardního rozsahu dodávky."
     },
     "bp_monitor": {
       "name": "Digitální měřič krevního tlaku",
-      "shortDescription": "Přesný, snadno použitelný měřič krevního tlaku pro domácí použití s funkcí paměti.",
+      "shortDescription": "Přesný, snadno použitelný měřič krevního tlaku pro domácí použití s paměťovou funkcí.",
       "features": [
         "Manžeta na paži s nastavitelnou velikostí",
-        "Ukládá až 60 měření",
+        "Ukládá až 60 naměřených hodnot",
         "Detekce nepravidelného srdečního tepu"
       ]
     },
     "thermometer": {
       "name": "Bezkontaktní čelní teploměr",
-      "shortDescription": "Rychlé, hygienické měření teploty bez kontaktu s pokožkou — ideální pro rodiny.",
+      "shortDescription": "Rychlé, hygienické měření teploty bez kontaktu s pokožkou – ideální pro rodiny.",
       "features": [
-        "1sekundové měření",
+        "Měření za 1 sekundu",
         "Indikátor alarmu horečky",
         "Podsvícený displej"
       ]
     },
     "pulse_oximeter": {
       "name": "Prstový pulzní oxymetr",
-      "shortDescription": "Změřte saturaci kyslíku v krvi a tepovou frekvenci během několika sekund.",
+      "shortDescription": "Změřte saturaci krve kyslíkem a tepovou frekvenci během několika sekund.",
       "features": [
         "Zobrazení SpO₂ a tepové frekvence",
         "Kompaktní a přenosný",
@@ -88,29 +88,29 @@
       ]
     },
     "home_care_kit": {
-      "name": "Startovací sada domácí péče",
-      "shortDescription": "Základní nástroje pro každodenní péči doma, včetně monitorování a základů první pomoci.",
+      "name": "Startovací sada pro domácí péči",
+      "shortDescription": "Základní nástroje pro každodenní domácí péči, včetně monitorování a základů první pomoci.",
       "features": [
-        "Digitální teploměr a měřič tlaku",
+        "Digitální teploměr a měřič krevního tlaku",
         "Základní potřeby pro ošetření ran",
         "Kompaktní úložná taška"
       ]
     },
     "diabetes_kit": {
-      "name": "Sada pro monitorování diabetu",
+      "name": "Monitorovací sada pro diabetes",
       "shortDescription": "Vše, co potřebujete k pohodlnému monitorování hladiny cukru v krvi doma.",
       "features": [
         "Glukometr s testovacími proužky",
         "Odběrové pero a lancety",
-        "Cestovní pouzdro"
+        "Přepravní pouzdro na cesty"
       ]
     },
     "n95_mask_pack": {
       "name": "Balení respirátorů N95 (10 ks)",
-      "shortDescription": "Certifikované respirátory N95 pro spolehlivou ochranu dýchacích cest.",
+      "shortDescription": "Certifikované masky N95 pro spolehlivou ochranu dýchacích cest.",
       "features": [
         "Nastavitelná nosní svorka",
-        "Pohodlné gumičky za uši",
+        "Pohodlná poutka za uši",
         "Individuálně balené"
       ]
     },
@@ -124,8 +124,8 @@
       ]
     },
     "compression_socks": {
-      "name": "Lékařské kompresní punčochy",
-      "shortDescription": "Podporují krevní oběh během dlouhých dnů na nohou nebo při zotavení.",
+      "name": "Lékařské kompresní ponožky",
+      "shortDescription": "Podpora krevního oběhu během dlouhých dnů na nohou nebo při rekonvalescenci.",
       "features": [
         "Odstupňovaná komprese",
         "Prodyšná tkanina",
@@ -134,32 +134,32 @@
     },
     "first_aid_kit": {
       "name": "Kompaktní lékárnička",
-      "shortDescription": "Kompaktní sada se základními potřebami pro drobná poranění a nouzové situace.",
+      "shortDescription": "Kompaktní sada se nezbytnostmi pro drobná poranění a nouzové situace.",
       "features": [
         "Obvazy a náplasti",
         "Antiseptické ubrousky",
-        "Informační leták"
+        "Příbalový leták s instrukcemi"
       ]
     },
     "online_consult": {
       "name": "Online lékařská konzultace (30 min)",
-      "shortDescription": "Objednejte si 30minutovou videokonzultaci s jedním z našich lékařů.",
+      "shortDescription": "Rezervujte si 30minutovou video konzultaci s jedním z našich lékařů.",
       "features": [
         "Flexibilní možnosti plánování",
-        "Bezpečná videoplatforma",
-        "Souhrnná zpráva po sezení"
+        "Bezpečná video platforma",
+        "Souhrnná zpráva po relaci"
       ]
     }
   },
   "shop": {
     "addToCart": "Přidat do košíku (demo)",
     "orderInfo": "Informace o objednávce",
-    "orderInfoText": "Toto demo rozvržení napodobuje jednoduchý objednávkový box. V reálném projektu byste zde zobrazili dostupnost, možnosti dopravy a tlačítko 'Přidat do košíku'.",
-    "youMightLike": "Mohlo by se vám také líbit",
+    "orderInfoText": "Toto demo rozvržení napodobuje jednoduché objednávkové pole. Ve skutečném projektu by se zde zobrazovala dostupnost, možnosti dopravy a tlačítko „Přidat do košíku“.",
+    "youMightLike": "Mohlo by se vám líbit",
     "view": "Zobrazit",
     "viewDetails": "Zobrazit podrobnosti",
     "backToShop": "Zpět do obchodu",
-    "needHelp": "Potřebujete pomoc s výběrem produktu?",
+    "needHelp": "Potřebujete pomoci s výběrem produktu?",
     "contactTeam": "Kontaktujte náš tým",
     "demoNote": "Upozornění: Toto je demo obchod pouze pro účely designu a rozvržení. Nejsou zpracovávány žádné skutečné objednávky ani platby.",
     "whatsInBox": "Co je v krabici?",
@@ -170,10 +170,10 @@
     "subtitle": "Obchod MedHealth",
     "discoverTitle": "Objevte naše vybrané produkty",
     "article": "Článek",
-    "articleDisclaimer": "Pravidelné kontroly a proaktivní péče jsou základem dlouhodobého zdraví. Pokud máte dotazy, neváhejte se obrátit na lékařského odborníka.",
+    "articleDisclaimer": "Pravidelné prohlídky a proaktivní péče jsou základem dlouhodobého zdraví. Pokud máte otázky, neváhejte se obrátit na lékařského odborníka.",
     "shareArticle": "Líbil se vám tento článek? Sdílejte jej se svými přáteli a rodinou.",
     "backToHome": "Zpět na domovskou stránku",
-    "suggestedArticles": "Doporučené články",
+    "suggestedArticles": "Navrhované články",
     "moreArticles": "Další články",
     "contactText": "Náš lékařský tým je k dispozici 24/7, aby odpověděl na naléhavé otázky a pomohl vám rozhodnout, co dělat dál.",
     "readMore": "Číst více"

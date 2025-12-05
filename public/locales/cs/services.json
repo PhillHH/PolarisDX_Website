@@ -1,247 +1,331 @@
 {
+  "dental": {
+    "title": "Dental",
+    "headline": "Přesnost pro moderní stomatologii",
+    "intro": [
+      "Rozšiřte spektrum své léčby o moderní diagnostiku přímo v křesle. Rychlé výsledky umožňují okamžitou, fundovanou konzultaci s pacientem.",
+      "Optimalizujte procesy hojení a včas odhalte rizika."
+    ],
+    "sections": [
+      {
+        "heading": "1. Vitamin D a hojení ran",
+        "content": "Dostatečná hladina vitaminu D je nezbytná pro osseointegraci implantátů a celkové hojení ran. Změřte stav přímo na místě.",
+        "listItems": [
+          "Okamžité stanovení hladiny 25-OH-vitaminu D.",
+          "Cílená suplementace pro zlepšení chirurgických výsledků."
+        ]
+      },
+      {
+        "heading": "2. Zánětlivé markery",
+        "content": "Odhalte systémové záněty, které mohou ovlivnit parodontitidu, a sledujte úspěšnost terapie.",
+        "listItems": []
+      }
+    ],
+    "conclusion": {
+      "heading": "Závěr",
+      "text": "Integrujte diagnostiku plynule do chodu vaší ordinace pro lepší klinické výsledky."
+    },
+    "cta": "Dozvědět se více"
+  },
+  "beauty": {
+    "title": "Krása a estetika",
+    "headline": "Krása zevnitř: Estetika založená na datech",
+    "intro": [
+      "Skutečná krása začíná zdravím. Využijte přesné analýzy k podložení estetických zákroků fundovanými zdravotními daty.",
+      "Nabídněte svým klientům holistický přístup, který jde pod povrch."
+    ],
+    "sections": [
+      {
+        "heading": "1. Zdraví pleti a vitamíny",
+        "content": "Analyzujte stav mikroživin pro cílenou podporu vzhledu pleti a anti-aging ošetření.",
+        "listItems": [
+          "Individuální poradenství na základě krevních hodnot.",
+          "Optimalizace tvorby kolagenu a regenerace."
+        ]
+      },
+      {
+        "heading": "2. Hormonální rovnováha",
+        "content": "Pochopte vliv hormonů na pleť a vlasy a přizpůsobte tomu ošetření.",
+        "listItems": []
+      }
+    ],
+    "conclusion": {
+      "heading": "Závěr",
+      "text": "Odlište se vědecky podloženými koncepty krásy."
+    },
+    "cta": "Rezervovat konzultaci"
+  },
+  "longevity": {
+    "title": "Dlouhověkost",
+    "headline": "Žít zdravě déle: Proaktivní prevence",
+    "intro": [
+      "Dlouhověkost je víc než trend – je to budoucnost medicíny. Umožněte svým pacientům pochopit a optimalizovat jejich biologické hodiny.",
+      "Vsaďte na biomarkery, které zviditelňují a ovlivňují procesy stárnutí."
+    ],
+    "sections": [
+      {
+        "heading": "1. Klíčové biomarkery stárnutí",
+        "content": "Sledujte metabolické a zánětlivé markery považované za hybatele stárnutí.",
+        "listItems": [
+          "Pravidelné monitorování HbA1c, lipidů a hs-CRP.",
+          "Včasná detekce rizikových faktorů pro onemocnění související s věkem."
+        ]
+      },
+      {
+        "heading": "2. Personalizované strategie",
+        "content": "Vyvíjejte plány na míru pro výživu, pohyb a suplementaci na základě validních dat.",
+        "listItems": []
+      }
+    ],
+    "conclusion": {
+      "heading": "Závěr",
+      "text": "Staňte se partnerem pro dlouhý a zdravý život vašich pacientů."
+    },
+    "cta": "Začněte nyní"
+  },
   "poc_systemloesungen": {
-    "title": "Systémová řešení POC: Řídicí centrum pro validovanou diagnostiku",
+    "title": "Systémová řešení POC",
     "headline": "Point-of-Care nově definováno: Laboratorní přesnost se setkává s maximální agilitou",
     "intro": [
-      "Moderní zdravotní péče vyžaduje rozhodnutí, která jsou rychlá, ale nekompromisně přesná. Zde přicházejí na řadu prémiová systémová řešení POC (Point-of-Care). Jsou mnohem více než jen mobilní testovací zařízení; jsou řídicím centrem pro diagnostiku, které zkracuje vzdálenost mezi pacientem a laboratoří na pouhých několik minut.",
-      "Na příkladu čtečky Igloo Pro je zřejmý vývoj in-vitro diagnostiky (IVD): Mobilní analytická zařízení poskytují výsledky, které nejen dosahují laboratorních standardů z hlediska přesnosti, ale mohou je díky optimalizovaným pracovním postupům překonat."
+      "Moderní zdravotní péče vyžaduje rozhodnutí, která jsou rychlá, ale nekompromisně přesná. Zde nastupují systémová řešení POC (Point-of-Care) prémiové třídy. Jsou mnohem víc než jen mobilní testovací zařízení; jsou řídicím centrem pro diagnostiku, které zkracuje vzdálenost mezi pacientem a laboratoří na několik minut.",
+      "Na příkladu čtečky Igloo Pro Reader je zřejmá evoluce in-vitro diagnostiky (IVD): Mobilní analyzátory dodávají výsledky, které svou přesností nejen dosahují laboratorních standardů, ale díky optimalizovanému pracovnímu toku je mohou překonat."
     ],
     "sections": [
       {
         "heading": "1. Konec nejistoty: Validovaná přesnost",
-        "content": "Hlavním požadavkem na jakékoli řešení POC je validita výsledků. Igloo Pro využívá pokročilé technologie Lateral Flow Assay (LFA) v kombinaci s metodami, jako je imunofluorescence a kolorimetrie.",
+        "content": "Ústředním požadavkem na každé řešení POC je validita výsledků. Igloo Pro využívá pokročilé technologie Lateral-Flow-Assay (LFA) v kombinaci s metodami jako imunofluorescence a kolorimetrie.",
         "listItems": [
-          "Tvrdý fakt: Vysoce kvalitní systémy POC dosahují variačního koeficientu (CV) nižšího než 2 % (mezi čtečkami), což je hodnota, která zaručuje spolehlivost a reprodukovatelnost na nejvyšší úrovni. To je základ pro to, aby lékaři, lékárníci a laboratorní personál měli potřebnou jistotu k okamžitému jednání."
+          "Tvrdý fakt: Vysoce kvalitní systémy POC dosahují variačního koeficientu (CV) pod 2 % (Inter-Reader), což je hodnota, která zaručuje spolehlivost a reprodukovatelnost na nejvyšší úrovni. To je základ pro poskytnutí lékařům, lékárníkům a laboratornímu personálu potřebné jistoty pro okamžité jednání."
         ]
       },
       {
-        "heading": "2. Mobilita bez kompromisů: Agilita pro pracovní postup",
-        "content": "Kompaktní design a nízká hmotnost (Igloo Pro váží pouze cca 400 g) umožňují použití v jakémkoli rozhraní péče o pacienty – ať už v lékárně, v ordinaci nebo v mobilních ošetřovatelských službách.",
+        "heading": "2. Mobilita bez kompromisů: Agilita pro pracovní tok",
+        "content": "Kompaktní konstrukce a nízká hmotnost (Igloo Pro váží pouze cca 400 g) umožňují použití na jakémkoli rozhraní péče o pacienty – ať už v lékárně, vyšetřovně nebo v mobilní pečovatelské službě.",
         "listItems": [
-          "Výhoda pro vás: Vybaven lithiovou baterií, která umožňuje až 24 hodin nepřetržitého provozu, se zařízení stává skutečnou mobilní laboratoří. Nutnost odesílat vzorky pacientů nebo akceptovat dlouhé čekací doby odpadá. Výsledky pro parametry jako CRP, HbA1c nebo vitamín D jsou často k dispozici za 3 až 15 minut."
+          "Výhoda pro vás: Vybaveno lithiovou baterií, která umožňuje až 24 hodin nepřetržitého provozu, se zařízení stává skutečnou mobilní laboratoří. Nutnost odesílat vzorky pacientů nebo akceptovat dlouhé čekací doby odpadá. Výsledky pro parametry jako CRP, HbA1c nebo vitamin D jsou často k dispozici za 3 až 15 minut."
         ]
       },
       {
         "heading": "3. Otevřený ekosystém: Maximální flexibilita",
-        "content": "Prémiový systém POC musí být flexibilní. Igloo Pro je koncipován jako otevřená platforma, která vyhodnocuje testy od různých výrobců. To je klíčové, protože to eliminuje závislost na jediném poskytovateli a pokrývá širokou škálu diagnostických parametrů:",
+        "content": "Prémiový systém POC musí být flexibilní. Igloo Pro je koncipován jako otevřená platforma, která vyhodnocuje testy různých výrobců. To je rozhodující, protože to eliminuje závislost na jediném poskytovateli a pokrývá širokou škálu diagnostických parametrů:",
         "listItems": [
-          "Šíře analýzy: Od srdečních markerů (D-Dimer, Troponin) přes zánětlivé parametry (CRP) až po funkci štítné žlázy (TSH) a kontrolu diabetu (HbA1c).",
-          "Materiál vzorku: Kompatibilita s minimálně invazivními vzorky (kapilární krev, sliny, moč) snižuje práh zábran pro testování a zvyšuje spokojenost pacientů."
+          "Šíře analýz: Od kardiálních markerů (D-dimer, troponin) přes zánětlivé parametry (CRP) až po funkci štítné žlázy (TSH) a kontrolu diabetu (HbA1c).",
+          "Materiál vzorku: Kompatibilita s minimálně invazivními vzorky (kapilární krev, sliny, moč) snižuje práh inhibice pro testování a zvyšuje spokojenost pacientů."
         ]
       },
       {
         "heading": "4. Digitální řídicí centrum: Integrace a bezpečnost dat",
-        "content": "\"Řídicí centrum pro diagnostiku\" není jen zařízení, ale také jeho konektivita.",
+        "content": "„Řídicí centrum pro diagnostiku“ není jen zařízení, ale také jeho konektivita.",
         "listItems": [
-          "Připojení LIMS/HIS: Přes USB-C, Wi-Fi nebo Bluetooth probíhá bezproblémová integrace do stávajících laboratorních nebo ordinačních informačních systémů (LIMS/HIS). To zajišťuje automatický přenos, ukládání a dokumentaci až 10 000 výsledků, což je nezbytné pro plný soulad s předpisy (IVDR, CE).",
-          "Bezpečnost dat: Zajištění souladu s GDPR a bezpečné ukládání citlivých údajů o pacientech je dosaženo prostřednictvím připojení ke specializovaným cloudovým řešením a aplikacím."
+          "Připojení LIMS/HIS: Přes USB-C, Wi-Fi nebo Bluetooth probíhá bezproblémová integrace do stávajících laboratorních nebo nemocničních informačních systémů (LIMS/HIS). To zaručuje automatický přenos, ukládání a dokumentaci až 10 000 výsledků, což je nezbytné pro bezproblémové dodržování předpisů (IVDR, CE).",
+          "Bezpečnost dat: Zajištění souladu s GDPR a bezpečné ukládání citlivých údajů o pacientech probíhá připojením ke specializovaným cloudovým řešením a aplikacím."
         ]
       }
     ],
     "conclusion": {
       "heading": "Závěr pro PolarisDX.net: Více než jen technologie",
-      "text": "Systémové řešení POC Igloo Pro představuje vrchol mobilní diagnostiky. Skutečný výkon se však odemyká pouze prostřednictvím exkluzivního servisu. PolarisDX.net zaručuje nejen dodání tohoto technologického nástroje, ale také jeho okamžitou, validovanou a bezproblémovou integraci do vašeho provozu. Vsaďte na agilitu mobilní diagnostiky – s garantovanou bezpečností expertního partnera po vašem boku."
+      "text": "Systémové řešení POC Igloo Pro představuje špičku mobilní diagnostiky. Ale skutečný výkon se odemkne až exkluzivním servisem. PolarisDX.net zaručuje nejen dodání tohoto technologického nástroje, ale také jeho okamžitou, validovanou a bezproblémovou integraci do vašeho provozu. Vsaďte na agilitu mobilní diagnostiky – se zaručenou jistotou odborného partnera po svém boku."
     },
-    "cta": "Rezervovat analýzu výkonu nyní"
+    "cta": "Rezervovat termín"
   },
   "praeventions_checks": {
-    "title": "Preventivní zdravotní prohlídky: Prevence nově promyšlená",
+    "title": "Preventivní zdravotní prohlídky",
     "headline": "Rychlá diagnostika jako základ moderní prevence",
     "intro": [
-      "Poptávka po personalizované preventivní zdravotní péči rychle roste. Pacienti a zákazníci očekávají rychlé a spolehlivé odpovědi na kritické zdravotní otázky přímo v místě péče (POC) – ať už v lékárně, ordinaci lékaře nebo na klinice.",
-      "Zde mobilní diagnostika POC transformuje prevenci: Umožňuje okamžité stanovení důležitých biomarkerů a činí zdravotní poradenství okamžitým, založeným na datech a individuálním."
+      "Poptávka po personalizované zdravotní prevenci rychle roste. Pacienti a zákazníci očekávají rychlé a spolehlivé odpovědi na kritické zdravotní otázky přímo v místě péče (POC) – ať už v lékárně, ordinaci lékaře nebo na klinice.",
+      "Zde mobilní POC diagnostika transformuje prevenci: Umožňuje okamžité stanovení důležitých biomarkerů a činí zdravotní poradenství bezprostředním, podloženým daty a individuálním."
     ],
     "sections": [
       {
         "heading": "1. Změna v prevenci: Rychlotest vs. laboratoř",
-        "content": "Tradičně byla prevence spojena s čekacími dobami. Moderní systémy POC, jako je čtečka Igloo Pro, tuto mezeru uzavírají tím, že poskytují laboratorně přesné výsledky za pouhých několik minut. To je klíč k včasné detekci rizik.",
+        "content": "Tradičně byla prevence spojena s čekacími dobami. Moderní systémy POC, jako je čtečka Igloo Pro, tuto mezeru uzavírají tím, že dodávají výsledky s přesností laboratoře během několika minut. To je klíč k včasnému odhalení rizik.",
         "listItems": [
-          "Vitamín D (25-OH-VD): Nezbytný pro zdraví kostí, imunitní systém a hojení ran (relevantní v zubních ordinacích). Nedostatek je rozšířený; okamžité měření umožňuje okamžitou suplementaci.",
-          "CRP (C-reaktivní protein): Důležitý zánětlivý marker. Rychlé stanovení v lékárně nebo ordinaci poskytuje během několika minut jasnost o přítomnosti akutní zánětlivé reakce a může pomoci vyhnout se zbytečnému předepisování antibiotik.",
-          "HbA1c (Dlouhodobý krevní cukr): Zlatý standard pro monitorování diabetu. Okamžité měření umožňuje okamžitou úpravu terapie a zvyšuje motivaci pacienta dodržovat pokyny – faktor, který prokazatelně vede k lepším dlouhodobým výsledkům."
+          "Vitamin D (25-OH-VD): Nezbytný pro zdraví kostí, imunitní systém a hojení ran (relevantní v zubních ordinacích). Nedostatek je velmi rozšířený; okamžité měření umožňuje bezodkladnou suplementaci.",
+          "CRP (C-reaktivní protein): Důležitý zánětlivý marker. Rychlé stanovení v lékárně nebo ordinaci poskytuje během minut jasno o přítomnosti akutní zánětlivé reakce a může pomoci vyhnout se zbytečnému předepisování antibiotik.",
+          "HbA1c (dlouhodobý cukr v krvi): Zlatý standard pro monitorování diabetu. Okamžité měření umožňuje bezprostřední úpravu terapie a zvyšuje motivaci pacienta k dodržování pokynů – faktor, který prokazatelně vede k lepším dlouhodobým výsledkům."
         ]
       },
       {
-        "heading": "2. Okamžitý přínos: Testovat, vědět, jednat",
+        "heading": "2. Okamžitý přínos: Otestovat, vědět, jednat",
         "content": "Největší síla prevence POC spočívá v bezprostřednosti výsledků.",
         "listItems": [
-          "Angažovanost pacienta: Konfrontace s okamžitou, jasnou naměřenou hodnotou (např. zvýšená hodnota HbA1c) drasticky zvyšuje povědomí a motivaci pacienta ke změně chování.",
-          "Efektivita v ordinaci: Odpadají časově náročné následné schůzky k projednání laboratorních výsledků. Konzultace může proběhnout přímo na základě validních dat. Studie ukazují, že to může snížit návštěvy pacientů až o 61 % a následnou korespondenci o více než 80 %.",
-          "Ekonomická výhoda: Lékárny se etabluje jako centra prevence a generují relevantní dodatečné příjmy prodejem testů a rozšířeným poradenstvím."
+          "Zapojení pacienta: Konfrontace s okamžitou, jasnou naměřenou hodnotou (např. zvýšená hodnota HbA1c) drasticky zvyšuje povědomí a motivaci pacienta ke změně chování.",
+          "Efektivita v ordinaci: Odpadají časově náročné následné termíny k projednání laboratorních výsledků. Poradenství může proběhnout přímo na základě validních dat. Studie ukazují, že to může snížit návštěvy pacientů až o 61 % a následnou korespondenci o více než 80 %.",
+          "Ekonomická výhoda: Lékárny se etabluje jako centra prevence a generují relevantní dodatečné tržby prodejem testů a rozšířeným poradenstvím."
         ]
       },
       {
-        "heading": "3. Validace není k jednání: Prémiový požadavek",
-        "content": "Přesun diagnostiky z laboratoře do místa péče nesmí nikdy probíhat na úkor kvality. Zde přicházejí na řadu prémiová řešení:",
+        "heading": "3. Validace je nesmlouvavá: Prémiový požadavek",
+        "content": "Přesun diagnostiky z laboratoře na místo péče nesmí jít nikdy na úkor kvality. Zde nastupují prémiová řešení:",
         "listItems": [
-          "Použití vysoce přesných analytických zařízení s certifikací IVDR, jako je Igloo Pro, je povinné.",
-          "Garantovaná analytická přesnost (např. CV < 2 %) zajišťuje, že hodnoty získané v ordinaci nebo lékárně jsou srovnatelné s laboratorním standardem."
+          "Použití vysoce přesných analyzátorů certifikovaných podle IVDR, jako je Igloo Pro, je nezbytné.",
+          "Zaručená analytická přesnost (např. CV < 2 %) zajišťuje, že hodnoty získané v ordinaci nebo lékárně jsou srovnatelné s laboratorním standardem."
         ]
       }
     ],
     "conclusion": {
       "heading": "Závěr pro vaše rozhodnutí",
-      "text": "Investice do systémových řešení POC je investicí do budoucnosti péče zaměřené na pacienta a zvyšování provozní efektivity. PolarisDX.net dodává nejen technologii pro tuto transformaci, ale zaručuje prostřednictvím exkluzivní služby 48hodinového vzdáleného nastavení a záruky kompatibility LFT její hladkou a validovanou funkci. Tímto způsobem můžete okamžitě využít plný potenciál preventivních zdravotních prohlídek."
+      "text": "Investice do systémových řešení POC je investicí do budoucnosti péče zaměřené na pacienta a zvýšení provozní efektivity. PolarisDX.net dodává nejen technologii pro tuto transformaci, ale zaručuje prostřednictvím exkluzivního 48hodinového servisu vzdáleného nastavení a záruky kompatibility LFT její hladkou a validovanou funkci. Tak využijete plný potenciál preventivních zdravotních prohlídek okamžitě."
     },
-    "cta": "Požádat o analýzu výkonu nyní"
+    "cta": "Rezervovat termín"
   },
   "infektion_entzuendung": {
-    "title": "Infekční a zánětlivé markery: Rychlé odpovědi v kritických případech",
-    "headline": "Třídění v minutách: Jak Igloo Pro urychluje rozhodování",
+    "title": "Markery infekce a zánětu",
+    "headline": "Triage v minutách: Jak Igloo Pro urychluje rozhodování",
     "intro": [
-      "V akutní péči a ambulantním sektoru se počítá každá minuta. Okamžité a spolehlivé stanovení zánětlivých markerů a známek infekce je nezbytné pro správné třídění (triage), péči o pacienty a – dnes důležitější než kdy jindy – pro odpovědné řízení antibiotik.",
-      "Systémy POC (Point-of-Care) prémiové třídy jsou řídicím centrem pro snížení doby od vzorku k výsledku na minimum při zajištění maximální klinické bezpečnosti."
+      "V akutní péči a ambulantním sektoru se počítá každá minuta. Okamžité a spolehlivé stanovení zánětlivých markerů a známek infekce je nezbytné pro správnou triáž, péči o pacienty a – dnes důležitější než kdy jindy – pro odpovědné řízení antibiotik.",
+      "Systémy POC (Point-of-Care) prémiové třídy jsou řídicím centrem pro snížení času od vzorku k výsledku na minimum při zajištění maximální klinické bezpečnosti."
     ],
     "sections": [
       {
-        "heading": "1. Biomarkery jako základ pro rozhodování: CRP, PCT, IL-6",
-        "content": "Rychlá analýza specifických biomarkerů přímo u pacienta je základem pro informovaná rozhodnutí:",
+        "heading": "1. Biomarkery jako základ rozhodování: CRP, PCT, IL-6",
+        "content": "Rychlá analýza specifických biomarkerů přímo u pacienta je základem pro fundovaná rozhodnutí:",
         "listItems": [
-          "CRP (C-reaktivní protein): Nejdůležitější parametr akutní fáze u infekcí a zánětů. Rychle dostupná kvantitativní hodnota CRP podporuje rozlišení mezi virovými a bakteriálními infekcemi a je klíčová pro monitorování terapie.",
-          "PCT (Prokalcitonin): Zejména v intenzivní péči a chirurgii je PCT preferován pro diferenciaci a kontrolu antibiotické terapie, protože je často specifičtějším indikátorem bakteriální sepse než CRP.",
-          "IL-6 (Interleukin-6): Časný cytokinový marker, který stoupá již v prvních hodinách závažného systémového zánětu (např. sepse), a proto je nezbytný pro co nejčasnější třídění kritických pacientů."
+          "CRP (C-reaktivní protein): Nejdůležitější parametr akutní fáze při infekcích a zánětech. Rychle dostupná, kvantitativní hodnota CRP podporuje rozlišení mezi virovými a bakteriálními infekcemi a je rozhodující pro monitorování terapie.",
+          "PCT (prokalcitonin): Zejména v oblasti intenzivní medicíny a chirurgie je PCT preferován pro diferenciaci a řízení antibiotické terapie, protože je často specifičtějším indikátorem bakteriální sepse než CRP.",
+          "IL-6 (interleukin-6): Časný cytokinový marker, který stoupá již v prvních hodinách těžkého systémového zánětu (např. sepse) a je proto nezbytný pro co nejčasnější triáž kritických pacientů."
         ]
       },
       {
         "heading": "2. Okamžitý dopad: Řízení antibiotik",
-        "content": "Světová zdravotnická organizace (WHO) zdůrazňuje nutnost ukončit zbytečné používání antibiotik v boji proti rezistenci.",
+        "content": "Světová zdravotnická organizace (WHO) zdůrazňuje nutnost ukončit zbytečné používání antibiotik v boji proti rezistencím.",
         "listItems": [
-          "Informované předepisování: Analýzy POC, jako je kvantitativní měření CRP, podporují lékaře v předepisování antibiotik pouze tehdy, když je pravděpodobná bakteriální infekce. Studie dokazují, že testy POC CRP mohou významně snížit předepisování antibiotik u respiračních infekcí.",
-          "Monitorování terapie: Měření markerů v reálném čase umožňuje okamžitou kontrolu úspěšnosti terapie. Pokud hodnota CRP rychle klesá, může být antibiotická terapie ukončena dříve, což snižuje náklady a zátěž pacienta."
+          "Fundované předepisování: POC analýzy jako kvantitativní měření CRP podporují lékaře v tom, aby předepisovali antibiotika pouze tehdy, když je bakteriální infekce pravděpodobná. Studie prokazují, že POC testy CRP mohou významně snížit předepisování antibiotik u infekcí dýchacích cest.",
+          "Monitorování terapie: Měření markerů v reálném čase umožňuje bezprostřední kontrolu úspěšnosti terapie. Pokud hodnota CRP rychle klesá, lze antibiotickou terapii ukončit dříve, což snižuje náklady a zátěž pacienta."
         ]
       },
       {
         "heading": "3. Bezpečnost a rychlost v akutním řetězci",
-        "content": "Čtečka Igloo Pro zde poskytuje technologickou výhodu:",
+        "content": "Čtečka Igloo Pro zde přináší technologický náskok:",
         "listItems": [
-          "Rychlost: Výsledky jsou k dispozici během několika minut, což umožňuje okamžitá rozhodnutí o třídění – nezbytné na pohotovostech nebo při posuzování pooperačních infekcí.",
-          "Flexibilita: Otevřená platforma umožňuje analýzu různých testů laterálního toku pokrývajících zánět, srdeční markery (např. D-Dimer, Troponin) a infekční agens – vše v jednom kompaktním, mobilním zařízení."
+          "Rychlost: Výsledky jsou k dispozici během několika minut, což umožňuje okamžitá rozhodnutí o triáži – nezbytné na pohotovostech nebo při posuzování pooperačních infekcí.",
+          "Flexibilita: Otevřená platforma umožňuje analýzu nejrůznějších testů Lateral Flow, které pokrývají záněty, kardiální markery (např. D-dimer, troponin) a původce infekcí – vše v jednom kompaktním, mobilním zařízení."
         ]
       }
     ],
     "conclusion": {
-      "heading": "Závěr: Žádné kompromisy v diagnóze",
-      "text": "U infekcí a zánětů je čas kritickým faktorem. Pouze systém POC, který kombinuje validitu na úrovni laboratoře s maximální rychlostí, může zvýšit bezpečnost v diagnostice a současně optimalizovat řízení antibiotik. PolarisDX.net dodává tento garantovaný výkon – od 48hodinového uvedení do provozu po prioritní podporu."
+      "heading": "Závěr: Žádné kompromisy v diagnostice",
+      "text": "U infekcí a zánětů je čas kritickým faktorem. Pouze systém POC, který kombinuje validitu na laboratorní úrovni s maximální rychlostí, může zvýšit bezpečnost v diagnostice a zároveň optimalizovat řízení antibiotik. PolarisDX.net dodává tento zaručený výkon – od 48hodinového uvedení do provozu až po prioritní podporu."
     },
-    "cta": "Rezervovat analýzu výkonu nyní"
+    "cta": "Rezervovat termín"
   },
   "stoffwechsel_herz": {
-    "title": "Metabolismus a zdraví srdce: Chronické monitorování stisknutím tlačítka",
-    "headline": "Důležité indikátory v dohledu: Přesné měření pro úpravu terapie",
+    "title": "Metabolismus a zdraví srdce",
+    "headline": "Důležité ukazatele na první pohled: Přesné měření pro úpravu terapie",
     "intro": [
-      "Monitorování chronických onemocnění, jako je diabetes, a řízení srdečních rizik jsou časově kritické úkoly. Moderní systémy Point-of-Care (POC) se zde stávají nepostradatelným nástrojem, protože posilují loajalitu pacientů a urychlují úpravu terapie.",
-      "Čtečka Igloo Pro spojuje nezbytnou přesnou analytiku v mobilním zařízení pro stanovení důležitých metabolických a srdečních markerů během několika minut."
+      "Monitorování chronických onemocnění, jako je diabetes, a řízení kardiálních rizik jsou časově kritické úkoly. Moderní systémy Point-of-Care (POC) se zde mění v nepostradatelný nástroj, protože posilují vazbu s pacientem a urychlují úpravu terapie.",
+      "Čtečka Igloo Pro Reader sdružuje nezbytnou přesnou analytiku v mobilním zařízení pro stanovení důležitých metabolických a kardiálních markerů během několika minut."
     ],
     "sections": [
       {
         "heading": "1. Metabolická excelence: HbA1c a lipidy",
-        "content": "Hodnota dlouhodobého krevního cukru (HbA1c) je rozhodujícím parametrem v řízení diabetu.",
+        "content": "Hodnota dlouhodobého cukru v krvi (HbA1c) je rozhodujícím parametrem v řízení diabetu.",
         "listItems": [
-          "Přímá úprava terapie: Okamžité měření HbA1c v POC (z kapilárního vzorku krve) poskytuje průměrnou hodnotu krevního cukru za poslední měsíce. Pokud je výsledek k dispozici okamžitě, lze léčbu upravit přímo. Studie ukazují, že to enormně zlepšuje compliance a spokojenost pacientů, protože nejsou nutné druhé schůzky pro laboratorní výsledky.",
-          "Profily cholesterolu: Přesné stanovení celkového cholesterolu a různých lipidových frakcí je kritickým indikátorem rizika arteriosklerózy a kardiovaskulárních příhod. Testy POC umožňují okamžité posouzení rizika a poradenství ohledně změn životního stylu nebo medikamentózní terapie."
+          "Přímá úprava terapie: Okamžité měření HbA1c v POC (z vzorku kapilární krve) poskytuje průměrnou hodnotu cukru v krvi za poslední měsíce. Pokud je výsledek k dispozici okamžitě, lze léčbu přímo upravit. Studie ukazují, že to enormně zlepšuje compliance a spokojenost pacientů, protože nejsou nutné druhé termíny pro laboratorní výsledky.",
+          "Lipidové profily: Přesné stanovení celkového cholesterolu a různých lipidových frakcí je kritickým indikátorem rizika aterosklerózy a kardiovaskulárních příhod. POC testy umožňují bezprostřední posouzení rizika a poradenství o změnách životního stylu nebo medikamentózní terapii."
         ]
       },
       {
-        "heading": "2. Akutní srdeční bezpečnost: Nouzové parametry",
-        "content": "V akutní kardiologické péči rychlost zachraňuje životy. Systémy POC k tomu poskytují nezbytné nouzové parametry:",
+        "heading": "2. Akutní kardiální bezpečnost: Nouzové parametry",
+        "content": "V akutní kardiální péči rychlost zachraňuje životy. Systémy POC pro to poskytují nezbytné nouzové parametry:",
         "listItems": [
-          "D-Dimer: Kvantitativní měření D-Dimeru je nezbytné pro rychlé vyloučení hluboké žilní trombózy (DVT) a plicní embolie (PE). Negativní výsledek umožňuje okamžité odvolání poplachu, což masivně ulevuje třídění na pohotovosti nebo v ordinaci.",
-          "Srdeční troponin (cTnl): Ačkoli se často měří v centrální laboratoři, stanovení troponinu v POC je vysoce citlivým markerem podporujícím diagnózu akutního infarktu myokardu (AMI).",
+          "D-dimer: Kvantitativní měření D-dimeru je nezbytné pro rychlé vyloučení hluboké žilní trombózy (HŽT) a plicní embolie (PE). Při negativním výsledku může dojít k okamžitému odvolání poplachu, což masivně ulevuje triáži na pohotovosti nebo v ordinaci.",
+          "Srdeční troponin (cTnl): Ačkoli se často měří v centrální laboratoři, je stanovení troponinu v POC vysoce citlivým markerem na podporu diagnózy akutního infarktu myokardu (AIM).",
           "NT-proBNP: Tento peptidový hormon je klíčovým markerem pro diagnózu a stratifikaci rizika u srdečního selhání. Rychlé stanovení umožňuje okamžité posouzení závažnosti a zahajuje další léčbu."
         ]
       },
       {
-        "heading": "3. Prémiová výhoda: Rychlost a spolehlivost",
-        "content": "Pro monitorování chronických onemocnění a třídění srdečních příhod není spolehlivost technologie POC k jednání.",
+        "heading": "3. Prémiový náskok: Rychlost a spolehlivost",
+        "content": "Pro monitorování chronických onemocnění a triáž kardiálních nouzových situací je spolehlivost technologie POC nesmlouvavá.",
         "listItems": [
-          "Laboratorní přesnost: Igloo Pro poskytuje výsledky, které odpovídají výsledkům centrální laboratoře (CV < 2 % mezi čtečkami).",
-          "Kapacita multiplexu: Systém může stanovit různé srdeční parametry současně nebo v rychlém sledu, což maximalizuje efektivitu v kritických situacích."
+          "Laboratorní přesnost: Igloo Pro dodává výsledky, které korespondují s výsledky centrální laboratoře (CV < 2 % Inter-Reader).",
+          "Schopnost multiplexu: Systém může stanovit různé kardiální parametry současně nebo v rychlém sledu, což maximalizuje efektivitu v kritických situacích."
         ]
       }
     ],
     "conclusion": {
-      "heading": "Závěr pro vaši praxi",
-      "text": "Integrace čtečky Igloo Pro do vašeho pracovního postupu znamená změnu paradigmatu: Od opožděného monitorování k okamžité, na datech založené úpravě terapie. S PolarisDX.net si zajistíte nejen technologii pro tato kritická měření, ale také záruku hladké implementace a průběžné validace."
+      "heading": "Závěr pro vaši ordinaci",
+      "text": "Integrace čtečky Igloo Pro Reader do vašeho pracovního toku znamená změnu paradigmatu: Od časově zpožděného monitorování k okamžité, na datech založené úpravě terapie. S PolarisDX.net si zajistíte nejen technologii pro tato kritická měření, ale také záruku hladké implementace a průběžné validace."
     },
-    "cta": "Rezervovat analýzu výkonu nyní"
+    "cta": "Rezervovat termín"
   },
   "hormon_tests": {
-    "title": "Hormonální a endokrinologické testy: Specializovaná diagnostika snadno",
+    "title": "Hormonální a endokrinologické testy",
     "headline": "Přesnost v endokrinologii: Rychlá jistota pro komplexní diagnózy",
     "intro": [
-      "Hormonální nerovnováha je často příčinou komplexních, chronických potíží, od dysfunkce štítné žlázy po poruchy plodnosti. Specializované ordinace a lékárny proto potřebují diagnostiku, která je nejen rychlá, ale absolutně přesná, aby mohly řídit terapeutické cesty na základě pevných důkazů.",
-      "Čtečka Igloo Pro zpřístupňuje testy POC pro endokrinologii a umožňuje okamžité stanovení kritických hormonů přímo u pacienta."
+      "Hormonální nerovnováha je často příčinou komplexních, chronických potíží, od dysfunkce štítné žlázy až po poruchy plodnosti. Specializované ordinace a lékárny proto potřebují diagnostiku, která je nejen rychlá, ale naprosto přesná, aby mohly fundovaně řídit terapeutické cesty.",
+      "Čtečka Igloo Pro Reader zpřístupňuje POC testy pro endokrinologii a umožňuje okamžité stanovení kritických hormonů přímo u pacienta."
     ],
     "sections": [
       {
         "heading": "1. Osa štítné žlázy: TSH jako klíčový marker",
         "content": "Tyreostimulační hormon (TSH) je nejdůležitějším screeningovým parametrem pro posouzení funkce štítné žlázy.",
         "listItems": [
-          "Včasná detekce: TSH reaguje citlivě na drobné změny hormonů štítné žlázy (fT3, fT4). Zvýšená nebo snížená hodnota TSH může indikovat latentní dysfunkci ještě předtím, než se odchýlí periferní hodnoty.",
-          "Monitorování terapie: Při substitučních terapiích musí být hodnota TSH pečlivě sledována. Okamžitá analýza POC umožňuje přímou úpravu medikace – rozhodující faktor, zejména při snaze o početí nebo během těhotenství."
+          "Včasná detekce: TSH reaguje citlivě na nepatrné změny hormonů štítné žlázy (fT3, fT4). Zvýšená nebo snížená hodnota TSH může naznačovat latentní dysfunkci ještě předtím, než se odchýlí periferní hodnoty.",
+          "Monitorování terapie: Při substituční léčbě musí být hodnota TSH pečlivě sledována. Okamžitá analýza POC umožňuje přímou úpravu medikace – rozhodující faktor, zejména při přání dítěte nebo v těhotenství."
         ]
       },
       {
         "heading": "2. Reprodukční hormony: AMH jako indikátor času",
-        "content": "Anti-Mülleriánský hormon (AMH) se etabloval jako centrální marker ovariální rezervy (rezervy vajíček) u žen.",
+        "content": "Anti-Mülleriánský hormon (AMH) se etabloval jako centrální marker ovariální rezervy (zásoby vajíček) u žen.",
         "listItems": [
-          "Diagnostika plodnosti: AMH je spolehlivým indikátorem potenciálního počtu vajíček schopných dozrávání. Stanovení je nezbytné při nenaplněné touze po dětech, plánování asistované reprodukce (IVF) nebo posouzení rizika předčasné menopauzy.",
-          "Nezávislost na cyklu: Na rozdíl od mnoha jiných hormonů AMH kolísá během menstruačního cyklu relativně málo, což činí měření POC extrémně praktickým nástrojem pro rychlé a spolehlivé informace.",
-          "Diagnostika PCOS: Velmi vysoké hodnoty AMH mohou být také indikací syndromu polycystických ovarií (PCOS), což umožňuje rychlé objasnění a terapeutické řízení."
+          "Diagnostika plodnosti: AMH je spolehlivým indikátorem potenciálního počtu vajíček schopných zrání. Stanovení je nezbytné při nenaplněném přání dítěte, plánování asistované reprodukce (IVF) nebo pro odhad rizika předčasné menopauzy.",
+          "Nezávislost na cyklu: Na rozdíl od mnoha jiných hormonů kolísá AMH relativně málo v průběhu menstruačního cyklu, což činí měření POC extrémně praktickým nástrojem pro rychlé, spolehlivé informace.",
+          "Diagnostika PCOS: Velmi vysoké hodnoty AMH mohou být navíc známkou syndromu polycystických vaječníků (PCOS), což umožňuje rychlé objasnění a terapeutické vedení."
         ]
       },
       {
-        "heading": "3. Prémiový požadavek na hormonální analytiku",
-        "content": "Endokrinologie vyžaduje nejvyšší analytickou přesnost, protože i malé odchylky jsou klinicky relevantní. Čtečka Igloo Pro je navržena tak, aby splňovala tyto požadavky:",
+        "heading": "3. Prémiový nárok na hormonální analytiku",
+        "content": "Endokrinologie vyžaduje nejvyšší analytickou přesnost, protože již malé odchylky jsou klinicky relevantní. Čtečka Igloo Pro Reader je navržena tak, aby těmto požadavkům vyhověla:",
         "listItems": [
-          "Analytická bezpečnost: Schopnost měřit hormonální markery s validovanou přesností je klíčová pro zamezení chybným interpretacím.",
-          "Široké spektrum: Kromě TSH a AMH čtečka podporuje analýzu dalších hormonů, jako je kortizol (stres), progesteron, FSH a testosteron, což umožňuje komplexní endokrinologickou počáteční diagnostiku."
+          "Analytická bezpečnost: Schopnost měřit hormonální markery s validovanou přesností je rozhodující pro zamezení chybným interpretacím.",
+          "Široké spektrum: Kromě TSH a AMH podporuje čtečka analýzu dalších hormonů, jako je kortizol (stres), progesteron, FSH a testosteron, což umožňuje komplexní endokrinologickou prvotní diagnostiku."
         ]
       }
     ],
     "conclusion": {
-      "heading": "Závěr: Specializovaná diagnostika přímo ve vaší ruce",
-      "text": "Hormonální a endokrinologické testy jsou často výchozím bodem komplexních léčebných cest. Prostřednictvím diagnostiky POC s Igloo Pro masivně zkracujete dobu do stanovení diagnózy a terapeutického rozhodnutí. polarisDX.net vám nabízí technologii a záruku kompatibility LFT pro bezpečnou a efektivní integraci tohoto širokého spektra specializovaných testů do vašeho provozu."
+      "heading": "Závěr: Speciální diagnostika přímo ve vaší ruce",
+      "text": "Hormonální a endokrinologické testy jsou často výchozím bodem komplexních léčebných cest. Díky POC diagnostice s Igloo Pro masivně zkrátíte čas do diagnózy a rozhodnutí o terapii. polarisDX.net vám nabízí technologii a záruku kompatibility LFT pro bezpečnou a efektivní integraci tohoto širokého spektra specializovaných testů do vašeho provozu."
     },
-    "cta": "Rezervovat analýzu výkonu nyní"
+    "cta": "Rezervovat termín"
   },
   "kompatibilitaet_integration": {
-    "title": "Kompatibilita napříč výrobci: Investiční jistota díky otevřenosti",
+    "title": "Kompatibilita napříč výrobci",
     "headline": "Maximální flexibilita: Jak váš Igloo Pro vyhodnocuje 90 % všech testů na trhu",
     "intro": [
-      "V rychlém světě diagnostiky je největší obavou u nové investice investiční jistota. Technologie zítřka nesmí být blokována omezeními dneška.",
+      "V rychle se měnícím světě diagnostiky je největší obavou při nové investici jistota investice. Technologie zítřka nesmí být blokována omezeními dneška.",
       "Systémové řešení POC Igloo Pro je odpovědí na tuto výzvu. Je koncipováno jako otevřená platforma napříč výrobci, která vám zaručuje maximální flexibilitu a technologickou nezávislost."
     ],
     "sections": [
       {
-        "heading": "1. Princip otevřenosti: Nezávislost je vaše výhoda",
-        "content": "Uzavřené systémy POC vás vážou k jedinému výrobci reagencií a testů. To omezuje váš výběr, cenotvorbu a nakonec vaše diagnostické možnosti.",
+        "heading": "1. Princip otevřenosti: Nezávislost je vaší výhodou",
+        "content": "Uzavřené systémy POC vás vážou na jediného výrobce činidel a testů. To omezuje váš výběr, tvorbu cen a v konečném důsledku vaše diagnostické možnosti.",
         "listItems": [
-          "Univerzální technologie: Díky vysoce vyvinutým algoritmům zpracování obrazu a univerzálním adaptérům je Igloo Pro schopen přesně a kvantitativně vyhodnocovat výsledky měření přibližně 90 % všech testů laterálního toku (LFT) na trhu.",
-          "Vaše svoboda: Už nejste omezeni na sortiment testů jediného poskytovatele. Vybíráte testy, které jsou optimální pro vaše pacienty a váš pracovní postup – ať už jde o srdeční markery, hormony nebo infekce."
+          "Univerzální technologie: Díky vysoce vyvinutým algoritmům zpracování obrazu a univerzálním adaptérům je Igloo Pro schopen přesně a kvantitativně vyhodnotit výsledky měření přibližně 90 % všech testů Lateral Flow (LFT) na trhu.",
+          "Vaše svoboda: Už nejste omezeni na sortiment testů jediného poskytovatele. Vybíráte si testy, které jsou optimální pro vaše pacienty a váš pracovní tok – ať už jde o kardiální markery, hormony nebo infekce."
         ]
       },
       {
-        "heading": "2. Záruka investiční jistoty",
-        "content": "Kompatibilita je nejdůležitější ochranou vaší dlouhodobé investice:",
+        "heading": "2. Záruka jistoty investice",
+        "content": "Kompatibilita je nejdůležitější ochranou pro vaši dlouhodobou investici:",
         "listItems": [
-          "Budoucí jistota: I když na trh přijdou nové, inovativní LFT od jiných výrobců, lze je obvykle rychle integrovat do otevřeného systému Igloo Pro. Vaše zařízení zůstává relevantní a připravené na budoucnost.",
-          "Ekonomická efektivita: Díky kompatibilitě napříč výrobci můžete využívat konkurenčních výhod u spotřebního materiálu (testovací proužky) a jste chráněni před náhlým zvýšením cen monopolisty.",
-          "Standardizace snadno: S jediným analytickým zařízením můžete pokrýt širokou škálu diagnostických požadavků, což zjednodušuje školení, snižuje zdroje chyb a standardizuje celý váš pracovní postup POC."
+          "Budoucnost: I když přijdou na trh nové, inovativní LFT jiných výrobců, lze je zpravidla rychle integrovat do otevřeného systému Igloo Pro. Vaše zařízení zůstává relevantní a perspektivní.",
+          "Hospodárnost: Díky kompatibilitě napříč výrobci můžete využívat konkurenčních výhod u spotřebního materiálu (testovací proužky) a jste chráněni před náhlým zvýšením cen monopolisty.",
+          "Standardizace snadno a rychle: S jediným analyzátorem můžete pokrýt širokou škálu diagnostických požadavků, což zjednodušuje školení, snižuje zdroje chyb a standardizuje celý váš POC pracovní tok."
         ]
       },
       {
         "heading": "3. Odbornost PolarisDX.net: Kompatibilita zaručena",
-        "content": "Technologie Igloo Pro je otevřená, ale správná validace interakce mezi zařízením a testem je rozhodujícím pilířem.",
+        "content": "Technologie Igloo Pro je otevřená, ale správná validace souhry zařízení a testu je rozhodujícím pilířem.",
         "listItems": [
-          "Náš pilíř 2: Se zárukou kompatibility LFT zajišťujeme, že vaše vybrané testy (včetně testů od poskytovatelů třetích stran) jsou správně kalibrovány a bezproblémově integrovány do pracovního postupu Igloo Pro. Dodáváme nejen teoretickou otevřenost, ale praktickou, validovanou funkci."
+          "Náš pilíř 2: Se zárukou kompatibility LFT zajišťujeme, že vaše vybrané testy (i od třetích stran) jsou správně kalibrovány a hladce integrovány do pracovního toku Igloo Pro. Dodáváme nejen teoretickou otevřenost, ale praktickou, validovanou funkci."
         ]
       }
     ],
     "conclusion": {
       "heading": "Závěr: Investujte do řešení, ne do omezení",
-      "text": "Kompatibilita napříč výrobci Igloo Pro z něj činí nejchytřejší investici do diagnostiky POC. Nabízí flexibilitu, kterou potřebujete dnes, a investiční jistotu, kterou budete potřebovat zítra."
+      "text": "Kompatibilita Igloo Pro napříč výrobci z něj činí nejchytřejší investici do POC diagnostiky. Nabízí flexibilitu, kterou potřebujete dnes, a jistotu investice, kterou potřebujete zítra."
     },
-    "cta": "Rezervovat analýzu výkonu nyní"
+    "cta": "Rezervovat termín"
   }
 }

@@ -1,0 +1,397 @@
+{
+  "imprint": {
+    "title": "Impressum",
+    "section1": {
+      "title": "Angaben gemäß § 5 TMG",
+      "london": {
+        "title": "London Office",
+        "company": "PolarisDX LTD",
+        "address": [
+          "262A Fulham Road",
+          "London SW10 9EL",
+          "Vereinigtes Königreich"
+        ],
+        "contact": {
+          "label": "Kontakt:",
+          "phone": "Telefon: +44 7879 433019",
+          "email": "E-Mail: hello@polarisdx.net"
+        }
+      },
+      "hamburg": {
+        "title": "Hamburg Office",
+        "company": "PolarisDX Europe UG",
+        "address": [
+          "Große Bleichen 1 - 3",
+          "20097 Hamburg",
+          "Deutschland"
+        ],
+        "contact": {
+          "label": "Kontakt:",
+          "email": "E-Mail: info@polarisdx.net"
+        }
+      }
+    },
+    "section2": {
+      "title": "Vertretung",
+      "content": "Vertreten durch die Geschäftsführung."
+    },
+    "section3": {
+      "title": "Registereintrag",
+      "content": [
+        "Eintragung im Handelsregister.",
+        "Registergericht: Amtsgericht Hamburg (für PolarisDX Europe UG)",
+        "Registernummer: [HRB Nummer hier einfügen]"
+      ]
+    },
+    "section4": {
+      "title": "Umsatzsteuer-ID",
+      "content": [
+        "Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:",
+        "[USt-IdNr. hier einfügen]"
+      ]
+    },
+    "section5": {
+      "title": "Redaktionell verantwortlich",
+      "content": [
+        "PolarisDX Management Team",
+        "262A Fulham Road",
+        "London SW10 9EL"
+      ]
+    },
+    "section6": {
+      "title": "EU-Streitschlichtung",
+      "content": "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <1>https://ec.europa.eu/consumers/odr/</1>. Unsere E-Mail-Adresse finden Sie oben im Impressum."
+    },
+    "section7": {
+      "title": "Verbraucherstreitbeilegung / Universalschlichtungsstelle",
+      "content": "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+    }
+  },
+  "privacy": {
+    "title": "Datenschutzerklärung",
+    "section1": {
+      "title": "1. Datenschutz auf einen Blick",
+      "general": {
+        "title": "Allgemeine Hinweise",
+        "content": "Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können."
+      },
+      "collection": {
+        "title": "Datenerfassung auf dieser Website",
+        "who_title": "Wer ist verantwortlich für die Datenerfassung auf dieser Website?",
+        "who_content": "Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.",
+        "how_title": "Wie erfassen wir Ihre Daten?",
+        "how_content1": "Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in ein Kontaktformular eingeben.",
+        "how_content2": "Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten."
+      }
+    },
+    "section2": {
+      "title": "2. Hosting",
+      "content": "Wir hosten die Inhalte unserer Website bei einem externen Anbieter. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Hierbei kann es sich v. a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige Daten, die über eine Website generiert werden, handeln."
+    },
+    "section3": {
+      "title": "3. Allgemeine Hinweise und Pflichtinformationen",
+      "protection": {
+        "title": "Datenschutz",
+        "content": "Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung."
+      },
+      "responsible": {
+        "title": "Hinweis zur verantwortlichen Stelle",
+        "content": "Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:",
+        "address": [
+          "PolarisDX Europe UG",
+          "Große Bleichen 1 - 3",
+          "20097 Hamburg",
+          "E-Mail: info@polarisdx.net"
+        ]
+      },
+      "storage": {
+        "title": "Speicherdauer",
+        "content": "Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich zulässigen Gründe für die Speicherung Ihrer personenbezogenen Daten haben (z. B. steuer- oder handelsrechtliche Aufbewahrungsfristen); im letzteren Fall erfolgt die Löschung nach Fortfall dieser Gründe."
+      }
+    },
+    "section4": {
+      "title": "4. Datenerfassung auf dieser Website",
+      "form": {
+        "title": "Kontaktformular",
+        "content1": "Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.",
+        "duration_title": "Speicherdauer bei Kontaktanfragen:",
+        "duration_content": "Wir speichern Ihre Daten aus dem Kontaktformular für einen Zeitraum von bis zu 12 Monaten, um für eventuelle Rückfragen zur Verfügung zu stehen, sofern keine gesetzlichen Aufbewahrungsfristen eine längere Speicherung erfordern.",
+        "legal_basis": "Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sofern diese abgefragt wurde."
+      }
+    },
+    "section5": {
+      "title": "5. Analyse-Tools und Werbung",
+      "content": "Soweit Sie Ihre Einwilligung erklärt haben, werden auf dieser Website Cookies und ähnliche Technologien eingesetzt. Sie können Ihre Einwilligung jederzeit über unseren Cookie-Banner oder die Einstellungen in Ihrem Browser widerrufen."
+    }
+  },
+  "agb": {
+    "title": "Allgemeine Geschäftsbedingungen",
+    "subtitle": "Polaris Diagnostics Europe UG (haftungsbeschränkt) | In-vitro-Diagnostik | Medizinprodukte | Software & Cloud-Dienste",
+    "date": "Stand: Dezember 2025",
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "§ 1 Geltungsbereich",
+        "content": [
+          "§ 1.1 Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Geschäftsbeziehungen zwischen der Polaris Diagnostics Europe UG (haftungsbeschränkt), nachfolgend 'Polaris' genannt, und dem Kunden. Sie gelten für den Verkauf und die Lieferung von In-vitro-Diagnostik-Medizinprodukten (IVD), Geräten, Testkits, Verbrauchsmaterialien, Software und Cloud-Diensten.",
+          "§ 1.2 Die AGB gelten ausschließlich. Abweichende, entgegenstehende oder ergänzende Allgemeine Geschäftsbedingungen des Kunden werden nur dann Vertragsbestandteil, wenn Polaris ihrer Geltung ausdrücklich schriftlich zugestimmt hat.",
+          "§ 1.3 Die AGB gelten auch für alle zukünftigen Geschäfte mit dem Kunden, soweit es sich um Rechtsgeschäfte verwandter Art handelt.",
+          "§ 1.4 Im Einzelfall getroffene, individuelle Vereinbarungen mit dem Kunden (einschließlich Nebenabreden, Ergänzungen und Änderungen) haben in jedem Fall Vorrang vor diesen AGB. Für den Inhalt derartiger Vereinbarungen ist ein schriftlicher Vertrag bzw. die schriftliche Bestätigung von Polaris maßgebend.",
+          "§ 1.5 Die Angebote von Polaris richten sich ausschließlich an Unternehmer im Sinne von § 14 BGB, juristische Personen des öffentlichen Rechts oder öffentlich-rechtliche Sondervermögen (B2B). Verbrauchergeschäfte im Sinne von § 13 BGB sind ausgeschlossen."
+        ]
+      },
+      {
+        "id": "section-2",
+        "title": "§ 2 Vertragsschluss",
+        "content": [
+          "§ 2.1 Die Darstellung der Produkte auf der Website, in Katalogen, Prospekten oder sonstigen Werbematerialien stellt kein rechtlich bindendes Angebot, sondern eine unverbindliche Aufforderung zur Abgabe eines Angebots dar.",
+          "§ 2.2 Durch die Bestellung erklärt der Kunde verbindlich, die bestellten Produkte erwerben zu wollen. Die Bestellung kann schriftlich, per E-Mail, über die Website oder telefonisch erfolgen.",
+          "§ 2.3 Der Vertrag kommt erst durch die schriftliche Auftragsbestätigung von Polaris oder durch die Lieferung der Ware zustande. Die automatische Eingangsbestätigung einer Online-Bestellung stellt noch keine Annahme des Angebots dar.",
+          "§ 2.4 Polaris behält sich das Recht vor, Bestellungen ohne Angabe von Gründen abzulehnen, insbesondere bei begründeten Zweifeln an der Bonität des Kunden oder bei Lieferengpässen.",
+          "§ 2.5 Der Kunde ist an seine Bestellung für die Dauer von 14 Tagen gebunden. Der Vertrag kann in deutscher oder englischer Sprache geschlossen werden."
+        ]
+      },
+      {
+        "id": "section-3",
+        "title": "§ 3 Preise und Zahlungsbedingungen",
+        "content": [
+          "§ 3.1 Es gelten die Preise zum Zeitpunkt der Bestellung gemäß der aktuellen Preisliste von Polaris. Alle Preise verstehen sich in Euro, zuzüglich der gesetzlichen Mehrwertsteuer und eventueller Versandkosten.",
+          "§ 3.2 Sofern nicht anders vereinbart, ist der Kaufpreis innerhalb von 14 Tagen nach Rechnungsdatum ohne Abzug zur Zahlung fällig. Maßgeblich für die Rechtzeitigkeit der Zahlung ist der Zahlungseingang bei Polaris.",
+          "§ 3.3 Bei Zahlungsverzug ist Polaris berechtigt, Verzugszinsen in Höhe von 9 Prozentpunkten über dem jeweiligen Basiszinssatz zu berechnen. Die Geltendmachung eines höheren Verzugsschadens bleibt vorbehalten.",
+          "§ 3.4 Der Kunde hat nur dann ein Recht zur Aufrechnung, wenn seine Gegenansprüche rechtskräftig festgestellt, unbestritten oder von Polaris anerkannt sind. Der Kunde ist zur Ausübung eines Zurückbehaltungsrechts nur insoweit befugt, als sein Gegenanspruch auf demselben Vertragsverhältnis beruht.",
+          "§ 3.5 Polaris ist berechtigt, bei Neukunden oder bei begründeten Zweifeln an der Zahlungsfähigkeit Vorkasse, Anzahlung oder andere Sicherheiten zu verlangen.",
+          "§ 3.6 Für wiederkehrende Leistungen (Abonnements, Software-Lizenzen, Cloud-Dienste, Wartungsverträge) erfolgt die Abrechnung im Voraus für den jeweiligen Abrechnungszeitraum, sofern nicht anders vereinbart."
+        ]
+      },
+      {
+        "id": "section-4",
+        "title": "§ 4 Lieferung und Versand",
+        "content": [
+          "§ 4.1 Die Lieferung erfolgt ab Lager Polaris bzw. direkt vom Hersteller. Liefertermine und -fristen sind nur verbindlich, wenn sie von Polaris ausdrücklich schriftlich als verbindlich bestätigt wurden.",
+          "§ 4.2 Die Gefahr des zufälligen Untergangs und der zufälligen Verschlechterung der Ware geht mit der Übergabe an den Spediteur, den Frachtführer oder die sonst zur Ausführung der Versendung bestimmte Person auf den Kunden über.",
+          "§ 4.3 Teillieferungen sind zulässig, soweit sie dem Kunden zumutbar sind. Jede Teillieferung gilt als selbstständiges Geschäft und kann separat abgerechnet werden.",
+          "§ 4.4 Kommt der Kunde in Annahmeverzug oder verletzt er schuldhaft sonstige Mitwirkungspflichten, ist Polaris berechtigt, den entstehenden Schaden einschließlich etwaiger Mehraufwendungen ersetzt zu verlangen.",
+          "§ 4.5 Im Falle von höherer Gewalt, Betriebsstörungen, Streiks, Aussperrungen, behördlichen Anordnungen oder sonstigen unvorhersehbaren Ereignissen verlängern sich die Lieferfristen entsprechend. Polaris wird den Kunden über solche Hindernisse unverzüglich informieren.",
+          "§ 4.6 Für temperatursensible Produkte (z. B. Testkits, Reagenzien) erfolgt der Versand unter Einhaltung der vorgeschriebenen Kühlkette. Der Kunde hat bei Anlieferung die Unversehrtheit und Temperatur zu prüfen und etwaige Mängel unverzüglich zu rügen."
+        ]
+      },
+      {
+        "id": "section-5",
+        "title": "§ 5 Gewährleistung und Mängelansprüche",
+        "content": [
+          "§ 5.1 Die Gewährleistungsrechte des Kunden setzen voraus, dass dieser seinen gesetzlichen Untersuchungs- und Rügepflichten gemäß § 377 HGB ordnungsgemäß nachgekommen ist. Offensichtliche Mängel sind unverzüglich, spätestens innerhalb von 7 Werktagen nach Erhalt der Ware schriftlich anzuzeigen.",
+          "§ 5.2 Bei berechtigten Mängelansprüchen ist Polaris nach eigener Wahl zur Nachbesserung oder Ersatzlieferung berechtigt. Schlägt die Nacherfüllung fehl, kann der Kunde nach seiner Wahl Minderung oder Rücktritt vom Vertrag verlangen.",
+          "§ 5.3 Die Gewährleistungsfrist beträgt 12 Monate ab Lieferung, sofern nicht eine kürzere Haltbarkeitsdauer des Produkts angegeben ist. Bei Testkits und Verbrauchsmaterialien gilt die auf der Verpackung angegebene Haltbarkeitsdauer.",
+          "§ 5.4 Die Gewährleistung entfällt bei unsachgemäßer Lagerung, Handhabung oder Verwendung entgegen der Gebrauchsanweisung, bei eigenmächtige Änderungen oder Reparaturen durch den Kunden oder Dritte sowie bei normaler Abnutzung oder Verschleiß.",
+          "§ 5.5 Die Gewährleistung für IVD-Medizinprodukte beschränkt sich auf die spezifikationsgemäße Funktion. Eine Garantie für bestimmte diagnostische Ergebnisse oder klinische Entscheidungen wird nicht übernommen."
+        ]
+      },
+      {
+        "id": "section-6",
+        "title": "§ 6 Haftung und Haftungsbeschränkung",
+        "content": [
+          "§ 6.1 Polaris haftet unbeschränkt für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit, die auf einer vorsätzlichen oder fahrlässigen Pflichtverletzung beruhen, sowie für Schäden, die von der Haftung nach dem Produkthaftungsgesetz umfasst werden.",
+          "§ 6.2 Für sonstige Schäden haftet Polaris nur bei Vorsatz und grober Fahrlässigkeit sowie bei schuldhafter Verletzung wesentlicher Vertragspflichten. Die Haftung bei Verletzung wesentlicher Vertragspflichten ist auf den vertragstypischen, vorhersehbaren Schaden begrenzt.",
+          "§ 6.3 Eine Haftung für mittelbare Schäden, Folgeschäden, entgangenen Gewinn, Datenverlust oder Betriebsunterbrechung ist ausgeschlossen, soweit nicht Vorsatz oder grobe Fahrlässigkeit vorliegt.",
+          "§ 6.4 Polaris haftet nicht für Schäden, die durch fehlerhafte diagnostische Entscheidungen entstehen, sofern das Produkt ordnungsgemäß funktioniert hat. Die Verantwortung für die klinische Interpretation diagnostischer Ergebnisse liegt allein beim medizinischen Fachpersonal.",
+          "§ 6.5 Die vorstehenden Haftungsausschlüsse und -beschränkungen gelten auch zugunsten der gesetzlichen Vertreter, Mitarbeiter und Erfüllungsgehilfen von Polaris."
+        ]
+      },
+      {
+        "id": "section-7",
+        "title": "§ 7 Eigentumsvorbehalt",
+        "content": [
+          "§ 7.1 Die gelieferten Geräte (insbesondere Igloo Pro Reader), Zubehörteile sowie sämtliche Software-Lizenzen bleiben bis zur vollständigen Bezahlung aller offenen Forderungen im Eigentum der Polaris Diagnostics Europe UG (haftungsbeschränkt).",
+          "§ 7.2 Bis zur vollständigen Zahlung erhält der Kunde lediglich ein widerrufliches, nicht übertragbares Nutzungsrecht an Gerät, Software und Cloud-Diensten.",
+          "§ 7.3 Der Kunde ist verpflichtet, die Vorbehaltsware pfleglich zu behandeln und gegen Feuer, Wasser und Diebstahl ausreichend zu versichern. Wartungs- und Inspektionsarbeiten sind rechtzeitig durchzuführen.",
+          "§ 7.4 Bei Pfändungen oder sonstigen Eingriffen Dritter hat der Kunde Polaris unverzüglich schriftlich zu benachrichtigen und auf das Eigentum von Polaris hinzuweisen.",
+          "§ 7.5 Eine Weiterverpfändung oder Sicherungsübereignung der Vorbehaltsware ist ohne vorherige schriftliche Zustimmung von Polaris nicht gestattet."
+        ]
+      },
+      {
+        "id": "section-8",
+        "title": "§ 8 Nutzungsrechte an Software & Cloud-Diensten",
+        "content": [
+          "§ 8.1 Die Nutzung der Software, Cloud-Dienste und digitalen Funktionen ist ausschließlich Kunden gestattet, die ihren vertraglichen und finanziellen Verpflichtungen nachkommen.",
+          "§ 8.2 Polaris ist berechtigt, Funktionen oder Zugänge einzuschränken, sofern dies zur Wahrung berechtigter Interessen, insbesondere im Falle von Zahlungsverzug, erforderlich ist.",
+          "§ 8.3 Die Cloud-Dienste werden mit einer Verfügbarkeit von 99,0% im Jahresmittel bereitgestellt. Geplante Wartungsfenster werden mindestens 48 Stunden im Voraus angekündigt und gelten nicht als Ausfallzeit.",
+          "§ 8.4 Der Kunde ist für die Sicherheit seiner Zugangsdaten selbst verantwortlich. Bei Verdacht auf Missbrauch ist Polaris unverzüglich zu informieren.",
+          "§ 8.5 Eine Nutzung der Software oder Cloud-Dienste über den vertraglich vereinbarten Umfang hinaus (z.B. Mehrbenutzer, zusätzliche Geräte) bedarf einer gesonderten Lizenzvereinbarung."
+        ]
+      },
+      {
+        "id": "section-9",
+        "title": "§ 9 Sperrung bei Zahlungsverzug",
+        "content": [
+          "§ 9.1 Befindet sich der Kunde länger als 14 Tage im Zahlungsverzug, ist Polaris nach schriftlicher Ankündigung berechtigt, den Zugang zur Software, Cloud-Diensten oder die Nutzung des Geräts nach Ablauf einer Frist von 48 Stunden teilweise oder vollständig zu sperren.",
+          "§ 9.2 Die Sperrung dient ausschließlich der Durchsetzung berechtigter Zahlungsansprüche und stellt keinen Produktmangel oder Serviceausfall dar.",
+          "§ 9.3 Nach Ausgleich aller offenen Forderungen wird der Zugang unverzüglich, spätestens innerhalb von 24 Stunden, wieder freigeschaltet.",
+          "§ 9.4 Während der Sperrung bleiben die vertraglichen Zahlungspflichten des Kunden in vollem Umfang bestehen. Die Sperrung befreit nicht von der Pflicht zur Zahlung laufender Entgelte.",
+          "§ 9.5 Polaris ist berechtigt, für die Freischaltung nach Sperrung eine angemessene Bearbeitungsgebühr zu erheben."
+        ]
+      },
+      {
+        "id": "section-10",
+        "title": "§ 10 Rücktritt, Rückforderung & Widerruf der Nutzung",
+        "content": [
+          "§ 10.1 Erfolgt trotz Mahnung und Sperrandrohung innerhalb von weiteren 14 Tagen keine Zahlung, ist Polaris berechtigt, vom Vertrag zurückzutreten und das Gerät gemäß Eigentumsvorbehalt zurückzufordern.",
+          "§ 10.2 In diesem Fall erlischt das Nutzungsrecht an Software und Cloud-Diensten automatisch. Der Kunde ist verpflichtet, das Gerät unverzüglich herauszugeben.",
+          "§ 10.3 Polaris ist berechtigt, dem Kunden entstandene Kosten für Rückholung, Transport und Verwaltung in Rechnung zu stellen.",
+          "§ 10.4 Im Falle des Rücktritts ist Polaris berechtigt, für die bereits erfolgte Nutzung des Geräts eine angemessene Nutzungsentschädigung zu verlangen.",
+          "§ 10.5 Der Kunde hat keinen Anspruch auf Erstattung bereits gezahlter Beträge, soweit diese auf erbrachte Leistungen entfallen."
+        ]
+      },
+      {
+        "id": "section-11",
+        "title": "§ 11 Ausschluss der Rückgabe bei Inbetriebnahme von Medizinprodukten",
+        "content": [
+          "§ 11.1 Bei den gelieferten Geräten handelt es sich um In-vitro-Diagnostik-Medizinprodukte gemäß Verordnung (EU) 2017/746 (IVDR). Eine Rückgabe ist ausgeschlossen, sobald das Gerät in Betrieb genommen oder mit Proben/Testkits verwendet wurde.",
+          "§ 11.2 Eine Rücknahme benutzter Medizinprodukte ist aus Sicherheits-, Hygiene- und regulatorischen Gründen nicht zulässig.",
+          "§ 11.3 Der Kunde kann bei Zahlungsverzug kein Rückgaberecht geltend machen. Die Zahlungspflicht bleibt in vollem Umfang bestehen.",
+          "§ 11.4 Unberechtigte Rücksendungen dürfen von Polaris verweigert oder auf Kosten des Kunden entsorgt werden.",
+          "§ 11.5 Testkits und Verbrauchsmaterialien sind grundsätzlich von der Rückgabe ausgeschlossen, es sei denn, es liegt ein Produktmangel vor.",
+          "§ 11.6 Die Regelungen dieses Paragraphen dienen dem Schutz der öffentlichen Gesundheit und der Einhaltung regulatorischer Anforderungen und sind daher zwingend."
+        ]
+      },
+      {
+        "id": "section-12",
+        "title": "§ 12 Produktkonformität und regulatorische Anforderungen",
+        "content": [
+          "§ 12.1 Die von Polaris vertriebenen In-vitro-Diagnostik-Produkte entsprechen den Anforderungen der Verordnung (EU) 2017/746 (IVDR) und tragen die CE-Kennzeichnung gemäß den geltenden Konformitätsbewertungsverfahren.",
+          "§ 12.2 Der Kunde verpflichtet sich, die Produkte nur gemäß ihrer Zweckbestimmung, den Gebrauchsanweisungen und den geltenden gesetzlichen Vorschriften einzusetzen.",
+          "§ 12.3 Der Kunde ist verpflichtet, vor Verwendung der Produkte sicherzustellen, dass er über die erforderlichen Genehmigungen, Zulassungen und Qualifikationen verfügt und die regulatorischen Anforderungen seines Landes einhält.",
+          "§ 12.4 Bei Export der Produkte in Länder außerhalb der EU ist der Kunde für die Einhaltung der dort geltenden regulatorischen Anforderungen selbst verantwortlich. Eine Garantie für die Zulassungsfähigkeit in Drittländern wird nicht übernommen."
+        ]
+      },
+      {
+        "id": "section-13",
+        "title": "§ 13 Vigilanz und Meldepflichten",
+        "content": [
+          "§ 13.1 Der Kunde verpflichtet sich, Polaris unverzüglich über schwerwiegende Vorkommnisse, Fehlfunktionen, Qualitätsmängel oder sicherheitsrelevante Ereignisse im Zusammenhang mit den Produkten zu informieren.",
+          "§ 13.2 Polaris wird bei Vorkommnismeldungen gemäß den Anforderungen der IVDR und den nationalen Meldesystemen die zuständigen Behörden informieren und mit diesen zusammenarbeiten.",
+          "§ 13.3 Der Kunde unterstützt Polaris bei der Untersuchung von Vorkommnissen durch Bereitstellung relevanter Informationen, Zugang zu betroffenen Produkten und Proben sowie Dokumentation der Anwendungsumstände.",
+          "§ 13.4 Im Falle von Sicherheitskorrekturmaßnahmen im Feld (Field Safety Corrective Actions) oder Rückrufen ist der Kunde verpflichtet, mit Polaris zu kooperieren und die angeordneten Maßnahmen unverzüglich umzusetzen."
+        ]
+      },
+      {
+        "id": "section-14",
+        "title": "§ 14 Qualitätssicherung und Dokumentation",
+        "content": [
+          "§ 14.1 Der Kunde ist verpflichtet, die Produkte gemäß den beiliegenden Gebrauchsanweisungen und unter Einhaltung der guten Laborpraxis (GLP) zu verwenden.",
+          "§ 14.2 Der Kunde führt eigene Qualitätskontrollen durch und dokumentiert diese ordnungsgemäß. Polaris stellt auf Anfrage Qualitätskontrollmaterialien zur Verfügung.",
+          "§ 14.3 Der Kunde bewahrt alle relevanten Aufzeichnungen über Chargenrückverfolgbarkeit, Testergebnisse und Qualitätskontrollen mindestens für die in den einschlägigen Vorschriften vorgeschriebene Dauer auf.",
+          "§ 14.4 Polaris stellt dem Kunden auf Anfrage Konformitätserklärungen, Analysenzertifikate, Sicherheitsdatenblätter und sonstige Produktdokumentation zur Verfügung."
+        ]
+      },
+      {
+        "id": "section-15",
+        "title": "§ 15 Schulung und technischer Support",
+        "content": [
+          "§ 15.1 Polaris bietet Schulungen zur ordnungsgemäßen Anwendung der Produkte an. Art, Umfang und Kosten der Schulungen werden gesondert vereinbart.",
+          "§ 15.2 Technischer Support ist während der üblichen Geschäftszeiten (Mo-Fr, 9:00-17:00 Uhr MEZ) per E-Mail und Telefon erreichbar. Erweiterte Supportleistungen können gegen Aufpreis vereinbart werden.",
+          "§ 15.3 Der Kunde stellt sicher, dass nur entsprechend geschultes Personal die Produkte bedient. Eine Weitergabe der Schulungsinhalte an Dritte bedarf der vorherigen Zustimmung von Polaris.",
+          "§ 15.4 Bei Geräten mit Fernwartungsfunktion ist der Kunde berechtigt, Polaris Fernzugriff für Wartungs- und Supportzwecke zu gewähren. Die Aktivierung des Fernzugriffs erfolgt nur mit ausdrücklicher Zustimmung des Kunden."
+        ]
+      },
+      {
+        "id": "section-16",
+        "title": "§ 16 Wartung und Instandhaltung",
+        "content": [
+          "§ 16.1 Für Geräte bietet Polaris Wartungsverträge mit unterschiedlichen Leistungsumfängen an. Umfang, Kosten und Laufzeit werden in separaten Wartungsverträgen geregelt.",
+          "§ 16.2 Der Kunde ist verpflichtet, die vom Hersteller empfohlenen regelmäßigen Wartungsintervalle einzuhalten. Die Nichteinhaltung kann zum Erlöschen von Gewährleistungsansprüchen führen.",
+          "§ 16.3 Reparaturen und Wartungsarbeiten dürfen nur von Polaris oder von Polaris autorisierten Servicepartnern durchgeführt werden. Eigenmächtige Eingriffe führen zum Erlöschen der Gewährleistung.",
+          "§ 16.4 Bei Gerätereparaturen außerhalb der Gewährleistung erfolgt die Abrechnung nach Aufwand gemäß der jeweils gültigen Preisliste, sofern kein Wartungsvertrag besteht."
+        ]
+      },
+      {
+        "id": "section-17",
+        "title": "§ 17 Software-Updates und Upgrades",
+        "content": [
+          "§ 17.1 Polaris stellt für die Dauer des aktiven Nutzungsvertrags Software-Updates zur Verfügung, die Fehlerbehebungen und Sicherheitsupdates beinhalten.",
+          "§ 17.2 Funktionale Erweiterungen (Upgrades) können kostenpflichtig sein. Der Kunde wird über verfügbare Upgrades informiert und kann diese freiwillig erwerben.",
+          "§ 17.3 Der Kunde ist verpflichtet, sicherheitsrelevante Updates zeitnah zu installieren. Bei Nichtinstallation kann die Gewährleistung für daraus resultierende Fehlfunktionen entfallen.",
+          "§ 17.4 Polaris behält sich das Recht vor, ältere Softwareversionen nach angemessener Ankündigungsfrist nicht mehr zu unterstützen."
+        ]
+      },
+      {
+        "id": "section-18",
+        "title": "§ 18 Datenschutz und Datensicherheit",
+        "content": [
+          "§ 18.1 Polaris verarbeitet personenbezogene Daten des Kunden ausschließlich im Rahmen der geltenden Datenschutzvorschriften, insbesondere der DSGVO, und entsprechend der Datenschutzerklärung auf www.polarisdx.net.",
+          "§ 18.2 Sofern Polaris im Rahmen der Cloud-Dienste Zugang zu personenbezogenen Patientendaten erhält, wird ein separater Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO abgeschlossen.",
+          "§ 18.3 Die in der Cloud gespeicherten Daten werden auf Servern innerhalb der Europäischen Union gehostet. Eine Übermittlung in Drittländer erfolgt nur unter Einhaltung der gesetzlichen Anforderungen.",
+          "§ 18.4 Polaris trifft angemessene technische und organisatorische Maßnahmen zum Schutz der Daten vor unbefugtem Zugriff, Verlust oder Zerstörung. Der Kunde ist für die Sicherheit seiner Zugangsdaten selbst verantwortlich.",
+          "§ 18.5 Nach Vertragsbeendigung werden die Kundendaten gemäß den gesetzlichen Aufbewahrungspflichten aufbewahrt und anschließend gelöscht, sofern keine längeren Aufbewahrungspflichten bestehen."
+        ]
+      },
+      {
+        "id": "section-19",
+        "title": "§ 19 Geheimhaltung und Vertraulichkeit",
+        "content": [
+          "§ 19.1 Die Parteien verpflichten sich, alle im Rahmen der Geschäftsbeziehung erlangten vertraulichen Informationen, Geschäftsgeheimnisse und Know-how streng vertraulich zu behandeln und nicht an Dritte weiterzugeben.",
+          "§ 19.2 Diese Verpflichtung gilt nicht für Informationen, die öffentlich bekannt sind, dem Empfänger bereits bekannt waren, von Dritten rechtmäßig erlangt wurden oder aufgrund gesetzlicher oder behördlicher Anordnung offengelegt werden müssen.",
+          "§ 19.3 Die Geheimhaltungspflicht besteht auch nach Beendigung der Geschäftsbeziehung fort, mindestens jedoch für einen Zeitraum von fünf Jahren."
+        ]
+      },
+      {
+        "id": "section-20",
+        "title": "§ 20 Geistiges Eigentum",
+        "content": [
+          "§ 20.1 Alle Rechte an Marken, Patenten, Urheberrechten, Software, Designs, Know-how und sonstigen gewerblichen Schutzrechten verbleiben bei Polaris oder den jeweiligen Rechteinhabern.",
+          "§ 20.2 Der Kunde erhält ein nicht-exklusives, nicht übertragbares Nutzungsrecht an der Software im Umfang des jeweiligen Lizenzvertrags. Eine Unterlizenzierung, Weitergabe oder Vervielfältigung ist ohne schriftliche Zustimmung untersagt.",
+          "§ 20.3 Reverse Engineering, Dekompilierung oder sonstige Versuche, den Quellcode der Software zu ermitteln, sind untersagt, soweit dies nicht durch zwingende gesetzliche Vorschriften erlaubt ist.",
+          "§ 20.4 Der Kunde darf Marken und Logos von Polaris nur mit vorheriger schriftlicher Genehmigung und gemäß den Markenrichtlinien von Polaris verwenden."
+        ]
+      },
+      {
+        "id": "section-21",
+        "title": "§ 21 Exportkontrolle und Sanktionen",
+        "content": [
+          "§ 21.1 Der Kunde verpflichtet sich, alle anwendbaren Export- und Importvorschriften sowie Sanktionsbestimmungen der EU, Deutschlands und gegebenenfalls weiterer relevanter Jurisdiktionen einzuhalten.",
+          "§ 21.2 Der Kunde sichert zu, dass die gelieferten Produkte nicht direkt oder indirekt in Länder exportiert werden, gegen die Embargos bestehen, oder an Personen oder Einrichtungen auf Sanktionslisten geliefert werden.",
+          "§ 21.3 Bei Verstößen gegen Exportkontroll- oder Sanktionsvorschriften haftet der Kunde allein für alle daraus entstehenden Schäden und stellt Polaris von sämtlichen Ansprüchen Dritter frei."
+        ]
+      },
+      {
+        "id": "section-22",
+        "title": "§ 22 Vertragslaufzeit und Kündigung",
+        "content": [
+          "§ 22.1 Kaufverträge über Einzelprodukte werden mit vollständiger Erfüllung beendet. Dauerschuldverhältnisse (Software-Lizenzen, Cloud-Dienste, Wartungsverträge) haben die in den jeweiligen Verträgen festgelegte Laufzeit.",
+          "§ 22.2 Sofern nicht anders vereinbart, verlängern sich Dauerschuldverhältnisse automatisch um weitere 12 Monate, wenn sie nicht mit einer Frist von 3 Monaten zum Ende der Laufzeit gekündigt werden.",
+          "§ 22.3 Das Recht zur außerordentlichen Kündigung aus wichtigem Grund bleibt unberührt. Ein wichtiger Grund liegt insbesondere vor bei wesentlichen Vertragsverletzungen, Zahlungsunfähigkeit, Eröffnung eines Insolvenzverfahrens oder Verstoß gegen regulatorische Anforderungen.",
+          "§ 22.4 Bei Kündigung oder Vertragsbeendigung erlöschen alle Nutzungsrechte an Software und Cloud-Diensten. Der Kunde kann seine Daten innerhalb von 30 Tagen nach Vertragsende exportieren.",
+          "§ 22.5 Bereits bezahlte Entgelte für nicht genutzte Vertragslaufzeiten werden nicht erstattet, es sei denn, die Kündigung erfolgt durch den Kunden aus von Polaris zu vertretenden Gründen."
+        ]
+      },
+      {
+        "id": "section-23",
+        "title": "§ 23 Streitbeilegung und Gerichtsstand",
+        "content": [
+          "§ 23.1 Die Parteien verpflichten sich, bei Streitigkeiten aus oder im Zusammenhang mit diesem Vertrag zunächst eine gütliche Einigung anzustreben.",
+          "§ 23.2 Ausschließlicher Gerichtsstand für alle Streitigkeiten aus diesem Vertragsverhältnis ist der Sitz von Polaris, sofern der Kunde Kaufmann, juristische Person des öffentlichen Rechts oder öffentlich-rechtliches Sondervermögen ist.",
+          "§ 23.3 Polaris ist berechtigt, den Kunden auch an seinem allgemeinen Gerichtsstand zu verklagen.",
+          "§ 23.4 Die Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle ist nicht vorgesehen und wird nicht angeboten, da sich die AGB ausschließlich an Unternehmer richten."
+        ]
+      },
+      {
+        "id": "section-24",
+        "title": "§ 24 Anwendbares Recht",
+        "content": [
+          "§ 24.1 Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts (CISG) und der Kollisionsnormen des internationalen Privatrechts.",
+          "§ 24.2 Soweit zwingende Vorschriften des Rechts am gewöhnlichen Aufenthaltsort des Kunden günstigere Bestimmungen für den Kunden vorsehen, finden diese Anwendung."
+        ]
+      },
+      {
+        "id": "section-25",
+        "title": "§ 25 Schlussbestimmungen",
+        "content": [
+          "§ 25.1 Änderungen und Ergänzungen dieser AGB bedürfen zu ihrer Wirksamkeit der Schriftform. Dies gilt auch für die Abbedingung dieses Schriftformerfordernisses.",
+          "§ 25.2 Sollten einzelne Bestimmungen dieser AGB ganz oder teilweise unwirksam oder undurchführbar sein oder werden, so wird dadurch die Wirksamkeit der übrigen Bestimmungen nicht berührt. An die Stelle der unwirksamen oder undurchführbaren Bestimmung tritt diejenige wirksame und durchführbare Bestimmung, die dem wirtschaftlichen Zweck der unwirksamen Bestimmung am nächsten kommt.",
+          "§ 25.3 Polaris behält sich das Recht vor, diese AGB jederzeit mit Wirkung für die Zukunft zu ändern. Änderungen werden dem Kunden mindestens 4 Wochen vor ihrem Inkrafttreten schriftlich oder per E-Mail mitgeteilt. Widerspricht der Kunde nicht innerhalb von 4 Wochen nach Zugang der Mitteilung, gelten die Änderungen als genehmigt.",
+          "§ 25.4 Mündliche Nebenabreden bestehen nicht. Alle Vereinbarungen sind in schriftlicher Form niedergelegt.",
+          "§ 25.5 Die deutsche Fassung dieser AGB ist maßgeblich. Übersetzungen dienen nur der Information und begründen keine eigenen Rechte."
+        ]
+      }
+    ]
+  }
+}

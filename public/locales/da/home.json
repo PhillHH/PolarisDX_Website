@@ -27,6 +27,9 @@
     "description": "Opdag med systemer som Igloo Pro fra DX365, hvordan du kan optimere din patientpleje og levere vigtige diagnoser direkte på behandlingsstedet – med laboratoriepræcise resultater på minutter.",
     "cta": "Til Igloo Pro Systemet"
   },
+  "igloo_widget": {
+    "title": "Anvendelsesområder"
+  },
   "services": {
     "caption": "DIAGNOSTIK FOKUS",
     "title": "Nøgleområder inden for forebyggende diagnostik",

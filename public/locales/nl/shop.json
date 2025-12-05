@@ -2,23 +2,23 @@
   "products": {
     "igloo_reader_pro": {
       "name": "Igloo Reader Pro",
-      "shortDescription": "De Igloo Reader Pro is een compacte, state-of-the-art alles-in-één analysator voor Point-of-Care Testing (POCT). Het combineert laboratoriumnauwkeurigheid met de vereisten van gedecentraliseerde omgevingen. Ondersteunt Lateral Flow, Microarray, Fluorescentie en meer – de ideale oplossing voor snelle, betrouwbare kwantitatieve en kwalitatieve testresultaten.",
+      "shortDescription": "De Igloo Reader Pro is een compacte, state-of-the-art alles-in-één analyzer voor Point-of-Care Testing (POCT). Hij combineert laboratoriumnauwkeurigheid met de eisen van gedecentraliseerde omgevingen. Ondersteunt Lateral Flow, Microarray, Fluorescentie en meer – de ideale oplossing voor snelle, betrouwbare kwantitatieve en kwalitatieve testresultaten.",
       "detailedDescription": [
-        "De Igloo Reader Pro herdefinieert mobiele diagnostiek. Specifiek ontworpen voor professionele omgevingen en gedecentraliseerde Point-of-Care toepassingen, maakt deze veelzijdige analysator snelle en betrouwbare kwalitatieve en kwantitatieve tests mogelijk.",
-        "De lezer ondersteunt een breed scala aan diagnostische tests – van screening op infectieziekten tot hartmarkers en hormoonprofielen, tot drugsgebruik- en allergiepanels. Dankzij geautomatiseerde kalibratie, cloudintegratie en digitale data-export levert de Igloo Reader Pro laboratoriumkwaliteit direct waar het nodig is. Het stelt medische professionals in staat om overal snelle en betrouwbare resultaten te behalen."
+        "De Igloo Reader Pro herdefinieert mobiele diagnostiek. Speciaal ontworpen voor professionele omgevingen en gedecentraliseerde Point-of-Care toepassingen, maakt deze veelzijdige analyzer snelle en betrouwbare kwalitatieve en kwantitatieve tests mogelijk.",
+        "De reader ondersteunt een breed scala aan diagnostische tests – van screening op infectieziekten tot cardiale markers en hormoonprofielen, tot drugs- en allergiepanels. Dankzij geautomatiseerde kalibratie, cloud-integratie en digitale gegevensexport levert de Igloo Reader Pro laboratoriumkwaliteit direct waar het nodig is. Het stelt medische professionals in staat om overal snelle en betrouwbare resultaten te behalen."
       ],
       "features": [
-        "Universeel Testplatform: Ondersteunt Microarray, Lateral Flow, Colorimetrie, Fluorescentie, Droge Chemie en Microfluidica.",
+        "Universeel testplatform: Ondersteunt Microarray, Lateral Flow, Colorimetrie, Fluorescentie, Droge chemie en Microfluidica.",
         "Laboratoriumnauwkeurigheid in POCT-formaat: Hoge precisie door automatische zelfkalibratie voor elke meting (CV < 2 % Inter-Reader, CV < 3 % Intra-Reader).",
         "Compact & Mobiel: Lichtgewicht ontwerp met een batterijduur van tot wel 24 uur continu testen.",
-        "Volledige Connectiviteit: Geïntegreerde wifi, Bluetooth en USB-C voor naadloze datasynchronisatie en API/LIMS-integratie.",
-        "Veilige Cloudintegratie (Dx365 Cloud): Voor testupdates, kalibratiebeheer en versleutelde gegevensopslag.",
-        "Veelzijdige Monstertypes: Compatibel met volbloed, capillair bloed, serum, plasma, urine, ontlasting, speeksel en haar."
+        "Volledige connectiviteit: Geïntegreerde wifi, bluetooth en USB-C voor naadloze gegevenssynchronisatie en API/LIMS-integratie.",
+        "Veilige cloud-integratie (Dx365 Cloud): Voor testupdates, kalibratiebeheer en versleutelde gegevensopslag.",
+        "Veelzijdige monstertypes: Compatibel met volbloed, capillair bloed, serum, plasma, urine, ontlasting, speeksel en haar."
       ],
       "techSpecs": [
         {
           "parameter": "Afmetingen (L × B × H)",
-          "specification": "87.5 × 87.5 × 91 mm"
+          "specification": "87,5 × 87,5 × 91 mm"
         },
         {
           "parameter": "Gewicht",
@@ -29,8 +29,8 @@
           "specification": "Enkele seconden (excl. incubatietijd)"
         },
         {
-          "parameter": "Ondersteunde Testmethoden",
-          "specification": "Microarray, Colorimetrie, Fluorescentie, Droge Chemie, Quantum Dots, Microfluidica"
+          "parameter": "Ondersteunde testmethoden",
+          "specification": "Microarray, Colorimetrie, Fluorescentie, Droge chemie, Quantum Dots, Microfluidica"
         },
         {
           "parameter": "Monstertypes",
@@ -42,11 +42,11 @@
         },
         {
           "parameter": "Batterij",
-          "specification": "Oplaadbare Lithiumbatterij, tot 24 uur continu gebruik"
+          "specification": "Oplaadbare lithiumbatterij, tot 24 uur continu gebruik"
         },
         {
           "parameter": "Connectiviteit",
-          "specification": "USB-C, wifi (802.11 b/g/n), Bluetooth, API/LIMS-integratie"
+          "specification": "USB-C, wifi (802.11 b/g/n), bluetooth, API/LIMS-integratie"
         },
         {
           "parameter": "Certificering",
@@ -54,33 +54,33 @@
         }
       ],
       "deliveryScope": [
-        "1 × Igloo Reader Pro Analysator",
-        "1 × USB-A naar USB-C Kabel",
-        "Elektronische Gebruikershandleiding"
+        "1 × Igloo Reader Pro Analyzer",
+        "1 × USB-A naar USB-C kabel",
+        "Elektronische gebruikershandleiding"
       ],
-      "note": "Belangrijke Opmerking: Adapters en QC-testkits worden apart verkocht en zijn niet inbegrepen in de standaard leveringsomvang."
+      "note": "Belangrijke opmerking: Adapters en QC-testkits worden apart verkocht en zijn niet inbegrepen in de standaard leveringsomvang."
     },
     "bp_monitor": {
-      "name": "Digitale Bloeddrukmeter",
+      "name": "Digitale bloeddrukmeter",
       "shortDescription": "Nauwkeurige, gebruiksvriendelijke bloeddrukmeter voor thuisgebruik met geheugenfunctie.",
       "features": [
-        "Bovenarmmanchet met verstelbare grootte",
+        "Bovenarmmanchet met verstelbare maat",
         "Slaat tot 60 metingen op",
         "Detectie van onregelmatige hartslag"
       ]
     },
     "thermometer": {
-      "name": "Contactloze Voorhoofdthermometer",
+      "name": "Contactloze voorhoofdthermometer",
       "shortDescription": "Snelle, hygiënische temperatuurmetingen zonder huidcontact — ideaal voor gezinnen.",
       "features": [
         "1-seconde meting",
         "Koortsalarmindicator",
-        "Verlicht display"
+        "Display met achtergrondverlichting"
       ]
     },
     "pulse_oximeter": {
       "name": "Vingerpulsoximeter",
-      "shortDescription": "Meet bloedzuurstofsaturatie en hartslagfrequentie binnen seconden.",
+      "shortDescription": "Meet bloedzuurstofsaturatie en hartslag binnen enkele seconden.",
       "features": [
         "SpO₂ en hartslagweergave",
         "Compact en draagbaar",
@@ -88,17 +88,17 @@
       ]
     },
     "home_care_kit": {
-      "name": "Thuiszorg Startpakket",
-      "shortDescription": "Essentiële hulpmiddelen voor dagelijkse zorg thuis, inclusief monitoring en basis eerste hulp.",
+      "name": "Startkit voor thuiszorg",
+      "shortDescription": "Essentiële hulpmiddelen voor dagelijkse thuiszorg, inclusief monitoring en EHBO-basisbenodigdheden.",
       "features": [
         "Digitale thermometer en bloeddrukmeter",
-        "Basis wondverzorgingsartikelen",
+        "Basisbenodigdheden voor wondverzorging",
         "Compacte opbergtas"
       ]
     },
     "diabetes_kit": {
-      "name": "Diabetes Monitoring Kit",
-      "shortDescription": "Alles wat u nodig heeft om bloedsuikerspiegels thuis comfortabel te controleren.",
+      "name": "Diabetesmonitoringskit",
+      "shortDescription": "Alles wat je nodig hebt om comfortabel thuis je bloedsuikerspiegel te controleren.",
       "features": [
         "Glucosemeter met teststrips",
         "Prikpen en lancetten",
@@ -107,7 +107,7 @@
     },
     "n95_mask_pack": {
       "name": "N95 Ademhalingsmasker Pakket (10 st)",
-      "shortDescription": "Gecertificeerde N95 maskers voor betrouwbare ademhalingsbescherming.",
+      "shortDescription": "Gecertificeerde N95-maskers voor betrouwbare ademhalingsbescherming.",
       "features": [
         "Verstelbare neusklem",
         "Comfortabele oorlussen",
@@ -115,17 +115,17 @@
       ]
     },
     "hand_sanitizer": {
-      "name": "Antibacteriële Handgel (500 ml)",
-      "shortDescription": "Sneldrogende handgel met hydraterende ingrediënten.",
+      "name": "Antibacteriële handdesinfecterend middel (500 ml)",
+      "shortDescription": "Sneldrogend desinfectiemiddel met hydraterende ingrediënten.",
       "features": [
         "Doodt 99,9% van de ziektekiemen",
-        "Niet-plakkende formule",
+        "Niet-plakkerige formule",
         "Frisse, schone geur"
       ]
     },
     "compression_socks": {
-      "name": "Medische Compressiekousen",
-      "shortDescription": "Ondersteunen de bloedsomloop tijdens lange dagen op uw voeten of herstel.",
+      "name": "Medische compressiekousen",
+      "shortDescription": "Ondersteunen de bloedsomloop tijdens lange dagen op de been of herstel.",
       "features": [
         "Gegradueerde compressie",
         "Ademende stof",
@@ -133,7 +133,7 @@
       ]
     },
     "first_aid_kit": {
-      "name": "Compacte EHBO-kit",
+      "name": "Compacte EHBO-doos",
       "shortDescription": "Een compacte kit met benodigdheden voor kleine verwondingen en noodgevallen.",
       "features": [
         "Verbanden en pleisters",
@@ -142,7 +142,7 @@
       ]
     },
     "online_consult": {
-      "name": "Online Artsconsult (30 min)",
+      "name": "Online artsenconsult (30 min)",
       "shortDescription": "Boek een videoconsult van 30 minuten met een van onze artsen.",
       "features": [
         "Flexibele planningsopties",
@@ -152,16 +152,16 @@
     }
   },
   "shop": {
-    "addToCart": "In winkelwagen (demo)",
+    "addToCart": "Toevoegen aan winkelwagen (demo)",
     "orderInfo": "Bestelinformatie",
-    "orderInfoText": "Deze demo-layout bootst een eenvoudig bestelvak na. In een echt project zou u hier beschikbaarheid, verzendopties en een 'In winkelwagen'-knop tonen.",
-    "youMightLike": "Misschien vindt u dit ook leuk",
+    "orderInfoText": "Deze demo-indeling bootst een eenvoudig bestelvak na. In een echt project zou je hier beschikbaarheid, verzendopties en een 'Toevoegen aan winkelwagen'-knop tonen.",
+    "youMightLike": "Misschien vind je dit ook leuk",
     "view": "Bekijk",
     "viewDetails": "Bekijk details",
     "backToShop": "Terug naar Winkel",
     "needHelp": "Hulp nodig bij het kiezen van een product?",
     "contactTeam": "Neem contact op met ons team",
-    "demoNote": "Let op: Dit is een demowinkel alleen voor ontwerp- en lay-outdoeleinden. Er worden geen echte bestellingen of betalingen verwerkt.",
+    "demoNote": "Let op: Dit is een demowinkel uitsluitend voor ontwerp- en lay-outdoeleinden. Er worden geen echte bestellingen of betalingen verwerkt.",
     "whatsInBox": "Wat zit er in de doos?",
     "techSpecs": "Technische Specificaties",
     "features": "Kenmerken & Voordelen",
@@ -170,12 +170,12 @@
     "subtitle": "MedHealth Winkel",
     "discoverTitle": "Ontdek onze geselecteerde producten",
     "article": "Artikel",
-    "articleDisclaimer": "Regelmatige controles en proactieve zorg zijn de basis van gezondheid op lange termijn. Als u vragen heeft, aarzel dan niet om contact op te nemen met een medische professional.",
-    "shareArticle": "Vond u dit artikel leuk? Deel het met uw vrienden en familie.",
+    "articleDisclaimer": "Regelmatige controles en proactieve zorg zijn de basis voor gezondheid op de lange termijn. Als je vragen hebt, aarzel dan niet om contact op te nemen met een medische professional.",
+    "shareArticle": "Vond je dit artikel leuk? Deel het met je vrienden en familie.",
     "backToHome": "Terug naar Home",
     "suggestedArticles": "Aanbevolen artikelen",
     "moreArticles": "Meer artikelen",
-    "contactText": "Ons medisch team is 24/7 beschikbaar om dringende vragen te beantwoorden en u te helpen beslissen wat u vervolgens moet doen.",
-    "readMore": "Lees Meer"
+    "contactText": "Ons medisch team is 24/7 beschikbaar om dringende vragen te beantwoorden en je te helpen beslissen wat je vervolgens moet doen.",
+    "readMore": "Lees meer"
   }
 }

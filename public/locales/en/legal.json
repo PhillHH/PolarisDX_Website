@@ -1,0 +1,397 @@
+{
+  "imprint": {
+    "title": "Imprint",
+    "section1": {
+      "title": "Information according to § 5 TMG",
+      "london": {
+        "title": "London Office",
+        "company": "PolarisDX LTD",
+        "address": [
+          "262A Fulham Road",
+          "London SW10 9EL",
+          "United Kingdom"
+        ],
+        "contact": {
+          "label": "Contact:",
+          "phone": "Phone: +44 7879 433019",
+          "email": "Email: hello@polarisdx.net"
+        }
+      },
+      "hamburg": {
+        "title": "Hamburg Office",
+        "company": "PolarisDX Europe UG",
+        "address": [
+          "Große Bleichen 1 - 3",
+          "20097 Hamburg",
+          "Germany"
+        ],
+        "contact": {
+          "label": "Contact:",
+          "email": "Email: info@polarisdx.net"
+        }
+      }
+    },
+    "section2": {
+      "title": "Representation",
+      "content": "Represented by the Management Board."
+    },
+    "section3": {
+      "title": "Register Entry",
+      "content": [
+        "Entry in the commercial register.",
+        "Register Court: District Court Hamburg (for PolarisDX Europe UG)",
+        "Register Number: [Insert HRB Number here]"
+      ]
+    },
+    "section4": {
+      "title": "VAT ID",
+      "content": [
+        "VAT Identification Number according to §27 a Value Added Tax Act:",
+        "[Insert VAT ID here]"
+      ]
+    },
+    "section5": {
+      "title": "Editorially Responsible",
+      "content": [
+        "PolarisDX Management Team",
+        "262A Fulham Road",
+        "London SW10 9EL"
+      ]
+    },
+    "section6": {
+      "title": "EU Dispute Resolution",
+      "content": "The European Commission provides a platform for online dispute resolution (ODR): <1>https://ec.europa.eu/consumers/odr/</1>. You can find our email address in the imprint above."
+    },
+    "section7": {
+      "title": "Consumer Dispute Resolution / Universal Arbitration Board",
+      "content": "We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board."
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "section1": {
+      "title": "1. Data Protection at a Glance",
+      "general": {
+        "title": "General Notes",
+        "content": "The following notes provide a simple overview of what happens to your personal data when you visit this website. Personal data is all data with which you can be personally identified."
+      },
+      "collection": {
+        "title": "Data Collection on this Website",
+        "who_title": "Who is responsible for data collection on this website?",
+        "who_content": "Data processing on this website is carried out by the website operator. Their contact details can be found in the imprint of this website.",
+        "how_title": "How do we collect your data?",
+        "how_content1": "Your data is collected on the one hand by you communicating it to us. This may, for example, be data that you enter in a contact form.",
+        "how_content2": "Other data is collected automatically or after your consent when visiting the website by our IT systems. This is mainly technical data (e.g., internet browser, operating system, or time of page view). The collection of this data takes place automatically as soon as you enter this website."
+      }
+    },
+    "section2": {
+      "title": "2. Hosting",
+      "content": "We host the content of our website with an external provider. The personal data collected on this website is stored on the host's servers. This may include IP addresses, contact requests, meta and communication data, contract data, contact details, names, website access, and other data generated via a website."
+    },
+    "section3": {
+      "title": "3. General Notes and Mandatory Information",
+      "protection": {
+        "title": "Data Protection",
+        "content": "The operators of these pages take the protection of your personal data very seriously. We treat your personal data confidentially and in accordance with the statutory data protection regulations and this privacy policy."
+      },
+      "responsible": {
+        "title": "Note on the Responsible Body",
+        "content": "The responsible body for data processing on this website is:",
+        "address": [
+          "PolarisDX Europe UG",
+          "Große Bleichen 1 - 3",
+          "20097 Hamburg",
+          "Email: info@polarisdx.net"
+        ]
+      },
+      "storage": {
+        "title": "Storage Duration",
+        "content": "Unless a more specific storage period has been mentioned within this privacy policy, your personal data will remain with us until the purpose for data processing ceases to apply. If you assert a legitimate request for deletion or revoke consent to data processing, your data will be deleted unless we have other legally permissible reasons for storing your personal data (e.g., tax or commercial retention periods); in the latter case, the deletion takes place after these reasons cease to apply."
+      }
+    },
+    "section4": {
+      "title": "4. Data Collection on this Website",
+      "form": {
+        "title": "Contact Form",
+        "content1": "If you send us inquiries via the contact form, your details from the inquiry form, including the contact details you provided there, will be stored by us for the purpose of processing the inquiry and in case of follow-up questions. We do not pass on this data without your consent.",
+        "duration_title": "Storage duration for contact inquiries:",
+        "duration_content": "We store your data from the contact form for a period of up to 12 months to be available for any follow-up questions, provided that no statutory retention periods require longer storage.",
+        "legal_basis": "The processing of this data takes place on the basis of Art. 6 Para. 1 lit. b GDPR, insofar as your inquiry is related to the fulfillment of a contract or is necessary for the implementation of pre-contractual measures. In all other cases, the processing is based on our legitimate interest in the effective processing of the inquiries addressed to us (Art. 6 Para. 1 lit. f GDPR) or on your consent (Art. 6 Para. 1 lit. a GDPR) if this was requested."
+      }
+    },
+    "section5": {
+      "title": "5. Analysis Tools and Advertising",
+      "content": "Insofar as you have given your consent, cookies and similar technologies are used on this website. You can revoke your consent at any time via our cookie banner or the settings in your browser."
+    }
+  },
+  "agb": {
+    "title": "General Terms and Conditions",
+    "subtitle": "Polaris Diagnostics Europe UG (limited liability) | In-vitro Diagnostics | Medical Devices | Software & Cloud Services",
+    "date": "As of: December 2025",
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "§ 1 Scope",
+        "content": [
+          "§ 1.1 These General Terms and Conditions (GTC) apply to all business relationships between Polaris Diagnostics Europe UG (limited liability), hereinafter referred to as 'Polaris', and the customer. They apply to the sale and delivery of In-vitro Diagnostics (IVD) medical devices, equipment, test kits, consumables, software, and cloud services.",
+          "§ 1.2 The GTC apply exclusively. Deviating, conflicting, or supplementary General Terms and Conditions of the customer only become part of the contract if Polaris has expressly agreed to their validity in writing.",
+          "§ 1.3 The GTC also apply to all future transactions with the customer, provided they are legal transactions of a related nature.",
+          "§ 1.4 Individual agreements made with the customer in individual cases (including collateral agreements, supplements, and amendments) shall in any case take precedence over these GTC. A written contract or written confirmation from Polaris is decisive for the content of such agreements.",
+          "§ 1.5 Polaris' offers are directed exclusively at entrepreneurs within the meaning of § 14 BGB (German Civil Code), legal entities under public law, or special funds under public law (B2B). Consumer transactions within the meaning of § 13 BGB are excluded."
+        ]
+      },
+      {
+        "id": "section-2",
+        "title": "§ 2 Conclusion of Contract",
+        "content": [
+          "§ 2.1 The presentation of products on the website, in catalogs, brochures, or other advertising materials does not constitute a legally binding offer, but a non-binding invitation to submit an offer.",
+          "§ 2.2 By placing an order, the customer bindingly declares that they wish to purchase the ordered products. The order can be placed in writing, by email, via the website, or by telephone.",
+          "§ 2.3 The contract is only concluded upon written order confirmation by Polaris or upon delivery of the goods. The automatic confirmation of receipt of an online order does not yet constitute acceptance of the offer.",
+          "§ 2.4 Polaris reserves the right to reject orders without giving reasons, particularly in cases of justified doubts about the customer's creditworthiness or in case of delivery bottlenecks.",
+          "§ 2.5 The customer is bound to their order for a period of 14 days. The contract can be concluded in German or English."
+        ]
+      },
+      {
+        "id": "section-3",
+        "title": "§ 3 Prices and Payment Conditions",
+        "content": [
+          "§ 3.1 The prices at the time of the order according to Polaris' current price list apply. All prices are in Euros, plus statutory value-added tax and any shipping costs.",
+          "§ 3.2 Unless otherwise agreed, the purchase price is due for payment without deduction within 14 days of the invoice date. Receipt of payment by Polaris is decisive for the timeliness of payment.",
+          "§ 3.3 In the event of default in payment, Polaris is entitled to charge default interest at a rate of 9 percentage points above the respective base interest rate. The assertion of higher damage caused by default remains reserved.",
+          "§ 3.4 The customer only has a right of set-off if their counterclaims have been legally established, are undisputed, or have been acknowledged by Polaris. The customer is only authorized to exercise a right of retention to the extent that their counterclaim is based on the same contractual relationship.",
+          "§ 3.5 Polaris is entitled to demand advance payment, a down payment, or other securities from new customers or in cases of justified doubts about solvency.",
+          "§ 3.6 For recurring services (subscriptions, software licenses, cloud services, maintenance contracts), billing takes place in advance for the respective billing period, unless otherwise agreed."
+        ]
+      },
+      {
+        "id": "section-4",
+        "title": "§ 4 Delivery and Shipping",
+        "content": [
+          "§ 4.1 Delivery takes place ex Polaris warehouse or directly from the manufacturer. Delivery dates and deadlines are only binding if they have been expressly confirmed by Polaris in writing as binding.",
+          "§ 4.2 The risk of accidental loss and accidental deterioration of the goods passes to the customer upon handover to the forwarder, carrier, or person otherwise designated to carry out the shipment.",
+          "§ 4.3 Partial deliveries are permissible insofar as they are reasonable for the customer. Each partial delivery is considered an independent transaction and can be billed separately.",
+          "§ 4.4 If the customer is in default of acceptance or culpably violates other duties to cooperate, Polaris is entitled to demand compensation for the resulting damage, including any additional expenses.",
+          "§ 4.5 In the event of force majeure, operational disruptions, strikes, lockouts, official orders, or other unforeseeable events, the delivery deadlines are extended accordingly. Polaris will inform the customer of such obstacles immediately.",
+          "§ 4.6 For temperature-sensitive products (e.g., test kits, reagents), shipping takes place in compliance with the prescribed cold chain. The customer must check the integrity and temperature upon delivery and report any defects immediately."
+        ]
+      },
+      {
+        "id": "section-5",
+        "title": "§ 5 Warranty and Claims for Defects",
+        "content": [
+          "§ 5.1 The customer's warranty rights presuppose that they have duly complied with their statutory inspection and notification obligations in accordance with § 377 HGB (German Commercial Code). Obvious defects must be reported in writing immediately, at the latest within 7 working days of receipt of the goods.",
+          "§ 5.2 In the case of justified claims for defects, Polaris is entitled, at its own discretion, to rectification or replacement delivery. If the supplementary performance fails, the customer may, at their discretion, demand a reduction in price or withdrawal from the contract.",
+          "§ 5.3 The warranty period is 12 months from delivery, unless a shorter shelf life of the product is specified. For test kits and consumables, the shelf life indicated on the packaging applies.",
+          "§ 5.4 The warranty does not apply in cases of improper storage, handling, or use contrary to the instructions for use, unauthorized changes or repairs by the customer or third parties, as well as normal wear and tear.",
+          "§ 5.5 The warranty for IVD medical devices is limited to function according to specification. A guarantee for specific diagnostic results or clinical decisions is not assumed."
+        ]
+      },
+      {
+        "id": "section-6",
+        "title": "§ 6 Liability and Limitation of Liability",
+        "content": [
+          "§ 6.1 Polaris is liable without limitation for damages resulting from injury to life, body, or health based on an intentional or negligent breach of duty, as well as for damages covered by liability under the Product Liability Act.",
+          "§ 6.2 For other damages, Polaris is only liable in cases of intent and gross negligence as well as culpable breach of essential contractual obligations. Liability for breach of essential contractual obligations is limited to the contract-typical, foreseeable damage.",
+          "§ 6.3 Liability for indirect damages, consequential damages, loss of profit, loss of data, or business interruption is excluded, unless there is intent or gross negligence.",
+          "§ 6.4 Polaris is not liable for damages resulting from incorrect diagnostic decisions, provided the product functioned properly. The responsibility for the clinical interpretation of diagnostic results lies solely with the medical professionals.",
+          "§ 6.5 The above exclusions and limitations of liability also apply in favor of Polaris' legal representatives, employees, and vicarious agents."
+        ]
+      },
+      {
+        "id": "section-7",
+        "title": "§ 7 Retention of Title",
+        "content": [
+          "§ 7.1 The delivered devices (especially Igloo Pro Reader), accessories, and all software licenses remain the property of Polaris Diagnostics Europe UG (limited liability) until all outstanding claims have been paid in full.",
+          "§ 7.2 Until full payment is made, the customer only receives a revocable, non-transferable right of use for the device, software, and cloud services.",
+          "§ 7.3 The customer is obliged to treat the goods subject to retention of title with care and to insure them adequately against fire, water, and theft. Maintenance and inspection work must be carried out in good time.",
+          "§ 7.4 In the event of seizures or other interventions by third parties, the customer must notify Polaris immediately in writing and point out Polaris' ownership.",
+          "§ 7.5 Further pledging or transfer by way of security of the goods subject to retention of title is not permitted without the prior written consent of Polaris."
+        ]
+      },
+      {
+        "id": "section-8",
+        "title": "§ 8 Rights of Use for Software & Cloud Services",
+        "content": [
+          "§ 8.1 The use of the software, cloud services, and digital functions is permitted exclusively to customers who meet their contractual and financial obligations.",
+          "§ 8.2 Polaris is entitled to restrict functions or access if this is necessary to safeguard legitimate interests, particularly in the event of default in payment.",
+          "§ 8.3 The cloud services are provided with an availability of 99.0% on an annual average. Planned maintenance windows are announced at least 48 hours in advance and do not count as downtime.",
+          "§ 8.4 The customer is responsible for the security of their access data. In case of suspected misuse, Polaris must be informed immediately.",
+          "§ 8.5 Use of the software or cloud services beyond the contractually agreed scope (e.g., multi-user, additional devices) requires a separate license agreement."
+        ]
+      },
+      {
+        "id": "section-9",
+        "title": "§ 9 Blocking in Case of Default in Payment",
+        "content": [
+          "§ 9.1 If the customer is in default of payment for more than 14 days, Polaris is entitled, after written notice, to partially or fully block access to the software, cloud services, or use of the device after a period of 48 hours has elapsed.",
+          "§ 9.2 The blocking serves exclusively to enforce legitimate payment claims and does not constitute a product defect or service failure.",
+          "§ 9.3 After settlement of all outstanding claims, access will be reactivated immediately, at the latest within 24 hours.",
+          "§ 9.4 During the blocking, the customer's contractual payment obligations remain in full force. The blocking does not release from the obligation to pay ongoing fees.",
+          "§ 9.5 Polaris is entitled to charge a reasonable processing fee for reactivation after blocking."
+        ]
+      },
+      {
+        "id": "section-10",
+        "title": "§ 10 Withdrawal, Reclamation & Revocation of Use",
+        "content": [
+          "§ 10.1 If no payment is made within a further 14 days despite a reminder and threat of blocking, Polaris is entitled to withdraw from the contract and reclaim the device in accordance with the retention of title.",
+          "§ 10.2 In this case, the right of use for software and cloud services expires automatically. The customer is obliged to surrender the device immediately.",
+          "§ 10.3 Polaris is entitled to invoice the customer for costs incurred for retrieval, transport, and administration.",
+          "§ 10.4 In the event of withdrawal, Polaris is entitled to demand reasonable compensation for use for the use of the device that has already taken place.",
+          "§ 10.5 The customer has no claim to reimbursement of amounts already paid, insofar as these are attributable to services rendered."
+        ]
+      },
+      {
+        "id": "section-11",
+        "title": "§ 11 Exclusion of Return upon Commissioning of Medical Devices",
+        "content": [
+          "§ 11.1 The delivered devices are In-vitro Diagnostics medical devices according to Regulation (EU) 2017/746 (IVDR). Return is excluded as soon as the device has been put into operation or used with samples/test kits.",
+          "§ 11.2 Acceptance of returned used medical devices is not permissible for safety, hygiene, and regulatory reasons.",
+          "§ 11.3 The customer cannot claim a right of return in the event of default in payment. The payment obligation remains in full force.",
+          "§ 11.4 Unjustified returns may be refused by Polaris or disposed of at the customer's expense.",
+          "§ 11.5 Test kits and consumables are generally excluded from return unless there is a product defect.",
+          "§ 11.6 The regulations of this paragraph serve to protect public health and compliance with regulatory requirements and are therefore mandatory."
+        ]
+      },
+      {
+        "id": "section-12",
+        "title": "§ 12 Product Conformity and Regulatory Requirements",
+        "content": [
+          "§ 12.1 The In-vitro Diagnostics products distributed by Polaris comply with the requirements of Regulation (EU) 2017/746 (IVDR) and bear the CE marking in accordance with the applicable conformity assessment procedures.",
+          "§ 12.2 The customer undertakes to use the products only in accordance with their intended purpose, the instructions for use, and the applicable statutory regulations.",
+          "§ 12.3 The customer is obliged to ensure before using the products that they have the necessary permits, approvals, and qualifications and comply with the regulatory requirements of their country.",
+          "§ 12.4 In the event of export of the products to countries outside the EU, the customer is responsible for compliance with the regulatory requirements applicable there. A guarantee for eligibility for approval in third countries is not assumed."
+        ]
+      },
+      {
+        "id": "section-13",
+        "title": "§ 13 Vigilance and Reporting Obligations",
+        "content": [
+          "§ 13.1 The customer undertakes to inform Polaris immediately of serious incidents, malfunctions, quality defects, or safety-relevant events in connection with the products.",
+          "§ 13.2 Polaris will inform the competent authorities and cooperate with them in the event of incident reports in accordance with the requirements of the IVDR and national reporting systems.",
+          "§ 13.3 The customer supports Polaris in the investigation of incidents by providing relevant information, access to affected products and samples, and documentation of the circumstances of use.",
+          "§ 13.4 In the event of Field Safety Corrective Actions or recalls, the customer is obliged to cooperate with Polaris and implement the ordered measures immediately."
+        ]
+      },
+      {
+        "id": "section-14",
+        "title": "§ 14 Quality Assurance and Documentation",
+        "content": [
+          "§ 14.1 The customer is obliged to use the products in accordance with the enclosed instructions for use and in compliance with Good Laboratory Practice (GLP).",
+          "§ 14.2 The customer performs their own quality controls and documents them properly. Polaris provides quality control materials upon request.",
+          "§ 14.3 The customer keeps all relevant records of batch traceability, test results, and quality controls for at least the duration prescribed in the relevant regulations.",
+          "§ 14.4 Polaris provides the customer with declarations of conformity, certificates of analysis, safety data sheets, and other product documentation upon request."
+        ]
+      },
+      {
+        "id": "section-15",
+        "title": "§ 15 Training and Technical Support",
+        "content": [
+          "§ 15.1 Polaris offers training on the proper use of the products. The type, scope, and costs of the training are agreed separately.",
+          "§ 15.2 Technical support is available during normal business hours (Mon-Fri, 9:00-17:00 CET) by email and telephone. Extended support services can be agreed upon for an extra charge.",
+          "§ 15.3 The customer ensures that only appropriately trained personnel operate the products. Passing on training content to third parties requires the prior consent of Polaris.",
+          "§ 15.4 For devices with remote maintenance function, the customer is entitled to grant Polaris remote access for maintenance and support purposes. Remote access is only activated with the express consent of the customer."
+        ]
+      },
+      {
+        "id": "section-16",
+        "title": "§ 16 Maintenance and Servicing",
+        "content": [
+          "§ 16.1 For devices, Polaris offers maintenance contracts with different scopes of services. Scope, costs, and duration are regulated in separate maintenance contracts.",
+          "§ 16.2 The customer is obliged to adhere to the regular maintenance intervals recommended by the manufacturer. Failure to do so may lead to the expiration of warranty claims.",
+          "§ 16.3 Repairs and maintenance work may only be carried out by Polaris or service partners authorized by Polaris. Unauthorized interventions lead to the expiration of the warranty.",
+          "§ 16.4 For device repairs outside the warranty, billing takes place on a time and material basis according to the currently valid price list, unless a maintenance contract exists."
+        ]
+      },
+      {
+        "id": "section-17",
+        "title": "§ 17 Software Updates and Upgrades",
+        "content": [
+          "§ 17.1 Polaris provides software updates containing bug fixes and security updates for the duration of the active user contract.",
+          "§ 17.2 Functional extensions (upgrades) may be subject to a charge. The customer will be informed about available upgrades and can purchase them voluntarily.",
+          "§ 17.3 The customer is obliged to install security-relevant updates promptly. Failure to install may void the warranty for malfunctions resulting therefrom.",
+          "§ 17.4 Polaris reserves the right to discontinue support for older software versions after a reasonable notice period."
+        ]
+      },
+      {
+        "id": "section-18",
+        "title": "§ 18 Data Protection and Data Security",
+        "content": [
+          "§ 18.1 Polaris processes personal data of the customer exclusively within the framework of the applicable data protection regulations, in particular the GDPR, and in accordance with the privacy policy on www.polarisdx.net.",
+          "§ 18.2 If Polaris gains access to personal patient data within the scope of cloud services, a separate Data Processing Agreement (DPA) pursuant to Art. 28 GDPR will be concluded.",
+          "§ 18.3 The data stored in the cloud is hosted on servers within the European Union. Transfer to third countries only takes place in compliance with legal requirements.",
+          "§ 18.4 Polaris takes appropriate technical and organizational measures to protect data against unauthorized access, loss, or destruction. The customer is responsible for the security of their access data.",
+          "§ 18.5 After termination of the contract, customer data will be stored in accordance with statutory retention obligations and subsequently deleted, unless longer retention obligations exist."
+        ]
+      },
+      {
+        "id": "section-19",
+        "title": "§ 19 Secrecy and Confidentiality",
+        "content": [
+          "§ 19.1 The parties undertake to treat all confidential information, trade secrets, and know-how obtained within the scope of the business relationship as strictly confidential and not to disclose them to third parties.",
+          "§ 19.2 This obligation does not apply to information that is publicly known, was already known to the recipient, was lawfully obtained from third parties, or must be disclosed due to legal or official orders.",
+          "§ 19.3 The obligation of secrecy continues even after the termination of the business relationship, but at least for a period of five years."
+        ]
+      },
+      {
+        "id": "section-20",
+        "title": "§ 20 Intellectual Property",
+        "content": [
+          "§ 20.1 All rights to trademarks, patents, copyrights, software, designs, know-how, and other industrial property rights remain with Polaris or the respective rights holders.",
+          "§ 20.2 The customer receives a non-exclusive, non-transferable right of use to the software to the extent of the respective license agreement. Sublicensing, transfer, or reproduction is prohibited without written consent.",
+          "§ 20.3 Reverse engineering, decompilation, or other attempts to determine the source code of the software are prohibited, unless permitted by mandatory statutory regulations.",
+          "§ 20.4 The customer may only use trademarks and logos of Polaris with prior written permission and in accordance with Polaris' trademark guidelines."
+        ]
+      },
+      {
+        "id": "section-21",
+        "title": "§ 21 Export Control and Sanctions",
+        "content": [
+          "§ 21.1 The customer undertakes to comply with all applicable export and import regulations as well as sanction provisions of the EU, Germany, and potentially other relevant jurisdictions.",
+          "§ 21.2 The customer assures that the delivered products will not be exported directly or indirectly to countries subject to embargoes, or delivered to persons or entities on sanction lists.",
+          "§ 21.3 In the event of violations of export control or sanction regulations, the customer is solely liable for all resulting damages and indemnifies Polaris against all third-party claims."
+        ]
+      },
+      {
+        "id": "section-22",
+        "title": "§ 22 Contract Duration and Termination",
+        "content": [
+          "§ 22.1 Purchase contracts for individual products are terminated upon complete fulfillment. Continuing obligations (software licenses, cloud services, maintenance contracts) have the duration specified in the respective contracts.",
+          "§ 22.2 Unless otherwise agreed, continuing obligations are automatically extended by a further 12 months if they are not terminated with a notice period of 3 months to the end of the term.",
+          "§ 22.3 The right to extraordinary termination for good cause remains unaffected. Good cause exists in particular in cases of significant breach of contract, insolvency, opening of insolvency proceedings, or violation of regulatory requirements.",
+          "§ 22.4 Upon termination or end of contract, all rights of use to software and cloud services expire. The customer can export their data within 30 days after the end of the contract.",
+          "§ 22.5 Fees already paid for unused contract periods will not be refunded, unless the termination is made by the customer for reasons attributable to Polaris."
+        ]
+      },
+      {
+        "id": "section-23",
+        "title": "§ 23 Dispute Resolution and Place of Jurisdiction",
+        "content": [
+          "§ 23.1 The parties undertake to first strive for an amicable settlement in disputes arising from or in connection with this contract.",
+          "§ 23.2 The exclusive place of jurisdiction for all disputes arising from this contractual relationship is the registered office of Polaris, provided the customer is a merchant, a legal entity under public law, or a special fund under public law.",
+          "§ 23.3 Polaris is entitled to sue the customer at their general place of jurisdiction as well.",
+          "§ 23.4 Participation in a dispute resolution procedure before a consumer arbitration board is not intended and is not offered, as the GTC are aimed exclusively at entrepreneurs."
+        ]
+      },
+      {
+        "id": "section-24",
+        "title": "§ 24 Applicable Law",
+        "content": [
+          "§ 24.1 The law of the Federal Republic of Germany applies, excluding the UN Convention on Contracts for the International Sale of Goods (CISG) and the conflict of laws rules of international private law.",
+          "§ 24.2 Insofar as mandatory regulations of the law at the customer's habitual residence provide more favorable provisions for the customer, these shall apply."
+        ]
+      },
+      {
+        "id": "section-25",
+        "title": "§ 25 Final Provisions",
+        "content": [
+          "§ 25.1 Amendments and supplements to these GTC require the written form to be effective. This also applies to the waiver of this written form requirement.",
+          "§ 25.2 Should individual provisions of these GTC be wholly or partially invalid or unenforceable, this shall not affect the validity of the remaining provisions. The invalid or unenforceable provision shall be replaced by the valid and enforceable provision that comes closest to the economic purpose of the invalid provision.",
+          "§ 25.3 Polaris reserves the right to change these GTC at any time with effect for the future. Changes will be communicated to the customer at least 4 weeks before they take effect in writing or by email. If the customer does not object within 4 weeks of receipt of the notification, the changes are deemed approved.",
+          "§ 25.4 There are no oral collateral agreements. All agreements are set down in writing.",
+          "§ 25.5 The German version of these GTC is authoritative. Translations serve only for information and do not establish any rights of their own."
+        ]
+      }
+    ]
+  }
+}
