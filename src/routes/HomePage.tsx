@@ -9,7 +9,7 @@ const HomePage = () => {
   return (
     <>
       <HeroSection />
-      <main className="mx-auto flex max-w-container flex-col gap-32 px-4 pt-24 lg:px-0 lg:gap-32 lg:pt-16">
+      <main className="mx-auto flex max-w-container flex-col gap-16 px-4 pt-24 lg:px-0 lg:gap-16 lg:pt-16">
         <AboutSection />
         <IglooWidgetSection />
         <DoctorsSection />

@@ -16,7 +16,7 @@ const HeroSection = () => {
       <div className="pointer-events-none absolute inset-y-0 left-0 w-80 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-80 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
 
-      <div className="relative z-10 mx-auto flex min-h-[490px] max-w-container items-stretch px-4 pt-10 pb-0 lg:px-0 lg:pt-14 lg:pb-0">
+      <div className="relative z-10 mx-auto flex min-h-[490px] max-w-container items-stretch px-6 pt-10 pb-0 sm:px-8 lg:px-0 lg:pt-14 lg:pb-0">
         <div className="grid w-full gap-4 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
         <div className="flex flex-col justify-center space-y-12 lg:space-y-8">
           <div className="inline-flex items-center gap-3">
@@ -34,28 +34,30 @@ const HeroSection = () => {
             </p>
           </div>
 
-          <div className="flex flex-row items-center gap-4 sm:gap-6">
-            <PrimaryButton as={Link} to="/contact" variant="primary" size="sm" className="whitespace-nowrap">
-              {t('hero.cta', 'Termin buchen')}
-            </PrimaryButton>
-            <PrimaryButton as={Link} to="/downloads" variant="outline-light" size="sm" className="whitespace-nowrap">
-              {t('hero.cta_downloads', 'Infomaterialien herunterladen')}
-            </PrimaryButton>
-          </div>
+          <div className="flex flex-col gap-3">
+            <div className="flex flex-row items-center gap-4 sm:gap-6">
+              <PrimaryButton as={Link} to="/contact" variant="primary" size="sm" className="whitespace-nowrap">
+                {t('hero.cta', 'Termin buchen')}
+              </PrimaryButton>
+              <PrimaryButton as={Link} to="/downloads" variant="outline-light" size="sm" className="whitespace-nowrap">
+                {t('hero.cta_downloads', 'Infomaterialien herunterladen')}
+              </PrimaryButton>
+            </div>
 
-          <div className="mt-6 grid grid-cols-2 gap-4 sm:gap-6 lg:mt-3">
-            <StatItem
-              value={t('hero.stat1.value', '48h')}
-              label={t('hero.stat1.label', 'Einsatzbereit nach Bestellung')}
-              size="sm"
-              className="px-4 py-2 sm:px-5 sm:py-3"
-            />
-            <StatItem
-              value={t('hero.stat2.value', 'CV < 2%')}
-              label={t('hero.stat2.label', 'Präzision über den gesamten Messbereich')}
-              size="sm"
-              className="px-4 py-2 sm:px-5 sm:py-3"
-            />
+            <div className="mt-2 flex flex-row items-start gap-6 lg:mt-1">
+              <StatItem
+                value={t('hero.stat1.value', '48h')}
+                label={t('hero.stat1.label', 'Einsatzbereit nach Bestellung')}
+                size="sm"
+                className="scale-90 origin-top-left py-0"
+              />
+              <StatItem
+                value={t('hero.stat2.value', 'CV < 2%')}
+                label={t('hero.stat2.label', 'Präzision über den gesamten Messbereich')}
+                size="sm"
+                className="scale-90 origin-top-left py-0"
+              />
+            </div>
           </div>
         </div>
 

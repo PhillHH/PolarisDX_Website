@@ -21,7 +21,7 @@ const MobileCallButton = () => {
         className={`flex items-center rounded-full shadow-lg transition-all duration-300 ease-in-out ${
           isExpanded
             ? 'bg-white pr-4 pl-2 py-2'
-            : 'h-12 w-12 justify-center bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600'
+            : 'h-12 w-12 justify-center bg-blue-600'
         }`}
       >
         <button
@@ -39,7 +39,7 @@ const MobileCallButton = () => {
             href={`tel:${phoneNumberClean}`}
             className="ml-2 whitespace-nowrap text-sm font-semibold text-gray-900"
           >
-            {phoneNumber}
+            {t('contact.call_us_text', 'Rufen Sie uns an')}
           </a>
         )}
       </div>

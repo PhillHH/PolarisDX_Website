@@ -24,7 +24,7 @@ const Footer = () => {
         {/* Footer-Inhalte, mit zusätzlichem Padding oben für die überlagernde Karte */}
         <div
           className={`mx-auto flex max-w-container flex-col gap-10 px-4 pb-12 lg:pb-16 ${
-            isContactPage ? 'pt-12 lg:pt-16' : 'pt-20 lg:pt-24'
+            isContactPage ? 'pt-12 lg:pt-16' : 'pt-12 lg:pt-16'
           }`}
         >
           <div className="flex flex-col gap-10 lg:flex-row lg:justify-between">
