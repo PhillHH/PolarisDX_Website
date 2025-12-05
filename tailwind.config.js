@@ -12,7 +12,7 @@ export default {
         'gray-900': '#203864',
       },
       fontFamily: {
-        sans: ['Rubik', 'system-ui', 'sans-serif'],
+        sans: ['Segoe UI', 'system-ui', 'sans-serif'],
       },
       maxWidth: {
         container: '1200px',

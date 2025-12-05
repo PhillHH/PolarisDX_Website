@@ -1,8 +1,8 @@
 {
   "contact": {
     "hero": {
-      "kicker": "DIN YDEEVNEANALYSE",
-      "title": "Anmod om IglooPro Ydeevneanalyse",
+      "kicker": "BESTIL TID",
+      "title": "Bestil tid",
       "breadcrumb": "Hjem / Kontakt Os"
     },
     "form": {
@@ -19,7 +19,7 @@
       "email_placeholder": "dig@eksempel.dk",
       "message": "Besked",
       "message_placeholder": "Fortæl os mere om dine behov...",
-      "submit": "Anmod om Ydeevneanalyse Nu",
+      "submit": "Bestil tid",
       "company_label": "Virksomheds- / Praksisnavn",
       "company_placeholder": "f.eks. Lægehuset v/ Dr. Jensen eller Løve Apotek",
       "area_label": "Primært Anvendelsesområde",
@@ -42,6 +42,7 @@
     "bottom_cta": {
       "title": "Leder du efter professionel og pålidelig medicinsk sundhedspleje?",
       "text": "Tøv ikke med at kontakte os. Vores koordinatorer står klar til at hjælpe dig med at vælge den rette læge og tid."
-    }
+    },
+    "call_us_button": "Ring til os"
   }
 }

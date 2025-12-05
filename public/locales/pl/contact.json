@@ -1,8 +1,8 @@
 {
   "contact": {
     "hero": {
-      "kicker": "TWOJA ANALIZA WYDAJNOŚCI",
-      "title": "Zamów analizę wydajności IglooPro",
+      "kicker": "UMÓW WIZYTĘ",
+      "title": "Umów wizytę",
       "breadcrumb": "Strona główna / Kontakt"
     },
     "form": {
@@ -19,7 +19,7 @@
       "email_placeholder": "ty@przyklad.com",
       "message": "Wiadomość",
       "message_placeholder": "Powiedz nam więcej o swoich potrzebach...",
-      "submit": "Zamów analizę wydajności teraz",
+      "submit": "Umów wizytę",
       "company_label": "Nazwa firmy / praktyki",
       "company_placeholder": "np. Gabinet Dr. Nowaka lub Apteka Lwa",
       "area_label": "Główny obszar zastosowania",
@@ -42,6 +42,7 @@
     "bottom_cta": {
       "title": "Szukasz profesjonalnej i zaufanej opieki medycznej?",
       "text": "Nie wahaj się z nami skontaktować. Nasi koordynatorzy są gotowi pomóc Ci wybrać odpowiedniego lekarza i termin."
-    }
+    },
+    "call_us_button": "Zadzwoń do nas"
   }
 }

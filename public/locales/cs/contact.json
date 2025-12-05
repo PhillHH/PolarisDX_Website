@@ -1,8 +1,8 @@
 {
   "contact": {
     "hero": {
-      "kicker": "VAŠE ANALÝZA VÝKONU",
-      "title": "Požádat o analýzu výkonu IglooPro",
+      "kicker": "SJEDNAT SCHŮZKU",
+      "title": "Sjednat schůzku",
       "breadcrumb": "Domů / Kontaktujte nás"
     },
     "form": {
@@ -19,7 +19,7 @@
       "email_placeholder": "vy@priklad.cz",
       "message": "Zpráva",
       "message_placeholder": "Řekněte nám více o svých potřebách...",
-      "submit": "Požádat o analýzu výkonu",
+      "submit": "Sjednat schůzku",
       "company_label": "Název společnosti / praxe",
       "company_placeholder": "např. Ordinace Dr. Nováka nebo Lékárna Centrum",
       "area_label": "Primární oblast použití",
@@ -42,6 +42,7 @@
     "bottom_cta": {
       "title": "Hledáte profesionální a důvěryhodnou lékařskou péči?",
       "text": "Neváhejte nás kontaktovat. Naši koordinátoři jsou připraveni vám pomoci vybrat toho správného lékaře a čas."
-    }
+    },
+    "call_us_button": "Zavolejte nám"
   }
 }

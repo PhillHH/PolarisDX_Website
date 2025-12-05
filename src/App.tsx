@@ -14,11 +14,13 @@ import TermsPage from './routes/TermsPage'
 import PrivacyPage from './routes/PrivacyPage'
 import ImprintPage from './routes/ImprintPage'
 import { CookieBanner } from './components/ui/CookieBanner'
+import MobileCallButton from './components/ui/MobileCallButton'
 import ScrollToTop from './components/layout/ScrollToTop'
 
 function App() {
   return (
     <Layout>
+      <MobileCallButton />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />

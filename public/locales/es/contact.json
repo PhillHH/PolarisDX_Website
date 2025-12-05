@@ -1,8 +1,8 @@
 {
   "contact": {
     "hero": {
-      "kicker": "SU ANÁLISIS DE RENDIMIENTO",
-      "title": "Solicitar análisis de rendimiento IglooPro",
+      "kicker": "RESERVAR CITA",
+      "title": "Reservar cita",
       "breadcrumb": "Inicio / Contacto"
     },
     "form": {
@@ -19,7 +19,7 @@
       "email_placeholder": "tu@ejemplo.com",
       "message": "Mensaje",
       "message_placeholder": "Cuéntenos más sobre sus necesidades...",
-      "submit": "Solicitar análisis de rendimiento ahora",
+      "submit": "Reservar cita",
       "company_label": "Nombre de la empresa / consultorio",
       "company_placeholder": "ej. Consultorio Dr. Pérez o Farmacia León",
       "area_label": "Área principal de aplicación",
@@ -42,6 +42,7 @@
     "bottom_cta": {
       "title": "¿Busca atención médica profesional y de confianza?",
       "text": "No dude en contactarnos. Nuestros coordinadores están listos para ayudarlo a elegir el médico y el momento adecuados."
-    }
+    },
+    "call_us_button": "Llámanos"
   }
 }

@@ -1,8 +1,8 @@
 {
   "contact": {
     "hero": {
-      "kicker": "VOTRE ANALYSE DE PERFORMANCE",
-      "title": "Demander une analyse de performance IglooPro",
+      "kicker": "PRENDRE RENDEZ-VOUS",
+      "title": "Prendre rendez-vous",
       "breadcrumb": "Accueil / Contact"
     },
     "form": {
@@ -19,7 +19,7 @@
       "email_placeholder": "vous@exemple.com",
       "message": "Message",
       "message_placeholder": "Dites-nous en plus sur vos besoins...",
-      "submit": "Demander l'analyse de performance maintenant",
+      "submit": "Prendre rendez-vous",
       "company_label": "Nom de l'entreprise / du cabinet",
       "company_placeholder": "ex. Cabinet Dr. Martin ou Pharmacie du Lion",
       "area_label": "Domaine d'application principal",
@@ -42,6 +42,7 @@
     "bottom_cta": {
       "title": "Vous cherchez des soins médicaux professionnels et de confiance ?",
       "text": "N'hésitez pas à nous contacter. Nos coordinateurs sont prêts à vous aider à choisir le bon médecin et le bon moment."
-    }
+    },
+    "call_us_button": "Appelle-nous"
   }
 }
