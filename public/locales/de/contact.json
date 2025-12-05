@@ -1,8 +1,8 @@
 {
   "contact": {
     "hero": {
-      "kicker": "IHRE PERFORMANCE-ANALYSE",
-      "title": "IglooPro Performance-Analyse anfordern",
+      "kicker": "TERMIN VEREINBAREN",
+      "title": "Termin vereinbaren",
       "breadcrumb": "Home / Kontakt"
     },
     "form": {
@@ -19,7 +19,7 @@
       "email_placeholder": "sie@beispiel.de",
       "message": "Nachricht",
       "message_placeholder": "Erzählen Sie uns mehr über Ihr Anliegen...",
-      "submit": "Performance-Analyse jetzt anfordern",
+      "submit": "Termin vereinbaren",
       "company_label": "Name des Unternehmens / der Praxis",
       "company_placeholder": "z.B. Praxis Dr. Müller oder Löwen-Apotheke",
       "area_label": "Primärer Einsatzbereich",

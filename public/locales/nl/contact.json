@@ -1,8 +1,8 @@
 {
   "contact": {
     "hero": {
-      "kicker": "UW PRESTATIEANALYSE",
-      "title": "Vraag IglooPro Prestatieanalyse Aan",
+      "kicker": "AFSPRAAK MAKEN",
+      "title": "Afspraak maken",
       "breadcrumb": "Home / Contacteer Ons"
     },
     "form": {
@@ -19,7 +19,7 @@
       "email_placeholder": "u@voorbeeld.nl",
       "message": "Bericht",
       "message_placeholder": "Vertel ons meer over uw behoeften...",
-      "submit": "Vraag Prestatieanalyse Nu Aan",
+      "submit": "Afspraak maken",
       "company_label": "Bedrijfs- / Praktijknaam",
       "company_placeholder": "bijv. Huisartsenpraktijk Jansen of Apotheek Centrum",
       "area_label": "Primair Toepassingsgebied",

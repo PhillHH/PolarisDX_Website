@@ -1,8 +1,8 @@
 {
   "contact": {
     "hero": {
-      "kicker": "YOUR PERFORMANCE ANALYSIS",
-      "title": "Request IglooPro Performance Analysis",
+      "kicker": "BOOK APPOINTMENT",
+      "title": "Book Appointment",
       "breadcrumb": "Home / Contact Us"
     },
     "form": {
@@ -19,7 +19,7 @@
       "email_placeholder": "you@example.com",
       "message": "Message",
       "message_placeholder": "Tell us more about your needs...",
-      "submit": "Request Performance Analysis Now",
+      "submit": "Book Appointment",
       "company_label": "Company / Practice Name",
       "company_placeholder": "e.g. Dr. Miller Practice or Lion Pharmacy",
       "area_label": "Primary Area of Application",

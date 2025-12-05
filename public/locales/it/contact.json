@@ -1,8 +1,8 @@
 {
   "contact": {
     "hero": {
-      "kicker": "LA TUA ANALISI DELLE PRESTAZIONI",
-      "title": "Richiedi l'analisi delle prestazioni IglooPro",
+      "kicker": "PRENOTA APPUNTAMENTO",
+      "title": "Prenota appuntamento",
       "breadcrumb": "Home / Contatti"
     },
     "form": {
@@ -19,7 +19,7 @@
       "email_placeholder": "tu@esempio.com",
       "message": "Messaggio",
       "message_placeholder": "Raccontaci di più sulle tue esigenze...",
-      "submit": "Richiedi ora l'analisi delle prestazioni",
+      "submit": "Prenota appuntamento",
       "company_label": "Nome dell'azienda / dello studio",
       "company_placeholder": "es. Studio Dr. Rossi o Farmacia Leone",
       "area_label": "Area principale di applicazione",

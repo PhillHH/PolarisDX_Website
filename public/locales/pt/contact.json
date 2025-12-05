@@ -1,8 +1,8 @@
 {
   "contact": {
     "hero": {
-      "kicker": "A SUA ANÁLISE DE DESEMPENHO",
-      "title": "Solicitar Análise de Desempenho IglooPro",
+      "kicker": "AGENDAR CONSULTA",
+      "title": "Agendar consulta",
       "breadcrumb": "Início / Contacte-nos"
     },
     "form": {
@@ -19,7 +19,7 @@
       "email_placeholder": "voce@exemplo.com",
       "message": "Mensagem",
       "message_placeholder": "Conte-nos mais sobre as suas necessidades...",
-      "submit": "Solicitar Análise de Desempenho Agora",
+      "submit": "Agendar consulta",
       "company_label": "Nome da Empresa / Consultório",
       "company_placeholder": "ex: Consultório Dr. Silva ou Farmácia Central",
       "area_label": "Área Principal de Aplicação",
