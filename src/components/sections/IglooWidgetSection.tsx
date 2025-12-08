@@ -5,11 +5,12 @@ import iglooImage from '../../assets/igloo_front.png'
 const IglooWidgetSection = () => {
   const { t } = useTranslation('home')
 
-  // Coordinates for the symmetrical triangle layout (800x600 container)
+  // Percentage positions for a triangle layout (desktop, relative to container)
+  // Based on former 800x600 layout: x/800 and y/600 converted to %
   const positions = {
-    dental: { x: 400, y: 80 },    // Moved up slightly to clear the Igloo
-    beauty: { x: 130, y: 500 },
-    longevity: { x: 670, y: 500 },
+    dental: { x: '50%', y: '13.33%' },      // 400/800, 80/600
+    beauty: { x: '16.25%', y: '83.33%' },   // 130/800, 500/600
+    longevity: { x: '83.75%', y: '83.33%' } // 670/800, 500/600
   }
 
   const widgets = [
@@ -37,8 +38,9 @@ const IglooWidgetSection = () => {
   ]
 
   return (
-    <section className="relative py-20 lg:py-32 bg-slate-50">
-       <div className="mx-auto max-w-container px-4 text-center lg:px-0 mb-16 relative z-10">
+    <section className="relative py-20 lg:py-32 bg-slate-50 overflow-visible">
+
+       <div className="mx-auto max-w-container px-4 text-center lg:px-0 mb-16 relative z-20">
           <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-accentBlue mb-3">
              {t('services.caption', 'DIAGNOSTIK-FOKUS')}
           </h2>
@@ -47,14 +49,17 @@ const IglooWidgetSection = () => {
           </h3>
        </div>
 
-      <div className="mx-auto flex flex-col items-center justify-center gap-10 lg:block lg:h-[600px] lg:w-[800px] relative">
+      <div className="mx-auto flex flex-col items-center justify-center gap-10 w-full max-w-container px-4 lg:px-0 lg:block lg:h-[620px] lg:w-full relative">
 
         {/* Decorative connecting lines for desktop (Triangle)
             Placed FIRST in DOM to be behind content naturally, but using absolute positioning.
             Removed negative z-index to avoid hiding behind parent background if stacking context allows.
             We'll use z-0 for lines, and z-10 for content.
         */}
-        <svg className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0">
+        <svg
+          className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-10"
+          style={{ overflow: 'visible' }}
+        >
              <defs>
                 <linearGradient id="animatedGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#22d3ee">
@@ -73,15 +78,17 @@ const IglooWidgetSection = () => {
              <path
                 d={`M ${positions.dental.x} ${positions.dental.y} L ${positions.beauty.x} ${positions.beauty.y} L ${positions.longevity.x} ${positions.longevity.y} Z`}
                 stroke="url(#animatedGradient)"
-                strokeWidth="4"
+                strokeWidth="10"
+                strokeOpacity="1"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                filter="drop-shadow(0 0 10px rgba(59,130,246,0.35))"
              />
         </svg>
 
         {/* Central Image - Resized smaller (w-32 on mobile, w-48 on desktop) */}
-        <div className="relative z-10 flex justify-center items-center h-full w-full pointer-events-none">
+        <div className="relative z-20 flex justify-center items-center h-full w-full pointer-events-none">
             <img
             src={iglooImage}
             alt="Igloo Pro"
@@ -90,7 +97,7 @@ const IglooWidgetSection = () => {
         </div>
 
         {/* Widgets */}
-        <div className="flex flex-col gap-6 lg:absolute lg:inset-0 lg:block z-20">
+        <div className="flex flex-col gap-6 lg:absolute lg:inset-0 lg:block z-30">
             {widgets.map((widget) => (
             <Link
               key={widget.id}
@@ -106,8 +113,8 @@ const IglooWidgetSection = () => {
                 lg:w-64 lg:h-40
               `}
               style={{
-                '--x': `${widget.x}px`,
-                '--y': `${widget.y}px`
+                '--x': widget.x,
+                '--y': widget.y
               } as React.CSSProperties}
             >
                 {/* Inner white container to create the border effect */}

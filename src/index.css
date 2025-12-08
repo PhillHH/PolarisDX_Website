@@ -15,6 +15,14 @@
   body {
     margin: 0;
     min-height: 100vh;
+    /* Global Hintergrundbild */
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+      url('/src/assets/bg_images/Logo_Icon_background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
   }
 
   #root {

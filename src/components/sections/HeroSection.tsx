@@ -56,7 +56,7 @@ const HeroSection = () => {
               </PrimaryButton>
             </div>
 
-            <div className="mt-2 flex flex-row items-start gap-6 lg:mt-1">
+            <div className="mt-1 flex flex-row items-start gap-4 lg:mt-0">
               <StatItem
                 value={t('hero.stat1.value', '48h')}
                 label={t('hero.stat1.label', 'Einsatzbereit nach Bestellung')}
