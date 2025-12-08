@@ -56,6 +56,18 @@
     "kompatibilitaet_integration": {
       "title": "Compatibiliteit tussen fabrikanten",
       "description": "Maximale flexibiliteit. Dankzij universele technologie evalueren onze apparaten 90% van alle laterale flow tests op de markt. Investeringszekerheid door openheid."
+    },
+    "dental": {
+      "title": "Tandheelkunde",
+      "description": "Geoptimaliseerde implantologie. Onmiddellijke analyse van vitamine D voor betere wondgenezing en ontstekingsmarkers voor risicominimalisatie direct aan de stoel."
+    },
+    "beauty": {
+      "title": "Schoonheid en Esthetiek",
+      "description": "Schoonheid van binnenuit. Wetenschappelijk onderbouwde esthetiek door analyse van huidgezondheid, hormonale status en micronutriënten voor zichtbare resultaten."
+    },
+    "longevity": {
+      "title": "Levensduur",
+      "description": "Proactief verouderingsbeheer. Monitoring van essentiële biomarkers zoals HbA1c, lipiden en ontstekingswaarden voor een langer, gezonder leven."
     }
   },
   "testimonials": {

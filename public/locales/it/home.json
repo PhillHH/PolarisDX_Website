@@ -56,6 +56,18 @@
     "kompatibilitaet_integration": {
       "title": "Compatibilità multi-produttore",
       "description": "Massima flessibilità. Grazie alla tecnologia universale, i nostri dispositivi valutano il 90% di tutti i test a flusso laterale sul mercato. Sicurezza dell'investimento attraverso l'apertura."
+    },
+    "dental": {
+      "title": "Dentale",
+      "description": "Implantologia ottimizzata. Analisi immediata della vitamina D per una migliore guarigione delle ferite e marcatori di infiammazione per la minimizzazione del rischio direttamente alla poltrona."
+    },
+    "beauty": {
+      "title": "Bellezza ed Estetica",
+      "description": "Bellezza dall'interno. Estetica scientificamente fondata attraverso l'analisi della salute della pelle, dello stato ormonale e dei micronutrienti per risultati visibili."
+    },
+    "longevity": {
+      "title": "Longevità",
+      "description": "Gestione proattiva dell'invecchiamento. Monitoraggio di biomarcatori essenziali come HbA1c, lipidi e valori di infiammazione per una vita più lunga e più sana."
     }
   },
   "testimonials": {

@@ -56,6 +56,18 @@
     "kompatibilitaet_integration": {
       "title": "Kompatibilitet på tværs af producenter",
       "description": "Maksimal fleksibilitet. Takket være universel teknologi evaluerer vores enheder 90% af alle laterale flow tests på markedet. Investeringssikkerhed gennem åbenhed."
+    },
+    "dental": {
+      "title": "Dental",
+      "description": "Optimeret implantologi. Øjeblikkelig analyse af D-vitamin for bedre sårheling og inflammationsmarkører til risikominimering direkte ved stolen."
+    },
+    "beauty": {
+      "title": "Skønhed og Æstetik",
+      "description": "Skønhed indefra. Videnskabeligt funderet æstetik gennem analyse af hudens sundhed, hormonstatus og mikronæringsstoffer for synlige resultater."
+    },
+    "longevity": {
+      "title": "Levetid",
+      "description": "Proaktiv aldringsstyring. Overvågning af essentielle biomarkører som HbA1c, lipider og inflammationsværdier for et længere og sundere liv."
     }
   },
   "testimonials": {

@@ -56,6 +56,18 @@
     "kompatibilitaet_integration": {
       "title": "Kompatybilność między producentami",
       "description": "Maksymalna elastyczność. Dzięki uniwersalnej technologii nasze urządzenia oceniają 90% wszystkich testów przepływu bocznego na rynku. Bezpieczeństwo inwestycji dzięki otwartości."
+    },
+    "dental": {
+      "title": "Stomatologia",
+      "description": "Zoptymalizowana implantologia. Natychmiastowa analiza witaminy D dla lepszego gojenia się ran i markerów stanu zapalnego w celu minimalizacji ryzyka bezpośrednio przy fotelu."
+    },
+    "beauty": {
+      "title": "Uroda i Estetyka",
+      "description": "Piękno od wewnątrz. Estetyka oparta na nauce poprzez analizę zdrowia skóry, statusu hormonalnego i mikroelementów dla widocznych rezultatów."
+    },
+    "longevity": {
+      "title": "Długowieczność",
+      "description": "Proaktywne zarządzanie starzeniem. Monitorowanie kluczowych biomarkerów, takich jak HbA1c, lipidy i wartości zapalne dla dłuższego, zdrowszego życia."
     }
   },
   "testimonials": {

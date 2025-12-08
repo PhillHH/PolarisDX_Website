@@ -56,6 +56,18 @@
     "kompatibilitaet_integration": {
       "title": "Kompatibilita mezi výrobci",
       "description": "Maximální flexibilita. Díky univerzální technologii naše zařízení vyhodnocují 90% všech testů s bočním tokem na trhu. Bezpečnost investice díky otevřenosti."
+    },
+    "dental": {
+      "title": "Dentální",
+      "description": "Optimalizovaná implantologie. Okamžitá analýza vitaminu D pro lepší hojení ran a zánětlivých markerů pro minimalizaci rizik přímo v křesle."
+    },
+    "beauty": {
+      "title": "Krása a Estetika",
+      "description": "Krása zevnitř. Vědecky podložená estetika analýzou zdraví pleti, hormonálního stavu a mikroživin pro viditelné výsledky."
+    },
+    "longevity": {
+      "title": "Dlouhověkost",
+      "description": "Proaktivní řízení stárnutí. Monitorování klíčových biomarkerů jako HbA1c, lipidy a zánětlivé hodnoty pro delší a zdravější život."
     }
   },
   "testimonials": {

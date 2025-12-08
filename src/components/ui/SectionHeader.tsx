@@ -23,8 +23,8 @@ const SectionHeader = ({
   return (
     <div id={id} className={`flex flex-col gap-2 ${alignment} ${className}`}>
       <div className="inline-block rounded p-[1px] bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
-        <div className="rounded-sm bg-slate-50 px-3 py-1">
-          <span className="text-xs font-semibold uppercase tracking-wide text-gray-900">
+        <div className="rounded-sm bg-slate-50 px-4 py-2 lg:px-3 lg:py-1">
+          <span className="text-sm font-semibold uppercase tracking-wide text-gray-900 lg:text-xs">
             {caption}
           </span>
         </div>

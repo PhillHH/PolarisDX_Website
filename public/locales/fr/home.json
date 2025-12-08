@@ -56,6 +56,18 @@
     "kompatibilitaet_integration": {
       "title": "Compatibilité multi-fabricants",
       "description": "Flexibilité maximale. Grâce à la technologie universelle, nos appareils évaluent 90% de tous les tests à flux latéral sur le marché. Sécurité d'investissement grâce à l'ouverture."
+    },
+    "dental": {
+      "title": "Dentaire",
+      "description": "Implantologie optimisée. Analyse immédiate de la vitamine D pour une meilleure cicatrisation et des marqueurs d'inflammation pour minimiser les risques directement au fauteuil."
+    },
+    "beauty": {
+      "title": "Beauté & Esthétique",
+      "description": "La beauté de l'intérieur. Esthétique scientifiquement fondée par l'analyse de la santé de la peau, du statut hormonal et des micronutriments pour des résultats visibles."
+    },
+    "longevity": {
+      "title": "Longévité",
+      "description": "Gestion proactive du vieillissement. Surveillance des biomarqueurs essentiels comme l'HbA1c, les lipides et les valeurs d'inflammation pour une vie plus longue et plus saine."
     }
   },
   "testimonials": {
