@@ -43,6 +43,7 @@ const AboutSection = () => {
           title={t('about.title', 'Exzellenz und Sicherheit: Der Standard, den wir setzen.')}
           align="center"
           titleClassName="text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)] font-medium tracking-[-0.02em] text-gray-900"
+          className="gap-3"
         />
         {/* Textabsätze mit Platzhaltertext. */}
         <p className="text-sm leading-relaxed text-gray-500 sm:text-base">

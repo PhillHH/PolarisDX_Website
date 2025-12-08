@@ -79,19 +79,33 @@ const TestimonialsSection = () => {
                   <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-start md:gap-8 md:text-left">
                     {/* Reviewer Image & Stars */}
                     <div className="flex flex-col items-center gap-2">
-                      <div className="mx-auto h-32 w-32 flex-shrink-0 rounded-full bg-white/20 md:mx-0" />
+                      {testimonial.avatar ? (
+                        <img
+                          src={testimonial.avatar}
+                          alt={testimonial.name}
+                          className="mx-auto h-32 w-32 flex-shrink-0 rounded-full object-cover object-center md:mx-0"
+                        />
+                      ) : (
+                        <div className="mx-auto h-32 w-32 flex-shrink-0 rounded-full bg-white/20 md:mx-0" />
+                      )}
                       <StarRating rating={5} />
                     </div>
 
                     {/* Review Content */}
                     <div className="flex-grow space-y-4">
                       <blockquote className="text-lg leading-relaxed text-white/90">
-                        “{t(`testimonials.${testimonial.id}.text`)}”
+                        “
+                        {t(`testimonials.${testimonial.id}.text`, {
+                          defaultValue: testimonial.text,
+                        })}
+                        ”
                       </blockquote>
                       <div className="h-10">
                         <p className="font-semibold">{testimonial.name}</p>
                         <p className="text-sm text-white/70">
-                          {t(`testimonials.${testimonial.id}.title`)}
+                          {t(`testimonials.${testimonial.id}.title`, {
+                            defaultValue: testimonial.title,
+                          })}
                         </p>
                       </div>
                     </div>

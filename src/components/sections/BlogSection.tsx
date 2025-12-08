@@ -7,7 +7,7 @@ const BlogSection = () => {
   const { t } = useTranslation('home')
 
   return (
-    <section id="blog" className="space-y-10">
+    <section id="blog" className="space-y-10 pb-24 sm:pb-28 lg:pb-16">
       <SectionHeader
         caption={t('blog.caption', 'Blog & News')}
         title={t('blog.title', 'Our Articles About Health')}
