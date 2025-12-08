@@ -90,6 +90,50 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
+/**
+ * Chat Endpoint (Mock / Placeholder)
+ *
+ * TODO: Integration with Microsoft Teams Bot Framework or OpenAI
+ *
+ * To implement full "Option C":
+ * 1. Register a Bot in Azure Bot Service.
+ * 2. Use `botbuilder` SDK to forward messages to the bot.
+ * 3. Use `openai` SDK if you want an intermediate AI agent.
+ *
+ * Current implementation: Simple Echo/Mock Agent.
+ */
+app.post('/api/chat', async (req, res) => {
+  try {
+    const { message } = req.body;
+
+    // Simulate processing delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    // Mock Response Logic
+    let reply = "Vielen Dank für Ihre Nachricht. Ein Mitarbeiter wird sich in Kürze bei Ihnen melden.";
+
+    const lowerMsg = message.toLowerCase();
+    if (lowerMsg.includes('hallo') || lowerMsg.includes('hi')) {
+      reply = "Hallo! Wie kann ich Ihnen heute helfen?";
+    } else if (lowerMsg.includes('preis') || lowerMsg.includes('kosten')) {
+      reply = "Für Preisanfragen wenden Sie sich bitte direkt an unseren Vertrieb oder nutzen Sie das Kontaktformular.";
+    } else if (lowerMsg.includes('termin')) {
+      reply = "Gerne! Sie können einen Termin direkt über unsere Kontaktseite buchen.";
+    }
+
+    // TODO: Connect to MS Teams Webhook or OpenAI API here
+    // Example (Pseudo-code):
+    // const aiResponse = await openai.createCompletion({ ... });
+    // reply = aiResponse.choices[0].text;
+
+    res.status(200).json({ reply });
+
+  } catch (error) {
+    console.error('Chat Error:', error);
+    res.status(500).json({ error: 'Chat service error' });
+  }
+});
+
 // Start Server
 const PORT = process.env.PORT || 5000;
 // Listen on 0.0.0.0 to ensure Docker accessibility

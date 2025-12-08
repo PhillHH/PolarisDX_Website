@@ -5,12 +5,12 @@ import iglooImage from '../../assets/igloo_front.png'
 const IglooWidgetSection = () => {
   const { t } = useTranslation('home')
 
-  // Percentage positions for a triangle layout (desktop, relative to container)
+  // Positions on a 0-100 scale (percentages of container width/height)
   // Based on former 800x600 layout: x/800 and y/600 converted to %
   const positions = {
-    dental: { x: '50%', y: '13.33%' },      // 400/800, 80/600
-    beauty: { x: '16.25%', y: '83.33%' },   // 130/800, 500/600
-    longevity: { x: '83.75%', y: '83.33%' } // 670/800, 500/600
+    dental: { x: 50, y: 13.33 },      // 400/800, 80/600
+    beauty: { x: 16.25, y: 83.33 },   // 130/800, 500/600
+    longevity: { x: 83.75, y: 83.33 } // 670/800, 500/600
   }
 
   const widgets = [
@@ -52,12 +52,12 @@ const IglooWidgetSection = () => {
       <div className="mx-auto flex flex-col items-center justify-center gap-10 w-full max-w-container px-4 lg:px-0 lg:block lg:h-[620px] lg:w-full relative">
 
         {/* Decorative connecting lines for desktop (Triangle)
-            Placed FIRST in DOM to be behind content naturally, but using absolute positioning.
-            Removed negative z-index to avoid hiding behind parent background if stacking context allows.
-            We'll use z-0 for lines, and z-10 for content.
+            Using viewBox="0 0 100 100" and preserveAspectRatio="none" to stretch the SVG to full container size.
         */}
         <svg
-          className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-10"
+          className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
           style={{ overflow: 'visible' }}
         >
              <defs>
@@ -74,20 +74,27 @@ const IglooWidgetSection = () => {
                 </linearGradient>
              </defs>
 
-             {/* Path connecting the centers of the widgets */}
+             {/* Path connecting the centers of the widgets
+                 Coordinates are now unitless (0-100) matching the viewBox
+             */}
              <path
                 d={`M ${positions.dental.x} ${positions.dental.y} L ${positions.beauty.x} ${positions.beauty.y} L ${positions.longevity.x} ${positions.longevity.y} Z`}
                 stroke="url(#animatedGradient)"
-                strokeWidth="10"
+                strokeWidth="0.5" // Thinner stroke relative to 100x100 coord system, roughly 3-5px equivalent depending on aspect ratio. Adjusted for visual balance.
+                vectorEffect="non-scaling-stroke" // Ensures the line thickness is constant in pixels, if supported. Otherwise, rely on strokeWidth.
                 strokeOpacity="1"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                filter="drop-shadow(0 0 10px rgba(59,130,246,0.35))"
+                filter="drop-shadow(0 0 4px rgba(59,130,246,0.35))"
              />
+             {/* Fallback stroke width without non-scaling-stroke might be weird if aspect ratio is extreme.
+                 Let's stick to standard strokeWidth="0.8" or similar which is ~0.8% of viewbox.
+                 On 1200px width, 0.8% is ~9px.
+             */}
         </svg>
 
-        {/* Central Image - Resized smaller (w-32 on mobile, w-48 on desktop) */}
+        {/* Central Image */}
         <div className="relative z-20 flex justify-center items-center h-full w-full pointer-events-none">
             <img
             src={iglooImage}
@@ -113,8 +120,8 @@ const IglooWidgetSection = () => {
                 lg:w-64 lg:h-40
               `}
               style={{
-                '--x': widget.x,
-                '--y': widget.y
+                '--x': `${widget.x}%`,
+                '--y': `${widget.y}%`
               } as React.CSSProperties}
             >
                 {/* Inner white container to create the border effect */}
