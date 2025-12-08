@@ -56,6 +56,18 @@
     "kompatibilitaet_integration": {
       "title": "Herstellerübergreifende Kompatibilität",
       "description": "Maximale Flexibilität. Unsere Geräte werten dank universeller Technologie 90% aller auf dem Markt befindlichen Lateral-Flow-Tests aus. Investitionssicherheit durch Offenheit."
+    },
+    "dental": {
+      "title": "Dental",
+      "description": "Optimierte Implantologie. Sofortige Analyse von Vitamin D für bessere Wundheilung und Entzündungsmarkern zur Risikominimierung direkt am Behandlungsstuhl."
+    },
+    "beauty": {
+      "title": "Beauty & Ästhetik",
+      "description": "Schönheit von innen. Wissenschaftlich fundierte Ästhetik durch Analyse von Hautgesundheit, Hormonstatus und Mikronährstoffen für sichtbare Ergebnisse."
+    },
+    "longevity": {
+      "title": "Longevity",
+      "description": "Proaktives Alternsmanagement. Monitoring essenzieller Biomarker wie HbA1c, Lipide und Entzündungswerte für ein längeres, gesünderes Leben."
     }
   },
   "testimonials": {

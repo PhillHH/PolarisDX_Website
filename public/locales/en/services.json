@@ -1,87 +1,128 @@
 {
   "dental": {
     "title": "Dental",
-    "headline": "Precision for Modern Dentistry",
+    "headline": "Optimized Implantology & Periodontology: Measurable Safety at the Chair",
     "intro": [
-      "Expand your treatment spectrum with modern diagnostics directly at the chair. Rapid results enable immediate, well-founded patient consultation.",
-      "Optimize healing processes and detect risks early."
+      "In modern dentistry, the success of surgical procedures and periodontal treatments is closely linked to the patient's systemic health status. 'Chairside' diagnostics allow you to make these factors visible and minimize risks.",
+      "The Igloo Pro Reader brings necessary laboratory analytical precision directly into your practice to immediately determine wound healing potentials and inflammation levels."
     ],
     "sections": [
       {
-        "heading": "1. Vitamin D & Wound Healing",
-        "content": "A sufficient Vitamin D level is essential for the osseointegration of implants and general wound healing. Measure the status directly on site.",
+        "heading": "1. Vitamin D: The Key to Osseointegration",
+        "content": "A sufficient 25-OH-Vitamin D level (>30-40 ng/ml) is the physiological prerequisite for successful osseointegration and bone regeneration.",
         "listItems": [
-          "Immediate determination of 25-OH-Vitamin D levels.",
-          "Targeted supplementation to improve surgical outcomes."
+          "Preoperative Screening: Measure Vitamin D status before every implantation or bone augmentation. Deficiency correlates significantly with early implant loss and wound healing disorders.",
+          "Immediate Therapy: Thanks to results in minutes, you can initiate high-dose supplementation before the procedure (or perioperatively) ('Loading Dose') to close the 'Immunological Gap'.",
+          "Evidence-Based Counseling: Show your patients in black and white why supplementation is necessary for the preservation of their implant."
         ]
       },
       {
-        "heading": "2. Inflammation Markers",
-        "content": "Detect systemic inflammations that can influence periodontitis and monitor therapeutic success.",
-        "listItems": []
+        "heading": "2. Inflammation Management: aMMP-8 and CRP",
+        "content": "Detect the process of tissue destruction before it becomes clinically visible.",
+        "listItems": [
+          "aMMP-8 (Active Matrix Metalloproteinase-8): This marker indicates acute tissue destruction (collagenolysis). An elevated value in sulcus fluid or saliva warns of active periodontitis or peri-implantitis, often before probing depths increase.",
+          "Systemic Inflammation (CRP): Chronic periodontitis can increase systemic inflammation load (hs-CRP) and vice versa. Measurement helps to illustrate the connection between oral and general health."
+        ]
+      },
+      {
+        "heading": "3. Economic Efficiency and Patient Service",
+        "content": "Integrating these tests is not only medically sensible but also a unique selling point.",
+        "listItems": [
+          "Private Billing: Diagnostic services and consultations are billable as private medical services.",
+          "Trust: Patients experience high-tech care that goes beyond the standard and places their safety at the center."
+        ]
       }
     ],
     "conclusion": {
-      "heading": "Conclusion",
-      "text": "Seamlessly integrate diagnostics into your practice workflow for better clinical results."
+      "heading": "Conclusion: Biological Dentistry with Data",
+      "text": "Do not rely on assumptions. With the Igloo Pro, you make the biological prerequisites of your patients measurable and controllable. PolarisDX.net supports you in implementing these tests into your daily workflow."
     },
-    "cta": "Learn more"
+    "cta": "Book appointment"
   },
   "beauty": {
     "title": "Beauty & Aesthetics",
-    "headline": "Beauty from Within: Data-Based Aesthetics",
+    "headline": "Beauty from Within: When Data Determines Skin Appearance",
     "intro": [
-      "True beauty begins with health. Use precise analyses to underpin aesthetic treatments with sound health data.",
-      "Offer your clients a holistic approach that goes beyond the surface."
+      "True aesthetics are inseparable from inner health. Customers investing in high-quality cosmetic or aesthetic treatments today expect holistic concepts ('Inside-Out' approach).",
+      "Use POC diagnostics to scientifically substantiate the 'Inner Glow' and validate your treatments through objective measurements."
     ],
     "sections": [
       {
-        "heading": "1. Skin Health & Vitamins",
-        "content": "Analyze micronutrient status to specifically support skin appearance and anti-aging treatments.",
+        "heading": "1. Micronutrient Status: Basis for Collagen and Glow",
+        "content": "Skin tightening, hair growth, and anti-aging processes are biochemically dependent on specific nutrients.",
         "listItems": [
-          "Individual advice based on blood values.",
-          "Optimization of collagen formation and regeneration."
+          "Vitamin D & Skin Barrier: Deficiency promotes inflammatory skin conditions and accelerates skin aging. Measure the status to ensure the effectiveness of anti-aging treatments.",
+          "Ferritin (Iron): Hair loss is often the first symptom of iron deficiency. A quick check narrows down the cause and enables targeted recommendations.",
+          "Personalized Drips/Supplements: Based on blood values, you can precisely dose and sell vitamin infusions or high-quality dietary supplements."
         ]
       },
       {
-        "heading": "2. Hormonal Balance",
-        "content": "Understand the influence of hormones on skin and hair and adapt treatments accordingly.",
-        "listItems": []
+        "heading": "2. Hormonal Balance and Skin Appearance",
+        "content": "Hormones control sebum production, moisture, and elasticity of the skin.",
+        "listItems": [
+          "Thyroid (TSH): Dry, scaly skin or hair loss can indicate hypothyroidism. Screening provides clarity.",
+          "Stress Axis (Cortisol): Chronic stress increases cortisol levels, which degrades collagen and promotes impurities. Make the stress level visible."
+        ]
+      },
+      {
+        "heading": "3. Silent Aging: Silent Inflammation",
+        "content": "Chronic, low-grade inflammation ('Inflammaging') is the main driver of premature skin aging.",
+        "listItems": [
+          "hs-CRP Measurement: A sensitive CRP test reveals these silent inflammations. This opens up the possibility to counteract with anti-inflammatory nutritional strategies and lifestyle interventions – as a perfect accompanying program to device treatments."
+        ]
       }
     ],
     "conclusion": {
-      "heading": "Conclusion",
-      "text": "Stand out with scientifically grounded beauty concepts."
+      "heading": "Conclusion: Science Instead of Wellness",
+      "text": "Position yourself as an expert in Medical Beauty. Through data-based analysis, you stand out from the competition and offer results that are not only visible but also measurable."
     },
-    "cta": "Book consultation"
+    "cta": "Book appointment"
   },
   "longevity": {
     "title": "Longevity",
-    "headline": "Live Healthy Longer: Proactive Prevention",
+    "headline": "Longevity Medicine: Decoding the Aging Process",
     "intro": [
-      "Longevity is more than a trend – it is the future of medicine. Enable your patients to understand and optimize their biological clock.",
-      "Rely on biomarkers that make aging processes visible and influenceable."
+      "Longevity means not just getting old, but staying healthy and capable. It is the transition from reactive disease treatment to proactive health optimization.",
+      "The Igloo Pro Reader is your tool to monitor aging biomarkers and verify the effectiveness of interventions such as nutrition, exercise, or supplementation."
     ],
     "sections": [
       {
-        "heading": "1. Key Biomarkers of Aging",
-        "content": "Monitor metabolic and inflammatory markers considered drivers of aging.",
+        "heading": "1. Metabolic Health: The Foundation",
+        "content": "A derailed metabolism is the accelerator of aging.",
         "listItems": [
-          "Regular monitoring of HbA1c, lipids, and hs-CRP.",
-          "Early detection of risk factors for age-related diseases."
+          "Insulin Sensitivity (HbA1c): Even within the normal range, HbA1c provides valuable information about glycemic control. The goal in longevity medicine is often stricter, optimal values to minimize glycation processes (AGEs).",
+          "Lipid Profile: A detailed look at cholesterol and triglycerides helps keep cardiovascular risk low in the long term."
         ]
       },
       {
-        "heading": "2. Personalized Strategies",
-        "content": "Develop tailored plans for nutrition, exercise, and supplementation based on valid data.",
-        "listItems": []
+        "heading": "2. Inflammaging: Extinguishing the Fire",
+        "content": "With age, the immune system's ability to regulate inflammation decreases.",
+        "listItems": [
+          "hs-CRP Monitoring: Regular measurements of high-sensitivity CRP are the gold standard for tracking 'Inflammaging'. The goal is to keep values in the lowest range to delay age-related diseases like atherosclerosis or neurodegeneration."
+        ]
+      },
+      {
+        "heading": "3. Hormonal Vitality",
+        "content": "Maintaining hormonal balance is essential for vitality and libido.",
+        "listItems": [
+          "Testosterone & DHEA: For men and women, these are markers for energy and muscle strength. Screening gives hints of deficits that can be balanced by lifestyle or bioidentical hormones.",
+          "Thyroid (TSH, fT3, fT4): The metabolic engine must run smoothly to provide energy for repair processes."
+        ]
+      },
+      {
+        "heading": "4. Bio-Feedback in Real-Time",
+        "content": "The greatest benefit of POC diagnostics in the longevity sector is immediate feedback.",
+        "listItems": [
+          "Tracking: Clients can see how their values change through fasting, cryotherapy, or training.",
+          "Motivation: Data makes the invisible process of maintaining health tangible and motivates to stick with it."
+        ]
       }
     ],
     "conclusion": {
-      "heading": "Conclusion",
-      "text": "Become a partner for a long, healthy life for your patients."
+      "heading": "Conclusion: Become a Longevity Hub",
+      "text": "Offer your clients more than just hope – offer control. With the Igloo Pro, you establish professional biomarker monitoring that forms the basis for any serious longevity program."
     },
-    "cta": "Start now"
+    "cta": "Book appointment"
   },
   "poc_systemloesungen": {
     "title": "POC System Solutions: The Control Center for Validated Diagnostics",

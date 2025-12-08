@@ -56,6 +56,18 @@
     "kompatibilitaet_integration": {
       "title": "Cross-Manufacturer Compatibility",
       "description": "Maximum flexibility. Thanks to universal technology, our devices evaluate 90% of all lateral flow tests on the market. Investment security through openness."
+    },
+    "dental": {
+      "title": "Dental",
+      "description": "Optimized Implantology. Immediate analysis of Vitamin D for better wound healing and inflammation markers for risk minimization directly at the chair."
+    },
+    "beauty": {
+      "title": "Beauty & Aesthetics",
+      "description": "Beauty from Within. Scientifically based aesthetics through analysis of skin health, hormone status, and micronutrients for visible results."
+    },
+    "longevity": {
+      "title": "Longevity",
+      "description": "Proactive Aging Management. Monitoring essential biomarkers like HbA1c, lipids, and inflammation values for a longer, healthier life."
     }
   },
   "testimonials": {
