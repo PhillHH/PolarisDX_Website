@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import PrimaryButton from '../ui/PrimaryButton'
 import StatItem from '../ui/StatItem'
 import heroDoctor from '../../assets/hero_doctor.png'
+import iglooLogoWhite from '../../assets/igloo_logo_white.png'
 
 const HeroSection = () => {
   const { t } = useTranslation('home')
@@ -18,14 +19,13 @@ const HeroSection = () => {
 
       <div className="relative z-10 mx-auto flex min-h-[490px] max-w-container items-stretch px-6 pt-10 pb-0 sm:px-8 lg:px-0 lg:pt-14 lg:pb-0">
         <div className="grid w-full gap-4 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
-        <div className="flex flex-col justify-center space-y-12 lg:space-y-8">
-          <div className="inline-flex items-center gap-3">
-            <span className="inline-flex items-center rounded bg-accentBlue px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em]">
-              {t('hero.caption', 'Point-of-care Performance')}
-            </span>
-          </div>
-
-          <div className="space-y-6 lg:space-y-4">
+        <div className="flex flex-col justify-center space-y-9 lg:space-y-7">
+          <div className="space-y-3 lg:space-y-2">
+            <img
+              src={iglooLogoWhite}
+              alt="IglooPro Logo"
+              className="h-14 w-auto drop-shadow-sm"
+            />
             <h1 className="max-w-3xl font-medium tracking-[-0.02em] text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)]">
               {t('hero.title', 'Intelligente Diagnostik: Der neue Maßstab für effiziente POC-Workflows.')}
             </h1>
