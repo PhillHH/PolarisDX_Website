@@ -7,6 +7,7 @@ import { FileText, Download } from 'lucide-react'
 import PriceListDE from '../assets/downloads/Polaris Price List A4_ €_DE 18.09.25.pdf'
 import PriceListEN from '../assets/downloads/Polaris Price List A4_€_EN 23.06.25.pdf'
 import PriceListGBP from '../assets/downloads/PolarixDX Price List A5_£_EN 202507.pdf'
+import IglooProSystemFlyerDE from '../assets/downloads/Polaris Flyer A4zuA5 Igloo Customer_DE_Frank_Druck(1)_1 (2).pdf'
 
 type DownloadItem = {
   id: string
@@ -15,6 +16,7 @@ type DownloadItem = {
   format: string
   date?: string
   url: string
+  openInBrowser?: boolean
 }
 
 const DownloadsPage = () => {
@@ -48,7 +50,16 @@ const DownloadsPage = () => {
   ]
 
   const techBrochures: DownloadItem[] = []
-  const infoMaterials: DownloadItem[] = []
+  const infoMaterials: DownloadItem[] = [
+    {
+      id: 'im-de-igloo-pro',
+      title: 'Igloo Pro System Flyer (DE)',
+      size: '3.5 MB',
+      format: 'PDF',
+      url: IglooProSystemFlyerDE,
+      openInBrowser: true,
+    },
+  ]
 
   const renderDownloadSection = (title: string, items: DownloadItem[]) => (
     <div className="mb-12 last:mb-0">
@@ -76,7 +87,7 @@ const DownloadsPage = () => {
               <div className="mt-6">
                 <a
                   href={item.url}
-                  download
+                  download={item.openInBrowser ? undefined : true}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:border-blue-500 hover:bg-blue-50 hover:text-blue-600"
