@@ -48,5 +48,14 @@
     "text": "Sprechen Sie direkt mit unseren IglooPro-Spezialisten. Unser Team ist bereit, Ihre individuellen Workflow-Anforderungen zu analysieren und Ihnen den schnellsten Weg zur validierten Diagnostik zu zeigen. Bei uns erhalten Sie eine maßgeschneiderte Lösung, keine Standard-Lieferung.",
     "button": "Termin buchen"
   },
-  "read_more": "Weiterlesen"
+  "read_more": "Weiterlesen",
+  "chat": {
+    "status": "Online",
+    "intro": "Willkommen bei PolarisDX. Wie können wir Ihnen heute helfen?",
+    "welcome_prototype": "Willkommen! Unser AI-Chatbot wird in den nächsten Tagen aktiviert. Bis dahin nutzen Sie bitte unser Kontaktformular für Anfragen.",
+    "placeholder": "Nachricht eingeben...",
+    "footer": "Powered by PolarisDX Assistant",
+    "error": "Entschuldigung, etwas ist schiefgelaufen.",
+    "unavailable": "Der Chat ist derzeit nicht verfügbar. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns per E-Mail."
+  }
 }

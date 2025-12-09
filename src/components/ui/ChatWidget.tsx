@@ -18,6 +18,23 @@ const ChatWidget = () => {
   const [isLoading, setIsLoading] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
+  // Initialize: Open on desktop, add welcome message
+  useEffect(() => {
+    // Check if desktop (width > 1024px)
+    if (window.innerWidth > 1024) {
+      setIsOpen(true)
+    }
+
+    // Add prototype welcome message
+    const welcomeMsg: Message = {
+      id: 'welcome-1',
+      text: t('chat.welcome_prototype', 'Willkommen! Unser AI-Chatbot wird in den nächsten Tagen aktiviert. Bis dahin nutzen Sie bitte unser Kontaktformular für Anfragen.'),
+      sender: 'bot',
+      timestamp: new Date()
+    }
+    setMessages([welcomeMsg])
+  }, [t])
+
   // Auto-scroll to bottom
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -128,11 +145,7 @@ const ChatWidget = () => {
 
           {/* Messages Area */}
           <div className="h-[350px] overflow-y-auto bg-gray-50 p-4 flex flex-col gap-3">
-             {messages.length === 0 && (
-                 <div className="my-auto text-center text-xs text-gray-400 px-6">
-                    <p>{t('chat.intro', 'Willkommen bei PolarisDX. Wie können wir Ihnen heute helfen?')}</p>
-                 </div>
-             )}
+             {/* Note: Removed 'messages.length === 0' check because we always have the prototype message now */}
 
             {messages.map((msg) => (
               <div

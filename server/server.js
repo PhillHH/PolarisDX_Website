@@ -134,6 +134,30 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
+/**
+ * Teams Integration Roadmap (Option C):
+ *
+ * 1.  **Azure Bot Service Setup**:
+ *     -   Create a "Azure Bot" resource in the Azure Portal.
+ *     -   Select "Multi Tenant" or "Single Tenant" based on requirements.
+ *     -   Enable the "Microsoft Teams" channel in the Bot Blade.
+ *
+ * 2.  **Code Changes (Server)**:
+ *     -   Install `botbuilder` and `botframework-connector`.
+ *     -   Create a `CloudAdapter` instance using `ConfigurationBotFrameworkAuthentication`.
+ *     -   Implement a Bot class extending `ActivityHandler`.
+ *     -   Replace the simple `/api/chat` logic below with the adapter's `process` method.
+ *
+ * 3.  **Frontend Changes**:
+ *     -   Currently using a custom React widget.
+ *     -   To use standard Teams features, you might switch to the "Bot Framework Web Chat" component (optional, but easier)
+ *     -   OR continue using this custom widget and treat it as a Direct Line client.
+ *     -   If using Direct Line:
+ *         -   Enable "Direct Line" channel in Azure.
+ *         -   Fetch a token from a new endpoint `/api/directline/token` on this server.
+ *         -   Connect via WebSocket or polling in `ChatWidget.tsx`.
+ */
+
 // Start Server
 const PORT = process.env.PORT || 5000;
 // Listen on 0.0.0.0 to ensure Docker accessibility
