@@ -18,10 +18,8 @@ const ServicesSection = () => {
           <ServiceCard
             key={service.id}
             icon={service.icon}
-            title={t(`services.${service.translationKey}.title`, { defaultValue: service.title })}
-            description={t(`services.${service.translationKey}.description`, {
-              defaultValue: service.description || '',
-            })}
+            title={t(`services.${service.translationKey}.title`)}
+            description={t(`services.${service.translationKey}.description`)}
             to={`/services/${service.id}`}
           />
         ))}

@@ -19,12 +19,12 @@ const HeroSection = () => {
 
       <div className="relative z-10 mx-auto flex min-h-[490px] max-w-container items-stretch px-6 pt-16 pb-0 sm:px-8 lg:px-0 lg:pt-14 lg:pb-0">
         <div className="grid w-full gap-4 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
-        <div className="flex flex-col justify-center space-y-8 lg:space-y-6">
-          <div className="space-y-2 lg:space-y-1.5">
+        <div className="flex flex-col justify-center space-y-9 lg:space-y-7">
+          <div className="space-y-3 lg:space-y-2">
             <img
               src={iglooLogoWhite}
               alt="IglooPro Logo"
-              className="h-16 w-auto drop-shadow-sm"
+              className="h-14 w-auto drop-shadow-sm"
             />
             <h1 className="max-w-3xl font-medium tracking-[-0.02em] text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)]">
               {t('hero.title', 'Intelligente Diagnostik: Der neue Maßstab für effiziente POC-Workflows.')}
@@ -56,7 +56,7 @@ const HeroSection = () => {
               </PrimaryButton>
             </div>
 
-            <div className="mt-1 flex flex-row items-start gap-4 lg:mt-0">
+            <div className="mt-2 flex flex-row items-start gap-6 lg:mt-1">
               <StatItem
                 value={t('hero.stat1.value', '48h')}
                 label={t('hero.stat1.label', 'Einsatzbereit nach Bestellung')}

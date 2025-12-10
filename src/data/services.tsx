@@ -13,24 +13,21 @@ export const services: Service[] = [
   {
     id: 'dental',
     title: 'Dental',
-    description:
-      'Optimierte Implantologie. Sofortige Analyse von Vitamin D für bessere Wundheilung und Entzündungsmarker zur Risikominimierung direkt am Behandlungsstuhl.',
+    description: '',
     translationKey: 'dental',
     icon: <Smile className="h-8 w-8" strokeWidth={1.5} />,
   },
   {
     id: 'beauty',
     title: 'Beauty',
-    description:
-      'Schönheit von innen. Hautgesundheit, Hormonstatus und Mikronährstoffe messen, um ästhetische Behandlungen fundiert zu begleiten.',
+    description: '',
     translationKey: 'beauty',
     icon: <Sparkles className="h-8 w-8" strokeWidth={1.5} />,
   },
   {
     id: 'longevity',
     title: 'Longevity',
-    description:
-      'Proaktives Alternsmanagement. Monitoring von HbA1c, Lipiden und Entzündungswerten für ein längeres, gesünderes Leben.',
+    description: '',
     translationKey: 'longevity',
     icon: <Activity className="h-8 w-8" strokeWidth={1.5} />,
   },

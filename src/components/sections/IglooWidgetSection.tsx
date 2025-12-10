@@ -5,12 +5,11 @@ import iglooImage from '../../assets/igloo_front.png'
 const IglooWidgetSection = () => {
   const { t } = useTranslation('home')
 
-  // Positions on a 0-100 scale (percentages of container width/height)
-  // Based on former 800x600 layout: x/800 and y/600 converted to %
+  // Coordinates for the symmetrical triangle layout (800x600 container)
   const positions = {
-    dental: { x: 50, y: 13.33 },      // 400/800, 80/600
-    beauty: { x: 16.25, y: 83.33 },   // 130/800, 500/600
-    longevity: { x: 83.75, y: 83.33 } // 670/800, 500/600
+    dental: { x: 400, y: 80 },    // Moved up slightly to clear the Igloo
+    beauty: { x: 130, y: 500 },
+    longevity: { x: 670, y: 500 },
   }
 
   const widgets = [
@@ -38,9 +37,8 @@ const IglooWidgetSection = () => {
   ]
 
   return (
-    <section className="relative py-20 lg:py-32 bg-slate-50 overflow-visible">
-
-       <div className="mx-auto max-w-container px-4 text-center lg:px-0 mb-16 relative z-20">
+    <section className="relative py-20 lg:py-32 bg-slate-50">
+       <div className="mx-auto max-w-container px-4 text-center lg:px-0 mb-16 relative z-10">
           <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-accentBlue mb-3">
              {t('services.caption', 'DIAGNOSTIK-FOKUS')}
           </h2>
@@ -49,17 +47,14 @@ const IglooWidgetSection = () => {
           </h3>
        </div>
 
-      <div className="mx-auto flex flex-col items-center justify-center gap-10 w-full max-w-container px-4 lg:px-0 lg:block lg:h-[620px] lg:w-full relative">
+      <div className="mx-auto flex flex-col items-center justify-center gap-10 lg:block lg:h-[600px] lg:w-[800px] relative">
 
         {/* Decorative connecting lines for desktop (Triangle)
-            Using viewBox="0 0 100 100" and preserveAspectRatio="none" to stretch the SVG to full container size.
+            Placed FIRST in DOM to be behind content naturally, but using absolute positioning.
+            Removed negative z-index to avoid hiding behind parent background if stacking context allows.
+            We'll use z-0 for lines, and z-10 for content.
         */}
-        <svg
-          className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-          style={{ overflow: 'visible' }}
-        >
+        <svg className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0">
              <defs>
                 <linearGradient id="animatedGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#22d3ee">
@@ -74,37 +69,28 @@ const IglooWidgetSection = () => {
                 </linearGradient>
              </defs>
 
-             {/* Path connecting the centers of the widgets
-                 Coordinates are now unitless (0-100) matching the viewBox
-             */}
+             {/* Path connecting the centers of the widgets */}
              <path
                 d={`M ${positions.dental.x} ${positions.dental.y} L ${positions.beauty.x} ${positions.beauty.y} L ${positions.longevity.x} ${positions.longevity.y} Z`}
                 stroke="url(#animatedGradient)"
-                strokeWidth="0.5" // Thinner stroke relative to 100x100 coord system, roughly 3-5px equivalent depending on aspect ratio. Adjusted for visual balance.
-                vectorEffect="non-scaling-stroke" // Ensures the line thickness is constant in pixels, if supported. Otherwise, rely on strokeWidth.
-                strokeOpacity="1"
+                strokeWidth="4"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                filter="drop-shadow(0 0 4px rgba(59,130,246,0.35))"
              />
-             {/* Fallback stroke width without non-scaling-stroke might be weird if aspect ratio is extreme.
-                 Let's stick to standard strokeWidth="0.8" or similar which is ~0.8% of viewbox.
-                 On 1200px width, 0.8% is ~9px.
-             */}
         </svg>
 
-        {/* Central Image */}
-        <div className="relative z-20 flex justify-center items-center h-full w-full pointer-events-none">
+        {/* Central Image - Resized smaller (w-32 on mobile, w-48 on desktop) */}
+        <div className="relative z-10 flex justify-center items-center h-full w-full pointer-events-none">
             <img
             src={iglooImage}
             alt="Igloo Pro"
-            className="w-[260px] sm:w-[300px] lg:w-60 drop-shadow-2xl transition-all"
+            className="w-32 md:w-40 lg:w-48 drop-shadow-2xl transition-all"
             />
         </div>
 
         {/* Widgets */}
-        <div className="flex flex-col gap-6 lg:absolute lg:inset-0 lg:block z-30">
+        <div className="flex flex-col gap-6 lg:absolute lg:inset-0 lg:block z-20">
             {widgets.map((widget) => (
             <Link
               key={widget.id}
@@ -114,18 +100,18 @@ const IglooWidgetSection = () => {
                 relative
                 rounded-2xl
                 shadow-lg transition-all hover:scale-105 hover:shadow-xl
-                w-[88vw] max-w-[660px] h-[110px] sm:h-[120px]
+                w-full max-w-[600px] h-32 sm:h-36
                 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 p-[2px]
                 lg:absolute lg:left-[var(--x)] lg:top-[var(--y)] lg:-translate-x-1/2 lg:-translate-y-1/2
                 lg:w-64 lg:h-40
               `}
               style={{
-                '--x': `${widget.x}%`,
-                '--y': `${widget.y}%`
+                '--x': `${widget.x}px`,
+                '--y': `${widget.y}px`
               } as React.CSSProperties}
             >
                 {/* Inner white container to create the border effect */}
-                <div className="flex h-full w-full flex-col items-center justify-center rounded-[14px] bg-white p-3.5 sm:p-4.5">
+                <div className="flex h-full w-full flex-col items-center justify-center rounded-[14px] bg-white p-5 sm:p-6">
                     <span className="text-2xl font-medium text-gray-900 group-hover:text-secondary">
                         {widget.label}
                     </span>
