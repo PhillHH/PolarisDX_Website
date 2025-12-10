@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect } from 'react'
+import type { ReactNode } from 'react'
 import { MessageCircle, X, Send, Minus } from 'lucide-react'
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 
 interface Message {
   id: string
-  text: string
+  text?: string
+  content?: ReactNode
   sender: 'user' | 'bot'
   timestamp: Date
 }
@@ -17,6 +19,36 @@ const ChatWidget = () => {
   const [inputText, setInputText] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
+
+  // Initialize: Open on desktop, add welcome message
+  useEffect(() => {
+    // Check if desktop (width > 1024px)
+    if (window.innerWidth > 1024) {
+      setIsOpen(true)
+    }
+
+    // Add prototype welcome message
+    const welcomeMsg: Message = {
+      id: 'welcome-1',
+      content: (
+        <Trans
+          i18nKey="chat.welcome_prototype"
+          t={t}
+          components={[
+            <a href="/contact" className="underline underline-offset-2 font-medium" key="0">
+              Link
+            </a>,
+            <a href="tel:+4915175011699" className="underline underline-offset-2 font-medium" key="1">
+              Phone
+            </a>,
+          ]}
+        />
+      ),
+      sender: 'bot',
+      timestamp: new Date(),
+    }
+    setMessages([welcomeMsg])
+  }, [t])
 
   // Auto-scroll to bottom
   useEffect(() => {
@@ -114,7 +146,7 @@ const ChatWidget = () => {
                  <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-green-400 ring-2 ring-blue-600"></span>
               </div>
               <div className="flex flex-col">
-                 <span className="text-sm font-semibold">Support Assistant</span>
+                 <span className="text-sm font-semibold">{t('chat.title', 'Chat')}</span>
                  <span className="text-[10px] text-blue-100 opacity-90">{t('chat.status', 'Online')}</span>
               </div>
             </div>
@@ -128,11 +160,7 @@ const ChatWidget = () => {
 
           {/* Messages Area */}
           <div className="h-[350px] overflow-y-auto bg-gray-50 p-4 flex flex-col gap-3">
-             {messages.length === 0 && (
-                 <div className="my-auto text-center text-xs text-gray-400 px-6">
-                    <p>{t('chat.intro', 'Willkommen bei PolarisDX. Wie können wir Ihnen heute helfen?')}</p>
-                 </div>
-             )}
+             {/* Note: Removed 'messages.length === 0' check because we always have the prototype message now */}
 
             {messages.map((msg) => (
               <div
@@ -145,7 +173,7 @@ const ChatWidget = () => {
                   }
                 `}
               >
-                <p>{msg.text}</p>
+                <div>{msg.content || msg.text}</div>
                 <span className={`text-[9px] ${msg.sender === 'user' ? 'text-blue-100' : 'text-gray-400'}`}>
                   {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                 </span>
@@ -169,15 +197,16 @@ const ChatWidget = () => {
             <div className="relative flex items-center">
               <input
                 type="text"
+                disabled
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 placeholder={t('chat.placeholder', 'Nachricht eingeben...')}
-                className="w-full rounded-full border border-gray-200 bg-gray-50 py-2.5 pl-4 pr-12 text-sm outline-none transition-all focus:border-blue-400 focus:bg-white"
+                className="w-full rounded-full border border-gray-200 bg-gray-100 text-gray-400 py-2.5 pl-4 pr-12 text-sm outline-none transition-all cursor-not-allowed"
               />
               <button
                 type="submit"
-                disabled={!inputText.trim() || isLoading}
-                className="absolute right-1.5 top-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-white transition-colors hover:bg-blue-700 disabled:bg-gray-300"
+                disabled
+                className="absolute right-1.5 top-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-gray-300 text-white transition-colors cursor-not-allowed"
               >
                 <Send className="h-4 w-4 ml-0.5" />
               </button>

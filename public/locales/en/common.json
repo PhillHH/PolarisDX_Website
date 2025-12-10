@@ -48,5 +48,19 @@
     "text": "Speak directly with our IglooPro specialists. Our team is ready to analyze your individual workflow requirements and show you the fastest way to validated diagnostics. With us, you get a tailored solution, not a standard delivery.",
     "button": "Book Appointment"
   },
+<<<<<<< HEAD
   "read_more": "Read more"
+=======
+  "read_more": "Read More",
+  "chat": {
+    "title": "Chat",
+    "status": "Online",
+    "intro": "Welcome to PolarisDX. How can we help you today?",
+    "welcome_prototype": "Welcome! Our chatbot is not active yet. Please use our <0>contact form</0> or call us at <1>+49 151 75011699</1>.",
+    "placeholder": "Type a message...",
+    "footer": "Powered by PolarisDX Assistant",
+    "error": "Sorry, something went wrong.",
+    "unavailable": "Chat is currently unavailable. Please try again later or contact us by email."
+  }
+>>>>>>> origin/feature/chat-widget-pdf-download-3010447786765690020
 }
