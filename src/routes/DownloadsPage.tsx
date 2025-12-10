@@ -7,7 +7,7 @@ import { FileText, Download } from 'lucide-react'
 import PriceListDE from '../assets/downloads/Polaris Price List A4_ €_DE 18.09.25.pdf'
 import PriceListEN from '../assets/downloads/Polaris Price List A4_€_EN 23.06.25.pdf'
 import PriceListGBP from '../assets/downloads/PolarixDX Price List A5_£_EN 202507.pdf'
-import IglooProSystemFlyerDE from '../assets/downloads/Polaris Flyer A4zuA5 Igloo Customer_DE_Frank_Druck(1)_1 (2).pdf'
+import IglooProSystemFlyerDE from '../assets/downloads/igloo-pro-flyer.pdf'
 
 type DownloadItem = {
   id: string
