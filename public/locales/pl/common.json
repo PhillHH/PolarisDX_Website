@@ -1,6 +1,6 @@
 {
   "nav": {
-    "home": "Strona główna",
+    "home": "Home",
     "about": "O nas",
     "service": "Usługi",
     "shop": "Sklep",
@@ -9,19 +9,19 @@
     "terms": "Regulamin"
   },
   "badge": {
-    "New": "Nowość",
-    "Popular": "Popularne",
-    "Limited": "Limitowane"
+    "New": "Nowy",
+    "Popular": "Popularny",
+    "Limited": "Limitowany"
   },
   "category": {
     "Diagnostics": "Diagnostyka",
-    "Monitoring": "Monitoring",
+    "Monitoring": "Monitorowanie",
     "Home Care": "Opieka domowa",
     "Chronic Care": "Opieka przewlekła",
     "Protection": "Ochrona",
     "Hygiene": "Higiena",
     "Recovery": "Regeneracja",
-    "Emergency": "Nagłe wypadki",
+    "Emergency": "Nagły wypadek",
     "Service": "Usługa"
   },
   "footer": {
@@ -45,8 +45,18 @@
   },
   "cta_section": {
     "title": "Szukasz gwarantowanej wydajności i ekspertyzy POC?",
-    "text": "Porozmawiaj bezpośrednio z naszymi specjalistami IglooPro. Nasz zespół jest gotowy przeanalizować Twoje indywidualne wymagania dotyczące przepływu pracy i pokazać najszybszą drogę do sprawdzonej diagnostyki. U nas otrzymujesz rozwiązanie szyte na miarę, a nie standardową dostawę.",
-    "button": "Umów wizytę"
+    "text": "Porozmawiaj bezpośrednio z naszymi specjalistami IglooPro. Nasz zespół jest gotowy przeanalizować Twoje indywidualne wymagania dotyczące przepływu pracy i wskazać najszybszą drogę do zwalidowanej diagnostyki. U nas otrzymasz rozwiązanie szyte na miarę, a nie standardową dostawę.",
+    "button": "Zarezerwuj termin"
   },
-  "read_more": "Czytaj więcej"
+  "read_more": "Czytaj więcej",
+  "chat": {
+    "title": "Czat",
+    "status": "Online",
+    "intro": "Witamy w PolarisDX. Jak możemy Ci dzisiaj pomóc?",
+    "welcome_prototype": "Witamy! Nasz chatbot nie jest jeszcze aktywny. Skorzystaj z naszego <0>formularza kontaktowego</0> lub zadzwoń do nas pod numer <1>+49 151 75011699</1>.",
+    "placeholder": "Wpisz wiadomość...",
+    "footer": "Obsługiwane przez PolarisDX Assistant",
+    "error": "Przepraszamy, coś poszło nie tak.",
+    "unavailable": "Czat jest obecnie niedostępny. Spróbuj ponownie później lub skontaktuj się z nami mailowo."
+  }
 }

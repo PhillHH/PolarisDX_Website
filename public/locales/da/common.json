@@ -48,5 +48,15 @@
     "text": "Tal direkte med vores IglooPro-specialister. Vores team er klar til at analysere dine individuelle workflow-krav og vise dig den hurtigste vej til valideret diagnostik. Hos os får du en skræddersyet løsning, ikke en standardlevering.",
     "button": "Bestil tid"
   },
-  "read_more": "Læs mere"
+  "read_more": "Læs mere",
+  "chat": {
+    "title": "Chat",
+    "status": "Online",
+    "intro": "Velkommen til PolarisDX. Hvordan kan vi hjælpe dig i dag?",
+    "welcome_prototype": "Velkommen! Vores chatbot er endnu ikke aktiv. Brug venligst vores <0>kontaktformular</0> eller ring til os på <1>+49 151 75011699</1>.",
+    "placeholder": "Skriv en besked...",
+    "footer": "Drevet af PolarisDX Assistant",
+    "error": "Beklager, noget gik galt.",
+    "unavailable": "Chatten er i øjeblikket ikke tilgængelig. Prøv igen senere eller kontakt os via e-mail."
+  }
 }

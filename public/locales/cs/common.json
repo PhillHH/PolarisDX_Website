@@ -48,5 +48,15 @@
     "text": "Mluvte přímo s našimi specialisty na IglooPro. Náš tým je připraven analyzovat vaše individuální požadavky na pracovní tok a ukázat vám nejrychlejší cestu k ověřené diagnostice. U nás získáte řešení na míru, ne standardní dodávku.",
     "button": "Rezervovat termín"
   },
-  "read_more": "Číst více"
+  "read_more": "Číst více",
+  "chat": {
+    "title": "Chat",
+    "status": "Online",
+    "intro": "Vítejte v PolarisDX. Jak vám můžeme dnes pomoci?",
+    "welcome_prototype": "Vítejte! Náš chatbot zatím není aktivní. Použijte prosím náš <0>kontaktní formulář</0> nebo nám zavolejte na <1>+49 151 75011699</1>.",
+    "placeholder": "Napište zprávu...",
+    "footer": "Provozováno pomocí PolarisDX Assistant",
+    "error": "Omlouváme se, něco se pokazilo.",
+    "unavailable": "Chat je momentálně nedostupný. Zkuste to prosím později nebo nás kontaktujte e-mailem."
+  }
 }

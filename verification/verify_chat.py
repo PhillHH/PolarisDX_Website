@@ -1,62 +1,102 @@
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, expect
+import time
 
 def verify_chat_widget():
     with sync_playwright() as p:
-        # Launch browser with a desktop viewport size
         browser = p.chromium.launch(headless=True)
-        # Desktop context
-        context_desktop = browser.new_context(viewport={'width': 1280, 'height': 800}, locale='de-DE')
-        page_desktop = context_desktop.new_page()
 
-        print("Navigating to http://localhost:5173 (Desktop)...")
+        # 1. Desktop Verification
+        context_desktop = browser.new_context(viewport={'width': 1280, 'height': 720})
+        page_desktop = context_desktop.new_page()
         page_desktop.goto("http://localhost:5173")
 
-        # Wait for the chat to be visible (should be open by default on desktop)
-        # The chat window usually has text "Support Assistant" or "PolarisDX Assistant"
-        # We can look for the "Support Assistant" text which is in the header of the open chat
-        print("Waiting for chat window to be visible on Desktop...")
+        # Dismiss cookie banner
+        # Try both English and German labels
         try:
-            page_desktop.wait_for_selector("text=Support Assistant", timeout=5000)
-            print("Chat window is OPEN by default on Desktop.")
+            page_desktop.get_by_role("button", name="Accept All").click(timeout=1000)
         except:
-            print("ERROR: Chat window is NOT open by default on Desktop.")
+             try:
+                 page_desktop.get_by_role("button", name="Alle akzeptieren").click(timeout=1000)
+             except:
+                 print("Could not find/click cookie banner on Desktop (might be already gone or not loaded)")
 
-        # Check for the prototype message
-        print("Checking for prototype message...")
-        prototype_text = "Unser AI-Chatbot wird in den nächsten Tagen aktiviert"
-        if page_desktop.get_by_text(prototype_text).is_visible():
-            print("Prototype message is visible.")
-        else:
-            print("ERROR: Prototype message is NOT visible.")
+        print("Checking Desktop state (Default EN)...")
+        # Check Chat Window Visibility
+        chat_window = page_desktop.locator("div.fixed.z-40.bg-white.shadow-2xl")
+        expect(chat_window).to_be_visible()
 
-        # Take screenshot for Desktop
-        page_desktop.screenshot(path="verification/chat_desktop.png")
-        print("Screenshot saved to verification/chat_desktop.png")
+        # Check FAB Visibility (should be hidden)
+        fab = page_desktop.get_by_label("Open Chat")
+        expect(fab).to_be_hidden()
 
-        # Now test Mobile
-        print("\nTesting Mobile context...")
-        context_mobile = browser.new_context(viewport={'width': 375, 'height': 667}, locale='de-DE')
+        # Check English text (verifying JSON fix)
+        expect(page_desktop.get_by_text("Chat", exact=True)).to_be_visible()
+        expect(page_desktop.get_by_text("Welcome!", exact=False)).to_be_visible()
+
+        page_desktop.screenshot(path="verification/desktop_open_en.png")
+        print("Captured desktop_open_en.png")
+
+        # Switch to German
+        print("Switching to German...")
+        page_desktop.get_by_label("Select language").first.click()
+        page_desktop.get_by_role("button", name="Deutsch").click()
+
+        # Verify German text
+        expect(page_desktop.get_by_text("Willkommen!", exact=False)).to_be_visible()
+
+        page_desktop.screenshot(path="verification/desktop_open_de.png")
+        print("Captured desktop_open_de.png")
+
+        # Minimize
+        page_desktop.locator("button:has(svg.lucide-minus)").click()
+
+        # Expect Window hidden, FAB visible
+        expect(chat_window).to_be_hidden()
+        expect(fab).to_be_visible()
+
+        page_desktop.screenshot(path="verification/desktop_minimized.png")
+        print("Captured desktop_minimized.png")
+
+        # 2. Mobile Verification
+        context_mobile = browser.new_context(viewport={'width': 375, 'height': 667})
         page_mobile = context_mobile.new_page()
         page_mobile.goto("http://localhost:5173")
 
-        # Cookie Banner might obscure things on mobile, dismiss it if possible
+        # Dismiss cookie banner
+        # On mobile it is very likely to cover the FAB
         try:
-            page_mobile.get_by_role("button", name="Alles akzeptieren").click(timeout=3000)
+            page_mobile.get_by_role("button", name="Accept All").click(timeout=2000)
+            print("Clicked Accept All on mobile")
+            # Wait for animation
+            time.sleep(0.5)
         except:
-            pass # Maybe not there
+             try:
+                 page_mobile.get_by_role("button", name="Alle akzeptieren").click(timeout=2000)
+                 print("Clicked Alle akzeptieren on mobile")
+                 time.sleep(0.5)
+             except:
+                 print("Could not find/click cookie banner on Mobile")
 
-        # Chat should be CLOSED on mobile (only the FAB button visible)
-        # "Support Assistant" should NOT be visible
-        if page_mobile.get_by_text("Support Assistant").is_visible():
-             print("ERROR: Chat window is OPEN on Mobile (should be closed).")
-        else:
-             print("Chat window is CLOSED on Mobile (correct).")
+        print("Checking Mobile state...")
+        # Initial: Chat should be closed, FAB visible
+        chat_window_mobile = page_mobile.locator("div.fixed.z-40.bg-white.shadow-2xl")
+        fab_mobile = page_mobile.get_by_label("Open Chat")
 
-        # Open it manually
-        page_mobile.get_by_label("Open Chat").click()
-        page_mobile.wait_for_selector("text=Support Assistant")
-        page_mobile.screenshot(path="verification/chat_mobile_open.png")
-        print("Screenshot saved to verification/chat_mobile_open.png")
+        expect(chat_window_mobile).to_be_hidden()
+        expect(fab_mobile).to_be_visible()
+
+        page_mobile.screenshot(path="verification/mobile_closed.png")
+        print("Captured mobile_closed.png")
+
+        # Open Chat
+        # Force click if obscured (though we tried to dismiss cookie banner)
+        fab_mobile.click(force=True)
+
+        expect(chat_window_mobile).to_be_visible()
+        expect(fab_mobile).to_be_visible()
+
+        page_mobile.screenshot(path="verification/mobile_open.png")
+        print("Captured mobile_open.png")
 
         browser.close()
 

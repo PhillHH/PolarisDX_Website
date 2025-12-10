@@ -48,9 +48,6 @@
     "text": "Speak directly with our IglooPro specialists. Our team is ready to analyze your individual workflow requirements and show you the fastest way to validated diagnostics. With us, you get a tailored solution, not a standard delivery.",
     "button": "Book Appointment"
   },
-<<<<<<< HEAD
-  "read_more": "Read more"
-=======
   "read_more": "Read More",
   "chat": {
     "title": "Chat",
@@ -62,5 +59,4 @@
     "error": "Sorry, something went wrong.",
     "unavailable": "Chat is currently unavailable. Please try again later or contact us by email."
   }
->>>>>>> origin/feature/chat-widget-pdf-download-3010447786765690020
 }

@@ -48,5 +48,15 @@
     "text": "Spreek direct met onze IglooPro-specialisten. Ons team staat klaar om jouw individuele workflow-eisen te analyseren en je de snelste weg naar gevalideerde diagnostiek te tonen. Bij ons krijg je een oplossing op maat, geen standaard levering.",
     "button": "Afspraak maken"
   },
-  "read_more": "Lees meer"
+  "read_more": "Lees meer",
+  "chat": {
+    "title": "Chat",
+    "status": "Online",
+    "intro": "Welkom bij PolarisDX. Hoe kunnen we je vandaag helpen?",
+    "welcome_prototype": "Welkom! Onze chatbot is nog niet actief. Gebruik ons <0>contactformulier</0> of bel ons op <1>+49 151 75011699</1>.",
+    "placeholder": "Typ een bericht...",
+    "footer": "Aangedreven door PolarisDX Assistant",
+    "error": "Sorry, er is iets misgegaan.",
+    "unavailable": "De chat is momenteel niet beschikbaar. Probeer het later opnieuw of neem contact met ons op via e-mail."
+  }
 }

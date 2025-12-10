@@ -125,7 +125,7 @@ const ChatWidget = () => {
       <button
         onClick={toggleChat}
         className={`fixed bottom-6 right-6 z-40 flex items-center justify-center rounded-full shadow-xl transition-all hover:scale-105 active:scale-95
-          ${isOpen ? 'bg-gray-200 text-gray-600 h-12 w-12' : 'bg-blue-600 text-white h-14 w-14 hover:bg-blue-700'}
+          ${isOpen ? 'bg-gray-200 text-gray-600 h-12 w-12 lg:hidden' : 'bg-blue-600 text-white h-14 w-14 hover:bg-blue-700'}
         `}
         aria-label="Open Chat"
       >
@@ -136,7 +136,7 @@ const ChatWidget = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-40 w-[90vw] max-w-[350px] overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-black/5 animate-in slide-in-from-bottom-10 fade-in duration-200">
+        <div className="fixed bottom-24 lg:bottom-4 right-6 z-40 w-[90vw] lg:w-96 max-w-[350px] lg:max-w-[400px] overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-black/5 animate-in slide-in-from-bottom-10 fade-in duration-200">
 
           {/* Header */}
           <div className="flex items-center justify-between bg-gradient-to-r from-cyan-500 to-blue-600 px-4 py-3 text-white">
@@ -159,7 +159,7 @@ const ChatWidget = () => {
           </div>
 
           {/* Messages Area */}
-          <div className="h-[350px] overflow-y-auto bg-gray-50 p-4 flex flex-col gap-3">
+          <div className="h-[350px] lg:h-[400px] overflow-y-auto bg-gray-50 p-4 flex flex-col gap-3">
              {/* Note: Removed 'messages.length === 0' check because we always have the prototype message now */}
 
             {messages.map((msg) => (

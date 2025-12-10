@@ -17,7 +17,7 @@
     "Diagnostics": "Diagnostica",
     "Monitoring": "Monitoraggio",
     "Home Care": "Assistenza domiciliare",
-    "Chronic Care": "Cure croniche",
+    "Chronic Care": "Cura cronica",
     "Protection": "Protezione",
     "Hygiene": "Igiene",
     "Recovery": "Recupero",
@@ -48,5 +48,15 @@
     "text": "Parla direttamente con i nostri specialisti IglooPro. Il nostro team è pronto ad analizzare le tue esigenze di flusso di lavoro individuali e mostrarti la via più rapida per una diagnostica validata. Con noi, ottieni una soluzione su misura, non una consegna standard.",
     "button": "Prenota appuntamento"
   },
-  "read_more": "Leggi di più"
+  "read_more": "Leggi di più",
+  "chat": {
+    "title": "Chat",
+    "status": "Online",
+    "intro": "Benvenuti in PolarisDX. Come possiamo aiutarvi oggi?",
+    "welcome_prototype": "Benvenuto! Il nostro chatbot non è ancora attivo. Utilizza il nostro <0>modulo di contatto</0> o chiamaci al <1>+49 151 75011699</1>.",
+    "placeholder": "Scrivi un messaggio...",
+    "footer": "Powered by PolarisDX Assistant",
+    "error": "Spiacenti, qualcosa è andato storto.",
+    "unavailable": "La chat non è attualmente disponibile. Riprova più tardi o contattaci via email."
+  }
 }

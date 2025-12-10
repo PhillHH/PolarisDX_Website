@@ -48,5 +48,15 @@
     "text": "Fale diretamente com nossos especialistas em IglooPro. Nossa equipe está pronta para analisar seus requisitos de fluxo de trabalho individuais e mostrar o caminho mais rápido para diagnósticos validados. Conosco, você obtém uma solução sob medida, não uma entrega padrão.",
     "button": "Marcar consulta"
   },
-  "read_more": "Leia mais"
+  "read_more": "Leia mais",
+  "chat": {
+    "title": "Chat",
+    "status": "Online",
+    "intro": "Bem-vindo à PolarisDX. Como podemos ajudar hoje?",
+    "welcome_prototype": "Bem-vindo! O nosso chatbot ainda não está ativo. Utilize o nosso <0>formulário de contacto</0> ou ligue-nos para <1>+49 151 75011699</1>.",
+    "placeholder": "Escreva uma mensagem...",
+    "footer": "Desenvolvido por PolarisDX Assistant",
+    "error": "Desculpe, algo correu mal.",
+    "unavailable": "O chat não está disponível de momento. Tente novamente mais tarde ou contacte-nos por e-mail."
+  }
 }
