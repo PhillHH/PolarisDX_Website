@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import PrimaryButton from '../ui/PrimaryButton'
 import SectionHeader from '../ui/SectionHeader'
 import IglooProImage from '../../assets/Igloo-pro-frontal.png'
+import IglooProFlyer from '../../assets/downloads/igloo-pro-flyer.pdf'
 
 const DiagnosticsPitchSection = () => {
   const { t } = useTranslation('home')
@@ -26,7 +27,7 @@ const DiagnosticsPitchSection = () => {
           {t('doctors.description', 'Entdecken Sie mit Systemen wie dem Igloo Pro von DX365...')}
         </p>
         <div className="mt-6 flex justify-center lg:mt-8 lg:justify-start">
-          <PrimaryButton as="a" href="/produkte/igloo-pro" size="sm">
+          <PrimaryButton as="a" href={IglooProFlyer} target="_blank" rel="noopener noreferrer" size="sm">
             {/* Button-Text angepasst */}
             {t('doctors.cta', 'Zum Igloo Pro System')}
           </PrimaryButton>
