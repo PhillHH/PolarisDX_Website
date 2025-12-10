@@ -23,6 +23,14 @@
       .mobile-center { text-align: center !important; }
       .mobile-padding { padding-left: 20px !important; padding-right: 20px !important; }
       .stack { display: block !important; width: 100% !important; }
+
+      /* Typography scaling for mobile readability */
+      h1 { font-size: 24px !important; line-height: 32px !important; }
+      p, li, span { font-size: 18px !important; line-height: 28px !important; }
+      .button-text { font-size: 18px !important; padding: 18px 24px !important; display: block !important; width: auto !important; }
+
+      /* Image scaling */
+      .hero-image { width: 80% !important; max-width: 280px !important; height: auto !important; margin: 0 auto 20px auto !important; }
     }
   </style>
   <!--[if mso]>
@@ -56,15 +64,17 @@
               </td>
             </tr>
 
-            <!-- Hero Image (Optional - Keeping it subtle or small if strictly 'Letter' style, but user asked for "Website Layout". Let's use a nice header banner or just clean space. Let's stick to clean letter style with a small visual separator) -->
+            <!-- Hero Image Section -->
              <tr>
-               <td style="height: 4px; background-color: #2199ea; line-height: 4px; font-size: 4px;">&nbsp;</td>
+               <td align="center" style="padding: 30px 48px 10px 48px; background-color: #ffffff;" class="mobile-padding">
+                 <img src="https://m01.polarisdx.net/assets/igloo_front.png" width="220" alt="IglooPro Device" class="hero-image" style="display: block; width: 220px; max-width: 100%; height: auto; border: 0;" />
+               </td>
              </tr>
 
             <!-- Content Body -->
              <tr>
-               <td style="padding: 44px 48px 34px 48px;" class="mobile-padding">
-                 <h1 style="margin: 0 0 20px 0; font-size: 26px; line-height: 32px; color: #0f5f95; font-weight: bold;">
+               <td style="padding: 20px 48px 34px 48px;" class="mobile-padding">
+                 <h1 style="margin: 0 0 20px 0; font-size: 26px; line-height: 32px; color: #0f5f95; font-weight: bold; text-align: center;" class="mobile-center">
                    Diagnostik in Echtzeit – direkt in Ihrer Praxis
                  </h1>
 
@@ -118,16 +128,43 @@
                   Überzeugen Sie sich selbst von der Präzision (CV &lt; 2%) und der einfachen Handhabung. Wir richten IglooPro innerhalb von 48 Stunden bei Ihnen ein.
                 </p>
 
-                <!-- CTA Button -->
+                <!-- CTA Buttons -->
                 <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
                   <tr>
                     <td align="center">
-                      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                      <!-- Primary Button -->
+                      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
                         <tr>
-                          <td align="center" bgcolor="#0f5f95" style="border-radius: 6px;">
-                            <a href="https://www.polarisdx.net/contact" target="_blank" style="font-size: 16px; font-weight: bold; color: #ffffff; text-decoration: none; display: inline-block; padding: 16px 32px; border: 1px solid #0f5f95; border-radius: 6px; font-family: 'Segoe UI', Arial, sans-serif;">
-                              Jetzt Termin vereinbaren
-                            </a>
+                          <td align="center">
+                            <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                              <tr>
+                                <td align="center" bgcolor="#0f5f95" style="border-radius: 6px;">
+                                  <a href="https://www.polarisdx.net/contact" target="_blank" class="button-text" style="font-size: 16px; font-weight: bold; color: #ffffff; text-decoration: none; display: inline-block; padding: 16px 32px; border: 1px solid #0f5f95; border-radius: 6px; font-family: 'Segoe UI', Arial, sans-serif;">
+                                    Jetzt Termin vereinbaren
+                                  </a>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- Spacer -->
+                        <tr>
+                          <td height="16" style="height: 16px; font-size: 1px; line-height: 1px;">&nbsp;</td>
+                        </tr>
+
+                        <!-- Secondary Phone Button -->
+                        <tr>
+                          <td align="center">
+                            <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                              <tr>
+                                <td align="center" bgcolor="#ffffff" style="border-radius: 6px;">
+                                  <a href="tel:+4915175011699" target="_blank" class="button-text" style="font-size: 16px; font-weight: bold; color: #0f5f95; text-decoration: none; display: inline-block; padding: 14px 30px; border: 2px solid #0f5f95; border-radius: 6px; font-family: 'Segoe UI', Arial, sans-serif;">
+                                    Rufen Sie uns an
+                                  </a>
+                                </td>
+                              </tr>
+                            </table>
                           </td>
                         </tr>
                       </table>
