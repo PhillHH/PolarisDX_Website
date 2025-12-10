@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import SectionHeader from '../components/ui/SectionHeader'
 import { FileText, Download } from 'lucide-react'
+import PageTransition from '../components/ui/PageTransition'
+import Reveal from '../components/ui/Reveal'
 
 // Import documents directly to get the hashed URL from Vite
 import PriceListDE from '../assets/downloads/Polaris Price List A4_ €_DE 18.09.25.pdf'
@@ -108,50 +110,56 @@ const DownloadsPage = () => {
   )
 
   return (
-    <div className="bg-slate-50 text-gray-900">
-      {/* Hero / Top */}
-      <section className="relative overflow-hidden bg-primary text-white">
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
+    <PageTransition>
+      <div className="bg-slate-50 text-gray-900">
+        {/* Hero / Top */}
+        <section className="relative overflow-hidden bg-primary text-white">
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
 
-        <div className="relative mx-auto flex min-h-[320px] max-w-[1440px] flex-col justify-end px-4 pb-10 pt-28 lg:px-10 lg:pb-14 lg:pt-32">
-          <div className="max-w-container">
-            <div className="mb-3 text-sm text-white/70">
-              <Link to="/" className="hover:text-secondary">
-                {t('downloads:home')}
-              </Link>{' '}
-              / <span>{t('downloads:title')}</span>
-            </div>
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
-              {t('downloads:subtitle')}
-            </p>
-            <h1 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
-              {t('downloads:title')}
-            </h1>
+          <div className="relative mx-auto flex min-h-[320px] max-w-[1440px] flex-col justify-end px-4 pb-10 pt-28 lg:px-10 lg:pb-14 lg:pt-32">
+            <Reveal width="100%" yOffset={20}>
+              <div className="max-w-container">
+                <div className="mb-3 text-sm text-white/70">
+                  <Link to="/" className="hover:text-secondary">
+                    {t('downloads:home')}
+                  </Link>{' '}
+                  / <span>{t('downloads:title')}</span>
+                </div>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
+                  {t('downloads:subtitle')}
+                </p>
+                <h1 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
+                  {t('downloads:title')}
+                </h1>
+              </div>
+            </Reveal>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Main Content */}
-      <main className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">
-        <div className="mb-10">
-          <SectionHeader
-            caption={t('downloads:title')}
-            title={t('downloads:discoverTitle')}
-            align="left"
-          />
-          <p className="mt-4 max-w-2xl text-lg text-gray-600">
-            {t('downloads:introText')}
-          </p>
-        </div>
+        {/* Main Content */}
+        <main className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">
+          <Reveal width="100%">
+            <div className="mb-10">
+              <SectionHeader
+                caption={t('downloads:title')}
+                title={t('downloads:discoverTitle')}
+                align="left"
+              />
+              <p className="mt-4 max-w-2xl text-lg text-gray-600">
+                {t('downloads:introText')}
+              </p>
+            </div>
 
-        <div className="space-y-12">
-          {renderDownloadSection(t('downloads:priceLists'), priceLists)}
-          {renderDownloadSection(t('downloads:techBrochures'), techBrochures)}
-          {renderDownloadSection(t('downloads:infoMaterials'), infoMaterials)}
-        </div>
-      </main>
-    </div>
+            <div className="space-y-12">
+              {renderDownloadSection(t('downloads:priceLists'), priceLists)}
+              {renderDownloadSection(t('downloads:techBrochures'), techBrochures)}
+              {renderDownloadSection(t('downloads:infoMaterials'), infoMaterials)}
+            </div>
+          </Reveal>
+        </main>
+      </div>
+    </PageTransition>
   )
 }
 

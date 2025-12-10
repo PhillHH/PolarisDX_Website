@@ -1,15 +1,21 @@
 import { useTranslation } from 'react-i18next'
+import PageTransition from '../components/ui/PageTransition'
+import Reveal from '../components/ui/Reveal'
 
 const PrivacyPage = () => {
   const { t } = useTranslation('legal')
 
   return (
-    <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-slate-50">
-      <div className="mx-auto max-w-container px-4 lg:px-0">
-        <h1 className="text-3xl font-bold mb-8 text-gray-900">{t('privacy.title')}</h1>
+    <PageTransition>
+      <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-slate-50">
+        <div className="mx-auto max-w-container px-4 lg:px-0">
+          <Reveal width="100%" yOffset={20}>
+            <h1 className="text-3xl font-bold mb-8 text-gray-900">{t('privacy.title')}</h1>
+          </Reveal>
 
-        <div className="space-y-8 text-gray-700 bg-white p-8 rounded-2xl border border-gray-100 shadow-sm text-sm leading-relaxed sm:text-base">
-          <section>
+          <Reveal width="100%">
+            <div className="space-y-8 text-gray-700 bg-white p-8 rounded-2xl border border-gray-100 shadow-sm text-sm leading-relaxed sm:text-base">
+              <section>
             <h2 className="text-xl font-semibold mb-4 text-gray-900">{t('privacy.section1.title')}</h2>
             <h3 className="font-semibold mt-4 mb-2">{t('privacy.section1.general.title')}</h3>
             <p>{t('privacy.section1.general.content')}</p>
@@ -56,10 +62,12 @@ const PrivacyPage = () => {
           <section>
             <h2 className="text-xl font-semibold mb-4 text-gray-900">{t('privacy.section5.title')}</h2>
             <p>{t('privacy.section5.content')}</p>
-          </section>
+              </section>
+            </div>
+          </Reveal>
         </div>
       </div>
-    </div>
+    </PageTransition>
   )
 }
 
