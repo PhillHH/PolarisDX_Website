@@ -22,7 +22,7 @@ const sizeClasses: Record<Size, string> = {
 // Classes for non-primary variants
 const variantClasses: Record<Exclude<Variant, 'primary'>, (size: Size) => string> = {
   secondary: (size) =>
-    `border-transparent bg-primary text-white hover:bg-primary/90 focus-visible:ring-primary ${sizeClasses[size]}`,
+    `border-transparent bg-primary-deep text-white hover:bg-primary-deep/90 shadow-lg shadow-primary-deep/20 focus-visible:ring-primary-deep ${sizeClasses[size]}`,
   'outline-light': (size) =>
     `border border-white/80 bg-transparent text-white hover:bg-white/10 focus-visible:ring-white ${sizeClasses[size]}`,
 }
@@ -43,14 +43,15 @@ const PrimaryButton = <T extends ElementType = 'button'>({
         className={`
           ${baseClasses} 
           border-0 p-[2px] 
-          bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 
-          focus-visible:ring-blue-500 
+          bg-gradient-to-r from-secondary via-primary to-primary-deep
+          shadow-lg shadow-primary/20
+          focus-visible:ring-primary
           ${className}
         `}
         {...rest}
       >
         <div
-          className={`flex h-full w-full items-center justify-center gap-2 rounded-[4px] bg-white text-secondary transition-colors ${sizeClasses[size]}`}
+          className={`flex h-full w-full items-center justify-center gap-2 rounded-[4px] bg-white text-primary-deep hover:bg-gray-50 transition-colors ${sizeClasses[size]}`}
         >
           {children}
         </div>

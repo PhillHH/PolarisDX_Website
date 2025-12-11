@@ -12,11 +12,14 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-primary text-white"
+      className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-deep to-gray-900 text-white"
     >
+      {/* noise overlay */}
+      <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
+
       {/* gradient accents */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-80 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-80 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-[500px] bg-gradient-to-br from-secondary/20 via-primary/10 to-transparent opacity-30 blur-3xl" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-[500px] bg-gradient-to-tl from-primary-deep/40 via-primary/20 to-transparent opacity-30 blur-3xl" />
 
       <div className="relative z-10 mx-auto flex min-h-[490px] max-w-container items-stretch px-6 pt-16 pb-0 sm:px-8 lg:px-0 lg:pt-14 lg:pb-0">
         <div className="grid w-full gap-4 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
