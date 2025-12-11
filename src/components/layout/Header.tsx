@@ -55,8 +55,10 @@ const Header = () => {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-30 transition-all ${
-          isScrolled ? 'bg-white/95 shadow-lg backdrop-blur' : 'bg-primary'
+        className={`fixed inset-x-0 top-0 z-30 transition-all duration-500 ease-in-out ${
+          isScrolled
+            ? 'bg-white/85 shadow-[0_4px_30px_rgba(0,0,0,0.03)] backdrop-blur-xl border-b border-white/20'
+            : 'bg-primary'
         }`}
       >
         <div className="mx-auto flex max-w-container items-center justify-between px-4 py-3 sm:px-6 lg:px-0 lg:py-4">
@@ -64,37 +66,39 @@ const Header = () => {
             <img
               src={isScrolled ? scrolledLogo : logo}
               alt="PolarisDX logo"
-              className="h-10 w-auto sm:h-12"
+              className="h-10 w-auto sm:h-12 transition-all duration-300"
             />
             <span className="sr-only">PolarisDX</span>
           </Link>
 
           {/* Desktop Nav */}
           <nav
-            className={`hidden flex-wrap items-center gap-6 text-sm font-normal tracking-tight md:flex xl:gap-10 ${
+            className={`hidden flex-wrap items-center gap-8 text-sm font-medium tracking-wide md:flex xl:gap-12 ${
               isScrolled ? 'text-primary' : 'text-white'
             }`}
           >
             {navItems.map((item) => (
               <div key={item.label} className="relative group">
                 {item.children ? (
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1 cursor-pointer">
                     <Link
                         to={item.route!}
-                        className={`flex items-center gap-1 transition-colors hover:text-secondary ${
+                        className={`flex items-center gap-1 transition-all duration-300 hover:opacity-70 ${
                           isScrolled ? 'text-primary' : 'text-white'
                         }`}
                       >
-                        <span>{t(`nav.${item.label}`)}</span>
+                        <span className="relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-current after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                          {t(`nav.${item.label}`)}
+                        </span>
                       </Link>
                       {/* Hover trigger for submenu */}
-                      <div className="absolute top-full left-0 pt-4 hidden group-hover:block min-w-[150px]">
-                        <div className="bg-white shadow-lg rounded-lg py-2 border border-gray-100 overflow-hidden">
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-6 hidden group-hover:block min-w-[180px]">
+                        <div className="bg-white/95 backdrop-blur-xl shadow-2xl rounded-xl py-3 border border-white/20 overflow-hidden ring-1 ring-black/5 animate-in fade-in zoom-in-95 duration-200">
                             {item.children.map(child => (
                               <Link
                                 key={child.label}
                                 to={child.route}
-                                className="block px-4 py-2 text-primary hover:bg-gray-50 hover:text-secondary transition-colors"
+                                className="block px-6 py-2.5 text-sm text-gray-600 hover:bg-blue-50/50 hover:text-primary transition-colors font-normal"
                               >
                                 {t(`nav.${child.label}`)}
                               </Link>
@@ -105,38 +109,44 @@ const Header = () => {
                 ) : (
                   <Link
                     to={item.route!}
-                    className={`flex items-center gap-1 transition-colors hover:text-secondary ${
+                    className={`flex items-center gap-1 transition-all duration-300 hover:opacity-70 ${
                       isScrolled ? 'text-primary' : 'text-white'
                     }`}
                   >
-                    <span>{t(`nav.${item.label}`)}</span>
+                    <span className="relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-current after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                      {t(`nav.${item.label}`)}
+                    </span>
                   </Link>
                 )}
               </div>
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-3 lg:gap-4">
+          <div className="hidden md:flex items-center gap-4 lg:gap-6">
 
             {/* Search Trigger Desktop */}
             <button
               onClick={() => setIsSearchOpen(true)}
-              className={`p-2 rounded-full transition-colors hover:bg-white/10 ${
-                isScrolled ? 'text-primary hover:bg-primary/5' : 'text-white'
+              className={`p-2.5 rounded-full transition-all duration-300 hover:scale-110 ${
+                isScrolled ? 'text-primary hover:bg-primary/5' : 'text-white hover:bg-white/10'
               }`}
               aria-label="Search"
             >
-              <Search className="h-5 w-5" />
+              <Search className="h-4 w-4" />
             </button>
 
             <LanguageSwitcher className={isScrolled ? 'text-primary' : 'text-white'} />
-            <PrimaryButton
-              as={Link}
-              to="/contact"
-              variant={isScrolled ? 'primary' : 'outline-light'}
-            >
-              {t('nav.contact')}
-            </PrimaryButton>
+
+            <div className={`${isScrolled ? '' : 'shadow-lg shadow-blue-900/20'} rounded-full`}>
+                <PrimaryButton
+                as={Link}
+                to="/contact"
+                variant={isScrolled ? 'primary' : 'outline-light'}
+                className={isScrolled ? 'shadow-lg shadow-blue-500/25' : 'border-white/40 hover:bg-white/10 hover:border-white'}
+                >
+                {t('nav.contact')}
+                </PrimaryButton>
+            </div>
           </div>
 
           {/* Mobile Nav Toggle & Search */}
@@ -156,10 +166,10 @@ const Header = () => {
 
               <button
               type="button"
-              className={`flex h-10 w-10 items-center justify-center rounded-full border ${
+              className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors duration-300 ${
                   isScrolled
-                  ? 'border-primary/20 text-primary'
-                  : 'border-white/20 text-white'
+                  ? 'border-primary/10 text-primary bg-primary/5'
+                  : 'border-white/20 text-white bg-white/5'
               }`}
               onClick={() => setIsOpen((prev) => !prev)}
               aria-label="Toggle navigation"
@@ -168,17 +178,17 @@ const Header = () => {
               <span className="sr-only">Toggle navigation</span>
               <div className="space-y-1.5">
                   <span
-                  className={`block h-0.5 w-5 ${
+                  className={`block h-0.5 w-5 transition-colors duration-300 ${
                       isScrolled ? 'bg-primary' : 'bg-white'
                   }`}
                   />
                   <span
-                  className={`block h-0.5 w-5 ${
+                  className={`block h-0.5 w-5 transition-colors duration-300 ${
                       isScrolled ? 'bg-primary' : 'bg-white'
                   }`}
                   />
                   <span
-                  className={`block h-0.5 w-5 ${
+                  className={`block h-0.5 w-5 transition-colors duration-300 ${
                       isScrolled ? 'bg-primary' : 'bg-white'
                   }`}
                   />
@@ -190,36 +200,36 @@ const Header = () => {
         {/* Mobile Menu */}
         {isOpen && (
           <div
-            className={`md:hidden overflow-y-auto max-h-[80vh] ${
+            className={`md:hidden overflow-y-auto max-h-[80vh] backdrop-blur-xl transition-all duration-300 ${
               isScrolled
-                ? 'bg-white/95 border-t border-gray-200'
-                : 'bg-primary/98 border-t border-white/10'
+                ? 'bg-white/90 border-t border-gray-100 shadow-xl'
+                : 'bg-primary/95 border-t border-white/10 shadow-xl shadow-black/10'
             }`}
           >
-            <div className="mx-auto flex max-w-container flex-col gap-4 px-4 py-4">
+            <div className="mx-auto flex max-w-container flex-col gap-6 px-6 py-8">
               {navItems.map((item) => (
-                <div key={item.label}>
+                <div key={item.label} className="border-b border-white/5 pb-2 last:border-0 last:pb-0">
                   {item.children ? (
                     <div>
                       <div
-                        className={`flex items-center justify-between text-base font-normal tracking-tight cursor-pointer ${
+                        className={`flex items-center justify-between text-lg font-light tracking-wide cursor-pointer ${
                           isScrolled ? 'text-primary' : 'text-white'
                         }`}
                         onClick={() => setOpenSubmenu(openSubmenu === item.label ? null : item.label)}
                       >
                         <span>{t(`nav.${item.label}`)}</span>
-                        <ChevronDown className={`h-4 w-4 transition-transform ${openSubmenu === item.label ? 'rotate-180' : ''}`} />
+                        <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${openSubmenu === item.label ? 'rotate-180' : ''}`} />
                       </div>
                       {/* Submenu */}
                       {openSubmenu === item.label && (
                         <div
-                          className={`pl-4 mt-2 space-y-2 border-l ${
+                          className={`pl-4 mt-3 space-y-3 border-l-2 ${
                             isScrolled ? 'border-primary/10' : 'border-white/20'
                           }`}
                         >
                             <Link
                               to={item.route!}
-                              className={`block text-sm ${isScrolled ? 'text-primary/80' : 'text-white/80'}`}
+                              className={`block text-base font-light ${isScrolled ? 'text-primary/70' : 'text-white/70'}`}
                               onClick={() => setIsOpen(false)}
                             >
                               {t(`nav.${item.label}`)}
@@ -228,7 +238,7 @@ const Header = () => {
                               <Link
                                 key={child.label}
                                 to={child.route}
-                                className={`block text-sm ${isScrolled ? 'text-primary/80' : 'text-white/80'}`}
+                                className={`block text-base font-light ${isScrolled ? 'text-primary/70' : 'text-white/70'}`}
                                 onClick={() => setIsOpen(false)}
                               >
                                   {t(`nav.${child.label}`)}
@@ -240,7 +250,7 @@ const Header = () => {
                   ) : (
                     <Link
                       to={item.route!}
-                      className={`text-base font-normal tracking-tight ${
+                      className={`block text-lg font-light tracking-wide ${
                         isScrolled ? 'text-primary' : 'text-white'
                       }`}
                       onClick={() => setIsOpen(false)}
@@ -250,15 +260,17 @@ const Header = () => {
                   )}
                 </div>
               ))}
-              <PrimaryButton
-                as={Link}
-                to="/contact"
-                className="w-full justify-center"
-                onClick={() => setIsOpen(false)}
-                variant={isScrolled ? 'primary' : 'outline-light'}
-              >
-                {t('nav.contact')}
-              </PrimaryButton>
+              <div className="pt-4">
+                <PrimaryButton
+                    as={Link}
+                    to="/contact"
+                    className="w-full justify-center shadow-lg"
+                    onClick={() => setIsOpen(false)}
+                    variant={isScrolled ? 'primary' : 'outline-light'}
+                >
+                    {t('nav.contact')}
+                </PrimaryButton>
+              </div>
             </div>
           </div>
         )}

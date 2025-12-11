@@ -124,65 +124,66 @@ const ChatWidget = () => {
       {/* Floating Action Button (FAB) */}
       <button
         onClick={toggleChat}
-        className={`fixed bottom-6 right-6 z-40 flex items-center justify-center rounded-full shadow-xl transition-all hover:scale-105 active:scale-95
-          ${isOpen ? 'bg-gray-200 text-gray-600 h-12 w-12 lg:hidden' : 'bg-blue-600 text-white h-14 w-14 hover:bg-blue-700'}
+        className={`fixed bottom-6 right-6 z-[60] flex items-center justify-center rounded-full transition-all hover:scale-105 active:scale-95 duration-300
+          ${isOpen
+            ? 'bg-white/80 backdrop-blur-md text-gray-600 h-12 w-12 border border-gray-200 shadow-lg lg:hidden'
+            : 'bg-gradient-to-br from-blue-600 to-blue-900 text-white h-14 w-14 shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_25px_rgba(37,99,235,0.6)] border border-blue-500/30'
+          }
         `}
         aria-label="Open Chat"
       >
-        {isOpen ? <X className="h-6 w-6" /> : <MessageCircle className="h-7 w-7" />}
-
-        {/* Notification badge if minimized and new messages? (Optional) */}
+        {isOpen ? <X className="h-5 w-5" /> : <MessageCircle className="h-7 w-7" />}
       </button>
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-24 lg:bottom-4 right-6 z-40 w-[90vw] lg:w-96 max-w-[350px] lg:max-w-[400px] overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-black/5 animate-in slide-in-from-bottom-10 fade-in duration-200">
+        <div className="fixed bottom-24 lg:bottom-6 right-6 z-[60] w-[90vw] lg:w-96 max-w-[350px] lg:max-w-[400px] overflow-hidden rounded-2xl bg-white/80 backdrop-blur-xl shadow-2xl ring-1 ring-white/20 animate-in slide-in-from-bottom-10 fade-in duration-300 border border-white/40">
 
           {/* Header */}
-          <div className="flex items-center justify-between bg-gradient-to-r from-cyan-500 to-blue-600 px-4 py-3 text-white">
-            <div className="flex items-center gap-2">
-              <div className="relative flex h-8 w-8 items-center justify-center rounded-full bg-white/20 text-xs font-bold">
+          <div className="flex items-center justify-between bg-gradient-to-r from-[#0f5f95] to-[#052e4a] px-5 py-4 text-white shadow-md">
+            <div className="flex items-center gap-3">
+              <div className="relative flex h-9 w-9 items-center justify-center rounded-full bg-white/10 border border-white/20 text-xs font-bold backdrop-blur-sm">
                  DX
-                 <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-green-400 ring-2 ring-blue-600"></span>
+                 <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-green-400 ring-2 ring-[#0f5f95] shadow-[0_0_8px_rgba(74,222,128,0.5)]"></span>
               </div>
               <div className="flex flex-col">
-                 <span className="text-sm font-semibold">{t('chat.title', 'Chat')}</span>
-                 <span className="text-[10px] text-blue-100 opacity-90">{t('chat.status', 'Online')}</span>
+                 <span className="text-sm font-medium tracking-wide">{t('chat.title', 'PolarisDX Concierge')}</span>
+                 <span className="text-[10px] text-blue-200 opacity-90 tracking-wider uppercase">{t('chat.status', 'Online')}</span>
               </div>
             </div>
             <div className="flex items-center gap-1">
                 {/* Minimize Button */}
-                <button onClick={handleMinimize} className="p-1 hover:bg-white/10 rounded-full text-white/80 hover:text-white transition-colors">
+                <button onClick={handleMinimize} className="p-1.5 hover:bg-white/10 rounded-full text-white/70 hover:text-white transition-colors">
                     <Minus className="h-4 w-4" />
                 </button>
             </div>
           </div>
 
           {/* Messages Area */}
-          <div className="h-[350px] lg:h-[400px] overflow-y-auto bg-gray-50 p-4 flex flex-col gap-3">
+          <div className="h-[350px] lg:h-[400px] overflow-y-auto bg-transparent p-5 flex flex-col gap-4">
              {/* Note: Removed 'messages.length === 0' check because we always have the prototype message now */}
 
             {messages.map((msg) => (
               <div
                 key={msg.id}
-                className={`flex w-fit max-w-[85%] flex-col gap-1 rounded-xl px-3 py-2 text-sm shadow-sm
+                className={`flex w-fit max-w-[85%] flex-col gap-1 px-4 py-3 text-sm shadow-sm backdrop-blur-sm
                   ${
                     msg.sender === 'user'
-                      ? 'self-end bg-blue-600 text-white rounded-br-none'
-                      : 'self-start bg-white text-gray-800 border border-gray-100 rounded-bl-none'
+                      ? 'self-end bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-2xl rounded-br-sm shadow-blue-900/10'
+                      : 'self-start bg-white/80 text-gray-800 border border-white/50 rounded-2xl rounded-bl-sm shadow-lg shadow-gray-200/50'
                   }
                 `}
               >
-                <div>{msg.content || msg.text}</div>
-                <span className={`text-[9px] ${msg.sender === 'user' ? 'text-blue-100' : 'text-gray-400'}`}>
+                <div className="leading-relaxed">{msg.content || msg.text}</div>
+                <span className={`text-[10px] tracking-wide ${msg.sender === 'user' ? 'text-blue-200' : 'text-gray-400'}`}>
                   {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                 </span>
               </div>
             ))}
 
             {isLoading && (
-               <div className="self-start bg-white border border-gray-100 rounded-xl rounded-bl-none px-3 py-2 shadow-sm">
-                  <div className="flex gap-1">
+               <div className="self-start bg-white/80 border border-white/50 rounded-2xl rounded-bl-sm px-4 py-3 shadow-lg shadow-gray-200/50 backdrop-blur-sm">
+                  <div className="flex gap-1.5">
                      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-gray-400 [animation-delay:-0.3s]"></span>
                      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-gray-400 [animation-delay:-0.15s]"></span>
                      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-gray-400"></span>
@@ -193,26 +194,26 @@ const ChatWidget = () => {
           </div>
 
           {/* Input Area */}
-          <form onSubmit={handleSendMessage} className="border-t border-gray-100 bg-white p-3">
-            <div className="relative flex items-center">
+          <form onSubmit={handleSendMessage} className="border-t border-white/20 bg-white/50 p-4 backdrop-blur-md">
+            <div className="relative flex items-center group">
               <input
                 type="text"
                 disabled
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 placeholder={t('chat.placeholder', 'Nachricht eingeben...')}
-                className="w-full rounded-full border border-gray-200 bg-gray-100 text-gray-400 py-2.5 pl-4 pr-12 text-sm outline-none transition-all cursor-not-allowed"
+                className="w-full rounded-full border border-gray-200/60 bg-white/80 text-gray-600 py-3 pl-5 pr-12 text-sm outline-none transition-all focus:border-blue-400/50 focus:ring-4 focus:ring-blue-500/10 focus:bg-white placeholder:text-gray-400 cursor-not-allowed shadow-inner"
               />
               <button
                 type="submit"
                 disabled
-                className="absolute right-1.5 top-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-gray-300 text-white transition-colors cursor-not-allowed"
+                className="absolute right-1.5 top-1.5 flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-blue-800 text-white transition-all shadow-md hover:shadow-lg disabled:opacity-50 disabled:shadow-none cursor-not-allowed"
               >
                 <Send className="h-4 w-4 ml-0.5" />
               </button>
             </div>
-            <div className="mt-2 text-center text-[10px] text-gray-400">
-               {t('chat.footer', 'Powered by PolarisDX Assistant')}
+            <div className="mt-2.5 text-center text-[10px] text-gray-400 font-medium tracking-wide uppercase opacity-70">
+               {t('chat.footer', 'PolarisDX Private Assistant')}
             </div>
           </form>
         </div>
