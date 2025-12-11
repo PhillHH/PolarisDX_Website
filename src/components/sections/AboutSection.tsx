@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import PrimaryButton from '../ui/PrimaryButton' // Button-Komponente
 import SectionHeader from '../ui/SectionHeader' // Kopfzeilen-Komponente für Abschnitte
-import aboveTheFold from '../../assets/above_the_fold.png' // Bild für diesen Abschnitt
+import iglooExplode from '../../assets/igloo_explode.png' // Bild für diesen Abschnitt
 
 // Definiert die 'AboutSection'-Komponente, die einen Abschnitt der Webseite darstellt.
 const AboutSection = () => {
@@ -18,32 +18,29 @@ const AboutSection = () => {
     >
       {/* Linke Spalte: Container für das Bild und das dekorative Hintergrund-Element. */}
       {/* Mobil ausgeblendet, nur auf Desktop (lg) sichtbar */}
-      <div className="hidden lg:relative lg:mx-auto lg:block lg:h-[380px] lg:max-w-md">
-        {/* Dekoratives Hintergrund-Element, das absolut positioniert ist. */}
-        {/* Die Position wird durch Tailwind-Klassen ('-left-8', 'top-8') gesteuert. */}
-        <div className="absolute -left-8 top-12 h-full w-64 bg-primary" />
+      <div className="hidden lg:relative lg:mx-auto lg:block lg:h-[660px] lg:max-w-3xl">
+        {/* Dunkelblauer Akzentbalken bleibt erhalten. */}
+        <div className="absolute -left-8 top-12 h-[88%] w-64 bg-primary" />
 
-        {/* Container für das Hauptbild. */}
-        <div className="relative h-full w-full bg-secondary shadow-2xl">
+        {/* Hauptbild ohne hellen Hintergrund/Verlauf. */}
+        <div className="relative h-full w-full">
           <img
-            src={aboveTheFold}
+            src={iglooExplode}
             alt="IglooPro device sending data securely to the cloud"
             className="h-full w-full object-cover"
           />
-          {/* Ein transparenter Farbverlauf, der über dem Bild liegt, um einen leichten visuellen Effekt zu erzeugen. */}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/35 via-secondary/25 to-transparent" />
         </div>
       </div>
 
       {/* Rechte Spalte: Container für den Textinhalt. */}
-      <div className="space-y-8 lg:space-y-6">
+      <div className="space-y-8 lg:space-y-6 lg:max-w-4xl xl:max-w-5xl">
         {/* Kopfzeile des Abschnitts mit Untertitel und Haupttitel. */}
         <SectionHeader
           caption={t('about.caption', 'IHR PERFORMANCE-GARANT')}
           title={t('about.title', 'Exzellenz und Sicherheit: Der Standard, den wir setzen.')}
-          align="center"
+          align="left"
           titleClassName="text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)] font-medium tracking-[-0.02em] text-gray-900"
-          className="gap-3"
+          className="gap-3 lg:max-w-4xl xl:max-w-5xl"
         />
         {/* Textabsätze mit Platzhaltertext. */}
         <p className="text-sm leading-relaxed text-gray-500 sm:text-base">
@@ -53,7 +50,7 @@ const AboutSection = () => {
           {t('about.text2', 'Deshalb liefern wir exklusiv...')}
         </p>
         {/* Ein primärer Button, der als Link zum 'hero'-Abschnitt fungiert. */}
-        <div className="flex justify-center pt-1 sm:pt-2">
+        <div className="flex justify-center pt-1 sm:pt-2 lg:justify-start">
           <PrimaryButton as={Link} to="/contact">
             {t('about.cta', 'Exklusiven Vorteil sichern')}
           </PrimaryButton>
