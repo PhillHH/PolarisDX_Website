@@ -8,11 +8,12 @@ const AboutPage = () => {
 
   return (
     <PageTransition>
-      <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-primary text-white">
-        <div className="mx-auto max-w-container px-4 text-center lg:px-0">
+      <div className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 bg-gradient-to-br from-primary via-primary-deep to-gray-900 text-white overflow-hidden">
+        <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
+        <div className="mx-auto max-w-container px-4 text-center lg:px-0 relative z-10">
             <Reveal width="100%" yOffset={20}>
               <div className="flex justify-center">
-                <div className="inline-block rounded p-[1px] bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 mb-2">
+                <div className="inline-block rounded p-[1px] bg-gradient-to-r from-secondary via-primary to-primary-deep shadow-lg shadow-primary/20 mb-2">
                     <div className="rounded-sm bg-slate-50 px-3 py-1">
                     <span className="text-xs font-semibold uppercase tracking-wide text-gray-900">
                         {t('about:hero.caption', 'ÜBER UNS')}

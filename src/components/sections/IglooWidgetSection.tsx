@@ -81,24 +81,25 @@ const IglooWidgetSection = () => {
         </svg>
 
         {/* Central Image with Glow */}
-        <div className="relative z-10 flex justify-center items-center h-full w-full pointer-events-none">
+        <div className="relative z-30 flex justify-center items-center h-full w-full pointer-events-auto cursor-pointer">
             {/* Blue Glow Effect */}
             <div className="absolute w-[300px] h-[300px] bg-blue-500/20 blur-[80px] rounded-full mix-blend-multiply" />
 
             <img
                 src={iglooImage}
                 alt="Igloo Pro"
-                className="relative z-10 w-32 md:w-40 lg:w-48 drop-shadow-2xl transition-all"
+                className="relative z-10 w-32 md:w-40 lg:w-48 drop-shadow-2xl transition-all duration-500 ease-in-out hover:scale-110"
             />
         </div>
 
         {/* Widgets */}
-        <div className="flex flex-col gap-6 lg:absolute lg:inset-0 lg:block z-20">
+        <div className="flex flex-col gap-6 lg:absolute lg:inset-0 lg:block z-20 pointer-events-none">
             {widgets.map((widget) => (
             <Link
               key={widget.id}
               to={widget.path}
               className={`
+                pointer-events-auto
                 group flex items-center justify-center
                 relative
                 rounded-2xl
