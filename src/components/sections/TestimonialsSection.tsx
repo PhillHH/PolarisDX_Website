@@ -47,10 +47,11 @@ const TestimonialsSection = () => {
   return (
     <section
       id="testimonials"
-      className="relative bg-primary py-16 text-white"
+      className="relative bg-gradient-to-br from-primary via-primary-deep to-gray-900 py-16 text-white"
     >
       <div className="pointer-events-none absolute inset-y-0 left-0 w-80 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-80 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
+      <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
 
       <div className="relative mx-auto flex max-w-container flex-col items-center gap-16 px-4 lg:gap-12 lg:px-8">
         <div className="flex flex-col items-center gap-8 text-center lg:gap-6">
@@ -125,12 +126,12 @@ const TestimonialsSection = () => {
               <span className="text-3xl font-medium tracking-tight sm:text-4xl">4.9</span>
             </div>
             <p className="mt-1 text-xs text-white/80 whitespace-pre-line sm:text-sm">
-              {t('testimonials.ratingLabel', 'Overall Rating\nbased on 3500+ reviews')}
+              {t('testimonials.ratingLabel', 'Overall Rating\nbased on 500+ reviews')}
             </p>
           </div>
           <div>
             <div className="flex items-baseline justify-center gap-1">
-              <span className="text-3xl font-medium tracking-tight sm:text-4xl">99</span>
+              <span className="text-3xl font-medium tracking-tight sm:text-4xl">100</span>
               <span className="text-xl font-medium text-white/80 sm:text-2xl">%</span>
             </div>
             <p className="mt-1 text-xs text-white/80 sm:text-sm">{t('testimonials.positiveLabel', 'Positive Review')}</p>

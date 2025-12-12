@@ -88,13 +88,13 @@ const HeroSection = () => {
                 value={t('hero.stat1.value', '48h')}
                 label={t('hero.stat1.label', 'Einsatzbereit nach Bestellung')}
                 size="sm"
-                className="scale-90 origin-top-left py-0"
+                className="scale-75 origin-top-left py-0"
               />
               <StatItem
                 value={t('hero.stat2.value', 'CV < 2%')}
                 label={t('hero.stat2.label', 'Präzision über den gesamten Messbereich')}
                 size="sm"
-                className="scale-90 origin-top-left py-0"
+                className="scale-75 origin-top-left py-0"
               />
             </motion.div>
           </div>
@@ -116,7 +116,7 @@ const HeroSection = () => {
             transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
             src={heroDoctor}
             alt="PolarisDX doctor holding device"
-            className="relative z-10 h-[900px] w-auto object-contain object-bottom -mb-10"
+            className="relative z-10 h-[900px] w-auto object-contain object-bottom -mb-20 right-8"
           />
         </div>
         </div>

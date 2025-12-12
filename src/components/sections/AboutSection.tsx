@@ -39,7 +39,7 @@ const AboutSection = () => {
           caption={t('about.caption', 'IHR PERFORMANCE-GARANT')}
           title={t('about.title', 'Exzellenz und Sicherheit: Der Standard, den wir setzen.')}
           align="left"
-          titleClassName="text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)] font-medium tracking-[-0.02em] text-gray-900"
+          titleClassName="text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)] font-medium tracking-[-0.02em] text-gray-900 max-w-lg lg:max-w-none"
           className="gap-3 lg:max-w-4xl xl:max-w-5xl"
         />
         {/* Textabsätze mit Platzhaltertext. */}
@@ -51,7 +51,7 @@ const AboutSection = () => {
         </p>
         {/* Ein primärer Button, der als Link zum 'hero'-Abschnitt fungiert. */}
         <div className="flex justify-center pt-1 sm:pt-2 lg:justify-start">
-          <PrimaryButton as={Link} to="/contact">
+          <PrimaryButton as={Link} to="/contact" size="lg">
             {t('about.cta', 'Exklusiven Vorteil sichern')}
           </PrimaryButton>
         </div>

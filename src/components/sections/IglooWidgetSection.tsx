@@ -1,16 +1,17 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Smile, Sparkles, Infinity as InfinityIcon } from 'lucide-react'
+import { Sparkles, Infinity as InfinityIcon } from 'lucide-react'
+import { Tooth } from '../ui/icons/Tooth'
 import iglooImage from '../../assets/igloo_front.png'
 
 const IglooWidgetSection = () => {
   const { t } = useTranslation('home')
 
-  // Coordinates for the symmetrical triangle layout (1000x600 container)
+  // Coordinates for the symmetrical triangle layout (1200x600 container)
   const positions = {
-    dental: { x: 500, y: 80 },
+    dental: { x: 600, y: 80 },
     beauty: { x: 150, y: 500 },
-    longevity: { x: 850, y: 500 },
+    longevity: { x: 1050, y: 500 },
   }
 
   const widgets = [
@@ -18,7 +19,7 @@ const IglooWidgetSection = () => {
       id: 'dental',
       label: 'Dental',
       path: '/services/dental',
-      icon: <Smile className="w-8 h-8 text-cyan-500 mb-2" />,
+      icon: <Tooth className="w-10 h-10 text-white mb-2" />,
       x: positions.dental.x,
       y: positions.dental.y,
     },
@@ -26,7 +27,7 @@ const IglooWidgetSection = () => {
       id: 'beauty',
       label: 'Beauty',
       path: '/services/beauty',
-      icon: <Sparkles className="w-8 h-8 text-blue-500 mb-2" />,
+      icon: <Sparkles className="w-10 h-10 text-white mb-2" />,
       x: positions.beauty.x,
       y: positions.beauty.y,
     },
@@ -34,7 +35,7 @@ const IglooWidgetSection = () => {
       id: 'longevity',
       label: 'Longevity',
       path: '/services/longevity',
-      icon: <InfinityIcon className="w-8 h-8 text-[#083358] mb-2" />,
+      icon: <InfinityIcon className="w-10 h-10 text-white mb-2" />,
       x: positions.longevity.x,
       y: positions.longevity.y,
     },
@@ -53,7 +54,7 @@ const IglooWidgetSection = () => {
           </h3>
        </div>
 
-      <div className="mx-auto flex flex-col items-center justify-center gap-10 lg:block lg:h-[600px] lg:w-[1000px] relative">
+      <div className="mx-auto flex flex-col items-center justify-center gap-10 lg:block lg:h-[600px] lg:w-[1200px] relative">
 
         {/* Decorative connecting lines for desktop (Triangle) */}
         <svg className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0">
@@ -88,7 +89,7 @@ const IglooWidgetSection = () => {
             <img
                 src={iglooImage}
                 alt="Igloo Pro"
-                className="relative z-10 w-32 md:w-40 lg:w-48 drop-shadow-2xl transition-all duration-500 ease-in-out hover:scale-110"
+                className="relative z-10 w-48 md:w-56 lg:w-64 drop-shadow-2xl transition-all duration-500 ease-in-out hover:scale-110"
             />
         </div>
 
@@ -115,15 +116,15 @@ const IglooWidgetSection = () => {
               } as React.CSSProperties}
             >
                 {/* Glassmorphism Inner Container */}
-                <div className="flex h-full w-full flex-col items-center justify-center rounded-[15px] bg-white/70 backdrop-blur-xl border border-white/50 p-5 sm:p-6 transition-colors group-hover:bg-white/80">
+                <div className="flex h-full w-full flex-col items-center justify-center rounded-[15px] bg-blue-900/40 backdrop-blur-xl border border-white/20 p-5 sm:p-6 transition-colors group-hover:bg-blue-900/60">
                     <div className="transform transition-transform duration-300 group-hover:-translate-y-1">
                         {widget.icon}
                     </div>
 
-                    <span className="text-2xl font-medium text-gray-900 group-hover:text-primary">
+                    <span className="text-2xl font-medium text-white group-hover:text-cyan-400">
                         {widget.label}
                     </span>
-                    <span className="mt-2 text-sm font-medium text-gray-500 group-hover:text-primary/70">
+                    <span className="mt-2 text-sm font-medium text-gray-300 group-hover:text-white">
                         {t('common:readMore', 'Mehr erfahren')} →
                     </span>
                 </div>

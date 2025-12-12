@@ -1,5 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { Tooth } from '../components/ui/icons/Tooth'
+import { Sparkles, Infinity as InfinityIcon } from 'lucide-react'
 import SectionHeader from '../components/ui/SectionHeader'
 import PrimaryButton from '../components/ui/PrimaryButton'
 import { services } from '../data/services'
@@ -47,7 +49,8 @@ const ServicePage = () => {
     <PageTransition>
       <div className="bg-slate-50">
         {/* Hero / Header */}
-        <section className="relative overflow-hidden bg-primary text-white">
+        <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-deep to-gray-900 text-white">
+          <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
           <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
 
@@ -140,25 +143,37 @@ const ServicePage = () => {
                 <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-gray-500">
                   {t('home:services.title', 'Key Areas')}
                 </h2>
-                <div className="space-y-2">
-                  {otherServices.map((s) => (
-                    <Link
-                      key={s.id}
-                      to={`/services/${s.id}`}
-                      className="block rounded-lg p-2 transition hover:bg-slate-50 hover:text-secondary"
-                    >
-                      <p className="text-sm font-medium text-gray-900">
-                        {t(`home:services.${s.translationKey}.title`, s.title)}
-                      </p>
-                    </Link>
-                  ))}
+                <div className="space-y-3">
+                  {otherServices.map((s) => {
+                    let IconComponent
+                    if (s.id.includes('dental')) IconComponent = Tooth
+                    else if (s.id.includes('beauty')) IconComponent = Sparkles
+                    else IconComponent = InfinityIcon
+
+                    return (
+                      <Link
+                        key={s.id}
+                        to={`/services/${s.id}`}
+                        className="group flex items-center justify-between rounded-xl border border-gray-100 bg-gradient-to-br from-white to-slate-50 p-4 shadow-sm transition-all duration-300 hover:border-blue-200 hover:shadow-md hover:scale-[1.02]"
+                      >
+                        <div className="flex items-center gap-3">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-secondary transition-colors group-hover:bg-secondary group-hover:text-white">
+                                <IconComponent className="h-5 w-5" />
+                            </div>
+                            <span className="font-medium text-gray-900 group-hover:text-secondary">
+                                {t(`home:services.${s.translationKey}.title`, s.title)}
+                            </span>
+                        </div>
+                      </Link>
+                    )
+                  })}
                 </div>
               </section>
 
               {/* Related Articles Widget */}
               <section className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm mt-8">
                 <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-gray-500">
-                    {t('home:blog.title', 'Blog Articles')}
+                    {t('articles:index.title', 'Unsere Artikel')}
                 </h2>
                 <div className="space-y-4">
                     {relatedArticles.map((post) => (
