@@ -46,12 +46,13 @@ const IglooWidgetSection = () => {
        {/* Global background decoration could go here if needed */}
 
        <div className="mx-auto max-w-container px-4 text-center lg:px-0 mb-16 relative z-10">
-          <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-accentBlue mb-3">
-             {t('services.caption', 'DIAGNOSTIK-FOKUS')}
-          </h2>
-          <h3 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-4xl">
-             {t('igloo_widget.title', 'Anwendungsbereiche')}
-          </h3>
+          <div className="inline-block rounded p-[1px] bg-gradient-to-r from-secondary via-primary to-primary-deep shadow-lg shadow-primary/20 mb-8">
+            <div className="rounded-sm bg-slate-50 px-4 py-2 lg:px-3 lg:py-1">
+              <span className="text-sm font-semibold uppercase tracking-wide text-gray-900 lg:text-xs">
+                {t('igloo_widget.title', 'Anwendungsbereiche')}
+              </span>
+            </div>
+          </div>
        </div>
 
       <div className="mx-auto flex flex-col items-center justify-center gap-10 lg:block lg:h-[600px] lg:w-[1200px] relative">

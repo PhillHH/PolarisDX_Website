@@ -10,14 +10,14 @@ type StatItemProps = {
 
 const sizeStyles: Record<Size, { value: string; suffix: string; label: string }> = {
   md: {
-    value: 'text-4xl font-medium tracking-tight text-white sm:text-5xl',
-    suffix: 'text-2xl font-medium text-secondary',
-    label: 'text-sm font-normal text-white/80',
-  },
-  sm: {
     value: 'text-3xl font-medium tracking-tight text-white sm:text-4xl',
     suffix: 'text-xl font-medium text-secondary',
     label: 'text-xs font-normal text-white/80 sm:text-sm',
+  },
+  sm: {
+    value: 'text-2xl font-medium tracking-tight text-white sm:text-3xl',
+    suffix: 'text-lg font-medium text-secondary',
+    label: 'text-[10px] font-normal text-white/80 sm:text-xs',
   },
 }
 
@@ -42,5 +42,3 @@ const StatItem = ({ value, suffix, label, size = 'md', className = '' }: StatIte
 }
 
 export default StatItem
-
-
