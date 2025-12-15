@@ -1,3 +1,7 @@
+import RichardPollockAvatar from '../assets/Testimonials/Richard-Pollock-Biological-Dentist-Internal (1).png'
+import GoranAvatar from '../assets/Testimonials/goran_rezension.png'
+import BastianAvatar from '../assets/Testimonials/Bastian Foto.jpeg'
+
 export interface Testimonial {
   id: string; // added ID for translation lookup
   role: string;
@@ -16,14 +20,25 @@ export const testimonials: Testimonial[] = [
     title: "Biological Dentist and Implant Surgeon / Chelsea Dental Clinic",
     focus: "Fast On-Site Health Checks (Prävention, Vitamin D)",
     text: "",
+    avatar: RichardPollockAvatar,
   },
   {
-    id: "eva_schmidt",
-    role: "Apotheke",
-    name: "Dr. Eva Schmidt",
-    title: "Inhaberin / Löwen-Apotheke, Berlin",
-    focus: "Der nächste Schritt in der Präventionsberatung (Kundenbindung, Schnelligkeit)",
+    id: "goran_stojanovic",
+    role: "Zahnarzt (Echte Rezension)",
+    name: "Goran Stojanovic",
+    title: "Biological Dentist / Principal Dentist & Owner",
+    focus: "Sofortdiagnostik für Implantatplanung (Vitamin D, CRP)",
     text: "",
+    avatar: GoranAvatar,
+  },
+  {
+    id: "bastian_wessing",
+    role: "Ärztlicher Leiter",
+    name: "Dr. Bastian Wessing",
+    title: "MVZ Zahnkultur Berlin Brandenburg GmbH",
+    focus: "Sofortdiagnostik für Parodontologie & Implantologie (Vitamin D, HbA1c, Cholesterin, CRP)",
+    text: "",
+    avatar: BastianAvatar,
   },
   {
     id: "martin_fischer",
@@ -31,14 +46,6 @@ export const testimonials: Testimonial[] = [
     name: "Dr. Martin Fischer",
     title: "Facharzt für Innere Medizin / Internistische Praxis Dr. Fischer",
     focus: "Sofortdiagnostik bei Akutpatienten (Effizienz, Therapieentscheidung)",
-    text: "",
-  },
-  {
-    id: "julia_bergmann",
-    role: "Klinik/Labor",
-    name: "Prof. Dr. Julia Bergmann",
-    title: "Leiterin Labor & Diagnostik / Klinikum Nord",
-    focus: "System-Kompatibilität & Zuverlässigkeit (Flexibilität, Bündelung)",
     text: "",
   },
 ];

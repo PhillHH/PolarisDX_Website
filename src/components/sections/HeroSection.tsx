@@ -21,7 +21,7 @@ const HeroSection = () => {
       <div className="pointer-events-none absolute inset-y-0 left-0 w-[500px] bg-gradient-to-br from-secondary/20 via-primary/10 to-transparent opacity-30 blur-3xl" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-[500px] bg-gradient-to-tl from-primary-deep/40 via-primary/20 to-transparent opacity-30 blur-3xl" />
 
-      <div className="relative z-10 mx-auto flex min-h-[490px] max-w-container items-stretch px-6 pt-16 pb-0 sm:px-8 lg:px-0 lg:pt-14 lg:pb-0">
+      <div className="relative z-10 mx-auto flex min-h-[430px] max-w-container items-stretch px-6 pt-12 pb-0 sm:px-8 lg:px-0 lg:pt-12 lg:pb-0">
         <div className="grid w-full gap-4 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
         <div className="flex flex-col justify-center space-y-9 lg:space-y-7">
           <div className="space-y-3 lg:space-y-2">
@@ -107,7 +107,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="pointer-events-none absolute bottom-0 right-4 h-[520px] w-[280px] bg-secondary lg:bottom-0"
+            className="pointer-events-none absolute bottom-0 right-4 h-[440px] w-[280px] bg-secondary lg:bottom-0"
           />
           {/* Ärztin wird zusammen mit dem Hintergrund nach oben geschoben */}
           <motion.img
@@ -116,7 +116,7 @@ const HeroSection = () => {
             transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
             src={heroDoctor}
             alt="PolarisDX doctor holding device"
-            className="relative z-10 h-[900px] w-auto object-contain object-bottom -mb-20 right-8"
+            className="relative z-10 h-[780px] w-auto object-contain object-bottom -mb-8 right-8"
           />
         </div>
         </div>
