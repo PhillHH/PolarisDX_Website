@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
 
 type Variant = 'primary' | 'secondary' | 'outline-light'
-type Size = 'md' | 'sm'
+type Size = 'lg' | 'md' | 'sm'
 
 type PrimaryButtonProps<T extends ElementType> = {
   as?: T
@@ -15,6 +15,7 @@ const baseClasses =
   'inline-flex items-center justify-center gap-2 rounded-md text-base font-medium tracking-tight transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent'
 
 const sizeClasses: Record<Size, string> = {
+  lg: 'px-10 py-5 text-lg',
   md: 'px-8 py-4 text-base',
   sm: 'px-6 py-3 text-sm',
 }

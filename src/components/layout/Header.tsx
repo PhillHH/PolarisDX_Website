@@ -6,7 +6,6 @@ import PrimaryButton from '../ui/PrimaryButton'
 import LanguageSwitcher from '../ui/LanguageSwitcher'
 import SearchModal from '../ui/SearchModal'
 import logo from '../../assets/polaris_white.png'
-import scrolledLogo from '../../assets/PolarisDX_Logo_main.png'
 
 interface NavItem {
   label: string
@@ -57,14 +56,14 @@ const Header = () => {
       <header
         className={`fixed inset-x-0 top-0 z-30 transition-all duration-500 ease-in-out ${
           isScrolled
-            ? 'bg-white/85 shadow-[0_4px_30px_rgba(0,0,0,0.03)] backdrop-blur-xl border-b border-white/20'
-            : 'bg-primary'
+            ? 'bg-[#083358]/85 shadow-[0_4px_30px_rgba(0,0,0,0.2)] backdrop-blur-xl border-b border-white/5'
+            : 'bg-transparent'
         }`}
       >
         <div className="mx-auto flex max-w-container items-center justify-between px-4 py-3 sm:px-6 lg:px-0 lg:py-4">
           <Link to="/" className="flex shrink-0 items-center gap-3">
             <img
-              src={isScrolled ? scrolledLogo : logo}
+              src={logo} // Always use white logo as background is always dark (either hero or dark header)
               alt="PolarisDX logo"
               className="h-10 w-auto sm:h-12 transition-all duration-300"
             />
@@ -73,9 +72,7 @@ const Header = () => {
 
           {/* Desktop Nav */}
           <nav
-            className={`hidden flex-wrap items-center gap-8 text-sm font-medium tracking-wide md:flex xl:gap-12 ${
-              isScrolled ? 'text-primary' : 'text-white'
-            }`}
+            className={`hidden flex-wrap items-center gap-8 text-sm font-medium tracking-wide md:flex xl:gap-12 text-white`}
           >
             {navItems.map((item) => (
               <div key={item.label} className="relative group">
@@ -83,9 +80,7 @@ const Header = () => {
                   <div className="flex items-center gap-1 cursor-pointer">
                     <Link
                         to={item.route!}
-                        className={`flex items-center gap-1 transition-all duration-300 hover:opacity-70 ${
-                          isScrolled ? 'text-primary' : 'text-white'
-                        }`}
+                        className={`flex items-center gap-1 transition-all duration-300 hover:opacity-70 text-white`}
                       >
                         <span className="relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-current after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                           {t(`nav.${item.label}`)}
@@ -109,9 +104,7 @@ const Header = () => {
                 ) : (
                   <Link
                     to={item.route!}
-                    className={`flex items-center gap-1 transition-all duration-300 hover:opacity-70 ${
-                      isScrolled ? 'text-primary' : 'text-white'
-                    }`}
+                    className={`flex items-center gap-1 transition-all duration-300 hover:opacity-70 text-white`}
                   >
                     <span className="relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-current after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                       {t(`nav.${item.label}`)}
@@ -127,15 +120,13 @@ const Header = () => {
             {/* Search Trigger Desktop */}
             <button
               onClick={() => setIsSearchOpen(true)}
-              className={`p-2.5 rounded-full transition-all duration-300 hover:scale-110 ${
-                isScrolled ? 'text-primary hover:bg-primary/5' : 'text-white hover:bg-white/10'
-              }`}
+              className={`p-2.5 rounded-full transition-all duration-300 hover:scale-110 text-white hover:bg-white/10`}
               aria-label="Search"
             >
               <Search className="h-4 w-4" />
             </button>
 
-            <LanguageSwitcher className={isScrolled ? 'text-primary' : 'text-white'} />
+            <LanguageSwitcher className="text-white" />
 
             <div className={`${isScrolled ? '' : 'shadow-lg shadow-blue-900/20'} rounded-full`}>
                 <PrimaryButton
@@ -154,23 +145,17 @@ const Header = () => {
             {/* Search Trigger Mobile */}
             <button
               onClick={() => setIsSearchOpen(true)}
-              className={`p-2 mr-1 rounded-full ${
-                isScrolled ? 'text-primary' : 'text-white'
-              }`}
+              className={`p-2 mr-1 rounded-full text-white`}
               aria-label="Search"
             >
               <Search className="h-5 w-5" />
             </button>
 
-            <LanguageSwitcher className={isScrolled ? 'text-primary' : 'text-white'} isMobile />
+            <LanguageSwitcher className="text-white" isMobile />
 
               <button
               type="button"
-              className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors duration-300 ${
-                  isScrolled
-                  ? 'border-primary/10 text-primary bg-primary/5'
-                  : 'border-white/20 text-white bg-white/5'
-              }`}
+              className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors duration-300 border-white/20 text-white bg-white/5`}
               onClick={() => setIsOpen((prev) => !prev)}
               aria-label="Toggle navigation"
               aria-expanded={isOpen}
@@ -178,19 +163,13 @@ const Header = () => {
               <span className="sr-only">Toggle navigation</span>
               <div className="space-y-1.5">
                   <span
-                  className={`block h-0.5 w-5 transition-colors duration-300 ${
-                      isScrolled ? 'bg-primary' : 'bg-white'
-                  }`}
+                  className={`block h-0.5 w-5 transition-colors duration-300 bg-white`}
                   />
                   <span
-                  className={`block h-0.5 w-5 transition-colors duration-300 ${
-                      isScrolled ? 'bg-primary' : 'bg-white'
-                  }`}
+                  className={`block h-0.5 w-5 transition-colors duration-300 bg-white`}
                   />
                   <span
-                  className={`block h-0.5 w-5 transition-colors duration-300 ${
-                      isScrolled ? 'bg-primary' : 'bg-white'
-                  }`}
+                  className={`block h-0.5 w-5 transition-colors duration-300 bg-white`}
                   />
               </div>
               </button>
@@ -202,8 +181,8 @@ const Header = () => {
           <div
             className={`md:hidden overflow-y-auto max-h-[80vh] backdrop-blur-xl transition-all duration-300 ${
               isScrolled
-                ? 'bg-white/90 border-t border-gray-100 shadow-xl'
-                : 'bg-primary/95 border-t border-white/10 shadow-xl shadow-black/10'
+                ? 'bg-[#083358]/95 border-t border-white/10 shadow-xl'
+                : 'bg-[#083358]/95 border-t border-white/10 shadow-xl shadow-black/10'
             }`}
           >
             <div className="mx-auto flex max-w-container flex-col gap-6 px-6 py-8">
@@ -212,9 +191,7 @@ const Header = () => {
                   {item.children ? (
                     <div>
                       <div
-                        className={`flex items-center justify-between text-lg font-light tracking-wide cursor-pointer ${
-                          isScrolled ? 'text-primary' : 'text-white'
-                        }`}
+                        className={`flex items-center justify-between text-lg font-light tracking-wide cursor-pointer text-white`}
                         onClick={() => setOpenSubmenu(openSubmenu === item.label ? null : item.label)}
                       >
                         <span>{t(`nav.${item.label}`)}</span>
@@ -223,13 +200,11 @@ const Header = () => {
                       {/* Submenu */}
                       {openSubmenu === item.label && (
                         <div
-                          className={`pl-4 mt-3 space-y-3 border-l-2 ${
-                            isScrolled ? 'border-primary/10' : 'border-white/20'
-                          }`}
+                          className={`pl-4 mt-3 space-y-3 border-l-2 border-white/20`}
                         >
                             <Link
                               to={item.route!}
-                              className={`block text-base font-light ${isScrolled ? 'text-primary/70' : 'text-white/70'}`}
+                              className={`block text-base font-light text-white/70`}
                               onClick={() => setIsOpen(false)}
                             >
                               {t(`nav.${item.label}`)}
@@ -238,7 +213,7 @@ const Header = () => {
                               <Link
                                 key={child.label}
                                 to={child.route}
-                                className={`block text-base font-light ${isScrolled ? 'text-primary/70' : 'text-white/70'}`}
+                                className={`block text-base font-light text-white/70`}
                                 onClick={() => setIsOpen(false)}
                               >
                                   {t(`nav.${child.label}`)}
@@ -250,9 +225,7 @@ const Header = () => {
                   ) : (
                     <Link
                       to={item.route!}
-                      className={`block text-lg font-light tracking-wide ${
-                        isScrolled ? 'text-primary' : 'text-white'
-                      }`}
+                      className={`block text-lg font-light tracking-wide text-white`}
                       onClick={() => setIsOpen(false)}
                     >
                         {t(`nav.${item.label}`)}

@@ -33,14 +33,14 @@ const AboutSection = () => {
       </div>
 
       {/* Rechte Spalte: Container für den Textinhalt. */}
-      <div className="space-y-8 lg:space-y-6 lg:max-w-4xl xl:max-w-5xl">
+      <div className="space-y-8 lg:space-y-6 lg:max-w-none">
         {/* Kopfzeile des Abschnitts mit Untertitel und Haupttitel. */}
         <SectionHeader
           caption={t('about.caption', 'IHR PERFORMANCE-GARANT')}
           title={t('about.title', 'Exzellenz und Sicherheit: Der Standard, den wir setzen.')}
           align="left"
-          titleClassName="text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)] font-medium tracking-[-0.02em] text-gray-900"
-          className="gap-3 lg:max-w-4xl xl:max-w-5xl"
+          titleClassName="text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)] font-medium tracking-[-0.02em] text-gray-900 max-w-xl lg:max-w-full"
+          className="gap-3 lg:max-w-full"
         />
         {/* Textabsätze mit Platzhaltertext. */}
         <p className="text-sm leading-relaxed text-gray-500 sm:text-base">
@@ -51,7 +51,7 @@ const AboutSection = () => {
         </p>
         {/* Ein primärer Button, der als Link zum 'hero'-Abschnitt fungiert. */}
         <div className="flex justify-center pt-1 sm:pt-2 lg:justify-start">
-          <PrimaryButton as={Link} to="/contact">
+          <PrimaryButton as={Link} to="/contact" size="lg">
             {t('about.cta', 'Exklusiven Vorteil sichern')}
           </PrimaryButton>
         </div>

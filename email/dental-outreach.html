@@ -1,198 +1,343 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="de">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>PolarisDX - Chairside Diagnostik</title>
-  <style type="text/css">
-    /* Reset styles */
-    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
-    img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; display: block; }
-    table { border-collapse: collapse !important; }
-    body { height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; font-family: 'Segoe UI', Arial, sans-serif; background-color: #f5f7fb; color: #333333; }
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <title>PolarisDX - Chairside Diagnostik</title>
+    <style type="text/css">
+        /* Reset styles */
+        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; display: block; }
+        table { border-collapse: collapse !important; }
+        body { height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; background-color: #020817; color: #e2e8f0; }
 
-    /* Client-specific styles */
-    a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; font-size: inherit !important; font-family: inherit !important; font-weight: inherit !important; line-height: inherit !important; }
+        /* Client-specific styles */
+        a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; font-size: inherit !important; font-family: inherit !important; font-weight: inherit !important; line-height: inherit !important; }
 
-    /* Mobile styles */
-    @media screen and (max-width: 600px) {
-      .w-full { width: 100% !important; }
-      .w-90 { width: 90% !important; }
-      .mobile-center { text-align: center !important; }
-      .mobile-padding { padding-left: 20px !important; padding-right: 20px !important; }
-      .stack { display: block !important; width: 100% !important; }
-    }
-  </style>
-  <!--[if mso]>
-  <style>
-    body, table, td, a, h1, h2, h3, p, span { font-family: Arial, sans-serif !important; }
-  </style>
-  <![endif]-->
+        /* Mobile styles */
+        @media screen and (max-width: 600px) {
+            .w-full { width: 100% !important; max-width: 100% !important; }
+            .mobile-padding { padding-left: 20px !important; padding-right: 20px !important; }
+            .mobile-stack { display: block !important; width: 100% !important; }
+            .mobile-center { text-align: center !important; }
+            .h-auto { height: auto !important; }
+            .text-lg { font-size: 18px !important; line-height: 28px !important; }
+            .text-xl { font-size: 24px !important; line-height: 32px !important; }
+            .img-full { width: 100% !important; height: auto !important; }
+        }
+    </style>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
 </head>
-<body style="margin: 0; padding: 0; background-color: #f5f7fb;">
+<body style="margin: 0; padding: 0; background-color: #020817;">
 
-  <!-- Preheader text (invisible) -->
-  <div style="display: none; max-height: 0px; overflow: hidden;">
-    Ergebnisse in Minuten statt Tagen: Vitamin D, CRP & HbA1c direkt am Behandlungsstuhl.
-    &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
-  </div>
+    <!-- Preheader -->
+    <div style="display: none; max-height: 0px; overflow: hidden;">
+        Ergebnisse in Minuten statt Tagen: Vitamin D, CRP & HbA1c direkt am Behandlungsstuhl.
+        &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+    </div>
 
-  <center>
-     <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f5f7fb;">
-      <tr>
-        <td align="center" style="padding: 20px 0;">
-
-          <!-- Main Container -->
-           <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="680" class="w-full" style="max-width: 680px; background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 6px 14px rgba(0,0,0,0.08); border: 1px solid #e5e7eb;">
-
-            <!-- Header with Logo -->
+    <center>
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #020817;">
             <tr>
-              <td align="center" style="background-color: #0f5f95; padding: 25px 0;">
-                <a href="https://www.polarisdx.net" target="_blank">
-                  <img src="https://m01.polarisdx.net/assets/polarisdx_logo.png" width="180" alt="PolarisDX" style="display: block; width: 180px; max-width: 100%; border: 0;" />
-                </a>
-              </td>
-            </tr>
+                <td align="center" style="padding: 20px 0;">
 
-            <!-- Hero Image (Optional - Keeping it subtle or small if strictly 'Letter' style, but user asked for "Website Layout". Let's use a nice header banner or just clean space. Let's stick to clean letter style with a small visual separator) -->
-             <tr>
-               <td style="height: 4px; background-color: #2199ea; line-height: 4px; font-size: 4px;">&nbsp;</td>
-             </tr>
+                    <!-- Outlook Conditional Start -->
+                    <!--[if mso]>
+                    <table role="presentation" border="0" cellspacing="0" cellpadding="0" width="600">
+                    <tr>
+                    <td align="center" valign="top">
+                    <![endif]-->
 
-            <!-- Content Body -->
-             <tr>
-               <td style="padding: 44px 48px 34px 48px;" class="mobile-padding">
-                 <h1 style="margin: 0 0 20px 0; font-size: 26px; line-height: 32px; color: #0f5f95; font-weight: bold;">
-                   Diagnostik in Echtzeit – direkt in Ihrer Praxis
-                 </h1>
+                    <!-- Main Container -->
+                    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px; background-color: #0f172a; border-radius: 8px; overflow: hidden; border: 1px solid #1e293b; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
 
-                <p style="margin: 0 0 16px 0; font-size: 16px; line-height: 26px; color: #333333;">
-                  Sehr geehrte Damen und Herren,
-                </p>
-
-                 <p style="margin: 0 0 16px 0; font-size: 16px; line-height: 26px; color: #333333;">
-                   die Ansprüche an eine moderne Zahnarztpraxis wachsen stetig. Patienten erwarten nicht nur exzellente Behandlungen, sondern auch schnelle Gewissheit. Wäre es nicht ideal, wenn Sie kritische Blutwerte direkt in der Praxis bestimmen könnten – ohne Tage auf das Labor zu warten?
-                 </p>
-
-                 <p style="margin: 0 0 16px 0; font-size: 16px; line-height: 26px; color: #333333;">
-                   Mit <strong>IglooPro</strong> von PolarisDX machen wir genau das möglich. Unser Point-of-Care System liefert Ihnen präzise Ergebnisse für <strong>Vitamin D, CRP, HbA1c</strong> und weitere Parameter in wenigen Minuten – mit kapillarem Blut (Fingerstick), nicht über Stuhlproben.
-                 </p>
-
-                <!-- Benefits Box -->
-                 <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f8fbff; border-radius: 6px; border-left: 4px solid #0f5f95; margin: 25px 0;">
-                   <tr class="stack">
-                     <td style="padding: 20px; width: 55%;" class="stack">
-                       <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-                         <tr>
-                           <td style="padding-bottom: 12px; font-size: 16px; line-height: 24px; color: #333333;">
-                             <strong style="color: #0f5f95;">&#10003; Sicherheit vor Eingriffen:</strong> Sofortiger CRP-Check vor der Chirurgie.
-                           </td>
-                         </tr>
-                         <tr>
-                           <td style="padding-bottom: 12px; font-size: 16px; line-height: 24px; color: #333333;">
-                             <strong style="color: #0f5f95;">&#10003; Bessere Wundheilung:</strong> Vitamin-D-Status für Implantat-Patienten optimieren.
-                           </td>
-                         </tr>
-                       </table>
-                     </td>
-                     <td style="padding: 20px; width: 45%;" class="stack">
-                       <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-                         <tr>
-                           <td style="padding-bottom: 12px; font-size: 16px; line-height: 24px; color: #333333;">
-                             <strong style="color: #0f5f95;">&#10003; Neue Umsatzquellen:</strong> Attraktive IGeL-Leistungen direkt abrechenbar.
-                           </td>
-                         </tr>
-                         <tr>
-                           <td style="font-size: 16px; line-height: 24px; color: #333333;">
-                             <strong style="color: #0f5f95;">&#10003; Startklar in 48h:</strong> Setup und Training ohne Unterbrechung Ihres Praxisbetriebs.
-                           </td>
-                         </tr>
-                       </table>
-                     </td>
-                   </tr>
-                 </table>
-
-                <p style="margin: 0 0 24px 0; font-size: 16px; line-height: 26px; color: #333333;">
-                  Überzeugen Sie sich selbst von der Präzision (CV &lt; 2%) und der einfachen Handhabung. Wir richten IglooPro innerhalb von 48 Stunden bei Ihnen ein.
-                </p>
-
-                <!-- CTA Button -->
-                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-                  <tr>
-                    <td align="center">
-                      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                        <!--
+                            HEADER SECTION
+                            Logo: polaris_white.png (Hosted at m01.polarisdx.net)
+                        -->
                         <tr>
-                          <td align="center" bgcolor="#0f5f95" style="border-radius: 6px;">
-                            <a href="https://www.polarisdx.net/contact" target="_blank" style="font-size: 16px; font-weight: bold; color: #ffffff; text-decoration: none; display: inline-block; padding: 16px 32px; border: 1px solid #0f5f95; border-radius: 6px; font-family: 'Segoe UI', Arial, sans-serif;">
-                              Jetzt Termin vereinbaren
-                            </a>
-                          </td>
+                            <td align="center" style="padding: 30px 20px; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-bottom: 1px solid #1e293b;">
+                                <a href="https://www.polarisdx.net" target="_blank">
+                                    <img src="https://m01.polarisdx.net/assets/polaris_white.png" width="160" alt="PolarisDX" style="width: 160px; max-width: 100%; display: block; border: 0;" />
+                                </a>
+                            </td>
                         </tr>
-                      </table>
+
+                        <!--
+                            HERO SECTION
+                            Headline, Intro Text, and Hero Image (Igloo-pro-frontal.png)
+                        -->
+                        <tr>
+                            <td style="padding: 40px 40px 20px 40px;" class="mobile-padding">
+                                <h1 class="text-xl" style="margin: 0 0 20px 0; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 24px; line-height: 32px; color: #ffffff; font-weight: 600;">
+                                    Diagnostik in Echtzeit –<br /><span style="color: #38bdf8;">direkt in Ihrer Praxis</span>
+                                </h1>
+
+                                <p class="text-lg" style="margin: 0 0 16px 0; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 26px; color: #cbd5e1;">
+                                    Sehr geehrte Damen und Herren,
+                                </p>
+
+                                <p class="text-lg" style="margin: 0 0 16px 0; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 26px; color: #cbd5e1;">
+                                    Patienten erwarten heute nicht nur exzellente Behandlungen, sondern schnelle Gewissheit. Warten auf Laborergebnisse kostet Zeit und Nerven.
+                                </p>
+
+                                <p class="text-lg" style="margin: 0 0 24px 0; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 26px; color: #cbd5e1;">
+                                    Mit <strong>IglooPro</strong> bringen Sie das Labor direkt an den Behandlungsstuhl. Bestimmen Sie <strong>Vitamin D, CRP, HbA1c</strong> und mehr in wenigen Minuten – einfach, präzise und profitabel.
+                                </p>
+
+                                <!-- Hero Image: Igloo Device -->
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <td align="center" style="padding: 10px 0 30px 0;">
+                                            <a href="https://www.polarisdx.net" target="_blank">
+                                                <img src="https://m01.polarisdx.net/assets/Igloo-pro-frontal.png" width="400" alt="Igloo Pro Device" style="width: 100%; max-width: 400px; height: auto; display: block; border: 0;" class="img-full" />
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <!--
+                            FUNKTIONSWEISE (HOW IT WORKS)
+                            New section explaining the simple 3-step process.
+                        -->
+                        <tr>
+                            <td style="padding: 0 40px 30px 40px;" class="mobile-padding">
+                                <h2 style="margin: 0 0 20px 0; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 20px; line-height: 28px; color: #ffffff; font-weight: 600;">
+                                    So einfach funktioniert es
+                                </h2>
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <td valign="top" style="padding-bottom: 15px;">
+                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td width="30" valign="top" style="font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; color: #38bdf8; font-weight: bold;">1.</td>
+                                                    <td style="font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 15px; line-height: 24px; color: #e2e8f0;">
+                                                        <strong>Probe entnehmen:</strong> Ein kleiner Tropfen Kapillarblut aus der Fingerbeere genügt.
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top" style="padding-bottom: 15px;">
+                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td width="30" valign="top" style="font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; color: #38bdf8; font-weight: bold;">2.</td>
+                                                    <td style="font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 15px; line-height: 24px; color: #e2e8f0;">
+                                                        <strong>Test starten:</strong> Kartusche einlegen. Das System erkennt den Test automatisch.
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top" style="padding-bottom: 0;">
+                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td width="30" valign="top" style="font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; color: #38bdf8; font-weight: bold;">3.</td>
+                                                    <td style="font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 15px; line-height: 24px; color: #e2e8f0;">
+                                                        <strong>Ergebnis erhalten:</strong> In 3 bis 15 Minuten liegt der quantitative Laborwert vor – direkt für das Patientengespräch.
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <!--
+                            FEATURE GRID / USE CASES
+                            Hybrid Layout for columns
+                        -->
+                        <tr>
+                            <td style="padding: 0 40px 30px 40px;" class="mobile-padding">
+                                <h2 style="margin: 0 0 20px 0; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 20px; line-height: 28px; color: #ffffff; font-weight: 600;">
+                                    Ihre Vorteile im Praxisalltag
+                                </h2>
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #1e293b; border-radius: 8px; border: 1px solid #334155;">
+                                    <tr>
+                                        <td style="padding: 20px;">
+                                            <!--[if mso]>
+                                            <table role="presentation" border="0" cellspacing="0" cellpadding="0" width="100%">
+                                            <tr>
+                                            <td width="50%" valign="top">
+                                            <![endif]-->
+
+                                            <div style="display: inline-block; width: 100%; max-width: 240px; vertical-align: top;" class="w-full">
+                                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td style="padding-bottom: 15px; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 15px; line-height: 22px; color: #e2e8f0;">
+                                                            <strong style="color: #38bdf8; font-size: 18px;">✓</strong> &nbsp;<strong>Sofortige Sicherheit:</strong><br />CRP-Check vor chirurgischen Eingriffen oder Implantationen.
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-bottom: 15px; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 15px; line-height: 22px; color: #e2e8f0;">
+                                                            <strong style="color: #38bdf8; font-size: 18px;">✓</strong> &nbsp;<strong>Optimale Heilung:</strong><br />Vitamin-D-Status bestimmen und sofort supplementieren.
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+
+                                            <!--[if mso]>
+                                            </td>
+                                            <td width="50%" valign="top">
+                                            <![endif]-->
+
+                                            <div style="display: inline-block; width: 100%; max-width: 240px; vertical-align: top;" class="w-full">
+                                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td style="padding-bottom: 15px; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 15px; line-height: 22px; color: #e2e8f0;">
+                                                            <strong style="color: #38bdf8; font-size: 18px;">✓</strong> &nbsp;<strong>Neue Umsätze:</strong><br />Attraktive IGeL-Leistungen direkt abrechenbar.
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-bottom: 0; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 15px; line-height: 22px; color: #e2e8f0;">
+                                                            <strong style="color: #38bdf8; font-size: 18px;">✓</strong> &nbsp;<strong>Plug & Play:</strong><br />Startklar in 48 Stunden ohne IT-Aufwand.
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+
+                                            <!--[if mso]>
+                                            </td>
+                                            </tr>
+                                            </table>
+                                            <![endif]-->
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <!--
+                            TESTIMONIAL SECTION
+                            Featuring Goran Rezension image and text
+                        -->
+                        <tr>
+                            <td style="padding: 0 40px 30px 40px;" class="mobile-padding">
+                                <h2 style="margin: 0 0 20px 0; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 20px; line-height: 28px; color: #ffffff; font-weight: 600;">
+                                    Das sagen Experten
+                                </h2>
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <td style="background-color: #1e293b; border-radius: 8px; border: 1px solid #334155; padding: 20px;">
+                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td align="center" style="padding-bottom: 20px;">
+                                                         <img src="https://m01.polarisdx.net/assets/goran_rezension.png" width="500" alt="Kundenstimme Goran" style="width: 100%; max-width: 500px; height: auto; border-radius: 4px; border: 1px solid #334155;" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 15px; line-height: 24px; color: #cbd5e1; font-style: italic;">
+                                                        "Mit dem IglooPro haben wir die Wartezeiten für unsere Patienten drastisch reduziert. Die Bedienung ist kinderleicht und die Ergebnisse sind absolut zuverlässig. Ein Gewinn für jede moderne Praxis, die auf Effizienz und Patientenservice setzt."
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding-top: 15px; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold; color: #38bdf8;">
+                                                        - Dr. Goran J., Zahnarzt
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <!--
+                            CTA SECTION
+                            Primary Button
+                        -->
+                        <tr>
+                            <td align="center" style="padding: 10px 40px 40px 40px;" class="mobile-padding">
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td align="center" bgcolor="#0ea5e9" style="border-radius: 6px; background: linear-gradient(90deg, #0ea5e9 0%, #0284c7 100%);">
+                                            <!-- Outlook Button MSO Hack -->
+                                            <a href="https://www.polarisdx.net/contact" target="_blank" style="font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; color: #ffffff; text-decoration: none; display: inline-block; padding: 16px 40px; border: 1px solid #0ea5e9; border-radius: 6px; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
+                                                Jetzt Termin vereinbaren &rarr;
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <p style="margin: 30px 0 0 0; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 15px; line-height: 24px; color: #94a3b8;">
+                                    Starten Sie jetzt in die Zukunft der dentalen Diagnostik.
+                                </p>
+
+                                <p style="margin: 20px 0 0 0; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; color: #e2e8f0;">
+                                    Mit freundlichen Grüßen,<br />
+                                    <strong>Ihr PolarisDX Team</strong>
+                                </p>
+                            </td>
+                        </tr>
+
+                        <!--
+                            FOOTER SECTION
+                            Contact Info & Legal Links
+                        -->
+                        <tr>
+                            <td style="background-color: #1e293b; padding: 30px 40px; border-top: 1px solid #334155;" class="mobile-padding">
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <td align="center" style="font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 22px; color: #94a3b8;">
+                                            <strong>PolarisDX</strong><br />
+                                            <a href="mailto:contact@polarisdx.net" style="color: #38bdf8; text-decoration: none;">contact@polarisdx.net</a> &nbsp;|&nbsp;
+                                            <a href="tel:+4915175011699" style="color: #38bdf8; text-decoration: none;">+49 151 75011699</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" style="padding-top: 20px;">
+                                            <p style="margin: 0; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; line-height: 18px; color: #64748b;">
+                                                &copy; 2025 PolarisDX. Alle Rechte vorbehalten.<br />
+                                                <a href="https://www.polarisdx.net/imprint" style="color: #94a3b8; text-decoration: underline;">Impressum</a> &nbsp;&bull;&nbsp;
+                                                <a href="https://www.polarisdx.net/privacy" style="color: #94a3b8; text-decoration: underline;">Datenschutz</a> &nbsp;&bull;&nbsp;
+                                                <a href="https://www.polarisdx.net/agb" style="color: #94a3b8; text-decoration: underline;">AGB</a> &nbsp;&bull;&nbsp;
+                                                <a href="https://www.polarisdx.net" style="color: #94a3b8; text-decoration: underline;">Website</a>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                    </table>
+                    <!-- End Main Container -->
+
+                    <!-- Outlook Conditional End -->
+                    <!--[if mso]>
                     </td>
-                  </tr>
-                </table>
+                    </tr>
+                    </table>
+                    <![endif]-->
 
-                 <p style="margin: 30px 0 0 0; font-size: 16px; line-height: 26px; color: #333333;">
-                  Gerne stehe ich Ihnen für Rückfragen auch persönlich zur Verfügung.
-                </p>
+                    <!-- Unsubscribe / Legal Footer -->
+                    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                        <tr>
+                            <td align="center" style="padding: 20px 0; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; line-height: 18px; color: #475569;">
+                                <p style="margin: 0; max-width: 400px;">
+                                    Sie erhalten diese Information, da wir Ihre Praxis als passenden Partner für innovative Diagnostik identifiziert haben. Kein Interesse? Antworten Sie einfach mit "Stop".
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
 
-                <p style="margin: 20px 0 0 0; font-size: 16px; line-height: 26px; color: #333333;">
-                  Mit freundlichen Grüßen,<br />
-                  <br />
-                  <strong>Ihr PolarisDX Team</strong>
-                </p>
-
-              </td>
+                </td>
             </tr>
-
-            <!-- Contact / Signature Block -->
-            <tr>
-              <td style="background-color: #f0f4f8; padding: 30px 40px;" class="mobile-padding">
-                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-                  <tr>
-                    <td align="left" style="font-size: 14px; line-height: 22px; color: #555555;">
-                      <strong>PolarisDX</strong><br />
-                      E-Mail: <a href="mailto:contact@polarisdx.net" style="color: #0f5f95; text-decoration: none;">contact@polarisdx.net</a><br />
-                      Tel: <a href="tel:+4915175011699" style="color: #0f5f95; text-decoration: none;">+49 151 75011699</a>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-
-            <!-- Footer Links -->
-            <tr>
-              <td align="center" style="padding: 20px 20px; background-color: #0f5f95;">
-                <p style="margin: 0; font-size: 12px; line-height: 18px; color: #dceaf6;">
-                  &copy; 2025 PolarisDX. Alle Rechte vorbehalten.<br />
-                  <a href="https://www.polarisdx.net/imprint" style="color: #ffffff; text-decoration: underline;">Impressum</a> &nbsp;|&nbsp;
-                  <a href="https://www.polarisdx.net/privacy" style="color: #ffffff; text-decoration: underline;">Datenschutz</a> &nbsp;|&nbsp;
-                  <a href="https://www.polarisdx.net" style="color: #ffffff; text-decoration: underline;">Website</a>
-                </p>
-              </td>
-            </tr>
-
-          </table>
-          <!-- End Main Container -->
-
-          <!-- Unsubscribe Text (Legal Requirement / Standard) -->
-          <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" class="w-full">
-            <tr>
-              <td align="center" style="padding: 20px 0; font-size: 12px; color: #999999;">
-                <p style="margin: 0;">
-                  Sie erhalten diese E-Mail, da wir Ihre Praxis als passenden Partner für innovative Diagnostik identifiziert haben.<br />
-                  Kein Interesse? Antworten Sie einfach mit "Stop".
-                </p>
-              </td>
-            </tr>
-          </table>
-
-        </td>
-      </tr>
-    </table>
-  </center>
+        </table>
+    </center>
 </body>
 </html>

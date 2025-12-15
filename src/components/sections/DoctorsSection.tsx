@@ -23,10 +23,14 @@ const DiagnosticsPitchSection = () => {
           titleClassName="text-[clamp(28px,6.2vw,48px)] leading-[clamp(34px,6.8vw,56px)] font-medium tracking-[-0.02em] text-gray-900"
         />
         {/* Fließtext auf Mehrwert für Kunden angepasst */}
-        <p className="mt-4 text-sm leading-relaxed text-gray-500 sm:text-base lg:mt-6">
+        <p className="mt-4 text-base leading-relaxed text-gray-600 sm:text-lg lg:mt-6">
           {t('doctors.description', 'Entdecken Sie mit Systemen wie dem Igloo Pro von DX365...')}
         </p>
+<<<<<<< HEAD
         <div className="mt-6 flex justify-center lg:mt-8 lg:justify-start">
+=======
+        <div className="mt-8 flex justify-start lg:mt-12">
+>>>>>>> 73ecd2543f1ed48d84e1232641a50c2598f38202
           <PrimaryButton as="a" href={IglooProFlyer} target="_blank" rel="noopener noreferrer" size="sm">
             {/* Button-Text angepasst */}
             {t('doctors.cta', 'Zum Igloo Pro System')}

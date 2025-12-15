@@ -89,7 +89,7 @@ const Footer = () => {
                   <p className="font-semibold">PolarisDX Europe UG</p>
                   <p>Große Bleichen 1 - 3</p>
                   <p>20097 Hamburg</p>
-                  <p>info@polarisdx.net</p>
+                  <p>contact@polarisdx.net</p>
                 </div>
               </div>
             </div>
