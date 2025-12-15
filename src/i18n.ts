@@ -19,8 +19,9 @@ i18n
     supportedLngs: ['de', 'en', 'pl', 'fr', 'it', 'es', 'pt', 'da', 'nl', 'cs'],
     nonExplicitSupportedLngs: true, // map de-DE/de-CH -> de, etc.
     load: 'languageOnly', // only load base language, avoids de-DE path lookups
-    ns: ['common'], // default namespace
-    defaultNS: 'common',
+    ns: ['common', 'home'], // load shared + page namespace
+    defaultNS: 'home',
+    fallbackNS: 'common',
 
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',
