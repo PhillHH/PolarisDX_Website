@@ -19,14 +19,14 @@ const DiagnosticsPitchSection = () => {
           caption={t('doctors.caption', 'DIAGNOSTIK-FOKUS')}
           // Titel auf Kernbotschaft umgestellt
           title={t('doctors.title', 'Präzise Diagnostik. Sofortige Ergebnisse am Point-of-Care.')}
-          align="left"
+          align="center"
           titleClassName="text-[clamp(28px,6.2vw,48px)] leading-[clamp(34px,6.8vw,56px)] font-medium tracking-[-0.02em] text-gray-900"
         />
         {/* Fließtext auf Mehrwert für Kunden angepasst */}
         <p className="mt-4 text-sm leading-relaxed text-gray-500 sm:text-base lg:mt-6">
           {t('doctors.description', 'Entdecken Sie mit Systemen wie dem Igloo Pro von DX365...')}
         </p>
-        <div className="mt-6 flex justify-start lg:mt-8">
+        <div className="mt-6 flex justify-center lg:mt-8 lg:justify-start">
           <PrimaryButton as="a" href={IglooProFlyer} target="_blank" rel="noopener noreferrer" size="sm">
             {/* Button-Text angepasst */}
             {t('doctors.cta', 'Zum Igloo Pro System')}
