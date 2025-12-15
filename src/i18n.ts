@@ -17,6 +17,8 @@ i18n
     debug: true,
     fallbackLng: 'en',
     supportedLngs: ['de', 'en', 'pl', 'fr', 'it', 'es', 'pt', 'da', 'nl', 'cs'],
+    nonExplicitSupportedLngs: true, // map de-DE/de-CH -> de, etc.
+    load: 'languageOnly', // only load base language, avoids de-DE path lookups
     ns: ['common'], // default namespace
     defaultNS: 'common',
 
