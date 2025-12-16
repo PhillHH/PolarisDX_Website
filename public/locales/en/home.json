@@ -12,6 +12,18 @@
     "stat2": {
       "value": "CV < 2%",
       "label": "Precision across the entire measurement range"
+    },
+    "dental": {
+      "title": "Intelligent Diagnostics: The New Standard for Efficient POC Workflows.",
+      "description": "Secure the performance package: Your IglooPro is ready for use in 48 hours – guaranteed."
+    },
+    "beauty": {
+      "title": "Scientific Aesthetics: Measurable Results Instead of Guesswork.",
+      "description": "Visualize the success of your treatments. The IglooPro delivers precise data on anti-aging markers and skin health in laboratory quality."
+    },
+    "longevity": {
+      "title": "Prevention Redefined: Making Vitality Measurable.",
+      "description": "Detect trends early. High-precision monitoring of inflammation and metabolic markers for a long, healthy life."
     }
   },
   "about": {
