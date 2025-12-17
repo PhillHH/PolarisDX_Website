@@ -2,11 +2,11 @@
   "hero": {
     "caption": "Point-of-care Performance",
     "title": "IglooPro:\nPoint-of-Care. Perfekt. Sofort.",
-    "description": "Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 48 Stunden einsatzbereit – garantiert.",
+    "description": "Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 3-5 Werktagen einsatzbereit – garantiert.",
     "cta": "Termin buchen",
     "cta_downloads": "Infomaterialien herunterladen",
     "stat1": {
-      "value": "48h",
+      "value": "3-5 Werktage",
       "label": "Einsatzbereit nach Bestellung"
     },
     "stat2": {
@@ -15,7 +15,7 @@
     },
     "dental": {
       "title": "Intelligente Diagnostik: Der neue Maßstab für effiziente POC-Workflows.",
-      "description": "Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 48 Stunden einsatzbereit – garantiert."
+      "description": "Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 3-5 Werktagen einsatzbereit – garantiert."
     },
     "beauty": {
       "title": "Wissenschaftliche Ästhetik: Messergebnisse statt Vermutungen.",
@@ -30,7 +30,7 @@
     "caption": "IHR PERFORMANCE-GARANT",
     "title": "Exzellenz und Sicherheit: Der Standard, den wir setzen.",
     "text1": "Das IglooPro ist ein Premium-Gerät. Doch wahre Premium-Leistung entsteht erst durch eine perfektionierte, risikofreie Inbetriebnahme. Eine Standardlieferung überlässt Ihnen die Komplexität. Wir übernehmen die Verantwortung für das Ergebnis.",
-    "text2": "Deshalb liefern wir exklusiv das 48-Stunden-Setup-Versprechen. Unsere Performance-Säulen garantieren, dass Ihr POC-Workflow von der ersten Sekunde an optimiert ist und Sie die diagnostische Exzellenz sofort nutzen können.",
+    "text2": "Deshalb liefern wir exklusiv das Performance-Setup-Versprechen. Unsere Performance-Säulen garantieren, dass Ihr POC-Workflow von der ersten Sekunde an optimiert ist und Sie die diagnostische Exzellenz sofort nutzen können.",
     "cta": "Exklusiven Vorteil sichern"
   },
   "doctors": {

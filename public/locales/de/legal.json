@@ -44,10 +44,12 @@
       ]
     },
     "section4": {
-      "title": "Umsatzsteuer-ID",
+      "title": "Umsatzsteuer-ID & Steuernummer",
       "content": [
         "Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:",
-        "[USt-IdNr. hier einfügen]"
+        "[USt-IdNr. hier einfügen]",
+        "Steuernummer (PolarisDX Europe UG):",
+        "Beantragt beim Finanzamt Hamburg Hansa"
       ]
     },
     "section5": {

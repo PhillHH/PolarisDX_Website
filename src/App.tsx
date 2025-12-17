@@ -13,6 +13,8 @@ import AboutPage from './routes/AboutPage'
 import TermsPage from './routes/TermsPage'
 import PrivacyPage from './routes/PrivacyPage'
 import ImprintPage from './routes/ImprintPage'
+import EventsPage from './pages/EventsPage'
+import IglooProPage from './pages/IglooProPage'
 import { CookieBanner } from './components/ui/CookieBanner'
 import MobileCallButton from './components/ui/MobileCallButton'
 import ChatWidget from './components/ui/ChatWidget'
@@ -35,6 +37,8 @@ function App() {
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/imprint" element={<ImprintPage />} />
         <Route path="/terms" element={<TermsPage />} />
+        <Route path="/events" element={<EventsPage />} />
+        <Route path="/igloo-pro" element={<IglooProPage />} />
         {/* Shop temporarily disabled */}
         {/* <Route path="/shop" element={<ShopPage />} /> */}
         {/* <Route path="/shop/:slug" element={<ProductPage />} /> */}

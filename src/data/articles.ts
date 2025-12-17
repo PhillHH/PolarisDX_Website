@@ -69,8 +69,8 @@ export const articles: Article[] = [
     ],
   },
   {
-    id: '48_hour_formula',
-    slug: 'the-48-hour-formula-efficiency-in-poc-diagnostics',
+    id: 'rapid_setup_formula',
+    slug: 'die-performance-formel-effizienz-in-der-poc-diagnostik',
     category: 'Health Article',
     author: 'PolarisDX Team',
     date: '25 Nov 2025',
