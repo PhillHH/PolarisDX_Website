@@ -49,11 +49,10 @@ const IglooProPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 pt-20">
+    <div className="min-h-screen bg-gray-900">
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary-deep/40 to-gray-900 z-0" />
-        <div className="bg-noise absolute inset-0 opacity-20 z-0 mix-blend-overlay" />
+      <section className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 bg-gradient-to-br from-primary via-primary-deep to-gray-900 overflow-hidden">
+        <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-12">

@@ -255,7 +255,7 @@ const HeroSection = () => {
                              const Icon = slides[currentSlide].icon
                              return (
                                  <Icon
-                                    size={400}
+                                    size={600}
                                     strokeWidth={0.5}
                                     className="text-white/90 drop-shadow-2xl relative z-10"
                                  />
