@@ -82,7 +82,7 @@ const HeroSection = () => {
 
           {/* Left Content Area */}
           <div className="flex flex-col justify-center space-y-9 lg:space-y-7 z-20">
-            <div className="space-y-3 lg:space-y-2 min-h-[300px] flex flex-col justify-center">
+            <div className="space-y-3 lg:space-y-2 h-[300px] sm:h-[350px] lg:h-[420px] flex flex-col justify-center">
               <motion.img
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -95,17 +95,61 @@ const HeroSection = () => {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={slides[currentSlide].id}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 20 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: {
+                      opacity: 1,
+                      transition: { staggerChildren: 0.15, delayChildren: 0.1 },
+                    },
+                    exit: {
+                      opacity: 0,
+                      transition: { staggerChildren: 0.05, staggerDirection: -1 },
+                    },
+                  }}
                 >
-                  <h1 className="max-w-3xl font-medium tracking-[-0.02em] text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)]">
+                  <motion.h1
+                    variants={{
+                      hidden: { opacity: 0, y: 20, filter: 'blur(10px)' },
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        filter: 'blur(0px)',
+                        transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+                      },
+                      exit: {
+                        opacity: 0,
+                        y: -10,
+                        filter: 'blur(8px)',
+                        transition: { duration: 0.4, ease: 'easeIn' },
+                      },
+                    }}
+                    className="max-w-3xl font-medium tracking-[-0.02em] text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)]"
+                  >
                     {slides[currentSlide].content.title}
-                  </h1>
-                  <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/80 sm:text-base">
-                     {slides[currentSlide].content.description}
-                  </p>
+                  </motion.h1>
+                  <motion.p
+                    variants={{
+                      hidden: { opacity: 0, y: 20, filter: 'blur(10px)' },
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        filter: 'blur(0px)',
+                        transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+                      },
+                      exit: {
+                        opacity: 0,
+                        y: -10,
+                        filter: 'blur(8px)',
+                        transition: { duration: 0.4, ease: 'easeIn' },
+                      },
+                    }}
+                    className="mt-4 max-w-2xl text-sm leading-relaxed text-white/80 sm:text-base"
+                  >
+                    {slides[currentSlide].content.description}
+                  </motion.p>
                 </motion.div>
               </AnimatePresence>
             </div>
