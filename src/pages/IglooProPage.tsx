@@ -66,7 +66,7 @@ const IglooProPage: React.FC = () => {
               />
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
                 Schnelle und präzise <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary via-primary to-primary-deep">
+                <span className="text-white drop-shadow-md">
                   Diagnostik am Point-of-Care
                 </span>
               </h1>
