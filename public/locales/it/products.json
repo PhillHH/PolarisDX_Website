@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "title": "Diagnostica rapida e precisa al Point-of-Care",
+    "caption": "Diagnostica Next Gen",
+    "description": "Il vostro centro di controllo per diagnostica rapida.",
+    "cta_order": "Ordina ora",
+    "cta_datasheet": "Scheda tecnica (PDF)"
+  },
+  "intro": {
+    "title": "Il laboratorio mobile per il vostro studio",
+    "text1": "Igloo Pro è un analizzatore portatile.",
+    "text2": "Valuta circa il 90% dei test a flusso laterale."
+  },
+  "features": {
+    "methods": {
+      "title": "Metodi versatili",
+      "description": "Colorimetria, immunofluorescenza..."
+    },
+    "battery": {
+      "title": "Autonomia 24h",
+      "description": "Batteria al litio."
+    },
+    "connectivity": {
+      "title": "Connettività totale",
+      "description": "WiFi, Bluetooth, API."
+    },
+    "precision": {
+      "title": "Precisione e Sicurezza",
+      "description": "Precisione CV < 2%."
+    }
+  },
+  "specs": {
+    "title": "Dati Tecnici",
+    "methods": "Metodi",
+    "methods_value": "Colorimetria, Immunofluorescenza...",
+    "samples": "Campioni",
+    "samples_value": "Siero / Plasma / Sangue Intero...",
+    "weight": "Peso",
+    "weight_value": "ca. 400g",
+    "dimensions": "Dimensioni",
+    "dimensions_value": "87,5 mm x 87,5 mm x 91 mm",
+    "speed": "Velocità",
+    "speed_value": "Pochi secondi",
+    "accuracy": "Precisione",
+    "accuracy_value": "CV < 2%",
+    "storage": "Memoria",
+    "storage_value": "10.000 Risultati",
+    "battery": "Batteria",
+    "battery_value": "Batteria al Litio",
+    "communication": "Comunicazione",
+    "communication_value": "USB-C, WiFi, Bluetooth"
+  },
+  "parameters": {
+    "title": "Parametri disponibili",
+    "disclaimer": "Questi e altri parametri sono disponibili.",
+    "list": {
+      "vitd3": "Vitamina D3",
+      "crp": "CRP",
+      "hba1c": "HbA1c",
+      "ferritin": "Ferritina",
+      "cortisol": "Cortisolo",
+      "tsh": "TSH",
+      "ddimer": "D-Dimero",
+      "troponin": "Troponina",
+      "flu": "Influenza A/B",
+      "rsv": "RSV",
+      "strep": "Streptococco A"
+    }
+  },
+  "cta_bottom": {
+    "title": "Espandete le vostre possibilità diagnostiche",
+    "description": "Perfetto per farmacie e studi.",
+    "button": "Prenota ora"
+  }
+}

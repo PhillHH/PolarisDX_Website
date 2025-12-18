@@ -59,5 +59,30 @@
     "footer": "Provozováno pomocí PolarisDX Assistant",
     "error": "Omlouváme se, něco se pokazilo.",
     "unavailable": "Chat je momentálně nedostupný. Zkuste to prosím později nebo nás kontaktujte e-mailem."
+  },
+  "cookie": {
+    "title": "Respektujeme vaše soukromí",
+    "description": "Používáme cookies.",
+    "accept_all": "Přijmout vše",
+    "settings": "Nastavení",
+    "hide": "Skrýt",
+    "save_selection": "Uložit",
+    "categories": {
+      "necessary": {
+        "name": "Nezbytné",
+        "description": "Vyžadováno."
+      },
+      "marketing": {
+        "name": "Marketing",
+        "description": "Reklamy."
+      },
+      "analytics": {
+        "name": "Analýza",
+        "description": "Analýza."
+      }
+    }
+  },
+  "testimonials": {
+    "positiveLabel": "Pozitivní recenze"
   }
 }

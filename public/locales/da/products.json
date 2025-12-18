@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "title": "Hurtig diagnostik POC",
+    "caption": "Next Gen Diagnostics",
+    "description": "Dit kontrolcenter.",
+    "cta_order": "Bestil nu",
+    "cta_datasheet": "Datablad (PDF)"
+  },
+  "intro": {
+    "title": "Det mobile laboratorium",
+    "text1": "Igloo Pro er en bærbar analysator.",
+    "text2": "Evaluerer 90% af tests."
+  },
+  "features": {
+    "methods": {
+      "title": "Alsidige metoder",
+      "description": "Kolorimetri..."
+    },
+    "battery": {
+      "title": "24t Batteri",
+      "description": "Lithium batteri."
+    },
+    "connectivity": {
+      "title": "Fuld forbindelse",
+      "description": "WiFi, Bluetooth."
+    },
+    "precision": {
+      "title": "Præcision",
+      "description": "CV < 2%."
+    }
+  },
+  "specs": {
+    "title": "Tekniske Data",
+    "methods": "Metoder",
+    "methods_value": "Kolorimetri...",
+    "samples": "Prøver",
+    "samples_value": "Serum / Plasma...",
+    "weight": "Vægt",
+    "weight_value": "ca. 400g",
+    "dimensions": "Dimensioner",
+    "dimensions_value": "87,5 mm...",
+    "speed": "Hastighed",
+    "speed_value": "Få sekunder",
+    "accuracy": "Nøjagtighed",
+    "accuracy_value": "CV < 2%",
+    "storage": "Hukommelse",
+    "storage_value": "10.000 resultater",
+    "battery": "Batteri",
+    "battery_value": "Lithium",
+    "communication": "Kommunikation",
+    "communication_value": "USB-C, WiFi"
+  },
+  "parameters": {
+    "title": "Tilgængelige parametre",
+    "disclaimer": "Disse og andre parametre er tilgængelige.",
+    "list": {
+      "vitd3": "D-vitamin",
+      "crp": "CRP",
+      "hba1c": "HbA1c",
+      "ferritin": "Ferritin",
+      "cortisol": "Kortisol",
+      "tsh": "TSH",
+      "ddimer": "D-Dimer",
+      "troponin": "Troponin",
+      "flu": "Influenza A/B",
+      "rsv": "RSV",
+      "strep": "Streptokokker A"
+    }
+  },
+  "cta_bottom": {
+    "title": "Udvid mulighederne",
+    "description": "For apoteker og klinikker.",
+    "button": "Book nu"
+  }
+}

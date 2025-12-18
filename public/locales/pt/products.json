@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "title": "Diagnóstico rápido POC",
+    "caption": "Diagnóstico Next Gen",
+    "description": "Seu centro de controle.",
+    "cta_order": "Pedir agora",
+    "cta_datasheet": "Ficha técnica (PDF)"
+  },
+  "intro": {
+    "title": "O laboratório móvel",
+    "text1": "Igloo Pro é um analisador portátil.",
+    "text2": "Avalia 90% dos testes."
+  },
+  "features": {
+    "methods": {
+      "title": "Métodos versáteis",
+      "description": "Colorimetria..."
+    },
+    "battery": {
+      "title": "Bateria 24h",
+      "description": "Bateria de lítio."
+    },
+    "connectivity": {
+      "title": "Conectividade total",
+      "description": "WiFi, Bluetooth."
+    },
+    "precision": {
+      "title": "Precisão",
+      "description": "CV < 2%."
+    }
+  },
+  "specs": {
+    "title": "Dados Técnicos",
+    "methods": "Métodos",
+    "methods_value": "Colorimetria...",
+    "samples": "Amostras",
+    "samples_value": "Soro / Plasma...",
+    "weight": "Peso",
+    "weight_value": "aprox. 400g",
+    "dimensions": "Dimensões",
+    "dimensions_value": "87,5 mm...",
+    "speed": "Velocidade",
+    "speed_value": "Poucos segundos",
+    "accuracy": "Precisão",
+    "accuracy_value": "CV < 2%",
+    "storage": "Memória",
+    "storage_value": "10.000 resultados",
+    "battery": "Bateria",
+    "battery_value": "Lítio",
+    "communication": "Comunicação",
+    "communication_value": "USB-C, WiFi"
+  },
+  "parameters": {
+    "title": "Parâmetros disponíveis",
+    "disclaimer": "Estes e outros parâmetros estão disponíveis.",
+    "list": {
+      "vitd3": "Vitamina D3",
+      "crp": "CRP",
+      "hba1c": "HbA1c",
+      "ferritin": "Ferritina",
+      "cortisol": "Cortisol",
+      "tsh": "TSH",
+      "ddimer": "D-Dímero",
+      "troponin": "Troponina",
+      "flu": "Influenza A/B",
+      "rsv": "VRS",
+      "strep": "Estreptococo A"
+    }
+  },
+  "cta_bottom": {
+    "title": "Expanda as possibilidades",
+    "description": "Para farmácias e consultórios.",
+    "button": "Agendar agora"
+  }
+}

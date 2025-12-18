@@ -59,5 +59,30 @@
     "footer": "Aangedreven door PolarisDX Assistant",
     "error": "Sorry, er is iets misgegaan.",
     "unavailable": "De chat is momenteel niet beschikbaar. Probeer het later opnieuw of neem contact met ons op via e-mail."
+  },
+  "cookie": {
+    "title": "Wij respecteren uw privacy",
+    "description": "Wij gebruiken cookies.",
+    "accept_all": "Alles accepteren",
+    "settings": "Instellingen",
+    "hide": "Verbergen",
+    "save_selection": "Opslaan",
+    "categories": {
+      "necessary": {
+        "name": "Noodzakelijk",
+        "description": "Vereist."
+      },
+      "marketing": {
+        "name": "Marketing",
+        "description": "Advertenties."
+      },
+      "analytics": {
+        "name": "Analyse",
+        "description": "Analyse."
+      }
+    }
+  },
+  "testimonials": {
+    "positiveLabel": "Positieve beoordeling"
   }
 }

@@ -12,6 +12,18 @@
     "stat2": {
       "value": "CV < 2%",
       "label": "Précision sur toute la plage de mesure"
+    },
+    "longevity": {
+      "title": "Prevention Redefined: Making Vitality Measurable.",
+      "description": "Detect trends early. High-precision monitoring of inflammation and metabolic markers for a long, healthy life."
+    },
+    "beauty": {
+      "description": "Visualize the success of your treatments. The IglooPro delivers precise data on anti-aging markers and skin health in laboratory quality.",
+      "title": "Scientific Aesthetics: Measurable Results Instead of Guesswork."
+    },
+    "dental": {
+      "description": "Secure the performance package: Your IglooPro is ready for use in 48 hours – guaranteed.",
+      "title": "Intelligent Diagnostics: The New Standard for Efficient POC Workflows."
     }
   },
   "about": {
@@ -98,6 +110,18 @@
       "title": "Chef de laboratoire et diagnostic / Klinikum Nord",
       "focus": "Compatibilité et fiabilité du système (Flexibilité, Regroupement)",
       "text": "L'Igloo Pro est l'appareil Point-of-Care le plus flexible que nous ayons jamais évalué. La compatibilité multi-fabricants pour les tests à flux latéral est un énorme avantage qui nous permet de standardiser nos appareils POC et d'économiser des coûts sans avoir à renoncer à la fiabilité éprouvée des résultats."
+    },
+    "goran_stojanovic": {
+      "title": "Biological Dentist / Principal Dentist & Owner",
+      "role": "Dentist (Real Review)",
+      "focus": "Rapid chairside diagnostics for implant planning (Vitamin D, CRP)",
+      "text": "As a biological dentist, I am deeply convinced that holistic health always begins with the teeth. The Igloo Pro allows me to make fast and precise diagnostic decisions exactly where they are needed: at the chair. With immediate Vitamin D and CRP analysis, I can plan implant placements optimally and often accelerate them significantly. This gives my patients safer and more efficient treatment."
+    },
+    "bastian_wessing": {
+      "role": "Medical Director",
+      "text": "The Igloo Multireader lets us measure inflammation markers, HbA1c, cholesterol, and Vitamin D right at the chair. That makes periodontal and implant treatments safer and faster to start. Training and support from PolarisDX are straightforward—the device has become a fixed part of our daily workflow.",
+      "focus": "Rapid chairside diagnostics for periodontology & implantology (Vitamin D, HbA1c, cholesterol, CRP)",
+      "title": "MVZ Zahnkultur Berlin Brandenburg GmbH"
     }
   },
   "blog": {

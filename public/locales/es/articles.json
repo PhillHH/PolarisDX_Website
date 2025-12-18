@@ -35,9 +35,18 @@
         "type": "key_points",
         "heading": "Cuando la logística desaparece",
         "points": [
-          { "title": "Sin mensajero", "description": "La muestra va del dedo del paciente directamente al dispositivo. Distancia: 30 centímetros." },
-          { "title": "Sin residuos de embalaje", "description": "Sin tubos de transporte, sin avalancha de etiquetas, sin bolsas de seguridad." },
-          { "title": "Micrometodología", "description": "En lugar de procesar mililitros de sangre venosa, una sola gota de sangre capilar es suficiente." }
+          {
+            "title": "Sin mensajero",
+            "description": "La muestra va del dedo del paciente directamente al dispositivo. Distancia: 30 centímetros."
+          },
+          {
+            "title": "Sin residuos de embalaje",
+            "description": "Sin tubos de transporte, sin avalancha de etiquetas, sin bolsas de seguridad."
+          },
+          {
+            "title": "Micrometodología",
+            "description": "En lugar de procesar mililitros de sangre venosa, una sola gota de sangre capilar es suficiente."
+          }
         ]
       },
       {
@@ -126,10 +135,22 @@
         "type": "key_points",
         "heading": "Un escenario del futuro (posible hoy)",
         "points": [
-          { "title": "Visita a domicilio", "description": "Una vez a la semana, pasa el servicio de enfermería móvil o una asistente de atención." },
-          { "title": "Análisis inmediato", "description": "Con el IGLO-PRO se toma una gota de sangre capilar en el lugar, en la sala de estar. Los valores están disponibles de inmediato." },
-          { "title": "Datos en tiempo real", "description": "Mientras la Sra. Müller toma su café, su médico de cabecera en la ciudad ve los valores actuales de HbA1c y lípidos en su portal DX365." },
-          { "title": "Receta y ajuste", "description": "Detecta un ligero deterioro, ajusta la medicación y envía la nueva receta directamente como receta electrónica a la farmacia del pueblo de la Sra. Müller." }
+          {
+            "title": "Visita a domicilio",
+            "description": "Una vez a la semana, pasa el servicio de enfermería móvil o una asistente de atención."
+          },
+          {
+            "title": "Análisis inmediato",
+            "description": "Con el IGLO-PRO se toma una gota de sangre capilar en el lugar, en la sala de estar. Los valores están disponibles de inmediato."
+          },
+          {
+            "title": "Datos en tiempo real",
+            "description": "Mientras la Sra. Müller toma su café, su médico de cabecera en la ciudad ve los valores actuales de HbA1c y lípidos en su portal DX365."
+          },
+          {
+            "title": "Receta y ajuste",
+            "description": "Detecta un ligero deterioro, ajusta la medicación y envía la nueva receta directamente como receta electrónica a la farmacia del pueblo de la Sra. Müller."
+          }
         ]
       },
       {
@@ -186,12 +207,32 @@
       {
         "type": "table",
         "heading": "Comparación: Laboratorio Central vs. Flujo de Trabajo IGLO-PRO",
-        "headers": ["Paso", "Diagnóstico Central (Clásico)", "IGLO-PRO (Modelo de una visita)"],
+        "headers": [
+          "Paso",
+          "Diagnóstico Central (Clásico)",
+          "IGLO-PRO (Modelo de una visita)"
+        ],
         "rows": [
-          ["Día 1", "Paciente llega, punción venosa, preparar muestra logísticamente (8 min)", "Paciente llega, sangre capilar en el dedo, análisis se ejecuta en paralelo (3 min)"],
-          ["Día 2", "Llega el hallazgo (Fax/Transferencia de datos), médico revisa, asistente llama (10-15 min)", "Sin proceso (Todo hecho)"],
-          ["Día 3", "Nueva cita para discusión (Tiempo de recepción + Tiempo de médico)", "Sin proceso (Todo hecho)"],
-          ["Resultado", "Expediente tocado 3x, 2 citas bloqueadas, personal ocupado", "Expediente tocado 1x, 1 cita, paciente se va con claridad"]
+          [
+            "Día 1",
+            "Paciente llega, punción venosa, preparar muestra logísticamente (8 min)",
+            "Paciente llega, sangre capilar en el dedo, análisis se ejecuta en paralelo (3 min)"
+          ],
+          [
+            "Día 2",
+            "Llega el hallazgo (Fax/Transferencia de datos), médico revisa, asistente llama (10-15 min)",
+            "Sin proceso (Todo hecho)"
+          ],
+          [
+            "Día 3",
+            "Nueva cita para discusión (Tiempo de recepción + Tiempo de médico)",
+            "Sin proceso (Todo hecho)"
+          ],
+          [
+            "Resultado",
+            "Expediente tocado 3x, 2 citas bloqueadas, personal ocupado",
+            "Expediente tocado 1x, 1 cita, paciente se va con claridad"
+          ]
         ]
       },
       {
@@ -439,5 +480,54 @@
     "subtitle": "Perspectivas, noticias y conocimiento experto sobre diagnósticos modernos y salud.",
     "heading": "Explore Nuestros Artículos",
     "caption": "Últimas Publicaciones"
+  },
+  "rapid_setup_formula": {
+    "excerpt": "Effizienz statt Einarbeitung: Der Weg zur schnellen Einsatzbereitschaft in der Praxis.",
+    "title": "Die Performance-Formel: Effizienz in der POC-Diagnostik",
+    "sections": [
+      {
+        "heading": "Einleitung",
+        "paragraphs": [
+          "Die Entscheidung für neue Point-of-Care (POC)-Diagnostikgeräte ist oft der erste Schritt zu einer besseren Patientenversorgung. Doch der Weg von der Anschaffung bis zur vollen Einsatzbereitschaft wird häufig unterschätzt. Langwierige Einarbeitung, administrative Hürden und komplexe IT-Integration fressen wertvolle Zeit und binden Personal, dessen Fokus eigentlich auf dem Patienten liegen sollte.",
+          "Dieser Engpass gehört der Vergangenheit an. Moderne Support-Konzepte revolutionieren die Inbetriebnahme und reduzieren den Aufwand für Praxen und Apotheken auf ein Minimum. Der Schlüssel ist der 'Remote-Setup'-Ansatz, der die sofortige Einsatzbereitschaft in kürzester Zeit garantiert."
+        ]
+      },
+      {
+        "heading": "1. Das Effizienzdilemma: Warum herkömmliche Integration scheitert",
+        "paragraphs": [
+          "Traditionell erfordert die Integration eines neuen POC-Systems mehrere zeitintensive Schritte, die oft Wochen in Anspruch nehmen:"
+        ],
+        "listItems": [
+          "Administrative und regulatorische Einarbeitung: Schulung des Personals in Bezug auf das Qualitätsmanagement (z. B. nach RiliBÄK oder Qualab) und interne Protokolle.",
+          "Technisches Setup und Kalibrierung: Manuelle Erstinbetriebnahme und chargenspezifische Kalibrierung des Geräts.",
+          "IT-Anbindung und Datenaustausch: Die komplexe bidirektionale Verbindung zwischen dem POC-Reader und dem Praxis- oder Apothekenverwaltungssystem (PVS/AVS)."
+        ]
+      },
+      {
+        "heading": "2. Der Remote-Setup-Ansatz: IT-Experten im Hintergrund",
+        "paragraphs": [
+          "Der Remote-Setup-Ansatz basiert auf der digitalen Konnektivität der modernen POC-Reader. Anstatt einen Servicetechniker vor Ort zu benötigen, wird das Gerät aus der Ferne von spezialisierten Experten eingerichtet und validiert.",
+          "Kernprozesse, die Remote abgewickelt werden:"
+        ],
+        "listItems": [
+          "Vollständige Kalibrierung: Die technische Kalibrierung des Multi-Readers auf die verwendeten Lateral Flow Tests (LFTs) wird extern vorgenommen. Dies stellt sicher, dass die analytische Präzision von Anfang an gewährleistet ist – ohne dass das Praxispersonal komplexe technische Schritte durchführen muss.",
+          "Nahtlose IT-Integration: Die Anbindung an das Labor- oder Praxisinformationssystem (LIS/PIS) erfolgt über sichere, webbasierte Schnittstellen (z. B. POC-IT-Lösungen). Externe Berater stellen sicher, dass alle Messwerte automatisch, sicher und fehlerfrei in die Patientenakte übertragen werden.",
+          "Firmware-Updates und System-Checks: Software-Updates zur Gewährleistung der Kompatibilität und Einhaltung neuer Standards können permanent und ohne Unterbrechung des Praxisbetriebs aus der Ferne eingespielt werden."
+        ]
+      },
+      {
+        "heading": "3. Die Performance-Formel: Der Wettbewerbsvorteil",
+        "paragraphs": [
+          "Durch die Auslagerung der technischen und administrativen Komplexität an spezialisierte Remote-Services können Praxen und Apotheken den Zeitaufwand von Wochen auf minimal reduzieren.",
+          "Effizienzgewinn und Patientenzufriedenheit: Die sofortige Einsatzbereitschaft der POC-Diagnostikgeräte ermöglicht es dem Personal, sich unmittelbar auf die Patientenversorgung zu konzentrieren. Zeitersparnis bei der Diagnosestellung, schnellere Therapieentscheidungen und der Entfall eines zweiten Termins führen zu einer signifikant höheren Patientenzufriedenheit. Die optimierten Workflows verbessern die wirtschaftliche Effizienz der gesamten Einrichtung."
+        ]
+      },
+      {
+        "heading": "Fazit: Investition in Zeit und Sicherheit",
+        "paragraphs": [
+          "Moderne Point-of-Care-Diagnostik ist mehr als nur ein Gerät: Sie ist ein digital integriertes System. Wer auf Remote-Setup setzt, investiert nicht nur in präzisere und schnellere Diagnostik, sondern vor allem in die wertvolle Zeit seines Personals. Die Performance-Formel ist somit das Synonym für minimalen Integrationsstress und maximale Einsatzbereitschaft in der modernen Gesundheitsversorgung."
+        ]
+      }
+    ]
   }
 }

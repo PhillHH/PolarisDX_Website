@@ -59,5 +59,30 @@
     "footer": "Drevet af PolarisDX Assistant",
     "error": "Beklager, noget gik galt.",
     "unavailable": "Chatten er i øjeblikket ikke tilgængelig. Prøv igen senere eller kontakt os via e-mail."
+  },
+  "cookie": {
+    "title": "Vi respekterer dit privatliv",
+    "description": "Vi bruger cookies.",
+    "accept_all": "Accepter alle",
+    "settings": "Indstillinger",
+    "hide": "Skjul",
+    "save_selection": "Gem",
+    "categories": {
+      "necessary": {
+        "name": "Nødvendig",
+        "description": "Krævet."
+      },
+      "marketing": {
+        "name": "Marketing",
+        "description": "Annoncer."
+      },
+      "analytics": {
+        "name": "Analyse",
+        "description": "Analyse."
+      }
+    }
+  },
+  "testimonials": {
+    "positiveLabel": "Positiv anmeldelse"
   }
 }

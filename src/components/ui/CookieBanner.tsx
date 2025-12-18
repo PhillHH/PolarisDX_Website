@@ -1,41 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import { Shield, ChevronDown, ChevronUp } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface CookieCategory {
   id: string;
-  name: string;
-  description: string;
+  nameKey: string;
+  descriptionKey: string;
   required: boolean;
   enabled: boolean;
 }
 
-const defaultCategories: CookieCategory[] = [
-  {
-    id: 'necessary',
-    name: 'Notwendig',
-    description: 'Diese Cookies sind für die Grundfunktionen der Website erforderlich.',
-    required: true,
-    enabled: true,
-  },
-  {
-    id: 'marketing',
-    name: 'Marketing',
-    description: 'Diese Cookies werden verwendet, um personalisierte Werbung anzuzeigen.',
-    required: false,
-    enabled: false,
-  },
-  {
-    id: 'analytics',
-    name: 'Analyse',
-    description: 'Diese Cookies helfen uns zu verstehen, wie Besucher mit der Website interagieren.',
-    required: false,
-    enabled: false,
-  },
-];
-
 export const CookieBanner: React.FC = () => {
+  const { t } = useTranslation('common');
   const [isVisible, setIsVisible] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
+
+  const defaultCategories: CookieCategory[] = [
+    {
+      id: 'necessary',
+      nameKey: 'cookie.categories.necessary.name',
+      descriptionKey: 'cookie.categories.necessary.description',
+      required: true,
+      enabled: true,
+    },
+    {
+      id: 'marketing',
+      nameKey: 'cookie.categories.marketing.name',
+      descriptionKey: 'cookie.categories.marketing.description',
+      required: false,
+      enabled: false,
+    },
+    {
+      id: 'analytics',
+      nameKey: 'cookie.categories.analytics.name',
+      descriptionKey: 'cookie.categories.analytics.description',
+      required: false,
+      enabled: false,
+    },
+  ];
+
   const [categories, setCategories] = useState<CookieCategory[]>(defaultCategories);
 
   useEffect(() => {
@@ -82,11 +85,10 @@ export const CookieBanner: React.FC = () => {
             </div>
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-1">
-                Wir respektieren Ihre Privatsphäre
+                {t('cookie.title', 'Wir respektieren Ihre Privatsphäre')}
               </h3>
               <p className="text-gray-600 text-sm md:text-base max-w-3xl">
-                Wir nutzen Cookies, um Ihnen die bestmögliche Nutzung unserer Webseite zu ermöglichen und unsere Kommunikation mit Ihnen zu verbessern.
-                Wir berücksichtigen hierbei Ihre Präferenzen und verarbeiten Daten nur, wenn Sie uns durch Klicken auf "Alle akzeptieren" Ihr Einverständnis geben oder über "Einstellungen" eine spezifische Auswahl treffen.
+                {t('cookie.description', 'Wir nutzen Cookies, um Ihnen die bestmögliche Nutzung unserer Webseite zu ermöglichen und unsere Kommunikation mit Ihnen zu verbessern. Wir berücksichtigen hierbei Ihre Präferenzen und verarbeiten Daten nur, wenn Sie uns durch Klicken auf "Alle akzeptieren" Ihr Einverständnis geben oder über "Einstellungen" eine spezifische Auswahl treffen.')}
               </p>
             </div>
           </div>
@@ -96,14 +98,14 @@ export const CookieBanner: React.FC = () => {
               onClick={() => setShowSettings(!showSettings)}
               className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors flex items-center justify-center gap-2"
             >
-              {showSettings ? 'Ausblenden' : 'Einstellungen'}
+              {showSettings ? t('cookie.hide', 'Ausblenden') : t('cookie.settings', 'Einstellungen')}
               {showSettings ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
             </button>
             <button
               onClick={handleAcceptAll}
               className="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors shadow-sm"
             >
-              Alle akzeptieren
+              {t('cookie.accept_all', 'Alle akzeptieren')}
             </button>
           </div>
         </div>
@@ -118,7 +120,7 @@ export const CookieBanner: React.FC = () => {
                   className={`p-4 rounded-lg border ${category.enabled ? 'border-blue-200 bg-blue-50/50' : 'border-gray-200 bg-gray-50/50'}`}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <span className="font-medium text-gray-900">{category.name}</span>
+                    <span className="font-medium text-gray-900">{t(category.nameKey)}</span>
                     <label className="relative inline-flex items-center cursor-pointer">
                       <input
                         type="checkbox"
@@ -131,7 +133,7 @@ export const CookieBanner: React.FC = () => {
                     </label>
                   </div>
                   <p className="text-xs text-gray-500">
-                    {category.description}
+                    {t(category.descriptionKey)}
                   </p>
                 </div>
               ))}
@@ -141,7 +143,7 @@ export const CookieBanner: React.FC = () => {
                 onClick={handleSaveSettings}
                 className="px-6 py-2 text-sm font-medium text-white bg-gray-900 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors"
               >
-                Auswahl speichern
+                {t('cookie.save_selection', 'Auswahl speichern')}
               </button>
             </div>
           </div>

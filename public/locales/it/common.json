@@ -59,5 +59,30 @@
     "footer": "Powered by PolarisDX Assistant",
     "error": "Spiacenti, qualcosa è andato storto.",
     "unavailable": "La chat non è attualmente disponibile. Riprova più tardi o contattaci via email."
+  },
+  "cookie": {
+    "title": "Rispettiamo la tua privacy",
+    "description": "Utilizziamo i cookie per migliorare l'esperienza.",
+    "accept_all": "Accetta tutto",
+    "settings": "Impostazioni",
+    "hide": "Nascondi",
+    "save_selection": "Salva selezione",
+    "categories": {
+      "necessary": {
+        "name": "Necessario",
+        "description": "Richiesto per le funzioni base."
+      },
+      "marketing": {
+        "name": "Marketing",
+        "description": "Per pubblicità."
+      },
+      "analytics": {
+        "name": "Analisi",
+        "description": "Per analisi."
+      }
+    }
+  },
+  "testimonials": {
+    "positiveLabel": "Recensione positiva"
   }
 }

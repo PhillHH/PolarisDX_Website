@@ -6,7 +6,7 @@ import PageTransition from '../components/ui/PageTransition';
 import Reveal from '../components/ui/Reveal';
 
 const EventsPage: React.FC = () => {
-  const { t } = useTranslation(['common']);
+  const { t } = useTranslation(['common', 'events']);
 
   return (
     <PageTransition>
@@ -19,16 +19,16 @@ const EventsPage: React.FC = () => {
               <div className="inline-block rounded p-[1px] bg-gradient-to-r from-secondary via-primary to-primary-deep shadow-lg shadow-primary/20 mb-2">
                 <div className="rounded-sm bg-slate-50 px-3 py-1">
                   <span className="text-xs font-semibold uppercase tracking-wide text-gray-900">
-                    {t('events.subtitle', 'Messen & Veranstaltungen')}
+                    {t('events:subtitle')}
                   </span>
                 </div>
               </div>
             </div>
             <h1 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl text-white">
-              {t('events.title', 'Treffen Sie uns persönlich')}
+              {t('events:title')}
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-white/80">
-              {t('events.intro', 'Erleben Sie unsere Technologien live vor Ort und kommen Sie mit unseren Experten ins Gespräch. Wir freuen uns auf den Austausch mit Ihnen.')}
+              {t('events:intro')}
             </p>
           </Reveal>
         </div>
@@ -71,7 +71,7 @@ const EventsPage: React.FC = () => {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-xl transition-colors shrink-0"
                           >
-                            <span>Details</span>
+                            <span>{t('events:details')}</span>
                             <ExternalLink className="w-4 h-4" />
                           </a>
                         )}
@@ -85,10 +85,10 @@ const EventsPage: React.FC = () => {
                 <div className="text-center py-20 bg-white/5 rounded-3xl border border-white/10">
                   <Calendar className="w-16 h-16 text-gray-600 mx-auto mb-4" />
                   <h3 className="text-xl font-medium text-white mb-2">
-                    {t('events.empty_title', 'Aktuell keine Termine')}
+                    {t('events:empty_title')}
                   </h3>
                   <p className="text-gray-400 max-w-md mx-auto">
-                    {t('events.empty_text', 'Derzeit stehen keine Messetermine oder Veranstaltungen an. Schauen Sie später wieder vorbei oder abonnieren Sie unseren Newsletter.')}
+                    {t('events:empty_text')}
                   </p>
                 </div>
               </Reveal>

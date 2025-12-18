@@ -35,9 +35,18 @@
         "type": "key_points",
         "heading": "When Logistics Disappear",
         "points": [
-          { "title": "No Courier", "description": "The sample moves from the patient's finger directly into the device. Distance: 30 centimeters." },
-          { "title": "No Packaging Waste", "description": "No transport tubes, no flood of labels, no safety bags." },
-          { "title": "Micro-Methodology", "description": "Instead of processing milliliters of venous blood, a single drop of capillary blood is sufficient." }
+          {
+            "title": "No Courier",
+            "description": "The sample moves from the patient's finger directly into the device. Distance: 30 centimeters."
+          },
+          {
+            "title": "No Packaging Waste",
+            "description": "No transport tubes, no flood of labels, no safety bags."
+          },
+          {
+            "title": "Micro-Methodology",
+            "description": "Instead of processing milliliters of venous blood, a single drop of capillary blood is sufficient."
+          }
         ]
       },
       {
@@ -126,10 +135,22 @@
         "type": "key_points",
         "heading": "A Scenario of the Future (Possible Today)",
         "points": [
-          { "title": "Home Visit", "description": "Once a week, the mobile nursing service or a care assistant comes by." },
-          { "title": "Immediate Analysis", "description": "A drop of capillary blood is taken on-site in the living room with the IGLO-PRO." },
-          { "title": "Real-Time Data", "description": "While Mrs. Müller drinks her coffee, her GP in the city sees the current HbA1c and lipid values in his DX365 portal." },
-          { "title": "Prescription & Adjustment", "description": "He detects a slight deterioration, adjusts the medication, and sends the new prescription directly as an e-prescription to Mrs. Müller's village pharmacy." }
+          {
+            "title": "Home Visit",
+            "description": "Once a week, the mobile nursing service or a care assistant comes by."
+          },
+          {
+            "title": "Immediate Analysis",
+            "description": "A drop of capillary blood is taken on-site in the living room with the IGLO-PRO."
+          },
+          {
+            "title": "Real-Time Data",
+            "description": "While Mrs. Müller drinks her coffee, her GP in the city sees the current HbA1c and lipid values in his DX365 portal."
+          },
+          {
+            "title": "Prescription & Adjustment",
+            "description": "He detects a slight deterioration, adjusts the medication, and sends the new prescription directly as an e-prescription to Mrs. Müller's village pharmacy."
+          }
         ]
       },
       {
@@ -186,12 +207,32 @@
       {
         "type": "table",
         "heading": "Comparison: Central Lab vs. IGLO-PRO Workflow",
-        "headers": ["Step", "Central Diagnostics (Classic)", "IGLO-PRO (One-Visit-Model)"],
+        "headers": [
+          "Step",
+          "Central Diagnostics (Classic)",
+          "IGLO-PRO (One-Visit-Model)"
+        ],
         "rows": [
-          ["Day 1", "Patient comes, venous puncture, prepare sample logistically (8 min)", "Patient comes, capillary blood at finger, analysis runs parallel (3 min)"],
-          ["Day 2", "Finding arrives (Fax/Data transfer), doctor reviews, MFA calls back (10-15 min)", "No process (All done)"],
-          ["Day 3", "New appointment for discussion (Reception time + Doctor time)", "No process (All done)"],
-          ["Result", "File touched 3x, 2 appointments blocked, staff tied up", "File touched 1x, 1 appointment, patient leaves with clarity"]
+          [
+            "Day 1",
+            "Patient comes, venous puncture, prepare sample logistically (8 min)",
+            "Patient comes, capillary blood at finger, analysis runs parallel (3 min)"
+          ],
+          [
+            "Day 2",
+            "Finding arrives (Fax/Data transfer), doctor reviews, MFA calls back (10-15 min)",
+            "No process (All done)"
+          ],
+          [
+            "Day 3",
+            "New appointment for discussion (Reception time + Doctor time)",
+            "No process (All done)"
+          ],
+          [
+            "Result",
+            "File touched 3x, 2 appointments blocked, staff tied up",
+            "File touched 1x, 1 appointment, patient leaves with clarity"
+          ]
         ]
       },
       {
@@ -439,5 +480,54 @@
     "subtitle": "Insights, news, and expert knowledge on modern diagnostics and health.",
     "heading": "Explore Our Articles",
     "caption": "Latest Posts"
+  },
+  "rapid_setup_formula": {
+    "excerpt": "Effizienz statt Einarbeitung: Der Weg zur schnellen Einsatzbereitschaft in der Praxis.",
+    "title": "Die Performance-Formel: Effizienz in der POC-Diagnostik",
+    "sections": [
+      {
+        "heading": "Einleitung",
+        "paragraphs": [
+          "Die Entscheidung für neue Point-of-Care (POC)-Diagnostikgeräte ist oft der erste Schritt zu einer besseren Patientenversorgung. Doch der Weg von der Anschaffung bis zur vollen Einsatzbereitschaft wird häufig unterschätzt. Langwierige Einarbeitung, administrative Hürden und komplexe IT-Integration fressen wertvolle Zeit und binden Personal, dessen Fokus eigentlich auf dem Patienten liegen sollte.",
+          "Dieser Engpass gehört der Vergangenheit an. Moderne Support-Konzepte revolutionieren die Inbetriebnahme und reduzieren den Aufwand für Praxen und Apotheken auf ein Minimum. Der Schlüssel ist der 'Remote-Setup'-Ansatz, der die sofortige Einsatzbereitschaft in kürzester Zeit garantiert."
+        ]
+      },
+      {
+        "heading": "1. Das Effizienzdilemma: Warum herkömmliche Integration scheitert",
+        "paragraphs": [
+          "Traditionell erfordert die Integration eines neuen POC-Systems mehrere zeitintensive Schritte, die oft Wochen in Anspruch nehmen:"
+        ],
+        "listItems": [
+          "Administrative und regulatorische Einarbeitung: Schulung des Personals in Bezug auf das Qualitätsmanagement (z. B. nach RiliBÄK oder Qualab) und interne Protokolle.",
+          "Technisches Setup und Kalibrierung: Manuelle Erstinbetriebnahme und chargenspezifische Kalibrierung des Geräts.",
+          "IT-Anbindung und Datenaustausch: Die komplexe bidirektionale Verbindung zwischen dem POC-Reader und dem Praxis- oder Apothekenverwaltungssystem (PVS/AVS)."
+        ]
+      },
+      {
+        "heading": "2. Der Remote-Setup-Ansatz: IT-Experten im Hintergrund",
+        "paragraphs": [
+          "Der Remote-Setup-Ansatz basiert auf der digitalen Konnektivität der modernen POC-Reader. Anstatt einen Servicetechniker vor Ort zu benötigen, wird das Gerät aus der Ferne von spezialisierten Experten eingerichtet und validiert.",
+          "Kernprozesse, die Remote abgewickelt werden:"
+        ],
+        "listItems": [
+          "Vollständige Kalibrierung: Die technische Kalibrierung des Multi-Readers auf die verwendeten Lateral Flow Tests (LFTs) wird extern vorgenommen. Dies stellt sicher, dass die analytische Präzision von Anfang an gewährleistet ist – ohne dass das Praxispersonal komplexe technische Schritte durchführen muss.",
+          "Nahtlose IT-Integration: Die Anbindung an das Labor- oder Praxisinformationssystem (LIS/PIS) erfolgt über sichere, webbasierte Schnittstellen (z. B. POC-IT-Lösungen). Externe Berater stellen sicher, dass alle Messwerte automatisch, sicher und fehlerfrei in die Patientenakte übertragen werden.",
+          "Firmware-Updates und System-Checks: Software-Updates zur Gewährleistung der Kompatibilität und Einhaltung neuer Standards können permanent und ohne Unterbrechung des Praxisbetriebs aus der Ferne eingespielt werden."
+        ]
+      },
+      {
+        "heading": "3. Die Performance-Formel: Der Wettbewerbsvorteil",
+        "paragraphs": [
+          "Durch die Auslagerung der technischen und administrativen Komplexität an spezialisierte Remote-Services können Praxen und Apotheken den Zeitaufwand von Wochen auf minimal reduzieren.",
+          "Effizienzgewinn und Patientenzufriedenheit: Die sofortige Einsatzbereitschaft der POC-Diagnostikgeräte ermöglicht es dem Personal, sich unmittelbar auf die Patientenversorgung zu konzentrieren. Zeitersparnis bei der Diagnosestellung, schnellere Therapieentscheidungen und der Entfall eines zweiten Termins führen zu einer signifikant höheren Patientenzufriedenheit. Die optimierten Workflows verbessern die wirtschaftliche Effizienz der gesamten Einrichtung."
+        ]
+      },
+      {
+        "heading": "Fazit: Investition in Zeit und Sicherheit",
+        "paragraphs": [
+          "Moderne Point-of-Care-Diagnostik ist mehr als nur ein Gerät: Sie ist ein digital integriertes System. Wer auf Remote-Setup setzt, investiert nicht nur in präzisere und schnellere Diagnostik, sondern vor allem in die wertvolle Zeit seines Personals. Die Performance-Formel ist somit das Synonym für minimalen Integrationsstress und maximale Einsatzbereitschaft in der modernen Gesundheitsversorgung."
+        ]
+      }
+    ]
   }
 }

@@ -1,51 +1,63 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Wifi, Battery, ShieldCheck, Layers } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import SectionHeader from '../components/ui/SectionHeader';
 import PrimaryButton from '../components/ui/PrimaryButton';
 import iglooImage from '../assets/igloo_front.png'; // Using existing asset
 import IglooProFlyer from '../assets/downloads/igloo-pro-flyer.pdf';
 
 const IglooProPage: React.FC = () => {
+  const { t } = useTranslation(['products']);
+
   // Data based on the provided PDF content
   const specs = [
-    { label: 'Methoden', value: 'Kolorimetrie, Immunfluoreszenz, Mikrofluidik, Multiplex, Quantenpunkte, Trockenchemie' },
-    { label: 'Proben', value: 'Serum / Plasma / Vollblut / Kapillarblut / Speichel / Haarprobe / Urin / Stuhl' },
-    { label: 'Gewicht', value: 'ca. 400g' }, // Adjusted from text "ca. 290g" vs "ca. 400g" elsewhere, taking safe bet or user provided text "290g"
-    { label: 'Abmessungen', value: '87,5 mm x 87,5 mm x 91 mm (LxBxH)' },
-    { label: 'Testgeschwindigkeit', value: 'Wenige Sekunden (ohne Inkubationszeit)' },
-    { label: 'Genauigkeit', value: 'CV < 2% (Inter-Reader), CV < 3% (Intra-Reader)' },
-    { label: 'Datenspeicher', value: '10.000 Ergebnisse' },
-    { label: 'Batterie', value: 'Lithium-Akku (bis zu 24 Stunden Dauerbetrieb)' },
-    { label: 'Kommunikation', value: 'USB-C, LIMS-Konnektivität, WiFi, Bluetooth' }
+    { label: t('products:specs.methods'), value: t('products:specs.methods_value') },
+    { label: t('products:specs.samples'), value: t('products:specs.samples_value') },
+    { label: t('products:specs.weight'), value: t('products:specs.weight_value') },
+    { label: t('products:specs.dimensions'), value: t('products:specs.dimensions_value') },
+    { label: t('products:specs.speed'), value: t('products:specs.speed_value') },
+    { label: t('products:specs.accuracy'), value: t('products:specs.accuracy_value') },
+    { label: t('products:specs.storage'), value: t('products:specs.storage_value') },
+    { label: t('products:specs.battery'), value: t('products:specs.battery_value') },
+    { label: t('products:specs.communication'), value: t('products:specs.communication_value') }
   ];
 
   const features = [
     {
       icon: Layers,
-      title: "Vielseitige Methoden",
-      description: "Kolorimetrie, Immunfluoreszenz, Mikrofluidik und mehr in einem Gerät."
+      title: t('products:features.methods.title'),
+      description: t('products:features.methods.description')
     },
     {
       icon: Battery,
-      title: "24h Akkulaufzeit",
-      description: "Lithium-Akku für den mobilen Dauereinsatz."
+      title: t('products:features.battery.title'),
+      description: t('products:features.battery.description')
     },
     {
       icon: Wifi,
-      title: "Volle Konnektivität",
-      description: "WiFi, Bluetooth und API-Anbindung an Ihre Praxissoftware."
+      title: t('products:features.connectivity.title'),
+      description: t('products:features.connectivity.description')
     },
     {
       icon: ShieldCheck,
-      title: "Präzision & Sicherheit",
-      description: "CV < 2% Genauigkeit und automatische Selbstkalibrierung."
+      title: t('products:features.precision.title'),
+      description: t('products:features.precision.description')
     }
   ];
 
   const parameters = [
-    "Vitamin D3", "CRP", "HbA1c", "Ferritin", "Cortisol", "TSH",
-    "D-Dimer", "Troponin", "Influenza A/B", "RSV", "Streptokokken A"
+    t('products:parameters.list.vitd3'),
+    t('products:parameters.list.crp'),
+    t('products:parameters.list.hba1c'),
+    t('products:parameters.list.ferritin'),
+    t('products:parameters.list.cortisol'),
+    t('products:parameters.list.tsh'),
+    t('products:parameters.list.ddimer'),
+    t('products:parameters.list.troponin'),
+    t('products:parameters.list.flu'),
+    t('products:parameters.list.rsv'),
+    t('products:parameters.list.strep')
   ];
 
   return (
@@ -59,24 +71,22 @@ const IglooProPage: React.FC = () => {
             <div className="lg:w-1/2 space-y-6">
               <SectionHeader
                 title="Igloo Pro System"
-                caption="Next Gen Diagnostics"
+                caption={t('products:hero.caption')}
                 align="left"
                 className="mb-0"
                 titleClassName='text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight'
               />
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                Schnelle und präzise <br/>
-                <span className="text-white drop-shadow-md">
-                  Diagnostik am Point-of-Care
-                </span>
+                {t('products:hero.title').split('Diagnostik').map((part, i) => (
+                    i === 0 ? <React.Fragment key={i}>{part}<br/></React.Fragment> : <span key={i} className="text-white drop-shadow-md">Diagnostik{part}</span>
+                ))}
               </h1>
               <p className="text-xl text-gray-300 max-w-xl">
-                Ihre Schaltzentrale für schnelle, präzise und flexible Diagnostik.
-                Ergebnisse in Laborqualität direkt am Behandlungsort.
+                {t('products:hero.description')}
               </p>
               <div className="flex gap-4 pt-4">
                 <PrimaryButton as="a" href="/contact">
-                  Jetzt bestellen
+                  {t('products:hero.cta_order')}
                 </PrimaryButton>
                 <a
                   href={IglooProFlyer}
@@ -84,7 +94,7 @@ const IglooProPage: React.FC = () => {
                   rel="noopener noreferrer"
                   className="px-8 py-3 rounded-full border border-white/20 text-white font-medium hover:bg-white/10 transition-all"
                 >
-                  Datenblatt (PDF)
+                  {t('products:hero.cta_datasheet')}
                 </a>
               </div>
             </div>
@@ -112,14 +122,12 @@ const IglooProPage: React.FC = () => {
       <section className="py-20 bg-white/5 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-3xl font-bold text-white">Das mobile Labor für Ihre Praxis</h2>
+            <h2 className="text-3xl font-bold text-white">{t('products:intro.title')}</h2>
             <p className="text-lg text-gray-300 leading-relaxed">
-              Das Igloo Pro ist ein tragbares Point-of-Care-Analysegerät, das fortschrittliche Lateral-Flow-Assay-Technologien verwendet,
-              um schnelle und genaue In-vitro-Tests für eine Vielzahl von Blutmarkern, Drogentests und Infektionskrankheiten durchzuführen.
+              {t('products:intro.text1')}
             </p>
             <p className="text-lg text-gray-300 leading-relaxed">
-              Sie können über Adapter herstellerübergreifend etwa 90% aller auf dem Markt befindlichen Tests in einem kompakten Analyzer auswerten.
-              Die Anzeige des Testergebnisses kann dabei wahlweise auf PC, Smartphone oder dem integrierten Display erfolgen.
+              {t('products:intro.text2')}
             </p>
           </div>
         </div>
@@ -149,7 +157,7 @@ const IglooProPage: React.FC = () => {
       {/* Technical Specs */}
       <section className="py-20 bg-gradient-to-b from-gray-900 to-[#083358]/30">
         <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-white text-center mb-12">Technische Daten</h2>
+            <h2 className="text-3xl font-bold text-white text-center mb-12">{t('products:specs.title')}</h2>
             <div className="max-w-4xl mx-auto bg-white/5 rounded-3xl overflow-hidden border border-white/10">
                 <div className="grid gap-px bg-white/10">
                     {specs.map((spec, idx) => (
@@ -166,7 +174,7 @@ const IglooProPage: React.FC = () => {
       {/* Parameters */}
       <section className="py-20">
         <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold text-white mb-12">Verfügbare Parameter (Auszug)</h2>
+            <h2 className="text-3xl font-bold text-white mb-12">{t('products:parameters.title')}</h2>
             <div className="flex flex-wrap justify-center gap-4">
                 {parameters.map((param, idx) => (
                     <span
@@ -178,8 +186,9 @@ const IglooProPage: React.FC = () => {
                 ))}
             </div>
             <p className="mt-8 text-gray-400">
-                Diese und weitere Parameter sind bereits im Labor geprüft und verfügbar. <br/>
-                Für weitere Tests sprechen Sie uns gerne an!
+                {t('products:parameters.disclaimer').split('. ').map((part, i) => (
+                  <React.Fragment key={i}>{part}{i < 1 && '.'} <br/></React.Fragment>
+                ))}
             </p>
         </div>
       </section>
@@ -187,12 +196,12 @@ const IglooProPage: React.FC = () => {
       {/* CTA */}
       <section className="py-20 bg-primary-deep/50">
         <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold text-white mb-6">Erweitern Sie Ihre diagnostischen Möglichkeiten</h2>
+            <h2 className="text-3xl font-bold text-white mb-6">{t('products:cta_bottom.title')}</h2>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-                Perfekt für Apotheken, Praxen, Pflegeeinrichtungen, Fitnessstudios und mehr.
+                {t('products:cta_bottom.description')}
             </p>
             <PrimaryButton as="a" href="/contact" className="text-lg px-10 py-4">
-                Jetzt Beratungstermin vereinbaren
+                {t('products:cta_bottom.button')}
             </PrimaryButton>
         </div>
       </section>

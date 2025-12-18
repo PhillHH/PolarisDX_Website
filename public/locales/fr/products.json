@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "title": "Diagnostic rapide et précis au Point-of-Care",
+    "caption": "Diagnostic Nouvelle Génération",
+    "description": "Votre centre de contrôle pour un diagnostic rapide, précis et flexible. Résultats de qualité laboratoire directement sur le lieu de traitement.",
+    "cta_order": "Commander maintenant",
+    "cta_datasheet": "Fiche technique (PDF)"
+  },
+  "intro": {
+    "title": "Le laboratoire mobile pour votre cabinet",
+    "text1": "L'Igloo Pro est un analyseur portable Point-of-Care utilisant des technologies avancées de flux latéral pour effectuer des tests in vitro rapides et précis pour une variété de marqueurs sanguins, tests de drogues et maladies infectieuses.",
+    "text2": "Vous pouvez évaluer environ 90% de tous les tests à flux latéral du marché, tous fabricants confondus, grâce à des adaptateurs dans un analyseur compact."
+  },
+  "features": {
+    "methods": {
+      "title": "Méthodes polyvalentes",
+      "description": "Colorimétrie, immunofluorescence, microfluidique et plus dans un seul appareil."
+    },
+    "battery": {
+      "title": "Autonomie 24h",
+      "description": "Batterie lithium pour une utilisation mobile continue."
+    },
+    "connectivity": {
+      "title": "Connectivité totale",
+      "description": "WiFi, Bluetooth et connexion API à votre logiciel de cabinet."
+    },
+    "precision": {
+      "title": "Précision et Sécurité",
+      "description": "Précision CV < 2% et auto-calibrage automatique."
+    }
+  },
+  "specs": {
+    "title": "Données Techniques",
+    "methods": "Méthodes",
+    "methods_value": "Colorimétrie, Immunofluorescence, Microfluidique, Multiplex, Points Quantiques, Chimie Sèche",
+    "samples": "Échantillons",
+    "samples_value": "Sérum / Plasma / Sang Total / Sang Capillaire / Salive / Cheveux / Urine / Selles",
+    "weight": "Poids",
+    "weight_value": "env. 400g",
+    "dimensions": "Dimensions",
+    "dimensions_value": "87,5 mm x 87,5 mm x 91 mm (LxLxH)",
+    "speed": "Vitesse de test",
+    "speed_value": "Quelques secondes (sans temps d'incubation)",
+    "accuracy": "Précision",
+    "accuracy_value": "CV < 2% (Inter-Reader), CV < 3% (Intra-Reader)",
+    "storage": "Stockage de données",
+    "storage_value": "10 000 Résultats",
+    "battery": "Batterie",
+    "battery_value": "Batterie Lithium (jusqu'à 24 heures de fonctionnement continu)",
+    "communication": "Communication",
+    "communication_value": "USB-C, Connectivité SGL, WiFi, Bluetooth"
+  },
+  "parameters": {
+    "title": "Paramètres disponibles (Extrait)",
+    "disclaimer": "Ces paramètres et d'autres sont déjà testés en laboratoire et disponibles. Pour d'autres tests, contactez-nous !",
+    "list": {
+      "vitd3": "Vitamine D3",
+      "crp": "CRP",
+      "hba1c": "HbA1c",
+      "ferritin": "Ferritine",
+      "cortisol": "Cortisol",
+      "tsh": "TSH",
+      "ddimer": "D-Dimère",
+      "troponin": "Troponine",
+      "flu": "Grippe A/B",
+      "rsv": "VRS",
+      "strep": "Streptocoque A"
+    }
+  },
+  "cta_bottom": {
+    "title": "Élargissez vos possibilités diagnostiques",
+    "description": "Parfait pour les pharmacies, cabinets, maisons de retraite, salles de sport et plus.",
+    "button": "Prendre rendez-vous maintenant"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Rencontrez-nous en personne",
+  "subtitle": "Salons et Événements",
+  "intro": "Découvrez nos technologies en direct sur place et discutez avec nos experts. Nous avons hâte d'échanger avec vous.",
+  "empty_title": "Aucun événement actuel",
+  "empty_text": "Il n'y a actuellement aucune date de salon ou événement prévu. Revenez plus tard ou abonnez-vous à notre newsletter.",
+  "details": "Détails",
+  "date_format": "{{date, datetime}}",
+  "location": "Lieu"
+}

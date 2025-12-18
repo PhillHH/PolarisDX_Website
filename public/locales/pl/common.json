@@ -59,5 +59,30 @@
     "footer": "Obsługiwane przez PolarisDX Assistant",
     "error": "Przepraszamy, coś poszło nie tak.",
     "unavailable": "Czat jest obecnie niedostępny. Spróbuj ponownie później lub skontaktuj się z nami mailowo."
+  },
+  "cookie": {
+    "title": "Szanujemy prywatność",
+    "description": "Używamy plików cookie.",
+    "accept_all": "Zaakceptuj",
+    "settings": "Ustawienia",
+    "hide": "Ukryj",
+    "save_selection": "Zapisz",
+    "categories": {
+      "necessary": {
+        "name": "Niezbędne",
+        "description": "Wymagane."
+      },
+      "marketing": {
+        "name": "Marketing",
+        "description": "Reklamy."
+      },
+      "analytics": {
+        "name": "Analityka",
+        "description": "Analiza."
+      }
+    }
+  },
+  "testimonials": {
+    "positiveLabel": "Pozytywna opinia"
   }
 }
