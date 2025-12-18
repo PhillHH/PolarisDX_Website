@@ -55,7 +55,7 @@ const IglooWidgetSection = () => {
           </div>
        </div>
 
-      <div className="mx-auto flex flex-col items-center justify-center gap-10 lg:block lg:h-[600px] lg:w-[1200px] relative">
+      <div className="mx-auto flex flex-col items-center justify-center gap-10 px-2 lg:px-0 lg:block lg:h-[600px] lg:w-[1200px] relative">
 
         {/* Decorative connecting lines for desktop (Triangle) */}
         <svg className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0">
@@ -83,14 +83,14 @@ const IglooWidgetSection = () => {
         </svg>
 
         {/* Central Image with Glow */}
-        <div className="relative z-30 flex justify-center items-center h-full w-full pointer-events-auto cursor-pointer">
+        <div className="relative z-30 flex justify-center items-center h-full w-full pointer-events-none">
             {/* Blue Glow Effect */}
             <div className="absolute w-[300px] h-[300px] bg-blue-500/20 blur-[80px] rounded-full mix-blend-multiply" />
 
             <img
                 src={iglooImage}
                 alt="Igloo Pro"
-                className="relative z-10 w-48 md:w-56 lg:w-64 drop-shadow-2xl transition-all duration-500 ease-in-out hover:scale-110"
+                className="relative z-10 w-[90%] max-w-[400px] lg:w-64 pointer-events-auto drop-shadow-2xl transition-all duration-500 ease-in-out hover:scale-110"
             />
         </div>
 
