@@ -17,7 +17,7 @@ const IglooWidgetSection = () => {
   const widgets = [
     {
       id: 'dental',
-      label: 'Dental',
+      label: t('igloo_widget.dental', 'Dental'),
       path: '/services/dental',
       icon: <Tooth className="w-10 h-10 text-white mb-2" />,
       x: positions.dental.x,
@@ -25,7 +25,7 @@ const IglooWidgetSection = () => {
     },
     {
       id: 'beauty',
-      label: 'Beauty',
+      label: t('igloo_widget.beauty', 'Beauty'),
       path: '/services/beauty',
       icon: <Sparkles className="w-10 h-10 text-white mb-2" />,
       x: positions.beauty.x,
@@ -33,7 +33,7 @@ const IglooWidgetSection = () => {
     },
     {
       id: 'longevity',
-      label: 'Longevity',
+      label: t('igloo_widget.longevity', 'Longevity'),
       path: '/services/longevity',
       icon: <InfinityIcon className="w-10 h-10 text-white mb-2" />,
       x: positions.longevity.x,
@@ -109,7 +109,7 @@ const IglooWidgetSection = () => {
                 w-full max-w-[600px] h-40 sm:h-44
                 bg-gradient-to-br from-cyan-400/50 via-blue-500/50 to-[#083358]/50 p-[1px]
                 lg:absolute lg:left-[var(--x)] lg:top-[var(--y)] lg:-translate-x-1/2 lg:-translate-y-1/2
-                lg:w-72 lg:h-48
+                lg:w-80 lg:h-48
               `}
               style={{
                 '--x': `${widget.x}px`,
@@ -117,7 +117,7 @@ const IglooWidgetSection = () => {
               } as React.CSSProperties}
             >
                 {/* Glassmorphism Inner Container */}
-                <div className="flex h-full w-full flex-col items-center justify-center rounded-[15px] bg-blue-900/40 backdrop-blur-xl border border-white/20 p-5 sm:p-6 transition-colors group-hover:bg-blue-900/60">
+                <div className="flex h-full w-full flex-col items-center justify-center rounded-[15px] bg-blue-900/60 backdrop-blur-xl border border-white/20 p-5 sm:p-6 transition-colors group-hover:bg-blue-900/70">
                     <div className="transform transition-transform duration-300 group-hover:-translate-y-1">
                         {widget.icon}
                     </div>
@@ -126,7 +126,7 @@ const IglooWidgetSection = () => {
                         {widget.label}
                     </span>
                     <span className="mt-2 text-sm font-medium text-gray-300 group-hover:text-white">
-                        {t('common:readMore', 'Mehr erfahren')} →
+                        {t('common:read_more', 'Mehr erfahren')} →
                     </span>
                 </div>
             </Link>

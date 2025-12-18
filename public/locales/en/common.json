@@ -50,6 +50,21 @@
     "button": "Book Appointment"
   },
   "read_more": "Read More",
+  "search": {
+    "keywords": {
+      "home": "home startseite igloo widget diagnostic",
+      "about": "team doctors polarisdx about us",
+      "services": "services leistungen dental beauty longevity diagnostics",
+      "contact": "contact kontakt email phone address",
+      "terms": "legal terms agb rights"
+    },
+    "services": {
+      "dental": "Dental Diagnostics",
+      "beauty": "Dermatological Analysis",
+      "longevity": "Health and Longevity",
+      "sports": "Performance Diagnostics for Athletes"
+    }
+  },
   "chat": {
     "title": "PolarisDX Concierge",
     "status": "Online",
@@ -59,5 +74,30 @@
     "footer": "PolarisDX Private Assistant",
     "error": "Sorry, something went wrong.",
     "unavailable": "Chat is currently unavailable. Please try again later or contact us by email."
+  },
+  "cookie": {
+    "title": "We respect your privacy",
+    "description": "We use cookies.",
+    "accept_all": "Accept All",
+    "settings": "Settings",
+    "hide": "Hide",
+    "save_selection": "Save",
+    "categories": {
+      "necessary": {
+        "name": "Necessary",
+        "description": "Required."
+      },
+      "marketing": {
+        "name": "Marketing",
+        "description": "Ads."
+      },
+      "analytics": {
+        "name": "Analytics",
+        "description": "Analytics."
+      }
+    }
+  },
+  "testimonials": {
+    "positiveLabel": "Positive Review"
   }
 }

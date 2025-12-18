@@ -43,6 +43,8 @@
       "title": "Cerchi assistenza medica professionale e affidabile?",
       "text": "Non esitare a contattarci. I nostri coordinatori sono pronti ad aiutarti a scegliere il medico e il momento giusti."
     },
-    "call_us_button": "Chiamaci"
+    "call_us_button": "Chiamaci",
+    "call_us_text": "Chiamaci",
+    "collapse_button": "Chiudi"
   }
 }

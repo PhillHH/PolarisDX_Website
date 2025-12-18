@@ -14,16 +14,16 @@
       "label": "Přesnost v celém měřicím rozsahu"
     },
     "longevity": {
-      "title": "Prevention Redefined: Making Vitality Measurable.",
-      "description": "Detect trends early. High-precision monitoring of inflammation and metabolic markers for a long, healthy life."
+      "title": "Prevence Nově Definována: Měřitelná vitalita.",
+      "description": "Odhalte trendy včas. Vysoce přesné monitorování zánětlivých a metabolických markerů pro dlouhý a zdravý život."
     },
     "beauty": {
-      "title": "Scientific Aesthetics: Measurable Results Instead of Guesswork.",
-      "description": "Visualize the success of your treatments. The IglooPro delivers precise data on anti-aging markers and skin health in laboratory quality."
+      "title": "Vědecká Estetika: Měřitelné výsledky místo dohadů.",
+      "description": "Vizualizujte úspěch vašich ošetření. IglooPro poskytuje přesná data o markerech stárnutí a zdraví pokožky v laboratorní kvalitě."
     },
     "dental": {
-      "description": "Secure the performance package: Your IglooPro is ready for use in 48 hours – guaranteed.",
-      "title": "Intelligent Diagnostics: The New Standard for Efficient POC Workflows."
+      "description": "Zajistěte si výkonnostní balíček: Váš IglooPro je připraven k použití do 48 hodin – zaručeno.",
+      "title": "Inteligentní Diagnostika: Nový standard pro efektivní POC pracovní postupy."
     }
   },
   "about": {
@@ -40,7 +40,10 @@
     "cta": "K systému Igloo Pro"
   },
   "igloo_widget": {
-    "title": "Oblasti použití"
+    "title": "Oblasti Použití",
+    "dental": "Dental",
+    "beauty": "Beauty",
+    "longevity": "Longevity"
   },
   "services": {
     "caption": "ZAMĚŘENÍ NA DIAGNOSTIKU",

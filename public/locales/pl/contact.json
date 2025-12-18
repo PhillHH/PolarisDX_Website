@@ -43,6 +43,8 @@
       "title": "Szukasz profesjonalnej i zaufanej opieki medycznej?",
       "text": "Nie wahaj się z nami skontaktować. Nasi koordynatorzy są gotowi pomóc Ci wybrać odpowiedniego lekarza i termin."
     },
-    "call_us_button": "Zadzwoń do nas"
+    "call_us_button": "Zadzwoń",
+    "call_us_text": "Zadzwoń do nas",
+    "collapse_button": "Zamknij"
   }
 }

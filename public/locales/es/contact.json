@@ -43,6 +43,8 @@
       "title": "¿Busca atención médica profesional y de confianza?",
       "text": "No dude en contactarnos. Nuestros coordinadores están listos para ayudarlo a elegir el médico y el momento adecuados."
     },
-    "call_us_button": "Llámanos"
+    "call_us_button": "Llámenos",
+    "call_us_text": "Llámenos",
+    "collapse_button": "Cerrar"
   }
 }

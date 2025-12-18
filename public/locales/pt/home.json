@@ -14,16 +14,16 @@
       "label": "Precisão em toda a faixa de medição"
     },
     "longevity": {
-      "title": "Prevention Redefined: Making Vitality Measurable.",
-      "description": "Detect trends early. High-precision monitoring of inflammation and metabolic markers for a long, healthy life."
+      "title": "Prevenção Redefinida: Tornando a vitalidade mensurável.",
+      "description": "Detecte tendências precocemente. Monitoramento de alta precisão de marcadores inflamatórios e metabólicos para uma vida longa e saudável."
     },
     "beauty": {
-      "title": "Scientific Aesthetics: Measurable Results Instead of Guesswork.",
-      "description": "Visualize the success of your treatments. The IglooPro delivers precise data on anti-aging markers and skin health in laboratory quality."
+      "title": "Estética Científica: Resultados mensuráveis em vez de suposições.",
+      "description": "Visualize o sucesso de seus tratamentos. O IglooPro fornece dados precisos sobre marcadores antienvelhecimento e saúde da pele com qualidade laboratorial."
     },
     "dental": {
-      "description": "Secure the performance package: Your IglooPro is ready for use in 48 hours – guaranteed.",
-      "title": "Intelligent Diagnostics: The New Standard for Efficient POC Workflows."
+      "description": "Garanta o pacote de desempenho: Seu IglooPro está pronto para uso em 48 horas – garantido.",
+      "title": "Diagnóstico Inteligente: O novo padrão para fluxos de trabalho POC eficientes."
     }
   },
   "about": {
@@ -40,7 +40,10 @@
     "cta": "Para o Sistema Igloo Pro"
   },
   "igloo_widget": {
-    "title": "Áreas de aplicação"
+    "title": "Áreas de Aplicação",
+    "dental": "Dental",
+    "beauty": "Beauty",
+    "longevity": "Longevity"
   },
   "services": {
     "caption": "FOCO EM DIAGNÓSTICO",

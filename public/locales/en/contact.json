@@ -9,7 +9,7 @@
       "title": "Book Appointment",
       "email": "Email",
       "phone": "Phone",
-      "specialty": "Select Medical Specialties",
+      "specialty": "Select Medical Specialty",
       "doctor": "Select Doctor",
       "any_doctor": "Any available doctor",
       "date": "Select Date & Time",
@@ -21,28 +21,30 @@
       "message_placeholder": "Tell us more about your needs...",
       "submit": "Book Appointment",
       "company_label": "Company / Practice Name",
-      "company_placeholder": "e.g. Dr. Miller Practice or Lion Pharmacy",
-      "area_label": "Primary Area of Application",
+      "company_placeholder": "e.g. Dr. Smith Practice or City Pharmacy",
+      "area_label": "Primary Application Area",
       "area_options": {
         "pharmacy": "Pharmacy",
-        "practice": "Doctor's Practice/Clinic",
+        "practice": "Medical Practice/Clinic",
         "vet": "Veterinary Medicine",
-        "lab": "Research/Lab",
+        "lab": "Research/Laboratory",
         "other": "Other"
       },
       "requirements_label": "Your Specific Requirements for IglooPro",
-      "requirements_placeholder": "Which biomarkers (e.g., CRP, TSH, HbA1c) are primarily relevant for you?"
+      "requirements_placeholder": "Which biomarkers (e.g. CRP, TSH, HbA1c) are primarily relevant for you?"
     },
     "info": {
       "title": "Contact Information",
-      "text": "Our team will get back to you within one business day. For urgent questions, please use the phone number below.",
+      "text": "Our team will contact you within one business day. For urgent inquiries, please use the phone number below.",
       "email_label": "EMAIL (24/7 Service)",
-      "phone_label": "PHONE (Priority-Line)"
+      "phone_label": "PHONE (Priority Line)"
     },
     "bottom_cta": {
-      "title": "Looking for professional & trusted medical healthcare?",
-      "text": "Don't hesitate to contact us. Our coordinators are ready to help you choose the right doctor and time."
+      "title": "Looking for professional & trusted medical care?",
+      "text": "Do not hesitate to contact us. Our coordinators are ready to help you choose the right doctor and time."
     },
-    "call_us_button": "Call us"
+    "call_us_button": "Call us",
+    "call_us_text": "Call us",
+    "collapse_button": "Close"
   }
 }

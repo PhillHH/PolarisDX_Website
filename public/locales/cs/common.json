@@ -84,5 +84,20 @@
   },
   "testimonials": {
     "positiveLabel": "Pozitivní recenze"
+  },
+  "search": {
+    "keywords": {
+      "home": "domů home igloo widget diagnostic",
+      "about": "tým lékaři polarisdx o nás",
+      "services": "services leistungen dental beauty longevity diagnostics",
+      "contact": "contact kontakt email phone address",
+      "terms": "legal terms agb rights"
+    },
+    "services": {
+      "dental": "Zubní Diagnostika",
+      "beauty": "Dermatologické Analýzy",
+      "longevity": "Zdraví a Dlouhověkost",
+      "sports": "Výkonnostní Diagnostika pro Sportovce"
+    }
   }
 }

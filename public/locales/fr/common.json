@@ -15,7 +15,7 @@
     "Limited": "Limité"
   },
   "category": {
-    "Diagnostics": "Diagnostics",
+    "Diagnostics": "Diagnostic",
     "Monitoring": "Surveillance",
     "Home Care": "Soins à domicile",
     "Chronic Care": "Soins chroniques",
@@ -26,7 +26,7 @@
     "Service": "Service"
   },
   "footer": {
-    "description": "Soins complets et soutien. Des services de santé modernes pour vous et votre famille, 24h/24.",
+    "description": "Soins et soutien complets. Services de santé modernes pour vous et votre famille, 24 heures sur 24.",
     "links": "Liens",
     "discover": "Découvrir",
     "london": "Londres",
@@ -40,45 +40,60 @@
     "appointment": "Prendre rendez-vous"
   },
   "cta": {
-    "title": "Vous cherchez des soins médicaux <1>professionnels et de confiance ?</1>",
+    "title": "Vous cherchez des soins <1>médicaux professionnels et de confiance ?</1>",
     "description": "N'hésitez pas à nous contacter. Notre équipe est prête à vous soutenir et à planifier le bon rendez-vous.",
     "button": "Prendre rendez-vous"
   },
   "cta_section": {
     "title": "Vous recherchez une performance garantie et une expertise POC ?",
-    "text": "Parlez directement avec nos spécialistes IglooPro. Notre équipe est prête à analyser vos exigences de flux de travail individuelles et à vous montrer le chemin le plus rapide vers des diagnostics validés. Avec nous, vous obtenez une solution sur mesure, pas une livraison standard.",
+    "text": "Parlez directement avec nos spécialistes IglooPro. Notre équipe est prête à analyser vos exigences de flux de travail individuelles et à vous montrer le chemin le plus rapide vers un diagnostic validé. Avec nous, vous obtenez une solution sur mesure, pas une livraison standard.",
     "button": "Prendre rendez-vous"
   },
-  "read_more": "En savoir plus",
+  "read_more": "Lire la suite",
+  "search": {
+    "keywords": {
+      "home": "home accueil igloo widget diagnostic",
+      "about": "team doctors polarisdx à propos",
+      "services": "services prestations dental beauty longevity diagnostic",
+      "contact": "contact email phone address adresse",
+      "terms": "legal terms agb conditions"
+    },
+    "services": {
+      "dental": "Diagnostic Dentaire",
+      "beauty": "Analyses Dermatologiques",
+      "longevity": "Santé et Longévité",
+      "sports": "Diagnostic de Performance pour Athlètes"
+    }
+  },
   "chat": {
     "title": "Chat",
     "status": "En ligne",
     "intro": "Bienvenue chez PolarisDX. Comment pouvons-nous vous aider aujourd'hui ?",
-    "welcome_prototype": "Bienvenue ! Notre chatbot n'est pas encore actif. Veuillez utiliser notre <0>formulaire de contact</0> ou appelez-nous au <1>+49 151 75011699</1>.",
-    "placeholder": "Saisissez un message...",
-    "footer": "Propulsé par l'assistant PolarisDX",
-    "error": "Désolé, une erreur s'est produite.",
+    "welcome_prototype": "Bienvenue ! Notre chatbot n'est pas encore actif. Veuillez utiliser notre <0>formulaire de contact</0> ou nous appeler au <1>+49 151 75011699</1>.",
+    "placeholder": "Tapez un message...",
+    "footer": "Propulsé par PolarisDX Assistant",
+    "error": "Désolé, quelque chose s'est mal passé.",
     "unavailable": "Le chat est actuellement indisponible. Veuillez réessayer plus tard ou nous contacter par e-mail."
   },
   "cookie": {
     "title": "Nous respectons votre vie privée",
-    "description": "Nous utilisons des cookies pour vous permettre de tirer le meilleur parti de notre site web et d'améliorer notre communication avec vous.",
+    "description": "Nous utilisons des cookies.",
     "accept_all": "Tout accepter",
     "settings": "Paramètres",
     "hide": "Masquer",
-    "save_selection": "Enregistrer la sélection",
+    "save_selection": "Enregistrer",
     "categories": {
       "necessary": {
         "name": "Nécessaire",
-        "description": "Requis pour les fonctions de base."
+        "description": "Requis."
       },
       "marketing": {
         "name": "Marketing",
-        "description": "Pour la publicité personnalisée."
+        "description": "Publicités."
       },
       "analytics": {
         "name": "Analyse",
-        "description": "Pour comprendre l'interaction des visiteurs."
+        "description": "Analyse."
       }
     }
   },

@@ -50,6 +50,21 @@
     "button": "Afspraak maken"
   },
   "read_more": "Lees meer",
+  "search": {
+    "keywords": {
+      "home": "home startpagina igloo widget diagnostic",
+      "about": "team doctors polarisdx over ons",
+      "services": "services diensten dental beauty longevity diagnostiek",
+      "contact": "contact email phone address adres",
+      "terms": "legal terms agb voorwaarden"
+    },
+    "services": {
+      "dental": "Tandheelkundige Diagnostiek",
+      "beauty": "Dermatologische Analyses",
+      "longevity": "Gezondheid en Levensduur",
+      "sports": "Prestatiediagnostiek voor Sporters"
+    }
+  },
   "chat": {
     "title": "Chat",
     "status": "Online",

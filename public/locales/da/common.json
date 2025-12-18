@@ -84,5 +84,20 @@
   },
   "testimonials": {
     "positiveLabel": "Positiv anmeldelse"
+  },
+  "search": {
+    "keywords": {
+      "home": "home startseite igloo widget diagnostic",
+      "about": "team doctors polarisdx about us",
+      "services": "services leistungen dental beauty longevity diagnostics",
+      "contact": "contact kontakt email phone address",
+      "terms": "legal terms agb rights"
+    },
+    "services": {
+      "dental": "Tanddiagnostik",
+      "beauty": "Dermatologiske Analyser",
+      "longevity": "Sundhed og Lang Levetid",
+      "sports": "Præstationsdiagnostik for Atleter"
+    }
   }
 }

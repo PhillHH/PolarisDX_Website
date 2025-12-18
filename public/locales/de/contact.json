@@ -43,6 +43,8 @@
       "title": "Suchen Sie professionelle & vertrauenswürdige medizinische Versorgung?",
       "text": "Zögern Sie nicht, uns zu kontaktieren. Unsere Koordinatoren helfen Ihnen gerne bei der Wahl des richtigen Arztes und Zeitpunkts."
     },
-    "call_us_button": "Rufen Sie uns an"
+    "call_us_button": "Rufen Sie uns an",
+    "call_us_text": "Rufen Sie uns an",
+    "collapse_button": "Schließen"
   }
 }

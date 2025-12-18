@@ -13,17 +13,17 @@
       "value": "CV < 2%",
       "label": "Precisie over het hele meetbereik"
     },
-    "longevity": {
-      "title": "Prevention Redefined: Making Vitality Measurable.",
-      "description": "Detect trends early. High-precision monitoring of inflammation and metabolic markers for a long, healthy life."
+    "dental": {
+      "title": "Intelligente Diagnostiek: De nieuwe standaard voor efficiënte POC-workflows.",
+      "description": "Verzeker u van het performance-pakket: Uw IglooPro is binnen 48 uur klaar voor gebruik – gegarandeerd."
     },
     "beauty": {
-      "title": "Scientific Aesthetics: Measurable Results Instead of Guesswork.",
-      "description": "Visualize the success of your treatments. The IglooPro delivers precise data on anti-aging markers and skin health in laboratory quality."
+      "title": "Wetenschappelijke Esthetiek: Meetresultaten in plaats van gissingen.",
+      "description": "Visualiseer het succes van uw behandelingen. De IglooPro levert nauwkeurige gegevens over anti-aging markers en huidgezondheid in laboratoriumkwaliteit."
     },
-    "dental": {
-      "description": "Secure the performance package: Your IglooPro is ready for use in 48 hours – guaranteed.",
-      "title": "Intelligent Diagnostics: The New Standard for Efficient POC Workflows."
+    "longevity": {
+      "title": "Preventie opnieuw gedefinieerd: Vitaliteit meetbaar maken.",
+      "description": "Herken trends vroegtijdig. Zeer nauwkeurige monitoring van ontstekings- en stofwisselingsmarkers voor een lang en gezond leven."
     }
   },
   "about": {
@@ -40,7 +40,10 @@
     "cta": "Naar het Igloo Pro Systeem"
   },
   "igloo_widget": {
-    "title": "Toepassingsgebieden"
+    "title": "Toepassingsgebieden",
+    "dental": "Dental",
+    "beauty": "Beauty",
+    "longevity": "Longevity"
   },
   "services": {
     "caption": "DIAGNOSTIEK FOCUS",

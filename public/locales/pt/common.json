@@ -84,5 +84,20 @@
   },
   "testimonials": {
     "positiveLabel": "Avaliação positiva"
+  },
+  "search": {
+    "keywords": {
+      "home": "home startseite igloo widget diagnostic",
+      "about": "team doctors polarisdx about us",
+      "services": "services leistungen dental beauty longevity diagnostics",
+      "contact": "contact kontakt email phone address",
+      "terms": "legal terms agb rights"
+    },
+    "services": {
+      "dental": "Diagnóstico Dentário",
+      "beauty": "Análises Dermatológicas",
+      "longevity": "Saúde e Longevidade",
+      "sports": "Diagnóstico de Desempenho para Atletas"
+    }
   }
 }

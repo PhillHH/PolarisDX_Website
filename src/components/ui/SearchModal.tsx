@@ -59,32 +59,32 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
       {
         title: t('nav.home', 'Startseite'),
         path: '/',
-        keywords: 'home startseite igloo widget diagnostic'
+        keywords: t('common:search.keywords.home', 'home startseite igloo widget diagnostic')
       },
       {
         title: t('nav.about', 'Über uns'),
         path: '/about',
-        keywords: 'team doctors polarisdx'
+        keywords: t('common:search.keywords.about', 'team doctors polarisdx')
       },
       {
         title: t('nav.service', 'Leistungen'),
         path: '/services',
-        keywords: 'services leistungen dental beauty longevity'
+        keywords: t('common:search.keywords.services', 'services leistungen dental beauty longevity')
       },
       {
         title: t('nav.contact', 'Kontakt'),
         path: '/contact',
-        keywords: 'contact kontakt email phone address'
+        keywords: t('common:search.keywords.contact', 'contact kontakt email phone address')
       },
       {
-        title: 'AGB',
+        title: t('nav.terms', 'AGB'),
         path: '/terms',
-        keywords: 'legal terms agb recht'
+        keywords: t('common:search.keywords.terms', 'legal terms agb recht')
       }
     ]
 
     pages.forEach(page => {
-      if (page.title.toLowerCase().includes(searchTerm) || page.keywords.includes(searchTerm)) {
+      if (page.title.toLowerCase().includes(searchTerm) || page.keywords.toLowerCase().includes(searchTerm)) {
         found.push({
           title: page.title,
           description: t('common:readMore', 'Mehr erfahren'),
@@ -94,12 +94,28 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
       }
     })
 
-    // 2. Search Services (Hardcoded list mapped to routes)
+    // 2. Search Services (Localized list mapped to routes)
     const services = [
-      { id: 'dental', title: 'Dental', desc: 'Zahnmedizinische Diagnostik' },
-      { id: 'beauty', title: 'Beauty', desc: 'Dermatologische Analysen' },
-      { id: 'longevity', title: 'Longevity', desc: 'Gesundheit und Langlebigkeit' },
-      { id: 'sports', title: 'Sports', desc: 'Leistungsdiagnostik für Sportler' }
+      {
+        id: 'dental',
+        title: 'Dental',
+        desc: t('common:search.services.dental', 'Zahnmedizinische Diagnostik')
+      },
+      {
+        id: 'beauty',
+        title: 'Beauty',
+        desc: t('common:search.services.beauty', 'Dermatologische Analysen')
+      },
+      {
+        id: 'longevity',
+        title: 'Longevity',
+        desc: t('common:search.services.longevity', 'Gesundheit und Langlebigkeit')
+      },
+      {
+        id: 'sports',
+        title: 'Sports',
+        desc: t('common:search.services.sports', 'Leistungsdiagnostik für Sportler')
+      }
     ]
 
     services.forEach(service => {

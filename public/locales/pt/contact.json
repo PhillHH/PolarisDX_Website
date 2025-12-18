@@ -43,6 +43,8 @@
       "title": "Procura cuidados de saúde médicos profissionais e de confiança?",
       "text": "Não hesite em contactar-nos. Os nossos coordenadores estão prontos para ajudar a escolher o médico e horário certos."
     },
-    "call_us_button": "Ligue-nos"
+    "call_us_button": "Ligue para nós",
+    "call_us_text": "Ligue para nós",
+    "collapse_button": "Fechar"
   }
 }
