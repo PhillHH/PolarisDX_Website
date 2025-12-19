@@ -1,6 +1,7 @@
 import RichardPollockAvatar from '../assets/Testimonials/Richard-Pollock-Biological-Dentist-Internal (1).png'
 import GoranAvatar from '../assets/Testimonials/goran_rezension.png'
 import BastianAvatar from '../assets/Testimonials/Bastian Foto.jpeg'
+import KristianGrimmAvatar from '../assets/Testimonials/Dr. Kristian Grimm.jpg'
 
 export interface Testimonial {
   id: string; // added ID for translation lookup
@@ -21,6 +22,15 @@ export const testimonials: Testimonial[] = [
     focus: "Fast On-Site Health Checks (Prävention, Vitamin D)",
     text: "",
     avatar: RichardPollockAvatar,
+  },
+  {
+    id: "kristian_grimm",
+    role: "Zahnarzt (Echte Rezension)",
+    name: "Dr. Kristian Grimm",
+    title: "32reasons Zahnteam / Hamburg",
+    focus: "Prävention, Vitamin D, HbA1c, Systemische Gesundheit",
+    text: "",
+    avatar: KristianGrimmAvatar,
   },
   {
     id: "goran_stojanovic",

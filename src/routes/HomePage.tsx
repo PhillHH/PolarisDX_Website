@@ -3,6 +3,7 @@ import AboutSection from '../components/sections/AboutSection'
 import IglooWidgetSection from '../components/sections/IglooWidgetSection'
 import DoctorsSection from '../components/sections/DoctorsSection'
 import TestimonialsSection from '../components/sections/TestimonialsSection'
+import FeaturedCaseStudy from '../components/sections/FeaturedCaseStudy'
 import BlogSection from '../components/sections/BlogSection'
 import Reveal from '../components/ui/Reveal'
 
@@ -26,6 +27,12 @@ const HomePage = () => {
       <div className="mt-32 lg:mt-32">
         <Reveal width="100%">
           <TestimonialsSection />
+        </Reveal>
+      </div>
+
+      <div className="mt-0 lg:mt-0">
+        <Reveal width="100%">
+          <FeaturedCaseStudy />
         </Reveal>
       </div>
 

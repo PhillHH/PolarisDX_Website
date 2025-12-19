@@ -15,6 +15,7 @@ import PrivacyPage from './routes/PrivacyPage'
 import ImprintPage from './routes/ImprintPage'
 import EventsPage from './pages/EventsPage'
 import IglooProPage from './pages/IglooProPage'
+import CaseStudy32Reasons from './routes/CaseStudy32Reasons'
 import { CookieBanner } from './components/ui/CookieBanner'
 import MobileCallButton from './components/ui/MobileCallButton'
 import ChatWidget from './components/ui/ChatWidget'
@@ -39,6 +40,7 @@ function App() {
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/igloo-pro" element={<IglooProPage />} />
+        <Route path="/casestudys/32reasons" element={<CaseStudy32Reasons />} />
         {/* Shop temporarily disabled */}
         {/* <Route path="/shop" element={<ShopPage />} /> */}
         {/* <Route path="/shop/:slug" element={<ProductPage />} /> */}
