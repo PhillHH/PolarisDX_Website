@@ -32,7 +32,7 @@ const CaseStudy32Reasons = () => {
       <div className="relative mx-auto max-w-container px-4 py-16 lg:py-24">
 
         {/* Intro Section */}
-        <section className="mb-24 grid gap-12 lg:grid-cols-2 lg:items-center">
+        <section className="mb-24 grid gap-12 lg:grid-cols-[1.1fr,1fr] lg:items-center lg:gap-16">
           <Reveal>
             <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl bg-white shadow-lg border border-gray-100 relative group">
               <img
@@ -49,7 +49,7 @@ const CaseStudy32Reasons = () => {
           </Reveal>
 
           <Reveal delay={0.2}>
-            <div className="space-y-6">
+            <div className="space-y-6 lg:-ml-12 lg:-translate-y-6 lg:max-w-xl lg:relative">
               <h2 className="text-3xl font-bold text-gray-900">{t('reasons32.intro.title')}</h2>
               <p className="text-lg text-gray-600 leading-relaxed">
                 {t('reasons32.intro.text')}
