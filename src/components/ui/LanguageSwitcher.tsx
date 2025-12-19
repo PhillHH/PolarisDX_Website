@@ -49,11 +49,11 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
     <div className={`relative ${className}`} ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex items-center gap-2 rounded-md px-3 py-2 transition-colors hover:bg-white/10 ${isMobile ? 'text-current' : 'text-current'}`}
+        className={`inline-flex items-center justify-center gap-2 rounded-full ${isMobile ? 'h-10 px-3 py-2' : 'px-3 py-2'} leading-none transition-colors hover:bg-white/10 text-current`}
         aria-label="Select language"
       >
-        <span className={`fi fi-${currentLanguage.country_code} rounded-sm`} />
-        <span className="uppercase text-sm font-medium">{currentLanguage.code}</span>
+        <span className={`fi fi-${currentLanguage.country_code} rounded-sm align-middle`} />
+        <span className="uppercase text-sm font-medium leading-none">{currentLanguage.code}</span>
         <svg
           className={`h-4 w-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
           fill="none"

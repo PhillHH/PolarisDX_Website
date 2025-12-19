@@ -19,7 +19,7 @@ const IglooWidgetSection = () => {
       id: 'dental',
       label: t('igloo_widget.dental', 'Dental'),
       path: '/services/dental',
-      icon: <Tooth className="w-10 h-10 text-white mb-2" />,
+      icon: <Tooth className="w-12 h-12 text-white" />,
       x: positions.dental.x,
       y: positions.dental.y,
     },
@@ -27,7 +27,7 @@ const IglooWidgetSection = () => {
       id: 'beauty',
       label: t('igloo_widget.beauty', 'Beauty'),
       path: '/services/beauty',
-      icon: <Sparkles className="w-10 h-10 text-white mb-2" />,
+      icon: <Sparkles className="w-12 h-12 text-white" />,
       x: positions.beauty.x,
       y: positions.beauty.y,
     },
@@ -35,7 +35,7 @@ const IglooWidgetSection = () => {
       id: 'longevity',
       label: t('igloo_widget.longevity', 'Longevity'),
       path: '/services/longevity',
-      icon: <InfinityIcon className="w-10 h-10 text-white mb-2" />,
+      icon: <InfinityIcon className="w-12 h-12 text-white" />,
       x: positions.longevity.x,
       y: positions.longevity.y,
     },
@@ -55,7 +55,7 @@ const IglooWidgetSection = () => {
           </div>
        </div>
 
-      <div className="mx-auto flex flex-col items-center justify-center gap-10 lg:block lg:h-[600px] lg:w-[1200px] relative">
+      <div className="mx-auto flex w-full flex-col items-center justify-center gap-10 lg:block lg:h-[600px] lg:w-[1200px] relative px-4 lg:px-0">
 
         {/* Decorative connecting lines for desktop (Triangle) */}
         <svg className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0">
@@ -95,7 +95,7 @@ const IglooWidgetSection = () => {
         </div>
 
         {/* Widgets */}
-        <div className="flex flex-col gap-6 lg:absolute lg:inset-0 lg:block z-20 pointer-events-none px-2 lg:px-0">
+        <div className="flex w-full flex-col items-center gap-6 lg:absolute lg:inset-0 lg:block z-20 pointer-events-none px-2 lg:px-0">
             {widgets.map((widget) => (
             <Link
               key={widget.id}
@@ -106,7 +106,7 @@ const IglooWidgetSection = () => {
                 relative
                 rounded-2xl
                 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl
-                w-full h-40 sm:h-44
+                w-full max-w-[95vw] sm:max-w-[90vw] h-32 sm:h-36
                 bg-gradient-to-br from-cyan-400/50 via-blue-500/50 to-[#083358]/50 p-[1px]
                 lg:absolute lg:left-[var(--x)] lg:top-[var(--y)] lg:-translate-x-1/2 lg:-translate-y-1/2
                 lg:w-80 lg:h-48
@@ -117,17 +117,18 @@ const IglooWidgetSection = () => {
               } as React.CSSProperties}
             >
                 {/* Glassmorphism Inner Container */}
-                <div className="flex h-full w-full flex-col items-start justify-center rounded-[15px] bg-blue-900/60 backdrop-blur-xl border border-white/20 p-5 sm:p-6 transition-colors group-hover:bg-blue-900/70">
-                    <div className="transform transition-transform duration-300 group-hover:-translate-y-1">
+                <div className="flex h-full w-full flex-row items-center gap-4 sm:gap-5 rounded-[15px] bg-blue-900/60 backdrop-blur-xl border border-white/20 p-3 sm:p-4 transition-colors group-hover:bg-blue-900/70">
+                    <div className="flex-shrink-0 transform transition-transform duration-300 group-hover:-translate-y-1">
                         {widget.icon}
                     </div>
-
-                    <span className="text-2xl font-medium text-white text-left group-hover:text-cyan-400">
-                        {widget.label}
-                    </span>
-                    <span className="mt-2 text-sm font-medium text-gray-300 group-hover:text-white">
-                        {t('common:read_more', 'Mehr erfahren')} →
-                    </span>
+                    <div className="flex flex-col items-start gap-1">
+                      <span className="text-2xl font-medium text-white text-left group-hover:text-cyan-400">
+                          {widget.label}
+                      </span>
+                      <span className="text-sm font-medium text-gray-300 group-hover:text-white">
+                          {t('common:read_more', 'Mehr erfahren')} →
+                      </span>
+                    </div>
                 </div>
             </Link>
             ))}
