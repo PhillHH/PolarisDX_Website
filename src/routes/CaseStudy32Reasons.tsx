@@ -64,6 +64,7 @@ const CaseStudy32Reasons = () => {
 
           <div className="relative z-10">
             <SectionHeader
+              caption={t('reasons32.philosophy.caption', 'Philosophie')}
               title={t('reasons32.philosophy.title')}
               titleClassName="text-white mb-12 text-center"
             />
