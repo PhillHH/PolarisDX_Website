@@ -61,7 +61,7 @@ const IglooProPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-slate-50">
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 bg-gray-900 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
@@ -119,14 +119,14 @@ const IglooProPage: React.FC = () => {
       </section>
 
       {/* Description Section */}
-      <section className="py-20 bg-white/5 backdrop-blur-sm">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-3xl font-bold text-white">{t('products:intro.title')}</h2>
-            <p className="text-lg text-gray-300 leading-relaxed">
+            <h2 className="text-3xl font-bold text-gray-900">{t('products:intro.title')}</h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
               {t('products:intro.text1')}
             </p>
-            <p className="text-lg text-gray-300 leading-relaxed">
+            <p className="text-lg text-gray-600 leading-relaxed">
               {t('products:intro.text2')}
             </p>
           </div>
@@ -134,7 +134,7 @@ const IglooProPage: React.FC = () => {
       </section>
 
       {/* Features Grid */}
-      <section className="py-20 bg-gray-900 relative">
+      <section className="py-20 bg-slate-50 relative">
         <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {features.map((feature, idx) => (
@@ -143,11 +143,11 @@ const IglooProPage: React.FC = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.1 }}
-                        className="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-primary/50 transition-colors"
+                        className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-primary/50 transition-colors"
                     >
-                        <feature.icon className="w-10 h-10 text-secondary mb-4" />
-                        <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
-                        <p className="text-gray-400">{feature.description}</p>
+                        <feature.icon className="w-10 h-10 text-primary mb-4" />
+                        <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                        <p className="text-gray-500">{feature.description}</p>
                     </motion.div>
                 ))}
             </div>
@@ -155,15 +155,15 @@ const IglooProPage: React.FC = () => {
       </section>
 
       {/* Technical Specs */}
-      <section className="py-20 bg-gradient-to-b from-gray-900 to-[#083358]/30">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-white text-center mb-12">{t('products:specs.title')}</h2>
-            <div className="max-w-4xl mx-auto bg-white/5 rounded-3xl overflow-hidden border border-white/10">
-                <div className="grid gap-px bg-white/10">
+            <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">{t('products:specs.title')}</h2>
+            <div className="max-w-4xl mx-auto bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100">
+                <div className="grid gap-px bg-gray-100">
                     {specs.map((spec, idx) => (
-                        <div key={idx} className="grid md:grid-cols-3 bg-gray-900/90 p-4 hover:bg-gray-800/80 transition-colors">
+                        <div key={idx} className="grid md:grid-cols-3 bg-white p-4 hover:bg-gray-50 transition-colors">
                             <div className="font-semibold text-primary">{spec.label}</div>
-                            <div className="md:col-span-2 text-gray-300">{spec.value}</div>
+                            <div className="md:col-span-2 text-gray-600">{spec.value}</div>
                         </div>
                     ))}
                 </div>
@@ -172,20 +172,20 @@ const IglooProPage: React.FC = () => {
       </section>
 
       {/* Parameters */}
-      <section className="py-20">
+      <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold text-white mb-12">{t('products:parameters.title')}</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-12">{t('products:parameters.title')}</h2>
             <div className="flex flex-wrap justify-center gap-4">
                 {parameters.map((param, idx) => (
                     <span
                         key={idx}
-                        className="px-6 py-3 bg-white/10 rounded-full text-white font-medium border border-white/10 hover:bg-primary/20 hover:border-primary transition-all cursor-default"
+                        className="px-6 py-3 bg-white rounded-full text-gray-700 font-medium shadow-sm border border-gray-200 hover:bg-primary/5 hover:border-primary hover:text-primary transition-all cursor-default"
                     >
                         {param}
                     </span>
                 ))}
             </div>
-            <p className="mt-8 text-gray-400">
+            <p className="mt-8 text-gray-500">
                 {t('products:parameters.disclaimer').split('. ').map((part, i) => (
                   <React.Fragment key={i}>{part}{i < 1 && '.'} <br/></React.Fragment>
                 ))}
@@ -194,13 +194,13 @@ const IglooProPage: React.FC = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-primary-deep/50">
+      <section className="py-20 bg-primary-deep">
         <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold text-white mb-6">{t('products:cta_bottom.title')}</h2>
-            <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
                 {t('products:cta_bottom.description')}
             </p>
-            <PrimaryButton as="a" href="/contact" className="text-lg px-10 py-4">
+            <PrimaryButton as="a" href="/contact" className="text-lg px-10 py-4 bg-white text-primary-deep hover:bg-gray-100 border-none shadow-xl">
                 {t('products:cta_bottom.button')}
             </PrimaryButton>
         </div>

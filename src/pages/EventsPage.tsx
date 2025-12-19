@@ -35,18 +35,18 @@ const EventsPage: React.FC = () => {
       </div>
 
       {/* Events List */}
-      <div className="min-h-screen bg-gray-900 pt-16 pb-32">
+      <div className="min-h-screen bg-slate-50 pt-16 pb-32">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             {events.length > 0 ? (
               <div className="grid gap-6">
                 {events.map((event, index) => (
                   <Reveal key={event.id || index} width="100%" delay={index * 0.1}>
-                    <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
+                    <div className="bg-white shadow-lg border border-gray-100 rounded-2xl p-6 hover:shadow-xl transition-shadow">
                       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                         <div className="space-y-2">
-                          <h3 className="text-xl font-bold text-white">{event.title}</h3>
-                          <div className="flex flex-wrap gap-4 text-sm text-gray-400">
+                          <h3 className="text-xl font-bold text-gray-900">{event.title}</h3>
+                          <div className="flex flex-wrap gap-4 text-sm text-gray-500">
                             <div className="flex items-center gap-2">
                               <Calendar className="w-4 h-4 text-primary" />
                               <span>
@@ -60,7 +60,7 @@ const EventsPage: React.FC = () => {
                             </div>
                           </div>
                           {event.description && (
-                            <p className="text-gray-300 mt-2">{event.description}</p>
+                            <p className="text-gray-600 mt-2">{event.description}</p>
                           )}
                         </div>
 
@@ -69,7 +69,7 @@ const EventsPage: React.FC = () => {
                             href={event.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-xl transition-colors shrink-0"
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white hover:bg-primary-deep rounded-xl transition-colors shrink-0 font-medium"
                           >
                             <span>{t('events:details')}</span>
                             <ExternalLink className="w-4 h-4" />
@@ -82,12 +82,12 @@ const EventsPage: React.FC = () => {
               </div>
             ) : (
               <Reveal width="100%">
-                <div className="text-center py-20 bg-white/5 rounded-3xl border border-white/10">
-                  <Calendar className="w-16 h-16 text-gray-600 mx-auto mb-4" />
-                  <h3 className="text-xl font-medium text-white mb-2">
+                <div className="text-center py-20 bg-white rounded-3xl border border-gray-100 shadow-md">
+                  <Calendar className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                  <h3 className="text-xl font-medium text-gray-900 mb-2">
                     {t('events:empty_title')}
                   </h3>
-                  <p className="text-gray-400 max-w-md mx-auto">
+                  <p className="text-gray-500 max-w-md mx-auto">
                     {t('events:empty_text')}
                   </p>
                 </div>

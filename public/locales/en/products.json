@@ -1,1 +1,75 @@
-{}
+{
+  "hero": {
+    "caption": "The All-in-One System",
+    "title": "Precise Diagnostics.\nEverywhere.",
+    "description": "Experience the next generation of Point-of-Care diagnostics. Fast, reliable, and easy to use.",
+    "cta_order": "Request Now",
+    "cta_datasheet": "Download Datasheet"
+  },
+  "intro": {
+    "title": "Lab Quality in Handheld Format",
+    "text1": "The Igloo Pro Reader sets new standards in mobile diagnostics. With state-of-the-art technology, it delivers results you can rely on.",
+    "text2": "Whether in the practice, hospital, or mobile – the Igloo Pro is your reliable partner for fast decisions."
+  },
+  "features": {
+    "methods": {
+      "title": "Versatile Methods",
+      "description": "Supports diverse test procedures for maximum flexibility."
+    },
+    "battery": {
+      "title": "Long Battery Life",
+      "description": "Powerful battery for all-day mobile use."
+    },
+    "connectivity": {
+      "title": "Full Connectivity",
+      "description": "Wi-Fi, Bluetooth, and USB for seamless data transfer."
+    },
+    "precision": {
+      "title": "Highest Precision",
+      "description": "Validated accuracy comparable to large laboratory devices."
+    }
+  },
+  "specs": {
+    "title": "Technical Data",
+    "methods": "Measurement Method",
+    "methods_value": "Immunofluorescence",
+    "samples": "Sample Material",
+    "samples_value": "Whole blood, Serum, Plasma, Capillary blood",
+    "weight": "Weight",
+    "weight_value": "600g (portable)",
+    "dimensions": "Dimensions",
+    "dimensions_value": "Handy & Compact",
+    "speed": "Measurement Time",
+    "speed_value": "3 - 15 Minutes (test dependent)",
+    "accuracy": "Accuracy",
+    "accuracy_value": "CV < 5%",
+    "storage": "Memory",
+    "storage_value": "Up to 10,000 patient records",
+    "battery": "Power Supply",
+    "battery_value": "Integrated Lithium-Ion Battery",
+    "communication": "Interfaces",
+    "communication_value": "USB, LAN, Wi-Fi, LIS/HIS connection"
+  },
+  "parameters": {
+    "title": "Available Parameters",
+    "disclaimer": "The test portfolio is constantly expanding. Please contact us for the current list.",
+    "list": {
+      "vitd3": "Vitamin D3",
+      "crp": "CRP (hs)",
+      "hba1c": "HbA1c",
+      "ferritin": "Ferritin",
+      "cortisol": "Cortisol",
+      "tsh": "TSH",
+      "ddimer": "D-Dimer",
+      "troponin": "Troponin I/T",
+      "flu": "Influenza A/B",
+      "rsv": "RSV",
+      "strep": "Strep A"
+    }
+  },
+  "cta_bottom": {
+    "title": "Ready for the Igloo Pro?",
+    "description": "Get in touch and let us advise you without obligation.",
+    "button": "Contact Us"
+  }
+}
