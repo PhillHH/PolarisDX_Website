@@ -90,12 +90,12 @@ const IglooWidgetSection = () => {
             <img
                 src={iglooImage}
                 alt="Igloo Pro"
-                className="relative z-10 w-48 md:w-56 lg:w-64 drop-shadow-2xl transition-all duration-500 ease-in-out hover:scale-110"
+                className="relative z-10 w-64 sm:w-72 md:w-56 lg:w-64 drop-shadow-2xl transition-all duration-500 ease-in-out hover:scale-110"
             />
         </div>
 
         {/* Widgets */}
-        <div className="flex flex-col gap-6 lg:absolute lg:inset-0 lg:block z-20 pointer-events-none">
+        <div className="flex flex-col gap-6 lg:absolute lg:inset-0 lg:block z-20 pointer-events-none px-2 lg:px-0">
             {widgets.map((widget) => (
             <Link
               key={widget.id}
@@ -106,7 +106,7 @@ const IglooWidgetSection = () => {
                 relative
                 rounded-2xl
                 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl
-                w-full max-w-[600px] h-40 sm:h-44
+                w-full h-40 sm:h-44
                 bg-gradient-to-br from-cyan-400/50 via-blue-500/50 to-[#083358]/50 p-[1px]
                 lg:absolute lg:left-[var(--x)] lg:top-[var(--y)] lg:-translate-x-1/2 lg:-translate-y-1/2
                 lg:w-80 lg:h-48
@@ -117,12 +117,12 @@ const IglooWidgetSection = () => {
               } as React.CSSProperties}
             >
                 {/* Glassmorphism Inner Container */}
-                <div className="flex h-full w-full flex-col items-center justify-center rounded-[15px] bg-blue-900/60 backdrop-blur-xl border border-white/20 p-5 sm:p-6 transition-colors group-hover:bg-blue-900/70">
+                <div className="flex h-full w-full flex-col items-start justify-center rounded-[15px] bg-blue-900/60 backdrop-blur-xl border border-white/20 p-5 sm:p-6 transition-colors group-hover:bg-blue-900/70">
                     <div className="transform transition-transform duration-300 group-hover:-translate-y-1">
                         {widget.icon}
                     </div>
 
-                    <span className="text-2xl font-medium text-white group-hover:text-cyan-400">
+                    <span className="text-2xl font-medium text-white text-left group-hover:text-cyan-400">
                         {widget.label}
                     </span>
                     <span className="mt-2 text-sm font-medium text-gray-300 group-hover:text-white">
