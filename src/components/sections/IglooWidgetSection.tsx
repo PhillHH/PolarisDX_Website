@@ -42,7 +42,7 @@ const IglooWidgetSection = () => {
   ]
 
   return (
-    <section className="relative py-20 lg:py-32 bg-slate-50 overflow-hidden">
+    <section className="relative py-20 lg:py-32 bg-slate-50 overflow-visible">
        {/* Global background decoration could go here if needed */}
 
        <div className="mx-auto max-w-container px-4 text-center lg:px-0 mb-16 relative z-10">

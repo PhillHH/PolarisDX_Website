@@ -88,7 +88,7 @@ const Footer = () => {
                 <div className="space-y-1 text-white/70">
                   <p className="font-semibold">PolarisDX Europe UG</p>
                   <p>Große Bleichen 1 - 3</p>
-                  <p>20097 Hamburg</p>
+                  <p>20354 Hamburg</p>
                   <p>contact@polarisdx.net</p>
                 </div>
               </div>
