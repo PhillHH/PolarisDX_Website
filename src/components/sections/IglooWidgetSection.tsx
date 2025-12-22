@@ -103,9 +103,10 @@ const IglooWidgetSection = () => {
                 group flex items-center justify-center
                 relative z-40
                 rounded-2xl
-                shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl
+                shadow-lg shadow-primary-deep/30 transition-all duration-300 hover:scale-105 hover:shadow-2xl
                 w-full max-w-[95vw] sm:max-w-[90vw] h-32 sm:h-36
-                bg-white border border-gray-100
+                bg-gradient-to-br from-primary/90 via-primary-deep/90 to-gray-900/90
+                border border-white/10 backdrop-blur-md
                 lg:absolute lg:left-[var(--x)] lg:top-[var(--y)] lg:-translate-x-1/2 lg:-translate-y-1/2
                 lg:w-80 lg:h-48
               `}
@@ -116,14 +117,14 @@ const IglooWidgetSection = () => {
             >
                 {/* Inner Content */}
                 <div className="flex h-full w-full flex-row items-center gap-4 sm:gap-5 p-3 sm:p-4 transition-colors">
-                    <div className="flex-shrink-0 transform transition-transform duration-300 group-hover:-translate-y-1 bg-blue-50 p-3 rounded-xl">
+                    <div className="flex-shrink-0 transform transition-transform duration-300 group-hover:-translate-y-1">
                         {widget.icon}
                     </div>
                     <div className="flex flex-col items-start gap-1">
-                      <span className="text-2xl font-medium text-gray-900 text-left group-hover:text-primary transition-colors">
+                      <span className="text-2xl font-medium text-white text-left group-hover:text-white transition-colors">
                           {widget.label}
                       </span>
-                      <span className="text-sm font-medium text-gray-500 group-hover:text-primary-deep transition-colors">
+                      <span className="text-sm font-medium text-slate-100 group-hover:text-white transition-colors">
                           {t('common:read_more', 'Mehr erfahren')} →
                       </span>
                     </div>
