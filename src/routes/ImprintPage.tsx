@@ -44,7 +44,8 @@ const ImprintPage = () => {
 
           <section>
             <h2 className="text-xl font-semibold mb-4 text-gray-900">{t('imprint.section2.title')}</h2>
-            <p>{t('imprint.section2.content')}</p>
+            <p><strong>{t('imprint.section2.name')}</strong></p>
+            <p>{t('imprint.section2.email')}</p>
           </section>
 
           <section>
