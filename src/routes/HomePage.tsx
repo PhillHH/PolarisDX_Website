@@ -2,6 +2,7 @@ import HeroSection from '../components/sections/HeroSection'
 import AboutSection from '../components/sections/AboutSection'
 import DoctorsSection from '../components/sections/DoctorsSection'
 import IglooWidgetSection from '../components/sections/IglooWidgetSection'
+import FeaturedCaseStudy from '../components/sections/FeaturedCaseStudy'
 import TestimonialsSection from '../components/sections/TestimonialsSection'
 import BlogSection from '../components/sections/BlogSection'
 import Reveal from '../components/ui/Reveal'
@@ -16,6 +17,9 @@ const HomePage = () => {
         </Reveal>
         <Reveal width="100%">
           <IglooWidgetSection />
+        </Reveal>
+        <Reveal width="100%">
+          <FeaturedCaseStudy />
         </Reveal>
         <Reveal width="100%">
           <DoctorsSection />
