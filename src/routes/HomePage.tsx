@@ -4,6 +4,7 @@ import DoctorsSection from '../components/sections/DoctorsSection'
 import IglooWidgetSection from '../components/sections/IglooWidgetSection'
 import TestimonialsSection from '../components/sections/TestimonialsSection'
 import BlogSection from '../components/sections/BlogSection'
+import FeaturedCaseStudy from '../components/sections/FeaturedCaseStudy'
 import Reveal from '../components/ui/Reveal'
 
 const HomePage = () => {
@@ -21,6 +22,8 @@ const HomePage = () => {
           <DoctorsSection />
         </Reveal>
       </main>
+
+      <FeaturedCaseStudy />
 
       {/* Testimonials section is po be full-width */}
       <div className="mt-32 lg:mt-32">

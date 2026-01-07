@@ -4,7 +4,7 @@ import 'flag-icons/css/flag-icons.min.css';
 
 const languages = [
   { code: 'de', name: 'Deutsch', country_code: 'de' },
-  { code: 'en', name: 'English', country_code: 'gb' },
+  { code: 'en', name: 'English', country_code: 'us' }, // Standardflagge für EN
   { code: 'pl', name: 'Polski', country_code: 'pl' },
   { code: 'fr', name: 'Français', country_code: 'fr' },
   { code: 'it', name: 'Italiano', country_code: 'it' },
@@ -25,7 +25,10 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const currentLanguage = languages.find((l) => l.code === i18n.language) || languages[0];
+  // Stelle sicher, dass auch Codes mit Regionssuffix (z. B. en-US) korrekt aufgelöst werden
+  const normalizedCode = (i18n.language || '').split('-')[0];
+  const currentLanguage =
+    languages.find((l) => l.code === normalizedCode) || languages.find((l) => l.code === i18n.language) || languages[0];
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
@@ -52,7 +55,9 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
         className={`inline-flex items-center justify-center gap-2 rounded-full ${isMobile ? 'h-10 px-3 py-2' : 'px-3 py-2'} leading-none transition-colors hover:bg-white/10 text-current`}
         aria-label="Select language"
       >
-        <span className={`fi fi-${currentLanguage.country_code} rounded-sm align-middle`} />
+        <span
+          className={`fi fi-${currentLanguage.country_code} h-5 w-8 rounded-sm align-middle shrink-0 ring-1 ring-primary/40 bg-white shadow-sm`}
+        />
         <span className="uppercase text-sm font-medium leading-none">{currentLanguage.code}</span>
         <svg
           className={`h-4 w-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
@@ -74,7 +79,7 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
                 i18n.language === language.code ? 'bg-gray-50 font-medium text-primary' : ''
               }`}
             >
-              <span className={`fi fi-${language.country_code} rounded-sm`} />
+              <span className={`fi fi-${language.country_code} h-5 w-8 rounded-sm bg-white ring-1 ring-primary/40 shadow-sm`} />
               <span>{language.name}</span>
             </button>
           ))}

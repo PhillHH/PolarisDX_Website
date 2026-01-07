@@ -24,6 +24,7 @@ const navItems: NavItem[] = [
     ]
   },
   { label: 'service', route: '/services' },
+  { label: 'casestudies', route: '/casestudys/32reasons' },
   // { label: 'shop', route: '/shop' }, // Shop disabled
   { label: 'blog', route: '/articles' },
 ]
