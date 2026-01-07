@@ -26,12 +26,12 @@ const CaseStudy32Reasons = () => {
   return (
     <PageTransition>
       {/* Hero im globalen Stil */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-deep to-gray-900 text-white">
+      <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white">
         <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
         <div className="relative z-10 mx-auto max-w-container px-4 text-center lg:px-0 pt-32 pb-16 lg:pt-48 lg:pb-28">
           <Reveal width="100%" yOffset={20}>
             <div className="flex justify-center">
-              <div className="inline-block rounded p-[1px] bg-gradient-to-r from-secondary via-primary to-primary-deep shadow-lg shadow-primary/20 mb-3">
+              <div className="inline-block rounded p-px bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-deep shadow-lg shadow-brand-primary/20 mb-3">
                 <div className="rounded-sm bg-slate-50 px-3 py-1">
                   <span className="text-xs font-semibold uppercase tracking-wide text-gray-900">
                 {heroSubtitle}
@@ -90,7 +90,7 @@ const CaseStudy32Reasons = () => {
               {philosophyPoints.map((point, i) => (
                 <Reveal key={point} delay={i * 0.08}>
                   <div className="flex items-start gap-4 p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors border border-gray-100">
-                    <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-100 text-primary">
+                    <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-100 text-brand-primary">
                       <Check className="h-4 w-4" />
                     </div>
                     <p className="text-gray-600">{point}</p>
@@ -113,7 +113,7 @@ const CaseStudy32Reasons = () => {
           <div className="grid gap-8 md:grid-cols-3">
             {rolePoints.map((item, i) => (
               <Reveal key={item.title} delay={i * 0.1}>
-                <div className="h-full rounded-2xl bg-white p-8 border border-gray-200 shadow-md hover:shadow-lg hover:border-primary/30 transition-all">
+                <div className="h-full rounded-2xl bg-white p-8 border border-gray-200 shadow-md hover:shadow-lg hover:border-brand-primary/30 transition-all">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">{item.title}</h3>
                   <p className="text-gray-600 leading-relaxed">
                     {item.text}
@@ -127,7 +127,7 @@ const CaseStudy32Reasons = () => {
         {/* Quote */}
         <section>
           <Reveal>
-            <div className="relative rounded-3xl bg-gradient-to-r from-primary-deep to-primary p-12 text-center shadow-xl">
+            <div className="relative rounded-3xl bg-gradient-to-r from-brand-deep to-brand-primary p-12 text-center shadow-xl">
               <blockquote className="text-2xl font-medium leading-relaxed text-white md:text-3xl lg:text-4xl font-display italic">
                 &ldquo;{t('reasons32.quote')}&rdquo;
               </blockquote>
@@ -142,35 +142,35 @@ const CaseStudy32Reasons = () => {
               <h3 className="text-2xl font-bold text-gray-900 mb-8">{t('reasons32.about.title')}</h3>
               <ul className="space-y-6">
                 <li className="flex items-start gap-4">
-                  <MapPin className="w-6 h-6 text-primary shrink-0" />
+                  <MapPin className="w-6 h-6 text-brand-primary shrink-0" />
                   <div>
                     <span className="block text-sm text-gray-500 mb-1">{t('reasons32.about.location_label')}</span>
                     <span className="text-gray-900 text-lg">{t('reasons32.about.location')}</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <Award className="w-6 h-6 text-primary shrink-0" />
+                  <Award className="w-6 h-6 text-brand-primary shrink-0" />
                   <div>
                     <span className="block text-sm text-gray-500 mb-1">{t('reasons32.about.award_label')}</span>
                     <span className="text-gray-900 text-lg">{t('reasons32.about.award')}</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <Activity className="w-6 h-6 text-primary shrink-0" />
+                  <Activity className="w-6 h-6 text-brand-primary shrink-0" />
                   <div>
                     <span className="block text-sm text-gray-500 mb-1">{t('reasons32.about.focus_label')}</span>
                     <span className="text-gray-900 text-lg">{t('reasons32.about.focus')}</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <Globe className="w-6 h-6 text-primary shrink-0" />
+                  <Globe className="w-6 h-6 text-brand-primary shrink-0" />
                   <div>
                     <span className="block text-sm text-gray-500 mb-1">{t('reasons32.about.web_label')}</span>
                     <a
                       href="https://www.32reasons.de"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-primary hover:text-primary-deep text-lg transition-colors underline decoration-primary/30 hover:decoration-primary"
+                      className="text-brand-primary hover:text-brand-deep text-lg transition-colors underline decoration-brand-primary/30 hover:decoration-brand-primary"
                     >
                       www.32reasons.de
                     </a>
@@ -181,7 +181,7 @@ const CaseStudy32Reasons = () => {
           </Reveal>
 
           <Reveal delay={0.15}>
-            <div className="flex flex-col justify-center h-full rounded-2xl bg-gradient-to-br from-primary to-primary-deep p-10 text-center shadow-2xl relative overflow-hidden">
+            <div className="flex flex-col justify-center h-full rounded-2xl bg-gradient-to-br from-brand-primary to-brand-deep p-10 text-center shadow-2xl relative overflow-hidden">
               <div className="absolute inset-0 bg-noise opacity-20 pointer-events-none" />
               <div className="relative z-10 space-y-6">
                 <h3 className="text-2xl font-bold text-white">
@@ -192,7 +192,7 @@ const CaseStudy32Reasons = () => {
                 </p>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-lg font-bold text-primary-deep transition-transform hover:scale-105 hover:bg-gray-50"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-lg font-bold text-brand-deep transition-transform hover:scale-105 hover:bg-gray-50"
                 >
                   {t('reasons32.cta.button')}
                   <ArrowRight className="h-5 w-5" />

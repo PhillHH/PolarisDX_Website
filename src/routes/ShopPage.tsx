@@ -10,14 +10,14 @@ const ShopPage = () => {
   return (
     <div className="bg-slate-50 text-gray-900">
       {/* Hero / Top */}
-      <section className="relative overflow-hidden bg-primary text-white">
+      <section className="relative overflow-hidden bg-brand-primary text-white">
         <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
 
-        <div className="relative mx-auto flex min-h-[320px] max-w-[1440px] flex-col justify-end px-4 pb-10 pt-28 lg:px-10 lg:pb-14 lg:pt-32">
+        <div className="relative mx-auto flex min-h-[320px] max-w-page flex-col justify-end px-4 pb-10 pt-28 lg:px-10 lg:pb-14 lg:pt-32">
           <div className="max-w-container">
             <div className="mb-3 text-sm text-white/70">
-              <Link to="/" className="hover:text-secondary">
+              <Link to="/" className="hover:text-brand-secondary">
                 {t('shop:shop.home')}
               </Link>{' '}
               / <span>{t('common:nav.shop')}</span>

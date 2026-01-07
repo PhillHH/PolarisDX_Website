@@ -10,7 +10,7 @@ const Footer = () => {
   const { t } = useTranslation('common')
 
   return (
-    <footer className="mt-24 bg-primary text-white lg:mt-32">
+    <footer className="mt-24 bg-brand-primary text-white lg:mt-32">
       <div className="relative">
         {/* CTA-Karte in Content-Breite, die in den Footer hineinragt */}
         {!isContactPage && (
@@ -44,7 +44,7 @@ const Footer = () => {
                   href="https://www.linkedin.com/company/polarisdx/"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-white hover:text-secondary transition-colors"
+                  className="text-white hover:text-brand-secondary transition-colors"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="h-6 w-6" />
@@ -53,7 +53,7 @@ const Footer = () => {
                   href="https://www.instagram.com/polaris_diagnostix/"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-white hover:text-secondary transition-colors"
+                  className="text-white hover:text-brand-secondary transition-colors"
                   aria-label="Instagram"
                 >
                   <Instagram className="h-6 w-6" />
@@ -65,10 +65,10 @@ const Footer = () => {
               <div className="space-y-3">
                 <h3 className="text-sm font-semibold tracking-tight">{t('footer.links', 'Links')}</h3>
                 <ul className="space-y-2 text-white/70">
-                  <li><Link to="/" className="hover:text-secondary">{t('nav.home')}</Link></li>
-                  <li><Link to="/about" className="hover:text-secondary">{t('nav.about')}</Link></li>
-                  <li><Link to="/services" className="hover:text-secondary">{t('nav.service')}</Link></li>
-                  <li><Link to="/articles" className="hover:text-secondary">{t('nav.blog')}</Link></li>
+                  <li><Link to="/" className="hover:text-brand-secondary">{t('nav.home')}</Link></li>
+                  <li><Link to="/about" className="hover:text-brand-secondary">{t('nav.about')}</Link></li>
+                  <li><Link to="/services" className="hover:text-brand-secondary">{t('nav.service')}</Link></li>
+                  <li><Link to="/articles" className="hover:text-brand-secondary">{t('nav.blog')}</Link></li>
                 </ul>
               </div>
 

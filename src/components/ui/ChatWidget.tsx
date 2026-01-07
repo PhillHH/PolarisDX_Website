@@ -148,7 +148,7 @@ const ChatWidget = () => {
               </div>
               <div className="flex flex-col">
                  <span className="text-sm font-medium tracking-wide">{t('chat.title', 'PolarisDX Concierge')}</span>
-                 <span className="text-[10px] text-blue-200 opacity-90 tracking-wider uppercase">{t('chat.status', 'Online')}</span>
+                 <span className="text-xxs text-blue-200 opacity-90 tracking-wider uppercase">{t('chat.status', 'Online')}</span>
               </div>
             </div>
             <div className="flex items-center gap-1">
@@ -175,7 +175,7 @@ const ChatWidget = () => {
                 `}
               >
                 <div className="leading-relaxed">{msg.content || msg.text}</div>
-                <span className={`text-[10px] tracking-wide ${msg.sender === 'user' ? 'text-blue-200' : 'text-gray-400'}`}>
+                <span className={`text-xxs tracking-wide ${msg.sender === 'user' ? 'text-blue-200' : 'text-gray-400'}`}>
                   {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                 </span>
               </div>
@@ -212,7 +212,7 @@ const ChatWidget = () => {
                 <Send className="h-4 w-4 ml-0.5" />
               </button>
             </div>
-            <div className="mt-2.5 text-center text-[10px] text-gray-400 font-medium tracking-wide uppercase opacity-70">
+            <div className="mt-2.5 text-center text-xxs text-gray-400 font-medium tracking-wide uppercase opacity-70">
                {t('chat.footer', 'PolarisDX Private Assistant')}
             </div>
           </form>

@@ -218,14 +218,14 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
                         >
                             <div className="flex flex-col gap-0.5">
                                 <div className="flex items-center gap-2">
-                                    <span className={`text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded
+                                    <span className={`text-xxs uppercase font-bold tracking-wider px-1.5 py-0.5 rounded
                                         ${result.type === 'article' ? 'bg-purple-100 text-purple-700' : ''}
                                         ${result.type === 'service' ? 'bg-blue-100 text-blue-700' : ''}
                                         ${result.type === 'page' ? 'bg-gray-100 text-gray-600' : ''}
                                     `}>
                                         {result.type}
                                     </span>
-                                    <span className="font-medium text-gray-900 group-hover:text-primary transition-colors">
+                                    <span className="font-medium text-gray-900 group-hover:text-brand-primary transition-colors">
                                         {result.title}
                                     </span>
                                 </div>
@@ -233,7 +233,7 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
                                     {result.description}
                                 </span>
                             </div>
-                            <ChevronRight className="h-4 w-4 text-gray-300 group-hover:text-primary" />
+                            <ChevronRight className="h-4 w-4 text-gray-300 group-hover:text-brand-primary" />
                         </Link>
                     ))}
                 </div>

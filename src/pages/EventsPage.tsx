@@ -11,12 +11,12 @@ const EventsPage: React.FC = () => {
   return (
     <PageTransition>
       {/* Hero Section */}
-      <div className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 bg-gradient-to-br from-primary via-primary-deep to-gray-900 text-white overflow-hidden">
+      <div className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white overflow-hidden">
         <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
         <div className="mx-auto max-w-container px-4 text-center lg:px-0 relative z-10">
           <Reveal width="100%" yOffset={20}>
             <div className="flex justify-center">
-              <div className="inline-block rounded p-[1px] bg-gradient-to-r from-secondary via-primary to-primary-deep shadow-lg shadow-primary/20 mb-2">
+              <div className="inline-block rounded p-px bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-deep shadow-lg shadow-brand-primary/20 mb-2">
                 <div className="rounded-sm bg-slate-50 px-3 py-1">
                   <span className="text-xs font-semibold uppercase tracking-wide text-gray-900">
                     {t('events:subtitle')}
@@ -48,14 +48,14 @@ const EventsPage: React.FC = () => {
                           <h3 className="text-xl font-bold text-gray-900">{event.title}</h3>
                           <div className="flex flex-wrap gap-4 text-sm text-gray-500">
                             <div className="flex items-center gap-2">
-                              <Calendar className="w-4 h-4 text-primary" />
+                              <Calendar className="w-4 h-4 text-brand-primary" />
                               <span>
                                 {new Date(event.date).toLocaleDateString()}
                                 {event.endDate && ` - ${new Date(event.endDate).toLocaleDateString()}`}
                               </span>
                             </div>
                             <div className="flex items-center gap-2">
-                              <MapPin className="w-4 h-4 text-primary" />
+                              <MapPin className="w-4 h-4 text-brand-primary" />
                               <span>{event.location}</span>
                             </div>
                           </div>
@@ -69,7 +69,7 @@ const EventsPage: React.FC = () => {
                             href={event.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white hover:bg-primary-deep rounded-xl transition-colors shrink-0 font-medium"
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-white hover:bg-brand-deep rounded-xl transition-colors shrink-0 font-medium"
                           >
                             <span>{t('events:details')}</span>
                             <ExternalLink className="w-4 h-4" />

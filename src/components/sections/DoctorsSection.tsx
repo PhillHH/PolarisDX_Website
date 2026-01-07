@@ -35,7 +35,7 @@ const DiagnosticsPitchSection = () => {
       </div>
 
       <div className="hidden lg:relative lg:order-2 lg:col-span-2 lg:block">
-        <div className="absolute -right-4 bottom-5 top-10 w-60 rounded-3xl bg-primary" />
+        <div className="absolute -right-4 bottom-5 top-10 w-60 rounded-3xl bg-brand-primary" />
         <div className="relative overflow-hidden rounded-3xl">
           <img
             src={IglooProImage}

@@ -82,7 +82,7 @@ const ImprintPage = () => {
             <h2 className="text-xl font-semibold mb-4 text-gray-900">{t('imprint.section6.title')}</h2>
             <p>
               <span dangerouslySetInnerHTML={{
-                __html: t('imprint.section6.content').replace('<1>', '<a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" class="text-secondary hover:underline">').replace('</1>', '</a>')
+                __html: t('imprint.section6.content').replace('<1>', '<a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" class="text-brand-secondary hover:underline">').replace('</1>', '</a>')
               }} />
             </p>
           </section>

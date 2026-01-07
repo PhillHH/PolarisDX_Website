@@ -23,7 +23,7 @@ const ProductCard = ({ id, category, price, to, badge, image }: ProductCardProps
     <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-card">
       <div className="relative aspect-[4/3] w-full">
         {/* Background gradient as a fallback */}
-        <div className="h-full w-full bg-gradient-to-br from-primary/5 via-secondary/10 to-accentBlue/10" />
+        <div className="h-full w-full bg-gradient-to-br from-brand-primary/5 via-brand-secondary/10 to-accentBlue/10" />
 
         {/* Image */}
         {imageUrl && (
@@ -38,7 +38,7 @@ const ProductCard = ({ id, category, price, to, badge, image }: ProductCardProps
         <div className="absolute inset-0 flex flex-col justify-between p-4">
           <div>
             {badge && (
-              <span className="inline-flex items-center rounded-full bg-secondary px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white">
+              <span className="inline-flex items-center rounded-full bg-brand-secondary px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white">
                 {t(`common:badge.${badge}`)}
               </span>
             )}
@@ -53,7 +53,7 @@ const ProductCard = ({ id, category, price, to, badge, image }: ProductCardProps
           <h3 className="text-base font-semibold tracking-tight text-gray-900">
             {t(`shop:products.${productKey}.name`)}
           </h3>
-          <span className="text-sm font-semibold text-primary">
+          <span className="text-sm font-semibold text-brand-primary">
             ${price}
           </span>
         </div>
@@ -62,7 +62,7 @@ const ProductCard = ({ id, category, price, to, badge, image }: ProductCardProps
         </p>
         <Link
           to={to}
-          className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-secondary"
+          className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-brand-secondary"
         >
           {t('shop:shop.viewDetails')}
           <span className="transition group-hover:translate-x-1">→</span>

@@ -56,7 +56,7 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
         aria-label="Select language"
       >
         <span
-          className={`fi fi-${currentLanguage.country_code} h-5 w-8 rounded-sm align-middle shrink-0 ring-1 ring-primary/40 bg-white shadow-sm`}
+          className={`fi fi-${currentLanguage.country_code} h-5 w-8 rounded-sm align-middle shrink-0 ring-1 ring-brand-primary/40 bg-white shadow-sm`}
         />
         <span className="uppercase text-sm font-medium leading-none">{currentLanguage.code}</span>
         <svg
@@ -76,10 +76,10 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
               key={language.code}
               onClick={() => changeLanguage(language.code)}
               className={`flex w-full items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${
-                i18n.language === language.code ? 'bg-gray-50 font-medium text-primary' : ''
+                i18n.language === language.code ? 'bg-gray-50 font-medium text-brand-primary' : ''
               }`}
             >
-              <span className={`fi fi-${language.country_code} h-5 w-8 rounded-sm bg-white ring-1 ring-primary/40 shadow-sm`} />
+              <span className={`fi fi-${language.country_code} h-5 w-8 rounded-sm bg-white ring-1 ring-brand-primary/40 shadow-sm`} />
               <span>{language.name}</span>
             </button>
           ))}

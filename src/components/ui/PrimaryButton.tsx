@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
 
-type Variant = 'primary' | 'secondary' | 'outline-light'
+type Variant = 'primary' | 'brand-secondary' | 'outline-light'
 type Size = 'lg' | 'md' | 'sm'
 
 type PrimaryButtonProps<T extends ElementType> = {
@@ -22,8 +22,8 @@ const sizeClasses: Record<Size, string> = {
 
 // Classes for non-primary variants
 const variantClasses: Record<Exclude<Variant, 'primary'>, (size: Size) => string> = {
-  secondary: (size) =>
-    `border-transparent bg-primary-deep text-white hover:bg-primary-deep/90 shadow-lg shadow-primary-deep/20 focus-visible:ring-primary-deep ${sizeClasses[size]}`,
+  'brand-secondary': (size) =>
+    `border-transparent bg-brand-deep text-white hover:bg-brand-deep/90 shadow-lg shadow-brand-deep/20 focus-visible:ring-brand-deep ${sizeClasses[size]}`,
   'outline-light': (size) =>
     `border border-white/80 bg-transparent text-white hover:bg-white/10 focus-visible:ring-white ${sizeClasses[size]}`,
 }
@@ -43,16 +43,16 @@ const PrimaryButton = <T extends ElementType = 'button'>({
       <Component
         className={`
           ${baseClasses} 
-          border-0 p-[2px] 
-          bg-gradient-to-r from-secondary via-primary to-primary-deep
-          shadow-lg shadow-primary/20
-          focus-visible:ring-primary
+          border-0 p-0.5
+          bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-deep
+          shadow-lg shadow-brand-primary/20
+          focus-visible:ring-brand-primary
           ${className}
         `}
         {...rest}
       >
         <div
-          className={`flex h-full w-full items-center justify-center gap-2 rounded-[4px] bg-white text-primary-deep hover:bg-gray-50 transition-colors ${sizeClasses[size]}`}
+          className={`flex h-full w-full items-center justify-center gap-2 rounded-[4px] bg-white text-brand-deep hover:bg-gray-50 transition-colors ${sizeClasses[size]}`}
         >
           {children}
         </div>
@@ -69,5 +69,3 @@ const PrimaryButton = <T extends ElementType = 'button'>({
 }
 
 export default PrimaryButton
-
-

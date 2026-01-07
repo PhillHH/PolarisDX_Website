@@ -106,7 +106,7 @@ const IglooProPage: React.FC = () => {
                 transition={{ duration: 0.8 }}
                 className="relative"
               >
-                <div className="absolute inset-0 bg-primary/30 blur-3xl rounded-full" />
+                <div className="absolute inset-0 bg-brand-primary/30 blur-3xl rounded-full" />
                 <img
                   src={iglooImage}
                   alt="Igloo Pro Device"
@@ -143,9 +143,9 @@ const IglooProPage: React.FC = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.1 }}
-                        className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-primary/50 transition-colors"
+                        className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-brand-primary/50 transition-colors"
                     >
-                        <feature.icon className="w-10 h-10 text-primary mb-4" />
+                        <feature.icon className="w-10 h-10 text-brand-primary mb-4" />
                         <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
                         <p className="text-gray-500">{feature.description}</p>
                     </motion.div>
@@ -162,7 +162,7 @@ const IglooProPage: React.FC = () => {
                 <div className="grid gap-px bg-gray-100">
                     {specs.map((spec, idx) => (
                         <div key={idx} className="grid md:grid-cols-3 bg-white p-4 hover:bg-gray-50 transition-colors">
-                            <div className="font-semibold text-primary">{spec.label}</div>
+                            <div className="font-semibold text-brand-primary">{spec.label}</div>
                             <div className="md:col-span-2 text-gray-600">{spec.value}</div>
                         </div>
                     ))}
@@ -179,7 +179,7 @@ const IglooProPage: React.FC = () => {
                 {parameters.map((param, idx) => (
                     <span
                         key={idx}
-                        className="px-6 py-3 bg-white rounded-full text-gray-700 font-medium shadow-sm border border-gray-200 hover:bg-primary/5 hover:border-primary hover:text-primary transition-all cursor-default"
+                        className="px-6 py-3 bg-white rounded-full text-gray-700 font-medium shadow-sm border border-gray-200 hover:bg-brand-primary/5 hover:border-brand-primary hover:text-brand-primary transition-all cursor-default"
                     >
                         {param}
                     </span>
@@ -194,13 +194,13 @@ const IglooProPage: React.FC = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-primary-deep">
+      <section className="py-20 bg-brand-deep">
         <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold text-white mb-6">{t('products:cta_bottom.title')}</h2>
             <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
                 {t('products:cta_bottom.description')}
             </p>
-            <PrimaryButton as="a" href="/contact" className="text-lg px-10 py-4 bg-white text-primary-deep hover:bg-gray-100 border-none shadow-xl">
+            <PrimaryButton as="a" href="/contact" className="text-lg px-10 py-4 bg-white text-brand-deep hover:bg-gray-100 border-none shadow-xl">
                 {t('products:cta_bottom.button')}
             </PrimaryButton>
         </div>

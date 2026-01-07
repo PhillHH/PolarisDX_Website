@@ -11,15 +11,15 @@ const ServicesOverviewPage = () => {
     <PageTransition>
       <div className="bg-slate-50">
         {/* Reusing a simplified Hero/Header style for consistency with subpages */}
-        <section className="relative overflow-hidden bg-primary text-white">
+        <section className="relative overflow-hidden bg-brand-primary text-white">
           <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
 
-          <div className="relative mx-auto flex min-h-[250px] max-w-[1440px] flex-col justify-end px-4 pb-10 pt-24 lg:px-10 lg:pb-12 lg:pt-28">
+          <div className="relative mx-auto flex min-h-[250px] max-w-page flex-col justify-end px-4 pb-10 pt-24 lg:px-10 lg:pb-12 lg:pt-28">
             <Reveal width="100%" yOffset={20}>
               <div className="max-w-container">
                 <div className="mb-4 text-sm text-white/70">
-                  <Link to="/" className="hover:text-secondary">
+                  <Link to="/" className="hover:text-brand-secondary">
                     {t('common:nav.home', 'Home')}
                   </Link>{' '}
                   / <span>{t('common:nav.service', 'Services')}</span>

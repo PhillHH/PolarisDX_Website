@@ -20,7 +20,7 @@ const AboutSection = () => {
       {/* Mobil ausgeblendet, nur auf Desktop (lg) sichtbar */}
       <div className="hidden lg:relative lg:mx-auto lg:block lg:h-[728px] lg:max-w-3xl">
         {/* Dunkelblauer Akzentbalken bleibt erhalten. */}
-        <div className="absolute -left-8 top-12 h-full w-64 bg-primary" />
+        <div className="absolute -left-8 top-12 h-full w-64 bg-brand-primary" />
 
         {/* Hauptbild ohne hellen Hintergrund/Verlauf. */}
         <div className="relative h-full w-full">

@@ -47,7 +47,7 @@ const TestimonialsSection = () => {
   return (
     <section
       id="testimonials"
-      className="relative bg-gradient-to-br from-primary via-primary-deep to-gray-900 py-16 text-white"
+      className="relative bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 py-16 text-white"
     >
       <div className="pointer-events-none absolute inset-y-0 left-0 w-80 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-80 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />

@@ -55,7 +55,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-deep to-gray-900 text-white min-h-[700px] lg:h-[800px]"
+      className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white min-h-[700px] lg:h-[800px]"
     >
       {/* Noise Overlay */}
       <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
@@ -71,8 +71,8 @@ const HeroSection = () => {
             className="pointer-events-none absolute inset-0"
         >
              {/* Default Blue/Deep Blue accents - adjusted per slide if needed in future */}
-            <div className="absolute inset-y-0 left-0 w-[500px] bg-gradient-to-br from-secondary/20 via-primary/10 to-transparent blur-3xl" />
-            <div className="absolute inset-y-0 right-0 w-[500px] bg-gradient-to-tl from-primary-deep/40 via-primary/20 to-transparent blur-3xl" />
+            <div className="absolute inset-y-0 left-0 w-[500px] bg-gradient-to-br from-brand-secondary/20 via-brand-primary/10 to-transparent blur-3xl" />
+            <div className="absolute inset-y-0 right-0 w-[500px] bg-gradient-to-tl from-brand-deep/40 via-brand-primary/20 to-transparent blur-3xl" />
         </motion.div>
       </AnimatePresence>
 
@@ -82,7 +82,7 @@ const HeroSection = () => {
 
           {/* Left Content Area */}
           <div className="flex flex-col justify-center space-y-9 lg:space-y-7 z-20">
-            <div className="space-y-3 lg:space-y-2 h-[300px] sm:h-[350px] lg:h-[420px] flex flex-col justify-center">
+            <div className="space-y-3 lg:space-y-2 h-[300px] sm:h-[350px] lg:h-hero-lg flex flex-col justify-center">
               <motion.img
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -209,7 +209,7 @@ const HeroSection = () => {
                         key={index}
                         onClick={() => setCurrentSlide(index)}
                         className={`h-2.5 rounded-full transition-all duration-300 ${
-                            currentSlide === index ? "w-8 bg-secondary" : "w-2.5 bg-white/30 hover:bg-white/50"
+                            currentSlide === index ? "w-8 bg-brand-secondary" : "w-2.5 bg-white/30 hover:bg-white/50"
                         }`}
                         aria-label={`Go to slide ${index + 1}`}
                     />
@@ -231,7 +231,7 @@ const HeroSection = () => {
                         transition={{ duration: 0.6 }}
                      >
                         {/* Background Rect for Image */}
-                        <div className="absolute bottom-0 right-4 h-[440px] w-[280px] bg-secondary lg:bottom-0 z-0" />
+                        <div className="absolute bottom-0 right-4 h-[440px] w-[280px] bg-brand-secondary lg:bottom-0 z-0" />
                         <img
                             src={slides[currentSlide].visual}
                             alt="PolarisDX doctor"

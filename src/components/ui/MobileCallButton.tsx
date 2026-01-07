@@ -20,7 +20,7 @@ const MobileCallButton = () => {
         <button
           onClick={() => setIsExpanded((prev) => !prev)}
           className={`flex items-center justify-center rounded-full transition-colors ${
-            isExpanded ? 'h-10 w-10 bg-gray-50 text-primary' : 'h-10 w-10 bg-blue-700 text-white'
+            isExpanded ? 'h-10 w-10 bg-gray-50 text-brand-primary' : 'h-10 w-10 bg-blue-700 text-white'
           }`}
           aria-label={t('contact.call_us_button', 'Rufen Sie uns an')}
         >
