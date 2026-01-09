@@ -19,7 +19,7 @@ const IglooWidgetSection = () => {
       id: 'dental',
       label: t('igloo_widget.dental', 'Dental'),
       path: '/services/dental',
-      icon: <Tooth className="w-12 h-12 text-primary" />,
+      icon: <Tooth className="w-12 h-12 text-brand-primary" />,
       x: positions.dental.x,
       y: positions.dental.y,
     },
@@ -27,7 +27,7 @@ const IglooWidgetSection = () => {
       id: 'beauty',
       label: t('igloo_widget.beauty', 'Beauty'),
       path: '/services/beauty',
-      icon: <Sparkles className="w-12 h-12 text-primary" />,
+      icon: <Sparkles className="w-12 h-12 text-brand-primary" />,
       x: positions.beauty.x,
       y: positions.beauty.y,
     },
@@ -35,7 +35,7 @@ const IglooWidgetSection = () => {
       id: 'longevity',
       label: t('igloo_widget.longevity', 'Longevity'),
       path: '/services/longevity',
-      icon: <InfinityIcon className="w-12 h-12 text-primary" />,
+      icon: <InfinityIcon className="w-12 h-12 text-brand-primary" />,
       x: positions.longevity.x,
       y: positions.longevity.y,
     },
@@ -44,7 +44,7 @@ const IglooWidgetSection = () => {
   return (
     <section className="relative py-20 lg:py-32 bg-slate-50 overflow-visible">
        <div className="mx-auto max-w-container px-4 text-center lg:px-0 mb-16 relative z-10">
-          <div className="inline-block rounded p-[1px] bg-gradient-to-r from-secondary via-primary to-primary-deep shadow-lg shadow-primary/20 mb-8">
+          <div className="inline-block rounded p-px bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-deep shadow-lg shadow-brand-primary/20 mb-8">
             <div className="rounded-sm bg-slate-50 px-4 py-2 lg:px-3 lg:py-1">
               <span className="text-sm font-semibold uppercase tracking-wide text-gray-900 lg:text-xs">
                 {t('igloo_widget.title', 'Anwendungsbereiche')}
@@ -103,9 +103,9 @@ const IglooWidgetSection = () => {
                 group flex items-center justify-center
                 relative z-40
                 rounded-2xl
-                shadow-lg shadow-primary-deep/30 transition-all duration-300 hover:scale-105 hover:shadow-2xl
+                shadow-lg shadow-brand-deep/30 transition-all duration-300 hover:scale-105 hover:shadow-2xl
                 w-full max-w-[95vw] sm:max-w-[90vw] h-32 sm:h-36
-                bg-gradient-to-br from-primary/90 via-primary-deep/90 to-gray-900/90
+                bg-gradient-to-br from-brand-primary/90 via-brand-deep/90 to-gray-900/90
                 border border-white/10 backdrop-blur-md
                 lg:absolute lg:left-[var(--x)] lg:top-[var(--y)] lg:-translate-x-1/2 lg:-translate-y-1/2
                 lg:w-80 lg:h-48

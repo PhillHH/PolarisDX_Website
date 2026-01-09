@@ -23,7 +23,7 @@ const BlogCard = ({ id, imageUrl, to }: BlogCardProps) => {
               className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-primary-deep/20 mix-blend-overlay" />
+            <div className="absolute inset-0 bg-brand-deep/20 mix-blend-overlay" />
           </>
         )}
       </div>
@@ -35,7 +35,7 @@ const BlogCard = ({ id, imageUrl, to }: BlogCardProps) => {
         {to && (
           <Link
             to={to}
-            className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-deep transition-colors"
+            className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-brand-primary hover:text-brand-deep transition-colors"
           >
             {t('shop:shop.readMore', 'Read More')}
             <span className="transition group-hover:translate-x-1">→</span>

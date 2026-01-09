@@ -6,6 +6,8 @@ import { articles, getArticleBySlug } from '../data/articles'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 
+// Local types for UI rendering logic which involves Discriminated Unions
+// that are not part of the simpler data model in types/models.ts
 type BaseSection = {
   heading?: string
   image?: string
@@ -47,6 +49,7 @@ const ArticlePage = () => {
   const title = t(`articles:${article.id}.title`)
   const excerpt = t(`articles:${article.id}.excerpt`)
   // Get sections from translation
+  // This casting uses the LOCAL ArticleSection type which is a union
   const translatedSections = t(`articles:${article.id}.sections`, { returnObjects: true }) as ArticleSection[]
 
   // We need images from the original data
@@ -56,7 +59,10 @@ const ArticlePage = () => {
   const articleImage = dataSections.find((s) => s.image)?.image
 
   const renderSection = (section: ArticleSection, index: number) => {
-    switch (section.type) {
+    // Safety check for type
+    const sType = section.type || 'text'
+
+    switch (sType) {
       case 'table':
         return (
           <section key={index} className="space-y-4 overflow-x-auto">
@@ -154,19 +160,19 @@ const ArticlePage = () => {
   return (
     <PageTransition>
       <div className="bg-slate-50">
-        <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-deep to-gray-900 text-white">
+        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white">
           <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
           <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
 
-          <div className="relative mx-auto flex min-h-[420px] max-w-[1440px] flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
+          <div className="relative mx-auto flex min-h-[420px] max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
             <Reveal width="100%" yOffset={20}>
               <div className="max-w-container">
                 <div className="mb-4 text-sm text-white/70">
-                  <Link to="/" className="hover:text-secondary">
+                  <Link to="/" className="hover:text-brand-secondary">
                     {t('shop:shop.home', 'Home')}
                   </Link>{' '}
-                  / <Link to="/articles" className="hover:text-secondary">{t('shop:shop.articles', 'Articles')}</Link> / <span>{t('shop:shop.article', 'Article')}</span>
+                  / <Link to="/articles" className="hover:text-brand-secondary">{t('shop:shop.articles', 'Articles')}</Link> / <span>{t('shop:shop.article', 'Article')}</span>
                 </div>
 
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
@@ -205,7 +211,7 @@ const ArticlePage = () => {
                       alt={title}
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
+                    <div className="absolute inset-0 bg-brand-primary/20 mix-blend-multiply" />
                   </>
                 )}
               </div>
@@ -214,13 +220,13 @@ const ArticlePage = () => {
                 {Array.isArray(translatedSections) && translatedSections.map(renderSection)}
               </div>
 
-              <div className="rounded-2xl bg-primary/5 p-6 text-sm leading-[28px] text-gray-600 sm:text-base mt-8">
+              <div className="rounded-2xl bg-brand-primary/5 p-6 text-sm leading-[28px] text-gray-600 sm:text-base mt-8">
                 {t('shop:shop.articleDisclaimer', "Regular check-ups and proactive care are the foundation of long-term health. If you have questions, don't hesitate to reach out to a medical professional.")}
               </div>
 
               <div className="mt-8 flex flex-col gap-4 border-t border-gray-100 pt-8 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
                 <span>{t('shop:shop.shareArticle', 'Liked this article? Share it with your friends and family.')}</span>
-                <PrimaryButton as={Link} to="/articles" variant="secondary">
+                <PrimaryButton as={Link} to="/articles" variant="brand-secondary">
                   {t('shop:shop.backToArticles', 'Back to Overview')}
                 </PrimaryButton>
               </div>
@@ -292,7 +298,7 @@ const ArticlePage = () => {
                 <p className="mb-3 text-xs leading-relaxed text-gray-500">
                   {t('shop:shop.contactText', 'Our medical team is available 24/7 to answer urgent questions and help you decide what to do next.')}
                 </p>
-                <p className="text-sm font-semibold text-primary">+123 456 789</p>
+                <p className="text-sm font-semibold text-brand-primary">+123 456 789</p>
               </section>
             </Reveal>
           </aside>

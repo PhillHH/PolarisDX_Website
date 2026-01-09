@@ -49,16 +49,16 @@ const ServicePage = () => {
     <PageTransition>
       <div className="bg-slate-50">
         {/* Hero / Header */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-deep to-gray-900 text-white">
+        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white">
           <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
           <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
 
-          <div className="relative mx-auto flex min-h-[300px] max-w-[1440px] flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
+          <div className="relative mx-auto flex min-h-hero max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
             <Reveal width="100%" yOffset={20}>
               <div className="max-w-container">
                 <div className="mb-4 text-sm text-white/70">
-                  <Link to="/" className="hover:text-secondary">
+                  <Link to="/" className="hover:text-brand-secondary">
                     {t('common:nav.home', 'Home')}
                   </Link>{' '}
                   / <span>{t('home:services.caption', 'Services')}</span>
@@ -120,7 +120,7 @@ const ServicePage = () => {
 
               {/* Conclusion */}
               {(conclusion?.heading || conclusion?.text) && (
-                  <div className="rounded-2xl bg-primary/5 p-6 text-sm leading-[28px] text-gray-600 sm:text-base">
+                  <div className="rounded-2xl bg-brand-primary/5 p-6 text-sm leading-[28px] text-gray-600 sm:text-base">
                       {conclusion.heading && <h3 className="mb-2 font-semibold text-gray-900">{conclusion.heading}</h3>}
                       {conclusion.text && <p>{conclusion.text}</p>}
                   </div>
@@ -157,10 +157,10 @@ const ServicePage = () => {
                         className="group flex items-center justify-between rounded-xl border border-gray-100 bg-gradient-to-br from-white to-slate-50 p-4 shadow-sm transition-all duration-300 hover:border-blue-200 hover:shadow-md hover:scale-[1.02]"
                       >
                         <div className="flex items-center gap-3">
-                            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-secondary transition-colors group-hover:bg-secondary group-hover:text-white">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-brand-secondary transition-colors group-hover:bg-brand-secondary group-hover:text-white">
                                 <IconComponent className="h-5 w-5" />
                             </div>
-                            <span className="font-medium text-gray-900 group-hover:text-secondary">
+                            <span className="font-medium text-gray-900 group-hover:text-brand-secondary">
                                 {t(`home:services.${s.translationKey}.title`, s.title)}
                             </span>
                         </div>
@@ -185,7 +185,7 @@ const ServicePage = () => {
                         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue mb-1">
                           {t(`common:category.${post.category}`, post.category)}
                         </p>
-                        <p className="text-sm font-semibold text-gray-900 group-hover:text-secondary transition-colors">
+                        <p className="text-sm font-semibold text-gray-900 group-hover:text-brand-secondary transition-colors">
                           {t(`articles:${post.id}.title`)}
                         </p>
                         <p className="mt-1 text-xs text-gray-500">
@@ -204,7 +204,7 @@ const ServicePage = () => {
                 <p className="mb-3 text-xs leading-relaxed text-gray-500">
                   {t('shop:shop.contactText', 'Our medical team is available 24/7 to answer urgent questions and help you decide what to do next.')}
                 </p>
-                <PrimaryButton as={Link} to="/contact" variant="secondary" className="w-full justify-center">
+                <PrimaryButton as={Link} to="/contact" variant="brand-secondary" className="w-full justify-center">
                     {t('common:nav.contact', 'Contact Us')}
                 </PrimaryButton>
               </section>

@@ -1,9 +1,18 @@
+import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 
 const ImprintPage = () => {
   const { t } = useTranslation('legal')
+  const toSafeArray = (value: unknown): string[] =>
+    Array.isArray(value) ? value.filter((item): item is string => typeof item === 'string') : []
+
+  const londonAddress = useMemo(() => toSafeArray(t('imprint.section1.london.address', { returnObjects: true })), [t])
+  const hamburgAddress = useMemo(() => toSafeArray(t('imprint.section1.hamburg.address', { returnObjects: true })), [t])
+  const section3Content = useMemo(() => toSafeArray(t('imprint.section3.content', { returnObjects: true })), [t])
+  const section4Content = useMemo(() => toSafeArray(t('imprint.section4.content', { returnObjects: true })), [t])
+  const section5Content = useMemo(() => toSafeArray(t('imprint.section5.content', { returnObjects: true })), [t])
 
   return (
     <PageTransition>
@@ -22,7 +31,7 @@ const ImprintPage = () => {
               <div>
                 <h3 className="font-semibold mb-2">{t('imprint.section1.london.title')}</h3>
                 <p><strong>{t('imprint.section1.london.company')}</strong></p>
-                {(t('imprint.section1.london.address', { returnObjects: true }) as string[]).map((line, idx) => (
+                {londonAddress.map((line, idx) => (
                   <p key={idx}>{line}</p>
                 ))}
                 <p className="mt-2"><strong>{t('imprint.section1.london.contact.label')}</strong></p>
@@ -33,7 +42,7 @@ const ImprintPage = () => {
               <div>
                 <h3 className="font-semibold mb-2">{t('imprint.section1.hamburg.title')}</h3>
                 <p><strong>{t('imprint.section1.hamburg.company')}</strong></p>
-                {(t('imprint.section1.hamburg.address', { returnObjects: true }) as string[]).map((line, idx) => (
+                {hamburgAddress.map((line, idx) => (
                   <p key={idx}>{line}</p>
                 ))}
                 <p className="mt-2"><strong>{t('imprint.section1.hamburg.contact.label')}</strong></p>
@@ -50,21 +59,21 @@ const ImprintPage = () => {
 
           <section>
             <h2 className="text-xl font-semibold mb-4 text-gray-900">{t('imprint.section3.title')}</h2>
-            {(t('imprint.section3.content', { returnObjects: true }) as string[]).map((line, idx) => (
+            {section3Content.map((line, idx) => (
               <p key={idx}>{line}</p>
             ))}
           </section>
 
           <section>
             <h2 className="text-xl font-semibold mb-4 text-gray-900">{t('imprint.section4.title')}</h2>
-            {(t('imprint.section4.content', { returnObjects: true }) as string[]).map((line, idx) => (
+            {section4Content.map((line, idx) => (
               <p key={idx}>{line}</p>
             ))}
           </section>
 
           <section>
             <h2 className="text-xl font-semibold mb-4 text-gray-900">{t('imprint.section5.title')}</h2>
-            {(t('imprint.section5.content', { returnObjects: true }) as string[]).map((line, idx) => (
+            {section5Content.map((line, idx) => (
               <p key={idx}>{line}</p>
             ))}
           </section>
@@ -73,7 +82,7 @@ const ImprintPage = () => {
             <h2 className="text-xl font-semibold mb-4 text-gray-900">{t('imprint.section6.title')}</h2>
             <p>
               <span dangerouslySetInnerHTML={{
-                __html: t('imprint.section6.content').replace('<1>', '<a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" class="text-secondary hover:underline">').replace('</1>', '</a>')
+                __html: t('imprint.section6.content').replace('<1>', '<a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" class="text-brand-secondary hover:underline">').replace('</1>', '</a>')
               }} />
             </p>
           </section>

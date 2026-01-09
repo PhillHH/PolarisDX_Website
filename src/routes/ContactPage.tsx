@@ -19,15 +19,36 @@ const ContactPage = () => {
 
     const formData = new FormData(e.currentTarget)
 
+    const company = formData.get('company')
+    const name = formData.get('name')
+    const phone = formData.get('phone')
+    const email = formData.get('email')
+    const area = formData.get('area')
+    const requirements = formData.get('requirements')
+
+    if (
+      typeof company !== 'string' ||
+      typeof name !== 'string' ||
+      typeof phone !== 'string' ||
+      typeof email !== 'string' ||
+      typeof area !== 'string' ||
+      typeof requirements !== 'string'
+    ) {
+      console.error('Invalid form data types')
+      setSubmitStatus('error')
+      setIsSubmitting(false)
+      return
+    }
+
     const data: ContactFormData = {
-      company: formData.get('company') as string,
-      name: formData.get('name') as string,
-      phone: formData.get('phone') as string,
-      email: formData.get('email') as string,
-      area: formData.get('area') as string,
-      requirements: formData.get('requirements') as string,
+      company,
+      name,
+      phone,
+      email,
+      area,
+      requirements,
       // Mapping requirements to message if needed or keeping separate
-      message: formData.get('requirements') as string
+      message: requirements
     }
 
     const success = await sendContactEmail(data)
@@ -45,11 +66,11 @@ const ContactPage = () => {
     <PageTransition>
       <div className="bg-slate-50 text-gray-900">
         {/* Hero / Top */}
-        <section className="relative overflow-hidden bg-primary text-white">
+        <section className="relative overflow-hidden bg-brand-primary text-white">
           <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
 
-          <div className="relative mx-auto flex min-h-[340px] max-w-[1440px] flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
+          <div className="relative mx-auto flex min-h-[340px] max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
             <Reveal width="100%" yOffset={20}>
               <div className="max-w-container">
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
@@ -79,7 +100,7 @@ const ContactPage = () => {
             {/* Kontakt-Kanäle */}
             <div className="mt-2 flex flex-col gap-4 text-sm text-gray-600 sm:flex-row sm:gap-8">
               <div className="flex items-center gap-3">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary/20 text-secondary">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-secondary/20 text-brand-secondary">
                   ✉
                 </span>
                 <div>
@@ -90,7 +111,7 @@ const ContactPage = () => {
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary/20 text-secondary">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-secondary/20 text-brand-secondary">
                   ☎
                 </span>
                 <div>
@@ -113,7 +134,7 @@ const ContactPage = () => {
                   name="company"
                   type="text"
                   required
-                  className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40"
+                  className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-brand-secondary focus:outline-none focus:ring-2 focus:ring-brand-secondary/40"
                   placeholder={t('contact.form.company_placeholder')}
                 />
               </div>
@@ -126,7 +147,7 @@ const ContactPage = () => {
                     name="name"
                     type="text"
                     required
-                    className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40"
+                    className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-brand-secondary focus:outline-none focus:ring-2 focus:ring-brand-secondary/40"
                     placeholder={t('contact.form.name_placeholder')}
                   />
                 </div>
@@ -138,7 +159,7 @@ const ContactPage = () => {
                     id="phone"
                     name="phone"
                     type="tel"
-                    className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40"
+                    className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-brand-secondary focus:outline-none focus:ring-2 focus:ring-brand-secondary/40"
                     placeholder={t('contact.form.phone_placeholder')}
                   />
                 </div>
@@ -151,7 +172,7 @@ const ContactPage = () => {
                   name="email"
                   type="email"
                   required
-                  className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40"
+                  className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-brand-secondary focus:outline-none focus:ring-2 focus:ring-brand-secondary/40"
                   placeholder={t('contact.form.email_placeholder')}
                 />
               </div>
@@ -163,7 +184,7 @@ const ContactPage = () => {
                 <select
                   id="area"
                   name="area"
-                  className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40"
+                  className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-brand-secondary focus:outline-none focus:ring-2 focus:ring-brand-secondary/40"
                 >
                   <option value="pharmacy">{t('contact.form.area_options.pharmacy')}</option>
                   <option value="practice">{t('contact.form.area_options.practice')}</option>
@@ -182,7 +203,7 @@ const ContactPage = () => {
                   name="requirements"
                   rows={4}
                   required
-                  className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40"
+                  className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-brand-secondary focus:outline-none focus:ring-2 focus:ring-brand-secondary/40"
                   placeholder={t('contact.form.requirements_placeholder')}
                 />
               </div>
@@ -207,7 +228,7 @@ const ContactPage = () => {
                       name="consent"
                       type="checkbox"
                       required
-                      className="h-4 w-4 rounded border-gray-300 text-secondary focus:ring-secondary"
+                      className="h-4 w-4 rounded border-gray-300 text-brand-secondary focus:ring-brand-secondary"
                     />
                   </div>
                   <label htmlFor="consent" className="text-sm text-gray-600">

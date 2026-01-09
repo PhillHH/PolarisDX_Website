@@ -3,6 +3,7 @@
     "home": "Home",
     "about": "Über uns",
     "service": "Service",
+    "casestudies": "Case Study",
     "shop": "Shop",
     "blog": "Blog",
     "terms": "AGB",
@@ -56,7 +57,8 @@
       "about": "team doctors polarisdx ärzte über uns",
       "services": "services leistungen dental beauty longevity diagnostik",
       "contact": "contact kontakt email phone address adresse",
-      "terms": "legal terms agb recht"
+      "terms": "legal terms agb recht",
+      "casestudies": "case study 32reasons fallstudie polaris dx zahnmedizin"
     },
     "services": {
       "dental": "Zahnmedizinische Diagnostik",

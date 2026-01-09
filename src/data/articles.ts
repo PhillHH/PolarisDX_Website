@@ -1,21 +1,4 @@
-export type ArticleSection = {
-  heading?: string
-  paragraphs: string[]
-  listItems?: string[]
-  image?: string
-}
-
-export type Article = {
-  id: string
-  slug: string
-  // title: string // Removed, use t(`articles.${id}.title`)
-  category: string // key: category.health_article etc.
-  // excerpt: string // Removed, use t(`articles.${id}.excerpt`)
-  author: string
-  date: string
-  readTime: string
-  sections: ArticleSection[] // Only structural info (images), text via translation
-}
+import type { Article } from '../types'
 
 export const articles: Article[] = [
   {

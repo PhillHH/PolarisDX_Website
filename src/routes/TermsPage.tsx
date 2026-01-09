@@ -14,11 +14,11 @@ const TermsPage = () => {
 
   return (
     <PageTransition>
-      <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-primary text-white">
+      <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-brand-primary text-white">
         <div className="mx-auto max-w-container px-4 text-center lg:px-0">
           <Reveal width="100%" yOffset={20}>
             <div className="flex justify-center">
-              <div className="inline-block rounded p-[1px] bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 mb-2">
+              <div className="inline-block rounded p-px bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 mb-2">
                 <div className="rounded-sm bg-slate-50 px-3 py-1">
                   <span className="text-xs font-semibold uppercase tracking-wide text-gray-900">
                     {t('agb.title', 'AGB')}
@@ -73,7 +73,7 @@ const TermsPage = () => {
                      <a
                        key={section.id}
                        href={`#${section.id}`}
-                       className="text-sm text-slate-600 hover:text-primary hover:translate-x-1 transition-all block truncate"
+                       className="text-sm text-slate-600 hover:text-brand-primary hover:translate-x-1 transition-all block truncate"
                        title={section.title}
                      >
                        {section.title}

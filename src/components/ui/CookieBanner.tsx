@@ -42,7 +42,12 @@ export const CookieBanner: React.FC = () => {
   const [categories, setCategories] = useState<CookieCategory[]>(defaultCategories);
 
   useEffect(() => {
-    const consent = localStorage.getItem('cookie-consent');
+    let consent: string | null = null;
+    try {
+      consent = typeof window !== 'undefined' ? localStorage.getItem('cookie-consent') : null;
+    } catch {
+      // ignore storage access errors in restricted environments
+    }
     if (!consent) {
       setIsVisible(true);
     }

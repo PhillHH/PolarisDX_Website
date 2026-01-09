@@ -1,12 +1,5 @@
 import { MonitorSmartphone, ShieldCheck, Flame, HeartPulse, Dna, Puzzle, Sparkles, Activity, Smile } from 'lucide-react'
-
-export type Service = {
-  id: string
-  title: string
-  description: string
-  translationKey: string
-  icon?: React.ReactNode
-}
+import type { Service } from '../types'
 
 export const services: Service[] = [
   // New areas (Widgets)

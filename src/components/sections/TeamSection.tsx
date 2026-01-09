@@ -59,7 +59,7 @@ const TeamSection = () => {
                     <h3 className="font-sans text-2xl font-medium text-gray-900">
                         {t(`team.members.${member.id}.name`)}
                     </h3>
-                    <p className="mb-4 font-sans text-base font-normal leading-8 text-secondary h-16">
+                    <p className="mb-4 font-sans text-base font-normal leading-8 text-brand-secondary h-16">
                          {t(`team.members.${member.id}.role`)}
                     </p>
                     <p className="mb-4 text-sm leading-relaxed text-gray-500">
@@ -67,7 +67,7 @@ const TeamSection = () => {
                     </p>
 
                     <div className="mt-auto flex gap-4">
-                        <a href={`mailto:${member.email}`} className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-primary transition-colors">
+                        <a href={`mailto:${member.email}`} className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-brand-primary transition-colors">
                             <Mail className="h-4 w-4" />
                             Email
                         </a>

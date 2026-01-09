@@ -1,23 +1,4 @@
-export type TechSpec = {
-  parameter: string
-  specification: string
-}
-
-export type Product = {
-  id: string
-  slug: string
-  // name: Translated via `products.<id>.name`
-  category: string // Translated via `category.<category>`
-  price: number
-  // shortDescription: Translated via `products.<id>.shortDescription`
-  // detailedDescription: Translated via `products.<id>.detailedDescription`
-  // features: Translated via `products.<id>.features`
-  // techSpecs: Translated via `products.<id>.techSpecs`
-  // deliveryScope: Translated via `products.<id>.deliveryScope`
-  // note: Translated via `products.<id>.note`
-  badge?: 'New' | 'Popular' | 'Limited' // Translated via `badge.<badge>`
-  image?: string
-}
+import type { Product } from '../types'
 
 export const products: Product[] = [
   {

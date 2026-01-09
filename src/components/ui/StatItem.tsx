@@ -11,13 +11,13 @@ type StatItemProps = {
 const sizeStyles: Record<Size, { value: string; suffix: string; label: string }> = {
   md: {
     value: 'text-3xl font-medium tracking-tight text-white sm:text-4xl',
-    suffix: 'text-xl font-medium text-secondary',
+    suffix: 'text-xl font-medium text-brand-secondary',
     label: 'text-xs font-normal text-white/80 sm:text-sm',
   },
   sm: {
     value: 'text-2xl font-medium tracking-tight text-white sm:text-3xl',
-    suffix: 'text-lg font-medium text-secondary',
-    label: 'text-[10px] font-normal text-white/80 sm:text-xs',
+    suffix: 'text-lg font-medium text-brand-secondary',
+    label: 'text-xxs font-normal text-white/80 sm:text-xs',
   },
 }
 

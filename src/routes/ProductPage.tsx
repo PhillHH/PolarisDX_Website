@@ -2,11 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import PrimaryButton from '../components/ui/PrimaryButton'
 import { products, getProductBySlug } from '../data/products'
-
-type TechSpec = {
-  parameter: string
-  specification: string
-}
+import type { TechSpec } from '../types'
 
 const ProductPage = () => {
   const { t } = useTranslation(['shop', 'common'])
@@ -40,18 +36,18 @@ const ProductPage = () => {
   return (
     <div className="bg-slate-50 text-gray-900">
       {/* Hero / Top */}
-      <section className="relative overflow-hidden bg-primary text-white">
+      <section className="relative overflow-hidden bg-brand-primary text-white">
         <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
 
-        <div className="relative mx-auto flex min-h-[320px] max-w-[1440px] flex-col justify-end px-4 pb-10 pt-28 lg:px-10 lg:pb-14 lg:pt-32">
+        <div className="relative mx-auto flex min-h-[320px] max-w-page flex-col justify-end px-4 pb-10 pt-28 lg:px-10 lg:pb-14 lg:pt-32">
           <div className="max-w-container">
             <div className="mb-3 text-sm text-white/70">
-              <Link to="/" className="hover:text-secondary">
+              <Link to="/" className="hover:text-brand-secondary">
                 {t('shop:shop.home')}
               </Link>{' '}
               /{' '}
-              <Link to="/shop" className="hover:text-secondary">
+              <Link to="/shop" className="hover:text-brand-secondary">
                 Shop
               </Link>{' '}
               / <span>{t(`shop:products.${productKey}.name`)}</span>
@@ -59,10 +55,10 @@ const ProductPage = () => {
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
               {t(`common:category.${product.category}`)}
             </p>
-            <h1 className="text-[32px] leading-[40px] font-medium tracking-[-0.02em] sm:text-[40px] sm:leading-[47px] lg:text-[48px] lg:leading-[58px]">
+            <h1 className="text-[32px] leading-[40px] font-medium tracking-[-0.02em] sm:text-hero-sm sm:leading-[47px] lg:text-hero-md lg:leading-[58px]">
               {t(`shop:products.${productKey}.name`)}
             </h1>
-            <p className="mt-3 text-lg font-semibold text-secondary">
+            <p className="mt-3 text-lg font-semibold text-brand-secondary">
               ${product.price}
             </p>
           </div>
@@ -148,17 +144,17 @@ const ProductPage = () => {
             </div>
           )}
 
-          <div className="rounded-2xl bg-primary/5 p-6 text-sm leading-[28px] text-gray-600 sm:text-base">
+          <div className="rounded-2xl bg-brand-primary/5 p-6 text-sm leading-[28px] text-gray-600 sm:text-base">
             {t('shop:shop.demoNote')}
           </div>
 
           <div className="mt-8 flex flex-col gap-4 border-t border-gray-100 pt-8 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
-            <PrimaryButton as={Link} to="/shop" variant="secondary">
+            <PrimaryButton as={Link} to="/shop" variant="brand-secondary">
               {t('shop:shop.backToShop')}
             </PrimaryButton>
             <span className="text-xs sm:text-sm">
               {t('shop:shop.needHelp')}{' '}
-              <Link to="/contact" className="font-semibold text-secondary">
+              <Link to="/contact" className="font-semibold text-brand-secondary">
                 {t('shop:shop.contactTeam')}
               </Link>
               .
@@ -198,7 +194,7 @@ const ProductPage = () => {
                         {t(`common:category.${p.category}`)} · ${p.price}
                       </p>
                     </div>
-                    <span className="text-xs text-secondary">{t('shop:shop.view')}</span>
+                    <span className="text-xs text-brand-secondary">{t('shop:shop.view')}</span>
                   </Link>
                 ))}
               </div>
