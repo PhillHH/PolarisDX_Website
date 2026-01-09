@@ -19,14 +19,12 @@ import CaseStudy32Reasons from './routes/CaseStudy32Reasons'
 import { CookieBanner } from './components/ui/CookieBanner'
 import MobileCallButton from './components/ui/MobileCallButton'
 import ChatWidget from './components/ui/ChatWidget'
-import ScrollToTop from './components/layout/ScrollToTop'
 
 function App() {
   return (
     <Layout>
       <MobileCallButton />
       <ChatWidget />
-      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />

@@ -33,7 +33,7 @@ const ShopPage = () => {
       </section>
 
       {/* Products */}
-      <main className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">
+      <div className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">
         <div className="mb-8">
           <SectionHeader
             caption={t('common:nav.shop')}
@@ -55,7 +55,7 @@ const ShopPage = () => {
             />
           ))}
         </div>
-      </main>
+      </div>
     </div>
   )
 }

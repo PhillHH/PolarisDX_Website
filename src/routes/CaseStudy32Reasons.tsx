@@ -49,7 +49,7 @@ const CaseStudy32Reasons = () => {
         </div>
       </section>
 
-      <main className="mx-auto max-w-container px-4 py-16 lg:py-24 flex flex-col gap-20 lg:px-0">
+      <div className="mx-auto max-w-container px-4 py-16 lg:py-24 flex flex-col gap-20 lg:px-0">
         {/* Intro */}
         <section className="grid gap-12 lg:grid-cols-[1.1fr,1fr] lg:items-center lg:gap-16">
           <Reveal>
@@ -201,7 +201,7 @@ const CaseStudy32Reasons = () => {
             </div>
           </Reveal>
         </section>
-      </main>
+      </div>
     </PageTransition>
   )
 }

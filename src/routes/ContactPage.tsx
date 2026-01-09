@@ -86,7 +86,7 @@ const ContactPage = () => {
         </section>
 
         {/* Form + Info */}
-        <main className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">
+        <div className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,2.1fr)_minmax(0,1.3fr)] lg:items-start">
             {/* Form-Card */}
             <Reveal width="100%">
@@ -262,7 +262,7 @@ const ContactPage = () => {
             </Reveal>
           </aside>
         </div>
-      </main>
+      </div>
       </div>
     </PageTransition>
   )

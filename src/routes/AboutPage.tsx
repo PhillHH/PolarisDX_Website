@@ -31,11 +31,11 @@ const AboutPage = () => {
         </div>
       </div>
 
-      <main className="mx-auto flex max-w-container flex-col gap-32 px-4 py-24 lg:px-0 lg:gap-32 lg:py-32">
+      <div className="mx-auto flex max-w-container flex-col gap-32 px-4 py-24 lg:px-0 lg:gap-32 lg:py-32">
         <Reveal width="100%">
           <TeamSection />
         </Reveal>
-      </main>
+      </div>
     </PageTransition>
   )
 }

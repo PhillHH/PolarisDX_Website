@@ -66,7 +66,7 @@ const ProductPage = () => {
       </section>
 
       {/* Content + Sidebar */}
-      <main className="mx-auto max-w-container px-4 py-12 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,1.5fr)] lg:items-start lg:gap-12 lg:px-0 lg:py-16">
+      <div className="mx-auto max-w-container px-4 py-12 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,1.5fr)] lg:items-start lg:gap-12 lg:px-0 lg:py-16">
         <section className="space-y-8 text-gray-700">
           <div className="w-full overflow-hidden rounded-lg aspect-[4/3] bg-slate-200">
             {product.image && (
@@ -201,7 +201,7 @@ const ProductPage = () => {
             </section>
           )}
         </aside>
-      </main>
+      </div>
     </div>
   )
 }

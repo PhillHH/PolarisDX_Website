@@ -32,12 +32,12 @@ const ServicesOverviewPage = () => {
           </div>
         </section>
 
-        <main className="mx-auto flex max-w-container flex-col gap-32 px-4 pt-20 pb-40 lg:px-0 lg:pt-24 lg:pb-32">
+        <div className="mx-auto flex max-w-container flex-col gap-32 px-4 pt-20 pb-40 lg:px-0 lg:pt-24 lg:pb-32">
           {/* Render the existing ServicesSection component which displays the grid */}
           <Reveal width="100%">
             <ServicesSection />
           </Reveal>
-        </main>
+        </div>
       </div>
     </PageTransition>
   )

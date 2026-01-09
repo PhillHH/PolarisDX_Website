@@ -75,7 +75,7 @@ const ServicePage = () => {
           </div>
         </section>
 
-        <main className="mx-auto flex max-w-container flex-col gap-10 px-4 py-12 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,1.4fr)] lg:items-start lg:gap-12 lg:px-0 lg:py-16">
+        <div className="mx-auto flex max-w-container flex-col gap-10 px-4 py-12 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,1.4fr)] lg:items-start lg:gap-12 lg:px-0 lg:py-16">
 
           {/* Main Content */}
           <article className="space-y-8 text-gray-700">
@@ -210,7 +210,7 @@ const ServicePage = () => {
               </section>
             </Reveal>
           </aside>
-        </main>
+        </div>
       </div>
     </PageTransition>
   )

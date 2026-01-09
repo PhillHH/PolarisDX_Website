@@ -40,7 +40,7 @@ const ArticlesIndexPage = () => {
         </section>
 
         {/* Content Section */}
-        <main className="mx-auto max-w-container px-4 py-16 lg:px-10 lg:py-24">
+        <div className="mx-auto max-w-container px-4 py-16 lg:px-10 lg:py-24">
           <Reveal width="100%">
             <SectionHeader
               caption={t('articles:index.caption', 'Latest Posts')}
@@ -65,7 +65,7 @@ const ArticlesIndexPage = () => {
               })}
             </div>
           </Reveal>
-        </main>
+        </div>
       </div>
     </PageTransition>
   )

@@ -138,7 +138,7 @@ const DownloadsPage = () => {
         </section>
 
         {/* Main Content */}
-        <main className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">
+        <div className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">
           <Reveal width="100%">
             <div className="mb-10">
               <SectionHeader
@@ -157,7 +157,7 @@ const DownloadsPage = () => {
               {renderDownloadSection(t('downloads:infoMaterials'), infoMaterials)}
             </div>
           </Reveal>
-        </main>
+        </div>
       </div>
     </PageTransition>
   )

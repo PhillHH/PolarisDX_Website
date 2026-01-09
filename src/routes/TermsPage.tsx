@@ -40,7 +40,7 @@ const TermsPage = () => {
       <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
         <div className="lg:grid lg:grid-cols-4 lg:gap-12">
           {/* Main Content - Left side on desktop */}
-          <main className="lg:col-span-3 prose prose-slate max-w-none dark:prose-invert">
+          <div className="lg:col-span-3 prose prose-slate max-w-none dark:prose-invert">
             <Reveal width="100%">
               {Array.isArray(sections) && sections.map((section) => (
                 <section
@@ -59,7 +59,7 @@ const TermsPage = () => {
                 </section>
               ))}
             </Reveal>
-          </main>
+          </div>
 
           {/* Sidebar - Right side */}
           <aside className="hidden lg:block lg:col-span-1">
