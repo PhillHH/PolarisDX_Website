@@ -1,10 +1,6 @@
-export interface AgbSection {
-  id: string;
-  title: string;
-  content: string[];
-}
+import type { AgbData } from '../types'
 
-export const agbData = {
+export const agbData: AgbData = {
   title: "Allgemeine Geschaeftsbedingungen",
   subtitle: "Polaris Diagnostics Europe UG (haftungsbeschraenkt) | In-vitro-Diagnostik | Medizinprodukte | Software & Cloud-Dienste",
   date: "Stand: Dezember 2025",

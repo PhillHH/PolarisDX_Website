@@ -19,15 +19,36 @@ const ContactPage = () => {
 
     const formData = new FormData(e.currentTarget)
 
+    const company = formData.get('company')
+    const name = formData.get('name')
+    const phone = formData.get('phone')
+    const email = formData.get('email')
+    const area = formData.get('area')
+    const requirements = formData.get('requirements')
+
+    if (
+      typeof company !== 'string' ||
+      typeof name !== 'string' ||
+      typeof phone !== 'string' ||
+      typeof email !== 'string' ||
+      typeof area !== 'string' ||
+      typeof requirements !== 'string'
+    ) {
+      console.error('Invalid form data types')
+      setSubmitStatus('error')
+      setIsSubmitting(false)
+      return
+    }
+
     const data: ContactFormData = {
-      company: formData.get('company') as string,
-      name: formData.get('name') as string,
-      phone: formData.get('phone') as string,
-      email: formData.get('email') as string,
-      area: formData.get('area') as string,
-      requirements: formData.get('requirements') as string,
+      company,
+      name,
+      phone,
+      email,
+      area,
+      requirements,
       // Mapping requirements to message if needed or keeping separate
-      message: formData.get('requirements') as string
+      message: requirements
     }
 
     const success = await sendContactEmail(data)

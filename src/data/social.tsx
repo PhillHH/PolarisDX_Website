@@ -1,10 +1,4 @@
-import type { ReactNode } from 'react'
-
-export type SocialLink = {
-  label: string
-  href: string
-  icon: ReactNode
-}
+import type { SocialLink } from '../types'
 
 export const socialLinks: SocialLink[] = [
   {
@@ -28,5 +22,3 @@ export const socialLinks: SocialLink[] = [
     icon: <span className="text-xs font-semibold">fb</span>,
   },
 ]
-
-

@@ -6,6 +6,8 @@ import { articles, getArticleBySlug } from '../data/articles'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 
+// Local types for UI rendering logic which involves Discriminated Unions
+// that are not part of the simpler data model in types/models.ts
 type BaseSection = {
   heading?: string
   image?: string
@@ -47,6 +49,7 @@ const ArticlePage = () => {
   const title = t(`articles:${article.id}.title`)
   const excerpt = t(`articles:${article.id}.excerpt`)
   // Get sections from translation
+  // This casting uses the LOCAL ArticleSection type which is a union
   const translatedSections = t(`articles:${article.id}.sections`, { returnObjects: true }) as ArticleSection[]
 
   // We need images from the original data
@@ -56,7 +59,10 @@ const ArticlePage = () => {
   const articleImage = dataSections.find((s) => s.image)?.image
 
   const renderSection = (section: ArticleSection, index: number) => {
-    switch (section.type) {
+    // Safety check for type
+    const sType = section.type || 'text'
+
+    switch (sType) {
       case 'table':
         return (
           <section key={index} className="space-y-4 overflow-x-auto">

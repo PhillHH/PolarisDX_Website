@@ -2,16 +2,7 @@ import RichardPollockAvatar from '../assets/Testimonials/Richard-Pollock-Biologi
 import GoranAvatar from '../assets/Testimonials/goran_rezension.png'
 import BastianAvatar from '../assets/Testimonials/Bastian Foto.jpeg'
 import KristianGrimmAvatar from '../assets/Testimonials/Dr. Kristian Grimm.jpg'
-
-export interface Testimonial {
-  id: string; // added ID for translation lookup
-  role: string;
-  name: string;
-  title: string;
-  focus: string;
-  text: string;
-  avatar?: string;
-}
+import type { Testimonial } from '../types'
 
 export const testimonials: Testimonial[] = [
   {

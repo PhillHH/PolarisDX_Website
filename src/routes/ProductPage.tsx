@@ -2,11 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import PrimaryButton from '../components/ui/PrimaryButton'
 import { products, getProductBySlug } from '../data/products'
-
-type TechSpec = {
-  parameter: string
-  specification: string
-}
+import type { TechSpec } from '../types'
 
 const ProductPage = () => {
   const { t } = useTranslation(['shop', 'common'])

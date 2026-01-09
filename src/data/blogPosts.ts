@@ -1,10 +1,5 @@
 import { articles } from './articles'
-
-export type BlogPost = {
-  id: string
-  slug: string
-  image?: string
-}
+import type { BlogPost } from '../types'
 
 // derive blog teaser data from articles "DB"
 export const blogPosts: BlogPost[] = articles.map((article) => ({

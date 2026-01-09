@@ -1,12 +1,4 @@
-export interface Event {
-  id: number;
-  title: string;
-  date: string;
-  endDate?: string;
-  location: string;
-  description?: string;
-  link?: string;
-}
+import type { Event } from '../types'
 
 export const events: Event[] = [
   {
