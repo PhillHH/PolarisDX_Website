@@ -14,6 +14,7 @@ export const useSearch = (query: string) => {
   const { articles } = useArticles() // Fetch articles for searching
   const [results, setResults] = useState<SearchResult[]>([])
   const [isSearching, setIsSearching] = useState(false)
+  const [error, setError] = useState<Error | null>(null)
 
   // UseMemo for static pages and services to avoid re-creating arrays on every render
   // though they depend on 't' which changes on language switch
@@ -134,7 +135,10 @@ export const useSearch = (query: string) => {
 
     setResults(found)
     setIsSearching(false)
+    // No actual error handling logic here as it's client-side,
+    // but structure is ready for future API integration
+    setError(null)
   }, [query, t, articles, staticPages, services])
 
-  return { results, isSearching }
+  return { results, isSearching, error }
 }

@@ -1,11 +1,12 @@
 import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Loader2 } from 'lucide-react'
 import SectionHeader from '../components/ui/SectionHeader'
 import PrimaryButton from '../components/ui/PrimaryButton'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import { useArticles } from '../hooks/useArticles'
+import { LoadingSpinner } from '../components/ui/LoadingSpinner'
+import { Alert } from '../components/ui/Alert'
 
 // Local types for UI rendering logic which involves Discriminated Unions
 // that are not part of the simpler data model in types/models.ts
@@ -49,7 +50,7 @@ const ArticlePage = () => {
   if (loading) {
     return (
       <div className="flex h-screen items-center justify-center bg-slate-50">
-        <Loader2 className="h-10 w-10 animate-spin text-brand-primary" />
+        <LoadingSpinner size="lg" />
       </div>
     )
   }
@@ -57,11 +58,26 @@ const ArticlePage = () => {
   // Handle Error or Not Found
   if (error || !article) {
     return (
-      <div className="flex h-screen flex-col items-center justify-center gap-4 bg-slate-50">
-        <h1 className="text-2xl font-bold text-gray-900">{t('shop:shop.articleNotFound', 'Article not found')}</h1>
-        <PrimaryButton as={Link} to="/articles">
-          {t('shop:shop.backToArticles', 'Back to Overview')}
-        </PrimaryButton>
+      <div className="flex h-screen flex-col items-center justify-center gap-4 bg-slate-50 p-4">
+        {error ? (
+          <div className="w-full max-w-md">
+            <Alert variant="destructive" title={t('common:error', 'Error')}>
+              {error.message || t('shop:shop.articleNotFound', 'Article not found')}
+            </Alert>
+            <div className="mt-6 flex justify-center">
+              <PrimaryButton as={Link} to="/articles">
+                {t('shop:shop.backToArticles', 'Back to Overview')}
+              </PrimaryButton>
+            </div>
+          </div>
+        ) : (
+          <>
+            <h1 className="text-2xl font-bold text-gray-900">{t('shop:shop.articleNotFound', 'Article not found')}</h1>
+            <PrimaryButton as={Link} to="/articles">
+              {t('shop:shop.backToArticles', 'Back to Overview')}
+            </PrimaryButton>
+          </>
+        )}
       </div>
     )
   }

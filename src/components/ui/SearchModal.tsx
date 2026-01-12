@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { Link } from 'react-router-dom'
-import { X, Search as SearchIcon, ChevronRight, Loader2 } from 'lucide-react'
+import { X, Search as SearchIcon, ChevronRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useSearch } from '../../hooks/useSearch'
 import { useScrollLock } from '../../hooks/useScrollLock'
+import { LoadingSpinner } from './LoadingSpinner'
+import { Alert } from './Alert'
 
 interface SearchModalProps {
   isOpen: boolean
@@ -14,7 +16,7 @@ interface SearchModalProps {
 const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
   const { t } = useTranslation('common')
   const [query, setQuery] = useState('')
-  const { results, isSearching } = useSearch(query)
+  const { results, isSearching, error } = useSearch(query)
 
   // Use generic hook to lock body scroll
   useScrollLock(isOpen)
@@ -68,26 +70,35 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
             {/* Loading State */}
             {isSearching && (
               <div className="py-10 flex justify-center text-gray-400">
-                <Loader2 className="h-6 w-6 animate-spin" />
+                <LoadingSpinner />
+              </div>
+            )}
+
+            {/* Error State */}
+            {!isSearching && error && (
+              <div className="p-4">
+                <Alert variant="destructive">
+                  {error.message || t('error', 'Ein Fehler ist aufgetreten.')}
+                </Alert>
               </div>
             )}
 
             {/* No Results */}
-            {!isSearching && query && results.length === 0 && (
+            {!isSearching && !error && query && results.length === 0 && (
                 <div className="py-10 text-center text-gray-500">
                     {t('noResults', 'Keine Ergebnisse gefunden.')}
                 </div>
             )}
 
             {/* Start Typing */}
-            {!query && (
+            {!query && !error && (
                 <div className="py-10 text-center text-gray-400 text-sm">
                     {t('startTyping', 'Tippen Sie, um zu suchen...')}
                 </div>
             )}
 
             {/* Results List */}
-            {!isSearching && results.length > 0 && (
+            {!isSearching && !error && results.length > 0 && (
                 <div className="flex flex-col gap-1">
                     {results.map((result, idx) => (
                         <Link

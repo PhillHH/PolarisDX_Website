@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/Button'
 import { Input } from '../ui/Input'
 import { Textarea } from '../ui/Textarea'
+import { Alert } from '../ui/Alert'
 import { useContactForm } from '../../hooks/useContactForm'
 
 export const ContactForm = () => {
@@ -83,15 +84,15 @@ export const ContactForm = () => {
       />
 
       {submitStatus === 'success' && (
-        <div className="rounded bg-green-50 p-3 text-sm text-green-700">
+        <Alert variant="success">
           {t('contact.form.success', 'Vielen Dank! Ihre Nachricht wurde gesendet.')}
-        </div>
+        </Alert>
       )}
 
       {submitStatus === 'error' && (
-        <div className="rounded bg-red-50 p-3 text-sm text-red-700">
+        <Alert variant="destructive">
           {t('contact.form.error', 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.')}
-        </div>
+        </Alert>
       )}
 
       <div className="space-y-4 pt-2">
