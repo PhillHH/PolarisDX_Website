@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom'
-import PrimaryButton from '../ui/PrimaryButton'
+import { Button } from '../ui/Button'
 import avatar from '../../assets/avatar.png'
 import { useTranslation } from 'react-i18next'
 
@@ -29,9 +28,9 @@ const CtaSection = () => {
           <p className="text-sm leading-relaxed text-white/90 sm:text-base">
             {t('cta_section.text')}
           </p>
-          <PrimaryButton as={Link} to="/contact" variant="brand-secondary">
+          <Button to="/contact" variant="brand-secondary">
             {t('cta_section.button')}
-          </PrimaryButton>
+          </Button>
         </div>
       </div>
     </section>

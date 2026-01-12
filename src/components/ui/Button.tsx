@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
 
@@ -8,16 +9,19 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-deep text-brand-deep shadow-lg shadow-brand-primary/20 border-0 hover:opacity-95 focus-visible:ring-brand-primary', // Removed p-0.5 from here to manage it manually
+          'bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-deep text-brand-deep shadow-lg shadow-brand-primary/20 border-0 hover:opacity-95 focus-visible:ring-brand-primary',
         secondary:
           'bg-brand-deep text-white shadow-lg shadow-brand-deep/20 hover:bg-brand-deep/90 focus-visible:ring-brand-deep',
         outline:
           'border border-white/80 bg-transparent text-white hover:bg-white/10 focus-visible:ring-white',
-        ghost: 'hover:bg-accent hover:text-accent-foreground',
-        link: 'text-primary underline-offset-4 hover:underline',
+        'outline-light':
+          'border border-white/80 bg-transparent text-white hover:bg-white/10 focus-visible:ring-white',
+        ghost: 'hover:bg-gray-100 hover:text-gray-900',
+        link: 'text-brand-primary underline-offset-4 hover:underline',
+        'brand-secondary': 'bg-brand-deep text-white shadow-lg shadow-brand-deep/20 hover:bg-brand-deep/90 focus-visible:ring-brand-deep'
       },
       size: {
-        default: 'px-8 py-4 text-base', // Matches 'md' from old component
+        default: 'px-8 py-4 text-base',
         sm: 'px-6 py-3 text-sm',
         lg: 'px-10 py-5 text-lg',
         icon: 'h-10 w-10',
@@ -33,27 +37,36 @@ const buttonVariants = cva(
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  asChild?: boolean
+  to?: string
+  href?: string
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'primary', size = 'default', children, ...props }, ref) => {
+const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
+  ({ className, variant = 'primary', size = 'default', children, to, href, ...props }, ref) => {
 
-    // Logic for Primary (Gradient) Button
+    // Determine the component to render
+    let Component: React.ElementType = 'button'
+    if (to) Component = Link
+    else if (href) Component = 'a'
+
+    // Combine props
+    const commonProps = {
+      className: cn(
+        buttonVariants({ variant, size, className }),
+        // Override padding for primary variant to handle the border width hack
+        variant === 'primary' && '!p-[2px]',
+        'text-inherit'
+      ),
+      ref: ref as any,
+      ...props,
+      ...(to ? { to } : {}),
+      ...(href ? { href } : {}),
+    }
+
+    // Logic for Primary (Gradient) Button special rendering
     if (variant === 'primary') {
       return (
-        <button
-          className={cn(
-            buttonVariants({ variant, size, className }),
-            // Override padding to be just the border width
-            // Using !p-0.5 ensures we override the size classes (px-8 py-4) coming from buttonVariants
-            '!p-[2px]',
-            // Reset text alignment or specific inner props if needed, but flex handles it.
-            'text-inherit'
-          )}
-          ref={ref}
-          {...props}
-        >
+        <Component {...commonProps}>
           <span
             className={cn(
               'flex h-full w-full items-center justify-center gap-2 rounded-[4px] bg-white text-brand-deep transition-colors hover:bg-gray-50',
@@ -66,19 +79,15 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           >
             {children}
           </span>
-        </button>
+        </Component>
       )
     }
 
-    // Standard Render for other variants
+    // Standard Render
     return (
-      <button
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      >
+      <Component {...commonProps}>
         {children}
-      </button>
+      </Component>
     )
   }
 )
