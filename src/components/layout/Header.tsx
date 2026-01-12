@@ -6,6 +6,8 @@ import PrimaryButton from '../ui/PrimaryButton'
 import LanguageSwitcher from '../ui/LanguageSwitcher'
 import SearchModal from '../ui/SearchModal'
 import logo from '../../assets/polaris_white.png'
+import { useDisclosure } from '../../hooks/useDisclosure'
+import { useScrollPosition } from '../../hooks/useScrollPosition'
 
 interface NavItem {
   label: string
@@ -31,27 +33,21 @@ const navItems: NavItem[] = [
 
 const Header = () => {
   const { t } = useTranslation('common')
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isOpen, setIsOpen] = useState(false)
-  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
-  const location = useLocation()
+  const scrollY = useScrollPosition()
+  const isScrolled = scrollY > 24
 
-  useEffect(() => {
-    const handler = () => {
-      setIsScrolled(window.scrollY > 24)
-    }
-    // Check initial scroll position
-    handler()
-    window.addEventListener('scroll', handler)
-    return () => window.removeEventListener('scroll', handler)
-  }, [])
+  // Using generic hooks for state
+  const mobileMenu = useDisclosure()
+  const searchModal = useDisclosure()
+
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
+  const location = useLocation()
 
   // Close mobile menu on route change
   useEffect(() => {
-    setIsOpen(false)
+    mobileMenu.onClose()
     setOpenSubmenu(null)
-  }, [location])
+  }, [location, mobileMenu.onClose])
 
   return (
     <>
@@ -121,7 +117,7 @@ const Header = () => {
 
             {/* Search Trigger Desktop */}
             <button
-              onClick={() => setIsSearchOpen(true)}
+              onClick={searchModal.onOpen}
               className={`p-2.5 rounded-full transition-all duration-300 hover:scale-110 text-white hover:bg-white/10`}
               aria-label="Search"
             >
@@ -146,7 +142,7 @@ const Header = () => {
           <div className="md:hidden flex items-center gap-2">
             {/* Search Trigger Mobile */}
             <button
-              onClick={() => setIsSearchOpen(true)}
+              onClick={searchModal.onOpen}
               className={`p-2 mr-1 rounded-full text-white`}
               aria-label="Search"
             >
@@ -158,9 +154,9 @@ const Header = () => {
               <button
               type="button"
               className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors duration-300 border-white/20 text-white bg-white/5`}
-              onClick={() => setIsOpen((prev) => !prev)}
+              onClick={mobileMenu.onToggle}
               aria-label="Toggle navigation"
-              aria-expanded={isOpen}
+              aria-expanded={mobileMenu.isOpen}
               >
               <span className="sr-only">Toggle navigation</span>
               <div className="space-y-1.5">
@@ -179,7 +175,7 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu */}
-        {isOpen && (
+        {mobileMenu.isOpen && (
           <div
             className={`md:hidden overflow-y-auto max-h-[80vh] backdrop-blur-xl transition-all duration-300 ${
               isScrolled
@@ -207,7 +203,7 @@ const Header = () => {
                             <Link
                               to={item.route!}
                               className={`block text-base font-light text-white/70`}
-                              onClick={() => setIsOpen(false)}
+                              onClick={mobileMenu.onClose}
                             >
                               {t(`nav.${item.label}`)}
                             </Link>
@@ -216,7 +212,7 @@ const Header = () => {
                                 key={child.label}
                                 to={child.route}
                                 className={`block text-base font-light text-white/70`}
-                                onClick={() => setIsOpen(false)}
+                                onClick={mobileMenu.onClose}
                               >
                                   {t(`nav.${child.label}`)}
                               </Link>
@@ -228,7 +224,7 @@ const Header = () => {
                     <Link
                       to={item.route!}
                       className={`block text-lg font-light tracking-wide text-white`}
-                      onClick={() => setIsOpen(false)}
+                      onClick={mobileMenu.onClose}
                     >
                         {t(`nav.${item.label}`)}
                     </Link>
@@ -240,7 +236,7 @@ const Header = () => {
                     as={Link}
                     to="/contact"
                     className="w-full justify-center shadow-lg"
-                    onClick={() => setIsOpen(false)}
+                    onClick={mobileMenu.onClose}
                     variant={isScrolled ? 'primary' : 'outline-light'}
                 >
                     {t('nav.contact')}
@@ -252,7 +248,7 @@ const Header = () => {
       </header>
 
       {/* Global Search Modal */}
-      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+      <SearchModal isOpen={searchModal.isOpen} onClose={searchModal.onClose} />
     </>
   )
 }

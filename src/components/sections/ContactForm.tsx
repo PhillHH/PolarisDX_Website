@@ -1,61 +1,19 @@
-import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/Button'
 import { Input } from '../ui/Input'
 import { Textarea } from '../ui/Textarea'
-import { sendContactEmail, type ContactFormData } from '../../api/contact'
+import { useContactForm } from '../../hooks/useContactForm'
 
 export const ContactForm = () => {
   const { t } = useTranslation('contact')
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const { isSubmitting, submitStatus, submit } = useContactForm()
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitStatus('idle')
-
     const formData = new FormData(e.currentTarget)
-
-    const company = formData.get('company')
-    const name = formData.get('name')
-    const phone = formData.get('phone')
-    const email = formData.get('email')
-    const area = formData.get('area')
-    const requirements = formData.get('requirements')
-
-    if (
-      typeof company !== 'string' ||
-      typeof name !== 'string' ||
-      typeof phone !== 'string' ||
-      typeof email !== 'string' ||
-      typeof area !== 'string' ||
-      typeof requirements !== 'string'
-    ) {
-      console.error('Invalid form data types')
-      setSubmitStatus('error')
-      setIsSubmitting(false)
-      return
-    }
-
-    const data: ContactFormData = {
-      company,
-      name,
-      phone,
-      email,
-      area,
-      requirements,
-      message: requirements
-    }
-
-    const success = await sendContactEmail(data)
-
-    setIsSubmitting(false)
+    const success = await submit(formData)
     if (success) {
-      setSubmitStatus('success')
       e.currentTarget.reset()
-    } else {
-      setSubmitStatus('error')
     }
   }
 

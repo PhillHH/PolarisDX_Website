@@ -1,16 +1,10 @@
 import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { Link } from 'react-router-dom'
-import { X, Search as SearchIcon, ChevronRight } from 'lucide-react'
+import { X, Search as SearchIcon, ChevronRight, Loader2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { articles } from '../../data/articles'
-
-interface SearchResult {
-  title: string
-  description: string
-  path: string
-  type: 'page' | 'article' | 'service'
-}
+import { useSearch } from '../../hooks/useSearch'
+import { useScrollLock } from '../../hooks/useScrollLock'
 
 interface SearchModalProps {
   isOpen: boolean
@@ -18,21 +12,12 @@ interface SearchModalProps {
 }
 
 const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
-  const { t } = useTranslation(['common', 'home', 'services', 'about', 'articles'])
+  const { t } = useTranslation('common')
   const [query, setQuery] = useState('')
-  const [results, setResults] = useState<SearchResult[]>([])
+  const { results, isSearching } = useSearch(query)
 
-  // Prevent body scroll when modal is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'unset'
-    }
-    return () => {
-      document.body.style.overflow = 'unset'
-    }
-  }, [isOpen])
+  // Use generic hook to lock body scroll
+  useScrollLock(isOpen)
 
   // Focus input on open
   useEffect(() => {
@@ -44,127 +29,12 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
     }
   }, [isOpen])
 
-  // Perform search
+  // Reset query on close
   useEffect(() => {
-    if (!query.trim()) {
-      setResults([])
-      return
+    if (!isOpen) {
+      setQuery('')
     }
-
-    const searchTerm = query.toLowerCase()
-    const found: SearchResult[] = []
-
-    // 1. Search Static Pages
-    const pages = [
-      {
-        title: t('nav.home', 'Startseite'),
-        path: '/',
-        keywords: t('common:search.keywords.home', 'home startseite igloo widget diagnostic')
-      },
-      {
-        title: t('nav.about', 'Über uns'),
-        path: '/about',
-        keywords: t('common:search.keywords.about', 'team doctors polarisdx')
-      },
-      {
-        title: t('nav.service', 'Leistungen'),
-        path: '/services',
-        keywords: t('common:search.keywords.services', 'services leistungen dental beauty longevity')
-      },
-      {
-        title: t('nav.contact', 'Kontakt'),
-        path: '/contact',
-        keywords: t('common:search.keywords.contact', 'contact kontakt email phone address')
-      },
-      {
-        title: t('nav.casestudies', 'Case Study'),
-        path: '/casestudys/32reasons',
-        keywords: t('common:search.keywords.casestudies', 'case study 32reasons polaris dx dentistry')
-      },
-      {
-        title: t('nav.terms', 'AGB'),
-        path: '/terms',
-        keywords: t('common:search.keywords.terms', 'legal terms agb recht')
-      }
-    ]
-
-    pages.forEach(page => {
-      if (page.title.toLowerCase().includes(searchTerm) || page.keywords.toLowerCase().includes(searchTerm)) {
-        found.push({
-          title: page.title,
-          description: t('common:readMore', 'Mehr erfahren'),
-          path: page.path,
-          type: 'page'
-        })
-      }
-    })
-
-    // 2. Search Services (Localized list mapped to routes)
-    const services = [
-      {
-        id: 'dental',
-        title: 'Dental',
-        desc: t('common:search.services.dental', 'Zahnmedizinische Diagnostik')
-      },
-      {
-        id: 'beauty',
-        title: 'Beauty',
-        desc: t('common:search.services.beauty', 'Dermatologische Analysen')
-      },
-      {
-        id: 'longevity',
-        title: 'Longevity',
-        desc: t('common:search.services.longevity', 'Gesundheit und Langlebigkeit')
-      },
-      {
-        id: 'sports',
-        title: 'Sports',
-        desc: t('common:search.services.sports', 'Leistungsdiagnostik für Sportler')
-      }
-    ]
-
-    services.forEach(service => {
-        if (service.title.toLowerCase().includes(searchTerm) || service.desc.toLowerCase().includes(searchTerm)) {
-            found.push({
-                title: service.title,
-                description: service.desc,
-                path: `/services/${service.id}`,
-                type: 'service'
-            })
-        }
-    })
-
-
-    // 3. Search Articles
-    // The articles.ts file does NOT contain titles. They are in the translation files 'articles.json'.
-    // We must fetch the translation for each article ID.
-    articles.forEach(article => {
-        const titleKey = `articles:${article.id}.title`;
-        const excerptKey = `articles:${article.id}.excerpt`;
-
-        const title = t(titleKey);
-        const excerpt = t(excerptKey);
-
-        // If the key is returned (meaning translation missing), we might skip or show it anyway.
-        // Assuming if t() returns the key, it's missing.
-        const actualTitle = title !== titleKey ? title : article.slug;
-
-        const titleMatch = actualTitle.toLowerCase().includes(searchTerm);
-        const excerptMatch = excerpt && excerpt !== excerptKey && excerpt.toLowerCase().includes(searchTerm);
-
-        if (titleMatch || excerptMatch) {
-            found.push({
-                title: actualTitle,
-                description: (excerpt && excerpt !== excerptKey) ? excerpt : '',
-                path: `/articles/${article.slug}`,
-                type: 'article'
-            })
-        }
-    })
-
-    setResults(found)
-
-  }, [query, t])
+  }, [isOpen])
 
   if (!isOpen) return null
 
@@ -181,7 +51,7 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
             id="search-input"
             type="text"
             className="flex-1 text-lg outline-none placeholder:text-gray-400 text-gray-900"
-            placeholder={t('common:searchPlaceholder', 'Suche...')}
+            placeholder={t('searchPlaceholder', 'Suche...')}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
@@ -195,19 +65,29 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
 
         {/* Results */}
         <div className="overflow-y-auto flex-1 p-2">
-            {query && results.length === 0 && (
+            {/* Loading State */}
+            {isSearching && (
+              <div className="py-10 flex justify-center text-gray-400">
+                <Loader2 className="h-6 w-6 animate-spin" />
+              </div>
+            )}
+
+            {/* No Results */}
+            {!isSearching && query && results.length === 0 && (
                 <div className="py-10 text-center text-gray-500">
-                    {t('common:noResults', 'Keine Ergebnisse gefunden.')}
+                    {t('noResults', 'Keine Ergebnisse gefunden.')}
                 </div>
             )}
 
+            {/* Start Typing */}
             {!query && (
                 <div className="py-10 text-center text-gray-400 text-sm">
-                    {t('common:startTyping', 'Tippen Sie, um zu suchen...')}
+                    {t('startTyping', 'Tippen Sie, um zu suchen...')}
                 </div>
             )}
 
-            {results.length > 0 && (
+            {/* Results List */}
+            {!isSearching && results.length > 0 && (
                 <div className="flex flex-col gap-1">
                     {results.map((result, idx) => (
                         <Link

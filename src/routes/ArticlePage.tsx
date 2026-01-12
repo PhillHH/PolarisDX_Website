@@ -1,10 +1,11 @@
 import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { Loader2 } from 'lucide-react'
 import SectionHeader from '../components/ui/SectionHeader'
 import PrimaryButton from '../components/ui/PrimaryButton'
-import { articles, getArticleBySlug } from '../data/articles'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
+import { useArticles } from '../hooks/useArticles'
 
 // Local types for UI rendering logic which involves Discriminated Unions
 // that are not part of the simpler data model in types/models.ts
@@ -40,10 +41,30 @@ type ArticleSection = TextSection | TableSection | InfoboxSection | KeyPointsSec
 const ArticlePage = () => {
   const { t } = useTranslation(['articles', 'shop', 'common'])
   const { slug } = useParams<{ slug: string }>()
-  const fallbackArticle = articles[0]
-  const foundArticle = slug ? getArticleBySlug(slug) : undefined
-  const article = foundArticle ?? fallbackArticle
-  const otherArticles = articles.filter((a) => a.slug !== article.slug)
+
+  // Use data fetching hook
+  const { article, articles: otherArticles, loading, error } = useArticles(slug)
+
+  // Handle Loading
+  if (loading) {
+    return (
+      <div className="flex h-screen items-center justify-center bg-slate-50">
+        <Loader2 className="h-10 w-10 animate-spin text-brand-primary" />
+      </div>
+    )
+  }
+
+  // Handle Error or Not Found
+  if (error || !article) {
+    return (
+      <div className="flex h-screen flex-col items-center justify-center gap-4 bg-slate-50">
+        <h1 className="text-2xl font-bold text-gray-900">{t('shop:shop.articleNotFound', 'Article not found')}</h1>
+        <PrimaryButton as={Link} to="/articles">
+          {t('shop:shop.backToArticles', 'Back to Overview')}
+        </PrimaryButton>
+      </div>
+    )
+  }
 
   // Get translated content
   const title = t(`articles:${article.id}.title`)
