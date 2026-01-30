@@ -15,6 +15,7 @@ import PrivacyPage from './routes/PrivacyPage'
 import ImprintPage from './routes/ImprintPage'
 import EventsPage from './pages/EventsPage'
 import IglooProPage from './pages/IglooProPage'
+import NotFoundPage from './pages/NotFoundPage'
 import CaseStudy32Reasons from './routes/CaseStudy32Reasons'
 import { CookieBanner } from './components/ui/CookieBanner'
 import MobileCallButton from './components/ui/MobileCallButton'
@@ -43,6 +44,8 @@ function App() {
         {/* <Route path="/shop" element={<ShopPage />} /> */}
         {/* <Route path="/shop/:slug" element={<ProductPage />} /> */}
         <Route path="/downloads" element={<DownloadsPage />} />
+        {/* Catch-all 404 route - must be last */}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <CookieBanner />
     </Layout>

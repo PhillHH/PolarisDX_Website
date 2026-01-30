@@ -101,5 +101,22 @@
   },
   "testimonials": {
     "positiveLabel": "Positive Review"
+  },
+  "notFound": {
+    "seo": {
+      "title": "Page Not Found | PolarisDX",
+      "description": "The requested page could not be found."
+    },
+    "badge": "Page not found",
+    "title": "Oops! This page doesn't exist",
+    "description": "The page you're looking for may have been moved, deleted, or no longer exists.",
+    "backHome": "Back to Home",
+    "popularPages": "Popular Pages",
+    "links": {
+      "home": "Home",
+      "iglooPro": "IglooPro",
+      "services": "Services",
+      "contact": "Contact"
+    }
   }
 }

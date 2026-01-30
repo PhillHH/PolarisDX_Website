@@ -101,5 +101,22 @@
   },
   "testimonials": {
     "positiveLabel": "Positive Bewertung"
+  },
+  "notFound": {
+    "seo": {
+      "title": "Seite nicht gefunden | PolarisDX",
+      "description": "Die angeforderte Seite konnte nicht gefunden werden."
+    },
+    "badge": "Seite nicht gefunden",
+    "title": "Oops! Diese Seite existiert nicht",
+    "description": "Die von Ihnen gesuchte Seite wurde möglicherweise verschoben, gelöscht oder existiert nicht mehr.",
+    "backHome": "Zurück zur Startseite",
+    "popularPages": "Beliebte Seiten",
+    "links": {
+      "home": "Startseite",
+      "iglooPro": "IglooPro",
+      "services": "Services",
+      "contact": "Kontakt"
+    }
   }
 }
