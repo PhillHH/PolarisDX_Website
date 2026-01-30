@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { SEOHead, createBreadcrumbSchema } from '../components/seo'
 import SectionHeader from '../components/ui/SectionHeader'
 import BlogCard from '../components/ui/BlogCard'
 import { blogPosts } from '../data/blogPosts'
@@ -11,6 +12,16 @@ const ArticlesIndexPage = () => {
 
   return (
     <PageTransition>
+      <SEOHead
+        title={t('articles:seo.index_title', 'Fachartikel zu POC-Diagnostik & Medizintechnik')}
+        description={t('articles:seo.index_description', 'Expertenwissen zu Point-of-Care Diagnostik, Schnelltests und moderner Labormedizin. Praxisnahe Artikel für Ärzte und medizinisches Fachpersonal.')}
+        canonical="https://polarisdx.net/articles"
+        keywords={['POC Fachartikel', 'Diagnostik Wissen', 'Schnelltest Artikel', 'Medizintechnik Blog', 'POCT Fachbeiträge']}
+        structuredData={createBreadcrumbSchema([
+          { name: 'Home', url: '/' },
+          { name: 'Artikel', url: '/articles' },
+        ])}
+      />
       <div className="bg-slate-50 min-h-screen">
         {/* Header Section */}
         <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white">

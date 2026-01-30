@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Tooth } from '../components/ui/icons/Tooth'
 import { Sparkles, Infinity as InfinityIcon } from 'lucide-react'
+import { SEOHead, createServiceSchema, createBreadcrumbSchema } from '../components/seo'
 import SectionHeader from '../components/ui/SectionHeader'
 import PrimaryButton from '../components/ui/PrimaryButton'
 import { services } from '../data/services'
@@ -45,8 +46,31 @@ const ServicePage = () => {
   const otherServices = services.filter(s => s.id !== service.id)
   const relatedArticles = articles.slice(0, 3)
 
+  // Get SEO description from intro
+  const seoDescription = Array.isArray(intro) && intro.length > 0
+    ? intro[0].substring(0, 155) + '...'
+    : `${title} - Point-of-Care Diagnostik von PolarisDX für Ihre Praxis.`
+
   return (
     <PageTransition>
+      <SEOHead
+        title={`${title} - POC Diagnostik`}
+        description={seoDescription}
+        canonical={`https://polarisdx.net/services/${slug}`}
+        keywords={[title, 'POC Diagnostik', 'Schnelltest', 'Point-of-Care', service.title]}
+        structuredData={[
+          createServiceSchema({
+            name: title,
+            description: seoDescription,
+            url: `/services/${slug}`,
+          }),
+          createBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Services', url: '/services' },
+            { name: title, url: `/services/${slug}` },
+          ]),
+        ]}
+      />
       <div className="bg-slate-50">
         {/* Hero / Header */}
         <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white">

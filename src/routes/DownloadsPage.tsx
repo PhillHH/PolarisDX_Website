@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { SEOHead, createBreadcrumbSchema } from '../components/seo'
 import SectionHeader from '../components/ui/SectionHeader'
 import { FileText, Download } from 'lucide-react'
 import PageTransition from '../components/ui/PageTransition'
@@ -111,6 +112,18 @@ const DownloadsPage = () => {
 
   return (
     <PageTransition>
+      <SEOHead
+        title={t('downloads:seo.title', 'Downloads - Preislisten & Produktinformationen')}
+        description={t('downloads:seo.description', 'Laden Sie Preislisten, technische Datenblätter und Produktinformationen zu IglooPro POC-Reader und POCT-Testkassetten herunter.')}
+        canonical="https://polarisdx.net/downloads"
+        keywords={['PolarisDX Downloads', 'Preisliste', 'Produktdatenblatt', 'POC Diagnostik PDF']}
+        structuredData={[
+          createBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Downloads', url: '/downloads' },
+          ]),
+        ]}
+      />
       <div className="bg-slate-50 text-gray-900">
         {/* Hero / Top */}
         <section className="relative overflow-hidden bg-brand-primary text-white">

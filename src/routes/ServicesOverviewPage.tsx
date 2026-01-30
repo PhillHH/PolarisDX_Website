@@ -1,14 +1,25 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { SEOHead, createBreadcrumbSchema } from '../components/seo'
 import ServicesSection from '../components/sections/ServicesSection'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 
 const ServicesOverviewPage = () => {
-  const { t } = useTranslation(['common', 'home'])
+  const { t } = useTranslation(['common', 'home', 'services'])
 
   return (
     <PageTransition>
+      <SEOHead
+        title={t('services:seo.overview_title', 'POCT Services für Praxen - Dental, Beauty, Longevity')}
+        description={t('services:seo.overview_description', 'Point-of-Care Diagnostik für Zahnarztpraxen, Beauty-Center und Longevity-Kliniken. Vitamin D, CRP, HbA1c Schnelltests für bessere Patientenversorgung.')}
+        canonical="https://polarisdx.net/services"
+        keywords={['POCT Services', 'POC Diagnostik Praxis', 'Schnelltest Zahnarzt', 'Beauty Diagnostik', 'Longevity Tests']}
+        structuredData={createBreadcrumbSchema([
+          { name: 'Home', url: '/' },
+          { name: 'Services', url: '/services' },
+        ])}
+      />
       <div className="bg-slate-50">
         {/* Reusing a simplified Hero/Header style for consistency with subpages */}
         <section className="relative overflow-hidden bg-brand-primary text-white">

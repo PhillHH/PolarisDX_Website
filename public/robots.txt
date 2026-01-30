@@ -1,0 +1,66 @@
+# robots.txt for polarisdx.net
+# PolarisDX - POCT Diagnostics & Medical Technology
+# Last updated: 2026-01-30
+
+# =============================================================================
+# GENERAL CRAWLER RULES
+# =============================================================================
+
+# Allow all reputable search engine crawlers
+User-agent: *
+Allow: /
+
+# Block internal/technical paths
+Disallow: /api/
+Disallow: /locales/
+Disallow: /_
+Disallow: /assets/
+Disallow: /*.json$
+Disallow: /*.js$
+Disallow: /*.css$
+
+# =============================================================================
+# SPECIFIC BOT RULES
+# =============================================================================
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# Yandex (for potential Eastern European traffic)
+User-agent: Yandex
+Allow: /
+
+# =============================================================================
+# AI CRAWLERS (optional blocking - currently allowed for visibility)
+# =============================================================================
+
+# GPTBot (OpenAI)
+User-agent: GPTBot
+Allow: /
+
+# Google-Extended (Bard/Gemini training)
+User-agent: Google-Extended
+Disallow: /
+
+# Anthropic
+User-agent: anthropic-ai
+Disallow: /
+
+# CCBot (Common Crawl)
+User-agent: CCBot
+Disallow: /
+
+# =============================================================================
+# SITEMAP REFERENCE
+# =============================================================================
+
+Sitemap: https://polarisdx.net/sitemap.xml

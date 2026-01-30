@@ -19,11 +19,12 @@ const spinnerVariants = cva(
 )
 
 export interface LoadingSpinnerProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof spinnerVariants> {}
+  extends VariantProps<typeof spinnerVariants> {
+  className?: string
+}
 
-export const LoadingSpinner = ({ className, size, ...props }: LoadingSpinnerProps) => {
+export const LoadingSpinner = ({ className, size }: LoadingSpinnerProps) => {
   return (
-    <Loader2 className={cn(spinnerVariants({ size, className }))} {...props} />
+    <Loader2 className={cn(spinnerVariants({ size, className }))} />
   )
 }
