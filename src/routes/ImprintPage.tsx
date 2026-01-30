@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
+import { SEOHead } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 
@@ -16,6 +17,12 @@ const ImprintPage = () => {
 
   return (
     <PageTransition>
+      <SEOHead
+        title={t('imprint.seo.title', 'Impressum')}
+        description={t('imprint.seo.description', 'Impressum der Polaris Diagnostics Europe UG - Kontakt und rechtliche Informationen.')}
+        canonical="https://polarisdx.net/imprint"
+        noindex={true}
+      />
       <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-slate-50">
         <div className="mx-auto max-w-container px-4 lg:px-0">
           <Reveal width="100%" yOffset={20}>

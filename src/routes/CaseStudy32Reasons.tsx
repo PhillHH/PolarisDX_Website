@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Check, MapPin, Award, Activity, Globe } from 'lucide-react'
+import { SEOHead, createBreadcrumbSchema, createArticleSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import SectionHeader from '../components/ui/SectionHeader'
 import Reveal from '../components/ui/Reveal'
@@ -25,6 +26,32 @@ const CaseStudy32Reasons = () => {
 
   return (
     <PageTransition>
+      <SEOHead
+        title={t('reasons32.seo.title', '32reasons Zahnteam - Fallstudie POC-Diagnostik in der Zahnarztpraxis')}
+        description={t('reasons32.seo.description', 'Erfahren Sie, wie Dr. Kristian Grimm vom 32reasons Zahnteam POC-Diagnostik mit dem IglooPro Reader in seiner Praxis einsetzt.')}
+        canonical="https://polarisdx.net/case-studies/32reasons"
+        ogType="article"
+        keywords={['POC Zahnarzt', 'Point-of-Care Zahnmedizin', '32reasons', 'Fallstudie Diagnostik']}
+        article={{
+          author: 'PolarisDX',
+          section: 'Case Studies',
+        }}
+        structuredData={[
+          createArticleSchema({
+            headline: heroTitle,
+            description: heroSubtitle,
+            url: 'https://polarisdx.net/case-studies/32reasons',
+            image: 'https://polarisdx.net/og-image.jpg',
+            authorName: 'PolarisDX',
+            datePublished: '2024-01-15',
+          }),
+          createBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Case Studies', url: '/case-studies' },
+            { name: '32reasons Zahnteam', url: '/case-studies/32reasons' },
+          ]),
+        ]}
+      />
       {/* Hero im globalen Stil */}
       <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white">
         <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />

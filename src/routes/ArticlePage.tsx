@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { SEOHead, createArticleSchema, createBreadcrumbSchema } from '../components/seo'
 import SectionHeader from '../components/ui/SectionHeader'
 import PrimaryButton from '../components/ui/PrimaryButton'
 import PageTransition from '../components/ui/PageTransition'
@@ -194,8 +195,40 @@ const ArticlePage = () => {
     }
   }
 
+  // Build OG image URL from article image
+  const ogImageUrl = articleImage
+    ? `https://polarisdx.net/assets/${articleImage}`
+    : undefined
+
   return (
     <PageTransition>
+      <SEOHead
+        title={title}
+        description={excerpt}
+        canonical={`https://polarisdx.net/articles/${slug}`}
+        ogType="article"
+        ogImage={ogImageUrl}
+        article={{
+          publishedTime: article.date,
+          author: article.author,
+          section: article.category,
+        }}
+        structuredData={[
+          createArticleSchema({
+            headline: title,
+            description: excerpt,
+            image: ogImageUrl || '/og-image.jpg',
+            url: `/articles/${slug}`,
+            datePublished: article.date,
+            authorName: article.author,
+          }),
+          createBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Artikel', url: '/articles' },
+            { name: title, url: `/articles/${slug}` },
+          ]),
+        ]}
+      />
       <div className="bg-slate-50">
         <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white">
           <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />

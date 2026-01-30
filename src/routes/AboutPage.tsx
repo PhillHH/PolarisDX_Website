@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { SEOHead, organizationSchema, createBreadcrumbSchema } from '../components/seo'
 import TeamSection from '../components/sections/TeamSection'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
@@ -8,6 +9,19 @@ const AboutPage = () => {
 
   return (
     <PageTransition>
+      <SEOHead
+        title={t('about:seo.title', 'Über PolarisDX - Unser Team & Mission')}
+        description={t('about:seo.description', 'PolarisDX steht für Innovation in der Point-of-Care Diagnostik. Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission.')}
+        canonical="https://polarisdx.net/about"
+        keywords={['PolarisDX Team', 'Über uns', 'POC Diagnostik Unternehmen', 'Medizintechnik Hamburg']}
+        structuredData={[
+          organizationSchema,
+          createBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Über uns', url: '/about' },
+          ]),
+        ]}
+      />
       <div className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white overflow-hidden">
         <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
         <div className="mx-auto max-w-container px-4 text-center lg:px-0 relative z-10">

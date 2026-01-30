@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { SEOHead } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 
@@ -14,6 +15,12 @@ const TermsPage = () => {
 
   return (
     <PageTransition>
+      <SEOHead
+        title={t('agb.seo.title', 'Allgemeine Geschäftsbedingungen (AGB)')}
+        description={t('agb.seo.description', 'Allgemeine Geschäftsbedingungen der Polaris Diagnostics Europe UG für den Verkauf von POC-Diagnostik Produkten.')}
+        canonical="https://polarisdx.net/terms"
+        noindex={true}
+      />
       <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-brand-primary text-white">
         <div className="mx-auto max-w-container px-4 text-center lg:px-0">
           <Reveal width="100%" yOffset={20}>

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Wifi, Battery, ShieldCheck, Layers } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { SEOHead, iglooProProductSchema, createBreadcrumbSchema } from '../components/seo';
 import SectionHeader from '../components/ui/SectionHeader';
 import PrimaryButton from '../components/ui/PrimaryButton';
 import iglooImage from '../assets/igloo_front.png'; // Using existing asset
@@ -62,6 +63,20 @@ const IglooProPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50">
+      <SEOHead
+        title={t('seo.title', 'IglooPro Analysegerät - Spezifikationen & Preise')}
+        description={t('seo.description', 'IglooPro POC-Reader: Immunfluoreszenz-Messung für Vitamin D, CRP, HbA1c in 3-15 Min. 600g tragbar, CV <2% Präzision. Jetzt Angebot anfordern!')}
+        canonical="https://polarisdx.net/igloo-pro"
+        ogType="product"
+        keywords={['IglooPro', 'POC Reader kaufen', 'Point-of-Care Analysegerät', 'Immunfluoreszenz', 'Vitamin D Schnelltest Gerät']}
+        structuredData={[
+          iglooProProductSchema,
+          createBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'IglooPro', url: '/igloo-pro' },
+          ]),
+        ]}
+      />
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 bg-gray-900 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />

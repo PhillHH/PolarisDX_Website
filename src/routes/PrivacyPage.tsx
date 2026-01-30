@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { SEOHead } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 
@@ -7,6 +8,12 @@ const PrivacyPage = () => {
 
   return (
     <PageTransition>
+      <SEOHead
+        title={t('privacy.seo.title', 'Datenschutzerklärung')}
+        description={t('privacy.seo.description', 'Datenschutzerklärung der Polaris Diagnostics Europe UG - Informationen zur Datenverarbeitung.')}
+        canonical="https://polarisdx.net/privacy"
+        noindex={true}
+      />
       <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-slate-50">
         <div className="mx-auto max-w-container px-4 lg:px-0">
           <Reveal width="100%" yOffset={20}>

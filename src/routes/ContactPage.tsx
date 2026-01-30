@@ -1,5 +1,6 @@
 import SectionHeader from '../components/ui/SectionHeader'
 import { useTranslation } from 'react-i18next'
+import { SEOHead, localBusinessSchema, createBreadcrumbSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import { ContactForm } from '../components/sections/ContactForm'
@@ -9,6 +10,19 @@ const ContactPage = () => {
 
   return (
     <PageTransition>
+      <SEOHead
+        title={t('contact:seo.title', 'Kontakt & Demo anfragen - PolarisDX')}
+        description={t('contact:seo.description', 'Kontaktieren Sie PolarisDX für eine IglooPro Demo oder Beratung. E-Mail: contact@polarisdx.net, Tel: +49 151 75011699. Schnelle Antwort garantiert.')}
+        canonical="https://polarisdx.net/contact"
+        keywords={['PolarisDX Kontakt', 'IglooPro Demo', 'POC Beratung', 'Medizintechnik Anfrage']}
+        structuredData={[
+          localBusinessSchema,
+          createBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Kontakt', url: '/contact' },
+          ]),
+        ]}
+      />
       <div className="bg-slate-50 text-gray-900">
         {/* Hero / Top */}
         <section className="relative overflow-hidden bg-brand-primary text-white">
