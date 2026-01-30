@@ -81,6 +81,7 @@
     "title": "We respect your privacy",
     "description": "We use cookies.",
     "accept_all": "Accept All",
+    "reject_all": "Only necessary",
     "settings": "Settings",
     "hide": "Hide",
     "save_selection": "Save",

@@ -8,6 +8,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+    <!-- ================================================================== -->
+    <!-- GOOGLE SITE VERIFICATION (Replace with your code) -->
+    <!-- ================================================================== -->
+    <meta name="google-site-verification" content="VERIFICATION-CODE" />
+
+    <!-- ================================================================== -->
+    <!-- GOOGLE TAG MANAGER + CONSENT MODE V2 (DSGVO-konform) -->
+    <!-- ================================================================== -->
+    <script>
+      // Google Consent Mode v2 - Default: DENIED (DSGVO/GDPR compliant)
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      // Set default consent state BEFORE GTM loads
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'functionality_storage': 'granted',
+        'personalization_storage': 'denied',
+        'security_storage': 'granted',
+        'wait_for_update': 500
+      });
+
+      // Check if consent was previously given
+      (function() {
+        try {
+          var consent = localStorage.getItem('cookie-consent');
+          if (consent) {
+            var preferences = JSON.parse(consent);
+            var analyticsEnabled = preferences.find(function(c) { return c.id === 'analytics'; });
+            var marketingEnabled = preferences.find(function(c) { return c.id === 'marketing'; });
+
+            if (analyticsEnabled && analyticsEnabled.enabled) {
+              gtag('consent', 'update', {
+                'analytics_storage': 'granted'
+              });
+            }
+            if (marketingEnabled && marketingEnabled.enabled) {
+              gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'ad_user_data': 'granted',
+                'ad_personalization': 'granted'
+              });
+            }
+          }
+        } catch (e) {
+          // Ignore localStorage errors
+        }
+      })();
+    </script>
+
+    <!-- Google Tag Manager (Replace GTM-XXXXXXX with your Container ID) -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+    <!-- End Google Tag Manager -->
+
     <!-- Primary Meta Tags -->
     <title>IglooPro POC-Reader | Point-of-Care Diagnostik | PolarisDX</title>
     <meta name="title" content="IglooPro POC-Reader | Point-of-Care Diagnostik | PolarisDX" />
@@ -283,6 +344,11 @@
 
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <!--
       SEO-Hinweis für SPA:
       Der folgende Inhalt ist ein Fallback für Crawler ohne JavaScript.
