@@ -39,11 +39,12 @@ export const useSearch = (query: string) => {
       path: '/contact',
       keywords: t('common:search.keywords.contact', 'contact kontakt email phone address')
     },
-    {
-      title: t('nav.casestudies', 'Case Study'),
-      path: '/casestudys/32reasons',
-      keywords: t('common:search.keywords.casestudies', 'case study 32reasons polaris dx dentistry')
-    },
+    // Case study temporarily disabled
+    // {
+    //   title: t('nav.casestudies', 'Case Study'),
+    //   path: '/casestudys/32reasons',
+    //   keywords: t('common:search.keywords.casestudies', 'case study 32reasons polaris dx dentistry')
+    // },
     {
       title: t('nav.terms', 'AGB'),
       path: '/terms',

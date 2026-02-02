@@ -5,7 +5,7 @@ WORKDIR /app
 # 1. OPTIMIERUNG FÜR CACHING (Ändert sich selten)
 # Kopiert nur die Dateien, die die Abhängigkeiten definieren.
 # Solange diese Dateien unverändert sind, wird der Cache für 'npm ci' verwendet.
-COPY package*.json ./
+COPY package*.json .npmrc ./
 RUN npm ci
 
 # 2. ANWENDUNGSCODE KOPIEREN (Ändert sich häufig)

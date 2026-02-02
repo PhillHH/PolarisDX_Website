@@ -184,12 +184,13 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- Case Study -->
+  <!-- Case Study (temporarily disabled)
   <url>
     <loc>https://polarisdx.net/casestudys/32reasons</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
+  -->
 
   <!-- ===================================================================== -->
   <!-- LEGAL PAGES - Required but low SEO priority -->

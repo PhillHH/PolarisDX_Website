@@ -4,7 +4,7 @@ import HeroSection from '../components/sections/HeroSection'
 import AboutSection from '../components/sections/AboutSection'
 import DoctorsSection from '../components/sections/DoctorsSection'
 import IglooWidgetSection from '../components/sections/IglooWidgetSection'
-import FeaturedCaseStudy from '../components/sections/FeaturedCaseStudy'
+// import FeaturedCaseStudy from '../components/sections/FeaturedCaseStudy' // temporarily disabled
 import TestimonialsSection from '../components/sections/TestimonialsSection'
 import BlogSection from '../components/sections/BlogSection'
 import Reveal from '../components/ui/Reveal'
@@ -29,9 +29,9 @@ const HomePage = () => {
         <Reveal width="100%">
           <IglooWidgetSection />
         </Reveal>
-        <Reveal width="100%">
+        {/* <Reveal width="100%">
           <FeaturedCaseStudy />
-        </Reveal>
+        </Reveal> */}
         <Reveal width="100%">
           <DoctorsSection />
         </Reveal>

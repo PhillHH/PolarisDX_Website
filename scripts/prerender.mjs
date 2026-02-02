@@ -53,7 +53,7 @@ const ROUTES = [
   '/terms',
   '/events',
   '/igloo-pro',
-  '/casestudys/32reasons',
+  // '/casestudys/32reasons', // temporarily disabled
   '/downloads',
 
   // Article routes (from articles.json)
