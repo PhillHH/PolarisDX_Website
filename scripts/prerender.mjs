@@ -56,27 +56,24 @@ const ROUTES = [
   // '/casestudys/32reasons', // temporarily disabled
   '/downloads',
 
-  // Article routes (from articles.json)
-  '/articles/green_practice',
-  '/articles/invisible_patient',
-  '/articles/five_minute_diagnosis',
-  '/articles/ecosystem_of_rapid_tests',
-  '/articles/rapid_setup_formula',
-  '/articles/precision_point_of_care',
-  '/articles/first_checkup',
-  '/articles/managing_diabetes',
-  '/articles/home_care',
+  // Article routes (must match slugs in articles.ts and sitemap.xml)
+  '/articles/die-gruene-praxis',
+  '/articles/der-unsichtbare-patient',
+  '/articles/die-5-minuten-diagnose',
+  '/articles/the-ecosystem-of-rapid-tests-why-compatibility-creates-safety',
+  '/articles/die-performance-formel-effizienz-in-der-poc-diagnostik',
+  '/articles/precision-in-point-of-care-the-key-to-patient-safety',
 
-  // Service routes (from services.json)
+  // Service routes (must match IDs in services.tsx and sitemap.xml)
   '/services/dental',
   '/services/beauty',
   '/services/longevity',
-  '/services/poc_systemloesungen',
-  '/services/praeventions_checks',
-  '/services/infektion_entzuendung',
-  '/services/stoffwechsel_herz',
-  '/services/hormon_tests',
-  '/services/kompatibilitaet_integration',
+  '/services/poc-systemloesungen',
+  '/services/praeventions-checks',
+  '/services/infektion-entzuendung',
+  '/services/stoffwechsel-herz',
+  '/services/hormon-tests',
+  '/services/kompatibilitaet-integration',
 ];
 
 // =============================================================================
