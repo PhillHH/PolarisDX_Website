@@ -69,7 +69,7 @@
     })(window,document,'script','dataLayer','GTM-TW6JFX7K');</script>
     <!-- End Google Tag Manager -->
 
-    <!-- Primary Meta Tags -->
+    <!-- Primary Meta Tags (Fallback - SSR überschreibt diese via Helmet) -->
     <title>IglooPro POC-Reader | Point-of-Care Diagnostik | PolarisDX</title>
     <meta name="title" content="IglooPro POC-Reader | Point-of-Care Diagnostik | PolarisDX" />
     <meta name="description" content="IglooPro: Laborpräzise POC-Diagnostik in 3-15 Min. Vitamin D, CRP, HbA1c direkt in Ihrer Praxis. Ideal für Zahnarzt, Beauty & Longevity. Jetzt Termin buchen!" />
@@ -342,6 +342,11 @@
     }
     </script>
 
+    <!-- ================================================================== -->
+    <!-- SSR HELMET HEAD INJECTION POINT -->
+    <!-- ================================================================== -->
+    <!--helmet-head-->
+
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -349,46 +354,9 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <!--
-      SEO-Hinweis für SPA:
-      Der folgende Inhalt ist ein Fallback für Crawler ohne JavaScript.
-      React rendert die vollständige App in #root.
-    -->
-    <div id="root">
-      <noscript>
-        <header>
-          <h1>PolarisDX - Point-of-Care Diagnostik</h1>
-          <p>IglooPro POC-Reader: Laborpräzise Diagnostik in 3-15 Minuten</p>
-        </header>
-        <main>
-          <section>
-            <h2>IglooPro: Point-of-Care. Perfekt. Sofort.</h2>
-            <p>Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 3-5 Werktagen einsatzbereit – garantiert.</p>
-            <ul>
-              <li>Vitamin D3, CRP, HbA1c, TSH und mehr</li>
-              <li>Messdauer: 3-15 Minuten</li>
-              <li>Präzision: CV &lt; 2%</li>
-              <li>600g - tragbar und kompakt</li>
-            </ul>
-          </section>
-          <section>
-            <h2>Anwendungsbereiche</h2>
-            <ul>
-              <li>Dental - Optimierte Implantologie</li>
-              <li>Beauty - Wissenschaftliche Ästhetik</li>
-              <li>Longevity - Proaktives Alternsmanagement</li>
-            </ul>
-          </section>
-          <section>
-            <h2>Kontakt</h2>
-            <p>PolarisDX Europe UG</p>
-            <p>Große Bleichen 1-3, 20354 Hamburg</p>
-            <p>E-Mail: info@polarisdx.net</p>
-            <p>Telefon: +44 7879 433019</p>
-          </section>
-        </main>
-      </noscript>
-    </div>
-    <script type="module" src="/src/main.tsx"></script>
+    <!-- React App Root - SSR Content wird hier injiziert -->
+    <div id="root"><!--ssr-outlet--></div>
+
+    <script type="module" src="/src/entry-client.tsx"></script>
   </body>
 </html>

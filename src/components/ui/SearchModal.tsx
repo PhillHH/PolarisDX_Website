@@ -40,6 +40,9 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
 
   if (!isOpen) return null
 
+  // SSR Guard: document.body is not available on server
+  if (typeof document === 'undefined') return null
+
   return createPortal(
     <div className="fixed inset-0 z-50 flex items-start justify-center bg-gray-900/60 backdrop-blur-sm pt-20 sm:pt-32 px-4">
 
