@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { getArticleImageUrl } from '../../assets/articleImages'
 
 type ProductCardProps = {
   id: string
@@ -12,7 +13,8 @@ type ProductCardProps = {
 
 const ProductCard = ({ id, category, price, to, badge, image }: ProductCardProps) => {
   const { t } = useTranslation(['shop', 'common'])
-  const imageUrl = image ? new URL(`../../assets/${image}`, import.meta.url).href : undefined
+  // SSR-safe: Verwende zentrale Bild-Imports
+  const imageUrl = getArticleImageUrl(image)
 
   // Transform ID to key format (e.g., "igloo-reader-pro" -> "igloo_reader_pro")
   // Using simple replacement of - to _ might be fragile if IDs are not consistent,
@@ -30,6 +32,7 @@ const ProductCard = ({ id, category, price, to, badge, image }: ProductCardProps
           <img
             src={imageUrl}
             alt={t(`shop:products.${productKey}.name`)}
+            loading="lazy"
             className="absolute inset-0 h-full w-full object-cover"
           />
         )}

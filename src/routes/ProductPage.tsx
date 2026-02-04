@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import PrimaryButton from '../components/ui/PrimaryButton'
 import { products, getProductBySlug } from '../data/products'
 import type { TechSpec } from '../types'
+import { getArticleImageUrl } from '../assets/articleImages'
 
 const ProductPage = () => {
   const { t } = useTranslation(['shop', 'common'])
@@ -69,10 +70,11 @@ const ProductPage = () => {
       <div className="mx-auto max-w-container px-4 py-12 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,1.5fr)] lg:items-start lg:gap-12 lg:px-0 lg:py-16">
         <section className="space-y-8 text-gray-700">
           <div className="w-full overflow-hidden rounded-lg aspect-[4/3] bg-slate-200">
-            {product.image && (
+            {product.image && getArticleImageUrl(product.image) && (
               <img
-                src={new URL(`../assets/${product.image}`, import.meta.url).href}
+                src={getArticleImageUrl(product.image)}
                 alt={t(`shop:products.${productKey}.name`)}
+                loading="lazy"
                 className="w-full h-full object-cover"
               />
             )}

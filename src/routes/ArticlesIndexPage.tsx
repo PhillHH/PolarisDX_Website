@@ -6,6 +6,7 @@ import BlogCard from '../components/ui/BlogCard'
 import { blogPosts } from '../data/blogPosts'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
+import { getArticleImageUrl } from '../assets/articleImages'
 
 const ArticlesIndexPage = () => {
   const { t } = useTranslation(['articles', 'shop', 'common'])
@@ -61,9 +62,8 @@ const ArticlesIndexPage = () => {
 
             <div className="mt-10 grid gap-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
               {blogPosts.map((post) => {
-                const imageUrl = post.image
-                  ? new URL(`../assets/${post.image}`, import.meta.url).href
-                  : undefined
+                // SSR-safe: Verwende zentrale Bild-Imports
+                const imageUrl = getArticleImageUrl(post.image)
 
                 return (
                   <BlogCard
