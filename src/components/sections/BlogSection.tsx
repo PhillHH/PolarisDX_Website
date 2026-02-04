@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import SectionHeader from '../ui/SectionHeader'
 import BlogCard from '../ui/BlogCard'
 import { blogPosts } from '../../data/blogPosts'
+import { getArticleImageUrl } from '../../assets/articleImages'
 
 const BlogSection = () => {
   const { t } = useTranslation('home')
@@ -15,9 +16,8 @@ const BlogSection = () => {
 
       <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
         {blogPosts.slice(0, 3).map((post) => {
-          const imageUrl = post.image
-            ? new URL(`../../assets/${post.image}`, import.meta.url).href
-            : undefined
+          // SSR-safe: Verwende zentrale Bild-Imports statt dynamischer URLs
+          const imageUrl = getArticleImageUrl(post.image)
 
           return (
             <BlogCard

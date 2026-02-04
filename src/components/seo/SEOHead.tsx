@@ -55,6 +55,8 @@ export interface SEOHeadProps {
   };
   /** Keywords for meta keywords tag (optional, low SEO impact) */
   keywords?: string[];
+  /** Critical images to preload for LCP optimization */
+  preloadImages?: string[];
 }
 
 // =============================================================================
@@ -96,6 +98,7 @@ export function SEOHead({
   article,
   product,
   keywords,
+  preloadImages,
 }: SEOHeadProps) {
   const { i18n } = useTranslation();
   const location = useLocation();
@@ -224,6 +227,17 @@ export function SEOHead({
           )}
         </script>
       )}
+
+      {/* Preload critical images for LCP optimization */}
+      {preloadImages?.map((imageUrl) => (
+        <link
+          key={imageUrl}
+          rel="preload"
+          as="image"
+          href={imageUrl}
+          fetchPriority="high"
+        />
+      ))}
     </Helmet>
   );
 }

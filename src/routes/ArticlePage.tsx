@@ -8,6 +8,7 @@ import Reveal from '../components/ui/Reveal'
 import { useArticles } from '../hooks/useArticles'
 import { LoadingSpinner } from '../components/ui/LoadingSpinner'
 import { Alert } from '../components/ui/Alert'
+import { getArticleImageUrl } from '../assets/articleImages'
 
 // Local types for UI rendering logic which involves Discriminated Unions
 // that are not part of the simpler data model in types/models.ts
@@ -274,11 +275,12 @@ const ArticlePage = () => {
               />
 
               <div className="relative w-full overflow-hidden rounded-lg aspect-[8/3] bg-slate-200 mt-6">
-                {articleImage && (
+                {articleImage && getArticleImageUrl(articleImage) && (
                   <>
                     <img
-                      src={new URL(`../assets/${articleImage}`, import.meta.url).href}
+                      src={getArticleImageUrl(articleImage)}
                       alt={title}
+                      loading="lazy"
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-brand-primary/20 mix-blend-multiply" />
