@@ -1,0 +1,7 @@
+services:
+  emailer:
+    build: .
+    volumes:
+      - .:/app
+    env_file:
+      - .env

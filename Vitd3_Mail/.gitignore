@@ -1,0 +1,11 @@
+# Environment
+.env
+
+# Excel Dateien mit echten Daten
+empfaenger.xlsx
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
