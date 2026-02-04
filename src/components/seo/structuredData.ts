@@ -160,6 +160,13 @@ export function createFAQSchema(items: FAQItem[]) {
 // ARTICLE SCHEMA GENERATOR
 // =============================================================================
 
+export interface ArticleAuthor {
+  name: string;
+  type?: 'Person' | 'Organization';
+  jobTitle?: string;
+  url?: string;
+}
+
 export interface ArticleSchemaOptions {
   headline: string;
   description: string;
@@ -168,12 +175,28 @@ export interface ArticleSchemaOptions {
   datePublished: string;
   dateModified?: string;
   authorName?: string;
+  author?: ArticleAuthor;
+  reviewedBy?: ArticleAuthor;
+  articleType?: 'Article' | 'MedicalWebPage';
 }
 
 export function createArticleSchema(options: ArticleSchemaOptions) {
+  const authorData = options.author
+    ? {
+        '@type': options.author.type || 'Organization',
+        name: options.author.name,
+        ...(options.author.jobTitle && { jobTitle: options.author.jobTitle }),
+        ...(options.author.url && { url: options.author.url }),
+      }
+    : {
+        '@type': 'Organization',
+        name: options.authorName || 'PolarisDX',
+        url: BASE_URL,
+      };
+
   return {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': options.articleType || 'Article',
     headline: options.headline,
     description: options.description,
     image: options.image.startsWith('http')
@@ -184,11 +207,14 @@ export function createArticleSchema(options: ArticleSchemaOptions) {
       : `${BASE_URL}${options.url}`,
     datePublished: options.datePublished,
     dateModified: options.dateModified || options.datePublished,
-    author: {
-      '@type': 'Organization',
-      name: options.authorName || 'PolarisDX',
-      url: BASE_URL,
-    },
+    author: authorData,
+    ...(options.reviewedBy && {
+      reviewedBy: {
+        '@type': options.reviewedBy.type || 'Person',
+        name: options.reviewedBy.name,
+        ...(options.reviewedBy.jobTitle && { jobTitle: options.reviewedBy.jobTitle }),
+      },
+    }),
     publisher: {
       '@id': `${BASE_URL}/#organization`,
     },

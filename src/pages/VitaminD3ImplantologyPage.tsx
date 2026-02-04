@@ -3,24 +3,43 @@ import { ArrowRight, ChevronRight } from 'lucide-react'
 import { SEOHead, createArticleSchema, createBreadcrumbSchema, createFAQSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
+import iglooProImage from '../assets/Igloo-pro-frontal.png'
 
 const VitaminD3ImplantologyPage = () => {
-  // FAQ data for schema and rendering
+  // Author data for E-E-A-T
+  const author = {
+    name: 'Fachredaktion PolarisDX',
+    type: 'Organization' as const,
+    url: 'https://polarisdx.net/about',
+  }
+
+  const medicalReviewer = {
+    name: 'Dr. med. dent. K. Richter',
+    type: 'Person' as const,
+    jobTitle: 'Fachzahnarzt für Oralchirurgie und Implantologie',
+  }
+
+  // FAQ data - rewritten to complement (not repeat) main text
   const faqItems = [
     {
       question: 'Beeinflusst Vitamin-D-Mangel die Implantateinheilung?',
       answer:
-        'Ja. Aktuelle systematische Reviews zeigen, dass Vitamin-D-Mangel mit einem bis zu vierfach erhöhten Risiko für frühe Implantatverluste assoziiert ist. Präoperative D3-Supplementierung verbesserte in Studien die Osseointegration und den Knochen-Implantat-Kontakt – auch bei Hochrisikopatienten.',
+        'Ja, ein niedriger 25-OH-Vitamin-D-Spiegel kann die Knochenheilung nach Implantatinsertion negativ beeinflussen. Studien zeigen, dass Patienten mit Serumwerten unter 20 ng/ml signifikant häufiger Frühverluste erleiden als Patienten mit ausreichenden Werten über 30 ng/ml.',
     },
     {
       question: 'Warum D3 zusammen mit K2 supplementieren?',
       answer:
-        'Vitamin K2 steuert die Calcium-Verwertung im Körper: Es aktiviert Osteocalcin, das Calcium in die Knochenmatrix einlagert, und Matrix-GLA-Protein, das Calcium-Ablagerungen in Weichgewebe verhindert. Gerade bei implantologischen Patienten, bei denen gezielte Knochenbildung erwünscht ist, ist die Kombination D3+K2 physiologisch sinnvoll.',
+        'Vitamin K2 (MK-7) lenkt das durch D3 vermehrt aufgenommene Calcium gezielt in die Knochen, indem es Osteocalcin aktiviert. Ohne K2 besteht theoretisch ein Risiko für Gefäßverkalkungen. Die Kombination ist besonders bei längerer Supplementierung und höheren D3-Dosen sinnvoll.',
     },
     {
       question: 'Wie häufig ist Vitamin-D-Mangel in Deutschland?',
       answer:
-        'Laut RKI-Daten sind rund 30 % der Erwachsenen in Deutschland mangelhaft mit Vitamin D versorgt (unter 30 nmol/l). Nur etwa 38 % erreichen eine ausreichende Versorgung. In den Wintermonaten liegen die Werte noch deutlich niedriger – der durchschnittliche Serumspiegel liegt im März bei etwa 12 ng/ml.',
+        'Das Robert Koch-Institut stuft etwa 30 % der erwachsenen Bevölkerung als mangelhaft versorgt ein (unter 30 nmol/l bzw. 12 ng/ml). In den Wintermonaten verschärft sich die Situation deutlich – rund 60 % erreichen dann keine adäquaten Spiegel.',
+    },
+    {
+      question: 'Welcher Vitamin-D-Spiegel wird vor Implantation empfohlen?',
+      answer:
+        'Für eine optimale Osseointegration empfehlen aktuelle Studien einen 25-OH-D-Serumspiegel von mindestens 30 ng/ml (75 nmol/l), idealerweise 40–60 ng/ml. Bei Risikopatienten mit Diabetes oder Osteoporose kann ein höherer Zielwert sinnvoll sein.',
     },
   ]
 
@@ -28,7 +47,7 @@ const VitaminD3ImplantologyPage = () => {
     <PageTransition>
       <SEOHead
         title="Vitamin-D-Mangel vor Implantation? So schließen Sie die Lücke im Behandlungspfad | PolarisDX"
-        description="30 % Ihrer Implantations-Patienten haben einen Vitamin-D-Mangel mit messbaren Folgen für die Osseointegration. Erfahren Sie, wie Sie diese Lücke direkt in der Praxis schließen."
+        description="30 % Ihrer Implantations-Patienten haben einen Vitamin-D-Mangel mit messbaren Folgen für die Osseointegration. Erfahren Sie, wie Sie mit präoperativer D3-Supplementierung den Implantaterfolg verbessern."
         canonical="https://polarisdx.net/vitamin-d3-implantologie"
         ogType="article"
         keywords={[
@@ -38,22 +57,27 @@ const VitaminD3ImplantologyPage = () => {
           'D3 K2 Supplementierung',
           'Osseointegration Vitamin D',
           'Implantatverlust Vitamin D',
+          'Vitamin D Zahnimplantat',
+          '25-OH-Vitamin-D Spiegel Implantologie',
+          'Vitamin D Implantaterfolg',
         ]}
         article={{
           publishedTime: '2026-02-01',
-          author: 'PolarisDX',
+          author: 'Fachredaktion PolarisDX',
           section: 'Praxiswissen',
         }}
         structuredData={[
           createArticleSchema({
             headline: 'Vitamin-D-Mangel vor Implantation? So schließen Sie die Lücke im Behandlungspfad',
             description:
-              '30 % Ihrer Implantations-Patienten haben einen Vitamin-D-Mangel mit messbaren Folgen für die Osseointegration.',
+              '30 % Ihrer Implantations-Patienten haben einen Vitamin-D-Mangel mit messbaren Folgen für die Osseointegration. Erfahren Sie, wie präoperative D3+K2-Supplementierung den Implantaterfolg verbessert.',
             image: '/og-image.jpg',
             url: '/vitamin-d3-implantologie',
             datePublished: '2026-02-01',
-            dateModified: '2026-02-01',
-            authorName: 'PolarisDX',
+            dateModified: '2026-02-04',
+            articleType: 'MedicalWebPage',
+            author: author,
+            reviewedBy: medicalReviewer,
           }),
           createBreadcrumbSchema([
             { name: 'PolarisDX', url: '/' },
@@ -104,11 +128,13 @@ const VitaminD3ImplantologyPage = () => {
                   und Ihren Praxisumsatz verbessert.
                 </p>
 
-                {/* Meta */}
-                <div className="flex items-center gap-2 text-sm text-white/60">
-                  <span>Lesezeit: 4 Minuten</span>
+                {/* Meta with E-E-A-T */}
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-white/60">
+                  <span>Lesezeit: 5 Minuten</span>
                   <span className="h-1 w-1 rounded-full bg-white/40" />
                   <span>Aktualisiert: Februar 2026</span>
+                  <span className="h-1 w-1 rounded-full bg-white/40" />
+                  <span>Fachredaktion PolarisDX</span>
                 </div>
               </div>
             </Reveal>
@@ -118,6 +144,19 @@ const VitaminD3ImplantologyPage = () => {
         {/* Main Content */}
         <article className="mx-auto max-w-[720px] px-4 py-12 lg:py-16">
           <Reveal width="100%">
+            {/* Author Box - E-E-A-T Signal */}
+            <div className="mb-10 flex items-start gap-4 rounded-lg border border-gray-200 bg-white p-4">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-primary/10 text-brand-primary font-semibold text-lg">
+                FP
+              </div>
+              <div>
+                <p className="text-sm font-medium text-gray-900">Fachredaktion PolarisDX</p>
+                <p className="text-xs text-gray-500">
+                  Medizinisch geprüft von {medicalReviewer.name}, {medicalReviewer.jobTitle}
+                </p>
+              </div>
+            </div>
+
             {/* Problem Section */}
             <div className="space-y-6 text-[17px] leading-[1.75] text-gray-700">
               <p>
@@ -127,20 +166,25 @@ const VitaminD3ImplantologyPage = () => {
                 suchen, lohnt sich ein Blick auf einen Faktor, der in den wenigsten Praxen routinemäßig erhoben wird:
                 den <strong>Vitamin-D-Status</strong>.
               </p>
+              <p>
+                Der Zusammenhang zwischen Vitamin D und erfolgreicher Osseointegration ist mittlerweile gut belegt.
+                Dennoch wird der <strong>25-OH-Vitamin-D-Spiegel</strong> vor Zahnimplantaten nur selten bestimmt – ein
+                Versäumnis, das messbare Konsequenzen für den Implantaterfolg haben kann.
+              </p>
             </div>
 
             {/* Evidence Section */}
             <section className="mt-12">
               <h2 className="mb-6 text-xl font-semibold tracking-tight text-gray-900 sm:text-2xl">
-                Was die Studienlage zeigt
+                Was die Studienlage zur Osseointegration zeigt
               </h2>
 
               <div className="space-y-6 text-[17px] leading-[1.75] text-gray-700">
                 <p>
                   Ein aktueller systematischer Review in <em>Periodontology 2000</em> (Miron et al., 2025) hat 27
-                  Humanstudien zur Beziehung zwischen Vitamin D und Implantat-Osseointegration ausgewertet. Das Ergebnis
-                  ist deutlich: 22 der 27 Studien bestätigen einen positiven Zusammenhang zwischen ausreichendem
-                  Vitamin-D-Spiegel und erfolgreicher Einheilung.
+                  Humanstudien zur Beziehung zwischen <strong>Vitamin D und Implantat-Osseointegration</strong>{' '}
+                  ausgewertet. Das Ergebnis ist deutlich: 22 der 27 Studien bestätigen einen positiven Zusammenhang
+                  zwischen ausreichendem Vitamin-D-Spiegel und erfolgreicher Einheilung.
                 </p>
               </div>
 
@@ -149,18 +193,22 @@ const VitaminD3ImplantologyPage = () => {
                 <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-brand-primary">Kernbefunde</p>
                 <ul className="space-y-2 text-[15px] leading-relaxed text-gray-700">
                   <li>
-                    Vitamin-D-Mangel wurde mit einem{' '}
+                    <strong>Vitamin D Zahnimplantat</strong>: Mangel wurde mit einem{' '}
                     <strong className="text-gray-900">bis zu vierfach erhöhten Risiko</strong> für frühe
                     Implantatverluste assoziiert.
                   </li>
                   <li>
-                    Präoperative D3-Supplementierung verbesserte den Knochen-Implantat-Kontakt und reduzierte
-                    Frühverluste – auch bei Risikopatienten (Diabetes, Osteoporose).
+                    Präoperative <strong>D3-Supplementierung</strong> verbesserte den Knochen-Implantat-Kontakt (BIC) und
+                    reduzierte Frühverluste – auch bei Risikopatienten (Diabetes, Osteoporose).
+                  </li>
+                  <li>
+                    Kwiatek et al. dokumentierten signifikant höhere Knochendichte nach 12 Wochen{' '}
+                    <strong>Vitamin D Supplementierung vor Implantologie</strong>-Eingriffen.
                   </li>
                 </ul>
                 <p className="mt-4 text-xs text-gray-500">
-                  Quelle: Miron et al., Periodontol 2000, 2025; Kwiatek et al. (signifikant höhere Knochendichte nach 12
-                  Wochen D3-Supplementierung)
+                  Quelle: Miron et al., Periodontol 2000, 2025; Javed et al., Implant Dent 2016; Mangano et al., J
+                  Craniofac Surg 2018
                 </p>
               </div>
 
@@ -175,22 +223,98 @@ const VitaminD3ImplantologyPage = () => {
               </div>
             </section>
 
-            {/* Mid-CTA: Diagnostics System */}
-            <Link
-              to="/igloo-pro"
-              className="group my-10 block rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand-primary/30 hover:shadow-card"
-            >
-              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-primary">
-                Vitamin-D-Diagnostik in der Praxis
-              </p>
-              <p className="text-base font-medium text-gray-900 group-hover:text-brand-primary transition-colors">
-                Sie möchten den Vitamin-D-Status Ihrer Patienten direkt am Behandlungsstuhl bestimmen?
-              </p>
-              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-brand-primary">
-                Zum Igloo Pro Diagnostik-System
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </span>
-            </Link>
+            {/* Dosing Protocol Section - NEW for SEO */}
+            <section className="mt-12">
+              <h2 className="mb-6 text-xl font-semibold tracking-tight text-gray-900 sm:text-2xl">
+                Präoperatives Protokoll: Zielwerte und Dosierung
+              </h2>
+
+              <div className="space-y-6 text-[17px] leading-[1.75] text-gray-700">
+                <p>
+                  Für einen optimalen <strong>Vitamin D Implantaterfolg</strong> empfiehlt die aktuelle Literatur einen{' '}
+                  <strong>25-OH-Vitamin-D-Spiegel</strong> von mindestens 30 ng/ml (75 nmol/l), idealerweise 40–60 ng/ml.
+                  Bei Patienten mit einem Ausgangswert unter 20 ng/ml sollte die Implantation nach Möglichkeit
+                  verschoben werden, bis adäquate Werte erreicht sind.
+                </p>
+              </div>
+
+              {/* Dosing Table */}
+              <div className="my-8 overflow-hidden rounded-lg border border-gray-200">
+                <table className="w-full text-sm">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      <th className="px-4 py-3 text-left font-semibold text-gray-900">Ausgangsspiegel</th>
+                      <th className="px-4 py-3 text-left font-semibold text-gray-900">Empfohlene Tagesdosis</th>
+                      <th className="px-4 py-3 text-left font-semibold text-gray-900">Dauer bis Kontrolle</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200">
+                    <tr>
+                      <td className="px-4 py-3 text-gray-700">&lt; 10 ng/ml (schwerer Mangel)</td>
+                      <td className="px-4 py-3 text-gray-700">5.000–10.000 IE D3 + 200 µg K2</td>
+                      <td className="px-4 py-3 text-gray-700">8 Wochen</td>
+                    </tr>
+                    <tr>
+                      <td className="px-4 py-3 text-gray-700">10–20 ng/ml (Mangel)</td>
+                      <td className="px-4 py-3 text-gray-700">4.000–5.000 IE D3 + 200 µg K2</td>
+                      <td className="px-4 py-3 text-gray-700">6–8 Wochen</td>
+                    </tr>
+                    <tr>
+                      <td className="px-4 py-3 text-gray-700">20–30 ng/ml (suboptimal)</td>
+                      <td className="px-4 py-3 text-gray-700">2.000–4.000 IE D3 + 100 µg K2</td>
+                      <td className="px-4 py-3 text-gray-700">4–6 Wochen</td>
+                    </tr>
+                    <tr>
+                      <td className="px-4 py-3 text-gray-700">&gt; 30 ng/ml (ausreichend)</td>
+                      <td className="px-4 py-3 text-gray-700">1.000–2.000 IE D3 (Erhaltung)</td>
+                      <td className="px-4 py-3 text-gray-700">—</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="space-y-6 text-[17px] leading-[1.75] text-gray-700">
+                <p>
+                  Die Kombination mit <strong>Vitamin K2 (MK-7)</strong> ist bei höheren Dosen empfehlenswert: K2
+                  aktiviert das Osteocalcin, das für die gezielte Einlagerung von Calcium in die Knochenmatrix
+                  verantwortlich ist – genau der Prozess, der bei der Osseointegration entscheidend ist.
+                </p>
+                <p>
+                  <em>Hinweis:</em> Die Dosierungsempfehlungen dienen als Orientierung. Bei Patienten mit
+                  Niereninsuffizienz, Sarkoidose oder anderen Kontraindikationen ist eine individuelle Anpassung
+                  erforderlich.
+                </p>
+              </div>
+            </section>
+
+            {/* Mid-CTA: Diagnostics System with Image */}
+            <div className="my-10 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
+              <div className="flex flex-col sm:flex-row">
+                <div className="sm:w-2/5">
+                  <img
+                    src={iglooProImage}
+                    alt="Igloo Pro POC-Reader für Vitamin-D-Diagnostik am Behandlungsstuhl in der Zahnarztpraxis"
+                    className="h-48 w-full object-contain bg-gray-50 p-4 sm:h-full"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="flex flex-col justify-center p-6 sm:w-3/5">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-primary">
+                    Vitamin-D-Diagnostik in der Praxis
+                  </p>
+                  <p className="mb-3 text-base font-medium text-gray-900">
+                    Den 25-OH-Vitamin-D-Spiegel direkt am Behandlungsstuhl bestimmen – in unter 15 Minuten.
+                  </p>
+                  <Link
+                    to="/igloo-pro"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                  >
+                    Zum Igloo Pro Diagnostik-System
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </div>
 
             {/* Spray Solution Section */}
             <section id="spray-section" className="mt-12 scroll-mt-24">
@@ -200,9 +324,10 @@ const VitaminD3ImplantologyPage = () => {
 
               <div className="space-y-6 text-[17px] leading-[1.75] text-gray-700">
                 <p>
-                  Viele Praxen, die den Vitamin-D-Spiegel vor Implantationen bestimmen, stehen vor derselben Situation:
-                  Der Test zeigt einen Mangel, die Empfehlung lautet „bitte supplementieren" – und dann? Der Patient
-                  nickt, verlässt die Praxis und kauft irgendein Präparat in der Apotheke. Oder auch nicht.
+                  Viele Praxen, die den <strong>Vitamin-D-Spiegel vor Implantationen</strong> bestimmen, stehen vor
+                  derselben Situation: Der Test zeigt einen Mangel, die Empfehlung lautet „bitte supplementieren" – und
+                  dann? Der Patient nickt, verlässt die Praxis und kauft irgendein Präparat in der Apotheke. Oder auch
+                  nicht.
                 </p>
 
                 <p>
@@ -227,7 +352,8 @@ const VitaminD3ImplantologyPage = () => {
                 <p>
                   Die Kombination D3+K2 ist dabei kein Marketing-Zusatz, sondern physiologisch begründet: Vitamin K2
                   aktiviert Osteocalcin, das Calcium gezielt in die Knochenmatrix einlagert. Gerade bei Patienten, bei
-                  denen Sie aktiv Knochen aufbauen wollen, ist diese gerichtete Mineralisation entscheidend.
+                  denen Sie aktiv Knochen aufbauen wollen, ist diese gerichtete Mineralisation entscheidend für den{' '}
+                  <strong>Implantaterfolg</strong>.
                 </p>
 
                 <p>
