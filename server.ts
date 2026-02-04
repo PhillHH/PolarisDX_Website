@@ -139,6 +139,7 @@ async function createServer() {
 
   // ---------------------------------------------------------------------------
   // SSR HANDLER (Express 5 Wildcard Syntax)
+  // Note: robots.txt and sitemap.xml are served from public/ folder
   // ---------------------------------------------------------------------------
   app.get('/{*path}', async (req: Request, res: Response, next: NextFunction) => {
     const url = req.originalUrl
