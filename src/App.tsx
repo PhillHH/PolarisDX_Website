@@ -15,6 +15,7 @@ import PrivacyPage from './routes/PrivacyPage'
 import ImprintPage from './routes/ImprintPage'
 import EventsPage from './pages/EventsPage'
 import IglooProPage from './pages/IglooProPage'
+import VitaminD3ImplantologyPage from './pages/VitaminD3ImplantologyPage'
 import NotFoundPage from './pages/NotFoundPage'
 // import CaseStudy32Reasons from './routes/CaseStudy32Reasons' // temporarily disabled
 import { CookieBanner } from './components/ui/CookieBanner'
@@ -39,6 +40,7 @@ function App() {
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/igloo-pro" element={<IglooProPage />} />
+        <Route path="/vitamin-d3-implantologie" element={<VitaminD3ImplantologyPage />} />
         {/* <Route path="/casestudys/32reasons" element={<CaseStudy32Reasons />} /> */}
         {/* Shop temporarily disabled */}
         {/* <Route path="/shop" element={<ShopPage />} /> */}
