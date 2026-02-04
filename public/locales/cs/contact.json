@@ -1,0 +1,50 @@
+{
+  "contact": {
+    "hero": {
+      "kicker": "SJEDNAT SCHŮZKU",
+      "title": "Sjednat schůzku",
+      "breadcrumb": "Domů / Kontaktujte nás"
+    },
+    "form": {
+      "title": "Domluvit schůzku",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "specialty": "Vyberte lékařské specializace",
+      "doctor": "Vyberte lékaře",
+      "any_doctor": "Jakýkoli dostupný lékař",
+      "date": "Vyberte datum a čas",
+      "name": "Jméno",
+      "name_placeholder": "Vaše celé jméno",
+      "phone_placeholder": "+49 151 75011699",
+      "email_placeholder": "vy@priklad.cz",
+      "message": "Zpráva",
+      "message_placeholder": "Řekněte nám více o svých potřebách...",
+      "submit": "Sjednat schůzku",
+      "company_label": "Název společnosti / praxe",
+      "company_placeholder": "např. Ordinace Dr. Nováka nebo Lékárna Centrum",
+      "area_label": "Primární oblast použití",
+      "area_options": {
+        "pharmacy": "Lékárna",
+        "practice": "Lékařská praxe/Klinika",
+        "vet": "Veterinární medicína",
+        "lab": "Výzkum/Laboratoř",
+        "other": "Jiné"
+      },
+      "requirements_label": "Vaše specifické požadavky na IglooPro",
+      "requirements_placeholder": "Které biomarkery (např. CRP, TSH, HbA1c) jsou pro vás primárně relevantní?"
+    },
+    "info": {
+      "title": "Kontaktní informace",
+      "text": "Náš tým se vám ozve do jednoho pracovního dne. Pro naléhavé dotazy použijte prosím telefonní číslo níže.",
+      "email_label": "E-MAIL (Služba 24/7)",
+      "phone_label": "TELEFON (Prioritní linka)"
+    },
+    "bottom_cta": {
+      "title": "Hledáte profesionální a důvěryhodnou lékařskou péči?",
+      "text": "Neváhejte nás kontaktovat. Naši koordinátoři jsou připraveni vám pomoci vybrat toho správného lékaře a čas."
+    },
+    "call_us_button": "Zavolejte nám",
+    "call_us_text": "Zavolejte nám",
+    "collapse_button": "Zavřít"
+  }
+}

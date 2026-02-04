@@ -1,0 +1,54 @@
+{
+  "services": {
+    "poc_systemloesungen": {
+      "title": "POC-Systemlösungen",
+      "description": "Ihre Schaltzentrale für die Diagnostik. Mobile Analysegeräte, die laborgenaue Ergebnisse in wenigen Minuten direkt am Ort der Behandlung liefern (z.B. Igloo Pro)."
+    },
+    "praeventions_checks": {
+      "title": "Präventive Gesundheits-Checks",
+      "description": "Vorsorge neu gedacht. Schnelle Bestimmung wichtiger Biomarker (z.B. Vitamin D, CRP, HbA1c) zur frühzeitigen Risikoerkennung und individuellen Gesundheitsberatung."
+    },
+    "infektion_entzuendung": {
+      "title": "Infektion & Entzündungsmarker",
+      "description": "Schnelle Antworten in kritischen Fällen. Sofortige Analyse von Entzündungswerten (CRP, PCT, IL-6) und Infektionskrankheiten – essenziell für die Akutversorgung und Triage."
+    },
+    "stoffwechsel_herz": {
+      "title": "Stoffwechsel & Herzgesundheit",
+      "description": "Wichtige Indikatoren im Blick. Präzise Messung von HbA1c, Cholesterinprofilen und kardialen Markern (z.B. D-Dimer) zur Überwachung chronischer Erkrankungen."
+    },
+    "hormon_tests": {
+      "title": "Hormon- & Endokrinologie-Tests",
+      "description": "Spezialdiagnostik leicht gemacht. Breites Spektrum an Tests für Schilddrüsen- und Reproduktionshormone (TSH, AMH) für spezialisierte Praxen und Apotheken."
+    },
+    "kompatibilitaet_integration": {
+      "title": "Herstellerübergreifende Kompatibilität",
+      "description": "Maximale Flexibilität. Unsere Geräte werten dank universeller Technologie 90% aller auf dem Markt befindlichen Lateral-Flow-Tests aus. Investitionssicherheit durch Offenheit."
+    }
+  },
+  "testimonials": {
+    "richard_pollock": {
+      "role": "Zahnarzt (Echte Rezension)",
+      "title": "Biological Dentist and Implant Surgeon / Chelsea Dental Clinic",
+      "focus": "Fast On-Site Health Checks (Prävention, Vitamin D)",
+      "text": "Carrying out analysis of Vitamin D levels and other key health indicators on-site cannot be underestimated. The Igloo Pro enables me to perform a simple capillary blood test, to ascertain patients’ needs and to then guide them as to which additional supplements they might require to optimise treatment. This capability is proving transformative in terms of patient outcomes."
+    },
+    "eva_schmidt": {
+      "role": "Apotheke",
+      "title": "Inhaberin / Löwen-Apotheke, Berlin",
+      "focus": "Der nächste Schritt in der Präventionsberatung (Kundenbindung, Schnelligkeit)",
+      "text": "Seit wir das Igloo Pro System einsetzen, hat sich unsere Rolle als Gesundheitsberater extrem gestärkt. Kunden schätzen es ungemein, bei uns in Minuten wichtige Werte wie CRP oder Cholesterin bestimmen zu lassen, anstatt wochenlang auf Termine warten zu müssen. Eine echte Win-Win-Situation für Kundenbindung und Servicequalität."
+    },
+    "martin_fischer": {
+      "role": "Allgemeinmediziner/Praxis",
+      "title": "Facharzt für Innere Medizin / Internistische Praxis Dr. Fischer",
+      "focus": "Sofortdiagnostik bei Akutpatienten (Effizienz, Therapieentscheidung)",
+      "text": "Die Möglichkeit, Entzündungsmarker wie CRP sofort in der Praxis zu bestimmen, hat unseren Behandlungsablauf revolutioniert. Wir können bei Patienten mit unklaren Infekten schneller entscheiden, ob eine Antibiotika-Therapie nötig ist, und verhindern unnötige Überweisungen. Das spart uns Zeit und erhöht die Patientenzufriedenheit deutlich."
+    },
+    "julia_bergmann": {
+      "role": "Klinik/Labor",
+      "title": "Leiterin Labor & Diagnostik / Klinikum Nord",
+      "focus": "System-Kompatibilität & Zuverlässigkeit (Flexibilität, Bündelung)",
+      "text": "Das Igloo Pro ist das flexibelste Point-of-Care-Gerät, das wir je evaluiert haben. Die herstellerübergreifende Kompatibilität für Lateral-Flow-Tests ist ein enormer Vorteil, der uns erlaubt, unsere POC-Geräte zu standardisieren und Kosten zu sparen, ohne auf die bewährte Zuverlässigkeit der Ergebnisse verzichten zu müssen."
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "contact": {
+    "hero": {
+      "kicker": "PRENDRE RENDEZ-VOUS",
+      "title": "Prendre rendez-vous",
+      "breadcrumb": "Accueil / Contact"
+    },
+    "form": {
+      "title": "Réserver un rendez-vous",
+      "email": "E-mail",
+      "phone": "Téléphone",
+      "specialty": "Sélectionner les spécialités médicales",
+      "doctor": "Sélectionner un médecin",
+      "any_doctor": "Tout médecin disponible",
+      "date": "Sélectionner la date et l'heure",
+      "name": "Nom",
+      "name_placeholder": "Votre nom complet",
+      "phone_placeholder": "+49 151 75011699",
+      "email_placeholder": "vous@exemple.com",
+      "message": "Message",
+      "message_placeholder": "Dites-nous en plus sur vos besoins...",
+      "submit": "Prendre rendez-vous",
+      "company_label": "Nom de l'entreprise / du cabinet",
+      "company_placeholder": "ex. Cabinet Dr. Martin ou Pharmacie du Lion",
+      "area_label": "Domaine d'application principal",
+      "area_options": {
+        "pharmacy": "Pharmacie",
+        "practice": "Cabinet médical/Clinique",
+        "vet": "Médecine vétérinaire",
+        "lab": "Recherche/Laboratoire",
+        "other": "Autre"
+      },
+      "requirements_label": "Vos exigences spécifiques pour IglooPro",
+      "requirements_placeholder": "Quels biomarqueurs (ex. CRP, TSH, HbA1c) sont principalement pertinents pour vous ?"
+    },
+    "info": {
+      "title": "Informations de contact",
+      "text": "Notre équipe vous répondra dans un délai d'un jour ouvrable. Pour les questions urgentes, veuillez utiliser le numéro de téléphone ci-dessous.",
+      "email_label": "EMAIL (Service 24/7)",
+      "phone_label": "TÉLÉPHONE (Ligne prioritaire)"
+    },
+    "bottom_cta": {
+      "title": "Vous cherchez des soins médicaux professionnels et de confiance ?",
+      "text": "N'hésitez pas à nous contacter. Nos coordinateurs sont prêts à vous aider à choisir le bon médecin et le bon moment."
+    },
+    "call_us_button": "Appelle-nous",
+    "call_us_text": "Appelle-nous",
+    "collapse_button": "Fermer"
+  }
+}

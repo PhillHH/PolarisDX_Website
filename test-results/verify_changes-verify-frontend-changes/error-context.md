@@ -1,0 +1,157 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - link "PolarisDX logo PolarisDX" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "PolarisDX logo" [ref=e7]
+        - generic [ref=e8]: PolarisDX
+      - navigation [ref=e9]:
+        - link "Home" [ref=e10] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e11]: Home
+        - link "About" [ref=e12] [cursor=pointer]:
+          - /url: /about
+          - generic [ref=e13]: About
+        - link "Service" [ref=e14] [cursor=pointer]:
+          - /url: /#services
+          - generic [ref=e15]: Service
+        - link "Blog" [ref=e16] [cursor=pointer]:
+          - /url: /articles
+          - generic [ref=e17]: Blog
+      - generic [ref=e18]:
+        - button "Select language" [ref=e20] [cursor=pointer]:
+          - generic [ref=e22]: en
+          - img [ref=e23]
+        - link "Contact" [ref=e25] [cursor=pointer]:
+          - /url: /contact
+          - generic [ref=e26]: Contact
+  - generic [ref=e27]:
+    - generic [ref=e30]:
+      - paragraph [ref=e31]: YOUR PERFORMANCE ANALYSIS
+      - heading "Request IglooPro Performance Analysis" [level=1] [ref=e32]
+      - paragraph [ref=e33]: Home / Contact Us
+    - main [ref=e34]:
+      - generic [ref=e35]:
+        - generic [ref=e36]:
+          - generic [ref=e37]:
+            - generic [ref=e39]: YOUR PERFORMANCE ANALYSIS
+            - heading "Request IglooPro Performance Analysis" [level=2] [ref=e40]
+          - generic [ref=e41]:
+            - generic [ref=e42]:
+              - generic [ref=e43]: ✉
+              - generic [ref=e44]:
+                - paragraph [ref=e45]: EMAIL (24/7 Service)
+                - paragraph [ref=e46]: contact@polarisdx.net
+            - generic [ref=e47]:
+              - generic [ref=e48]: ☎
+              - generic [ref=e49]:
+                - paragraph [ref=e50]: PHONE (Priority-Line)
+                - paragraph [ref=e51]: +49 151 75011699
+          - generic [ref=e52]:
+            - generic [ref=e53]:
+              - generic [ref=e54]: Company / Practice Name
+              - textbox "Company / Practice Name" [ref=e55]:
+                - /placeholder: e.g. Dr. Miller Practice or Lion Pharmacy
+            - generic [ref=e56]:
+              - generic [ref=e57]:
+                - generic [ref=e58]: Name
+                - textbox "Name" [ref=e59]:
+                  - /placeholder: Your full name
+              - generic [ref=e60]:
+                - generic [ref=e61]: Phone
+                - textbox "Phone" [ref=e62]:
+                  - /placeholder: +49 151 75011699
+            - generic [ref=e63]:
+              - generic [ref=e64]: Email
+              - textbox "Email" [ref=e65]:
+                - /placeholder: you@example.com
+            - generic [ref=e66]:
+              - generic [ref=e67]: Primary Area of Application
+              - combobox "Primary Area of Application" [ref=e68]:
+                - option "Pharmacy" [selected]
+                - option "Doctor's Practice/Clinic"
+                - option "Veterinary Medicine"
+                - option "Research/Lab"
+                - option "Other"
+            - generic [ref=e69]:
+              - generic [ref=e70]: Your Specific Requirements for IglooPro
+              - textbox "Your Specific Requirements for IglooPro" [ref=e71]:
+                - /placeholder: Which biomarkers (e.g., CRP, TSH, HbA1c) are primarily relevant for you?
+            - generic [ref=e72]:
+              - generic [ref=e73]:
+                - checkbox "Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und für Rückfragen bis zu 12 Monate gespeichert werden." [ref=e75]
+                - generic [ref=e76]: Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und für Rückfragen bis zu 12 Monate gespeichert werden.
+              - button "Request Performance Analysis Now" [ref=e77] [cursor=pointer]:
+                - generic [ref=e78]: Request Performance Analysis Now
+        - complementary [ref=e79]:
+          - generic [ref=e80]:
+            - heading "Contact Information" [level=2] [ref=e81]
+            - paragraph [ref=e82]: Our team will get back to you within one business day. For urgent questions, please use the phone number below.
+            - generic [ref=e83]:
+              - paragraph [ref=e84]: contact@polarisdx.net
+              - paragraph [ref=e85]: +49 151 75011699
+  - generic [ref=e88]:
+    - generic [ref=e89]:
+      - img [ref=e91]
+      - generic [ref=e93]:
+        - heading "Wir respektieren Ihre Privatsphäre" [level=3] [ref=e94]
+        - paragraph [ref=e95]: Wir nutzen Cookies, um Ihnen die bestmögliche Nutzung unserer Webseite zu ermöglichen und unsere Kommunikation mit Ihnen zu verbessern. Wir berücksichtigen hierbei Ihre Präferenzen und verarbeiten Daten nur, wenn Sie uns durch Klicken auf "Alle akzeptieren" Ihr Einverständnis geben oder über "Einstellungen" eine spezifische Auswahl treffen.
+    - generic [ref=e96]:
+      - button "Einstellungen" [ref=e97] [cursor=pointer]:
+        - text: Einstellungen
+        - img [ref=e98]
+      - button "Alle akzeptieren" [ref=e100] [cursor=pointer]
+  - contentinfo [ref=e101]:
+    - generic [ref=e103]:
+      - generic [ref=e104]:
+        - img "PolarisDX logo" [ref=e106]
+        - paragraph [ref=e107]: Comprehensive care and support. Modern health services for you and your family, around the clock.
+        - generic [ref=e108]:
+          - link "LinkedIn" [ref=e109] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/polarisdx/
+            - img [ref=e110]
+          - link "Instagram" [ref=e114] [cursor=pointer]:
+            - /url: https://www.instagram.com/polaris_diagnostix/
+            - img [ref=e115]
+        - paragraph [ref=e118]: Copyright ©PolarisDX 2025 All Rights Reserved.
+      - generic [ref=e119]:
+        - generic [ref=e120]:
+          - heading "Links" [level=3] [ref=e121]
+          - list [ref=e122]:
+            - listitem [ref=e123]:
+              - link "Home" [ref=e124] [cursor=pointer]:
+                - /url: /#hero
+            - listitem [ref=e125]:
+              - link "About" [ref=e126] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e127]:
+              - link "Service" [ref=e128] [cursor=pointer]:
+                - /url: /#services
+            - listitem [ref=e129]:
+              - link "Blog" [ref=e130] [cursor=pointer]:
+                - /url: /articles
+            - listitem [ref=e131]:
+              - link "Impressum" [ref=e132] [cursor=pointer]:
+                - /url: /imprint
+            - listitem [ref=e133]:
+              - link "Datenschutzerklärung" [ref=e134] [cursor=pointer]:
+                - /url: /privacy
+        - generic [ref=e135]:
+          - heading "London" [level=3] [ref=e136]
+          - generic [ref=e137]:
+            - paragraph [ref=e138]: PolarisDX LTD
+            - paragraph [ref=e139]: 262A Fulham Road
+            - paragraph [ref=e140]: London SW10 9EL
+            - paragraph [ref=e141]: +44 7879 433019
+            - paragraph [ref=e142]: hello@polarisdx.net
+        - generic [ref=e143]:
+          - heading "Hamburg" [level=3] [ref=e144]
+          - generic [ref=e145]:
+            - paragraph [ref=e146]: PolarisDX Europe UG
+            - paragraph [ref=e147]: Große Bleichen 1 - 3
+            - paragraph [ref=e148]: 20097 Hamburg
+            - paragraph [ref=e149]: info@polarisdx.net
+```

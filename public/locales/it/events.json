@@ -1,0 +1,10 @@
+{
+  "title": "Incontrateci di persona",
+  "subtitle": "Fiere ed Eventi",
+  "intro": "Scoprite le nostre tecnologie dal vivo.",
+  "empty_title": "Nessun evento attuale",
+  "empty_text": "Al momento non ci sono date di fiere o eventi.",
+  "details": "Dettagli",
+  "date_format": "{{date, datetime}}",
+  "location": "Luogo"
+}

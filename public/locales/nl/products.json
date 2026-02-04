@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "title": "Snelle diagnostiek POC",
+    "caption": "Next Gen Diagnostics",
+    "description": "Uw controlecentrum.",
+    "cta_order": "Nu bestellen",
+    "cta_datasheet": "Datasheet (PDF)"
+  },
+  "intro": {
+    "title": "Het mobiele lab",
+    "text1": "Igloo Pro is een draagbare analyzer.",
+    "text2": "Evalueert 90% van de tests."
+  },
+  "features": {
+    "methods": {
+      "title": "Veelzijdige methoden",
+      "description": "Colorimetrie..."
+    },
+    "battery": {
+      "title": "24u Batterij",
+      "description": "Lithium batterij."
+    },
+    "connectivity": {
+      "title": "Volledige connectiviteit",
+      "description": "WiFi, Bluetooth."
+    },
+    "precision": {
+      "title": "Precisie",
+      "description": "CV < 2%."
+    }
+  },
+  "specs": {
+    "title": "Technische Gegevens",
+    "methods": "Methoden",
+    "methods_value": "Colorimetrie...",
+    "samples": "Monsters",
+    "samples_value": "Serum / Plasma...",
+    "weight": "Gewicht",
+    "weight_value": "ca. 400g",
+    "dimensions": "Afmetingen",
+    "dimensions_value": "87,5 mm...",
+    "speed": "Snelheid",
+    "speed_value": "Enkele seconden",
+    "accuracy": "Nauwkeurigheid",
+    "accuracy_value": "CV < 2%",
+    "storage": "Opslag",
+    "storage_value": "10.000 resultaten",
+    "battery": "Batterij",
+    "battery_value": "Lithium",
+    "communication": "Communicatie",
+    "communication_value": "USB-C, WiFi"
+  },
+  "parameters": {
+    "title": "Beschikbare parameters",
+    "disclaimer": "Deze en andere parameters zijn beschikbaar.",
+    "list": {
+      "vitd3": "Vitamine D3",
+      "crp": "CRP",
+      "hba1c": "HbA1c",
+      "ferritin": "Ferritine",
+      "cortisol": "Cortisol",
+      "tsh": "TSH",
+      "ddimer": "D-Dimeer",
+      "troponin": "Troponine",
+      "flu": "Influenza A/B",
+      "rsv": "RSV",
+      "strep": "Streptokok A"
+    }
+  },
+  "cta_bottom": {
+    "title": "Breid mogelijkheden uit",
+    "description": "Voor apotheken en praktijken.",
+    "button": "Nu afspraak maken"
+  }
+}

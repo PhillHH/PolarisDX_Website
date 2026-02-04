@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "home": "Hjem",
+    "about": "Om os",
+    "service": "Service",
+    "shop": "Shop",
+    "blog": "Blog",
+    "contact": "Kontakt",
+    "terms": "Handelsbetingelser",
+    "events": "Begivenheder"
+  },
+  "badge": {
+    "New": "Ny",
+    "Popular": "Populær",
+    "Limited": "Begrænset"
+  },
+  "category": {
+    "Diagnostics": "Diagnostik",
+    "Monitoring": "Overvågning",
+    "Home Care": "Hjemmepleje",
+    "Chronic Care": "Kronisk pleje",
+    "Protection": "Beskyttelse",
+    "Hygiene": "Hygiejne",
+    "Recovery": "Restitution",
+    "Emergency": "Nødsituation",
+    "Service": "Service"
+  },
+  "footer": {
+    "description": "Omfattende pleje og støtte. Moderne sundhedstjenester til dig og din familie, døgnet rundt.",
+    "links": "Links",
+    "discover": "Opdag",
+    "london": "London",
+    "hamburg": "Hamborg",
+    "copyright": "Copyright ©PolarisDX 2025 Alle rettigheder forbeholdes.",
+    "imprint": "Impressum",
+    "privacy": "Privatlivspolitik",
+    "doctors": "Vores læger",
+    "testimonials": "Udtalelser",
+    "faq": "FAQ",
+    "appointment": "Bestil tid"
+  },
+  "cta": {
+    "title": "Leder du efter professionel & betroet <1>lægehjælp?</1>",
+    "description": "Tøv ikke med at kontakte os. Vores team står klar til at støtte dig og planlægge den rette aftale.",
+    "button": "Bestil tid"
+  },
+  "cta_section": {
+    "title": "Leder du efter garanteret ydeevne og POC-ekspertise?",
+    "text": "Tal direkte med vores IglooPro-specialister. Vores team er klar til at analysere dine individuelle workflow-krav og vise dig den hurtigste vej til valideret diagnostik. Hos os får du en skræddersyet løsning, ikke en standardlevering.",
+    "button": "Bestil tid"
+  },
+  "read_more": "Læs mere",
+  "chat": {
+    "title": "Chat",
+    "status": "Online",
+    "intro": "Velkommen til PolarisDX. Hvordan kan vi hjælpe dig i dag?",
+    "welcome_prototype": "Velkommen! Vores chatbot er endnu ikke aktiv. Brug venligst vores <0>kontaktformular</0> eller ring til os på <1>+49 151 75011699</1>.",
+    "placeholder": "Skriv en besked...",
+    "footer": "Drevet af PolarisDX Assistant",
+    "error": "Beklager, noget gik galt.",
+    "unavailable": "Chatten er i øjeblikket ikke tilgængelig. Prøv igen senere eller kontakt os via e-mail."
+  },
+  "cookie": {
+    "title": "Vi respekterer dit privatliv",
+    "description": "Vi bruger cookies.",
+    "accept_all": "Accepter alle",
+    "settings": "Indstillinger",
+    "hide": "Skjul",
+    "save_selection": "Gem",
+    "categories": {
+      "necessary": {
+        "name": "Nødvendig",
+        "description": "Krævet."
+      },
+      "marketing": {
+        "name": "Marketing",
+        "description": "Annoncer."
+      },
+      "analytics": {
+        "name": "Analyse",
+        "description": "Analyse."
+      }
+    }
+  },
+  "testimonials": {
+    "positiveLabel": "Positiv anmeldelse"
+  },
+  "search": {
+    "keywords": {
+      "home": "home startseite igloo widget diagnostic",
+      "about": "team doctors polarisdx about us",
+      "services": "services leistungen dental beauty longevity diagnostics",
+      "contact": "contact kontakt email phone address",
+      "terms": "legal terms agb rights"
+    },
+    "services": {
+      "dental": "Tanddiagnostik",
+      "beauty": "Dermatologiske Analyser",
+      "longevity": "Sundhed og Lang Levetid",
+      "sports": "Præstationsdiagnostik for Atleter"
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Über uns",
+    "service": "Service",
+    "casestudies": "Case Study",
+    "shop": "Shop",
+    "blog": "Blog",
+    "terms": "AGB",
+    "contact": "Kontakt",
+    "events": "Termine"
+  },
+  "badge": {
+    "New": "Neu",
+    "Popular": "Beliebt",
+    "Limited": "Limitiert"
+  },
+  "category": {
+    "Diagnostics": "Diagnostik",
+    "Monitoring": "Überwachung",
+    "Home Care": "Heimpflege",
+    "Chronic Care": "Chronische Pflege",
+    "Protection": "Schutz",
+    "Hygiene": "Hygiene",
+    "Recovery": "Genesung",
+    "Emergency": "Notfall",
+    "Service": "Service"
+  },
+  "footer": {
+    "description": "Umfassende Betreuung und Fürsorge. Moderne Gesundheitsdienste für Sie und Ihre Familie, rund um die Uhr.",
+    "links": "Links",
+    "discover": "Entdecken",
+    "london": "London",
+    "hamburg": "Hamburg",
+    "copyright": "Copyright ©PolarisDX 2025 Alle Rechte vorbehalten.",
+    "imprint": "Impressum",
+    "privacy": "Datenschutzerklärung",
+    "doctors": "Unsere Ärzte",
+    "testimonials": "Referenzen",
+    "faq": "FAQ",
+    "appointment": "Termin vereinbaren"
+  },
+  "cta": {
+    "title": "Suchen Sie professionelle & vertrauenswürdige <1>medizinische Versorgung?</1>",
+    "description": "Zögern Sie nicht, uns zu kontaktieren. Unser Team ist bereit, Sie zu unterstützen und den richtigen Termin zu planen.",
+    "button": "Termin vereinbaren"
+  },
+  "cta_section": {
+    "title": "Sie suchen nach garantierter Performance und POC-Expertise?",
+    "text": "Sprechen Sie direkt mit unseren IglooPro-Spezialisten. Unser Team ist bereit, Ihre individuellen Workflow-Anforderungen zu analysieren und Ihnen den schnellsten Weg zur validierten Diagnostik zu zeigen. Bei uns erhalten Sie eine maßgeschneiderte Lösung, keine Standard-Lieferung.",
+    "button": "Termin buchen"
+  },
+  "read_more": "Weiterlesen",
+  "search": {
+    "keywords": {
+      "home": "home startseite igloo widget diagnostic",
+      "about": "team doctors polarisdx ärzte über uns",
+      "services": "services leistungen dental beauty longevity diagnostik",
+      "contact": "contact kontakt email phone address adresse",
+      "terms": "legal terms agb recht",
+      "casestudies": "case study 32reasons fallstudie polaris dx zahnmedizin"
+    },
+    "services": {
+      "dental": "Zahnmedizinische Diagnostik",
+      "beauty": "Dermatologische Analysen",
+      "longevity": "Gesundheit und Langlebigkeit",
+      "sports": "Leistungsdiagnostik für Sportler"
+    }
+  },
+  "chat": {
+    "title": "PolarisDX Concierge",
+    "status": "Online",
+    "intro": "Willkommen bei PolarisDX. Wie können wir Ihnen heute helfen?",
+    "welcome_prototype": "Willkommen! Unser Chatbot ist noch nicht aktiv. Bitte nutzen Sie unser <0>Kontaktformular</0> oder rufen Sie uns an unter <1>+49 151 75011699</1>.",
+    "placeholder": "Nachricht eingeben...",
+    "footer": "PolarisDX Private Assistant",
+    "error": "Entschuldigung, etwas ist schiefgelaufen.",
+    "unavailable": "Der Chat ist derzeit nicht verfügbar. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns per E-Mail."
+  },
+  "cookie": {
+    "title": "Wir respektieren Ihre Privatsphäre",
+    "description": "Wir verwenden Cookies.",
+    "accept_all": "Alle akzeptieren",
+    "reject_all": "Nur notwendige",
+    "settings": "Einstellungen",
+    "hide": "Verbergen",
+    "save_selection": "Speichern",
+    "categories": {
+      "necessary": {
+        "name": "Notwendig",
+        "description": "Erforderlich."
+      },
+      "marketing": {
+        "name": "Marketing",
+        "description": "Werbung."
+      },
+      "analytics": {
+        "name": "Analyse",
+        "description": "Analyse."
+      }
+    }
+  },
+  "testimonials": {
+    "positiveLabel": "Positive Bewertung"
+  },
+  "notFound": {
+    "seo": {
+      "title": "Seite nicht gefunden | PolarisDX",
+      "description": "Die angeforderte Seite konnte nicht gefunden werden."
+    },
+    "badge": "Seite nicht gefunden",
+    "title": "Oops! Diese Seite existiert nicht",
+    "description": "Die von Ihnen gesuchte Seite wurde möglicherweise verschoben, gelöscht oder existiert nicht mehr.",
+    "backHome": "Zurück zur Startseite",
+    "popularPages": "Beliebte Seiten",
+    "links": {
+      "home": "Startseite",
+      "iglooPro": "IglooPro",
+      "services": "Services",
+      "contact": "Kontakt"
+    }
+  }
+}

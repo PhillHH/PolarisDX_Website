@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "title": "Szybka diagnostyka POC",
+    "caption": "Diagnostyka Next Gen",
+    "description": "Twoje centrum kontroli.",
+    "cta_order": "Zamów teraz",
+    "cta_datasheet": "Karta danych (PDF)"
+  },
+  "intro": {
+    "title": "Mobilne laboratorium",
+    "text1": "Igloo Pro to przenośny analizator.",
+    "text2": "Obsługuje 90% testów."
+  },
+  "features": {
+    "methods": {
+      "title": "Wszechstronne metody",
+      "description": "Kolorymetria..."
+    },
+    "battery": {
+      "title": "24h Baterii",
+      "description": "Bateria litowa."
+    },
+    "connectivity": {
+      "title": "Pełna łączność",
+      "description": "WiFi, Bluetooth."
+    },
+    "precision": {
+      "title": "Precyzja",
+      "description": "CV < 2%."
+    }
+  },
+  "specs": {
+    "title": "Dane techniczne",
+    "methods": "Metody",
+    "methods_value": "Kolorymetria...",
+    "samples": "Próbki",
+    "samples_value": "Surowica / Osocze...",
+    "weight": "Waga",
+    "weight_value": "ok. 400g",
+    "dimensions": "Wymiary",
+    "dimensions_value": "87,5 mm x 87,5 mm x 91 mm",
+    "speed": "Szybkość",
+    "speed_value": "Kilka sekund",
+    "accuracy": "Dokładność",
+    "accuracy_value": "CV < 2%",
+    "storage": "Pamięć",
+    "storage_value": "10 000 wyników",
+    "battery": "Bateria",
+    "battery_value": "Litowa",
+    "communication": "Komunikacja",
+    "communication_value": "USB-C, WiFi"
+  },
+  "parameters": {
+    "title": "Dostępne parametry",
+    "disclaimer": "Dostępne są te i inne parametry.",
+    "list": {
+      "vitd3": "Witamina D3",
+      "crp": "CRP",
+      "hba1c": "HbA1c",
+      "ferritin": "Ferrytyna",
+      "cortisol": "Kortyzol",
+      "tsh": "TSH",
+      "ddimer": "D-Dimer",
+      "troponin": "Troponina",
+      "flu": "Grypa A/B",
+      "rsv": "RSV",
+      "strep": "Paciorkowiec A"
+    }
+  },
+  "cta_bottom": {
+    "title": "Rozszerz możliwości",
+    "description": "Dla aptek i gabinetów.",
+    "button": "Umów się teraz"
+  }
+}
