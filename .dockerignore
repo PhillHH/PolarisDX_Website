@@ -1,11 +1,65 @@
-# Erstellt die .dockerignore Datei mit dem nötigen Inhalt
-@"
-.git
-.gitignore
+# =============================================================================
+# Docker Ignore - Dateien die NICHT in den Build-Context kopiert werden
+# =============================================================================
+
+# Dependencies (werden im Container neu installiert)
 node_modules
 **/node_modules
+
+# Build-Output (wird im Container neu erzeugt)
 dist
 build
+
+# Git
+.git
+.gitignore
+
+# Environment-Dateien (sensible Daten)
+.env
+.env.*
+!.env.example
+
+# IDE / Editor
+.vscode
+.idea
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dokumentation (nicht für Runtime benötigt)
+*.md
 DOCS.md
 README.md
-"@ | Set-Content .dockerignore
+CHANGELOG.md
+
+# Tests
+tests
+test
+__tests__
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+coverage
+playwright-report
+
+# Entwicklungs-Tools
+.eslintcache
+.prettierrc
+eslint.config.js
+
+# OS-spezifisch
+.DS_Store
+Thumbs.db
+
+# Docker-Dateien selbst
+Dockerfile*
+docker-compose*
+.dockerignore
+
+# Server-Unterverzeichnis (hat eigenes Dockerfile)
+server/node_modules
+server/.env
