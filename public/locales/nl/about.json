@@ -1,0 +1,33 @@
+{
+  "hero": {
+    "caption": "OVER ONS",
+    "title": "Diagnostiek herdefiniëren",
+    "description": "PolarisDX staat voor innovatie, precisie en betrouwbaarheid in medische technologie. Ontmoet de mensen achter onze missie."
+  },
+  "team": {
+    "caption": "ONS TEAM",
+    "title": "Ontmoet onze experts",
+    "members": {
+      "tim_ritson": {
+        "name": "Tim Ritson",
+        "role": "CEO Polaris Diagnostics Limited",
+        "bio": "Als CEO van Polaris Diagnostics Limited in Londen leidt Tim Ritson de strategische visie van het bedrijf. Met tientallen jaren operationele ervaring stuurt hij de wereldwijde richting en groei van PolarisDX."
+      },
+      "adriano_zucalla": {
+        "name": "Adriano Zuccala",
+        "role": "Directeur Polaris Diagnostics Europe U.G.",
+        "bio": "Adriano Zuccala is verantwoordelijk voor de Europese activiteiten als Directeur van Polaris Diagnostics Europe U.G. Zijn focus ligt op verkoop en strategische marktontwikkeling om innovatieve diagnostische oplossingen toegankelijk te maken."
+      },
+      "frank_stoffels": {
+        "name": "Frank Stoffels",
+        "role": "Verkoopdirecteur Polaris Diagnostics Europe",
+        "bio": "Als Verkoopdirecteur brengt Frank Stoffels uitgebreide expertise uit de MedTech-industrie mee. Hij is het gezicht van PolarisDX op internationale beurzen en het eerste aanspreekpunt voor onze klanten bij verkoopvragen."
+      },
+      "ulrike_schuerholz": {
+        "name": "Ulrike Schuerholz",
+        "role": "Senior Global Operations Director",
+        "bio": "Als Senior Global Operations Director beheert Ulrike Schuerholz de operationele processen. Ze zorgt voor efficiënte processen en de strategische implementatie van onze bedrijfsdoelstellingen in een wereldwijde context."
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "caption": "Das All-in-One System",
+    "title": "Präzise Diagnostik.\nÜberall.",
+    "description": "Erleben Sie die nächste Generation der Point-of-Care Diagnostik. Schnell, zuverlässig und einfach zu bedienen.",
+    "cta_order": "Jetzt anfragen",
+    "cta_datasheet": "Datenblatt laden"
+  },
+  "intro": {
+    "title": "Laborqualität im Handformat",
+    "text1": "Der Igloo Pro Reader setzt neue Maßstäbe in der mobilen Diagnostik. Mit modernster Technologie liefert er Ergebnisse, auf die Sie sich verlassen können.",
+    "text2": "Egal ob in der Praxis, im Krankenhaus oder mobil – der Igloo Pro ist Ihr zuverlässiger Partner für schnelle Entscheidungen."
+  },
+  "features": {
+    "methods": {
+      "title": "Vielseitige Methoden",
+      "description": "Unterstützt diverse Testverfahren für maximale Flexibilität."
+    },
+    "battery": {
+      "title": "Lange Laufzeit",
+      "description": "Leistungsstarker Akku für den ganztägigen mobilen Einsatz."
+    },
+    "connectivity": {
+      "title": "Volle Konnektivität",
+      "description": "WLAN, Bluetooth und USB für nahtlose Datenübertragung."
+    },
+    "precision": {
+      "title": "Höchste Präzision",
+      "description": "Validierte Genauigkeit vergleichbar mit Großlaborgeräten."
+    }
+  },
+  "specs": {
+    "title": "Technische Daten",
+    "methods": "Messmethode",
+    "methods_value": "Immunfluoreszenz",
+    "samples": "Probenmaterial",
+    "samples_value": "Vollblut, Serum, Plasma, Kapillarblut",
+    "weight": "Gewicht",
+    "weight_value": "600g (tragbar)",
+    "dimensions": "Abmessungen",
+    "dimensions_value": "Handlich & Kompakt",
+    "speed": "Messdauer",
+    "speed_value": "3 - 15 Minuten (testabhängig)",
+    "accuracy": "Genauigkeit",
+    "accuracy_value": "CV < 5%",
+    "storage": "Speicher",
+    "storage_value": "Bis zu 10.000 Patientendatensätze",
+    "battery": "Stromversorgung",
+    "battery_value": "Integrierter Lithium-Ionen-Akku",
+    "communication": "Schnittstellen",
+    "communication_value": "USB, LAN, WLAN, LIS/HIS Anbindung"
+  },
+  "parameters": {
+    "title": "Verfügbare Parameter",
+    "disclaimer": "Das Testportfolio wird ständig erweitert. Bitte kontaktieren Sie uns für die aktuelle Liste.",
+    "list": {
+      "vitd3": "Vitamin D3",
+      "crp": "CRP (hs)",
+      "hba1c": "HbA1c",
+      "ferritin": "Ferritin",
+      "cortisol": "Cortisol",
+      "tsh": "TSH",
+      "ddimer": "D-Dimer",
+      "troponin": "Troponin I/T",
+      "flu": "Influenza A/B",
+      "rsv": "RSV",
+      "strep": "Streptokokken A"
+    }
+  },
+  "cta_bottom": {
+    "title": "Bereit für den Igloo Pro?",
+    "description": "Nehmen Sie Kontakt auf und lassen Sie sich unverbindlich beraten.",
+    "button": "Kontakt aufnehmen"
+  }
+}

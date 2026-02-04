@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  payload:
+    image: node:20
+    container_name: payload_cms
+    working_dir: /app
+    volumes:
+      - ./cms:/app
+    ports:
+      - "3005:3000"
+    command: bash -c "npm install && npm run dev"

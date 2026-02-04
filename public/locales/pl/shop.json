@@ -1,0 +1,181 @@
+{
+  "products": {
+    "igloo_reader_pro": {
+      "name": "Igloo Reader Pro",
+      "shortDescription": "Igloo Reader Pro to kompaktowy, nowoczesny analizator typu all-in-one do badań w punkcie opieki (POCT). Łączy precyzję laboratoryjną z wymaganiami zdecentralizowanych środowisk. Obsługuje przepływ boczny, mikromacierze, fluorescencję i inne – idealne rozwiązanie dla szybkich, niezawodnych ilościowych i jakościowych wyników testów.",
+      "detailedDescription": [
+        "Igloo Reader Pro redefiniuje mobilną diagnostykę. Zaprojektowany specjalnie dla profesjonalnych środowisk i zdecentralizowanych zastosowań Point-of-Care, ten wszechstronny analizator umożliwia szybkie i niezawodne testy jakościowe i ilościowe.",
+        "Czytnik obsługuje szeroką gamę testów diagnostycznych – od badań przesiewowych w kierunku chorób zakaźnych, przez markery sercowe i profile hormonalne, po panele narkotykowe i alergiczne. Dzięki zautomatyzowanej kalibracji, integracji z chmurą i cyfrowemu eksportowi danych, Igloo Reader Pro dostarcza jakość laboratoryjną bezpośrednio tam, gdzie jest potrzebna. Umożliwia pracownikom medycznym uzyskanie szybkich i wiarygodnych wyników w dowolnym miejscu."
+      ],
+      "features": [
+        "Uniwersalna platforma testowa: Obsługuje mikromacierze, przepływ boczny, kolorymetrię, fluorescencję, suchą chemię i mikrofluidykę.",
+        "Precyzja laboratoryjna w formacie POCT: Wysoka precyzja dzięki automatycznej autokalibracji przed każdym pomiarem (CV < 2 % między czytnikami, CV < 3 % wewnątrz czytnika).",
+        "Kompaktowy i mobilny: Lekka konstrukcja z żywotnością baterii do 24 godzin ciągłego testowania.",
+        "Pełna łączność: Zintegrowane Wi-Fi, Bluetooth i USB-C dla płynnej synchronizacji danych i integracji API/LIMS.",
+        "Bezpieczna integracja z chmurą (Dx365 Cloud): Do aktualizacji testów, zarządzania kalibracją i szyfrowanego przechowywania danych.",
+        "Wszechstronne typy próbek: Kompatybilny z krwią pełną, krwią włośniczkową, surowicą, osoczem, moczem, kałem, śliną i włosami."
+      ],
+      "techSpecs": [
+        {
+          "parameter": "Wymiary (Dł. × Szer. × Wys.)",
+          "specification": "87,5 × 87,5 × 91 mm"
+        },
+        {
+          "parameter": "Waga",
+          "specification": "ok. 270 g"
+        },
+        {
+          "parameter": "Czas pomiaru",
+          "specification": "Kilka sekund (bez czasu inkubacji)"
+        },
+        {
+          "parameter": "Obsługiwane metody testowe",
+          "specification": "Mikromacierze, Kolorymetria, Fluorescencja, Sucha chemia, Kropki kwantowe, Mikrofluidyka"
+        },
+        {
+          "parameter": "Typy próbek",
+          "specification": "Krew pełna, krew włośniczkowa, surowica, osocze, mocz, kał, ślina, włosy"
+        },
+        {
+          "parameter": "Pamięć wyników",
+          "specification": "Do 10 000 wyników"
+        },
+        {
+          "parameter": "Bateria",
+          "specification": "Akumulator litowy, do 24 godzin ciągłej pracy"
+        },
+        {
+          "parameter": "Łączność",
+          "specification": "USB-C, Wi-Fi (802.11 b/g/n), Bluetooth, integracja API/LIMS"
+        },
+        {
+          "parameter": "Certyfikacja",
+          "specification": "Oznakowanie CE, zgodność z RoHS"
+        }
+      ],
+      "deliveryScope": [
+        "1 × Analizator Igloo Reader Pro",
+        "1 × Kabel USB-A do USB-C",
+        "Elektroniczna instrukcja obsługi"
+      ],
+      "note": "Ważna uwaga: Adaptery i zestawy testowe QC są sprzedawane oddzielnie i nie wchodzą w zakres standardowej dostawy."
+    },
+    "bp_monitor": {
+      "name": "Cyfrowy ciśnieniomierz",
+      "shortDescription": "Dokładny, łatwy w użyciu ciśnieniomierz do użytku domowego z funkcją pamięci.",
+      "features": [
+        "Mankiet na ramię z regulowanym rozmiarem",
+        "Przechowuje do 60 odczytów",
+        "Wykrywanie nieregularnego bicia serca"
+      ]
+    },
+    "thermometer": {
+      "name": "Termometr bezdotykowy czołowy",
+      "shortDescription": "Szybkie, higieniczne pomiary temperatury bez kontaktu ze skórą – idealne dla rodzin.",
+      "features": [
+        "Pomiar w 1 sekundę",
+        "Wskaźnik alarmu gorączki",
+        "Podświetlany wyświetlacz"
+      ]
+    },
+    "pulse_oximeter": {
+      "name": "Pulsoksymetr napalcowy",
+      "shortDescription": "Zmierz saturację tlenem krwi i tętno w ciągu kilku sekund.",
+      "features": [
+        "Wyświetlanie SpO₂ i tętna",
+        "Kompaktowy i przenośny",
+        "Automatyczne wyłączanie"
+      ]
+    },
+    "home_care_kit": {
+      "name": "Zestaw startowy do opieki domowej",
+      "shortDescription": "Niezbędne narzędzia do codziennej opieki domowej, w tym monitorowanie i podstawy pierwszej pomocy.",
+      "features": [
+        "Cyfrowy termometr i ciśnieniomierz",
+        "Podstawowe materiały do opatrywania ran",
+        "Kompaktowa torba do przechowywania"
+      ]
+    },
+    "diabetes_kit": {
+      "name": "Zestaw do monitorowania cukrzycy",
+      "shortDescription": "Wszystko, czego potrzebujesz, aby wygodnie monitorować poziom glukozy we krwi w domu.",
+      "features": [
+        "Glukometr z paskami testowymi",
+        "Nakłuwacz i lancety",
+        "Etui podróżne"
+      ]
+    },
+    "n95_mask_pack": {
+      "name": "Pakiet masek oddechowych N95 (10 szt.)",
+      "shortDescription": "Certyfikowane maski N95 dla niezawodnej ochrony dróg oddechowych.",
+      "features": [
+        "Regulowany klips na nos",
+        "Wygodne pętle na uszy",
+        "Pakowane indywidualnie"
+      ]
+    },
+    "hand_sanitizer": {
+      "name": "Antybakteryjny żel do rąk (500 ml)",
+      "shortDescription": "Szybkoschnący środek dezynfekujący ze składnikami nawilżającymi.",
+      "features": [
+        "Zabija 99,9% zarazków",
+        "Nieklejąca formuła",
+        "Świeży, czysty zapach"
+      ]
+    },
+    "compression_socks": {
+      "name": "Medyczne skarpetki uciskowe",
+      "shortDescription": "Wspierają krążenie podczas długich dni na nogach lub rekonwalescencji.",
+      "features": [
+        "Stopniowany ucisk",
+        "Oddychający materiał",
+        "Dostępne w wielu rozmiarach"
+      ]
+    },
+    "first_aid_kit": {
+      "name": "Kompaktowa apteczka pierwszej pomocy",
+      "shortDescription": "Kompaktowy zestaw z niezbędnymi rzeczami na drobne urazy i nagłe wypadki.",
+      "features": [
+        "Bandaże i opatrunki",
+        "Chusteczki antyseptyczne",
+        "Ulotka instruktażowa"
+      ]
+    },
+    "online_consult": {
+      "name": "Konsultacja lekarska online (30 min)",
+      "shortDescription": "Zarezerwuj 30-minutową wideokonsultację z jednym z naszych lekarzy.",
+      "features": [
+        "Elastyczne opcje planowania",
+        "Bezpieczna platforma wideo",
+        "Raport podsumowujący po sesji"
+      ]
+    }
+  },
+  "shop": {
+    "addToCart": "Dodaj do koszyka (demo)",
+    "orderInfo": "Informacje o zamówieniu",
+    "orderInfoText": "Ten układ demonstracyjny naśladuje proste pole zamówienia. W prawdziwym projekcie tutaj pokazywałbyś dostępność, opcje wysyłki i przycisk „Dodaj do koszyka”.",
+    "youMightLike": "Może Ci się również spodobać",
+    "view": "Zobacz",
+    "viewDetails": "Zobacz szczegóły",
+    "backToShop": "Wróć do Sklepu",
+    "needHelp": "Potrzebujesz pomocy w wyborze produktu?",
+    "contactTeam": "Skontaktuj się z naszym zespołem",
+    "demoNote": "Uwaga: To jest sklep demonstracyjny wyłącznie w celach projektowych i makiety. Nie są przetwarzane żadne prawdziwe zamówienia ani płatności.",
+    "whatsInBox": "Co jest w pudełku?",
+    "techSpecs": "Specyfikacje techniczne",
+    "features": "Cechy i Korzyści",
+    "home": "Strona główna",
+    "title": "Artykuły medyczne i usługi",
+    "subtitle": "Sklep MedHealth",
+    "discoverTitle": "Odkryj nasze wybrane produkty",
+    "article": "Artykuł",
+    "articleDisclaimer": "Regularne badania kontrolne i proaktywna opieka są podstawą długoterminowego zdrowia. Jeśli masz pytania, nie wahaj się skontaktować z pracownikiem służby zdrowia.",
+    "shareArticle": "Podobał Ci się ten artykuł? Podziel się nim z przyjaciółmi i rodziną.",
+    "backToHome": "Wróć do strony głównej",
+    "suggestedArticles": "Sugerowane artykuły",
+    "moreArticles": "Więcej artykułów",
+    "contactText": "Nasz zespół medyczny jest dostępny 24/7, aby odpowiedzieć na pilne pytania i pomóc Ci zdecydować, co robić dalej.",
+    "readMore": "Czytaj więcej"
+  }
+}

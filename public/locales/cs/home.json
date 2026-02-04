@@ -1,0 +1,134 @@
+{
+  "hero": {
+    "caption": "Výkon v místě péče",
+    "title": "IglooPro:\nPoint-of-Care. Perfektní. Okamžité.",
+    "description": "Zajistěte si balíček výkonu: Váš IglooPro je připraven k použití za 48 hodin – zaručeno.",
+    "cta": "Rezervovat termín",
+    "cta_downloads": "Stáhnout informační materiály",
+    "stat1": {
+      "value": "3-5 pracovní dny",
+      "label": "Připraveno k použití po objednání"
+    },
+    "stat2": {
+      "value": "CV < 2%",
+      "label": "Přesnost v celém měřicím rozsahu"
+    },
+    "longevity": {
+      "title": "Prevence Nově Definována: Měřitelná vitalita.",
+      "description": "Odhalte trendy včas. Vysoce přesné monitorování zánětlivých a metabolických markerů pro dlouhý a zdravý život."
+    },
+    "beauty": {
+      "title": "Vědecká Estetika: Měřitelné výsledky místo dohadů.",
+      "description": "Vizualizujte úspěch vašich ošetření. IglooPro poskytuje přesná data o markerech stárnutí a zdraví pokožky v laboratorní kvalitě."
+    },
+    "dental": {
+      "description": "Zajistěte si výkonnostní balíček: Váš IglooPro je připraven k použití do 48 hodin – zaručeno.",
+      "title": "Inteligentní Diagnostika: Nový standard pro efektivní POC pracovní postupy."
+    }
+  },
+  "about": {
+    "caption": "VÁŠ GARANT VÝKONU",
+    "title": "Dokonalost a Bezpečnost: Standard, který nastavujeme.",
+    "text1": "IglooPro je prémiové zařízení. Ale skutečný prémiový výkon pochází pouze z dokonalého uvedení do provozu bez rizika. Standardní dodávka nechává složitost na vás. My přebíráme odpovědnost za výsledek.",
+    "text2": "Proto dodáváme výhradně slib nastavení do 48 hodin. Naše pilíře výkonu zaručují, že váš pracovní postup POC je optimalizován od první sekundy a že můžete okamžitě využít diagnostickou dokonalost.",
+    "cta": "Zajistit exkluzivní výhodu"
+  },
+  "doctors": {
+    "caption": "ZAMĚŘENÍ NA DIAGNOSTIKU",
+    "title": "Přesná diagnostika. Okamžité výsledky v Point-of-Care.",
+    "description": "Objevte se systémy jako Igloo Pro od DX365, jak můžete optimalizovat péči o pacienty a poskytovat důležité diagnózy přímo v místě ošetření – s laboratorně přesnými výsledky během několika minut.",
+    "cta": "K systému Igloo Pro"
+  },
+  "igloo_widget": {
+    "title": "Oblasti Použití",
+    "dental": "Dental",
+    "beauty": "Beauty",
+    "longevity": "Longevity"
+  },
+  "services": {
+    "caption": "ZAMĚŘENÍ NA DIAGNOSTIKU",
+    "title": "Klíčové oblasti preventivní diagnostiky",
+    "poc_systemloesungen": {
+      "title": "Systémová řešení POC",
+      "description": "Vaše řídicí centrum pro diagnostiku. Mobilní analyzátory, které poskytují laboratorně přesné výsledky během několika minut přímo v místě ošetření (např. Igloo Pro)."
+    },
+    "praeventions_checks": {
+      "title": "Preventivní zdravotní prohlídky",
+      "description": "Prevence nově vymyšlena. Rychlé stanovení důležitých biomarkerů (např. Vitamín D, CRP, HbA1c) pro včasnou detekci rizik a individuální zdravotní poradenství."
+    },
+    "infektion_entzuendung": {
+      "title": "Markery infekce a zánětu",
+      "description": "Rychlé odpovědi v kritických případech. Okamžitá analýza zánětlivých hodnot (CRP, PCT, IL-6) a infekčních onemocnění – nezbytné pro akutní péči a třídění."
+    },
+    "stoffwechsel_herz": {
+      "title": "Metabolismus a zdraví srdce",
+      "description": "Důležité ukazatele na první pohled. Přesné měření HbA1c, profilů cholesterolu a srdečních markerů (např. D-Dimer) pro monitorování chronických onemocnění."
+    },
+    "hormon_tests": {
+      "title": "Hormonální a endokrinologické testy",
+      "description": "Specializovaná diagnostika snadno. Široká škála testů hormonů štítné žlázy a reprodukčních hormonů (TSH, AMH) pro specializované praxe a lékárny."
+    },
+    "kompatibilitaet_integration": {
+      "title": "Kompatibilita mezi výrobci",
+      "description": "Maximální flexibilita. Díky univerzální technologii naše zařízení vyhodnocují 90% všech testů s bočním tokem na trhu. Bezpečnost investice díky otevřenosti."
+    },
+    "dental": {
+      "title": "Dentální",
+      "description": "Optimalizovaná implantologie. Okamžitá analýza vitaminu D pro lepší hojení ran a zánětlivých markerů pro minimalizaci rizik přímo v křesle."
+    },
+    "beauty": {
+      "title": "Krása a Estetika",
+      "description": "Krása zevnitř. Vědecky podložená estetika analýzou zdraví pleti, hormonálního stavu a mikroživin pro viditelné výsledky."
+    },
+    "longevity": {
+      "title": "Dlouhověkost",
+      "description": "Proaktivní řízení stárnutí. Monitorování klíčových biomarkerů jako HbA1c, lipidy a zánětlivé hodnoty pro delší a zdravější život."
+    }
+  },
+  "testimonials": {
+    "caption": "REFERENCE",
+    "title": "Co říkají naši uživatelé o systému Igloo Pro",
+    "ratingLabel": "Celkové hodnocení\nna základě 3500+ recenzí",
+    "positiveLabel": "Pozitivní hodnocení",
+    "richard_pollock": {
+      "role": "Zubař (Skutečná recenze)",
+      "title": "Biologický zubař a implantolog / Chelsea Dental Clinic",
+      "focus": "Rychlé zdravotní kontroly na místě (Prevence, Vitamín D)",
+      "text": "Provádění analýzy hladiny vitamínu D a dalších klíčových zdravotních ukazatelů na místě nelze podceňovat. Igloo Pro mi umožňuje provést jednoduchý test kapilární krve, zjistit potřeby pacientů a poté je nasměrovat k tomu, jaké další doplňky by mohli potřebovat k optimalizaci léčby. Tato schopnost se ukazuje jako transformativní z hlediska výsledků pacientů."
+    },
+    "eva_schmidt": {
+      "role": "Lékárna",
+      "title": "Majitelka / Löwen-Apotheke, Berlín",
+      "focus": "Další krok v poradenství prevence (Věrnost zákazníků, Rychlost)",
+      "text": "Od té doby, co jsme začali používat systém Igloo Pro, se naše role zdravotních poradců nesmírně posílila. Zákazníci velmi oceňují, že mohou určit důležité hodnoty jako CRP nebo cholesterol během několika minut místo čekání týdnů na termíny. Skutečná win-win situace pro věrnost zákazníků a kvalitu služeb."
+    },
+    "martin_fischer": {
+      "role": "Praktický lékař/Praxe",
+      "title": "Specialista na vnitřní lékařství / Interní praxe Dr. Fischer",
+      "focus": "Okamžitá diagnostika pro akutní pacienty (Efektivita, Rozhodnutí o terapii)",
+      "text": "Schopnost okamžitě stanovit zánětlivé markery jako CRP v ordinaci způsobila revoluci v našem léčebném pracovním postupu. Můžeme se rychleji rozhodnout, zda je u pacientů s nejasnými infekcemi nutná antibiotická léčba, a zabránit zbytečným doporučením. To nám šetří čas a výrazně zvyšuje spokojenost pacientů."
+    },
+    "julia_bergmann": {
+      "role": "Klinika/Laboratoř",
+      "title": "Vedoucí laboratoře a diagnostiky / Klinikum Nord",
+      "focus": "Kompatibilita a spolehlivost systému (Flexibilita, Sdružování)",
+      "text": "Igloo Pro je nejflexibilnější zařízení Point-of-Care, jaké jsme kdy hodnotili. Kompatibilita mezi výrobci pro testy s bočním tokem je obrovskou výhodou, která nám umožňuje standardizovat naše zařízení POC a šetřit náklady, aniž bychom se museli vzdát osvědčené spolehlivosti výsledků."
+    },
+    "bastian_wessing": {
+      "role": "Lékařský ředitel",
+      "title": "MVZ Zahnkultur Berlin Brandenburg GmbH",
+      "focus": "Okamžitá diagnostika pro parodontologii a implantologii (Vitamin D, HbA1c, Cholesterol, CRP)",
+      "text": "Igloo Multireader umožňuje měření zánětlivých markerů, HbA1c, cholesterolu a vitamínu D přímo v ordinaci. Díky tomu plánujeme parodontologické a implantační zákroky bezpečněji a začínáme rychleji. Školení a podpora od PolarisDX jsou nekomplikované – přístroj se stal pevnou součástí našeho každodenního života."
+    },
+    "goran_stojanovic": {
+      "role": "Zubní lékař (Skutečná recenze)",
+      "title": "Biological Dentist / Principal Dentist & Owner",
+      "focus": "Okamžitá diagnostika pro plánování implantátů (Vitamin D, CRP)",
+      "text": "Jako biologický zubní lékař jsem hluboce přesvědčen, že celkové zdraví vždy začíná u zubů. Igloo Pro mi umožňuje činit rychlá a přesná diagnostická rozhodnutí – přesně tam, kde jsou potřeba: u zubařského křesla. Díky okamžité analýze vitamínu D a CRP mohu optimálně naplánovat zavedení implantátu a často jej výrazně urychlit. Moji pacienti tak dostávají bezpečnější a efektivnější léčbu."
+    }
+  },
+  "blog": {
+    "caption": "Blog a novinky",
+    "title": "Naše články o zdraví"
+  }
+}

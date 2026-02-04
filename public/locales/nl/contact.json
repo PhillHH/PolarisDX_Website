@@ -1,0 +1,50 @@
+{
+  "contact": {
+    "hero": {
+      "kicker": "AFSPRAAK MAKEN",
+      "title": "Afspraak maken",
+      "breadcrumb": "Home / Contacteer Ons"
+    },
+    "form": {
+      "title": "Afspraak Maken",
+      "email": "E-mail",
+      "phone": "Telefoon",
+      "specialty": "Selecteer Medische Specialismen",
+      "doctor": "Selecteer Arts",
+      "any_doctor": "Elke beschikbare arts",
+      "date": "Selecteer Datum & Tijd",
+      "name": "Naam",
+      "name_placeholder": "Uw volledige naam",
+      "phone_placeholder": "+49 151 75011699",
+      "email_placeholder": "u@voorbeeld.nl",
+      "message": "Bericht",
+      "message_placeholder": "Vertel ons meer over uw behoeften...",
+      "submit": "Afspraak maken",
+      "company_label": "Bedrijfs- / Praktijknaam",
+      "company_placeholder": "bijv. Huisartsenpraktijk Jansen of Apotheek Centrum",
+      "area_label": "Primair Toepassingsgebied",
+      "area_options": {
+        "pharmacy": "Apotheek",
+        "practice": "Huisartsenpraktijk/Kliniek",
+        "vet": "Diergeneeskunde",
+        "lab": "Onderzoek/Laboratorium",
+        "other": "Anders"
+      },
+      "requirements_label": "Uw Specifieke Eisen voor IglooPro",
+      "requirements_placeholder": "Welke biomarkers (bijv. CRP, TSH, HbA1c) zijn primair relevant voor u?"
+    },
+    "info": {
+      "title": "Contactinformatie",
+      "text": "Ons team neemt binnen één werkdag contact met u op. Voor dringende vragen, gebruik het onderstaande telefoonnummer.",
+      "email_label": "E-MAIL (24/7 Service)",
+      "phone_label": "TELEFOON (Prioriteitslijn)"
+    },
+    "bottom_cta": {
+      "title": "Op zoek naar professionele & vertrouwde medische gezondheidszorg?",
+      "text": "Aarzel niet om contact met ons op te nemen. Onze coördinatoren staan klaar om u te helpen de juiste arts en tijd te kiezen."
+    },
+    "call_us_button": "Bel ons",
+    "call_us_text": "Bel ons",
+    "collapse_button": "Sluiten"
+  }
+}

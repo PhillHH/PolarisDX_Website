@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "title": "Diagnóstico rápido y preciso en el Point-of-Care",
+    "caption": "Diagnóstico de Nueva Generación",
+    "description": "Su centro de control para diagnósticos rápidos, precisos y flexibles.",
+    "cta_order": "Pedir ahora",
+    "cta_datasheet": "Hoja de datos (PDF)"
+  },
+  "intro": {
+    "title": "El laboratorio móvil para su práctica",
+    "text1": "El Igloo Pro es un analizador portátil Point-of-Care.",
+    "text2": "Puede evaluar alrededor del 90% de todas las pruebas de flujo lateral del mercado."
+  },
+  "features": {
+    "methods": {
+      "title": "Métodos versátiles",
+      "description": "Colorimetría, inmunofluorescencia y más."
+    },
+    "battery": {
+      "title": "Autonomía 24h",
+      "description": "Batería de litio para uso continuo."
+    },
+    "connectivity": {
+      "title": "Conectividad total",
+      "description": "WiFi, Bluetooth y conexión API."
+    },
+    "precision": {
+      "title": "Precisión y Seguridad",
+      "description": "Precisión CV < 2%."
+    }
+  },
+  "specs": {
+    "title": "Datos Técnicos",
+    "methods": "Métodos",
+    "methods_value": "Colorimetría, Inmunofluorescencia, Microfluidos...",
+    "samples": "Muestras",
+    "samples_value": "Suero / Plasma / Sangre Entera / Capilar...",
+    "weight": "Peso",
+    "weight_value": "aprox. 400g",
+    "dimensions": "Dimensiones",
+    "dimensions_value": "87,5 mm x 87,5 mm x 91 mm",
+    "speed": "Velocidad",
+    "speed_value": "Pocos segundos",
+    "accuracy": "Precisión",
+    "accuracy_value": "CV < 2%",
+    "storage": "Memoria",
+    "storage_value": "10.000 Resultados",
+    "battery": "Batería",
+    "battery_value": "Batería de Litio",
+    "communication": "Comunicación",
+    "communication_value": "USB-C, WiFi, Bluetooth"
+  },
+  "parameters": {
+    "title": "Parámetros disponibles",
+    "disclaimer": "Estos y otros parámetros están disponibles.",
+    "list": {
+      "vitd3": "Vitamina D3",
+      "crp": "CRP",
+      "hba1c": "HbA1c",
+      "ferritin": "Ferritina",
+      "cortisol": "Cortisol",
+      "tsh": "TSH",
+      "ddimer": "D-Dímero",
+      "troponin": "Troponina",
+      "flu": "Influenza A/B",
+      "rsv": "VRS",
+      "strep": "Estreptococo A"
+    }
+  },
+  "cta_bottom": {
+    "title": "Amplíe sus posibilidades diagnósticas",
+    "description": "Perfecto para farmacias y consultorios.",
+    "button": "Agendar cita ahora"
+  }
+}

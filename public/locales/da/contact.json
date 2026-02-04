@@ -1,0 +1,50 @@
+{
+  "contact": {
+    "hero": {
+      "kicker": "BESTIL TID",
+      "title": "Bestil tid",
+      "breadcrumb": "Hjem / Kontakt Os"
+    },
+    "form": {
+      "title": "Bestil Tid",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "specialty": "Vælg Medicinske Specialer",
+      "doctor": "Vælg Læge",
+      "any_doctor": "Enhver ledig læge",
+      "date": "Vælg Dato & Tid",
+      "name": "Navn",
+      "name_placeholder": "Dit fulde navn",
+      "phone_placeholder": "+49 151 75011699",
+      "email_placeholder": "dig@eksempel.dk",
+      "message": "Besked",
+      "message_placeholder": "Fortæl os mere om dine behov...",
+      "submit": "Bestil tid",
+      "company_label": "Virksomheds- / Praksisnavn",
+      "company_placeholder": "f.eks. Lægehuset v/ Dr. Jensen eller Løve Apotek",
+      "area_label": "Primært Anvendelsesområde",
+      "area_options": {
+        "pharmacy": "Apotek",
+        "practice": "Lægepraksis/Klinik",
+        "vet": "Veterinærmedicin",
+        "lab": "Forskning/Laboratorium",
+        "other": "Andet"
+      },
+      "requirements_label": "Dine Specifikke Krav til IglooPro",
+      "requirements_placeholder": "Hvilke biomarkører (f.eks. CRP, TSH, HbA1c) er primært relevante for dig?"
+    },
+    "info": {
+      "title": "Kontaktoplysninger",
+      "text": "Vores team vender tilbage til dig inden for en hverdag. For hastende spørgsmål, brug venligst telefonnummeret nedenfor.",
+      "email_label": "E-MAIL (Døgnservice)",
+      "phone_label": "TELEFON (Prioritetslinje)"
+    },
+    "bottom_cta": {
+      "title": "Leder du efter professionel og pålidelig medicinsk sundhedspleje?",
+      "text": "Tøv ikke med at kontakte os. Vores koordinatorer står klar til at hjælpe dig med at vælge den rette læge og tid."
+    },
+    "call_us_button": "Ring til os",
+    "call_us_text": "Ring til os",
+    "collapse_button": "Luk"
+  }
+}

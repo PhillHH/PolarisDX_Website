@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Over ons",
+    "service": "Diensten",
+    "shop": "Winkel",
+    "blog": "Blog",
+    "contact": "Contact",
+    "terms": "Algemene Voorwaarden",
+    "events": "Evenementen"
+  },
+  "badge": {
+    "New": "Nieuw",
+    "Popular": "Populair",
+    "Limited": "Beperkt"
+  },
+  "category": {
+    "Diagnostics": "Diagnostiek",
+    "Monitoring": "Monitoring",
+    "Home Care": "Thuiszorg",
+    "Chronic Care": "Chronische zorg",
+    "Protection": "Bescherming",
+    "Hygiene": "Hygiëne",
+    "Recovery": "Herstel",
+    "Emergency": "Noodgeval",
+    "Service": "Dienst"
+  },
+  "footer": {
+    "description": "Uitgebreide zorg en ondersteuning. Moderne gezondheidsdiensten voor jou en je familie, 24 uur per dag.",
+    "links": "Links",
+    "discover": "Ontdekken",
+    "london": "Londen",
+    "hamburg": "Hamburg",
+    "copyright": "Copyright ©PolarisDX 2025 Alle rechten voorbehouden.",
+    "imprint": "Colofon",
+    "privacy": "Privacybeleid",
+    "doctors": "Onze artsen",
+    "testimonials": "Getuigenissen",
+    "faq": "FAQ",
+    "appointment": "Afspraak maken"
+  },
+  "cta": {
+    "title": "Op zoek naar professionele & vertrouwde <1>medische zorg?</1>",
+    "description": "Aarzel niet om contact met ons op te nemen. Ons team staat klaar om je te ondersteunen en de juiste afspraak te plannen.",
+    "button": "Afspraak maken"
+  },
+  "cta_section": {
+    "title": "Op zoek naar gegarandeerde prestaties en POC-expertise?",
+    "text": "Spreek direct met onze IglooPro-specialisten. Ons team staat klaar om jouw individuele workflow-eisen te analyseren en je de snelste weg naar gevalideerde diagnostiek te tonen. Bij ons krijg je een oplossing op maat, geen standaard levering.",
+    "button": "Afspraak maken"
+  },
+  "read_more": "Lees meer",
+  "search": {
+    "keywords": {
+      "home": "home startpagina igloo widget diagnostic",
+      "about": "team doctors polarisdx over ons",
+      "services": "services diensten dental beauty longevity diagnostiek",
+      "contact": "contact email phone address adres",
+      "terms": "legal terms agb voorwaarden"
+    },
+    "services": {
+      "dental": "Tandheelkundige Diagnostiek",
+      "beauty": "Dermatologische Analyses",
+      "longevity": "Gezondheid en Levensduur",
+      "sports": "Prestatiediagnostiek voor Sporters"
+    }
+  },
+  "chat": {
+    "title": "Chat",
+    "status": "Online",
+    "intro": "Welkom bij PolarisDX. Hoe kunnen we je vandaag helpen?",
+    "welcome_prototype": "Welkom! Onze chatbot is nog niet actief. Gebruik ons <0>contactformulier</0> of bel ons op <1>+49 151 75011699</1>.",
+    "placeholder": "Typ een bericht...",
+    "footer": "Aangedreven door PolarisDX Assistant",
+    "error": "Sorry, er is iets misgegaan.",
+    "unavailable": "De chat is momenteel niet beschikbaar. Probeer het later opnieuw of neem contact met ons op via e-mail."
+  },
+  "cookie": {
+    "title": "Wij respecteren uw privacy",
+    "description": "Wij gebruiken cookies.",
+    "accept_all": "Alles accepteren",
+    "settings": "Instellingen",
+    "hide": "Verbergen",
+    "save_selection": "Opslaan",
+    "categories": {
+      "necessary": {
+        "name": "Noodzakelijk",
+        "description": "Vereist."
+      },
+      "marketing": {
+        "name": "Marketing",
+        "description": "Advertenties."
+      },
+      "analytics": {
+        "name": "Analyse",
+        "description": "Analyse."
+      }
+    }
+  },
+  "testimonials": {
+    "positiveLabel": "Positieve beoordeling"
+  }
+}

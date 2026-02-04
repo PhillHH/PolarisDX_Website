@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "title": "Rychlá diagnostika POC",
+    "caption": "Next Gen Diagnostics",
+    "description": "Vaše řídicí centrum.",
+    "cta_order": "Objednat nyní",
+    "cta_datasheet": "Datový list (PDF)"
+  },
+  "intro": {
+    "title": "Mobilní laboratoř",
+    "text1": "Igloo Pro je přenosný analyzátor.",
+    "text2": "Vyhodnocuje 90% testů."
+  },
+  "features": {
+    "methods": {
+      "title": "Všestranné metody",
+      "description": "Kolorimetrie..."
+    },
+    "battery": {
+      "title": "24h Baterie",
+      "description": "Lithiová baterie."
+    },
+    "connectivity": {
+      "title": "Plná konektivita",
+      "description": "WiFi, Bluetooth."
+    },
+    "precision": {
+      "title": "Přesnost",
+      "description": "CV < 2%."
+    }
+  },
+  "specs": {
+    "title": "Technická data",
+    "methods": "Metody",
+    "methods_value": "Kolorimetrie...",
+    "samples": "Vzorky",
+    "samples_value": "Sérum / Plazma...",
+    "weight": "Hmotnost",
+    "weight_value": "cca 400g",
+    "dimensions": "Rozměry",
+    "dimensions_value": "87,5 mm...",
+    "speed": "Rychlost",
+    "speed_value": "Pár sekund",
+    "accuracy": "Přesnost",
+    "accuracy_value": "CV < 2%",
+    "storage": "Paměť",
+    "storage_value": "10 000 výsledků",
+    "battery": "Baterie",
+    "battery_value": "Lithium",
+    "communication": "Komunikace",
+    "communication_value": "USB-C, WiFi"
+  },
+  "parameters": {
+    "title": "Dostupné parametry",
+    "disclaimer": "Tyto a další parametry jsou k dispozici.",
+    "list": {
+      "vitd3": "Vitamín D3",
+      "crp": "CRP",
+      "hba1c": "HbA1c",
+      "ferritin": "Ferritin",
+      "cortisol": "Kortizol",
+      "tsh": "TSH",
+      "ddimer": "D-Dimer",
+      "troponin": "Troponin",
+      "flu": "Chřipka A/B",
+      "rsv": "RSV",
+      "strep": "Streptokok A"
+    }
+  },
+  "cta_bottom": {
+    "title": "Rozšiřte možnosti",
+    "description": "Pro lékárny a ordinace.",
+    "button": "Rezervovat nyní"
+  }
+}

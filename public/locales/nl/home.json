@@ -1,0 +1,134 @@
+{
+  "hero": {
+    "caption": "Point-of-care Prestaties",
+    "title": "IglooPro:\nPoint-of-Care. Perfect. Onmiddellijk.",
+    "description": "Verzeker het prestatiepakket: Uw IglooPro is binnen 48 uur klaar voor gebruik – gegarandeerd.",
+    "cta": "Afspraak boeken",
+    "cta_downloads": "Info-materiaal downloaden",
+    "stat1": {
+      "value": "48u",
+      "label": "Klaar voor gebruik na bestelling"
+    },
+    "stat2": {
+      "value": "CV < 2%",
+      "label": "Precisie over het hele meetbereik"
+    },
+    "dental": {
+      "title": "Intelligente Diagnostiek: De nieuwe standaard voor efficiënte POC-workflows.",
+      "description": "Verzeker u van het performance-pakket: Uw IglooPro is binnen 48 uur klaar voor gebruik – gegarandeerd."
+    },
+    "beauty": {
+      "title": "Wetenschappelijke Esthetiek: Meetresultaten in plaats van gissingen.",
+      "description": "Visualiseer het succes van uw behandelingen. De IglooPro levert nauwkeurige gegevens over anti-aging markers en huidgezondheid in laboratoriumkwaliteit."
+    },
+    "longevity": {
+      "title": "Preventie opnieuw gedefinieerd: Vitaliteit meetbaar maken.",
+      "description": "Herken trends vroegtijdig. Zeer nauwkeurige monitoring van ontstekings- en stofwisselingsmarkers voor een lang en gezond leven."
+    }
+  },
+  "about": {
+    "caption": "UW PRESTATIEGARANT",
+    "title": "Uitmuntendheid en Veiligheid: De standaard die wij stellen.",
+    "text1": "De IglooPro is een premium apparaat. Maar echte premium prestaties komen alleen voort uit een perfecte, risicovrije inbedrijfstelling. Een standaard levering laat de complexiteit aan u over. Wij nemen de verantwoordelijkheid voor het resultaat.",
+    "text2": "Daarom leveren wij exclusief de 48-uurs setup-belofte. Onze prestatiepeilers garanderen dat uw POC-workflow vanaf de eerste seconde is geoptimaliseerd en dat u diagnostische uitmuntendheid onmiddellijk kunt gebruiken.",
+    "cta": "Exclusief voordeel verzekeren"
+  },
+  "doctors": {
+    "caption": "DIAGNOSTIEK FOCUS",
+    "title": "Precieze Diagnostiek. Onmiddellijke Resultaten bij Point-of-Care.",
+    "description": "Ontdek met systemen zoals de Igloo Pro van DX365 hoe u uw patiëntenzorg kunt optimaliseren en belangrijke diagnoses direct op de plaats van behandeling kunt stellen – met laboratoriumnauwkeurige resultaten in minuten.",
+    "cta": "Naar het Igloo Pro Systeem"
+  },
+  "igloo_widget": {
+    "title": "Toepassingsgebieden",
+    "dental": "Dental",
+    "beauty": "Beauty",
+    "longevity": "Longevity"
+  },
+  "services": {
+    "caption": "DIAGNOSTIEK FOCUS",
+    "title": "Belangrijkste gebieden van preventieve diagnostiek",
+    "poc_systemloesungen": {
+      "title": "POC-systeemoplossingen",
+      "description": "Uw controlecentrum voor diagnostiek. Mobiele analysers die laboratoriumnauwkeurige resultaten leveren in minuten direct op de plaats van behandeling (bijv. Igloo Pro)."
+    },
+    "praeventions_checks": {
+      "title": "Preventieve gezondheidschecks",
+      "description": "Preventie opnieuw uitgevonden. Snelle bepaling van belangrijke biomarkers (bijv. Vitamine D, CRP, HbA1c) voor vroege risicodetectie en individueel gezondheidsadvies."
+    },
+    "infektion_entzuendung": {
+      "title": "Infectie- & Ontstekingsmarkers",
+      "description": "Snelle antwoorden in kritieke gevallen. Onmiddellijke analyse van ontstekingswaarden (CRP, PCT, IL-6) en infectieziekten – essentieel voor acute zorg en triage."
+    },
+    "stoffwechsel_herz": {
+      "title": "Metabolisme & Hartgezondheid",
+      "description": "Belangrijke indicatoren in één oogopslag. Precieze meting van HbA1c, cholesterolprofielen en cardiale markers (bijv. D-Dimeer) voor het monitoren van chronische ziekten."
+    },
+    "hormon_tests": {
+      "title": "Hormoon- & Endocrinologie Tests",
+      "description": "Speciale diagnostiek eenvoudig gemaakt. Breed scala aan tests voor schildklier- en reproductiehormonen (TSH, AMH) voor gespecialiseerde praktijken en apotheken."
+    },
+    "kompatibilitaet_integration": {
+      "title": "Compatibiliteit tussen fabrikanten",
+      "description": "Maximale flexibiliteit. Dankzij universele technologie evalueren onze apparaten 90% van alle laterale flow tests op de markt. Investeringszekerheid door openheid."
+    },
+    "dental": {
+      "title": "Tandheelkunde",
+      "description": "Geoptimaliseerde implantologie. Onmiddellijke analyse van vitamine D voor betere wondgenezing en ontstekingsmarkers voor risicominimalisatie direct aan de stoel."
+    },
+    "beauty": {
+      "title": "Schoonheid en Esthetiek",
+      "description": "Schoonheid van binnenuit. Wetenschappelijk onderbouwde esthetiek door analyse van huidgezondheid, hormonale status en micronutriënten voor zichtbare resultaten."
+    },
+    "longevity": {
+      "title": "Levensduur",
+      "description": "Proactief verouderingsbeheer. Monitoring van essentiële biomarkers zoals HbA1c, lipiden en ontstekingswaarden voor een langer, gezonder leven."
+    }
+  },
+  "testimonials": {
+    "caption": "GETUIGENISSEN",
+    "title": "Wat onze gebruikers zeggen over het Igloo Pro Systeem",
+    "ratingLabel": "Algemene beoordeling\ngebaseerd op 3500+ beoordelingen",
+    "positiveLabel": "Positieve beoordeling",
+    "richard_pollock": {
+      "role": "Tandarts (Echte recensie)",
+      "title": "Biologische tandarts en implantaatchirurg / Chelsea Dental Clinic",
+      "focus": "Snelle gezondheidschecks ter plaatse (Preventie, Vitamine D)",
+      "text": "Het uitvoeren van analyses van vitamine D-niveaus en andere belangrijke gezondheidsindicatoren ter plaatse mag niet worden onderschat. De Igloo Pro stelt mij in staat om een eenvoudige capillaire bloedtest uit te voeren, de behoeften van patiënten vast te stellen en hen vervolgens te begeleiden naar welke aanvullende supplementen zij mogelijk nodig hebben om de behandeling te optimaliseren. Deze mogelijkheid blijkt transformerend te zijn in termen van patiëntresultaten."
+    },
+    "eva_schmidt": {
+      "role": "Apotheek",
+      "title": "Eigenaar / Löwen-Apotheke, Berlijn",
+      "focus": "De volgende stap in preventieadvies (Klantloyaliteit, Snelheid)",
+      "text": "Sinds we het Igloo Pro Systeem gebruiken, is onze rol als gezondheidsadviseurs enorm versterkt. Klanten waarderen het enorm om belangrijke waarden zoals CRP of cholesterol in minuten te kunnen bepalen in plaats van weken te wachten op afspraken. Een echte win-win situatie voor klantloyaliteit en servicekwaliteit."
+    },
+    "martin_fischer": {
+      "role": "Huisarts/Praktijk",
+      "title": "Specialist in Interne Geneeskunde / Interne Geneeskunde Praktijk Dr. Fischer",
+      "focus": "Onmiddellijke diagnostiek voor acute patiënten (Efficiëntie, Therapiebeslissing)",
+      "text": "De mogelijkheid om ontstekingsmarkers zoals CRP onmiddellijk in de praktijk te bepalen, heeft onze behandelingsworkflow revolutionair veranderd. We kunnen sneller beslissen of antibioticatherapie nodig is voor patiënten met onduidelijke infecties en onnodige doorverwijzingen voorkomen. Dit bespaart ons tijd en verhoogt de patiënttevredenheid aanzienlijk."
+    },
+    "julia_bergmann": {
+      "role": "Kliniek/Laboratorium",
+      "title": "Hoofd Laboratorium & Diagnostiek / Klinikum Nord",
+      "focus": "Systeemcompatibiliteit & Betrouwbaarheid (Flexibiliteit, Bundeling)",
+      "text": "De Igloo Pro is het meest flexibele Point-of-Care apparaat dat we ooit hebben geëvalueerd. De compatibiliteit tussen fabrikanten voor laterale flow tests is een enorm voordeel dat ons in staat stelt onze POC-apparaten te standaardiseren en kosten te besparen zonder in te boeten aan de bewezen betrouwbaarheid van de resultaten."
+    },
+    "bastian_wessing": {
+      "role": "Medisch Directeur",
+      "title": "MVZ Zahnkultur Berlin Brandenburg GmbH",
+      "focus": "Onmiddellijke diagnostiek voor parodontologie & implantologie (Vitamine D, HbA1c, Cholesterol, CRP)",
+      "text": "De Igloo Multireader maakt ontstekingsmarkers, HbA1c, cholesterol en Vitamine D direct meetbaar aan de stoel. Hierdoor kunnen we parodontale en implantaatbehandelingen veiliger plannen en sneller starten. Training en ondersteuning van PolarisDX zijn ongecompliceerd – het apparaat is een vast onderdeel van ons dagelijks leven geworden."
+    },
+    "goran_stojanovic": {
+      "role": "Tandarts (Echte recensie)",
+      "title": "Biologische Tandarts / Hoofdtandarts & Eigenaar",
+      "focus": "Onmiddellijke diagnostiek voor implantaatplanning (Vitamine D, CRP)",
+      "text": "Als biologische tandarts ben ik er diep van overtuigd dat holistische gezondheid altijd begint bij de tanden. De Igloo Pro stelt mij in staat om snelle en precieze diagnostische beslissingen te nemen, precies daar waar ze nodig zijn: in de tandartsstoel. Met onmiddellijke vitamine D- en CRP-analyse kan ik implantaatplaatsingen optimaal plannen en vaak aanzienlijk versnellen. Dit geeft mijn patiënten een veiligere en efficiëntere behandeling."
+    }
+  },
+  "blog": {
+    "caption": "Blog & Nieuws",
+    "title": "Onze artikelen over gezondheid"
+  }
+}

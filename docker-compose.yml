@@ -1,0 +1,30 @@
+services:
+  # Frontend Service (Nginx + React Static Files)
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "2026:80"  # Frontend jetzt auf Port 2026
+    depends_on:
+      - backend
+    networks:
+      - app-network
+    restart: always
+
+  # Backend Service (Node.js Mailer)
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"  # Backend auf Port 5000 extern erreichbar
+    env_file:
+      - .env
+    networks:
+      - app-network
+    restart: always
+
+networks:
+  app-network:
+    driver: bridge

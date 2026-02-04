@@ -1,0 +1,134 @@
+{
+  "hero": {
+    "caption": "Performance Point-of-Care",
+    "title": "IglooPro:\nPoint-of-Care. Parfait. Immédiat.",
+    "description": "Assurez-vous le pack performance : Votre IglooPro est prêt à l'emploi en 48 heures – garanti.",
+    "cta": "Prendre rendez-vous",
+    "cta_downloads": "Télécharger les documents d'information",
+    "stat1": {
+      "value": "3-5 jours ouvrés",
+      "label": "Prêt à l'emploi après commande"
+    },
+    "stat2": {
+      "value": "CV < 2%",
+      "label": "Précision sur toute la plage de mesure"
+    },
+    "dental": {
+      "title": "Diagnostic intelligent : La nouvelle référence pour des flux de travail POC efficaces.",
+      "description": "Assurez-vous le pack performance : Votre IglooPro est prêt à l'emploi en 48 heures – garanti."
+    },
+    "beauty": {
+      "title": "Esthétique scientifique : Des résultats mesurables au lieu de suppositions.",
+      "description": "Visualisez le succès de vos traitements. L'IglooPro fournit des données précises sur les marqueurs anti-âge et la santé de la peau en qualité laboratoire."
+    },
+    "longevity": {
+      "title": "La prévention redéfinie : Rendre la vitalité mesurable.",
+      "description": "Détectez les tendances tôt. Surveillance de haute précision des marqueurs d'inflammation et métaboliques pour une vie longue et saine."
+    }
+  },
+  "about": {
+    "caption": "VOTRE GARANT DE PERFORMANCE",
+    "title": "Excellence et Sécurité : La norme que nous fixons.",
+    "text1": "L'IglooPro est un appareil haut de gamme. Mais la véritable performance haut de gamme ne vient que d'une mise en service parfaite et sans risque. Une livraison standard vous laisse la complexité. Nous prenons la responsabilité du résultat.",
+    "text2": "C'est pourquoi nous livrons exclusivement la promesse de configuration en 48 heures. Nos piliers de performance garantissent que votre flux de travail POC est optimisé dès la première seconde et que vous pouvez utiliser l'excellence diagnostique immédiatement.",
+    "cta": "Garantir un avantage exclusif"
+  },
+  "doctors": {
+    "caption": "FOCUS DIAGNOSTIC",
+    "title": "Diagnostic précis. Résultats immédiats au Point-of-Care.",
+    "description": "Découvrez avec des systèmes comme l'Igloo Pro de DX365 comment optimiser vos soins aux patients et fournir des diagnostics importants directement sur le lieu de traitement – avec des résultats précis en quelques minutes.",
+    "cta": "Vers le système Igloo Pro"
+  },
+  "igloo_widget": {
+    "title": "Domaines d'application",
+    "dental": "Dental",
+    "beauty": "Beauty",
+    "longevity": "Longevity"
+  },
+  "services": {
+    "caption": "FOCUS DIAGNOSTIC",
+    "title": "Domaines clés du diagnostic préventif",
+    "poc_systemloesungen": {
+      "title": "Solutions système POC",
+      "description": "Votre centre de contrôle pour le diagnostic. Analyseurs mobiles qui fournissent des résultats de laboratoire en quelques minutes directement sur le lieu de traitement (par ex. Igloo Pro)."
+    },
+    "praeventions_checks": {
+      "title": "Bilans de santé préventifs",
+      "description": "La prévention repensée. Détermination rapide de biomarqueurs importants (par ex. Vitamine D, CRP, HbA1c) pour la détection précoce des risques et des conseils de santé individuels."
+    },
+    "infektion_entzuendung": {
+      "title": "Marqueurs d'infection et d'inflammation",
+      "description": "Réponses rapides dans les cas critiques. Analyse immédiate des valeurs d'inflammation (CRP, PCT, IL-6) et des maladies infectieuses – essentiel pour les soins aigus et le triage."
+    },
+    "stoffwechsel_herz": {
+      "title": "Métabolisme et santé cardiaque",
+      "description": "Indicateurs importants en un coup d'œil. Mesure précise de l'HbA1c, des profils de cholestérol et des marqueurs cardiaques (par ex. D-Dimère) pour la surveillance des maladies chroniques."
+    },
+    "hormon_tests": {
+      "title": "Tests hormonaux et endocrinologie",
+      "description": "Le diagnostic spécialisé rendu facile. Large gamme de tests pour les hormones thyroïdiennes et de reproduction (TSH, AMH) pour les cabinets spécialisés et les pharmacies."
+    },
+    "kompatibilitaet_integration": {
+      "title": "Compatibilité multi-fabricants",
+      "description": "Flexibilité maximale. Grâce à la technologie universelle, nos appareils évaluent 90% de tous les tests à flux latéral sur le marché. Sécurité d'investissement grâce à l'ouverture."
+    },
+    "dental": {
+      "title": "Dentaire",
+      "description": "Implantologie optimisée. Analyse immédiate de la vitamine D pour une meilleure cicatrisation et des marqueurs d'inflammation pour minimiser les risques directement au fauteuil."
+    },
+    "beauty": {
+      "title": "Beauté & Esthétique",
+      "description": "La beauté de l'intérieur. Esthétique scientifiquement fondée par l'analyse de la santé de la peau, du statut hormonal et des micronutriments pour des résultats visibles."
+    },
+    "longevity": {
+      "title": "Longévité",
+      "description": "Gestion proactive du vieillissement. Surveillance des biomarqueurs essentiels comme l'HbA1c, les lipides et les valeurs d'inflammation pour une vie plus longue et plus saine."
+    }
+  },
+  "testimonials": {
+    "caption": "TÉMOIGNAGES",
+    "title": "Ce que disent nos utilisateurs à propos du système Igloo Pro",
+    "ratingLabel": "Note globale\nbasée sur 3500+ avis",
+    "positiveLabel": "Avis positif",
+    "richard_pollock": {
+      "role": "Dentiste (Avis réel)",
+      "title": "Dentiste biologique et chirurgien implantaire / Chelsea Dental Clinic",
+      "focus": "Bilans de santé rapides sur site (Prévention, Vitamine D)",
+      "text": "L'analyse des niveaux de vitamine D et d'autres indicateurs de santé clés sur site ne peut être sous-estimée. L'Igloo Pro me permet d'effectuer un simple test sanguin capillaire, de vérifier les besoins des patients et de les guider ensuite vers les suppléments supplémentaires dont ils pourraient avoir besoin pour optimiser le traitement. Cette capacité s'avère transformatrice en termes de résultats pour les patients."
+    },
+    "eva_schmidt": {
+      "role": "Pharmacie",
+      "title": "Propriétaire / Löwen-Apotheke, Berlin",
+      "focus": "La prochaine étape du conseil en prévention (Fidélisation client, Rapidité)",
+      "text": "Depuis que nous utilisons le système Igloo Pro, notre rôle de conseillers en santé s'est considérablement renforcé. Les clients apprécient énormément de pouvoir déterminer des valeurs importantes comme la CRP ou le cholestérol en quelques minutes au lieu d'attendre des semaines pour des rendez-vous. Une véritable situation gagnant-gagnant pour la fidélisation des clients et la qualité du service."
+    },
+    "martin_fischer": {
+      "role": "Médecin généraliste/Cabinet",
+      "title": "Spécialiste en médecine interne / Cabinet de médecine interne Dr. Fischer",
+      "focus": "Diagnostic immédiat pour les patients aigus (Efficacité, Décision thérapeutique)",
+      "text": "La possibilité de déterminer immédiatement des marqueurs d'inflammation comme la CRP au cabinet a révolutionné notre flux de traitement. Nous pouvons décider plus rapidement si une antibiothérapie est nécessaire pour les patients souffrant d'infections peu claires et éviter les renvois inutiles. Cela nous fait gagner du temps et augmente considérablement la satisfaction des patients."
+    },
+    "julia_bergmann": {
+      "role": "Clinique/Laboratoire",
+      "title": "Chef de laboratoire et diagnostic / Klinikum Nord",
+      "focus": "Compatibilité et fiabilité du système (Flexibilité, Regroupement)",
+      "text": "L'Igloo Pro est l'appareil Point-of-Care le plus flexible que nous ayons jamais évalué. La compatibilité multi-fabricants pour les tests à flux latéral est un énorme avantage qui nous permet de standardiser nos appareils POC et d'économiser des coûts sans avoir à renoncer à la fiabilité éprouvée des résultats."
+    },
+    "goran_stojanovic": {
+      "title": "Biological Dentist / Principal Dentist & Owner",
+      "role": "Dentist (Real Review)",
+      "focus": "Rapid chairside diagnostics for implant planning (Vitamin D, CRP)",
+      "text": "As a biological dentist, I am deeply convinced that holistic health always begins with the teeth. The Igloo Pro allows me to make fast and precise diagnostic decisions exactly where they are needed: at the chair. With immediate Vitamin D and CRP analysis, I can plan implant placements optimally and often accelerate them significantly. This gives my patients safer and more efficient treatment."
+    },
+    "bastian_wessing": {
+      "role": "Medical Director",
+      "text": "The Igloo Multireader lets us measure inflammation markers, HbA1c, cholesterol, and Vitamin D right at the chair. That makes periodontal and implant treatments safer and faster to start. Training and support from PolarisDX are straightforward—the device has become a fixed part of our daily workflow.",
+      "focus": "Rapid chairside diagnostics for periodontology & implantology (Vitamin D, HbA1c, cholesterol, CRP)",
+      "title": "MVZ Zahnkultur Berlin Brandenburg GmbH"
+    }
+  },
+  "blog": {
+    "caption": "Blog et actualités",
+    "title": "Nos articles sur la santé"
+  }
+}
