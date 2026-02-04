@@ -25,6 +25,7 @@ import type { ViteDevServer } from 'vite'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const isProduction = process.env.NODE_ENV === 'production'
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:5000'
 
 // Unterstützte Sprachen (muss mit i18n.ts übereinstimmen)
 const SUPPORTED_LANGUAGES = ['de', 'en', 'pl', 'fr', 'it', 'es', 'pt', 'da', 'nl', 'cs'] as const
@@ -118,13 +119,34 @@ async function createServer() {
   // PRODUCTION: Statische Assets
   // ---------------------------------------------------------------------------
   if (isProduction) {
-    // Statische Assets aus dist/client
+    // Hashed Assets (mit Content-Hash im Dateinamen) - langfristiges Caching
+    app.use(
+      '/assets',
+      express.static(path.resolve(__dirname, 'dist/client/assets'), {
+        maxAge: '1y',
+        immutable: true,
+      })
+    )
+
+    // Andere statische Assets aus dist/client
     app.use(
       express.static(path.resolve(__dirname, 'dist/client'), {
         index: false, // Kein automatisches index.html serving
+        maxAge: '1h', // Kürzeres Caching für nicht-gehashte Assets
       })
     )
   }
+
+  // ---------------------------------------------------------------------------
+  // SECURITY HEADERS
+  // ---------------------------------------------------------------------------
+  app.use((_req, res, next) => {
+    res.setHeader('X-Frame-Options', 'SAMEORIGIN')
+    res.setHeader('X-Content-Type-Options', 'nosniff')
+    res.setHeader('X-XSS-Protection', '1; mode=block')
+    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin')
+    next()
+  })
 
   // ---------------------------------------------------------------------------
   // API PROXY
@@ -132,7 +154,7 @@ async function createServer() {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'http://localhost:5000',
+      target: BACKEND_URL,
       changeOrigin: true,
     })
   )
