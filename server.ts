@@ -156,6 +156,8 @@ async function createServer() {
     createProxyMiddleware({
       target: BACKEND_URL,
       changeOrigin: true,
+      // Express strips mount path, so we need to add /api back
+      pathRewrite: (path) => '/api' + path,
     })
   )
 
