@@ -32,6 +32,9 @@ interface UseAnalyticsReturn {
  * Check if analytics consent was given
  */
 const hasAnalyticsConsent = (): boolean => {
+  // SSR Guard: localStorage is not available on server
+  if (typeof window === 'undefined') return false;
+
   try {
     const consent = localStorage.getItem('cookie-consent');
     if (!consent) return false;
@@ -89,6 +92,9 @@ export const useAnalytics = (): UseAnalyticsReturn => {
   // =============================================================================
 
   const trackPageView = useCallback((path?: string, title?: string) => {
+    // SSR Guard: document and window.location are not available on server
+    if (typeof window === 'undefined') return;
+
     const pagePath = path || location.pathname;
     const pageTitle = title || document.title;
 
