@@ -1,22 +1,29 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, ChevronRight } from 'lucide-react'
+import { ArrowRight, ChevronRight, Send, CheckCircle, Phone, FileText, BookOpen } from 'lucide-react'
 import { SEOHead, createArticleSchema, createBreadcrumbSchema, createFAQSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import iglooProImage from '../assets/Igloo-pro-frontal.png'
+import { sendContactEmail } from '../api/contact'
 
 const VitaminD3ImplantologyPage = () => {
+  // Order form state
+  const [formData, setFormData] = useState({
+    praxisName: '',
+    ansprechpartner: '',
+    email: '',
+    phone: '',
+    quantity: '10',
+    message: '',
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   // Author data for E-E-A-T
   const author = {
     name: 'Fachredaktion PolarisDX',
     type: 'Organization' as const,
     url: 'https://polarisdx.net/about',
-  }
-
-  const medicalReviewer = {
-    name: 'Dr. med. dent. K. Richter',
-    type: 'Person' as const,
-    jobTitle: 'Fachzahnarzt für Oralchirurgie und Implantologie',
   }
 
   // FAQ data - rewritten to complement (not repeat) main text
@@ -77,7 +84,6 @@ const VitaminD3ImplantologyPage = () => {
             dateModified: '2026-02-04',
             articleType: 'MedicalWebPage',
             author: author,
-            reviewedBy: medicalReviewer,
           }),
           createBreadcrumbSchema([
             { name: 'PolarisDX', url: '/' },
@@ -98,7 +104,7 @@ const VitaminD3ImplantologyPage = () => {
 
           <div className="relative mx-auto flex min-h-[380px] max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
             <Reveal width="100%" yOffset={20}>
-              <div className="max-w-[720px] mx-auto">
+              <div className="max-w-[900px] mx-auto">
                 {/* Breadcrumb */}
                 <nav className="mb-6 flex items-center gap-1.5 text-sm text-white/60">
                   <Link to="/" className="hover:text-brand-secondary transition-colors">
@@ -141,21 +147,19 @@ const VitaminD3ImplantologyPage = () => {
           </div>
         </section>
 
-        {/* Main Content */}
-        <article className="mx-auto max-w-[720px] px-4 py-12 lg:py-16">
-          <Reveal width="100%">
-            {/* Author Box - E-E-A-T Signal */}
-            <div className="mb-10 flex items-start gap-4 rounded-lg border border-gray-200 bg-white p-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-primary/10 text-brand-primary font-semibold text-lg">
-                FP
-              </div>
-              <div>
-                <p className="text-sm font-medium text-gray-900">Fachredaktion PolarisDX</p>
-                <p className="text-xs text-gray-500">
-                  Medizinisch geprüft von {medicalReviewer.name}, {medicalReviewer.jobTitle}
-                </p>
-              </div>
-            </div>
+        {/* Main Content with Sidebar */}
+        <div className="mx-auto max-w-[1200px] px-4 py-12 lg:py-16">
+          <div className="lg:grid lg:grid-cols-[1fr_320px] lg:gap-10">
+            {/* Main Article Column */}
+            <article>
+              <Reveal width="100%">
+                {/* Author Box - E-E-A-T Signal */}
+                <div className="mb-10 flex items-center gap-4 rounded-lg border border-gray-200 bg-white p-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-primary/10 text-brand-primary font-semibold text-lg">
+                    FP
+                  </div>
+                  <p className="text-sm font-medium text-gray-900">Fachredaktion PolarisDX</p>
+                </div>
 
             {/* Problem Section */}
             <div className="space-y-6 text-[17px] leading-[1.75] text-gray-700">
@@ -363,30 +367,173 @@ const VitaminD3ImplantologyPage = () => {
               </div>
             </section>
 
-            {/* Main CTA */}
-            <div className="my-12 rounded-xl bg-gradient-to-br from-brand-deep to-gray-900 p-8 text-center shadow-xl sm:p-10">
-              <div className="relative z-10">
-                <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-secondary">
-                  D3+K2 Spray für Ihre Praxis
-                </p>
-                <h3 className="mb-4 text-xl font-semibold text-white sm:text-2xl">
-                  Erfahren Sie, wie Sie das Vitamin D3+K2 Spray als Dispensierprodukt in Ihren Praxisalltag integrieren.
-                </h3>
-                <Link
-                  to="/contact?ref=blog-vitd3-spray"
-                  className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-8 py-4 text-base font-semibold text-brand-deep shadow-lg transition-all hover:scale-[1.02] hover:bg-gray-50"
-                >
-                  Jetzt Spray-Konditionen anfragen
-                  <ArrowRight className="h-5 w-5" />
-                </Link>
-                <p className="mt-4 text-sm text-white/60">Unverbindlich · Antwort innerhalb von 24 Stunden</p>
-              </div>
-            </div>
+            {/* Order Form */}
+            <section id="bestellformular" className="my-12 scroll-mt-24">
+              <div className="rounded-xl border-2 border-brand-primary/20 bg-white p-6 shadow-lg sm:p-8">
+                <div className="mb-6">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-primary">
+                    Vitamin D3+K2 Spray
+                  </p>
+                  <h3 className="text-xl font-semibold text-gray-900 sm:text-2xl">
+                    Jetzt bestellen
+                  </h3>
+                  <p className="mt-2 text-sm text-gray-600">
+                    Füllen Sie das Formular aus und wir senden Ihnen eine Auftragsbestätigung mit Rechnung per E-Mail.
+                  </p>
+                </div>
 
-            {/* Social Proof */}
-            <p className="my-10 text-center text-sm text-gray-500">
-              Über 100 Praxen in 15+ Ländern arbeiten bereits mit dem PolarisDX Diagnostik-Ökosystem.
-            </p>
+                {submitStatus === 'success' ? (
+                  <div className="flex flex-col items-center justify-center py-8 text-center">
+                    <CheckCircle className="mb-4 h-12 w-12 text-green-500" />
+                    <h4 className="mb-2 text-lg font-semibold text-gray-900">Vielen Dank für Ihre Bestellung!</h4>
+                    <p className="text-sm text-gray-600">
+                      Wir haben Ihre Bestellung erhalten und senden Ihnen in Kürze eine Bestätigung per E-Mail.
+                    </p>
+                  </div>
+                ) : (
+                  <form
+                    onSubmit={async (e) => {
+                      e.preventDefault()
+                      setIsSubmitting(true)
+                      setSubmitStatus('idle')
+
+                      const success = await sendContactEmail({
+                        name: formData.ansprechpartner,
+                        email: formData.email,
+                        phone: formData.phone,
+                        company: formData.praxisName,
+                        area: 'Vitamin D3+K2 Spray BESTELLUNG',
+                        message: `BESTELLUNG Vitamin D3+K2 Spray\n\nMenge: ${formData.quantity} Sprays\n\nLieferadresse:\n${formData.praxisName}\n${formData.ansprechpartner}\n\nAnmerkungen:\n${formData.message || 'Keine'}`,
+                      })
+
+                      setIsSubmitting(false)
+                      setSubmitStatus(success ? 'success' : 'error')
+                    }}
+                    className="space-y-4"
+                  >
+                    <div>
+                      <label htmlFor="quantity" className="mb-1 block text-sm font-medium text-gray-700">
+                        Bestellmenge *
+                      </label>
+                      <select
+                        id="quantity"
+                        value={formData.quantity}
+                        onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
+                        className="w-full rounded-md border border-gray-300 px-3 py-2.5 text-sm font-medium focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary"
+                      >
+                        <option value="5">5 Sprays – Starterpaket</option>
+                        <option value="10">10 Sprays</option>
+                        <option value="25">25 Sprays – Praxispaket</option>
+                        <option value="50">50 Sprays</option>
+                        <option value="100">100+ Sprays – Großbestellung</option>
+                      </select>
+                    </div>
+
+                    <div className="border-t border-gray-100 pt-4">
+                      <p className="mb-3 text-sm font-medium text-gray-900">Rechnungs- & Lieferadresse</p>
+                      <div className="space-y-3">
+                        <div>
+                          <label htmlFor="praxisName" className="mb-1 block text-sm text-gray-600">
+                            Praxis / Firma *
+                          </label>
+                          <input
+                            type="text"
+                            id="praxisName"
+                            required
+                            value={formData.praxisName}
+                            onChange={(e) => setFormData({ ...formData, praxisName: e.target.value })}
+                            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary"
+                            placeholder="Zahnarztpraxis Musterpraxis"
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="ansprechpartner" className="mb-1 block text-sm text-gray-600">
+                            Name *
+                          </label>
+                          <input
+                            type="text"
+                            id="ansprechpartner"
+                            required
+                            value={formData.ansprechpartner}
+                            onChange={(e) => setFormData({ ...formData, ansprechpartner: e.target.value })}
+                            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary"
+                            placeholder="Ihr Name"
+                          />
+                        </div>
+                        <div className="grid gap-3 sm:grid-cols-2">
+                          <div>
+                            <label htmlFor="email" className="mb-1 block text-sm text-gray-600">
+                              E-Mail *
+                            </label>
+                            <input
+                              type="email"
+                              id="email"
+                              required
+                              value={formData.email}
+                              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                              className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary"
+                              placeholder="praxis@beispiel.de"
+                            />
+                          </div>
+                          <div>
+                            <label htmlFor="phone" className="mb-1 block text-sm text-gray-600">
+                              Telefon
+                            </label>
+                            <input
+                              type="tel"
+                              id="phone"
+                              value={formData.phone}
+                              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                              className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary"
+                              placeholder="Für Rückfragen"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="message" className="mb-1 block text-sm text-gray-600">
+                        Anmerkungen zur Bestellung
+                      </label>
+                      <textarea
+                        id="message"
+                        rows={2}
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary"
+                        placeholder="Optional: Lieferhinweise, abweichende Adresse, etc."
+                      />
+                    </div>
+
+                    {submitStatus === 'error' && (
+                      <p className="text-sm text-red-600">
+                        Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder rufen Sie uns an.
+                      </p>
+                    )}
+
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="flex w-full items-center justify-center gap-2 rounded-md bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-deep disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      {isSubmitting ? (
+                        'Bestellung wird gesendet...'
+                      ) : (
+                        <>
+                          Jetzt verbindlich bestellen
+                          <Send className="h-4 w-4" />
+                        </>
+                      )}
+                    </button>
+
+                    <p className="text-center text-xs text-gray-500">
+                      Mit Absenden erhalten Sie eine Auftragsbestätigung per E-Mail. Zahlung auf Rechnung.
+                    </p>
+                  </form>
+                )}
+              </div>
+            </section>
 
             {/* FAQ Section */}
             <section className="mt-12 border-t border-gray-200 pt-10">
@@ -414,21 +561,125 @@ const VitaminD3ImplantologyPage = () => {
             </div>
           </Reveal>
         </article>
+
+            {/* Sidebar */}
+            <aside className="hidden lg:block">
+              <div className="sticky top-24 space-y-6">
+                {/* Phone Contact Box */}
+                <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                  <div className="mb-3 flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-primary/10">
+                      <Phone className="h-5 w-5 text-brand-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-gray-900">Fragen zur Bestellung?</p>
+                      <p className="text-xs text-gray-500">Wir beraten Sie gerne</p>
+                    </div>
+                  </div>
+                  <a
+                    href="tel:+4915175011699"
+                    className="flex items-center justify-center gap-2 rounded-md bg-brand-primary/10 px-4 py-2.5 text-sm font-semibold text-brand-primary transition-colors hover:bg-brand-primary/20"
+                  >
+                    <Phone className="h-4 w-4" />
+                    +49 151 75011699
+                  </a>
+                  <p className="mt-2 text-center text-xs text-gray-500">Mo–Fr 9:00–17:00 Uhr</p>
+                </div>
+
+                {/* Quick Order CTA */}
+                <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-deep p-5 text-white">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-secondary">
+                    Schnellbestellung
+                  </p>
+                  <p className="mb-4 text-sm">
+                    Direkt zum Bestellformular und D3+K2 Spray für Ihre Praxis sichern.
+                  </p>
+                  <a
+                    href="#bestellformular"
+                    className="flex items-center justify-center gap-2 rounded-md bg-white px-4 py-2.5 text-sm font-semibold text-brand-deep transition-colors hover:bg-gray-50"
+                  >
+                    Jetzt bestellen
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
+
+                {/* Related Articles */}
+                <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                  <p className="mb-4 flex items-center gap-2 text-sm font-semibold text-gray-900">
+                    <BookOpen className="h-4 w-4 text-brand-primary" />
+                    Weiterführende Inhalte
+                  </p>
+                  <div className="space-y-3">
+                    <Link
+                      to="/igloo-pro"
+                      className="group flex items-start gap-3 rounded-lg p-2 transition-colors hover:bg-gray-50"
+                    >
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-blue-50 text-brand-primary">
+                        <FileText className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-gray-900 group-hover:text-brand-primary">
+                          Igloo Pro System
+                        </p>
+                        <p className="text-xs text-gray-500">Vitamin-D-Diagnostik am Behandlungsstuhl</p>
+                      </div>
+                    </Link>
+                    <Link
+                      to="/casestudys/32reasons"
+                      className="group flex items-start gap-3 rounded-lg p-2 transition-colors hover:bg-gray-50"
+                    >
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-green-50 text-green-600">
+                        <FileText className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-gray-900 group-hover:text-brand-primary">
+                          Fallstudie: 32reasons
+                        </p>
+                        <p className="text-xs text-gray-500">POC-Diagnostik in der Zahnarztpraxis</p>
+                      </div>
+                    </Link>
+                    <Link
+                      to="/articles/die-gruene-praxis"
+                      className="group flex items-start gap-3 rounded-lg p-2 transition-colors hover:bg-gray-50"
+                    >
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-emerald-50 text-emerald-600">
+                        <FileText className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-gray-900 group-hover:text-brand-primary">
+                          Die grüne Praxis
+                        </p>
+                        <p className="text-xs text-gray-500">Nachhaltigkeit in der Zahnarztpraxis</p>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Trust Signal */}
+                <div className="rounded-lg bg-gray-50 p-4 text-center">
+                  <p className="text-xs text-gray-500">
+                    Über <span className="font-semibold text-gray-700">100 Praxen</span> in 15+ Ländern vertrauen auf PolarisDX
+                  </p>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
       </div>
 
       {/* Sticky Mobile CTA */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-gray-200 bg-white p-4 shadow-lg md:hidden">
-        <Link
-          to="/contact?ref=blog-vitd3-spray-sticky"
-          className="flex w-full items-center justify-center gap-2 rounded-md bg-brand-deep px-6 py-3.5 text-sm font-semibold text-white shadow-lg"
+      <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-gray-200 bg-white p-4 shadow-lg lg:hidden">
+        <a
+          href="#bestellformular"
+          className="flex w-full items-center justify-center gap-2 rounded-md bg-brand-primary px-6 py-3.5 text-sm font-semibold text-white shadow-lg"
         >
-          Spray-Konditionen anfragen
+          Jetzt D3+K2 Spray bestellen
           <ArrowRight className="h-4 w-4" />
-        </Link>
+        </a>
       </div>
 
       {/* Mobile bottom padding for sticky CTA */}
-      <div className="h-20 md:hidden" />
+      <div className="h-20 lg:hidden" />
     </PageTransition>
   )
 }
