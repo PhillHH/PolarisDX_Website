@@ -22,6 +22,9 @@ const ChatWidget = () => {
 
   // Initialize: Open on desktop, add welcome message
   useEffect(() => {
+    // SSR guard - window is not available on server
+    if (typeof window === 'undefined') return
+
     // Check if desktop (width > 1024px)
     if (window.innerWidth > 1024) {
       setIsOpen(true)

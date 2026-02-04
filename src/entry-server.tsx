@@ -10,6 +10,7 @@
  * - Erstellt pro Request eine neue i18n-Instanz
  */
 
+import { Suspense } from 'react'
 import { renderToString } from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
@@ -60,7 +61,9 @@ export async function render(url: string, lang: string): Promise<RenderResult> {
     <I18nextProvider i18n={i18n}>
       <HelmetProvider context={helmetContext}>
         <StaticRouter location={url}>
-          <App />
+          <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
+            <App />
+          </Suspense>
         </StaticRouter>
       </HelmetProvider>
     </I18nextProvider>
