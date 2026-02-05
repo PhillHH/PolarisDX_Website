@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { SEOHead, iglooProProductSchema, createBreadcrumbSchema } from '../components/seo';
 import SectionHeader from '../components/ui/SectionHeader';
 import PrimaryButton from '../components/ui/PrimaryButton';
-import iglooImage from '../assets/igloo_front.png'; // Using existing asset
+import iglooImage from '../assets/igloo_front.webp'; // Using existing asset
 import IglooProFlyer from '../assets/downloads/igloo-pro-flyer.pdf';
 
 const IglooProPage: React.FC = () => {
@@ -125,6 +125,10 @@ const IglooProPage: React.FC = () => {
                 <img
                   src={iglooImage}
                   alt="Igloo Pro Device"
+                  width={400}
+                  height={400}
+                  loading="lazy"
+                  decoding="async"
                   className="relative z-10 w-full max-w-md drop-shadow-2xl transform hover:scale-105 transition-transform duration-500"
                 />
               </motion.div>

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import PrimaryButton from '../ui/PrimaryButton' // Button-Komponente
 import SectionHeader from '../ui/SectionHeader' // Kopfzeilen-Komponente für Abschnitte
-import iglooExplode from '../../assets/igloo_explode.png' // Bild für diesen Abschnitt
+import iglooExplode from '../../assets/igloo_explode.webp' // Bild für diesen Abschnitt
 
 // Definiert die 'AboutSection'-Komponente, die einen Abschnitt der Webseite darstellt.
 const AboutSection = () => {
@@ -29,6 +29,8 @@ const AboutSection = () => {
             alt="IglooPro device sending data securely to the cloud"
             width={600}
             height={728}
+            loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover"
           />
         </div>

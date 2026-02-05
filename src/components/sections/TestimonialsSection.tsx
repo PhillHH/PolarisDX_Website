@@ -87,6 +87,8 @@ const TestimonialsSection = () => {
                             alt={testimonial.name}
                             width={128}
                             height={128}
+                            loading="lazy"
+                            decoding="async"
                             className="h-full w-full object-cover"
                           />
                         ) : null}

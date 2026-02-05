@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import PrimaryButton from '../ui/PrimaryButton'
 import SectionHeader from '../ui/SectionHeader'
-import IglooProImage from '../../assets/Igloo-pro-frontal.png'
+import IglooProImage from '../../assets/Igloo-pro-frontal.webp'
 
 const DiagnosticsPitchSection = () => {
   const { t } = useTranslation('home')
@@ -42,6 +42,8 @@ const DiagnosticsPitchSection = () => {
             alt="Igloo Pro device"
             width={400}
             height={400}
+            loading="lazy"
+            decoding="async"
             className="object-cover w-full h-full scale-[1.375] translate-x-8 transform"
           />
         </div>
