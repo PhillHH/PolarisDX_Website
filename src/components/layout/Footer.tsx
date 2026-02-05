@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import logo from '../../assets/polarisdx_logo.png'
+import logo from '../../assets/polarisdx_logo.webp'
 import CtaSection from '../sections/CtaSection'
 import { Linkedin, Instagram } from 'lucide-react'
 import { useTranslation } from 'react-i18next'

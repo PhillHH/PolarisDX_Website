@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Sparkles, Infinity as InfinityIcon } from 'lucide-react'
-import heroDoctor from '../assets/hero_doctor.png'
+import heroDoctor from '../assets/hero_doctor.webp'
 
 export const useHeroSlider = () => {
   const { t } = useTranslation('home')

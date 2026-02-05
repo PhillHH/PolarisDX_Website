@@ -6,7 +6,7 @@ import { SEOHead, createBreadcrumbSchema, createArticleSchema } from '../compone
 import PageTransition from '../components/ui/PageTransition'
 import SectionHeader from '../components/ui/SectionHeader'
 import Reveal from '../components/ui/Reveal'
-import KristianGrimmAvatar from '../assets/Testimonials/Dr. Kristian Grimm.jpg'
+import KristianGrimmAvatar from '../assets/Testimonials/Dr. Kristian Grimm.webp'
 
 const CaseStudy32Reasons = () => {
   const { t } = useTranslation('casestudies')

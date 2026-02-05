@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Sparkles, Infinity as InfinityIcon } from 'lucide-react'
 import { Tooth } from '../ui/icons/Tooth'
-import iglooImage from '../../assets/igloo_front.png'
+import iglooImage from '../../assets/igloo_front.webp'
 
 const IglooWidgetSection = () => {
   const { t } = useTranslation('home')
@@ -90,6 +90,8 @@ const IglooWidgetSection = () => {
                 alt="Igloo Pro"
                 width={256}
                 height={256}
+                loading="lazy"
+                decoding="async"
                 className="relative z-10 w-64 sm:w-72 md:w-56 lg:w-64 drop-shadow-2xl transition-all duration-500 ease-in-out hover:scale-110 pointer-events-none"
             />
         </div>

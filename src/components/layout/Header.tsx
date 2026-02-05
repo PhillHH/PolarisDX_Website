@@ -5,7 +5,7 @@ import { ChevronDown, Search } from 'lucide-react'
 import PrimaryButton from '../ui/PrimaryButton'
 import LanguageSwitcher from '../ui/LanguageSwitcher'
 import SearchModal from '../ui/SearchModal'
-import logo from '../../assets/polaris_white.png'
+import logo from '../../assets/polaris_white.webp'
 import { useDisclosure } from '../../hooks/useDisclosure'
 import { useScrollPosition } from '../../hooks/useScrollPosition'
 

@@ -10,7 +10,7 @@ import BlogSection from '../components/sections/BlogSection'
 import Reveal from '../components/ui/Reveal'
 
 // Hero-Bild für LCP-Preload
-import heroDoctor from '../assets/hero_doctor.png'
+import heroDoctor from '../assets/hero_doctor.webp'
 
 const HomePage = () => {
   const { t } = useTranslation('home')
