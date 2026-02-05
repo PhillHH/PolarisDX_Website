@@ -20,6 +20,8 @@ const BlogCard = ({ id, imageUrl, to }: BlogCardProps) => {
             <img
               src={imageUrl}
               alt={title}
+              width={400}
+              height={256}
               className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               loading="lazy"
             />
