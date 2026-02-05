@@ -35,7 +35,7 @@ const HomePage = () => {
 
   // Combine all structured data schemas
   const structuredData = useMemo(() => {
-    const schemas = [websiteSchema, medicalBusinessSchema, iglooProProductSchema]
+    const schemas: object[] = [websiteSchema, medicalBusinessSchema, iglooProProductSchema]
     if (faqSchema) {
       schemas.push(faqSchema)
     }
