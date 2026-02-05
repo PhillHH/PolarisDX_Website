@@ -18,7 +18,7 @@ const IglooWidgetSection = () => {
     {
       id: 'dental',
       label: t('igloo_widget.dental', 'Dental'),
-      path: '/services/dental',
+      path: '/diagnostics/dental',
       icon: <Tooth className="w-12 h-12 text-brand-primary" />,
       x: positions.dental.x,
       y: positions.dental.y,
@@ -26,7 +26,7 @@ const IglooWidgetSection = () => {
     {
       id: 'beauty',
       label: t('igloo_widget.beauty', 'Beauty'),
-      path: '/services/beauty',
+      path: '/diagnostics/beauty',
       icon: <Sparkles className="w-12 h-12 text-brand-primary" />,
       x: positions.beauty.x,
       y: positions.beauty.y,
@@ -34,7 +34,7 @@ const IglooWidgetSection = () => {
     {
       id: 'longevity',
       label: t('igloo_widget.longevity', 'Longevity'),
-      path: '/services/longevity',
+      path: '/diagnostics/longevity',
       icon: <InfinityIcon className="w-12 h-12 text-brand-primary" />,
       x: positions.longevity.x,
       y: positions.longevity.y,

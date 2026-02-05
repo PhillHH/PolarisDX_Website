@@ -25,7 +25,7 @@ const navItems: NavItem[] = [
       { label: 'terms', route: '/terms' }
     ]
   },
-  { label: 'service', route: '/services' },
+  { label: 'service', route: '/diagnostics' },
   // { label: 'casestudies', route: '/casestudys/32reasons' }, // temporarily disabled
   // { label: 'shop', route: '/shop' }, // Shop disabled
   { label: 'blog', route: '/articles' },

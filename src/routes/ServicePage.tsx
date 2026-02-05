@@ -56,18 +56,18 @@ const ServicePage = () => {
       <SEOHead
         title={`${title} - POC Diagnostik`}
         description={seoDescription}
-        canonical={`https://polarisdx.net/services/${slug}`}
+        canonical={`https://polarisdx.net/diagnostics/${slug}`}
         keywords={[title, 'POC Diagnostik', 'Schnelltest', 'Point-of-Care', service.title]}
         structuredData={[
           createServiceSchema({
             name: title,
             description: seoDescription,
-            url: `/services/${slug}`,
+            url: `/diagnostics/${slug}`,
           }),
           createBreadcrumbSchema([
             { name: 'Home', url: '/' },
-            { name: 'Services', url: '/services' },
-            { name: title, url: `/services/${slug}` },
+            { name: 'Diagnostik', url: '/diagnostics' },
+            { name: title, url: `/diagnostics/${slug}` },
           ]),
         ]}
       />
@@ -191,7 +191,7 @@ const ServicePage = () => {
                     return (
                       <Link
                         key={s.id}
-                        to={`/services/${s.id}`}
+                        to={`/diagnostics/${s.id}`}
                         className="group flex items-center justify-between rounded-xl border border-gray-100 bg-gradient-to-br from-white to-slate-50 p-4 shadow-sm transition-all duration-300 hover:border-blue-200 hover:shadow-md hover:scale-[1.02]"
                       >
                         <div className="flex items-center gap-3">

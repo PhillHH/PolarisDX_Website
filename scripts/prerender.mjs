@@ -46,7 +46,7 @@ const ROUTES = [
   '/',
   '/about',
   '/articles',
-  '/services',
+  '/diagnostics',
   '/contact',
   '/privacy',
   '/imprint',
@@ -68,15 +68,15 @@ const ROUTES = [
   '/articles/home_care',
 
   // Service routes (from services.json)
-  '/services/dental',
-  '/services/beauty',
-  '/services/longevity',
-  '/services/poc_systemloesungen',
-  '/services/praeventions_checks',
-  '/services/infektion_entzuendung',
-  '/services/stoffwechsel_herz',
-  '/services/hormon_tests',
-  '/services/kompatibilitaet_integration',
+  '/diagnostics/dental',
+  '/diagnostics/beauty',
+  '/diagnostics/longevity',
+  '/diagnostics/poc_systemloesungen',
+  '/diagnostics/praeventions_checks',
+  '/diagnostics/infektion_entzuendung',
+  '/diagnostics/stoffwechsel_herz',
+  '/diagnostics/hormon_tests',
+  '/diagnostics/kompatibilitaet_integration',
 ];
 
 // =============================================================================
