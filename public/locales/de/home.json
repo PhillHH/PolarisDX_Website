@@ -1,4 +1,8 @@
 {
+  "seo": {
+    "title": "IglooPro POC-Reader | Point-of-Care Diagnostik",
+    "description": "Laborergebnisse in 3 Minuten — direkt in Ihrer Praxis. Der IglooPro POC-Reader für Dental, Longevity & Beauty. Jetzt beraten lassen."
+  },
   "hero": {
     "caption": "Point-of-care Performance",
     "title": "IglooPro:\nPoint-of-Care. Perfekt. Sofort.",
@@ -14,8 +18,8 @@
       "label": "Präzision über den gesamten Messbereich"
     },
     "dental": {
-      "title": "Intelligente Diagnostik: Der neue Maßstab für effiziente POC-Workflows.",
-      "description": "Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 3-5 Werktagen einsatzbereit – garantiert."
+      "title": "IglooPro: Point-of-Care Diagnostik. Der neue Maßstab für Ihre Praxis.",
+      "description": "Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 3–5 Werktagen einsatzbereit – garantiert."
     },
     "beauty": {
       "title": "Wissenschaftliche Ästhetik: Messergebnisse statt Vermutungen.",
@@ -28,19 +32,19 @@
   },
   "about": {
     "caption": "IHR PERFORMANCE-GARANT",
-    "title": "Exzellenz und Sicherheit: Der Standard, den wir setzen.",
+    "title": "Das IglooPro Performance-Setup: Validierte POC-Diagnostik ab Tag 1.",
     "text1": "Das IglooPro ist ein Premium-Gerät. Doch wahre Premium-Leistung entsteht erst durch eine perfektionierte, risikofreie Inbetriebnahme. Eine Standardlieferung überlässt Ihnen die Komplexität. Wir übernehmen die Verantwortung für das Ergebnis.",
     "text2": "Deshalb liefern wir exklusiv das Performance-Setup-Versprechen. Unsere Performance-Säulen garantieren, dass Ihr POC-Workflow von der ersten Sekunde an optimiert ist und Sie die diagnostische Exzellenz sofort nutzen können.",
     "cta": "Exklusiven Vorteil sichern"
   },
   "doctors": {
     "caption": "DIAGNOSTIK-FOKUS",
-    "title": "Präzise Diagnostik. Sofortige Ergebnisse am Point-of-Care.",
+    "title": "Präzise Diagnostik mit dem IglooPro: Sofortige Ergebnisse am Point-of-Care.",
     "description": "Entdecken Sie mit Systemen wie dem Igloo Pro von DX365, wie Sie Ihre Patientenversorgung optimieren und wichtige Diagnosen direkt am Behandlungsort stellen können – mit laborgenaue Resultaten in Minutenschnelle.",
     "cta": "Zum Igloo Pro System"
   },
   "igloo_widget": {
-    "title": "Anwendungsbereiche"
+    "title": "Anwendungsbereiche: POCT für Dental, Beauty und Longevity"
   },
   "services": {
     "caption": "DIAGNOSTIK-FOKUS",
@@ -120,6 +124,28 @@
   },
   "blog": {
     "caption": "Blog & News",
-    "title": "Our Articles About Health"
+    "title": "Blog: Aktuelles zu Point-of-Care Diagnostik"
+  },
+  "faq": {
+    "caption": "FAQ",
+    "title": "Häufige Fragen zu PolarisDX und Point-of-Care Diagnostik",
+    "items": [
+      {
+        "question": "Was macht PolarisDX?",
+        "answer": "PolarisDX ist Ihr Partner für Point-of-Care Diagnostik in Europa. Wir liefern nicht nur Geräte und Schnelltests, sondern begleiten Sie von der Erstberatung über die Inbetriebnahme bis zum laufenden Betrieb. Unser Ziel: laborpräzise Diagnostik direkt in Ihrer Praxis — ohne Umwege über ein Zentrallabor."
+      },
+      {
+        "question": "Für welche Branchen ist Point-of-Care Diagnostik relevant?",
+        "answer": "Unsere Lösungen kommen überall dort zum Einsatz, wo schnelle und präzise Laborergebnisse direkt vor Ort gebraucht werden. Unsere Schwerpunkte sind Dental, Longevity und Beauty — wir unterstützen aber auch Allgemeinmediziner, Internisten und weitere Fachrichtungen, in denen POCT einen Mehrwert bietet."
+      },
+      {
+        "question": "Wie läuft die Zusammenarbeit mit PolarisDX ab?",
+        "answer": "Nach einem persönlichen Beratungsgespräch stellen wir Ihr individuelles Setup zusammen. Sie erhalten Ihr Gerät innerhalb von 3–5 Werktagen inklusive validierter Inbetriebnahme. Danach stehen wir Ihnen mit Schulungen, technischem Support und laufender Betreuung zur Seite."
+      },
+      {
+        "question": "Welche Produkte und Lösungen bietet PolarisDX an?",
+        "answer": "Unser aktuelles Portfolio umfasst den IglooPro POC-Reader, ein breites Spektrum an Schnelltests für Biomarker wie Vitamin D3, CRP und HbA1c sowie ergänzende Produkte wie unser Vitamin D3 Spray. Wir erweitern unser Angebot kontinuierlich, um Ihnen eine umfassende diagnostische Lösung zu bieten."
+      }
+    ]
   }
 }
