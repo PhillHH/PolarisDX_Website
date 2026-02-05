@@ -1,7 +1,7 @@
-import RichardPollockAvatar from '../assets/Testimonials/Richard-Pollock-Biological-Dentist-Internal (1).png'
-import GoranAvatar from '../assets/Testimonials/goran_rezension.png'
-import BastianAvatar from '../assets/Testimonials/Bastian Foto.jpeg'
-import KristianGrimmAvatar from '../assets/Testimonials/Dr. Kristian Grimm.jpg'
+import RichardPollockAvatar from '../assets/Testimonials/Richard-Pollock-Biological-Dentist-Internal (1).webp'
+import GoranAvatar from '../assets/Testimonials/goran_rezension.webp'
+import BastianAvatar from '../assets/Testimonials/Bastian Foto.webp'
+import KristianGrimmAvatar from '../assets/Testimonials/Dr. Kristian Grimm.webp'
 import type { Testimonial } from '../types'
 
 export const testimonials: Testimonial[] = [

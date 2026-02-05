@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Trophy } from 'lucide-react'
 import Reveal from '../ui/Reveal'
-import KristianGrimmAvatar from '../../assets/Testimonials/Dr. Kristian Grimm.jpg'
+import KristianGrimmAvatar from '../../assets/Testimonials/Dr. Kristian Grimm.webp'
 
 const FeaturedCaseStudy = () => {
   const { t } = useTranslation('casestudies')

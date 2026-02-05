@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next'
 import { Mail, Linkedin } from 'lucide-react'
 import SectionHeader from '../ui/SectionHeader'
-import AdrianoZuccalaJPEG from '../../assets/Adriano Zuccala.jpeg'
-import FrankStoffelsJPG from '../../assets/Frank Stoffels.jpg'
-import UlrikeSchuerholzJPG from '../../assets/Ulrike Schuerholz.jpg'
+import AdrianoZuccalaJPEG from '../../assets/Adriano Zuccala.webp'
+import FrankStoffelsJPG from '../../assets/Frank Stoffels.webp'
+import UlrikeSchuerholzJPG from '../../assets/Ulrike Schuerholz.webp'
 
 const TeamSection = () => {
   const { t } = useTranslation('about')
@@ -53,6 +53,10 @@ const TeamSection = () => {
                         <img
                             src={member.image}
                             alt={t(`team.members.${member.id}.name`)}
+                            width={300}
+                            height={400}
+                            loading="lazy"
+                            decoding="async"
                             className="h-[400px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                     </div>
