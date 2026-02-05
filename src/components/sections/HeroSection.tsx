@@ -106,10 +106,17 @@ const HeroSection = () => {
               />
 
               {/* Main Content - CSS animated on slide change */}
+              {/* SEO: Only first slide (dental) gets H1, others get H2 */}
               <div className={getContentAnimationClass()}>
-                <h1 className="max-w-3xl font-medium tracking-[-0.02em] text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)]">
-                  {currentDisplaySlide.content.title}
-                </h1>
+                {displaySlide === 0 ? (
+                  <h1 className="max-w-3xl font-medium tracking-[-0.02em] text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)]">
+                    {currentDisplaySlide.content.title}
+                  </h1>
+                ) : (
+                  <h2 className="max-w-3xl font-medium tracking-[-0.02em] text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)]">
+                    {currentDisplaySlide.content.title}
+                  </h2>
+                )}
                 <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/80 sm:text-base">
                   {currentDisplaySlide.content.description}
                 </p>

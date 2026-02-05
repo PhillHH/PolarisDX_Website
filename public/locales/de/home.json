@@ -1,4 +1,8 @@
 {
+  "seo": {
+    "title": "IglooPro POC-Reader | Point-of-Care Diagnostik",
+    "description": "Laborergebnisse in 3 Minuten — direkt in Ihrer Praxis. Der IglooPro POC-Reader für Dental, Longevity & Beauty. Jetzt beraten lassen."
+  },
   "hero": {
     "caption": "Point-of-care Performance",
     "title": "IglooPro:\nPoint-of-Care. Perfekt. Sofort.",
@@ -14,8 +18,8 @@
       "label": "Präzision über den gesamten Messbereich"
     },
     "dental": {
-      "title": "Intelligente Diagnostik: Der neue Maßstab für effiziente POC-Workflows.",
-      "description": "Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 3-5 Werktagen einsatzbereit – garantiert."
+      "title": "IglooPro: Point-of-Care Diagnostik. Der neue Maßstab für Ihre Praxis.",
+      "description": "Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 3–5 Werktagen einsatzbereit – garantiert."
     },
     "beauty": {
       "title": "Wissenschaftliche Ästhetik: Messergebnisse statt Vermutungen.",
