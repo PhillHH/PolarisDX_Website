@@ -1,10 +1,10 @@
-import { useTranslation } from 'react-i18next';
-import { useState, useRef, useEffect } from 'react';
-import 'flag-icons/css/flag-icons.min.css';
+import { useTranslation } from 'react-i18next'
+import { useState, useRef, useEffect } from 'react'
+import FlagIcon from './FlagIcon'
 
 const languages = [
   { code: 'de', name: 'Deutsch', country_code: 'de' },
-  { code: 'en', name: 'English', country_code: 'us' }, // Standardflagge für EN
+  { code: 'en', name: 'English', country_code: 'us' },
   { code: 'pl', name: 'Polski', country_code: 'pl' },
   { code: 'fr', name: 'Français', country_code: 'fr' },
   { code: 'it', name: 'Italiano', country_code: 'it' },
@@ -13,7 +13,7 @@ const languages = [
   { code: 'da', name: 'Dansk', country_code: 'dk' },
   { code: 'nl', name: 'Nederlands', country_code: 'nl' },
   { code: 'cs', name: 'Čeština', country_code: 'cz' },
-];
+]
 
 interface LanguageSwitcherProps {
     className?: string;
@@ -55,8 +55,9 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
         className={`inline-flex items-center justify-center gap-2 rounded-full ${isMobile ? 'h-10 px-3 py-2' : 'px-3 py-2'} leading-none transition-colors hover:bg-white/10 text-current`}
         aria-label="Select language"
       >
-        <span
-          className={`fi fi-${currentLanguage.country_code} h-5 w-8 rounded-sm align-middle shrink-0 ring-1 ring-brand-primary/40 bg-white shadow-sm`}
+        <FlagIcon
+          countryCode={currentLanguage.country_code}
+          className="h-5 w-8 rounded-sm align-middle shrink-0 ring-1 ring-brand-primary/40 bg-white shadow-sm"
         />
         <span className="uppercase text-sm font-medium leading-none">{currentLanguage.code}</span>
         <svg
@@ -79,7 +80,7 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
                 i18n.language === language.code ? 'bg-gray-50 font-medium text-brand-primary' : ''
               }`}
             >
-              <span className={`fi fi-${language.country_code} h-5 w-8 rounded-sm bg-white ring-1 ring-brand-primary/40 shadow-sm`} />
+              <FlagIcon countryCode={language.country_code} className="h-5 w-8 rounded-sm bg-white ring-1 ring-brand-primary/40 shadow-sm" />
               <span>{language.name}</span>
             </button>
           ))}
