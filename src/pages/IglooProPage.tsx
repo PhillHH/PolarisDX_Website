@@ -1,5 +1,4 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
 import { Wifi, Battery, ShieldCheck, Layers } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { SEOHead, iglooProProductSchema, createBreadcrumbSchema } from '../components/seo';
@@ -8,8 +7,35 @@ import PrimaryButton from '../components/ui/PrimaryButton';
 import iglooImage from '../assets/igloo_front.webp'; // Using existing asset
 import IglooProFlyer from '../assets/downloads/igloo-pro-flyer.pdf';
 
+// Hook for intersection observer animation trigger
+function useInView(options?: IntersectionObserverInit) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [inView, setInView] = useState(false)
+
+  useEffect(() => {
+    const element = ref.current
+    if (!element) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.1, ...options }
+    )
+
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [])
+
+  return { ref, inView }
+}
+
 const IglooProPage: React.FC = () => {
   const { t } = useTranslation(['products']);
+  const featuresSection = useInView()
 
   // Data based on the provided PDF content
   const specs = [
@@ -115,12 +141,7 @@ const IglooProPage: React.FC = () => {
             </div>
 
             <div className="lg:w-1/2 flex justify-center">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8 }}
-                className="relative"
-              >
+              <div className="relative animate-fade-in-scale">
                 <div className="absolute inset-0 bg-brand-primary/30 blur-3xl rounded-full" />
                 <img
                   src={iglooImage}
@@ -131,7 +152,7 @@ const IglooProPage: React.FC = () => {
                   decoding="async"
                   className="relative z-10 w-full max-w-md drop-shadow-2xl transform hover:scale-105 transition-transform duration-500"
                 />
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>
@@ -153,21 +174,23 @@ const IglooProPage: React.FC = () => {
       </section>
 
       {/* Features Grid */}
-      <section className="py-20 bg-slate-50 relative">
+      <section className="py-20 bg-slate-50 relative" ref={featuresSection.ref}>
         <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {features.map((feature, idx) => (
-                    <motion.div
+                    <div
                         key={idx}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: idx * 0.1 }}
-                        className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-brand-primary/50 transition-colors"
+                        className={`bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-brand-primary/50 transition-all duration-500 ${
+                          featuresSection.inView
+                            ? 'opacity-100 translate-y-0'
+                            : 'opacity-0 translate-y-5'
+                        }`}
+                        style={{ transitionDelay: `${idx * 100}ms` }}
                     >
                         <feature.icon className="w-10 h-10 text-brand-primary mb-4" />
                         <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
                         <p className="text-gray-500">{feature.description}</p>
-                    </motion.div>
+                    </div>
                 ))}
             </div>
         </div>
