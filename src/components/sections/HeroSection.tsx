@@ -1,7 +1,7 @@
 import { useHeroSlider } from '../../hooks/useHeroSlider'
 import { Button } from '../ui/Button'
 import StatItem from '../ui/StatItem'
-import { motion, AnimatePresence } from 'framer-motion'
+import { LazyMotion, domAnimation, m, AnimatePresence } from 'framer-motion'
 import { useState, useEffect, useRef } from 'react'
 import iglooLogoWhite from '../../assets/igloo_logo_white.webp'
 
@@ -85,44 +85,46 @@ const HeroSection = () => {
 
               {/* Main Content - CRITICAL FOR LCP: H1 must be immediately visible */}
               {isHydrated ? (
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={slides[currentSlide].id}
-                    // CRITICAL: initial={false} prevents animation on first render
-                    // This keeps H1 visible immediately for LCP
-                    initial={isSlideChange ? { opacity: 0 } : false}
-                    animate="visible"
-                    exit="exit"
-                    variants={{
-                      visible: {
-                        opacity: 1,
-                        transition: { staggerChildren: 0.15, delayChildren: isSlideChange ? 0.1 : 0 },
-                      },
-                      exit: {
-                        opacity: 0,
-                        transition: { staggerChildren: 0.05, staggerDirection: -1 },
-                      },
-                    }}
-                  >
-                    {/* H1 - LCP Element - MUST be visible immediately */}
-                    <motion.h1
-                      initial={isSlideChange ? { opacity: 0, y: 20, filter: 'blur(10px)' } : false}
+                <LazyMotion features={domAnimation}>
+                  <AnimatePresence mode="wait">
+                    <m.div
+                      key={slides[currentSlide].id}
+                      // CRITICAL: initial={false} prevents animation on first render
+                      // This keeps H1 visible immediately for LCP
+                      initial={isSlideChange ? { opacity: 0 } : false}
                       animate="visible"
-                      variants={contentVariants}
-                      className="max-w-3xl font-medium tracking-[-0.02em] text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)]"
+                      exit="exit"
+                      variants={{
+                        visible: {
+                          opacity: 1,
+                          transition: { staggerChildren: 0.15, delayChildren: isSlideChange ? 0.1 : 0 },
+                        },
+                        exit: {
+                          opacity: 0,
+                          transition: { staggerChildren: 0.05, staggerDirection: -1 },
+                        },
+                      }}
                     >
-                      {slides[currentSlide].content.title}
-                    </motion.h1>
-                    <motion.p
-                      initial={isSlideChange ? { opacity: 0, y: 20, filter: 'blur(10px)' } : false}
-                      animate="visible"
-                      variants={contentVariants}
-                      className="mt-4 max-w-2xl text-sm leading-relaxed text-white/80 sm:text-base"
-                    >
-                      {slides[currentSlide].content.description}
-                    </motion.p>
-                  </motion.div>
-                </AnimatePresence>
+                      {/* H1 - LCP Element - MUST be visible immediately */}
+                      <m.h1
+                        initial={isSlideChange ? { opacity: 0, y: 20, filter: 'blur(10px)' } : false}
+                        animate="visible"
+                        variants={contentVariants}
+                        className="max-w-3xl font-medium tracking-[-0.02em] text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)]"
+                      >
+                        {slides[currentSlide].content.title}
+                      </m.h1>
+                      <m.p
+                        initial={isSlideChange ? { opacity: 0, y: 20, filter: 'blur(10px)' } : false}
+                        animate="visible"
+                        variants={contentVariants}
+                        className="mt-4 max-w-2xl text-sm leading-relaxed text-white/80 sm:text-base"
+                      >
+                        {slides[currentSlide].content.description}
+                      </m.p>
+                    </m.div>
+                  </AnimatePresence>
+                </LazyMotion>
               ) : (
                 /* SSR: Render first slide content fully visible - no opacity:0! */
                 <div>
@@ -192,48 +194,50 @@ const HeroSection = () => {
           {/* Right Visual Area - always visible on SSR, animations only for slide changes */}
           <div className="relative mx-auto hidden h-full w-full max-w-lg items-end justify-center lg:flex pointer-events-none">
              {isHydrated && isSlideChange ? (
-               <AnimatePresence mode="wait">
-                  {slides[currentSlide].type === 'image' ? (
-                       <motion.div
-                          key="image-slide"
-                          className="relative h-full w-full flex items-end justify-center"
-                          initial={{ opacity: 0, x: 50 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: -50 }}
-                          transition={{ duration: 0.6 }}
-                       >
-                          <div className="absolute bottom-0 right-4 h-[440px] w-[280px] bg-brand-secondary lg:bottom-0 z-0" />
-                          <img
-                              src={slides[currentSlide].visual}
-                              alt="PolarisDX doctor"
-                              width={390}
-                              height={780}
-                              className="relative z-10 h-[780px] w-auto object-contain object-bottom -mb-8 right-8"
-                          />
-                       </motion.div>
-                  ) : (
-                      <motion.div
-                          key={`icon-slide-${slides[currentSlide].id}`}
-                          className="relative h-full w-full flex items-center justify-center"
-                          initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-                          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                          exit={{ opacity: 0, scale: 0.8, rotate: 10 }}
-                          transition={{ duration: 0.6, ease: "backOut" }}
-                      >
-                           <div className={`absolute w-[400px] h-[400px] rounded-full blur-[100px] opacity-60 bg-gradient-to-r ${slides[currentSlide].color}`} />
-                           {slides[currentSlide].icon && (() => {
-                               const Icon = slides[currentSlide].icon
-                               return (
-                                   <Icon
-                                      size={600}
-                                      strokeWidth={0.5}
-                                      className="text-white/90 drop-shadow-2xl relative z-10"
-                                   />
-                               )
-                           })()}
-                      </motion.div>
-                  )}
-               </AnimatePresence>
+               <LazyMotion features={domAnimation}>
+                 <AnimatePresence mode="wait">
+                    {slides[currentSlide].type === 'image' ? (
+                         <m.div
+                            key="image-slide"
+                            className="relative h-full w-full flex items-end justify-center"
+                            initial={{ opacity: 0, x: 50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -50 }}
+                            transition={{ duration: 0.6 }}
+                         >
+                            <div className="absolute bottom-0 right-4 h-[440px] w-[280px] bg-brand-secondary lg:bottom-0 z-0" />
+                            <img
+                                src={slides[currentSlide].visual}
+                                alt="PolarisDX doctor"
+                                width={390}
+                                height={780}
+                                className="relative z-10 h-[780px] w-auto object-contain object-bottom -mb-8 right-8"
+                            />
+                         </m.div>
+                    ) : (
+                        <m.div
+                            key={`icon-slide-${slides[currentSlide].id}`}
+                            className="relative h-full w-full flex items-center justify-center"
+                            initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+                            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                            exit={{ opacity: 0, scale: 0.8, rotate: 10 }}
+                            transition={{ duration: 0.6, ease: "backOut" }}
+                        >
+                             <div className={`absolute w-[400px] h-[400px] rounded-full blur-[100px] opacity-60 bg-gradient-to-r ${slides[currentSlide].color}`} />
+                             {slides[currentSlide].icon && (() => {
+                                 const Icon = slides[currentSlide].icon
+                                 return (
+                                     <Icon
+                                        size={600}
+                                        strokeWidth={0.5}
+                                        className="text-white/90 drop-shadow-2xl relative z-10"
+                                     />
+                                 )
+                             })()}
+                        </m.div>
+                    )}
+                 </AnimatePresence>
+               </LazyMotion>
              ) : (
                /* SSR + First client render: Show image immediately, no animation */
                <div className="relative h-full w-full flex items-end justify-center">
