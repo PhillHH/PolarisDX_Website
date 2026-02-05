@@ -21,7 +21,6 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "express": "^5.1.0",
-    "flag-icons": "^7.5.0",
     "framer-motion": "^12.23.26",
     "http-proxy-middleware": "^3.0.3",
     "i18next": "^25.6.3",
