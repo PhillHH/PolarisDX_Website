@@ -32,19 +32,19 @@
   },
   "about": {
     "caption": "IHR PERFORMANCE-GARANT",
-    "title": "Exzellenz und Sicherheit: Der Standard, den wir setzen.",
+    "title": "Das IglooPro Performance-Setup: Validierte POC-Diagnostik ab Tag 1.",
     "text1": "Das IglooPro ist ein Premium-Gerät. Doch wahre Premium-Leistung entsteht erst durch eine perfektionierte, risikofreie Inbetriebnahme. Eine Standardlieferung überlässt Ihnen die Komplexität. Wir übernehmen die Verantwortung für das Ergebnis.",
     "text2": "Deshalb liefern wir exklusiv das Performance-Setup-Versprechen. Unsere Performance-Säulen garantieren, dass Ihr POC-Workflow von der ersten Sekunde an optimiert ist und Sie die diagnostische Exzellenz sofort nutzen können.",
     "cta": "Exklusiven Vorteil sichern"
   },
   "doctors": {
     "caption": "DIAGNOSTIK-FOKUS",
-    "title": "Präzise Diagnostik. Sofortige Ergebnisse am Point-of-Care.",
+    "title": "Präzise Diagnostik mit dem IglooPro: Sofortige Ergebnisse am Point-of-Care.",
     "description": "Entdecken Sie mit Systemen wie dem Igloo Pro von DX365, wie Sie Ihre Patientenversorgung optimieren und wichtige Diagnosen direkt am Behandlungsort stellen können – mit laborgenaue Resultaten in Minutenschnelle.",
     "cta": "Zum Igloo Pro System"
   },
   "igloo_widget": {
-    "title": "Anwendungsbereiche"
+    "title": "Anwendungsbereiche: POCT für Dental, Beauty und Longevity"
   },
   "services": {
     "caption": "DIAGNOSTIK-FOKUS",
@@ -124,6 +124,6 @@
   },
   "blog": {
     "caption": "Blog & News",
-    "title": "Our Articles About Health"
+    "title": "Blog: Aktuelles zu Point-of-Care Diagnostik"
   }
 }
