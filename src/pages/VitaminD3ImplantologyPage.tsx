@@ -328,10 +328,13 @@ const VitaminD3ImplantologyPage = () => {
 
               <div className="space-y-6 text-[17px] leading-[1.75] text-gray-700">
                 <p>
-                  Viele Praxen, die den <strong>Vitamin-D-Spiegel vor Implantationen</strong> bestimmen, stehen vor
-                  derselben Situation: Der Test zeigt einen Mangel, die Empfehlung lautet „bitte supplementieren" – und
-                  dann? Der Patient nickt, verlässt die Praxis und kauft irgendein Präparat in der Apotheke. Oder auch
-                  nicht.
+                  Viele Praxen, die{' '}
+                  <Link to="/diagnostics/dental" className="font-semibold text-brand-primary hover:underline">
+                    den Vitamin-D-Spiegel vor Implantationen bestimmen
+                  </Link>
+                  , stehen vor derselben Situation: Der Test zeigt einen Mangel, die Empfehlung lautet „bitte
+                  supplementieren" – und dann? Der Patient nickt, verlässt die Praxis und kauft irgendein Präparat in
+                  der Apotheke. Oder auch nicht.
                 </p>
 
                 <p>
