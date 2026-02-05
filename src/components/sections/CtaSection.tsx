@@ -1,5 +1,5 @@
 import { Button } from '../ui/Button'
-import avatar from '../../assets/avatar.png'
+import avatar from '../../assets/avatar.webp'
 import { useTranslation } from 'react-i18next'
 
 const CtaSection = () => {
@@ -16,6 +16,10 @@ const CtaSection = () => {
           <img
             src={avatar}
             alt="Doctor ready to help"
+            width={192}
+            height={219}
+            loading="lazy"
+            decoding="async"
             className="mx-auto w-48 sm:w-64 lg:absolute lg:bottom-[-32px] lg:left-0 lg:w-80 lg:max-w-none xl:w-96"
           />
         </div>

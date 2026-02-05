@@ -3,7 +3,7 @@ import { Button } from '../ui/Button'
 import StatItem from '../ui/StatItem'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect, useRef } from 'react'
-import iglooLogoWhite from '../../assets/igloo_logo_white.png'
+import iglooLogoWhite from '../../assets/igloo_logo_white.webp'
 
 /**
  * SSR-safe HeroSection component
@@ -243,6 +243,7 @@ const HeroSection = () => {
                       alt="PolarisDX doctor"
                       width={390}
                       height={780}
+                      fetchPriority="high"
                       className="relative z-10 h-[780px] w-auto object-contain object-bottom -mb-8 right-8"
                   />
                </div>

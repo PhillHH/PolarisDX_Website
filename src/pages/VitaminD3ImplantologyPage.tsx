@@ -4,7 +4,7 @@ import { ArrowRight, ChevronRight, Send, CheckCircle, Phone, FileText, BookOpen 
 import { SEOHead, createArticleSchema, createBreadcrumbSchema, createFAQSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
-import iglooProImage from '../assets/Igloo-pro-frontal.png'
+import iglooProImage from '../assets/Igloo-pro-frontal.webp'
 import { sendContactEmail } from '../api/contact'
 
 const VitaminD3ImplantologyPage = () => {
