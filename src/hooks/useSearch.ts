@@ -31,7 +31,7 @@ export const useSearch = (query: string) => {
     },
     {
       title: t('nav.service', 'Leistungen'),
-      path: '/services',
+      path: '/diagnostics',
       keywords: t('common:search.keywords.services', 'services leistungen dental beauty longevity')
     },
     {
@@ -104,7 +104,7 @@ export const useSearch = (query: string) => {
         found.push({
           title: service.title,
           description: service.desc,
-          path: `/services/${service.id}`,
+          path: `/diagnostics/${service.id}`,
           type: 'service'
         })
       }

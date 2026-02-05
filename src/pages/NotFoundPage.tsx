@@ -11,7 +11,7 @@ const NotFoundPage = () => {
   const popularPages = [
     { name: t('notFound.links.home', 'Startseite'), path: '/', icon: Home },
     { name: t('notFound.links.iglooPro', 'IglooPro'), path: '/igloo-pro', icon: Search },
-    { name: t('notFound.links.services', 'Services'), path: '/services', icon: FileQuestion },
+    { name: t('notFound.links.services', 'Services'), path: '/diagnostics', icon: FileQuestion },
     { name: t('notFound.links.contact', 'Kontakt'), path: '/contact', icon: ArrowLeft },
   ]
 
