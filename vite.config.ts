@@ -62,9 +62,6 @@ export default defineConfig(({ isSsrBuild }) => ({
           // i18n: Internationalisierung (wird auf jeder Seite gebraucht)
           'vendor-i18n': ['i18next', 'react-i18next', 'i18next-http-backend', 'i18next-browser-languagedetector'],
 
-          // Framer Motion: Nur für Animationen (kann parallel geladen werden)
-          'vendor-motion': ['framer-motion'],
-
           // Helmet: SEO (relativ klein, aber separiert für Caching)
           'vendor-seo': ['react-helmet-async'],
         },
