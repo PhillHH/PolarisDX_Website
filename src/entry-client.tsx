@@ -16,8 +16,8 @@ import { HelmetProvider } from 'react-helmet-async'
 import './index.css'
 import './i18n.client'
 
-// App
-import App from './App'
+// App - Client-Version mit lazy loading für Code-Splitting
+import App from './App.lazy'
 
 // =============================================================================
 // HYDRATION
