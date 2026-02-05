@@ -9,6 +9,7 @@ export { SEOHead, type SEOHeadProps } from './SEOHead';
 // Structured data helpers
 export {
   organizationSchema,
+  medicalBusinessSchema,
   websiteSchema,
   iglooProProductSchema,
   localBusinessSchema,

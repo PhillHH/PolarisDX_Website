@@ -12,8 +12,8 @@ export const useHeroSlider = () => {
       id: 'dental',
       type: 'image',
       content: {
-        title: t('hero.dental.title', 'Intelligente Diagnostik: Der neue Maßstab für effiziente POC-Workflows.'),
-        description: t('hero.dental.description', 'Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 48 Stunden einsatzbereit – garantiert.'),
+        title: t('hero.dental.title', 'IglooPro: Point-of-Care Diagnostik. Der neue Maßstab für Ihre Praxis.'),
+        description: t('hero.dental.description', 'Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 3–5 Werktagen einsatzbereit – garantiert.'),
       },
       visual: heroDoctor,
     },

@@ -26,7 +26,59 @@ export interface FAQItem {
 const BASE_URL = 'https://polarisdx.net';
 
 // =============================================================================
-// ORGANIZATION (singleton - use on all pages)
+// MEDICAL BUSINESS (singleton - use on homepage)
+// =============================================================================
+
+export const medicalBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalBusiness',
+  '@id': `${BASE_URL}/#organization`,
+  name: 'PolarisDX Europe UG',
+  alternateName: 'PolarisDX',
+  url: BASE_URL,
+  logo: `${BASE_URL}/favicon.png`,
+  description:
+    'Partner für Point-of-Care Diagnostik in Europa. Geräte, Schnelltests, Beratung und Begleitung für Dental, Longevity und Beauty.',
+  address: [
+    {
+      '@type': 'PostalAddress',
+      streetAddress: 'Große Bleichen 1-3',
+      addressLocality: 'Hamburg',
+      postalCode: '20354',
+      addressCountry: 'DE',
+    },
+    {
+      '@type': 'PostalAddress',
+      streetAddress: '262A Fulham Road',
+      addressLocality: 'London',
+      postalCode: 'SW10 9EL',
+      addressCountry: 'GB',
+    },
+  ],
+  email: 'contact@polarisdx.net',
+  telephone: '+49 151 75011699',
+  foundingLocation: 'Hamburg, Germany',
+  areaServed: {
+    '@type': 'GeoCircle',
+    geoMidpoint: {
+      '@type': 'GeoCoordinates',
+      latitude: 48.5,
+      longitude: 10.5,
+    },
+    geoRadius: '1000 km',
+    description: 'DACH-Region (Deutschland, Österreich, Schweiz)',
+  },
+  sameAs: ['https://www.linkedin.com/company/polarisdx'],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    reviewCount: '250',
+    bestRating: '5',
+  },
+};
+
+// =============================================================================
+// ORGANIZATION (legacy - kept for backwards compatibility)
 // =============================================================================
 
 export const organizationSchema = {
@@ -89,34 +141,28 @@ export const iglooProProductSchema = {
   '@id': `${BASE_URL}/igloo-pro#product`,
   name: 'IglooPro POC-Reader',
   description:
-    'Der IglooPro ist ein hochpräziser Point-of-Care Diagnostik-Reader für die sofortige Analyse von Biomarkern wie Vitamin D, CRP, HbA1c, TSH und mehr.',
+    'Point-of-Care Analysegerät für die patientennahe Sofortdiagnostik. Misst Vitamin D3, CRP, HbA1c, TSH und weitere Biomarker in 3–15 Minuten mit einer Präzision von CV < 2%.',
   brand: {
     '@type': 'Brand',
     name: 'PolarisDX',
   },
   manufacturer: {
     '@type': 'Organization',
-    name: 'DX365',
+    name: 'DX365 GmbH',
   },
-  category: 'Medizinische Geräte > Point-of-Care Diagnostik',
+  category: 'Point-of-Care Diagnostik',
   url: `${BASE_URL}/igloo-pro`,
   image: `${BASE_URL}/og-image.jpg`,
-  offers: {
-    '@type': 'Offer',
-    url: `${BASE_URL}/contact`,
-    availability: 'https://schema.org/InStock',
-    priceCurrency: 'EUR',
-    seller: {
-      '@type': 'Organization',
-      name: 'PolarisDX Europe UG',
-    },
+  weight: {
+    '@type': 'QuantitativeValue',
+    value: '600',
+    unitCode: 'GRM',
   },
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '4.9',
     reviewCount: '250',
     bestRating: '5',
-    worstRating: '1',
   },
 };
 
