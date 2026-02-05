@@ -74,12 +74,13 @@ const HeroSection = () => {
           {/* Left Content Area */}
           <div className="flex flex-col justify-center space-y-9 lg:space-y-7 z-20">
             <div className="space-y-3 lg:space-y-2 h-[300px] sm:h-[350px] lg:h-hero-lg flex flex-col justify-center">
-              {/* Logo - always visible, no animation delays */}
+              {/* Logo - LCP Element - always visible, no animation delays */}
               <img
                 src={iglooLogoWhite}
                 alt="IglooPro Logo"
                 width={200}
                 height={56}
+                fetchPriority="high"
                 className="h-14 w-auto drop-shadow-sm mb-4 self-start"
               />
 
