@@ -2,27 +2,56 @@ import { useHeroSlider } from '../../hooks/useHeroSlider'
 import { Button } from '../ui/Button'
 import StatItem from '../ui/StatItem'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import iglooLogoWhite from '../../assets/igloo_logo_white.png'
 
 /**
  * SSR-safe HeroSection component
  *
- * CRITICAL FOR SEO: h1, description, and all content is ALWAYS rendered in the DOM.
- * Animations only activate client-side after hydration.
- *
- * SSR behavior: Content renders fully visible (no animation styles)
- * Client behavior: After hydration, applies slide animations
+ * CRITICAL FOR SEO & LCP:
+ * - h1 and description are ALWAYS visible (no initial opacity:0)
+ * - SSR renders content fully visible
+ * - Client hydration keeps content visible (no animation on first render)
+ * - Animations only play on SLIDE CHANGES, not on initial load
  */
 const HeroSection = () => {
   const { currentSlide, setCurrentSlide, slides, t } = useHeroSlider()
 
-  // Track hydration state for SSR-safe animations
+  // Track hydration and whether this is the first render after hydration
   const [isHydrated, setIsHydrated] = useState(false)
+  const isFirstRender = useRef(true)
+  const previousSlide = useRef(currentSlide)
 
   useEffect(() => {
     setIsHydrated(true)
+    // After first effect, mark first render as complete
+    isFirstRender.current = false
   }, [])
+
+  // Detect if this is a slide change (not first render)
+  const isSlideChange = previousSlide.current !== currentSlide && !isFirstRender.current
+  previousSlide.current = currentSlide
+
+  // Custom easing curve for smooth animations
+  const smoothEase = [0.22, 1, 0.36, 1] as const
+
+  // Animation variants - only animate on slide changes, not on initial render
+  const contentVariants = {
+    // For initial render after hydration: no animation (instant visible)
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: 'blur(0px)',
+      transition: { duration: 0.6, ease: smoothEase },
+    },
+    // For slide exits
+    exit: {
+      opacity: 0,
+      y: -10,
+      filter: 'blur(8px)',
+      transition: { duration: 0.4, ease: 'easeIn' as const },
+    },
+  }
 
   return (
     <section
@@ -32,27 +61,11 @@ const HeroSection = () => {
       {/* Noise Overlay */}
       <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
 
-      {/* Dynamic Background Gradients - SSR renders static, animations only on client */}
-      {isHydrated ? (
-        <AnimatePresence mode="wait">
-          <motion.div
-              key={slides[currentSlide].id + "-bg"}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.3 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.5 }}
-              className="pointer-events-none absolute inset-0"
-          >
-              <div className="absolute inset-y-0 left-0 w-[500px] bg-gradient-to-br from-brand-secondary/20 via-brand-primary/10 to-transparent blur-3xl" />
-              <div className="absolute inset-y-0 right-0 w-[500px] bg-gradient-to-tl from-brand-deep/40 via-brand-primary/20 to-transparent blur-3xl" />
-          </motion.div>
-        </AnimatePresence>
-      ) : (
-        <div className="pointer-events-none absolute inset-0 opacity-30">
-          <div className="absolute inset-y-0 left-0 w-[500px] bg-gradient-to-br from-brand-secondary/20 via-brand-primary/10 to-transparent blur-3xl" />
-          <div className="absolute inset-y-0 right-0 w-[500px] bg-gradient-to-tl from-brand-deep/40 via-brand-primary/20 to-transparent blur-3xl" />
-        </div>
-      )}
+      {/* Dynamic Background Gradients - always visible, animation only on client */}
+      <div className="pointer-events-none absolute inset-0 opacity-30">
+        <div className="absolute inset-y-0 left-0 w-[500px] bg-gradient-to-br from-brand-secondary/20 via-brand-primary/10 to-transparent blur-3xl" />
+        <div className="absolute inset-y-0 right-0 w-[500px] bg-gradient-to-tl from-brand-deep/40 via-brand-primary/20 to-transparent blur-3xl" />
+      </div>
 
 
       <div className="relative z-10 mx-auto flex h-full max-w-container items-stretch px-6 pt-12 pb-20 sm:px-8 lg:px-0 lg:pt-12 lg:pb-0">
@@ -61,31 +74,29 @@ const HeroSection = () => {
           {/* Left Content Area */}
           <div className="flex flex-col justify-center space-y-9 lg:space-y-7 z-20">
             <div className="space-y-3 lg:space-y-2 h-[300px] sm:h-[350px] lg:h-hero-lg flex flex-col justify-center">
-              {/* Logo - SSR-safe: always visible */}
+              {/* Logo - always visible, no animation delays */}
               <img
                 src={iglooLogoWhite}
                 alt="IglooPro Logo"
+                width={200}
+                height={56}
                 className="h-14 w-auto drop-shadow-sm mb-4 self-start"
-                style={isHydrated ? {
-                  opacity: 1,
-                  transform: 'translateY(0)',
-                  transition: 'opacity 0.5s, transform 0.5s'
-                } : {}}
               />
 
-              {/* Main Content - SSR-safe: renders visible, animations only on client */}
+              {/* Main Content - CRITICAL FOR LCP: H1 must be immediately visible */}
               {isHydrated ? (
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={slides[currentSlide].id}
-                    initial="hidden"
+                    // CRITICAL: initial={false} prevents animation on first render
+                    // This keeps H1 visible immediately for LCP
+                    initial={isSlideChange ? { opacity: 0 } : false}
                     animate="visible"
                     exit="exit"
                     variants={{
-                      hidden: { opacity: 0 },
                       visible: {
                         opacity: 1,
-                        transition: { staggerChildren: 0.15, delayChildren: 0.1 },
+                        transition: { staggerChildren: 0.15, delayChildren: isSlideChange ? 0.1 : 0 },
                       },
                       exit: {
                         opacity: 0,
@@ -93,42 +104,19 @@ const HeroSection = () => {
                       },
                     }}
                   >
+                    {/* H1 - LCP Element - MUST be visible immediately */}
                     <motion.h1
-                      variants={{
-                        hidden: { opacity: 0, y: 20, filter: 'blur(10px)' },
-                        visible: {
-                          opacity: 1,
-                          y: 0,
-                          filter: 'blur(0px)',
-                          transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-                        },
-                        exit: {
-                          opacity: 0,
-                          y: -10,
-                          filter: 'blur(8px)',
-                          transition: { duration: 0.4, ease: 'easeIn' },
-                        },
-                      }}
+                      initial={isSlideChange ? { opacity: 0, y: 20, filter: 'blur(10px)' } : false}
+                      animate="visible"
+                      variants={contentVariants}
                       className="max-w-3xl font-medium tracking-[-0.02em] text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)]"
                     >
                       {slides[currentSlide].content.title}
                     </motion.h1>
                     <motion.p
-                      variants={{
-                        hidden: { opacity: 0, y: 20, filter: 'blur(10px)' },
-                        visible: {
-                          opacity: 1,
-                          y: 0,
-                          filter: 'blur(0px)',
-                          transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-                        },
-                        exit: {
-                          opacity: 0,
-                          y: -10,
-                          filter: 'blur(8px)',
-                          transition: { duration: 0.4, ease: 'easeIn' },
-                        },
-                      }}
+                      initial={isSlideChange ? { opacity: 0, y: 20, filter: 'blur(10px)' } : false}
+                      animate="visible"
+                      variants={contentVariants}
                       className="mt-4 max-w-2xl text-sm leading-relaxed text-white/80 sm:text-base"
                     >
                       {slides[currentSlide].content.description}
@@ -136,7 +124,7 @@ const HeroSection = () => {
                   </motion.div>
                 </AnimatePresence>
               ) : (
-                /* SSR: Render first slide content fully visible */
+                /* SSR: Render first slide content fully visible - no opacity:0! */
                 <div>
                   <h1 className="max-w-3xl font-medium tracking-[-0.02em] text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)]">
                     {slides[0].content.title}
@@ -148,16 +136,9 @@ const HeroSection = () => {
               )}
             </div>
 
-            {/* Buttons and Stats - SSR-safe: always visible */}
+            {/* Buttons and Stats - always visible */}
             <div className="flex flex-col gap-3">
-              <div
-                className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-6"
-                style={isHydrated ? {
-                  opacity: 1,
-                  transform: 'translateY(0)',
-                  transition: 'opacity 0.5s ease-out 0.35s, transform 0.5s ease-out 0.35s'
-                } : {}}
-              >
+              <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-6">
                 <Button
                   to="/contact"
                   variant="primary"
@@ -176,13 +157,7 @@ const HeroSection = () => {
                 </Button>
               </div>
 
-              <div
-                className="mt-6 flex flex-row items-start gap-6 lg:mt-4"
-                style={isHydrated ? {
-                  opacity: 1,
-                  transition: 'opacity 0.8s ease-out 0.5s'
-                } : {}}
-              >
+              <div className="mt-6 flex flex-row items-start gap-6 lg:mt-4">
                 <StatItem
                   value={t('hero.stat1.value', '48h')}
                   label={t('hero.stat1.label', 'Einsatzbereit nach Bestellung')}
@@ -214,9 +189,9 @@ const HeroSection = () => {
 
           </div>
 
-          {/* Right Visual Area - SSR-safe: renders first slide image visible */}
+          {/* Right Visual Area - always visible on SSR, animations only for slide changes */}
           <div className="relative mx-auto hidden h-full w-full max-w-lg items-end justify-center lg:flex pointer-events-none">
-             {isHydrated ? (
+             {isHydrated && isSlideChange ? (
                <AnimatePresence mode="wait">
                   {slides[currentSlide].type === 'image' ? (
                        <motion.div
@@ -231,6 +206,8 @@ const HeroSection = () => {
                           <img
                               src={slides[currentSlide].visual}
                               alt="PolarisDX doctor"
+                              width={390}
+                              height={780}
                               className="relative z-10 h-[780px] w-auto object-contain object-bottom -mb-8 right-8"
                           />
                        </motion.div>
@@ -258,12 +235,14 @@ const HeroSection = () => {
                   )}
                </AnimatePresence>
              ) : (
-               /* SSR: Render first slide image visible */
+               /* SSR + First client render: Show image immediately, no animation */
                <div className="relative h-full w-full flex items-end justify-center">
                   <div className="absolute bottom-0 right-4 h-[440px] w-[280px] bg-brand-secondary lg:bottom-0 z-0" />
                   <img
-                      src={slides[0].visual}
+                      src={slides[currentSlide]?.visual || slides[0].visual}
                       alt="PolarisDX doctor"
+                      width={390}
+                      height={780}
                       className="relative z-10 h-[780px] w-auto object-contain object-bottom -mb-8 right-8"
                   />
                </div>

@@ -40,6 +40,8 @@ const DiagnosticsPitchSection = () => {
           <img
             src={IglooProImage}
             alt="Igloo Pro device"
+            width={400}
+            height={400}
             className="object-cover w-full h-full scale-[1.375] translate-x-8 transform"
           />
         </div>

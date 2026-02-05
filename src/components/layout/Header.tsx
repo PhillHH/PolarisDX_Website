@@ -63,6 +63,8 @@ const Header = () => {
             <img
               src={logo} // Always use white logo as background is always dark (either hero or dark header)
               alt="PolarisDX logo"
+              width={136}
+              height={40}
               className="h-10 w-auto sm:h-12 transition-all duration-300"
             />
             <span className="sr-only">PolarisDX</span>
