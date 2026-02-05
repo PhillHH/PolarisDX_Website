@@ -7,6 +7,7 @@ import IglooWidgetSection from '../components/sections/IglooWidgetSection'
 // import FeaturedCaseStudy from '../components/sections/FeaturedCaseStudy' // temporarily disabled
 import TestimonialsSection from '../components/sections/TestimonialsSection'
 import BlogSection from '../components/sections/BlogSection'
+import FAQSection from '../components/sections/FAQSection'
 import Reveal from '../components/ui/Reveal'
 
 // Hero-Bild für LCP-Preload
@@ -51,6 +52,9 @@ const HomePage = () => {
       <div className="mx-auto flex max-w-container flex-col gap-32 px-4 py-32 lg:px-0 lg:gap-32 lg:py-32">
         <Reveal width="100%">
           <BlogSection />
+        </Reveal>
+        <Reveal width="100%">
+          <FAQSection />
         </Reveal>
       </div>
     </>
