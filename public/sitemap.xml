@@ -43,63 +43,63 @@
 
   <!-- Services Overview -->
   <url>
-    <loc>https://polarisdx.net/services</loc>
+    <loc>https://polarisdx.net/diagnostics</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Target Market Services (Dental, Beauty, Longevity) -->
   <url>
-    <loc>https://polarisdx.net/services/dental</loc>
+    <loc>https://polarisdx.net/diagnostics/dental</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://polarisdx.net/services/beauty</loc>
+    <loc>https://polarisdx.net/diagnostics/beauty</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://polarisdx.net/services/longevity</loc>
+    <loc>https://polarisdx.net/diagnostics/longevity</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Technical Service Pages -->
   <url>
-    <loc>https://polarisdx.net/services/poc-systemloesungen</loc>
+    <loc>https://polarisdx.net/diagnostics/poc-systemloesungen</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://polarisdx.net/services/praeventions-checks</loc>
+    <loc>https://polarisdx.net/diagnostics/praeventions-checks</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://polarisdx.net/services/infektion-entzuendung</loc>
+    <loc>https://polarisdx.net/diagnostics/infektion-entzuendung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://polarisdx.net/services/stoffwechsel-herz</loc>
+    <loc>https://polarisdx.net/diagnostics/stoffwechsel-herz</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://polarisdx.net/services/hormon-tests</loc>
+    <loc>https://polarisdx.net/diagnostics/hormon-tests</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://polarisdx.net/services/kompatibilitaet-integration</loc>
+    <loc>https://polarisdx.net/diagnostics/kompatibilitaet-integration</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
