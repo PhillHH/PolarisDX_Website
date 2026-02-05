@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate, useParams } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 import HomePage from './routes/HomePage'
 import ArticlePage from './routes/ArticlePage'
@@ -22,6 +22,12 @@ import { CookieBanner } from './components/ui/CookieBanner'
 import MobileCallButton from './components/ui/MobileCallButton'
 import ChatWidget from './components/ui/ChatWidget'
 
+// Redirect helper for /services/:slug → /diagnostics/:slug
+function ServicesRedirect() {
+  const { slug } = useParams<{ slug: string }>()
+  return <Navigate to={`/diagnostics/${slug}`} replace />
+}
+
 function App() {
   return (
     <Layout>
@@ -32,8 +38,8 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/articles" element={<ArticlesIndexPage />} />
         <Route path="/articles/:slug" element={<ArticlePage />} />
-        <Route path="/services" element={<ServicesOverviewPage />} />
-        <Route path="/services/:slug" element={<ServicePage />} />
+        <Route path="/diagnostics" element={<ServicesOverviewPage />} />
+        <Route path="/diagnostics/:slug" element={<ServicePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/imprint" element={<ImprintPage />} />
@@ -46,6 +52,11 @@ function App() {
         {/* <Route path="/shop" element={<ShopPage />} /> */}
         {/* <Route path="/shop/:slug" element={<ProductPage />} /> */}
         <Route path="/downloads" element={<DownloadsPage />} />
+
+        {/* 301 Redirects: /services → /diagnostics */}
+        <Route path="/services" element={<Navigate to="/diagnostics" replace />} />
+        <Route path="/services/:slug" element={<ServicesRedirect />} />
+
         {/* Catch-all 404 route - must be last */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

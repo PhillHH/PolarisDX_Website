@@ -13,7 +13,7 @@
  */
 
 import { lazy, Suspense } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate, useParams } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 
 // =============================================================================
@@ -73,6 +73,12 @@ function LazyRoute({ children }: { children: React.ReactNode }) {
   return <Suspense fallback={null}>{children}</Suspense>
 }
 
+// Redirect helper for /services/:slug → /diagnostics/:slug
+function ServicesRedirect() {
+  const { slug } = useParams<{ slug: string }>()
+  return <Navigate to={`/diagnostics/${slug}`} replace />
+}
+
 // =============================================================================
 // APP COMPONENT
 // =============================================================================
@@ -112,7 +118,7 @@ function App() {
           }
         />
         <Route
-          path="/services"
+          path="/diagnostics"
           element={
             <LazyRoute>
               <ServicesOverviewPage />
@@ -120,7 +126,7 @@ function App() {
           }
         />
         <Route
-          path="/services/:slug"
+          path="/diagnostics/:slug"
           element={
             <LazyRoute>
               <ServicePage />
@@ -191,6 +197,11 @@ function App() {
             </LazyRoute>
           }
         />
+
+        {/* 301 Redirects: /services → /diagnostics */}
+        <Route path="/services" element={<Navigate to="/diagnostics" replace />} />
+        <Route path="/services/:slug" element={<ServicesRedirect />} />
+
         {/* Catch-all 404 route - must be last */}
         <Route
           path="*"

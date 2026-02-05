@@ -13,7 +13,7 @@ const ServiceCard = ({ service, className }: ServiceCardProps) => {
 
   return (
     <Link
-      to={`/services/${service.id}`}
+      to={`/diagnostics/${service.id}`}
       className={cn(
         "group flex flex-col rounded-xl glass-panel p-6 transition duration-300",
         "hover:-translate-y-1 hover:shadow-card hover:bg-white/80",
