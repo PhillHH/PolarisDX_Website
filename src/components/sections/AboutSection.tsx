@@ -27,6 +27,8 @@ const AboutSection = () => {
           <img
             src={iglooExplode}
             alt="IglooPro device sending data securely to the cloud"
+            width={600}
+            height={728}
             className="h-full w-full object-cover"
           />
         </div>

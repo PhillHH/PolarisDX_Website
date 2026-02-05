@@ -88,6 +88,8 @@ const IglooWidgetSection = () => {
             <img
                 src={iglooImage}
                 alt="Igloo Pro"
+                width={256}
+                height={256}
                 className="relative z-10 w-64 sm:w-72 md:w-56 lg:w-64 drop-shadow-2xl transition-all duration-500 ease-in-out hover:scale-110 pointer-events-none"
             />
         </div>

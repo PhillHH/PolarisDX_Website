@@ -3,7 +3,8 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 
 // https://vite.dev/config/
-export default defineConfig({
+// Verwende Funktion um SSR/Client Build zu unterscheiden
+export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react()],
 
   resolve: {
@@ -29,6 +30,38 @@ export default defineConfig({
   build: {
     // Sourcemaps für besseres Debugging
     sourcemap: true,
+
+    // ==========================================================================
+    // CODE-SPLITTING: Nur für Client-Build, NICHT für SSR
+    // Reduziert Initial Load und ermöglicht paralleles Laden
+    // ==========================================================================
+    rollupOptions: !isSsrBuild ? {
+      output: {
+        manualChunks: {
+          // Vendor: React Core (wird auf jeder Seite gebraucht)
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+
+          // i18n: Internationalisierung (wird auf jeder Seite gebraucht)
+          'vendor-i18n': ['i18next', 'react-i18next', 'i18next-http-backend', 'i18next-browser-languagedetector'],
+
+          // Framer Motion: Nur für Animationen (kann parallel geladen werden)
+          'vendor-motion': ['framer-motion'],
+
+          // Helmet: SEO (relativ klein, aber separiert für Caching)
+          'vendor-seo': ['react-helmet-async'],
+        },
+      },
+    } : {},
+
+    // Erhöhe das Limit um Warnungen zu vermeiden
+    chunkSizeWarningLimit: 600,
+  },
+
+  // =============================================================================
+  // CSS CONFIGURATION
+  // =============================================================================
+  css: {
+    devSourcemap: true,
   },
 
   // =============================================================================
@@ -63,4 +96,4 @@ export default defineConfig({
       },
     },
   },
-})
+}))

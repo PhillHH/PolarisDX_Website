@@ -33,6 +33,8 @@ const Footer = () => {
                 <img
                   src={logo}
                   alt="PolarisDX logo"
+                  width={136}
+                  height={40}
                   className="h-10 w-auto sm:h-12"
                 />
               </div>

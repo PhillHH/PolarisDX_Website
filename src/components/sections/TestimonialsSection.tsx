@@ -85,6 +85,8 @@ const TestimonialsSection = () => {
                           <img
                             src={testimonial.avatar}
                             alt={testimonial.name}
+                            width={128}
+                            height={128}
                             className="h-full w-full object-cover"
                           />
                         ) : null}
