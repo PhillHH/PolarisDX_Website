@@ -9,6 +9,9 @@ import TestimonialsSection from '../components/sections/TestimonialsSection'
 import BlogSection from '../components/sections/BlogSection'
 import Reveal from '../components/ui/Reveal'
 
+// Hero-Bild für LCP-Preload
+import heroDoctor from '../assets/hero_doctor.png'
+
 const HomePage = () => {
   const { t } = useTranslation('home')
 
@@ -20,6 +23,7 @@ const HomePage = () => {
         canonical="https://polarisdx.net/"
         keywords={['POC Diagnostik', 'Point-of-Care', 'IglooPro', 'Schnelltest Praxis', 'Vitamin D Test', 'CRP Schnelltest']}
         structuredData={[websiteSchema, organizationSchema]}
+        preloadImages={[heroDoctor]}
       />
       <HeroSection />
       <div className="mx-auto flex max-w-container flex-col gap-16 px-4 pt-16 lg:px-0 lg:gap-16 lg:pt-8">
