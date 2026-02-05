@@ -4,8 +4,8 @@
   PolarisDX - POCT Diagnostics & Medical Technology (B2B)
   Target: Dental practices, Longevity clinics, Beauty centers (DACH region)
 
-  Generated: 2026-01-30
-  Total URLs: 28
+  Generated: 2026-02-05
+  Total URLs: 29
 
   Priority Distribution:
   - 1.0: Homepage, Main Product (Igloo Pro)
@@ -128,6 +128,13 @@
   <url>
     <loc>https://polarisdx.net/articles</loc>
     <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Vitamin D3 Implantologie - Featured Article -->
+  <url>
+    <loc>https://polarisdx.net/vitamin-d3-implantologie</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 

@@ -54,6 +54,29 @@ const ArticlesIndexPage = () => {
         {/* Content Section */}
         <div className="mx-auto max-w-container px-4 py-16 lg:px-10 lg:py-24">
           <Reveal width="100%">
+            {/* Featured Article */}
+            <div className="mb-12">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
+                {t('articles:index.featured', 'Featured')}
+              </p>
+              <Link
+                to="/vitamin-d3-implantologie"
+                className="group block overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-primary/30"
+              >
+                <div className="p-6 lg:p-8">
+                  <h2 className="text-xl font-semibold text-gray-900 group-hover:text-brand-primary transition-colors lg:text-2xl">
+                    Vitamin D3 und Implantologie — Evidenz und Praxisleitfaden
+                  </h2>
+                  <p className="mt-3 text-sm text-gray-500 lg:text-base">
+                    Wie ein optimaler Vitamin-D-Spiegel die Osseointegration fördert und Implantatverluste reduziert. Wissenschaftlich fundiert mit praktischen Handlungsempfehlungen.
+                  </p>
+                  <p className="mt-4 text-sm font-medium text-brand-primary group-hover:underline">
+                    Fachartikel lesen →
+                  </p>
+                </div>
+              </Link>
+            </div>
+
             <SectionHeader
               caption={t('articles:index.caption', 'Latest Posts')}
               title={t('articles:index.heading', 'Explore Our Articles')}

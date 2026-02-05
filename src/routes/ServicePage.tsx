@@ -139,6 +139,20 @@ const ServicePage = () => {
                       ))}
                     </ul>
                   )}
+                  {/* Contextual link for Dental service after first section (Vitamin D) */}
+                  {slug === 'dental' && index === 0 && (
+                    <div className="mt-4 rounded-lg border border-brand-primary/20 bg-brand-primary/5 p-4">
+                      <p className="text-sm text-gray-600">
+                        Vertiefen Sie Ihr Wissen in unserem Fachartikel:{' '}
+                        <Link
+                          to="/vitamin-d3-implantologie"
+                          className="font-semibold text-brand-primary hover:underline"
+                        >
+                          Vitamin D3 und Implantologie — Evidenz und Praxisleitfaden
+                        </Link>
+                      </p>
+                    </div>
+                  )}
                 </section>
               ))}
 
