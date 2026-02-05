@@ -625,7 +625,7 @@ const VitaminD3ImplantologyPage = () => {
                       </div>
                     </Link>
                     <Link
-                      to="/casestudys/32reasons"
+                      to="/services/dental"
                       className="group flex items-start gap-3 rounded-lg p-2 transition-colors hover:bg-gray-50"
                     >
                       <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-green-50 text-green-600">
@@ -633,9 +633,9 @@ const VitaminD3ImplantologyPage = () => {
                       </div>
                       <div>
                         <p className="text-sm font-medium text-gray-900 group-hover:text-brand-primary">
-                          Fallstudie: 32reasons
+                          POC-Diagnostik für Zahnarztpraxen
                         </p>
-                        <p className="text-xs text-gray-500">POC-Diagnostik in der Zahnarztpraxis</p>
+                        <p className="text-xs text-gray-500">Vitamin D und Implantologie in der Praxis</p>
                       </div>
                     </Link>
                     <Link
