@@ -34,7 +34,14 @@ const urlLanguage = extractLanguageFromPathname(window.location.pathname);
 // CLIENT-SPECIFIC CONFIGURATION
 // =============================================================================
 
-i18n
+/**
+ * i18n.init() gibt ein Promise zurück das resolvet sobald alle
+ * Translations geladen sind. entry-client.tsx wartet auf dieses
+ * Promise bevor hydrateRoot() aufgerufen wird — so sind die
+ * Translations beim Hydration-Zeitpunkt verfügbar und es gibt
+ * keinen Suspense-Mismatch mit dem SSR-HTML.
+ */
+export const i18nReady = i18n
   // HTTP Backend zum Laden der Übersetzungen
   .use(HttpBackend)
   // React-Integration (kein LanguageDetector mehr — URL ist Source of Truth)
@@ -68,10 +75,4 @@ i18n
 // EXPORTS
 // =============================================================================
 
-/**
- * Die i18next-Instanz für direkten Zugriff
- *
- * Normalerweise sollte useTranslation() aus react-i18next verwendet werden.
- * Diese Instanz wird exportiert für Fälle wo kein React-Kontext verfügbar ist.
- */
 export default i18n;

@@ -81,21 +81,6 @@ function extractLanguageFromUrl(pathname: string): SupportedLanguage | null {
 }
 
 /**
- * Entfernt den Sprach-Prefix aus der URL, damit React Router
- * die Route ohne Prefix sieht.
- *
- * Beispiele:
- *   /en/about           → /about
- *   /de/                 → /
- *   /de/diagnostics/dental → /diagnostics/dental
- *   /fr                  → /
- */
-function stripLanguagePrefix(pathname: string): string {
-  const stripped = pathname.replace(/^\/[a-z]{2}(\/|$)/, '/')
-  return stripped || '/'
-}
-
-/**
  * Prüft ob eine URL auf eine statische Ressource zeigt,
  * die NICHT redirected werden soll.
  *
@@ -249,15 +234,14 @@ async function createServer() {
       return
     }
 
-    // URL für React Router: Sprach-Prefix entfernen
-    // /en/about         → /about
-    // /de/              → /
-    // /fr/articles?q=x  → /articles?q=x
-    const strippedPath = stripLanguagePrefix(pathname)
+    // URL für React Router: Sprach-Prefix BEIBEHALTEN
+    // StaticRouter basename=/${lang} strippt den Prefix selbst.
+    // /en/about         → StaticRouter sieht /en/about, strippt /en → matched /about
+    // /de/              → StaticRouter sieht /de/, strippt /de → matched /
     const query = originalUrl.includes('?')
       ? originalUrl.substring(originalUrl.indexOf('?'))
       : ''
-    const routerUrl = strippedPath + query
+    const routerUrl = pathname + query
 
     try {
       // Template laden
@@ -293,7 +277,7 @@ async function createServer() {
         render = ssrModule.render
       }
 
-      // App rendern mit gestrippter URL und erkannter Sprache
+      // App rendern mit voller URL (inkl. Sprach-Prefix) und erkannter Sprache
       const { html: appHtml, helmet } = await render(routerUrl, lang)
 
       // Helmet Tags zusammenbauen
