@@ -5,7 +5,7 @@
  * das vom Server vorgerenderte HTML.
  *
  * WICHTIG:
- * - Verwendet hydrateRoot statt createRoot für SSR-Hydration
+ * - Wartet auf i18n.init() bevor hydrateRoot() aufgerufen wird
  * - BrowserRouter bekommt basename=/${lang} für Sprach-Prefixe
  * - Sprache wird aus URL extrahiert (Source of Truth)
  */
@@ -19,7 +19,9 @@ import { extractLanguageFromPathname } from './i18n'
 
 // Side-effect imports
 import './index.css'
-import './i18n.client'
+
+// i18n init — exportiert ein Promise das resolvet wenn Translations geladen sind
+import { i18nReady } from './i18n.client'
 
 // App - Client-Version mit lazy loading für Code-Splitting
 import App from './App.lazy'
@@ -32,7 +34,7 @@ import App from './App.lazy'
 const lang = extractLanguageFromPathname(window.location.pathname)
 
 // =============================================================================
-// HYDRATION
+// HYDRATION (nach i18n init)
 // =============================================================================
 
 const rootElement = document.getElementById('root')
@@ -41,15 +43,20 @@ if (!rootElement) {
   throw new Error('Root element not found. Make sure there is a <div id="root"> in your HTML.')
 }
 
-hydrateRoot(
-  rootElement,
-  <StrictMode>
-    <HelmetProvider>
-      <BrowserRouter basename={`/${lang}`}>
-        <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
-          <App />
-        </Suspense>
-      </BrowserRouter>
-    </HelmetProvider>
-  </StrictMode>
-)
+// Warten bis Translations geladen sind BEVOR hydratisiert wird.
+// Ohne dieses await würde useTranslation() bei Suspense eine
+// Fallback-Komponente rendern wo der Server echten Content hat → Mismatch.
+i18nReady.then(() => {
+  hydrateRoot(
+    rootElement,
+    <StrictMode>
+      <HelmetProvider>
+        <BrowserRouter basename={`/${lang}`}>
+          <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
+            <App />
+          </Suspense>
+        </BrowserRouter>
+      </HelmetProvider>
+    </StrictMode>
+  )
+})
