@@ -284,7 +284,15 @@
       "publisher": {
         "@id": "https://polarisdx.net/#organization"
       },
-      "inLanguage": "de-DE"
+      "inLanguage": "de-DE",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://polarisdx.net/articles?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
     }
     </script>
 
