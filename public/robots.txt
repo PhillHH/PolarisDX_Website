@@ -14,10 +14,14 @@ Allow: /
 Disallow: /api/
 Disallow: /locales/
 Disallow: /_
-Disallow: /assets/
+
+# Allow assets needed for rendering (JS/CSS required for Google rendering validation)
+Allow: /assets/
+Allow: /*.js$
+Allow: /*.css$
+
+# Block translation JSON files from indexing
 Disallow: /*.json$
-Disallow: /*.js$
-Disallow: /*.css$
 
 # =============================================================================
 # SPECIFIC BOT RULES

@@ -129,6 +129,14 @@ export const websiteSchema = {
     '@id': `${BASE_URL}/#organization`,
   },
   inLanguage: 'de-DE',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${BASE_URL}/articles?q={search_term_string}`,
+    },
+    'query-input': 'required name=search_term_string',
+  },
 };
 
 // =============================================================================
@@ -304,6 +312,84 @@ export function createServiceSchema(options: ServiceSchemaOptions) {
         : `${BASE_URL}${options.image}`,
     }),
   };
+}
+
+// =============================================================================
+// LOCAL BUSINESS (for contact page)
+// =============================================================================
+
+// =============================================================================
+// EVENT SCHEMA GENERATOR
+// =============================================================================
+
+export interface EventSchemaOptions {
+  name: string;
+  description: string;
+  startDate: string;
+  endDate?: string;
+  location: string;
+  url?: string;
+  image?: string;
+}
+
+export function createEventSchema(options: EventSchemaOptions) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BusinessEvent',
+    name: options.name,
+    description: options.description,
+    startDate: options.startDate,
+    ...(options.endDate && { endDate: options.endDate }),
+    location: {
+      '@type': 'Place',
+      name: options.location,
+      address: options.location,
+    },
+    organizer: {
+      '@id': `${BASE_URL}/#organization`,
+    },
+    ...(options.url && { url: options.url }),
+    ...(options.image && {
+      image: options.image.startsWith('http')
+        ? options.image
+        : `${BASE_URL}${options.image}`,
+    }),
+    eventStatus: 'https://schema.org/EventScheduled',
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  };
+}
+
+// =============================================================================
+// REVIEW/TESTIMONIAL SCHEMA GENERATOR
+// =============================================================================
+
+export interface ReviewSchemaOptions {
+  author: string;
+  reviewBody: string;
+  ratingValue?: number;
+  datePublished?: string;
+  jobTitle?: string;
+}
+
+export function createReviewSchema(reviews: ReviewSchemaOptions[]) {
+  return reviews.map((review) => ({
+    '@type': 'Review',
+    author: {
+      '@type': 'Person',
+      name: review.author,
+      ...(review.jobTitle && { jobTitle: review.jobTitle }),
+    },
+    reviewBody: review.reviewBody,
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: review.ratingValue || 5,
+      bestRating: 5,
+    },
+    ...(review.datePublished && { datePublished: review.datePublished }),
+    itemReviewed: {
+      '@id': `${BASE_URL}/igloo-pro#product`,
+    },
+  }));
 }
 
 // =============================================================================

@@ -17,10 +17,14 @@ export {
   createFAQSchema,
   createArticleSchema,
   createServiceSchema,
+  createEventSchema,
+  createReviewSchema,
   type BreadcrumbItem,
   type FAQItem,
   type ArticleSchemaOptions,
   type ServiceSchemaOptions,
+  type EventSchemaOptions,
+  type ReviewSchemaOptions,
 } from './structuredData';
 
 // Re-export HelmetProvider for convenience

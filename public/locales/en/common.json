@@ -8,7 +8,12 @@
     "blog": "Blog",
     "terms": "Terms & Conditions",
     "contact": "Contact",
-    "events": "Events"
+    "events": "Events",
+    "downloads": "Downloads",
+    "dental": "Dental Diagnostics",
+    "beauty": "Beauty Diagnostics",
+    "longevity": "Longevity Diagnostics",
+    "pocSystems": "POC Systems"
   },
   "badge": {
     "New": "New",
@@ -27,12 +32,17 @@
     "Service": "Service"
   },
   "footer": {
-    "description": "Comprehensive care and support. Modern health services for you and your family, around the clock.",
+    "description": "Your partner for Point-of-Care Diagnostics. Lab-grade instant diagnostics for Dental, Beauty and Longevity.",
     "links": "Links",
     "discover": "Discover",
+    "diagnostics": "Diagnostics",
+    "allServices": "All Services",
+    "pocSystems": "POC Systems",
+    "preventionChecks": "Prevention Checks",
+    "hormonTests": "Hormone Tests",
     "london": "London",
     "hamburg": "Hamburg",
-    "copyright": "Copyright ©PolarisDX 2025 All Rights Reserved.",
+    "copyright": "Copyright ©PolarisDX {{year}} All Rights Reserved.",
     "imprint": "Imprint",
     "privacy": "Privacy Policy",
     "doctors": "Our Doctors",
