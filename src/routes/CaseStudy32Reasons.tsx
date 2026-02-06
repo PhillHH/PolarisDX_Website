@@ -27,8 +27,8 @@ const CaseStudy32Reasons = () => {
   return (
     <PageTransition>
       <SEOHead
-        title={t('reasons32.seo.title', '32reasons Zahnteam - Fallstudie POC-Diagnostik in der Zahnarztpraxis')}
-        description={t('reasons32.seo.description', 'Erfahren Sie, wie Dr. Kristian Grimm vom 32reasons Zahnteam POC-Diagnostik mit dem IglooPro Reader in seiner Praxis einsetzt.')}
+        title={t('reasons32.seo.title', 'Fallstudie: POC-Diagnostik bei 32reasons Hamburg | PolarisDX')}
+        description={t('reasons32.seo.description', 'Wie Dr. Kristian Grimm Vitamin D & CRP chairside in der Implantologie einsetzt. Ergebnisse, Workflow und ROI aus der Zahnarztpraxis.')}
         ogType="article"
         keywords={['POC Zahnarzt', 'Point-of-Care Zahnmedizin', '32reasons', 'Fallstudie Diagnostik']}
         article={{

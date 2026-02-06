@@ -113,8 +113,8 @@ const DownloadsPage = () => {
   return (
     <PageTransition>
       <SEOHead
-        title={t('downloads:seo.title', 'Downloads - Preislisten & Produktinformationen')}
-        description={t('downloads:seo.description', 'Laden Sie Preislisten, technische Datenblätter und Produktinformationen zu IglooPro POC-Reader und POCT-Testkassetten herunter.')}
+        title={t('downloads:seo.title', 'Downloads: Preislisten & Produktdaten IglooPro | PolarisDX')}
+        description={t('downloads:seo.description', 'Technische Datenblätter, Preislisten und Produktinformationen zum IglooPro POC-Reader und POCT-Testkassetten. Kostenlos herunterladen.')}
         keywords={['PolarisDX Downloads', 'Preisliste', 'Produktdatenblatt', 'POC Diagnostik PDF']}
         structuredData={[
           createBreadcrumbSchema([

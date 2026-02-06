@@ -15,8 +15,8 @@ const ArticlesIndexPage = () => {
   return (
     <PageTransition>
       <SEOHead
-        title={t('articles:seo.index_title', 'Fachartikel zu POC-Diagnostik & Medizintechnik')}
-        description={t('articles:seo.index_description', 'Expertenwissen zu Point-of-Care Diagnostik, Schnelltests und moderner Labormedizin. Praxisnahe Artikel für Ärzte und medizinisches Fachpersonal.')}
+        title={t('articles:seo.index_title', 'Fachartikel: POC-Diagnostik & Praxislabor Wissen | PolarisDX')}
+        description={t('articles:seo.index_description', 'Expertenwissen zu POCT, Chairside Diagnostik und Praxislabor. Praxisnahe Artikel für Zahnärzte, Ärzte und medizinisches Fachpersonal.')}
         keywords={['POC Fachartikel', 'Diagnostik Wissen', 'Schnelltest Artikel', 'Medizintechnik Blog', 'POCT Fachbeiträge']}
         structuredData={createBreadcrumbSchema([
           { name: 'Home', url: '/' },
