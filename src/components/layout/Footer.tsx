@@ -63,14 +63,30 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="grid flex-1 grid-cols-2 gap-8 text-sm lg:grid-cols-3">
+            <div className="grid flex-1 grid-cols-2 gap-8 text-sm lg:grid-cols-4">
               <div className="space-y-3">
                 <h3 className="text-sm font-semibold tracking-tight">{t('footer.links', 'Links')}</h3>
                 <ul className="space-y-2 text-white/70">
                   <li><Link to="/" className="hover:text-brand-secondary">{t('nav.home')}</Link></li>
                   <li><Link to="/about" className="hover:text-brand-secondary">{t('nav.about')}</Link></li>
-                  <li><Link to="/diagnostics" className="hover:text-brand-secondary">{t('nav.service')}</Link></li>
+                  <li><Link to="/igloo-pro" className="hover:text-brand-secondary">IglooPro</Link></li>
                   <li><Link to="/articles" className="hover:text-brand-secondary">{t('nav.blog')}</Link></li>
+                  <li><Link to="/events" className="hover:text-brand-secondary">{t('nav.events', 'Events')}</Link></li>
+                  <li><Link to="/downloads" className="hover:text-brand-secondary">{t('nav.downloads', 'Downloads')}</Link></li>
+                  <li><Link to="/contact" className="hover:text-brand-secondary">{t('nav.contact')}</Link></li>
+                </ul>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="text-sm font-semibold tracking-tight">{t('footer.diagnostics', 'Diagnostik')}</h3>
+                <ul className="space-y-2 text-white/70">
+                  <li><Link to="/diagnostics" className="hover:text-brand-secondary">{t('footer.allServices', 'Alle Services')}</Link></li>
+                  <li><Link to="/diagnostics/dental" className="hover:text-brand-secondary">Dental</Link></li>
+                  <li><Link to="/diagnostics/beauty" className="hover:text-brand-secondary">Beauty</Link></li>
+                  <li><Link to="/diagnostics/longevity" className="hover:text-brand-secondary">Longevity</Link></li>
+                  <li><Link to="/diagnostics/poc-systemloesungen" className="hover:text-brand-secondary">{t('footer.pocSystems', 'POC-Systeme')}</Link></li>
+                  <li><Link to="/diagnostics/praeventions-checks" className="hover:text-brand-secondary">{t('footer.preventionChecks', 'Präventions-Checks')}</Link></li>
+                  <li><Link to="/diagnostics/hormon-tests" className="hover:text-brand-secondary">{t('footer.hormonTests', 'Hormon-Tests')}</Link></li>
                 </ul>
               </div>
 
@@ -98,7 +114,7 @@ const Footer = () => {
           </div>
 
           <div className="mt-8 border-t border-white/10 pt-8 flex flex-col items-center gap-4 text-lg text-white/60 md:flex-row md:justify-center md:gap-8">
-            <p>{t('footer.copyright', 'Copyright ©PolarisDX 2025 All Rights Reserved.')}</p>
+            <p>{t('footer.copyright', `Copyright ©PolarisDX ${new Date().getFullYear()} All Rights Reserved.`)}</p>
             <div className="flex gap-4 md:gap-8">
               <Link to="/imprint" className="hover:text-white transition-colors">{t('footer.imprint', 'Impressum')}</Link>
               <Link to="/privacy" className="hover:text-white transition-colors">{t('footer.privacy', 'Datenschutzerklärung')}</Link>

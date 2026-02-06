@@ -1,15 +1,44 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Calendar, MapPin, ExternalLink } from 'lucide-react';
 import { events } from '../data/events';
+import { SEOHead, createBreadcrumbSchema, createEventSchema } from '../components/seo';
 import PageTransition from '../components/ui/PageTransition';
 import Reveal from '../components/ui/Reveal';
 
 const EventsPage: React.FC = () => {
   const { t } = useTranslation(['common', 'events']);
 
+  const eventSchemas = useMemo(() => {
+    return events.map((event) =>
+      createEventSchema({
+        name: event.title,
+        description: event.description || event.title,
+        startDate: event.date,
+        endDate: event.endDate,
+        location: event.location,
+        url: event.link,
+      })
+    );
+  }, []);
+
+  const structuredData = useMemo(() => [
+    createBreadcrumbSchema([
+      { name: 'Home', url: '/' },
+      { name: 'Events', url: '/events' },
+    ]),
+    ...eventSchemas,
+  ], [eventSchemas]);
+
   return (
     <PageTransition>
+      <SEOHead
+        title={t('events:seo_title', 'Events & Messen - PolarisDX POC Diagnostik')}
+        description={t('events:seo_description', 'Treffen Sie PolarisDX auf Messen und Events. Erleben Sie den IglooPro POC-Reader live und erfahren Sie mehr über Point-of-Care Diagnostik.')}
+        canonical="https://polarisdx.net/events"
+        keywords={['PolarisDX Events', 'Medica', 'POC Diagnostik Messe', 'IglooPro live']}
+        structuredData={structuredData}
+      />
       {/* Hero Section */}
       <div className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white overflow-hidden">
         <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
