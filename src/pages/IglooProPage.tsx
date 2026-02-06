@@ -90,8 +90,8 @@ const IglooProPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50">
       <SEOHead
-        title={t('seo.title', 'IglooPro Analysegerät - Spezifikationen & Preise')}
-        description={t('seo.description', 'IglooPro POC-Reader: Immunfluoreszenz-Messung für Vitamin D, CRP, HbA1c in 3-15 Min. 600g tragbar, CV <2% Präzision. Jetzt Angebot anfordern!')}
+        title={t('seo.title', 'IglooPro POC-Reader: Spezifikationen & Technik | PolarisDX')}
+        description={t('seo.description', 'Immunfluoreszenz-Messgerät für 10+ Biomarker. 600g, CV <2%, USB/LAN/WLAN. IVDR-konform, Ergebnis in 3-15 Min. Angebot anfordern.')}
         ogType="product"
         keywords={['IglooPro', 'POC Reader kaufen', 'Point-of-Care Analysegerät', 'Immunfluoreszenz', 'Vitamin D Schnelltest Gerät']}
         structuredData={[
