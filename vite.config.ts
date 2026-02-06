@@ -60,7 +60,7 @@ export default defineConfig(({ isSsrBuild }) => ({
           'vendor-react': ['react', 'react-dom', 'react-router-dom'],
 
           // i18n: Internationalisierung (wird auf jeder Seite gebraucht)
-          'vendor-i18n': ['i18next', 'react-i18next', 'i18next-http-backend', 'i18next-browser-languagedetector'],
+          'vendor-i18n': ['i18next', 'react-i18next', 'i18next-http-backend'],
 
           // Helmet: SEO (relativ klein, aber separiert für Caching)
           'vendor-seo': ['react-helmet-async'],
