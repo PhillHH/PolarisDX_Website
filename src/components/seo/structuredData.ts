@@ -69,12 +69,6 @@ export const medicalBusinessSchema = {
     description: 'DACH-Region (Deutschland, Österreich, Schweiz)',
   },
   sameAs: ['https://www.linkedin.com/company/polarisdx'],
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '250',
-    bestRating: '5',
-  },
 };
 
 // =============================================================================
@@ -165,12 +159,6 @@ export const iglooProProductSchema = {
     '@type': 'QuantitativeValue',
     value: '600',
     unitCode: 'GRM',
-  },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '250',
-    bestRating: '5',
   },
 };
 
