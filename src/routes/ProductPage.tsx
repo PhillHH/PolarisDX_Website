@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PrimaryButton from '../components/ui/PrimaryButton'
 import { products, getProductBySlug } from '../data/products'
 import type { TechSpec } from '../types'
@@ -43,16 +44,15 @@ const ProductPage = () => {
 
         <div className="relative mx-auto flex min-h-[320px] max-w-page flex-col justify-end px-4 pb-10 pt-28 lg:px-10 lg:pb-14 lg:pt-32">
           <div className="max-w-container">
-            <div className="mb-3 text-sm text-white/70">
-              <Link to="/" className="hover:text-brand-secondary">
-                {t('shop:shop.home')}
-              </Link>{' '}
-              /{' '}
-              <Link to="/shop" className="hover:text-brand-secondary">
-                Shop
-              </Link>{' '}
-              / <span>{t(`shop:products.${productKey}.name`)}</span>
-            </div>
+            <Breadcrumbs
+              variant="dark"
+              className="mb-3"
+              items={[
+                { label: t('shop:shop.home'), href: '/' },
+                { label: 'Shop', href: '/shop' },
+                { label: t(`shop:products.${productKey}.name`) },
+              ]}
+            />
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
               {t(`common:category.${product.category}`)}
             </p>

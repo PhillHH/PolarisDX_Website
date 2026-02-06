@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Calendar, MapPin, ExternalLink } from 'lucide-react';
 import { events } from '../data/events';
 import { SEOHead, createBreadcrumbSchema, createEventSchema } from '../components/seo';
+import { Breadcrumbs } from '../components/ui/Breadcrumbs';
 import PageTransition from '../components/ui/PageTransition';
 import Reveal from '../components/ui/Reveal';
 
@@ -44,6 +45,15 @@ const EventsPage: React.FC = () => {
         <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
         <div className="mx-auto max-w-container px-4 text-center lg:px-0 relative z-10">
           <Reveal width="100%" yOffset={20}>
+            <div className="flex justify-center mb-4">
+              <Breadcrumbs
+                variant="dark"
+                items={[
+                  { label: 'Home', href: '/' },
+                  { label: t('events:title') },
+                ]}
+              />
+            </div>
             <div className="flex justify-center">
               <div className="inline-block rounded p-px bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-deep shadow-lg shadow-brand-primary/20 mb-2">
                 <div className="rounded-sm bg-slate-50 px-3 py-1">

@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, createBreadcrumbSchema } from '../components/seo'
+import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import SectionHeader from '../components/ui/SectionHeader'
 import { FileText, Download } from 'lucide-react'
 import PageTransition from '../components/ui/PageTransition'
@@ -133,12 +133,14 @@ const DownloadsPage = () => {
           <div className="relative mx-auto flex min-h-[320px] max-w-page flex-col justify-end px-4 pb-10 pt-28 lg:px-10 lg:pb-14 lg:pt-32">
             <Reveal width="100%" yOffset={20}>
               <div className="max-w-container">
-                <div className="mb-3 text-sm text-white/70">
-                  <Link to="/" className="hover:text-brand-secondary">
-                    {t('downloads:home')}
-                  </Link>{' '}
-                  / <span>{t('downloads:title')}</span>
-                </div>
+                <Breadcrumbs
+                  variant="dark"
+                  className="mb-3"
+                  items={[
+                    { label: t('downloads:home'), href: '/' },
+                    { label: t('downloads:title') },
+                  ]}
+                />
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
                   {t('downloads:subtitle')}
                 </p>

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, createBreadcrumbSchema } from '../components/seo'
+import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import SectionHeader from '../components/ui/SectionHeader'
 import BlogCard from '../components/ui/BlogCard'
 import { blogPosts } from '../data/blogPosts'
@@ -33,12 +34,14 @@ const ArticlesIndexPage = () => {
           <div className="relative mx-auto flex min-h-hero max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
             <Reveal width="100%" yOffset={20}>
               <div className="max-w-container">
-                <div className="mb-4 text-sm text-white/70">
-                  <Link to="/" className="hover:text-brand-secondary">
-                    {t('shop:shop.home', 'Home')}
-                  </Link>{' '}
-                  / <span>{t('shop:shop.articles', 'Articles')}</span>
-                </div>
+                <Breadcrumbs
+                  variant="dark"
+                  className="mb-4"
+                  items={[
+                    { label: t('shop:shop.home', 'Home'), href: '/' },
+                    { label: t('shop:shop.articles', 'Articles') },
+                  ]}
+                />
 
                 <h1 className="mb-4 text-hero-sm leading-[47px] font-medium tracking-[-0.02em] sm:text-hero-md sm:leading-[58px] lg:text-hero-lg lg:leading-[69px]">
                   {t('articles:index.title', 'Our Magazine')}

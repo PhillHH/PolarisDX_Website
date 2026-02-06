@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Tooth } from '../components/ui/icons/Tooth'
 import { Sparkles, Infinity as InfinityIcon } from 'lucide-react'
 import { SEOHead, createServiceSchema, createBreadcrumbSchema } from '../components/seo'
+import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import SectionHeader from '../components/ui/SectionHeader'
 import PrimaryButton from '../components/ui/PrimaryButton'
 import { services } from '../data/services'
@@ -116,12 +117,15 @@ const ServicePage = () => {
           <div className="relative mx-auto flex min-h-hero max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
             <Reveal width="100%" yOffset={20}>
               <div className="max-w-container">
-                <div className="mb-4 text-sm text-white/70">
-                  <Link to="/" className="hover:text-brand-secondary">
-                    {t('common:nav.home', 'Home')}
-                  </Link>{' '}
-                  / <span>{t('home:services.caption', 'Services')}</span>
-                </div>
+                <Breadcrumbs
+                  variant="dark"
+                  className="mb-4"
+                  items={[
+                    { label: t('common:nav.home', 'Home'), href: '/' },
+                    { label: t('home:services.caption', 'Services'), href: '/diagnostics' },
+                    { label: title },
+                  ]}
+                />
 
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
                   {t('home:services.caption', 'DIAGNOSTICS FOCUS')}
