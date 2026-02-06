@@ -4,7 +4,10 @@
  * Dieser Entry Point wird im Browser ausgeführt und hydratisiert
  * das vom Server vorgerenderte HTML.
  *
- * WICHTIG: Verwendet hydrateRoot statt createRoot für SSR-Hydration.
+ * WICHTIG:
+ * - Verwendet hydrateRoot statt createRoot für SSR-Hydration
+ * - BrowserRouter bekommt basename=/${lang} für Sprach-Prefixe
+ * - Sprache wird aus URL extrahiert (Source of Truth)
  */
 
 import { StrictMode, Suspense } from 'react'
@@ -12,12 +15,21 @@ import { hydrateRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 
+import { extractLanguageFromPathname } from './i18n'
+
 // Side-effect imports
 import './index.css'
 import './i18n.client'
 
 // App - Client-Version mit lazy loading für Code-Splitting
 import App from './App.lazy'
+
+// =============================================================================
+// LANGUAGE FROM URL
+// =============================================================================
+
+// Sprache aus URL-Prefix extrahieren: /en/about → 'en'
+const lang = extractLanguageFromPathname(window.location.pathname)
 
 // =============================================================================
 // HYDRATION
@@ -33,7 +45,7 @@ hydrateRoot(
   rootElement,
   <StrictMode>
     <HelmetProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={`/${lang}`}>
         <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
           <App />
         </Suspense>

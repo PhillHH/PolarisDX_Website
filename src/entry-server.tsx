@@ -39,15 +39,17 @@ export interface RenderResult {
 /**
  * Rendert die App für eine gegebene URL und Sprache
  *
- * @param url - Die Request-URL (z.B. '/about' oder '/articles/my-article')
- * @param lang - Die Sprache für i18n (z.B. 'de', 'en')
+ * @param url - Die gestrippte Request-URL ohne Sprach-Prefix (z.B. '/about')
+ * @param lang - Die Sprache aus dem URL-Prefix (z.B. 'de', 'en')
  * @returns Das gerenderte HTML und Helmet-Daten für Head-Tags
  *
- * @example
- * const { html, helmet } = await render('/about', 'de')
- * const fullHtml = template
- *   .replace('<!--ssr-outlet-->', html)
- *   .replace('<!--helmet-head-->', helmet.title.toString() + helmet.meta.toString())
+ * WICHTIG: Der Express-Server strippt den Sprach-Prefix und übergibt:
+ *   /en/about → url='/about', lang='en'
+ *   /de/      → url='/',     lang='de'
+ *
+ * StaticRouter bekommt basename=/${lang} damit gerenderte <Link>-Tags
+ * den Prefix enthalten (z.B. <a href="/en/about">) — konsistent mit
+ * dem BrowserRouter basename im Client.
  */
 export async function render(url: string, lang: string): Promise<RenderResult> {
   // Erstelle eine neue i18n-Instanz für diesen Request
@@ -57,10 +59,12 @@ export async function render(url: string, lang: string): Promise<RenderResult> {
   const helmetContext: { helmet?: HelmetServerState } = {}
 
   // Rendere die App zu HTML
+  // basename=/${lang} sorgt dafür, dass alle <Link to="/about">
+  // als <a href="/${lang}/about"> gerendert werden.
   const html = renderToString(
     <I18nextProvider i18n={i18n}>
       <HelmetProvider context={helmetContext}>
-        <StaticRouter location={url}>
+        <StaticRouter location={url} basename={`/${lang}`}>
           <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
             <App />
           </Suspense>

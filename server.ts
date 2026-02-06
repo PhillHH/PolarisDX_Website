@@ -49,46 +49,67 @@ interface RenderModule {
 }
 
 // =============================================================================
-// LANGUAGE DETECTION
+// LANGUAGE URL HELPERS
 // =============================================================================
 
+type SupportedLanguage = typeof SUPPORTED_LANGUAGES[number]
+
 /**
- * Erkennt die Sprache aus der URL oder dem Accept-Language Header
+ * Prüft ob ein Sprachcode unterstützt wird
  */
-function detectLanguage(req: Request): string {
-  // 1. URL-Prefix prüfen (z.B. /en/about, /it/contact)
-  const urlMatch = req.url.match(/^\/([a-z]{2})(\/|$)/)
-  if (urlMatch) {
-    const urlLang = urlMatch[1]
-    if (SUPPORTED_LANGUAGES.includes(urlLang as typeof SUPPORTED_LANGUAGES[number])) {
-      return urlLang
-    }
+function isSupportedLanguage(code: string): code is SupportedLanguage {
+  return SUPPORTED_LANGUAGES.includes(code as SupportedLanguage)
+}
+
+/**
+ * Extrahiert die Sprache aus dem URL-Prefix.
+ *
+ * @returns Das Sprach-Kürzel wenn ein gültiger Prefix vorliegt, sonst null.
+ *
+ * Beispiele:
+ *   /en/about  → 'en'
+ *   /de/       → 'de'
+ *   /about     → null
+ *   /xx/about  → null  (ungültiger Code)
+ */
+function extractLanguageFromUrl(pathname: string): SupportedLanguage | null {
+  const match = pathname.match(/^\/([a-z]{2})(\/|$)/)
+  if (match && isSupportedLanguage(match[1])) {
+    return match[1]
+  }
+  return null
+}
+
+/**
+ * Entfernt den Sprach-Prefix aus der URL, damit React Router
+ * die Route ohne Prefix sieht.
+ *
+ * Beispiele:
+ *   /en/about           → /about
+ *   /de/                 → /
+ *   /de/diagnostics/dental → /diagnostics/dental
+ *   /fr                  → /
+ */
+function stripLanguagePrefix(pathname: string): string {
+  const stripped = pathname.replace(/^\/[a-z]{2}(\/|$)/, '/')
+  return stripped || '/'
+}
+
+/**
+ * Prüft ob eine URL auf eine statische Ressource zeigt,
+ * die NICHT redirected werden soll.
+ *
+ * Erfasst: /assets/*, /locales/*, favicon.*, robots.txt,
+ *          sitemap.xml, *.js, *.css, *.map, Bilder, Fonts
+ */
+function isStaticAsset(pathname: string): boolean {
+  // Bekannte statische Pfad-Prefixe
+  if (pathname.startsWith('/assets/') || pathname.startsWith('/locales/')) {
+    return true
   }
 
-  // 2. Accept-Language Header parsen
-  const acceptLanguage = req.headers['accept-language']
-  if (acceptLanguage) {
-    // Parse "de-DE,de;q=0.9,en;q=0.8" format
-    const languages = acceptLanguage
-      .split(',')
-      .map(lang => {
-        const [code, qValue] = lang.trim().split(';q=')
-        return {
-          code: code.split('-')[0].toLowerCase(),
-          quality: qValue ? parseFloat(qValue) : 1.0
-        }
-      })
-      .sort((a, b) => b.quality - a.quality)
-
-    for (const { code } of languages) {
-      if (SUPPORTED_LANGUAGES.includes(code as typeof SUPPORTED_LANGUAGES[number])) {
-        return code
-      }
-    }
-  }
-
-  // 3. Fallback
-  return DEFAULT_LANGUAGE
+  // Bekannte statische Dateien und Datei-Endungen
+  return /\.(js|css|map|ico|png|jpg|jpeg|gif|svg|webp|avif|woff|woff2|ttf|eot|json|txt|xml|webmanifest)$/.test(pathname)
 }
 
 // =============================================================================
@@ -162,11 +183,81 @@ async function createServer() {
   )
 
   // ---------------------------------------------------------------------------
+  // LANGUAGE REDIRECT MIDDLEWARE
+  // ---------------------------------------------------------------------------
+  // Leitet alle Seiten-URLs ohne gültiges Sprach-Prefix per 301 auf /de/ um.
+  //
+  // Regeln:
+  //   /about             → 301 → /de/about
+  //   /                  → 301 → /de/
+  //   /diagnostics/dental→ 301 → /de/diagnostics/dental
+  //   /xx/about          → 301 → /de/xx/about   (ungültiger Prefix, wird als Pfad behandelt)
+  //
+  // NICHT redirected: /assets/*, /locales/*, /api/*, statische Dateien
+  // ---------------------------------------------------------------------------
+  app.use((req: Request, res: Response, next: NextFunction) => {
+    // Nur GET-Requests redirecten (POST, PUT etc. durchlassen)
+    if (req.method !== 'GET') {
+      return next()
+    }
+
+    const pathname = req.path
+
+    // Statische Assets nie redirecten
+    if (isStaticAsset(pathname)) {
+      return next()
+    }
+
+    // API-Requests nie redirecten (wird vom Proxy behandelt)
+    if (pathname.startsWith('/api/') || pathname === '/api') {
+      return next()
+    }
+
+    // URL hat bereits ein gültiges Sprach-Prefix → kein Redirect nötig
+    if (extractLanguageFromUrl(pathname) !== null) {
+      return next()
+    }
+
+    // Kein gültiges Prefix → 301 Redirect auf /de{path}
+    const query = req.originalUrl.includes('?')
+      ? req.originalUrl.substring(req.originalUrl.indexOf('?'))
+      : ''
+    const redirectPath = `/${DEFAULT_LANGUAGE}${pathname === '/' ? '/' : pathname}${query}`
+    res.redirect(301, redirectPath)
+  })
+
+  // ---------------------------------------------------------------------------
   // SSR HANDLER (Express 5 Wildcard Syntax)
-  // Note: robots.txt and sitemap.xml are served from public/ folder
+  // ---------------------------------------------------------------------------
+  // Alle Requests kommen hier mit gültigem Sprach-Prefix an (z.B. /en/about).
+  // Der Prefix wird gestripped und die saubere URL an React Router übergeben.
   // ---------------------------------------------------------------------------
   app.get('/{*path}', async (req: Request, res: Response, next: NextFunction) => {
-    const url = req.originalUrl
+    const originalUrl = req.originalUrl
+    const pathname = req.path
+
+    // Sprache aus URL-Prefix extrahieren
+    const lang = extractLanguageFromUrl(pathname)
+
+    // Sicherheitsnetz: Ohne gültiges Prefix hätte die Redirect-Middleware
+    // bereits redirected. Hier als Fallback.
+    if (!lang) {
+      const query = originalUrl.includes('?')
+        ? originalUrl.substring(originalUrl.indexOf('?'))
+        : ''
+      res.redirect(301, `/${DEFAULT_LANGUAGE}${pathname}${query}`)
+      return
+    }
+
+    // URL für React Router: Sprach-Prefix entfernen
+    // /en/about         → /about
+    // /de/              → /
+    // /fr/articles?q=x  → /articles?q=x
+    const strippedPath = stripLanguagePrefix(pathname)
+    const query = originalUrl.includes('?')
+      ? originalUrl.substring(originalUrl.indexOf('?'))
+      : ''
+    const routerUrl = strippedPath + query
 
     try {
       // Template laden
@@ -177,14 +268,11 @@ async function createServer() {
         // -----------------------------------------------------------------------
         // DEVELOPMENT
         // -----------------------------------------------------------------------
-        // Template aus Filesystem lesen und durch Vite transformieren
         template = fs.readFileSync(path.resolve(__dirname, 'index.html'), 'utf-8')
-        template = await vite.transformIndexHtml(url, template)
+        template = await vite.transformIndexHtml(originalUrl, template)
 
-        // Entry-Server-Modul laden (mit HMR-Support)
         const ssrModule = await vite.ssrLoadModule('/src/entry-server.tsx') as RenderModule
 
-        // Optional: Translations vorladen
         if (ssrModule.preloadAllTranslations) {
           ssrModule.preloadAllTranslations()
         }
@@ -194,24 +282,19 @@ async function createServer() {
         // -----------------------------------------------------------------------
         // PRODUCTION
         // -----------------------------------------------------------------------
-        // Template aus dist/client
         template = fs.readFileSync(
           path.resolve(__dirname, 'dist/client/index.html'),
           'utf-8'
         )
 
-        // Server-Bundle importieren (dynamischer Pfad um TypeScript-Prüfung zu umgehen)
         const serverEntryPath = path.resolve(__dirname, 'dist/server/entry-server.js')
         const ssrModule = await import(/* @vite-ignore */ serverEntryPath) as RenderModule
 
         render = ssrModule.render
       }
 
-      // Sprache erkennen
-      const lang = detectLanguage(req)
-
-      // App rendern
-      const { html: appHtml, helmet } = await render(url, lang)
+      // App rendern mit gestrippter URL und erkannter Sprache
+      const { html: appHtml, helmet } = await render(routerUrl, lang)
 
       // Helmet Tags zusammenbauen
       const helmetTags = [
@@ -225,16 +308,12 @@ async function createServer() {
       const finalHtml = template
         .replace('<!--ssr-outlet-->', appHtml)
         .replace('<!--helmet-head-->', helmetTags)
-        // HTML lang-Attribut setzen
         .replace('<html lang="de">', `<html lang="${lang}">`)
 
-      // Response senden
       res.status(200).set({ 'Content-Type': 'text/html' }).end(finalHtml)
 
     } catch (error) {
-      // Error Handling
       if (!isProduction && vite) {
-        // In Development: Stack Trace für besseres Debugging
         vite.ssrFixStacktrace(error as Error)
       }
 
