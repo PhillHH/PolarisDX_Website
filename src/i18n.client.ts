@@ -2,11 +2,10 @@
  * i18n Client Configuration
  *
  * Diese Datei initialisiert i18next für den Browser (Client-Side).
- * Sie verwendet den LanguageDetector für automatische Spracherkennung
- * und das HTTP Backend zum Laden der Übersetzungen.
+ * Die Sprache wird aus dem URL-Prefix extrahiert (Source of Truth).
  *
  * VERWENDUNG:
- * In entry-client.tsx oder main.tsx:
+ * In entry-client.tsx:
  *   import './i18n.client'
  *
  * Dieser Import hat einen Side-Effect: Er initialisiert i18next.
@@ -14,35 +13,39 @@
 
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpBackend from 'i18next-http-backend';
 
-import { i18nConfig } from './i18n';
+import { i18nConfig, extractLanguageFromPathname } from './i18n';
+
+// =============================================================================
+// LANGUAGE FROM URL (Source of Truth)
+// =============================================================================
+
+/**
+ * Die Sprache wird ausschließlich aus dem URL-Prefix bestimmt.
+ * /en/about → 'en', /de/ → 'de', /fr/contact → 'fr'
+ *
+ * Kein localStorage, kein Cookie, kein Accept-Language.
+ * Die URL ist die einzige Wahrheit — konsistent mit dem SSR-Server.
+ */
+const urlLanguage = extractLanguageFromPathname(window.location.pathname);
 
 // =============================================================================
 // CLIENT-SPECIFIC CONFIGURATION
 // =============================================================================
 
-/**
- * Initialisiere i18next für den Client
- *
- * Features:
- * - Automatische Spracherkennung via querystring, cookie, localStorage, navigator
- * - HTTP Backend lädt Übersetzungen von /locales/{lng}/{ns}.json
- * - Caching in localStorage und Cookie
- * - Debug-Modus in Development
- */
 i18n
   // HTTP Backend zum Laden der Übersetzungen
   .use(HttpBackend)
-  // Automatische Spracherkennung
-  .use(LanguageDetector)
-  // React-Integration
+  // React-Integration (kein LanguageDetector mehr — URL ist Source of Truth)
   .use(initReactI18next)
   // Initialisierung
   .init({
     // Shared configuration
     ...i18nConfig,
+
+    // Sprache direkt aus URL setzen (kein LanguageDetector!)
+    lng: urlLanguage,
 
     // Client-spezifische Einstellungen
     debug: import.meta.env.DEV,
@@ -50,29 +53,12 @@ i18n
     // HTTP Backend Konfiguration
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',
-      // Retry bei Fehlern
       requestOptions: {
         cache: 'default',
       },
     },
 
-    // Spracherkennung Konfiguration
-    detection: {
-      // Reihenfolge der Erkennung
-      order: ['querystring', 'cookie', 'localStorage', 'navigator', 'htmlTag'],
-      // Wo die Sprache gespeichert wird
-      caches: ['localStorage', 'cookie'],
-      // Querystring Parameter
-      lookupQuerystring: 'lng',
-      // Cookie Name
-      lookupCookie: 'i18next',
-      // localStorage Key
-      lookupLocalStorage: 'i18nextLng',
-      // HTML lang Attribut
-      htmlTag: document.documentElement,
-    },
-
-    // Suspense für React 18+ Concurrent Mode
+    // Suspense für React 19 Concurrent Mode
     react: {
       useSuspense: true,
     },
