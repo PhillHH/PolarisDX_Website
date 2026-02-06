@@ -98,6 +98,107 @@ function isStaticAsset(pathname: string): boolean {
 }
 
 // =============================================================================
+// SITEMAP CONFIGURATION
+// =============================================================================
+
+/**
+ * All routes with SEO metadata for dynamic sitemap generation.
+ * 27 routes × 10 languages = 270 URLs with full hreflang support.
+ */
+interface SitemapRoute {
+  path: string
+  priority: number
+  changefreq: 'daily' | 'weekly' | 'monthly' | 'yearly'
+}
+
+const BASE_URL = 'https://polarisdx.net'
+
+const SITEMAP_ROUTES: SitemapRoute[] = [
+  // Core Pages
+  { path: '/', priority: 1.0, changefreq: 'weekly' },
+  { path: '/igloo-pro', priority: 1.0, changefreq: 'monthly' },
+
+  // Services Overview
+  { path: '/diagnostics', priority: 0.9, changefreq: 'monthly' },
+
+  // Service Pages (9 services from services.tsx)
+  { path: '/diagnostics/dental', priority: 0.8, changefreq: 'monthly' },
+  { path: '/diagnostics/beauty', priority: 0.8, changefreq: 'monthly' },
+  { path: '/diagnostics/longevity', priority: 0.8, changefreq: 'monthly' },
+  { path: '/diagnostics/poc-systemloesungen', priority: 0.8, changefreq: 'monthly' },
+  { path: '/diagnostics/praeventions-checks', priority: 0.8, changefreq: 'monthly' },
+  { path: '/diagnostics/infektion-entzuendung', priority: 0.8, changefreq: 'monthly' },
+  { path: '/diagnostics/stoffwechsel-herz', priority: 0.8, changefreq: 'monthly' },
+  { path: '/diagnostics/hormon-tests', priority: 0.8, changefreq: 'monthly' },
+  { path: '/diagnostics/kompatibilitaet-integration', priority: 0.8, changefreq: 'monthly' },
+
+  // Company & Contact
+  { path: '/about', priority: 0.8, changefreq: 'monthly' },
+  { path: '/contact', priority: 0.8, changefreq: 'monthly' },
+
+  // Content Hub
+  { path: '/articles', priority: 0.7, changefreq: 'weekly' },
+  { path: '/vitamin-d3-implantologie', priority: 0.7, changefreq: 'monthly' },
+
+  // Article Pages (6 articles from articles.ts slugs)
+  { path: '/articles/die-gruene-praxis', priority: 0.6, changefreq: 'yearly' },
+  { path: '/articles/der-unsichtbare-patient', priority: 0.6, changefreq: 'yearly' },
+  { path: '/articles/die-5-minuten-diagnose', priority: 0.6, changefreq: 'yearly' },
+  { path: '/articles/the-ecosystem-of-rapid-tests-why-compatibility-creates-safety', priority: 0.6, changefreq: 'yearly' },
+  { path: '/articles/die-performance-formel-effizienz-in-der-poc-diagnostik', priority: 0.6, changefreq: 'yearly' },
+  { path: '/articles/precision-in-point-of-care-the-key-to-patient-safety', priority: 0.6, changefreq: 'yearly' },
+
+  // Events & Resources
+  { path: '/events', priority: 0.6, changefreq: 'weekly' },
+  { path: '/downloads', priority: 0.6, changefreq: 'monthly' },
+
+  // Legal Pages
+  { path: '/privacy', priority: 0.4, changefreq: 'yearly' },
+  { path: '/imprint', priority: 0.4, changefreq: 'yearly' },
+  { path: '/terms', priority: 0.4, changefreq: 'yearly' },
+]
+
+/**
+ * Generates a complete XML sitemap with all routes in all languages.
+ * Each URL includes hreflang alternates for all 10 supported languages
+ * plus x-default pointing to German (primary market).
+ */
+function generateSitemap(): string {
+  const today = new Date().toISOString().split('T')[0] // YYYY-MM-DD
+
+  let xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+  xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
+  xml += '        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+
+  for (const route of SITEMAP_ROUTES) {
+    for (const lang of SUPPORTED_LANGUAGES) {
+      const loc = `${BASE_URL}/${lang}${route.path}`
+
+      xml += '  <url>\n'
+      xml += `    <loc>${loc}</loc>\n`
+      xml += `    <lastmod>${today}</lastmod>\n`
+      xml += `    <changefreq>${route.changefreq}</changefreq>\n`
+      xml += `    <priority>${route.priority.toFixed(1)}</priority>\n`
+
+      // hreflang alternates for all languages
+      for (const altLang of SUPPORTED_LANGUAGES) {
+        const altHref = `${BASE_URL}/${altLang}${route.path}`
+        xml += `    <xhtml:link rel="alternate" hreflang="${altLang}" href="${altHref}"/>\n`
+      }
+
+      // x-default points to German (primary market)
+      const defaultHref = `${BASE_URL}/${DEFAULT_LANGUAGE}${route.path}`
+      xml += `    <xhtml:link rel="alternate" hreflang="x-default" href="${defaultHref}"/>\n`
+
+      xml += '  </url>\n'
+    }
+  }
+
+  xml += '</urlset>\n'
+  return xml
+}
+
+// =============================================================================
 // SERVER SETUP
 // =============================================================================
 
@@ -152,6 +253,22 @@ async function createServer() {
     res.setHeader('X-XSS-Protection', '1; mode=block')
     res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin')
     next()
+  })
+
+  // ---------------------------------------------------------------------------
+  // DYNAMIC SITEMAP ENDPOINT
+  // ---------------------------------------------------------------------------
+  // Serves before static assets and language redirects.
+  // 27 routes × 10 languages = 270 URLs with full hreflang support.
+  // ---------------------------------------------------------------------------
+  app.get('/sitemap.xml', (_req: Request, res: Response) => {
+    const xml = generateSitemap()
+    res
+      .set({
+        'Content-Type': 'application/xml; charset=utf-8',
+        'Cache-Control': 'public, max-age=3600, s-maxage=3600',
+      })
+      .send(xml)
   })
 
   // ---------------------------------------------------------------------------
