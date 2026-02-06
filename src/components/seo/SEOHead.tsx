@@ -98,7 +98,6 @@ export function SEOHead({
   article,
   product,
   keywords,
-  preloadImages,
 }: SEOHeadProps) {
   const { i18n } = useTranslation();
   const location = useLocation();
@@ -228,16 +227,10 @@ export function SEOHead({
         </script>
       )}
 
-      {/* Preload critical images for LCP optimization */}
-      {preloadImages?.map((imageUrl) => (
-        <link
-          key={imageUrl}
-          rel="preload"
-          as="image"
-          href={imageUrl}
-          fetchPriority="high"
-        />
-      ))}
+      {/* Note: preloadImages are NOT rendered inside <Helmet> because
+          React 19 Float already auto-generates <link rel="preload"> for
+          images encountered during renderToString(). The server strips
+          these from inline output and moves them to <head>. */}
     </Helmet>
   );
 }
