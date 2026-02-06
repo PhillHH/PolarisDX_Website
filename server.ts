@@ -280,17 +280,27 @@ async function createServer() {
       // App rendern mit voller URL (inkl. Sprach-Prefix) und erkannter Sprache
       const { html: appHtml, helmet } = await render(routerUrl, lang)
 
+      // React 19 "Float": renderToString() emits <link rel="preload"> hints
+      // at the beginning of the output for images encountered during render.
+      // These cause hydration mismatches because hydrateRoot() doesn't expect
+      // them inline. Strip them and move to <head> where they belong.
+      const floatLinkPattern = /^(<link\s[^>]*\/>)+/
+      const floatMatch = appHtml.match(floatLinkPattern)
+      const floatLinks = floatMatch ? floatMatch[0] : ''
+      const cleanAppHtml = floatLinks ? appHtml.substring(floatLinks.length) : appHtml
+
       // Helmet Tags zusammenbauen
       const helmetTags = [
         helmet.title.toString(),
         helmet.meta.toString(),
         helmet.link.toString(),
         helmet.script.toString(),
+        floatLinks,
       ].filter(Boolean).join('\n    ')
 
       // Template mit gerendertem HTML und Helmet-Tags füllen
       const finalHtml = template
-        .replace('<!--ssr-outlet-->', appHtml)
+        .replace('<!--ssr-outlet-->', cleanAppHtml)
         .replace('<!--helmet-head-->', helmetTags)
         .replace('<html lang="de">', `<html lang="${lang}">`)
 
