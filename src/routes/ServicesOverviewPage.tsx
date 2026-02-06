@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, createBreadcrumbSchema } from '../components/seo'
+import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import ServicesSection from '../components/sections/ServicesSection'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
@@ -29,12 +29,14 @@ const ServicesOverviewPage = () => {
           <div className="relative mx-auto flex min-h-[250px] max-w-page flex-col justify-end px-4 pb-10 pt-24 lg:px-10 lg:pb-12 lg:pt-28">
             <Reveal width="100%" yOffset={20}>
               <div className="max-w-container">
-                <div className="mb-4 text-sm text-white/70">
-                  <Link to="/" className="hover:text-brand-secondary">
-                    {t('common:nav.home', 'Home')}
-                  </Link>{' '}
-                  / <span>{t('common:nav.service', 'Services')}</span>
-                </div>
+                <Breadcrumbs
+                  variant="dark"
+                  className="mb-4"
+                  items={[
+                    { label: t('common:nav.home', 'Home'), href: '/' },
+                    { label: t('common:nav.service', 'Services') },
+                  ]}
+                />
                 <h1 className="mb-4 text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
                   {t('common:nav.service', 'Services')}
                 </h1>

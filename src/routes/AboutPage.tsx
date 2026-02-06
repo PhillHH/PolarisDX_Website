@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { SEOHead, organizationSchema, createBreadcrumbSchema } from '../components/seo'
+import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import TeamSection from '../components/sections/TeamSection'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
@@ -26,6 +27,15 @@ const AboutPage = () => {
         <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
         <div className="mx-auto max-w-container px-4 text-center lg:px-0 relative z-10">
             <Reveal width="100%" yOffset={20}>
+              <div className="flex justify-center mb-4">
+                <Breadcrumbs
+                  variant="dark"
+                  items={[
+                    { label: 'Home', href: '/' },
+                    { label: t('about:hero.caption', 'Über uns') },
+                  ]}
+                />
+              </div>
               <div className="flex justify-center">
                 <div className="inline-block rounded p-px bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-deep shadow-lg shadow-brand-primary/20 mb-2">
                     <div className="rounded-sm bg-slate-50 px-3 py-1">

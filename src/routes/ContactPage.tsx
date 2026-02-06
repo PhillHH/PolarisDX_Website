@@ -1,6 +1,7 @@
 import SectionHeader from '../components/ui/SectionHeader'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, localBusinessSchema, createBreadcrumbSchema } from '../components/seo'
+import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import { ContactForm } from '../components/sections/ContactForm'
@@ -32,13 +33,20 @@ const ContactPage = () => {
           <div className="relative mx-auto flex min-h-[340px] max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
             <Reveal width="100%" yOffset={20}>
               <div className="max-w-container">
+                <Breadcrumbs
+                  variant="dark"
+                  className="mb-4"
+                  items={[
+                    { label: 'Home', href: '/' },
+                    { label: t('contact.hero.title') },
+                  ]}
+                />
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
                   {t('contact.hero.kicker')}
                 </p>
                 <h1 className="mb-3 text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
                   {t('contact.hero.title')}
                 </h1>
-                <p className="text-sm text-white/80 sm:text-base">{t('contact.hero.breadcrumb')}</p>
               </div>
             </Reveal>
           </div>
