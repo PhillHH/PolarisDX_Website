@@ -115,7 +115,6 @@ const DownloadsPage = () => {
       <SEOHead
         title={t('downloads:seo.title', 'Downloads - Preislisten & Produktinformationen')}
         description={t('downloads:seo.description', 'Laden Sie Preislisten, technische Datenblätter und Produktinformationen zu IglooPro POC-Reader und POCT-Testkassetten herunter.')}
-        canonical="https://polarisdx.net/downloads"
         keywords={['PolarisDX Downloads', 'Preisliste', 'Produktdatenblatt', 'POC Diagnostik PDF']}
         structuredData={[
           createBreadcrumbSchema([

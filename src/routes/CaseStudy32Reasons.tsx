@@ -29,7 +29,6 @@ const CaseStudy32Reasons = () => {
       <SEOHead
         title={t('reasons32.seo.title', '32reasons Zahnteam - Fallstudie POC-Diagnostik in der Zahnarztpraxis')}
         description={t('reasons32.seo.description', 'Erfahren Sie, wie Dr. Kristian Grimm vom 32reasons Zahnteam POC-Diagnostik mit dem IglooPro Reader in seiner Praxis einsetzt.')}
-        canonical="https://polarisdx.net/case-studies/32reasons"
         ogType="article"
         keywords={['POC Zahnarzt', 'Point-of-Care Zahnmedizin', '32reasons', 'Fallstudie Diagnostik']}
         article={{
