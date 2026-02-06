@@ -24,7 +24,7 @@ export interface SEOHeadProps {
   title: string;
   /** Meta description (150-160 characters recommended) */
   description: string;
-  /** Canonical URL (defaults to current URL) */
+  /** Canonical URL override (auto-generated with lang prefix by default) */
   canonical?: string;
   /** Open Graph image URL (defaults to /og-image.jpg) */
   ogImage?: string;
@@ -34,11 +34,6 @@ export interface SEOHeadProps {
   noindex?: boolean;
   /** Additional JSON-LD structured data */
   structuredData?: object | object[];
-  /** Alternate language versions for hreflang tags */
-  alternateLanguages?: Array<{
-    lang: string;
-    url: string;
-  }>;
   /** Article-specific metadata */
   article?: {
     publishedTime?: string;
@@ -82,6 +77,10 @@ const LOCALE_MAP: Record<string, string> = {
   cs: 'cs_CZ',
 };
 
+// All supported language codes for hreflang generation
+const SUPPORTED_LANGUAGES = Object.keys(LOCALE_MAP);
+const DEFAULT_LANGUAGE = 'de';
+
 // =============================================================================
 // COMPONENT
 // =============================================================================
@@ -94,7 +93,6 @@ export function SEOHead({
   ogType = 'website',
   noindex = false,
   structuredData,
-  alternateLanguages,
   article,
   product,
   keywords,
@@ -106,7 +104,14 @@ export function SEOHead({
   const fullTitle = `${title} | ${SITE_NAME}`;
   const currentLang = i18n.language?.split('-')[0] || 'de';
   const locale = LOCALE_MAP[currentLang] || DEFAULT_LOCALE;
-  const canonicalUrl = canonical || `${BASE_URL}${location.pathname}`;
+
+  // location.pathname returns path WITHOUT lang prefix (BrowserRouter basename strips it)
+  // Build canonical with lang prefix: https://polarisdx.net/de/about
+  const path = location.pathname;
+  const canonicalUrl = canonical
+    ? canonical
+    : `${BASE_URL}/${currentLang}${path === '/' ? '/' : path}`;
+
   const ogImageUrl = ogImage?.startsWith('http')
     ? ogImage
     : `${BASE_URL}${ogImage || DEFAULT_OG_IMAGE}`;
@@ -206,15 +211,22 @@ export function SEOHead({
         </>
       )}
 
-      {/* Hreflang tags for alternate language versions */}
-      {alternateLanguages?.map(({ lang, url }) => (
-        <link key={lang} rel="alternate" hrefLang={lang} href={url} />
+      {/* Hreflang tags for all supported languages (auto-generated) */}
+      {SUPPORTED_LANGUAGES.map((lang) => (
+        <link
+          key={lang}
+          rel="alternate"
+          hrefLang={lang}
+          href={`${BASE_URL}/${lang}${path === '/' ? '/' : path}`}
+        />
       ))}
 
-      {/* x-default hreflang (points to German as default) */}
-      {alternateLanguages && alternateLanguages.length > 0 && (
-        <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
-      )}
+      {/* x-default hreflang (points to German as primary market) */}
+      <link
+        rel="alternate"
+        hrefLang="x-default"
+        href={`${BASE_URL}/${DEFAULT_LANGUAGE}${path === '/' ? '/' : path}`}
+      />
 
       {/* JSON-LD Structured Data */}
       {structuredData && (

@@ -62,7 +62,6 @@ const HomePage = () => {
       <SEOHead
         title={t('seo.title', 'IglooPro POC-Reader | Point-of-Care Diagnostik')}
         description={t('seo.description', 'Laborergebnisse in 3 Minuten — direkt in Ihrer Praxis. Der IglooPro POC-Reader für Dental, Longevity & Beauty. Jetzt beraten lassen.')}
-        canonical="https://polarisdx.net/"
         keywords={['POC Diagnostik', 'Point-of-Care', 'IglooPro', 'Schnelltest Praxis', 'Vitamin D Test', 'CRP Schnelltest']}
         structuredData={structuredData}
         preloadImages={[heroDoctor]}

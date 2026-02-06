@@ -18,7 +18,6 @@ const TermsPage = () => {
       <SEOHead
         title={t('agb.seo.title', 'Allgemeine Geschäftsbedingungen (AGB)')}
         description={t('agb.seo.description', 'Allgemeine Geschäftsbedingungen der Polaris Diagnostics Europe UG für den Verkauf von POC-Diagnostik Produkten.')}
-        canonical="https://polarisdx.net/terms"
         noindex={true}
       />
       <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-brand-primary text-white">

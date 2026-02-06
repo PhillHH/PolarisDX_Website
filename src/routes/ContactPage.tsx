@@ -14,7 +14,6 @@ const ContactPage = () => {
       <SEOHead
         title={t('contact:seo.title', 'Kontakt & Demo anfragen - PolarisDX')}
         description={t('contact:seo.description', 'Kontaktieren Sie PolarisDX für eine IglooPro Demo oder Beratung. E-Mail: contact@polarisdx.net, Tel: +49 151 75011699. Schnelle Antwort garantiert.')}
-        canonical="https://polarisdx.net/contact"
         keywords={['PolarisDX Kontakt', 'IglooPro Demo', 'POC Beratung', 'Medizintechnik Anfrage']}
         structuredData={[
           localBusinessSchema,

@@ -92,7 +92,6 @@ const ServicePage = () => {
       <SEOHead
         title={`${title} - POC Diagnostik`}
         description={seoDescription}
-        canonical={`https://polarisdx.net/diagnostics/${slug}`}
         keywords={[title, 'POC Diagnostik', 'Schnelltest', 'Point-of-Care', service.title]}
         structuredData={[
           createServiceSchema({

@@ -36,7 +36,6 @@ const EventsPage: React.FC = () => {
       <SEOHead
         title={t('events:seo_title', 'Events & Messen - PolarisDX POC Diagnostik')}
         description={t('events:seo_description', 'Treffen Sie PolarisDX auf Messen und Events. Erleben Sie den IglooPro POC-Reader live und erfahren Sie mehr über Point-of-Care Diagnostik.')}
-        canonical="https://polarisdx.net/events"
         keywords={['PolarisDX Events', 'Medica', 'POC Diagnostik Messe', 'IglooPro live']}
         structuredData={structuredData}
       />

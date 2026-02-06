@@ -17,7 +17,6 @@ const ArticlesIndexPage = () => {
       <SEOHead
         title={t('articles:seo.index_title', 'Fachartikel zu POC-Diagnostik & Medizintechnik')}
         description={t('articles:seo.index_description', 'Expertenwissen zu Point-of-Care Diagnostik, Schnelltests und moderner Labormedizin. Praxisnahe Artikel für Ärzte und medizinisches Fachpersonal.')}
-        canonical="https://polarisdx.net/articles"
         keywords={['POC Fachartikel', 'Diagnostik Wissen', 'Schnelltest Artikel', 'Medizintechnik Blog', 'POCT Fachbeiträge']}
         structuredData={createBreadcrumbSchema([
           { name: 'Home', url: '/' },

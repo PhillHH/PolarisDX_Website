@@ -11,7 +11,6 @@ const PrivacyPage = () => {
       <SEOHead
         title={t('privacy.seo.title', 'Datenschutzerklärung')}
         description={t('privacy.seo.description', 'Datenschutzerklärung der Polaris Diagnostics Europe UG - Informationen zur Datenverarbeitung.')}
-        canonical="https://polarisdx.net/privacy"
         noindex={true}
       />
       <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-slate-50">

@@ -207,7 +207,6 @@ const ArticlePage = () => {
       <SEOHead
         title={title}
         description={excerpt}
-        canonical={`https://polarisdx.net/articles/${slug}`}
         ogType="article"
         ogImage={ogImageUrl}
         article={{
