@@ -11,8 +11,8 @@ const ServicesOverviewPage = () => {
   return (
     <PageTransition>
       <SEOHead
-        title={t('services:seo.overview_title', 'POCT Services für Praxen - Dental, Beauty, Longevity')}
-        description={t('services:seo.overview_description', 'Point-of-Care Diagnostik für Zahnarztpraxen, Beauty-Center und Longevity-Kliniken. Vitamin D, CRP, HbA1c Schnelltests für bessere Patientenversorgung.')}
+        title={t('services:seo.overview_title', 'POC-Diagnostik für Praxen: Dental, Beauty, Longevity | PolarisDX')}
+        description={t('services:seo.overview_description', 'Chairside Schnelltests für Vitamin D, CRP, HbA1c & TSH. Patientennahe Sofortdiagnostik für Zahnarztpraxen, Ästhetik & Präventionsmedizin.')}
         keywords={['POCT Services', 'POC Diagnostik Praxis', 'Schnelltest Zahnarzt', 'Beauty Diagnostik', 'Longevity Tests']}
         structuredData={createBreadcrumbSchema([
           { name: 'Home', url: '/' },

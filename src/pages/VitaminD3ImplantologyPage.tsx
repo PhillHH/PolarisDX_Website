@@ -53,8 +53,8 @@ const VitaminD3ImplantologyPage = () => {
   return (
     <PageTransition>
       <SEOHead
-        title="Vitamin-D-Mangel vor Implantation? So schließen Sie die Lücke im Behandlungspfad | PolarisDX"
-        description="30 % Ihrer Implantations-Patienten haben einen Vitamin-D-Mangel mit messbaren Folgen für die Osseointegration. Erfahren Sie, wie Sie mit präoperativer D3-Supplementierung den Implantaterfolg verbessern."
+        title="Vitamin-D-Mangel vor Implantation erkennen | PolarisDX"
+        description="30% der Implantat-Patienten haben Vitamin-D-Mangel. Chairside D3-Test vor Implantation verbessert Osseointegration. Evidenz & Praxisleitfaden."
         ogType="article"
         keywords={[
           'Vitamin D Implantologie',

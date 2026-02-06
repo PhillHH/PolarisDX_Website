@@ -57,6 +57,26 @@ type ServiceConclusion = {
     text?: string
 }
 
+// Slug-based SEO overrides for optimized titles & descriptions
+const serviceSeoOverrides: Record<string, { title: string; description: string }> = {
+  dental: {
+    title: 'POC-Diagnostik für Zahnarztpraxen: Vitamin D & CRP | PolarisDX',
+    description: 'Chairside Bluttest für Implantologie & Parodontitis. Vitamin D, CRP und HbA1c in 3 Min bestimmen. Risiken senken, Behandlungserfolg steigern.',
+  },
+  beauty: {
+    title: 'Beauty-Diagnostik: Biomarker für Ästhetische Medizin | PolarisDX',
+    description: 'Hormondiagnostik & Mikronährstoff-Analyse direkt in der Praxis. Schilddrüse, Vitamin D, Ferritin — als IGeL-Leistung abrechenbar. Jetzt testen.',
+  },
+  longevity: {
+    title: 'Longevity-Diagnostik: Präventive Biomarker-Analyse | PolarisDX',
+    description: 'Entzündungsmarker, Hormonstatus & Gesundheitscheck in 3 Min. POC-Diagnostik für Longevity-Kliniken und Präventionsmedizin. Demo anfragen.',
+  },
+  'poc-systemloesungen': {
+    title: 'POCT-Systemlösungen für Praxen & Kliniken | PolarisDX',
+    description: 'Komplette POC-Diagnostik Infrastruktur: IglooPro Reader, Testkassetten, LIS/HIS-Integration & Schulung. Praxislabor schlüsselfertig einrichten.',
+  },
+}
+
 const ServicePage = () => {
   const { t } = useTranslation(['services', 'common', 'home', 'articles'])
   const { slug } = useParams<{ slug: string }>()
@@ -82,15 +102,19 @@ const ServicePage = () => {
   const otherServices = services.filter(s => s.id !== service.id)
   const relatedArticles = articles.slice(0, 3)
 
-  // Get SEO description from intro
-  const seoDescription = Array.isArray(intro) && intro.length > 0
-    ? intro[0].substring(0, 155) + '...'
-    : `${title} - Point-of-Care Diagnostik von PolarisDX für Ihre Praxis.`
+  // Use slug-based SEO overrides when available, otherwise fall back to dynamic generation
+  const seoOverride = slug ? serviceSeoOverrides[slug] : undefined
+  const seoTitle = seoOverride?.title ?? `${title} | PolarisDX`
+  const seoDescription = seoOverride?.description ?? (
+    Array.isArray(intro) && intro.length > 0
+      ? intro[0].substring(0, 155) + '...'
+      : `${title} - Point-of-Care Diagnostik von PolarisDX für Ihre Praxis.`
+  )
 
   return (
     <PageTransition>
       <SEOHead
-        title={`${title} - POC Diagnostik`}
+        title={seoTitle}
         description={seoDescription}
         keywords={[title, 'POC Diagnostik', 'Schnelltest', 'Point-of-Care', service.title]}
         structuredData={[
