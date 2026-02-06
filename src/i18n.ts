@@ -142,3 +142,19 @@ export function normalizeLanguage(lang: string): SupportedLanguage {
 export function getLocaleFilePath(lng: string, ns: string): string {
   return `/locales/${lng}/${ns}.json`;
 }
+
+/**
+ * Extrahiert die Sprache aus einem URL-Pathname.
+ *
+ * Wird von Client (entry-client, i18n.client) und Server genutzt.
+ * Erwartet Pfade mit Sprach-Prefix: /en/about, /de/, /fr/contact
+ *
+ * @returns Die erkannte Sprache oder DEFAULT_LANGUAGE als Fallback.
+ */
+export function extractLanguageFromPathname(pathname: string): SupportedLanguage {
+  const match = pathname.match(/^\/([a-z]{2})(\/|$)/);
+  if (match && isValidLanguage(match[1])) {
+    return match[1];
+  }
+  return DEFAULT_LANGUAGE;
+}
