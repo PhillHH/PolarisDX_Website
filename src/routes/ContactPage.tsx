@@ -12,8 +12,8 @@ const ContactPage = () => {
   return (
     <PageTransition>
       <SEOHead
-        title={t('contact:seo.title', 'Kontakt & Demo anfragen - PolarisDX')}
-        description={t('contact:seo.description', 'Kontaktieren Sie PolarisDX für eine IglooPro Demo oder Beratung. E-Mail: contact@polarisdx.net, Tel: +49 151 75011699. Schnelle Antwort garantiert.')}
+        title={t('contact:seo.title', 'IglooPro Demo anfragen: Kostenlose Beratung | PolarisDX')}
+        description={t('contact:seo.description', 'Vereinbaren Sie eine kostenlose IglooPro Demo. POC-Diagnostik live erleben — Beratung zu Integration, Abrechnung & Praxislabor. Schnelle Antwort.')}
         keywords={['PolarisDX Kontakt', 'IglooPro Demo', 'POC Beratung', 'Medizintechnik Anfrage']}
         structuredData={[
           localBusinessSchema,

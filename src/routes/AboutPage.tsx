@@ -11,8 +11,8 @@ const AboutPage = () => {
   return (
     <PageTransition>
       <SEOHead
-        title={t('about:seo.title', 'Über PolarisDX - Unser Team & Mission')}
-        description={t('about:seo.description', 'PolarisDX steht für Innovation in der Point-of-Care Diagnostik. Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission.')}
+        title={t('about:seo.title', 'Über uns: POC-Diagnostik Partner für Europa | PolarisDX')}
+        description={t('about:seo.description', 'PolarisDX bringt patientennahe Labordiagnostik in Praxen und Kliniken. IVDR-konform, 100+ Geräte in 15+ Ländern. Lernen Sie unser Team kennen.')}
         keywords={['PolarisDX Team', 'Über uns', 'POC Diagnostik Unternehmen', 'Medizintechnik Hamburg']}
         structuredData={[
           organizationSchema,
