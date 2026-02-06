@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import type { ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 import { MessageCircle, X, Send, Minus } from 'lucide-react'
 import { Trans, useTranslation } from 'react-i18next'
 
@@ -38,9 +39,9 @@ const ChatWidget = () => {
           i18nKey="chat.welcome_prototype"
           t={t}
           components={[
-            <a href="/contact" className="underline underline-offset-2 font-medium" key="0">
+            <Link to="/contact" className="underline underline-offset-2 font-medium" key="0">
               Link
-            </a>,
+            </Link>,
             <a href="tel:+4915175011699" className="underline underline-offset-2 font-medium" key="1">
               Phone
             </a>,

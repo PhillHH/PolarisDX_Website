@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { useState, useRef, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import FlagIcon from './FlagIcon'
 
 const languages = [
@@ -22,6 +23,7 @@ interface LanguageSwitcherProps {
 
 const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcherProps) => {
   const { i18n } = useTranslation();
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -30,9 +32,28 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
   const currentLanguage =
     languages.find((l) => l.code === normalizedCode) || languages.find((l) => l.code === i18n.language) || languages[0];
 
+  /**
+   * Sprachwechsel = Navigation zu neuer URL.
+   *
+   * /de/about → Klick auf EN → /en/about (full page navigation)
+   *
+   * Full page reload ist gewollt weil:
+   * - BrowserRouter basename ändert sich (erfordert Remount)
+   * - SSR liefert sofort die korrekte Sprache
+   * - Kein Hydration Mismatch
+   */
   const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
     setIsOpen(false);
+
+    // Aktuelle Route (ohne Sprach-Prefix, dank basename)
+    // location.pathname = '/about' (nicht '/de/about')
+    const currentPath = location.pathname;
+    const search = location.search;
+    const hash = location.hash;
+
+    // Neue URL mit neuem Sprach-Prefix
+    const newUrl = `/${lng}${currentPath}${search}${hash}`;
+    window.location.href = newUrl;
   };
 
   useEffect(() => {
