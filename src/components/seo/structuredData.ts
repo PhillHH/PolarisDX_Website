@@ -369,6 +369,7 @@ export interface ReviewSchemaOptions {
 
 export function createReviewSchema(reviews: ReviewSchemaOptions[]) {
   return reviews.map((review) => ({
+    '@context': 'https://schema.org',
     '@type': 'Review',
     author: {
       '@type': 'Person',
