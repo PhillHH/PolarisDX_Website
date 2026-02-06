@@ -39,17 +39,17 @@ export interface RenderResult {
 /**
  * Rendert die App für eine gegebene URL und Sprache
  *
- * @param url - Die gestrippte Request-URL ohne Sprach-Prefix (z.B. '/about')
+ * @param url - Die volle Request-URL MIT Sprach-Prefix (z.B. '/de/about', '/en/')
  * @param lang - Die Sprache aus dem URL-Prefix (z.B. 'de', 'en')
  * @returns Das gerenderte HTML und Helmet-Daten für Head-Tags
  *
- * WICHTIG: Der Express-Server strippt den Sprach-Prefix und übergibt:
- *   /en/about → url='/about', lang='en'
- *   /de/      → url='/',     lang='de'
+ * Der Express-Server übergibt die URL MIT Prefix:
+ *   /en/about → url='/en/about', lang='en'
+ *   /de/      → url='/de/',      lang='de'
  *
- * StaticRouter bekommt basename=/${lang} damit gerenderte <Link>-Tags
- * den Prefix enthalten (z.B. <a href="/en/about">) — konsistent mit
- * dem BrowserRouter basename im Client.
+ * StaticRouter mit basename=/${lang} strippt den Prefix selbst für
+ * Route-Matching und fügt ihn bei <Link>-Tags wieder hinzu.
+ * So bleibt es konsistent mit BrowserRouter basename im Client.
  */
 export async function render(url: string, lang: string): Promise<RenderResult> {
   // Erstelle eine neue i18n-Instanz für diesen Request
