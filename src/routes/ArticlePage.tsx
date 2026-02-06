@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, createArticleSchema, createBreadcrumbSchema } from '../components/seo'
+import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import SectionHeader from '../components/ui/SectionHeader'
 import PrimaryButton from '../components/ui/PrimaryButton'
 import PageTransition from '../components/ui/PageTransition'
@@ -239,12 +240,15 @@ const ArticlePage = () => {
           <div className="relative mx-auto flex min-h-[420px] max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
             <Reveal width="100%" yOffset={20}>
               <div className="max-w-container">
-                <div className="mb-4 text-sm text-white/70">
-                  <Link to="/" className="hover:text-brand-secondary">
-                    {t('shop:shop.home', 'Home')}
-                  </Link>{' '}
-                  / <Link to="/articles" className="hover:text-brand-secondary">{t('shop:shop.articles', 'Articles')}</Link> / <span>{t('shop:shop.article', 'Article')}</span>
-                </div>
+                <Breadcrumbs
+                  variant="dark"
+                  className="mb-4"
+                  items={[
+                    { label: t('shop:shop.home', 'Home'), href: '/' },
+                    { label: t('shop:shop.articles', 'Articles'), href: '/articles' },
+                    { label: title },
+                  ]}
+                />
 
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
                   {t(`common:category.${article.category}`, article.category)}

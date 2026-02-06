@@ -6,8 +6,11 @@ import {
   medicalBusinessSchema,
   iglooProProductSchema,
   createFAQSchema,
+  createReviewSchema,
   type FAQItem,
+  type ReviewSchemaOptions,
 } from '../components/seo'
+import { testimonials } from '../data/testimonials'
 import HeroSection from '../components/sections/HeroSection'
 import AboutSection from '../components/sections/AboutSection'
 import DoctorsSection from '../components/sections/DoctorsSection'
@@ -33,14 +36,26 @@ const HomePage = () => {
     return null
   }, [t])
 
+  // Generate Review schemas from testimonials
+  const reviewSchemas = useMemo(() => {
+    const reviews: ReviewSchemaOptions[] = testimonials.map((testimonial) => ({
+      author: testimonial.name,
+      reviewBody: t(`testimonials.${testimonial.id}.text`),
+      ratingValue: testimonial.rating ?? 5,
+      jobTitle: t(`testimonials.${testimonial.id}.title`),
+    }))
+    return createReviewSchema(reviews)
+  }, [t])
+
   // Combine all structured data schemas
   const structuredData = useMemo(() => {
     const schemas: object[] = [websiteSchema, medicalBusinessSchema, iglooProProductSchema]
     if (faqSchema) {
       schemas.push(faqSchema)
     }
+    schemas.push(...reviewSchemas)
     return schemas
-  }, [faqSchema])
+  }, [faqSchema, reviewSchemas])
 
   return (
     <>
