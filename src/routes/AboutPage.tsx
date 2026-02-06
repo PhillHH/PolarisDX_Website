@@ -13,7 +13,6 @@ const AboutPage = () => {
       <SEOHead
         title={t('about:seo.title', 'Über PolarisDX - Unser Team & Mission')}
         description={t('about:seo.description', 'PolarisDX steht für Innovation in der Point-of-Care Diagnostik. Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission.')}
-        canonical="https://polarisdx.net/about"
         keywords={['PolarisDX Team', 'Über uns', 'POC Diagnostik Unternehmen', 'Medizintechnik Hamburg']}
         structuredData={[
           organizationSchema,

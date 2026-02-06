@@ -13,7 +13,6 @@ const ServicesOverviewPage = () => {
       <SEOHead
         title={t('services:seo.overview_title', 'POCT Services für Praxen - Dental, Beauty, Longevity')}
         description={t('services:seo.overview_description', 'Point-of-Care Diagnostik für Zahnarztpraxen, Beauty-Center und Longevity-Kliniken. Vitamin D, CRP, HbA1c Schnelltests für bessere Patientenversorgung.')}
-        canonical="https://polarisdx.net/diagnostics"
         keywords={['POCT Services', 'POC Diagnostik Praxis', 'Schnelltest Zahnarzt', 'Beauty Diagnostik', 'Longevity Tests']}
         structuredData={createBreadcrumbSchema([
           { name: 'Home', url: '/' },
