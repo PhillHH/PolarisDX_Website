@@ -25,7 +25,16 @@ const navItems: NavItem[] = [
       { label: 'terms', route: '/terms' }
     ]
   },
-  { label: 'service', route: '/diagnostics' },
+  {
+    label: 'service',
+    route: '/diagnostics',
+    children: [
+      { label: 'dental', route: '/diagnostics/dental' },
+      { label: 'beauty', route: '/diagnostics/beauty' },
+      { label: 'longevity', route: '/diagnostics/longevity' },
+      { label: 'pocSystems', route: '/diagnostics/poc-systemloesungen' },
+    ]
+  },
   // { label: 'casestudies', route: '/casestudys/32reasons' }, // temporarily disabled
   // { label: 'shop', route: '/shop' }, // Shop disabled
   { label: 'blog', route: '/articles' },
