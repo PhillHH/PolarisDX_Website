@@ -37,7 +37,33 @@
       "heading": "Fazit: Biologische Zahnheilkunde mit Daten",
       "text": "Verlassen Sie sich nicht auf Vermutungen. Mit dem Igloo Pro machen Sie die biologischen Voraussetzungen Ihrer Patienten messbar und steuerbar. PolarisDX.net unterstützt Sie bei der Implementierung dieser Tests in Ihren täglichen Workflow."
     },
-    "cta": "Termin buchen"
+    "cta": "Termin buchen",
+    "faq": {
+      "caption": "Häufige Fragen",
+      "title": "FAQ zur Dental-Diagnostik mit dem IglooPro",
+      "items": [
+        {
+          "question": "Welche Biomarker sind vor einer Implantation relevant?",
+          "answer": "Vor einer Implantation sollten mindestens der 25-OH-Vitamin-D-Spiegel und der CRP-Wert bestimmt werden. Ein Vitamin-D-Mangel beeinträchtigt die Osseointegration nachweislich, während ein erhöhter CRP-Wert auf systemische Entzündungen hinweist, die das Implantatrisiko erhöhen. Mit dem IglooPro liegen beide Ergebnisse in unter 15 Minuten vor — noch während der Behandlungsplanung."
+        },
+        {
+          "question": "Kann ich als Zahnarzt Bluttests in der Praxis durchführen?",
+          "answer": "Ja. Chairside-Diagnostik mit IVDR-konformen POC-Systemen wie dem IglooPro ist für Zahnarztpraxen zulässig und erfordert keine Laborlizenz. Der Test erfolgt aus Kapillarblut per Fingerstich — vergleichbar mit einem Blutzucker-Schnelltest. Die Ergebnisse erreichen Laborpräzision (CV < 2%) und können direkt in die Behandlungsplanung einfließen."
+        },
+        {
+          "question": "Wie beeinflusst Vitamin-D-Mangel die Osseointegration?",
+          "answer": "Vitamin D reguliert den Kalziumstoffwechsel und die Knochenremodellierung — beides Schlüsselprozesse für die Einheilung von Implantaten. Studien zeigen, dass Patienten mit einem 25-OH-Vitamin-D-Spiegel unter 30 ng/ml ein signifikant erhöhtes Risiko für frühe Implantatverluste und verzögerte Wundheilung aufweisen. Durch präoperatives Screening und gezielte Supplementierung lässt sich dieses Risiko deutlich senken."
+        },
+        {
+          "question": "Ist ein CRP-Schnelltest vor einer Parodontitis-Behandlung sinnvoll?",
+          "answer": "Ja, ein quantitativer CRP-Test liefert wertvolle Zusatzinformationen. Ein erhöhter CRP-Wert bei Parodontitis-Patienten zeigt die systemische Entzündungslast an und kann die Therapieentscheidung beeinflussen — etwa ob eine adjuvante Antibiotikagabe indiziert ist. Zudem lässt sich der Therapieerfolg im Verlauf objektiv dokumentieren."
+        },
+        {
+          "question": "Wie rechne ich chairside Bluttests in der Zahnarztpraxis ab?",
+          "answer": "Chairside-Biomarker-Tests lassen sich als individuelle Gesundheitsleistungen (IGeL) nach GOÄ abrechnen. Die Kombination aus Blutentnahme, quantitativer Analyse und ärztlicher Beratung ergibt einen wirtschaftlich attraktiven Leistungsbaustein, der gleichzeitig die Behandlungssicherheit und Patientenbindung erhöht."
+        }
+      ]
+    }
   },
   "beauty": {
     "title": "Beauty & Ästhetik",
@@ -76,7 +102,33 @@
       "heading": "Fazit: Wissenschaft statt Wellness",
       "text": "Positionieren Sie sich als Experte für Medical Beauty. Durch die datenbasierte Analyse heben Sie sich vom Wettbewerb ab und bieten Ergebnisse, die nicht nur sichtbar, sondern auch messbar sind."
     },
-    "cta": "Termin buchen"
+    "cta": "Termin buchen",
+    "faq": {
+      "caption": "Häufige Fragen",
+      "title": "FAQ zur Beauty-Diagnostik & Biomarker-Analyse",
+      "items": [
+        {
+          "question": "Welche Biomarker sind für ästhetische Behandlungen relevant?",
+          "answer": "Für die ästhetische Medizin sind vor allem Vitamin D (Hautbarriere, Kollagensynthese), Ferritin (Haarausfall, Geweberegeneration), TSH (Schilddrüsenfunktion beeinflusst Haut und Haare) sowie hs-CRP (stille Entzündungen als Treiber vorzeitiger Hautalterung) relevant. Diese Biomarker liefern eine objektive Grundlage, um Behandlungen individuell auszurichten und Ergebnisse nachvollziehbar zu dokumentieren."
+        },
+        {
+          "question": "Warum sollte ich vor ästhetischen Eingriffen ein Blutbild machen?",
+          "answer": "Ein präinterventionelles Screening deckt Risikofaktoren auf, die den Behandlungserfolg beeinflussen können — etwa Gerinnungsstörungen, Nährstoffdefizite oder subklinische Entzündungen. Dies erhöht die Patientensicherheit und ermöglicht eine evidenzbasierte Beratung, die Ihre Praxis als medizinisch fundiert positioniert."
+        },
+        {
+          "question": "Wie hängen Schilddrüsenwerte mit Haarausfall zusammen?",
+          "answer": "Die Schilddrüse reguliert den gesamten Zellstoffwechsel — einschließlich des Haarfollikel-Zyklus. Sowohl eine Unter- als auch eine Überfunktion (erkennbar an abweichenden TSH-Werten) kann diffusen Haarausfall, trockene Haut und brüchige Nägel verursachen. Ein POC-Schnelltest auf TSH liefert in wenigen Minuten Klarheit und ermöglicht die gezielte Überweisung oder Therapieeinleitung."
+        },
+        {
+          "question": "Kann ich Hormondiagnostik als IGeL-Leistung anbieten?",
+          "answer": "Ja. Hormonscreenings (TSH, Cortisol, Testosteron) und Mikronährstoff-Analysen (Vitamin D, Ferritin) sind klassische individuelle Gesundheitsleistungen, die nach GOÄ privat abgerechnet werden. Gerade im Beauty-Segment besteht eine hohe Zahlungsbereitschaft für datengestützte Beratung, die über rein apparative Behandlungen hinausgeht."
+        },
+        {
+          "question": "Welche Rolle spielt Vitamin D für Haut und Haare?",
+          "answer": "Vitamin D ist an der Differenzierung von Keratinozyten, der Aufrechterhaltung der Hautbarriere und der Regulation des Haarfollikel-Zyklus beteiligt. Ein Vitamin-D-Mangel — in Mitteleuropa bei über 50 % der Bevölkerung verbreitet — begünstigt entzündliche Hautzustände, beschleunigt die Hautalterung und kann Haarausfall verstärken. Die Messung mit dem IglooPro dauert nur wenige Minuten und bildet die Grundlage für gezielte Supplementierung."
+        }
+      ]
+    }
   },
   "longevity": {
     "title": "Longevity",
@@ -122,7 +174,33 @@
       "heading": "Fazit: Werden Sie zum Longevity-Hub",
       "text": "Bieten Sie Ihren Klienten mehr als nur Hoffnung – bieten Sie Kontrolle. Mit dem Igloo Pro etablieren Sie ein professionelles Biomarker-Monitoring, das die Basis für jedes ernsthafte Longevity-Programm bildet."
     },
-    "cta": "Termin buchen"
+    "cta": "Termin buchen",
+    "faq": {
+      "caption": "Häufige Fragen",
+      "title": "FAQ zur Longevity-Diagnostik & Prävention",
+      "items": [
+        {
+          "question": "Welche Biomarker sind für die Longevity-Medizin relevant?",
+          "answer": "Zu den Kernmarkern der Longevity-Diagnostik zählen HbA1c (glykämische Kontrolle und AGE-Bildung), hs-CRP (chronische Entzündung / Inflammaging), ein vollständiges Lipidprofil (kardiovaskuläres Risiko), TSH (Schilddrüsenfunktion) sowie Vitamin D (Immunmodulation, Knochengesundheit). Diese Parameter bilden zusammen ein aussagekräftiges Basisprofil, das mit dem IglooPro direkt am Point-of-Care erhoben werden kann."
+        },
+        {
+          "question": "Was ist der Unterschied zwischen präventiver und kurativer Diagnostik?",
+          "answer": "Kurative Diagnostik wird bei bestehenden Symptomen eingesetzt, um eine Erkrankung zu bestätigen oder auszuschließen. Präventive Diagnostik hingegen erfasst Biomarker proaktiv — noch bevor Symptome auftreten —, um Risikofaktoren frühzeitig zu erkennen und gegenzusteuern. In der Longevity-Medizin liegt der Fokus auf der Optimierung von Werten innerhalb des Normbereichs, nicht erst auf der Behandlung pathologischer Abweichungen."
+        },
+        {
+          "question": "Wie oft sollten Longevity-Biomarker überprüft werden?",
+          "answer": "Für ein fundiertes Longevity-Monitoring empfiehlt sich ein Basis-Gesundheitscheck alle 3–6 Monate, bei laufenden Interventionen (z. B. Ernährungsumstellung, Supplementierung, Trainingsprogramme) auch häufiger. Die schnelle Verfügbarkeit der Ergebnisse am Point-of-Care ermöglicht es, Anpassungen in Echtzeit vorzunehmen, statt auf Laborberichte zu warten."
+        },
+        {
+          "question": "Welche Entzündungsmarker sind für die Prävention wichtig?",
+          "answer": "Der hochsensitive CRP-Wert (hs-CRP) ist der zentrale Marker für chronisch-unterschwellige Entzündungen — das sogenannte Inflammaging. Bereits leicht erhöhte Werte im Bereich von 1–3 mg/L korrelieren mit einem erhöhten Risiko für kardiovaskuläre Erkrankungen, Neurodegeneration und beschleunigte Alterungsprozesse. Regelmäßiges Monitoring erlaubt die frühzeitige Intervention durch Lebensstilmaßnahmen oder gezielte Supplementierung."
+        },
+        {
+          "question": "Kann ich Gesundheitschecks als Selbstzahler-Leistung anbieten?",
+          "answer": "Ja. Präventive Biomarker-Screenings sind klassische Selbstzahler- bzw. IGeL-Leistungen, da sie über den Leistungskatalog der gesetzlichen Krankenversicherung hinausgehen. Gerade im Longevity-Segment besteht eine hohe Nachfrage nach datengestützten Gesundheitschecks. Die Kombination aus Sofortanalyse und qualifizierter Beratung bildet ein wirtschaftlich attraktives Leistungspaket für Ihre Praxis."
+        }
+      ]
+    }
   },
   "poc_systemloesungen": {
     "title": "POC-Systemlösungen: Die Schaltzentrale für validierte Diagnostik",
