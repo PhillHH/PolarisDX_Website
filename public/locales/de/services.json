@@ -245,7 +245,33 @@
       "heading": "Fazit für PolarisDX.net: Mehr als nur Technologie",
       "text": "Die POC-Systemlösung Igloo Pro stellt die Spitze der mobilen Diagnostik dar. Doch wahre Performance wird erst durch den exklusiven Service freigeschaltet. PolarisDX.net garantiert nicht nur die Lieferung dieses technologischen Werkzeugs, sondern auch seine sofortige, validierte und nahtlose Integration in Ihren Betrieb. Setzen Sie auf die Agilität der mobilen Diagnostik – mit der garantierten Sicherheit eines Experten-Partners an Ihrer Seite."
     },
-    "cta": "Termin buchen"
+    "cta": "Termin buchen",
+    "faq": {
+      "caption": "Häufige Fragen",
+      "title": "FAQ zu Point-of-Care Systemlösungen",
+      "items": [
+        {
+          "question": "Was ist ein Point-of-Care Test (POCT)?",
+          "answer": "Ein Point-of-Care Test (POCT) ist eine Form der patientennahen Labordiagnostik, bei der die Analyse direkt am Behandlungsort stattfindet — ohne Einsendung an ein Zentrallabor. Das Ergebnis liegt innerhalb von Minuten vor und kann unmittelbar in die klinische Entscheidung einfließen. POCT-Systeme wie der IglooPro nutzen Lateral-Flow-Assays, Immunfluoreszenz oder Kolorimetrie, um quantitative Ergebnisse in Laborqualität zu liefern."
+        },
+        {
+          "question": "Wie integriere ich ein POC-System in meinen Praxisalltag?",
+          "answer": "Die Integration eines POCT-Geräts wie dem IglooPro erfordert keinen Umbau oder spezielle Laborräume. Das Gerät wiegt ca. 400 g, ist sofort einsatzbereit und lässt sich über USB-C, WLAN oder Bluetooth an Ihre Praxissoftware anbinden. PolarisDX übernimmt den vollständigen Remote-Setup-Service innerhalb von 3–5 Werktagen — inklusive Validierung, Schnittstellenkonfiguration und Teamschulung."
+        },
+        {
+          "question": "Welche Qualitätssicherung ist bei POCT erforderlich?",
+          "answer": "Die Richtlinie der Bundesärztekammer (RiliBÄK) regelt die Qualitätssicherung laboratoriumsmedizinischer Untersuchungen, einschließlich POCT. Vorgeschrieben sind unter anderem regelmäßige Kontrollmessungen, die Dokumentation der Ergebnisse und die Einweisung des Bedienpersonals. Der IglooPro unterstützt diesen Prozess durch automatische Ergebnisspeicherung (bis zu 10.000 Messungen) und die Anbindung an LIS/HIS-Systeme für eine lückenlose Dokumentation."
+        },
+        {
+          "question": "Wie schnell liefert der IglooPro Ergebnisse?",
+          "answer": "Je nach Parameter liegen quantitative Ergebnisse in 3 bis 15 Minuten vor. CRP-Werte sind typischerweise in unter 5 Minuten verfügbar, Vitamin D und HbA1c in etwa 10–15 Minuten. Die Schnelldiagnostik ermöglicht es, Befundung und Beratung in einem einzigen Patientenkontakt abzuschließen — ohne Folgetermin und ohne externe Laborwartezeit."
+        },
+        {
+          "question": "Ist der IglooPro IVDR-konform?",
+          "answer": "Ja. Der IglooPro erfüllt die Anforderungen der europäischen In-vitro-Diagnostik-Verordnung (IVDR, EU 2017/746) und trägt die entsprechende CE-Kennzeichnung. Die IVDR-Konformität gewährleistet, dass das Gerät und die verwendeten Testkassetten strenge Anforderungen an analytische Leistung, klinische Evidenz und Qualitätsmanagement einhalten — eine zwingende Voraussetzung für den Einsatz in der IVD-Diagnostik."
+        }
+      ]
+    }
   },
   "praeventions_checks": {
     "title": "Präventive Gesundheits-Checks: Vorsorge neu gedacht",
@@ -286,7 +312,29 @@
       "heading": "Fazit für Ihre Entscheidung",
       "text": "Die Investition in POC-Systemlösungen ist eine Investition in die Zukunft der patientenzentrierten Versorgung und die Steigerung der Betriebseffizienz. PolarisDX.net liefert nicht nur die Technologie für diese Transformation, sondern garantiert durch den exklusiven Remote-Setup-Service innerhalb von 3-5 Werktagen und die LFT-Kompatibilitäts-Garantie deren reibungslose und validierte Funktion. So nutzen Sie das volle Potenzial der präventiven Gesundheits-Checks sofort."
     },
-    "cta": "Termin buchen"
+    "cta": "Termin buchen",
+    "faq": {
+      "caption": "Häufige Fragen",
+      "title": "FAQ zu präventiven Gesundheitschecks",
+      "items": [
+        {
+          "question": "Welche präventiven Checks kann ich in der Praxis anbieten?",
+          "answer": "Mit einem POC-System wie dem IglooPro lassen sich umfassende Check-up-Profile direkt in der Praxis anbieten — von Diabetes-Screening (HbA1c) über kardiovaskuläre Risikobeurteilung (Cholesterin) und Entzündungsstatus (CRP) bis hin zu Mikronährstoff-Checks (Vitamin D, Ferritin). Die präventive Diagnostik kann als strukturiertes Vorsorgeprogramm oder als gezielte Einzelleistung in den Praxisalltag integriert werden."
+        },
+        {
+          "question": "Welche Biomarker gehören zu einem Basis-Gesundheitscheck?",
+          "answer": "Ein evidenzbasierter Basis-Gesundheitscheck umfasst mindestens HbA1c (glykämische Kontrolle), CRP (Entzündungsstatus), Vitamin D (Immunfunktion, Knochengesundheit) und ein Lipidprofil (kardiovaskuläres Risiko). Je nach Patientenprofil können TSH (Schilddrüse) und Ferritin (Eisenstatus) ergänzt werden. All diese Parameter sind mit dem IglooPro in einer einzigen Sitzung bestimmbar."
+        },
+        {
+          "question": "Wie unterscheidet sich ein POC-Check vom Laborauftrag?",
+          "answer": "Beim klassischen Laborauftrag wird die Probe entnommen, an ein Zentrallabor versendet und das Ergebnis liegt frühestens nach 24–48 Stunden vor — oft ist ein Folgetermin nötig. Bei der patientennahen Labordiagnostik (POCT) erfolgt die Analyse direkt vor Ort in 3–15 Minuten. Beratung und Therapieeinleitung können im selben Termin stattfinden, was Effizienz und Patientenzufriedenheit deutlich steigert."
+        },
+        {
+          "question": "Sind präventive Checks als IGeL abrechenbar?",
+          "answer": "Ja. Präventive Biomarker-Screenings, die über den Leistungskatalog der gesetzlichen Krankenversicherung hinausgehen, sind als individuelle Gesundheitsleistungen (IGeL) nach GOÄ privat abrechenbar. Die Kombination aus Sofort-Analytik und qualifizierter Beratung bildet ein wirtschaftlich attraktives Selbstzahler-Angebot, das gleichzeitig die Patientenbindung stärkt."
+        }
+      ]
+    }
   },
   "infektion_entzuendung": {
     "title": "Infektion & Entzündungsmarker: Schnelle Antworten in kritischen Fällen",
@@ -326,7 +374,29 @@
       "heading": "Fazit: Keine Kompromisse bei der Diagnose",
       "text": "Bei Infektionen und Entzündungen ist die Zeit der kritische Faktor. Nur ein POC-System, das Validität auf Laborniveau mit maximaler Geschwindigkeit vereint, kann die Sicherheit in der Diagnostik erhöhen und gleichzeitig das Management von Antibiotika optimieren. PolarisDX.net liefert diese garantierte Performance – von der Inbetriebnahme innerhalb von 3-5 Werktagen bis zum Priority-Support."
     },
-    "cta": "Termin buchen"
+    "cta": "Termin buchen",
+    "faq": {
+      "caption": "Häufige Fragen",
+      "title": "FAQ zur Infektions- & Entzündungsdiagnostik",
+      "items": [
+        {
+          "question": "Wann ist ein CRP-Schnelltest in der Praxis sinnvoll?",
+          "answer": "Ein CRP-Schnelltest ist immer dann indiziert, wenn eine rasche Differenzierung zwischen bakterieller und viraler Ursache klinisch relevant ist — etwa bei Atemwegsinfekten, Fieber unklarer Genese oder postoperativer Verlaufskontrolle. Ein erhöhter CRP-Wert über 40 mg/L spricht für eine bakterielle Beteiligung, während niedrigere Werte eine abwartende Haltung ohne Antibiotikagabe stützen können. Die Messung dauert mit dem IglooPro unter 5 Minuten."
+        },
+        {
+          "question": "Kann ich mit dem IglooPro bakterielle von viralen Infektionen unterscheiden?",
+          "answer": "Die Kombination aus CRP und PCT (Procalcitonin) ermöglicht eine differenziertere Einschätzung als ein einzelner Marker. CRP steigt bei bakteriellen und viralen Infektionen, während PCT deutlich spezifischer auf bakterielle Infektionen und Sepsis reagiert. Durch die gleichzeitige Bestimmung beider Parameter am Point-of-Care können fundiertere Therapieentscheidungen getroffen und unnötige Antibiotikaverordnungen reduziert werden."
+        },
+        {
+          "question": "Wie zuverlässig sind POC-Entzündungstests im Vergleich zum Labor?",
+          "answer": "IVDR-konforme POC-Systeme wie der IglooPro liefern quantitative Ergebnisse mit einer analytischen Präzision von CV < 2 % und sind damit mit Zentrallabormessungen vergleichbar. Die Qualitätssicherung erfolgt über validierte Testkassetten und interne Kontrollen. In der klinischen Praxis bieten POC-Tests den zusätzlichen Vorteil, dass das Ergebnis sofort vorliegt und nicht durch Transportzeiten oder Probenlagerung beeinflusst wird."
+        },
+        {
+          "question": "Welche Entzündungsmarker kann der IglooPro messen?",
+          "answer": "Der IglooPro unterstützt die Bestimmung von CRP (C-reaktives Protein) als zentralen Akut-Phase-Marker, PCT (Procalcitonin) zur Differenzierung bakterieller Infektionen sowie Ferritin, das neben dem Eisenstatus auch als Entzündungsmarker bei chronischen und akuten Prozessen relevant ist. Durch die offene Plattform können weitere Lateral-Flow-Tests für IL-6 und andere Parameter integriert werden."
+        }
+      ]
+    }
   },
   "stoffwechsel_herz": {
     "title": "Stoffwechsel & Herzgesundheit: Chronische Überwachung auf Knopfdruck",
