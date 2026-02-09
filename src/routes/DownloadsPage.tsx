@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, createBreadcrumbSchema } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
@@ -169,6 +170,18 @@ const DownloadsPage = () => {
               {renderDownloadSection(t('downloads:priceLists'), priceLists)}
               {renderDownloadSection(t('downloads:techBrochures'), techBrochures)}
               {renderDownloadSection(t('downloads:infoMaterials'), infoMaterials)}
+            </div>
+
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
+              <Link to="/igloo-pro" className="font-semibold text-brand-primary hover:text-brand-deep transition-colors">
+                {t('downloads:link_igloo', 'Zum IglooPro System')} →
+              </Link>
+              <Link to="/diagnostics" className="font-semibold text-brand-primary hover:text-brand-deep transition-colors">
+                {t('downloads:link_services', 'Diagnostik-Services')} →
+              </Link>
+              <Link to="/contact" className="font-semibold text-brand-primary hover:text-brand-deep transition-colors">
+                {t('downloads:link_contact', 'Beratung anfragen')} →
+              </Link>
             </div>
           </Reveal>
         </div>

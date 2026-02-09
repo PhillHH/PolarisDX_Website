@@ -9,6 +9,7 @@ export const services: Service[] = [
     description: '',
     translationKey: 'dental',
     icon: <Smile className="h-8 w-8" strokeWidth={1.5} />,
+    relatedArticleIds: ['green_practice', 'five_minute_diagnosis'],
   },
   {
     id: 'beauty',
@@ -16,6 +17,7 @@ export const services: Service[] = [
     description: '',
     translationKey: 'beauty',
     icon: <Sparkles className="h-8 w-8" strokeWidth={1.5} />,
+    relatedArticleIds: [],
   },
   {
     id: 'longevity',
@@ -23,6 +25,7 @@ export const services: Service[] = [
     description: '',
     translationKey: 'longevity',
     icon: <Activity className="h-8 w-8" strokeWidth={1.5} />,
+    relatedArticleIds: ['green_practice'],
   },
   // Existing Services
   {
@@ -31,6 +34,7 @@ export const services: Service[] = [
     description: '',
     translationKey: 'poc_systemloesungen',
     icon: <MonitorSmartphone className="h-8 w-8" strokeWidth={1.5} />,
+    relatedArticleIds: ['invisible_patient', 'five_minute_diagnosis', 'ecosystem_of_rapid_tests', 'rapid_setup_formula'],
   },
   {
     id: 'praeventions-checks',
@@ -38,6 +42,7 @@ export const services: Service[] = [
     description: '',
     translationKey: 'praeventions_checks',
     icon: <ShieldCheck className="h-8 w-8" strokeWidth={1.5} />,
+    relatedArticleIds: ['invisible_patient', 'precision_point_of_care'],
   },
   {
     id: 'infektion-entzuendung',
@@ -45,6 +50,7 @@ export const services: Service[] = [
     description: '',
     translationKey: 'infektion_entzuendung',
     icon: <Flame className="h-8 w-8" strokeWidth={1.5} />,
+    relatedArticleIds: ['precision_point_of_care'],
   },
   {
     id: 'stoffwechsel-herz',
@@ -52,6 +58,7 @@ export const services: Service[] = [
     description: '',
     translationKey: 'stoffwechsel_herz',
     icon: <HeartPulse className="h-8 w-8" strokeWidth={1.5} />,
+    relatedArticleIds: [],
   },
   {
     id: 'hormon-tests',
@@ -59,6 +66,7 @@ export const services: Service[] = [
     description: '',
     translationKey: 'hormon_tests',
     icon: <Dna className="h-8 w-8" strokeWidth={1.5} />,
+    relatedArticleIds: [],
   },
   {
     id: 'kompatibilitaet-integration',
@@ -66,5 +74,6 @@ export const services: Service[] = [
     description: '',
     translationKey: 'kompatibilitaet_integration',
     icon: <Puzzle className="h-8 w-8" strokeWidth={1.5} />,
+    relatedArticleIds: ['ecosystem_of_rapid_tests'],
   },
 ]

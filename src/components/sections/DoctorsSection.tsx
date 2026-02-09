@@ -39,7 +39,7 @@ const DiagnosticsPitchSection = () => {
         <div className="relative overflow-hidden rounded-3xl">
           <img
             src={IglooProImage}
-            alt="Igloo Pro device"
+            alt="IglooPro Analysegerät — Point-of-Care Ergebnisse in 3 Minuten"
             width={400}
             height={400}
             loading="lazy"

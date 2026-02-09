@@ -6,6 +6,7 @@ import SectionHeader from '../components/ui/SectionHeader'
 import PrimaryButton from '../components/ui/PrimaryButton'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
+import { services } from '../data/services'
 import { useArticles } from '../hooks/useArticles'
 import { LoadingSpinner } from '../components/ui/LoadingSpinner'
 import { Alert } from '../components/ui/Alert'
@@ -43,7 +44,7 @@ type KeyPointsSection = BaseSection & {
 type ArticleSection = TextSection | TableSection | InfoboxSection | KeyPointsSection
 
 const ArticlePage = () => {
-  const { t } = useTranslation(['articles', 'shop', 'common'])
+  const { t } = useTranslation(['articles', 'shop', 'common', 'home'])
   const { slug } = useParams<{ slug: string }>()
 
   // Use data fetching hook
@@ -97,6 +98,11 @@ const ArticlePage = () => {
 
   // Find the main image (first image found in sections)
   const articleImage = dataSections.find((s) => s.image)?.image
+
+  // Resolve related services from the bidirectional mapping
+  const relatedServices = article.relatedServiceIds?.length
+    ? services.filter(s => article.relatedServiceIds!.includes(s.id))
+    : []
 
   const renderSection = (section: ArticleSection, index: number) => {
     // Safety check for type
@@ -283,6 +289,8 @@ const ArticlePage = () => {
                     <img
                       src={getArticleImageUrl(articleImage)}
                       alt={title}
+                      width={800}
+                      height={300}
                       loading="lazy"
                       className="w-full h-full object-cover"
                     />
@@ -333,6 +341,31 @@ const ArticlePage = () => {
                   </div>
                 </section>
               )}
+
+              {/* Related services for mobile */}
+              {relatedServices.length > 0 && (
+                <section className="mt-10 space-y-4 lg:hidden">
+                  <h2 className="text-lg font-semibold tracking-tight text-gray-900">
+                    {t('home:services.caption', 'Passende Diagnostik')}
+                  </h2>
+                  <div className="grid gap-4">
+                    {relatedServices.map((s) => (
+                      <Link
+                        key={s.id}
+                        to={`/diagnostics/${s.id}`}
+                        className="group rounded-xl border border-gray-100 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-card"
+                      >
+                        <p className="text-sm font-semibold text-gray-900 group-hover:text-brand-secondary transition-colors">
+                          {t(`home:services.${s.translationKey}.title`, s.title)}
+                        </p>
+                        <p className="mt-1 text-xs text-gray-500">
+                          {t(`home:services.${s.translationKey}.description`, s.description)}
+                        </p>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
             </Reveal>
           </article>
 
@@ -366,6 +399,34 @@ const ArticlePage = () => {
                 </section>
               )}
 
+              {/* Related Services Widget */}
+              {relatedServices.length > 0 && (
+                <section className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm mt-8">
+                  <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-gray-500">
+                    {t('home:services.caption', 'Passende Diagnostik')}
+                  </h2>
+                  <div className="space-y-3">
+                    {relatedServices.map((s) => (
+                      <Link
+                        key={s.id}
+                        to={`/diagnostics/${s.id}`}
+                        className="group flex items-center justify-between rounded-xl border border-gray-100 bg-gradient-to-br from-white to-slate-50 p-4 shadow-sm transition-all duration-300 hover:border-blue-200 hover:shadow-md hover:scale-[1.02]"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-brand-secondary transition-colors group-hover:bg-brand-secondary group-hover:text-white">
+                            {s.icon}
+                          </div>
+                          <span className="font-medium text-gray-900 group-hover:text-brand-secondary">
+                            {t(`home:services.${s.translationKey}.title`, s.title)}
+                          </span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {/* Contact Widget */}
               <section className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm mt-8">
                 <h3 className="mb-2 text-sm font-semibold tracking-tight text-gray-900">
                   {t('shop:shop.needHelp', 'Need help right now?')}
@@ -373,7 +434,9 @@ const ArticlePage = () => {
                 <p className="mb-3 text-xs leading-relaxed text-gray-500">
                   {t('shop:shop.contactText', 'Our medical team is available 24/7 to answer urgent questions and help you decide what to do next.')}
                 </p>
-                <p className="text-sm font-semibold text-brand-primary">+123 456 789</p>
+                <PrimaryButton as={Link} to="/contact" variant="brand-secondary" className="w-full justify-center">
+                  {t('common:nav.contact', 'Kontakt aufnehmen')}
+                </PrimaryButton>
               </section>
             </Reveal>
           </aside>

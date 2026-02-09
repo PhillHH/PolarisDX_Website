@@ -48,6 +48,15 @@ const BlogSection = () => {
           )
         })}
       </div>
+
+      <div className="flex justify-center pt-4">
+        <Link
+          to="/articles"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary hover:text-brand-deep transition-colors"
+        >
+          {t('blog.all_articles', 'Alle Fachartikel anzeigen')} →
+        </Link>
+      </div>
     </section>
   )
 }
