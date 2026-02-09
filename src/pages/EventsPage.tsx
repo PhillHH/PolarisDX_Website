@@ -1,9 +1,11 @@
 import React, { useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Calendar, MapPin, ExternalLink } from 'lucide-react';
 import { events } from '../data/events';
 import { SEOHead, createBreadcrumbSchema, createEventSchema } from '../components/seo';
 import { Breadcrumbs } from '../components/ui/Breadcrumbs';
+import PrimaryButton from '../components/ui/PrimaryButton';
 import PageTransition from '../components/ui/PageTransition';
 import Reveal from '../components/ui/Reveal';
 
@@ -132,6 +134,22 @@ const EventsPage: React.FC = () => {
               </Reveal>
             )}
           </div>
+
+          <Reveal width="100%">
+            <div className="mt-12 flex flex-col items-center gap-4 text-center">
+              <p className="text-gray-600">
+                {t('events:cta_text', 'Sie möchten das IglooPro System live testen oder einen Termin vereinbaren?')}
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <PrimaryButton as={Link} to="/igloo-pro" size="sm">
+                  {t('events:cta_igloo', 'Mehr zum IglooPro')}
+                </PrimaryButton>
+                <PrimaryButton as={Link} to="/contact" variant="brand-secondary" size="sm">
+                  {t('events:cta_contact', 'Termin vereinbaren')}
+                </PrimaryButton>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </div>
     </PageTransition>

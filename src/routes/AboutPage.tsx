@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, organizationSchema, createBreadcrumbSchema } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
+import PrimaryButton from '../components/ui/PrimaryButton'
 import TeamSection from '../components/sections/TeamSection'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
@@ -57,6 +59,22 @@ const AboutPage = () => {
       <div className="mx-auto flex max-w-container flex-col gap-32 px-4 py-24 lg:px-0 lg:gap-32 lg:py-32">
         <Reveal width="100%">
           <TeamSection />
+        </Reveal>
+
+        <Reveal width="100%">
+          <div className="flex flex-col items-center gap-4 text-center">
+            <p className="text-lg text-gray-600">
+              {t('about:cta.text', 'Lernen Sie unsere Diagnostik-Lösungen kennen oder nehmen Sie direkt Kontakt auf.')}
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <PrimaryButton as={Link} to="/diagnostics" size="sm">
+                {t('about:cta.services', 'Unsere Diagnostik-Services')}
+              </PrimaryButton>
+              <PrimaryButton as={Link} to="/contact" variant="brand-secondary" size="sm">
+                {t('about:cta.contact', 'Kontakt aufnehmen')}
+              </PrimaryButton>
+            </div>
+          </div>
         </Reveal>
       </div>
     </PageTransition>
