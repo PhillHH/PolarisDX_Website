@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ChevronDown } from 'lucide-react'
 import SectionHeader from '../ui/SectionHeader'
@@ -60,6 +61,17 @@ const FAQSection = () => {
             </div>
           ))}
         </div>
+
+        <p className="mt-6 text-center text-sm text-gray-500">
+          {t('faq.more', 'Noch Fragen?')}{' '}
+          <Link to="/diagnostics" className="font-semibold text-brand-primary hover:underline">
+            {t('faq.link_services', 'Diagnostik-Services ansehen')}
+          </Link>
+          {' '}{t('faq.or', 'oder')}{' '}
+          <Link to="/contact" className="font-semibold text-brand-primary hover:underline">
+            {t('faq.link_contact', 'direkt Kontakt aufnehmen')}
+          </Link>
+        </p>
       </div>
     </section>
   )
