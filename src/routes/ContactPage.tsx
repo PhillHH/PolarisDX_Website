@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import SectionHeader from '../components/ui/SectionHeader'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, localBusinessSchema, createBreadcrumbSchema } from '../components/seo'
@@ -109,6 +110,23 @@ const ContactPage = () => {
                     <p>contact@polarisdx.net</p>
                     <p>+49 151 75011699</p>
                   </div>
+                </section>
+
+                <section className="rounded-2xl bg-white p-6 shadow-sm">
+                  <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-gray-500 mb-3">
+                    {t('contact.sidebar_links.title', 'Entdecken')}
+                  </h3>
+                  <nav className="space-y-2">
+                    <Link to="/diagnostics" className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors">
+                      {t('contact.sidebar_links.services', 'Unsere Diagnostik-Services')} →
+                    </Link>
+                    <Link to="/igloo-pro" className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors">
+                      {t('contact.sidebar_links.igloo', 'IglooPro System kennenlernen')} →
+                    </Link>
+                    <Link to="/articles" className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors">
+                      {t('contact.sidebar_links.articles', 'Fachartikel lesen')} →
+                    </Link>
+                  </nav>
                 </section>
               </Reveal>
             </aside>

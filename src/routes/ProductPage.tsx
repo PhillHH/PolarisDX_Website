@@ -74,6 +74,8 @@ const ProductPage = () => {
               <img
                 src={getArticleImageUrl(product.image)}
                 alt={t(`shop:products.${productKey}.name`)}
+                width={600}
+                height={450}
                 loading="lazy"
                 className="w-full h-full object-cover"
               />

@@ -15,7 +15,7 @@ const CtaSection = () => {
         <div className="relative mx-auto lg:h-full lg:w-full">
           <img
             src={avatar}
-            alt="Doctor ready to help"
+            alt="Ärztin berät zu PolarisDX Point-of-Care Diagnostik"
             width={192}
             height={219}
             loading="lazy"

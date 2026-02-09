@@ -25,7 +25,9 @@ const FeaturedCaseStudy = () => {
             <div className="relative h-full min-h-[360px] md:min-h-[460px] rounded-3xl overflow-hidden shadow-2xl border border-gray-100 bg-white md:-mr-20 md:-mb-24 md:translate-y-[-72px] md:translate-x-[-48px]">
               <img
                 src={KristianGrimmAvatar}
-                alt="Dr. Kristian Grimm - 32reasons"
+                alt="Dr. Kristian Grimm — Zahnarzt und IglooPro Anwender bei 32reasons"
+                width={600}
+                height={460}
                 className="w-full h-full object-cover"
                 crossOrigin="anonymous"
               />

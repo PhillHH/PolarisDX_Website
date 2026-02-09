@@ -87,7 +87,7 @@ const IglooWidgetSection = () => {
 
             <img
                 src={iglooImage}
-                alt="Igloo Pro"
+                alt="IglooPro POC-Reader — kompaktes Analysegerät für Praxisdiagnostik"
                 width={256}
                 height={256}
                 loading="lazy"
@@ -137,6 +137,15 @@ const IglooWidgetSection = () => {
             ))}
         </div>
 
+      </div>
+
+      <div className="flex justify-center mt-8 relative z-10">
+        <Link
+          to="/diagnostics"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary hover:text-brand-deep transition-colors"
+        >
+          {t('igloo_widget.all_services', 'Alle Diagnostik-Services entdecken')} →
+        </Link>
       </div>
     </section>
   )

@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { testimonials } from '../../data/testimonials'
 import SectionHeader from '~/components/ui/SectionHeader'
+import PrimaryButton from '~/components/ui/PrimaryButton'
 
 // A simple Star SVG component
 const Star = ({ filled }: { filled: boolean }) => (
@@ -149,6 +151,10 @@ const TestimonialsSection = () => {
             <p className="mt-1 text-xs text-white/80 sm:text-sm">{t('testimonials.positiveLabel', 'Positive Review')}</p>
           </div>
         </div>
+
+        <PrimaryButton as={Link} to="/contact" size="sm">
+          {t('testimonials.cta', 'Jetzt selbst überzeugen')}
+        </PrimaryButton>
       </div>
     </section>
   )

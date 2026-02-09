@@ -296,7 +296,9 @@ const VitaminD3ImplantologyPage = () => {
                 <div className="sm:w-2/5">
                   <img
                     src={iglooProImage}
-                    alt="Igloo Pro POC-Reader für Vitamin-D-Diagnostik am Behandlungsstuhl in der Zahnarztpraxis"
+                    alt="IglooPro POC-Reader für Vitamin-D-Diagnostik am Behandlungsstuhl in der Zahnarztpraxis"
+                    width={400}
+                    height={400}
                     className="h-48 w-full object-contain bg-gray-50 p-4 sm:h-full"
                     loading="lazy"
                   />

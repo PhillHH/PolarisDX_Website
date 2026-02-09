@@ -11,6 +11,7 @@ export const articles: Article[] = [
     sections: [
       { image: 'green.png', paragraphs: [] }
     ],
+    relatedServiceIds: ['dental', 'longevity'],
   },
   {
     id: 'invisible_patient',
@@ -22,6 +23,7 @@ export const articles: Article[] = [
     sections: [
         { image: 'homeclinic.png', paragraphs: [] }
     ],
+    relatedServiceIds: ['poc-systemloesungen', 'praeventions-checks'],
   },
   {
     id: 'five_minute_diagnosis',
@@ -33,10 +35,8 @@ export const articles: Article[] = [
     sections: [
         { image: 'makemoney.png', paragraphs: [] }
     ],
+    relatedServiceIds: ['poc-systemloesungen', 'dental'],
   },
-  // Keeping original articles for now if needed, or commenting them out if they are obsolete.
-  // User said "Artikel Hart reincoden", implies replacing or adding.
-  // I will append them to the top and keep old ones for fallback/demo.
   {
     id: 'ecosystem_of_rapid_tests',
     slug: 'the-ecosystem-of-rapid-tests-why-compatibility-creates-safety',
@@ -50,6 +50,7 @@ export const articles: Article[] = [
         paragraphs: [],
       },
     ],
+    relatedServiceIds: ['kompatibilitaet-integration', 'poc-systemloesungen'],
   },
   {
     id: 'rapid_setup_formula',
@@ -59,6 +60,7 @@ export const articles: Article[] = [
     date: '25 Nov 2025',
     readTime: '7 min read',
     sections: [],
+    relatedServiceIds: ['poc-systemloesungen'],
   },
   {
     id: 'precision_point_of_care',
@@ -68,6 +70,7 @@ export const articles: Article[] = [
     date: '25 Nov 2025',
     readTime: '9 min read',
     sections: [],
+    relatedServiceIds: ['praeventions-checks', 'infektion-entzuendung'],
   },
 ]
 

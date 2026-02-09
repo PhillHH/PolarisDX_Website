@@ -48,6 +48,7 @@ export interface Article {
   date: string
   readTime: string
   sections: ArticleSection[]
+  relatedServiceIds?: ServiceId[]
 }
 
 export type ServiceId =
@@ -67,6 +68,7 @@ export interface Service {
   description: string
   translationKey: string
   icon?: ReactNode
+  relatedArticleIds?: string[]
 }
 
 export interface Event {

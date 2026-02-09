@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Wifi, Battery, ShieldCheck, Layers } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { SEOHead, iglooProProductSchema, createBreadcrumbSchema } from '../components/seo';
@@ -144,7 +145,7 @@ const IglooProPage: React.FC = () => {
                 <div className="absolute inset-0 bg-brand-primary/30 blur-3xl rounded-full" />
                 <img
                   src={iglooImage}
-                  alt="Igloo Pro Device"
+                  alt="IglooPro POC-Analysegerät für Point-of-Care Schnelltests in Arztpraxen"
                   width={400}
                   height={400}
                   loading="lazy"
@@ -231,6 +232,38 @@ const IglooProPage: React.FC = () => {
                   <React.Fragment key={i}>{part}{i < 1 && '.'} <br/></React.Fragment>
                 ))}
             </p>
+        </div>
+      </section>
+
+      {/* Use Cases / Related Services */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">{t('products:use_cases.title', 'Einsatzbereiche')}</h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link
+              to="/diagnostics/dental"
+              className="rounded-xl border border-gray-200 bg-slate-50 px-6 py-4 text-sm font-medium text-gray-700 shadow-sm transition-all hover:border-brand-primary hover:text-brand-primary hover:shadow-md"
+            >
+              {t('products:use_cases.dental', 'Dental-Diagnostik')}
+            </Link>
+            <Link
+              to="/diagnostics/beauty"
+              className="rounded-xl border border-gray-200 bg-slate-50 px-6 py-4 text-sm font-medium text-gray-700 shadow-sm transition-all hover:border-brand-primary hover:text-brand-primary hover:shadow-md"
+            >
+              {t('products:use_cases.beauty', 'Beauty & Ästhetik')}
+            </Link>
+            <Link
+              to="/diagnostics/longevity"
+              className="rounded-xl border border-gray-200 bg-slate-50 px-6 py-4 text-sm font-medium text-gray-700 shadow-sm transition-all hover:border-brand-primary hover:text-brand-primary hover:shadow-md"
+            >
+              {t('products:use_cases.longevity', 'Longevity & Prävention')}
+            </Link>
+          </div>
+          <div className="mt-6">
+            <Link to="/articles" className="text-sm font-semibold text-brand-primary hover:text-brand-deep transition-colors">
+              {t('products:use_cases.articles', 'Fachartikel lesen')} →
+            </Link>
+          </div>
         </div>
       </section>
 
