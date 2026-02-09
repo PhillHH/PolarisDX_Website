@@ -98,7 +98,7 @@ const HeroSection = () => {
               {/* Logo - LCP Element - always visible, no animation delays */}
               <img
                 src={iglooLogoWhite}
-                alt="IglooPro Logo"
+                alt="IglooPro — Point-of-Care Diagnostiksystem"
                 width={200}
                 height={56}
                 fetchPriority="high"
@@ -183,7 +183,7 @@ const HeroSection = () => {
                   <div className="absolute bottom-0 right-4 h-[440px] w-[280px] bg-brand-secondary lg:bottom-0 z-0" />
                   <img
                     src={currentDisplaySlide.visual}
-                    alt="PolarisDX doctor"
+                    alt="Ärztin mit IglooPro POC-Diagnostik in der Praxis"
                     width={390}
                     height={780}
                     fetchPriority="high"

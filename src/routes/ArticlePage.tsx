@@ -289,6 +289,8 @@ const ArticlePage = () => {
                     <img
                       src={getArticleImageUrl(articleImage)}
                       alt={title}
+                      width={800}
+                      height={300}
                       loading="lazy"
                       className="w-full h-full object-cover"
                     />

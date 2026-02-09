@@ -82,7 +82,9 @@ const CaseStudy32Reasons = () => {
             <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl bg-white shadow-lg border border-gray-100 relative group">
               <img
                 src={KristianGrimmAvatar}
-                alt="Dr. Kristian Grimm"
+                alt="Dr. Kristian Grimm — Zahnarzt und IglooPro Anwender bei 32reasons"
+                width={600}
+                height={450}
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60" />
