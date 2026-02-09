@@ -32,7 +32,7 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <img
                   src={logo}
-                  alt="PolarisDX logo"
+                  alt="PolarisDX — POC-Diagnostik für Arztpraxen"
                   width={136}
                   height={40}
                   className="h-10 w-auto sm:h-12"

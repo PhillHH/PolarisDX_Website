@@ -87,7 +87,7 @@ const IglooWidgetSection = () => {
 
             <img
                 src={iglooImage}
-                alt="Igloo Pro"
+                alt="IglooPro POC-Reader — kompaktes Analysegerät für Praxisdiagnostik"
                 width={256}
                 height={256}
                 loading="lazy"

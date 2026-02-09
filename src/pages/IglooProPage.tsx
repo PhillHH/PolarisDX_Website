@@ -145,7 +145,7 @@ const IglooProPage: React.FC = () => {
                 <div className="absolute inset-0 bg-brand-primary/30 blur-3xl rounded-full" />
                 <img
                   src={iglooImage}
-                  alt="Igloo Pro Device"
+                  alt="IglooPro POC-Analysegerät für Point-of-Care Schnelltests in Arztpraxen"
                   width={400}
                   height={400}
                   loading="lazy"

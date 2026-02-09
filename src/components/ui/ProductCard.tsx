@@ -32,6 +32,8 @@ const ProductCard = ({ id, category, price, to, badge, image }: ProductCardProps
           <img
             src={imageUrl}
             alt={t(`shop:products.${productKey}.name`)}
+            width={400}
+            height={300}
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover"
           />
