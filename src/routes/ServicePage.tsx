@@ -100,7 +100,10 @@ const ServicePage = () => {
   const ctaText = t(`services:${transKey}.cta`, 'Contact Us')
 
   const otherServices = services.filter(s => s.id !== service.id)
-  const relatedArticles = articles.slice(0, 3)
+  const mapped = service.relatedArticleIds?.length
+    ? articles.filter(a => service.relatedArticleIds!.includes(a.id))
+    : []
+  const relatedArticles = mapped.length > 0 ? mapped.slice(0, 3) : articles.slice(0, 3)
 
   // Use slug-based SEO overrides when available, otherwise fall back to dynamic generation
   const seoOverride = slug ? serviceSeoOverrides[slug] : undefined
