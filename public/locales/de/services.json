@@ -366,7 +366,29 @@
       "heading": "Fazit für Ihre Praxis",
       "text": "Die Integration des Igloo Pro Readers in Ihren Workflow bedeutet einen Paradigmenwechsel: Von der zeitverzögerten Überwachung zur sofortigen, datenbasierten Therapieanpassung. Mit PolarisDX.net sichern Sie sich nicht nur die Technologie für diese kritischen Messungen, sondern auch die Garantie auf reibungslose Implementierung und laufende Validierung."
     },
-    "cta": "Termin buchen"
+    "cta": "Termin buchen",
+    "faq": {
+      "caption": "Häufige Fragen",
+      "title": "FAQ zur Stoffwechsel- & Herzdiagnostik",
+      "items": [
+        {
+          "question": "Welche Stoffwechsel-Biomarker kann ich chairside messen?",
+          "answer": "Mit dem IglooPro bestimmen Sie HbA1c (Langzeit-Blutzucker), Gesamtcholesterin sowie weitere Lipidfraktionen direkt aus Kapillarblut in wenigen Minuten. Diese Chairside-Diagnostik liefert laborvergleichbare Ergebnisse (CV < 2%) und ermöglicht die sofortige Therapieanpassung im selben Patientenkontakt — ohne Einsendung an ein Zentrallabor."
+        },
+        {
+          "question": "Wie hilft der HbA1c-Wert bei der Diabetes-Früherkennung?",
+          "answer": "Der HbA1c-Schnelltest bildet den mittleren Blutzucker der letzten 8–12 Wochen ab und ist damit unabhängig von Tagesfluktuation oder Nüchternstatus. Werte zwischen 5,7 % und 6,4 % weisen auf ein Prädiabetes-Risiko hin, ab 6,5 % gilt die Diagnose Diabetes mellitus. Die sofortige Verfügbarkeit am Point-of-Care ermöglicht eine direkte Beratung und Therapieeinleitung ohne Folgetermin."
+        },
+        {
+          "question": "Welche kardiovaskulären Risikomarker misst der IglooPro?",
+          "answer": "Der IglooPro unterstützt die Bestimmung von Cholesterin-Werten (Gesamtcholesterin, LDL, HDL, Triglyzeride) sowie D-Dimer als Ausschlussparameter für Thrombosen und Lungenembolien. Diese kardiovaskulären Risikomarker erlauben eine schnelle Einschätzung des Gefäßrisikos und fundierte Entscheidungen zur Weiterbehandlung — direkt in der Praxis."
+        },
+        {
+          "question": "Kann ich Stoffwechsel-Checks als Zusatzleistung anbieten?",
+          "answer": "Ja. Screenings auf HbA1c, Cholesterin und weitere metabolische Parameter sind typische IGeL-Leistungen (Individuelle Gesundheitsleistungen), die nach GOÄ privat abrechenbar sind. Die Kombination aus Sofortmessung und qualifizierter Beratung schafft einen messbaren Mehrwert für Patienten und generiert planbaren Zusatzumsatz für Ihre Praxis."
+        }
+      ]
+    }
   },
   "hormon_tests": {
     "title": "Hormon- & Endokrinologie-Tests: Spezialdiagnostik leicht gemacht",
@@ -406,7 +428,29 @@
       "heading": "Fazit: Spezialdiagnostik direkt in Ihrer Hand",
       "text": "Die Hormon- und Endokrinologie-Tests sind oft der Ausgangspunkt komplexer Behandlungspfade. Durch die POC-Diagnostik mit dem Igloo Pro verkürzen Sie die Zeit bis zur Diagnose und Therapieentscheidung massiv. polarisDX.net bietet Ihnen die Technologie und die LFT-Kompatibilitäts-Garantie, um dieses breite Spektrum an spezialisierten Tests sicher und effizient in Ihren Betrieb zu integrieren."
     },
-    "cta": "Termin buchen"
+    "cta": "Termin buchen",
+    "faq": {
+      "caption": "Häufige Fragen",
+      "title": "FAQ zur Hormondiagnostik in der Praxis",
+      "items": [
+        {
+          "question": "Welche Hormone kann der IglooPro messen?",
+          "answer": "Der IglooPro unterstützt die quantitative Bestimmung von TSH (Schilddrüsenfunktion), Cortisol (Stressachse), Testosteron, Progesteron, FSH sowie AMH (ovarielle Reserve). Diese Hormontests decken die häufigsten endokrinologischen Fragestellungen ab und liefern Ergebnisse in Laborqualität innerhalb weniger Minuten direkt in der Praxis."
+        },
+        {
+          "question": "Wann ist ein TSH-Schnelltest sinnvoll?",
+          "answer": "Ein TSH-Schnelltest ist indiziert bei klinischem Verdacht auf Schilddrüsendysfunktion (z. B. Müdigkeit, Gewichtsveränderungen, Haarausfall), zur Therapiekontrolle unter L-Thyroxin-Substitution sowie im Rahmen von Kinderwunsch- und Schwangerschaftsvorsorge. Die sofortige Verfügbarkeit der Schilddrüsenwerte erlaubt eine direkte Dosisanpassung ohne Wartezeit auf externe Laborergebnisse."
+        },
+        {
+          "question": "Wie genau sind POC-Hormontests im Vergleich zum Labor?",
+          "answer": "IVDR-konforme POC-Systeme wie der IglooPro erreichen eine analytische Präzision mit einem Variationskoeffizienten (CV) von unter 2 % und sind damit mit Zentrallaborergebnissen vergleichbar. Die Qualitätssicherung erfolgt über validierte Testkassetten und regelmäßige Kontrollmessungen, sodass die klinische Entscheidungssicherheit gewährleistet ist."
+        },
+        {
+          "question": "Für welche Fachrichtungen ist chairside Hormondiagnostik relevant?",
+          "answer": "Chairside-Hormondiagnostik ist für Allgemeinmedizin, Gynäkologie, Endokrinologie, Dermatologie und Kinderwunschzentren gleichermaßen relevant. Überall dort, wo Schilddrüsenfunktion, Fertilitätsstatus oder hormonelle Dysbalancen schnell abgeklärt werden müssen, bietet die POC-Messung einen unmittelbaren Zeitvorteil gegenüber der Einsendung an externe Labore."
+        }
+      ]
+    }
   },
   "kompatibilitaet_integration": {
     "title": "Herstellerübergreifende Kompatibilität: Investitionssicherheit durch Offenheit",
@@ -445,6 +489,28 @@
       "heading": "Fazit: Investieren Sie in eine Lösung, nicht in eine Einschränkung",
       "text": "Die herstellerübergreifende Kompatibilität des Igloo Pro macht ihn zur klügsten Investition in die POC-Diagnostik. Er bietet die Flexibilität, die Sie heute brauchen, und die Investitionssicherheit, die Sie morgen benötigen."
     },
-    "cta": "Termin buchen"
+    "cta": "Termin buchen",
+    "faq": {
+      "caption": "Häufige Fragen",
+      "title": "FAQ zur Systemintegration & Kompatibilität",
+      "items": [
+        {
+          "question": "Ist der IglooPro mit meiner Praxissoftware kompatibel?",
+          "answer": "Der IglooPro lässt sich über standardisierte Schnittstellen in gängige Labor- und Praxisinformationssysteme (LIS/HIS) einbinden. Die Ergebnisse werden automatisch übertragen und dokumentiert, sodass eine manuelle Dateneingabe entfällt. PolarisDX unterstützt Sie bei der Integration in Ihre bestehende Praxisausstattung."
+        },
+        {
+          "question": "Welche Schnittstellen bietet der IglooPro?",
+          "answer": "Der IglooPro verfügt über USB-C, WLAN (Wi-Fi) und Bluetooth zur Datenübertragung. Damit ist eine flexible Anbindung an stationäre Arbeitsplätze, mobile Endgeräte und cloudbasierte Systeme möglich. Der interne Speicher hält bis zu 10.000 Messergebnisse vor, die bei Bedarf nachträglich übertragen werden können."
+        },
+        {
+          "question": "Wie läuft die Einrichtung und Schulung ab?",
+          "answer": "PolarisDX bietet einen vollständigen Remote-Setup-Service innerhalb von 3–5 Werktagen. Darin enthalten sind die Gerätevalidierung, die Konfiguration der Schnittstellen zu Ihrer Praxissoftware sowie eine praxisnahe Einweisung Ihres Teams. So ist Ihr Praxislabor schnell einsatzbereit, ohne dass Sie sich um technische Details kümmern müssen."
+        },
+        {
+          "question": "Können mehrere IglooPro-Geräte vernetzt werden?",
+          "answer": "Ja. In größeren Praxen, MVZ-Strukturen oder Kliniken können mehrere IglooPro-Geräte über ein gemeinsames Netzwerk betrieben und zentral verwaltet werden. Alle Messergebnisse fließen in ein einheitliches System zusammen, was die Qualitätssicherung vereinfacht und einen standortübergreifenden Überblick über die POC-Diagnostik ermöglicht."
+        }
+      ]
+    }
   }
 }
