@@ -3,12 +3,13 @@ import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Tooth } from '../components/ui/icons/Tooth'
 import { Sparkles, Infinity as InfinityIcon } from 'lucide-react'
-import { SEOHead, createServiceSchema, createBreadcrumbSchema } from '../components/seo'
+import { SEOHead, createServiceSchema, createBreadcrumbSchema, createFAQSchema, type FAQItem } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import SectionHeader from '../components/ui/SectionHeader'
 import PrimaryButton from '../components/ui/PrimaryButton'
 import { services } from '../data/services'
 import { articles } from '../data/articles'
+import FAQSection from '../components/sections/FAQSection'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 
@@ -99,6 +100,13 @@ const ServicePage = () => {
   const conclusion = t(`services:${transKey}.conclusion`, { returnObjects: true }) as ServiceConclusion
   const ctaText = t(`services:${transKey}.cta`, 'Contact Us')
 
+  // Load FAQ data (graceful fallback: no FAQ rendered if data missing)
+  const faqItemsRaw = t(`services:${transKey}.faq.items`, { returnObjects: true })
+  const faqItems: FAQItem[] = Array.isArray(faqItemsRaw) ? faqItemsRaw : []
+  const hasFaq = faqItems.length > 0
+  const faqCaption = hasFaq ? t(`services:${transKey}.faq.caption`, 'FAQ') : ''
+  const faqTitle = hasFaq ? t(`services:${transKey}.faq.title`, 'Häufige Fragen') : ''
+
   const otherServices = services.filter(s => s.id !== service.id)
   const mapped = service.relatedArticleIds?.length
     ? articles.filter(a => service.relatedArticleIds!.includes(a.id))
@@ -131,6 +139,7 @@ const ServicePage = () => {
             { name: 'Diagnostik', url: '/diagnostics' },
             { name: title, url: `/diagnostics/${slug}` },
           ]),
+          ...(hasFaq ? [createFAQSchema(faqItems)] : []),
         ]}
       />
       <div className="bg-slate-50">
@@ -221,6 +230,18 @@ const ServicePage = () => {
                       {ctaText}
                   </PrimaryButton>
               </div>
+
+              {/* FAQ Section */}
+              {hasFaq && (
+                <div className="mt-16">
+                  <FAQSection
+                    items={faqItems}
+                    caption={faqCaption}
+                    title={faqTitle}
+                    showFooter={false}
+                  />
+                </div>
+              )}
             </Reveal>
           </article>
 
