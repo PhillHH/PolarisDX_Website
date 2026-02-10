@@ -62,6 +62,24 @@ const AboutPage = () => {
         </Reveal>
 
         <Reveal width="100%">
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="text-lg text-gray-600">
+              Als europäischer Distributionspartner von{' '}
+              <a
+                href="https://dx365.world"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand-primary hover:text-brand-deep underline transition-colors"
+              >
+                DX365
+              </a>{' '}
+              bringen wir den IglooPro POC-Reader in Praxen und Kliniken —
+              inklusive Vertrieb, Integration, Schulung und laufendem Support.
+            </p>
+          </div>
+        </Reveal>
+
+        <Reveal width="100%">
           <div className="flex flex-col items-center gap-4 text-center">
             <p className="text-lg text-gray-600">
               {t('about:cta.text', 'Lernen Sie unsere Diagnostik-Lösungen kennen oder nehmen Sie direkt Kontakt auf.')}

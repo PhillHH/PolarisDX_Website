@@ -210,6 +210,18 @@ const IglooProPage: React.FC = () => {
                     ))}
                 </div>
             </div>
+            <p className="mt-4 text-center text-xs text-gray-400">
+              Hergestellt von{' '}
+              <a
+                href="https://dx365.world"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-gray-600 transition-colors"
+              >
+                DX365 GmbH
+              </a>
+              , Berlin · Europäischer Vertrieb: PolarisDX
+            </p>
         </div>
       </section>
 
