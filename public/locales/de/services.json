@@ -269,6 +269,10 @@
         {
           "question": "Ist der IglooPro IVDR-konform?",
           "answer": "Ja. Der IglooPro erfüllt die Anforderungen der europäischen In-vitro-Diagnostik-Verordnung (IVDR, EU 2017/746) und trägt die entsprechende CE-Kennzeichnung. Die IVDR-Konformität gewährleistet, dass das Gerät und die verwendeten Testkassetten strenge Anforderungen an analytische Leistung, klinische Evidenz und Qualitätsmanagement einhalten — eine zwingende Voraussetzung für den Einsatz in der IVD-Diagnostik."
+        },
+        {
+          "question": "Wer stellt den IglooPro her?",
+          "answer": "Der IglooPro wird von der DX365 GmbH in Berlin entwickelt und hergestellt. PolarisDX ist Distributionspartner für den europäischen Markt und übernimmt Vertrieb, Integration, Schulung und laufenden Support."
         }
       ]
     }

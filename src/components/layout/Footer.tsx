@@ -121,6 +121,9 @@ const Footer = () => {
               <Link to="/terms" className="hover:text-white transition-colors">{t('nav.terms')}</Link>
             </div>
           </div>
+          <p className="mt-2 text-center text-xs text-white/40">
+            IglooPro ist ein Produkt der DX365 GmbH
+          </p>
         </div>
       </div>
     </footer>
