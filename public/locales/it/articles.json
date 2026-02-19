@@ -318,55 +318,6 @@
       }
     ]
   },
-  "48_hour_formula": {
-    "title": "La formula delle 48 ore: Efficienza nella diagnostica POC",
-    "excerpt": "Efficienza invece di formazione: La strada verso la prontezza operativa immediata in studio.",
-    "sections": [
-      {
-        "heading": "Introduzione",
-        "paragraphs": [
-          "La decisione di acquisire nuovi dispositivi diagnostici Point-of-Care (POC) è spesso il primo passo verso una migliore assistenza al paziente. Tuttavia, il percorso dall'acquisizione alla piena prontezza operativa è spesso sottovalutato. La formazione prolungata, gli ostacoli amministrativi e la complessa integrazione IT consumano tempo prezioso e legano il personale la cui attenzione dovrebbe essere rivolta al paziente.",
-          "Questo collo di bottiglia appartiene al passato. I moderni concetti di supporto rivoluzionano la messa in servizio e riducono lo sforzo per studi e farmacie al minimo. La chiave è l'approccio 'Remote Setup', che garantisce la prontezza operativa immediata in sole 48 ore."
-        ]
-      },
-      {
-        "heading": "1. Il dilemma dell'efficienza: Perché l'integrazione tradizionale fallisce",
-        "paragraphs": [
-          "Tradizionalmente, integrare un nuovo sistema POC richiede diversi passaggi che consumano molto tempo e che spesso richiedono settimane:"
-        ],
-        "listItems": [
-          "Formazione amministrativa e normativa: Formazione del personale riguardo alla gestione della qualità (ad es. secondo RiliBÄK o Qualab) e protocolli interni.",
-          "Configurazione tecnica e calibrazione: Messa in servizio iniziale manuale e calibrazione specifica del lotto del dispositivo.",
-          "Connessione IT e scambio dati: La complessa connessione bidirezionale tra il lettore POC e il sistema di gestione dello studio o della farmacia (PVS/AVS)."
-        ]
-      },
-      {
-        "heading": "2. L'approccio Remote Setup: Esperti IT in background",
-        "paragraphs": [
-          "L'approccio Remote Setup si basa sulla connettività digitale dei moderni lettori POC. Invece di aver bisogno di un tecnico dell'assistenza in loco, il dispositivo viene configurato e validato da remoto da esperti specializzati.",
-          "Processi centrali gestiti da remoto:"
-        ],
-        "listItems": [
-          "Calibrazione completa: La calibrazione tecnica del multi-lettore ai Test a Flusso Laterale (LFT) utilizzati viene eseguita esternamente. Questo assicura che la precisione analitica sia garantita fin dall'inizio – senza che il personale dello studio debba eseguire complessi passaggi tecnici.",
-          "Integrazione IT perfetta: La connessione al sistema informativo di laboratorio o studio (LIS/PIS) avviene tramite interfacce sicure basate sul web (ad es. soluzioni POC-IT). I consulenti esterni assicurano che tutti i valori di misurazione vengano trasferiti automaticamente, in modo sicuro e senza errori nella cartella del paziente.",
-          "Aggiornamenti firmware e controlli di sistema: Gli aggiornamenti software per garantire la compatibilità e la conformità ai nuovi standard possono essere installati da remoto permanentemente e senza interrompere le operazioni dello studio."
-        ]
-      },
-      {
-        "heading": "3. La formula delle 48 ore: Il vantaggio competitivo",
-        "paragraphs": [
-          "Esternalizzando la complessità tecnica e amministrativa a servizi remoti specializzati, studi e farmacie possono ridurre il tempo richiesto da settimane a un minimo.",
-          "Guadagno di efficienza e soddisfazione del paziente: La prontezza operativa immediata dei dispositivi diagnostici POC consente al personale di concentrarsi immediatamente sull'assistenza al paziente. Il risparmio di tempo nella diagnosi, decisioni terapeutiche più rapide e l'eliminazione di un secondo appuntamento portano a una soddisfazione del paziente significativamente più alta. I flussi di lavoro ottimizzati migliorano l'efficienza economica dell'intera struttura."
-        ]
-      },
-      {
-        "heading": "Conclusione: Investimento in tempo e sicurezza",
-        "paragraphs": [
-          "La moderna diagnostica Point-of-Care è più di un semplice dispositivo: è un sistema digitalmente integrato. Chi si affida al Remote Setup investe non solo in una diagnostica più precisa e veloce, ma principalmente nel tempo prezioso del proprio personale. La formula delle 48 ore è quindi sinonimo di minimo stress di integrazione e massima prontezza operativa nella moderna assistenza sanitaria."
-        ]
-      }
-    ]
-  },
   "precision_point_of_care": {
     "title": "Precisione nel Point-of-Care: La chiave per la sicurezza del paziente",
     "excerpt": "Perché la validazione dei test a flusso laterale (LFT) va oltre le specifiche del produttore.",

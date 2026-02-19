@@ -318,55 +318,6 @@
       }
     ]
   },
-  "48_hour_formula": {
-    "title": "The 48-Hour Formula: Efficiency in POC Diagnostics",
-    "excerpt": "Efficiency instead of training: The path to immediate operational readiness in practice.",
-    "sections": [
-      {
-        "heading": "Introduction",
-        "paragraphs": [
-          "The decision for new Point-of-Care (POC) diagnostic devices is often the first step towards better patient care. However, the path from acquisition to full operational readiness is often underestimated. Lengthy training, administrative hurdles, and complex IT integration consume valuable time and tie up staff whose focus should actually be on the patient.",
-          "This bottleneck is a thing of the past. Modern support concepts revolutionize commissioning and reduce the effort for practices and pharmacies to a minimum. The key is the 'Remote Setup' approach, which guarantees immediate operational readiness in just 48 hours."
-        ]
-      },
-      {
-        "heading": "1. The Efficiency Dilemma: Why Traditional Integration Fails",
-        "paragraphs": [
-          "Traditionally, integrating a new POC system requires several time-consuming steps that often take weeks:"
-        ],
-        "listItems": [
-          "Administrative and Regulatory Training: Training staff regarding quality management (e.g., according to RiliBÄK or Qualab) and internal protocols.",
-          "Technical Setup and Calibration: Manual initial commissioning and batch-specific calibration of the device.",
-          "IT Connection and Data Exchange: The complex bidirectional connection between the POC reader and the practice or pharmacy management system (PVS/AVS)."
-        ]
-      },
-      {
-        "heading": "2. The Remote Setup Approach: IT Experts in the Background",
-        "paragraphs": [
-          "The Remote Setup approach is based on the digital connectivity of modern POC readers. Instead of needing a service technician on-site, the device is set up and validated remotely by specialized experts.",
-          "Core processes handled remotely:"
-        ],
-        "listItems": [
-          "Full Calibration: The technical calibration of the multi-reader to the Lateral Flow Tests (LFTs) used is done externally. This ensures that analytical precision is guaranteed from the start – without practice staff having to perform complex technical steps.",
-          "Seamless IT Integration: Connection to the laboratory or practice information system (LIS/PIS) takes place via secure, web-based interfaces (e.g., POC-IT solutions). External consultants ensure that all measurement values are transferred automatically, securely, and error-free into the patient file.",
-          "Firmware Updates and System Checks: Software updates to ensure compatibility and compliance with new standards can be installed remotely permanently and without interrupting practice operations."
-        ]
-      },
-      {
-        "heading": "3. The 48-Hour Formula: The Competitive Advantage",
-        "paragraphs": [
-          "By outsourcing technical and administrative complexity to specialized remote services, practices and pharmacies can reduce the time required from weeks to a minimum.",
-          "Efficiency Gain and Patient Satisfaction: The immediate operational readiness of POC diagnostic devices allows staff to focus immediately on patient care. Time savings in diagnosis, faster therapy decisions, and the elimination of a second appointment lead to significantly higher patient satisfaction. Optimized workflows improve the economic efficiency of the entire facility."
-        ]
-      },
-      {
-        "heading": "Conclusion: Investment in Time and Safety",
-        "paragraphs": [
-          "Modern Point-of-Care diagnostics is more than just a device: It is a digitally integrated system. Those who rely on Remote Setup invest not only in more precise and faster diagnostics but primarily in the valuable time of their staff. The 48-hour formula is thus synonymous with minimal integration stress and maximum operational readiness in modern healthcare."
-        ]
-      }
-    ]
-  },
   "precision_point_of_care": {
     "title": "Precision in Point-of-Care: The Key to Patient Safety",
     "excerpt": "Why the validation of Lateral Flow Tests (LFT) goes beyond manufacturer specifications.",

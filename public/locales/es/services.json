@@ -2,29 +2,6 @@
   "dental": {
     "title": "Dental",
     "headline": "Precisión para la odontología moderna",
-    "intro": [
-      "Amplíe su espectro de tratamiento con diagnósticos modernos directamente en el sillón. Los resultados rápidos permiten una consulta al paciente inmediata y bien fundada.",
-      "Optimice los procesos de curación y detecte riesgos tempranamente."
-    ],
-    "sections": [
-      {
-        "heading": "1. Vitamina D y curación de heridas",
-        "content": "Un nivel suficiente de vitamina D es esencial para la osteointegración de implantes y la curación general de heridas. Mida el estado directamente en el lugar.",
-        "listItems": [
-          "Determinación inmediata de los niveles de 25-OH-Vitamina D.",
-          "Suplementación dirigida para mejorar los resultados quirúrgicos."
-        ]
-      },
-      {
-        "heading": "2. Marcadores de inflamación",
-        "content": "Detecte inflamaciones sistémicas que pueden influir en la periodontitis y monitoree el éxito terapéutico.",
-        "listItems": []
-      }
-    ],
-    "conclusion": {
-      "heading": "Conclusión",
-      "text": "Integre el diagnóstico sin problemas en el flujo de trabajo de su consulta para obtener mejores resultados clínicos."
-    },
     "cta": "Saber más"
   },
   "beauty": {

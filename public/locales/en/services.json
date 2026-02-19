@@ -2,41 +2,6 @@
   "dental": {
     "title": "Dental",
     "headline": "Optimized Implantology & Periodontology: Measurable Safety at the Chair",
-    "intro": [
-      "In modern dentistry, the success of surgical procedures and periodontal treatments is closely linked to the patient's systemic health status. 'Chairside' diagnostics allow you to make these factors visible and minimize risks.",
-      "The Igloo Pro Reader brings necessary laboratory analytical precision directly into your practice to immediately determine wound healing potentials and inflammation levels."
-    ],
-    "sections": [
-      {
-        "heading": "1. Vitamin D: The Key to Osseointegration",
-        "content": "A sufficient 25-OH-Vitamin D level (>30-40 ng/ml) is the physiological prerequisite for successful osseointegration and bone regeneration.",
-        "listItems": [
-          "Preoperative Screening: Measure Vitamin D status before every implantation or bone augmentation. Deficiency correlates significantly with early [[implant loss and wound healing disorders|/vitamin-d3-implantologie]].",
-          "Immediate Therapy: Thanks to results in minutes, you can initiate high-dose supplementation before the procedure (or perioperatively) ('Loading Dose') to close the 'Immunological Gap'.",
-          "Evidence-Based Counseling: Show your patients in black and white why supplementation is necessary for the preservation of their implant."
-        ]
-      },
-      {
-        "heading": "2. Inflammation Management: aMMP-8 and CRP",
-        "content": "Detect the process of tissue destruction before it becomes clinically visible.",
-        "listItems": [
-          "aMMP-8 (Active Matrix Metalloproteinase-8): This marker indicates acute tissue destruction (collagenolysis). An elevated value in sulcus fluid or saliva warns of active periodontitis or peri-implantitis, often before probing depths increase.",
-          "Systemic Inflammation (CRP): Chronic periodontitis can increase systemic inflammation load (hs-CRP) and vice versa. Measurement helps to illustrate the connection between oral and general health."
-        ]
-      },
-      {
-        "heading": "3. Economic Efficiency and Patient Service",
-        "content": "Integrating these tests is not only medically sensible but also a unique selling point.",
-        "listItems": [
-          "Private Billing: Diagnostic services and consultations are billable as private medical services.",
-          "Trust: Patients experience high-tech care that goes beyond the standard and places their safety at the center."
-        ]
-      }
-    ],
-    "conclusion": {
-      "heading": "Conclusion: Biological Dentistry with Data",
-      "text": "Do not rely on assumptions. With the Igloo Pro, you make the biological prerequisites of your patients measurable and controllable. PolarisDX.net supports you in implementing these tests into your daily workflow."
-    },
     "cta": "Book appointment"
   },
   "beauty": {

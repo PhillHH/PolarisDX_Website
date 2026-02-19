@@ -2,29 +2,6 @@
   "dental": {
     "title": "Dentaire",
     "headline": "Précision pour la dentisterie moderne",
-    "intro": [
-      "Élargissez votre spectre de traitement avec des diagnostics modernes directement au fauteuil. Des résultats rapides permettent une consultation immédiate et fondée du patient.",
-      "Optimisez les processus de guérison et détectez les risques tôt."
-    ],
-    "sections": [
-      {
-        "heading": "1. Vitamine D & cicatrisation",
-        "content": "Un niveau suffisant de vitamine D est essentiel pour l'ostéointégration des implants et la cicatrisation générale. Mesurez le statut directement sur place.",
-        "listItems": [
-          "Détermination immédiate du taux de 25-OH-Vitamine D.",
-          "Supplémentation ciblée pour améliorer les résultats chirurgicaux."
-        ]
-      },
-      {
-        "heading": "2. Marqueurs d'inflammation",
-        "content": "Détectez les inflammations systémiques qui peuvent influencer la parodontite et surveillez le succès thérapeutique.",
-        "listItems": []
-      }
-    ],
-    "conclusion": {
-      "heading": "Conclusion",
-      "text": "Intégrez le diagnostic de manière transparente dans le flux de travail de votre cabinet pour de meilleurs résultats cliniques."
-    },
     "cta": "En savoir plus"
   },
   "beauty": {
