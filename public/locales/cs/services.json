@@ -2,7 +2,37 @@
   "dental": {
     "title": "Dental",
     "headline": "Přesnost pro moderní stomatologii",
-    "cta": "Dozvědět se více"
+    "cta": "Dozvědět se více",
+    "faq": {
+      "caption": "Často kladené otázky",
+      "title": "Často kladené otázky k dentální diagnostice",
+      "items": [
+        {
+          "question": "Jaké krevní testy mohu jako zubní lékař provádět přímo v ordinaci?",
+          "answer": "S Point-of-Care přístrojem, jako je Igloo Pro Reader, lze kvantitativně stanovit mimo jiné vitamin D3, CRP, HbA1c, TSH, ferritin a cholesterol (HDL, LDL, celkový). Měření se provádí z kapilární krve odběrem z prstu. Podle typu biomarkeru je výsledek k dispozici za tři až patnáct minut – přímo u ošetřovacího křesla, bez odesílání vzorků do laboratoře."
+        },
+        {
+          "question": "Jak funguje Igloo Pro Reader?",
+          "answer": "Igloo Pro Reader pracuje na principu imunofluorescence a poskytuje kvantitativní naměřené hodnoty. Postup zahrnuje pět kroků: odběr kapilární krve z prstu, nanesení vzorku na předplněnou testovací kazetu, vložení kazety do čtečky, vyčkání na dobu měření a odečtení výsledku na displeji. Obsluha nevyžaduje laboratorní vzdělání."
+        },
+        {
+          "question": "Je krevní test u zubního lékaře individuální zdravotní službou (IGeL)?",
+          "answer": "Ano, pokud neexistuje lékařská indikace ve smyslu zákonného zdravotního pojištění. Vyúčtování se provádí podle sazebníku lékařských výkonů (GOÄ), protože zubní lékaři účtují lékařské výkony podle § 6 odst. 2 GOZ dle GOÄ. Před provedením je u pojištěnců zákonného zdravotního pojištění nutná písemná smlouva o individuální zdravotní službě s kalkulací nákladů."
+        },
+        {
+          "question": "Kolik stojí Igloo Pro Reader?",
+          "answer": "Cena Igloo Pro Readeru závisí na zvoleném vybavení a modelu pořízení – koupě nebo leasing. PolarisDX vytvoří na základě profilu vaší ordinace a plánovaného objemu testů individuální nabídku včetně kalkulace návratnosti. Kontaktujte nás pro vaši osobní nabídku."
+        },
+        {
+          "question": "Je Igloo Pro Reader v souladu s IVDR?",
+          "answer": "Ano. Igloo Pro Reader a příslušné testovací kazety jsou schváleny podle evropského nařízení o diagnostických zdravotnických prostředcích in vitro (EU 2017/746) a nesou označení CE. Přístroj tak splňuje veškeré regulatorní požadavky pro profesionální použití jako diagnostický prostředek in vitro v lékařských ordinacích."
+        },
+        {
+          "question": "Jaké zajištění kvality je vyžadováno pro POCT v zubní ordinaci?",
+          "answer": "Podle směrnice Spolkové lékařské komory (RiliBÄK) jsou předepsány interní kontroly kvality prostřednictvím pravidelných kontrolních měření a účast na externích kruhových testech. Výsledky musí být dokumentovány. PolarisDX podporuje ordinace při zavádění interní kontroly kvality, přihlášení ke kruhovým testům a průběžné dokumentaci."
+        }
+      ]
+    }
   },
   "beauty": {
     "title": "Krása a estetika",
@@ -30,7 +60,33 @@
       "heading": "Závěr",
       "text": "Odlište se vědecky podloženými koncepty krásy."
     },
-    "cta": "Rezervovat konzultaci"
+    "cta": "Rezervovat konzultaci",
+    "faq": {
+      "caption": "Často kladené otázky",
+      "title": "FAQ k estetické diagnostice a analýze biomarkerů",
+      "items": [
+        {
+          "question": "Které biomarkery jsou relevantní pro estetické zákroky?",
+          "answer": "Pro estetickou medicínu jsou relevantní především vitamin D (kožní bariéra, syntéza kolagenu), ferritin (vypadávání vlasů, regenerace tkání), TSH (funkce štítné žlázy ovlivňuje pokožku a vlasy) a hs-CRP (tiché záněty jako příčina předčasného stárnutí pokožky). Tyto biomarkery poskytují objektivní základ pro individuální nastavení ošetření a sledovatelnou dokumentaci výsledků."
+        },
+        {
+          "question": "Proč bych měl/a před estetickými zákroky provést krevní vyšetření?",
+          "answer": "Preintervenční screening odhalí rizikové faktory, které mohou ovlivnit úspěch ošetření — například poruchy srážlivosti, nedostatek živin nebo subklinické záněty. To zvyšuje bezpečnost pacienta a umožňuje poradenství založené na důkazech, které vaši praxi pozicionuje jako medicínsky fundovanou."
+        },
+        {
+          "question": "Jak souvisejí hodnoty štítné žlázy s vypadáváním vlasů?",
+          "answer": "Štítná žláza reguluje celkový buněčný metabolismus — včetně cyklu vlasového folikulu. Jak snížená, tak zvýšená funkce (rozpoznatelná odchylkou hodnot TSH) může způsobit difuzní vypadávání vlasů, suchou pokožku a lámavé nehty. POC rychlotest na TSH poskytne jasno během několika minut a umožní cílené doporučení k dalšímu vyšetření nebo zahájení terapie."
+        },
+        {
+          "question": "Mohu nabízet hormonální diagnostiku jako individuální zdravotní službu?",
+          "answer": "Ano. Hormonální screeningy (TSH, kortizol, testosteron) a analýzy mikroživin (vitamin D, ferritin) jsou klasické individuální zdravotní služby, které se účtují soukromě podle GOÄ. Právě v segmentu krásy existuje vysoká ochota platit za poradenství podložené daty, které přesahuje rámec čistě přístrojových ošetření."
+        },
+        {
+          "question": "Jakou roli hraje vitamin D pro pokožku a vlasy?",
+          "answer": "Vitamin D se podílí na diferenciaci keratinocytů, udržování kožní bariéry a regulaci cyklu vlasového folikulu. Nedostatek vitaminu D — ve střední Evropě rozšířený u více než 50 % populace — podporuje zánětlivé kožní stavy, urychluje stárnutí pokožky a může zesílit vypadávání vlasů. Měření pomocí IglooPro trvá jen několik minut a tvoří základ pro cílenou suplementaci."
+        }
+      ]
+    }
   },
   "longevity": {
     "title": "Dlouhověkost",
@@ -58,7 +114,33 @@
       "heading": "Závěr",
       "text": "Staňte se partnerem pro dlouhý a zdravý život vašich pacientů."
     },
-    "cta": "Začněte nyní"
+    "cta": "Začněte nyní",
+    "faq": {
+      "caption": "Často kladené otázky",
+      "title": "FAQ k diagnostice dlouhověkosti a prevenci",
+      "items": [
+        {
+          "question": "Které biomarkery jsou relevantní pro medicínu dlouhověkosti?",
+          "answer": "Mezi klíčové markery diagnostiky dlouhověkosti patří HbA1c (glykemická kontrola a tvorba AGE), hs-CRP (chronický zánět / inflammaging), kompletní lipidový profil (kardiovaskulární riziko), TSH (funkce štítné žlázy) a vitamin D (imunomodulace, zdraví kostí). Tyto parametry společně tvoří vypovídající základní profil, který lze s IglooPro stanovit přímo v místě péče."
+        },
+        {
+          "question": "Jaký je rozdíl mezi preventivní a kurativní diagnostikou?",
+          "answer": "Kurativní diagnostika se používá při existujících symptomech k potvrzení nebo vyloučení onemocnění. Preventivní diagnostika naproti tomu zachycuje biomarkery proaktivně — ještě před vznikem symptomů —, aby včas identifikovala rizikové faktory a umožnila protiopatření. V medicíně dlouhověkosti se pozornost soustředí na optimalizaci hodnot v rámci normálního rozmezí, nikoli teprve na léčbu patologických odchylek."
+        },
+        {
+          "question": "Jak často by se měly biomarkery dlouhověkosti kontrolovat?",
+          "answer": "Pro fundované monitorování dlouhověkosti se doporučuje základní zdravotní kontrola každé 3–6 měsíců, při probíhajících intervencích (např. změna stravování, suplementace, tréninkové programy) i častěji. Rychlá dostupnost výsledků v místě péče umožňuje provádět úpravy v reálném čase namísto čekání na laboratorní zprávy."
+        },
+        {
+          "question": "Které zánětlivé markery jsou důležité pro prevenci?",
+          "answer": "Vysoce senzitivní hodnota CRP (hs-CRP) je centrálním markerem pro chronické subklinické záněty — tzv. inflammaging. Již mírně zvýšené hodnoty v rozmezí 1–3 mg/l korelují se zvýšeným rizikem kardiovaskulárních onemocnění, neurodegenerace a zrychlených procesů stárnutí. Pravidelné monitorování umožňuje včasnou intervenci prostřednictvím životního stylu nebo cílené suplementace."
+        },
+        {
+          "question": "Mohu nabízet zdravotní kontroly jako službu pro samoplátce?",
+          "answer": "Ano. Preventivní screeningy biomarkerů jsou klasické služby pro samoplátce, resp. individuální zdravotní služby, protože přesahují katalog výkonů zákonného zdravotního pojištění. Právě v segmentu dlouhověkosti existuje vysoká poptávka po zdravotních kontrolách podložených daty. Kombinace okamžité analýzy a kvalifikovaného poradenství tvoří ekonomicky atraktivní balíček služeb pro vaši praxi."
+        }
+      ]
+    }
   },
   "poc_systemloesungen": {
     "title": "Systémová řešení POC",
@@ -103,7 +185,37 @@
       "heading": "Závěr pro PolarisDX.net: Více než jen technologie",
       "text": "Systémové řešení POC Igloo Pro představuje špičku mobilní diagnostiky. Ale skutečný výkon se odemkne až exkluzivním servisem. PolarisDX.net zaručuje nejen dodání tohoto technologického nástroje, ale také jeho okamžitou, validovanou a bezproblémovou integraci do vašeho provozu. Vsaďte na agilitu mobilní diagnostiky – se zaručenou jistotou odborného partnera po svém boku."
     },
-    "cta": "Rezervovat termín"
+    "cta": "Rezervovat termín",
+    "faq": {
+      "caption": "Často kladené otázky",
+      "title": "FAQ k systémovým řešením Point-of-Care",
+      "items": [
+        {
+          "question": "Co je Point-of-Care test (POCT)?",
+          "answer": "Point-of-Care test (POCT) je forma laboratorní diagnostiky v blízkosti pacienta, při které se analýza provádí přímo v místě ošetření — bez odesílání do centrální laboratoře. Výsledek je k dispozici během několika minut a může být okamžitě zohledněn v klinickém rozhodování. POCT systémy jako IglooPro využívají Lateral-Flow-Assay, imunofluorescenci nebo kolorimetrii k dodání kvantitativních výsledků v laboratorní kvalitě."
+        },
+        {
+          "question": "Jak integruji POC systém do svého pracovního postupu v ordinaci?",
+          "answer": "Integrace POCT přístroje, jako je IglooPro, nevyžaduje žádné stavební úpravy ani speciální laboratorní prostory. Přístroj váží cca 400 g, je okamžitě připraven k použití a lze jej přes USB-C, WLAN nebo Bluetooth propojit s vaším praxisním softwarem. PolarisDX zajišťuje kompletní službu vzdáleného nastavení během 3–5 pracovních dnů — včetně validace, konfigurace rozhraní a školení týmu."
+        },
+        {
+          "question": "Jaké zajištění kvality je u POCT vyžadováno?",
+          "answer": "Směrnice Spolkové lékařské komory (RiliBÄK) upravuje zajištění kvality laboratorních vyšetření, včetně POCT. Předepsány jsou mimo jiné pravidelná kontrolní měření, dokumentace výsledků a proškolení obsluhujícího personálu. IglooPro tento proces podporuje automatickým ukládáním výsledků (až 10 000 měření) a napojením na systémy LIS/HIS pro bezchybnou dokumentaci."
+        },
+        {
+          "question": "Jak rychle dodává IglooPro výsledky?",
+          "answer": "Podle parametru jsou kvantitativní výsledky k dispozici za 3 až 15 minut. Hodnoty CRP jsou typicky dostupné za méně než 5 minut, vitamin D a HbA1c přibližně za 10–15 minut. Rychlá diagnostika umožňuje uzavřít stanovení diagnózy a poradenství v jediném kontaktu s pacientem — bez následného termínu a bez čekání na výsledky z externího laboratoře."
+        },
+        {
+          "question": "Je IglooPro v souladu s IVDR?",
+          "answer": "Ano. IglooPro splňuje požadavky evropského nařízení o diagnostických zdravotnických prostředcích in vitro (IVDR, EU 2017/746) a nese příslušné označení CE. Soulad s IVDR zaručuje, že přístroj a použité testovací kazety splňují přísné požadavky na analytický výkon, klinické důkazy a řízení kvality — nezbytný předpoklad pro použití v IVD diagnostice."
+        },
+        {
+          "question": "Kdo vyrábí IglooPro?",
+          "answer": "IglooPro je vyvíjen a vyráběn společností DX365 GmbH v Berlíně. PolarisDX je distribučním partnerem pro evropský trh a zajišťuje prodej, integraci, školení a průběžnou podporu."
+        }
+      ]
+    }
   },
   "praeventions_checks": {
     "title": "Preventivní zdravotní prohlídky",
@@ -144,7 +256,29 @@
       "heading": "Závěr pro vaše rozhodnutí",
       "text": "Investice do systémových řešení POC je investicí do budoucnosti péče zaměřené na pacienta a zvýšení provozní efektivity. PolarisDX.net dodává nejen technologii pro tuto transformaci, ale zaručuje prostřednictvím exkluzivního 3-5 pracovní dnyodinového servisu vzdáleného nastavení a záruky kompatibility LFT její hladkou a validovanou funkci. Tak využijete plný potenciál preventivních zdravotních prohlídek okamžitě."
     },
-    "cta": "Rezervovat termín"
+    "cta": "Rezervovat termín",
+    "faq": {
+      "caption": "Často kladené otázky",
+      "title": "FAQ k preventivním zdravotním prohlídkám",
+      "items": [
+        {
+          "question": "Jaké preventivní prohlídky mohu v ordinaci nabízet?",
+          "answer": "S POC systémem, jako je IglooPro, lze přímo v ordinaci nabízet komplexní check-up profily — od screeningu diabetu (HbA1c) přes posouzení kardiovaskulárního rizika (cholesterol) a zánětlivý stav (CRP) až po kontroly mikroživin (vitamin D, ferritin). Preventivní diagnostiku lze do chodu ordinace začlenit jako strukturovaný preventivní program nebo jako cílenou jednotlivou službu."
+        },
+        {
+          "question": "Které biomarkery patří k základní zdravotní prohlídce?",
+          "answer": "Základní zdravotní prohlídka založená na důkazech zahrnuje minimálně HbA1c (glykemická kontrola), CRP (zánětlivý stav), vitamin D (imunitní funkce, zdraví kostí) a lipidový profil (kardiovaskulární riziko). Podle profilu pacienta lze doplnit TSH (štítná žláza) a ferritin (stav železa). Všechny tyto parametry lze s IglooPro stanovit v jednom sezení."
+        },
+        {
+          "question": "Čím se liší POC vyšetření od laboratorní zakázky?",
+          "answer": "U klasické laboratorní zakázky se odebere vzorek, odešle do centrální laboratoře a výsledek je k dispozici nejdříve za 24–48 hodin — často je nutný následný termín. U laboratorní diagnostiky v blízkosti pacienta (POCT) probíhá analýza přímo na místě za 3–15 minut. Poradenství a zahájení terapie mohou proběhnout ve stejném termínu, což výrazně zvyšuje efektivitu i spokojenost pacientů."
+        },
+        {
+          "question": "Jsou preventivní prohlídky účtovatelné jako individuální zdravotní služby?",
+          "answer": "Ano. Preventivní screeningy biomarkerů, které přesahují katalog výkonů zákonného zdravotního pojištění, jsou jako individuální zdravotní služby (IGeL) soukromě účtovatelné podle GOÄ. Kombinace okamžité analytiky a kvalifikovaného poradenství tvoří ekonomicky atraktivní nabídku pro samoplátce, která současně posiluje vazbu s pacientem."
+        }
+      ]
+    }
   },
   "infektion_entzuendung": {
     "title": "Markery infekce a zánětu",
@@ -184,7 +318,29 @@
       "heading": "Závěr: Žádné kompromisy v diagnostice",
       "text": "U infekcí a zánětů je čas kritickým faktorem. Pouze systém POC, který kombinuje validitu na laboratorní úrovni s maximální rychlostí, může zvýšit bezpečnost v diagnostice a zároveň optimalizovat řízení antibiotik. PolarisDX.net dodává tento zaručený výkon – od 3-5 pracovní dnyodinového uvedení do provozu až po prioritní podporu."
     },
-    "cta": "Rezervovat termín"
+    "cta": "Rezervovat termín",
+    "faq": {
+      "caption": "Často kladené otázky",
+      "title": "FAQ k diagnostice infekcí a zánětů",
+      "items": [
+        {
+          "question": "Kdy je rychlotest CRP v ordinaci smysluplný?",
+          "answer": "Rychlotest CRP je indikován vždy, když je klinicky relevantní rychlé rozlišení mezi bakteriální a virovou příčinou — například u infekcí dýchacích cest, horečky nejasného původu nebo pooperační kontroly průběhu. Zvýšená hodnota CRP nad 40 mg/l svědčí pro bakteriální účast, zatímco nižší hodnoty mohou podpořit vyčkávací postup bez nasazení antibiotik. Měření s IglooPro trvá méně než 5 minut."
+        },
+        {
+          "question": "Mohu s IglooPro rozlišit bakteriální a virové infekce?",
+          "answer": "Kombinace CRP a PCT (prokalcitonin) umožňuje diferencovanější posouzení než jediný marker. CRP stoupá jak u bakteriálních, tak u virových infekcí, zatímco PCT reaguje výrazně specifičtěji na bakteriální infekce a sepsi. Současným stanovením obou parametrů v místě péče lze činit fundovanější terapeutická rozhodnutí a omezit zbytečné předepisování antibiotik."
+        },
+        {
+          "question": "Jak spolehlivé jsou POC zánětlivé testy ve srovnání s laboratoří?",
+          "answer": "POC systémy v souladu s IVDR, jako je IglooPro, dodávají kvantitativní výsledky s analytickou přesností CV < 2 %, a jsou tak srovnatelné s měřeními centrální laboratoře. Zajištění kvality probíhá prostřednictvím validovaných testovacích kazet a interních kontrol. V klinické praxi nabízejí POC testy navíc tu výhodu, že výsledek je k dispozici okamžitě a není ovlivněn dobou transportu ani skladováním vzorků."
+        },
+        {
+          "question": "Které zánětlivé markery může IglooPro měřit?",
+          "answer": "IglooPro podporuje stanovení CRP (C-reaktivní protein) jako centrálního markeru akutní fáze, PCT (prokalcitonin) pro diferenciaci bakteriálních infekcí a ferritinu, který je kromě stavu železa relevantní i jako zánětlivý marker u chronických a akutních procesů. Díky otevřené platformě lze integrovat další Lateral-Flow testy pro IL-6 a další parametry."
+        }
+      ]
+    }
   },
   "stoffwechsel_herz": {
     "title": "Metabolismus a zdraví srdce",
@@ -224,7 +380,29 @@
       "heading": "Závěr pro vaši ordinaci",
       "text": "Integrace čtečky Igloo Pro Reader do vašeho pracovního toku znamená změnu paradigmatu: Od časově zpožděného monitorování k okamžité, na datech založené úpravě terapie. S PolarisDX.net si zajistíte nejen technologii pro tato kritická měření, ale také záruku hladké implementace a průběžné validace."
     },
-    "cta": "Rezervovat termín"
+    "cta": "Rezervovat termín",
+    "faq": {
+      "caption": "Často kladené otázky",
+      "title": "FAQ k diagnostice metabolismu a srdce",
+      "items": [
+        {
+          "question": "Které metabolické biomarkery mohu měřit přímo u pacienta?",
+          "answer": "S IglooPro stanovíte HbA1c (dlouhodobý krevní cukr), celkový cholesterol a další lipidové frakce přímo z kapilární krve během několika minut. Tato diagnostika u křesla pacienta dodává výsledky srovnatelné s laboratoří (CV < 2 %) a umožňuje okamžitou úpravu terapie ve stejném kontaktu s pacientem — bez odesílání do centrální laboratoře."
+        },
+        {
+          "question": "Jak pomáhá hodnota HbA1c při včasné detekci diabetu?",
+          "answer": "Rychlotest HbA1c zobrazuje průměrný krevní cukr za posledních 8–12 týdnů, a je tak nezávislý na denních výkyvech či stavu nalačno. Hodnoty mezi 5,7 % a 6,4 % ukazují na riziko prediabetu, od 6,5 % platí diagnóza diabetes mellitus. Okamžitá dostupnost v místě péče umožňuje přímé poradenství a zahájení terapie bez následného termínu."
+        },
+        {
+          "question": "Které kardiovaskulární rizikové markery měří IglooPro?",
+          "answer": "IglooPro podporuje stanovení hodnot cholesterolu (celkový cholesterol, LDL, HDL, triglyceridy) a D-dimeru jako parametru pro vyloučení trombóz a plicních embolií. Tyto kardiovaskulární rizikové markery umožňují rychlé posouzení cévního rizika a fundovaná rozhodnutí o dalším postupu léčby — přímo v ordinaci."
+        },
+        {
+          "question": "Mohu nabízet metabolické kontroly jako doplňkovou službu?",
+          "answer": "Ano. Screeningy HbA1c, cholesterolu a dalších metabolických parametrů jsou typické individuální zdravotní služby (IGeL), které se soukromě účtují podle GOÄ. Kombinace okamžitého měření a kvalifikovaného poradenství přináší měřitelnou přidanou hodnotu pro pacienty a generuje plánovatelný dodatečný příjem pro vaši ordinaci."
+        }
+      ]
+    }
   },
   "hormon_tests": {
     "title": "Hormonální a endokrinologické testy",
@@ -264,7 +442,29 @@
       "heading": "Závěr: Speciální diagnostika přímo ve vaší ruce",
       "text": "Hormonální a endokrinologické testy jsou často výchozím bodem komplexních léčebných cest. Díky POC diagnostice s Igloo Pro masivně zkrátíte čas do diagnózy a rozhodnutí o terapii. polarisDX.net vám nabízí technologii a záruku kompatibility LFT pro bezpečnou a efektivní integraci tohoto širokého spektra specializovaných testů do vašeho provozu."
     },
-    "cta": "Rezervovat termín"
+    "cta": "Rezervovat termín",
+    "faq": {
+      "caption": "Často kladené otázky",
+      "title": "FAQ k hormonální diagnostice v ordinaci",
+      "items": [
+        {
+          "question": "Které hormony může IglooPro měřit?",
+          "answer": "IglooPro podporuje kvantitativní stanovení TSH (funkce štítné žlázy), kortizolu (stresová osa), testosteronu, progesteronu, FSH a AMH (ovariální rezerva). Tyto hormonální testy pokrývají nejčastější endokrinologické otázky a dodávají výsledky v laboratorní kvalitě během několika minut přímo v ordinaci."
+        },
+        {
+          "question": "Kdy je rychlotest TSH smysluplný?",
+          "answer": "Rychlotest TSH je indikován při klinickém podezření na dysfunkci štítné žlázy (např. únava, změny hmotnosti, vypadávání vlasů), pro kontrolu terapie při substituci L-thyroxinem a v rámci péče o plodnost a těhotenství. Okamžitá dostupnost hodnot štítné žlázy umožňuje přímou úpravu dávkování bez čekání na výsledky z externího laboratoře."
+        },
+        {
+          "question": "Jak přesné jsou POC hormonální testy ve srovnání s laboratoří?",
+          "answer": "POC systémy v souladu s IVDR, jako je IglooPro, dosahují analytické přesnosti s variačním koeficientem (CV) pod 2 %, a jsou tak srovnatelné s výsledky centrální laboratoře. Zajištění kvality probíhá prostřednictvím validovaných testovacích kazet a pravidelných kontrolních měření, čímž je zaručena klinická rozhodovací jistota."
+        },
+        {
+          "question": "Pro které odbornosti je diagnostika hormonů u pacienta relevantní?",
+          "answer": "Diagnostika hormonů u pacienta je stejně relevantní pro praktické lékařství, gynekologii, endokrinologii, dermatologii a centra asistované reprodukce. Všude tam, kde je třeba rychle objasnit funkci štítné žlázy, stav fertility nebo hormonální dysbalanci, nabízí POC měření okamžitou časovou výhodu oproti odesílání do externích laboratoří."
+        }
+      ]
+    }
   },
   "kompatibilitaet_integration": {
     "title": "Kompatibilita napříč výrobci",
@@ -303,6 +503,28 @@
       "heading": "Závěr: Investujte do řešení, ne do omezení",
       "text": "Kompatibilita Igloo Pro napříč výrobci z něj činí nejchytřejší investici do POC diagnostiky. Nabízí flexibilitu, kterou potřebujete dnes, a jistotu investice, kterou potřebujete zítra."
     },
-    "cta": "Rezervovat termín"
+    "cta": "Rezervovat termín",
+    "faq": {
+      "caption": "Často kladené otázky",
+      "title": "FAQ k systémové integraci a kompatibilitě",
+      "items": [
+        {
+          "question": "Je IglooPro kompatibilní s mým praxisním softwarem?",
+          "answer": "IglooPro lze prostřednictvím standardizovaných rozhraní napojit na běžné laboratorní a praxisní informační systémy (LIS/HIS). Výsledky se automaticky přenášejí a dokumentují, takže odpadá ruční zadávání dat. PolarisDX vás podpoří při integraci do vašeho stávajícího vybavení ordinace."
+        },
+        {
+          "question": "Jaká rozhraní nabízí IglooPro?",
+          "answer": "IglooPro disponuje rozhraními USB-C, WLAN (Wi-Fi) a Bluetooth pro přenos dat. To umožňuje flexibilní napojení na stacionární pracoviště, mobilní zařízení i cloudové systémy. Interní paměť uchovává až 10 000 výsledků měření, které lze v případě potřeby dodatečně přenést."
+        },
+        {
+          "question": "Jak probíhá nastavení a školení?",
+          "answer": "PolarisDX nabízí kompletní službu vzdáleného nastavení během 3–5 pracovních dnů. Součástí je validace přístroje, konfigurace rozhraní k vašemu praxisnímu softwaru a praktické zaškolení vašeho týmu. Vaše praxisní laboratoř je tak rychle připravena k provozu, aniž byste se museli starat o technické detaily."
+        },
+        {
+          "question": "Lze propojit více přístrojů IglooPro do sítě?",
+          "answer": "Ano. Ve větších ordinacích, strukturách MVZ nebo klinikách lze více přístrojů IglooPro provozovat přes společnou síť a centrálně spravovat. Všechny výsledky měření plynou do jednotného systému, což zjednodušuje zajištění kvality a umožňuje přehled o POC diagnostice napříč pracovišti."
+        }
+      ]
+    }
   }
 }

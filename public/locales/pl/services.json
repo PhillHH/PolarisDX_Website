@@ -2,7 +2,37 @@
   "dental": {
     "title": "Stomatologia",
     "headline": "Precyzja dla nowoczesnej stomatologii",
-    "cta": "Dowiedz się więcej"
+    "cta": "Dowiedz się więcej",
+    "faq": {
+      "caption": "Często zadawane pytania",
+      "title": "Najczęściej zadawane pytania dotyczące diagnostyki stomatologicznej",
+      "items": [
+        {
+          "question": "Jakie badania krwi mogę jako stomatolog wykonywać w gabinecie?",
+          "answer": "Za pomocą urządzenia Point-of-Care, takiego jak Igloo Pro Reader, można ilościowo oznaczać m.in. witaminę D3, CRP, HbA1c, TSH, ferrytynę oraz cholesterol (HDL, LDL, całkowity). Pomiar wykonywany jest z krwi włośniczkowej pobranej z opuszki palca. W zależności od biomarkera wynik jest dostępny w ciągu trzech do piętnastu minut — bezpośrednio przy fotelu zabiegowym, bez konieczności wysyłania próbki do laboratorium."
+        },
+        {
+          "question": "Jak działa Igloo Pro Reader?",
+          "answer": "Igloo Pro Reader działa w oparciu o immunofluorescencję i dostarcza ilościowe wyniki pomiarów. Procedura obejmuje pięć kroków: pobranie krwi włośniczkowej z opuszki palca, nałożenie próbki na wstępnie napełnioną kasetę testową, umieszczenie kasety w czytniku, odczekanie czasu pomiaru oraz odczytanie wyniku na wyświetlaczu. Obsługa nie wymaga wcześniejszego przeszkolenia w zakresie medycyny laboratoryjnej."
+        },
+        {
+          "question": "Czy badanie krwi u stomatologa jest świadczeniem indywidualnym (IGeL)?",
+          "answer": "Tak, o ile nie istnieje wskazanie medyczne w rozumieniu ustawowego ubezpieczenia zdrowotnego. Rozliczenie odbywa się zgodnie z tabelą opłat lekarskich (GOÄ), ponieważ stomatolodzy mogą rozliczać świadczenia lekarskie na podstawie § 6 ust. 2 GOZ według GOÄ. Przed wykonaniem badania u pacjentów ubezpieczonych ustawowo wymagana jest pisemna umowa IGeL wraz z kosztorysem."
+        },
+        {
+          "question": "Ile kosztuje Igloo Pro Reader?",
+          "answer": "Cena Igloo Pro Readera zależy od wybranego pakietu wyposażenia oraz modelu zakupu — kupno lub leasing. PolarisDX przygotowuje indywidualną ofertę na podstawie profilu Państwa gabinetu i planowanego wolumenu badań, wraz z kalkulacją rentowności. Prosimy o kontakt w celu uzyskania spersonalizowanej oferty."
+        },
+        {
+          "question": "Czy Igloo Pro Reader jest zgodny z IVDR?",
+          "answer": "Tak. Igloo Pro Reader oraz przynależne kasety testowe są dopuszczone zgodnie z europejskim rozporządzeniem w sprawie diagnostyki in vitro (UE 2017/746) i posiadają oznakowanie CE. Urządzenie spełnia tym samym wszystkie wymagania regulacyjne dotyczące profesjonalnego zastosowania jako wyrób do diagnostyki in vitro w gabinetach medycznych."
+        },
+        {
+          "question": "Jakie wymagania dotyczące zapewnienia jakości obowiązują przy POCT w gabinecie stomatologicznym?",
+          "answer": "Zgodnie z wytycznymi Federalnej Izby Lekarskiej (RiliBÄK) wymagane są wewnętrzne kontrole jakości poprzez regularne pomiary kontrolne oraz udział w zewnętrznych badaniach porównawczych (ringversuchy). Wyniki muszą być dokumentowane. PolarisDX wspiera gabinety we wdrażaniu wewnętrznej kontroli jakości, rejestracji do badań porównawczych oraz bieżącej dokumentacji."
+        }
+      ]
+    }
   },
   "beauty": {
     "title": "Uroda i Estetyka",
@@ -30,7 +60,33 @@
       "heading": "Wniosek",
       "text": "Wyróżnij się naukowo ugruntowanymi koncepcjami piękna."
     },
-    "cta": "Zarezerwuj konsultację"
+    "cta": "Zarezerwuj konsultację",
+    "faq": {
+      "caption": "Często zadawane pytania",
+      "title": "FAQ dotyczące diagnostyki w medycynie estetycznej i analizy biomarkerów",
+      "items": [
+        {
+          "question": "Jakie biomarkery są istotne dla zabiegów estetycznych?",
+          "answer": "W medycynie estetycznej szczególne znaczenie mają witamina D (bariera skórna, synteza kolagenu), ferrytyna (wypadanie włosów, regeneracja tkanek), TSH (funkcja tarczycy wpływająca na skórę i włosy) oraz hs-CRP (ciche stany zapalne jako czynnik przyspieszający starzenie się skóry). Biomarkery te stanowią obiektywną podstawę do indywidualnego dostosowania zabiegów oraz dokumentowania wyników w sposób mierzalny."
+        },
+        {
+          "question": "Dlaczego warto wykonać badanie krwi przed zabiegami estetycznymi?",
+          "answer": "Badanie przesiewowe przed zabiegiem pozwala wykryć czynniki ryzyka mogące wpłynąć na powodzenie leczenia — takie jak zaburzenia krzepnięcia, niedobory składników odżywczych czy subkliniczne stany zapalne. Zwiększa to bezpieczeństwo pacjenta i umożliwia poradnictwo oparte na dowodach naukowych, co pozycjonuje gabinet jako placówkę o solidnych podstawach medycznych."
+        },
+        {
+          "question": "Jaki jest związek między wartościami tarczycy a wypadaniem włosów?",
+          "answer": "Tarczyca reguluje cały metabolizm komórkowy — w tym cykl mieszka włosowego. Zarówno niedoczynność, jak i nadczynność tarczycy (rozpoznawalne na podstawie odchyleń TSH) mogą powodować rozlane wypadanie włosów, suchość skóry i łamliwość paznokci. Szybki test POC na TSH dostarcza wyników w ciągu kilku minut i umożliwia ukierunkowane skierowanie lub rozpoczęcie terapii."
+        },
+        {
+          "question": "Czy mogę oferować diagnostykę hormonalną jako świadczenie IGeL?",
+          "answer": "Tak. Badania przesiewowe hormonów (TSH, kortyzol, testosteron) oraz analizy mikroelementów (witamina D, ferrytyna) to klasyczne indywidualne świadczenia zdrowotne, rozliczane prywatnie według GOÄ. Szczególnie w segmencie beauty istnieje wysoka gotowość do płacenia za poradnictwo oparte na danych, wykraczające poza czysto aparaturowe zabiegi."
+        },
+        {
+          "question": "Jaką rolę odgrywa witamina D dla skóry i włosów?",
+          "answer": "Witamina D uczestniczy w różnicowaniu keratynocytów, utrzymaniu bariery skórnej i regulacji cyklu mieszka włosowego. Niedobór witaminy D — w Europie Środkowej dotykający ponad 50% populacji — sprzyja stanom zapalnym skóry, przyspiesza jej starzenie i może nasilać wypadanie włosów. Pomiar za pomocą IglooPro trwa zaledwie kilka minut i stanowi podstawę do celowej suplementacji."
+        }
+      ]
+    }
   },
   "longevity": {
     "title": "Długowieczność",
@@ -58,7 +114,33 @@
       "heading": "Wniosek",
       "text": "Zostań partnerem dla długiego, zdrowego życia Twoich pacjentów."
     },
-    "cta": "Zacznij teraz"
+    "cta": "Zacznij teraz",
+    "faq": {
+      "caption": "Często zadawane pytania",
+      "title": "FAQ dotyczące diagnostyki Longevity i profilaktyki",
+      "items": [
+        {
+          "question": "Jakie biomarkery są istotne w medycynie Longevity?",
+          "answer": "Do kluczowych markerów diagnostyki Longevity należą HbA1c (kontrola glikemii i powstawanie AGE), hs-CRP (przewlekły stan zapalny / inflammaging), pełny profil lipidowy (ryzyko sercowo-naczyniowe), TSH (funkcja tarczycy) oraz witamina D (immunomodulacja, zdrowie kości). Parametry te tworzą łącznie miarodajny profil bazowy, który można oznaczyć bezpośrednio w punkcie opieki za pomocą IglooPro."
+        },
+        {
+          "question": "Jaka jest różnica między diagnostyką prewencyjną a leczniczą?",
+          "answer": "Diagnostyka lecznicza stosowana jest przy istniejących objawach w celu potwierdzenia lub wykluczenia choroby. Diagnostyka prewencyjna natomiast oznacza proaktywne badanie biomarkerów — jeszcze zanim pojawią się objawy — w celu wczesnego rozpoznania czynników ryzyka i podjęcia odpowiednich działań. W medycynie Longevity nacisk kładziony jest na optymalizację wartości w zakresie normy, a nie dopiero na leczenie odchyleń patologicznych."
+        },
+        {
+          "question": "Jak często należy kontrolować biomarkery Longevity?",
+          "answer": "W celu rzetelnego monitoringu Longevity zaleca się podstawowy przegląd zdrowotny co 3–6 miesięcy, a w przypadku trwających interwencji (np. zmiana diety, suplementacja, programy treningowe) nawet częściej. Szybka dostępność wyników w punkcie opieki umożliwia dokonywanie korekt w czasie rzeczywistym, zamiast czekać na wyniki z laboratorium."
+        },
+        {
+          "question": "Jakie markery stanu zapalnego są istotne w profilaktyce?",
+          "answer": "Wysoko czuły CRP (hs-CRP) jest centralnym markerem przewlekłych, subklinicznych stanów zapalnych — tzw. inflammagingu. Już nieznacznie podwyższone wartości w zakresie 1–3 mg/l korelują ze zwiększonym ryzykiem chorób sercowo-naczyniowych, neurodegeneracji oraz przyspieszonych procesów starzenia. Regularne monitorowanie umożliwia wczesną interwencję poprzez modyfikację stylu życia lub celową suplementację."
+        },
+        {
+          "question": "Czy mogę oferować badania profilaktyczne jako świadczenia dla samopłacących?",
+          "answer": "Tak. Prewencyjne badania przesiewowe biomarkerów to klasyczne świadczenia dla samopłacących (IGeL), ponieważ wykraczają poza katalog świadczeń ustawowego ubezpieczenia zdrowotnego. Szczególnie w segmencie Longevity istnieje duże zapotrzebowanie na oparte na danych badania profilaktyczne. Połączenie natychmiastowej analizy z kwalifikowanym poradnictwem stanowi ekonomicznie atrakcyjny pakiet świadczeń dla Państwa gabinetu."
+        }
+      ]
+    }
   },
   "poc_systemloesungen": {
     "title": "Rozwiązania systemowe POC",
@@ -103,7 +185,37 @@
       "heading": "Wniosek dla PolarisDX.net: Więcej niż tylko technologia",
       "text": "Rozwiązanie systemowe POC Igloo Pro reprezentuje szczyt mobilnej diagnostyki. Ale prawdziwa wydajność jest odblokowywana tylko dzięki ekskluzywnej usłudze. PolarisDX.net gwarantuje nie tylko dostarczenie tego narzędzia technologicznego, ale także jego natychmiastową, zwalidowaną i bezproblemową integrację z Twoją działalnością. Postaw na zwinność mobilnej diagnostyki – z gwarantowanym bezpieczeństwem eksperckiego partnera u boku."
     },
-    "cta": "Zarezerwuj termin"
+    "cta": "Zarezerwuj termin",
+    "faq": {
+      "caption": "Często zadawane pytania",
+      "title": "FAQ dotyczące rozwiązań systemowych Point-of-Care",
+      "items": [
+        {
+          "question": "Czym jest test Point-of-Care (POCT)?",
+          "answer": "Test Point-of-Care (POCT) to forma diagnostyki laboratoryjnej realizowanej w pobliżu pacjenta, w której analiza odbywa się bezpośrednio w miejscu leczenia — bez wysyłania próbki do laboratorium centralnego. Wynik jest dostępny w ciągu kilku minut i może natychmiast wpłynąć na decyzję kliniczną. Systemy POCT, takie jak IglooPro, wykorzystują testy przepływu bocznego, immunofluorescencję lub kolorymetrię w celu dostarczania wyników ilościowych o jakości laboratoryjnej."
+        },
+        {
+          "question": "Jak zintegrować system POC z codzienną praktyką gabinetu?",
+          "answer": "Integracja urządzenia POCT, takiego jak IglooPro, nie wymaga przebudowy ani specjalnych pomieszczeń laboratoryjnych. Urządzenie waży ok. 400 g, jest natychmiast gotowe do użycia i może być podłączone do oprogramowania gabinetowego przez USB-C, WLAN lub Bluetooth. PolarisDX zapewnia kompletną usługę zdalnej konfiguracji w ciągu 3–5 dni roboczych — obejmującą walidację, konfigurację interfejsów oraz szkolenie zespołu."
+        },
+        {
+          "question": "Jakie wymagania dotyczące zapewnienia jakości obowiązują przy POCT?",
+          "answer": "Wytyczne Federalnej Izby Lekarskiej (RiliBÄK) regulują zapewnienie jakości badań laboratoryjnych, w tym POCT. Wymagane są m.in. regularne pomiary kontrolne, dokumentacja wyników oraz instruktaż personelu obsługującego. IglooPro wspiera ten proces poprzez automatyczne zapisywanie wyników (do 10 000 pomiarów) oraz możliwość podłączenia do systemów LIS/HIS zapewniającą pełną dokumentację."
+        },
+        {
+          "question": "Jak szybko IglooPro dostarcza wyniki?",
+          "answer": "W zależności od parametru wyniki ilościowe są dostępne w ciągu 3 do 15 minut. Wartości CRP są zazwyczaj gotowe w mniej niż 5 minut, witamina D i HbA1c w ok. 10–15 minut. Szybka diagnostyka umożliwia przeprowadzenie badania i konsultacji w ramach jednego kontaktu z pacjentem — bez wizyty kontrolnej i bez czasu oczekiwania na wyniki z zewnętrznego laboratorium."
+        },
+        {
+          "question": "Czy IglooPro jest zgodny z IVDR?",
+          "answer": "Tak. IglooPro spełnia wymagania europejskiego rozporządzenia w sprawie diagnostyki in vitro (IVDR, UE 2017/746) i posiada odpowiednie oznakowanie CE. Zgodność z IVDR gwarantuje, że urządzenie i stosowane kasety testowe spełniają rygorystyczne wymagania dotyczące wydajności analitycznej, dowodów klinicznych i zarządzania jakością — co stanowi bezwzględny warunek stosowania w diagnostyce IVD."
+        },
+        {
+          "question": "Kto jest producentem IglooPro?",
+          "answer": "IglooPro jest opracowywany i produkowany przez DX365 GmbH w Berlinie. PolarisDX jest partnerem dystrybucyjnym na rynek europejski i odpowiada za sprzedaż, integrację, szkolenia oraz bieżące wsparcie techniczne."
+        }
+      ]
+    }
   },
   "praeventions_checks": {
     "title": "Profilaktyczne badania kontrolne",
@@ -144,7 +256,29 @@
       "heading": "Wniosek dla Twojej decyzji",
       "text": "Inwestycja w rozwiązania systemowe POC to inwestycja w przyszłość opieki skoncentrowanej na pacjencie i zwiększenie efektywności operacyjnej. PolarisDX.net dostarcza nie tylko technologię do tej transformacji, ale gwarantuje jej płynne i zwalidowane działanie poprzez ekskluzywną usługę zdalnej konfiguracji w 3-5 dni roboczych i gwarancję kompatybilności LFT. W ten sposób wykorzystujesz pełny potencjał profilaktycznych badań kontrolnych natychmiast."
     },
-    "cta": "Zarezerwuj termin"
+    "cta": "Zarezerwuj termin",
+    "faq": {
+      "caption": "Często zadawane pytania",
+      "title": "FAQ dotyczące profilaktycznych badań kontrolnych",
+      "items": [
+        {
+          "question": "Jakie badania profilaktyczne mogę oferować w gabinecie?",
+          "answer": "Za pomocą systemu POC, takiego jak IglooPro, można oferować kompleksowe profile badań kontrolnych bezpośrednio w gabinecie — od badań przesiewowych w kierunku cukrzycy (HbA1c), przez ocenę ryzyka sercowo-naczyniowego (cholesterol) i stan zapalny (CRP), po kontrolę mikroelementów (witamina D, ferrytyna). Diagnostykę prewencyjną można włączyć w codzienną praktykę jako ustrukturyzowany program profilaktyczny lub jako ukierunkowane pojedyncze świadczenie."
+        },
+        {
+          "question": "Jakie biomarkery wchodzą w skład podstawowego badania profilaktycznego?",
+          "answer": "Oparty na dowodach naukowych podstawowy przegląd zdrowotny obejmuje co najmniej HbA1c (kontrola glikemii), CRP (stan zapalny), witaminę D (funkcja odpornościowa, zdrowie kości) oraz profil lipidowy (ryzyko sercowo-naczyniowe). W zależności od profilu pacjenta można uzupełnić o TSH (tarczyca) i ferrytynę (gospodarka żelazem). Wszystkie te parametry można oznaczyć za pomocą IglooPro w ramach jednej wizyty."
+        },
+        {
+          "question": "Czym różni się badanie POC od zlecenia laboratoryjnego?",
+          "answer": "W przypadku klasycznego zlecenia laboratoryjnego próbka jest pobierana, wysyłana do laboratorium centralnego, a wynik jest dostępny najwcześniej po 24–48 godzinach — często konieczna jest wizyta kontrolna. W diagnostyce przyłóżkowej (POCT) analiza odbywa się bezpośrednio na miejscu w ciągu 3–15 minut. Konsultacja i rozpoczęcie terapii mogą mieć miejsce podczas tej samej wizyty, co znacząco zwiększa efektywność i zadowolenie pacjenta."
+        },
+        {
+          "question": "Czy badania profilaktyczne można rozliczać jako IGeL?",
+          "answer": "Tak. Prewencyjne badania przesiewowe biomarkerów, wykraczające poza katalog świadczeń ustawowego ubezpieczenia zdrowotnego, podlegają rozliczeniu prywatnemu jako indywidualne świadczenia zdrowotne (IGeL) według GOÄ. Połączenie natychmiastowej analityki z kwalifikowanym poradnictwem tworzy ekonomicznie atrakcyjną ofertę dla samopłacących, która jednocześnie wzmacnia lojalność pacjentów."
+        }
+      ]
+    }
   },
   "infektion_entzuendung": {
     "title": "Infekcja i markery stanu zapalnego",
@@ -184,7 +318,29 @@
       "heading": "Wniosek: Brak kompromisów w diagnozie",
       "text": "W przypadku infekcji i stanów zapalnych czas jest czynnikiem krytycznym. Tylko system POC, który łączy ważność na poziomie laboratoryjnym z maksymalną szybkością, może zwiększyć bezpieczeństwo diagnostyczne, jednocześnie optymalizując zarządzanie antybiotykami. PolarisDX.net dostarcza tę gwarantowaną wydajność – od uruchomienia w 3-5 dni roboczych po priorytetowe wsparcie."
     },
-    "cta": "Zarezerwuj termin"
+    "cta": "Zarezerwuj termin",
+    "faq": {
+      "caption": "Często zadawane pytania",
+      "title": "FAQ dotyczące diagnostyki infekcji i stanów zapalnych",
+      "items": [
+        {
+          "question": "Kiedy szybki test CRP w gabinecie jest wskazany?",
+          "answer": "Szybki test CRP jest wskazany zawsze wtedy, gdy klinicznie istotne jest szybkie rozróżnienie między przyczyną bakteryjną a wirusową — np. przy infekcjach dróg oddechowych, gorączce niejasnego pochodzenia lub pooperacyjnej kontroli przebiegu. Podwyższona wartość CRP powyżej 40 mg/l przemawia za współudziałem bakteryjnym, natomiast niższe wartości mogą uzasadniać postawę wyczekującą bez antybiotykoterapii. Pomiar za pomocą IglooPro trwa poniżej 5 minut."
+        },
+        {
+          "question": "Czy za pomocą IglooPro można odróżnić infekcje bakteryjne od wirusowych?",
+          "answer": "Połączenie CRP i PCT (prokalcytonina) umożliwia bardziej zróżnicowaną ocenę niż pojedynczy marker. CRP wzrasta zarówno w infekcjach bakteryjnych, jak i wirusowych, natomiast PCT reaguje wyraźnie bardziej swoiście na infekcje bakteryjne i sepsę. Jednoczesne oznaczenie obu parametrów w punkcie opieki pozwala na podejmowanie bardziej uzasadnionych decyzji terapeutycznych i ograniczenie zbędnych recept na antybiotyki."
+        },
+        {
+          "question": "Jak wiarygodne są testy POC na stany zapalne w porównaniu z laboratorium?",
+          "answer": "Systemy POC zgodne z IVDR, takie jak IglooPro, dostarczają wyniki ilościowe z precyzją analityczną CV < 2% i są tym samym porównywalne z pomiarami laboratorium centralnego. Zapewnienie jakości realizowane jest poprzez zwalidowane kasety testowe i kontrole wewnętrzne. W praktyce klinicznej testy POC oferują dodatkową zaletę natychmiastowej dostępności wyniku, bez wpływu czasu transportu czy przechowywania próbek."
+        },
+        {
+          "question": "Jakie markery stanu zapalnego może mierzyć IglooPro?",
+          "answer": "IglooPro umożliwia oznaczanie CRP (białko C-reaktywne) jako centralnego markera fazy ostrej, PCT (prokalcytonina) do różnicowania infekcji bakteryjnych oraz ferrytyny, która oprócz statusu żelaza jest również istotna jako marker zapalny w procesach przewlekłych i ostrych. Dzięki otwartej platformie możliwa jest integracja dalszych testów przepływu bocznego dla IL-6 i innych parametrów."
+        }
+      ]
+    }
   },
   "stoffwechsel_herz": {
     "title": "Metabolizm i zdrowie serca",
@@ -224,7 +380,29 @@
       "heading": "Wniosek dla Twojej praktyki",
       "text": "Integracja czytnika Igloo Pro z Twoim przepływem pracy oznacza zmianę paradygmatu: Od monitorowania z opóźnieniem czasowym do natychmiastowego, opartego na danych dostosowania terapii. Z PolarisDX.net zapewniasz sobie nie tylko technologię do tych krytycznych pomiarów, ale także gwarancję płynnego wdrożenia i ciągłej walidacji."
     },
-    "cta": "Zarezerwuj termin"
+    "cta": "Zarezerwuj termin",
+    "faq": {
+      "caption": "Często zadawane pytania",
+      "title": "FAQ dotyczące diagnostyki metabolicznej i kardiologicznej",
+      "items": [
+        {
+          "question": "Jakie biomarkery metaboliczne mogę oznaczać przy fotelu zabiegowym?",
+          "answer": "Za pomocą IglooPro można oznaczać HbA1c (długoterminowy poziom cukru we krwi), cholesterol całkowity oraz dalsze frakcje lipidowe bezpośrednio z krwi włośniczkowej w ciągu kilku minut. Diagnostyka ta dostarcza wyniki porównywalne z laboratorium (CV < 2%) i umożliwia natychmiastowe dostosowanie terapii w ramach tego samego kontaktu z pacjentem — bez wysyłania próbki do laboratorium centralnego."
+        },
+        {
+          "question": "W jaki sposób wartość HbA1c pomaga we wczesnym wykrywaniu cukrzycy?",
+          "answer": "Szybki test HbA1c odzwierciedla średni poziom cukru we krwi z ostatnich 8–12 tygodni i jest niezależny od wahań dobowych oraz stanu na czczo. Wartości między 5,7% a 6,4% wskazują na ryzyko stanu przedcukrzycowego, od 6,5% rozpoznaje się cukrzycę. Natychmiastowa dostępność wyniku w punkcie opieki umożliwia bezpośrednie poradnictwo i rozpoczęcie terapii bez konieczności wizyty kontrolnej."
+        },
+        {
+          "question": "Jakie markery ryzyka sercowo-naczyniowego mierzy IglooPro?",
+          "answer": "IglooPro umożliwia oznaczanie wartości cholesterolu (cholesterol całkowity, LDL, HDL, trójglicerydy) oraz D-dimeru jako parametru wykluczającego zakrzepicę i zatorowość płucną. Te markery ryzyka sercowo-naczyniowego pozwalają na szybką ocenę ryzyka naczyniowego i podejmowanie uzasadnionych decyzji dotyczących dalszego postępowania — bezpośrednio w gabinecie."
+        },
+        {
+          "question": "Czy mogę oferować badania metaboliczne jako świadczenie dodatkowe?",
+          "answer": "Tak. Badania przesiewowe HbA1c, cholesterolu i innych parametrów metabolicznych to typowe świadczenia IGeL (indywidualne świadczenia zdrowotne), rozliczane prywatnie według GOÄ. Połączenie natychmiastowego pomiaru z kwalifikowanym poradnictwem tworzy wymierną wartość dodaną dla pacjentów i generuje planowany dodatkowy przychód dla Państwa gabinetu."
+        }
+      ]
+    }
   },
   "hormon_tests": {
     "title": "Testy hormonalne i endokrynologiczne",
@@ -264,7 +442,29 @@
       "heading": "Wniosek: Specjalistyczna diagnostyka bezpośrednio w Twojej dłoni",
       "text": "Testy hormonalne i endokrynologiczne są często punktem wyjścia złożonych ścieżek leczenia. Dzięki diagnostyce POC z Igloo Pro masowo skracasz czas do diagnozy i decyzji terapeutycznej. polarisDX.net oferuje Ci technologię i gwarancję kompatybilności LFT, aby bezpiecznie i skutecznie zintegrować to szerokie spektrum specjalistycznych testów z Twoją działalnością."
     },
-    "cta": "Zarezerwuj termin"
+    "cta": "Zarezerwuj termin",
+    "faq": {
+      "caption": "Często zadawane pytania",
+      "title": "FAQ dotyczące diagnostyki hormonalnej w gabinecie",
+      "items": [
+        {
+          "question": "Jakie hormony może mierzyć IglooPro?",
+          "answer": "IglooPro umożliwia ilościowe oznaczanie TSH (funkcja tarczycy), kortyzolu (oś stresowa), testosteronu, progesteronu, FSH oraz AMH (rezerwa jajnikowa). Te testy hormonalne obejmują najczęstsze zagadnienia endokrynologiczne i dostarczają wyniki o jakości laboratoryjnej w ciągu kilku minut bezpośrednio w gabinecie."
+        },
+        {
+          "question": "Kiedy szybki test TSH jest wskazany?",
+          "answer": "Szybki test TSH jest wskazany w przypadku klinicznego podejrzenia dysfunkcji tarczycy (np. zmęczenie, zmiany masy ciała, wypadanie włosów), do kontroli terapii substytucyjnej L-tyroksyną oraz w ramach diagnostyki przed zajściem w ciążę i opieki prenatalnej. Natychmiastowa dostępność wartości tarczycowych umożliwia bezpośrednie dostosowanie dawki bez oczekiwania na wyniki z zewnętrznego laboratorium."
+        },
+        {
+          "question": "Jak dokładne są testy hormonalne POC w porównaniu z laboratorium?",
+          "answer": "Systemy POC zgodne z IVDR, takie jak IglooPro, osiągają precyzję analityczną ze współczynnikiem zmienności (CV) poniżej 2% i są tym samym porównywalne z wynikami laboratorium centralnego. Zapewnienie jakości realizowane jest poprzez zwalidowane kasety testowe i regularne pomiary kontrolne, dzięki czemu pewność decyzji klinicznych jest zagwarantowana."
+        },
+        {
+          "question": "Dla jakich specjalizacji diagnostyka hormonalna przy fotelu zabiegowym jest istotna?",
+          "answer": "Diagnostyka hormonalna przy fotelu zabiegowym jest w równym stopniu istotna dla medycyny ogólnej, ginekologii, endokrynologii, dermatologii oraz ośrodków leczenia niepłodności. Wszędzie tam, gdzie konieczne jest szybkie wyjaśnienie funkcji tarczycy, stanu płodności lub zaburzeń równowagi hormonalnej, pomiar POC zapewnia bezpośrednią przewagę czasową w porównaniu z wysyłką do zewnętrznych laboratoriów."
+        }
+      ]
+    }
   },
   "kompatibilitaet_integration": {
     "title": "Kompatybilność między producentami",
@@ -303,6 +503,28 @@
       "heading": "Wniosek: Inwestuj w rozwiązanie, nie w ograniczenie",
       "text": "Kompatybilność między producentami Igloo Pro czyni go najmądrzejszą inwestycją w diagnostykę POC. Oferuje elastyczność, której potrzebujesz dzisiaj, i bezpieczeństwo inwestycji, którego potrzebujesz jutro."
     },
-    "cta": "Zarezerwuj termin"
+    "cta": "Zarezerwuj termin",
+    "faq": {
+      "caption": "Często zadawane pytania",
+      "title": "FAQ dotyczące integracji systemowej i kompatybilności",
+      "items": [
+        {
+          "question": "Czy IglooPro jest kompatybilny z moim oprogramowaniem gabinetowym?",
+          "answer": "IglooPro można podłączyć do popularnych systemów informatycznych laboratorium i gabinetu (LIS/HIS) za pośrednictwem standardowych interfejsów. Wyniki są automatycznie przesyłane i dokumentowane, co eliminuje konieczność ręcznego wprowadzania danych. PolarisDX wspiera Państwa w integracji z istniejącym wyposażeniem gabinetu."
+        },
+        {
+          "question": "Jakie interfejsy oferuje IglooPro?",
+          "answer": "IglooPro dysponuje złączami USB-C, WLAN (Wi-Fi) oraz Bluetooth do przesyłania danych. Umożliwia to elastyczne podłączenie do stacjonarnych stanowisk roboczych, urządzeń mobilnych oraz systemów chmurowych. Pamięć wewnętrzna przechowuje do 10 000 wyników pomiarów, które w razie potrzeby mogą zostać przesłane w późniejszym terminie."
+        },
+        {
+          "question": "Jak przebiega konfiguracja i szkolenie?",
+          "answer": "PolarisDX oferuje kompletną usługę zdalnej konfiguracji w ciągu 3–5 dni roboczych. Obejmuje ona walidację urządzenia, konfigurację interfejsów z oprogramowaniem gabinetowym oraz praktyczne przeszkolenie zespołu. Dzięki temu Państwa laboratorium gabinetowe jest szybko gotowe do pracy, bez konieczności zajmowania się szczegółami technicznymi."
+        },
+        {
+          "question": "Czy można połączyć w sieć kilka urządzeń IglooPro?",
+          "answer": "Tak. W większych gabinetach, strukturach MVZ lub klinikach kilka urządzeń IglooPro może pracować we wspólnej sieci i być zarządzanych centralnie. Wszystkie wyniki pomiarów trafiają do jednolitego systemu, co upraszcza zapewnienie jakości i umożliwia przegląd diagnostyki POC obejmujący wiele lokalizacji."
+        }
+      ]
+    }
   }
 }
