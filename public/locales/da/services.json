@@ -2,29 +2,6 @@
   "dental": {
     "title": "Dental",
     "headline": "Præcision til moderne tandpleje",
-    "intro": [
-      "Udvid dit behandlingsspektrum med moderne diagnostik direkte ved stolen. Hurtige resultater muliggør øjeblikkelig, velbegrundet patientrådgivning.",
-      "Optimér helingsprocesser og opdag risici tidligt."
-    ],
-    "sections": [
-      {
-        "heading": "1. D-vitamin & sårheling",
-        "content": "Et tilstrækkeligt D-vitaminniveau er essentielt for osseointegration af implantater og generel sårheling. Mål status direkte på stedet.",
-        "listItems": [
-          "Øjeblikkelig bestemmelse af 25-OH-D-vitaminniveauer.",
-          "Målrettet tilskud for at forbedre kirurgiske resultater."
-        ]
-      },
-      {
-        "heading": "2. Inflammationsmarkører",
-        "content": "Opdag systemiske inflammationer, der kan påvirke parodontitis, og overvåg terapeutisk succes.",
-        "listItems": []
-      }
-    ],
-    "conclusion": {
-      "heading": "Konklusion",
-      "text": "Integrer diagnostik problemfrit i din praksis-workflow for bedre kliniske resultater."
-    },
     "cta": "Lær mere"
   },
   "beauty": {

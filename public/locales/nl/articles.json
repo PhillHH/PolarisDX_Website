@@ -51,55 +51,6 @@
       }
     ]
   },
-  "48_hour_formula": {
-    "title": "De 48-Uurs Formule: Efficiëntie in POC Diagnostiek",
-    "excerpt": "Efficiëntie in plaats van training: De weg naar onmiddellijke operationele gereedheid in de praktijk.",
-    "sections": [
-      {
-        "heading": "Introductie",
-        "paragraphs": [
-          "De beslissing voor nieuwe Point-of-Care (POC) diagnostische apparaten is vaak de eerste stap naar betere patiëntenzorg. Echter, de weg van aanschaf naar volledige operationele gereedheid wordt vaak onderschat. Langdurige training, administratieve hindernissen en complexe IT-integratie verbruiken kostbare tijd en binden personeel wiens focus eigenlijk op de patiënt zou moeten liggen.",
-          "Dit knelpunt behoort tot het verleden. Moderne ondersteuningsconcepten revolutioneren de ingebruikname en verminderen de inspanning voor praktijken en apotheken tot een minimum. De sleutel is de 'Remote Setup'-aanpak, die onmiddellijke operationele gereedheid in slechts 48 uur garandeert."
-        ]
-      },
-      {
-        "heading": "1. Het Efficiëntiedilemma: Waarom Traditionele Integratie Faalt",
-        "paragraphs": [
-          "Traditioneel vereist de integratie van een nieuw POC-systeem verschillende tijdrovende stappen die vaak weken duren:"
-        ],
-        "listItems": [
-          "Administratieve en Regelgevende Training: Training van personeel met betrekking tot kwaliteitsmanagement en interne protocollen.",
-          "Technische Setup en Kalibratie: Handmatige initiële ingebruikname en batch-specifieke kalibratie van het apparaat.",
-          "IT-verbinding en Data-uitwisseling: De complexe bidirectionele verbinding tussen de POC-lezer en het praktijk- of apotheekbeheersysteem."
-        ]
-      },
-      {
-        "heading": "2. De Remote Setup Aanpak: IT-Experts op de Achtergrond",
-        "paragraphs": [
-          "De Remote Setup aanpak is gebaseerd op de digitale connectiviteit van moderne POC-lezers. In plaats van een servicemonteur ter plaatse nodig te hebben, wordt het apparaat op afstand ingesteld en gevalideerd door gespecialiseerde experts.",
-          "Kernprocessen die op afstand worden afgehandeld:"
-        ],
-        "listItems": [
-          "Volledige Kalibratie: De technische kalibratie van de multi-reader voor de gebruikte Lateral Flow Tests (LFT's) gebeurt extern. Dit zorgt ervoor dat analytische precisie vanaf het begin is gegarandeerd – zonder dat praktijkpersoneel complexe technische stappen hoeft uit te voeren.",
-          "Naadloze IT-Integratie: Verbinding met het laboratorium- of praktijkinformatiesysteem vindt plaats via veilige, webgebaseerde interfaces. Externe consultants zorgen ervoor dat alle meetwaarden automatisch, veilig en foutloos in het patiëntendossier worden overgedragen.",
-          "Firmware-updates en Systeemchecks: Software-updates om compatibiliteit en naleving van nieuwe standaarden te garanderen, kunnen permanent op afstand worden geïnstalleerd zonder de praktijkvoering te onderbreken."
-        ]
-      },
-      {
-        "heading": "3. De 48-Uurs Formule: Het Concurrentievoordeel",
-        "paragraphs": [
-          "Door technische en administratieve complexiteit uit te besteden aan gespecialiseerde diensten op afstand, kunnen praktijken en apotheken de benodigde tijd verminderen van weken tot een minimum.",
-          "Efficiëntiewinst en Patiënttevredenheid: De onmiddellijke operationele gereedheid van POC-diagnostische apparaten stelt personeel in staat zich onmiddellijk te concenten op patiëntenzorg. Tijdsbesparing bij de diagnose, snellere therapiebeslissingen en de eliminatie van een tweede afspraak leiden tot aanzienlijk hogere patiënttevredenheid. Geoptimaliseerde workflows verbeteren de economische efficiëntie van de gehele faciliteit."
-        ]
-      },
-      {
-        "heading": "Conclusie: Investering in Tijd en Veiligheid",
-        "paragraphs": [
-          "Moderne Point-of-Care diagnostiek is meer dan alleen een apparaat: Het is een digitaal geïntegreerd systeem. Degenen die vertrouwen op Remote Setup investeren niet alleen in preciezere en snellere diagnostiek, maar vooral in de kostbare tijd van hun personeel. De 48-uurs formule is dus synoniem met minimale integratiestress en maximale operationele gereedheid in de moderne gezondheidszorg."
-        ]
-      }
-    ]
-  },
   "precision_point_of_care": {
     "title": "Precisie in Point-of-Care: De Sleutel tot Patiëntveiligheid",
     "excerpt": "Waarom de validatie van Lateral Flow Tests (LFT) verder gaat dan specificaties van de fabrikant.",

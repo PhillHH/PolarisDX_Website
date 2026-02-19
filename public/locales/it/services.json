@@ -2,29 +2,6 @@
   "dental": {
     "title": "Dentale",
     "headline": "Precisione per l'odontoiatria moderna",
-    "intro": [
-      "Espandi il tuo spettro di trattamento con una diagnostica moderna direttamente alla poltrona. Risultati rapidi consentono una consulenza immediata e fondata per il paziente.",
-      "Ottimizza i processi di guarigione e rileva i rischi precocemente."
-    ],
-    "sections": [
-      {
-        "heading": "1. Vitamina D e guarigione delle ferite",
-        "content": "Un livello sufficiente di Vitamina D è essenziale per l'osteointegrazione degli impianti e la guarigione generale delle ferite. Misura lo stato direttamente in loco.",
-        "listItems": [
-          "Determinazione immediata dei livelli di 25-OH-Vitamina D.",
-          "Integrazione mirata per migliorare i risultati chirurgici."
-        ]
-      },
-      {
-        "heading": "2. Marcatori di infiammazione",
-        "content": "Rileva infiammazioni sistemiche che possono influenzare la parodontite e monitora il successo terapeutico.",
-        "listItems": []
-      }
-    ],
-    "conclusion": {
-      "heading": "Conclusione",
-      "text": "Integra la diagnostica senza soluzione di continuità nel flusso di lavoro del tuo studio per migliori risultati clinici."
-    },
     "cta": "Scopri di più"
   },
   "beauty": {

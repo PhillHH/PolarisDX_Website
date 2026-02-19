@@ -51,55 +51,6 @@
       }
     ]
   },
-  "48_hour_formula": {
-    "title": "48-Timers Formlen: Effektivitet i POC Diagnostik",
-    "excerpt": "Effektivitet i stedet for træning: Vejen til øjeblikkelig operationel parathed i praksis.",
-    "sections": [
-      {
-        "heading": "Introduktion",
-        "paragraphs": [
-          "Beslutningen om nye Point-of-Care (POC) diagnostiske enheder er ofte det første skridt mod bedre patientpleje. Men vejen fra erhvervelse til fuld operationel parathed undervurderes ofte. Langvarig træning, administrative forhindringer og kompleks IT-integration forbruger værdifuld tid og binder personale, hvis fokus faktisk burde være på patienten.",
-          "Denne flaskehals er fortid. Moderne supportkoncepter revolutionerer idriftsættelse og reducerer indsatsen for praksisser og apoteker til et minimum. Nøglen er 'Remote Setup'-tilgangen, som garanterer øjeblikkelig operationel parathed på bare 48 timer."
-        ]
-      },
-      {
-        "heading": "1. Effektivitetsdilemmaet: Hvorfor Traditionel Integration Fejler",
-        "paragraphs": [
-          "Traditionelt kræver integration af et nyt POC-system flere tidskrævende trin, der ofte tager uger:"
-        ],
-        "listItems": [
-          "Administrativ og Regulatorisk Træning: Træning af personale vedrørende kvalitetsstyring og interne protokoller.",
-          "Teknisk Opsætning og Kalibrering: Manuel indledende idriftsættelse og batch-specifik kalibrering af enheden.",
-          "IT-forbindelse og Dataudveksling: Den komplekse tovejsforbindelse mellem POC-læseren og praksis- eller apoteksstyringssystemet."
-        ]
-      },
-      {
-        "heading": "2. Remote Setup Tilgangen: IT-Eksperter i Baggrunden",
-        "paragraphs": [
-          "Remote Setup-tilgangen er baseret på den digitale konnektivitet af moderne POC-læsere. I stedet for at have brug for en servicetekniker på stedet, opsættes og valideres enheden eksternt af specialiserede eksperter.",
-          "Kerneprocesser håndteret eksternt:"
-        ],
-        "listItems": [
-          "Fuld Kalibrering: Den tekniske kalibrering af multi-læseren til de anvendte Lateral Flow Tests (LFT'er) sker eksternt. Dette sikrer, at analytisk præcision er garanteret fra starten – uden at praksispersonale behøver at udføre komplekse tekniske trin.",
-          "Problemfri IT-Integration: Forbindelse til laboratorie- eller praksisinformationssystemet sker via sikre, webbaserede grænseflader. Eksterne konsulenter sikrer, at alle måleværdier overføres automatisk, sikkert og fejlfrit til patientjournalen.",
-          "Firmwareopdateringer og Systemtjek: Softwareopdateringer for at sikre kompatibilitet og overholdelse af nye standarder kan installeres eksternt permanent og uden at afbryde praksisdriften."
-        ]
-      },
-      {
-        "heading": "3. 48-Timers Formlen: Konkurrencefordelen",
-        "paragraphs": [
-          "Ved at outsource teknisk og administrativ kompleksitet til specialiserede fjerntjenester kan praksisser og apoteker reducere den nødvendige tid fra uger til et minimum.",
-          "Effektivitetsgevinst og Patienttilfredshed: Den øjeblikkelige operationelle parathed af POC-diagnostiske enheder giver personalet mulighed for straks at fokusere på patientpleje. Tidsbesparelser i diagnose, hurtigere terapibeslutninger og eliminering af en anden aftale fører til betydeligt højere patienttilfredshed. Optimerede arbejdsgange forbedrer den økonomiske effektivitet for hele faciliteten."
-        ]
-      },
-      {
-        "heading": "Konklusion: Investering i Tid og Sikkerhed",
-        "paragraphs": [
-          "Moderne Point-of-Care diagnostik er mere end bare en enhed: Det er et digitalt integreret system. De, der stoler på Remote Setup, investerer ikke kun i mere præcis og hurtigere diagnostik, men primært i deres personales værdifulde tid. 48-timers formlen er således synonym med minimal integrationsstress og maksimal operationel parathed i moderne sundhedsvæsen."
-        ]
-      }
-    ]
-  },
   "precision_point_of_care": {
     "title": "Præcision i Point-of-Care: Nøglen til Patientsikkerhed",
     "excerpt": "Hvorfor valideringen af Lateral Flow Tests (LFT) går ud over producentspecifikationer.",

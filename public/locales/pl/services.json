@@ -2,29 +2,6 @@
   "dental": {
     "title": "Stomatologia",
     "headline": "Precyzja dla nowoczesnej stomatologii",
-    "intro": [
-      "Rozszerz swoje spektrum leczenia dzięki nowoczesnej diagnostyce bezpośrednio przy fotelu. Szybkie wyniki umożliwiają natychmiastową, popartą dowodami konsultację pacjenta.",
-      "Optymalizuj procesy gojenia i wcześnie wykrywaj ryzyko."
-    ],
-    "sections": [
-      {
-        "heading": "1. Witamina D i gojenie się ran",
-        "content": "Wystarczający poziom witaminy D jest niezbędny dla osseointegracji implantów i ogólnego gojenia się ran. Zmierz status bezpośrednio na miejscu.",
-        "listItems": [
-          "Natychmiastowe oznaczenie poziomu 25-OH-witaminy D.",
-          "Celowana suplementacja w celu poprawy wyników chirurgicznych."
-        ]
-      },
-      {
-        "heading": "2. Markery stanu zapalnego",
-        "content": "Wykrywaj ogólnoustrojowe stany zapalne, które mogą wpływać na zapalenie przyzębia, i monitoruj sukces terapeutyczny.",
-        "listItems": []
-      }
-    ],
-    "conclusion": {
-      "heading": "Wniosek",
-      "text": "Bezproblemowo zintegruj diagnostykę z przepływem pracy w Twojej praktyce, aby uzyskać lepsze wyniki kliniczne."
-    },
     "cta": "Dowiedz się więcej"
   },
   "beauty": {

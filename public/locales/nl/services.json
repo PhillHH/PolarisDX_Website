@@ -2,29 +2,6 @@
   "dental": {
     "title": "Tandheelkunde",
     "headline": "Precisie voor moderne tandheelkunde",
-    "intro": [
-      "Breid uw behandelingsspectrum uit met moderne diagnostiek direct aan de stoel. Snelle resultaten maken onmiddellijk, goed onderbouwd patiëntadvies mogelijk.",
-      "Optimaliseer genezingsprocessen en detecteer risico's vroegtijdig."
-    ],
-    "sections": [
-      {
-        "heading": "1. Vitamine D & Wondgenezing",
-        "content": "Een voldoende vitamine D-spiegel is essentieel voor de osseointegratie van implantaten en algemene wondgenezing. Meet de status direct ter plaatse.",
-        "listItems": [
-          "Onmiddellijke bepaling van 25-OH-vitamine D-spiegels.",
-          "Gerichte suppletie om chirurgische resultaten te verbeteren."
-        ]
-      },
-      {
-        "heading": "2. Ontstekingsmarkers",
-        "content": "Detecteer systemische ontstekingen die parodontitis kunnen beïnvloeden en monitor therapeutisch succes.",
-        "listItems": []
-      }
-    ],
-    "conclusion": {
-      "heading": "Conclusie",
-      "text": "Integreer diagnostiek naadloos in uw praktijkworkflow voor betere klinische resultaten."
-    },
     "cta": "Meer weten"
   },
   "beauty": {

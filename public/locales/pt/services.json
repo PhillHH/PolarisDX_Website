@@ -2,29 +2,6 @@
   "dental": {
     "title": "Dentária",
     "headline": "Precisão para a odontologia moderna",
-    "intro": [
-      "Expanda seu espectro de tratamento com diagnósticos modernos diretamente na cadeira. Resultados rápidos permitem uma consulta imediata e fundamentada ao paciente.",
-      "Otimize processos de cicatrização e detecte riscos precocemente."
-    ],
-    "sections": [
-      {
-        "heading": "1. Vitamina D e cicatrização de feridas",
-        "content": "Um nível suficiente de Vitamina D é essencial para a osseointegração de implantes e cicatrização geral de feridas. Meça o status diretamente no local.",
-        "listItems": [
-          "Determinação imediata dos níveis de 25-OH-Vitamina D.",
-          "Suplementação direcionada para melhorar os resultados cirúrgicos."
-        ]
-      },
-      {
-        "heading": "2. Marcadores de inflamação",
-        "content": "Detecte inflamações sistêmicas que podem influenciar a periodontite e monitore o sucesso terapêutico.",
-        "listItems": []
-      }
-    ],
-    "conclusion": {
-      "heading": "Conclusão",
-      "text": "Integre o diagnóstico perfeitamente ao fluxo de trabalho do seu consultório para melhores resultados clínicos."
-    },
     "cta": "Saber mais"
   },
   "beauty": {

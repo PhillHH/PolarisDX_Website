@@ -2,29 +2,6 @@
   "dental": {
     "title": "Dental",
     "headline": "Přesnost pro moderní stomatologii",
-    "intro": [
-      "Rozšiřte spektrum své léčby o moderní diagnostiku přímo v křesle. Rychlé výsledky umožňují okamžitou, fundovanou konzultaci s pacientem.",
-      "Optimalizujte procesy hojení a včas odhalte rizika."
-    ],
-    "sections": [
-      {
-        "heading": "1. Vitamin D a hojení ran",
-        "content": "Dostatečná hladina vitaminu D je nezbytná pro osseointegraci implantátů a celkové hojení ran. Změřte stav přímo na místě.",
-        "listItems": [
-          "Okamžité stanovení hladiny 25-OH-vitaminu D.",
-          "Cílená suplementace pro zlepšení chirurgických výsledků."
-        ]
-      },
-      {
-        "heading": "2. Zánětlivé markery",
-        "content": "Odhalte systémové záněty, které mohou ovlivnit parodontitidu, a sledujte úspěšnost terapie.",
-        "listItems": []
-      }
-    ],
-    "conclusion": {
-      "heading": "Závěr",
-      "text": "Integrujte diagnostiku plynule do chodu vaší ordinace pro lepší klinické výsledky."
-    },
     "cta": "Dozvědět se více"
   },
   "beauty": {

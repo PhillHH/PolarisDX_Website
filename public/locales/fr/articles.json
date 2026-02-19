@@ -51,55 +51,6 @@
       }
     ]
   },
-  "48_hour_formula": {
-    "title": "La formule 48 heures : Efficacité dans le diagnostic POC",
-    "excerpt": "Efficacité au lieu de formation : Le chemin vers la disponibilité opérationnelle immédiate en cabinet.",
-    "sections": [
-      {
-        "heading": "Introduction",
-        "paragraphs": [
-          "La décision d'acquérir de nouveaux appareils de diagnostic Point-of-Care (POC) est souvent la première étape vers de meilleurs soins aux patients. Pourtant, le chemin de l'acquisition à la pleine disponibilité opérationnelle est souvent sous-estimé. Une formation longue, des obstacles administratifs et une intégration informatique complexe consomment un temps précieux et mobilisent du personnel dont l'attention devrait en fait se porter sur le patient.",
-          "Ce goulot d'étranglement appartient au passé. Les concepts de support modernes révolutionnent la mise en service et réduisent l'effort pour les cabinets et les pharmacies au minimum. La clé est l'approche 'Configuration à distance', qui garantit une disponibilité opérationnelle immédiate en seulement 48 heures."
-        ]
-      },
-      {
-        "heading": "1. Le dilemme de l'efficacité : Pourquoi l'intégration traditionnelle échoue",
-        "paragraphs": [
-          "Traditionnellement, l'intégration d'un nouveau système POC nécessite plusieurs étapes chronophages qui prennent souvent des semaines :"
-        ],
-        "listItems": [
-          "Formation administrative et réglementaire : Formation du personnel concernant la gestion de la qualité (par ex. selon RiliBÄK ou Qualab) et les protocoles internes.",
-          "Configuration technique et étalonnage : Mise en service initiale manuelle et étalonnage spécifique au lot de l'appareil.",
-          "Connexion informatique et échange de données : La connexion bidirectionnelle complexe entre le lecteur POC et le système de gestion de cabinet ou de pharmacie (PVS/AVS)."
-        ]
-      },
-      {
-        "heading": "2. L'approche Configuration à distance : Experts informatiques en arrière-plan",
-        "paragraphs": [
-          "L'approche Configuration à distance repose sur la connectivité numérique des lecteurs POC modernes. Au lieu d'avoir besoin d'un technicien de service sur place, l'appareil est configuré et validé à distance par des experts spécialisés.",
-          "Processus clés gérés à distance :"
-        ],
-        "listItems": [
-          "Étalonnage complet : L'étalonnage technique du multi-lecteur sur les tests à flux latéral (LFT) utilisés est effectué en externe. Cela garantit que la précision analytique est assurée dès le début - sans que le personnel du cabinet n'ait à effectuer des étapes techniques complexes.",
-          "Intégration informatique transparente : La connexion au système d'information de laboratoire ou de cabinet (LIS/PIS) se fait via des interfaces Web sécurisées (par ex. solutions POC-IT). Des consultants externes s'assurent que toutes les valeurs de mesure sont transférées automatiquement, en toute sécurité et sans erreur dans le dossier du patient.",
-          "Mises à jour du micrologiciel et vérifications du système : Les mises à jour logicielles pour garantir la compatibilité et le respect des nouvelles normes peuvent être installées à distance en permanence et sans interruption des opérations du cabinet."
-        ]
-      },
-      {
-        "heading": "3. La formule 48 heures : L'avantage concurrentiel",
-        "paragraphs": [
-          "En externalisant la complexité technique et administrative à des services à distance spécialisés, les cabinets et les pharmacies peuvent réduire le temps requis de plusieurs semaines à un minimum.",
-          "Gain d'efficacité et satisfaction des patients : La disponibilité opérationnelle immédiate des appareils de diagnostic POC permet au personnel de se concentrer immédiatement sur les soins aux patients. Le gain de temps dans le diagnostic, des décisions thérapeutiques plus rapides et la suppression d'un deuxième rendez-vous conduisent à une satisfaction des patients nettement plus élevée. Les flux de travail optimisés améliorent l'efficacité économique de l'ensemble de l'établissement."
-        ]
-      },
-      {
-        "heading": "Conclusion : Investissement en temps et en sécurité",
-        "paragraphs": [
-          "Le diagnostic Point-of-Care moderne est plus qu'un simple appareil : C'est un système intégré numériquement. Ceux qui misent sur la Configuration à distance investissent non seulement dans un diagnostic plus précis et plus rapide, mais surtout dans le temps précieux de leur personnel. La formule 48 heures est donc synonyme de stress d'intégration minimal et de disponibilité opérationnelle maximale dans les soins de santé modernes."
-        ]
-      }
-    ]
-  },
   "precision_point_of_care": {
     "title": "Précision au Point-of-Care : La clé de la sécurité des patients",
     "excerpt": "Pourquoi la validation des tests à flux latéral (LFT) va au-delà des spécifications du fabricant.",

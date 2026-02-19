@@ -44,7 +44,11 @@
     "cta": "Zum Igloo Pro System"
   },
   "igloo_widget": {
-    "title": "Anwendungsbereiche: POCT für Dental, Beauty und Longevity"
+    "title": "Anwendungsbereiche: POCT für Dental, Beauty und Longevity",
+    "dental": "Dental",
+    "beauty": "Beauty",
+    "longevity": "Longevity",
+    "all_services": "Alle Diagnostik-Services entdecken"
   },
   "services": {
     "caption": "DIAGNOSTIK-FOKUS",

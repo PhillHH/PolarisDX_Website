@@ -40,7 +40,11 @@
     "cta": "To the Igloo Pro System"
   },
   "igloo_widget": {
-    "title": "Application Areas"
+    "title": "Application Areas",
+    "dental": "Dental",
+    "beauty": "Beauty",
+    "longevity": "Longevity",
+    "all_services": "Discover all diagnostics services"
   },
   "services": {
     "caption": "DIAGNOSTICS FOCUS",

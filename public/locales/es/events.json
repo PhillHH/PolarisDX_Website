@@ -4,7 +4,5 @@
   "intro": "Experimente nuestras tecnologías en vivo y hable con nuestros expertos.",
   "empty_title": "No hay eventos actuales",
   "empty_text": "Actualmente no hay fechas de ferias o eventos programados.",
-  "details": "Detalles",
-  "date_format": "{{date, datetime}}",
-  "location": "Ubicación"
+  "details": "Detalles"
 }
