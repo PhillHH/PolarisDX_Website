@@ -7,7 +7,13 @@
     "blog": "Blog",
     "contact": "Kontakt",
     "terms": "Obchodní podmínky",
-    "events": "Události"
+    "events": "Události",
+    "casestudies": "Případová studie",
+    "downloads": "Ke stažení",
+    "dental": "Zubní diagnostika",
+    "beauty": "Estetická diagnostika",
+    "longevity": "Longevity diagnostika",
+    "pocSystems": "POC systémy"
   },
   "badge": {
     "New": "Nové",
@@ -37,7 +43,12 @@
     "doctors": "Naši lékaři",
     "testimonials": "Reference",
     "faq": "FAQ",
-    "appointment": "Rezervovat termín"
+    "appointment": "Rezervovat termín",
+    "diagnostics": "Diagnostika",
+    "allServices": "Všechny služby",
+    "pocSystems": "POC systémy",
+    "preventionChecks": "Preventivní vyšetření",
+    "hormonTests": "Hormonální testy"
   },
   "cta": {
     "title": "Hledáte profesionální a důvěryhodnou <1>lékařskou péči?</1>",
@@ -80,7 +91,8 @@
         "name": "Analýza",
         "description": "Analýza."
       }
-    }
+    },
+    "reject_all": "Pouze nezbytné"
   },
   "testimonials": {
     "positiveLabel": "Pozitivní recenze"
@@ -91,13 +103,31 @@
       "about": "tým lékaři polarisdx o nás",
       "services": "services leistungen dental beauty longevity diagnostics",
       "contact": "contact kontakt email phone address",
-      "terms": "legal terms agb rights"
+      "terms": "legal terms agb rights",
+      "casestudies": "případová studie 32reasons stomatologie polaris dx"
     },
     "services": {
       "dental": "Zubní Diagnostika",
       "beauty": "Dermatologické Analýzy",
       "longevity": "Zdraví a Dlouhověkost",
       "sports": "Výkonnostní Diagnostika pro Sportovce"
+    }
+  },
+  "notFound": {
+    "seo": {
+      "title": "Stránka nenalezena | PolarisDX",
+      "description": "Požadovaná stránka nebyla nalezena."
+    },
+    "badge": "Stránka nenalezena",
+    "title": "Jejda! Tato stránka neexistuje",
+    "description": "Stránka, kterou hledáte, byla pravděpodobně přesunuta, smazána nebo již neexistuje.",
+    "backHome": "Zpět na úvodní stránku",
+    "popularPages": "Oblíbené stránky",
+    "links": {
+      "home": "Úvodní stránka",
+      "iglooPro": "IglooPro",
+      "services": "Služby",
+      "contact": "Kontakt"
     }
   }
 }
