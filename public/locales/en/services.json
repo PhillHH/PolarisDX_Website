@@ -2,7 +2,37 @@
   "dental": {
     "title": "Dental",
     "headline": "Optimized Implantology & Periodontology: Measurable Safety at the Chair",
-    "cta": "Book appointment"
+    "cta": "Book appointment",
+    "faq": {
+      "caption": "Frequently Asked Questions",
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "Which blood tests can I perform as a dentist in my practice?",
+          "answer": "With a point-of-care device such as the Igloo Pro Reader, you can quantitatively determine Vitamin D3, CRP, HbA1c, TSH, ferritin and cholesterol (HDL, LDL, total), among others. The measurement is performed from capillary blood via finger prick. Depending on the biomarker, results are available in three to fifteen minutes — directly at the treatment chair, without laboratory submission."
+        },
+        {
+          "question": "How does the Igloo Pro Reader work?",
+          "answer": "The Igloo Pro Reader uses immunofluorescence-based technology and delivers quantitative measurement values. The process involves five steps: collect capillary blood via finger prick, apply the sample to the pre-filled test cassette, insert the cassette into the reader, wait for the measurement time, and read the result on the display. No laboratory training is required to operate the device."
+        },
+        {
+          "question": "Is a blood test at the dentist a private health service (IGeL)?",
+          "answer": "Yes, provided there is no medical indication within the scope of statutory health insurance. Billing is carried out according to the German Fee Schedule for Physicians (GOÄ), as dentists bill medical services pursuant to § 6 para. 2 GOZ under GOÄ. For patients with statutory health insurance, a written IGeL contract with a cost estimate is required before the test is performed."
+        },
+        {
+          "question": "What does the Igloo Pro Reader cost?",
+          "answer": "The price of the Igloo Pro Reader depends on the chosen equipment package and the procurement model — purchase or leasing. PolarisDX prepares an individual offer based on your practice profile and planned test volume, including a profitability calculation. Contact us for your personalised quote."
+        },
+        {
+          "question": "Is the Igloo Pro Reader IVDR-compliant?",
+          "answer": "Yes. The Igloo Pro Reader and its associated test cassettes are approved under the European In Vitro Diagnostic Regulation (EU 2017/746) and bear the CE mark. The device thus meets all regulatory requirements for professional use as an in vitro diagnostic in medical practices."
+        },
+        {
+          "question": "What quality assurance is required for POCT in dental practices?",
+          "answer": "In accordance with the German Medical Association Guideline (RiliBÄK), internal quality controls through regular control measurements and participation in external proficiency testing are mandatory. Results must be documented. PolarisDX supports practices with setting up internal quality control, registering for proficiency tests and ongoing documentation."
+        }
+      ]
+    }
   },
   "beauty": {
     "title": "Beauty & Aesthetics",
@@ -41,7 +71,33 @@
       "heading": "Conclusion: Science Instead of Wellness",
       "text": "Position yourself as an expert in Medical Beauty. Through data-based analysis, you stand out from the competition and offer results that are not only visible but also measurable."
     },
-    "cta": "Book appointment"
+    "cta": "Book appointment",
+    "faq": {
+      "caption": "Frequently Asked Questions",
+      "title": "FAQ on Beauty Diagnostics & Biomarker Analysis",
+      "items": [
+        {
+          "question": "Which biomarkers are relevant for aesthetic treatments?",
+          "answer": "For aesthetic medicine, the most relevant biomarkers are Vitamin D (skin barrier, collagen synthesis), ferritin (hair loss, tissue regeneration), TSH (thyroid function affects skin and hair) and hs-CRP (silent inflammation as a driver of premature skin ageing). These biomarkers provide an objective basis for tailoring treatments individually and documenting results transparently."
+        },
+        {
+          "question": "Why should I perform a blood panel before aesthetic procedures?",
+          "answer": "A pre-interventional screening reveals risk factors that can influence treatment outcomes — such as coagulation disorders, nutrient deficiencies or subclinical inflammation. This increases patient safety and enables evidence-based consultation that positions your practice as medically sound."
+        },
+        {
+          "question": "How are thyroid values connected to hair loss?",
+          "answer": "The thyroid regulates the entire cell metabolism — including the hair follicle cycle. Both hypothyroidism and hyperthyroidism (identifiable by abnormal TSH levels) can cause diffuse hair loss, dry skin and brittle nails. A POC rapid test for TSH provides clarity within minutes and enables targeted referral or therapy initiation."
+        },
+        {
+          "question": "Can I offer hormone diagnostics as a private health service?",
+          "answer": "Yes. Hormone screenings (TSH, cortisol, testosterone) and micronutrient analyses (Vitamin D, ferritin) are classic individual health services billed privately under GOÄ. Particularly in the beauty segment, there is a high willingness to pay for data-driven consultation that goes beyond purely device-based treatments."
+        },
+        {
+          "question": "What role does Vitamin D play for skin and hair?",
+          "answer": "Vitamin D is involved in keratinocyte differentiation, maintaining the skin barrier and regulating the hair follicle cycle. A Vitamin D deficiency — prevalent in over 50% of the population in Central Europe — promotes inflammatory skin conditions, accelerates skin ageing and can exacerbate hair loss. Measurement with the IglooPro takes only a few minutes and forms the basis for targeted supplementation."
+        }
+      ]
+    }
   },
   "longevity": {
     "title": "Longevity",
@@ -87,7 +143,33 @@
       "heading": "Conclusion: Become a Longevity Hub",
       "text": "Offer your clients more than just hope – offer control. With the Igloo Pro, you establish professional biomarker monitoring that forms the basis for any serious longevity program."
     },
-    "cta": "Book appointment"
+    "cta": "Book appointment",
+    "faq": {
+      "caption": "Frequently Asked Questions",
+      "title": "FAQ on Longevity Diagnostics & Prevention",
+      "items": [
+        {
+          "question": "Which biomarkers are relevant for longevity medicine?",
+          "answer": "Core markers in longevity diagnostics include HbA1c (glycaemic control and AGE formation), hs-CRP (chronic inflammation / inflammaging), a complete lipid profile (cardiovascular risk), TSH (thyroid function) and Vitamin D (immune modulation, bone health). Together, these parameters form a meaningful baseline profile that can be collected directly at the point of care with the IglooPro."
+        },
+        {
+          "question": "What is the difference between preventive and curative diagnostics?",
+          "answer": "Curative diagnostics are used when symptoms already exist, to confirm or rule out a disease. Preventive diagnostics, on the other hand, proactively capture biomarkers — before symptoms appear — to identify risk factors early and take countermeasures. In longevity medicine, the focus is on optimising values within the normal range, not merely treating pathological deviations."
+        },
+        {
+          "question": "How often should longevity biomarkers be checked?",
+          "answer": "For a thorough longevity monitoring programme, a baseline health check every 3–6 months is recommended, with more frequent checks during active interventions (e.g. dietary changes, supplementation, training programmes). The rapid availability of results at the point of care allows adjustments to be made in real time, rather than waiting for laboratory reports."
+        },
+        {
+          "question": "Which inflammatory markers are important for prevention?",
+          "answer": "High-sensitivity CRP (hs-CRP) is the central marker for chronic low-grade inflammation — known as inflammaging. Even mildly elevated values in the range of 1–3 mg/L correlate with an increased risk of cardiovascular disease, neurodegeneration and accelerated ageing processes. Regular monitoring enables early intervention through lifestyle measures or targeted supplementation."
+        },
+        {
+          "question": "Can I offer health checks as a self-pay service?",
+          "answer": "Yes. Preventive biomarker screenings are classic self-pay or private health services (IGeL), as they go beyond the scope of statutory health insurance. Particularly in the longevity segment, there is strong demand for data-driven health checks. The combination of instant analysis and qualified consultation forms an economically attractive service package for your practice."
+        }
+      ]
+    }
   },
   "poc_systemloesungen": {
     "title": "POC System Solutions: The Control Center for Validated Diagnostics",
@@ -132,7 +214,37 @@
       "heading": "Conclusion for PolarisDX.net: More Than Just Technology",
       "text": "The Igloo Pro POC system solution represents the pinnacle of mobile diagnostics. But true performance is only unlocked through exclusive service. PolarisDX.net guarantees not only the delivery of this technological tool but also its immediate, validated, and seamless integration into your operation. Rely on the agility of mobile diagnostics – with the guaranteed security of an expert partner by your side."
     },
-    "cta": "Book appointment"
+    "cta": "Book appointment",
+    "faq": {
+      "caption": "Frequently Asked Questions",
+      "title": "FAQ on Point-of-Care System Solutions",
+      "items": [
+        {
+          "question": "What is a point-of-care test (POCT)?",
+          "answer": "A point-of-care test (POCT) is a form of near-patient laboratory diagnostics where the analysis takes place directly at the treatment site — without submission to a central laboratory. Results are available within minutes and can immediately inform clinical decisions. POCT systems such as the IglooPro use lateral flow assays, immunofluorescence or colorimetry to deliver quantitative results at laboratory quality."
+        },
+        {
+          "question": "How do I integrate a POC system into my daily practice?",
+          "answer": "Integrating a POCT device like the IglooPro requires no renovation or dedicated laboratory space. The device weighs approx. 400 g, is ready for immediate use and can be connected to your practice software via USB-C, Wi-Fi or Bluetooth. PolarisDX handles the complete remote setup service within 3–5 working days — including validation, interface configuration and team training."
+        },
+        {
+          "question": "What quality assurance is required for POCT?",
+          "answer": "The German Medical Association Guideline (RiliBÄK) governs quality assurance for laboratory medical examinations, including POCT. Requirements include regular control measurements, documentation of results and training of operating personnel. The IglooPro supports this process through automatic result storage (up to 10,000 measurements) and connectivity to LIS/HIS systems for seamless documentation."
+        },
+        {
+          "question": "How quickly does the IglooPro deliver results?",
+          "answer": "Depending on the parameter, quantitative results are available in 3 to 15 minutes. CRP values are typically available in under 5 minutes, Vitamin D and HbA1c in approximately 10–15 minutes. This rapid diagnostics capability enables findings and consultation to be completed in a single patient visit — without follow-up appointments or external laboratory waiting times."
+        },
+        {
+          "question": "Is the IglooPro IVDR-compliant?",
+          "answer": "Yes. The IglooPro meets the requirements of the European In Vitro Diagnostic Regulation (IVDR, EU 2017/746) and bears the corresponding CE marking. IVDR compliance ensures that the device and test cassettes meet stringent requirements for analytical performance, clinical evidence and quality management — a mandatory prerequisite for use in IVD diagnostics."
+        },
+        {
+          "question": "Who manufactures the IglooPro?",
+          "answer": "The IglooPro is developed and manufactured by DX365 GmbH in Berlin. PolarisDX is the distribution partner for the European market and handles sales, integration, training and ongoing support."
+        }
+      ]
+    }
   },
   "praeventions_checks": {
     "title": "Preventive Health Checks: Prevention Reimagined",
@@ -173,7 +285,29 @@
       "heading": "Conclusion for Your Decision",
       "text": "Investing in POC system solutions is an investment in the future of patient-centered care and increasing operational efficiency. PolarisDX.net not only delivers the technology for this transformation but guarantees its smooth and validated function through the exclusive remote setup service within 3-5 business days and LFT compatibility guarantee. Thus, you use the full potential of preventive health checks immediately."
     },
-    "cta": "Book appointment"
+    "cta": "Book appointment",
+    "faq": {
+      "caption": "Frequently Asked Questions",
+      "title": "FAQ on Preventive Health Checks",
+      "items": [
+        {
+          "question": "Which preventive checks can I offer in my practice?",
+          "answer": "With a POC system like the IglooPro, comprehensive check-up profiles can be offered directly in the practice — from diabetes screening (HbA1c) to cardiovascular risk assessment (cholesterol) and inflammation status (CRP) to micronutrient checks (Vitamin D, ferritin). Preventive diagnostics can be integrated into daily practice as a structured screening programme or as targeted individual services."
+        },
+        {
+          "question": "Which biomarkers belong to a basic health check?",
+          "answer": "An evidence-based basic health check includes at minimum HbA1c (glycaemic control), CRP (inflammation status), Vitamin D (immune function, bone health) and a lipid profile (cardiovascular risk). Depending on the patient profile, TSH (thyroid) and ferritin (iron status) can be added. All these parameters can be determined with the IglooPro in a single session."
+        },
+        {
+          "question": "How does a POC check differ from a laboratory order?",
+          "answer": "With a classic laboratory order, the sample is taken, sent to a central laboratory and the result is available at the earliest after 24–48 hours — often requiring a follow-up appointment. With near-patient laboratory diagnostics (POCT), the analysis takes place directly on site in 3–15 minutes. Consultation and therapy initiation can occur in the same appointment, significantly improving efficiency and patient satisfaction."
+        },
+        {
+          "question": "Are preventive checks billable as private health services (IGeL)?",
+          "answer": "Yes. Preventive biomarker screenings that go beyond the statutory health insurance catalogue are billable as individual health services (IGeL) under GOÄ. The combination of instant analytics and qualified consultation forms an economically attractive self-pay offering that simultaneously strengthens patient retention."
+        }
+      ]
+    }
   },
   "infektion_entzuendung": {
     "title": "Infection & Inflammation Markers: Quick Answers in Critical Cases",
@@ -213,7 +347,29 @@
       "heading": "Conclusion: No Compromises in Diagnosis",
       "text": "For infections and inflammations, time is the critical factor. Only a POC system that combines lab-level validity with maximum speed can increase diagnostic safety while optimizing antibiotic management. PolarisDX.net delivers this guaranteed performance – from commissioning within 3-5 business days to priority support."
     },
-    "cta": "Book appointment"
+    "cta": "Book appointment",
+    "faq": {
+      "caption": "Frequently Asked Questions",
+      "title": "FAQ on Infection & Inflammation Diagnostics",
+      "items": [
+        {
+          "question": "When is a CRP rapid test useful in practice?",
+          "answer": "A CRP rapid test is indicated whenever rapid differentiation between bacterial and viral causes is clinically relevant — such as with respiratory tract infections, fever of unknown origin or post-operative monitoring. An elevated CRP value above 40 mg/L suggests bacterial involvement, while lower values may support a wait-and-see approach without antibiotic treatment. Measurement with the IglooPro takes under 5 minutes."
+        },
+        {
+          "question": "Can I differentiate bacterial from viral infections with the IglooPro?",
+          "answer": "The combination of CRP and PCT (procalcitonin) enables a more differentiated assessment than a single marker alone. CRP rises in both bacterial and viral infections, while PCT responds much more specifically to bacterial infections and sepsis. By simultaneously determining both parameters at the point of care, more informed therapeutic decisions can be made and unnecessary antibiotic prescriptions reduced."
+        },
+        {
+          "question": "How reliable are POC inflammation tests compared to the laboratory?",
+          "answer": "IVDR-compliant POC systems like the IglooPro deliver quantitative results with an analytical precision of CV < 2% and are thus comparable to central laboratory measurements. Quality assurance is maintained through validated test cassettes and internal controls. In clinical practice, POC tests offer the additional advantage that results are immediately available and not influenced by transport times or sample storage."
+        },
+        {
+          "question": "Which inflammation markers can the IglooPro measure?",
+          "answer": "The IglooPro supports the determination of CRP (C-reactive protein) as the central acute-phase marker, PCT (procalcitonin) for differentiating bacterial infections, and ferritin, which is relevant not only for iron status but also as an inflammation marker in chronic and acute processes. Through the open platform, additional lateral flow tests for IL-6 and other parameters can be integrated."
+        }
+      ]
+    }
   },
   "stoffwechsel_herz": {
     "title": "Metabolism & Heart Health: Chronic Monitoring at the Push of a Button",
@@ -253,7 +409,29 @@
       "heading": "Conclusion for Your Practice",
       "text": "Integrating the Igloo Pro Reader into your workflow means a paradigm shift: From time-delayed monitoring to immediate, data-based therapy adjustment. With PolarisDX.net, you secure not only the technology for these critical measurements but also the guarantee of smooth implementation and ongoing validation."
     },
-    "cta": "Book appointment"
+    "cta": "Book appointment",
+    "faq": {
+      "caption": "Frequently Asked Questions",
+      "title": "FAQ on Metabolic & Cardiac Diagnostics",
+      "items": [
+        {
+          "question": "Which metabolic biomarkers can I measure chairside?",
+          "answer": "With the IglooPro, you can determine HbA1c (long-term blood sugar), total cholesterol and additional lipid fractions directly from capillary blood in just a few minutes. This chairside diagnostics delivers laboratory-comparable results (CV < 2%) and enables immediate therapy adjustment in the same patient visit — without submission to a central laboratory."
+        },
+        {
+          "question": "How does the HbA1c value help with early diabetes detection?",
+          "answer": "The HbA1c rapid test reflects average blood sugar over the past 8–12 weeks and is therefore independent of daily fluctuations or fasting status. Values between 5.7% and 6.4% indicate a pre-diabetes risk; from 6.5%, the diagnosis is diabetes mellitus. Immediate availability at the point of care enables direct consultation and therapy initiation without a follow-up appointment."
+        },
+        {
+          "question": "Which cardiovascular risk markers does the IglooPro measure?",
+          "answer": "The IglooPro supports the determination of cholesterol values (total cholesterol, LDL, HDL, triglycerides) as well as D-dimer as an exclusion parameter for thrombosis and pulmonary embolism. These cardiovascular risk markers allow rapid assessment of vascular risk and informed decisions on further treatment — directly in the practice."
+        },
+        {
+          "question": "Can I offer metabolic checks as an additional service?",
+          "answer": "Yes. Screenings for HbA1c, cholesterol and other metabolic parameters are typical IGeL services (individual health services) billable privately under GOÄ. The combination of instant measurement and qualified consultation creates measurable added value for patients and generates plannable additional revenue for your practice."
+        }
+      ]
+    }
   },
   "hormon_tests": {
     "title": "Hormone & Endocrinology Tests: Special Diagnostics Made Easy",
@@ -293,7 +471,29 @@
       "heading": "Conclusion: Special Diagnostics Directly in Your Hand",
       "text": "Hormone and endocrinology tests are often the starting point for complex treatment paths. Through POC diagnostics with the Igloo Pro, you massively shorten the time to diagnosis and therapy decision. polarisDX.net offers you the technology and LFT compatibility guarantee to integrate this broad spectrum of specialized tests safely and efficiently into your operation."
     },
-    "cta": "Book appointment"
+    "cta": "Book appointment",
+    "faq": {
+      "caption": "Frequently Asked Questions",
+      "title": "FAQ on Hormone Diagnostics in Practice",
+      "items": [
+        {
+          "question": "Which hormones can the IglooPro measure?",
+          "answer": "The IglooPro supports the quantitative determination of TSH (thyroid function), cortisol (stress axis), testosterone, progesterone, FSH and AMH (ovarian reserve). These hormone tests cover the most common endocrinological questions and deliver laboratory-quality results within minutes directly in the practice."
+        },
+        {
+          "question": "When is a TSH rapid test useful?",
+          "answer": "A TSH rapid test is indicated for clinical suspicion of thyroid dysfunction (e.g. fatigue, weight changes, hair loss), for therapy monitoring under L-thyroxine substitution, and as part of fertility and pregnancy care. The immediate availability of thyroid values allows direct dosage adjustment without waiting for external laboratory results."
+        },
+        {
+          "question": "How accurate are POC hormone tests compared to the laboratory?",
+          "answer": "IVDR-compliant POC systems like the IglooPro achieve an analytical precision with a coefficient of variation (CV) of under 2% and are thus comparable to central laboratory results. Quality assurance is maintained through validated test cassettes and regular control measurements, ensuring clinical decision-making confidence."
+        },
+        {
+          "question": "For which specialities is chairside hormone diagnostics relevant?",
+          "answer": "Chairside hormone diagnostics is equally relevant for general practice, gynaecology, endocrinology, dermatology and fertility centres. Wherever thyroid function, fertility status or hormonal imbalances need to be rapidly assessed, POC measurement offers an immediate time advantage over submission to external laboratories."
+        }
+      ]
+    }
   },
   "kompatibilitaet_integration": {
     "title": "Cross-Manufacturer Compatibility: Investment Security Through Openness",
@@ -332,6 +532,28 @@
       "heading": "Conclusion: Invest in a Solution, Not a Limitation",
       "text": "The cross-manufacturer compatibility of the Igloo Pro makes it the smartest investment in POC diagnostics. It offers the flexibility you need today and the investment security you need tomorrow."
     },
-    "cta": "Book appointment"
+    "cta": "Book appointment",
+    "faq": {
+      "caption": "Frequently Asked Questions",
+      "title": "FAQ on System Integration & Compatibility",
+      "items": [
+        {
+          "question": "Is the IglooPro compatible with my practice software?",
+          "answer": "The IglooPro can be integrated into common laboratory and practice information systems (LIS/HIS) via standardised interfaces. Results are automatically transferred and documented, eliminating the need for manual data entry. PolarisDX supports you with integration into your existing practice infrastructure."
+        },
+        {
+          "question": "What interfaces does the IglooPro offer?",
+          "answer": "The IglooPro features USB-C, Wi-Fi and Bluetooth for data transfer. This enables flexible connectivity to stationary workstations, mobile devices and cloud-based systems. The internal memory stores up to 10,000 measurement results that can be transferred retrospectively as needed."
+        },
+        {
+          "question": "How does the setup and training process work?",
+          "answer": "PolarisDX offers a complete remote setup service within 3–5 working days. This includes device validation, interface configuration to your practice software and practical training for your team. Your practice laboratory is thus quickly operational without you having to worry about technical details."
+        },
+        {
+          "question": "Can multiple IglooPro devices be networked?",
+          "answer": "Yes. In larger practices, MVZ structures or clinics, multiple IglooPro devices can be operated via a shared network and centrally managed. All measurement results flow into a unified system, simplifying quality assurance and providing a cross-location overview of POC diagnostics."
+        }
+      ]
+    }
   }
 }
