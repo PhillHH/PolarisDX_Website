@@ -7,7 +7,13 @@
     "blog": "Blog",
     "contact": "Contatti",
     "terms": "Termini e Condizioni",
-    "events": "Eventi"
+    "events": "Eventi",
+    "casestudies": "Case Study",
+    "downloads": "Download",
+    "dental": "Diagnostica dentale",
+    "beauty": "Diagnostica estetica",
+    "longevity": "Diagnostica longevity",
+    "pocSystems": "Sistemi POC"
   },
   "badge": {
     "New": "Nuovo",
@@ -37,7 +43,12 @@
     "doctors": "I nostri medici",
     "testimonials": "Testimonianze",
     "faq": "FAQ",
-    "appointment": "Prenota appuntamento"
+    "appointment": "Prenota appuntamento",
+    "diagnostics": "Diagnostica",
+    "allServices": "Tutti i servizi",
+    "pocSystems": "Sistemi POC",
+    "preventionChecks": "Check-up preventivi",
+    "hormonTests": "Test ormonali"
   },
   "cta": {
     "title": "Cerchi cure mediche <1>professionali e affidabili?</1>",
@@ -80,7 +91,8 @@
         "name": "Analisi",
         "description": "Per analisi."
       }
-    }
+    },
+    "reject_all": "Solo necessari"
   },
   "testimonials": {
     "positiveLabel": "Recensione positiva"
@@ -91,13 +103,31 @@
       "about": "team doctors polarisdx about us",
       "services": "services leistungen dental beauty longevity diagnostics",
       "contact": "contact kontakt email phone address",
-      "terms": "legal terms agb rights"
+      "terms": "legal terms agb rights",
+      "casestudies": "case study 32reasons odontoiatria polaris dx"
     },
     "services": {
       "dental": "Diagnostica Dentale",
       "beauty": "Analisi Dermatologiche",
       "longevity": "Salute e Longevità",
       "sports": "Diagnostica delle Prestazioni per Atleti"
+    }
+  },
+  "notFound": {
+    "seo": {
+      "title": "Pagina non trovata | PolarisDX",
+      "description": "La pagina richiesta non è stata trovata."
+    },
+    "badge": "Pagina non trovata",
+    "title": "Oops! Questa pagina non esiste",
+    "description": "La pagina che stai cercando potrebbe essere stata spostata, eliminata o non esiste più.",
+    "backHome": "Torna alla home",
+    "popularPages": "Pagine popolari",
+    "links": {
+      "home": "Home",
+      "iglooPro": "IglooPro",
+      "services": "Servizi",
+      "contact": "Contatti"
     }
   }
 }

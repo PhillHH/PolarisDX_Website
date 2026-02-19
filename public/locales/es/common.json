@@ -7,7 +7,13 @@
     "blog": "Blog",
     "contact": "Contacto",
     "terms": "Términos y Condiciones",
-    "events": "Eventos"
+    "events": "Eventos",
+    "casestudies": "Caso de estudio",
+    "downloads": "Descargas",
+    "dental": "Diagnóstico dental",
+    "beauty": "Diagnóstico estético",
+    "longevity": "Diagnóstico longevity",
+    "pocSystems": "Sistemas POC"
   },
   "badge": {
     "New": "Nuevo",
@@ -37,7 +43,12 @@
     "doctors": "Nuestros médicos",
     "testimonials": "Testimonios",
     "faq": "FAQ",
-    "appointment": "Reservar cita"
+    "appointment": "Reservar cita",
+    "diagnostics": "Diagnóstico",
+    "allServices": "Todos los servicios",
+    "pocSystems": "Sistemas POC",
+    "preventionChecks": "Chequeos preventivos",
+    "hormonTests": "Tests hormonales"
   },
   "cta": {
     "title": "¿Busca atención médica <1>profesional y de confianza?</1>",
@@ -80,7 +91,8 @@
         "name": "Análisis",
         "description": "Para análisis de visitantes."
       }
-    }
+    },
+    "reject_all": "Solo necesarias"
   },
   "testimonials": {
     "positiveLabel": "Reseña positiva"
@@ -91,13 +103,31 @@
       "about": "equipo médicos polarisdx sobre nosotros",
       "services": "services leistungen dental beauty longevity diagnostics",
       "contact": "contact kontakt email phone address",
-      "terms": "legal terms agb rights"
+      "terms": "legal terms agb rights",
+      "casestudies": "caso de estudio 32reasons odontología polaris dx"
     },
     "services": {
       "dental": "Diagnóstico Dental",
       "beauty": "Análisis Dermatológicos",
       "longevity": "Salud y Longevidad",
       "sports": "Diagnóstico de Rendimiento para Atletas"
+    }
+  },
+  "notFound": {
+    "seo": {
+      "title": "Página no encontrada | PolarisDX",
+      "description": "La página solicitada no se ha encontrado."
+    },
+    "badge": "Página no encontrada",
+    "title": "¡Ups! Esta página no existe",
+    "description": "La página que busca puede haber sido movida, eliminada o ya no existe.",
+    "backHome": "Volver al inicio",
+    "popularPages": "Páginas populares",
+    "links": {
+      "home": "Inicio",
+      "iglooPro": "IglooPro",
+      "services": "Servicios",
+      "contact": "Contacto"
     }
   }
 }
