@@ -61,8 +61,8 @@ type ServiceConclusion = {
 // Slug-based SEO overrides for optimized titles & descriptions
 const serviceSeoOverrides: Record<string, { title: string; description: string }> = {
   dental: {
-    title: 'POC-Diagnostik für Zahnarztpraxen: Vitamin D & CRP | PolarisDX',
-    description: 'Chairside Bluttest für Implantologie & Parodontitis. Vitamin D, CRP und HbA1c in 3 Min bestimmen. Risiken senken, Behandlungserfolg steigern.',
+    title: 'Blutdiagnostik Zahnarztpraxis: Chairside Testing Igloo Pro | PolarisDX',
+    description: 'Chairside Bluttest für Implantologie & Parodontitis. Vitamin D, CRP, HbA1c in 3 Min. S3-Leitlinie empfiehlt In-office-Schnelltests. Jetzt informieren.',
   },
   beauty: {
     title: 'Beauty-Diagnostik: Biomarker für Ästhetische Medizin | PolarisDX',
@@ -99,6 +99,11 @@ const ServicePage = () => {
   const sections = t(`services:${transKey}.sections`, { returnObjects: true }) as ServiceSection[]
   const conclusion = t(`services:${transKey}.conclusion`, { returnObjects: true }) as ServiceConclusion
   const ctaText = t(`services:${transKey}.cta`, 'Contact Us')
+
+  // Rich HTML content support (for pillar pages like dental)
+  const richContentRaw = t(`services:${transKey}.richContent`, '')
+  const richContent = typeof richContentRaw === 'string' && richContentRaw.length > 10 ? richContentRaw : ''
+  const hasRichContent = !!richContent
 
   // Load FAQ data (graceful fallback: no FAQ rendered if data missing)
   const faqItemsRaw = t(`services:${transKey}.faq.items`, { returnObjects: true })
@@ -166,7 +171,7 @@ const ServicePage = () => {
                   {t('home:services.caption', 'DIAGNOSTICS FOCUS')}
                 </p>
                 <h1 className="mb-4 text-3xl font-medium tracking-tight sm:text-4xl lg:text-4xl">
-                  {title}
+                  {hasRichContent ? headline : title}
                 </h1>
               </div>
             </Reveal>
@@ -178,69 +183,93 @@ const ServicePage = () => {
           {/* Main Content */}
           <article className="space-y-8 text-gray-700">
             <Reveal width="100%">
-              <SectionHeader
-                caption={service.title} // Fallback title as caption
-                title={headline}
-                align="left"
-              />
-
-              {/* Intro Text */}
-              <div className="space-y-4">
-                {Array.isArray(intro) && intro.map((paragraph, index) => (
-                    <p key={index} className="text-sm leading-[32px] text-gray-500 sm:text-base">
-                        {paragraph}
-                    </p>
-                ))}
-              </div>
-
-              {/* Detailed Sections */}
-              {Array.isArray(sections) && sections.map((section, index) => (
-                <section key={index} className="space-y-4">
-                  {section.heading && (
-                    <h2 className="text-xl font-semibold tracking-tight text-gray-900">
-                      {section.heading}
-                    </h2>
-                  )}
-                  {section.content && (
-                    <p className="text-sm leading-[32px] text-gray-500 sm:text-base">
-                      {section.content}
-                    </p>
-                  )}
-                  {section.listItems && (
-                    <ul className="list-disc space-y-2 pl-5 text-sm leading-[28px] text-gray-500 sm:text-base">
-                      {section.listItems.map((item, lIndex) => (
-                        <li key={lIndex}>{renderTextWithLinks(item)}</li>
-                      ))}
-                    </ul>
-                  )}
-                </section>
-              ))}
-
-              {/* Conclusion */}
-              {(conclusion?.heading || conclusion?.text) && (
-                  <div className="rounded-2xl bg-brand-primary/5 p-6 text-sm leading-[28px] text-gray-600 sm:text-base">
-                      {conclusion.heading && <h3 className="mb-2 font-semibold text-gray-900">{conclusion.heading}</h3>}
-                      {conclusion.text && <p>{conclusion.text}</p>}
-                  </div>
-              )}
-
-              {/* Content CTA Button */}
-              <div className="mt-8 pt-4">
-                  <PrimaryButton as={Link} to="/contact" variant="primary">
-                      {ctaText}
-                  </PrimaryButton>
-              </div>
-
-              {/* FAQ Section */}
-              {hasFaq && (
-                <div className="mt-16">
-                  <FAQSection
-                    items={faqItems}
-                    caption={faqCaption}
-                    title={faqTitle}
-                    showFooter={false}
+              {hasRichContent ? (
+                <>
+                  {/* Rich HTML pillar-page content */}
+                  <div
+                    className="rich-content"
+                    dangerouslySetInnerHTML={{ __html: richContent }}
                   />
-                </div>
+
+                  {/* FAQ Section */}
+                  {hasFaq && (
+                    <div className="mt-16">
+                      <FAQSection
+                        items={faqItems}
+                        caption={faqCaption}
+                        title={faqTitle}
+                        showFooter={false}
+                      />
+                    </div>
+                  )}
+                </>
+              ) : (
+                <>
+                  <SectionHeader
+                    caption={service.title}
+                    title={headline}
+                    align="left"
+                  />
+
+                  {/* Intro Text */}
+                  <div className="space-y-4">
+                    {Array.isArray(intro) && intro.map((paragraph, index) => (
+                        <p key={index} className="text-sm leading-[32px] text-gray-500 sm:text-base">
+                            {paragraph}
+                        </p>
+                    ))}
+                  </div>
+
+                  {/* Detailed Sections */}
+                  {Array.isArray(sections) && sections.map((section, index) => (
+                    <section key={index} className="space-y-4">
+                      {section.heading && (
+                        <h2 className="text-xl font-semibold tracking-tight text-gray-900">
+                          {section.heading}
+                        </h2>
+                      )}
+                      {section.content && (
+                        <p className="text-sm leading-[32px] text-gray-500 sm:text-base">
+                          {section.content}
+                        </p>
+                      )}
+                      {section.listItems && (
+                        <ul className="list-disc space-y-2 pl-5 text-sm leading-[28px] text-gray-500 sm:text-base">
+                          {section.listItems.map((item, lIndex) => (
+                            <li key={lIndex}>{renderTextWithLinks(item)}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </section>
+                  ))}
+
+                  {/* Conclusion */}
+                  {(conclusion?.heading || conclusion?.text) && (
+                      <div className="rounded-2xl bg-brand-primary/5 p-6 text-sm leading-[28px] text-gray-600 sm:text-base">
+                          {conclusion.heading && <h3 className="mb-2 font-semibold text-gray-900">{conclusion.heading}</h3>}
+                          {conclusion.text && <p>{conclusion.text}</p>}
+                      </div>
+                  )}
+
+                  {/* Content CTA Button */}
+                  <div className="mt-8 pt-4">
+                      <PrimaryButton as={Link} to="/contact" variant="primary">
+                          {ctaText}
+                      </PrimaryButton>
+                  </div>
+
+                  {/* FAQ Section */}
+                  {hasFaq && (
+                    <div className="mt-16">
+                      <FAQSection
+                        items={faqItems}
+                        caption={faqCaption}
+                        title={faqTitle}
+                        showFooter={false}
+                      />
+                    </div>
+                  )}
+                </>
               )}
             </Reveal>
           </article>
