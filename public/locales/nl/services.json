@@ -2,7 +2,37 @@
   "dental": {
     "title": "Tandheelkunde",
     "headline": "Precisie voor moderne tandheelkunde",
-    "cta": "Meer weten"
+    "cta": "Meer weten",
+    "faq": {
+      "caption": "Veelgestelde vragen",
+      "title": "Veelgestelde vragen over tandheelkundige diagnostiek",
+      "items": [
+        {
+          "question": "Welke bloedtests kan ik als tandarts in de praktijk uitvoeren?",
+          "answer": "Met een Point-of-Care-apparaat zoals de Igloo Pro Reader kunt u onder andere Vitamine D3, CRP, HbA1c, TSH, Ferritine en Cholesterol (HDL, LDL, Totaal) kwantitatief bepalen. De meting vindt plaats uit capillair bloed via een vingerprik. Afhankelijk van de biomarker is het resultaat binnen drie tot vijftien minuten beschikbaar — direct aan de behandelstoel, zonder inzending naar een laboratorium."
+        },
+        {
+          "question": "Hoe werkt de Igloo Pro Reader?",
+          "answer": "De Igloo Pro Reader werkt op basis van immunofluorescentie en levert kwantitatieve meetwaarden. De procedure omvat vijf stappen: capillair bloed afnemen via een vingerprik, het monster aanbrengen op de voorgevulde testcassette, de cassette in de reader plaatsen, de meettijd afwachten en het resultaat op het display aflezen. De bediening vereist geen laboratoriummedische vooropleiding."
+        },
+        {
+          "question": "Is een bloedtest bij de tandarts een aanvullende gezondheidsservice?",
+          "answer": "Ja, voor zover er geen medische indicatie in de zin van de wettelijke zorgverzekering bestaat. De afrekening geschiedt volgens de geldende tariefstructuur voor medische diensten. Vóór de uitvoering dient een schriftelijke overeenkomst met kostenraming te worden opgesteld voor patiënten met een wettelijke zorgverzekering."
+        },
+        {
+          "question": "Wat kost de Igloo Pro Reader?",
+          "answer": "De prijs van de Igloo Pro Reader is afhankelijk van het gekozen uitrustingspakket en het leveringsmodel — koop of leasing. PolarisDX stelt op basis van uw praktijkprofiel en het geplande testvolume een individuele offerte op, inclusief een rendabiliteitsberekening. Neem contact met ons op voor uw persoonlijke offerte."
+        },
+        {
+          "question": "Is de Igloo Pro Reader IVDR-conform?",
+          "answer": "Ja. De Igloo Pro Reader en de bijbehorende testcassettes zijn goedgekeurd conform de Europese In-vitro Diagnostiek Verordening (EU 2017/746) en voorzien van een CE-markering. Het apparaat voldoet daarmee aan alle regelgevende vereisten voor professioneel gebruik als in-vitro diagnosticum in medische praktijken."
+        },
+        {
+          "question": "Welke kwaliteitsborging is vereist voor POCT in de tandartspraktijk?",
+          "answer": "Conform de richtlijn van de Bundesärztekammer (RiliBÄK) zijn interne kwaliteitscontroles door middel van regelmatige controlemetingen en deelname aan externe ringproeven verplicht. De resultaten moeten worden gedocumenteerd. PolarisDX ondersteunt praktijken bij het opzetten van de interne kwaliteitscontrole, de aanmelding voor ringproeven en de doorlopende documentatie."
+        }
+      ]
+    }
   },
   "beauty": {
     "title": "Schoonheid & Esthetiek",
@@ -30,7 +60,33 @@
       "heading": "Conclusie",
       "text": "Onderscheid u met wetenschappelijk onderbouwde schoonheidsconcepten."
     },
-    "cta": "Consult boeken"
+    "cta": "Consult boeken",
+    "faq": {
+      "caption": "Veelgestelde vragen",
+      "title": "Veelgestelde vragen over beautydiagnostiek en biomarkeranalyse",
+      "items": [
+        {
+          "question": "Welke biomarkers zijn relevant voor esthetische behandelingen?",
+          "answer": "Voor de esthetische geneeskunde zijn vooral Vitamine D (huidbarrière, collageensynthese), Ferritine (haaruitval, weefselregeneratie), TSH (schildklierfunctie beïnvloedt huid en haar) en hs-CRP (stille ontstekingen als aanjager van vroegtijdige huidveroudering) relevant. Deze biomarkers bieden een objectieve basis om behandelingen individueel af te stemmen en resultaten navolgbaar te documenteren."
+        },
+        {
+          "question": "Waarom zou ik vóór esthetische ingrepen een bloedbeeld laten maken?",
+          "answer": "Een pre-interventionele screening brengt risicofactoren aan het licht die het behandelresultaat kunnen beïnvloeden — zoals stollingsstoornissen, voedingsstoftekorten of subklinische ontstekingen. Dit verhoogt de patiëntveiligheid en maakt een evidence-based adviesgesprek mogelijk, waarmee u uw praktijk als medisch gefundeerd positioneert."
+        },
+        {
+          "question": "Hoe hangen schildklierwaarden samen met haaruitval?",
+          "answer": "De schildklier reguleert het volledige celmetabolisme — inclusief de haarfollikelcyclus. Zowel een onder- als een overfunctie (herkenbaar aan afwijkende TSH-waarden) kan diffuse haaruitval, droge huid en broze nagels veroorzaken. Een POC-sneltest op TSH levert binnen enkele minuten duidelijkheid en maakt gerichte doorverwijzing of therapie-instelling mogelijk."
+        },
+        {
+          "question": "Kan ik hormoondiagnostiek als aanvullende gezondheidsservice aanbieden?",
+          "answer": "Ja. Hormoonscreenings (TSH, Cortisol, Testosteron) en micronutriëntenanalyses (Vitamine D, Ferritine) zijn klassieke individuele gezondheidsdiensten die privaat in rekening kunnen worden gebracht. Juist in het beautysegment bestaat een hoge betalingsbereidheid voor datagestuurde advisering die verder gaat dan puur apparatieve behandelingen."
+        },
+        {
+          "question": "Welke rol speelt Vitamine D voor huid en haar?",
+          "answer": "Vitamine D is betrokken bij de differentiatie van keratinocyten, het in stand houden van de huidbarrière en de regulatie van de haarfollikelcyclus. Een Vitamine D-tekort — in Midden-Europa bij meer dan 50% van de bevolking voorkomend — bevordert inflammatoire huidaandoeningen, versnelt de huidveroudering en kan haaruitval verergeren. De meting met de IglooPro duurt slechts enkele minuten en vormt de basis voor gerichte suppletie."
+        }
+      ]
+    }
   },
   "longevity": {
     "title": "Levensduur",
@@ -58,7 +114,33 @@
       "heading": "Conclusie",
       "text": "Word een partner voor een lang, gezond leven voor uw patiënten."
     },
-    "cta": "Nu starten"
+    "cta": "Nu starten",
+    "faq": {
+      "caption": "Veelgestelde vragen",
+      "title": "Veelgestelde vragen over longevitydiagnostiek en preventie",
+      "items": [
+        {
+          "question": "Welke biomarkers zijn relevant voor de longevitygeneeskunde?",
+          "answer": "Tot de kernmarkers van longevitydiagnostiek behoren HbA1c (glykemische controle en AGE-vorming), hs-CRP (chronische ontsteking / inflammaging), een volledig lipidenprofiel (cardiovasculair risico), TSH (schildklierfunctie) en Vitamine D (immuunmodulatie, botgezondheid). Deze parameters vormen samen een veelzeggend basisprofiel dat met de IglooPro direct aan het Point-of-Care kan worden bepaald."
+        },
+        {
+          "question": "Wat is het verschil tussen preventieve en curatieve diagnostiek?",
+          "answer": "Curatieve diagnostiek wordt ingezet bij bestaande symptomen om een aandoening te bevestigen of uit te sluiten. Preventieve diagnostiek daarentegen bepaalt biomarkers proactief — nog vóórdat symptomen optreden — om risicofactoren vroegtijdig te herkennen en bij te sturen. In de longevitygeneeskunde ligt de focus op de optimalisatie van waarden binnen het normaal bereik, en niet pas op de behandeling van pathologische afwijkingen."
+        },
+        {
+          "question": "Hoe vaak moeten longevitybiomarkers worden gecontroleerd?",
+          "answer": "Voor een gedegen longevitymonitoring wordt een basis-gezondheidscheck elke 3 tot 6 maanden aanbevolen; bij lopende interventies (bijv. voedingsomschakeling, suppletie, trainingsprogramma's) ook vaker. De snelle beschikbaarheid van resultaten aan het Point-of-Care maakt het mogelijk aanpassingen in realtime door te voeren, in plaats van te wachten op laboratoriumrapporten."
+        },
+        {
+          "question": "Welke ontstekingsmarkers zijn belangrijk voor preventie?",
+          "answer": "De hoogsensitieve CRP-waarde (hs-CRP) is de centrale marker voor chronisch-subklinische ontstekingen — het zogenaamde inflammaging. Reeds licht verhoogde waarden in het bereik van 1–3 mg/L correleren met een verhoogd risico op cardiovasculaire aandoeningen, neurodegeneratie en versnelde verouderingsprocessen. Regelmatige monitoring maakt vroegtijdige interventie mogelijk door leefstijlmaatregelen of gerichte suppletie."
+        },
+        {
+          "question": "Kan ik gezondheidschecks als zelfbetalersdienst aanbieden?",
+          "answer": "Ja. Preventieve biomarkerscreenings zijn klassieke zelfbetalersdiensten, aangezien zij buiten het vergoedingenpakket van de wettelijke zorgverzekering vallen. Juist in het longevitysegment bestaat een grote vraag naar datagestuurde gezondheidschecks. De combinatie van directe analyse en gekwalificeerd advies vormt een economisch aantrekkelijk dienstenpakket voor uw praktijk."
+        }
+      ]
+    }
   },
   "poc_systemloesungen": {
     "title": "POC-systeemoplossingen",
@@ -103,7 +185,37 @@
       "heading": "Conclusie voor PolarisDX.net: Meer dan alleen technologie",
       "text": "De Igloo Pro POC-systeemoplossing vertegenwoordigt het toppunt van mobiele diagnostiek. Maar echte prestaties worden pas ontgrendeld door exclusieve service. PolarisDX.net garandeert niet alleen de levering van dit technologische hulpmiddel, maar ook de onmiddellijke, gevalideerde en naadloze integratie in uw bedrijfsvoering. Vertrouw op de flexibiliteit van mobiele diagnostiek – met de gegarandeerde zekerheid van een expertpartner aan uw zijde."
     },
-    "cta": "Afspraak boeken"
+    "cta": "Afspraak boeken",
+    "faq": {
+      "caption": "Veelgestelde vragen",
+      "title": "Veelgestelde vragen over Point-of-Care systeemoplossingen",
+      "items": [
+        {
+          "question": "Wat is een Point-of-Care Test (POCT)?",
+          "answer": "Een Point-of-Care Test (POCT) is een vorm van patiëntennabije laboratoriumdiagnostiek, waarbij de analyse direct op de behandellocatie plaatsvindt — zonder inzending naar een centraal laboratorium. Het resultaat is binnen enkele minuten beschikbaar en kan onmiddellijk in de klinische besluitvorming worden meegenomen. POCT-systemen zoals de IglooPro gebruiken Lateral-Flow-Assays, immunofluorescentie of colorimetrie om kwantitatieve resultaten van laboratoriumkwaliteit te leveren."
+        },
+        {
+          "question": "Hoe integreer ik een POC-systeem in mijn praktijkroutine?",
+          "answer": "De integratie van een POCT-apparaat zoals de IglooPro vereist geen verbouwing of speciale laboratoriumruimtes. Het apparaat weegt ca. 400 g, is direct inzetbaar en kan via USB-C, wifi of bluetooth worden gekoppeld aan uw praktijksoftware. PolarisDX verzorgt de volledige remote setup-service binnen 3 tot 5 werkdagen — inclusief validatie, interfaceconfiguratie en teamtraining."
+        },
+        {
+          "question": "Welke kwaliteitsborging is vereist bij POCT?",
+          "answer": "De richtlijn van de Bundesärztekammer (RiliBÄK) regelt de kwaliteitsborging van laboratoriummedische onderzoeken, inclusief POCT. Verplicht zijn onder meer regelmatige controlemetingen, de documentatie van resultaten en de instructie van bedienend personeel. De IglooPro ondersteunt dit proces door automatische resultaatopslag (tot 10.000 metingen) en de koppeling aan LIS/HIS-systemen voor een naadloze documentatie."
+        },
+        {
+          "question": "Hoe snel levert de IglooPro resultaten?",
+          "answer": "Afhankelijk van de parameter zijn kwantitatieve resultaten binnen 3 tot 15 minuten beschikbaar. CRP-waarden zijn doorgaans in minder dan 5 minuten beschikbaar, Vitamine D en HbA1c in ongeveer 10 tot 15 minuten. De sneldiagnostiek maakt het mogelijk om bevinding en advies in één enkel patiëntcontact af te ronden — zonder vervolgafspraak en zonder externe laboratoriumwachttijd."
+        },
+        {
+          "question": "Is de IglooPro IVDR-conform?",
+          "answer": "Ja. De IglooPro voldoet aan de vereisten van de Europese In-vitro Diagnostiek Verordening (IVDR, EU 2017/746) en draagt de bijbehorende CE-markering. De IVDR-conformiteit waarborgt dat het apparaat en de gebruikte testcassettes strenge eisen aan analytische prestatie, klinische evidentie en kwaliteitsmanagement naleven — een dwingende voorwaarde voor het gebruik in de IVD-diagnostiek."
+        },
+        {
+          "question": "Wie produceert de IglooPro?",
+          "answer": "De IglooPro wordt ontwikkeld en geproduceerd door DX365 GmbH in Berlijn. PolarisDX is distributiepartner voor de Europese markt en verzorgt verkoop, integratie, training en doorlopende ondersteuning."
+        }
+      ]
+    }
   },
   "praeventions_checks": {
     "title": "Preventieve gezondheidschecks",
@@ -144,7 +256,29 @@
       "heading": "Conclusie voor uw beslissing",
       "text": "Investeren in POC-systeemoplossingen is een investering in de toekomst van patiëntgerichte zorg en het verhogen van operationele efficiëntie. PolarisDX.net levert niet alleen de technologie voor deze transformatie, maar garandeert de soepele en gevalideerde werking ervan door de exclusieve remote setup service binnen 3-5 werkdagen en LFT-compatibiliteitsgarantie. Zo benut u het volledige potentieel van preventieve gezondheidschecks onmiddellijk."
     },
-    "cta": "Afspraak boeken"
+    "cta": "Afspraak boeken",
+    "faq": {
+      "caption": "Veelgestelde vragen",
+      "title": "Veelgestelde vragen over preventieve gezondheidschecks",
+      "items": [
+        {
+          "question": "Welke preventieve checks kan ik in de praktijk aanbieden?",
+          "answer": "Met een POC-systeem zoals de IglooPro kunt u uitgebreide check-up-profielen direct in de praktijk aanbieden — van diabetesscreening (HbA1c) via cardiovasculaire risicobeoordeling (Cholesterol) en ontstekingsstatus (CRP) tot micronutriëntenchecks (Vitamine D, Ferritine). De preventieve diagnostiek kan als gestructureerd preventieprogramma of als gerichte individuele dienst in de praktijkroutine worden geïntegreerd."
+        },
+        {
+          "question": "Welke biomarkers behoren tot een basis-gezondheidscheck?",
+          "answer": "Een evidence-based basis-gezondheidscheck omvat minimaal HbA1c (glykemische controle), CRP (ontstekingsstatus), Vitamine D (immuunfunctie, botgezondheid) en een lipidenprofiel (cardiovasculair risico). Afhankelijk van het patiëntprofiel kunnen TSH (schildklier) en Ferritine (ijzerstatus) worden aangevuld. Al deze parameters zijn met de IglooPro in één enkele sessie te bepalen."
+        },
+        {
+          "question": "Wat is het verschil tussen een POC-check en een laboratoriumopdracht?",
+          "answer": "Bij een klassieke laboratoriumopdracht wordt het monster afgenomen, naar een centraal laboratorium verstuurd en is het resultaat op zijn vroegst na 24 tot 48 uur beschikbaar — vaak is een vervolgafspraak nodig. Bij patiëntennabije laboratoriumdiagnostiek (POCT) vindt de analyse ter plaatse plaats, binnen 3 tot 15 minuten. Advies en therapie-instelling kunnen in dezelfde afspraak plaatsvinden, wat de efficiëntie en patiënttevredenheid aanzienlijk verhoogt."
+        },
+        {
+          "question": "Zijn preventieve checks als aanvullende service af te rekenen?",
+          "answer": "Ja. Preventieve biomarkerscreenings die buiten het vergoedingenpakket van de wettelijke zorgverzekering vallen, kunnen als individuele gezondheidsdiensten privaat in rekening worden gebracht. De combinatie van directe analyse en gekwalificeerd advies vormt een economisch aantrekkelijk zelfbetalersaanbod dat tegelijkertijd de patiëntenbinding versterkt."
+        }
+      ]
+    }
   },
   "infektion_entzuendung": {
     "title": "Infectie & Ontstekingsmarkers",
@@ -184,7 +318,29 @@
       "heading": "Conclusie: Geen compromissen bij de diagnose",
       "text": "Voor infecties en ontstekingen is tijd de kritieke factor. Alleen een POC-systeem dat validiteit op laboratoriumniveau combineert met maximale snelheid kan diagnostische veiligheid verhogen en tegelijkertijd antibioticabeheer optimaliseren. PolarisDX.net levert deze gegarandeerde prestaties – van inbedrijfstelling binnen 3-5 werkdagen tot prioriteitsondersteuning."
     },
-    "cta": "Afspraak boeken"
+    "cta": "Afspraak boeken",
+    "faq": {
+      "caption": "Veelgestelde vragen",
+      "title": "Veelgestelde vragen over infectie- en ontstekingsdiagnostiek",
+      "items": [
+        {
+          "question": "Wanneer is een CRP-sneltest in de praktijk zinvol?",
+          "answer": "Een CRP-sneltest is geïndiceerd wanneer een snelle differentiatie tussen een bacteriële en virale oorzaak klinisch relevant is — bijvoorbeeld bij luchtweginfecties, koorts van onduidelijke oorsprong of postoperatieve verlaufscontrole. Een verhoogde CRP-waarde boven 40 mg/L pleit voor een bacteriële betrokkenheid, terwijl lagere waarden een afwachtend beleid zonder antibioticagebruik kunnen ondersteunen. De meting duurt met de IglooPro minder dan 5 minuten."
+        },
+        {
+          "question": "Kan ik met de IglooPro bacteriële van virale infecties onderscheiden?",
+          "answer": "De combinatie van CRP en PCT (Procalcitonine) maakt een gedifferentieerdere inschatting mogelijk dan één enkele marker. CRP stijgt bij zowel bacteriële als virale infecties, terwijl PCT aanzienlijk specifieker reageert op bacteriële infecties en sepsis. Door de gelijktijdige bepaling van beide parameters aan het Point-of-Care kunnen beter gefundeerde therapiebeslissingen worden genomen en onnodige antibioticavoorschriften worden verminderd."
+        },
+        {
+          "question": "Hoe betrouwbaar zijn POC-ontstekingstests in vergelijking met het laboratorium?",
+          "answer": "IVDR-conforme POC-systemen zoals de IglooPro leveren kwantitatieve resultaten met een analytische precisie van CV < 2% en zijn daarmee vergelijkbaar met metingen van een centraal laboratorium. De kwaliteitsborging geschiedt via gevalideerde testcassettes en interne controles. In de klinische praktijk bieden POC-tests het bijkomende voordeel dat het resultaat onmiddellijk beschikbaar is en niet wordt beïnvloed door transporttijden of monsteropslag."
+        },
+        {
+          "question": "Welke ontstekingsmarkers kan de IglooPro meten?",
+          "answer": "De IglooPro ondersteunt de bepaling van CRP (C-reactief proteïne) als centrale acute-fase marker, PCT (Procalcitonine) voor de differentiatie van bacteriële infecties, en Ferritine, dat naast de ijzerstatus ook als ontstekingsmarker bij chronische en acute processen relevant is. Door het open platform kunnen aanvullende Lateral-Flow-Tests voor IL-6 en andere parameters worden geïntegreerd."
+        }
+      ]
+    }
   },
   "stoffwechsel_herz": {
     "title": "Stofwisseling & Hartgezondheid",
@@ -224,7 +380,29 @@
       "heading": "Conclusie voor uw praktijk",
       "text": "De integratie van de Igloo Pro Reader in uw workflow betekent een paradigmaverschuiving: Van vertraagde monitoring naar onmiddellijke, op data gebaseerde therapieaanpassing. Met PolarisDX.net verzekert u zich niet alleen van de technologie voor deze kritieke metingen, maar ook van de garantie op soepele implementatie en doorlopende validatie."
     },
-    "cta": "Afspraak boeken"
+    "cta": "Afspraak boeken",
+    "faq": {
+      "caption": "Veelgestelde vragen",
+      "title": "Veelgestelde vragen over stofwisseling- en hartdiagnostiek",
+      "items": [
+        {
+          "question": "Welke stofwisselingsbiomarkers kan ik chairside meten?",
+          "answer": "Met de IglooPro bepaalt u HbA1c (langetermijn bloedsuiker), totaal cholesterol en overige lipidefracties direct uit capillair bloed, binnen enkele minuten. Deze chairside diagnostiek levert laboratoriumvergelijkbare resultaten (CV < 2%) en maakt directe therapieaanpassing mogelijk in hetzelfde patiëntcontact — zonder inzending naar een centraal laboratorium."
+        },
+        {
+          "question": "Hoe helpt de HbA1c-waarde bij vroegtijdige opsporing van diabetes?",
+          "answer": "De HbA1c-sneltest weerspiegelt de gemiddelde bloedsuikerspiegel van de afgelopen 8 tot 12 weken en is daarmee onafhankelijk van dagfluctuaties of nuchtere status. Waarden tussen 5,7% en 6,4% wijzen op een prediabetesrisico; vanaf 6,5% geldt de diagnose diabetes mellitus. De directe beschikbaarheid aan het Point-of-Care maakt onmiddellijk advies en therapie-instelling mogelijk zonder vervolgafspraak."
+        },
+        {
+          "question": "Welke cardiovasculaire risicomarkers meet de IglooPro?",
+          "answer": "De IglooPro ondersteunt de bepaling van cholesterolwaarden (totaal cholesterol, LDL, HDL, triglyceriden) en D-Dimeer als uitsluitingsparameter voor trombose en longembolie. Deze cardiovasculaire risicomarkers maken een snelle inschatting van het vaatrisico mogelijk en ondersteunen gefundeerde beslissingen over verdere behandeling — direct in de praktijk."
+        },
+        {
+          "question": "Kan ik stofwisselingschecks als aanvullende service aanbieden?",
+          "answer": "Ja. Screenings op HbA1c, Cholesterol en overige metabole parameters zijn typische individuele gezondheidsdiensten die privaat in rekening kunnen worden gebracht. De combinatie van directe meting en gekwalificeerd advies creëert een meetbare meerwaarde voor patiënten en genereert planbare extra omzet voor uw praktijk."
+        }
+      ]
+    }
   },
   "hormon_tests": {
     "title": "Hormoon- & Endocrinologietests",
@@ -264,7 +442,29 @@
       "heading": "Conclusie: Speciale diagnostiek direct in uw hand",
       "text": "Hormoon- en endocrinologietests zijn vaak het startpunt voor complexe behandeltrajecten. Door POC-diagnostiek met de Igloo Pro verkort u de tijd tot diagnose en therapiebeslissing enorm. polarisDX.net biedt u de technologie en LFT-compatibiliteitsgarantie om dit brede spectrum van gespecialiseerde tests veilig en efficiënt in uw bedrijfsvoering te integreren."
     },
-    "cta": "Afspraak boeken"
+    "cta": "Afspraak boeken",
+    "faq": {
+      "caption": "Veelgestelde vragen",
+      "title": "Veelgestelde vragen over hormoondiagnostiek in de praktijk",
+      "items": [
+        {
+          "question": "Welke hormonen kan de IglooPro meten?",
+          "answer": "De IglooPro ondersteunt de kwantitatieve bepaling van TSH (schildklierfunctie), Cortisol (stressas), Testosteron, Progesteron, FSH en AMH (ovariële reserve). Deze hormoontests dekken de meest voorkomende endocrinologische vraagstellingen af en leveren resultaten van laboratoriumkwaliteit binnen enkele minuten, direct in de praktijk."
+        },
+        {
+          "question": "Wanneer is een TSH-sneltest zinvol?",
+          "answer": "Een TSH-sneltest is geïndiceerd bij klinisch vermoeden van schildklierdisfunctie (bijv. vermoeidheid, gewichtsveranderingen, haaruitval), voor therapiecontrole bij L-Thyroxine-substitutie en in het kader van kinderwens- en zwangerschapsvoorsorge. De directe beschikbaarheid van de schildklierwaarden maakt onmiddellijke dosisaanpassing mogelijk zonder te wachten op externe laboratoriumresultaten."
+        },
+        {
+          "question": "Hoe nauwkeurig zijn POC-hormoontests in vergelijking met het laboratorium?",
+          "answer": "IVDR-conforme POC-systemen zoals de IglooPro bereiken een analytische precisie met een variatiecoëfficiënt (CV) van minder dan 2% en zijn daarmee vergelijkbaar met resultaten van een centraal laboratorium. De kwaliteitsborging geschiedt via gevalideerde testcassettes en regelmatige controlemetingen, zodat de klinische beslissingszekerheid is gewaarborgd."
+        },
+        {
+          "question": "Voor welke vakgebieden is chairside hormoondiagnostiek relevant?",
+          "answer": "Chairside hormoondiagnostiek is relevant voor de huisartsengeneeskunde, gynaecologie, endocrinologie, dermatologie en vruchtbaarheidsklinieken. Overal waar schildklierfunctie, vruchtbaarheidsstatus of hormonale disbalans snel moet worden opgehelderd, biedt de POC-meting een onmiddellijk tijdsvoordeel ten opzichte van inzending naar externe laboratoria."
+        }
+      ]
+    }
   },
   "kompatibilitaet_integration": {
     "title": "Compatibiliteit tussen fabrikanten",
@@ -303,6 +503,28 @@
       "heading": "Conclusie: Investeer in een oplossing, niet in een beperking",
       "text": "De compatibiliteit tussen fabrikanten van de Igloo Pro maakt het de slimste investering in POC-diagnostiek. Het biedt de flexibiliteit die u vandaag nodig hebt en de investeringszekerheid die u morgen nodig hebt."
     },
-    "cta": "Afspraak boeken"
+    "cta": "Afspraak boeken",
+    "faq": {
+      "caption": "Veelgestelde vragen",
+      "title": "Veelgestelde vragen over systeemintegratie en compatibiliteit",
+      "items": [
+        {
+          "question": "Is de IglooPro compatibel met mijn praktijksoftware?",
+          "answer": "De IglooPro kan via gestandaardiseerde interfaces worden gekoppeld aan gangbare laboratorium- en praktijkinformatiesystemen (LIS/HIS). De resultaten worden automatisch overgedragen en gedocumenteerd, zodat handmatige gegevensinvoer achterwege blijft. PolarisDX ondersteunt u bij de integratie in uw bestaande praktijkinrichting."
+        },
+        {
+          "question": "Welke interfaces biedt de IglooPro?",
+          "answer": "De IglooPro beschikt over USB-C, wifi en bluetooth voor gegevensoverdracht. Hierdoor is een flexibele koppeling mogelijk met stationaire werkplekken, mobiele apparaten en cloudgebaseerde systemen. Het interne geheugen slaat tot 10.000 meetresultaten op, die desgewenst achteraf kunnen worden overgedragen."
+        },
+        {
+          "question": "Hoe verloopt de installatie en training?",
+          "answer": "PolarisDX biedt een volledige remote setup-service binnen 3 tot 5 werkdagen. Hierin zijn begrepen de apparaatvalidatie, de configuratie van de interfaces naar uw praktijksoftware en een praktijkgerichte instructie van uw team. Zo is uw praktijklaboratorium snel operationeel, zonder dat u zich om technische details hoeft te bekommeren."
+        },
+        {
+          "question": "Kunnen meerdere IglooPro-apparaten worden gekoppeld?",
+          "answer": "Ja. In grotere praktijken, medische centra of klinieken kunnen meerdere IglooPro-apparaten via een gemeenschappelijk netwerk worden bediend en centraal worden beheerd. Alle meetresultaten komen samen in een uniform systeem, wat de kwaliteitsborging vereenvoudigt en een locatie-overstijgend overzicht van de POC-diagnostiek biedt."
+        }
+      ]
+    }
   }
 }

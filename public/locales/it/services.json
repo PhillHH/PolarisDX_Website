@@ -2,7 +2,37 @@
   "dental": {
     "title": "Dentale",
     "headline": "Precisione per l'odontoiatria moderna",
-    "cta": "Scopri di più"
+    "cta": "Scopri di più",
+    "faq": {
+      "caption": "Domande frequenti",
+      "title": "Domande frequenti sull'odontoiatria",
+      "items": [
+        {
+          "question": "Quali analisi del sangue posso eseguire come odontoiatra nel mio studio?",
+          "answer": "Con un dispositivo Point-of-Care come l'Igloo Pro Reader è possibile determinare in modo quantitativo, tra gli altri, Vitamina D3, CRP, HbA1c, TSH, ferritina e colesterolo (HDL, LDL, totale). La misurazione viene eseguita su sangue capillare tramite puntura del polpastrello. A seconda del biomarcatore, il risultato è disponibile in tre-quindici minuti — direttamente alla poltrona odontoiatrica, senza necessità di invio a un laboratorio esterno."
+        },
+        {
+          "question": "Come funziona l'Igloo Pro Reader?",
+          "answer": "L'Igloo Pro Reader si basa sulla tecnologia dell'immunofluorescenza e fornisce valori di misurazione quantitativi. La procedura si articola in cinque fasi: prelievo di sangue capillare tramite puntura del polpastrello, applicazione del campione sulla cassetta di test preriempita, inserimento della cassetta nel Reader, attesa del tempo di misurazione e lettura del risultato sul display. L'utilizzo non richiede una formazione specialistica in medicina di laboratorio."
+        },
+        {
+          "question": "L'analisi del sangue dall'odontoiatra è una prestazione sanitaria individuale?",
+          "answer": "Sì, qualora non sussista un'indicazione medica ai sensi dell'assicurazione sanitaria obbligatoria. La fatturazione avviene secondo il tariffario medico (GOÄ), poiché gli odontoiatri possono fatturare prestazioni mediche ai sensi del § 6 comma 2 GOZ secondo la GOÄ. Prima dell'esecuzione è necessario stipulare un contratto scritto con preventivo di spesa per i pazienti assicurati con l'assicurazione sanitaria obbligatoria."
+        },
+        {
+          "question": "Quanto costa l'Igloo Pro Reader?",
+          "answer": "Il prezzo dell'Igloo Pro Reader dipende dal pacchetto di dotazione scelto e dal modello di acquisizione — acquisto o leasing. PolarisDX elabora un'offerta personalizzata sulla base del profilo del Suo studio e del volume di test previsto, comprensiva di un calcolo di redditività. La preghiamo di contattarci per ricevere la Sua offerta personalizzata."
+        },
+        {
+          "question": "L'Igloo Pro Reader è conforme alla normativa IVDR?",
+          "answer": "Sì. L'Igloo Pro Reader e le relative cassette di test sono omologati ai sensi del Regolamento europeo sulla diagnostica in vitro (UE 2017/746) e recano la marcatura CE. Il dispositivo soddisfa pertanto tutti i requisiti normativi per l'impiego professionale come dispositivo diagnostico in vitro negli studi medici."
+        },
+        {
+          "question": "Quale garanzia di qualità è necessaria per il POCT nello studio odontoiatrico?",
+          "answer": "Ai sensi della direttiva della Camera Federale dei Medici (RiliBÄK), sono prescritti controlli di qualità interni mediante misurazioni di controllo regolari nonché la partecipazione a test interlaboratorio esterni. I risultati devono essere documentati. PolarisDX supporta gli studi nell'implementazione del controllo di qualità interno, nell'iscrizione ai test interlaboratorio e nella documentazione continua."
+        }
+      ]
+    }
   },
   "beauty": {
     "title": "Bellezza ed Estetica",
@@ -30,7 +60,33 @@
       "heading": "Conclusione",
       "text": "Distinguiti con concetti di bellezza scientificamente fondati."
     },
-    "cta": "Prenota consulenza"
+    "cta": "Prenota consulenza",
+    "faq": {
+      "caption": "Domande frequenti",
+      "title": "FAQ sulla diagnostica Beauty e l'analisi dei biomarcatori",
+      "items": [
+        {
+          "question": "Quali biomarcatori sono rilevanti per i trattamenti estetici?",
+          "answer": "Per la medicina estetica sono particolarmente rilevanti la Vitamina D (barriera cutanea, sintesi del collagene), la ferritina (caduta dei capelli, rigenerazione tissutale), il TSH (la funzione tiroidea influenza pelle e capelli) e l'hs-CRP (infiammazioni silenti come fattore di invecchiamento cutaneo precoce). Questi biomarcatori forniscono una base oggettiva per personalizzare i trattamenti e documentare i risultati in modo verificabile."
+        },
+        {
+          "question": "Perché è consigliabile eseguire un esame del sangue prima di interventi estetici?",
+          "answer": "Uno screening pre-interventistico rileva fattori di rischio che possono influenzare il successo del trattamento — come disturbi della coagulazione, carenze nutrizionali o infiammazioni subcliniche. Ciò aumenta la sicurezza del paziente e consente una consulenza basata sull'evidenza, che posiziona il Suo studio come struttura medicalmente fondata."
+        },
+        {
+          "question": "Qual è il legame tra i valori tiroidei e la caduta dei capelli?",
+          "answer": "La tiroide regola l'intero metabolismo cellulare — compreso il ciclo del follicolo pilifero. Sia l'ipofunzione che l'iperfunzione (riconoscibili da valori di TSH alterati) possono causare caduta diffusa dei capelli, pelle secca e unghie fragili. Un test rapido POC del TSH fornisce chiarezza in pochi minuti e consente un invio mirato o l'avvio di una terapia."
+        },
+        {
+          "question": "Posso offrire la diagnostica ormonale come prestazione sanitaria individuale?",
+          "answer": "Sì. Gli screening ormonali (TSH, cortisolo, testosterone) e le analisi dei micronutrienti (Vitamina D, ferritina) sono classiche prestazioni sanitarie individuali, fatturabili privatamente secondo la GOÄ. Specialmente nel segmento Beauty, la disponibilità a pagare per una consulenza basata sui dati che vada oltre i trattamenti puramente apparativi è particolarmente elevata."
+        },
+        {
+          "question": "Che ruolo svolge la Vitamina D per pelle e capelli?",
+          "answer": "La Vitamina D partecipa alla differenziazione dei cheratinociti, al mantenimento della barriera cutanea e alla regolazione del ciclo del follicolo pilifero. Una carenza di Vitamina D — diffusa in oltre il 50% della popolazione dell'Europa centrale — favorisce gli stati infiammatori cutanei, accelera l'invecchiamento della pelle e può aggravare la caduta dei capelli. La misurazione con l'IglooPro richiede solo pochi minuti e costituisce la base per un'integrazione mirata."
+        }
+      ]
+    }
   },
   "longevity": {
     "title": "Longevità",
@@ -58,7 +114,33 @@
       "heading": "Conclusione",
       "text": "Diventa un partner per una vita lunga e sana per i tuoi pazienti."
     },
-    "cta": "Inizia ora"
+    "cta": "Inizia ora",
+    "faq": {
+      "caption": "Domande frequenti",
+      "title": "FAQ sulla diagnostica Longevity e la prevenzione",
+      "items": [
+        {
+          "question": "Quali biomarcatori sono rilevanti per la medicina della longevità?",
+          "answer": "Tra i marcatori chiave della diagnostica Longevity figurano l'HbA1c (controllo glicemico e formazione di AGE), l'hs-CRP (infiammazione cronica / Inflammaging), un profilo lipidico completo (rischio cardiovascolare), il TSH (funzione tiroidea) e la Vitamina D (immunomodulazione, salute ossea). Questi parametri costituiscono insieme un profilo di base significativo, rilevabile direttamente al Point-of-Care con l'IglooPro."
+        },
+        {
+          "question": "Qual è la differenza tra diagnostica preventiva e curativa?",
+          "answer": "La diagnostica curativa viene impiegata in presenza di sintomi per confermare o escludere una patologia. La diagnostica preventiva, al contrario, rileva i biomarcatori in modo proattivo — ancor prima della comparsa dei sintomi — per identificare tempestivamente i fattori di rischio e intervenire preventivamente. Nella medicina della longevità, l'obiettivo è l'ottimizzazione dei valori all'interno dell'intervallo di normalità, non solo il trattamento di deviazioni patologiche."
+        },
+        {
+          "question": "Con quale frequenza dovrebbero essere controllati i biomarcatori della longevità?",
+          "answer": "Per un monitoraggio Longevity fondato, si raccomanda un check-up di base ogni 3-6 mesi; in presenza di interventi in corso (ad es. modifiche dell'alimentazione, integrazione, programmi di allenamento) anche con maggiore frequenza. La rapida disponibilità dei risultati al Point-of-Care consente di apportare adeguamenti in tempo reale, anziché attendere i referti di laboratorio."
+        },
+        {
+          "question": "Quali marcatori di infiammazione sono importanti per la prevenzione?",
+          "answer": "Il valore di CRP ad alta sensibilità (hs-CRP) è il marcatore centrale per le infiammazioni croniche subcliniche — il cosiddetto Inflammaging. Già valori lievemente elevati nell'intervallo di 1-3 mg/L correlano con un rischio aumentato di malattie cardiovascolari, neurodegenerazione e processi di invecchiamento accelerato. Il monitoraggio regolare consente un intervento precoce attraverso misure legate allo stile di vita o un'integrazione mirata."
+        },
+        {
+          "question": "Posso offrire check-up sanitari come prestazione a pagamento diretto?",
+          "answer": "Sì. Gli screening preventivi dei biomarcatori sono classiche prestazioni sanitarie individuali a pagamento diretto, in quanto vanno oltre il catalogo delle prestazioni dell'assicurazione sanitaria obbligatoria. Specialmente nel segmento Longevity, la domanda di check-up sanitari basati sui dati è particolarmente elevata. La combinazione di analisi immediata e consulenza qualificata costituisce un pacchetto di servizi economicamente attrattivo per il Suo studio."
+        }
+      ]
+    }
   },
   "poc_systemloesungen": {
     "title": "Soluzioni di sistema POC",
@@ -103,7 +185,37 @@
       "heading": "Conclusione per PolarisDX.net: Più che semplice tecnologia",
       "text": "La soluzione di sistema POC Igloo Pro rappresenta l'apice della diagnostica mobile. Ma le vere prestazioni vengono sbloccate solo attraverso il servizio esclusivo. PolarisDX.net garantisce non solo la consegna di questo strumento tecnologico, ma anche la sua integrazione immediata, validata e senza soluzione di continuità nella tua operazione. Affidati all'agilità della diagnostica mobile – con la sicurezza garantita di un partner esperto al tuo fianco."
     },
-    "cta": "Prenota appuntamento"
+    "cta": "Prenota appuntamento",
+    "faq": {
+      "caption": "Domande frequenti",
+      "title": "FAQ sulle soluzioni di sistema Point-of-Care",
+      "items": [
+        {
+          "question": "Che cos'è un test Point-of-Care (POCT)?",
+          "answer": "Un test Point-of-Care (POCT) è una forma di diagnostica di laboratorio eseguita in prossimità del paziente, in cui l'analisi avviene direttamente presso il luogo di trattamento — senza invio a un laboratorio centralizzato. Il risultato è disponibile entro pochi minuti e può confluire immediatamente nella decisione clinica. I sistemi POCT come l'IglooPro utilizzano Lateral-Flow-Assay, immunofluorescenza o colorimetria per fornire risultati quantitativi con qualità di laboratorio."
+        },
+        {
+          "question": "Come integro un sistema POC nella routine del mio studio?",
+          "answer": "L'integrazione di un dispositivo POCT come l'IglooPro non richiede ristrutturazioni né locali di laboratorio dedicati. Il dispositivo pesa circa 400 g, è immediatamente operativo e può essere collegato al software del Suo studio tramite USB-C, WLAN o Bluetooth. PolarisDX si occupa del servizio di configurazione remota completo entro 3-5 giorni lavorativi — compresa la validazione, la configurazione delle interfacce e la formazione del team."
+        },
+        {
+          "question": "Quale garanzia di qualità è necessaria per il POCT?",
+          "answer": "La direttiva della Camera Federale dei Medici (RiliBÄK) disciplina la garanzia di qualità degli esami di medicina di laboratorio, incluso il POCT. Sono prescritti, tra l'altro, misurazioni di controllo regolari, la documentazione dei risultati e l'istruzione del personale addetto. L'IglooPro supporta questo processo attraverso la memorizzazione automatica dei risultati (fino a 10.000 misurazioni) e il collegamento ai sistemi LIS/HIS per una documentazione senza lacune."
+        },
+        {
+          "question": "In quanto tempo l'IglooPro fornisce i risultati?",
+          "answer": "A seconda del parametro, i risultati quantitativi sono disponibili in 3-15 minuti. I valori di CRP sono tipicamente disponibili in meno di 5 minuti, Vitamina D e HbA1c in circa 10-15 minuti. La diagnostica rapida consente di completare refertazione e consulenza in un unico contatto con il paziente — senza appuntamento di follow-up e senza tempi di attesa per laboratori esterni."
+        },
+        {
+          "question": "L'IglooPro è conforme alla normativa IVDR?",
+          "answer": "Sì. L'IglooPro soddisfa i requisiti del Regolamento europeo sulla diagnostica in vitro (IVDR, UE 2017/746) e reca la corrispondente marcatura CE. La conformità IVDR garantisce che il dispositivo e le cassette di test utilizzate rispettino rigorosi requisiti di prestazione analitica, evidenza clinica e gestione della qualità — un presupposto imprescindibile per l'impiego nella diagnostica IVD."
+        },
+        {
+          "question": "Chi produce l'IglooPro?",
+          "answer": "L'IglooPro è sviluppato e prodotto dalla DX365 GmbH a Berlino. PolarisDX è il partner di distribuzione per il mercato europeo e si occupa di vendita, integrazione, formazione e supporto continuo."
+        }
+      ]
+    }
   },
   "praeventions_checks": {
     "title": "Controlli sanitari preventivi",
@@ -144,7 +256,29 @@
       "heading": "Conclusione per la tua decisione",
       "text": "Investire in soluzioni di sistema POC è un investimento nel futuro dell'assistenza centrata sul paziente e nell'aumento dell'efficienza operativa. PolarisDX.net non fornisce solo la tecnologia per questa trasformazione, ma garantisce il suo funzionamento fluido e validato attraverso l'esclusivo servizio di configurazione remota in 3-5 giorni lavorativi e la garanzia di compatibilità LFT. Così, utilizzi tutto il potenziale dei controlli sanitari preventivi immediatamente."
     },
-    "cta": "Prenota appuntamento"
+    "cta": "Prenota appuntamento",
+    "faq": {
+      "caption": "Domande frequenti",
+      "title": "FAQ sui check-up sanitari preventivi",
+      "items": [
+        {
+          "question": "Quali check-up preventivi posso offrire nel mio studio?",
+          "answer": "Con un sistema POC come l'IglooPro è possibile offrire profili di check-up completi direttamente nello studio — dallo screening del diabete (HbA1c) alla valutazione del rischio cardiovascolare (colesterolo) e dello stato infiammatorio (CRP), fino ai check dei micronutrienti (Vitamina D, ferritina). La diagnostica preventiva può essere integrata nella routine dello studio come programma di prevenzione strutturato o come singola prestazione mirata."
+        },
+        {
+          "question": "Quali biomarcatori fanno parte di un check-up sanitario di base?",
+          "answer": "Un check-up sanitario di base basato sull'evidenza comprende almeno HbA1c (controllo glicemico), CRP (stato infiammatorio), Vitamina D (funzione immunitaria, salute ossea) e un profilo lipidico (rischio cardiovascolare). A seconda del profilo del paziente, possono essere integrati TSH (tiroide) e ferritina (stato del ferro). Tutti questi parametri sono determinabili con l'IglooPro in un'unica seduta."
+        },
+        {
+          "question": "In che cosa si differenzia un check-up POC dall'invio al laboratorio?",
+          "answer": "Con il classico invio al laboratorio, il campione viene prelevato, spedito a un laboratorio centralizzato e il risultato è disponibile non prima di 24-48 ore — spesso è necessario un appuntamento di follow-up. Con la diagnostica di laboratorio eseguita in prossimità del paziente (POCT), l'analisi avviene direttamente in loco in 3-15 minuti. Consulenza e avvio della terapia possono svolgersi nello stesso appuntamento, con un notevole aumento dell'efficienza e della soddisfazione del paziente."
+        },
+        {
+          "question": "I check-up preventivi sono fatturabili come prestazione sanitaria individuale?",
+          "answer": "Sì. Gli screening preventivi dei biomarcatori, che vanno oltre il catalogo delle prestazioni dell'assicurazione sanitaria obbligatoria, sono fatturabili privatamente come prestazioni sanitarie individuali secondo la GOÄ. La combinazione di analisi immediata e consulenza qualificata costituisce un'offerta economicamente attrattiva a pagamento diretto, che al contempo rafforza il legame con il paziente."
+        }
+      ]
+    }
   },
   "infektion_entzuendung": {
     "title": "Infezione e marcatori di infiammazione",
@@ -184,7 +318,29 @@
       "heading": "Conclusione: Nessun compromesso nella diagnosi",
       "text": "Per infezioni e infiammazioni, il tempo è il fattore critico. Solo un sistema POC che combina validità a livello di laboratorio con la massima velocità può aumentare la sicurezza diagnostica ottimizzando al contempo la gestione degli antibiotici. PolarisDX.net offre queste prestazioni garantite – dalla messa in servizio in 3-5 giorni lavorativi al supporto prioritario."
     },
-    "cta": "Prenota appuntamento"
+    "cta": "Prenota appuntamento",
+    "faq": {
+      "caption": "Domande frequenti",
+      "title": "FAQ sulla diagnostica delle infezioni e dell'infiammazione",
+      "items": [
+        {
+          "question": "Quando è indicato un test rapido del CRP nello studio?",
+          "answer": "Un test rapido del CRP è indicato ogniqualvolta una rapida differenziazione tra causa batterica e virale sia clinicamente rilevante — ad esempio in caso di infezioni delle vie respiratorie, febbre di origine non chiara o controllo del decorso postoperatorio. Un valore di CRP superiore a 40 mg/L depone a favore di un'eziologia batterica, mentre valori più bassi possono supportare un atteggiamento di attesa senza somministrazione di antibiotici. La misurazione con l'IglooPro richiede meno di 5 minuti."
+        },
+        {
+          "question": "Con l'IglooPro è possibile distinguere le infezioni batteriche da quelle virali?",
+          "answer": "La combinazione di CRP e PCT (Procalcitonina) consente una valutazione più differenziata rispetto a un singolo marcatore. Il CRP aumenta sia nelle infezioni batteriche che in quelle virali, mentre la PCT reagisce in modo nettamente più specifico alle infezioni batteriche e alla sepsi. Grazie alla determinazione simultanea di entrambi i parametri al Point-of-Care, è possibile prendere decisioni terapeutiche più fondate e ridurre le prescrizioni non necessarie di antibiotici."
+        },
+        {
+          "question": "Quanto sono affidabili i test POC dell'infiammazione rispetto al laboratorio?",
+          "answer": "I sistemi POC conformi alla normativa IVDR, come l'IglooPro, forniscono risultati quantitativi con una precisione analitica di CV < 2% e sono pertanto comparabili alle misurazioni dei laboratori centralizzati. La garanzia di qualità avviene tramite cassette di test validate e controlli interni. Nella pratica clinica, i test POC offrono il vantaggio aggiuntivo che il risultato è immediatamente disponibile e non viene influenzato da tempi di trasporto o conservazione dei campioni."
+        },
+        {
+          "question": "Quali marcatori di infiammazione può misurare l'IglooPro?",
+          "answer": "L'IglooPro supporta la determinazione di CRP (Proteina C-reattiva) come marcatore centrale di fase acuta, PCT (Procalcitonina) per la differenziazione delle infezioni batteriche nonché ferritina, che oltre allo stato del ferro è rilevante anche come marcatore di infiammazione nei processi cronici e acuti. Grazie alla piattaforma aperta, è possibile integrare ulteriori test a flusso laterale per IL-6 e altri parametri."
+        }
+      ]
+    }
   },
   "stoffwechsel_herz": {
     "title": "Metabolismo e salute cardiaca",
@@ -224,7 +380,29 @@
       "heading": "Conclusione per il tuo studio",
       "text": "Integrare il lettore Igloo Pro nel tuo flusso di lavoro significa un cambio di paradigma: Dal monitoraggio ritardato all'adattamento terapeutico immediato basato sui dati. Con PolarisDX.net, assicuri non solo la tecnologia per queste misurazioni critiche, ma anche la garanzia di un'implementazione fluida e di una validazione continua."
     },
-    "cta": "Prenota appuntamento"
+    "cta": "Prenota appuntamento",
+    "faq": {
+      "caption": "Domande frequenti",
+      "title": "FAQ sulla diagnostica metabolica e cardiaca",
+      "items": [
+        {
+          "question": "Quali biomarcatori metabolici posso misurare chairside?",
+          "answer": "Con l'IglooPro è possibile determinare HbA1c (glicemia a lungo termine), colesterolo totale e ulteriori frazioni lipidiche direttamente da sangue capillare in pochi minuti. Questa diagnostica chairside fornisce risultati comparabili a quelli di laboratorio (CV < 2%) e consente l'adeguamento terapeutico immediato nello stesso contatto con il paziente — senza invio a un laboratorio centralizzato."
+        },
+        {
+          "question": "In che modo il valore di HbA1c aiuta nella diagnosi precoce del diabete?",
+          "answer": "Il test rapido dell'HbA1c riflette la glicemia media delle ultime 8-12 settimane ed è pertanto indipendente dalle fluttuazioni giornaliere o dallo stato di digiuno. Valori compresi tra 5,7% e 6,4% indicano un rischio di prediabete, a partire da 6,5% si pone la diagnosi di diabete mellito. La disponibilità immediata al Point-of-Care consente una consulenza diretta e l'avvio della terapia senza necessità di un appuntamento di follow-up."
+        },
+        {
+          "question": "Quali marcatori di rischio cardiovascolare misura l'IglooPro?",
+          "answer": "L'IglooPro supporta la determinazione dei valori di colesterolo (colesterolo totale, LDL, HDL, trigliceridi) nonché del D-Dimero come parametro di esclusione per trombosi ed embolie polmonari. Questi marcatori di rischio cardiovascolare consentono una rapida valutazione del rischio vascolare e decisioni fondate sul proseguimento del trattamento — direttamente nello studio."
+        },
+        {
+          "question": "Posso offrire check-up metabolici come prestazione aggiuntiva?",
+          "answer": "Sì. Gli screening di HbA1c, colesterolo e altri parametri metabolici sono tipiche prestazioni sanitarie individuali (IGeL), fatturabili privatamente secondo la GOÄ. La combinazione di misurazione immediata e consulenza qualificata crea un valore aggiunto misurabile per i pazienti e genera un fatturato aggiuntivo pianificabile per il Suo studio."
+        }
+      ]
+    }
   },
   "hormon_tests": {
     "title": "Test ormonali e di endocrinologia",
@@ -264,7 +442,29 @@
       "heading": "Conclusione: Diagnostica speciale direttamente nella tua mano",
       "text": "I test ormonali e di endocrinologia sono spesso il punto di partenza di percorsi di trattamento complessi. Attraverso la diagnostica POC con l'Igloo Pro, riduci massicciamente il tempo fino alla diagnosi e alla decisione terapeutica. polarisDX.net ti offre la tecnologia e la garanzia di compatibilità LFT per integrare questo ampio spettro di test specializzati in modo sicuro ed efficiente nella tua operazione."
     },
-    "cta": "Prenota appuntamento"
+    "cta": "Prenota appuntamento",
+    "faq": {
+      "caption": "Domande frequenti",
+      "title": "FAQ sulla diagnostica ormonale nello studio",
+      "items": [
+        {
+          "question": "Quali ormoni può misurare l'IglooPro?",
+          "answer": "L'IglooPro supporta la determinazione quantitativa di TSH (funzione tiroidea), cortisolo (asse dello stress), testosterone, progesterone, FSH e AMH (riserva ovarica). Questi test ormonali coprono le più comuni problematiche endocrinologiche e forniscono risultati con qualità di laboratorio entro pochi minuti, direttamente nello studio."
+        },
+        {
+          "question": "Quando è indicato un test rapido del TSH?",
+          "answer": "Un test rapido del TSH è indicato in caso di sospetto clinico di disfunzione tiroidea (ad es. affaticamento, variazioni di peso, caduta dei capelli), per il controllo terapeutico sotto sostituzione con L-tiroxina nonché nell'ambito della prevenzione in caso di desiderio di maternità e in gravidanza. La disponibilità immediata dei valori tiroidei consente un adeguamento diretto del dosaggio senza tempi di attesa per i risultati di laboratorio esterni."
+        },
+        {
+          "question": "Quanto sono precisi i test ormonali POC rispetto al laboratorio?",
+          "answer": "I sistemi POC conformi alla normativa IVDR, come l'IglooPro, raggiungono una precisione analitica con un coefficiente di variazione (CV) inferiore al 2% e sono pertanto comparabili ai risultati dei laboratori centralizzati. La garanzia di qualità avviene tramite cassette di test validate e misurazioni di controllo regolari, assicurando così l'affidabilità decisionale clinica."
+        },
+        {
+          "question": "Per quali specialità è rilevante la diagnostica ormonale chairside?",
+          "answer": "La diagnostica ormonale chairside è rilevante in egual misura per la medicina generale, la ginecologia, l'endocrinologia, la dermatologia e i centri per la fertilità. Ovunque sia necessario chiarire rapidamente la funzione tiroidea, lo stato di fertilità o squilibri ormonali, la misurazione POC offre un vantaggio temporale immediato rispetto all'invio a laboratori esterni."
+        }
+      ]
+    }
   },
   "kompatibilitaet_integration": {
     "title": "Compatibilità multi-produttore",
@@ -303,6 +503,28 @@
       "heading": "Conclusione: Investi in una soluzione, non in una limitazione",
       "text": "La compatibilità multi-produttore dell'Igloo Pro lo rende l'investimento più intelligente nella diagnostica POC. Offre la flessibilità di cui hai bisogno oggi e la sicurezza dell'investimento di cui hai bisogno domani."
     },
-    "cta": "Prenota appuntamento"
+    "cta": "Prenota appuntamento",
+    "faq": {
+      "caption": "Domande frequenti",
+      "title": "FAQ sull'integrazione di sistema e la compatibilità",
+      "items": [
+        {
+          "question": "L'IglooPro è compatibile con il software del mio studio?",
+          "answer": "L'IglooPro può essere integrato nei più diffusi sistemi informativi di laboratorio e di studio (LIS/HIS) tramite interfacce standardizzate. I risultati vengono trasmessi e documentati automaticamente, eliminando la necessità di inserimento manuale dei dati. PolarisDX La supporta nell'integrazione con la dotazione esistente del Suo studio."
+        },
+        {
+          "question": "Quali interfacce offre l'IglooPro?",
+          "answer": "L'IglooPro dispone di USB-C, WLAN (Wi-Fi) e Bluetooth per la trasmissione dei dati. Ciò consente un collegamento flessibile a postazioni di lavoro stazionarie, dispositivi mobili e sistemi basati su cloud. La memoria interna conserva fino a 10.000 risultati di misurazione, che possono essere trasmessi successivamente in caso di necessità."
+        },
+        {
+          "question": "Come si svolgono la configurazione e la formazione?",
+          "answer": "PolarisDX offre un servizio di configurazione remota completo entro 3-5 giorni lavorativi. Sono inclusi la validazione del dispositivo, la configurazione delle interfacce con il software del Suo studio e un'istruzione pratica del Suo team. In questo modo il Suo laboratorio di studio è rapidamente operativo, senza che Lei debba occuparsi dei dettagli tecnici."
+        },
+        {
+          "question": "È possibile collegare in rete più dispositivi IglooPro?",
+          "answer": "Sì. Negli studi più grandi, nelle strutture poliambulatoriali o nelle cliniche, è possibile gestire più dispositivi IglooPro collegati tramite una rete comune e amministrati centralmente. Tutti i risultati delle misurazioni confluiscono in un sistema unitario, semplificando la garanzia di qualità e consentendo una panoramica intersede della diagnostica POC."
+        }
+      ]
+    }
   }
 }
