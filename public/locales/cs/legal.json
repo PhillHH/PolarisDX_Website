@@ -41,14 +41,16 @@
       "content": [
         "Zápis v obchodním rejstříku.",
         "Rejstříkový soud: Okresní soud Hamburk (pro PolarisDX Europe UG)",
-        "Registrační číslo: [Zde vložte číslo HRB]"
+        "Registrační číslo: HRB 193415"
       ]
     },
     "section4": {
       "title": "DIČ",
       "content": [
         "Daňové identifikační číslo podle § 27 a zákona o dani z přidané hodnoty:",
-        "[Zde vložte DIČ]"
+        "[Zde vložte DIČ]",
+        "Daňové číslo (PolarisDX Europe UG):",
+        "Zažádáno u Finanzamt Hamburg Hansa"
       ]
     },
     "section5": {
@@ -56,7 +58,8 @@
       "content": [
         "Manažerský tým PolarisDX",
         "262A Fulham Road",
-        "Londýn SW10 9EL"
+        "Londýn SW10 9EL",
+        "E-mail: phillipr@polarisdx.net"
       ]
     },
     "section6": {

@@ -318,55 +318,6 @@
       }
     ]
   },
-  "48_hour_formula": {
-    "title": "Vzorec 48 hodin: Efektivita v POC diagnostice",
-    "excerpt": "Efektivita místo zaučování: Cesta k okamžité připravenosti k použití v ordinaci.",
-    "sections": [
-      {
-        "heading": "Úvod",
-        "paragraphs": [
-          "Rozhodnutí pro nové diagnostické přístroje Point-of-Care (POC) je často prvním krokem k lepší péči o pacienty. Ale cesta od pořízení k plné připravenosti k použití je často podceňována. Dlouhavé zaučování, administrativní překážky a složitá IT integrace požírají cenný čas a vážou personál, jehož pozornost by měla být zaměřena na pacienta.",
-          "Toto úzké hrdlo patří minulosti. Moderní koncepty podpory revolucionizují uvedení do provozu a snižují úsilí pro ordinace a lékárny na minimum. Klíčem je přístup „Remote-Setup“, který zaručuje okamžitou připravenost k použití za pouhých 48 hodin."
-        ]
-      },
-      {
-        "heading": "1. Dilema efektivity: Proč tradiční integrace selhává",
-        "paragraphs": [
-          "Tradičně vyžaduje integrace nového POC systému několik časově náročných kroků, které často zaberou týdny:"
-        ],
-        "listItems": [
-          "Administrativní a regulační zaučení: Školení personálu ohledně řízení kvality (např. podle RiliBÄK nebo Qualab) a interních protokolů.",
-          "Technické nastavení a kalibrace: Manuální první uvedení do provozu a kalibrace přístroje specifická pro šarži.",
-          "IT připojení a výměna dat: Složité obousměrné spojení mezi POC čtečkou a systémem správy ordinace nebo lékárny (PVS/AVS)."
-        ]
-      },
-      {
-        "heading": "2. Přístup Remote-Setup: IT experti v pozadí",
-        "paragraphs": [
-          "Přístup Remote-Setup je založen na digitální konektivitě moderních POC čteček. Místo potřeby servisního technika na místě je přístroj nastaven a validován na dálku specializovanými experty.",
-          "Klíčové procesy, které jsou řešeny vzdáleně:"
-        ],
-        "listItems": [
-          "Úplná kalibrace: Technická kalibrace multi-readeru na používané testy Lateral Flow (LFT) se provádí externě. To zajišťuje, že analytická přesnost je zaručena od začátku – aniž by personál ordinace musel provádět složité technické kroky.",
-          "Plynulá IT integrace: Připojení k laboratornímu nebo ordinačnímu informačnímu systému (LIS/PIS) probíhá přes bezpečná, webová rozhraní (např. řešení POC-IT). Externí poradci zajišťují, že všechny naměřené hodnoty jsou automaticky, bezpečně a bezchybně přenášeny do karty pacienta.",
-          "Aktualizace firmwaru a systémové kontroly: Aktualizace softwaru pro zajištění kompatibility a dodržování nových standardů mohou být nahrávány trvale a bez přerušení provozu ordinace na dálku."
-        ]
-      },
-      {
-        "heading": "3. Vzorec 48 hodin: Konkurenční výhoda",
-        "paragraphs": [
-          "Díky outsourcování technické a administrativní složitosti na specializované vzdálené služby mohou ordinace a lékárny snížit časovou náročnost z týdnů na minimum.",
-          "Zisk efektivity a spokojenost pacientů: Okamžitá připravenost POC diagnostických přístrojů k použití umožňuje personálu soustředit se bezprostředně na péči o pacienty. Úspora času při stanovení diagnózy, rychlejší rozhodování o terapii a odpadnutí druhého termínu vedou k výrazně vyšší spokojenosti pacientů. Optimalizované pracovní postupy zlepšují ekonomickou efektivitu celého zařízení."
-        ]
-      },
-      {
-        "heading": "Závěr: Investice do času a bezpečnosti",
-        "paragraphs": [
-          "Moderní diagnostika Point-of-Care je více než jen přístroj: Je to digitálně integrovaný systém. Kdo sází na Remote-Setup, investuje nejen do přesnější a rychlejší diagnostiky, ale především do cenného času svého personálu. Vzorec 48 hodin je tak synonymem pro minimální integrační stres a maximální připravenost k použití v moderním zdravotnictví."
-        ]
-      }
-    ]
-  },
   "precision_point_of_care": {
     "title": "Přesnost v Point-of-Care: Klíč k bezpečnosti pacientů",
     "excerpt": "Proč validace testů Lateral Flow (LFT) přesahuje údaje výrobce.",

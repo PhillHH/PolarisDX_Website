@@ -41,14 +41,16 @@
       "content": [
         "Entry in the commercial register.",
         "Register Court: District Court Hamburg (for PolarisDX Europe UG)",
-        "Register Number: [Insert HRB Number here]"
+        "Register Number: HRB 193415"
       ]
     },
     "section4": {
       "title": "VAT ID",
       "content": [
         "VAT Identification Number according to §27 a Value Added Tax Act:",
-        "[Insert VAT ID here]"
+        "[Insert VAT ID here]",
+        "Tax Number (PolarisDX Europe UG):",
+        "Applied for at Finanzamt Hamburg Hansa"
       ]
     },
     "section5": {
@@ -56,7 +58,8 @@
       "content": [
         "PolarisDX Management Team",
         "262A Fulham Road",
-        "London SW10 9EL"
+        "London SW10 9EL",
+        "Email: phillipr@polarisdx.net"
       ]
     },
     "section6": {

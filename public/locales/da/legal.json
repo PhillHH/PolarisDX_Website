@@ -41,14 +41,16 @@
       "content": [
         "Indførsel i handelsregistret.",
         "Registerret: Amtsgericht Hamburg (for PolarisDX Europe UG)",
-        "Registreringsnummer: [Indsæt HRB-nummer her]"
+        "Registreringsnummer: HRB 193415"
       ]
     },
     "section4": {
       "title": "Moms-ID",
       "content": [
         "Momsidentifikationsnummer i henhold til §27 a i momsloven:",
-        "[Indsæt moms-ID her]"
+        "[Indsæt moms-ID her]",
+        "Skattenummer (PolarisDX Europe UG):",
+        "Ansøgt hos Finanzamt Hamburg Hansa"
       ]
     },
     "section5": {
@@ -56,7 +58,8 @@
       "content": [
         "PolarisDX Management Team",
         "262A Fulham Road",
-        "London SW10 9EL"
+        "London SW10 9EL",
+        "E-mail: phillipr@polarisdx.net"
       ]
     },
     "section6": {

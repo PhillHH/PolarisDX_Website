@@ -7,7 +7,13 @@
     "blog": "Blog",
     "contact": "Contact",
     "terms": "Algemene Voorwaarden",
-    "events": "Evenementen"
+    "events": "Evenementen",
+    "casestudies": "Case Study",
+    "downloads": "Downloads",
+    "dental": "Tandheelkundige diagnostiek",
+    "beauty": "Beauty diagnostiek",
+    "longevity": "Longevity diagnostiek",
+    "pocSystems": "POC-systemen"
   },
   "badge": {
     "New": "Nieuw",
@@ -31,13 +37,18 @@
     "discover": "Ontdekken",
     "london": "Londen",
     "hamburg": "Hamburg",
-    "copyright": "Copyright ©PolarisDX 2025 Alle rechten voorbehouden.",
+    "copyright": "Copyright ©PolarisDX {{year}} Alle rechten voorbehouden.",
     "imprint": "Colofon",
     "privacy": "Privacybeleid",
     "doctors": "Onze artsen",
     "testimonials": "Getuigenissen",
     "faq": "FAQ",
-    "appointment": "Afspraak maken"
+    "appointment": "Afspraak maken",
+    "diagnostics": "Diagnostiek",
+    "allServices": "Alle diensten",
+    "pocSystems": "POC-systemen",
+    "preventionChecks": "Preventiechecks",
+    "hormonTests": "Hormoontests"
   },
   "cta": {
     "title": "Op zoek naar professionele & vertrouwde <1>medische zorg?</1>",
@@ -56,7 +67,8 @@
       "about": "team doctors polarisdx over ons",
       "services": "services diensten dental beauty longevity diagnostiek",
       "contact": "contact email phone address adres",
-      "terms": "legal terms agb voorwaarden"
+      "terms": "legal terms agb voorwaarden",
+      "casestudies": "case study 32reasons tandheelkunde polaris dx"
     },
     "services": {
       "dental": "Tandheelkundige Diagnostiek",
@@ -95,9 +107,27 @@
         "name": "Analyse",
         "description": "Analyse."
       }
-    }
+    },
+    "reject_all": "Alleen noodzakelijke"
   },
   "testimonials": {
     "positiveLabel": "Positieve beoordeling"
+  },
+  "notFound": {
+    "seo": {
+      "title": "Pagina niet gevonden | PolarisDX",
+      "description": "De gevraagde pagina kon niet worden gevonden."
+    },
+    "badge": "Pagina niet gevonden",
+    "title": "Oeps! Deze pagina bestaat niet",
+    "description": "De pagina die je zoekt, is mogelijk verplaatst, verwijderd of bestaat niet meer.",
+    "backHome": "Terug naar home",
+    "popularPages": "Populaire pagina's",
+    "links": {
+      "home": "Home",
+      "iglooPro": "IglooPro",
+      "services": "Diensten",
+      "contact": "Contact"
+    }
   }
 }

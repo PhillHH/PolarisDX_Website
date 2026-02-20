@@ -41,14 +41,16 @@
       "content": [
         "Inscription au registre du commerce.",
         "Tribunal d'enregistrement : Tribunal d'instance de Hambourg (pour PolarisDX Europe UG)",
-        "Numéro d'enregistrement : [Insérer le numéro HRB ici]"
+        "Numéro d’enregistrement : HRB 193415"
       ]
     },
     "section4": {
       "title": "Numéro de TVA",
       "content": [
         "Numéro d'identification de TVA selon le § 27 a de la loi sur la taxe sur la valeur ajoutée :",
-        "[Insérer le numéro de TVA ici]"
+        "[Insérer le numéro de TVA ici]",
+        "Numéro fiscal (PolarisDX Europe UG) :",
+        "Demandé auprès du Finanzamt Hamburg Hansa"
       ]
     },
     "section5": {
@@ -56,7 +58,8 @@
       "content": [
         "Équipe de direction PolarisDX",
         "262A Fulham Road",
-        "Londres SW10 9EL"
+        "Londres SW10 9EL",
+        "E-mail : phillipr@polarisdx.net"
       ]
     },
     "section6": {

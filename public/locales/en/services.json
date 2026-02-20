@@ -2,42 +2,38 @@
   "dental": {
     "title": "Dental",
     "headline": "Optimized Implantology & Periodontology: Measurable Safety at the Chair",
-    "intro": [
-      "In modern dentistry, the success of surgical procedures and periodontal treatments is closely linked to the patient's systemic health status. 'Chairside' diagnostics allow you to make these factors visible and minimize risks.",
-      "The Igloo Pro Reader brings necessary laboratory analytical precision directly into your practice to immediately determine wound healing potentials and inflammation levels."
-    ],
-    "sections": [
-      {
-        "heading": "1. Vitamin D: The Key to Osseointegration",
-        "content": "A sufficient 25-OH-Vitamin D level (>30-40 ng/ml) is the physiological prerequisite for successful osseointegration and bone regeneration.",
-        "listItems": [
-          "Preoperative Screening: Measure Vitamin D status before every implantation or bone augmentation. Deficiency correlates significantly with early [[implant loss and wound healing disorders|/vitamin-d3-implantologie]].",
-          "Immediate Therapy: Thanks to results in minutes, you can initiate high-dose supplementation before the procedure (or perioperatively) ('Loading Dose') to close the 'Immunological Gap'.",
-          "Evidence-Based Counseling: Show your patients in black and white why supplementation is necessary for the preservation of their implant."
-        ]
-      },
-      {
-        "heading": "2. Inflammation Management: aMMP-8 and CRP",
-        "content": "Detect the process of tissue destruction before it becomes clinically visible.",
-        "listItems": [
-          "aMMP-8 (Active Matrix Metalloproteinase-8): This marker indicates acute tissue destruction (collagenolysis). An elevated value in sulcus fluid or saliva warns of active periodontitis or peri-implantitis, often before probing depths increase.",
-          "Systemic Inflammation (CRP): Chronic periodontitis can increase systemic inflammation load (hs-CRP) and vice versa. Measurement helps to illustrate the connection between oral and general health."
-        ]
-      },
-      {
-        "heading": "3. Economic Efficiency and Patient Service",
-        "content": "Integrating these tests is not only medically sensible but also a unique selling point.",
-        "listItems": [
-          "Private Billing: Diagnostic services and consultations are billable as private medical services.",
-          "Trust: Patients experience high-tech care that goes beyond the standard and places their safety at the center."
-        ]
-      }
-    ],
-    "conclusion": {
-      "heading": "Conclusion: Biological Dentistry with Data",
-      "text": "Do not rely on assumptions. With the Igloo Pro, you make the biological prerequisites of your patients measurable and controllable. PolarisDX.net supports you in implementing these tests into your daily workflow."
+    "cta": "Book appointment",
+    "faq": {
+      "caption": "Frequently Asked Questions",
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "Which blood tests can I perform as a dentist in my practice?",
+          "answer": "With a point-of-care device such as the Igloo Pro Reader, you can quantitatively determine Vitamin D3, CRP, HbA1c, TSH, ferritin and cholesterol (HDL, LDL, total), among others. The measurement is performed from capillary blood via finger prick. Depending on the biomarker, results are available in three to fifteen minutes — directly at the treatment chair, without laboratory submission."
+        },
+        {
+          "question": "How does the Igloo Pro Reader work?",
+          "answer": "The Igloo Pro Reader uses immunofluorescence-based technology and delivers quantitative measurement values. The process involves five steps: collect capillary blood via finger prick, apply the sample to the pre-filled test cassette, insert the cassette into the reader, wait for the measurement time, and read the result on the display. No laboratory training is required to operate the device."
+        },
+        {
+          "question": "Is a blood test at the dentist a private health service (IGeL)?",
+          "answer": "Yes, provided there is no medical indication within the scope of statutory health insurance. Billing is carried out according to the German Fee Schedule for Physicians (GOÄ), as dentists bill medical services pursuant to § 6 para. 2 GOZ under GOÄ. For patients with statutory health insurance, a written IGeL contract with a cost estimate is required before the test is performed."
+        },
+        {
+          "question": "What does the Igloo Pro Reader cost?",
+          "answer": "The price of the Igloo Pro Reader depends on the chosen equipment package and the procurement model — purchase or leasing. PolarisDX prepares an individual offer based on your practice profile and planned test volume, including a profitability calculation. Contact us for your personalised quote."
+        },
+        {
+          "question": "Is the Igloo Pro Reader IVDR-compliant?",
+          "answer": "Yes. The Igloo Pro Reader and its associated test cassettes are approved under the European In Vitro Diagnostic Regulation (EU 2017/746) and bear the CE mark. The device thus meets all regulatory requirements for professional use as an in vitro diagnostic in medical practices."
+        },
+        {
+          "question": "What quality assurance is required for POCT in dental practices?",
+          "answer": "In accordance with the German Medical Association Guideline (RiliBÄK), internal quality controls through regular control measurements and participation in external proficiency testing are mandatory. Results must be documented. PolarisDX supports practices with setting up internal quality control, registering for proficiency tests and ongoing documentation."
+        }
+      ]
     },
-    "cta": "Book appointment"
+    "richContent": "<p>Dentistry is undergoing a profound transformation. For decades, it was regarded as a predominantly mechanical discipline – removing caries, placing fillings, inserting implants. Yet the recognition that oral and systemic health are inextricably linked is fundamentally changing clinical practice. Biomarkers such as Vitamin D, C-reactive protein (CRP), HbA1c, TSH and ferritin provide information that goes far beyond findings in the mouth – and can directly influence treatment outcomes.</p><p>With the <strong>Igloo Pro Reader</strong>, dental practices have access to a compact point-of-care analyser that determines these parameters directly at the treatment chair – from just a few microlitres of capillary blood, in three to fifteen minutes. No laboratory order, no time lost, no appointment rescheduling. Chairside diagnostics thus becomes an integral part of the dental workflow. This article explains why blood testing in the dental practice is no longer a future vision, what evidence supports it, and how practices can implement this step in concrete terms.</p><h2>Why Blood Tests in the Dental Practice? The Paradigm Shift Towards Systemic Dentistry</h2><p>The relationship between oral health and general health is bidirectional and far more extensive than many practitioners have long assumed. Periodontitis – one of the most common chronic diseases worldwide – is not merely a local event in the sulcus. It is accompanied by a measurable increase in systemic inflammatory markers, above all C-reactive protein. A recent meta-analysis from 2024, evaluating 25 studies with a total of 1,748 patients, demonstrated that successful periodontal therapy significantly reduces serum levels of CRP, interleukin-6 and fibrinogen. In reverse, this means: the dentist does not merely treat the periodontium – they influence the cardiovascular risk profile of their patients.</p><p>Conversely, systemic factors directly affect treatment success in the mouth. A Vitamin D deficiency, for example, impairs bone remodelling and immune response, which is particularly clinically relevant in implantological procedures. A systematic review from 2024, published in <em>Nutrients</em>, analysed data from 1,462 participants with 4,450 implants and documented implant loss rates of up to 11.4 per cent in patients with severe Vitamin D deficiency. Poorly controlled diabetes – identifiable by the HbA1c value – further worsens wound healing and increases the risk of peri-implantitis.</p><p>In this context, an often overlooked circumstance gains significance: the dental practice is, for many adults, the most frequent regular medical point of contact. The six-monthly recall interval means that dentists see their patients on average more frequently than many general practitioners. This frequency makes the practice an ideal setting for targeted screening of systemic risk factors – provided the diagnostic tools are available and practical for everyday use.</p><p>The professional community has now embraced this paradigm shift. The <strong>S3 guideline of the DGI and DGZMK</strong>, published in August 2025 (AWMF registry number 083-055), recommends for the first time an individualised Vitamin D screening for at-risk patients before implantation and explicitly names \"quality-controlled in-office finger-prick rapid tests\" as a suitable method. The guideline emphasises that this is not a blanket routine screening, but a targeted diagnostic approach for patients with anamnestic deficiency, unexplained early implant losses or recurrent peri-implant infections.</p><p>That the trend towards chairside diagnostics in dentistry is far from a marginal phenomenon is also demonstrated by industry developments: at the DGI Congress in October 2025, Camlog and Preventis presented a joint collaboration for point-of-care testing in implantology. Globally, the point-of-care diagnostics market is growing from USD 31.57 billion in 2024 to a projected USD 51.19 billion by 2032 – an average annual growth rate of 6.2 per cent (Fortune Business Insights, 2024).</p><p>For dental practices wishing to take this step now, the <strong>Igloo Pro Reader</strong> from <strong>PolarisDX</strong> offers a compact, IVDR-compliant solution. The immunofluorescence-based analyser determines over ten biomarkers from capillary blood – quantitatively, with a coefficient of variation below two per cent – and integrates seamlessly into daily practice at a weight of just 600 grams. The following sections examine the individual biomarkers in detail, the clinical evidence, and practical integration into the treatment workflow.</p><h2>Vitamin D and Implantology – What Does the Current Evidence Say?</h2><p>Vitamin D is far more than a \"bone vitamin\". As a key regulator of calcium and phosphate homeostasis, it controls mineralisation of the alveolar bone, promotes differentiation of osteoblasts and simultaneously modulates both the innate and adaptive immune response. These three functions – bone formation, bone remodelling, immune regulation – are precisely the biological processes on which successful osseointegration of dental implants depends. A Vitamin D deficiency thus intervenes at multiple points simultaneously in the healing cascade.</p><p>The clinical evidence increasingly supports this relationship. A systematic review published in <em>Nutrients</em> in 2024 evaluated data from 1,462 participants with a total of 4,450 implants. The results showed implant loss rates between 3.9 and 11.4 per cent – with the highest rates occurring in patients with severe Vitamin D deficiency, particularly when additional risk factors such as smoking or existing periodontitis were present (Nutrients, 2024). A paper in <em>Quintessenz Implantologie</em> from 2025 concluded that an insufficient Vitamin D status can delay healing and increase the risk of peri-implantitis. As early as 2022, a study in the <em>International Journal of Implant Dentistry</em> had confirmed the association between Vitamin D levels and long-term implant survival. The evidence is not monolithic, but the direction is consistent: a low Vitamin D status is a relevant risk factor for implant success.</p><div class='info-box'><p><strong>S3 Guideline of the DGI/DGZMK (AWMF 083-055, August 2025)</strong></p><p>The current S3 guideline recommends <strong>no general routine screening</strong> for Vitamin D before implantation. However, it advocates an <strong>individualised approach for at-risk patients</strong> – specifically for patients with anamnestic suspected deficiency, unexplained early implant losses or recurrent peri-implant infections. As a diagnostic method, the guideline explicitly names \"quality-controlled in-office finger-prick rapid tests\".</p></div><p>This guideline recommendation deserves a nuanced interpretation. That no blanket screening is recommended is understandable given the heterogeneous evidence base. At the same time, the group of at-risk patients in implantological practice is by no means small. Looking at epidemiological data for Germany, approximately 62 per cent of the adult population is insufficiently supplied with Vitamin D – meaning serum levels below 30 ng/ml. During winter months, the proportion of manifestly deficient individuals with levels below 20 ng/ml reaches up to 50 per cent. Risk groups include particularly older patients, individuals with limited sun exposure, people with obesity and patients on certain long-term medications. In an implantological practice whose patient clientele frequently falls into the 50-plus age group, a substantial proportion of patients is likely to be eligible for individualised screening.</p><p>The guideline deliberately names chairside rapid tests as a suitable diagnostic instrument. The reason is obvious: if the decision regarding supplementation or postponement of the implantation date is to be made on the same treatment day, a laboratory result with a two to three day waiting period is hardly practical. The <strong>Igloo Pro Reader</strong> determines the quantitative Vitamin D3 level in approximately three minutes from capillary blood – directly at the treatment chair, without laboratory submission. The result is immediately available and enables an instant therapeutic decision: proceed with implantation as planned, supplementation and follow-up monitoring, or targeted referral to the general practitioner. <a href='/en/blog/vitamin-d3-implantologie'>More about the role of Vitamin D3 in implantology</a> and its practical implementation in daily practice can be found in our in-depth article.</p><h2>CRP and Periodontitis – Recognising Inflammation Markers Chairside</h2><p>C-reactive protein is one of the best-studied systemic inflammatory markers in medicine. It is produced by the liver and responds within six to twelve hours to both acute and chronic inflammatory stimuli – regardless of their localisation. In general medicine and cardiology, CRP has long been established as a cardiovascular risk marker. The American Heart Association and the Centers for Disease Control classify relative risk using the following thresholds:</p><table><thead><tr><th>CRP Value</th><th>Cardiovascular Risk</th></tr></thead><tbody><tr><td>&lt; 1 mg/l</td><td>low</td></tr><tr><td>1–3 mg/l</td><td>moderate</td></tr><tr><td>&gt; 3 mg/l</td><td>high</td></tr></tbody></table><p>For dentistry, this classification is relevant for a specific reason: periodontitis is a chronic inflammatory disease that demonstrably influences CRP levels. The underlying mechanism is well described pathophysiologically. Periodontal pathogenic bacteria enter the bloodstream through the ulcerated pocket epithelium and trigger a systemic inflammatory response. CRP levels correlate significantly with the severity of periodontal disease (Paraskevas, 2008). The relationship is bidirectional: just as periodontitis increases systemic inflammatory burden, a chronically elevated inflammatory level in turn worsens periodontal healing – a self-reinforcing cycle that is particularly clinically relevant in patients with diabetes mellitus or coronary heart disease.</p><p>An honest assessment is important here: CRP is a non-specific marker. An elevated value alone does not prove periodontitis, and numerous other conditions can also raise levels. The diagnostic value of CRP in the dental practice therefore lies not in primary diagnosis, but in therapy monitoring and risk stratification – as an objective supplement to clinical parameters such as probing depth and bleeding on probing.</p><p>This is precisely where current evidence provides a compelling argument. A meta-analysis from 2024, evaluating 25 studies with a total of 1,748 patients, demonstrated that successful periodontal therapy significantly reduces serum levels of CRP, interleukin-6 and fibrinogen (Meta-analysis, 2024). CRP thus becomes a measurable therapy success marker: if the value decreases after scaling and root planing, treatment success can be objectified not only clinically but also biochemically. For patients, this has an additional effect that should not be underestimated – a visible laboratory value that improves through therapy can significantly strengthen compliance and motivation for continued periodontal treatment.</p><p>In practice, the use of this inflammatory marker has frequently failed due to logistics. A venous blood draw with laboratory submission for a CRP value is hardly proportionate in the dental setting. The <strong>Igloo Pro Reader</strong> solves this problem: quantitative CRP measurement is performed in just a few minutes from capillary blood, directly at the treatment chair. Specific use scenarios include risk stratification before initiating systematic periodontal therapy, monitoring after completed scaling and root planing, and targeted screening in high-risk patients with diabetes or cardiovascular comorbidities. The result is immediately available for discussion – and can directly inform treatment planning.</p><h2>HbA1c – Diabetes Screening in the Dental Practice</h2><p>The link between diabetes mellitus and periodontitis is one of the best-documented bidirectional relationships in medicine. Periodontitis is considered the \"sixth complication\" of diabetes: hyperglycaemia promotes periodontal tissue destruction, impairs immune defence in the sulcus and delays wound healing after periodontal surgical procedures. Conversely, uncontrolled periodontitis complicates blood sugar regulation through chronic inflammatory burden – a cycle that mutually sustains both conditions and is directly relevant for implantological planning.</p><p>Against this backdrop, the dental practice is increasingly coming into focus as a screening partner. In Germany, an estimated two million people live with undiagnosed type 2 diabetes. The dental practice is, for many of these patients, the most regular medical contact point – two recall appointments per year represent a higher contact frequency than with many general practitioners. A chairside screening for pre-diabetes in patients with severe or treatment-resistant periodontitis could address this diagnostic gap.</p><p>The appropriate marker for this is HbA1c, the glycated haemoglobin value. It reflects average blood sugar control over the past eight to twelve weeks and – unlike fasting glucose – requires no fasting state. According to American Diabetes Association criteria, the normal range is below 5.7 per cent, values between 5.7 and 6.4 per cent are classified as pre-diabetes, and from 6.5 per cent as diabetes. Internationally, dentistry is already moving in this direction: ADA guidelines in the USA recommend dental HbA1c screening for at-risk patients, and the International Diabetes Federation explicitly supports interdisciplinary screening approaches. In Germany, this is not yet clinical standard, but given the evidence base and international developments, a clear trend is emerging.</p><p>The <strong>Igloo Pro Reader</strong> enables HbA1c measurement in approximately five minutes from capillary blood – without laboratory submission, without requiring the patient to fast. If a conspicuous value is found, a targeted referral to the general practitioner or diabetologist follows. The dentist thus becomes a health navigator who not only identifies systemic risks but actively integrates them into the care pathway.</p><h2>Pre-operative Diagnostics – Risk Minimisation Before Surgical Procedures</h2><p>Implantation, augmentation, sinus lift or apicoectomy are elective procedures. This means: there is a time window in which modifiable risk factors can be identified and corrected before the patient is in the treatment chair. Pre-operative diagnostics in implantology has until now been largely limited to imaging and medical history. With chairside biomarker diagnostics, this picture can be expanded by a systemic dimension.</p><p>The following overview shows which parameters provide clinically relevant additional information before surgical procedures:</p><table><thead><tr><th>Biomarker</th><th>Clinical Relevance</th><th>Reference Value</th></tr></thead><tbody><tr><td>Vitamin D</td><td>Bone healing, osseointegration</td><td>≥ 30 ng/ml</td></tr><tr><td>CRP</td><td>Rule out active infection, OP timing</td><td>&lt; 5 mg/l</td></tr><tr><td>Ferritin</td><td>Detect anaemia (wound healing, bleeding risk)</td><td>30–300 ng/ml</td></tr><tr><td>HbA1c</td><td>Diabetes control before longer procedures</td><td>&lt; 7.0 %</td></tr><tr><td>TSH</td><td>Thyroid dysfunction (bone metabolism)</td><td>0.4–4.0 mU/l</td></tr></tbody></table><p>A practical protocol can be integrated into the existing practice workflow without generating additional appointments. Ideally, biomarker screening takes place one to two weeks before the planned procedure – for example during the planning appointment. As a baseline set for a pre-implantological check, the combination of Vitamin D, CRP and ferritin is recommended. Results are documented in the patient record. Where values are conspicuous, three clinical options are available: targeted supplementation with follow-up monitoring, postponement of the procedure until optimisation, or referral to the treating specialist.</p><p>The <strong>Igloo Pro Reader</strong> measures all the parameters mentioned – in one session, from one capillary blood sample, with one device. This makes pre-operative risk stratification a standardisable workflow that can be implemented both in specialist implantological practices and in general practices performing oral surgery. This principle of biomarker-based risk minimisation extends beyond dentistry: <a href='/en/diagnostics/longevity'>more about biomarker panels for longevity diagnostics</a> can be found on our overview page for preventive health diagnostics.</p><h2>Chairside Testing with the Igloo Pro Reader – How It Works</h2><p>The preceding sections have shown which biomarkers are clinically relevant in dental practice and what evidence supports chairside diagnostics. The crucial question for daily practice, however, is: how can point-of-care testing be concretely implemented without disrupting the treatment workflow? The <strong>Igloo Pro Reader</strong>, manufactured by DX365 GmbH in Berlin and distributed by <strong>PolarisDX</strong>, was designed precisely for this requirement profile.</p><p>The measurement principle of the Igloo Pro is based on immunofluorescence – an established analytical method that delivers quantitative results with specific measurement values and units. Unlike qualitative rapid tests that merely show a yes-or-no result, the Igloo Pro Reader enables differentiated assessment: a Vitamin D value of 18 ng/ml requires a different clinical consequence than a value of 28 ng/ml. The analytical precision is expressed as a coefficient of variation below two per cent. The device is IVDR-compliant and CE-marked, weighs approximately 600 grams and fits on any treatment trolley or countertop.</p><p>The procedure for a chairside measurement can be described in a few steps:</p><ol><li><strong>Collect capillary blood</strong> – a finger prick suffices; depending on the parameter, 10 to 20 microlitres of blood are required.</li><li><strong>Apply sample</strong> – the capillary blood is applied to the pre-filled test cassette for the desired biomarker.</li><li><strong>Insert cassette</strong> – the test cassette is placed into the Igloo Pro Reader; measurement starts automatically.</li><li><strong>Wait for measurement</strong> – depending on the biomarker, analysis time is three to fifteen minutes.</li><li><strong>Read and document result</strong> – the quantitative measurement value appears on the display and can be discussed immediately.</li></ol><p>The biomarker portfolio comprises over ten parameters from a single device: Vitamin D3, CRP, HbA1c, TSH, ferritin, cholesterol (HDL, LDL, total) and more. The test cassettes can be used individually or combined as a panel – for example as a pre-implantological check with Vitamin D, CRP and ferritin in one session. The Igloo Pro Reader is LIS and HIS compatible, so results can be electronically transferred to the patient record. No user calibration is required; reagents are ready to use and storable at room temperature. PolarisDX provides practice teams with structured training and ongoing support. <a href='/en/igloo-pro'>All technical details about the Igloo Pro Reader</a> can be found on the product page.</p><p>How chairside diagnostics with the Igloo Pro compares to traditional laboratory submission is shown in the following comparison:</p><table><thead><tr><th>Criterion</th><th>Igloo Pro Reader (Chairside)</th><th>Laboratory Submission</th></tr></thead><tbody><tr><td>Result available</td><td>3–15 minutes</td><td>1–3 working days</td></tr><tr><td>Second appointment needed</td><td>No</td><td>Usually yes</td></tr><tr><td>Immediate therapy decision</td><td>Yes</td><td>No</td></tr><tr><td>Patient motivation</td><td>High – result directly discussed</td><td>Low – findings by post or telephone</td></tr><tr><td>Sample logistics</td><td>None</td><td>Shipping or courier service</td></tr><tr><td>Costs</td><td>One-time investment or leasing</td><td>No device costs, but laboratory fees per test</td></tr></tbody></table><p>Specific prices and leasing options for the Igloo Pro Reader are available through our <a href='/en/contact'>personal consultation</a>.</p><h2>Billing as a Private Health Service (IGeL) – GOÄ Codes and Revenue Potential</h2><p>The clinical evidence for chairside diagnostics is compelling – but in practice, the question of economic feasibility inevitably arises. Point-of-care tests performed without a medical indication in the sense of statutory health insurance fall within the scope of individual health services (IGeL). The patient bears the costs themselves. Billing follows the German Fee Schedule for Physicians (GOÄ), as dentists bill medical services pursuant to § 6 para. 2 GOZ under GOÄ. For IGeL billing in the dental practice, clearly defined framework conditions thus apply.</p><p>The following GOÄ codes form the basis for billing chairside blood tests:</p><table><thead><tr><th>GOÄ Code</th><th>Service</th><th>1.0x</th><th>2.3x</th></tr></thead><tbody><tr><td>No. 1</td><td>Consultation</td><td>€3.50</td><td>€8.04</td></tr><tr><td>No. 3</td><td>Detailed consultation (min. 10 min.)</td><td>€8.74</td><td>€20.10</td></tr><tr><td>No. 250</td><td>Capillary blood collection</td><td>€2.33</td><td>€5.36</td></tr><tr><td>No. 3511 (analogous)</td><td>Immunological determination, quantitative</td><td>€11.66</td><td>€26.81</td></tr></tbody></table><p>Code 3511 is applied as an analogous code for immunofluorescence-based determination on the POC device. When multiple parameters are determined in one session, it can be applied correspondingly multiple times. The multiplier factors range normally between 1.0x and 2.3x; a higher factor up to 3.5x is possible with written justification.</p><p>What does this mean in concrete euro terms? The following example calculation provides an orientation:</p><div class='info-box'><p><strong>Example Calculation: IGeL Billing for Chairside Diagnostics</strong></p><table><thead><tr><th>Service</th><th>Patient Price (approx.)</th><th>Material Costs (approx.)</th></tr></thead><tbody><tr><td>Single test Vitamin D3</td><td>€35–55</td><td>€12–15</td></tr><tr><td>\"Implantology Check\" (Vitamin D + CRP + Ferritin)</td><td>€89–129</td><td>€35–45</td></tr></tbody></table><p>The margin per individual test is approximately 60 to 75 per cent, depending on the chosen multiplier factor and individual purchasing conditions for test cassettes.</p></div><p>For economic evaluation, the break-even point is decisive. The investment in the <strong>Igloo Pro Reader</strong> typically pays for itself from approximately 15 to 20 tests per month. A practice performing five chairside tests per week – for example as part of implant planning or periodontitis monitoring – generates additional monthly revenue of approximately €800 to €1,200. Beyond direct revenue, there is a difficult-to-quantify but real secondary effect: patients who experience thorough diagnostics and have their values discussed directly develop a stronger bond with the practice. IGeL diagnostics thus becomes a differentiating feature compared to competitors.</p><p>Formally, certain requirements must be observed. For patients with statutory health insurance, a written IGeL contract is required before the procedure, informing about the self-pay nature of the service and containing a cost estimate. Where a medical indication exists – such as an anamnestic Vitamin D deficiency before implantation – the service may be exempt from VAT under § 4 No. 14a UStG.</p><p><em>Note: The codes and amounts shown are for orientation purposes. Correct billing depends on the individual treatment situation. We recommend consultation with your billing service.</em></p><p>Specific prices for the Igloo Pro Reader, leasing options and an individual profitability model for your practice are available in a <a href='/en/contact'>personal consultation</a>.</p><h2>Case Study: 32reasons Dental Team Hamburg</h2><p>How chairside diagnostics can be concretely implemented in daily dental practice is demonstrated by the example of the 32reasons dental team in Hamburg. The practice, specialising in implantology and aesthetic dentistry, was looking for a way to expand implant planning to include pre-operative biomarker diagnostics – without being dependent on external laboratories and their waiting times.</p><p>The solution: the practice team led by Dr. Zug integrated the <strong>Igloo Pro Reader</strong> into the existing workflow and primarily uses it for Vitamin D screening before implantological procedures. The measurement typically takes place during the planning appointment – the patient receives their result in the same consultation where the implantation is discussed.</p><p>The practice experiences to date confirm what the evidence suggests: patient education gains substance when a concrete laboratory value is available that practitioner and patient can discuss together. Where previously a general recommendation for Vitamin D supplementation stood, there is now an individual measurement value with a clear therapeutic consequence. The practice team reports noticeably higher compliance with supplementation because the value is tangibly \"in black and white\" for patients. At the same time, the practice generates additional revenue through IGeL billing of Vitamin D and ferritin tests, contributing to the amortisation of the device.</p><blockquote><p>\"The Igloo Pro has expanded our implant planning by an additional dimension. We can now identify risk factors before they become a problem – and our patients take supplementation more seriously when they have seen their own values.\"</p><p><strong>– Dr. Zug, 32reasons Dental Team Hamburg</strong></p></blockquote><p><a href='/en/case-studies/32reasons'>Read the full case study: 32reasons Dental Team Hamburg</a></p><h2>Quality Assurance and Regulatory Requirements – What Dentists Need to Know</h2><p>Anyone wishing to introduce point-of-care testing in their dental practice faces, alongside the clinical and economic evaluation, a justified question: what regulatory requirements apply, and how complex is their implementation?</p><p>The fundamental regulatory prerequisite concerns the device itself. The <strong>Igloo Pro Reader</strong> and the associated test cassettes are approved under the European In Vitro Diagnostic Regulation (IVDR, EU 2017/746) and bear the CE mark. IVDR conformity ensures that the analysis system meets European requirements for safety, performance and analytical quality. For the practice, this means: the device may be used in a professional medical setting and delivers regulatorily validated results.</p><p>The second level concerns quality assurance in ongoing operations. The German Medical Association Guideline for Quality Assurance of Laboratory Medical Examinations – RiliBÄK for short – also applies to POCT in the dental practice. Specifically, this means: the practice must perform internal quality controls through regular control measurements, participate in external proficiency testing and document the results. This may initially sound like considerable administrative effort. In practice, however, internal quality control with modern POC devices is largely automated – the Igloo Pro Reader performs control measurements in a standardised manner, and documentation is digital.</p><p><strong>PolarisDX</strong> supports practices in implementing these requirements in a structured manner from the outset: from setting up internal quality control to registering for proficiency tests, training the practice team and providing ongoing technical support. The goal is that regulatory obligations do not burden daily practice but function as a natural part of the workflow. <a href='/en/support'>More about training and support from PolarisDX</a></p><h2>Conclusion: The Dental Practice Becomes a Diagnostic Interface</h2><p>Dentistry is evolving. What was regarded for decades as a predominantly mechanical discipline is increasingly opening up to a systemic perspective – and chairside blood diagnostics is a concrete, implementable expression of this transformation today. The evidence base supports this step: the S3 guideline of the DGI and DGZMK recommends in-office rapid tests for at-risk patients before implantation (AWMF 083-055, 2025), systematic reviews document the influence of Vitamin D status on implant success (Nutrients, 2024), and meta-analyses confirm CRP as an objectifiable therapy marker in periodontal treatment.</p><p>For the dental practice, this results in benefit on three levels. <strong>Clinically</strong>, risk-adapted treatment planning based on individual biomarker values enables better treatment outcomes – whether in implantology, periodontology or pre-operative preparation. <strong>Economically</strong>, IGeL billing of chairside tests opens an additional revenue stream with attractive margins that pays off even at moderate test volumes. <strong>Strategically</strong>, the practice differentiates itself from competitors, strengthens patient retention and positions itself as modern and prevention-oriented.</p><p>The <strong>Igloo Pro Reader</strong> from <strong>PolarisDX</strong> makes entry into chairside diagnostics accessible: compact, IVDR-compliant, over ten biomarkers from one device, without laboratory logistics. The question is no longer whether point-of-care testing will come to dentistry – but when your practice will begin.</p><section class='cta-block'><h2>Start Chairside Diagnostics in Your Practice</h2><p>Would you like to integrate biomarker diagnostics into your daily practice? In a personal consultation, we will analyse together which test profile suits your treatment spectrum and prepare an individual offer – without obligation, tailored to your practice. Our team accompanies you from device selection through training to implementation of quality assurance.</p><p><a href='/en/contact'>Schedule a consultation now</a> | <a href='/en/igloo-pro'>Discover the Igloo Pro Reader</a></p></section>"
   },
   "beauty": {
     "title": "Beauty & Aesthetics",
@@ -76,7 +72,33 @@
       "heading": "Conclusion: Science Instead of Wellness",
       "text": "Position yourself as an expert in Medical Beauty. Through data-based analysis, you stand out from the competition and offer results that are not only visible but also measurable."
     },
-    "cta": "Book appointment"
+    "cta": "Book appointment",
+    "faq": {
+      "caption": "Frequently Asked Questions",
+      "title": "FAQ on Beauty Diagnostics & Biomarker Analysis",
+      "items": [
+        {
+          "question": "Which biomarkers are relevant for aesthetic treatments?",
+          "answer": "For aesthetic medicine, the most relevant biomarkers are Vitamin D (skin barrier, collagen synthesis), ferritin (hair loss, tissue regeneration), TSH (thyroid function affects skin and hair) and hs-CRP (silent inflammation as a driver of premature skin ageing). These biomarkers provide an objective basis for tailoring treatments individually and documenting results transparently."
+        },
+        {
+          "question": "Why should I perform a blood panel before aesthetic procedures?",
+          "answer": "A pre-interventional screening reveals risk factors that can influence treatment outcomes — such as coagulation disorders, nutrient deficiencies or subclinical inflammation. This increases patient safety and enables evidence-based consultation that positions your practice as medically sound."
+        },
+        {
+          "question": "How are thyroid values connected to hair loss?",
+          "answer": "The thyroid regulates the entire cell metabolism — including the hair follicle cycle. Both hypothyroidism and hyperthyroidism (identifiable by abnormal TSH levels) can cause diffuse hair loss, dry skin and brittle nails. A POC rapid test for TSH provides clarity within minutes and enables targeted referral or therapy initiation."
+        },
+        {
+          "question": "Can I offer hormone diagnostics as a private health service?",
+          "answer": "Yes. Hormone screenings (TSH, cortisol, testosterone) and micronutrient analyses (Vitamin D, ferritin) are classic individual health services billed privately under GOÄ. Particularly in the beauty segment, there is a high willingness to pay for data-driven consultation that goes beyond purely device-based treatments."
+        },
+        {
+          "question": "What role does Vitamin D play for skin and hair?",
+          "answer": "Vitamin D is involved in keratinocyte differentiation, maintaining the skin barrier and regulating the hair follicle cycle. A Vitamin D deficiency — prevalent in over 50% of the population in Central Europe — promotes inflammatory skin conditions, accelerates skin ageing and can exacerbate hair loss. Measurement with the IglooPro takes only a few minutes and forms the basis for targeted supplementation."
+        }
+      ]
+    }
   },
   "longevity": {
     "title": "Longevity",
@@ -122,7 +144,33 @@
       "heading": "Conclusion: Become a Longevity Hub",
       "text": "Offer your clients more than just hope – offer control. With the Igloo Pro, you establish professional biomarker monitoring that forms the basis for any serious longevity program."
     },
-    "cta": "Book appointment"
+    "cta": "Book appointment",
+    "faq": {
+      "caption": "Frequently Asked Questions",
+      "title": "FAQ on Longevity Diagnostics & Prevention",
+      "items": [
+        {
+          "question": "Which biomarkers are relevant for longevity medicine?",
+          "answer": "Core markers in longevity diagnostics include HbA1c (glycaemic control and AGE formation), hs-CRP (chronic inflammation / inflammaging), a complete lipid profile (cardiovascular risk), TSH (thyroid function) and Vitamin D (immune modulation, bone health). Together, these parameters form a meaningful baseline profile that can be collected directly at the point of care with the IglooPro."
+        },
+        {
+          "question": "What is the difference between preventive and curative diagnostics?",
+          "answer": "Curative diagnostics are used when symptoms already exist, to confirm or rule out a disease. Preventive diagnostics, on the other hand, proactively capture biomarkers — before symptoms appear — to identify risk factors early and take countermeasures. In longevity medicine, the focus is on optimising values within the normal range, not merely treating pathological deviations."
+        },
+        {
+          "question": "How often should longevity biomarkers be checked?",
+          "answer": "For a thorough longevity monitoring programme, a baseline health check every 3–6 months is recommended, with more frequent checks during active interventions (e.g. dietary changes, supplementation, training programmes). The rapid availability of results at the point of care allows adjustments to be made in real time, rather than waiting for laboratory reports."
+        },
+        {
+          "question": "Which inflammatory markers are important for prevention?",
+          "answer": "High-sensitivity CRP (hs-CRP) is the central marker for chronic low-grade inflammation — known as inflammaging. Even mildly elevated values in the range of 1–3 mg/L correlate with an increased risk of cardiovascular disease, neurodegeneration and accelerated ageing processes. Regular monitoring enables early intervention through lifestyle measures or targeted supplementation."
+        },
+        {
+          "question": "Can I offer health checks as a self-pay service?",
+          "answer": "Yes. Preventive biomarker screenings are classic self-pay or private health services (IGeL), as they go beyond the scope of statutory health insurance. Particularly in the longevity segment, there is strong demand for data-driven health checks. The combination of instant analysis and qualified consultation forms an economically attractive service package for your practice."
+        }
+      ]
+    }
   },
   "poc_systemloesungen": {
     "title": "POC System Solutions: The Control Center for Validated Diagnostics",
@@ -167,7 +215,37 @@
       "heading": "Conclusion for PolarisDX.net: More Than Just Technology",
       "text": "The Igloo Pro POC system solution represents the pinnacle of mobile diagnostics. But true performance is only unlocked through exclusive service. PolarisDX.net guarantees not only the delivery of this technological tool but also its immediate, validated, and seamless integration into your operation. Rely on the agility of mobile diagnostics – with the guaranteed security of an expert partner by your side."
     },
-    "cta": "Book appointment"
+    "cta": "Book appointment",
+    "faq": {
+      "caption": "Frequently Asked Questions",
+      "title": "FAQ on Point-of-Care System Solutions",
+      "items": [
+        {
+          "question": "What is a point-of-care test (POCT)?",
+          "answer": "A point-of-care test (POCT) is a form of near-patient laboratory diagnostics where the analysis takes place directly at the treatment site — without submission to a central laboratory. Results are available within minutes and can immediately inform clinical decisions. POCT systems such as the IglooPro use lateral flow assays, immunofluorescence or colorimetry to deliver quantitative results at laboratory quality."
+        },
+        {
+          "question": "How do I integrate a POC system into my daily practice?",
+          "answer": "Integrating a POCT device like the IglooPro requires no renovation or dedicated laboratory space. The device weighs approx. 400 g, is ready for immediate use and can be connected to your practice software via USB-C, Wi-Fi or Bluetooth. PolarisDX handles the complete remote setup service within 3–5 working days — including validation, interface configuration and team training."
+        },
+        {
+          "question": "What quality assurance is required for POCT?",
+          "answer": "The German Medical Association Guideline (RiliBÄK) governs quality assurance for laboratory medical examinations, including POCT. Requirements include regular control measurements, documentation of results and training of operating personnel. The IglooPro supports this process through automatic result storage (up to 10,000 measurements) and connectivity to LIS/HIS systems for seamless documentation."
+        },
+        {
+          "question": "How quickly does the IglooPro deliver results?",
+          "answer": "Depending on the parameter, quantitative results are available in 3 to 15 minutes. CRP values are typically available in under 5 minutes, Vitamin D and HbA1c in approximately 10–15 minutes. This rapid diagnostics capability enables findings and consultation to be completed in a single patient visit — without follow-up appointments or external laboratory waiting times."
+        },
+        {
+          "question": "Is the IglooPro IVDR-compliant?",
+          "answer": "Yes. The IglooPro meets the requirements of the European In Vitro Diagnostic Regulation (IVDR, EU 2017/746) and bears the corresponding CE marking. IVDR compliance ensures that the device and test cassettes meet stringent requirements for analytical performance, clinical evidence and quality management — a mandatory prerequisite for use in IVD diagnostics."
+        },
+        {
+          "question": "Who manufactures the IglooPro?",
+          "answer": "The IglooPro is developed and manufactured by DX365 GmbH in Berlin. PolarisDX is the distribution partner for the European market and handles sales, integration, training and ongoing support."
+        }
+      ]
+    }
   },
   "praeventions_checks": {
     "title": "Preventive Health Checks: Prevention Reimagined",
@@ -208,7 +286,29 @@
       "heading": "Conclusion for Your Decision",
       "text": "Investing in POC system solutions is an investment in the future of patient-centered care and increasing operational efficiency. PolarisDX.net not only delivers the technology for this transformation but guarantees its smooth and validated function through the exclusive remote setup service within 3-5 business days and LFT compatibility guarantee. Thus, you use the full potential of preventive health checks immediately."
     },
-    "cta": "Book appointment"
+    "cta": "Book appointment",
+    "faq": {
+      "caption": "Frequently Asked Questions",
+      "title": "FAQ on Preventive Health Checks",
+      "items": [
+        {
+          "question": "Which preventive checks can I offer in my practice?",
+          "answer": "With a POC system like the IglooPro, comprehensive check-up profiles can be offered directly in the practice — from diabetes screening (HbA1c) to cardiovascular risk assessment (cholesterol) and inflammation status (CRP) to micronutrient checks (Vitamin D, ferritin). Preventive diagnostics can be integrated into daily practice as a structured screening programme or as targeted individual services."
+        },
+        {
+          "question": "Which biomarkers belong to a basic health check?",
+          "answer": "An evidence-based basic health check includes at minimum HbA1c (glycaemic control), CRP (inflammation status), Vitamin D (immune function, bone health) and a lipid profile (cardiovascular risk). Depending on the patient profile, TSH (thyroid) and ferritin (iron status) can be added. All these parameters can be determined with the IglooPro in a single session."
+        },
+        {
+          "question": "How does a POC check differ from a laboratory order?",
+          "answer": "With a classic laboratory order, the sample is taken, sent to a central laboratory and the result is available at the earliest after 24–48 hours — often requiring a follow-up appointment. With near-patient laboratory diagnostics (POCT), the analysis takes place directly on site in 3–15 minutes. Consultation and therapy initiation can occur in the same appointment, significantly improving efficiency and patient satisfaction."
+        },
+        {
+          "question": "Are preventive checks billable as private health services (IGeL)?",
+          "answer": "Yes. Preventive biomarker screenings that go beyond the statutory health insurance catalogue are billable as individual health services (IGeL) under GOÄ. The combination of instant analytics and qualified consultation forms an economically attractive self-pay offering that simultaneously strengthens patient retention."
+        }
+      ]
+    }
   },
   "infektion_entzuendung": {
     "title": "Infection & Inflammation Markers: Quick Answers in Critical Cases",
@@ -248,7 +348,29 @@
       "heading": "Conclusion: No Compromises in Diagnosis",
       "text": "For infections and inflammations, time is the critical factor. Only a POC system that combines lab-level validity with maximum speed can increase diagnostic safety while optimizing antibiotic management. PolarisDX.net delivers this guaranteed performance – from commissioning within 3-5 business days to priority support."
     },
-    "cta": "Book appointment"
+    "cta": "Book appointment",
+    "faq": {
+      "caption": "Frequently Asked Questions",
+      "title": "FAQ on Infection & Inflammation Diagnostics",
+      "items": [
+        {
+          "question": "When is a CRP rapid test useful in practice?",
+          "answer": "A CRP rapid test is indicated whenever rapid differentiation between bacterial and viral causes is clinically relevant — such as with respiratory tract infections, fever of unknown origin or post-operative monitoring. An elevated CRP value above 40 mg/L suggests bacterial involvement, while lower values may support a wait-and-see approach without antibiotic treatment. Measurement with the IglooPro takes under 5 minutes."
+        },
+        {
+          "question": "Can I differentiate bacterial from viral infections with the IglooPro?",
+          "answer": "The combination of CRP and PCT (procalcitonin) enables a more differentiated assessment than a single marker alone. CRP rises in both bacterial and viral infections, while PCT responds much more specifically to bacterial infections and sepsis. By simultaneously determining both parameters at the point of care, more informed therapeutic decisions can be made and unnecessary antibiotic prescriptions reduced."
+        },
+        {
+          "question": "How reliable are POC inflammation tests compared to the laboratory?",
+          "answer": "IVDR-compliant POC systems like the IglooPro deliver quantitative results with an analytical precision of CV < 2% and are thus comparable to central laboratory measurements. Quality assurance is maintained through validated test cassettes and internal controls. In clinical practice, POC tests offer the additional advantage that results are immediately available and not influenced by transport times or sample storage."
+        },
+        {
+          "question": "Which inflammation markers can the IglooPro measure?",
+          "answer": "The IglooPro supports the determination of CRP (C-reactive protein) as the central acute-phase marker, PCT (procalcitonin) for differentiating bacterial infections, and ferritin, which is relevant not only for iron status but also as an inflammation marker in chronic and acute processes. Through the open platform, additional lateral flow tests for IL-6 and other parameters can be integrated."
+        }
+      ]
+    }
   },
   "stoffwechsel_herz": {
     "title": "Metabolism & Heart Health: Chronic Monitoring at the Push of a Button",
@@ -288,7 +410,29 @@
       "heading": "Conclusion for Your Practice",
       "text": "Integrating the Igloo Pro Reader into your workflow means a paradigm shift: From time-delayed monitoring to immediate, data-based therapy adjustment. With PolarisDX.net, you secure not only the technology for these critical measurements but also the guarantee of smooth implementation and ongoing validation."
     },
-    "cta": "Book appointment"
+    "cta": "Book appointment",
+    "faq": {
+      "caption": "Frequently Asked Questions",
+      "title": "FAQ on Metabolic & Cardiac Diagnostics",
+      "items": [
+        {
+          "question": "Which metabolic biomarkers can I measure chairside?",
+          "answer": "With the IglooPro, you can determine HbA1c (long-term blood sugar), total cholesterol and additional lipid fractions directly from capillary blood in just a few minutes. This chairside diagnostics delivers laboratory-comparable results (CV < 2%) and enables immediate therapy adjustment in the same patient visit — without submission to a central laboratory."
+        },
+        {
+          "question": "How does the HbA1c value help with early diabetes detection?",
+          "answer": "The HbA1c rapid test reflects average blood sugar over the past 8–12 weeks and is therefore independent of daily fluctuations or fasting status. Values between 5.7% and 6.4% indicate a pre-diabetes risk; from 6.5%, the diagnosis is diabetes mellitus. Immediate availability at the point of care enables direct consultation and therapy initiation without a follow-up appointment."
+        },
+        {
+          "question": "Which cardiovascular risk markers does the IglooPro measure?",
+          "answer": "The IglooPro supports the determination of cholesterol values (total cholesterol, LDL, HDL, triglycerides) as well as D-dimer as an exclusion parameter for thrombosis and pulmonary embolism. These cardiovascular risk markers allow rapid assessment of vascular risk and informed decisions on further treatment — directly in the practice."
+        },
+        {
+          "question": "Can I offer metabolic checks as an additional service?",
+          "answer": "Yes. Screenings for HbA1c, cholesterol and other metabolic parameters are typical IGeL services (individual health services) billable privately under GOÄ. The combination of instant measurement and qualified consultation creates measurable added value for patients and generates plannable additional revenue for your practice."
+        }
+      ]
+    }
   },
   "hormon_tests": {
     "title": "Hormone & Endocrinology Tests: Special Diagnostics Made Easy",
@@ -328,7 +472,29 @@
       "heading": "Conclusion: Special Diagnostics Directly in Your Hand",
       "text": "Hormone and endocrinology tests are often the starting point for complex treatment paths. Through POC diagnostics with the Igloo Pro, you massively shorten the time to diagnosis and therapy decision. polarisDX.net offers you the technology and LFT compatibility guarantee to integrate this broad spectrum of specialized tests safely and efficiently into your operation."
     },
-    "cta": "Book appointment"
+    "cta": "Book appointment",
+    "faq": {
+      "caption": "Frequently Asked Questions",
+      "title": "FAQ on Hormone Diagnostics in Practice",
+      "items": [
+        {
+          "question": "Which hormones can the IglooPro measure?",
+          "answer": "The IglooPro supports the quantitative determination of TSH (thyroid function), cortisol (stress axis), testosterone, progesterone, FSH and AMH (ovarian reserve). These hormone tests cover the most common endocrinological questions and deliver laboratory-quality results within minutes directly in the practice."
+        },
+        {
+          "question": "When is a TSH rapid test useful?",
+          "answer": "A TSH rapid test is indicated for clinical suspicion of thyroid dysfunction (e.g. fatigue, weight changes, hair loss), for therapy monitoring under L-thyroxine substitution, and as part of fertility and pregnancy care. The immediate availability of thyroid values allows direct dosage adjustment without waiting for external laboratory results."
+        },
+        {
+          "question": "How accurate are POC hormone tests compared to the laboratory?",
+          "answer": "IVDR-compliant POC systems like the IglooPro achieve an analytical precision with a coefficient of variation (CV) of under 2% and are thus comparable to central laboratory results. Quality assurance is maintained through validated test cassettes and regular control measurements, ensuring clinical decision-making confidence."
+        },
+        {
+          "question": "For which specialities is chairside hormone diagnostics relevant?",
+          "answer": "Chairside hormone diagnostics is equally relevant for general practice, gynaecology, endocrinology, dermatology and fertility centres. Wherever thyroid function, fertility status or hormonal imbalances need to be rapidly assessed, POC measurement offers an immediate time advantage over submission to external laboratories."
+        }
+      ]
+    }
   },
   "kompatibilitaet_integration": {
     "title": "Cross-Manufacturer Compatibility: Investment Security Through Openness",
@@ -367,6 +533,28 @@
       "heading": "Conclusion: Invest in a Solution, Not a Limitation",
       "text": "The cross-manufacturer compatibility of the Igloo Pro makes it the smartest investment in POC diagnostics. It offers the flexibility you need today and the investment security you need tomorrow."
     },
-    "cta": "Book appointment"
+    "cta": "Book appointment",
+    "faq": {
+      "caption": "Frequently Asked Questions",
+      "title": "FAQ on System Integration & Compatibility",
+      "items": [
+        {
+          "question": "Is the IglooPro compatible with my practice software?",
+          "answer": "The IglooPro can be integrated into common laboratory and practice information systems (LIS/HIS) via standardised interfaces. Results are automatically transferred and documented, eliminating the need for manual data entry. PolarisDX supports you with integration into your existing practice infrastructure."
+        },
+        {
+          "question": "What interfaces does the IglooPro offer?",
+          "answer": "The IglooPro features USB-C, Wi-Fi and Bluetooth for data transfer. This enables flexible connectivity to stationary workstations, mobile devices and cloud-based systems. The internal memory stores up to 10,000 measurement results that can be transferred retrospectively as needed."
+        },
+        {
+          "question": "How does the setup and training process work?",
+          "answer": "PolarisDX offers a complete remote setup service within 3–5 working days. This includes device validation, interface configuration to your practice software and practical training for your team. Your practice laboratory is thus quickly operational without you having to worry about technical details."
+        },
+        {
+          "question": "Can multiple IglooPro devices be networked?",
+          "answer": "Yes. In larger practices, MVZ structures or clinics, multiple IglooPro devices can be operated via a shared network and centrally managed. All measurement results flow into a unified system, simplifying quality assurance and providing a cross-location overview of POC diagnostics."
+        }
+      ]
+    }
   }
 }

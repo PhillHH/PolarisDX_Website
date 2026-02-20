@@ -43,7 +43,8 @@
     "title": "Oblasti Použití",
     "dental": "Dental",
     "beauty": "Beauty",
-    "longevity": "Longevity"
+    "longevity": "Longevity",
+    "all_services": "Objevte všechny diagnostické služby"
   },
   "services": {
     "caption": "ZAMĚŘENÍ NA DIAGNOSTIKU",
@@ -96,23 +97,11 @@
       "focus": "Rychlé zdravotní kontroly na místě (Prevence, Vitamín D)",
       "text": "Provádění analýzy hladiny vitamínu D a dalších klíčových zdravotních ukazatelů na místě nelze podceňovat. Igloo Pro mi umožňuje provést jednoduchý test kapilární krve, zjistit potřeby pacientů a poté je nasměrovat k tomu, jaké další doplňky by mohli potřebovat k optimalizaci léčby. Tato schopnost se ukazuje jako transformativní z hlediska výsledků pacientů."
     },
-    "eva_schmidt": {
-      "role": "Lékárna",
-      "title": "Majitelka / Löwen-Apotheke, Berlín",
-      "focus": "Další krok v poradenství prevence (Věrnost zákazníků, Rychlost)",
-      "text": "Od té doby, co jsme začali používat systém Igloo Pro, se naše role zdravotních poradců nesmírně posílila. Zákazníci velmi oceňují, že mohou určit důležité hodnoty jako CRP nebo cholesterol během několika minut místo čekání týdnů na termíny. Skutečná win-win situace pro věrnost zákazníků a kvalitu služeb."
-    },
     "martin_fischer": {
       "role": "Praktický lékař/Praxe",
       "title": "Specialista na vnitřní lékařství / Interní praxe Dr. Fischer",
       "focus": "Okamžitá diagnostika pro akutní pacienty (Efektivita, Rozhodnutí o terapii)",
       "text": "Schopnost okamžitě stanovit zánětlivé markery jako CRP v ordinaci způsobila revoluci v našem léčebném pracovním postupu. Můžeme se rychleji rozhodnout, zda je u pacientů s nejasnými infekcemi nutná antibiotická léčba, a zabránit zbytečným doporučením. To nám šetří čas a výrazně zvyšuje spokojenost pacientů."
-    },
-    "julia_bergmann": {
-      "role": "Klinika/Laboratoř",
-      "title": "Vedoucí laboratoře a diagnostiky / Klinikum Nord",
-      "focus": "Kompatibilita a spolehlivost systému (Flexibilita, Sdružování)",
-      "text": "Igloo Pro je nejflexibilnější zařízení Point-of-Care, jaké jsme kdy hodnotili. Kompatibilita mezi výrobci pro testy s bočním tokem je obrovskou výhodou, která nám umožňuje standardizovat naše zařízení POC a šetřit náklady, aniž bychom se museli vzdát osvědčené spolehlivosti výsledků."
     },
     "bastian_wessing": {
       "role": "Lékařský ředitel",
@@ -125,10 +114,42 @@
       "title": "Biological Dentist / Principal Dentist & Owner",
       "focus": "Okamžitá diagnostika pro plánování implantátů (Vitamin D, CRP)",
       "text": "Jako biologický zubní lékař jsem hluboce přesvědčen, že celkové zdraví vždy začíná u zubů. Igloo Pro mi umožňuje činit rychlá a přesná diagnostická rozhodnutí – přesně tam, kde jsou potřeba: u zubařského křesla. Díky okamžité analýze vitamínu D a CRP mohu optimálně naplánovat zavedení implantátu a často jej výrazně urychlit. Moji pacienti tak dostávají bezpečnější a efektivnější léčbu."
+    },
+    "kristian_grimm": {
+      "role": "Zubní lékař (Ověřená recenze)",
+      "title": "32reasons Zahnteam / Hamburk",
+      "focus": "Prevence, Vitamín D, HbA1c, Systémové zdraví",
+      "text": "32reasons & Polaris DX — stomatologie nově promyšlená. Chairside čtečka nám umožňuje stanovit biomarkery jako Vitamín D a HbA1c přímo na místě. To propojuje stomatologii bezprostředně se systémovým zdravím pro rychlá, na důkazech založená terapeutická rozhodnutí."
     }
   },
   "blog": {
     "caption": "Blog a novinky",
     "title": "Naše články o zdraví"
+  },
+  "seo": {
+    "title": "IglooPro POC Reader | Point-of-care diagnostika",
+    "description": "Laboratorní výsledky za 3 minuty — přímo ve vaší ordinaci. POC čtečka IglooPro pro stomatologii, longevity a estetickou medicínu."
+  },
+  "faq": {
+    "caption": "FAQ",
+    "title": "Časté dotazy k PolarisDX a point-of-care diagnostice",
+    "items": [
+      {
+        "question": "Co dělá PolarisDX?",
+        "answer": "PolarisDX je váš partner pro point-of-care diagnostiku v Evropě. Nedodáváme pouze přístroje a rychlotesty, ale provázíme vás od prvního poradenství přes uvedení do provozu až po každodenní provoz. Náš cíl: diagnostika s laboratorní přesností přímo ve vaší ordinaci — bez okliček přes centrální laboratoř."
+      },
+      {
+        "question": "Pro jaké obory je point-of-care diagnostika relevantní?",
+        "answer": "Naše řešení se využívají všude tam, kde jsou na místě potřeba rychlé a přesné laboratorní výsledky. Naše hlavní oblasti jsou stomatologie, longevity a estetická medicína — podporujeme však také praktické lékaře, internisty a další odbornosti, kde POCT přináší přidanou hodnotu."
+      },
+      {
+        "question": "Jak probíhá spolupráce s PolarisDX?",
+        "answer": "Po osobní konzultaci sestavíme vaše individuální nastavení. Přístroj obdržíte do 3–5 pracovních dnů včetně validovaného uvedení do provozu. Poté vám stojíme po boku se školeními, technickou podporou a průběžnou péčí."
+      },
+      {
+        "question": "Jaké produkty a řešení PolarisDX nabízí?",
+        "answer": "Naše aktuální portfolio zahrnuje POC čtečku IglooPro, širokou škálu rychlotestů na biomarkery jako Vitamín D3, CRP a HbA1c a doplňkové produkty jako náš sprej s Vitamínem D3. Naši nabídku průběžně rozšiřujeme, abychom vám poskytli komplexní diagnostické řešení."
+      }
+    ]
   }
 }

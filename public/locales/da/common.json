@@ -7,7 +7,13 @@
     "blog": "Blog",
     "contact": "Kontakt",
     "terms": "Handelsbetingelser",
-    "events": "Begivenheder"
+    "events": "Begivenheder",
+    "casestudies": "Case Study",
+    "downloads": "Downloads",
+    "dental": "Dental diagnostik",
+    "beauty": "Beauty diagnostik",
+    "longevity": "Longevity diagnostik",
+    "pocSystems": "POC-systemer"
   },
   "badge": {
     "New": "Ny",
@@ -31,13 +37,18 @@
     "discover": "Opdag",
     "london": "London",
     "hamburg": "Hamborg",
-    "copyright": "Copyright ©PolarisDX 2025 Alle rettigheder forbeholdes.",
+    "copyright": "Copyright ©PolarisDX {{year}} Alle rettigheder forbeholdes.",
     "imprint": "Impressum",
     "privacy": "Privatlivspolitik",
     "doctors": "Vores læger",
     "testimonials": "Udtalelser",
     "faq": "FAQ",
-    "appointment": "Bestil tid"
+    "appointment": "Bestil tid",
+    "diagnostics": "Diagnostik",
+    "allServices": "Alle tjenester",
+    "pocSystems": "POC-systemer",
+    "preventionChecks": "Forebyggelseschecks",
+    "hormonTests": "Hormontests"
   },
   "cta": {
     "title": "Leder du efter professionel & betroet <1>lægehjælp?</1>",
@@ -80,7 +91,8 @@
         "name": "Analyse",
         "description": "Analyse."
       }
-    }
+    },
+    "reject_all": "Kun nødvendige"
   },
   "testimonials": {
     "positiveLabel": "Positiv anmeldelse"
@@ -91,13 +103,31 @@
       "about": "team doctors polarisdx about us",
       "services": "services leistungen dental beauty longevity diagnostics",
       "contact": "contact kontakt email phone address",
-      "terms": "legal terms agb rights"
+      "terms": "legal terms agb rights",
+      "casestudies": "case study 32reasons tandpleje polaris dx"
     },
     "services": {
       "dental": "Tanddiagnostik",
       "beauty": "Dermatologiske Analyser",
       "longevity": "Sundhed og Lang Levetid",
       "sports": "Præstationsdiagnostik for Atleter"
+    }
+  },
+  "notFound": {
+    "seo": {
+      "title": "Side ikke fundet | PolarisDX",
+      "description": "Den ønskede side blev ikke fundet."
+    },
+    "badge": "Side ikke fundet",
+    "title": "Ups! Denne side findes ikke",
+    "description": "Siden du leder efter, er muligvis blevet flyttet, slettet eller eksisterer ikke længere.",
+    "backHome": "Tilbage til forsiden",
+    "popularPages": "Populære sider",
+    "links": {
+      "home": "Forside",
+      "iglooPro": "IglooPro",
+      "services": "Tjenester",
+      "contact": "Kontakt"
     }
   }
 }

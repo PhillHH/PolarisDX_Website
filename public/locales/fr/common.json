@@ -7,7 +7,13 @@
     "blog": "Blog",
     "contact": "Contact",
     "terms": "CGV",
-    "events": "Événements"
+    "events": "Événements",
+    "casestudies": "Étude de cas",
+    "downloads": "Téléchargements",
+    "dental": "Diagnostic dentaire",
+    "beauty": "Diagnostic beauté",
+    "longevity": "Diagnostic longévité",
+    "pocSystems": "Systèmes POC"
   },
   "badge": {
     "New": "Nouveau",
@@ -31,13 +37,18 @@
     "discover": "Découvrir",
     "london": "Londres",
     "hamburg": "Hambourg",
-    "copyright": "Copyright ©PolarisDX 2025 Tous droits réservés.",
+    "copyright": "Copyright ©PolarisDX {{year}} Tous droits réservés.",
     "imprint": "Mentions légales",
     "privacy": "Politique de confidentialité",
     "doctors": "Nos médecins",
     "testimonials": "Témoignages",
     "faq": "FAQ",
-    "appointment": "Prendre rendez-vous"
+    "appointment": "Prendre rendez-vous",
+    "diagnostics": "Diagnostic",
+    "allServices": "Tous les services",
+    "pocSystems": "Systèmes POC",
+    "preventionChecks": "Bilans de prévention",
+    "hormonTests": "Tests hormonaux"
   },
   "cta": {
     "title": "Vous cherchez des soins <1>médicaux professionnels et de confiance ?</1>",
@@ -56,7 +67,8 @@
       "about": "team doctors polarisdx à propos",
       "services": "services prestations dental beauty longevity diagnostic",
       "contact": "contact email phone address adresse",
-      "terms": "legal terms agb conditions"
+      "terms": "legal terms agb conditions",
+      "casestudies": "étude de cas 32reasons dentisterie polaris dx"
     },
     "services": {
       "dental": "Diagnostic Dentaire",
@@ -95,9 +107,27 @@
         "name": "Analyse",
         "description": "Analyse."
       }
-    }
+    },
+    "reject_all": "Uniquement nécessaires"
   },
   "testimonials": {
     "positiveLabel": "Avis positif"
+  },
+  "notFound": {
+    "seo": {
+      "title": "Page introuvable | PolarisDX",
+      "description": "La page demandée est introuvable."
+    },
+    "badge": "Page introuvable",
+    "title": "Oups ! Cette page n'existe pas",
+    "description": "La page que vous recherchez a peut-être été déplacée, supprimée ou n'existe plus.",
+    "backHome": "Retour à l'accueil",
+    "popularPages": "Pages populaires",
+    "links": {
+      "home": "Accueil",
+      "iglooPro": "IglooPro",
+      "services": "Services",
+      "contact": "Contact"
+    }
   }
 }

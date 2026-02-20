@@ -41,14 +41,16 @@
       "content": [
         "Iscrizione nel registro di commercio.",
         "Tribunale di registrazione: Pretura di Amburgo (per PolarisDX Europe UG)",
-        "Numero di registrazione: [Inserire qui il numero HRB]"
+        "Numero di registrazione: HRB 193415"
       ]
     },
     "section4": {
       "title": "Partita IVA",
       "content": [
         "Numero di identificazione IVA secondo il §27 a della legge sull'imposta sul valore aggiunto:",
-        "[Inserire qui la partita IVA]"
+        "[Inserire qui la partita IVA]",
+        "Codice fiscale (PolarisDX Europe UG):",
+        "Richiesto presso il Finanzamt Hamburg Hansa"
       ]
     },
     "section5": {
@@ -56,7 +58,8 @@
       "content": [
         "Team di gestione PolarisDX",
         "262A Fulham Road",
-        "Londra SW10 9EL"
+        "Londra SW10 9EL",
+        "E-mail: phillipr@polarisdx.net"
       ]
     },
     "section6": {

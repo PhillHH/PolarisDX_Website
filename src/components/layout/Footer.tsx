@@ -114,7 +114,7 @@ const Footer = () => {
           </div>
 
           <div className="mt-8 border-t border-white/10 pt-8 flex flex-col items-center gap-4 text-lg text-white/60 md:flex-row md:justify-center md:gap-8">
-            <p>{t('footer.copyright', `Copyright ©PolarisDX ${new Date().getFullYear()} All Rights Reserved.`)}</p>
+            <p>{t('footer.copyright', { year: new Date().getFullYear(), defaultValue: 'Copyright ©PolarisDX {{year}} All Rights Reserved.' })}</p>
             <div className="flex gap-4 md:gap-8">
               <Link to="/imprint" className="hover:text-white transition-colors">{t('footer.imprint', 'Impressum')}</Link>
               <Link to="/privacy" className="hover:text-white transition-colors">{t('footer.privacy', 'Datenschutzerklärung')}</Link>
