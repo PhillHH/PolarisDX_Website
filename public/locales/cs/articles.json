@@ -480,5 +480,37 @@
         ]
       }
     ]
+  },
+  "blutdiagnostik_chairside": {
+    "title": "Krevní diagnostika v zubní ordinaci: Chairside Testing s IglooPro",
+    "excerpt": "Jak Point-of-Care krevní diagnostika revolucionalizuje zubní ordinaci – okamžité výsledky přímo u ošetřovacího křesla pro lepší klinická rozhodnutí.",
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Proč krevní diagnostika v zubní ordinaci?",
+        "paragraphs": [
+          "Souvislost mezi orálním a systémovým zdravím je vědecky prokázána: parodontitida koreluje s diabetem, kardiovaskulárními onemocněními a chronickými záněty. Dosud však zubní lékaři postrádali jednoduchý nástroj k určení relevantních krevních hodnot přímo v ordinaci. Chairside Testing s IglooPro to zásadně mění.",
+          "Místo odesílání pacienta do externího laboratoře nebo k praktickému lékaři mohou nyní zubní lékaři měřit parametry jako CRP, HbA1c nebo vitamin D během několika minut přímo u ošetřovacího křesla. Výsledek: rychlejší terapeutická rozhodnutí, méně přerušení léčby a komplexnější péče o pacienta."
+        ]
+      },
+      {
+        "type": "key_points",
+        "heading": "Výhody Chairside Testing",
+        "points": [
+          { "title": "Okamžitý výsledek", "description": "Relevantní krevní hodnoty za 3–15 minut, bez externí laboratorní logistiky." },
+          { "title": "Lepší compliance", "description": "Pacienti obdrží diagnózu a plán léčby v jedné návštěvě." },
+          { "title": "Holistická péče", "description": "Odhalit systémové rizikové faktory dříve, než ovlivní orální zdraví." },
+          { "title": "Nové zdroje příjmů", "description": "Chairside diagnostika jako soukromá služba nabízí dodatečný potenciál příjmů." }
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Závěr: Zubní ordinace se stává diagnostickým centrem",
+        "paragraphs": [
+          "Chairside Testing s IglooPro pozicuje zubní ordinaci jako moderní, holistické zdravotnické zařízení. Integrace Point-of-Care krevní diagnostiky do stomatologického pracovního procesu není jen klinicky smysluplná – je to konkurenční výhoda.",
+          "Tento článek bude brzy aktualizován o další odborný obsah."
+        ]
+      }
+    ]
   }
 }

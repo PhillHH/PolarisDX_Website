@@ -480,5 +480,37 @@
         ]
       }
     ]
+  },
+  "blutdiagnostik_chairside": {
+    "title": "Diagnostica del sangue nello studio dentistico: Chairside Testing con l'IglooPro",
+    "excerpt": "Come la diagnostica del sangue Point-of-Care sta rivoluzionando lo studio dentistico – risultati immediati alla poltrona per decisioni terapeutiche migliori.",
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Perché la diagnostica del sangue nello studio dentistico?",
+        "paragraphs": [
+          "Il legame tra salute orale e salute sistemica è scientificamente provato: la parodontite è correlata al diabete, alle malattie cardiovascolari e alle infiammazioni croniche. Tuttavia, finora i dentisti non disponevano di uno strumento semplice per determinare i valori ematici rilevanti direttamente nello studio. Il Chairside Testing con l'IglooPro cambia radicalmente le cose.",
+          "Invece di indirizzare il paziente a un laboratorio esterno o al medico di base, i dentisti possono ora misurare parametri come CRP, HbA1c o vitamina D in pochi minuti direttamente alla poltrona. Il risultato: decisioni terapeutiche più rapide, meno interruzioni del trattamento e un'assistenza al paziente più olistica."
+        ]
+      },
+      {
+        "type": "key_points",
+        "heading": "Vantaggi del Chairside Testing",
+        "points": [
+          { "title": "Risultato immediato", "description": "Valori ematici rilevanti in 3–15 minuti, senza logistica di laboratorio esterno." },
+          { "title": "Migliore compliance", "description": "I pazienti ricevono diagnosi e piano terapeutico in un unico appuntamento." },
+          { "title": "Assistenza olistica", "description": "Rilevare i fattori di rischio sistemici prima che compromettano la salute orale." },
+          { "title": "Nuove fonti di ricavo", "description": "La diagnostica chairside come prestazione privata offre un potenziale di ricavo aggiuntivo." }
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Conclusione: Lo studio dentistico diventa un hub diagnostico",
+        "paragraphs": [
+          "Il Chairside Testing con l'IglooPro posiziona lo studio dentistico come una struttura sanitaria moderna e olistica. L'integrazione della diagnostica del sangue Point-of-Care nel flusso di lavoro odontoiatrico non è solo clinicamente sensata – è un vantaggio competitivo.",
+          "Questo articolo verrà aggiornato a breve con ulteriori contenuti specialistici."
+        ]
+      }
+    ]
   }
 }

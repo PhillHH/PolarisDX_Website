@@ -147,6 +147,7 @@ const SITEMAP_ROUTES: SitemapRoute[] = [
   { path: '/articles/the-ecosystem-of-rapid-tests-why-compatibility-creates-safety', priority: 0.6, changefreq: 'yearly' },
   { path: '/articles/die-performance-formel-effizienz-in-der-poc-diagnostik', priority: 0.6, changefreq: 'yearly' },
   { path: '/articles/precision-in-point-of-care-the-key-to-patient-safety', priority: 0.6, changefreq: 'yearly' },
+  { path: '/articles/blutdiagnostik-zahnarztpraxis-chairside-testing-igloo-pro', priority: 0.6, changefreq: 'yearly' },
 
   // Events & Resources
   { path: '/events', priority: 0.6, changefreq: 'weekly' },
@@ -283,6 +284,27 @@ async function createServer() {
       pathRewrite: (path) => '/api' + path,
     })
   )
+
+  // ---------------------------------------------------------------------------
+  // LEGACY /post/ → /articles/ REDIRECT (301)
+  // ---------------------------------------------------------------------------
+  // The old blog structure used /post/:slug URLs. After the i18n migration,
+  // articles live under /:lang/articles/:slug. Redirect both variants:
+  //   /post/:slug         → 301 → /de/articles/:slug
+  //   /:lang/post/:slug   → 301 → /:lang/articles/:slug
+  // ---------------------------------------------------------------------------
+  app.get('/:lang/post/:slug', (req: Request, res: Response, next: NextFunction) => {
+    const { lang, slug } = req.params
+    if (isSupportedLanguage(lang)) {
+      res.redirect(301, `/${lang}/articles/${slug}`)
+    } else {
+      next()
+    }
+  })
+
+  app.get('/post/:slug', (req: Request, res: Response) => {
+    res.redirect(301, `/${DEFAULT_LANGUAGE}/articles/${req.params.slug}`)
+  })
 
   // ---------------------------------------------------------------------------
   // LANGUAGE REDIRECT MIDDLEWARE

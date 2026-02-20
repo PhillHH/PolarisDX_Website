@@ -480,5 +480,37 @@
         ]
       }
     ]
+  },
+  "blutdiagnostik_chairside": {
+    "title": "Diagnóstico sanguíneo en la consulta dental: Chairside Testing con el IglooPro",
+    "excerpt": "Cómo el diagnóstico sanguíneo Point-of-Care está revolucionando la consulta dental – resultados instantáneos en el sillón de tratamiento para mejores decisiones clínicas.",
+    "sections": [
+      {
+        "type": "text",
+        "heading": "¿Por qué diagnóstico sanguíneo en la consulta dental?",
+        "paragraphs": [
+          "La conexión entre la salud oral y la salud sistémica está científicamente demostrada: la periodontitis se correlaciona con la diabetes, las enfermedades cardiovasculares y las inflamaciones crónicas. Sin embargo, hasta ahora los dentistas carecían de una herramienta sencilla para determinar valores sanguíneos relevantes directamente en la consulta. El Chairside Testing con el IglooPro cambia esto fundamentalmente.",
+          "En lugar de derivar al paciente a un laboratorio externo o a su médico de cabecera, los dentistas ahora pueden medir parámetros como PCR, HbA1c o vitamina D en pocos minutos directamente en el sillón de tratamiento. El resultado: decisiones terapéuticas más rápidas, menos interrupciones del tratamiento y una atención al paciente más integral."
+        ]
+      },
+      {
+        "type": "key_points",
+        "heading": "Ventajas del Chairside Testing",
+        "points": [
+          { "title": "Resultado inmediato", "description": "Valores sanguíneos relevantes en 3–15 minutos, sin logística de laboratorio externo." },
+          { "title": "Mejor cumplimiento", "description": "Los pacientes reciben diagnóstico y plan de tratamiento en una sola cita." },
+          { "title": "Atención integral", "description": "Detectar factores de riesgo sistémicos antes de que afecten la salud oral." },
+          { "title": "Nuevas fuentes de ingresos", "description": "El diagnóstico chairside como servicio privado ofrece un potencial de ingresos adicional." }
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Conclusión: La consulta dental se convierte en un centro diagnóstico",
+        "paragraphs": [
+          "El Chairside Testing con el IglooPro posiciona la consulta dental como un establecimiento sanitario moderno e integral. La integración del diagnóstico sanguíneo Point-of-Care en el flujo de trabajo dental no solo es clínicamente acertada – es una ventaja competitiva.",
+          "Este artículo se actualizará próximamente con contenido especializado adicional."
+        ]
+      }
+    ]
   }
 }

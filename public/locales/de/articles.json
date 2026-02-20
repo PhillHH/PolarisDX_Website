@@ -439,5 +439,37 @@
     "subtitle": "Einblicke, Neuigkeiten und Expertenwissen zu moderner Diagnostik und Gesundheit.",
     "heading": "Entdecken Sie unsere Artikel",
     "caption": "Neueste Beiträge"
+  },
+  "blutdiagnostik_chairside": {
+    "title": "Blutdiagnostik in der Zahnarztpraxis: Chairside Testing mit dem IglooPro",
+    "excerpt": "Wie Point-of-Care-Blutdiagnostik die Zahnarztpraxis revolutioniert – schnelle Ergebnisse direkt am Behandlungsstuhl für bessere Behandlungsentscheidungen.",
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Warum Blutdiagnostik in der Zahnarztpraxis?",
+        "paragraphs": [
+          "Die Verbindung zwischen oraler und systemischer Gesundheit ist wissenschaftlich belegt: Parodontitis korreliert mit Diabetes, Herz-Kreislauf-Erkrankungen und chronischen Entzündungen. Doch bisher fehlte Zahnärzten ein einfaches Werkzeug, um relevante Blutwerte direkt in der Praxis zu bestimmen. Chairside Testing mit dem IglooPro ändert das grundlegend.",
+          "Statt den Patienten an ein externes Labor oder den Hausarzt zu verweisen, können Zahnärzte jetzt Parameter wie CRP, HbA1c oder Vitamin D innerhalb von Minuten direkt am Behandlungsstuhl messen. Das Ergebnis: schnellere Therapieentscheidungen, weniger Behandlungsabbrüche und eine ganzheitlichere Patientenversorgung."
+        ]
+      },
+      {
+        "type": "key_points",
+        "heading": "Vorteile des Chairside Testings",
+        "points": [
+          { "title": "Sofortergebnis", "description": "Relevante Blutwerte in 3–15 Minuten, ohne externe Laborlogistik." },
+          { "title": "Bessere Compliance", "description": "Patienten erhalten Diagnose und Therapieplan in einem einzigen Termin." },
+          { "title": "Ganzheitliche Versorgung", "description": "Systemische Risikofaktoren erkennen, bevor sie die orale Gesundheit beeinträchtigen." },
+          { "title": "Neue Erlösquellen", "description": "Chairside-Diagnostik als IGeL-Leistung bietet zusätzliches Umsatzpotenzial." }
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Fazit: Die Zahnarztpraxis wird zur diagnostischen Schnittstelle",
+        "paragraphs": [
+          "Chairside Testing mit dem IglooPro positioniert die Zahnarztpraxis als moderne, ganzheitliche Gesundheitseinrichtung. Die Integration von Point-of-Care-Blutdiagnostik in den zahnmedizinischen Workflow ist nicht nur medizinisch sinnvoll – sie ist ein Wettbewerbsvorteil.",
+          "Dieser Artikel wird in Kürze mit weiterem Fachinhalt ergänzt."
+        ]
+      }
+    ]
   }
 }

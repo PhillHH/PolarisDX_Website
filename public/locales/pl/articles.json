@@ -480,5 +480,37 @@
         ]
       }
     ]
+  },
+  "blutdiagnostik_chairside": {
+    "title": "Diagnostyka krwi w gabinecie stomatologicznym: Chairside Testing z IglooPro",
+    "excerpt": "Jak diagnostyka krwi Point-of-Care rewolucjonizuje gabinet stomatologiczny – natychmiastowe wyniki przy fotelu zabiegowym dla lepszych decyzji terapeutycznych.",
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Dlaczego diagnostyka krwi w gabinecie stomatologicznym?",
+        "paragraphs": [
+          "Związek między zdrowiem jamy ustnej a zdrowiem ogólnym jest naukowo udowodniony: paradontoza koreluje z cukrzycą, chorobami sercowo-naczyniowymi i przewlekłymi stanami zapalnymi. Jednak dotychczas stomatolodzy nie dysponowali prostym narzędziem do oznaczania odpowiednich wartości krwi bezpośrednio w gabinecie. Chairside Testing z IglooPro zmienia to zasadniczo.",
+          "Zamiast kierować pacjenta do zewnętrznego laboratorium lub lekarza rodzinnego, stomatolodzy mogą teraz mierzyć parametry takie jak CRP, HbA1c czy witamina D w ciągu kilku minut bezpośrednio przy fotelu zabiegowym. Rezultat: szybsze decyzje terapeutyczne, mniej przerw w leczeniu i bardziej holistyczna opieka nad pacjentem."
+        ]
+      },
+      {
+        "type": "key_points",
+        "heading": "Zalety Chairside Testing",
+        "points": [
+          { "title": "Natychmiastowy wynik", "description": "Odpowiednie wartości krwi w 3–15 minut, bez zewnętrznej logistyki laboratoryjnej." },
+          { "title": "Lepsza compliance", "description": "Pacjenci otrzymują diagnozę i plan leczenia w jednej wizycie." },
+          { "title": "Holistyczna opieka", "description": "Wykrywanie systemowych czynników ryzyka, zanim wpłyną na zdrowie jamy ustnej." },
+          { "title": "Nowe źródła przychodów", "description": "Diagnostyka chairside jako usługa prywatna oferuje dodatkowy potencjał przychodowy." }
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Podsumowanie: Gabinet stomatologiczny staje się centrum diagnostycznym",
+        "paragraphs": [
+          "Chairside Testing z IglooPro pozycjonuje gabinet stomatologiczny jako nowoczesną, holistyczną placówkę zdrowotną. Integracja diagnostyki krwi Point-of-Care w stomatologiczny przepływ pracy jest nie tylko medycznie uzasadniona – to przewaga konkurencyjna.",
+          "Ten artykuł zostanie wkrótce uzupełniony o dalsze treści specjalistyczne."
+        ]
+      }
+    ]
   }
 }

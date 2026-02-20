@@ -480,5 +480,37 @@
         ]
       }
     ]
+  },
+  "blutdiagnostik_chairside": {
+    "title": "Bloeddiagnostiek in de tandartspraktijk: Chairside Testing met de IglooPro",
+    "excerpt": "Hoe Point-of-Care bloeddiagnostiek de tandartspraktijk revolutioneert – directe resultaten aan de behandelstoel voor betere klinische beslissingen.",
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Waarom bloeddiagnostiek in de tandartspraktijk?",
+        "paragraphs": [
+          "Het verband tussen orale en systemische gezondheid is wetenschappelijk bewezen: parodontitis correleert met diabetes, hart- en vaatziekten en chronische ontstekingen. Maar tot nu toe misten tandartsen een eenvoudig hulpmiddel om relevante bloedwaarden direct in de praktijk te bepalen. Chairside Testing met de IglooPro verandert dit fundamenteel.",
+          "In plaats van de patiënt door te verwijzen naar een extern laboratorium of huisarts, kunnen tandartsen nu parameters zoals CRP, HbA1c of vitamine D binnen enkele minuten direct aan de behandelstoel meten. Het resultaat: snellere therapiebeslissingen, minder behandelonderbrekingen en een meer holistische patiëntenzorg."
+        ]
+      },
+      {
+        "type": "key_points",
+        "heading": "Voordelen van Chairside Testing",
+        "points": [
+          { "title": "Direct resultaat", "description": "Relevante bloedwaarden in 3–15 minuten, zonder externe laboratoriumlogistiek." },
+          { "title": "Betere compliance", "description": "Patiënten ontvangen diagnose en behandelplan in één afspraak." },
+          { "title": "Holistische zorg", "description": "Systemische risicofactoren detecteren voordat ze de orale gezondheid aantasten." },
+          { "title": "Nieuwe inkomstenbronnen", "description": "Chairside-diagnostiek als privédienst biedt extra omzetpotentieel." }
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Conclusie: De tandartspraktijk wordt een diagnostisch knooppunt",
+        "paragraphs": [
+          "Chairside Testing met de IglooPro positioneert de tandartspraktijk als een moderne, holistische gezondheidsfaciliteit. De integratie van Point-of-Care bloeddiagnostiek in de tandheelkundige workflow is niet alleen klinisch zinvol – het is een concurrentievoordeel.",
+          "Dit artikel wordt binnenkort aangevuld met verdere vakinhoud."
+        ]
+      }
+    ]
   }
 }

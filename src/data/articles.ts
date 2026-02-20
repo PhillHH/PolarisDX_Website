@@ -72,6 +72,18 @@ export const articles: Article[] = [
     sections: [],
     relatedServiceIds: ['praeventions-checks', 'infektion-entzuendung'],
   },
+  {
+    id: 'blutdiagnostik_chairside',
+    slug: 'blutdiagnostik-zahnarztpraxis-chairside-testing-igloo-pro',
+    category: 'Health Article',
+    author: 'PolarisDX Team',
+    date: '20 Feb 2026',
+    readTime: '8 min read',
+    sections: [
+      { image: 'Igloo-pro-frontal.png', paragraphs: [] }
+    ],
+    relatedServiceIds: ['dental', 'poc-systemloesungen'],
+  },
 ]
 
 export const getArticleBySlug = (slug: string) =>

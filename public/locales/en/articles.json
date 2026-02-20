@@ -480,5 +480,37 @@
         ]
       }
     ]
+  },
+  "blutdiagnostik_chairside": {
+    "title": "Blood Diagnostics in the Dental Practice: Chairside Testing with the IglooPro",
+    "excerpt": "How Point-of-Care blood diagnostics is revolutionising the dental practice – instant results at the treatment chair for better clinical decisions.",
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Why Blood Diagnostics in the Dental Practice?",
+        "paragraphs": [
+          "The link between oral and systemic health is well established: periodontitis correlates with diabetes, cardiovascular disease and chronic inflammation. Yet dentists have long lacked a simple tool to determine relevant blood values directly in the practice. Chairside Testing with the IglooPro changes that fundamentally.",
+          "Instead of referring patients to an external laboratory or their GP, dentists can now measure parameters such as CRP, HbA1c or Vitamin D within minutes right at the treatment chair. The result: faster therapy decisions, fewer treatment interruptions and more holistic patient care."
+        ]
+      },
+      {
+        "type": "key_points",
+        "heading": "Benefits of Chairside Testing",
+        "points": [
+          { "title": "Instant Results", "description": "Relevant blood values in 3–15 minutes, without external laboratory logistics." },
+          { "title": "Better Compliance", "description": "Patients receive diagnosis and treatment plan in a single appointment." },
+          { "title": "Holistic Care", "description": "Detect systemic risk factors before they affect oral health." },
+          { "title": "New Revenue Streams", "description": "Chairside diagnostics as a private service offers additional revenue potential." }
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Conclusion: The Dental Practice Becomes a Diagnostic Hub",
+        "paragraphs": [
+          "Chairside Testing with the IglooPro positions the dental practice as a modern, holistic healthcare facility. Integrating Point-of-Care blood diagnostics into the dental workflow is not only medically sound – it is a competitive advantage.",
+          "This article will be updated with further specialist content shortly."
+        ]
+      }
+    ]
   }
 }

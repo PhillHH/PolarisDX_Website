@@ -480,5 +480,37 @@
         ]
       }
     ]
+  },
+  "blutdiagnostik_chairside": {
+    "title": "Diagnostic sanguin au cabinet dentaire : Chairside Testing avec l'IglooPro",
+    "excerpt": "Comment le diagnostic sanguin Point-of-Care révolutionne le cabinet dentaire – des résultats instantanés au fauteuil de traitement pour de meilleures décisions cliniques.",
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Pourquoi le diagnostic sanguin au cabinet dentaire ?",
+        "paragraphs": [
+          "Le lien entre santé bucco-dentaire et santé systémique est scientifiquement établi : la parodontite est corrélée au diabète, aux maladies cardiovasculaires et aux inflammations chroniques. Pourtant, les dentistes manquaient jusqu'ici d'un outil simple pour déterminer les valeurs sanguines pertinentes directement au cabinet. Le Chairside Testing avec l'IglooPro change fondamentalement la donne.",
+          "Au lieu de renvoyer le patient vers un laboratoire externe ou son médecin traitant, les dentistes peuvent désormais mesurer des paramètres tels que la CRP, l'HbA1c ou la vitamine D en quelques minutes directement au fauteuil de traitement. Le résultat : des décisions thérapeutiques plus rapides, moins d'interruptions de traitement et une prise en charge plus globale du patient."
+        ]
+      },
+      {
+        "type": "key_points",
+        "heading": "Avantages du Chairside Testing",
+        "points": [
+          { "title": "Résultat immédiat", "description": "Valeurs sanguines pertinentes en 3 à 15 minutes, sans logistique de laboratoire externe." },
+          { "title": "Meilleure compliance", "description": "Les patients reçoivent diagnostic et plan de traitement en une seule consultation." },
+          { "title": "Soins holistiques", "description": "Détecter les facteurs de risque systémiques avant qu'ils n'affectent la santé bucco-dentaire." },
+          { "title": "Nouvelles sources de revenus", "description": "Le diagnostic chairside en tant que prestation privée offre un potentiel de revenus supplémentaire." }
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Conclusion : Le cabinet dentaire devient un hub diagnostique",
+        "paragraphs": [
+          "Le Chairside Testing avec l'IglooPro positionne le cabinet dentaire comme un établissement de santé moderne et holistique. L'intégration du diagnostic sanguin Point-of-Care dans le flux de travail dentaire n'est pas seulement médicalement pertinente – c'est un avantage concurrentiel.",
+          "Cet article sera prochainement complété par du contenu spécialisé supplémentaire."
+        ]
+      }
+    ]
   }
 }

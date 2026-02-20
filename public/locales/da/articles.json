@@ -480,5 +480,37 @@
         ]
       }
     ]
+  },
+  "blutdiagnostik_chairside": {
+    "title": "Bloddiagnostik i tandlægepraksis: Chairside Testing med IglooPro",
+    "excerpt": "Hvordan Point-of-Care bloddiagnostik revolutionerer tandlægepraksis – øjeblikkelige resultater ved behandlingsstolen for bedre kliniske beslutninger.",
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Hvorfor bloddiagnostik i tandlægepraksis?",
+        "paragraphs": [
+          "Forbindelsen mellem oral og systemisk sundhed er videnskabeligt dokumenteret: parodontitis korrelerer med diabetes, kardiovaskulære sygdomme og kroniske betændelser. Men hidtil har tandlæger manglet et enkelt værktøj til at bestemme relevante blodværdier direkte i praksis. Chairside Testing med IglooPro ændrer dette fundamentalt.",
+          "I stedet for at henvise patienten til et eksternt laboratorium eller praktiserende læge kan tandlæger nu måle parametre som CRP, HbA1c eller D-vitamin inden for få minutter direkte ved behandlingsstolen. Resultatet: hurtigere terapibeslutninger, færre behandlingsafbrydelser og en mere holistisk patientpleje."
+        ]
+      },
+      {
+        "type": "key_points",
+        "heading": "Fordele ved Chairside Testing",
+        "points": [
+          { "title": "Øjeblikkeligt resultat", "description": "Relevante blodværdier på 3–15 minutter, uden ekstern laboratorielogistik." },
+          { "title": "Bedre compliance", "description": "Patienter modtager diagnose og behandlingsplan på én konsultation." },
+          { "title": "Holistisk pleje", "description": "Opdage systemiske risikofaktorer, før de påvirker den orale sundhed." },
+          { "title": "Nye indtægtskilder", "description": "Chairside-diagnostik som privat ydelse tilbyder yderligere indtægtspotentiale." }
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Konklusion: Tandlægepraksis bliver et diagnostisk knudepunkt",
+        "paragraphs": [
+          "Chairside Testing med IglooPro positionerer tandlægepraksis som en moderne, holistisk sundhedsfacilitet. Integration af Point-of-Care bloddiagnostik i den tandlægelige arbejdsgang er ikke kun klinisk fornuftig – det er en konkurrencefordel.",
+          "Denne artikel opdateres snart med yderligere fagligt indhold."
+        ]
+      }
+    ]
   }
 }
