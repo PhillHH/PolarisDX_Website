@@ -48,13 +48,24 @@
         "content": "Przeanalizuj status mikroelementów, aby konkretnie wspierać wygląd skóry i zabiegi przeciwstarzeniowe.",
         "listItems": [
           "Indywidualne doradztwo oparte na wynikach badań krwi.",
-          "Optymalizacja tworzenia kolagenu i regeneracji."
+          "Optymalizacja tworzenia kolagenu i regeneracji.",
+          "Spersonalizowane kroplówki/suplementy: Na podstawie wartości krwi można precyzyjnie dozować i sprzedawać infuzje witaminowe lub wysokiej jakości suplementy diety."
         ]
       },
       {
         "heading": "2. Równowaga hormonalna",
         "content": "Zrozum wpływ hormonów na skórę i włosy i odpowiednio dostosuj zabiegi.",
-        "listItems": []
+        "listItems": [
+          "Tarczyca (TSH): Sucha, łuszcząca się skóra lub wypadanie włosów mogą wskazywać na niedoczynność tarczycy. Badanie przesiewowe daje jasność.",
+          "Oś stresu (kortyzol): Chroniczny stres zwiększa poziom kortyzolu, co rozkłada kolagen i sprzyja niedoskonałościom skóry. Uwidocznij poziom stresu."
+        ]
+      },
+      {
+        "heading": "3. Ciche starzenie: Silent Inflammation",
+        "content": "Przewlekłe, podprogowe stany zapalne ('Inflammaging') są głównym czynnikiem przedwczesnego starzenia się skóry.",
+        "listItems": [
+          "Pomiar hs-CRP: Czuły test CRP wykrywa te ciche stany zapalne. Otwiera to możliwość przeciwdziałania za pomocą przeciwzapalnych strategii żywieniowych i interwencji lifestyle'owych – jako idealne uzupełnienie zabiegów aparaturowych."
+        ]
       }
     ],
     "conclusion": {
@@ -108,7 +119,25 @@
       {
         "heading": "2. Spersonalizowane strategie",
         "content": "Opracuj dopasowane plany żywieniowe, ćwiczeń i suplementacji w oparciu o wiarygodne dane.",
-        "listItems": []
+        "listItems": [
+          "Monitoring hs-CRP: Regularne pomiary wysoko czułego CRP to złoty standard śledzenia 'Inflammaging'. Celem jest utrzymanie wartości w najniższym zakresie, aby opóźnić choroby związane z wiekiem, takie jak miażdżyca czy neurodegeneracja."
+        ]
+      },
+      {
+        "heading": "3. Witalność hormonalna",
+        "content": "Utrzymanie równowagi hormonalnej jest kluczowe dla witalności i libido.",
+        "listItems": [
+          "Testosteron i DHEA: Zarówno u mężczyzn, jak i u kobiet są to markery energii i siły mięśniowej. Badanie przesiewowe wskazuje na deficyty, które można wyrównać stylem życia lub hormonami bioidentycznymi.",
+          "Tarczyca (TSH, fT3, fT4): Silnik metaboliczny musi działać sprawnie, aby dostarczać energię do procesów naprawczych."
+        ]
+      },
+      {
+        "heading": "4. Bio-Feedback w czasie rzeczywistym",
+        "content": "Największą zaletą diagnostyki POC w obszarze longevity jest natychmiastowa informacja zwrotna.",
+        "listItems": [
+          "Tracking: Klienci mogą obserwować, jak ich wartości zmieniają się pod wpływem postu, krioterapii lub treningu.",
+          "Motywacja: Dane czynią niewidoczny proces utrzymywania zdrowia namacalnym i motywują do wytrwałości."
+        ]
       }
     ],
     "conclusion": {
