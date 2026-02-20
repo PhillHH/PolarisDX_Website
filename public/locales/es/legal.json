@@ -41,14 +41,16 @@
       "content": [
         "Inscripción en el registro mercantil.",
         "Tribunal de registro: Juzgado Municipal de Hamburgo (para PolarisDX Europe UG)",
-        "Número de registro: [Insertar número HRB aquí]"
+        "Número de registro: HRB 193415"
       ]
     },
     "section4": {
       "title": "NIF-IVA",
       "content": [
         "Número de identificación fiscal a efectos del IVA según §27 a de la Ley del Impuesto sobre el Valor Añadido:",
-        "[Insertar NIF-IVA aquí]"
+        "[Insertar NIF-IVA aquí]",
+        "Número fiscal (PolarisDX Europe UG):",
+        "Solicitado en el Finanzamt Hamburg Hansa"
       ]
     },
     "section5": {
@@ -56,7 +58,8 @@
       "content": [
         "Equipo Directivo de PolarisDX",
         "262A Fulham Road",
-        "Londres SW10 9EL"
+        "Londres SW10 9EL",
+        "Correo electrónico: phillipr@polarisdx.net"
       ]
     },
     "section6": {

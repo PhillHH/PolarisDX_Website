@@ -51,55 +51,6 @@
       }
     ]
   },
-  "48_hour_formula": {
-    "title": "A Fórmula de 48 Horas: Eficiência no Diagnóstico POC",
-    "excerpt": "Eficiência em vez de formação: O caminho para a prontidão operacional imediata na prática.",
-    "sections": [
-      {
-        "heading": "Introdução",
-        "paragraphs": [
-          "A decisão por novos dispositivos de diagnóstico Point-of-Care (POC) é frequentemente o primeiro passo para um melhor atendimento ao paciente. No entanto, o caminho da aquisição até à prontidão operacional total é muitas vezes subestimado. Formação demorada, barreiras administrativas e integração de TI complexa consomem tempo valioso e ocupam pessoal cujo foco deveria estar realmente no paciente.",
-          "Este gargalo é coisa do passado. Conceitos modernos de suporte revolucionam o comissionamento e reduzem o esforço para consultórios e farmácias ao mínimo. A chave é a abordagem 'Configuração Remota', que garante prontidão operacional imediata em apenas 48 horas."
-        ]
-      },
-      {
-        "heading": "1. O Dilema da Eficiência: Por que a Integração Tradicional Falha",
-        "paragraphs": [
-          "Tradicionalmente, a integração de um novo sistema POC requer várias etapas demoradas que muitas vezes levam semanas:"
-        ],
-        "listItems": [
-          "Formação Administrativa e Regulatória: Formação de pessoal em relação à gestão da qualidade e protocolos internos.",
-          "Configuração Técnica e Calibração: Comissionamento inicial manual e calibração específica de lote do dispositivo.",
-          "Conexão de TI e Troca de Dados: A complexa conexão bidirecional entre o leitor POC e o sistema de gestão do consultório ou farmácia."
-        ]
-      },
-      {
-        "heading": "2. A Abordagem de Configuração Remota: Especialistas em TI em Segundo Plano",
-        "paragraphs": [
-          "A abordagem de Configuração Remota baseia-se na conectividade digital dos leitores POC modernos. Em vez de precisar de um técnico de serviço no local, o dispositivo é configurado e validado remotamente por especialistas especializados.",
-          "Processos principais tratados remotamente:"
-        ],
-        "listItems": [
-          "Calibração Completa: A calibração técnica do multi-leitor para os Testes de Fluxo Lateral (LFTs) utilizados é feita externamente. Isso garante que a precisão analítica é garantida desde o início – sem que o pessoal do consultório tenha de realizar etapas técnicas complexas.",
-          "Integração de TI Perfeita: A conexão ao sistema de informação laboratorial ou do consultório ocorre através de interfaces seguras baseadas na web. Consultores externos garantem que todos os valores de medição sejam transferidos automática, segura e sem erros para o ficheiro do paciente.",
-          "Atualizações de Firmware e Verificações do Sistema: Atualizações de software para garantir a compatibilidade e conformidade com novos padrões podem ser instaladas remotamente de forma permanente e sem interromper as operações do consultório."
-        ]
-      },
-      {
-        "heading": "3. A Fórmula de 48 Horas: A Vantagem Competitiva",
-        "paragraphs": [
-          "Ao terceirizar a complexidade técnica e administrativa para serviços remotos especializados, consultórios e farmácias podem reduzir o tempo necessário de semanas para um mínimo.",
-          "Ganho de Eficiência e Satisfação do Paciente: A prontidão operacional imediata dos dispositivos de diagnóstico POC permite que o pessoal se concentre imediatamente no atendimento ao paciente. Poupança de tempo no diagnóstico, decisões de terapia mais rápidas e a eliminação de uma segunda consulta levam a uma satisfação do paciente significativamente maior. Fluxos de trabalho otimizados melhoram a eficiência económica de toda a instalação."
-        ]
-      },
-      {
-        "heading": "Conclusão: Investimento em Tempo e Segurança",
-        "paragraphs": [
-          "O diagnóstico moderno Point-of-Care é mais do que apenas um dispositivo: é um sistema integrado digitalmente. Aqueles que confiam na Configuração Remota investem não apenas em diagnósticos mais precisos e rápidos, mas principalmente no tempo valioso do seu pessoal. A fórmula de 48 horas é, portanto, sinónimo de stress de integração mínimo e máxima prontidão operacional nos cuidados de saúde modernos."
-        ]
-      }
-    ]
-  },
   "precision_point_of_care": {
     "title": "Precisão no Point-of-Care: A Chave para a Segurança do Paciente",
     "excerpt": "Por que a validação de Testes de Fluxo Lateral (LFT) vai além das especificações do fabricante.",

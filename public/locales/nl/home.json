@@ -43,7 +43,8 @@
     "title": "Toepassingsgebieden",
     "dental": "Dental",
     "beauty": "Beauty",
-    "longevity": "Longevity"
+    "longevity": "Longevity",
+    "all_services": "Ontdek alle diagnostiekdiensten"
   },
   "services": {
     "caption": "DIAGNOSTIEK FOCUS",
@@ -96,23 +97,11 @@
       "focus": "Snelle gezondheidschecks ter plaatse (Preventie, Vitamine D)",
       "text": "Het uitvoeren van analyses van vitamine D-niveaus en andere belangrijke gezondheidsindicatoren ter plaatse mag niet worden onderschat. De Igloo Pro stelt mij in staat om een eenvoudige capillaire bloedtest uit te voeren, de behoeften van patiënten vast te stellen en hen vervolgens te begeleiden naar welke aanvullende supplementen zij mogelijk nodig hebben om de behandeling te optimaliseren. Deze mogelijkheid blijkt transformerend te zijn in termen van patiëntresultaten."
     },
-    "eva_schmidt": {
-      "role": "Apotheek",
-      "title": "Eigenaar / Löwen-Apotheke, Berlijn",
-      "focus": "De volgende stap in preventieadvies (Klantloyaliteit, Snelheid)",
-      "text": "Sinds we het Igloo Pro Systeem gebruiken, is onze rol als gezondheidsadviseurs enorm versterkt. Klanten waarderen het enorm om belangrijke waarden zoals CRP of cholesterol in minuten te kunnen bepalen in plaats van weken te wachten op afspraken. Een echte win-win situatie voor klantloyaliteit en servicekwaliteit."
-    },
     "martin_fischer": {
       "role": "Huisarts/Praktijk",
       "title": "Specialist in Interne Geneeskunde / Interne Geneeskunde Praktijk Dr. Fischer",
       "focus": "Onmiddellijke diagnostiek voor acute patiënten (Efficiëntie, Therapiebeslissing)",
       "text": "De mogelijkheid om ontstekingsmarkers zoals CRP onmiddellijk in de praktijk te bepalen, heeft onze behandelingsworkflow revolutionair veranderd. We kunnen sneller beslissen of antibioticatherapie nodig is voor patiënten met onduidelijke infecties en onnodige doorverwijzingen voorkomen. Dit bespaart ons tijd en verhoogt de patiënttevredenheid aanzienlijk."
-    },
-    "julia_bergmann": {
-      "role": "Kliniek/Laboratorium",
-      "title": "Hoofd Laboratorium & Diagnostiek / Klinikum Nord",
-      "focus": "Systeemcompatibiliteit & Betrouwbaarheid (Flexibiliteit, Bundeling)",
-      "text": "De Igloo Pro is het meest flexibele Point-of-Care apparaat dat we ooit hebben geëvalueerd. De compatibiliteit tussen fabrikanten voor laterale flow tests is een enorm voordeel dat ons in staat stelt onze POC-apparaten te standaardiseren en kosten te besparen zonder in te boeten aan de bewezen betrouwbaarheid van de resultaten."
     },
     "bastian_wessing": {
       "role": "Medisch Directeur",
@@ -125,10 +114,42 @@
       "title": "Biologische Tandarts / Hoofdtandarts & Eigenaar",
       "focus": "Onmiddellijke diagnostiek voor implantaatplanning (Vitamine D, CRP)",
       "text": "Als biologische tandarts ben ik er diep van overtuigd dat holistische gezondheid altijd begint bij de tanden. De Igloo Pro stelt mij in staat om snelle en precieze diagnostische beslissingen te nemen, precies daar waar ze nodig zijn: in de tandartsstoel. Met onmiddellijke vitamine D- en CRP-analyse kan ik implantaatplaatsingen optimaal plannen en vaak aanzienlijk versnellen. Dit geeft mijn patiënten een veiligere en efficiëntere behandeling."
+    },
+    "kristian_grimm": {
+      "role": "Tandarts (Geverifieerde recensie)",
+      "title": "32reasons Zahnteam / Hamburg",
+      "focus": "Preventie, Vitamine D, HbA1c, Systemische gezondheid",
+      "text": "32reasons & Polaris DX — tandheelkunde opnieuw uitgevonden. De chairside-reader stelt ons in staat biomarkers zoals Vitamine D en HbA1c direct ter plaatse te bepalen. Dit koppelt de tandheelkunde direct aan systemische gezondheid voor snelle, op bewijs gebaseerde therapiebeslissingen."
     }
   },
   "blog": {
     "caption": "Blog & Nieuws",
     "title": "Onze artikelen over gezondheid"
+  },
+  "seo": {
+    "title": "IglooPro POC Reader | Point-of-care-diagnostiek",
+    "description": "Labresultaten in 3 minuten — direct in uw praktijk. De IglooPro POC-reader voor tandheelkunde, longevity en esthetiek."
+  },
+  "faq": {
+    "caption": "FAQ",
+    "title": "Veelgestelde vragen over PolarisDX en point-of-care-diagnostiek",
+    "items": [
+      {
+        "question": "Wat doet PolarisDX?",
+        "answer": "PolarisDX is uw partner voor point-of-care-diagnostiek in Europa. Wij leveren niet alleen apparaten en sneltests, maar begeleiden u van het eerste adviesgesprek via de inbedrijfstelling tot de dagelijkse praktijk. Ons doel: diagnostiek met laboratoriumnauwkeurigheid direct in uw praktijk — zonder omweg via een centraal laboratorium."
+      },
+      {
+        "question": "Voor welke sectoren is point-of-care-diagnostiek relevant?",
+        "answer": "Onze oplossingen worden ingezet overal waar snelle en nauwkeurige laboratoriumresultaten ter plaatse nodig zijn. Onze kerngebieden zijn tandheelkunde, longevity en esthetiek — maar wij ondersteunen ook huisartsen, internisten en andere specialismen waar POCT meerwaarde biedt."
+      },
+      {
+        "question": "Hoe verloopt de samenwerking met PolarisDX?",
+        "answer": "Na een persoonlijk adviesgesprek stellen wij uw individuele setup samen. U ontvangt uw apparaat binnen 3–5 werkdagen, inclusief gevalideerde inbedrijfstelling. Daarna staan wij u bij met trainingen, technische ondersteuning en doorlopende begeleiding."
+      },
+      {
+        "question": "Welke producten en oplossingen biedt PolarisDX?",
+        "answer": "Ons huidige portfolio omvat de IglooPro POC-reader, een breed scala aan sneltests voor biomarkers zoals Vitamine D3, CRP en HbA1c, alsook aanvullende producten zoals onze Vitamine D3-spray. Wij breiden ons aanbod continu uit om u een alomvattende diagnostische oplossing te bieden."
+      }
+    ]
   }
 }

@@ -41,14 +41,16 @@
       "content": [
         "Wpis do rejestru handlowego.",
         "Sąd rejestrowy: Sąd Rejonowy w Hamburgu (dla PolarisDX Europe UG)",
-        "Numer rejestrowy: [Wpisz tutaj numer HRB]"
+        "Numer rejestrowy: HRB 193415"
       ]
     },
     "section4": {
       "title": "NIP UE",
       "content": [
         "Numer identyfikacji podatkowej VAT zgodnie z §27 a ustawy o podatku od towarów i usług:",
-        "[Wpisz tutaj NIP UE]"
+        "[Wpisz tutaj NIP UE]",
+        "Numer podatkowy (PolarisDX Europe UG):",
+        "Złożono wniosek w Finanzamt Hamburg Hansa"
       ]
     },
     "section5": {
@@ -56,7 +58,8 @@
       "content": [
         "Zespół zarządzający PolarisDX",
         "262A Fulham Road",
-        "Londyn SW10 9EL"
+        "Londyn SW10 9EL",
+        "E-mail: phillipr@polarisdx.net"
       ]
     },
     "section6": {

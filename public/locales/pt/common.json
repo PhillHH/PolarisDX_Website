@@ -7,7 +7,13 @@
     "blog": "Blog",
     "contact": "Contato",
     "terms": "Termos e Condições",
-    "events": "Eventos"
+    "events": "Eventos",
+    "casestudies": "Caso de estudo",
+    "downloads": "Downloads",
+    "dental": "Diagnóstico dentário",
+    "beauty": "Diagnóstico estético",
+    "longevity": "Diagnóstico longevity",
+    "pocSystems": "Sistemas POC"
   },
   "badge": {
     "New": "Novo",
@@ -31,13 +37,18 @@
     "discover": "Descobrir",
     "london": "Londres",
     "hamburg": "Hamburgo",
-    "copyright": "Copyright ©PolarisDX 2025 Todos os direitos reservados.",
+    "copyright": "Copyright ©PolarisDX {{year}} Todos os direitos reservados.",
     "imprint": "Ficha técnica",
     "privacy": "Política de Privacidade",
     "doctors": "Nossos médicos",
     "testimonials": "Depoimentos",
     "faq": "FAQ",
-    "appointment": "Agendar consulta"
+    "appointment": "Agendar consulta",
+    "diagnostics": "Diagnóstico",
+    "allServices": "Todos os serviços",
+    "pocSystems": "Sistemas POC",
+    "preventionChecks": "Check-ups preventivos",
+    "hormonTests": "Testes hormonais"
   },
   "cta": {
     "title": "Procurando cuidados médicos <1>profissionais e confiáveis?</1>",
@@ -80,7 +91,8 @@
         "name": "Análise",
         "description": "Análise."
       }
-    }
+    },
+    "reject_all": "Apenas necessários"
   },
   "testimonials": {
     "positiveLabel": "Avaliação positiva"
@@ -91,13 +103,31 @@
       "about": "team doctors polarisdx about us",
       "services": "services leistungen dental beauty longevity diagnostics",
       "contact": "contact kontakt email phone address",
-      "terms": "legal terms agb rights"
+      "terms": "legal terms agb rights",
+      "casestudies": "caso de estudo 32reasons odontologia polaris dx"
     },
     "services": {
       "dental": "Diagnóstico Dentário",
       "beauty": "Análises Dermatológicas",
       "longevity": "Saúde e Longevidade",
       "sports": "Diagnóstico de Desempenho para Atletas"
+    }
+  },
+  "notFound": {
+    "seo": {
+      "title": "Página não encontrada | PolarisDX",
+      "description": "A página solicitada não foi encontrada."
+    },
+    "badge": "Página não encontrada",
+    "title": "Ops! Esta página não existe",
+    "description": "A página que procura pode ter sido movida, eliminada ou já não existe.",
+    "backHome": "Voltar ao início",
+    "popularPages": "Páginas populares",
+    "links": {
+      "home": "Início",
+      "iglooPro": "IglooPro",
+      "services": "Serviços",
+      "contact": "Contato"
     }
   }
 }
