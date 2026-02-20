@@ -1,0 +1,58 @@
+{
+  "reasons32": {
+    "title": "Longevity i design: Przyszłość stomatologii w 32reasons",
+    "subtitle": "Studium przypadku",
+    "intro": {
+      "title": "Nowy standard",
+      "text": "W 32reasons stomatologia jest na nowo definiowana: zdrowie, wydajność i długowieczność zaczynają się w jamie ustnej. Jako najpiękniejszy gabinet stomatologiczny w Niemczech – nagrodzony ZWP Design Award 2025 – zespół Dr. Kreymborga i K. Grimma łączy doskonałą medycynę z technologią cyfrową i nagradzanym wzornictwem."
+    },
+    "philosophy": {
+      "title": "Filozofia: Zdrowie systemowe",
+      "points": [
+        "Prawdziwe zdrowie przyszłości wymaga spojrzenia poza granice klasycznej stomatologii.",
+        "Trwała witalność opiera się na prewencyjnej, medycznie uzasadnionej diagnostyce.",
+        "Stomatologia jest bezpośrednio powiązana ze zdrowiem systemowym.",
+        "Celem jest stworzenie podstaw dla wydajności i zdrowia przez całe życie."
+      ]
+    },
+    "role": {
+      "title": "Rola Polaris DX w codziennej praktyce",
+      "text": "Polaris DX jest integralną częścią tej przyszłościowej koncepcji i doskonale uzupełnia wysokiej klasy przepływ pracy gabinetu.",
+      "points": [
+        {
+          "title": "Diagnostyka w czasie rzeczywistym",
+          "text": "Czytnik chairside umożliwia oznaczanie kluczowych biomarkerów, takich jak witamina D i HbA1c (marker cukrzycy), bezpośrednio w gabinecie."
+        },
+        {
+          "title": "Terapia oparta na dowodach",
+          "text": "Dzięki natychmiastowej dostępności parametrów laboratoryjnych decyzje terapeutyczne podejmowane są szybciej i na solidnej podstawie danych."
+        },
+        {
+          "title": "Doświadczenie pacjenta",
+          "text": "Integracja diagnostyki laboratoryjnej bezpośrednio przy fotelu zabiegowym podkreśla dążenie do kompleksowej i najnowocześniejszej opieki nad pacjentem."
+        }
+      ]
+    },
+    "quote": "32reasons & Polaris DX – Stomatologia na nowo.",
+    "about": {
+      "title": "O 32reasons",
+      "location_label": "Lokalizacja",
+      "location": "Hamburg, Langenstücken 34",
+      "award_label": "Wyróżnienie",
+      "award": "ZWP Design Award „Najpiękniejszy gabinet stomatologiczny w Niemczech 2025“",
+      "focus_label": "Specjalizacja",
+      "focus": "Stomatologia premium, profilaktyka i longevity",
+      "web_label": "Web"
+    },
+    "cta": {
+      "title": "Chcą Państwo osiągnąć podobne wyniki?",
+      "button": "Umów doradztwo produktowe"
+    }
+  },
+  "teaser": {
+    "title": "Studium przypadku: 32reasons",
+    "subtitle": "Najpiękniejszy gabinet stomatologiczny Niemiec stawia na Polaris DX",
+    "text": "Dowiedz się, jak 32reasons łączy stomatologię, longevity i design premium – i dlaczego nasz czytnik chairside jest integralną częścią tej koncepcji.",
+    "cta": "Zobacz studium przypadku"
+  }
+}
