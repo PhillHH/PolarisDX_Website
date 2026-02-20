@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Tooth } from '../components/ui/icons/Tooth'
@@ -7,45 +6,12 @@ import { SEOHead, createServiceSchema, createBreadcrumbSchema, createFAQSchema, 
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import SectionHeader from '../components/ui/SectionHeader'
 import PrimaryButton from '../components/ui/PrimaryButton'
+import { renderTextWithLinks } from '../components/ui/TextWithLinks'
 import { services } from '../data/services'
 import { articles } from '../data/articles'
 import FAQSection from '../components/sections/FAQSection'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
-
-// Helper function to render text with internal links
-// Supports syntax: [[link text|/path]]
-const renderTextWithLinks = (text: string) => {
-  const linkRegex = /\[\[([^\]|]+)\|([^\]]+)\]\]/g
-  const parts: (string | ReactNode)[] = []
-  let lastIndex = 0
-  let match
-
-  while ((match = linkRegex.exec(text)) !== null) {
-    // Add text before the link
-    if (match.index > lastIndex) {
-      parts.push(text.slice(lastIndex, match.index))
-    }
-    // Add the link
-    parts.push(
-      <Link
-        key={match.index}
-        to={match[2]}
-        className="font-semibold text-brand-primary hover:underline"
-      >
-        {match[1]}
-      </Link>
-    )
-    lastIndex = match.index + match[0].length
-  }
-
-  // Add remaining text
-  if (lastIndex < text.length) {
-    parts.push(text.slice(lastIndex))
-  }
-
-  return parts.length > 0 ? parts : text
-}
 
 type ServiceSection = {
   heading?: string

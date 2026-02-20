@@ -11,6 +11,7 @@ import { useArticles } from '../hooks/useArticles'
 import { LoadingSpinner } from '../components/ui/LoadingSpinner'
 import { Alert } from '../components/ui/Alert'
 import { getArticleImageUrl } from '../assets/articleImages'
+import { renderTextWithLinks } from '../components/ui/TextWithLinks'
 
 // Local types for UI rendering logic which involves Discriminated Unions
 // that are not part of the simpler data model in types/models.ts
@@ -132,7 +133,7 @@ const ArticlePage = () => {
                   <tr key={rIndex} className="border-b border-gray-100 last:border-0">
                     {row.map((cell, cIndex) => (
                       <td key={cIndex} className="py-3 pr-4 align-top">
-                        {cell}
+                        {renderTextWithLinks(cell)}
                       </td>
                     ))}
                   </tr>
@@ -150,7 +151,7 @@ const ArticlePage = () => {
               </h3>
             )}
             <p className="text-sm leading-relaxed sm:text-base">
-              {(section as InfoboxSection).content}
+              {renderTextWithLinks((section as InfoboxSection).content)}
             </p>
           </section>
         )
@@ -166,7 +167,7 @@ const ArticlePage = () => {
               {(section as KeyPointsSection).points.map((point, pIndex) => (
                 <div key={pIndex} className="rounded-xl border border-gray-100 bg-white p-5 shadow-sm">
                   <h4 className="mb-2 font-semibold text-gray-900">{point.title}</h4>
-                  <p className="text-sm text-gray-500">{point.description}</p>
+                  <p className="text-sm text-gray-500">{renderTextWithLinks(point.description)}</p>
                 </div>
               ))}
             </div>
@@ -188,13 +189,13 @@ const ArticlePage = () => {
                 key={pIndex}
                 className="text-sm leading-[32px] text-gray-500 sm:text-base"
               >
-                {paragraph}
+                {renderTextWithLinks(paragraph)}
               </p>
             ))}
             {textSection.listItems && (
               <ul className="list-disc space-y-2 pl-5 text-sm leading-[28px] text-gray-500 sm:text-base">
                 {textSection.listItems.map((item, lIndex) => (
-                  <li key={lIndex}>{item}</li>
+                  <li key={lIndex}>{renderTextWithLinks(item)}</li>
                 ))}
               </ul>
             )}
