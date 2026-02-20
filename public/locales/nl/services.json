@@ -48,13 +48,24 @@
         "content": "Analyseer de micronutriëntenstatus om het huidbeeld en anti-agingbehandelingen specifiek te ondersteunen.",
         "listItems": [
           "Individueel advies op basis van bloedwaarden.",
-          "Optimalisatie van collageenvorming en regeneratie."
+          "Optimalisatie van collageenvorming en regeneratie.",
+          "Gepersonaliseerde drips/supplementen: Op basis van bloedwaarden kunt u vitamine-infusen of hoogwaardige voedingssupplementen nauwkeurig doseren en verkopen."
         ]
       },
       {
         "heading": "2. Hormonale balans",
         "content": "Begrijp de invloed van hormonen op huid en haar en pas behandelingen dienovereenkomstig aan.",
-        "listItems": []
+        "listItems": [
+          "Schildklier (TSH): Droge, schilferige huid of haaruitval kunnen wijzen op een trage schildklier. Een screening biedt duidelijkheid.",
+          "Stressas (Cortisol): Chronische stress verhoogt het cortisolniveau, wat collageen afbreekt en onzuiverheden bevordert. Maak het stressniveau zichtbaar."
+        ]
+      },
+      {
+        "heading": "3. Stille veroudering: Silent Inflammation",
+        "content": "Chronische, laaggrade ontsteking ('Inflammaging') is de belangrijkste aanjager van vroegtijdige huidveroudering.",
+        "listItems": [
+          "hs-CRP-meting: Een sensitieve CRP-test onthult deze stille ontstekingen. Dit opent de mogelijkheid om te counteren met ontstekingsremmende voedingsstrategieën en lifestyle-interventies – als perfecte aanvulling op apparatieve behandelingen."
+        ]
       }
     ],
     "conclusion": {
@@ -108,7 +119,25 @@
       {
         "heading": "2. Gepersonaliseerde strategieën",
         "content": "Ontwikkel op maat gemaakte plannen voor voeding, lichaamsbeweging en suppletie op basis van valide gegevens.",
-        "listItems": []
+        "listItems": [
+          "hs-CRP-monitoring: Regelmatige metingen van hoogsensitief CRP zijn de gouden standaard om 'Inflammaging' te tracken. Het doel is de waarden in het laagste bereik te houden om leeftijdsgerelateerde ziekten zoals atherosclerose of neurodegeneratie uit te stellen."
+        ]
+      },
+      {
+        "heading": "3. Hormonale vitaliteit",
+        "content": "Het behoud van hormonale balans is essentieel voor vitaliteit en libido.",
+        "listItems": [
+          "Testosteron en DHEA: Voor mannen en vrouwen zijn dit markers voor energie en spierkracht. Een screening geeft aanwijzingen voor tekorten die gecompenseerd kunnen worden door lifestyle of bio-identieke hormonen.",
+          "Schildklier (TSH, fT3, fT4): De metabolische motor moet soepel draaien om energie te leveren voor herstelprocessen."
+        ]
+      },
+      {
+        "heading": "4. Bio-Feedback in realtime",
+        "content": "Het grootste voordeel van POC-diagnostiek in de longevity-sector is de directe feedback.",
+        "listItems": [
+          "Tracking: Cliënten kunnen zien hoe hun waarden veranderen door vasten, cryotherapie of training.",
+          "Motivatie: Data maken het onzichtbare proces van gezondheidsbehoud tastbaar en motiveren om vol te houden."
+        ]
       }
     ],
     "conclusion": {

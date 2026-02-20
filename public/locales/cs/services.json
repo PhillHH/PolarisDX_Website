@@ -48,13 +48,24 @@
         "content": "Analyzujte stav mikroživin pro cílenou podporu vzhledu pleti a anti-aging ošetření.",
         "listItems": [
           "Individuální poradenství na základě krevních hodnot.",
-          "Optimalizace tvorby kolagenu a regenerace."
+          "Optimalizace tvorby kolagenu a regenerace.",
+          "Personalizované infuze/suplementy: Na základě krevních hodnot můžete přesně dávkovat a prodávat vitaminové infuze nebo vysoce kvalitní doplňky stravy."
         ]
       },
       {
         "heading": "2. Hormonální rovnováha",
         "content": "Pochopte vliv hormonů na pleť a vlasy a přizpůsobte tomu ošetření.",
-        "listItems": []
+        "listItems": [
+          "Štítná žláza (TSH): Suchá, šupinatá kůže nebo vypadávání vlasů mohou ukazovat na sníženou funkci štítné žlázy. Screening přinese jasno.",
+          "Stresová osa (Kortizol): Chronický stres zvyšuje hladinu kortizolu, který degraduje kolagen a podporuje nečistoty pleti. Zviditelněte úroveň stresu."
+        ]
+      },
+      {
+        "heading": "3. Tiché stárnutí: Silent Inflammation",
+        "content": "Chronický, nízkoúrovňový zánět ('Inflammaging') je hlavním faktorem předčasného stárnutí kůže.",
+        "listItems": [
+          "Měření hs-CRP: Citlivý test CRP odhalí tyto tiché záněty. To otevírá možnost protiopatření pomocí protizánětlivých výživových strategií a lifestyle intervencí – jako ideální doplněk přístrojových ošetření."
+        ]
       }
     ],
     "conclusion": {
@@ -108,7 +119,25 @@
       {
         "heading": "2. Personalizované strategie",
         "content": "Vyvíjejte plány na míru pro výživu, pohyb a suplementaci na základě validních dat.",
-        "listItems": []
+        "listItems": [
+          "Monitoring hs-CRP: Pravidelná měření vysoce citlivého CRP jsou zlatým standardem pro sledování 'Inflammaging'. Cílem je udržet hodnoty v nejnižším rozmezí, aby se oddálila onemocnění spojená s věkem, jako je ateroskleróza nebo neurodegenerace."
+        ]
+      },
+      {
+        "heading": "3. Hormonální vitalita",
+        "content": "Udržení hormonální rovnováhy je zásadní pro vitalitu a libido.",
+        "listItems": [
+          "Testosteron a DHEA: U mužů i žen jsou to markery energie a svalové síly. Screening naznačí deficity, které lze kompenzovat úpravou životního stylu nebo bioidentickými hormony.",
+          "Štítná žláza (TSH, fT3, fT4): Metabolický motor musí fungovat hladce, aby dodával energii pro reparační procesy."
+        ]
+      },
+      {
+        "heading": "4. Bio-Feedback v reálném čase",
+        "content": "Největší přínos POC diagnostiky v oblasti longevity je okamžitá zpětná vazba.",
+        "listItems": [
+          "Tracking: Klienti mohou sledovat, jak se jejich hodnoty mění díky půstu, kryoterapii nebo tréninku.",
+          "Motivace: Data činí neviditelný proces udržování zdraví hmatatelným a motivují k vytrvalosti."
+        ]
       }
     ],
     "conclusion": {

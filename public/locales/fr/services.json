@@ -48,13 +48,24 @@
         "content": "Analysez le statut en micronutriments pour soutenir spécifiquement l'apparence de la peau et les traitements anti-âge.",
         "listItems": [
           "Conseils individuels basés sur les valeurs sanguines.",
-          "Optimisation de la formation de collagène et de la régénération."
+          "Optimisation de la formation de collagène et de la régénération.",
+          "Drips/Compléments personnalisés : Sur la base des valeurs sanguines, vous pouvez doser et vendre avec précision des perfusions de vitamines ou des compléments alimentaires de haute qualité."
         ]
       },
       {
         "heading": "2. Équilibre hormonal",
         "content": "Comprenez l'influence des hormones sur la peau et les cheveux et adaptez les traitements en conséquence.",
-        "listItems": []
+        "listItems": [
+          "Thyroïde (TSH) : Une peau sèche et squameuse ou une chute de cheveux peuvent indiquer une hypothyroïdie. Un dépistage apporte de la clarté.",
+          "Axe du stress (Cortisol) : Le stress chronique augmente le taux de cortisol, ce qui dégrade le collagène et favorise les impuretés. Rendez le niveau de stress visible."
+        ]
+      },
+      {
+        "heading": "3. Vieillissement silencieux : Silent Inflammation",
+        "content": "L'inflammation chronique de bas grade ('Inflammaging') est le principal moteur du vieillissement cutané prématuré.",
+        "listItems": [
+          "Mesure de l'hs-CRP : Un test CRP sensible révèle ces inflammations silencieuses. Cela ouvre la possibilité de contrer avec des stratégies nutritionnelles anti-inflammatoires et des interventions lifestyle – en complément parfait des traitements par appareils."
+        ]
       }
     ],
     "conclusion": {
@@ -108,7 +119,25 @@
       {
         "heading": "2. Stratégies personnalisées",
         "content": "Développez des plans sur mesure pour la nutrition, l'exercice et la supplémentation basés sur des données valides.",
-        "listItems": []
+        "listItems": [
+          "Monitoring hs-CRP : Les mesures régulières de la CRP haute sensibilité sont le gold standard pour suivre l'« Inflammaging ». L'objectif est de maintenir les valeurs dans la fourchette la plus basse pour retarder les maladies liées à l'âge comme l'athérosclérose ou la neurodégénérescence."
+        ]
+      },
+      {
+        "heading": "3. Vitalité hormonale",
+        "content": "Le maintien de l'équilibre hormonal est essentiel pour la vitalité et la libido.",
+        "listItems": [
+          "Testostérone et DHEA : Pour les hommes comme pour les femmes, ce sont des marqueurs d'énergie et de force musculaire. Un dépistage donne des indications sur les déficits qui peuvent être compensés par le lifestyle ou les hormones bio-identiques.",
+          "Thyroïde (TSH, fT3, fT4) : Le moteur métabolique doit tourner rond pour fournir l'énergie nécessaire aux processus de réparation."
+        ]
+      },
+      {
+        "heading": "4. Bio-Feedback en temps réel",
+        "content": "Le plus grand bénéfice du diagnostic POC dans le domaine de la longévité est le feedback immédiat.",
+        "listItems": [
+          "Tracking : Les clients peuvent voir comment leurs valeurs évoluent grâce au jeûne, à la cryothérapie ou à l'entraînement.",
+          "Motivation : Les données rendent le processus invisible du maintien de la santé tangible et motivent à persévérer."
+        ]
       }
     ],
     "conclusion": {

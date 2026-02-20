@@ -48,13 +48,24 @@
         "content": "Analyser mikronæringsstofstatus for specifikt at understøtte hudens udseende og anti-aging behandlinger.",
         "listItems": [
           "Individuel rådgivning baseret på blodværdier.",
-          "Optimering af kollagenopbygning og regenerering."
+          "Optimering af kollagenopbygning og regenerering.",
+          "Personaliserede drips/kosttilskud: Baseret på blodværdierne kan du dosere og sælge vitamininfusioner eller kosttilskud af høj kvalitet med præcision."
         ]
       },
       {
         "heading": "2. Hormonel balance",
         "content": "Forstå hormoners indflydelse på hud og hår og tilpas behandlinger derefter.",
-        "listItems": []
+        "listItems": [
+          "Skjoldbruskkirtel (TSH): Tør, skællet hud eller hårtab kan indikere nedsat stofskifte. En screening giver klarhed.",
+          "Stressaksen (Cortisol): Kronisk stress øger cortisolniveauet, hvilket nedbryder kollagen og fremmer urenheder. Gør stressniveauet synligt."
+        ]
+      },
+      {
+        "heading": "3. Stille aldring: Silent Inflammation",
+        "content": "Kronisk, lavgradig inflammation ('Inflammaging') er den primære drivkraft bag for tidlig hudaldr.",
+        "listItems": [
+          "hs-CRP-måling: En sensitiv CRP-test afdækker disse stille inflammationer. Dette åbner muligheden for at modvirke med antiinflammatoriske ernæringsstrategier og livsstilsinterventioner – som det perfekte supplement til apparative behandlinger."
+        ]
       }
     ],
     "conclusion": {
@@ -108,7 +119,25 @@
       {
         "heading": "2. Personlige strategier",
         "content": "Udvikl skræddersyede planer for ernæring, motion og tilskud baseret på valide data.",
-        "listItems": []
+        "listItems": [
+          "hs-CRP-monitorering: Regelmæssige målinger af højsensitiv CRP er guldstandarden for at tracke 'Inflammaging'. Målet er at holde værdierne i det laveste interval for at forsinke aldersrelaterede sygdomme som åreforkalkning eller neurodegeneration."
+        ]
+      },
+      {
+        "heading": "3. Hormonel vitalitet",
+        "content": "Opretholdelse af hormonel balance er essentiel for vitalitet og libido.",
+        "listItems": [
+          "Testosteron og DHEA: For mænd og kvinder er disse markører for energi og muskelstyrke. En screening giver indikationer på underskud, der kan udlignes med livsstilsændringer eller bioidentiske hormoner.",
+          "Skjoldbruskkirtel (TSH, fT3, fT4): Den metaboliske motor skal køre optimalt for at levere energi til reparationsprocesser."
+        ]
+      },
+      {
+        "heading": "4. Bio-Feedback i realtid",
+        "content": "Den største fordel ved POC-diagnostik inden for longevity er den øjeblikkelige feedback.",
+        "listItems": [
+          "Tracking: Klienterne kan se, hvordan deres værdier ændrer sig gennem faste, kryoterapi eller træning.",
+          "Motivation: Data gør den usynlige proces med at opretholde sundheden håndgribelig og motiverer til at holde fast."
+        ]
       }
     ],
     "conclusion": {

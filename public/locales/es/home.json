@@ -43,7 +43,8 @@
     "title": "Áreas de Aplicación",
     "dental": "Dental",
     "beauty": "Beauty",
-    "longevity": "Longevity"
+    "longevity": "Longevity",
+    "all_services": "Descubrir todos los servicios de diagnóstico"
   },
   "services": {
     "caption": "ENFOQUE DIAGNÓSTICO",

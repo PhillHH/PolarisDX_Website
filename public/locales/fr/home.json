@@ -43,7 +43,8 @@
     "title": "Domaines d'application",
     "dental": "Dental",
     "beauty": "Beauty",
-    "longevity": "Longevity"
+    "longevity": "Longevity",
+    "all_services": "Découvrir tous les services de diagnostic"
   },
   "services": {
     "caption": "FOCUS DIAGNOSTIC",
