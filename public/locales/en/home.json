@@ -125,5 +125,31 @@
   "blog": {
     "caption": "Blog & News",
     "title": "Our Articles About Health"
+  },
+  "seo": {
+    "title": "IglooPro POC Reader | Point-of-Care Diagnostics",
+    "description": "Lab-grade results in 3 minutes — right in your practice. The IglooPro POC reader for dental, longevity & beauty. Book your consultation now."
+  },
+  "faq": {
+    "caption": "FAQ",
+    "title": "Frequently Asked Questions About PolarisDX and Point-of-Care Diagnostics",
+    "items": [
+      {
+        "question": "What does PolarisDX do?",
+        "answer": "PolarisDX is your partner for point-of-care diagnostics in Europe. We don't just supply devices and rapid tests — we support you from initial consultation through commissioning to ongoing operations. Our goal: lab-grade diagnostics directly in your practice, without the detour via a central laboratory."
+      },
+      {
+        "question": "Which sectors benefit from point-of-care diagnostics?",
+        "answer": "Our solutions are used wherever fast, precise lab results are needed on site. Our core areas are dental, longevity and beauty — but we also support GPs, internists and other specialities where POCT adds value."
+      },
+      {
+        "question": "How does a partnership with PolarisDX work?",
+        "answer": "After a personal consultation, we assemble your individual setup. You receive your device within 3–5 business days, including validated commissioning. After that, we support you with training, technical assistance and ongoing care."
+      },
+      {
+        "question": "What products and solutions does PolarisDX offer?",
+        "answer": "Our current portfolio includes the IglooPro POC reader, a broad range of rapid tests for biomarkers such as Vitamin D3, CRP and HbA1c, plus complementary products like our Vitamin D3 spray. We continuously expand our offering to provide you with a comprehensive diagnostic solution."
+      }
+    ]
   }
 }

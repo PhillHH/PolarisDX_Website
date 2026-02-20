@@ -113,10 +113,42 @@
       "title": "Dentista biológico / Dentista principal y propietario",
       "focus": "Diagnóstico inmediato para la planificación de implantes (Vitamina D, CRP)",
       "text": "Como dentista biológico, estoy profundamente convencido de que la salud holística siempre comienza con los dientes. El Igloo Pro me permite tomar decisiones diagnósticas rápidas y precisas exactamente donde se necesitan: en el sillón dental. Con un análisis inmediato de vitamina D y CRP, puedo planificar las colocaciones de implantes de manera óptima y, a menudo, acelerarlas significativamente. Esto brinda a mis pacientes un tratamiento más seguro y eficiente."
+    },
+    "kristian_grimm": {
+      "role": "Odontólogo (Reseña verificada)",
+      "title": "32reasons Zahnteam / Hamburgo",
+      "focus": "Prevención, Vitamina D, HbA1c, Salud sistémica",
+      "text": "32reasons & Polaris DX — odontología reimaginada. El lector chairside nos permite determinar biomarcadores como Vitamina D y HbA1c directamente in situ. Esto vincula la odontología de forma inmediata con la salud sistémica para decisiones terapéuticas rápidas y basadas en evidencia."
     }
   },
   "blog": {
     "caption": "Blog y noticias",
     "title": "Nuestros artículos sobre salud"
+  },
+  "seo": {
+    "title": "IglooPro POC Reader | Diagnóstico point-of-care",
+    "description": "Resultados de laboratorio en 3 minutos — en su consulta. El lector POC IglooPro para odontología, longevidad y estética. Solicite asesoramiento."
+  },
+  "faq": {
+    "caption": "FAQ",
+    "title": "Preguntas frecuentes sobre PolarisDX y el diagnóstico en el punto de atención",
+    "items": [
+      {
+        "question": "¿Qué hace PolarisDX?",
+        "answer": "PolarisDX es su socio para el diagnóstico en el punto de atención en Europa. No solo suministramos equipos y pruebas rápidas, sino que le acompañamos desde la consulta inicial, pasando por la puesta en marcha, hasta la operación diaria. Nuestro objetivo: diagnósticos con precisión de laboratorio directamente en su consulta, sin desvíos por un laboratorio central."
+      },
+      {
+        "question": "¿Para qué sectores es relevante el diagnóstico point-of-care?",
+        "answer": "Nuestras soluciones se utilizan allí donde se necesitan resultados de laboratorio rápidos y precisos in situ. Nuestras áreas principales son odontología, longevidad y estética, aunque también apoyamos a médicos generales, internistas y otras especialidades donde el POCT aporta valor."
+      },
+      {
+        "question": "¿Cómo funciona la colaboración con PolarisDX?",
+        "answer": "Tras una consulta personalizada, configuramos su instalación individual. Recibirá su equipo en un plazo de 3 a 5 días laborables, incluida la puesta en marcha validada. A partir de ahí, le acompañamos con formación, soporte técnico y atención continua."
+      },
+      {
+        "question": "¿Qué productos y soluciones ofrece PolarisDX?",
+        "answer": "Nuestro portafolio actual incluye el lector POC IglooPro, una amplia gama de pruebas rápidas para biomarcadores como Vitamina D3, CRP y HbA1c, además de productos complementarios como nuestro spray de Vitamina D3. Ampliamos continuamente nuestra oferta para proporcionarle una solución diagnóstica integral."
+      }
+    ]
   }
 }
