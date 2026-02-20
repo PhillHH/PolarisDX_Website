@@ -1,0 +1,58 @@
+{
+  "reasons32": {
+    "title": "Longevity a design: Budoucnost stomatologie v 32reasons",
+    "subtitle": "Případová studie",
+    "intro": {
+      "title": "Nový standard",
+      "text": "Ve 32reasons se stomatologie předefinovává: zdraví, výkon a dlouhověkost začínají v ústech. Jako nejkrásnější zubní ordinace v Německu – oceněná ZWP Design Award 2025 – tým kolem Dr. Kreymborga a K. Grimma spojuje vynikající medicínu s digitální technologií a oceňovaným designem."
+    },
+    "philosophy": {
+      "title": "Filozofie: Systémové zdraví",
+      "points": [
+        "Skutečné zdraví budoucnosti vyžaduje pohled za hranice klasické stomatologie.",
+        "Udržitelná vitalita je založena na preventivní, medicínsky podložené diagnostice.",
+        "Stomatologie je přímo propojena se systémovým zdravím.",
+        "Cílem je vytvořit základ pro celoživotní výkonnost a zdraví."
+      ]
+    },
+    "role": {
+      "title": "Role Polaris DX v každodenní praxi",
+      "text": "Polaris DX je nedílnou součástí tohoto vizionářského konceptu a dokonale doplňuje prémiový pracovní postup ordinace.",
+      "points": [
+        {
+          "title": "Diagnostika v reálném čase",
+          "text": "Chairside čtečka umožňuje stanovení kritických biomarkerů jako Vitamín D a HbA1c (marker diabetu) přímo v ordinaci."
+        },
+        {
+          "title": "Terapie založená na důkazech",
+          "text": "Díky okamžité dostupnosti laboratorních parametrů lze terapeutická rozhodnutí činit rychleji a na solidním datovém základě."
+        },
+        {
+          "title": "Zážitek pacienta",
+          "text": "Integrace laboratorní diagnostiky přímo u ošetřovacího křesla podtrhuje nárok na bezchybnou a nejmodernější péči o pacienta."
+        }
+      ]
+    },
+    "quote": "32reasons & Polaris DX – Stomatologie nově promyšlená.",
+    "about": {
+      "title": "O 32reasons",
+      "location_label": "Sídlo",
+      "location": "Hamburg, Langenstücken 34",
+      "award_label": "Ocenění",
+      "award": "ZWP Design Award „Nejkrásnější zubní ordinace v Německu 2025“",
+      "focus_label": "Zaměření",
+      "focus": "Prémiová stomatologie, prevence a longevity",
+      "web_label": "Web"
+    },
+    "cta": {
+      "title": "Chcete dosáhnout podobných výsledků?",
+      "button": "Sjednat produktové poradenství"
+    }
+  },
+  "teaser": {
+    "title": "Případová studie: 32reasons",
+    "subtitle": "Nejkrásnější zubní ordinace Německa vsází na Polaris DX",
+    "text": "Zjistěte, jak 32reasons propojuje stomatologii, longevity a prémiový design – a proč je naše chairside čtečka nedílnou součástí tohoto konceptu.",
+    "cta": "Zobrazit případovou studii"
+  }
+}
