@@ -97,7 +97,7 @@ const Footer = () => {
                   <p>262A Fulham Road</p>
                   <p>London SW10 9EL</p>
                   <p>+44 7879 433019</p>
-                  <p>hello@polarisdx.net</p>
+                  <p>contact@polarisdx.net</p>
                 </div>
               </div>
 

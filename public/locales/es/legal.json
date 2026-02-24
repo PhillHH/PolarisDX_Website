@@ -14,7 +14,7 @@
         "contact": {
           "label": "Contacto:",
           "phone": "Teléfono: +44 7879 433019",
-          "email": "Correo electrónico: hello@polarisdx.net"
+          "email": "Correo electrónico: contact@polarisdx.net"
         }
       },
       "hamburg": {
@@ -27,7 +27,7 @@
         ],
         "contact": {
           "label": "Contacto:",
-          "email": "Correo electrónico: info@polarisdx.net"
+          "email": "Correo electrónico: contact@polarisdx.net"
         }
       }
     },
@@ -105,7 +105,7 @@
           "PolarisDX Europe UG",
           "Große Bleichen 1 - 3",
           "20097 Hamburgo",
-          "Correo electrónico: info@polarisdx.net"
+          "Correo electrónico: contact@polarisdx.net"
         ]
       },
       "storage": {

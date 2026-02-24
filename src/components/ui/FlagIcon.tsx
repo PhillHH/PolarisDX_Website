@@ -19,68 +19,13 @@ const flags: Record<string, ReactNode> = {
       <path fill="#FFCE00" d="M0 320h640v160H0z" />
     </svg>
   ),
-  us: (
+  gb: (
     <svg viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
-      <path fill="#bd3d44" d="M0 0h640v480H0" />
-      <path
-        d="M0 55.3h640M0 129h640M0 203h640M0 277h640M0 351h640M0 425h640"
-        stroke="#fff"
-        strokeWidth="37"
-      />
-      <path fill="#192f5d" d="M0 0h364.8v258.5H0" />
-      <g fill="#fff">
-        {/* Vereinfachte Sterne */}
-        <circle cx="30" cy="25" r="8" />
-        <circle cx="75" cy="25" r="8" />
-        <circle cx="120" cy="25" r="8" />
-        <circle cx="165" cy="25" r="8" />
-        <circle cx="210" cy="25" r="8" />
-        <circle cx="255" cy="25" r="8" />
-        <circle cx="52" cy="50" r="8" />
-        <circle cx="97" cy="50" r="8" />
-        <circle cx="142" cy="50" r="8" />
-        <circle cx="187" cy="50" r="8" />
-        <circle cx="232" cy="50" r="8" />
-        <circle cx="30" cy="75" r="8" />
-        <circle cx="75" cy="75" r="8" />
-        <circle cx="120" cy="75" r="8" />
-        <circle cx="165" cy="75" r="8" />
-        <circle cx="210" cy="75" r="8" />
-        <circle cx="255" cy="75" r="8" />
-        <circle cx="52" cy="100" r="8" />
-        <circle cx="97" cy="100" r="8" />
-        <circle cx="142" cy="100" r="8" />
-        <circle cx="187" cy="100" r="8" />
-        <circle cx="232" cy="100" r="8" />
-        <circle cx="30" cy="125" r="8" />
-        <circle cx="75" cy="125" r="8" />
-        <circle cx="120" cy="125" r="8" />
-        <circle cx="165" cy="125" r="8" />
-        <circle cx="210" cy="125" r="8" />
-        <circle cx="255" cy="125" r="8" />
-        <circle cx="52" cy="150" r="8" />
-        <circle cx="97" cy="150" r="8" />
-        <circle cx="142" cy="150" r="8" />
-        <circle cx="187" cy="150" r="8" />
-        <circle cx="232" cy="150" r="8" />
-        <circle cx="30" cy="175" r="8" />
-        <circle cx="75" cy="175" r="8" />
-        <circle cx="120" cy="175" r="8" />
-        <circle cx="165" cy="175" r="8" />
-        <circle cx="210" cy="175" r="8" />
-        <circle cx="255" cy="175" r="8" />
-        <circle cx="52" cy="200" r="8" />
-        <circle cx="97" cy="200" r="8" />
-        <circle cx="142" cy="200" r="8" />
-        <circle cx="187" cy="200" r="8" />
-        <circle cx="232" cy="200" r="8" />
-        <circle cx="30" cy="225" r="8" />
-        <circle cx="75" cy="225" r="8" />
-        <circle cx="120" cy="225" r="8" />
-        <circle cx="165" cy="225" r="8" />
-        <circle cx="210" cy="225" r="8" />
-        <circle cx="255" cy="225" r="8" />
-      </g>
+      <path fill="#012169" d="M0 0h640v480H0z" />
+      <path fill="#fff" d="m75 0 244 181L562 0h78v62L400 241l240 178v61h-80L320 301 82 480H0v-60l239-178L0 64V0h75z" />
+      <path fill="#C8102E" d="m424 281 216 159v40L369 281h55zm-184 20 6 35L54 480H0l240-179zM640 0v3L391 191l2-44L590 0h50zM0 0l239 176h-60L0 42V0z" />
+      <path fill="#fff" d="M241 0v480h160V0H241zM0 160v160h640V160H0z" />
+      <path fill="#C8102E" d="M0 193v96h640v-96H0zM273 0v480h96V0h-96z" />
     </svg>
   ),
   pl: (

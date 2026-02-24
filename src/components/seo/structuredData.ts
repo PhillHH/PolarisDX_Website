@@ -395,7 +395,7 @@ export const localBusinessSchema = {
   image: `${BASE_URL}/favicon.png`,
   url: BASE_URL,
   telephone: '+44-7879-433019',
-  email: 'info@polarisdx.net',
+  email: 'contact@polarisdx.net',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Große Bleichen 1-3',
