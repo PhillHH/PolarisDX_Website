@@ -5,7 +5,7 @@ import FlagIcon from './FlagIcon'
 
 const languages = [
   { code: 'de', name: 'Deutsch', country_code: 'de' },
-  { code: 'en', name: 'English', country_code: 'us' },
+  { code: 'en', name: 'English', country_code: 'gb' },
   { code: 'pl', name: 'Polski', country_code: 'pl' },
   { code: 'fr', name: 'Français', country_code: 'fr' },
   { code: 'it', name: 'Italiano', country_code: 'it' },
