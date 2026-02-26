@@ -139,6 +139,7 @@ const SITEMAP_ROUTES: SitemapRoute[] = [
   // Content Hub
   { path: '/articles', priority: 0.7, changefreq: 'weekly' },
   { path: '/vitamin-d3-implantologie', priority: 0.7, changefreq: 'monthly' },
+  { path: '/s3_leitlinie', priority: 0.7, changefreq: 'monthly' },
 
   // Article Pages (6 articles from articles.ts slugs)
   { path: '/articles/die-gruene-praxis', priority: 0.6, changefreq: 'yearly' },
