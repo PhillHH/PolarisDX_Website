@@ -10,7 +10,7 @@ const PrivacyPage = () => {
     <PageTransition>
       <SEOHead
         title={t('privacy.seo.title', 'Datenschutzerklärung')}
-        description={t('privacy.seo.description', 'Datenschutzerklärung der Polaris Diagnostics Europe UG - Informationen zur Datenverarbeitung.')}
+        description={t('privacy.seo.description', 'Datenschutzerklärung der Polaris Diagnostics Europe GmbH - Informationen zur Datenverarbeitung.')}
         noindex={true}
       />
       <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-slate-50">

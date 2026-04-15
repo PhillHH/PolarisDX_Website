@@ -19,7 +19,7 @@
       },
       "hamburg": {
         "title": "Biuro w Hamburgu",
-        "company": "PolarisDX Europe UG",
+        "company": "PolarisDX Europe GmbH",
         "address": [
           "Große Bleichen 1 - 3",
           "20097 Hamburg",
@@ -40,7 +40,7 @@
       "title": "Wpis do rejestru",
       "content": [
         "Wpis do rejestru handlowego.",
-        "Sąd rejestrowy: Sąd Rejonowy w Hamburgu (dla PolarisDX Europe UG)",
+        "Sąd rejestrowy: Sąd Rejonowy w Hamburgu (dla PolarisDX Europe GmbH)",
         "Numer rejestrowy: HRB 193415"
       ]
     },
@@ -49,7 +49,7 @@
       "content": [
         "Numer identyfikacji podatkowej VAT zgodnie z §27 a ustawy o podatku od towarów i usług:",
         "[Wpisz tutaj NIP UE]",
-        "Numer podatkowy (PolarisDX Europe UG):",
+        "Numer podatkowy (PolarisDX Europe GmbH):",
         "Złożono wniosek w Finanzamt Hamburg Hansa"
       ]
     },
@@ -102,7 +102,7 @@
         "title": "Informacja o podmiocie odpowiedzialnym",
         "content": "Podmiotem odpowiedzialnym za przetwarzanie danych na tej stronie internetowej jest:",
         "address": [
-          "PolarisDX Europe UG",
+          "PolarisDX Europe GmbH",
           "Große Bleichen 1 - 3",
           "20097 Hamburg",
           "E-mail: contact@polarisdx.net"
@@ -130,14 +130,14 @@
   },
   "agb": {
     "title": "Ogólne Warunki Handlowe",
-    "subtitle": "Polaris Diagnostics Europe UG (z ograniczoną odpowiedzialnością) | Diagnostyka In-vitro | Wyroby Medyczne | Oprogramowanie i Usługi w Chmurze",
+    "subtitle": "Polaris Diagnostics Europe GmbH | Diagnostyka In-vitro | Wyroby Medyczne | Oprogramowanie i Usługi w Chmurze",
     "date": "Stan: Grudzień 2025",
     "sections": [
       {
         "id": "section-1",
         "title": "§ 1 Zakres obowiązywania",
         "content": [
-          "§ 1.1 Niniejsze Ogólne Warunki Handlowe (OWH) mają zastosowanie do wszystkich relacji biznesowych między Polaris Diagnostics Europe UG (z ograniczoną odpowiedzialnością), zwaną dalej 'Polaris', a klientem. Mają zastosowanie do sprzedaży i dostawy wyrobów medycznych do diagnostyki in-vitro (IVD), urządzeń, zestawów testowych, materiałów zużywalnych, oprogramowania i usług w chmurze.",
+          "§ 1.1 Niniejsze Ogólne Warunki Handlowe (OWH) mają zastosowanie do wszystkich relacji biznesowych między Polaris Diagnostics Europe GmbH, zwaną dalej 'Polaris', a klientem. Mają zastosowanie do sprzedaży i dostawy wyrobów medycznych do diagnostyki in-vitro (IVD), urządzeń, zestawów testowych, materiałów zużywalnych, oprogramowania i usług w chmurze.",
           "§ 1.2 OWH mają zastosowanie wyłącznie. Odmienne, sprzeczne lub uzupełniające ogólne warunki handlowe klienta stają się częścią umowy tylko wtedy, gdy Polaris wyraźnie wyraził pisemną zgodę na ich obowiązywanie.",
           "§ 1.3 OWH mają zastosowanie również do wszystkich przyszłych transakcji z klientem, o ile są to czynności prawne o pokrewnym charakterze.",
           "§ 1.4 Indywidualne porozumienia zawarte z klientem w poszczególnych przypadkach (w tym porozumienia dodatkowe, uzupełnienia i zmiany) mają w każdym przypadku pierwszeństwo przed niniejszymi OWH. Dla treści takich porozumień decydująca jest umowa pisemna lub pisemne potwierdzenie ze strony Polaris.",
@@ -205,7 +205,7 @@
         "id": "section-7",
         "title": "§ 7 Zastrzeżenie własności",
         "content": [
-          "§ 7.1 Dostarczone urządzenia (w szczególności Igloo Pro Reader), akcesoria oraz wszystkie licencje na oprogramowanie pozostają własnością Polaris Diagnostics Europe UG (z ograniczoną odpowiedzialnością) do momentu całkowitej zapłaty wszystkich otwartych roszczeń.",
+          "§ 7.1 Dostarczone urządzenia (w szczególności Igloo Pro Reader), akcesoria oraz wszystkie licencje na oprogramowanie pozostają własnością Polaris Diagnostics Europe GmbH do momentu całkowitej zapłaty wszystkich otwartych roszczeń.",
           "§ 7.2 Do momentu całkowitej zapłaty klient otrzymuje jedynie odwołalne, nieprzenoszalne prawo użytkowania urządzenia, oprogramowania i usług w chmurze.",
           "§ 7.3 Klient jest zobowiązany do dbania o towar zastrzeżony i odpowiedniego ubezpieczenia go od ognia, wody i kradzieży. Prace konserwacyjne i inspekcyjne muszą być przeprowadzane terminowo.",
           "§ 7.4 W przypadku zajęcia lub innych interwencji osób trzecich klient musi niezwłocznie powiadomić Polaris na piśmie i wskazać na własność Polaris.",

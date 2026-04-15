@@ -19,7 +19,7 @@ const ImprintPage = () => {
     <PageTransition>
       <SEOHead
         title={t('imprint.seo.title', 'Impressum')}
-        description={t('imprint.seo.description', 'Impressum der Polaris Diagnostics Europe UG - Kontakt und rechtliche Informationen.')}
+        description={t('imprint.seo.description', 'Impressum der Polaris Diagnostics Europe GmbH - Kontakt und rechtliche Informationen.')}
         noindex={true}
       />
       <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-slate-50">

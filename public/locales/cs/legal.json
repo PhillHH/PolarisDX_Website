@@ -19,7 +19,7 @@
       },
       "hamburg": {
         "title": "Kancelář v Hamburku",
-        "company": "PolarisDX Europe UG",
+        "company": "PolarisDX Europe GmbH",
         "address": [
           "Große Bleichen 1 - 3",
           "20097 Hamburk",
@@ -40,7 +40,7 @@
       "title": "Zápis v rejstříku",
       "content": [
         "Zápis v obchodním rejstříku.",
-        "Rejstříkový soud: Okresní soud Hamburk (pro PolarisDX Europe UG)",
+        "Rejstříkový soud: Okresní soud Hamburk (pro PolarisDX Europe GmbH)",
         "Registrační číslo: HRB 193415"
       ]
     },
@@ -49,7 +49,7 @@
       "content": [
         "Daňové identifikační číslo podle § 27 a zákona o dani z přidané hodnoty:",
         "[Zde vložte DIČ]",
-        "Daňové číslo (PolarisDX Europe UG):",
+        "Daňové číslo (PolarisDX Europe GmbH):",
         "Zažádáno u Finanzamt Hamburg Hansa"
       ]
     },
@@ -102,7 +102,7 @@
         "title": "Poznámka k odpovědnému orgánu",
         "content": "Odpovědným orgánem pro zpracování údajů na této webové stránce je:",
         "address": [
-          "PolarisDX Europe UG",
+          "PolarisDX Europe GmbH",
           "Große Bleichen 1 - 3",
           "20097 Hamburk",
           "E-mail: contact@polarisdx.net"
@@ -130,14 +130,14 @@
   },
   "agb": {
     "title": "Všeobecné obchodní podmínky",
-    "subtitle": "Polaris Diagnostics Europe UG (s ručením omezeným) | In-vitro diagnostika | Zdravotnické prostředky | Software a cloudové služby",
+    "subtitle": "Polaris Diagnostics Europe GmbH | In-vitro diagnostika | Zdravotnické prostředky | Software a cloudové služby",
     "date": "Stav: Prosinec 2025",
     "sections": [
       {
         "id": "section-1",
         "title": "§ 1 Rozsah platnosti",
         "content": [
-          "§ 1.1 Tyto Všeobecné obchodní podmínky (VOP) platí pro všechny obchodní vztahy mezi společností Polaris Diagnostics Europe UG (s ručením omezeným), dále jen 'Polaris', a zákazníkem. Platí pro prodej a dodávku zdravotnických prostředků in-vitro diagnostiky (IVD), přístrojů, testovacích souprav, spotřebního materiálu, softwaru a cloudových služeb.",
+          "§ 1.1 Tyto Všeobecné obchodní podmínky (VOP) platí pro všechny obchodní vztahy mezi společností Polaris Diagnostics Europe GmbH, dále jen 'Polaris', a zákazníkem. Platí pro prodej a dodávku zdravotnických prostředků in-vitro diagnostiky (IVD), přístrojů, testovacích souprav, spotřebního materiálu, softwaru a cloudových služeb.",
           "§ 1.2 VOP platí výlučně. Odlišné, protichůdné nebo doplňující všeobecné obchodní podmínky zákazníka se stávají součástí smlouvy pouze tehdy, pokud Polaris s jejich platností výslovně písemně souhlasil.",
           "§ 1.3 VOP platí také pro všechny budoucí obchody se zákazníkem, pokud se jedná o právní úkony související povahy.",
           "§ 1.4 Individuální dohody uzavřené se zákazníkem v jednotlivých případech (včetně vedlejších ujednání, doplňků a změn) mají v každém případě přednost před těmito VOP. Pro obsah takových dohod je rozhodující písemná smlouva, resp. písemné potvrzení ze strany Polaris.",
@@ -205,7 +205,7 @@
         "id": "section-7",
         "title": "§ 7 Výhrada vlastnictví",
         "content": [
-          "§ 7.1 Dodané přístroje (zejména Igloo Pro Reader), příslušenství a veškeré softwarové licence zůstávají ve vlastnictví Polaris Diagnostics Europe UG (s ručením omezeným) až do úplného zaplacení všech otevřených pohledávek.",
+          "§ 7.1 Dodané přístroje (zejména Igloo Pro Reader), příslušenství a veškeré softwarové licence zůstávají ve vlastnictví Polaris Diagnostics Europe GmbH až do úplného zaplacení všech otevřených pohledávek.",
           "§ 7.2 Do úplného zaplacení obdrží zákazník pouze odvolatelné, nepřenosné užívací právo k přístroji, softwaru a cloudovým službám.",
           "§ 7.3 Zákazník je povinen zacházet se zbožím s výhradou vlastnictví šetrně a dostatečně jej pojistit proti ohni, vodě a krádeži. Údržbové a inspekční práce musí být prováděny včas.",
           "§ 7.4 V případě zabavení nebo jiných zásahů třetích stran musí zákazník neprodleně písemně informovat Polaris a upozornit na vlastnictví Polaris.",

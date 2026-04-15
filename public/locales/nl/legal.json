@@ -19,7 +19,7 @@
       },
       "hamburg": {
         "title": "Kantoor Hamburg",
-        "company": "PolarisDX Europe UG",
+        "company": "PolarisDX Europe GmbH",
         "address": [
           "Große Bleichen 1 - 3",
           "20097 Hamburg",
@@ -40,7 +40,7 @@
       "title": "Registerinschrijving",
       "content": [
         "Inschrijving in het handelsregister.",
-        "Registerrechtbank: Kantongerecht Hamburg (voor PolarisDX Europe UG)",
+        "Registerrechtbank: Kantongerecht Hamburg (voor PolarisDX Europe GmbH)",
         "Registernummer: HRB 193415"
       ]
     },
@@ -49,7 +49,7 @@
       "content": [
         "Btw-identificatienummer volgens §27 a van de Wet op de omzetbelasting:",
         "[Voeg hier btw-ID in]",
-        "Belastingnummer (PolarisDX Europe UG):",
+        "Belastingnummer (PolarisDX Europe GmbH):",
         "Aangevraagd bij het Finanzamt Hamburg Hansa"
       ]
     },
@@ -102,7 +102,7 @@
         "title": "Opmerking over de verantwoordelijke instantie",
         "content": "De verantwoordelijke instantie voor de gegevensverwerking op deze website is:",
         "address": [
-          "PolarisDX Europe UG",
+          "PolarisDX Europe GmbH",
           "Große Bleichen 1 - 3",
           "20097 Hamburg",
           "E-mail: contact@polarisdx.net"
@@ -130,14 +130,14 @@
   },
   "agb": {
     "title": "Algemene Voorwaarden",
-    "subtitle": "Polaris Diagnostics Europe UG (beperkte aansprakelijkheid) | In-vitro-diagnostiek | Medische hulpmiddelen | Software & Cloud-diensten",
+    "subtitle": "Polaris Diagnostics Europe GmbH | In-vitro-diagnostiek | Medische hulpmiddelen | Software & Cloud-diensten",
     "date": "Status: December 2025",
     "sections": [
       {
         "id": "section-1",
         "title": "§ 1 Werkingssfeer",
         "content": [
-          "§ 1.1 Deze Algemene Voorwaarden (AV) zijn van toepassing op alle zakelijke relaties tussen Polaris Diagnostics Europe UG (beperkte aansprakelijkheid), hierna 'Polaris' genoemd, en de klant. Ze zijn van toepassing op de verkoop en levering van in-vitro-diagnostiek medische hulpmiddelen (IVD), apparatuur, testkits, verbruiksartikelen, software en cloud-diensten.",
+          "§ 1.1 Deze Algemene Voorwaarden (AV) zijn van toepassing op alle zakelijke relaties tussen Polaris Diagnostics Europe GmbH, hierna 'Polaris' genoemd, en de klant. Ze zijn van toepassing op de verkoop en levering van in-vitro-diagnostiek medische hulpmiddelen (IVD), apparatuur, testkits, verbruiksartikelen, software en cloud-diensten.",
           "§ 1.2 De AV zijn uitsluitend van toepassing. Afwijkende, tegenstrijdige of aanvullende algemene voorwaarden van de klant worden alleen onderdeel van het contract als Polaris uitdrukkelijk schriftelijk heeft ingestemd met de geldigheid ervan.",
           "§ 1.3 De AV zijn ook van toepassing op alle toekomstige zaken met de klant, voor zover het rechtshandelingen van verwante aard betreft.",
           "§ 1.4 In individuele gevallen gemaakte individuele afspraken met de klant (inclusief nevenafspraken, aanvullingen en wijzigingen) hebben in elk geval voorrang op deze AV. Voor de inhoud van dergelijke afspraken is een schriftelijk contract of de schriftelijke bevestiging van Polaris doorslaggevend.",
@@ -205,7 +205,7 @@
         "id": "section-7",
         "title": "§ 7 Eigendomsvoorbehoud",
         "content": [
-          "§ 7.1 De geleverde apparaten (met name Igloo Pro Reader), accessoires en alle softwarelicenties blijven eigendom van Polaris Diagnostics Europe UG (beperkte aansprakelijkheid) totdat alle openstaande vorderingen volledig zijn betaald.",
+          "§ 7.1 De geleverde apparaten (met name Igloo Pro Reader), accessoires en alle softwarelicenties blijven eigendom van Polaris Diagnostics Europe GmbH totdat alle openstaande vorderingen volledig zijn betaald.",
           "§ 7.2 Tot volledige betaling ontvangt de klant slechts een herroepelijk, niet-overdraagbaar gebruiksrecht voor het apparaat, de software en cloud-diensten.",
           "§ 7.3 De klant is verplicht om de goederen onder eigendomsvoorbehoud met zorg te behandelen en ze adequaat te verzekeren tegen brand, water en diefstal. Onderhouds- en inspectiewerkzaamheden moeten tijdig worden uitgevoerd.",
           "§ 7.4 In geval van inbeslagnames of andere interventies door derden, moet de klant Polaris onmiddellijk schriftelijk op de hoogte stellen en wijzen op het eigendom van Polaris.",

@@ -2,14 +2,14 @@ import type { AgbData } from '../types'
 
 export const agbData: AgbData = {
   title: "Allgemeine Geschaeftsbedingungen",
-  subtitle: "Polaris Diagnostics Europe UG (haftungsbeschraenkt) | In-vitro-Diagnostik | Medizinprodukte | Software & Cloud-Dienste",
+  subtitle: "Polaris Diagnostics Europe GmbH | In-vitro-Diagnostik | Medizinprodukte | Software & Cloud-Dienste",
   date: "Stand: Dezember 2025",
   sections: [
     {
       id: "section-1",
       title: "§ 1 Geltungsbereich",
       content: [
-        "§ 1.1 Diese Allgemeinen Geschaeftsbedingungen (AGB) gelten fuer alle Geschaeftsbeziehungen zwischen der Polaris Diagnostics Europe UG (haftungsbeschraenkt), nachfolgend 'Polaris' genannt, und dem Kunden. Sie gelten fuer den Verkauf und die Lieferung von In-vitro-Diagnostik-Medizinprodukten (IVD), Geraeten, Testkits, Verbrauchsmaterialien, Software und Cloud-Diensten.",
+        "§ 1.1 Diese Allgemeinen Geschaeftsbedingungen (AGB) gelten fuer alle Geschaeftsbeziehungen zwischen der Polaris Diagnostics Europe GmbH, nachfolgend 'Polaris' genannt, und dem Kunden. Sie gelten fuer den Verkauf und die Lieferung von In-vitro-Diagnostik-Medizinprodukten (IVD), Geraeten, Testkits, Verbrauchsmaterialien, Software und Cloud-Diensten.",
         "§ 1.2 Die AGB gelten ausschliesslich. Abweichende, entgegenstehende oder ergaenzende Allgemeine Geschaeftsbedingungen des Kunden werden nur dann Vertragsbestandteil, wenn Polaris ihrer Geltung ausdruecklich schriftlich zugestimmt hat.",
         "§ 1.3 Die AGB gelten auch fuer alle zukuenftigen Geschaefte mit dem Kunden, soweit es sich um Rechtsgeschaefte verwandter Art handelt.",
         "§ 1.4 Im Einzelfall getroffene, individuelle Vereinbarungen mit dem Kunden (einschliesslich Nebenabreden, Ergaenzungen und Aenderungen) haben in jedem Fall Vorrang vor diesen AGB. Fuer den Inhalt derartiger Vereinbarungen ist ein schriftlicher Vertrag bzw. die schriftliche Bestaetigung durch Polaris massgebend.",
@@ -77,7 +77,7 @@ export const agbData: AgbData = {
       id: "section-7",
       title: "§ 7 Eigentumsvorbehalt",
       content: [
-        "§ 7.1 Die gelieferten Geraete (insbesondere Igloo Pro Reader), Zubehoerteile sowie saemtliche Software-Lizenzen bleiben bis zur vollstaendigen Bezahlung aller offenen Forderungen im Eigentum der Polaris Diagnostics Europe UG (haftungsbeschraenkt).",
+        "§ 7.1 Die gelieferten Geraete (insbesondere Igloo Pro Reader), Zubehoerteile sowie saemtliche Software-Lizenzen bleiben bis zur vollstaendigen Bezahlung aller offenen Forderungen im Eigentum der Polaris Diagnostics Europe GmbH.",
         "§ 7.2 Bis zur vollstaendigen Zahlung erhaelt der Kunde lediglich ein widerrufliches, nicht uebertragbares Nutzungsrecht an Geraet, Software und Cloud-Diensten.",
         "§ 7.3 Der Kunde ist verpflichtet, die Vorbehaltsware pfleglich zu behandeln und gegen Feuer, Wasser und Diebstahl ausreichend zu versichern. Wartungs- und Inspektionsarbeiten sind rechtzeitig durchzufuehren.",
         "§ 7.4 Bei Pfaendungen oder sonstigen Eingriffen Dritter hat der Kunde Polaris unverzueglich schriftlich zu benachrichtigen und auf das Eigentum von Polaris hinzuweisen.",

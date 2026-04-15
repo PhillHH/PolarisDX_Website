@@ -79,6 +79,8 @@ export interface Event {
   location: string
   description?: string
   link?: string
+  partner?: string
+  tag?: string
 }
 
 export interface Testimonial {

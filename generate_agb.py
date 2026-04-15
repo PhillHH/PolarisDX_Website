@@ -1,11 +1,11 @@
 import re
 
 raw_text = """Allgemeine Geschaeftsbedingungen
-Polaris Diagnostics Europe UG (haftungsbeschraenkt)
+Polaris Diagnostics Europe GmbH
 In-vitro-Diagnostik | Medizinprodukte | Software & Cloud-Dienste
 Stand: Dezember 2025
 § 1 Geltungsbereich
-§ 1.1 Diese Allgemeinen Geschaeftsbedingungen (AGB) gelten fuer alle Geschaeftsbeziehungen zwischen der Polaris Diagnostics Europe UG (haftungsbeschraenkt), nachfolgend 'Polaris' genannt, und dem Kunden. Sie gelten fuer den Verkauf und die Lieferung von In-vitro-Diagnostik-Medizinprodukten (IVD), Geraeten, Testkits, Verbrauchsmaterialien, Software und Cloud-Diensten.
+§ 1.1 Diese Allgemeinen Geschaeftsbedingungen (AGB) gelten fuer alle Geschaeftsbeziehungen zwischen der Polaris Diagnostics Europe GmbH, nachfolgend 'Polaris' genannt, und dem Kunden. Sie gelten fuer den Verkauf und die Lieferung von In-vitro-Diagnostik-Medizinprodukten (IVD), Geraeten, Testkits, Verbrauchsmaterialien, Software und Cloud-Diensten.
 § 1.2 Die AGB gelten ausschliesslich. Abweichende, entgegenstehende oder ergaenzende Allgemeine Geschaeftsbedingungen des Kunden werden nur dann Vertragsbestandteil, wenn Polaris ihrer Geltung ausdruecklich schriftlich zugestimmt hat.
 § 1.3 Die AGB gelten auch fuer alle zukuenftigen Geschaefte mit dem Kunden, soweit es sich um Rechtsgeschaefte verwandter Art handelt.
 § 1.4 Im Einzelfall getroffene, individuelle Vereinbarungen mit dem Kunden (einschliesslich Nebenabreden, Ergaenzungen und Aenderungen) haben in jedem Fall Vorrang vor diesen AGB. Fuer den Inhalt derartiger Vereinbarungen ist ein schriftlicher Vertrag bzw. die schriftliche Bestaetigung durch Polaris massgebend.
@@ -43,7 +43,7 @@ Stand: Dezember 2025
 § 6.4 Polaris haftet nicht fuer Schaeden, die durch fehlerhafte diagnostische Entscheidungen entstehen, sofern das Produkt ordnungsgemaess funktioniert hat. Die Verantwortung fuer die klinische Interpretation diagnostischer Ergebnisse liegt allein beim medizinischen Fachpersonal.
 § 6.5 Die vorstehenden Haftungsausschluesse und -beschraenkungen gelten auch zugunsten der gesetzlichen Vertreter, Mitarbeiter und Erfuellungsgehilfen von Polaris.
 § 7 Eigentumsvorbehalt
-§ 7.1 Die gelieferten Geraete (insbesondere Igloo Pro Reader), Zubehoerteile sowie saemtliche Software-Lizenzen bleiben bis zur vollstaendigen Bezahlung aller offenen Forderungen im Eigentum der Polaris Diagnostics Europe UG (haftungsbeschraenkt).
+§ 7.1 Die gelieferten Geraete (insbesondere Igloo Pro Reader), Zubehoerteile sowie saemtliche Software-Lizenzen bleiben bis zur vollstaendigen Bezahlung aller offenen Forderungen im Eigentum der Polaris Diagnostics Europe GmbH.
 § 7.2 Bis zur vollstaendigen Zahlung erhaelt der Kunde lediglich ein widerrufliches, nicht uebertragbares Nutzungsrecht an Geraet, Software und Cloud-Diensten.
 § 7.3 Der Kunde ist verpflichtet, die Vorbehaltsware pfleglich zu behandeln und gegen Feuer, Wasser und Diebstahl ausreichend zu versichern. Wartungs- und Inspektionsarbeiten sind rechtzeitig durchzufuehren.
 § 7.4 Bei Pfaendungen oder sonstigen Eingriffen Dritter hat der Kunde Polaris unverzueglich schriftlich zu benachrichtigen und auf das Eigentum von Polaris hinzuweisen.
@@ -144,7 +144,7 @@ Stand: Dezember 2025
 § 25.5 Die deutsche Fassung dieser AGB ist massgeblich. Uebersetzungen dienen nur der Information und begruenden keine eigenen Rechte.
 
 ---
-Polaris Diagnostics Europe UG (haftungsbeschraenkt)
+Polaris Diagnostics Europe GmbH
 www.polarisdx.net
 Stand: Dezember 2025 | Gerichtsstand: Deutschland
 """
