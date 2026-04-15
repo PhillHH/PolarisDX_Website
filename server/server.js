@@ -11,7 +11,7 @@ app.use(cors({
   methods: ['POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type']
 }));
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));
 
 // Validation of required environment variables
 const requiredEnvVars = ['SENDGRID_API_KEY', 'CONTACT_RECEIVER', 'SENDER_EMAIL'];
@@ -44,9 +44,14 @@ app.post('/api/contact', async (req, res) => {
       return res.status(400).json({ error: 'Name, email, and message are required.' });
     }
 
+    // Route Vitamin D3+K2 Spray orders to dedicated address
+    const SPRAY_ORDER_RECIPIENT = 'ulrikes@polarisdx.net';
+    const isSprayOrder = area && area.includes('Vitamin D3+K2 Spray BESTELLUNG');
+    const recipient = isSprayOrder ? SPRAY_ORDER_RECIPIENT : process.env.CONTACT_RECEIVER;
+
     // Email content construction
     const msg = {
-      to: process.env.CONTACT_RECEIVER,
+      to: recipient,
       from: process.env.SENDER_EMAIL, // Must be a verified sender in SendGrid
       replyTo: email,
       subject: `Neue Kontaktanfrage von ${name}`,
@@ -87,6 +92,126 @@ app.post('/api/contact', async (req, res) => {
       console.error(error.response.body);
     }
     res.status(500).json({ success: false, error: 'Failed to send email' });
+  }
+});
+
+// Support API Endpoint
+app.post('/api/support', async (req, res) => {
+  try {
+    const {
+      name,
+      email,
+      udi,
+      swVersion,
+      issueType,
+      subject,
+      description,
+      attachment
+    } = req.body;
+
+    // Basic validation
+    if (!name || !email || !udi || !swVersion || !issueType || !subject) {
+      return res.status(400).json({ error: 'Required fields are missing.' });
+    }
+
+    const supportText = `
+Neue Support-Anfrage über das Webseiten-Formular:
+
+Name: ${name}
+Email: ${email}
+Igloo Reader UDI: ${udi}
+SW-Version: ${swVersion}
+Problemtyp: ${issueType}
+Betreff: ${subject}
+
+Beschreibung:
+${description || '-'}
+    `;
+
+    const supportHtml = `
+<h3>Neue Support-Anfrage</h3>
+<table style="border-collapse: collapse; width: 100%; max-width: 600px;">
+  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold; width: 180px;">Name:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${name}</td></tr>
+  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Email:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${email}</td></tr>
+  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Igloo Reader UDI:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${udi}</td></tr>
+  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">SW-Version:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${swVersion}</td></tr>
+  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Problemtyp:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${issueType}</td></tr>
+  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Betreff:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${subject}</td></tr>
+</table>
+<br>
+<p><strong>Beschreibung:</strong></p>
+<p>${(description || '-').replace(/\n/g, '<br>')}</p>
+    `;
+
+    // Internal notification email to support team (High Priority)
+    const msg = {
+      to: [
+        process.env.CONTACT_RECEIVER,
+        'ulrikes@polarisdx.net',
+        'adrianoz@polarisdx.net',
+        'phillipr@polarisdx.net'
+      ],
+      from: process.env.SENDER_EMAIL,
+      replyTo: email,
+      subject: `[HIGH PRIORITY] Support-Anfrage: ${subject}`,
+      text: supportText,
+      html: supportHtml,
+      headers: {
+        'X-Priority': '1',
+        'X-MSMail-Priority': 'High',
+        'Importance': 'high'
+      }
+    };
+
+    // Add attachment if present
+    if (attachment && attachment.content && attachment.filename) {
+      msg.attachments = [{
+        content: attachment.content,
+        filename: attachment.filename,
+        type: attachment.type || 'application/octet-stream',
+        disposition: 'attachment'
+      }];
+    }
+
+    // Confirmation email to the sender
+    const confirmationMsg = {
+      to: email,
+      from: process.env.SENDER_EMAIL,
+      subject: `Ihre Support-Anfrage wurde empfangen: ${subject}`,
+      text: `Hallo ${name},\n\nvielen Dank für Ihre Support-Anfrage. Wir haben Ihre Nachricht erhalten und werden uns schnellstmöglich bei Ihnen melden.\n\nIhre Angaben:\n- Igloo Reader UDI: ${udi}\n- SW-Version: ${swVersion}\n- Problemtyp: ${issueType}\n- Betreff: ${subject}\n\nMit freundlichen Grüßen,\nDas PolarisDX Support-Team\ncontact@polarisdx.net\n+49 151 75011699`,
+      html: `
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+  <h2 style="color: #083358;">Ihre Support-Anfrage wurde empfangen</h2>
+  <p>Hallo ${name},</p>
+  <p>vielen Dank für Ihre Support-Anfrage. Wir haben Ihre Nachricht erhalten und werden uns schnellstmöglich bei Ihnen melden.</p>
+  <h3 style="color: #083358; margin-top: 24px;">Ihre Angaben:</h3>
+  <table style="border-collapse: collapse; width: 100%; max-width: 500px;">
+    <tr><td style="padding: 6px 8px; border-bottom: 1px solid #eee; font-weight: bold;">Igloo Reader UDI:</td><td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${udi}</td></tr>
+    <tr><td style="padding: 6px 8px; border-bottom: 1px solid #eee; font-weight: bold;">SW-Version:</td><td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${swVersion}</td></tr>
+    <tr><td style="padding: 6px 8px; border-bottom: 1px solid #eee; font-weight: bold;">Problemtyp:</td><td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${issueType}</td></tr>
+    <tr><td style="padding: 6px 8px; border-bottom: 1px solid #eee; font-weight: bold;">Betreff:</td><td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${subject}</td></tr>
+  </table>
+  <p style="margin-top: 24px;">Mit freundlichen Grüßen,<br><strong>Das PolarisDX Support-Team</strong></p>
+  <p style="color: #666; font-size: 13px;">contact@polarisdx.net | +49 151 75011699</p>
+</div>
+      `
+    };
+
+    // Send both emails
+    await Promise.all([
+      sgMail.send(msg),
+      sgMail.send(confirmationMsg)
+    ]);
+    console.log('Support emails sent successfully (team + confirmation)');
+
+    res.status(200).json({ success: true });
+
+  } catch (error) {
+    console.error('Error sending support email:', error);
+    if (error.response) {
+      console.error(error.response.body);
+    }
+    res.status(500).json({ success: false, error: 'Failed to send support email' });
   }
 });
 

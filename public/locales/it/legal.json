@@ -19,7 +19,7 @@
       },
       "hamburg": {
         "title": "Ufficio di Amburgo",
-        "company": "PolarisDX Europe UG",
+        "company": "PolarisDX Europe GmbH",
         "address": [
           "Große Bleichen 1 - 3",
           "20097 Amburgo",
@@ -40,7 +40,7 @@
       "title": "Iscrizione al registro",
       "content": [
         "Iscrizione nel registro di commercio.",
-        "Tribunale di registrazione: Pretura di Amburgo (per PolarisDX Europe UG)",
+        "Tribunale di registrazione: Pretura di Amburgo (per PolarisDX Europe GmbH)",
         "Numero di registrazione: HRB 193415"
       ]
     },
@@ -49,7 +49,7 @@
       "content": [
         "Numero di identificazione IVA secondo il §27 a della legge sull'imposta sul valore aggiunto:",
         "[Inserire qui la partita IVA]",
-        "Codice fiscale (PolarisDX Europe UG):",
+        "Codice fiscale (PolarisDX Europe GmbH):",
         "Richiesto presso il Finanzamt Hamburg Hansa"
       ]
     },
@@ -102,7 +102,7 @@
         "title": "Nota sull'ente responsabile",
         "content": "L'ente responsabile del trattamento dei dati su questo sito web è:",
         "address": [
-          "PolarisDX Europe UG",
+          "PolarisDX Europe GmbH",
           "Große Bleichen 1 - 3",
           "20097 Amburgo",
           "E-mail: contact@polarisdx.net"
@@ -130,14 +130,14 @@
   },
   "agb": {
     "title": "Condizioni Generali di Contratto",
-    "subtitle": "Polaris Diagnostics Europe UG (responsabilità limitata) | Diagnostica In-vitro | Dispositivi Medici | Software & Servizi Cloud",
+    "subtitle": "Polaris Diagnostics Europe GmbH | Diagnostica In-vitro | Dispositivi Medici | Software & Servizi Cloud",
     "date": "Stato: Dicembre 2025",
     "sections": [
       {
         "id": "section-1",
         "title": "§ 1 Ambito di applicazione",
         "content": [
-          "§ 1.1 Queste Condizioni Generali di Contratto (CGC) si applicano a tutte le relazioni commerciali tra Polaris Diagnostics Europe UG (responsabilità limitata), di seguito denominata 'Polaris', e il cliente. Si applicano alla vendita e alla consegna di dispositivi medici diagnostici in-vitro (IVD), apparecchiature, kit di test, materiali di consumo, software e servizi cloud.",
+          "§ 1.1 Queste Condizioni Generali di Contratto (CGC) si applicano a tutte le relazioni commerciali tra Polaris Diagnostics Europe GmbH, di seguito denominata 'Polaris', e il cliente. Si applicano alla vendita e alla consegna di dispositivi medici diagnostici in-vitro (IVD), apparecchiature, kit di test, materiali di consumo, software e servizi cloud.",
           "§ 1.2 Le CGC si applicano esclusivamente. Condizioni generali del cliente divergenti, contrastanti o supplementari diventano parte del contratto solo se Polaris ha espressamente accettato la loro validità per iscritto.",
           "§ 1.3 Le CGC si applicano anche a tutti i futuri affari con il cliente, nella misura in cui si tratta di negozi giuridici di natura correlata.",
           "§ 1.4 Accordi individuali conclusi con il cliente in singoli casi (inclusi accordi collaterali, supplementi e modifiche) hanno in ogni caso la precedenza su queste CGC. Un contratto scritto o la conferma scritta di Polaris è decisiva per il contenuto di tali accordi.",
@@ -205,7 +205,7 @@
         "id": "section-7",
         "title": "§ 7 Riserva di proprietà",
         "content": [
-          "§ 7.1 I dispositivi consegnati (in particolare Igloo Pro Reader), gli accessori e tutte le licenze software rimangono di proprietà di Polaris Diagnostics Europe UG (responsabilità limitata) fino al completo pagamento di tutti i crediti in sospeso.",
+          "§ 7.1 I dispositivi consegnati (in particolare Igloo Pro Reader), gli accessori e tutte le licenze software rimangono di proprietà di Polaris Diagnostics Europe GmbH fino al completo pagamento di tutti i crediti in sospeso.",
           "§ 7.2 Fino al completo pagamento, il cliente riceve solo un diritto d'uso revocabile e non trasferibile per il dispositivo, il software e i servizi cloud.",
           "§ 7.3 Il cliente è obbligato a trattare la merce soggetta a riserva di proprietà con cura e ad assicurarla adeguatamente contro incendio, acqua e furto. I lavori di manutenzione e ispezione devono essere eseguiti in tempo.",
           "§ 7.4 In caso di pignoramenti o altri interventi di terzi, il cliente deve informare immediatamente Polaris per iscritto e segnalare la proprietà di Polaris.",

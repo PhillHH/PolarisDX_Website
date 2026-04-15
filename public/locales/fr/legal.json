@@ -19,7 +19,7 @@
       },
       "hamburg": {
         "title": "Bureau de Hambourg",
-        "company": "PolarisDX Europe UG",
+        "company": "PolarisDX Europe GmbH",
         "address": [
           "Große Bleichen 1 - 3",
           "20097 Hambourg",
@@ -40,7 +40,7 @@
       "title": "Inscription au registre",
       "content": [
         "Inscription au registre du commerce.",
-        "Tribunal d'enregistrement : Tribunal d'instance de Hambourg (pour PolarisDX Europe UG)",
+        "Tribunal d'enregistrement : Tribunal d'instance de Hambourg (pour PolarisDX Europe GmbH)",
         "Numéro d’enregistrement : HRB 193415"
       ]
     },
@@ -49,7 +49,7 @@
       "content": [
         "Numéro d'identification de TVA selon le § 27 a de la loi sur la taxe sur la valeur ajoutée :",
         "[Insérer le numéro de TVA ici]",
-        "Numéro fiscal (PolarisDX Europe UG) :",
+        "Numéro fiscal (PolarisDX Europe GmbH) :",
         "Demandé auprès du Finanzamt Hamburg Hansa"
       ]
     },
@@ -102,7 +102,7 @@
         "title": "Remarque sur l'organisme responsable",
         "content": "L'organisme responsable du traitement des données sur ce site web est :",
         "address": [
-          "PolarisDX Europe UG",
+          "PolarisDX Europe GmbH",
           "Große Bleichen 1 - 3",
           "20097 Hambourg",
           "E-mail : contact@polarisdx.net"
@@ -130,14 +130,14 @@
   },
   "agb": {
     "title": "Conditions Générales de Vente",
-    "subtitle": "Polaris Diagnostics Europe UG (responsabilité limitée) | Diagnostic In-vitro | Dispositifs Médicaux | Logiciels & Services Cloud",
+    "subtitle": "Polaris Diagnostics Europe GmbH | Diagnostic In-vitro | Dispositifs Médicaux | Logiciels & Services Cloud",
     "date": "État : Décembre 2025",
     "sections": [
       {
         "id": "section-1",
         "title": "§ 1 Champ d'application",
         "content": [
-          "§ 1.1 Ces Conditions Générales de Vente (CGV) s'appliquent à toutes les relations commerciales entre Polaris Diagnostics Europe UG (responsabilité limitée), ci-après dénommée 'Polaris', et le client. Elles s'appliquent à la vente et à la livraison de dispositifs médicaux de diagnostic in-vitro (IVD), d'appareils, de kits de test, de consommables, de logiciels et de services cloud.",
+          "§ 1.1 Ces Conditions Générales de Vente (CGV) s'appliquent à toutes les relations commerciales entre Polaris Diagnostics Europe GmbH, ci-après dénommée 'Polaris', et le client. Elles s'appliquent à la vente et à la livraison de dispositifs médicaux de diagnostic in-vitro (IVD), d'appareils, de kits de test, de consommables, de logiciels et de services cloud.",
           "§ 1.2 Les CGV s'appliquent exclusivement. Les conditions générales du client divergentes, contraires ou complémentaires ne font partie du contrat que si Polaris a expressément accepté leur validité par écrit.",
           "§ 1.3 Les CGV s'appliquent également à toutes les futures affaires avec le client, dans la mesure où il s'agit d'actes juridiques de nature connexe.",
           "§ 1.4 Les accords individuels conclus avec le client dans des cas particuliers (y compris les accords annexes, les suppléments et les modifications) ont en tout état de cause la priorité sur ces CGV. Un contrat écrit ou la confirmation écrite de Polaris fait foi pour le contenu de tels accords.",
@@ -205,7 +205,7 @@
         "id": "section-7",
         "title": "§ 7 Réserve de propriété",
         "content": [
-          "§ 7.1 Les appareils livrés (notamment Igloo Pro Reader), les accessoires ainsi que toutes les licences logicielles restent la propriété de Polaris Diagnostics Europe UG (responsabilité limitée) jusqu'au paiement intégral de toutes les créances en souffrance.",
+          "§ 7.1 Les appareils livrés (notamment Igloo Pro Reader), les accessoires ainsi que toutes les licences logicielles restent la propriété de Polaris Diagnostics Europe GmbH jusqu'au paiement intégral de toutes les créances en souffrance.",
           "§ 7.2 Jusqu'au paiement intégral, le client ne reçoit qu'un droit d'utilisation révocable et non transférable pour l'appareil, le logiciel et les services cloud.",
           "§ 7.3 Le client est tenu de traiter la marchandise sous réserve de propriété avec soin et de l'assurer adéquatement contre l'incendie, l'eau et le vol. Les travaux de maintenance et d'inspection doivent être effectués à temps.",
           "§ 7.4 En cas de saisies ou d'autres interventions de tiers, le client doit en informer Polaris immédiatement par écrit et signaler la propriété de Polaris.",

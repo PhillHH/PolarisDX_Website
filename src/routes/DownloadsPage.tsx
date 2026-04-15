@@ -8,10 +8,9 @@ import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 
 // Import documents directly to get the hashed URL from Vite
-import PriceListDE from '../assets/downloads/Polaris Price List A4_ €_DE 18.09.25.pdf'
-import PriceListEN from '../assets/downloads/Polaris Price List A4_€_EN 23.06.25.pdf'
-import PriceListGBP from '../assets/downloads/PolarixDX Price List A5_£_EN 202507.pdf'
 import IglooProSystemFlyerDE from '../assets/downloads/igloo-pro-flyer.pdf'
+import VitaminD3SprayFlyerDE from '../assets/downloads/Polaris Vitamin D Spray  A4zuA5_DE_2025-01-20.pdf'
+import VitaminD3SprayFlyerEN from '../assets/downloads/Polaris Vitamin D Spray  A4zuA5_EN(8).pdf'
 
 type DownloadItem = {
   id: string
@@ -26,33 +25,6 @@ type DownloadItem = {
 const DownloadsPage = () => {
   const { t } = useTranslation(['downloads', 'common'])
 
-  const priceLists: DownloadItem[] = [
-    {
-      id: 'pl-de',
-      title: 'Polaris Preisliste (DE)',
-      size: '210 KB',
-      format: 'PDF',
-      date: '2025-09-18',
-      url: PriceListDE,
-    },
-    {
-      id: 'pl-en',
-      title: 'Polaris Price List (EU)',
-      size: '280 KB',
-      format: 'PDF',
-      date: '2025-06-23',
-      url: PriceListEN,
-    },
-    {
-      id: 'pl-gbp',
-      title: 'PolarisDX Price List (UK)',
-      size: '205 KB',
-      format: 'PDF',
-      date: '2025-07-01',
-      url: PriceListGBP,
-    },
-  ]
-
   const techBrochures: DownloadItem[] = []
   const infoMaterials: DownloadItem[] = [
     {
@@ -61,6 +33,22 @@ const DownloadsPage = () => {
       size: '3.5 MB',
       format: 'PDF',
       url: IglooProSystemFlyerDE,
+      openInBrowser: true,
+    },
+    {
+      id: 'im-vitd3-spray-de',
+      title: 'Vitamin D3+K2 Spray – Produktflyer (DE)',
+      size: '1.2 MB',
+      format: 'PDF',
+      url: VitaminD3SprayFlyerDE,
+      openInBrowser: true,
+    },
+    {
+      id: 'im-vitd3-spray-en',
+      title: 'Vitamin D3+K2 Spray – Product Flyer (EN)',
+      size: '1.2 MB',
+      format: 'PDF',
+      url: VitaminD3SprayFlyerEN,
       openInBrowser: true,
     },
   ]
@@ -114,9 +102,9 @@ const DownloadsPage = () => {
   return (
     <PageTransition>
       <SEOHead
-        title={t('downloads:seo.title', 'Downloads: Preislisten & Produktdaten IglooPro | PolarisDX')}
-        description={t('downloads:seo.description', 'Technische Datenblätter, Preislisten und Produktinformationen zum IglooPro POC-Reader und POCT-Testkassetten. Kostenlos herunterladen.')}
-        keywords={['PolarisDX Downloads', 'Preisliste', 'Produktdatenblatt', 'POC Diagnostik PDF']}
+        title={t('downloads:seo.title', 'Downloads: Produktdaten IglooPro | PolarisDX')}
+        description={t('downloads:seo.description', 'Technische Datenblätter und Produktinformationen zum IglooPro POC-Reader und POCT-Testkassetten. Kostenlos herunterladen.')}
+        keywords={['PolarisDX Downloads', 'Produktdatenblatt', 'POC Diagnostik PDF']}
         structuredData={[
           createBreadcrumbSchema([
             { name: 'Home', url: '/' },
@@ -167,7 +155,6 @@ const DownloadsPage = () => {
             </div>
 
             <div className="space-y-12">
-              {renderDownloadSection(t('downloads:priceLists'), priceLists)}
               {renderDownloadSection(t('downloads:techBrochures'), techBrochures)}
               {renderDownloadSection(t('downloads:infoMaterials'), infoMaterials)}
             </div>

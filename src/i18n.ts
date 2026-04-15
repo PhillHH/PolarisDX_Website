@@ -75,6 +75,8 @@ export const NAMESPACES = [
   'legal',
   'products',
   'shop',
+  'support',
+  'vitd3spray',
 ] as const;
 
 export type Namespace = (typeof NAMESPACES)[number];

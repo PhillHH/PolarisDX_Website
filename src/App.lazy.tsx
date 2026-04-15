@@ -35,6 +35,7 @@ import ChatWidget from './components/ui/ChatWidget'
 // Informationsseiten
 const AboutPage = lazy(() => import('./routes/AboutPage'))
 const ContactPage = lazy(() => import('./routes/ContactPage'))
+const SupportPage = lazy(() => import('./routes/SupportPage'))
 const EventsPage = lazy(() => import('./pages/EventsPage'))
 
 // Artikel/Blog
@@ -49,6 +50,7 @@ const ServicePage = lazy(() => import('./routes/ServicePage'))
 const IglooProPage = lazy(() => import('./pages/IglooProPage'))
 const VitaminD3ImplantologyPage = lazy(() => import('./pages/VitaminD3ImplantologyPage'))
 const S3LeitliniePage = lazy(() => import('./pages/S3LeitliniePage'))
+const VitaminD3SprayPage = lazy(() => import('./pages/VitaminD3SprayPage'))
 
 // Rechtliches
 const TermsPage = lazy(() => import('./routes/TermsPage'))
@@ -143,6 +145,14 @@ function App() {
           }
         />
         <Route
+          path="/support"
+          element={
+            <LazyRoute>
+              <SupportPage />
+            </LazyRoute>
+          }
+        />
+        <Route
           path="/privacy"
           element={
             <LazyRoute>
@@ -195,6 +205,14 @@ function App() {
           element={
             <LazyRoute>
               <S3LeitliniePage />
+            </LazyRoute>
+          }
+        />
+        <Route
+          path="/vitamin-d3-spray"
+          element={
+            <LazyRoute>
+              <VitaminD3SprayPage />
             </LazyRoute>
           }
         />

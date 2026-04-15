@@ -19,7 +19,7 @@
       },
       "hamburg": {
         "title": "Hamburg Office",
-        "company": "PolarisDX Europe UG",
+        "company": "PolarisDX Europe GmbH",
         "address": [
           "Große Bleichen 1 - 3",
           "20097 Hamburg",
@@ -40,7 +40,7 @@
       "title": "Register Entry",
       "content": [
         "Entry in the commercial register.",
-        "Register Court: District Court Hamburg (for PolarisDX Europe UG)",
+        "Register Court: District Court Hamburg (for PolarisDX Europe GmbH)",
         "Register Number: HRB 193415"
       ]
     },
@@ -49,7 +49,7 @@
       "content": [
         "VAT Identification Number according to §27 a Value Added Tax Act:",
         "[Insert VAT ID here]",
-        "Tax Number (PolarisDX Europe UG):",
+        "Tax Number (PolarisDX Europe GmbH):",
         "Applied for at Finanzamt Hamburg Hansa"
       ]
     },
@@ -102,7 +102,7 @@
         "title": "Note on the Responsible Body",
         "content": "The responsible body for data processing on this website is:",
         "address": [
-          "PolarisDX Europe UG",
+          "PolarisDX Europe GmbH",
           "Große Bleichen 1 - 3",
           "20097 Hamburg",
           "Email: contact@polarisdx.net"
@@ -130,14 +130,14 @@
   },
   "agb": {
     "title": "General Terms and Conditions",
-    "subtitle": "Polaris Diagnostics Europe UG (limited liability) | In-vitro Diagnostics | Medical Devices | Software & Cloud Services",
+    "subtitle": "Polaris Diagnostics Europe GmbH | In-vitro Diagnostics | Medical Devices | Software & Cloud Services",
     "date": "As of: December 2025",
     "sections": [
       {
         "id": "section-1",
         "title": "§ 1 Scope",
         "content": [
-          "§ 1.1 These General Terms and Conditions (GTC) apply to all business relationships between Polaris Diagnostics Europe UG (limited liability), hereinafter referred to as 'Polaris', and the customer. They apply to the sale and delivery of In-vitro Diagnostics (IVD) medical devices, equipment, test kits, consumables, software, and cloud services.",
+          "§ 1.1 These General Terms and Conditions (GTC) apply to all business relationships between Polaris Diagnostics Europe GmbH, hereinafter referred to as 'Polaris', and the customer. They apply to the sale and delivery of In-vitro Diagnostics (IVD) medical devices, equipment, test kits, consumables, software, and cloud services.",
           "§ 1.2 The GTC apply exclusively. Deviating, conflicting, or supplementary General Terms and Conditions of the customer only become part of the contract if Polaris has expressly agreed to their validity in writing.",
           "§ 1.3 The GTC also apply to all future transactions with the customer, provided they are legal transactions of a related nature.",
           "§ 1.4 Individual agreements made with the customer in individual cases (including collateral agreements, supplements, and amendments) shall in any case take precedence over these GTC. A written contract or written confirmation from Polaris is decisive for the content of such agreements.",
@@ -205,7 +205,7 @@
         "id": "section-7",
         "title": "§ 7 Retention of Title",
         "content": [
-          "§ 7.1 The delivered devices (especially Igloo Pro Reader), accessories, and all software licenses remain the property of Polaris Diagnostics Europe UG (limited liability) until all outstanding claims have been paid in full.",
+          "§ 7.1 The delivered devices (especially Igloo Pro Reader), accessories, and all software licenses remain the property of Polaris Diagnostics Europe GmbH until all outstanding claims have been paid in full.",
           "§ 7.2 Until full payment is made, the customer only receives a revocable, non-transferable right of use for the device, software, and cloud services.",
           "§ 7.3 The customer is obliged to treat the goods subject to retention of title with care and to insure them adequately against fire, water, and theft. Maintenance and inspection work must be carried out in good time.",
           "§ 7.4 In the event of seizures or other interventions by third parties, the customer must notify Polaris immediately in writing and point out Polaris' ownership.",

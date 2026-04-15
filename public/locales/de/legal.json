@@ -19,7 +19,7 @@
       },
       "hamburg": {
         "title": "Hamburg Office",
-        "company": "PolarisDX Europe UG",
+        "company": "PolarisDX Europe GmbH",
         "address": [
           "Große Bleichen 1 - 3",
           "20354 Hamburg",
@@ -40,7 +40,7 @@
       "title": "Registereintrag",
       "content": [
         "Eintragung im Handelsregister.",
-        "Registergericht: Amtsgericht Hamburg (für PolarisDX Europe UG)",
+        "Registergericht: Amtsgericht Hamburg (für PolarisDX Europe GmbH)",
         "Registernummer: HRB 193415"
       ]
     },
@@ -49,7 +49,7 @@
       "content": [
         "Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:",
         "[USt-IdNr. hier einfügen]",
-        "Steuernummer (PolarisDX Europe UG):",
+        "Steuernummer (PolarisDX Europe GmbH):",
         "Beantragt beim Finanzamt Hamburg Hansa"
       ]
     },
@@ -102,7 +102,7 @@
         "title": "Hinweis zur verantwortlichen Stelle",
         "content": "Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:",
         "address": [
-          "PolarisDX Europe UG",
+          "PolarisDX Europe GmbH",
           "Große Bleichen 1 - 3",
           "20097 Hamburg",
           "E-Mail: contact@polarisdx.net"
@@ -130,14 +130,14 @@
   },
   "agb": {
     "title": "Allgemeine Geschäftsbedingungen",
-    "subtitle": "Polaris Diagnostics Europe UG (haftungsbeschränkt) | In-vitro-Diagnostik | Medizinprodukte | Software & Cloud-Dienste",
+    "subtitle": "Polaris Diagnostics Europe GmbH | In-vitro-Diagnostik | Medizinprodukte | Software & Cloud-Dienste",
     "date": "Stand: Dezember 2025",
     "sections": [
       {
         "id": "section-1",
         "title": "§ 1 Geltungsbereich",
         "content": [
-          "§ 1.1 Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Geschäftsbeziehungen zwischen der Polaris Diagnostics Europe UG (haftungsbeschränkt), nachfolgend 'Polaris' genannt, und dem Kunden. Sie gelten für den Verkauf und die Lieferung von In-vitro-Diagnostik-Medizinprodukten (IVD), Geräten, Testkits, Verbrauchsmaterialien, Software und Cloud-Diensten.",
+          "§ 1.1 Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Geschäftsbeziehungen zwischen der Polaris Diagnostics Europe GmbH, nachfolgend 'Polaris' genannt, und dem Kunden. Sie gelten für den Verkauf und die Lieferung von In-vitro-Diagnostik-Medizinprodukten (IVD), Geräten, Testkits, Verbrauchsmaterialien, Software und Cloud-Diensten.",
           "§ 1.2 Die AGB gelten ausschließlich. Abweichende, entgegenstehende oder ergänzende Allgemeine Geschäftsbedingungen des Kunden werden nur dann Vertragsbestandteil, wenn Polaris ihrer Geltung ausdrücklich schriftlich zugestimmt hat.",
           "§ 1.3 Die AGB gelten auch für alle zukünftigen Geschäfte mit dem Kunden, soweit es sich um Rechtsgeschäfte verwandter Art handelt.",
           "§ 1.4 Im Einzelfall getroffene, individuelle Vereinbarungen mit dem Kunden (einschließlich Nebenabreden, Ergänzungen und Änderungen) haben in jedem Fall Vorrang vor diesen AGB. Für den Inhalt derartiger Vereinbarungen ist ein schriftlicher Vertrag bzw. die schriftliche Bestätigung von Polaris maßgebend.",
@@ -205,7 +205,7 @@
         "id": "section-7",
         "title": "§ 7 Eigentumsvorbehalt",
         "content": [
-          "§ 7.1 Die gelieferten Geräte (insbesondere Igloo Pro Reader), Zubehörteile sowie sämtliche Software-Lizenzen bleiben bis zur vollständigen Bezahlung aller offenen Forderungen im Eigentum der Polaris Diagnostics Europe UG (haftungsbeschränkt).",
+          "§ 7.1 Die gelieferten Geräte (insbesondere Igloo Pro Reader), Zubehörteile sowie sämtliche Software-Lizenzen bleiben bis zur vollständigen Bezahlung aller offenen Forderungen im Eigentum der Polaris Diagnostics Europe GmbH.",
           "§ 7.2 Bis zur vollständigen Zahlung erhält der Kunde lediglich ein widerrufliches, nicht übertragbares Nutzungsrecht an Gerät, Software und Cloud-Diensten.",
           "§ 7.3 Der Kunde ist verpflichtet, die Vorbehaltsware pfleglich zu behandeln und gegen Feuer, Wasser und Diebstahl ausreichend zu versichern. Wartungs- und Inspektionsarbeiten sind rechtzeitig durchzuführen.",
           "§ 7.4 Bei Pfändungen oder sonstigen Eingriffen Dritter hat der Kunde Polaris unverzüglich schriftlich zu benachrichtigen und auf das Eigentum von Polaris hinzuweisen.",

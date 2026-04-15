@@ -19,7 +19,7 @@
       },
       "hamburg": {
         "title": "Escritório de Hamburgo",
-        "company": "PolarisDX Europe UG",
+        "company": "PolarisDX Europe GmbH",
         "address": [
           "Große Bleichen 1 - 3",
           "20097 Hamburgo",
@@ -40,7 +40,7 @@
       "title": "Registro",
       "content": [
         "Inscrição no registro comercial.",
-        "Tribunal de registro: Tribunal Distrital de Hamburgo (para PolarisDX Europe UG)",
+        "Tribunal de registro: Tribunal Distrital de Hamburgo (para PolarisDX Europe GmbH)",
         "Número de registro: HRB 193415"
       ]
     },
@@ -49,7 +49,7 @@
       "content": [
         "Número de identificação de IVA de acordo com o §27 a da lei do imposto sobre valor agregado:",
         "[Inserir ID IVA aqui]",
-        "Número fiscal (PolarisDX Europe UG):",
+        "Número fiscal (PolarisDX Europe GmbH):",
         "Solicitado junto do Finanzamt Hamburg Hansa"
       ]
     },
@@ -102,7 +102,7 @@
         "title": "Nota sobre o órgão responsável",
         "content": "O órgão responsável pelo processamento de dados neste site é:",
         "address": [
-          "PolarisDX Europe UG",
+          "PolarisDX Europe GmbH",
           "Große Bleichen 1 - 3",
           "20097 Hamburgo",
           "E-mail: contact@polarisdx.net"
@@ -130,14 +130,14 @@
   },
   "agb": {
     "title": "Termos e Condições Gerais",
-    "subtitle": "Polaris Diagnostics Europe UG (responsabilidade limitada) | Diagnóstico In-vitro | Dispositivos Médicos | Software e Serviços em Nuvem",
+    "subtitle": "Polaris Diagnostics Europe GmbH | Diagnóstico In-vitro | Dispositivos Médicos | Software e Serviços em Nuvem",
     "date": "Status: Dezembro 2025",
     "sections": [
       {
         "id": "section-1",
         "title": "§ 1 Escopo de aplicação",
         "content": [
-          "§ 1.1 Estes Termos e Condições Gerais (TCG) aplicam-se a todas as relações comerciais entre a Polaris Diagnostics Europe UG (responsabilidade limitada), doravante denominada 'Polaris', e o cliente. Aplicam-se à venda e entrega de dispositivos médicos de diagnóstico in-vitro (IVD), equipamentos, kits de teste, consumíveis, software e serviços em nuvem.",
+          "§ 1.1 Estes Termos e Condições Gerais (TCG) aplicam-se a todas as relações comerciais entre a Polaris Diagnostics Europe GmbH, doravante denominada 'Polaris', e o cliente. Aplicam-se à venda e entrega de dispositivos médicos de diagnóstico in-vitro (IVD), equipamentos, kits de teste, consumíveis, software e serviços em nuvem.",
           "§ 1.2 Os TCG aplicam-se exclusivamente. Termos e condições gerais do cliente divergentes, conflitantes ou suplementares só se tornam parte do contrato se a Polaris tiver concordado expressamente com sua validade por escrito.",
           "§ 1.3 Os TCG aplicam-se também a todos os negócios futuros com o cliente, na medida em que sejam transações legais de natureza relacionada.",
           "§ 1.4 Acordos individuais feitos com o cliente em casos individuais (incluindo acordos colaterais, suplementos e alterações) terão, em qualquer caso, precedência sobre estes TCG. Um contrato escrito ou a confirmação por escrito da Polaris é decisiva para o conteúdo de tais acordos.",
@@ -205,7 +205,7 @@
         "id": "section-7",
         "title": "§ 7 Retenção de propriedade",
         "content": [
-          "§ 7.1 Os dispositivos entregues (especialmente o Igloo Pro Reader), acessórios e todas as licenças de software permanecem propriedade da Polaris Diagnostics Europe UG (responsabilidade limitada) até que todas as reivindicações pendentes tenham sido pagas integralmente.",
+          "§ 7.1 Os dispositivos entregues (especialmente o Igloo Pro Reader), acessórios e todas as licenças de software permanecem propriedade da Polaris Diagnostics Europe GmbH até que todas as reivindicações pendentes tenham sido pagas integralmente.",
           "§ 7.2 Até o pagamento integral, o cliente recebe apenas um direito de uso revogável e intransferível para o dispositivo, software e serviços em nuvem.",
           "§ 7.3 O cliente é obrigado a tratar a mercadoria sujeita a retenção de propriedade com cuidado e a segurá-la adequadamente contra incêndio, água e roubo. Trabalhos de manutenção e inspeção devem ser realizados a tempo.",
           "§ 7.4 Em caso de penhoras ou outras intervenções de terceiros, o cliente deve notificar a Polaris imediatamente por escrito e apontar a propriedade da Polaris.",

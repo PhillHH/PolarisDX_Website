@@ -38,6 +38,7 @@ const navItems: NavItem[] = [
   // { label: 'casestudies', route: '/casestudys/32reasons' }, // temporarily disabled
   // { label: 'shop', route: '/shop' }, // Shop disabled
   { label: 'blog', route: '/articles' },
+  { label: 'support', route: '/support' },
 ]
 
 const Header = () => {

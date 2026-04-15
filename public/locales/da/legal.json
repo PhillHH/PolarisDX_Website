@@ -19,7 +19,7 @@
       },
       "hamburg": {
         "title": "Hamburg Office",
-        "company": "PolarisDX Europe UG",
+        "company": "PolarisDX Europe GmbH",
         "address": [
           "Große Bleichen 1 - 3",
           "20097 Hamborg",
@@ -40,7 +40,7 @@
       "title": "Registerindførsel",
       "content": [
         "Indførsel i handelsregistret.",
-        "Registerret: Amtsgericht Hamburg (for PolarisDX Europe UG)",
+        "Registerret: Amtsgericht Hamburg (for PolarisDX Europe GmbH)",
         "Registreringsnummer: HRB 193415"
       ]
     },
@@ -49,7 +49,7 @@
       "content": [
         "Momsidentifikationsnummer i henhold til §27 a i momsloven:",
         "[Indsæt moms-ID her]",
-        "Skattenummer (PolarisDX Europe UG):",
+        "Skattenummer (PolarisDX Europe GmbH):",
         "Ansøgt hos Finanzamt Hamburg Hansa"
       ]
     },
@@ -102,7 +102,7 @@
         "title": "Bemærkning om den ansvarlige instans",
         "content": "Den ansvarlige instans for databehandlingen på dette websted er:",
         "address": [
-          "PolarisDX Europe UG",
+          "PolarisDX Europe GmbH",
           "Große Bleichen 1 - 3",
           "20097 Hamborg",
           "E-mail: contact@polarisdx.net"
@@ -130,14 +130,14 @@
   },
   "agb": {
     "title": "Generelle forretningsbetingelser",
-    "subtitle": "Polaris Diagnostics Europe UG (begrænset ansvar) | In-vitro-diagnostik | Medicinsk udstyr | Software & Cloud-tjenester",
+    "subtitle": "Polaris Diagnostics Europe GmbH | In-vitro-diagnostik | Medicinsk udstyr | Software & Cloud-tjenester",
     "date": "Status: December 2025",
     "sections": [
       {
         "id": "section-1",
         "title": "§ 1 Gyldighedsområde",
         "content": [
-          "§ 1.1 Disse generelle forretningsbetingelser (AGB) gælder for alle forretningsforbindelser mellem Polaris Diagnostics Europe UG (begrænset ansvar), i det følgende benævnt 'Polaris', og kunden. De gælder for salg og levering af in-vitro-diagnostik medicinsk udstyr (IVD), apparater, testkits, forbrugsvarer, software og cloud-tjenester.",
+          "§ 1.1 Disse generelle forretningsbetingelser (AGB) gælder for alle forretningsforbindelser mellem Polaris Diagnostics Europe GmbH, i det følgende benævnt 'Polaris', og kunden. De gælder for salg og levering af in-vitro-diagnostik medicinsk udstyr (IVD), apparater, testkits, forbrugsvarer, software og cloud-tjenester.",
           "§ 1.2 AGB gælder udelukkende. Afvigende, modstridende eller supplerende generelle forretningsbetingelser fra kunden bliver kun en del af kontrakten, hvis Polaris udtrykkeligt skriftligt har accepteret deres gyldighed.",
           "§ 1.3 AGB gælder også for alle fremtidige forretninger med kunden, for så vidt det drejer sig om retshandler af beslægtet art.",
           "§ 1.4 Individuelle aftaler indgået med kunden i enkelte tilfælde (herunder sideaftaler, tillæg og ændringer) har under alle omstændigheder forrang for disse AGB. En skriftlig kontrakt eller den skriftlige bekræftelse fra Polaris er afgørende for indholdet af sådanne aftaler.",
@@ -205,7 +205,7 @@
         "id": "section-7",
         "title": "§ 7 Ejendomsforbehold",
         "content": [
-          "§ 7.1 De leverede apparater (især Igloo Pro Reader), tilbehørsdele samt samtlige softwarelicenser forbliver Polaris Diagnostics Europe UG (begrænset ansvar) ejendom indtil fuld betaling af alle åbne krav.",
+          "§ 7.1 De leverede apparater (især Igloo Pro Reader), tilbehørsdele samt samtlige softwarelicenser forbliver Polaris Diagnostics Europe GmbH ejendom indtil fuld betaling af alle åbne krav.",
           "§ 7.2 Indtil fuld betaling modtager kunden kun en genkaldelig, ikke-overdragelig brugsret til apparat, software og cloud-tjenester.",
           "§ 7.3 Kunden er forpligtet til at behandle varen omfattet af ejendomsforbehold skånsomt og forsikre den tilstrækkeligt mod brand, vand og tyveri. Vedligeholdelses- og inspektionsarbejde skal udføres i tide.",
           "§ 7.4 Ved udlæg eller andre indgreb fra tredjeparter skal kunden straks underrette Polaris skriftligt og henvise til Polaris' ejendomsret.",

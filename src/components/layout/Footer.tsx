@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 
 const Footer = () => {
   const location = useLocation()
-  const isContactPage = location.pathname === '/contact'
+  const isContactPage = location.pathname === '/contact' || location.pathname === '/support'
   const { t } = useTranslation('common')
 
   return (
@@ -104,7 +104,7 @@ const Footer = () => {
               <div className="space-y-3">
                 <h3 className="text-sm font-semibold tracking-tight">{t('footer.hamburg', 'Hamburg')}</h3>
                 <div className="space-y-1 text-white/70">
-                  <p className="font-semibold">PolarisDX Europe UG</p>
+                  <p className="font-semibold">PolarisDX Europe GmbH</p>
                   <p>Große Bleichen 1 - 3</p>
                   <p>20354 Hamburg</p>
                   <p>contact@polarisdx.net</p>

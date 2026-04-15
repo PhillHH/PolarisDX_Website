@@ -19,7 +19,7 @@
       },
       "hamburg": {
         "title": "Oficina de Hamburgo",
-        "company": "PolarisDX Europe UG",
+        "company": "PolarisDX Europe GmbH",
         "address": [
           "Große Bleichen 1 - 3",
           "20097 Hamburgo",
@@ -40,7 +40,7 @@
       "title": "Registro",
       "content": [
         "Inscripción en el registro mercantil.",
-        "Tribunal de registro: Juzgado Municipal de Hamburgo (para PolarisDX Europe UG)",
+        "Tribunal de registro: Juzgado Municipal de Hamburgo (para PolarisDX Europe GmbH)",
         "Número de registro: HRB 193415"
       ]
     },
@@ -49,7 +49,7 @@
       "content": [
         "Número de identificación fiscal a efectos del IVA según §27 a de la Ley del Impuesto sobre el Valor Añadido:",
         "[Insertar NIF-IVA aquí]",
-        "Número fiscal (PolarisDX Europe UG):",
+        "Número fiscal (PolarisDX Europe GmbH):",
         "Solicitado en el Finanzamt Hamburg Hansa"
       ]
     },
@@ -102,7 +102,7 @@
         "title": "Nota sobre el organismo responsable",
         "content": "El organismo responsable del tratamiento de datos en este sitio web es:",
         "address": [
-          "PolarisDX Europe UG",
+          "PolarisDX Europe GmbH",
           "Große Bleichen 1 - 3",
           "20097 Hamburgo",
           "Correo electrónico: contact@polarisdx.net"
@@ -130,14 +130,14 @@
   },
   "agb": {
     "title": "Términos y Condiciones Generales",
-    "subtitle": "Polaris Diagnostics Europe UG (responsabilidad limitada) | Diagnóstico In-vitro | Dispositivos Médicos | Software y Servicios en la Nube",
+    "subtitle": "Polaris Diagnostics Europe GmbH | Diagnóstico In-vitro | Dispositivos Médicos | Software y Servicios en la Nube",
     "date": "Estado: Diciembre 2025",
     "sections": [
       {
         "id": "section-1",
         "title": "§ 1 Ámbito de aplicación",
         "content": [
-          "§ 1.1 Estos Términos y Condiciones Generales (TCG) se aplican a todas las relaciones comerciales entre Polaris Diagnostics Europe UG (responsabilidad limitada), en adelante 'Polaris', y el cliente. Se aplican a la venta y entrega de dispositivos médicos de diagnóstico in-vitro (IVD), equipos, kits de prueba, consumibles, software y servicios en la nube.",
+          "§ 1.1 Estos Términos y Condiciones Generales (TCG) se aplican a todas las relaciones comerciales entre Polaris Diagnostics Europe GmbH, en adelante 'Polaris', y el cliente. Se aplican a la venta y entrega de dispositivos médicos de diagnóstico in-vitro (IVD), equipos, kits de prueba, consumibles, software y servicios en la nube.",
           "§ 1.2 Los TCG se aplican exclusivamente. Los términos y condiciones generales del cliente que sean divergentes, contrarios o complementarios solo formarán parte del contrato si Polaris ha aceptado expresamente su validez por escrito.",
           "§ 1.3 Los TCG también se aplican a todos los negocios futuros con el cliente, siempre que se trate de transacciones legales de naturaleza relacionada.",
           "§ 1.4 Los acuerdos individuales realizados con el cliente en casos particulares (incluidos acuerdos colaterales, suplementos y enmiendas) tendrán en todo caso prioridad sobre estos TCG. Un contrato escrito o la confirmación por escrito de Polaris es decisiva para el contenido de dichos acuerdos.",
@@ -205,7 +205,7 @@
         "id": "section-7",
         "title": "§ 7 Reserva de propiedad",
         "content": [
-          "§ 7.1 Los dispositivos entregados (especialmente Igloo Pro Reader), accesorios y todas las licencias de software siguen siendo propiedad de Polaris Diagnostics Europe UG (responsabilidad limitada) hasta que se hayan pagado en su totalidad todas las reclamaciones pendientes.",
+          "§ 7.1 Los dispositivos entregados (especialmente Igloo Pro Reader), accesorios y todas las licencias de software siguen siendo propiedad de Polaris Diagnostics Europe GmbH hasta que se hayan pagado en su totalidad todas las reclamaciones pendientes.",
           "§ 7.2 Hasta que se realice el pago completo, el cliente solo recibe un derecho de uso revocable e intransferible para el dispositivo, el software y los servicios en la nube.",
           "§ 7.3 El cliente está obligado a tratar la mercancía sujeta a reserva de propiedad con cuidado y a asegurarla adecuadamente contra incendios, agua y robo. Los trabajos de mantenimiento e inspección deben realizarse a tiempo.",
           "§ 7.4 En caso de embargos u otras intervenciones de terceros, el cliente debe notificar a Polaris de inmediato por escrito y señalar la propiedad de Polaris.",

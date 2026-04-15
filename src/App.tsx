@@ -4,6 +4,7 @@ import HomePage from './routes/HomePage'
 import ArticlePage from './routes/ArticlePage'
 import ArticlesIndexPage from './routes/ArticlesIndexPage'
 import ContactPage from './routes/ContactPage'
+import SupportPage from './routes/SupportPage'
 // import ShopPage from './routes/ShopPage'
 // import ProductPage from './routes/ProductPage'
 import ServicePage from './routes/ServicePage'
@@ -17,6 +18,7 @@ import EventsPage from './pages/EventsPage'
 import IglooProPage from './pages/IglooProPage'
 import VitaminD3ImplantologyPage from './pages/VitaminD3ImplantologyPage'
 import S3LeitliniePage from './pages/S3LeitliniePage'
+import VitaminD3SprayPage from './pages/VitaminD3SprayPage'
 import NotFoundPage from './pages/NotFoundPage'
 // import CaseStudy32Reasons from './routes/CaseStudy32Reasons' // temporarily disabled
 import { CookieBanner } from './components/ui/CookieBanner'
@@ -42,6 +44,7 @@ function App() {
         <Route path="/diagnostics" element={<ServicesOverviewPage />} />
         <Route path="/diagnostics/:slug" element={<ServicePage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/support" element={<SupportPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/imprint" element={<ImprintPage />} />
         <Route path="/terms" element={<TermsPage />} />
@@ -49,6 +52,7 @@ function App() {
         <Route path="/igloo-pro" element={<IglooProPage />} />
         <Route path="/vitamin-d3-implantologie" element={<VitaminD3ImplantologyPage />} />
         <Route path="/s3_leitlinie" element={<S3LeitliniePage />} />
+        <Route path="/vitamin-d3-spray" element={<VitaminD3SprayPage />} />
         {/* <Route path="/casestudys/32reasons" element={<CaseStudy32Reasons />} /> */}
         {/* Shop temporarily disabled */}
         {/* <Route path="/shop" element={<ShopPage />} /> */}
