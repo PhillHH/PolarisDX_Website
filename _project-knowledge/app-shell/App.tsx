@@ -1,0 +1,74 @@
+import { Routes, Route, Navigate, useParams } from 'react-router-dom'
+import Layout from './components/layout/Layout'
+import HomePage from './routes/HomePage'
+import ArticlePage from './routes/ArticlePage'
+import ArticlesIndexPage from './routes/ArticlesIndexPage'
+import ContactPage from './routes/ContactPage'
+import SupportPage from './routes/SupportPage'
+// import ShopPage from './routes/ShopPage'
+// import ProductPage from './routes/ProductPage'
+import ServicePage from './routes/ServicePage'
+import ServicesOverviewPage from './routes/ServicesOverviewPage'
+import DownloadsPage from './routes/DownloadsPage'
+import AboutPage from './routes/AboutPage'
+import TermsPage from './routes/TermsPage'
+import PrivacyPage from './routes/PrivacyPage'
+import ImprintPage from './routes/ImprintPage'
+import EventsPage from './pages/EventsPage'
+import IglooProPage from './pages/IglooProPage'
+import VitaminD3ImplantologyPage from './pages/VitaminD3ImplantologyPage'
+import S3LeitliniePage from './pages/S3LeitliniePage'
+import VitaminD3SprayPage from './pages/VitaminD3SprayPage'
+import NotFoundPage from './pages/NotFoundPage'
+// import CaseStudy32Reasons from './routes/CaseStudy32Reasons' // temporarily disabled
+import { CookieBanner } from './components/ui/CookieBanner'
+import MobileCallButton from './components/ui/MobileCallButton'
+import ChatWidget from './components/ui/ChatWidget'
+
+// Redirect helper for /services/:slug → /diagnostics/:slug
+function ServicesRedirect() {
+  const { slug } = useParams<{ slug: string }>()
+  return <Navigate to={`/diagnostics/${slug}`} replace />
+}
+
+function App() {
+  return (
+    <Layout>
+      <MobileCallButton />
+      <ChatWidget />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/articles" element={<ArticlesIndexPage />} />
+        <Route path="/articles/:slug" element={<ArticlePage />} />
+        <Route path="/diagnostics" element={<ServicesOverviewPage />} />
+        <Route path="/diagnostics/:slug" element={<ServicePage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/support" element={<SupportPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/imprint" element={<ImprintPage />} />
+        <Route path="/terms" element={<TermsPage />} />
+        <Route path="/events" element={<EventsPage />} />
+        <Route path="/igloo-pro" element={<IglooProPage />} />
+        <Route path="/vitamin-d3-implantologie" element={<VitaminD3ImplantologyPage />} />
+        <Route path="/s3_leitlinie" element={<S3LeitliniePage />} />
+        <Route path="/vitamin-d3-spray" element={<VitaminD3SprayPage />} />
+        {/* <Route path="/casestudys/32reasons" element={<CaseStudy32Reasons />} /> */}
+        {/* Shop temporarily disabled */}
+        {/* <Route path="/shop" element={<ShopPage />} /> */}
+        {/* <Route path="/shop/:slug" element={<ProductPage />} /> */}
+        <Route path="/downloads" element={<DownloadsPage />} />
+
+        {/* 301 Redirects: /services → /diagnostics */}
+        <Route path="/services" element={<Navigate to="/diagnostics" replace />} />
+        <Route path="/services/:slug" element={<ServicesRedirect />} />
+
+        {/* Catch-all 404 route - must be last */}
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+      <CookieBanner />
+    </Layout>
+  )
+}
+
+export default App

@@ -1,0 +1,139 @@
+{
+  "seo": {
+    "title": "Vitamin D3+K2 Spray – Exklusiv für Praxen | PolarisDX",
+    "description": "Hochdosiertes Vitamin D3+K2 Sublingualspray mit Tiny-Technologie für doppelte Bioverfügbarkeit. Exklusiv über den ärztlichen Bezugsweg. Jetzt bestellen."
+  },
+  "hero": {
+    "breadcrumb_home": "PolarisDX",
+    "breadcrumb_products": "Produkte",
+    "breadcrumb_current": "Vitamin D3+K2 Spray",
+    "caption": "Nahrungsergänzungsmittel für Ihre Praxis",
+    "title": "Vitamin D3+K2 Sublingualspray",
+    "subtitle": "2.000 IE pro Sprühstoß – doppelte Bioverfügbarkeit durch Tiny-Technologie. Exklusiv über den ärztlichen Bezugsweg.",
+    "cta": "Jetzt bestellen",
+    "download": "Produktflyer herunterladen"
+  },
+  "intro": {
+    "title": "Vitamin-D-Mangel erkannt – direkt in der Praxis versorgen",
+    "text1": "Sie sehen es bei Ihren Patienten: Vitamin-D-Mangel ist weit verbreitet. Mit unserem Vitamin D3+K2 Sublingualspray können Sie jetzt direkt handeln – und Ihrem Patienten die Versorgung unmittelbar in der Praxis mitgeben.",
+    "text2": "Das Spray ist ausschließlich über den ärztlichen Bezugsweg erhältlich – Ihr Patient kann es nur bei Ihnen erhalten."
+  },
+  "usp": {
+    "title": "Doppelte Bioverfügbarkeit durch Tiny-Technologie",
+    "text": "Unser Sublingualspray nutzt die innovative Tiny-Technologie für eine doppelte Bioverfügbarkeit gegenüber herkömmlichen Präparaten – daher 2.000 IE pro Sprühstoß, effektiv über die Mundschleimhaut aufgenommen.",
+    "dosing_label": "Verzehrempfehlung",
+    "dosing_text": "1 Sprühstoß täglich laut Herstellerangabe.",
+    "dosing_note": "Eine höhere Dosierung ist individuell mit Ihnen als behandelndem Arzt abzusprechen."
+  },
+  "product": {
+    "title": "Produktübersicht",
+    "composition_label": "Zusammensetzung pro Sprühstoß",
+    "composition_value": "50µg Vitamin D3 (2.000 IE) + 15µg Vitamin K2 (MK-7)",
+    "form_label": "Darreichung",
+    "form_value": "Sublingualspray, Orangengeschmack",
+    "dosing_label": "Verzehrempfehlung",
+    "dosing_value": "1 Sprühstoß täglich (lt. Hersteller)",
+    "content_label": "Inhalt",
+    "content_value": "71 Anwendungen pro Flasche",
+    "properties_label": "Eigenschaften",
+    "properties_value": "Vegan · GMO-frei · Glutenfrei · Alkoholfrei · Made in Germany"
+  },
+  "benefits": {
+    "title": "Vitamin D3 in Verbindung mit K2",
+    "items": [
+      "Vitamin D3 und K2 tragen zur Erhaltung normaler Knochen und zur normalen Calciumverwertung bei",
+      "Bessere Osseointegration durch die Kombination von D3 und K2",
+      "Bessere parodontale Vorbeugung und Behandlung bei ausreichender Vitamin-D3-Versorgung"
+    ]
+  },
+  "pricing": {
+    "title": "Konditionen",
+    "header_quantity": "Menge",
+    "header_price": "Preis pro Einheit (netto)",
+    "rows": [
+      { "quantity": "12 Stück", "price": "12,90 €" },
+      { "quantity": "ab 24 Stück", "price": "11,90 €" },
+      { "quantity": "ab 36 Stück", "price": "10,90 €" }
+    ]
+  },
+  "order": {
+    "caption": "Vitamin D3+K2 Spray",
+    "title": "Jetzt bestellen",
+    "description": "Füllen Sie das Formular aus und wir senden Ihnen eine Auftragsbestätigung mit Rechnung per E-Mail.",
+    "quantity_label": "Bestellmenge",
+    "quantity_options": {
+      "12": "12 Sprays",
+      "24": "24 Sprays",
+      "36": "36 Sprays",
+      "48": "48 Sprays",
+      "100": "100+ Sprays – Großbestellung"
+    },
+    "address_heading": "Rechnungs- & Lieferadresse",
+    "practice_label": "Praxis / Firma",
+    "practice_placeholder": "Zahnarztpraxis Musterpraxis",
+    "name_label": "Name",
+    "name_placeholder": "Ihr Name",
+    "email_label": "E-Mail",
+    "email_placeholder": "praxis@beispiel.de",
+    "phone_label": "Telefon",
+    "phone_placeholder": "Für Rückfragen",
+    "message_label": "Anmerkungen zur Bestellung",
+    "message_placeholder": "Optional: Lieferhinweise, abweichende Adresse, etc.",
+    "submit": "Jetzt verbindlich bestellen",
+    "submitting": "Bestellung wird gesendet...",
+    "submit_note": "Mit Absenden erhalten Sie eine Auftragsbestätigung per E-Mail. Zahlung auf Rechnung.",
+    "success_title": "Vielen Dank für Ihre Bestellung!",
+    "success_text": "Wir haben Ihre Bestellung erhalten und senden Ihnen in Kürze eine Bestätigung per E-Mail.",
+    "error_text": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder rufen Sie uns an."
+  },
+  "contact": {
+    "title": "Ihr Ansprechpartner",
+    "name": "Frank Stoffels",
+    "role": "Key Account Manager",
+    "phone": "+49 1515 9878599",
+    "hours": "Mo–Fr 9:00–17:00 Uhr",
+    "question": "Fragen zur Bestellung?",
+    "advice": "Wir beraten Sie gerne"
+  },
+  "sidebar": {
+    "quick_order_caption": "Schnellbestellung",
+    "quick_order_text": "Direkt zum Bestellformular und D3+K2 Spray für Ihre Praxis sichern.",
+    "quick_order_cta": "Jetzt bestellen",
+    "download_caption": "Produktflyer",
+    "download_text": "Alle Informationen zum Vitamin D3+K2 Spray als PDF.",
+    "download_cta": "PDF herunterladen",
+    "trust": "Über 100 Praxen in 15+ Ländern vertrauen auf PolarisDX"
+  },
+  "faq": {
+    "title": "Häufige Fragen",
+    "items": [
+      {
+        "question": "Was ist die Tiny-Technologie?",
+        "answer": "Die Tiny-Technologie ermöglicht eine doppelte Bioverfügbarkeit gegenüber herkömmlichen Vitamin-D-Präparaten. Durch die sublinguale Aufnahme über die Mundschleimhaut wird der Wirkstoff besonders effektiv resorbiert."
+      },
+      {
+        "question": "Warum ist das Spray nur über den ärztlichen Bezugsweg erhältlich?",
+        "answer": "Das Spray ist bewusst exklusiv über den ärztlichen Bezugsweg erhältlich, damit Sie als Praxis Ihren Patienten eine kontrollierte, hochwertige Supplementierung anbieten können – als logischer Abschluss Ihres Behandlungspfades."
+      },
+      {
+        "question": "Wie lange reicht eine Flasche?",
+        "answer": "Jede Flasche enthält 71 Anwendungen. Bei der empfohlenen Verzehrmenge von einem Sprühstoß täglich reicht eine Flasche für über zwei Monate."
+      }
+    ]
+  },
+  "badges": {
+    "vegan": "Vegan",
+    "made_in": "Made in Germany"
+  },
+  "related": {
+    "title": "Weiterführende Inhalte",
+    "implantology_title": "Vitamin D3 & Implantologie",
+    "implantology_desc": "Praxisleitfaden für Zahnärzte",
+    "igloo_title": "Igloo Pro System",
+    "igloo_desc": "Vitamin-D-Diagnostik am Behandlungsstuhl"
+  },
+  "back": "Zurück zur Startseite",
+  "order_message_none": "Keine",
+  "disclaimer": "Nahrungsergänzungsmittel. Kein Ersatz für eine abwechslungsreiche Ernährung und gesunde Lebensweise. Die empfohlene Verzehrmenge darf nicht überschritten werden.",
+  "mobile_cta": "Jetzt D3+K2 Spray bestellen"
+}
