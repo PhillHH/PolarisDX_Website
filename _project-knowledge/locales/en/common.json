@@ -1,0 +1,134 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "service": "Diagnostics",
+    "casestudies": "Case Study",
+    "shop": "Shop",
+    "blog": "Blog",
+    "terms": "Terms & Conditions",
+    "contact": "Contact",
+    "support": "Support",
+    "events": "Events",
+    "downloads": "Downloads",
+    "dental": "Dental Diagnostics",
+    "beauty": "Beauty Diagnostics",
+    "longevity": "Longevity Diagnostics",
+    "pocSystems": "POC Systems"
+  },
+  "badge": {
+    "New": "New",
+    "Popular": "Popular",
+    "Limited": "Limited"
+  },
+  "category": {
+    "Diagnostics": "Diagnostics",
+    "Monitoring": "Monitoring",
+    "Home Care": "Home Care",
+    "Chronic Care": "Chronic Care",
+    "Protection": "Protection",
+    "Hygiene": "Hygiene",
+    "Recovery": "Recovery",
+    "Emergency": "Emergency",
+    "Service": "Service"
+  },
+  "footer": {
+    "description": "Your partner for Point-of-Care Diagnostics. Lab-grade instant diagnostics for Dental, Beauty and Longevity.",
+    "links": "Links",
+    "discover": "Discover",
+    "diagnostics": "Diagnostics",
+    "allServices": "All Services",
+    "pocSystems": "POC Systems",
+    "preventionChecks": "Prevention Checks",
+    "hormonTests": "Hormone Tests",
+    "london": "London",
+    "hamburg": "Hamburg",
+    "copyright": "Copyright ©PolarisDX {{year}} All Rights Reserved.",
+    "imprint": "Imprint",
+    "privacy": "Privacy Policy",
+    "doctors": "Our Doctors",
+    "testimonials": "Testimonials",
+    "faq": "FAQ",
+    "appointment": "Book Appointment"
+  },
+  "cta": {
+    "title": "Looking for professional & trusted <1>medical care?</1>",
+    "description": "Don't hesitate to contact us. Our team is ready to support you and schedule the right appointment.",
+    "button": "Book Appointment"
+  },
+  "cta_section": {
+    "title": "Looking for guaranteed performance and POC expertise?",
+    "text": "Speak directly with our IglooPro specialists. Our team is ready to analyze your individual workflow requirements and show you the fastest way to validated diagnostics. With us, you get a tailored solution, not a standard delivery.",
+    "button": "Book Appointment"
+  },
+  "read_more": "Read More",
+  "search": {
+    "keywords": {
+      "home": "home startseite igloo widget diagnostic",
+      "about": "team doctors polarisdx about us",
+      "services": "services leistungen dental beauty longevity diagnostics",
+      "contact": "contact kontakt email phone address",
+      "terms": "legal terms agb rights",
+      "casestudies": "case study 32reasons dentistry polaris dx"
+    },
+    "services": {
+      "dental": "Dental Diagnostics",
+      "beauty": "Dermatological Analysis",
+      "longevity": "Health and Longevity",
+      "sports": "Performance Diagnostics for Athletes"
+    }
+  },
+  "chat": {
+    "title": "PolarisDX Concierge",
+    "status": "Online",
+    "intro": "Welcome to PolarisDX. How can we help you today?",
+    "welcome_prototype": "Welcome! Our chatbot is not active yet. Please use our <0>contact form</0> or call us at <1>+49 151 75011699</1>.",
+    "placeholder": "Type a message...",
+    "footer": "PolarisDX Private Assistant",
+    "error": "Sorry, something went wrong.",
+    "unavailable": "Chat is currently unavailable. Please try again later or contact us by email."
+  },
+  "cookie": {
+    "title": "We respect your privacy",
+    "description": "We use cookies.",
+    "accept_all": "Accept All",
+    "reject_all": "Only necessary",
+    "settings": "Settings",
+    "hide": "Hide",
+    "save_selection": "Save",
+    "categories": {
+      "necessary": {
+        "name": "Necessary",
+        "description": "Required."
+      },
+      "marketing": {
+        "name": "Marketing",
+        "description": "Ads."
+      },
+      "analytics": {
+        "name": "Analytics",
+        "description": "Analytics."
+      }
+    }
+  },
+  "testimonials": {
+    "positiveLabel": "Positive Review"
+  },
+  "notFound": {
+    "seo": {
+      "title": "Page Not Found | PolarisDX",
+      "description": "The requested page could not be found."
+    },
+    "badge": "Page not found",
+    "title": "Oops! This page doesn't exist",
+    "description": "The page you're looking for may have been moved, deleted, or no longer exists.",
+    "backHome": "Back to Home",
+    "popularPages": "Popular Pages",
+    "links": {
+      "home": "Home",
+      "iglooPro": "IglooPro",
+      "services": "Services",
+      "contact": "Contact"
+    }
+  }
+}
