@@ -1,0 +1,60 @@
+{
+  "support": {
+    "seo": {
+      "title": "Support-Anfrage | PolarisDX",
+      "description": "Haben Sie Probleme mit Ihrem Igloo Reader oder Testkits? Senden Sie uns eine Support-Anfrage und wir helfen Ihnen schnellstmöglich weiter."
+    },
+    "hero": {
+      "kicker": "SUPPORT",
+      "title": "Support-Anfrage",
+      "breadcrumb": "Home / Support"
+    },
+    "intro": "Wenn Sie Probleme mit Ihrem Igloo Reader oder Ihren Testkits haben, nutzen Sie bitte dieses Formular. Wir schätzen Ihre Nachricht und werden unser Bestes tun, Ihnen so schnell wie möglich zu helfen. Bitte fügen Sie eine kurze Beschreibung des Problems und, wenn möglich, ein Foto sowie die Seriennummer des Geräts bei.",
+    "form": {
+      "name": "Ihr Name",
+      "name_placeholder": "Ihr voller Name",
+      "email": "E-Mail-Adresse",
+      "email_placeholder": "sie@beispiel.de",
+      "udi": "Igloo Reader UDI",
+      "udi_placeholder": "S0DA25000XXXXX",
+      "udi_help": "Sie finden die <strong>Unique Identification Number</strong> des Readers auf einem Aufkleber an der Unterseite des Geräts, oder auf dem # Startbildschirm → ⚙ Einstellungen → ⓘ Über, oder in den Geräteeinstellungen von Dx Care oder Dx Studio, wenn der Reader per USB mit der Desktop-App verbunden ist.",
+      "sw_version": "Igloo Reader SW-Version",
+      "sw_version_placeholder": "1.8.XX",
+      "sw_version_help": "Sie finden die <strong>Software-Version</strong> des Readers im # Startbildschirm → ⚙ Einstellungen → ⓘ Über, oder in den Geräteeinstellungen von Dx Care oder Dx Studio, wenn der Reader per USB mit der Desktop-App verbunden ist.",
+      "issue_type": "Problemtyp",
+      "issue_type_placeholder": "Bitte wählen",
+      "issue_types": {
+        "hardware": "Hardware-Problem",
+        "software": "Software-Problem",
+        "connectivity": "Verbindungsproblem",
+        "test_kit": "Testkit-Problem",
+        "calibration": "Kalibrierungsproblem",
+        "other": "Sonstiges"
+      },
+      "subject": "Betreff",
+      "subject_placeholder": "Kurze Beschreibung des Problems",
+      "description": "Problembeschreibung",
+      "description_placeholder": "Beschreiben Sie das Problem so detailliert wie möglich...",
+      "attachment": "Foto, Video oder Dokument anhängen",
+      "attachment_button": "Dateien auswählen",
+      "attachment_none": "Keine ausgewählt",
+      "consent": "Ich stimme zu, dass meine Angaben zur Bearbeitung der Support-Anfrage und für Rückfragen bis zu 12 Monate gespeichert werden.",
+      "submit": "Absenden",
+      "submitting": "Sende...",
+      "success": "Vielen Dank! Ihre Support-Anfrage wurde gesendet. Wir melden uns schnellstmöglich bei Ihnen.",
+      "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut."
+    },
+    "info": {
+      "title": "Support-Informationen",
+      "text": "Unser Support-Team wird sich innerhalb eines Arbeitstages bei Ihnen melden. Für dringende Probleme nutzen Sie bitte die untenstehende Telefonnummer.",
+      "email_label": "EMAIL (24/7 Support)",
+      "phone_label": "TELEFON (Support-Hotline)"
+    },
+    "sidebar_links": {
+      "title": "Hilfreiche Links",
+      "downloads": "Downloads & Dokumentation",
+      "contact": "Allgemeine Kontaktanfrage",
+      "igloo": "IglooPro System"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+services:
+  # ==========================================================================
+  # Frontend Service (Node.js SSR Server)
+  # ==========================================================================
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "2026:3000"  # Externer Reverse Proxy → Container Port
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - BACKEND_URL=http://backend:5000  # Docker-Netzwerk DNS
+    depends_on:
+      - backend
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  # ==========================================================================
+  # Backend Service (Node.js API / Mailer)
+  # ==========================================================================
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./server/.env
+    networks:
+      - app-network
+    restart: unless-stopped
+
+# ============================================================================
+# Networks
+# ============================================================================
+networks:
+  app-network:
+    driver: bridge
