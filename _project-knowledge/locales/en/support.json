@@ -1,0 +1,60 @@
+{
+  "support": {
+    "seo": {
+      "title": "Support Request | PolarisDX",
+      "description": "Having trouble with your Igloo Reader or test kits? Send us a support request and we will assist you as quickly as possible."
+    },
+    "hero": {
+      "kicker": "SUPPORT",
+      "title": "Support Request",
+      "breadcrumb": "Home / Support"
+    },
+    "intro": "If you're having trouble with your Igloo Reader or test kits, please reach out using this form. We value your message and will do our best to assist you as quickly as possible. Include a short description of the issue and, if possible, a photo and the device's serial number.",
+    "form": {
+      "name": "Your Name",
+      "name_placeholder": "Your full name",
+      "email": "Email Address",
+      "email_placeholder": "you@example.com",
+      "udi": "Igloo Reader UDI",
+      "udi_placeholder": "S0DA25000XXXXX",
+      "udi_help": "You can find the <strong>Unique Identification Number</strong> of the reader on a sticker on the bottom of the device, or on the # Home screen → ⚙ Settings → ⓘ About, or in Device settings of Dx Care or Dx Studio when reader connected to desktop app with USB.",
+      "sw_version": "Igloo Reader SW Version",
+      "sw_version_placeholder": "1.8.XX",
+      "sw_version_help": "You can find the <strong>Software Version</strong> of the reader in # Home screen → ⚙ Settings → ⓘ About, or in Device settings of Dx Care or Dx Studio when reader connected to desktop app with USB.",
+      "issue_type": "Issue Type",
+      "issue_type_placeholder": "Please select",
+      "issue_types": {
+        "hardware": "Hardware Issue",
+        "software": "Software Issue",
+        "connectivity": "Connectivity Issue",
+        "test_kit": "Test Kit Issue",
+        "calibration": "Calibration Issue",
+        "other": "Other"
+      },
+      "subject": "Issue Subject",
+      "subject_placeholder": "Short description of the issue",
+      "description": "Issue Description",
+      "description_placeholder": "Describe the issue in as much detail as possible...",
+      "attachment": "Attach Photo, Video or Document",
+      "attachment_button": "Choose Files",
+      "attachment_none": "No file chosen",
+      "consent": "I agree that my information will be stored for up to 12 months for processing the support request and follow-up inquiries.",
+      "submit": "Submit",
+      "submitting": "Sending...",
+      "success": "Thank you! Your support request has been sent. We will get back to you as soon as possible.",
+      "error": "An error occurred. Please try again later."
+    },
+    "info": {
+      "title": "Support Information",
+      "text": "Our support team will get back to you within one business day. For urgent issues, please use the phone number below.",
+      "email_label": "EMAIL (24/7 Support)",
+      "phone_label": "PHONE (Support Hotline)"
+    },
+    "sidebar_links": {
+      "title": "Helpful Links",
+      "downloads": "Downloads & Documentation",
+      "contact": "General Contact Request",
+      "igloo": "IglooPro System"
+    }
+  }
+}
