@@ -21,7 +21,7 @@ import Layout from './components/layout/Layout'
 // =============================================================================
 
 // HomePage ist die Hauptseite - wird fast immer zuerst besucht
-import HomePage from './routes/HomePage'
+import HomePage from './pages/HomePage'
 
 // Layout-Komponenten bleiben eager (werden auf allen Seiten gebraucht)
 import { CookieBanner } from './components/ui/CookieBanner'
@@ -33,18 +33,18 @@ import ChatWidget from './components/ui/ChatWidget'
 // =============================================================================
 
 // Informationsseiten
-const AboutPage = lazy(() => import('./routes/AboutPage'))
-const ContactPage = lazy(() => import('./routes/ContactPage'))
-const SupportPage = lazy(() => import('./routes/SupportPage'))
+const AboutPage = lazy(() => import('./pages/AboutPage'))
+const ContactPage = lazy(() => import('./pages/ContactPage'))
+const SupportPage = lazy(() => import('./pages/SupportPage'))
 const EventsPage = lazy(() => import('./pages/EventsPage'))
 
 // Artikel/Blog
-const ArticlesIndexPage = lazy(() => import('./routes/ArticlesIndexPage'))
-const ArticlePage = lazy(() => import('./routes/ArticlePage'))
+const ArticlesIndexPage = lazy(() => import('./pages/ArticlesIndexPage'))
+const ArticlePage = lazy(() => import('./pages/ArticlePage'))
 
 // Services
-const ServicesOverviewPage = lazy(() => import('./routes/ServicesOverviewPage'))
-const ServicePage = lazy(() => import('./routes/ServicePage'))
+const ServicesOverviewPage = lazy(() => import('./pages/ServicesOverviewPage'))
+const ServicePage = lazy(() => import('./pages/ServicePage'))
 
 // Produkt-Seiten (große Komponenten)
 const IglooProPage = lazy(() => import('./pages/IglooProPage'))
@@ -53,12 +53,12 @@ const S3LeitliniePage = lazy(() => import('./pages/S3LeitliniePage'))
 const VitaminD3SprayPage = lazy(() => import('./pages/VitaminD3SprayPage'))
 
 // Rechtliches
-const TermsPage = lazy(() => import('./routes/TermsPage'))
-const PrivacyPage = lazy(() => import('./routes/PrivacyPage'))
-const ImprintPage = lazy(() => import('./routes/ImprintPage'))
+const TermsPage = lazy(() => import('./pages/TermsPage'))
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage'))
+const ImprintPage = lazy(() => import('./pages/ImprintPage'))
 
 // Sonstiges
-const DownloadsPage = lazy(() => import('./routes/DownloadsPage'))
+const DownloadsPage = lazy(() => import('./pages/DownloadsPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
 // =============================================================================
