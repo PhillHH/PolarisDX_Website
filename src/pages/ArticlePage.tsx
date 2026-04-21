@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { SEOHead, createArticleSchema, createBreadcrumbSchema } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import SectionHeader from '../components/ui/SectionHeader'
-import PrimaryButton from '../components/ui/PrimaryButton'
+import { Button } from '../components/ui/Button'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import { services } from '../data/services'
@@ -69,17 +69,17 @@ const ArticlePage = () => {
               {error.message || t('shop:shop.articleNotFound', 'Article not found')}
             </Alert>
             <div className="mt-6 flex justify-center">
-              <PrimaryButton as={Link} to="/articles">
+              <Button to="/articles">
                 {t('shop:shop.backToArticles', 'Back to Overview')}
-              </PrimaryButton>
+              </Button>
             </div>
           </div>
         ) : (
           <>
             <h1 className="text-2xl font-bold text-gray-900">{t('shop:shop.articleNotFound', 'Article not found')}</h1>
-            <PrimaryButton as={Link} to="/articles">
+            <Button to="/articles">
               {t('shop:shop.backToArticles', 'Back to Overview')}
-            </PrimaryButton>
+            </Button>
           </>
         )}
       </div>
@@ -309,9 +309,9 @@ const ArticlePage = () => {
 
               <div className="mt-8 flex flex-col gap-4 border-t border-gray-100 pt-8 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
                 <span>{t('shop:shop.shareArticle', 'Liked this article? Share it with your friends and family.')}</span>
-                <PrimaryButton as={Link} to="/articles" variant="brand-secondary">
+                <Button to="/articles" variant="secondary">
                   {t('shop:shop.backToArticles', 'Back to Overview')}
-                </PrimaryButton>
+                </Button>
               </div>
 
               {/* Suggested articles for mobile / small screens */}
@@ -434,9 +434,9 @@ const ArticlePage = () => {
                 <p className="mb-3 text-xs leading-relaxed text-gray-500">
                   {t('shop:shop.contactText', 'Our medical team is available 24/7 to answer urgent questions and help you decide what to do next.')}
                 </p>
-                <PrimaryButton as={Link} to="/contact" variant="brand-secondary" className="w-full justify-center">
+                <Button to="/contact" variant="secondary" className="w-full justify-center">
                   {t('common:nav.contact', 'Kontakt aufnehmen')}
-                </PrimaryButton>
+                </Button>
               </section>
             </Reveal>
           </aside>

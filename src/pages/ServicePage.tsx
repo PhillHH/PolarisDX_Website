@@ -6,7 +6,7 @@ import { Sparkles, Infinity as InfinityIcon } from 'lucide-react'
 import { SEOHead, createServiceSchema, createBreadcrumbSchema, createFAQSchema, type FAQItem } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import SectionHeader from '../components/ui/SectionHeader'
-import PrimaryButton from '../components/ui/PrimaryButton'
+import { Button } from '../components/ui/Button'
 import { services } from '../data/services'
 import { articles } from '../data/articles'
 import FAQSection from '../components/sections/FAQSection'
@@ -253,9 +253,9 @@ const ServicePage = () => {
 
                   {/* Content CTA Button */}
                   <div className="mt-8 pt-4">
-                      <PrimaryButton as={Link} to="/contact" variant="primary">
+                      <Button to="/contact" variant="primary">
                           {ctaText}
-                      </PrimaryButton>
+                      </Button>
                   </div>
 
                   {/* FAQ Section */}
@@ -343,9 +343,9 @@ const ServicePage = () => {
                 <p className="mb-3 text-xs leading-relaxed text-gray-500">
                   {t('shop:shop.contactText', 'Our medical team is available 24/7 to answer urgent questions and help you decide what to do next.')}
                 </p>
-                <PrimaryButton as={Link} to="/contact" variant="brand-secondary" className="w-full justify-center">
+                <Button to="/contact" variant="secondary" className="w-full justify-center">
                     {t('common:nav.contact', 'Contact Us')}
-                </PrimaryButton>
+                </Button>
               </section>
             </Reveal>
           </aside>

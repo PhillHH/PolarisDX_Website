@@ -14,11 +14,6 @@ const buttonVariants = cva(
           'bg-brand-deep text-white shadow-lg shadow-brand-deep/20 hover:bg-brand-deep/90 focus-visible:ring-brand-deep',
         outline:
           'border border-white/80 bg-transparent text-white hover:bg-white/10 focus-visible:ring-white',
-        'outline-light':
-          'border border-white/80 bg-transparent text-white hover:bg-white/10 focus-visible:ring-white',
-        ghost: 'hover:bg-gray-100 hover:text-gray-900',
-        link: 'text-brand-primary underline-offset-4 hover:underline',
-        'brand-secondary': 'bg-brand-deep text-white shadow-lg shadow-brand-deep/20 hover:bg-brand-deep/90 focus-visible:ring-brand-deep'
       },
       size: {
         default: 'px-8 py-4 text-base',
