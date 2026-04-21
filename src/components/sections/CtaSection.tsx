@@ -32,7 +32,7 @@ const CtaSection = () => {
           <p className="text-sm leading-relaxed text-white/90 sm:text-base">
             {t('cta_section.text')}
           </p>
-          <Button to="/contact" variant="brand-secondary">
+          <Button to="/contact" variant="secondary">
             {t('cta_section.button')}
           </Button>
         </div>

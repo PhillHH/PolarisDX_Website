@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ChevronDown, Search } from 'lucide-react'
-import PrimaryButton from '../ui/PrimaryButton'
+import { Button } from '../ui/Button'
 import LanguageSwitcher from '../ui/LanguageSwitcher'
 import SearchModal from '../ui/SearchModal'
 import logo from '../../assets/polaris_white.webp'
@@ -139,14 +139,13 @@ const Header = () => {
             <LanguageSwitcher className="text-white" />
 
             <div className={`${isScrolled ? '' : 'shadow-lg shadow-blue-900/20'} rounded-full`}>
-                <PrimaryButton
-                as={Link}
+                <Button
                 to="/contact"
-                variant={isScrolled ? 'primary' : 'outline-light'}
+                variant={isScrolled ? 'primary' : 'outline'}
                 className={isScrolled ? 'shadow-lg shadow-blue-500/25' : 'border-white/40 hover:bg-white/10 hover:border-white'}
                 >
                 {t('nav.contact')}
-                </PrimaryButton>
+                </Button>
             </div>
           </div>
 
@@ -244,15 +243,14 @@ const Header = () => {
                 </div>
               ))}
               <div className="pt-4">
-                <PrimaryButton
-                    as={Link}
+                <Button
                     to="/contact"
                     className="w-full justify-center shadow-lg"
                     onClick={mobileMenu.onClose}
-                    variant={isScrolled ? 'primary' : 'outline-light'}
+                    variant={isScrolled ? 'primary' : 'outline'}
                 >
                     {t('nav.contact')}
-                </PrimaryButton>
+                </Button>
               </div>
             </div>
           </div>

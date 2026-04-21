@@ -136,7 +136,7 @@ const HeroSection = () => {
                 </Button>
                 <Button
                   to="/downloads"
-                  variant="outline-light"
+                  variant="outline"
                   size="sm"
                   className="w-full text-center sm:w-auto sm:whitespace-nowrap"
                 >

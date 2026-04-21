@@ -4,7 +4,7 @@ import { Wifi, Battery, ShieldCheck, Layers } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { SEOHead, iglooProProductSchema, createBreadcrumbSchema } from '../components/seo';
 import SectionHeader from '../components/ui/SectionHeader';
-import PrimaryButton from '../components/ui/PrimaryButton';
+import { Button } from '../components/ui/Button';
 import iglooImage from '../assets/igloo_front.webp'; // Using existing asset
 import IglooProFlyer from '../assets/downloads/igloo-pro-flyer.pdf';
 
@@ -126,9 +126,9 @@ const IglooProPage: React.FC = () => {
                 {t('products:hero.description')}
               </p>
               <div className="flex gap-4 pt-4">
-                <PrimaryButton as="a" href="/contact">
+                <Button href="/contact">
                   {t('products:hero.cta_order')}
-                </PrimaryButton>
+                </Button>
                 <a
                   href={IglooProFlyer}
                   target="_blank"
@@ -286,9 +286,9 @@ const IglooProPage: React.FC = () => {
             <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
                 {t('products:cta_bottom.description')}
             </p>
-            <PrimaryButton as="a" href="/contact" className="text-lg px-10 py-4 bg-white text-brand-deep hover:bg-gray-100 border-none shadow-xl">
+            <Button href="/contact" className="text-lg px-10 py-4 bg-white text-brand-deep hover:bg-gray-100 border-none shadow-xl">
                 {t('products:cta_bottom.button')}
-            </PrimaryButton>
+            </Button>
         </div>
       </section>
     </div>
