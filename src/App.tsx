@@ -5,8 +5,6 @@ import ArticlePage from './routes/ArticlePage'
 import ArticlesIndexPage from './routes/ArticlesIndexPage'
 import ContactPage from './routes/ContactPage'
 import SupportPage from './routes/SupportPage'
-// import ShopPage from './routes/ShopPage'
-// import ProductPage from './routes/ProductPage'
 import ServicePage from './routes/ServicePage'
 import ServicesOverviewPage from './routes/ServicesOverviewPage'
 import DownloadsPage from './routes/DownloadsPage'
@@ -20,7 +18,6 @@ import VitaminD3ImplantologyPage from './pages/VitaminD3ImplantologyPage'
 import S3LeitliniePage from './pages/S3LeitliniePage'
 import VitaminD3SprayPage from './pages/VitaminD3SprayPage'
 import NotFoundPage from './pages/NotFoundPage'
-// import CaseStudy32Reasons from './routes/CaseStudy32Reasons' // temporarily disabled
 import { CookieBanner } from './components/ui/CookieBanner'
 import MobileCallButton from './components/ui/MobileCallButton'
 import ChatWidget from './components/ui/ChatWidget'
@@ -53,10 +50,6 @@ function App() {
         <Route path="/vitamin-d3-implantologie" element={<VitaminD3ImplantologyPage />} />
         <Route path="/s3_leitlinie" element={<S3LeitliniePage />} />
         <Route path="/vitamin-d3-spray" element={<VitaminD3SprayPage />} />
-        {/* <Route path="/casestudys/32reasons" element={<CaseStudy32Reasons />} /> */}
-        {/* Shop temporarily disabled */}
-        {/* <Route path="/shop" element={<ShopPage />} /> */}
-        {/* <Route path="/shop/:slug" element={<ProductPage />} /> */}
         <Route path="/downloads" element={<DownloadsPage />} />
 
         {/* 301 Redirects: /services → /diagnostics */}
