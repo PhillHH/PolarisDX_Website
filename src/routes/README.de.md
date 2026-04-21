@@ -21,31 +21,6 @@ Ziel: **Schnelles Verständnis des Angebots** und Führen des Nutzers zu Shop, A
 
 ---
 
-### `ShopPage.tsx`
-
-- Listet alle Produkte aus `data/products.ts` als Raster von `ProductCard`‑Komponenten.
-- Ein Hero‑Abschnitt erklärt kurz den MedHealth‑Shop.
-- Jede Karte verlinkt auf die jeweilige Produktdetailseite (`/shop/:slug`).
-
----
-
-### `ProductPage.tsx`
-
-- Detaildarstellung eines Produkts basierend auf der URL (`:slug`).
-- Verwendet `getProductBySlug` aus `data/products.ts`.
-- Darstellung:
-  - Produktname, Kategorie, Preis,
-  - Bild (falls im Produkt hinterlegt),
-  - ausführliche Beschreibung (`detailedDescription` oder `shortDescription`),
-  - Features & Benefits,
-  - Technische Spezifikationen (`techSpecs` als Tabelle),
-  - Lieferumfang und Hinweis auf Demo‑Charakter des Shops.
-- Sidebar mit:
-  - Demo‑Bestellbox,
-  - „You might also like“ – weitere Produkte als Empfehlungen.
-
----
-
 ### `ArticlePage.tsx`
 
 - Detailseite für einen strukturierten Artikel aus `data/articles.ts`.
