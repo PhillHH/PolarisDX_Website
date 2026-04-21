@@ -44,9 +44,6 @@ Dieses Verzeichnis enthält die **Rahmenkomponenten**, die die Struktur jeder Se
     - „Links“ – interne Ankerlinks der Startseite (Home, About, Service, Blog).
     - „Explore“ – zusätzliche Navigationspunkte (Our Doctors, Testimonials, FAQ, Make Appointment).
     - „Contact“ – E‑Mail, Telefon und Social‑Icons.
-- Social‑Icons:
-  - Daten aus `src/data/social.tsx` (`socialLinks`).
-  - Darstellung als runde Buttons mit Text‑Icon (z. B. `in`, `tw`).
 
 ---
 

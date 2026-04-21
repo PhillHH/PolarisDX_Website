@@ -37,7 +37,7 @@ Siehe Details in `components/sections/README.de.md`.
 Siehe Details in `components/ui/README.de.md`.
 
 - Enthält **kleine, fokussierte Komponenten**, z. B.:
-  - `PrimaryButton`, `SectionHeader`, `ProductCard`, `ServiceCard`, `BlogCard`, `StatItem`.
+  - `PrimaryButton`, `SectionHeader`, `ServiceCard`, `BlogCard`, `StatItem`.
 - Sie werden in Sections und Pages wiederverwendet und sind der wichtigste Hebel, um das Design konsistent zu halten.
 
 ---

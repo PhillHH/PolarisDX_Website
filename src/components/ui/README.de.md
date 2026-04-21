@@ -33,14 +33,6 @@ Sie bilden das „Designsystem“ der Anwendung auf Komponentenebene.
 
 ### Karten-Komponenten
 
-- **`ProductCard.tsx`**
-  - Präsentiert ein Produkt aus `data/products.ts`:
-    - Name, Kategorie, Preis,
-    - Kurzbeschreibung (auf 3 Zeilen begrenzt),
-    - optionales Bild (über `image`‑Filename aus `assets/`),
-    - Badge (z. B. „New“, „Popular“, „Limited“).
-  - Link (`to`‑Prop) öffnet die entsprechende Produktdetailseite (`/shop/:slug`).
-
 - **`ServiceCard.tsx`**
   - Darstellung eines diagnostischen Service‑Angebots:
     - optionales Icon,
