@@ -11,9 +11,9 @@
  * />
  */
 
-import { Helmet } from 'react-helmet-async';
-import { useTranslation } from 'react-i18next';
-import { useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async'
+import { useTranslation } from 'react-i18next'
+import { useLocation } from 'react-router-dom'
 
 // =============================================================================
 // TYPES
@@ -21,47 +21,47 @@ import { useLocation } from 'react-router-dom';
 
 export interface SEOHeadProps {
   /** Page title (without brand suffix) */
-  title: string;
+  title: string
   /** Meta description (150-160 characters recommended) */
-  description: string;
+  description: string
   /** Canonical URL override (auto-generated with lang prefix by default) */
-  canonical?: string;
+  canonical?: string
   /** Open Graph image URL (defaults to /og-image.jpg) */
-  ogImage?: string;
+  ogImage?: string
   /** Open Graph type */
-  ogType?: 'website' | 'article' | 'product';
+  ogType?: 'website' | 'article' | 'product'
   /** Set to true for pages that should not be indexed (e.g., legal pages) */
-  noindex?: boolean;
+  noindex?: boolean
   /** Additional JSON-LD structured data */
-  structuredData?: object | object[];
+  structuredData?: object | object[]
   /** Article-specific metadata */
   article?: {
-    publishedTime?: string;
-    modifiedTime?: string;
-    author?: string;
-    section?: string;
-    tags?: string[];
-  };
+    publishedTime?: string
+    modifiedTime?: string
+    author?: string
+    section?: string
+    tags?: string[]
+  }
   /** Product-specific metadata */
   product?: {
-    price?: string;
-    currency?: string;
-    availability?: 'InStock' | 'OutOfStock' | 'PreOrder';
-  };
+    price?: string
+    currency?: string
+    availability?: 'InStock' | 'OutOfStock' | 'PreOrder'
+  }
   /** Keywords for meta keywords tag (optional, low SEO impact) */
-  keywords?: string[];
+  keywords?: string[]
   /** Critical images to preload for LCP optimization */
-  preloadImages?: string[];
+  preloadImages?: string[]
 }
 
 // =============================================================================
 // CONSTANTS
 // =============================================================================
 
-const SITE_NAME = 'PolarisDX';
-const BASE_URL = 'https://polarisdx.net';
-const DEFAULT_OG_IMAGE = '/og-image.jpg';
-const DEFAULT_LOCALE = 'de_DE';
+const SITE_NAME = 'PolarisDX'
+const BASE_URL = 'https://polarisdx.net'
+const DEFAULT_OG_IMAGE = '/og-image.jpg'
+const DEFAULT_LOCALE = 'de_DE'
 
 // Supported languages with their locale codes
 const LOCALE_MAP: Record<string, string> = {
@@ -75,11 +75,11 @@ const LOCALE_MAP: Record<string, string> = {
   da: 'da_DK',
   nl: 'nl_NL',
   cs: 'cs_CZ',
-};
+}
 
 // All supported language codes for hreflang generation
-const SUPPORTED_LANGUAGES = Object.keys(LOCALE_MAP);
-const DEFAULT_LANGUAGE = 'de';
+const SUPPORTED_LANGUAGES = Object.keys(LOCALE_MAP)
+const DEFAULT_LANGUAGE = 'de'
 
 // =============================================================================
 // COMPONENT
@@ -97,29 +97,29 @@ export function SEOHead({
   product,
   keywords,
 }: SEOHeadProps) {
-  const { i18n } = useTranslation();
-  const location = useLocation();
+  const { i18n } = useTranslation()
+  const location = useLocation()
 
   // Derived values
-  const fullTitle = `${title} | ${SITE_NAME}`;
-  const currentLang = i18n.language?.split('-')[0] || 'de';
-  const locale = LOCALE_MAP[currentLang] || DEFAULT_LOCALE;
+  const fullTitle = `${title} | ${SITE_NAME}`
+  const currentLang = i18n.language?.split('-')[0] || 'de'
+  const locale = LOCALE_MAP[currentLang] || DEFAULT_LOCALE
 
   // location.pathname returns path WITHOUT lang prefix (BrowserRouter basename strips it)
   // Build canonical with lang prefix: https://polarisdx.net/de/about
-  const path = location.pathname;
+  const path = location.pathname
   const canonicalUrl = canonical
     ? canonical
-    : `${BASE_URL}/${currentLang}${path === '/' ? '/' : path}`;
+    : `${BASE_URL}/${currentLang}${path === '/' ? '/' : path}`
 
   const ogImageUrl = ogImage?.startsWith('http')
     ? ogImage
-    : `${BASE_URL}${ogImage || DEFAULT_OG_IMAGE}`;
+    : `${BASE_URL}${ogImage || DEFAULT_OG_IMAGE}`
 
   // Robots directive
   const robotsContent = noindex
     ? 'noindex, nofollow'
-    : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+    : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
 
   return (
     <Helmet>
@@ -128,9 +128,7 @@ export function SEOHead({
       <title>{fullTitle}</title>
       <meta name="title" content={fullTitle} />
       <meta name="description" content={description} />
-      {keywords && keywords.length > 0 && (
-        <meta name="keywords" content={keywords.join(', ')} />
-      )}
+      {keywords && keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
       <meta name="robots" content={robotsContent} />
       <meta name="googlebot" content={robotsContent} />
       <link rel="canonical" href={canonicalUrl} />
@@ -151,11 +149,7 @@ export function SEOHead({
       {Object.entries(LOCALE_MAP)
         .filter(([lang]) => lang !== currentLang)
         .map(([, localeCode]) => (
-          <meta
-            key={localeCode}
-            property="og:locale:alternate"
-            content={localeCode}
-          />
+          <meta key={localeCode} property="og:locale:alternate" content={localeCode} />
         ))}
 
       {/* Twitter Card */}
@@ -170,23 +164,13 @@ export function SEOHead({
       {article && ogType === 'article' && (
         <>
           {article.publishedTime && (
-            <meta
-              property="article:published_time"
-              content={article.publishedTime}
-            />
+            <meta property="article:published_time" content={article.publishedTime} />
           )}
           {article.modifiedTime && (
-            <meta
-              property="article:modified_time"
-              content={article.modifiedTime}
-            />
+            <meta property="article:modified_time" content={article.modifiedTime} />
           )}
-          {article.author && (
-            <meta property="article:author" content={article.author} />
-          )}
-          {article.section && (
-            <meta property="article:section" content={article.section} />
-          )}
+          {article.author && <meta property="article:author" content={article.author} />}
+          {article.section && <meta property="article:section" content={article.section} />}
           {article.tags?.map((tag) => (
             <meta key={tag} property="article:tag" content={tag} />
           ))}
@@ -196,17 +180,12 @@ export function SEOHead({
       {/* Product-specific meta tags */}
       {product && ogType === 'product' && (
         <>
-          {product.price && (
-            <meta property="product:price:amount" content={product.price} />
-          )}
+          {product.price && <meta property="product:price:amount" content={product.price} />}
           {product.currency && (
             <meta property="product:price:currency" content={product.currency} />
           )}
           {product.availability && (
-            <meta
-              property="product:availability"
-              content={product.availability}
-            />
+            <meta property="product:availability" content={product.availability} />
           )}
         </>
       )}
@@ -231,11 +210,7 @@ export function SEOHead({
       {/* JSON-LD Structured Data */}
       {structuredData && (
         <script type="application/ld+json">
-          {JSON.stringify(
-            Array.isArray(structuredData)
-              ? structuredData
-              : structuredData
-          )}
+          {JSON.stringify(Array.isArray(structuredData) ? structuredData : structuredData)}
         </script>
       )}
 
@@ -244,7 +219,7 @@ export function SEOHead({
           images encountered during renderToString(). The server strips
           these from inline output and moves them to <head>. */}
     </Helmet>
-  );
+  )
 }
 
-export default SEOHead;
+export default SEOHead

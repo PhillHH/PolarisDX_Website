@@ -1,4 +1,14 @@
-import { MonitorSmartphone, ShieldCheck, Flame, HeartPulse, Dna, Puzzle, Sparkles, Activity, Smile } from 'lucide-react'
+import {
+  MonitorSmartphone,
+  ShieldCheck,
+  Flame,
+  HeartPulse,
+  Dna,
+  Puzzle,
+  Sparkles,
+  Activity,
+  Smile,
+} from 'lucide-react'
 import type { Service } from '../types'
 
 export const services: Service[] = [
@@ -34,7 +44,12 @@ export const services: Service[] = [
     description: '',
     translationKey: 'poc_systemloesungen',
     icon: <MonitorSmartphone className="h-8 w-8" strokeWidth={1.5} />,
-    relatedArticleIds: ['invisible_patient', 'five_minute_diagnosis', 'ecosystem_of_rapid_tests', 'rapid_setup_formula'],
+    relatedArticleIds: [
+      'invisible_patient',
+      'five_minute_diagnosis',
+      'ecosystem_of_rapid_tests',
+      'rapid_setup_formula',
+    ],
   },
   {
     id: 'praeventions-checks',

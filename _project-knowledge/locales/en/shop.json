@@ -72,20 +72,12 @@
     "thermometer": {
       "name": "Contactless Forehead Thermometer",
       "shortDescription": "Fast, hygienic temperature readings without skin contact — ideal for families.",
-      "features": [
-        "1-second measurement",
-        "Fever alarm indicator",
-        "Backlit display"
-      ]
+      "features": ["1-second measurement", "Fever alarm indicator", "Backlit display"]
     },
     "pulse_oximeter": {
       "name": "Finger Pulse Oximeter",
       "shortDescription": "Measure blood oxygen saturation and pulse rate within seconds.",
-      "features": [
-        "SpO₂ and pulse rate display",
-        "Compact and portable",
-        "Auto power-off"
-      ]
+      "features": ["SpO₂ and pulse rate display", "Compact and portable", "Auto power-off"]
     },
     "home_care_kit": {
       "name": "Home Care Starter Kit",
@@ -108,38 +100,22 @@
     "n95_mask_pack": {
       "name": "N95 Respirator Mask Pack (10 pcs)",
       "shortDescription": "Certified N95 masks for reliable respiratory protection.",
-      "features": [
-        "Adjustable nose clip",
-        "Comfortable ear loops",
-        "Individually packed"
-      ]
+      "features": ["Adjustable nose clip", "Comfortable ear loops", "Individually packed"]
     },
     "hand_sanitizer": {
       "name": "Antibacterial Hand Sanitizer (500 ml)",
       "shortDescription": "Fast-drying sanitizer with moisturizing ingredients.",
-      "features": [
-        "Kills 99.9% of germs",
-        "Non-sticky formula",
-        "Fresh, clean scent"
-      ]
+      "features": ["Kills 99.9% of germs", "Non-sticky formula", "Fresh, clean scent"]
     },
     "compression_socks": {
       "name": "Medical Compression Socks",
       "shortDescription": "Support circulation during long days on your feet or recovery.",
-      "features": [
-        "Graduated compression",
-        "Breathable fabric",
-        "Multiple sizes available"
-      ]
+      "features": ["Graduated compression", "Breathable fabric", "Multiple sizes available"]
     },
     "first_aid_kit": {
       "name": "Compact First Aid Kit",
       "shortDescription": "A compact kit with essentials for minor injuries and emergencies.",
-      "features": [
-        "Bandages and dressings",
-        "Antiseptic wipes",
-        "Instruction leaflet"
-      ]
+      "features": ["Bandages and dressings", "Antiseptic wipes", "Instruction leaflet"]
     },
     "online_consult": {
       "name": "Online Doctor Consultation (30 min)",

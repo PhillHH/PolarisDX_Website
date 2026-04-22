@@ -19,7 +19,10 @@ const NotFoundPage = () => {
     <PageTransition>
       <SEOHead
         title={t('notFound.seo.title', 'Seite nicht gefunden | PolarisDX')}
-        description={t('notFound.seo.description', 'Die angeforderte Seite konnte nicht gefunden werden.')}
+        description={t(
+          'notFound.seo.description',
+          'Die angeforderte Seite konnte nicht gefunden werden.',
+        )}
         noindex={true}
       />
 
@@ -56,7 +59,10 @@ const NotFoundPage = () => {
 
             {/* Description */}
             <p className="mx-auto max-w-lg text-lg text-white/80 mb-10">
-              {t('notFound.description', 'Die von Ihnen gesuchte Seite wurde möglicherweise verschoben, gelöscht oder existiert nicht mehr.')}
+              {t(
+                'notFound.description',
+                'Die von Ihnen gesuchte Seite wurde möglicherweise verschoben, gelöscht oder existiert nicht mehr.',
+              )}
             </p>
 
             {/* Primary CTA */}

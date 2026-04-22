@@ -11,22 +11,22 @@
 
 ### 1.1 Haupt-Keyword: „Vitamin D Implantologie"
 
-| Metrik | Ist-Wert | Ziel-Wert | Bewertung |
-|--------|----------|-----------|-----------|
-| Exakte Treffer | 1× | 5–8× | Unterrepräsentiert |
-| Variante „Vitamin D in der Implantologie" | 3× | (zählt mit) | OK |
-| Gesamt (exakt + Varianten) | 4× | 5–8× | Leicht unter Ziel |
-| Keyword-Dichte (alle Varianten) | ~0,5% | 0,8–1,2% | Zu niedrig |
+| Metrik                                    | Ist-Wert | Ziel-Wert   | Bewertung          |
+| ----------------------------------------- | -------- | ----------- | ------------------ |
+| Exakte Treffer                            | 1×       | 5–8×        | Unterrepräsentiert |
+| Variante „Vitamin D in der Implantologie" | 3×       | (zählt mit) | OK                 |
+| Gesamt (exakt + Varianten)                | 4×       | 5–8×        | Leicht unter Ziel  |
+| Keyword-Dichte (alle Varianten)           | ~0,5%    | 0,8–1,2%    | Zu niedrig         |
 
 **Verteilungs-Check:**
 
-| Position | Vorhanden? | Status |
-|----------|-----------|--------|
-| H1 | Ja – „Vitamin D in der Implantologie – S3-Leitlinie & POC-Test" | OK |
-| Erste H2 | Nein – „Vitamin-D-Mangel in Deutschland: Warum Ihre Implantate betroffen sind" | Fehlt |
-| Erster Absatz (erste 100 Wörter) | Ja – „Für die Implantologie hat das direkte Konsequenzen" (Teilmatch) | Schwach |
-| Letzter Absatz | Nein | Fehlt |
-| Weitere H2s (mind. 2) | Ja – H2 Abschnitt 2 enthält „Implantologie", FAQ-Q4 ebenfalls | OK |
+| Position                         | Vorhanden?                                                                     | Status  |
+| -------------------------------- | ------------------------------------------------------------------------------ | ------- |
+| H1                               | Ja – „Vitamin D in der Implantologie – S3-Leitlinie & POC-Test"                | OK      |
+| Erste H2                         | Nein – „Vitamin-D-Mangel in Deutschland: Warum Ihre Implantate betroffen sind" | Fehlt   |
+| Erster Absatz (erste 100 Wörter) | Ja – „Für die Implantologie hat das direkte Konsequenzen" (Teilmatch)          | Schwach |
+| Letzter Absatz                   | Nein                                                                           | Fehlt   |
+| Weitere H2s (mind. 2)            | Ja – H2 Abschnitt 2 enthält „Implantologie", FAQ-Q4 ebenfalls                  | OK      |
 
 ### 1.2 Konkrete Optimierungsvorschläge für das Haupt-Keyword
 
@@ -52,18 +52,18 @@ Schlusssatz ergänzen: „…macht den Igloo Reader Pro zum erweiterbaren diagno
 
 ### 1.3 Sekundär-Keyword-Abdeckung
 
-| Keyword | Vorkommen | Bewertung | Handlungsbedarf |
-|---------|-----------|-----------|-----------------|
-| S3-Leitlinie (div. Varianten) | 11× | Sehr gut | Kein |
-| Zahnarztpraxis | 8× | Gut | Kein |
-| DEQAS | 6× | Gut | Kein |
-| POC-Diagnostik (div. Varianten) | 6× | Gut | Kein |
-| Vitamin D Schnelltest Zahnarzt | 2× | OK | Kein |
-| Vitamin D Bestimmung vor Implantation | 2× | OK | Kein |
-| Vitamin D Mangel Zahnimplantat | 1× | Grenzwertig | +1 empfohlen |
-| Vitamin D Parodontitis | 1× | Grenzwertig | +1 empfohlen |
-| Vitamin D Test Zahnarztpraxis | 1× | Grenzwertig | +1 empfohlen |
-| IGeL Vitamin D Test Zahnarzt | 1× | OK (Nischen-KW) | Kein |
+| Keyword                               | Vorkommen | Bewertung       | Handlungsbedarf |
+| ------------------------------------- | --------- | --------------- | --------------- |
+| S3-Leitlinie (div. Varianten)         | 11×       | Sehr gut        | Kein            |
+| Zahnarztpraxis                        | 8×        | Gut             | Kein            |
+| DEQAS                                 | 6×        | Gut             | Kein            |
+| POC-Diagnostik (div. Varianten)       | 6×        | Gut             | Kein            |
+| Vitamin D Schnelltest Zahnarzt        | 2×        | OK              | Kein            |
+| Vitamin D Bestimmung vor Implantation | 2×        | OK              | Kein            |
+| Vitamin D Mangel Zahnimplantat        | 1×        | Grenzwertig     | +1 empfohlen    |
+| Vitamin D Parodontitis                | 1×        | Grenzwertig     | +1 empfohlen    |
+| Vitamin D Test Zahnarztpraxis         | 1×        | Grenzwertig     | +1 empfohlen    |
+| IGeL Vitamin D Test Zahnarzt          | 1×        | OK (Nischen-KW) | Kein            |
 
 **Vorschläge für unterrepräsentierte Keywords:**
 
@@ -73,18 +73,18 @@ Schlusssatz ergänzen: „…macht den Igloo Reader Pro zum erweiterbaren diagno
 
 ### 1.4 H2-Keyword-Prüfung
 
-| H2 | Enthält Sekundär-Keyword? |
-|----|---------------------------|
-| Vitamin-D-Mangel in Deutschland: Warum Ihre Implantate betroffen sind | Ja (Vitamin D Mangel, implizit) |
-| Die S3-Leitlinie „Vitamin D und dentale Implantologie" | Ja (S3-Leitlinie, Implantologie) |
-| Warum POC statt Labor? Der Zeitvorteil am Behandlungsstuhl | Ja (POC, implizit) |
-| Igloo Reader Pro – Das POC-Diagnostik-System für Zahnarztpraxen | Ja (POC Diagnostik Zahnarztpraxis) |
-| Wirtschaftlichkeit: IGeL-Abrechnung und ROI | Ja (IGeL) |
-| Praxisworkflow: Vitamin-D-Diagnostik in 5 Schritten | Ja (Vitamin-D-Diagnostik) |
-| Polaris Vitamin D3 Spray – Diagnostik und Therapie aus einer Hand | Ja (D3) |
-| Klinische Validierung und Partnerpraxen | Schwach – kein explizites Keyword |
-| Bereit für leitlinienkonforme Diagnostik? | Ja (Diagnostik, implizit) |
-| Häufig gestellte Fragen zur Vitamin-D-Diagnostik in der Zahnarztpraxis | Ja (Zahnarztpraxis) |
+| H2                                                                     | Enthält Sekundär-Keyword?          |
+| ---------------------------------------------------------------------- | ---------------------------------- |
+| Vitamin-D-Mangel in Deutschland: Warum Ihre Implantate betroffen sind  | Ja (Vitamin D Mangel, implizit)    |
+| Die S3-Leitlinie „Vitamin D und dentale Implantologie"                 | Ja (S3-Leitlinie, Implantologie)   |
+| Warum POC statt Labor? Der Zeitvorteil am Behandlungsstuhl             | Ja (POC, implizit)                 |
+| Igloo Reader Pro – Das POC-Diagnostik-System für Zahnarztpraxen        | Ja (POC Diagnostik Zahnarztpraxis) |
+| Wirtschaftlichkeit: IGeL-Abrechnung und ROI                            | Ja (IGeL)                          |
+| Praxisworkflow: Vitamin-D-Diagnostik in 5 Schritten                    | Ja (Vitamin-D-Diagnostik)          |
+| Polaris Vitamin D3 Spray – Diagnostik und Therapie aus einer Hand      | Ja (D3)                            |
+| Klinische Validierung und Partnerpraxen                                | Schwach – kein explizites Keyword  |
+| Bereit für leitlinienkonforme Diagnostik?                              | Ja (Diagnostik, implizit)          |
+| Häufig gestellte Fragen zur Vitamin-D-Diagnostik in der Zahnarztpraxis | Ja (Zahnarztpraxis)                |
 
 → Abschnitt 8 könnte optimiert werden zu: „Klinische Validierung und **Partnerpraxen in der Implantologie**" – fügt „Implantologie" als Keyword-Signal hinzu.
 
@@ -329,53 +329,54 @@ Schlusssatz ergänzen: „…macht den Igloo Reader Pro zum erweiterbaren diagno
 
 ### Bild 1: Hero-Bild / Abschnitt 1
 
-| Feld | Wert |
-|------|------|
-| **Position** | Nach H1, vor erstem Absatz (Above the Fold) |
-| **Alt-Tag** | `Igloo Reader Pro POC-Diagnostikgerät für Vitamin-D-Schnelltests in der Zahnarztpraxis` |
+| Feld           | Wert                                                                                                                        |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| **Position**   | Nach H1, vor erstem Absatz (Above the Fold)                                                                                 |
+| **Alt-Tag**    | `Igloo Reader Pro POC-Diagnostikgerät für Vitamin-D-Schnelltests in der Zahnarztpraxis`                                     |
 | **Bildinhalt** | Igloo Reader Pro auf Behandlungstisch, im Hintergrund unscharfe Zahnarztpraxis-Umgebung. Clean, medizinisch, professionell. |
-| **Dateiname** | `igloo-reader-pro-vitamin-d-zahnarztpraxis.webp` |
+| **Dateiname**  | `igloo-reader-pro-vitamin-d-zahnarztpraxis.webp`                                                                            |
 
 ### Bild 2: S3-Leitlinie / Abschnitt 2
 
-| Feld | Wert |
-|------|------|
-| **Position** | Nach H2 „Die S3-Leitlinie…", neben oder über der Evidence Box |
-| **Alt-Tag** | `S3-Leitlinie Vitamin D Implantologie: Drei Kernempfehlungen der DGI und DGZMK` |
+| Feld           | Wert                                                                                                                                            |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Position**   | Nach H2 „Die S3-Leitlinie…", neben oder über der Evidence Box                                                                                   |
+| **Alt-Tag**    | `S3-Leitlinie Vitamin D Implantologie: Drei Kernempfehlungen der DGI und DGZMK`                                                                 |
 | **Bildinhalt** | Infografik mit den 3 Kernempfehlungen der Leitlinie als visuelles Schema (Icons: Lupe/Diagnostik, Waage/Gleichwertigkeit, Kalender/Monitoring). |
-| **Dateiname** | `s3-leitlinie-vitamin-d-implantologie-kernempfehlungen.webp` |
+| **Dateiname**  | `s3-leitlinie-vitamin-d-implantologie-kernempfehlungen.webp`                                                                                    |
 
 ### Bild 3: DEQAS-Performance / Abschnitt 4
 
-| Feld | Wert |
-|------|------|
-| **Position** | Nach H3 „DEQAS-validierte Messqualität" |
-| **Alt-Tag** | `DEQAS-Ringversuch Ergebnis: Igloo Reader Pro Class A Platz 2 weltweit Vitamin-D-Messung` |
+| Feld           | Wert                                                                                                   |
+| -------------- | ------------------------------------------------------------------------------------------------------ |
+| **Position**   | Nach H3 „DEQAS-validierte Messqualität"                                                                |
+| **Alt-Tag**    | `DEQAS-Ringversuch Ergebnis: Igloo Reader Pro Class A Platz 2 weltweit Vitamin-D-Messung`              |
 | **Bildinhalt** | Balkendiagramm oder Ranking-Grafik: DEQAS Class A, Platz 2, mit Bias ±3–8% und CV < 2% als Kennzahlen. |
-| **Dateiname** | `deqas-class-a-igloo-reader-pro-vitamin-d.webp` |
+| **Dateiname**  | `deqas-class-a-igloo-reader-pro-vitamin-d.webp`                                                        |
 
 ### Bild 4: Praxisworkflow / Abschnitt 6
 
-| Feld | Wert |
-|------|------|
-| **Position** | Nach H2 „Praxisworkflow: Vitamin-D-Diagnostik in 5 Schritten" |
-| **Alt-Tag** | `Praxisworkflow Vitamin-D-Diagnostik: Anamnese, Blutentnahme, Test, Befund, Therapieplanung` |
+| Feld           | Wert                                                                                                                                        |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Position**   | Nach H2 „Praxisworkflow: Vitamin-D-Diagnostik in 5 Schritten"                                                                               |
+| **Alt-Tag**    | `Praxisworkflow Vitamin-D-Diagnostik: Anamnese, Blutentnahme, Test, Befund, Therapieplanung`                                                |
 | **Bildinhalt** | Horizontale 5-Schritte-Infografik: Icons für jeden Schritt (Fragebogen → Finger → Gerät → Display → Kalender), verbunden durch Pfeillinien. |
-| **Dateiname** | `workflow-vitamin-d-diagnostik-zahnarzt-5-schritte.webp` |
+| **Dateiname**  | `workflow-vitamin-d-diagnostik-zahnarzt-5-schritte.webp`                                                                                    |
 
 ---
 
 ## 4. Interne Verlinkung
 
-| # | Anchor-Text | Ziel-URL | Position im Artikel |
-|---|-------------|----------|---------------------|
-| 1 | Chairside-Diagnostik für die Implantologie | `/diagnostics/dental` | Abschnitt 1, Satz „Trotz dieser Evidenz gehört die Vitamin-D-Bestimmung in den wenigsten Zahnarztpraxen zum Standardprotokoll" – „Zahnarztpraxen" als Link |
-| 2 | Alle Spezifikationen des Igloo Reader Pro | `/igloo-reader-pro` | Abschnitt 4, nach dem Absatz zu Konnektivität/API – als eigenständiger Verweis-Satz |
-| 3 | Erweitertes Biomarker-Portfolio für Zahnarztpraxen | `/diagnostics/dental` | Abschnitt 5, letzter Absatz – bei „betriebswirtschaftlich attraktiv" als weiterführender Link |
-| 4 | Evidenz zu Vitamin D3 und K2 in der Implantologie | `/vitamin-d3-implantologie` | Abschnitt 7, beim Satz „Das Spray kombiniert hochdosiertes Vitamin D3 mit Vitamin K2 (MK-7)" – „Vitamin D3+K2 Mundspray" als Link |
-| 5 | Kostenlose Demo und Beratung anfragen | `/contact` | Abschnitt 9 (CTA), als primärer CTA-Link im Schlusssatz |
+| #   | Anchor-Text                                        | Ziel-URL                    | Position im Artikel                                                                                                                                        |
+| --- | -------------------------------------------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Chairside-Diagnostik für die Implantologie         | `/diagnostics/dental`       | Abschnitt 1, Satz „Trotz dieser Evidenz gehört die Vitamin-D-Bestimmung in den wenigsten Zahnarztpraxen zum Standardprotokoll" – „Zahnarztpraxen" als Link |
+| 2   | Alle Spezifikationen des Igloo Reader Pro          | `/igloo-reader-pro`         | Abschnitt 4, nach dem Absatz zu Konnektivität/API – als eigenständiger Verweis-Satz                                                                        |
+| 3   | Erweitertes Biomarker-Portfolio für Zahnarztpraxen | `/diagnostics/dental`       | Abschnitt 5, letzter Absatz – bei „betriebswirtschaftlich attraktiv" als weiterführender Link                                                              |
+| 4   | Evidenz zu Vitamin D3 und K2 in der Implantologie  | `/vitamin-d3-implantologie` | Abschnitt 7, beim Satz „Das Spray kombiniert hochdosiertes Vitamin D3 mit Vitamin K2 (MK-7)" – „Vitamin D3+K2 Mundspray" als Link                          |
+| 5   | Kostenlose Demo und Beratung anfragen              | `/contact`                  | Abschnitt 9 (CTA), als primärer CTA-Link im Schlusssatz                                                                                                    |
 
 **Zusätzlich empfohlen (Rückverlinkungen):**
+
 - Von `/vitamin-d3-implantologie` auf diesen Artikel verlinken (Anchor: „S3-Leitlinie und POC-Diagnostik für die Zahnarztpraxis")
 - Von `/diagnostics/dental` auf diesen Artikel verlinken (Anchor: „Vitamin D in der Implantologie – Fachartikel")
 - Sidebar-Links auf verwandte Artikel: „Die 5-Minuten-Diagnose", „Die grüne Praxis"
@@ -384,13 +385,13 @@ Schlusssatz ergänzen: „…macht den Igloo Reader Pro zum erweiterbaren diagno
 
 ## 5. Lesbarkeits-Einschätzung
 
-| Metrik | Wert | Bewertung |
-|--------|------|-----------|
-| **Flesch-Reading-Ease (DE)** | ~20–25 (geschätzt) | Akademisch / wissenschaftlich |
-| **Durchschnittliche Satzlänge** | ~18 Wörter | Gut (Ziel: 15–20) |
-| **Durchschnittliche Wortlänge** | ~6,8 Zeichen | Hoch (Fachvokabular) |
-| **Absatzlänge** | 3–5 Sätze | Gut |
-| **Passive Konstruktionen** | Gering | Gut |
+| Metrik                          | Wert               | Bewertung                     |
+| ------------------------------- | ------------------ | ----------------------------- |
+| **Flesch-Reading-Ease (DE)**    | ~20–25 (geschätzt) | Akademisch / wissenschaftlich |
+| **Durchschnittliche Satzlänge** | ~18 Wörter         | Gut (Ziel: 15–20)             |
+| **Durchschnittliche Wortlänge** | ~6,8 Zeichen       | Hoch (Fachvokabular)          |
+| **Absatzlänge**                 | 3–5 Sätze          | Gut                           |
+| **Passive Konstruktionen**      | Gering             | Gut                           |
 
 ### Bewertung
 
@@ -422,14 +423,14 @@ Der Flesch-Wert von ~20–25 liegt im Bereich „akademisch/wissenschaftlich". F
 
 #### Priorität 2: Backlink-Aufbau (Woche 2–6)
 
-| Medium | Maßnahme | Ansprechpartner/Weg |
-|--------|----------|---------------------|
-| **ZWP online** (zwp-online.info) | Gastartikel: „POC-Diagnostik in der Implantologie – Was die neue S3-Leitlinie empfiehlt" | Redaktion kontaktieren, Fachbeitrag anbieten |
-| **zm-online** (zm-online.de) | Pressemitteilung zur S3-Leitlinie + POC-Empfehlung | Presseverteiler ZM, Nachrichtenredaktion |
-| ** 	DZW** (dzw.de) | Interview/Gastbeitrag: „IGeL Vitamin D in der Zahnarztpraxis – Abrechnung und Workflow" | Wirtschaftsredaktion |
-| **DGI-Website** (dgi-ev.de) | Verlinkung als praxisrelevante Ressource zur S3-Leitlinie | Über Leitlinien-Arbeitsgruppe, Partneranfrage |
-| **Dental Tribune** (dental-tribune.com) | Case-Report-Format: „Vitamin-D-Diagnostik vor Implantation – Ein Praxisbeispiel" | Online-Redaktion DACH |
-| **LinkedIn** | S3-Leitlinien-Summary als Fachartikel, Link zum Volltext | PolarisDX Company Page + persönliche Profile |
+| Medium                                  | Maßnahme                                                                                 | Ansprechpartner/Weg                           |
+| --------------------------------------- | ---------------------------------------------------------------------------------------- | --------------------------------------------- |
+| **ZWP online** (zwp-online.info)        | Gastartikel: „POC-Diagnostik in der Implantologie – Was die neue S3-Leitlinie empfiehlt" | Redaktion kontaktieren, Fachbeitrag anbieten  |
+| **zm-online** (zm-online.de)            | Pressemitteilung zur S3-Leitlinie + POC-Empfehlung                                       | Presseverteiler ZM, Nachrichtenredaktion      |
+| ** DZW** (dzw.de)                       | Interview/Gastbeitrag: „IGeL Vitamin D in der Zahnarztpraxis – Abrechnung und Workflow"  | Wirtschaftsredaktion                          |
+| **DGI-Website** (dgi-ev.de)             | Verlinkung als praxisrelevante Ressource zur S3-Leitlinie                                | Über Leitlinien-Arbeitsgruppe, Partneranfrage |
+| **Dental Tribune** (dental-tribune.com) | Case-Report-Format: „Vitamin-D-Diagnostik vor Implantation – Ein Praxisbeispiel"         | Online-Redaktion DACH                         |
+| **LinkedIn**                            | S3-Leitlinien-Summary als Fachartikel, Link zum Volltext                                 | PolarisDX Company Page + persönliche Profile  |
 
 #### Priorität 3: Content-Cluster aufbauen (Woche 3–8)
 
@@ -449,20 +450,21 @@ Nächste Artikel für das semantische Cluster „Vitamin D + Zahnmedizin":
 
 #### Priorität 5: Monitoring & KPIs
 
-| KPI | Tool | Zielwert (8 Wochen) |
-|-----|------|----------------------|
-| Ranking „Vitamin D Implantologie" | Google Search Console, Ahrefs/Sistrix | Top 20 → Top 10 |
-| Organische Klicks auf Artikel-URL | Google Search Console | 50+ Klicks/Monat |
-| Impressionen für Haupt-Keyword | Google Search Console | 500+/Monat |
-| CTR für Haupt-Keyword | Google Search Console | > 5% |
-| Backlinks auf Artikel-URL | Ahrefs/Sistrix | 3–5 Referring Domains |
-| Durchschnittliche Verweildauer | Google Analytics 4 | > 3:00 Minuten |
-| Scroll-Tiefe > 75% | GA4 (Scroll-Event) | > 40% der Besucher |
-| FAQ-Rich-Snippet aktiv | Google Search Console (Enhancements) | Validiert, keine Fehler |
-| Core Web Vitals | PageSpeed Insights | LCP < 2,5s, CLS < 0,1, INP < 200ms |
-| Kontaktanfragen über CTA | GA4 (Event-Tracking) | 2–5 qualifizierte Leads/Monat |
+| KPI                               | Tool                                  | Zielwert (8 Wochen)                |
+| --------------------------------- | ------------------------------------- | ---------------------------------- |
+| Ranking „Vitamin D Implantologie" | Google Search Console, Ahrefs/Sistrix | Top 20 → Top 10                    |
+| Organische Klicks auf Artikel-URL | Google Search Console                 | 50+ Klicks/Monat                   |
+| Impressionen für Haupt-Keyword    | Google Search Console                 | 500+/Monat                         |
+| CTR für Haupt-Keyword             | Google Search Console                 | > 5%                               |
+| Backlinks auf Artikel-URL         | Ahrefs/Sistrix                        | 3–5 Referring Domains              |
+| Durchschnittliche Verweildauer    | Google Analytics 4                    | > 3:00 Minuten                     |
+| Scroll-Tiefe > 75%                | GA4 (Scroll-Event)                    | > 40% der Besucher                 |
+| FAQ-Rich-Snippet aktiv            | Google Search Console (Enhancements)  | Validiert, keine Fehler            |
+| Core Web Vitals                   | PageSpeed Insights                    | LCP < 2,5s, CLS < 0,1, INP < 200ms |
+| Kontaktanfragen über CTA          | GA4 (Event-Tracking)                  | 2–5 qualifizierte Leads/Monat      |
 
 **Empfohlener Monitoring-Rhythmus:**
+
 - **Wöchentlich:** Ranking-Check Haupt-Keyword (Search Console), Klicks und Impressionen
 - **Monatlich:** Backlink-Analyse, Verweildauer, Scroll-Tiefe, Rich-Snippet-Status
 - **Quartalsweise:** Content-Aktualisierung prüfen (Leitlinien-Updates, neue Studiendaten), Keyword-Expansion evaluieren

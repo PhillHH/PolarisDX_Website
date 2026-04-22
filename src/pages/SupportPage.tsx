@@ -14,8 +14,16 @@ const SupportPage = () => {
     <PageTransition>
       <SEOHead
         title={t('support:seo.title', 'Support-Anfrage | PolarisDX')}
-        description={t('support:seo.description', 'Haben Sie Probleme mit Ihrem Igloo Reader oder Testkits? Senden Sie uns eine Support-Anfrage.')}
-        keywords={['PolarisDX Support', 'Igloo Reader Support', 'Testkit Support', 'POC Diagnostik Hilfe']}
+        description={t(
+          'support:seo.description',
+          'Haben Sie Probleme mit Ihrem Igloo Reader oder Testkits? Senden Sie uns eine Support-Anfrage.',
+        )}
+        keywords={[
+          'PolarisDX Support',
+          'Igloo Reader Support',
+          'Testkit Support',
+          'POC Diagnostik Hilfe',
+        ]}
         structuredData={[
           localBusinessSchema,
           createBreadcrumbSchema([
@@ -36,10 +44,7 @@ const SupportPage = () => {
                 <Breadcrumbs
                   variant="dark"
                   className="mb-4"
-                  items={[
-                    { label: 'Home', href: '/' },
-                    { label: t('support.hero.title') },
-                  ]}
+                  items={[{ label: 'Home', href: '/' }, { label: t('support.hero.title') }]}
                 />
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
                   {t('support.hero.kicker')}
@@ -64,9 +69,7 @@ const SupportPage = () => {
                   align="left"
                 />
 
-                <p className="text-sm leading-relaxed text-gray-600">
-                  {t('support.intro')}
-                </p>
+                <p className="text-sm leading-relaxed text-gray-600">{t('support.intro')}</p>
 
                 {/* Contact channels */}
                 <div className="mt-2 flex flex-col gap-4 text-sm text-gray-600 sm:flex-row sm:gap-8">
@@ -119,13 +122,22 @@ const SupportPage = () => {
                     {t('support.sidebar_links.title', 'Hilfreiche Links')}
                   </h3>
                   <nav className="space-y-2">
-                    <Link to="/downloads" className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors">
+                    <Link
+                      to="/downloads"
+                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                    >
                       {t('support.sidebar_links.downloads', 'Downloads & Dokumentation')} →
                     </Link>
-                    <Link to="/contact" className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors">
+                    <Link
+                      to="/contact"
+                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                    >
                       {t('support.sidebar_links.contact', 'Allgemeine Kontaktanfrage')} →
                     </Link>
-                    <Link to="/igloo-pro" className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors">
+                    <Link
+                      to="/igloo-pro"
+                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                    >
                       {t('support.sidebar_links.igloo', 'IglooPro System')} →
                     </Link>
                   </nav>

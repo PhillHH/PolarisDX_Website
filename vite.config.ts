@@ -21,9 +21,7 @@ import path from 'path'
 // https://vite.dev/config/
 // Verwende Funktion um SSR/Client Build zu unterscheiden
 export default defineConfig(({ isSsrBuild }) => ({
-  plugins: [
-    react(),
-  ],
+  plugins: [react()],
 
   resolve: {
     alias: {
@@ -53,20 +51,22 @@ export default defineConfig(({ isSsrBuild }) => ({
     // CODE-SPLITTING: Nur für Client-Build, NICHT für SSR
     // Reduziert Initial Load und ermöglicht paralleles Laden
     // ==========================================================================
-    rollupOptions: !isSsrBuild ? {
-      output: {
-        manualChunks: {
-          // Vendor: React Core (wird auf jeder Seite gebraucht)
-          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+    rollupOptions: !isSsrBuild
+      ? {
+          output: {
+            manualChunks: {
+              // Vendor: React Core (wird auf jeder Seite gebraucht)
+              'vendor-react': ['react', 'react-dom', 'react-router-dom'],
 
-          // i18n: Internationalisierung (wird auf jeder Seite gebraucht)
-          'vendor-i18n': ['i18next', 'react-i18next', 'i18next-http-backend'],
+              // i18n: Internationalisierung (wird auf jeder Seite gebraucht)
+              'vendor-i18n': ['i18next', 'react-i18next', 'i18next-http-backend'],
 
-          // Helmet: SEO (relativ klein, aber separiert für Caching)
-          'vendor-seo': ['react-helmet-async'],
-        },
-      },
-    } : {},
+              // Helmet: SEO (relativ klein, aber separiert für Caching)
+              'vendor-seo': ['react-helmet-async'],
+            },
+          },
+        }
+      : {},
 
     // Erhöhe das Limit um Warnungen zu vermeiden
     chunkSizeWarningLimit: 600,

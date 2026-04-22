@@ -69,17 +69,15 @@ const ArticlePage = () => {
               {error.message || t('shop:shop.articleNotFound', 'Article not found')}
             </Alert>
             <div className="mt-6 flex justify-center">
-              <Button to="/articles">
-                {t('shop:shop.backToArticles', 'Back to Overview')}
-              </Button>
+              <Button to="/articles">{t('shop:shop.backToArticles', 'Back to Overview')}</Button>
             </div>
           </div>
         ) : (
           <>
-            <h1 className="text-2xl font-bold text-gray-900">{t('shop:shop.articleNotFound', 'Article not found')}</h1>
-            <Button to="/articles">
-              {t('shop:shop.backToArticles', 'Back to Overview')}
-            </Button>
+            <h1 className="text-2xl font-bold text-gray-900">
+              {t('shop:shop.articleNotFound', 'Article not found')}
+            </h1>
+            <Button to="/articles">{t('shop:shop.backToArticles', 'Back to Overview')}</Button>
           </>
         )}
       </div>
@@ -91,7 +89,9 @@ const ArticlePage = () => {
   const excerpt = t(`articles:${article.id}.excerpt`)
   // Get sections from translation
   // This casting uses the LOCAL ArticleSection type which is a union
-  const translatedSections = t(`articles:${article.id}.sections`, { returnObjects: true }) as ArticleSection[]
+  const translatedSections = t(`articles:${article.id}.sections`, {
+    returnObjects: true,
+  }) as ArticleSection[]
 
   // We need images from the original data
   const dataSections = article.sections || []
@@ -101,7 +101,7 @@ const ArticlePage = () => {
 
   // Resolve related services from the bidirectional mapping
   const relatedServices = article.relatedServiceIds?.length
-    ? services.filter(s => article.relatedServiceIds!.includes(s.id))
+    ? services.filter((s) => article.relatedServiceIds!.includes(s.id))
     : []
 
   const renderSection = (section: ArticleSection, index: number) => {
@@ -112,7 +112,7 @@ const ArticlePage = () => {
       case 'table':
         return (
           <section key={index} className="space-y-4 overflow-x-auto">
-             {section.heading && (
+            {section.heading && (
               <h2 className="text-lg font-semibold tracking-tight text-gray-900">
                 {section.heading}
               </h2>
@@ -121,7 +121,10 @@ const ArticlePage = () => {
               <thead>
                 <tr>
                   {(section as TableSection).headers.map((header, i) => (
-                    <th key={i} className="border-b border-gray-200 py-3 font-semibold text-gray-900">
+                    <th
+                      key={i}
+                      className="border-b border-gray-200 py-3 font-semibold text-gray-900"
+                    >
                       {header}
                     </th>
                   ))}
@@ -143,11 +146,12 @@ const ArticlePage = () => {
         )
       case 'infobox':
         return (
-          <section key={index} className="my-8 rounded-lg border-l-4 border-accentBlue bg-blue-50/50 p-6 text-gray-700">
-             {section.heading && (
-              <h3 className="mb-2 text-lg font-semibold text-accentBlue">
-                {section.heading}
-              </h3>
+          <section
+            key={index}
+            className="my-8 rounded-lg border-l-4 border-accentBlue bg-blue-50/50 p-6 text-gray-700"
+          >
+            {section.heading && (
+              <h3 className="mb-2 text-lg font-semibold text-accentBlue">{section.heading}</h3>
             )}
             <p className="text-sm leading-relaxed sm:text-base">
               {(section as InfoboxSection).content}
@@ -164,7 +168,10 @@ const ArticlePage = () => {
             )}
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {(section as KeyPointsSection).points.map((point, pIndex) => (
-                <div key={pIndex} className="rounded-xl border border-gray-100 bg-white p-5 shadow-sm">
+                <div
+                  key={pIndex}
+                  className="rounded-xl border border-gray-100 bg-white p-5 shadow-sm"
+                >
                   <h4 className="mb-2 font-semibold text-gray-900">{point.title}</h4>
                   <p className="text-sm text-gray-500">{point.description}</p>
                 </div>
@@ -183,14 +190,12 @@ const ArticlePage = () => {
                 {textSection.heading}
               </h2>
             )}
-            {textSection.paragraphs && textSection.paragraphs.map((paragraph, pIndex) => (
-              <p
-                key={pIndex}
-                className="text-sm leading-[32px] text-gray-500 sm:text-base"
-              >
-                {paragraph}
-              </p>
-            ))}
+            {textSection.paragraphs &&
+              textSection.paragraphs.map((paragraph, pIndex) => (
+                <p key={pIndex} className="text-sm leading-[32px] text-gray-500 sm:text-base">
+                  {paragraph}
+                </p>
+              ))}
             {textSection.listItems && (
               <ul className="list-disc space-y-2 pl-5 text-sm leading-[28px] text-gray-500 sm:text-base">
                 {textSection.listItems.map((item, lIndex) => (
@@ -204,9 +209,7 @@ const ArticlePage = () => {
   }
 
   // Build OG image URL from article image
-  const ogImageUrl = articleImage
-    ? `https://polarisdx.net/assets/${articleImage}`
-    : undefined
+  const ogImageUrl = articleImage ? `https://polarisdx.net/assets/${articleImage}` : undefined
 
   return (
     <PageTransition>
@@ -304,11 +307,19 @@ const ArticlePage = () => {
               </div>
 
               <div className="rounded-2xl bg-brand-primary/5 p-6 text-sm leading-[28px] text-gray-600 sm:text-base mt-8">
-                {t('shop:shop.articleDisclaimer', "Regular check-ups and proactive care are the foundation of long-term health. If you have questions, don't hesitate to reach out to a medical professional.")}
+                {t(
+                  'shop:shop.articleDisclaimer',
+                  "Regular check-ups and proactive care are the foundation of long-term health. If you have questions, don't hesitate to reach out to a medical professional.",
+                )}
               </div>
 
               <div className="mt-8 flex flex-col gap-4 border-t border-gray-100 pt-8 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
-                <span>{t('shop:shop.shareArticle', 'Liked this article? Share it with your friends and family.')}</span>
+                <span>
+                  {t(
+                    'shop:shop.shareArticle',
+                    'Liked this article? Share it with your friends and family.',
+                  )}
+                </span>
                 <Button to="/articles" variant="secondary">
                   {t('shop:shop.backToArticles', 'Back to Overview')}
                 </Button>
@@ -432,7 +443,10 @@ const ArticlePage = () => {
                   {t('shop:shop.needHelp', 'Need help right now?')}
                 </h3>
                 <p className="mb-3 text-xs leading-relaxed text-gray-500">
-                  {t('shop:shop.contactText', 'Our medical team is available 24/7 to answer urgent questions and help you decide what to do next.')}
+                  {t(
+                    'shop:shop.contactText',
+                    'Our medical team is available 24/7 to answer urgent questions and help you decide what to do next.',
+                  )}
                 </p>
                 <Button to="/contact" variant="secondary" className="w-full justify-center">
                   {t('common:nav.contact', 'Kontakt aufnehmen')}

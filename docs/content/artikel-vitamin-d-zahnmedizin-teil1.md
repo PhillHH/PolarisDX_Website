@@ -8,7 +8,6 @@ Vitamin D reguliert den Calcium-Phosphat-Stoffwechsel und damit die Knochenminer
 
 Trotz dieser Evidenz gehört die Vitamin-D-Bestimmung in den wenigsten Zahnarztpraxen zum Standardprotokoll vor Implantation. Das liegt weniger an mangelnder Bereitschaft als an praktischen Hürden: Die klassische Labordiagnostik dauert zwei bis fünf Werktage, unterbricht den Planungsworkflow und erfordert einen zusätzlichen Patiententermin. Seit August 2025 gibt es jedoch eine Leitlinie, die dieses Vorgehen grundlegend verändern kann.
 
-
 ## Die S3-Leitlinie „Vitamin D und dentale Implantologie" – Was sie für Ihre Praxis bedeutet
 
 Im August 2025 wurde unter Federführung der Deutschen Gesellschaft für Implantologie (DGI) und der Deutschen Gesellschaft für Zahn-, Mund- und Kieferheilkunde (DGZMK) die erste S3-Leitlinie zum Thema Vitamin D in der Implantologie veröffentlicht (AWMF-Registernummer 083-055, Version 1.0). An der Erstellung waren neun weitere Fachgesellschaften beteiligt, darunter die AUTDS. Eine S3-Leitlinie ist die höchste Stufe der evidenzbasierten Leitlinienentwicklung in Deutschland: Sie beruht auf einer systematischen Literaturrecherche, einer strukturierten Konsensusfindung und gibt konkrete Handlungsempfehlungen für die Praxis.
@@ -29,7 +28,6 @@ Wird bei einem Mangelbefund eine Vitamin-D-Supplementierung eingeleitet, empfieh
 
 Die Frage ist nicht mehr, ob Vitamin-D-Diagnostik in der Implantologie sinnvoll ist – das beantwortet die Leitlinie eindeutig. Die Frage ist, wie Sie diese Diagnostik effizient in Ihren Praxisalltag integrieren.
 
-
 ## Warum POC statt Labor? Der Zeitvorteil am Behandlungsstuhl
 
 Der klassische Weg der Vitamin-D-Bestimmung führt über eine venöse Blutabnahme, den Versand an ein externes Labor und eine Wartezeit von zwei bis fünf Werktagen. Für den Praxisalltag bedeutet das: Sie benötigen einen separaten Termin für die Blutentnahme, warten auf den Befund und müssen den Patienten anschließend erneut einbestellen, um die Therapieentscheidung zu besprechen. Der Vitamin D Test in der Zahnarztpraxis scheitert damit oft nicht an der klinischen Überzeugung, sondern an der Logistik.
@@ -41,7 +39,6 @@ Ein weiterer Vorteil für die Praxisorganisation: Die gesamte Testdurchführung 
 Auch aus Patientensicht ist der Unterschied spürbar: Das Sofortergebnis schafft Transparenz und Vertrauen. Patienten, die direkt im Gespräch ihren Vitamin-D-Wert erfahren und eine konkrete Empfehlung erhalten, zeigen eine deutlich höhere Compliance bei der anschließenden Supplementierung. Die Chairside-Diagnostik stärkt damit nicht nur Ihren klinischen Behandlungspfad, sondern auch die Patientenbindung.
 
 Doch nicht jeder Schnelltest ist gleich. Entscheidend ist die analytische Qualität des eingesetzten POC-Systems – und genau hier unterscheiden sich die am Markt verfügbaren Geräte erheblich.
-
 
 ## Igloo Reader Pro – Das POC-Diagnostik-System für Zahnarztpraxen
 

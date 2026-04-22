@@ -46,5 +46,6 @@ src/components/sections/AboutSection.tsx:58:          <PrimaryButton as={Link} t
 ```
 
 ## Zählung
+
 - Button wird an 4 Stellen importiert (5 JSX-Usages)
 - PrimaryButton wird an 9 Stellen importiert (17 JSX-Usages)

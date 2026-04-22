@@ -58,9 +58,7 @@ const ProductCard = ({ id, category, price, to, badge, image }: ProductCardProps
           <h3 className="text-base font-semibold tracking-tight text-gray-900">
             {t(`shop:products.${productKey}.name`)}
           </h3>
-          <span className="text-sm font-semibold text-brand-primary">
-            ${price}
-          </span>
+          <span className="text-sm font-semibold text-brand-primary">${price}</span>
         </div>
         <p className="text-sm leading-relaxed text-gray-500 line-clamp-3">
           {t(`shop:products.${productKey}.shortDescription`)}

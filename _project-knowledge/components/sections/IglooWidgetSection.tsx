@@ -43,62 +43,71 @@ const IglooWidgetSection = () => {
 
   return (
     <section className="relative py-20 lg:py-32 bg-slate-50 overflow-visible">
-       <div className="mx-auto max-w-container px-4 text-center lg:px-0 mb-16 relative z-10">
-          <div className="inline-block rounded p-px bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-deep shadow-lg shadow-brand-primary/20 mb-8">
-            <div className="rounded-sm bg-slate-50 px-4 py-2 lg:px-3 lg:py-1">
-              <span className="text-sm font-semibold uppercase tracking-wide text-gray-900 lg:text-xs">
-                {t('igloo_widget.title', 'Anwendungsbereiche')}
-              </span>
-            </div>
+      <div className="mx-auto max-w-container px-4 text-center lg:px-0 mb-16 relative z-10">
+        <div className="inline-block rounded p-px bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-deep shadow-lg shadow-brand-primary/20 mb-8">
+          <div className="rounded-sm bg-slate-50 px-4 py-2 lg:px-3 lg:py-1">
+            <span className="text-sm font-semibold uppercase tracking-wide text-gray-900 lg:text-xs">
+              {t('igloo_widget.title', 'Anwendungsbereiche')}
+            </span>
           </div>
-       </div>
+        </div>
+      </div>
 
       <div className="mx-auto flex w-full flex-col items-center justify-center gap-10 lg:block lg:h-[600px] lg:w-[1200px] relative px-4 lg:px-0">
-
         {/* Decorative connecting lines for desktop (Triangle) */}
         <svg className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0">
-             <defs>
-                <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#e2e8f0">
-                        <animate attributeName="stop-color" values="#e2e8f0;#cbd5e1;#e2e8f0" dur="4s" repeatCount="indefinite" />
-                    </stop>
-                    <stop offset="100%" stopColor="#94a3b8">
-                         <animate attributeName="stop-color" values="#94a3b8;#cbd5e1;#94a3b8" dur="4s" repeatCount="indefinite" />
-                    </stop>
-                </linearGradient>
-             </defs>
+          <defs>
+            <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#e2e8f0">
+                <animate
+                  attributeName="stop-color"
+                  values="#e2e8f0;#cbd5e1;#e2e8f0"
+                  dur="4s"
+                  repeatCount="indefinite"
+                />
+              </stop>
+              <stop offset="100%" stopColor="#94a3b8">
+                <animate
+                  attributeName="stop-color"
+                  values="#94a3b8;#cbd5e1;#94a3b8"
+                  dur="4s"
+                  repeatCount="indefinite"
+                />
+              </stop>
+            </linearGradient>
+          </defs>
 
-             {/* Path connecting the centers of the widgets */}
-             <path
-                d={`M ${positions.dental.x} ${positions.dental.y} L ${positions.beauty.x} ${positions.beauty.y} L ${positions.longevity.x} ${positions.longevity.y} Z`}
-                stroke="url(#blueGradient)"
-                strokeWidth="2"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="opacity-50"
-             />
+          {/* Path connecting the centers of the widgets */}
+          <path
+            d={`M ${positions.dental.x} ${positions.dental.y} L ${positions.beauty.x} ${positions.beauty.y} L ${positions.longevity.x} ${positions.longevity.y} Z`}
+            stroke="url(#blueGradient)"
+            strokeWidth="2"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="opacity-50"
+          />
         </svg>
 
         {/* Central Image with Glow */}
         <div className="relative z-10 flex justify-center items-center h-full w-full pointer-events-none">
-            {/* Blue Glow Effect */}
-            <div className="absolute w-[300px] h-[300px] bg-blue-100/50 blur-[80px] rounded-full mix-blend-multiply pointer-events-none" />
+          {/* Blue Glow Effect */}
+          <div className="absolute w-[300px] h-[300px] bg-blue-100/50 blur-[80px] rounded-full mix-blend-multiply pointer-events-none" />
 
-            <img
-                src={iglooImage}
-                alt="IglooPro POC-Reader — kompaktes Analysegerät für Praxisdiagnostik"
-                width={256}
-                height={256}
-                loading="lazy"
-                decoding="async"
-                className="relative z-10 w-64 sm:w-72 md:w-56 lg:w-64 drop-shadow-2xl transition-all duration-500 ease-in-out hover:scale-110 pointer-events-none"
-            />
+          <img
+            src={iglooImage}
+            alt="IglooPro POC-Reader — kompaktes Analysegerät für Praxisdiagnostik"
+            width={256}
+            height={256}
+            loading="lazy"
+            decoding="async"
+            className="relative z-10 w-64 sm:w-72 md:w-56 lg:w-64 drop-shadow-2xl transition-all duration-500 ease-in-out hover:scale-110 pointer-events-none"
+          />
         </div>
 
         {/* Widgets */}
         <div className="flex w-full flex-col items-center gap-6 lg:absolute lg:inset-0 lg:block z-30 pointer-events-auto px-2 lg:px-0">
-            {widgets.map((widget) => (
+          {widgets.map((widget) => (
             <Link
               key={widget.id}
               to={widget.path}
@@ -114,29 +123,30 @@ const IglooWidgetSection = () => {
                 lg:absolute lg:left-[var(--x)] lg:top-[var(--y)] lg:-translate-x-1/2 lg:-translate-y-1/2
                 lg:w-80 lg:h-48
               `}
-              style={{
-                '--x': `${widget.x}px`,
-                '--y': `${widget.y}px`
-              } as React.CSSProperties}
+              style={
+                {
+                  '--x': `${widget.x}px`,
+                  '--y': `${widget.y}px`,
+                } as React.CSSProperties
+              }
             >
-                {/* Inner Content */}
-                <div className="flex h-full w-full flex-row items-center gap-4 sm:gap-5 p-3 sm:p-4 transition-colors">
-                    <div className="flex-shrink-0 transform transition-transform duration-300 group-hover:-translate-y-1">
-                        {widget.icon}
-                    </div>
-                    <div className="flex flex-col items-start gap-1">
-                      <span className="text-2xl font-medium text-white text-left group-hover:text-white transition-colors">
-                          {widget.label}
-                      </span>
-                      <span className="text-sm font-medium text-slate-100 group-hover:text-white transition-colors">
-                          {t('common:read_more', 'Mehr erfahren')} →
-                      </span>
-                    </div>
+              {/* Inner Content */}
+              <div className="flex h-full w-full flex-row items-center gap-4 sm:gap-5 p-3 sm:p-4 transition-colors">
+                <div className="flex-shrink-0 transform transition-transform duration-300 group-hover:-translate-y-1">
+                  {widget.icon}
                 </div>
+                <div className="flex flex-col items-start gap-1">
+                  <span className="text-2xl font-medium text-white text-left group-hover:text-white transition-colors">
+                    {widget.label}
+                  </span>
+                  <span className="text-sm font-medium text-slate-100 group-hover:text-white transition-colors">
+                    {t('common:read_more', 'Mehr erfahren')} →
+                  </span>
+                </div>
+              </div>
             </Link>
-            ))}
+          ))}
         </div>
-
       </div>
 
       <div className="flex justify-center mt-8 relative z-10">

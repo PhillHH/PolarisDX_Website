@@ -36,9 +36,7 @@ const FeaturedCaseStudy = () => {
                 <div className="bg-yellow-100 p-2 rounded-lg text-yellow-600 shrink-0">
                   <Trophy className="w-5 h-5" />
                 </div>
-                <p className="text-gray-900 font-semibold text-sm">
-                  {t('reasons32.about.award')}
-                </p>
+                <p className="text-gray-900 font-semibold text-sm">{t('reasons32.about.award')}</p>
               </div>
             </div>
 

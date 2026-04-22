@@ -39,7 +39,10 @@ const Footer = () => {
                 />
               </div>
               <p className="max-w-sm text-sm text-white/70">
-                {t('footer.description', 'Umfassende Betreuung und Fürsorge. Moderne Gesundheitsdienste für Sie und Ihre Familie, rund um die Uhr.')}
+                {t(
+                  'footer.description',
+                  'Umfassende Betreuung und Fürsorge. Moderne Gesundheitsdienste für Sie und Ihre Familie, rund um die Uhr.',
+                )}
               </p>
               <div className="flex gap-4">
                 <a
@@ -65,33 +68,101 @@ const Footer = () => {
 
             <div className="grid flex-1 grid-cols-2 gap-8 text-sm lg:grid-cols-4">
               <div className="space-y-3">
-                <h3 className="text-sm font-semibold tracking-tight">{t('footer.links', 'Links')}</h3>
+                <h3 className="text-sm font-semibold tracking-tight">
+                  {t('footer.links', 'Links')}
+                </h3>
                 <ul className="space-y-2 text-white/70">
-                  <li><Link to="/" className="hover:text-brand-secondary">{t('nav.home')}</Link></li>
-                  <li><Link to="/about" className="hover:text-brand-secondary">{t('nav.about')}</Link></li>
-                  <li><Link to="/igloo-pro" className="hover:text-brand-secondary">IglooPro</Link></li>
-                  <li><Link to="/articles" className="hover:text-brand-secondary">{t('nav.blog')}</Link></li>
-                  <li><Link to="/events" className="hover:text-brand-secondary">{t('nav.events', 'Events')}</Link></li>
-                  <li><Link to="/downloads" className="hover:text-brand-secondary">{t('nav.downloads', 'Downloads')}</Link></li>
-                  <li><Link to="/contact" className="hover:text-brand-secondary">{t('nav.contact')}</Link></li>
+                  <li>
+                    <Link to="/" className="hover:text-brand-secondary">
+                      {t('nav.home')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/about" className="hover:text-brand-secondary">
+                      {t('nav.about')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/igloo-pro" className="hover:text-brand-secondary">
+                      IglooPro
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/articles" className="hover:text-brand-secondary">
+                      {t('nav.blog')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/events" className="hover:text-brand-secondary">
+                      {t('nav.events', 'Events')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/downloads" className="hover:text-brand-secondary">
+                      {t('nav.downloads', 'Downloads')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/contact" className="hover:text-brand-secondary">
+                      {t('nav.contact')}
+                    </Link>
+                  </li>
                 </ul>
               </div>
 
               <div className="space-y-3">
-                <h3 className="text-sm font-semibold tracking-tight">{t('footer.diagnostics', 'Diagnostik')}</h3>
+                <h3 className="text-sm font-semibold tracking-tight">
+                  {t('footer.diagnostics', 'Diagnostik')}
+                </h3>
                 <ul className="space-y-2 text-white/70">
-                  <li><Link to="/diagnostics" className="hover:text-brand-secondary">{t('footer.allServices', 'Alle Services')}</Link></li>
-                  <li><Link to="/diagnostics/dental" className="hover:text-brand-secondary">Dental</Link></li>
-                  <li><Link to="/diagnostics/beauty" className="hover:text-brand-secondary">Beauty</Link></li>
-                  <li><Link to="/diagnostics/longevity" className="hover:text-brand-secondary">Longevity</Link></li>
-                  <li><Link to="/diagnostics/poc-systemloesungen" className="hover:text-brand-secondary">{t('footer.pocSystems', 'POC-Systeme')}</Link></li>
-                  <li><Link to="/diagnostics/praeventions-checks" className="hover:text-brand-secondary">{t('footer.preventionChecks', 'Präventions-Checks')}</Link></li>
-                  <li><Link to="/diagnostics/hormon-tests" className="hover:text-brand-secondary">{t('footer.hormonTests', 'Hormon-Tests')}</Link></li>
+                  <li>
+                    <Link to="/diagnostics" className="hover:text-brand-secondary">
+                      {t('footer.allServices', 'Alle Services')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/diagnostics/dental" className="hover:text-brand-secondary">
+                      Dental
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/diagnostics/beauty" className="hover:text-brand-secondary">
+                      Beauty
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/diagnostics/longevity" className="hover:text-brand-secondary">
+                      Longevity
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/diagnostics/poc-systemloesungen"
+                      className="hover:text-brand-secondary"
+                    >
+                      {t('footer.pocSystems', 'POC-Systeme')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/diagnostics/praeventions-checks"
+                      className="hover:text-brand-secondary"
+                    >
+                      {t('footer.preventionChecks', 'Präventions-Checks')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/diagnostics/hormon-tests" className="hover:text-brand-secondary">
+                      {t('footer.hormonTests', 'Hormon-Tests')}
+                    </Link>
+                  </li>
                 </ul>
               </div>
 
               <div className="space-y-3">
-                <h3 className="text-sm font-semibold tracking-tight">{t('footer.london', 'London')}</h3>
+                <h3 className="text-sm font-semibold tracking-tight">
+                  {t('footer.london', 'London')}
+                </h3>
                 <div className="space-y-1 text-white/70">
                   <p className="font-semibold">PolarisDX LTD</p>
                   <p>262A Fulham Road</p>
@@ -102,7 +173,9 @@ const Footer = () => {
               </div>
 
               <div className="space-y-3">
-                <h3 className="text-sm font-semibold tracking-tight">{t('footer.hamburg', 'Hamburg')}</h3>
+                <h3 className="text-sm font-semibold tracking-tight">
+                  {t('footer.hamburg', 'Hamburg')}
+                </h3>
                 <div className="space-y-1 text-white/70">
                   <p className="font-semibold">PolarisDX Europe GmbH</p>
                   <p>Große Bleichen 1 - 3</p>
@@ -114,11 +187,22 @@ const Footer = () => {
           </div>
 
           <div className="mt-8 border-t border-white/10 pt-8 flex flex-col items-center gap-4 text-lg text-white/60 md:flex-row md:justify-center md:gap-8">
-            <p>{t('footer.copyright', { year: new Date().getFullYear(), defaultValue: 'Copyright ©PolarisDX {{year}} All Rights Reserved.' })}</p>
+            <p>
+              {t('footer.copyright', {
+                year: new Date().getFullYear(),
+                defaultValue: 'Copyright ©PolarisDX {{year}} All Rights Reserved.',
+              })}
+            </p>
             <div className="flex gap-4 md:gap-8">
-              <Link to="/imprint" className="hover:text-white transition-colors">{t('footer.imprint', 'Impressum')}</Link>
-              <Link to="/privacy" className="hover:text-white transition-colors">{t('footer.privacy', 'Datenschutzerklärung')}</Link>
-              <Link to="/terms" className="hover:text-white transition-colors">{t('nav.terms')}</Link>
+              <Link to="/imprint" className="hover:text-white transition-colors">
+                {t('footer.imprint', 'Impressum')}
+              </Link>
+              <Link to="/privacy" className="hover:text-white transition-colors">
+                {t('footer.privacy', 'Datenschutzerklärung')}
+              </Link>
+              <Link to="/terms" className="hover:text-white transition-colors">
+                {t('nav.terms')}
+              </Link>
             </div>
           </div>
           <p className="mt-2 text-center text-xs text-white/40">

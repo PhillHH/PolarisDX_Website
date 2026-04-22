@@ -88,7 +88,9 @@ export const SupportForm = () => {
           className="flex w-full rounded-md border border-ui-border bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
           defaultValue=""
         >
-          <option value="" disabled>{t('support.form.issue_type_placeholder')}</option>
+          <option value="" disabled>
+            {t('support.form.issue_type_placeholder')}
+          </option>
           <option value="hardware">{t('support.form.issue_types.hardware')}</option>
           <option value="software">{t('support.form.issue_types.software')}</option>
           <option value="connectivity">{t('support.form.issue_types.connectivity')}</option>
@@ -143,17 +145,9 @@ export const SupportForm = () => {
         </div>
       </div>
 
-      {submitStatus === 'success' && (
-        <Alert variant="success">
-          {t('support.form.success')}
-        </Alert>
-      )}
+      {submitStatus === 'success' && <Alert variant="success">{t('support.form.success')}</Alert>}
 
-      {submitStatus === 'error' && (
-        <Alert variant="destructive">
-          {t('support.form.error')}
-        </Alert>
-      )}
+      {submitStatus === 'error' && <Alert variant="destructive">{t('support.form.error')}</Alert>}
 
       <div className="space-y-4 pt-2">
         <div className="flex items-start gap-3">
@@ -171,7 +165,12 @@ export const SupportForm = () => {
           </label>
         </div>
 
-        <Button type="submit" variant="primary" className="w-full justify-center md:w-auto" disabled={isSubmitting}>
+        <Button
+          type="submit"
+          variant="primary"
+          className="w-full justify-center md:w-auto"
+          disabled={isSubmitting}
+        >
           {isSubmitting ? t('support.form.submitting') : t('support.form.submit')}
         </Button>
       </div>

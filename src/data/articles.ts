@@ -8,9 +8,7 @@ export const articles: Article[] = [
     author: 'PolarisDX Team',
     date: '28 Nov 2025',
     readTime: '6 min read',
-    sections: [
-      { image: 'green.png', paragraphs: [] }
-    ],
+    sections: [{ image: 'green.png', paragraphs: [] }],
     relatedServiceIds: ['dental', 'longevity'],
   },
   {
@@ -20,9 +18,7 @@ export const articles: Article[] = [
     author: 'PolarisDX Team',
     date: '30 Nov 2025',
     readTime: '8 min read',
-    sections: [
-        { image: 'homeclinic.png', paragraphs: [] }
-    ],
+    sections: [{ image: 'homeclinic.png', paragraphs: [] }],
     relatedServiceIds: ['poc-systemloesungen', 'praeventions-checks'],
   },
   {
@@ -32,9 +28,7 @@ export const articles: Article[] = [
     author: 'PolarisDX Team',
     date: '02 Dec 2025',
     readTime: '7 min read',
-    sections: [
-        { image: 'makemoney.png', paragraphs: [] }
-    ],
+    sections: [{ image: 'makemoney.png', paragraphs: [] }],
     relatedServiceIds: ['poc-systemloesungen', 'dental'],
   },
   {
@@ -74,5 +68,4 @@ export const articles: Article[] = [
   },
 ]
 
-export const getArticleBySlug = (slug: string) =>
-  articles.find((article) => article.slug === slug)
+export const getArticleBySlug = (slug: string) => articles.find((article) => article.slug === slug)

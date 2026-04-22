@@ -10,12 +10,12 @@
 
 ### Library-Stack
 
-| Paket | Version | Zweck |
-|-------|---------|-------|
-| `i18next` | ^25.6.3 | Core i18n Framework |
-| `react-i18next` | ^16.3.5 | React-Bindings (`useTranslation`, `I18nextProvider`) |
-| `i18next-http-backend` | ^3.0.2 | Client: Lädt Translations via HTTP |
-| `i18next-browser-languagedetector` | ^8.2.0 | Client: Automatische Spracherkennung |
+| Paket                              | Version | Zweck                                                |
+| ---------------------------------- | ------- | ---------------------------------------------------- |
+| `i18next`                          | ^25.6.3 | Core i18n Framework                                  |
+| `react-i18next`                    | ^16.3.5 | React-Bindings (`useTranslation`, `I18nextProvider`) |
+| `i18next-http-backend`             | ^3.0.2  | Client: Lädt Translations via HTTP                   |
+| `i18next-browser-languagedetector` | ^8.2.0  | Client: Automatische Spracherkennung                 |
 
 ### Konfigurationsarchitektur (3-Datei-Split)
 
@@ -27,18 +27,18 @@ src/i18n.server.ts   → Server-Setup (Factory-Funktion, Filesystem-Loading, Cac
 
 ### Unterstützte Sprachen (10)
 
-| Code | Sprache | OG-Locale |
-|------|---------|-----------|
-| `de` | Deutsch | `de_DE` |
-| `en` | English | `en_GB` |
-| `pl` | Polski | `pl_PL` |
-| `fr` | Français | `fr_FR` |
-| `it` | Italiano | `it_IT` |
-| `es` | Español | `es_ES` |
-| `pt` | Português | `pt_PT` |
-| `da` | Dansk | `da_DK` |
-| `nl` | Nederlands | `nl_NL` |
-| `cs` | Čeština | `cs_CZ` |
+| Code | Sprache    | OG-Locale |
+| ---- | ---------- | --------- |
+| `de` | Deutsch    | `de_DE`   |
+| `en` | English    | `en_GB`   |
+| `pl` | Polski     | `pl_PL`   |
+| `fr` | Français   | `fr_FR`   |
+| `it` | Italiano   | `it_IT`   |
+| `es` | Español    | `es_ES`   |
+| `pt` | Português  | `pt_PT`   |
+| `da` | Dansk      | `da_DK`   |
+| `nl` | Nederlands | `nl_NL`   |
+| `cs` | Čeština    | `cs_CZ`   |
 
 ### Namespaces (11)
 
@@ -93,29 +93,29 @@ src/i18n.server.ts   → Server-Setup (Factory-Funktion, Filesystem-Loading, Cac
 
 ### Aktive Routen
 
-| Pfad | Komponente | Datei | Lazy (Client) |
-|------|-----------|-------|----------------|
-| `/` | `HomePage` | `src/routes/HomePage.tsx` | Nein (eager) |
-| `/about` | `AboutPage` | `src/routes/AboutPage.tsx` | Ja |
-| `/articles` | `ArticlesIndexPage` | `src/routes/ArticlesIndexPage.tsx` | Ja |
-| `/articles/:slug` | `ArticlePage` | `src/routes/ArticlePage.tsx` | Ja |
-| `/diagnostics` | `ServicesOverviewPage` | `src/routes/ServicesOverviewPage.tsx` | Ja |
-| `/diagnostics/:slug` | `ServicePage` | `src/routes/ServicePage.tsx` | Ja |
-| `/contact` | `ContactPage` | `src/routes/ContactPage.tsx` | Ja |
-| `/privacy` | `PrivacyPage` | `src/routes/PrivacyPage.tsx` | Ja |
-| `/imprint` | `ImprintPage` | `src/routes/ImprintPage.tsx` | Ja |
-| `/terms` | `TermsPage` | `src/routes/TermsPage.tsx` | Ja |
-| `/events` | `EventsPage` | `src/pages/EventsPage.tsx` | Ja |
-| `/igloo-pro` | `IglooProPage` | `src/pages/IglooProPage.tsx` | Ja |
-| `/vitamin-d3-implantologie` | `VitaminD3ImplantologyPage` | `src/pages/VitaminD3ImplantologyPage.tsx` | Ja |
-| `/downloads` | `DownloadsPage` | `src/routes/DownloadsPage.tsx` | Ja |
-| `*` | `NotFoundPage` | `src/pages/NotFoundPage.tsx` | Ja |
+| Pfad                        | Komponente                  | Datei                                     | Lazy (Client) |
+| --------------------------- | --------------------------- | ----------------------------------------- | ------------- |
+| `/`                         | `HomePage`                  | `src/routes/HomePage.tsx`                 | Nein (eager)  |
+| `/about`                    | `AboutPage`                 | `src/routes/AboutPage.tsx`                | Ja            |
+| `/articles`                 | `ArticlesIndexPage`         | `src/routes/ArticlesIndexPage.tsx`        | Ja            |
+| `/articles/:slug`           | `ArticlePage`               | `src/routes/ArticlePage.tsx`              | Ja            |
+| `/diagnostics`              | `ServicesOverviewPage`      | `src/routes/ServicesOverviewPage.tsx`     | Ja            |
+| `/diagnostics/:slug`        | `ServicePage`               | `src/routes/ServicePage.tsx`              | Ja            |
+| `/contact`                  | `ContactPage`               | `src/routes/ContactPage.tsx`              | Ja            |
+| `/privacy`                  | `PrivacyPage`               | `src/routes/PrivacyPage.tsx`              | Ja            |
+| `/imprint`                  | `ImprintPage`               | `src/routes/ImprintPage.tsx`              | Ja            |
+| `/terms`                    | `TermsPage`                 | `src/routes/TermsPage.tsx`                | Ja            |
+| `/events`                   | `EventsPage`                | `src/pages/EventsPage.tsx`                | Ja            |
+| `/igloo-pro`                | `IglooProPage`              | `src/pages/IglooProPage.tsx`              | Ja            |
+| `/vitamin-d3-implantologie` | `VitaminD3ImplantologyPage` | `src/pages/VitaminD3ImplantologyPage.tsx` | Ja            |
+| `/downloads`                | `DownloadsPage`             | `src/routes/DownloadsPage.tsx`            | Ja            |
+| `*`                         | `NotFoundPage`              | `src/pages/NotFoundPage.tsx`              | Ja            |
 
 ### Redirects
 
-| Von | Nach | Typ |
-|-----|------|-----|
-| `/services` | `/diagnostics` | 301 (React `Navigate replace`) |
+| Von               | Nach                 | Typ                            |
+| ----------------- | -------------------- | ------------------------------ |
+| `/services`       | `/diagnostics`       | 301 (React `Navigate replace`) |
 | `/services/:slug` | `/diagnostics/:slug` | 301 (React `Navigate replace`) |
 
 ### Deaktivierte Routen (auskommentiert)
@@ -154,6 +154,7 @@ function detectLanguage(req: Request): string {
 ```
 
 **Wichtig:** Der Server erkennt bereits URL-Präfixe (`/en/about`), aber:
+
 - Er **strippt das Präfix nicht** bevor er die URL an React Router weitergibt
 - React Router kennt keine `/:lang/`-Routen
 - Resultat: `/en/about` würde aktuell die **404-Seite** anzeigen
@@ -220,7 +221,7 @@ Die Komponente **unterstützt** `alternateLanguages` und `hreflang`:
 
 ```tsx
 interface SEOHeadProps {
-  alternateLanguages?: Array<{ lang: string; url: string }>;
+  alternateLanguages?: Array<{ lang: string; url: string }>
 }
 
 // Rendert:
@@ -237,10 +238,10 @@ Alle Seiten setzen **hardcoded** Canonical-URLs ohne Sprach-Präfix:
 
 ```tsx
 // Beispiel aus HomePage:
-canonical="https://polarisdx.net/"
+canonical = 'https://polarisdx.net/'
 
 // Beispiel aus AboutPage:
-canonical="https://polarisdx.net/about"
+canonical = 'https://polarisdx.net/about'
 ```
 
 ---
@@ -251,19 +252,19 @@ canonical="https://polarisdx.net/about"
 
 ### Aufschlüsselung nach Bereich
 
-| Bereich | Komplexität | Begründung |
-|---------|-------------|------------|
-| **Express Server** | Niedrig | `detectLanguage()` existiert bereits, URL-Stripping hinzufügen |
-| **React Router** | Mittel | Optional-Param `/:lang?/` Pattern oder verschachteltes Routing |
-| **App.tsx + App.lazy.tsx** | Mittel | Beide Dateien müssen synchron angepasst werden |
-| **LanguageSwitcher** | Niedrig | `changeLanguage()` → `navigate()` mit URL-Prefix |
-| **SEOHead + Canonicals** | Mittel | 15 Seiten mit hardcoded Canonicals, alle brauchen dynamische URLs |
-| **Hreflang-Tags** | Mittel | Pro Seite 10 Alternate-Links generieren, `alternateLanguages` befüllen |
-| **Sitemap** | Hoch | Von 29 auf ~290 URLs (29 × 10), plus `xhtml:link` Alternates pro URL |
-| **Client-Hydration** | Mittel | URL-Sprache muss i18n-Sprache bei Hydration matchen |
-| **Interne Links** | Mittel-Hoch | Alle `<Link to="...">` und `navigate()` brauchen Sprach-Prefix |
-| **301 Redirects** | Niedrig | `/services` → `/diagnostics` Redirects anpassen |
-| **Testing** | Hoch | 10 Sprachen × 15+ Seiten = 150+ URL-Kombinationen |
+| Bereich                    | Komplexität | Begründung                                                             |
+| -------------------------- | ----------- | ---------------------------------------------------------------------- |
+| **Express Server**         | Niedrig     | `detectLanguage()` existiert bereits, URL-Stripping hinzufügen         |
+| **React Router**           | Mittel      | Optional-Param `/:lang?/` Pattern oder verschachteltes Routing         |
+| **App.tsx + App.lazy.tsx** | Mittel      | Beide Dateien müssen synchron angepasst werden                         |
+| **LanguageSwitcher**       | Niedrig     | `changeLanguage()` → `navigate()` mit URL-Prefix                       |
+| **SEOHead + Canonicals**   | Mittel      | 15 Seiten mit hardcoded Canonicals, alle brauchen dynamische URLs      |
+| **Hreflang-Tags**          | Mittel      | Pro Seite 10 Alternate-Links generieren, `alternateLanguages` befüllen |
+| **Sitemap**                | Hoch        | Von 29 auf ~290 URLs (29 × 10), plus `xhtml:link` Alternates pro URL   |
+| **Client-Hydration**       | Mittel      | URL-Sprache muss i18n-Sprache bei Hydration matchen                    |
+| **Interne Links**          | Mittel-Hoch | Alle `<Link to="...">` und `navigate()` brauchen Sprach-Prefix         |
+| **301 Redirects**          | Niedrig     | `/services` → `/diagnostics` Redirects anpassen                        |
+| **Testing**                | Hoch        | 10 Sprachen × 15+ Seiten = 150+ URL-Kombinationen                      |
 
 ---
 
@@ -365,31 +366,31 @@ canonical="https://polarisdx.net/about"
 
 ## Anhang: Dateien die geändert werden müssen
 
-| Datei | Änderungsart |
-|-------|-------------|
-| `server.ts` | URL-Prefix-Stripping, Language-from-URL Logic |
-| `src/entry-server.tsx` | URL ohne Prefix an StaticRouter übergeben |
-| `src/entry-client.tsx` | BrowserRouter mit Sprach-Awareness |
-| `src/i18n.client.ts` | URL-Path als primäre Detection-Quelle |
-| `src/App.tsx` | Routen ggf. unter `/:lang?/` verschachteln |
-| `src/App.lazy.tsx` | Identische Routen-Änderungen |
-| `src/components/ui/LanguageSwitcher.tsx` | Navigate statt nur changeLanguage |
-| `src/components/seo/SEOHead.tsx` | Dynamische Canonicals + Hreflang auto-generation |
-| `src/routes/HomePage.tsx` | Canonical dynamisch |
-| `src/routes/AboutPage.tsx` | Canonical dynamisch |
-| `src/routes/ArticlesIndexPage.tsx` | Canonical dynamisch |
-| `src/routes/ArticlePage.tsx` | Canonical dynamisch |
-| `src/routes/ServicesOverviewPage.tsx` | Canonical dynamisch |
-| `src/routes/ServicePage.tsx` | Canonical dynamisch |
-| `src/routes/ContactPage.tsx` | Canonical dynamisch |
-| `src/routes/DownloadsPage.tsx` | Canonical dynamisch |
-| `src/routes/PrivacyPage.tsx` | Canonical dynamisch |
-| `src/routes/ImprintPage.tsx` | Canonical dynamisch |
-| `src/routes/TermsPage.tsx` | Canonical dynamisch |
-| `src/pages/EventsPage.tsx` | Canonical dynamisch |
-| `src/pages/IglooProPage.tsx` | Canonical dynamisch |
-| `src/pages/VitaminD3ImplantologyPage.tsx` | Canonical dynamisch |
-| `src/components/layout/Header.tsx` | Links mit Sprach-Prefix |
-| `src/components/layout/Footer.tsx` | Links mit Sprach-Prefix |
-| `public/sitemap.xml` | Durch dynamische Generierung ersetzen |
-| `vite.config.ts` | Ggf. SSR-Anpassungen |
+| Datei                                     | Änderungsart                                     |
+| ----------------------------------------- | ------------------------------------------------ |
+| `server.ts`                               | URL-Prefix-Stripping, Language-from-URL Logic    |
+| `src/entry-server.tsx`                    | URL ohne Prefix an StaticRouter übergeben        |
+| `src/entry-client.tsx`                    | BrowserRouter mit Sprach-Awareness               |
+| `src/i18n.client.ts`                      | URL-Path als primäre Detection-Quelle            |
+| `src/App.tsx`                             | Routen ggf. unter `/:lang?/` verschachteln       |
+| `src/App.lazy.tsx`                        | Identische Routen-Änderungen                     |
+| `src/components/ui/LanguageSwitcher.tsx`  | Navigate statt nur changeLanguage                |
+| `src/components/seo/SEOHead.tsx`          | Dynamische Canonicals + Hreflang auto-generation |
+| `src/routes/HomePage.tsx`                 | Canonical dynamisch                              |
+| `src/routes/AboutPage.tsx`                | Canonical dynamisch                              |
+| `src/routes/ArticlesIndexPage.tsx`        | Canonical dynamisch                              |
+| `src/routes/ArticlePage.tsx`              | Canonical dynamisch                              |
+| `src/routes/ServicesOverviewPage.tsx`     | Canonical dynamisch                              |
+| `src/routes/ServicePage.tsx`              | Canonical dynamisch                              |
+| `src/routes/ContactPage.tsx`              | Canonical dynamisch                              |
+| `src/routes/DownloadsPage.tsx`            | Canonical dynamisch                              |
+| `src/routes/PrivacyPage.tsx`              | Canonical dynamisch                              |
+| `src/routes/ImprintPage.tsx`              | Canonical dynamisch                              |
+| `src/routes/TermsPage.tsx`                | Canonical dynamisch                              |
+| `src/pages/EventsPage.tsx`                | Canonical dynamisch                              |
+| `src/pages/IglooProPage.tsx`              | Canonical dynamisch                              |
+| `src/pages/VitaminD3ImplantologyPage.tsx` | Canonical dynamisch                              |
+| `src/components/layout/Header.tsx`        | Links mit Sprach-Prefix                          |
+| `src/components/layout/Footer.tsx`        | Links mit Sprach-Prefix                          |
+| `public/sitemap.xml`                      | Durch dynamische Generierung ersetzen            |
+| `vite.config.ts`                          | Ggf. SSR-Anpassungen                             |

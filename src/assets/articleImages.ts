@@ -46,11 +46,4 @@ export function getArticleImageUrl(imageName: string | undefined): string | unde
 }
 
 // Direkte Exports für typisierte Verwendung
-export {
-  greenImg,
-  homeclinicImg,
-  makemoneyImg,
-  testbild1Img,
-  aboveTheFoldImg,
-  iglooProFrontalImg,
-}
+export { greenImg, homeclinicImg, makemoneyImg, testbild1Img, aboveTheFoldImg, iglooProFrontalImg }

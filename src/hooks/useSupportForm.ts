@@ -56,7 +56,7 @@ export const useSupportForm = (): UseSupportFormReturn => {
       try {
         const buffer = await file.arrayBuffer()
         const base64 = btoa(
-          new Uint8Array(buffer).reduce((str, byte) => str + String.fromCharCode(byte), '')
+          new Uint8Array(buffer).reduce((str, byte) => str + String.fromCharCode(byte), ''),
         )
         data.attachment = {
           filename: file.name,

@@ -53,5 +53,3 @@ Dieses Verzeichnis enthält die **Rahmenkomponenten**, die die Struktur jeder Se
   - Navigation und Branding auf **allen Seiten konsistent** sind.
   - Routen nur für den **Seiteninhalt** verantwortlich sind, nicht für Kopf- oder Fußbereich.
 - Änderungen am globalen Erscheinungsbild (z. B. Navigationspunkte, Branding, Footer‑Verweise) werden **zentral hier** durchgeführt und wirken sofort auf die gesamte App.
-
-

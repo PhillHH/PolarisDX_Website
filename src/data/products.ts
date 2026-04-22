@@ -75,5 +75,4 @@ export const products: Product[] = [
   },
 ]
 
-export const getProductBySlug = (slug: string) =>
-  products.find((product) => product.slug === slug)
+export const getProductBySlug = (slug: string) => products.find((product) => product.slug === slug)

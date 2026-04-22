@@ -8,29 +8,32 @@
 ## 1. Wie viele FAQs existieren aktuell und wo?
 
 ### Homepage (`/`)
+
 - **4 FAQ-Items** in `public/locales/de/home.json` unter `faq.items[]`
 - Themen: Was macht PolarisDX, Branchen-Relevanz, Zusammenarbeit, Produkte/Lösungen
 - Rendering durch `FAQSection` Komponente
 - FAQPage-Schema wird korrekt generiert und in `<SEOHead>` eingebunden
 
 ### Vitamin-D3-Implantologie Artikel (`/vitamin-d3-implantologie`)
+
 - **5 FAQ-Items** — aber **hardcoded** direkt in `src/pages/VitaminD3ImplantologyPage.tsx:30-86`
 - Nicht in i18n-Dateien, nicht übersetzbar
 - Eigenes FAQPage-Schema wird über `createFAQSchema()` generiert
 - Kein Accordion-UI, sondern statische Darstellung (h3 + p)
 
 ### Service-Seiten (`/diagnostics/:slug`)
+
 - **0 FAQs** — keine FAQ-Sektion vorhanden
 - Kein FAQPage-Schema im structuredData-Array
 - 9 Service-Seiten betroffen (dental, beauty, longevity, poc-systemloesungen, praeventions-checks, infektion-entzuendung, stoffwechsel-herz, hormon-tests, kompatibilitaet-integration)
 
 ### Zusammenfassung
 
-| Seite | FAQ-Anzahl | Quelle | Schema | Übersetzbar |
-|-------|-----------|--------|--------|-------------|
-| Homepage | 4 | i18n (`home.json`) | Ja (FAQPage) | Ja |
-| Vitamin-D3-Artikel | 5 | Hardcoded (TSX) | Ja (FAQPage) | Nein |
-| Service-Seiten (x9) | 0 | — | Nein | — |
+| Seite               | FAQ-Anzahl | Quelle             | Schema       | Übersetzbar |
+| ------------------- | ---------- | ------------------ | ------------ | ----------- |
+| Homepage            | 4          | i18n (`home.json`) | Ja (FAQPage) | Ja          |
+| Vitamin-D3-Artikel  | 5          | Hardcoded (TSX)    | Ja (FAQPage) | Nein        |
+| Service-Seiten (x9) | 0          | —                  | Nein         | —           |
 
 ---
 
@@ -66,7 +69,7 @@ Datei: `public/locales/de/home.json`
 
 ```tsx
 const faqItems = [
-  { question: "...", answer: "..." },
+  { question: '...', answer: '...' },
   // ...5 items
 ]
 ```
@@ -77,6 +80,7 @@ const faqItems = [
 ### Service-Seiten (i18n-Dateien)
 
 Die `services.json`-Dateien enthalten **keine FAQ-Keys**. Die aktuelle Struktur pro Service ist:
+
 ```
 title, headline, intro[], sections[], conclusion{}, cta
 ```
@@ -100,7 +104,7 @@ export function createFAQSchema(items: FAQItem[]) {
         text: item.answer,
       },
     })),
-  };
+  }
 }
 ```
 
@@ -117,13 +121,13 @@ export function createFAQSchema(items: FAQItem[]) {
 
 **Aktuell Homepage-spezifisch** mit folgenden Einschränkungen:
 
-| Aspekt | Ist-Zustand | Problem für Service-Seiten |
-|--------|-------------|---------------------------|
-| Translation Namespace | Hardcoded `'home'` | Kann nur `home.json` lesen |
-| FAQ-Key-Pfad | Hardcoded `'faq.items'` | Nicht konfigurierbar |
-| Section-Header | Hardcoded Caption/Title | Nicht pro Service anpassbar |
-| Footer-Links | Hardcoded Links zu `/diagnostics` und `/contact` | Nicht kontextabhängig |
-| Schema-Generation | **Nicht enthalten** — wird extern in `HomePage.tsx` gemacht | Doppelte Logik nötig |
+| Aspekt                | Ist-Zustand                                                 | Problem für Service-Seiten  |
+| --------------------- | ----------------------------------------------------------- | --------------------------- |
+| Translation Namespace | Hardcoded `'home'`                                          | Kann nur `home.json` lesen  |
+| FAQ-Key-Pfad          | Hardcoded `'faq.items'`                                     | Nicht konfigurierbar        |
+| Section-Header        | Hardcoded Caption/Title                                     | Nicht pro Service anpassbar |
+| Footer-Links          | Hardcoded Links zu `/diagnostics` und `/contact`            | Nicht kontextabhängig       |
+| Schema-Generation     | **Nicht enthalten** — wird extern in `HomePage.tsx` gemacht | Doppelte Logik nötig        |
 
 ### Wiederverwendbarkeitsbewertung: **Nicht direkt wiederverwendbar**
 
@@ -177,12 +181,12 @@ Die `FAQSection`-Komponente hat bereits gutes UI (Accordion mit Animation, Acces
 
 ```tsx
 interface FAQSectionProps {
-  namespace?: string          // i18n Namespace (default: 'home')
-  faqKey?: string             // Key-Pfad für items (default: 'faq.items')
-  caption?: string            // Override für Caption
-  title?: string              // Override für Titel
-  showFooter?: boolean        // Footer-Links anzeigen (default: true)
-  items?: FAQItem[]           // Direkte Items (überspringt i18n)
+  namespace?: string // i18n Namespace (default: 'home')
+  faqKey?: string // Key-Pfad für items (default: 'faq.items')
+  caption?: string // Override für Caption
+  title?: string // Override für Titel
+  showFooter?: boolean // Footer-Links anzeigen (default: true)
+  items?: FAQItem[] // Direkte Items (überspringt i18n)
 }
 ```
 
@@ -220,13 +224,13 @@ Pro Service einen `faq`-Block in `public/locales/{lang}/services.json` hinzufüg
 
 ### Aufwand-Schätzung (Implementierung)
 
-| Schritt | Dateien |
-|---------|---------|
-| FAQSection parametrisieren | `src/components/sections/FAQSection.tsx` |
-| 9x FAQ-Texte DE schreiben | `public/locales/de/services.json` |
-| 9x FAQ-Texte EN schreiben | `public/locales/en/services.json` |
-| ServicePage FAQ einbinden | `src/routes/ServicePage.tsx` |
-| Homepage EN-FAQs ergänzen | `public/locales/en/home.json` |
+| Schritt                     | Dateien                                                             |
+| --------------------------- | ------------------------------------------------------------------- |
+| FAQSection parametrisieren  | `src/components/sections/FAQSection.tsx`                            |
+| 9x FAQ-Texte DE schreiben   | `public/locales/de/services.json`                                   |
+| 9x FAQ-Texte EN schreiben   | `public/locales/en/services.json`                                   |
+| ServicePage FAQ einbinden   | `src/routes/ServicePage.tsx`                                        |
+| Homepage EN-FAQs ergänzen   | `public/locales/en/home.json`                                       |
 | Weitere Sprachen (optional) | `public/locales/{cs,da,es,fr,it,pl,pt}/home.json` + `services.json` |
 
 ### Architektur-Diagramm (Ziel-Zustand)

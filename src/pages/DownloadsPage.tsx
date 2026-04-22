@@ -103,7 +103,10 @@ const DownloadsPage = () => {
     <PageTransition>
       <SEOHead
         title={t('downloads:seo.title', 'Downloads: Produktdaten IglooPro | PolarisDX')}
-        description={t('downloads:seo.description', 'Technische Datenblätter und Produktinformationen zum IglooPro POC-Reader und POCT-Testkassetten. Kostenlos herunterladen.')}
+        description={t(
+          'downloads:seo.description',
+          'Technische Datenblätter und Produktinformationen zum IglooPro POC-Reader und POCT-Testkassetten. Kostenlos herunterladen.',
+        )}
         keywords={['PolarisDX Downloads', 'Produktdatenblatt', 'POC Diagnostik PDF']}
         structuredData={[
           createBreadcrumbSchema([
@@ -149,9 +152,7 @@ const DownloadsPage = () => {
                 title={t('downloads:discoverTitle')}
                 align="left"
               />
-              <p className="mt-4 max-w-2xl text-lg text-gray-600">
-                {t('downloads:introText')}
-              </p>
+              <p className="mt-4 max-w-2xl text-lg text-gray-600">{t('downloads:introText')}</p>
             </div>
 
             <div className="space-y-12">
@@ -160,13 +161,22 @@ const DownloadsPage = () => {
             </div>
 
             <div className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
-              <Link to="/igloo-pro" className="font-semibold text-brand-primary hover:text-brand-deep transition-colors">
+              <Link
+                to="/igloo-pro"
+                className="font-semibold text-brand-primary hover:text-brand-deep transition-colors"
+              >
                 {t('downloads:link_igloo', 'Zum IglooPro System')} →
               </Link>
-              <Link to="/diagnostics" className="font-semibold text-brand-primary hover:text-brand-deep transition-colors">
+              <Link
+                to="/diagnostics"
+                className="font-semibold text-brand-primary hover:text-brand-deep transition-colors"
+              >
                 {t('downloads:link_services', 'Diagnostik-Services')} →
               </Link>
-              <Link to="/contact" className="font-semibold text-brand-primary hover:text-brand-deep transition-colors">
+              <Link
+                to="/contact"
+                className="font-semibold text-brand-primary hover:text-brand-deep transition-colors"
+              >
                 {t('downloads:link_contact', 'Beratung anfragen')} →
               </Link>
             </div>

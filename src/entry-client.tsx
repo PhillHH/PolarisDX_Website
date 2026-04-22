@@ -57,6 +57,6 @@ i18nReady.then(() => {
           </Suspense>
         </BrowserRouter>
       </HelmetProvider>
-    </StrictMode>
+    </StrictMode>,
   )
 })
