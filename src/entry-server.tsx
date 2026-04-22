@@ -70,7 +70,7 @@ export async function render(url: string, lang: string): Promise<RenderResult> {
           </Suspense>
         </StaticRouter>
       </HelmetProvider>
-    </I18nextProvider>
+    </I18nextProvider>,
   )
 
   // Extrahiere Helmet-Daten (helmet wird nach dem Render befüllt)

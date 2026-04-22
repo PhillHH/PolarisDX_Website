@@ -14,7 +14,10 @@ const ContactPage = () => {
     <PageTransition>
       <SEOHead
         title={t('contact:seo.title', 'IglooPro Demo anfragen: Kostenlose Beratung | PolarisDX')}
-        description={t('contact:seo.description', 'Vereinbaren Sie eine kostenlose IglooPro Demo. POC-Diagnostik live erleben — Beratung zu Integration, Abrechnung & Praxislabor. Schnelle Antwort.')}
+        description={t(
+          'contact:seo.description',
+          'Vereinbaren Sie eine kostenlose IglooPro Demo. POC-Diagnostik live erleben — Beratung zu Integration, Abrechnung & Praxislabor. Schnelle Antwort.',
+        )}
         keywords={['PolarisDX Kontakt', 'IglooPro Demo', 'POC Beratung', 'Medizintechnik Anfrage']}
         structuredData={[
           localBusinessSchema,
@@ -36,10 +39,7 @@ const ContactPage = () => {
                 <Breadcrumbs
                   variant="dark"
                   className="mb-4"
-                  items={[
-                    { label: 'Home', href: '/' },
-                    { label: t('contact.hero.title') },
-                  ]}
+                  items={[{ label: 'Home', href: '/' }, { label: t('contact.hero.title') }]}
                 />
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
                   {t('contact.hero.kicker')}
@@ -92,7 +92,6 @@ const ContactPage = () => {
 
                 {/* Extracted Form Component */}
                 <ContactForm />
-
               </section>
             </Reveal>
 
@@ -117,13 +116,22 @@ const ContactPage = () => {
                     {t('contact.sidebar_links.title', 'Entdecken')}
                   </h3>
                   <nav className="space-y-2">
-                    <Link to="/diagnostics" className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors">
+                    <Link
+                      to="/diagnostics"
+                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                    >
                       {t('contact.sidebar_links.services', 'Unsere Diagnostik-Services')} →
                     </Link>
-                    <Link to="/igloo-pro" className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors">
+                    <Link
+                      to="/igloo-pro"
+                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                    >
                       {t('contact.sidebar_links.igloo', 'IglooPro System kennenlernen')} →
                     </Link>
-                    <Link to="/articles" className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors">
+                    <Link
+                      to="/articles"
+                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                    >
                       {t('contact.sidebar_links.articles', 'Fachartikel lesen')} →
                     </Link>
                   </nav>

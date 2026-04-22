@@ -15,7 +15,7 @@ interface PageTransitionProps {
  * SSR behavior: Content renders fully visible (no animation styles)
  * Client behavior: After hydration, applies fade-in animation
  */
-const PageTransition = ({ children, className = "w-full" }: PageTransitionProps) => {
+const PageTransition = ({ children, className = 'w-full' }: PageTransitionProps) => {
   const [isHydrated, setIsHydrated] = useState(false)
   const [isAnimated, setIsAnimated] = useState(false)
 

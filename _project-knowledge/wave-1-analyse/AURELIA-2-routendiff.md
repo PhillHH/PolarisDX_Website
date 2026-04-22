@@ -1,4 +1,5 @@
 ## Routen in App.tsx (SSR)
+
 /
 /about
 /articles
@@ -21,9 +22,11 @@
 /downloads
 /services
 /services/:slug
-*
+
+-
 
 ## Routen in App.lazy.tsx (Client)
+
 /
 /about
 /articles
@@ -43,17 +46,21 @@
 /downloads
 /services
 /services/:slug
-*
+
+-
 
 ## Nur in App.tsx
+
 /casestudys/32reasons
 /shop
 /shop/:slug
 
 ## Nur in App.lazy.tsx
+
 keine
 
 ## Auskommentierte Routen
+
 ```
 src/App.tsx:
  8: // import ShopPage from './routes/ShopPage'

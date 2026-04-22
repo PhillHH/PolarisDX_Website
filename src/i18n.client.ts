@@ -11,11 +11,11 @@
  * Dieser Import hat einen Side-Effect: Er initialisiert i18next.
  */
 
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import HttpBackend from 'i18next-http-backend';
+import i18n from 'i18next'
+import { initReactI18next } from 'react-i18next'
+import HttpBackend from 'i18next-http-backend'
 
-import { i18nConfig, extractLanguageFromPathname } from './i18n';
+import { i18nConfig, extractLanguageFromPathname } from './i18n'
 
 // =============================================================================
 // LANGUAGE FROM URL (Source of Truth)
@@ -28,7 +28,7 @@ import { i18nConfig, extractLanguageFromPathname } from './i18n';
  * Kein localStorage, kein Cookie, kein Accept-Language.
  * Die URL ist die einzige Wahrheit — konsistent mit dem SSR-Server.
  */
-const urlLanguage = extractLanguageFromPathname(window.location.pathname);
+const urlLanguage = extractLanguageFromPathname(window.location.pathname)
 
 // =============================================================================
 // CLIENT-SPECIFIC CONFIGURATION
@@ -69,10 +69,10 @@ export const i18nReady = i18n
     react: {
       useSuspense: true,
     },
-  });
+  })
 
 // =============================================================================
 // EXPORTS
 // =============================================================================
 
-export default i18n;
+export default i18n

@@ -11,7 +11,7 @@
 
 ```tsx
 // SEOHead.tsx:109
-const canonicalUrl = canonical || `${BASE_URL}${location.pathname}`;
+const canonicalUrl = canonical || `${BASE_URL}${location.pathname}`
 ```
 
 Der Fallback (`location.pathname`) würde den Sprach-Prefix enthalten (z.B. `/en/about`),
@@ -19,23 +19,23 @@ wird aber **nie genutzt**, weil alle Seiten `canonical` explizit setzen.
 
 ### Alle Seiten mit hardcoded Canonical
 
-| Seite | Canonical |
-|---|---|
-| HomePage | `https://polarisdx.net/` |
-| IglooProPage | `https://polarisdx.net/igloo-pro` |
-| ServicePage | `https://polarisdx.net/diagnostics/${slug}` |
-| ArticlePage | `https://polarisdx.net/articles/${slug}` |
-| ContactPage | `https://polarisdx.net/contact` |
-| AboutPage | `https://polarisdx.net/about` |
-| EventsPage | `https://polarisdx.net/events` |
-| DownloadsPage | `https://polarisdx.net/downloads` |
-| PrivacyPage | `https://polarisdx.net/privacy` |
-| ImprintPage | `https://polarisdx.net/imprint` |
-| TermsPage | `https://polarisdx.net/terms` |
-| ArticlesIndex | `https://polarisdx.net/articles` |
-| ServicesOverview | `https://polarisdx.net/diagnostics` |
-| VitaminD3Page | `https://polarisdx.net/vitamin-d3-implantologie` |
-| CaseStudy | `https://polarisdx.net/case-studies/32reasons` |
+| Seite            | Canonical                                        |
+| ---------------- | ------------------------------------------------ |
+| HomePage         | `https://polarisdx.net/`                         |
+| IglooProPage     | `https://polarisdx.net/igloo-pro`                |
+| ServicePage      | `https://polarisdx.net/diagnostics/${slug}`      |
+| ArticlePage      | `https://polarisdx.net/articles/${slug}`         |
+| ContactPage      | `https://polarisdx.net/contact`                  |
+| AboutPage        | `https://polarisdx.net/about`                    |
+| EventsPage       | `https://polarisdx.net/events`                   |
+| DownloadsPage    | `https://polarisdx.net/downloads`                |
+| PrivacyPage      | `https://polarisdx.net/privacy`                  |
+| ImprintPage      | `https://polarisdx.net/imprint`                  |
+| TermsPage        | `https://polarisdx.net/terms`                    |
+| ArticlesIndex    | `https://polarisdx.net/articles`                 |
+| ServicesOverview | `https://polarisdx.net/diagnostics`              |
+| VitaminD3Page    | `https://polarisdx.net/vitamin-d3-implantologie` |
+| CaseStudy        | `https://polarisdx.net/case-studies/32reasons`   |
 
 **Problem:** Alle Canonicals zeigen auf URLs ohne Sprach-Prefix. Diese URLs
 werden per 301 auf `/de/...` redirected (server.ts:211). Canonicals zeigen
@@ -92,22 +92,22 @@ nicht als hreflang `<link>`.
 
 ### URL-Verteilung nach Priority
 
-| Priority | Anzahl | Beispiele |
-|---|---|---|
-| 1.0 | 2 | Homepage, Igloo Pro |
-| 0.9 | 1 | Diagnostics Overview |
-| 0.8 | 10 | Services, About, Contact |
-| 0.7 | 2 | Articles Index, Vitamin D3 |
-| 0.6 | 8 | Articles, Events, Downloads |
-| 0.4 | 3 | Privacy, Imprint, Terms |
+| Priority | Anzahl | Beispiele                   |
+| -------- | ------ | --------------------------- |
+| 1.0      | 2      | Homepage, Igloo Pro         |
+| 0.9      | 1      | Diagnostics Overview        |
+| 0.8      | 10     | Services, About, Contact    |
+| 0.7      | 2      | Articles Index, Vitamin D3  |
+| 0.6      | 8      | Articles, Events, Downloads |
+| 0.4      | 3      | Privacy, Imprint, Terms     |
 
 ### Diskrepanz: Sitemap vs. Prerender-Script
 
-| Sitemap (kebab-case) | Prerender (snake_case) |
-|---|---|
-| `die-gruene-praxis` | `green_practice` |
-| `der-unsichtbare-patient` | `invisible_patient` |
-| `die-5-minuten-diagnose` | `five_minute_diagnosis` |
+| Sitemap (kebab-case)      | Prerender (snake_case)  |
+| ------------------------- | ----------------------- |
+| `die-gruene-praxis`       | `green_practice`        |
+| `der-unsichtbare-patient` | `invisible_patient`     |
+| `die-5-minuten-diagnose`  | `five_minute_diagnosis` |
 
 ---
 
@@ -131,10 +131,10 @@ nicht als hreflang `<link>`.
 
 ## Handlungsfelder
 
-| Thema | Ist | Soll |
-|---|---|---|
-| Canonicals | Hardcoded ohne Sprach-Prefix (→ 301-Redirect) | Dynamisch mit Sprach-Prefix |
-| hreflang | Prop vorhanden, nie genutzt | Automatisch 10 Sprachen + x-default |
-| Sitemap URLs | 29 URLs, keine Sprache, kein lastmod | ~290 URLs mit Sprache und lastmod |
-| Sitemap Format | Statische XML in `public/` | Dynamischer Endpoint oder Build-Script |
-| Slug-Diskrepanz | Sitemap vs. Prerender: unterschiedliche Formate | Vereinheitlichen |
+| Thema           | Ist                                             | Soll                                   |
+| --------------- | ----------------------------------------------- | -------------------------------------- |
+| Canonicals      | Hardcoded ohne Sprach-Prefix (→ 301-Redirect)   | Dynamisch mit Sprach-Prefix            |
+| hreflang        | Prop vorhanden, nie genutzt                     | Automatisch 10 Sprachen + x-default    |
+| Sitemap URLs    | 29 URLs, keine Sprache, kein lastmod            | ~290 URLs mit Sprache und lastmod      |
+| Sitemap Format  | Statische XML in `public/`                      | Dynamischer Endpoint oder Build-Script |
+| Slug-Diskrepanz | Sitemap vs. Prerender: unterschiedliche Formate | Vereinheitlichen                       |

@@ -26,19 +26,17 @@ const buttonVariants = cva(
       variant: 'primary',
       size: 'default',
     },
-  }
+  },
 )
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
   to?: string
   href?: string
 }
 
 const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
   ({ className, variant = 'primary', size = 'default', children, to, href, ...props }, ref) => {
-
     // Determine the component to render
     let Component: React.ElementType = 'button'
     if (to) Component = Link
@@ -50,7 +48,7 @@ const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPro
         buttonVariants({ variant, size, className }),
         // Override padding for primary variant to handle the border width hack
         variant === 'primary' && '!p-[2px]',
-        'text-inherit'
+        'text-inherit',
       ),
       ref: ref as any,
       ...props,
@@ -69,7 +67,7 @@ const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPro
               size === 'lg' && 'px-10 py-5 text-lg',
               (size === 'default' || !size) && 'px-8 py-4 text-base',
               size === 'sm' && 'px-6 py-3 text-sm',
-              size === 'icon' && 'h-full w-full p-0'
+              size === 'icon' && 'h-full w-full p-0',
             )}
           >
             {children}
@@ -79,12 +77,8 @@ const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPro
     }
 
     // Standard Render
-    return (
-      <Component {...commonProps}>
-        {children}
-      </Component>
-    )
-  }
+    return <Component {...commonProps}>{children}</Component>
+  },
 )
 Button.displayName = 'Button'
 

@@ -11,10 +11,7 @@ const AboutSection = () => {
   return (
     // Hauptcontainer des Abschnitts mit der ID 'about' für Anker-Links.
     // Verwendet ein Grid-Layout, das auf großen Bildschirmen zweispaltig wird.
-    <section
-      id="about"
-      className="grid items-center gap-10 lg:grid-cols-2"
-    >
+    <section id="about" className="grid items-center gap-10 lg:grid-cols-2">
       {/* Linke Spalte: Container für das Bild und das dekorative Hintergrund-Element. */}
       {/* Mobil ausgeblendet, nur auf Desktop (lg) sichtbar */}
       <div className="hidden lg:relative lg:mx-auto lg:block lg:h-[728px] lg:max-w-3xl">

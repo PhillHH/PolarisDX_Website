@@ -10,20 +10,20 @@
 // =============================================================================
 
 export interface BreadcrumbItem {
-  name: string;
-  url: string;
+  name: string
+  url: string
 }
 
 export interface FAQItem {
-  question: string;
-  answer: string;
+  question: string
+  answer: string
 }
 
 // =============================================================================
 // CONSTANTS
 // =============================================================================
 
-const BASE_URL = 'https://polarisdx.net';
+const BASE_URL = 'https://polarisdx.net'
 
 // =============================================================================
 // MEDICAL BUSINESS (singleton - use on homepage)
@@ -69,7 +69,7 @@ export const medicalBusinessSchema = {
     description: 'DACH-Region (Deutschland, Österreich, Schweiz)',
   },
   sameAs: ['https://www.linkedin.com/company/polarisdx'],
-};
+}
 
 // =============================================================================
 // ORGANIZATION (legacy - kept for backwards compatibility)
@@ -105,7 +105,7 @@ export const organizationSchema = {
     areaServed: ['DE', 'AT', 'CH', 'GB'],
   },
   sameAs: ['https://www.linkedin.com/company/polarisdx'],
-};
+}
 
 // =============================================================================
 // WEBSITE (singleton - use on homepage)
@@ -117,8 +117,7 @@ export const websiteSchema = {
   '@id': `${BASE_URL}/#website`,
   name: 'PolarisDX',
   url: BASE_URL,
-  description:
-    'Point-of-Care Diagnostik für Zahnarztpraxen, Beauty-Center und Longevity-Kliniken',
+  description: 'Point-of-Care Diagnostik für Zahnarztpraxen, Beauty-Center und Longevity-Kliniken',
   publisher: {
     '@id': `${BASE_URL}/#organization`,
   },
@@ -131,7 +130,7 @@ export const websiteSchema = {
     },
     'query-input': 'required name=search_term_string',
   },
-};
+}
 
 // =============================================================================
 // PRODUCT (IglooPro)
@@ -166,7 +165,7 @@ export const iglooProProductSchema = {
     reviewCount: '250',
     bestRating: '5',
   },
-};
+}
 
 // =============================================================================
 // BREADCRUMB GENERATOR
@@ -182,7 +181,7 @@ export function createBreadcrumbSchema(items: BreadcrumbItem[]) {
       name: item.name,
       item: item.url.startsWith('http') ? item.url : `${BASE_URL}${item.url}`,
     })),
-  };
+  }
 }
 
 // =============================================================================
@@ -201,7 +200,7 @@ export function createFAQSchema(items: FAQItem[]) {
         text: item.answer,
       },
     })),
-  };
+  }
 }
 
 // =============================================================================
@@ -209,23 +208,23 @@ export function createFAQSchema(items: FAQItem[]) {
 // =============================================================================
 
 export interface ArticleAuthor {
-  name: string;
-  type?: 'Person' | 'Organization';
-  jobTitle?: string;
-  url?: string;
+  name: string
+  type?: 'Person' | 'Organization'
+  jobTitle?: string
+  url?: string
 }
 
 export interface ArticleSchemaOptions {
-  headline: string;
-  description: string;
-  image: string;
-  url: string;
-  datePublished: string;
-  dateModified?: string;
-  authorName?: string;
-  author?: ArticleAuthor;
-  reviewedBy?: ArticleAuthor;
-  articleType?: 'Article' | 'MedicalWebPage';
+  headline: string
+  description: string
+  image: string
+  url: string
+  datePublished: string
+  dateModified?: string
+  authorName?: string
+  author?: ArticleAuthor
+  reviewedBy?: ArticleAuthor
+  articleType?: 'Article' | 'MedicalWebPage'
 }
 
 export function createArticleSchema(options: ArticleSchemaOptions) {
@@ -240,19 +239,15 @@ export function createArticleSchema(options: ArticleSchemaOptions) {
         '@type': 'Organization',
         name: options.authorName || 'PolarisDX',
         url: BASE_URL,
-      };
+      }
 
   return {
     '@context': 'https://schema.org',
     '@type': options.articleType || 'Article',
     headline: options.headline,
     description: options.description,
-    image: options.image.startsWith('http')
-      ? options.image
-      : `${BASE_URL}${options.image}`,
-    url: options.url.startsWith('http')
-      ? options.url
-      : `${BASE_URL}${options.url}`,
+    image: options.image.startsWith('http') ? options.image : `${BASE_URL}${options.image}`,
+    url: options.url.startsWith('http') ? options.url : `${BASE_URL}${options.url}`,
     datePublished: options.datePublished,
     dateModified: options.dateModified || options.datePublished,
     author: authorData,
@@ -268,11 +263,9 @@ export function createArticleSchema(options: ArticleSchemaOptions) {
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': options.url.startsWith('http')
-        ? options.url
-        : `${BASE_URL}${options.url}`,
+      '@id': options.url.startsWith('http') ? options.url : `${BASE_URL}${options.url}`,
     },
-  };
+  }
 }
 
 // =============================================================================
@@ -280,11 +273,11 @@ export function createArticleSchema(options: ArticleSchemaOptions) {
 // =============================================================================
 
 export interface ServiceSchemaOptions {
-  name: string;
-  description: string;
-  url: string;
-  image?: string;
-  areaServed?: string[];
+  name: string
+  description: string
+  url: string
+  image?: string
+  areaServed?: string[]
 }
 
 export function createServiceSchema(options: ServiceSchemaOptions) {
@@ -293,19 +286,15 @@ export function createServiceSchema(options: ServiceSchemaOptions) {
     '@type': 'Service',
     name: options.name,
     description: options.description,
-    url: options.url.startsWith('http')
-      ? options.url
-      : `${BASE_URL}${options.url}`,
+    url: options.url.startsWith('http') ? options.url : `${BASE_URL}${options.url}`,
     provider: {
       '@id': `${BASE_URL}/#organization`,
     },
     areaServed: options.areaServed || ['DE', 'AT', 'CH'],
     ...(options.image && {
-      image: options.image.startsWith('http')
-        ? options.image
-        : `${BASE_URL}${options.image}`,
+      image: options.image.startsWith('http') ? options.image : `${BASE_URL}${options.image}`,
     }),
-  };
+  }
 }
 
 // =============================================================================
@@ -313,13 +302,13 @@ export function createServiceSchema(options: ServiceSchemaOptions) {
 // =============================================================================
 
 export interface EventSchemaOptions {
-  name: string;
-  description: string;
-  startDate: string;
-  endDate?: string;
-  location: string;
-  url?: string;
-  image?: string;
+  name: string
+  description: string
+  startDate: string
+  endDate?: string
+  location: string
+  url?: string
+  image?: string
 }
 
 export function createEventSchema(options: EventSchemaOptions) {
@@ -340,13 +329,11 @@ export function createEventSchema(options: EventSchemaOptions) {
     },
     ...(options.url && { url: options.url }),
     ...(options.image && {
-      image: options.image.startsWith('http')
-        ? options.image
-        : `${BASE_URL}${options.image}`,
+      image: options.image.startsWith('http') ? options.image : `${BASE_URL}${options.image}`,
     }),
     eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-  };
+  }
 }
 
 // =============================================================================
@@ -354,11 +341,11 @@ export function createEventSchema(options: EventSchemaOptions) {
 // =============================================================================
 
 export interface ReviewSchemaOptions {
-  author: string;
-  reviewBody: string;
-  ratingValue?: number;
-  datePublished?: string;
-  jobTitle?: string;
+  author: string
+  reviewBody: string
+  ratingValue?: number
+  datePublished?: string
+  jobTitle?: string
 }
 
 export function createReviewSchema(reviews: ReviewSchemaOptions[]) {
@@ -380,7 +367,7 @@ export function createReviewSchema(reviews: ReviewSchemaOptions[]) {
     itemReviewed: {
       '@id': `${BASE_URL}/igloo-pro#product`,
     },
-  }));
+  }))
 }
 
 // =============================================================================
@@ -416,4 +403,4 @@ export const localBusinessSchema = {
   },
   priceRange: '€€€',
   areaServed: ['DE', 'AT', 'CH'],
-};
+}

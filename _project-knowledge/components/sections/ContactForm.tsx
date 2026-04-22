@@ -91,7 +91,10 @@ export const ContactForm = () => {
 
       {submitStatus === 'error' && (
         <Alert variant="destructive">
-          {t('contact.form.error', 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.')}
+          {t(
+            'contact.form.error',
+            'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.',
+          )}
         </Alert>
       )}
 
@@ -107,11 +110,19 @@ export const ContactForm = () => {
             />
           </div>
           <label htmlFor="consent" className="text-sm text-gray-600">
-            {t('contact.form.consent', 'Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und für Rückfragen bis zu 12 Monate gespeichert werden.')}
+            {t(
+              'contact.form.consent',
+              'Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und für Rückfragen bis zu 12 Monate gespeichert werden.',
+            )}
           </label>
         </div>
 
-        <Button type="submit" variant="primary" className="w-full justify-center md:w-auto" disabled={isSubmitting}>
+        <Button
+          type="submit"
+          variant="primary"
+          className="w-full justify-center md:w-auto"
+          disabled={isSubmitting}
+        >
           {isSubmitting ? 'Sende...' : t('contact.form.submit')}
         </Button>
       </div>

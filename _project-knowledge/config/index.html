@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
   <head>
     <!-- ================================================================== -->
@@ -18,64 +18,86 @@
     <!-- ================================================================== -->
     <script>
       // Google Consent Mode v2 - Default: DENIED (DSGVO/GDPR compliant)
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
 
       // Set default consent state BEFORE GTM loads
       gtag('consent', 'default', {
-        'analytics_storage': 'denied',
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'functionality_storage': 'granted',
-        'personalization_storage': 'denied',
-        'security_storage': 'granted',
-        'wait_for_update': 500
-      });
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        functionality_storage: 'granted',
+        personalization_storage: 'denied',
+        security_storage: 'granted',
+        wait_for_update: 500,
+      })
 
       // Check if consent was previously given
-      (function() {
+      ;(function () {
         try {
-          var consent = localStorage.getItem('cookie-consent');
+          var consent = localStorage.getItem('cookie-consent')
           if (consent) {
-            var preferences = JSON.parse(consent);
-            var analyticsEnabled = preferences.find(function(c) { return c.id === 'analytics'; });
-            var marketingEnabled = preferences.find(function(c) { return c.id === 'marketing'; });
+            var preferences = JSON.parse(consent)
+            var analyticsEnabled = preferences.find(function (c) {
+              return c.id === 'analytics'
+            })
+            var marketingEnabled = preferences.find(function (c) {
+              return c.id === 'marketing'
+            })
 
             if (analyticsEnabled && analyticsEnabled.enabled) {
               gtag('consent', 'update', {
-                'analytics_storage': 'granted'
-              });
+                analytics_storage: 'granted',
+              })
             }
             if (marketingEnabled && marketingEnabled.enabled) {
               gtag('consent', 'update', {
-                'ad_storage': 'granted',
-                'ad_user_data': 'granted',
-                'ad_personalization': 'granted'
-              });
+                ad_storage: 'granted',
+                ad_user_data: 'granted',
+                ad_personalization: 'granted',
+              })
             }
           }
         } catch (e) {
           // Ignore localStorage errors
         }
-      })();
+      })()
     </script>
 
     <!-- Google Tag Manager (Replace GTM-TW6JFX7K with your Container ID) -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-TW6JFX7K');</script>
+    <script>
+      ;(function (w, d, s, l, i) {
+        w[l] = w[l] || []
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : ''
+        j.async = true
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+        f.parentNode.insertBefore(j, f)
+      })(window, document, 'script', 'dataLayer', 'GTM-TW6JFX7K')
+    </script>
     <!-- End Google Tag Manager -->
 
     <!-- Primary Meta Tags (Fallback - SSR überschreibt diese via Helmet) -->
     <title>IglooPro POC-Reader | Point-of-Care Diagnostik | PolarisDX</title>
     <meta name="title" content="IglooPro POC-Reader | Point-of-Care Diagnostik | PolarisDX" />
-    <meta name="description" content="Laborergebnisse in 3 Minuten — direkt in Ihrer Praxis. Der IglooPro POC-Reader für Dental, Longevity & Beauty. Jetzt beraten lassen." />
-    <meta name="keywords" content="POC Diagnostik, Point-of-Care, IglooPro, POC Reader, Schnelltest Praxis, Vitamin D Test, CRP Schnelltest, HbA1c Soforttest, Medizintechnik, POCT Gerät" />
+    <meta
+      name="description"
+      content="Laborergebnisse in 3 Minuten — direkt in Ihrer Praxis. Der IglooPro POC-Reader für Dental, Longevity & Beauty. Jetzt beraten lassen."
+    />
+    <meta
+      name="keywords"
+      content="POC Diagnostik, Point-of-Care, IglooPro, POC Reader, Schnelltest Praxis, Vitamin D Test, CRP Schnelltest, HbA1c Soforttest, Medizintechnik, POCT Gerät"
+    />
     <meta name="author" content="PolarisDX Europe GmbH" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
     <meta name="googlebot" content="index, follow" />
     <meta name="bingbot" content="index, follow" />
     <link rel="canonical" href="https://polarisdx.net/" />
@@ -91,11 +113,17 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://polarisdx.net/" />
     <meta property="og:title" content="IglooPro POC-Reader | Point-of-Care Diagnostik" />
-    <meta property="og:description" content="Laborergebnisse in 3 Minuten — direkt in Ihrer Praxis. Der IglooPro POC-Reader für Dental, Longevity & Beauty." />
+    <meta
+      property="og:description"
+      content="Laborergebnisse in 3 Minuten — direkt in Ihrer Praxis. Der IglooPro POC-Reader für Dental, Longevity & Beauty."
+    />
     <meta property="og:image" content="https://polarisdx.net/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="IglooPro POC-Reader - Point-of-Care Diagnostik von PolarisDX" />
+    <meta
+      property="og:image:alt"
+      content="IglooPro POC-Reader - Point-of-Care Diagnostik von PolarisDX"
+    />
     <meta property="og:locale" content="de_DE" />
     <meta property="og:locale:alternate" content="en_GB" />
     <meta property="og:site_name" content="PolarisDX" />
@@ -106,7 +134,10 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://polarisdx.net/" />
     <meta name="twitter:title" content="IglooPro POC-Reader | Point-of-Care Diagnostik" />
-    <meta name="twitter:description" content="Laborergebnisse in 3 Minuten — direkt in Ihrer Praxis. Der IglooPro POC-Reader für Dental, Longevity & Beauty." />
+    <meta
+      name="twitter:description"
+      content="Laborergebnisse in 3 Minuten — direkt in Ihrer Praxis. Der IglooPro POC-Reader für Dental, Longevity & Beauty."
+    />
     <meta name="twitter:image" content="https://polarisdx.net/og-image.jpg" />
     <meta name="twitter:image:alt" content="IglooPro POC-Reader von PolarisDX" />
 
@@ -132,12 +163,17 @@
     <!-- SSR HELMET HEAD INJECTION POINT -->
     <!-- ================================================================== -->
     <!--helmet-head-->
-
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TW6JFX7K"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TW6JFX7K"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <!-- React App Root - SSR Content wird hier injiziert -->

@@ -7,18 +7,9 @@ interface PageContainerProps {
   as?: ElementType
 }
 
-const PageContainer = ({
-  children,
-  className,
-  as: Component = 'div'
-}: PageContainerProps) => {
+const PageContainer = ({ children, className, as: Component = 'div' }: PageContainerProps) => {
   return (
-    <Component
-      className={cn(
-        "mx-auto w-full max-w-page px-4 sm:px-6 lg:px-8",
-        className
-      )}
-    >
+    <Component className={cn('mx-auto w-full max-w-page px-4 sm:px-6 lg:px-8', className)}>
       {children}
     </Component>
   )

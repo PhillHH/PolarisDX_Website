@@ -19,9 +19,15 @@ const SIZE_RULES = [
   // Logos - max 400px breit
   { pattern: /polaris_white|polarisdx_logo|igloo_logo_white|PolarisDX_Logo_main/i, maxWidth: 400 },
   // Produkt-Bilder - max 650px breit
-  { pattern: /igloo_front|Igloo-pro-frontal|igloo_explode|Igloo.*Reader|hero_device/i, maxWidth: 650 },
+  {
+    pattern: /igloo_front|Igloo-pro-frontal|igloo_explode|Igloo.*Reader|hero_device/i,
+    maxWidth: 650,
+  },
   // Testimonial-Fotos - max 300px breit
-  { pattern: /Richard-Pollock|Kristian.*Grimm|goran|Bastian|Frank.*Stoffels|Ulrike|Adriano/i, maxWidth: 300 },
+  {
+    pattern: /Richard-Pollock|Kristian.*Grimm|goran|Bastian|Frank.*Stoffels|Ulrike|Adriano/i,
+    maxWidth: 300,
+  },
   // Hero-Bilder - max 800px breit
   { pattern: /hero_doctor/i, maxWidth: 800 },
   // Blog-Bilder - max 1200px breit
@@ -100,7 +106,7 @@ async function optimizeImages() {
       if (metadata.width > maxWidth) {
         pipeline = pipeline.resize(maxWidth, null, {
           withoutEnlargement: true,
-          fit: 'inside'
+          fit: 'inside',
         })
       }
 
@@ -116,7 +122,9 @@ async function optimizeImages() {
       count++
 
       const resizeInfo = metadata.width > maxWidth ? ` [${metadata.width}px -> ${maxWidth}px]` : ''
-      console.log(`${filename}: ${formatSize(inputSize)} -> ${formatSize(outputSize)} (-${savings}%)${resizeInfo}`)
+      console.log(
+        `${filename}: ${formatSize(inputSize)} -> ${formatSize(outputSize)} (-${savings}%)${resizeInfo}`,
+      )
     } catch (err) {
       console.error(`FEHLER ${filename}: ${err.message}`)
     }
@@ -128,7 +136,9 @@ async function optimizeImages() {
   console.log(`Optimiert: ${count} Bilder`)
   console.log(`Original:  ${formatSize(totalOriginal)}`)
   console.log(`WebP:      ${formatSize(totalOptimized)}`)
-  console.log(`Ersparnis: ${formatSize(totalOriginal - totalOptimized)} (${((totalOriginal - totalOptimized) / totalOriginal * 100).toFixed(1)}%)`)
+  console.log(
+    `Ersparnis: ${formatSize(totalOriginal - totalOptimized)} (${(((totalOriginal - totalOptimized) / totalOriginal) * 100).toFixed(1)}%)`,
+  )
   console.log('='.repeat(60))
 }
 

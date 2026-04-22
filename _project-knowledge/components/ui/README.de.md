@@ -75,5 +75,3 @@ Sie bilden das „Designsystem“ der Anwendung auf Komponentenebene.
   - **Konsistentes Design** über alle Seiten und Sections hinweg.
   - **Wiederverwendbarkeit**: Änderungen an einer UI‑Komponente (z. B. dem Button‑Design) wirken global.
 - Neue visuelle Muster sollten nach Möglichkeit zuerst hier als eigenständige Komponenten implementiert und dann in Sections/Routen verwendet werden.
-
-

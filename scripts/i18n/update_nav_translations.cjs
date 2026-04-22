@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require('fs')
+const path = require('path')
 
-const localesDir = 'public/locales';
-const languages = ['de', 'en', 'fr', 'it', 'pl', 'es', 'pt', 'cs', 'da', 'nl'];
+const localesDir = 'public/locales'
+const languages = ['de', 'en', 'fr', 'it', 'pl', 'es', 'pt', 'cs', 'da', 'nl']
 
 const translations = {
   de: { events: 'Termine' },
@@ -14,22 +14,22 @@ const translations = {
   pt: { events: 'Eventos' },
   cs: { events: 'Události' },
   da: { events: 'Begivenheder' },
-  nl: { events: 'Evenementen' }
-};
+  nl: { events: 'Evenementen' },
+}
 
-languages.forEach(lang => {
-  const filePath = path.join(localesDir, lang, 'common.json');
+languages.forEach((lang) => {
+  const filePath = path.join(localesDir, lang, 'common.json')
   if (fs.existsSync(filePath)) {
     try {
-      const content = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-      if (!content.nav) content.nav = {};
+      const content = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+      if (!content.nav) content.nav = {}
 
-      content.nav.events = translations[lang].events;
+      content.nav.events = translations[lang].events
 
-      fs.writeFileSync(filePath, JSON.stringify(content, null, 2));
-      console.log(`Updated ${lang}/common.json`);
+      fs.writeFileSync(filePath, JSON.stringify(content, null, 2))
+      console.log(`Updated ${lang}/common.json`)
     } catch (e) {
-      console.error(`Error processing ${lang}:`, e);
+      console.error(`Error processing ${lang}:`, e)
     }
   }
-});
+})

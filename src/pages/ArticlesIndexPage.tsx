@@ -15,9 +15,21 @@ const ArticlesIndexPage = () => {
   return (
     <PageTransition>
       <SEOHead
-        title={t('articles:seo.index_title', 'Fachartikel: POC-Diagnostik & Praxislabor Wissen | PolarisDX')}
-        description={t('articles:seo.index_description', 'Expertenwissen zu POCT, Chairside Diagnostik und Praxislabor. Praxisnahe Artikel für Zahnärzte, Ärzte und medizinisches Fachpersonal.')}
-        keywords={['POC Fachartikel', 'Diagnostik Wissen', 'Schnelltest Artikel', 'Medizintechnik Blog', 'POCT Fachbeiträge']}
+        title={t(
+          'articles:seo.index_title',
+          'Fachartikel: POC-Diagnostik & Praxislabor Wissen | PolarisDX',
+        )}
+        description={t(
+          'articles:seo.index_description',
+          'Expertenwissen zu POCT, Chairside Diagnostik und Praxislabor. Praxisnahe Artikel für Zahnärzte, Ärzte und medizinisches Fachpersonal.',
+        )}
+        keywords={[
+          'POC Fachartikel',
+          'Diagnostik Wissen',
+          'Schnelltest Artikel',
+          'Medizintechnik Blog',
+          'POCT Fachbeiträge',
+        ]}
         structuredData={createBreadcrumbSchema([
           { name: 'Home', url: '/' },
           { name: 'Artikel', url: '/articles' },
@@ -46,7 +58,10 @@ const ArticlesIndexPage = () => {
                   {t('articles:index.title', 'Our Magazine')}
                 </h1>
                 <p className="max-w-2xl text-lg text-white/80">
-                  {t('articles:index.subtitle', 'Insights, news, and expert knowledge on modern diagnostics and health.')}
+                  {t(
+                    'articles:index.subtitle',
+                    'Insights, news, and expert knowledge on modern diagnostics and health.',
+                  )}
                 </p>
               </div>
             </Reveal>
@@ -70,7 +85,9 @@ const ArticlesIndexPage = () => {
                     Vitamin D3 und Implantologie — Evidenz und Praxisleitfaden
                   </h2>
                   <p className="mt-3 text-sm text-gray-500 lg:text-base">
-                    Wie ein optimaler Vitamin-D-Spiegel die Osseointegration fördert und Implantatverluste reduziert. Wissenschaftlich fundiert mit praktischen Handlungsempfehlungen.
+                    Wie ein optimaler Vitamin-D-Spiegel die Osseointegration fördert und
+                    Implantatverluste reduziert. Wissenschaftlich fundiert mit praktischen
+                    Handlungsempfehlungen.
                   </p>
                   <p className="mt-4 text-sm font-medium text-brand-primary group-hover:underline">
                     Fachartikel lesen →

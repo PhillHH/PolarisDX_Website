@@ -207,11 +207,7 @@
       {
         "type": "table",
         "heading": "Comparison: Central Lab vs. IGLO-PRO Workflow",
-        "headers": [
-          "Step",
-          "Central Diagnostics (Classic)",
-          "IGLO-PRO (One-Visit-Model)"
-        ],
+        "headers": ["Step", "Central Diagnostics (Classic)", "IGLO-PRO (One-Visit-Model)"],
         "rows": [
           [
             "Day 1",

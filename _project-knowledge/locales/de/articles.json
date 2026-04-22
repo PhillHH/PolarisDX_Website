@@ -35,9 +35,18 @@
         "type": "key_points",
         "heading": "Wenn Logistik entfällt",
         "points": [
-          { "title": "Kein Kurier", "description": "Die Probe wandert vom Finger des Patienten direkt in das Gerät. Wegstrecke: 30 Zentimeter." },
-          { "title": "Kein Verpackungsmüll", "description": "Keine Transportröhrchen, keine Etikettenflut, keine Sicherheitsbeutel." },
-          { "title": "Mikro-Methodik", "description": "Statt milliliterweise venöses Blut zu verarbeiten, genügt ein einziger Tropfen Kapillarblut." }
+          {
+            "title": "Kein Kurier",
+            "description": "Die Probe wandert vom Finger des Patienten direkt in das Gerät. Wegstrecke: 30 Zentimeter."
+          },
+          {
+            "title": "Kein Verpackungsmüll",
+            "description": "Keine Transportröhrchen, keine Etikettenflut, keine Sicherheitsbeutel."
+          },
+          {
+            "title": "Mikro-Methodik",
+            "description": "Statt milliliterweise venöses Blut zu verarbeiten, genügt ein einziger Tropfen Kapillarblut."
+          }
         ]
       },
       {
@@ -126,10 +135,22 @@
         "type": "key_points",
         "heading": "Ein Szenario der Zukunft (das heute schon möglich ist)",
         "points": [
-          { "title": "Besuch zu Hause", "description": "Einmal die Woche kommt der mobile Pflegedienst oder eine 'Versorgungsassistentin in der Hausarztpraxis' (VERAH) vorbei." },
-          { "title": "Sofortige Analyse", "description": "Mit dem IGLO-PRO wird vor Ort im Wohnzimmer ein Tropfen Kapillarblut entnommen. Die Werte sind sofort verfügbar." },
-          { "title": "Echtzeit-Daten", "description": "Noch während Frau Müller ihren Kaffee trinkt, sieht ihr Hausarzt in der Stadt die aktuellen HbA1c- und Lipid-Werte in seinem DX365-Portal." },
-          { "title": "Rezept & Anpassung", "description": "Er erkennt eine leichte Verschlechterung, passt die Medikation an und schickt das neue Rezept direkt als E-Rezept an Frau Müllers Dorf-Apotheke." }
+          {
+            "title": "Besuch zu Hause",
+            "description": "Einmal die Woche kommt der mobile Pflegedienst oder eine 'Versorgungsassistentin in der Hausarztpraxis' (VERAH) vorbei."
+          },
+          {
+            "title": "Sofortige Analyse",
+            "description": "Mit dem IGLO-PRO wird vor Ort im Wohnzimmer ein Tropfen Kapillarblut entnommen. Die Werte sind sofort verfügbar."
+          },
+          {
+            "title": "Echtzeit-Daten",
+            "description": "Noch während Frau Müller ihren Kaffee trinkt, sieht ihr Hausarzt in der Stadt die aktuellen HbA1c- und Lipid-Werte in seinem DX365-Portal."
+          },
+          {
+            "title": "Rezept & Anpassung",
+            "description": "Er erkennt eine leichte Verschlechterung, passt die Medikation an und schickt das neue Rezept direkt als E-Rezept an Frau Müllers Dorf-Apotheke."
+          }
         ]
       },
       {
@@ -188,10 +209,26 @@
         "heading": "Vergleich: Zentrallabor vs. IGLO-PRO Workflow",
         "headers": ["Schritt", "Zentraldiagnostik (Klassisch)", "IGLO-PRO (One-Visit-Model)"],
         "rows": [
-          ["Tag 1", "Patient kommt, Venenpunktion, Probe logistisch vorbereiten (8 Min)", "Patient kommt, Kapillarblut am Finger, Analyse läuft parallel (3 Min)"],
-          ["Tag 2", "Befund kommt (Fax/DFÜ), Arzt sichtet, MFA telefoniert hinterher (10-15 Min)", "Kein Prozess (Alles erledigt)"],
-          ["Tag 3", "Erneuter Termin zur Besprechung (Empfangszeit + Arztzeit)", "Kein Prozess (Alles erledigt)"],
-          ["Ergebnis", "3x Akte angefasst, 2 Termine blockiert, Personal gebunden", "1x Akte angefasst, 1 Termin, Patient geht mit Klarheit"]
+          [
+            "Tag 1",
+            "Patient kommt, Venenpunktion, Probe logistisch vorbereiten (8 Min)",
+            "Patient kommt, Kapillarblut am Finger, Analyse läuft parallel (3 Min)"
+          ],
+          [
+            "Tag 2",
+            "Befund kommt (Fax/DFÜ), Arzt sichtet, MFA telefoniert hinterher (10-15 Min)",
+            "Kein Prozess (Alles erledigt)"
+          ],
+          [
+            "Tag 3",
+            "Erneuter Termin zur Besprechung (Empfangszeit + Arztzeit)",
+            "Kein Prozess (Alles erledigt)"
+          ],
+          [
+            "Ergebnis",
+            "3x Akte angefasst, 2 Termine blockiert, Personal gebunden",
+            "1x Akte angefasst, 1 Termin, Patient geht mit Klarheit"
+          ]
         ]
       },
       {

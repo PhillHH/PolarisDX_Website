@@ -1,6 +1,7 @@
 # TOOLBOX – Quality-Gates-Strategie
 
 ## Pull-Request-Gates
+
 - **typecheck**: ja — `tsc -b` existiert bereits als Script, muss nur in CI aufgerufen werden.
 - **lint**: ja — `eslint .` existiert, ESLint 9 + typescript-eslint sind installiert.
 - **format-check**: ja — Prettier muss erst hinzugefügt werden, dann `prettier --check .` als Gate.
@@ -11,6 +12,7 @@
 - **axe-core**: später — als Playwright-Plugin (`@axe-core/playwright`) zusammen mit E2E-Tests einführen.
 
 ## Main-Branch-Gates
+
 - Alle PR-Gates (typecheck, lint, format, vitest, playwright, build)
 - Docker-Image bauen und Healthcheck validieren
 - Deploy via `docker compose up` oder Vercel auto-deploy
@@ -18,6 +20,7 @@
 - Sentry-Release erstellen und Source-Maps hochladen (ab Wave 6)
 
 ## Pre-Commit
+
 - **Tool**: lefthook (kein npm-postinstall nötig, single binary, schneller als husky+lint-staged)
 - Läuft:
   - `prettier --write` auf staged Files
@@ -25,11 +28,13 @@
   - `tsc -b --noEmit` (vollständiger Typecheck, ~3s bei inkrementellem Build)
 
 ## Sentry-Vorbereitung jetzt
+
 - Source-Maps werden bereits generiert (`build.sourcemap: true` in `vite.config.ts`)
 - `SENTRY_DSN` als Environment-Variable in Docker-Compose und `.env.example` vorbereiten (leer)
 - Error-Boundary-Komponente in `App.tsx` einbauen (generisch, ohne Sentry-SDK — wird in Wave 6 verdrahtet)
 
 ## Implementierungs-Reihenfolge
+
 1. Prettier hinzufügen + gesamte Codebase einmalig formatieren
 2. Lefthook einrichten (format + lint + typecheck auf pre-commit)
 3. `playwright.config.ts` erstellen, bestehende Spec lauffähig machen

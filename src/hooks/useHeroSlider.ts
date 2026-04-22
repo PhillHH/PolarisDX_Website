@@ -12,8 +12,14 @@ export const useHeroSlider = () => {
       id: 'dental',
       type: 'image',
       content: {
-        title: t('hero.dental.title', 'IglooPro: Point-of-Care Diagnostik. Der neue Maßstab für Ihre Praxis.'),
-        description: t('hero.dental.description', 'Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 3–5 Werktagen einsatzbereit – garantiert.'),
+        title: t(
+          'hero.dental.title',
+          'IglooPro: Point-of-Care Diagnostik. Der neue Maßstab für Ihre Praxis.',
+        ),
+        description: t(
+          'hero.dental.description',
+          'Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 3–5 Werktagen einsatzbereit – garantiert.',
+        ),
       },
       visual: heroDoctor,
     },
@@ -23,8 +29,14 @@ export const useHeroSlider = () => {
       icon: Sparkles,
       color: 'from-pink-500 to-purple-500', // Gradient for glow
       content: {
-        title: t('hero.beauty.title', 'Wissenschaftliche Ästhetik: Messergebnisse statt Vermutungen.'),
-        description: t('hero.beauty.description', 'Visualisieren Sie den Erfolg Ihrer Behandlungen. Der IglooPro liefert präzise Daten zu Anti-Aging-Markern und Hautgesundheit in Laborqualität.'),
+        title: t(
+          'hero.beauty.title',
+          'Wissenschaftliche Ästhetik: Messergebnisse statt Vermutungen.',
+        ),
+        description: t(
+          'hero.beauty.description',
+          'Visualisieren Sie den Erfolg Ihrer Behandlungen. Der IglooPro liefert präzise Daten zu Anti-Aging-Markern und Hautgesundheit in Laborqualität.',
+        ),
       },
     },
     {
@@ -34,7 +46,10 @@ export const useHeroSlider = () => {
       color: 'from-green-400 to-emerald-600', // Gradient for glow
       content: {
         title: t('hero.longevity.title', 'Prävention neu definiert: Vitalität messbar machen.'),
-        description: t('hero.longevity.description', 'Erkennen Sie Trends frühzeitig. Hochpräzises Monitoring von Entzündungs- und Stoffwechselmarkern für ein langes, gesundes Leben.'),
+        description: t(
+          'hero.longevity.description',
+          'Erkennen Sie Trends frühzeitig. Hochpräzises Monitoring von Entzündungs- und Stoffwechselmarkern für ein langes, gesundes Leben.',
+        ),
       },
     },
   ]
@@ -50,6 +65,6 @@ export const useHeroSlider = () => {
     currentSlide,
     setCurrentSlide,
     slides,
-    t // Export t in case the view needs it for other things
+    t, // Export t in case the view needs it for other things
   }
 }

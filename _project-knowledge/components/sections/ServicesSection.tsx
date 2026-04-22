@@ -30,15 +30,10 @@ const ServicesSection = () => {
           const displayService: Service = {
             ...s,
             title: t(`services.${s.translationKey}.title`),
-            description: t(`services.${s.translationKey}.description`)
+            description: t(`services.${s.translationKey}.description`),
           }
 
-          return (
-            <ServiceCard
-              key={s.id}
-              service={displayService}
-            />
-          )
+          return <ServiceCard key={s.id} service={displayService} />
         })}
       </div>
     </section>

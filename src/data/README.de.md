@@ -100,5 +100,3 @@ Verwendung:
 - Dadurch lassen sich:
   - Produktkatalog, Artikel‑Pool und Testimonials pflegen, ohne UI‑Code zu duplizieren,
   - Marketing‑/Fachinhalte relativ unabhängig vom Frontend‑Code weiterentwickeln.
-
-

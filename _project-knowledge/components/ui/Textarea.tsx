@@ -14,12 +14,11 @@ const textareaVariants = cva(
     defaultVariants: {
       state: 'default',
     },
-  }
+  },
 )
 
 export interface TextareaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement>,
-    VariantProps<typeof textareaVariants> {
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement>, VariantProps<typeof textareaVariants> {
   label?: string
   error?: string | boolean
   helperText?: string
@@ -32,16 +31,16 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     const helperId = helperText ? `${textareaId}-helper` : undefined
     const errorId = error ? `${textareaId}-error` : undefined
 
-    const finalState = error ? 'error' : (state || 'default')
+    const finalState = error ? 'error' : state || 'default'
 
     return (
-      <div className={cn("grid w-full gap-1.5", disabled && "opacity-50 cursor-not-allowed")}>
+      <div className={cn('grid w-full gap-1.5', disabled && 'opacity-50 cursor-not-allowed')}>
         {label && (
           <label
             htmlFor={textareaId}
             className={cn(
-              "text-sm font-medium leading-none text-gray-900",
-              disabled && "cursor-not-allowed opacity-70"
+              'text-sm font-medium leading-none text-gray-900',
+              disabled && 'cursor-not-allowed opacity-70',
             )}
           >
             {label}
@@ -71,7 +70,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         )}
       </div>
     )
-  }
+  },
 )
 Textarea.displayName = 'Textarea'
 

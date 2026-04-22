@@ -1,44 +1,44 @@
-import React, { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Calendar, MapPin, Award, Wind } from 'lucide-react';
-import { events } from '../data/events';
-import { SEOHead, createBreadcrumbSchema, createEventSchema } from '../components/seo';
-import { Breadcrumbs } from '../components/ui/Breadcrumbs';
-import PageTransition from '../components/ui/PageTransition';
-import Reveal from '../components/ui/Reveal';
+import React, { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Calendar, MapPin, Award, Wind } from 'lucide-react'
+import { events } from '../data/events'
+import { SEOHead, createBreadcrumbSchema, createEventSchema } from '../components/seo'
+import { Breadcrumbs } from '../components/ui/Breadcrumbs'
+import PageTransition from '../components/ui/PageTransition'
+import Reveal from '../components/ui/Reveal'
 
 const monthNames: Record<string, string[]> = {
   de: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
   en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-};
+}
 
 function formatDateRange(date: string, endDate?: string, lang = 'de') {
-  const months = monthNames[lang] || monthNames.de;
-  const start = new Date(date);
-  const startDay = start.getDate();
-  const startMonth = months[start.getMonth()];
+  const months = monthNames[lang] || monthNames.de
+  const start = new Date(date)
+  const startDay = start.getDate()
+  const startMonth = months[start.getMonth()]
 
-  if (!endDate) return `${startDay}. ${startMonth} ${start.getFullYear()}`;
+  if (!endDate) return `${startDay}. ${startMonth} ${start.getFullYear()}`
 
-  const end = new Date(endDate);
-  const endDay = end.getDate();
-  const endMonth = months[end.getMonth()];
+  const end = new Date(endDate)
+  const endDay = end.getDate()
+  const endMonth = months[end.getMonth()]
 
   if (start.getMonth() === end.getMonth()) {
-    return `${startDay}.–${endDay}. ${startMonth} ${start.getFullYear()}`;
+    return `${startDay}.–${endDay}. ${startMonth} ${start.getFullYear()}`
   }
-  return `${startMonth} – ${endDay}. ${endMonth} ${end.getFullYear()}`;
+  return `${startMonth} – ${endDay}. ${endMonth} ${end.getFullYear()}`
 }
 
 function getSeasonIcon(date: string) {
-  const month = new Date(date).getMonth();
-  if (month >= 5 && month <= 8) return Wind;
-  return Calendar;
+  const month = new Date(date).getMonth()
+  if (month >= 5 && month <= 8) return Wind
+  return Calendar
 }
 
 const EventsPage: React.FC = () => {
-  const { t, i18n } = useTranslation(['common', 'events']);
-  const lang = i18n.language?.substring(0, 2) || 'de';
+  const { t, i18n } = useTranslation(['common', 'events'])
+  const lang = i18n.language?.substring(0, 2) || 'de'
 
   const eventSchemas = useMemo(() => {
     return events.map((event) =>
@@ -49,24 +49,39 @@ const EventsPage: React.FC = () => {
         endDate: event.endDate,
         location: event.location,
         url: event.link,
-      })
-    );
-  }, []);
+      }),
+    )
+  }, [])
 
-  const structuredData = useMemo(() => [
-    createBreadcrumbSchema([
-      { name: 'Home', url: '/' },
-      { name: 'Events', url: '/events' },
-    ]),
-    ...eventSchemas,
-  ], [eventSchemas]);
+  const structuredData = useMemo(
+    () => [
+      createBreadcrumbSchema([
+        { name: 'Home', url: '/' },
+        { name: 'Events', url: '/events' },
+      ]),
+      ...eventSchemas,
+    ],
+    [eventSchemas],
+  )
 
   return (
     <PageTransition>
       <SEOHead
-        title={t('events:seo_title', 'Events & Messen 2026: POC-Diagnostik live erleben | PolarisDX')}
-        description={t('events:seo_description', 'Polaris Diagnostics auf 5 Events in 2026 — von Stuttgart bis Hamburg. Point-of-Care-Diagnostik live mit Nobel Biocare.')}
-        keywords={['PolarisDX Events', 'Nobel Biocare', 'POC Diagnostik Messe', 'DGI Kongress', 'Kite Education Sylt']}
+        title={t(
+          'events:seo_title',
+          'Events & Messen 2026: POC-Diagnostik live erleben | PolarisDX',
+        )}
+        description={t(
+          'events:seo_description',
+          'Polaris Diagnostics auf 5 Events in 2026 — von Stuttgart bis Hamburg. Point-of-Care-Diagnostik live mit Nobel Biocare.',
+        )}
+        keywords={[
+          'PolarisDX Events',
+          'Nobel Biocare',
+          'POC Diagnostik Messe',
+          'DGI Kongress',
+          'Kite Education Sylt',
+        ]}
         structuredData={structuredData}
       />
 
@@ -82,10 +97,7 @@ const EventsPage: React.FC = () => {
             <div className="flex justify-center mb-4">
               <Breadcrumbs
                 variant="dark"
-                items={[
-                  { label: 'Home', href: '/' },
-                  { label: t('events:title') },
-                ]}
+                items={[{ label: 'Home', href: '/' }, { label: t('events:title') }]}
               />
             </div>
             <div className="flex justify-center">
@@ -110,7 +122,6 @@ const EventsPage: React.FC = () => {
       {/* Timeline Section */}
       <div className="bg-slate-50 py-20 lg:py-28">
         <div className="mx-auto max-w-5xl px-4">
-
           {/* Nobel Biocare Partner Badge */}
           <Reveal width="100%" yOffset={15}>
             <div className="flex items-center justify-center gap-3 mb-16">
@@ -131,21 +142,25 @@ const EventsPage: React.FC = () => {
             <div className="absolute left-6 lg:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-secondary via-brand-primary to-brand-deep lg:-translate-x-px" />
 
             {events.map((event, index) => {
-              const isLeft = index % 2 === 0;
-              const SeasonIcon = getSeasonIcon(event.date);
+              const isLeft = index % 2 === 0
+              const SeasonIcon = getSeasonIcon(event.date)
 
               return (
                 <Reveal key={event.id} width="100%" delay={index * 0.12} yOffset={25}>
-                  <div className={`relative flex items-start gap-6 lg:gap-0 mb-12 last:mb-0 ${
-                    isLeft ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                  }`}>
+                  <div
+                    className={`relative flex items-start gap-6 lg:gap-0 mb-12 last:mb-0 ${
+                      isLeft ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                    }`}
+                  >
                     {/* Timeline dot */}
                     <div className="absolute left-6 lg:left-1/2 -translate-x-1/2 z-10">
-                      <div className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg ${
-                        event.partner
-                          ? 'bg-gradient-to-br from-brand-secondary to-brand-primary'
-                          : 'bg-gradient-to-br from-brand-primary to-brand-deep'
-                      }`}>
+                      <div
+                        className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg ${
+                          event.partner
+                            ? 'bg-gradient-to-br from-brand-secondary to-brand-primary'
+                            : 'bg-gradient-to-br from-brand-primary to-brand-deep'
+                        }`}
+                      >
                         <SeasonIcon className="w-5 h-5 text-white" />
                       </div>
                     </div>
@@ -154,18 +169,24 @@ const EventsPage: React.FC = () => {
                     <div className="w-12 shrink-0 lg:hidden" />
 
                     {/* Card */}
-                    <div className={`flex-1 lg:w-[calc(50%-3rem)] ${
-                      isLeft ? 'lg:pr-12' : 'lg:pl-12'
-                    } ${isLeft ? '' : 'lg:ml-auto'}`}>
-                      <div className={`group relative bg-white rounded-2xl border shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden ${
-                        event.partner ? 'border-brand-secondary/30' : 'border-gray-100'
-                      }`}>
+                    <div
+                      className={`flex-1 lg:w-[calc(50%-3rem)] ${
+                        isLeft ? 'lg:pr-12' : 'lg:pl-12'
+                      } ${isLeft ? '' : 'lg:ml-auto'}`}
+                    >
+                      <div
+                        className={`group relative bg-white rounded-2xl border shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden ${
+                          event.partner ? 'border-brand-secondary/30' : 'border-gray-100'
+                        }`}
+                      >
                         {/* Top accent bar */}
-                        <div className={`h-1 ${
-                          event.partner
-                            ? 'bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-secondary'
-                            : 'bg-gradient-to-r from-brand-primary to-brand-deep'
-                        }`} />
+                        <div
+                          className={`h-1 ${
+                            event.partner
+                              ? 'bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-secondary'
+                              : 'bg-gradient-to-r from-brand-primary to-brand-deep'
+                          }`}
+                        />
 
                         <div className="p-6">
                           {/* Tags row */}
@@ -216,7 +237,7 @@ const EventsPage: React.FC = () => {
                     <div className="hidden lg:block lg:w-[calc(50%-3rem)]" />
                   </div>
                 </Reveal>
-              );
+              )
             })}
           </div>
 
@@ -229,7 +250,7 @@ const EventsPage: React.FC = () => {
         </div>
       </div>
     </PageTransition>
-  );
-};
+  )
+}
 
-export default EventsPage;
+export default EventsPage

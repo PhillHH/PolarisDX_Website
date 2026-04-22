@@ -13,19 +13,19 @@
 // =============================================================================
 
 export interface I18nConfig {
-  fallbackLng: string;
-  supportedLngs: readonly string[];
-  defaultNS: string;
-  fallbackNS: string;
-  ns: readonly string[];
-  load: 'languageOnly' | 'currentOnly' | 'all';
-  nonExplicitSupportedLngs: boolean;
+  fallbackLng: string
+  supportedLngs: readonly string[]
+  defaultNS: string
+  fallbackNS: string
+  ns: readonly string[]
+  load: 'languageOnly' | 'currentOnly' | 'all'
+  nonExplicitSupportedLngs: boolean
   interpolation: {
-    escapeValue: boolean;
-  };
+    escapeValue: boolean
+  }
   react: {
-    useSuspense: boolean;
-  };
+    useSuspense: boolean
+  }
 }
 
 // =============================================================================
@@ -46,19 +46,19 @@ export const SUPPORTED_LANGUAGES = [
   'da',
   'nl',
   'cs',
-] as const;
+] as const
 
-export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
+export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number]
 
 /**
  * Standard-Sprache (Fallback)
  */
-export const DEFAULT_LANGUAGE: SupportedLanguage = 'de';
+export const DEFAULT_LANGUAGE: SupportedLanguage = 'de'
 
 /**
  * Fallback-Sprache wenn die gewünschte Sprache nicht verfügbar ist
  */
-export const FALLBACK_LANGUAGE: SupportedLanguage = 'en';
+export const FALLBACK_LANGUAGE: SupportedLanguage = 'en'
 
 /**
  * Alle verfügbaren Namespaces
@@ -77,19 +77,19 @@ export const NAMESPACES = [
   'shop',
   'support',
   'vitd3spray',
-] as const;
+] as const
 
-export type Namespace = (typeof NAMESPACES)[number];
+export type Namespace = (typeof NAMESPACES)[number]
 
 /**
  * Standard-Namespace
  */
-export const DEFAULT_NS: Namespace = 'home';
+export const DEFAULT_NS: Namespace = 'home'
 
 /**
  * Fallback-Namespace
  */
-export const FALLBACK_NS: Namespace = 'common';
+export const FALLBACK_NS: Namespace = 'common'
 
 // =============================================================================
 // SHARED CONFIGURATION
@@ -117,7 +117,7 @@ export const i18nConfig: I18nConfig = {
   react: {
     useSuspense: true,
   },
-};
+}
 
 // =============================================================================
 // HELPER FUNCTIONS
@@ -127,22 +127,22 @@ export const i18nConfig: I18nConfig = {
  * Prüft ob eine Sprache unterstützt wird
  */
 export function isValidLanguage(lang: string): lang is SupportedLanguage {
-  return SUPPORTED_LANGUAGES.includes(lang as SupportedLanguage);
+  return SUPPORTED_LANGUAGES.includes(lang as SupportedLanguage)
 }
 
 /**
  * Normalisiert einen Sprachcode (z.B. 'de-DE' -> 'de')
  */
 export function normalizeLanguage(lang: string): SupportedLanguage {
-  const baseLang = lang.split('-')[0].toLowerCase();
-  return isValidLanguage(baseLang) ? baseLang : DEFAULT_LANGUAGE;
+  const baseLang = lang.split('-')[0].toLowerCase()
+  return isValidLanguage(baseLang) ? baseLang : DEFAULT_LANGUAGE
 }
 
 /**
  * Gibt den Pfad zu einer Locale-Datei zurück (relativ zu public/)
  */
 export function getLocaleFilePath(lng: string, ns: string): string {
-  return `/locales/${lng}/${ns}.json`;
+  return `/locales/${lng}/${ns}.json`
 }
 
 /**
@@ -154,9 +154,9 @@ export function getLocaleFilePath(lng: string, ns: string): string {
  * @returns Die erkannte Sprache oder DEFAULT_LANGUAGE als Fallback.
  */
 export function extractLanguageFromPathname(pathname: string): SupportedLanguage {
-  const match = pathname.match(/^\/([a-z]{2})(\/|$)/);
+  const match = pathname.match(/^\/([a-z]{2})(\/|$)/)
   if (match && isValidLanguage(match[1])) {
-    return match[1];
+    return match[1]
   }
-  return DEFAULT_LANGUAGE;
+  return DEFAULT_LANGUAGE
 }

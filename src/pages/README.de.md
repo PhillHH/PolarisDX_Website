@@ -56,5 +56,3 @@ Ziel: **fachliche Tiefenkommunikation** rund um Point‑of‑Care‑Diagnostik u
   - neue Datei in `routes/`,
   - Route in `App.tsx` ergänzen,
   - ggf. neue Sections/Komponenten nutzen oder hinzufügen.
-
-

@@ -3,25 +3,21 @@ import { AlertCircle, CheckCircle } from 'lucide-react'
 import { cn } from '../../lib/utils'
 import React from 'react'
 
-const alertVariants = cva(
-  "relative w-full rounded-lg border p-4 flex gap-3 items-start",
-  {
-    variants: {
-      variant: {
-        default: "bg-gray-50 border-gray-200 text-gray-800",
-        destructive: "bg-red-50 border-red-200 text-red-800",
-        success: "bg-green-50 border-green-200 text-green-800",
-      },
+const alertVariants = cva('relative w-full rounded-lg border p-4 flex gap-3 items-start', {
+  variants: {
+    variant: {
+      default: 'bg-gray-50 border-gray-200 text-gray-800',
+      destructive: 'bg-red-50 border-red-200 text-red-800',
+      success: 'bg-green-50 border-green-200 text-green-800',
     },
-    defaultVariants: {
-      variant: "default",
-    },
-  }
-)
+  },
+  defaultVariants: {
+    variant: 'default',
+  },
+})
 
 interface AlertProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof alertVariants> {
+  extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof alertVariants> {
   title?: string
   children?: React.ReactNode
 }

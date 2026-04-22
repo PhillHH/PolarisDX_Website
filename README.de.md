@@ -53,7 +53,7 @@ npm install
 npm run dev
 ```
 
-- Standard‑Dev‑Server: `http://localhost:5173/`  
+- Standard‑Dev‑Server: `http://localhost:5173/`
 - HMR (Hot Module Replacement) ist aktiviert.
 
 ### Produktion
@@ -212,5 +212,3 @@ Typische Erweiterungen erfolgen **datengetrieben**:
 Dieses Projekt ist so strukturiert, dass **Inhalt (Daten)** und **Darstellung (Komponenten)** weitgehend getrennt sind.  
 Neue Inhalte können ohne tiefgreifende Codeänderungen über die Dateien im Verzeichnis `src/data/` eingepflegt werden.  
 Das Layout folgt einem konsistenten Designsystem auf Basis von Tailwind CSS, wodurch sich das UI leicht an Corporate‑Design‑Vorgaben anpassen lässt.
-
-

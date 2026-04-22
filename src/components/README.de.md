@@ -54,5 +54,3 @@ Siehe Details in `components/ui/README.de.md`.
 
 - **Layout ändern**:
   - Anpassungen primär in `layout/` vornehmen (z. B. neue Navigationseinträge, Logos, Footer‑Links).
-
-

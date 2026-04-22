@@ -1,6 +1,7 @@
 # PolarisDX / IglooPro – Gesamtdokumentation (DE)
 
 Dieses Repository enthält
+
 - das **React-Frontend** (SPA) für die PolarisDX / IglooPro Landingpage,
 - den **Mail-Service** (Node/Express) für das Kontaktformular,
 - ein optionales **Payload CMS** (derzeit nicht im Haupt-Deployment aktiv).
@@ -10,6 +11,7 @@ Alle Teile sind dockerisiert und können gemeinsam per `docker-compose` gestarte
 ---
 
 ## Inhalt
+
 - [Überblick & Architektur](#überblick--architektur)
 - [Projektstruktur](#projektstruktur)
 - [Voraussetzungen](#voraussetzungen)
@@ -25,6 +27,7 @@ Alle Teile sind dockerisiert und können gemeinsam per `docker-compose` gestarte
 ---
 
 ## Überblick & Architektur
+
 - **Frontend (React/Vite, `src/`)**  
   SPA mit Tailwind, i18n, Routing via `react-router-dom`. Wird als statischer Build über Nginx ausgeliefert.
 - **Mail-Service (`server/`)**  
@@ -35,6 +38,7 @@ Alle Teile sind dockerisiert und können gemeinsam per `docker-compose` gestarte
   Bedient das Frontend und proxyt `/api/*` an den Mail-Service. Konfig in `nginx.conf`.
 
 Netzwerkfluss (Docker Prod):
+
 ```
 [Browser] -> Nginx (Port 80)
    |-- statische Assets -> /usr/share/nginx/html
@@ -44,6 +48,7 @@ Netzwerkfluss (Docker Prod):
 ---
 
 ## Projektstruktur
+
 - `src/` – Frontend (React/Vite, Komponenten, Routen, Daten, Assets)
 - `public/` – Statische Assets & Übersetzungen (`public/locales/*`)
 - `server/` – Mail-Service (Express, SendGrid)
@@ -57,13 +62,16 @@ Details zu Teilbereichen liegen in den jeweiligen `README.de.md` Dateien unter `
 ---
 
 ## Voraussetzungen
+
 - **Docker** & **Docker Compose** (empfohlen)
 - Alternativ: **Node.js LTS** + **npm** für lokale Entwicklung ohne Docker
 
 ---
 
 ## Umgebungsvariablen
+
 ### Root / Docker (.env)
+
 ```env
 # Frontend-URL (für CORS im Mail-Service)
 FRONTEND_URL=http://localhost
@@ -77,27 +85,34 @@ SENDER_EMAIL=verifizierter-sender@beispiel.com
 **Hinweis:** Die früheren M365-Variablen werden nicht mehr genutzt; der Mail-Service verwendet SendGrid.
 
 ### Mail-Service lokal (`server/.env`, falls separat gestartet)
+
 Gleiche Variablen wie oben; bei Bedarf zusätzlich `PORT=5000`.
 
 ### Payload CMS (`backend/`)
+
 Nicht im Standard-Setup aktiv. Siehe `backend/cms/.env.example` (Mongo/S3), falls benötigt.
 
 ---
 
 ## Schnellstart mit Docker
+
 ```bash
 docker-compose up --build -d
 ```
+
 Danach:
+
 - Frontend: `http://localhost`
 - API: `http://localhost/api`
 
 Logs ansehen:
+
 ```bash
 docker-compose logs -f
 ```
 
 Stoppen:
+
 ```bash
 docker-compose down
 ```
@@ -105,7 +120,9 @@ docker-compose down
 ---
 
 ## Lokale Entwicklung ohne Docker
+
 ### 1) Frontend
+
 ```bash
 npm install
 npm run dev
@@ -113,6 +130,7 @@ npm run dev
 ```
 
 ### 2) Mail-Service
+
 ```bash
 cd server
 npm install
@@ -125,7 +143,9 @@ Stellen Sie sicher, dass das Frontend Requests gegen `http://localhost:5000/api`
 ---
 
 ## Build, Test & Qualität
+
 Frontend (Root):
+
 ```bash
 npm run lint     # ESLint
 npm run build    # TypeScript + Vite Build (Output: dist/)
@@ -133,6 +153,7 @@ npm run preview  # Build lokal ausliefern
 ```
 
 Mail-Service:
+
 ```bash
 cd server
 npm run dev      # Node --watch
@@ -144,6 +165,7 @@ Visuelle/Playwright-Tests: Siehe `test-results/verify_changes-verify-frontend-ch
 ---
 
 ## Übersetzungen & Inhalte
+
 - i18n-Resourcen liegen in `public/locales/<lang>/*.json`.
 - Start-/Routen-Content ist überwiegend in `src/data/*.ts` gepflegt (Produkte, Services, Artikel, Testimonials, Social Links).
 - Sprachumschaltung erfolgt clientseitig (i18next). Flag-Icons stammen aus `flag-icons`.
@@ -152,6 +174,7 @@ Visuelle/Playwright-Tests: Siehe `test-results/verify_changes-verify-frontend-ch
 ---
 
 ## Deployment-Hinweise
+
 - Empfohlen: Docker Compose auf Ziel-Server.
 - Nginx (siehe `nginx.conf`) erledigt:
   - Gzip & Asset-Caching (lange `Cache-Control` Header, hashed Filenamen)
@@ -162,6 +185,7 @@ Visuelle/Playwright-Tests: Siehe `test-results/verify_changes-verify-frontend-ch
 ---
 
 ## Troubleshooting
+
 - **CORS-Probleme beim Formular**: `FRONTEND_URL` korrekt setzen (inkl. Protokoll/Port).
 - **Mails kommen nicht an**: `SENDGRID_API_KEY`, `SENDER_EMAIL` (verifiziert) und `CONTACT_RECEIVER` prüfen; Logs im `server`-Container ansehen.
 - **i18n lädt nicht**: Pfade in `public/locales` prüfen; Netzwerk-Tab auf 404/403 checken.
@@ -170,6 +194,7 @@ Visuelle/Playwright-Tests: Siehe `test-results/verify_changes-verify-frontend-ch
 ---
 
 ## Weiterführende Doku
+
 - `README.de.md` – Detailbeschreibung der SPA-Architektur
 - `DOCS.md` – Technische Architektur (Docker/Nginx/Proxy)
 - `src/**/README.de.md` – Komponentenspezifische Beschreibungen (Layout, Sections, UI, Routes, Data)

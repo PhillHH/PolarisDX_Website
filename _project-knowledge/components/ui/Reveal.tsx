@@ -21,10 +21,10 @@ interface RevealProps {
 const Reveal = ({
   children,
   width = 'fit-content',
-  className = "",
+  className = '',
   delay = 0.1,
   duration = 0.5,
-  yOffset = 30
+  yOffset = 30,
 }: RevealProps) => {
   const ref = useRef<HTMLDivElement>(null)
 
@@ -62,8 +62,8 @@ const Reveal = ({
       },
       {
         rootMargin: '-10% 0px -10% 0px',
-        threshold: 0
-      }
+        threshold: 0,
+      },
     )
 
     observer.observe(element)
@@ -84,9 +84,7 @@ const Reveal = ({
 
   return (
     <div ref={ref} style={{ width }} className={className}>
-      <div style={animationStyle}>
-        {children}
-      </div>
+      <div style={animationStyle}>{children}</div>
     </div>
   )
 }

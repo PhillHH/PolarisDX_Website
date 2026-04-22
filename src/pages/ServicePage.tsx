@@ -3,7 +3,13 @@ import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Tooth } from '../components/ui/icons/Tooth'
 import { Sparkles, Infinity as InfinityIcon } from 'lucide-react'
-import { SEOHead, createServiceSchema, createBreadcrumbSchema, createFAQSchema, type FAQItem } from '../components/seo'
+import {
+  SEOHead,
+  createServiceSchema,
+  createBreadcrumbSchema,
+  createFAQSchema,
+  type FAQItem,
+} from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import SectionHeader from '../components/ui/SectionHeader'
 import { Button } from '../components/ui/Button'
@@ -34,7 +40,7 @@ const renderTextWithLinks = (text: string) => {
         className="font-semibold text-brand-primary hover:underline"
       >
         {match[1]}
-      </Link>
+      </Link>,
     )
     lastIndex = match.index + match[0].length
   }
@@ -54,27 +60,31 @@ type ServiceSection = {
 }
 
 type ServiceConclusion = {
-    heading?: string
-    text?: string
+  heading?: string
+  text?: string
 }
 
 // Slug-based SEO overrides for optimized titles & descriptions
 const serviceSeoOverrides: Record<string, { title: string; description: string }> = {
   dental: {
     title: 'Blutdiagnostik Zahnarztpraxis: Chairside Testing Igloo Pro | PolarisDX',
-    description: 'Chairside Bluttest für Implantologie & Parodontitis. Vitamin D, CRP, HbA1c in 3 Min. S3-Leitlinie empfiehlt In-office-Schnelltests. Jetzt informieren.',
+    description:
+      'Chairside Bluttest für Implantologie & Parodontitis. Vitamin D, CRP, HbA1c in 3 Min. S3-Leitlinie empfiehlt In-office-Schnelltests. Jetzt informieren.',
   },
   beauty: {
     title: 'Beauty-Diagnostik: Biomarker für Ästhetische Medizin | PolarisDX',
-    description: 'Hormondiagnostik & Mikronährstoff-Analyse direkt in der Praxis. Schilddrüse, Vitamin D, Ferritin — als IGeL-Leistung abrechenbar. Jetzt testen.',
+    description:
+      'Hormondiagnostik & Mikronährstoff-Analyse direkt in der Praxis. Schilddrüse, Vitamin D, Ferritin — als IGeL-Leistung abrechenbar. Jetzt testen.',
   },
   longevity: {
     title: 'Longevity-Diagnostik: Präventive Biomarker-Analyse | PolarisDX',
-    description: 'Entzündungsmarker, Hormonstatus & Gesundheitscheck in 3 Min. POC-Diagnostik für Longevity-Kliniken und Präventionsmedizin. Demo anfragen.',
+    description:
+      'Entzündungsmarker, Hormonstatus & Gesundheitscheck in 3 Min. POC-Diagnostik für Longevity-Kliniken und Präventionsmedizin. Demo anfragen.',
   },
   'poc-systemloesungen': {
     title: 'POCT-Systemlösungen für Praxen & Kliniken | PolarisDX',
-    description: 'Komplette POC-Diagnostik Infrastruktur: IglooPro Reader, Testkassetten, LIS/HIS-Integration & Schulung. Praxislabor schlüsselfertig einrichten.',
+    description:
+      'Komplette POC-Diagnostik Infrastruktur: IglooPro Reader, Testkassetten, LIS/HIS-Integration & Schulung. Praxislabor schlüsselfertig einrichten.',
   },
 }
 
@@ -87,7 +97,7 @@ const ServicePage = () => {
   const service = services.find((s) => s.id === slug)
 
   if (!service) {
-      return <div className="p-20 text-center">Service not found</div>
+    return <div className="p-20 text-center">Service not found</div>
   }
 
   // Determine translation key from service data
@@ -97,12 +107,15 @@ const ServicePage = () => {
   const headline = t(`services:${transKey}.headline`, '')
   const intro = t(`services:${transKey}.intro`, { returnObjects: true }) as string[]
   const sections = t(`services:${transKey}.sections`, { returnObjects: true }) as ServiceSection[]
-  const conclusion = t(`services:${transKey}.conclusion`, { returnObjects: true }) as ServiceConclusion
+  const conclusion = t(`services:${transKey}.conclusion`, {
+    returnObjects: true,
+  }) as ServiceConclusion
   const ctaText = t(`services:${transKey}.cta`, 'Contact Us')
 
   // Rich HTML content support (for pillar pages like dental)
   const richContentRaw = t(`services:${transKey}.richContent`, '')
-  const richContent = typeof richContentRaw === 'string' && richContentRaw.length > 10 ? richContentRaw : ''
+  const richContent =
+    typeof richContentRaw === 'string' && richContentRaw.length > 10 ? richContentRaw : ''
   const hasRichContent = !!richContent
 
   // Load FAQ data (graceful fallback: no FAQ rendered if data missing)
@@ -112,20 +125,20 @@ const ServicePage = () => {
   const faqCaption = hasFaq ? t(`services:${transKey}.faq.caption`, 'FAQ') : ''
   const faqTitle = hasFaq ? t(`services:${transKey}.faq.title`, 'Häufige Fragen') : ''
 
-  const otherServices = services.filter(s => s.id !== service.id)
+  const otherServices = services.filter((s) => s.id !== service.id)
   const mapped = service.relatedArticleIds?.length
-    ? articles.filter(a => service.relatedArticleIds!.includes(a.id))
+    ? articles.filter((a) => service.relatedArticleIds!.includes(a.id))
     : []
   const relatedArticles = mapped.length > 0 ? mapped.slice(0, 3) : articles.slice(0, 3)
 
   // Use slug-based SEO overrides when available, otherwise fall back to dynamic generation
   const seoOverride = slug ? serviceSeoOverrides[slug] : undefined
   const seoTitle = seoOverride?.title ?? `${title} | PolarisDX`
-  const seoDescription = seoOverride?.description ?? (
-    Array.isArray(intro) && intro.length > 0
+  const seoDescription =
+    seoOverride?.description ??
+    (Array.isArray(intro) && intro.length > 0
       ? intro[0].substring(0, 155) + '...'
-      : `${title} - Point-of-Care Diagnostik von PolarisDX für Ihre Praxis.`
-  )
+      : `${title} - Point-of-Care Diagnostik von PolarisDX für Ihre Praxis.`)
 
   return (
     <PageTransition>
@@ -179,17 +192,13 @@ const ServicePage = () => {
         </section>
 
         <div className="mx-auto flex max-w-container flex-col gap-10 px-4 py-12 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,1.4fr)] lg:items-start lg:gap-12 lg:px-0 lg:py-16">
-
           {/* Main Content */}
           <article className="space-y-8 text-gray-700">
             <Reveal width="100%">
               {hasRichContent ? (
                 <>
                   {/* Rich HTML pillar-page content */}
-                  <div
-                    className="rich-content"
-                    dangerouslySetInnerHTML={{ __html: richContent }}
-                  />
+                  <div className="rich-content" dangerouslySetInnerHTML={{ __html: richContent }} />
 
                   {/* FAQ Section */}
                   {hasFaq && (
@@ -205,57 +214,60 @@ const ServicePage = () => {
                 </>
               ) : (
                 <>
-                  <SectionHeader
-                    caption={service.title}
-                    title={headline}
-                    align="left"
-                  />
+                  <SectionHeader caption={service.title} title={headline} align="left" />
 
                   {/* Intro Text */}
                   <div className="space-y-4">
-                    {Array.isArray(intro) && intro.map((paragraph, index) => (
-                        <p key={index} className="text-sm leading-[32px] text-gray-500 sm:text-base">
-                            {paragraph}
+                    {Array.isArray(intro) &&
+                      intro.map((paragraph, index) => (
+                        <p
+                          key={index}
+                          className="text-sm leading-[32px] text-gray-500 sm:text-base"
+                        >
+                          {paragraph}
                         </p>
-                    ))}
+                      ))}
                   </div>
 
                   {/* Detailed Sections */}
-                  {Array.isArray(sections) && sections.map((section, index) => (
-                    <section key={index} className="space-y-4">
-                      {section.heading && (
-                        <h2 className="text-xl font-semibold tracking-tight text-gray-900">
-                          {section.heading}
-                        </h2>
-                      )}
-                      {section.content && (
-                        <p className="text-sm leading-[32px] text-gray-500 sm:text-base">
-                          {section.content}
-                        </p>
-                      )}
-                      {section.listItems && (
-                        <ul className="list-disc space-y-2 pl-5 text-sm leading-[28px] text-gray-500 sm:text-base">
-                          {section.listItems.map((item, lIndex) => (
-                            <li key={lIndex}>{renderTextWithLinks(item)}</li>
-                          ))}
-                        </ul>
-                      )}
-                    </section>
-                  ))}
+                  {Array.isArray(sections) &&
+                    sections.map((section, index) => (
+                      <section key={index} className="space-y-4">
+                        {section.heading && (
+                          <h2 className="text-xl font-semibold tracking-tight text-gray-900">
+                            {section.heading}
+                          </h2>
+                        )}
+                        {section.content && (
+                          <p className="text-sm leading-[32px] text-gray-500 sm:text-base">
+                            {section.content}
+                          </p>
+                        )}
+                        {section.listItems && (
+                          <ul className="list-disc space-y-2 pl-5 text-sm leading-[28px] text-gray-500 sm:text-base">
+                            {section.listItems.map((item, lIndex) => (
+                              <li key={lIndex}>{renderTextWithLinks(item)}</li>
+                            ))}
+                          </ul>
+                        )}
+                      </section>
+                    ))}
 
                   {/* Conclusion */}
                   {(conclusion?.heading || conclusion?.text) && (
-                      <div className="rounded-2xl bg-brand-primary/5 p-6 text-sm leading-[28px] text-gray-600 sm:text-base">
-                          {conclusion.heading && <h3 className="mb-2 font-semibold text-gray-900">{conclusion.heading}</h3>}
-                          {conclusion.text && <p>{conclusion.text}</p>}
-                      </div>
+                    <div className="rounded-2xl bg-brand-primary/5 p-6 text-sm leading-[28px] text-gray-600 sm:text-base">
+                      {conclusion.heading && (
+                        <h3 className="mb-2 font-semibold text-gray-900">{conclusion.heading}</h3>
+                      )}
+                      {conclusion.text && <p>{conclusion.text}</p>}
+                    </div>
                   )}
 
                   {/* Content CTA Button */}
                   <div className="mt-8 pt-4">
-                      <Button to="/contact" variant="primary">
-                          {ctaText}
-                      </Button>
+                    <Button to="/contact" variant="primary">
+                      {ctaText}
+                    </Button>
                   </div>
 
                   {/* FAQ Section */}
@@ -296,12 +308,12 @@ const ServicePage = () => {
                         className="group flex items-center justify-between rounded-xl border border-gray-100 bg-gradient-to-br from-white to-slate-50 p-4 shadow-sm transition-all duration-300 hover:border-blue-200 hover:shadow-md hover:scale-[1.02]"
                       >
                         <div className="flex items-center gap-3">
-                            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-brand-secondary transition-colors group-hover:bg-brand-secondary group-hover:text-white">
-                                <IconComponent className="h-5 w-5" />
-                            </div>
-                            <span className="font-medium text-gray-900 group-hover:text-brand-secondary">
-                                {t(`home:services.${s.translationKey}.title`, s.title)}
-                            </span>
+                          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-brand-secondary transition-colors group-hover:bg-brand-secondary group-hover:text-white">
+                            <IconComponent className="h-5 w-5" />
+                          </div>
+                          <span className="font-medium text-gray-900 group-hover:text-brand-secondary">
+                            {t(`home:services.${s.translationKey}.title`, s.title)}
+                          </span>
                         </div>
                       </Link>
                     )
@@ -312,26 +324,22 @@ const ServicePage = () => {
               {/* Related Articles Widget */}
               <section className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm mt-8">
                 <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-gray-500">
-                    {t('articles:index.title', 'Unsere Artikel')}
+                  {t('articles:index.title', 'Unsere Artikel')}
                 </h2>
                 <div className="space-y-4">
-                    {relatedArticles.map((post) => (
-                      <Link
-                        key={post.id}
-                        to={`/articles/${post.slug}`}
-                        className="block group"
-                      >
-                        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue mb-1">
-                          {t(`common:category.${post.category}`, post.category)}
-                        </p>
-                        <p className="text-sm font-semibold text-gray-900 group-hover:text-brand-secondary transition-colors">
-                          {t(`articles:${post.id}.title`)}
-                        </p>
-                        <p className="mt-1 text-xs text-gray-500">
-                          {post.readTime} · {post.date}
-                        </p>
-                      </Link>
-                    ))}
+                  {relatedArticles.map((post) => (
+                    <Link key={post.id} to={`/articles/${post.slug}`} className="block group">
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue mb-1">
+                        {t(`common:category.${post.category}`, post.category)}
+                      </p>
+                      <p className="text-sm font-semibold text-gray-900 group-hover:text-brand-secondary transition-colors">
+                        {t(`articles:${post.id}.title`)}
+                      </p>
+                      <p className="mt-1 text-xs text-gray-500">
+                        {post.readTime} · {post.date}
+                      </p>
+                    </Link>
+                  ))}
                 </div>
               </section>
 
@@ -341,10 +349,13 @@ const ServicePage = () => {
                   {t('shop:shop.needHelp', 'Need help right now?')}
                 </h3>
                 <p className="mb-3 text-xs leading-relaxed text-gray-500">
-                  {t('shop:shop.contactText', 'Our medical team is available 24/7 to answer urgent questions and help you decide what to do next.')}
+                  {t(
+                    'shop:shop.contactText',
+                    'Our medical team is available 24/7 to answer urgent questions and help you decide what to do next.',
+                  )}
                 </p>
                 <Button to="/contact" variant="secondary" className="w-full justify-center">
-                    {t('common:nav.contact', 'Contact Us')}
+                  {t('common:nav.contact', 'Contact Us')}
                 </Button>
               </section>
             </Reveal>

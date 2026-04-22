@@ -25,17 +25,17 @@
  * Use Prerender.io or similar cloud service for production pre-rendering.
  */
 
-import { chromium } from 'playwright';
-import { spawn } from 'child_process';
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import { chromium } from 'playwright'
+import { spawn } from 'child_process'
+import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ROOT_DIR = path.resolve(__dirname, '..');
-const DIST_DIR = path.join(ROOT_DIR, 'dist');
-const PORT = 4173;
-const BASE_URL = `http://localhost:${PORT}`;
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const ROOT_DIR = path.resolve(__dirname, '..')
+const DIST_DIR = path.join(ROOT_DIR, 'dist')
+const PORT = 4173
+const BASE_URL = `http://localhost:${PORT}`
 
 // =============================================================================
 // ALL ROUTES TO PRE-RENDER
@@ -77,7 +77,7 @@ const ROUTES = [
   '/diagnostics/stoffwechsel_herz',
   '/diagnostics/hormon_tests',
   '/diagnostics/kompatibilitaet_integration',
-];
+]
 
 // =============================================================================
 // HELPERS
@@ -89,7 +89,7 @@ const colors = {
   red: '\x1b[31m',
   cyan: '\x1b[36m',
   yellow: '\x1b[33m',
-};
+}
 
 function log(message, type = 'info') {
   const prefix = {
@@ -97,39 +97,39 @@ function log(message, type = 'info') {
     success: `${colors.green}[OK]${colors.reset}`,
     error: `${colors.red}[ERROR]${colors.reset}`,
     warn: `${colors.yellow}[WARN]${colors.reset}`,
-  };
-  console.log(`${prefix[type]} ${message}`);
+  }
+  console.log(`${prefix[type]} ${message}`)
 }
 
 function ensureDir(filePath) {
-  const dir = path.dirname(filePath);
+  const dir = path.dirname(filePath)
   if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
+    fs.mkdirSync(dir, { recursive: true })
   }
 }
 
 function getOutputPath(route) {
   if (route === '/') {
-    return path.join(DIST_DIR, 'index.html');
+    return path.join(DIST_DIR, 'index.html')
   }
-  return path.join(DIST_DIR, route, 'index.html');
+  return path.join(DIST_DIR, route, 'index.html')
 }
 
 function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
 async function waitForServer(url, maxAttempts = 30) {
   for (let i = 0; i < maxAttempts; i++) {
     try {
-      const response = await fetch(url);
-      if (response.ok) return true;
+      const response = await fetch(url)
+      if (response.ok) return true
     } catch {
       // Server not ready yet
     }
-    await sleep(500);
+    await sleep(500)
   }
-  return false;
+  return false
 }
 
 // =============================================================================
@@ -137,117 +137,115 @@ async function waitForServer(url, maxAttempts = 30) {
 // =============================================================================
 
 async function prerender() {
-  console.log('\n' + '='.repeat(50));
-  console.log('  PRE-RENDERING VITE REACT SPA');
-  console.log('='.repeat(50) + '\n');
+  console.log('\n' + '='.repeat(50))
+  console.log('  PRE-RENDERING VITE REACT SPA')
+  console.log('='.repeat(50) + '\n')
 
   // Check dist directory exists
   if (!fs.existsSync(DIST_DIR)) {
-    log('dist/ directory not found. Run "npm run build" first.', 'error');
-    process.exit(1);
+    log('dist/ directory not found. Run "npm run build" first.', 'error')
+    process.exit(1)
   }
 
-  log(`Found ${ROUTES.length} routes to pre-render`);
+  log(`Found ${ROUTES.length} routes to pre-render`)
 
   // Start vite preview server
-  log('Starting Vite preview server...');
+  log('Starting Vite preview server...')
   const serverProcess = spawn('npx', ['vite', 'preview', '--port', String(PORT), '--host'], {
     cwd: ROOT_DIR,
     stdio: ['ignore', 'pipe', 'pipe'],
     shell: true,
-  });
+  })
 
   // Wait for server to be ready
-  const serverReady = await waitForServer(BASE_URL);
+  const serverReady = await waitForServer(BASE_URL)
   if (!serverReady) {
-    log('Failed to start preview server', 'error');
-    serverProcess.kill();
-    process.exit(1);
+    log('Failed to start preview server', 'error')
+    serverProcess.kill()
+    process.exit(1)
   }
-  log('Preview server started on ' + BASE_URL);
+  log('Preview server started on ' + BASE_URL)
 
   // Launch browser
-  log('Launching Playwright browser...');
-  const browser = await chromium.launch({ headless: true });
+  log('Launching Playwright browser...')
+  const browser = await chromium.launch({ headless: true })
   const context = await browser.newContext({
     userAgent: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
-  });
+  })
 
-  let successCount = 0;
-  let errorCount = 0;
+  let successCount = 0
+  let errorCount = 0
 
-  console.log('\n' + '-'.repeat(50) + '\n');
+  console.log('\n' + '-'.repeat(50) + '\n')
 
   for (const route of ROUTES) {
-    const page = await context.newPage();
-    const url = BASE_URL + route;
-    const outputPath = getOutputPath(route);
+    const page = await context.newPage()
+    const url = BASE_URL + route
+    const outputPath = getOutputPath(route)
 
     try {
       // Navigate and wait for content
-      await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
+      await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 })
 
       // Wait for React to render content in #root
-      await page.waitForSelector('#root > *', { timeout: 10000 });
+      await page.waitForSelector('#root > *', { timeout: 10000 })
 
       // Wait for react-helmet-async to update <head>
-      await sleep(800);
+      await sleep(800)
 
       // Get rendered HTML
-      let html = await page.content();
+      let html = await page.content()
 
       // Ensure output directory exists
-      ensureDir(outputPath);
+      ensureDir(outputPath)
 
       // Write HTML file
-      fs.writeFileSync(outputPath, html, 'utf-8');
+      fs.writeFileSync(outputPath, html, 'utf-8')
 
-      const relativePath = path.relative(ROOT_DIR, outputPath);
-      log(`${route} -> ${relativePath}`, 'success');
-      successCount++;
-
+      const relativePath = path.relative(ROOT_DIR, outputPath)
+      log(`${route} -> ${relativePath}`, 'success')
+      successCount++
     } catch (error) {
-      log(`${route}: ${error.message}`, 'error');
-      errorCount++;
+      log(`${route}: ${error.message}`, 'error')
+      errorCount++
     } finally {
-      await page.close();
+      await page.close()
     }
   }
 
   // Cleanup
-  await browser.close();
-  serverProcess.kill('SIGTERM');
+  await browser.close()
+  serverProcess.kill('SIGTERM')
 
   // Summary
-  console.log('\n' + '='.repeat(50));
-  log(`Pre-rendering complete!`, 'success');
-  log(`Success: ${successCount}/${ROUTES.length}`);
+  console.log('\n' + '='.repeat(50))
+  log(`Pre-rendering complete!`, 'success')
+  log(`Success: ${successCount}/${ROUTES.length}`)
   if (errorCount > 0) {
-    log(`Errors: ${errorCount}`, 'warn');
+    log(`Errors: ${errorCount}`, 'warn')
   }
-  console.log('='.repeat(50) + '\n');
+  console.log('='.repeat(50) + '\n')
 
   // Verification
-  const indexPath = path.join(DIST_DIR, 'index.html');
-  const indexHtml = fs.readFileSync(indexPath, 'utf-8');
+  const indexPath = path.join(DIST_DIR, 'index.html')
+  const indexHtml = fs.readFileSync(indexPath, 'utf-8')
 
   // Check if index.html has actual content (not just empty root)
-  const hasContent = !indexHtml.includes('<div id="root"></div>') &&
-                     indexHtml.includes('<div id="root">');
-  const hasTitle = indexHtml.includes('<title>') &&
-                   !indexHtml.includes('<title></title>');
+  const hasContent =
+    !indexHtml.includes('<div id="root"></div>') && indexHtml.includes('<div id="root">')
+  const hasTitle = indexHtml.includes('<title>') && !indexHtml.includes('<title></title>')
 
   if (hasContent && hasTitle) {
-    log('Verification: HTML contains pre-rendered content', 'success');
+    log('Verification: HTML contains pre-rendered content', 'success')
   } else {
-    log('Warning: HTML may not be properly pre-rendered', 'warn');
+    log('Warning: HTML may not be properly pre-rendered', 'warn')
   }
 
-  process.exit(errorCount > 0 ? 1 : 0);
+  process.exit(errorCount > 0 ? 1 : 0)
 }
 
 // Run
-prerender().catch(error => {
-  log(`Fatal error: ${error.message}`, 'error');
-  process.exit(1);
-});
+prerender().catch((error) => {
+  log(`Fatal error: ${error.message}`, 'error')
+  process.exit(1)
+})
