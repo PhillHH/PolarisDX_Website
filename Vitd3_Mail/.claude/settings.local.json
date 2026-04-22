@@ -1,8 +1,5 @@
 {
   "permissions": {
-    "allow": [
-      "Bash(python:*)",
-      "Bash(docker compose run:*)"
-    ]
+    "allow": ["Bash(python:*)", "Bash(docker compose run:*)"]
   }
 }

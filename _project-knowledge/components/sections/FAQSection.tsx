@@ -51,37 +51,40 @@ const FAQSection = ({
 
       <div className="mx-auto max-w-3xl">
         <div className="divide-y divide-gray-200 rounded-2xl border border-gray-200 bg-white shadow-sm">
-          {Array.isArray(faqItems) && faqItems.map((item, index) => (
-            <div key={index} className="group">
-              <button
-                onClick={() => toggleItem(index)}
-                className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-gray-50"
-                aria-expanded={openIndex === index}
-                aria-controls={`faq-answer-${index}`}
-              >
-                <span className="text-base font-medium text-gray-900 sm:text-lg">
-                  {item.question}
-                </span>
-                <ChevronDown
-                  className={`h-5 w-5 flex-shrink-0 text-gray-500 transition-transform duration-300 ease-out ${
-                    openIndex === index ? 'rotate-180' : ''
+          {Array.isArray(faqItems) &&
+            faqItems.map((item, index) => (
+              <div key={index} className="group">
+                <button
+                  onClick={() => toggleItem(index)}
+                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-gray-50"
+                  aria-expanded={openIndex === index}
+                  aria-controls={`faq-answer-${index}`}
+                >
+                  <span className="text-base font-medium text-gray-900 sm:text-lg">
+                    {item.question}
+                  </span>
+                  <ChevronDown
+                    className={`h-5 w-5 flex-shrink-0 text-gray-500 transition-transform duration-300 ease-out ${
+                      openIndex === index ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                <div
+                  id={`faq-answer-${index}`}
+                  className={`grid transition-all duration-300 ease-out ${
+                    openIndex === index
+                      ? 'grid-rows-[1fr] opacity-100'
+                      : 'grid-rows-[0fr] opacity-0'
                   }`}
-                />
-              </button>
-              <div
-                id={`faq-answer-${index}`}
-                className={`grid transition-all duration-300 ease-out ${
-                  openIndex === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-                }`}
-              >
-                <div className="overflow-hidden">
-                  <p className="px-6 pb-5 text-sm leading-relaxed text-gray-600 sm:text-base">
-                    {item.answer}
-                  </p>
+                >
+                  <div className="overflow-hidden">
+                    <p className="px-6 pb-5 text-sm leading-relaxed text-gray-600 sm:text-base">
+                      {item.answer}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
 
         {showFooter && (
@@ -89,8 +92,8 @@ const FAQSection = ({
             {t('faq.more', 'Noch Fragen?')}{' '}
             <Link to="/diagnostics" className="font-semibold text-brand-primary hover:underline">
               {t('faq.link_services', 'Diagnostik-Services ansehen')}
-            </Link>
-            {' '}{t('faq.or', 'oder')}{' '}
+            </Link>{' '}
+            {t('faq.or', 'oder')}{' '}
             <Link to="/contact" className="font-semibold text-brand-primary hover:underline">
               {t('faq.link_contact', 'direkt Kontakt aufnehmen')}
             </Link>

@@ -16,26 +16,21 @@
  * - Jeder Request bekommt seine eigene i18n-Instanz
  */
 
-import { createInstance } from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import * as fs from 'node:fs';
-import * as path from 'node:path';
+import { createInstance } from 'i18next'
+import { initReactI18next } from 'react-i18next'
+import * as fs from 'node:fs'
+import * as path from 'node:path'
 
-import {
-  i18nConfig,
-  NAMESPACES,
-  FALLBACK_LANGUAGE,
-  normalizeLanguage,
-} from './i18n';
-import type { SupportedLanguage, Namespace } from './i18n';
+import { i18nConfig, NAMESPACES, FALLBACK_LANGUAGE, normalizeLanguage } from './i18n'
+import type { SupportedLanguage, Namespace } from './i18n'
 
 // =============================================================================
 // TYPES
 // =============================================================================
 
 export interface I18nServerInstance {
-  instance: ReturnType<typeof createInstance>;
-  language: SupportedLanguage;
+  instance: ReturnType<typeof createInstance>
+  language: SupportedLanguage
 }
 
 // =============================================================================
@@ -46,7 +41,7 @@ export interface I18nServerInstance {
  * Cache für geladene Übersetzungen
  * Verhindert wiederholtes Laden derselben Dateien vom Filesystem
  */
-const translationCache = new Map<string, Record<string, unknown>>();
+const translationCache = new Map<string, Record<string, unknown>>()
 
 /**
  * Bestimmt den Pfad zum public/locales Ordner
@@ -57,10 +52,10 @@ const translationCache = new Map<string, Record<string, unknown>>();
 function getLocalesBasePath(): string {
   // In Produktion liegt alles in dist/client
   if (process.env.NODE_ENV === 'production') {
-    return path.resolve(process.cwd(), 'dist', 'client', 'locales');
+    return path.resolve(process.cwd(), 'dist', 'client', 'locales')
   }
   // In Entwicklung direkt aus public/
-  return path.resolve(process.cwd(), 'public', 'locales');
+  return path.resolve(process.cwd(), 'public', 'locales')
 }
 
 /**
@@ -71,36 +66,36 @@ function getLocalesBasePath(): string {
  * @returns Die geladenen Übersetzungen oder ein leeres Objekt bei Fehler
  */
 function loadTranslation(lng: string, ns: string): Record<string, unknown> {
-  const cacheKey = `${lng}:${ns}`;
+  const cacheKey = `${lng}:${ns}`
 
   // Aus Cache zurückgeben wenn vorhanden
   if (translationCache.has(cacheKey)) {
-    return translationCache.get(cacheKey)!;
+    return translationCache.get(cacheKey)!
   }
 
-  const basePath = getLocalesBasePath();
-  const filePath = path.join(basePath, lng, `${ns}.json`);
+  const basePath = getLocalesBasePath()
+  const filePath = path.join(basePath, lng, `${ns}.json`)
 
   try {
-    const content = fs.readFileSync(filePath, 'utf-8');
-    const parsed = JSON.parse(content) as Record<string, unknown>;
+    const content = fs.readFileSync(filePath, 'utf-8')
+    const parsed = JSON.parse(content) as Record<string, unknown>
 
     // Im Cache speichern
-    translationCache.set(cacheKey, parsed);
+    translationCache.set(cacheKey, parsed)
 
-    return parsed;
+    return parsed
   } catch (error) {
     // Fallback: Versuche englische Version
     if (lng !== FALLBACK_LANGUAGE) {
       console.warn(
-        `[i18n-server] Translation not found: ${filePath}, falling back to ${FALLBACK_LANGUAGE}`
-      );
-      return loadTranslation(FALLBACK_LANGUAGE, ns);
+        `[i18n-server] Translation not found: ${filePath}, falling back to ${FALLBACK_LANGUAGE}`,
+      )
+      return loadTranslation(FALLBACK_LANGUAGE, ns)
     }
 
     // Kein Fallback mehr verfügbar
-    console.error(`[i18n-server] Failed to load translation: ${filePath}`, error);
-    return {};
+    console.error(`[i18n-server] Failed to load translation: ${filePath}`, error)
+    return {}
   }
 }
 
@@ -108,13 +103,13 @@ function loadTranslation(lng: string, ns: string): Record<string, unknown> {
  * Lädt alle Namespaces für eine Sprache
  */
 function loadAllNamespaces(lng: string): Record<Namespace, Record<string, unknown>> {
-  const resources: Record<string, Record<string, unknown>> = {};
+  const resources: Record<string, Record<string, unknown>> = {}
 
   for (const ns of NAMESPACES) {
-    resources[ns] = loadTranslation(lng, ns);
+    resources[ns] = loadTranslation(lng, ns)
   }
 
-  return resources as Record<Namespace, Record<string, unknown>>;
+  return resources as Record<Namespace, Record<string, unknown>>
 }
 
 // =============================================================================
@@ -143,47 +138,43 @@ function loadAllNamespaces(lng: string): Record<Namespace, Record<string, unknow
  *   return html;
  * }
  */
-export async function createI18nInstance(
-  language: string
-): Promise<I18nServerInstance> {
+export async function createI18nInstance(language: string): Promise<I18nServerInstance> {
   // Normalisiere die Sprache (z.B. 'de-DE' -> 'de')
-  const normalizedLang = normalizeLanguage(language);
+  const normalizedLang = normalizeLanguage(language)
 
   // Lade alle Übersetzungen für die Sprache
-  const namespaceResources = loadAllNamespaces(normalizedLang);
+  const namespaceResources = loadAllNamespaces(normalizedLang)
 
   // Erstelle eine NEUE Instanz (kein Singleton!)
-  const instance = createInstance();
+  const instance = createInstance()
 
   // Initialisiere mit React-Integration
-  await instance
-    .use(initReactI18next)
-    .init({
-      // Shared configuration
-      ...i18nConfig,
+  await instance.use(initReactI18next).init({
+    // Shared configuration
+    ...i18nConfig,
 
-      // Server-spezifische Einstellungen
-      lng: normalizedLang,
-      debug: false, // Kein Debug-Output auf dem Server
+    // Server-spezifische Einstellungen
+    lng: normalizedLang,
+    debug: false, // Kein Debug-Output auf dem Server
 
-      // Ressourcen direkt einbinden (kein HTTP Backend)
-      resources: {
-        [normalizedLang]: namespaceResources,
-      },
+    // Ressourcen direkt einbinden (kein HTTP Backend)
+    resources: {
+      [normalizedLang]: namespaceResources,
+    },
 
-      // Suspense auf Server deaktivieren
-      react: {
-        useSuspense: false,
-      },
+    // Suspense auf Server deaktivieren
+    react: {
+      useSuspense: false,
+    },
 
-      // Kein Fallback-Loading nötig, da alles vorab geladen wird
-      partialBundledLanguages: true,
-    });
+    // Kein Fallback-Loading nötig, da alles vorab geladen wird
+    partialBundledLanguages: true,
+  })
 
   return {
     instance,
     language: normalizedLang,
-  };
+  }
 }
 
 /**
@@ -193,7 +184,7 @@ export async function createI18nInstance(
  * zur Laufzeit aktualisiert werden.
  */
 export function clearTranslationCache(): void {
-  translationCache.clear();
+  translationCache.clear()
 }
 
 /**
@@ -203,15 +194,15 @@ export function clearTranslationCache(): void {
  * Verbessert die Response-Zeit für den ersten Request jeder Sprache.
  */
 export function preloadAllTranslations(): void {
-  const languages = i18nConfig.supportedLngs;
+  const languages = i18nConfig.supportedLngs
 
   for (const lng of languages) {
     for (const ns of NAMESPACES) {
-      loadTranslation(lng as string, ns);
+      loadTranslation(lng as string, ns)
     }
   }
 
   console.log(
-    `[i18n-server] Preloaded ${languages.length} languages × ${NAMESPACES.length} namespaces`
-  );
+    `[i18n-server] Preloaded ${languages.length} languages × ${NAMESPACES.length} namespaces`,
+  )
 }

@@ -44,7 +44,7 @@ export default {
       boxShadow: {
         card: '0 24px 60px rgba(8, 51, 88, 0.12)', // Tinted with brand-deep (hardcoded here because tokens in string might not work directly without interpolation, but this is JS)
         'glow-secondary': '0 0 15px rgba(33, 153, 234, 0.5)', // Softer glow
-        'glass': '0 8px 32px 0 rgba(8, 51, 88, 0.15)', // Glassmorphism shadow
+        glass: '0 8px 32px 0 rgba(8, 51, 88, 0.15)', // Glassmorphism shadow
       },
       borderRadius: {
         section: '24px',

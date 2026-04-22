@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { testimonials } from '../../data/testimonials'
 import SectionHeader from '~/components/ui/SectionHeader'
-import PrimaryButton from '~/components/ui/PrimaryButton'
+import { Button } from '~/components/ui/Button'
 
 // A simple Star SVG component
 const Star = ({ filled }: { filled: boolean }) => (
@@ -36,7 +35,7 @@ const TestimonialsSection = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveIndex(prevIndex => (prevIndex + 1) % testimonials.length)
+      setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
     }, 8000) // Slower slide change: 8 seconds
 
     return () => clearInterval(interval)
@@ -123,9 +122,7 @@ const TestimonialsSection = () => {
                 key={index}
                 onClick={() => handleDotClick(index)}
                 className={`h-2.5 w-2.5 rounded-full transition-colors duration-300 ${
-                  activeIndex === index
-                    ? 'bg-white'
-                    : 'bg-white/40 hover:bg-white/60'
+                  activeIndex === index ? 'bg-white' : 'bg-white/40 hover:bg-white/60'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
@@ -148,13 +145,15 @@ const TestimonialsSection = () => {
               <span className="text-3xl font-medium tracking-tight sm:text-4xl">100</span>
               <span className="text-xl font-medium text-white/80 sm:text-2xl">%</span>
             </div>
-            <p className="mt-1 text-xs text-white/80 sm:text-sm">{t('testimonials.positiveLabel', 'Positive Review')}</p>
+            <p className="mt-1 text-xs text-white/80 sm:text-sm">
+              {t('testimonials.positiveLabel', 'Positive Review')}
+            </p>
           </div>
         </div>
 
-        <PrimaryButton as={Link} to="/contact" size="sm">
+        <Button to="/contact" size="sm">
           {t('testimonials.cta', 'Jetzt selbst überzeugen')}
-        </PrimaryButton>
+        </Button>
       </div>
     </section>
   )

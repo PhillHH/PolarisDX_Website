@@ -8,7 +8,6 @@ Voraussetzung für eine nachhaltige IGeL-Strategie ist eine transparente Patient
 
 Doch wie sieht der konkrete Ablauf im Praxisalltag aus – von der Risikoeinschätzung bis zur dokumentierten Therapieentscheidung?
 
-
 ## Praxisworkflow: Vitamin-D-Diagnostik in 5 Schritten
 
 Die Integration der Vitamin D Bestimmung vor Implantation in den Praxisalltag ist unkompliziert und vollständig an ZFA oder DH delegierbar. Im ersten Schritt erfassen Sie im Rahmen der Anamnese die relevanten Risikofaktoren: Osteoporose, Malabsorptionssyndrome, saisonaler Mangel bei geringer Sonnenexposition, dunkler Hauttyp, Diabetes mellitus oder eine bekannte Vitamin-D-Mangel-Vorgeschichte.
@@ -19,13 +18,11 @@ Schritt vier liefert das Ergebnis: In unter drei Minuten erscheint der quantitat
 
 Der gesamte Vitamin D Schnelltest beim Zahnarzt – von der Kapillarblutentnahme bis zum dokumentierten Befund – dauert unter fünf Minuten – und er fügt sich nahtlos in den Planungstermin oder die Erstberatung ein. Bleibt die Frage, was nach einem Mangelbefund passiert.
 
-
 ## Polaris Vitamin D3 Spray – Diagnostik und Therapie aus einer Hand
 
 Wenn der Test einen Mangel zeigt, endet der Behandlungspfad in vielen Praxen mit einer mündlichen Supplementierungsempfehlung. Der Patient kauft dann eigenständig ein Präparat – oder auch nicht. Mit dem Polaris Vitamin D3+K2 Mundspray schließen Sie diese Lücke direkt im Befundgespräch. Das Spray kombiniert hochdosiertes Vitamin D3 mit Vitamin K2 (MK-7), das über die Aktivierung von Osteocalcin die gezielte Calciumeinlagerung in die Knochenmatrix fördert.
 
 Als Praxis-Dispensierprodukt generiert das Spray zusätzliche Einnahmen pro Patient bei null zusätzlichen Arbeitsschritten. Die Kombination aus Diagnostik und Supplementierung aus einer Hand erhöht die Patientenbindung und sorgt dafür, dass der Therapieplan tatsächlich umgesetzt wird.
-
 
 ## Klinische Validierung und Partnerpraxen
 
@@ -33,11 +30,9 @@ Das Igloo Pro System wird bereits in über 100 Praxen in mehr als 15 Ländern ei
 
 Diese Partnerschaften sind mehr als Referenzen – sie zeigen, dass leitlinienkonforme POC-Diagnostik in der implantologischen Praxis angekommen ist.
 
-
 ## Bereit für leitlinienkonforme Diagnostik in Ihrer Praxis?
 
 Die S3-Leitlinie gibt den Rahmen vor, der Igloo Reader Pro liefert die Technologie, und das IGeL-Modell sichert die Wirtschaftlichkeit. Wenn Sie erfahren möchten, wie das System konkret in Ihren Praxisablauf passt und sich betriebswirtschaftlich rechnet, vereinbaren Sie ein unverbindliches Beratungsgespräch. Telefonisch erreichen Sie uns unter +49 152 2858 0999 oder über das Kontaktformular auf polarisdx.net/de/contact. Das Gespräch dauert etwa 15 Minuten und ist selbstverständlich kostenfrei.
-
 
 ## Häufig gestellte Fragen zur Vitamin-D-Diagnostik in der Zahnarztpraxis
 

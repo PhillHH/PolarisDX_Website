@@ -72,11 +72,7 @@
     "thermometer": {
       "name": "Kontaktloses Stirnthermometer",
       "shortDescription": "Schnelle, hygienische Temperaturmessung ohne Hautkontakt – ideal für Familien.",
-      "features": [
-        "1-Sekunden-Messung",
-        "Fieberalarm-Anzeige",
-        "Beleuchtetes Display"
-      ]
+      "features": ["1-Sekunden-Messung", "Fieberalarm-Anzeige", "Beleuchtetes Display"]
     },
     "pulse_oximeter": {
       "name": "Finger-Pulsoximeter",
@@ -108,20 +104,12 @@
     "n95_mask_pack": {
       "name": "N95 Atemschutzmasken-Paket (10 Stk.)",
       "shortDescription": "Zertifizierte N95-Masken für zuverlässigen Atemschutz.",
-      "features": [
-        "Verstellbarer Nasenbügel",
-        "Komfortable Ohrschlaufen",
-        "Einzeln verpackt"
-      ]
+      "features": ["Verstellbarer Nasenbügel", "Komfortable Ohrschlaufen", "Einzeln verpackt"]
     },
     "hand_sanitizer": {
       "name": "Antibakterielles Handdesinfektionsmittel (500 ml)",
       "shortDescription": "Schnell trocknendes Desinfektionsmittel mit feuchtigkeitsspendenden Inhaltsstoffen.",
-      "features": [
-        "Tötet 99,9 % der Keime ab",
-        "Klebt nicht",
-        "Frischer, sauberer Duft"
-      ]
+      "features": ["Tötet 99,9 % der Keime ab", "Klebt nicht", "Frischer, sauberer Duft"]
     },
     "compression_socks": {
       "name": "Medizinische Kompressionsstrümpfe",
@@ -135,11 +123,7 @@
     "first_aid_kit": {
       "name": "Kompaktes Erste-Hilfe-Set",
       "shortDescription": "Ein kompaktes Set mit dem Nötigsten für kleinere Verletzungen und Notfälle.",
-      "features": [
-        "Pflaster und Verbände",
-        "Antiseptische Tücher",
-        "Anleitungsheft"
-      ]
+      "features": ["Pflaster und Verbände", "Antiseptische Tücher", "Anleitungsheft"]
     },
     "online_consult": {
       "name": "Online-Arztkonsultation (30 Min.)",

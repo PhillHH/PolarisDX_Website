@@ -20,11 +20,12 @@ const inputVariants = cva(
       state: 'default',
       size: 'default',
     },
-  }
+  },
 )
 
 export interface InputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
+  extends
+    Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
     VariantProps<typeof inputVariants> {
   label?: string
   error?: string | boolean
@@ -35,8 +36,21 @@ export interface InputProps
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
-    { className, state, size, type, label, error, helperText, leftIcon, rightIcon, id, disabled, ...props },
-    ref
+    {
+      className,
+      state,
+      size,
+      type,
+      label,
+      error,
+      helperText,
+      leftIcon,
+      rightIcon,
+      id,
+      disabled,
+      ...props
+    },
+    ref,
   ) => {
     const generatedId = React.useId()
     const inputId = id || generatedId
@@ -44,16 +58,16 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const errorId = error ? `${inputId}-error` : undefined
 
     // Determine state based on error prop if not explicitly set
-    const finalState = error ? 'error' : (state || 'default')
+    const finalState = error ? 'error' : state || 'default'
 
     return (
-      <div className={cn("grid w-full gap-1.5", disabled && "opacity-50 cursor-not-allowed")}>
+      <div className={cn('grid w-full gap-1.5', disabled && 'opacity-50 cursor-not-allowed')}>
         {label && (
           <label
             htmlFor={inputId}
             className={cn(
-              "text-sm font-medium leading-none text-gray-900",
-               disabled && "cursor-not-allowed opacity-70"
+              'text-sm font-medium leading-none text-gray-900',
+              disabled && 'cursor-not-allowed opacity-70',
             )}
           >
             {label}
@@ -61,17 +75,15 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         )}
         <div className="relative">
           {leftIcon && (
-            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">
-              {leftIcon}
-            </div>
+            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">{leftIcon}</div>
           )}
 
           <input
             type={type}
             className={cn(
               inputVariants({ state: finalState, size, className }),
-              leftIcon && "pl-10",
-              rightIcon && "pr-10"
+              leftIcon && 'pl-10',
+              rightIcon && 'pr-10',
             )}
             ref={ref}
             id={inputId}
@@ -101,7 +113,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         )}
       </div>
     )
-  }
+  },
 )
 Input.displayName = 'Input'
 

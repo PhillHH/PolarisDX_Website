@@ -91,7 +91,6 @@ const HeroSection = () => {
 
       <div className="relative z-10 mx-auto flex h-full max-w-container items-stretch px-6 pt-12 pb-20 sm:px-8 lg:px-0 lg:pt-12 lg:pb-0">
         <div className="grid w-full h-full gap-4 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
-
           {/* Left Content Area */}
           <div className="flex flex-col justify-center space-y-9 lg:space-y-7 z-20">
             <div className="space-y-3 lg:space-y-2 h-[300px] sm:h-[350px] lg:h-hero-lg flex flex-col justify-center">
@@ -136,7 +135,7 @@ const HeroSection = () => {
                 </Button>
                 <Button
                   to="/downloads"
-                  variant="outline-light"
+                  variant="outline"
                   size="sm"
                   className="w-full text-center sm:w-auto sm:whitespace-nowrap"
                 >
@@ -167,7 +166,9 @@ const HeroSection = () => {
                   key={index}
                   onClick={() => setCurrentSlide(index)}
                   className={`h-2.5 rounded-full transition-all duration-300 ${
-                    currentSlide === index ? "w-8 bg-brand-secondary" : "w-2.5 bg-white/30 hover:bg-white/50"
+                    currentSlide === index
+                      ? 'w-8 bg-brand-secondary'
+                      : 'w-2.5 bg-white/30 hover:bg-white/50'
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
                 />
@@ -192,17 +193,20 @@ const HeroSection = () => {
                 </div>
               ) : (
                 <div className="relative h-full w-full flex items-center justify-center">
-                  <div className={`absolute w-[400px] h-[400px] rounded-full blur-[100px] opacity-60 bg-gradient-to-r ${currentDisplaySlide.color}`} />
-                  {currentDisplaySlide.icon && (() => {
-                    const Icon = currentDisplaySlide.icon
-                    return (
-                      <Icon
-                        size={600}
-                        strokeWidth={0.5}
-                        className="text-white/90 drop-shadow-2xl relative z-10"
-                      />
-                    )
-                  })()}
+                  <div
+                    className={`absolute w-[400px] h-[400px] rounded-full blur-[100px] opacity-60 bg-gradient-to-r ${currentDisplaySlide.color}`}
+                  />
+                  {currentDisplaySlide.icon &&
+                    (() => {
+                      const Icon = currentDisplaySlide.icon
+                      return (
+                        <Icon
+                          size={600}
+                          strokeWidth={0.5}
+                          className="text-white/90 drop-shadow-2xl relative z-10"
+                        />
+                      )
+                    })()}
                 </div>
               )}
             </div>

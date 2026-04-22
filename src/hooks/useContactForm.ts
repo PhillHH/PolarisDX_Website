@@ -46,7 +46,7 @@ export const useContactForm = (): UseContactFormReturn => {
       email,
       area,
       requirements,
-      message: requirements
+      message: requirements,
     }
 
     try {

@@ -7,14 +7,11 @@ Sie bilden das „Designsystem“ der Anwendung auf Komponentenebene.
 
 ### Buttons & Interaktion
 
-- **`PrimaryButton.tsx`**
-  - Universeller Button mit optionalem `as`‑Prop:
-    - kann z. B. als `<button>`, `<a>` oder `Link` aus `react-router-dom` gerendert werden.
-  - Varianten:
-    - `primary` (Standard): Farbverlauf‑Rahmen mit weißem Inneren, ideal für Haupt‑CTAs.
-    - `secondary`: gefüllter Button in Primärfarbe, z. B. auf hellen Hintergründen.
-    - `outline-light`: transparenter Button mit heller Kontur, z. B. auf dunklen Hintergründen.
-  - Enthält Fokus‑Styles (Focus‑Ring) zur Verbesserung der Zugänglichkeit.
+- **`Button.tsx`**
+  - Universeller Button mit optionalem `to`- oder `href`-Prop:
+    - rendert als `<button>`, `<a>` (bei `href`) oder `Link` aus `react-router-dom` (bei `to`).
+  - Varianten: `primary` (Gradient-Rahmen, weißer Innenbereich, Haupt-CTAs), `secondary` (gefüllter Button in Primärfarbe), `outline` (transparent mit heller Kontur).
+  - Enthält Fokus-Styles (Focus-Ring) zur Verbesserung der Zugänglichkeit.
 
 ---
 
@@ -32,14 +29,6 @@ Sie bilden das „Designsystem“ der Anwendung auf Komponentenebene.
 ---
 
 ### Karten-Komponenten
-
-- **`ProductCard.tsx`**
-  - Präsentiert ein Produkt aus `data/products.ts`:
-    - Name, Kategorie, Preis,
-    - Kurzbeschreibung (auf 3 Zeilen begrenzt),
-    - optionales Bild (über `image`‑Filename aus `assets/`),
-    - Badge (z. B. „New“, „Popular“, „Limited“).
-  - Link (`to`‑Prop) öffnet die entsprechende Produktdetailseite (`/shop/:slug`).
 
 - **`ServiceCard.tsx`**
   - Darstellung eines diagnostischen Service‑Angebots:
@@ -75,5 +64,3 @@ Sie bilden das „Designsystem“ der Anwendung auf Komponentenebene.
   - **Konsistentes Design** über alle Seiten und Sections hinweg.
   - **Wiederverwendbarkeit**: Änderungen an einer UI‑Komponente (z. B. dem Button‑Design) wirken global.
 - Neue visuelle Muster sollten nach Möglichkeit zuerst hier als eigenständige Komponenten implementiert und dann in Sections/Routen verwendet werden.
-
-

@@ -8,23 +8,24 @@
 
 ## 1. Homepage → Ausgehende interne Links (nach Sektion)
 
-| Sektion | Ziel-URL | Link-Art |
-|---------|----------|----------|
-| **HeroSection** | `/contact` | Button "Termin buchen" |
-| **HeroSection** | `/downloads` | Button "Infomaterialien herunterladen" |
-| **AboutSection** | `/contact` | PrimaryButton "Exklusiven Vorteil sichern" |
-| **IglooWidgetSection** | `/diagnostics/dental` | Widget-Karte |
-| **IglooWidgetSection** | `/diagnostics/beauty` | Widget-Karte |
-| **IglooWidgetSection** | `/diagnostics/longevity` | Widget-Karte |
-| **DoctorsSection** | `/igloo-pro` | PrimaryButton "Zum Igloo Pro System" |
-| **TestimonialsSection** | — | **Keine internen Links** |
-| **BlogSection** | `/vitamin-d3-implantologie` | Featured-Artikel Link |
-| **BlogSection** | `/articles/die-gruene-praxis` | BlogCard |
-| **BlogSection** | `/articles/der-unsichtbare-patient` | BlogCard |
-| **BlogSection** | `/articles/die-5-minuten-diagnose` | BlogCard |
-| **FAQSection** | — | **Keine internen Links** |
+| Sektion                 | Ziel-URL                            | Link-Art                                   |
+| ----------------------- | ----------------------------------- | ------------------------------------------ |
+| **HeroSection**         | `/contact`                          | Button "Termin buchen"                     |
+| **HeroSection**         | `/downloads`                        | Button "Infomaterialien herunterladen"     |
+| **AboutSection**        | `/contact`                          | PrimaryButton "Exklusiven Vorteil sichern" |
+| **IglooWidgetSection**  | `/diagnostics/dental`               | Widget-Karte                               |
+| **IglooWidgetSection**  | `/diagnostics/beauty`               | Widget-Karte                               |
+| **IglooWidgetSection**  | `/diagnostics/longevity`            | Widget-Karte                               |
+| **DoctorsSection**      | `/igloo-pro`                        | PrimaryButton "Zum Igloo Pro System"       |
+| **TestimonialsSection** | —                                   | **Keine internen Links**                   |
+| **BlogSection**         | `/vitamin-d3-implantologie`         | Featured-Artikel Link                      |
+| **BlogSection**         | `/articles/die-gruene-praxis`       | BlogCard                                   |
+| **BlogSection**         | `/articles/der-unsichtbare-patient` | BlogCard                                   |
+| **BlogSection**         | `/articles/die-5-minuten-diagnose`  | BlogCard                                   |
+| **FAQSection**          | —                                   | **Keine internen Links**                   |
 
 ### Bewertung Homepage
+
 - **Gut:** Homepage verlinkt auf /contact (3x), /downloads, /igloo-pro, 3 Hauptbereiche (Dental/Beauty/Longevity), Featured-Artikel, 3 Blog-Artikel
 - **Lücke:** Kein Link zu `/diagnostics` (Übersichtsseite)
 - **Lücke:** Kein Link zu `/about`
@@ -37,16 +38,17 @@
 
 ## 2. ServicePage → Ausgehende interne Links
 
-| Element | Ziel-URL | Logik |
-|---------|----------|-------|
-| Breadcrumbs | `/`, `/diagnostics` | Statisch |
-| CTA-Button (Content) | `/contact` | Statisch |
-| **Sidebar: Andere Services** | `/diagnostics/{id}` für alle anderen Services | Dynamisch: `services.filter(s => s.id !== service.id)` |
-| **Sidebar: Verwandte Artikel** | `/articles/{slug}` | **HARDCODED: `articles.slice(0, 3)`** — immer die gleichen 3 Artikel! |
-| Sidebar: Kontakt-Widget | `/contact` | Statisch |
-| `renderTextWithLinks()` | Variable `[[text\|/path]]` | Inline-Links in Übersetzungstexten (Listenpunkte) |
+| Element                        | Ziel-URL                                      | Logik                                                                 |
+| ------------------------------ | --------------------------------------------- | --------------------------------------------------------------------- |
+| Breadcrumbs                    | `/`, `/diagnostics`                           | Statisch                                                              |
+| CTA-Button (Content)           | `/contact`                                    | Statisch                                                              |
+| **Sidebar: Andere Services**   | `/diagnostics/{id}` für alle anderen Services | Dynamisch: `services.filter(s => s.id !== service.id)`                |
+| **Sidebar: Verwandte Artikel** | `/articles/{slug}`                            | **HARDCODED: `articles.slice(0, 3)`** — immer die gleichen 3 Artikel! |
+| Sidebar: Kontakt-Widget        | `/contact`                                    | Statisch                                                              |
+| `renderTextWithLinks()`        | Variable `[[text\|/path]]`                    | Inline-Links in Übersetzungstexten (Listenpunkte)                     |
 
 ### Bewertung ServicePage
+
 - **Gut:** Cross-Linking zu allen anderen Services vorhanden (Sidebar)
 - **Gut:** Link zu /contact vorhanden
 - **KRITISCH:** "Verwandte Artikel" sind NICHT verwandt — es sind IMMER die ersten 3 Artikel (`articles.slice(0, 3)`), unabhängig vom Service-Kontext
@@ -57,15 +59,16 @@
 
 ## 3. ArticlePage → Ausgehende interne Links
 
-| Element | Ziel-URL | Logik |
-|---------|----------|-------|
-| Breadcrumbs | `/`, `/articles` | Statisch |
-| "Zurück zur Übersicht" | `/articles` | Statisch |
-| **Sidebar (Desktop): Weitere Artikel** | `/articles/{slug}` | Dynamisch: `otherArticles.slice(0, 4)` |
-| **Mobile: Empfohlene Artikel** | `/articles/{slug}` | Dynamisch: `otherArticles.slice(0, 3)` |
-| Sidebar: Kontakt-Widget | — | **NUR Telefonnummer, KEIN Link zu `/contact`!** |
+| Element                                | Ziel-URL           | Logik                                           |
+| -------------------------------------- | ------------------ | ----------------------------------------------- |
+| Breadcrumbs                            | `/`, `/articles`   | Statisch                                        |
+| "Zurück zur Übersicht"                 | `/articles`        | Statisch                                        |
+| **Sidebar (Desktop): Weitere Artikel** | `/articles/{slug}` | Dynamisch: `otherArticles.slice(0, 4)`          |
+| **Mobile: Empfohlene Artikel**         | `/articles/{slug}` | Dynamisch: `otherArticles.slice(0, 3)`          |
+| Sidebar: Kontakt-Widget                | —                  | **NUR Telefonnummer, KEIN Link zu `/contact`!** |
 
 ### Bewertung ArticlePage
+
 - **KRITISCH: KEINE Links zu Service-Seiten** — kein "Verwandte Services", kein "Passender Diagnose-Service"
 - **KRITISCH:** Kontakt-Widget hat NUR eine Telefonnummer, keinen Button/Link zu `/contact`
 - **Lücke:** Kein Link zu `/igloo-pro`
@@ -76,18 +79,18 @@
 
 ## 4. Verwandte-Inhalte-Sektionen — Status
 
-| Seite | Verwandte Artikel? | Verwandte Services? | Bewertung |
-|-------|--------------------|---------------------|-----------|
-| ServicePage | Ja, aber FAKE (hardcoded slice) | Ja (alle anderen Services) | Artikel-Mapping fehlt |
-| ArticlePage | Ja (andere Artikel) | **NEIN** | Service-Mapping fehlt komplett |
-| ServicesOverviewPage | Nein | Ja (ServiceCards) | Artikel fehlen |
-| ArticlesIndexPage | Ja (alle Artikel + Featured) | Nein | Service-Links fehlen |
-| IglooProPage | Nein | Nein | Isolierte Seite |
-| VitaminD3Page | Ja (1 Artikel in Sidebar) | Ja (dental, igloo-pro in Sidebar) | Am besten verlinkte Spezialseite |
-| AboutPage | Nein | Nein | **Isolierte Seite** |
-| EventsPage | Nein | Nein | **Isolierte Seite** |
-| ContactPage | Nein | Nein | **Isolierte Seite** |
-| DownloadsPage | Nein | Nein | **Isolierte Seite** |
+| Seite                | Verwandte Artikel?              | Verwandte Services?               | Bewertung                        |
+| -------------------- | ------------------------------- | --------------------------------- | -------------------------------- |
+| ServicePage          | Ja, aber FAKE (hardcoded slice) | Ja (alle anderen Services)        | Artikel-Mapping fehlt            |
+| ArticlePage          | Ja (andere Artikel)             | **NEIN**                          | Service-Mapping fehlt komplett   |
+| ServicesOverviewPage | Nein                            | Ja (ServiceCards)                 | Artikel fehlen                   |
+| ArticlesIndexPage    | Ja (alle Artikel + Featured)    | Nein                              | Service-Links fehlen             |
+| IglooProPage         | Nein                            | Nein                              | Isolierte Seite                  |
+| VitaminD3Page        | Ja (1 Artikel in Sidebar)       | Ja (dental, igloo-pro in Sidebar) | Am besten verlinkte Spezialseite |
+| AboutPage            | Nein                            | Nein                              | **Isolierte Seite**              |
+| EventsPage           | Nein                            | Nein                              | **Isolierte Seite**              |
+| ContactPage          | Nein                            | Nein                              | **Isolierte Seite**              |
+| DownloadsPage        | Nein                            | Nein                              | **Isolierte Seite**              |
 
 ---
 
@@ -100,7 +103,7 @@
 interface Article {
   id: string
   slug: string
-  category: ArticleCategory  // 'Sustainability' | 'Telemedicine' | 'Economics' | 'Health Article'
+  category: ArticleCategory // 'Sustainability' | 'Telemedicine' | 'Economics' | 'Health Article'
   author: string
   date: string
   readTime: string
@@ -120,6 +123,7 @@ interface Service {
 ```
 
 ### ServicePage Zeile 103 — Pseudo-Relation
+
 ```typescript
 const relatedArticles = articles.slice(0, 3) // ← IMMER die gleichen 3 Artikel!
 ```
@@ -132,34 +136,35 @@ Es gibt **keine semantische Zuordnung** zwischen Artikeln und Services. Die "ver
 
 ### Legende: ✅ Gut (3+ Quellen) | ⚠️ Schwach (1-2 Quellen) | ❌ Kritisch (0 Quellen)
 
-| Seite | Eingehende Links (Body-Content) | Status |
-|-------|--------------------------------|--------|
-| `/` | Überall verlinkt | ✅ |
-| `/contact` | Homepage (3x), ServicePage (2x), VitaminD3, DoctorsSection, CtaSection | ✅ |
-| `/diagnostics` | — (nur Breadcrumbs auf ServicePages) | ❌ |
-| `/diagnostics/dental` | Homepage (IglooWidget), ServicePage Sidebar, VitaminD3Page | ✅ |
-| `/diagnostics/beauty` | Homepage (IglooWidget), ServicePage Sidebar | ⚠️ |
-| `/diagnostics/longevity` | Homepage (IglooWidget), ServicePage Sidebar | ⚠️ |
-| `/diagnostics/poc-systemloesungen` | ServicePage Sidebar | ❌ |
-| `/diagnostics/praeventions-checks` | ServicePage Sidebar | ❌ |
-| `/diagnostics/infektion-entzuendung` | ServicePage Sidebar | ❌ |
-| `/diagnostics/stoffwechsel-herz` | ServicePage Sidebar | ❌ |
-| `/diagnostics/hormon-tests` | ServicePage Sidebar | ❌ |
-| `/diagnostics/kompatibilitaet-integration` | ServicePage Sidebar | ❌ |
-| `/articles` | ArticlePage "Zurück" Button | ⚠️ |
-| `/articles/die-gruene-praxis` | Homepage (BlogSection), ServicePage Sidebar, VitaminD3Page | ✅ |
-| `/articles/der-unsichtbare-patient` | Homepage (BlogSection), ServicePage Sidebar | ⚠️ |
-| `/articles/die-5-minuten-diagnose` | Homepage (BlogSection), ServicePage Sidebar | ⚠️ |
-| `/articles/the-ecosystem-of-rapid-tests...` | ArticlesIndex nur | ❌ |
-| `/articles/die-performance-formel...` | ArticlesIndex nur | ❌ |
-| `/articles/precision-in-point-of-care...` | ArticlesIndex nur | ❌ |
-| `/igloo-pro` | Homepage (DoctorsSection), VitaminD3Page, NotFoundPage | ✅ |
-| `/vitamin-d3-implantologie` | Homepage (BlogSection Featured), ArticlesIndex Featured | ⚠️ |
-| `/about` | — | ❌ |
-| `/events` | — | ❌ |
-| `/downloads` | Homepage (HeroSection) | ⚠️ |
+| Seite                                       | Eingehende Links (Body-Content)                                        | Status |
+| ------------------------------------------- | ---------------------------------------------------------------------- | ------ |
+| `/`                                         | Überall verlinkt                                                       | ✅     |
+| `/contact`                                  | Homepage (3x), ServicePage (2x), VitaminD3, DoctorsSection, CtaSection | ✅     |
+| `/diagnostics`                              | — (nur Breadcrumbs auf ServicePages)                                   | ❌     |
+| `/diagnostics/dental`                       | Homepage (IglooWidget), ServicePage Sidebar, VitaminD3Page             | ✅     |
+| `/diagnostics/beauty`                       | Homepage (IglooWidget), ServicePage Sidebar                            | ⚠️     |
+| `/diagnostics/longevity`                    | Homepage (IglooWidget), ServicePage Sidebar                            | ⚠️     |
+| `/diagnostics/poc-systemloesungen`          | ServicePage Sidebar                                                    | ❌     |
+| `/diagnostics/praeventions-checks`          | ServicePage Sidebar                                                    | ❌     |
+| `/diagnostics/infektion-entzuendung`        | ServicePage Sidebar                                                    | ❌     |
+| `/diagnostics/stoffwechsel-herz`            | ServicePage Sidebar                                                    | ❌     |
+| `/diagnostics/hormon-tests`                 | ServicePage Sidebar                                                    | ❌     |
+| `/diagnostics/kompatibilitaet-integration`  | ServicePage Sidebar                                                    | ❌     |
+| `/articles`                                 | ArticlePage "Zurück" Button                                            | ⚠️     |
+| `/articles/die-gruene-praxis`               | Homepage (BlogSection), ServicePage Sidebar, VitaminD3Page             | ✅     |
+| `/articles/der-unsichtbare-patient`         | Homepage (BlogSection), ServicePage Sidebar                            | ⚠️     |
+| `/articles/die-5-minuten-diagnose`          | Homepage (BlogSection), ServicePage Sidebar                            | ⚠️     |
+| `/articles/the-ecosystem-of-rapid-tests...` | ArticlesIndex nur                                                      | ❌     |
+| `/articles/die-performance-formel...`       | ArticlesIndex nur                                                      | ❌     |
+| `/articles/precision-in-point-of-care...`   | ArticlesIndex nur                                                      | ❌     |
+| `/igloo-pro`                                | Homepage (DoctorsSection), VitaminD3Page, NotFoundPage                 | ✅     |
+| `/vitamin-d3-implantologie`                 | Homepage (BlogSection Featured), ArticlesIndex Featured                | ⚠️     |
+| `/about`                                    | —                                                                      | ❌     |
+| `/events`                                   | —                                                                      | ❌     |
+| `/downloads`                                | Homepage (HeroSection)                                                 | ⚠️     |
 
 ### Kritischste Lücken (❌ — keine Body-Content-Links)
+
 1. **6 Service-Seiten** (poc-systemloesungen, praeventions-checks, infektion-entzuendung, stoffwechsel-herz, hormon-tests, kompatibilitaet-integration) — nur über ServicePage-Sidebar erreichbar
 2. **3 Artikel** (ecosystem, performance-formel, precision) — nur über ArticlesIndex erreichbar
 3. **`/diagnostics` Übersichtsseite** — kein einziger Body-Content-Link
@@ -173,6 +178,7 @@ Es gibt **keine semantische Zuordnung** zwischen Artikeln und Services. Die "ver
 ### PRIO 1 — Datenstruktur schaffen (Voraussetzung für alles Weitere)
 
 **Artikel ↔ Services Mapping einführen:**
+
 ```typescript
 // In Article Interface hinzufügen:
 relatedServiceIds?: ServiceId[]
@@ -231,16 +237,16 @@ Beispiel-Mapping:
 
 ## Zusammenfassung
 
-| Kategorie | Status | Handlungsbedarf |
-|-----------|--------|-----------------|
-| Header/Footer | ✅ Gut | — |
-| Breadcrumbs | ✅ Gut | — |
-| Homepage → Hauptseiten | ⚠️ Teilweise | 6/9 Services fehlen, /about fehlt, /diagnostics fehlt |
-| Service → Artikel | ❌ Fake | Hardcoded slice statt echtem Mapping |
-| Artikel → Services | ❌ Nicht vorhanden | Komplett fehlend |
-| Datenstruktur Mapping | ❌ Nicht vorhanden | Muss neu erstellt werden |
-| Unterseiten-Verlinkung | ❌ Isoliert | About, Events, Contact, Downloads ohne ausgehende Links |
-| "Verwandte Inhalte" | ⚠️ Oberflächlich | Nur Article↔Article funktioniert echt |
+| Kategorie              | Status             | Handlungsbedarf                                         |
+| ---------------------- | ------------------ | ------------------------------------------------------- |
+| Header/Footer          | ✅ Gut             | —                                                       |
+| Breadcrumbs            | ✅ Gut             | —                                                       |
+| Homepage → Hauptseiten | ⚠️ Teilweise       | 6/9 Services fehlen, /about fehlt, /diagnostics fehlt   |
+| Service → Artikel      | ❌ Fake            | Hardcoded slice statt echtem Mapping                    |
+| Artikel → Services     | ❌ Nicht vorhanden | Komplett fehlend                                        |
+| Datenstruktur Mapping  | ❌ Nicht vorhanden | Muss neu erstellt werden                                |
+| Unterseiten-Verlinkung | ❌ Isoliert        | About, Events, Contact, Downloads ohne ausgehende Links |
+| "Verwandte Inhalte"    | ⚠️ Oberflächlich   | Nur Article↔Article funktioniert echt                   |
 
 **Geschätzter Aufwand für vollständige Umsetzung:** 7 Arbeitspakete (Prio 1-7)
 **Größter SEO-Hebel:** Prio 1-3 (Datenstruktur + bidirektionale Artikel↔Services-Verlinkung)

@@ -1,12 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Wifi, Battery, ShieldCheck, Layers } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
-import { SEOHead, iglooProProductSchema, createBreadcrumbSchema } from '../components/seo';
-import SectionHeader from '../components/ui/SectionHeader';
-import PrimaryButton from '../components/ui/PrimaryButton';
-import iglooImage from '../assets/igloo_front.webp'; // Using existing asset
-import IglooProFlyer from '../assets/downloads/igloo-pro-flyer.pdf';
+import React, { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { Wifi, Battery, ShieldCheck, Layers } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import { SEOHead, iglooProProductSchema, createBreadcrumbSchema } from '../components/seo'
+import SectionHeader from '../components/ui/SectionHeader'
+import { Button } from '../components/ui/Button'
+import iglooImage from '../assets/igloo_front.webp' // Using existing asset
+import IglooProFlyer from '../assets/downloads/igloo-pro-flyer.pdf'
 
 // Hook for intersection observer animation trigger
 function useInView(options?: IntersectionObserverInit) {
@@ -24,7 +24,7 @@ function useInView(options?: IntersectionObserverInit) {
           observer.disconnect()
         }
       },
-      { threshold: 0.1, ...options }
+      { threshold: 0.1, ...options },
     )
 
     observer.observe(element)
@@ -35,7 +35,7 @@ function useInView(options?: IntersectionObserverInit) {
 }
 
 const IglooProPage: React.FC = () => {
-  const { t } = useTranslation(['products']);
+  const { t } = useTranslation(['products'])
   const featuresSection = useInView()
 
   // Data based on the provided PDF content
@@ -48,31 +48,31 @@ const IglooProPage: React.FC = () => {
     { label: t('products:specs.accuracy'), value: t('products:specs.accuracy_value') },
     { label: t('products:specs.storage'), value: t('products:specs.storage_value') },
     { label: t('products:specs.battery'), value: t('products:specs.battery_value') },
-    { label: t('products:specs.communication'), value: t('products:specs.communication_value') }
-  ];
+    { label: t('products:specs.communication'), value: t('products:specs.communication_value') },
+  ]
 
   const features = [
     {
       icon: Layers,
       title: t('products:features.methods.title'),
-      description: t('products:features.methods.description')
+      description: t('products:features.methods.description'),
     },
     {
       icon: Battery,
       title: t('products:features.battery.title'),
-      description: t('products:features.battery.description')
+      description: t('products:features.battery.description'),
     },
     {
       icon: Wifi,
       title: t('products:features.connectivity.title'),
-      description: t('products:features.connectivity.description')
+      description: t('products:features.connectivity.description'),
     },
     {
       icon: ShieldCheck,
       title: t('products:features.precision.title'),
-      description: t('products:features.precision.description')
-    }
-  ];
+      description: t('products:features.precision.description'),
+    },
+  ]
 
   const parameters = [
     t('products:parameters.list.vitd3'),
@@ -85,16 +85,25 @@ const IglooProPage: React.FC = () => {
     t('products:parameters.list.troponin'),
     t('products:parameters.list.flu'),
     t('products:parameters.list.rsv'),
-    t('products:parameters.list.strep')
-  ];
+    t('products:parameters.list.strep'),
+  ]
 
   return (
     <div className="min-h-screen bg-slate-50">
       <SEOHead
         title={t('seo.title', 'IglooPro POC-Reader: Spezifikationen & Technik | PolarisDX')}
-        description={t('seo.description', 'Immunfluoreszenz-Messgerät für 10+ Biomarker. 600g, CV <2%, USB/LAN/WLAN. IVDR-konform, Ergebnis in 3-15 Min. Angebot anfordern.')}
+        description={t(
+          'seo.description',
+          'Immunfluoreszenz-Messgerät für 10+ Biomarker. 600g, CV <2%, USB/LAN/WLAN. IVDR-konform, Ergebnis in 3-15 Min. Angebot anfordern.',
+        )}
         ogType="product"
-        keywords={['IglooPro', 'POC Reader kaufen', 'Point-of-Care Analysegerät', 'Immunfluoreszenz', 'Vitamin D Schnelltest Gerät']}
+        keywords={[
+          'IglooPro',
+          'POC Reader kaufen',
+          'Point-of-Care Analysegerät',
+          'Immunfluoreszenz',
+          'Vitamin D Schnelltest Gerät',
+        ]}
         structuredData={[
           iglooProProductSchema,
           createBreadcrumbSchema([
@@ -115,20 +124,27 @@ const IglooProPage: React.FC = () => {
                 caption={t('products:hero.caption')}
                 align="left"
                 className="mb-0"
-                titleClassName='text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight'
+                titleClassName="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
               />
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                {t('products:hero.title').split('Diagnostik').map((part, i) => (
-                    i === 0 ? <React.Fragment key={i}>{part}<br/></React.Fragment> : <span key={i} className="text-white drop-shadow-md">Diagnostik{part}</span>
-                ))}
+                {t('products:hero.title')
+                  .split('Diagnostik')
+                  .map((part, i) =>
+                    i === 0 ? (
+                      <React.Fragment key={i}>
+                        {part}
+                        <br />
+                      </React.Fragment>
+                    ) : (
+                      <span key={i} className="text-white drop-shadow-md">
+                        Diagnostik{part}
+                      </span>
+                    ),
+                  )}
               </h1>
-              <p className="text-xl text-gray-300 max-w-xl">
-                {t('products:hero.description')}
-              </p>
+              <p className="text-xl text-gray-300 max-w-xl">{t('products:hero.description')}</p>
               <div className="flex gap-4 pt-4">
-                <PrimaryButton as="a" href="/contact">
-                  {t('products:hero.cta_order')}
-                </PrimaryButton>
+                <Button href="/contact">{t('products:hero.cta_order')}</Button>
                 <a
                   href={IglooProFlyer}
                   target="_blank"
@@ -163,12 +179,8 @@ const IglooProPage: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h2 className="text-3xl font-bold text-gray-900">{t('products:intro.title')}</h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              {t('products:intro.text1')}
-            </p>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              {t('products:intro.text2')}
-            </p>
+            <p className="text-lg text-gray-600 leading-relaxed">{t('products:intro.text1')}</p>
+            <p className="text-lg text-gray-600 leading-relaxed">{t('products:intro.text2')}</p>
           </div>
         </div>
       </section>
@@ -176,81 +188,93 @@ const IglooProPage: React.FC = () => {
       {/* Features Grid */}
       <section className="py-20 bg-slate-50 relative" ref={featuresSection.ref}>
         <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {features.map((feature, idx) => (
-                    <div
-                        key={idx}
-                        className={`bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-brand-primary/50 transition-all duration-500 ${
-                          featuresSection.inView
-                            ? 'opacity-100 translate-y-0'
-                            : 'opacity-0 translate-y-5'
-                        }`}
-                        style={{ transitionDelay: `${idx * 100}ms` }}
-                    >
-                        <feature.icon className="w-10 h-10 text-brand-primary mb-4" />
-                        <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                        <p className="text-gray-500">{feature.description}</p>
-                    </div>
-                ))}
-            </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, idx) => (
+              <div
+                key={idx}
+                className={`bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-brand-primary/50 transition-all duration-500 ${
+                  featuresSection.inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+                }`}
+                style={{ transitionDelay: `${idx * 100}ms` }}
+              >
+                <feature.icon className="w-10 h-10 text-brand-primary mb-4" />
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                <p className="text-gray-500">{feature.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Technical Specs */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">{t('products:specs.title')}</h2>
-            <div className="max-w-4xl mx-auto bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100">
-                <div className="grid gap-px bg-gray-100">
-                    {specs.map((spec, idx) => (
-                        <div key={idx} className="grid md:grid-cols-3 bg-white p-4 hover:bg-gray-50 transition-colors">
-                            <div className="font-semibold text-brand-primary">{spec.label}</div>
-                            <div className="md:col-span-2 text-gray-600">{spec.value}</div>
-                        </div>
-                    ))}
+          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+            {t('products:specs.title')}
+          </h2>
+          <div className="max-w-4xl mx-auto bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100">
+            <div className="grid gap-px bg-gray-100">
+              {specs.map((spec, idx) => (
+                <div
+                  key={idx}
+                  className="grid md:grid-cols-3 bg-white p-4 hover:bg-gray-50 transition-colors"
+                >
+                  <div className="font-semibold text-brand-primary">{spec.label}</div>
+                  <div className="md:col-span-2 text-gray-600">{spec.value}</div>
                 </div>
+              ))}
             </div>
-            <p className="mt-4 text-center text-xs text-gray-400">
-              Hergestellt von{' '}
-              <a
-                href="https://dx365.world"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-gray-600 transition-colors"
-              >
-                DX365 GmbH
-              </a>
-              , Berlin · Europäischer Vertrieb: PolarisDX
-            </p>
+          </div>
+          <p className="mt-4 text-center text-xs text-gray-400">
+            Hergestellt von{' '}
+            <a
+              href="https://dx365.world"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-gray-600 transition-colors"
+            >
+              DX365 GmbH
+            </a>
+            , Berlin · Europäischer Vertrieb: PolarisDX
+          </p>
         </div>
       </section>
 
       {/* Parameters */}
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-12">{t('products:parameters.title')}</h2>
-            <div className="flex flex-wrap justify-center gap-4">
-                {parameters.map((param, idx) => (
-                    <span
-                        key={idx}
-                        className="px-6 py-3 bg-white rounded-full text-gray-700 font-medium shadow-sm border border-gray-200 hover:bg-brand-primary/5 hover:border-brand-primary hover:text-brand-primary transition-all cursor-default"
-                    >
-                        {param}
-                    </span>
-                ))}
-            </div>
-            <p className="mt-8 text-gray-500">
-                {t('products:parameters.disclaimer').split('. ').map((part, i) => (
-                  <React.Fragment key={i}>{part}{i < 1 && '.'} <br/></React.Fragment>
-                ))}
-            </p>
+          <h2 className="text-3xl font-bold text-gray-900 mb-12">
+            {t('products:parameters.title')}
+          </h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            {parameters.map((param, idx) => (
+              <span
+                key={idx}
+                className="px-6 py-3 bg-white rounded-full text-gray-700 font-medium shadow-sm border border-gray-200 hover:bg-brand-primary/5 hover:border-brand-primary hover:text-brand-primary transition-all cursor-default"
+              >
+                {param}
+              </span>
+            ))}
+          </div>
+          <p className="mt-8 text-gray-500">
+            {t('products:parameters.disclaimer')
+              .split('. ')
+              .map((part, i) => (
+                <React.Fragment key={i}>
+                  {part}
+                  {i < 1 && '.'} <br />
+                </React.Fragment>
+              ))}
+          </p>
         </div>
       </section>
 
       {/* Use Cases / Related Services */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">{t('products:use_cases.title', 'Einsatzbereiche')}</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">
+            {t('products:use_cases.title', 'Einsatzbereiche')}
+          </h2>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               to="/diagnostics/dental"
@@ -272,7 +296,10 @@ const IglooProPage: React.FC = () => {
             </Link>
           </div>
           <div className="mt-6">
-            <Link to="/articles" className="text-sm font-semibold text-brand-primary hover:text-brand-deep transition-colors">
+            <Link
+              to="/articles"
+              className="text-sm font-semibold text-brand-primary hover:text-brand-deep transition-colors"
+            >
               {t('products:use_cases.articles', 'Fachartikel lesen')} →
             </Link>
           </div>
@@ -282,17 +309,20 @@ const IglooProPage: React.FC = () => {
       {/* CTA */}
       <section className="py-20 bg-brand-deep">
         <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold text-white mb-6">{t('products:cta_bottom.title')}</h2>
-            <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
-                {t('products:cta_bottom.description')}
-            </p>
-            <PrimaryButton as="a" href="/contact" className="text-lg px-10 py-4 bg-white text-brand-deep hover:bg-gray-100 border-none shadow-xl">
-                {t('products:cta_bottom.button')}
-            </PrimaryButton>
+          <h2 className="text-3xl font-bold text-white mb-6">{t('products:cta_bottom.title')}</h2>
+          <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
+            {t('products:cta_bottom.description')}
+          </p>
+          <Button
+            href="/contact"
+            className="text-lg px-10 py-4 bg-white text-brand-deep hover:bg-gray-100 border-none shadow-xl"
+          >
+            {t('products:cta_bottom.button')}
+          </Button>
         </div>
       </section>
     </div>
-  );
-};
+  )
+}
 
-export default IglooProPage;
+export default IglooProPage

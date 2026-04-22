@@ -18,62 +18,71 @@ export const useSearch = (query: string) => {
 
   // UseMemo for static pages and services to avoid re-creating arrays on every render
   // though they depend on 't' which changes on language switch
-  const staticPages = useMemo(() => [
-    {
-      title: t('nav.home', 'Startseite'),
-      path: '/',
-      keywords: t('common:search.keywords.home', 'home startseite igloo widget diagnostic')
-    },
-    {
-      title: t('nav.about', 'Über uns'),
-      path: '/about',
-      keywords: t('common:search.keywords.about', 'team doctors polarisdx')
-    },
-    {
-      title: t('nav.service', 'Leistungen'),
-      path: '/diagnostics',
-      keywords: t('common:search.keywords.services', 'services leistungen dental beauty longevity')
-    },
-    {
-      title: t('nav.contact', 'Kontakt'),
-      path: '/contact',
-      keywords: t('common:search.keywords.contact', 'contact kontakt email phone address')
-    },
-    // Case study temporarily disabled
-    // {
-    //   title: t('nav.casestudies', 'Case Study'),
-    //   path: '/casestudys/32reasons',
-    //   keywords: t('common:search.keywords.casestudies', 'case study 32reasons polaris dx dentistry')
-    // },
-    {
-      title: t('nav.terms', 'AGB'),
-      path: '/terms',
-      keywords: t('common:search.keywords.terms', 'legal terms agb recht')
-    }
-  ], [t])
+  const staticPages = useMemo(
+    () => [
+      {
+        title: t('nav.home', 'Startseite'),
+        path: '/',
+        keywords: t('common:search.keywords.home', 'home startseite igloo widget diagnostic'),
+      },
+      {
+        title: t('nav.about', 'Über uns'),
+        path: '/about',
+        keywords: t('common:search.keywords.about', 'team doctors polarisdx'),
+      },
+      {
+        title: t('nav.service', 'Leistungen'),
+        path: '/diagnostics',
+        keywords: t(
+          'common:search.keywords.services',
+          'services leistungen dental beauty longevity',
+        ),
+      },
+      {
+        title: t('nav.contact', 'Kontakt'),
+        path: '/contact',
+        keywords: t('common:search.keywords.contact', 'contact kontakt email phone address'),
+      },
+      // Case study temporarily disabled
+      // {
+      //   title: t('nav.casestudies', 'Case Study'),
+      //   path: '/casestudys/32reasons',
+      //   keywords: t('common:search.keywords.casestudies', 'case study 32reasons polaris dx dentistry')
+      // },
+      {
+        title: t('nav.terms', 'AGB'),
+        path: '/terms',
+        keywords: t('common:search.keywords.terms', 'legal terms agb recht'),
+      },
+    ],
+    [t],
+  )
 
-  const services = useMemo(() => [
-    {
-      id: 'dental',
-      title: 'Dental',
-      desc: t('common:search.services.dental', 'Zahnmedizinische Diagnostik')
-    },
-    {
-      id: 'beauty',
-      title: 'Beauty',
-      desc: t('common:search.services.beauty', 'Dermatologische Analysen')
-    },
-    {
-      id: 'longevity',
-      title: 'Longevity',
-      desc: t('common:search.services.longevity', 'Gesundheit und Langlebigkeit')
-    },
-    {
-      id: 'sports',
-      title: 'Sports',
-      desc: t('common:search.services.sports', 'Leistungsdiagnostik für Sportler')
-    }
-  ], [t])
+  const services = useMemo(
+    () => [
+      {
+        id: 'dental',
+        title: 'Dental',
+        desc: t('common:search.services.dental', 'Zahnmedizinische Diagnostik'),
+      },
+      {
+        id: 'beauty',
+        title: 'Beauty',
+        desc: t('common:search.services.beauty', 'Dermatologische Analysen'),
+      },
+      {
+        id: 'longevity',
+        title: 'Longevity',
+        desc: t('common:search.services.longevity', 'Gesundheit und Langlebigkeit'),
+      },
+      {
+        id: 'sports',
+        title: 'Sports',
+        desc: t('common:search.services.sports', 'Leistungsdiagnostik für Sportler'),
+      },
+    ],
+    [t],
+  )
 
   useEffect(() => {
     if (!query.trim()) {
@@ -87,31 +96,37 @@ export const useSearch = (query: string) => {
     const found: SearchResult[] = []
 
     // 1. Search Static Pages
-    staticPages.forEach(page => {
-      if (page.title.toLowerCase().includes(searchTerm) || page.keywords.toLowerCase().includes(searchTerm)) {
+    staticPages.forEach((page) => {
+      if (
+        page.title.toLowerCase().includes(searchTerm) ||
+        page.keywords.toLowerCase().includes(searchTerm)
+      ) {
         found.push({
           title: page.title,
           description: t('common:readMore', 'Mehr erfahren'),
           path: page.path,
-          type: 'page'
+          type: 'page',
         })
       }
     })
 
     // 2. Search Services
-    services.forEach(service => {
-      if (service.title.toLowerCase().includes(searchTerm) || service.desc.toLowerCase().includes(searchTerm)) {
+    services.forEach((service) => {
+      if (
+        service.title.toLowerCase().includes(searchTerm) ||
+        service.desc.toLowerCase().includes(searchTerm)
+      ) {
         found.push({
           title: service.title,
           description: service.desc,
           path: `/diagnostics/${service.id}`,
-          type: 'service'
+          type: 'service',
         })
       }
     })
 
     // 3. Search Articles
-    articles.forEach(article => {
+    articles.forEach((article) => {
       const titleKey = `articles:${article.id}.title`
       const excerptKey = `articles:${article.id}.excerpt`
 
@@ -122,14 +137,15 @@ export const useSearch = (query: string) => {
       const actualTitle = title !== titleKey ? title : article.slug
 
       const titleMatch = actualTitle.toLowerCase().includes(searchTerm)
-      const excerptMatch = excerpt && excerpt !== excerptKey && excerpt.toLowerCase().includes(searchTerm)
+      const excerptMatch =
+        excerpt && excerpt !== excerptKey && excerpt.toLowerCase().includes(searchTerm)
 
       if (titleMatch || excerptMatch) {
         found.push({
           title: actualTitle,
-          description: (excerpt && excerpt !== excerptKey) ? excerpt : '',
+          description: excerpt && excerpt !== excerptKey ? excerpt : '',
           path: `/articles/${article.slug}`,
-          type: 'article'
+          type: 'article',
         })
       }
     })

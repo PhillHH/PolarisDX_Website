@@ -1,29 +1,29 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Shield, ChevronDown, ChevronUp } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+import React, { useState, useEffect, useCallback } from 'react'
+import { Shield, ChevronDown, ChevronUp } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 // =============================================================================
 // TYPES
 // =============================================================================
 
 interface CookieCategory {
-  id: string;
-  nameKey: string;
-  descriptionKey: string;
-  required: boolean;
-  enabled: boolean;
+  id: string
+  nameKey: string
+  descriptionKey: string
+  required: boolean
+  enabled: boolean
 }
 
 interface ConsentPreferences {
-  analytics: boolean;
-  marketing: boolean;
+  analytics: boolean
+  marketing: boolean
 }
 
 // Extend Window interface for GTM
 declare global {
   interface Window {
-    dataLayer: Array<Record<string, unknown>>;
-    gtag: (...args: unknown[]) => void;
+    dataLayer: Array<Record<string, unknown>>
+    gtag: (...args: unknown[]) => void
   }
 }
 
@@ -36,17 +36,17 @@ declare global {
  * This function updates the consent state in GTM
  */
 const updateGTMConsent = (preferences: ConsentPreferences): void => {
-  if (typeof window === 'undefined' || !window.gtag) return;
+  if (typeof window === 'undefined' || !window.gtag) return
 
   // Update analytics consent
   if (preferences.analytics) {
     window.gtag('consent', 'update', {
       analytics_storage: 'granted',
-    });
+    })
   } else {
     window.gtag('consent', 'update', {
       analytics_storage: 'denied',
-    });
+    })
   }
 
   // Update marketing/advertising consent
@@ -55,45 +55,45 @@ const updateGTMConsent = (preferences: ConsentPreferences): void => {
       ad_storage: 'granted',
       ad_user_data: 'granted',
       ad_personalization: 'granted',
-    });
+    })
   } else {
     window.gtag('consent', 'update', {
       ad_storage: 'denied',
       ad_user_data: 'denied',
       ad_personalization: 'denied',
-    });
+    })
   }
 
   // Push consent event to dataLayer for GTM triggers
-  window.dataLayer = window.dataLayer || [];
+  window.dataLayer = window.dataLayer || []
   window.dataLayer.push({
     event: 'consent_update',
     consent_analytics: preferences.analytics ? 'granted' : 'denied',
     consent_marketing: preferences.marketing ? 'granted' : 'denied',
-  });
-};
+  })
+}
 
 /**
  * Extract consent preferences from category array
  */
 const extractConsentFromCategories = (categories: CookieCategory[]): ConsentPreferences => {
-  const analytics = categories.find((c) => c.id === 'analytics');
-  const marketing = categories.find((c) => c.id === 'marketing');
+  const analytics = categories.find((c) => c.id === 'analytics')
+  const marketing = categories.find((c) => c.id === 'marketing')
 
   return {
     analytics: analytics?.enabled ?? false,
     marketing: marketing?.enabled ?? false,
-  };
-};
+  }
+}
 
 // =============================================================================
 // COOKIE BANNER COMPONENT
 // =============================================================================
 
 export const CookieBanner: React.FC = () => {
-  const { t } = useTranslation('common');
-  const [isVisible, setIsVisible] = useState(false);
-  const [showSettings, setShowSettings] = useState(false);
+  const { t } = useTranslation('common')
+  const [isVisible, setIsVisible] = useState(false)
+  const [showSettings, setShowSettings] = useState(false)
 
   const defaultCategories: CookieCategory[] = [
     {
@@ -117,74 +117,74 @@ export const CookieBanner: React.FC = () => {
       required: false,
       enabled: false,
     },
-  ];
+  ]
 
-  const [categories, setCategories] = useState<CookieCategory[]>(defaultCategories);
+  const [categories, setCategories] = useState<CookieCategory[]>(defaultCategories)
 
   // Check for existing consent on mount
   useEffect(() => {
-    let consent: string | null = null;
+    let consent: string | null = null
     try {
-      consent = typeof window !== 'undefined' ? localStorage.getItem('cookie-consent') : null;
+      consent = typeof window !== 'undefined' ? localStorage.getItem('cookie-consent') : null
     } catch {
       // ignore storage access errors in restricted environments
     }
 
     if (!consent) {
-      setIsVisible(true);
+      setIsVisible(true)
     } else {
       // Load saved preferences
       try {
-        const savedCategories = JSON.parse(consent) as CookieCategory[];
-        setCategories(savedCategories);
+        const savedCategories = JSON.parse(consent) as CookieCategory[]
+        setCategories(savedCategories)
         // Note: Consent is already updated in index.html on page load
       } catch {
-        setIsVisible(true);
+        setIsVisible(true)
       }
     }
-  }, []);
+  }, [])
 
   const saveConsent = useCallback((preferences: CookieCategory[]) => {
     try {
-      localStorage.setItem('cookie-consent', JSON.stringify(preferences));
+      localStorage.setItem('cookie-consent', JSON.stringify(preferences))
     } catch {
       // Ignore storage errors
     }
 
     // Update GTM Consent Mode
-    const consentPrefs = extractConsentFromCategories(preferences);
-    updateGTMConsent(consentPrefs);
+    const consentPrefs = extractConsentFromCategories(preferences)
+    updateGTMConsent(consentPrefs)
 
-    setIsVisible(false);
-  }, []);
+    setIsVisible(false)
+  }, [])
 
   const handleAcceptAll = useCallback(() => {
-    const allEnabled = categories.map((c) => ({ ...c, enabled: true }));
-    setCategories(allEnabled);
-    saveConsent(allEnabled);
-  }, [categories, saveConsent]);
+    const allEnabled = categories.map((c) => ({ ...c, enabled: true }))
+    setCategories(allEnabled)
+    saveConsent(allEnabled)
+  }, [categories, saveConsent])
 
   const handleRejectAll = useCallback(() => {
     // Keep only necessary cookies enabled
     const onlyNecessary = categories.map((c) => ({
       ...c,
       enabled: c.required,
-    }));
-    setCategories(onlyNecessary);
-    saveConsent(onlyNecessary);
-  }, [categories, saveConsent]);
+    }))
+    setCategories(onlyNecessary)
+    saveConsent(onlyNecessary)
+  }, [categories, saveConsent])
 
   const handleSaveSettings = useCallback(() => {
-    saveConsent(categories);
-  }, [categories, saveConsent]);
+    saveConsent(categories)
+  }, [categories, saveConsent])
 
   const toggleCategory = useCallback((id: string) => {
     setCategories((prev) =>
-      prev.map((c) => (c.id === id && !c.required ? { ...c, enabled: !c.enabled } : c))
-    );
-  }, []);
+      prev.map((c) => (c.id === id && !c.required ? { ...c, enabled: !c.enabled } : c)),
+    )
+  }, [])
 
-  if (!isVisible) return null;
+  if (!isVisible) return null
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-[70] p-4 bg-white border-t border-gray-200 shadow-lg md:p-6 animate-in slide-in-from-bottom duration-300">
@@ -202,7 +202,7 @@ export const CookieBanner: React.FC = () => {
               <p className="text-gray-600 text-sm md:text-base max-w-3xl">
                 {t(
                   'cookie.description',
-                  'Wir nutzen Cookies, um Ihnen die bestmögliche Nutzung unserer Webseite zu ermöglichen und unsere Kommunikation mit Ihnen zu verbessern. Wir berücksichtigen hierbei Ihre Präferenzen und verarbeiten Daten nur, wenn Sie uns durch Klicken auf "Alle akzeptieren" Ihr Einverständnis geben oder über "Einstellungen" eine spezifische Auswahl treffen.'
+                  'Wir nutzen Cookies, um Ihnen die bestmögliche Nutzung unserer Webseite zu ermöglichen und unsere Kommunikation mit Ihnen zu verbessern. Wir berücksichtigen hierbei Ihre Präferenzen und verarbeiten Daten nur, wenn Sie uns durch Klicken auf "Alle akzeptieren" Ihr Einverständnis geben oder über "Einstellungen" eine spezifische Auswahl treffen.',
                 )}
               </p>
             </div>
@@ -219,7 +219,9 @@ export const CookieBanner: React.FC = () => {
               onClick={() => setShowSettings(!showSettings)}
               className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors flex items-center justify-center gap-2"
             >
-              {showSettings ? t('cookie.hide', 'Ausblenden') : t('cookie.settings', 'Einstellungen')}
+              {showSettings
+                ? t('cookie.hide', 'Ausblenden')
+                : t('cookie.settings', 'Einstellungen')}
               {showSettings ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
             </button>
             <button
@@ -239,7 +241,9 @@ export const CookieBanner: React.FC = () => {
                 <div
                   key={category.id}
                   className={`p-4 rounded-lg border ${
-                    category.enabled ? 'border-blue-200 bg-blue-50/50' : 'border-gray-200 bg-gray-50/50'
+                    category.enabled
+                      ? 'border-blue-200 bg-blue-50/50'
+                      : 'border-gray-200 bg-gray-50/50'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-2">
@@ -275,5 +279,5 @@ export const CookieBanner: React.FC = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
