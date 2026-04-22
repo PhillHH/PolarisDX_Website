@@ -70,5 +70,3 @@ Jede Section ist konzeptionell ein eigener Abschnitt der Landingpage und nutzt U
 - Änderungen am Aufbau der Landingpage passieren hauptsächlich durch:
   - Einfügen/Entfernen/Umsortieren von Sections in `HomePage.tsx`,
   - Anpassen der Texte/Bilder innerhalb der jeweiligen Section‑Komponenten.
-
-

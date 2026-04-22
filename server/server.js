@@ -1,53 +1,49 @@
-const express = require('express');
-const sgMail = require('@sendgrid/mail');
-const cors = require('cors');
-require('dotenv').config();
+const express = require('express')
+const sgMail = require('@sendgrid/mail')
+const cors = require('cors')
+require('dotenv').config()
 
-const app = express();
+const app = express()
 
 // Middleware
-app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
-  methods: ['POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type']
-}));
-app.use(express.json({ limit: '10mb' }));
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+    methods: ['POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type'],
+  }),
+)
+app.use(express.json({ limit: '10mb' }))
 
 // Validation of required environment variables
-const requiredEnvVars = ['SENDGRID_API_KEY', 'CONTACT_RECEIVER', 'SENDER_EMAIL'];
-const missingEnvVars = requiredEnvVars.filter(key => !process.env[key]);
+const requiredEnvVars = ['SENDGRID_API_KEY', 'CONTACT_RECEIVER', 'SENDER_EMAIL']
+const missingEnvVars = requiredEnvVars.filter((key) => !process.env[key])
 
 if (missingEnvVars.length > 0) {
-  console.warn(`WARNING: Missing environment variables for email service: ${missingEnvVars.join(', ')}`);
+  console.warn(
+    `WARNING: Missing environment variables for email service: ${missingEnvVars.join(', ')}`,
+  )
 }
 
 // Set SendGrid API Key
 if (process.env.SENDGRID_API_KEY) {
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 }
 
 // API Endpoint
 app.post('/api/contact', async (req, res) => {
   try {
-    const {
-      name,
-      email,
-      message,
-      company,
-      phone,
-      area,
-      requirements
-    } = req.body;
+    const { name, email, message, company, phone, area, requirements } = req.body
 
     // Basic validation
     if (!name || !email || !message) {
-      return res.status(400).json({ error: 'Name, email, and message are required.' });
+      return res.status(400).json({ error: 'Name, email, and message are required.' })
     }
 
     // Route Vitamin D3+K2 Spray orders to dedicated address
-    const SPRAY_ORDER_RECIPIENT = 'ulrikes@polarisdx.net';
-    const isSprayOrder = area && area.includes('Vitamin D3+K2 Spray BESTELLUNG');
-    const recipient = isSprayOrder ? SPRAY_ORDER_RECIPIENT : process.env.CONTACT_RECEIVER;
+    const SPRAY_ORDER_RECIPIENT = 'ulrikes@polarisdx.net'
+    const isSprayOrder = area && area.includes('Vitamin D3+K2 Spray BESTELLUNG')
+    const recipient = isSprayOrder ? SPRAY_ORDER_RECIPIENT : process.env.CONTACT_RECEIVER
 
     // Email content construction
     const msg = {
@@ -77,41 +73,31 @@ app.post('/api/contact', async (req, res) => {
         <br>
         <p><strong>Nachricht/Anforderungen:</strong></p>
         <p>${(message || requirements || '-').replace(/\n/g, '<br>')}</p>
-      `
-    };
+      `,
+    }
 
     // Send email
-    await sgMail.send(msg);
-    console.log('Email sent successfully');
+    await sgMail.send(msg)
+    console.log('Email sent successfully')
 
-    res.status(200).json({ success: true });
-
+    res.status(200).json({ success: true })
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('Error sending email:', error)
     if (error.response) {
-      console.error(error.response.body);
+      console.error(error.response.body)
     }
-    res.status(500).json({ success: false, error: 'Failed to send email' });
+    res.status(500).json({ success: false, error: 'Failed to send email' })
   }
-});
+})
 
 // Support API Endpoint
 app.post('/api/support', async (req, res) => {
   try {
-    const {
-      name,
-      email,
-      udi,
-      swVersion,
-      issueType,
-      subject,
-      description,
-      attachment
-    } = req.body;
+    const { name, email, udi, swVersion, issueType, subject, description, attachment } = req.body
 
     // Basic validation
     if (!name || !email || !udi || !swVersion || !issueType || !subject) {
-      return res.status(400).json({ error: 'Required fields are missing.' });
+      return res.status(400).json({ error: 'Required fields are missing.' })
     }
 
     const supportText = `
@@ -126,7 +112,7 @@ Betreff: ${subject}
 
 Beschreibung:
 ${description || '-'}
-    `;
+    `
 
     const supportHtml = `
 <h3>Neue Support-Anfrage</h3>
@@ -141,7 +127,7 @@ ${description || '-'}
 <br>
 <p><strong>Beschreibung:</strong></p>
 <p>${(description || '-').replace(/\n/g, '<br>')}</p>
-    `;
+    `
 
     // Internal notification email to support team (High Priority)
     const msg = {
@@ -149,7 +135,7 @@ ${description || '-'}
         process.env.CONTACT_RECEIVER,
         'ulrikes@polarisdx.net',
         'adrianoz@polarisdx.net',
-        'phillipr@polarisdx.net'
+        'phillipr@polarisdx.net',
       ],
       from: process.env.SENDER_EMAIL,
       replyTo: email,
@@ -159,18 +145,20 @@ ${description || '-'}
       headers: {
         'X-Priority': '1',
         'X-MSMail-Priority': 'High',
-        'Importance': 'high'
-      }
-    };
+        Importance: 'high',
+      },
+    }
 
     // Add attachment if present
     if (attachment && attachment.content && attachment.filename) {
-      msg.attachments = [{
-        content: attachment.content,
-        filename: attachment.filename,
-        type: attachment.type || 'application/octet-stream',
-        disposition: 'attachment'
-      }];
+      msg.attachments = [
+        {
+          content: attachment.content,
+          filename: attachment.filename,
+          type: attachment.type || 'application/octet-stream',
+          disposition: 'attachment',
+        },
+      ]
     }
 
     // Confirmation email to the sender
@@ -194,26 +182,22 @@ ${description || '-'}
   <p style="margin-top: 24px;">Mit freundlichen Grüßen,<br><strong>Das PolarisDX Support-Team</strong></p>
   <p style="color: #666; font-size: 13px;">contact@polarisdx.net | +49 151 75011699</p>
 </div>
-      `
-    };
+      `,
+    }
 
     // Send both emails
-    await Promise.all([
-      sgMail.send(msg),
-      sgMail.send(confirmationMsg)
-    ]);
-    console.log('Support emails sent successfully (team + confirmation)');
+    await Promise.all([sgMail.send(msg), sgMail.send(confirmationMsg)])
+    console.log('Support emails sent successfully (team + confirmation)')
 
-    res.status(200).json({ success: true });
-
+    res.status(200).json({ success: true })
   } catch (error) {
-    console.error('Error sending support email:', error);
+    console.error('Error sending support email:', error)
     if (error.response) {
-      console.error(error.response.body);
+      console.error(error.response.body)
     }
-    res.status(500).json({ success: false, error: 'Failed to send support email' });
+    res.status(500).json({ success: false, error: 'Failed to send support email' })
   }
-});
+})
 
 /**
  * Chat Endpoint (Mock / Placeholder)
@@ -229,21 +213,23 @@ ${description || '-'}
  */
 app.post('/api/chat', async (req, res) => {
   try {
-    const { message } = req.body;
+    const { message } = req.body
 
     // Simulate processing delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000))
 
     // Mock Response Logic
-    let reply = "Vielen Dank für Ihre Nachricht. Ein Mitarbeiter wird sich in Kürze bei Ihnen melden.";
+    let reply =
+      'Vielen Dank für Ihre Nachricht. Ein Mitarbeiter wird sich in Kürze bei Ihnen melden.'
 
-    const lowerMsg = message.toLowerCase();
+    const lowerMsg = message.toLowerCase()
     if (lowerMsg.includes('hallo') || lowerMsg.includes('hi')) {
-      reply = "Hallo! Wie kann ich Ihnen heute helfen?";
+      reply = 'Hallo! Wie kann ich Ihnen heute helfen?'
     } else if (lowerMsg.includes('preis') || lowerMsg.includes('kosten')) {
-      reply = "Für Preisanfragen wenden Sie sich bitte direkt an unseren Vertrieb oder nutzen Sie das Kontaktformular.";
+      reply =
+        'Für Preisanfragen wenden Sie sich bitte direkt an unseren Vertrieb oder nutzen Sie das Kontaktformular.'
     } else if (lowerMsg.includes('termin')) {
-      reply = "Gerne! Sie können einen Termin direkt über unsere Kontaktseite buchen.";
+      reply = 'Gerne! Sie können einen Termin direkt über unsere Kontaktseite buchen.'
     }
 
     // TODO: Connect to MS Teams Webhook or OpenAI API here
@@ -251,13 +237,12 @@ app.post('/api/chat', async (req, res) => {
     // const aiResponse = await openai.createCompletion({ ... });
     // reply = aiResponse.choices[0].text;
 
-    res.status(200).json({ reply });
-
+    res.status(200).json({ reply })
   } catch (error) {
-    console.error('Chat Error:', error);
-    res.status(500).json({ error: 'Chat service error' });
+    console.error('Chat Error:', error)
+    res.status(500).json({ error: 'Chat service error' })
   }
-});
+})
 
 /**
  * Teams Integration Roadmap (Option C):
@@ -284,8 +269,8 @@ app.post('/api/chat', async (req, res) => {
  */
 
 // Start Server
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000
 // Listen on 0.0.0.0 to ensure Docker accessibility
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server running on port ${PORT}`);
-});
+  console.log(`Server running on port ${PORT}`)
+})

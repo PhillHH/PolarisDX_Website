@@ -1,12 +1,15 @@
 ## Client-Entry
+
 Datei: src/entry-client.tsx
 Importiert App aus: ./App.lazy
 
 ## SSR-Entry
+
 Datei: src/entry-server.tsx
 Importiert App aus: ./App
 
 ## Vite Entrypoints
+
 ```ts
 export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react()],
@@ -28,9 +31,11 @@ export default defineConfig(({ isSsrBuild }) => ({
     chunkSizeWarningLimit: 600,
   },
 ```
+
 (Der Client-Entrypoint wird via `<script type="module" src="/src/entry-client.tsx">` in `index.html` geladen, der SSR-Entrypoint explizit in `build:server` gesetzt.)
 
 ## Build Scripts
+
 ```json
 "dev":           "tsx server.ts",
 "dev:vite":      "vite",
@@ -42,4 +47,5 @@ export default defineConfig(({ isSsrBuild }) => ({
 ```
 
 ## Beobachtung in einem Satz
+
 Im Client-Build ist `src/App.lazy.tsx` aktiv (via `entry-client.tsx` aus `index.html`), im SSR-Build ist `src/App.tsx` aktiv (via `entry-server.tsx` in `build:server`); `src/main.tsx` importiert zwar `App.tsx`, wird aber von keinem Build-Pfad als Entry verwendet.

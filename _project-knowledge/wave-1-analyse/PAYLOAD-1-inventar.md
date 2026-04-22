@@ -1,6 +1,7 @@
 # PAYLOAD-1 — Inventar backend/
 
 ## backend/ File-Tree (max 30 Files)
+
 - backend/Dockerfile
 - backend/docker-compose.yml
 - backend/docker-compose.yml.init
@@ -33,11 +34,13 @@
 - backend/cms/src/app/(payload)/admin/importMap.js
 
 ## package.json
+
 - name: `app` (backend/package.json) / `cms` (backend/cms/package.json)
 - version: `1.0.0` / `1.0.0`
 - Hinweis: `backend/package.json` ist ein leerer Stub. Die real genutzten Deps liegen in `backend/cms/package.json`.
 
 ## Dependencies
+
 ```
 @payloadcms/next            3.65.0
 @payloadcms/richtext-lexical 3.65.0
@@ -54,6 +57,7 @@ dotenv                      16.4.7
 ```
 
 ## DevDependencies
+
 ```
 @playwright/test            1.56.1
 @testing-library/react      16.3.0
@@ -73,11 +77,13 @@ vitest                      3.2.3
 ```
 
 ## Konfigurationsdateien vorhanden
+
 - Dockerfile: ja (`backend/Dockerfile` und `backend/cms/Dockerfile`)
 - docker-compose.yml: ja (`backend/docker-compose.yml`, `backend/docker-compose.yml.init`, `backend/cms/docker-compose.yml`)
 - .env oder .env.example: ja (`backend/cms/.env.example`, `backend/cms/test.env`; keine `.env` getrackt)
 
 ## LOC pro Code-Datei
+
 ```
   38  backend/cms/eslint.config.mjs
   12  backend/cms/vitest.config.mts

@@ -27,14 +27,8 @@ const StatItem = ({ value, suffix, label, size = 'md', className = '' }: StatIte
   return (
     <div className={`space-y-1 ${className}`}>
       <div className="flex items-baseline gap-1">
-        <span className={styles.value}>
-          {value}
-        </span>
-        {suffix && (
-          <span className={styles.suffix}>
-            {suffix}
-          </span>
-        )}
+        <span className={styles.value}>{value}</span>
+        {suffix && <span className={styles.suffix}>{suffix}</span>}
       </div>
       <p className={styles.label}>{label}</p>
     </div>

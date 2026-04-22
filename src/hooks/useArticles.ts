@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { articles as allArticles, getArticleBySlug, } from '../data/articles'
+import { articles as allArticles, getArticleBySlug } from '../data/articles'
 import type { Article } from '../types'
 
 export interface UseArticlesReturn {
@@ -12,7 +12,7 @@ export interface UseArticlesReturn {
 export const useArticles = (slug?: string) => {
   const [data, setData] = useState<{ articles: Article[]; article: Article | undefined }>({
     articles: [],
-    article: undefined
+    article: undefined,
   })
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)
@@ -29,7 +29,7 @@ export const useArticles = (slug?: string) => {
         if (slug) {
           const found = getArticleBySlug(slug)
           // Also return other articles for sidebar, filtering out the current one
-          const others = allArticles.filter(a => a.slug !== slug)
+          const others = allArticles.filter((a) => a.slug !== slug)
           setData({ articles: others, article: found })
         } else {
           setData({ articles: allArticles, article: undefined })

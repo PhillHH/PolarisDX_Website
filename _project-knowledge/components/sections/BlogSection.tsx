@@ -28,7 +28,8 @@ const BlogSection = () => {
             Vitamin D3 und Implantologie — Evidenz und Praxisleitfaden
           </h3>
           <p className="mt-2 text-sm text-gray-500">
-            Wissenschaftlich fundierte Erkenntnisse zur Rolle von Vitamin D bei der Osseointegration.
+            Wissenschaftlich fundierte Erkenntnisse zur Rolle von Vitamin D bei der
+            Osseointegration.
           </p>
         </div>
       </Link>

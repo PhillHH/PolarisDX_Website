@@ -36,7 +36,10 @@ const DEFAULT_LANGUAGE = 'de'
 // =============================================================================
 
 interface RenderModule {
-  render: (url: string, lang: string) => Promise<{
+  render: (
+    url: string,
+    lang: string,
+  ) => Promise<{
     html: string
     helmet: {
       title: { toString: () => string }
@@ -52,7 +55,7 @@ interface RenderModule {
 // LANGUAGE URL HELPERS
 // =============================================================================
 
-type SupportedLanguage = typeof SUPPORTED_LANGUAGES[number]
+type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number]
 
 /**
  * Prüft ob ein Sprachcode unterstützt wird
@@ -94,7 +97,9 @@ function isStaticAsset(pathname: string): boolean {
   }
 
   // Bekannte statische Dateien und Datei-Endungen
-  return /\.(js|css|map|ico|png|jpg|jpeg|gif|svg|webp|avif|woff|woff2|ttf|eot|json|txt|xml|webmanifest)$/.test(pathname)
+  return /\.(js|css|map|ico|png|jpg|jpeg|gif|svg|webp|avif|woff|woff2|ttf|eot|json|txt|xml|webmanifest)$/.test(
+    pathname,
+  )
 }
 
 // =============================================================================
@@ -145,9 +150,21 @@ const SITEMAP_ROUTES: SitemapRoute[] = [
   { path: '/articles/die-gruene-praxis', priority: 0.6, changefreq: 'yearly' },
   { path: '/articles/der-unsichtbare-patient', priority: 0.6, changefreq: 'yearly' },
   { path: '/articles/die-5-minuten-diagnose', priority: 0.6, changefreq: 'yearly' },
-  { path: '/articles/the-ecosystem-of-rapid-tests-why-compatibility-creates-safety', priority: 0.6, changefreq: 'yearly' },
-  { path: '/articles/die-performance-formel-effizienz-in-der-poc-diagnostik', priority: 0.6, changefreq: 'yearly' },
-  { path: '/articles/precision-in-point-of-care-the-key-to-patient-safety', priority: 0.6, changefreq: 'yearly' },
+  {
+    path: '/articles/the-ecosystem-of-rapid-tests-why-compatibility-creates-safety',
+    priority: 0.6,
+    changefreq: 'yearly',
+  },
+  {
+    path: '/articles/die-performance-formel-effizienz-in-der-poc-diagnostik',
+    priority: 0.6,
+    changefreq: 'yearly',
+  },
+  {
+    path: '/articles/precision-in-point-of-care-the-key-to-patient-safety',
+    priority: 0.6,
+    changefreq: 'yearly',
+  },
 
   // Events & Resources
   { path: '/events', priority: 0.6, changefreq: 'weekly' },
@@ -233,7 +250,7 @@ async function createServer() {
       express.static(path.resolve(__dirname, 'dist/client/assets'), {
         maxAge: '1y',
         immutable: true,
-      })
+      }),
     )
 
     // Andere statische Assets aus dist/client
@@ -241,7 +258,7 @@ async function createServer() {
       express.static(path.resolve(__dirname, 'dist/client'), {
         index: false, // Kein automatisches index.html serving
         maxAge: '1h', // Kürzeres Caching für nicht-gehashte Assets
-      })
+      }),
     )
   }
 
@@ -282,7 +299,7 @@ async function createServer() {
       changeOrigin: true,
       // Express strips mount path, so we need to add /api back
       pathRewrite: (path) => '/api' + path,
-    })
+    }),
   )
 
   // ---------------------------------------------------------------------------
@@ -345,9 +362,7 @@ async function createServer() {
     // Sicherheitsnetz: Ohne gültiges Prefix hätte die Redirect-Middleware
     // bereits redirected. Hier als Fallback.
     if (!lang) {
-      const query = originalUrl.includes('?')
-        ? originalUrl.substring(originalUrl.indexOf('?'))
-        : ''
+      const query = originalUrl.includes('?') ? originalUrl.substring(originalUrl.indexOf('?')) : ''
       res.redirect(301, `/${DEFAULT_LANGUAGE}${pathname}${query}`)
       return
     }
@@ -356,9 +371,7 @@ async function createServer() {
     // StaticRouter basename=/${lang} strippt den Prefix selbst.
     // /en/about         → StaticRouter sieht /en/about, strippt /en → matched /about
     // /de/              → StaticRouter sieht /de/, strippt /de → matched /
-    const query = originalUrl.includes('?')
-      ? originalUrl.substring(originalUrl.indexOf('?'))
-      : ''
+    const query = originalUrl.includes('?') ? originalUrl.substring(originalUrl.indexOf('?')) : ''
     const routerUrl = pathname + query
 
     try {
@@ -373,7 +386,7 @@ async function createServer() {
         template = fs.readFileSync(path.resolve(__dirname, 'index.html'), 'utf-8')
         template = await vite.transformIndexHtml(originalUrl, template)
 
-        const ssrModule = await vite.ssrLoadModule('/src/entry-server.tsx') as RenderModule
+        const ssrModule = (await vite.ssrLoadModule('/src/entry-server.tsx')) as RenderModule
 
         if (ssrModule.preloadAllTranslations) {
           ssrModule.preloadAllTranslations()
@@ -384,13 +397,10 @@ async function createServer() {
         // -----------------------------------------------------------------------
         // PRODUCTION
         // -----------------------------------------------------------------------
-        template = fs.readFileSync(
-          path.resolve(__dirname, 'dist/client/index.html'),
-          'utf-8'
-        )
+        template = fs.readFileSync(path.resolve(__dirname, 'dist/client/index.html'), 'utf-8')
 
         const serverEntryPath = path.resolve(__dirname, 'dist/server/entry-server.js')
-        const ssrModule = await import(/* @vite-ignore */ serverEntryPath) as RenderModule
+        const ssrModule = (await import(/* @vite-ignore */ serverEntryPath)) as RenderModule
 
         render = ssrModule.render
       }
@@ -414,7 +424,9 @@ async function createServer() {
         helmet.link.toString(),
         helmet.script.toString(),
         floatLinks,
-      ].filter(Boolean).join('\n    ')
+      ]
+        .filter(Boolean)
+        .join('\n    ')
 
       // Template mit gerendertem HTML und Helmet-Tags füllen
       const finalHtml = template
@@ -423,7 +435,6 @@ async function createServer() {
         .replace('<html lang="de">', `<html lang="${lang}">`)
 
       res.status(200).set({ 'Content-Type': 'text/html' }).end(finalHtml)
-
     } catch (error) {
       if (!isProduction && vite) {
         vite.ssrFixStacktrace(error as Error)

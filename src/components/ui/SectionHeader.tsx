@@ -29,11 +29,7 @@ const SectionHeader = ({
           </span>
         </div>
       </div>
-      <h2
-        className={titleClasses}
-      >
-        {title}
-      </h2>
+      <h2 className={titleClasses}>{title}</h2>
     </div>
   )
 }

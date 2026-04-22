@@ -4,7 +4,7 @@
  * Export all SEO-related components and utilities.
  */
 
-export { SEOHead, type SEOHeadProps } from './SEOHead';
+export { SEOHead, type SEOHeadProps } from './SEOHead'
 
 // Structured data helpers
 export {
@@ -25,7 +25,7 @@ export {
   type ServiceSchemaOptions,
   type EventSchemaOptions,
   type ReviewSchemaOptions,
-} from './structuredData';
+} from './structuredData'
 
 // Re-export HelmetProvider for convenience
-export { HelmetProvider } from 'react-helmet-async';
+export { HelmetProvider } from 'react-helmet-async'

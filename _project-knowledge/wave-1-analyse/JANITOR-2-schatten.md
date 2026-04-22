@@ -1,12 +1,14 @@
 # JANITOR – Schatten-Folder & .gitignore
 
 ## translations/ Inhalt
+
 - data/
 - global/
 - home/
 - products/
 
 ## public/locales/ Inhalt
+
 - cs/
 - da/
 - de/
@@ -19,9 +21,11 @@
 - pt/
 
 ## translations/ wird importiert in
+
 nirgends (keine Treffer in `src/`, `server.ts`, `server/`)
 
 ## .gitignore aktueller Inhalt
+
 ```
 # Logs
 logs
@@ -51,12 +55,13 @@ dist-ssr
 ```
 
 ## Fehlende .gitignore-Einträge (nur auflisten)
+
 - test-results/
 - playwright-report/
 - coverage/
-- *.tsbuildinfo
+- \*.tsbuildinfo
 - Thumbs.db
 - .eslintcache
 - .vercel/
-- *.pyc
-- __pycache__/
+- \*.pyc
+- **pycache**/

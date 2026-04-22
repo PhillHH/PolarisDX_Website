@@ -1,7 +1,6 @@
 // Importiert wiederverwendbare UI-Komponenten und Bild-Assets.
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
-import PrimaryButton from '../ui/PrimaryButton' // Button-Komponente
+import { Button } from '../ui/Button'
 import SectionHeader from '../ui/SectionHeader' // Kopfzeilen-Komponente für Abschnitte
 import iglooExplode from '../../assets/igloo_explode.webp' // Bild für diesen Abschnitt
 
@@ -12,10 +11,7 @@ const AboutSection = () => {
   return (
     // Hauptcontainer des Abschnitts mit der ID 'about' für Anker-Links.
     // Verwendet ein Grid-Layout, das auf großen Bildschirmen zweispaltig wird.
-    <section
-      id="about"
-      className="grid items-center gap-10 lg:grid-cols-2"
-    >
+    <section id="about" className="grid items-center gap-10 lg:grid-cols-2">
       {/* Linke Spalte: Container für das Bild und das dekorative Hintergrund-Element. */}
       {/* Mobil ausgeblendet, nur auf Desktop (lg) sichtbar */}
       <div className="hidden lg:relative lg:mx-auto lg:block lg:h-[728px] lg:max-w-3xl">
@@ -55,9 +51,9 @@ const AboutSection = () => {
         </p>
         {/* Ein primärer Button, der als Link zum 'hero'-Abschnitt fungiert. */}
         <div className="flex justify-center pt-1 sm:pt-2 lg:justify-start">
-          <PrimaryButton as={Link} to="/contact" size="lg">
+          <Button to="/contact" size="lg">
             {t('about.cta', 'Exklusiven Vorteil sichern')}
-          </PrimaryButton>
+          </Button>
         </div>
       </div>
     </section>

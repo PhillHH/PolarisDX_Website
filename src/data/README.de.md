@@ -18,12 +18,10 @@ Die Idee ist, Inhalte (Produkte, Artikel, Testimonials, Services, Social Links) 
   - Enthält reale/beispielhafte medizinische Produkte und Services,
   - u. a. „Igloo Reader Pro“ mit ausführlichen technischen Daten und Lieferumfang.
 - `getProductBySlug(slug: string)`:
-  - Helferfunktion, um ein Produkt anhand des URL‑Slugs zu finden (wird in `ProductPage` genutzt).
+  - Helferfunktion, um ein Produkt anhand des URL‑Slugs zu finden.
 
 Verwendung:
 
-- `ShopPage` rendert eine Übersicht aller Produkte.
-- `ProductPage` zeigt Details eines Produkts.
 - `HomePage` nutzt einen Ausschnitt (`products.slice(0, 3)`) als Shop‑Teaser.
 
 ---
@@ -94,30 +92,6 @@ Verwendung:
 
 ---
 
-### `social.tsx`
-
-- `SocialLink`‑Typ:
-  - `label`, `href`, `icon: ReactNode`.
-- `socialLinks: SocialLink[]`:
-  - Platzhalter‑Social‑Links (LinkedIn, Twitter, Instagram, Facebook)
-  - mit Text‑Icons (z. B. `in`, `tw`).
-
-Verwendung:
-
-- `Footer` zeigt diese Links als runde Social‑Buttons an.
-
----
-
-### `democontent/`
-
-- Enthält beispielhafte Dateien (`.docx`, `.csv`, `.xlsx`), u. a.:
-  - Demo‑Artikel, Demo‑Rezensionen u. ä.
-- Diese Dateien sind **nicht direkt** in den React‑Code eingebunden und dienen primär:
-  - als Content‑Beispiele,
-  - für spätere Erweiterungen (z. B. Import von externen Daten).
-
----
-
 ### Rolle im Gesamtkonzept
 
 - Das Verzeichnis `src/data/` bildet den **Content‑Layer** der Anwendung:
@@ -126,5 +100,3 @@ Verwendung:
 - Dadurch lassen sich:
   - Produktkatalog, Artikel‑Pool und Testimonials pflegen, ohne UI‑Code zu duplizieren,
   - Marketing‑/Fachinhalte relativ unabhängig vom Frontend‑Code weiterentwickeln.
-
-

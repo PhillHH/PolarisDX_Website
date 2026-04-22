@@ -22,5 +22,3 @@ Die wichtigsten Bereiche sind:
 - **`data/`** – reine Datenquellen, die die UI füttern (Produkte, Artikel, Testimonials usw.).
 
 Die Struktur verfolgt das Ziel, **Inhalt (Daten)**, **Darstellung (UI)** und **Seitenlogik (Routes)** klar voneinander zu trennen.
-
-

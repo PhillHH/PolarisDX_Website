@@ -17,20 +17,22 @@ const languages = [
 ]
 
 interface LanguageSwitcherProps {
-    className?: string;
-    isMobile?: boolean;
+  className?: string
+  isMobile?: boolean
 }
 
 const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcherProps) => {
-  const { i18n } = useTranslation();
-  const location = useLocation();
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const { i18n } = useTranslation()
+  const location = useLocation()
+  const [isOpen, setIsOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
 
   // Stelle sicher, dass auch Codes mit Regionssuffix (z. B. en-US) korrekt aufgelöst werden
-  const normalizedCode = (i18n.language || '').split('-')[0];
+  const normalizedCode = (i18n.language || '').split('-')[0]
   const currentLanguage =
-    languages.find((l) => l.code === normalizedCode) || languages.find((l) => l.code === i18n.language) || languages[0];
+    languages.find((l) => l.code === normalizedCode) ||
+    languages.find((l) => l.code === i18n.language) ||
+    languages[0]
 
   /**
    * Sprachwechsel = Navigation zu neuer URL.
@@ -43,31 +45,31 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
    * - Kein Hydration Mismatch
    */
   const changeLanguage = (lng: string) => {
-    setIsOpen(false);
+    setIsOpen(false)
 
     // Aktuelle Route (ohne Sprach-Prefix, dank basename)
     // location.pathname = '/about' (nicht '/de/about')
-    const currentPath = location.pathname;
-    const search = location.search;
-    const hash = location.hash;
+    const currentPath = location.pathname
+    const search = location.search
+    const hash = location.hash
 
     // Neue URL mit neuem Sprach-Prefix
-    const newUrl = `/${lng}${currentPath}${search}${hash}`;
-    window.location.href = newUrl;
-  };
+    const newUrl = `/${lng}${currentPath}${search}${hash}`
+    window.location.href = newUrl
+  }
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
+        setIsOpen(false)
       }
-    };
+    }
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside)
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
 
   return (
     <div className={`relative ${className}`} ref={dropdownRef}>
@@ -92,7 +94,9 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
       </button>
 
       {isOpen && (
-        <div className={`absolute right-0 top-full mt-1 w-48 rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 z-50 overflow-hidden`}>
+        <div
+          className={`absolute right-0 top-full mt-1 w-48 rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 z-50 overflow-hidden`}
+        >
           {languages.map((language) => (
             <button
               key={language.code}
@@ -101,14 +105,17 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
                 i18n.language === language.code ? 'bg-gray-50 font-medium text-brand-primary' : ''
               }`}
             >
-              <FlagIcon countryCode={language.country_code} className="h-5 w-8 rounded-sm bg-white ring-1 ring-brand-primary/40 shadow-sm" />
+              <FlagIcon
+                countryCode={language.country_code}
+                className="h-5 w-8 rounded-sm bg-white ring-1 ring-brand-primary/40 shadow-sm"
+              />
               <span>{language.name}</span>
             </button>
           ))}
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default LanguageSwitcher;
+export default LanguageSwitcher

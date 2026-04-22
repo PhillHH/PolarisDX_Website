@@ -24,7 +24,7 @@ import './index.css'
 import { i18nReady } from './i18n.client'
 
 // App - Client-Version mit lazy loading für Code-Splitting
-import App from './App.lazy'
+import App from './App'
 
 // =============================================================================
 // LANGUAGE FROM URL
@@ -57,6 +57,6 @@ i18nReady.then(() => {
           </Suspense>
         </BrowserRouter>
       </HelmetProvider>
-    </StrictMode>
+    </StrictMode>,
   )
 })

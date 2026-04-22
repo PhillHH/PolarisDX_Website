@@ -16,9 +16,7 @@ const Layout = ({ children }: LayoutProps) => {
         flex-grow ensures the main content takes up the available space
         and pushes the footer to the bottom.
       */}
-      <main className="flex-grow flex flex-col">
-        {children}
-      </main>
+      <main className="flex-grow flex flex-col">{children}</main>
       <Footer />
     </div>
   )

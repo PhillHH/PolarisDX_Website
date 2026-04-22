@@ -30,9 +30,7 @@ const BlogCard = ({ id, imageUrl, to }: BlogCardProps) => {
         )}
       </div>
       <div className="flex flex-1 flex-col gap-3 p-5">
-        <h3 className="text-base font-semibold tracking-tight text-gray-900">
-          {title}
-        </h3>
+        <h3 className="text-base font-semibold tracking-tight text-gray-900">{title}</h3>
         <p className="text-sm leading-relaxed text-gray-600">{excerpt}</p>
         {to && (
           <Link

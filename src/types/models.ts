@@ -27,11 +27,7 @@ export interface Product {
   image?: string
 }
 
-export type ArticleCategory =
-  | 'Sustainability'
-  | 'Telemedicine'
-  | 'Economics'
-  | 'Health Article'
+export type ArticleCategory = 'Sustainability' | 'Telemedicine' | 'Economics' | 'Health Article'
 
 export interface ArticleSection {
   heading?: string
