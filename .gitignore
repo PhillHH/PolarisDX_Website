@@ -34,3 +34,8 @@ Thumbs.db
 .vercel/
 *.pyc
 __pycache__/
+
+# Kundendaten duerfen nie eingecheckt werden
+*.xlsx
+*.csv
+kontakte.*
