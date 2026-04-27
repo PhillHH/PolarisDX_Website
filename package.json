@@ -18,6 +18,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "vitest run --reporter=default",
+    "test:e2e": "playwright test",
     "server": "cd server && npm install && npm start",
     "prepare": "lefthook install"
   },
