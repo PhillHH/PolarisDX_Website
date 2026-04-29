@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sitemap for polarisdx.net
+  PolarisDX - POCT Diagnostics & Medical Technology (B2B)
+  Target: Dental practices, Longevity clinics, Beauty centers (DACH region)
+
+  Generated: 2026-04-29
+  Total URLs: 30
+
+  Priority Distribution:
+  - 1.0: Homepage, Main Product (Igloo Pro)
+  - 0.9: Diagnostics Overview (core offering)
+  - 0.8: About, Contact, Featured Landing Pages (high business value)
+  - 0.7: Individual Diagnostics, Articles Index, Support
+  - 0.6: Individual Articles, Events, Downloads
+  - 0.4: Legal pages (required but low SEO value)
+
+  Note: No language-prefixed URLs as i18n uses client-side switching only.
+  Note: /services and /services/* are 301-redirected to /diagnostics — only canonical /diagnostics URLs are listed.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- ===================================================================== -->
+  <!-- CORE PAGES - Highest Priority -->
+  <!-- ===================================================================== -->
+
+  <!-- Homepage - Entry point, highest priority -->
+  <url>
+    <loc>https://polarisdx.net/</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Igloo Pro - Flagship product page -->
+  <url>
+    <loc>https://polarisdx.net/igloo-pro</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- ===================================================================== -->
+  <!-- DIAGNOSTICS - Core offering (replaces former /services) -->
+  <!-- ===================================================================== -->
+
+  <!-- Diagnostics overview hub -->
+  <url>
+    <loc>https://polarisdx.net/diagnostics</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Vertical hubs (Widgets) -->
+  <url>
+    <loc>https://polarisdx.net/diagnostics/dental</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://polarisdx.net/diagnostics/beauty</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://polarisdx.net/diagnostics/longevity</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Existing diagnostic services -->
+  <url>
+    <loc>https://polarisdx.net/diagnostics/poc-systemloesungen</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://polarisdx.net/diagnostics/praeventions-checks</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://polarisdx.net/diagnostics/infektion-entzuendung</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://polarisdx.net/diagnostics/stoffwechsel-herz</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://polarisdx.net/diagnostics/hormon-tests</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://polarisdx.net/diagnostics/kompatibilitaet-integration</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ===================================================================== -->
+  <!-- FEATURED LANDING PAGES - High business value -->
+  <!-- ===================================================================== -->
+
+  <url>
+    <loc>https://polarisdx.net/s3_leitlinie</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://polarisdx.net/vitamin-d3-implantologie</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://polarisdx.net/vitamin-d3-spray</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ===================================================================== -->
+  <!-- COMPANY PAGES -->
+  <!-- ===================================================================== -->
+
+  <url>
+    <loc>https://polarisdx.net/about</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://polarisdx.net/contact</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://polarisdx.net/support</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ===================================================================== -->
+  <!-- CONTENT HUB - Articles -->
+  <!-- ===================================================================== -->
+
+  <url>
+    <loc>https://polarisdx.net/articles</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://polarisdx.net/articles/die-gruene-praxis</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://polarisdx.net/articles/der-unsichtbare-patient</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://polarisdx.net/articles/die-5-minuten-diagnose</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://polarisdx.net/articles/the-ecosystem-of-rapid-tests-why-compatibility-creates-safety</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://polarisdx.net/articles/die-performance-formel-effizienz-in-der-poc-diagnostik</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://polarisdx.net/articles/precision-in-point-of-care-the-key-to-patient-safety</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ===================================================================== -->
+  <!-- EVENTS & DOWNLOADS -->
+  <!-- ===================================================================== -->
+
+  <url>
+    <loc>https://polarisdx.net/events</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://polarisdx.net/downloads</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ===================================================================== -->
+  <!-- LEGAL PAGES -->
+  <!-- ===================================================================== -->
+
+  <url>
+    <loc>https://polarisdx.net/privacy</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://polarisdx.net/imprint</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://polarisdx.net/terms</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+</urlset>
