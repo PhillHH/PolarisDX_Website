@@ -27,6 +27,12 @@ const isProduction = process.env.NODE_ENV === 'production'
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000
 const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:5000'
 
+// Passwortschutz für die unlisted Consumer-Landingpages (/consumer/*).
+// Draft-Phase: nur mit direktem Link UND Passwort erreichbar.
+// Zugangsdaten via ENV überschreibbar (siehe .env).
+const CONSUMER_PREVIEW_USER = process.env.CONSUMER_PREVIEW_USER || 'polaris'
+const CONSUMER_PREVIEW_PASSWORD = process.env.CONSUMER_PREVIEW_PASSWORD || 'wellbeing2026'
+
 // Unterstützte Sprachen (muss mit i18n.ts übereinstimmen)
 const SUPPORTED_LANGUAGES = ['de', 'en', 'pl', 'fr', 'it', 'es', 'pt', 'da', 'nl', 'cs'] as const
 const DEFAULT_LANGUAGE = 'de'
@@ -271,6 +277,41 @@ async function createServer() {
     res.setHeader('X-XSS-Protection', '1; mode=block')
     res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin')
     next()
+  })
+
+  // ---------------------------------------------------------------------------
+  // PASSWORTSCHUTZ — UNLISTED CONSUMER-LANDINGPAGES (/consumer/*)
+  // ---------------------------------------------------------------------------
+  // Die Consumer-Landingpages sind während der Draft-Phase nicht öffentlich.
+  // Sie sind nicht verlinkt, nicht in der Sitemap und auf noindex gesetzt —
+  // zusätzlich verlangt der Server hier HTTP Basic Auth. Greift für /consumer/*
+  // wie auch für sprachpräfixierte Pfade (/de/consumer/*, /en/consumer/* …).
+  // ---------------------------------------------------------------------------
+  app.use((req: Request, res: Response, next: NextFunction) => {
+    if (!req.path.includes('/consumer/')) {
+      return next()
+    }
+
+    const header = req.headers.authorization || ''
+    if (header.startsWith('Basic ')) {
+      const decoded = Buffer.from(header.slice(6), 'base64').toString('utf-8')
+      const sep = decoded.indexOf(':')
+      const user = decoded.slice(0, sep)
+      const pass = decoded.slice(sep + 1)
+      if (user === CONSUMER_PREVIEW_USER && pass === CONSUMER_PREVIEW_PASSWORD) {
+        return next()
+      }
+    }
+
+    res
+      .status(401)
+      .set({
+        'WWW-Authenticate': 'Basic realm="PolarisDX consumer preview", charset="UTF-8"',
+        'Cache-Control': 'no-store',
+        'X-Robots-Tag': 'noindex, nofollow',
+      })
+      .type('text/plain')
+      .send('401 Unauthorized — PolarisDX consumer preview (password required).')
   })
 
   // ---------------------------------------------------------------------------

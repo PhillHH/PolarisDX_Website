@@ -15,6 +15,10 @@ Disallow: /api/
 Disallow: /locales/
 Disallow: /_
 
+# Unlisted consumer landing pages (draft — password-protected, noindex)
+Disallow: /consumer/
+Disallow: /*/consumer/
+
 # Allow assets needed for rendering (JS/CSS required for Google rendering validation)
 Allow: /assets/
 Allow: /*.js$
