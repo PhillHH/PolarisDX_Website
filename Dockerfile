@@ -9,7 +9,9 @@ WORKDIR /app
 COPY package*.json ./
 # Falls .npmrc existiert, auch kopieren
 COPY .npmrc* ./
-RUN npm ci
+# "prepare" entfernen: ruft lefthook (Git-Hooks) auf — im Container weder
+# vorhanden noch sinnvoll (kein .git im Build-Context).
+RUN npm pkg delete scripts.prepare && npm ci
 
 # 2. Source Code kopieren
 COPY . .
@@ -32,8 +34,9 @@ WORKDIR /app
 # 1. Nur Production Dependencies installieren
 COPY package*.json ./
 COPY .npmrc* ./
-# tsx wird für server.ts benötigt - explizit installieren da es in devDependencies ist
-RUN npm ci --omit=dev && npm install tsx
+# "prepare" entfernen: ruft lefthook (devDependency) auf und schlägt mit
+# --omit=dev fehl. tsx wird für server.ts benötigt - explizit installieren.
+RUN npm pkg delete scripts.prepare && npm ci --omit=dev && npm install tsx
 
 # 2. Build-Artefakte aus Builder-Stage kopieren
 COPY --from=builder /app/dist ./dist
