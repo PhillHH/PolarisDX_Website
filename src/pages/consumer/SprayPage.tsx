@@ -7,12 +7,13 @@
  */
 
 import { SEOHead } from '../../components/seo'
+import Footer from '../../components/layout/Footer'
 import sprayImage from '../../assets/VITAMIND_D3_SPRAY.jpg'
 import {
   Card,
-  ConsumerFooter,
   ConsumerHeader,
   CTA,
+  Disclaimer,
   FactStrip,
   FAQ,
   FinalCTA,
@@ -308,7 +309,13 @@ export default function SprayPage() {
         note="Pricing and checkout to be confirmed before launch."
       />
 
-      <ConsumerFooter disclaimer="Vitamin D3+K2 Spray is a food supplement and is not a medicine. Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle. Do not exceed the recommended daily intake. Keep out of reach of young children." />
+      <Disclaimer>
+        Vitamin D3+K2 Spray is a food supplement and is not a medicine. Food supplements should not
+        be used as a substitute for a varied, balanced diet and a healthy lifestyle. Do not exceed
+        the recommended daily intake. Keep out of reach of young children.
+      </Disclaimer>
+
+      <Footer />
     </div>
   )
 }

@@ -18,7 +18,6 @@
 
 import { type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { Linkedin, Instagram } from 'lucide-react'
 
 import Reveal from '../../components/ui/Reveal'
 import logoWhite from '../../assets/polaris_white.webp'
@@ -492,61 +491,19 @@ export function FinalCTA({
 }
 
 // =============================================================================
-// FOOTER — slim, brand-primary background
+// REGULATORY DISCLAIMER BAND
 // =============================================================================
+// Thin slate band rendered between the FinalCTA and the (shared) site Footer,
+// to keep the product-specific food-supplement / cosmetic disclaimer text
+// per the brief's claim rules. The site Footer is the original main-site
+// Footer (imported on each page), not a custom one — see commit notes.
 
-export function ConsumerFooter({ disclaimer }: { disclaimer: string }) {
+export function Disclaimer({ children }: { children: ReactNode }) {
   return (
-    <footer className="bg-brand-primary text-white">
-      <div className="mx-auto max-w-container px-4 py-16 sm:px-6 lg:px-0">
-        <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
-          <div className="max-w-sm space-y-4">
-            <Wordmark />
-            <p className="text-sm text-white/70">Simple daily wellbeing products from PolarisDX.</p>
-            <div className="flex gap-4">
-              <a
-                href="https://www.linkedin.com/company/polarisdx/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="LinkedIn"
-                className="text-white transition-colors hover:text-teal-300"
-              >
-                <Linkedin className="h-6 w-6" />
-              </a>
-              <a
-                href="https://www.instagram.com/polaris_diagnostix/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram"
-                className="text-white transition-colors hover:text-teal-300"
-              >
-                <Instagram className="h-6 w-6" />
-              </a>
-            </div>
-          </div>
-          <div className="flex flex-wrap gap-x-8 gap-y-2 text-sm text-white/70">
-            <Link to="/imprint" className="transition-colors hover:text-white">
-              Imprint
-            </Link>
-            <Link to="/privacy" className="transition-colors hover:text-white">
-              Privacy
-            </Link>
-            <Link to="/terms" className="transition-colors hover:text-white">
-              Terms
-            </Link>
-            <Link to="/contact" className="transition-colors hover:text-white">
-              Contact
-            </Link>
-          </div>
-        </div>
-        <div className="mt-12 border-t border-white/15 pt-8 text-xs leading-relaxed text-white/60">
-          <p className="max-w-3xl">{disclaimer}</p>
-          <p className="mt-3">
-            © {new Date().getFullYear()} PolarisDX · Draft consumer landing page — content, claims
-            and pricing to be confirmed before launch.
-          </p>
-        </div>
+    <div className="border-t border-slate-200 bg-slate-100">
+      <div className="mx-auto max-w-3xl px-4 py-8 text-center text-xs leading-relaxed text-gray-500 sm:px-6">
+        {children}
       </div>
-    </footer>
+    </div>
   )
 }

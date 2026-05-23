@@ -7,11 +7,12 @@
  */
 
 import { SEOHead } from '../../components/seo'
+import Footer from '../../components/layout/Footer'
 import {
   Card,
-  ConsumerFooter,
   ConsumerHeader,
   CTA,
+  Disclaimer,
   FactStrip,
   FAQ,
   FinalCTA,
@@ -265,7 +266,13 @@ export default function MaskPage() {
       />
 
       {/* 11 · FOOTER */}
-      <ConsumerFooter disclaimer="The Hydrating Mask is a cosmetic product for external use only. It is not intended to diagnose, treat, cure or prevent any skin disease. Avoid contact with the eyes and do not use on irritated or broken skin. Discontinue use if irritation occurs." />
+      <Disclaimer>
+        The Hydrating Mask is a cosmetic product for external use only. It is not intended to
+        diagnose, treat, cure or prevent any skin disease. Avoid contact with the eyes and do not
+        use on irritated or broken skin. Discontinue use if irritation occurs.
+      </Disclaimer>
+
+      <Footer />
     </div>
   )
 }

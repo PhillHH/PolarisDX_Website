@@ -8,10 +8,11 @@
 
 import { Link } from 'react-router-dom'
 import { SEOHead } from '../../components/seo'
+import Footer from '../../components/layout/Footer'
 import {
   Card,
-  ConsumerFooter,
   ConsumerHeader,
+  Disclaimer,
   FactStrip,
   FAQ,
   FinalCTA,
@@ -174,7 +175,14 @@ export default function DuoPage() {
       />
 
       {/* 11 · FOOTER */}
-      <ConsumerFooter disclaimer="The Inside-Out Care Duo combines a food supplement (Vitamin D3+K2 Spray) and a cosmetic product (Hydrating Mask). The spray is not a medicine and should not replace a varied, balanced diet; do not exceed the recommended daily intake. The mask is for external use only and is not intended to diagnose, treat or prevent any skin disease." />
+      <Disclaimer>
+        The Inside-Out Care Duo combines a food supplement (Vitamin D3+K2 Spray) and a cosmetic
+        product (Hydrating Mask). The spray is not a medicine and should not replace a varied,
+        balanced diet; do not exceed the recommended daily intake. The mask is for external use only
+        and is not intended to diagnose, treat or prevent any skin disease.
+      </Disclaimer>
+
+      <Footer />
     </div>
   )
 }
