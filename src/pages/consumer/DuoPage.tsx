@@ -94,7 +94,7 @@ export default function DuoPage() {
             </p>
             <Link
               to="/consumer/vitamin-d3-spray"
-              className="mt-6 inline-block text-sm font-semibold text-brand-primary hover:text-brand-deep"
+              className="mt-6 inline-block text-sm font-semibold text-teal-700 hover:text-teal-900"
             >
               See the spray page →
             </Link>
@@ -107,7 +107,7 @@ export default function DuoPage() {
             </p>
             <Link
               to="/consumer/hydrating-masks"
-              className="mt-6 inline-block text-sm font-semibold text-brand-primary hover:text-brand-deep"
+              className="mt-6 inline-block text-sm font-semibold text-teal-700 hover:text-teal-900"
             >
               See the mask page →
             </Link>
@@ -119,7 +119,7 @@ export default function DuoPage() {
       <Section id="routine" tone="tint" eyebrow="The routine" title="Two simple steps">
         <div className="grid gap-6 md:grid-cols-2">
           <Card>
-            <p className="text-xs font-semibold uppercase tracking-wider text-brand-primary">
+            <p className="text-xs font-semibold uppercase tracking-wider text-teal-700">
               Step 1 · Inside
             </p>
             <h3 className="mt-2 text-2xl font-semibold text-gray-900">Daily support from within</h3>
@@ -129,7 +129,7 @@ export default function DuoPage() {
             </p>
           </Card>
           <Card>
-            <p className="text-xs font-semibold uppercase tracking-wider text-brand-primary">
+            <p className="text-xs font-semibold uppercase tracking-wider text-teal-700">
               Step 2 · Outside
             </p>
             <h3 className="mt-2 text-2xl font-semibold text-gray-900">

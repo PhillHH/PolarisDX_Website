@@ -6,13 +6,13 @@
  * Unlisted: no nav/sitemap entry, noindex, password-gated at the server.
  */
 
-import { Button } from '../../components/ui/Button'
 import { SEOHead } from '../../components/seo'
 import sprayImage from '../../assets/VITAMIND_D3_SPRAY.jpg'
 import {
   Card,
   ConsumerFooter,
   ConsumerHeader,
+  CTA,
   FactStrip,
   FAQ,
   FinalCTA,
@@ -197,7 +197,7 @@ export default function SprayPage() {
               <p className="mt-3 flex-grow leading-relaxed text-gray-600">{a.body}</p>
               <a
                 href="#order"
-                className="mt-6 inline-block text-sm font-semibold text-brand-primary hover:text-brand-deep"
+                className="mt-6 inline-block text-sm font-semibold text-teal-700 hover:text-teal-900"
               >
                 {a.cta} →
               </a>
@@ -288,9 +288,9 @@ export default function SprayPage() {
         align="left"
         lead="First step: daily support from within with the spray. Next step: outside-in hydration with the Hydrating Mask bundle — both together in the Inside-Out Care Duo."
       >
-        <Button to="/consumer/inside-out-duo" variant="primary" size="sm">
+        <CTA to="/consumer/inside-out-duo" variant="teal">
           Explore the Inside-Out Care Duo
-        </Button>
+        </CTA>
       </Section>
 
       {/* 11 · FAQ */}

@@ -1,27 +1,26 @@
 /**
- * Consumer landing page shell — main-site design, product-focused chrome
+ * Consumer landing page shell — bright premium wellbeing style per the brief
  *
  * Shared chrome + section primitives for the consumer-facing landing pages
  * (Vitamin D3+K2 Spray, Hydrating Masks, Inside-Out Care Duo).
  *
- * Reuses the main polarisdx.net design system:
- * - brand colors (brand-primary / brand-deep / brand-secondary)
- * - the real <Button>, <SectionHeader> and <Reveal> components
- * - the fixed dark-on-scroll header style from the main Header
- * - the brand-primary footer treatment
+ * Visual language follows the PolarisDX Consumer Page Wireframe Brief
+ * (slide 3 "Shared page style and build rules"):
+ *   - bright, clean, premium healthcare/wellbeing
+ *   - soft neutrals, navy headings, TEAL accents
+ *   - real product imagery, clear pack size on every page
  *
- * Differs from the main site only in navigation: header links and footer
- * links are product-focused (Wireframe brief), no B2B / Diagnostik menu.
+ * Differs from the main polarisdx.net site (which is a darker B2B aesthetic)
+ * by design — but reuses PolarisDX brand colours, logo and the consumer-
+ * focused navigation/footer pattern. Marketing brief overrides main-site
+ * styling where the two conflict.
  */
 
 import { type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { Linkedin, Instagram } from 'lucide-react'
 
-import { Button } from '../../components/ui/Button'
-import SectionHeader from '../../components/ui/SectionHeader'
 import Reveal from '../../components/ui/Reveal'
-import { useScrollPosition } from '../../hooks/useScrollPosition'
 import logoWhite from '../../assets/polaris_white.webp'
 
 // =============================================================================
@@ -33,69 +32,92 @@ export interface NavLink {
   href: string
 }
 
+type AccentBar = 'teal' | 'navy' | 'green' | 'amber' | 'none'
+
 // =============================================================================
-// HEADER — fixed, transparent over hero, dark backdrop on scroll
+// BUTTONS — solid navy primary, outline navy secondary, teal for header
+// =============================================================================
+
+type CTAVariant = 'navy' | 'outline-navy' | 'teal' | 'white' | 'outline-white'
+
+interface CTAProps {
+  children: ReactNode
+  href?: string
+  to?: string
+  variant?: CTAVariant
+  size?: 'sm' | 'md'
+}
+
+export function CTA({ children, href, to, variant = 'navy', size = 'md' }: CTAProps) {
+  const base =
+    'inline-flex items-center justify-center gap-2 rounded-md font-semibold tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500'
+  const sizes = {
+    sm: 'px-5 py-2.5 text-sm',
+    md: 'px-7 py-3.5 text-base',
+  }
+  const variants: Record<CTAVariant, string> = {
+    navy: 'bg-brand-deep text-white hover:bg-[#0a4170] shadow-sm',
+    'outline-navy':
+      'bg-white border border-brand-deep text-brand-deep hover:bg-brand-deep hover:text-white shadow-sm',
+    teal: 'bg-teal-600 text-white hover:bg-teal-700 shadow-sm',
+    white: 'bg-white text-brand-deep hover:bg-slate-50 shadow-sm',
+    'outline-white': 'border border-white/60 text-white hover:bg-white/10',
+  }
+  const cls = `${base} ${sizes[size]} ${variants[variant]}`
+  if (to) {
+    return (
+      <Link to={to} className={cls}>
+        {children}
+      </Link>
+    )
+  }
+  return (
+    <a href={href ?? '#'} className={cls}>
+      {children}
+    </a>
+  )
+}
+
+// =============================================================================
+// LOGO WORDMARK (helper)
+// =============================================================================
+
+function Wordmark() {
+  return (
+    <img src={logoWhite} alt="PolarisDX" width={136} height={40} className="h-9 w-auto sm:h-10" />
+  )
+}
+
+// =============================================================================
+// HEADER — solid dark navy bar, white logo, teal CTA
 // =============================================================================
 
 export function ConsumerHeader({ nav, cta }: { nav: NavLink[]; cta: NavLink }) {
-  const scrollY = useScrollPosition()
-  const isScrolled = scrollY > 24
-
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-30 transition-all duration-500 ease-in-out ${
-        isScrolled
-          ? 'border-b border-white/5 bg-[#083358]/85 shadow-[0_4px_30px_rgba(0,0,0,0.2)] backdrop-blur-xl'
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="mx-auto flex max-w-container items-center justify-between px-4 py-3 sm:px-6 lg:px-0 lg:py-4">
-        <a href="#top" aria-label="PolarisDX" className="flex shrink-0 items-center gap-3">
-          <img
-            src={logoWhite}
-            alt="PolarisDX"
-            width={136}
-            height={40}
-            className="h-10 w-auto transition-all duration-300 sm:h-12"
-          />
+    <header className="sticky top-0 z-30 bg-brand-deep shadow-[0_2px_12px_rgba(8,51,88,0.18)]">
+      <div className="mx-auto flex max-w-container items-center justify-between gap-6 px-4 py-3 sm:px-6 lg:px-0 lg:py-4">
+        <a href="#top" aria-label="PolarisDX" className="flex shrink-0 items-center">
+          <Wordmark />
         </a>
 
-        {/* Desktop nav (anchor links into the page) */}
-        <nav className="hidden flex-wrap items-center gap-8 text-sm font-medium tracking-wide text-white md:flex xl:gap-12">
+        <nav className="hidden flex-1 items-center justify-center gap-8 text-sm font-medium text-white/90 md:flex">
           {nav.map((n) => (
-            <a
-              key={n.href}
-              href={n.href}
-              className="flex items-center gap-1 text-white transition-all duration-300 hover:opacity-70"
-            >
-              <span className="relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 after:bg-current after:transition-transform after:duration-300 after:content-[''] hover:after:origin-bottom-left hover:after:scale-x-100">
-                {n.label}
-              </span>
+            <a key={n.href} href={n.href} className="transition-colors hover:text-teal-300">
+              {n.label}
             </a>
           ))}
         </nav>
 
-        <div className={`${isScrolled ? '' : 'shadow-lg shadow-blue-900/20'} rounded-full`}>
-          <Button
-            href={cta.href}
-            variant={isScrolled ? 'primary' : 'outline'}
-            size="sm"
-            className={
-              isScrolled
-                ? 'shadow-lg shadow-blue-500/25'
-                : 'border-white/40 hover:border-white hover:bg-white/10'
-            }
-          >
-            {cta.label}
-          </Button>
-        </div>
+        <CTA href={cta.href} variant="teal" size="sm">
+          {cta.label}
+        </CTA>
       </div>
     </header>
   )
 }
 
 // =============================================================================
-// HERO — dark, gradient, text-left / image-right
+// HERO — bright/light, text left, product right, teal eyebrow, navy headline
 // =============================================================================
 
 export function Hero({
@@ -114,58 +136,56 @@ export function Hero({
   image?: { src?: string; alt: string; placeholder?: string }
 }) {
   return (
-    <section
-      id="top"
-      className="relative overflow-hidden bg-brand-deep pt-32 pb-20 text-white lg:pt-40 lg:pb-28"
-    >
-      {/* Decorative radial gradients */}
+    <section id="top" className="relative overflow-hidden bg-gradient-to-b from-white to-slate-50">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(33,153,234,0.28),transparent_55%),radial-gradient(circle_at_bottom_left,rgba(15,95,149,0.4),transparent_55%)]"
+        className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-teal-200/30 blur-3xl"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/20 to-transparent opacity-10"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/20 to-transparent opacity-10"
+        className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-brand-secondary/15 blur-3xl"
       />
 
-      <div className="relative mx-auto max-w-container px-4 sm:px-6 lg:px-0">
+      <div className="relative mx-auto max-w-container px-4 pt-16 pb-20 sm:px-6 lg:px-0 lg:pt-24 lg:pb-28">
         <Reveal width="100%" yOffset={20}>
-          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+            {/* Text · left */}
             <div>
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[1.2px] text-brand-secondary">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[1.6px] text-teal-700">
                 {eyebrow}
               </p>
-              <h1 className="text-3xl font-medium leading-tight tracking-tight sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+              <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-gray-900 sm:text-5xl lg:text-[3.25rem] lg:leading-[1.05]">
                 {title}
               </h1>
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
-                {sub}
-              </p>
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <Button href={primary.href} variant="primary" size="sm">
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-gray-600">{sub}</p>
+              <div className="mt-10 flex flex-wrap items-center gap-3">
+                <CTA href={primary.href} variant="navy">
                   {primary.label}
-                </Button>
+                </CTA>
                 {secondary && (
-                  <Button href={secondary.href} variant="outline" size="sm">
+                  <CTA href={secondary.href} variant="outline-navy">
                     {secondary.label}
-                  </Button>
+                  </CTA>
                 )}
               </div>
             </div>
 
-            <div>
+            {/* Image · right */}
+            <div className="relative">
               {image?.src ? (
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="mx-auto w-full max-w-sm rounded-2xl shadow-2xl lg:max-w-md"
-                />
+                <div className="relative mx-auto w-full max-w-sm lg:max-w-md">
+                  <div
+                    aria-hidden
+                    className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-teal-100/60 via-white to-brand-secondary/10"
+                  />
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="relative w-full rounded-2xl shadow-[0_20px_50px_rgba(8,51,88,0.18)]"
+                  />
+                </div>
               ) : (
-                <div className="mx-auto flex aspect-[4/5] w-full max-w-sm items-center justify-center rounded-2xl border-2 border-dashed border-white/20 bg-white/5 p-8 text-center text-sm text-white/60 lg:max-w-md">
+                <div className="mx-auto flex aspect-[4/5] w-full max-w-sm items-center justify-center rounded-2xl border-2 border-dashed border-teal-300/60 bg-white p-8 text-center text-sm text-gray-500 lg:max-w-md">
                   Bildplatzhalter — {image?.placeholder ?? image?.alt}
                 </div>
               )}
@@ -178,18 +198,18 @@ export function Hero({
 }
 
 // =============================================================================
-// FACT / OFFER STRIP — light band directly under the hero
+// FACT / OFFER STRIP — light bar with teal divider dots
 // =============================================================================
 
 export function FactStrip({ items }: { items: string[] }) {
   return (
-    <div className="border-b border-slate-200 bg-slate-50">
-      <div className="mx-auto flex max-w-container flex-wrap items-center justify-center gap-x-4 gap-y-2 px-4 py-5 text-center text-sm text-gray-900 sm:px-6 lg:px-0">
+    <div className="border-y border-slate-200 bg-white">
+      <div className="mx-auto flex max-w-container flex-wrap items-center justify-center gap-x-3 gap-y-2 px-4 py-5 text-center text-sm text-gray-900 sm:px-6 lg:px-0">
         {items.map((it, i) => (
-          <span key={i} className="flex items-center gap-4">
+          <span key={i} className="flex items-center gap-3">
             {i > 0 && (
-              <span aria-hidden className="text-brand-primary/40">
-                •
+              <span aria-hidden className="text-teal-500">
+                ●
               </span>
             )}
             <span className="font-medium">{it}</span>
@@ -201,7 +221,49 @@ export function FactStrip({ items }: { items: string[] }) {
 }
 
 // =============================================================================
-// SECTION WRAPPER — uses real SectionHeader on light/tint, custom on dark
+// SECTION TITLE — navy headline with teal underline accent
+// =============================================================================
+
+function SectionTitle({
+  eyebrow,
+  title,
+  align = 'center',
+  onDark = false,
+}: {
+  eyebrow?: string
+  title?: string
+  align?: 'left' | 'center'
+  onDark?: boolean
+}) {
+  const flex = align === 'center' ? 'items-center text-center' : 'items-start text-left'
+  return (
+    <div className={`flex flex-col gap-3 ${flex}`}>
+      {eyebrow && (
+        <p
+          className={`text-xs font-semibold uppercase tracking-[1.6px] ${
+            onDark ? 'text-teal-300' : 'text-teal-700'
+          }`}
+        >
+          {eyebrow}
+        </p>
+      )}
+      {title && (
+        <h2
+          className={`text-3xl font-bold tracking-tight sm:text-4xl ${
+            onDark ? 'text-white' : 'text-gray-900'
+          }`}
+        >
+          {title}
+        </h2>
+      )}
+      {/* Teal underline accent — matches the brief's section-title style */}
+      <span aria-hidden className="block h-[3px] w-12 rounded-full bg-teal-500" />
+    </div>
+  )
+}
+
+// =============================================================================
+// SECTION WRAPPER
 // =============================================================================
 
 type Tone = 'light' | 'tint' | 'dark'
@@ -227,27 +289,12 @@ export function Section({
   const bg = tone === 'tint' ? 'bg-slate-50' : isDark ? 'bg-brand-deep' : 'bg-white'
 
   return (
-    <section id={id} className={`${bg} py-20 lg:py-28`}>
+    <section id={id} className={`${bg} py-20 lg:py-24`}>
       <div className="mx-auto max-w-container px-4 sm:px-6 lg:px-0">
         {(eyebrow || title) && (
           <Reveal width="100%">
             <div className={align === 'left' ? '' : 'flex justify-center'}>
-              {!isDark ? (
-                <SectionHeader caption={eyebrow ?? ''} title={title ?? ''} align={align} />
-              ) : (
-                <div
-                  className={`flex flex-col gap-3 ${
-                    align === 'center' ? 'items-center text-center' : 'items-start text-left'
-                  }`}
-                >
-                  <span className="inline-block rounded bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary">
-                    {eyebrow}
-                  </span>
-                  <h2 className="text-hero-sm font-medium tracking-tight text-white lg:text-[44px] lg:leading-[52px]">
-                    {title}
-                  </h2>
-                </div>
-              )}
+              <SectionTitle eyebrow={eyebrow} title={title} align={align} onDark={isDark} />
             </div>
           </Reveal>
         )}
@@ -274,10 +321,33 @@ export function Section({
 // CONTENT PRIMITIVES
 // =============================================================================
 
-export function Card({ children, className = '' }: { children: ReactNode; className?: string }) {
+/**
+ * Card with optional coloured left accent bar — matches the "ingredient
+ * architecture" card style on slide 13 of the brief.
+ */
+export function Card({
+  children,
+  className = '',
+  accent = 'none',
+}: {
+  children: ReactNode
+  className?: string
+  accent?: AccentBar
+}) {
+  const barColor: Record<AccentBar, string> = {
+    teal: 'before:bg-teal-500',
+    navy: 'before:bg-brand-deep',
+    green: 'before:bg-emerald-500',
+    amber: 'before:bg-amber-400',
+    none: '',
+  }
+  const accentClass =
+    accent === 'none'
+      ? ''
+      : `relative pl-8 before:absolute before:left-3 before:top-6 before:bottom-6 before:w-1 before:rounded-full ${barColor[accent]}`
   return (
     <div
-      className={`rounded-section border border-slate-100 bg-white p-8 shadow-card ${className}`}
+      className={`rounded-2xl border border-slate-100 bg-white p-7 shadow-[0_10px_30px_rgba(8,51,88,0.08)] ${accentClass} ${className}`}
     >
       {children}
     </div>
@@ -299,7 +369,7 @@ export function Pills({ items }: { items: string[] }) {
       {items.map((p, i) => (
         <span
           key={i}
-          className="rounded-full border border-brand-primary/20 bg-brand-primary/5 px-4 py-2 text-sm font-medium text-brand-deep"
+          className="rounded-full border border-teal-200 bg-teal-50 px-4 py-2 text-sm font-medium text-teal-800"
         >
           {p}
         </span>
@@ -314,13 +384,11 @@ export function Steps({ items }: { items: { title: string; body: string }[] }) {
     <Grid cols={cols}>
       {items.map((s, i) => (
         <Card key={i}>
-          <div className="inline-block rounded p-px bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-deep">
-            <div className="flex h-11 w-11 items-center justify-center rounded-[3px] bg-white text-lg font-semibold text-brand-deep">
-              {i + 1}
-            </div>
+          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-teal-100 text-base font-bold text-teal-700">
+            {i + 1}
           </div>
-          <h3 className="mt-6 text-xl font-semibold text-gray-900">{s.title}</h3>
-          <p className="mt-3 leading-relaxed text-gray-600">{s.body}</p>
+          <h3 className="mt-5 text-xl font-semibold text-gray-900">{s.title}</h3>
+          <p className="mt-2 leading-relaxed text-gray-600">{s.body}</p>
         </Card>
       ))}
     </Grid>
@@ -330,9 +398,22 @@ export function Steps({ items }: { items: { title: string; body: string }[] }) {
 export function ImageArea({ label, className = '' }: { label: string; className?: string }) {
   return (
     <div
-      className={`flex items-center justify-center rounded-section border-2 border-dashed border-brand-primary/25 bg-brand-primary/5 p-8 text-center text-sm text-gray-500 ${className}`}
+      className={`flex items-center justify-center rounded-2xl border-2 border-dashed border-teal-300/60 bg-teal-50/40 p-8 text-center text-sm text-gray-500 ${className}`}
     >
       Bildplatzhalter — {label}
+    </div>
+  )
+}
+
+// =============================================================================
+// CALLOUT BOX — light mint card (matches the brief's "core message" card)
+// =============================================================================
+
+export function Callout({ title, children }: { title?: string; children: ReactNode }) {
+  return (
+    <div className="mx-auto max-w-3xl rounded-2xl border border-teal-200/60 bg-teal-50/60 p-8 text-center shadow-sm">
+      {title && <p className="text-base font-semibold text-gray-900">{title}</p>}
+      <div className="mt-2 leading-relaxed text-gray-700">{children}</div>
     </div>
   )
 }
@@ -347,13 +428,13 @@ export function FAQ({ items }: { items: { q: string; a: string }[] }) {
       {items.map((it, i) => (
         <details
           key={i}
-          className="group rounded-section border border-slate-200 bg-white px-6 py-5 shadow-sm transition-shadow hover:shadow-card"
+          className="group rounded-2xl border border-slate-200 bg-white px-6 py-5 shadow-sm transition-shadow hover:shadow-[0_10px_30px_rgba(8,51,88,0.08)]"
         >
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-medium text-gray-900">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-semibold text-gray-900">
             <span className="text-lg">{it.q}</span>
             <span
               aria-hidden
-              className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-brand-primary/10 text-xl leading-none text-brand-primary transition-transform group-open:rotate-45"
+              className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-teal-100 text-xl leading-none text-teal-700 transition-transform group-open:rotate-45"
             >
               +
             </span>
@@ -366,7 +447,7 @@ export function FAQ({ items }: { items: { q: string; a: string }[] }) {
 }
 
 // =============================================================================
-// FINAL CTA — dark closing band
+// FINAL CTA — dark navy closing band with teal accent (matches brief slide 18)
 // =============================================================================
 
 export function FinalCTA({
@@ -385,24 +466,23 @@ export function FinalCTA({
   note?: string
 }) {
   return (
-    <section id={id} className="relative overflow-hidden bg-brand-deep py-20 text-white lg:py-28">
+    <section id={id} className="relative overflow-hidden bg-brand-deep py-20 text-white lg:py-24">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(33,153,234,0.22),transparent_60%)]"
+        className="pointer-events-none absolute -top-20 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-teal-500/20 blur-3xl"
       />
       <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-0">
-        <h2 className="text-hero-sm font-medium tracking-tight lg:text-[44px] lg:leading-[52px]">
-          {title}
-        </h2>
-        <p className="mt-6 text-lg text-white/80">{body}</p>
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <Button href={primary.href} variant="primary" size="sm">
+        <span aria-hidden className="mx-auto mb-6 block h-[3px] w-12 rounded-full bg-teal-400" />
+        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
+        <p className="mx-auto mt-5 max-w-xl text-lg text-white/80">{body}</p>
+        <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <CTA href={primary.href} variant="teal">
             {primary.label}
-          </Button>
+          </CTA>
           {secondary && (
-            <Button href={secondary.href} variant="outline" size="sm">
+            <CTA href={secondary.href} variant="outline-white">
               {secondary.label}
-            </Button>
+            </CTA>
           )}
         </div>
         {note && <p className="mt-8 text-xs text-white/60">{note}</p>}
@@ -421,7 +501,7 @@ export function ConsumerFooter({ disclaimer }: { disclaimer: string }) {
       <div className="mx-auto max-w-container px-4 py-16 sm:px-6 lg:px-0">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-sm space-y-4">
-            <img src={logoWhite} alt="PolarisDX" width={136} height={40} className="h-10 w-auto" />
+            <Wordmark />
             <p className="text-sm text-white/70">Simple daily wellbeing products from PolarisDX.</p>
             <div className="flex gap-4">
               <a
@@ -429,7 +509,7 @@ export function ConsumerFooter({ disclaimer }: { disclaimer: string }) {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
-                className="text-white transition-colors hover:text-brand-secondary"
+                className="text-white transition-colors hover:text-teal-300"
               >
                 <Linkedin className="h-6 w-6" />
               </a>
@@ -438,7 +518,7 @@ export function ConsumerFooter({ disclaimer }: { disclaimer: string }) {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
-                className="text-white transition-colors hover:text-brand-secondary"
+                className="text-white transition-colors hover:text-teal-300"
               >
                 <Instagram className="h-6 w-6" />
               </a>

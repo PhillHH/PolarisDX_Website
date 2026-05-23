@@ -6,12 +6,12 @@
  * Unlisted: no nav/sitemap entry, noindex, password-gated at the server.
  */
 
-import { Button } from '../../components/ui/Button'
 import { SEOHead } from '../../components/seo'
 import {
   Card,
   ConsumerFooter,
   ConsumerHeader,
+  CTA,
   FactStrip,
   FAQ,
   FinalCTA,
@@ -22,6 +22,9 @@ import {
   Section,
   Steps,
 } from './shell'
+
+// Accent bars on the four ingredient cards — matches brief slide 13.
+const INGREDIENT_ACCENTS = ['teal', 'navy', 'green', 'amber'] as const
 
 const NAV = [
   { label: 'Mask benefits', href: '#benefits' },
@@ -167,9 +170,9 @@ export default function MaskPage() {
         lead="A hydration-focused base, supported by skin-appearance actives, comfort botanicals and premium cosmetic ingredients."
       >
         <Grid cols={4}>
-          {INGREDIENTS.map((group) => (
-            <Card key={group.title}>
-              <h3 className="text-base font-semibold uppercase tracking-wide text-brand-primary">
+          {INGREDIENTS.map((group, i) => (
+            <Card key={group.title} accent={INGREDIENT_ACCENTS[i]}>
+              <h3 className="text-base font-semibold tracking-tight text-gray-900">
                 {group.title}
               </h3>
               <ul className="mt-4 space-y-2 text-gray-600">
@@ -231,9 +234,9 @@ export default function MaskPage() {
               hand and to reach for whenever skin needs a hydration step.
             </p>
             <div className="mt-8">
-              <Button href="#" variant="primary" size="sm">
+              <CTA href="#" variant="navy">
                 Buy 5-pack
-              </Button>
+              </CTA>
             </div>
             <p className="mt-4 text-xs text-gray-500">
               Pricing and checkout to be confirmed before launch.
