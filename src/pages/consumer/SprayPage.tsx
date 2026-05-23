@@ -6,19 +6,18 @@
  * Unlisted: no nav/sitemap entry, noindex, password-gated at the server.
  */
 
+import { Button } from '../../components/ui/Button'
 import { SEOHead } from '../../components/seo'
+import sprayImage from '../../assets/VITAMIND_D3_SPRAY.jpg'
 import {
   Card,
   ConsumerFooter,
   ConsumerHeader,
-  CTA,
-  DraftBar,
   FactStrip,
   FAQ,
   FinalCTA,
   Grid,
   Hero,
-  ImageArea,
   Pills,
   Section,
   Steps,
@@ -134,14 +133,13 @@ const FAQ_ITEMS = [
 
 export default function SprayPage() {
   return (
-    <div className="bg-white">
+    <div className="flex min-h-screen flex-col bg-slate-50 text-gray-900">
       <SEOHead
         title="Vitamin D3+K2 Spray 12-Pack"
         description="Daily Vitamin D3+K2 support made simple — a convenient orange-flavoured sublingual spray, sold as a 12-pack for teams, homes and shared wellbeing orders."
         noindex
       />
 
-      <DraftBar />
       <ConsumerHeader nav={NAV} cta={{ label: 'Order 12-pack', href: '#order' }} />
 
       {/* 2 · HERO */}
@@ -151,7 +149,7 @@ export default function SprayPage() {
         sub="A convenient orange-flavoured sublingual spray for an easy daily wellbeing routine at home, at work or in shared spaces."
         primary={{ label: 'Buy 12-pack', href: '#order' }}
         secondary={{ label: 'How it works', href: '#how' }}
-        imageLabel="Bottle + 12-pack pack shot (workplace / home routine)"
+        image={{ src: sprayImage, alt: 'PolarisDX Vitamin D3+K2 Sublingual Spray' }}
       />
       <FactStrip
         items={[
@@ -177,8 +175,8 @@ export default function SprayPage() {
         <Grid cols={4}>
           {BENEFITS.map((b) => (
             <Card key={b.title}>
-              <h3 className="text-lg font-semibold text-[#0a2f55]">{b.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{b.body}</p>
+              <h3 className="text-xl font-semibold text-gray-900">{b.title}</h3>
+              <p className="mt-3 leading-relaxed text-gray-600">{b.body}</p>
             </Card>
           ))}
         </Grid>
@@ -195,11 +193,11 @@ export default function SprayPage() {
         <Grid cols={4}>
           {AUDIENCES.map((a) => (
             <Card key={a.title} className="flex flex-col">
-              <h3 className="text-lg font-semibold text-[#0a2f55]">{a.title}</h3>
-              <p className="mt-2 flex-grow text-sm leading-relaxed text-slate-600">{a.body}</p>
+              <h3 className="text-xl font-semibold text-gray-900">{a.title}</h3>
+              <p className="mt-3 flex-grow leading-relaxed text-gray-600">{a.body}</p>
               <a
                 href="#order"
-                className="mt-4 text-sm font-semibold text-teal-600 hover:text-teal-700"
+                className="mt-6 inline-block text-sm font-semibold text-brand-primary hover:text-brand-deep"
               >
                 {a.cta} →
               </a>
@@ -210,18 +208,24 @@ export default function SprayPage() {
 
       {/* 6 · WHAT IS INSIDE */}
       <Section eyebrow="What is inside" title="What you get in one pack">
-        <div className="grid gap-10 md:grid-cols-2 md:items-center">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
           <Card className="p-0">
             <dl className="divide-y divide-slate-100">
               {FACTS.map(([label, value]) => (
-                <div key={label} className="flex gap-4 px-6 py-4">
-                  <dt className="w-40 flex-none text-sm font-semibold text-[#0a2f55]">{label}</dt>
-                  <dd className="text-sm text-slate-600">{value}</dd>
+                <div key={label} className="flex gap-6 px-8 py-5">
+                  <dt className="w-40 flex-none text-sm font-semibold text-gray-900">{label}</dt>
+                  <dd className="text-gray-600">{value}</dd>
                 </div>
               ))}
             </dl>
           </Card>
-          <ImageArea label="12 bottles laid out + single bottle detail" className="aspect-[4/3]" />
+          <div>
+            <img
+              src={sprayImage}
+              alt="Vitamin D3+K2 Spray bottle"
+              className="mx-auto w-full max-w-sm rounded-2xl shadow-card"
+            />
+          </div>
         </div>
       </Section>
 
@@ -240,22 +244,24 @@ export default function SprayPage() {
             },
           ]}
         />
-        <p className="mt-6 text-sm text-slate-500">
+        <p className="mt-8 text-center text-sm text-gray-500">
           Use once daily unless advised otherwise. Do not exceed the recommended daily intake.
         </p>
       </Section>
 
       {/* 8 · WHY SPRAY */}
       <Section eyebrow="Why spray" title="A format that fits anywhere">
-        <Pills
-          items={[
-            'No water',
-            'No tablets',
-            'Portable',
-            'A visible daily routine',
-            'Convenient sublingual format',
-          ]}
-        />
+        <div className="flex justify-center">
+          <Pills
+            items={[
+              'No water',
+              'No tablets',
+              'Portable',
+              'A visible daily routine',
+              'Convenient sublingual format',
+            ]}
+          />
+        </div>
       </Section>
 
       {/* 9 · SUBLINGUAL BENEFITS */}
@@ -267,34 +273,24 @@ export default function SprayPage() {
         <Grid cols={3}>
           {SUBLINGUAL.map((s) => (
             <Card key={s.title}>
-              <h3 className="text-lg font-semibold text-[#0a2f55]">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{s.body}</p>
+              <h3 className="text-xl font-semibold text-gray-900">{s.title}</h3>
+              <p className="mt-3 leading-relaxed text-gray-600">{s.body}</p>
             </Card>
           ))}
         </Grid>
       </Section>
 
       {/* 10 · BRIDGE TO DUO */}
-      <Section tone="navy">
-        <div className="grid gap-8 md:grid-cols-[1.5fr_1fr] md:items-center">
-          <div>
-            <div className="text-sm font-semibold uppercase tracking-wide text-teal-300">
-              The next step
-            </div>
-            <h2 className="mt-2 text-3xl font-bold text-white">
-              Support from within, hydration from outside.
-            </h2>
-            <p className="mt-4 max-w-xl text-slate-300">
-              First step: daily support from within with the spray. Next step: outside-in hydration
-              with the Hydrating Mask bundle — both together in the Inside-Out Care Duo.
-            </p>
-          </div>
-          <div className="md:justify-self-end">
-            <CTA href="/consumer/inside-out-duo" variant="light" internal>
-              Explore the Inside-Out Care Duo
-            </CTA>
-          </div>
-        </div>
+      <Section
+        tone="dark"
+        eyebrow="The next step"
+        title="Support from within, hydration from outside."
+        align="left"
+        lead="First step: daily support from within with the spray. Next step: outside-in hydration with the Hydrating Mask bundle — both together in the Inside-Out Care Duo."
+      >
+        <Button to="/consumer/inside-out-duo" variant="primary" size="sm">
+          Explore the Inside-Out Care Duo
+        </Button>
       </Section>
 
       {/* 11 · FAQ */}

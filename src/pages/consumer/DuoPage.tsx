@@ -6,13 +6,12 @@
  * Unlisted: no nav/sitemap entry, noindex, password-gated at the server.
  */
 
+import { Link } from 'react-router-dom'
 import { SEOHead } from '../../components/seo'
 import {
   Card,
   ConsumerFooter,
   ConsumerHeader,
-  CTA,
-  DraftBar,
   FactStrip,
   FAQ,
   FinalCTA,
@@ -28,14 +27,8 @@ const NAV = [
 ]
 
 const FAQ_ITEMS = [
-  {
-    q: 'What is included?',
-    a: '1 Vitamin D3+K2 Spray + 1 box with 5 Hydrating Masks.',
-  },
-  {
-    q: 'Is the spray a medicine?',
-    a: 'No. It is a food supplement, not a medicine.',
-  },
+  { q: 'What is included?', a: '1 Vitamin D3+K2 Spray + 1 box with 5 Hydrating Masks.' },
+  { q: 'Is the spray a medicine?', a: 'No. It is a food supplement, not a medicine.' },
   {
     q: 'How often do I use the spray?',
     a: 'Use 1 spray daily unless advised otherwise. Do not exceed the recommended intake.',
@@ -56,14 +49,13 @@ const FAQ_ITEMS = [
 
 export default function DuoPage() {
   return (
-    <div className="bg-white">
+    <div className="flex min-h-screen flex-col bg-slate-50 text-gray-900">
       <SEOHead
         title="Inside-Out Care Duo"
         description="Support from within, hydrating care from outside — one Vitamin D3+K2 Spray plus one box of five Hydrating Masks as a simple two-part routine."
         noindex
       />
 
-      <DraftBar />
       <ConsumerHeader nav={NAV} cta={{ label: 'Shop Duo', href: '#order' }} />
 
       {/* 2 · HERO */}
@@ -73,7 +65,7 @@ export default function DuoPage() {
         sub="A simple two-part care routine: one Vitamin D3+K2 Spray plus one box of five Hydrating Masks."
         primary={{ label: 'Shop the Duo', href: '#order' }}
         secondary={{ label: "What's included", href: '#included' }}
-        imageLabel="Spray bottle + mask box together"
+        image={{ alt: 'Inside-Out Care Duo', placeholder: 'Spray bottle + mask box together' }}
       />
       <FactStrip
         items={[
@@ -95,30 +87,30 @@ export default function DuoPage() {
       <Section id="included" eyebrow="What's included" title="Two products, one bundle">
         <div className="grid gap-6 md:grid-cols-2">
           <Card>
-            <h3 className="text-lg font-semibold text-[#0a2f55]">1 × Vitamin D3+K2 Spray</h3>
-            <p className="mt-2 text-sm leading-relaxed text-slate-600">
+            <h3 className="text-xl font-semibold text-gray-900">1 × Vitamin D3+K2 Spray</h3>
+            <p className="mt-3 leading-relaxed text-gray-600">
               An orange-flavoured sublingual spray for daily Vitamin D3+K2 support — the inside step
               of the routine.
             </p>
-            <a
-              href="/consumer/vitamin-d3-spray"
-              className="mt-4 inline-block text-sm font-semibold text-teal-600 hover:text-teal-700"
+            <Link
+              to="/consumer/vitamin-d3-spray"
+              className="mt-6 inline-block text-sm font-semibold text-brand-primary hover:text-brand-deep"
             >
               See the spray page →
-            </a>
+            </Link>
           </Card>
           <Card>
-            <h3 className="text-lg font-semibold text-[#0a2f55]">1 × box of 5 Hydrating Masks</h3>
-            <p className="mt-2 text-sm leading-relaxed text-slate-600">
+            <h3 className="text-xl font-semibold text-gray-900">1 × box of 5 Hydrating Masks</h3>
+            <p className="mt-3 leading-relaxed text-gray-600">
               Five individually packed serum-soaked sheet masks — the outside step, for when skin
               needs visible hydration care.
             </p>
-            <a
-              href="/consumer/hydrating-masks"
-              className="mt-4 inline-block text-sm font-semibold text-teal-600 hover:text-teal-700"
+            <Link
+              to="/consumer/hydrating-masks"
+              className="mt-6 inline-block text-sm font-semibold text-brand-primary hover:text-brand-deep"
             >
               See the mask page →
-            </a>
+            </Link>
           </Card>
         </div>
       </Section>
@@ -127,23 +119,23 @@ export default function DuoPage() {
       <Section id="routine" tone="tint" eyebrow="The routine" title="Two simple steps">
         <div className="grid gap-6 md:grid-cols-2">
           <Card>
-            <div className="text-sm font-semibold uppercase tracking-wide text-teal-600">
+            <p className="text-xs font-semibold uppercase tracking-wider text-brand-primary">
               Step 1 · Inside
-            </div>
-            <h3 className="mt-2 text-xl font-semibold text-[#0a2f55]">Daily support from within</h3>
-            <p className="mt-2 leading-relaxed text-slate-600">
+            </p>
+            <h3 className="mt-2 text-2xl font-semibold text-gray-900">Daily support from within</h3>
+            <p className="mt-3 leading-relaxed text-gray-600">
               Take the Vitamin D3+K2 Spray as part of a daily routine — one sublingual spray for
               daily Vitamin D3+K2 support.
             </p>
           </Card>
           <Card>
-            <div className="text-sm font-semibold uppercase tracking-wide text-teal-600">
+            <p className="text-xs font-semibold uppercase tracking-wider text-brand-primary">
               Step 2 · Outside
-            </div>
-            <h3 className="mt-2 text-xl font-semibold text-[#0a2f55]">
+            </p>
+            <h3 className="mt-2 text-2xl font-semibold text-gray-900">
               Hydrating care from outside
             </h3>
-            <p className="mt-2 leading-relaxed text-slate-600">
+            <p className="mt-3 leading-relaxed text-gray-600">
               Use a Hydrating Mask for 15–30 minutes when your skin needs care — a calm, occasional
               hydration step.
             </p>
@@ -160,15 +152,12 @@ export default function DuoPage() {
       </Section>
 
       {/* 8 · BUNDLE VALUE */}
-      <Section tone="navy">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold text-white md:text-4xl">Why buy them together</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-slate-300">
-            Bought together, the Duo is one simple routine instead of two separate products: daily
-            support from within and visible hydration from outside.
-          </p>
-        </div>
-      </Section>
+      <Section
+        tone="dark"
+        eyebrow="Why buy them together"
+        title="Two products, one simple routine."
+        lead="Bought together, the Duo is one routine instead of two separate products — daily support from within and visible hydration from outside."
+      />
 
       {/* 9 · FAQ */}
       <Section id="faq" eyebrow="FAQ" title="Practical questions, answered">
@@ -186,11 +175,6 @@ export default function DuoPage() {
 
       {/* 11 · FOOTER */}
       <ConsumerFooter disclaimer="The Inside-Out Care Duo combines a food supplement (Vitamin D3+K2 Spray) and a cosmetic product (Hydrating Mask). The spray is not a medicine and should not replace a varied, balanced diet; do not exceed the recommended daily intake. The mask is for external use only and is not intended to diagnose, treat or prevent any skin disease." />
-      <div className="bg-[#072442] pb-2 text-center">
-        <CTA href="/consumer/vitamin-d3-spray" variant="light" internal>
-          Back to the Spray page
-        </CTA>
-      </div>
     </div>
   )
 }

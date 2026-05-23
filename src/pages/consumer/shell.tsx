@@ -1,117 +1,101 @@
 /**
- * Consumer landing page shell
+ * Consumer landing page shell — main-site design, product-focused chrome
  *
- * Shared, self-contained chrome + section primitives for the consumer-facing
- * landing pages (Vitamin D3+K2 Spray, Hydrating Masks, Inside-Out Care Duo).
+ * Shared chrome + section primitives for the consumer-facing landing pages
+ * (Vitamin D3+K2 Spray, Hydrating Masks, Inside-Out Care Duo).
  *
- * Deliberately NOT the B2B PolarisDX <Layout> — these pages have their own
- * slim consumer header/footer per the marketing wireframe brief.
+ * Reuses the main polarisdx.net design system:
+ * - brand colors (brand-primary / brand-deep / brand-secondary)
+ * - the real <Button>, <SectionHeader> and <Reveal> components
+ * - the fixed dark-on-scroll header style from the main Header
+ * - the brand-primary footer treatment
  *
- * Draft status: copy, claims, imagery and pricing are placeholders pending
- * sign-off. See the <DraftBar />.
+ * Differs from the main site only in navigation: header links and footer
+ * links are product-focused (Wireframe brief), no B2B / Diagnostik menu.
  */
 
 import { type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
+import { Linkedin, Instagram } from 'lucide-react'
+
+import { Button } from '../../components/ui/Button'
+import SectionHeader from '../../components/ui/SectionHeader'
+import Reveal from '../../components/ui/Reveal'
+import { useScrollPosition } from '../../hooks/useScrollPosition'
+import logoWhite from '../../assets/polaris_white.webp'
 
 // =============================================================================
-// BUTTONS
+// TYPES
 // =============================================================================
 
-type CTAVariant = 'solid' | 'outline' | 'light'
-
-export function CTA({
-  children,
-  href = '#',
-  variant = 'solid',
-  internal = false,
-}: {
-  children: ReactNode
-  href?: string
-  variant?: CTAVariant
-  /** Use react-router <Link> instead of <a> (for /consumer/* cross-links) */
-  internal?: boolean
-}) {
-  const base =
-    'inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-colors'
-  const styles: Record<CTAVariant, string> = {
-    solid: 'bg-[#0a2f55] text-white hover:bg-[#0c3c6e]',
-    outline: 'border border-[#0a2f55] text-[#0a2f55] hover:bg-[#0a2f55] hover:text-white',
-    light: 'bg-white text-[#0a2f55] hover:bg-slate-100',
-  }
-  const cls = `${base} ${styles[variant]}`
-  return internal ? (
-    <Link to={href} className={cls}>
-      {children}
-    </Link>
-  ) : (
-    <a href={href} className={cls}>
-      {children}
-    </a>
-  )
-}
-
-// =============================================================================
-// DRAFT NOTICE
-// =============================================================================
-
-export function DraftBar() {
-  return (
-    <div className="bg-amber-300 text-amber-950">
-      <div className="mx-auto max-w-[1200px] px-6 py-2 text-center text-xs font-semibold">
-        DRAFT WIREFRAME · Not for public release · Copy, claims, imagery &amp; pricing pending
-        sign-off
-      </div>
-    </div>
-  )
-}
-
-// =============================================================================
-// HEADER
-// =============================================================================
-
-interface NavLink {
+export interface NavLink {
   label: string
   href: string
 }
 
-function Wordmark({ onDark = false }: { onDark?: boolean }) {
-  return (
-    <span className="text-xl tracking-tight">
-      <span className={onDark ? 'font-extrabold text-white' : 'font-extrabold text-[#0a2f55]'}>
-        POLARIS
-      </span>
-      <span className="font-extrabold text-[#2199ea]">DX</span>
-    </span>
-  )
-}
+// =============================================================================
+// HEADER — fixed, transparent over hero, dark backdrop on scroll
+// =============================================================================
 
 export function ConsumerHeader({ nav, cta }: { nav: NavLink[]; cta: NavLink }) {
+  const scrollY = useScrollPosition()
+  const isScrolled = scrollY > 24
+
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-6 py-4">
-        <a href="#top" aria-label="PolarisDX">
-          <Wordmark />
+    <header
+      className={`fixed inset-x-0 top-0 z-30 transition-all duration-500 ease-in-out ${
+        isScrolled
+          ? 'border-b border-white/5 bg-[#083358]/85 shadow-[0_4px_30px_rgba(0,0,0,0.2)] backdrop-blur-xl'
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="mx-auto flex max-w-container items-center justify-between px-4 py-3 sm:px-6 lg:px-0 lg:py-4">
+        <a href="#top" aria-label="PolarisDX" className="flex shrink-0 items-center gap-3">
+          <img
+            src={logoWhite}
+            alt="PolarisDX"
+            width={136}
+            height={40}
+            className="h-10 w-auto transition-all duration-300 sm:h-12"
+          />
         </a>
-        <nav className="hidden items-center gap-7 md:flex">
+
+        {/* Desktop nav (anchor links into the page) */}
+        <nav className="hidden flex-wrap items-center gap-8 text-sm font-medium tracking-wide text-white md:flex xl:gap-12">
           {nav.map((n) => (
             <a
               key={n.href}
               href={n.href}
-              className="text-sm font-medium text-slate-600 transition-colors hover:text-teal-600"
+              className="flex items-center gap-1 text-white transition-all duration-300 hover:opacity-70"
             >
-              {n.label}
+              <span className="relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 after:bg-current after:transition-transform after:duration-300 after:content-[''] hover:after:origin-bottom-left hover:after:scale-x-100">
+                {n.label}
+              </span>
             </a>
           ))}
         </nav>
-        <CTA href={cta.href}>{cta.label}</CTA>
+
+        <div className={`${isScrolled ? '' : 'shadow-lg shadow-blue-900/20'} rounded-full`}>
+          <Button
+            href={cta.href}
+            variant={isScrolled ? 'primary' : 'outline'}
+            size="sm"
+            className={
+              isScrolled
+                ? 'shadow-lg shadow-blue-500/25'
+                : 'border-white/40 hover:border-white hover:bg-white/10'
+            }
+          >
+            {cta.label}
+          </Button>
+        </div>
       </div>
     </header>
   )
 }
 
 // =============================================================================
-// HERO
+// HERO — dark, gradient, text-left / image-right
 // =============================================================================
 
 export function Hero({
@@ -120,54 +104,95 @@ export function Hero({
   sub,
   primary,
   secondary,
-  imageLabel,
+  image,
 }: {
   eyebrow: string
   title: string
   sub: string
   primary: NavLink
-  secondary: NavLink
-  imageLabel: string
+  secondary?: NavLink
+  image?: { src?: string; alt: string; placeholder?: string }
 }) {
   return (
     <section
       id="top"
-      className="border-b border-slate-200 bg-gradient-to-b from-white to-[#eef4f4]"
+      className="relative overflow-hidden bg-brand-deep pt-32 pb-20 text-white lg:pt-40 lg:pb-28"
     >
-      <div className="mx-auto grid max-w-[1200px] gap-10 px-6 py-16 md:grid-cols-2 md:items-center md:py-24">
-        <div>
-          <div className="text-sm font-semibold uppercase tracking-wide text-teal-600">
-            {eyebrow}
+      {/* Decorative radial gradients */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(33,153,234,0.28),transparent_55%),radial-gradient(circle_at_bottom_left,rgba(15,95,149,0.4),transparent_55%)]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/20 to-transparent opacity-10"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/20 to-transparent opacity-10"
+      />
+
+      <div className="relative mx-auto max-w-container px-4 sm:px-6 lg:px-0">
+        <Reveal width="100%" yOffset={20}>
+          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+            <div>
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[1.2px] text-brand-secondary">
+                {eyebrow}
+              </p>
+              <h1 className="text-3xl font-medium leading-tight tracking-tight sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+                {title}
+              </h1>
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
+                {sub}
+              </p>
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <Button href={primary.href} variant="primary" size="sm">
+                  {primary.label}
+                </Button>
+                {secondary && (
+                  <Button href={secondary.href} variant="outline" size="sm">
+                    {secondary.label}
+                  </Button>
+                )}
+              </div>
+            </div>
+
+            <div>
+              {image?.src ? (
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="mx-auto w-full max-w-sm rounded-2xl shadow-2xl lg:max-w-md"
+                />
+              ) : (
+                <div className="mx-auto flex aspect-[4/5] w-full max-w-sm items-center justify-center rounded-2xl border-2 border-dashed border-white/20 bg-white/5 p-8 text-center text-sm text-white/60 lg:max-w-md">
+                  Bildplatzhalter — {image?.placeholder ?? image?.alt}
+                </div>
+              )}
+            </div>
           </div>
-          <h1 className="mt-3 text-4xl font-extrabold leading-tight text-[#0a2f55] md:text-5xl">
-            {title}
-          </h1>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">{sub}</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <CTA href={primary.href}>{primary.label}</CTA>
-            <CTA href={secondary.href} variant="outline">
-              {secondary.label}
-            </CTA>
-          </div>
-        </div>
-        <ImageArea label={imageLabel} className="aspect-[4/3]" />
+        </Reveal>
       </div>
     </section>
   )
 }
 
 // =============================================================================
-// FACT / OFFER STRIP
+// FACT / OFFER STRIP — light band directly under the hero
 // =============================================================================
 
 export function FactStrip({ items }: { items: string[] }) {
   return (
-    <div className="bg-[#0a2f55] text-white">
-      <div className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-center gap-x-3 gap-y-2 px-6 py-4 text-center text-sm font-medium">
+    <div className="border-b border-slate-200 bg-slate-50">
+      <div className="mx-auto flex max-w-container flex-wrap items-center justify-center gap-x-4 gap-y-2 px-4 py-5 text-center text-sm text-gray-900 sm:px-6 lg:px-0">
         {items.map((it, i) => (
-          <span key={i} className="flex items-center gap-3">
-            {i > 0 && <span className="text-[#2199ea]">·</span>}
-            {it}
+          <span key={i} className="flex items-center gap-4">
+            {i > 0 && (
+              <span aria-hidden className="text-brand-primary/40">
+                •
+              </span>
+            )}
+            <span className="font-medium">{it}</span>
           </span>
         ))}
       </div>
@@ -176,10 +201,10 @@ export function FactStrip({ items }: { items: string[] }) {
 }
 
 // =============================================================================
-// SECTION WRAPPER
+// SECTION WRAPPER — uses real SectionHeader on light/tint, custom on dark
 // =============================================================================
 
-type Tone = 'light' | 'tint' | 'navy'
+type Tone = 'light' | 'tint' | 'dark'
 
 export function Section({
   id,
@@ -187,6 +212,7 @@ export function Section({
   title,
   lead,
   tone = 'light',
+  align = 'center',
   children,
 }: {
   id?: string
@@ -194,47 +220,51 @@ export function Section({
   title?: string
   lead?: string
   tone?: Tone
+  align?: 'left' | 'center'
   children?: ReactNode
 }) {
-  const isNavy = tone === 'navy'
-  const bg = tone === 'tint' ? 'bg-[#eef4f4]' : isNavy ? 'bg-[#0a2f55]' : 'bg-white'
+  const isDark = tone === 'dark'
+  const bg = tone === 'tint' ? 'bg-slate-50' : isDark ? 'bg-brand-deep' : 'bg-white'
+
   return (
-    <section id={id} className={bg}>
-      <div className="mx-auto max-w-[1200px] px-6 py-16 md:py-20">
-        {eyebrow && (
-          <div
-            className={
-              isNavy
-                ? 'text-sm font-semibold uppercase tracking-wide text-teal-300'
-                : 'text-sm font-semibold uppercase tracking-wide text-teal-600'
-            }
-          >
-            {eyebrow}
-          </div>
-        )}
-        {title && (
-          <h2
-            className={
-              isNavy
-                ? 'mt-2 text-3xl font-bold text-white md:text-4xl'
-                : 'mt-2 text-3xl font-bold text-[#0a2f55] md:text-4xl'
-            }
-          >
-            {title}
-          </h2>
+    <section id={id} className={`${bg} py-20 lg:py-28`}>
+      <div className="mx-auto max-w-container px-4 sm:px-6 lg:px-0">
+        {(eyebrow || title) && (
+          <Reveal width="100%">
+            <div className={align === 'left' ? '' : 'flex justify-center'}>
+              {!isDark ? (
+                <SectionHeader caption={eyebrow ?? ''} title={title ?? ''} align={align} />
+              ) : (
+                <div
+                  className={`flex flex-col gap-3 ${
+                    align === 'center' ? 'items-center text-center' : 'items-start text-left'
+                  }`}
+                >
+                  <span className="inline-block rounded bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary">
+                    {eyebrow}
+                  </span>
+                  <h2 className="text-hero-sm font-medium tracking-tight text-white lg:text-[44px] lg:leading-[52px]">
+                    {title}
+                  </h2>
+                </div>
+              )}
+            </div>
+          </Reveal>
         )}
         {lead && (
           <p
-            className={
-              isNavy
-                ? 'mt-4 max-w-2xl text-lg leading-relaxed text-slate-300'
-                : 'mt-4 max-w-2xl text-lg leading-relaxed text-slate-600'
-            }
+            className={`mt-6 max-w-3xl text-lg leading-relaxed ${
+              isDark ? 'text-white/80' : 'text-gray-600'
+            } ${align === 'center' ? 'mx-auto text-center' : ''}`}
           >
             {lead}
           </p>
         )}
-        {children && <div className="mt-10">{children}</div>}
+        {children && (
+          <div className="mt-12 lg:mt-16">
+            <Reveal width="100%">{children}</Reveal>
+          </div>
+        )}
       </div>
     </section>
   )
@@ -246,7 +276,9 @@ export function Section({
 
 export function Card({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`rounded-2xl border border-slate-200 bg-white p-6 shadow-sm ${className}`}>
+    <div
+      className={`rounded-section border border-slate-100 bg-white p-8 shadow-card ${className}`}
+    >
       {children}
     </div>
   )
@@ -254,8 +286,8 @@ export function Card({ children, className = '' }: { children: ReactNode; classN
 
 export function Grid({ cols = 3, children }: { cols?: 2 | 3 | 4; children: ReactNode }) {
   const map = {
-    2: 'grid gap-6 md:grid-cols-2',
-    3: 'grid gap-6 md:grid-cols-3',
+    2: 'grid gap-6 sm:grid-cols-2',
+    3: 'grid gap-6 sm:grid-cols-2 lg:grid-cols-3',
     4: 'grid gap-6 sm:grid-cols-2 lg:grid-cols-4',
   }
   return <div className={map[cols]}>{children}</div>
@@ -267,7 +299,7 @@ export function Pills({ items }: { items: string[] }) {
       {items.map((p, i) => (
         <span
           key={i}
-          className="rounded-full bg-[#eef4f4] px-4 py-1.5 text-sm font-medium text-[#0a2f55]"
+          className="rounded-full border border-brand-primary/20 bg-brand-primary/5 px-4 py-2 text-sm font-medium text-brand-deep"
         >
           {p}
         </span>
@@ -276,34 +308,19 @@ export function Pills({ items }: { items: string[] }) {
   )
 }
 
-export function CheckList({ items }: { items: string[] }) {
-  return (
-    <ul className="space-y-3">
-      {items.map((it, i) => (
-        <li key={i} className="flex gap-3 text-slate-700">
-          <span
-            aria-hidden
-            className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-teal-100 text-xs font-bold text-teal-700"
-          >
-            ✓
-          </span>
-          <span>{it}</span>
-        </li>
-      ))}
-    </ul>
-  )
-}
-
 export function Steps({ items }: { items: { title: string; body: string }[] }) {
+  const cols = (items.length === 4 ? 4 : items.length === 2 ? 2 : 3) as 2 | 3 | 4
   return (
-    <Grid cols={items.length === 4 ? 4 : 3}>
+    <Grid cols={cols}>
       {items.map((s, i) => (
         <Card key={i}>
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#0a2f55] text-sm font-bold text-white">
-            {i + 1}
+          <div className="inline-block rounded p-px bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-deep">
+            <div className="flex h-11 w-11 items-center justify-center rounded-[3px] bg-white text-lg font-semibold text-brand-deep">
+              {i + 1}
+            </div>
           </div>
-          <h3 className="mt-4 text-lg font-semibold text-[#0a2f55]">{s.title}</h3>
-          <p className="mt-2 text-sm leading-relaxed text-slate-600">{s.body}</p>
+          <h3 className="mt-6 text-xl font-semibold text-gray-900">{s.title}</h3>
+          <p className="mt-3 leading-relaxed text-gray-600">{s.body}</p>
         </Card>
       ))}
     </Grid>
@@ -313,32 +330,35 @@ export function Steps({ items }: { items: { title: string; body: string }[] }) {
 export function ImageArea({ label, className = '' }: { label: string; className?: string }) {
   return (
     <div
-      className={`flex items-center justify-center rounded-2xl border-2 border-dashed border-slate-300 bg-white/70 p-6 text-center ${className}`}
+      className={`flex items-center justify-center rounded-section border-2 border-dashed border-brand-primary/25 bg-brand-primary/5 p-8 text-center text-sm text-gray-500 ${className}`}
     >
-      <span className="text-sm font-medium text-slate-400">Image placeholder — {label}</span>
+      Bildplatzhalter — {label}
     </div>
   )
 }
 
 // =============================================================================
-// FAQ (native <details> — SSR-safe, no JS hydration needed)
+// FAQ — native <details>, SSR-safe
 // =============================================================================
 
 export function FAQ({ items }: { items: { q: string; a: string }[] }) {
   return (
-    <div className="mx-auto max-w-3xl divide-y divide-slate-200 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+    <div className="mx-auto max-w-3xl space-y-3">
       {items.map((it, i) => (
-        <details key={i} className="group px-6 py-4">
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-[#0a2f55]">
-            <span>{it.q}</span>
+        <details
+          key={i}
+          className="group rounded-section border border-slate-200 bg-white px-6 py-5 shadow-sm transition-shadow hover:shadow-card"
+        >
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-medium text-gray-900">
+            <span className="text-lg">{it.q}</span>
             <span
               aria-hidden
-              className="flex-none text-xl leading-none text-teal-600 transition-transform group-open:rotate-45"
+              className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-brand-primary/10 text-xl leading-none text-brand-primary transition-transform group-open:rotate-45"
             >
               +
             </span>
           </summary>
-          <p className="mt-3 leading-relaxed text-slate-600">{it.a}</p>
+          <p className="mt-4 leading-relaxed text-gray-600">{it.a}</p>
         </details>
       ))}
     </div>
@@ -346,7 +366,7 @@ export function FAQ({ items }: { items: { q: string; a: string }[] }) {
 }
 
 // =============================================================================
-// FINAL CTA
+// FINAL CTA — dark closing band
 // =============================================================================
 
 export function FinalCTA({
@@ -365,59 +385,87 @@ export function FinalCTA({
   note?: string
 }) {
   return (
-    <section id={id} className="bg-[#0a2f55]">
-      <div className="mx-auto max-w-[1200px] px-6 py-20 text-center">
-        <h2 className="text-3xl font-bold text-white md:text-4xl">{title}</h2>
-        <p className="mx-auto mt-4 max-w-xl text-lg text-slate-300">{body}</p>
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <CTA href={primary.href} variant="light">
+    <section id={id} className="relative overflow-hidden bg-brand-deep py-20 text-white lg:py-28">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(33,153,234,0.22),transparent_60%)]"
+      />
+      <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-0">
+        <h2 className="text-hero-sm font-medium tracking-tight lg:text-[44px] lg:leading-[52px]">
+          {title}
+        </h2>
+        <p className="mt-6 text-lg text-white/80">{body}</p>
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <Button href={primary.href} variant="primary" size="sm">
             {primary.label}
-          </CTA>
+          </Button>
           {secondary && (
-            <a
-              href={secondary.href}
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-            >
+            <Button href={secondary.href} variant="outline" size="sm">
               {secondary.label}
-            </a>
+            </Button>
           )}
         </div>
-        {note && <p className="mt-6 text-xs text-slate-400">{note}</p>}
+        {note && <p className="mt-8 text-xs text-white/60">{note}</p>}
       </div>
     </section>
   )
 }
 
 // =============================================================================
-// FOOTER
+// FOOTER — slim, brand-primary background
 // =============================================================================
 
 export function ConsumerFooter({ disclaimer }: { disclaimer: string }) {
   return (
-    <footer className="bg-[#072442] text-slate-300">
-      <div className="mx-auto max-w-[1200px] px-6 py-12">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <Wordmark onDark />
-          <nav className="flex flex-wrap gap-6 text-sm">
-            <a href="#" className="transition-colors hover:text-white">
-              Contact
-            </a>
-            <a href="#" className="transition-colors hover:text-white">
+    <footer className="bg-brand-primary text-white">
+      <div className="mx-auto max-w-container px-4 py-16 sm:px-6 lg:px-0">
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+          <div className="max-w-sm space-y-4">
+            <img src={logoWhite} alt="PolarisDX" width={136} height={40} className="h-10 w-auto" />
+            <p className="text-sm text-white/70">Simple daily wellbeing products from PolarisDX.</p>
+            <div className="flex gap-4">
+              <a
+                href="https://www.linkedin.com/company/polarisdx/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+                className="text-white transition-colors hover:text-brand-secondary"
+              >
+                <Linkedin className="h-6 w-6" />
+              </a>
+              <a
+                href="https://www.instagram.com/polaris_diagnostix/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+                className="text-white transition-colors hover:text-brand-secondary"
+              >
+                <Instagram className="h-6 w-6" />
+              </a>
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-x-8 gap-y-2 text-sm text-white/70">
+            <Link to="/imprint" className="transition-colors hover:text-white">
               Imprint
-            </a>
-            <a href="#" className="transition-colors hover:text-white">
+            </Link>
+            <Link to="/privacy" className="transition-colors hover:text-white">
               Privacy
-            </a>
-            <a href="#" className="transition-colors hover:text-white">
+            </Link>
+            <Link to="/terms" className="transition-colors hover:text-white">
               Terms
-            </a>
-          </nav>
+            </Link>
+            <Link to="/contact" className="transition-colors hover:text-white">
+              Contact
+            </Link>
+          </div>
         </div>
-        <p className="mt-6 max-w-3xl text-xs leading-relaxed text-slate-400">{disclaimer}</p>
-        <p className="mt-4 text-xs text-slate-500">
-          © 2026 PolarisDX · Draft consumer landing page — content, claims and pricing to be
-          confirmed before launch.
-        </p>
+        <div className="mt-12 border-t border-white/15 pt-8 text-xs leading-relaxed text-white/60">
+          <p className="max-w-3xl">{disclaimer}</p>
+          <p className="mt-3">
+            © {new Date().getFullYear()} PolarisDX · Draft consumer landing page — content, claims
+            and pricing to be confirmed before launch.
+          </p>
+        </div>
       </div>
     </footer>
   )

@@ -6,13 +6,12 @@
  * Unlisted: no nav/sitemap entry, noindex, password-gated at the server.
  */
 
+import { Button } from '../../components/ui/Button'
 import { SEOHead } from '../../components/seo'
 import {
   Card,
   ConsumerFooter,
   ConsumerHeader,
-  CTA,
-  DraftBar,
   FactStrip,
   FAQ,
   FinalCTA,
@@ -108,14 +107,13 @@ const FAQ_ITEMS = [
 
 export default function MaskPage() {
   return (
-    <div className="bg-white">
+    <div className="flex min-h-screen flex-col bg-slate-50 text-gray-900">
       <SEOHead
         title="Hydrating Sheet Masks — 5-Pack"
         description="A calm hydration step for dry, sensitive and mature skin — five individually packed serum-soaked sheet masks in one box."
         noindex
       />
 
-      <DraftBar />
       <ConsumerHeader nav={NAV} cta={{ label: 'Buy 5-pack', href: '#order' }} />
 
       {/* 2 · HERO */}
@@ -125,7 +123,10 @@ export default function MaskPage() {
         sub="A serum-soaked sheet mask for a simple 15–30-minute skincare routine. Intensive + soothing care for all skin types."
         primary={{ label: 'Buy 5-pack', href: '#order' }}
         secondary={{ label: 'How to use', href: '#how' }}
-        imageLabel="Mask box + sachet + soft skincare texture"
+        image={{
+          alt: 'Hydrating Mask box',
+          placeholder: 'Mask box + sachet + soft skincare texture',
+        }}
       />
       <FactStrip
         items={[
@@ -150,8 +151,8 @@ export default function MaskPage() {
         <Grid cols={4}>
           {BENEFITS.map((b) => (
             <Card key={b.title}>
-              <h3 className="text-lg font-semibold text-[#0a2f55]">{b.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{b.body}</p>
+              <h3 className="text-xl font-semibold text-gray-900">{b.title}</h3>
+              <p className="mt-3 leading-relaxed text-gray-600">{b.body}</p>
             </Card>
           ))}
         </Grid>
@@ -168,8 +169,10 @@ export default function MaskPage() {
         <Grid cols={4}>
           {INGREDIENTS.map((group) => (
             <Card key={group.title}>
-              <h3 className="text-base font-semibold text-teal-700">{group.title}</h3>
-              <ul className="mt-3 space-y-1.5 text-sm text-slate-600">
+              <h3 className="text-base font-semibold uppercase tracking-wide text-brand-primary">
+                {group.title}
+              </h3>
+              <ul className="mt-4 space-y-2 text-gray-600">
                 {group.items.map((it) => (
                   <li key={it}>{it}</li>
                 ))}
@@ -177,7 +180,7 @@ export default function MaskPage() {
             </Card>
           ))}
         </Grid>
-        <p className="mt-6 text-sm text-slate-500">
+        <p className="mt-8 text-center text-sm text-gray-500">
           Helps skin feel hydrated, refreshed and cared for.
         </p>
       </Section>
@@ -187,7 +190,10 @@ export default function MaskPage() {
         <Steps
           items={[
             { title: 'Cleanse', body: 'Start with freshly cleansed skin.' },
-            { title: 'Apply the mask', body: 'Unfold the sheet mask and smooth it onto the face.' },
+            {
+              title: 'Apply the mask',
+              body: 'Unfold the sheet mask and smooth it onto the face.',
+            },
             {
               title: 'Leave 15–30 minutes',
               body: 'Relax while the serum-soaked mask does its work.',
@@ -202,10 +208,10 @@ export default function MaskPage() {
 
       {/* 7 · WHO IT IS FOR */}
       <Section tone="tint" eyebrow="Who it is for" title="All skin types — and especially these">
-        <div className="grid gap-10 md:grid-cols-2 md:items-center">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
             <Pills items={['All skin types', 'Dry skin', 'Sensitive skin', 'Mature skin']} />
-            <p className="mt-6 text-slate-600">
+            <p className="mt-6 leading-relaxed text-gray-600">
               The packaging states all skin types. It is positioned especially for dry, sensitive
               and mature skin. Patch test first if your skin is very reactive, and do not use on
               irritated or broken skin.
@@ -217,17 +223,19 @@ export default function MaskPage() {
 
       {/* 8 · 5-PACK OFFER */}
       <Section id="order" eyebrow="The 5-pack" title="Five masks in one box">
-        <div className="grid gap-10 md:grid-cols-2 md:items-center">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
           <ImageArea label="Folding box open with 5 sachets" className="aspect-[4/3]" />
           <div>
-            <p className="text-lg text-slate-600">
+            <p className="text-lg leading-relaxed text-gray-600">
               One folding box contains 5 individually packed 15 ml sheet masks — easy to keep on
               hand and to reach for whenever skin needs a hydration step.
             </p>
-            <div className="mt-6">
-              <CTA href="#">Buy 5-pack</CTA>
+            <div className="mt-8">
+              <Button href="#" variant="primary" size="sm">
+                Buy 5-pack
+              </Button>
             </div>
-            <p className="mt-3 text-xs text-slate-400">
+            <p className="mt-4 text-xs text-gray-500">
               Pricing and checkout to be confirmed before launch.
             </p>
           </div>
@@ -235,16 +243,11 @@ export default function MaskPage() {
       </Section>
 
       {/* 9 · PACKAGING MESSAGE */}
-      <Section tone="navy">
-        <div className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-wide text-teal-300">
-            On the packaging
-          </p>
-          <p className="mt-3 text-2xl font-bold text-white md:text-3xl">
-            Multiple Hydrating Sheet Mask · Intensive + Soothing · All Skin Types
-          </p>
-        </div>
-      </Section>
+      <Section
+        tone="dark"
+        eyebrow="On the packaging"
+        title="Multiple Hydrating Sheet Mask · Intensive + Soothing · All Skin Types"
+      />
 
       {/* 10 · FAQ */}
       <Section id="faq" eyebrow="FAQ" title="Practical questions, answered">
