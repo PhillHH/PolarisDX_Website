@@ -3,7 +3,7 @@
  *
  * Built from the PolarisDX Consumer Page Wireframe Brief (2026-05-22).
  * Section order follows the brief's section-by-section copy map exactly.
- * Unlisted: no nav/sitemap entry, noindex, password-gated at the server.
+ * Unlisted: no nav/sitemap entry, noindex — reachable only via direct link.
  */
 
 import { SEOHead } from '../../components/seo'

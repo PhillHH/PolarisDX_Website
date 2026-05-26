@@ -15,7 +15,7 @@ Disallow: /api/
 Disallow: /locales/
 Disallow: /_
 
-# Unlisted consumer landing pages (draft — password-protected, noindex)
+# Unlisted consumer landing pages (draft — noindex, reachable only via direct link)
 Disallow: /consumer/
 Disallow: /*/consumer/
 
