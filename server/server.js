@@ -236,7 +236,26 @@ function esc(str) {
 
 app.post('/api/consumer-order', async (req, res) => {
   try {
-    const { product, quantity, name, email, phone, company, message, consent, _hp } = req.body || {}
+    const {
+      product,
+      quantity,
+      // contact
+      name,
+      email,
+      phone,
+      // company
+      company,
+      // shipping address
+      street,
+      postcode,
+      city,
+      country,
+      // free-form context
+      message,
+      // GDPR / spam
+      consent,
+      _hp,
+    } = req.body || {}
 
     // Honeypot — bots almost always fill all visible/hidden fields
     if (_hp) {
@@ -262,22 +281,46 @@ app.post('/api/consumer-order', async (req, res) => {
 
     const productLabel = CONSUMER_PRODUCT_LABELS[product]
 
+    // Build a one-line address summary (only the parts the customer filled in)
+    const addressLine = [street, [postcode, city].filter(Boolean).join(' '), country]
+      .map((s) => (s || '').trim())
+      .filter(Boolean)
+      .join(', ')
+
     const orderText = `Neue Bestellanfrage über die Consumer-Landingpage
 
-Produkt: ${productLabel}
-Stückzahl: ${quantity}
+Produkt:     ${productLabel}
+Stückzahl:   ${quantity}
 
-Name: ${name}
-E-Mail: ${email}
-Telefon: ${phone || '-'}
-Organisation: ${company || '-'}
+— Ansprechpartner —
+Name:        ${name}
+E-Mail:      ${email}
+Telefon:     ${phone || '-'}
 
-Nachricht / Kontext:
+— Firma —
+Firma:       ${company || '-'}
+
+— Lieferadresse —
+Straße:      ${street || '-'}
+PLZ / Ort:   ${[postcode, city].filter(Boolean).join(' ') || '-'}
+Land:        ${country || '-'}
+
+— Nachricht / Kontext —
 ${message || '-'}
 
 — Hinweis: Der Kunde hat der Datenverarbeitung zur Bestellabwicklung
 ausdrücklich zugestimmt (DSGVO Art. 6 Abs. 1 lit. b).
 `
+
+    const row = (label, value) => `
+  <tr>
+    <td style="padding:8px 10px;border-bottom:1px solid #e2e8f0;font-weight:600;width:180px;color:#0a2f55;font-family:system-ui,sans-serif;">${esc(label)}</td>
+    <td style="padding:8px 10px;border-bottom:1px solid #e2e8f0;color:#334155;font-family:system-ui,sans-serif;">${value}</td>
+  </tr>`
+    const sectionRow = (label) => `
+  <tr>
+    <td colspan="2" style="padding:14px 10px 6px;font-size:12px;font-weight:700;color:#0d9488;text-transform:uppercase;letter-spacing:1px;font-family:system-ui,sans-serif;">${esc(label)}</td>
+  </tr>`
 
     const orderHtml = `
 <h2 style="margin:0 0 12px;font-family:system-ui,sans-serif;color:#0a2f55;">
@@ -286,24 +329,35 @@ ausdrücklich zugestimmt (DSGVO Art. 6 Abs. 1 lit. b).
 <p style="margin:0 0 16px;font-family:system-ui,sans-serif;color:#475569;">
   über die Consumer-Landingpage
 </p>
-<table style="border-collapse:collapse;width:100%;max-width:640px;font-family:system-ui,sans-serif;">
-  <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0;font-weight:600;width:180px;color:#0a2f55;">Produkt</td>
-      <td style="padding:8px;border-bottom:1px solid #e2e8f0;">${esc(productLabel)}</td></tr>
-  <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#0a2f55;">Stückzahl</td>
-      <td style="padding:8px;border-bottom:1px solid #e2e8f0;">${esc(quantity)}</td></tr>
-  <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#0a2f55;">Name</td>
-      <td style="padding:8px;border-bottom:1px solid #e2e8f0;">${esc(name)}</td></tr>
-  <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#0a2f55;">E-Mail</td>
-      <td style="padding:8px;border-bottom:1px solid #e2e8f0;"><a href="mailto:${esc(email)}">${esc(email)}</a></td></tr>
-  <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#0a2f55;">Telefon</td>
-      <td style="padding:8px;border-bottom:1px solid #e2e8f0;">${esc(phone || '-')}</td></tr>
-  <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#0a2f55;">Organisation</td>
-      <td style="padding:8px;border-bottom:1px solid #e2e8f0;">${esc(company || '-')}</td></tr>
+<table style="border-collapse:collapse;width:100%;max-width:680px;">
+  ${sectionRow('Bestellung')}
+  ${row('Produkt', esc(productLabel))}
+  ${row('Stückzahl', esc(quantity))}
+
+  ${sectionRow('Ansprechpartner')}
+  ${row('Name', esc(name))}
+  ${row('E-Mail', `<a href="mailto:${esc(email)}">${esc(email)}</a>`)}
+  ${row('Telefon', esc(phone || '-'))}
+
+  ${sectionRow('Firma')}
+  ${row('Firma', esc(company || '-'))}
+
+  ${sectionRow('Lieferadresse')}
+  ${row('Straße', esc(street || '-'))}
+  ${row('PLZ / Ort', esc([postcode, city].filter(Boolean).join(' ') || '-'))}
+  ${row('Land', esc(country || '-'))}
 </table>
 ${
   message
     ? `<p style="margin:18px 0 6px;font-family:system-ui,sans-serif;font-weight:600;color:#0a2f55;">Nachricht / Kontext</p>
        <p style="margin:0;font-family:system-ui,sans-serif;color:#334155;white-space:pre-line;">${esc(message)}</p>`
+    : ''
+}
+${
+  addressLine
+    ? `<p style="margin:18px 0 0;font-family:system-ui,sans-serif;font-size:13px;color:#64748b;">
+         Adresse (Zusammenfassung): ${esc(addressLine)}
+       </p>`
     : ''
 }
 <p style="margin:24px 0 0;font-family:system-ui,sans-serif;font-size:12px;color:#64748b;">

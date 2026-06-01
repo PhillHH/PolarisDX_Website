@@ -9,10 +9,18 @@ export type ConsumerOrderProduct = 'spray' | 'masks' | 'duo'
 export interface ConsumerOrderPayload {
   product: ConsumerOrderProduct
   quantity: string
+  // Contact (Ansprechpartner)
   name: string
   email: string
   phone?: string
+  // Company (Firma — optional, for business orders)
   company?: string
+  // Shipping address (Lieferadresse — optional; sales clarifies if missing)
+  street?: string
+  postcode?: string
+  city?: string
+  country?: string
+  // Free-form context
   message?: string
   /** Explicit DSGVO consent — must be true. */
   consent: boolean

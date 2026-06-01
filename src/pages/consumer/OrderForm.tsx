@@ -82,6 +82,17 @@ function Field({
   )
 }
 
+function SectionLabel({ children }: { children: ReactNode }) {
+  return (
+    <div className="mt-7 mb-4 first:mt-0">
+      <span className="inline-block text-xs font-semibold uppercase tracking-[1.6px] text-teal-700">
+        {children}
+      </span>
+      <span aria-hidden className="ml-3 inline-block h-px w-8 align-middle bg-teal-200" />
+    </div>
+  )
+}
+
 // =============================================================================
 // ORDER FORM
 // =============================================================================
@@ -95,12 +106,21 @@ interface OrderFormProps {
 }
 
 export function OrderForm({ product, page, submitLabel }: OrderFormProps) {
+  // Contact
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
+  // Company
   const [company, setCompany] = useState('')
+  // Shipping address
+  const [street, setStreet] = useState('')
+  const [postcode, setPostcode] = useState('')
+  const [city, setCity] = useState('')
+  const [country, setCountry] = useState('')
+  // Order
   const [quantity, setQuantity] = useState(QUANTITY_OPTIONS[product][0].value)
   const [message, setMessage] = useState('')
+  // Consent + spam
   const [consent, setConsent] = useState(false)
   const [hp, setHp] = useState('') // honeypot — must stay empty
 
@@ -125,6 +145,10 @@ export function OrderForm({ product, page, submitLabel }: OrderFormProps) {
       email: email.trim(),
       phone: phone.trim() || undefined,
       company: company.trim() || undefined,
+      street: street.trim() || undefined,
+      postcode: postcode.trim() || undefined,
+      city: city.trim() || undefined,
+      country: country.trim() || undefined,
       message: message.trim() || undefined,
       consent,
       _hp: hp,
@@ -209,8 +233,9 @@ export function OrderForm({ product, page, submitLabel }: OrderFormProps) {
         />
       </div>
 
+      <SectionLabel>Contact person</SectionLabel>
       <div className="grid gap-5 sm:grid-cols-2">
-        <Field id="order-name" label="Name" required>
+        <Field id="order-name" label="Contact name" required>
           <input
             id="order-name"
             type="text"
@@ -242,19 +267,74 @@ export function OrderForm({ product, page, submitLabel }: OrderFormProps) {
             className={inputClass}
           />
         </Field>
-        <Field id="order-company" label="Organisation / team (optional)">
+      </div>
+
+      <SectionLabel>Company (optional)</SectionLabel>
+      <Field id="order-company" label="Company / team">
+        <input
+          id="order-company"
+          type="text"
+          autoComplete="organization"
+          value={company}
+          onChange={(e) => setCompany(e.target.value)}
+          className={inputClass}
+          placeholder="If this is a business order — staff kitchen, gym, studio…"
+        />
+      </Field>
+
+      <SectionLabel>Shipping address (optional)</SectionLabel>
+      <p className="-mt-2 mb-4 text-xs text-gray-500">
+        Leave blank if you'd rather discuss shipping with us first — we'll ask when we confirm price
+        and delivery.
+      </p>
+      <div className="grid gap-5">
+        <Field id="order-street" label="Street + house number">
           <input
-            id="order-company"
+            id="order-street"
             type="text"
-            autoComplete="organization"
-            value={company}
-            onChange={(e) => setCompany(e.target.value)}
+            autoComplete="street-address"
+            value={street}
+            onChange={(e) => setStreet(e.target.value)}
             className={inputClass}
           />
         </Field>
+        <div className="grid gap-5 sm:grid-cols-[1fr_2fr_1.4fr]">
+          <Field id="order-postcode" label="Postcode">
+            <input
+              id="order-postcode"
+              type="text"
+              autoComplete="postal-code"
+              inputMode="text"
+              value={postcode}
+              onChange={(e) => setPostcode(e.target.value)}
+              className={inputClass}
+            />
+          </Field>
+          <Field id="order-city" label="City">
+            <input
+              id="order-city"
+              type="text"
+              autoComplete="address-level2"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              className={inputClass}
+            />
+          </Field>
+          <Field id="order-country" label="Country">
+            <input
+              id="order-country"
+              type="text"
+              autoComplete="country-name"
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
+              className={inputClass}
+            />
+          </Field>
+        </div>
       </div>
 
-      <div className="mt-5">
+      <SectionLabel>Order</SectionLabel>
+      <div className="grid gap-5">
         <Field id="order-quantity" label="Quantity" required>
           <select
             id="order-quantity"
@@ -270,9 +350,6 @@ export function OrderForm({ product, page, submitLabel }: OrderFormProps) {
             ))}
           </select>
         </Field>
-      </div>
-
-      <div className="mt-5">
         <Field id="order-message" label="Notes / context (optional)">
           <textarea
             id="order-message"
