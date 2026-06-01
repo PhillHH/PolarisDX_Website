@@ -17,13 +17,14 @@ import {
   Disclaimer,
   FactStrip,
   FAQ,
+  FinalCTA,
   Grid,
   Hero,
   Pills,
   Section,
   Steps,
 } from './shell'
-import { OrderSection } from './OrderForm'
+import { OrderModalProvider, useOrderModal } from './OrderModal'
 import { useConsumerPageView } from './tracking'
 
 const NAV = [
@@ -135,7 +136,16 @@ const FAQ_ITEMS = [
 ]
 
 export default function SprayPage() {
+  return (
+    <OrderModalProvider product="spray" page="spray">
+      <SprayPageInner />
+    </OrderModalProvider>
+  )
+}
+
+function SprayPageInner() {
   useConsumerPageView('spray')
+  const orderModal = useOrderModal()
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-gray-900">
       <SEOHead
@@ -203,16 +213,19 @@ export default function SprayPage() {
             <Card key={a.title} className="flex flex-col">
               <h3 className="text-xl font-semibold text-gray-900">{a.title}</h3>
               <p className="mt-3 flex-grow leading-relaxed text-gray-600">{a.body}</p>
-              <a
-                href="#order"
+              <button
+                type="button"
+                onClick={() =>
+                  orderModal?.open(`audience-${a.title.toLowerCase().replace(/[ &]+/g, '-')}`)
+                }
                 data-gtm-event="consumer_cta_click"
                 data-gtm-cta={a.cta}
                 data-gtm-page="spray"
                 data-gtm-location={`audience-${a.title.toLowerCase().replace(/[ &]+/g, '-')}`}
-                className="mt-6 inline-block text-sm font-semibold text-teal-700 hover:text-teal-900"
+                className="mt-6 inline-flex items-center self-start text-sm font-semibold text-teal-700 transition-colors hover:text-teal-900"
               >
                 {a.cta} →
-              </a>
+              </button>
             </Card>
           ))}
         </Grid>
@@ -320,12 +333,18 @@ export default function SprayPage() {
         <FAQ items={FAQ_ITEMS} />
       </Section>
 
-      {/* 12 · FINAL CTA + ORDER FORM */}
-      <OrderSection
+      {/* 12 · FINAL CTA (opens the order modal) */}
+      <FinalCTA
         page="spray"
-        product="spray"
+        id="order"
         title="Order the 12-pack"
-        body="Simple daily Vitamin D3+K2 support for teams, homes and shared wellbeing orders. Tell us how many packs you need and any context (shared workplace order, delivery wishes, etc.) — we'll come back with price and shipping."
+        body="Simple daily Vitamin D3+K2 support for teams, homes and shared wellbeing orders."
+        primary={{ label: 'Buy 12-pack', href: '#' }}
+        secondary={{
+          label: 'Ask about shared / workplace orders',
+          href: 'mailto:contact@polarisdx.net',
+        }}
+        note="No payment is taken on this page — sales confirms price and shipping."
       />
 
       <Disclaimer>

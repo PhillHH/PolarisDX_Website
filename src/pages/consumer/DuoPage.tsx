@@ -10,8 +10,18 @@ import { Link } from 'react-router-dom'
 import { SEOHead } from '../../components/seo'
 import Footer from '../../components/layout/Footer'
 import duoHero from '../../assets/landingpages-consumer/duo-hero-products-together.jpeg'
-import { Card, ConsumerHeader, Disclaimer, FactStrip, FAQ, Hero, ImageArea, Section } from './shell'
-import { OrderSection } from './OrderForm'
+import {
+  Card,
+  ConsumerHeader,
+  Disclaimer,
+  FactStrip,
+  FAQ,
+  FinalCTA,
+  Hero,
+  ImageArea,
+  Section,
+} from './shell'
+import { OrderModalProvider } from './OrderModal'
 import { useConsumerPageView } from './tracking'
 
 const NAV = [
@@ -42,6 +52,14 @@ const FAQ_ITEMS = [
 ]
 
 export default function DuoPage() {
+  return (
+    <OrderModalProvider product="duo" page="duo">
+      <DuoPageInner />
+    </OrderModalProvider>
+  )
+}
+
+function DuoPageInner() {
   useConsumerPageView('duo')
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-gray-900">
@@ -171,12 +189,14 @@ export default function DuoPage() {
         <FAQ items={FAQ_ITEMS} />
       </Section>
 
-      {/* 10 · FINAL CTA + ORDER FORM */}
-      <OrderSection
+      {/* 10 · FINAL CTA — opens the order modal */}
+      <FinalCTA
         page="duo"
-        product="duo"
+        id="order"
         title="Start with a simple inside-out routine."
-        body="The Inside-Out Care Duo includes 1 spray + 1 box of 5 masks. Tell us how many sets you need — we'll come back with price and shipping."
+        body="Includes 1 Vitamin D3+K2 Spray + 1 box of 5 Hydrating Masks."
+        primary={{ label: 'Shop the Duo', href: '#' }}
+        note="No payment is taken on this page — sales confirms price and shipping."
       />
 
       {/* 11 · FOOTER */}

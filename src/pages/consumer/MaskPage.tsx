@@ -16,6 +16,7 @@ import {
   Disclaimer,
   FactStrip,
   FAQ,
+  FinalCTA,
   Grid,
   Hero,
   ImageArea,
@@ -23,7 +24,7 @@ import {
   Section,
   Steps,
 } from './shell'
-import { OrderSection } from './OrderForm'
+import { OrderModalProvider, useOrderModal } from './OrderModal'
 import { useConsumerPageView } from './tracking'
 
 // Accent bars on the four ingredient cards — matches brief slide 13.
@@ -112,7 +113,16 @@ const FAQ_ITEMS = [
 ]
 
 export default function MaskPage() {
+  return (
+    <OrderModalProvider product="masks" page="masks">
+      <MaskPageInner />
+    </OrderModalProvider>
+  )
+}
+
+function MaskPageInner() {
   useConsumerPageView('masks')
+  const orderModal = useOrderModal()
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-gray-900">
       <SEOHead
@@ -240,7 +250,7 @@ export default function MaskPage() {
             </p>
             <div className="mt-8">
               <CTA
-                href="#"
+                onClick={() => orderModal?.open('5-pack-offer')}
                 variant="navy"
                 track={{ label: 'Buy 5-pack', page: 'masks', location: '5-pack-offer' }}
               >
@@ -300,11 +310,14 @@ export default function MaskPage() {
         <FAQ items={FAQ_ITEMS} />
       </Section>
 
-      <OrderSection
+      {/* Final CTA — opens the order modal */}
+      <FinalCTA
         page="masks"
-        product="masks"
+        id="order"
         title="Order the 5-pack"
-        body="A calm hydration step for dry, sensitive and mature skin — five individually packed sheet masks per box. Let us know how many boxes you need and we'll come back with price and shipping."
+        body="Five individually packed sheet masks for dry, sensitive and mature skin."
+        primary={{ label: 'Buy 5-pack', href: '#' }}
+        note="No payment is taken on this page — sales confirms price and shipping."
       />
 
       {/* 11 · FOOTER */}

@@ -103,9 +103,12 @@ interface OrderFormProps {
   page: ConsumerPage
   /** Optional submit button label override. */
   submitLabel?: string
+  /** Called once the form has been submitted successfully (e.g. so a
+   *  hosting modal can mark this session as "submitted"). */
+  onSubmitted?: () => void
 }
 
-export function OrderForm({ product, page, submitLabel }: OrderFormProps) {
+export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderFormProps) {
   // Contact
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -166,6 +169,7 @@ export function OrderForm({ product, page, submitLabel }: OrderFormProps) {
           quantity,
         })
       }
+      onSubmitted?.()
     } else {
       setStatus('error')
       setErrorMsg(res.error || 'Something went wrong — please try again.')

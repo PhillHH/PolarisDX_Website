@@ -22,6 +22,7 @@ import { Menu, X } from 'lucide-react'
 
 import Reveal from '../../components/ui/Reveal'
 import { trackConsumerCtaClick, type ConsumerPage } from './tracking'
+import { useOrderModal } from './OrderModal'
 import logoWhite from '../../assets/polaris_white.webp'
 
 // =============================================================================
@@ -54,13 +55,23 @@ interface CTAProps {
   children: ReactNode
   href?: string
   to?: string
+  /** Click handler. If provided AND no `to`, the CTA renders as <button>. */
+  onClick?: () => void
   variant?: CTAVariant
   size?: 'sm' | 'md'
   /** When set, fires a `consumer_cta_click` dataLayer event on click. */
   track?: TrackingMeta
 }
 
-export function CTA({ children, href, to, variant = 'navy', size = 'md', track }: CTAProps) {
+export function CTA({
+  children,
+  href,
+  to,
+  onClick,
+  variant = 'navy',
+  size = 'md',
+  track,
+}: CTAProps) {
   const base =
     'inline-flex items-center justify-center gap-2 rounded-md font-semibold tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500'
   const sizes = {
@@ -76,9 +87,10 @@ export function CTA({ children, href, to, variant = 'navy', size = 'md', track }
     'outline-white': 'border border-white/60 text-white hover:bg-white/10',
   }
   const cls = `${base} ${sizes[size]} ${variants[variant]}`
-  const handleClick = track
-    ? () => trackConsumerCtaClick(track.label, track.page, track.location)
-    : undefined
+  const handleClick = () => {
+    if (track) trackConsumerCtaClick(track.label, track.page, track.location)
+    if (onClick) onClick()
+  }
   // GTM-friendly data attributes (so marketing can target with built-in
   // Click triggers without relying on the JS event push above).
   const dataAttrs = track
@@ -94,6 +106,15 @@ export function CTA({ children, href, to, variant = 'navy', size = 'md', track }
       <Link to={to} className={cls} onClick={handleClick} {...dataAttrs}>
         {children}
       </Link>
+    )
+  }
+  // If a click handler is wired up (e.g. opens a modal), render as a real
+  // <button> — semantically correct + no `#` URL bar pollution.
+  if (onClick) {
+    return (
+      <button type="button" className={cls} onClick={handleClick} {...dataAttrs}>
+        {children}
+      </button>
     )
   }
   return (
@@ -128,6 +149,16 @@ export function ConsumerHeader({
   page: ConsumerPage
 }) {
   const [open, setOpen] = useState(false)
+  const orderModal = useOrderModal()
+  // If we're inside an OrderModalProvider, the header CTA opens the modal.
+  // Otherwise it falls back to the anchor link (`cta.href`).
+  const desktopClick = orderModal ? () => orderModal.open('header') : undefined
+  const mobileClick = orderModal
+    ? () => {
+        setOpen(false)
+        orderModal.open('header-mobile')
+      }
+    : undefined
   return (
     <header className="sticky top-0 z-30 bg-brand-deep shadow-[0_2px_12px_rgba(8,51,88,0.18)]">
       <div className="mx-auto flex max-w-container items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-0 lg:py-4">
@@ -148,6 +179,7 @@ export function ConsumerHeader({
         <div className="hidden md:block">
           <CTA
             href={cta.href}
+            onClick={desktopClick}
             variant="teal"
             size="sm"
             track={{ label: cta.label, page, location: 'header' }}
@@ -187,6 +219,7 @@ export function ConsumerHeader({
             <div className="mt-4">
               <CTA
                 href={cta.href}
+                onClick={mobileClick}
                 variant="teal"
                 size="sm"
                 track={{ label: cta.label, page, location: 'header-mobile' }}
@@ -223,6 +256,10 @@ export function Hero({
   /** Which consumer page — wires the hero CTAs into the dataLayer. */
   page: ConsumerPage
 }) {
+  const orderModal = useOrderModal()
+  // Hero primary CTA opens the order modal when available; falls back to
+  // the anchor `primary.href` if no provider is wired up.
+  const primaryClick = orderModal ? () => orderModal.open('hero') : undefined
   return (
     <section id="top" className="relative overflow-hidden bg-gradient-to-b from-white to-slate-50">
       <div
@@ -249,6 +286,7 @@ export function Hero({
               <div className="mt-10 flex flex-wrap items-center gap-3">
                 <CTA
                   href={primary.href}
+                  onClick={primaryClick}
                   variant="navy"
                   track={{ label: primary.label, page, location: 'hero' }}
                 >
@@ -560,6 +598,8 @@ export function FinalCTA({
   /** Which consumer page — wires the final-CTA buttons into the dataLayer. */
   page: ConsumerPage
 }) {
+  const orderModal = useOrderModal()
+  const primaryClick = orderModal ? () => orderModal.open('final') : undefined
   return (
     <section id={id} className="relative overflow-hidden bg-brand-deep py-20 text-white lg:py-24">
       <div
@@ -573,6 +613,7 @@ export function FinalCTA({
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           <CTA
             href={primary.href}
+            onClick={primaryClick}
             variant="teal"
             track={{ label: primary.label, page, location: 'final' }}
           >
