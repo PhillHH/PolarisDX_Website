@@ -8,6 +8,7 @@
 
 import { SEOHead } from '../../components/seo'
 import Footer from '../../components/layout/Footer'
+import maskHero from '../../assets/landingpages-consumer/mask-hero-botanical.jpeg'
 import {
   Card,
   ConsumerHeader,
@@ -23,6 +24,7 @@ import {
   Section,
   Steps,
 } from './shell'
+import { useConsumerPageView } from './tracking'
 
 // Accent bars on the four ingredient cards — matches brief slide 13.
 const INGREDIENT_ACCENTS = ['teal', 'navy', 'green', 'amber'] as const
@@ -110,6 +112,7 @@ const FAQ_ITEMS = [
 ]
 
 export default function MaskPage() {
+  useConsumerPageView('masks')
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-gray-900">
       <SEOHead
@@ -118,18 +121,19 @@ export default function MaskPage() {
         noindex
       />
 
-      <ConsumerHeader nav={NAV} cta={{ label: 'Buy 5-pack', href: '#order' }} />
+      <ConsumerHeader nav={NAV} cta={{ label: 'Buy 5-pack', href: '#order' }} page="masks" />
 
       {/* 2 · HERO */}
       <Hero
+        page="masks"
         eyebrow="Hydrating Hyaluronic Mask"
         title="A calm hydration step for dry, sensitive and mature skin."
         sub="A serum-soaked sheet mask for a simple 15–30-minute skincare routine. Intensive + soothing care for all skin types."
         primary={{ label: 'Buy 5-pack', href: '#order' }}
         secondary={{ label: 'How to use', href: '#how' }}
         image={{
-          alt: 'Hydrating Mask box',
-          placeholder: 'Mask box + sachet + soft skincare texture',
+          src: maskHero,
+          alt: 'Multiple Hydrating Mask — De Legende Kosmetik box and sachet with botanicals',
         }}
       />
       <FactStrip
@@ -235,7 +239,11 @@ export default function MaskPage() {
               hand and to reach for whenever skin needs a hydration step.
             </p>
             <div className="mt-8">
-              <CTA href="#" variant="navy">
+              <CTA
+                href="#"
+                variant="navy"
+                track={{ label: 'Buy 5-pack', page: 'masks', location: '5-pack-offer' }}
+              >
                 Buy 5-pack
               </CTA>
             </div>
@@ -253,12 +261,47 @@ export default function MaskPage() {
         title="Multiple Hydrating Sheet Mask · Intensive + Soothing · All Skin Types"
       />
 
+      {/* Bridge — outside hydration → inside support (mirrors the Spray page) */}
+      <Section
+        tone="tint"
+        align="left"
+        eyebrow="The other half of the routine"
+        title="Visible care from outside, daily support from within."
+        lead="The mask is the outside step. The Vitamin D3+K2 Spray is the inside step — one simple daily sublingual spray. Both come together in the Inside-Out Care Duo."
+      >
+        <div className="flex flex-wrap gap-3">
+          <CTA
+            to="/consumer/inside-out-duo"
+            variant="navy"
+            track={{
+              label: 'Explore the Inside-Out Care Duo',
+              page: 'masks',
+              location: 'bridge',
+            }}
+          >
+            Explore the Inside-Out Care Duo
+          </CTA>
+          <CTA
+            to="/consumer/vitamin-d3-spray"
+            variant="outline-navy"
+            track={{
+              label: 'See the Vitamin D3+K2 Spray',
+              page: 'masks',
+              location: 'bridge',
+            }}
+          >
+            See the Vitamin D3+K2 Spray
+          </CTA>
+        </div>
+      </Section>
+
       {/* 10 · FAQ */}
       <Section id="faq" eyebrow="FAQ" title="Practical questions, answered">
         <FAQ items={FAQ_ITEMS} />
       </Section>
 
       <FinalCTA
+        page="masks"
         title="A calm hydration step, ready when you are"
         body="Five individually packed sheet masks for dry, sensitive and mature skin."
         primary={{ label: 'Buy 5-pack', href: '#' }}

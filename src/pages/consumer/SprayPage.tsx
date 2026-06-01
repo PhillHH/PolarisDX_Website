@@ -8,7 +8,8 @@
 
 import { SEOHead } from '../../components/seo'
 import Footer from '../../components/layout/Footer'
-import sprayImage from '../../assets/VITAMIND_D3_SPRAY.jpg'
+import sprayHero from '../../assets/landingpages-consumer/spray-hero-12pack-office.jpeg'
+import sprayStill from '../../assets/landingpages-consumer/spray-still-life.jpeg'
 import {
   Card,
   ConsumerHeader,
@@ -23,6 +24,7 @@ import {
   Section,
   Steps,
 } from './shell'
+import { useConsumerPageView } from './tracking'
 
 const NAV = [
   { label: 'Daily wellbeing', href: '#why' },
@@ -133,6 +135,7 @@ const FAQ_ITEMS = [
 ]
 
 export default function SprayPage() {
+  useConsumerPageView('spray')
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-gray-900">
       <SEOHead
@@ -141,16 +144,20 @@ export default function SprayPage() {
         noindex
       />
 
-      <ConsumerHeader nav={NAV} cta={{ label: 'Order 12-pack', href: '#order' }} />
+      <ConsumerHeader nav={NAV} cta={{ label: 'Order 12-pack', href: '#order' }} page="spray" />
 
       {/* 2 · HERO */}
       <Hero
+        page="spray"
         eyebrow="Vitamin D3+K2 Spray"
         title="Daily Vitamin D3+K2 support made simple."
         sub="A convenient orange-flavoured sublingual spray for an easy daily wellbeing routine at home, at work or in shared spaces."
         primary={{ label: 'Buy 12-pack', href: '#order' }}
         secondary={{ label: 'How it works', href: '#how' }}
-        image={{ src: sprayImage, alt: 'PolarisDX Vitamin D3+K2 Sublingual Spray' }}
+        image={{
+          src: sprayHero,
+          alt: 'PolarisDX Vitamin D3+K2 Sublingual Spray — 12-pack in an office wellbeing setting',
+        }}
       />
       <FactStrip
         items={[
@@ -198,6 +205,10 @@ export default function SprayPage() {
               <p className="mt-3 flex-grow leading-relaxed text-gray-600">{a.body}</p>
               <a
                 href="#order"
+                data-gtm-event="consumer_cta_click"
+                data-gtm-cta={a.cta}
+                data-gtm-page="spray"
+                data-gtm-location={`audience-${a.title.toLowerCase().replace(/[ &]+/g, '-')}`}
                 className="mt-6 inline-block text-sm font-semibold text-teal-700 hover:text-teal-900"
               >
                 {a.cta} →
@@ -222,9 +233,11 @@ export default function SprayPage() {
           </Card>
           <div>
             <img
-              src={sprayImage}
-              alt="Vitamin D3+K2 Spray bottle"
-              className="mx-auto w-full max-w-sm rounded-2xl shadow-card"
+              src={sprayStill}
+              alt="PolarisDX Vitamin D3+K2 Sublingual Spray — bottle + box detail"
+              loading="lazy"
+              decoding="async"
+              className="mx-auto w-full max-w-sm rounded-2xl shadow-card lg:max-w-md"
             />
           </div>
         </div>
@@ -289,7 +302,15 @@ export default function SprayPage() {
         align="left"
         lead="First step: daily support from within with the spray. Next step: outside-in hydration with the Hydrating Mask bundle — both together in the Inside-Out Care Duo."
       >
-        <CTA to="/consumer/inside-out-duo" variant="teal">
+        <CTA
+          to="/consumer/inside-out-duo"
+          variant="teal"
+          track={{
+            label: 'Explore the Inside-Out Care Duo',
+            page: 'spray',
+            location: 'bridge-to-duo',
+          }}
+        >
           Explore the Inside-Out Care Duo
         </CTA>
       </Section>
@@ -301,6 +322,7 @@ export default function SprayPage() {
 
       {/* 12 · FINAL CTA */}
       <FinalCTA
+        page="spray"
         id="order"
         title="Order the 12-pack"
         body="Simple daily Vitamin D3+K2 support for teams, homes and shared wellbeing orders."

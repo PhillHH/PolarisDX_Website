@@ -9,6 +9,7 @@
 import { Link } from 'react-router-dom'
 import { SEOHead } from '../../components/seo'
 import Footer from '../../components/layout/Footer'
+import duoHero from '../../assets/landingpages-consumer/duo-hero-products-together.jpeg'
 import {
   Card,
   ConsumerHeader,
@@ -20,6 +21,7 @@ import {
   ImageArea,
   Section,
 } from './shell'
+import { useConsumerPageView } from './tracking'
 
 const NAV = [
   { label: "What's included", href: '#included' },
@@ -49,6 +51,7 @@ const FAQ_ITEMS = [
 ]
 
 export default function DuoPage() {
+  useConsumerPageView('duo')
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-gray-900">
       <SEOHead
@@ -57,16 +60,20 @@ export default function DuoPage() {
         noindex
       />
 
-      <ConsumerHeader nav={NAV} cta={{ label: 'Shop Duo', href: '#order' }} />
+      <ConsumerHeader nav={NAV} cta={{ label: 'Shop Duo', href: '#order' }} page="duo" />
 
       {/* 2 · HERO */}
       <Hero
+        page="duo"
         eyebrow="Inside-Out Care Duo"
         title="Support from within. Hydrating care from outside."
         sub="A simple two-part care routine: one Vitamin D3+K2 Spray plus one box of five Hydrating Masks."
         primary={{ label: 'Shop the Duo', href: '#order' }}
         secondary={{ label: "What's included", href: '#included' }}
-        image={{ alt: 'Inside-Out Care Duo', placeholder: 'Spray bottle + mask box together' }}
+        image={{
+          src: duoHero,
+          alt: 'PolarisDX Inside-Out Care Duo — Vitamin D3+K2 spray and Hydrating Mask box together',
+        }}
       />
       <FactStrip
         items={[
@@ -95,6 +102,10 @@ export default function DuoPage() {
             </p>
             <Link
               to="/consumer/vitamin-d3-spray"
+              data-gtm-event="consumer_cta_click"
+              data-gtm-cta="See the spray page"
+              data-gtm-page="duo"
+              data-gtm-location="included-card"
               className="mt-6 inline-block text-sm font-semibold text-teal-700 hover:text-teal-900"
             >
               See the spray page →
@@ -108,6 +119,10 @@ export default function DuoPage() {
             </p>
             <Link
               to="/consumer/hydrating-masks"
+              data-gtm-event="consumer_cta_click"
+              data-gtm-cta="See the mask page"
+              data-gtm-page="duo"
+              data-gtm-location="included-card"
               className="mt-6 inline-block text-sm font-semibold text-teal-700 hover:text-teal-900"
             >
               See the mask page →
@@ -167,6 +182,7 @@ export default function DuoPage() {
 
       {/* 10 · FINAL CTA */}
       <FinalCTA
+        page="duo"
         id="order"
         title="Start with a simple inside-out routine."
         body="The Inside-Out Care Duo includes 1 spray + 1 box of 5 masks."

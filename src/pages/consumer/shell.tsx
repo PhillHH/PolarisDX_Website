@@ -16,10 +16,12 @@
  * styling where the two conflict.
  */
 
-import { type ReactNode } from 'react'
+import { type ReactNode, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Menu, X } from 'lucide-react'
 
 import Reveal from '../../components/ui/Reveal'
+import { trackConsumerCtaClick, type ConsumerPage } from './tracking'
 import logoWhite from '../../assets/polaris_white.webp'
 
 // =============================================================================
@@ -39,15 +41,26 @@ type AccentBar = 'teal' | 'navy' | 'green' | 'amber' | 'none'
 
 type CTAVariant = 'navy' | 'outline-navy' | 'teal' | 'white' | 'outline-white'
 
+export interface TrackingMeta {
+  /** Human-readable label of the CTA, e.g. "Buy 12-pack". */
+  label: string
+  /** Which consumer page emitted the click. */
+  page: ConsumerPage
+  /** Where on the page the CTA sat, e.g. "hero" / "audience-card" / "final". */
+  location?: string
+}
+
 interface CTAProps {
   children: ReactNode
   href?: string
   to?: string
   variant?: CTAVariant
   size?: 'sm' | 'md'
+  /** When set, fires a `consumer_cta_click` dataLayer event on click. */
+  track?: TrackingMeta
 }
 
-export function CTA({ children, href, to, variant = 'navy', size = 'md' }: CTAProps) {
+export function CTA({ children, href, to, variant = 'navy', size = 'md', track }: CTAProps) {
   const base =
     'inline-flex items-center justify-center gap-2 rounded-md font-semibold tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500'
   const sizes = {
@@ -63,15 +76,28 @@ export function CTA({ children, href, to, variant = 'navy', size = 'md' }: CTAPr
     'outline-white': 'border border-white/60 text-white hover:bg-white/10',
   }
   const cls = `${base} ${sizes[size]} ${variants[variant]}`
+  const handleClick = track
+    ? () => trackConsumerCtaClick(track.label, track.page, track.location)
+    : undefined
+  // GTM-friendly data attributes (so marketing can target with built-in
+  // Click triggers without relying on the JS event push above).
+  const dataAttrs = track
+    ? {
+        'data-gtm-event': 'consumer_cta_click',
+        'data-gtm-cta': track.label,
+        'data-gtm-page': track.page,
+        ...(track.location ? { 'data-gtm-location': track.location } : {}),
+      }
+    : {}
   if (to) {
     return (
-      <Link to={to} className={cls}>
+      <Link to={to} className={cls} onClick={handleClick} {...dataAttrs}>
         {children}
       </Link>
     )
   }
   return (
-    <a href={href ?? '#'} className={cls}>
+    <a href={href ?? '#'} className={cls} onClick={handleClick} {...dataAttrs}>
       {children}
     </a>
   )
@@ -91,14 +117,25 @@ function Wordmark() {
 // HEADER — solid dark navy bar, white logo, teal CTA
 // =============================================================================
 
-export function ConsumerHeader({ nav, cta }: { nav: NavLink[]; cta: NavLink }) {
+export function ConsumerHeader({
+  nav,
+  cta,
+  page,
+}: {
+  nav: NavLink[]
+  cta: NavLink
+  /** Which consumer page (for tracking the header CTA). */
+  page: ConsumerPage
+}) {
+  const [open, setOpen] = useState(false)
   return (
     <header className="sticky top-0 z-30 bg-brand-deep shadow-[0_2px_12px_rgba(8,51,88,0.18)]">
-      <div className="mx-auto flex max-w-container items-center justify-between gap-6 px-4 py-3 sm:px-6 lg:px-0 lg:py-4">
+      <div className="mx-auto flex max-w-container items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-0 lg:py-4">
         <a href="#top" aria-label="PolarisDX" className="flex shrink-0 items-center">
           <Wordmark />
         </a>
 
+        {/* Desktop nav */}
         <nav className="hidden flex-1 items-center justify-center gap-8 text-sm font-medium text-white/90 md:flex">
           {nav.map((n) => (
             <a key={n.href} href={n.href} className="transition-colors hover:text-teal-300">
@@ -107,10 +144,59 @@ export function ConsumerHeader({ nav, cta }: { nav: NavLink[]; cta: NavLink }) {
           ))}
         </nav>
 
-        <CTA href={cta.href} variant="teal" size="sm">
-          {cta.label}
-        </CTA>
+        {/* Desktop CTA */}
+        <div className="hidden md:block">
+          <CTA
+            href={cta.href}
+            variant="teal"
+            size="sm"
+            track={{ label: cta.label, page, location: 'header' }}
+          >
+            {cta.label}
+          </CTA>
+        </div>
+
+        {/* Mobile: hamburger toggle */}
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          className="flex h-10 w-10 items-center justify-center rounded-md border border-white/15 text-white transition-colors hover:bg-white/10 md:hidden"
+        >
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
       </div>
+
+      {/* Mobile dropdown panel */}
+      {open && (
+        <div className="border-t border-white/10 bg-brand-deep md:hidden">
+          <div className="mx-auto max-w-container px-4 py-4 sm:px-6">
+            <nav className="flex flex-col gap-1">
+              {nav.map((n) => (
+                <a
+                  key={n.href}
+                  href={n.href}
+                  onClick={() => setOpen(false)}
+                  className="rounded-md px-3 py-3 text-base font-medium text-white/90 transition-colors hover:bg-white/10 hover:text-teal-300"
+                >
+                  {n.label}
+                </a>
+              ))}
+            </nav>
+            <div className="mt-4">
+              <CTA
+                href={cta.href}
+                variant="teal"
+                size="sm"
+                track={{ label: cta.label, page, location: 'header-mobile' }}
+              >
+                {cta.label}
+              </CTA>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   )
 }
@@ -126,6 +212,7 @@ export function Hero({
   primary,
   secondary,
   image,
+  page,
 }: {
   eyebrow: string
   title: string
@@ -133,6 +220,8 @@ export function Hero({
   primary: NavLink
   secondary?: NavLink
   image?: { src?: string; alt: string; placeholder?: string }
+  /** Which consumer page — wires the hero CTAs into the dataLayer. */
+  page: ConsumerPage
 }) {
   return (
     <section id="top" className="relative overflow-hidden bg-gradient-to-b from-white to-slate-50">
@@ -158,33 +247,37 @@ export function Hero({
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-gray-600">{sub}</p>
               <div className="mt-10 flex flex-wrap items-center gap-3">
-                <CTA href={primary.href} variant="navy">
+                <CTA
+                  href={primary.href}
+                  variant="navy"
+                  track={{ label: primary.label, page, location: 'hero' }}
+                >
                   {primary.label}
                 </CTA>
                 {secondary && (
-                  <CTA href={secondary.href} variant="outline-navy">
+                  <CTA
+                    href={secondary.href}
+                    variant="outline-navy"
+                    track={{ label: secondary.label, page, location: 'hero-secondary' }}
+                  >
                     {secondary.label}
                   </CTA>
                 )}
               </div>
             </div>
 
-            {/* Image · right */}
+            {/* Image · right (responsive: stacks below text on mobile) */}
             <div className="relative">
               {image?.src ? (
-                <div className="relative mx-auto w-full max-w-sm lg:max-w-md">
-                  <div
-                    aria-hidden
-                    className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-teal-100/60 via-white to-brand-secondary/10"
-                  />
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="relative w-full rounded-2xl shadow-[0_20px_50px_rgba(8,51,88,0.18)]"
-                  />
-                </div>
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  loading="eager"
+                  decoding="async"
+                  className="mx-auto block w-full max-w-md rounded-2xl object-cover shadow-[0_20px_50px_rgba(8,51,88,0.18)] lg:max-w-none"
+                />
               ) : (
-                <div className="mx-auto flex aspect-[4/5] w-full max-w-sm items-center justify-center rounded-2xl border-2 border-dashed border-teal-300/60 bg-white p-8 text-center text-sm text-gray-500 lg:max-w-md">
+                <div className="mx-auto flex aspect-[4/5] w-full max-w-md items-center justify-center rounded-2xl border-2 border-dashed border-teal-300/60 bg-white p-8 text-center text-sm text-gray-500 lg:max-w-none">
                   Bildplatzhalter — {image?.placeholder ?? image?.alt}
                 </div>
               )}
@@ -456,6 +549,7 @@ export function FinalCTA({
   primary,
   secondary,
   note,
+  page,
 }: {
   id?: string
   title: string
@@ -463,6 +557,8 @@ export function FinalCTA({
   primary: NavLink
   secondary?: NavLink
   note?: string
+  /** Which consumer page — wires the final-CTA buttons into the dataLayer. */
+  page: ConsumerPage
 }) {
   return (
     <section id={id} className="relative overflow-hidden bg-brand-deep py-20 text-white lg:py-24">
@@ -475,11 +571,19 @@ export function FinalCTA({
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
         <p className="mx-auto mt-5 max-w-xl text-lg text-white/80">{body}</p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
-          <CTA href={primary.href} variant="teal">
+          <CTA
+            href={primary.href}
+            variant="teal"
+            track={{ label: primary.label, page, location: 'final' }}
+          >
             {primary.label}
           </CTA>
           {secondary && (
-            <CTA href={secondary.href} variant="outline-white">
+            <CTA
+              href={secondary.href}
+              variant="outline-white"
+              track={{ label: secondary.label, page, location: 'final-secondary' }}
+            >
               {secondary.label}
             </CTA>
           )}
