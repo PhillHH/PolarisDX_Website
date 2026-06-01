@@ -10,17 +10,8 @@ import { Link } from 'react-router-dom'
 import { SEOHead } from '../../components/seo'
 import Footer from '../../components/layout/Footer'
 import duoHero from '../../assets/landingpages-consumer/duo-hero-products-together.jpeg'
-import {
-  Card,
-  ConsumerHeader,
-  Disclaimer,
-  FactStrip,
-  FAQ,
-  FinalCTA,
-  Hero,
-  ImageArea,
-  Section,
-} from './shell'
+import { Card, ConsumerHeader, Disclaimer, FactStrip, FAQ, Hero, ImageArea, Section } from './shell'
+import { OrderSection } from './OrderForm'
 import { useConsumerPageView } from './tracking'
 
 const NAV = [
@@ -180,14 +171,12 @@ export default function DuoPage() {
         <FAQ items={FAQ_ITEMS} />
       </Section>
 
-      {/* 10 · FINAL CTA */}
-      <FinalCTA
+      {/* 10 · FINAL CTA + ORDER FORM */}
+      <OrderSection
         page="duo"
-        id="order"
+        product="duo"
         title="Start with a simple inside-out routine."
-        body="The Inside-Out Care Duo includes 1 spray + 1 box of 5 masks."
-        primary={{ label: 'Shop the Duo', href: '#' }}
-        note="Includes 1 spray + 5 masks. Pricing and checkout to be confirmed before launch."
+        body="The Inside-Out Care Duo includes 1 spray + 1 box of 5 masks. Tell us how many sets you need — we'll come back with price and shipping."
       />
 
       {/* 11 · FOOTER */}

@@ -16,7 +16,6 @@ import {
   Disclaimer,
   FactStrip,
   FAQ,
-  FinalCTA,
   Grid,
   Hero,
   ImageArea,
@@ -24,6 +23,7 @@ import {
   Section,
   Steps,
 } from './shell'
+import { OrderSection } from './OrderForm'
 import { useConsumerPageView } from './tracking'
 
 // Accent bars on the four ingredient cards — matches brief slide 13.
@@ -300,12 +300,11 @@ export default function MaskPage() {
         <FAQ items={FAQ_ITEMS} />
       </Section>
 
-      <FinalCTA
+      <OrderSection
         page="masks"
-        title="A calm hydration step, ready when you are"
-        body="Five individually packed sheet masks for dry, sensitive and mature skin."
-        primary={{ label: 'Buy 5-pack', href: '#' }}
-        note="Pricing and checkout to be confirmed before launch."
+        product="masks"
+        title="Order the 5-pack"
+        body="A calm hydration step for dry, sensitive and mature skin — five individually packed sheet masks per box. Let us know how many boxes you need and we'll come back with price and shipping."
       />
 
       {/* 11 · FOOTER */}

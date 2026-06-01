@@ -17,13 +17,13 @@ import {
   Disclaimer,
   FactStrip,
   FAQ,
-  FinalCTA,
   Grid,
   Hero,
   Pills,
   Section,
   Steps,
 } from './shell'
+import { OrderSection } from './OrderForm'
 import { useConsumerPageView } from './tracking'
 
 const NAV = [
@@ -320,15 +320,12 @@ export default function SprayPage() {
         <FAQ items={FAQ_ITEMS} />
       </Section>
 
-      {/* 12 · FINAL CTA */}
-      <FinalCTA
+      {/* 12 · FINAL CTA + ORDER FORM */}
+      <OrderSection
         page="spray"
-        id="order"
+        product="spray"
         title="Order the 12-pack"
-        body="Simple daily Vitamin D3+K2 support for teams, homes and shared wellbeing orders."
-        primary={{ label: 'Buy 12-pack', href: '#' }}
-        secondary={{ label: 'Ask about shared / workplace orders', href: '#' }}
-        note="Pricing and checkout to be confirmed before launch."
+        body="Simple daily Vitamin D3+K2 support for teams, homes and shared wellbeing orders. Tell us how many packs you need and any context (shared workplace order, delivery wishes, etc.) — we'll come back with price and shipping."
       />
 
       <Disclaimer>
