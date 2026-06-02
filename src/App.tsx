@@ -66,9 +66,15 @@ const DownloadsPage = lazy(() => import('./pages/DownloadsPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
 // Consumer-Landingpages (unlisted — eigene Chrome, kein B2B-Layout)
-const ConsumerSprayPage = lazy(() => import('./pages/consumer/SprayPage'))
-const ConsumerMaskPage = lazy(() => import('./pages/consumer/MaskPage'))
-const ConsumerDuoPage = lazy(() => import('./pages/consumer/DuoPage'))
+// Eager imports for the consumer landing pages (not lazy).
+// Why: these are paid-traffic landing pages from Instagram/LinkedIn. The
+// page <title>, meta description and OG tags are SEO/share-preview-critical
+// and must be in the SSR HTML on the very first request — otherwise the
+// React.lazy() fallback gets served and the head ends up with the static
+// IglooPro defaults from index.html.
+import ConsumerSprayPage from './pages/consumer/SprayPage'
+import ConsumerMaskPage from './pages/consumer/MaskPage'
+import ConsumerDuoPage from './pages/consumer/DuoPage'
 
 // =============================================================================
 // SUSPENSE WRAPPER

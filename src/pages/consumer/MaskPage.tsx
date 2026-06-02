@@ -19,7 +19,6 @@ import {
   FinalCTA,
   Grid,
   Hero,
-  ImageArea,
   Pills,
   Section,
   Steps,
@@ -88,11 +87,11 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Which skin type is it for?',
-    a: 'The packaging states all skin types. It is positioned especially for dry, sensitive and mature skin. Patch test if your skin is very reactive.',
+    a: 'The packaging states all skin types. It is positioned especially for dry, sensitive or mature skin. Patch test if your skin is very reactive.',
   },
   {
     q: 'Is it scented?',
-    a: 'Current direction is that no perfume oil is incorporated, subject to final wording confirmation before launch.',
+    a: 'The formula does not include added perfume oil.',
   },
   {
     q: 'What is in one box?',
@@ -126,8 +125,8 @@ function MaskPageInner() {
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-gray-900">
       <SEOHead
-        title="Hydrating Sheet Masks — 5-Pack"
-        description="A calm hydration step for dry, sensitive and mature skin — five individually packed serum-soaked sheet masks in one box."
+        title="Hydrating Hyaluronic Mask 5-Pack"
+        description="A calm hydration step for dry, sensitive or mature skin — five individually packed serum-soaked sheet masks in one box."
         noindex
       />
 
@@ -137,7 +136,7 @@ function MaskPageInner() {
       <Hero
         page="masks"
         eyebrow="Hydrating Hyaluronic Mask"
-        title="A calm hydration step for dry, sensitive and mature skin."
+        title="A calm hydration step for dry, sensitive or mature skin."
         sub="A serum-soaked sheet mask for a simple 15–30-minute skincare routine. Intensive + soothing care for all skin types."
         primary={{ label: 'Buy 5-pack', href: '#order' }}
         secondary={{ label: 'How to use', href: '#how' }}
@@ -226,40 +225,33 @@ function MaskPageInner() {
 
       {/* 7 · WHO IT IS FOR */}
       <Section tone="tint" eyebrow="Who it is for" title="All skin types — and especially these">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div>
+        <div className="mx-auto max-w-2xl text-center">
+          <div className="flex justify-center">
             <Pills items={['All skin types', 'Dry skin', 'Sensitive skin', 'Mature skin']} />
-            <p className="mt-6 leading-relaxed text-gray-600">
-              The packaging states all skin types. It is positioned especially for dry, sensitive
-              and mature skin. Patch test first if your skin is very reactive, and do not use on
-              irritated or broken skin.
-            </p>
           </div>
-          <ImageArea label="Mask in use — calm skincare moment" className="aspect-[4/3]" />
+          <p className="mt-6 leading-relaxed text-gray-600">
+            The packaging states all skin types. It is positioned especially for dry, sensitive or
+            mature skin. Patch test first if your skin is very reactive, and do not use on irritated
+            or broken skin.
+          </p>
         </div>
       </Section>
 
       {/* 8 · 5-PACK OFFER */}
       <Section id="order" eyebrow="The 5-pack" title="Five masks in one box">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          <ImageArea label="Folding box open with 5 sachets" className="aspect-[4/3]" />
-          <div>
-            <p className="text-lg leading-relaxed text-gray-600">
-              One folding box contains 5 individually packed 15 ml sheet masks — easy to keep on
-              hand and to reach for whenever skin needs a hydration step.
-            </p>
-            <div className="mt-8">
-              <CTA
-                onClick={() => orderModal?.open('5-pack-offer')}
-                variant="navy"
-                track={{ label: 'Buy 5-pack', page: 'masks', location: '5-pack-offer' }}
-              >
-                Buy 5-pack
-              </CTA>
-            </div>
-            <p className="mt-4 text-xs text-gray-500">
-              Pricing and checkout to be confirmed before launch.
-            </p>
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-lg leading-relaxed text-gray-600">
+            One folding box contains 5 individually packed 15 ml sheet masks — easy to keep on hand
+            and to reach for whenever skin needs a hydration step.
+          </p>
+          <div className="mt-8">
+            <CTA
+              onClick={() => orderModal?.open('5-pack-offer')}
+              variant="navy"
+              track={{ label: 'Buy 5-pack', page: 'masks', location: '5-pack-offer' }}
+            >
+              Buy 5-pack
+            </CTA>
           </div>
         </div>
       </Section>
@@ -315,7 +307,7 @@ function MaskPageInner() {
         page="masks"
         id="order"
         title="Order the 5-pack"
-        body="Five individually packed sheet masks for dry, sensitive and mature skin."
+        body="Five individually packed sheet masks for dry, sensitive or mature skin."
         primary={{ label: 'Buy 5-pack', href: '#' }}
         note="No payment is taken on this page — sales confirms price and shipping."
       />

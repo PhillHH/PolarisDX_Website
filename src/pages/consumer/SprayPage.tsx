@@ -149,8 +149,8 @@ function SprayPageInner() {
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-gray-900">
       <SEOHead
-        title="Vitamin D3+K2 Spray 12-Pack"
-        description="Daily Vitamin D3+K2 support made simple — a convenient orange-flavoured sublingual spray, sold as a 12-pack for teams, homes and shared wellbeing orders."
+        title="Vitamin D3+K2 Sublingual Spray 12-Pack"
+        description="Daily Vitamin D3+K2 support made simple — a convenient vibrant orange-flavoured sublingual spray, sold as a 12-pack for teams, homes and shared wellbeing orders."
         noindex
       />
 
@@ -161,13 +161,27 @@ function SprayPageInner() {
         page="spray"
         eyebrow="Vitamin D3+K2 Spray"
         title="Daily Vitamin D3+K2 support made simple."
-        sub="A convenient orange-flavoured sublingual spray for an easy daily wellbeing routine at home, at work or in shared spaces."
+        sub="A convenient vibrant orange-flavoured sublingual spray for an easy daily wellbeing routine at home, at work or in shared spaces."
         primary={{ label: 'Buy 12-pack', href: '#order' }}
         secondary={{ label: 'How it works', href: '#how' }}
         image={{
           src: sprayHero,
           alt: 'PolarisDX Vitamin D3+K2 Sublingual Spray — 12-pack in an office wellbeing setting',
         }}
+        priceBadge={
+          <div className="inline-flex items-center gap-3 rounded-full border border-teal-200 bg-teal-50 px-5 py-2.5 text-sm font-semibold text-teal-800 shadow-sm">
+            <span
+              aria-hidden
+              className="flex h-7 w-7 items-center justify-center rounded-full bg-teal-600 text-base font-bold text-white"
+            >
+              €
+            </span>
+            <span>
+              Weekday support for <span className="font-bold text-teal-900">&lt;&nbsp;€1</span> per
+              employee per week
+            </span>
+          </div>
+        }
       />
       <FactStrip
         items={[

@@ -246,6 +246,7 @@ export function Hero({
   secondary,
   image,
   page,
+  priceBadge,
 }: {
   eyebrow: string
   title: string
@@ -255,6 +256,9 @@ export function Hero({
   image?: { src?: string; alt: string; placeholder?: string }
   /** Which consumer page — wires the hero CTAs into the dataLayer. */
   page: ConsumerPage
+  /** Optional inline badge rendered above the fold below the CTAs
+   *  (e.g. a price-positioning pill). */
+  priceBadge?: ReactNode
 }) {
   const orderModal = useOrderModal()
   // Hero primary CTA opens the order modal when available; falls back to
@@ -302,6 +306,7 @@ export function Hero({
                   </CTA>
                 )}
               </div>
+              {priceBadge && <div className="mt-7">{priceBadge}</div>}
             </div>
 
             {/* Image · right (responsive: stacks below text on mobile) */}
