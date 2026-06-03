@@ -5,9 +5,29 @@ export default {
     extend: {
       colors: {
         brand: {
+          // -------------------------------------------------------------------
+          // LEGACY (kept as aliases — migration of call-sites is Wave 2 / 2-v).
+          // brand.deep / brand.primary / brand.secondary remain on identical
+          // hex values, no visual change.
+          // -------------------------------------------------------------------
           primary: '#0f5f95',
           deep: '#083358', // Deeper, more elegant blue for accents
           secondary: '#2199ea',
+          // -------------------------------------------------------------------
+          // NEW (Wave 2 / Fix 2-ii, additive layer — see
+          // _project-knowledge/wave-2-analyse/farb-tokens.md).
+          // navy        = canonical dark-blue (== brand.deep);
+          // navy-hover  = CTA hover state (today hard-coded #0a4170 in
+          //               shell.tsx + OrderForm.tsx, now token-backed);
+          // navy-mid    = mid-tone navy used for theme-color + OG image;
+          // blue        = current brand.primary, semantically clearer name;
+          // blue-bright = current brand.secondary, semantically clearer name.
+          // -------------------------------------------------------------------
+          navy: '#083358',
+          'navy-hover': '#0a4170',
+          'navy-mid': '#1e3a5f',
+          blue: '#0f5f95',
+          'blue-bright': '#2199ea',
         },
         social: {
           linkedin: '#0077b5',
@@ -17,6 +37,37 @@ export default {
           'border-hover': '#cbd5e1', // slate-300
           'text-muted': '#94a3b8', // slate-400
         },
+        // Semantic group for headline text colour. Replaces the misleadingly
+        // named "gray-900" (which is actually navy #203864, not gray). Both
+        // remain valid — `text-text-heading` (new) and `text-gray-900` (legacy)
+        // resolve to the same hex.
+        text: {
+          heading: '#203864',
+        },
+        // Accent scale — same tones as the marketing brief presentation.
+        // Canonical: accent = teal-600 (#0d9488). Use `bg-accent`, `text-accent`
+        // for the DEFAULT; `bg-accent-strong`, `bg-accent-line`, `bg-accent-soft`,
+        // `bg-accent-border`, `bg-accent-on-dark` for the specific shades.
+        accent: {
+          DEFAULT: '#0d9488', // teal-600
+          strong: '#0f766e', // teal-700 — eyebrow text, hover emphasis
+          line: '#14b8a6', // teal-500 — underline accents, decorative lines
+          soft: '#f0fdfa', // teal-50  — pill backgrounds, soft tints
+          border: '#99f6e4', // teal-200 — pill borders
+          'on-dark': '#5eead4', // teal-300 — hover on the dark navy header
+        },
+        // Success / health semantic group — kept SEPARATE from accent because
+        // emerald tones in S3-Leitlinie and Vitamin D3-Implantologie carry a
+        // success / health meaning, not the brand-accent meaning.
+        success: {
+          DEFAULT: '#10b981', // emerald-500
+          soft: '#ecfdf5', // emerald-50
+          strong: '#059669', // emerald-600
+        },
+        // -------------------------------------------------------------------
+        // LEGACY flat colours (kept as aliases — see Wave 2 / 2-v migration).
+        // gray-900 has the same hex as text.heading above.
+        // -------------------------------------------------------------------
         'gray-100': '#F5F5F5',
         'gray-500': '#868C98',
         'gray-900': '#203864',
