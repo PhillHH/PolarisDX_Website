@@ -22,7 +22,7 @@ export default {
         'gray-900': '#203864',
       },
       fontFamily: {
-        sans: ['Segoe UI', 'system-ui', 'sans-serif'],
+        sans: ['Inter Variable', 'Inter', 'system-ui', 'sans-serif'],
       },
       maxWidth: {
         container: '1200px',
