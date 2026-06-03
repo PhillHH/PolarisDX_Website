@@ -17,6 +17,7 @@ import {
 } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
+import Eyebrow from '../components/ui/Eyebrow'
 import iglooProImage from '../assets/Igloo-pro-frontal.webp'
 
 const S3LeitliniePage = () => {
@@ -180,9 +181,9 @@ const S3LeitliniePage = () => {
                 </nav>
 
                 {/* Category Label */}
-                <p className="mb-4 text-xs font-semibold uppercase tracking-[1.2px] text-brand-secondary">
+                <Eyebrow size="sm" className="mb-4">
                   Dentale Diagnostik
-                </p>
+                </Eyebrow>
 
                 {/* H1 */}
                 <h1 className="mb-5 text-2xl font-medium tracking-tight sm:text-3xl lg:text-[2.25rem] lg:leading-[1.2]">
