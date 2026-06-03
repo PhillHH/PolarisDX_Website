@@ -10,17 +10,9 @@ import { Link } from 'react-router-dom'
 import { SEOHead } from '../../components/seo'
 import Footer from '../../components/layout/Footer'
 import duoHero from '../../assets/landingpages-consumer/duo-hero-products-together.jpeg'
-import {
-  Card,
-  ConsumerHeader,
-  Disclaimer,
-  FactStrip,
-  FAQ,
-  FinalCTA,
-  Hero,
-  ImageArea,
-  Section,
-} from './shell'
+import sprayStill from '../../assets/landingpages-consumer/spray-still-life.jpeg'
+import maskBotanical from '../../assets/landingpages-consumer/mask-hero-botanical.jpeg'
+import { Card, ConsumerHeader, Disclaimer, FactStrip, FAQ, FinalCTA, Hero, Section } from './shell'
 import { OrderModalProvider } from './OrderModal'
 import { useConsumerPageView } from './tracking'
 
@@ -46,8 +38,8 @@ const FAQ_ITEMS = [
     a: 'Adults who want a simple inside-out routine: daily supplement support plus visible hydration care.',
   },
   {
-    q: 'Can I buy the products separately?',
-    a: 'Yes, where individual product pages and pricing are available. The final checkout structure is to be confirmed.',
+    q: 'Can I buy separately?',
+    a: 'Yes. The spray as a 12-pack and masks as a 5-pack can be ordered separately, with the Duo designed as the complete inside-out routine to unlock preferred pricing.',
   },
 ]
 
@@ -63,8 +55,9 @@ function DuoPageInner() {
   useConsumerPageView('duo')
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-gray-900">
+      {/* TODO: confirm final meta title with Claire (Wave-2 review). */}
       <SEOHead
-        title="Inside-Out Care Duo"
+        title="Inside-Out Care Duo · Spray + Hydrating Masks"
         description="Support from within, hydrating care from outside — one Vitamin D3+K2 Spray plus one box of five Hydrating Masks as a simple two-part routine."
         noindex
       />
@@ -76,7 +69,15 @@ function DuoPageInner() {
         page="duo"
         eyebrow="Inside-Out Care Duo"
         title="Support from within. Hydrating care from outside."
-        sub="A simple two-part care routine: one Vitamin D3+K2 Spray plus one box of five Hydrating Masks."
+        sub={
+          <>
+            A simple two-part care routine: one Vitamin D3+K2 Spray plus one box of five Hydrating
+            Masks.
+            <span className="mt-3 block font-semibold text-gray-900">
+              More care in the routine. More value in the set.
+            </span>
+          </>
+        }
         primary={{ label: 'Shop the Duo', href: '#order' }}
         secondary={{ label: "What's included", href: '#included' }}
         image={{
@@ -171,17 +172,26 @@ function DuoPageInner() {
       {/* 7 · ROUTINE VISUAL */}
       <Section eyebrow="The routine in a day" title="Daily spray, occasional mask ritual">
         <div className="grid gap-6 md:grid-cols-2">
-          <ImageArea label="Morning / day — daily spray moment" className="aspect-[4/3]" />
-          <ImageArea label="Evening / self-care — weekly mask ritual" className="aspect-[4/3]" />
+          <img
+            src={sprayStill}
+            alt="Morning routine — Vitamin D3+K2 sublingual spray"
+            className="aspect-[4/3] w-full rounded-section object-cover shadow-card"
+          />
+          <img
+            src={maskBotanical}
+            alt="Evening self-care — Hydrating Hyaluronic Mask"
+            className="aspect-[4/3] w-full rounded-section object-cover shadow-card"
+          />
         </div>
       </Section>
 
       {/* 8 · BUNDLE VALUE */}
+      {/* CONFIRM: €2/month — is this number final, and what's the basis? */}
       <Section
         tone="dark"
         eyebrow="Why buy them together"
         title="Two products, one simple routine."
-        lead="Bought together, the Duo is one routine instead of two separate products — daily support from within and visible hydration from outside."
+        lead="A smarter way to build the full Inside-Out Care routine: unlock the Duo value. Complete your masks order with the addition of daily D3+K2 support for just €2/month."
       />
 
       {/* 9 · FAQ */}

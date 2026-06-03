@@ -136,7 +136,7 @@ function MaskPageInner() {
       <Hero
         page="masks"
         eyebrow="Hydrating Hyaluronic Mask"
-        title="A calm hydration step for dry, sensitive or mature skin."
+        title="Intensive hydration for skin in need of comfort and care"
         sub="A serum-soaked sheet mask for a simple 15–30-minute skincare routine. Intensive + soothing care for all skin types."
         primary={{ label: 'Buy 5-pack', href: '#order' }}
         secondary={{ label: 'How to use', href: '#how' }}

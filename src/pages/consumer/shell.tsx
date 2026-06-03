@@ -250,7 +250,7 @@ export function Hero({
 }: {
   eyebrow: string
   title: string
-  sub: string
+  sub: ReactNode
   primary: NavLink
   secondary?: NavLink
   image?: { src?: string; alt: string; placeholder?: string }
