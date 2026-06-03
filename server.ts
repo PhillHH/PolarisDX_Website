@@ -333,15 +333,38 @@ async function createServer() {
       return next()
     }
 
+    const query = req.originalUrl.includes('?')
+      ? req.originalUrl.substring(req.originalUrl.indexOf('?'))
+      : ''
+
+    // -------------------------------------------------------------------------
+    // Consumer landing pages are English-only (Claire's content is in English).
+    // Force the /en/ language prefix so i18n loads English translations and the
+    // footer / lang attribute match the on-page copy.
+    //   /consumer/x        → /en/consumer/x
+    //   /de/consumer/x     → /en/consumer/x
+    //   /<otherlang>/consumer/x  → /en/consumer/x
+    // -------------------------------------------------------------------------
+    if (pathname === '/consumer' || pathname.startsWith('/consumer/')) {
+      res.redirect(301, `/en${pathname}${query}`)
+      return
+    }
+    const langPrefix = extractLanguageFromUrl(pathname)
+    if (
+      langPrefix &&
+      langPrefix !== 'en' &&
+      (pathname.slice(3) === '/consumer' || pathname.slice(3).startsWith('/consumer/'))
+    ) {
+      res.redirect(301, `/en${pathname.slice(3)}${query}`)
+      return
+    }
+
     // URL hat bereits ein gültiges Sprach-Prefix → kein Redirect nötig
-    if (extractLanguageFromUrl(pathname) !== null) {
+    if (langPrefix !== null) {
       return next()
     }
 
     // Kein gültiges Prefix → 301 Redirect auf /de{path}
-    const query = req.originalUrl.includes('?')
-      ? req.originalUrl.substring(req.originalUrl.indexOf('?'))
-      : ''
     const redirectPath = `/${DEFAULT_LANGUAGE}${pathname === '/' ? '/' : pathname}${query}`
     res.redirect(301, redirectPath)
   })
@@ -428,8 +451,30 @@ async function createServer() {
         .filter(Boolean)
         .join('\n    ')
 
-      // Template mit gerendertem HTML und Helmet-Tags füllen
-      const finalHtml = template
+      // Template mit gerendertem HTML und Helmet-Tags füllen.
+      //
+      // index.html ships a static <title> + <meta name="description"> as a
+      // fallback (IglooPro defaults). Helmet then injects its own copies at
+      // <!--helmet-head-->. The result is a page with TWO titles — scrapers
+      // and link unfurlers can grab the stale fallback instead of the
+      // page-specific value set via <SEOHead>.
+      //
+      // We strip the static <title>/<meta> ONLY when Helmet actually
+      // rendered a non-empty title (i.e. the lazy page chunk loaded and
+      // SEOHead ran during SSR). On a lazy-chunk fallback Helmet emits
+      // <title data-rh="true"></title>; in that case we keep the static
+      // tags so the page is not left title-less.
+      const helmetTitleHtml = helmet.title.toString()
+      const helmetTitleInner = helmetTitleHtml.match(/<title[^>]*>([\s\S]*?)<\/title>/i)
+      const helmetHasRealTitle = !!helmetTitleInner && helmetTitleInner[1].trim().length > 0
+      let prepared = template
+      if (helmetHasRealTitle) {
+        prepared = prepared
+          .replace(/<title>[\s\S]*?<\/title>\s*/i, '')
+          .replace(/<meta\s+name="title"[^>]*>\s*/i, '')
+          .replace(/<meta\s+name="description"[^>]*>\s*/i, '')
+      }
+      const finalHtml = prepared
         .replace('<!--ssr-outlet-->', cleanAppHtml)
         .replace('<!--helmet-head-->', helmetTags)
         .replace('<html lang="de">', `<html lang="${lang}">`)

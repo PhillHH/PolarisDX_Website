@@ -17,6 +17,7 @@ import {
 import { SEOHead, createBreadcrumbSchema, createFAQSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
+import Eyebrow from '../components/ui/Eyebrow'
 import sprayImage from '../assets/VITAMIND_D3_SPRAY.jpg'
 import sprayPdfDE from '../assets/downloads/Polaris Vitamin D Spray  A4zuA5_DE_2025-01-20.pdf'
 import sprayPdfEN from '../assets/downloads/Polaris Vitamin D Spray  A4zuA5_EN(8).pdf'
@@ -94,9 +95,9 @@ const VitaminD3SprayPage = () => {
                     <span className="text-white/80">{t('vitd3spray:hero.breadcrumb_current')}</span>
                   </nav>
 
-                  <p className="mb-4 text-xs font-semibold uppercase tracking-[1.2px] text-brand-secondary">
+                  <Eyebrow size="sm" className="mb-4">
                     {t('vitd3spray:hero.caption')}
-                  </p>
+                  </Eyebrow>
 
                   <h1 className="mb-5 text-2xl font-medium tracking-tight sm:text-3xl lg:text-[2.5rem] lg:leading-[1.15]">
                     {t('vitd3spray:hero.title')}

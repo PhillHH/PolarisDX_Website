@@ -5,6 +5,7 @@ import { Button } from '../components/ui/Button'
 import TeamSection from '../components/sections/TeamSection'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
+import Eyebrow from '../components/ui/Eyebrow'
 
 const AboutPage = () => {
   const { t } = useTranslation(['about', 'home'])
@@ -45,13 +46,9 @@ const AboutPage = () => {
               />
             </div>
             <div className="flex justify-center">
-              <div className="inline-block rounded p-px bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-deep shadow-lg shadow-brand-primary/20 mb-2">
-                <div className="rounded-sm bg-slate-50 px-3 py-1">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-gray-900">
-                    {t('about:hero.caption', 'ÜBER UNS')}
-                  </span>
-                </div>
-              </div>
+              <Eyebrow size="sm" className="mb-2">
+                {t('about:hero.caption', 'ÜBER UNS')}
+              </Eyebrow>
             </div>
             <h1 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl text-white">
               {t('about:hero.title', 'Wir definieren Diagnostik neu')}

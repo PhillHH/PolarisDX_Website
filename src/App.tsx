@@ -1,19 +1,23 @@
 /**
- * App.lazy.tsx - Client-Version mit Route-based Code-Splitting
+ * App.tsx - Client-Version mit Route-based Code-Splitting
  *
  * Diese Version verwendet React.lazy() für alle Seiten außer HomePage.
- * Wird NUR im Client verwendet (entry-client.tsx).
- *
- * Der Server verwendet weiterhin App.tsx mit eager imports für vollständiges SSR.
  *
  * React 19 + hydrateRoot garantiert:
  * - Server-HTML bleibt sichtbar bis der Chunk geladen ist
  * - Kein Flash of Unstyled Content
  * - Keine Hydration Mismatches
+ *
+ * ROUTING-AUFBAU:
+ * - Die meisten Seiten laufen in der B2B-PolarisDX-Shell (<MainLayout>).
+ * - Die Consumer-Landingpages unter /consumer/* haben bewusst KEINE B2B-Shell,
+ *   sondern ihre eigene schlanke Consumer-Chrome. Sie sind "unlisted":
+ *   nicht in der Navigation, nicht in der sitemap.xml, noindex und
+ *   server-seitig per Passwort (Basic Auth) geschützt.
  */
 
 import { lazy, Suspense } from 'react'
-import { Routes, Route, Navigate, useParams } from 'react-router-dom'
+import { Routes, Route, Navigate, Outlet, useParams } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 
 // =============================================================================
@@ -61,6 +65,17 @@ const ImprintPage = lazy(() => import('./pages/ImprintPage'))
 const DownloadsPage = lazy(() => import('./pages/DownloadsPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
+// Consumer-Landingpages (unlisted — eigene Chrome, kein B2B-Layout)
+// Eager imports for the consumer landing pages (not lazy).
+// Why: these are paid-traffic landing pages from Instagram/LinkedIn. The
+// page <title>, meta description and OG tags are SEO/share-preview-critical
+// and must be in the SSR HTML on the very first request — otherwise the
+// React.lazy() fallback gets served and the head ends up with the static
+// IglooPro defaults from index.html.
+import ConsumerSprayPage from './pages/consumer/SprayPage'
+import ConsumerMaskPage from './pages/consumer/MaskPage'
+import ConsumerDuoPage from './pages/consumer/DuoPage'
+
 // =============================================================================
 // SUSPENSE WRAPPER
 // =============================================================================
@@ -83,15 +98,66 @@ function ServicesRedirect() {
 }
 
 // =============================================================================
+// LAYOUT ROUTE
+// =============================================================================
+
+/**
+ * Layout-Route für die reguläre B2B-Website: rendert die PolarisDX-Shell
+ * (Header/Footer), Mobile-Call-Button, Chat-Widget und Cookie-Banner.
+ * Die einzelnen Seiten erscheinen über <Outlet />.
+ */
+function MainLayout() {
+  return (
+    <Layout>
+      <MobileCallButton />
+      <ChatWidget />
+      <Outlet />
+      <CookieBanner />
+    </Layout>
+  )
+}
+
+// =============================================================================
 // APP COMPONENT
 // =============================================================================
 
 function App() {
   return (
-    <Layout>
-      <MobileCallButton />
-      <ChatWidget />
-      <Routes>
+    <Routes>
+      {/* ---------------------------------------------------------------------
+          UNLISTED CONSUMER-LANDINGPAGES
+          Eigene schlanke Consumer-Chrome (NICHT die B2B-Shell).
+          Nicht in Navigation/Sitemap, noindex, server-seitig passwortgeschützt.
+      --------------------------------------------------------------------- */}
+      <Route
+        path="/consumer/vitamin-d3-spray"
+        element={
+          <LazyRoute>
+            <ConsumerSprayPage />
+          </LazyRoute>
+        }
+      />
+      <Route
+        path="/consumer/hydrating-masks"
+        element={
+          <LazyRoute>
+            <ConsumerMaskPage />
+          </LazyRoute>
+        }
+      />
+      <Route
+        path="/consumer/inside-out-duo"
+        element={
+          <LazyRoute>
+            <ConsumerDuoPage />
+          </LazyRoute>
+        }
+      />
+
+      {/* ---------------------------------------------------------------------
+          REGULÄRE WEBSITE — alle Seiten in der B2B-PolarisDX-Shell
+      --------------------------------------------------------------------- */}
+      <Route element={<MainLayout />}>
         {/* EAGER: Homepage */}
         <Route path="/" element={<HomePage />} />
 
@@ -238,9 +304,8 @@ function App() {
             </LazyRoute>
           }
         />
-      </Routes>
-      <CookieBanner />
-    </Layout>
+      </Route>
+    </Routes>
   )
 }
 

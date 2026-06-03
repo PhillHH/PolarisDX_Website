@@ -199,6 +199,194 @@ ${description || '-'}
   }
 })
 
+// =============================================================================
+// CONSUMER ORDER ENDPOINT
+// =============================================================================
+// Order intake from the unlisted consumer landing pages (/consumer/*).
+//
+// - Recipients are fixed server-side (no `to` from the request body) to
+//   prevent the form being used as a relay.
+// - DSGVO: requires explicit consent flag in the body; otherwise 400.
+// - Spam: honeypot field `_hp`; if filled, returns 200 silently without sending.
+// - Data minimization: only the fields the order intake actually needs.
+//   Shipping address etc. is collected later by sales (no payment flow yet).
+// =============================================================================
+
+const CONSUMER_ORDER_RECIPIENTS = [
+  'ulrikes@polarisdx.net',
+  'inesr@polarisdx.net',
+  'adrianoz@polarisdx.net',
+  'contact@polarisdx.net',
+]
+
+const CONSUMER_PRODUCT_LABELS = {
+  spray: 'Vitamin D3+K2 Spray (12-Pack)',
+  masks: 'Hydrating Masks (5-Pack)',
+  duo: 'Inside-Out Care Duo (1 spray + 5 masks)',
+}
+
+function esc(str) {
+  return String(str ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
+app.post('/api/consumer-order', async (req, res) => {
+  try {
+    const {
+      product,
+      quantity,
+      // contact
+      name,
+      email,
+      phone,
+      // company
+      company,
+      // shipping address
+      street,
+      postcode,
+      city,
+      country,
+      // free-form context
+      message,
+      // GDPR / spam
+      consent,
+      _hp,
+    } = req.body || {}
+
+    // Honeypot — bots almost always fill all visible/hidden fields
+    if (_hp) {
+      console.log('[consumer-order] honeypot triggered, silently dropping')
+      return res.status(200).json({ success: true })
+    }
+
+    // DSGVO: explicit consent is required
+    if (consent !== true) {
+      return res.status(400).json({ error: 'Consent required.' })
+    }
+
+    if (!product || !CONSUMER_PRODUCT_LABELS[product]) {
+      return res.status(400).json({ error: 'Unknown product.' })
+    }
+    if (!name || !email || !quantity) {
+      return res.status(400).json({ error: 'Required fields are missing.' })
+    }
+    // Cheap email shape check (server-side; UI also validates)
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email))) {
+      return res.status(400).json({ error: 'Invalid email.' })
+    }
+
+    const productLabel = CONSUMER_PRODUCT_LABELS[product]
+
+    // Build a one-line address summary (only the parts the customer filled in)
+    const addressLine = [street, [postcode, city].filter(Boolean).join(' '), country]
+      .map((s) => (s || '').trim())
+      .filter(Boolean)
+      .join(', ')
+
+    const orderText = `Neue Bestellanfrage über die Consumer-Landingpage
+
+Produkt:     ${productLabel}
+Stückzahl:   ${quantity}
+
+— Ansprechpartner —
+Name:        ${name}
+E-Mail:      ${email}
+Telefon:     ${phone || '-'}
+
+— Firma —
+Firma:       ${company || '-'}
+
+— Lieferadresse —
+Straße:      ${street || '-'}
+PLZ / Ort:   ${[postcode, city].filter(Boolean).join(' ') || '-'}
+Land:        ${country || '-'}
+
+— Nachricht / Kontext —
+${message || '-'}
+
+— Hinweis: Der Kunde hat der Datenverarbeitung zur Bestellabwicklung
+ausdrücklich zugestimmt (DSGVO Art. 6 Abs. 1 lit. b).
+`
+
+    const row = (label, value) => `
+  <tr>
+    <td style="padding:8px 10px;border-bottom:1px solid #e2e8f0;font-weight:600;width:180px;color:#0a2f55;font-family:system-ui,sans-serif;">${esc(label)}</td>
+    <td style="padding:8px 10px;border-bottom:1px solid #e2e8f0;color:#334155;font-family:system-ui,sans-serif;">${value}</td>
+  </tr>`
+    const sectionRow = (label) => `
+  <tr>
+    <td colspan="2" style="padding:14px 10px 6px;font-size:12px;font-weight:700;color:#0d9488;text-transform:uppercase;letter-spacing:1px;font-family:system-ui,sans-serif;">${esc(label)}</td>
+  </tr>`
+
+    const orderHtml = `
+<h2 style="margin:0 0 12px;font-family:system-ui,sans-serif;color:#0a2f55;">
+  Neue Bestellanfrage
+</h2>
+<p style="margin:0 0 16px;font-family:system-ui,sans-serif;color:#475569;">
+  über die Consumer-Landingpage
+</p>
+<table style="border-collapse:collapse;width:100%;max-width:680px;">
+  ${sectionRow('Bestellung')}
+  ${row('Produkt', esc(productLabel))}
+  ${row('Stückzahl', esc(quantity))}
+
+  ${sectionRow('Ansprechpartner')}
+  ${row('Name', esc(name))}
+  ${row('E-Mail', `<a href="mailto:${esc(email)}">${esc(email)}</a>`)}
+  ${row('Telefon', esc(phone || '-'))}
+
+  ${sectionRow('Firma')}
+  ${row('Firma', esc(company || '-'))}
+
+  ${sectionRow('Lieferadresse')}
+  ${row('Straße', esc(street || '-'))}
+  ${row('PLZ / Ort', esc([postcode, city].filter(Boolean).join(' ') || '-'))}
+  ${row('Land', esc(country || '-'))}
+</table>
+${
+  message
+    ? `<p style="margin:18px 0 6px;font-family:system-ui,sans-serif;font-weight:600;color:#0a2f55;">Nachricht / Kontext</p>
+       <p style="margin:0;font-family:system-ui,sans-serif;color:#334155;white-space:pre-line;">${esc(message)}</p>`
+    : ''
+}
+${
+  addressLine
+    ? `<p style="margin:18px 0 0;font-family:system-ui,sans-serif;font-size:13px;color:#64748b;">
+         Adresse (Zusammenfassung): ${esc(addressLine)}
+       </p>`
+    : ''
+}
+<p style="margin:24px 0 0;font-family:system-ui,sans-serif;font-size:12px;color:#64748b;">
+  Der Kunde hat der Datenverarbeitung zur Bestellabwicklung ausdrücklich zugestimmt
+  (DSGVO Art. 6 Abs. 1 lit. b).
+</p>
+`
+
+    const msg = {
+      to: CONSUMER_ORDER_RECIPIENTS,
+      from: process.env.SENDER_EMAIL,
+      replyTo: email,
+      subject: `Neue Bestellung — ${productLabel} (${quantity}x)`,
+      text: orderText,
+      html: orderHtml,
+    }
+
+    await sgMail.send(msg)
+    console.log(`[consumer-order] sent: product=${product} qty=${quantity} from=${email}`)
+    res.status(200).json({ success: true })
+  } catch (error) {
+    console.error('Error sending consumer order:', error)
+    if (error.response) {
+      console.error(error.response.body)
+    }
+    res.status(500).json({ success: false, error: 'Failed to send order' })
+  }
+})
+
 /**
  * Chat Endpoint (Mock / Placeholder)
  *

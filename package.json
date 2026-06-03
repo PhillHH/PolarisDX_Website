@@ -23,6 +23,7 @@
     "prepare": "lefthook install"
   },
   "dependencies": {
+    "@fontsource-variable/inter": "^5.2.8",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "express": "^5.1.0",

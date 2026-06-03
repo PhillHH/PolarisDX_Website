@@ -18,6 +18,9 @@ import { HelmetProvider } from 'react-helmet-async'
 import { extractLanguageFromPathname } from './i18n'
 
 // Side-effect imports
+// Self-hosted Inter (variable, SIL OFL) — kein Google-Fonts-CDN (DSGVO).
+// Einzige Webfont-Einbindung der App; font-display: swap ist im Paket gesetzt.
+import '@fontsource-variable/inter'
 import './index.css'
 
 // i18n init — exportiert ein Promise das resolvet wenn Translations geladen sind
