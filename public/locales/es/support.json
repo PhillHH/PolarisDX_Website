@@ -1,0 +1,64 @@
+{
+  "support": {
+    "seo": {
+      "title": "Solicitud de soporte | PolarisDX",
+      "description": "¿Tiene problemas con su Igloo Reader o sus kits de prueba? Envíenos una solicitud de soporte y le ayudaremos lo antes posible."
+    },
+    "hero": {
+      "kicker": "SOPORTE",
+      "title": "Solicitud de soporte",
+      "breadcrumb": "Inicio / Soporte"
+    },
+    "intro": "Si tiene problemas con su Igloo Reader o sus kits de prueba, utilice este formulario. Valoramos su mensaje y haremos todo lo posible por ayudarle con la mayor brevedad. Incluya una breve descripción del problema y, si es posible, una foto y el número de serie del dispositivo.",
+    "form": {
+      "name": "Su nombre",
+      "name_placeholder": "Su nombre completo",
+      "email": "Dirección de correo electrónico",
+      "email_placeholder": "usted@ejemplo.es",
+      "udi": "UDI del Igloo Reader",
+      "udi_placeholder": "S0DA25000XXXXX",
+      "udi_help": "Puede encontrar el <strong>número de identificación único</strong> del lector en una pegatina situada en la parte inferior del dispositivo, en la # Pantalla de inicio → ⚙ Ajustes → ⓘ Acerca de, o en la configuración del dispositivo de Dx Care o Dx Studio cuando el lector está conectado a la aplicación de escritorio mediante USB.",
+      "sw_version": "Versión de software del Igloo Reader",
+      "sw_version_placeholder": "1.8.XX",
+      "sw_version_help": "Puede encontrar la <strong>versión de software</strong> del lector en la # Pantalla de inicio → ⚙ Ajustes → ⓘ Acerca de, o en la configuración del dispositivo de Dx Care o Dx Studio cuando el lector está conectado a la aplicación de escritorio mediante USB.",
+      "issue_type": "Tipo de problema",
+      "issue_type_placeholder": "Seleccione una opción",
+      "issue_types": {
+        "hardware": "Problema de hardware",
+        "software": "Problema de software",
+        "connectivity": "Problema de conexión",
+        "test_kit": "Problema con el kit de prueba",
+        "calibration": "Problema de calibración",
+        "other": "Otro"
+      },
+      "subject": "Asunto",
+      "subject_placeholder": "Breve descripción del problema",
+      "description": "Descripción del problema",
+      "description_placeholder": "Describa el problema con el mayor detalle posible...",
+      "attachment": "Adjuntar foto, vídeo o documento",
+      "attachment_button": "Seleccionar archivos",
+      "attachment_none": "Ningún archivo seleccionado",
+      "consent": "Acepto que mis datos se almacenen durante un máximo de 12 meses para tramitar la solicitud de soporte y posibles consultas posteriores.",
+      "submit": "Enviar",
+      "submitting": "Enviando...",
+      "success": "¡Muchas gracias! Su solicitud de soporte se ha enviado. Nos pondremos en contacto con usted lo antes posible.",
+      "error": "Se ha producido un error. Inténtelo de nuevo más tarde."
+    },
+    "info": {
+      "title": "Información de soporte",
+      "text": "Nuestro equipo de soporte se pondrá en contacto con usted en un plazo de un día laborable. Para problemas urgentes, utilice el número de teléfono que figura a continuación.",
+      "email_label": "CORREO ELECTRÓNICO (Soporte 24/7)",
+      "phone_label": "TELÉFONO (Línea de soporte)"
+    },
+    "sidebar_links": {
+      "title": "Enlaces útiles",
+      "downloads": "Descargas y documentación",
+      "contact": "Consulta general de contacto",
+      "igloo": "Sistema IglooPro"
+    }
+  },
+  "seo": {
+    "title": "Soporte para el Igloo Reader y los kits de prueba POC",
+    "description": "¿Problemas con su Igloo Reader o su kit de prueba? Envíenos una solicitud de soporte con el número de serie y una foto: nuestro equipo le ayudará lo antes posible."
+  }
+}

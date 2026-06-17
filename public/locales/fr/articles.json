@@ -480,5 +480,9 @@
         ]
       }
     ]
+  },
+  "seo": {
+    "index_title": "Magazine spécialisé : diagnostic POC et savoir du labo de cabinet",
+    "index_description": "Des articles spécialisés fondés sur le diagnostic au point d'intervention, les tests au fauteuil et le labo de cabinet – pour dentistes, médecins et personnel soignant. Du ROI à la pratique."
   }
 }

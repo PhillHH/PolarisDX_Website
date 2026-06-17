@@ -556,5 +556,9 @@
         }
       ]
     }
+  },
+  "seo": {
+    "overview_title": "Diagnostic POC pour cabinets : dentaire, esthétique, longévité",
+    "overview_description": "Tests rapides au plus près du patient pour la vitamine D, la CRP, l'HbA1c et la TSH – au fauteuil en quelques minutes. Diagnostic POC avec l'Igloo Pro pour cabinets dentaires, esthétiques et de prévention."
   }
 }

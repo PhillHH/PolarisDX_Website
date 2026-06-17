@@ -556,5 +556,9 @@
         }
       ]
     }
+  },
+  "seo": {
+    "overview_title": "Diagnostyka POC dla gabinetów: stomatologia, estetyka, longevity",
+    "overview_description": "Szybkie testy przy pacjencie na witaminę D, CRP, HbA1c i TSH – przy fotelu w kilka minut. Diagnostyka POC z Igloo Pro dla gabinetów stomatologicznych, estetycznych i profilaktycznych."
   }
 }

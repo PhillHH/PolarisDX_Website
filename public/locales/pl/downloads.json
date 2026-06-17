@@ -9,5 +9,9 @@
   "size": "Rozmiar",
   "format": "Format",
   "introText": "Tutaj znajdziesz wszystkie ważne dokumenty dotyczące naszych produktów i usług – karty techniczne i materiały informacyjne przejrzyście zestawione.",
-  "comingSoon": "Coming Soon"
+  "comingSoon": "Coming Soon",
+  "seo": {
+    "title": "Pliki do pobrania: karty danych i ulotki IglooPro",
+    "description": "Pobierz bezpłatnie karty danych technicznych oraz ulotki produktowe czytnika IglooPro POC i preparatu Vitamin D3+K2 w PDF. Wszystkie dokumenty zebrane w jednym miejscu."
+  }
 }

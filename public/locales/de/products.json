@@ -71,5 +71,9 @@
     "title": "Bereit für den Igloo Pro?",
     "description": "Nehmen Sie Kontakt auf und lassen Sie sich unverbindlich beraten.",
     "button": "Kontakt aufnehmen"
+  },
+  "seo": {
+    "title": "IglooPro POC-Reader: Spezifikationen & Technik",
+    "description": "IglooPro POC-Reader liefert Laborwerte chairside in 3–15 Min aus Kapillarblut: Vitamin D, CRP, HbA1c, TSH u.v.m. Immunfluoreszenz, CV < 5 %, 600 g portabel."
   }
 }

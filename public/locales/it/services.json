@@ -556,5 +556,9 @@
         }
       ]
     }
+  },
+  "seo": {
+    "overview_title": "Diagnostica POC per studi: dental, beauty, longevity",
+    "overview_description": "Test rapidi al paziente per vitamina D, PCR, HbA1c e TSH, chairside in pochi minuti. Diagnostica POC con Igloo Pro per studi odontoiatrici, estetici e di prevenzione."
   }
 }

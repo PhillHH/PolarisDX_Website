@@ -9,5 +9,9 @@
   "size": "Tamanho",
   "format": "Formato",
   "introText": "Aqui encontrará todos os documentos importantes sobre os nossos produtos e serviços – fichas técnicas e materiais informativos organizados para si.",
-  "comingSoon": "Coming Soon"
+  "comingSoon": "Coming Soon",
+  "seo": {
+    "title": "Transferências: fichas técnicas e folhetos do IglooPro",
+    "description": "Transfira gratuitamente, em PDF, as fichas técnicas e os folhetos do IglooPro POC Reader e da Vitamina D3+K2. Toda a documentação reunida e organizada num só lugar."
+  }
 }

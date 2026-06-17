@@ -46,5 +46,9 @@
     "call_us_button": "Ring til os",
     "call_us_text": "Ring til os",
     "collapse_button": "Luk"
+  },
+  "seo": {
+    "title": "Kontakt & book en demoaftale til IglooPro",
+    "description": "Book din personlige demoaftale til IglooPro POC-reader. Send en forespørgsel og få rådgivning om point-of-care-diagnostik til din klinik."
   }
 }

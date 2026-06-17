@@ -69,6 +69,10 @@
     "section7": {
       "title": "Rozstrzyganie sporów konsumenckich / Uniwersalna komisja arbitrażowa",
       "content": "Nie jesteśmy gotowi ani zobowiązani do udziału w postępowaniach w sprawie rozstrzygania sporów przed konsumencką komisją arbitrażową."
+    },
+    "seo": {
+      "title": "Nota prawna – Polaris Diagnostics Europe GmbH",
+      "description": "Nota prawna PolarisDX wg § 5 DDG: Polaris Diagnostics Europe GmbH (Hamburg i Londyn), reprezentacja, wpis do rejestru, numer VAT oraz dane kontaktowe."
     }
   },
   "privacy": {
@@ -126,6 +130,10 @@
     "section5": {
       "title": "5. Narzędzia analityczne i reklama",
       "content": "O ile wyraziłeś na to zgodę, na tej stronie internetowej wykorzystywane są pliki cookie i podobne technologie. Możesz w każdej chwili cofnąć swoją zgodę za pośrednictwem naszego banera plików cookie lub ustawień w przeglądarce."
+    },
+    "seo": {
+      "title": "Polityka prywatności – zgodna z RODO",
+      "description": "Polityka prywatności PolarisDX zgodna z RODO: jakie dane osobowe są zbierane podczas wizyty na stronie oraz za pośrednictwem formularza kontaktowego – i w jaki sposób."
     }
   },
   "agb": {
@@ -396,6 +404,10 @@
           "§ 25.5 Wersja niemiecka niniejszych OWH jest wiążąca. Tłumaczenia służą wyłącznie celom informacyjnym i nie stanowią podstawy do jakichkolwiek roszczeń."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Regulamin – diagnostyka in vitro, wyroby medyczne i oprogramowanie",
+      "description": "Ogólne warunki handlowe Polaris Diagnostics Europe GmbH dla diagnostyki, wyrobów medycznych i oprogramowania/chmury: zawarcie umowy, ceny, dostawa, odpowiedzialność."
+    }
   }
 }

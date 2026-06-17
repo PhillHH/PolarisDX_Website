@@ -9,5 +9,9 @@
   "downloadBtn": "Download",
   "size": "Size",
   "format": "Format",
-  "comingSoon": "Coming Soon"
+  "comingSoon": "Coming Soon",
+  "seo": {
+    "title": "Downloads: IglooPro Data Sheets & Product Flyers",
+    "description": "Download technical data sheets and product flyers for the IglooPro POC reader and Vitamin D3+K2 as free PDFs. All key documents clearly arranged in one place."
+  }
 }

@@ -1,0 +1,64 @@
+{
+  "support": {
+    "seo": {
+      "title": "Zapytanie do działu wsparcia | PolarisDX",
+      "description": "Masz problemy z czytnikiem Igloo Reader lub zestawami testowymi? Wyślij nam zapytanie do działu wsparcia, a pomożemy Ci najszybciej, jak to możliwe."
+    },
+    "hero": {
+      "kicker": "WSPARCIE",
+      "title": "Zapytanie do działu wsparcia",
+      "breadcrumb": "Strona główna / Wsparcie"
+    },
+    "intro": "Jeśli masz problemy z czytnikiem Igloo Reader lub zestawami testowymi, skorzystaj z tego formularza. Cenimy Twoją wiadomość i dołożymy wszelkich starań, aby pomóc Ci najszybciej, jak to możliwe. Dołącz krótki opis problemu, a w miarę możliwości także zdjęcie oraz numer seryjny urządzenia.",
+    "form": {
+      "name": "Imię i nazwisko",
+      "name_placeholder": "Imię i nazwisko",
+      "email": "Adres e-mail",
+      "email_placeholder": "ty@przyklad.pl",
+      "udi": "Igloo Reader UDI",
+      "udi_placeholder": "S0DA25000XXXXX",
+      "udi_help": "<strong>Niepowtarzalny numer identyfikacyjny</strong> czytnika znajdziesz na naklejce na spodzie urządzenia, na # ekranie głównym → ⚙ Ustawienia → ⓘ Informacje, lub w ustawieniach urządzenia w aplikacji Dx Care albo Dx Studio, gdy czytnik jest podłączony do aplikacji desktopowej przez USB.",
+      "sw_version": "Wersja oprogramowania Igloo Reader",
+      "sw_version_placeholder": "1.8.XX",
+      "sw_version_help": "<strong>Wersję oprogramowania</strong> czytnika znajdziesz na # ekranie głównym → ⚙ Ustawienia → ⓘ Informacje, lub w ustawieniach urządzenia w aplikacji Dx Care albo Dx Studio, gdy czytnik jest podłączony do aplikacji desktopowej przez USB.",
+      "issue_type": "Rodzaj problemu",
+      "issue_type_placeholder": "Wybierz",
+      "issue_types": {
+        "hardware": "Problem ze sprzętem",
+        "software": "Problem z oprogramowaniem",
+        "connectivity": "Problem z połączeniem",
+        "test_kit": "Problem z zestawem testowym",
+        "calibration": "Problem z kalibracją",
+        "other": "Inne"
+      },
+      "subject": "Temat",
+      "subject_placeholder": "Krótki opis problemu",
+      "description": "Opis problemu",
+      "description_placeholder": "Opisz problem tak szczegółowo, jak to możliwe...",
+      "attachment": "Dołącz zdjęcie, film lub dokument",
+      "attachment_button": "Wybierz pliki",
+      "attachment_none": "Nie wybrano",
+      "consent": "Wyrażam zgodę na przechowywanie moich danych przez okres do 12 miesięcy w celu obsługi zapytania do działu wsparcia oraz ewentualnych pytań uzupełniających.",
+      "submit": "Wyślij",
+      "submitting": "Wysyłanie...",
+      "success": "Dziękujemy! Twoje zapytanie do działu wsparcia zostało wysłane. Skontaktujemy się z Tobą najszybciej, jak to możliwe.",
+      "error": "Wystąpił błąd. Spróbuj ponownie później."
+    },
+    "info": {
+      "title": "Informacje o wsparciu",
+      "text": "Nasz zespół wsparcia skontaktuje się z Tobą w ciągu jednego dnia roboczego. W pilnych sprawach prosimy o kontakt pod poniższym numerem telefonu.",
+      "email_label": "E-MAIL (wsparcie 24/7)",
+      "phone_label": "TELEFON (infolinia wsparcia)"
+    },
+    "sidebar_links": {
+      "title": "Przydatne linki",
+      "downloads": "Pliki do pobrania i dokumentacja",
+      "contact": "Ogólne zapytanie kontaktowe",
+      "igloo": "System IglooPro"
+    }
+  },
+  "seo": {
+    "title": "Wsparcie dla Igloo Reader i zestawów testowych POC",
+    "description": "Problemy z czytnikiem Igloo Reader lub zestawem testowym? Wyślij zapytanie z numerem seryjnym i zdjęciem – nasz zespół pomoże Ci najszybciej, jak to możliwe."
+  }
+}

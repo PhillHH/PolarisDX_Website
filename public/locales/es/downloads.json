@@ -9,5 +9,9 @@
   "size": "Tamaño",
   "format": "Formato",
   "introText": "Aquí encontrarás todos los documentos importantes sobre nuestros productos y servicios – fichas técnicas y materiales informativos organizados para ti.",
-  "comingSoon": "Coming Soon"
+  "comingSoon": "Coming Soon",
+  "seo": {
+    "title": "Descargas: fichas técnicas y folletos del IglooPro",
+    "description": "Descargue gratis en PDF las fichas técnicas y los folletos del IglooPro POC Reader y de la Vitamina D3+K2. Toda la documentación reunida de forma clara en un solo lugar."
+  }
 }

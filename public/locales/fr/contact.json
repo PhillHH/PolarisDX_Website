@@ -46,5 +46,9 @@
     "call_us_button": "Appelle-nous",
     "call_us_text": "Appelle-nous",
     "collapse_button": "Fermer"
+  },
+  "seo": {
+    "title": "Contact & prise de rendez-vous pour une démo de l'IglooPro",
+    "description": "Réservez votre rendez-vous de démonstration personnalisé du reader POC IglooPro. Envoyez votre demande et bénéficiez de conseils d'experts sur le diagnostic au point d'intervention."
   }
 }

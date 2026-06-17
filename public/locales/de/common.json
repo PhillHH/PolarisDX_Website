@@ -116,8 +116,8 @@
   },
   "notFound": {
     "seo": {
-      "title": "Seite nicht gefunden | PolarisDX",
-      "description": "Die angeforderte Seite konnte nicht gefunden werden."
+      "title": "Seite nicht gefunden (404)",
+      "description": "Diese Seite existiert nicht oder wurde verschoben. Zurück zur Startseite oder direkt zu IglooPro, Diagnostik-Services und Kontakt von PolarisDX."
     },
     "badge": "Seite nicht gefunden",
     "title": "Oops! Diese Seite existiert nicht",

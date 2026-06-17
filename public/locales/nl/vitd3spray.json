@@ -1,0 +1,148 @@
+{
+  "seo": {
+    "title": "Vitamin D3+K2 sublinguale spray voor praktijken",
+    "description": "Vitamin D3+K2 sublinguale spray, 2.000 IE per sproeistoot met dubbele biologische beschikbaarheid (Tiny-technologie). Veganistisch, Made in Germany, exclusief via uw praktijk."
+  },
+  "hero": {
+    "breadcrumb_home": "PolarisDX",
+    "breadcrumb_products": "Producten",
+    "breadcrumb_current": "Vitamin D3+K2 spray",
+    "caption": "Voedingssupplement voor uw praktijk",
+    "title": "Vitamin D3+K2 sublinguale spray",
+    "subtitle": "2.000 IE per sproeistoot – dubbele biologische beschikbaarheid dankzij Tiny-technologie. Exclusief via het medische distributiekanaal.",
+    "cta": "Nu bestellen",
+    "download": "Productflyer downloaden"
+  },
+  "intro": {
+    "title": "Vitamine D-tekort vastgesteld – direct in de praktijk aanvullen",
+    "text1": "U ziet het bij uw patiënten: een vitamine D-tekort komt veel voor. Met onze Vitamin D3+K2 sublinguale spray kunt u nu direct handelen – en uw patiënt de aanvulling meteen in de praktijk meegeven.",
+    "text2": "De spray is uitsluitend via het medische distributiekanaal verkrijgbaar – uw patiënt kan deze alleen bij u krijgen."
+  },
+  "usp": {
+    "title": "Dubbele biologische beschikbaarheid dankzij Tiny-technologie",
+    "text": "Onze sublinguale spray maakt gebruik van de innovatieve Tiny-technologie voor een dubbele biologische beschikbaarheid ten opzichte van conventionele preparaten – daardoor 2.000 IE per sproeistoot, effectief opgenomen via het mondslijmvlies.",
+    "dosing_label": "Aanbevolen gebruik",
+    "dosing_text": "1 sproeistoot per dag volgens de aanwijzingen van de fabrikant.",
+    "dosing_note": "Een hogere dosering dient individueel met u als behandelend arts te worden afgesproken."
+  },
+  "product": {
+    "title": "Productoverzicht",
+    "composition_label": "Samenstelling per sproeistoot",
+    "composition_value": "50µg vitamine D3 (2.000 IE) + 15µg vitamine K2 (MK-7)",
+    "form_label": "Toedieningsvorm",
+    "form_value": "Sublinguale spray, sinaasappelsmaak",
+    "dosing_label": "Aanbevolen gebruik",
+    "dosing_value": "1 sproeistoot per dag (vlg. fabrikant)",
+    "content_label": "Inhoud",
+    "content_value": "71 toepassingen per flacon",
+    "properties_label": "Eigenschappen",
+    "properties_value": "Veganistisch · GMO-vrij · Glutenvrij · Alcoholvrij · Made in Germany"
+  },
+  "benefits": {
+    "title": "Vitamine D3 in combinatie met K2",
+    "items": [
+      "Vitamine D3 en K2 dragen bij aan de instandhouding van normale botten en aan een normaal calciumgebruik",
+      "Betere osseo-integratie door de combinatie van D3 en K2",
+      "Betere parodontale preventie en behandeling bij een voldoende vitamine D3-voorziening"
+    ]
+  },
+  "pricing": {
+    "title": "Voorwaarden",
+    "header_quantity": "Aantal",
+    "header_price": "Prijs per eenheid (excl. btw)",
+    "rows": [
+      {
+        "quantity": "12 stuks",
+        "price": "12,90 €"
+      },
+      {
+        "quantity": "vanaf 24 stuks",
+        "price": "11,90 €"
+      },
+      {
+        "quantity": "vanaf 36 stuks",
+        "price": "10,90 €"
+      }
+    ]
+  },
+  "order": {
+    "caption": "Vitamin D3+K2 spray",
+    "title": "Nu bestellen",
+    "description": "Vul het formulier in en wij sturen u per e-mail een orderbevestiging met factuur.",
+    "quantity_label": "Bestelhoeveelheid",
+    "quantity_options": {
+      "12": "12 sprays",
+      "24": "24 sprays",
+      "36": "36 sprays",
+      "48": "48 sprays",
+      "100": "100+ sprays – grote bestelling"
+    },
+    "address_heading": "Factuur- & afleveradres",
+    "practice_label": "Praktijk / bedrijf",
+    "practice_placeholder": "Tandartspraktijk Voorbeeld",
+    "name_label": "Naam",
+    "name_placeholder": "Uw naam",
+    "email_label": "E-mail",
+    "email_placeholder": "praktijk@voorbeeld.nl",
+    "phone_label": "Telefoon",
+    "phone_placeholder": "Voor vragen",
+    "message_label": "Opmerkingen bij de bestelling",
+    "message_placeholder": "Optioneel: leveringsinstructies, afwijkend adres, enz.",
+    "submit": "Nu bindend bestellen",
+    "submitting": "Bestelling wordt verzonden...",
+    "submit_note": "Na verzending ontvangt u een orderbevestiging per e-mail. Betaling op rekening.",
+    "success_title": "Hartelijk dank voor uw bestelling!",
+    "success_text": "Wij hebben uw bestelling ontvangen en sturen u binnenkort een bevestiging per e-mail.",
+    "error_text": "Er is een fout opgetreden. Probeer het opnieuw of bel ons."
+  },
+  "contact": {
+    "title": "Uw contactpersoon",
+    "name": "Frank Stoffels",
+    "role": "Key Account Manager",
+    "phone": "+49 1515 9878599",
+    "hours": "Ma–vr 9:00–17:00 uur",
+    "question": "Vragen over de bestelling?",
+    "advice": "Wij adviseren u graag"
+  },
+  "sidebar": {
+    "quick_order_caption": "Snelbestelling",
+    "quick_order_text": "Direct naar het bestelformulier en D3+K2 spray voor uw praktijk veiligstellen.",
+    "quick_order_cta": "Nu bestellen",
+    "download_caption": "Productflyer",
+    "download_text": "Alle informatie over de Vitamin D3+K2 spray als PDF.",
+    "download_cta": "PDF downloaden",
+    "trust": "Meer dan 100 praktijken in 15+ landen vertrouwen op PolarisDX"
+  },
+  "faq": {
+    "title": "Veelgestelde vragen",
+    "items": [
+      {
+        "question": "Wat is de Tiny-technologie?",
+        "answer": "De Tiny-technologie maakt een dubbele biologische beschikbaarheid mogelijk ten opzichte van conventionele vitamine D-preparaten. Door de sublinguale opname via het mondslijmvlies wordt de werkzame stof bijzonder effectief geresorbeerd."
+      },
+      {
+        "question": "Waarom is de spray alleen via het medische distributiekanaal verkrijgbaar?",
+        "answer": "De spray is bewust exclusief via het medische distributiekanaal verkrijgbaar, zodat u als praktijk uw patiënten een gecontroleerde, hoogwaardige supplementatie kunt aanbieden – als logische afsluiting van uw behandeltraject."
+      },
+      {
+        "question": "Hoe lang gaat één flacon mee?",
+        "answer": "Elke flacon bevat 71 toepassingen. Bij de aanbevolen gebruikshoeveelheid van één sproeistoot per dag gaat een flacon meer dan twee maanden mee."
+      }
+    ]
+  },
+  "badges": {
+    "vegan": "Veganistisch",
+    "made_in": "Made in Germany"
+  },
+  "related": {
+    "title": "Verwante inhoud",
+    "implantology_title": "Vitamine D3 & implantologie",
+    "implantology_desc": "Praktijkgids voor tandartsen",
+    "igloo_title": "Igloo Pro-systeem",
+    "igloo_desc": "Vitamine D-diagnostiek aan de behandelstoel"
+  },
+  "back": "Terug naar de startpagina",
+  "order_message_none": "Geen",
+  "disclaimer": "Voedingssupplement. Geen vervanging voor een gevarieerde voeding en gezonde levensstijl. De aanbevolen gebruikshoeveelheid mag niet worden overschreden.",
+  "mobile_cta": "Nu D3+K2 spray bestellen"
+}

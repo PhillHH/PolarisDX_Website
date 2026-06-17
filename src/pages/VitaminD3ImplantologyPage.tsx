@@ -67,8 +67,8 @@ const VitaminD3ImplantologyPage = () => {
   return (
     <PageTransition>
       <SEOHead
-        title="Vitamin-D-Mangel vor Implantation erkennen | PolarisDX"
-        description="30% der Implantat-Patienten haben Vitamin-D-Mangel. Chairside D3-Test vor Implantation verbessert Osseointegration. Evidenz & Praxisleitfaden."
+        title="Vitamin-D-Mangel vor Implantation erkennen"
+        description="Rund 30 % der Implantat-Patienten haben Vitamin-D-Mangel. Chairside 25-OH-D-Test vor Implantation und D3+K2-Protokoll für bessere Osseointegration. Evidenz & Praxisleitfaden."
         ogType="article"
         keywords={[
           'Vitamin D Implantologie',

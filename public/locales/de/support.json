@@ -56,5 +56,9 @@
       "contact": "Allgemeine Kontaktanfrage",
       "igloo": "IglooPro System"
     }
+  },
+  "seo": {
+    "title": "Support für Igloo Reader & POC-Testkits",
+    "description": "Probleme mit Ihrem Igloo Reader oder Testkit? Senden Sie uns eine Support-Anfrage mit Seriennummer und Foto – unser Team hilft Ihnen schnellstmöglich weiter."
   }
 }

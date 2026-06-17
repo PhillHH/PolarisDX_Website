@@ -1,0 +1,148 @@
+{
+  "seo": {
+    "title": "Spray podjęzykowy Vitamin D3+K2 dla gabinetów",
+    "description": "Spray podjęzykowy Vitamin D3+K2, 2.000 IU na dawkę, o podwójnej biodostępności (technologia Tiny). Wegański, Made in Germany, dostępny wyłącznie przez Twój gabinet."
+  },
+  "hero": {
+    "breadcrumb_home": "PolarisDX",
+    "breadcrumb_products": "Produkty",
+    "breadcrumb_current": "Spray Vitamin D3+K2",
+    "caption": "Suplement diety dla Twojej praktyki",
+    "title": "Spray podjęzykowy Vitamin D3+K2",
+    "subtitle": "2.000 IU na dawkę – podwójna biodostępność dzięki technologii Tiny. Dostępny wyłącznie przez kanał dystrybucji medycznej.",
+    "cta": "Zamów teraz",
+    "download": "Pobierz ulotkę produktu"
+  },
+  "intro": {
+    "title": "Wykryto niedobór witaminy D – uzupełnij go bezpośrednio w praktyce",
+    "text1": "Widzisz to u swoich pacjentów: niedobór witaminy D jest powszechny. Dzięki naszemu sprayowi podjęzykowemu Vitamin D3+K2 możesz teraz działać od razu – i przekazać pacjentowi suplementację bezpośrednio w praktyce.",
+    "text2": "Spray jest dostępny wyłącznie przez kanał dystrybucji medycznej – Twój pacjent może otrzymać go tylko od Ciebie."
+  },
+  "usp": {
+    "title": "Podwójna biodostępność dzięki technologii Tiny",
+    "text": "Nasz spray podjęzykowy wykorzystuje innowacyjną technologię Tiny, zapewniającą podwójną biodostępność w porównaniu z konwencjonalnymi preparatami – stąd 2.000 IU na dawkę, skutecznie wchłaniane przez błonę śluzową jamy ustnej.",
+    "dosing_label": "Zalecane spożycie",
+    "dosing_text": "1 dawka dziennie zgodnie z zaleceniem producenta.",
+    "dosing_note": "Wyższe dawkowanie należy ustalić indywidualnie z Tobą jako lekarzem prowadzącym."
+  },
+  "product": {
+    "title": "Przegląd produktu",
+    "composition_label": "Skład na dawkę",
+    "composition_value": "50µg witaminy D3 (2.000 IU) + 15µg witaminy K2 (MK-7)",
+    "form_label": "Postać",
+    "form_value": "Spray podjęzykowy, smak pomarańczowy",
+    "dosing_label": "Zalecane spożycie",
+    "dosing_value": "1 dawka dziennie (wg producenta)",
+    "content_label": "Zawartość",
+    "content_value": "71 zastosowań na butelkę",
+    "properties_label": "Właściwości",
+    "properties_value": "Wegański · Bez GMO · Bezglutenowy · Bez alkoholu · Made in Germany"
+  },
+  "benefits": {
+    "title": "Witamina D3 w połączeniu z K2",
+    "items": [
+      "Witaminy D3 i K2 przyczyniają się do utrzymania prawidłowego stanu kości oraz prawidłowego wykorzystania wapnia",
+      "Lepsza osteointegracja dzięki połączeniu D3 i K2",
+      "Lepsza profilaktyka i leczenie przyzębia przy odpowiednim poziomie witaminy D3"
+    ]
+  },
+  "pricing": {
+    "title": "Warunki",
+    "header_quantity": "Ilość",
+    "header_price": "Cena za sztukę (netto)",
+    "rows": [
+      {
+        "quantity": "12 sztuk",
+        "price": "12,90 €"
+      },
+      {
+        "quantity": "od 24 sztuk",
+        "price": "11,90 €"
+      },
+      {
+        "quantity": "od 36 sztuk",
+        "price": "10,90 €"
+      }
+    ]
+  },
+  "order": {
+    "caption": "Spray Vitamin D3+K2",
+    "title": "Zamów teraz",
+    "description": "Wypełnij formularz, a wyślemy Ci potwierdzenie zamówienia wraz z fakturą na adres e-mail.",
+    "quantity_label": "Wielkość zamówienia",
+    "quantity_options": {
+      "12": "12 sprayów",
+      "24": "24 spraye",
+      "36": "36 sprayów",
+      "48": "48 sprayów",
+      "100": "100+ sprayów – zamówienie hurtowe"
+    },
+    "address_heading": "Adres rozliczeniowy i dostawy",
+    "practice_label": "Praktyka / Firma",
+    "practice_placeholder": "Gabinet stomatologiczny Przykładowy",
+    "name_label": "Imię i nazwisko",
+    "name_placeholder": "Imię i nazwisko",
+    "email_label": "E-mail",
+    "email_placeholder": "praktyka@przyklad.pl",
+    "phone_label": "Telefon",
+    "phone_placeholder": "Do pytań",
+    "message_label": "Uwagi do zamówienia",
+    "message_placeholder": "Opcjonalnie: wskazówki dotyczące dostawy, inny adres itp.",
+    "submit": "Złóż wiążące zamówienie",
+    "submitting": "Wysyłanie zamówienia...",
+    "submit_note": "Po wysłaniu otrzymasz potwierdzenie zamówienia na adres e-mail. Płatność na podstawie faktury.",
+    "success_title": "Dziękujemy za zamówienie!",
+    "success_text": "Otrzymaliśmy Twoje zamówienie i wkrótce wyślemy Ci potwierdzenie na adres e-mail.",
+    "error_text": "Wystąpił błąd. Spróbuj ponownie lub zadzwoń do nas."
+  },
+  "contact": {
+    "title": "Twój opiekun",
+    "name": "Frank Stoffels",
+    "role": "Key Account Manager",
+    "phone": "+49 1515 9878599",
+    "hours": "Pon.–Pt. 9:00–17:00",
+    "question": "Pytania dotyczące zamówienia?",
+    "advice": "Chętnie doradzimy"
+  },
+  "sidebar": {
+    "quick_order_caption": "Szybkie zamówienie",
+    "quick_order_text": "Przejdź bezpośrednio do formularza zamówienia i zapewnij spray D3+K2 dla swojej praktyki.",
+    "quick_order_cta": "Zamów teraz",
+    "download_caption": "Ulotka produktu",
+    "download_text": "Wszystkie informacje o sprayu Vitamin D3+K2 w formacie PDF.",
+    "download_cta": "Pobierz PDF",
+    "trust": "Ponad 100 praktyk w ponad 15 krajach ufa PolarisDX"
+  },
+  "faq": {
+    "title": "Najczęściej zadawane pytania",
+    "items": [
+      {
+        "question": "Czym jest technologia Tiny?",
+        "answer": "Technologia Tiny zapewnia podwójną biodostępność w porównaniu z konwencjonalnymi preparatami witaminy D. Dzięki podjęzykowemu wchłanianiu przez błonę śluzową jamy ustnej substancja czynna jest szczególnie skutecznie resorbowana."
+      },
+      {
+        "question": "Dlaczego spray jest dostępny wyłącznie przez kanał dystrybucji medycznej?",
+        "answer": "Spray jest celowo dostępny wyłącznie przez kanał dystrybucji medycznej, abyś jako praktyka mógł zaoferować swoim pacjentom kontrolowaną, wysokiej jakości suplementację – jako logiczne uzupełnienie ścieżki leczenia."
+      },
+      {
+        "question": "Na jak długo wystarcza jedna butelka?",
+        "answer": "Każda butelka zawiera 71 zastosowań. Przy zalecanym spożyciu jednej dawki dziennie jedna butelka wystarcza na ponad dwa miesiące."
+      }
+    ]
+  },
+  "badges": {
+    "vegan": "Wegański",
+    "made_in": "Made in Germany"
+  },
+  "related": {
+    "title": "Powiązane treści",
+    "implantology_title": "Witamina D3 a implantologia",
+    "implantology_desc": "Przewodnik praktyczny dla stomatologów",
+    "igloo_title": "System Igloo Pro",
+    "igloo_desc": "Diagnostyka witaminy D przy fotelu zabiegowym"
+  },
+  "back": "Powrót do strony głównej",
+  "order_message_none": "Brak",
+  "disclaimer": "Suplement diety. Nie zastępuje zróżnicowanej diety ani zdrowego trybu życia. Nie należy przekraczać zalecanej dziennej porcji do spożycia.",
+  "mobile_cta": "Zamów spray D3+K2 teraz"
+}

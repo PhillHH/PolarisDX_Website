@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1280">
+<title>WF · Artikel-Detail (Template) — /articles/:slug</title>
+<link rel="stylesheet" href="wireframe.css">
+<script defer src="chrome.js"></script>
+</head>
+<body data-wf-title="Artikel-Detail · Template" data-wf-route="/articles/:slug">
+<main>
+  <section class="wf-hero wf-hero--band" style="min-height:360px;display:flex;align-items:flex-end">
+    <div class="wf-container">
+      <div class="wf-breadcrumb">Home / Articles / Artikel-Titel</div>
+      <div class="wf-eyebrow">Kategorie</div>
+      <div class="wf-h1">Artikel-Titel (dynamisch aus articles.ts)</div>
+      <p class="wf-muted" style="margin-top:14px">Autor&nbsp;·&nbsp;Datum&nbsp;·&nbsp;Lesezeit</p>
+    </div>
+  </section>
+
+  <div class="wf-container" style="padding:56px 24px">
+    <div class="wf-body-shell">
+      <!-- Article content -->
+      <article class="wf-stack" style="gap:36px">
+        <div>
+          <span class="wf-tag">Article body</span>
+          <div class="wf-eyebrow">Article</div>
+          <div class="wf-h2">Excerpt / Vorspann des Artikels</div>
+        </div>
+        <div class="wf-img wf-img--banner"><span>Artikel-Headerbild</span></div>
+
+        <div class="wf-stack">
+          <div class="wf-h3">Text-Section — Überschrift</div>
+          <p class="wf-p">Platzhalter — Fließtext-Absatz (mehrere Zeilen).</p>
+          <p class="wf-p">Platzhalter — weiterer Absatz.</p>
+          <ul class="wf-list"><li>Listenpunkt</li><li>Listenpunkt</li><li>Listenpunkt</li></ul>
+        </div>
+
+        <div class="wf-stack">
+          <div class="wf-h3">Table-Section — Überschrift</div>
+          <table class="wf-table"><thead><tr><th>Spalte</th><th>Spalte</th><th>Spalte</th></tr></thead>
+          <tbody><tr><td>Wert</td><td>Wert</td><td>Wert</td></tr><tr><td>Wert</td><td>Wert</td><td>Wert</td></tr></tbody></table>
+        </div>
+
+        <div class="wf-callout"><div class="wf-h4" style="margin-bottom:6px">Infobox</div><p class="wf-p">Platzhalter — hervorgehobener Hinweis / Callout.</p></div>
+
+        <div class="wf-stack">
+          <div class="wf-h3">Key Points</div>
+          <div class="wf-grid cols-3">
+            <div class="wf-card wf-stack"><div class="wf-h4">Punkt-Titel</div><div class="wf-lines l2"></div></div>
+            <div class="wf-card wf-stack"><div class="wf-h4">Punkt-Titel</div><div class="wf-lines l2"></div></div>
+            <div class="wf-card wf-stack"><div class="wf-h4">Punkt-Titel</div><div class="wf-lines l2"></div></div>
+          </div>
+        </div>
+
+        <div class="wf-alert">Disclaimer — rechtlicher / medizinischer Hinweis (Platzhalter).</div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span class="wf-muted">Teilen</span>
+          <a class="wf-btn">← Back to Overview</a>
+        </div>
+      </article>
+
+      <!-- Sticky sidebar -->
+      <aside class="wf-aside">
+        <div class="wf-widget">
+          <h4 class="wf-h4">More Articles</h4>
+          <ul><li><span class="wf-icon wf-icon--sm"></span> Artikel · Lesezeit</li><li><span class="wf-icon wf-icon--sm"></span> Artikel · Lesezeit</li><li><span class="wf-icon wf-icon--sm"></span> Artikel · Lesezeit</li><li><span class="wf-icon wf-icon--sm"></span> Artikel · Lesezeit</li></ul>
+        </div>
+        <div class="wf-widget">
+          <h4 class="wf-h4">Related Services</h4>
+          <ul><li><span class="wf-icon wf-icon--sm"></span> Service</li><li><span class="wf-icon wf-icon--sm"></span> Service</li></ul>
+        </div>
+        <div class="wf-widget wf-stack">
+          <h4 class="wf-h4">Kontakt</h4>
+          <p class="wf-p" style="font-size:14px">Platzhalter — kurzer Kontakt-Teaser.</p>
+          <a class="wf-btn wf-btn--solid">Kontakt aufnehmen →</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+</body>
+</html>

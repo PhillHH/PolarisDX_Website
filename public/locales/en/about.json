@@ -15,7 +15,7 @@
       },
       "adriano_zucalla": {
         "name": "Adriano Zuccala",
-        "role": "Director Polaris Diagnostics Europe U.G.",
+        "role": "CEO Polaris Diagnostics Europe GmbH",
         "bio": "Adriano Zuccala is responsible for the European business as Director of Polaris Diagnostics Europe U.G. His focus is on sales and strategic market development to make innovative diagnostic solutions accessible."
       },
       "frank_stoffels": {
@@ -29,5 +29,9 @@
         "bio": "As Senior Global Operations Director, Ulrike Schuerholz manages operational processes. She ensures efficient processes and the strategic implementation of our corporate goals in a global context."
       }
     }
+  },
+  "seo": {
+    "title": "About PolarisDX: Your Partner in POC Diagnostics",
+    "description": "Innovation, precision and reliability in medical technology: meet the PolarisDX team and our mission to redefine point-of-care diagnostics in Europe."
   }
 }

@@ -69,6 +69,10 @@
     "section7": {
       "title": "Řešení spotřebitelských sporů / Univerzální rozhodčí rada",
       "content": "Nejsme ochotni ani povinni účastnit se řízení o řešení sporů před spotřebitelskou rozhodčí radou."
+    },
+    "seo": {
+      "title": "Tiráž – Polaris Diagnostics Europe GmbH",
+      "description": "Tiráž PolarisDX dle § 5 DDG: Polaris Diagnostics Europe GmbH (Hamburk a Londýn), zastoupení, zápis v rejstříku, DIČ a kontaktní údaje."
     }
   },
   "privacy": {
@@ -126,6 +130,10 @@
     "section5": {
       "title": "5. Analytické nástroje a reklama",
       "content": "Pokud jste udělili souhlas, používají se na této webové stránce soubory cookie a podobné technologie. Svůj souhlas můžete kdykoli odvolat prostřednictvím našeho banneru cookie nebo nastavení ve vašem prohlížeči."
+    },
+    "seo": {
+      "title": "Zásady ochrany osobních údajů – v souladu s GDPR",
+      "description": "Zásady ochrany osobních údajů PolarisDX dle GDPR: jaké osobní údaje jsou shromažďovány při návštěvě webu a přes kontaktní formulář – a jakým způsobem."
     }
   },
   "agb": {
@@ -396,6 +404,10 @@
           "§ 25.5 Rozhodující je německé znění těchto VOP. Překlady slouží pouze pro informaci a nezakládají žádná vlastní práva."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Obchodní podmínky – diagnostika, zdravotnické prostředky a software",
+      "description": "Všeobecné obchodní podmínky Polaris Diagnostics Europe GmbH pro diagnostiku, zdravotnické prostředky a software/cloud: uzavření smlouvy, ceny, dodání, odpovědnost."
+    }
   }
 }

@@ -480,5 +480,9 @@
         ]
       }
     ]
+  },
+  "seo": {
+    "index_title": "Fagmagasin: POC-diagnostik & viden om kliniklaboratorier",
+    "index_description": "Fund, fagartikler om point-of-care-diagnostik, chairside-test og kliniklaboratorier – til tandlæger, læger og fagpersonale. Fra ROI til vitamin D3 i praksis."
   }
 }

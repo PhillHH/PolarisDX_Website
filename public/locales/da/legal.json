@@ -69,6 +69,10 @@
     "section7": {
       "title": "Forbrugertvistbilæggelse / Universelt voldgiftsnævn",
       "content": "Vi er ikke villige eller forpligtede til at deltage i tvistbilæggelsesprocedurer ved et forbrugervoldgiftsnævn."
+    },
+    "seo": {
+      "title": "Kolofon – Polaris Diagnostics Europe GmbH",
+      "description": "Kolofon for PolarisDX: Polaris Diagnostics Europe GmbH (Hamborg & London), repræsentation, registreringsoplysninger, momsnummer og kontaktoplysninger."
     }
   },
   "privacy": {
@@ -126,6 +130,10 @@
     "section5": {
       "title": "5. Analyseværktøjer og reklame",
       "content": "I det omfang du har givet dit samtykke, anvendes cookies og lignende teknologier på dette websted. Du kan til enhver tid tilbagekalde dit samtykke via vores cookie-banner eller indstillingerne i din browser."
+    },
+    "seo": {
+      "title": "Privatlivspolitik – i overensstemmelse med GDPR",
+      "description": "PolarisDX' privatlivspolitik efter GDPR: Hvilke personoplysninger der indsamles ved besøg på websitet og via kontaktformularen – og hvordan de behandles."
     }
   },
   "agb": {
@@ -396,6 +404,10 @@
           "§ 25.5 Den tyske version af disse AGB er afgørende. Oversættelser tjener kun til information og begrunder ingen egne rettigheder."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Handelsbetingelser – in vitro-diagnostik, medicinsk udstyr & software",
+      "description": "Handelsbetingelser for Polaris Diagnostics Europe GmbH for diagnostik, medicinsk udstyr og software/cloud: aftaleindgåelse, priser, levering og ansvar."
+    }
   }
 }

@@ -1,0 +1,64 @@
+{
+  "support": {
+    "seo": {
+      "title": "Supportaanvraag | PolarisDX",
+      "description": "Heeft u problemen met uw Igloo Reader of testkits? Stuur ons een supportaanvraag en wij helpen u zo snel mogelijk verder."
+    },
+    "hero": {
+      "kicker": "SUPPORT",
+      "title": "Supportaanvraag",
+      "breadcrumb": "Home / Support"
+    },
+    "intro": "Wanneer u problemen heeft met uw Igloo Reader of uw testkits, gebruik dan dit formulier. Wij waarderen uw bericht en doen ons best om u zo snel mogelijk te helpen. Voeg een korte beschrijving van het probleem toe en, indien mogelijk, een foto en het serienummer van het apparaat.",
+    "form": {
+      "name": "Uw naam",
+      "name_placeholder": "Uw volledige naam",
+      "email": "E-mailadres",
+      "email_placeholder": "u@voorbeeld.nl",
+      "udi": "Igloo Reader UDI",
+      "udi_placeholder": "S0DA25000XXXXX",
+      "udi_help": "U vindt het <strong>Unique Identification Number</strong> van de reader op een sticker aan de onderkant van het apparaat, of via het # startscherm → ⚙ Instellingen → ⓘ Over, of in de apparaatinstellingen van Dx Care of Dx Studio wanneer de reader via USB met de desktop-app is verbonden.",
+      "sw_version": "Igloo Reader SW-versie",
+      "sw_version_placeholder": "1.8.XX",
+      "sw_version_help": "U vindt de <strong>softwareversie</strong> van de reader via het # startscherm → ⚙ Instellingen → ⓘ Over, of in de apparaatinstellingen van Dx Care of Dx Studio wanneer de reader via USB met de desktop-app is verbonden.",
+      "issue_type": "Type probleem",
+      "issue_type_placeholder": "Maak een keuze",
+      "issue_types": {
+        "hardware": "Hardwareprobleem",
+        "software": "Softwareprobleem",
+        "connectivity": "Verbindingsprobleem",
+        "test_kit": "Testkitprobleem",
+        "calibration": "Kalibratieprobleem",
+        "other": "Overig"
+      },
+      "subject": "Onderwerp",
+      "subject_placeholder": "Korte beschrijving van het probleem",
+      "description": "Probleembeschrijving",
+      "description_placeholder": "Beschrijf het probleem zo gedetailleerd mogelijk...",
+      "attachment": "Foto, video of document bijvoegen",
+      "attachment_button": "Bestanden kiezen",
+      "attachment_none": "Geen geselecteerd",
+      "consent": "Ik ga ermee akkoord dat mijn gegevens voor de verwerking van de supportaanvraag en voor vervolgvragen tot 12 maanden worden bewaard.",
+      "submit": "Verzenden",
+      "submitting": "Verzenden...",
+      "success": "Hartelijk dank! Uw supportaanvraag is verzonden. Wij nemen zo snel mogelijk contact met u op.",
+      "error": "Er is een fout opgetreden. Probeer het later opnieuw."
+    },
+    "info": {
+      "title": "Supportinformatie",
+      "text": "Ons supportteam neemt binnen één werkdag contact met u op. Gebruik bij dringende problemen het onderstaande telefoonnummer.",
+      "email_label": "E-MAIL (24/7 support)",
+      "phone_label": "TELEFOON (support-hotline)"
+    },
+    "sidebar_links": {
+      "title": "Handige links",
+      "downloads": "Downloads & documentatie",
+      "contact": "Algemene contactaanvraag",
+      "igloo": "IglooPro-systeem"
+    }
+  },
+  "seo": {
+    "title": "Support voor de Igloo Reader & POC-testkits",
+    "description": "Problemen met uw Igloo Reader of testkit? Stuur ons een supportaanvraag met serienummer en foto – ons team helpt u zo snel mogelijk verder."
+  }
+}

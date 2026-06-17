@@ -556,5 +556,9 @@
         }
       ]
     }
+  },
+  "seo": {
+    "overview_title": "POC-diagnostik til klinikker: dental, beauty, longevity",
+    "overview_description": "Patientnære hurtigtest til vitamin D, CRP, HbA1c & TSH – chairside på minutter. POC-diagnostik med Igloo Pro til tandlæge-, æstetik- og præventionsklinikker."
   }
 }

@@ -1,0 +1,148 @@
+{
+  "seo": {
+    "title": "Espray sublingual de Vitamina D3+K2 para consultas",
+    "description": "Espray sublingual de Vitamina D3+K2, 2.000 UI por pulverización con biodisponibilidad duplicada (tecnología Tiny). Vegano, fabricado en Alemania, exclusivo a través de su consulta."
+  },
+  "hero": {
+    "breadcrumb_home": "PolarisDX",
+    "breadcrumb_products": "Productos",
+    "breadcrumb_current": "Espray de Vitamina D3+K2",
+    "caption": "Complemento alimenticio para su consulta",
+    "title": "Espray sublingual de Vitamina D3+K2",
+    "subtitle": "2.000 UI por pulverización: biodisponibilidad duplicada gracias a la tecnología Tiny. En exclusiva a través del canal de distribución médica.",
+    "cta": "Pedir ahora",
+    "download": "Descargar el folleto del producto"
+  },
+  "intro": {
+    "title": "Déficit de vitamina D detectado: trátelo directamente en su consulta",
+    "text1": "Lo observa en sus pacientes: el déficit de vitamina D está muy extendido. Con nuestro espray sublingual de Vitamina D3+K2, ahora puede actuar de inmediato y entregar a su paciente la suplementación directamente en la consulta.",
+    "text2": "El espray está disponible exclusivamente a través del canal de distribución médica: su paciente solo puede obtenerlo a través de usted."
+  },
+  "usp": {
+    "title": "Biodisponibilidad duplicada gracias a la tecnología Tiny",
+    "text": "Nuestro espray sublingual utiliza la innovadora tecnología Tiny para lograr una biodisponibilidad duplicada frente a los preparados convencionales: por ello, 2.000 UI por pulverización, absorbidas de forma eficaz a través de la mucosa oral.",
+    "dosing_label": "Recomendación de consumo",
+    "dosing_text": "1 pulverización al día según la indicación del fabricante.",
+    "dosing_note": "Una dosis superior debe consultarse individualmente con usted como médico responsable del tratamiento."
+  },
+  "product": {
+    "title": "Resumen del producto",
+    "composition_label": "Composición por pulverización",
+    "composition_value": "50 µg de Vitamina D3 (2.000 UI) + 15 µg de Vitamina K2 (MK-7)",
+    "form_label": "Forma de administración",
+    "form_value": "Espray sublingual, sabor a naranja",
+    "dosing_label": "Recomendación de consumo",
+    "dosing_value": "1 pulverización al día (según el fabricante)",
+    "content_label": "Contenido",
+    "content_value": "71 aplicaciones por frasco",
+    "properties_label": "Propiedades",
+    "properties_value": "Vegano · Sin OGM · Sin gluten · Sin alcohol · Fabricado en Alemania"
+  },
+  "benefits": {
+    "title": "Vitamina D3 combinada con K2",
+    "items": [
+      "La vitamina D3 y la K2 contribuyen al mantenimiento de unos huesos normales y a una utilización normal del calcio",
+      "Mejor osteointegración gracias a la combinación de D3 y K2",
+      "Mejor prevención y tratamiento periodontal con un aporte adecuado de vitamina D3"
+    ]
+  },
+  "pricing": {
+    "title": "Condiciones",
+    "header_quantity": "Cantidad",
+    "header_price": "Precio por unidad (neto)",
+    "rows": [
+      {
+        "quantity": "12 unidades",
+        "price": "12,90 €"
+      },
+      {
+        "quantity": "a partir de 24 unidades",
+        "price": "11,90 €"
+      },
+      {
+        "quantity": "a partir de 36 unidades",
+        "price": "10,90 €"
+      }
+    ]
+  },
+  "order": {
+    "caption": "Espray de Vitamina D3+K2",
+    "title": "Pedir ahora",
+    "description": "Rellene el formulario y le enviaremos una confirmación del pedido con la factura por correo electrónico.",
+    "quantity_label": "Cantidad del pedido",
+    "quantity_options": {
+      "12": "12 esprays",
+      "24": "24 esprays",
+      "36": "36 esprays",
+      "48": "48 esprays",
+      "100": "Más de 100 esprays – pedido al por mayor"
+    },
+    "address_heading": "Dirección de facturación y entrega",
+    "practice_label": "Consulta / Empresa",
+    "practice_placeholder": "Clínica dental de ejemplo",
+    "name_label": "Nombre",
+    "name_placeholder": "Su nombre",
+    "email_label": "Correo electrónico",
+    "email_placeholder": "consulta@ejemplo.es",
+    "phone_label": "Teléfono",
+    "phone_placeholder": "Para posibles consultas",
+    "message_label": "Observaciones sobre el pedido",
+    "message_placeholder": "Opcional: indicaciones de entrega, dirección distinta, etc.",
+    "submit": "Realizar pedido en firme",
+    "submitting": "Enviando el pedido...",
+    "submit_note": "Al enviar, recibirá una confirmación del pedido por correo electrónico. Pago contra factura.",
+    "success_title": "¡Muchas gracias por su pedido!",
+    "success_text": "Hemos recibido su pedido y en breve le enviaremos una confirmación por correo electrónico.",
+    "error_text": "Se ha producido un error. Inténtelo de nuevo o llámenos."
+  },
+  "contact": {
+    "title": "Su persona de contacto",
+    "name": "Frank Stoffels",
+    "role": "Key Account Manager",
+    "phone": "+49 1515 9878599",
+    "hours": "Lun–Vie 9:00–17:00 h",
+    "question": "¿Preguntas sobre el pedido?",
+    "advice": "Estaremos encantados de asesorarle"
+  },
+  "sidebar": {
+    "quick_order_caption": "Pedido rápido",
+    "quick_order_text": "Vaya directamente al formulario de pedido y consiga el espray D3+K2 para su consulta.",
+    "quick_order_cta": "Pedir ahora",
+    "download_caption": "Folleto del producto",
+    "download_text": "Toda la información sobre el espray de Vitamina D3+K2 en PDF.",
+    "download_cta": "Descargar PDF",
+    "trust": "Más de 100 consultas en más de 15 países confían en PolarisDX"
+  },
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "items": [
+      {
+        "question": "¿Qué es la tecnología Tiny?",
+        "answer": "La tecnología Tiny permite una biodisponibilidad duplicada frente a los preparados convencionales de vitamina D. Gracias a la absorción sublingual a través de la mucosa oral, el principio activo se asimila de forma especialmente eficaz."
+      },
+      {
+        "question": "¿Por qué el espray solo está disponible a través del canal de distribución médica?",
+        "answer": "El espray está disponible deliberadamente en exclusiva a través del canal de distribución médica, para que usted, como consulta, pueda ofrecer a sus pacientes una suplementación controlada y de alta calidad, como cierre lógico de su itinerario terapéutico."
+      },
+      {
+        "question": "¿Cuánto dura un frasco?",
+        "answer": "Cada frasco contiene 71 aplicaciones. Con la cantidad de consumo recomendada de una pulverización al día, un frasco dura más de dos meses."
+      }
+    ]
+  },
+  "badges": {
+    "vegan": "Vegano",
+    "made_in": "Fabricado en Alemania"
+  },
+  "related": {
+    "title": "Contenidos relacionados",
+    "implantology_title": "Vitamina D3 e implantología",
+    "implantology_desc": "Guía práctica para dentistas",
+    "igloo_title": "Sistema Igloo Pro",
+    "igloo_desc": "Diagnóstico de vitamina D junto al sillón dental"
+  },
+  "back": "Volver a la página de inicio",
+  "order_message_none": "Ninguna",
+  "disclaimer": "Complemento alimenticio. No sustituye una alimentación variada ni un estilo de vida saludable. No debe superarse la cantidad de consumo recomendada.",
+  "mobile_cta": "Pedir ahora el espray D3+K2"
+}

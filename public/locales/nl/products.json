@@ -71,5 +71,9 @@
     "title": "Breid mogelijkheden uit",
     "description": "Voor apotheken en praktijken.",
     "button": "Nu afspraak maken"
+  },
+  "seo": {
+    "title": "IglooPro POC-reader: specificaties & techniek",
+    "description": "IglooPro POC-reader levert labwaarden chairside in 3–15 min uit capillair bloed: vitamine D, CRP, HbA1c, TSH e.v.a. Immunofluorescentie, CV < 5 %, 600 g."
   }
 }

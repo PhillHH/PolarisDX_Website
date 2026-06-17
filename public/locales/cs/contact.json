@@ -46,5 +46,9 @@
     "call_us_button": "Zavolejte nám",
     "call_us_text": "Zavolejte nám",
     "collapse_button": "Zavřít"
+  },
+  "seo": {
+    "title": "Kontakt a sjednání demo termínu k IglooPro",
+    "description": "Sjednejte si osobní demo termín k IglooPro POC readeru. Zašlete nezávaznou poptávku a nechte si poradit ohledně diagnostiky v místě péče (point-of-care)."
   }
 }

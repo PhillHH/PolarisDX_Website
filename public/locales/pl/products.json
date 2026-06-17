@@ -71,5 +71,9 @@
     "title": "Rozszerz możliwości",
     "description": "Dla aptek i gabinetów.",
     "button": "Umów się teraz"
+  },
+  "seo": {
+    "title": "IglooPro POC Reader: specyfikacja i technologia",
+    "description": "IglooPro POC Reader dostarcza wyniki laboratoryjne przy fotelu w 3–15 min z krwi włośniczkowej: witamina D, CRP, HbA1c, TSH i więcej. Immunofluorescencja, CV < 5 %, 600 g."
   }
 }

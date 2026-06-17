@@ -480,5 +480,9 @@
         ]
       }
     ]
+  },
+  "seo": {
+    "index_title": "Odborný magazín: POC diagnostika a znalosti praxe",
+    "index_description": "Fundované odborné články o diagnostice v místě péče, testech u křesla a praktické laboratoři – pro zubní lékaře, lékaře a odborný personál. Od ROI po praxi vitaminu D3."
   }
 }

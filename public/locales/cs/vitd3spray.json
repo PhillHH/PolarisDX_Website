@@ -1,0 +1,148 @@
+{
+  "seo": {
+    "title": "Sublingvální sprej Vitamin D3+K2 pro ordinace",
+    "description": "Sublingvální sprej Vitamin D3+K2, 2 000 IU na vstřik s dvojnásobnou biologickou dostupností (technologie Tiny). Veganský, Made in Germany, výhradně přes vaši ordinaci."
+  },
+  "hero": {
+    "breadcrumb_home": "PolarisDX",
+    "breadcrumb_products": "Produkty",
+    "breadcrumb_current": "Sprej Vitamin D3+K2",
+    "caption": "Doplněk stravy pro vaši ordinaci",
+    "title": "Sublingvální sprej Vitamin D3+K2",
+    "subtitle": "2 000 IU na vstřik – dvojnásobná biologická dostupnost díky technologii Tiny. Výhradně prostřednictvím lékařského distribučního kanálu.",
+    "cta": "Objednat nyní",
+    "download": "Stáhnout produktový leták"
+  },
+  "intro": {
+    "title": "Nedostatek vitaminu D rozpoznán – zajistěte léčbu přímo v ordinaci",
+    "text1": "Vidíte to u svých pacientů: nedostatek vitaminu D je velmi rozšířený. S naším sublingválním sprejem Vitamin D3+K2 můžete nyní jednat ihned – a předat pacientovi potřebný doplněk přímo v ordinaci.",
+    "text2": "Sprej je dostupný výhradně prostřednictvím lékařského distribučního kanálu – váš pacient jej může získat jedině u vás."
+  },
+  "usp": {
+    "title": "Dvojnásobná biologická dostupnost díky technologii Tiny",
+    "text": "Náš sublingvální sprej využívá inovativní technologii Tiny pro dvojnásobnou biologickou dostupnost oproti běžným přípravkům – proto 2 000 IU na vstřik, účinně vstřebávaných přes ústní sliznici.",
+    "dosing_label": "Doporučené dávkování",
+    "dosing_text": "1 vstřik denně dle doporučení výrobce.",
+    "dosing_note": "Vyšší dávkování je třeba individuálně projednat s vámi jako ošetřujícím lékařem."
+  },
+  "product": {
+    "title": "Přehled produktu",
+    "composition_label": "Složení na jeden vstřik",
+    "composition_value": "50µg vitaminu D3 (2 000 IU) + 15µg vitaminu K2 (MK-7)",
+    "form_label": "Forma podání",
+    "form_value": "Sublingvální sprej, pomerančová příchuť",
+    "dosing_label": "Doporučené dávkování",
+    "dosing_value": "1 vstřik denně (dle výrobce)",
+    "content_label": "Obsah",
+    "content_value": "71 aplikací na lahvičku",
+    "properties_label": "Vlastnosti",
+    "properties_value": "Veganský · Bez GMO · Bezlepkový · Bez alkoholu · Made in Germany"
+  },
+  "benefits": {
+    "title": "Vitamin D3 v kombinaci s K2",
+    "items": [
+      "Vitamin D3 a K2 přispívají k udržení normálního stavu kostí a k normálnímu využití vápníku",
+      "Lepší oseointegrace díky kombinaci D3 a K2",
+      "Lepší parodontální prevence a léčba při dostatečném zásobení vitaminem D3"
+    ]
+  },
+  "pricing": {
+    "title": "Podmínky",
+    "header_quantity": "Množství",
+    "header_price": "Cena za kus (bez DPH)",
+    "rows": [
+      {
+        "quantity": "12 kusů",
+        "price": "12,90 €"
+      },
+      {
+        "quantity": "od 24 kusů",
+        "price": "11,90 €"
+      },
+      {
+        "quantity": "od 36 kusů",
+        "price": "10,90 €"
+      }
+    ]
+  },
+  "order": {
+    "caption": "Sprej Vitamin D3+K2",
+    "title": "Objednat nyní",
+    "description": "Vyplňte formulář a my vám zašleme potvrzení objednávky s fakturou e-mailem.",
+    "quantity_label": "Objednávané množství",
+    "quantity_options": {
+      "12": "12 sprejů",
+      "24": "24 sprejů",
+      "36": "36 sprejů",
+      "48": "48 sprejů",
+      "100": "100+ sprejů – velkoobjednávka"
+    },
+    "address_heading": "Fakturační a dodací adresa",
+    "practice_label": "Ordinace / firma",
+    "practice_placeholder": "Zubní ordinace Vzorová ordinace",
+    "name_label": "Jméno",
+    "name_placeholder": "Vaše jméno",
+    "email_label": "E-mail",
+    "email_placeholder": "ordinace@priklad.cz",
+    "phone_label": "Telefon",
+    "phone_placeholder": "Pro případné dotazy",
+    "message_label": "Poznámky k objednávce",
+    "message_placeholder": "Volitelné: pokyny k doručení, odlišná adresa atd.",
+    "submit": "Závazně objednat nyní",
+    "submitting": "Objednávka se odesílá...",
+    "submit_note": "Po odeslání obdržíte potvrzení objednávky e-mailem. Platba na fakturu.",
+    "success_title": "Děkujeme za vaši objednávku!",
+    "success_text": "Vaši objednávku jsme obdrželi a v krátké době vám zašleme potvrzení e-mailem.",
+    "error_text": "Došlo k chybě. Zkuste to prosím znovu nebo nám zavolejte."
+  },
+  "contact": {
+    "title": "Váš kontaktní partner",
+    "name": "Frank Stoffels",
+    "role": "Key Account Manager",
+    "phone": "+49 1515 9878599",
+    "hours": "Po–Pá 9:00–17:00 hod.",
+    "question": "Dotazy k objednávce?",
+    "advice": "Rádi vám poradíme"
+  },
+  "sidebar": {
+    "quick_order_caption": "Rychlá objednávka",
+    "quick_order_text": "Přejděte přímo k objednávkovému formuláři a zajistěte sprej D3+K2 pro vaši ordinaci.",
+    "quick_order_cta": "Objednat nyní",
+    "download_caption": "Produktový leták",
+    "download_text": "Všechny informace o spreji Vitamin D3+K2 ve formátu PDF.",
+    "download_cta": "Stáhnout PDF",
+    "trust": "Více než 100 ordinací ve více než 15 zemích důvěřuje PolarisDX"
+  },
+  "faq": {
+    "title": "Časté dotazy",
+    "items": [
+      {
+        "question": "Co je technologie Tiny?",
+        "answer": "Technologie Tiny umožňuje dvojnásobnou biologickou dostupnost oproti běžným přípravkům s vitaminem D. Díky sublingválnímu vstřebávání přes ústní sliznici je účinná látka resorbována obzvláště efektivně."
+      },
+      {
+        "question": "Proč je sprej dostupný pouze prostřednictvím lékařského distribučního kanálu?",
+        "answer": "Sprej je záměrně dostupný výhradně prostřednictvím lékařského distribučního kanálu, abyste jako ordinace mohli svým pacientům nabídnout kontrolovanou, vysoce kvalitní suplementaci – jako logické zakončení vaší léčebné cesty."
+      },
+      {
+        "question": "Na jak dlouho vystačí jedna lahvička?",
+        "answer": "Každá lahvička obsahuje 71 aplikací. Při doporučeném dávkování jednoho vstřiku denně vystačí jedna lahvička na více než dva měsíce."
+      }
+    ]
+  },
+  "badges": {
+    "vegan": "Veganský",
+    "made_in": "Made in Germany"
+  },
+  "related": {
+    "title": "Související obsah",
+    "implantology_title": "Vitamin D3 a implantologie",
+    "implantology_desc": "Praktická příručka pro zubní lékaře",
+    "igloo_title": "Systém Igloo Pro",
+    "igloo_desc": "Diagnostika vitaminu D přímo u křesla"
+  },
+  "back": "Zpět na úvodní stránku",
+  "order_message_none": "Žádné",
+  "disclaimer": "Doplněk stravy. Nenahrazuje pestrou stravu a zdravý životní styl. Doporučené denní dávkování nesmí být překročeno.",
+  "mobile_cta": "Objednat sprej D3+K2 nyní"
+}

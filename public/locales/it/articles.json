@@ -480,5 +480,9 @@
         ]
       }
     ]
+  },
+  "seo": {
+    "index_title": "Magazine: diagnostica POC e know-how per il lab in studio",
+    "index_description": "Articoli specialistici approfonditi su diagnostica point-of-care, test chairside e laboratorio in studio, per odontoiatri, medici e personale sanitario. Dal ROI alla pratica clinica."
   }
 }

@@ -4,6 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
+        // accentBlue: alias for brand.blue (#0f5f95). Fixes 11 previously-undefined
+        // text-accentBlue/border-accentBlue call-sites that rendered colorless.
+        accentBlue: '#0f5f95',
         brand: {
           // -------------------------------------------------------------------
           // LEGACY (kept as aliases — migration of call-sites is Wave 2 / 2-v).
@@ -130,6 +133,37 @@ export default {
           '0%': { opacity: '1', transform: 'scale(1) rotate(0)' },
           '100%': { opacity: '0', transform: 'scale(0.8) rotate(10deg)' },
         },
+        // Order-modal entrance — soft "materialise" with a brief teal halo.
+        // Backdrop fades in + blur builds up; the card translates + scales
+        // into place with a gentle decelerate curve, and a teal glow ring
+        // peaks at ~40% before settling into the resting shadow.
+        'modal-backdrop-in': {
+          '0%': { opacity: '0', 'backdrop-filter': 'blur(0px)' },
+          '100%': { opacity: '1', 'backdrop-filter': 'blur(6px)' },
+        },
+        'popover-in': {
+          '0%': { opacity: '0', transform: 'translateY(-6px) scale(0.98)' },
+          '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+        },
+        'modal-card-in': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(24px) scale(0.94)',
+            'box-shadow':
+              '0 0 0 0 rgba(94,234,212,0), 0 0 0 0 rgba(13,148,136,0), 0 0 0 rgba(8,51,88,0)',
+          },
+          '45%': {
+            opacity: '1',
+            'box-shadow':
+              '0 0 0 6px rgba(94,234,212,0.18), 0 0 60px 4px rgba(13,148,136,0.35), 0 20px 50px rgba(8,51,88,0.30)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0) scale(1)',
+            'box-shadow':
+              '0 0 0 0 rgba(94,234,212,0), 0 0 0 0 rgba(13,148,136,0), 0 20px 60px rgba(8,51,88,0.35)',
+          },
+        },
       },
       animation: {
         'fade-in-scale': 'fade-in-scale 0.8s ease-out forwards',
@@ -139,6 +173,10 @@ export default {
         'slide-out-left': 'slide-out-left 0.4s ease-in forwards',
         'icon-in': 'icon-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
         'icon-out': 'icon-out 0.4s ease-in forwards',
+        // Modal entrance — see keyframes above.
+        'modal-backdrop-in': 'modal-backdrop-in 280ms ease-out forwards',
+        'modal-card-in': 'modal-card-in 520ms cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'popover-in': 'popover-in 180ms cubic-bezier(0.16, 1, 0.3, 1) forwards',
       },
     },
   },

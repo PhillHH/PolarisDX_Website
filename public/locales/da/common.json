@@ -13,7 +13,8 @@
     "dental": "Dental diagnostik",
     "beauty": "Beauty diagnostik",
     "longevity": "Longevity diagnostik",
-    "pocSystems": "POC-systemer"
+    "pocSystems": "POC-systemer",
+    "support": "Support"
   },
   "badge": {
     "New": "Ny",
@@ -115,8 +116,8 @@
   },
   "notFound": {
     "seo": {
-      "title": "Side ikke fundet | PolarisDX",
-      "description": "Den ønskede side blev ikke fundet."
+      "title": "Siden blev ikke fundet (404)",
+      "description": "Denne side findes ikke eller er blevet flyttet. Gå tilbage til forsiden eller direkte til IglooPro, diagnostikydelser og kontakt hos PolarisDX."
     },
     "badge": "Side ikke fundet",
     "title": "Ups! Denne side findes ikke",

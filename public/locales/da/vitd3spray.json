@@ -1,0 +1,148 @@
+{
+  "seo": {
+    "title": "Vitamin D3+K2 sublingualspray til klinikker",
+    "description": "Vitamin D3+K2 sublingualspray, 2.000 IE pr. pust med dobbelt biotilgængelighed (Tiny-teknologi). Vegansk, Made in Germany, kan kun bestilles via din klinik."
+  },
+  "hero": {
+    "breadcrumb_home": "PolarisDX",
+    "breadcrumb_products": "Produkter",
+    "breadcrumb_current": "Vitamin D3+K2 Spray",
+    "caption": "Kosttilskud til din klinik",
+    "title": "Vitamin D3+K2 sublingualspray",
+    "subtitle": "2.000 IE pr. pust – dobbelt biotilgængelighed takket være Tiny-teknologi. Udelukkende via den lægelige distributionsvej.",
+    "cta": "Bestil nu",
+    "download": "Download produktflyer"
+  },
+  "intro": {
+    "title": "Vitamin D-mangel påvist – behandl direkte i klinikken",
+    "text1": "Du ser det hos dine patienter: Vitamin D-mangel er udbredt. Med vores Vitamin D3+K2 sublingualspray kan du nu handle med det samme – og give din patient tilskuddet med direkte fra klinikken.",
+    "text2": "Sprayen fås udelukkende via den lægelige distributionsvej – din patient kan kun få den hos dig."
+  },
+  "usp": {
+    "title": "Dobbelt biotilgængelighed takket være Tiny-teknologi",
+    "text": "Vores sublingualspray udnytter den innovative Tiny-teknologi til en dobbelt biotilgængelighed sammenlignet med konventionelle præparater – derfor 2.000 IE pr. pust, der optages effektivt gennem mundslimhinden.",
+    "dosing_label": "Anbefalet indtag",
+    "dosing_text": "1 pust dagligt ifølge producentens anbefaling.",
+    "dosing_note": "En højere dosering skal aftales individuelt med dig som behandlende læge."
+  },
+  "product": {
+    "title": "Produktoversigt",
+    "composition_label": "Sammensætning pr. pust",
+    "composition_value": "50µg Vitamin D3 (2.000 IE) + 15µg Vitamin K2 (MK-7)",
+    "form_label": "Administrationsform",
+    "form_value": "Sublingualspray, appelsinsmag",
+    "dosing_label": "Anbefalet indtag",
+    "dosing_value": "1 pust dagligt (ifølge producent)",
+    "content_label": "Indhold",
+    "content_value": "71 anvendelser pr. flaske",
+    "properties_label": "Egenskaber",
+    "properties_value": "Vegansk · GMO-fri · Glutenfri · Alkoholfri · Made in Germany"
+  },
+  "benefits": {
+    "title": "Vitamin D3 i kombination med K2",
+    "items": [
+      "Vitamin D3 og K2 bidrager til at vedligeholde normale knogler og til en normal udnyttelse af calcium",
+      "Bedre osseointegration takket være kombinationen af D3 og K2",
+      "Bedre parodontal forebyggelse og behandling ved tilstrækkelig forsyning med vitamin D3"
+    ]
+  },
+  "pricing": {
+    "title": "Betingelser",
+    "header_quantity": "Mængde",
+    "header_price": "Pris pr. enhed (netto)",
+    "rows": [
+      {
+        "quantity": "12 stk.",
+        "price": "12,90 €"
+      },
+      {
+        "quantity": "fra 24 stk.",
+        "price": "11,90 €"
+      },
+      {
+        "quantity": "fra 36 stk.",
+        "price": "10,90 €"
+      }
+    ]
+  },
+  "order": {
+    "caption": "Vitamin D3+K2 Spray",
+    "title": "Bestil nu",
+    "description": "Udfyld formularen, så sender vi dig en ordrebekræftelse med faktura via e-mail.",
+    "quantity_label": "Bestillingsmængde",
+    "quantity_options": {
+      "12": "12 sprays",
+      "24": "24 sprays",
+      "36": "36 sprays",
+      "48": "48 sprays",
+      "100": "100+ sprays – storbestilling"
+    },
+    "address_heading": "Faktura- & leveringsadresse",
+    "practice_label": "Klinik / firma",
+    "practice_placeholder": "Tandlægeklinik Eksempel",
+    "name_label": "Navn",
+    "name_placeholder": "Dit navn",
+    "email_label": "E-mail",
+    "email_placeholder": "klinik@eksempel.dk",
+    "phone_label": "Telefon",
+    "phone_placeholder": "Til eventuelle spørgsmål",
+    "message_label": "Bemærkninger til bestillingen",
+    "message_placeholder": "Valgfrit: leveringsanvisninger, afvigende adresse osv.",
+    "submit": "Afgiv bindende bestilling nu",
+    "submitting": "Bestillingen sendes...",
+    "submit_note": "Når du sender, modtager du en ordrebekræftelse via e-mail. Betaling mod faktura.",
+    "success_title": "Mange tak for din bestilling!",
+    "success_text": "Vi har modtaget din bestilling og sender dig en bekræftelse via e-mail inden længe.",
+    "error_text": "Der opstod en fejl. Prøv venligst igen, eller ring til os."
+  },
+  "contact": {
+    "title": "Din kontaktperson",
+    "name": "Frank Stoffels",
+    "role": "Key Account Manager",
+    "phone": "+49 1515 9878599",
+    "hours": "Man.–fre. 9:00–17:00",
+    "question": "Spørgsmål til bestillingen?",
+    "advice": "Vi rådgiver dig gerne"
+  },
+  "sidebar": {
+    "quick_order_caption": "Hurtigbestilling",
+    "quick_order_text": "Gå direkte til bestillingsformularen og sikr dig D3+K2 Spray til din klinik.",
+    "quick_order_cta": "Bestil nu",
+    "download_caption": "Produktflyer",
+    "download_text": "Alle oplysninger om Vitamin D3+K2 Spray som PDF.",
+    "download_cta": "Download PDF",
+    "trust": "Over 100 klinikker i 15+ lande har tillid til PolarisDX"
+  },
+  "faq": {
+    "title": "Ofte stillede spørgsmål",
+    "items": [
+      {
+        "question": "Hvad er Tiny-teknologi?",
+        "answer": "Tiny-teknologi muliggør en dobbelt biotilgængelighed sammenlignet med konventionelle vitamin D-præparater. Takket være den sublinguale optagelse gennem mundslimhinden resorberes det aktive stof særligt effektivt."
+      },
+      {
+        "question": "Hvorfor fås sprayen kun via den lægelige distributionsvej?",
+        "answer": "Sprayen fås bevidst udelukkende via den lægelige distributionsvej, så du som klinik kan tilbyde dine patienter et kontrolleret tilskud af høj kvalitet – som en logisk afslutning på dit behandlingsforløb."
+      },
+      {
+        "question": "Hvor længe rækker en flaske?",
+        "answer": "Hver flaske indeholder 71 anvendelser. Ved det anbefalede indtag på ét pust dagligt rækker en flaske i over to måneder."
+      }
+    ]
+  },
+  "badges": {
+    "vegan": "Vegansk",
+    "made_in": "Made in Germany"
+  },
+  "related": {
+    "title": "Relateret indhold",
+    "implantology_title": "Vitamin D3 & implantologi",
+    "implantology_desc": "Praksisvejledning for tandlæger",
+    "igloo_title": "Igloo Pro-system",
+    "igloo_desc": "Vitamin D-diagnostik ved behandlingsstolen"
+  },
+  "back": "Tilbage til forsiden",
+  "order_message_none": "Ingen",
+  "disclaimer": "Kosttilskud. Erstatter ikke en varieret kost og en sund livsstil. Den anbefalede daglige dosis må ikke overskrides.",
+  "mobile_cta": "Bestil D3+K2 Spray nu"
+}

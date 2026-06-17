@@ -1,0 +1,64 @@
+{
+  "support": {
+    "seo": {
+      "title": "Žádost o podporu | PolarisDX",
+      "description": "Máte potíže s vaším Igloo Reader nebo testovacími sadami? Zašlete nám žádost o podporu a co nejrychleji vám pomůžeme."
+    },
+    "hero": {
+      "kicker": "PODPORA",
+      "title": "Žádost o podporu",
+      "breadcrumb": "Domů / Podpora"
+    },
+    "intro": "Pokud máte potíže s vaším Igloo Reader nebo testovacími sadami, použijte prosím tento formulář. Vážíme si vaší zprávy a uděláme vše pro to, abychom vám co nejrychleji pomohli. Připojte prosím krátký popis problému a pokud možno fotografii a sériové číslo zařízení.",
+    "form": {
+      "name": "Vaše jméno",
+      "name_placeholder": "Vaše celé jméno",
+      "email": "E-mailová adresa",
+      "email_placeholder": "vy@priklad.cz",
+      "udi": "UDI Igloo Reader",
+      "udi_placeholder": "S0DA25000XXXXX",
+      "udi_help": "<strong>Jedinečné identifikační číslo (Unique Identification Number)</strong> readeru najdete na štítku na spodní straně zařízení, nebo na # úvodní obrazovce → ⚙ Nastavení → ⓘ O zařízení, případně v nastavení zařízení v Dx Care nebo Dx Studio, když je reader připojen k desktopové aplikaci přes USB.",
+      "sw_version": "Verze SW Igloo Reader",
+      "sw_version_placeholder": "1.8.XX",
+      "sw_version_help": "<strong>Verzi softwaru</strong> readeru najdete na # úvodní obrazovce → ⚙ Nastavení → ⓘ O zařízení, případně v nastavení zařízení v Dx Care nebo Dx Studio, když je reader připojen k desktopové aplikaci přes USB.",
+      "issue_type": "Typ problému",
+      "issue_type_placeholder": "Vyberte prosím",
+      "issue_types": {
+        "hardware": "Hardwarový problém",
+        "software": "Softwarový problém",
+        "connectivity": "Problém s připojením",
+        "test_kit": "Problém s testovací sadou",
+        "calibration": "Problém s kalibrací",
+        "other": "Jiné"
+      },
+      "subject": "Předmět",
+      "subject_placeholder": "Krátký popis problému",
+      "description": "Popis problému",
+      "description_placeholder": "Popište problém co nejpodrobněji...",
+      "attachment": "Přiložit fotografii, video nebo dokument",
+      "attachment_button": "Vybrat soubory",
+      "attachment_none": "Nevybráno",
+      "consent": "Souhlasím s tím, že mé údaje budou uchovány po dobu až 12 měsíců za účelem zpracování žádosti o podporu a případných dotazů.",
+      "submit": "Odeslat",
+      "submitting": "Odesílání...",
+      "success": "Děkujeme! Vaše žádost o podporu byla odeslána. Ozveme se vám co nejdříve.",
+      "error": "Došlo k chybě. Zkuste to prosím později znovu."
+    },
+    "info": {
+      "title": "Informace o podpoře",
+      "text": "Náš tým podpory se vám ozve do jednoho pracovního dne. V naléhavých případech použijte prosím níže uvedené telefonní číslo.",
+      "email_label": "E-MAIL (podpora 24/7)",
+      "phone_label": "TELEFON (linka podpory)"
+    },
+    "sidebar_links": {
+      "title": "Užitečné odkazy",
+      "downloads": "Ke stažení a dokumentace",
+      "contact": "Obecný kontaktní dotaz",
+      "igloo": "Systém IglooPro"
+    }
+  },
+  "seo": {
+    "title": "Podpora pro Igloo Reader a POC testovací sady",
+    "description": "Potíže s vaším Igloo Reader nebo testovací sadou? Zašlete nám žádost o podporu se sériovým číslem a fotografií – náš tým vám co nejrychleji pomůže."
+  }
+}

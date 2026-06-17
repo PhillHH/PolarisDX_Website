@@ -480,5 +480,9 @@
         ]
       }
     ]
+  },
+  "seo": {
+    "index_title": "Revista técnica: diagnóstico POC e laboratório de consultório",
+    "index_description": "Artigos técnicos fundamentados sobre diagnóstico point-of-care, testes no consultório e laboratório de prática — para médicos dentistas, médicos e profissionais. Do ROI à prática clínica."
   }
 }

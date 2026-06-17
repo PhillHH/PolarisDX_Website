@@ -69,6 +69,10 @@
     "section7": {
       "title": "Verbraucherstreitbeilegung / Universalschlichtungsstelle",
       "content": "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+    },
+    "seo": {
+      "title": "Impressum – Polaris Diagnostics Europe GmbH",
+      "description": "Impressum von PolarisDX nach § 5 DDG: Polaris Diagnostics Europe GmbH (Hamburg & London), Vertretung, Registereintrag, USt-ID und Kontaktdaten."
     }
   },
   "privacy": {
@@ -126,6 +130,10 @@
     "section5": {
       "title": "5. Analyse-Tools und Werbung",
       "content": "Soweit Sie Ihre Einwilligung erklärt haben, werden auf dieser Website Cookies und ähnliche Technologien eingesetzt. Sie können Ihre Einwilligung jederzeit über unseren Cookie-Banner oder die Einstellungen in Ihrem Browser widerrufen."
+    },
+    "seo": {
+      "title": "Datenschutzerklärung – DSGVO-konform",
+      "description": "Datenschutzerklärung von PolarisDX nach DSGVO: Welche personenbezogenen Daten beim Besuch der Website und über das Kontaktformular erhoben werden – und wie."
     }
   },
   "agb": {
@@ -396,6 +404,10 @@
           "§ 25.5 Die deutsche Fassung dieser AGB ist maßgeblich. Übersetzungen dienen nur der Information und begründen keine eigenen Rechte."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "AGB – In-vitro-Diagnostik, Medizinprodukte & Software",
+      "description": "Allgemeine Geschäftsbedingungen der Polaris Diagnostics Europe GmbH für Diagnostik, Medizinprodukte und Software/Cloud: Vertragsschluss, Preise, Lieferung, Haftung."
+    }
   }
 }

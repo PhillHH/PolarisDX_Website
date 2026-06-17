@@ -9,5 +9,9 @@
   "size": "Dimensione",
   "format": "Formato",
   "introText": "Qui troverai tutti i documenti importanti sui nostri prodotti e servizi – schede tecniche e materiali informativi organizzati per te.",
-  "comingSoon": "Coming Soon"
+  "comingSoon": "Coming Soon",
+  "seo": {
+    "title": "Download: schede tecniche e flyer IglooPro",
+    "description": "Scarica gratis in PDF le schede tecniche e i flyer dell'IglooPro POC reader e della Vitamina D3+K2. Tutta la documentazione raccolta in modo chiaro e ordinato."
+  }
 }

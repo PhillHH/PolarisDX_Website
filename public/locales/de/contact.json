@@ -46,5 +46,9 @@
     "call_us_button": "Rufen Sie uns an",
     "call_us_text": "Rufen Sie uns an",
     "collapse_button": "Schließen"
+  },
+  "seo": {
+    "title": "Kontakt & Demo-Termin zum IglooPro vereinbaren",
+    "description": "Vereinbaren Sie Ihren persönlichen Demo-Termin zum IglooPro POC-Reader. Stellen Sie eine Anfrage und lassen Sie sich zur Point-of-Care-Diagnostik beraten."
   }
 }

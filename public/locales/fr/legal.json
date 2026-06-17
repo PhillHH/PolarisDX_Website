@@ -69,6 +69,10 @@
     "section7": {
       "title": "Règlement des litiges de consommation / Commission d'arbitrage universelle",
       "content": "Nous ne sommes ni disposés ni obligés de participer à des procédures de règlement des litiges devant une commission d'arbitrage des consommateurs."
+    },
+    "seo": {
+      "title": "Mentions légales – Polaris Diagnostics Europe GmbH",
+      "description": "Mentions légales de PolarisDX selon le § 5 DDG : Polaris Diagnostics Europe GmbH (Hambourg & Londres), représentation, inscription au registre, n° de TVA et coordonnées."
     }
   },
   "privacy": {
@@ -126,6 +130,10 @@
     "section5": {
       "title": "5. Outils d'analyse et publicité",
       "content": "Dans la mesure où vous avez donné votre consentement, des cookies et des technologies similaires sont utilisés sur ce site web. Vous pouvez révoquer votre consentement à tout moment via notre bannière de cookies ou les paramètres de votre navigateur."
+    },
+    "seo": {
+      "title": "Politique de confidentialité – conforme au RGPD",
+      "description": "Politique de confidentialité de PolarisDX selon le RGPD : quelles données personnelles sont collectées lors de la visite du site et via le formulaire de contact – et de quelle manière."
     }
   },
   "agb": {
@@ -396,6 +404,10 @@
           "§ 25.5 La version allemande de ces CGV fait foi. Les traductions servent uniquement à l'information et ne fondent aucun droit propre."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "CGV – diagnostic in vitro, dispositifs médicaux & logiciels",
+      "description": "Conditions générales de vente de Polaris Diagnostics Europe GmbH pour le diagnostic, les dispositifs médicaux et les logiciels/cloud : conclusion du contrat, prix, livraison, responsabilité."
+    }
   }
 }

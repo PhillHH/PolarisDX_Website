@@ -112,7 +112,6 @@ function MainLayout() {
       <MobileCallButton />
       <ChatWidget />
       <Outlet />
-      <CookieBanner />
     </Layout>
   )
 }
@@ -123,7 +122,8 @@ function MainLayout() {
 
 function App() {
   return (
-    <Routes>
+    <>
+      <Routes>
       {/* ---------------------------------------------------------------------
           UNLISTED CONSUMER-LANDINGPAGES
           Eigene schlanke Consumer-Chrome (NICHT die B2B-Shell).
@@ -306,6 +306,9 @@ function App() {
         />
       </Route>
     </Routes>
+      {/* Cookie consent — site-wide so the consumer landing pages get it too (GTM/Consent Mode). */}
+      <CookieBanner />
+    </>
   )
 }
 

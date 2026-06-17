@@ -71,5 +71,9 @@
     "title": "Élargissez vos possibilités diagnostiques",
     "description": "Parfait pour les pharmacies, cabinets, maisons de retraite, salles de sport et plus.",
     "button": "Prendre rendez-vous maintenant"
+  },
+  "seo": {
+    "title": "Reader POC IglooPro : spécifications et technologie",
+    "description": "Le reader POC IglooPro fournit des valeurs de laboratoire au fauteuil en 3 à 15 min à partir de sang capillaire : vitamine D, CRP, HbA1c, TSH et plus. Immunofluorescence, CV < 5 %, 600 g portable."
   }
 }

@@ -9,5 +9,9 @@
   "size": "Størrelse",
   "format": "Format",
   "introText": "Her finder du alle vigtige dokumenter om vores produkter og tjenester – tekniske datablade og informationsmaterialer overskueligt samlet for dig.",
-  "comingSoon": "Coming Soon"
+  "comingSoon": "Coming Soon",
+  "seo": {
+    "title": "Downloads: IglooPro datablade & produktflyere",
+    "description": "Download tekniske datablade og produktflyere til IglooPro POC-reader og Vitamin D3+K2 gratis som PDF. Alle dokumenter samlet overskueligt ét sted."
+  }
 }

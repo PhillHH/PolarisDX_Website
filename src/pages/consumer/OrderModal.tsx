@@ -190,17 +190,17 @@ function OrderModalDialog({
       aria-labelledby={titleId}
       className="fixed inset-0 z-50 flex items-end justify-center sm:items-center sm:p-4"
     >
-      {/* Backdrop */}
+      {/* Backdrop — fades in with a soft blur build-up */}
       <button
         type="button"
         aria-label="Close order request"
         onClick={onClose}
         tabIndex={-1}
-        className="absolute inset-0 bg-brand-deep/70 backdrop-blur-sm"
+        className="absolute inset-0 animate-modal-backdrop-in bg-brand-deep/70 backdrop-blur-sm motion-reduce:animate-none motion-reduce:opacity-100"
       />
 
-      {/* Dialog card */}
-      <div className="relative flex max-h-[95vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-2xl bg-slate-50 shadow-2xl sm:max-h-[90vh] sm:rounded-2xl">
+      {/* Dialog card — translate + scale + brief teal halo on enter */}
+      <div className="relative flex max-h-[95vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-2xl bg-slate-50 shadow-2xl animate-modal-card-in motion-reduce:animate-none motion-reduce:opacity-100 sm:max-h-[90vh] sm:rounded-2xl">
         {/* Header */}
         <div className="relative flex-none border-b border-slate-200 bg-white px-6 py-5 sm:px-8">
           <p className="text-xs font-semibold uppercase tracking-[1.6px] text-teal-700">

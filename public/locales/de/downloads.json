@@ -9,5 +9,9 @@
   "downloadBtn": "Herunterladen",
   "size": "Größe",
   "format": "Format",
-  "comingSoon": "Demnächst verfügbar"
+  "comingSoon": "Demnächst verfügbar",
+  "seo": {
+    "title": "Downloads: IglooPro Datenblätter & Produktflyer",
+    "description": "Technische Datenblätter und Produktflyer zum IglooPro POC-Reader und zu Vitamin D3+K2 als PDF kostenlos herunterladen. Alle Unterlagen übersichtlich gebündelt."
+  }
 }

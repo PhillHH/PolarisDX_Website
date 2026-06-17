@@ -71,5 +71,9 @@
     "title": "Rozšiřte možnosti",
     "description": "Pro lékárny a ordinace.",
     "button": "Rezervovat nyní"
+  },
+  "seo": {
+    "title": "IglooPro POC reader: specifikace a technologie",
+    "description": "IglooPro POC reader dodá laboratorní hodnoty u křesla za 3–15 minut z kapilární krve: vitamin D, CRP, HbA1c, TSH aj. Imunofluorescence, CV < 5 %, 600 g přenosný."
   }
 }

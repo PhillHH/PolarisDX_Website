@@ -480,5 +480,9 @@
         ]
       }
     ]
+  },
+  "seo": {
+    "index_title": "Magazine: Point-of-Care Diagnostics Insights",
+    "index_description": "Expert articles on point-of-care diagnostics, chairside testing and in-practice labs for dentists, physicians and medical staff. From ROI to clinical practice guides."
   }
 }

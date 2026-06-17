@@ -3,7 +3,7 @@
  *
  * Built from the PolarisDX Consumer Page Wireframe Brief (2026-05-22).
  * Section order follows the brief's section-by-section copy map exactly.
- * Unlisted: no nav/sitemap entry, noindex — reachable only via direct link.
+ * Indexable: in sitemap, no noindex — campaign landing page.
  */
 
 import { Link } from 'react-router-dom'
@@ -14,6 +14,7 @@ import sprayStill from '../../assets/landingpages-consumer/spray-still-life.jpeg
 import maskBotanical from '../../assets/landingpages-consumer/mask-hero-botanical.jpeg'
 import { Card, ConsumerHeader, Disclaimer, FactStrip, FAQ, FinalCTA, Hero, Section } from './shell'
 import { OrderModalProvider } from './OrderModal'
+import { PriceBadge } from './PriceBadge'
 import { useConsumerPageView } from './tracking'
 
 const NAV = [
@@ -57,9 +58,8 @@ function DuoPageInner() {
     <div className="flex min-h-screen flex-col bg-slate-50 text-gray-900">
       {/* TODO: confirm final meta title with Claire (Wave-2 review). */}
       <SEOHead
-        title="Inside-Out Care Duo · Spray + Hydrating Masks"
-        description="Support from within, hydrating care from outside — one Vitamin D3+K2 Spray plus one box of five Hydrating Masks as a simple two-part routine."
-        noindex
+        title="Inside-Out Care Duo: D3+K2 Spray + Masks"
+        description="Inside-Out Care Duo pairs a daily Vitamin D3+K2 spray with 5 hydrating sheet masks: one simple inside-and-outside routine at preferred bundle value of 49,90 €."
       />
 
       <ConsumerHeader nav={NAV} cta={{ label: 'Shop Duo', href: '#order' }} page="duo" />
@@ -84,6 +84,8 @@ function DuoPageInner() {
           src: duoHero,
           alt: 'PolarisDX Inside-Out Care Duo — Vitamin D3+K2 spray and Hydrating Mask box together',
         }}
+        price={{ amount: '49,90 €', unit: 'Duo set' }}
+        priceBadge={<PriceBadge product="duo" />}
       />
       <FactStrip
         items={[

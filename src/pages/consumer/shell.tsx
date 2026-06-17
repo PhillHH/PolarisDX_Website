@@ -79,7 +79,7 @@ export function CTA({
     md: 'px-7 py-3.5 text-base',
   }
   const variants: Record<CTAVariant, string> = {
-    navy: 'bg-brand-deep text-white hover:bg-[#0a4170] shadow-sm',
+    navy: 'bg-brand-deep text-white hover:bg-brand-navy-hover shadow-sm',
     'outline-navy':
       'bg-white border border-brand-deep text-brand-deep hover:bg-brand-deep hover:text-white shadow-sm',
     teal: 'bg-teal-600 text-white hover:bg-teal-700 shadow-sm',
@@ -247,6 +247,7 @@ export function Hero({
   image,
   page,
   priceBadge,
+  price,
 }: {
   eyebrow: string
   title: string
@@ -259,6 +260,9 @@ export function Hero({
   /** Optional inline badge rendered above the fold below the CTAs
    *  (e.g. a price-positioning pill). */
   priceBadge?: ReactNode
+  /** Headline list price shown prominently between the CTAs and the badge.
+   *  `amount` e.g. "169 €", `unit` e.g. "12-pack". */
+  price?: { amount: string; unit: string }
 }) {
   const orderModal = useOrderModal()
   // Hero primary CTA opens the order modal when available; falls back to
@@ -306,6 +310,14 @@ export function Hero({
                   </CTA>
                 )}
               </div>
+              {price && (
+                <p className="mt-8 flex items-baseline gap-2">
+                  <span className="text-3xl font-bold tracking-tight text-brand-deep sm:text-4xl">
+                    {price.amount}
+                  </span>
+                  <span className="text-sm text-gray-500">· {price.unit}</span>
+                </p>
+              )}
               {priceBadge && <div className="mt-7">{priceBadge}</div>}
             </div>
 

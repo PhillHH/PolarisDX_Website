@@ -1,7 +1,7 @@
 {
   "seo": {
-    "title": "Vitamin D3+K2 Spray – Exclusively for Practices | PolarisDX",
-    "description": "High-potency Vitamin D3+K2 sublingual spray with Tiny Technology for double bioavailability. Exclusively through medical distribution. Order now."
+    "title": "Vitamin D3+K2 Sublingual Spray for Practices",
+    "description": "Vitamin D3+K2 sublingual spray, 2,000 IU per spray with double bioavailability via Tiny technology. Vegan, made in Germany, available exclusively through your practice."
   },
   "hero": {
     "breadcrumb_home": "PolarisDX",
@@ -51,9 +51,18 @@
     "header_quantity": "Quantity",
     "header_price": "Price per Unit (net)",
     "rows": [
-      { "quantity": "12 units", "price": "€12.90" },
-      { "quantity": "24+ units", "price": "€11.90" },
-      { "quantity": "36+ units", "price": "€10.90" }
+      {
+        "quantity": "12 units",
+        "price": "€12.90"
+      },
+      {
+        "quantity": "24+ units",
+        "price": "€11.90"
+      },
+      {
+        "quantity": "36+ units",
+        "price": "€10.90"
+      }
     ]
   },
   "order": {

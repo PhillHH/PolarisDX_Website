@@ -62,7 +62,7 @@ const Header = () => {
       <header
         className={`fixed inset-x-0 top-0 z-30 transition-all duration-500 ease-in-out ${
           isScrolled
-            ? 'bg-[#083358]/85 shadow-[0_4px_30px_rgba(0,0,0,0.2)] backdrop-blur-xl border-b border-white/5'
+            ? 'bg-brand-navy/85 shadow-[0_4px_30px_rgba(0,0,0,0.2)] backdrop-blur-xl border-b border-white/5'
             : 'bg-transparent'
         }`}
       >
@@ -185,8 +185,8 @@ const Header = () => {
           <div
             className={`md:hidden overflow-y-auto max-h-[80vh] backdrop-blur-xl transition-all duration-300 ${
               isScrolled
-                ? 'bg-[#083358]/95 border-t border-white/10 shadow-xl'
-                : 'bg-[#083358]/95 border-t border-white/10 shadow-xl shadow-black/10'
+                ? 'bg-brand-navy/95 border-t border-white/10 shadow-xl'
+                : 'bg-brand-navy/95 border-t border-white/10 shadow-xl shadow-black/10'
             }`}
           >
             <div className="mx-auto flex max-w-container flex-col gap-6 px-6 py-8">

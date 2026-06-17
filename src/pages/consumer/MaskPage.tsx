@@ -3,7 +3,7 @@
  *
  * Built from the PolarisDX Consumer Page Wireframe Brief (2026-05-22).
  * Section order follows the brief's section-by-section copy map exactly.
- * Unlisted: no nav/sitemap entry, noindex — reachable only via direct link.
+ * Indexable: in sitemap, no noindex — campaign landing page.
  */
 
 import { SEOHead } from '../../components/seo'
@@ -24,6 +24,7 @@ import {
   Steps,
 } from './shell'
 import { OrderModalProvider, useOrderModal } from './OrderModal'
+import { PriceBadge } from './PriceBadge'
 import { useConsumerPageView } from './tracking'
 
 // Accent bars on the four ingredient cards — matches brief slide 13.
@@ -125,9 +126,8 @@ function MaskPageInner() {
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-gray-900">
       <SEOHead
-        title="Hydrating Hyaluronic Mask 5-Pack"
-        description="A calm hydration step for dry, sensitive or mature skin — five individually packed serum-soaked sheet masks in one box."
-        noindex
+        title="Hydrating Hyaluronic Sheet Mask 5-Pack"
+        description="Intensive hydration for dry, sensitive or mature skin: 5 serum-soaked hyaluronic sheet masks, 15 ml each, with niacinamide and collagen. A calm 15–30 min care step."
       />
 
       <ConsumerHeader nav={NAV} cta={{ label: 'Buy 5-pack', href: '#order' }} page="masks" />
@@ -144,6 +144,8 @@ function MaskPageInner() {
           src: maskHero,
           alt: 'Multiple Hydrating Mask — De Legende Kosmetik box and sachet with botanicals',
         }}
+        price={{ amount: '45 €', unit: '5-pack' }}
+        priceBadge={<PriceBadge product="masks" />}
       />
       <FactStrip
         items={[

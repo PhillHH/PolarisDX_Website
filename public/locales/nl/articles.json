@@ -480,5 +480,9 @@
         ]
       }
     ]
+  },
+  "seo": {
+    "index_title": "Vakblad: POC-diagnostiek & kennis praktijklab",
+    "index_description": "Gefundeerde vakartikelen over point-of-care-diagnostiek, chairside-tests en praktijklab – voor tandartsen, artsen en vakpersoneel. Van ROI tot vitamine D3-praktijk."
   }
 }

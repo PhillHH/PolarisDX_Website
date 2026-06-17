@@ -243,4 +243,27 @@
     <priority>0.4</priority>
   </url>
 
+  <!-- ===================================================================== -->
+  <!-- CONSUMER LANDING PAGES (English-only — /de/consumer/* → /en/ via 301) -->
+  <!-- ===================================================================== -->
+
+  <url>
+    <loc>https://polarisdx.net/en/consumer/vitamin-d3-spray</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://polarisdx.net/en/consumer/hydrating-masks</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://polarisdx.net/en/consumer/inside-out-duo</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

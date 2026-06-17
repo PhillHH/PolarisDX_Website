@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1100">
+<title>PolarisDX / IglooPro — Wireframe-Set (18 Routen)</title>
+<link rel="stylesheet" href="wireframe.css">
+<style>
+  .ix { max-width: 1100px; margin: 0 auto; padding: 48px 24px 80px; }
+  .ix h1 { font-size: 30px; font-weight: 700; }
+  .ix .sub { color: var(--wf-ink-soft); margin: 10px 0 8px; max-width: 70ch; }
+  .ix .note { font-size: 13px; color: var(--wf-ink-faint); background: var(--wf-surface);
+              border: 1px dashed var(--wf-line-strong); border-radius: 10px; padding: 14px 16px; margin: 22px 0 40px; }
+  .ix h2 { font-size: 14px; letter-spacing: .12em; text-transform: uppercase;
+           color: var(--wf-ink-soft); margin: 36px 0 14px; }
+  .ix-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .ix-card { display: block; background: var(--wf-surface); border: 1px solid var(--wf-line);
+             border-radius: 10px; padding: 18px 18px 16px; }
+  .ix-card:hover { border-color: var(--wf-line-strong); }
+  .ix-card .t { font-weight: 600; font-size: 15px; }
+  .ix-card .r { font-size: 12px; color: var(--wf-ink-faint); margin-top: 4px; font-family: ui-monospace, monospace; }
+  @media (max-width: 820px){ .ix-grid { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+<div class="ix">
+  <h1>PolarisDX / IglooPro — Wireframe-Set</h1>
+  <p class="sub">18 Routen der React-SPA als Low-Fidelity-Wireframes (Graustufen), aus dem Repo extrahiert.
+     Header, Footer, CTA-Karte und Chat-Bubble sind auf allen Seiten identisch (via <code>chrome.js</code>).</p>
+  <div class="note">
+    <strong>Figma-Import:</strong> Ordner serven (z.&nbsp;B. <code>npx serve wireframes</code>), dann jede Seiten-URL
+    im Figma-Plugin <strong>html.to.design</strong> importieren. Details &amp; Alternativen → <code>README.md</code>.
+  </div>
+
+  <h2>Core</h2>
+  <div class="ix-grid">
+    <a class="ix-card" href="home.html"><div class="t">Startseite</div><div class="r">/</div></a>
+    <a class="ix-card" href="about.html"><div class="t">Über uns</div><div class="r">/about</div></a>
+    <a class="ix-card" href="events.html"><div class="t">Events</div><div class="r">/events</div></a>
+  </div>
+
+  <h2>Diagnostik</h2>
+  <div class="ix-grid">
+    <a class="ix-card" href="diagnostics.html"><div class="t">Diagnostik-Übersicht</div><div class="r">/diagnostics</div></a>
+    <a class="ix-card" href="service.html"><div class="t">Service-Detail · Template</div><div class="r">/diagnostics/:slug</div></a>
+  </div>
+
+  <h2>Content / Blog</h2>
+  <div class="ix-grid">
+    <a class="ix-card" href="articles.html"><div class="t">Magazin / Blog</div><div class="r">/articles</div></a>
+    <a class="ix-card" href="article.html"><div class="t">Artikel-Detail · Template</div><div class="r">/articles/:slug</div></a>
+  </div>
+
+  <h2>Produkt / Long-form</h2>
+  <div class="ix-grid">
+    <a class="ix-card" href="igloo-pro.html"><div class="t">IglooPro System</div><div class="r">/igloo-pro</div></a>
+    <a class="ix-card" href="vitamin-d3-implantologie.html"><div class="t">Vitamin D3 · Implantologie</div><div class="r">/vitamin-d3-implantologie</div></a>
+    <a class="ix-card" href="s3-leitlinie.html"><div class="t">S3-Leitlinie Vitamin D</div><div class="r">/s3_leitlinie</div></a>
+    <a class="ix-card" href="vitamin-d3-spray.html"><div class="t">Vitamin D3 Spray</div><div class="r">/vitamin-d3-spray</div></a>
+  </div>
+
+  <h2>Conversion</h2>
+  <div class="ix-grid">
+    <a class="ix-card" href="contact.html"><div class="t">Kontakt</div><div class="r">/contact</div></a>
+    <a class="ix-card" href="support.html"><div class="t">Support</div><div class="r">/support</div></a>
+    <a class="ix-card" href="downloads.html"><div class="t">Downloads</div><div class="r">/downloads</div></a>
+  </div>
+
+  <h2>Legal / System</h2>
+  <div class="ix-grid">
+    <a class="ix-card" href="imprint.html"><div class="t">Impressum</div><div class="r">/imprint</div></a>
+    <a class="ix-card" href="privacy.html"><div class="t">Datenschutzerklärung</div><div class="r">/privacy</div></a>
+    <a class="ix-card" href="terms.html"><div class="t">AGB</div><div class="r">/terms</div></a>
+    <a class="ix-card" href="not-found.html"><div class="t">404 — Not Found</div><div class="r">*</div></a>
+  </div>
+</div>
+</body>
+</html>

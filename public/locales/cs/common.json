@@ -13,7 +13,8 @@
     "dental": "Zubní diagnostika",
     "beauty": "Estetická diagnostika",
     "longevity": "Longevity diagnostika",
-    "pocSystems": "POC systémy"
+    "pocSystems": "POC systémy",
+    "support": "Podpora"
   },
   "badge": {
     "New": "Nové",
@@ -115,8 +116,8 @@
   },
   "notFound": {
     "seo": {
-      "title": "Stránka nenalezena | PolarisDX",
-      "description": "Požadovaná stránka nebyla nalezena."
+      "title": "Stránka nenalezena (404)",
+      "description": "Tato stránka neexistuje nebo byla přesunuta. Vraťte se na úvodní stránku nebo přejděte přímo na IglooPro, diagnostické služby a kontakt PolarisDX."
     },
     "badge": "Stránka nenalezena",
     "title": "Jejda! Tato stránka neexistuje",

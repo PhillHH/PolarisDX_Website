@@ -69,6 +69,10 @@
     "section7": {
       "title": "Resolución de litigios de consumo / Junta arbitral universal",
       "content": "No estamos dispuestos ni obligados a participar en procedimientos de resolución de litigios ante una junta arbitral de consumo."
+    },
+    "seo": {
+      "title": "Aviso legal – Polaris Diagnostics Europe GmbH",
+      "description": "Aviso legal de PolarisDX según el § 5 DDG: Polaris Diagnostics Europe GmbH (Hamburgo y Londres), representación, registro mercantil, NIF-IVA y datos de contacto."
     }
   },
   "privacy": {
@@ -126,6 +130,10 @@
     "section5": {
       "title": "5. Herramientas de análisis y publicidad",
       "content": "En la medida en que haya dado su consentimiento, en este sitio web se utilizan cookies y tecnologías similares. Puede revocar su consentimiento en cualquier momento a través de nuestro banner de cookies o la configuración de su navegador."
+    },
+    "seo": {
+      "title": "Política de privacidad – conforme al RGPD",
+      "description": "Política de privacidad de PolarisDX según el RGPD: qué datos personales se recogen al visitar la web y a través del formulario de contacto, quién es responsable y cómo se tratan."
     }
   },
   "agb": {
@@ -396,6 +404,10 @@
           "§ 25.5 La versión alemana de estos TCG es autorizada. Las traducciones sirven solo para información y no establecen ningún derecho propio."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Condiciones generales – diagnóstico in vitro, productos sanitarios y software",
+      "description": "Condiciones generales de Polaris Diagnostics Europe GmbH para diagnóstico, productos sanitarios y software/nube: contratación, precios, entrega y responsabilidad."
+    }
   }
 }

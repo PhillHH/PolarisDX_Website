@@ -480,5 +480,9 @@
         ]
       }
     ]
+  },
+  "seo": {
+    "index_title": "Magazyn branżowy: diagnostyka POC i wiedza o laboratorium w gabinecie",
+    "index_description": "Rzetelne artykuły branżowe o diagnostyce POC, testach przy fotelu i laboratorium w gabinecie – dla stomatologów, lekarzy i personelu medycznego. Od ROI po praktykę witaminy D3."
   }
 }

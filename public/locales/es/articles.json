@@ -480,5 +480,9 @@
         ]
       }
     ]
+  },
+  "seo": {
+    "index_title": "Revista especializada: diagnóstico POC y laboratorio en consulta",
+    "index_description": "Artículos especializados sobre diagnóstico point-of-care, pruebas junto al sillón y laboratorio en consulta para dentistas, médicos y personal sanitario. Del ROI a la práctica clínica."
   }
 }

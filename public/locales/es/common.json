@@ -13,7 +13,8 @@
     "dental": "Diagnóstico dental",
     "beauty": "Diagnóstico estético",
     "longevity": "Diagnóstico longevity",
-    "pocSystems": "Sistemas POC"
+    "pocSystems": "Sistemas POC",
+    "support": "Soporte"
   },
   "badge": {
     "New": "Nuevo",
@@ -115,8 +116,8 @@
   },
   "notFound": {
     "seo": {
-      "title": "Página no encontrada | PolarisDX",
-      "description": "La página solicitada no se ha encontrado."
+      "title": "Página no encontrada (404)",
+      "description": "Esta página no existe o se ha movido. Vuelva a la página de inicio o vaya directamente a IglooPro, los servicios de diagnóstico y el contacto de PolarisDX."
     },
     "badge": "Página no encontrada",
     "title": "¡Ups! Esta página no existe",

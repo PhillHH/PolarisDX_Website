@@ -556,5 +556,9 @@
         }
       ]
     }
+  },
+  "seo": {
+    "overview_title": "Diagnóstico POC para consultórios: dental, estética, longevidade",
+    "overview_description": "Testes rápidos junto ao paciente para vitamina D, PCR, HbA1c e TSH — resultados em minutos. Diagnóstico POC com o Igloo Pro para consultórios dentários, estéticos e de prevenção."
   }
 }

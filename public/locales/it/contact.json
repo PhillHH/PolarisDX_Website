@@ -46,5 +46,9 @@
     "call_us_button": "Chiamaci",
     "call_us_text": "Chiamaci",
     "collapse_button": "Chiudi"
+  },
+  "seo": {
+    "title": "Contatti e prenotazione demo dell'IglooPro",
+    "description": "Prenota la tua demo personalizzata dell'IglooPro POC reader. Invia la tua richiesta e ricevi una consulenza dedicata sulla diagnostica point-of-care per il tuo studio."
   }
 }

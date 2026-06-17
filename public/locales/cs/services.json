@@ -556,5 +556,9 @@
         }
       ]
     }
+  },
+  "seo": {
+    "overview_title": "POC diagnostika pro ordinace: dental, beauty, longevity",
+    "overview_description": "Rychlé testy v místě péče pro vitamin D, CRP, HbA1c a TSH – u křesla během minut. POC diagnostika s Igloo Pro pro zubní, estetické a preventivní ordinace."
   }
 }

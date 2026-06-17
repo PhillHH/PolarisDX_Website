@@ -9,5 +9,9 @@
   "size": "Velikost",
   "format": "Formát",
   "introText": "Zde najdete všechny důležité dokumenty k našim produktům a službám – technické listy a informační materiály přehledně uspořádané.",
-  "comingSoon": "Coming Soon"
+  "comingSoon": "Coming Soon",
+  "seo": {
+    "title": "Ke stažení: datové listy IglooPro a produktové letáky",
+    "description": "Stáhněte si zdarma technické datové listy a produktové letáky k IglooPro POC readeru a Vitaminu D3+K2 ve formátu PDF. Všechny podklady přehledně na jednom místě."
+  }
 }

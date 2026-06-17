@@ -71,5 +71,9 @@
     "title": "Udvid mulighederne",
     "description": "For apoteker og klinikker.",
     "button": "Book nu"
+  },
+  "seo": {
+    "title": "IglooPro POC-reader: specifikationer & teknologi",
+    "description": "IglooPro POC-reader leverer laboratoriesvar chairside på 3–15 min fra kapillærblod: vitamin D, CRP, HbA1c, TSH m.m. Immunfluorescens, CV < 5 %, 600 g."
   }
 }

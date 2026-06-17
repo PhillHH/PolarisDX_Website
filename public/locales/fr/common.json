@@ -13,7 +13,8 @@
     "dental": "Diagnostic dentaire",
     "beauty": "Diagnostic beauté",
     "longevity": "Diagnostic longévité",
-    "pocSystems": "Systèmes POC"
+    "pocSystems": "Systèmes POC",
+    "support": "Support"
   },
   "badge": {
     "New": "Nouveau",
@@ -115,8 +116,8 @@
   },
   "notFound": {
     "seo": {
-      "title": "Page introuvable | PolarisDX",
-      "description": "La page demandée est introuvable."
+      "title": "Page introuvable (404)",
+      "description": "Cette page n'existe pas ou a été déplacée. Retournez à l'accueil ou accédez directement à IglooPro, aux services de diagnostic et au contact de PolarisDX."
     },
     "badge": "Page introuvable",
     "title": "Oups ! Cette page n'existe pas",

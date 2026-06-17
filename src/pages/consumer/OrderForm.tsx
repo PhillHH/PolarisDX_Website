@@ -406,7 +406,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
           data-gtm-event="consumer_order_submit"
           data-gtm-page={page}
           data-gtm-product={product}
-          className="inline-flex items-center justify-center gap-2 rounded-md bg-brand-deep px-7 py-3.5 text-base font-semibold tracking-tight text-white shadow-sm transition-colors hover:bg-[#0a4170] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex items-center justify-center gap-2 rounded-md bg-brand-deep px-7 py-3.5 text-base font-semibold tracking-tight text-white shadow-sm transition-colors hover:bg-brand-navy-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {status === 'submitting' ? 'Sending…' : submitLabel || DEFAULT_SUBMIT_LABEL[product]}
         </button>

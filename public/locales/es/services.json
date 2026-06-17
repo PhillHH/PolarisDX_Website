@@ -556,5 +556,9 @@
         }
       ]
     }
+  },
+  "seo": {
+    "overview_title": "Diagnóstico POC para consultas: dental, estética y longevidad",
+    "overview_description": "Pruebas rápidas junto al paciente de vitamina D, PCR, HbA1c y TSH: resultados en minutos. Diagnóstico point-of-care con el Igloo Pro para consultas dentales, estéticas y de prevención."
   }
 }

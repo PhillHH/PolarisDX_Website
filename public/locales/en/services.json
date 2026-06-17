@@ -556,5 +556,9 @@
         }
       ]
     }
+  },
+  "seo": {
+    "overview_title": "Point-of-Care Diagnostics: Dental, Beauty, Longevity",
+    "overview_description": "Chairside rapid tests for vitamin D, CRP, HbA1c & TSH – results in minutes. Point-of-care diagnostics with the Igloo Pro for dental, aesthetic & prevention practices."
   }
 }

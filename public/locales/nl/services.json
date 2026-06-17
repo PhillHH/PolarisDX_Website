@@ -556,5 +556,9 @@
         }
       ]
     }
+  },
+  "seo": {
+    "overview_title": "POC-diagnostiek voor praktijken: dental, beauty, longevity",
+    "overview_description": "Patiëntnabije sneltests voor vitamine D, CRP, HbA1c & TSH – chairside in minuten. POC-diagnostiek met de Igloo Pro voor tandarts-, esthetiek- & preventiepraktijken."
   }
 }

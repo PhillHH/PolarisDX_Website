@@ -69,6 +69,10 @@
     "section7": {
       "title": "Geschillenbeslechting consumenten / Universele arbitragecommissie",
       "content": "Wij zijn niet bereid of verplicht om deel te nemen aan geschillenbeslechtingsprocedures voor een arbitragecommissie voor consumenten."
+    },
+    "seo": {
+      "title": "Colofon – Polaris Diagnostics Europe GmbH",
+      "description": "Colofon van PolarisDX conform § 5 DDG: Polaris Diagnostics Europe GmbH (Hamburg & Londen), vertegenwoordiging, registerinschrijving, btw-id en contactgegevens."
     }
   },
   "privacy": {
@@ -126,6 +130,10 @@
     "section5": {
       "title": "5. Analysetools en reclame",
       "content": "Voor zover u uw toestemming hebt gegeven, worden op deze website cookies en vergelijkbare technologieën gebruikt. U kunt uw toestemming op elk moment intrekken via onze cookiebanner of de instellingen in uw browser."
+    },
+    "seo": {
+      "title": "Privacyverklaring – AVG-conform",
+      "description": "Privacyverklaring van PolarisDX conform de AVG: welke persoonsgegevens bij het bezoek van de website en via het contactformulier worden verzameld – en hoe."
     }
   },
   "agb": {
@@ -396,6 +404,10 @@
           "§ 25.5 De Duitse versie van deze AV is doorslaggevend. Vertalingen dienen alleen ter informatie en vestigen geen eigen rechten."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Algemene voorwaarden – in-vitrodiagnostiek, medische hulpmiddelen & software",
+      "description": "Algemene voorwaarden van Polaris Diagnostics Europe GmbH voor diagnostiek, medische hulpmiddelen en software/cloud: contractsluiting, prijzen, levering, aansprakelijkheid."
+    }
   }
 }

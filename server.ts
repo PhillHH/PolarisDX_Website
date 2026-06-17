@@ -176,6 +176,20 @@ const SITEMAP_ROUTES: SitemapRoute[] = [
   { path: '/terms', priority: 0.4, changefreq: 'yearly' },
 ]
 
+// Consumer landing pages — English-only (the language-redirect middleware
+// 301s `/de/consumer/*` and bare `/consumer/*` to `/en/consumer/*`), so they
+// must be emitted as single-language URLs without hreflang alternates.
+interface SingleLangSitemapRoute {
+  path: string // includes the /en/ prefix
+  priority: number
+  changefreq: SitemapRoute['changefreq']
+}
+const CONSUMER_SITEMAP_ROUTES: SingleLangSitemapRoute[] = [
+  { path: '/en/consumer/vitamin-d3-spray', priority: 0.8, changefreq: 'weekly' },
+  { path: '/en/consumer/hydrating-masks', priority: 0.8, changefreq: 'weekly' },
+  { path: '/en/consumer/inside-out-duo', priority: 0.8, changefreq: 'weekly' },
+]
+
 /**
  * Generates a complete XML sitemap with all routes in all languages.
  * Each URL includes hreflang alternates for all 10 supported languages
@@ -210,6 +224,16 @@ function generateSitemap(): string {
 
       xml += '  </url>\n'
     }
+  }
+
+  // Consumer landing pages — single-language entries, no hreflang.
+  for (const route of CONSUMER_SITEMAP_ROUTES) {
+    xml += '  <url>\n'
+    xml += `    <loc>${BASE_URL}${route.path}</loc>\n`
+    xml += `    <lastmod>${today}</lastmod>\n`
+    xml += `    <changefreq>${route.changefreq}</changefreq>\n`
+    xml += `    <priority>${route.priority.toFixed(1)}</priority>\n`
+    xml += '  </url>\n'
   }
 
   xml += '</urlset>\n'

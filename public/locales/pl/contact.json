@@ -46,5 +46,9 @@
     "call_us_button": "Zadzwoń",
     "call_us_text": "Zadzwoń do nas",
     "collapse_button": "Zamknij"
+  },
+  "seo": {
+    "title": "Kontakt i umówienie demo IglooPro",
+    "description": "Umów indywidualny termin prezentacji czytnika IglooPro POC. Wyślij zapytanie i skorzystaj z fachowego doradztwa w zakresie diagnostyki w miejscu opieki nad pacjentem."
   }
 }

@@ -46,5 +46,9 @@
     "call_us_button": "Call us",
     "call_us_text": "Call us",
     "collapse_button": "Close"
+  },
+  "seo": {
+    "title": "Contact & Book an IglooPro Demo Appointment",
+    "description": "Book your personal IglooPro POC-reader demo appointment. Send your request and get expert advice on point-of-care diagnostics for your practice."
   }
 }

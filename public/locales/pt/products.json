@@ -71,5 +71,9 @@
     "title": "Expanda as possibilidades",
     "description": "Para farmácias e consultórios.",
     "button": "Agendar agora"
+  },
+  "seo": {
+    "title": "IglooPro POC Reader: especificações e tecnologia",
+    "description": "O IglooPro POC Reader fornece valores laboratoriais no consultório em 3–15 min a partir de sangue capilar: vitamina D, PCR, HbA1c, TSH e muito mais. Imunofluorescência, CV < 5 %, 600 g."
   }
 }

@@ -3,7 +3,7 @@
  *
  * Built from the PolarisDX Consumer Page Wireframe Brief (2026-05-22).
  * Section order follows the brief's section-by-section copy map exactly.
- * Unlisted: no nav/sitemap entry, noindex — reachable only via direct link.
+ * Indexable: in sitemap, no noindex — campaign landing page.
  */
 
 import { SEOHead } from '../../components/seo'
@@ -25,6 +25,7 @@ import {
   Steps,
 } from './shell'
 import { OrderModalProvider, useOrderModal } from './OrderModal'
+import { PriceBadge } from './PriceBadge'
 import { useConsumerPageView } from './tracking'
 
 const NAV = [
@@ -150,8 +151,7 @@ function SprayPageInner() {
     <div className="flex min-h-screen flex-col bg-slate-50 text-gray-900">
       <SEOHead
         title="Vitamin D3+K2 Sublingual Spray 12-Pack"
-        description="Daily Vitamin D3+K2 support made simple — a convenient vibrant orange-flavoured sublingual spray, sold as a 12-pack for teams, homes and shared wellbeing orders."
-        noindex
+        description="Daily Vitamin D3+K2 made simple: an orange-flavoured sublingual spray, 1000 IU and 71 doses per bottle. 12-pack for teams, homes and shared wellbeing orders."
       />
 
       <ConsumerHeader nav={NAV} cta={{ label: 'Order 12-pack', href: '#order' }} page="spray" />
@@ -168,20 +168,8 @@ function SprayPageInner() {
           src: sprayHero,
           alt: 'PolarisDX Vitamin D3+K2 Sublingual Spray — 12-pack in an office wellbeing setting',
         }}
-        priceBadge={
-          <div className="inline-flex items-center gap-3 rounded-full border border-teal-200 bg-teal-50 px-5 py-2.5 text-sm font-semibold text-teal-800 shadow-sm">
-            <span
-              aria-hidden
-              className="flex h-7 w-7 items-center justify-center rounded-full bg-teal-600 text-base font-bold text-white"
-            >
-              €
-            </span>
-            <span>
-              Weekday support for <span className="font-bold text-teal-900">&lt;&nbsp;€1</span> per
-              employee per week
-            </span>
-          </div>
-        }
+        price={{ amount: '169 €', unit: '12-pack' }}
+        priceBadge={<PriceBadge product="spray" />}
       />
       <FactStrip
         items={[

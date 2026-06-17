@@ -9,5 +9,9 @@
   "size": "Grootte",
   "format": "Formaat",
   "introText": "Hier vind je alle belangrijke documenten over onze producten en diensten – technische gegevensbladen en informatiematerialen overzichtelijk voor je samengesteld.",
-  "comingSoon": "Coming Soon"
+  "comingSoon": "Coming Soon",
+  "seo": {
+    "title": "Downloads: IglooPro datasheets & productflyers",
+    "description": "Download gratis technische datasheets en productflyers voor de IglooPro POC-reader en Vitamin D3+K2 als PDF. Alle documenten overzichtelijk gebundeld."
+  }
 }

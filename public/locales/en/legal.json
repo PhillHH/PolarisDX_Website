@@ -69,6 +69,10 @@
     "section7": {
       "title": "Consumer Dispute Resolution / Universal Arbitration Board",
       "content": "We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board."
+    },
+    "seo": {
+      "title": "Legal Notice (Imprint) – Polaris Diagnostics",
+      "description": "Legal notice for PolarisDX: Polaris Diagnostics Europe GmbH (Hamburg & London), company representation, register entry, VAT ID and contact details."
     }
   },
   "privacy": {
@@ -126,6 +130,10 @@
     "section5": {
       "title": "5. Analysis Tools and Advertising",
       "content": "Insofar as you have given your consent, cookies and similar technologies are used on this website. You can revoke your consent at any time via our cookie banner or the settings in your browser."
+    },
+    "seo": {
+      "title": "Privacy Policy – GDPR Compliant",
+      "description": "PolarisDX privacy policy under GDPR: what personal data is collected when you visit the site and use the contact form, who is responsible and how long it is stored."
     }
   },
   "agb": {
@@ -396,6 +404,10 @@
           "§ 25.5 The German version of these GTC is authoritative. Translations serve only for information and do not establish any rights of their own."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Terms & Conditions – Diagnostics & Software",
+      "description": "General terms and conditions of Polaris Diagnostics Europe GmbH for in-vitro diagnostics, medical devices and software/cloud services: contracts, pricing, liability."
+    }
   }
 }

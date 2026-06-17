@@ -69,6 +69,10 @@
     "section7": {
       "title": "Risoluzione delle controversie dei consumatori / Collegio arbitrale universale",
       "content": "Non siamo disposti né obbligati a partecipare a procedure di risoluzione delle controversie davanti a un collegio arbitrale dei consumatori."
+    },
+    "seo": {
+      "title": "Note legali – Polaris Diagnostics Europe GmbH",
+      "description": "Note legali di PolarisDX ai sensi del § 5 DDG: Polaris Diagnostics Europe GmbH (Amburgo e Londra), rappresentanza, iscrizione al registro, P.IVA e contatti."
     }
   },
   "privacy": {
@@ -126,6 +130,10 @@
     "section5": {
       "title": "5. Strumenti di analisi e pubblicità",
       "content": "Nella misura in cui hai dato il tuo consenso, su questo sito web vengono utilizzati cookie e tecnologie simili. Puoi revocare il tuo consenso in qualsiasi momento tramite il nostro banner dei cookie o le impostazioni nel tuo browser."
+    },
+    "seo": {
+      "title": "Informativa sulla privacy – conforme al GDPR",
+      "description": "Informativa sulla privacy di PolarisDX secondo il GDPR: quali dati personali vengono raccolti durante la visita al sito e tramite il modulo di contatto, e in che modo."
     }
   },
   "agb": {
@@ -396,6 +404,10 @@
           "§ 25.5 La versione tedesca di queste CGC è autorevole. Le traduzioni servono solo per informazione e non fondano alcun diritto proprio."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Condizioni generali – diagnostica in vitro, dispositivi medici e software",
+      "description": "Condizioni generali di Polaris Diagnostics Europe GmbH per diagnostica, dispositivi medici e software/cloud: conclusione del contratto, prezzi, consegna, responsabilità."
+    }
   }
 }

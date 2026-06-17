@@ -82,7 +82,7 @@ const TeamSection = () => {
                   href={member.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-[#0077b5] transition-colors"
+                  className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-social-linkedin transition-colors"
                 >
                   <Linkedin className="h-4 w-4" />
                   LinkedIn

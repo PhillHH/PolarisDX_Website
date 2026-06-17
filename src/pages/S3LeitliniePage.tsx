@@ -113,8 +113,8 @@ const S3LeitliniePage = () => {
   return (
     <PageTransition>
       <SEOHead
-        title="Vitamin D in der Implantologie – S3-Leitlinie & POC-Diagnostik | PolarisDX"
-        description="S3-leitlinienkonforme Vitamin-D-Schnelldiagnostik für die Zahnarztpraxis: Evidenz, Indikation vor Implantation & POC-Diagnostik mit Ergebnis in unter 3 Minuten."
+        title="S3-Leitlinie Vitamin D in der Implantologie & POC-Test"
+        description="S3-leitlinienkonforme Vitamin-D-Diagnostik für die Zahnarztpraxis: Evidenz, Indikation vor Implantation und POC-Schnelltest mit Ergebnis chairside in unter 3 Minuten."
         ogType="article"
         keywords={[
           'Vitamin D Implantologie',

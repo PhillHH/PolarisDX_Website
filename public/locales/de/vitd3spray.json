@@ -1,7 +1,7 @@
 {
   "seo": {
-    "title": "Vitamin D3+K2 Spray – Exklusiv für Praxen | PolarisDX",
-    "description": "Hochdosiertes Vitamin D3+K2 Sublingualspray mit Tiny-Technologie für doppelte Bioverfügbarkeit. Exklusiv über den ärztlichen Bezugsweg. Jetzt bestellen."
+    "title": "Vitamin D3+K2 Sublingualspray für Praxen",
+    "description": "Vitamin D3+K2 Sublingualspray, 2.000 IE pro Sprühstoß mit doppelter Bioverfügbarkeit (Tiny-Technologie). Vegan, Made in Germany, exklusiv über Ihre Praxis bestellbar."
   },
   "hero": {
     "breadcrumb_home": "PolarisDX",
@@ -51,9 +51,18 @@
     "header_quantity": "Menge",
     "header_price": "Preis pro Einheit (netto)",
     "rows": [
-      { "quantity": "12 Stück", "price": "12,90 €" },
-      { "quantity": "ab 24 Stück", "price": "11,90 €" },
-      { "quantity": "ab 36 Stück", "price": "10,90 €" }
+      {
+        "quantity": "12 Stück",
+        "price": "12,90 €"
+      },
+      {
+        "quantity": "ab 24 Stück",
+        "price": "11,90 €"
+      },
+      {
+        "quantity": "ab 36 Stück",
+        "price": "10,90 €"
+      }
     ]
   },
   "order": {

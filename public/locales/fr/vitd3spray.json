@@ -1,0 +1,148 @@
+{
+  "seo": {
+    "title": "Spray sublingual Vitamine D3+K2 pour les cabinets",
+    "description": "Spray sublingual Vitamine D3+K2, 2 000 UI par pulvérisation avec une biodisponibilité doublée (technologie Tiny). Vegan, Made in Germany, à commander en exclusivité via votre cabinet."
+  },
+  "hero": {
+    "breadcrumb_home": "PolarisDX",
+    "breadcrumb_products": "Produits",
+    "breadcrumb_current": "Spray Vitamine D3+K2",
+    "caption": "Complément alimentaire pour votre cabinet",
+    "title": "Spray sublingual Vitamine D3+K2",
+    "subtitle": "2 000 UI par pulvérisation – biodisponibilité doublée grâce à la technologie Tiny. En exclusivité via le circuit médical.",
+    "cta": "Commander maintenant",
+    "download": "Télécharger le dépliant produit"
+  },
+  "intro": {
+    "title": "Carence en vitamine D détectée – assurez l'apport directement au cabinet",
+    "text1": "Vous le constatez chez vos patients : la carence en vitamine D est très répandue. Avec notre spray sublingual Vitamine D3+K2, vous pouvez désormais agir directement – et remettre l'apport à votre patient immédiatement au cabinet.",
+    "text2": "Le spray est disponible exclusivement via le circuit médical – votre patient ne peut se le procurer qu'auprès de vous."
+  },
+  "usp": {
+    "title": "Biodisponibilité doublée grâce à la technologie Tiny",
+    "text": "Notre spray sublingual exploite l'innovante technologie Tiny pour une biodisponibilité doublée par rapport aux préparations classiques – d'où 2 000 UI par pulvérisation, efficacement absorbées par la muqueuse buccale.",
+    "dosing_label": "Conseil d'utilisation",
+    "dosing_text": "1 pulvérisation par jour selon les indications du fabricant.",
+    "dosing_note": "Un dosage plus élevé doit être convenu individuellement avec vous, le médecin traitant."
+  },
+  "product": {
+    "title": "Aperçu du produit",
+    "composition_label": "Composition par pulvérisation",
+    "composition_value": "50µg de Vitamine D3 (2 000 UI) + 15µg de Vitamine K2 (MK-7)",
+    "form_label": "Forme",
+    "form_value": "Spray sublingual, goût orange",
+    "dosing_label": "Conseil d'utilisation",
+    "dosing_value": "1 pulvérisation par jour (selon le fabricant)",
+    "content_label": "Contenu",
+    "content_value": "71 applications par flacon",
+    "properties_label": "Propriétés",
+    "properties_value": "Vegan · Sans OGM · Sans gluten · Sans alcool · Made in Germany"
+  },
+  "benefits": {
+    "title": "La Vitamine D3 associée à la K2",
+    "items": [
+      "Les vitamines D3 et K2 contribuent au maintien d'une ossature normale et à une utilisation normale du calcium",
+      "Une meilleure ostéo-intégration grâce à l'association de la D3 et de la K2",
+      "Une meilleure prévention et un meilleur traitement parodontal avec un apport suffisant en vitamine D3"
+    ]
+  },
+  "pricing": {
+    "title": "Conditions",
+    "header_quantity": "Quantité",
+    "header_price": "Prix unitaire (HT)",
+    "rows": [
+      {
+        "quantity": "12 unités",
+        "price": "12,90 €"
+      },
+      {
+        "quantity": "à partir de 24 unités",
+        "price": "11,90 €"
+      },
+      {
+        "quantity": "à partir de 36 unités",
+        "price": "10,90 €"
+      }
+    ]
+  },
+  "order": {
+    "caption": "Spray Vitamine D3+K2",
+    "title": "Commander maintenant",
+    "description": "Remplissez le formulaire et nous vous enverrons une confirmation de commande avec facture par e-mail.",
+    "quantity_label": "Quantité commandée",
+    "quantity_options": {
+      "12": "12 sprays",
+      "24": "24 sprays",
+      "36": "36 sprays",
+      "48": "48 sprays",
+      "100": "100 sprays et plus – commande en gros"
+    },
+    "address_heading": "Adresse de facturation et de livraison",
+    "practice_label": "Cabinet / Société",
+    "practice_placeholder": "Cabinet dentaire Exemple",
+    "name_label": "Nom",
+    "name_placeholder": "Votre nom",
+    "email_label": "E-mail",
+    "email_placeholder": "cabinet@exemple.fr",
+    "phone_label": "Téléphone",
+    "phone_placeholder": "Pour les questions complémentaires",
+    "message_label": "Remarques sur la commande",
+    "message_placeholder": "Facultatif : instructions de livraison, adresse différente, etc.",
+    "submit": "Commander fermement maintenant",
+    "submitting": "Envoi de la commande...",
+    "submit_note": "En validant, vous recevrez une confirmation de commande par e-mail. Paiement sur facture.",
+    "success_title": "Merci pour votre commande !",
+    "success_text": "Nous avons bien reçu votre commande et vous enverrons sous peu une confirmation par e-mail.",
+    "error_text": "Une erreur s'est produite. Veuillez réessayer ou nous appeler."
+  },
+  "contact": {
+    "title": "Votre interlocuteur",
+    "name": "Frank Stoffels",
+    "role": "Key Account Manager",
+    "phone": "+49 1515 9878599",
+    "hours": "Lun–Ven 9h00–17h00",
+    "question": "Des questions sur la commande ?",
+    "advice": "Nous vous conseillons avec plaisir"
+  },
+  "sidebar": {
+    "quick_order_caption": "Commande rapide",
+    "quick_order_text": "Accédez directement au formulaire de commande et procurez-vous le spray D3+K2 pour votre cabinet.",
+    "quick_order_cta": "Commander maintenant",
+    "download_caption": "Dépliant produit",
+    "download_text": "Toutes les informations sur le spray Vitamine D3+K2 au format PDF.",
+    "download_cta": "Télécharger le PDF",
+    "trust": "Plus de 100 cabinets dans plus de 15 pays font confiance à PolarisDX"
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "items": [
+      {
+        "question": "Qu'est-ce que la technologie Tiny ?",
+        "answer": "La technologie Tiny permet une biodisponibilité doublée par rapport aux préparations classiques de vitamine D. Grâce à l'absorption sublinguale par la muqueuse buccale, le principe actif est résorbé de manière particulièrement efficace."
+      },
+      {
+        "question": "Pourquoi le spray est-il disponible uniquement via le circuit médical ?",
+        "answer": "Le spray est délibérément disponible en exclusivité via le circuit médical, afin que vous, en tant que cabinet, puissiez proposer à vos patients une supplémentation contrôlée et de haute qualité – comme aboutissement logique de votre parcours de soins."
+      },
+      {
+        "question": "Combien de temps dure un flacon ?",
+        "answer": "Chaque flacon contient 71 applications. À la dose recommandée d'une pulvérisation par jour, un flacon dure plus de deux mois."
+      }
+    ]
+  },
+  "badges": {
+    "vegan": "Vegan",
+    "made_in": "Made in Germany"
+  },
+  "related": {
+    "title": "Contenus complémentaires",
+    "implantology_title": "Vitamine D3 & implantologie",
+    "implantology_desc": "Guide pratique pour les chirurgiens-dentistes",
+    "igloo_title": "Système Igloo Pro",
+    "igloo_desc": "Diagnostic de la vitamine D au fauteuil"
+  },
+  "back": "Retour à l'accueil",
+  "order_message_none": "Aucune",
+  "disclaimer": "Complément alimentaire. Ne se substitue pas à une alimentation variée et à un mode de vie sain. Ne pas dépasser la dose journalière recommandée.",
+  "mobile_cta": "Commander le spray D3+K2 maintenant"
+}

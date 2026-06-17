@@ -13,7 +13,8 @@
     "dental": "Tandheelkundige diagnostiek",
     "beauty": "Beauty diagnostiek",
     "longevity": "Longevity diagnostiek",
-    "pocSystems": "POC-systemen"
+    "pocSystems": "POC-systemen",
+    "support": "Support"
   },
   "badge": {
     "New": "Nieuw",
@@ -115,8 +116,8 @@
   },
   "notFound": {
     "seo": {
-      "title": "Pagina niet gevonden | PolarisDX",
-      "description": "De gevraagde pagina kon niet worden gevonden."
+      "title": "Pagina niet gevonden (404)",
+      "description": "Deze pagina bestaat niet of is verplaatst. Terug naar de startpagina of direct naar IglooPro, diagnostiekservices en contact van PolarisDX."
     },
     "badge": "Pagina niet gevonden",
     "title": "Oeps! Deze pagina bestaat niet",
