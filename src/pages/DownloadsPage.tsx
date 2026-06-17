@@ -7,10 +7,9 @@ import { FileText, Download } from 'lucide-react'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 
-// Import documents directly to get the hashed URL from Vite
-import IglooProSystemFlyerDE from '../assets/downloads/igloo-pro-flyer.pdf'
-import VitaminD3SprayFlyerDE from '../assets/downloads/Polaris Vitamin D Spray  A4zuA5_DE_2025-01-20.pdf'
-import VitaminD3SprayFlyerEN from '../assets/downloads/Polaris Vitamin D Spray  A4zuA5_EN(8).pdf'
+// CMS-managed document list (edited via the PolarisDX CMS, bundled at build time).
+// Static import is SSR-safe (no runtime fs read) and rebuilt on publish.
+import downloadsData from '../content/downloads.json'
 
 type DownloadItem = {
   id: string
@@ -22,36 +21,35 @@ type DownloadItem = {
   openInBrowser?: boolean
 }
 
+// Shape of each entry in downloads.json (CMS-managed). `category` narrows to the union.
+type DownloadRecord = {
+  id: string
+  title: string
+  category: 'tech' | 'info'
+  file: string
+  format: string
+  size: string
+  date?: string
+}
+
 const DownloadsPage = () => {
   const { t } = useTranslation(['downloads', 'common'])
 
-  const techBrochures: DownloadItem[] = []
-  const infoMaterials: DownloadItem[] = [
-    {
-      id: 'im-de-igloo-pro',
-      title: 'Igloo Pro System Flyer (DE)',
-      size: '3.5 MB',
-      format: 'PDF',
-      url: IglooProSystemFlyerDE,
-      openInBrowser: true,
-    },
-    {
-      id: 'im-vitd3-spray-de',
-      title: 'Vitamin D3+K2 Spray – Produktflyer (DE)',
-      size: '1.2 MB',
-      format: 'PDF',
-      url: VitaminD3SprayFlyerDE,
-      openInBrowser: true,
-    },
-    {
-      id: 'im-vitd3-spray-en',
-      title: 'Vitamin D3+K2 Spray – Product Flyer (EN)',
-      size: '1.2 MB',
-      format: 'PDF',
-      url: VitaminD3SprayFlyerEN,
-      openInBrowser: true,
-    },
-  ]
+  const records = (downloadsData as { items: DownloadRecord[] }).items
+
+  const toItem = (rec: DownloadRecord): DownloadItem => ({
+    id: rec.id,
+    title: rec.title,
+    size: rec.size,
+    format: rec.format,
+    date: rec.date,
+    // public/ is copied to dist, so the public URL is /downloads/<file>.
+    url: '/downloads/' + encodeURIComponent(rec.file),
+    openInBrowser: true,
+  })
+
+  const techBrochures: DownloadItem[] = records.filter((rec) => rec.category === 'tech').map(toItem)
+  const infoMaterials: DownloadItem[] = records.filter((rec) => rec.category === 'info').map(toItem)
 
   const renderDownloadSection = (title: string, items: DownloadItem[]) => (
     <div className="mb-12 last:mb-0">
