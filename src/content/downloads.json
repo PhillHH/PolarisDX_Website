@@ -1,0 +1,31 @@
+{
+  "items": [
+    {
+      "id": "im-de-igloo-pro",
+      "title": "Igloo Pro System Flyer (DE)",
+      "category": "info",
+      "file": "igloo-pro-flyer.pdf",
+      "format": "PDF",
+      "size": "3.5 MB",
+      "date": "2025-01-20"
+    },
+    {
+      "id": "im-vitd3-spray-de",
+      "title": "Vitamin D3+K2 Spray – Produktflyer (DE)",
+      "category": "info",
+      "file": "vitamin-d3-spray-de.pdf",
+      "format": "PDF",
+      "size": "1.2 MB",
+      "date": "2025-01-20"
+    },
+    {
+      "id": "im-vitd3-spray-en",
+      "title": "Vitamin D3+K2 Spray – Product Flyer (EN)",
+      "category": "info",
+      "file": "vitamin-d3-spray-en.pdf",
+      "format": "PDF",
+      "size": "1.2 MB",
+      "date": "2025-01-20"
+    }
+  ]
+}
