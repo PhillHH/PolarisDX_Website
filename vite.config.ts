@@ -44,8 +44,9 @@ export default defineConfig(({ isSsrBuild }) => ({
   // BUILD CONFIGURATION
   // =============================================================================
   build: {
-    // Sourcemaps für besseres Debugging
-    sourcemap: true,
+    // Sourcemaps deaktiviert: spürbar schnellerer Build (jeder CMS-Publish baut
+    // die Seite neu). Für Prod-Debugging bei Bedarf temporär wieder aktivieren.
+    sourcemap: false,
 
     // ==========================================================================
     // CODE-SPLITTING: Nur für Client-Build, NICHT für SSR

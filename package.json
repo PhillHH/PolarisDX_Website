@@ -7,7 +7,7 @@
     "dev": "tsx server.ts",
     "dev:vite": "vite",
     "build": "npm run build:client && npm run build:server",
-    "build:client": "tsc -b && vite build --outDir dist/client",
+    "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
     "build:prerender": "tsc -b && vite build && node scripts/prerender.mjs",
     "prerender": "node scripts/prerender.mjs",
