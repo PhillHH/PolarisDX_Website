@@ -43,6 +43,24 @@ const updateGTMConsent = (preferences: ConsentPreferences): void => {
     window.gtag('consent', 'update', {
       analytics_storage: 'granted',
     })
+
+    // Belt-and-Suspenders: aktuellen Pageview EINMAL nachfeuern, falls der
+    // initiale page_view unter 'denied' lief und der menschliche Klick nach
+    // dem wait_for_update:500ms-Fenster kam. Bei Advanced Consent Mode
+    // reprocesst GA4 den denied-Hit i.d.R. selbst (gleiche Seite) — dieser
+    // Re-Fire deckt zusätzlich den Cross-Page-Edge-Case ab. Guard verhindert
+    // Doppelzählung bei wiederholten 'Speichern'-Klicks innerhalb der Session.
+    const w = window as unknown as { __pvOnGrantFired?: boolean }
+    if (!w.__pvOnGrantFired) {
+      w.__pvOnGrantFired = true
+      window.gtag('event', 'page_view', {
+        page_location: window.location.href,
+        page_path: window.location.pathname + window.location.search,
+        page_title: document.title,
+        page_language: document.documentElement.lang || undefined,
+        send_to: 'G-PLZNWGKW0P',
+      })
+    }
   } else {
     window.gtag('consent', 'update', {
       analytics_storage: 'denied',

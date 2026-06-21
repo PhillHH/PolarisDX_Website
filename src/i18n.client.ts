@@ -71,6 +71,18 @@ export const i18nReady = i18n
     },
   })
 
+// document.documentElement.lang clientseitig synchron halten.
+// SSR setzt <html lang> korrekt pro Sprache; bei einem In-App-Sprachwechsel
+// (z. B. /de/ → /en/ ohne Vollreload) würde es sonst veralten und
+// GtmPageview meldet eine falsche page_language. Initial + bei jedem Wechsel setzen.
+if (typeof document !== 'undefined') {
+  const syncHtmlLang = (lng: string) => {
+    if (lng) document.documentElement.lang = lng
+  }
+  syncHtmlLang(i18n.resolvedLanguage || urlLanguage)
+  i18n.on('languageChanged', syncHtmlLang)
+}
+
 // =============================================================================
 // EXPORTS
 // =============================================================================

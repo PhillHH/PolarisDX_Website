@@ -497,6 +497,16 @@ async function createServer() {
           .replace(/<title>[\s\S]*?<\/title>\s*/i, '')
           .replace(/<meta\s+name="title"[^>]*>\s*/i, '')
           .replace(/<meta\s+name="description"[^>]*>\s*/i, '')
+          // Statisches Root-Canonical entfernen — Helmet liefert das korrekte
+          // per-Seite-Canonical. Sonst hat jede Seite ZWEI Canonicals und
+          // Google kann alle Sprach-/Seitenvarianten auf '/' kollabieren.
+          .replace(/<link\s+rel="canonical"[^>]*>\s*/i, '')
+          // Veraltetes de_DE / English-Alternate og:locale entfernen — Helmet
+          // setzt das korrekte per-Sprache og:locale.
+          .replace(/<meta\s+property="og:locale:alternate"[^>]*>\s*/i, '')
+          .replace(/<meta\s+property="og:locale"[^>]*>\s*/i, '')
+          // Veraltetes 'German' Sprach-Meta entfernen (gilt sonst für alle Sprachen).
+          .replace(/<meta\s+name="language"[^>]*>\s*/i, '')
       }
       const finalHtml = prepared
         .replace('<!--ssr-outlet-->', cleanAppHtml)
