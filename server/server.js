@@ -1,9 +1,16 @@
 const express = require('express')
 const sgMail = require('@sendgrid/mail')
 const cors = require('cors')
+const rateLimit = require('express-rate-limit')
 require('dotenv').config()
 
 const app = express()
+
+// Behind exactly one proxy hop (nginx/SSR) so req.ip reflects the real client.
+// IMPORTANT: this is what makes the per-IP rate limiter (formLimiter) trustworthy.
+// If this service is ever deployed with NO proxy in front, drop this line —
+// otherwise a spoofed X-Forwarded-For header would set req.ip and bypass the limiter.
+app.set('trust proxy', 1)
 
 // Middleware
 app.use(
@@ -14,6 +21,16 @@ app.use(
   }),
 )
 app.use(express.json({ limit: '10mb' }))
+
+// Per-IP rate limiter shared by the public mail form endpoints (contact/support).
+// Over the threshold the library responds with 429 by default.
+const formLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 min
+  max: 5, // per IP per window (tune to taste)
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { success: false, error: 'Too many requests, please try later.' },
+})
 
 // Validation of required environment variables
 const requiredEnvVars = ['SENDGRID_API_KEY', 'CONTACT_RECEIVER', 'SENDER_EMAIL']
@@ -31,13 +48,30 @@ if (process.env.SENDGRID_API_KEY) {
 }
 
 // API Endpoint
-app.post('/api/contact', async (req, res) => {
+app.post('/api/contact', formLimiter, async (req, res) => {
   try {
-    const { name, email, message, company, phone, area, requirements } = req.body
+    const { name, email, message, company, phone, area, requirements, consent, _hp } =
+      req.body || {}
+
+    // Honeypot — bots almost always fill it; drop silently without sending.
+    if (_hp) {
+      console.log('[contact] honeypot triggered, silently dropping')
+      return res.status(200).json({ success: true })
+    }
+
+    // DSGVO: explicit consent is required
+    if (consent !== true) {
+      return res.status(400).json({ error: 'Consent required.' })
+    }
 
     // Basic validation
     if (!name || !email || !message) {
       return res.status(400).json({ error: 'Name, email, and message are required.' })
+    }
+
+    // Cheap email shape check (server-side; UI also validates)
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email))) {
+      return res.status(400).json({ error: 'Invalid email.' })
     }
 
     // Route Vitamin D3+K2 Spray orders to dedicated address
@@ -65,14 +99,14 @@ app.post('/api/contact', async (req, res) => {
       `,
       html: `
         <h3>Neue Kontaktanfrage</h3>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Firma:</strong> ${company || '-'}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Telefon:</strong> ${phone || '-'}</p>
-        <p><strong>Bereich:</strong> ${area || '-'}</p>
+        <p><strong>Name:</strong> ${esc(name)}</p>
+        <p><strong>Firma:</strong> ${esc(company || '-')}</p>
+        <p><strong>Email:</strong> ${esc(email)}</p>
+        <p><strong>Telefon:</strong> ${esc(phone || '-')}</p>
+        <p><strong>Bereich:</strong> ${esc(area || '-')}</p>
         <br>
         <p><strong>Nachricht/Anforderungen:</strong></p>
-        <p>${(message || requirements || '-').replace(/\n/g, '<br>')}</p>
+        <p>${esc(message || requirements || '-').replace(/\n/g, '<br>')}</p>
       `,
     }
 
@@ -91,13 +125,40 @@ app.post('/api/contact', async (req, res) => {
 })
 
 // Support API Endpoint
-app.post('/api/support', async (req, res) => {
+app.post('/api/support', formLimiter, async (req, res) => {
   try {
-    const { name, email, udi, swVersion, issueType, subject, description, attachment } = req.body
+    const {
+      name,
+      email,
+      udi,
+      swVersion,
+      issueType,
+      subject,
+      description,
+      attachment,
+      consent,
+      _hp,
+    } = req.body || {}
+
+    // Honeypot — bots almost always fill it; drop silently without sending.
+    if (_hp) {
+      console.log('[support] honeypot triggered, silently dropping')
+      return res.status(200).json({ success: true })
+    }
+
+    // DSGVO: explicit consent is required
+    if (consent !== true) {
+      return res.status(400).json({ error: 'Consent required.' })
+    }
 
     // Basic validation
     if (!name || !email || !udi || !swVersion || !issueType || !subject) {
       return res.status(400).json({ error: 'Required fields are missing.' })
+    }
+
+    // Cheap email shape check (server-side; UI also validates)
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email))) {
+      return res.status(400).json({ error: 'Invalid email.' })
     }
 
     const supportText = `
@@ -117,16 +178,16 @@ ${description || '-'}
     const supportHtml = `
 <h3>Neue Support-Anfrage</h3>
 <table style="border-collapse: collapse; width: 100%; max-width: 600px;">
-  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold; width: 180px;">Name:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${name}</td></tr>
-  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Email:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${email}</td></tr>
-  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Igloo Reader UDI:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${udi}</td></tr>
-  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">SW-Version:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${swVersion}</td></tr>
-  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Problemtyp:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${issueType}</td></tr>
-  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Betreff:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${subject}</td></tr>
+  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold; width: 180px;">Name:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${esc(name)}</td></tr>
+  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Email:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${esc(email)}</td></tr>
+  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Igloo Reader UDI:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${esc(udi)}</td></tr>
+  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">SW-Version:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${esc(swVersion)}</td></tr>
+  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Problemtyp:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${esc(issueType)}</td></tr>
+  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Betreff:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${esc(subject)}</td></tr>
 </table>
 <br>
 <p><strong>Beschreibung:</strong></p>
-<p>${(description || '-').replace(/\n/g, '<br>')}</p>
+<p>${esc(description || '-').replace(/\n/g, '<br>')}</p>
     `
 
     // Internal notification email to support team (High Priority)
@@ -149,13 +210,38 @@ ${description || '-'}
       },
     }
 
-    // Add attachment if present
-    if (attachment && attachment.content && attachment.filename) {
+    // Add attachment if present — bounded by size + MIME allowlist before send.
+    if (attachment) {
+      const ALLOWED_ATTACHMENT_TYPES = [
+        'application/pdf',
+        'image/png',
+        'image/jpeg',
+        'image/gif',
+        'text/plain',
+      ]
+      const MAX_ATTACHMENT_BYTES = 5 * 1024 * 1024 // 5 MB
+
+      if (
+        typeof attachment.content !== 'string' ||
+        !attachment.content ||
+        typeof attachment.filename !== 'string' ||
+        !attachment.filename ||
+        !ALLOWED_ATTACHMENT_TYPES.includes(attachment.type)
+      ) {
+        return res.status(400).json({ error: 'Invalid attachment.' })
+      }
+
+      // Estimate decoded size from base64 length (slight over-estimate; never under-counts).
+      const decodedBytes = Math.floor((attachment.content.length * 3) / 4)
+      if (decodedBytes > MAX_ATTACHMENT_BYTES) {
+        return res.status(400).json({ error: 'Invalid attachment.' })
+      }
+
       msg.attachments = [
         {
           content: attachment.content,
           filename: attachment.filename,
-          type: attachment.type || 'application/octet-stream',
+          type: attachment.type,
           disposition: 'attachment',
         },
       ]
@@ -170,14 +256,14 @@ ${description || '-'}
       html: `
 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
   <h2 style="color: #083358;">Ihre Support-Anfrage wurde empfangen</h2>
-  <p>Hallo ${name},</p>
+  <p>Hallo ${esc(name)},</p>
   <p>vielen Dank für Ihre Support-Anfrage. Wir haben Ihre Nachricht erhalten und werden uns schnellstmöglich bei Ihnen melden.</p>
   <h3 style="color: #083358; margin-top: 24px;">Ihre Angaben:</h3>
   <table style="border-collapse: collapse; width: 100%; max-width: 500px;">
-    <tr><td style="padding: 6px 8px; border-bottom: 1px solid #eee; font-weight: bold;">Igloo Reader UDI:</td><td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${udi}</td></tr>
-    <tr><td style="padding: 6px 8px; border-bottom: 1px solid #eee; font-weight: bold;">SW-Version:</td><td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${swVersion}</td></tr>
-    <tr><td style="padding: 6px 8px; border-bottom: 1px solid #eee; font-weight: bold;">Problemtyp:</td><td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${issueType}</td></tr>
-    <tr><td style="padding: 6px 8px; border-bottom: 1px solid #eee; font-weight: bold;">Betreff:</td><td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${subject}</td></tr>
+    <tr><td style="padding: 6px 8px; border-bottom: 1px solid #eee; font-weight: bold;">Igloo Reader UDI:</td><td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${esc(udi)}</td></tr>
+    <tr><td style="padding: 6px 8px; border-bottom: 1px solid #eee; font-weight: bold;">SW-Version:</td><td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${esc(swVersion)}</td></tr>
+    <tr><td style="padding: 6px 8px; border-bottom: 1px solid #eee; font-weight: bold;">Problemtyp:</td><td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${esc(issueType)}</td></tr>
+    <tr><td style="padding: 6px 8px; border-bottom: 1px solid #eee; font-weight: bold;">Betreff:</td><td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${esc(subject)}</td></tr>
   </table>
   <p style="margin-top: 24px;">Mit freundlichen Grüßen,<br><strong>Das PolarisDX Support-Team</strong></p>
   <p style="color: #666; font-size: 13px;">contact@polarisdx.net | +49 151 75011699</p>
@@ -458,7 +544,13 @@ app.post('/api/chat', async (req, res) => {
 
 // Start Server
 const PORT = process.env.PORT || 5000
-// Listen on 0.0.0.0 to ensure Docker accessibility
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server running on port ${PORT}`)
-})
+// Listen on 0.0.0.0 to ensure Docker accessibility.
+// Guard so importing this module for tests does not start a live server.
+if (require.main === module) {
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on port ${PORT}`)
+  })
+}
+
+// Exported for unit/endpoint tests (esc is the core HTML-escape XSS control).
+module.exports = { app, esc }

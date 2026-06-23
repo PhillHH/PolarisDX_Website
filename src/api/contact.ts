@@ -6,6 +6,10 @@ export interface ContactFormData {
   phone?: string
   area?: string
   requirements?: string
+  /** Explicit DSGVO consent — must be true. */
+  consent?: boolean
+  /** Honeypot — must stay empty (humans don't see it). */
+  _hp?: string
 }
 
 export const sendContactEmail = async (data: ContactFormData): Promise<boolean> => {

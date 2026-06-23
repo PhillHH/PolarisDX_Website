@@ -9,7 +9,7 @@ export default defineConfig({
     setupFiles: ['./src/test/setup.ts'],
     css: false,
     watch: false,
-    include: ['src/**/*.{test,spec}.{ts,tsx}'],
-    exclude: ['node_modules', 'dist', 'scripts/**', 'tests-e2e/**'],
+    include: ['src/**/*.{test,spec}.{ts,tsx}', 'server/**/*.{test,spec}.{js,ts}'],
+    exclude: ['**/node_modules/**', 'dist', 'scripts/**', 'tests-e2e/**'],
   },
 })
