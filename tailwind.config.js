@@ -4,18 +4,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        // accentBlue: alias for brand.blue (#0f5f95). Fixes 11 previously-undefined
+        // accentBlue: alias for brand.blue (#0d527f). Fixes 11 previously-undefined
         // text-accentBlue/border-accentBlue call-sites that rendered colorless.
-        accentBlue: '#0f5f95',
+        accentBlue: '#0d527f',
         brand: {
           // -------------------------------------------------------------------
           // LEGACY (kept as aliases — migration of call-sites is Wave 2 / 2-v).
           // brand.deep / brand.primary / brand.secondary remain on identical
           // hex values, no visual change.
           // -------------------------------------------------------------------
-          primary: '#0f5f95',
+          primary: '#0d527f',
           deep: '#083358', // Deeper, more elegant blue for accents
-          secondary: '#2199ea',
+          secondary: '#2f6fa0',
           // -------------------------------------------------------------------
           // NEW (Wave 2 / Fix 2-ii, additive layer — see
           // _project-knowledge/wave-2-analyse/farb-tokens.md).
@@ -27,10 +27,10 @@ export default {
           // blue-bright = current brand.secondary, semantically clearer name.
           // -------------------------------------------------------------------
           navy: '#083358',
-          'navy-hover': '#0a4170',
-          'navy-mid': '#1e3a5f',
-          blue: '#0f5f95',
-          'blue-bright': '#2199ea',
+          'navy-hover': '#0a3f63',
+          'navy-mid': '#0a3f63',
+          blue: '#0d527f',
+          'blue-bright': '#2f6fa0',
         },
         social: {
           linkedin: '#0077b5',
@@ -45,7 +45,7 @@ export default {
         // remain valid — `text-text-heading` (new) and `text-gray-900` (legacy)
         // resolve to the same hex.
         text: {
-          heading: '#203864',
+          heading: '#083358',
         },
         // Accent scale — same tones as the marketing brief presentation.
         // Canonical: accent = teal-600 (#0d9488). Use `bg-accent`, `text-accent`
@@ -73,7 +73,7 @@ export default {
         // -------------------------------------------------------------------
         'gray-100': '#F5F5F5',
         'gray-500': '#868C98',
-        'gray-900': '#203864',
+        'gray-900': '#203864', // Option A (default). Option B alternative: '#083358'
       },
       fontFamily: {
         sans: ['Inter Variable', 'Inter', 'system-ui', 'sans-serif'],
