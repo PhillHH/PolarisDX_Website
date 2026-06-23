@@ -11,6 +11,10 @@ export interface SupportFormData {
     content: string // base64
     type: string
   }
+  /** Explicit DSGVO consent — must be true. */
+  consent?: boolean
+  /** Honeypot — must stay empty (humans don't see it). */
+  _hp?: string
 }
 
 export const sendSupportEmail = async (data: SupportFormData): Promise<boolean> => {

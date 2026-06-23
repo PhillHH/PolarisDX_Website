@@ -29,6 +29,22 @@ export const SupportForm = () => {
 
   return (
     <form className="mt-4 space-y-5" onSubmit={handleSubmit}>
+      {/* Honeypot — visually & semantically hidden; bots tend to fill it */}
+      <div
+        aria-hidden
+        style={{
+          position: 'absolute',
+          left: '-10000px',
+          top: 'auto',
+          height: 1,
+          width: 1,
+          overflow: 'hidden',
+        }}
+      >
+        <label htmlFor="support-hp">Leave this field blank</label>
+        <input id="support-hp" name="_hp" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+
       <Input
         id="name"
         name="name"

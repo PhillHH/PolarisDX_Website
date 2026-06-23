@@ -22,6 +22,7 @@ export const useContactForm = (): UseContactFormReturn => {
     const area = formData.get('area')
     const requirements = formData.get('requirements')
     const consent = formData.get('consent')
+    const hp = formData.get('_hp')
 
     // Basic validation
     if (
@@ -47,6 +48,10 @@ export const useContactForm = (): UseContactFormReturn => {
       area,
       requirements,
       message: requirements,
+      // Consent is required + validated above, so it is always true when sent.
+      consent: true,
+      // Honeypot — forwarded raw so the server can drop bot submissions.
+      _hp: typeof hp === 'string' ? hp : '',
     }
 
     try {

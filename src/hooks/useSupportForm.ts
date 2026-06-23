@@ -23,6 +23,7 @@ export const useSupportForm = (): UseSupportFormReturn => {
     const subject = formData.get('subject')
     const description = formData.get('description')
     const consent = formData.get('consent')
+    const hp = formData.get('_hp')
     const file = formData.get('attachment') as File | null
 
     if (
@@ -49,6 +50,20 @@ export const useSupportForm = (): UseSupportFormReturn => {
       issueType,
       subject,
       description,
+      // Consent is required + validated above, so it is always true when sent.
+      consent: true,
+      // Honeypot — forwarded raw so the server can drop bot submissions.
+      _hp: typeof hp === 'string' ? hp : '',
+    }
+
+    // Client-side guard mirroring the server's 5 MB per-attachment cap, so the
+    // user gets immediate feedback instead of a 400 after the upload.
+    const MAX_ATTACHMENT_BYTES = 5 * 1024 * 1024
+    if (file && file.size > MAX_ATTACHMENT_BYTES) {
+      console.error('Attachment exceeds 5 MB limit')
+      setSubmitStatus('error')
+      setIsSubmitting(false)
+      return false
     }
 
     // Convert file to base64 if present
