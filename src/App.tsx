@@ -19,6 +19,7 @@
 import { lazy, Suspense } from 'react'
 import { Routes, Route, Navigate, Outlet, useParams } from 'react-router-dom'
 import Layout from './components/layout/Layout'
+import GtmPageview from './components/analytics/GtmPageview'
 
 // =============================================================================
 // EAGER IMPORTS - Werden sofort geladen
@@ -123,189 +124,192 @@ function MainLayout() {
 function App() {
   return (
     <>
+      {/* Sendet bei jedem clientseitigen Routenwechsel einen GA4 page_view
+          (SPA-Tracking, site-weit, alle Sprachen). */}
+      <GtmPageview />
       <Routes>
-      {/* ---------------------------------------------------------------------
+        {/* ---------------------------------------------------------------------
           UNLISTED CONSUMER-LANDINGPAGES
           Eigene schlanke Consumer-Chrome (NICHT die B2B-Shell).
           Nicht in Navigation/Sitemap, noindex, server-seitig passwortgeschützt.
       --------------------------------------------------------------------- */}
-      <Route
-        path="/consumer/vitamin-d3-spray"
-        element={
-          <LazyRoute>
-            <ConsumerSprayPage />
-          </LazyRoute>
-        }
-      />
-      <Route
-        path="/consumer/hydrating-masks"
-        element={
-          <LazyRoute>
-            <ConsumerMaskPage />
-          </LazyRoute>
-        }
-      />
-      <Route
-        path="/consumer/inside-out-duo"
-        element={
-          <LazyRoute>
-            <ConsumerDuoPage />
-          </LazyRoute>
-        }
-      />
+        <Route
+          path="/consumer/vitamin-d3-spray"
+          element={
+            <LazyRoute>
+              <ConsumerSprayPage />
+            </LazyRoute>
+          }
+        />
+        <Route
+          path="/consumer/hydrating-masks"
+          element={
+            <LazyRoute>
+              <ConsumerMaskPage />
+            </LazyRoute>
+          }
+        />
+        <Route
+          path="/consumer/inside-out-duo"
+          element={
+            <LazyRoute>
+              <ConsumerDuoPage />
+            </LazyRoute>
+          }
+        />
 
-      {/* ---------------------------------------------------------------------
+        {/* ---------------------------------------------------------------------
           REGULÄRE WEBSITE — alle Seiten in der B2B-PolarisDX-Shell
       --------------------------------------------------------------------- */}
-      <Route element={<MainLayout />}>
-        {/* EAGER: Homepage */}
-        <Route path="/" element={<HomePage />} />
+        <Route element={<MainLayout />}>
+          {/* EAGER: Homepage */}
+          <Route path="/" element={<HomePage />} />
 
-        {/* LAZY: Alle anderen Seiten */}
-        <Route
-          path="/about"
-          element={
-            <LazyRoute>
-              <AboutPage />
-            </LazyRoute>
-          }
-        />
-        <Route
-          path="/articles"
-          element={
-            <LazyRoute>
-              <ArticlesIndexPage />
-            </LazyRoute>
-          }
-        />
-        <Route
-          path="/articles/:slug"
-          element={
-            <LazyRoute>
-              <ArticlePage />
-            </LazyRoute>
-          }
-        />
-        <Route
-          path="/diagnostics"
-          element={
-            <LazyRoute>
-              <ServicesOverviewPage />
-            </LazyRoute>
-          }
-        />
-        <Route
-          path="/diagnostics/:slug"
-          element={
-            <LazyRoute>
-              <ServicePage />
-            </LazyRoute>
-          }
-        />
-        <Route
-          path="/contact"
-          element={
-            <LazyRoute>
-              <ContactPage />
-            </LazyRoute>
-          }
-        />
-        <Route
-          path="/support"
-          element={
-            <LazyRoute>
-              <SupportPage />
-            </LazyRoute>
-          }
-        />
-        <Route
-          path="/privacy"
-          element={
-            <LazyRoute>
-              <PrivacyPage />
-            </LazyRoute>
-          }
-        />
-        <Route
-          path="/imprint"
-          element={
-            <LazyRoute>
-              <ImprintPage />
-            </LazyRoute>
-          }
-        />
-        <Route
-          path="/terms"
-          element={
-            <LazyRoute>
-              <TermsPage />
-            </LazyRoute>
-          }
-        />
-        <Route
-          path="/events"
-          element={
-            <LazyRoute>
-              <EventsPage />
-            </LazyRoute>
-          }
-        />
-        <Route
-          path="/igloo-pro"
-          element={
-            <LazyRoute>
-              <IglooProPage />
-            </LazyRoute>
-          }
-        />
-        <Route
-          path="/vitamin-d3-implantologie"
-          element={
-            <LazyRoute>
-              <VitaminD3ImplantologyPage />
-            </LazyRoute>
-          }
-        />
-        <Route
-          path="/s3_leitlinie"
-          element={
-            <LazyRoute>
-              <S3LeitliniePage />
-            </LazyRoute>
-          }
-        />
-        <Route
-          path="/vitamin-d3-spray"
-          element={
-            <LazyRoute>
-              <VitaminD3SprayPage />
-            </LazyRoute>
-          }
-        />
-        <Route
-          path="/downloads"
-          element={
-            <LazyRoute>
-              <DownloadsPage />
-            </LazyRoute>
-          }
-        />
+          {/* LAZY: Alle anderen Seiten */}
+          <Route
+            path="/about"
+            element={
+              <LazyRoute>
+                <AboutPage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/articles"
+            element={
+              <LazyRoute>
+                <ArticlesIndexPage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/articles/:slug"
+            element={
+              <LazyRoute>
+                <ArticlePage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/diagnostics"
+            element={
+              <LazyRoute>
+                <ServicesOverviewPage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/diagnostics/:slug"
+            element={
+              <LazyRoute>
+                <ServicePage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <LazyRoute>
+                <ContactPage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/support"
+            element={
+              <LazyRoute>
+                <SupportPage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/privacy"
+            element={
+              <LazyRoute>
+                <PrivacyPage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/imprint"
+            element={
+              <LazyRoute>
+                <ImprintPage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/terms"
+            element={
+              <LazyRoute>
+                <TermsPage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/events"
+            element={
+              <LazyRoute>
+                <EventsPage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/igloo-pro"
+            element={
+              <LazyRoute>
+                <IglooProPage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/vitamin-d3-implantologie"
+            element={
+              <LazyRoute>
+                <VitaminD3ImplantologyPage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/s3_leitlinie"
+            element={
+              <LazyRoute>
+                <S3LeitliniePage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/vitamin-d3-spray"
+            element={
+              <LazyRoute>
+                <VitaminD3SprayPage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/downloads"
+            element={
+              <LazyRoute>
+                <DownloadsPage />
+              </LazyRoute>
+            }
+          />
 
-        {/* 301 Redirects: /services → /diagnostics */}
-        <Route path="/services" element={<Navigate to="/diagnostics" replace />} />
-        <Route path="/services/:slug" element={<ServicesRedirect />} />
+          {/* 301 Redirects: /services → /diagnostics */}
+          <Route path="/services" element={<Navigate to="/diagnostics" replace />} />
+          <Route path="/services/:slug" element={<ServicesRedirect />} />
 
-        {/* Catch-all 404 route - must be last */}
-        <Route
-          path="*"
-          element={
-            <LazyRoute>
-              <NotFoundPage />
-            </LazyRoute>
-          }
-        />
-      </Route>
-    </Routes>
+          {/* Catch-all 404 route - must be last */}
+          <Route
+            path="*"
+            element={
+              <LazyRoute>
+                <NotFoundPage />
+              </LazyRoute>
+            }
+          />
+        </Route>
+      </Routes>
       {/* Cookie consent — site-wide so the consumer landing pages get it too (GTM/Consent Mode). */}
       <CookieBanner />
     </>
