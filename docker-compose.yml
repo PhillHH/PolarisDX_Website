@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - '2026:3000' # Externer Reverse Proxy → Container Port
+      - '127.0.0.1:2026:3000' # Externer Reverse Proxy → Container Port
     environment:
       - NODE_ENV=production
       - PORT=3000
@@ -26,7 +26,7 @@ services:
       context: ./server
       dockerfile: Dockerfile
     ports:
-      - '5000:5000'
+      - '127.0.0.1:5000:5000'
     env_file:
       - ./server/.env
     networks:

@@ -247,6 +247,9 @@ function generateSitemap(): string {
 async function createServer() {
   const app = express()
 
+  // Entferne den X-Powered-By: Express Header (Informations-Leak vermeiden).
+  app.disable('x-powered-by')
+
   let vite: ViteDevServer | undefined
 
   // ---------------------------------------------------------------------------
@@ -294,6 +297,28 @@ async function createServer() {
     res.setHeader('X-Content-Type-Options', 'nosniff')
     res.setHeader('X-XSS-Protection', '1; mode=block')
     res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin')
+
+    // Schränke sensible Browser-Features ein (Site braucht keine davon).
+    res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()')
+
+    // Content-Security-Policy im REPORT-ONLY Modus: bricht die Live-Seite NICHT,
+    // protokolliert nur Verstöße. Erlaubt self + die tatsächlich genutzten
+    // Drittanbieter: Google Tag Manager, Google Analytics, HiHuman Chat-Widget
+    // und Google Fonts. Bewusst permissiv (https:/data: für Bilder/Styles/Fonts).
+    const cspReportOnly = [
+      "default-src 'self'",
+      "base-uri 'self'",
+      "object-src 'none'",
+      "frame-ancestors 'self'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://widget.hihuman.co.uk https:",
+      "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://widget.hihuman.co.uk https://*.hihuman.co.uk https:",
+      "img-src 'self' data: https:",
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https:",
+      "font-src 'self' data: https://fonts.gstatic.com https:",
+      "frame-src 'self' https://www.googletagmanager.com https://widget.hihuman.co.uk https:",
+    ].join('; ')
+    res.setHeader('Content-Security-Policy-Report-Only', cspReportOnly)
+
     next()
   })
 
