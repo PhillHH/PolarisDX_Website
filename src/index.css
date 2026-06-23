@@ -52,7 +52,7 @@
   }
 
   .rich-content h2 {
-    color: #203864;
+    color: #083358;
     font-size: 1.25rem;
     font-weight: 600;
     letter-spacing: -0.025em;
@@ -61,7 +61,7 @@
   }
 
   .rich-content h3 {
-    color: #203864;
+    color: #083358;
     font-size: 1.1rem;
     font-weight: 600;
     margin-top: 1.5rem;
@@ -82,7 +82,7 @@
   }
 
   .rich-content a {
-    color: #0f5f95;
+    color: #0d527f;
     font-weight: 600;
     text-decoration: none;
   }
@@ -100,7 +100,7 @@
 
   .rich-content thead th {
     background: #f1f5f9;
-    color: #203864;
+    color: #083358;
     font-weight: 600;
     text-align: left;
     padding: 0.75rem 1rem;
@@ -117,7 +117,7 @@
   }
 
   .rich-content blockquote {
-    border-left: 4px solid #0f5f95;
+    border-left: 4px solid #0d527f;
     padding: 1rem 1.5rem;
     margin: 1.5rem 0;
     background: #f8fafc;
@@ -149,7 +149,7 @@
     top: 0.5rem;
     width: 1.5rem;
     height: 1.5rem;
-    background: #0f5f95;
+    background: #0d527f;
     color: white;
     border-radius: 50%;
     display: flex;
@@ -177,7 +177,7 @@
   }
 
   .rich-content .cta-block {
-    background: linear-gradient(135deg, #0f5f95, #083358);
+    background: linear-gradient(135deg, #0d527f, #083358);
     color: white;
     border-radius: 1rem;
     padding: 2rem;
@@ -197,7 +197,7 @@
   .rich-content .cta-block a {
     display: inline-block;
     background: white;
-    color: #0f5f95;
+    color: #0d527f;
     padding: 0.75rem 2rem;
     border-radius: 0.5rem;
     font-weight: 600;
