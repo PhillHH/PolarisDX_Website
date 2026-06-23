@@ -357,6 +357,9 @@ const VitaminD3SprayPage = () => {
                             company: formData.praxisName,
                             area: 'Vitamin D3+K2 Spray BESTELLUNG',
                             message: `BESTELLUNG Vitamin D3+K2 Spray\n\nMenge: ${formData.quantity} Sprays\n\nLieferadresse:\n${formData.praxisName}\n${formData.ansprechpartner}\n\nAnmerkungen:\n${formData.message || t('vitd3spray:order_message_none')}`,
+                            // Server now hard-requires consent === true (400 otherwise).
+                            // Submitting this order constitutes the agreement to be contacted.
+                            consent: true,
                           })
 
                           setIsSubmitting(false)
