@@ -6,7 +6,10 @@ require('dotenv').config()
 
 const app = express()
 
-// Behind one proxy hop (SSR server / nginx) so req.ip reflects the client.
+// Behind exactly one proxy hop (nginx/SSR) so req.ip reflects the real client.
+// IMPORTANT: this is what makes the per-IP rate limiter (formLimiter) trustworthy.
+// If this service is ever deployed with NO proxy in front, drop this line —
+// otherwise a spoofed X-Forwarded-For header would set req.ip and bypass the limiter.
 app.set('trust proxy', 1)
 
 // Middleware
@@ -541,7 +544,13 @@ app.post('/api/chat', async (req, res) => {
 
 // Start Server
 const PORT = process.env.PORT || 5000
-// Listen on 0.0.0.0 to ensure Docker accessibility
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server running on port ${PORT}`)
-})
+// Listen on 0.0.0.0 to ensure Docker accessibility.
+// Guard so importing this module for tests does not start a live server.
+if (require.main === module) {
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on port ${PORT}`)
+  })
+}
+
+// Exported for unit/endpoint tests (esc is the core HTML-escape XSS control).
+module.exports = { app, esc }

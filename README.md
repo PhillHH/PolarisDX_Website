@@ -181,6 +181,11 @@ Visuelle/Playwright-Tests: Siehe `test-results/verify_changes-verify-frontend-ch
   - SPA-Fallback auf `index.html` (`try_files`)
   - Proxying von `/api` an den Mail-Service
 - Für HTTPS: TLS/Let’s Encrypt am Nginx terminieren.
+- **Rate-Limiting / Proxy:** Der Mail-Service setzt `trust proxy: 1` und limitiert
+  pro Client-IP (5 Anfragen / 15 Min auf `/api/contact` und `/api/support`).
+  Das setzt **genau einen vertrauenswürdigen Proxy-Hop** (Nginx) vor dem Service
+  voraus. Wird der Service ohne diesen Hop direkt exponiert, kann ein gefälschter
+  `X-Forwarded-For`-Header das Limit umgehen — Topologie beim Deployment prüfen.
 
 ---
 
@@ -190,6 +195,11 @@ Visuelle/Playwright-Tests: Siehe `test-results/verify_changes-verify-frontend-ch
 - **Mails kommen nicht an**: `SENDGRID_API_KEY`, `SENDER_EMAIL` (verifiziert) und `CONTACT_RECEIVER` prüfen; Logs im `server`-Container ansehen.
 - **i18n lädt nicht**: Pfade in `public/locales` prüfen; Netzwerk-Tab auf 404/403 checken.
 - **Build schlägt fehl**: `npm run lint` für Hinweise; TypeScript-Fehler in Konsole.
+- **Formular liefert 400/429 statt zu senden** (erwartetes Verhalten der Endpunkt-Härtung, kein Fehler):
+  - `400 Consent required` → Pflicht-Consent fehlt; das Formular muss `consent: true` senden.
+  - `400 Invalid attachment` → Anhang verletzt die Allowlist (pdf/png/jpeg/gif/text-plain) oder ist > 5 MB.
+  - `400 Invalid email` → E-Mail-Format ungültig.
+  - `429 Too many requests` → Rate-Limit (5 Anfragen / 15 Min pro IP) erreicht; kurz warten.
 
 ---
 
