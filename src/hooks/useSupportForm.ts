@@ -66,6 +66,23 @@ export const useSupportForm = (): UseSupportFormReturn => {
       return false
     }
 
+    // Client-side guard mirroring the server's MIME allowlist, so an unsupported
+    // attachment (e.g. video, .doc/.docx, HEIC/webp photo) is rejected with the
+    // visible form error instead of a silent 400 from the backend.
+    const ALLOWED_ATTACHMENT_TYPES = [
+      'application/pdf',
+      'image/png',
+      'image/jpeg',
+      'image/gif',
+      'text/plain',
+    ]
+    if (file && file.size > 0 && !ALLOWED_ATTACHMENT_TYPES.includes(file.type)) {
+      console.error(`Unsupported attachment type: ${file.type || 'unknown'}`)
+      setSubmitStatus('error')
+      setIsSubmitting(false)
+      return false
+    }
+
     // Convert file to base64 if present
     if (file && file.size > 0) {
       try {

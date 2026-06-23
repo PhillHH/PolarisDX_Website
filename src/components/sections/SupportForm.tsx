@@ -154,7 +154,7 @@ export const SupportForm = () => {
             id="attachment"
             name="attachment"
             type="file"
-            accept="image/*,video/*,.pdf,.doc,.docx"
+            accept=".pdf,image/png,image/jpeg,image/gif,.txt"
             className="hidden"
             onChange={handleFileChange}
           />
