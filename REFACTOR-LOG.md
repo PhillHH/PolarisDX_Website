@@ -2115,3 +2115,49 @@ schlägt nur der Browser-Start fehl (s. o.), die Audit-Logik ist verifiziert.
 weiterhin grün und werden je Einheit belegt. **STOPP-Bedingung (§D) ist damit in
 dieser Umgebung nicht erreichbar** (ALL_PHASES_COMPLETE erfordert die o. g.
 ausgeführten Laufzeit-Gates) — menschliche Bestätigung / CI-Lauf nötig.
+
+---
+
+## Phase 4 — Layout-Primitives Stack/Cluster/Grid + Reading-Width (2026-06-24)
+
+**Einheit 4a (Atomic top-down, §1.5 ein revertierbarer Change):** Die vom Plan
+(§Phase 4.2/4.4) geforderten Layout-Primitive `Stack`/`Cluster`/`Grid` fehlten
+(nur `Container` existierte). Neu in `src/design-system/primitives-layout/`:
+
+- **`Stack`** — vertikaler Fluss (`flex flex-col`), orthogonale Achsen
+  `gap`/`align`; `gap` ausschließlich über die 8pt-Raster-Stufen (`--space-*`).
+- **`Cluster`** — horizontale, per Default umbrechende Gruppe (`flex flex-wrap`,
+  → kein Horizontal-Scroll, §4.5), Achsen `gap`/`align`/`justify`.
+- **`Grid`** — responsives Karten-Raster, `cols` ∈ {2,3,4} (teilt 12 sauber, nie
+  5/7/11 §4.2), mobile-first 1→sm:2→lg:N; `gap` aus der 8pt-Skala.
+
+**Konsolidierung (§1.8 / Holy Grail §7.8):** `pages/consumer/shell.tsx` definierte
+eine **eigene** `Grid`-Funktion (von `MaskPage`/`SprayPage` importiert) → in das
+zentrale Primitive verschoben; `shell.tsx` re-exportiert es jetzt von
+`~/design-system` (genau **eine** Definition, Importeure unverändert). Reale
+Adoption (kein toter Code §1.8): `Grid` ← shell/Mask/Spray; `Cluster` ←
+`shell.Pills`; `Stack` ← `HeroSection`-CTA-Block.
+
+**Reading-Width (§4.3):** `max-w-reading` (`--reading-width: 68ch`, in
+`tailwind.config.js` definiert, bislang **ungenutzt**) erstmals verdrahtet —
+Privacy-Prose von 1200px-Container auf zentrierte Reading-Width begrenzt.
+
+**Verifikation (ausgeführt §1.15):**
+
+```
+npm run build                                  → ✓ built (client+server), exit 0
+npm run typecheck (tsc -b)                      → ✓ exit 0
+npm run lint                                    → ✓ 0 errors / 15 Baseline-warns
+npx madge --circular --extensions ts,tsx src    → ✔ No circular dependency found (154 files)
+rg -nP "\b[pm][trblxy]?-\[(?!var\()" src         → EMPTY (keine arbitrary spacing) ✓
+rg -n "col-span-(5|7|11)\b" src                 → EMPTY ✓
+rg -nP "(gap|grid-cols)-\[" src/design-system/primitives-layout → nur Doku-Kommentare, kein Code ✓
+rg -n "#[0-9a-fA-F]{3,8}" src/design-system/primitives-layout   → EMPTY (token-rein) ✓
+rg -n "max-w-reading" src                       → PrivacyPage (erstmals genutzt) ✓
+```
+
+**Offen / nur visuell belegbar (Umgebungs-Blocker, s. o.):** flächendeckende
+Reading-Width-Adoption für Artikel-Body/Forms und die Responsiv-Regression
+sm/md/lg/xl + Overflow-Assert benötigen den (hier blockierten) Chromium-/
+Playwright-Lauf — daher **nicht** als grün behauptet (§1.15). Statische Grid-/
+Spacing-Gates aus §Phase-4-Verifikation sind grün belegt.

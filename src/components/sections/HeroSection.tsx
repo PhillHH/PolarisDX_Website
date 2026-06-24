@@ -1,5 +1,5 @@
 import { useHeroSlider } from '../../hooks/useHeroSlider'
-import { Button, Stat } from '~/design-system'
+import { Button, Stat, Stack } from '~/design-system'
 import { useState, useEffect, useRef } from 'react'
 import iglooLogoWhite from '../../assets/igloo_logo_white.webp'
 
@@ -122,7 +122,7 @@ const HeroSection = () => {
             </div>
 
             {/* Buttons and Stats - always visible */}
-            <div className="flex flex-col gap-3">
+            <Stack gap={3}>
               <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-6">
                 <Button
                   to="/contact"
@@ -154,7 +154,7 @@ const HeroSection = () => {
                   className="scale-75 origin-top-left py-0"
                 />
               </div>
-            </div>
+            </Stack>
 
             {/* Slider Navigation Dots */}
             <div className="flex space-x-3 mt-8">

@@ -20,6 +20,8 @@ import { type ReactNode, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 
+import { Cluster, Grid } from '~/design-system'
+
 import Reveal from '../../components/ui/Reveal'
 import { trackConsumerCtaClick, type ConsumerPage } from './tracking'
 import { useOrderModal } from './OrderModal'
@@ -501,18 +503,14 @@ export function Card({
   )
 }
 
-export function Grid({ cols = 3, children }: { cols?: 2 | 3 | 4; children: ReactNode }) {
-  const map = {
-    2: 'grid gap-6 sm:grid-cols-2',
-    3: 'grid gap-6 sm:grid-cols-2 lg:grid-cols-3',
-    4: 'grid gap-6 sm:grid-cols-2 lg:grid-cols-4',
-  }
-  return <div className={map[cols]}>{children}</div>
-}
+// Grid — re-exportiert das konsolidierte Design-System-Primitive (§1.8 / Holy
+// Grail §Phase 7.8): genau eine Definition in `design-system/primitives-layout/
+// grid.tsx`. Consumer-Pages importieren es weiterhin ueber diese Shell.
+export { Grid }
 
 export function Pills({ items }: { items: string[] }) {
   return (
-    <div className="flex flex-wrap gap-2">
+    <Cluster gap={2}>
       {items.map((p, i) => (
         <span
           key={i}
@@ -521,7 +519,7 @@ export function Pills({ items }: { items: string[] }) {
           {p}
         </span>
       ))}
-    </div>
+    </Cluster>
   )
 }
 

@@ -5,6 +5,25 @@ versioniert nach SemVer + datiert (§1.18). Nutzersichtbare Aenderungen zuerst.
 
 ## [Unreleased]
 
+### Phase 4 — Grid, Layout & Responsiveness
+
+#### 2026-06-24 — Layout-Primitives Stack/Cluster/Grid + Reading-Width (§4.2/4.4)
+
+- **script · new** — Drei Layout-Primitive-Atome in
+  `design-system/primitives-layout/`: `Stack` (vertikaler Fluss),
+  `Cluster` (horizontale, umbrechende Gruppe), `Grid` (responsives
+  Karten-Raster, Spalten 2/3/4 — teilt 12 sauber, nie 5/7/11). `gap` läuft
+  ausschließlich über die rem-basierte Tailwind-Skala = **8pt-Soft-Grid**
+  (`--space-*`), **keine** arbitrary-px. Über das Barrel (`design-system/index.ts`)
+  exportiert.
+- **script · enhancement** — Duplikat-`Grid` aus `pages/consumer/shell.tsx`
+  in das zentrale Primitive konsolidiert (§1.8 / Holy Grail §7.8): genau **eine**
+  Definition; `shell.tsx` re-exportiert von dort, Consumer-Pages (Mask/Spray)
+  unverändert. `Pills` nutzt jetzt `Cluster`, `HeroSection`-CTA-Block `Stack`.
+- **style · enhancement** — `max-w-reading` (68ch, `--reading-width`) erstmals
+  verdrahtet: Privacy-Prose vom 1200px-Container auf zentrierte Reading-Width
+  begrenzt (§4.3 „Forms/Artikel in schmalem Fixed-Container").
+
 ### Phase 2 — Atomic-Restrukturierung
 
 #### 2026-06-24 — Lineage über alle Schichten + Dead-Code-Befund (§2.11)
