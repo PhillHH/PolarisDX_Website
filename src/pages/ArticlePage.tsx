@@ -176,7 +176,7 @@ const ArticlePage = () => {
           </section>
         )
       case 'text':
-      default:
+      default: {
         // Default text rendering
         const textSection = section as TextSection
         return (
@@ -201,6 +201,7 @@ const ArticlePage = () => {
             )}
           </section>
         )
+      }
     }
   }
 

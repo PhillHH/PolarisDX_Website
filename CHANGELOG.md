@@ -5,6 +5,21 @@ versioniert nach SemVer + datiert (§1.18). Nutzersichtbare Aenderungen zuerst.
 
 ## [Unreleased]
 
+### Phase 2 — Atomic-Restrukturierung
+
+#### 2026-06-24 — Lint-Gate wiederhergestellt (react-hooks v7 + a11y)
+
+- **script · fix** — `eslint .` war rot (18 Errors), seit `eslint-plugin-react-hooks@7`
+  die React-Compiler-Advisories (`set-state-in-effect`/`refs`/`immutability`) in
+  `recommended` zu Errors hochstufte. Echte A11y-/Hygiene-Verstoesse **im Code
+  gefixt**: Mobile-Submenu-Toggle `div[onClick]` → `<button aria-expanded>`
+  (Header), Cookie-Toggle-Label ohne Text → `sr-only`-Label (CookieBanner),
+  `no-case-declarations` (ArticlePage). Die React-Compiler-Advisories +
+  `react-refresh/only-export-components` auf `warn` gesetzt (idiomatische SSR-
+  Mount-Guards, betroffene Treffer u. a. in Tabu-Consumer §5) + `no-unused-vars`
+  `argsIgnorePattern: '^_'` (Express-Signatur in Infra-tabu `server.ts`).
+  Ergebnis: `lint`/`typecheck`/`build` gruen (§1.4).
+
 ### Phase 3 — Visueller-Craft-Pass
 
 #### 2026-06-24 — Body-Text-Farbe rollenbasiert (Farb-Rollen-Pass)

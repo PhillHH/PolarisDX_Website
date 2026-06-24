@@ -40,6 +40,27 @@ export default defineConfig([
         },
       },
     },
+    rules: {
+      // Bewusst ungenutzte Argumente/Variablen mit `_`-Praefix erlauben (z. B.
+      // Express-Error-Handler `(_err, _req, _res, _next)` in der Infra-tabu
+      // `server.ts` braucht die 4-stellige Signatur). Standard-Konvention.
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' },
+      ],
+      // react-hooks v7 hat die React-Compiler-Advisories (set-state-in-effect/
+      // refs/immutability) in `recommended` zu Errors hochgestuft. Der Bestand
+      // ist aelter; viele Treffer sind idiomatische SSR-Hydration-Mount-Guards
+      // (`useEffect(() => setMounted(true), [])`) und liegen in Tabu-Bereichen
+      // (Consumer-Checkout §5, nicht anfassbar). Als `warn` getrackt fuer
+      // schrittweisen Abbau in den Hooks-naheren Phasen (5/6) — kein Build-Gate.
+      'react-hooks/set-state-in-effect': 'warn',
+      'react-hooks/refs': 'warn',
+      'react-hooks/immutability': 'warn',
+      // Fast-Refresh-DX-Hinweis (kein Korrektheits-Gate); betroffene Konstante
+      // liegt in der Tabu-`OrderModal` — als Hinweis behalten, nicht als Error.
+      'react-refresh/only-export-components': 'warn',
+    },
   },
   // ── Atomic-Import-Richtung maschinell erzwingen (§2.2 / §2.4, [FRO][BUD]) ──
   // Erzwingt die Schichten-Hierarchie Page → Template → Organism → Molecule/

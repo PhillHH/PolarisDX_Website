@@ -267,6 +267,7 @@ export const CookieBanner: React.FC = () => {
                   <div className="flex items-center justify-between mb-2">
                     <span className="font-medium text-fg-heading">{t(category.nameKey)}</span>
                     <label className="relative inline-flex items-center cursor-pointer">
+                      <span className="sr-only">{t(category.nameKey)}</span>
                       <input
                         type="checkbox"
                         className="sr-only peer"

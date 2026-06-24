@@ -197,8 +197,10 @@ const Header = () => {
                 >
                   {item.children ? (
                     <div>
-                      <div
-                        className={`flex items-center justify-between text-lg font-light tracking-wide cursor-pointer text-white`}
+                      <button
+                        type="button"
+                        aria-expanded={openSubmenu === item.label}
+                        className={`flex w-full items-center justify-between text-left text-lg font-light tracking-wide text-white`}
                         onClick={() =>
                           setOpenSubmenu(openSubmenu === item.label ? null : item.label)
                         }
@@ -207,7 +209,7 @@ const Header = () => {
                         <ChevronDown
                           className={`h-4 w-4 transition-transform duration-300 ${openSubmenu === item.label ? 'rotate-180' : ''}`}
                         />
-                      </div>
+                      </button>
                       {/* Submenu */}
                       {openSubmenu === item.label && (
                         <div className={`pl-4 mt-3 space-y-3 border-l-2 border-white/20`}>
