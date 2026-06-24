@@ -2224,3 +2224,31 @@ grep .leading-body dist/client/assets/*.css        → line-height:var(--line-he
 
 **Offen (Umgebungs-Blocker, s. o.):** visuelle/Responsiv-Regression der Artikel-
 Seiten (Chromium/Playwright) — statische Token-/Typo-Gates sind grün belegt.
+
+### Einheit 3h — Artikel-Lesetypografie (S3LeitliniePage, 2026-06-24)
+
+**Fortsetzung von 3g auf die dritte Artikel-Seite** (`S3LeitliniePage`, gleiches
+Prose-Muster). **Token-rein** dieselbe Transformation (§1.7/§3.7), ein revertierbarer
+Change (§1.5):
+
+- Fließtext `text-[17px] leading-[1.75]` (14 Blöcke inkl. `mb-8`-/`mt-6`-Varianten)
+  → `text-lg leading-body`.
+- Sekundärtext `text-[15px] leading-relaxed` (nummerierte Liste + FAQ) → `text-base
+leading-body` (Body ≥16px erfüllt, §FIL/§1.11).
+- Artikel-H1 `text-2xl … lg:text-[2.25rem] lg:leading-[1.2]` → `text-display-sm`.
+- Container `max-w-[1200px]` → `max-w-container`; Hero-Spalte `max-w-[900px]` →
+  `max-w-4xl`. Inhaltsabhängiges `min-h-[380px]` bleibt (§4.1).
+
+**Verifikation (ausgeführt §1.15, 2026-06-24):**
+
+```
+rg -nP "\b(text|leading)-\[(?!length:var|var)|max-w-\[(900px|1200px)\]" \
+       src/pages/S3LeitliniePage.tsx   → NONE (0 arbitrary Typo/Container) ✓
+npm run build / typecheck / lint        → grün (0 errors / 15 Baseline-warns)
+```
+
+Damit sind **alle drei** Artikel-Seiten (VitaminD3Implantology/Spray + S3Leitlinie)
+auf die Token-Typo-Skala + benannte Container migriert. Verbliebene main-site
+Arbitrary-Typo: `ArticlePage`/`ServicePage` (`leading-[28/32px]`),
+`ArticlesIndexPage` (Hero-`leading-[47/58/69px]` + `tracking-[-0.02em]`),
+`NotFoundPage` (One-off-404-`text-[10/12rem]`) — eigene Folge-Einheiten (§1.5).

@@ -166,7 +166,7 @@ const S3LeitliniePage = () => {
 
           <div className="relative mx-auto flex min-h-[380px] max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
             <Reveal width="100%" yOffset={20}>
-              <div className="max-w-[900px] mx-auto">
+              <div className="max-w-4xl mx-auto">
                 {/* Breadcrumb */}
                 <nav className="mb-6 flex items-center gap-1.5 text-sm text-white/60">
                   <Link to="/" className="hover:text-brand-secondary transition-colors">
@@ -186,7 +186,7 @@ const S3LeitliniePage = () => {
                 </Eyebrow>
 
                 {/* H1 */}
-                <h1 className="mb-5 text-2xl font-medium tracking-tight sm:text-3xl lg:text-[2.25rem] lg:leading-[1.2]">
+                <h1 className="mb-5 text-display-sm font-medium tracking-tight">
                   Vitamin D in der Implantologie – S3-Leitlinie &amp; POC-Diagnostik für die
                   Zahnarzt&shy;praxis
                 </h1>
@@ -211,7 +211,7 @@ const S3LeitliniePage = () => {
         </section>
 
         {/* Main Content with Sidebar */}
-        <div className="mx-auto max-w-[1200px] px-4 py-12 lg:py-16">
+        <div className="mx-auto max-w-container px-4 py-12 lg:py-16">
           <div className="lg:grid lg:grid-cols-[1fr_320px] lg:gap-10">
             {/* Main Article Column */}
             <article>
@@ -220,7 +220,7 @@ const S3LeitliniePage = () => {
                 <AuthorByline className="mb-10" initials="PX" name="PolarisDX Redaktionsteam" />
 
                 {/* Section 1: Einleitung */}
-                <div className="space-y-6 text-[17px] leading-[1.75] text-fg">
+                <div className="space-y-6 text-lg leading-body text-fg">
                   <p>
                     Rund 30 Prozent der Erwachsenen in Deutschland sind unzureichend mit Vitamin D
                     versorgt – entsprechend einem 25-OH-Vitamin-D-Spiegel unter 30 nmol/l (12
@@ -257,7 +257,7 @@ const S3LeitliniePage = () => {
                     bedeutet
                   </h2>
 
-                  <div className="space-y-6 text-[17px] leading-[1.75] text-fg">
+                  <div className="space-y-6 text-lg leading-body text-fg">
                     <p>
                       Im August 2025 wurde unter Federführung der Deutschen Gesellschaft für
                       Implantologie (DGI) und der Deutschen Gesellschaft für Zahn-, Mund- und
@@ -282,7 +282,7 @@ const S3LeitliniePage = () => {
                     <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-brand-primary">
                       Drei Kernempfehlungen
                     </p>
-                    <ol className="space-y-3 text-[15px] leading-relaxed text-fg list-decimal list-inside">
+                    <ol className="space-y-3 text-base leading-body text-fg list-decimal list-inside">
                       <li>
                         <strong>Individualisierte Diagnostik:</strong> Bestimmung des
                         25-OH-Vitamin-D-Status vor Implantation bei Patienten mit definierten
@@ -310,7 +310,7 @@ const S3LeitliniePage = () => {
                     </p>
                   </div>
 
-                  <div className="space-y-6 text-[17px] leading-[1.75] text-fg">
+                  <div className="space-y-6 text-lg leading-body text-fg">
                     <p>
                       Die Frage ist nicht mehr, ob Vitamin-D-Diagnostik in der Implantologie
                       sinnvoll ist – die Leitlinie beantwortet das eindeutig. Die Frage ist, wie
@@ -325,7 +325,7 @@ const S3LeitliniePage = () => {
                     Warum POC statt Labor? Der Zeitvorteil am Behandlungsstuhl
                   </h2>
 
-                  <div className="space-y-6 text-[17px] leading-[1.75] text-fg">
+                  <div className="space-y-6 text-lg leading-body text-fg">
                     <p>
                       Der konventionelle Weg für die Vitamin-D-Bestimmung umfasst venöse
                       Blutentnahme, Versand an ein externes Labor und eine Wartezeit von zwei bis
@@ -405,7 +405,7 @@ const S3LeitliniePage = () => {
                     </table>
                   </div>
 
-                  <div className="space-y-6 text-[17px] leading-[1.75] text-fg">
+                  <div className="space-y-6 text-lg leading-body text-fg">
                     <p>
                       Ein weiterer Vorteil für die Praxisorganisation: Das gesamte Testverfahren ist
                       an zahnmedizinische Fachangestellte oder Dentalhygienikerinnen delegierbar.
@@ -426,7 +426,7 @@ const S3LeitliniePage = () => {
                     Technologie & Spezifikationen
                   </h3>
 
-                  <div className="space-y-6 text-[17px] leading-[1.75] text-fg">
+                  <div className="space-y-6 text-lg leading-body text-fg">
                     <p>
                       Der Igloo Reader Pro ist ein kompaktes{' '}
                       <strong>POC-Diagnostikgerät für Zahnarztpraxen</strong>, entwickelt speziell
@@ -508,7 +508,7 @@ const S3LeitliniePage = () => {
                     </p>
                   </div>
 
-                  <div className="space-y-6 text-[17px] leading-[1.75] text-fg">
+                  <div className="space-y-6 text-lg leading-body text-fg">
                     <p>
                       Im DEQAS-Ringversuch – dem internationalen Referenzprogramm für
                       Vitamin-D-Analytik – belegt der Igloo Reader Pro weltweit Platz 2 und erreicht
@@ -570,7 +570,7 @@ const S3LeitliniePage = () => {
                     Vitamin-D-Bestimmung als IGeL abrechnen
                   </h3>
 
-                  <div className="space-y-6 text-[17px] leading-[1.75] text-fg">
+                  <div className="space-y-6 text-lg leading-body text-fg">
                     <p>
                       Die Vitamin-D-Bestimmung in der Zahnarztpraxis ist keine GKV-Leistung. Sie
                       wird als individuelle Gesundheitsleistung (IGeL) nach §6 Abs. 1 GOÄ als
@@ -604,7 +604,7 @@ const S3LeitliniePage = () => {
                     </div>
                   </div>
 
-                  <div className="space-y-6 text-[17px] leading-[1.75] text-fg">
+                  <div className="space-y-6 text-lg leading-body text-fg">
                     <p>
                       Der eigentliche Treiber ist nicht nur der Ersttest, sondern das Monitoring:
                       Patienten unter Supplementierung kommen gemäß Leitlinienempfehlung alle drei
@@ -634,7 +634,7 @@ const S3LeitliniePage = () => {
                     Praxis-Workflow: Vitamin-D-Diagnostik in 5 Schritten
                   </h2>
 
-                  <div className="space-y-6 text-[17px] leading-[1.75] text-fg mb-8">
+                  <div className="space-y-6 text-lg leading-body text-fg mb-8">
                     <p>
                       Die Integration der <strong>Vitamin-D-Bestimmung vor Implantation</strong> in
                       den Praxisalltag ist unkompliziert und vollständig an ZFA oder DH delegierbar.
@@ -692,7 +692,7 @@ const S3LeitliniePage = () => {
                     ))}
                   </div>
 
-                  <div className="mt-6 space-y-6 text-[17px] leading-[1.75] text-fg">
+                  <div className="mt-6 space-y-6 text-lg leading-body text-fg">
                     <p>
                       Der gesamte <strong>Vitamin-D-Schnelltest beim Zahnarzt</strong> – von der
                       kapillären Blutentnahme bis zum dokumentierten Ergebnis – dauert unter fünf
@@ -708,7 +708,7 @@ const S3LeitliniePage = () => {
                     Polaris Vitamin D3 Spray – Diagnostik und Therapie aus einer Hand
                   </h2>
 
-                  <div className="space-y-6 text-[17px] leading-[1.75] text-fg">
+                  <div className="space-y-6 text-lg leading-body text-fg">
                     <p>
                       Zeigt der Test einen Mangel an, endet der Therapiepfad in vielen Praxen mit
                       einer mündlichen Supplementierungsempfehlung. Der Patient beschafft sich dann
@@ -739,7 +739,7 @@ const S3LeitliniePage = () => {
                     Klinische Validierung und Partnerpraxen in der Implantologie
                   </h2>
 
-                  <div className="space-y-6 text-[17px] leading-[1.75] text-fg">
+                  <div className="space-y-6 text-lg leading-body text-fg">
                     <p>
                       Das Igloo Pro System ist bereits in über 100 Praxen in mehr als 15 Ländern im
                       Einsatz. Zu den Kooperationspartnern zählen renommierte Institutionen der
@@ -784,7 +784,7 @@ const S3LeitliniePage = () => {
                     </div>
                   </div>
 
-                  <div className="space-y-6 text-[17px] leading-[1.75] text-fg">
+                  <div className="space-y-6 text-lg leading-body text-fg">
                     <p>
                       Diese Partnerschaften zeigen, dass leitlinienkonforme POC-Diagnostik in der
                       implantologischen Praxis angekommen ist.
@@ -839,7 +839,7 @@ const S3LeitliniePage = () => {
                         <h3 className="mb-3 text-base font-semibold text-fg-heading">
                           {faq.question}
                         </h3>
-                        <p className="text-[15px] leading-relaxed text-fg">{faq.answer}</p>
+                        <p className="text-base leading-body text-fg">{faq.answer}</p>
                       </div>
                     ))}
                   </div>

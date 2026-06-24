@@ -7,6 +7,14 @@ versioniert nach SemVer + datiert (§1.18). Nutzersichtbare Aenderungen zuerst.
 
 ### Phase 3 + 4 — Visueller-Craft-Pass × Layout (pro Komponente verschränkt)
 
+#### 2026-06-24 — Artikel-Lesetypografie: S3LeitliniePage (§3.7)
+
+- **style · fix** — Dritte Artikel-Seite (`S3LeitliniePage`, gleiches Muster wie
+  VitaminD3) auf die Token-Skala migriert: Fließtext `text-[17px] leading-[1.75]`
+  (14 Blöcke) → `text-lg leading-body`, Sekundärtext `text-[15px]` → `text-base`,
+  Artikel-H1 → `text-display-sm`, Container `max-w-[1200px]`/`[900px]` →
+  `max-w-container`/`max-w-4xl`. Damit sind **alle drei** Artikel-Seiten token-rein.
+
 #### 2026-06-24 — Artikel-Lesetypografie & Container-Token (VitaminD3-Seiten, §3.7/§4.3)
 
 - **style · fix** — Arbitrary-Typografie in den beiden Artikel-Seiten
