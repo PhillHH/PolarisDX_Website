@@ -556,7 +556,7 @@ const VitaminD3SprayPage = () => {
                 <div className="rounded-xl border border-line bg-surface-raised p-5 shadow-sm">
                   <div className="mb-3 flex items-center gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-primary/10">
-                      <Phone className="h-5 w-5 text-brand-primary" />
+                      <Phone className="h-5 w-5 text-brand-sky" />
                     </div>
                     <div>
                       <p className="text-sm font-medium text-ink">
@@ -614,7 +614,7 @@ const VitaminD3SprayPage = () => {
                 {/* Related */}
                 <div className="rounded-xl border border-line bg-surface-raised p-5 shadow-sm">
                   <p className="mb-4 flex items-center gap-2 text-sm font-semibold text-ink">
-                    <BookOpen className="h-4 w-4 text-brand-primary" />
+                    <BookOpen className="h-4 w-4 text-brand-sky" />
                     {t('vitd3spray:related.title')}
                   </p>
                   <div className="space-y-3">

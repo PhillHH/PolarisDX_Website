@@ -10,7 +10,7 @@ Sie bilden das „Designsystem“ der Anwendung auf Komponentenebene.
 - **`Button.tsx`**
   - Universeller Button mit optionalem `to`- oder `href`-Prop:
     - rendert als `<button>`, `<a>` (bei `href`) oder `Link` aus `react-router-dom` (bei `to`).
-  - Varianten: `primary` (Gradient-Rahmen, weißer Innenbereich, Haupt-CTAs), `secondary` (gefüllter Button in Primärfarbe), `outline` (transparent mit heller Kontur).
+  - Varianten: `primary` (gefüllter blauer Gradient mit weißem Text, Haupt-CTAs), `secondary` (gefüllter Button in Primärfarbe), `outline` (transparent mit heller Kontur).
   - Enthält Fokus-Styles (Focus-Ring) zur Verbesserung der Zugänglichkeit.
 
 ---

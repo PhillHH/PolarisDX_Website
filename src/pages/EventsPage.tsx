@@ -125,7 +125,7 @@ const EventsPage: React.FC = () => {
               <div className="h-px flex-1 max-w-[120px] bg-gradient-to-r from-transparent to-brand-secondary/40" />
               <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-raised border border-brand-secondary/20 shadow-sm">
                 <Award className="w-4 h-4 text-brand-secondary" />
-                <span className="text-sm font-medium text-brand-deep">
+                <span className="text-sm font-medium text-brand-sky">
                   {t('events:premium_partner', 'Premium Partner: Nobel Biocare')}
                 </span>
               </div>
@@ -189,7 +189,7 @@ const EventsPage: React.FC = () => {
                           {/* Tags row */}
                           <div className="flex flex-wrap items-center gap-2 mb-3">
                             {event.tag && (
-                              <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-brand-primary/10 text-brand-primary">
+                              <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-brand-primary/10 text-brand-sky">
                                 {event.tag}
                               </span>
                             )}
@@ -202,20 +202,20 @@ const EventsPage: React.FC = () => {
                           </div>
 
                           {/* Title */}
-                          <h3 className="text-xl font-bold text-ink mb-3 group-hover:text-brand-primary transition-colors">
+                          <h3 className="text-xl font-bold text-ink mb-3 group-hover:text-brand-sky transition-colors">
                             {event.title}
                           </h3>
 
                           {/* Date & Location */}
                           <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-ink-muted mb-3">
                             <div className="flex items-center gap-2">
-                              <Calendar className="w-4 h-4 text-brand-primary shrink-0" />
+                              <Calendar className="w-4 h-4 text-brand-sky shrink-0" />
                               <span className="font-medium">
                                 {formatDateRange(event.date, event.endDate, lang)}
                               </span>
                             </div>
                             <div className="flex items-center gap-2">
-                              <MapPin className="w-4 h-4 text-brand-primary shrink-0" />
+                              <MapPin className="w-4 h-4 text-brand-sky shrink-0" />
                               <span>{event.location}</span>
                             </div>
                           </div>

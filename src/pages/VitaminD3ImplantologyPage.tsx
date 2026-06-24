@@ -170,7 +170,7 @@ const VitaminD3ImplantologyPage = () => {
               <Reveal width="100%">
                 {/* Author Box - E-E-A-T Signal */}
                 <div className="mb-10 flex items-center gap-4 rounded-lg border border-line bg-surface-raised p-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-primary/10 text-brand-primary font-semibold text-lg">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-primary/10 text-brand-sky font-semibold text-lg">
                     FP
                   </div>
                   <p className="text-sm font-medium text-ink">Fachredaktion PolarisDX</p>
@@ -662,7 +662,7 @@ const VitaminD3ImplantologyPage = () => {
                 <div className="rounded-xl border border-line bg-surface-raised p-5 shadow-sm">
                   <div className="mb-3 flex items-center gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-primary/10">
-                      <Phone className="h-5 w-5 text-brand-primary" />
+                      <Phone className="h-5 w-5 text-brand-sky" />
                     </div>
                     <div>
                       <p className="text-sm font-medium text-ink">Fragen zur Bestellung?</p>
@@ -699,7 +699,7 @@ const VitaminD3ImplantologyPage = () => {
                 {/* Related Articles */}
                 <div className="rounded-xl border border-line bg-surface-raised p-5 shadow-sm">
                   <p className="mb-4 flex items-center gap-2 text-sm font-semibold text-ink">
-                    <BookOpen className="h-4 w-4 text-brand-primary" />
+                    <BookOpen className="h-4 w-4 text-brand-sky" />
                     Weiterführende Inhalte
                   </p>
                   <div className="space-y-3">

@@ -197,7 +197,7 @@ const IglooProPage: React.FC = () => {
                 }`}
                 style={{ transitionDelay: `${idx * 100}ms` }}
               >
-                <feature.icon className="w-10 h-10 text-brand-primary mb-4" />
+                <feature.icon className="w-10 h-10 text-brand-sky mb-4" />
                 <h3 className="text-xl font-semibold text-ink mb-2">{feature.title}</h3>
                 <p className="text-ink-muted">{feature.description}</p>
               </div>
@@ -219,7 +219,7 @@ const IglooProPage: React.FC = () => {
                   key={idx}
                   className="grid md:grid-cols-3 bg-surface-raised p-4 hover:bg-surface-overlay transition-colors"
                 >
-                  <div className="font-semibold text-brand-primary">{spec.label}</div>
+                  <div className="font-semibold text-brand-sky">{spec.label}</div>
                   <div className="md:col-span-2 text-ink-muted">{spec.value}</div>
                 </div>
               ))}
@@ -248,7 +248,7 @@ const IglooProPage: React.FC = () => {
             {parameters.map((param, idx) => (
               <span
                 key={idx}
-                className="px-6 py-3 bg-surface-raised rounded-full text-ink-muted font-medium shadow-sm border border-line hover:bg-brand-primary/5 hover:border-brand-primary hover:text-brand-primary transition-all cursor-default"
+                className="px-6 py-3 bg-surface-raised rounded-full text-ink-muted font-medium shadow-sm border border-line hover:bg-brand-primary/5 hover:border-brand-primary hover:text-brand-sky transition-all cursor-default"
               >
                 {param}
               </span>
@@ -276,19 +276,19 @@ const IglooProPage: React.FC = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               to="/diagnostics/dental"
-              className="rounded-xl border border-line bg-surface-sunken px-6 py-4 text-sm font-medium text-ink-muted shadow-sm transition-all hover:border-brand-primary hover:text-brand-primary hover:shadow-md"
+              className="rounded-xl border border-line bg-surface-sunken px-6 py-4 text-sm font-medium text-ink-muted shadow-sm transition-all hover:border-brand-primary hover:text-brand-sky hover:shadow-md"
             >
               {t('products:use_cases.dental', 'Dental-Diagnostik')}
             </Link>
             <Link
               to="/diagnostics/beauty"
-              className="rounded-xl border border-line bg-surface-sunken px-6 py-4 text-sm font-medium text-ink-muted shadow-sm transition-all hover:border-brand-primary hover:text-brand-primary hover:shadow-md"
+              className="rounded-xl border border-line bg-surface-sunken px-6 py-4 text-sm font-medium text-ink-muted shadow-sm transition-all hover:border-brand-primary hover:text-brand-sky hover:shadow-md"
             >
               {t('products:use_cases.beauty', 'Beauty & Ästhetik')}
             </Link>
             <Link
               to="/diagnostics/longevity"
-              className="rounded-xl border border-line bg-surface-sunken px-6 py-4 text-sm font-medium text-ink-muted shadow-sm transition-all hover:border-brand-primary hover:text-brand-primary hover:shadow-md"
+              className="rounded-xl border border-line bg-surface-sunken px-6 py-4 text-sm font-medium text-ink-muted shadow-sm transition-all hover:border-brand-primary hover:text-brand-sky hover:shadow-md"
             >
               {t('products:use_cases.longevity', 'Longevity & Prävention')}
             </Link>

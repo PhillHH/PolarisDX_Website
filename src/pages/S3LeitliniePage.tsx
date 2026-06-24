@@ -218,7 +218,7 @@ const S3LeitliniePage = () => {
               <Reveal width="100%">
                 {/* Author Box - E-E-A-T Signal */}
                 <div className="mb-10 flex items-center gap-4 rounded-lg border border-line bg-surface-raised p-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-primary/10 text-brand-primary font-semibold text-lg">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-primary/10 text-brand-sky font-semibold text-lg">
                     PX
                   </div>
                   <p className="text-sm font-medium text-ink">PolarisDX Redaktionsteam</p>
@@ -436,7 +436,7 @@ const S3LeitliniePage = () => {
                   <div className="my-6 grid gap-4 sm:grid-cols-2">
                     <div className="rounded-lg border border-line bg-surface-raised p-4">
                       <div className="mb-2 flex items-center gap-2">
-                        <Shield className="h-5 w-5 text-brand-primary" />
+                        <Shield className="h-5 w-5 text-brand-sky" />
                         <p className="text-sm font-semibold text-ink">5 Messtechnologien</p>
                       </div>
                       <p className="text-xs text-ink-muted">
@@ -445,7 +445,7 @@ const S3LeitliniePage = () => {
                     </div>
                     <div className="rounded-lg border border-line bg-surface-raised p-4">
                       <div className="mb-2 flex items-center gap-2">
-                        <BarChart3 className="h-5 w-5 text-brand-primary" />
+                        <BarChart3 className="h-5 w-5 text-brand-sky" />
                         <p className="text-sm font-semibold text-ink">140+ kalibrierte Tests</p>
                       </div>
                       <p className="text-xs text-ink-muted">
@@ -454,7 +454,7 @@ const S3LeitliniePage = () => {
                     </div>
                     <div className="rounded-lg border border-line bg-surface-raised p-4">
                       <div className="mb-2 flex items-center gap-2">
-                        <Clock className="h-5 w-5 text-brand-primary" />
+                        <Clock className="h-5 w-5 text-brand-sky" />
                         <p className="text-sm font-semibold text-ink">24 Stunden Akkulaufzeit</p>
                       </div>
                       <p className="text-xs text-ink-muted">
@@ -463,7 +463,7 @@ const S3LeitliniePage = () => {
                     </div>
                     <div className="rounded-lg border border-line bg-surface-raised p-4">
                       <div className="mb-2 flex items-center gap-2">
-                        <Shield className="h-5 w-5 text-brand-primary" />
+                        <Shield className="h-5 w-5 text-brand-sky" />
                         <p className="text-sm font-semibold text-ink">CE- & IVDR-konform</p>
                       </div>
                       <p className="text-xs text-ink-muted">
@@ -854,7 +854,7 @@ const S3LeitliniePage = () => {
                 <div className="rounded-xl border border-line bg-surface-raised p-5 shadow-sm">
                   <div className="mb-3 flex items-center gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-primary/10">
-                      <Phone className="h-5 w-5 text-brand-primary" />
+                      <Phone className="h-5 w-5 text-brand-sky" />
                     </div>
                     <div>
                       <p className="text-sm font-medium text-ink">Fragen?</p>
@@ -892,7 +892,7 @@ const S3LeitliniePage = () => {
                 {/* Verwandte Artikel */}
                 <div className="rounded-xl border border-line bg-surface-raised p-5 shadow-sm">
                   <p className="mb-4 flex items-center gap-2 text-sm font-semibold text-ink">
-                    <BookOpen className="h-4 w-4 text-brand-primary" />
+                    <BookOpen className="h-4 w-4 text-brand-sky" />
                     Verwandte Inhalte
                   </p>
                   <div className="space-y-3">

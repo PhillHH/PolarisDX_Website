@@ -80,7 +80,7 @@ export const ContactForm = () => {
         <select
           id="area"
           name="area"
-          className="flex w-full rounded-md border border-line bg-surface-overlay px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+          className="flex w-full rounded-md border border-line bg-surface-overlay px-3 py-2 text-sm ring-offset-surface-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
         >
           <option value="pharmacy">{t('contact.form.area_options.pharmacy')}</option>
           <option value="practice">{t('contact.form.area_options.practice')}</option>
