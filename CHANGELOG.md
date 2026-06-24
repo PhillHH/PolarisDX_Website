@@ -7,6 +7,13 @@ versioniert nach SemVer + datiert (§1.18). Nutzersichtbare Aenderungen zuerst.
 
 ### Phase 2 — Atomic-Restrukturierung
 
+#### 2026-06-24 — Lineage über alle Schichten + Dead-Code-Befund (§2.11)
+
+- **spec · enhancement** — `docs/design-system/lineage.md` um Organism-/App-UI-/
+  Template-Schichten erweitert (importbasierte Used-by). Verifiziert: **jede**
+  Organism (13), App-UI (10) und Template (4) hat ≥1 realen Importeur → **kein
+  toter Code**, keine DROP-Kandidaten in Phase 2 (§1.8).
+
 #### 2026-06-24 — Token-Connect: Roh-Hex in `index.css` + IglooWidget (§2.10)
 
 - **style · fix** — Letzte hartkodierte Hex außerhalb der Token-Quelldateien

@@ -73,11 +73,62 @@ Alle Atome sind Blätter (keine DS-internen `Uses`); jedes hat ≥1 Used-by →
 
 ---
 
+## Organisms — `src/components/sections/` (per `boundaries` = `organism`)
+
+> Used-by importbasiert ermittelt (`rg -l "import .*<C>.*from"`), Stand 2026-06-24.
+
+| Organism              | Used-by (Importeur)   |
+| --------------------- | --------------------- |
+| `HeroSection`         | HomePage              |
+| `AboutSection`        | HomePage              |
+| `BlogSection`         | HomePage              |
+| `DoctorsSection`      | HomePage              |
+| `FeaturedCaseStudy`   | HomePage              |
+| `IglooWidgetSection`  | HomePage              |
+| `TestimonialsSection` | HomePage              |
+| `FAQSection`          | HomePage, ServicePage |
+| `ServicesSection`     | ServicesOverviewPage  |
+| `CtaSection`          | Footer (Template)     |
+| `ContactForm`         | ContactPage           |
+| `SupportForm`         | SupportPage           |
+| `TeamSection`         | AboutPage             |
+
+## App-UI-Komposita — `src/components/ui/` (per `boundaries` = `app-ui`)
+
+| Komponente         | Used-by (Importeur)                                    |
+| ------------------ | ------------------------------------------------------ |
+| `Reveal`           | alle Pages + FeaturedCaseStudy (Scroll-Reveal-Wrapper) |
+| `PageTransition`   | alle Pages (Route-Transition-Wrapper)                  |
+| `BlogCard`         | ArticlesIndexPage, BlogSection                         |
+| `ServiceCard`      | ServicesSection                                        |
+| `SearchModal`      | Header (Template)                                      |
+| `LanguageSwitcher` | Header (Template)                                      |
+| `FlagIcon`         | LanguageSwitcher                                       |
+| `ChatWidget`       | App                                                    |
+| `CookieBanner`     | App                                                    |
+| `MobileCallButton` | App                                                    |
+
+## Templates — `src/components/layout/` (per `boundaries` = `template`)
+
+| Template      | Uses (Organism/App-UI)        | Used-by                                |
+| ------------- | ----------------------------- | -------------------------------------- |
+| `Layout`      | Header, Footer, ScrollToTop   | App                                    |
+| `Header`      | LanguageSwitcher, SearchModal | Layout                                 |
+| `Footer`      | CtaSection                    | Layout + Consumer-LPs (Duo/Mask/Spray) |
+| `ScrollToTop` | — (Routing-Effekt)            | Layout                                 |
+
+---
+
 ## Befund
 
 - **Used-by-Vollständigkeit:** Jede der 22 öffentlichen DS-Komponenten hat ≥1
   Konsument → **kein** toter Export, **keine** Graveyard-Migration nötig
   (`docs/GRAVEYARD.md` bleibt für Phase-6-Kandidaten reserviert).
+- **Used-by über ALLE Schichten (2026-06-24):** auch jede der 13 Organismen,
+  10 App-UI-Komposita und 4 Templates hat ≥1 **realen Importeur** (importbasiert
+  via `rg -l "import .*<C>.*from"` verifiziert, alle Singletons auf eine
+  Page/Parent-`.tsx` aufgelöst) → **kein toter Code**, **keine** DROP-Kandidaten
+  in Phase 2 (§1.8 / §Phase 2.11).
 - **DS-interne Kanten:** nur `FormField → {Input,Textarea,Select}` und
   `SectionHeader → Eyebrow` — beide strikt molecule→atom, top-down, zyklenfrei.
 - **Holy Grail:** Jede Komponente existiert genau einmal (eine `.tsx` je
