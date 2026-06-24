@@ -200,7 +200,7 @@ const Header = () => {
                       <button
                         type="button"
                         aria-expanded={openSubmenu === item.label}
-                        className={`flex w-full items-center justify-between text-left text-lg font-light tracking-wide text-white`}
+                        className={`flex w-full items-center justify-between text-left text-lg font-medium tracking-wide text-white`}
                         onClick={() =>
                           setOpenSubmenu(openSubmenu === item.label ? null : item.label)
                         }
@@ -215,7 +215,7 @@ const Header = () => {
                         <div className={`pl-4 mt-3 space-y-3 border-l-2 border-white/20`}>
                           <Link
                             to={item.route!}
-                            className={`block text-base font-light text-white/70`}
+                            className={`block text-base font-normal text-white/70`}
                             onClick={mobileMenu.onClose}
                           >
                             {t(`nav.${item.label}`)}
@@ -224,7 +224,7 @@ const Header = () => {
                             <Link
                               key={child.label}
                               to={child.route}
-                              className={`block text-base font-light text-white/70`}
+                              className={`block text-base font-normal text-white/70`}
                               onClick={mobileMenu.onClose}
                             >
                               {t(`nav.${child.label}`)}
@@ -236,7 +236,7 @@ const Header = () => {
                   ) : (
                     <Link
                       to={item.route!}
-                      className={`block text-lg font-light tracking-wide text-white`}
+                      className={`block text-lg font-medium tracking-wide text-white`}
                       onClick={mobileMenu.onClose}
                     >
                       {t(`nav.${item.label}`)}
