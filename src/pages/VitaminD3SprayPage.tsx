@@ -17,7 +17,7 @@ import {
 import { SEOHead, createBreadcrumbSchema, createFAQSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
-import Eyebrow from '../components/ui/Eyebrow'
+import { Badge, ContactCallout, Eyebrow, MediaLink, Panel } from '~/design-system'
 import sprayImage from '../assets/VITAMIND_D3_SPRAY.jpg'
 import sprayPdfDE from '../assets/downloads/Polaris Vitamin D Spray  A4zuA5_DE_2025-01-20.pdf'
 import sprayPdfEN from '../assets/downloads/Polaris Vitamin D Spray  A4zuA5_EN(8).pdf'
@@ -150,10 +150,10 @@ const VitaminD3SprayPage = () => {
               <Reveal width="100%">
                 {/* Intro */}
                 <section className="mb-12">
-                  <h2 className="mb-6 text-xl font-semibold tracking-tight text-gray-900 sm:text-2xl">
+                  <h2 className="mb-6 text-xl font-semibold tracking-tight text-fg-heading sm:text-2xl">
                     {t('vitd3spray:intro.title')}
                   </h2>
-                  <div className="space-y-4 text-[17px] leading-[1.75] text-gray-700">
+                  <div className="space-y-4 text-[17px] leading-[1.75] text-fg">
                     <p>{t('vitd3spray:intro.text1')}</p>
                     <p>
                       <strong>{t('vitd3spray:intro.text2')}</strong>
@@ -167,11 +167,11 @@ const VitaminD3SprayPage = () => {
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-sky-100">
                       <Sparkles className="h-5 w-5 text-sky-600" />
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-900">
+                    <h3 className="text-lg font-semibold text-fg-heading">
                       {t('vitd3spray:usp.title')}
                     </h3>
                   </div>
-                  <p className="mb-4 text-[15px] leading-relaxed text-gray-700">
+                  <p className="mb-4 text-[15px] leading-relaxed text-fg">
                     {t('vitd3spray:usp.text')}
                   </p>
                   <div className="border-t border-sky-200 pt-4">
@@ -179,13 +179,13 @@ const VitaminD3SprayPage = () => {
                       {t('vitd3spray:usp.dosing_label')}
                     </p>
                     <p className="text-[15px] text-gray-800">{t('vitd3spray:usp.dosing_text')}</p>
-                    <p className="mt-1 text-sm text-gray-500">{t('vitd3spray:usp.dosing_note')}</p>
+                    <p className="mt-1 text-sm text-fg-muted">{t('vitd3spray:usp.dosing_note')}</p>
                   </div>
                 </section>
 
                 {/* Product Specs */}
                 <section className="mb-12">
-                  <h2 className="mb-6 text-xl font-semibold tracking-tight text-gray-900 sm:text-2xl">
+                  <h2 className="mb-6 text-xl font-semibold tracking-tight text-fg-heading sm:text-2xl">
                     {t('vitd3spray:product.title')}
                   </h2>
                   <div className="overflow-hidden rounded-xl border border-gray-200 bg-white">
@@ -215,10 +215,12 @@ const VitaminD3SprayPage = () => {
                         key={i}
                         className={`flex flex-col gap-1 px-5 py-3.5 sm:flex-row sm:items-center sm:gap-4 ${i > 0 ? 'border-t border-gray-100' : ''}`}
                       >
-                        <span className="min-w-[200px] text-sm font-medium text-gray-500">
+                        <span className="min-w-[200px] text-sm font-medium text-fg-muted">
                           {spec.label}
                         </span>
-                        <span className="text-[15px] font-medium text-gray-900">{spec.value}</span>
+                        <span className="text-[15px] font-medium text-fg-heading">
+                          {spec.value}
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -229,20 +231,17 @@ const VitaminD3SprayPage = () => {
                       { icon: Leaf, label: t('vitd3spray:badges.vegan') },
                       { icon: Shield, label: t('vitd3spray:badges.made_in') },
                     ].map(({ icon: Icon, label }) => (
-                      <span
-                        key={label}
-                        className="inline-flex items-center gap-1.5 rounded-full bg-green-50 px-3 py-1 text-xs font-medium text-green-700"
-                      >
+                      <Badge key={label} variant="success">
                         <Icon className="h-3.5 w-3.5" />
                         {label}
-                      </span>
+                      </Badge>
                     ))}
                   </div>
                 </section>
 
                 {/* Health Benefits */}
                 <section className="mb-12">
-                  <h2 className="mb-6 text-xl font-semibold tracking-tight text-gray-900 sm:text-2xl">
+                  <h2 className="mb-6 text-xl font-semibold tracking-tight text-fg-heading sm:text-2xl">
                     {t('vitd3spray:benefits.title')}
                   </h2>
                   <div className="rounded-xl border border-gray-200 bg-white p-6">
@@ -250,7 +249,7 @@ const VitaminD3SprayPage = () => {
                       {benefitItems.map((item, i) => (
                         <li
                           key={i}
-                          className="flex items-start gap-3 text-[15px] leading-relaxed text-gray-700"
+                          className="flex items-start gap-3 text-[15px] leading-relaxed text-fg"
                         >
                           <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-green-500" />
                           {item}
@@ -262,17 +261,17 @@ const VitaminD3SprayPage = () => {
 
                 {/* Pricing Table */}
                 <section className="mb-12">
-                  <h2 className="mb-6 text-xl font-semibold tracking-tight text-gray-900 sm:text-2xl">
+                  <h2 className="mb-6 text-xl font-semibold tracking-tight text-fg-heading sm:text-2xl">
                     {t('vitd3spray:pricing.title')}
                   </h2>
                   <div className="overflow-hidden rounded-xl border border-gray-200">
                     <table className="w-full text-sm">
                       <thead className="bg-gray-50">
                         <tr>
-                          <th className="px-5 py-3.5 text-left font-semibold text-gray-900">
+                          <th className="px-5 py-3.5 text-left font-semibold text-fg-heading">
                             {t('vitd3spray:pricing.header_quantity')}
                           </th>
-                          <th className="px-5 py-3.5 text-left font-semibold text-gray-900">
+                          <th className="px-5 py-3.5 text-left font-semibold text-fg-heading">
                             {t('vitd3spray:pricing.header_price')}
                           </th>
                         </tr>
@@ -283,8 +282,10 @@ const VitaminD3SprayPage = () => {
                             key={i}
                             className={i === pricingRows.length - 1 ? 'bg-brand-primary/5' : ''}
                           >
-                            <td className="px-5 py-3.5 text-gray-700">{row.quantity}</td>
-                            <td className="px-5 py-3.5 font-semibold text-gray-900">{row.price}</td>
+                            <td className="px-5 py-3.5 text-fg">{row.quantity}</td>
+                            <td className="px-5 py-3.5 font-semibold text-fg-heading">
+                              {row.price}
+                            </td>
                           </tr>
                         ))}
                       </tbody>
@@ -299,10 +300,10 @@ const VitaminD3SprayPage = () => {
                       <FileText className="h-7 w-7 text-red-500" />
                     </div>
                     <div className="flex-1 text-center sm:text-left">
-                      <p className="font-semibold text-gray-900">
+                      <p className="font-semibold text-fg-heading">
                         {t('vitd3spray:sidebar.download_caption')}
                       </p>
-                      <p className="text-sm text-gray-500">
+                      <p className="text-sm text-fg-muted">
                         {t('vitd3spray:sidebar.download_text')}
                       </p>
                     </div>
@@ -325,23 +326,19 @@ const VitaminD3SprayPage = () => {
                       <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-primary">
                         {t('vitd3spray:order.caption')}
                       </p>
-                      <h3 className="text-xl font-semibold text-gray-900 sm:text-2xl">
+                      <h3 className="text-xl font-semibold text-fg-heading sm:text-2xl">
                         {t('vitd3spray:order.title')}
                       </h3>
-                      <p className="mt-2 text-sm text-gray-600">
-                        {t('vitd3spray:order.description')}
-                      </p>
+                      <p className="mt-2 text-sm text-fg">{t('vitd3spray:order.description')}</p>
                     </div>
 
                     {submitStatus === 'success' ? (
                       <div className="flex flex-col items-center justify-center py-8 text-center">
                         <CheckCircle className="mb-4 h-12 w-12 text-green-500" />
-                        <h4 className="mb-2 text-lg font-semibold text-gray-900">
+                        <h4 className="mb-2 text-lg font-semibold text-fg-heading">
                           {t('vitd3spray:order.success_title')}
                         </h4>
-                        <p className="text-sm text-gray-600">
-                          {t('vitd3spray:order.success_text')}
-                        </p>
+                        <p className="text-sm text-fg">{t('vitd3spray:order.success_text')}</p>
                       </div>
                     ) : (
                       <form
@@ -370,7 +367,7 @@ const VitaminD3SprayPage = () => {
                         <div>
                           <label
                             htmlFor="quantity"
-                            className="mb-1 block text-sm font-medium text-gray-700"
+                            className="mb-1 block text-sm font-medium text-fg"
                           >
                             {t('vitd3spray:order.quantity_label')} *
                           </label>
@@ -393,15 +390,12 @@ const VitaminD3SprayPage = () => {
                         </div>
 
                         <div className="border-t border-gray-100 pt-4">
-                          <p className="mb-3 text-sm font-medium text-gray-900">
+                          <p className="mb-3 text-sm font-medium text-fg-heading">
                             {t('vitd3spray:order.address_heading')}
                           </p>
                           <div className="space-y-3">
                             <div>
-                              <label
-                                htmlFor="praxisName"
-                                className="mb-1 block text-sm text-gray-600"
-                              >
+                              <label htmlFor="praxisName" className="mb-1 block text-sm text-fg">
                                 {t('vitd3spray:order.practice_label')} *
                               </label>
                               <input
@@ -419,7 +413,7 @@ const VitaminD3SprayPage = () => {
                             <div>
                               <label
                                 htmlFor="ansprechpartner"
-                                className="mb-1 block text-sm text-gray-600"
+                                className="mb-1 block text-sm text-fg"
                               >
                                 {t('vitd3spray:order.name_label')} *
                               </label>
@@ -437,7 +431,7 @@ const VitaminD3SprayPage = () => {
                             </div>
                             <div className="grid gap-3 sm:grid-cols-2">
                               <div>
-                                <label htmlFor="email" className="mb-1 block text-sm text-gray-600">
+                                <label htmlFor="email" className="mb-1 block text-sm text-fg">
                                   {t('vitd3spray:order.email_label')} *
                                 </label>
                                 <input
@@ -453,7 +447,7 @@ const VitaminD3SprayPage = () => {
                                 />
                               </div>
                               <div>
-                                <label htmlFor="phone" className="mb-1 block text-sm text-gray-600">
+                                <label htmlFor="phone" className="mb-1 block text-sm text-fg">
                                   {t('vitd3spray:order.phone_label')}
                                 </label>
                                 <input
@@ -472,7 +466,7 @@ const VitaminD3SprayPage = () => {
                         </div>
 
                         <div>
-                          <label htmlFor="message" className="mb-1 block text-sm text-gray-600">
+                          <label htmlFor="message" className="mb-1 block text-sm text-fg">
                             {t('vitd3spray:order.message_label')}
                           </label>
                           <textarea
@@ -504,7 +498,7 @@ const VitaminD3SprayPage = () => {
                           )}
                         </button>
 
-                        <p className="text-center text-xs text-gray-500">
+                        <p className="text-center text-xs text-fg-muted">
                           {t('vitd3spray:order.submit_note')}
                         </p>
                       </form>
@@ -514,16 +508,16 @@ const VitaminD3SprayPage = () => {
 
                 {/* FAQ */}
                 <section className="mb-12 border-t border-gray-200 pt-10">
-                  <h2 className="mb-8 text-xl font-semibold tracking-tight text-gray-900 sm:text-2xl">
+                  <h2 className="mb-8 text-xl font-semibold tracking-tight text-fg-heading sm:text-2xl">
                     {t('vitd3spray:faq.title')}
                   </h2>
                   <div className="space-y-8">
                     {faqItems.map((faq, i) => (
                       <div key={i}>
-                        <h3 className="mb-3 text-base font-semibold text-gray-900">
+                        <h3 className="mb-3 text-base font-semibold text-fg-heading">
                           {faq.question}
                         </h3>
-                        <p className="text-[15px] leading-relaxed text-gray-600">{faq.answer}</p>
+                        <p className="text-[15px] leading-relaxed text-fg">{faq.answer}</p>
                       </div>
                     ))}
                   </div>
@@ -549,29 +543,23 @@ const VitaminD3SprayPage = () => {
             <aside className="hidden lg:block">
               <div className="sticky top-24 space-y-6">
                 {/* Phone Contact */}
-                <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-                  <div className="mb-3 flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-primary/10">
-                      <Phone className="h-5 w-5 text-brand-primary" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-gray-900">
-                        {t('vitd3spray:contact.question')}
-                      </p>
-                      <p className="text-xs text-gray-500">{t('vitd3spray:contact.advice')}</p>
-                    </div>
-                  </div>
-                  <a
-                    href="tel:+4915159878599"
-                    className="flex items-center justify-center gap-2 rounded-md bg-brand-primary/10 px-4 py-2.5 text-sm font-semibold text-brand-primary transition-colors hover:bg-brand-primary/20"
-                  >
-                    <Phone className="h-4 w-4" />
-                    {t('vitd3spray:contact.phone')}
-                  </a>
-                  <p className="mt-1 text-center text-xs text-gray-500">
-                    {t('vitd3spray:contact.name')} · {t('vitd3spray:contact.hours')}
-                  </p>
-                </div>
+                <ContactCallout
+                  icon={<Phone className="h-5 w-5" />}
+                  title={t('vitd3spray:contact.question')}
+                  subtitle={t('vitd3spray:contact.advice')}
+                  phoneHref="tel:+4915159878599"
+                  phoneLabel={
+                    <>
+                      <Phone className="h-4 w-4" />
+                      {t('vitd3spray:contact.phone')}
+                    </>
+                  }
+                  note={
+                    <>
+                      {t('vitd3spray:contact.name')} · {t('vitd3spray:contact.hours')}
+                    </>
+                  }
+                />
 
                 {/* Quick Order CTA */}
                 <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-deep p-5 text-white">
@@ -589,69 +577,49 @@ const VitaminD3SprayPage = () => {
                 </div>
 
                 {/* PDF Download */}
-                <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-                  <p className="mb-2 text-sm font-semibold text-gray-900">
+                <Panel as="div" bordered padding="sm" radius="md">
+                  <p className="mb-2 text-sm font-semibold text-fg-heading">
                     {t('vitd3spray:sidebar.download_caption')}
                   </p>
-                  <p className="mb-4 text-xs text-gray-500">
+                  <p className="mb-4 text-xs text-fg-muted">
                     {t('vitd3spray:sidebar.download_text')}
                   </p>
                   <a
                     href={sprayPdf}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 rounded-md border border-gray-200 px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:border-brand-primary hover:text-brand-primary"
+                    className="flex items-center justify-center gap-2 rounded-md border border-gray-200 px-4 py-2.5 text-sm font-medium text-fg transition-colors hover:border-brand-primary hover:text-brand-primary"
                   >
                     <Download className="h-4 w-4" />
                     {t('vitd3spray:sidebar.download_cta')}
                   </a>
-                </div>
+                </Panel>
 
                 {/* Related */}
-                <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-                  <p className="mb-4 flex items-center gap-2 text-sm font-semibold text-gray-900">
+                <Panel as="div" bordered padding="sm" radius="md">
+                  <p className="mb-4 flex items-center gap-2 text-sm font-semibold text-fg-heading">
                     <BookOpen className="h-4 w-4 text-brand-primary" />
                     {t('vitd3spray:related.title')}
                   </p>
                   <div className="space-y-3">
-                    <Link
+                    <MediaLink
                       to="/vitamin-d3-implantologie"
-                      className="group flex items-start gap-3 rounded-lg p-2 transition-colors hover:bg-gray-50"
-                    >
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-blue-50 text-brand-primary">
-                        <FileText className="h-4 w-4" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium text-gray-900 group-hover:text-brand-primary">
-                          {t('vitd3spray:related.implantology_title')}
-                        </p>
-                        <p className="text-xs text-gray-500">
-                          {t('vitd3spray:related.implantology_desc')}
-                        </p>
-                      </div>
-                    </Link>
-                    <Link
+                      icon={<FileText className="h-4 w-4" />}
+                      title={t('vitd3spray:related.implantology_title')}
+                      description={t('vitd3spray:related.implantology_desc')}
+                    />
+                    <MediaLink
                       to="/igloo-pro"
-                      className="group flex items-start gap-3 rounded-lg p-2 transition-colors hover:bg-gray-50"
-                    >
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-blue-50 text-brand-primary">
-                        <FileText className="h-4 w-4" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium text-gray-900 group-hover:text-brand-primary">
-                          {t('vitd3spray:related.igloo_title')}
-                        </p>
-                        <p className="text-xs text-gray-500">
-                          {t('vitd3spray:related.igloo_desc')}
-                        </p>
-                      </div>
-                    </Link>
+                      icon={<FileText className="h-4 w-4" />}
+                      title={t('vitd3spray:related.igloo_title')}
+                      description={t('vitd3spray:related.igloo_desc')}
+                    />
                   </div>
-                </div>
+                </Panel>
 
                 {/* Trust */}
                 <div className="rounded-lg bg-gray-50 p-4 text-center">
-                  <p className="text-xs text-gray-500">{t('vitd3spray:sidebar.trust')}</p>
+                  <p className="text-xs text-fg-muted">{t('vitd3spray:sidebar.trust')}</p>
                 </div>
               </div>
             </aside>

@@ -214,10 +214,10 @@ export const CookieBanner: React.FC = () => {
               <Shield size={24} />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-1">
+              <h3 className="text-lg font-semibold text-fg-heading mb-1">
                 {t('cookie.title', 'Wir respektieren Ihre Privatsphäre')}
               </h3>
-              <p className="text-gray-600 text-sm md:text-base max-w-3xl">
+              <p className="text-fg text-sm md:text-base max-w-3xl">
                 {t(
                   'cookie.description',
                   'Wir nutzen Cookies, um Ihnen die bestmögliche Nutzung unserer Webseite zu ermöglichen und unsere Kommunikation mit Ihnen zu verbessern. Wir berücksichtigen hierbei Ihre Präferenzen und verarbeiten Daten nur, wenn Sie uns durch Klicken auf "Alle akzeptieren" Ihr Einverständnis geben oder über "Einstellungen" eine spezifische Auswahl treffen.',
@@ -229,13 +229,13 @@ export const CookieBanner: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto min-w-[300px]">
             <button
               onClick={handleRejectAll}
-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+              className="px-4 py-2 text-sm font-medium text-fg bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
             >
               {t('cookie.reject_all', 'Nur notwendige')}
             </button>
             <button
               onClick={() => setShowSettings(!showSettings)}
-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors flex items-center justify-center gap-2"
+              className="px-4 py-2 text-sm font-medium text-fg bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors flex items-center justify-center gap-2"
             >
               {showSettings
                 ? t('cookie.hide', 'Ausblenden')
@@ -265,7 +265,7 @@ export const CookieBanner: React.FC = () => {
                   }`}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <span className="font-medium text-gray-900">{t(category.nameKey)}</span>
+                    <span className="font-medium text-fg-heading">{t(category.nameKey)}</span>
                     <label className="relative inline-flex items-center cursor-pointer">
                       <input
                         type="checkbox"
@@ -281,7 +281,7 @@ export const CookieBanner: React.FC = () => {
                       ></div>
                     </label>
                   </div>
-                  <p className="text-xs text-gray-500">{t(category.descriptionKey)}</p>
+                  <p className="text-xs text-fg-muted">{t(category.descriptionKey)}</p>
                 </div>
               ))}
             </div>

@@ -1,15 +1,11 @@
 import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, createArticleSchema, createBreadcrumbSchema } from '../components/seo'
-import { Breadcrumbs } from '../components/ui/Breadcrumbs'
-import SectionHeader from '../components/ui/SectionHeader'
-import { Button } from '../components/ui/Button'
+import { Alert, Breadcrumbs, Button, NavTile, Panel, SectionHeader, Spinner } from '~/design-system'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import { services } from '../data/services'
 import { useArticles } from '../hooks/useArticles'
-import { LoadingSpinner } from '../components/ui/LoadingSpinner'
-import { Alert } from '../components/ui/Alert'
 import { getArticleImageUrl } from '../assets/articleImages'
 
 // Local types for UI rendering logic which involves Discriminated Unions
@@ -54,7 +50,7 @@ const ArticlePage = () => {
   if (loading) {
     return (
       <div className="flex h-screen items-center justify-center bg-slate-50">
-        <LoadingSpinner size="lg" />
+        <Spinner size="lg" />
       </div>
     )
   }
@@ -65,7 +61,7 @@ const ArticlePage = () => {
       <div className="flex h-screen flex-col items-center justify-center gap-4 bg-slate-50 p-4">
         {error ? (
           <div className="w-full max-w-md">
-            <Alert variant="destructive" title={t('common:error', 'Error')}>
+            <Alert variant="danger" title={t('common:error', 'Error')}>
               {error.message || t('shop:shop.articleNotFound', 'Article not found')}
             </Alert>
             <div className="mt-6 flex justify-center">
@@ -74,7 +70,7 @@ const ArticlePage = () => {
           </div>
         ) : (
           <>
-            <h1 className="text-2xl font-bold text-gray-900">
+            <h1 className="text-2xl font-bold text-fg-heading">
               {t('shop:shop.articleNotFound', 'Article not found')}
             </h1>
             <Button to="/articles">{t('shop:shop.backToArticles', 'Back to Overview')}</Button>
@@ -113,17 +109,17 @@ const ArticlePage = () => {
         return (
           <section key={index} className="space-y-4 overflow-x-auto">
             {section.heading && (
-              <h2 className="text-lg font-semibold tracking-tight text-gray-900">
+              <h2 className="text-lg font-semibold tracking-tight text-fg-heading">
                 {section.heading}
               </h2>
             )}
-            <table className="w-full min-w-[600px] border-collapse text-left text-sm text-gray-600 sm:text-base">
+            <table className="w-full min-w-[600px] border-collapse text-left text-sm text-fg sm:text-base">
               <thead>
                 <tr>
                   {(section as TableSection).headers.map((header, i) => (
                     <th
                       key={i}
-                      className="border-b border-gray-200 py-3 font-semibold text-gray-900"
+                      className="border-b border-gray-200 py-3 font-semibold text-fg-heading"
                     >
                       {header}
                     </th>
@@ -148,7 +144,7 @@ const ArticlePage = () => {
         return (
           <section
             key={index}
-            className="my-8 rounded-lg border-l-4 border-accentBlue bg-blue-50/50 p-6 text-gray-700"
+            className="my-8 rounded-lg border-l-4 border-accentBlue bg-blue-50/50 p-6 text-fg"
           >
             {section.heading && (
               <h3 className="mb-2 text-lg font-semibold text-accentBlue">{section.heading}</h3>
@@ -162,7 +158,7 @@ const ArticlePage = () => {
         return (
           <section key={index} className="space-y-6">
             {section.heading && (
-              <h2 className="text-lg font-semibold tracking-tight text-gray-900">
+              <h2 className="text-lg font-semibold tracking-tight text-fg-heading">
                 {section.heading}
               </h2>
             )}
@@ -172,8 +168,8 @@ const ArticlePage = () => {
                   key={pIndex}
                   className="rounded-xl border border-gray-100 bg-white p-5 shadow-sm"
                 >
-                  <h4 className="mb-2 font-semibold text-gray-900">{point.title}</h4>
-                  <p className="text-sm text-gray-500">{point.description}</p>
+                  <h4 className="mb-2 font-semibold text-fg-heading">{point.title}</h4>
+                  <p className="text-sm text-fg-muted">{point.description}</p>
                 </div>
               ))}
             </div>
@@ -186,18 +182,18 @@ const ArticlePage = () => {
         return (
           <section key={index} className="space-y-4">
             {textSection.heading && (
-              <h2 className="text-lg font-semibold tracking-tight text-gray-900">
+              <h2 className="text-lg font-semibold tracking-tight text-fg-heading">
                 {textSection.heading}
               </h2>
             )}
             {textSection.paragraphs &&
               textSection.paragraphs.map((paragraph, pIndex) => (
-                <p key={pIndex} className="text-sm leading-[32px] text-gray-500 sm:text-base">
+                <p key={pIndex} className="text-sm leading-[32px] text-fg-muted sm:text-base">
                   {paragraph}
                 </p>
               ))}
             {textSection.listItems && (
-              <ul className="list-disc space-y-2 pl-5 text-sm leading-[28px] text-gray-500 sm:text-base">
+              <ul className="list-disc space-y-2 pl-5 text-sm leading-[28px] text-fg-muted sm:text-base">
                 {textSection.listItems.map((item, lIndex) => (
                   <li key={lIndex}>{item}</li>
                 ))}
@@ -249,7 +245,6 @@ const ArticlePage = () => {
             <Reveal width="100%" yOffset={20}>
               <div className="max-w-container">
                 <Breadcrumbs
-                  variant="dark"
                   className="mb-4"
                   items={[
                     { label: t('shop:shop.home', 'Home'), href: '/' },
@@ -258,7 +253,7 @@ const ArticlePage = () => {
                   ]}
                 />
 
-                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
+                <p className="mb-3 text-xs font-semibold uppercase tracking-overline text-accent-strong">
                   {t(`common:category.${article.category}`, article.category)}
                 </p>
                 <h1 className="mb-4 text-2xl font-medium tracking-tight sm:text-3xl lg:text-3xl">
@@ -277,7 +272,7 @@ const ArticlePage = () => {
         </section>
 
         <div className="mx-auto flex max-w-container flex-col gap-10 px-4 py-12 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,1.4fr)] lg:items-start lg:gap-12 lg:px-0 lg:py-16">
-          <article className="space-y-8 text-gray-700">
+          <article className="space-y-8 text-fg">
             <Reveal width="100%">
               <SectionHeader
                 caption={t('shop:shop.article', 'Article')}
@@ -306,14 +301,14 @@ const ArticlePage = () => {
                 {Array.isArray(translatedSections) && translatedSections.map(renderSection)}
               </div>
 
-              <div className="rounded-2xl bg-brand-primary/5 p-6 text-sm leading-[28px] text-gray-600 sm:text-base mt-8">
+              <div className="rounded-2xl bg-brand-primary/5 p-6 text-sm leading-[28px] text-fg sm:text-base mt-8">
                 {t(
                   'shop:shop.articleDisclaimer',
                   "Regular check-ups and proactive care are the foundation of long-term health. If you have questions, don't hesitate to reach out to a medical professional.",
                 )}
               </div>
 
-              <div className="mt-8 flex flex-col gap-4 border-t border-gray-100 pt-8 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
+              <div className="mt-8 flex flex-col gap-4 border-t border-gray-100 pt-8 text-sm text-fg-muted sm:flex-row sm:items-center sm:justify-between">
                 <span>
                   {t(
                     'shop:shop.shareArticle',
@@ -328,7 +323,7 @@ const ArticlePage = () => {
               {/* Suggested articles for mobile / small screens */}
               {otherArticles.length > 0 && (
                 <section className="mt-10 space-y-4 lg:hidden">
-                  <h2 className="text-lg font-semibold tracking-tight text-gray-900">
+                  <h2 className="text-lg font-semibold tracking-tight text-fg-heading">
                     {t('shop:shop.suggestedArticles', 'Suggested articles')}
                   </h2>
                   <div className="grid gap-4">
@@ -338,13 +333,13 @@ const ArticlePage = () => {
                         to={`/articles/${suggested.slug}`}
                         className="rounded-xl border border-gray-100 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-card"
                       >
-                        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
+                        <p className="text-xs font-semibold uppercase tracking-overline text-accent-strong">
                           {t(`common:category.${suggested.category}`, suggested.category)}
                         </p>
-                        <p className="mt-2 text-sm font-semibold text-gray-900">
+                        <p className="mt-2 text-sm font-semibold text-fg-heading">
                           {t(`articles:${suggested.id}.title`)}
                         </p>
-                        <p className="mt-1 text-xs text-gray-500">
+                        <p className="mt-1 text-xs text-fg-muted">
                           {suggested.readTime} · {suggested.date}
                         </p>
                       </Link>
@@ -356,7 +351,7 @@ const ArticlePage = () => {
               {/* Related services for mobile */}
               {relatedServices.length > 0 && (
                 <section className="mt-10 space-y-4 lg:hidden">
-                  <h2 className="text-lg font-semibold tracking-tight text-gray-900">
+                  <h2 className="text-lg font-semibold tracking-tight text-fg-heading">
                     {t('home:services.caption', 'Passende Diagnostik')}
                   </h2>
                   <div className="grid gap-4">
@@ -366,10 +361,10 @@ const ArticlePage = () => {
                         to={`/diagnostics/${s.id}`}
                         className="group rounded-xl border border-gray-100 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-card"
                       >
-                        <p className="text-sm font-semibold text-gray-900 group-hover:text-brand-secondary transition-colors">
+                        <p className="text-sm font-semibold text-fg-heading group-hover:text-brand-secondary transition-colors">
                           {t(`home:services.${s.translationKey}.title`, s.title)}
                         </p>
-                        <p className="mt-1 text-xs text-gray-500">
+                        <p className="mt-1 text-xs text-fg-muted">
                           {t(`home:services.${s.translationKey}.description`, s.description)}
                         </p>
                       </Link>
@@ -384,8 +379,8 @@ const ArticlePage = () => {
           <aside className="space-y-8 lg:sticky lg:top-32">
             <Reveal width="100%" delay={0.2}>
               {otherArticles.length > 0 && (
-                <section className="hidden rounded-2xl border border-gray-100 bg-white p-5 shadow-sm lg:block">
-                  <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-gray-500">
+                <Panel bordered padding="sm" className="hidden lg:block">
+                  <h2 className="mb-4 text-sm font-semibold uppercase tracking-overline text-fg-muted">
                     {t('shop:shop.moreArticles', 'More articles')}
                   </h2>
                   <div className="space-y-4">
@@ -395,54 +390,43 @@ const ArticlePage = () => {
                         to={`/articles/${suggested.slug}`}
                         className="block rounded-lg p-3 transition hover:bg-slate-50"
                       >
-                        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
+                        <p className="text-xs font-semibold uppercase tracking-overline text-accent-strong">
                           {t(`common:category.${suggested.category}`, suggested.category)}
                         </p>
-                        <p className="mt-1 text-sm font-semibold text-gray-900">
+                        <p className="mt-1 text-sm font-semibold text-fg-heading">
                           {t(`articles:${suggested.id}.title`)}
                         </p>
-                        <p className="mt-1 text-xs text-gray-500">
+                        <p className="mt-1 text-xs text-fg-muted">
                           {suggested.readTime} · {suggested.date}
                         </p>
                       </Link>
                     ))}
                   </div>
-                </section>
+                </Panel>
               )}
 
               {/* Related Services Widget */}
               {relatedServices.length > 0 && (
-                <section className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm mt-8">
-                  <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-gray-500">
+                <Panel bordered padding="sm" className="mt-8">
+                  <h2 className="mb-4 text-sm font-semibold uppercase tracking-overline text-fg-muted">
                     {t('home:services.caption', 'Passende Diagnostik')}
                   </h2>
                   <div className="space-y-3">
                     {relatedServices.map((s) => (
-                      <Link
-                        key={s.id}
-                        to={`/diagnostics/${s.id}`}
-                        className="group flex items-center justify-between rounded-xl border border-gray-100 bg-gradient-to-br from-white to-slate-50 p-4 shadow-sm transition-all duration-300 hover:border-blue-200 hover:shadow-md hover:scale-[1.02]"
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-brand-secondary transition-colors group-hover:bg-brand-secondary group-hover:text-white">
-                            {s.icon}
-                          </div>
-                          <span className="font-medium text-gray-900 group-hover:text-brand-secondary">
-                            {t(`home:services.${s.translationKey}.title`, s.title)}
-                          </span>
-                        </div>
-                      </Link>
+                      <NavTile key={s.id} to={`/diagnostics/${s.id}`} icon={s.icon}>
+                        {t(`home:services.${s.translationKey}.title`, s.title)}
+                      </NavTile>
                     ))}
                   </div>
-                </section>
+                </Panel>
               )}
 
               {/* Contact Widget */}
-              <section className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm mt-8">
-                <h3 className="mb-2 text-sm font-semibold tracking-tight text-gray-900">
+              <Panel bordered padding="sm" className="mt-8">
+                <h3 className="mb-2 text-sm font-semibold tracking-tight text-fg-heading">
                   {t('shop:shop.needHelp', 'Need help right now?')}
                 </h3>
-                <p className="mb-3 text-xs leading-relaxed text-gray-500">
+                <p className="mb-3 text-xs leading-relaxed text-fg-muted">
                   {t(
                     'shop:shop.contactText',
                     'Our medical team is available 24/7 to answer urgent questions and help you decide what to do next.',
@@ -451,7 +435,7 @@ const ArticlePage = () => {
                 <Button to="/contact" variant="secondary" className="w-full justify-center">
                   {t('common:nav.contact', 'Kontakt aufnehmen')}
                 </Button>
-              </section>
+              </Panel>
             </Reveal>
           </aside>
         </div>

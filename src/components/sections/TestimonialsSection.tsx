@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { testimonials } from '../../data/testimonials'
-import SectionHeader from '~/components/ui/SectionHeader'
-import { Button } from '~/components/ui/Button'
+import { Button, SectionHeader } from '~/design-system'
 
 // A simple Star SVG component
 const Star = ({ filled }: { filled: boolean }) => (

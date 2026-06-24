@@ -101,7 +101,7 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
             <button
               key={language.code}
               onClick={() => changeLanguage(language.code)}
-              className={`flex w-full items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${
+              className={`flex w-full items-center gap-3 px-4 py-2 text-sm text-fg hover:bg-gray-100 ${
                 i18n.language === language.code ? 'bg-gray-50 font-medium text-brand-primary' : ''
               }`}
             >

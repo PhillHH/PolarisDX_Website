@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom'
-import SectionHeader from '../components/ui/SectionHeader'
+import { Breadcrumbs, Container, InfoItem, Panel, SectionHeader } from '~/design-system'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, localBusinessSchema, createBreadcrumbSchema } from '../components/seo'
-import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import { ContactForm } from '../components/sections/ContactForm'
@@ -27,7 +26,7 @@ const ContactPage = () => {
           ]),
         ]}
       />
-      <div className="bg-slate-50 text-gray-900">
+      <div className="bg-slate-50 text-fg-heading">
         {/* Hero / Top */}
         <section className="relative overflow-hidden bg-brand-primary text-white">
           <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
@@ -37,11 +36,10 @@ const ContactPage = () => {
             <Reveal width="100%" yOffset={20}>
               <div className="max-w-container">
                 <Breadcrumbs
-                  variant="dark"
                   className="mb-4"
                   items={[{ label: 'Home', href: '/' }, { label: t('contact.hero.title') }]}
                 />
-                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
+                <p className="mb-2 text-xs font-semibold uppercase tracking-overline text-accent-strong">
                   {t('contact.hero.kicker')}
                 </p>
                 <h1 className="mb-3 text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
@@ -53,11 +51,11 @@ const ContactPage = () => {
         </section>
 
         {/* Form + Info */}
-        <div className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">
+        <Container className="py-12 lg:py-16">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,2.1fr)_minmax(0,1.3fr)] lg:items-start">
             {/* Form-Card */}
             <Reveal width="100%">
-              <section className="space-y-6 rounded-2xl bg-white p-6 shadow-sm lg:p-8">
+              <Panel padding="lg" className="space-y-6">
                 <SectionHeader
                   caption={t('contact.hero.kicker')}
                   title={t('contact.hero.title')}
@@ -65,54 +63,36 @@ const ContactPage = () => {
                 />
 
                 {/* Kontakt-Kanäle */}
-                <div className="mt-2 flex flex-col gap-4 text-sm text-gray-600 sm:flex-row sm:gap-8">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-secondary/20 text-brand-secondary">
-                      ✉
-                    </span>
-                    <div>
-                      <p className="text-xs font-medium uppercase tracking-[0.16em] text-gray-500">
-                        {t('contact.info.email_label')}
-                      </p>
-                      <p>contact@polarisdx.net</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-secondary/20 text-brand-secondary">
-                      ☎
-                    </span>
-                    <div>
-                      <p className="text-xs font-medium uppercase tracking-[0.16em] text-gray-500">
-                        {t('contact.info.phone_label')}
-                      </p>
-                      <p>+49 151 75011699</p>
-                    </div>
-                  </div>
+                <div className="mt-2 flex flex-col gap-4 text-sm text-fg sm:flex-row sm:gap-8">
+                  <InfoItem icon="✉" label={t('contact.info.email_label')}>
+                    contact@polarisdx.net
+                  </InfoItem>
+                  <InfoItem icon="☎" label={t('contact.info.phone_label')}>
+                    +49 151 75011699
+                  </InfoItem>
                 </div>
 
                 {/* Extracted Form Component */}
                 <ContactForm />
-              </section>
+              </Panel>
             </Reveal>
 
             {/* Info-Spalte / Desktop-Sidebar */}
             <aside className="space-y-6">
               <Reveal width="100%" delay={0.2}>
-                <section className="rounded-2xl bg-white p-6 shadow-sm">
-                  <h2 className="text-lg font-semibold tracking-tight text-gray-900">
+                <Panel>
+                  <h2 className="text-lg font-semibold tracking-tight text-fg-heading">
                     {t('contact.info.title')}
                   </h2>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-600">
-                    {t('contact.info.text')}
-                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-fg">{t('contact.info.text')}</p>
                   <div className="mt-4 space-y-1 text-sm text-gray-800">
                     <p>contact@polarisdx.net</p>
                     <p>+49 151 75011699</p>
                   </div>
-                </section>
+                </Panel>
 
-                <section className="rounded-2xl bg-white p-6 shadow-sm">
-                  <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-gray-500 mb-3">
+                <Panel>
+                  <h3 className="text-sm font-semibold uppercase tracking-overline text-fg-muted mb-3">
                     {t('contact.sidebar_links.title', 'Entdecken')}
                   </h3>
                   <nav className="space-y-2">
@@ -135,11 +115,11 @@ const ContactPage = () => {
                       {t('contact.sidebar_links.articles', 'Fachartikel lesen')} →
                     </Link>
                   </nav>
-                </section>
+                </Panel>
               </Reveal>
             </aside>
           </div>
-        </div>
+        </Container>
       </div>
     </PageTransition>
   )

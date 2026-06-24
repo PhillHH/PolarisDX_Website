@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ChevronDown, Search } from 'lucide-react'
-import { Button } from '../ui/Button'
+import { Button } from '~/design-system'
 import LanguageSwitcher from '../ui/LanguageSwitcher'
 import SearchModal from '../ui/SearchModal'
 import logo from '../../assets/polaris_white.webp'
@@ -101,7 +101,7 @@ const Header = () => {
                           <Link
                             key={child.label}
                             to={child.route}
-                            className="block px-6 py-2.5 text-sm text-gray-600 hover:bg-blue-50/50 hover:text-brand-primary transition-colors font-normal"
+                            className="block px-6 py-2.5 text-sm text-fg hover:bg-blue-50/50 hover:text-brand-primary transition-colors font-normal"
                           >
                             {t(`nav.${child.label}`)}
                           </Link>

@@ -1,6 +1,5 @@
 import { useHeroSlider } from '../../hooks/useHeroSlider'
-import { Button } from '../ui/Button'
-import StatItem from '../ui/StatItem'
+import { Button, Stat } from '~/design-system'
 import { useState, useEffect, useRef } from 'react'
 import iglooLogoWhite from '../../assets/igloo_logo_white.webp'
 
@@ -108,11 +107,11 @@ const HeroSection = () => {
               {/* SEO: Only first slide (dental) gets H1, others get H2 */}
               <div className={getContentAnimationClass()}>
                 {displaySlide === 0 ? (
-                  <h1 className="max-w-3xl font-medium tracking-[-0.02em] text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)]">
+                  <h1 className="max-w-3xl font-medium tracking-headline text-display">
                     {currentDisplaySlide.content.title}
                   </h1>
                 ) : (
-                  <h2 className="max-w-3xl font-medium tracking-[-0.02em] text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)]">
+                  <h2 className="max-w-3xl font-medium tracking-headline text-display">
                     {currentDisplaySlide.content.title}
                   </h2>
                 )}
@@ -144,16 +143,14 @@ const HeroSection = () => {
               </div>
 
               <div className="mt-6 flex flex-row items-start gap-6 lg:mt-4">
-                <StatItem
+                <Stat
                   value={t('hero.stat1.value', '48h')}
                   label={t('hero.stat1.label', 'Einsatzbereit nach Bestellung')}
-                  size="sm"
                   className="scale-75 origin-top-left py-0"
                 />
-                <StatItem
+                <Stat
                   value={t('hero.stat2.value', 'CV < 2%')}
                   label={t('hero.stat2.label', 'Präzision über den gesamten Messbereich')}
-                  size="sm"
                   className="scale-75 origin-top-left py-0"
                 />
               </div>

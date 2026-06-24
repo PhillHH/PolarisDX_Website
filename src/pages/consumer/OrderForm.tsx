@@ -197,7 +197,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
         <h3 className="mt-5 text-2xl font-bold text-gray-900">
           Thank you — your order request is in.
         </h3>
-        <p className="mx-auto mt-3 max-w-md text-gray-600">
+        <p className="mx-auto mt-3 max-w-md text-fg">
           We'll be in touch within two working days with pricing, shipping and payment details. No
           spam, no newsletters — only the follow-up on this order.
         </p>
@@ -377,7 +377,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
           onChange={(e) => setConsent(e.target.checked)}
           className="mt-1 h-4 w-4 flex-none rounded border-slate-300 text-teal-600 focus:ring-teal-500"
         />
-        <span className="text-sm leading-relaxed text-gray-600">
+        <span className="text-sm leading-relaxed text-fg">
           I consent to PolarisDX processing the data above for the sole purpose of handling this
           order request. Details on storage, retention and your rights are in our{' '}
           <Link to="/privacy" className="font-medium text-teal-700 underline hover:text-teal-900">

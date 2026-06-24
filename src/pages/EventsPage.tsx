@@ -3,10 +3,9 @@ import { useTranslation } from 'react-i18next'
 import { Calendar, MapPin, Award, Wind } from 'lucide-react'
 import { events } from '../data/events'
 import { SEOHead, createBreadcrumbSchema, createEventSchema } from '../components/seo'
-import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
-import Eyebrow from '../components/ui/Eyebrow'
+import { Badge, Breadcrumbs, Container, Eyebrow } from '~/design-system'
 
 const monthNames: Record<string, string[]> = {
   de: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
@@ -93,13 +92,10 @@ const EventsPage: React.FC = () => {
         <div className="absolute top-20 -left-32 w-96 h-96 rounded-full bg-brand-secondary/10 blur-3xl pointer-events-none" />
         <div className="absolute -bottom-20 -right-32 w-80 h-80 rounded-full bg-brand-primary/20 blur-3xl pointer-events-none" />
 
-        <div className="mx-auto max-w-container px-4 text-center lg:px-0 relative z-10">
+        <Container className="text-center relative z-10">
           <Reveal width="100%" yOffset={20}>
             <div className="flex justify-center mb-4">
-              <Breadcrumbs
-                variant="dark"
-                items={[{ label: 'Home', href: '/' }, { label: t('events:title') }]}
-              />
+              <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: t('events:title') }]} />
             </div>
             <div className="flex justify-center">
               <Eyebrow size="sm" className="mb-2">
@@ -113,7 +109,7 @@ const EventsPage: React.FC = () => {
               {t('events:intro')}
             </p>
           </Reveal>
-        </div>
+        </Container>
       </div>
 
       {/* Timeline Section */}
@@ -189,25 +185,25 @@ const EventsPage: React.FC = () => {
                           {/* Tags row */}
                           <div className="flex flex-wrap items-center gap-2 mb-3">
                             {event.tag && (
-                              <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-brand-primary/10 text-brand-primary">
+                              <Badge variant="brand" uppercase>
                                 {event.tag}
-                              </span>
+                              </Badge>
                             )}
                             {event.partner && (
-                              <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full bg-brand-secondary/10 text-brand-secondary">
+                              <Badge variant="accent">
                                 <Award className="w-3 h-3" />
                                 {event.partner}
-                              </span>
+                              </Badge>
                             )}
                           </div>
 
                           {/* Title */}
-                          <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-primary transition-colors">
+                          <h3 className="text-xl font-bold text-fg-heading mb-3 group-hover:text-brand-primary transition-colors">
                             {event.title}
                           </h3>
 
                           {/* Date & Location */}
-                          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-gray-500 mb-3">
+                          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-fg-muted mb-3">
                             <div className="flex items-center gap-2">
                               <Calendar className="w-4 h-4 text-brand-primary shrink-0" />
                               <span className="font-medium">
@@ -222,9 +218,7 @@ const EventsPage: React.FC = () => {
 
                           {/* Description */}
                           {event.description && (
-                            <p className="text-gray-600 text-sm leading-relaxed">
-                              {event.description}
-                            </p>
+                            <p className="text-fg text-sm leading-relaxed">{event.description}</p>
                           )}
                         </div>
                       </div>

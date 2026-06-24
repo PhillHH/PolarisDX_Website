@@ -209,9 +209,7 @@ function OrderModalDialog({
           <h2 id={titleId} className="mt-1 pr-10 text-xl font-bold text-gray-900 sm:text-2xl">
             {titleCopy.title}
           </h2>
-          <p className="mt-2 max-w-md pr-10 text-sm leading-relaxed text-gray-600">
-            {titleCopy.sub}
-          </p>
+          <p className="mt-2 max-w-md pr-10 text-sm leading-relaxed text-fg">{titleCopy.sub}</p>
           <button
             ref={closeBtnRef}
             type="button"

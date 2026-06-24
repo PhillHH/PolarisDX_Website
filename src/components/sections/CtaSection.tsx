@@ -1,4 +1,4 @@
-import { Button } from '../ui/Button'
+import { Button } from '~/design-system'
 import avatar from '../../assets/avatar.webp'
 import { useTranslation } from 'react-i18next'
 

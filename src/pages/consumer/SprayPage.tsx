@@ -196,7 +196,7 @@ function SprayPageInner() {
           {BENEFITS.map((b) => (
             <Card key={b.title}>
               <h3 className="text-xl font-semibold text-gray-900">{b.title}</h3>
-              <p className="mt-3 leading-relaxed text-gray-600">{b.body}</p>
+              <p className="mt-3 leading-relaxed text-fg">{b.body}</p>
             </Card>
           ))}
         </Grid>
@@ -214,7 +214,7 @@ function SprayPageInner() {
           {AUDIENCES.map((a) => (
             <Card key={a.title} className="flex flex-col">
               <h3 className="text-xl font-semibold text-gray-900">{a.title}</h3>
-              <p className="mt-3 flex-grow leading-relaxed text-gray-600">{a.body}</p>
+              <p className="mt-3 flex-grow leading-relaxed text-fg">{a.body}</p>
               <button
                 type="button"
                 onClick={() =>
@@ -241,7 +241,7 @@ function SprayPageInner() {
               {FACTS.map(([label, value]) => (
                 <div key={label} className="flex gap-6 px-8 py-5">
                   <dt className="w-40 flex-none text-sm font-semibold text-gray-900">{label}</dt>
-                  <dd className="text-gray-600">{value}</dd>
+                  <dd className="text-fg">{value}</dd>
                 </div>
               ))}
             </dl>
@@ -303,7 +303,7 @@ function SprayPageInner() {
           {SUBLINGUAL.map((s) => (
             <Card key={s.title}>
               <h3 className="text-xl font-semibold text-gray-900">{s.title}</h3>
-              <p className="mt-3 leading-relaxed text-gray-600">{s.body}</p>
+              <p className="mt-3 leading-relaxed text-fg">{s.body}</p>
             </Card>
           ))}
         </Grid>

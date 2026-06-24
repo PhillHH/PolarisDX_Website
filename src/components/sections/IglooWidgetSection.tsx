@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Sparkles, Infinity as InfinityIcon } from 'lucide-react'
 import { Tooth } from '../ui/icons/Tooth'
-import Eyebrow from '../ui/Eyebrow'
+import { Container, Eyebrow } from '~/design-system'
 import iglooImage from '../../assets/igloo_front.webp'
 
 const IglooWidgetSection = () => {
@@ -44,11 +44,11 @@ const IglooWidgetSection = () => {
 
   return (
     <section className="relative py-20 lg:py-32 bg-slate-50 overflow-visible">
-      <div className="mx-auto max-w-container px-4 text-center lg:px-0 mb-16 relative z-10">
+      <Container className="text-center mb-16 relative z-10">
         <Eyebrow size="default" className="mb-8">
           {t('igloo_widget.title', 'Anwendungsbereiche')}
         </Eyebrow>
-      </div>
+      </Container>
 
       <div className="mx-auto flex w-full flex-col items-center justify-center gap-10 lg:block lg:h-[600px] lg:w-[1200px] relative px-4 lg:px-0">
         {/* Decorative connecting lines for desktop (Triangle) */}

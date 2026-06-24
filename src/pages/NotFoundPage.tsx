@@ -45,7 +45,7 @@ const NotFoundPage = () => {
             <div className="flex justify-center mb-6">
               <div className="inline-block rounded p-px bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
                 <div className="rounded-sm bg-slate-50 px-4 py-1.5">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-gray-900">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-fg-heading">
                     {t('notFound.badge', 'Seite nicht gefunden')}
                   </span>
                 </div>

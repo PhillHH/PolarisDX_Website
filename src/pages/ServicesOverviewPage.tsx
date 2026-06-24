@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { SEOHead, createBreadcrumbSchema } from '../components/seo'
-import { Breadcrumbs } from '../components/ui/Breadcrumbs'
+import { Breadcrumbs } from '~/design-system'
 import ServicesSection from '../components/sections/ServicesSection'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
@@ -41,7 +41,6 @@ const ServicesOverviewPage = () => {
             <Reveal width="100%" yOffset={20}>
               <div className="max-w-container">
                 <Breadcrumbs
-                  variant="dark"
                   className="mb-4"
                   items={[
                     { label: t('common:nav.home', 'Home'), href: '/' },

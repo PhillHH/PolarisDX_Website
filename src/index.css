@@ -1,3 +1,8 @@
+/* Design Tokens — Single Source of Truth (§3, Phase 1). Nur Variablen-Definitionen,
+   keine paintenden Selektoren → reiner Additiv-Import ohne visuelle Aenderung.
+   @import steht vor allen anderen Regeln (CSS-Spec). */
+@import './design-system/tokens/tokens.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

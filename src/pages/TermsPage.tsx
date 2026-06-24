@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { SEOHead } from '../components/seo'
+import { Container } from '~/design-system'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 
@@ -24,12 +25,12 @@ const TermsPage = () => {
         noindex={true}
       />
       <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-brand-primary text-white">
-        <div className="mx-auto max-w-container px-4 text-center lg:px-0">
+        <Container className="text-center">
           <Reveal width="100%" yOffset={20}>
             <div className="flex justify-center">
               <div className="inline-block rounded p-px bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 mb-2">
                 <div className="rounded-sm bg-slate-50 px-3 py-1">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-gray-900">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-fg-heading">
                     {t('agb.title', 'AGB')}
                   </span>
                 </div>
@@ -41,10 +42,10 @@ const TermsPage = () => {
             <p className="mx-auto mt-6 max-w-2xl text-lg text-white/80">{t('agb.subtitle')}</p>
             <p className="mt-4 text-sm text-white/60">{t('agb.date')}</p>
           </Reveal>
-        </div>
+        </Container>
       </div>
 
-      <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
+      <Container className="py-16 lg:py-24">
         <div className="lg:grid lg:grid-cols-4 lg:gap-12">
           {/* Main Content - Left side on desktop */}
           <div className="lg:col-span-3 prose prose-slate max-w-none dark:prose-invert">
@@ -90,7 +91,7 @@ const TermsPage = () => {
             </Reveal>
           </aside>
         </div>
-      </div>
+      </Container>
     </PageTransition>
   )
 }

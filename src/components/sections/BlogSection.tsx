@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import SectionHeader from '../ui/SectionHeader'
+import { SectionHeader } from '~/design-system'
 import BlogCard from '../ui/BlogCard'
 import { blogPosts } from '../../data/blogPosts'
 import { getArticleImageUrl } from '../../assets/articleImages'
@@ -21,13 +21,13 @@ const BlogSection = () => {
         className="group block overflow-hidden rounded-2xl border border-brand-primary/20 bg-gradient-to-r from-brand-primary/5 to-transparent transition-all duration-300 hover:shadow-lg hover:border-brand-primary/40"
       >
         <div className="p-6">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-primary">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-overline text-accent-strong">
             {t('blog.featured', 'Fachartikel')}
           </p>
-          <h3 className="text-lg font-semibold text-gray-900 group-hover:text-brand-primary transition-colors">
+          <h3 className="text-lg font-semibold text-fg-heading group-hover:text-brand-primary transition-colors">
             Vitamin D3 und Implantologie — Evidenz und Praxisleitfaden
           </h3>
-          <p className="mt-2 text-sm text-gray-500">
+          <p className="mt-2 text-sm text-fg-muted">
             Wissenschaftlich fundierte Erkenntnisse zur Rolle von Vitamin D bei der
             Osseointegration.
           </p>

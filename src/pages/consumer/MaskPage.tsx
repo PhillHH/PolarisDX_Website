@@ -171,7 +171,7 @@ function MaskPageInner() {
           {BENEFITS.map((b) => (
             <Card key={b.title}>
               <h3 className="text-xl font-semibold text-gray-900">{b.title}</h3>
-              <p className="mt-3 leading-relaxed text-gray-600">{b.body}</p>
+              <p className="mt-3 leading-relaxed text-fg">{b.body}</p>
             </Card>
           ))}
         </Grid>
@@ -191,7 +191,7 @@ function MaskPageInner() {
               <h3 className="text-base font-semibold tracking-tight text-gray-900">
                 {group.title}
               </h3>
-              <ul className="mt-4 space-y-2 text-gray-600">
+              <ul className="mt-4 space-y-2 text-fg">
                 {group.items.map((it) => (
                   <li key={it}>{it}</li>
                 ))}
@@ -231,7 +231,7 @@ function MaskPageInner() {
           <div className="flex justify-center">
             <Pills items={['All skin types', 'Dry skin', 'Sensitive skin', 'Mature skin']} />
           </div>
-          <p className="mt-6 leading-relaxed text-gray-600">
+          <p className="mt-6 leading-relaxed text-fg">
             The packaging states all skin types. It is positioned especially for dry, sensitive or
             mature skin. Patch test first if your skin is very reactive, and do not use on irritated
             or broken skin.
@@ -242,7 +242,7 @@ function MaskPageInner() {
       {/* 8 · 5-PACK OFFER */}
       <Section id="order" eyebrow="The 5-pack" title="Five masks in one box">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-lg leading-relaxed text-gray-600">
+          <p className="text-lg leading-relaxed text-fg">
             One folding box contains 5 individually packed 15 ml sheet masks — easy to keep on hand
             and to reach for whenever skin needs a hydration step.
           </p>

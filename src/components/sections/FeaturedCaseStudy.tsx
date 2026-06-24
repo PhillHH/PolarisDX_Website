@@ -36,7 +36,9 @@ const FeaturedCaseStudy = () => {
                 <div className="bg-yellow-100 p-2 rounded-lg text-yellow-600 shrink-0">
                   <Trophy className="w-5 h-5" />
                 </div>
-                <p className="text-gray-900 font-semibold text-sm">{t('reasons32.about.award')}</p>
+                <p className="text-fg-heading font-semibold text-sm">
+                  {t('reasons32.about.award')}
+                </p>
               </div>
             </div>
 
@@ -46,13 +48,11 @@ const FeaturedCaseStudy = () => {
                 {t('reasons32.subtitle')}
               </span>
 
-              <h2 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+              <h2 className="text-2xl lg:text-4xl font-bold text-fg-heading mb-6 leading-tight">
                 {t('reasons32.title')}
               </h2>
 
-              <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                {t('reasons32.intro.text')}
-              </p>
+              <p className="text-fg text-lg leading-relaxed mb-8">{t('reasons32.intro.text')}</p>
 
               <div>
                 <Link

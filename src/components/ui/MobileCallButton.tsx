@@ -34,14 +34,14 @@ const MobileCallButton = () => {
             <a
               href={`tel:${phoneNumberClean}`}
               onClick={() => setIsExpanded(false)}
-              className="ml-3 mr-1 whitespace-nowrap text-sm font-semibold text-gray-900"
+              className="ml-3 mr-1 whitespace-nowrap text-sm font-semibold text-fg-heading"
             >
               {t('contact.call_us_text', 'Rufen Sie uns an')}
             </a>
             <button
               onClick={() => setIsExpanded(false)}
               aria-label={t('contact.collapse_button', 'Schließen')}
-              className="ml-2 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-500 transition-colors hover:bg-gray-200"
+              className="ml-2 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-fg-muted transition-colors hover:bg-gray-200"
             >
               <X className="h-4 w-4" />
             </button>

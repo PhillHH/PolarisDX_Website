@@ -290,7 +290,7 @@ export function Hero({
               <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-gray-900 sm:text-5xl lg:text-[3.25rem] lg:leading-[1.05]">
                 {title}
               </h1>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-gray-600">{sub}</p>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-fg">{sub}</p>
               <div className="mt-10 flex flex-wrap items-center gap-3">
                 <CTA
                   href={primary.href}
@@ -448,7 +448,7 @@ export function Section({
         {lead && (
           <p
             className={`mt-6 max-w-3xl text-lg leading-relaxed ${
-              isDark ? 'text-white/80' : 'text-gray-600'
+              isDark ? 'text-white/80' : 'text-fg'
             } ${align === 'center' ? 'mx-auto text-center' : ''}`}
           >
             {lead}
@@ -535,7 +535,7 @@ export function Steps({ items }: { items: { title: string; body: string }[] }) {
             {i + 1}
           </div>
           <h3 className="mt-5 text-xl font-semibold text-gray-900">{s.title}</h3>
-          <p className="mt-2 leading-relaxed text-gray-600">{s.body}</p>
+          <p className="mt-2 leading-relaxed text-fg">{s.body}</p>
         </Card>
       ))}
     </Grid>
@@ -560,7 +560,7 @@ export function Callout({ title, children }: { title?: string; children: ReactNo
   return (
     <div className="mx-auto max-w-3xl rounded-2xl border border-teal-200/60 bg-teal-50/60 p-8 text-center shadow-sm">
       {title && <p className="text-base font-semibold text-gray-900">{title}</p>}
-      <div className="mt-2 leading-relaxed text-gray-700">{children}</div>
+      <div className="mt-2 leading-relaxed text-fg">{children}</div>
     </div>
   )
 }
@@ -586,7 +586,7 @@ export function FAQ({ items }: { items: { q: string; a: string }[] }) {
               +
             </span>
           </summary>
-          <p className="mt-4 leading-relaxed text-gray-600">{it.a}</p>
+          <p className="mt-4 leading-relaxed text-fg">{it.a}</p>
         </details>
       ))}
     </div>

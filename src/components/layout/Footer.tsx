@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
+import { Container } from '~/design-system'
 import logo from '../../assets/polarisdx_logo.webp'
 import CtaSection from '../sections/CtaSection'
 import { Linkedin, Instagram } from 'lucide-react'
@@ -20,11 +21,11 @@ const Footer = () => {
       <div className="relative">
         {/* CTA-Karte in Content-Breite, die in den Footer hineinragt */}
         {!isContactPage && (
-          <div className="mx-auto max-w-container px-4 lg:px-0">
+          <Container>
             <div className="-translate-y-1/2">
               <CtaSection />
             </div>
-          </div>
+          </Container>
         )}
 
         {/* Footer-Inhalte, mit zusätzlichem Padding oben für die überlagernde Karte */}

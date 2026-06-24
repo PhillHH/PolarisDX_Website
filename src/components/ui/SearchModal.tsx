@@ -5,8 +5,7 @@ import { X, Search as SearchIcon, ChevronRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useSearch } from '../../hooks/useSearch'
 import { useScrollLock } from '../../hooks/useScrollLock'
-import { LoadingSpinner } from './LoadingSpinner'
-import { Alert } from './Alert'
+import { Alert, EmptyState, Spinner } from '~/design-system'
 
 interface SearchModalProps {
   isOpen: boolean
@@ -53,14 +52,14 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
           <input
             id="search-input"
             type="text"
-            className="flex-1 text-lg outline-none placeholder:text-gray-400 text-gray-900"
+            className="flex-1 text-lg outline-none placeholder:text-gray-400 text-fg-heading"
             placeholder={t('searchPlaceholder', 'Suche...')}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
           <button
             onClick={onClose}
-            className="rounded-full p-1 hover:bg-gray-100 transition-colors text-gray-500"
+            className="rounded-full p-1 hover:bg-gray-100 transition-colors text-fg-muted"
           >
             <X className="h-5 w-5" />
           </button>
@@ -71,14 +70,14 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
           {/* Loading State */}
           {isSearching && (
             <div className="py-10 flex justify-center text-gray-400">
-              <LoadingSpinner />
+              <Spinner />
             </div>
           )}
 
           {/* Error State */}
           {!isSearching && error && (
             <div className="p-4">
-              <Alert variant="destructive">
+              <Alert variant="danger">
                 {error.message || t('error', 'Ein Fehler ist aufgetreten.')}
               </Alert>
             </div>
@@ -86,9 +85,7 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
 
           {/* No Results */}
           {!isSearching && !error && query && results.length === 0 && (
-            <div className="py-10 text-center text-gray-500">
-              {t('noResults', 'Keine Ergebnisse gefunden.')}
-            </div>
+            <EmptyState title={t('noResults', 'Keine Ergebnisse gefunden.')} />
           )}
 
           {/* Start Typing */}
@@ -114,16 +111,16 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
                         className={`text-xxs uppercase font-bold tracking-wider px-1.5 py-0.5 rounded
                                         ${result.type === 'article' ? 'bg-purple-100 text-purple-700' : ''}
                                         ${result.type === 'service' ? 'bg-blue-100 text-blue-700' : ''}
-                                        ${result.type === 'page' ? 'bg-gray-100 text-gray-600' : ''}
+                                        ${result.type === 'page' ? 'bg-gray-100 text-fg' : ''}
                                     `}
                       >
                         {result.type}
                       </span>
-                      <span className="font-medium text-gray-900 group-hover:text-brand-primary transition-colors">
+                      <span className="font-medium text-fg-heading group-hover:text-brand-primary transition-colors">
                         {result.title}
                       </span>
                     </div>
-                    <span className="text-sm text-gray-500 line-clamp-1 ml-1">
+                    <span className="text-sm text-fg-muted line-clamp-1 ml-1">
                       {result.description}
                     </span>
                   </div>
