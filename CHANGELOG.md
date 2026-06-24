@@ -7,6 +7,16 @@ versioniert nach SemVer + datiert (§1.18). Nutzersichtbare Aenderungen zuerst.
 
 ### Phase 3 + 4 — Visueller-Craft-Pass × Layout (pro Komponente verschränkt)
 
+#### 2026-06-25 — Farb-Rollen-Pass: geteilte UI-Molecules + Form-Sections (§3.3)
+
+- **style · fix** — Geteilte Main-Site-Bausteine auf Rollen-Tokens:
+  `MobileCallButton` (`bg-blue-600`→`bg-primary`, `bg-blue-700`→`bg-primary-hover`),
+  `LanguageSwitcher` (`bg-white`→`bg-surface`, `ring-black/5`→`ring-brand-navy/5`,
+  `bg-gray-50/100`→`bg-bg-subtle`), `BlogCard`/`TeamSection` (`bg-gray-100`→
+  `bg-bg-subtle`), `ServiceCard` (`from-gray-100 to-white`→`from-bg-subtle
+to-surface`), `SupportForm`/`ContactForm` (Upload-Button + Consent-Checkbox →
+  `bg-surface`/`bg-bg-subtle`/`border-[var(--color-border-strong)]`).
+
 #### 2026-06-25 — Farb-Rollen-Pass: SearchModal (§3.3)
 
 - **style · fix** — `SearchModal` Roh-`gray/blue/purple` → Rollen-Tokens: Scrim

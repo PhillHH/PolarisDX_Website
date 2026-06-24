@@ -17,7 +17,7 @@ const ServiceCard = ({ service, className }: ServiceCardProps) => {
       interactive
       className={cn('group flex flex-col', className)}
     >
-      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-gray-100 to-white text-brand-primary shadow-inner border border-white">
+      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-bg-subtle to-surface text-brand-primary shadow-inner border border-[var(--color-surface)]">
         {service.icon}
       </div>
       <h3 className="mb-3 text-xl font-medium tracking-tight text-fg-heading group-hover:text-brand-deep transition-colors">

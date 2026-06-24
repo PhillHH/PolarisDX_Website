@@ -15,7 +15,7 @@ const BlogCard = ({ id, imageUrl, to }: BlogCardProps) => {
 
   return (
     <Card as="article" interactive padding="none" className="flex h-full flex-col overflow-hidden">
-      <div className="relative h-64 w-full bg-gray-100 overflow-hidden">
+      <div className="relative h-64 w-full bg-bg-subtle overflow-hidden">
         {imageUrl && (
           <>
             <img

@@ -134,7 +134,7 @@ export const SupportForm = () => {
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="inline-flex items-center rounded-md border border-ui-border bg-white px-4 py-2 text-sm font-medium text-fg hover:bg-gray-50 transition-colors"
+            className="inline-flex items-center rounded-md border border-ui-border bg-surface px-4 py-2 text-sm font-medium text-fg hover:bg-bg-subtle transition-colors"
           >
             {t('support.form.attachment_button')}
           </button>
@@ -165,7 +165,7 @@ export const SupportForm = () => {
               name="consent"
               type="checkbox"
               required
-              className="h-4 w-4 rounded border-gray-300 text-brand-secondary focus:ring-brand-secondary"
+              className="h-4 w-4 rounded border-[var(--color-border-strong)] text-brand-secondary focus:ring-brand-secondary"
             />
           </div>
           <label htmlFor="consent" className="text-sm text-fg">

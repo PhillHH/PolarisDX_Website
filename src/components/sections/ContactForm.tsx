@@ -110,7 +110,7 @@ export const ContactForm = () => {
               name="consent"
               type="checkbox"
               required
-              className="h-4 w-4 rounded border-gray-300 text-brand-secondary focus:ring-brand-secondary"
+              className="h-4 w-4 rounded border-[var(--color-border-strong)] text-brand-secondary focus:ring-brand-secondary"
             />
           </div>
           <label htmlFor="consent" className="text-sm text-fg">

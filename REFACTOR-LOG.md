@@ -2483,3 +2483,56 @@ grep dist CSS → background-color:rgb(var(--brand-blue-rgb)/.12) ✓ (Brand-Tin
 ```
 
 Sandbox-Kontrast-/axe-Gate weiterhin CI/Preview (s. 3m).
+
+### Einheit 3o — Farb-Rollen-Pass (§3.3): geteilte UI-Molecules + Form-Sections (2026-06-25)
+
+Fortsetzung des **Farb-Rollen-Passes (§3.3)**. Nach den App-Overlays (CookieBanner
+3m, SearchModal 3n) folgt der **atomar top-down** korrekte Schritt: die
+**geteilten Main-Site-Bausteine** (ui/-Molecules + Form-Organismen), die von
+mehreren Seiten konsumiert werden — Recolor an der Quelle reduziert die
+Seiten-Treffer mit Hebel. Reine Neutral→Rollen- und Blau→Primary-Mappings,
+keine ambivalenten Akzente (Gold-Stars/Gradient-Organismen bewusst auf eine
+eigene Folge-Einheit verschoben).
+
+**Migrierte Bausteine (Main-Site):**
+
+- **`MobileCallButton`** (Floating-Call-CTA): collapsed-Pille `bg-blue-600` →
+  `bg-primary`, Icon-Kreis collapsed `bg-blue-700 text-white` → `bg-primary-hover
+text-fg-on-dark` (tiefere Primary-Stufe), expanded `bg-white`→`bg-surface`,
+  `bg-gray-50`→`bg-bg-subtle`; Close-Button `bg-gray-100 hover:bg-gray-200` →
+  `bg-bg-subtle hover:bg-[var(--color-border)]`.
+- **`LanguageSwitcher`** (Dropdown): `bg-white`→`bg-surface`, Elevation-Ring
+  `ring-black ring-opacity-5` → `ring-brand-navy/5` (Navy-Tint = etablierte
+  Schatten-/Ring-Konvention), Hover/Selected `hover:bg-gray-100`/`bg-gray-50` →
+  `bg-bg-subtle`.
+- **`BlogCard`** / **`TeamSection`**: Bild-Platzhalterflächen `bg-gray-100` →
+  `bg-bg-subtle`.
+- **`ServiceCard`** (Icon-Tile): `from-gray-100 to-white` → `from-bg-subtle
+to-surface`, `border-white` → `border-[var(--color-surface)]`.
+- **`SupportForm`** / **`ContactForm`**: Upload-Button `bg-white hover:bg-gray-50`
+  → `bg-surface hover:bg-bg-subtle`; Consent-Checkbox `border-gray-300` →
+  `border-[var(--color-border-strong)]` (neutral-300 = byte-identisch; Häkchen/
+  Focus bereits `brand-secondary`).
+
+**Byte-identisch (§1.6):** `--color-border-strong`=neutral-300, `--color-surface`
+=neutral-0 lösen in Light auf exakt die ersetzten Roh-Werte auf; `bg-bg-subtle`/
+`bg-primary`-Mappings sind bewusste Rollen-Recolors (§3.3).
+
+**Verifikation (ausgeführt §1.15, 2026-06-25):**
+
+```
+rg -nP "(bg|text|border|ring|from|via|to|placeholder)-(gray|blue|slate|…)-[0-9]{2,3}"
+   MobileCallButton/LanguageSwitcher/BlogCard/ServiceCard/TeamSection/SupportForm/ContactForm
+                                                → NONE ✓
+npm run build      → ✓ exit 0 (client+server, 921ms)
+npm run typecheck  → ✓ exit 0 (tsc -b)
+npm run lint       → ✓ 0 errors / 15 Baseline-warns
+grep dist CSS → var(--color-border-strong) / var(--color-surface) / var(--color-border) kompiliert ✓
+```
+
+Sandbox-Kontrast-/axe-WCAG-AA-Gate weiterhin auf CI/Preview verlagert (s. 3m).
+
+**Verbleibend Phase-3-Farb-Rollen-Pass:** Gradient-Organismen (HeroSection /
+TestimonialsSection / IglooWidgetSection / FeaturedCaseStudy — `to-gray-900`-
+Gradients, dekorative Blau-Blobs, Gold-Rating-Stars) als eigene Einheit, dann die
+Main-Site-Pages; Consumer-Theme-Pass (teal/light) bleibt separat.

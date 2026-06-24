@@ -48,7 +48,7 @@ const TeamSection = () => {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {team.map((member) => (
             <div key={member.id} className="flex flex-col items-start text-left group">
-              <div className="mb-6 w-full overflow-hidden rounded-2xl bg-gray-100 relative">
+              <div className="mb-6 w-full overflow-hidden rounded-2xl bg-bg-subtle relative">
                 {/* Gradient overlay on hover could be nice, keeping it simple for now */}
                 <img
                   src={member.image}
