@@ -102,6 +102,11 @@ export default {
         display: ['var(--text-display)', { lineHeight: 'var(--line-height-display)' }],
         'display-sm': ['var(--text-display-sm)', { lineHeight: 'var(--line-height-display-sm)' }],
       },
+      lineHeight: {
+        // Fliesstext-Leading aus dem DS-Token (§3.7) — ersetzt arbitrary leading-[1.75]
+        // in den Artikel-Prose-Bloecken. Override fuer das fontSize-Default-Leading.
+        body: 'var(--line-height-body)',
+      },
       letterSpacing: {
         headline: 'var(--letter-spacing-tight)', // Display-Titel-Tracking (war tracking-[-0.02em])
         overline: 'var(--letter-spacing-overline)', // Uppercase-Kicker-Tracking (war tracking-[0.16em])

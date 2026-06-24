@@ -118,7 +118,7 @@ const VitaminD3ImplantologyPage = () => {
 
           <div className="relative mx-auto flex min-h-[380px] max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
             <Reveal width="100%" yOffset={20}>
-              <div className="max-w-[900px] mx-auto">
+              <div className="max-w-4xl mx-auto">
                 {/* Breadcrumb */}
                 <nav className="mb-6 flex items-center gap-1.5 text-sm text-white/60">
                   <Link to="/" className="hover:text-brand-secondary transition-colors">
@@ -138,7 +138,7 @@ const VitaminD3ImplantologyPage = () => {
                 </Eyebrow>
 
                 {/* H1 */}
-                <h1 className="mb-5 text-2xl font-medium tracking-tight sm:text-3xl lg:text-[2.25rem] lg:leading-[1.2]">
+                <h1 className="mb-5 text-display-sm font-medium tracking-tight">
                   Vitamin-D-Mangel vor Implantation? So schließen Sie die Lücke im
                   Behandlungs&shy;pfad
                 </h1>
@@ -163,7 +163,7 @@ const VitaminD3ImplantologyPage = () => {
         </section>
 
         {/* Main Content with Sidebar */}
-        <div className="mx-auto max-w-[1200px] px-4 py-12 lg:py-16">
+        <div className="mx-auto max-w-container px-4 py-12 lg:py-16">
           <div className="lg:grid lg:grid-cols-[1fr_320px] lg:gap-10">
             {/* Main Article Column */}
             <article>
@@ -172,7 +172,7 @@ const VitaminD3ImplantologyPage = () => {
                 <AuthorByline className="mb-10" initials="FP" name="Fachredaktion PolarisDX" />
 
                 {/* Problem Section */}
-                <div className="space-y-6 text-[17px] leading-[1.75] text-fg">
+                <div className="space-y-6 text-lg leading-body text-fg">
                   <p>
                     Alles lief nach Plan: saubere Augmentation, präzise Insertion, gute
                     Primärstabilität. Und trotzdem meldet sich der Patient sechs Wochen später mit
@@ -195,7 +195,7 @@ const VitaminD3ImplantologyPage = () => {
                     Was die Studienlage zur Osseointegration zeigt
                   </h2>
 
-                  <div className="space-y-6 text-[17px] leading-[1.75] text-fg">
+                  <div className="space-y-6 text-lg leading-body text-fg">
                     <p>
                       Ein aktueller systematischer Review in <em>Periodontology 2000</em> (Miron et
                       al., 2025) hat 27 Humanstudien zur Beziehung zwischen{' '}
@@ -211,7 +211,7 @@ const VitaminD3ImplantologyPage = () => {
                     <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-brand-primary">
                       Kernbefunde
                     </p>
-                    <ul className="space-y-2 text-[15px] leading-relaxed text-fg">
+                    <ul className="space-y-2 text-base leading-body text-fg">
                       <li>
                         <strong>Vitamin D Zahnimplantat</strong>: Mangel wurde mit einem{' '}
                         <strong className="text-fg-heading">bis zu vierfach erhöhten Risiko</strong>{' '}
@@ -234,7 +234,7 @@ const VitaminD3ImplantologyPage = () => {
                     </p>
                   </div>
 
-                  <div className="space-y-6 text-[17px] leading-[1.75] text-fg">
+                  <div className="space-y-6 text-lg leading-body text-fg">
                     <p>
                       Gleichzeitig zeigen RKI-Daten, dass rund <strong>30 % der Erwachsenen</strong>{' '}
                       in Deutschland mangelhaft mit Vitamin D versorgt sind – nur etwa 38 %
@@ -252,7 +252,7 @@ const VitaminD3ImplantologyPage = () => {
                     Präoperatives Protokoll: Zielwerte und Dosierung
                   </h2>
 
-                  <div className="space-y-6 text-[17px] leading-[1.75] text-fg">
+                  <div className="space-y-6 text-lg leading-body text-fg">
                     <p>
                       Für einen optimalen <strong>Vitamin D Implantaterfolg</strong> empfiehlt die
                       aktuelle Literatur einen <strong>25-OH-Vitamin-D-Spiegel</strong> von
@@ -303,7 +303,7 @@ const VitaminD3ImplantologyPage = () => {
                     </table>
                   </div>
 
-                  <div className="space-y-6 text-[17px] leading-[1.75] text-fg">
+                  <div className="space-y-6 text-lg leading-body text-fg">
                     <p>
                       Die Kombination mit <strong>Vitamin K2 (MK-7)</strong> ist bei höheren Dosen
                       empfehlenswert: K2 aktiviert das Osteocalcin, das für die gezielte Einlagerung
@@ -356,7 +356,7 @@ const VitaminD3ImplantologyPage = () => {
                     Sie testen bereits – aber was empfehlen Sie danach?
                   </h2>
 
-                  <div className="space-y-6 text-[17px] leading-[1.75] text-fg">
+                  <div className="space-y-6 text-lg leading-body text-fg">
                     <p>
                       Viele Praxen, die{' '}
                       <Link
@@ -385,7 +385,7 @@ const VitaminD3ImplantologyPage = () => {
                     Den Behandlungspfad in der Praxis schließen
                   </h3>
 
-                  <div className="space-y-6 text-[17px] leading-[1.75] text-fg">
+                  <div className="space-y-6 text-lg leading-body text-fg">
                     <p>
                       Mit einem <strong>Vitamin D3+K2 Spray</strong> als Praxis-Dispensierprodukt
                       schließen Sie genau diese Lücke. Sublingual appliziert, hohe Bioverfügbarkeit,
@@ -614,7 +614,7 @@ const VitaminD3ImplantologyPage = () => {
                         <h3 className="mb-3 text-base font-semibold text-fg-heading">
                           {faq.question}
                         </h3>
-                        <p className="text-[15px] leading-relaxed text-fg">{faq.answer}</p>
+                        <p className="text-base leading-body text-fg">{faq.answer}</p>
                       </div>
                     ))}
                   </div>

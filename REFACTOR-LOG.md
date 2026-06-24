@@ -2161,3 +2161,66 @@ Reading-Width-Adoption für Artikel-Body/Forms und die Responsiv-Regression
 sm/md/lg/xl + Overflow-Assert benötigen den (hier blockierten) Chromium-/
 Playwright-Lauf — daher **nicht** als grün behauptet (§1.15). Statische Grid-/
 Spacing-Gates aus §Phase-4-Verifikation sind grün belegt.
+
+---
+
+## Phase 3 + 4 — Artikel-Lesetypografie & Container-Token (VitaminD3-Seiten, 2026-06-24)
+
+**Einheit 3g/4b (Phase 3 × 4 pro Komponente verschränkt, §4 Ausnahme; ein
+revertierbarer Change §1.5):** Die beiden Artikel-Seiten `VitaminD3ImplantologyPage`
+und `VitaminD3SprayPage` trugen die letzte Häufung **arbitrary Typografie-Werte**
+auf der Main-Site (Token-Pflicht-Verstoß §1.7 / §3.7 „kein Ad-hoc-`font-size`"):
+`text-[17px] leading-[1.75]` (Fließtext, 7+1 Blöcke), `text-[15px]
+leading-relaxed` (Sekundärtext, Listen/FAQ/Specs) und die Artikel-H1
+`text-2xl … lg:text-[2.25rem]/[2.5rem] lg:leading-[…]`.
+
+**Änderung (token-rein):**
+
+- **Fließtext** `text-[17px] leading-[1.75]` → `text-lg leading-body`
+  (18px = Skalenstufe `--font-size-400`; Leading aus DS-Token
+  `--line-height-body`/1.6). Neue **token-getriebene** Tailwind-Utility
+  `lineHeight.body = var(--line-height-body)` ergänzt (additiv, §3.3) — ersetzt
+  das arbitrary `leading-[1.75]`; im gebauten Client-CSS als
+  `.leading-body{line-height:var(--line-height-body)}` emittiert (verifiziert).
+- **Sekundärtext** `text-[15px]` → `text-base` (16px = `--font-size-300`,
+  Body-MIN) → erfüllt zusätzlich **Body/Input ≥16px** (§FIL/§1.11; vorher 15px
+  unter der Schwelle). Leading vereinheitlicht auf `leading-body`.
+- **Artikel-H1** → `text-display-sm` (fluid `--text-display-sm`, clamp 28→48,
+  Leading aus dem Token-Paar) — konsistent mit dem in Einheit 3a etablierten
+  Display-Token-Ansatz; ersetzt die manuelle responsive Leiter + arbitrary
+  `lg:text-[…]`/`lg:leading-[…]`.
+- **Inhalts-Container** `max-w-[1200px]` → `max-w-container` (token-referenziert
+  in `tailwind.config.js`, **byte-identisch** 1200px); Hero-Textspalte
+  `max-w-[900px]` → `max-w-4xl` (Standard-Skala 56rem, kein arbitrary).
+- **Farb-Rollen-Pass (§3.3):** verbliebenes Roh-`text-gray-800` (Spray, Dosier-
+  Text) → `text-fg`.
+
+**Bewusste Redesign-Entscheidung (§1.6 — markiert, reversibel via Git):** Fließtext
+17→18px, Leading 1.75→1.6 (DS-Body-Leading), Sekundärtext 15→16px, H1 auf fluid
+Display-Skala. Werte snappen bewusst auf die nicht-lineare Token-Skala (keine
+ungeraden 15/17px mehr, §Phase 1 DoD); Lesefluss-Optik bleibt erhalten.
+
+**Bewusst NICHT in dieser Einheit (§1.5 nicht vermengt):**
+
+- **Inhaltsabhängige Eigengrößen** bleiben (§4.1 erlaubt: „Eigengrößen dürfen
+  inhaltsabhängig sein"): Produktbild `lg:w-[380px]` (+`width`/`height`-Attribute),
+  Spec-Label-Spalte `min-w-[200px]`, Hero-`min-h-[…]`, Modal `max-h-[80vh]`,
+  EventsPage-Divider `max-w-[120px]`.
+- **Roh-Tailwind-Farben** in den USP-/Evidence-Boxen (`bg-blue-50/70`,
+  `bg-sky-50/50`, `border-sky-200`, `text-sky-600`, `text-green-500`): eigener
+  Farb-Rollen-Pass (Fortsetzung §3c–3f), hier nicht vermengt.
+
+**Verifikation (ausgeführt §1.15, 2026-06-24):**
+
+```
+rg -nP "\b(text|leading)-\[" src/pages/VitaminD3ImplantologyPage.tsx \
+       src/pages/VitaminD3SprayPage.tsx          → EMPTY (0 arbitrary Typo) ✓
+rg -n "max-w-\[(900px|1200px)\]" (beide Seiten)   → EMPTY ✓
+npm run build                                     → ✓ exit 0 (client+server)
+npm run typecheck (tsc -b)                         → ✓ exit 0
+npm run lint                                       → ✓ 0 errors / 15 Baseline-warns
+grep .leading-body dist/client/assets/*.css        → line-height:var(--line-height-body) ✓
+```
+
+**Offen (Umgebungs-Blocker, s. o.):** visuelle/Responsiv-Regression der Artikel-
+Seiten (Chromium/Playwright) — statische Token-/Typo-Gates sind grün belegt.

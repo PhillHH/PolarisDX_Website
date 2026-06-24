@@ -99,7 +99,7 @@ const VitaminD3SprayPage = () => {
                     {t('vitd3spray:hero.caption')}
                   </Eyebrow>
 
-                  <h1 className="mb-5 text-2xl font-medium tracking-tight sm:text-3xl lg:text-[2.5rem] lg:leading-[1.15]">
+                  <h1 className="mb-5 text-display-sm font-medium tracking-tight">
                     {t('vitd3spray:hero.title')}
                   </h1>
 
@@ -143,7 +143,7 @@ const VitaminD3SprayPage = () => {
         </section>
 
         {/* Main Content */}
-        <div className="mx-auto max-w-[1200px] px-4 py-12 lg:py-16">
+        <div className="mx-auto max-w-container px-4 py-12 lg:py-16">
           <div className="lg:grid lg:grid-cols-[1fr_320px] lg:gap-10">
             {/* Main Column */}
             <div>
@@ -153,7 +153,7 @@ const VitaminD3SprayPage = () => {
                   <h2 className="mb-6 text-xl font-semibold tracking-tight text-fg-heading sm:text-2xl">
                     {t('vitd3spray:intro.title')}
                   </h2>
-                  <div className="space-y-4 text-[17px] leading-[1.75] text-fg">
+                  <div className="space-y-4 text-lg leading-body text-fg">
                     <p>{t('vitd3spray:intro.text1')}</p>
                     <p>
                       <strong>{t('vitd3spray:intro.text2')}</strong>
@@ -171,14 +171,12 @@ const VitaminD3SprayPage = () => {
                       {t('vitd3spray:usp.title')}
                     </h3>
                   </div>
-                  <p className="mb-4 text-[15px] leading-relaxed text-fg">
-                    {t('vitd3spray:usp.text')}
-                  </p>
+                  <p className="mb-4 text-base leading-body text-fg">{t('vitd3spray:usp.text')}</p>
                   <div className="border-t border-sky-200 pt-4">
                     <p className="mb-1 text-xs font-bold uppercase tracking-wide text-sky-700">
                       {t('vitd3spray:usp.dosing_label')}
                     </p>
-                    <p className="text-[15px] text-gray-800">{t('vitd3spray:usp.dosing_text')}</p>
+                    <p className="text-base text-fg">{t('vitd3spray:usp.dosing_text')}</p>
                     <p className="mt-1 text-sm text-fg-muted">{t('vitd3spray:usp.dosing_note')}</p>
                   </div>
                 </section>
@@ -218,9 +216,7 @@ const VitaminD3SprayPage = () => {
                         <span className="min-w-[200px] text-sm font-medium text-fg-muted">
                           {spec.label}
                         </span>
-                        <span className="text-[15px] font-medium text-fg-heading">
-                          {spec.value}
-                        </span>
+                        <span className="text-base font-medium text-fg-heading">{spec.value}</span>
                       </div>
                     ))}
                   </div>
@@ -249,7 +245,7 @@ const VitaminD3SprayPage = () => {
                       {benefitItems.map((item, i) => (
                         <li
                           key={i}
-                          className="flex items-start gap-3 text-[15px] leading-relaxed text-fg"
+                          className="flex items-start gap-3 text-base leading-body text-fg"
                         >
                           <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-green-500" />
                           {item}
@@ -517,7 +513,7 @@ const VitaminD3SprayPage = () => {
                         <h3 className="mb-3 text-base font-semibold text-fg-heading">
                           {faq.question}
                         </h3>
-                        <p className="text-[15px] leading-relaxed text-fg">{faq.answer}</p>
+                        <p className="text-base leading-body text-fg">{faq.answer}</p>
                       </div>
                     ))}
                   </div>

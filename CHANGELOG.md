@@ -5,6 +5,25 @@ versioniert nach SemVer + datiert (§1.18). Nutzersichtbare Aenderungen zuerst.
 
 ## [Unreleased]
 
+### Phase 3 + 4 — Visueller-Craft-Pass × Layout (pro Komponente verschränkt)
+
+#### 2026-06-24 — Artikel-Lesetypografie & Container-Token (VitaminD3-Seiten, §3.7/§4.3)
+
+- **style · fix** — Arbitrary-Typografie in den beiden Artikel-Seiten
+  (`VitaminD3ImplantologyPage`, `VitaminD3SprayPage`) auf die Token-Skala
+  gehoben (§1.7 Token-Pflicht / §3.7): Fließtext `text-[17px] leading-[1.75]`
+  → `text-lg leading-body`, Sekundärtext `text-[15px]` → `text-base`
+  (Body ≥16px erfüllt), Artikel-H1 `text-2xl … lg:text-[2.25rem]/[2.5rem]
+lg:leading-[…]` → `text-display-sm` (fluid Display-Token wie §3a). **0**
+  arbitrary `text-[…]`/`leading-[…]` mehr in beiden Seiten.
+- **script · new** — Token-getriebene Tailwind-Utility `leading-body`
+  (`var(--line-height-body)`) ergänzt — Fließtext-Leading aus dem DS statt
+  `leading-[1.75]`.
+- **style · enhancement** — Inhalts-Container `max-w-[1200px]` → `max-w-container`
+  (token-referenziert, byte-identisch), Hero-Textspalte `max-w-[900px]` →
+  `max-w-4xl` (Standard-Skala). Letzte Roh-Farbe `text-gray-800` → `text-fg`
+  (Farb-Rollen-Pass §3.3).
+
 ### Phase 4 — Grid, Layout & Responsiveness
 
 #### 2026-06-24 — Layout-Primitives Stack/Cluster/Grid + Reading-Width (§4.2/4.4)
