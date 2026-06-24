@@ -7,6 +7,18 @@ versioniert nach SemVer + datiert (§1.18). Nutzersichtbare Aenderungen zuerst.
 
 ### Phase 3 + 4 — Visueller-Craft-Pass × Layout (pro Komponente verschränkt)
 
+#### 2026-06-25 — Consumer-Pass: arbitrary Typografie getilgt (§3.7)
+
+- **style · fix** — Uppercase-Kicker `tracking-[1.6px]` (5× in `shell`,
+  `OrderModal`, `OrderForm`, `PriceBadge`) → `tracking-overline` (DS-Sperrung).
+- **style · fix** — `PriceBadge`-Micro-Labels `text-[11px]` (2×) → `text-xs`
+  (12px, bessere Lesbarkeit).
+- **style · fix** — Consumer-Hero-`<h1>` von manueller Ladder
+  (`text-4xl leading-[1.1] sm:text-5xl lg:text-[3.25rem] lg:leading-[1.05]`) auf
+  `text-display tracking-headline` (fluid, Leading aus Token-Paar). **`src`
+  damit vollständig frei von arbitrary `text-`/`leading-`/`tracking-`-Werten
+  (Main-Site + Consumer).**
+
 #### 2026-06-24 — Letzte arbitrary Typografie der Main-Site getilgt (§3.7)
 
 - **style · fix** — NotFoundPage-404-Numeral `text-[10rem] sm:text-[12rem]` →

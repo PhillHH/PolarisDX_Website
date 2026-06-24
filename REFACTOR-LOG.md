@@ -2353,3 +2353,49 @@ grep text-display-xl dist/client/assets/*.css             → font-size:var(--te
 (`tracking-[1.6px]`, `text-[11px]`, `leading-[1.1]`, `lg:text-[3.25rem]`,
 `lg:leading-[1.05]`). Separater Farb-Rollen-Pass (§3.3) für Roh-Tailwind-Paletten
 (`bg-cyan-*`/`from-…`-Gradients) bleibt offen.
+
+### Einheit 3l — Consumer-Pass: arbitrary Typografie tilgen (light-Theme) (2026-06-24)
+
+Schließt die arbitrary **Typografie** auf der gesamten **Consumer-Site**
+(`src/pages/consumer/*`) und damit für `src` komplett (§1.7/§3.7). Vier Dateien,
+ein revertierbarer Change (§1.5). Token-Ziele existieren bereits — **keine neuen
+Tokens nötig**:
+
+- **Uppercase-Kicker** `tracking-[1.6px]` (5×: `shell` Hero-Eyebrow + Eyebrow-
+  Helper, `OrderModal`-Header, `OrderForm`-SectionLabel, `PriceBadge`-Popover) →
+  `tracking-overline` (`--letter-spacing-overline`/0.16em). Dieselbe Sperrungs-
+  Rolle wie die Main-Site-Overlines; 1.6px (≈0.13em auf 12px) auf das DS-Token
+  gesnappt — eine Sperrungs-Quelle site-weit.
+- **Micro-Labels** `text-[11px]` (2×: `PriceBadge` Popover-Eyebrow + Footnote) →
+  `text-xs` (12px, `--font-size-100`). 11→12px erhöht die Lesbarkeit der
+  getrackten Uppercase-Labels und entfernt den letzten arbitrary Schriftgrad.
+- **Consumer-Hero-H1** `text-4xl font-bold leading-[1.1] tracking-tight
+sm:text-5xl lg:text-[3.25rem] lg:leading-[1.05]` → `text-display font-bold
+tracking-headline`. Die manuelle 3-Stufen-Ladder + zwei arbitrary Leadings
+  fallen in einem Zug; `text-display` (fluid clamp 32→64) **trägt seine eigene
+  Leading** aus dem Token-Paar (`--line-height-display`), `tracking-headline` =
+  `--letter-spacing-tight`. `font-bold` (Consumer-Gewicht) + `text-gray-900`
+  (Theme-Farbe) bleiben unverändert.
+
+**Bewusste Redesign-Entscheidung (§1.6):** Consumer-Hero wird fluid und teilt
+nun die **eine** Hero-Display-Konvention mit allen Main-Site-Heroes (Holy-Grail-
+Typo). Theme bleibt getrennt (Farben teal/light unberührt — Typo-Token sind
+theme-agnostisch).
+
+**Verifikation (ausgeführt §1.15, 2026-06-24):**
+
+```
+rg -nP "\b(text|leading|tracking)-\[(?!length:var|var)" src --glob '!**/tokens.*'
+                                                → EMPTY (0 arbitrary Typo in GANZ src) ✓
+npm run build                                   → ✓ exit 0 (client+server, 943ms)
+npm run typecheck (tsc -b)                       → ✓ exit 0
+npm run lint                                     → ✓ 0 errors / 15 Baseline-warns
+grep .text-display dist/client/assets/*.css      → font-size:var(--text-display);
+                                                   line-height:var(--line-height-display) ✓
+grep letter-spacing:var(--letter-spacing-overline) dist/.../*.css → vorhanden ✓
+```
+
+**Damit ist `src` vollständig frei von arbitrary Typografie** (Main-Site +
+Consumer). Verbleibend für Phase 3: **Farb-Rollen-Pass (§3.3)** für Roh-Tailwind-
+Paletten (`bg-cyan-*`/`text-teal-*`/`from-…`-Gradients, ~276 Treffer) und
+axe-WCAG-AA gegen laufende Instanz.

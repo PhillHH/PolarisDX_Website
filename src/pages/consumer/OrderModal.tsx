@@ -203,7 +203,7 @@ function OrderModalDialog({
       <div className="relative flex max-h-[95vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-2xl bg-slate-50 shadow-2xl animate-modal-card-in motion-reduce:animate-none motion-reduce:opacity-100 sm:max-h-[90vh] sm:rounded-2xl">
         {/* Header */}
         <div className="relative flex-none border-b border-slate-200 bg-white px-6 py-5 sm:px-8">
-          <p className="text-xs font-semibold uppercase tracking-[1.6px] text-teal-700">
+          <p className="text-xs font-semibold uppercase tracking-overline text-teal-700">
             {titleCopy.eyebrow}
           </p>
           <h2 id={titleId} className="mt-1 pr-10 text-xl font-bold text-gray-900 sm:text-2xl">

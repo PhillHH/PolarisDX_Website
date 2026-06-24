@@ -286,12 +286,10 @@ export function Hero({
           <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
             {/* Text · left */}
             <div>
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[1.6px] text-teal-700">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-overline text-teal-700">
                 {eyebrow}
               </p>
-              <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-gray-900 sm:text-5xl lg:text-[3.25rem] lg:leading-[1.05]">
-                {title}
-              </h1>
+              <h1 className="text-display font-bold tracking-headline text-gray-900">{title}</h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-fg">{sub}</p>
               <div className="mt-10 flex flex-wrap items-center gap-3">
                 <CTA
@@ -389,7 +387,7 @@ function SectionTitle({
     <div className={`flex flex-col gap-3 ${flex}`}>
       {eyebrow && (
         <p
-          className={`text-xs font-semibold uppercase tracking-[1.6px] ${
+          className={`text-xs font-semibold uppercase tracking-overline ${
             onDark ? 'text-teal-300' : 'text-teal-700'
           }`}
         >

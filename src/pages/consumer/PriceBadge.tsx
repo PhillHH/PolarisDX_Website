@@ -257,7 +257,7 @@ export function PriceBadge({ product }: { product: ConsumerOrderProduct }) {
 
               <div className="flex items-center gap-2">
                 <span className="h-px w-6 bg-accent-line" aria-hidden />
-                <p className="text-[11px] font-bold uppercase tracking-[1.6px] text-brand-deep">
+                <p className="text-xs font-bold uppercase tracking-overline text-brand-deep">
                   {copy.popoverEyebrow}
                 </p>
                 <span className="h-px flex-1 bg-slate-200" aria-hidden />
@@ -282,7 +282,7 @@ export function PriceBadge({ product }: { product: ConsumerOrderProduct }) {
                 </span>
               </div>
 
-              <p className="mt-3 text-[11px] leading-relaxed text-gray-500">{copy.footnote}</p>
+              <p className="mt-3 text-xs leading-relaxed text-gray-500">{copy.footnote}</p>
             </div>,
             document.body,
           )
