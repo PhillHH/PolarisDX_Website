@@ -2012,3 +2012,42 @@ rg -n '#…|rgba\(|: white' src/index.css                            → EMPTY �
 npm run build && npm run typecheck && npm run lint                  → grün (15 warn / 0 err = Baseline)
 npx madge --circular src                                            → ✔ 0 Zyklen
 ```
+
+---
+
+## Phase 2 — DoD formal geschlossen (alle Punkte ausgeführt belegt, 2026-06-24)
+
+Die substanzielle Phase-2-Arbeit (Atom→Molecule→Organism-Slices 2a–2v,
+Token-Connect 2.10, Lineage 2.11) ist abgeschlossen. Hier der **ausgeführte**
+DoD-Nachweis (§1.15) je Plan-Punkt. **Architektur-Entscheidung (§1.17,
+`ASSUMPTION — needs human confirmation`):** Organismen/Templates bleiben physisch
+in `src/components/{sections,layout}` und werden **maschinell** über
+`eslint-plugin-boundaries` als `organism`/`template` klassifiziert + richtungs-
+geprüft (`eslint.config.js:67–92`) — **nicht** nach `design-system/sections`
+verschoben. Begründung: §1.16 (realen Stack/Struktur nicht ohne Mehrwert
+umbauen) + §1.8 (Vermeiden > Umbauen); die Schicht-Trennung ist verhaltens-
+gleich erfüllt. Die im EXECUTION-PLAN „Status IST" genannten Pfade
+`design-system/sections`/`src/templates` sind damit gegenstandslos.
+
+| DoD-Punkt                                                                     | Beleg (ausgeführt)                                                                                                                                                                                                                                                                               | Status |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ |
+| Jede Komponente in korrekter Ebene; keine verwaisten Ad-hoc                   | DS-Schichten `core/compound/feedback/primitives-layout`; `boundaries/elements` klassifiziert `components/{sections,ui,layout}` + `pages`. `components/{analytics,seo}` = Cross-Cutting-Infra (GTM-Pageview, SEO-Head/Structured-Data), bewusst **keine** Atomic-UI-Ebene.                        | ✓      |
+| Import-Richtung strikt top-down (boundaries grün)                             | `npm run lint` → **0 errors** (15 Baseline-warns); `boundaries/element-types` = Build-Gate                                                                                                                                                                                                       | ✓      |
+| **0** Zyklen                                                                  | `npx madge --circular src` → ✔ No circular dependency found                                                                                                                                                                                                                                      | ✓      |
+| Keine Duplikate; ein kanonisches Atom; genau **eine** Definition (Holy Grail) | je Komponente exakt **1** reale `.tsx`-Definition + 1 Barrel-Re-Export (`rg -l "export (const\|function) <C>" src/design-system --glob '!index.ts'` → 1)                                                                                                                                         | ✓      |
+| Namen struktur-/content-agnostisch + Industriestandard; Prop-Konventionen     | `rg -ni "homepagecarousel\|productcard\|bloghero" src` → EMPTY; `rg -n "isDisabled\|isOpen\|isLoading" src/design-system` → EMPTY (einheitlich `disabled`/`open`)                                                                                                                                | ✓      |
+| `lineage.md` (Uses/Used-by); tote Patterns → GRAVEYARD                        | `docs/design-system/lineage.md` deckt alle 22 DS-Komponenten + 13 Organismen + 10 App-UI + 4 Templates; **kein** toter Code (jede ≥1 realer Importeur) → `GRAVEYARD.md` bleibt für Phase 6 reserviert                                                                                            | ✓      |
+| Kein `use client/server` / Next-Leakage; SSR-Baum identisch                   | `rg -n "use client\|use server\|next/(font\|image\|dynamic\|link)\|next-intl" src` → EMPTY; Browser-Effekte nur in `useEffect` (Mount-Guards)                                                                                                                                                    | ✓      |
+| Templates ohne Inhalts-Literale; Content-Guardrails                           | `Layout` = reines Slot-Gerüst (`children`, keine Content-Literale); Guardrail über **Bild-aspect-ratio** (`width`/`height` an allen `<img>`, u. a. Header/Footer/Hero/Cta). **zod `.max` bewusst NICHT eingeführt** (neue Dep = §1.16-Verstoß); der DoD-OR-Pfad „Bild-aspect-ratio" ist erfüllt. | ✓      |
+
+**Gesamt-Gate (ausgeführt):**
+
+```
+npm run build      → ✓ built (client+server), Route-Sizes notiert
+npm run typecheck  → ✓ tsc -b ohne Fehler
+npm run lint       → ✓ 0 errors / 15 warns (Baseline, dokumentiert)
+npx madge --circular src → ✔ 0 Zyklen
+```
+
+→ **Phase 2 DoD vollständig belegt & geschlossen.** Nächste offene Phasen:
+**{3 Visual-Craft, 4 Grid/Layout}** (pro Komponente verschränkbar, §4).

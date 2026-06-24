@@ -154,7 +154,7 @@ mit Kanal-Tripeln umgesetzt. → Rest-DoD (Theming Dark/Light beider Bereiche, `
 
 ---
 
-### Phase 2 — Atomic-Restrukturierung & Inventory-Konsolidierung `[FRO][BUD]` — 🟡
+### Phase 2 — Atomic-Restrukturierung & Inventory-Konsolidierung `[FRO][BUD]` — ✅ (DoD belegt 2026-06-24)
 
 **Abhängigkeit:** nach 1. Blockiert 3–7. **Vertikal pro Sektion** iterieren (nicht „erst alle Atoms").
 
@@ -187,9 +187,14 @@ mit Kanal-Tripeln umgesetzt. → Rest-DoD (Theming Dark/Light beider Bereiche, `
 Import-Richtung pro Ebene per `rg` (kein Treffer = gut); `rg -ni "homepage…|productCard|blogHero" src` (leer);
 `rg -n "use client|use server|next/(font|image|dynamic|link)|next-intl" src` (leer); Holy-Grail-Count je Komponente = 1.
 
-**Status IST:** `core/compound/feedback/primitives-layout` existieren; **offen:** `design-system/sections`
-(Organisms) + `src/templates` fehlen, Legacy `src/components/{ui,sections}` noch nicht konsolidiert,
-`docs/design-system/lineage.md` fehlt, `madge`-Zyklencheck/Boundaries-Grün belegen.
+**Status IST (2026-06-24, DoD belegt):** Alle DoD-Punkte ausgeführt verifiziert (REFACTOR-LOG
+„Phase 2 — DoD formal geschlossen"). **Architektur-Entscheidung (§1.17 `ASSUMPTION`):** Organismen
+bleiben in `src/components/sections`, Templates in `src/components/layout` — maschinell als
+`organism`/`template` via `eslint-plugin-boundaries` klassifiziert + richtungsgeprüft
+(`eslint.config.js:67–92`), **nicht** nach `design-system/sections` verschoben (§1.16/§1.8). Belege:
+`lint` 0 errors (boundaries-Gate), `madge --circular` 0 Zyklen, Holy-Grail = 1 reale Definition je
+Komponente, `lineage.md` über alle Schichten (kein toter Code), Templates literalfrei + Bild-aspect-ratio.
+Content-Guardrail via Bild-aspect-ratio (zod bewusst nicht eingeführt, §1.16).
 
 ---
 
