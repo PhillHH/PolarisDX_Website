@@ -18,16 +18,16 @@ const BlogSection = () => {
       {/* Featured Article - Vitamin D3 Implantologie */}
       <Link
         to="/vitamin-d3-implantologie"
-        className="group block overflow-hidden rounded-2xl border border-brand-primary/20 bg-gradient-to-r from-brand-primary/5 to-transparent transition-all duration-300 hover:shadow-lg hover:border-brand-primary/40"
+        className="group block overflow-hidden rounded-2xl border border-brand-primary/20 bg-gradient-to-r from-brand-blue/10 to-transparent transition-all duration-300 hover:shadow-lg hover:border-brand-primary/40"
       >
         <div className="p-6">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-primary">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-sky">
             {t('blog.featured', 'Fachartikel')}
           </p>
-          <h3 className="text-lg font-semibold text-gray-900 group-hover:text-brand-primary transition-colors">
+          <h3 className="text-lg font-semibold text-ink group-hover:text-brand-sky transition-colors">
             Vitamin D3 und Implantologie — Evidenz und Praxisleitfaden
           </h3>
-          <p className="mt-2 text-sm text-gray-500">
+          <p className="mt-2 text-sm text-ink-muted">
             Wissenschaftlich fundierte Erkenntnisse zur Rolle von Vitamin D bei der
             Osseointegration.
           </p>
@@ -53,7 +53,7 @@ const BlogSection = () => {
       <div className="flex justify-center pt-4">
         <Link
           to="/articles"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary hover:text-brand-deep transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-brand-sky hover:text-white transition-colors"
         >
           {t('blog.all_articles', 'Alle Fachartikel anzeigen')} →
         </Link>

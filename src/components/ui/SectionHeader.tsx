@@ -20,7 +20,7 @@ const SectionHeader = ({
   const alignment = align === 'center' ? 'items-center text-center' : 'items-start text-left'
   const titleClasses =
     titleClassName ||
-    'text-hero-sm leading-[47px] font-medium tracking-tight text-gray-900 lg:text-[44px] lg:leading-[52px]'
+    'text-hero-sm leading-[47px] font-medium tracking-tight text-ink lg:text-[44px] lg:leading-[52px]'
 
   return (
     <div id={id} className={`flex flex-col gap-2 ${alignment} ${className}`}>

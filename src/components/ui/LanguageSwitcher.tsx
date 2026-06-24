@@ -95,14 +95,16 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
 
       {isOpen && (
         <div
-          className={`absolute right-0 top-full mt-1 w-48 rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 z-50 overflow-hidden`}
+          className={`absolute right-0 top-full mt-1 w-48 rounded-md bg-surface-overlay py-1 shadow-lg ring-1 ring-line z-50 overflow-hidden`}
         >
           {languages.map((language) => (
             <button
               key={language.code}
               onClick={() => changeLanguage(language.code)}
-              className={`flex w-full items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${
-                i18n.language === language.code ? 'bg-gray-50 font-medium text-brand-primary' : ''
+              className={`flex w-full items-center gap-3 px-4 py-2 text-sm text-ink-muted hover:bg-surface-raised ${
+                i18n.language === language.code
+                  ? 'bg-surface-raised font-medium text-brand-sky'
+                  : ''
               }`}
             >
               <FlagIcon

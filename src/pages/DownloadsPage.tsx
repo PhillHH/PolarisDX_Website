@@ -53,21 +53,21 @@ const DownloadsPage = () => {
 
   const renderDownloadSection = (title: string, items: DownloadItem[]) => (
     <div className="mb-12 last:mb-0">
-      <h3 className="mb-6 text-2xl font-medium text-gray-900">{title}</h3>
+      <h3 className="mb-6 text-2xl font-medium text-ink">{title}</h3>
       {items.length > 0 ? (
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {items.map((item) => (
             <div
               key={item.id}
-              className="group relative flex flex-col justify-between rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:border-blue-500 hover:shadow-md"
+              className="group relative flex flex-col justify-between rounded-xl border border-line bg-surface-raised p-6 shadow-sm transition-all hover:border-brand-sky hover:shadow-md"
             >
               <div>
-                <div className="mb-4 inline-flex items-center justify-center rounded-lg bg-blue-50 p-3 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                <div className="mb-4 inline-flex items-center justify-center rounded-lg bg-brand-blue/15 p-3 text-brand-sky group-hover:bg-blue-600 group-hover:text-white transition-colors">
                   <FileText className="h-6 w-6" />
                 </div>
-                <h4 className="mb-2 text-lg font-medium text-gray-900">{item.title}</h4>
-                <div className="flex items-center gap-3 text-sm text-gray-500">
-                  <span className="rounded bg-gray-100 px-2 py-0.5 font-medium text-gray-600">
+                <h4 className="mb-2 text-lg font-medium text-ink">{item.title}</h4>
+                <div className="flex items-center gap-3 text-sm text-ink-muted">
+                  <span className="rounded bg-surface-overlay px-2 py-0.5 font-medium text-ink-muted">
                     {item.format}
                   </span>
                   <span>{item.size}</span>
@@ -80,7 +80,7 @@ const DownloadsPage = () => {
                   download={item.openInBrowser ? undefined : true}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:border-blue-500 hover:bg-blue-50 hover:text-blue-600"
+                  className="flex w-full items-center justify-center gap-2 rounded-lg border border-line py-2.5 text-sm font-medium text-ink-muted transition-colors hover:border-brand-sky hover:bg-brand-blue/15 hover:text-brand-sky"
                 >
                   <Download className="h-4 w-4" />
                   {t('downloads:downloadBtn')}
@@ -90,7 +90,7 @@ const DownloadsPage = () => {
           ))}
         </div>
       ) : (
-        <div className="rounded-xl border border-dashed border-gray-300 bg-slate-50 p-8 text-center text-gray-500">
+        <div className="rounded-xl border border-dashed border-line-strong bg-surface-sunken p-8 text-center text-ink-muted">
           <p>{t('downloads:comingSoon')}</p>
         </div>
       )}
@@ -113,7 +113,7 @@ const DownloadsPage = () => {
           ]),
         ]}
       />
-      <div className="bg-slate-50 text-gray-900">
+      <div className="bg-surface-base text-ink">
         {/* Hero / Top */}
         <section className="relative overflow-hidden bg-brand-primary text-white">
           <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
@@ -150,7 +150,7 @@ const DownloadsPage = () => {
                 title={t('downloads:discoverTitle')}
                 align="left"
               />
-              <p className="mt-4 max-w-2xl text-lg text-gray-600">{t('downloads:introText')}</p>
+              <p className="mt-4 max-w-2xl text-lg text-ink-muted">{t('downloads:introText')}</p>
             </div>
 
             <div className="space-y-12">
@@ -161,19 +161,19 @@ const DownloadsPage = () => {
             <div className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
               <Link
                 to="/igloo-pro"
-                className="font-semibold text-brand-primary hover:text-brand-deep transition-colors"
+                className="font-semibold text-brand-sky hover:text-white transition-colors"
               >
                 {t('downloads:link_igloo', 'Zum IglooPro System')} →
               </Link>
               <Link
                 to="/diagnostics"
-                className="font-semibold text-brand-primary hover:text-brand-deep transition-colors"
+                className="font-semibold text-brand-sky hover:text-white transition-colors"
               >
                 {t('downloads:link_services', 'Diagnostik-Services')} →
               </Link>
               <Link
                 to="/contact"
-                className="font-semibold text-brand-primary hover:text-brand-deep transition-colors"
+                className="font-semibold text-brand-sky hover:text-white transition-colors"
               >
                 {t('downloads:link_contact', 'Beratung anfragen')} →
               </Link>

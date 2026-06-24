@@ -3,12 +3,12 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
 
 const inputVariants = cva(
-  'flex w-full rounded-md border border-ui-border bg-white px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-ui-text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+  'flex w-full rounded-md border border-line bg-surface-overlay px-3 py-2 text-sm ring-offset-surface-base file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-ink-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-sky focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       state: {
-        default: 'border-ui-border text-gray-900',
-        error: 'border-red-500 text-red-900 focus-visible:ring-red-500',
+        default: 'border-line text-ink',
+        error: 'border-red-500 text-red-200 focus-visible:ring-red-500',
       },
       size: {
         default: 'h-10 px-3 py-2',
@@ -66,7 +66,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           <label
             htmlFor={inputId}
             className={cn(
-              'text-sm font-medium leading-none text-gray-900',
+              'text-sm font-medium leading-none text-ink',
               disabled && 'cursor-not-allowed opacity-70',
             )}
           >
@@ -75,7 +75,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         )}
         <div className="relative">
           {leftIcon && (
-            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">{leftIcon}</div>
+            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-subtle">
+              {leftIcon}
+            </div>
           )}
 
           <input
@@ -94,7 +96,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           />
 
           {rightIcon && (
-            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-ink-subtle">
               {rightIcon}
             </div>
           )}
@@ -107,7 +109,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         )}
 
         {!error && helperText && (
-          <p id={helperId} className="text-sm text-ui-text-muted">
+          <p id={helperId} className="text-sm text-ink-subtle">
             {helperText}
           </p>
         )}

@@ -19,10 +19,10 @@ const DiagnosticsPitchSection = () => {
           // Titel auf Kernbotschaft umgestellt
           title={t('doctors.title', 'Präzise Diagnostik. Sofortige Ergebnisse am Point-of-Care.')}
           align="left"
-          titleClassName="text-[clamp(28px,6.2vw,48px)] leading-[clamp(34px,6.8vw,56px)] font-medium tracking-[-0.02em] text-gray-900"
+          titleClassName="text-[clamp(28px,6.2vw,48px)] leading-[clamp(34px,6.8vw,56px)] font-medium tracking-[-0.02em] text-ink"
         />
         {/* Fließtext auf Mehrwert für Kunden angepasst */}
-        <p className="text-base leading-relaxed text-gray-600 sm:text-lg">
+        <p className="text-base leading-relaxed text-ink-muted sm:text-lg">
           {t('doctors.description', 'Entdecken Sie mit Systemen wie dem Igloo Pro von DX365...')}
         </p>
         <div className="pt-2 flex justify-center lg:justify-start">
