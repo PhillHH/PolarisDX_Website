@@ -1,6 +1,6 @@
 # Website-Refactoring — Definitive Master-Anweisung nach fuenf Designbuechern (v2)
 
-> **Zweck.** Dies ist die vollstaendige, maschinell abarbeitbare Anweisung fuer einen **KI-Agenten (Claude Code)**, der eine bestehende **React/Next.js**-Website (**App Router**) nach den Paradigmen aus fuenf Standardwerken refactored. Das Dokument hat **einen roten Faden**: _Zweck (WARUM) → Lernen/Prozess (WIE) → Wahrnehmung (CRAFT) → Architektur (STRUKTUR) → System (SYSTEMATIK)_ — in dieser Reihenfolge baut sich auch der Phasenplan auf. Jede Phase folgt strikt dem Schema **Anweisungen (imperativ, nummeriert) → Definition of Done (Checkboxen) → Verifikation (echte Shell-Befehle)**. Der Agent arbeitet die Phasen **in Reihenfolge** ab und schliesst eine Phase erst ab, wenn **alle** DoD-Punkte durch ausgefuehrte Checks belegt sind.
+> **Zweck.** Dies ist die vollstaendige, maschinell abarbeitbare Anweisung fuer einen **KI-Agenten (Claude Code)**, der eine bestehende **React-Website mit Vite-Build und Express-SSR** (`server.ts` via `tsx`, `react-router-dom`, `entry-server.tsx`/`entry-client.tsx`) nach den Paradigmen aus fuenf Standardwerken refactored. Das Dokument hat **einen roten Faden**: _Zweck (WARUM) → Lernen/Prozess (WIE) → Wahrnehmung (CRAFT) → Architektur (STRUKTUR) → System (SYSTEMATIK)_ — in dieser Reihenfolge baut sich auch der Phasenplan auf. Jede Phase folgt strikt dem Schema **Anweisungen (imperativ, nummeriert) → Definition of Done (Checkboxen) → Verifikation (echte Shell-Befehle)**. Der Agent arbeitet die Phasen **in Reihenfolge** ab und schliesst eine Phase erst ab, wenn **alle** DoD-Punkte durch ausgefuehrte Checks belegt sind.
 >
 > **Diese Version (v2)** vereint zwei Staerken: das **kohaerente Geruest** (durchgaengiges Glossar, stabile `§`-Anker, Regel-genau-einmal-Disziplin, Anti-Pattern-Tabelle mit Anker-Spalte) und **maximale Ausfuehrbarkeit** (vollstaendige, kopierbare React/Next.js-Snippets, ESLint-Boundaries-Config, Style-Dictionary- und Playwright-Skelette).
 >
@@ -92,14 +92,14 @@ Diese Regeln gelten in **jeder** Phase; Verstoss = Abbruchgrund. Jede Regel hat 
 6. **§1.6 Refactoring ≠ Verhaltensbruch.** `[§]` Gleiches sichtbares/funktionales Verhalten, bessere Struktur. Absichtliche UX-/Optik-Aenderungen sind erlaubt, aber als solche markiert und gegen die Phase-0-Baseline (Screenshots/Metriken) abgewogen. **Feature-Streichung ist ein legitimes Ergebnis** (`[BEC]` Product Graveyard, §Phase 6.8): „Nein sagen" / Entfernen unbenutzter, schadhafter oder zweck-loser Features ist Wertschoepfung — aber nur als bewusste, dokumentierte Produktentscheidung (Nachfrage §1.17, Nachfrage-Schwelle fuer neue Features §1.16).
 7. **§1.7 Token-Pflicht.** `[BUD]` Ab Ende Phase 1 sind hartkodierte Rohwerte (Farben, Pixel-Spacings, Font-Sizes, Radii, Shadows) in **Komponenten** **verboten**. Komponenten konsumieren nur Semantic-/Component-Tokens, **nie** Primitive direkt, **nie** Rohwerte. Rohwerte leben **ausschliesslich** in den Token-Quelldateien (Allowlist §1.19). Diese Regel wird in §3, Phase 1/3/4, §5, §6, §7 nur **referenziert**, nicht neu formuliert.
 8. **§1.8 Keine Duplikate / keep-in-use (Circular Design).** `[FRO][NOR]` Vor Neubau pruefen, ob ein Atom/Molecule existiert (Interface Inventory §Phase 0.1). Hierarchie der Eliminierung: **Vermeiden > Wiederverwenden/Reparieren > Umbauen** (`[NOR]` „direct reuse" vor „recycling", das degradiert). Wegwerf-Komponenten und Copy-Paste sind verboten; jedes ungenutzte KB/Export/Pattern ist ein „design flaw" und wird entfernt (`depcheck`/`ts-prune`/`knip`).
-9. **§1.9 Lose Kopplung & Resilienz.** `[NOR]` Keine Single-Points-of-Failure: kein globaler shared-mutable State, der viele Komponenten zugleich fallen laesst; State so nah wie moeglich an der Nutzung; Kommunikation ueber typisierte Props/Server-Action-Vertraege; **keine** Zirkular-Abhaengigkeiten (`madge --circular`), kein God-Module mit ueberproportional vielen Importeuren; Drittanbieter-SDKs/-Fetches defensiv (try/catch + Fallback + Timeout) hinter Adaptern in `lib/`. Jedes Route-Segment ist mit `error.tsx`/`loading.tsx`/`not-found.tsx` gekapselt; ein Fehler degradiert nur sein Segment, nie die ganze Seite (§Phase 5.9).
+9. **§1.9 Lose Kopplung & Resilienz.** `[NOR]` Keine Single-Points-of-Failure: kein globaler shared-mutable State, der viele Komponenten zugleich fallen laesst; State so nah wie moeglich an der Nutzung; Kommunikation ueber typisierte Props/Service-Vertraege; **keine** Zirkular-Abhaengigkeiten (`madge --circular`), kein God-Module mit ueberproportional vielen Importeuren; Drittanbieter-SDKs/-Fetches defensiv (try/catch + Fallback + Timeout) hinter Adaptern in `lib/`. Jede Route ist mit React-Router-7-`errorElement`/`useRouteError()` + `<Suspense fallback>` + Catch-all-Route (`path="*"`) gekapselt; ein Fehler degradiert nur sein Segment, nie die ganze Seite (§Phase 5.9).
 10. **§1.10 Wurzelursache statt Symptom (NTSB-Stil).** `[NOR]` Bei Bug/Incident **alle** beitragenden Faktoren identifizieren und beheben — nicht beim ersten Stack-Frame stoppen („Five Whys" findet faelschlich eine Einzelursache und beschuldigt oft die falsche Stelle). Jeder Fix bekommt einen Regressionstest (vorher rot, nachher gruen) und im PR-Body die Zeilen **`Symptom:`** / **`Root cause:`** plus ≥2 „contributing factors". Defensive Pflaster (zusaetzliches `useMemo`/`setTimeout`/`key`-Toggling/`eslint-disable react-hooks`) statt Behebung der instabilen Quelle sind verboten.
 11. **§1.11 A11y & verstaendliche Sprache sind nicht optional.** `[NOR][BEC]` Jede UI ist semantisch, voll tastaturbedienbar, kontraststark (**WCAG 2.2 AA**). „Nicht zugaenglich = nicht nutzbar" (`[BEC]` Moebius). Alle nutzersichtbaren Texte in Alltagssprache, kein Jargon, kein ALL-CAPS-Rechtstext; Fehlermeldungen in Klartext (keine rohen Codes/Stacktraces) mit konkretem Loesungsvorschlag (Nielsen H9). Einhand-/Daumenreichweite (primaere Aktionen erreichbar, keine Hover-only-Interaktion). A11y ist **vor** Delight zu sichern (UX-Maturity-Reihenfolge §Phase 6.6).
 12. **§1.12 Kein WEIRD-Bias — Design fuers ganze Oekosystem.** `[NOR]` Nicht nur fuer den Western/White, Educated, Industrialized, Rich, Democratic Default-Nutzer entwerfen. i18n/Lokalisierung, kulturneutrale Beispiele/Farben, locale-flexible Datums-/Zahlen-/Namens-/Adressformate (`Intl.*` mit request-locale, kein festes `en-US`/nacktes `toLocaleString()`; **ein** `fullName`-Feld statt erzwungenem first/last), unterschiedliche Geraete-/Netzkontexte dienen dem **ganzen** Nutzer-Oekosystem (HCD-Prinzip 2/3).
 13. **§1.13 Keine Dark Patterns.** `[NOR]` Opt-out so einfach/prominent wie Opt-in; Consent-Checkboxen default-unchecked (kein `defaultChecked`-Opt-in); Abmelden/Loeschen/Kuendigen so leicht wie Anmelden (Schritt-Symmetrie); kein Confirm-Shaming, keine kuenstlichen Countdowns/Fake-Knappheit, kein Roach-Motel-Checkout, keine Koeder-Preise, kein Autoplay/Infinite-Scroll als Verweildauer-Falle. Keine Features hinzufuegen, die niemand braucht, nur weil sie „verkaufen". Der Mensch steuert die Technik.
 14. **§1.14 Stories neben Metriken.** `[NOR]` Messungen liefern Fakten, **Stories liefern Bedeutung**. Hinter jeder Metrik/jedem Outcome-Event bleibt die menschliche Geschichte sichtbar (welche reale Nutzeraufgabe steht dahinter). Personas und Akzeptanzkriterien werden narrativ formuliert (§Phase 0.6). Keine Vanity-Metrik als „KPI/success" ohne `whatItProxies` + `validityCaveat`. Nutzersichtbare Status-UIs zeigen **keinen** opaken Aggregat-Score, sondern qualitativen Ueberblick + Drilldown (§Phase 5.7).
-15. **§1.15 Verifizieren, nicht behaupten.** `[§]` Jede „erledigt"-Aussage durch ausgefuehrten Check belegen (Befehl + Ergebnis ins Log). Adversarial gegenpruefen: „Womit koennte diese Aenderung etwas kaputt gemacht haben?" Vor Aenderung an einem geteilten Symbol eine **Impact-Map** erstellen (`rg -l "<X[ />]" src` → alle Konsumenten; betroffene `revalidateTag/revalidatePath`) und im Commit/Log vermerken.
-16. **§1.16 Fundamental-Stack nicht wechseln; Nachfrage-Schwelle fuer neue Patterns.** `[BEC][FRO]` React/Next.js App Router ist stabile Anforderung — innerhalb des Stacks refactoren, nie ad hoc Framework/Architektur tauschen (`[BEC]` „if coded in React, do not switch to PHP"); Styling-Strategie nicht arbitraer wechseln. Ein neues UI-Pattern entsteht erst beim **zweiten** belegten Use-Case (`[FRO]` Governance), nicht bei jedem Wunsch; vorher One-off lokal belassen oder bestehende Komponente per Prop erweitern.
+15. **§1.15 Verifizieren, nicht behaupten.** `[§]` Jede „erledigt"-Aussage durch ausgefuehrten Check belegen (Befehl + Ergebnis ins Log). Adversarial gegenpruefen: „Womit koennte diese Aenderung etwas kaputt gemacht haben?" Vor Aenderung an einem geteilten Symbol eine **Impact-Map** erstellen (`rg -l "<X[ />]" src` → alle Konsumenten; betroffene Cache-/Re-Fetch-Stellen) und im Commit/Log vermerken.
+16. **§1.16 Fundamental-Stack nicht wechseln; Nachfrage-Schwelle fuer neue Patterns.** `[BEC][FRO]` Der Vite/React-SSR-Stack (React 19 + react-router-dom 7 + Express-SSR) ist stabile Anforderung — innerhalb des Stacks refactoren, nie ad hoc Framework/Architektur tauschen (`[BEC]` „if coded in React, do not switch to PHP"); Styling-Strategie nicht arbitraer wechseln. Ein neues UI-Pattern entsteht erst beim **zweiten** belegten Use-Case (`[FRO]` Governance), nicht bei jedem Wunsch; vorher One-off lokal belassen oder bestehende Komponente per Prop erweitern.
 17. **§1.17 Nachfragen-Schwelle (with & by, not for).** `[NOR][BEC]` Bei jeder **Produktentscheidung** (Markenfarbe, Inhalt, Tonalitaet, Geschaeftsregel, **Feature-Streichung**, Einfuehrung eines Build-Tools/JSON-first-Pipeline) **STOPP & fragen** — nicht raten und nicht so tun, als waeren Stakeholder/Executives die Nutzer. Wo moeglich mit echten beabsichtigten Nutzern entscheiden („Design with and by, not for", HCD-Prinzip 5; der Agent ist Enabler, nicht Bestimmer). Bei rein **technischen** Defaults: sinnvollste Option waehlen und im Log begruenden. Risikoreiche, annahmebasierte UI-Aenderungen hinter Feature-Flag (`lib/flags.ts`) und als „assumption — needs validation" markieren (Searcher statt Planner, erst kleines Subset).
 18. **§1.18 Fortschritt sichtbar machen.** `[§][BUD]` `REFACTOR-LOG.md` fuehren (pro Phase Datum, Aenderung, Verifikationsergebnis, offene Punkte, Vorher/Nachher-Metriken) **und** `CHANGELOG.md` (Aenderungstyp **markup/style/script/spec** × Gruppe **new/enhancement/fix/other**, versioniert SemVer + datiert). Gestrichene Features in `docs/GRAVEYARD.md` (Datum, Grund, entfernender Commit). Backlog priorisiert in `docs/REFACTOR_BACKLOG.md` (gruppiert nach Performance/A11y/IA/Visuals; ein PR = ein priorisiertes Thema mit Backlog-ID).
 19. **§1.19 Einheitliche Token-Allowlist (Mess-Norm).** `[§][BUD]` **Alle** Design-Wert-Audits (Hex/px/Font/Radius/Shadow) verwenden projektweit **dieselbe** Glob-Allowlist, sodass „0 Treffer" reproduzierbar dieselbe Bedeutung hat:
@@ -111,25 +111,22 @@ Diese Regeln gelten in **jeder** Phase; Verstoss = Abbruchgrund. Jede Regel hat 
 
 ---
 
-## 2. Ziel-Architektur (React/Next.js, App Router)
+## 2. Ziel-Architektur (React + Vite, Express-SSR, react-router-dom)
 
 Der Agent migriert die bestehende Struktur **schrittweise** hierauf — nicht in einem Rutsch (§1.5). Diese Struktur realisiert das **Holy Grail** (§Phase 7.8): Pattern Library und Produktion teilen **dieselben** Komponenten (kein Copy-Paste-Klon).
 
 ```
 src/
-├── app/                          # App Router. Route-Ordner = "Pages" im Atomic-Sinn [FRO]
-│   ├── layout.tsx                # Root-Template (Shell, Provider, <html lang>, next/font)
-│   ├── page.tsx
-│   ├── error.tsx                 # Resilienz: Root Error Boundary — PFLICHT 'use client' [NOR]
-│   ├── global-error.tsx          # Auffangnetz fuer Root-Layout-Fehler — PFLICHT 'use client' [NOR]
-│   ├── loading.tsx               # System-Status sichtbar (Nielsen H1); Server Component ok [BEC]
-│   ├── not-found.tsx             # Server Component ok
-│   └── (routes)/<segment>/
-│       ├── page.tsx              # Page = Template + echter Content [FRO]
-│       ├── layout.tsx            # Segment-Template
-│       ├── loading.tsx           # je Segment [BEC]
-│       ├── error.tsx             # je Segment, mit reset() — PFLICHT 'use client' [NOR][BEC]
-│       └── not-found.tsx
+├── entry-server.tsx              # SSR-Entry (renderToString, StaticRouter basename=/${lang}) [§]
+├── entry-client.tsx              # Client-Hydration (hydrateRoot, BrowserRouter basename) [§]
+├── App.tsx                       # Routing-Baum (react-router-dom 7) = "Pages" im Atomic-Sinn [FRO]
+├── pages/                        # 1 Datei = 1 Route. Page = Template + echter Content [FRO]
+│   └── <Segment>Page.tsx         # via React.lazy() code-gesplittet (HomePage/Consumer-LPs eager)
+├── routing/
+│   ├── RootErrorBoundary.tsx     # Resilienz: errorElement der Root-Route (React Router 7) [NOR]
+│   ├── SegmentErrorBoundary.tsx  # errorElement je Route/Segment, mit useRouteError()/reset [NOR][BEC]
+│   ├── RouteFallback.tsx         # Suspense-Fallback (System-Status sichtbar, Nielsen H1) [BEC]
+│   └── NotFound.tsx              # Catch-all-Route (path="*") [§]
 ├── design-system/                # Das Herz: framework-nahes, wiederverwendbares System
 │   ├── tokens/
 │   │   ├── tokens.json           # OPTIONALE Single Source (Style-Dictionary); generiert css/ts [BUD]
@@ -175,13 +172,13 @@ CHANGELOG.md                      # markup/style/script/spec × new/enhancement/
 
 ### 2.1 Atomic-Mapping-Tabelle `[FRO]` `[BUD]`
 
-| Atomic-Ebene `[FRO]` | Granularitaets-Aequivalent (Synthese `[§]`) | Ordner                        | Definition                                                                                                     | Beispiele                                                                        | Single-Responsibility-Regel            |
-| -------------------- | ------------------------------------------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------- |
-| **Atom**             | Core Component                              | `core/`, `primitives-layout/` | Kleinste, nicht weiter zerlegbare UI-Einheit; konsumiert **nur** Tokens; importiert keine eigene UI-Komponente | Button, Input, Label, Icon, Text, Heading, Badge, Avatar, Container, Grid, Stack | Tut genau **eine** Sache               |
-| **Molecule**         | Compound Component                          | `compound/`, `feedback/`      | Funktionale Gruppe von Atomen mit **einem** Zweck                                                              | FormField (Label+Input+Error), Card, SearchForm, Pagination, EmptyState          | „do one thing well"                    |
-| **Organism**         | Compound (komplex)                          | `sections/`                   | Eigenstaendiger Interface-Abschnitt aus Molecules/Atomen/anderen Organismen                                    | Header, Footer, ProductGrid, HeroSection, ContactForm                            | Gibt Kontext, wiederverwendbar         |
-| **Template**         | —                                           | `templates/` + `layout.tsx`   | Content-**Struktur**/Layout (Slots, Grid, Bild-`aspect-ratio`, max. Zeichenlaengen), **kein finaler Content**  | MarketingLayout, ArticleLayout                                                   | „what content is made FROM"            |
-| **Page**             | —                                           | `app/**/page.tsx`             | Template-Instanz mit echtem, repraesentativem Content; haertet das System an Varianten                         | Startseite, Produktseite                                                         | Mit Extrem-Content testen (§Phase 6.4) |
+| Atomic-Ebene `[FRO]` | Granularitaets-Aequivalent (Synthese `[§]`) | Ordner                                                             | Definition                                                                                                     | Beispiele                                                                        | Single-Responsibility-Regel            |
+| -------------------- | ------------------------------------------- | ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------- |
+| **Atom**             | Core Component                              | `core/`, `primitives-layout/`                                      | Kleinste, nicht weiter zerlegbare UI-Einheit; konsumiert **nur** Tokens; importiert keine eigene UI-Komponente | Button, Input, Label, Icon, Text, Heading, Badge, Avatar, Container, Grid, Stack | Tut genau **eine** Sache               |
+| **Molecule**         | Compound Component                          | `compound/`, `feedback/`                                           | Funktionale Gruppe von Atomen mit **einem** Zweck                                                              | FormField (Label+Input+Error), Card, SearchForm, Pagination, EmptyState          | „do one thing well"                    |
+| **Organism**         | Compound (komplex)                          | `sections/`                                                        | Eigenstaendiger Interface-Abschnitt aus Molecules/Atomen/anderen Organismen                                    | Header, Footer, ProductGrid, HeroSection, ContactForm                            | Gibt Kontext, wiederverwendbar         |
+| **Template**         | —                                           | `templates/` + Layout-Komponenten (`components/layout/Layout.tsx`) | Content-**Struktur**/Layout (Slots, Grid, Bild-`aspect-ratio`, max. Zeichenlaengen), **kein finaler Content**  | MarketingLayout, ArticleLayout                                                   | „what content is made FROM"            |
+| **Page**             | —                                           | `src/pages/*.tsx` (1 Datei = 1 Route)                              | Template-Instanz mit echtem, repraesentativem Content; haertet das System an Varianten                         | Startseite, Produktseite                                                         | Mit Extrem-Content testen (§Phase 6.4) |
 
 **Komponentenkategorien (Budarina, in Doku/Struktur abbilden) `[BUD]`:** Input · Communication · Navigation · Containment. Diese **funktionale** Achse ist **orthogonal** zur Granularitaets-Achse (Atom/Molecule/Organism); die Spalte „Granularitaets-Aequivalent" oben ist deshalb eine **Synthese `[§]`**, **keine** Budarina-Ebenen-Taxonomie (Budarina belegt nur „components are built hierarchically, starting with atoms"). **Startkomponente ist immer der Button** — er enthaelt fast alle Sprachelemente (Farbe, Typo, Spacing, Radius, Shadow, Icon, States, A11y) und dient als Vorlage fuer das Variant/Size/State-Muster aller weiteren Komponenten.
 
@@ -189,24 +186,24 @@ CHANGELOG.md                      # markup/style/script/spec × new/enhancement/
 
 > **Import-Richtung:** `Page → Template → Organism → Molecule → Atom → Token`. Eine Ebene darf **nur gleiche oder tiefere** Ebenen importieren. **Niemals rueckwaerts.** Zusaetzlich gilt projektweit: **keine** Zirkular-Abhaengigkeiten (§1.9).
 
-| Ebene (Ordner)                            | Darf importieren                           | Darf NICHT importieren             |
-| ----------------------------------------- | ------------------------------------------ | ---------------------------------- |
-| **Atom** (`core/`, `primitives-layout/`)  | nur Token                                  | Molecule, Organism, Template, Page |
-| **Molecule** (`compound/`, `feedback/`)   | Atom, andere Molecule, Token               | Organism, Template, Page           |
-| **Organism** (`sections/`)                | Atom, Molecule, **andere Organism**, Token | Template, Page                     |
-| **Template** (`templates/`, `layout.tsx`) | Organism, Molecule, Atom, Token            | Page                               |
-| **Page** (`app/**/page.tsx`)              | alles darunter                             | —                                  |
+| Ebene (Ordner)                                    | Darf importieren                           | Darf NICHT importieren             |
+| ------------------------------------------------- | ------------------------------------------ | ---------------------------------- |
+| **Atom** (`core/`, `primitives-layout/`)          | nur Token                                  | Molecule, Organism, Template, Page |
+| **Molecule** (`compound/`, `feedback/`)           | Atom, andere Molecule, Token               | Organism, Template, Page           |
+| **Organism** (`sections/`)                        | Atom, Molecule, **andere Organism**, Token | Template, Page                     |
+| **Template** (`templates/`, `components/layout/`) | Organism, Molecule, Atom, Token            | Page                               |
+| **Page** (`src/pages/*.tsx`)                      | alles darunter                             | —                                  |
 
 Diese Hierarchie wird in Phase 2 fuer **jede** Ebene verifiziert (nicht nur fuer Atome). Sie wird **maschinell erzwungen** mit `eslint-plugin-boundaries` (§2.4) **und** `madge --circular` — nicht nur per Grep/Review geprueft. Die Strukturhierarchie ist verbindlich; die Styling-Technik (CSS Modules / Tailwind / cva) bleibt frei (`[FRO]` „Atomic design has nothing to do with CSS architecture").
 
-### 2.3 Server/Client-Komponenten (Sustainability + Konvention) `[NOR][§]`
+### 2.3 SSR/Hydration & Code-Splitting (Sustainability + Konvention) `[NOR][§]`
 
-`'use client'` nur, wo Interaktivitaet noetig ist — Server Components sind Default (Bundle/Energie sparen, §Phase 5.8). **Konventions-Ausnahmen (kein Verstoss gegen „minimal"):**
+Die App rendert server-seitig (`renderToString` in `entry-server.tsx`) und hydratisiert im Client (`hydrateRoot` in `entry-client.tsx`). Es gibt **keine** Next-„Server/Client Components" und **kein** `'use client'`/`'use server'`-Direktiven — der gesamte Baum ist isomorphes React, das auf Server **und** Client laeuft.
 
-- `error.tsx` und `global-error.tsx` **muessen** Client Components sein (`'use client'` Pflicht, da Error Boundary mit `reset()`).
-- `loading.tsx` und `not-found.tsx` koennen Server Components bleiben.
+- **SSR-Vertrag:** Server- und Client-Baum muessen identisch sein (gleicher `basename`, gleicher Suspense-Fallback), sonst Hydration-Mismatch. Browser-only-Seiteneffekte gehoeren in `useEffect` (laufen nie im SSR), nie in den Render-Pfad.
+- **Resilienz:** Fehler-/Lade-/404-Zustaende laufen ueber **React Router 7** (`errorElement` + `useRouteError()`, `<Suspense fallback>`, Catch-all-Route `path="*"`), nicht ueber `error.tsx`/`loading.tsx`/`not-found.tsx`.
 
-Die „use client minimal"-Regel gilt fuer **interaktive UI-Komponenten**, nicht fuer konventionsgebundene Router-Dateien. Der Agent entfernt `'use client'` **nie** aus `error.tsx`/`global-error.tsx`. Interaktivitaet wird so nah wie moeglich an die **Blaetter** des Komponentenbaums geschoben (`'use client'` an kleinen Interaktions-Komponenten, nicht an grossen Seiten-Subtrees).
+Bundle/Energie sparen (§Phase 5.8) ueber **Code-Splitting mit `React.lazy()`** (SEO-/Share-kritische Seiten wie HomePage + Consumer-LPs bleiben **eager**, damit der Head im ersten SSR-HTML steht) und manuelle Vendor-Chunks in `vite.config.ts`. Interaktivitaet wird so nah wie moeglich an die **Blaetter** des Komponentenbaums geschoben.
 
 ### 2.4 `eslint-plugin-boundaries` — Import-Richtung maschinell erzwingen `[FRO][§]`
 
@@ -223,7 +220,7 @@ module.exports = {
       { type: 'feedback', pattern: 'src/design-system/feedback/*' },
       { type: 'organism', pattern: 'src/design-system/sections/*' },
       { type: 'template', pattern: 'src/templates/*' },
-      { type: 'page', pattern: 'src/app/**' },
+      { type: 'page', pattern: 'src/pages/**' },
     ],
   },
   rules: {
@@ -399,8 +396,8 @@ await sd.buildAllPlatforms()
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
-  /* Schrift: next/font setzt --font-sans; tokens.css referenziert NUR diese Variable [FIL] */
-  --font-family-sans: var(--font-sans), system-ui, -apple-system, sans-serif;
+  /* Schrift: @fontsource-variable/inter (self-hosted, DSGVO) setzt 'Inter Variable'; Token referenziert NUR den Stack [FIL] */
+  --font-family-sans: 'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif;
 
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -604,7 +601,7 @@ Abhaengigkeit: `0 → 1 → 2 → {3,4} → 5 → 6 → 7`. Phasen 3 und 4 koenn
 
 **Anweisungen**
 
-1. **Interface Inventory** `[FRO]` in `docs/interface-inventory.md`: das Repo nach **allen einzigartigen** UI-Patterns scannen (je Pattern **eine** Instanz mit Dateipfad + JSX-Snippet) und nach den **16 Kategorien** gruppieren: Global elements · Navigation · Image types · Icons · Forms · Buttons · Headings · Blocks · Lists · Interactive components · Media · Third-party · Advertising · Messaging · Colors · Animation. **Dig deep:** auch `not-found.tsx`, `error.tsx`, `loading.tsx`, Legal-/FAQ-Seiten erfassen. Duplikate (z. B. 37 Button-Stile) sichtbar nebeneinanderstellen.
+1. **Interface Inventory** `[FRO]` in `docs/interface-inventory.md`: das Repo nach **allen einzigartigen** UI-Patterns scannen (je Pattern **eine** Instanz mit Dateipfad + JSX-Snippet) und nach den **16 Kategorien** gruppieren: Global elements · Navigation · Image types · Icons · Forms · Buttons · Headings · Blocks · Lists · Interactive components · Media · Third-party · Advertising · Messaging · Colors · Animation. **Dig deep:** auch die Routing-/Resilienz-Komponenten (`src/routing/*`: errorElement, Suspense-Fallback, NotFound) und Legal-/FAQ-Seiten erfassen. Duplikate (z. B. 37 Button-Stile) sichtbar nebeneinanderstellen.
 2. **Komponenten-Inventar & Naming-Map** als Tabelle in `REFACTOR-LOG.md`: Datei · Zweck · kuenftige Atomic-Ebene · Duplikat-von? · alter Name(n) → **struktur-/content-agnostischer** Zielname (§Phase 2.7). Naming-Map in `docs/design-system/PATTERNS.md`.
 3. **Werte-Audit** `[BUD]`: alle hartkodierten Hex-Farben, `px`-Spacings, Font-Sizes, Radii, Shadows per ripgrep **zaehlen** (`--count-matches`, §7) → Token-Migrations-Liste.
 4. **Tooling-Inventar** `[§]`: pruefen, welche `package.json`-Scripts existieren (`build`, `typecheck`, `lint`, `test`, `build-storybook`). Fehlende anlegen (`typecheck` = `tsc --noEmit`; `lint` = `eslint .` mit `eslint-plugin-jsx-a11y` + `eslint-plugin-boundaries`, §2.4) **oder** in allen folgenden Checks die `npx`-Fallbacks verwenden. Ergebnis ins Log.
@@ -613,7 +610,7 @@ Abhaengigkeit: `0 → 1 → 2 → {3,4} → 5 → 6 → 7`. Phasen 3 und 4 koenn
 7. **User Insights (Mad-Libs, loesungsfrei)** `[BEC]` in `docs/ux/insights.md`: _„[Persona] needs to [need] because of [ueberraschender Insight]."_ Das Insight darf **kein** Loesungsverb enthalten (kein „button/redesign/add"); aus einem Insight mehrere moegliche Loesungen ableiten. Versioniert/lebend halten.
 8. **Research konsumierbar machen** `[BEC]` in `docs/ux/research-summary.md`: Executive Summary + getaggte Quote-Cluster statt Rohtranskripte; Komponenten verweisen per Kommentar auf die belegende Insight/Quote.
 9. **Baseline-Screenshots** der Hauptseiten bei sm/md/lg/xl sichern (Vergleichsbasis §1.6) — Playwright-Skript §7.4.
-10. **Baseline-Metriken** ins Log: Lighthouse (Performance/A11y/Best-Practices/SEO), axe-Verstoesse, **First-Load-JS/Bundle-Groessen pro Route** (`next build`), `typecheck`/`lint`-Fehlerzahl, ungenutzte Deps/Exports/Files (`depcheck`/`ts-prune`/`knip`), zirkulaere Importe (`madge --circular`). (Lighthouse-Scores sind **interne** Eng.-Metriken, nicht nutzersichtbar — Abgrenzung §Phase 5.7.)
+10. **Baseline-Metriken** ins Log: Lighthouse (Performance/A11y/Best-Practices/SEO), axe-Verstoesse, **First-Load-JS/Bundle-Groessen pro Route** (`npm run build` = `vite build`), `typecheck`/`lint`-Fehlerzahl, ungenutzte Deps/Exports/Files (`depcheck`/`ts-prune`/`knip`), zirkulaere Importe (`madge --circular`). (Lighthouse-Scores sind **interne** Eng.-Metriken, nicht nutzersichtbar — Abgrenzung §Phase 5.7.)
 11. **Analytics-/Metrik-Audit** `[NOR]`: bestehende GTM/GA4-Events listen; **Vanity-Metriken** (Pageviews, Verweildauer, rohe Klicks, Bounce) markieren — werden in Phase 5/6 durch **Outcome-Events** ersetzt. Pruefen, ob ein opaker Aggregat-„Score" in nutzersichtbaren UIs existiert (→ §Phase 5.7).
 12. **Tech-Bestandsaufnahme:** Styling (CSS Modules/Tailwind/styled?), Router (App/Pages), TS ja/nein, vorhandene Tests/Storybook, **bestehende Datenvertraege/APIs** (foundational-first §1.3: Schema klaeren, bevor finales UI darauf baut).
 13. **Fruehe Lo-Fi-Validierung** `[BEC]`: fuer jede groessere geplante Flow-/Struktur-Aenderung ein Outline/Wireframe erstellen und **mit mind. einem echten beabsichtigten Nutzer** (nicht Team/Freunde/Stakeholder) gegenpruefen, **bevor** Phase 2 Code umbaut. Ergebnis + offene Hypothesen in `insights.md`. Kleine, rein technische Refactorings sind ausgenommen.
@@ -644,7 +641,7 @@ rg -l "<button|<input|<a " src | wc -l                 # Dateien mit nativen Ele
 node -e "const s=require('./package.json').scripts||{}; for (const k of ['build','typecheck','lint','test','build-storybook']) console.log(k, k in s ? 'OK' : 'FEHLT')"
 
 # Baseline-Metriken (Server-Start fuer URL-Audits siehe §7 'Audit-Server-Probe')
-npx next build                                  # First-Load-JS / Route-Sizes notieren
+npm run build                                   # vite build (client+SSR) — First-Load-JS / Route-Sizes notieren
 npx depcheck ; npx knip || npx ts-prune ; npx madge --circular src   # ungenutzte Deps/Exports/Files/Zyklen
 
 # Belege existieren
@@ -666,37 +663,37 @@ git tag | rg -q '^pre-refactor-baseline$' && echo "Rollback-Tag OK"
 2. **Semantic-Layer rollenbasiert** definieren (`--color-bg`=hellstes Grau, `--color-fg`=dunkelstes Grau, `--color-action-*`=Primary nur fuer Aktion/Focus, `--text-h1…h3/-body`, `--space-section-gap`, `--shadow-raised/-overlay`). `[BUD][FIL]`
 3. **Component-Layer** initial fuer den **Button** anlegen (Startkomponente §2.1), erbt **nur** von Semantic; je Komponente isoliert (§3-Regeln). Tokens nur ab ≥3 Verwendungen (One-off-Regel §1.20).
 4. **Naming-Convention** durchsetzen: `category-property-item-variant-state`; in `tokens/README.md` dokumentieren samt „wie fuege ich einen Token hinzu" (§1.20) **und** gewaehltem Pipeline-Setup (CSS-first vs. JSON-first §3.0). `[BUD]`
-5. **Theming** ueber `[data-theme="dark"]` realisieren — **nur Semantic neu binden** (identische Namen, andere Werte), keine Komponenten-Duplikate. Dark-Mode: hellerer Surface statt weisser Schatten; `--neutral-400` fuer Secondary-Text. Theme SSR-sicher per `data-theme` am `<html>` setzen (Inline-Script vor Hydration, kein FOUC/Flash); `prefers-color-scheme` als Default. `[BUD][FIL]`
+5. **Theming** ueber `[data-theme="dark"]` realisieren — **nur Semantic neu binden** (identische Namen, andere Werte), keine Komponenten-Duplikate. Dark-Mode: hellerer Surface statt weisser Schatten; `--neutral-400` fuer Secondary-Text. Theme SSR-sicher per `data-theme` am `<html>` setzen: Inline-Script direkt im `index.html`-Template (vor dem Hydration-Bundle, kein FOUC/Flash); `prefers-color-scheme` als Default. Hinweis: Aktuell ist in `tailwind.config.js` **kein** `darkMode` gesetzt (Tailwind-Default `media`); ein expliziter Toggle ist eine Nachfrage-Schwelle (§1.17, PROJECT-DECISIONS). `[BUD][FIL]`
 6. `tokens.ts` als typsichere Spiegelung anlegen (nur Werte fuer JS/Props; bei JSON-first generiert).
-7. `globals.css` importiert `tokens.css`; CSS-Reset + Basistypografie (`body` nutzt `--text-body`, `--line-height-body`, `--font-family-sans`). Schrift via **`next/font`** in `app/layout.tsx` laden und dessen CSS-Variable als `--font-sans` exponieren (`variable: '--font-sans'`); `tokens.css` referenziert nur `var(--font-sans)` (kein hartkodierter Familienname). Genau **ein** Typeface (zweiter Loader nur als bewusster Mono-/Fallback-Font). `[FIL]`
+7. `src/index.css` enthaelt die Tailwind-Direktiven (`@tailwind base/components/utilities`) + CSS-Reset + Basistypografie (`body`/`:root` nutzen den `font-sans`-Stack). Schrift via **`@fontsource-variable/inter`** als Side-Effect-Import in `src/entry-client.tsx` laden (vor `./index.css`), Familie `'Inter Variable'`; `tailwind.config.js` setzt `fontFamily.sans` auf diesen Stack (kein Google-Fonts-CDN, DSGVO). Genau **ein** Typeface (zweiter Loader nur als bewusster Mono-/Fallback-Font). `[FIL]`
 8. Markenwerte (Primaerfarbe, Schriftfamilie) **vom Nutzer bestaetigen** (§1.17), Platzhalter klar markieren.
 9. Bei Tailwind: `theme.extend` aus den CSS-Variablen speisen (§3.3, **nicht** Top-Level-Override), arbitrary values verbieten.
 10. `lib/flags.ts` (Feature-Flags) und `lib/metrics/{definitions,thresholds,aggregate}.ts` als Foundation-Stubs anlegen (von Phase 5/6 genutzt).
 
-**`next/font`-Setup mit Anti-Flash-Inline-Script (kopierbar) `[FIL][BUD]`:**
+**Font-Setup (`@fontsource-variable/inter`) + Anti-Flash-Theme-Script (kopierbar) `[FIL][BUD]`:**
 
 ```tsx
-// src/app/layout.tsx — Server Component
-import { Inter } from 'next/font/google'
-import '../styles/globals.css'
+// src/entry-client.tsx — Client-Hydration-Entry
+// Side-effect imports: self-hosted Inter (variable, SIL OFL) — kein Google-Fonts-CDN (DSGVO).
+// font-display: swap bringt das Paket selbst mit. Reihenfolge: Font VOR index.css.
+import '@fontsource-variable/inter'
+import './index.css'
+import { hydrateRoot } from 'react-dom/client'
+// … hydrateRoot(document.getElementById('root')!, <StrictMode>…<BrowserRouter basename={`/${lang}`}>…)
+```
 
-const sans = Inter({ subsets: ['latin'], variable: '--font-sans', display: 'swap' })
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="de" className={sans.variable} suppressHydrationWarning>
-      {/* Theme vor Hydration setzen → kein FOUC/Flash [BUD] */}
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');var m=matchMedia('(prefers-color-scheme:dark)').matches;document.documentElement.dataset.theme=(t||(m?'dark':'light'));}catch(e){}})();`,
-          }}
-        />
-      </head>
-      <body>{children}</body>
-    </html>
-  )
-}
+```html
+<!-- index.html (Template, von server.ts mit SSR-HTML befuellt) -->
+<!-- Theme vor Hydration setzen → kein FOUC/Flash [BUD]. tailwind.config.js: fontFamily.sans = ['Inter Variable', …] -->
+<script>
+  ;(function () {
+    try {
+      var t = localStorage.getItem('theme')
+      var m = matchMedia('(prefers-color-scheme:dark)').matches
+      document.documentElement.dataset.theme = t || (m ? 'dark' : 'light')
+    } catch (e) {}
+  })()
+</script>
 ```
 
 **Definition of Done**
@@ -704,7 +701,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 - [ ] `tokens.css` deckt **alle** in Phase 0 gefundenen Wert-Kategorien ab; Skala non-linear, keine ungeraden Werte (3/5/7px).
 - [ ] Drei Ebenen sauber: Component → nur Semantic, Semantic → nur Primitive; kein Component-Token zeigt auf Rohwert/Primitive.
 - [ ] Token-Namen matchen die Convention; `tokens/README.md` inkl. Pipeline-Setup + One-off-Schwelle.
-- [ ] Theming-Hook (`[data-theme]`) funktionsfaehig (Light/Dark teilen identische Variablennamen, kein FOUC); genau **ein** Typeface via `next/font`, exponiert als `--font-sans`; `tokens.css` referenziert die Variable.
+- [ ] Theming-Hook (`[data-theme]`) funktionsfaehig (Light/Dark teilen identische Variablennamen, kein FOUC); genau **ein** Typeface via `@fontsource-variable/inter` (Import in `entry-client.tsx`); `tailwind.config.js` `fontFamily.sans` referenziert den Inter-Stack.
 - [ ] Body/Input-Font-Size ≥16px; kein reines `#000000`/`#000` (auch Space-Syntax) als Token-Wert.
 - [ ] Bei Tailwind: Token-Werte unter `theme.extend`; Defaults (`transparent`/`current`/`shadow-none`) erhalten.
 - [ ] `lib/flags.ts` + `lib/metrics/{definitions,thresholds,aggregate}.ts` als Stubs vorhanden.
@@ -729,8 +726,9 @@ rg -oP -- "--color-[a-z0-9-]+(?=\s*:)" src/design-system/tokens/tokens.css | sor
 # genau ein Font-Loader-Aufruf (zweiter nur Mono/Fallback)
 rg -n -o "(Inter|Roboto|Geist|[A-Z][a-zA-Z]+)\s*\(" -g '**/font*.*' -g '**/layout.tsx' src
 
-# next/font setzt eine Variable; tokens.css referenziert sie
-rg -n "variable:\s*'--font-sans'|var\(--font-sans\)" src
+# Inter wird self-hosted importiert (genau einmal, in entry-client.tsx); tailwind fontFamily.sans referenziert den Stack
+rg -n "@fontsource-variable/inter" src/entry-client.tsx
+rg -n "'Inter Variable'" tailwind.config.*
 
 # Body >= 16px
 rg -n "font-size-300:\s*1rem" src/design-system/tokens/tokens.css
@@ -751,14 +749,14 @@ rg -n "theme:\s*\{\s*extend" tailwind.config.* 2>/dev/null
 2. **Atome zuerst**, beginnend mit **Button** `[BUD]`: minimale, explizite Props-API; Varianten ueber **orthogonale Props** (`variant`/`type`, `size`, `tone`, `iconLeft/iconRight/iconOnly`), **nicht** ueber Kopien. Variant-Auswahl ueber eine Variant-Map (cva/clsx-Lookup), nicht ueber tief verzweigte Inline-Conditions. **Alle States** als Properties: default/hover/focus-visible/active/disabled. Touch-Target ≥44px. `[FIL][BUD]`
 3. **Molecules** aus Atomen komponieren unter **Single-Responsibility** `[FRO]` (z. B. `FormField = Label + Input + ErrorText`). Das Eingabe-**Atom** heisst `Input` (nicht `field`); das **Molecule** darf `FormField` heissen — Ebenenbezug beachten. Keine Logik duplizieren, die ein Atom schon kann.
 4. **Organisms** (Header, Footer, Hero, Formularbloecke) aus Molecules/Atomen **und ggf. anderen Organismen** zusammensetzen (§2.2).
-5. **Templates** als reine Layout-Gerueste mit Slots/`children` und **Content-Guardrails** (max. Zeichenlaengen via Typen/`zod .max`, fixe `aspect-ratio` fuer Bilder via `next/image width/height`, Pflicht-/Optional-Felder) — **kein** finaler Content, keine Inhalts-Literale. Datenbeschaffung (Server Components/`fetch` in `page.tsx`) strikt von der Layout-Struktur trennen. `[FRO]`
-6. **Pages** (`app/**/page.tsx`) = Template + echte Daten.
+5. **Templates** als reine Layout-Gerueste mit Slots/`children` und **Content-Guardrails** (max. Zeichenlaengen via Typen/`zod .max`, fixe `aspect-ratio` fuer Bilder via explizite `width`/`height`-Attribute am `<img>`, Pflicht-/Optional-Felder) — **kein** finaler Content, keine Inhalts-Literale. Datenbeschaffung (SSR-`fetch`/`src/data`-Module) strikt von der Layout-Struktur trennen. `[FRO]`
+6. **Pages** (`src/pages/*.tsx`) = Template + echte Daten.
 7. **Kontext-/content-agnostische Namen** `[FRO]`: `HomepageCarousel → Carousel`, `ProductCard → Card`, `BlogHeroBanner → Banner`. Orts-/Inhalts-Praefixe aus Datei- und Komponentennamen entfernen (Naming-Map `PATTERNS.md`). „Make it agnostic."
 8. **Industriestandard-Namen** `[BUD][FRO]`: `Dialog`, `Tooltip`, `Accordion`, `Input` (Open UI / Component Gallery als Referenz). Keine Eigenerfindungen. Synonym-Dubletten (`Hero` vs. `Banner` fuer dasselbe Modul) auf **einen** kanonischen Namen konsolidieren.
 9. **Shared Vocabulary** `[FRO]`: einheitliche PascalCase-Komponenten, projektweit konsistente Prop-Namen (`disabled` statt mal `isDisabled`; eine Achse = ein Prop-Name, nicht mal `kind`/mal `type`/mal `style`). Synonyme eliminieren; in `PATTERNS.md`/`lineage.md` Naming-Map pflegen.
 10. **Connect tokens** `[BUD]`: jede migrierte Komponente verdrahtet ausschliesslich Semantic-/Component-Tokens — kein Rohwert, kein Primitive direkt (§1.7).
 11. **Pattern-Lineage** `[FRO]` in `docs/design-system/lineage.md` pflegen: pro Komponente **Uses:** (importierte Sub-Komponenten) und **Used-by:** (Verwendungsstellen, reproduzierbar via `rg -l "<X[ />]" app src`). Vor jeder Aenderung an einer geteilten Komponente die Used-by-Liste neu generieren und jede Stelle als QA-Aufgabe vermerken. Komponenten mit **leerer** Used-by-Liste = toter Code → DROP (Graveyard §1.18, Nachfrage §1.17).
-12. **Server/Client bewusst trennen (§2.3):** `'use client'` nur, wo Interaktivitaet noetig (Blatt-nah); `error.tsx`/`global-error.tsx` behalten zwingend `'use client'`. Barrel-Export `design-system/index.ts` pflegen; App-Importe umstellen. **Holy Grail (§Phase 7.8):** genau **eine** Definition pro Komponente — Storybook und App importieren dieselbe Quelle, kein Copy-Paste-Klon.
+12. **SSR/Hydration & Code-Splitting bewusst (§2.3):** isomorphes React (kein `'use client'`/`'use server'`); Interaktivitaet Blatt-nah; Resilienz ueber React-Router-7-`errorElement`/`useRouteError()`. Schwere/Below-the-fold-Seiten via `React.lazy()`, SEO-kritische (HomePage/Consumer-LPs) eager. Barrel-Export `design-system/index.ts` pflegen; App-Importe umstellen. **Holy Grail (§Phase 7.8):** genau **eine** Definition pro Komponente — Storybook und App importieren dieselbe Quelle, kein Copy-Paste-Klon.
 13. **Keine Zirkular-Abhaengigkeiten / kein God-Module** `[NOR]`: Import-Graph pruefen (`madge --circular`); keine Komponente mit ueberproportional vielen eingehenden Kanten.
 
 **Button-Atom (kopierbar, Referenz fuer alle Atome) `[FIL][BUD][NOR]`:**
@@ -835,35 +833,31 @@ export function FormField({
 }
 ```
 
-**Segment-`error.tsx` (kopierbar) — Resilienz + Klartext `[NOR][BEC]`:**
+**React-Router-7-`errorElement` (kopierbar) — Resilienz + Klartext `[NOR][BEC]`:**
 
 ```tsx
-'use client' // PFLICHT — Error Boundary mit reset() [§2.3]
+// src/routing/SegmentErrorBoundary.tsx — als route.errorElement registriert
+import { useRouteError } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Button } from '@/design-system/core/button'
-import { useTranslations } from 'next-intl' // echte i18n-Resolution (Provider liefert request-locale), NICHT nur String-Externalisierung
-export default function Error({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string }
-  reset: () => void
-}) {
-  const t = useTranslations('error')
+export function SegmentErrorBoundary() {
+  const error = useRouteError()
+  const { t } = useTranslation('common')
   // technische Details NUR server-seitig loggen, nie im UI [NOR]
-  if (process.env.NODE_ENV !== 'production') console.error(error)
+  if (import.meta.env.DEV) console.error(error)
   return (
     <div role="alert" className="mx-auto max-w-reading p-8 text-center">
-      <h1 className="text-2xl">{t('title')}</h1> {/* Klartext, kein Code */}
-      <p className="text-fg-muted mt-2">{t('body')}</p>
-      <Button onClick={reset} className="mt-6">
-        {t('retry')}
+      <h1 className="text-2xl">{t('error.title')}</h1> {/* Klartext, kein Code */}
+      <p className="text-fg-muted mt-2">{t('error.body')}</p>
+      <Button onClick={() => window.location.reload()} className="mt-6">
+        {t('error.retry')}
       </Button>
     </div>
   )
 }
 ```
 
-> **i18n-Hinweis:** Ein statisches `messages`-Objekt waere reine **String-Externalisierung**, **keine** Lokalisierung. Echte i18n braucht eine Locale-Dimension (Route `[locale]`/Middleware aus Accept-Language/Cookie) + `next-intl` (`useTranslations` im Client, `getTranslations` server-seitig) + `Intl.*` fuer Zahlen/Daten/Namen (§1.12, §Phase 5.5–5.6). Da `error.tsx` eine Client-Boundary ist, liefert `NextIntlClientProvider` im Root-Layout die request-locale.
+> **i18n-Hinweis:** Ein statisches `messages`-Objekt waere reine **String-Externalisierung**, **keine** Lokalisierung. Echte i18n laeuft hier ueber **`i18next` + `react-i18next`** (`useTranslation(ns)` mit `t()`) mit der Locale aus dem URL-Prefix (`/<lang>/…`, `SUPPORTED_LANGUAGES`) + `Intl.*` fuer Zahlen/Daten/Namen (§1.12, §Phase 5.5–5.6). Pro SSR-Request erzeugt `entry-server.tsx` eine eigene i18n-Instanz (kein geteilter Zustand); im Client wartet `entry-client.tsx` auf `i18nReady`, bevor hydratisiert wird (sonst Hydration-Mismatch). Uebersetzungen liegen in `public/locales/<lang>/<namespace>.json`.
 
 **Definition of Done**
 
@@ -871,7 +865,7 @@ export default function Error({
 - [ ] Import-Richtung strikt top-down auf **allen** Ebenen (maschinell via `eslint-plugin-boundaries` §2.4 gruen); **0** Zirkular-Abhaengigkeiten (`madge --circular`).
 - [ ] Keine Duplikate; je Kategorie ein kanonisches Atom (Button/Card/Input konsolidiert); Variante via Prop, nicht Kopie; genau **eine** Definition pro Komponente (Holy Grail).
 - [ ] Alle Namen struktur-/content-agnostisch + Industriestandard; Prop-Konventionen einheitlich (eine Achse = ein Prop-Name).
-- [ ] `docs/design-system/lineage.md` (Uses/Used-by) vorhanden; tote Patterns (leere Used-by) in `GRAVEYARD.md`; `'use client'` minimal (Ausnahme `error.tsx`/`global-error.tsx`).
+- [ ] `docs/design-system/lineage.md` (Uses/Used-by) vorhanden; tote Patterns (leere Used-by) in `GRAVEYARD.md`; Browser-only-Seiteneffekte ausschliesslich in `useEffect` (nie im SSR-Render-Pfad), Server-/Client-Baum identisch (kein Hydration-Mismatch).
 - [ ] Templates ohne Inhalts-Literale; Content-Guardrails (Zod-maxLength / Bild-`aspect-ratio`) vorhanden.
 
 **Verifikation**
@@ -894,8 +888,8 @@ rg -c "export (default )?function Button|const Button\s*=" src | rg -v "\.storie
 # Templates ohne Inhalts-Literale (lange Satz-Strings) — Soll: leer
 rg -n ">[A-Z][a-z].{15,}<" src/templates -g '*.tsx'
 
-# 'use client' bewusst & minimal (error/global-error-Treffer erlaubt)
-rg -n "use client" src/design-system
+# Kein Next-Spezifikum eingeschlichen (Soll: leer) — isomorphes React, kein 'use client'/'use server'/next-*
+rg -n "use client|use server|next/(font|image|dynamic|link)|next-intl" src
 ```
 
 ---
@@ -1014,9 +1008,9 @@ rg -n "max-w-reading|max-width:\s*var\(--reading-width" src
 5. **Kein WEIRD-Bias / ganzes Oekosystem** `[NOR]` (§1.12): i18n vorbereiten (`<html lang>`, `messages/` zentral, keine in Code eingebetteten Sprachannahmen); Locale aus Accept-Language/Cookie ableiten (nicht stilles `en`); Datum/Zahl/Waehrung via `Intl.*` mit request-locale (kein festes `en-US`/nacktes `toLocaleString()`); **ein** `fullName`-Feld statt erzwungenem first/last; kulturneutrale Beispiele/Namen/Farben; Tauglichkeit auf langsamen Netzen/kleinen Geraeten pruefen.
 6. **Verstaendliche Sprache** `[NOR]` (§1.11): alle nutzersichtbaren Strings nach `messages/` zentralisieren, gruppiert nach Szenario (success/error/empty/destructive); Jargon/ALL-CAPS-Rechtstexte eliminieren; Fehlermeldungen in Klartext + konkretem Loesungsvorschlag, ohne rohe Codes/Stacktraces; **Voice konstant, Tone szenarioabhaengig** (ernster bei Fehlern/Geld als bei Marketing). Gegen eine Persona auf Lesbarkeit pruefen.
 7. **Ehrliche Metriken + Stories** `[NOR]` (§1.14): Vanity-Events durch **Outcome-Events** ersetzen (Formular abgeschlossen, Aufgabe erledigt). Pro Event in `lib/metrics/definitions.ts` ein typisiertes Objekt `{name, hypothesis, whatItProxies, validityCaveat, scaleType, story}` (scaleType: ratio/interval/ordinal). **Aggregation:** ordinale Daten → **Median**, nicht arithmetisches Mittel (`lib/metrics/aggregate.ts` + Test). **Keine** Mischung heterogener Dimensionen zu **einem** Score in **nutzersichtbaren** Status-UIs — qualitativer Ueberblick (gut/Achtung/Problem, `StatusBadge` gegen `thresholds.ts`) + progressive disclosure (exakte Zahl erst im Tooltip/Detail). Mind. **eine** subjektive Qualitaetsmetrik (Zufriedenheit/erlebter Erfolg) gleichberechtigt neben technischen/Conversion-Metriken. _(Interne Build-/QA-Metriken wie Lighthouse sind ausgenommen — kein Nutzer-Dashboard.)_
-8. **Sustainability/Performance = Circular Design** `[NOR]` (§1.8): ungenutzte Deps/Dead Code/verwaiste Routen/ungenutztes CSS entfernen (`knip`/`ts-prune`/`depcheck` = 0; doppelte npm-Pakete via `npm ls`/dedupe = 0); `next/dynamic` & `dynamic import()` fuer schwere/Below-the-fold-Client-Komponenten; Bilder via `next/image` (AVIF/WebP, responsive `sizes`, `priority` nur fuer LCP, sonst lazy); `next/font` statt Web-Font-Requests; Server Components als Default; aggressives Caching (`fetch`-cache/`revalidate`/static where possible). First-Load-JS/Route gegen Phase-0-Baseline; Bundle-Budget als CI-Gate, < ~100 KB gz pro Route anstreben. Jedes ueberfluessige KB = Designfehler.
-9. **Resilienz/lose Kopplung** `[NOR]` (§1.9): pro Route-Segment `error.tsx` (mit `reset()`, `'use client'`) + `loading.tsx` (Suspense-Skeleton) + `not-found.tsx`; Root zusaetzlich `global-error.tsx`; jeder externe Fetch defensiv (try/catch + Fallback-UI + Timeout/Retry/`revalidate`); Drittanbieter-SDKs hinter `lib/`-Adapter. Progressive Enhancement: Kerninhalt server-gerendert, bei deaktiviertem/fehlgeschlagenem JS nutzbar.
-10. **Selbstbeobachtung (second-order)** `[NOR]`: `error.tsx`/`global-error.tsx` melden an Monitoring (`captureException`/strukturiertes Logging, technische Details nur serverseitig); Web-Vitals via `useReportWebVitals`; CI-Health-Check + Bundle/Lighthouse-Budget-Gate, das bei Regression rot wird.
+8. **Sustainability/Performance = Circular Design** `[NOR]` (§1.8): ungenutzte Deps/Dead Code/verwaiste Routen/ungenutztes CSS entfernen (`knip`/`ts-prune`/`depcheck` = 0; doppelte npm-Pakete via `npm ls`/dedupe = 0); **`React.lazy()` + `<Suspense>`** + routebasiertes Code-Splitting fuer schwere/Below-the-fold-Komponenten (SEO-kritische Seiten wie HomePage/Consumer-LPs eager); Bilder build-time via **sharp** zu AVIF/WebP, responsive `srcset`/`sizes`, explizite `width`/`height`, `loading="lazy"` (LCP-Bild `fetchpriority="high"`); **self-hosted `@fontsource-variable/inter`** statt Web-Font-Requests; manuelle Vendor-Chunks in `vite.config.ts`; `Cache-Control`/HTTP-Caching im Express-SSR-Server + CDN, statisch prerendern wo moeglich (`scripts/prerender.mjs`). First-Load-JS/Route gegen Phase-0-Baseline; Bundle-Budget als CI-Gate, < ~100 KB gz pro Route anstreben. Jedes ueberfluessige KB = Designfehler.
+9. **Resilienz/lose Kopplung** `[NOR]` (§1.9): pro Route ein `errorElement` (React Router 7, `useRouteError()`) + `<Suspense fallback>` (Skeleton) + Catch-all-Route (`path="*"`, 404); jeder externe Fetch defensiv (try/catch + Fallback-UI + Timeout/Retry, ggf. Caching via Backend/CDN); Drittanbieter-SDKs hinter `lib/`-Adapter. Progressive Enhancement: Kerninhalt server-gerendert (Express-SSR), bei deaktiviertem/fehlgeschlagenem JS nutzbar.
+10. **Selbstbeobachtung (second-order)** `[NOR]`: die `errorElement`-Boundaries melden an Monitoring (`captureException`/strukturiertes Logging, technische Details nur serverseitig); Web-Vitals via `web-vitals`-Paket (`onCLS/onLCP/onINP` → Analytics); CI-Health-Check + Bundle/Lighthouse-Budget-Gate, das bei Regression rot wird.
 
 **Definition of Done**
 
@@ -1026,8 +1020,8 @@ rg -n "max-w-reading|max-width:\s*var\(--reading-width" src
 - [ ] Alle nutzersichtbaren Strings in `messages/`; kein ALL-CAPS-Rechtstext/Jargon; Fehlermeldungen Klartext + Loesung; Voice/Tone dokumentiert.
 - [ ] Analytics = Outcome-Events mit `definitions.ts` (whatItProxies/validityCaveat/story/scaleType); ordinal→Median (Test gruen); ≥1 subjektive Qualitaetsmetrik; **kein** Aggregat-Score in nutzersichtbaren Status-UIs.
 - [ ] Dark-Pattern-Checkliste je Flow gruen (Opt-out=Opt-in, default-unchecked, abbrechbar, Undo, kein erzwungenes Signup vor Mehrwert, keine Countdowns).
-- [ ] **Kein toter Code/Deps** (`knip`/`ts-prune`/`depcheck` = 0; keine npm-Duplikate); `next/image`+`dynamic`+`next/font` genutzt; First-Load-JS/Route nicht ueber Baseline **ohne dokumentierte Begruendung**.
-- [ ] Jede Route hat `error.tsx`+`loading.tsx`+`not-found.tsx` (Root zusaetzlich `global-error.tsx`); externer Ausfall degradiert nur sein Segment; Monitoring + Web-Vitals in Boundaries gemeldet.
+- [ ] **Kein toter Code/Deps** (`knip`/`ts-prune`/`depcheck` = 0; keine npm-Duplikate); Code-Splitting via `React.lazy()`, Bilder build-optimiert (`sharp`, `.webp`/`.jpg`, explizite `width`/`height`), Inter self-hosted (`@fontsource-variable/inter`); First-Load-JS/Route nicht ueber Baseline **ohne dokumentierte Begruendung**.
+- [ ] Jede Route hat `errorElement` + `<Suspense fallback>` + Catch-all-404; externer Ausfall degradiert nur seinen Bereich; Monitoring + Web-Vitals in Boundaries gemeldet.
 
 **Verifikation**
 
@@ -1038,8 +1032,8 @@ npx lighthouse "$URL" --only-categories=accessibility,performance --output=json 
 # A11y-Score-Gate maschinell asserten (macht DoD "≥95" belegbar; Soll: Exit 0):
 node -e "const r=require('./lh.json');const a=r.categories.accessibility.score;process.exit(a>=0.95?0:(console.error('A11y',a),1))"
 
-# UI-State-Dateien je Segment + global-error
-fd -e tsx '(loading|error|not-found|global-error)' src/app
+# Resilienz-Bausteine (React Router 7): errorElement + Suspense-Fallback + Catch-all-Route vorhanden?
+rg -n "errorElement|useRouteError|<Suspense|RootErrorBoundary|SegmentErrorBoundary|NotFound" src/routing src/App.tsx
 
 # div-Button-Antipattern (Soll: leer)
 rg -n "<div[^>]*onClick" src
@@ -1048,21 +1042,22 @@ rg -n "<div[^>]*onClick" src
 rg -n "'en-US'|toLocaleString\(\)|firstName|lastName" src
 
 # Monitoring + Web-Vitals in Boundaries
-rg -n "captureException|reportError|logger\.|useReportWebVitals" src/app
+rg -n "captureException|reportError|logger\.|onCLS|onLCP|onINP|web-vitals" src
 
 # ordinal→Median (Test gruen)
 npm test -- aggregate
 
 # kein toter Code/Deps; Bundle vs. Baseline
-npx next build       # First-Load-JS pro Route mit Phase-0-Baseline vergleichen
+npm run build        # Vite-SSR-Build (build:client + build:server); First-Load-JS/Chunks pro Route mit Phase-0-Baseline vergleichen
 npx knip || npx ts-prune ; npx depcheck ; npm ls --all 2>/dev/null | rg -c "dedupe" || true   # Soll: 0
 
 # ALL-CAPS-Rechtstext: ganze Caps-PHRASEN; rohe Fehlercodes
 rg -n "([A-Z][A-Z ]{15,})" src/messages ; rg -ni "[A-Z]{12,}" src/messages
-rg -n "Error [0-9]{3,}|errno|ECONN|stack" src/app -g '**/error.tsx' -g '**/global-error.tsx'
+rg -n "Error [0-9]{3,}|errno|ECONN|stack" src/routing src/pages
 
-# i18n vorbereitet
-rg -n "<html[^>]*lang=" src/app
+# i18n vorbereitet: lang-Attribut wird server-seitig je Request gesetzt (server.ts replace), Client haelt es synchron
+rg -n "<html[^>]*lang=" index.html
+rg -n "documentElement.lang" src
 
 # Manuell: jede Hauptseite nur per Tastatur; JS deaktiviert → Kerninhalt sichtbar; externen Fetch faken → nur Segment degradiert.
 ```
@@ -1075,7 +1070,7 @@ rg -n "<html[^>]*lang=" src/app
 
 **Anweisungen**
 
-1. **Alle UI-States** jeder datengetriebenen Komponente: **loading / empty / error / success** (+ partial wo sinnvoll). Loading via `loading.tsx`/Suspense-Skeleton (`aria-busy`) + `useFormStatus`/`isPending` an Submit-Buttons (disabled+Spinner); **Empty** = erklaerender Text + klarer CTA, **nie** leere Flaeche oder generischer Lorem-Platzhalter; Error via `error.tsx` (Klartext + `reset()`-Button, kein Stacktrace/Code im DOM); Success = Toast/Inline-Bestaetigung + aktualisierter Zustand (`revalidatePath`/optimistic UI). Keine „nur Happy Path"-Komponente. `[BEC]`
+1. **Alle UI-States** jeder datengetriebenen Komponente: **loading / empty / error / success** (+ partial wo sinnvoll). Loading via `<Suspense fallback>`-Skeleton (`aria-busy`) + lokalem `isPending`/`isSubmitting`-State an Submit-Buttons (disabled+Spinner); **Empty** = erklaerender Text + klarer CTA, **nie** leere Flaeche oder generischer Lorem-Platzhalter; Error via React-Router-`errorElement`/`useRouteError()` (Klartext + Retry-Aktion, kein Stacktrace/Code im DOM); Success = Toast/Inline-Bestaetigung + aktualisierter Zustand (Re-Fetch/optimistic UI). Keine „nur Happy Path"-Komponente. `[BEC]`
 2. **Content-First** `[BEC]`: Inhalte aus `content/` statt im UI hartkodiert; pro `page.tsx` zuerst ein **Inhalts-Outline** (Informationsbloecke + Reihenfolge + Happy Path) als Kommentar/MDX, **bevor** Layout. „Never sketch a screen without an outline." Alle generischen Platzhalter durch echten, kontextuellen Inhalt ersetzen.
 3. **Fehlerpraevention & User Control** `[BEC]` (Nielsen): Formulare clientseitig vor Submit validieren (zod + react-hook-form / Server-Action mit Schema), inline-Fehler neben dem Feld; destruktive/irreversible Aktionen mit Bestaetigungsdialog; jedes Modal/Flow mit sichtbarem Abbrechen/Schliessen (Esc/Backdrop) und wo moeglich Undo (Toast „Rueckgaengig"); kein Datenverlust bei Fehler.
 4. **Extrem-Content testen** `[FRO][BEC]`: leerer Zustand, 1 Item, viele Items, sehr lange/sehr kurze Strings, Admin/Nicht-Admin/Erstnutzer, fehlende Bilder — kein Layout-Bruch/Overflow; bricht etwas, auf **atomarerer** Ebene fixen (nicht per Inline-Override in der Page).
@@ -1083,7 +1078,7 @@ rg -n "<html[^>]*lang=" src/app
 6. **UX-Maturity-Check** `[BEC]` pro Hauptseite in `docs/ux/maturity-audit.md`, **bottom-up additiv**: **usable** (bedienbar/zugaenglich — Minimum) → **useful** (loest das Problem-Statement) → **desirable** (Marke/Vertrauen/Aesthetik) → **delightful** (ueber Erwartung). Mindestziel = usable + useful belegt; desirable/delightful als Tickets. Delight-Features **nicht** vor geschlossenen A11y-Defekten (§Phase 5).
 7. **Aufgaben-Orientierung & Story** `[NOR]`: pro Hauptseite die zentrale Nutzeraufgabe (aus Problem-Statement/Persona) benennen; pruefen, ob der primaere CTA sie unmittelbar unterstuetzt und ob das **narrative Akzeptanzkriterium** (§Phase 0.6) erfuellt ist. Jede KPI-/Reporting-Ansicht zeigt neben der Zahl ein kurzes „Was bedeutet das"-Narrativ (§1.14).
 8. **Feature-Graveyard pruefen** `[BEC]`: identifizieren, welche Features/Patterns niemand braucht oder das Problem nicht loesen (leere Used-by-Lineage §Phase 2.11, 0-Klick-Analytics) → als Streichungs-Kandidaten in `docs/GRAVEYARD.md` (Datum/Grund/Commit) und via Nachfrage-Schwelle (§1.17) zur Entfernung vorschlagen. „Nein sagen ist Wertschoepfung." Code aus `main` entfernen; History/archivierter Branch erhaelt Nachvollziehbarkeit (Idee statt Code im Bundle).
-9. **Scope-Wirkung messen** `[BEC]`: vor jeder Erweiterung Bundle-/Render-/Datenkosten bewerten und die kleinere zielerfuellende Variante waehlen (fewer Items, kuerzere `revalidate` statt zusaetzlichem Client-State); Vorher/Nachher im PR; Web Vitals (LCP/CLS) duerfen sich nicht verschlechtern.
+9. **Scope-Wirkung messen** `[BEC]`: vor jeder Erweiterung Bundle-/Render-/Datenkosten bewerten und die kleinere zielerfuellende Variante waehlen (fewer Items, kuerzeres Cache-TTL statt zusaetzlichem Client-State); Vorher/Nachher im PR; Web Vitals (LCP/CLS) duerfen sich nicht verschlechtern.
 10. **Fail fast & mit echten Nutzern (finale Verifikation)** `[BEC][NOR]`: Aenderungen klein gegen Baseline; pro groesserer Stufe Preview-Deploy + mind. eine Usability-Runde mit **realen, beabsichtigten** Nutzern (nicht Team/Freunde/Stakeholder) — Protokoll in `docs/ux/user-testing.md` (Datum, Teilnehmerprofil, Aufgaben, Beobachtungen, Findings). Offene Annahmen als Hypothese in `insights.md`, betroffene Komponente „needs validation" + Feature-Flag (§1.17).
 
 **Definition of Done**
@@ -1104,8 +1099,8 @@ npm test
 rg -n "loading|empty|error|success" src/design-system -g '*.tsx' | head
 
 # keine generischen Platzhalter / Stacktraces in ausgelieferten Views (Soll: leer)
-rg -ni "lorem|placeholder\.(png|jpg)|TODO" src/app
-rg -n "stack\b|stacktrace" src/app -g '**/error.tsx'
+rg -ni "lorem|placeholder\.(png|jpg)|TODO" src
+rg -n "stack\b|stacktrace" src/routing src/pages
 
 # destruktive Aktionen mit Bestaetigung (Stichprobe)
 rg -n "confirm|AlertDialog|Dialog" src/design-system/compound
@@ -1177,14 +1172,14 @@ rg -n "from .*design-system/(core|compound|sections)" .storybook src/**/*.storie
 - [ ] **0** hartkodierte Design-Werte ausserhalb der Token-Quelldateien (`tokens.json`/`tokens.css`/`tokens.ts`/`tailwind.config.*` — Allowlist §1.19); Grep-Beweis. `[BUD]`
 - [ ] Vollstaendige Atomic-Struktur; Import-Richtung strikt top-down auf **allen** Ebenen (maschinell via `eslint-plugin-boundaries`); **0** Zirkular-Abhaengigkeiten (`madge`); keine Duplikate; alle Namen struktur-/content-agnostisch + Industriestandard. `[FRO][BUD]`
 - [ ] Drei Token-Ebenen sauber: Component→Semantic→Primitive; Komponenten nutzen nur Semantic/Component. `[BUD]`
-- [ ] Theming ueber Token-Sets (identische Namen, keine Komponenten-Duplikate, kein FOUC/Flash); nur ein Typeface (via `next/font`, `--font-sans`); Body/Input ≥16px. `[BUD][FIL]`
+- [ ] Theming ueber Token-Sets (identische Namen, keine Komponenten-Duplikate, kein FOUC/Flash); nur ein Typeface (via self-hosted `@fontsource-variable/inter`, `--font-sans`); Body/Input ≥16px. `[BUD][FIL]`
 - [ ] Genau ein dominantes Element pro View; max. ein Primary-Button pro Sektion; Farben rollenbasiert (keine 60-30-10-Starrheit); Typo-Skala/8pt-Soft-Grid durchgesetzt; Schatten nur interaktiv. `[FIL]`
 - [ ] Forms/Artikel in Reading-Width-Container; 12-Spalten-Grid responsiv ohne Bruch sm/md/lg/xl; Touch-Ziele ≥44px. `[FIL]`
 - [ ] WCAG 2.2 AA; voll tastaturbedienbar; 0 kritische axe-Verstoesse; Lighthouse-A11y ≥95; `prefers-reduced-motion`+`prefers-color-scheme`; i18n/`Intl.*`/`fullName` (kein WEIRD-Bias). `[BEC][NOR]`
 - [ ] Alle nutzersichtbaren Strings in `messages/`, Klartext-Fehler + Loesung, Voice/Tone-konsistent; keine Dark Patterns (Symmetrie Opt-in/Opt-out). `[NOR]`
 - [ ] Analytics = Outcome-Events mit `definitions.ts` (whatItProxies/validityCaveat/scaleType/story); ordinal→Median; ≥1 subjektive Qualitaetsmetrik; kein Aggregat-Score in **nutzersichtbaren** Status-UIs (interne QA-Metriken ausgenommen). `[NOR]`
-- [ ] **Kein toter Code/Deps** (`knip`/`ts-prune`/`depcheck` = 0; keine npm-Duplikate); `next/image`+`dynamic`+`next/font`; First-Load-JS/Route nicht ueber Baseline ohne dokumentierte Begruendung; Bundle/Lighthouse-Budget-Gate aktiv. `[NOR]`
-- [ ] Jede Route `error.tsx`(+`'use client'`)+`loading.tsx`+`not-found.tsx` (Root +`global-error.tsx`); externer Fetch hinter `lib/`-Adapter mit Fallback; Monitoring + Web-Vitals in Boundaries; externer Ausfall crasht nicht die App. `[NOR]`
+- [ ] **Kein toter Code/Deps** (`knip`/`ts-prune`/`depcheck` = 0; keine npm-Duplikate); `React.lazy`-Code-Splitting + sharp-AVIF/WebP-Bilder + self-hosted `@fontsource`-Fonts; First-Load-JS/Route nicht ueber Baseline ohne dokumentierte Begruendung; Bundle/Lighthouse-Budget-Gate aktiv. `[NOR]`
+- [ ] Jede Route hat `errorElement` (React Router 7, `useRouteError()`) + `<Suspense fallback>` + Catch-all-Route (`path="*"`, 404); externer Fetch hinter `lib/`-Adapter mit Fallback; Monitoring + Web-Vitals (`web-vitals`) in den Boundaries; externer Ausfall crasht nicht die App. `[NOR]`
 - [ ] Alle datengetriebenen UIs mit loading/empty/error/success; Extrem-Content getestet; kein Lorem/Stacktrace ausgeliefert. `[BEC][FRO]`
 - [ ] Artefakte vorhanden: interface-inventory, REFACTOR_BACKLOG (KEEP/MERGE/DROP), problem-statements (v2), personas+stories, insights (Mad-Libs), research-summary, heuristics-audit, **maturity-audit**, **user-testing**, GRAVEYARD, PATTERNS, lineage, Governance (inkl. Team-Modell + CODEOWNERS), Changelog. `[BEC][NOR][FRO][BUD]`
 - [ ] `build` + `typecheck` + `lint` + `build-storybook` gruen; visuelle Regressionssuite gruen; Storybook + 5-teilige Usage-Doku + Token-Doku vollstaendig; genau eine Definition pro Komponente (Holy Grail). `[FRO][BUD]`
@@ -1194,70 +1189,70 @@ rg -n "from .*design-system/(core|compound|sections)" .storybook src/**/*.storie
 
 ## 6. Anti-Patterns / Guardrails (verboten → stattdessen → Quelle → Anker)
 
-| ❌ Verboten                                                                    | ✅ Stattdessen                                                                           | Quelle          | Anker             |
-| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- | --------------- | ----------------- |
-| Hex/`px`/Font-Size direkt in Komponente                                        | Semantic-/Component-Token                                                                | `[BUD]`         | §1.7              |
-| Primitive-Token direkt in Komponente                                           | ueber Semantic-Layer gehen                                                               | `[BUD]`         | §3                |
-| Component-Token zeigt auf Rohwert/Primitive                                    | Component → Semantic → Primitive                                                         | `[BUD]`         | §3                |
-| Token fuer Einmal-Wert anlegen                                                 | erst ab ≥3 Verwendungen                                                                  | `[BUD]`         | §1.20             |
-| Farb-/Spacing-Werte doppelt in css UND ts                                      | eine Single Source (CSS-first) oder generiert (JSON-first)                               | `[BUD]`         | §3.0              |
-| Theming durch Komponenten-Duplikate / andere Namen                             | identische Token-Namen, nur Werte tauschen                                               | `[BUD]`         | §3                |
-| Eigenerfundene Token-/Komponenten-Namen                                        | `category-property-item-variant-state`; Industriestandard                                | `[BUD]`         | §3 / §Phase 2.8   |
-| Eingabe-**Atom** „field" nennen                                                | Atom = `Input`; Molecule darf `FormField` heissen                                        | `[BUD]`         | §Phase 2.3        |
-| Eine Achse mal `kind`/`type`/`style` benennen                                  | konsistenter Prop-Name pro Achse                                                         | `[BUD]`         | §Phase 2.9        |
-| Willkuerliche/ungerade Spacing-Werte (3/5/13px)                                | begrenzte non-lineare 8pt-Soft-Skala (Base 4px)                                          | `[FIL][BUD]`    | §3.1              |
-| Reines `#000000`/`#000` (Komma- ODER Space-Syntax)                             | `#1F1F1F`-Grauton, Palette-Grau-Schatten                                                 | `[FIL]`         | §3.1              |
-| Body/Input <16px, Light-Gewicht fuer kleinen Text                              | Body ≥16px, Gewichtskontrast (≥2 Stufen skip)                                            | `[FIL]`         | §Phase 3.7        |
-| Starre 60-30-10-Farbregel                                                      | Farben per ROLLE (Bg=hellstes, Text=dunkelstes, Primary nur Aktion/Focus)                | `[FIL]`         | §Phase 3.3        |
-| Mehrere konkurrierende CTAs/Primary-Buttons                                    | genau ein dominantes Element pro View, max. 1 Primary/Sektion                            | `[FIL]`         | §Phase 3.1        |
-| Schatten auf Text/disabled; weisse Schatten im Dark-Mode                       | Schatten nur interaktiv; hellerer Surface-Ton                                            | `[FIL]`         | §3.1              |
-| Forms/Artikel auf volle Breite                                                 | schmaler Fixed-/Reading-Container                                                        | `[FIL]`         | §Phase 4.3        |
-| col-span 5/7/11 (teilt 12 nicht)                                               | 12-Spalten teilbar (6/4/3/2)                                                             | `[FIL]`         | §Phase 4.2        |
-| Tap-/Klickflaeche <44×44px; Hover-only-Interaktion                             | Mindestgroesse via Padding; auch Tastatur/Touch                                          | `[FIL][NOR]`    | §Phase 5.2        |
-| Hardkodierter Font-Family-String trotz `next/font`                             | `next/font` setzt `--font-sans`, Token referenziert es                                   | `[FIL][§]`      | §Phase 1.7        |
-| Tailwind Top-Level-`theme.colors/spacing` (loescht Defaults)                   | Token-Werte unter `theme.extend`                                                         | `[§][BUD]`      | §3.3              |
-| Tailwind arbitrary values (`p-[13px]`, `bg-[#…]`)                              | Skalen-Klassen aus Token-Mapping                                                         | `[BUD]`         | §3.3              |
-| Komponente kopieren & leicht aendern                                           | Variante via orthogonalem Prop am bestehenden Atom                                       | `[FRO][BUD]`    | §Phase 2.2        |
-| Zwei Definitionen derselben Komponente (Klon)                                  | eine Quelle, App+Storybook teilen sie (Holy Grail)                                       | `[FRO]`         | §Phase 7.8        |
-| Atom→Molecule/Organism importieren (rueckwaerts)                               | nur gleiche/tiefere Ebene; via `eslint-boundaries` erzwingen                             | `[FRO]`         | §2.2 / §2.4       |
-| Zirkular-Abhaengigkeit / God-Module                                            | lose Kopplung, `madge --circular`=0                                                      | `[NOR]`         | §1.9              |
-| Orts-/content-spezifische Namen (`ProductCard`)                                | struktur-agnostisch (`Card`)                                                             | `[FRO]`         | §Phase 2.7        |
-| Synonym-Dubletten (`Hero`+`Banner`)                                            | ein kanonischer Name                                                                     | `[FRO]`         | §Phase 2.8        |
-| Template mit hartkodiertem Inhalt                                              | nur Slots/Props + Guardrails (maxLength/aspect-ratio)                                    | `[FRO]`         | §Phase 2.5        |
-| Monolithische Mega-Komponente                                                  | in kleinste wiederverwendbare Bausteine zerlegen (SRP)                                   | `[FRO][BUD]`    | §2.1              |
-| Neues Pattern bei jedem Wunsch                                                 | erst beim zweiten Use-Case; Governance                                                   | `[FRO]`         | §1.16 / §1.20     |
-| Pattern hart loeschen                                                          | `@deprecated` + Nachfolger + Warnung                                                     | `[BUD]`         | §Phase 7.6        |
-| Kein Team-/Approver-Modell / kein CODEOWNERS                                   | Solitary/Centralized/Federated + Makers/Users + CODEOWNERS                               | `[BUD]`         | §Phase 7.6        |
-| Tokens erstellt aber nicht angebunden                                          | jede Komponente verdrahtet Tokens                                                        | `[BUD]`         | §Phase 2.10       |
-| `'use client'` aus `error.tsx`/`global-error.tsx` entfernen                    | Pflicht-Client (Error Boundary)                                                          | `[§]`           | §2.3              |
-| `<div onClick>` als Button                                                     | `<button>` / `Button`-Atom                                                               | `[NOR][BEC]`    | §Phase 5.1        |
-| Nur Happy-Path-UI / leere Flaeche / Lorem / Stacktrace im DOM                  | loading/empty(+CTA)/error(Klartext)/success                                              | `[BEC]`         | §Phase 6.1        |
-| Layout/Screen ohne Inhalts-Outline coden                                       | erst Outline + Happy Path                                                                | `[BEC]`         | §Phase 6.2        |
-| Direkt in High-Fidelity loesen                                                 | Fidelity-Treppe low→mid→high                                                             | `[BEC]`         | §4                |
-| Nutzervalidierung erst am Ende                                                 | frueh (Lo-Fi, Phase 0) UND spaet (Phase 6)                                               | `[BEC]`         | §4                |
-| Nur intern/an Freunden/Stakeholdern testen                                     | mit echten beabsichtigten Nutzern (with & by)                                            | `[BEC][NOR]`    | §1.17             |
-| Personas als feststehende Wahrheit                                             | als Proto-/Hypothese starten, schaerfen/verwerfen                                        | `[BEC]`         | §Phase 0.6        |
-| Insight mit Loesung vorwegnehmen                                               | loesungsfreies Mad-Libs, dann mehrere Loesungen                                          | `[BEC]`         | §Phase 0.7        |
-| Useful/desirable/delightful ignorieren; Delight vor A11y                       | UX-Maturity bottom-up, A11y zuerst                                                       | `[BEC]`         | §Phase 6.6        |
-| Totes/zweckloses Feature behalten                                              | Product Graveyard: streichen (nach Nachfrage) ist Wert                                   | `[BEC]`         | §1.6 / §Phase 6.8 |
-| Usability ohne Accessibility                                                   | A11y untrennbar (Moebius), WCAG 2.2 AA                                                   | `[BEC]`         | §1.11             |
-| Nur fuer westlichen Default-Nutzer; festes `en-US`/`toLocaleString()`          | ganzes Oekosystem: i18n/`Intl.*`/`fullName`                                              | `[NOR]`         | §1.12             |
-| `firstName`+`lastName`-Annahme                                                 | einzelnes `fullName`-Feld, locale-flexibel                                               | `[NOR]`         | §1.12             |
-| Fundamental-Stack ad hoc wechseln                                              | innerhalb React/Next refactoren                                                          | `[BEC]`         | §1.16             |
-| Vanity-Metriken (Pageviews/Verweildauer) als KPI                               | Outcome-Events mit `whatItProxies`/`validityCaveat` + Story + scaleType                  | `[NOR]`         | §Phase 5.7        |
-| Ordinaldaten per Mittelwert aggregieren                                        | Median fuer `scaleType:'ordinal'`                                                        | `[NOR]`         | §Phase 5.7        |
-| Aggregat-„Score" in NUTZERSICHTBARER Status-UI                                 | qualitativer Ueberblick + progressive disclosure (intern ausgenommen)                    | `[NOR]`         | §Phase 5.7        |
-| Metrik ohne dahinterstehende Geschichte                                        | Stories liefern Bedeutung; Narrativ je KPI                                               | `[NOR]`         | §1.14             |
-| ALL-CAPS-Rechtstext / Jargon / rohe Fehlercodes/Stacktrace im UI               | Klartext + Loesung, `messages/`, server-only Log                                         | `[NOR]`         | §1.11             |
-| Dark Patterns (Confirm-Shaming, Pre-Checked, Countdown, Autoplay, Roach-Motel) | Opt-out=Opt-in, default-unchecked, abbrechbar, Undo                                      | `[NOR]`         | §1.13             |
-| Take-Make-Waste (totes JS/Deps/Requests/CSS)                                   | Dead Code/Deps entfernen, `dynamic`/`next/image`/`next/font`                             | `[NOR]`         | §Phase 5.8        |
-| Single-Point-of-Failure / harter externer Fetch                                | defensive Fallbacks/Adapter, error/loading je Segment                                    | `[NOR]`         | §1.9              |
-| Symptom patchen / Five-Whys-Einzelursache                                      | Wurzelursache, ALLE Faktoren (NTSB), Regressionstest; `Symptom:`/`Root cause:` im Commit | `[NOR]`         | §1.10             |
-| Defensives Pflaster (`useMemo`/`setTimeout`/`eslint-disable`) statt Quelle     | instabile Quelle beheben                                                                 | `[NOR]`         | §1.10             |
-| Foundationales (Token/Grid/Schema) spaet → blockiert Folgearbeit               | foundational-first, Dev nicht blockieren (Dual-Track)                                    | `[BEC]`         | §1.3              |
-| Big-Bang-Rewrite                                                               | kleine atomare, revertierbare Commits hinter Feature-Flags                               | `[BEC][§]`      | §1.5              |
-| Build rot lassen & weitermachen                                                | sofort gruen machen                                                                      | `[§]`           | §1.4              |
-| „Erledigt" ohne Check; Markenfarbe/Feature-Streichung/Build-Tool raten         | Befehl ausfuehren + Ergebnis; Nutzer fragen                                              | `[§][NOR][BEC]` | §1.15 / §1.17     |
+| ❌ Verboten                                                                                       | ✅ Stattdessen                                                                                                                  | Quelle          | Anker             |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------- | ----------------- |
+| Hex/`px`/Font-Size direkt in Komponente                                                           | Semantic-/Component-Token                                                                                                       | `[BUD]`         | §1.7              |
+| Primitive-Token direkt in Komponente                                                              | ueber Semantic-Layer gehen                                                                                                      | `[BUD]`         | §3                |
+| Component-Token zeigt auf Rohwert/Primitive                                                       | Component → Semantic → Primitive                                                                                                | `[BUD]`         | §3                |
+| Token fuer Einmal-Wert anlegen                                                                    | erst ab ≥3 Verwendungen                                                                                                         | `[BUD]`         | §1.20             |
+| Farb-/Spacing-Werte doppelt in css UND ts                                                         | eine Single Source (CSS-first) oder generiert (JSON-first)                                                                      | `[BUD]`         | §3.0              |
+| Theming durch Komponenten-Duplikate / andere Namen                                                | identische Token-Namen, nur Werte tauschen                                                                                      | `[BUD]`         | §3                |
+| Eigenerfundene Token-/Komponenten-Namen                                                           | `category-property-item-variant-state`; Industriestandard                                                                       | `[BUD]`         | §3 / §Phase 2.8   |
+| Eingabe-**Atom** „field" nennen                                                                   | Atom = `Input`; Molecule darf `FormField` heissen                                                                               | `[BUD]`         | §Phase 2.3        |
+| Eine Achse mal `kind`/`type`/`style` benennen                                                     | konsistenter Prop-Name pro Achse                                                                                                | `[BUD]`         | §Phase 2.9        |
+| Willkuerliche/ungerade Spacing-Werte (3/5/13px)                                                   | begrenzte non-lineare 8pt-Soft-Skala (Base 4px)                                                                                 | `[FIL][BUD]`    | §3.1              |
+| Reines `#000000`/`#000` (Komma- ODER Space-Syntax)                                                | `#1F1F1F`-Grauton, Palette-Grau-Schatten                                                                                        | `[FIL]`         | §3.1              |
+| Body/Input <16px, Light-Gewicht fuer kleinen Text                                                 | Body ≥16px, Gewichtskontrast (≥2 Stufen skip)                                                                                   | `[FIL]`         | §Phase 3.7        |
+| Starre 60-30-10-Farbregel                                                                         | Farben per ROLLE (Bg=hellstes, Text=dunkelstes, Primary nur Aktion/Focus)                                                       | `[FIL]`         | §Phase 3.3        |
+| Mehrere konkurrierende CTAs/Primary-Buttons                                                       | genau ein dominantes Element pro View, max. 1 Primary/Sektion                                                                   | `[FIL]`         | §Phase 3.1        |
+| Schatten auf Text/disabled; weisse Schatten im Dark-Mode                                          | Schatten nur interaktiv; hellerer Surface-Ton                                                                                   | `[FIL]`         | §3.1              |
+| Forms/Artikel auf volle Breite                                                                    | schmaler Fixed-/Reading-Container                                                                                               | `[FIL]`         | §Phase 4.3        |
+| col-span 5/7/11 (teilt 12 nicht)                                                                  | 12-Spalten teilbar (6/4/3/2)                                                                                                    | `[FIL]`         | §Phase 4.2        |
+| Tap-/Klickflaeche <44×44px; Hover-only-Interaktion                                                | Mindestgroesse via Padding; auch Tastatur/Touch                                                                                 | `[FIL][NOR]`    | §Phase 5.2        |
+| Hardkodierter Font-Family-String statt zentraler Konfiguration                                    | `@fontsource-variable/inter` (Import in `entry-client.tsx`) + `tailwind.config.js` `fontFamily.sans` als einzige Quelle         | `[FIL][§]`      | §Phase 1.7        |
+| Tailwind Top-Level-`theme.colors/spacing` (loescht Defaults)                                      | Token-Werte unter `theme.extend`                                                                                                | `[§][BUD]`      | §3.3              |
+| Tailwind arbitrary values (`p-[13px]`, `bg-[#…]`)                                                 | Skalen-Klassen aus Token-Mapping                                                                                                | `[BUD]`         | §3.3              |
+| Komponente kopieren & leicht aendern                                                              | Variante via orthogonalem Prop am bestehenden Atom                                                                              | `[FRO][BUD]`    | §Phase 2.2        |
+| Zwei Definitionen derselben Komponente (Klon)                                                     | eine Quelle, App+Storybook teilen sie (Holy Grail)                                                                              | `[FRO]`         | §Phase 7.8        |
+| Atom→Molecule/Organism importieren (rueckwaerts)                                                  | nur gleiche/tiefere Ebene; via `eslint-boundaries` erzwingen                                                                    | `[FRO]`         | §2.2 / §2.4       |
+| Zirkular-Abhaengigkeit / God-Module                                                               | lose Kopplung, `madge --circular`=0                                                                                             | `[NOR]`         | §1.9              |
+| Orts-/content-spezifische Namen (`ProductCard`)                                                   | struktur-agnostisch (`Card`)                                                                                                    | `[FRO]`         | §Phase 2.7        |
+| Synonym-Dubletten (`Hero`+`Banner`)                                                               | ein kanonischer Name                                                                                                            | `[FRO]`         | §Phase 2.8        |
+| Template mit hartkodiertem Inhalt                                                                 | nur Slots/Props + Guardrails (maxLength/aspect-ratio)                                                                           | `[FRO]`         | §Phase 2.5        |
+| Monolithische Mega-Komponente                                                                     | in kleinste wiederverwendbare Bausteine zerlegen (SRP)                                                                          | `[FRO][BUD]`    | §2.1              |
+| Neues Pattern bei jedem Wunsch                                                                    | erst beim zweiten Use-Case; Governance                                                                                          | `[FRO]`         | §1.16 / §1.20     |
+| Pattern hart loeschen                                                                             | `@deprecated` + Nachfolger + Warnung                                                                                            | `[BUD]`         | §Phase 7.6        |
+| Kein Team-/Approver-Modell / kein CODEOWNERS                                                      | Solitary/Centralized/Federated + Makers/Users + CODEOWNERS                                                                      | `[BUD]`         | §Phase 7.6        |
+| Tokens erstellt aber nicht angebunden                                                             | jede Komponente verdrahtet Tokens                                                                                               | `[BUD]`         | §Phase 2.10       |
+| Next-Konstrukte einschleppen (`'use client'`/`next/font`/`next/image`/`next/dynamic`/`next-intl`) | isomorphes React + Vite/Express-SSR; React-Router-7-`errorElement`, `React.lazy`, `@fontsource-variable/inter`, `react-i18next` | `[§]`           | §2.3              |
+| `<div onClick>` als Button                                                                        | `<button>` / `Button`-Atom                                                                                                      | `[NOR][BEC]`    | §Phase 5.1        |
+| Nur Happy-Path-UI / leere Flaeche / Lorem / Stacktrace im DOM                                     | loading/empty(+CTA)/error(Klartext)/success                                                                                     | `[BEC]`         | §Phase 6.1        |
+| Layout/Screen ohne Inhalts-Outline coden                                                          | erst Outline + Happy Path                                                                                                       | `[BEC]`         | §Phase 6.2        |
+| Direkt in High-Fidelity loesen                                                                    | Fidelity-Treppe low→mid→high                                                                                                    | `[BEC]`         | §4                |
+| Nutzervalidierung erst am Ende                                                                    | frueh (Lo-Fi, Phase 0) UND spaet (Phase 6)                                                                                      | `[BEC]`         | §4                |
+| Nur intern/an Freunden/Stakeholdern testen                                                        | mit echten beabsichtigten Nutzern (with & by)                                                                                   | `[BEC][NOR]`    | §1.17             |
+| Personas als feststehende Wahrheit                                                                | als Proto-/Hypothese starten, schaerfen/verwerfen                                                                               | `[BEC]`         | §Phase 0.6        |
+| Insight mit Loesung vorwegnehmen                                                                  | loesungsfreies Mad-Libs, dann mehrere Loesungen                                                                                 | `[BEC]`         | §Phase 0.7        |
+| Useful/desirable/delightful ignorieren; Delight vor A11y                                          | UX-Maturity bottom-up, A11y zuerst                                                                                              | `[BEC]`         | §Phase 6.6        |
+| Totes/zweckloses Feature behalten                                                                 | Product Graveyard: streichen (nach Nachfrage) ist Wert                                                                          | `[BEC]`         | §1.6 / §Phase 6.8 |
+| Usability ohne Accessibility                                                                      | A11y untrennbar (Moebius), WCAG 2.2 AA                                                                                          | `[BEC]`         | §1.11             |
+| Nur fuer westlichen Default-Nutzer; festes `en-US`/`toLocaleString()`                             | ganzes Oekosystem: i18n/`Intl.*`/`fullName`                                                                                     | `[NOR]`         | §1.12             |
+| `firstName`+`lastName`-Annahme                                                                    | einzelnes `fullName`-Feld, locale-flexibel                                                                                      | `[NOR]`         | §1.12             |
+| Fundamental-Stack ad hoc wechseln                                                                 | innerhalb React + Vite + Express-SSR refactoren                                                                                 | `[BEC]`         | §1.16             |
+| Vanity-Metriken (Pageviews/Verweildauer) als KPI                                                  | Outcome-Events mit `whatItProxies`/`validityCaveat` + Story + scaleType                                                         | `[NOR]`         | §Phase 5.7        |
+| Ordinaldaten per Mittelwert aggregieren                                                           | Median fuer `scaleType:'ordinal'`                                                                                               | `[NOR]`         | §Phase 5.7        |
+| Aggregat-„Score" in NUTZERSICHTBARER Status-UI                                                    | qualitativer Ueberblick + progressive disclosure (intern ausgenommen)                                                           | `[NOR]`         | §Phase 5.7        |
+| Metrik ohne dahinterstehende Geschichte                                                           | Stories liefern Bedeutung; Narrativ je KPI                                                                                      | `[NOR]`         | §1.14             |
+| ALL-CAPS-Rechtstext / Jargon / rohe Fehlercodes/Stacktrace im UI                                  | Klartext + Loesung, `messages/`, server-only Log                                                                                | `[NOR]`         | §1.11             |
+| Dark Patterns (Confirm-Shaming, Pre-Checked, Countdown, Autoplay, Roach-Motel)                    | Opt-out=Opt-in, default-unchecked, abbrechbar, Undo                                                                             | `[NOR]`         | §1.13             |
+| Take-Make-Waste (totes JS/Deps/Requests/CSS)                                                      | Dead Code/Deps entfernen, `React.lazy`/`sharp`-Bilder (`.webp`)/self-hosted `@fontsource-variable/inter`                        | `[NOR]`         | §Phase 5.8        |
+| Single-Point-of-Failure / harter externer Fetch                                                   | defensive Fallbacks/Adapter, error/loading je Segment                                                                           | `[NOR]`         | §1.9              |
+| Symptom patchen / Five-Whys-Einzelursache                                                         | Wurzelursache, ALLE Faktoren (NTSB), Regressionstest; `Symptom:`/`Root cause:` im Commit                                        | `[NOR]`         | §1.10             |
+| Defensives Pflaster (`useMemo`/`setTimeout`/`eslint-disable`) statt Quelle                        | instabile Quelle beheben                                                                                                        | `[NOR]`         | §1.10             |
+| Foundationales (Token/Grid/Schema) spaet → blockiert Folgearbeit                                  | foundational-first, Dev nicht blockieren (Dual-Track)                                                                           | `[BEC]`         | §1.3              |
+| Big-Bang-Rewrite                                                                                  | kleine atomare, revertierbare Commits hinter Feature-Flags                                                                      | `[BEC][§]`      | §1.5              |
+| Build rot lassen & weitermachen                                                                   | sofort gruen machen                                                                                                             | `[§]`           | §1.4              |
+| „Erledigt" ohne Check; Markenfarbe/Feature-Streichung/Build-Tool raten                            | Befehl ausfuehren + Ergebnis; Nutzer fragen                                                                                     | `[§][NOR][BEC]` | §1.15 / §1.17     |
 
 ---
 
@@ -1266,16 +1261,17 @@ rg -n "from .*design-system/(core|compound|sections)" .storybook src/**/*.storie
 > **Audit-Server-Probe (vor jedem URL-Audit `axe`/`lighthouse`):** Diese Tools brauchen eine **laufende** URL. Erst bauen, im Hintergrund starten, auf Ready warten, `URL` setzen — sonst „connection refused".
 >
 > ```bash
-> npx next build && (npx next start -p 3000 &) ; \
-> URL="http://localhost:3000" ; \
+> npm run build && (NODE_ENV=production PORT=3000 npx tsx server.ts &) ; \
+> URL="http://localhost:3000/de/" ; \
 > for i in $(seq 1 30); do curl -sf "$URL" >/dev/null && break || sleep 1; done
 > ```
 
 ```bash
 # --- Kern: nach JEDER Einheit (Fallbacks falls Script fehlt, §Phase 0.4) ---
-npm run build      || npx next build
+npm run build      || (npx vite build --outDir dist/client && npx vite build --ssr src/entry-server.tsx --outDir dist/server)
 npm run typecheck  || npx tsc --noEmit
 npm run lint       || npx eslint .                # eslint-plugin-jsx-a11y + boundaries aktiv (§2.4)
+npm run test -- --run  || npx vitest run          # Vitest 4 (Unit/Component)
 
 # --- Design-Werte-Audit (Soll nach Phase 1: nur Token-Quelldateien) — Allowlist §1.19 [BUD][FIL] ---
 ALLOW="--glob !**/tokens.json --glob !**/tokens.css --glob !**/tokens.ts --glob !**/tailwind.config.*"
@@ -1284,9 +1280,9 @@ rg -n "\b[0-9]+px\b" src $ALLOW
 rg -n "(margin|padding|gap)\s*:\s*[0-9]+px" src --type css --glob '!**/tokens.css' | rg -v "var\(--space"
 rg -nP "\b[pm][trblxy]?-\[(?!var\()" src           # Tailwind arbitrary spacing mit Hex/px (var(--token) erlaubt; Soll: leer; -P=pcre2)
 rg -ni "#000\b|#000000|rgb\(\s*0[ ,]+0[ ,]+0" src $ALLOW   # reines Schwarz (Komma+Space-Syntax)
-# Root-Config-Dateien liegen NICHT unter src/ -> von obigen src-Audits NICHT erfasst. Dort nur var(--token), keine Rohwerte:
-rg -n "#([0-9a-fA-F]{3,8})\b" tailwind.config.* next.config.* 2>/dev/null               # Hex in Root-Configs (Soll: leer)
-rg -n "\b[0-9]+px" tailwind.config.* 2>/dev/null | rg -v "screens|sm:|md:|lg:|xl:|2xl:" # nackte px nur in screens/Breakpoints erlaubt (Soll sonst: leer)
+# Root-Config-Dateien liegen NICHT unter src/ -> von obigen src-Audits NICHT erfasst. In tailwind.config.js leben die Tokens (theme.extend) — dort sind Hex/px die Quelle, nicht in Komponenten:
+rg -n "#([0-9a-fA-F]{3,8})\b" vite.config.* postcss.config.* 2>/dev/null                 # Hex in Build-Configs (Soll: leer; Farb-Tokens gehoeren in tailwind.config.js)
+rg -n "\b[0-9]+px" tailwind.config.* 2>/dev/null | rg -v "screens|sm:|md:|lg:|xl:|2xl:|fontSize|maxWidth|minHeight|height|borderRadius" # nackte px nur in Token-Definitionen erlaubt (Soll sonst: leer)
 rg -ni "font-(thin|extralight|light)\b|font-weight\s*:?\s*(100|200|300)|fontWeight[=:]\s*[\"{]?(100|200|300)|weight=[\"']light" src/design-system
 
 # --- Token-Namen-Convention [BUD] ---
@@ -1299,27 +1295,27 @@ rg -n "from .*(compound|sections|templates)" src/design-system/core      # Atom�
 rg -n "from .*(sections|templates)"          src/design-system/compound  # Molecule→hoeher (Soll: leer)
 rg -n "from .*templates"                      src/design-system/sections  # Organism→Template (Soll: leer)
 rg -ni "homepage(Carousel|Banner)|productCard|blogHero" src              # Orts-Namen (Soll: leer)
-rg -n "use client" src/design-system                                     # minimal (error/global-error erlaubt)
+rg -n "use client|use server|next/(font|image|dynamic|link)" src/design-system                                     # Soll: leer (isomorphes React, kein Next)
 
 # --- A11y & Performance [NOR][BEC] (Server vorher starten, s.o.) ---
 npx @axe-core/cli "$URL" --tags wcag2a,wcag2aa       # Soll: 0 violations
 npx lighthouse "$URL" --only-categories=accessibility,performance --output=json --output-path=lh.json
 node -e "const r=require('./lh.json');const a=r.categories.accessibility.score;process.exit(a>=0.95?0:(console.error('A11y',a),1))"  # A11y >=95 asserten (Soll: Exit 0)
-npm run check:budget   # Performance-/Bundle-Budget-Gate: bei Regression Exit 1 (z.B. size-limit oder .next-Route-Sizes vs. Baseline)
+npm run check:budget   # Performance-/Bundle-Budget-Gate: bei Regression Exit 1 (z.B. size-limit oder dist/-Route-Sizes vs. Baseline)
 rg -n "<div[^>]*onClick" src                         # div-Button-Antipattern (Soll: leer)
 
 # --- Humanity-Centered / WEIRD [NOR] ---
 rg -n "'en-US'|toLocaleString\(\)|firstName|lastName" src                # Soll: leer/begruendet
-rg -n "<html[^>]*lang=" src/app                                          # i18n vorbereitet
+rg -n "<html[^>]*lang=" index.html server.ts src                                          # i18n vorbereitet
 
 # --- Sustainability / keep-in-use [NOR] ---
 npx depcheck            # ungenutzte Dependencies (Soll: 0)
 npx knip || npx ts-prune  # ungenutzte Exports/Files (Soll: 0)
-npx next build          # First-Load-JS pro Route vs. Baseline (Trend)
+npm run build          # First-Load-JS pro Route vs. Baseline (Trend)
 
 # --- Resilienz / UI-States + Monitoring [NOR][BEC] ---
-fd -e tsx '(loading|error|not-found|global-error)' src/app   # je Segment + global vorhanden?
-rg -n "captureException|useReportWebVitals" src/app          # Monitoring/Web-Vitals
+rg -n "errorElement|useRouteError|<Suspense|NotFound" src/routing src/App.tsx   # Resilienz-Bausteine vorhanden?
+rg -n "captureException|onCLS|onLCP|onINP|web-vitals" src          # Monitoring/Web-Vitals
 
 # --- Metriken / Ordinal->Median [NOR] ---
 npm test -- aggregate                               # Median-Aggregation gruen

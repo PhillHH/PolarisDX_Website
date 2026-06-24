@@ -1,0 +1,81 @@
+# polaris-redesign.yaml — Archon-Workflow (v0.4.1 nodes-Schema)
+# Eine Playbook-Phase (0-7 aus knowledge/REFACTORING-ANWEISUNG.md) end-to-end -> ein Branch -> ein PR.
+# Stack (verifiziert, KEIN Next.js): Vite 7 + React 19 + react-router-dom 7 + Express-SSR (server.ts via tsx),
+# Tailwind 3.4, i18next/react-i18next, @fontsource-variable/inter, Vitest + Playwright.
+# Worktree-isoliert (Default), von main branchen, NIEMALS deployen, Human-Gate vor PR (Manual §6.1).
+name: polaris-redesign
+description: >
+  Setzt EINE Phase der knowledge/REFACTORING-ANWEISUNG.md um:
+  plan -> implement -> validate -> audit -> review -> human approve -> PR.
+  Die Eingabe-Message nennt die Phase (0-7). Nichts wird deployed.
+nodes:
+  - id: plan
+    model: opus
+    prompt: |
+      Lies knowledge/ARCHON-README.md, knowledge/REFACTORING-ANWEISUNG.md und
+      knowledge/PROJECT-DECISIONS.md. Die Eingabe-Message nennt die PHASE (0-7).
+      Erstelle einen knappen, gescopten Umsetzungsplan NUR fuer die Anweisungen
+      dieser Phase. Beachte den echten Stack (Vite/React-SSR, react-router-dom 7,
+      Tailwind, i18next, @fontsource) und die Definition of Done der Phase. Aendere
+      keine Infra/kein Deployment. Bei PROJECT-DECISIONS-Feldern mit "TODO":
+      stoppen und als offene Frage melden, NICHT raten.
+
+  - id: implement
+    depends_on: [plan]
+    model: opus
+    loop:
+      prompt: |
+        Setze die naechste Aufgabe des Plans um. Regeln: Token-Pflicht ab Phase 1
+        (keine hartkodierten Rohwerte in Komponenten), Atomic top-down, keine
+        Duplikate, alle UI-States (loading/empty/error/success). Nach jeder Einheit
+        lokal gruen halten: npm run build && npm run typecheck && npm run lint.
+      until: ALL_TASKS_COMPLETE
+      fresh_context: true
+      max_iterations: 30
+
+  - id: validate
+    depends_on: [implement]
+    bash: "npm ci --no-audit --no-fund && npm run build && npm run typecheck && npm run lint && npx vitest run && npx playwright test"
+
+  - id: audit
+    depends_on: [validate]
+    bash: |
+      set -e
+      npm run build
+      NODE_ENV=production npx tsx server.ts & SRV=$!
+      npx --yes wait-on http://localhost:3000 -t 90000 || true
+      npx --yes @axe-core/cli http://localhost:3000 --tags wcag2a,wcag2aa || echo "axe advisory"
+      npx --yes lighthouse http://localhost:3000 --only-categories=accessibility,performance \
+        --output=json --output-path=lh.json --chrome-flags="--headless --no-sandbox" || echo "lighthouse advisory"
+      [ -f lh.json ] && node -e "const r=require('./lh.json');const a=r.categories?.accessibility?.score??0;console.log('A11y-Score',a)" || true
+      kill $SRV 2>/dev/null || true
+      # HINWEIS: Port 3000 = interner App-Port (Manual: Container :2026->3000). Bei abweichender
+      # Audit-URL (PROJECT-DECISIONS §6) hier anpassen; A11y-Gate (>=0.95, exit 1) scharf schalten,
+      # sobald die URL bestaetigt ist. Aktuell advisory, damit der Workflow nicht an Env-Setup scheitert.
+
+  - id: review
+    depends_on: [audit]
+    model: sonnet
+    prompt: |
+      Reviewe den Diff gegen den Plan, die Definition of Done der Phase und die
+      Anti-Patterns (§6 in knowledge/REFACTORING-ANWEISUNG.md). Behebe gefundene
+      Probleme. Pruefe besonders: keine hartkodierten Design-Werte (nur Tokens),
+      Atomic-Import-Richtung strikt top-down, WCAG 2.2 AA, alle UI-States, und
+      KEINE Next-Konstrukte (isomorphes React, React-Router-7-Resilienz).
+
+  - id: approve
+    depends_on: [review]
+    loop:
+      prompt: |
+        Fasse den Diff, die nutzersichtbare Wirkung und die erfuellte
+        DoD/Verifikation kompakt fuer die menschliche Freigabe zusammen.
+      until: APPROVED
+      interactive: true
+      max_iterations: 5
+      gate_message: "Phase-Diff und erfuellte DoD/Verifikation geprueft? Antworte APPROVED zum PR-Erstellen, sonst gib Feedback zur Nachbesserung."
+
+  - id: pr
+    depends_on: [approve]
+    prompt: |
+      Pushe den Feature-Branch und oeffne einen Pull Request gegen main
+      (Repo-PR-Template, Bezug zur umgesetzten Phase). NICHT mergen, NICHT deployen.
