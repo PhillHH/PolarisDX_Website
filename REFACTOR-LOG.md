@@ -2289,3 +2289,37 @@ grep .leading-body dist/client/assets/*.css                  → line-height:var
 `NotFoundPage` (One-off-404 `text-[10/12rem]`), `FeaturedCaseStudy`
 (`tracking-[0.14em]`). Consumer-Seiten (`shell`/`PriceBadge`/`OrderForm`/
 `OrderModal`: `tracking-[1.6px]` etc.) — eigener Consumer-Pass.
+
+### Einheit 3j — Artikel-Index-Hero auf Display-Token + tote hero-\* Tokens entfernt (2026-06-24)
+
+**ArticlesIndexPage-Hero-`<h1>`** trug die letzte arbitrary Hero-Typo der Main-Site
+(§1.7/§3.7): `text-hero-sm leading-[47px] tracking-[-0.02em] sm:text-hero-md
+sm:leading-[58px] lg:text-hero-lg lg:leading-[69px]` — eine manuelle 3-Stufen-px-
+Leiter mit drei arbitrary Leadings + arbitrary Tracking. Token-rein, ein
+revertierbarer Change (§1.5):
+
+- → `text-display font-medium tracking-headline` — exakt die etablierte
+  Page-Hero-Konvention (HomePage `HeroSection`, `AboutSection`). `text-display`
+  ist fluid (`--text-display`, clamp 38→72) und **trägt seine eigene Leading**
+  aus dem Token-Paar (`--line-height-display`), `tracking-headline` =
+  `--letter-spacing-tight` (byte-identisch -0.02em). Ersetzt die manuelle
+  Responsive-Leiter + alle arbitrary Werte in einem Zug.
+- **Toter Code entfernt (§1.8):** `text-hero-sm/md/lg` (40/48/58px) waren nach
+  dieser Migration der **einzige** Konsument — die drei `fontSize`-Tokens aus
+  `tailwind.config.js` gelöscht (kein toter Token).
+
+**Bewusste Redesign-Entscheidung (§1.6):** Hero wird fluid (clamp 38→72 statt
+fixe 40/48/58) — vereinheitlicht den Artikel-Index-Hero mit allen übrigen
+Page-Heroes; Leading aus dem Display-Token statt drei ad-hoc px.
+
+**Verifikation (ausgeführt §1.15, 2026-06-24):**
+
+```
+rg -n "text-hero-|tracking-\[-0\.02em\]" src   → EMPTY (0 arbitrary Hero-Typo, 0 tote Tokens) ✓
+npm run build                                  → ✓ exit 0 (client+server)
+npm run typecheck (tsc -b)                      → ✓ exit 0
+npm run lint                                    → ✓ 0 errors / 15 Baseline-warns
+```
+
+**Verbliebene main-site Arbitrary-Typo:** `NotFoundPage` (One-off-404
+`text-[10/12rem]`), `FeaturedCaseStudy` (`tracking-[0.14em]`) — Folge-Einheiten.

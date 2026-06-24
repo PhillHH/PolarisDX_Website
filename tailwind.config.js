@@ -94,9 +94,6 @@ export default {
       },
       fontSize: {
         xxs: '10px',
-        'hero-sm': '40px',
-        'hero-md': '48px',
-        'hero-lg': '58px',
         // Fluid Display-Titel (Hero/Section-Headline) — Token-referenziert (§3.3).
         // lineHeight aus dem Token-Paar, damit text-display kein separates leading braucht.
         display: ['var(--text-display)', { lineHeight: 'var(--line-height-display)' }],

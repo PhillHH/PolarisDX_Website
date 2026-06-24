@@ -7,6 +7,16 @@ versioniert nach SemVer + datiert (§1.18). Nutzersichtbare Aenderungen zuerst.
 
 ### Phase 3 + 4 — Visueller-Craft-Pass × Layout (pro Komponente verschränkt)
 
+#### 2026-06-24 — Artikel-Index-Hero auf Display-Token (§3.7)
+
+- **style · fix** — Articles-Index-Hero-`<h1>` von manueller arbitrary
+  Hero-Leiter (`text-hero-sm leading-[47px] tracking-[-0.02em] sm:… lg:…`) auf
+  die etablierte Page-Hero-Konvention `text-display font-medium tracking-headline`
+  (fluid, Leading aus dem Token-Paar; byte-identisches Tracking). **0** arbitrary
+  Hero-Typo mehr.
+- **other · fix** — Tote `fontSize`-Tokens `hero-sm/md/lg` aus
+  `tailwind.config.js` entfernt (nach der Migration ohne Konsument, §1.8).
+
 #### 2026-06-24 — Artikel-Lesetypografie: generischer Renderer ArticlePage/ServicePage (§3.7)
 
 - **style · fix** — Die beiden **datengetriebenen** Artikel-/Service-Renderer

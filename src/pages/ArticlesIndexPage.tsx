@@ -52,7 +52,7 @@ const ArticlesIndexPage = () => {
                   ]}
                 />
 
-                <h1 className="mb-4 text-hero-sm leading-[47px] font-medium tracking-[-0.02em] sm:text-hero-md sm:leading-[58px] lg:text-hero-lg lg:leading-[69px]">
+                <h1 className="mb-4 text-display font-medium tracking-headline">
                   {t('articles:index.title', 'Our Magazine')}
                 </h1>
                 <p className="max-w-2xl text-lg text-white/80">
