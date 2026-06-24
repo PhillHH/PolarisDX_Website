@@ -1864,3 +1864,86 @@ Headline-Navy` bereits so routen: NavTile/Callout/AuthorByline/MediaLink).
   `--neutral-500-rgb` = `100 116 139` = **#64748b** auf (0 undef. Vars).
 - Byte-Differenz dokumentiert (bewusst, §1.6): `gray-500` #868c98 → slate-500
   #64748b (kuehl-Grau → Slate, ~identisch — derselbe Shift wie 3c-Muted-Titel).
+
+---
+
+## Phase 0 — Baseline-Metriken & Audit-Artefakte (formaler Abschluss, 2026-06-24)
+
+Phase 0 wurde formal nachgezogen (EXECUTION-PLAN §C Phase 0). Alle Werte aus **ausgeführten**
+Befehlen (§1.15).
+
+### Erzeugte Artefakte (Task 1–8, 11, 14)
+
+- `docs/interface-inventory.md` — 16 Kategorien, Duplikate markiert, not-found/error/loading erfasst.
+- `docs/design-system/PATTERNS.md` — Komponenten-Inventar + Naming-Map (alt→agnostisch).
+- `docs/REFACTOR_BACKLOG.md` — KEEP/MERGE/DROP, Impact×Feasibility.
+- `docs/ux/problem-statements.md` (v2, je Segment), `docs/ux/insights.md` (Mad-Libs + Lo-Fi),
+  `docs/ux/research-summary.md` (Executive Summary + Quote-Cluster), `docs/ux/analytics-audit.md`.
+- `docs/personas/{dr-mara-keller,tomasz-nowak,lena-fischer}.md` — 3 Proto-Personas, 4 Quadranten,
+  3-Akt-Story, narrative Akzeptanzkriterien.
+
+### Werte-Audit (Task 3, Allowlist §1.19: `!tokens.{json,css,ts}`, `!tailwind.config.*`)
+
+- Hartkodierte **Hex**: **60** Matches / **3** Dateien (`components/ui/FlagIcon.tsx`,
+  `src/index.css`, `components/sections/IglooWidgetSection.tsx`).
+- **px**: **128** Matches / **32** Dateien (Top: S3LeitliniePage 19, VitaminD3ImplantologyPage 12,
+  HeroSection 12, FeaturedCaseStudy 12).
+- **rem**: **49** Matches / **9** Dateien.
+- Tailwind-arbitrary-spacing `p/m-[…]` (ohne `var(`): **0**.
+- `font-(thin|extralight|light)`: **4** Matches / **1** Datei (`components/layout/Header.tsx`).
+  → Token-Migrations-Liste = Backlog #7 (Phase 3).
+
+### Architektur-/Qualitäts-Baseline (Task 10)
+
+- `npm run build` → **grün** (client + server).
+- `npm run typecheck` (`tsc -b`) → **grün**.
+- `npm run lint` → **18 Fehler / 2 Warnungen** (vorbestehend; Legacy-Hooks/A11y + Tabu-Consumer;
+  Abbau Phase 2/5). Regeln: react-hooks (setState-in-effect / refs-in-render), jsx-a11y
+  (label/click-events/static-interactions), react-refresh, no-case-declarations, no-unused-vars.
+- `npx madge --circular --extensions ts,tsx src` → **0 Zyklen** (151 Dateien).
+- `npx ts-prune` → **0** ungenutzte Exports.
+- `npx depcheck` → unused devDeps gemeldet (`autoprefixer`/`postcss`/`tailwindcss`/Resolver —
+  **False-Positives**, via Config/PostCSS genutzt); „missing" betrifft `scripts/`+`_project-knowledge/`
+  (außerhalb App-Scope).
+
+### First-Load-JS / Route (Task 10, `npm run build`)
+
+- Shared `index-*.js`: **359.14 kB** (gzip **110.66 kB**).
+- Vendor: `vendor-react` 44.39 kB (gzip 15.97), `vendor-i18n` 58.67 kB (gzip 19.06).
+- Schwerste Route-Chunks (client): S3LeitliniePage 36.68 kB (gzip 9.99),
+  VitaminD3ImplantologyPage 24.13 kB (gzip 7.26), VitaminD3SprayPage 18.48 kB (gzip 4.42).
+  → Performance-Budget-Referenz für §5 (Regression = CI-rot; Ziel <100 KB gz/Route).
+
+### Tooling-Inventar (Task 4)
+
+- Vorhanden: `build` (client+server), `typecheck` (`tsc -b`), `lint` (`eslint .`), `test` (vitest),
+  `test:e2e` (playwright), `format`/`format:check`, `prerender`.
+- **Fehlt:** `build-storybook` — **Fallback fixiert** (ASSUMPTION §E.7): leichtgewichtige
+  `/styleguide`-Route statt Storybook (kein neues Build-Tool, §1.16); Phase 7.
+
+### Analytics (Task 11) → `docs/ux/analytics-audit.md`
+
+- 7 Events; `page_view`/`virtual_pageview` = **Vanity**; consumer-`*` = Outcome-Proxy,
+  `consumer_order_submit` = echte Conversion. **Kein** nutzersichtbarer Aggregat-Score (gut).
+
+### Daten-/Tech-Bestandsaufnahme (Task 12) → audit-Agenten + `AUDIT_I18N_ROUTING.md`
+
+- Statische Datenverträge (`src/data/*.ts`: products/articles/blogPosts/events/testimonials/services),
+  i18next 10 Locales × 14 Namespaces (`public/locales/`), API-Adapter `src/api/{contact,support,consumerOrder}.ts`.
+- `lib/metrics/{definitions,thresholds,aggregate}.ts` + `lib/flags.ts` = **Stubs** (Phase 1 erfüllt).
+
+### Lo-Fi-Validierung (Task 13) → `docs/ux/insights.md`
+
+- Leichte interne Richtungs-Validierung dokumentiert; vollständige externe Runde = Phase 6
+  (`user-testing.md`). `ASSUMPTION — needs human confirmation`.
+
+### Git-Tag (Task 15)
+
+- `git tag pre-refactor-baseline` gesetzt (siehe `git tag`-Verifikation).
+
+### Offene Phase-0-DoD-Punkte (ehrlich)
+
+- **Baseline-Screenshots sm/md/lg/xl (Playwright §7.4):** noch nicht erzeugt (Playwright-Browser
+  im Headless-Env nicht garantiert verfügbar). Nachzuholen, sobald Audit-Server + Browser laufen;
+  visuelle Regressionssuite ohnehin Phase 7. → bleibt als einziger offener Phase-0-DoD-Punkt markiert.
+- **Lighthouse/axe gegen laufende Instanz:** Audit-Server-Gate (Phase 3/5) — dort belegt.
