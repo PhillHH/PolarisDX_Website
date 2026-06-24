@@ -43,7 +43,7 @@ const IglooWidgetSection = () => {
   ]
 
   return (
-    <section className="relative py-20 lg:py-32 bg-slate-50 overflow-visible">
+    <section className="relative py-20 lg:py-32 bg-bg overflow-visible">
       <Container className="text-center mb-16 relative z-10">
         <Eyebrow size="default" className="mb-8">
           {t('igloo_widget.title', 'Anwendungsbereiche')}
@@ -79,7 +79,7 @@ const IglooWidgetSection = () => {
         {/* Central Image with Glow */}
         <div className="relative z-10 flex justify-center items-center h-full w-full pointer-events-none">
           {/* Blue Glow Effect */}
-          <div className="absolute w-[300px] h-[300px] bg-blue-100/50 blur-[80px] rounded-full mix-blend-multiply pointer-events-none" />
+          <div className="absolute w-[300px] h-[300px] bg-brand-blue/10 blur-[80px] rounded-full mix-blend-multiply pointer-events-none" />
 
           <img
             src={iglooImage}
@@ -105,7 +105,7 @@ const IglooWidgetSection = () => {
                 rounded-2xl
                 shadow-lg shadow-brand-deep/30 transition-all duration-300 hover:scale-105 hover:shadow-2xl
                 w-full max-w-[95vw] sm:max-w-[90vw] h-32 sm:h-36
-                bg-gradient-to-br from-brand-primary/90 via-brand-deep/90 to-gray-900/90
+                bg-gradient-to-br from-brand-primary/90 via-brand-deep/90 to-brand-heading/90
                 border border-white/10 backdrop-blur-md
                 lg:absolute lg:left-[var(--x)] lg:top-[var(--y)] lg:-translate-x-1/2 lg:-translate-y-1/2
                 lg:w-80 lg:h-48
@@ -126,7 +126,7 @@ const IglooWidgetSection = () => {
                   <span className="text-2xl font-medium text-white text-left group-hover:text-white transition-colors">
                     {widget.label}
                   </span>
-                  <span className="text-sm font-medium text-slate-100 group-hover:text-white transition-colors">
+                  <span className="text-sm font-medium text-fg-on-dark/80 group-hover:text-fg-on-dark transition-colors">
                     {t('common:read_more', 'Mehr erfahren')} →
                   </span>
                 </div>

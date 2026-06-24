@@ -8,9 +8,9 @@ const FeaturedCaseStudy = () => {
   const { t } = useTranslation('casestudies')
 
   return (
-    <section className="relative py-24 bg-slate-50 overflow-hidden">
+    <section className="relative py-24 bg-bg overflow-hidden">
       {/* Hintergrund-Akzent */}
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 w-[800px] h-[800px] bg-blue-100/50 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 w-[800px] h-[800px] bg-brand-blue/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative mx-auto max-w-container px-4">
         <Reveal>
@@ -22,7 +22,7 @@ const FeaturedCaseStudy = () => {
 
           <div className="relative z-10 grid gap-0 md:grid-cols-2 items-stretch md:min-h-[420px]">
             {/* Bild-Karte (stärker nach oben/links verschoben) */}
-            <div className="relative h-full min-h-[360px] md:min-h-[460px] rounded-3xl overflow-hidden shadow-2xl border border-gray-100 bg-white md:-mr-20 md:-mb-24 md:translate-y-[-72px] md:translate-x-[-48px]">
+            <div className="relative h-full min-h-[360px] md:min-h-[460px] rounded-3xl overflow-hidden shadow-2xl border border-[var(--color-border)] bg-surface md:-mr-20 md:-mb-24 md:translate-y-[-72px] md:translate-x-[-48px]">
               <img
                 src={KristianGrimmAvatar}
                 alt="Dr. Kristian Grimm — Zahnarzt und IglooPro Anwender bei 32reasons"
@@ -31,9 +31,9 @@ const FeaturedCaseStudy = () => {
                 className="w-full h-full object-cover"
                 crossOrigin="anonymous"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-gray-900/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/40 to-transparent" />
               <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md border border-white/20 rounded-xl px-4 py-3 flex items-center gap-3 shadow-lg">
-                <div className="bg-yellow-100 p-2 rounded-lg text-yellow-600 shrink-0">
+                <div className="bg-rating-soft p-2 rounded-lg text-rating-fg shrink-0">
                   <Trophy className="w-5 h-5" />
                 </div>
                 <p className="text-fg-heading font-semibold text-sm">

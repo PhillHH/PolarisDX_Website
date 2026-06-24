@@ -2536,3 +2536,64 @@ Sandbox-Kontrast-/axe-WCAG-AA-Gate weiterhin auf CI/Preview verlagert (s. 3m).
 TestimonialsSection / IglooWidgetSection / FeaturedCaseStudy — `to-gray-900`-
 Gradients, dekorative Blau-Blobs, Gold-Rating-Stars) als eigene Einheit, dann die
 Main-Site-Pages; Consumer-Theme-Pass (teal/light) bleibt separat.
+
+### Einheit 3p — Farb-Rollen-Pass (§3.3): Gradient-Organismen + Rating-Gold-Rolle (2026-06-25)
+
+Vorletzte Stufe des **Farb-Rollen-Passes (§3.3)** vor den Main-Site-Pages: die vier
+Gradient-Organismen (`HeroSection`, `TestimonialsSection`, `IglooWidgetSection`,
+`FeaturedCaseStudy`) — bewusst als eigene Einheit verschoben (3o), weil sie zwei
+Entscheidungen erforderten: (a) ein Rollen-Name für das dunkelste Gradient-Glied
+und (b) eine **eigene semantische Rolle für Bewertungs-/Award-Gold** (statt
+`warning`/orange zweckzuentfremden).
+
+**Neue Token-Rolle (3 Ebenen, §3.0/§1.7) — `tokens.css` + `tailwind.config.js`:**
+
+- Primitive: `--gold-100-rgb` (yellow-100), `--gold-400-rgb` (yellow-400),
+  `--gold-600-rgb` (yellow-600).
+- Semantic: `--color-rating` (Stern gefüllt) · `--color-rating-soft`
+  (Award-Badge-Fläche) · `--color-rating-fg` (Badge-Icon/Text, Kontrast auf Soft).
+- Tailwind: `rating.{DEFAULT,soft,fg}`. Bewusst **getrennt** von `warning` —
+  Bewertung/Auszeichnung ist eine andere Bedeutung als eine Warnung (immer mit
+  Icon/Zahl, nie Farbe allein, §3.3).
+- `brand.heading`-Utility (= `--brand-heading-rgb` #203864) als **Rollen-Name**
+  für das dunkelste Gradient-Glied (war Roh-Alias `to-gray-900`; byte-identisch,
+  da der Legacy-`gray-900`-Key bereits auf `--brand-heading-rgb` auflöste, §1.6).
+
+**Migrierte Organismen:**
+
+- **`HeroSection` / `TestimonialsSection`:** Hero-Gradient `to-gray-900`→
+  `to-brand-heading` (byte-identisch).
+- **`TestimonialsSection` Rating-Sterne:** gefüllt `text-yellow-400`→`text-rating`,
+  leer `text-gray-400`→`text-fg-on-dark/40` (Muted-on-Dark, da Stern auf
+  Navy-Gradient sitzt — rollen-korrekt statt Light-Grau auf Dunkel).
+- **`IglooWidgetSection`:** Section-BG `bg-slate-50`→`bg-bg` (byte-identisch,
+  neutral-50 = slate-50); Widget-Gradient-Ende `to-gray-900/90`→`to-brand-heading/90`;
+  On-Dark-Sublabel `text-slate-100`→`text-fg-on-dark/80`,
+  `group-hover:text-white`→`group-hover:text-fg-on-dark`; Deko-Glow-Blob
+  `bg-blue-100/50`→`bg-brand-blue/10` (Brand-Tint statt Roh-Blau; rein dekorativ,
+  blur-80 + mix-blend, §3.3-Recolor).
+- **`FeaturedCaseStudy`:** Section-BG `bg-slate-50`→`bg-bg`; Deko-Blob
+  `bg-blue-100/50`→`bg-brand-blue/10`; Bild-Karte `border-gray-100 bg-white`→
+  `border-[var(--color-border)] bg-surface` (etablierte Konvention); Bild-Scrim
+  `from-gray-900/40`→`from-brand-navy/40` (kanonischer Navy-Scrim wie SearchModal);
+  Award-Badge `bg-yellow-100 text-yellow-600`→`bg-rating-soft text-rating-fg`.
+
+**Verifikation (ausgeführt §1.15, 2026-06-25):**
+
+```
+rg -nP "(bg|text|border|ring|from|via|to|placeholder|…)-(slate|gray|blue|yellow|…)-[0-9]{2,3}"
+   HeroSection/TestimonialsSection/IglooWidgetSection/FeaturedCaseStudy   → NONE ✓
+npm run build      → ✓ exit 0 (client+server, 932ms)
+npm run typecheck  → ✓ exit 0 (tsc -b)
+npm run lint       → ✓ 0 errors / 15 Baseline-warns
+grep dist CSS → var(--color-rating-rgb) / var(--color-rating-soft-rgb) /
+                var(--brand-heading-rgb)/.9 / var(--brand-blue-rgb)/.1 kompiliert ✓
+```
+
+Sandbox-Kontrast-/axe-WCAG-AA-Gate weiterhin auf CI/Preview verlagert (s. 3m,
+Memory `sandbox-runtime-gates-blocked`). Rating-Gold #facc15 auf Navy-Gradient
+und Rating-fg #ca8a04 auf Rating-soft #fef9c3 sind die zu prüfenden Paare.
+
+**Verbleibend Phase-3-Farb-Rollen-Pass:** Main-Site-Pages (VitaminD3Spray,
+S3Leitlinie, VitaminD3Implant, IglooPro, ArticlePage, Legal/NotFound/… —
+~150 Treffer); Consumer-Theme-Pass (teal/light) bleibt separat.

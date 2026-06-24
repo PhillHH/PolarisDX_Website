@@ -24,6 +24,9 @@ export default {
           'navy-mid': 'rgb(var(--brand-navy-mid-rgb) / <alpha-value>)',
           blue: 'rgb(var(--brand-blue-rgb) / <alpha-value>)',
           'blue-bright': 'rgb(var(--brand-blue-bright-rgb) / <alpha-value>)',
+          // Headline-Navy (#203864) — zugleich dunkelstes Glied der Hero-/Section-
+          // Gradients (war `to-gray-900`-Legacy-Alias). Rollen-Utility statt Roh-Palette.
+          heading: 'rgb(var(--brand-heading-rgb) / <alpha-value>)',
         },
         social: {
           linkedin: 'rgb(var(--social-linkedin-rgb) / <alpha-value>)',
@@ -74,6 +77,12 @@ export default {
         'primary-hover': 'rgb(var(--color-action-primary-hover-rgb) / <alpha-value>)',
         danger: 'rgb(var(--color-danger-rgb) / <alpha-value>)',
         warning: 'rgb(var(--color-warning-rgb) / <alpha-value>)',
+        // Rating/Award-Gold (Bewertungs-Sterne + Quality-Badges) — eigene Rolle.
+        rating: {
+          DEFAULT: 'rgb(var(--color-rating-rgb) / <alpha-value>)',
+          soft: 'rgb(var(--color-rating-soft-rgb) / <alpha-value>)',
+          fg: 'rgb(var(--color-rating-fg-rgb) / <alpha-value>)',
+        },
       },
       fontFamily: {
         sans: ['Inter Variable', 'Inter', 'system-ui', 'sans-serif'],

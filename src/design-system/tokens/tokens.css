@@ -58,6 +58,12 @@
   --red-500-rgb: 220 38 38; /* #dc2626 */
   --red-800-rgb: 153 27 27; /* #991b1b — Danger-Text (Kontrast >=4.5:1) */
 
+  /* Rating/Award-Gold (Bewertungs-Sterne + Quality-Badges — eigene semantische
+     Rolle, getrennt von warning/orange; immer mit Icon/Zahl, nie Farbe allein) [FIL] */
+  --gold-100-rgb: 254 249 195; /* yellow-100 — Award-Badge-Flaeche */
+  --gold-400-rgb: 250 204 21; /* yellow-400 — Rating-Stern (gefuellt) */
+  --gold-600-rgb: 202 138 4; /* yellow-600 — Award-Badge-Icon/Text (Kontrast auf Soft) */
+
   /* Social (extern festgelegt, kein Brand-Token) */
   --social-linkedin-rgb: 0 119 181; /* #0077b5 */
 
@@ -211,6 +217,12 @@
   --color-success-fg: rgb(var(--color-success-fg-rgb));
   --color-warning-rgb: var(--orange-500-rgb);
   --color-warning: rgb(var(--color-warning-rgb));
+  --color-rating-rgb: var(--gold-400-rgb); /* Bewertungs-Stern (gefuellt) */
+  --color-rating: rgb(var(--color-rating-rgb));
+  --color-rating-soft-rgb: var(--gold-100-rgb); /* Award/Quality-Badge-Flaeche */
+  --color-rating-soft: rgb(var(--color-rating-soft-rgb));
+  --color-rating-fg-rgb: var(--gold-600-rgb); /* Badge-Icon/Text auf Soft-Flaeche */
+  --color-rating-fg: rgb(var(--color-rating-fg-rgb));
   --color-danger-rgb: var(--red-500-rgb);
   --color-danger: rgb(var(--color-danger-rgb));
   --color-danger-soft-rgb: var(--red-50-rgb); /* Danger-Flaeche (Alert-BG) */

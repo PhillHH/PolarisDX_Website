@@ -7,6 +7,23 @@ versioniert nach SemVer + datiert (§1.18). Nutzersichtbare Aenderungen zuerst.
 
 ### Phase 3 + 4 — Visueller-Craft-Pass × Layout (pro Komponente verschränkt)
 
+#### 2026-06-25 — Farb-Rollen-Pass: Gradient-Organismen + Rating-Gold-Rolle (§3.3)
+
+- **spec · new** — Neue semantische **Rating/Award-Gold-Rolle** (3 Ebenen):
+  Primitive `--gold-100/400/600-rgb`, Semantic `--color-rating(-soft|-fg)`,
+  Tailwind `rating.{DEFAULT,soft,fg}` — getrennt von `warning`/orange. Zusätzlich
+  `brand.heading`-Utility (Headline-Navy #203864) als Rollen-Name für das
+  dunkelste Gradient-Glied (war Roh-Alias `to-gray-900`).
+- **style · fix** — Gradient-Organismen auf Rollen-Tokens: `HeroSection` /
+  `TestimonialsSection` / `IglooWidgetSection` Hero-Gradient-Ende
+  `to-gray-900`→`to-brand-heading`; Rating-Sterne `text-yellow-400`→`text-rating`,
+  leer `text-gray-400`→`text-fg-on-dark/40`; Section-BG `bg-slate-50`→`bg-bg`;
+  Deko-Blobs `bg-blue-100/50`→`bg-brand-blue/10`; On-Dark-Text `text-slate-100`→
+  `text-fg-on-dark/80`. `FeaturedCaseStudy` Card `border-gray-100 bg-white`→
+  `border-[var(--color-border)] bg-surface`, Bild-Scrim `from-gray-900/40`→
+  `from-brand-navy/40`, Award-Badge `bg-yellow-100 text-yellow-600`→
+  `bg-rating-soft text-rating-fg`.
+
 #### 2026-06-25 — Farb-Rollen-Pass: geteilte UI-Molecules + Form-Sections (§3.3)
 
 - **style · fix** — Geteilte Main-Site-Bausteine auf Rollen-Tokens:
