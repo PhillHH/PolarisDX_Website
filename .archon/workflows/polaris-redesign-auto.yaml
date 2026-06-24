@@ -1,0 +1,68 @@
+# polaris-redesign-auto.yaml — Archon-Workflow (v0.4.1 nodes-Schema)
+# AUTONOMER Komplettlauf: arbeitet die Phasen 0->7 aus knowledge/REFACTORING-ANWEISUNG.md
+# in EINEM Lauf durch (stundenlang), KI-Review statt menschlichem Gate.
+# Endet bewusst an EINEM Pull Request gegen main — NIE mergen, NIE deployen (Live-Site).
+# Stack: Vite 7 + React 19 + react-router-dom 7 + Express-SSR, Tailwind 3.4, i18next, @fontsource.
+name: polaris-redesign-auto
+description: >
+  Autonomer Voll-Redesign-Lauf nach knowledge/REFACTORING-ANWEISUNG.md (Phasen 0-7),
+  ohne menschliches Gate, mit KI-Review-Schleife. Worktree-isoliert, von main gebrancht.
+  Ergebnis ist EIN Pull Request gegen main (kein Merge, kein Deploy).
+nodes:
+  - id: plan
+    model: opus
+    prompt: |
+      Lies knowledge/ARCHON-README.md, knowledge/REFACTORING-ANWEISUNG.md und
+      knowledge/PROJECT-DECISIONS.md vollstaendig. Erstelle einen Gesamt-Ausfuehrungsplan
+      ueber ALLE Phasen 0->7 (Reihenfolge + Abhaengigkeiten aus §4), je Phase die Tasks +
+      Definition of Done. Beachte den echten Stack (Vite/React-SSR, react-router-dom 7,
+      Tailwind, i18next, @fontsource). Aendere keine Infra/kein Deployment.
+      Fuer PROJECT-DECISIONS-Felder mit "TODO": waehle einen klar begruendeten Default,
+      markiere ihn im Code-Kommentar UND spaeter im PR-Text als
+      "ASSUMPTION — needs human confirmation", und arbeite weiter (nicht blockieren).
+
+  - id: build
+    depends_on: [plan]
+    model: opus
+    loop:
+      prompt: |
+        Arbeite die naechste offene Aufgabe aus dem Plan ab — Phasen STRIKT in
+        Reihenfolge 0->7. Regeln: Token-Pflicht ab Phase 1 (keine Rohwerte in
+        Komponenten), Atomic top-down, keine Duplikate, alle UI-States, WCAG 2.2 AA,
+        themebares Designsystem (>=2 Themes), Bilder/Texte/UI vollstaendig (A-Z).
+        Nach jeder Einheit gruen halten: npm run build && npm run typecheck && npm run lint.
+        Belege jede erfuellte Definition of Done durch einen AUSGEFUEHRTEN Check (§1.15).
+        Wenn ALLE Per-Phase-DoD UND die globale DoD (§5) durch ausgefuehrte Checks belegt
+        sind, antworte mit ALL_PHASES_COMPLETE. Sonst mach mit der naechsten Aufgabe weiter.
+      until: ALL_PHASES_COMPLETE
+      fresh_context: true
+      max_iterations: 200
+
+  - id: validate
+    depends_on: [build]
+    bash: "npm ci --no-audit --no-fund && npm run build && npm run typecheck && npm run lint && npx vitest run && npx playwright test"
+
+  - id: review
+    depends_on: [validate]
+    model: opus
+    loop:
+      prompt: |
+        Adversariales Review des gesamten Diffs gegen die globale Definition of Done (§5),
+        die Per-Phase-DoD und die Anti-Patterns (§6) der knowledge/REFACTORING-ANWEISUNG.md.
+        Pruefe besonders: 0 hartkodierte Design-Werte (nur Tokens, ripgrep-Beweis),
+        Atomic-Import-Richtung top-down, WCAG AA + 0 kritische axe-Verstoesse,
+        alle UI-States, themebares System, KEINE Next-Konstrukte (isomorphes React).
+        Behebe gefundene Probleme und halte build/typecheck/lint gruen.
+        Wenn keine offenen Befunde mehr existieren, antworte mit REVIEW_CLEAN.
+      until: REVIEW_CLEAN
+      fresh_context: true
+      max_iterations: 12
+
+  - id: pr
+    depends_on: [review]
+    model: sonnet
+    prompt: |
+      Pushe den Feature-Branch und oeffne EINEN Pull Request gegen main (Repo-PR-Template).
+      Der PR-Text listet je Phase 0-7 den Status + belegende Checks, sowie ALLE
+      "ASSUMPTION — needs human confirmation"-Defaults gesammelt zur menschlichen Freigabe.
+      NICHT mergen, NICHT deployen.
