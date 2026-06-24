@@ -7,6 +7,13 @@ versioniert nach SemVer + datiert (§1.18). Nutzersichtbare Aenderungen zuerst.
 
 ### Phase 3 + 4 — Visueller-Craft-Pass × Layout (pro Komponente verschränkt)
 
+#### 2026-06-25 — Farb-Rollen-Pass: SearchModal (§3.3)
+
+- **style · fix** — `SearchModal` Roh-`gray/blue/purple` → Rollen-Tokens: Scrim
+  `bg-gray-900/60`→`bg-brand-navy/60`, `bg-white`→`bg-surface`, Borders/Hover →
+  `var(--color-border)`/`bg-bg-subtle`, Sekundärtext→`text-fg-muted`. Typ-Badges
+  token-rein kategorial (accent / brand-blue-Tint / bg-subtle).
+
 #### 2026-06-25 — Farb-Rollen-Pass Start: CookieBanner + Hex-Audit-Klärung (§3.3)
 
 - **style · fix** — `CookieBanner` Roh-Tailwind-Paletten → Rollen-Tokens:

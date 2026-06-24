@@ -2456,3 +2456,30 @@ verlagert (nicht behauptet, §1.15).
 **Verbleibend Phase-3-Farb-Rollen-Pass:** restliche ~208 Main-Site-Paletten-
 Treffer (VitaminD3Spray/S3Leitlinie/VitaminD3Implant/IglooPro/ArticlePage/… )
 sowie der separate Consumer-Theme-Pass (teal/light, bewusst getrennt).
+
+### Einheit 3n — Farb-Rollen-Pass (§3.3): SearchModal (2026-06-25)
+
+Zweite App-UI-Komponente des §3.3-Passes. Suchoverlay nutzte bereits `text-fg*`/
+`brand-primary`, mischte aber Roh-`gray`/`blue`/`purple`. Rollenbasiert migriert:
+
+- Scrim `bg-gray-900/60` → `bg-brand-navy/60` (Token-Farbe, Opacity-Modifier).
+- Modal `bg-white` → `bg-surface`; alle `border-gray-100` →
+  `border-[var(--color-border)]`; Footer/Hover-Flächen `bg-gray-50/100` →
+  `bg-bg-subtle`.
+- Sekundärtext/Icons `text-gray-400/300` → `text-fg-muted`; Placeholder
+  `placeholder:text-gray-400` → `placeholder:text-fg-muted`.
+- **Typ-Badges (kategoriale Kodierung erhalten, token-rein):** article
+  `bg-purple-100 text-purple-700` → `bg-accent-soft text-accent-strong` (Accent),
+  service `bg-blue-100 text-blue-700` → `bg-[rgb(var(--brand-blue-rgb)/0.12)]
+text-brand-blue` (Brand-Tint via Kanal), page `bg-gray-100` → `bg-bg-subtle`.
+  Drei unterscheidbare Rollen, kein Ad-hoc-Purple mehr.
+
+**Verifikation (ausgeführt §1.15, 2026-06-25):**
+
+```
+rg -nP "(bg|text|border|ring|placeholder)-(gray|blue|purple|…)-[0-9]{2,3}" SearchModal.tsx → NONE ✓
+npm run build / typecheck / lint → grün (0 errors / 15 Baseline-warns)
+grep dist CSS → background-color:rgb(var(--brand-blue-rgb)/.12) ✓ (Brand-Tint kompiliert)
+```
+
+Sandbox-Kontrast-/axe-Gate weiterhin CI/Preview (s. 3m).
