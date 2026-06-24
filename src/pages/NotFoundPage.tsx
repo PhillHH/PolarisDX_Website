@@ -36,7 +36,7 @@ const NotFoundPage = () => {
           <Reveal width="100%" yOffset={20}>
             {/* 404 Number */}
             <div className="mb-8">
-              <span className="text-[10rem] sm:text-[12rem] font-bold leading-none bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent opacity-80">
+              <span className="text-display-xl font-bold leading-none bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent opacity-80">
                 404
               </span>
             </div>

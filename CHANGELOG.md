@@ -7,6 +7,16 @@ versioniert nach SemVer + datiert (§1.18). Nutzersichtbare Aenderungen zuerst.
 
 ### Phase 3 + 4 — Visueller-Craft-Pass × Layout (pro Komponente verschränkt)
 
+#### 2026-06-24 — Letzte arbitrary Typografie der Main-Site getilgt (§3.7)
+
+- **style · fix** — NotFoundPage-404-Numeral `text-[10rem] sm:text-[12rem]` →
+  neues fluid Token `text-display-xl` (`--text-display-xl`, clamp 160→192).
+- **style · fix** — FeaturedCaseStudy-Kicker `tracking-[0.14em]` →
+  `tracking-overline` (DS-Uppercase-Sperrung). **Main-Site damit frei von
+  arbitrary `text-`/`leading-`/`tracking-`-Werten.**
+- **script · new** — Token-Trio `--font-size-display-xl` / `--text-display-xl` /
+  Tailwind `fontSize.display-xl` ergänzt.
+
 #### 2026-06-24 — Artikel-Index-Hero auf Display-Token (§3.7)
 
 - **style · fix** — Articles-Index-Hero-`<h1>` von manueller arbitrary

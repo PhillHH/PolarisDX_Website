@@ -98,6 +98,8 @@ export default {
         // lineHeight aus dem Token-Paar, damit text-display kein separates leading braucht.
         display: ['var(--text-display)', { lineHeight: 'var(--line-height-display)' }],
         'display-sm': ['var(--text-display-sm)', { lineHeight: 'var(--line-height-display-sm)' }],
+        // 404-Numeral One-off (fluid 160→192) — Leading via leading-none am Element.
+        'display-xl': 'var(--text-display-xl)',
       },
       lineHeight: {
         // Fliesstext-Leading aus dem DS-Token (§3.7) — ersetzt arbitrary leading-[1.75]

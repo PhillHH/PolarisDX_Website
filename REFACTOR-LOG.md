@@ -2323,3 +2323,33 @@ npm run lint                                    → ✓ 0 errors / 15 Baseline-w
 
 **Verbliebene main-site Arbitrary-Typo:** `NotFoundPage` (One-off-404
 `text-[10/12rem]`), `FeaturedCaseStudy` (`tracking-[0.14em]`) — Folge-Einheiten.
+
+### Einheit 3k — Letzte arbitrary Typo der Main-Site: 404-Numeral + Case-Study-Kicker (2026-06-24)
+
+Schließt die arbitrary **Typografie** auf der gesamten Main-Site (§1.7/§3.7).
+Zwei letzte Treffer, ein revertierbarer Change (§1.5):
+
+- **NotFoundPage 404-Numeral** `text-[10rem] sm:text-[12rem]` → neues Token
+  `text-display-xl`. Primitive `--font-size-display-xl: clamp(10rem, 7.5rem +
+12vw, 12rem)` (160→192, fluid wie die übrigen Display-Tokens, Zoom-A11y über
+  rem §1.11) + Semantic `--text-display-xl` + Tailwind `fontSize.display-xl`
+  (Token-Quelldateien = Allowlist §1.19). One-off bewusst als Token statt
+  arbitrary (Grep-0-Ziel §Phase-3-DoD). `leading-none` (Utility) bleibt.
+- **FeaturedCaseStudy-Kicker** `tracking-[0.14em]` → `tracking-overline`
+  (`--letter-spacing-overline`/0.16em) — dieselbe Uppercase-Kicker-Sperrung wie
+  ArticlePage/Eyebrow; 0.14→0.16em auf das DS-Token gesnappt.
+
+**Verifikation (ausgeführt §1.15, 2026-06-24):**
+
+```
+rg -nP "\b(text|leading|tracking)-\[(?!length:var|var)" src \
+       --glob '!**/tokens.*' --glob '!**/consumer/**'   → EMPTY (0 arbitrary Typo Main-Site) ✓
+npm run build / typecheck / lint                          → grün (0 errors / 15 Baseline-warns)
+grep text-display-xl dist/client/assets/*.css             → font-size:var(--text-display-xl) ✓
+```
+
+**Damit Main-Site frei von arbitrary Typografie.** Verbleibend (eigener
+**Consumer-Pass**, light-Theme): `shell`/`PriceBadge`/`OrderForm`/`OrderModal`
+(`tracking-[1.6px]`, `text-[11px]`, `leading-[1.1]`, `lg:text-[3.25rem]`,
+`lg:leading-[1.05]`). Separater Farb-Rollen-Pass (§3.3) für Roh-Tailwind-Paletten
+(`bg-cyan-*`/`from-…`-Gradients) bleibt offen.

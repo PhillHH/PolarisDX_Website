@@ -15,7 +15,7 @@ const FeaturedCaseStudy = () => {
       <div className="relative mx-auto max-w-container px-4">
         <Reveal>
           <div className="relative z-20 flex justify-center mb-8 md:mb-10">
-            <span className="inline-block rounded-full bg-white/90 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-brand-primary border border-white/60 shadow-sm backdrop-blur">
+            <span className="inline-block rounded-full bg-white/90 px-4 py-1.5 text-xs font-semibold uppercase tracking-overline text-brand-primary border border-white/60 shadow-sm backdrop-blur">
               Case Study
             </span>
           </div>
