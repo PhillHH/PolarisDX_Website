@@ -188,12 +188,12 @@ const ArticlePage = () => {
             )}
             {textSection.paragraphs &&
               textSection.paragraphs.map((paragraph, pIndex) => (
-                <p key={pIndex} className="text-sm leading-[32px] text-fg-muted sm:text-base">
+                <p key={pIndex} className="text-base leading-body text-fg-muted">
                   {paragraph}
                 </p>
               ))}
             {textSection.listItems && (
-              <ul className="list-disc space-y-2 pl-5 text-sm leading-[28px] text-fg-muted sm:text-base">
+              <ul className="list-disc space-y-2 pl-5 text-base leading-body text-fg-muted">
                 {textSection.listItems.map((item, lIndex) => (
                   <li key={lIndex}>{item}</li>
                 ))}
@@ -302,7 +302,7 @@ const ArticlePage = () => {
                 {Array.isArray(translatedSections) && translatedSections.map(renderSection)}
               </div>
 
-              <div className="rounded-2xl bg-brand-primary/5 p-6 text-sm leading-[28px] text-fg sm:text-base mt-8">
+              <div className="rounded-2xl bg-brand-primary/5 p-6 text-base leading-body text-fg mt-8">
                 {t(
                   'shop:shop.articleDisclaimer',
                   "Regular check-ups and proactive care are the foundation of long-term health. If you have questions, don't hesitate to reach out to a medical professional.",

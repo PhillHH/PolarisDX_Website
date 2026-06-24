@@ -217,10 +217,7 @@ const ServicePage = () => {
                   <div className="space-y-4">
                     {Array.isArray(intro) &&
                       intro.map((paragraph, index) => (
-                        <p
-                          key={index}
-                          className="text-sm leading-[32px] text-fg-muted sm:text-base"
-                        >
+                        <p key={index} className="text-base leading-body text-fg-muted">
                           {paragraph}
                         </p>
                       ))}
@@ -236,12 +233,10 @@ const ServicePage = () => {
                           </h2>
                         )}
                         {section.content && (
-                          <p className="text-sm leading-[32px] text-fg-muted sm:text-base">
-                            {section.content}
-                          </p>
+                          <p className="text-base leading-body text-fg-muted">{section.content}</p>
                         )}
                         {section.listItems && (
-                          <ul className="list-disc space-y-2 pl-5 text-sm leading-[28px] text-fg-muted sm:text-base">
+                          <ul className="list-disc space-y-2 pl-5 text-base leading-body text-fg-muted">
                             {section.listItems.map((item, lIndex) => (
                               <li key={lIndex}>{renderTextWithLinks(item)}</li>
                             ))}
@@ -252,7 +247,7 @@ const ServicePage = () => {
 
                   {/* Conclusion */}
                   {(conclusion?.heading || conclusion?.text) && (
-                    <div className="rounded-2xl bg-brand-primary/5 p-6 text-sm leading-[28px] text-fg sm:text-base">
+                    <div className="rounded-2xl bg-brand-primary/5 p-6 text-base leading-body text-fg">
                       {conclusion.heading && (
                         <h3 className="mb-2 font-semibold text-fg-heading">{conclusion.heading}</h3>
                       )}

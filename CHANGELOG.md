@@ -7,6 +7,16 @@ versioniert nach SemVer + datiert (§1.18). Nutzersichtbare Aenderungen zuerst.
 
 ### Phase 3 + 4 — Visueller-Craft-Pass × Layout (pro Komponente verschränkt)
 
+#### 2026-06-24 — Artikel-Lesetypografie: generischer Renderer ArticlePage/ServicePage (§3.7)
+
+- **style · fix** — Die beiden **datengetriebenen** Artikel-/Service-Renderer
+  (`ArticlePage`, `ServicePage`) trugen die letzte Häufung arbitrary
+  Fließtext-Leading auf der Main-Site (§1.7/§3.7). Body-Absätze, Listen und
+  Conclusion-Boxen `text-sm leading-[32px]/[28px] … sm:text-base` →
+  `text-base leading-body` (Leading aus DS-Token `--line-height-body`/1.6).
+  Mobiler Body damit **16px statt 14px** (Body ≥16px erfüllt, §FIL/§1.11) und
+  Leading token-rein. **0** arbitrary `leading-[…]` mehr in beiden Renderern.
+
 #### 2026-06-24 — Artikel-Lesetypografie: S3LeitliniePage (§3.7)
 
 - **style · fix** — Dritte Artikel-Seite (`S3LeitliniePage`, gleiches Muster wie

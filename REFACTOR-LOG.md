@@ -2252,3 +2252,40 @@ auf die Token-Typo-Skala + benannte Container migriert. Verbliebene main-site
 Arbitrary-Typo: `ArticlePage`/`ServicePage` (`leading-[28/32px]`),
 `ArticlesIndexPage` (Hero-`leading-[47/58/69px]` + `tracking-[-0.02em]`),
 `NotFoundPage` (One-off-404-`text-[10/12rem]`) — eigene Folge-Einheiten (§1.5).
+
+### Einheit 3i — Artikel-Lesetypografie (generische Renderer ArticlePage/ServicePage, 2026-06-24)
+
+**Fortsetzung von 3g/3h auf die beiden datengetriebenen Renderer.** ArticlePage
+(Content-Sections aus `content/`) und ServicePage (Intro/Sections/Conclusion)
+trugen die letzte Häufung arbitrary Fließtext-Leading auf der Main-Site
+(Token-Pflicht-Verstoß §1.7 / §3.7 „kein Ad-hoc-`leading`"). Token-rein, ein
+revertierbarer Change (§1.5):
+
+- **Body-Absätze** `text-sm leading-[32px] text-fg-muted sm:text-base` →
+  `text-base leading-body text-fg-muted`.
+- **Listen** `… text-sm leading-[28px] text-fg-muted sm:text-base` →
+  `… text-base leading-body text-fg-muted`.
+- **Conclusion-/Disclaimer-Box** `… text-sm leading-[28px] text-fg sm:text-base` →
+  `… text-base leading-body text-fg`.
+
+**Bewusste Redesign-Entscheidung (§1.6 — markiert, reversibel via Git):** Mobiler
+Body 14→16px (`text-sm`→`text-base`, beseitigt das `sm:`-Sprung-Paar; **Body ≥16px**
+§FIL/§1.11 jetzt auf allen Viewports erfüllt); Leading von arbitrary 28/32px auf
+das DS-Body-Token (`--line-height-body`/1.6) gesnappt — konsistent mit 3g/3h.
+
+**Verifikation (ausgeführt §1.15, 2026-06-24):**
+
+```
+rg -nP "\b(text|leading)-\[(?!length:var|var)" \
+       src/pages/ArticlePage.tsx src/pages/ServicePage.tsx  → EMPTY (0 arbitrary Typo) ✓
+npm run build                                               → ✓ exit 0 (client+server)
+npm run typecheck (tsc -b)                                   → ✓ exit 0
+npm run lint                                                 → ✓ 0 errors / 15 Baseline-warns
+grep .leading-body dist/client/assets/*.css                  → line-height:var(--line-height-body) ✓
+```
+
+**Verbliebene main-site Arbitrary-Typo (eigene Folge-Einheiten §1.5):**
+`ArticlesIndexPage` (Hero `leading-[47/58/69px]` + `tracking-[-0.02em]`),
+`NotFoundPage` (One-off-404 `text-[10/12rem]`), `FeaturedCaseStudy`
+(`tracking-[0.14em]`). Consumer-Seiten (`shell`/`PriceBadge`/`OrderForm`/
+`OrderModal`: `tracking-[1.6px]` etc.) — eigener Consumer-Pass.
