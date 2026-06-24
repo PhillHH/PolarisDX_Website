@@ -31,7 +31,7 @@ const ServicesOverviewPage = () => {
           { name: 'Diagnostik', url: '/diagnostics' },
         ])}
       />
-      <div className="bg-slate-50">
+      <div className="bg-surface-base">
         {/* Reusing a simplified Hero/Header style for consistency with subpages */}
         <section className="relative overflow-hidden bg-brand-primary text-white">
           <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />

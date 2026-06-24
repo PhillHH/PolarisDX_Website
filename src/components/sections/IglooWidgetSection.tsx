@@ -20,7 +20,7 @@ const IglooWidgetSection = () => {
       id: 'dental',
       label: t('igloo_widget.dental', 'Dental'),
       path: '/diagnostics/dental',
-      icon: <Tooth className="w-12 h-12 text-brand-primary" />,
+      icon: <Tooth className="w-12 h-12 text-brand-sky" />,
       x: positions.dental.x,
       y: positions.dental.y,
     },
@@ -28,7 +28,7 @@ const IglooWidgetSection = () => {
       id: 'beauty',
       label: t('igloo_widget.beauty', 'Beauty'),
       path: '/diagnostics/beauty',
-      icon: <Sparkles className="w-12 h-12 text-brand-primary" />,
+      icon: <Sparkles className="w-12 h-12 text-brand-sky" />,
       x: positions.beauty.x,
       y: positions.beauty.y,
     },
@@ -36,14 +36,14 @@ const IglooWidgetSection = () => {
       id: 'longevity',
       label: t('igloo_widget.longevity', 'Longevity'),
       path: '/diagnostics/longevity',
-      icon: <InfinityIcon className="w-12 h-12 text-brand-primary" />,
+      icon: <InfinityIcon className="w-12 h-12 text-brand-sky" />,
       x: positions.longevity.x,
       y: positions.longevity.y,
     },
   ]
 
   return (
-    <section className="relative py-20 lg:py-32 bg-slate-50 overflow-visible">
+    <section className="relative py-20 lg:py-32 bg-surface-sunken overflow-visible">
       <div className="mx-auto max-w-container px-4 text-center lg:px-0 mb-16 relative z-10">
         <Eyebrow size="default" className="mb-8">
           {t('igloo_widget.title', 'Anwendungsbereiche')}
@@ -89,7 +89,7 @@ const IglooWidgetSection = () => {
         {/* Central Image with Glow */}
         <div className="relative z-10 flex justify-center items-center h-full w-full pointer-events-none">
           {/* Blue Glow Effect */}
-          <div className="absolute w-[300px] h-[300px] bg-blue-100/50 blur-[80px] rounded-full mix-blend-multiply pointer-events-none" />
+          <div className="absolute w-[300px] h-[300px] bg-brand-blue/15 blur-[80px] rounded-full mix-blend-multiply pointer-events-none" />
 
           <img
             src={iglooImage}
@@ -149,7 +149,7 @@ const IglooWidgetSection = () => {
       <div className="flex justify-center mt-8 relative z-10">
         <Link
           to="/diagnostics"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary hover:text-brand-deep transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-brand-sky hover:text-white transition-colors"
         >
           {t('igloo_widget.all_services', 'Alle Diagnostik-Services entdecken')} →
         </Link>

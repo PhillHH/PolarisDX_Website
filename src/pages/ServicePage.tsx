@@ -37,7 +37,7 @@ const renderTextWithLinks = (text: string) => {
       <Link
         key={match.index}
         to={match[2]}
-        className="font-semibold text-brand-primary hover:underline"
+        className="font-semibold text-brand-sky hover:underline"
       >
         {match[1]}
       </Link>,
@@ -160,9 +160,9 @@ const ServicePage = () => {
           ...(hasFaq ? [createFAQSchema(faqItems)] : []),
         ]}
       />
-      <div className="bg-slate-50">
+      <div className="bg-surface-base">
         {/* Hero / Header */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white">
+        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-surface-base text-white">
           <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
           <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
@@ -193,7 +193,7 @@ const ServicePage = () => {
 
         <div className="mx-auto flex max-w-container flex-col gap-10 px-4 py-12 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,1.4fr)] lg:items-start lg:gap-12 lg:px-0 lg:py-16">
           {/* Main Content */}
-          <article className="space-y-8 text-gray-700">
+          <article className="space-y-8 text-ink-muted">
             <Reveal width="100%">
               {hasRichContent ? (
                 <>
@@ -222,7 +222,7 @@ const ServicePage = () => {
                       intro.map((paragraph, index) => (
                         <p
                           key={index}
-                          className="text-sm leading-[32px] text-gray-500 sm:text-base"
+                          className="text-sm leading-[32px] text-ink-muted sm:text-base"
                         >
                           {paragraph}
                         </p>
@@ -234,17 +234,17 @@ const ServicePage = () => {
                     sections.map((section, index) => (
                       <section key={index} className="space-y-4">
                         {section.heading && (
-                          <h2 className="text-xl font-semibold tracking-tight text-gray-900">
+                          <h2 className="text-xl font-semibold tracking-tight text-ink">
                             {section.heading}
                           </h2>
                         )}
                         {section.content && (
-                          <p className="text-sm leading-[32px] text-gray-500 sm:text-base">
+                          <p className="text-sm leading-[32px] text-ink-muted sm:text-base">
                             {section.content}
                           </p>
                         )}
                         {section.listItems && (
-                          <ul className="list-disc space-y-2 pl-5 text-sm leading-[28px] text-gray-500 sm:text-base">
+                          <ul className="list-disc space-y-2 pl-5 text-sm leading-[28px] text-ink-muted sm:text-base">
                             {section.listItems.map((item, lIndex) => (
                               <li key={lIndex}>{renderTextWithLinks(item)}</li>
                             ))}
@@ -255,9 +255,9 @@ const ServicePage = () => {
 
                   {/* Conclusion */}
                   {(conclusion?.heading || conclusion?.text) && (
-                    <div className="rounded-2xl bg-brand-primary/5 p-6 text-sm leading-[28px] text-gray-600 sm:text-base">
+                    <div className="rounded-2xl bg-surface-raised p-6 text-sm leading-[28px] text-ink-muted sm:text-base">
                       {conclusion.heading && (
-                        <h3 className="mb-2 font-semibold text-gray-900">{conclusion.heading}</h3>
+                        <h3 className="mb-2 font-semibold text-ink">{conclusion.heading}</h3>
                       )}
                       {conclusion.text && <p>{conclusion.text}</p>}
                     </div>
@@ -290,8 +290,8 @@ const ServicePage = () => {
           <aside className="space-y-8 lg:sticky lg:top-32">
             <Reveal width="100%" delay={0.2}>
               {/* Other Services Widget */}
-              <section className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
-                <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-gray-500">
+              <section className="rounded-2xl border border-line-subtle bg-surface-raised p-5 shadow-sm">
+                <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-ink-muted">
                   {t('home:services.title', 'Key Areas')}
                 </h2>
                 <div className="space-y-3">
@@ -305,13 +305,13 @@ const ServicePage = () => {
                       <Link
                         key={s.id}
                         to={`/diagnostics/${s.id}`}
-                        className="group flex items-center justify-between rounded-xl border border-gray-100 bg-gradient-to-br from-white to-slate-50 p-4 shadow-sm transition-all duration-300 hover:border-blue-200 hover:shadow-md hover:scale-[1.02]"
+                        className="group flex items-center justify-between rounded-xl border border-line-subtle bg-gradient-to-br from-surface-raised to-surface-sunken p-4 shadow-sm transition-all duration-300 hover:border-brand-sky hover:shadow-md hover:scale-[1.02]"
                       >
                         <div className="flex items-center gap-3">
-                          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-brand-secondary transition-colors group-hover:bg-brand-secondary group-hover:text-white">
+                          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-blue/15 text-brand-sky transition-colors group-hover:bg-brand-secondary group-hover:text-white">
                             <IconComponent className="h-5 w-5" />
                           </div>
-                          <span className="font-medium text-gray-900 group-hover:text-brand-secondary">
+                          <span className="font-medium text-ink group-hover:text-brand-secondary">
                             {t(`home:services.${s.translationKey}.title`, s.title)}
                           </span>
                         </div>
@@ -322,8 +322,8 @@ const ServicePage = () => {
               </section>
 
               {/* Related Articles Widget */}
-              <section className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm mt-8">
-                <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-gray-500">
+              <section className="rounded-2xl border border-line-subtle bg-surface-raised p-5 shadow-sm mt-8">
+                <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-ink-muted">
                   {t('articles:index.title', 'Unsere Artikel')}
                 </h2>
                 <div className="space-y-4">
@@ -332,10 +332,10 @@ const ServicePage = () => {
                       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue mb-1">
                         {t(`common:category.${post.category}`, post.category)}
                       </p>
-                      <p className="text-sm font-semibold text-gray-900 group-hover:text-brand-secondary transition-colors">
+                      <p className="text-sm font-semibold text-ink group-hover:text-brand-secondary transition-colors">
                         {t(`articles:${post.id}.title`)}
                       </p>
-                      <p className="mt-1 text-xs text-gray-500">
+                      <p className="mt-1 text-xs text-ink-muted">
                         {post.readTime} · {post.date}
                       </p>
                     </Link>
@@ -344,11 +344,11 @@ const ServicePage = () => {
               </section>
 
               {/* Contact Widget */}
-              <section className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm mt-8">
-                <h3 className="mb-2 text-sm font-semibold tracking-tight text-gray-900">
+              <section className="rounded-2xl border border-line-subtle bg-surface-raised p-5 shadow-sm mt-8">
+                <h3 className="mb-2 text-sm font-semibold tracking-tight text-ink">
                   {t('shop:shop.needHelp', 'Need help right now?')}
                 </h3>
-                <p className="mb-3 text-xs leading-relaxed text-gray-500">
+                <p className="mb-3 text-xs leading-relaxed text-ink-muted">
                   {t(
                     'shop:shop.contactText',
                     'Our medical team is available 24/7 to answer urgent questions and help you decide what to do next.',

@@ -3,12 +3,12 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
 
 const textareaVariants = cva(
-  'flex min-h-[80px] w-full rounded-md border border-ui-border bg-white px-3 py-2 text-sm ring-offset-white placeholder:text-ui-text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+  'flex min-h-[80px] w-full rounded-md border border-line bg-surface-overlay px-3 py-2 text-sm ring-offset-surface-base placeholder:text-ink-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-sky focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       state: {
-        default: 'border-ui-border text-gray-900',
-        error: 'border-red-500 text-red-900 focus-visible:ring-red-500',
+        default: 'border-line text-ink',
+        error: 'border-red-500 text-red-200 focus-visible:ring-red-500',
       },
     },
     defaultVariants: {
@@ -39,7 +39,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           <label
             htmlFor={textareaId}
             className={cn(
-              'text-sm font-medium leading-none text-gray-900',
+              'text-sm font-medium leading-none text-ink',
               disabled && 'cursor-not-allowed opacity-70',
             )}
           >
@@ -64,7 +64,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         )}
 
         {!error && helperText && (
-          <p id={helperId} className="text-sm text-ui-text-muted">
+          <p id={helperId} className="text-sm text-ink-subtle">
             {helperText}
           </p>
         )}

@@ -50,21 +50,19 @@ const FAQSection = ({
       />
 
       <div className="mx-auto max-w-3xl">
-        <div className="divide-y divide-gray-200 rounded-2xl border border-gray-200 bg-white shadow-sm">
+        <div className="divide-y divide-line rounded-2xl border border-line bg-surface-raised shadow-sm">
           {Array.isArray(faqItems) &&
             faqItems.map((item, index) => (
               <div key={index} className="group">
                 <button
                   onClick={() => toggleItem(index)}
-                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-gray-50"
+                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-surface-raised"
                   aria-expanded={openIndex === index}
                   aria-controls={`faq-answer-${index}`}
                 >
-                  <span className="text-base font-medium text-gray-900 sm:text-lg">
-                    {item.question}
-                  </span>
+                  <span className="text-base font-medium text-ink sm:text-lg">{item.question}</span>
                   <ChevronDown
-                    className={`h-5 w-5 flex-shrink-0 text-gray-500 transition-transform duration-300 ease-out ${
+                    className={`h-5 w-5 flex-shrink-0 text-ink-subtle transition-transform duration-300 ease-out ${
                       openIndex === index ? 'rotate-180' : ''
                     }`}
                   />
@@ -78,7 +76,7 @@ const FAQSection = ({
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-6 pb-5 text-sm leading-relaxed text-gray-600 sm:text-base">
+                    <p className="px-6 pb-5 text-sm leading-relaxed text-ink-muted sm:text-base">
                       {item.answer}
                     </p>
                   </div>
@@ -88,13 +86,13 @@ const FAQSection = ({
         </div>
 
         {showFooter && (
-          <p className="mt-6 text-center text-sm text-gray-500">
+          <p className="mt-6 text-center text-sm text-ink-subtle">
             {t('faq.more', 'Noch Fragen?')}{' '}
-            <Link to="/diagnostics" className="font-semibold text-brand-primary hover:underline">
+            <Link to="/diagnostics" className="font-semibold text-brand-sky hover:underline">
               {t('faq.link_services', 'Diagnostik-Services ansehen')}
             </Link>{' '}
             {t('faq.or', 'oder')}{' '}
-            <Link to="/contact" className="font-semibold text-brand-primary hover:underline">
+            <Link to="/contact" className="font-semibold text-brand-sky hover:underline">
               {t('faq.link_contact', 'direkt Kontakt aufnehmen')}
             </Link>
           </p>

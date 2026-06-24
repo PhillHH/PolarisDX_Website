@@ -35,9 +35,9 @@ const ArticlesIndexPage = () => {
           { name: 'Artikel', url: '/articles' },
         ])}
       />
-      <div className="bg-slate-50 min-h-screen">
+      <div className="bg-surface-base min-h-screen">
         {/* Header Section */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white">
+        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-surface-base text-white">
           <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
           <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
@@ -78,18 +78,18 @@ const ArticlesIndexPage = () => {
               </p>
               <Link
                 to="/vitamin-d3-implantologie"
-                className="group block overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-primary/30"
+                className="group block overflow-hidden rounded-2xl border border-line-subtle bg-surface-raised shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-primary/30"
               >
                 <div className="p-6 lg:p-8">
-                  <h2 className="text-xl font-semibold text-gray-900 group-hover:text-brand-primary transition-colors lg:text-2xl">
+                  <h2 className="text-xl font-semibold text-ink group-hover:text-brand-sky transition-colors lg:text-2xl">
                     Vitamin D3 und Implantologie — Evidenz und Praxisleitfaden
                   </h2>
-                  <p className="mt-3 text-sm text-gray-500 lg:text-base">
+                  <p className="mt-3 text-sm text-ink-muted lg:text-base">
                     Wie ein optimaler Vitamin-D-Spiegel die Osseointegration fördert und
                     Implantatverluste reduziert. Wissenschaftlich fundiert mit praktischen
                     Handlungsempfehlungen.
                   </p>
-                  <p className="mt-4 text-sm font-medium text-brand-primary group-hover:underline">
+                  <p className="mt-4 text-sm font-medium text-brand-sky group-hover:underline">
                     Fachartikel lesen →
                   </p>
                 </div>

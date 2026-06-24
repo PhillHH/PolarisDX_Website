@@ -40,16 +40,16 @@ const ImprintPage = () => {
         )}
         noindex={true}
       />
-      <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-slate-50">
+      <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-surface-base">
         <div className="mx-auto max-w-container px-4 lg:px-0">
           <Reveal width="100%" yOffset={20}>
-            <h1 className="text-3xl font-bold mb-8 text-gray-900">{t('imprint.title')}</h1>
+            <h1 className="text-3xl font-bold mb-8 text-ink">{t('imprint.title')}</h1>
           </Reveal>
 
           <Reveal width="100%">
-            <div className="space-y-8 text-gray-700 bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+            <div className="space-y-8 text-ink-muted bg-surface-raised p-8 rounded-2xl border border-line-subtle shadow-sm">
               <section>
-                <h2 className="text-xl font-semibold mb-4 text-gray-900">
+                <h2 className="text-xl font-semibold mb-4 text-ink">
                   {t('imprint.section1.title')}
                 </h2>
 
@@ -86,7 +86,7 @@ const ImprintPage = () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold mb-4 text-gray-900">
+                <h2 className="text-xl font-semibold mb-4 text-ink">
                   {t('imprint.section2.title')}
                 </h2>
                 <p>
@@ -96,7 +96,7 @@ const ImprintPage = () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold mb-4 text-gray-900">
+                <h2 className="text-xl font-semibold mb-4 text-ink">
                   {t('imprint.section3.title')}
                 </h2>
                 {section3Content.map((line, idx) => (
@@ -105,7 +105,7 @@ const ImprintPage = () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold mb-4 text-gray-900">
+                <h2 className="text-xl font-semibold mb-4 text-ink">
                   {t('imprint.section4.title')}
                 </h2>
                 {section4Content.map((line, idx) => (
@@ -114,7 +114,7 @@ const ImprintPage = () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold mb-4 text-gray-900">
+                <h2 className="text-xl font-semibold mb-4 text-ink">
                   {t('imprint.section5.title')}
                 </h2>
                 {section5Content.map((line, idx) => (
@@ -123,7 +123,7 @@ const ImprintPage = () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold mb-4 text-gray-900">
+                <h2 className="text-xl font-semibold mb-4 text-ink">
                   {t('imprint.section6.title')}
                 </h2>
                 <p>
@@ -141,7 +141,7 @@ const ImprintPage = () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold mb-4 text-gray-900">
+                <h2 className="text-xl font-semibold mb-4 text-ink">
                   {t('imprint.section7.title')}
                 </h2>
                 <p>{t('imprint.section7.content')}</p>
