@@ -1976,3 +1976,39 @@ Token-Foundation war bereits umgesetzt; hier die **ausgeführten** Verifikations
 → **Phase 1 DoD vollständig belegt.** Nächste offene Phase: **Phase 2** (Atomic-Restrukturierung:
 `design-system/sections` + `src/templates` anlegen, Legacy `components/{ui,sections}` konsolidieren,
 `lineage.md`, Boundaries-/madge-Grün belegen) — substanzieller Build-Schritt.
+
+---
+
+## Phase 2 — Token-Connect: Roh-Hex in `index.css` + `IglooWidgetSection` (2026-06-24)
+
+**Task 10 (§Phase 2.10 „Connect tokens"):** Die letzten Roh-Hex außerhalb der
+Token-Quelldateien aufgelöst. Vorher (Allowlist §1.19) **3 Dateien / 55 Hex-Treffer**;
+nachher nur noch `src/components/ui/FlagIcon.tsx` (= **Nationalflaggen-Farben = Daten**,
+keine Design-Tokens — wie Logo-/Marken-SVG legitime Ausnahme, dokumentiert).
+
+**`src/index.css` — `.rich-content` (Pillar-/Artikel-Prose, 20 Roh-Hex + `white`/`rgba`):**
+
+- Neuer **Component-Token-Block** `--prose-*` in `tokens.css` (erbt **nur** von
+  Semantic, §3); `index.css` referenziert ausschließlich `var(--prose-*)`/Semantic.
+- **A11y-Bonus (§1.11):** Body-Text war `#868c98` (gray-500, ~3.5:1 auf Weiß =
+  **AA-Fail**) → `--prose-fg` = `--color-fg` (slate-700, ≥4.5:1).
+- **Theming-Bonus:** Artikel-Prose ist jetzt theme-fähig (Dark-Mode-Rebind greift
+  automatisch über die Semantic-Kanäle) — vorher hart hellgrundige Hex.
+- `:root` `background-color: #f8fafc` → `var(--color-bg)`, `color` → `var(--color-fg-heading)`.
+- CTA-Block-Gradient `#0d527f→#083358` = byte-genau `var(--color-surface-brand)→var(--color-action-primary)`.
+
+**`src/components/sections/IglooWidgetSection.tsx` — dekorativer Linien-Gradient:**
+
+- SMIL `<animate stop-color values="#…">` (kann **kein** `var(--token)` referenzieren
+  und ignoriert `prefers-reduced-motion`) → **CSS-Keyframes-Shimmer** (`.igloo-line-stop-*`
+  in `index.css`), token-gebunden (`--color-border`/`-strong`/`-fg-muted`) **inkl.
+  reduced-motion-Stopp** (§5/§1.11-Vorgriff).
+
+**Verifikation (ausgeführt §1.15):**
+
+```
+rg -l '#[0-9a-fA-F]{3,8}' src <Allowlist> --glob '!**/*.test.tsx'  → nur FlagIcon (Flaggen-Daten)
+rg -n '#…|rgba\(|: white' src/index.css                            → EMPTY ✓
+npm run build && npm run typecheck && npm run lint                  → grün (15 warn / 0 err = Baseline)
+npx madge --circular src                                            → ✔ 0 Zyklen
+```

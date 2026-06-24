@@ -442,6 +442,32 @@
   --info-item-value-fg: var(
     --color-fg
   ); /* war geerbtes text-gray-600 → Body (slate-700, rollenbasiert §1.6) */
+
+  /* Rich-Content / Prose (Pillar-/Artikel-HTML, `.rich-content` in index.css) —
+     ersetzt die roh hartkodierten Brand-/Slate-Hex (§1.7-Verstoss) durch
+     rollenbasierte Semantic-Bindungen. Erbt NUR von Semantic (§3) und macht den
+     Artikel-Fliesstext damit theme-faehig (Dark-Mode adaptiert automatisch).
+     Body-Text war #868c98 (gray-500, ~3.5:1 auf Weiss = AA-Fail) → --color-fg
+     (slate-700, >=4.5:1) — A11y-Verbesserung (§1.11). Link/Marker/Quote-Border =
+     Navy-Aktion (wie Button/Badge-brand, §1.6). */
+  --prose-fg: var(--color-fg); /* war #868c98 → Body (besserer AA-Kontrast) */
+  --prose-heading-fg: var(--color-fg-heading); /* war #083358 → Headline-Navy */
+  --prose-strong-fg: var(--color-fg-heading); /* war #203864 → Headline-Navy */
+  --prose-link-fg: var(--color-action-primary); /* war #0d527f → Navy-Aktion */
+  --prose-table-head-bg: var(--color-bg-subtle); /* war #f1f5f9 → slate-100 */
+  --prose-table-head-fg: var(--color-fg-heading); /* war #083358 → Headline-Navy */
+  --prose-border: var(--color-border); /* war #e2e8f0 → slate-200 */
+  --prose-quote-bg: var(--color-bg); /* war #f8fafc → slate-50 */
+  --prose-quote-border: var(--color-action-primary); /* war #0d527f → Navy */
+  --prose-quote-fg: var(--color-fg-heading); /* war #203864 → Headline-Navy */
+  --prose-marker-bg: var(--color-action-primary); /* war #0d527f → Navy */
+  --prose-marker-fg: var(--color-fg-on-dark); /* war white */
+  --prose-info-bg: rgb(var(--color-action-primary-rgb) / 0.06); /* war #f0f7ff → Navy-Soft */
+  --prose-info-border: rgb(var(--color-action-primary-rgb) / 0.2); /* war #bfdbfe → Navy-Tint */
+  --prose-cta-fg: var(--color-fg-on-dark); /* war white (auf Navy-Gradient) */
+  --prose-cta-btn-bg: var(--color-surface); /* war white */
+  --prose-cta-btn-fg: var(--color-action-primary); /* war #0d527f → Navy */
+  --prose-cta-btn-bg-hover: rgb(var(--color-action-primary-rgb) / 0.06); /* war #f0f7ff */
 }
 
 /* Theming = NUR Semantic-Kanaele neu binden (gleiche Namen, andere Werte), KEINE

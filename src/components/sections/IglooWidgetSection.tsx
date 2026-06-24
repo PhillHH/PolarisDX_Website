@@ -54,23 +54,13 @@ const IglooWidgetSection = () => {
         {/* Decorative connecting lines for desktop (Triangle) */}
         <svg className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0">
           <defs>
+            {/* Dekorativer Verbindungslinien-Gradient. Shimmer ueber CSS-Keyframes
+                (token-gebunden, `.igloo-line-stop-*` in index.css) statt SMIL —
+                SMIL `values` kann keine var(--token) referenzieren (§1.7) und
+                respektiert kein prefers-reduced-motion (§5/§1.11). */}
             <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#e2e8f0">
-                <animate
-                  attributeName="stop-color"
-                  values="#e2e8f0;#cbd5e1;#e2e8f0"
-                  dur="4s"
-                  repeatCount="indefinite"
-                />
-              </stop>
-              <stop offset="100%" stopColor="#94a3b8">
-                <animate
-                  attributeName="stop-color"
-                  values="#94a3b8;#cbd5e1;#94a3b8"
-                  dur="4s"
-                  repeatCount="indefinite"
-                />
-              </stop>
+              <stop offset="0%" className="igloo-line-stop-a" />
+              <stop offset="100%" className="igloo-line-stop-b" />
             </linearGradient>
           </defs>
 

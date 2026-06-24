@@ -7,6 +7,18 @@ versioniert nach SemVer + datiert (§1.18). Nutzersichtbare Aenderungen zuerst.
 
 ### Phase 2 — Atomic-Restrukturierung
 
+#### 2026-06-24 — Token-Connect: Roh-Hex in `index.css` + IglooWidget (§2.10)
+
+- **style · fix** — Letzte hartkodierte Hex außerhalb der Token-Quelldateien
+  aufgelöst (vorher 3 Dateien/55 Treffer → nur noch `FlagIcon` = Flaggen-Daten).
+  `.rich-content`-Prose (20 Hex + `white`/`rgba`) über neuen `--prose-*`
+  Component-Token-Block (§3) rollenbasiert gebunden → Artikel-Prose jetzt
+  **theme-fähig**; Body-Textfarbe `#868c98` (AA-Fail ~3.5:1) → `--color-fg`
+  (≥4.5:1, **A11y-Fix §1.11**).
+- **script · fix** — `IglooWidgetSection`: dekorativer SMIL-`<animate>`-Shimmer
+  (Roh-Hex, kein `var()`, kein reduced-motion) → token-gebundener
+  **CSS-Keyframes-Shimmer** mit `prefers-reduced-motion`-Stopp.
+
 #### 2026-06-24 — Lint-Gate wiederhergestellt (react-hooks v7 + a11y)
 
 - **script · fix** — `eslint .` war rot (18 Errors), seit `eslint-plugin-react-hooks@7`
