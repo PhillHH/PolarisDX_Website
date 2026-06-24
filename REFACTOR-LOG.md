@@ -1941,9 +1941,16 @@ Befehlen (§1.15).
 
 - `git tag pre-refactor-baseline` gesetzt (siehe `git tag`-Verifikation).
 
+### Baseline-Screenshots (Task 9, §7.4) — erledigt
+
+- `scripts/baseline-screenshots.mjs` gegen laufende SSR-Instanz (`PORT=3000`) → **20 PNGs**
+  (5 Routen × 4 Breakpoints sm/md/lg/xl) in `docs/baseline-screenshots/`.
+- Routen: home, diagnostics, articles, contact, notfound (`/de/...`).
+- Browser-Start brauchte `LD_LIBRARY_PATH=/home/phillip/plibs` (System-`libgbm.so.1` fehlt).
+- **Overflow-Assertion (Baseline-Finding für Phase 4):** `home@lg` scrollWidth **1216 > 1024**
+  (echter Horizontal-Overflow, ~192px); übrige Routen `@lg` 1039 > 1024 (~15px, Scrollbar-Gutter).
+  sm/md/xl ohne Overflow. → Backlog #9 (Phase 4 Responsiveness).
+
 ### Offene Phase-0-DoD-Punkte (ehrlich)
 
-- **Baseline-Screenshots sm/md/lg/xl (Playwright §7.4):** noch nicht erzeugt (Playwright-Browser
-  im Headless-Env nicht garantiert verfügbar). Nachzuholen, sobald Audit-Server + Browser laufen;
-  visuelle Regressionssuite ohnehin Phase 7. → bleibt als einziger offener Phase-0-DoD-Punkt markiert.
 - **Lighthouse/axe gegen laufende Instanz:** Audit-Server-Gate (Phase 3/5) — dort belegt.
