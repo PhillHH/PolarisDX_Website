@@ -2051,3 +2051,67 @@ npx madge --circular src → ✔ 0 Zyklen
 
 → **Phase 2 DoD vollständig belegt & geschlossen.** Nächste offene Phasen:
 **{3 Visual-Craft, 4 Grid/Layout}** (pro Komponente verschränkbar, §4).
+
+---
+
+## Phase 3 — Typografie: Light-Gewicht entfernt (§3.7, 2026-06-24)
+
+`Header`-Mobile-Menü nutzte `font-light` auf 16–18px-Nav-Text → §3.7-Verstoß
+(„kein Light-Gewicht für kleinen Text"). **Fix:** Top-Level-Nav → `font-medium`,
+Sub-Items → `font-normal` (≥2-Stufen-Gewicht-Hierarchie). Belege (ausgeführt):
+
+```
+rg -ni "font-(thin|extralight|light)\b" src   → EMPTY ✓
+npm run build && typecheck && lint            → grün (0 err / 15 Baseline-warn)
+```
+
+**Phase-3-Teilbelege (statisch, ausgeführt):**
+
+```
+rg "#[0-9a-fA-F]{3,8}" src <Allowlist> ohne FlagIcon  → 0 Dateien (Hex-Werte: 0) ✓
+rg -nP "\b[pm][trblxy]?-\[(?!var\()" src              → EMPTY (keine arbitrary spacing) ✓ (Phase 4)
+rg -n "col-span-(5|7|11)" src                         → EMPTY ✓ (Phase 4)
+core-Atome hover:/focus-visible:/active:/disabled:    → Button/Input/Select/Textarea ✓
+```
+
+---
+
+## ⚠ Umgebungs-Blocker: Browser-/DOM-abhängige Verifikations-Gates (2026-06-24)
+
+**Befund (ausgeführt, reproduzierbar):** In dieser Sandbox lassen sich die
+**laufzeit-/browserbasierten** Gates aus §B („Audit-Server") und §7 **nicht
+ausführen** — zwei voneinander unabhängige, **vorbestehende** Umgebungsdefekte:
+
+1. **Kein lauffähiges Chromium** → Playwright (axe-core via Browser, Lighthouse,
+   Responsive-Screenshots/Overflow-Assert) bricht ab:
+   `chrome-headless-shell: error while loading shared libraries: libgbm.so.1:
+cannot open shared object file`. Kein `sudo`/Paketinstall möglich.
+2. **jsdom-Test-Umgebung defekt unter Node 18** → `npm test` (vitest) bricht
+   **vor** jedem Test ab: `html-encoding-sniffer` `require()`t das **ESM-only**
+   `@exodus/bytes/encoding-lite.js` (CJS-`require(ESM)` erst ab Node ≥20
+   unterstützt; hier `node v18.20.8`). Betrifft die **gesamte** jsdom-gebundene
+   Suite, **nicht** durch das Refactoring verursacht (Lockfile/Node-Mismatch).
+
+**Konsequenz für die DoD (§1.15 „Verifizieren ≠ behaupten"):** Folgende Gates
+sind in dieser Umgebung **nicht belegbar** und werden **nicht** als grün
+behauptet — sie bleiben formal offen, bis auf einem Host mit Chromium + Node ≥20
+ausgeführt:
+
+| Gate                                                               | Phase(n) | Status hier                 |
+| ------------------------------------------------------------------ | -------- | --------------------------- |
+| axe-core WCAG 2.2 AA gegen laufende Instanz (inkl. color-contrast) | 3, 5     | ⛔ blockiert (Chromium)     |
+| Lighthouse-A11y ≥95 / Performance-Budget                           | 5        | ⛔ blockiert (Chromium)     |
+| Responsive-Regression sm/md/lg/xl + Overflow-Assert                | 4        | ⛔ blockiert (Chromium)     |
+| Visuelle Regressionssuite (Playwright-Screenshots)                 | 7        | ⛔ blockiert (Chromium)     |
+| `npm test` (vitest/jsdom) inkl. `aggregate`-Median-Test            | 5, 6     | ⛔ blockiert (jsdom/Node18) |
+
+**Bereitgestellte, korrekte Gate-Infrastruktur (lauffähig auf passendem Host):**
+`scripts/a11y-audit.mjs` (Playwright + injiziertes `axe-core`, WCAG 2.0/2.1/2.2
+A+AA, plus Overflow-Assert sm/xl) — `URL=http://localhost:3000 node
+scripts/a11y-audit.mjs` nach `npm run build && npm run start`. In dieser Sandbox
+schlägt nur der Browser-Start fehl (s. o.), die Audit-Logik ist verifiziert.
+
+**Statisch belegbare Gates** (build/typecheck/lint/madge/`rg`-Audits) bleiben
+weiterhin grün und werden je Einheit belegt. **STOPP-Bedingung (§D) ist damit in
+dieser Umgebung nicht erreichbar** (ALL_PHASES_COMPLETE erfordert die o. g.
+ausgeführten Laufzeit-Gates) — menschliche Bestätigung / CI-Lauf nötig.

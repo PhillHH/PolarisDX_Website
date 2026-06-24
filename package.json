@@ -19,6 +19,7 @@
     "format:check": "prettier --check .",
     "test": "vitest run --reporter=default",
     "test:e2e": "playwright test",
+    "audit:a11y": "node scripts/a11y-audit.mjs",
     "server": "cd server && npm install && npm start",
     "prepare": "lefthook install"
   },
