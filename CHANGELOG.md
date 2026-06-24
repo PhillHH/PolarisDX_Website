@@ -7,6 +7,16 @@ versioniert nach SemVer + datiert (§1.18). Nutzersichtbare Aenderungen zuerst.
 
 ### Phase 3 + 4 — Visueller-Craft-Pass × Layout (pro Komponente verschränkt)
 
+#### 2026-06-25 — Farb-Rollen-Pass Start: CookieBanner + Hex-Audit-Klärung (§3.3)
+
+- **style · fix** — `CookieBanner` Roh-Tailwind-Paletten → Rollen-Tokens:
+  `bg-white`→`bg-surface`, `border-gray-*`→`border-[var(--color-border*)]`,
+  `bg-blue-600`/`bg-gray-900` (Primär-Buttons)→`bg-primary`, Trust-Chip + Toggle
+  - Karten auf `accent`/`bg-bg-subtle`, Focus-Rings→`var(--color-focus-ring)`.
+- **spec · other** — Hex-Audit geklärt: alle 31 `#…` liegen in `FlagIcon.tsx`
+  (National-Flaggen-SVGs = Inhalt, kein Design) → akzeptierte §1.19-Ausnahme,
+  bleiben Roh-Hex.
+
 #### 2026-06-25 — Consumer-Pass: arbitrary Typografie getilgt (§3.7)
 
 - **style · fix** — Uppercase-Kicker `tracking-[1.6px]` (5× in `shell`,

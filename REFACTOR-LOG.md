@@ -2399,3 +2399,60 @@ grep letter-spacing:var(--letter-spacing-overline) dist/.../*.css → vorhanden 
 Consumer). Verbleibend für Phase 3: **Farb-Rollen-Pass (§3.3)** für Roh-Tailwind-
 Paletten (`bg-cyan-*`/`text-teal-*`/`from-…`-Gradients, ~276 Treffer) und
 axe-WCAG-AA gegen laufende Instanz.
+
+### Einheit 3m — Farb-Rollen-Pass (§3.3) Start: Hex-Audit-Klärung + CookieBanner (2026-06-25)
+
+Beginn des **Farb-Rollen-Passes (§3.3)** für Roh-Tailwind-Paletten auf der
+Main-Site. Vorab eine Audit-Wahrheits-Korrektur, dann erste Komponente.
+
+**Hex-Audit ist sauber — alle 31 `#…`-Treffer sind Inhalt, kein Design (§1.19-Geist):**
+
+```
+rg -lP "#[0-9a-fA-F]{3,8}\b" src --glob '!**/tokens.*' --glob '!**/tailwind.config.*'
+   → NUR src/components/ui/FlagIcon.tsx (31 Treffer)
+```
+
+`FlagIcon.tsx` enthält **National-Flaggen-SVGs** (DE `#000/#D00/#FFCE00`, UK, FR,
+IT, ES, …). Flaggenfarben sind **normierte Inhalts-/Ikonografie-Daten**, keine
+themebaren Design-Entscheidungen — eine Tokenisierung wäre fachlich falsch
+(eine Deutschland-Flagge ist exakt schwarz-rot-gold). **Akzeptierte Ausnahme
+(§1.17/§1.19):** bleibt als Roh-Hex; zählt nicht gegen die Phase-3-Grep-0-DoD für
+**Design-Werte**. Damit ist der Hex-Teil des Werte-Audits geschlossen.
+
+**CookieBanner — Roh-Paletten → Rollen-Tokens (§3.3):** Die Komponente nutzte
+bereits `text-fg*`, mischte aber Roh-`blue/gray`. Migriert (rollenbasiert, ein
+Accent = teal, Primary-Aktion = Navy):
+
+- Banner-Fläche `bg-white` → `bg-surface`; alle `border-gray-200/300/100` →
+  `border-[var(--color-border|--color-border-strong)]` (etablierte Button-Atom-
+  Konvention).
+- Trust-Shield-Chip `bg-blue-50 text-blue-600` → `bg-accent-soft text-accent`
+  (ein DS-Accent statt Ad-hoc-Blau).
+- Sekundär-Buttons (Reject/Settings) `bg-white hover:bg-gray-50` →
+  `bg-surface hover:bg-bg-subtle`; alle `focus:ring-blue-500` →
+  `focus:ring-[var(--color-focus-ring)]`.
+- Primär-Buttons (Accept-All, Save) `bg-blue-600/bg-gray-900 hover:…` →
+  `bg-primary hover:bg-primary-hover` + `text-fg-on-dark` (Navy-CTA-Rolle).
+- Kategorie-Karten enabled `border-blue-200 bg-blue-50/50` → `border-accent-border
+bg-accent-soft/50`; disabled → `border-[var(--color-border)] bg-bg-subtle/50`.
+- Toggle `bg-gray-200 … peer-checked:bg-blue-600` → `bg-[var(--color-border)] …
+peer-checked:bg-accent` (Selektions-Zustand = Accent); Knob `after:bg-white/
+border-gray-300/border-white` → `after:bg-surface/border-[var(--color-border-
+strong)]/border-[var(--color-fg-on-dark)]`.
+
+**Verifikation (ausgeführt §1.15, 2026-06-25):**
+
+```
+rg -nP "\b(bg|text|border|ring)-(blue|gray|slate|teal|…)-[0-9]{2,3}\b" CookieBanner.tsx → NONE ✓
+npm run build / typecheck / lint → grün (0 errors / 15 Baseline-warns)
+```
+
+**Sandbox-Gate (Memory `sandbox-runtime-gates-blocked`):** Die §3.3-Kontrast-/
+axe-WCAG-AA-Verifikation gegen eine laufende Instanz ist in dieser Umgebung
+nicht ausführbar (kein Chromium/libgbm). Mechanische Token-Substitution +
+statische Gates sind grün; die laufzeitbasierte Kontrast-DoD ist auf CI/Preview
+verlagert (nicht behauptet, §1.15).
+
+**Verbleibend Phase-3-Farb-Rollen-Pass:** restliche ~208 Main-Site-Paletten-
+Treffer (VitaminD3Spray/S3Leitlinie/VitaminD3Implant/IglooPro/ArticlePage/… )
+sowie der separate Consumer-Theme-Pass (teal/light, bewusst getrennt).
