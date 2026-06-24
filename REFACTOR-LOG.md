@@ -1954,3 +1954,25 @@ Befehlen (§1.15).
 ### Offene Phase-0-DoD-Punkte (ehrlich)
 
 - **Lighthouse/axe gegen laufende Instanz:** Audit-Server-Gate (Phase 3/5) — dort belegt.
+
+---
+
+## Phase 1 — Rest-DoD verifiziert (2026-06-24)
+
+Token-Foundation war bereits umgesetzt; hier die **ausgeführten** Verifikations-Belege (§1.15):
+
+- **Wertkategorien/Body-Min:** `--font-size-300: 1rem` (16px, MIN) → `--text-body` bindet darauf
+  (`tokens.css:85,222`). Body/Input ≥16px ✓.
+- **Kein `#000` als Token-Wert:** `rg '#000' tokens.css` ohne Kommentar-Zeilen = **0 Treffer**
+  (alle `#000` nur in erklärenden Kommentaren „war Roh-shadow = #000") ✓.
+- **Typeface:** `@fontsource-variable/inter` in `src/entry-client.tsx:23`; `tailwind.config.js:79`
+  `fontFamily.sans = ['Inter Variable', …]` → genau **ein** Typeface, self-hosted ✓.
+- **Tailwind:** Token unter `theme.extend` (`tailwind.config.js:5`), kein Top-Level-Override ✓.
+- **Theming:** `[data-theme='dark']` (`tokens.css:452`) rebindet **nur Semantic** (`--color-*-rgb`)
+  auf Primitive (`--neutral-*`) — identische Namen, kein Component-Token auf Rohwert ✓.
+- **Stubs:** `lib/flags.ts`, `lib/metrics/{definitions,thresholds,aggregate}.ts` vorhanden ✓.
+- `npm run typecheck` grün; `npm run lint` unverändert (18/2 vorbestehend).
+
+→ **Phase 1 DoD vollständig belegt.** Nächste offene Phase: **Phase 2** (Atomic-Restrukturierung:
+`design-system/sections` + `src/templates` anlegen, Legacy `components/{ui,sections}` konsolidieren,
+`lineage.md`, Boundaries-/madge-Grün belegen) — substanzieller Build-Schritt.
