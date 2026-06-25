@@ -30,7 +30,7 @@ const AboutPage = () => {
           ]),
         ]}
       />
-      <div className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white overflow-hidden">
+      <div className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-white overflow-hidden">
         <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
         <Container className="text-center relative z-10">
           <Reveal width="100%" yOffset={20}>

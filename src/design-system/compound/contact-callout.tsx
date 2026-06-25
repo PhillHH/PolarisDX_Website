@@ -22,7 +22,8 @@ import { cn } from '../../lib/utils'
  * (bewusst nicht token-remappt, §Einheit 1a; `rounded-xl` analog NavTile/Card).
  *
  * A11y (§1.11): das fuehrende Icon ist dekorativ (`aria-hidden`); der Tel-Link
- * ist ein nativer `<a href="tel:…">` (tastatur-/screenreader-bedienbar).
+ * ist ein nativer `<a href="tel:…">` (tastatur-/screenreader-bedienbar) mit
+ * sichtbarem Tastatur-Fokus (Navy-Ring mit Offset, WCAG 2.4.7) und hover/active.
  *
  * UI-States: rein statische Informations-Box (kein Datenbezug) — loading/empty/
  * error/success sind nicht anwendbar (analog NavTile/Container). Pflicht-Inhalte
@@ -67,7 +68,7 @@ export const ContactCallout = React.forwardRef<HTMLDivElement, ContactCalloutPro
       </div>
       <a
         href={phoneHref}
-        className="flex items-center justify-center gap-2 rounded-md bg-[var(--callout-action-bg)] px-4 py-2.5 text-sm font-semibold text-[var(--callout-action-fg)] transition-colors hover:bg-[var(--callout-action-bg-hover)]"
+        className="flex items-center justify-center gap-2 rounded-md bg-[var(--callout-action-bg)] px-4 py-2.5 text-sm font-semibold text-[var(--callout-action-fg)] transition-colors hover:bg-[var(--callout-action-bg-hover)] active:bg-[var(--callout-action-bg-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--color-focus-ring)]"
       >
         {phoneLabel}
       </a>

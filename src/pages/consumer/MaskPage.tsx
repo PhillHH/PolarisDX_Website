@@ -124,7 +124,7 @@ function MaskPageInner() {
   useConsumerPageView('masks')
   const orderModal = useOrderModal()
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-gray-900">
+    <div className="flex min-h-screen flex-col bg-bg text-fg-heading">
       <SEOHead
         title="Hydrating Hyaluronic Sheet Mask 5-Pack"
         description="Intensive hydration for dry, sensitive or mature skin: 5 serum-soaked hyaluronic sheet masks, 15 ml each, with niacinamide and collagen. A calm 15–30 min care step."
@@ -170,7 +170,7 @@ function MaskPageInner() {
         <Grid cols={4}>
           {BENEFITS.map((b) => (
             <Card key={b.title}>
-              <h3 className="text-xl font-semibold text-gray-900">{b.title}</h3>
+              <h3 className="text-xl font-semibold text-fg-heading">{b.title}</h3>
               <p className="mt-3 leading-relaxed text-fg">{b.body}</p>
             </Card>
           ))}
@@ -188,7 +188,7 @@ function MaskPageInner() {
         <Grid cols={4}>
           {INGREDIENTS.map((group, i) => (
             <Card key={group.title} accent={INGREDIENT_ACCENTS[i]}>
-              <h3 className="text-base font-semibold tracking-tight text-gray-900">
+              <h3 className="text-base font-semibold tracking-tight text-fg-heading">
                 {group.title}
               </h3>
               <ul className="mt-4 space-y-2 text-fg">
@@ -199,7 +199,7 @@ function MaskPageInner() {
             </Card>
           ))}
         </Grid>
-        <p className="mt-8 text-center text-sm text-gray-500">
+        <p className="mt-8 text-center text-sm text-fg-muted">
           Helps skin feel hydrated, refreshed and cared for.
         </p>
       </Section>

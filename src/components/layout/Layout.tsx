@@ -9,7 +9,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-fg-heading">
+    <div className="flex min-h-screen flex-col bg-bg text-fg-heading">
       <ScrollToTop />
       <Header />
       {/*

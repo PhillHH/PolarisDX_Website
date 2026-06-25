@@ -26,7 +26,7 @@ const ContactPage = () => {
           ]),
         ]}
       />
-      <div className="bg-slate-50 text-fg-heading">
+      <div className="bg-bg text-fg-heading">
         {/* Hero / Top */}
         <section className="relative overflow-hidden bg-brand-primary text-white">
           <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
@@ -85,7 +85,7 @@ const ContactPage = () => {
                     {t('contact.info.title')}
                   </h2>
                   <p className="mt-2 text-sm leading-relaxed text-fg">{t('contact.info.text')}</p>
-                  <div className="mt-4 space-y-1 text-sm text-gray-800">
+                  <div className="mt-4 space-y-1 text-sm text-fg">
                     <p>contact@polarisdx.net</p>
                     <p>+49 151 75011699</p>
                   </div>

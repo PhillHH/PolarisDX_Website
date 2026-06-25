@@ -40,11 +40,15 @@
 
   /* Accent Teal (Akzentskala — "same tones", Wave-2: accent = teal-600) [FIL][BUD] */
   --teal-50-rgb: 240 253 250; /* #f0fdfa */
+  --teal-100-rgb: 204 251 241; /* #ccfbf1 — Consumer-Theme: gefuellte Badge/Step-Kreise */
   --teal-200-rgb: 153 246 228; /* #99f6e4 */
   --teal-300-rgb: 94 234 212; /* #5eead4 */
+  --teal-400-rgb: 45 212 191; /* #2dd4bf — Consumer-Theme: helle Deko auf Navy */
   --teal-500-rgb: 20 184 166; /* #14b8a6 */
   --teal-600-rgb: 13 148 136; /* #0d9488 — kanonischer Accent */
   --teal-700-rgb: 15 118 110; /* #0f766e */
+  --teal-800-rgb: 17 94 89; /* #115e59 — Consumer-Theme: tieferer Akzent-Text */
+  --teal-900-rgb: 19 78 74; /* #134e4a — Consumer-Theme: dunkelster Akzent-Text */
 
   /* Feedback-Farben (immer mit Icon/Text, nie Farbe allein) [FIL] */
   --green-50-rgb: 236 253 245; /* #ecfdf5 */
@@ -191,6 +195,9 @@
   --color-action-primary-hover: rgb(var(--color-action-primary-hover-rgb));
   --color-focus-ring-rgb: var(--brand-navy-rgb);
   --color-focus-ring: rgb(var(--color-focus-ring-rgb));
+  /* Fokus-Ring auf dunklem Grund (Hero/Navy): Navy waere unsichtbar -> Weiss (§1.11 WCAG 2.4.7). */
+  --color-focus-ring-on-dark-rgb: var(--color-fg-on-dark-rgb);
+  --color-focus-ring-on-dark: rgb(var(--color-focus-ring-on-dark-rgb));
 
   --color-accent-rgb: var(--teal-600-rgb); /* kanonischer Accent */
   --color-accent: rgb(var(--color-accent-rgb));
@@ -200,10 +207,18 @@
   --color-accent-line: rgb(var(--color-accent-line-rgb));
   --color-accent-soft-rgb: var(--teal-50-rgb); /* Pill-Hintergrund, Tint */
   --color-accent-soft: rgb(var(--color-accent-soft-rgb));
+  --color-accent-tint-rgb: var(--teal-100-rgb); /* gefuellte Badge/Step-Kreise (Consumer) */
+  --color-accent-tint: rgb(var(--color-accent-tint-rgb));
   --color-accent-border-rgb: var(--teal-200-rgb); /* Pill-Border */
   --color-accent-border: rgb(var(--color-accent-border-rgb));
   --color-accent-on-dark-rgb: var(--teal-300-rgb); /* Hover auf Navy-Header */
   --color-accent-on-dark: rgb(var(--color-accent-on-dark-rgb));
+  --color-accent-bright-rgb: var(--teal-400-rgb); /* helle Deko-Linie/Dot auf Navy (Consumer) */
+  --color-accent-bright: rgb(var(--color-accent-bright-rgb));
+  --color-accent-deep-rgb: var(--teal-800-rgb); /* tieferer Akzent-Text auf hellem Tint */
+  --color-accent-deep: rgb(var(--color-accent-deep-rgb));
+  --color-accent-fg-rgb: var(--teal-900-rgb); /* dunkelster Akzent-Text (Consumer-Headings) */
+  --color-accent-fg: rgb(var(--color-accent-fg-rgb));
 
   --color-success-rgb: var(--green-500-rgb);
   --color-success: rgb(var(--color-success-rgb));

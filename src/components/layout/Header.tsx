@@ -101,7 +101,7 @@ const Header = () => {
                           <Link
                             key={child.label}
                             to={child.route}
-                            className="block px-6 py-2.5 text-sm text-fg hover:bg-blue-50/50 hover:text-brand-primary transition-colors font-normal"
+                            className="block px-6 py-2.5 text-sm text-fg hover:bg-bg-subtle hover:text-brand-primary transition-colors font-normal"
                           >
                             {t(`nav.${child.label}`)}
                           </Link>

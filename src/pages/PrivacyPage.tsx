@@ -17,14 +17,14 @@ const PrivacyPage = () => {
         )}
         noindex={true}
       />
-      <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-slate-50">
+      <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-bg">
         <Container>
           <Reveal width="100%" yOffset={20}>
             <h1 className="text-3xl font-bold mb-8 text-fg-heading">{t('privacy.title')}</h1>
           </Reveal>
 
           <Reveal width="100%">
-            <div className="mx-auto max-w-reading space-y-8 text-fg bg-white p-8 rounded-2xl border border-gray-100 shadow-sm text-sm leading-relaxed sm:text-base">
+            <div className="mx-auto max-w-reading space-y-8 text-fg bg-surface p-8 rounded-2xl border border-[var(--color-border)] shadow-sm text-sm leading-relaxed sm:text-base">
               <section>
                 <h2 className="text-xl font-semibold mb-4 text-fg-heading">
                   {t('privacy.section1.title')}

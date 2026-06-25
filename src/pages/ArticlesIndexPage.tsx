@@ -34,9 +34,9 @@ const ArticlesIndexPage = () => {
           { name: 'Artikel', url: '/articles' },
         ])}
       />
-      <div className="bg-slate-50 min-h-screen">
+      <div className="bg-bg min-h-screen">
         {/* Header Section */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white">
+        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-white">
           <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
           <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
@@ -76,7 +76,7 @@ const ArticlesIndexPage = () => {
               </p>
               <Link
                 to="/vitamin-d3-implantologie"
-                className="group block overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-primary/30"
+                className="group block overflow-hidden rounded-2xl border border-[var(--color-border)] bg-surface shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-primary/30"
               >
                 <div className="p-6 lg:p-8">
                   <h2 className="text-xl font-semibold text-fg-heading group-hover:text-brand-primary transition-colors lg:text-2xl">

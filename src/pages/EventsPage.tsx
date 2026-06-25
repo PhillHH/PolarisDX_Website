@@ -86,7 +86,7 @@ const EventsPage: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <div className="relative pt-32 pb-20 lg:pt-48 lg:pb-36 bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white overflow-hidden">
+      <div className="relative pt-32 pb-20 lg:pt-48 lg:pb-36 bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-white overflow-hidden">
         <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
         {/* Decorative circles */}
         <div className="absolute top-20 -left-32 w-96 h-96 rounded-full bg-brand-secondary/10 blur-3xl pointer-events-none" />
@@ -113,7 +113,7 @@ const EventsPage: React.FC = () => {
       </div>
 
       {/* Timeline Section */}
-      <div className="bg-slate-50 py-20 lg:py-28">
+      <div className="bg-bg py-20 lg:py-28">
         <div className="mx-auto max-w-5xl px-4">
           {/* Nobel Biocare Partner Badge */}
           <Reveal width="100%" yOffset={15}>
@@ -168,8 +168,10 @@ const EventsPage: React.FC = () => {
                       } ${isLeft ? '' : 'lg:ml-auto'}`}
                     >
                       <div
-                        className={`group relative bg-white rounded-2xl border shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden ${
-                          event.partner ? 'border-brand-secondary/30' : 'border-gray-100'
+                        className={`group relative bg-surface rounded-2xl border shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden ${
+                          event.partner
+                            ? 'border-brand-secondary/30'
+                            : 'border-[var(--color-border)]'
                         }`}
                       >
                         {/* Top accent bar */}

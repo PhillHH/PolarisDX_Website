@@ -22,10 +22,11 @@ import { cn } from '../../lib/utils'
  * arbitrary-px. Struktur/Spacing/Radius/Icon-Tile-Groesse ueber die rem-basierte
  * Tailwind-Skala (bewusst nicht token-remappt, §Einheit 1a; analog NavTile/Card).
  *
- * UI-States: default + hover (Row-Tint, Titel-/Icon-Akzent) als Properties.
- * loading/empty/error/success sind fuer eine rein strukturelle Navigations-Zeile
- * nicht anwendbar (kein Datenbezug) — der Leerzustand der Liste liegt beim
- * Aufrufer (analog NavTile/Container).
+ * UI-States: default + hover/active (Row-Tint, Titel-/Icon-Akzent) + focus-visible
+ * (Inset-Navy-Ring, §1.11 WCAG 2.4.7) als Properties. `disabled` ist fuer einen
+ * nativen Navigations-Link nicht anwendbar (ein gesperrtes Ziel wird nicht
+ * gerendert); loading/empty/error/success sind ohne Datenbezug nicht anwendbar —
+ * der Leerzustand der Liste liegt beim Aufrufer (analog NavTile/Container).
  */
 type MediaLinkAccent = 'primary' | 'success'
 
@@ -57,7 +58,8 @@ export const MediaLink = React.forwardRef<HTMLAnchorElement, MediaLinkProps>(
       to={to}
       className={cn(
         'group flex items-start gap-3 rounded-lg p-2 transition-colors',
-        'hover:bg-[var(--media-link-hover-bg)]',
+        'hover:bg-[var(--media-link-hover-bg)] active:bg-[var(--media-link-hover-bg)]',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--color-focus-ring)]',
         className,
       )}
       {...props}

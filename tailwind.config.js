@@ -45,8 +45,12 @@ export default {
         accent: {
           DEFAULT: 'rgb(var(--teal-600-rgb) / <alpha-value>)', // teal-600
           strong: 'rgb(var(--teal-700-rgb) / <alpha-value>)', // teal-700
+          deep: 'rgb(var(--teal-800-rgb) / <alpha-value>)', // teal-800
+          fg: 'rgb(var(--teal-900-rgb) / <alpha-value>)', // teal-900 — dunkelster Akzent-Text
           line: 'rgb(var(--teal-500-rgb) / <alpha-value>)', // teal-500
+          bright: 'rgb(var(--teal-400-rgb) / <alpha-value>)', // teal-400 — Deko auf Navy
           soft: 'rgb(var(--teal-50-rgb) / <alpha-value>)', // teal-50
+          tint: 'rgb(var(--teal-100-rgb) / <alpha-value>)', // teal-100 — gefuellte Badges
           border: 'rgb(var(--teal-200-rgb) / <alpha-value>)', // teal-200
           'on-dark': 'rgb(var(--teal-300-rgb) / <alpha-value>)', // teal-300
         },

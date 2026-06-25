@@ -148,7 +148,7 @@ function SprayPageInner() {
   useConsumerPageView('spray')
   const orderModal = useOrderModal()
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-gray-900">
+    <div className="flex min-h-screen flex-col bg-bg text-fg-heading">
       <SEOHead
         title="Vitamin D3+K2 Sublingual Spray 12-Pack"
         description="Daily Vitamin D3+K2 made simple: an orange-flavoured sublingual spray, 1000 IU and 71 doses per bottle. 12-pack for teams, homes and shared wellbeing orders."
@@ -195,7 +195,7 @@ function SprayPageInner() {
         <Grid cols={4}>
           {BENEFITS.map((b) => (
             <Card key={b.title}>
-              <h3 className="text-xl font-semibold text-gray-900">{b.title}</h3>
+              <h3 className="text-xl font-semibold text-fg-heading">{b.title}</h3>
               <p className="mt-3 leading-relaxed text-fg">{b.body}</p>
             </Card>
           ))}
@@ -213,7 +213,7 @@ function SprayPageInner() {
         <Grid cols={4}>
           {AUDIENCES.map((a) => (
             <Card key={a.title} className="flex flex-col">
-              <h3 className="text-xl font-semibold text-gray-900">{a.title}</h3>
+              <h3 className="text-xl font-semibold text-fg-heading">{a.title}</h3>
               <p className="mt-3 flex-grow leading-relaxed text-fg">{a.body}</p>
               <button
                 type="button"
@@ -224,7 +224,7 @@ function SprayPageInner() {
                 data-gtm-cta={a.cta}
                 data-gtm-page="spray"
                 data-gtm-location={`audience-${a.title.toLowerCase().replace(/[ &]+/g, '-')}`}
-                className="mt-6 inline-flex items-center self-start text-sm font-semibold text-teal-700 transition-colors hover:text-teal-900"
+                className="mt-6 inline-flex items-center self-start text-sm font-semibold text-accent-strong transition-colors hover:text-accent-fg"
               >
                 {a.cta} →
               </button>
@@ -237,10 +237,10 @@ function SprayPageInner() {
       <Section eyebrow="What is inside" title="What you get in one pack">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <Card className="p-0">
-            <dl className="divide-y divide-slate-100">
+            <dl className="divide-y divide-[var(--color-border)]">
               {FACTS.map(([label, value]) => (
                 <div key={label} className="flex gap-6 px-8 py-5">
-                  <dt className="w-40 flex-none text-sm font-semibold text-gray-900">{label}</dt>
+                  <dt className="w-40 flex-none text-sm font-semibold text-fg-heading">{label}</dt>
                   <dd className="text-fg">{value}</dd>
                 </div>
               ))}
@@ -273,7 +273,7 @@ function SprayPageInner() {
             },
           ]}
         />
-        <p className="mt-8 text-center text-sm text-gray-500">
+        <p className="mt-8 text-center text-sm text-fg-muted">
           Use once daily unless advised otherwise. Do not exceed the recommended daily intake.
         </p>
       </Section>
@@ -302,7 +302,7 @@ function SprayPageInner() {
         <Grid cols={3}>
           {SUBLINGUAL.map((s) => (
             <Card key={s.title}>
-              <h3 className="text-xl font-semibold text-gray-900">{s.title}</h3>
+              <h3 className="text-xl font-semibold text-fg-heading">{s.title}</h3>
               <p className="mt-3 leading-relaxed text-fg">{s.body}</p>
             </Card>
           ))}

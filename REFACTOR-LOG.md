@@ -2597,3 +2597,303 @@ und Rating-fg #ca8a04 auf Rating-soft #fef9c3 sind die zu prüfenden Paare.
 **Verbleibend Phase-3-Farb-Rollen-Pass:** Main-Site-Pages (VitaminD3Spray,
 S3Leitlinie, VitaminD3Implant, IglooPro, ArticlePage, Legal/NotFound/… —
 ~150 Treffer); Consumer-Theme-Pass (teal/light) bleibt separat.
+
+### Einheit 3q — Farb-Rollen-Pass (§3.3): App-Shell + globale Base-Schicht (2026-06-25)
+
+**Atomar top-down korrekt vor den Pages:** die geteilte App-Shell (Layout-Root,
+SSR/CSR-Suspense-Fallbacks) und die globale Tailwind-`@layer`-Basis (`index.css`)
+tragen die Hintergrund-/Default-Text-Rolle, die jede Seite erbt — Recolor an der
+Wurzel, bevor die Blatt-Pages folgen. Reine Neutral→Rollen-Mappings, byte-identisch
+wo möglich (§1.6).
+
+**Migrierte Shell-/Base-Stellen:**
+
+- **`Layout.tsx`** (App-Root-`<div>`): Shell-BG `bg-slate-50` → `bg-bg`
+  (byte-identisch — `--color-bg`=neutral-50=slate-50, etabliert 3p IglooWidget).
+- **`entry-client.tsx` / `entry-server.tsx`** (Suspense-Fallback-Shell, CSR+SSR
+  identisch): `bg-slate-50` → `bg-bg` (kein FOUC-/Hydration-Mismatch, gleiche
+  Rolle wie der Layout-Root, den der Fallback überbrückt).
+- **`Header.tsx`** (Megamenü-Dropdown-Item-Hover): `hover:bg-blue-50/50` →
+  `hover:bg-bg-subtle` (neutraler erhöhter Hover = etablierte Dropdown-Konvention
+  wie `LanguageSwitcher`/`SearchModal`-Footer; die Primary-Affordanz signalisiert
+  bereits `hover:text-brand-primary`, §3.3-Recolor, nicht byte-identisch).
+- **`index.css`** (globale `@layer`-Utilities/Base):
+  `.glass-panel-dark` `bg-gray-900/80` → `bg-brand-heading/80` (byte-identisch —
+  Legacy-`gray-900`-Key löst auf `--brand-heading-rgb` #203864 auf; dunkles
+  Gradient-/Glas-Glied = etablierte `brand-heading`-Rolle, 3p);
+  Default-Anker `a { @apply text-gray-900 }` → `text-fg-heading` (byte-identisch —
+  `--color-fg-heading-rgb`=`--brand-heading-rgb`; Default-Link = Headline-Ink-Rolle).
+
+**Verifikation (ausgeführt §1.15, 2026-06-25):**
+
+```
+npm ci             → ✓ exit 0 (577 packages)
+npm run build      → ✓ exit 0 (client+server, 969ms)
+npm run typecheck  → ✓ exit 0 (tsc -b)
+npm run lint       → ✓ 0 errors / 15 Baseline-warns
+rg -nP "(bg|text|border|…)-(slate|gray|blue|…)-[0-9]{2,3}"
+   Layout/entry-client/entry-server/index.css + Header-Dropdown   → NONE ✓
+grep dist CSS → var(--brand-heading-rgb) ×7 / var(--color-fg-heading-rgb) ×3 /
+                var(--color-bg-rgb) ×2 kompiliert ✓
+```
+
+Sandbox-Kontrast-/axe-WCAG-AA-Gate weiterhin auf CI/Preview verlagert (s. 3m,
+Memory `sandbox-runtime-gates-blocked`).
+
+**Verbleibend Phase-3-Farb-Rollen-Pass:** Main-Site-Pages (VitaminD3Spray ~33,
+S3Leitlinie ~26, VitaminD3Implant ~22, IglooPro ~16, ArticlePage ~13,
+Legal/NotFound/Downloads/Events/… ~30) sowie die dekorativen Per-Segment-Glow-
+Gradienten in `useHeroSlider` (beauty=pink/purple, longevity=green/emerald —
+kategoriale Marketing-Akzent-Daten ohne DS-Rolle, brauchen eine Rollen-/Design-
+Entscheidung, separater Slice); Consumer-Theme-Pass (teal/light) bleibt separat.
+
+### Einheit 3r — Farb-Rollen-Pass (§3.3): Legal-/Utility-Pages (Sammel-Slice, 2026-06-25)
+
+Nach der App-Shell-Wurzel (3q) der Blatt-Schritt: die **kleineren Main-Site-Pages**
+mit je wenigen Treffern (Legal, Kontakt/Support, Service-Hubs, Articles-Index,
+Events, Downloads, 404). Ein zusammenhängender Slice, weil alle dieselben drei
+wiederkehrenden Muster teilen — Shell-BG, Hero-Gradient-Glied, Surface/Border-
+Konvention. Zwölf Dateien **vollständig** treffer-frei gemacht.
+
+**Wiederkehrende Rollen-Mappings (byte-identisch / etabliert):**
+
+- Page-Shell-BG `bg-slate-50` → `bg-bg` (byte-identisch, neutral-50=slate-50) —
+  ServicesOverview, Contact, Support, Privacy, Imprint, ArticlesIndex, Events,
+  Service, Downloads.
+- Hero-Gradient-Ende `to-gray-900` → `to-brand-heading` (byte-identisch, etabliert
+  3p) — About, ArticlesIndex, Events, Service, NotFound.
+- Karten/Panels `bg-white` → `bg-surface`; `border-gray-100/200` →
+  `border-[var(--color-border)]` (etablierte DS-Konvention) — Privacy, Imprint,
+  ArticlesIndex, Events, Downloads.
+- Body-/Heading-Text `text-slate-700`→`text-fg` (byte-identisch, neutral-700=
+  slate-700), `text-slate-900`→`text-fg-heading`, `text-slate-600`/`text-gray-800`
+  →`text-fg-muted`/`text-fg` — Terms, Contact, Support.
+
+**Interaktive Primary-Rolle (DownloadsPage Download-Karten):** das Roh-`blue`-
+Interaktiv-System auf die DS-Action-Rolle (Navy) gehoben — Icon-Tile
+`bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white` →
+`bg-primary/10 text-primary group-hover:bg-primary group-hover:text-fg-on-dark`;
+Karten-/Button-Hover `hover:border-blue-500 hover:bg-blue-50 hover:text-blue-600`
+→ `hover:border-primary hover:bg-primary/10 hover:text-primary`; `bg-gray-100`→
+`bg-bg-subtle`.
+
+**ASSUMPTION — needs human confirmation (im Code markiert):** die dekorativen
+**Rainbow-Gradienten** (cyan→blue→purple) auf Terms-/NotFound-Badge und 404-Clip-
+Text hatten keine DS-Rolle. Default-Entscheidung: auf kohärente **Cool-Brand-
+Gradienten** tokenisiert — Badge-Border `from-brand-secondary via-brand-primary
+to-brand-heading`; 404-Clip-Text auf **helle** Stops `from-accent via-brand-
+secondary to-accent-on-dark` (Sichtbarkeit auf dem Navy-Hero); Deko-Blob
+`bg-cyan-500/20`→`bg-accent/20` (Zwei-Ton-Glow mit dem bestehenden
+`bg-brand-secondary/20`). Reversibel, falls das Design-Team eigene Glow-Tokens
+wünscht.
+
+**Verifikation (ausgeführt §1.15, 2026-06-25):**
+
+```
+rg -nP "(bg|text|border|…)-(slate|gray|blue|cyan|purple|…)-[0-9]{2,3}"
+   Terms/Privacy/Imprint/NotFound/Downloads/Events/ArticlesIndex/Contact/
+   Support/Service/ServicesOverview/About                          → NONE ✓
+npm run build      → ✓ exit 0 (client+server, 917ms)
+npm run typecheck  → ✓ exit 0 (tsc -b)
+npm run lint       → ✓ 0 errors / 15 Baseline-warns
+```
+
+Sandbox-Kontrast-/axe-WCAG-AA-Gate weiterhin auf CI/Preview verlagert (s. 3m).
+
+**Verbleibend Phase-3-Farb-Rollen-Pass:** die vier großen Pillar-/Content-Pages
+(VitaminD3SprayPage ~33, S3LeitliniePage ~26, VitaminD3ImplantologyPage ~22,
+IglooProPage ~16, ArticlePage ~13) sowie die `useHeroSlider`-Segment-Glows;
+Consumer-Theme-Pass (teal/light) bleibt separat.
+
+### Einheit 3s — Farb-Rollen-Pass (§3.3): große Pillar-/Content-Pages → Main-Site Grep-0 (2026-06-25)
+
+Abschluss des §3.3-Passes für die **gesamte Main-Site** (alles außer `consumer/*`,
+das als bewusst getrenntes Light/Teal-Theme separat bleibt, Memory
+`main-site-dark-theme-split`). Die fünf großen Pages mit den meisten Treffern —
+ArticlePage, IglooProPage, VitaminD3SprayPage, VitaminD3ImplantologyPage,
+S3LeitliniePage — vollständig treffer-frei gemacht.
+
+**Wiederkehrende Rollen-Mappings (über alle fünf Pages, byte-identisch/etabliert):**
+
+- Shell `bg-slate-50`→`bg-bg`; Hero-Gradient `to-gray-900`→`to-brand-heading`;
+  dunkle Sektion `bg-gray-900`→`bg-brand-heading` (alle byte-identisch).
+- Cards/Panels `bg-white`→`bg-surface`; `border-gray-100/200`→
+  `border-[var(--color-border)]`; Form-Inputs `border-gray-300`→
+  `border-[var(--color-border-strong)]`; Tabellen `divide-gray-200`→
+  `divide-[var(--color-border)]`; `bg-gray-50`→`bg-bg-subtle` (thead/hover/Tiles).
+- On-Dark-Text `text-gray-300`/`text-blue-100`→`text-fg-on-dark/80`; Muted
+  `text-gray-400`→`text-fg-muted`.
+
+**Semantische Status-Rollen (statt Roh-Paletten, §3.3):**
+
+- **Success** (grüne Häkchen/Health-Box): `text-green-500`→`text-success`
+  (byte-identisch, success=green-500); S3 DEQAS-Box `border-emerald-500
+bg-emerald-50/70 text-emerald-700`→`border-success bg-success-soft/70
+text-success-fg`.
+- **Danger** (Fehler/Warnhinweis): `text-red-500/600`→`text-danger`; Icon-Fläche
+  `bg-red-50`→`bg-[var(--color-danger-soft)]`.
+- **Accent** (Info-/USP-Highlight, Spray): `border-sky-200 bg-sky-50/50 bg-sky-100
+text-sky-600 text-sky-700`→`border-accent-border bg-accent-soft/50 bg-accent-soft
+text-accent text-accent-strong` (ein DS-Accent statt Ad-hoc-Sky).
+- **Primary-Tint** (Evidence-/Callout-Blockquotes): `bg-blue-50/50`–`/70`→
+  `bg-primary/5` (Navy-Tint, passend zum `border-brand-primary`/`accentBlue`).
+
+**ASSUMPTION — needs human confirmation (im Code markiert):** `useHeroSlider`-
+Per-Segment-Glow-Gradienten ohne DS-Rolle tokenisiert — beauty
+`from-pink-500 to-purple-500`→`from-brand-secondary to-accent`; longevity
+`from-green-400 to-emerald-600`→`from-success to-success-strong` (Gesundheit→
+Success-Rolle, byte-nah). Rein dekorative Blur-Glows (opacity-60), reversibel.
+
+**`FlagIcon.tsx` bleibt akzeptierte Ausnahme** (National-Flaggen-SVG-Hex = normierte
+Inhaltsdaten, kein Design, s. 3m) — zählt nicht gegen die Design-Werte-Grep-0.
+
+**Verifikation (ausgeführt §1.15, 2026-06-25):**
+
+```
+# Main-Site Design-Werte-Audit (Allowlist §1.19, ohne consumer/*, *.md, FlagIcon):
+rg -lP "(bg|text|border|…)-(slate|gray|blue|red|green|emerald|sky|…)-[0-9]{2,3}"
+   src --glob '!**/tokens.*' --glob '!**/tailwind.config.*' --glob '!**/*.md'
+   | rg -v consumer/                                  → NUR FlagIcon.tsx ✓ (akzeptiert)
+npm run build      → ✓ exit 0 (client+server, 997ms)
+npm run typecheck  → ✓ exit 0 (tsc -b)
+npm run lint       → ✓ 0 errors / 15 Baseline-warns
+grep dist CSS → var(--brand-heading-rgb) / var(--color-danger-soft-rgb) /
+                var(--color-success-rgb) / var(--color-accent-soft-rgb) kompiliert ✓
+```
+
+Sandbox-Kontrast-/axe-WCAG-AA-Gate weiterhin auf CI/Preview verlagert (s. 3m,
+Memory `sandbox-runtime-gates-blocked`).
+
+**Verbleibend Phase-3 (Grep-0 für GESAMTE `src`):** der **Consumer-Theme-Pass**
+(`src/pages/consumer/*`, ~111 Treffer in 7 Dateien — bewusst getrenntes Light/
+Teal-Theme) ist der letzte Block vor der vollständigen §1.19-Grep-0-DoD; danach
+nur noch die laufzeitbasierte axe-WCAG-AA-Belegung (CI/Preview).
+
+### Einheit 3t — Farb-Rollen-Pass (§3.3): Consumer-Theme → §1.19-Grep-0 für GESAMTE src (2026-06-25)
+
+Letzter Block des §3.3-Passes: das bewusst getrennte **Consumer-Light/Teal-Theme**
+(`src/pages/consumer/*`, 7 Dateien, ~111 Treffer). Damit ist die §1.19-Design-
+Werte-Grep-0-DoD für die **gesamte** `src` belegt (einzige Ausnahme: `FlagIcon.tsx`
+= normierte Flaggen-SVG-Inhaltsdaten, akzeptiert seit 3m).
+
+**Theming-Vorklärung (kritisch, vor der Migration geprüft):** Das Dark-Theme in
+`tokens.css` ist **ruhende Infrastruktur** (`[data-theme='dark']`, aktiv erst wenn
+`<html data-theme="dark">` gesetzt wird — nirgends in `src` gesetzt). Die aktiven
+`:root`-Werte sind durchgängig **hell** (`--color-bg`=slate-50, `--color-surface`
+=neutral-0/weiß, `--color-fg-heading`=Navy, `--color-accent`=teal-600) — also
+**exakt** das Consumer-Light/Teal-Theme. Die geteilte Shell konsumiert bereits
+Shared-Tokens (`text-fg`, `bg-brand-deep`); die Migration auf `accent-*`/`surface`/
+`bg`/`fg` ist damit theme-konsistent und render-gleich. **ASSUMPTION — needs human
+confirmation:** sollte das Dark-Theme später global aktiviert werden, braucht
+`consumer/*` einen expliziten Light-Scope (`data-theme="light"`-Wrapper) — das ist
+ein Phase-7-/Governance-Thema, kein §3.3-Blocker.
+
+**Akzent-Skala vervollständigt (canonical, §3.0/§1.7):** das Consumer-Theme nutzt
+den vollen Teal-Bereich; der DS-Accent hatte nur 50/200/300/500/600/700. Vier
+fehlende Sprossen ergänzt — Primitive `--teal-100/400/800/900-rgb` + Semantic-Rollen
+`--color-accent-tint` (teal-100, gefüllte Badge-/Step-Kreise), `--color-accent-bright`
+(teal-400, helle Deko-Linie auf Navy), `--color-accent-deep` (teal-800, tieferer
+Akzent-Text), `--color-accent-fg` (teal-900, dunkelster Akzent-Text); Tailwind-Keys
+`accent.{tint,bright,deep,fg}`. Single-Source (tokens.css → tailwind.config), keine
+Rohwert-Doppelpflege (§3.4).
+
+**Rollen-Mappings (Consumer, byte-identisch da accent==teal):**
+
+- Teal-Text: `text-teal-700`→`text-accent-strong`, `text-teal-900`→`text-accent-fg`,
+  `text-teal-800`→`text-accent-deep`, `text-teal-600`→`text-accent`,
+  `text-teal-300`→`text-accent-on-dark`, `text-teal-500`→`text-accent-line`.
+- Teal-Flächen/Border/Ring: `bg-teal-50`→`bg-accent-soft`, `bg-teal-100`→
+  `bg-accent-tint`, `bg-teal-500`→`bg-accent-line`, `bg-teal-400`→`bg-accent-bright`,
+  `bg-teal-600`→`bg-accent`, `border-teal-200`→`border-accent-border`,
+  `border-teal-300`→`border-accent-on-dark`, `ring-teal-500`/`focus:border-teal-500`
+  →`ring-accent-line`/`focus:border-accent-line`.
+- Neutrale: `text-gray-900`→`text-fg-heading` (byte-identisch), `text-gray-500/400`
+  →`text-fg-muted`, `bg-white`→`bg-surface`, `bg-slate-50`→`bg-bg`, `bg-slate-100`→
+  `bg-bg-subtle`, `border-slate-200`→`border-[var(--color-border)]`,
+  `border-slate-300`→`border-[var(--color-border-strong)]`, `divide-slate-100`→
+  `divide-[var(--color-border)]`.
+- Status: Card-Akzentbalken `green`/`amber` `before:bg-emerald-500`/`before:bg-amber-400`
+  →`before:bg-success`/`before:bg-warning`; OrderForm-Fehlerbox
+  `border-red-200 bg-red-50 text-red-800`→`border-[var(--color-danger-border)]
+bg-[var(--color-danger-soft)] text-[var(--color-danger-fg)]` (byte-identisch).
+- On-Dark-Weiß-Overlays (`bg-white/10`, `border-white/60`, `text-white`) bewusst
+  belassen — kein §1.19-Treffer (kein Zahl-Suffix), korrekt als Weiß auf Navy.
+
+**Verifikation (ausgeführt §1.15, 2026-06-25):**
+
+```
+# §1.19 Design-Werte-Audit (Palette-Utilities + Hex), GESAMTE src,
+# Allowlist (ohne tokens.*/tailwind.config.*/*.md):
+rg -lP "(bg|text|border|…)-(slate|gray|teal|red|emerald|amber|…)-[0-9]{2,3}" src …
+   → NUR FlagIcon.tsx ✓
+rg -lP "#[0-9a-fA-F]{3,8}\b" src …                → NUR FlagIcon.tsx ✓
+npm run build      → ✓ exit 0 (client+server, 1.00s)
+npm run typecheck  → ✓ exit 0 (tsc -b)
+npm run lint       → ✓ 0 errors / 15 Baseline-warns
+grep dist CSS → var(--teal-100/400/800/900-rgb) + --color-accent-{tint,bright,deep,fg}
+                kompiliert ✓
+```
+
+→ **DoD Phase 3, Punkt 5** („0 hartkodierte visuelle Werte außerhalb der Token-
+Quelldateien, Grep §1.19") ist damit durch ausgeführten Grep belegt (FlagIcon =
+akzeptierte Flaggen-Inhalts-Ausnahme). Abgehakt in EXECUTION-PLAN.md.
+
+Sandbox-Kontrast-/axe-WCAG-AA-Gate (laufende Instanz) weiterhin auf CI/Preview
+verlagert (Memory `sandbox-runtime-gates-blocked`) — betrifft DoD-Punkte 1–4
+(dominantes Element/Squint, Typo-Skala, alle Interaktiv-States, Schatten-Regeln),
+die separat zu belegen sind.
+
+### Einheit 3u — Interaktiv-States vervollständigen (§3.8 / DoD Punkt 3 + WCAG 2.4.7) (2026-06-25)
+
+Schließt **DoD Phase 3, Punkt 3** („Alle interaktiven Atome haben hover/
+focus-visible/active/disabled"). Befund vor der Einheit: mehrere interaktive
+Molecules rendern als nativer `<Link>`/`<a>`, trugen aber **kein** sichtbares
+Tastatur-Fokus-Signal — ein echter **WCAG 2.2 AA 2.4.7 (Focus Visible)**-Verstoß,
+nicht nur ein DoD-Formalismus.
+
+**Lückenschluss focus-visible (token-rein, §1.7):**
+
+- `media-link.tsx` (Sidebar-Listenzeile, `<Link>`, heller Grund): Inset-Navy-Ring
+  `focus-visible:ring-2 ring-inset ring-[var(--color-focus-ring)]` (analog
+  `accordion`) + `active:bg` = Hover-Tint.
+- `nav-tile.tsx` (erhobene Nav-Kachel, `<Link>`, hell): Navy-Ring mit Offset
+  `ring-2 ring-offset-2 ring-[var(--color-focus-ring)]` + `active:scale-[1.01]`
+  (gesetzter Lift gegen Hover-`scale-[1.02]`).
+- `contact-callout.tsx` (Tel-Aktion `<a href="tel:…">`, gefüllter Button auf
+  Karte): Navy-Ring mit Offset + `active:bg` = Hover.
+- `card.tsx` (`interactive`-Variante rendert `<Link>`/`<a>`): Ring nur in der
+  `interactive:true`-cva-Branch (ruhende `div`-Karten bleiben fokuslos) +
+  `active:-translate-y-0.5`.
+- `breadcrumbs.tsx` (`<Link>` auf **dunklem** Hero-Grund): Navy-Ring wäre dort
+  unsichtbar → neuer **on-dark Fokus-Ring**.
+
+**Neues Token (Single-Source, §1.7/§3.4):** `--color-focus-ring-on-dark`
+(= `--color-fg-on-dark-rgb`, Weiß) in `tokens.css` neben `--color-focus-ring`.
+Navy-Ring auf dunklem Hero ist unsichtbar; Weiß erfüllt das Sichtbarkeits-/
+Kontrast-Kriterium von 2.4.7. RGB-Channel-Form (`…-rgb` + `rgb(var(…))`), in
+`dist`-CSS kompiliert verifiziert.
+
+**Nicht-anwendbare States (dokumentiert, kein Verstoß):** native Navigations-
+Links kennen kein `disabled` (ein gesperrtes Ziel wird gar nicht gerendert) —
+in den jeweiligen Datei-Kommentaren festgehalten. Text-Felder (`input`/`select`/
+`textarea`) tragen `focus-visible`+`disabled`; `hover`/`active` erzeugen bei
+Texteingabe keine standardisierte visuelle Affordanz (der semantisch relevante
+State ist Fokus). `accordion` nutzt `expanded` statt `active`.
+
+**Verifikation (ausgeführt §1.15, 2026-06-25):**
+
+```
+# interaktive DS-Komponenten ohne focus-visible (Link/button/onClick/<a>):
+for f in $(rg -lE "react-router-dom|<button|onClick|<a " \
+  src/design-system/{core,compound,feedback} | rg -v test); do
+    rg -q "focus-visible:" "$f" || echo "MISSING: $f"; done   → ∅ (keine Lücke)
+npm run build      → ✓ exit 0 (client+server, 915ms)
+npm run typecheck  → ✓ exit 0 (tsc -b)
+npm run lint       → ✓ 0 errors / 15 Baseline-warns
+grep dist CSS → color-focus-ring-on-dark kompiliert ✓
+```
+
+→ **DoD Phase 3, Punkt 3** durch ausgeführten Grep + grüne Gates belegt;
+abgehakt in EXECUTION-PLAN.md. Laufzeitbasierte axe-WCAG-AA-Belegung
+(sichtbarer Fokus an laufender Instanz) weiterhin auf CI/Preview verlagert
+(Memory `sandbox-runtime-gates-blocked`).

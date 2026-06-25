@@ -13,8 +13,10 @@ import { cn } from '../../lib/utils'
  * Tailwind-Skala (bewusst nicht token-remappt — §Einheit 1a).
  *
  * A11y (§1.11): `<nav aria-label>` + `<ol>`, letzter Eintrag `aria-current="page"`,
- * dekorativer Trenner `aria-hidden`. UI-States (§Phase 6.1): Empty (keine Items) →
- * rendert nichts statt einer leeren Navigation.
+ * dekorativer Trenner `aria-hidden`. Sichtbarer Tastatur-Fokus (WCAG 2.4.7) ueber
+ * den on-dark Fokus-Ring (`--color-focus-ring-on-dark` = Weiss; Navy waere auf dem
+ * dunklen Hero unsichtbar). UI-States (§Phase 6.1): Empty (keine Items) → rendert
+ * nichts statt einer leeren Navigation.
  *
  * Kontext: lebt auf dunklem Hero-Grund (Main-Site = default-dark) — daher
  * on-dark Tonalitaeten, keine `variant`-Achse (alle Call-Sites nutzten nur
@@ -58,7 +60,7 @@ export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
               ) : (
                 <Link
                   to={item.href}
-                  className="text-[var(--breadcrumb-fg)] transition-colors hover:text-[var(--breadcrumb-link-hover)]"
+                  className="rounded-sm text-[var(--breadcrumb-fg)] transition-colors hover:text-[var(--breadcrumb-link-hover)] active:text-[var(--breadcrumb-link-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring-on-dark)]"
                 >
                   {item.label}
                 </Link>

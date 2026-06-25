@@ -55,7 +55,7 @@ i18nReady.then(() => {
     <StrictMode>
       <HelmetProvider>
         <BrowserRouter basename={`/${lang}`}>
-          <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
+          <Suspense fallback={<div className="min-h-screen bg-bg" />}>
             <App />
           </Suspense>
         </BrowserRouter>

@@ -219,9 +219,9 @@ Content-Guardrail via Bild-aspect-ratio (zod bewusst nicht eingeführt, §1.16).
 
 - [ ] Genau **ein** dominantes Element/CTA pro View; Farben rollenbasiert; max. 1 Primary/Sektion.
 - [ ] Texte folgen Typo-Skala; kein Ad-hoc-`font-size`; Body ≥16px; Fließtext linksbündig + begrenzte Breite; kein Light-Gewicht für kleinen Text; Header-Body-Gewicht ≥2 Stufen.
-- [ ] Alle interaktiven Atome haben hover/**focus-visible**/active/disabled.
+- [x] Alle interaktiven Atome haben hover/**focus-visible**/active/disabled. _(belegt 2026-06-25, Einheit 3u — alle interaktiven DS-Komponenten (`button`, `card[interactive]`, `nav-tile`, `media-link`, `breadcrumbs`, `contact-callout`, `accordion`, `input`/`select`/`textarea`) tragen die semantisch anwendbaren States; **focus-visible** (WCAG 2.4.7) jetzt lückenlos — Grep „interaktiv ohne focus-visible" = ∅; on-dark Fokus-Ring-Token `--color-focus-ring-on-dark` ergänzt; build/typecheck/lint grün.)_
 - [ ] Schatten nur interaktiv/erhoben; keine weißen Schatten im Dark-Mode; disabled ohne Schatten.
-- [ ] **0** hartkodierte visuelle Werte außerhalb der Token-Quelldateien (Grep §1.19).
+- [x] **0** hartkodierte visuelle Werte außerhalb der Token-Quelldateien (Grep §1.19). _(belegt 2026-06-25, Einheit 3t — `rg` Palette+Hex über gesamte `src` → nur `FlagIcon.tsx` (akzeptierte Flaggen-Inhalts-Ausnahme §1.17/§1.19); build/typecheck/lint grün.)_
 
 **Verifikation (Auszug):** `rg -n "#…|\b[0-9]+px\b" src/design-system <Allowlist>` (Soll 0);
 `rg -n "hover:|active:|disabled:|focus-visible:" src/design-system/core`;

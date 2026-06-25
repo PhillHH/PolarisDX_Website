@@ -58,15 +58,15 @@ const DownloadsPage = () => {
           {items.map((item) => (
             <div
               key={item.id}
-              className="group relative flex flex-col justify-between rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:border-blue-500 hover:shadow-md"
+              className="group relative flex flex-col justify-between rounded-xl border border-[var(--color-border)] bg-surface p-6 shadow-sm transition-all hover:border-primary hover:shadow-md"
             >
               <div>
-                <div className="mb-4 inline-flex items-center justify-center rounded-lg bg-blue-50 p-3 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                <div className="mb-4 inline-flex items-center justify-center rounded-lg bg-primary/10 p-3 text-primary group-hover:bg-primary group-hover:text-fg-on-dark transition-colors">
                   <FileText className="h-6 w-6" />
                 </div>
                 <h4 className="mb-2 text-lg font-medium text-fg-heading">{item.title}</h4>
                 <div className="flex items-center gap-3 text-sm text-fg-muted">
-                  <span className="rounded bg-gray-100 px-2 py-0.5 font-medium text-fg">
+                  <span className="rounded bg-bg-subtle px-2 py-0.5 font-medium text-fg">
                     {item.format}
                   </span>
                   <span>{item.size}</span>
@@ -79,7 +79,7 @@ const DownloadsPage = () => {
                   download={item.openInBrowser ? undefined : true}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 py-2.5 text-sm font-medium text-fg transition-colors hover:border-blue-500 hover:bg-blue-50 hover:text-blue-600"
+                  className="flex w-full items-center justify-center gap-2 rounded-lg border border-[var(--color-border)] py-2.5 text-sm font-medium text-fg transition-colors hover:border-primary hover:bg-primary/10 hover:text-primary"
                 >
                   <Download className="h-4 w-4" />
                   {t('downloads:downloadBtn')}
@@ -110,7 +110,7 @@ const DownloadsPage = () => {
           ]),
         ]}
       />
-      <div className="bg-slate-50 text-fg-heading">
+      <div className="bg-bg text-fg-heading">
         {/* Hero / Top */}
         <section className="relative overflow-hidden bg-brand-primary text-white">
           <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />

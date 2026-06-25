@@ -49,7 +49,7 @@ const ArticlePage = () => {
   // Handle Loading
   if (loading) {
     return (
-      <div className="flex h-screen items-center justify-center bg-slate-50">
+      <div className="flex h-screen items-center justify-center bg-bg">
         <Spinner size="lg" />
       </div>
     )
@@ -58,7 +58,7 @@ const ArticlePage = () => {
   // Handle Error or Not Found
   if (error || !article) {
     return (
-      <div className="flex h-screen flex-col items-center justify-center gap-4 bg-slate-50 p-4">
+      <div className="flex h-screen flex-col items-center justify-center gap-4 bg-bg p-4">
         {error ? (
           <div className="w-full max-w-md">
             <Alert variant="danger" title={t('common:error', 'Error')}>
@@ -119,7 +119,7 @@ const ArticlePage = () => {
                   {(section as TableSection).headers.map((header, i) => (
                     <th
                       key={i}
-                      className="border-b border-gray-200 py-3 font-semibold text-fg-heading"
+                      className="border-b border-[var(--color-border)] py-3 font-semibold text-fg-heading"
                     >
                       {header}
                     </th>
@@ -128,7 +128,7 @@ const ArticlePage = () => {
               </thead>
               <tbody>
                 {(section as TableSection).rows.map((row, rIndex) => (
-                  <tr key={rIndex} className="border-b border-gray-100 last:border-0">
+                  <tr key={rIndex} className="border-b border-[var(--color-border)] last:border-0">
                     {row.map((cell, cIndex) => (
                       <td key={cIndex} className="py-3 pr-4 align-top">
                         {cell}
@@ -144,7 +144,7 @@ const ArticlePage = () => {
         return (
           <section
             key={index}
-            className="my-8 rounded-lg border-l-4 border-accentBlue bg-blue-50/50 p-6 text-fg"
+            className="my-8 rounded-lg border-l-4 border-accentBlue bg-primary/5 p-6 text-fg"
           >
             {section.heading && (
               <h3 className="mb-2 text-lg font-semibold text-accentBlue">{section.heading}</h3>
@@ -166,7 +166,7 @@ const ArticlePage = () => {
               {(section as KeyPointsSection).points.map((point, pIndex) => (
                 <div
                   key={pIndex}
-                  className="rounded-xl border border-gray-100 bg-white p-5 shadow-sm"
+                  className="rounded-xl border border-[var(--color-border)] bg-surface p-5 shadow-sm"
                 >
                   <h4 className="mb-2 font-semibold text-fg-heading">{point.title}</h4>
                   <p className="text-sm text-fg-muted">{point.description}</p>
@@ -236,8 +236,8 @@ const ArticlePage = () => {
           ]),
         ]}
       />
-      <div className="bg-slate-50">
-        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white">
+      <div className="bg-bg">
+        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-white">
           <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
           <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
@@ -282,7 +282,7 @@ const ArticlePage = () => {
                 titleClassName="text-2xl sm:text-3xl lg:text-3xl"
               />
 
-              <div className="relative w-full overflow-hidden rounded-lg aspect-[8/3] bg-slate-200 mt-6">
+              <div className="relative w-full overflow-hidden rounded-lg aspect-[8/3] bg-bg-subtle mt-6">
                 {articleImage && getArticleImageUrl(articleImage) && (
                   <>
                     <img
@@ -309,7 +309,7 @@ const ArticlePage = () => {
                 )}
               </div>
 
-              <div className="mt-8 flex flex-col gap-4 border-t border-gray-100 pt-8 text-sm text-fg-muted sm:flex-row sm:items-center sm:justify-between">
+              <div className="mt-8 flex flex-col gap-4 border-t border-[var(--color-border)] pt-8 text-sm text-fg-muted sm:flex-row sm:items-center sm:justify-between">
                 <span>
                   {t(
                     'shop:shop.shareArticle',
@@ -332,7 +332,7 @@ const ArticlePage = () => {
                       <Link
                         key={suggested.id}
                         to={`/articles/${suggested.slug}`}
-                        className="rounded-xl border border-gray-100 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-card"
+                        className="rounded-xl border border-[var(--color-border)] bg-surface p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-card"
                       >
                         <p className="text-xs font-semibold uppercase tracking-overline text-accent-strong">
                           {t(`common:category.${suggested.category}`, suggested.category)}
@@ -360,7 +360,7 @@ const ArticlePage = () => {
                       <Link
                         key={s.id}
                         to={`/diagnostics/${s.id}`}
-                        className="group rounded-xl border border-gray-100 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-card"
+                        className="group rounded-xl border border-[var(--color-border)] bg-surface p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-card"
                       >
                         <p className="text-sm font-semibold text-fg-heading group-hover:text-brand-secondary transition-colors">
                           {t(`home:services.${s.translationKey}.title`, s.title)}
@@ -389,7 +389,7 @@ const ArticlePage = () => {
                       <Link
                         key={suggested.id}
                         to={`/articles/${suggested.slug}`}
-                        className="block rounded-lg p-3 transition hover:bg-slate-50"
+                        className="block rounded-lg p-3 transition hover:bg-bg-subtle"
                       >
                         <p className="text-xs font-semibold uppercase tracking-overline text-accent-strong">
                           {t(`common:category.${suggested.category}`, suggested.category)}

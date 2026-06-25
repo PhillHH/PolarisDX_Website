@@ -157,9 +157,9 @@ const S3LeitliniePage = () => {
       />
 
       {/* Article Container */}
-      <div className="bg-slate-50">
+      <div className="bg-bg">
         {/* Hero / Above the Fold */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white">
+        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-white">
           <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
           <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
@@ -200,9 +200,9 @@ const S3LeitliniePage = () => {
                 {/* Meta with E-E-A-T */}
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-white/60">
                   <span>Lesezeit: 7 Minuten</span>
-                  <span className="h-1 w-1 rounded-full bg-white/40" />
+                  <span className="h-1 w-1 rounded-full bg-surface/40" />
                   <span>Aktualisiert: Februar 2026</span>
-                  <span className="h-1 w-1 rounded-full bg-white/40" />
+                  <span className="h-1 w-1 rounded-full bg-surface/40" />
                   <span>PolarisDX Redaktionsteam</span>
                 </div>
               </div>
@@ -278,7 +278,7 @@ const S3LeitliniePage = () => {
                   </div>
 
                   {/* Evidence Box: 3 Kernempfehlungen */}
-                  <div className="my-8 rounded-lg border-l-4 border-brand-primary bg-blue-50/70 p-6">
+                  <div className="my-8 rounded-lg border-l-4 border-brand-primary bg-primary/5 p-6">
                     <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-brand-primary">
                       Drei Kernempfehlungen
                     </p>
@@ -345,9 +345,9 @@ const S3LeitliniePage = () => {
                   </div>
 
                   {/* Vergleichstabelle */}
-                  <div className="my-8 overflow-x-auto rounded-lg border border-gray-200">
+                  <div className="my-8 overflow-x-auto rounded-lg border border-[var(--color-border)]">
                     <table className="w-full text-sm">
-                      <thead className="bg-gray-50">
+                      <thead className="bg-bg-subtle">
                         <tr>
                           <th className="px-4 py-3 text-left font-semibold text-fg-heading">
                             Kriterium
@@ -360,7 +360,7 @@ const S3LeitliniePage = () => {
                           </th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-gray-200">
+                      <tbody className="divide-y divide-[var(--color-border)]">
                         <tr>
                           <td className="px-4 py-3 text-fg">Zeit bis zum Ergebnis</td>
                           <td className="px-4 py-3 text-fg">2–5 Werktage</td>
@@ -437,7 +437,7 @@ const S3LeitliniePage = () => {
 
                   {/* Feature Grid */}
                   <div className="my-6 grid gap-4 sm:grid-cols-2">
-                    <div className="rounded-lg border border-gray-200 bg-white p-4">
+                    <div className="rounded-lg border border-[var(--color-border)] bg-surface p-4">
                       <div className="mb-2 flex items-center gap-2">
                         <Shield className="h-5 w-5 text-brand-primary" />
                         <p className="text-sm font-semibold text-fg-heading">5 Messtechnologien</p>
@@ -446,7 +446,7 @@ const S3LeitliniePage = () => {
                         Kolorimetrie, Immunfluoreszenz, Mikrofluide, Quantenpunkte, Trockenchemie
                       </p>
                     </div>
-                    <div className="rounded-lg border border-gray-200 bg-white p-4">
+                    <div className="rounded-lg border border-[var(--color-border)] bg-surface p-4">
                       <div className="mb-2 flex items-center gap-2">
                         <BarChart3 className="h-5 w-5 text-brand-primary" />
                         <p className="text-sm font-semibold text-fg-heading">
@@ -457,7 +457,7 @@ const S3LeitliniePage = () => {
                         Von über 30 Herstellern, kompatibel mit ca. 90 % aller Lateral-Flow-Tests
                       </p>
                     </div>
-                    <div className="rounded-lg border border-gray-200 bg-white p-4">
+                    <div className="rounded-lg border border-[var(--color-border)] bg-surface p-4">
                       <div className="mb-2 flex items-center gap-2">
                         <Clock className="h-5 w-5 text-brand-primary" />
                         <p className="text-sm font-semibold text-fg-heading">
@@ -468,7 +468,7 @@ const S3LeitliniePage = () => {
                         Mobil einsetzbar für Hausbesuche oder Zweigpraxen
                       </p>
                     </div>
-                    <div className="rounded-lg border border-gray-200 bg-white p-4">
+                    <div className="rounded-lg border border-[var(--color-border)] bg-surface p-4">
                       <div className="mb-2 flex items-center gap-2">
                         <Shield className="h-5 w-5 text-brand-primary" />
                         <p className="text-sm font-semibold text-fg-heading">CE- & IVDR-konform</p>
@@ -484,8 +484,8 @@ const S3LeitliniePage = () => {
                   </h3>
 
                   {/* DEQAS Metrics Box */}
-                  <div className="my-6 rounded-lg border-l-4 border-emerald-500 bg-emerald-50/70 p-6">
-                    <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-emerald-700">
+                  <div className="my-6 rounded-lg border-l-4 border-success bg-success-soft/70 p-6">
+                    <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-success-fg">
                       Zentrale Leistungskennzahlen
                     </p>
                     <div className="grid gap-4 sm:grid-cols-3">
@@ -529,7 +529,7 @@ const S3LeitliniePage = () => {
                 </section>
 
                 {/* Mid-CTA: Diagnostiksystem mit Bild */}
-                <div className="my-10 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
+                <div className="my-10 overflow-hidden rounded-xl border border-[var(--color-border)] bg-surface shadow-sm">
                   <div className="flex flex-col sm:flex-row">
                     <div className="sm:w-2/5">
                       <img
@@ -537,7 +537,7 @@ const S3LeitliniePage = () => {
                         alt="IglooPro POC-Reader für Vitamin-D-Diagnostik am Behandlungsstuhl in der Zahnarztpraxis"
                         width={400}
                         height={400}
-                        className="h-48 w-full object-contain bg-gray-50 p-4 sm:h-full"
+                        className="h-48 w-full object-contain bg-bg-subtle p-4 sm:h-full"
                         loading="lazy"
                       />
                     </div>
@@ -587,7 +587,7 @@ const S3LeitliniePage = () => {
                   </h3>
 
                   {/* ROI Box */}
-                  <div className="my-6 rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                  <div className="my-6 rounded-lg border border-[var(--color-border)] bg-surface p-6 shadow-sm">
                     <div className="grid gap-4 sm:grid-cols-3 text-center">
                       <div>
                         <p className="text-2xl font-bold text-brand-primary">3 Tests/Woche</p>
@@ -677,7 +677,7 @@ const S3LeitliniePage = () => {
                     ].map((item) => (
                       <div
                         key={item.step}
-                        className="flex gap-4 rounded-lg border border-gray-200 bg-white p-5"
+                        className="flex gap-4 rounded-lg border border-[var(--color-border)] bg-surface p-5"
                       >
                         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-primary text-white font-bold text-sm">
                           {item.step}
@@ -749,7 +749,7 @@ const S3LeitliniePage = () => {
 
                   {/* Partner Grid */}
                   <div className="my-6 grid gap-4 sm:grid-cols-2">
-                    <div className="rounded-lg border border-gray-200 bg-white p-4">
+                    <div className="rounded-lg border border-[var(--color-border)] bg-surface p-4">
                       <p className="text-sm font-semibold text-fg-heading">
                         Nobel Biocare / Envista
                       </p>
@@ -758,7 +758,7 @@ const S3LeitliniePage = () => {
                         Chairside-Diagnostik-Workflows
                       </p>
                     </div>
-                    <div className="rounded-lg border border-gray-200 bg-white p-4">
+                    <div className="rounded-lg border border-[var(--color-border)] bg-surface p-4">
                       <p className="text-sm font-semibold text-fg-heading">
                         Swiss Dental Solutions & Imperial College London
                       </p>
@@ -766,7 +766,7 @@ const S3LeitliniePage = () => {
                         Gemeinsame Forschung zu POC-Diagnostik in der Zahnmedizin
                       </p>
                     </div>
-                    <div className="rounded-lg border border-gray-200 bg-white p-4">
+                    <div className="rounded-lg border border-[var(--color-border)] bg-surface p-4">
                       <p className="text-sm font-semibold text-fg-heading">
                         ndu Clinic, 22 Harley Street, London
                       </p>
@@ -774,7 +774,7 @@ const S3LeitliniePage = () => {
                         Klinischer Einsatz im Segment der biologischen Premium-Zahnmedizin
                       </p>
                     </div>
-                    <div className="rounded-lg border border-gray-200 bg-white p-4">
+                    <div className="rounded-lg border border-[var(--color-border)] bg-surface p-4">
                       <p className="text-sm font-semibold text-fg-heading">
                         100+ Praxen in 15+ Ländern
                       </p>
@@ -808,14 +808,14 @@ const S3LeitliniePage = () => {
                     <div className="flex flex-col gap-3 sm:flex-row">
                       <Link
                         to="/contact"
-                        className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-6 py-3 text-sm font-semibold text-brand-deep transition-colors hover:bg-gray-50"
+                        className="inline-flex items-center justify-center gap-2 rounded-md bg-surface px-6 py-3 text-sm font-semibold text-brand-deep transition-colors hover:bg-bg-subtle"
                       >
                         Kostenlose Beratung vereinbaren
                         <ArrowRight className="h-4 w-4" />
                       </Link>
                       <a
                         href="tel:+4915175011699"
-                        className="inline-flex items-center justify-center gap-2 rounded-md border border-white/30 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/10"
+                        className="inline-flex items-center justify-center gap-2 rounded-md border border-white/30 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-surface/10"
                       >
                         <Phone className="h-4 w-4" />
                         +49 151 75011699
@@ -828,7 +828,7 @@ const S3LeitliniePage = () => {
                 </section>
 
                 {/* Section 10: FAQ */}
-                <section className="mt-12 border-t border-gray-200 pt-10">
+                <section className="mt-12 border-t border-[var(--color-border)] pt-10">
                   <h2 className="mb-8 text-xl font-semibold tracking-tight text-fg-heading sm:text-2xl">
                     Häufige Fragen zur Vitamin-D-Diagnostik in der Zahnarztpraxis
                   </h2>
@@ -846,7 +846,7 @@ const S3LeitliniePage = () => {
                 </section>
 
                 {/* Zurück-Link */}
-                <div className="mt-12 border-t border-gray-200 pt-8">
+                <div className="mt-12 border-t border-[var(--color-border)] pt-8">
                   <Link
                     to="/articles"
                     className="inline-flex items-center gap-2 text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
@@ -887,7 +887,7 @@ const S3LeitliniePage = () => {
                   </p>
                   <Link
                     to="/contact"
-                    className="flex items-center justify-center gap-2 rounded-md bg-white px-4 py-2.5 text-sm font-semibold text-brand-deep transition-colors hover:bg-gray-50"
+                    className="flex items-center justify-center gap-2 rounded-md bg-surface px-4 py-2.5 text-sm font-semibold text-brand-deep transition-colors hover:bg-bg-subtle"
                   >
                     Demo vereinbaren
                     <ArrowRight className="h-4 w-4" />
@@ -931,7 +931,7 @@ const S3LeitliniePage = () => {
                 </Panel>
 
                 {/* Trust Signal */}
-                <div className="rounded-lg bg-gray-50 p-4 text-center">
+                <div className="rounded-lg bg-bg-subtle p-4 text-center">
                   <p className="text-xs text-fg-muted">
                     Über <span className="font-semibold text-fg">100 Praxen</span> in 15+ Ländern
                     vertrauen PolarisDX
@@ -944,7 +944,7 @@ const S3LeitliniePage = () => {
       </div>
 
       {/* Sticky Mobile CTA */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-gray-200 bg-white p-4 shadow-lg lg:hidden">
+      <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-[var(--color-border)] bg-surface p-4 shadow-lg lg:hidden">
         <Link
           to="/contact"
           className="flex w-full items-center justify-center gap-2 rounded-md bg-brand-primary px-6 py-3.5 text-sm font-semibold text-white shadow-lg"

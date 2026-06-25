@@ -55,7 +55,7 @@ export default function DuoPage() {
 function DuoPageInner() {
   useConsumerPageView('duo')
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-gray-900">
+    <div className="flex min-h-screen flex-col bg-bg text-fg-heading">
       {/* TODO: confirm final meta title with Claire (Wave-2 review). */}
       <SEOHead
         title="Inside-Out Care Duo: D3+K2 Spray + Masks"
@@ -73,7 +73,7 @@ function DuoPageInner() {
           <>
             A simple two-part care routine: one Vitamin D3+K2 Spray plus one box of five Hydrating
             Masks.
-            <span className="mt-3 block font-semibold text-gray-900">
+            <span className="mt-3 block font-semibold text-fg-heading">
               More care in the routine. More value in the set.
             </span>
           </>
@@ -107,7 +107,7 @@ function DuoPageInner() {
       <Section id="included" eyebrow="What's included" title="Two products, one bundle">
         <div className="grid gap-6 md:grid-cols-2">
           <Card>
-            <h3 className="text-xl font-semibold text-gray-900">1 × Vitamin D3+K2 Spray</h3>
+            <h3 className="text-xl font-semibold text-fg-heading">1 × Vitamin D3+K2 Spray</h3>
             <p className="mt-3 leading-relaxed text-fg">
               An orange-flavoured sublingual spray for daily Vitamin D3+K2 support — the inside step
               of the routine.
@@ -118,13 +118,13 @@ function DuoPageInner() {
               data-gtm-cta="See the spray page"
               data-gtm-page="duo"
               data-gtm-location="included-card"
-              className="mt-6 inline-block text-sm font-semibold text-teal-700 hover:text-teal-900"
+              className="mt-6 inline-block text-sm font-semibold text-accent-strong hover:text-accent-fg"
             >
               See the spray page →
             </Link>
           </Card>
           <Card>
-            <h3 className="text-xl font-semibold text-gray-900">1 × box of 5 Hydrating Masks</h3>
+            <h3 className="text-xl font-semibold text-fg-heading">1 × box of 5 Hydrating Masks</h3>
             <p className="mt-3 leading-relaxed text-fg">
               Five individually packed serum-soaked sheet masks — the outside step, for when skin
               needs visible hydration care.
@@ -135,7 +135,7 @@ function DuoPageInner() {
               data-gtm-cta="See the mask page"
               data-gtm-page="duo"
               data-gtm-location="included-card"
-              className="mt-6 inline-block text-sm font-semibold text-teal-700 hover:text-teal-900"
+              className="mt-6 inline-block text-sm font-semibold text-accent-strong hover:text-accent-fg"
             >
               See the mask page →
             </Link>
@@ -147,20 +147,22 @@ function DuoPageInner() {
       <Section id="routine" tone="tint" eyebrow="The routine" title="Two simple steps">
         <div className="grid gap-6 md:grid-cols-2">
           <Card>
-            <p className="text-xs font-semibold uppercase tracking-wider text-teal-700">
+            <p className="text-xs font-semibold uppercase tracking-wider text-accent-strong">
               Step 1 · Inside
             </p>
-            <h3 className="mt-2 text-2xl font-semibold text-gray-900">Daily support from within</h3>
+            <h3 className="mt-2 text-2xl font-semibold text-fg-heading">
+              Daily support from within
+            </h3>
             <p className="mt-3 leading-relaxed text-fg">
               Take the Vitamin D3+K2 Spray as part of a daily routine — one sublingual spray for
               daily Vitamin D3+K2 support.
             </p>
           </Card>
           <Card>
-            <p className="text-xs font-semibold uppercase tracking-wider text-teal-700">
+            <p className="text-xs font-semibold uppercase tracking-wider text-accent-strong">
               Step 2 · Outside
             </p>
-            <h3 className="mt-2 text-2xl font-semibold text-gray-900">
+            <h3 className="mt-2 text-2xl font-semibold text-fg-heading">
               Hydrating care from outside
             </h3>
             <p className="mt-3 leading-relaxed text-fg">

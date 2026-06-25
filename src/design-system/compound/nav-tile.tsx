@@ -20,9 +20,11 @@ import { cn } from '../../lib/utils'
  * arbitrary-px. Struktur/Spacing/Radius ueber die rem-basierte Tailwind-Skala
  * (bewusst nicht token-remappt, §Einheit 1a; analog Card).
  *
- * UI-States: default + hover (Lift) als Properties. loading/empty/error/success
- * sind fuer eine rein strukturelle Navigations-Zeile nicht anwendbar (kein
- * Datenbezug) — der Leerzustand der Liste liegt beim Aufrufer (analog Container).
+ * UI-States: default + hover (Lift) + active (gesetzter Lift) + focus-visible
+ * (Navy-Ring mit Offset, §1.11 WCAG 2.4.7) als Properties. `disabled` ist fuer
+ * einen nativen Navigations-Link nicht anwendbar (gesperrtes Ziel wird nicht
+ * gerendert); loading/empty/error/success sind ohne Datenbezug nicht anwendbar —
+ * der Leerzustand der Liste liegt beim Aufrufer (analog Container).
  */
 export interface NavTileProps extends Omit<React.ComponentPropsWithoutRef<typeof Link>, 'to'> {
   /** Internes Router-Ziel (ganze Kachel klickbar). */
@@ -40,6 +42,8 @@ export const NavTile = React.forwardRef<HTMLAnchorElement, NavTileProps>(
         'group flex items-center justify-between rounded-xl p-4 transition-all duration-300',
         'border border-[var(--navtile-border)] bg-gradient-to-br from-[var(--navtile-bg-from)] to-[var(--navtile-bg-to)] shadow-[var(--navtile-shadow)]',
         'hover:scale-[1.02] hover:border-[var(--navtile-border-hover)] hover:shadow-[var(--navtile-shadow-hover)]',
+        'active:scale-[1.01] active:border-[var(--navtile-border-hover)]',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--color-focus-ring)]',
         className,
       )}
       {...props}
