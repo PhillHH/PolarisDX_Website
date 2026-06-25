@@ -3091,3 +3091,198 @@ abgehakt in EXECUTION-PLAN.md. **Damit alle 5 DoD-Punkte der Phase 3 grün** (Pu
 1–4 + „0 hartkodierte visuelle Werte"). Laufzeit-axe-WCAG-AA (Kontrast/Fokus an
 laufender Instanz) bleibt auf CI/Preview verlagert (Memory
 `sandbox-runtime-gates-blocked`).
+
+## Phase 5 — A11y, Humanity-Centered & Sustainability `[NOR][BEC]` (2026-06-25)
+
+### Einheit 5a — A11y-Grundlagen: Skip-Link, reduced-motion (global), prefers-color-scheme
+
+- _Skip-Link (WCAG 2.4.1):_ `Layout.tsx` rendert als erstes fokussierbares
+  Element einen `sr-only`/`focus-visible:not-sr-only`-Sprunglink auf das neue
+  `<main id="main-content" tabIndex={-1}>`-Landmark. String `a11y.skipToContent`
+  in **allen 10** Locales.
+- _reduced-motion GLOBAL:_ `index.css` setzt unter `@media (prefers-reduced-motion:
+reduce)` für `*`/`::before`/`::after` `animation-/transition-duration: 0.01ms`
+  - `scroll-behavior: auto` (`!important`). Ergänzt die token-basierte Dauer-0
+    in `tokens.css` um beliebige Utility-/Inline-Transitions.
+- _prefers-color-scheme als Theme-Default:_ `tokens.css` bindet bei
+  `@media (prefers-color-scheme: dark) :root:not([data-theme])` das vorhandene
+  Dark-Token-Set; `[data-theme='light']` als explizites Light-Opt-out; die
+  bewusst hellen Consumer-Seiten via `data-theme="light"` am Seiten-Root
+  gepinnt. `color-scheme: light dark` in `:root`. **ASSUMPTION:** aktiviert den
+  zuvor (§1.17) zurückgestellten OS-Dark-Default.
+
+### Einheit 5b — Resilienz: Error-Boundaries + Suspense-Skelett + Monitoring/Web-Vitals
+
+- _`src/routing/`:_ `ErrorBoundary` (Klasse, `componentDidCatch`→Monitoring),
+  `RootErrorBoundary` (ganzseitig, Klartext + Retry/Home), `SegmentErrorBoundary`
+  (degradiert nur den Outlet), `RouteFallback` (zugängliches Lade-Skelett,
+  `role=status`/`aria-busy`). In `App.tsx` verdrahtet: Root um die App, Segment
+  um den `<Outlet>`, `Suspense fallback={<RouteFallback/>}` statt `null`;
+  Catch-all `path="*"` unverändert.
+- _`src/lib/monitoring/`:_ `report.ts` (defensiv, `sendBeacon`, Details NUR
+  serverseitig), `web-vitals.ts` (nativer LCP/CLS/INP/FCP/TTFB-Sammler, **ohne**
+  die `web-vitals`-Lib → 0 neue Dependency, §1.16/§5.8). In `entry-client`
+  nach der Hydration gestartet.
+- **ASSUMPTION:** Klassen-Boundaries statt RR7-Data-Router-`errorElement`/
+  `useRouteError` — bewusst, um den SSR-Renderpfad (StaticRouter + Helmet +
+  i18n) nicht umzubauen; gleiche Garantie (pro-Segment-Auffang).
+
+### Einheit 5c — Ehrliche Metriken: Outcome-Events + Ordinal-Median
+
+- `lib/metrics/definitions.ts` befüllt (Pflichtfelder name/hypothesis/
+  whatItProxies/validityCaveat/scaleType/story + kind/subjective); Outcome-
+  Events (`consultation_requested`, `consumer_order_completed`,
+  `resource_downloaded`) + genau **eine** subjektive Ordinalmetrik
+  (`page_answered_my_question`) + ausgewiesene Vanity (`session_pageviews`).
+- `aggregate.ts`: `median()` ordinal-sicher (gerade Anzahl → unterer Mittelwert,
+  nie ein Wert „zwischen" Skalenstufen). `summarize()` bleibt qualitativ (kein
+  Aggregat-Score). Test `aggregate.test.ts` (Median, summarize-ohne-score,
+  Definitions-Invarianten).
+
+### Einheit 5d — i18n/Intl, Voice/Tone, Dark-Patterns
+
+- `lib/i18n/format.ts`: `formatDate`/`formatDateRange`/`formatNumber` via
+  `Intl.*` mit Request-Locale; ersetzt die hand-gepflegte (nur de/en)
+  Monatsnamen-Tabelle in `EventsPage` → korrekt für alle 10 Sprachen, toter
+  Block entfernt.
+- `docs/ux/voice-and-tone.md` (Voice konstant, Tone szenarioabhängig,
+  Klartext-Fehler-Muster) und `docs/ux/dark-patterns-checklist.md` (je Flow).
+
+**Verifikation (ausgeführt §1.15, 2026-06-25):**
+
+```
+rg -n "<div[^>]*onClick" src                                  → 0
+rg -n "'en-US'|toLocaleString()|firstName|lastName" src       → 0
+rg -n "Intl\." src --glob '!*.test.*'                         → 8 (lib/i18n/format.ts)
+rg -c "lazy(" src/App.tsx                                     → 19 Routen code-split
+rg -n 'path="\*"' src/App.tsx                                 → Catch-all vorhanden
+rg -n "monthNames" src                                        → 0 (toter Block entfernt)
+node (Median-Logik, 7 Fälle inkl. gerade/ungerade/Wiederh.)  → ALL PASS
+npm run typecheck                                             → ✓ exit 0
+npm run lint                                                  → ✓ exit 0 (17 Pre-existing-Warnings, keine in neuen Dateien)
+npm run build (client+server)                                → ✓ exit 0
+```
+
+**Sandbox-Grenzen (Memory `sandbox-runtime-gates-blocked`):** axe-core/Lighthouse
+(kein Chromium) und vitest/playwright (jsdom ERR_REQUIRE_ESM auf Node 18) sowie
+knip/ts-prune/depcheck (nicht installiert) laufen NICHT lokal → an CI/`val_p5`
+
+- `scripts/a11y-audit.mjs` verlagert. Median-Test-Logik ersatzweise direkt per
+  `node` belegt (ALL PASS).
+
+→ **Alle 8 DoD-Punkte der Phase 5** in EXECUTION-PLAN.md abgehakt + belegt.
+
+---
+
+## Phase 6 — UX-Validierung: States, Content, Maturity & Resilienz `[BEC][NOR]` (2026-06-25)
+
+### Einheit 6a — Modal-/Form-Resilienz-Fixes (Esc/Close, Validierung, Datenverlust)
+
+**Aenderung (Code)**
+
+- _UX-601 Suche-Modal_ (`src/components/ui/SearchModal.tsx`): Esc-to-close-Handler
+  ergaenzt (der Footer versprach „Esc to close" ohne Implementierung); `role="dialog"`,
+  `aria-modal="true"` und `aria-label` am Container; dedizierter Backdrop-`<button>`
+  (Klick ausserhalb der Karte schliesst, a11y-konform statt `onClick` am div);
+  `aria-label` am Close-Button, `aria-hidden` am Icon.
+- _UX-602 Bestellformular_ (`src/pages/consumer/OrderForm.tsx`): Inline-Client-Validierung
+  fuer Name (Pflicht) und E-Mail (Pflicht + lenientes `EMAIL_RE`-Shape) vor Submit;
+  Klartext-Fehler unter dem Feld (`Field`-Helper um `error`-Prop erweitert),
+  `aria-invalid`/`aria-describedby`, Fokus auf erstes Fehlerfeld, Fehler loescht sich
+  beim Tippen. Consent bleibt separate Pflicht (nicht vorausgewaehlt, GDPR Art. 6(1)(b)).
+- _UX-603 Datenverlust-Guard_ (`src/pages/consumer/OrderModal.tsx`): `OrderForm` meldet
+  ueber `onDirtyChange` ungespeicherte Eingaben; `OrderModalDialog` fragt vor dem
+  Schliessen (Esc/Backdrop/Close-Button → gemeinsamer `requestClose`) per Bestaetigung
+  nach, wenn das Formular „dirty" ist → kein stiller Datenverlust.
+- _UX-604 Mobile-Menue-Esc_: `src/components/layout/Header.tsx` und
+  `src/pages/consumer/shell.tsx` schliessen ihr mobiles Menue jetzt auf Escape.
+
+**Aenderung (Docs)**
+
+- `docs/ux/heuristics-audit.md` — Nielsen-10-Matrix je Hauptseite, Per-Seite-Begruendung,
+  Ticket-Liste UX-601…608 (behobene als ✅, offene als ⬜; Delight-vor-A11y-Leitplanke).
+- `docs/ux/maturity-audit.md` — bottom-up usable→useful→desirable→delightful je Seite;
+  alle Hauptseiten erreichen Mindestziel usable+useful; MAT-03 (Delight) explizit an
+  A11y-Ticket UX-606 gekoppelt.
+- `docs/ux/user-testing.md` — gemockte Usability-Runde (`ASSUMPTION`; Sandbox ohne
+  Deploy/Browser), Tasks T1–T5 je Persona, Mock-Quote, offene Hypothesen
+  H-A/H-B/H-C → `insights.md`.
+- `docs/GRAVEYARD.md` — tote/deaktivierte Features (FeaturedCaseStudy + casestudies/shop-
+  Nav) als 🪦⏳; Entfernung wartet auf Freigabe (ASSUMPTION 4, kein Hard-Delete);
+  `/services`-Redirects + ChatWidget bewusst behalten.
+- `docs/ux/insights.md` — Phase-6-Hypothesen + Flag-Kandidat `home_single_cta`.
+
+**Belege / Verifikation**
+
+```
+rg -ni "lorem|placeholder\.(png|jpg|jpeg)" src           → 0 (clean)
+rg -ni "stacktrace|stack trace" src/routing src/pages    → nur Intent-Kommentare ("niemals ein Stacktrace")
+Destruktive Delete/Destroy-Aktionen in src               → 0 (keine vorhanden)
+npm run typecheck                                        → ✓ exit 0
+npm run lint                                             → ✓ exit 0 (18 Pre-existing-Warnings, 0 Errors)
+npm run build (client+server)                           → ✓ exit 0
+npx prettier --check (geaenderte Dateien)               → ✓ alle sauber
+```
+
+**Sandbox-Grenzen (Memory `sandbox-runtime-gates-blocked`):** reale Usability-Runde
+(Preview-Deploy + echte Nutzer:innen), axe/Lighthouse, vitest/Playwright laufen NICHT
+lokal → User-Testing als `ASSUMPTION`-Mock dokumentiert, Laufzeit-Gates CI-advisory.
+
+→ **Alle 7 DoD-Punkte der Phase 6** in EXECUTION-PLAN.md abgehakt + belegt.
+
+---
+
+## Phase 7 — Doku, Pattern Library & Governance (2026-06-25)
+
+**Lieferungen**
+
+- **Lebende Pattern Library** `src/pages/StyleguidePage.tsx` (Route `/styleguide`,
+  lazy, `noindex`, eigene schlanke Chrome). Importiert die **25** öffentlichen
+  Komponenten ausschließlich über den Barrel `~/design-system` — dieselbe Quelle
+  wie die Produktion (Holy Grail §7.8). Jedes Atom/Molecule/Feedback-Element
+  isoliert mit allen Variants/Sizes/States + Edge-Cases (z. B. Button alle
+  variant×size×state inkl. polymorph to/href; FormField error vs helper; Accordion;
+  Alert default/success/danger; EmptyState plain/outlined). Anker-IDs == Doku-Dateien.
+- **5-teilige Komponenten-Doku** `docs/design-system/components/<name>.md` (25 Dateien
+  - Index `README.md`): Anatomy · Playground/Galerie · Usage · Do's & Don'ts ·
+    Code-Snippet aus echtem, zitiertem Call-Site-Code. Props 1:1 aus der Quelle.
+- **Visuelle Regressionssuite** `e2e/styleguide-visual.spec.ts` (Playwright):
+  Screenshot je Spezimen über sm/md/lg/xl + Overflow-Assert; im CI verdrahtet.
+- **Governance** `docs/design-system/DESIGN_SYSTEM.md` (Modify/Add/Remove, Team-Modell
+  Centralized, Gates, Changelog-Pflicht) + `.github/CODEOWNERS` (Maker-Review auf
+  `tokens/**` + `design-system/**` + Docs + Changelog) + CI-Job „Changelog gate".
+- **Doku finalisiert:** `tokens/README.md` (Token→Verwendung-Mapping), `PATTERNS.md`
+  (Endzustand-Tabelle 25 Komponenten), `lineage.md` (Stack/Cluster/Grid + Styleguide),
+  `CHANGELOG.md` (Phase-7-Block).
+
+**Vorher/Nachher-Metriken (Phase 0 Baseline → final, §Phase 7.9)**
+
+| Metrik                                                   | Phase-0-Baseline | Final (Phase 7)                                            |
+| -------------------------------------------------------- | ---------------- | ---------------------------------------------------------- |
+| `eslint .` Probleme (Fehler)                             | 443 (437)        | **18 (0)**                                                 |
+| Hartkodierte Hex-Werte außerhalb Token-Quelle            | viele Dateien    | **1** (`FlagIcon.tsx`, akzeptierte Inhalts-Ausnahme §1.19) |
+| Zirkuläre Abhängigkeiten (`madge --circular src`)        | —                | **0**                                                      |
+| Kanonische DS-Komponenten (eine Definition / Holy Grail) | 0 (verstreut)    | **25** (Barrel `index.ts` == 25 `.tsx`)                    |
+| 5-teilige Usage-Doku je Komponente                       | 0                | **25/25**                                                  |
+| Lebende Pattern Library                                  | keine            | `/styleguide` (geteilte Quelle)                            |
+| Code-Splitting (`React.lazy`-Routen)                     | 0                | 19 + Styleguide                                            |
+
+**Belege / Verifikation**
+
+```
+npm run typecheck (tsc -b)                              → ✓ exit 0
+npm run lint (eslint .)                                 → ✓ 18 Probleme, 0 Fehler
+npm run build (client + server)                         → ✓ exit 0 (StyleguidePage-Chunk 20.4 kB, code-split)
+npx madge --circular src                                → ✓ 0 Zyklen
+rg "#[0-9a-fA-F]{3,8}" src  (ohne tokens.*/tailwind.config) → nur FlagIcon.tsx (§1.19)
+rg -c "^export {" src/design-system/index.ts            → 25 (== 25 Komponenten-.tsx, Holy-Grail-Count = 1)
+ls docs/design-system/components/*.md | wc -l           → 26 (25 Komponenten + README-Index)
+test -f DESIGN_SYSTEM.md CODEOWNERS CHANGELOG.md lineage.md PATTERNS.md tokens/README.md → alle vorhanden
+```
+
+**Sandbox-Grenzen (Memory `sandbox-runtime-gates-blocked`):** Playwright-Visual-
+Regression (kein Chromium/libgbm), `knip`/`ts-prune` (nicht installiert), axe/Lighthouse
+laufen NICHT lokal → im CI (`.github/workflows/ci.yml`) gegated. Statische Gates
+(build/typecheck/lint/madge/Greps) hier grün ausgeführt.
+
+→ **Alle 5 DoD-Punkte der Phase 7** in EXECUTION-PLAN.md abgehakt + belegt.

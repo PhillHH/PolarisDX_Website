@@ -118,3 +118,39 @@ shell.tsx, OrderForm.tsx, OrderModal.tsx, PriceBadge.tsx, tracking.ts.
 - Struktur-/content-agnostisch (`HomepageCarousel → Carousel`, `ProductCard → Card`).
 - Industriestandard (`Dialog`/`Tooltip`/`Accordion`/`Input`).
 - Genau **eine** Definition pro Komponente (Holy Grail); Varianten via Prop, nie Kopie.
+
+---
+
+## Finalisierung (Phase 7, Stand 2026-06-25)
+
+Die oben skizzierte Konsolidierung ist umgesetzt. **Endzustand der kanonischen
+Pattern Library — 25 öffentliche Komponenten** (Barrel
+[`src/design-system/index.ts`](../../src/design-system/index.ts)), je mit
+5-teiliger Usage-Doku in [`components/`](./components/) und live im
+[`/styleguide`](../../src/pages/StyleguidePage.tsx):
+
+| Ebene            | Ordner               | Komponenten                                                                                                                                     |
+| ---------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Layout-Atome (4) | `primitives-layout/` | `Container`, `Stack`, `Cluster`, `Grid`                                                                                                         |
+| Core-Atome (7)   | `core/`              | `Button`, `Input`, `Textarea`, `Select`, `Eyebrow`, `Badge`, `Stat`                                                                             |
+| Molecules (11)   | `compound/`          | `SectionHeader`, `FormField`, `Card`, `Panel`, `Accordion`, `Breadcrumbs`, `AuthorByline`, `NavTile`, `InfoItem`, `MediaLink`, `ContactCallout` |
+| Feedback (3)     | `feedback/`          | `Alert`, `EmptyState`, `Spinner`                                                                                                                |
+
+**Gegenüber dem Phase-0-Plan:**
+
+- `Stack`/`Cluster`/`Grid` in Phase 4 ergänzt (Layout-Primitives, §4.4); `Grid`
+  konsolidiert die zuvor in `consumer/shell.tsx` lokal duplizierte Definition
+  (eine Quelle, shell re-exportiert).
+- `Panel` blieb als eigenes Molecule erhalten (Bordered/Elevated-Container) und
+  wurde **nicht** in `Card` gemergt — beide live belegt, getrennte Rollen (Card =
+  Glass-Panel/interaktiv, Panel = ruhende Fläche). Distinktion in den Docs.
+- `BlogCard`/`ServiceCard` konsumieren das kanonische `Card`-Atom statt eigener
+  Surface-Logik (App-UI-Komposita, `lineage.md`).
+- **Organismen/Templates** (`src/components/sections`, `src/components/layout`)
+  bleiben physisch an Ort und Stelle, sind aber per `eslint-plugin-boundaries`
+  als `organism`/`template` klassifiziert und richtungsgeprüft (Architektur-
+  `ASSUMPTION` §1.16/§1.8, EXECUTION-PLAN Phase 2 „Status IST"). Keine
+  ungenutzten Patterns → keine Graveyard-Migration nötig (`lineage.md` › Befund).
+
+Naming-Map und Uses/Used-by sind in [`lineage.md`](./lineage.md) fortgeschrieben;
+Governance (Modify/Add/Remove, Team-Modell) in [`DESIGN_SYSTEM.md`](./DESIGN_SYSTEM.md).

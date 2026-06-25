@@ -37,15 +37,39 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
     }
   }, [isOpen])
 
+  // Close on Escape (the footer promises "Esc to close").
+  useEffect(() => {
+    if (!isOpen) return
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [isOpen, onClose])
+
   if (!isOpen) return null
 
   // SSR Guard: document.body is not available on server
   if (typeof document === 'undefined') return null
 
   return createPortal(
-    <div className="fixed inset-0 z-50 flex items-start justify-center bg-brand-navy/60 backdrop-blur-sm pt-20 sm:pt-32 px-4">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={t('searchPlaceholder', 'Suche...')}
+      className="fixed inset-0 z-50 flex items-start justify-center bg-brand-navy/60 backdrop-blur-sm pt-20 sm:pt-32 px-4"
+    >
+      {/* Backdrop — click outside the card to close */}
+      <button
+        type="button"
+        aria-label={t('close', 'Schließen')}
+        tabIndex={-1}
+        onClick={onClose}
+        className="absolute inset-0 cursor-default"
+      />
+
       {/* Modal Container */}
-      <div className="w-full max-w-2xl bg-surface rounded-2xl shadow-3 overflow-hidden flex flex-col max-h-[80vh]">
+      <div className="relative w-full max-w-2xl bg-surface rounded-2xl shadow-3 overflow-hidden flex flex-col max-h-[80vh]">
         {/* Header / Input */}
         <div className="flex items-center gap-3 border-b border-[var(--color-border)] p-4">
           <SearchIcon className="h-5 w-5 text-fg-muted" />
@@ -59,9 +83,10 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
           />
           <button
             onClick={onClose}
+            aria-label={t('close', 'Schließen')}
             className="flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full hover:bg-bg-subtle transition-colors text-fg-muted"
           >
-            <X className="h-5 w-5" />
+            <X className="h-5 w-5" aria-hidden />
           </button>
         </div>
 

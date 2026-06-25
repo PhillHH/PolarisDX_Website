@@ -16,7 +16,7 @@
  * styling where the two conflict.
  */
 
-import { type ReactNode, useState } from 'react'
+import { type ReactNode, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 
@@ -152,6 +152,16 @@ export function ConsumerHeader({
 }) {
   const [open, setOpen] = useState(false)
   const orderModal = useOrderModal()
+
+  // Close the mobile menu on Escape.
+  useEffect(() => {
+    if (!open) return
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open])
   // If we're inside an OrderModalProvider, the header CTA opens the modal.
   // Otherwise it falls back to the anchor link (`cta.href`).
   const desktopClick = orderModal ? () => orderModal.open('header') : undefined

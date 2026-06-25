@@ -157,8 +157,23 @@ function OrderModalDialog({
   onSubmitted: () => void
 }) {
   const closeBtnRef = useRef<HTMLButtonElement | null>(null)
+  const dirtyRef = useRef(false)
   const titleId = `order-modal-title-${product}`
   const titleCopy = PRODUCT_TITLES[product]
+
+  // Guard against discarding a partly-filled form by accident. A plain
+  // window.confirm is enough here — the action (losing typed data) is
+  // reversible only by re-typing, so we ask before closing.
+  const requestClose = useCallback(() => {
+    if (
+      dirtyRef.current &&
+      typeof window !== 'undefined' &&
+      !window.confirm('Discard your order request? Anything you typed will be lost.')
+    ) {
+      return
+    }
+    onClose()
+  }, [onClose])
 
   // Lock body scroll while the modal is open.
   useEffect(() => {
@@ -172,11 +187,11 @@ function OrderModalDialog({
   // Close on Escape.
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') onClose()
+      if (e.key === 'Escape') requestClose()
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [onClose])
+  }, [requestClose])
 
   // Move focus to the close button on open (light a11y baseline).
   useEffect(() => {
@@ -194,7 +209,7 @@ function OrderModalDialog({
       <button
         type="button"
         aria-label="Close order request"
-        onClick={onClose}
+        onClick={requestClose}
         tabIndex={-1}
         className="absolute inset-0 animate-modal-backdrop-in bg-brand-deep/70 backdrop-blur-sm motion-reduce:animate-none motion-reduce:opacity-100"
       />
@@ -213,7 +228,7 @@ function OrderModalDialog({
           <button
             ref={closeBtnRef}
             type="button"
-            onClick={onClose}
+            onClick={requestClose}
             aria-label="Close order request"
             className="absolute right-4 top-4 flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full text-fg-muted transition-colors hover:bg-bg-subtle hover:text-fg-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line"
           >
@@ -223,7 +238,14 @@ function OrderModalDialog({
 
         {/* Body — scrolls when the form is taller than the viewport */}
         <div className="flex-1 overflow-y-auto p-4 sm:p-6">
-          <OrderForm product={product} page={page} onSubmitted={onSubmitted} />
+          <OrderForm
+            product={product}
+            page={page}
+            onSubmitted={onSubmitted}
+            onDirtyChange={(dirty) => {
+              dirtyRef.current = dirty
+            }}
+          />
         </div>
       </div>
     </div>

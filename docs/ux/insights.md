@@ -19,3 +19,15 @@
 - **Status:** `ASSUMPTION — needs human confirmation` — eine vollständige externe Runde ist für Phase 6 (`user-testing.md`) geplant; in Phase 0 wurde nur eine leichte interne Validierung der Richtung durchgeführt.
 - **Ergebnis (Richtung bestätigt):** „Ein dominantes Element + ein CTA pro View" und „begrenzte Lesebreite" wurden als hilfreich eingeschätzt; Detail-Microcopy ist erst in Hi-Fi zu testen.
 - **Offene Hypothesen** → bleiben hier dokumentiert und werden in Phase 6 mit realen Nutzern + Feature-Flags (`lib/flags.ts`) geprüft.
+
+## Offene Hypothesen aus Phase 6 (`ASSUMPTION` — reale Runde nötig)
+
+> Quelle: `user-testing.md` (gemockte Runde, §6.10). Nicht-automatisierbar → vor Rollout real prüfen,
+> ggf. hinter `lib/flags.ts`. Stand **2026-06-25**.
+
+1. **H-A** — Weniger sekundäre CTAs auf der Startseite erhöhen Tempo/Completion der B2B-Kernaufgabe
+   (Mara → Kontakt). Flag-Kandidat `home_single_cta`. Ticket **UX-608**.
+2. **H-B** — Reassurance/Vertrauenselemente auf Support/Kontakt/Detail senken den Absprung
+   (Maturity **MAT-01/02**, Stufe _desirable_).
+3. **H-C** — Glossar/Tooltips auf Igloo Pro verbessern das Verständnis bei Erstnutzer:innen ohne
+   Vorwissen. Ticket **UX-607**.

@@ -124,7 +124,7 @@ function MaskPageInner() {
   useConsumerPageView('masks')
   const orderModal = useOrderModal()
   return (
-    <div className="flex min-h-screen flex-col bg-bg text-fg-heading">
+    <div data-theme="light" className="flex min-h-screen flex-col bg-bg text-fg-heading">
       <SEOHead
         title="Hydrating Hyaluronic Sheet Mask 5-Pack"
         description="Intensive hydration for dry, sensitive or mature skin: 5 serum-soaked hyaluronic sheet masks, 15 ml each, with niacinamide and collagen. A calm 15–30 min care step."

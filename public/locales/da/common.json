@@ -130,5 +130,22 @@
       "services": "Tjenester",
       "contact": "Kontakt"
     }
+  },
+  "a11y": {
+    "skipToContent": "Gå til indhold",
+    "loading": "Inhalt wird geladen …"
+  },
+  "errors": {
+    "root": {
+      "title": "Etwas ist schiefgelaufen",
+      "body": "Diese Seite konnte nicht geladen werden. Bitte laden Sie sie neu — Ihre Daten sind nicht verloren. Tritt das Problem erneut auf, versuchen Sie es in einigen Minuten noch einmal.",
+      "retry": "Erneut versuchen",
+      "home": "Zur Startseite"
+    },
+    "segment": {
+      "title": "Dieser Bereich konnte nicht geladen werden",
+      "body": "Der Rest der Seite funktioniert weiterhin. Bitte versuchen Sie es erneut.",
+      "retry": "Erneut versuchen"
+    }
   }
 }

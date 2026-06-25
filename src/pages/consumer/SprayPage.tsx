@@ -148,7 +148,7 @@ function SprayPageInner() {
   useConsumerPageView('spray')
   const orderModal = useOrderModal()
   return (
-    <div className="flex min-h-screen flex-col bg-bg text-fg-heading">
+    <div data-theme="light" className="flex min-h-screen flex-col bg-bg text-fg-heading">
       <SEOHead
         title="Vitamin D3+K2 Sublingual Spray 12-Pack"
         description="Daily Vitamin D3+K2 made simple: an orange-flavoured sublingual spray, 1000 IU and 71 doses per bottle. 12-pack for teams, homes and shared wellbeing orders."

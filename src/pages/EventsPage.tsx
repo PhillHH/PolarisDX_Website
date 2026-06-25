@@ -6,29 +6,9 @@ import { SEOHead, createBreadcrumbSchema, createEventSchema } from '../component
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import { Badge, Breadcrumbs, Container, Eyebrow } from '~/design-system'
-
-const monthNames: Record<string, string[]> = {
-  de: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
-  en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-}
-
-function formatDateRange(date: string, endDate?: string, lang = 'de') {
-  const months = monthNames[lang] || monthNames.de
-  const start = new Date(date)
-  const startDay = start.getDate()
-  const startMonth = months[start.getMonth()]
-
-  if (!endDate) return `${startDay}. ${startMonth} ${start.getFullYear()}`
-
-  const end = new Date(endDate)
-  const endDay = end.getDate()
-  const endMonth = months[end.getMonth()]
-
-  if (start.getMonth() === end.getMonth()) {
-    return `${startDay}.–${endDay}. ${startMonth} ${start.getFullYear()}`
-  }
-  return `${startMonth} – ${endDay}. ${endMonth} ${end.getFullYear()}`
-}
+// Locale-bewusste Datumsformatierung via Intl.* (§5.5) — ersetzt die frühere
+// hand-gepflegte Monatsnamen-Tabelle (nur de/en, sonst stiller de-Fallback).
+import { formatDateRange } from '../lib/i18n/format'
 
 function getSeasonIcon(date: string) {
   const month = new Date(date).getMonth()

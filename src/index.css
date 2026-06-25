@@ -70,6 +70,25 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Teilt der UA das Render-Schema mit (native Form-Controls/Scrollbars).
+       Das Token-Set folgt prefers-color-scheme (tokens.css), daher light dark. */
+    color-scheme: light dark;
+  }
+
+  /* A11y, WCAG 2.2 (2.3.3 Animation from Interactions): respektiere die
+     System-Praeferenz GLOBAL — nicht nur die Token-Dauern (tokens.css), sondern
+     jede CSS-Transition/-Animation/Smooth-Scroll auf BELIEBIGEN Elementen.
+     !important schlaegt Utility-/Inline-Transitions; Werte ~0 (nicht 0) halten
+     `transitionend`/`animationend`-Listener am Leben. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 
   body {

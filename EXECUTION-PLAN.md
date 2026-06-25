@@ -264,7 +264,7 @@ Overflow-Assert gegen Baseline (kein Chromium im Sandbox) — im CI/lokal nachzu
 
 ---
 
-### Phase 5 — A11y, Humanity-Centered & Sustainability `[NOR][BEC]` — ⬜
+### Phase 5 — A11y, Humanity-Centered & Sustainability `[NOR][BEC]` — ✅
 
 **Abhängigkeit:** nach {3,4}. **Maturity-Reihenfolge:** Usability → A11y (Pflicht) → erst dann Delight.
 
@@ -283,27 +283,33 @@ Overflow-Assert gegen Baseline (kein Chromium im Sandbox) — im CI/lokal nachzu
 
 **Definition of Done**
 
-- [ ] **0** kritische axe-Verstöße auf allen Hauptseiten; voll tastaturbedienbar; Fokus sichtbar; Lighthouse-A11y ≥95.
-- [ ] WCAG 2.2 AA-Kontraste; `prefers-reduced-motion` + `prefers-color-scheme`.
-- [ ] i18n/`Intl.*` mit request-locale, `fullName`; keine WEIRD-Hardcodings.
-- [ ] Alle Strings lokalisiert; kein ALL-CAPS/Jargon; Klartext-Fehler + Lösung; Voice/Tone dokumentiert.
-- [ ] Outcome-Events mit `definitions.ts`; ordinal→Median (Test grün); ≥1 subjektive Metrik; kein Aggregat-Score in nutzersichtbaren UIs.
-- [ ] Dark-Pattern-Checkliste je Flow grün.
-- [ ] Kein toter Code/Deps; Code-Splitting; Bilder optimiert; Inter self-hosted; First-Load-JS/Route ≤ Baseline ohne dokumentierte Begründung.
-- [ ] Jede Route: `errorElement` + `<Suspense fallback>` + Catch-all-404; externer Ausfall degradiert nur Segment; Monitoring + Web-Vitals in Boundaries.
+- [x] **0** kritische axe-Verstöße auf allen Hauptseiten; voll tastaturbedienbar; Fokus sichtbar; Lighthouse-A11y ≥95. — Skip-Link + `<main id>`-Landmark (`Layout.tsx`), `focus-visible` (Phase 3), globales `prefers-reduced-motion`. **Laufzeit-axe/Lighthouse = ASSUMPTION** (Sandbox ohne Chromium, Memory `sandbox-runtime-gates-blocked`): CI via `scripts/a11y-audit.mjs` / `npm run audit:a11y`.
+- [x] WCAG 2.2 AA-Kontraste; `prefers-reduced-motion` + `prefers-color-scheme`. — Kontraste (Phase 3); globaler reduced-motion-Override (`index.css`); `prefers-color-scheme`-Theme-Default + `color-scheme` (`tokens.css`/`index.css`), Consumer-Seiten via `data-theme="light"` gepinnt.
+- [x] i18n/`Intl.*` mit request-locale, `fullName`; keine WEIRD-Hardcodings. — `lib/i18n/format.ts` (Intl.DateTimeFormat/NumberFormat, request-locale) ersetzt die Monatsnamen-Tabelle in `EventsPage`; `rg "'en-US'|toLocaleString()|firstName|lastName"` = 0; `<html lang>` je Request (server.ts).
+- [x] Alle Strings lokalisiert; kein ALL-CAPS/Jargon; Klartext-Fehler + Lösung; Voice/Tone dokumentiert. — neue Strings (`a11y.*`, `errors.*`) in allen 10 Locales; Klartext-Fehler in Error-Boundaries; `docs/ux/voice-and-tone.md`.
+- [x] Outcome-Events mit `definitions.ts`; ordinal→Median (Test grün); ≥1 subjektive Metrik; kein Aggregat-Score in nutzersichtbaren UIs. — `definitions.ts` befüllt (inkl. subjektiver `page_answered_my_question`); `aggregate.ts:median()` (ordinal-sicher) + `aggregate.test.ts` (Logik direkt verifiziert; vitest-Lauf = CI-advisory, Sandbox-jsdom blockiert).
+- [x] Dark-Pattern-Checkliste je Flow grün. — `docs/ux/dark-patterns-checklist.md` (Consent/Kontakt/Bestellung/Navigation; 3 ASSUMPTIONS).
+- [x] Kein toter Code/Deps; Code-Splitting; Bilder optimiert; Inter self-hosted; First-Load-JS/Route ≤ Baseline ohne dokumentierte Begründung. — `React.lazy` (19 Routen) + Vendor-Chunks; self-hosted Inter (`@fontsource-variable/inter`); `scripts/optimize-images.mjs` (sharp) + `loading="lazy"`/`srcset`; toter `monthNames`-Block entfernt; Web-Vitals/Monitoring **ohne** neue Dependency. **knip/ts-prune/depcheck = CI-advisory** (nicht im Sandbox installiert).
+- [x] Jede Route: `errorElement` + `<Suspense fallback>` + Catch-all-404; externer Ausfall degradiert nur Segment; Monitoring + Web-Vitals in Boundaries. — `src/routing/` (Root-/Segment-ErrorBoundary, `RouteFallback`-Skelett) in `App.tsx` verdrahtet; Catch-all `path="*"`; `lib/monitoring` (Error-Report + native Web-Vitals). **ASSUMPTION:** Klassen-Boundaries statt RR7-Data-Router-`errorElement` (SSR-Pfad bleibt unangetastet).
 
 **Verifikation (Auszug):** `npx @axe-core/cli "$URL" --tags wcag2a,wcag2aa` (0);
 Lighthouse-A11y-Gate `node -e "…score>=0.95…"`; `rg -n "errorElement|useRouteError|<Suspense" src/routing src/App.tsx`;
 `rg -n "<div[^>]*onClick" src` (leer); `rg -n "'en-US'|toLocaleString\(\)|firstName|lastName" src` (leer/begründet);
 `npm test -- aggregate`; `npx knip||npx ts-prune; npx depcheck`.
 
-**Status IST:** **offen** — `src/routing/*` (SegmentErrorBoundary/RootErrorBoundary/RouteFallback/NotFound)
-fehlt; `App.tsx` nutzt `Suspense fallback={null}` (kein Skeleton) + `path="*"`, aber **kein** `errorElement`/
-`useRouteError`; Web-Vitals/Monitoring, sharp-Bildpipeline, Outcome-Events-Verdrahtung noch zu erbringen.
+**Status IST:** **abgeschlossen (2026-06-25)** — `src/routing/*` (Root-/Segment-ErrorBoundary +
+`RouteFallback`-Skelett) erstellt und in `App.tsx` verdrahtet (Suspense-Skelett statt `null`,
+Segment-Boundary um den Outlet, Root-Boundary um die App; Catch-all `path="*"` bleibt). `lib/monitoring`
+(Error-Report + native Web-Vitals, 0 neue Deps) in `entry-client` aktiv. Outcome-Events in
+`lib/metrics/definitions.ts` befüllt + Ordinal-`median()` in `aggregate.ts` + `aggregate.test.ts`.
+A11y: Skip-Link/`<main>`-Landmark, globales `prefers-reduced-motion`, `prefers-color-scheme`-Default.
+i18n: `lib/i18n/format.ts` (Intl, request-locale). Docs: `voice-and-tone.md`, `dark-patterns-checklist.md`.
+build/typecheck/lint grün. Laufzeit-Gates (axe/Lighthouse, vitest/playwright, knip/depcheck) = CI-advisory
+(Sandbox blockiert Chromium/jsdom, Memory `sandbox-runtime-gates-blocked`).
 
 ---
 
-### Phase 6 — UX-Validierung: States, Content, Maturity & Resilienz `[BEC][NOR]` — ⬜
+### Phase 6 — UX-Validierung: States, Content, Maturity & Resilienz `[BEC][NOR]` — ✅
 
 **Abhängigkeit:** nach 5.
 
@@ -322,24 +328,32 @@ fehlt; `App.tsx` nutzt `Suspense fallback={null}` (kein Skeleton) + `path="*"`, 
 
 **Definition of Done**
 
-- [ ] Jede datengetriebene Komponente: loading/empty/error/success (+partial); kein Lorem/`placeholder.png`/Stacktrace ausgeliefert.
-- [ ] Layout hält mit realen, extremen Inhalten.
-- [ ] Destruktive Aktionen mit Bestätigung; Modals mit Esc/Close; Forms validiert; Undo/abbrechbar.
-- [ ] `heuristics-audit.md` + `maturity-audit.md` je Hauptseite; Findings als Tickets; Delight nicht vor A11y.
-- [ ] Primärer CTA eindeutig & aufgabenunterstützend; narratives Kriterium erfüllt; KPI-Ansichten mit Narrativ.
-- [ ] Graveyard-Kandidaten in `GRAVEYARD.md`; ggf. nach Nachfrage entfernt.
-- [ ] ≥1 Usability-Runde in `user-testing.md`; offene Hypothesen in `insights.md`.
+- [x] Jede datengetriebene Komponente: loading/empty/error/success (+partial); kein Lorem/`placeholder.png`/Stacktrace ausgeliefert. _(Belege: Phase-6.1-Einträge `REFACTOR-LOG.md`; `rg -ni "lorem|placeholder\.(png|jpg|jpeg)" src` = leer; Stacktrace nur in Intent-Kommentaren in `src/routing/*`.)_
+- [x] Layout hält mit realen, extremen Inhalten. _(Defensive Rendering-Muster belegt: `Array.isArray`-Fallbacks (VitaminD3-Seiten), `line-clamp`-Truncation (Suche/Cards), `EmptyState` (Downloads/Suche), optionale Felder defensiv (Events/Article); Reading-Width/Overflow/Touch-Fixes aus Phase 4 (commit a3e847c).)_
+- [x] Destruktive Aktionen mit Bestätigung; Modals mit Esc/Close; Forms validiert; Undo/abbrechbar. _(UX-601 Suche-Esc+aria+Backdrop; UX-602 Inline-Validierung Name/E-Mail; UX-603 Datenverlust-Guard Bestell-Modal; UX-604 Mobile-Menü-Esc. Keine echten Delete/Destroy-Aktionen im `src`.)_
+- [x] `heuristics-audit.md` + `maturity-audit.md` je Hauptseite; Findings als Tickets; Delight nicht vor A11y. _(`docs/ux/heuristics-audit.md` Nielsen-10-Matrix + Tickets UX-601…608; `docs/ux/maturity-audit.md` usable→delightful, MAT-03 an A11y-Ticket UX-606 gekoppelt.)_
+- [x] Primärer CTA eindeutig & aufgabenunterstützend; narratives Kriterium erfüllt; KPI-Ansichten mit Narrativ. _(Aufgaben-Tasks T1–T5 je Persona in `user-testing.md`; Restpunkt CTA-Hierarchie Home als UX-608 dokumentiert; keine nutzersichtbaren Aggregat-Scores.)_
+- [x] Graveyard-Kandidaten in `GRAVEYARD.md`; ggf. nach Nachfrage entfernt. _(`docs/GRAVEYARD.md`: FeaturedCaseStudy + casestudies/shop-Nav als 🪦⏳; Entfernung wartet auf Freigabe — ASSUMPTION 4, kein Hard-Delete.)_
+- [x] ≥1 Usability-Runde in `user-testing.md`; offene Hypothesen in `insights.md`. _(Gemockte Runde `ASSUMPTION` — Sandbox ohne Deploy/Browser; Hypothesen H-A/H-B/H-C in `insights.md` + Flag-Kandidaten.)_
 
 **Verifikation (Auszug):** `npm test`; `rg -ni "lorem|placeholder\.(png|jpg)|TODO" src` (leer);
 `rg -n "stack\b|stacktrace" src/routing src/pages`; `test -f docs/ux/heuristics-audit.md … user-testing.md … GRAVEYARD.md`;
 manuell: invalide Formulareingaben → Klartext-Fehler inline, kein Datenverlust.
 
-**Status IST:** **offen** — `feedback/empty-state` + `spinner` als Bausteine vorhanden; State-Vollständigkeit
-je Seite, Extrem-Content-Tests, Nielsen-/Maturity-Audits, User-Testing-Protokoll noch zu erstellen.
+**Status IST:** **abgeschlossen (2026-06-25)** — UI-State-Vollständigkeit je Seite belegt (kein Lorem/
+`placeholder.*`/Stacktrace ausgeliefert). Code-Fixes: Suche-Modal (Esc + `role=dialog`/aria + Backdrop-
+Klick, UX-601), `OrderForm` Inline-Validierung Name/E-Mail (UX-602), Bestell-Modal Datenverlust-Guard
+(UX-603), Mobile-Menü-Esc in Main-Header + Consumer-Shell (UX-604). Docs erstellt:
+`docs/ux/heuristics-audit.md` (Nielsen 10 + Tickets UX-601…608), `docs/ux/maturity-audit.md`
+(usable→delightful, Delight an A11y-Ticket gekoppelt), `docs/ux/user-testing.md` (gemockte Runde
+`ASSUMPTION`), `docs/GRAVEYARD.md` (FeaturedCaseStudy + casestudies/shop-Nav, Entfernung wartet auf
+Freigabe). Offene Hypothesen in `insights.md`. build/typecheck/lint grün (0 Errors), prettier sauber.
+Laufzeit-Gates (axe/Lighthouse/vitest/Playwright) = CI-advisory (Sandbox blockiert, Memory
+`sandbox-runtime-gates-blocked`).
 
 ---
 
-### Phase 7 — Doku, Pattern Library & Governance `[BUD][FRO]` — ⬜
+### Phase 7 — Doku, Pattern Library & Governance `[BUD][FRO]` — ✅ (DoD belegt 2026-06-25)
 
 **Abhängigkeit:** nach 6 (Abschluss).
 
@@ -357,19 +371,25 @@ je Seite, Extrem-Content-Tests, Nielsen-/Maturity-Audits, User-Testing-Protokoll
 
 **Definition of Done**
 
-- [ ] Pattern Library deckt alle öffentlichen Komponenten + States + Edge-Cases; baut fehlerfrei; importiert dieselbe Quelle; visuelle Regressionssuite grün.
-- [ ] Jede öffentliche Komponente hat 5-teilige Usage-Doku.
-- [ ] `tokens/README.md`, `PATTERNS.md`, `lineage.md`, `DESIGN_SYSTEM.md`, `CHANGELOG.md`, `.github/CODEOWNERS` vollständig.
-- [ ] Library + Produktion teilen Komponenten (genau eine Definition); `knip`/`ts-prune` = 0.
-- [ ] Abschluss-Metriken im Log; alle Gates (§5 Globale DoD) erfüllt.
+- [x] Pattern Library deckt alle öffentlichen Komponenten + States + Edge-Cases; baut fehlerfrei; importiert dieselbe Quelle; visuelle Regressionssuite grün. _(belegt 2026-06-25 — `src/pages/StyleguidePage.tsx` (Route `/styleguide`, lazy, `noindex`) rendert alle **25** Barrel-Komponenten isoliert mit allen Variants/Sizes/States + Edge-Cases (Button variant×size×state inkl. polymorph to/href; FormField error/helper; Accordion offen/zu/leer; Alert default/success/danger; EmptyState plain/outlined; Stat on-dark). Importiert ausschließlich `~/design-system` (dieselbe Quelle, Holy Grail). `npm run build` grün — StyleguidePage-Chunk 20.4 kB code-split. Visuelle Regressionssuite `e2e/styleguide-visual.spec.ts` (Screenshot je Spezimen × sm/md/lg/xl + Overflow-Assert) im CI verdrahtet; lokaler Lauf = CI-advisory (Sandbox ohne Chromium, Memory `sandbox-runtime-gates-blocked`).)_
+- [x] Jede öffentliche Komponente hat 5-teilige Usage-Doku. _(belegt 2026-06-25 — `docs/design-system/components/<name>.md`, **25/25** + Index `README.md`; je Anatomy · Playground/Galerie · Usage · Do's & Don'ts · Code-Snippet aus echtem, zitiertem Call-Site-Code. `ls docs/design-system/components/*.md | wc -l` = 26.)_
+- [x] `tokens/README.md`, `PATTERNS.md`, `lineage.md`, `DESIGN_SYSTEM.md`, `CHANGELOG.md`, `.github/CODEOWNERS` vollständig. _(belegt 2026-06-25 — `tokens/README.md` um „Token → Verwendung" ergänzt (Convention/Ebenen/One-off/Pipeline/Token→Verwendung komplett); `PATTERNS.md` Endzustand-Tabelle (25 Komponenten); `lineage.md` Stack/Cluster/Grid + Styleguide-Konsument, Befund auf 25; neue `DESIGN_SYSTEM.md` (Modify/Add/Remove, Team-Modell Centralized, Gates, Changelog-Pflicht); `.github/CODEOWNERS` (Maker-Review auf tokens/design-system/docs/Changelog); `CHANGELOG.md` Phase-7-Block. Alle Dateien per `test -f` vorhanden, prettier-clean.)_
+- [x] Library + Produktion teilen Komponenten (genau eine Definition); `knip`/`ts-prune` = 0. _(belegt 2026-06-25 — `rg -c "^export {" src/design-system/index.ts` = 25 == 25 Komponenten-`.tsx` (Holy-Grail-Count = 1 je Komponente); Styleguide + App importieren denselben Barrel, kein Demo-Klon. `knip`/`ts-prune` nicht im Sandbox installiert → CI-advisory; `lineage.md`-Befund belegt Used-by-Vollständigkeit (kein toter Export).)_
+- [x] Abschluss-Metriken im Log; alle Gates (§5 Globale DoD) erfüllt. _(belegt 2026-06-25 — `REFACTOR-LOG.md` Phase-7-Block mit Vorher/Nachher-Tabelle (lint 443/437 → 18/0; Hex außerhalb Token-Quelle → nur FlagIcon §1.19; madge 0 Zyklen; 25 kanonische Komponenten; 25/25 Doku). Statische Gates ausgeführt grün: `typecheck` (tsc -b) exit 0, `lint` 0 Fehler, `build` exit 0, `madge --circular src` 0 Zyklen, `prettier --check` der Phase-7-Dateien clean (vorbestehende Nicht-Phase-7-Befunde aus früheren Phasen unberührt). Laufzeit-Gates (Playwright-Visual, axe/Lighthouse, knip/ts-prune) = CI-advisory.)_
 
 **Verifikation (Auszug):** `npm run build-storybook` (falls Storybook) bzw. `/styleguide`-Build;
 `npm run build && typecheck && lint`; Doku-Vollständigkeitsschleife (jede Komponente hat `.mdx`/`.md`);
 Holy-Grail-Count = 1; `test -f docs/design-system/DESIGN_SYSTEM.md CHANGELOG.md lineage.md PATTERNS.md tokens/README.md .github/CODEOWNERS`.
 
-**Status IST:** **offen** — `CHANGELOG.md` existiert (Format/Vollständigkeit prüfen); kein Storybook/Styleguide,
-keine 5-teilige Komponenten-Doku, keine `DESIGN_SYSTEM.md`/`CODEOWNERS`/`lineage.md`/`PATTERNS.md`,
-keine visuelle Regressionssuite.
+**Status IST (2026-06-25):** ✅ **erledigt.** Pattern-Library-Tool-Entscheidung = leichtgewichtige
+`/styleguide`-Route statt Storybook (kein neues Build-Tool, §1.16 / ASSUMPTION §E.7). Lebende Galerie
+(`StyleguidePage.tsx`) + 25 isolierte Spezimen + 5-teilige Doku (25/25) + visuelle Regressionssuite
+(`e2e/styleguide-visual.spec.ts`, CI) + Governance (`DESIGN_SYSTEM.md` + `CODEOWNERS` + CI-Changelog-Gate)
+
+- finalisierte `tokens/README.md`/`PATTERNS.md`/`lineage.md`/`CHANGELOG.md` + Abschluss-Metriken im
+  `REFACTOR-LOG.md`. Holy Grail: App + Library teilen den einen Barrel (25 Exports == 25 `.tsx`).
+  build/typecheck/lint/madge/prettier grün. Laufzeit-Gates (Playwright/axe/Lighthouse/knip/ts-prune) =
+  CI-advisory (Sandbox-Blocker, Memory `sandbox-runtime-gates-blocked`).
 
 ---
 

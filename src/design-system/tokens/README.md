@@ -77,3 +77,31 @@ Variablennamen, andere Werte) — keine Komponenten-Duplikate. Der Block
 > (§1.17, `knowledge/PROJECT-DECISIONS.md` › „Light/Dark/Brand-Themes gewuenscht?"
 > = TODO) und wird **nicht** automatisch aktiviert. Default bleibt Light. Beim
 > Aktivieren: Anti-FOUC-Inline-Script im `index.html`-Template setzen (§Phase 1.5).
+
+## Token → Verwendung (§Phase 7.4)
+
+Wo die wichtigsten Semantic-/Component-Token-Familien konsumiert werden — als
+Orientierung vor einer Aenderung (Impact, §1.15). Vollstaendige Belege jederzeit
+reproduzierbar via `rg -n "<token>" src`.
+
+| Token-Familie                                                                                                                 | Ebene     | Konsumiert von (Beispiele)                                                             |
+| ----------------------------------------------------------------------------------------------------------------------------- | --------- | -------------------------------------------------------------------------------------- |
+| `--color-bg` / `--color-fg` (+`-rgb`)                                                                                         | Semantic  | global (`index.css` Reset), Tailwind `bg`/`fg`, alle Seiten/Sektionen                  |
+| `--color-action-primary(-hover)`                                                                                              | Semantic  | `Button` (primary), Tailwind `primary`, CTA-Flaechen                                   |
+| `--color-focus-ring(-on-dark)`                                                                                                | Semantic  | jedes interaktive Atom (`focus-visible:ring-*`) — Button/Input/Card/NavTile …          |
+| `--color-border(-strong)`                                                                                                     | Semantic  | `Button` (secondary), `Panel`, Form-Sections, `Specimen`-Trenner                       |
+| `--button-*` (`-bg`/`-fg`/`-radius`/`-min-height`)                                                                            | Component | nur `core/button.tsx`                                                                  |
+| `--input-*` (`-bg`/`-border`/`-font-size`/`-min-height`)                                                                      | Component | `core/{input,textarea,select}.tsx` (geteilte Feld-Familie)                             |
+| `--badge-*`, `--eyebrow-*`, `--stat-*`                                                                                        | Component | je `core/{badge,eyebrow,stat}.tsx`                                                     |
+| `--alert-*`, `--empty-state-*`, `--spinner-color`                                                                             | Component | je `feedback/{alert,empty-state,spinner}.tsx`                                          |
+| `--panel-*`, `--accordion-*`, `--callout-*`, `--navtile-*`, `--media-link-*`, `--author-*`, `--info-item-*`, `--breadcrumb-*` | Component | je zugehoeriges `compound/<name>.tsx` (1:1)                                            |
+| `--space-*` (8pt-Soft-Grid)                                                                                                   | Primitive | Tailwind-Spacing-Skala (`p-*`/`m-*`/`gap-*`) → `Stack`/`Cluster`/`Grid` + alle Layouts |
+| `--reading-width`                                                                                                             | Primitive | Tailwind `max-w-reading` → Artikel/Forms (PrivacyPage, ArticlePage, ServicePage …)     |
+| `--tap-target-min` (44px)                                                                                                     | Primitive | Button/Input-Min-Height + alle rohen interaktiven Controls (A11y §1.11)                |
+
+**Regel zum Aendern:** Component-Token aendern = lokal (eine Komponente).
+Semantic-Token aendern = systemweit (Impact-Map vor der Aenderung). Primitive
+aendern = breiteste Wirkung — nur mit Bedacht und Grep-Beleg.
+
+Pro-Komponente-Detail (Anatomy mit Token-Liste): siehe die 5-teilige Doku in
+[`docs/design-system/components/`](../../../docs/design-system/components/).

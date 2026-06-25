@@ -5,6 +5,44 @@ versioniert nach SemVer + datiert (§1.18). Nutzersichtbare Aenderungen zuerst.
 
 ## [Unreleased]
 
+### Phase 7 — Doku, Pattern Library & Governance
+
+#### 2026-06-25 — Lebende Pattern Library (`/styleguide`) + 5-teilige Komponenten-Doku
+
+- **script · new** — Neue Route `/styleguide` (`src/pages/StyleguidePage.tsx`,
+  lazy, eigene schlanke Chrome, `noindex`): lebende Pattern Library, die **dieselben**
+  Komponenten aus dem Barrel `~/design-system` importiert wie die Produktion
+  (Holy Grail §7.8 — kein Demo-Klon). Jedes der 25 Atome/Molecules/Feedback-Elemente
+  isoliert mit allen Variants/Sizes/States + Edge-Cases. Route in `src/App.tsx`
+  verdrahtet (außerhalb der B2B-Shell, neben den Consumer-LPs).
+- **spec · new** — 5-teilige Usage-Doku je öffentlicher Komponente
+  (`docs/design-system/components/<name>.md`, 25 Dateien + Index `README.md`):
+  Anatomy · Playground/Galerie · Usage · Do's & Don'ts · Code-Snippet aus echtem
+  Code. Props 1:1 aus der Quelle, Snippets aus realen Call-Sites (zitiert).
+- **spec · new** — Visuelle Regressionssuite `e2e/styleguide-visual.spec.ts`
+  (Playwright): Screenshot je Spezimen über sm/md/lg/xl + Overflow-Assert. Im CI
+  (`.github/workflows/ci.yml`, Job „Visual regression"); lokal/CI mit Browser
+  ausführbar (Sandbox-Blocker: kein Chromium, Memory `sandbox-runtime-gates-blocked`).
+
+#### 2026-06-25 — Governance, Token-Doku & CODEOWNERS
+
+- **spec · new** — Governance-Doku `docs/design-system/DESIGN_SYSTEM.md`:
+  Modify/Add/Remove-Prozess (Add ab 2. Use-Case; Remove als `@deprecated` statt
+  Hard-Delete), Team-Modell **Centralized** (ASSUMPTION §E.8), Akzeptanz-Gates,
+  Changelog-Pflicht.
+- **spec · new** — `.github/CODEOWNERS`: Maker-Review-Pflicht auf
+  `src/design-system/**`, `tailwind.config.js`, `docs/design-system/**`,
+  `CHANGELOG.md` (Platzhalter-Team `@design-system-owners` — ASSUMPTION §1.17).
+- **spec · new** — CI-Job „Changelog gate": DS-Quell-Änderungen
+  (`src/design-system/**` / `tailwind.config.js`) ohne `CHANGELOG.md`-Eintrag
+  brechen den PR rot ab (§1.18).
+- **spec · enhancement** — `tokens/README.md` um „Token → Verwendung"-Mapping
+  ergänzt (Semantic/Component-Familien → Konsumenten, Aenderungs-Impact-Regel) —
+  Token-Doku finalisiert (§7.4).
+- **spec · enhancement** — `PATTERNS.md` + `lineage.md` finalisiert: 25 Komponenten
+  inkl. `Stack`/`Cluster`/`Grid`, Endzustand-Tabelle, Styleguide als Holy-Grail-
+  Konsument; keine ungenutzten Patterns (Used-by-Vollständigkeit belegt).
+
 ### Phase 3 + 4 — Visueller-Craft-Pass × Layout (pro Komponente verschränkt)
 
 #### 2026-06-25 — Farb-Rollen-Pass: Gradient-Organismen + Rating-Gold-Rolle (§3.3)

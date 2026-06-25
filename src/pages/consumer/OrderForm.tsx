@@ -14,7 +14,7 @@
  * pinned server-side (ulrikes / inesr / adrianoz / contact @polarisdx.net).
  */
 
-import { useState, type FormEvent, type ReactNode } from 'react'
+import { useEffect, useState, type FormEvent, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 
 import { sendConsumerOrder, type ConsumerOrderProduct } from '../../api/consumerOrder'
@@ -64,11 +64,13 @@ function Field({
   id,
   label,
   required,
+  error,
   children,
 }: {
   id: string
   label: ReactNode
   required?: boolean
+  error?: string
   children: ReactNode
 }) {
   return (
@@ -78,6 +80,11 @@ function Field({
         {required && <span className="ml-1 text-accent">*</span>}
       </label>
       {children}
+      {error && (
+        <p id={`${id}-error`} className="mt-1.5 text-sm text-[var(--color-danger-fg)]">
+          {error}
+        </p>
+      )}
     </div>
   )
 }
@@ -106,9 +113,22 @@ interface OrderFormProps {
   /** Called once the form has been submitted successfully (e.g. so a
    *  hosting modal can mark this session as "submitted"). */
   onSubmitted?: () => void
+  /** Reports whether the form holds unsaved input, so a hosting modal can
+   *  guard against accidental data loss on close. */
+  onDirtyChange?: (dirty: boolean) => void
 }
 
-export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderFormProps) {
+// Pragmatic email shape check — intentionally lenient (the server is the
+// source of truth); we only catch obviously-wrong input before submit.
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+export function OrderForm({
+  product,
+  page,
+  submitLabel,
+  onSubmitted,
+  onDirtyChange,
+}: OrderFormProps) {
   // Contact
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -129,10 +149,41 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
 
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
+  const [fieldErrors, setFieldErrors] = useState<{ name?: string; email?: string }>({})
+
+  // Tell the host modal whether there's unsaved input worth guarding.
+  useEffect(() => {
+    if (!onDirtyChange) return
+    const dirty =
+      status !== 'success' &&
+      Boolean(name || email || phone || company || street || postcode || city || country || message)
+    onDirtyChange(dirty)
+  }, [onDirtyChange, status, name, email, phone, company, street, postcode, city, country, message])
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     if (status === 'submitting') return
+
+    // Inline client-side validation (plain-text errors, no data loss).
+    const nextFieldErrors: { name?: string; email?: string } = {}
+    if (!name.trim()) {
+      nextFieldErrors.name = 'Please enter a contact name.'
+    }
+    if (!email.trim()) {
+      nextFieldErrors.email = 'Please enter an email address so we can reply.'
+    } else if (!EMAIL_RE.test(email.trim())) {
+      nextFieldErrors.email = 'Please enter a valid email address (e.g. name@example.com).'
+    }
+    if (nextFieldErrors.name || nextFieldErrors.email) {
+      setFieldErrors(nextFieldErrors)
+      setStatus('error')
+      setErrorMsg('')
+      const firstInvalid = nextFieldErrors.name ? 'order-name' : 'order-email'
+      document.getElementById(firstInvalid)?.focus()
+      return
+    }
+    setFieldErrors({})
+
     if (!consent) {
       setErrorMsg('Please confirm consent to data processing before sending your order.')
       setStatus('error')
@@ -239,25 +290,35 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
 
       <SectionLabel>Contact person</SectionLabel>
       <div className="grid gap-5 sm:grid-cols-2">
-        <Field id="order-name" label="Contact name" required>
+        <Field id="order-name" label="Contact name" required error={fieldErrors.name}>
           <input
             id="order-name"
             type="text"
             required
             autoComplete="name"
+            aria-invalid={fieldErrors.name ? true : undefined}
+            aria-describedby={fieldErrors.name ? 'order-name-error' : undefined}
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => {
+              setName(e.target.value)
+              if (fieldErrors.name) setFieldErrors((p) => ({ ...p, name: undefined }))
+            }}
             className={inputClass}
           />
         </Field>
-        <Field id="order-email" label="Email" required>
+        <Field id="order-email" label="Email" required error={fieldErrors.email}>
           <input
             id="order-email"
             type="email"
             required
             autoComplete="email"
+            aria-invalid={fieldErrors.email ? true : undefined}
+            aria-describedby={fieldErrors.email ? 'order-email-error' : undefined}
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value)
+              if (fieldErrors.email) setFieldErrors((p) => ({ ...p, email: undefined }))
+            }}
             className={inputClass}
           />
         </Field>

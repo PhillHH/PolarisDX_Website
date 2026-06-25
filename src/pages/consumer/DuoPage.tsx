@@ -55,7 +55,7 @@ export default function DuoPage() {
 function DuoPageInner() {
   useConsumerPageView('duo')
   return (
-    <div className="flex min-h-screen flex-col bg-bg text-fg-heading">
+    <div data-theme="light" className="flex min-h-screen flex-col bg-bg text-fg-heading">
       {/* TODO: confirm final meta title with Claire (Wave-2 review). */}
       <SEOHead
         title="Inside-Out Care Duo: D3+K2 Spray + Masks"

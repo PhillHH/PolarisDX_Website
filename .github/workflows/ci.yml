@@ -43,3 +43,37 @@ jobs:
         run: npx playwright test e2e/url-smoke.spec.ts
         env:
           CI: true
+
+      - name: Visual regression (Pattern Library)
+        run: npx playwright test e2e/styleguide-visual.spec.ts
+        env:
+          CI: true
+
+  # Changelog-Pflicht (§Phase 7.6): jede Änderung an der DS-Quelle
+  # (Komponenten/Tokens) muss CHANGELOG.md mitführen (§1.18).
+  changelog-gate:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Require CHANGELOG entry for design-system changes
+        run: |
+          BASE="origin/${{ github.base_ref }}"
+          git fetch origin "${{ github.base_ref }}" --depth=1
+          CHANGED=$(git diff --name-only "$BASE"...HEAD)
+          DS_TOUCHED=$(echo "$CHANGED" | grep -E '^(src/design-system/|tailwind\.config\.js)' || true)
+          if [ -n "$DS_TOUCHED" ]; then
+            if echo "$CHANGED" | grep -qx 'CHANGELOG.md'; then
+              echo "✓ Design-System geändert und CHANGELOG.md aktualisiert."
+            else
+              echo "✗ Design-System (src/design-system/** oder tailwind.config.js) geändert,"
+              echo "  aber CHANGELOG.md nicht. Bitte einen Eintrag ergänzen (§1.18 / §Phase 7.6)."
+              echo "  Betroffen:"; echo "$DS_TOUCHED"
+              exit 1
+            fi
+          else
+            echo "✓ Keine Design-System-Änderung — Changelog-Gate n. a."
+          fi

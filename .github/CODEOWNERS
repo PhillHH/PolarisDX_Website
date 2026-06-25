@@ -1,0 +1,27 @@
+# CODEOWNERS — Design-System-Governance (§Phase 7.6)
+#
+# Team-Modell: CENTRALIZED (ASSUMPTION — needs human confirmation, EXECUTION-PLAN §E.8).
+# Die Design-System-Owner ("Makers") besitzen Tokens + Komponenten-Quelle und
+# reviewen jede Änderung daran; die übrigen Teams ("Users") konsumieren das
+# System über den Barrel `~/design-system` und brauchen kein Review für reine
+# Anwendungs-Seiten.
+#
+# WICHTIG: Platzhalter-Team `@design-system-owners` vor dem ersten echten Merge
+# durch ein reales GitHub-Team/Handles ersetzen (ASSUMPTION §1.17). Bis dahin
+# greift die Pflicht-Review-Konvention dokumentarisch, nicht über GitHub-Branch-
+# Protection.
+
+# --- Token-Quelle (Single Source of Truth aller Design-Werte) ------------------
+src/design-system/tokens/**        @design-system-owners
+tailwind.config.js                 @design-system-owners
+
+# --- Komponenten-Quelle (eine Definition pro Komponente, Holy Grail) -----------
+src/design-system/**               @design-system-owners
+
+# --- Pattern Library / Styleguide (lebende Galerie, teilt dieselbe Quelle) -----
+src/pages/StyleguidePage.tsx       @design-system-owners
+e2e/styleguide-visual.spec.ts      @design-system-owners
+
+# --- Governance- & Pattern-Dokumentation ---------------------------------------
+docs/design-system/**              @design-system-owners
+CHANGELOG.md                       @design-system-owners

@@ -517,6 +517,42 @@
   --color-border-strong-rgb: var(--neutral-600-rgb);
 }
 
+/* prefers-color-scheme als Theme-DEFAULT (Phase-5 §5.4, DoD P2): liegt KEINE
+   explizite Theme-Wahl vor und meldet das OS „dark", bindet sich dasselbe
+   Dark-Token-Set wie [data-theme='dark']. Ein explizites data-theme (z. B. die
+   bewusst hellen Consumer-Landingpages mit data-theme="light", §Memory
+   consumer-…light/teal) gewinnt IMMER — der Selektor greift nur ohne Attribut.
+   ASSUMPTION — needs human confirmation (§1.17): aktiviert den zuvor
+   zurueckgestellten OS-Dark-Default; ein nutzersichtbarer Toggle bleibt offen. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg-rgb: var(--neutral-900-rgb);
+    --color-bg-subtle-rgb: var(--neutral-800-rgb);
+    --color-surface-rgb: var(--neutral-800-rgb);
+    --color-fg-rgb: var(--neutral-50-rgb);
+    --color-fg-heading-rgb: var(--neutral-0-rgb);
+    --color-fg-muted-rgb: var(--neutral-400-rgb);
+    --color-border-rgb: var(--neutral-700-rgb);
+    --color-border-strong-rgb: var(--neutral-600-rgb);
+  }
+}
+
+/* Explizites Light-Opt-out: bindet die Semantic-Kanaele auf ihre Light-Werte
+   zurueck. Genutzt von den bewusst hellen Consumer-Landingpages (data-theme=
+   "light" am Seiten-Root), damit der OS-Dark-Default sie NICHT umfaerbt. Da das
+   Attribut auf einem Sub-Tree und nicht :root sitzt, ueberschreiben diese
+   geerbten Variablen den Default per Kaskade. */
+[data-theme='light'] {
+  --color-bg-rgb: var(--neutral-50-rgb);
+  --color-bg-subtle-rgb: var(--neutral-100-rgb);
+  --color-surface-rgb: var(--neutral-0-rgb);
+  --color-fg-rgb: var(--neutral-700-rgb);
+  --color-fg-heading-rgb: var(--brand-heading-rgb);
+  --color-fg-muted-rgb: var(--neutral-500-rgb);
+  --color-border-rgb: var(--neutral-200-rgb);
+  --color-border-strong-rgb: var(--neutral-300-rgb);
+}
+
 @media (prefers-reduced-motion: reduce) {
   :root {
     --duration-fast: 0ms;

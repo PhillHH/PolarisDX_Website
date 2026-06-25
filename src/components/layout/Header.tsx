@@ -57,6 +57,16 @@ const Header = () => {
     setOpenSubmenu(null)
   }, [location, mobileMenu.onClose])
 
+  // Close the mobile menu on Escape.
+  useEffect(() => {
+    if (!mobileMenu.isOpen) return
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') mobileMenu.onClose()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [mobileMenu.isOpen, mobileMenu.onClose])
+
   return (
     <>
       <header

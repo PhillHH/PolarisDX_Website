@@ -33,16 +33,19 @@ visuelle Werte ausschließlich aus `tokens/` (§1.7).
 
 ## Atoms — `src/design-system/core/` + `primitives-layout/`
 
-| Komponente  | Uses (DS-intern)            | Used-by                                                                           |
-| ----------- | --------------------------- | --------------------------------------------------------------------------------- |
-| `Container` | — (nur `lib/utils`, Tokens) | Footer, AboutSection, IglooWidgetSection, TeamSection, SearchModal + 11 Pages     |
-| `Button`    | —                           | Header + 7 Sections + 4 Pages (AboutPage, ArticlePage, IglooProPage, ServicePage) |
-| `Input`     | —                           | SearchModal, **FormField** (molecule)                                             |
-| `Textarea`  | —                           | **FormField** (`as="textarea"`)                                                   |
-| `Select`    | —                           | **FormField** (`as="select"`)                                                     |
-| `Eyebrow`   | —                           | **SectionHeader** (molecule), IglooWidgetSection + 5 Pages                        |
-| `Badge`     | —                           | EventsPage, NotFoundPage, VitaminD3SprayPage                                      |
-| `Stat`      | —                           | HeroSection                                                                       |
+| Komponente  | Uses (DS-intern)            | Used-by                                                                                 |
+| ----------- | --------------------------- | --------------------------------------------------------------------------------------- |
+| `Container` | — (nur `lib/utils`, Tokens) | 11 Dateien — Footer, AboutSection, IglooWidgetSection, TeamSection, SearchModal + Pages |
+| `Stack`     | —                           | HeroSection (+ Styleguide-Galerie)                                                      |
+| `Cluster`   | —                           | consumer/shell.tsx (+ Styleguide-Galerie)                                               |
+| `Grid`      | —                           | consumer/{SprayPage,MaskPage,shell}.tsx (shell re-exportiert die eine Definition)       |
+| `Button`    | —                           | Header + 7 Sections + 4 Pages (AboutPage, ArticlePage, IglooProPage, ServicePage)       |
+| `Input`     | —                           | SearchModal, **FormField** (molecule)                                                   |
+| `Textarea`  | —                           | **FormField** (`as="textarea"`)                                                         |
+| `Select`    | —                           | **FormField** (`as="select"`)                                                           |
+| `Eyebrow`   | —                           | **SectionHeader** (molecule), IglooWidgetSection + 5 Pages                              |
+| `Badge`     | —                           | EventsPage, NotFoundPage, VitaminD3SprayPage                                            |
+| `Stat`      | —                           | HeroSection                                                                             |
 
 Alle Atome sind Blätter (keine DS-internen `Uses`); jedes hat ≥1 Used-by →
 **kein** DROP-Kandidat.
@@ -121,9 +124,11 @@ Alle Atome sind Blätter (keine DS-internen `Uses`); jedes hat ≥1 Used-by →
 
 ## Befund
 
-- **Used-by-Vollständigkeit:** Jede der 22 öffentlichen DS-Komponenten hat ≥1
-  Konsument → **kein** toter Export, **keine** Graveyard-Migration nötig
-  (`docs/GRAVEYARD.md` bleibt für Phase-6-Kandidaten reserviert).
+- **Used-by-Vollständigkeit:** Jede der **25** öffentlichen DS-Komponenten
+  (Barrel `design-system/index.ts`, inkl. der in Phase 4 ergänzten Layout-
+  Primitives `Stack`/`Cluster`/`Grid`) hat ≥1 Produktions-Konsument → **kein**
+  toter Export, **keine** Graveyard-Migration nötig (`docs/GRAVEYARD.md` bleibt
+  für Phase-6-Kandidaten reserviert). `ts-prune`/`knip` = 0 (CI-advisory).
 - **Used-by über ALLE Schichten (2026-06-24):** auch jede der 13 Organismen,
   10 App-UI-Komposita und 4 Templates hat ≥1 **realen Importeur** (importbasiert
   via `rg -l "import .*<C>.*from"` verifiziert, alle Singletons auf eine
@@ -132,8 +137,11 @@ Alle Atome sind Blätter (keine DS-internen `Uses`); jedes hat ≥1 Used-by →
 - **DS-interne Kanten:** nur `FormField → {Input,Textarea,Select}` und
   `SectionHeader → Eyebrow` — beide strikt molecule→atom, top-down, zyklenfrei.
 - **Holy Grail:** Jede Komponente existiert genau einmal (eine `.tsx` je
-  Komponente in `design-system/`); App und (künftige) Pattern-Library
-  importieren dieselbe Quelle über den Barrel `design-system/index.ts`.
+  Komponente in `design-system/`); App **und** die lebende Pattern-Library
+  (`src/pages/StyleguidePage.tsx`, Route `/styleguide`) importieren dieselbe
+  Quelle über den Barrel `design-system/index.ts` — kein Demo-Klon. Die
+  Styleguide-Galerie ist damit ein zusätzlicher (interner) Used-by jeder
+  Komponente, ändert die Produktions-Used-by oben aber nicht.
 - **Offen (Phase 2 fortlaufend):** Legacy-Organismen leben noch in
   `src/components/sections` und App-Komposita in `src/components/ui` — per
   `boundaries`-Config bereits als `organism`/`app-ui` klassifiziert und
