@@ -24,7 +24,7 @@ const TermsPage = () => {
         )}
         noindex={true}
       />
-      <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-brand-primary text-white">
+      <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-brand-primary text-fg-on-dark">
         <Container className="text-center">
           <Reveal width="100%" yOffset={20}>
             <div className="flex justify-center">
@@ -39,11 +39,11 @@ const TermsPage = () => {
                 </div>
               </div>
             </div>
-            <h1 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl text-white">
+            <h1 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl text-fg-on-dark">
               {t('agb.title')}
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-white/80">{t('agb.subtitle')}</p>
-            <p className="mt-4 text-sm text-white/60">{t('agb.date')}</p>
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-fg-on-dark/80">{t('agb.subtitle')}</p>
+            <p className="mt-4 text-sm text-fg-on-dark/60">{t('agb.date')}</p>
           </Reveal>
         </Container>
       </div>

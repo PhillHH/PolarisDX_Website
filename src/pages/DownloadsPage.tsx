@@ -58,7 +58,7 @@ const DownloadsPage = () => {
           {items.map((item) => (
             <div
               key={item.id}
-              className="group relative flex flex-col justify-between rounded-xl border border-[var(--color-border)] bg-surface p-6 shadow-sm transition-all hover:border-primary hover:shadow-md"
+              className="group relative flex flex-col justify-between rounded-xl border border-[var(--color-border)] bg-surface p-6 shadow-1 transition-all hover:border-primary hover:shadow-2"
             >
               <div>
                 <div className="mb-4 inline-flex items-center justify-center rounded-lg bg-primary/10 p-3 text-primary group-hover:bg-primary group-hover:text-fg-on-dark transition-colors">
@@ -112,9 +112,9 @@ const DownloadsPage = () => {
       />
       <div className="bg-bg text-fg-heading">
         {/* Hero / Top */}
-        <section className="relative overflow-hidden bg-brand-primary text-white">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
+        <section className="relative overflow-hidden bg-brand-primary text-fg-on-dark">
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-fg-on-dark/30 to-transparent opacity-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-fg-on-dark/30 to-transparent opacity-10" />
 
           <div className="relative mx-auto flex min-h-[320px] max-w-page flex-col justify-end px-4 pb-10 pt-28 lg:px-10 lg:pb-14 lg:pt-32">
             <Reveal width="100%" yOffset={20}>

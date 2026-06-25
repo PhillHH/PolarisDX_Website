@@ -24,7 +24,7 @@ const PrivacyPage = () => {
           </Reveal>
 
           <Reveal width="100%">
-            <div className="mx-auto max-w-reading space-y-8 text-fg bg-surface p-8 rounded-2xl border border-[var(--color-border)] shadow-sm text-sm leading-relaxed sm:text-base">
+            <div className="mx-auto max-w-reading space-y-8 text-fg bg-surface p-8 rounded-2xl border border-[var(--color-border)] shadow-1 text-sm leading-relaxed sm:text-base">
               <section>
                 <h2 className="text-xl font-semibold mb-4 text-fg-heading">
                   {t('privacy.section1.title')}

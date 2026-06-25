@@ -166,7 +166,7 @@ const ArticlePage = () => {
               {(section as KeyPointsSection).points.map((point, pIndex) => (
                 <div
                   key={pIndex}
-                  className="rounded-xl border border-[var(--color-border)] bg-surface p-5 shadow-sm"
+                  className="rounded-xl border border-[var(--color-border)] bg-surface p-5 shadow-1"
                 >
                   <h4 className="mb-2 font-semibold text-fg-heading">{point.title}</h4>
                   <p className="text-sm text-fg-muted">{point.description}</p>
@@ -237,10 +237,10 @@ const ArticlePage = () => {
         ]}
       />
       <div className="bg-bg">
-        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-white">
+        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-fg-on-dark">
           <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-fg-on-dark/30 to-transparent opacity-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-fg-on-dark/30 to-transparent opacity-10" />
 
           <div className="relative mx-auto flex min-h-[420px] max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
             <Reveal width="100%" yOffset={20}>
@@ -260,11 +260,11 @@ const ArticlePage = () => {
                 <h1 className="mb-4 text-2xl font-medium tracking-tight sm:text-3xl lg:text-3xl">
                   {title}
                 </h1>
-                <div className="flex flex-wrap items-center gap-3 text-xs text-white/80 sm:text-sm">
+                <div className="flex flex-wrap items-center gap-3 text-xs text-fg-on-dark/80 sm:text-sm">
                   <span>{article.author}</span>
-                  <span className="h-1 w-1 rounded-full bg-white/60" />
+                  <span className="h-1 w-1 rounded-full bg-fg-on-dark/60" />
                   <span>{article.date}</span>
-                  <span className="h-1 w-1 rounded-full bg-white/60" />
+                  <span className="h-1 w-1 rounded-full bg-fg-on-dark/60" />
                   <span>{article.readTime}</span>
                 </div>
               </div>
@@ -332,7 +332,7 @@ const ArticlePage = () => {
                       <Link
                         key={suggested.id}
                         to={`/articles/${suggested.slug}`}
-                        className="rounded-xl border border-[var(--color-border)] bg-surface p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-card"
+                        className="rounded-xl border border-[var(--color-border)] bg-surface p-4 shadow-1 transition hover:-translate-y-0.5 hover:shadow-card"
                       >
                         <p className="text-xs font-semibold uppercase tracking-overline text-accent-strong">
                           {t(`common:category.${suggested.category}`, suggested.category)}
@@ -360,7 +360,7 @@ const ArticlePage = () => {
                       <Link
                         key={s.id}
                         to={`/diagnostics/${s.id}`}
-                        className="group rounded-xl border border-[var(--color-border)] bg-surface p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-card"
+                        className="group rounded-xl border border-[var(--color-border)] bg-surface p-4 shadow-1 transition hover:-translate-y-0.5 hover:shadow-card"
                       >
                         <p className="text-sm font-semibold text-fg-heading group-hover:text-brand-secondary transition-colors">
                           {t(`home:services.${s.translationKey}.title`, s.title)}

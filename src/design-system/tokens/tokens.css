@@ -132,6 +132,8 @@
     0 1px 2px rgb(var(--brand-navy-rgb) / 0.06), 0 1px 3px rgb(var(--brand-navy-rgb) / 0.08);
   --shadow-2: 0 8px 32px rgb(var(--brand-navy-rgb) / 0.15);
   --shadow-3: 0 24px 60px rgb(var(--brand-navy-rgb) / 0.12);
+  /* Inset: recessed Figure-Ground-Well (Icon-Tile etc.) — Navy-Tint statt Roh-#000 */
+  --shadow-inset: inset 0 2px 4px rgb(var(--brand-navy-rgb) / 0.06);
 
   /* Grid / Breakpoints (12-Spalten) [FIL] */
   --breakpoint-sm: 640px;

@@ -36,10 +36,10 @@ const ArticlesIndexPage = () => {
       />
       <div className="bg-bg min-h-screen">
         {/* Header Section */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-white">
+        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-fg-on-dark">
           <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-fg-on-dark/30 to-transparent opacity-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-fg-on-dark/30 to-transparent opacity-10" />
 
           <div className="relative mx-auto flex min-h-hero max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
             <Reveal width="100%" yOffset={20}>
@@ -55,7 +55,7 @@ const ArticlesIndexPage = () => {
                 <h1 className="mb-4 text-display font-medium tracking-headline">
                   {t('articles:index.title', 'Our Magazine')}
                 </h1>
-                <p className="max-w-2xl text-lg text-white/80">
+                <p className="max-w-2xl text-lg text-fg-on-dark/80">
                   {t(
                     'articles:index.subtitle',
                     'Insights, news, and expert knowledge on modern diagnostics and health.',
@@ -76,7 +76,7 @@ const ArticlesIndexPage = () => {
               </p>
               <Link
                 to="/vitamin-d3-implantologie"
-                className="group block overflow-hidden rounded-2xl border border-[var(--color-border)] bg-surface shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-primary/30"
+                className="group block overflow-hidden rounded-2xl border border-[var(--color-border)] bg-surface shadow-1 transition-all duration-300 hover:shadow-2 hover:border-brand-primary/30"
               >
                 <div className="p-6 lg:p-8">
                   <h2 className="text-xl font-semibold text-fg-heading group-hover:text-brand-primary transition-colors lg:text-2xl">

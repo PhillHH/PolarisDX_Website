@@ -86,7 +86,7 @@ const EventsPage: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <div className="relative pt-32 pb-20 lg:pt-48 lg:pb-36 bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-white overflow-hidden">
+      <div className="relative pt-32 pb-20 lg:pt-48 lg:pb-36 bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-fg-on-dark overflow-hidden">
         <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
         {/* Decorative circles */}
         <div className="absolute top-20 -left-32 w-96 h-96 rounded-full bg-brand-secondary/10 blur-3xl pointer-events-none" />
@@ -102,10 +102,10 @@ const EventsPage: React.FC = () => {
                 2026
               </Eyebrow>
             </div>
-            <h1 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl text-white">
+            <h1 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl text-fg-on-dark">
               {t('events:title')}
             </h1>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-white/80">
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-fg-on-dark/80">
               {t('events:intro')}
             </p>
           </Reveal>
@@ -119,7 +119,7 @@ const EventsPage: React.FC = () => {
           <Reveal width="100%" yOffset={15}>
             <div className="flex items-center justify-center gap-3 mb-16">
               <div className="h-px flex-1 max-w-[120px] bg-gradient-to-r from-transparent to-brand-secondary/40" />
-              <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-brand-secondary/20 shadow-sm">
+              <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface border border-brand-secondary/20 shadow-1">
                 <Award className="w-4 h-4 text-brand-secondary" />
                 <span className="text-sm font-medium text-brand-deep">
                   {t('events:premium_partner', 'Premium Partner: Nobel Biocare')}
@@ -148,13 +148,13 @@ const EventsPage: React.FC = () => {
                     {/* Timeline dot */}
                     <div className="absolute left-6 lg:left-1/2 -translate-x-1/2 z-10">
                       <div
-                        className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg ${
+                        className={`w-12 h-12 rounded-full flex items-center justify-center shadow-2 ${
                           event.partner
                             ? 'bg-gradient-to-br from-brand-secondary to-brand-primary'
                             : 'bg-gradient-to-br from-brand-primary to-brand-deep'
                         }`}
                       >
-                        <SeasonIcon className="w-5 h-5 text-white" />
+                        <SeasonIcon className="w-5 h-5 text-fg-on-dark" />
                       </div>
                     </div>
 
@@ -168,7 +168,7 @@ const EventsPage: React.FC = () => {
                       } ${isLeft ? '' : 'lg:ml-auto'}`}
                     >
                       <div
-                        className={`group relative bg-surface rounded-2xl border shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden ${
+                        className={`group relative bg-surface rounded-2xl border shadow-2 hover:shadow-2 transition-all duration-300 hover:-translate-y-1 overflow-hidden ${
                           event.partner
                             ? 'border-brand-secondary/30'
                             : 'border-[var(--color-border)]'

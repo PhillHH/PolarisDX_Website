@@ -123,9 +123,9 @@ const IglooProPage: React.FC = () => {
                 caption={t('products:hero.caption')}
                 align="left"
                 className="mb-0"
-                titleClassName="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
+                titleClassName="text-4xl md:text-5xl lg:text-6xl font-bold text-fg-on-dark leading-tight"
               />
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-fg-on-dark leading-tight">
                 {t('products:hero.title')
                   .split('Diagnostik')
                   .map((part, i) =>
@@ -135,7 +135,7 @@ const IglooProPage: React.FC = () => {
                         <br />
                       </React.Fragment>
                     ) : (
-                      <span key={i} className="text-white drop-shadow-md">
+                      <span key={i} className="text-fg-on-dark drop-shadow-md">
                         Diagnostik{part}
                       </span>
                     ),
@@ -150,7 +150,7 @@ const IglooProPage: React.FC = () => {
                   href={IglooProFlyer}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-3 rounded-full border border-white/20 text-white font-medium hover:bg-white/10 transition-all"
+                  className="px-8 py-3 rounded-full border border-fg-on-dark/20 text-fg-on-dark font-medium hover:bg-fg-on-dark/10 transition-all"
                 >
                   {t('products:hero.cta_datasheet')}
                 </a>
@@ -176,7 +176,7 @@ const IglooProPage: React.FC = () => {
       </section>
 
       {/* Description Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-surface">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h2 className="text-3xl font-bold text-fg-heading">{t('products:intro.title')}</h2>
@@ -193,7 +193,7 @@ const IglooProPage: React.FC = () => {
             {features.map((feature, idx) => (
               <div
                 key={idx}
-                className={`bg-surface p-6 rounded-2xl shadow-lg border border-[var(--color-border)] hover:border-brand-primary/50 transition-all duration-500 ${
+                className={`bg-surface p-6 rounded-2xl shadow-2 border border-[var(--color-border)] hover:border-brand-primary/50 transition-all duration-500 ${
                   featuresSection.inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
                 }`}
                 style={{ transitionDelay: `${idx * 100}ms` }}
@@ -208,12 +208,12 @@ const IglooProPage: React.FC = () => {
       </section>
 
       {/* Technical Specs */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-surface">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-fg-heading text-center mb-12">
             {t('products:specs.title')}
           </h2>
-          <div className="max-w-4xl mx-auto bg-surface rounded-3xl overflow-hidden shadow-xl border border-[var(--color-border)]">
+          <div className="max-w-4xl mx-auto bg-surface rounded-3xl overflow-hidden shadow-2 border border-[var(--color-border)]">
             <div className="grid gap-px bg-[var(--color-border)]">
               {specs.map((spec, idx) => (
                 <div
@@ -251,7 +251,7 @@ const IglooProPage: React.FC = () => {
             {parameters.map((param, idx) => (
               <span
                 key={idx}
-                className="px-6 py-3 bg-surface rounded-full text-fg font-medium shadow-sm border border-[var(--color-border)] hover:bg-brand-primary/5 hover:border-brand-primary hover:text-brand-primary transition-all cursor-default"
+                className="px-6 py-3 bg-surface rounded-full text-fg font-medium shadow-1 border border-[var(--color-border)] hover:bg-brand-primary/5 hover:border-brand-primary hover:text-brand-primary transition-all cursor-default"
               >
                 {param}
               </span>
@@ -271,7 +271,7 @@ const IglooProPage: React.FC = () => {
       </section>
 
       {/* Use Cases / Related Services */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-surface">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold text-fg-heading mb-8">
             {t('products:use_cases.title', 'Einsatzbereiche')}
@@ -279,19 +279,19 @@ const IglooProPage: React.FC = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               to="/diagnostics/dental"
-              className="rounded-xl border border-[var(--color-border)] bg-bg px-6 py-4 text-sm font-medium text-fg shadow-sm transition-all hover:border-brand-primary hover:text-brand-primary hover:shadow-md"
+              className="rounded-xl border border-[var(--color-border)] bg-bg px-6 py-4 text-sm font-medium text-fg shadow-1 transition-all hover:border-brand-primary hover:text-brand-primary hover:shadow-2"
             >
               {t('products:use_cases.dental', 'Dental-Diagnostik')}
             </Link>
             <Link
               to="/diagnostics/beauty"
-              className="rounded-xl border border-[var(--color-border)] bg-bg px-6 py-4 text-sm font-medium text-fg shadow-sm transition-all hover:border-brand-primary hover:text-brand-primary hover:shadow-md"
+              className="rounded-xl border border-[var(--color-border)] bg-bg px-6 py-4 text-sm font-medium text-fg shadow-1 transition-all hover:border-brand-primary hover:text-brand-primary hover:shadow-2"
             >
               {t('products:use_cases.beauty', 'Beauty & Ästhetik')}
             </Link>
             <Link
               to="/diagnostics/longevity"
-              className="rounded-xl border border-[var(--color-border)] bg-bg px-6 py-4 text-sm font-medium text-fg shadow-sm transition-all hover:border-brand-primary hover:text-brand-primary hover:shadow-md"
+              className="rounded-xl border border-[var(--color-border)] bg-bg px-6 py-4 text-sm font-medium text-fg shadow-1 transition-all hover:border-brand-primary hover:text-brand-primary hover:shadow-2"
             >
               {t('products:use_cases.longevity', 'Longevity & Prävention')}
             </Link>
@@ -310,13 +310,15 @@ const IglooProPage: React.FC = () => {
       {/* CTA */}
       <section className="py-20 bg-brand-deep">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">{t('products:cta_bottom.title')}</h2>
+          <h2 className="text-3xl font-bold text-fg-on-dark mb-6">
+            {t('products:cta_bottom.title')}
+          </h2>
           <p className="text-fg-on-dark/80 mb-8 max-w-2xl mx-auto">
             {t('products:cta_bottom.description')}
           </p>
           <Button
             href="/contact"
-            className="text-lg px-10 py-4 bg-surface text-brand-deep hover:bg-bg-subtle border-none shadow-xl"
+            className="text-lg px-10 py-4 bg-surface text-brand-deep hover:bg-bg-subtle border-none shadow-2"
           >
             {t('products:cta_bottom.button')}
           </Button>

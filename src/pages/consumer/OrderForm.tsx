@@ -178,7 +178,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
 
   if (status === 'success') {
     return (
-      <div className="rounded-2xl bg-white p-8 text-center shadow-card sm:p-10">
+      <div className="rounded-2xl bg-surface p-8 text-center shadow-card sm:p-10">
         <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-accent-tint text-accent-strong">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -209,7 +209,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="rounded-2xl bg-white p-6 shadow-card sm:p-8 md:p-10"
+      className="rounded-2xl bg-surface p-6 shadow-card sm:p-8 md:p-10"
       data-gtm-form="consumer-order"
       data-gtm-product={product}
       data-gtm-page={page}
@@ -409,7 +409,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
           data-gtm-event="consumer_order_submit"
           data-gtm-page={page}
           data-gtm-product={product}
-          className="inline-flex items-center justify-center gap-2 rounded-md bg-brand-deep px-7 py-3.5 text-base font-semibold tracking-tight text-white shadow-sm transition-colors hover:bg-brand-navy-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex items-center justify-center gap-2 rounded-md bg-brand-deep px-7 py-3.5 text-base font-semibold tracking-tight text-fg-on-dark shadow-1 transition-colors hover:bg-brand-navy-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none"
         >
           {status === 'submitting' ? 'Sending…' : submitLabel || DEFAULT_SUBMIT_LABEL[product]}
         </button>
@@ -447,13 +447,13 @@ export function OrderSection({
         aria-hidden
         className="pointer-events-none absolute -top-20 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-accent-line/20 blur-3xl"
       />
-      <div className="relative mx-auto max-w-3xl px-4 text-center text-white sm:px-6 lg:px-0">
+      <div className="relative mx-auto max-w-3xl px-4 text-center text-fg-on-dark sm:px-6 lg:px-0">
         <span
           aria-hidden
           className="mx-auto mb-6 block h-[3px] w-12 rounded-full bg-accent-bright"
         />
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
-        <p className="mx-auto mt-5 max-w-xl text-lg text-white/80">{body}</p>
+        <p className="mx-auto mt-5 max-w-xl text-lg text-fg-on-dark/80">{body}</p>
       </div>
       <div className="relative mx-auto mt-12 max-w-3xl px-4 sm:px-6 lg:px-0">
         <OrderForm product={product} page={page} submitLabel={submitLabel} />

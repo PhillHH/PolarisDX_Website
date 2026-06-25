@@ -77,22 +77,24 @@ const VitaminD3SprayPage = () => {
 
       <div className="bg-bg">
         {/* Hero */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-white">
+        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-fg-on-dark">
           <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-fg-on-dark/30 to-transparent opacity-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-fg-on-dark/30 to-transparent opacity-10" />
 
           <div className="relative mx-auto max-w-page px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
             <Reveal width="100%" yOffset={20}>
               <div className="flex flex-col items-center gap-8 lg:flex-row lg:gap-12">
                 {/* Text */}
                 <div className="flex-1">
-                  <nav className="mb-6 flex items-center gap-1.5 text-sm text-white/60">
+                  <nav className="mb-6 flex items-center gap-1.5 text-sm text-fg-on-dark/60">
                     <Link to="/" className="hover:text-brand-secondary transition-colors">
                       {t('vitd3spray:hero.breadcrumb_home')}
                     </Link>
                     <ChevronRight className="h-3.5 w-3.5" />
-                    <span className="text-white/80">{t('vitd3spray:hero.breadcrumb_current')}</span>
+                    <span className="text-fg-on-dark/80">
+                      {t('vitd3spray:hero.breadcrumb_current')}
+                    </span>
                   </nav>
 
                   <Eyebrow size="sm" className="mb-4">
@@ -103,7 +105,7 @@ const VitaminD3SprayPage = () => {
                     {t('vitd3spray:hero.title')}
                   </h1>
 
-                  <p className="mb-8 text-base text-white/80 sm:text-lg lg:text-xl">
+                  <p className="mb-8 text-base text-fg-on-dark/80 sm:text-lg lg:text-xl">
                     {t('vitd3spray:hero.subtitle')}
                   </p>
 
@@ -119,7 +121,7 @@ const VitaminD3SprayPage = () => {
                       href={sprayPdf}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-md border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-surface/10"
+                      className="inline-flex items-center gap-2 rounded-md border border-fg-on-dark/30 px-6 py-3 text-sm font-semibold text-fg-on-dark transition-colors hover:bg-surface/10"
                     >
                       <Download className="h-4 w-4" />
                       {t('vitd3spray:hero.download')}
@@ -134,7 +136,7 @@ const VitaminD3SprayPage = () => {
                     alt="PolarisDX Vitamin D3+K2 Sublingual Spray"
                     width={380}
                     height={500}
-                    className="rounded-2xl shadow-2xl"
+                    className="rounded-2xl shadow-3"
                   />
                 </div>
               </div>
@@ -307,7 +309,7 @@ const VitaminD3SprayPage = () => {
                       href={sprayPdf}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-md bg-brand-primary px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-deep"
+                      className="inline-flex items-center gap-2 rounded-md bg-brand-primary px-5 py-2.5 text-sm font-semibold text-fg-on-dark transition-colors hover:bg-brand-deep"
                     >
                       <Download className="h-4 w-4" />
                       {t('vitd3spray:sidebar.download_cta')}
@@ -317,7 +319,7 @@ const VitaminD3SprayPage = () => {
 
                 {/* Order Form */}
                 <section id="bestellformular" className="mb-12 scroll-mt-24">
-                  <div className="rounded-xl border-2 border-brand-primary/20 bg-surface p-6 shadow-lg sm:p-8">
+                  <div className="rounded-xl border-2 border-brand-primary/20 bg-surface p-6 shadow-2 sm:p-8">
                     <div className="mb-6">
                       <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-primary">
                         {t('vitd3spray:order.caption')}
@@ -482,7 +484,7 @@ const VitaminD3SprayPage = () => {
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className="flex w-full items-center justify-center gap-2 rounded-md bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-deep disabled:cursor-not-allowed disabled:opacity-50"
+                          className="flex w-full items-center justify-center gap-2 rounded-md bg-brand-primary px-6 py-3.5 text-base font-semibold text-fg-on-dark transition-colors hover:bg-brand-deep disabled:cursor-not-allowed disabled:opacity-50"
                         >
                           {isSubmitting ? (
                             t('vitd3spray:order.submitting')
@@ -558,7 +560,7 @@ const VitaminD3SprayPage = () => {
                 />
 
                 {/* Quick Order CTA */}
-                <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-deep p-5 text-white">
+                <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-deep p-5 text-fg-on-dark">
                   <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-secondary">
                     {t('vitd3spray:sidebar.quick_order_caption')}
                   </p>
@@ -624,10 +626,10 @@ const VitaminD3SprayPage = () => {
       </div>
 
       {/* Sticky Mobile CTA */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-[var(--color-border)] bg-surface p-4 shadow-lg lg:hidden">
+      <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-[var(--color-border)] bg-surface p-4 shadow-2 lg:hidden">
         <a
           href="#bestellformular"
-          className="flex w-full items-center justify-center gap-2 rounded-md bg-brand-primary px-6 py-3.5 text-sm font-semibold text-white shadow-lg"
+          className="flex w-full items-center justify-center gap-2 rounded-md bg-brand-primary px-6 py-3.5 text-sm font-semibold text-fg-on-dark shadow-2"
         >
           {t('vitd3spray:mobile_cta')}
           <ArrowRight className="h-4 w-4" />

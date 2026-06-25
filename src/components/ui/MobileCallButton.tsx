@@ -11,7 +11,7 @@ const MobileCallButton = () => {
   return (
     <div className="fixed right-0 top-24 z-50 flex flex-col items-end lg:hidden">
       <div
-        className={`flex items-center overflow-hidden rounded-l-full shadow-lg transition-all duration-300 ease-in-out ${
+        className={`flex items-center overflow-hidden rounded-l-full shadow-2 transition-all duration-300 ease-in-out ${
           isExpanded
             ? 'translate-x-0 bg-surface pl-3 pr-2 py-2'
             : '-translate-x-2 bg-primary pr-1 pl-3 py-3'

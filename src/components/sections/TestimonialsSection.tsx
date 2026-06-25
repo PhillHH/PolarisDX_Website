@@ -47,10 +47,10 @@ const TestimonialsSection = () => {
   return (
     <section
       id="testimonials"
-      className="relative bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading py-16 text-white"
+      className="relative bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading py-16 text-fg-on-dark"
     >
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-80 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-80 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-80 bg-gradient-to-br from-fg-on-dark/30 to-transparent opacity-10" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-80 bg-gradient-to-tl from-fg-on-dark/30 to-transparent opacity-10" />
       <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
 
       <div className="relative mx-auto flex max-w-container flex-col items-center gap-16 px-4 lg:gap-12 lg:px-8">
@@ -58,12 +58,12 @@ const TestimonialsSection = () => {
           <SectionHeader
             caption={t('testimonials.caption', 'KUNDENSTIMMEN')}
             title={t('testimonials.title', 'Was unsere Anwender über das Igloo Pro System sagen')}
-            titleClassName="text-white"
+            titleClassName="text-fg-on-dark"
           />
         </div>
 
         {/* Testimonial Card */}
-        <div className="w-full max-w-4xl space-y-10 rounded-2xl bg-white/5 p-6 shadow-2xl backdrop-blur lg:space-y-8 lg:p-8">
+        <div className="w-full max-w-4xl space-y-10 rounded-2xl bg-fg-on-dark/5 p-6 shadow-3 backdrop-blur lg:space-y-8 lg:p-8">
           {/* Slider Content */}
           <div className="overflow-hidden">
             <div
@@ -80,7 +80,7 @@ const TestimonialsSection = () => {
                   <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-start md:gap-8 md:text-left">
                     {/* Reviewer Image & Stars */}
                     <div className="flex flex-col items-center gap-2">
-                      <div className="mx-auto h-32 w-32 flex-shrink-0 overflow-hidden rounded-full bg-white/20 md:mx-0">
+                      <div className="mx-auto h-32 w-32 flex-shrink-0 overflow-hidden rounded-full bg-fg-on-dark/20 md:mx-0">
                         {testimonial.avatar ? (
                           <img
                             src={testimonial.avatar}
@@ -98,12 +98,12 @@ const TestimonialsSection = () => {
 
                     {/* Review Content */}
                     <div className="flex-grow space-y-4">
-                      <blockquote className="text-lg leading-relaxed text-white/90">
+                      <blockquote className="text-lg leading-relaxed text-fg-on-dark/90">
                         “{t(`testimonials.${testimonial.id}.text`)}”
                       </blockquote>
                       <div className="h-10">
                         <p className="font-semibold">{testimonial.name}</p>
-                        <p className="text-sm text-white/70">
+                        <p className="text-sm text-fg-on-dark/70">
                           {t(`testimonials.${testimonial.id}.title`)}
                         </p>
                       </div>
@@ -121,7 +121,9 @@ const TestimonialsSection = () => {
                 key={index}
                 onClick={() => handleDotClick(index)}
                 className={`h-2.5 w-2.5 rounded-full transition-colors duration-300 ${
-                  activeIndex === index ? 'bg-white' : 'bg-white/40 hover:bg-white/60'
+                  activeIndex === index
+                    ? 'bg-fg-on-dark'
+                    : 'bg-fg-on-dark/40 hover:bg-fg-on-dark/60'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
@@ -135,16 +137,16 @@ const TestimonialsSection = () => {
             <div className="flex items-baseline justify-center gap-1">
               <span className="text-3xl font-medium tracking-tight sm:text-4xl">4.9</span>
             </div>
-            <p className="mt-1 text-xs text-white/80 whitespace-pre-line sm:text-sm">
+            <p className="mt-1 text-xs text-fg-on-dark/80 whitespace-pre-line sm:text-sm">
               {t('testimonials.ratingLabel', 'Overall Rating\nbased on 500+ reviews')}
             </p>
           </div>
           <div>
             <div className="flex items-baseline justify-center gap-1">
               <span className="text-3xl font-medium tracking-tight sm:text-4xl">100</span>
-              <span className="text-xl font-medium text-white/80 sm:text-2xl">%</span>
+              <span className="text-xl font-medium text-fg-on-dark/80 sm:text-2xl">%</span>
             </div>
-            <p className="mt-1 text-xs text-white/80 sm:text-sm">
+            <p className="mt-1 text-xs text-fg-on-dark/80 sm:text-sm">
               {t('testimonials.positiveLabel', 'Positive Review')}
             </p>
           </div>

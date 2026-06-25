@@ -9,11 +9,11 @@
 
 @layer components {
   .glass-panel {
-    @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-glass;
+    @apply bg-surface/70 backdrop-blur-xl border border-fg-on-dark/40 shadow-glass;
   }
 
   .glass-panel-dark {
-    @apply bg-brand-heading/80 backdrop-blur-xl border border-white/10 shadow-glass;
+    @apply bg-brand-heading/80 backdrop-blur-xl border border-fg-on-dark/10 shadow-glass;
   }
 
   /* IglooWidgetSection — dekorativer Verbindungslinien-Shimmer (token-gebunden,

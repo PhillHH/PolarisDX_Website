@@ -18,7 +18,7 @@ const BlogSection = () => {
       {/* Featured Article - Vitamin D3 Implantologie */}
       <Link
         to="/vitamin-d3-implantologie"
-        className="group block overflow-hidden rounded-2xl border border-brand-primary/20 bg-gradient-to-r from-brand-primary/5 to-transparent transition-all duration-300 hover:shadow-lg hover:border-brand-primary/40"
+        className="group block overflow-hidden rounded-2xl border border-brand-primary/20 bg-gradient-to-r from-brand-primary/5 to-transparent transition-all duration-300 hover:shadow-2 hover:border-brand-primary/40"
       >
         <div className="p-6">
           <p className="mb-2 text-xs font-semibold uppercase tracking-overline text-accent-strong">

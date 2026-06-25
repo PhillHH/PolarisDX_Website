@@ -48,7 +48,7 @@ const ImprintPage = () => {
           </Reveal>
 
           <Reveal width="100%">
-            <div className="space-y-8 text-fg bg-surface p-8 rounded-2xl border border-[var(--color-border)] shadow-sm">
+            <div className="space-y-8 text-fg bg-surface p-8 rounded-2xl border border-[var(--color-border)] shadow-1">
               <section>
                 <h2 className="text-xl font-semibold mb-4 text-fg-heading">
                   {t('imprint.section1.title')}

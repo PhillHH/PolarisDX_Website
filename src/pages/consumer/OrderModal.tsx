@@ -200,7 +200,7 @@ function OrderModalDialog({
       />
 
       {/* Dialog card — translate + scale + brief teal halo on enter */}
-      <div className="relative flex max-h-[95vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-2xl bg-bg shadow-2xl animate-modal-card-in motion-reduce:animate-none motion-reduce:opacity-100 sm:max-h-[90vh] sm:rounded-2xl">
+      <div className="relative flex max-h-[95vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-2xl bg-bg shadow-3 animate-modal-card-in motion-reduce:animate-none motion-reduce:opacity-100 sm:max-h-[90vh] sm:rounded-2xl">
         {/* Header */}
         <div className="relative flex-none border-b border-[var(--color-border)] bg-surface px-6 py-5 sm:px-8">
           <p className="text-xs font-semibold uppercase tracking-overline text-accent-strong">

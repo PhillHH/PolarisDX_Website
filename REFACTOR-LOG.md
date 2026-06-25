@@ -2897,3 +2897,136 @@ grep dist CSS → color-focus-ring-on-dark kompiliert ✓
 abgehakt in EXECUTION-PLAN.md. Laufzeitbasierte axe-WCAG-AA-Belegung
 (sichtbarer Fokus an laufender Instanz) weiterhin auf CI/Preview verlagert
 (Memory `sandbox-runtime-gates-blocked`).
+
+### Einheit 3v — Schatten-Token-Pass (§3.9 / DoD Punkt 4) (2026-06-25)
+
+Schließt **DoD Phase 3, Punkt 4** („Schatten nur interaktiv/erhoben; keine
+weißen Schatten im Dark-Mode; disabled ohne Schatten"). Befund vor der Einheit:
+~70 Box-Shadow-Stellen außerhalb der Design-System-Atome nutzten **Roh-Tailwind-
+Presets** (`shadow-sm/md/lg/xl/2xl/inner` = pures `rgba(0,0,0,…)`, §FIL-Verstoß
+„kein reines Schwarz"), **Reinfarb-Shadows** (`shadow-black/10`, `shadow-blue-500/25`,
+`shadow-blue-900/20` aus der Roh-Tailwind-Palette) sowie **Arbitrary-rgba-Werte**
+(`shadow-[0_…px_rgba(…)]`) — alle an §1.7/§1.19 vorbei. Zusätzlich ein echter
+Dark-Mode-Verstoß (`shadow-white/20` auf dunklem 404-Hero) und fehlendes
+`disabled:shadow-none`.
+
+**Neue Single-Source-Tokens (§1.7/§3.4):**
+
+- `tokens.css`: `--shadow-inset: inset 0 2px 4px rgb(var(--brand-navy-rgb)/0.06)`
+  (recessed Figure-Ground-Well, Navy-Tint statt Roh-`shadow-inner`-#000).
+- `tailwind.config.js` `boxShadow`: `inset` → `var(--shadow-inset)`; **Brand-Glow-
+  Tokens** `glow-primary` / `glow-primary-strong` / `glow-deep` (Channel-referenziert
+  via `--brand-blue-rgb` / `--brand-navy-rgb`) — ersetzen die Roh-`shadow-{color}`-
+  Glows auf Marken-CTAs (Eyebrow, Case-Study-CTA, Header-Kontakt-CTA, Igloo-Widget)
+  token-rein bei erhaltenem farbigem Glow.
+
+**Migrations-Mapping (Elevation = Rolle, nicht Pixel):** resting `sm → shadow-1`,
+raised/hover `md/lg/xl → shadow-2`, overlay/modal `2xl → shadow-3`; Arbitrary-rgba
+nach Größe auf `shadow-1/2/3`; `inner → shadow-inset`; Marken-Glows → `shadow-glow-*`.
+Betroffen: `Header`, `FeaturedCaseStudy`, `CtaSection`, `BlogSection`,
+`IglooWidgetSection`, `TestimonialsSection`, `eyebrow`, `CookieBanner`,
+`LanguageSwitcher`, `MobileCallButton`, `SearchModal`, `ServiceCard`, sowie
+`Article/ArticlesIndex/Downloads/Events/Imprint/NotFound/Privacy/S3Leitlinie/
+VitaminD3Implantology/VitaminD3Spray/IglooPro`-Pages und Consumer
+`shell/OrderForm/OrderModal/PriceBadge`.
+
+**DoD-Sub-Kriterien:**
+
+- _keine weißen Schatten im Dark-Mode:_ `shadow-white/20` (NotFoundPage-CTA auf
+  Navy-Hero) ersatzlos entfernt (Kontrast via heller `bg-surface`-Pille + Ring);
+  Dark-Theme-Block setzt ohnehin hellere Surfaces statt weißer Schatten (§FIL,
+  bereits in `[data-theme='dark']` dokumentiert). Grep `shadow-white` = ∅.
+- _disabled ohne Schatten:_ `disabled:shadow-none` an Core-`button`-Basis (deckt
+  alle DS-Buttons) + Consumer-`OrderForm`-Submit (nativer Button mit `disabled`).
+- _nur interaktiv/erhoben:_ `drop-shadow-*` auf dekorativen Produkt-/Logo-Bildern
+  (Filter-Halo, nicht Flächen-Elevation) bleiben als akzeptierte Ausnahme (kein
+  Box-Shadow auf Text/disabled).
+
+**Verifikation (ausgeführt §1.15, 2026-06-25):**
+
+```
+# non-token Box-Shadows (Roh-Größe | Reinfarbe | Arbitrary-Literal, ohne drop-shadow/var()):
+rg -nP "(?<!drop-)shadow-(sm|md|lg|xl|2xl|inner|black|white|blue-[0-9]+)\b|shadow-\[(?!var\()" \
+  src --glob '!*.test.*'   → nur Kommentarzeilen in tokens.css (Historie), 0 Utility-Nutzung
+rg -nP "shadow-(brand|blue|black|white|gray|red|green|amber|teal)-?[0-9a-z/]*" src  → ∅
+npm run build      → ✓ exit 0 (client+server, 967ms)
+npm run typecheck  → ✓ exit 0 (tsc -b)
+npm run lint       → ✓ 0 errors / 15 Baseline-warns
+# kompilierte Utilities im dist-CSS verifiziert:
+.shadow-1/-2/-3, .shadow-inset, .shadow-glow-primary, .shadow-glow-deep,
+.hover\:shadow-glow-primary-strong:hover  → alle vorhanden
+```
+
+→ **DoD Phase 3, Punkt 4** durch ausgeführten Grep + grüne Gates + dist-CSS-Beleg
+abgehakt in EXECUTION-PLAN.md. Offen für Phase-3-Abschluss: Punkt 1 (genau ein
+dominantes Element/CTA pro View) und Punkt 2 (Typo-Skala-Schlussbeleg).
+
+### Einheit 3w — Farb-Rollen-Pass Abschluss: white/black → Rollen-Tokens (§3.3 / DoD Punkt 1) (2026-06-25)
+
+Schließt **DoD Phase 3, Punkt 1** („Genau ein dominantes Element/CTA pro View;
+Farben rollenbasiert; max. 1 Primary/Sektion"). Befund vor der Einheit: die
+früheren Farb-Rollen-Pässe (Einheiten 3-…) hatten Roh-Palette (`blue-*`/`teal-*`/
+`gray-*`) bereits auf Rollen-Tokens migriert, ließen aber **181 Roh-`white`/
+`black`-Tailwind-Utilities** außerhalb der Token-Quelldateien stehen — `white`
+(= `#fff`) und `black` (= `#000`) sind **Primitive ohne Rolle** (§1.7-Verstoß
+gegen „Farben rollenbasiert"), obwohl die Single-Source-Rolle `--color-fg-on-dark`
+(Weiß auf dunklem Grund) bereits existierte und in DS-Atomen genutzt wurde.
+
+**Migrations-Mapping (Rolle statt Primitiv, byte-identisch im Light-Default):**
+
+- `text/border/ring/divide/from/to/via/placeholder/stroke/fill/outline-white`
+  → `…-fg-on-dark` (On-Dark-Vordergrund-Rolle; opacity-fähig via `<alpha-value>`,
+  so dass `/80`,`/70`,`/60`,… erhalten bleiben). Scripted, comment-/`whitespace-`-/
+  `White.webp`-sicher.
+- `bg-white/5–60` (translucente **Veils/Dots/Tints** auf dunklem Grund — Hero-/
+  Testimonials-Karussell-Dots, Hover-Tints, Avatar-Wells, Hamburger auf Navy)
+  → `bg-fg-on-dark/X`.
+- `bg-white/70–95` (translucente **Glass-Panels** — FeaturedCaseStudy-Karten,
+  Header-Dropdown, `.glass-panel`, Card-Hover) → `bg-surface/X` (Panel-Rolle,
+  theming-aware: Light = Weiß, Dark = neutral-800).
+- `bg-white` solide Flächen (Sektions-BG, Order-/PriceBadge-Karten, Flag-Chip,
+  Event-Chip) → `bg-surface`; solide `bg-white` auf **dunklem** Grund (Header-
+  Hamburger-Bars, Testimonials aktiver Dot) → `bg-fg-on-dark`.
+- `ring-black/5` (Header-Dropdown-Hairline) → `ring-fg/5` (dunkle Vordergrund-
+  Rolle statt `#000`-Primitiv).
+- `index.css` `.glass-panel`/`.glass-panel-dark` `@apply`-Quellen mitmigriert
+  → kompiliert zu `rgb(var(--color-surface-rgb)/.7)` + `rgb(var(--color-fg-on-dark-rgb)/.4)`.
+
+Betroffen: `Header`, `Footer`, `HeroSection`, `TestimonialsSection`,
+`FeaturedCaseStudy`, `CtaSection`, `IglooWidgetSection`, `LanguageSwitcher`,
+`card`, `index.css`, sowie `About/Article/ArticlesIndex/Contact/Downloads/Events/
+IglooPro/NotFound/S3Leitlinie/Service/ServicesOverview/Support/Terms/VitaminD3*`-
+Pages und Consumer `shell/OrderForm/PriceBadge`. (Doku-Kommentare in `stat`/
+`breadcrumbs`/`card`, die die Regel „kein nacktes `text-white`" nennen, bleiben —
+`card`-Beispielkommentar `bg-white`→`bg-surface` für Genauigkeit aktualisiert §1.18.)
+
+**Dominanz / max. 1 Primary (Squint, §3.1):** Primary-Button-Zählung je Sektion
+ausgeführt — keine Sektion >1 Primary: `HeroSection` = 1 `primary` + 1 `outline`;
+`Header` = desktop/mobile = responsiver Zwilling **einer** Kontakt-CTA (nur eine
+sichtbar); `IglooProPage` 2 default-Primaries liegen in **getrennten** Sektionen
+(Hero + Bottom-CTA); alle übrigen Sektionen ≤1 Primary. Sekundäraktionen tragen
+`secondary`/`outline`. → ein dominantes CTA je View.
+
+**Verifikation (ausgeführt §1.15, 2026-06-25):**
+
+```
+# Roh-white/black-Utility außerhalb Token-Quelle/FlagIcon/Tests/MD:
+rg -nP "\b(?:bg|text|border|ring|from|to|via|fill|stroke|divide|placeholder|outline)-(?:white|black)(?:/[0-9]+)?\b" \
+  src --glob '!**/tokens.css' --glob '!**/FlagIcon.tsx' --glob '!*.test.*' --glob '!**/*.md'
+  → ∅ (nur 3 Doku-Kommentar-Erwähnungen der Regel)
+# Roh-Palette/Hex (rollenbasiert-Beleg):
+rg -nP "#[0-9a-fA-F]{3,8}|\b(bg|text|border|ring)-(red|blue|green|amber|teal|gray|slate|…)-[0-9]{2,3}\b" src
+  <Allowlist+FlagIcon-Ausnahme>  → ∅ außer FlagIcon (§1.19-Inhalts-Ausnahme)
+npm run build      → ✓ exit 0 (client+server, 977ms)
+npm run typecheck  → ✓ exit 0 (tsc -b)
+npm run lint       → ✓ 0 errors / 15 Baseline-warns
+# kompilierte Rollen-Utilities im dist-CSS verifiziert:
+.text-fg-on-dark, .bg-fg-on-dark/10, .bg-fg-on-dark/30, .border-fg-on-dark/40,
+.bg-surface/90, .from-fg-on-dark/30, .ring-fg/5, .glass-panel{…--color-surface-rgb…}
+  → alle vorhanden/token-gebunden
+```
+
+→ **DoD Phase 3, Punkt 1** durch ausgeführte Greps + grüne Gates + dist-CSS-Beleg
+abgehakt in EXECUTION-PLAN.md. Offen für Phase-3-Abschluss: nur noch **Punkt 2**
+(Typo-Skala-Schlussbeleg). Laufzeit-axe-WCAG-AA weiterhin auf CI/Preview verlagert
+(Memory `sandbox-runtime-gates-blocked`).

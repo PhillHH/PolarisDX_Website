@@ -75,12 +75,12 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
     <div className={`relative ${className}`} ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`inline-flex items-center justify-center gap-2 rounded-full ${isMobile ? 'h-10 px-3 py-2' : 'px-3 py-2'} leading-none transition-colors hover:bg-white/10 text-current`}
+        className={`inline-flex items-center justify-center gap-2 rounded-full ${isMobile ? 'h-10 px-3 py-2' : 'px-3 py-2'} leading-none transition-colors hover:bg-fg-on-dark/10 text-current`}
         aria-label="Select language"
       >
         <FlagIcon
           countryCode={currentLanguage.country_code}
-          className="h-5 w-8 rounded-sm align-middle shrink-0 ring-1 ring-brand-primary/40 bg-white shadow-sm"
+          className="h-5 w-8 rounded-sm align-middle shrink-0 ring-1 ring-brand-primary/40 bg-surface shadow-1"
         />
         <span className="uppercase text-sm font-medium leading-none">{currentLanguage.code}</span>
         <svg
@@ -95,7 +95,7 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
 
       {isOpen && (
         <div
-          className={`absolute right-0 top-full mt-1 w-48 rounded-md bg-surface py-1 shadow-lg ring-1 ring-brand-navy/5 z-50 overflow-hidden`}
+          className={`absolute right-0 top-full mt-1 w-48 rounded-md bg-surface py-1 shadow-2 ring-1 ring-brand-navy/5 z-50 overflow-hidden`}
         >
           {languages.map((language) => (
             <button
@@ -107,7 +107,7 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
             >
               <FlagIcon
                 countryCode={language.country_code}
-                className="h-5 w-8 rounded-sm bg-white ring-1 ring-brand-primary/40 shadow-sm"
+                className="h-5 w-8 rounded-sm bg-surface ring-1 ring-brand-primary/40 shadow-1"
               />
               <span>{language.name}</span>
             </button>

@@ -30,7 +30,7 @@ const AboutPage = () => {
           ]),
         ]}
       />
-      <div className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-white overflow-hidden">
+      <div className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-fg-on-dark overflow-hidden">
         <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
         <Container className="text-center relative z-10">
           <Reveal width="100%" yOffset={20}>
@@ -47,10 +47,10 @@ const AboutPage = () => {
                 {t('about:hero.caption', 'ÜBER UNS')}
               </Eyebrow>
             </div>
-            <h1 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl text-white">
+            <h1 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl text-fg-on-dark">
               {t('about:hero.title', 'Wir definieren Diagnostik neu')}
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-white/80">
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-fg-on-dark/80">
               {t(
                 'about:hero.description',
                 'PolarisDX steht für Innovation, Präzision und Verlässlichkeit in der Medizintechnik. Lernen Sie die Menschen hinter unserer Mission kennen.',

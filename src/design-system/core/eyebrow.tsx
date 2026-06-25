@@ -41,7 +41,7 @@ export function Eyebrow({ children, size = 'default', className }: EyebrowProps)
       className={cn(
         'inline-block rounded-[var(--eyebrow-radius)] p-px bg-gradient-to-r ' +
           'from-brand-secondary via-brand-primary to-brand-deep ' +
-          'shadow-lg shadow-brand-primary/20',
+          'shadow-glow-primary',
         className,
       )}
     >

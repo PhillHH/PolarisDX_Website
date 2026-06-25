@@ -77,7 +77,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-white min-h-[700px] lg:h-[800px]"
+      className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-fg-on-dark min-h-[700px] lg:h-[800px]"
     >
       {/* Noise Overlay */}
       <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
@@ -115,7 +115,7 @@ const HeroSection = () => {
                     {currentDisplaySlide.content.title}
                   </h2>
                 )}
-                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/80 sm:text-base">
+                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-fg-on-dark/80 sm:text-base">
                   {currentDisplaySlide.content.description}
                 </p>
               </div>
@@ -165,7 +165,7 @@ const HeroSection = () => {
                   className={`h-2.5 rounded-full transition-all duration-300 ${
                     currentSlide === index
                       ? 'w-8 bg-brand-secondary'
-                      : 'w-2.5 bg-white/30 hover:bg-white/50'
+                      : 'w-2.5 bg-fg-on-dark/30 hover:bg-fg-on-dark/50'
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
                 />
@@ -200,7 +200,7 @@ const HeroSection = () => {
                         <Icon
                           size={600}
                           strokeWidth={0.5}
-                          className="text-white/90 drop-shadow-2xl relative z-10"
+                          className="text-fg-on-dark/90 drop-shadow-2xl relative z-10"
                         />
                       )
                     })()}

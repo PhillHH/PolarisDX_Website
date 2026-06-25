@@ -42,7 +42,7 @@ type AccentBar = 'teal' | 'navy' | 'green' | 'amber' | 'none'
 // BUTTONS — solid navy primary, outline navy secondary, teal for header
 // =============================================================================
 
-type CTAVariant = 'navy' | 'outline-navy' | 'teal' | 'white' | 'outline-white'
+type CTAVariant = 'navy' | 'outline-navy' | 'teal' | 'white' | 'outline-fg-on-dark'
 
 export interface TrackingMeta {
   /** Human-readable label of the CTA, e.g. "Buy 12-pack". */
@@ -81,12 +81,12 @@ export function CTA({
     md: 'px-7 py-3.5 text-base',
   }
   const variants: Record<CTAVariant, string> = {
-    navy: 'bg-brand-deep text-white hover:bg-brand-navy-hover shadow-sm',
+    navy: 'bg-brand-deep text-fg-on-dark hover:bg-brand-navy-hover shadow-1',
     'outline-navy':
-      'bg-surface border border-brand-deep text-brand-deep hover:bg-brand-deep hover:text-white shadow-sm',
-    teal: 'bg-accent text-white hover:bg-accent-strong shadow-sm',
-    white: 'bg-surface text-brand-deep hover:bg-bg shadow-sm',
-    'outline-white': 'border border-white/60 text-white hover:bg-white/10',
+      'bg-surface border border-brand-deep text-brand-deep hover:bg-brand-deep hover:text-fg-on-dark shadow-1',
+    teal: 'bg-accent text-fg-on-dark hover:bg-accent-strong shadow-1',
+    white: 'bg-surface text-brand-deep hover:bg-bg shadow-1',
+    'outline-fg-on-dark': 'border border-fg-on-dark/60 text-fg-on-dark hover:bg-fg-on-dark/10',
   }
   const cls = `${base} ${sizes[size]} ${variants[variant]}`
   const handleClick = () => {
@@ -162,14 +162,14 @@ export function ConsumerHeader({
       }
     : undefined
   return (
-    <header className="sticky top-0 z-30 bg-brand-deep shadow-[0_2px_12px_rgba(8,51,88,0.18)]">
+    <header className="sticky top-0 z-30 bg-brand-deep shadow-1">
       <div className="mx-auto flex max-w-container items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-0 lg:py-4">
         <a href="#top" aria-label="PolarisDX" className="flex shrink-0 items-center">
           <Wordmark />
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden flex-1 items-center justify-center gap-8 text-sm font-medium text-white/90 md:flex">
+        <nav className="hidden flex-1 items-center justify-center gap-8 text-sm font-medium text-fg-on-dark/90 md:flex">
           {nav.map((n) => (
             <a key={n.href} href={n.href} className="transition-colors hover:text-accent-on-dark">
               {n.label}
@@ -196,7 +196,7 @@ export function ConsumerHeader({
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
-          className="flex h-10 w-10 items-center justify-center rounded-md border border-white/15 text-white transition-colors hover:bg-white/10 md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-md border border-fg-on-dark/15 text-fg-on-dark transition-colors hover:bg-fg-on-dark/10 md:hidden"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
@@ -204,7 +204,7 @@ export function ConsumerHeader({
 
       {/* Mobile dropdown panel */}
       {open && (
-        <div className="border-t border-white/10 bg-brand-deep md:hidden">
+        <div className="border-t border-fg-on-dark/10 bg-brand-deep md:hidden">
           <div className="mx-auto max-w-container px-4 py-4 sm:px-6">
             <nav className="flex flex-col gap-1">
               {nav.map((n) => (
@@ -212,7 +212,7 @@ export function ConsumerHeader({
                   key={n.href}
                   href={n.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-md px-3 py-3 text-base font-medium text-white/90 transition-colors hover:bg-white/10 hover:text-accent-on-dark"
+                  className="rounded-md px-3 py-3 text-base font-medium text-fg-on-dark/90 transition-colors hover:bg-fg-on-dark/10 hover:text-accent-on-dark"
                 >
                   {n.label}
                 </a>
@@ -329,7 +329,7 @@ export function Hero({
                   alt={image.alt}
                   loading="eager"
                   decoding="async"
-                  className="mx-auto block w-full max-w-md rounded-2xl object-cover shadow-[0_20px_50px_rgba(8,51,88,0.18)] lg:max-w-none"
+                  className="mx-auto block w-full max-w-md rounded-2xl object-cover shadow-3 lg:max-w-none"
                 />
               ) : (
                 <div className="mx-auto flex aspect-[4/5] w-full max-w-md items-center justify-center rounded-2xl border-2 border-dashed border-accent-on-dark/60 bg-surface p-8 text-center text-sm text-fg-muted lg:max-w-none">
@@ -397,7 +397,7 @@ function SectionTitle({
       {title && (
         <h2
           className={`text-3xl font-bold tracking-tight sm:text-4xl ${
-            onDark ? 'text-white' : 'text-fg-heading'
+            onDark ? 'text-fg-on-dark' : 'text-fg-heading'
           }`}
         >
           {title}
@@ -448,7 +448,7 @@ export function Section({
         {lead && (
           <p
             className={`mt-6 max-w-3xl text-lg leading-relaxed ${
-              isDark ? 'text-white/80' : 'text-fg'
+              isDark ? 'text-fg-on-dark/80' : 'text-fg'
             } ${align === 'center' ? 'mx-auto text-center' : ''}`}
           >
             {lead}
@@ -494,7 +494,7 @@ export function Card({
       : `relative pl-8 before:absolute before:left-3 before:top-6 before:bottom-6 before:w-1 before:rounded-full ${barColor[accent]}`
   return (
     <div
-      className={`rounded-2xl border border-[var(--color-border)] bg-surface p-7 shadow-[0_10px_30px_rgba(8,51,88,0.08)] ${accentClass} ${className}`}
+      className={`rounded-2xl border border-[var(--color-border)] bg-surface p-7 shadow-2 ${accentClass} ${className}`}
     >
       {children}
     </div>
@@ -554,7 +554,7 @@ export function ImageArea({ label, className = '' }: { label: string; className?
 
 export function Callout({ title, children }: { title?: string; children: ReactNode }) {
   return (
-    <div className="mx-auto max-w-3xl rounded-2xl border border-accent-border/60 bg-accent-soft/60 p-8 text-center shadow-sm">
+    <div className="mx-auto max-w-3xl rounded-2xl border border-accent-border/60 bg-accent-soft/60 p-8 text-center shadow-1">
       {title && <p className="text-base font-semibold text-fg-heading">{title}</p>}
       <div className="mt-2 leading-relaxed text-fg">{children}</div>
     </div>
@@ -571,7 +571,7 @@ export function FAQ({ items }: { items: { q: string; a: string }[] }) {
       {items.map((it, i) => (
         <details
           key={i}
-          className="group rounded-2xl border border-[var(--color-border)] bg-surface px-6 py-5 shadow-sm transition-shadow hover:shadow-[0_10px_30px_rgba(8,51,88,0.08)]"
+          className="group rounded-2xl border border-[var(--color-border)] bg-surface px-6 py-5 shadow-1 transition-shadow hover:shadow-2"
         >
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-semibold text-fg-heading">
             <span className="text-lg">{it.q}</span>
@@ -614,7 +614,10 @@ export function FinalCTA({
   const orderModal = useOrderModal()
   const primaryClick = orderModal ? () => orderModal.open('final') : undefined
   return (
-    <section id={id} className="relative overflow-hidden bg-brand-deep py-20 text-white lg:py-24">
+    <section
+      id={id}
+      className="relative overflow-hidden bg-brand-deep py-20 text-fg-on-dark lg:py-24"
+    >
       <div
         aria-hidden
         className="pointer-events-none absolute -top-20 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-accent-line/20 blur-3xl"
@@ -625,7 +628,7 @@ export function FinalCTA({
           className="mx-auto mb-6 block h-[3px] w-12 rounded-full bg-accent-bright"
         />
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
-        <p className="mx-auto mt-5 max-w-xl text-lg text-white/80">{body}</p>
+        <p className="mx-auto mt-5 max-w-xl text-lg text-fg-on-dark/80">{body}</p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           <CTA
             href={primary.href}
@@ -638,14 +641,14 @@ export function FinalCTA({
           {secondary && (
             <CTA
               href={secondary.href}
-              variant="outline-white"
+              variant="outline-fg-on-dark"
               track={{ label: secondary.label, page, location: 'final-secondary' }}
             >
               {secondary.label}
             </CTA>
           )}
         </div>
-        {note && <p className="mt-8 text-xs text-white/60">{note}</p>}
+        {note && <p className="mt-8 text-xs text-fg-on-dark/60">{note}</p>}
       </div>
     </section>
   )

@@ -33,9 +33,9 @@ const ServicesOverviewPage = () => {
       />
       <div className="bg-bg">
         {/* Reusing a simplified Hero/Header style for consistency with subpages */}
-        <section className="relative overflow-hidden bg-brand-primary text-white">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
+        <section className="relative overflow-hidden bg-brand-primary text-fg-on-dark">
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-fg-on-dark/30 to-transparent opacity-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-fg-on-dark/30 to-transparent opacity-10" />
 
           <div className="relative mx-auto flex min-h-[250px] max-w-page flex-col justify-end px-4 pb-10 pt-24 lg:px-10 lg:pb-12 lg:pt-28">
             <Reveal width="100%" yOffset={20}>

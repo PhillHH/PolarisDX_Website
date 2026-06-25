@@ -103,10 +103,10 @@ const IglooWidgetSection = () => {
                 group flex items-center justify-center
                 relative z-40
                 rounded-2xl
-                shadow-lg shadow-brand-deep/30 transition-all duration-300 hover:scale-105 hover:shadow-2xl
+                shadow-glow-deep transition-all duration-300 hover:scale-105 hover:shadow-3
                 w-full max-w-[95vw] sm:max-w-[90vw] h-32 sm:h-36
                 bg-gradient-to-br from-brand-primary/90 via-brand-deep/90 to-brand-heading/90
-                border border-white/10 backdrop-blur-md
+                border border-fg-on-dark/10 backdrop-blur-md
                 lg:absolute lg:left-[var(--x)] lg:top-[var(--y)] lg:-translate-x-1/2 lg:-translate-y-1/2
                 lg:w-80 lg:h-48
               `}
@@ -123,7 +123,7 @@ const IglooWidgetSection = () => {
                   {widget.icon}
                 </div>
                 <div className="flex flex-col items-start gap-1">
-                  <span className="text-2xl font-medium text-white text-left group-hover:text-white transition-colors">
+                  <span className="text-2xl font-medium text-fg-on-dark text-left group-hover:text-fg-on-dark transition-colors">
                     {widget.label}
                   </span>
                   <span className="text-sm font-medium text-fg-on-dark/80 group-hover:text-fg-on-dark transition-colors">

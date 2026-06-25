@@ -205,7 +205,7 @@ export const CookieBanner: React.FC = () => {
   if (!isVisible) return null
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[70] p-4 bg-surface border-t border-[var(--color-border)] shadow-lg md:p-6 animate-in slide-in-from-bottom duration-300">
+    <div className="fixed bottom-0 left-0 right-0 z-[70] p-4 bg-surface border-t border-[var(--color-border)] shadow-2 md:p-6 animate-in slide-in-from-bottom duration-300">
       <div className="max-w-7xl mx-auto flex flex-col gap-4">
         {/* Main Content */}
         <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
@@ -244,7 +244,7 @@ export const CookieBanner: React.FC = () => {
             </button>
             <button
               onClick={handleAcceptAll}
-              className="px-4 py-2 text-sm font-medium text-fg-on-dark bg-primary border border-transparent rounded-md hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-focus-ring)] transition-colors shadow-sm"
+              className="px-4 py-2 text-sm font-medium text-fg-on-dark bg-primary border border-transparent rounded-md hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-focus-ring)] transition-colors shadow-1"
             >
               {t('cookie.accept_all', 'Alle akzeptieren')}
             </button>

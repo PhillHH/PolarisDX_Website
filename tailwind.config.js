@@ -131,6 +131,12 @@ export default {
         1: 'var(--shadow-1)',
         2: 'var(--shadow-2)',
         3: 'var(--shadow-3)',
+        inset: 'var(--shadow-inset)', // recessed Figure-Ground-Well, Navy-Tint
+        // Brand-getoente Glows fuer interaktive/erhobene Marken-Akzente (CTA/Eyebrow),
+        // Channel-referenziert (Single-Source) statt Roh-Tailwind-shadow-{color}.
+        'glow-primary': '0 8px 24px rgb(var(--brand-blue-rgb) / 0.22)',
+        'glow-primary-strong': '0 12px 32px rgb(var(--brand-blue-rgb) / 0.40)',
+        'glow-deep': '0 12px 32px rgb(var(--brand-navy-rgb) / 0.30)',
       },
       borderRadius: {
         section: '24px',

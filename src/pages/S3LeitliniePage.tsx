@@ -159,16 +159,16 @@ const S3LeitliniePage = () => {
       {/* Article Container */}
       <div className="bg-bg">
         {/* Hero / Above the Fold */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-white">
+        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-fg-on-dark">
           <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-fg-on-dark/30 to-transparent opacity-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-fg-on-dark/30 to-transparent opacity-10" />
 
           <div className="relative mx-auto flex min-h-[380px] max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
             <Reveal width="100%" yOffset={20}>
               <div className="max-w-4xl mx-auto">
                 {/* Breadcrumb */}
-                <nav className="mb-6 flex items-center gap-1.5 text-sm text-white/60">
+                <nav className="mb-6 flex items-center gap-1.5 text-sm text-fg-on-dark/60">
                   <Link to="/" className="hover:text-brand-secondary transition-colors">
                     PolarisDX
                   </Link>
@@ -177,7 +177,7 @@ const S3LeitliniePage = () => {
                     Artikel
                   </Link>
                   <ChevronRight className="h-3.5 w-3.5" />
-                  <span className="text-white/80">Vitamin D & Implantologie</span>
+                  <span className="text-fg-on-dark/80">Vitamin D & Implantologie</span>
                 </nav>
 
                 {/* Category Label */}
@@ -192,13 +192,13 @@ const S3LeitliniePage = () => {
                 </h1>
 
                 {/* Subtitle */}
-                <p className="mb-6 text-base text-white/80 sm:text-lg lg:text-xl">
+                <p className="mb-6 text-base text-fg-on-dark/80 sm:text-lg lg:text-xl">
                   Warum Testen allein nicht reicht – und wie Chairside-Diagnostik mit
                   leitlinienkonformer POC-Analytik Ihre Implantatergebnisse verbessert.
                 </p>
 
                 {/* Meta with E-E-A-T */}
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-white/60">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-fg-on-dark/60">
                   <span>Lesezeit: 7 Minuten</span>
                   <span className="h-1 w-1 rounded-full bg-surface/40" />
                   <span>Aktualisiert: Februar 2026</span>
@@ -529,7 +529,7 @@ const S3LeitliniePage = () => {
                 </section>
 
                 {/* Mid-CTA: Diagnostiksystem mit Bild */}
-                <div className="my-10 overflow-hidden rounded-xl border border-[var(--color-border)] bg-surface shadow-sm">
+                <div className="my-10 overflow-hidden rounded-xl border border-[var(--color-border)] bg-surface shadow-1">
                   <div className="flex flex-col sm:flex-row">
                     <div className="sm:w-2/5">
                       <img
@@ -587,7 +587,7 @@ const S3LeitliniePage = () => {
                   </h3>
 
                   {/* ROI Box */}
-                  <div className="my-6 rounded-lg border border-[var(--color-border)] bg-surface p-6 shadow-sm">
+                  <div className="my-6 rounded-lg border border-[var(--color-border)] bg-surface p-6 shadow-1">
                     <div className="grid gap-4 sm:grid-cols-3 text-center">
                       <div>
                         <p className="text-2xl font-bold text-brand-primary">3 Tests/Woche</p>
@@ -679,7 +679,7 @@ const S3LeitliniePage = () => {
                         key={item.step}
                         className="flex gap-4 rounded-lg border border-[var(--color-border)] bg-surface p-5"
                       >
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-primary text-white font-bold text-sm">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-primary text-fg-on-dark font-bold text-sm">
                           {item.step}
                         </div>
                         <div>
@@ -794,11 +794,11 @@ const S3LeitliniePage = () => {
 
                 {/* Section 9: CTA */}
                 <section className="mt-12">
-                  <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-deep p-8 text-white">
+                  <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-deep p-8 text-fg-on-dark">
                     <h2 className="mb-4 text-xl font-semibold sm:text-2xl">
                       Bereit für leitlinienkonforme Diagnostik in Ihrer Praxis?
                     </h2>
-                    <p className="mb-6 text-base text-white/90">
+                    <p className="mb-6 text-base text-fg-on-dark/90">
                       Die Vitamin-D-Diagnostik in der Implantologie steht auf einem soliden
                       Fundament: Die S3-Leitlinie gibt den Rahmen vor, der Igloo Reader Pro liefert
                       die Technologie und das IGeL-Modell sichert die Wirtschaftlichkeit.
@@ -815,13 +815,13 @@ const S3LeitliniePage = () => {
                       </Link>
                       <a
                         href="tel:+4915175011699"
-                        className="inline-flex items-center justify-center gap-2 rounded-md border border-white/30 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-surface/10"
+                        className="inline-flex items-center justify-center gap-2 rounded-md border border-fg-on-dark/30 px-6 py-3 text-sm font-medium text-fg-on-dark transition-colors hover:bg-surface/10"
                       >
                         <Phone className="h-4 w-4" />
                         +49 151 75011699
                       </a>
                     </div>
-                    <p className="mt-4 text-xs text-white/60">
+                    <p className="mt-4 text-xs text-fg-on-dark/60">
                       Kostenlose Beratung – unverbindlich – ca. 15 Minuten
                     </p>
                   </div>
@@ -877,7 +877,7 @@ const S3LeitliniePage = () => {
                 />
 
                 {/* CTA Box */}
-                <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-deep p-5 text-white">
+                <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-deep p-5 text-fg-on-dark">
                   <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-secondary">
                     Kostenlose Beratung
                   </p>
@@ -944,10 +944,10 @@ const S3LeitliniePage = () => {
       </div>
 
       {/* Sticky Mobile CTA */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-[var(--color-border)] bg-surface p-4 shadow-lg lg:hidden">
+      <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-[var(--color-border)] bg-surface p-4 shadow-2 lg:hidden">
         <Link
           to="/contact"
-          className="flex w-full items-center justify-center gap-2 rounded-md bg-brand-primary px-6 py-3.5 text-sm font-semibold text-white shadow-lg"
+          className="flex w-full items-center justify-center gap-2 rounded-md bg-brand-primary px-6 py-3.5 text-sm font-semibold text-fg-on-dark shadow-2"
         >
           Kostenlose Beratung vereinbaren
           <ArrowRight className="h-4 w-4" />

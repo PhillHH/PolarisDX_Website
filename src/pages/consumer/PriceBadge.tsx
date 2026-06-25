@@ -203,7 +203,7 @@ export function PriceBadge({ product }: { product: ConsumerOrderProduct }) {
 
   return (
     <>
-      <span className="inline-flex items-center gap-3 rounded-full border border-brand-blue/40 bg-white px-5 py-3 text-sm text-fg shadow-[0_2px_8px_rgba(15,95,149,0.12)]">
+      <span className="inline-flex items-center gap-3 rounded-full border border-brand-blue/40 bg-surface px-5 py-3 text-sm text-fg shadow-1">
         <span
           aria-hidden
           className="flex h-9 w-9 items-center justify-center rounded-full bg-accent-soft text-base font-bold text-accent-strong"
@@ -248,11 +248,11 @@ export function PriceBadge({ product }: { product: ConsumerOrderProduct }) {
                 top: `${pos.top}px`,
                 width: `${Math.min(POPOVER_WIDTH_PX, window.innerWidth - POPOVER_VIEWPORT_MARGIN * 2)}px`,
               }}
-              className="z-50 animate-popover-in rounded-2xl border-2 border-brand-blue bg-white p-5 text-left shadow-[0_18px_50px_rgba(15,95,149,0.22)] ring-1 ring-inset ring-accent-soft motion-reduce:animate-none"
+              className="z-50 animate-popover-in rounded-2xl border-2 border-brand-blue bg-surface p-5 text-left shadow-3 ring-1 ring-inset ring-accent-soft motion-reduce:animate-none"
             >
               <span
                 aria-hidden
-                className="absolute -top-[9px] left-1/2 h-4 w-4 -translate-x-1/2 rotate-45 rounded-[3px] border-l-2 border-t-2 border-brand-blue bg-white"
+                className="absolute -top-[9px] left-1/2 h-4 w-4 -translate-x-1/2 rotate-45 rounded-[3px] border-l-2 border-t-2 border-brand-blue bg-surface"
               />
 
               <div className="flex items-center gap-2">
