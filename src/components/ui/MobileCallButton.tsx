@@ -21,8 +21,8 @@ const MobileCallButton = () => {
           onClick={() => setIsExpanded((prev) => !prev)}
           className={`flex items-center justify-center rounded-full transition-colors ${
             isExpanded
-              ? 'h-10 w-10 bg-bg-subtle text-brand-primary'
-              : 'h-10 w-10 bg-primary-hover text-fg-on-dark'
+              ? 'h-[var(--tap-target-min)] w-[var(--tap-target-min)] bg-bg-subtle text-brand-primary'
+              : 'h-[var(--tap-target-min)] w-[var(--tap-target-min)] bg-primary-hover text-fg-on-dark'
           }`}
           aria-label={t('contact.call_us_button', 'Rufen Sie uns an')}
         >
@@ -41,7 +41,7 @@ const MobileCallButton = () => {
             <button
               onClick={() => setIsExpanded(false)}
               aria-label={t('contact.collapse_button', 'Schließen')}
-              className="ml-2 flex h-8 w-8 items-center justify-center rounded-full bg-bg-subtle text-fg-muted transition-colors hover:bg-[var(--color-border)]"
+              className="ml-2 flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full bg-bg-subtle text-fg-muted transition-colors hover:bg-[var(--color-border)]"
             >
               <X className="h-4 w-4" />
             </button>

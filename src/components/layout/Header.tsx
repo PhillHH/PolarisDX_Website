@@ -101,7 +101,7 @@ const Header = () => {
                           <Link
                             key={child.label}
                             to={child.route}
-                            className="block px-6 py-2.5 text-sm text-fg hover:bg-bg-subtle hover:text-brand-primary transition-colors font-normal"
+                            className="flex items-center min-h-[var(--tap-target-min)] px-6 py-2.5 text-sm text-fg hover:bg-bg-subtle hover:text-brand-primary transition-colors font-normal"
                           >
                             {t(`nav.${child.label}`)}
                           </Link>
@@ -127,7 +127,7 @@ const Header = () => {
             {/* Search Trigger Desktop */}
             <button
               onClick={searchModal.onOpen}
-              className={`p-2.5 rounded-full transition-all duration-300 hover:scale-110 text-fg-on-dark hover:bg-fg-on-dark/10`}
+              className={`flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full transition-all duration-300 hover:scale-110 text-fg-on-dark hover:bg-fg-on-dark/10`}
               aria-label="Search"
             >
               <Search className="h-4 w-4" />
@@ -155,7 +155,7 @@ const Header = () => {
             {/* Search Trigger Mobile */}
             <button
               onClick={searchModal.onOpen}
-              className={`p-2 mr-1 rounded-full text-fg-on-dark`}
+              className={`flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center mr-1 rounded-full text-fg-on-dark`}
               aria-label="Search"
             >
               <Search className="h-5 w-5" />
@@ -165,7 +165,7 @@ const Header = () => {
 
             <button
               type="button"
-              className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors duration-300 border-fg-on-dark/20 text-fg-on-dark bg-fg-on-dark/5`}
+              className={`flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full border transition-colors duration-300 border-fg-on-dark/20 text-fg-on-dark bg-fg-on-dark/5`}
               onClick={mobileMenu.onToggle}
               aria-label="Toggle navigation"
               aria-expanded={mobileMenu.isOpen}
@@ -200,7 +200,7 @@ const Header = () => {
                       <button
                         type="button"
                         aria-expanded={openSubmenu === item.label}
-                        className={`flex w-full items-center justify-between text-left text-lg font-medium tracking-wide text-fg-on-dark`}
+                        className={`flex w-full min-h-[var(--tap-target-min)] items-center justify-between text-left text-lg font-medium tracking-wide text-fg-on-dark`}
                         onClick={() =>
                           setOpenSubmenu(openSubmenu === item.label ? null : item.label)
                         }
@@ -215,7 +215,7 @@ const Header = () => {
                         <div className={`pl-4 mt-3 space-y-3 border-l-2 border-fg-on-dark/20`}>
                           <Link
                             to={item.route!}
-                            className={`block text-base font-normal text-fg-on-dark/70`}
+                            className={`flex min-h-[var(--tap-target-min)] items-center text-base font-normal text-fg-on-dark/70`}
                             onClick={mobileMenu.onClose}
                           >
                             {t(`nav.${item.label}`)}
@@ -224,7 +224,7 @@ const Header = () => {
                             <Link
                               key={child.label}
                               to={child.route}
-                              className={`block text-base font-normal text-fg-on-dark/70`}
+                              className={`flex min-h-[var(--tap-target-min)] items-center text-base font-normal text-fg-on-dark/70`}
                               onClick={mobileMenu.onClose}
                             >
                               {t(`nav.${child.label}`)}
@@ -236,7 +236,7 @@ const Header = () => {
                   ) : (
                     <Link
                       to={item.route!}
-                      className={`block text-lg font-medium tracking-wide text-fg-on-dark`}
+                      className={`flex min-h-[var(--tap-target-min)] items-center text-lg font-medium tracking-wide text-fg-on-dark`}
                       onClick={mobileMenu.onClose}
                     >
                       {t(`nav.${item.label}`)}

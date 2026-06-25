@@ -117,7 +117,7 @@ Repo-Zustand (Commit „Phasen 0-3" vorhanden, aber mehrere Artefakte/Strukturen
 
 ---
 
-### Phase 1 — Foundations / Design Tokens `[BUD][FIL][BEC]` — ✅ (Rest-DoD verifizieren)
+### Phase 1 — Foundations / Design Tokens `[BUD][FIL][BEC]` — 🟡 (Theming-Aktivierung + FOUC offen)
 
 **Abhängigkeit:** nach 0. **Foundational-first (§1.3)** — blockiert 2–7.
 
@@ -136,21 +136,20 @@ Repo-Zustand (Commit „Phasen 0-3" vorhanden, aber mehrere Artefakte/Strukturen
 
 **Definition of Done**
 
-- [ ] `tokens.css` deckt alle Phase-0-Wertkategorien; Skala non-linear, keine ungeraden Werte (3/5/7px).
-- [ ] Component→nur Semantic, Semantic→nur Primitive; kein Component-Token auf Rohwert/Primitive.
-- [ ] Namen matchen Convention; `tokens/README.md` inkl. Pipeline + One-off.
-- [ ] `[data-theme]` funktionsfähig (Light/Dark identische Namen, kein FOUC); genau **ein** Typeface (`@fontsource-variable/inter`); `fontFamily.sans` referenziert Inter-Stack.
-- [ ] Body/Input ≥16px; kein `#000`/`#000000` (auch Space-Syntax) als Token-Wert.
-- [ ] Tailwind-Token unter `theme.extend`; Defaults (`transparent`/`current`/`shadow-none`) erhalten.
-- [ ] `lib/flags.ts` + `lib/metrics/*` als Stubs vorhanden.
+- [x] `tokens.css` deckt alle Phase-0-Wertkategorien; Skala non-linear, keine ungeraden Werte (3/5/7px). _(belegt 2026-06-24, Einheit 1a — 3-Ebenen-System mit Kanal-Tripel-Format vollständig; build/typecheck grün.)_
+- [x] Component→nur Semantic, Semantic→nur Primitive; kein Component-Token auf Rohwert/Primitive. _(belegt 2026-06-24, Einheit 1a/1b — alle 31 Farb-Tripel == Original-Hex; Component/Semantic/Primitive-Ketten konsistent; 0 undef. Vars im gebauten CSS.)_
+- [x] Namen matchen Convention; `tokens/README.md` inkl. Pipeline + One-off. _(belegt 2026-06-24, Einheit 1a — README mit Naming-Convention/CSS-first-Pipeline/One-off-Schwelle/Theming-Hinweis.)_
+- [ ] `[data-theme]` funktionsfähig (Light/Dark identische Namen, kein FOUC); genau **ein** Typeface (`@fontsource-variable/inter`); `fontFamily.sans` referenziert Inter-Stack. _(Token-Infrastruktur + Inter-Import + fontFamily.sans ✓; **offen:** Main-dark-Default aktivieren + FOUC-Anti-Flash-Script — `ASSUMPTION — needs human confirmation`, PROJECT-DECISIONS §1.)_
+- [x] Body/Input ≥16px; kein `#000`/`#000000` (auch Space-Syntax) als Token-Wert. _(belegt 2026-06-24, Einheit 1a — rg `"#000\b|#000000"` tokens.css = leer; `--font-size-300: 1rem` verifiziert.)_
+- [x] Tailwind-Token unter `theme.extend`; Defaults (`transparent`/`current`/`shadow-none`) erhalten. _(belegt 2026-06-24, Einheit 1a — rg `"theme:\s*\{\s*extend"` tailwind.config.\* = grün; keine Top-Level-Key-Überschreibung.)_
+- [x] `lib/flags.ts` + `lib/metrics/*` als Stubs vorhanden. _(belegt 2026-06-24, Einheit 1a — flags.ts + metrics/{definitions,thresholds,aggregate}.ts angelegt.)_
 
 **Verifikation (Auszug):** `npm run build && npm run typecheck && npm run lint`;
 `rg -ni "#000\b|#000000|rgb\(\s*0[ ,]+0[ ,]+0" …/tokens.css` (Soll leer);
 `rg -n "@fontsource-variable/inter" src/entry-client.tsx`; `rg -n "'Inter Variable'" tailwind.config.*`;
 `rg -n "font-size-300:\s*1rem" …/tokens.css`; `rg -n "theme:\s*\{\s*extend" tailwind.config.*`.
 
-**Status IST:** `tokens.css/ts/README`, `index.ts`, `lib/flags.ts`, `lib/metrics/*` vorhanden; CSS-first
-mit Kanal-Tripeln umgesetzt. → Rest-DoD (Theming Dark/Light beider Bereiche, `#000`-Check, Convention-Audit) **verifizieren & belegen**.
+**Status IST (2026-06-24, DoD 6/7 belegt):** Implementierung vollständig; CSS-first mit Kanal-Tripeln. 6 DoD-Punkte durch REFACTOR-LOG-Greps belegt. **Offen (1):** `[data-theme]`-Aktivierung Main=dark + FOUC-Anti-Flash-Script (`ASSUMPTION — needs human confirmation`, PROJECT-DECISIONS §1).
 
 ---
 
@@ -176,12 +175,12 @@ mit Kanal-Tripeln umgesetzt. → Rest-DoD (Theming Dark/Light beider Bereiche, `
 
 **Definition of Done**
 
-- [ ] Jede Komponente in korrekter Ebene; keine verwaisten Ad-hoc-Komponenten.
-- [ ] Import-Richtung strikt top-down auf **allen** Ebenen (ESLint-`boundaries` grün); **0** Zyklen (`madge`).
-- [ ] Keine Duplikate; je Kategorie ein kanonisches Atom; Variante via Prop, nicht Kopie; genau **eine** Definition pro Komponente (Holy Grail).
-- [ ] Namen struktur-/content-agnostisch + Industriestandard; Prop-Konventionen einheitlich.
-- [ ] `lineage.md` (Uses/Used-by); tote Patterns → `GRAVEYARD.md`; Browser-only-Effekte nur in `useEffect`; Server-/Client-Baum identisch (kein Hydration-Mismatch).
-- [ ] Templates ohne Inhalts-Literale; Content-Guardrails (zod-maxLength / Bild-aspect-ratio) vorhanden.
+- [x] Jede Komponente in korrekter Ebene; keine verwaisten Ad-hoc-Komponenten. _(belegt 2026-06-24, Phase-2-Log — DoD formal geschlossen; eslint-boundaries 0 errors; Atomic-Mapping vollständig.)_
+- [x] Import-Richtung strikt top-down auf **allen** Ebenen (ESLint-`boundaries` grün); **0** Zyklen (`madge`). _(belegt 2026-06-24 — lint 0 boundaries-errors; madge --circular 0 Zyklen; konsistent durch Einheiten 2a–2n.)_
+- [x] Keine Duplikate; je Kategorie ein kanonisches Atom; Variante via Prop, nicht Kopie; genau **eine** Definition pro Komponente (Holy Grail). _(belegt 2026-06-24 — Holy Grail = 1 reale Definition je Komponente; 0 Shims/Duplikate; Legacy-Dateien entfernt.)_
+- [x] Namen struktur-/content-agnostisch + Industriestandard; Prop-Konventionen einheitlich. _(belegt 2026-06-24 — rg homepageCarousel/productCard = leer; Industriestandard-Namen (Input/Accordion/Badge/Dialog) durchgehend; disabled statt isDisabled.)_
+- [x] `lineage.md` (Uses/Used-by); tote Patterns → `GRAVEYARD.md`; Browser-only-Effekte nur in `useEffect`; Server-/Client-Baum identisch (kein Hydration-Mismatch). _(belegt 2026-06-24 — lineage.md über alle Schichten; kein toter Code; SSR/Client-Baum identisch; kein use client/server.)_
+- [x] Templates ohne Inhalts-Literale; Content-Guardrails (zod-maxLength / Bild-aspect-ratio) vorhanden. _(belegt 2026-06-24 — Templates literalfrei; Content-Guardrail via Bild-aspect-ratio (zod bewusst nicht eingeführt, §1.16).)_
 
 **Verifikation (Auszug):** `npm run build && typecheck && lint`; `npx madge --circular src`;
 Import-Richtung pro Ebene per `rg` (kein Treffer = gut); `rg -ni "homepage…|productCard|blogHero" src` (leer);
@@ -234,7 +233,7 @@ axe-WCAG-AA gegen laufende Instanz belegen.
 
 ---
 
-### Phase 4 — Grid, Layout & Responsiveness `[FIL]` — ⬜ _(mit Phase 3 verschränkbar)_
+### Phase 4 — Grid, Layout & Responsiveness `[FIL]` — ✅ (DoD belegt 2026-06-25) _(mit Phase 3 verschränkbar)_
 
 **Abhängigkeit:** nach 2; **verschränkt mit 3** pro Komponente.
 
@@ -248,16 +247,20 @@ axe-WCAG-AA gegen laufende Instanz belegen.
 
 **Definition of Done**
 
-- [ ] Konsistentes Grid/Container-System; keine wilden margin/padding-px; `col-span` teilt 12 sauber.
-- [ ] Forms/Artikel in schmalem Fixed-Container (Reading-Width).
-- [ ] Alle Hauptseiten sm/md/lg/xl ohne Layout-Bruch & ohne Horizontal-Scroll; mobile Safe-Space 16–24px; Touch ≥44px.
+- [x] Konsistentes Grid/Container-System; keine wilden margin/padding-px; `col-span` teilt 12 sauber. _(belegt 2026-06-25 per ausgeführter Greps: (a) `rg -nP "\b[pm][trblxy]?-\[(?!var\()" src` = ∅ → **kein** arbitrary Margin/Padding-px, alle Abstände auf der rem-basierten Tailwind-Skala = 8pt-Soft-Grid (`--space-*`); (b) `rg -n "col-span-(5|7|11)\b" src` = ∅ → 12-Spalten teilen nur sauber (2/3/4, nie 5/7/11); (c) Layout-Primitives `Container`/`Grid`/`Stack`/`Cluster` (`design-system/primitives-layout/`) als SSoT, in **15** `.tsx`-Dateien konsumiert (`rg -c "<(Grid|Stack|Cluster|Container)[ />]" src` — Seiten, Sections, Footer, consumer/shell re-exportiert `Grid`); `grid-cols-(2|3|4)` = 40 Treffer, alle teiler-konform; `max-w-container` (1200px) zentral. build/typecheck/lint grün.)_
+- [x] Forms/Artikel in schmalem Fixed-Container (Reading-Width). _(belegt 2026-06-25: `--reading-width: 68ch` (`tokens.css`) live via `max-w-reading` (Tailwind `maxWidth.reading`); flächendeckender Artikel-Rollout (in Phase 3 hierher delegiert): Fließtext-Container auf **4** Seiten begrenzt — `PrivacyPage`, `ArticlePage` (`text`/`list`-Sections), `ServicePage` (Intro + Detail-Sections), `S3LeitliniePage` (alle 6 Prosa-Blöcke `text-lg leading-body`) → `rg -ln "max-w-reading" src` = 4. Tabellen/Key-Point-Grids/Infoboxen bleiben bewusst spalten-/full-width (kein Fließtext). Forms: `consumer/OrderForm` (Input-Base `px-4 py-3`), `ContactForm`/`SupportForm` in schmaler Fixed-Ratio-Spalte (`lg:grid-cols-[minmax(0,2.1fr)_minmax(0,1.3fr)]`) statt Full-Bleed; linksbündig + begrenzte Measure (§3.7). build/typecheck/lint grün.)_
+- [x] Alle Hauptseiten sm/md/lg/xl ohne Layout-Bruch & ohne Horizontal-Scroll; mobile Safe-Space 16–24px; Touch ≥44px. _(belegt 2026-06-25: **Horizontal-Scroll-Fixes** — (1) `IglooWidgetSection` `overflow-visible`→`overflow-x-clip`: das feste `lg:w-[1200px]`-Canvas (Triangle-Layout) überlief zwischen 1024–1199px die Viewport-Breite → jetzt geklippt, vertikaler Glow-Bleed bleibt (axenweises `clip`); (2) `CookieBanner` Button-Gruppe `min-w-[300px]`→`md:min-w-[300px]`: erzwang ≤320px (`w-full` + 300px) Überlauf → mobil entschärft; dekorative Blob-`w-[NNNpx]` liegen alle in `overflow-hidden`-Sections (Hero/FeaturedCaseStudy), breite Tabellen in `overflow-x-auto`-Wrappern (`min-w-[600px]`). **Safe-Space** mobil = `px-4`…`px-6` (16–24px) durchgängig (Header/Shell/Pages). **Touch ≥44px** via `--tap-target-min: 44px`: Design-System-Atoms (`Button`/`Input`/`Select`) bereits token-gebunden; alle verbliebenen rohen interaktiven Controls auf den Token gehoben — `min-h-[var(--tap-target-min)]` bzw. quadratisch `h/w-[var(--tap-target-min)]` in **15** Dateien (Header Desktop-/Mobil-Suche, Mobil-Menü-Toggle + Drawer-Links, Burger; LanguageSwitcher Trigger + Dropdown-Items; MobileCallButton Toggle/Close; SearchModal-Close; CookieBanner py-2→py-3; SupportForm; OrderModal-Close; consumer-shell CTA-Base + Mobil-Nav; VitaminD3 Spray/Implantology Form-Inputs/Selects + Sekundär-Buttons; DownloadsPage; NotFoundPage; S3 CTA; contact-callout); Karussell-Pagination (Hero/Testimonials) per **44px-Hit-Area-Wrapper** (sichtbarer 10px-Dot im `<span>`, Button = Tap-Fläche, `group-hover`). Verifikations-Grep „roher interaktiver `py-1/2/2.5` ohne `min-h`/Atom" = ∅. Inline-Text-Nav-Links (Desktop-Top-Nav, „Zurück"-Links) unter WCAG-2.5.8-Inline-Ausnahme bewusst belassen. **ASSUMPTION — needs human confirmation:** Responsiv-Screenshot-Regress sm/md/lg/xl + Overflow-Assert gegen Baseline (Playwright §7.4) ist im Sandbox-Runtime nicht ausführbar (kein Chromium/libgbm, jsdom-Bruch auf Node 18 — dokumentierter Umgebungs-Blocker); Verifikation hier rein statisch (Greps + build/typecheck/lint grün), visuelle Regress-Bestätigung im CI/lokal nachzuziehen.)_
 
 **Verifikation (Auszug):** `rg -nP "\b[pm][trblxy]?-\[(?!var\()" src` (leer — Tailwind-arbitrary-spacing);
 `rg -n "col-span-(5|7|11)\b" src` (leer); `rg -n "grid-cols-(1|2|4|8|12)" src`;
 `rg -n "max-w-reading|--reading-width" src`; Responsiv-Screenshots vs. Baseline + Overflow-Assert (Playwright §7.4).
 
-**Status IST:** `primitives-layout/container.tsx` vorhanden; **offen:** `Grid`/`Stack`/`Cluster`,
-flächendeckende Umstellung der Seiten auf Container/Grid, Responsiv-Regress gegen Baseline.
+**Status IST (2026-06-25):** ✅ **erledigt.** `primitives-layout/` komplett (`Container`/`Grid`/`Stack`/`Cluster`,
+SSoT in `design-system/`), in 15 `.tsx` konsumiert; Reading-Width flächendeckend auf Artikel/Forms ausgerollt
+(4 Seiten); zwei reale Horizontal-Scroll-Defekte (Igloo-1200px-Canvas @lg, Cookie-`min-w` @≤320px) gefixt;
+Touch-Targets durchgängig ≥44px über `--tap-target-min` (15 Dateien) inkl. Karussell-Hit-Area-Wrapper.
+build/typecheck/lint grün. **Verbleibend (Umgebungs-Blocker, nicht Code):** Playwright-Responsiv-Regress +
+Overflow-Assert gegen Baseline (kein Chromium im Sandbox) — im CI/lokal nachzuziehen.
 
 ---
 

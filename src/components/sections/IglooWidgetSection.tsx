@@ -43,7 +43,7 @@ const IglooWidgetSection = () => {
   ]
 
   return (
-    <section className="relative py-20 lg:py-32 bg-bg overflow-visible">
+    <section className="relative py-20 lg:py-32 bg-bg overflow-x-clip">
       <Container className="text-center mb-16 relative z-10">
         <Eyebrow size="default" className="mb-8">
           {t('igloo_widget.title', 'Anwendungsbereiche')}

@@ -59,7 +59,7 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
           />
           <button
             onClick={onClose}
-            className="rounded-full p-1 hover:bg-bg-subtle transition-colors text-fg-muted"
+            className="flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full hover:bg-bg-subtle transition-colors text-fg-muted"
           >
             <X className="h-5 w-5" />
           </button>

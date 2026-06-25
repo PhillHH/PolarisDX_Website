@@ -157,18 +157,22 @@ const HeroSection = () => {
             </Stack>
 
             {/* Slider Navigation Dots */}
-            <div className="flex space-x-3 mt-8">
+            <div className="flex mt-8">
               {slides.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    currentSlide === index
-                      ? 'w-8 bg-brand-secondary'
-                      : 'w-2.5 bg-fg-on-dark/30 hover:bg-fg-on-dark/50'
-                  }`}
+                  className="group flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center"
                   aria-label={`Go to slide ${index + 1}`}
-                />
+                >
+                  <span
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                      currentSlide === index
+                        ? 'w-8 bg-brand-secondary'
+                        : 'w-2.5 bg-fg-on-dark/30 group-hover:bg-fg-on-dark/50'
+                    }`}
+                  />
+                </button>
               ))}
             </div>
           </div>

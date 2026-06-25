@@ -115,18 +115,22 @@ const TestimonialsSection = () => {
           </div>
 
           {/* Slider Dots */}
-          <div className="flex justify-center gap-3">
+          <div className="flex justify-center">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => handleDotClick(index)}
-                className={`h-2.5 w-2.5 rounded-full transition-colors duration-300 ${
-                  activeIndex === index
-                    ? 'bg-fg-on-dark'
-                    : 'bg-fg-on-dark/40 hover:bg-fg-on-dark/60'
-                }`}
+                className="group flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center"
                 aria-label={`Go to testimonial ${index + 1}`}
-              />
+              >
+                <span
+                  className={`h-2.5 w-2.5 rounded-full transition-colors duration-300 ${
+                    activeIndex === index
+                      ? 'bg-fg-on-dark'
+                      : 'bg-fg-on-dark/40 group-hover:bg-fg-on-dark/60'
+                  }`}
+                />
+              </button>
             ))}
           </div>
         </div>

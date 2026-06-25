@@ -226,16 +226,16 @@ export const CookieBanner: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto min-w-[300px]">
+          <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto md:min-w-[300px]">
             <button
               onClick={handleRejectAll}
-              className="px-4 py-2 text-sm font-medium text-fg bg-surface border border-[var(--color-border-strong)] rounded-md hover:bg-bg-subtle focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-focus-ring)] transition-colors"
+              className="px-4 py-3 text-sm font-medium text-fg bg-surface border border-[var(--color-border-strong)] rounded-md hover:bg-bg-subtle focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-focus-ring)] transition-colors"
             >
               {t('cookie.reject_all', 'Nur notwendige')}
             </button>
             <button
               onClick={() => setShowSettings(!showSettings)}
-              className="px-4 py-2 text-sm font-medium text-fg bg-surface border border-[var(--color-border-strong)] rounded-md hover:bg-bg-subtle focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-focus-ring)] transition-colors flex items-center justify-center gap-2"
+              className="px-4 py-3 text-sm font-medium text-fg bg-surface border border-[var(--color-border-strong)] rounded-md hover:bg-bg-subtle focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-focus-ring)] transition-colors flex items-center justify-center gap-2"
             >
               {showSettings
                 ? t('cookie.hide', 'Ausblenden')
@@ -244,7 +244,7 @@ export const CookieBanner: React.FC = () => {
             </button>
             <button
               onClick={handleAcceptAll}
-              className="px-4 py-2 text-sm font-medium text-fg-on-dark bg-primary border border-transparent rounded-md hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-focus-ring)] transition-colors shadow-1"
+              className="px-4 py-3 text-sm font-medium text-fg-on-dark bg-primary border border-transparent rounded-md hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-focus-ring)] transition-colors shadow-1"
             >
               {t('cookie.accept_all', 'Alle akzeptieren')}
             </button>
@@ -289,7 +289,7 @@ export const CookieBanner: React.FC = () => {
             <div className="mt-4 flex justify-end">
               <button
                 onClick={handleSaveSettings}
-                className="px-6 py-2 text-sm font-medium text-fg-on-dark bg-primary rounded-md hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-focus-ring)] transition-colors"
+                className="px-6 py-3 text-sm font-medium text-fg-on-dark bg-primary rounded-md hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-focus-ring)] transition-colors"
               >
                 {t('cookie.save_selection', 'Auswahl speichern')}
               </button>

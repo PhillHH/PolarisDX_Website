@@ -79,7 +79,7 @@ const DownloadsPage = () => {
                   download={item.openInBrowser ? undefined : true}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex w-full items-center justify-center gap-2 rounded-lg border border-[var(--color-border)] py-2.5 text-sm font-medium text-fg transition-colors hover:border-primary hover:bg-primary/10 hover:text-primary"
+                  className="flex w-full items-center justify-center gap-2 min-h-[var(--tap-target-min)] rounded-lg border border-[var(--color-border)] py-2.5 text-sm font-medium text-fg transition-colors hover:border-primary hover:bg-primary/10 hover:text-primary"
                 >
                   <Download className="h-4 w-4" />
                   {t('downloads:downloadBtn')}

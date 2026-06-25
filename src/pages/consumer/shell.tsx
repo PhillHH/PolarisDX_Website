@@ -75,7 +75,7 @@ export function CTA({
   track,
 }: CTAProps) {
   const base =
-    'inline-flex items-center justify-center gap-2 rounded-md font-semibold tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent-line'
+    'inline-flex items-center justify-center gap-2 min-h-[var(--tap-target-min)] rounded-md font-semibold tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent-line'
   const sizes = {
     sm: 'px-5 py-2.5 text-sm',
     md: 'px-7 py-3.5 text-base',
@@ -196,7 +196,7 @@ export function ConsumerHeader({
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
-          className="flex h-10 w-10 items-center justify-center rounded-md border border-fg-on-dark/15 text-fg-on-dark transition-colors hover:bg-fg-on-dark/10 md:hidden"
+          className="flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-md border border-fg-on-dark/15 text-fg-on-dark transition-colors hover:bg-fg-on-dark/10 md:hidden"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>

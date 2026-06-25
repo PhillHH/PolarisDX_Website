@@ -215,7 +215,7 @@ function OrderModalDialog({
             type="button"
             onClick={onClose}
             aria-label="Close order request"
-            className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full text-fg-muted transition-colors hover:bg-bg-subtle hover:text-fg-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line"
+            className="absolute right-4 top-4 flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full text-fg-muted transition-colors hover:bg-bg-subtle hover:text-fg-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line"
           >
             <X className="h-5 w-5" aria-hidden />
           </button>

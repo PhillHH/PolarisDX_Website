@@ -89,7 +89,7 @@ const NotFoundPage = () => {
                   <Link
                     key={page.path}
                     to={page.path}
-                    className="group flex items-center gap-2 rounded-lg bg-fg-on-dark/10 px-4 py-2.5 text-sm font-medium text-fg-on-dark/90 backdrop-blur-sm transition-all hover:bg-fg-on-dark/20 hover:text-fg-on-dark"
+                    className="group flex items-center gap-2 min-h-[var(--tap-target-min)] rounded-lg bg-fg-on-dark/10 px-4 py-2.5 text-sm font-medium text-fg-on-dark/90 backdrop-blur-sm transition-all hover:bg-fg-on-dark/20 hover:text-fg-on-dark"
                   >
                     <page.icon className="h-4 w-4 text-fg-on-dark/60 group-hover:text-fg-on-dark transition-colors" />
                     {page.name}

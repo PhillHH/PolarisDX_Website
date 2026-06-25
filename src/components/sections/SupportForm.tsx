@@ -134,7 +134,7 @@ export const SupportForm = () => {
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="inline-flex items-center rounded-md border border-ui-border bg-surface px-4 py-2 text-sm font-medium text-fg hover:bg-bg-subtle transition-colors"
+            className="inline-flex items-center min-h-[var(--tap-target-min)] rounded-md border border-ui-border bg-surface px-4 py-2 text-sm font-medium text-fg hover:bg-bg-subtle transition-colors"
           >
             {t('support.form.attachment_button')}
           </button>

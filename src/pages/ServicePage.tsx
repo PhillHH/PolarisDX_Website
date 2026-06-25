@@ -214,7 +214,7 @@ const ServicePage = () => {
                   <SectionHeader caption={service.title} title={headline} align="left" />
 
                   {/* Intro Text */}
-                  <div className="space-y-4">
+                  <div className="max-w-reading space-y-4">
                     {Array.isArray(intro) &&
                       intro.map((paragraph, index) => (
                         <p key={index} className="text-base leading-body text-fg-muted">
@@ -226,7 +226,7 @@ const ServicePage = () => {
                   {/* Detailed Sections */}
                   {Array.isArray(sections) &&
                     sections.map((section, index) => (
-                      <section key={index} className="space-y-4">
+                      <section key={index} className="max-w-reading space-y-4">
                         {section.heading && (
                           <h2 className="text-xl font-semibold tracking-tight text-fg-heading">
                             {section.heading}

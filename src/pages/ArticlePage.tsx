@@ -180,7 +180,7 @@ const ArticlePage = () => {
         // Default text rendering
         const textSection = section as TextSection
         return (
-          <section key={index} className="space-y-4">
+          <section key={index} className="max-w-reading space-y-4">
             {textSection.heading && (
               <h2 className="text-lg font-semibold tracking-tight text-fg-heading">
                 {textSection.heading}

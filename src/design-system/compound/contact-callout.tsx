@@ -68,7 +68,7 @@ export const ContactCallout = React.forwardRef<HTMLDivElement, ContactCalloutPro
       </div>
       <a
         href={phoneHref}
-        className="flex items-center justify-center gap-2 rounded-md bg-[var(--callout-action-bg)] px-4 py-2.5 text-sm font-semibold text-[var(--callout-action-fg)] transition-colors hover:bg-[var(--callout-action-bg-hover)] active:bg-[var(--callout-action-bg-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--color-focus-ring)]"
+        className="flex items-center justify-center gap-2 min-h-[var(--tap-target-min)] rounded-md bg-[var(--callout-action-bg)] px-4 py-2.5 text-sm font-semibold text-[var(--callout-action-fg)] transition-colors hover:bg-[var(--callout-action-bg-hover)] active:bg-[var(--callout-action-bg-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--color-focus-ring)]"
       >
         {phoneLabel}
       </a>
