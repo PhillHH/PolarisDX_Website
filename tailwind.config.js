@@ -138,8 +138,54 @@ export default {
         'glow-primary-strong': '0 12px 32px rgb(var(--brand-blue-rgb) / 0.40)',
         'glow-deep': '0 12px 32px rgb(var(--brand-navy-rgb) / 0.30)',
       },
+      // -------------------------------------------------------------------
+      // SPACING-BRUECKE (additiv, §3.3): bindet die `padding-*` und `gap-*`
+      // Utilities an die --space-* Tokens, damit die Preview-Varianten den
+      // Weissraum (Section-Paddings/Gaps/Hero-Luft) site-weit ueber Tokens
+      // verschieben koennen. Nur padding/gap (keine Negative → keine
+      // calc()-Negation noetig); margin/inset bleiben auf Tailwind-Default.
+      // Werte = Tailwind-Defaults → BYTE-IDENTISCH (kein visueller Change, §1.6).
+      // width/height bleiben auf der Tailwind-Spacing-Skala (Soft Grid: nur
+      // Abstaende skalieren, nicht die Eigengroessen der Komponenten).
+      // -------------------------------------------------------------------
+      padding: {
+        1: 'var(--space-1)',
+        2: 'var(--space-2)',
+        3: 'var(--space-3)',
+        4: 'var(--space-4)',
+        6: 'var(--space-6)',
+        8: 'var(--space-8)',
+        10: 'var(--space-10)',
+        12: 'var(--space-12)',
+        16: 'var(--space-16)',
+        20: 'var(--space-20)',
+        24: 'var(--space-24)',
+      },
+      gap: {
+        1: 'var(--space-1)',
+        2: 'var(--space-2)',
+        3: 'var(--space-3)',
+        4: 'var(--space-4)',
+        6: 'var(--space-6)',
+        8: 'var(--space-8)',
+        10: 'var(--space-10)',
+        12: 'var(--space-12)',
+        16: 'var(--space-16)',
+        20: 'var(--space-20)',
+        24: 'var(--space-24)',
+      },
       borderRadius: {
-        section: '24px',
+        // Token-gebrueckt (§3.3): Default-Werte = Tailwind-Defaults (byte-identisch),
+        // Themes verschieben nur die Var-Werte. `section`/`full` referenzieren die
+        // bestehenden Radius-Tokens.
+        DEFAULT: 'var(--radius-tw-default)',
+        md: 'var(--radius-tw-md)',
+        lg: 'var(--radius-tw-lg)',
+        xl: 'var(--radius-tw-xl)',
+        '2xl': 'var(--radius-tw-2xl)',
+        '3xl': 'var(--radius-tw-3xl)',
+        section: 'var(--radius-section)',
+        full: 'var(--radius-full)',
       },
       keyframes: {
         'fade-in-scale': {

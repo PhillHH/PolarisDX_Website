@@ -1,0 +1,62 @@
+# polaris-variants.yaml — 3 "spürbar modernere" visuelle Richtungen als UMSCHALTBARE Token-Themes
+# auf dem bereits tokenisierten Stand. Inhalt/Funktion bleiben; nur Look (Spacing/Weißraum, Farben,
+# Radien, Schatten, Typo). Plus ein Preview-Umschalter. Ergebnis = EIN Branch zum Anschauen/Wählen.
+name: polaris-variants
+description: >
+  Drei deutlich unterscheidbare, spürbar modernere visuelle Richtungen als [data-theme]-Token-Themes
+  + Preview-Umschalter (unten rechts + ?v=Query). Keine Inhalts-/Funktionsänderung. Kein Deploy/Merge.
+nodes:
+  - id: make_variants
+    model: opus
+    loop:
+      prompt: |
+        ZUERST LESEN (verbindliche Grundlage — KEINE generischen Web-Trends): die lokalen Designbuecher in
+        knowledge/design-references/ — v.a. "UI Design Principles - Michael Filipiuk.md" ([FIL], Wahrnehmung/
+        Craft), "UI Design Systems Mastery - Marina Budarina.md" ([BUD], Tokens/Theming) und "Design for a
+        Better World - Donald A. Norman.md" ([NOR]) — plus §0.1, §0.3 und §3.1 (Foundations-Regeln) der
+        knowledge/REFACTORING-ANWEISUNG.md. ALLE drei Varianten folgen STRENG den [FIL]/[BUD]-Foundations:
+        8pt-Soft-Grid + non-lineare Spacing-Skala (4,8,12,16,24,32,40,48,64,80,96; keine ungeraden Werte),
+        handgebaute Typo-Skala um 16px (Body >=16px, ~7-8 Stufen), ROLLENbasierte Farbe (Primary nur fuer
+        Aktion/Focus/dominantes Element; Neutral = kalte Greys aus Primary; Feedback immer mit Icon/Text),
+        WCAG-2.2-AA-Kontrast, Schatten hoher Blur/5-10% Opacity/Palette-Grau NUR auf erhobenen Elementen,
+        leichte Radien, 12-Spalten-Grid. Sie unterscheiden sich NUR in zulaessigen Ausdrucks-Entscheidungen
+        INNERHALB dieser Regeln — nichts Buch-Widriges.
+
+        Ziel: DREI deutlich unterscheidbare, "spuerbar modernere" Richtungen als UMSCHALTBARE Token-Themes
+        ueber [data-theme="fresh-1|fresh-2|fresh-3"] (Default = kein data-theme). KEINE Inhalte/Texte/Funktion
+        aendern, nur Token-Werte (src/design-system/tokens/tokens.css, tokens.ts, tailwind.config.js).
+        Der KERN des "Auffrischens" = mehr Weissraum, indem du die 8pt-Skala GROSSZUEGIGER nutzt (groessere
+        Section-Paddings/Gaps/Hero-Luft) — buchtreu skaliert, nicht beliebig.
+
+        Drei buchtreue Interpretationen (je eine valide [FIL]-Auspraegung):
+          fresh-1 "Klar & ruhig" — strenge [FIL]-Minimal-Hierarchie: maximaler Weissraum (grosse
+            Skalen-Schritte), Primary NUR fuer Aktion/Focus, kalte Neutrals (Sat ~20), sehr subtile Schatten,
+            dezente Radien, ruhige Typo.
+          fresh-2 "Souveraen & redaktionell" — starke [FIL]-Typo-Hierarchie (grosse Display-Stufen,
+            Gewichtskontrast >=2 Stufen, Reading-Width fuer Fliesstext), strukturiert-grosszuegige Abstaende,
+            edlere/tiefere Primary-Shade, mittlere Radien, weiche geschichtete Schatten. ([FIL]+[BUD] premium)
+          fresh-3 "Zugaenglich & freundlich" — [NOR] humanity-centered: waermere/hellere (AA-konforme)
+            Primary-/Accent-Rolle, freundlichere groessere Radien (§3.1 "leichte Rundung statt 0, freundlicher"),
+            energetischerer Abstands-Rhythmus, etwas mehr Feedback-Farbpraesenz — barrierearm & einladend.
+        Alle drei medizin-tauglich, ruhig, vertrauenswuerdig; KEINE Dark Patterns ([NOR]); Tokens-only (§1.7).
+
+        Baue ausserdem einen kleinen Preview-Umschalter: fixe Position unten rechts, Buttons
+        "Aktuell · V1 · V2 · V3", setzt das aktive [data-theme] auf das <html>-Element und persistiert
+        in localStorage; unterstuetze zusaetzlich ?v=0|1|2|3 (0 = aktueller Look) fuer teilbare Links.
+        Der Umschalter darf generell sichtbar sein (die Seite laeuft hinter Basic-Auth im Preview);
+        halte ihn klein/unaufdringlich und a11y-ok (Buttons, aria-pressed, tastaturbedienbar).
+
+        Nach jeder Einheit gruen halten: npm run build && npm run typecheck && npm run lint.
+        Dokumentiere die drei Richtungen in docs/design-system/VARIANTS.md: je Variante welche
+        [FIL]/[BUD]/[NOR]-Prinzipien sie betont und welche konkreten Token-Werte (Spacing-Schritte, Radien,
+        Primary-/Neutral-Shades, Schatten, Typo-Skala) sie vom Default unterscheiden.
+        Wenn alle drei Themes + der Umschalter fertig und gebaut sind, antworte exakt VARIANTS_DONE.
+      until: VARIANTS_DONE
+      fresh_context: true
+      max_iterations: 18
+  - id: validate
+    depends_on: [make_variants]
+    bash: |
+      set -e
+      npm install --no-audit --no-fund
+      npm run build && npm run typecheck && npm run lint

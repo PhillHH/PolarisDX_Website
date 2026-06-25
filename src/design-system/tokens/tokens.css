@@ -126,6 +126,18 @@
   --radius-section: 24px;
   --radius-full: 9999px;
 
+  /* Tailwind-Radius-Bruecke: bindet die generischen `rounded-*`-Utilities an
+     Tokens, damit Themes die Eck-Rundung site-weit verschieben koennen
+     (Variants-Umschalter). Default-Werte = Tailwind-Defaults → BYTE-IDENTISCH
+     zum Ist-Zustand (kein visueller Change, §1.6). Theming ueberschreibt NUR
+     diese Var-Werte (Single Source, §3.0 A). */
+  --radius-tw-default: 0.25rem; /* rounded   = 4px */
+  --radius-tw-md: 0.375rem; /* rounded-md  = 6px */
+  --radius-tw-lg: 0.5rem; /* rounded-lg  = 8px */
+  --radius-tw-xl: 0.75rem; /* rounded-xl  = 12px */
+  --radius-tw-2xl: 1rem; /* rounded-2xl = 16px */
+  --radius-tw-3xl: 1.5rem; /* rounded-3xl = 24px */
+
   /* Schatten: kein reines Schwarz — Navy-Palette-Tint, niedrige Opacity, erhoehtes Y [FIL]
      Tint referenziert das Navy-Primitive (Single Source). */
   --shadow-1:
@@ -551,6 +563,160 @@
   --color-fg-muted-rgb: var(--neutral-500-rgb);
   --color-border-rgb: var(--neutral-200-rgb);
   --color-border-strong-rgb: var(--neutral-300-rgb);
+}
+
+/* ============================================================
+   PREVIEW-VARIANTEN — "spuerbar modernere" Auffrischungen als umschaltbare
+   Token-Themes. Default (kein data-theme) bleibt unveraendert. Alle drei folgen
+   STRENG den [FIL]/[BUD]/[NOR]-Foundations (8pt-Soft-Grid, non-lineare Spacing-
+   Skala, handgebaute Typo um 16px, ROLLENbasierte Farbe, WCAG-2.2-AA, leichte
+   Radien, palette-getoente Low-Opacity-Schatten nur auf erhobenen Elementen) und
+   unterscheiden sich NUR in zulaessigen Ausdrucks-Entscheidungen INNERHALB dieser
+   Regeln. Theming bindet ausschliesslich Token-WERTE neu (keine Komponenten-
+   Duplikate, §3.0 A / §1.7). KERN des Auffrischens = mehr Weissraum durch
+   GROSSZUEGIGERE Nutzung der 8pt-Skala (groessere Section-Paddings/Gaps/Hero-Luft),
+   buchtreu skaliert (nur gerade 8pt-Vielfache). Doku: docs/design-system/VARIANTS.md.
+   ============================================================ */
+
+/* ---------- fresh-1 "Klar & ruhig" ----------
+   Strenge [FIL]-Minimal-Hierarchie: maximaler Weissraum (grosse Skalen-Schritte),
+   Primary NUR fuer Aktion/Focus (Navy bleibt kanonisch), kalte/entsaettigte
+   Neutrals, sehr subtile Schatten, dezente (kleinere) Radien, ruhige Typo. */
+[data-theme='fresh-1'] {
+  /* Kalte, entsaettigte Neutrals (kuehler & flacher als Slate) [FIL] */
+  --neutral-0-rgb: 255 255 255;
+  --neutral-50-rgb: 249 250 251;
+  --neutral-100-rgb: 243 244 246;
+  --neutral-200-rgb: 226 228 232;
+  --neutral-300-rgb: 205 208 214;
+  --neutral-400-rgb: 145 150 160;
+  --neutral-500-rgb: 99 105 117; /* Muted-Text, AA auf Weiss (~5:1) */
+  --neutral-600-rgb: 71 77 89;
+  --neutral-700-rgb: 48 54 66; /* Body-Text */
+  --neutral-800-rgb: 30 35 45;
+  --neutral-900-rgb: 16 20 29;
+
+  /* Maximaler Weissraum: grosse Section-Schritte (gerade 8pt-Vielfache) [FIL][BUD] */
+  --space-12: 56px; /* war 48 */
+  --space-16: 80px; /* war 64 */
+  --space-20: 104px; /* war 80 */
+  --space-24: 128px; /* war 96 */
+
+  /* Dezente, kleinere Radien (crisper, ruhiger) [FIL §3.1] */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px; /* war 16 */
+  --radius-section: 14px; /* war 24 */
+  --radius-tw-default: 0.1875rem; /* 3px */
+  --radius-tw-md: 0.25rem; /* 4px */
+  --radius-tw-lg: 0.375rem; /* 6px */
+  --radius-tw-xl: 0.5rem; /* 8px */
+  --radius-tw-2xl: 0.75rem; /* 12px */
+  --radius-tw-3xl: 1rem; /* 16px */
+
+  /* Sehr subtile Schatten (niedrigere Opacity, kleinerer Blur) [FIL] */
+  --shadow-1: 0 1px 2px rgb(var(--brand-navy-rgb) / 0.04), 0 1px 2px rgb(var(--brand-navy-rgb) / 0.05);
+  --shadow-2: 0 6px 24px rgb(var(--brand-navy-rgb) / 0.08);
+  --shadow-3: 0 16px 48px rgb(var(--brand-navy-rgb) / 0.08);
+
+  /* Ruhige Typo: etwas kleinere Display-Stufen, weniger aggressives Tracking [FIL] */
+  --font-size-display: clamp(1.875rem, 6vw, 3.5rem); /* 30 → 56 (war 32→64) */
+  --font-size-display-sm: clamp(1.625rem, 5.4vw, 2.75rem); /* 26 → 44 */
+  --line-height-display: clamp(2.25rem, 6.6vw, 4rem);
+  --line-height-display-sm: clamp(2rem, 6vw, 3.25rem);
+  --letter-spacing-tight: -0.015em; /* ruhiger als -0.02em */
+}
+
+/* ---------- fresh-2 "Souveraen & redaktionell" ----------
+   Starke [FIL]-Typo-Hierarchie (grosse Display-Stufen, mehr Tracking, groessere
+   Section-Titel), strukturiert-grosszuegige Abstaende, edlere/tiefere Primary-
+   Shade, mittlere Radien, weiche geschichtete Schatten. ([FIL]+[BUD] premium) */
+[data-theme='fresh-2'] {
+  /* Edlere, tiefere Primaeraktion (Navy-Cluster) — premium, hoher Kontrast [BUD] */
+  --brand-navy-rgb: 5 39 64; /* #052740 — tiefer als #083358 */
+  --brand-navy-hover-rgb: 8 52 79; /* #08344f */
+  --brand-navy-mid-rgb: 8 52 79;
+  --brand-heading-rgb: 27 50 87; /* #1b3257 — tiefe Headline-Navy */
+
+  /* Strukturiert-grosszuegige Abstaende (gerade 8pt-Vielfache) [FIL][BUD] */
+  --space-12: 56px; /* war 48 */
+  --space-16: 72px; /* war 64 */
+  --space-20: 96px; /* war 80 */
+  --space-24: 112px; /* war 96 */
+
+  /* Mittlere Radien (praezise-redaktionell) [FIL] */
+  --radius-lg: 14px; /* war 16 */
+  --radius-section: 20px; /* war 24 */
+  --radius-tw-2xl: 0.875rem; /* 14px */
+  --radius-tw-3xl: 1.25rem; /* 20px */
+
+  /* Weiche, geschichtete Schatten (zwei Lagen, niedrige Opacity) [FIL][BUD] */
+  --shadow-1: 0 1px 2px rgb(var(--brand-navy-rgb) / 0.05), 0 2px 6px rgb(var(--brand-navy-rgb) / 0.08);
+  --shadow-2: 0 4px 12px rgb(var(--brand-navy-rgb) / 0.08), 0 12px 32px rgb(var(--brand-navy-rgb) / 0.12);
+  --shadow-3: 0 8px 24px rgb(var(--brand-navy-rgb) / 0.10), 0 32px 64px rgb(var(--brand-navy-rgb) / 0.14);
+
+  /* Starke Typo-Hierarchie: grosse Display-Stufen + tieferes Tracking, groessere
+     Section-/Heading-Stufen (Gewichts-/Groessen-Kontrast) [FIL] */
+  --font-size-800: 2.25rem; /* 36 (war 32) — H2 */
+  --font-size-900: 2.75rem; /* 44 (war 40) — H1 / Section-Titel */
+  --font-size-display: clamp(2.25rem, 8vw, 4.5rem); /* 36 → 72 (war 32→64) */
+  --font-size-display-sm: clamp(1.875rem, 6.6vw, 3.25rem); /* 30 → 52 */
+  --line-height-display: clamp(2.625rem, 8.6vw, 5rem);
+  --line-height-display-sm: clamp(2.25rem, 7.2vw, 3.75rem);
+  --letter-spacing-tight: -0.025em; /* tighter, premium Display */
+}
+
+/* ---------- fresh-3 "Zugaenglich & freundlich" ----------
+   [NOR] humanity-centered: waermere/hellere (AA-konforme) Primary-/Accent-Rolle,
+   freundlichere groessere Radien (§3.1 "leichte Rundung statt 0, freundlicher"),
+   energetischerer Abstands-Rhythmus, etwas mehr Feedback-Farbpraesenz, offeneres
+   Body-Leading — barrierearm & einladend. */
+[data-theme='fresh-3'] {
+  /* Waerme Neutrals (waermer/heller als Slate, weiterhin AA) [NOR] */
+  --neutral-0-rgb: 255 255 255;
+  --neutral-50-rgb: 250 250 248;
+  --neutral-100-rgb: 245 244 240;
+  --neutral-200-rgb: 233 230 224;
+  --neutral-300-rgb: 215 211 203;
+  --neutral-400-rgb: 162 156 146;
+  --neutral-500-rgb: 116 110 100; /* Muted-Text, AA auf Weiss (~5:1) */
+  --neutral-600-rgb: 86 80 70;
+  --neutral-700-rgb: 64 59 50; /* Body-Text (warm) */
+  --neutral-800-rgb: 43 39 32;
+  --neutral-900-rgb: 30 27 22;
+
+  /* Waermere/hellere, freundliche Primaeraktion — tiefes Teal-Cyan, AA fuer
+     weissen Text (~5.5:1) [NOR][FIL]. Schatten erben diesen Ton automatisch. */
+  --brand-navy-rgb: 14 110 104; /* #0e6e68 */
+  --brand-navy-hover-rgb: 10 95 90; /* #0a5f5a */
+  --brand-navy-mid-rgb: 14 110 104;
+  --brand-heading-rgb: 19 78 73; /* #134e49 — warme tiefe Headline */
+
+  /* Energetischerer Abstands-Rhythmus (gerade 8pt-Vielfache) [FIL][NOR] */
+  --space-12: 56px; /* war 48 */
+  --space-16: 72px; /* war 64 */
+  --space-20: 96px; /* war 80 */
+  --space-24: 120px; /* war 96 */
+
+  /* Freundlichere, groessere Radien (§3.1 "freundlicher") [NOR][FIL] */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 20px; /* war 16 */
+  --radius-section: 28px; /* war 24 */
+  --radius-tw-default: 0.375rem; /* 6px */
+  --radius-tw-md: 0.5rem; /* 8px */
+  --radius-tw-lg: 0.75rem; /* 12px */
+  --radius-tw-xl: 1rem; /* 16px */
+  --radius-tw-2xl: 1.25rem; /* 20px */
+  --radius-tw-3xl: 1.75rem; /* 28px */
+
+  /* Etwas mehr Feedback-Farbpraesenz: kraeftigeres Success-Gruen [NOR] */
+  --color-success-rgb: var(--green-600-rgb);
+
+  /* Offeneres Body-Leading (Lesbarkeit), freundlicheres Display-Tracking [NOR] */
+  --line-height-body: 1.7; /* war 1.6 */
+  --letter-spacing-tight: -0.015em;
+  --font-size-display: clamp(2.125rem, 7.2vw, 4rem); /* 34 → 64 */
 }
 
 @media (prefers-reduced-motion: reduce) {
