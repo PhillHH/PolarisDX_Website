@@ -11,18 +11,18 @@ const MobileCallButton = () => {
   return (
     <div className="fixed right-0 top-24 z-50 flex flex-col items-end lg:hidden">
       <div
-        className={`flex items-center overflow-hidden rounded-l-full shadow-lg transition-all duration-300 ease-in-out ${
+        className={`flex items-center overflow-hidden rounded-l-full shadow-2 transition-all duration-300 ease-in-out ${
           isExpanded
-            ? 'translate-x-0 bg-white pl-3 pr-2 py-2'
-            : '-translate-x-2 bg-blue-600 pr-1 pl-3 py-3'
+            ? 'translate-x-0 bg-surface pl-3 pr-2 py-2'
+            : '-translate-x-2 bg-primary pr-1 pl-3 py-3'
         }`}
       >
         <button
           onClick={() => setIsExpanded((prev) => !prev)}
           className={`flex items-center justify-center rounded-full transition-colors ${
             isExpanded
-              ? 'h-10 w-10 bg-gray-50 text-brand-primary'
-              : 'h-10 w-10 bg-blue-700 text-white'
+              ? 'h-[var(--tap-target-min)] w-[var(--tap-target-min)] bg-bg-subtle text-brand-primary'
+              : 'h-[var(--tap-target-min)] w-[var(--tap-target-min)] bg-primary-hover text-fg-on-dark'
           }`}
           aria-label={t('contact.call_us_button', 'Rufen Sie uns an')}
         >
@@ -34,14 +34,14 @@ const MobileCallButton = () => {
             <a
               href={`tel:${phoneNumberClean}`}
               onClick={() => setIsExpanded(false)}
-              className="ml-3 mr-1 whitespace-nowrap text-sm font-semibold text-gray-900"
+              className="ml-3 mr-1 whitespace-nowrap text-sm font-semibold text-fg-heading"
             >
               {t('contact.call_us_text', 'Rufen Sie uns an')}
             </a>
             <button
               onClick={() => setIsExpanded(false)}
               aria-label={t('contact.collapse_button', 'Schließen')}
-              className="ml-2 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-500 transition-colors hover:bg-gray-200"
+              className="ml-2 flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full bg-bg-subtle text-fg-muted transition-colors hover:bg-[var(--color-border)]"
             >
               <X className="h-4 w-4" />
             </button>

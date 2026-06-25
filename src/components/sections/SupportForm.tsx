@@ -1,9 +1,6 @@
 import { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button } from '../ui/Button'
-import { Input } from '../ui/Input'
-import { Textarea } from '../ui/Textarea'
-import { Alert } from '../ui/Alert'
+import { Alert, Button, FormField } from '~/design-system'
 import { useSupportForm } from '../../hooks/useSupportForm'
 
 export const SupportForm = () => {
@@ -45,7 +42,7 @@ export const SupportForm = () => {
         <input id="support-hp" name="_hp" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
-      <Input
+      <FormField
         id="name"
         name="name"
         type="text"
@@ -54,7 +51,7 @@ export const SupportForm = () => {
         placeholder={t('support.form.name_placeholder')}
       />
 
-      <Input
+      <FormField
         id="email"
         name="email"
         type="email"
@@ -64,7 +61,7 @@ export const SupportForm = () => {
       />
 
       <div>
-        <Input
+        <FormField
           id="udi"
           name="udi"
           type="text"
@@ -73,13 +70,13 @@ export const SupportForm = () => {
           placeholder={t('support.form.udi_placeholder')}
         />
         <p
-          className="mt-1 text-xs text-gray-500 leading-relaxed"
+          className="mt-1 text-xs text-fg-muted leading-relaxed"
           dangerouslySetInnerHTML={{ __html: t('support.form.udi_help') }}
         />
       </div>
 
       <div>
-        <Input
+        <FormField
           id="swVersion"
           name="swVersion"
           type="text"
@@ -88,35 +85,31 @@ export const SupportForm = () => {
           placeholder={t('support.form.sw_version_placeholder')}
         />
         <p
-          className="mt-1 text-xs text-gray-500 leading-relaxed"
+          className="mt-1 text-xs text-fg-muted leading-relaxed"
           dangerouslySetInnerHTML={{ __html: t('support.form.sw_version_help') }}
         />
       </div>
 
-      <div className="space-y-1">
-        <label htmlFor="issueType" className="block text-sm font-medium text-gray-700">
-          {t('support.form.issue_type')} *
-        </label>
-        <select
-          id="issueType"
-          name="issueType"
-          required
-          className="flex w-full rounded-md border border-ui-border bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
-          defaultValue=""
-        >
-          <option value="" disabled>
-            {t('support.form.issue_type_placeholder')}
-          </option>
-          <option value="hardware">{t('support.form.issue_types.hardware')}</option>
-          <option value="software">{t('support.form.issue_types.software')}</option>
-          <option value="connectivity">{t('support.form.issue_types.connectivity')}</option>
-          <option value="test_kit">{t('support.form.issue_types.test_kit')}</option>
-          <option value="calibration">{t('support.form.issue_types.calibration')}</option>
-          <option value="other">{t('support.form.issue_types.other')}</option>
-        </select>
-      </div>
+      <FormField
+        as="select"
+        id="issueType"
+        name="issueType"
+        required
+        defaultValue=""
+        label={`${t('support.form.issue_type')} *`}
+      >
+        <option value="" disabled>
+          {t('support.form.issue_type_placeholder')}
+        </option>
+        <option value="hardware">{t('support.form.issue_types.hardware')}</option>
+        <option value="software">{t('support.form.issue_types.software')}</option>
+        <option value="connectivity">{t('support.form.issue_types.connectivity')}</option>
+        <option value="test_kit">{t('support.form.issue_types.test_kit')}</option>
+        <option value="calibration">{t('support.form.issue_types.calibration')}</option>
+        <option value="other">{t('support.form.issue_types.other')}</option>
+      </FormField>
 
-      <Input
+      <FormField
         id="subject"
         name="subject"
         type="text"
@@ -125,7 +118,8 @@ export const SupportForm = () => {
         placeholder={t('support.form.subject_placeholder')}
       />
 
-      <Textarea
+      <FormField
+        as="textarea"
         id="description"
         name="description"
         rows={4}
@@ -135,18 +129,16 @@ export const SupportForm = () => {
 
       {/* File Upload */}
       <div className="space-y-1">
-        <label className="block text-sm font-medium text-gray-700">
-          {t('support.form.attachment')}
-        </label>
+        <label className="block text-sm font-medium text-fg">{t('support.form.attachment')}</label>
         <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="inline-flex items-center rounded-md border border-ui-border bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+            className="inline-flex items-center min-h-[var(--tap-target-min)] rounded-md border border-ui-border bg-surface px-4 py-2 text-sm font-medium text-fg hover:bg-bg-subtle transition-colors"
           >
             {t('support.form.attachment_button')}
           </button>
-          <span className="text-sm text-gray-500">
+          <span className="text-sm text-fg-muted">
             {fileName || t('support.form.attachment_none')}
           </span>
           <input
@@ -163,7 +155,7 @@ export const SupportForm = () => {
 
       {submitStatus === 'success' && <Alert variant="success">{t('support.form.success')}</Alert>}
 
-      {submitStatus === 'error' && <Alert variant="destructive">{t('support.form.error')}</Alert>}
+      {submitStatus === 'error' && <Alert variant="danger">{t('support.form.error')}</Alert>}
 
       <div className="space-y-4 pt-2">
         <div className="flex items-start gap-3">
@@ -173,10 +165,10 @@ export const SupportForm = () => {
               name="consent"
               type="checkbox"
               required
-              className="h-4 w-4 rounded border-gray-300 text-brand-secondary focus:ring-brand-secondary"
+              className="h-4 w-4 rounded border-[var(--color-border-strong)] text-brand-secondary focus:ring-brand-secondary"
             />
           </div>
-          <label htmlFor="consent" className="text-sm text-gray-600">
+          <label htmlFor="consent" className="text-sm text-fg">
             {t('support.form.consent')}
           </label>
         </div>

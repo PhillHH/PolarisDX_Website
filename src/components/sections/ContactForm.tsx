@@ -1,8 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Button } from '../ui/Button'
-import { Input } from '../ui/Input'
-import { Textarea } from '../ui/Textarea'
-import { Alert } from '../ui/Alert'
+import { Alert, Button, FormField } from '~/design-system'
 import { useContactForm } from '../../hooks/useContactForm'
 
 export const ContactForm = () => {
@@ -36,7 +33,7 @@ export const ContactForm = () => {
         <input id="contact-hp" name="_hp" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
-      <Input
+      <FormField
         id="company"
         name="company"
         type="text"
@@ -46,7 +43,7 @@ export const ContactForm = () => {
       />
 
       <div className="grid gap-4 md:grid-cols-2">
-        <Input
+        <FormField
           id="name"
           name="name"
           type="text"
@@ -54,7 +51,7 @@ export const ContactForm = () => {
           label={t('contact.form.name')}
           placeholder={t('contact.form.name_placeholder')}
         />
-        <Input
+        <FormField
           id="phone"
           name="phone"
           type="tel"
@@ -63,7 +60,7 @@ export const ContactForm = () => {
         />
       </div>
 
-      <Input
+      <FormField
         id="email"
         name="email"
         type="email"
@@ -72,25 +69,16 @@ export const ContactForm = () => {
         placeholder={t('contact.form.email_placeholder')}
       />
 
-      <div className="space-y-1">
-        <label htmlFor="area" className="block text-sm font-medium text-gray-700">
-          {t('contact.form.area_label')}
-        </label>
-        {/* Select is not yet an Atom, so keeping native styling consistent with Input atom for now */}
-        <select
-          id="area"
-          name="area"
-          className="flex w-full rounded-md border border-ui-border bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
-        >
-          <option value="pharmacy">{t('contact.form.area_options.pharmacy')}</option>
-          <option value="practice">{t('contact.form.area_options.practice')}</option>
-          <option value="vet">{t('contact.form.area_options.vet')}</option>
-          <option value="lab">{t('contact.form.area_options.lab')}</option>
-          <option value="other">{t('contact.form.area_options.other')}</option>
-        </select>
-      </div>
+      <FormField as="select" id="area" name="area" label={t('contact.form.area_label')}>
+        <option value="pharmacy">{t('contact.form.area_options.pharmacy')}</option>
+        <option value="practice">{t('contact.form.area_options.practice')}</option>
+        <option value="vet">{t('contact.form.area_options.vet')}</option>
+        <option value="lab">{t('contact.form.area_options.lab')}</option>
+        <option value="other">{t('contact.form.area_options.other')}</option>
+      </FormField>
 
-      <Textarea
+      <FormField
+        as="textarea"
         id="requirements"
         name="requirements"
         rows={4}
@@ -106,7 +94,7 @@ export const ContactForm = () => {
       )}
 
       {submitStatus === 'error' && (
-        <Alert variant="destructive">
+        <Alert variant="danger">
           {t(
             'contact.form.error',
             'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.',
@@ -122,10 +110,10 @@ export const ContactForm = () => {
               name="consent"
               type="checkbox"
               required
-              className="h-4 w-4 rounded border-gray-300 text-brand-secondary focus:ring-brand-secondary"
+              className="h-4 w-4 rounded border-[var(--color-border-strong)] text-brand-secondary focus:ring-brand-secondary"
             />
           </div>
-          <label htmlFor="consent" className="text-sm text-gray-600">
+          <label htmlFor="consent" className="text-sm text-fg">
             {t(
               'contact.form.consent',
               'Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und für Rückfragen bis zu 12 Monate gespeichert werden.',

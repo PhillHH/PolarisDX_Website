@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import SectionHeader from '../ui/SectionHeader'
+import { SectionHeader } from '~/design-system'
 import ServiceCard from '../ui/ServiceCard'
 import { services } from '../../data/services'
 import { type Service } from '../../types/models'

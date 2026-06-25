@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { SEOHead } from '../components/seo'
+import { Container } from '~/design-system'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 
@@ -16,16 +17,16 @@ const PrivacyPage = () => {
         )}
         noindex={true}
       />
-      <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-slate-50">
-        <div className="mx-auto max-w-container px-4 lg:px-0">
+      <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-bg">
+        <Container>
           <Reveal width="100%" yOffset={20}>
-            <h1 className="text-3xl font-bold mb-8 text-gray-900">{t('privacy.title')}</h1>
+            <h1 className="text-3xl font-bold mb-8 text-fg-heading">{t('privacy.title')}</h1>
           </Reveal>
 
           <Reveal width="100%">
-            <div className="space-y-8 text-gray-700 bg-white p-8 rounded-2xl border border-gray-100 shadow-sm text-sm leading-relaxed sm:text-base">
+            <div className="mx-auto max-w-reading space-y-8 text-fg bg-surface p-8 rounded-2xl border border-[var(--color-border)] shadow-1 text-sm leading-relaxed sm:text-base">
               <section>
-                <h2 className="text-xl font-semibold mb-4 text-gray-900">
+                <h2 className="text-xl font-semibold mb-4 text-fg-heading">
                   {t('privacy.section1.title')}
                 </h2>
                 <h3 className="font-semibold mt-4 mb-2">{t('privacy.section1.general.title')}</h3>
@@ -47,14 +48,14 @@ const PrivacyPage = () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold mb-4 text-gray-900">
+                <h2 className="text-xl font-semibold mb-4 text-fg-heading">
                   {t('privacy.section2.title')}
                 </h2>
                 <p>{t('privacy.section2.content')}</p>
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold mb-4 text-gray-900">
+                <h2 className="text-xl font-semibold mb-4 text-fg-heading">
                   {t('privacy.section3.title')}
                 </h2>
                 <h3 className="font-semibold mt-4 mb-2">
@@ -82,7 +83,7 @@ const PrivacyPage = () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold mb-4 text-gray-900">
+                <h2 className="text-xl font-semibold mb-4 text-fg-heading">
                   {t('privacy.section4.title')}
                 </h2>
                 <h3 className="font-semibold mt-4 mb-2">{t('privacy.section4.form.title')}</h3>
@@ -95,14 +96,14 @@ const PrivacyPage = () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold mb-4 text-gray-900">
+                <h2 className="text-xl font-semibold mb-4 text-fg-heading">
                   {t('privacy.section5.title')}
                 </h2>
                 <p>{t('privacy.section5.content')}</p>
               </section>
             </div>
           </Reveal>
-        </div>
+        </Container>
       </div>
     </PageTransition>
   )

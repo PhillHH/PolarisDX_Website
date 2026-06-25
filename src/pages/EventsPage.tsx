@@ -3,33 +3,12 @@ import { useTranslation } from 'react-i18next'
 import { Calendar, MapPin, Award, Wind } from 'lucide-react'
 import { events } from '../data/events'
 import { SEOHead, createBreadcrumbSchema, createEventSchema } from '../components/seo'
-import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
-import Eyebrow from '../components/ui/Eyebrow'
-
-const monthNames: Record<string, string[]> = {
-  de: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
-  en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-}
-
-function formatDateRange(date: string, endDate?: string, lang = 'de') {
-  const months = monthNames[lang] || monthNames.de
-  const start = new Date(date)
-  const startDay = start.getDate()
-  const startMonth = months[start.getMonth()]
-
-  if (!endDate) return `${startDay}. ${startMonth} ${start.getFullYear()}`
-
-  const end = new Date(endDate)
-  const endDay = end.getDate()
-  const endMonth = months[end.getMonth()]
-
-  if (start.getMonth() === end.getMonth()) {
-    return `${startDay}.–${endDay}. ${startMonth} ${start.getFullYear()}`
-  }
-  return `${startMonth} – ${endDay}. ${endMonth} ${end.getFullYear()}`
-}
+import { Badge, Breadcrumbs, Container, Eyebrow } from '~/design-system'
+// Locale-bewusste Datumsformatierung via Intl.* (§5.5) — ersetzt die frühere
+// hand-gepflegte Monatsnamen-Tabelle (nur de/en, sonst stiller de-Fallback).
+import { formatDateRange } from '../lib/i18n/format'
 
 function getSeasonIcon(date: string) {
   const month = new Date(date).getMonth()
@@ -87,43 +66,40 @@ const EventsPage: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <div className="relative pt-32 pb-20 lg:pt-48 lg:pb-36 bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white overflow-hidden">
+      <div className="relative pt-32 pb-20 lg:pt-48 lg:pb-36 bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-fg-on-dark overflow-hidden">
         <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
         {/* Decorative circles */}
         <div className="absolute top-20 -left-32 w-96 h-96 rounded-full bg-brand-secondary/10 blur-3xl pointer-events-none" />
         <div className="absolute -bottom-20 -right-32 w-80 h-80 rounded-full bg-brand-primary/20 blur-3xl pointer-events-none" />
 
-        <div className="mx-auto max-w-container px-4 text-center lg:px-0 relative z-10">
+        <Container className="text-center relative z-10">
           <Reveal width="100%" yOffset={20}>
             <div className="flex justify-center mb-4">
-              <Breadcrumbs
-                variant="dark"
-                items={[{ label: 'Home', href: '/' }, { label: t('events:title') }]}
-              />
+              <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: t('events:title') }]} />
             </div>
             <div className="flex justify-center">
               <Eyebrow size="sm" className="mb-2">
                 2026
               </Eyebrow>
             </div>
-            <h1 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl text-white">
+            <h1 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl text-fg-on-dark">
               {t('events:title')}
             </h1>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-white/80">
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-fg-on-dark/80">
               {t('events:intro')}
             </p>
           </Reveal>
-        </div>
+        </Container>
       </div>
 
       {/* Timeline Section */}
-      <div className="bg-slate-50 py-20 lg:py-28">
+      <div className="bg-bg py-20 lg:py-28">
         <div className="mx-auto max-w-5xl px-4">
           {/* Nobel Biocare Partner Badge */}
           <Reveal width="100%" yOffset={15}>
             <div className="flex items-center justify-center gap-3 mb-16">
               <div className="h-px flex-1 max-w-[120px] bg-gradient-to-r from-transparent to-brand-secondary/40" />
-              <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-brand-secondary/20 shadow-sm">
+              <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface border border-brand-secondary/20 shadow-1">
                 <Award className="w-4 h-4 text-brand-secondary" />
                 <span className="text-sm font-medium text-brand-deep">
                   {t('events:premium_partner', 'Premium Partner: Nobel Biocare')}
@@ -152,13 +128,13 @@ const EventsPage: React.FC = () => {
                     {/* Timeline dot */}
                     <div className="absolute left-6 lg:left-1/2 -translate-x-1/2 z-10">
                       <div
-                        className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg ${
+                        className={`w-12 h-12 rounded-full flex items-center justify-center shadow-2 ${
                           event.partner
                             ? 'bg-gradient-to-br from-brand-secondary to-brand-primary'
                             : 'bg-gradient-to-br from-brand-primary to-brand-deep'
                         }`}
                       >
-                        <SeasonIcon className="w-5 h-5 text-white" />
+                        <SeasonIcon className="w-5 h-5 text-fg-on-dark" />
                       </div>
                     </div>
 
@@ -172,8 +148,10 @@ const EventsPage: React.FC = () => {
                       } ${isLeft ? '' : 'lg:ml-auto'}`}
                     >
                       <div
-                        className={`group relative bg-white rounded-2xl border shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden ${
-                          event.partner ? 'border-brand-secondary/30' : 'border-gray-100'
+                        className={`group relative bg-surface rounded-2xl border shadow-2 hover:shadow-2 transition-all duration-300 hover:-translate-y-1 overflow-hidden ${
+                          event.partner
+                            ? 'border-brand-secondary/30'
+                            : 'border-[var(--color-border)]'
                         }`}
                       >
                         {/* Top accent bar */}
@@ -189,25 +167,25 @@ const EventsPage: React.FC = () => {
                           {/* Tags row */}
                           <div className="flex flex-wrap items-center gap-2 mb-3">
                             {event.tag && (
-                              <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-brand-primary/10 text-brand-primary">
+                              <Badge variant="brand" uppercase>
                                 {event.tag}
-                              </span>
+                              </Badge>
                             )}
                             {event.partner && (
-                              <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full bg-brand-secondary/10 text-brand-secondary">
+                              <Badge variant="accent">
                                 <Award className="w-3 h-3" />
                                 {event.partner}
-                              </span>
+                              </Badge>
                             )}
                           </div>
 
                           {/* Title */}
-                          <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-primary transition-colors">
+                          <h3 className="text-xl font-bold text-fg-heading mb-3 group-hover:text-brand-primary transition-colors">
                             {event.title}
                           </h3>
 
                           {/* Date & Location */}
-                          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-gray-500 mb-3">
+                          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-fg-muted mb-3">
                             <div className="flex items-center gap-2">
                               <Calendar className="w-4 h-4 text-brand-primary shrink-0" />
                               <span className="font-medium">
@@ -222,9 +200,7 @@ const EventsPage: React.FC = () => {
 
                           {/* Description */}
                           {event.description && (
-                            <p className="text-gray-600 text-sm leading-relaxed">
-                              {event.description}
-                            </p>
+                            <p className="text-fg text-sm leading-relaxed">{event.description}</p>
                           )}
                         </div>
                       </div>

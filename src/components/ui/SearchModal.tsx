@@ -5,8 +5,7 @@ import { X, Search as SearchIcon, ChevronRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useSearch } from '../../hooks/useSearch'
 import { useScrollLock } from '../../hooks/useScrollLock'
-import { LoadingSpinner } from './LoadingSpinner'
-import { Alert } from './Alert'
+import { Alert, EmptyState, Spinner } from '~/design-system'
 
 interface SearchModalProps {
   isOpen: boolean
@@ -38,31 +37,56 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
     }
   }, [isOpen])
 
+  // Close on Escape (the footer promises "Esc to close").
+  useEffect(() => {
+    if (!isOpen) return
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [isOpen, onClose])
+
   if (!isOpen) return null
 
   // SSR Guard: document.body is not available on server
   if (typeof document === 'undefined') return null
 
   return createPortal(
-    <div className="fixed inset-0 z-50 flex items-start justify-center bg-gray-900/60 backdrop-blur-sm pt-20 sm:pt-32 px-4">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={t('searchPlaceholder', 'Suche...')}
+      className="fixed inset-0 z-50 flex items-start justify-center bg-brand-navy/60 backdrop-blur-sm pt-20 sm:pt-32 px-4"
+    >
+      {/* Backdrop — click outside the card to close */}
+      <button
+        type="button"
+        aria-label={t('close', 'Schließen')}
+        tabIndex={-1}
+        onClick={onClose}
+        className="absolute inset-0 cursor-default"
+      />
+
       {/* Modal Container */}
-      <div className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh]">
+      <div className="relative w-full max-w-2xl bg-surface rounded-2xl shadow-3 overflow-hidden flex flex-col max-h-[80vh]">
         {/* Header / Input */}
-        <div className="flex items-center gap-3 border-b border-gray-100 p-4">
-          <SearchIcon className="h-5 w-5 text-gray-400" />
+        <div className="flex items-center gap-3 border-b border-[var(--color-border)] p-4">
+          <SearchIcon className="h-5 w-5 text-fg-muted" />
           <input
             id="search-input"
             type="text"
-            className="flex-1 text-lg outline-none placeholder:text-gray-400 text-gray-900"
+            className="flex-1 text-lg outline-none placeholder:text-fg-muted text-fg-heading"
             placeholder={t('searchPlaceholder', 'Suche...')}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
           <button
             onClick={onClose}
-            className="rounded-full p-1 hover:bg-gray-100 transition-colors text-gray-500"
+            aria-label={t('close', 'Schließen')}
+            className="flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full hover:bg-bg-subtle transition-colors text-fg-muted"
           >
-            <X className="h-5 w-5" />
+            <X className="h-5 w-5" aria-hidden />
           </button>
         </div>
 
@@ -70,15 +94,15 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
         <div className="overflow-y-auto flex-1 p-2">
           {/* Loading State */}
           {isSearching && (
-            <div className="py-10 flex justify-center text-gray-400">
-              <LoadingSpinner />
+            <div className="py-10 flex justify-center text-fg-muted">
+              <Spinner />
             </div>
           )}
 
           {/* Error State */}
           {!isSearching && error && (
             <div className="p-4">
-              <Alert variant="destructive">
+              <Alert variant="danger">
                 {error.message || t('error', 'Ein Fehler ist aufgetreten.')}
               </Alert>
             </div>
@@ -86,14 +110,12 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
 
           {/* No Results */}
           {!isSearching && !error && query && results.length === 0 && (
-            <div className="py-10 text-center text-gray-500">
-              {t('noResults', 'Keine Ergebnisse gefunden.')}
-            </div>
+            <EmptyState title={t('noResults', 'Keine Ergebnisse gefunden.')} />
           )}
 
           {/* Start Typing */}
           {!query && !error && (
-            <div className="py-10 text-center text-gray-400 text-sm">
+            <div className="py-10 text-center text-fg-muted text-sm">
               {t('startTyping', 'Tippen Sie, um zu suchen...')}
             </div>
           )}
@@ -106,28 +128,28 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
                   key={`${result.path}-${idx}`}
                   to={result.path}
                   onClick={onClose}
-                  className="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 group transition-colors"
+                  className="flex items-center justify-between p-3 rounded-xl hover:bg-bg-subtle group transition-colors"
                 >
                   <div className="flex flex-col gap-0.5">
                     <div className="flex items-center gap-2">
                       <span
                         className={`text-xxs uppercase font-bold tracking-wider px-1.5 py-0.5 rounded
-                                        ${result.type === 'article' ? 'bg-purple-100 text-purple-700' : ''}
-                                        ${result.type === 'service' ? 'bg-blue-100 text-blue-700' : ''}
-                                        ${result.type === 'page' ? 'bg-gray-100 text-gray-600' : ''}
+                                        ${result.type === 'article' ? 'bg-accent-soft text-accent-strong' : ''}
+                                        ${result.type === 'service' ? 'bg-[rgb(var(--brand-blue-rgb)/0.12)] text-brand-blue' : ''}
+                                        ${result.type === 'page' ? 'bg-bg-subtle text-fg' : ''}
                                     `}
                       >
                         {result.type}
                       </span>
-                      <span className="font-medium text-gray-900 group-hover:text-brand-primary transition-colors">
+                      <span className="font-medium text-fg-heading group-hover:text-brand-primary transition-colors">
                         {result.title}
                       </span>
                     </div>
-                    <span className="text-sm text-gray-500 line-clamp-1 ml-1">
+                    <span className="text-sm text-fg-muted line-clamp-1 ml-1">
                       {result.description}
                     </span>
                   </div>
-                  <ChevronRight className="h-4 w-4 text-gray-300 group-hover:text-brand-primary" />
+                  <ChevronRight className="h-4 w-4 text-fg-muted group-hover:text-brand-primary" />
                 </Link>
               ))}
             </div>
@@ -135,7 +157,7 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
         </div>
 
         {/* Footer */}
-        <div className="bg-gray-50 p-3 text-xs text-center text-gray-400 border-t border-gray-100">
+        <div className="bg-bg-subtle p-3 text-xs text-center text-fg-muted border-t border-[var(--color-border)]">
           Esc to close
         </div>
       </div>

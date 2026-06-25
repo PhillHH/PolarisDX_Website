@@ -14,7 +14,7 @@
  * pinned server-side (ulrikes / inesr / adrianoz / contact @polarisdx.net).
  */
 
-import { useState, type FormEvent, type ReactNode } from 'react'
+import { useEffect, useState, type FormEvent, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 
 import { sendConsumerOrder, type ConsumerOrderProduct } from '../../api/consumerOrder'
@@ -56,28 +56,35 @@ const DEFAULT_SUBMIT_LABEL: Record<ConsumerOrderProduct, string> = {
 // =============================================================================
 
 const inputClass =
-  'w-full rounded-md border border-slate-300 bg-white px-4 py-3 text-gray-900 placeholder:text-gray-400 transition-colors focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/30 disabled:bg-slate-100'
+  'w-full rounded-md border border-[var(--color-border-strong)] bg-surface px-4 py-3 text-fg-heading placeholder:text-fg-muted transition-colors focus:border-accent-line focus:outline-none focus:ring-2 focus:ring-accent-line/30 disabled:bg-bg-subtle'
 
-const labelClass = 'mb-1.5 block text-sm font-semibold text-gray-900'
+const labelClass = 'mb-1.5 block text-sm font-semibold text-fg-heading'
 
 function Field({
   id,
   label,
   required,
+  error,
   children,
 }: {
   id: string
   label: ReactNode
   required?: boolean
+  error?: string
   children: ReactNode
 }) {
   return (
     <div>
       <label htmlFor={id} className={labelClass}>
         {label}
-        {required && <span className="ml-1 text-teal-600">*</span>}
+        {required && <span className="ml-1 text-accent">*</span>}
       </label>
       {children}
+      {error && (
+        <p id={`${id}-error`} className="mt-1.5 text-sm text-[var(--color-danger-fg)]">
+          {error}
+        </p>
+      )}
     </div>
   )
 }
@@ -85,10 +92,10 @@ function Field({
 function SectionLabel({ children }: { children: ReactNode }) {
   return (
     <div className="mt-7 mb-4 first:mt-0">
-      <span className="inline-block text-xs font-semibold uppercase tracking-[1.6px] text-teal-700">
+      <span className="inline-block text-xs font-semibold uppercase tracking-overline text-accent-strong">
         {children}
       </span>
-      <span aria-hidden className="ml-3 inline-block h-px w-8 align-middle bg-teal-200" />
+      <span aria-hidden className="ml-3 inline-block h-px w-8 align-middle bg-accent-border" />
     </div>
   )
 }
@@ -106,9 +113,22 @@ interface OrderFormProps {
   /** Called once the form has been submitted successfully (e.g. so a
    *  hosting modal can mark this session as "submitted"). */
   onSubmitted?: () => void
+  /** Reports whether the form holds unsaved input, so a hosting modal can
+   *  guard against accidental data loss on close. */
+  onDirtyChange?: (dirty: boolean) => void
 }
 
-export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderFormProps) {
+// Pragmatic email shape check — intentionally lenient (the server is the
+// source of truth); we only catch obviously-wrong input before submit.
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+export function OrderForm({
+  product,
+  page,
+  submitLabel,
+  onSubmitted,
+  onDirtyChange,
+}: OrderFormProps) {
   // Contact
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -129,10 +149,41 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
 
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
+  const [fieldErrors, setFieldErrors] = useState<{ name?: string; email?: string }>({})
+
+  // Tell the host modal whether there's unsaved input worth guarding.
+  useEffect(() => {
+    if (!onDirtyChange) return
+    const dirty =
+      status !== 'success' &&
+      Boolean(name || email || phone || company || street || postcode || city || country || message)
+    onDirtyChange(dirty)
+  }, [onDirtyChange, status, name, email, phone, company, street, postcode, city, country, message])
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     if (status === 'submitting') return
+
+    // Inline client-side validation (plain-text errors, no data loss).
+    const nextFieldErrors: { name?: string; email?: string } = {}
+    if (!name.trim()) {
+      nextFieldErrors.name = 'Please enter a contact name.'
+    }
+    if (!email.trim()) {
+      nextFieldErrors.email = 'Please enter an email address so we can reply.'
+    } else if (!EMAIL_RE.test(email.trim())) {
+      nextFieldErrors.email = 'Please enter a valid email address (e.g. name@example.com).'
+    }
+    if (nextFieldErrors.name || nextFieldErrors.email) {
+      setFieldErrors(nextFieldErrors)
+      setStatus('error')
+      setErrorMsg('')
+      const firstInvalid = nextFieldErrors.name ? 'order-name' : 'order-email'
+      document.getElementById(firstInvalid)?.focus()
+      return
+    }
+    setFieldErrors({})
+
     if (!consent) {
       setErrorMsg('Please confirm consent to data processing before sending your order.')
       setStatus('error')
@@ -178,8 +229,8 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
 
   if (status === 'success') {
     return (
-      <div className="rounded-2xl bg-white p-8 text-center shadow-card sm:p-10">
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-teal-100 text-teal-700">
+      <div className="rounded-2xl bg-surface p-8 text-center shadow-card sm:p-10">
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-accent-tint text-accent-strong">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -194,10 +245,10 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
             <polyline points="20 6 9 17 4 12" />
           </svg>
         </div>
-        <h3 className="mt-5 text-2xl font-bold text-gray-900">
+        <h3 className="mt-5 text-2xl font-bold text-fg-heading">
           Thank you — your order request is in.
         </h3>
-        <p className="mx-auto mt-3 max-w-md text-gray-600">
+        <p className="mx-auto mt-3 max-w-md text-fg">
           We'll be in touch within two working days with pricing, shipping and payment details. No
           spam, no newsletters — only the follow-up on this order.
         </p>
@@ -209,7 +260,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="rounded-2xl bg-white p-6 shadow-card sm:p-8 md:p-10"
+      className="rounded-2xl bg-surface p-6 shadow-card sm:p-8 md:p-10"
       data-gtm-form="consumer-order"
       data-gtm-product={product}
       data-gtm-page={page}
@@ -239,25 +290,35 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
 
       <SectionLabel>Contact person</SectionLabel>
       <div className="grid gap-5 sm:grid-cols-2">
-        <Field id="order-name" label="Contact name" required>
+        <Field id="order-name" label="Contact name" required error={fieldErrors.name}>
           <input
             id="order-name"
             type="text"
             required
             autoComplete="name"
+            aria-invalid={fieldErrors.name ? true : undefined}
+            aria-describedby={fieldErrors.name ? 'order-name-error' : undefined}
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => {
+              setName(e.target.value)
+              if (fieldErrors.name) setFieldErrors((p) => ({ ...p, name: undefined }))
+            }}
             className={inputClass}
           />
         </Field>
-        <Field id="order-email" label="Email" required>
+        <Field id="order-email" label="Email" required error={fieldErrors.email}>
           <input
             id="order-email"
             type="email"
             required
             autoComplete="email"
+            aria-invalid={fieldErrors.email ? true : undefined}
+            aria-describedby={fieldErrors.email ? 'order-email-error' : undefined}
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value)
+              if (fieldErrors.email) setFieldErrors((p) => ({ ...p, email: undefined }))
+            }}
             className={inputClass}
           />
         </Field>
@@ -287,7 +348,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
       </Field>
 
       <SectionLabel>Shipping address (optional)</SectionLabel>
-      <p className="-mt-2 mb-4 text-xs text-gray-500">
+      <p className="-mt-2 mb-4 text-xs text-fg-muted">
         Leave blank if you'd rather discuss shipping with us first — we'll ask when we confirm price
         and delivery.
       </p>
@@ -375,25 +436,28 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
           type="checkbox"
           checked={consent}
           onChange={(e) => setConsent(e.target.checked)}
-          className="mt-1 h-4 w-4 flex-none rounded border-slate-300 text-teal-600 focus:ring-teal-500"
+          className="mt-1 h-4 w-4 flex-none rounded border-[var(--color-border-strong)] text-accent focus:ring-accent-line"
         />
-        <span className="text-sm leading-relaxed text-gray-600">
+        <span className="text-sm leading-relaxed text-fg">
           I consent to PolarisDX processing the data above for the sole purpose of handling this
           order request. Details on storage, retention and your rights are in our{' '}
-          <Link to="/privacy" className="font-medium text-teal-700 underline hover:text-teal-900">
+          <Link
+            to="/privacy"
+            className="font-medium text-accent-strong underline hover:text-accent-fg"
+          >
             privacy policy
           </Link>
           .
         </span>
       </label>
-      <p className="mt-2 pl-7 text-xs text-gray-500">
+      <p className="mt-2 pl-7 text-xs text-fg-muted">
         Legal basis: Art. 6 (1) (b) GDPR — performance of a contract / pre-contractual measures.
       </p>
 
       {status === 'error' && errorMsg && (
         <div
           role="alert"
-          className="mt-5 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
+          className="mt-5 rounded-md border border-[var(--color-danger-border)] bg-[var(--color-danger-soft)] px-4 py-3 text-sm text-[var(--color-danger-fg)]"
         >
           {errorMsg}
         </div>
@@ -406,13 +470,13 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
           data-gtm-event="consumer_order_submit"
           data-gtm-page={page}
           data-gtm-product={product}
-          className="inline-flex items-center justify-center gap-2 rounded-md bg-brand-deep px-7 py-3.5 text-base font-semibold tracking-tight text-white shadow-sm transition-colors hover:bg-brand-navy-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex items-center justify-center gap-2 rounded-md bg-brand-deep px-7 py-3.5 text-base font-semibold tracking-tight text-fg-on-dark shadow-1 transition-colors hover:bg-brand-navy-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none"
         >
           {status === 'submitting' ? 'Sending…' : submitLabel || DEFAULT_SUBMIT_LABEL[product]}
         </button>
       </div>
 
-      <p className="mt-4 text-xs text-gray-500">
+      <p className="mt-4 text-xs text-fg-muted">
         Pricing and shipping confirmed by our team — no payment is taken on this form.
       </p>
     </form>
@@ -442,12 +506,15 @@ export function OrderSection({
     <section id={id} className="relative overflow-hidden bg-brand-deep py-20 lg:py-24">
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-20 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-teal-500/20 blur-3xl"
+        className="pointer-events-none absolute -top-20 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-accent-line/20 blur-3xl"
       />
-      <div className="relative mx-auto max-w-3xl px-4 text-center text-white sm:px-6 lg:px-0">
-        <span aria-hidden className="mx-auto mb-6 block h-[3px] w-12 rounded-full bg-teal-400" />
+      <div className="relative mx-auto max-w-3xl px-4 text-center text-fg-on-dark sm:px-6 lg:px-0">
+        <span
+          aria-hidden
+          className="mx-auto mb-6 block h-[3px] w-12 rounded-full bg-accent-bright"
+        />
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
-        <p className="mx-auto mt-5 max-w-xl text-lg text-white/80">{body}</p>
+        <p className="mx-auto mt-5 max-w-xl text-lg text-fg-on-dark/80">{body}</p>
       </div>
       <div className="relative mx-auto mt-12 max-w-3xl px-4 sm:px-6 lg:px-0">
         <OrderForm product={product} page={page} submitLabel={submitLabel} />

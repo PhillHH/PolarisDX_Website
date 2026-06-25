@@ -75,12 +75,12 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
     <div className={`relative ${className}`} ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`inline-flex items-center justify-center gap-2 rounded-full ${isMobile ? 'h-10 px-3 py-2' : 'px-3 py-2'} leading-none transition-colors hover:bg-white/10 text-current`}
+        className={`inline-flex items-center justify-center gap-2 rounded-full min-h-[var(--tap-target-min)] ${isMobile ? 'px-2' : 'px-3'} leading-none transition-colors hover:bg-fg-on-dark/10 text-current`}
         aria-label="Select language"
       >
         <FlagIcon
           countryCode={currentLanguage.country_code}
-          className="h-5 w-8 rounded-sm align-middle shrink-0 ring-1 ring-brand-primary/40 bg-white shadow-sm"
+          className="h-5 w-8 rounded-sm align-middle shrink-0 ring-1 ring-brand-primary/40 bg-surface shadow-1"
         />
         <span className="uppercase text-sm font-medium leading-none">{currentLanguage.code}</span>
         <svg
@@ -95,19 +95,19 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
 
       {isOpen && (
         <div
-          className={`absolute right-0 top-full mt-1 w-48 rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 z-50 overflow-hidden`}
+          className={`absolute right-0 top-full mt-1 w-48 rounded-md bg-surface py-1 shadow-2 ring-1 ring-brand-navy/5 z-50 overflow-hidden`}
         >
           {languages.map((language) => (
             <button
               key={language.code}
               onClick={() => changeLanguage(language.code)}
-              className={`flex w-full items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${
-                i18n.language === language.code ? 'bg-gray-50 font-medium text-brand-primary' : ''
+              className={`flex w-full items-center gap-3 min-h-[var(--tap-target-min)] px-4 py-2 text-sm text-fg hover:bg-bg-subtle ${
+                i18n.language === language.code ? 'bg-bg-subtle font-medium text-brand-primary' : ''
               }`}
             >
               <FlagIcon
                 countryCode={language.country_code}
-                className="h-5 w-8 rounded-sm bg-white ring-1 ring-brand-primary/40 shadow-sm"
+                className="h-5 w-8 rounded-sm bg-surface ring-1 ring-brand-primary/40 shadow-1"
               />
               <span>{language.name}</span>
             </button>

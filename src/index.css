@@ -1,14 +1,59 @@
+/* Design Tokens — Single Source of Truth (§3, Phase 1). Nur Variablen-Definitionen,
+   keine paintenden Selektoren → reiner Additiv-Import ohne visuelle Aenderung.
+   @import steht vor allen anderen Regeln (CSS-Spec). */
+@import './design-system/tokens/tokens.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
   .glass-panel {
-    @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-glass;
+    @apply bg-surface/70 backdrop-blur-xl border border-fg-on-dark/40 shadow-glass;
   }
 
   .glass-panel-dark {
-    @apply bg-gray-900/80 backdrop-blur-xl border border-white/10 shadow-glass;
+    @apply bg-brand-heading/80 backdrop-blur-xl border border-fg-on-dark/10 shadow-glass;
+  }
+
+  /* IglooWidgetSection — dekorativer Verbindungslinien-Shimmer (token-gebunden,
+     ersetzt die SMIL-`<animate>` mit Roh-Hex). stop-color ist via CSS animierbar;
+     reduced-motion stoppt die Animation (statischer Token-Gradient bleibt). */
+  .igloo-line-stop-a {
+    stop-color: var(--color-border);
+    animation: igloo-line-a 4s ease-in-out infinite;
+  }
+
+  .igloo-line-stop-b {
+    stop-color: var(--color-fg-muted);
+    animation: igloo-line-b 4s ease-in-out infinite;
+  }
+
+  @keyframes igloo-line-a {
+    0%,
+    100% {
+      stop-color: var(--color-border);
+    }
+    50% {
+      stop-color: var(--color-border-strong);
+    }
+  }
+
+  @keyframes igloo-line-b {
+    0%,
+    100% {
+      stop-color: var(--color-fg-muted);
+    }
+    50% {
+      stop-color: var(--color-border-strong);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .igloo-line-stop-a,
+    .igloo-line-stop-b {
+      animation: none;
+    }
   }
 
   .bg-noise {
@@ -20,11 +65,30 @@
 @layer base {
   :root {
     font-family: theme('fontFamily.sans');
-    color: theme('colors.gray-900');
-    background-color: #f8fafc;
+    color: var(--color-fg-heading);
+    background-color: var(--color-bg);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Teilt der UA das Render-Schema mit (native Form-Controls/Scrollbars).
+       Das Token-Set folgt prefers-color-scheme (tokens.css), daher light dark. */
+    color-scheme: light dark;
+  }
+
+  /* A11y, WCAG 2.2 (2.3.3 Animation from Interactions): respektiere die
+     System-Praeferenz GLOBAL — nicht nur die Token-Dauern (tokens.css), sondern
+     jede CSS-Transition/-Animation/Smooth-Scroll auf BELIEBIGEN Elementen.
+     !important schlaegt Utility-/Inline-Transitions; Werte ~0 (nicht 0) halten
+     `transitionend`/`animationend`-Listener am Leben. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 
   body {
@@ -39,20 +103,20 @@
   }
 
   a {
-    @apply text-gray-900 no-underline;
+    @apply text-fg-heading no-underline;
   }
 }
 
 /* Rich HTML content styling for pillar pages (e.g. dental) */
 @layer components {
   .rich-content {
-    color: #868c98;
+    color: var(--prose-fg);
     font-size: 1rem;
     line-height: 2rem;
   }
 
   .rich-content h2 {
-    color: #083358;
+    color: var(--prose-heading-fg);
     font-size: 1.25rem;
     font-weight: 600;
     letter-spacing: -0.025em;
@@ -61,7 +125,7 @@
   }
 
   .rich-content h3 {
-    color: #083358;
+    color: var(--prose-heading-fg);
     font-size: 1.1rem;
     font-weight: 600;
     margin-top: 1.5rem;
@@ -73,7 +137,7 @@
   }
 
   .rich-content strong {
-    color: #203864;
+    color: var(--prose-strong-fg);
     font-weight: 600;
   }
 
@@ -82,7 +146,7 @@
   }
 
   .rich-content a {
-    color: #0d527f;
+    color: var(--prose-link-fg);
     font-weight: 600;
     text-decoration: none;
   }
@@ -99,17 +163,17 @@
   }
 
   .rich-content thead th {
-    background: #f1f5f9;
-    color: #083358;
+    background: var(--prose-table-head-bg);
+    color: var(--prose-table-head-fg);
     font-weight: 600;
     text-align: left;
     padding: 0.75rem 1rem;
-    border-bottom: 2px solid #e2e8f0;
+    border-bottom: 2px solid var(--prose-border);
   }
 
   .rich-content tbody td {
     padding: 0.75rem 1rem;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid var(--prose-border);
   }
 
   .rich-content tbody tr:last-child td {
@@ -117,15 +181,15 @@
   }
 
   .rich-content blockquote {
-    border-left: 4px solid #0d527f;
+    border-left: 4px solid var(--prose-quote-border);
     padding: 1rem 1.5rem;
     margin: 1.5rem 0;
-    background: #f8fafc;
+    background: var(--prose-quote-bg);
     border-radius: 0 0.5rem 0.5rem 0;
   }
 
   .rich-content blockquote p {
-    color: #203864;
+    color: var(--prose-quote-fg);
     font-style: italic;
   }
 
@@ -149,8 +213,8 @@
     top: 0.5rem;
     width: 1.5rem;
     height: 1.5rem;
-    background: #0d527f;
-    color: white;
+    background: var(--prose-marker-bg);
+    color: var(--prose-marker-fg);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -165,20 +229,20 @@
   }
 
   .rich-content .info-box {
-    background: #f0f7ff;
-    border: 1px solid #bfdbfe;
+    background: var(--prose-info-bg);
+    border: 1px solid var(--prose-info-border);
     border-radius: 0.75rem;
     padding: 1.5rem;
     margin: 1.5rem 0;
   }
 
   .rich-content .info-box p {
-    color: #203864;
+    color: var(--prose-quote-fg);
   }
 
   .rich-content .cta-block {
-    background: linear-gradient(135deg, #0d527f, #083358);
-    color: white;
+    background: linear-gradient(135deg, var(--color-surface-brand), var(--color-action-primary));
+    color: var(--prose-cta-fg);
     border-radius: 1rem;
     padding: 2rem;
     margin-top: 2.5rem;
@@ -186,18 +250,18 @@
   }
 
   .rich-content .cta-block h2 {
-    color: white;
+    color: var(--prose-cta-fg);
     margin-top: 0;
   }
 
   .rich-content .cta-block p {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgb(var(--color-fg-on-dark-rgb) / 0.9);
   }
 
   .rich-content .cta-block a {
     display: inline-block;
-    background: white;
-    color: #0d527f;
+    background: var(--prose-cta-btn-bg);
+    color: var(--prose-cta-btn-fg);
     padding: 0.75rem 2rem;
     border-radius: 0.5rem;
     font-weight: 600;
@@ -207,7 +271,7 @@
   }
 
   .rich-content .cta-block a:hover {
-    background: #f0f7ff;
+    background: var(--prose-cta-btn-bg-hover);
     text-decoration: none;
   }
 }

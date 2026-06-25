@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ChevronDown, Search } from 'lucide-react'
-import { Button } from '../ui/Button'
+import { Button } from '~/design-system'
 import LanguageSwitcher from '../ui/LanguageSwitcher'
 import SearchModal from '../ui/SearchModal'
 import logo from '../../assets/polaris_white.webp'
@@ -57,12 +57,22 @@ const Header = () => {
     setOpenSubmenu(null)
   }, [location, mobileMenu.onClose])
 
+  // Close the mobile menu on Escape.
+  useEffect(() => {
+    if (!mobileMenu.isOpen) return
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') mobileMenu.onClose()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [mobileMenu.isOpen, mobileMenu.onClose])
+
   return (
     <>
       <header
         className={`fixed inset-x-0 top-0 z-30 transition-all duration-500 ease-in-out ${
           isScrolled
-            ? 'bg-brand-navy/85 shadow-[0_4px_30px_rgba(0,0,0,0.2)] backdrop-blur-xl border-b border-white/5'
+            ? 'bg-brand-navy/85 shadow-2 backdrop-blur-xl border-b border-fg-on-dark/5'
             : 'bg-transparent'
         }`}
       >
@@ -80,7 +90,7 @@ const Header = () => {
 
           {/* Desktop Nav */}
           <nav
-            className={`hidden flex-wrap items-center gap-8 text-sm font-medium tracking-wide md:flex xl:gap-12 text-white`}
+            className={`hidden flex-wrap items-center gap-8 text-sm font-medium tracking-wide md:flex xl:gap-12 text-fg-on-dark`}
           >
             {navItems.map((item) => (
               <div key={item.label} className="relative group">
@@ -88,7 +98,7 @@ const Header = () => {
                   <div className="flex items-center gap-1 cursor-pointer">
                     <Link
                       to={item.route!}
-                      className={`flex items-center gap-1 transition-all duration-300 hover:opacity-70 text-white`}
+                      className={`flex items-center gap-1 transition-all duration-300 hover:opacity-70 text-fg-on-dark`}
                     >
                       <span className="relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-current after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                         {t(`nav.${item.label}`)}
@@ -96,12 +106,12 @@ const Header = () => {
                     </Link>
                     {/* Hover trigger for submenu */}
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-6 hidden group-hover:block min-w-[180px]">
-                      <div className="bg-white/95 backdrop-blur-xl shadow-2xl rounded-xl py-3 border border-white/20 overflow-hidden ring-1 ring-black/5 animate-in fade-in zoom-in-95 duration-200">
+                      <div className="bg-surface/95 backdrop-blur-xl shadow-3 rounded-xl py-3 border border-fg-on-dark/20 overflow-hidden ring-1 ring-fg/5 animate-in fade-in zoom-in-95 duration-200">
                         {item.children.map((child) => (
                           <Link
                             key={child.label}
                             to={child.route}
-                            className="block px-6 py-2.5 text-sm text-gray-600 hover:bg-blue-50/50 hover:text-brand-primary transition-colors font-normal"
+                            className="flex items-center min-h-[var(--tap-target-min)] px-6 py-2.5 text-sm text-fg hover:bg-bg-subtle hover:text-brand-primary transition-colors font-normal"
                           >
                             {t(`nav.${child.label}`)}
                           </Link>
@@ -112,7 +122,7 @@ const Header = () => {
                 ) : (
                   <Link
                     to={item.route!}
-                    className={`flex items-center gap-1 transition-all duration-300 hover:opacity-70 text-white`}
+                    className={`flex items-center gap-1 transition-all duration-300 hover:opacity-70 text-fg-on-dark`}
                   >
                     <span className="relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-current after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                       {t(`nav.${item.label}`)}
@@ -127,22 +137,22 @@ const Header = () => {
             {/* Search Trigger Desktop */}
             <button
               onClick={searchModal.onOpen}
-              className={`p-2.5 rounded-full transition-all duration-300 hover:scale-110 text-white hover:bg-white/10`}
+              className={`flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full transition-all duration-300 hover:scale-110 text-fg-on-dark hover:bg-fg-on-dark/10`}
               aria-label="Search"
             >
               <Search className="h-4 w-4" />
             </button>
 
-            <LanguageSwitcher className="text-white" />
+            <LanguageSwitcher className="text-fg-on-dark" />
 
-            <div className={`${isScrolled ? '' : 'shadow-lg shadow-blue-900/20'} rounded-full`}>
+            <div className={`${isScrolled ? '' : 'shadow-glow-deep'} rounded-full`}>
               <Button
                 to="/contact"
                 variant={isScrolled ? 'primary' : 'outline'}
                 className={
                   isScrolled
-                    ? 'shadow-lg shadow-blue-500/25'
-                    : 'border-white/40 hover:bg-white/10 hover:border-white'
+                    ? 'shadow-glow-primary'
+                    : 'border-fg-on-dark/40 hover:bg-fg-on-dark/10 hover:border-fg-on-dark'
                 }
               >
                 {t('nav.contact')}
@@ -155,26 +165,26 @@ const Header = () => {
             {/* Search Trigger Mobile */}
             <button
               onClick={searchModal.onOpen}
-              className={`p-2 mr-1 rounded-full text-white`}
+              className={`flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center mr-1 rounded-full text-fg-on-dark`}
               aria-label="Search"
             >
               <Search className="h-5 w-5" />
             </button>
 
-            <LanguageSwitcher className="text-white" isMobile />
+            <LanguageSwitcher className="text-fg-on-dark" isMobile />
 
             <button
               type="button"
-              className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors duration-300 border-white/20 text-white bg-white/5`}
+              className={`flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full border transition-colors duration-300 border-fg-on-dark/20 text-fg-on-dark bg-fg-on-dark/5`}
               onClick={mobileMenu.onToggle}
               aria-label="Toggle navigation"
               aria-expanded={mobileMenu.isOpen}
             >
               <span className="sr-only">Toggle navigation</span>
               <div className="space-y-1.5">
-                <span className={`block h-0.5 w-5 transition-colors duration-300 bg-white`} />
-                <span className={`block h-0.5 w-5 transition-colors duration-300 bg-white`} />
-                <span className={`block h-0.5 w-5 transition-colors duration-300 bg-white`} />
+                <span className={`block h-0.5 w-5 transition-colors duration-300 bg-fg-on-dark`} />
+                <span className={`block h-0.5 w-5 transition-colors duration-300 bg-fg-on-dark`} />
+                <span className={`block h-0.5 w-5 transition-colors duration-300 bg-fg-on-dark`} />
               </div>
             </button>
           </div>
@@ -185,20 +195,22 @@ const Header = () => {
           <div
             className={`md:hidden overflow-y-auto max-h-[80vh] backdrop-blur-xl transition-all duration-300 ${
               isScrolled
-                ? 'bg-brand-navy/95 border-t border-white/10 shadow-xl'
-                : 'bg-brand-navy/95 border-t border-white/10 shadow-xl shadow-black/10'
+                ? 'bg-brand-navy/95 border-t border-fg-on-dark/10 shadow-3'
+                : 'bg-brand-navy/95 border-t border-fg-on-dark/10 shadow-3'
             }`}
           >
             <div className="mx-auto flex max-w-container flex-col gap-6 px-6 py-8">
               {navItems.map((item) => (
                 <div
                   key={item.label}
-                  className="border-b border-white/5 pb-2 last:border-0 last:pb-0"
+                  className="border-b border-fg-on-dark/5 pb-2 last:border-0 last:pb-0"
                 >
                   {item.children ? (
                     <div>
-                      <div
-                        className={`flex items-center justify-between text-lg font-light tracking-wide cursor-pointer text-white`}
+                      <button
+                        type="button"
+                        aria-expanded={openSubmenu === item.label}
+                        className={`flex w-full min-h-[var(--tap-target-min)] items-center justify-between text-left text-lg font-medium tracking-wide text-fg-on-dark`}
                         onClick={() =>
                           setOpenSubmenu(openSubmenu === item.label ? null : item.label)
                         }
@@ -207,13 +219,13 @@ const Header = () => {
                         <ChevronDown
                           className={`h-4 w-4 transition-transform duration-300 ${openSubmenu === item.label ? 'rotate-180' : ''}`}
                         />
-                      </div>
+                      </button>
                       {/* Submenu */}
                       {openSubmenu === item.label && (
-                        <div className={`pl-4 mt-3 space-y-3 border-l-2 border-white/20`}>
+                        <div className={`pl-4 mt-3 space-y-3 border-l-2 border-fg-on-dark/20`}>
                           <Link
                             to={item.route!}
-                            className={`block text-base font-light text-white/70`}
+                            className={`flex min-h-[var(--tap-target-min)] items-center text-base font-normal text-fg-on-dark/70`}
                             onClick={mobileMenu.onClose}
                           >
                             {t(`nav.${item.label}`)}
@@ -222,7 +234,7 @@ const Header = () => {
                             <Link
                               key={child.label}
                               to={child.route}
-                              className={`block text-base font-light text-white/70`}
+                              className={`flex min-h-[var(--tap-target-min)] items-center text-base font-normal text-fg-on-dark/70`}
                               onClick={mobileMenu.onClose}
                             >
                               {t(`nav.${child.label}`)}
@@ -234,7 +246,7 @@ const Header = () => {
                   ) : (
                     <Link
                       to={item.route!}
-                      className={`block text-lg font-light tracking-wide text-white`}
+                      className={`flex min-h-[var(--tap-target-min)] items-center text-lg font-medium tracking-wide text-fg-on-dark`}
                       onClick={mobileMenu.onClose}
                     >
                       {t(`nav.${item.label}`)}
@@ -245,7 +257,7 @@ const Header = () => {
               <div className="pt-4">
                 <Button
                   to="/contact"
-                  className="w-full justify-center shadow-lg"
+                  className="w-full justify-center shadow-2"
                   onClick={mobileMenu.onClose}
                   variant={isScrolled ? 'primary' : 'outline'}
                 >

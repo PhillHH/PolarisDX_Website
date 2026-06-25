@@ -4,76 +4,89 @@ export default {
   theme: {
     extend: {
       colors: {
-        // accentBlue: alias for brand.blue (#0d527f). Fixes 11 previously-undefined
-        // text-accentBlue/border-accentBlue call-sites that rendered colorless.
-        accentBlue: '#0d527f',
+        // -------------------------------------------------------------------
+        // Alle Custom-Farben referenzieren jetzt die Kanal-Tripel aus
+        // design-system/tokens/tokens.css (Single Source, §3.0 A / §3.4 / §1.8).
+        // Format rgb(var(--*-rgb) / <alpha-value>) erhaelt Tailwind-Opacity-
+        // Modifier (z. B. bg-brand-navy/85) byte-identisch — kein visueller
+        // Change (§1.6), aber keine doppelte Rohwert-Pflege mehr im Config.
+        // -------------------------------------------------------------------
+        // accentBlue: Alias fuer brand.blue (war #0d527f).
+        accentBlue: 'rgb(var(--brand-blue-rgb) / <alpha-value>)',
         brand: {
-          // -------------------------------------------------------------------
-          // LEGACY (kept as aliases — migration of call-sites is Wave 2 / 2-v).
-          // brand.deep / brand.primary / brand.secondary remain on identical
-          // hex values, no visual change.
-          // -------------------------------------------------------------------
-          primary: '#0d527f',
-          deep: '#083358', // Deeper, more elegant blue for accents
-          secondary: '#2f6fa0',
-          // -------------------------------------------------------------------
-          // NEW (Wave 2 / Fix 2-ii, additive layer — see
-          // _project-knowledge/wave-2-analyse/farb-tokens.md).
-          // navy        = canonical dark-blue (== brand.deep);
-          // navy-hover  = CTA hover state (today hard-coded #0a4170 in
-          //               shell.tsx + OrderForm.tsx, now token-backed);
-          // navy-mid    = mid-tone navy used for theme-color + OG image;
-          // blue        = current brand.primary, semantically clearer name;
-          // blue-bright = current brand.secondary, semantically clearer name.
-          // -------------------------------------------------------------------
-          navy: '#083358',
-          'navy-hover': '#0a3f63',
-          'navy-mid': '#0a3f63',
-          blue: '#0d527f',
-          'blue-bright': '#2f6fa0',
+          // LEGACY-Aliase (Call-Site-Migration = spaeter); Werte unveraendert.
+          primary: 'rgb(var(--brand-blue-rgb) / <alpha-value>)',
+          deep: 'rgb(var(--brand-navy-rgb) / <alpha-value>)',
+          secondary: 'rgb(var(--brand-blue-bright-rgb) / <alpha-value>)',
+          // Wave-2-Namen (kanonisch): navy == deep, blue == primary, blue-bright == secondary.
+          navy: 'rgb(var(--brand-navy-rgb) / <alpha-value>)',
+          'navy-hover': 'rgb(var(--brand-navy-hover-rgb) / <alpha-value>)',
+          'navy-mid': 'rgb(var(--brand-navy-mid-rgb) / <alpha-value>)',
+          blue: 'rgb(var(--brand-blue-rgb) / <alpha-value>)',
+          'blue-bright': 'rgb(var(--brand-blue-bright-rgb) / <alpha-value>)',
+          // Headline-Navy (#203864) — zugleich dunkelstes Glied der Hero-/Section-
+          // Gradients (war `to-gray-900`-Legacy-Alias). Rollen-Utility statt Roh-Palette.
+          heading: 'rgb(var(--brand-heading-rgb) / <alpha-value>)',
         },
         social: {
-          linkedin: '#0077b5',
+          linkedin: 'rgb(var(--social-linkedin-rgb) / <alpha-value>)',
         },
         ui: {
-          border: '#e2e8f0', // slate-200
-          'border-hover': '#cbd5e1', // slate-300
-          'text-muted': '#94a3b8', // slate-400
+          border: 'rgb(var(--neutral-200-rgb) / <alpha-value>)', // slate-200
+          'border-hover': 'rgb(var(--neutral-300-rgb) / <alpha-value>)', // slate-300
+          'text-muted': 'rgb(var(--neutral-400-rgb) / <alpha-value>)', // slate-400
         },
-        // Semantic group for headline text colour. Replaces the misleadingly
-        // named "gray-900" (which is actually navy #203864, not gray). Both
-        // remain valid — `text-text-heading` (new) and `text-gray-900` (legacy)
-        // resolve to the same hex.
+        // Headline-Text-Gruppe (Navy #083358). `text-text-heading` (neu) und
+        // `text-gray-900` (legacy) loesen weiterhin auf identische Toene auf.
         text: {
-          heading: '#083358',
+          heading: 'rgb(var(--brand-navy-rgb) / <alpha-value>)',
         },
-        // Accent scale — same tones as the marketing brief presentation.
-        // Canonical: accent = teal-600 (#0d9488). Use `bg-accent`, `text-accent`
-        // for the DEFAULT; `bg-accent-strong`, `bg-accent-line`, `bg-accent-soft`,
-        // `bg-accent-border`, `bg-accent-on-dark` for the specific shades.
+        // Accent-Skala (Wave-2: accent = teal-600). DEFAULT via `bg-accent`/`text-accent`.
         accent: {
-          DEFAULT: '#0d9488', // teal-600
-          strong: '#0f766e', // teal-700 — eyebrow text, hover emphasis
-          line: '#14b8a6', // teal-500 — underline accents, decorative lines
-          soft: '#f0fdfa', // teal-50  — pill backgrounds, soft tints
-          border: '#99f6e4', // teal-200 — pill borders
-          'on-dark': '#5eead4', // teal-300 — hover on the dark navy header
+          DEFAULT: 'rgb(var(--teal-600-rgb) / <alpha-value>)', // teal-600
+          strong: 'rgb(var(--teal-700-rgb) / <alpha-value>)', // teal-700
+          deep: 'rgb(var(--teal-800-rgb) / <alpha-value>)', // teal-800
+          fg: 'rgb(var(--teal-900-rgb) / <alpha-value>)', // teal-900 — dunkelster Akzent-Text
+          line: 'rgb(var(--teal-500-rgb) / <alpha-value>)', // teal-500
+          bright: 'rgb(var(--teal-400-rgb) / <alpha-value>)', // teal-400 — Deko auf Navy
+          soft: 'rgb(var(--teal-50-rgb) / <alpha-value>)', // teal-50
+          tint: 'rgb(var(--teal-100-rgb) / <alpha-value>)', // teal-100 — gefuellte Badges
+          border: 'rgb(var(--teal-200-rgb) / <alpha-value>)', // teal-200
+          'on-dark': 'rgb(var(--teal-300-rgb) / <alpha-value>)', // teal-300
         },
-        // Success / health semantic group — kept SEPARATE from accent because
-        // emerald tones in S3-Leitlinie and Vitamin D3-Implantologie carry a
-        // success / health meaning, not the brand-accent meaning.
+        // Success / health (getrennt von accent — emerald = Gesundheits-Bedeutung).
         success: {
-          DEFAULT: '#10b981', // emerald-500
-          soft: '#ecfdf5', // emerald-50
-          strong: '#059669', // emerald-600
+          DEFAULT: 'rgb(var(--green-500-rgb) / <alpha-value>)', // emerald-500
+          soft: 'rgb(var(--green-50-rgb) / <alpha-value>)', // emerald-50
+          strong: 'rgb(var(--green-600-rgb) / <alpha-value>)', // emerald-600
         },
+        // LEGACY flache Farben (Call-Site-Migration ausstehend).
+        'gray-100': 'rgb(var(--gray-100-rgb) / <alpha-value>)',
+        'gray-500': 'rgb(var(--gray-500-rgb) / <alpha-value>)',
+        'gray-900': 'rgb(var(--brand-heading-rgb) / <alpha-value>)', // #203864
+
         // -------------------------------------------------------------------
-        // LEGACY flat colours (kept as aliases — see Wave 2 / 2-v migration).
-        // gray-900 has the same hex as text.heading above.
+        // SEMANTIC TOKENS (Phase 1, additiv) — referenzieren die Semantic-Kanaele
+        // aus tokens.css. Jetzt opacity-faehig (z. B. bg-surface/80), theming-aware.
+        // Neue, kollisionsfreie Keys; ab Phase 2 konsumieren migrierte Komponenten diese.
         // -------------------------------------------------------------------
-        'gray-100': '#F5F5F5',
-        'gray-500': '#868C98',
-        'gray-900': '#203864', // Option A (default). Option B alternative: '#083358'
+        bg: 'rgb(var(--color-bg-rgb) / <alpha-value>)',
+        'bg-subtle': 'rgb(var(--color-bg-subtle-rgb) / <alpha-value>)',
+        surface: 'rgb(var(--color-surface-rgb) / <alpha-value>)',
+        fg: 'rgb(var(--color-fg-rgb) / <alpha-value>)',
+        'fg-heading': 'rgb(var(--color-fg-heading-rgb) / <alpha-value>)',
+        'fg-muted': 'rgb(var(--color-fg-muted-rgb) / <alpha-value>)',
+        'fg-on-dark': 'rgb(var(--color-fg-on-dark-rgb) / <alpha-value>)',
+        primary: 'rgb(var(--color-action-primary-rgb) / <alpha-value>)',
+        'primary-hover': 'rgb(var(--color-action-primary-hover-rgb) / <alpha-value>)',
+        danger: 'rgb(var(--color-danger-rgb) / <alpha-value>)',
+        warning: 'rgb(var(--color-warning-rgb) / <alpha-value>)',
+        // Rating/Award-Gold (Bewertungs-Sterne + Quality-Badges) — eigene Rolle.
+        rating: {
+          DEFAULT: 'rgb(var(--color-rating-rgb) / <alpha-value>)',
+          soft: 'rgb(var(--color-rating-soft-rgb) / <alpha-value>)',
+          fg: 'rgb(var(--color-rating-fg-rgb) / <alpha-value>)',
+        },
       },
       fontFamily: {
         sans: ['Inter Variable', 'Inter', 'system-ui', 'sans-serif'],
@@ -81,6 +94,9 @@ export default {
       maxWidth: {
         container: '1200px',
         page: '1440px',
+        // Token-referenziert (additiv, §3.3) — neue Keys, keine Kollision.
+        reading: 'var(--reading-width)',
+        layout: 'var(--grid-max)',
       },
       minHeight: {
         hero: '300px',
@@ -91,17 +107,85 @@ export default {
       },
       fontSize: {
         xxs: '10px',
-        'hero-sm': '40px',
-        'hero-md': '48px',
-        'hero-lg': '58px',
+        // Fluid Display-Titel (Hero/Section-Headline) — Token-referenziert (§3.3).
+        // lineHeight aus dem Token-Paar, damit text-display kein separates leading braucht.
+        display: ['var(--text-display)', { lineHeight: 'var(--line-height-display)' }],
+        'display-sm': ['var(--text-display-sm)', { lineHeight: 'var(--line-height-display-sm)' }],
+        // 404-Numeral One-off (fluid 160→192) — Leading via leading-none am Element.
+        'display-xl': 'var(--text-display-xl)',
+      },
+      lineHeight: {
+        // Fliesstext-Leading aus dem DS-Token (§3.7) — ersetzt arbitrary leading-[1.75]
+        // in den Artikel-Prose-Bloecken. Override fuer das fontSize-Default-Leading.
+        body: 'var(--line-height-body)',
+      },
+      letterSpacing: {
+        headline: 'var(--letter-spacing-tight)', // Display-Titel-Tracking (war tracking-[-0.02em])
+        overline: 'var(--letter-spacing-overline)', // Uppercase-Kicker-Tracking (war tracking-[0.16em])
       },
       boxShadow: {
-        card: '0 24px 60px rgba(8, 51, 88, 0.12)', // Tinted with brand-deep (hardcoded here because tokens in string might not work directly without interpolation, but this is JS)
-        'glow-secondary': '0 0 15px rgba(33, 153, 234, 0.5)', // Softer glow
-        glass: '0 8px 32px 0 rgba(8, 51, 88, 0.15)', // Glassmorphism shadow
+        card: '0 24px 60px rgb(var(--brand-navy-rgb) / 0.12)', // Navy-Tint via Single-Source-Kanal
+        'glow-secondary': '0 0 15px rgba(33, 153, 234, 0.5)', // Softer glow (kein Token — one-off, §1.20)
+        glass: '0 8px 32px 0 rgb(var(--brand-navy-rgb) / 0.15)', // Glassmorphism, Navy-Tint via Kanal
+        // Token-referenziert (additiv, §3.3) — neue numerische Elevation-Keys.
+        1: 'var(--shadow-1)',
+        2: 'var(--shadow-2)',
+        3: 'var(--shadow-3)',
+        inset: 'var(--shadow-inset)', // recessed Figure-Ground-Well, Navy-Tint
+        // Brand-getoente Glows fuer interaktive/erhobene Marken-Akzente (CTA/Eyebrow),
+        // Channel-referenziert (Single-Source) statt Roh-Tailwind-shadow-{color}.
+        'glow-primary': '0 8px 24px rgb(var(--brand-blue-rgb) / 0.22)',
+        'glow-primary-strong': '0 12px 32px rgb(var(--brand-blue-rgb) / 0.40)',
+        'glow-deep': '0 12px 32px rgb(var(--brand-navy-rgb) / 0.30)',
+      },
+      // -------------------------------------------------------------------
+      // SPACING-BRUECKE (additiv, §3.3): bindet die `padding-*` und `gap-*`
+      // Utilities an die --space-* Tokens, damit die Preview-Varianten den
+      // Weissraum (Section-Paddings/Gaps/Hero-Luft) site-weit ueber Tokens
+      // verschieben koennen. Nur padding/gap (keine Negative → keine
+      // calc()-Negation noetig); margin/inset bleiben auf Tailwind-Default.
+      // Werte = Tailwind-Defaults → BYTE-IDENTISCH (kein visueller Change, §1.6).
+      // width/height bleiben auf der Tailwind-Spacing-Skala (Soft Grid: nur
+      // Abstaende skalieren, nicht die Eigengroessen der Komponenten).
+      // -------------------------------------------------------------------
+      padding: {
+        1: 'var(--space-1)',
+        2: 'var(--space-2)',
+        3: 'var(--space-3)',
+        4: 'var(--space-4)',
+        6: 'var(--space-6)',
+        8: 'var(--space-8)',
+        10: 'var(--space-10)',
+        12: 'var(--space-12)',
+        16: 'var(--space-16)',
+        20: 'var(--space-20)',
+        24: 'var(--space-24)',
+      },
+      gap: {
+        1: 'var(--space-1)',
+        2: 'var(--space-2)',
+        3: 'var(--space-3)',
+        4: 'var(--space-4)',
+        6: 'var(--space-6)',
+        8: 'var(--space-8)',
+        10: 'var(--space-10)',
+        12: 'var(--space-12)',
+        16: 'var(--space-16)',
+        20: 'var(--space-20)',
+        24: 'var(--space-24)',
       },
       borderRadius: {
-        section: '24px',
+        // Token-gebrueckt (§3.3): Default-Werte = Tailwind-Defaults (byte-identisch),
+        // Themes verschieben nur die Var-Werte. `section`/`full` referenzieren die
+        // bestehenden Radius-Tokens.
+        DEFAULT: 'var(--radius-tw-default)',
+        md: 'var(--radius-tw-md)',
+        lg: 'var(--radius-tw-lg)',
+        xl: 'var(--radius-tw-xl)',
+        '2xl': 'var(--radius-tw-2xl)',
+        '3xl': 'var(--radius-tw-3xl)',
+        section: 'var(--radius-section)',
+        full: 'var(--radius-full)',
       },
       keyframes: {
         'fade-in-scale': {

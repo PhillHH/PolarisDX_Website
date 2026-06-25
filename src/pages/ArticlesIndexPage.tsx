@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, createBreadcrumbSchema } from '../components/seo'
-import { Breadcrumbs } from '../components/ui/Breadcrumbs'
-import SectionHeader from '../components/ui/SectionHeader'
+import { Breadcrumbs, SectionHeader } from '~/design-system'
 import BlogCard from '../components/ui/BlogCard'
 import { blogPosts } from '../data/blogPosts'
 import PageTransition from '../components/ui/PageTransition'
@@ -35,18 +34,17 @@ const ArticlesIndexPage = () => {
           { name: 'Artikel', url: '/articles' },
         ])}
       />
-      <div className="bg-slate-50 min-h-screen">
+      <div className="bg-bg min-h-screen">
         {/* Header Section */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white">
+        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-fg-on-dark">
           <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-fg-on-dark/30 to-transparent opacity-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-fg-on-dark/30 to-transparent opacity-10" />
 
           <div className="relative mx-auto flex min-h-hero max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
             <Reveal width="100%" yOffset={20}>
               <div className="max-w-container">
                 <Breadcrumbs
-                  variant="dark"
                   className="mb-4"
                   items={[
                     { label: t('shop:shop.home', 'Home'), href: '/' },
@@ -54,10 +52,10 @@ const ArticlesIndexPage = () => {
                   ]}
                 />
 
-                <h1 className="mb-4 text-hero-sm leading-[47px] font-medium tracking-[-0.02em] sm:text-hero-md sm:leading-[58px] lg:text-hero-lg lg:leading-[69px]">
+                <h1 className="mb-4 text-display font-medium tracking-headline">
                   {t('articles:index.title', 'Our Magazine')}
                 </h1>
-                <p className="max-w-2xl text-lg text-white/80">
+                <p className="max-w-2xl text-lg text-fg-on-dark/80">
                   {t(
                     'articles:index.subtitle',
                     'Insights, news, and expert knowledge on modern diagnostics and health.',
@@ -73,18 +71,18 @@ const ArticlesIndexPage = () => {
           <Reveal width="100%">
             {/* Featured Article */}
             <div className="mb-12">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-overline text-accent-strong">
                 {t('articles:index.featured', 'Featured')}
               </p>
               <Link
                 to="/vitamin-d3-implantologie"
-                className="group block overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-primary/30"
+                className="group block overflow-hidden rounded-2xl border border-[var(--color-border)] bg-surface shadow-1 transition-all duration-300 hover:shadow-2 hover:border-brand-primary/30"
               >
                 <div className="p-6 lg:p-8">
-                  <h2 className="text-xl font-semibold text-gray-900 group-hover:text-brand-primary transition-colors lg:text-2xl">
+                  <h2 className="text-xl font-semibold text-fg-heading group-hover:text-brand-primary transition-colors lg:text-2xl">
                     Vitamin D3 und Implantologie — Evidenz und Praxisleitfaden
                   </h2>
-                  <p className="mt-3 text-sm text-gray-500 lg:text-base">
+                  <p className="mt-3 text-sm text-fg-muted lg:text-base">
                     Wie ein optimaler Vitamin-D-Spiegel die Osseointegration fördert und
                     Implantatverluste reduziert. Wissenschaftlich fundiert mit praktischen
                     Handlungsempfehlungen.

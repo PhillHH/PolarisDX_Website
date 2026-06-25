@@ -157,8 +157,23 @@ function OrderModalDialog({
   onSubmitted: () => void
 }) {
   const closeBtnRef = useRef<HTMLButtonElement | null>(null)
+  const dirtyRef = useRef(false)
   const titleId = `order-modal-title-${product}`
   const titleCopy = PRODUCT_TITLES[product]
+
+  // Guard against discarding a partly-filled form by accident. A plain
+  // window.confirm is enough here — the action (losing typed data) is
+  // reversible only by re-typing, so we ask before closing.
+  const requestClose = useCallback(() => {
+    if (
+      dirtyRef.current &&
+      typeof window !== 'undefined' &&
+      !window.confirm('Discard your order request? Anything you typed will be lost.')
+    ) {
+      return
+    }
+    onClose()
+  }, [onClose])
 
   // Lock body scroll while the modal is open.
   useEffect(() => {
@@ -172,11 +187,11 @@ function OrderModalDialog({
   // Close on Escape.
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') onClose()
+      if (e.key === 'Escape') requestClose()
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [onClose])
+  }, [requestClose])
 
   // Move focus to the close button on open (light a11y baseline).
   useEffect(() => {
@@ -194,30 +209,28 @@ function OrderModalDialog({
       <button
         type="button"
         aria-label="Close order request"
-        onClick={onClose}
+        onClick={requestClose}
         tabIndex={-1}
         className="absolute inset-0 animate-modal-backdrop-in bg-brand-deep/70 backdrop-blur-sm motion-reduce:animate-none motion-reduce:opacity-100"
       />
 
       {/* Dialog card — translate + scale + brief teal halo on enter */}
-      <div className="relative flex max-h-[95vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-2xl bg-slate-50 shadow-2xl animate-modal-card-in motion-reduce:animate-none motion-reduce:opacity-100 sm:max-h-[90vh] sm:rounded-2xl">
+      <div className="relative flex max-h-[95vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-2xl bg-bg shadow-3 animate-modal-card-in motion-reduce:animate-none motion-reduce:opacity-100 sm:max-h-[90vh] sm:rounded-2xl">
         {/* Header */}
-        <div className="relative flex-none border-b border-slate-200 bg-white px-6 py-5 sm:px-8">
-          <p className="text-xs font-semibold uppercase tracking-[1.6px] text-teal-700">
+        <div className="relative flex-none border-b border-[var(--color-border)] bg-surface px-6 py-5 sm:px-8">
+          <p className="text-xs font-semibold uppercase tracking-overline text-accent-strong">
             {titleCopy.eyebrow}
           </p>
-          <h2 id={titleId} className="mt-1 pr-10 text-xl font-bold text-gray-900 sm:text-2xl">
+          <h2 id={titleId} className="mt-1 pr-10 text-xl font-bold text-fg-heading sm:text-2xl">
             {titleCopy.title}
           </h2>
-          <p className="mt-2 max-w-md pr-10 text-sm leading-relaxed text-gray-600">
-            {titleCopy.sub}
-          </p>
+          <p className="mt-2 max-w-md pr-10 text-sm leading-relaxed text-fg">{titleCopy.sub}</p>
           <button
             ref={closeBtnRef}
             type="button"
-            onClick={onClose}
+            onClick={requestClose}
             aria-label="Close order request"
-            className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-slate-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+            className="absolute right-4 top-4 flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full text-fg-muted transition-colors hover:bg-bg-subtle hover:text-fg-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line"
           >
             <X className="h-5 w-5" aria-hidden />
           </button>
@@ -225,7 +238,14 @@ function OrderModalDialog({
 
         {/* Body — scrolls when the form is taller than the viewport */}
         <div className="flex-1 overflow-y-auto p-4 sm:p-6">
-          <OrderForm product={product} page={page} onSubmitted={onSubmitted} />
+          <OrderForm
+            product={product}
+            page={page}
+            onSubmitted={onSubmitted}
+            onDirtyChange={(dirty) => {
+              dirtyRef.current = dirty
+            }}
+          />
         </div>
       </div>
     </div>

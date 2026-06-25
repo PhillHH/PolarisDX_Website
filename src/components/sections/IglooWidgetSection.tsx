@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Sparkles, Infinity as InfinityIcon } from 'lucide-react'
 import { Tooth } from '../ui/icons/Tooth'
-import Eyebrow from '../ui/Eyebrow'
+import { Container, Eyebrow } from '~/design-system'
 import iglooImage from '../../assets/igloo_front.webp'
 
 const IglooWidgetSection = () => {
@@ -43,34 +43,24 @@ const IglooWidgetSection = () => {
   ]
 
   return (
-    <section className="relative py-20 lg:py-32 bg-slate-50 overflow-visible">
-      <div className="mx-auto max-w-container px-4 text-center lg:px-0 mb-16 relative z-10">
+    <section className="relative py-20 lg:py-32 bg-bg overflow-x-clip">
+      <Container className="text-center mb-16 relative z-10">
         <Eyebrow size="default" className="mb-8">
           {t('igloo_widget.title', 'Anwendungsbereiche')}
         </Eyebrow>
-      </div>
+      </Container>
 
       <div className="mx-auto flex w-full flex-col items-center justify-center gap-10 lg:block lg:h-[600px] lg:w-[1200px] relative px-4 lg:px-0">
         {/* Decorative connecting lines for desktop (Triangle) */}
         <svg className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0">
           <defs>
+            {/* Dekorativer Verbindungslinien-Gradient. Shimmer ueber CSS-Keyframes
+                (token-gebunden, `.igloo-line-stop-*` in index.css) statt SMIL —
+                SMIL `values` kann keine var(--token) referenzieren (§1.7) und
+                respektiert kein prefers-reduced-motion (§5/§1.11). */}
             <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#e2e8f0">
-                <animate
-                  attributeName="stop-color"
-                  values="#e2e8f0;#cbd5e1;#e2e8f0"
-                  dur="4s"
-                  repeatCount="indefinite"
-                />
-              </stop>
-              <stop offset="100%" stopColor="#94a3b8">
-                <animate
-                  attributeName="stop-color"
-                  values="#94a3b8;#cbd5e1;#94a3b8"
-                  dur="4s"
-                  repeatCount="indefinite"
-                />
-              </stop>
+              <stop offset="0%" className="igloo-line-stop-a" />
+              <stop offset="100%" className="igloo-line-stop-b" />
             </linearGradient>
           </defs>
 
@@ -89,7 +79,7 @@ const IglooWidgetSection = () => {
         {/* Central Image with Glow */}
         <div className="relative z-10 flex justify-center items-center h-full w-full pointer-events-none">
           {/* Blue Glow Effect */}
-          <div className="absolute w-[300px] h-[300px] bg-blue-100/50 blur-[80px] rounded-full mix-blend-multiply pointer-events-none" />
+          <div className="absolute w-[300px] h-[300px] bg-brand-blue/10 blur-[80px] rounded-full mix-blend-multiply pointer-events-none" />
 
           <img
             src={iglooImage}
@@ -113,10 +103,10 @@ const IglooWidgetSection = () => {
                 group flex items-center justify-center
                 relative z-40
                 rounded-2xl
-                shadow-lg shadow-brand-deep/30 transition-all duration-300 hover:scale-105 hover:shadow-2xl
+                shadow-glow-deep transition-all duration-300 hover:scale-105 hover:shadow-3
                 w-full max-w-[95vw] sm:max-w-[90vw] h-32 sm:h-36
-                bg-gradient-to-br from-brand-primary/90 via-brand-deep/90 to-gray-900/90
-                border border-white/10 backdrop-blur-md
+                bg-gradient-to-br from-brand-primary/90 via-brand-deep/90 to-brand-heading/90
+                border border-fg-on-dark/10 backdrop-blur-md
                 lg:absolute lg:left-[var(--x)] lg:top-[var(--y)] lg:-translate-x-1/2 lg:-translate-y-1/2
                 lg:w-80 lg:h-48
               `}
@@ -133,10 +123,10 @@ const IglooWidgetSection = () => {
                   {widget.icon}
                 </div>
                 <div className="flex flex-col items-start gap-1">
-                  <span className="text-2xl font-medium text-white text-left group-hover:text-white transition-colors">
+                  <span className="text-2xl font-medium text-fg-on-dark text-left group-hover:text-fg-on-dark transition-colors">
                     {widget.label}
                   </span>
-                  <span className="text-sm font-medium text-slate-100 group-hover:text-white transition-colors">
+                  <span className="text-sm font-medium text-fg-on-dark/80 group-hover:text-fg-on-dark transition-colors">
                     {t('common:read_more', 'Mehr erfahren')} →
                   </span>
                 </div>

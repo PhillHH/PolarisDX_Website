@@ -20,6 +20,7 @@ import { lazy, Suspense } from 'react'
 import { Routes, Route, Navigate, Outlet, useParams } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 import GtmPageview from './components/analytics/GtmPageview'
+import { RootErrorBoundary, SegmentErrorBoundary, RouteFallback } from './routing'
 
 // =============================================================================
 // EAGER IMPORTS - Werden sofort geladen
@@ -32,6 +33,7 @@ import HomePage from './pages/HomePage'
 import { CookieBanner } from './components/ui/CookieBanner'
 import MobileCallButton from './components/ui/MobileCallButton'
 import ChatWidget from './components/ui/ChatWidget'
+import ThemePreviewSwitcher from './components/ui/ThemePreviewSwitcher'
 
 // =============================================================================
 // LAZY IMPORTS - Werden erst bei Bedarf geladen
@@ -66,6 +68,10 @@ const ImprintPage = lazy(() => import('./pages/ImprintPage'))
 const DownloadsPage = lazy(() => import('./pages/DownloadsPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
+// Lebende Pattern Library (§Phase 7.1) — eigene schlanke Chrome, kein B2B-Layout,
+// noindex. Importiert dieselben DS-Komponenten wie die App (Holy Grail §7.8).
+const StyleguidePage = lazy(() => import('./pages/StyleguidePage'))
+
 // Consumer-Landingpages (unlisted — eigene Chrome, kein B2B-Layout)
 // Eager imports for the consumer landing pages (not lazy).
 // Why: these are paid-traffic landing pages from Instagram/LinkedIn. The
@@ -83,13 +89,13 @@ import ConsumerDuoPage from './pages/consumer/DuoPage'
 
 /**
  * Wrapper für lazy-geladene Routen.
- * fallback={null} ist korrekt weil:
- * - SSR hat bereits den Content gerendert
- * - React 19 behält das Server-HTML bis der Chunk geladen ist
- * - Kein visueller Flash
+ * Bei der ERSTEN SSR-Hydration bleibt das Server-HTML stehen (React 19) — das
+ * Skelett erscheint hier nicht. Es greift nur bei echten CLIENT-Navigationen
+ * auf einen noch nicht geladenen Chunk (langsame Verbindung) und ersetzt das
+ * frühere `fallback={null}` durch ein zugängliches Lade-Skelett (DoD P8).
  */
 function LazyRoute({ children }: { children: React.ReactNode }) {
-  return <Suspense fallback={null}>{children}</Suspense>
+  return <Suspense fallback={<RouteFallback />}>{children}</Suspense>
 }
 
 // Redirect helper for /services/:slug → /diagnostics/:slug
@@ -112,7 +118,11 @@ function MainLayout() {
     <Layout>
       <MobileCallButton />
       <ChatWidget />
-      <Outlet />
+      {/* Segment-Boundary: ein Fehler EINER Seite degradiert nur den
+          Inhaltsbereich; Header/Footer/Navigation bleiben bedienbar (DoD P8). */}
+      <SegmentErrorBoundary name="main">
+        <Outlet />
+      </SegmentErrorBoundary>
     </Layout>
   )
 }
@@ -123,7 +133,7 @@ function MainLayout() {
 
 function App() {
   return (
-    <>
+    <RootErrorBoundary>
       {/* Sendet bei jedem clientseitigen Routenwechsel einen GA4 page_view
           (SPA-Tracking, site-weit, alle Sprachen). */}
       <GtmPageview />
@@ -154,6 +164,21 @@ function App() {
           element={
             <LazyRoute>
               <ConsumerDuoPage />
+            </LazyRoute>
+          }
+        />
+
+        {/* ---------------------------------------------------------------------
+          PATTERN LIBRARY / STYLEGUIDE (§Phase 7.1)
+          Interne, lebende Komponenten-Galerie. Eigene schlanke Chrome (kein
+          B2B-Layout), noindex, nicht in Navigation/Sitemap. Importiert dieselbe
+          Quelle wie die App (Holy Grail §7.8).
+      --------------------------------------------------------------------- */}
+        <Route
+          path="/styleguide"
+          element={
+            <LazyRoute>
+              <StyleguidePage />
             </LazyRoute>
           }
         />
@@ -312,7 +337,10 @@ function App() {
       </Routes>
       {/* Cookie consent — site-wide so the consumer landing pages get it too (GTM/Consent Mode). */}
       <CookieBanner />
-    </>
+      {/* Preview-Umschalter fuer die Design-Varianten (fresh-1|2|3). Laeuft hinter
+          Basic-Auth im Preview; klein/unaufdringlich, a11y-ok. */}
+      <ThemePreviewSwitcher />
+    </RootErrorBoundary>
   )
 }
 

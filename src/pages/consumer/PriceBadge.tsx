@@ -203,7 +203,7 @@ export function PriceBadge({ product }: { product: ConsumerOrderProduct }) {
 
   return (
     <>
-      <span className="inline-flex items-center gap-3 rounded-full border border-brand-blue/40 bg-white px-5 py-3 text-sm text-gray-700 shadow-[0_2px_8px_rgba(15,95,149,0.12)]">
+      <span className="inline-flex items-center gap-3 rounded-full border border-brand-blue/40 bg-surface px-5 py-3 text-sm text-fg shadow-1">
         <span
           aria-hidden
           className="flex h-9 w-9 items-center justify-center rounded-full bg-accent-soft text-base font-bold text-accent-strong"
@@ -226,7 +226,7 @@ export function PriceBadge({ product }: { product: ConsumerOrderProduct }) {
             aria-expanded={open}
             aria-controls={popoverId}
             aria-label={open ? copy.ariaHide : copy.ariaShow}
-            className="group inline-flex items-baseline gap-1 rounded-sm align-baseline text-gray-700 transition-colors hover:text-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+            className="group inline-flex items-baseline gap-1 rounded-sm align-baseline text-fg transition-colors hover:text-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
           >
             <span className="border-b border-dotted border-current">{copy.trigger}</span>
             <Info className="h-3.5 w-3.5 translate-y-[1px] text-accent-strong" aria-hidden />
@@ -248,22 +248,22 @@ export function PriceBadge({ product }: { product: ConsumerOrderProduct }) {
                 top: `${pos.top}px`,
                 width: `${Math.min(POPOVER_WIDTH_PX, window.innerWidth - POPOVER_VIEWPORT_MARGIN * 2)}px`,
               }}
-              className="z-50 animate-popover-in rounded-2xl border-2 border-brand-blue bg-white p-5 text-left shadow-[0_18px_50px_rgba(15,95,149,0.22)] ring-1 ring-inset ring-accent-soft motion-reduce:animate-none"
+              className="z-50 animate-popover-in rounded-2xl border-2 border-brand-blue bg-surface p-5 text-left shadow-3 ring-1 ring-inset ring-accent-soft motion-reduce:animate-none"
             >
               <span
                 aria-hidden
-                className="absolute -top-[9px] left-1/2 h-4 w-4 -translate-x-1/2 rotate-45 rounded-[3px] border-l-2 border-t-2 border-brand-blue bg-white"
+                className="absolute -top-[9px] left-1/2 h-4 w-4 -translate-x-1/2 rotate-45 rounded-[3px] border-l-2 border-t-2 border-brand-blue bg-surface"
               />
 
               <div className="flex items-center gap-2">
                 <span className="h-px w-6 bg-accent-line" aria-hidden />
-                <p className="text-[11px] font-bold uppercase tracking-[1.6px] text-brand-deep">
+                <p className="text-xs font-bold uppercase tracking-overline text-brand-deep">
                   {copy.popoverEyebrow}
                 </p>
-                <span className="h-px flex-1 bg-slate-200" aria-hidden />
+                <span className="h-px flex-1 bg-[var(--color-border)]" aria-hidden />
               </div>
 
-              <ul className="mt-3 space-y-2 text-sm leading-snug text-gray-700">
+              <ul className="mt-3 space-y-2 text-sm leading-snug text-fg">
                 {copy.derivation.map((line) => (
                   <li key={line} className="flex gap-3">
                     <span
@@ -282,7 +282,7 @@ export function PriceBadge({ product }: { product: ConsumerOrderProduct }) {
                 </span>
               </div>
 
-              <p className="mt-3 text-[11px] leading-relaxed text-gray-500">{copy.footnote}</p>
+              <p className="mt-3 text-xs leading-relaxed text-fg-muted">{copy.footnote}</p>
             </div>,
             document.body,
           )
