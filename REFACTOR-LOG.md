@@ -3030,3 +3030,64 @@ npm run lint       → ✓ 0 errors / 15 Baseline-warns
 abgehakt in EXECUTION-PLAN.md. Offen für Phase-3-Abschluss: nur noch **Punkt 2**
 (Typo-Skala-Schlussbeleg). Laufzeit-axe-WCAG-AA weiterhin auf CI/Preview verlagert
 (Memory `sandbox-runtime-gates-blocked`).
+
+### Einheit 3x — Typo-Skala-Schlussbeleg (§3.7 / DoD Punkt 2) (2026-06-25)
+
+Schließt **DoD Phase 3, Punkt 2** („Texte folgen Typo-Skala; kein Ad-hoc-
+`font-size`; Body ≥16px; Fließtext linksbündig + begrenzte Breite; kein Light-
+Gewicht für kleinen Text; Header-Body-Gewicht ≥2 Stufen"). Verifikations-Einheit:
+die token-basierte Typografie (Phase 1, `tokens.css` 8-stufige Skala + handgebaute
+Gewichte) erfüllt die Kriterien bereits — Befund per ausgeführten Greps, **kein
+Code-Change** nötig (Gates-Stand = Commit 3w).
+
+**Befund je Sub-Kriterium:**
+
+- _kein Light-Gewicht für kleinen Text:_ `font-(thin|extralight|light)` /
+  `font-weight:[123]00` über gesamte `src` = ∅. Leichtestes genutztes Gewicht =
+  `font-normal`/400 (Body).
+- _kein Ad-hoc-`font-size` / Texte folgen Skala:_ `text-[Npx|Nrem]` (Literal) +
+  inline `fontSize` = ∅. Die einzigen arbitrary-`text-[…]`-Größen sind
+  **token-gebunden** (`text-[length:var(--input-font-size)]`,
+  `text-[length:var(--section-header-title-size)]`) — Rest läuft über die
+  Tailwind-rem-Skala (`text-sm`…`text-display`), die auf `--font-size-*` mappt.
+- _Body ≥16px:_ `--font-size-300: 1rem /*16 = Body, MIN*/`; `--text-body` /
+  `--input-font-size` = `--font-size-300`; `.rich-content` Fließtext = `1rem`.
+  Kleinere Stufen (14/12px) nur für Labels/Captions/Eyebrows/Tabellen, **nicht**
+  Body.
+- _Fließtext linksbündig:_ `text-justify` = ∅; `.rich-content` + `thead th`
+  default/explizit `text-align:left`.
+- _begrenzte Breite:_ `--reading-width: 68ch` (50–75ch-Korridor) live via
+  Tailwind-`max-w-reading` (`tailwind.config.js:98`), angewandt auf Legal-
+  Fließtext (`PrivacyPage`). Flächendeckender Artikel-/Prosa-Rollout =
+  **Phase-4**-Container-Task (Forms/Artikel = `max-w-reading` schmal).
+- _Header-Body-Gewicht ≥2 Stufen (Größe+Gewicht, §3.7-Quelle):_ Body = 400
+  (`body` ohne `font-weight`-Override). Kleinste Header (`.rich-content h2/h3`,
+  UI-`h2`/`h3`) = `font-semibold`/600 → **+2 Gewichtsstufen** (400→500→600).
+  Große Display-`h1`/`h2` = `font-medium`/500, überspringen aber ≥4 **Größen**-
+  Stufen (16px Body → `text-display` 32–64px) → Hierarchie via Größe dominiert.
+  In **jedem** Fall Header-vs-Body-Skip ≥2 Stufen.
+
+**Verifikation (ausgeführt §1.15, 2026-06-25):**
+
+```
+rg -niP "font-(thin|extralight|light)\b|font-weight:\s*[123]00\b" src --glob '!*.test.*'  → ∅
+rg -nP  "text-\[(?:[0-9.]+(px|rem|em))\]|fontSize\s*:" src --glob '!*.test.*'             → ∅
+rg -nP  "text-justify" src --glob '!*.test.*'                                             → ∅
+rg -n   "font-size-300:\s*1rem" tokens.css      → "1rem /*16 = Body, MIN*/"
+rg -n   "reading:\s*'var\(--reading-width\)'" tailwind.config.js  → vorhanden; max-w-reading @ PrivacyPage
+# Gates (Stand Commit 3w, kein Code-Change in 3x):
+npm run build / typecheck / lint  → ✓ exit 0 / 0 errors (pre-commit-Hook 3w bestätigt)
+```
+
+**ASSUMPTION — needs human confirmation (§1.17):** Display-Headlines nutzen
+bewusst `font-medium`/500 (Inter-Variable-Großdisplay-Ästhetik, konsistent über
+alle Hero-/Page-Titel); die Header-Body-Hierarchie wird dort über den großen
+Größen-Skip getragen, nicht über das Gewicht. Bei gewünschtem reinem
+Gewichts-Kriterium (≥600 auch für Display) wäre ein globaler Schrift-Gewichts-
+Switch nötig — Marken-/Design-Entscheidung, nicht eigenmächtig geändert.
+
+→ **DoD Phase 3, Punkt 2** durch ausgeführte Greps + grüne Gates (3w) belegt,
+abgehakt in EXECUTION-PLAN.md. **Damit alle 5 DoD-Punkte der Phase 3 grün** (Punkte
+1–4 + „0 hartkodierte visuelle Werte"). Laufzeit-axe-WCAG-AA (Kontrast/Fokus an
+laufender Instanz) bleibt auf CI/Preview verlagert (Memory
+`sandbox-runtime-gates-blocked`).
