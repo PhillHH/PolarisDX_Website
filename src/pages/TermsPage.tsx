@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { SEOHead } from '../components/seo'
+import { Container } from '~/design-system'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 
@@ -23,28 +24,31 @@ const TermsPage = () => {
         )}
         noindex={true}
       />
-      <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-brand-primary text-white">
-        <div className="mx-auto max-w-container px-4 text-center lg:px-0">
+      <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-brand-primary text-fg-on-dark">
+        <Container className="text-center">
           <Reveal width="100%" yOffset={20}>
             <div className="flex justify-center">
-              <div className="inline-block rounded p-px bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 mb-2">
-                <div className="rounded-sm bg-slate-50 px-3 py-1">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-gray-900">
+              {/* ASSUMPTION — needs human confirmation: dekorativer Rainbow-Gradient
+                  (cyan→blue→purple) hatte keine DS-Rolle; auf kohärenten Brand-
+                  Cool-Gradient (blue-bright→blue→heading) tokenisiert (§3.3). */}
+              <div className="inline-block rounded p-px bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-heading mb-2">
+                <div className="rounded-sm bg-bg px-3 py-1">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-fg-heading">
                     {t('agb.title', 'AGB')}
                   </span>
                 </div>
               </div>
             </div>
-            <h1 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl text-white">
+            <h1 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl text-fg-on-dark">
               {t('agb.title')}
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-white/80">{t('agb.subtitle')}</p>
-            <p className="mt-4 text-sm text-white/60">{t('agb.date')}</p>
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-fg-on-dark/80">{t('agb.subtitle')}</p>
+            <p className="mt-4 text-sm text-fg-on-dark/60">{t('agb.date')}</p>
           </Reveal>
-        </div>
+        </Container>
       </div>
 
-      <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
+      <Container className="py-16 lg:py-24">
         <div className="lg:grid lg:grid-cols-4 lg:gap-12">
           {/* Main Content - Left side on desktop */}
           <div className="lg:col-span-3 prose prose-slate max-w-none dark:prose-invert">
@@ -52,12 +56,12 @@ const TermsPage = () => {
               {Array.isArray(sections) &&
                 sections.map((section) => (
                   <section key={section.id} id={section.id} className="mb-10 scroll-mt-32">
-                    <h2 className="text-xl font-semibold tracking-tight text-slate-900 mb-3">
+                    <h2 className="text-xl font-semibold tracking-tight text-fg-heading mb-3">
                       {section.title}
                     </h2>
                     {Array.isArray(section.content) &&
                       section.content.map((paragraph, idx) => (
-                        <p key={idx} className="text-slate-700 leading-relaxed">
+                        <p key={idx} className="text-fg leading-relaxed">
                           {paragraph}
                         </p>
                       ))}
@@ -70,7 +74,7 @@ const TermsPage = () => {
           <aside className="hidden lg:block lg:col-span-1">
             <Reveal width="100%" delay={0.2}>
               <div className="sticky top-32 max-h-[calc(100vh-10rem)] overflow-y-auto pr-2">
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-900 mb-4 border-b pb-2">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-fg-heading mb-4 border-b pb-2">
                   Inhalt
                 </h3>
                 <nav className="flex flex-col space-y-2">
@@ -79,7 +83,7 @@ const TermsPage = () => {
                       <a
                         key={section.id}
                         href={`#${section.id}`}
-                        className="text-sm text-slate-600 hover:text-brand-primary hover:translate-x-1 transition-all block truncate"
+                        className="text-sm text-fg-muted hover:text-brand-primary hover:translate-x-1 transition-all block truncate"
                         title={section.title}
                       >
                         {section.title}
@@ -90,7 +94,7 @@ const TermsPage = () => {
             </Reveal>
           </aside>
         </div>
-      </div>
+      </Container>
     </PageTransition>
   )
 }

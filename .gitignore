@@ -39,3 +39,6 @@ __pycache__/
 *.xlsx
 *.csv
 kontakte.*
+
+# Phase 0 baseline screenshots — regenerate via scripts/baseline-screenshots.mjs (binary, not versioned)
+docs/baseline-screenshots/

@@ -1,6 +1,5 @@
 import { useHeroSlider } from '../../hooks/useHeroSlider'
-import { Button } from '../ui/Button'
-import StatItem from '../ui/StatItem'
+import { Button, Stat, Stack } from '~/design-system'
 import { useState, useEffect, useRef } from 'react'
 import iglooLogoWhite from '../../assets/igloo_logo_white.webp'
 
@@ -78,7 +77,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white min-h-[700px] lg:h-[800px]"
+      className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-fg-on-dark min-h-[700px] lg:h-[800px]"
     >
       {/* Noise Overlay */}
       <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
@@ -108,22 +107,22 @@ const HeroSection = () => {
               {/* SEO: Only first slide (dental) gets H1, others get H2 */}
               <div className={getContentAnimationClass()}>
                 {displaySlide === 0 ? (
-                  <h1 className="max-w-3xl font-medium tracking-[-0.02em] text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)]">
+                  <h1 className="max-w-3xl font-medium tracking-headline text-display">
                     {currentDisplaySlide.content.title}
                   </h1>
                 ) : (
-                  <h2 className="max-w-3xl font-medium tracking-[-0.02em] text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)]">
+                  <h2 className="max-w-3xl font-medium tracking-headline text-display">
                     {currentDisplaySlide.content.title}
                   </h2>
                 )}
-                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/80 sm:text-base">
+                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-fg-on-dark/80 sm:text-base">
                   {currentDisplaySlide.content.description}
                 </p>
               </div>
             </div>
 
             {/* Buttons and Stats - always visible */}
-            <div className="flex flex-col gap-3">
+            <Stack gap={3}>
               <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-6">
                 <Button
                   to="/contact"
@@ -144,34 +143,36 @@ const HeroSection = () => {
               </div>
 
               <div className="mt-6 flex flex-row items-start gap-6 lg:mt-4">
-                <StatItem
+                <Stat
                   value={t('hero.stat1.value', '48h')}
                   label={t('hero.stat1.label', 'Einsatzbereit nach Bestellung')}
-                  size="sm"
                   className="scale-75 origin-top-left py-0"
                 />
-                <StatItem
+                <Stat
                   value={t('hero.stat2.value', 'CV < 2%')}
                   label={t('hero.stat2.label', 'Präzision über den gesamten Messbereich')}
-                  size="sm"
                   className="scale-75 origin-top-left py-0"
                 />
               </div>
-            </div>
+            </Stack>
 
             {/* Slider Navigation Dots */}
-            <div className="flex space-x-3 mt-8">
+            <div className="flex mt-8">
               {slides.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    currentSlide === index
-                      ? 'w-8 bg-brand-secondary'
-                      : 'w-2.5 bg-white/30 hover:bg-white/50'
-                  }`}
+                  className="group flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center"
                   aria-label={`Go to slide ${index + 1}`}
-                />
+                >
+                  <span
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                      currentSlide === index
+                        ? 'w-8 bg-brand-secondary'
+                        : 'w-2.5 bg-fg-on-dark/30 group-hover:bg-fg-on-dark/50'
+                    }`}
+                  />
+                </button>
               ))}
             </div>
           </div>
@@ -203,7 +204,7 @@ const HeroSection = () => {
                         <Icon
                           size={600}
                           strokeWidth={0.5}
-                          className="text-white/90 drop-shadow-2xl relative z-10"
+                          className="text-fg-on-dark/90 drop-shadow-2xl relative z-10"
                         />
                       )
                     })()}

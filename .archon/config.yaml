@@ -1,0 +1,6 @@
+# Archon repo-config.
+# TEMPORÄR: baseBranch zeigt auf den gesicherten Redesign-Branch (Phasen 0-3),
+# damit polaris-redesign-auto darauf AUFBAUT statt 0-3 von main neu zu machen.
+# Nach Abschluss des Laufs wieder entfernen / auf main zurücksetzen.
+worktree:
+  baseBranch: archon/thread-eeb30702

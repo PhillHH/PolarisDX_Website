@@ -205,19 +205,19 @@ export const CookieBanner: React.FC = () => {
   if (!isVisible) return null
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[70] p-4 bg-white border-t border-gray-200 shadow-lg md:p-6 animate-in slide-in-from-bottom duration-300">
+    <div className="fixed bottom-0 left-0 right-0 z-[70] p-4 bg-surface border-t border-[var(--color-border)] shadow-2 md:p-6 animate-in slide-in-from-bottom duration-300">
       <div className="max-w-7xl mx-auto flex flex-col gap-4">
         {/* Main Content */}
         <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
           <div className="flex gap-4 items-start">
-            <div className="p-2 bg-blue-50 rounded-lg text-blue-600 hidden md:block">
+            <div className="p-2 bg-accent-soft rounded-lg text-accent hidden md:block">
               <Shield size={24} />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-1">
+              <h3 className="text-lg font-semibold text-fg-heading mb-1">
                 {t('cookie.title', 'Wir respektieren Ihre Privatsphäre')}
               </h3>
-              <p className="text-gray-600 text-sm md:text-base max-w-3xl">
+              <p className="text-fg text-sm md:text-base max-w-3xl">
                 {t(
                   'cookie.description',
                   'Wir nutzen Cookies, um Ihnen die bestmögliche Nutzung unserer Webseite zu ermöglichen und unsere Kommunikation mit Ihnen zu verbessern. Wir berücksichtigen hierbei Ihre Präferenzen und verarbeiten Daten nur, wenn Sie uns durch Klicken auf "Alle akzeptieren" Ihr Einverständnis geben oder über "Einstellungen" eine spezifische Auswahl treffen.',
@@ -226,16 +226,16 @@ export const CookieBanner: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto min-w-[300px]">
+          <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto md:min-w-[300px]">
             <button
               onClick={handleRejectAll}
-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+              className="px-4 py-3 text-sm font-medium text-fg bg-surface border border-[var(--color-border-strong)] rounded-md hover:bg-bg-subtle focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-focus-ring)] transition-colors"
             >
               {t('cookie.reject_all', 'Nur notwendige')}
             </button>
             <button
               onClick={() => setShowSettings(!showSettings)}
-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors flex items-center justify-center gap-2"
+              className="px-4 py-3 text-sm font-medium text-fg bg-surface border border-[var(--color-border-strong)] rounded-md hover:bg-bg-subtle focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-focus-ring)] transition-colors flex items-center justify-center gap-2"
             >
               {showSettings
                 ? t('cookie.hide', 'Ausblenden')
@@ -244,7 +244,7 @@ export const CookieBanner: React.FC = () => {
             </button>
             <button
               onClick={handleAcceptAll}
-              className="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors shadow-sm"
+              className="px-4 py-3 text-sm font-medium text-fg-on-dark bg-primary border border-transparent rounded-md hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-focus-ring)] transition-colors shadow-1"
             >
               {t('cookie.accept_all', 'Alle akzeptieren')}
             </button>
@@ -253,20 +253,21 @@ export const CookieBanner: React.FC = () => {
 
         {/* Settings Panel */}
         {showSettings && (
-          <div className="mt-4 border-t border-gray-100 pt-4 animate-in fade-in duration-200">
+          <div className="mt-4 border-t border-[var(--color-border)] pt-4 animate-in fade-in duration-200">
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {categories.map((category) => (
                 <div
                   key={category.id}
                   className={`p-4 rounded-lg border ${
                     category.enabled
-                      ? 'border-blue-200 bg-blue-50/50'
-                      : 'border-gray-200 bg-gray-50/50'
+                      ? 'border-accent-border bg-accent-soft/50'
+                      : 'border-[var(--color-border)] bg-bg-subtle/50'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <span className="font-medium text-gray-900">{t(category.nameKey)}</span>
+                    <span className="font-medium text-fg-heading">{t(category.nameKey)}</span>
                     <label className="relative inline-flex items-center cursor-pointer">
+                      <span className="sr-only">{t(category.nameKey)}</span>
                       <input
                         type="checkbox"
                         className="sr-only peer"
@@ -275,20 +276,20 @@ export const CookieBanner: React.FC = () => {
                         onChange={() => toggleCategory(category.id)}
                       />
                       <div
-                        className={`w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
+                        className={`w-11 h-6 bg-[var(--color-border)] peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[var(--color-focus-ring)] rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-[var(--color-fg-on-dark)] after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-surface after:border-[var(--color-border-strong)] after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
                           category.required ? 'opacity-50 cursor-not-allowed' : ''
-                        } peer-checked:bg-blue-600`}
+                        } peer-checked:bg-accent`}
                       ></div>
                     </label>
                   </div>
-                  <p className="text-xs text-gray-500">{t(category.descriptionKey)}</p>
+                  <p className="text-xs text-fg-muted">{t(category.descriptionKey)}</p>
                 </div>
               ))}
             </div>
             <div className="mt-4 flex justify-end">
               <button
                 onClick={handleSaveSettings}
-                className="px-6 py-2 text-sm font-medium text-white bg-gray-900 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors"
+                className="px-6 py-3 text-sm font-medium text-fg-on-dark bg-primary rounded-md hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-focus-ring)] transition-colors"
               >
                 {t('cookie.save_selection', 'Auswahl speichern')}
               </button>

@@ -19,6 +19,7 @@
     "format:check": "prettier --check .",
     "test": "vitest run --reporter=default",
     "test:e2e": "playwright test",
+    "audit:a11y": "node scripts/a11y-audit.mjs",
     "server": "cd server && npm install && npm start",
     "prepare": "lefthook install"
   },
@@ -52,6 +53,8 @@
     "autoprefixer": "^10.4.22",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-typescript": "^4.4.5",
+    "eslint-plugin-boundaries": "^6.0.2",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react-hooks": "^7.0.1",

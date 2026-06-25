@@ -1,7 +1,6 @@
 // Importiert wiederverwendbare UI-Komponenten und Bild-Assets.
 import { useTranslation } from 'react-i18next'
-import { Button } from '../ui/Button'
-import SectionHeader from '../ui/SectionHeader' // Kopfzeilen-Komponente für Abschnitte
+import { Button, SectionHeader } from '~/design-system' // wiederverwendbare UI (Atome/Molecules)
 import iglooExplode from '../../assets/igloo_explode.webp' // Bild für diesen Abschnitt
 
 // Definiert die 'AboutSection'-Komponente, die einen Abschnitt der Webseite darstellt.
@@ -39,14 +38,14 @@ const AboutSection = () => {
           caption={t('about.caption', 'IHR PERFORMANCE-GARANT')}
           title={t('about.title', 'Exzellenz und Sicherheit: Der Standard, den wir setzen.')}
           align="left"
-          titleClassName="text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)] font-medium tracking-[-0.02em] text-gray-900 max-w-xl lg:max-w-full"
+          titleClassName="text-display font-medium tracking-headline text-fg-heading max-w-xl lg:max-w-full"
           className="gap-3 lg:max-w-full"
         />
         {/* Textabsätze mit Platzhaltertext. */}
-        <p className="text-sm leading-relaxed text-gray-500 sm:text-base">
+        <p className="text-sm leading-relaxed text-fg-muted sm:text-base">
           {t('about.text1', 'Das IglooPro ist ein Premium-Gerät...')}
         </p>
-        <p className="text-sm leading-relaxed text-gray-500 sm:text-base">
+        <p className="text-sm leading-relaxed text-fg-muted sm:text-base">
           {t('about.text2', 'Deshalb liefern wir exklusiv...')}
         </p>
         {/* Ein primärer Button, der als Link zum 'hero'-Abschnitt fungiert. */}

@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
+import { Container } from '~/design-system'
 import logo from '../../assets/polarisdx_logo.webp'
 import CtaSection from '../sections/CtaSection'
 import { Linkedin, Instagram } from 'lucide-react'
@@ -16,15 +17,15 @@ const Footer = () => {
   const { t } = useTranslation('common')
 
   return (
-    <footer className="mt-24 bg-brand-primary text-white lg:mt-32">
+    <footer className="mt-24 bg-brand-primary text-fg-on-dark lg:mt-32">
       <div className="relative">
         {/* CTA-Karte in Content-Breite, die in den Footer hineinragt */}
         {!isContactPage && (
-          <div className="mx-auto max-w-container px-4 lg:px-0">
+          <Container>
             <div className="-translate-y-1/2">
               <CtaSection />
             </div>
-          </div>
+          </Container>
         )}
 
         {/* Footer-Inhalte, mit zusätzlichem Padding oben für die überlagernde Karte */}
@@ -44,7 +45,7 @@ const Footer = () => {
                   className="h-10 w-auto sm:h-12"
                 />
               </div>
-              <p className="max-w-sm text-sm text-white/70">
+              <p className="max-w-sm text-sm text-fg-on-dark/70">
                 {t(
                   'footer.description',
                   'Umfassende Betreuung und Fürsorge. Moderne Gesundheitsdienste für Sie und Ihre Familie, rund um die Uhr.',
@@ -55,7 +56,7 @@ const Footer = () => {
                   href="https://www.linkedin.com/company/polarisdx/"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-white hover:text-brand-secondary transition-colors"
+                  className="text-fg-on-dark hover:text-brand-secondary transition-colors"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="h-6 w-6" />
@@ -64,7 +65,7 @@ const Footer = () => {
                   href="https://www.instagram.com/polaris_diagnostix/"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-white hover:text-brand-secondary transition-colors"
+                  className="text-fg-on-dark hover:text-brand-secondary transition-colors"
                   aria-label="Instagram"
                 >
                   <Instagram className="h-6 w-6" />
@@ -77,7 +78,7 @@ const Footer = () => {
                 <h3 className="text-sm font-semibold tracking-tight">
                   {t('footer.links', 'Links')}
                 </h3>
-                <ul className="space-y-2 text-white/70">
+                <ul className="space-y-2 text-fg-on-dark/70">
                   <li>
                     <Link to="/" className="hover:text-brand-secondary">
                       {t('nav.home')}
@@ -120,7 +121,7 @@ const Footer = () => {
                 <h3 className="text-sm font-semibold tracking-tight">
                   {t('footer.diagnostics', 'Diagnostik')}
                 </h3>
-                <ul className="space-y-2 text-white/70">
+                <ul className="space-y-2 text-fg-on-dark/70">
                   <li>
                     <Link to="/diagnostics" className="hover:text-brand-secondary">
                       {t('footer.allServices', 'Alle Services')}
@@ -169,7 +170,7 @@ const Footer = () => {
                 <h3 className="text-sm font-semibold tracking-tight">
                   {t('footer.london', 'London')}
                 </h3>
-                <div className="space-y-1 text-white/70">
+                <div className="space-y-1 text-fg-on-dark/70">
                   <p className="font-semibold">PolarisDX LTD</p>
                   <p>262A Fulham Road</p>
                   <p>London SW10 9EL</p>
@@ -182,7 +183,7 @@ const Footer = () => {
                 <h3 className="text-sm font-semibold tracking-tight">
                   {t('footer.hamburg', 'Hamburg')}
                 </h3>
-                <div className="space-y-1 text-white/70">
+                <div className="space-y-1 text-fg-on-dark/70">
                   <p className="font-semibold">PolarisDX Europe GmbH</p>
                   <p>Große Bleichen 1 - 3</p>
                   <p>20354 Hamburg</p>
@@ -192,7 +193,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="mt-8 border-t border-white/10 pt-8 flex flex-col items-center gap-4 text-lg text-white/60 md:flex-row md:justify-center md:gap-8">
+          <div className="mt-8 border-t border-fg-on-dark/10 pt-8 flex flex-col items-center gap-4 text-lg text-fg-on-dark/60 md:flex-row md:justify-center md:gap-8">
             <p>
               {t('footer.copyright', {
                 year: new Date().getFullYear(),
@@ -200,18 +201,18 @@ const Footer = () => {
               })}
             </p>
             <div className="flex gap-4 md:gap-8">
-              <Link to="/imprint" className="hover:text-white transition-colors">
+              <Link to="/imprint" className="hover:text-fg-on-dark transition-colors">
                 {t('footer.imprint', 'Impressum')}
               </Link>
-              <Link to="/privacy" className="hover:text-white transition-colors">
+              <Link to="/privacy" className="hover:text-fg-on-dark transition-colors">
                 {t('footer.privacy', 'Datenschutzerklärung')}
               </Link>
-              <Link to="/terms" className="hover:text-white transition-colors">
+              <Link to="/terms" className="hover:text-fg-on-dark transition-colors">
                 {t('nav.terms')}
               </Link>
             </div>
           </div>
-          <p className="mt-2 text-center text-xs text-white/40">
+          <p className="mt-2 text-center text-xs text-fg-on-dark/40">
             IglooPro ist ein Produkt der DX365 GmbH
           </p>
         </div>

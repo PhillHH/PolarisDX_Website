@@ -1,0 +1,63 @@
+# polaris-redesign-phase.yaml — KONVERGENTER Pro-Phase-Workflow (v0.4.1 nodes).
+# Setzt GENAU EINE Phase (Eingabe nennt 0-7) der knowledge/REFACTORING-ANWEISUNG.md um,
+# akkumuliert auf dem Integrations-Branch und nutzt EXECUTION-PLAN.md/REFACTOR-LOG.md als
+# Ledger (einzige Wahrheit). Konvergiert deterministisch: implement laeuft, bis ALLE - [ ]
+# der Phase abgehakt sind. Kein Merge nach main, kein Deploy. Gemischte Modelle = guenstiger.
+name: polaris-redesign-phase
+description: >
+  Eine Phase (0-7) end-to-end auf dem Integrations-Branch: plan -> implement(ledger-gesteuert)
+  -> validate(build/typecheck/lint hart, tests advisory) -> review. Ledger-getrieben, konvergent.
+nodes:
+  - id: plan
+    model: sonnet
+    prompt: |
+      Eingabe-Message nennt die PHASE (0-7). Lies den PHASEN-Abschnitt von
+      knowledge/REFACTORING-ANWEISUNG.md, dazu EXECUTION-PLAN.md und REFACTOR-LOG.md.
+      Erstelle einen konkreten Task-Plan AUSSCHLIESSLICH aus den noch offenen "- [ ]"
+      DoD-Punkten DIESER Phase in EXECUTION-PLAN.md. Bereits "- [x]" NICHT anfassen,
+      nichts zurueckbauen. Stack: Vite 7 + React 19 + react-router-dom 7 + Express-SSR,
+      Tailwind 3.4, i18next, @fontsource (KEIN Next.js). Keine Infra/kein Deployment.
+      PROJECT-DECISIONS-TODOs: begruendeten Default waehlen, im Code + spaeter im PR als
+      'ASSUMPTION — needs human confirmation' markieren, weiterarbeiten (nicht blockieren).
+  - id: implement
+    depends_on: [plan]
+    model: opus
+    loop:
+      prompt: |
+        Arbeite den NAECHSTEN offenen Task des Plans fuer die genannte PHASE ab.
+        Querschnitt-Regeln: §1.7 Token-Pflicht (keine Rohwerte in Komponenten),
+        Atomic-Import top-down (§2.2), keine Duplikate (§1.8), alle UI-States,
+        WCAG 2.2 AA. Nach JEDER Einheit lokal gruen halten:
+        npm run build && npm run typecheck && npm run lint.
+        Sobald ein DoD-Punkt der Phase durch einen AUSGEFUEHRTEN Check belegt ist:
+        hake ihn in EXECUTION-PLAN.md ab ([ ]->[x]) UND dokumentiere den Beleg
+        (Befehl+Ergebnis) in REFACTOR-LOG.md.
+        Wenn ALLE "- [ ]" DIESER Phase in EXECUTION-PLAN.md abgehakt sind,
+        antworte exakt mit PHASE_COMPLETE. Sonst weiter mit dem naechsten Task.
+      until: PHASE_COMPLETE
+      fresh_context: true
+      max_iterations: 40
+  - id: validate
+    depends_on: [implement]
+    bash: |
+      set -e
+      npm ci --no-audit --no-fund
+      npm run build
+      npm run typecheck
+      npm run lint
+      npx vitest run || echo "[advisory] vitest non-zero"
+      npx playwright test || echo "[advisory] playwright non-zero (browsers/env)"
+  - id: review
+    depends_on: [validate]
+    model: sonnet
+    loop:
+      prompt: |
+        Adversariales Review des Phasen-Diffs gegen die DoD dieser Phase (EXECUTION-PLAN.md)
+        und die Anti-Patterns (§6 der REFACTORING-ANWEISUNG.md). Pruefe besonders:
+        0 hartkodierte Design-Werte (nur Tokens, ripgrep-Beweis), Atomic top-down,
+        WCAG AA, alle UI-States, KEINE Next-Konstrukte (isomorphes React).
+        Behebe Befunde, halte build/typecheck/lint gruen. Keine offenen Befunde mehr ->
+        antworte exakt REVIEW_CLEAN.
+      until: REVIEW_CLEAN
+      fresh_context: true
+      max_iterations: 8

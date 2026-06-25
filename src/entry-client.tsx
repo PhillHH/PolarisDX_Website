@@ -29,6 +29,9 @@ import { i18nReady } from './i18n.client'
 // App - Client-Version mit lazy loading für Code-Splitting
 import App from './App'
 
+// Selbstbeobachtung: native Core-Web-Vitals-Erfassung (§5.10, kein Extra-Dep).
+import { initWebVitals } from './lib/monitoring'
+
 // =============================================================================
 // LANGUAGE FROM URL
 // =============================================================================
@@ -55,11 +58,14 @@ i18nReady.then(() => {
     <StrictMode>
       <HelmetProvider>
         <BrowserRouter basename={`/${lang}`}>
-          <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
+          <Suspense fallback={<div className="min-h-screen bg-bg" />}>
             <App />
           </Suspense>
         </BrowserRouter>
       </HelmetProvider>
     </StrictMode>,
   )
+
+  // Nach der Hydration: Web-Vitals erfassen (blockiert den kritischen Pfad nicht).
+  initWebVitals()
 })

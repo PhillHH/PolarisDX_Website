@@ -65,7 +65,7 @@ export async function render(url: string, lang: string): Promise<RenderResult> {
     <I18nextProvider i18n={i18n}>
       <HelmetProvider context={helmetContext}>
         <StaticRouter location={url} basename={`/${lang}`}>
-          <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
+          <Suspense fallback={<div className="min-h-screen bg-bg" />}>
             <App />
           </Suspense>
         </StaticRouter>

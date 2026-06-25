@@ -1,0 +1,561 @@
+/* ============================================================
+   design-system/tokens/tokens.css — SINGLE SOURCE OF TRUTH [BUD]
+   Setup: CSS-first (§3.0 A). tokens.ts spiegelt NUR Logik-Werte,
+   tailwind.config.js referenziert NUR var(--token) (keine Rohwerte).
+   Ebenen: 1) Primitive  2) Semantic  3) Component
+   Naming: category-property-item-variant-state (kebab-case)
+
+   Farben als Kanal-Tripel ("R G B"): konsumiert via
+   rgb(var(--x-rgb) / <alpha>). So funktionieren Tailwind-Opacity-Modifier
+   (z. B. bg-brand-navy/85) OHNE Doppelpflege der Rohwerte im Config
+   (Single Source, §3.0 A / §3.4 / §1.8). Werte aus dem Ist-Zustand
+   abgeleitet (Wave-2 Farb-Inventar) — kein visueller Change (§1.6).
+   ============================================================ */
+:root {
+  /* ---------- 1) PRIMITIVE / GLOBAL  ("what it is") ---------- */
+
+  /* Neutral / Grayscale (Slate-basiert, leicht entsaettigt = "cold greys") [FIL][BUD]
+     Abgeleitet aus den real genutzten slate-* Werten der Codebase. */
+  --neutral-0-rgb: 255 255 255; /* #ffffff */
+  --neutral-50-rgb: 248 250 252; /* slate-50  — Body-Background */
+  --neutral-100-rgb: 241 245 249; /* slate-100 — Tints, Tabellen-Head */
+  --neutral-200-rgb: 226 232 240; /* slate-200 — Default-Border */
+  --neutral-300-rgb: 203 213 225; /* slate-300 — Strong-Border */
+  --neutral-400-rgb: 148 163 184; /* slate-400 — Muted-UI-Text */
+  --neutral-500-rgb: 100 116 139; /* slate-500 — Muted-Text */
+  --neutral-600-rgb: 71 85 105; /* slate-600 */
+  --neutral-700-rgb: 51 65 85; /* slate-700 — Body-Text */
+  --neutral-800-rgb: 30 41 59; /* slate-800 */
+  --neutral-900-rgb: 15 23 42; /* slate-900 — Text-Schwarz, kein reines Schwarz [FIL] */
+
+  /* Brand Navy (kanonischer Dunkelblau-Cluster, Wave-2: cta = Navy) [BUD] */
+  --brand-navy-rgb: 8 51 88; /* #083358 — war brand.deep — kanonischer Navy / CTA-BG */
+  --brand-navy-hover-rgb: 10 63 99; /* #0a3f63 — CTA-Hover */
+  --brand-navy-mid-rgb: 10 63 99; /* #0a3f63 — theme-color / OG-Image */
+  --brand-heading-rgb: 32 56 100; /* #203864 — Headline-Navy (war "gray-900") */
+
+  /* Brand Blue (mittelblauer Marken-Akzent, Footer) [BUD] */
+  --brand-blue-rgb: 13 82 127; /* #0d527f — war brand.primary */
+  --brand-blue-bright-rgb: 47 111 160; /* #2f6fa0 — war brand.secondary */
+
+  /* Accent Teal (Akzentskala — "same tones", Wave-2: accent = teal-600) [FIL][BUD] */
+  --teal-50-rgb: 240 253 250; /* #f0fdfa */
+  --teal-100-rgb: 204 251 241; /* #ccfbf1 — Consumer-Theme: gefuellte Badge/Step-Kreise */
+  --teal-200-rgb: 153 246 228; /* #99f6e4 */
+  --teal-300-rgb: 94 234 212; /* #5eead4 */
+  --teal-400-rgb: 45 212 191; /* #2dd4bf — Consumer-Theme: helle Deko auf Navy */
+  --teal-500-rgb: 20 184 166; /* #14b8a6 */
+  --teal-600-rgb: 13 148 136; /* #0d9488 — kanonischer Accent */
+  --teal-700-rgb: 15 118 110; /* #0f766e */
+  --teal-800-rgb: 17 94 89; /* #115e59 — Consumer-Theme: tieferer Akzent-Text */
+  --teal-900-rgb: 19 78 74; /* #134e4a — Consumer-Theme: dunkelster Akzent-Text */
+
+  /* Feedback-Farben (immer mit Icon/Text, nie Farbe allein) [FIL] */
+  --green-50-rgb: 236 253 245; /* #ecfdf5 */
+  --green-200-rgb: 187 247 208; /* #bbf7d0 — Success-Border */
+  --green-500-rgb: 16 185 129; /* #10b981 */
+  --green-600-rgb: 5 150 105; /* #059669 */
+  --green-800-rgb: 6 95 70; /* #065f46 — Success-Text (Kontrast >=4.5:1) */
+  --orange-500-rgb: 245 158 11; /* #f59e0b */
+  --red-50-rgb: 254 242 242; /* #fef2f2 — Danger-Soft-BG */
+  --red-200-rgb: 254 202 202; /* #fecaca — Danger-Border */
+  --red-500-rgb: 220 38 38; /* #dc2626 */
+  --red-800-rgb: 153 27 27; /* #991b1b — Danger-Text (Kontrast >=4.5:1) */
+
+  /* Rating/Award-Gold (Bewertungs-Sterne + Quality-Badges — eigene semantische
+     Rolle, getrennt von warning/orange; immer mit Icon/Zahl, nie Farbe allein) [FIL] */
+  --gold-100-rgb: 254 249 195; /* yellow-100 — Award-Badge-Flaeche */
+  --gold-400-rgb: 250 204 21; /* yellow-400 — Rating-Stern (gefuellt) */
+  --gold-600-rgb: 202 138 4; /* yellow-600 — Award-Badge-Icon/Text (Kontrast auf Soft) */
+
+  /* Social (extern festgelegt, kein Brand-Token) */
+  --social-linkedin-rgb: 0 119 181; /* #0077b5 */
+
+  /* Legacy flache Grautoene (Wave-2-Migration der Call-Sites ausstehend) */
+  --gray-100-rgb: 245 245 245; /* #f5f5f5 */
+  --gray-500-rgb: 134 140 152; /* #868c98 */
+
+  /* Spacing: Base 4px, 8pt-Soft-Grid (8er-Vielfache + 4/12 fein), NON-LINEAR [FIL][BUD] */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* Typo-Skala: Basis 16px, handgebaut (kein Ratio), ~8 Stufen [FIL][BUD] */
+  --font-size-100: 0.75rem; /* 12 */
+  --font-size-200: 0.875rem; /* 14 */
+  --font-size-300: 1rem; /* 16 = Body, MIN */
+  --font-size-400: 1.125rem; /* 18 */
+  --font-size-500: 1.25rem; /* 20 */
+  --font-size-600: 1.5rem; /* 24 */
+  --font-size-700: 1.75rem; /* 28 */
+  --font-size-800: 2rem; /* 32 */
+  --font-size-900: 2.5rem; /* 40 */
+  /* Fluid Display-Titel (Hero/Section-Headline) — px-Bounds als rem (Zoom-A11y §1.11);
+     bei 16px-Root byte-identisch zur bisherigen clamp(px)-Schreibweise. */
+  --font-size-display: clamp(2rem, 7vw, 4rem); /* 32 → 64 */
+  --font-size-display-sm: clamp(1.75rem, 6.2vw, 3rem); /* 28 → 48 */
+  --font-size-display-xl: clamp(10rem, 7.5rem + 12vw, 12rem); /* 160 → 192, 404-Numeral One-off */
+
+  --line-height-tight: 1.1;
+  --line-height-heading: 1.3;
+  --line-height-body: 1.6;
+  --line-height-display: clamp(2.375rem, 7.6vw, 4.5rem); /* 38 → 72 */
+  --line-height-display-sm: clamp(2.125rem, 6.8vw, 3.5rem); /* 34 → 56 */
+  --letter-spacing-tight: -0.02em; /* Display-Titel-Tracking */
+  --letter-spacing-overline: 0.16em; /* Uppercase-Overline/Kicker-Tracking (Sperrung) */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Schrift: @fontsource-variable/inter (self-hosted, DSGVO) — Token referenziert NUR den Stack [FIL] */
+  --font-family-sans: 'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-section: 24px;
+  --radius-full: 9999px;
+
+  /* Schatten: kein reines Schwarz — Navy-Palette-Tint, niedrige Opacity, erhoehtes Y [FIL]
+     Tint referenziert das Navy-Primitive (Single Source). */
+  --shadow-1:
+    0 1px 2px rgb(var(--brand-navy-rgb) / 0.06), 0 1px 3px rgb(var(--brand-navy-rgb) / 0.08);
+  --shadow-2: 0 8px 32px rgb(var(--brand-navy-rgb) / 0.15);
+  --shadow-3: 0 24px 60px rgb(var(--brand-navy-rgb) / 0.12);
+  /* Inset: recessed Figure-Ground-Well (Icon-Tile etc.) — Navy-Tint statt Roh-#000 */
+  --shadow-inset: inset 0 2px 4px rgb(var(--brand-navy-rgb) / 0.06);
+
+  /* Grid / Breakpoints (12-Spalten) [FIL] */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --grid-columns: 12;
+  --grid-gutter: 16px;
+  --grid-max: 1200px;
+  --grid-page-max: 1440px;
+  --z-base: 0;
+  --z-dropdown: 1000;
+  --z-sticky: 1100;
+  --z-modal: 1300;
+  --z-toast: 1400;
+
+  /* Motion (prefers-reduced-motion respektieren, s. u.) */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --easing-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Reading width / Tap target [FIL] */
+  --reading-width: 68ch; /* 50-75ch Fliesstext */
+  --tap-target-min: 44px; /* Mobile Mindest-Tap */
+
+  /* ---------- 2) SEMANTIC / ALIAS  ("what it does") — rollenbasiert [FIL] ----------
+     Jeder Rollen-Token existiert als Kanal (`-rgb`, erbt vom Primitive) UND als
+     fertige Farbe (`rgb(var(--…-rgb))`). Komponenten/CSS nutzen die Farbe direkt;
+     Tailwind nutzt den Kanal fuer Opacity-Modifier. Theming bindet NUR die Kanaele
+     neu — die Farb-Tokens leiten automatisch ab. */
+  --color-bg-rgb: var(--neutral-50-rgb); /* Body-Hintergrund */
+  --color-bg: rgb(var(--color-bg-rgb));
+  --color-bg-subtle-rgb: var(--neutral-100-rgb);
+  --color-bg-subtle: rgb(var(--color-bg-subtle-rgb));
+  --color-surface-rgb: var(--neutral-0-rgb); /* Cards/Panels */
+  --color-surface: rgb(var(--color-surface-rgb));
+  --color-surface-dark-rgb: var(--brand-navy-rgb);
+  --color-surface-dark: rgb(var(--color-surface-dark-rgb));
+  --color-surface-brand-rgb: var(--brand-blue-rgb);
+  --color-surface-brand: rgb(var(--color-surface-brand-rgb));
+
+  --color-fg-rgb: var(--neutral-700-rgb); /* Body-Text */
+  --color-fg: rgb(var(--color-fg-rgb));
+  --color-fg-heading-rgb: var(--brand-heading-rgb); /* Headlines */
+  --color-fg-heading: rgb(var(--color-fg-heading-rgb));
+  --color-fg-muted-rgb: var(--neutral-500-rgb);
+  --color-fg-muted: rgb(var(--color-fg-muted-rgb));
+  --color-fg-on-dark-rgb: var(--neutral-0-rgb);
+  --color-fg-on-dark: rgb(var(--color-fg-on-dark-rgb));
+  --color-fg-strong-rgb: var(--neutral-800-rgb); /* kraeftigerer Text (Alerts, Emphasis) */
+  --color-fg-strong: rgb(var(--color-fg-strong-rgb));
+
+  --color-border-rgb: var(--neutral-200-rgb);
+  --color-border: rgb(var(--color-border-rgb));
+  --color-border-strong-rgb: var(--neutral-300-rgb);
+  --color-border-strong: rgb(var(--color-border-strong-rgb));
+
+  --color-action-primary-rgb: var(--brand-navy-rgb); /* CTA = Navy (Wave-2-Entscheidung) */
+  --color-action-primary: rgb(var(--color-action-primary-rgb));
+  --color-action-primary-hover-rgb: var(--brand-navy-hover-rgb);
+  --color-action-primary-hover: rgb(var(--color-action-primary-hover-rgb));
+  --color-focus-ring-rgb: var(--brand-navy-rgb);
+  --color-focus-ring: rgb(var(--color-focus-ring-rgb));
+  /* Fokus-Ring auf dunklem Grund (Hero/Navy): Navy waere unsichtbar -> Weiss (§1.11 WCAG 2.4.7). */
+  --color-focus-ring-on-dark-rgb: var(--color-fg-on-dark-rgb);
+  --color-focus-ring-on-dark: rgb(var(--color-focus-ring-on-dark-rgb));
+
+  --color-accent-rgb: var(--teal-600-rgb); /* kanonischer Accent */
+  --color-accent: rgb(var(--color-accent-rgb));
+  --color-accent-strong-rgb: var(--teal-700-rgb); /* Eyebrow-Text, Hover-Emphasis */
+  --color-accent-strong: rgb(var(--color-accent-strong-rgb));
+  --color-accent-line-rgb: var(--teal-500-rgb); /* Underline, Dekorlinien */
+  --color-accent-line: rgb(var(--color-accent-line-rgb));
+  --color-accent-soft-rgb: var(--teal-50-rgb); /* Pill-Hintergrund, Tint */
+  --color-accent-soft: rgb(var(--color-accent-soft-rgb));
+  --color-accent-tint-rgb: var(--teal-100-rgb); /* gefuellte Badge/Step-Kreise (Consumer) */
+  --color-accent-tint: rgb(var(--color-accent-tint-rgb));
+  --color-accent-border-rgb: var(--teal-200-rgb); /* Pill-Border */
+  --color-accent-border: rgb(var(--color-accent-border-rgb));
+  --color-accent-on-dark-rgb: var(--teal-300-rgb); /* Hover auf Navy-Header */
+  --color-accent-on-dark: rgb(var(--color-accent-on-dark-rgb));
+  --color-accent-bright-rgb: var(--teal-400-rgb); /* helle Deko-Linie/Dot auf Navy (Consumer) */
+  --color-accent-bright: rgb(var(--color-accent-bright-rgb));
+  --color-accent-deep-rgb: var(--teal-800-rgb); /* tieferer Akzent-Text auf hellem Tint */
+  --color-accent-deep: rgb(var(--color-accent-deep-rgb));
+  --color-accent-fg-rgb: var(--teal-900-rgb); /* dunkelster Akzent-Text (Consumer-Headings) */
+  --color-accent-fg: rgb(var(--color-accent-fg-rgb));
+
+  --color-success-rgb: var(--green-500-rgb);
+  --color-success: rgb(var(--color-success-rgb));
+  --color-success-soft-rgb: var(--green-50-rgb); /* Success-Flaeche (Alert-BG) */
+  --color-success-soft: rgb(var(--color-success-soft-rgb));
+  --color-success-border-rgb: var(--green-200-rgb); /* Success-Rahmen */
+  --color-success-border: rgb(var(--color-success-border-rgb));
+  --color-success-strong-rgb: var(--green-600-rgb);
+  --color-success-strong: rgb(var(--color-success-strong-rgb));
+  --color-success-fg-rgb: var(--green-800-rgb); /* Success-Text auf Soft-Flaeche */
+  --color-success-fg: rgb(var(--color-success-fg-rgb));
+  --color-warning-rgb: var(--orange-500-rgb);
+  --color-warning: rgb(var(--color-warning-rgb));
+  --color-rating-rgb: var(--gold-400-rgb); /* Bewertungs-Stern (gefuellt) */
+  --color-rating: rgb(var(--color-rating-rgb));
+  --color-rating-soft-rgb: var(--gold-100-rgb); /* Award/Quality-Badge-Flaeche */
+  --color-rating-soft: rgb(var(--color-rating-soft-rgb));
+  --color-rating-fg-rgb: var(--gold-600-rgb); /* Badge-Icon/Text auf Soft-Flaeche */
+  --color-rating-fg: rgb(var(--color-rating-fg-rgb));
+  --color-danger-rgb: var(--red-500-rgb);
+  --color-danger: rgb(var(--color-danger-rgb));
+  --color-danger-soft-rgb: var(--red-50-rgb); /* Danger-Flaeche (Alert-BG) */
+  --color-danger-soft: rgb(var(--color-danger-soft-rgb));
+  --color-danger-border-rgb: var(--red-200-rgb); /* Danger-Rahmen */
+  --color-danger-border: rgb(var(--color-danger-border-rgb));
+  --color-danger-fg-rgb: var(--red-800-rgb); /* Danger-Text auf Soft-Flaeche */
+  --color-danger-fg: rgb(var(--color-danger-fg-rgb));
+
+  --text-body: var(--font-size-300);
+  --text-display: var(--font-size-display); /* Hero/Section-Display-Titel (fluid, max 64) */
+  --text-display-sm: var(--font-size-display-sm); /* kleinere Display-Variante (fluid, max 48) */
+  --text-display-xl: var(--font-size-display-xl); /* 404-Numeral One-off (fluid, max 192) */
+  --text-h1: var(--font-size-900);
+  --text-h2: var(--font-size-800);
+  --text-h3: var(--font-size-600);
+
+  --space-section-gap: var(--space-20);
+  --space-stack: var(--space-4);
+  --shadow-raised: var(--shadow-1);
+  --shadow-overlay: var(--shadow-3);
+
+  /* ---------- 3) COMPONENT-SPECIFIC (erbt NUR von Semantic, isoliert je Komponente) ---------- */
+  --button-primary-bg: var(--color-action-primary);
+  --button-primary-bg-hover: var(--color-action-primary-hover);
+  --button-primary-fg: var(--color-fg-on-dark);
+  --button-radius: var(--radius-md);
+  --button-padding-x: var(--space-8); /* ~32px Web [FIL] */
+  --button-min-height: var(--tap-target-min);
+
+  --card-bg: var(--color-surface);
+  --card-padding: var(--space-6);
+  --card-radius: var(--radius-lg);
+  --card-shadow: var(--shadow-raised);
+
+  /* Panel (statische Inhalts-Flaeche, Containment — Form-/Info-Block, kein
+     Hover-Lift im Gegensatz zu Card). Erbt nur von Semantic (§3). Radius == das
+     vorige rounded-2xl (16px). Schatten = Navy-getoentes --shadow-1 (== Card),
+     ersetzt das vorige Roh-shadow-sm (pures #000, §FIL-Verstoss). */
+  --panel-bg: var(--color-surface);
+  --panel-radius: var(--radius-lg);
+  --panel-shadow: var(--shadow-1);
+  /* Rahmen nur fuer die `bordered`-Variante (Sidebar-Widget-Flaeche). Rolle
+     statt Roh-`border-gray-100` (Primitive, §1.7-Verstoss) → --color-border. */
+  --panel-border: var(--color-border);
+
+  --input-bg: var(--color-surface);
+  --input-fg: var(--color-fg);
+  --input-placeholder: var(--color-fg-muted);
+  --input-border: var(--color-border);
+  --input-border-focus: var(--color-focus-ring);
+  --input-border-error: var(--color-danger); /* Error-State: Rahmen + Ring */
+  --input-fg-error: var(--color-danger); /* Error-State: Texthinweis */
+  --input-radius: var(--radius-md);
+  --input-padding-x: var(--space-3); /* 12px */
+  --input-padding-y: var(--space-2); /* 8px */
+  --input-font-size: var(--font-size-300); /* >=16px [FIL] */
+  --input-min-height: var(--tap-target-min); /* >=44px Tap-Target [§1.11] */
+  --input-textarea-min-height: var(--space-20); /* 80px Mehrzeilen-Mindesthoehe */
+
+  /* Eyebrow (Section-Label-Pill) — Gradient-Rand laeuft ueber die token-
+     gebundenen brand-* Config-Keys (rgb(var(--brand-*-rgb))), daher hier nur
+     Flaeche/Schrift/Radius als Component-Token. */
+  --eyebrow-bg: var(--color-bg); /* heller Innen-Tint (slate-50) */
+  --eyebrow-fg: var(--color-fg-heading); /* Navy-Caption */
+  --eyebrow-radius: var(--radius-sm); /* leichte Rundung [FIL] */
+
+  /* Section-Header (Eyebrow + Titel) */
+  --section-header-gap: var(--space-2); /* 8px zwischen Eyebrow und Titel */
+  --section-header-title-size: var(--font-size-900); /* 40px Default-Titel */
+  --section-header-title-leading: var(--line-height-heading); /* 1.3 [FIL] */
+  --section-header-title-color: var(--color-fg-heading);
+
+  /* Alert (Feedback — immer Icon + Text, nie Farbe allein [FIL]). Drei
+     rollenbasierte Tonalitaeten; erben nur von Semantic (§3). */
+  --alert-radius: var(--radius-md);
+  --alert-padding: var(--space-4); /* 16px */
+  --alert-gap: var(--space-3); /* 12px Icon<->Text */
+  --alert-default-bg: var(--color-bg);
+  --alert-default-border: var(--color-border);
+  --alert-default-fg: var(--color-fg-strong);
+  --alert-success-bg: var(--color-success-soft);
+  --alert-success-border: var(--color-success-border);
+  --alert-success-fg: var(--color-success-fg);
+  --alert-danger-bg: var(--color-danger-soft);
+  --alert-danger-border: var(--color-danger-border);
+  --alert-danger-fg: var(--color-danger-fg);
+
+  /* Spinner (Lade-Feedback) — Brand-getoent, konsistent mit der Primaeraktion. */
+  --spinner-color: var(--color-action-primary);
+
+  /* Breadcrumbs (Navigation auf dunklem Hero-Grund) — on-dark Tonalitaeten,
+     erben nur von Semantic (§3). Der Alpha-Abfall (Text 70%, Trenner 50%)
+     lebt als komponentenlokaler Tint im Token; Hover = kanonischer
+     On-Dark-Accent (Teal, konsistent mit Button-Outline/Eyebrow). */
+  --breadcrumb-fg: rgb(var(--color-fg-on-dark-rgb) / 0.7);
+  --breadcrumb-separator: rgb(var(--color-fg-on-dark-rgb) / 0.5);
+  --breadcrumb-link-hover: var(--color-accent-on-dark);
+
+  /* Badge (kompakte Status-/Kategorie-Pill) — rollenbasierte Soft-Tints (§FIL),
+     erben nur von Semantic (§3). Der Tint der Brand-Variante lebt als Alpha im
+     Component-Token (komponentenlokale Aufhellung der Navy-Primaeraktion). */
+  --badge-radius: var(--radius-full);
+  --badge-brand-bg: rgb(var(--color-action-primary-rgb) / 0.1);
+  --badge-brand-fg: var(--color-action-primary);
+  --badge-accent-bg: var(--color-accent-soft);
+  --badge-accent-fg: var(--color-accent-strong);
+  --badge-success-bg: var(--color-success-soft);
+  --badge-success-fg: var(--color-success-fg);
+
+  /* Stat (einzelne Kennzahl auf dunklem Hero-Grund) — on-dark Tonalitaeten,
+     erben nur von Semantic (§3). Suffix = kanonischer On-Dark-Accent (Teal,
+     konsistent mit Breadcrumbs/Eyebrow/Button-Outline); Label-Tint (80%) lebt
+     als komponentenlokales Alpha im Token. */
+  --stat-value-color: var(--color-fg-on-dark);
+  --stat-suffix-color: var(--color-accent-on-dark);
+  --stat-label-color: rgb(var(--color-fg-on-dark-rgb) / 0.8);
+
+  /* Accordion (Disclosure-Liste, Single-Open) — Panel auf heller Surface;
+     erbt nur von Semantic (§3). Radius == das vorige rounded-2xl (16px). */
+  --accordion-bg: var(--color-surface);
+  --accordion-border: var(--color-border);
+  --accordion-radius: var(--radius-lg); /* 16px == rounded-2xl */
+  --accordion-shadow: var(--shadow-raised);
+  --accordion-trigger-fg: var(--color-fg-heading); /* Frage == Headline-Navy */
+  --accordion-trigger-hover-bg: var(--color-bg-subtle); /* dezenter Hover-Tint */
+  --accordion-icon-color: var(--color-fg-muted); /* Chevron == Muted (slate-500) */
+  --accordion-content-fg: var(--color-fg); /* Antwort == Body-Text */
+
+  /* EmptyState (Leerzustand — zentrierte Meldung ohne Datensatz) — erbt nur von
+     Semantic (§3). plain = nackte Meldung; outlined = gestrichelter Platzhalter. */
+  --empty-state-fg: var(--color-fg-muted); /* Meldungstext (slate-500) */
+  --empty-state-border: var(--color-border-strong); /* gestrichelter Rahmen (slate-300) */
+  --empty-state-bg: var(--color-bg); /* zarte Flaeche (slate-50) */
+
+  /* NavTile (kompakte, icon-gefuehrte Navigations-Kachel — interner Link als
+     Sidebar-Listenzeile mit Hover-Lift). Erbt nur von Semantic (§3). Accent =
+     kanonische Primaeraktion (Navy) statt des rollenlosen brand-secondary, da der
+     Icon-Tile-Hover (Solid-Fill + weisser Text) eine Aktions-Affordanz ist (§1.6,
+     konsistent mit Button-primary / Badge-brand). Schatten = Navy-getoent (§FIL,
+     ersetzt Roh-shadow-sm/-md = pures #000). */
+  --navtile-border: var(--color-border); /* idle: war border-gray-100 → slate-200 (§1.6) */
+  --navtile-border-hover: var(--color-action-primary); /* war border-blue-200 → Navy (§1.6) */
+  --navtile-bg-from: var(--color-surface); /* from-white (byte-identisch) */
+  --navtile-bg-to: var(--color-bg); /* to-slate-50 (byte-identisch) */
+  --navtile-shadow: var(--shadow-1); /* war shadow-sm (#000) → Navy-Tint */
+  --navtile-shadow-hover: var(--shadow-2); /* war shadow-md (#000) → Navy-Tint */
+  --navtile-icon-bg: rgb(
+    var(--color-action-primary-rgb) / 0.1
+  ); /* war bg-blue-50 → Navy-Tint (wie Badge-brand) */
+  --navtile-icon-fg: var(--color-action-primary); /* war text-brand-secondary → Navy (§1.6) */
+  --navtile-icon-bg-hover: var(
+    --color-action-primary
+  ); /* war group-hover bg-brand-secondary → Navy */
+  --navtile-icon-fg-hover: var(--color-fg-on-dark); /* war group-hover text-white */
+  --navtile-label-fg: var(--color-fg-heading); /* text-gray-900 == Headline-Navy (byte-identisch) */
+  --navtile-label-fg-hover: var(
+    --color-action-primary
+  ); /* war group-hover text-brand-secondary → Navy */
+
+  /* ContactCallout (Molecule) — die 3x roh duplizierte Sidebar-Telefon-Kontaktbox
+     (Vitamin-D3-Spray/-Implantologie/S3-Leitlinie). Flaeche rollenbasiert; Icon-
+     Medaillon + soft Tel-Aktion = Navy-Tint (wie Badge-brand/NavTile, war
+     brand-primary-Blau, §1.6). Schatten Navy-getoent (war Roh-shadow-sm = #000). */
+  --callout-bg: var(--color-surface); /* bg-white (byte-identisch) */
+  --callout-border: var(--color-border); /* war border-gray-200 → slate-200 (rollenbasiert) */
+  --callout-shadow: var(--shadow-1); /* war shadow-sm (#000) → Navy-Tint */
+  --callout-icon-bg: rgb(
+    var(--color-action-primary-rgb) / 0.1
+  ); /* war bg-brand-primary/10 → Navy-Tint */
+  --callout-icon-fg: var(--color-action-primary); /* war text-brand-primary → Navy (§1.6) */
+  --callout-title-fg: var(--color-fg-heading); /* text-gray-900 == Headline-Navy */
+  --callout-muted-fg: var(--color-fg-muted); /* text-gray-500 == slate-500 (byte-identisch) */
+  --callout-action-bg: rgb(var(--color-action-primary-rgb) / 0.1); /* war bg-brand-primary/10 */
+  --callout-action-bg-hover: rgb(
+    var(--color-action-primary-rgb) / 0.2
+  ); /* war hover bg-brand-primary/20 */
+  --callout-action-fg: var(--color-action-primary); /* war text-brand-primary → Navy (§1.6) */
+
+  /* AuthorByline (Molecule) — die 2x roh duplizierte Autoren-Attributions-Box
+     (Vitamin-D3-Implantologie/S3-Leitlinie). Flaeche rollenbasiert; Initialen-
+     Medaillon = Navy-Tint (wie Badge-brand/NavTile/Callout, war brand-primary-
+     Blau, §1.6). */
+  --author-bg: var(--color-surface); /* war bg-white (byte-identisch) */
+  --author-border: var(--color-border); /* war border-gray-200 → slate-200 (rollenbasiert) */
+  --author-avatar-bg: rgb(
+    var(--color-action-primary-rgb) / 0.1
+  ); /* war bg-brand-primary/10 → Navy-Tint */
+  --author-avatar-fg: var(--color-action-primary); /* war text-brand-primary → Navy (§1.6) */
+  --author-name-fg: var(
+    --color-fg-heading
+  ); /* war text-gray-900 == Headline-Navy (byte-identisch) */
+
+  /* MediaLink (Molecule) — die 9x roh duplizierte Related-/Weiterfuehrend-Link-
+     Zeile (Vitamin-D3-Spray/-Implantologie/S3-Leitlinie). Row-Hover/Titel/
+     Beschreibung byte-identisch rollenbasiert geroutet; Icon-Tile-Akzent
+     rollenbasiert: primary = Navy-Tint (war bg-blue-50/brand-primary, wie
+     NavTile/Badge-brand, §1.6), success = Green (war bg-green-50/emerald-50 +
+     text-green-600/emerald-600 → ein Success-Gruen konsolidiert, wie Badge-
+     success, §1.6). */
+  --media-link-hover-bg: var(--color-bg); /* war hover:bg-gray-50 == slate-50 (byte-identisch) */
+  --media-link-title-fg: var(--color-fg-heading); /* war text-gray-900 == Headline-Navy */
+  --media-link-title-fg-hover: var(
+    --color-action-primary
+  ); /* war group-hover text-brand-primary → Navy (§1.6) */
+  --media-link-desc-fg: var(--color-fg-muted); /* war text-gray-500 == slate-500 (byte-identisch) */
+  --media-link-icon-primary-bg: rgb(
+    var(--color-action-primary-rgb) / 0.1
+  ); /* war bg-blue-50 → Navy-Tint */
+  --media-link-icon-primary-fg: var(
+    --color-action-primary
+  ); /* war text-brand-primary → Navy (§1.6) */
+  --media-link-icon-success-bg: var(
+    --color-success-soft
+  ); /* war bg-green-50/emerald-50 → Success-Soft */
+  --media-link-icon-success-fg: var(
+    --color-success-strong
+  ); /* war text-green-600/emerald-600 → green-600 */
+
+  /* InfoItem (Molecule) — die 4x roh duplizierte Kontakt-Kanal-Zeile (Icon-
+     Medaillon + uppercase-Label + Wert) in Contact-/Support-Page. Medaillon
+     rollenbasiert = Navy-Tint (wie Callout/Badge-brand, war bg-brand-secondary/20
+     + text-brand-secondary Blau, §1.6). */
+  --info-item-icon-bg: rgb(
+    var(--color-action-primary-rgb) / 0.1
+  ); /* war bg-brand-secondary/20 → Navy-Tint */
+  --info-item-icon-fg: var(--color-action-primary); /* war text-brand-secondary → Navy (§1.6) */
+  --info-item-label-fg: var(
+    --color-fg-muted
+  ); /* war text-gray-500 (#868c98) → slate-500 (rollenbasiert, wie Callout-muted) */
+  --info-item-value-fg: var(
+    --color-fg
+  ); /* war geerbtes text-gray-600 → Body (slate-700, rollenbasiert §1.6) */
+
+  /* Rich-Content / Prose (Pillar-/Artikel-HTML, `.rich-content` in index.css) —
+     ersetzt die roh hartkodierten Brand-/Slate-Hex (§1.7-Verstoss) durch
+     rollenbasierte Semantic-Bindungen. Erbt NUR von Semantic (§3) und macht den
+     Artikel-Fliesstext damit theme-faehig (Dark-Mode adaptiert automatisch).
+     Body-Text war #868c98 (gray-500, ~3.5:1 auf Weiss = AA-Fail) → --color-fg
+     (slate-700, >=4.5:1) — A11y-Verbesserung (§1.11). Link/Marker/Quote-Border =
+     Navy-Aktion (wie Button/Badge-brand, §1.6). */
+  --prose-fg: var(--color-fg); /* war #868c98 → Body (besserer AA-Kontrast) */
+  --prose-heading-fg: var(--color-fg-heading); /* war #083358 → Headline-Navy */
+  --prose-strong-fg: var(--color-fg-heading); /* war #203864 → Headline-Navy */
+  --prose-link-fg: var(--color-action-primary); /* war #0d527f → Navy-Aktion */
+  --prose-table-head-bg: var(--color-bg-subtle); /* war #f1f5f9 → slate-100 */
+  --prose-table-head-fg: var(--color-fg-heading); /* war #083358 → Headline-Navy */
+  --prose-border: var(--color-border); /* war #e2e8f0 → slate-200 */
+  --prose-quote-bg: var(--color-bg); /* war #f8fafc → slate-50 */
+  --prose-quote-border: var(--color-action-primary); /* war #0d527f → Navy */
+  --prose-quote-fg: var(--color-fg-heading); /* war #203864 → Headline-Navy */
+  --prose-marker-bg: var(--color-action-primary); /* war #0d527f → Navy */
+  --prose-marker-fg: var(--color-fg-on-dark); /* war white */
+  --prose-info-bg: rgb(var(--color-action-primary-rgb) / 0.06); /* war #f0f7ff → Navy-Soft */
+  --prose-info-border: rgb(var(--color-action-primary-rgb) / 0.2); /* war #bfdbfe → Navy-Tint */
+  --prose-cta-fg: var(--color-fg-on-dark); /* war white (auf Navy-Gradient) */
+  --prose-cta-btn-bg: var(--color-surface); /* war white */
+  --prose-cta-btn-fg: var(--color-action-primary); /* war #0d527f → Navy */
+  --prose-cta-btn-bg-hover: rgb(var(--color-action-primary-rgb) / 0.06); /* war #f0f7ff */
+}
+
+/* Theming = NUR Semantic-Kanaele neu binden (gleiche Namen, andere Werte), KEINE
+   Komponenten-Duplikate [BUD]. Die fertigen Farb-Tokens leiten automatisch ab.
+   Ruhende Infrastruktur: aktiv erst, wenn <html data-theme="dark"> gesetzt wird.
+   Ein nutzersichtbarer Dark-Toggle ist eine offene Produktentscheidung (§1.17,
+   PROJECT-DECISIONS) und wird hier NICHT aktiviert — Default bleibt Light. */
+[data-theme='dark'] {
+  --color-bg-rgb: var(--neutral-900-rgb);
+  --color-bg-subtle-rgb: var(--neutral-800-rgb);
+  --color-surface-rgb: var(--neutral-800-rgb); /* hellerer Surface statt weisser Schatten [FIL] */
+  --color-fg-rgb: var(--neutral-50-rgb);
+  --color-fg-heading-rgb: var(--neutral-0-rgb);
+  --color-fg-muted-rgb: var(--neutral-400-rgb); /* Secondary-Text im Dark Mode [FIL] */
+  --color-border-rgb: var(--neutral-700-rgb);
+  --color-border-strong-rgb: var(--neutral-600-rgb);
+}
+
+/* prefers-color-scheme als Theme-DEFAULT (Phase-5 §5.4, DoD P2): liegt KEINE
+   explizite Theme-Wahl vor und meldet das OS „dark", bindet sich dasselbe
+   Dark-Token-Set wie [data-theme='dark']. Ein explizites data-theme (z. B. die
+   bewusst hellen Consumer-Landingpages mit data-theme="light", §Memory
+   consumer-…light/teal) gewinnt IMMER — der Selektor greift nur ohne Attribut.
+   ASSUMPTION — needs human confirmation (§1.17): aktiviert den zuvor
+   zurueckgestellten OS-Dark-Default; ein nutzersichtbarer Toggle bleibt offen. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg-rgb: var(--neutral-900-rgb);
+    --color-bg-subtle-rgb: var(--neutral-800-rgb);
+    --color-surface-rgb: var(--neutral-800-rgb);
+    --color-fg-rgb: var(--neutral-50-rgb);
+    --color-fg-heading-rgb: var(--neutral-0-rgb);
+    --color-fg-muted-rgb: var(--neutral-400-rgb);
+    --color-border-rgb: var(--neutral-700-rgb);
+    --color-border-strong-rgb: var(--neutral-600-rgb);
+  }
+}
+
+/* Explizites Light-Opt-out: bindet die Semantic-Kanaele auf ihre Light-Werte
+   zurueck. Genutzt von den bewusst hellen Consumer-Landingpages (data-theme=
+   "light" am Seiten-Root), damit der OS-Dark-Default sie NICHT umfaerbt. Da das
+   Attribut auf einem Sub-Tree und nicht :root sitzt, ueberschreiben diese
+   geerbten Variablen den Default per Kaskade. */
+[data-theme='light'] {
+  --color-bg-rgb: var(--neutral-50-rgb);
+  --color-bg-subtle-rgb: var(--neutral-100-rgb);
+  --color-surface-rgb: var(--neutral-0-rgb);
+  --color-fg-rgb: var(--neutral-700-rgb);
+  --color-fg-heading-rgb: var(--brand-heading-rgb);
+  --color-fg-muted-rgb: var(--neutral-500-rgb);
+  --color-border-rgb: var(--neutral-200-rgb);
+  --color-border-strong-rgb: var(--neutral-300-rgb);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+  }
+}

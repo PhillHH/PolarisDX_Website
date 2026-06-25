@@ -27,7 +27,9 @@ export const useHeroSlider = () => {
       id: 'beauty',
       type: 'icon',
       icon: Sparkles,
-      color: 'from-pink-500 to-purple-500', // Gradient for glow
+      // ASSUMPTION — needs human confirmation: dekorativer Per-Segment-Glow ohne
+      // DS-Rolle; auf kohärente Brand-Akzent-Stops tokenisiert (§3.3/§1.7).
+      color: 'from-brand-secondary to-accent', // Gradient for glow
       content: {
         title: t(
           'hero.beauty.title',
@@ -43,7 +45,9 @@ export const useHeroSlider = () => {
       id: 'longevity',
       type: 'icon',
       icon: InfinityIcon,
-      color: 'from-green-400 to-emerald-600', // Gradient for glow
+      // ASSUMPTION — needs human confirmation: Longevity/Gesundheit → Success-Rolle
+      // (emerald) als Glow-Stops tokenisiert (§3.3/§1.7), byte-nah zum Original.
+      color: 'from-success to-success-strong', // Gradient for glow
       content: {
         title: t('hero.longevity.title', 'Prävention neu definiert: Vitalität messbar machen.'),
         description: t(

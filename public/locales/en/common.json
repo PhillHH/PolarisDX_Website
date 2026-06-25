@@ -130,5 +130,22 @@
       "services": "Services",
       "contact": "Contact"
     }
+  },
+  "a11y": {
+    "skipToContent": "Skip to content",
+    "loading": "Loading content …"
+  },
+  "errors": {
+    "root": {
+      "title": "Something went wrong",
+      "body": "This page could not be loaded. Please reload it — your data is not lost. If the problem persists, try again in a few minutes.",
+      "retry": "Try again",
+      "home": "Go to homepage"
+    },
+    "segment": {
+      "title": "This section could not be loaded",
+      "body": "The rest of the page still works. Please try again.",
+      "retry": "Try again"
+    }
   }
 }

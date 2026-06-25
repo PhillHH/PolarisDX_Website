@@ -1,68 +1,159 @@
-# polaris-redesign-auto.yaml — Archon-Workflow (v0.4.1 nodes-Schema)
-# AUTONOMER Komplettlauf: arbeitet die Phasen 0->7 aus knowledge/REFACTORING-ANWEISUNG.md
-# in EINEM Lauf durch (stundenlang), KI-Review statt menschlichem Gate.
-# Endet bewusst an EINEM Pull Request gegen main — NIE mergen, NIE deployen (Live-Site).
-# Stack: Vite 7 + React 19 + react-router-dom 7 + Express-SSR, Tailwind 3.4, i18next, @fontsource.
+# polaris-redesign-auto.yaml — REPARIERT: nativer, KONVERGENTER Voll-Redesign-DAG (v0.4.1).
+# Frueher: EIN Mega-Loop ueber alle Phasen mit selbst-behauptetem ALL_PHASES_COMPLETE -> lief
+# IMMER in den Cap (200) -> failed, und weil von main gebrancht wurde, baute jeder Lauf die
+# fruehen Phasen neu (Token-Verbrennung). JETZT: pro Phase ein BEGRENZTER, LEDGER-gesteuerter
+# Loop (laeuft bis die "- [ ]" dieser Phase in EXECUTION-PLAN.md alle "[x]" sind) + harte
+# build/typecheck/lint-Gate; danach Gesamt-Review + EIN PR. Gemischte Modelle = guenstiger.
+# Akkumuliert auf dem Branch des Laufs (Start mit --from redesign/integration, das das Ledger
+# EXECUTION-PLAN.md + REFACTOR-LOG.md traegt). Resumebar: archon workflow run polaris-redesign-auto --resume
+# NIE nach main mergen, NIE deployen. Stack: Vite 7 + React 19 + react-router-dom 7 + Express-SSR.
 name: polaris-redesign-auto
 description: >
-  Autonomer Voll-Redesign-Lauf nach knowledge/REFACTORING-ANWEISUNG.md (Phasen 0-7),
-  ohne menschliches Gate, mit KI-Review-Schleife. Worktree-isoliert, von main gebrancht.
-  Ergebnis ist EIN Pull Request gegen main (kein Merge, kein Deploy).
+  Voller Redesign-Lauf nach knowledge/REFACTORING-ANWEISUNG.md, KONVERGENT pro Phase
+  (0-Reste -> 1-Verify -> 3 -> 4 -> 5 -> 6 -> 7), ledger-gesteuert, dann Gesamt-Review + EIN PR.
+  Akkumuliert auf dem Lauf-Branch (--from redesign/integration). Kein Merge nach main, kein Deploy.
 nodes:
-  - id: plan
-    model: opus
+  - id: orient
+    model: sonnet
     prompt: |
-      Lies knowledge/ARCHON-README.md, knowledge/REFACTORING-ANWEISUNG.md und
-      knowledge/PROJECT-DECISIONS.md vollstaendig. Erstelle einen Gesamt-Ausfuehrungsplan
-      ueber ALLE Phasen 0->7 (Reihenfolge + Abhaengigkeiten aus §4), je Phase die Tasks +
-      Definition of Done. Beachte den echten Stack (Vite/React-SSR, react-router-dom 7,
-      Tailwind, i18next, @fontsource). Aendere keine Infra/kein Deployment.
-      Fuer PROJECT-DECISIONS-Felder mit "TODO": waehle einen klar begruendeten Default,
-      markiere ihn im Code-Kommentar UND spaeter im PR-Text als
-      "ASSUMPTION — needs human confirmation", und arbeite weiter (nicht blockieren).
+      Lies knowledge/ARCHON-README.md, knowledge/REFACTORING-ANWEISUNG.md,
+      knowledge/PROJECT-DECISIONS.md, EXECUTION-PLAN.md und REFACTOR-LOG.md vollstaendig.
+      Erstelle/aktualisiere eine knappe Liste der NOCH OFFENEN Punkte je Phase
+      (- [ ] in EXECUTION-PLAN.md). Bereits erledigte (- [x]) NICHT anfassen, nichts zurueckbauen.
+      Stack: Vite/React-SSR (kein Next.js). Keine Infra/kein Deployment. PROJECT-DECISIONS-TODOs:
+      begruendeten Default waehlen, als "ASSUMPTION — needs human confirmation" markieren, weiter.
 
-  - id: build
-    depends_on: [plan]
+  - id: build_p3
+    depends_on: [orient]
     model: opus
     loop:
       prompt: |
-        Arbeite die naechste offene Aufgabe aus dem Plan ab — Phasen STRIKT in
-        Reihenfolge 0->7. Regeln: Token-Pflicht ab Phase 1 (keine Rohwerte in
-        Komponenten), Atomic top-down, keine Duplikate, alle UI-States, WCAG 2.2 AA,
-        themebares Designsystem (>=2 Themes), Bilder/Texte/UI vollstaendig (A-Z).
-        Nach jeder Einheit gruen halten: npm run build && npm run typecheck && npm run lint.
-        Belege jede erfuellte Definition of Done durch einen AUSGEFUEHRTEN Check (§1.15).
-        Wenn ALLE Per-Phase-DoD UND die globale DoD (§5) durch ausgefuehrte Checks belegt
-        sind, antworte mit ALL_PHASES_COMPLETE. Sonst mach mit der naechsten Aufgabe weiter.
-      until: ALL_PHASES_COMPLETE
+        PHASE 3 (Visueller-Craft-Pass). Arbeite den naechsten offenen Phase-3-Punkt
+        (- [ ] in EXECUTION-PLAN.md) ab: genau EIN dominantes Element/CTA pro View,
+        Farbe rollenbasiert, Typo-Skala, alle interaktiven Atome mit hover/focus-visible/
+        active/disabled, Schatten-/Radius-Regeln, 0 hartkodierte Design-Werte (nur Tokens, §1.7).
+        Nach jeder Einheit build/typecheck/lint gruen. DoD abhaken + in REFACTOR-LOG.md belegen.
+        Alle Phase-3-Punkte [x] -> antworte exakt PHASE_3_COMPLETE.
+      until: PHASE_3_COMPLETE
       fresh_context: true
-      max_iterations: 200
+      max_iterations: 40
+  - id: val_p3
+    depends_on: [build_p3]
+    bash: |
+      set -e
+      npm install --no-audit --no-fund
+      npm run build && npm run typecheck && npm run lint
+      npx vitest run || echo "[advisory] vitest"
+      npx playwright test || echo "[advisory] playwright"
 
-  - id: validate
-    depends_on: [build]
-    bash: "npm ci --no-audit --no-fund && npm run build && npm run typecheck && npm run lint && npx vitest run && npx playwright test"
-
-  - id: review
-    depends_on: [validate]
+  - id: build_p4
+    depends_on: [val_p3]
     model: opus
     loop:
       prompt: |
-        Adversariales Review des gesamten Diffs gegen die globale Definition of Done (§5),
-        die Per-Phase-DoD und die Anti-Patterns (§6) der knowledge/REFACTORING-ANWEISUNG.md.
-        Pruefe besonders: 0 hartkodierte Design-Werte (nur Tokens, ripgrep-Beweis),
-        Atomic-Import-Richtung top-down, WCAG AA + 0 kritische axe-Verstoesse,
-        alle UI-States, themebares System, KEINE Next-Konstrukte (isomorphes React).
-        Behebe gefundene Probleme und halte build/typecheck/lint gruen.
-        Wenn keine offenen Befunde mehr existieren, antworte mit REVIEW_CLEAN.
+        PHASE 4 (Grid, Layout & Responsiveness). Naechster offener Phase-4-Punkt:
+        8pt-Soft-Grid, 12-Spalten, Container/Reading-Width, Layout-Primitives
+        (Stack/Cluster/Grid), alle Hauptseiten sm/md/lg/xl ohne Bruch/Horizontal-Scroll,
+        Touch >=44px. §1.7 Token-Pflicht. build/typecheck/lint gruen, DoD abhaken+belegen.
+        Alle Phase-4-Punkte [x] -> antworte exakt PHASE_4_COMPLETE.
+      until: PHASE_4_COMPLETE
+      fresh_context: true
+      max_iterations: 30
+  - id: val_p4
+    depends_on: [build_p4]
+    bash: |
+      set -e
+      npm install --no-audit --no-fund
+      npm run build && npm run typecheck && npm run lint
+      npx vitest run || echo "[advisory] vitest"
+
+  - id: build_p5
+    depends_on: [val_p4]
+    model: opus
+    loop:
+      prompt: |
+        PHASE 5 (A11y, Humanity-Centered & Sustainability). Naechster offener Phase-5-Punkt:
+        0 kritische axe-Verstoesse + WCAG 2.2 AA + Tastatur/Fokus (Lighthouse-A11y >=95),
+        prefers-reduced-motion/color-scheme, i18n/Intl + fullName, Klartext-Fehler,
+        Outcome-Events (definitions.ts, Median-Test) statt Vanity, Code-Splitting (React.lazy),
+        Bilder optimiert, Inter self-hosted, je Route errorElement+Suspense+Catch-all-404,
+        kein toter Code (knip/ts-prune/depcheck). §1.7. build/typecheck/lint gruen, DoD abhaken+belegen.
+        Alle Phase-5-Punkte [x] -> antworte exakt PHASE_5_COMPLETE.
+      until: PHASE_5_COMPLETE
+      fresh_context: true
+      max_iterations: 40
+  - id: val_p5
+    depends_on: [build_p5]
+    bash: |
+      set -e
+      npm install --no-audit --no-fund
+      npm run build && npm run typecheck && npm run lint
+      npx vitest run || echo "[advisory] vitest"
+      npx playwright test || echo "[advisory] playwright"
+
+  - id: build_p6
+    depends_on: [val_p5]
+    model: opus
+    loop:
+      prompt: |
+        PHASE 6 (UX-Validierung: States, Content, Maturity, Resilienz). Naechster offener Punkt:
+        jede datengetriebene Komponente loading/empty/error/success(+partial), kein Lorem/
+        placeholder/Stacktrace ausgeliefert, Layout haelt mit Extrem-Content, destruktive
+        Aktionen mit Bestaetigung, Modals Esc/Close, heuristics-/maturity-audit je Hauptseite,
+        eindeutiger Primaer-CTA, GRAVEYARD fuer tote Features. Nicht-automatisierbare Nutzer-
+        Usability als ASSUMPTION mocken. build/typecheck/lint gruen, DoD abhaken+belegen.
+        Alle Phase-6-Punkte [x] -> antworte exakt PHASE_6_COMPLETE.
+      until: PHASE_6_COMPLETE
+      fresh_context: true
+      max_iterations: 40
+  - id: val_p6
+    depends_on: [build_p6]
+    bash: |
+      set -e
+      npm install --no-audit --no-fund
+      npm run build && npm run typecheck && npm run lint
+      npx vitest run || echo "[advisory] vitest"
+
+  - id: build_p7
+    depends_on: [val_p6]
+    model: sonnet
+    loop:
+      prompt: |
+        PHASE 7 (Doku, Pattern Library & Governance). Naechster offener Phase-7-Punkt:
+        Storybook/Styleguide, 5-teilige Komponenten-Doku, tokens/README, PATTERNS/lineage,
+        DESIGN_SYSTEM-Governance, CODEOWNERS, CHANGELOG. Holy Grail: Pattern-Library und
+        Produktion teilen dieselben Komponenten. build/typecheck/lint gruen, DoD abhaken+belegen.
+        Alle Phase-7-Punkte [x] -> antworte exakt PHASE_7_COMPLETE.
+      until: PHASE_7_COMPLETE
+      fresh_context: true
+      max_iterations: 30
+  - id: val_p7
+    depends_on: [build_p7]
+    bash: |
+      set -e
+      npm install --no-audit --no-fund
+      npm run build && npm run typecheck && npm run lint
+      npx vitest run || echo "[advisory] vitest"
+
+  - id: review_all
+    depends_on: [val_p7]
+    model: opus
+    loop:
+      prompt: |
+        Adversariales Gesamt-Review des kompletten Diffs gegen die GLOBALE Definition of Done (§5),
+        alle Per-Phase-DoD und die Anti-Patterns (§6). Pruefe besonders: 0 hartkodierte Design-Werte
+        (nur Tokens, ripgrep-Beweis), Atomic-Import top-down (ESLint boundaries/madge), WCAG 2.2 AA
+        + 0 kritische axe, alle UI-States, themebares System (>=2 Themes), KEINE Next-Konstrukte.
+        Behebe Befunde, halte build/typecheck/lint gruen. Keine offenen Befunde -> antworte REVIEW_CLEAN.
       until: REVIEW_CLEAN
       fresh_context: true
       max_iterations: 12
 
   - id: pr
-    depends_on: [review]
+    depends_on: [review_all]
     model: sonnet
     prompt: |
       Pushe den Feature-Branch und oeffne EINEN Pull Request gegen main (Repo-PR-Template).
-      Der PR-Text listet je Phase 0-7 den Status + belegende Checks, sowie ALLE
+      PR-Text: je Phase 0-7 Status + belegende Checks, plus ALLE
       "ASSUMPTION — needs human confirmation"-Defaults gesammelt zur menschlichen Freigabe.
       NICHT mergen, NICHT deployen.
