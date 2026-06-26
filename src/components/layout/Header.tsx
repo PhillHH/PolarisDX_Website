@@ -9,38 +9,62 @@ import logo from '../../assets/polarisdx_logo.webp'
 import { useDisclosure } from '../../hooks/useDisclosure'
 import { useScrollPosition } from '../../hooks/useScrollPosition'
 
-interface NavItem {
+interface NavChild {
   label: string
-  route?: string
-  children?: { label: string; route: string }[]
+  route: string
+  /** Optionaler Default-Text, wenn der Locale-Key (noch) fehlt. */
+  fallback?: string
 }
 
+interface NavItem {
+  label: string
+  fallback?: string
+  route?: string
+  /** Untertitel des Segments im Dropdown-Kopf (Philips-Zielgruppen-Logik). */
+  caption?: string
+  children?: NavChild[]
+}
+
+// NEWLOOK §5: Nav NACH ZIELGRUPPE gegliedert (Philips-Segment-Logik) — zwei klare
+// Stränge „Für Praxen & Fachkreise" (B2B) vs „Privatkunden" (Consumer). Routen
+// sind real (siehe App.tsx); Consumer-Strang führt auf die /consumer/*-Pages.
 const navItems: NavItem[] = [
-  { label: 'home', route: '/' },
-  { label: 'events', route: '/events' },
   {
-    label: 'about',
-    route: '/about',
-    children: [{ label: 'terms', route: '/terms' }],
+    label: 'forProfessionals',
+    fallback: 'Für Praxen & Fachkreise',
+    caption: 'B2B · Diagnostik & System',
+    children: [
+      { label: 'service', route: '/diagnostics', fallback: 'Diagnostik – Überblick' },
+      { label: 'dental', route: '/diagnostics/dental', fallback: 'Dental-Diagnostik' },
+      { label: 'beauty', route: '/diagnostics/beauty', fallback: 'Beauty-Diagnostik' },
+      { label: 'longevity', route: '/diagnostics/longevity', fallback: 'Longevity-Diagnostik' },
+      { label: 'pocSystems', route: '/diagnostics/poc-systemloesungen', fallback: 'POC-Systemlösungen' },
+      { label: 'igloo', route: '/igloo-pro', fallback: 'IglooPro System' },
+      { label: 'about', route: '/about', fallback: 'Über uns' },
+      { label: 'support', route: '/support', fallback: 'Support' },
+    ],
   },
   {
-    label: 'service',
-    route: '/diagnostics',
+    label: 'forConsumers',
+    fallback: 'Privatkunden',
+    caption: 'Produkte für zuhause',
     children: [
-      { label: 'dental', route: '/diagnostics/dental' },
-      { label: 'beauty', route: '/diagnostics/beauty' },
-      { label: 'longevity', route: '/diagnostics/longevity' },
-      { label: 'pocSystems', route: '/diagnostics/poc-systemloesungen' },
+      { label: 'consumerSpray', route: '/consumer/vitamin-d3-spray', fallback: 'Vitamin-D3-Spray' },
+      { label: 'consumerMasks', route: '/consumer/hydrating-masks', fallback: 'Hydrating Masks' },
+      { label: 'consumerDuo', route: '/consumer/inside-out-duo', fallback: 'Inside-Out Duo' },
     ],
   },
   { label: 'blog', route: '/articles' },
-  { label: 'support', route: '/support' },
+  { label: 'events', route: '/events' },
 ]
 
 // NEWLOOK: heller Header (§NEWLOOK-HOME §5). Sichtbarer Tastatur-Fokus auf hellem
 // Grund = Navy-Ring (§2 WCAG 2.4.7).
 const focusRing =
   'rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]'
+
+const linkUnderline =
+  "relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 after:bg-brand-blue after:transition-transform after:duration-300 after:content-[''] hover:after:origin-bottom-left hover:after:scale-x-100"
 
 const Header = () => {
   const { t } = useTranslation('common')
@@ -52,6 +76,9 @@ const Header = () => {
 
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
   const location = useLocation()
+
+  // Label-Helfer: Locale-Key mit robustem Fallback (manche Segment-Labels sind neu).
+  const label = (key: string, fallback?: string) => t(`nav.${key}`, fallback ?? key)
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -78,7 +105,7 @@ const Header = () => {
             : 'border-transparent bg-surface/80 backdrop-blur-md'
         }`}
       >
-        <div className="mx-auto flex max-w-container items-center justify-between px-4 py-3 sm:px-6 lg:px-0 lg:py-4">
+        <div className="mx-auto flex max-w-container items-center justify-between gap-6 px-4 py-3 sm:px-6 lg:px-0 lg:py-4">
           <Link to="/" className={`flex shrink-0 items-center gap-3 ${focusRing}`}>
             <img
               src={logo}
@@ -90,44 +117,49 @@ const Header = () => {
             <span className="sr-only">PolarisDX</span>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden flex-wrap items-center gap-8 text-sm font-medium md:flex xl:gap-10 text-fg">
+          {/* Desktop Nav — zwei Zielgruppen-Stränge + flache Einträge */}
+          <nav className="hidden flex-wrap items-center gap-7 text-sm font-medium md:flex lg:gap-9 text-fg">
             {navItems.map((item) => (
-              <div key={item.label} className="relative group">
+              <div key={item.label} className="group relative">
                 {item.children ? (
-                  <div className="flex items-center gap-1 cursor-pointer">
-                    <Link
-                      to={item.route!}
-                      className={`flex items-center gap-1 text-fg transition-colors hover:text-brand-blue ${focusRing}`}
+                  <>
+                    <button
+                      type="button"
+                      aria-haspopup="true"
+                      className={`flex items-center gap-1 text-fg transition-colors hover:text-brand-blue group-focus-within:text-brand-blue ${focusRing}`}
                     >
-                      <span className="relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 after:bg-brand-blue after:transition-transform after:duration-300 after:content-[''] hover:after:origin-bottom-left hover:after:scale-x-100">
-                        {t(`nav.${item.label}`)}
-                      </span>
-                      <ChevronDown className="h-3.5 w-3.5 text-fg-muted" aria-hidden="true" />
-                    </Link>
-                    {/* Hover trigger for submenu */}
-                    <div className="absolute left-1/2 top-full hidden min-w-[200px] -translate-x-1/2 pt-5 group-hover:block group-focus-within:block">
-                      <div className="overflow-hidden rounded-2xl border border-border bg-surface py-2 shadow-2">
+                      <span className={linkUnderline}>{label(item.label, item.fallback)}</span>
+                      <ChevronDown
+                        className="h-3.5 w-3.5 text-fg-muted transition-transform duration-300 group-hover:rotate-180 group-focus-within:rotate-180"
+                        aria-hidden="true"
+                      />
+                    </button>
+                    {/* Dropdown (hell, Surface) — sichtbar via hover/focus-within */}
+                    <div className="invisible absolute left-1/2 top-full z-10 min-w-[260px] -translate-x-1/2 pt-5 opacity-0 transition-opacity duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                      <div className="overflow-hidden rounded-2xl border border-border bg-surface py-3 shadow-2">
+                        {item.caption && (
+                          <p className="px-5 pb-2 text-xs font-semibold uppercase tracking-overline text-brand-blue-bright">
+                            {item.caption}
+                          </p>
+                        )}
                         {item.children.map((child) => (
                           <Link
                             key={child.label}
                             to={child.route}
-                            className="flex min-h-[var(--tap-target-min)] items-center px-5 py-2.5 text-sm font-normal text-fg transition-colors hover:bg-bg-subtle hover:text-brand-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--color-focus-ring)]"
+                            className="flex min-h-[var(--tap-target-min)] items-center px-5 py-2 text-sm font-normal text-fg transition-colors hover:bg-bg-subtle hover:text-brand-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--color-focus-ring)]"
                           >
-                            {t(`nav.${child.label}`)}
+                            {label(child.label, child.fallback)}
                           </Link>
                         ))}
                       </div>
                     </div>
-                  </div>
+                  </>
                 ) : (
                   <Link
                     to={item.route!}
-                    className={`flex items-center gap-1 text-fg transition-colors hover:text-brand-blue ${focusRing}`}
+                    className={`flex items-center text-fg transition-colors hover:text-brand-blue ${focusRing}`}
                   >
-                    <span className="relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 after:bg-brand-blue after:transition-transform after:duration-300 after:content-[''] hover:after:origin-bottom-left hover:after:scale-x-100">
-                      {t(`nav.${item.label}`)}
-                    </span>
+                    <span className={linkUnderline}>{label(item.label, item.fallback)}</span>
                   </Link>
                 )}
               </div>
@@ -200,20 +232,18 @@ const Header = () => {
                           setOpenSubmenu(openSubmenu === item.label ? null : item.label)
                         }
                       >
-                        <span>{t(`nav.${item.label}`)}</span>
+                        <span>{label(item.label, item.fallback)}</span>
                         <ChevronDown
                           className={`h-4 w-4 transition-transform duration-300 ${openSubmenu === item.label ? 'rotate-180' : ''}`}
                         />
                       </button>
                       {openSubmenu === item.label && (
                         <div className="mt-3 space-y-2 border-l-2 border-border pl-4">
-                          <Link
-                            to={item.route!}
-                            className={`flex min-h-[var(--tap-target-min)] items-center text-base font-normal text-fg-muted ${focusRing}`}
-                            onClick={mobileMenu.onClose}
-                          >
-                            {t(`nav.${item.label}`)}
-                          </Link>
+                          {item.caption && (
+                            <p className="text-xs font-semibold uppercase tracking-overline text-brand-blue-bright">
+                              {item.caption}
+                            </p>
+                          )}
                           {item.children.map((child) => (
                             <Link
                               key={child.label}
@@ -221,7 +251,7 @@ const Header = () => {
                               className={`flex min-h-[var(--tap-target-min)] items-center text-base font-normal text-fg-muted ${focusRing}`}
                               onClick={mobileMenu.onClose}
                             >
-                              {t(`nav.${child.label}`)}
+                              {label(child.label, child.fallback)}
                             </Link>
                           ))}
                         </div>
@@ -233,7 +263,7 @@ const Header = () => {
                       className={`flex min-h-[var(--tap-target-min)] items-center text-lg font-medium text-fg-heading ${focusRing}`}
                       onClick={mobileMenu.onClose}
                     >
-                      {t(`nav.${item.label}`)}
+                      {label(item.label, item.fallback)}
                     </Link>
                   )}
                 </div>

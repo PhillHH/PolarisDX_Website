@@ -74,24 +74,29 @@ Der dunkle Navy bleibt Markenanker — aber **dosiert**: genau **ein** dunkles B
 - **Buttons:** Primär = Navy solid (`Button variant=primary`); Sekundär = Text-Link
   mit Pfeil (`→`) oder `secondary`-Outline auf Weiß. Genau **ein** primärer CTA je Band.
 
-## 3. Hero-Konzept („Clarity Hero")
+## 3. Hero-Konzept („Clarity Hero", FOTOGRAFIE-FORWARD)
 
-Ruhig, groß, glaubwürdig — **keine** Animation/Slider.
+Ruhig, groß, glaubwürdig — **keine** Animation/Slider. Der Hebel ist das **echte,
+große Foto** (Philips-Vorbild): ein dokumentarisches Bild dominiert ~60 % des
+above-the-fold, der Text bleibt minimal.
 
-- **Layout:** zweispaltig (`lg:grid-cols-[1.05fr_0.95fr]`), volle Höhe ~min-h-[640px].
-  Links Text, rechts Bild. Mobile: Text oben, Bild darunter.
-- **Grund:** weiß/`bg`, rechts ein **weicher Blau-Wash** (radиaler `brand-blue/10`
-  Verlauf + dezenter Raster/`bg-noise` ganz schwach) als Fläche hinter dem Foto —
-   deutet „Klinik-Reinheit" an, ohne dunkel zu werden.
-- **Inhalt links:** Eyebrow (`hero.caption`), **H1** (`hero.title`, sehr groß),
-  Subline (`hero.description`), **ein** Primär-CTA (`hero.cta` → /contact) + ein
-  Sekundär-Textlink (`hero.cta_downloads` → /downloads). Darunter eine schlanke
-  **Trust-Zeile** (2 Stats: `hero.stat1`, `hero.stat2`) mit vertikalem Divider.
-- **Bild rechts:** `hero_doctor.webp` (Ärztin mit IglooPro, freigestellt) groß,
-  am Boden ausgerichtet, mit weichem Schatten; dahinter der Blau-Wash + ein
-  feiner Ring/`brand-blue/15`. LCP: H1 sofort sichtbar, Bild `fetchPriority=high`.
-- Die früheren Beauty/Longevity-Hero-Slides leben jetzt vollwertig in **Domains**
-  (§4.4) — Inhalt erhalten, nur umkomponiert.
+- **Layout:** weißer Textblock links, **großes Dokumentarfoto rechts**. Auf `lg+`
+  **blutet das Foto bis zum Viewport-Rand** (`absolute inset-y-0 right-0 w-[50vw]`,
+  `object-cover`) für volle Bildwirkung; Höhe ~`min-h-[660px]`/`xl:720px`. Mobil:
+  Text oben, darunter das Foto als großes gerundetes Bild (`aspect-[16/10]`).
+- **Foto (EIGEN, kein Stock):** `public/images/clinic-consultation.webp` (aus
+  `homeclinic.webp` — Ärztin/Pflegekraft im Patientengespräch, warm, dokumentarisch).
+  LCP-Element: `fetchPriority="high"`, in `HomePage` vorgeladen. Sauberer `alt`-Text,
+  weicher Weiß-Verlauf am linken Bildrand für nahtlosen Übergang ins Weiß.
+- **Inhalt links:** Eyebrow (`hero.caption`), **H1** (`hero.title`, `text-display`
+  clamp 36→72, sehr groß/fett), Subline (`hero.description`), **ein** Primär-CTA
+  (`hero.cta` → /contact) + leiser Sekundär-Textlink (`hero.cta_downloads`
+  → /downloads). Darunter schlanke **Trust-Zeile** (2 Stats) mit vertikalem Divider.
+- **Credibility-Chip (EIGEN):** schwebende Kachel über dem Foto mit eigenem
+  Ärztin-/Gerätefoto (`public/images/doctor-igloopro.webp` aus `hero_doctor.webp`)
+  als Avatar + „3 Min / Ergebnis am Behandlungsstuhl" — Produktbeweis ohne Drama.
+- Die früheren Beauty/Longevity-Hero-Slides leben in **Domains** (§4.4) — Inhalt
+  erhalten, nur umkomponiert.
 
 ## 4. Sektionsplan & Reihenfolge
 
@@ -106,9 +111,12 @@ Wissen → Fragen → Abschluss.
 3. **HomeProductSpotlight** — IglooPro als Held: großes freigestelltes Produktfoto
    (`Igloo-pro-frontal.webp`) auf Weiß + Eyebrow/Titel/Text (`doctors.*`) + 3
    Mini-Spezifikationen + CTA → /igloo-pro.
-4. **HomeDomains** — Anwendungsbereiche Dental/Beauty/Longevity als drei große,
-   ruhige Karten (Icon-Tile, `services.dental/beauty/longevity` Titel+Text,
-   Link → /diagnostics/…). Abschluss-Link „Alle Diagnostik-Services" → /diagnostics.
+4. **HomeDomains** — Anwendungsbereiche Dental/Beauty/Longevity als einheitliche
+   **BILD-OBEN-Karten** (Philips-Card-Logik): großes Dokumentarfoto je Fachgebiet
+   (`aspect-[16/10]`, `object-cover`, Hover-Zoom) mit aufgesetztem Icon-Tile,
+   darunter `services.dental/beauty/longevity` Titel+Text, Link → /diagnostics/….
+   Fotos = **Stock** (Unsplash, verifiziert) → ASSUMPTION: needs owned photography.
+   Abschluss-Link „Alle Diagnostik-Services" → /diagnostics.
 5. **HomeApproach** — „Performance-Setup / Einsatzbereit ab Tag 1" (`about.*`):
    zweispaltig mit `igloo_explode.webp`; rechts Text + 3 nummerierte Schritte
    (Konfiguration → Validierung → erste Messung, aus `about.text*` abgeleitet) + CTA.
@@ -126,12 +134,21 @@ Wissen → Fragen → Abschluss.
 
 ## 5. Globale Chrome
 
-### Header (hell, Medtech)
+### Header (hell, Medtech, ZIELGRUPPEN-NAV)
 - **Immer hell:** `surface/80` + `backdrop-blur`, untere 1px-`border`; auf Scroll
   (`>24px`) leicht kräftiger (Opacity/`shadow-1`). Kein transparenter Zustand mehr.
 - **Logo:** `polarisdx_logo.webp` (dunkel/farbig — passt auf Weiß).
-- **Nav:** `text-fg`/`fg-heading`, Hover `brand-blue` + Underline-Sweep. Dropdown
-  bereits hell (Surface). Fokus-Ring **Navy** (`--color-focus-ring`), AA-sichtbar.
+- **Segment-Nav (Philips-Logik):** zwei klare Stränge als Dropdown-Gruppen —
+  **„Für Praxen & Fachkreise"** (B2B: Diagnostik-Überblick + Dental/Beauty/
+  Longevity/POC, IglooPro, Über uns, Support) vs **„Privatkunden"** (Consumer:
+  Vitamin-D3-Spray, Hydrating Masks, Inside-Out Duo → `/consumer/*`). Dazu flach
+  „Magazin" + „Events". Dropdown-Kopf trägt eine `caption` (z. B. „B2B · Diagnostik
+  & System"). Labels: `common:nav.forProfessionals/forConsumers/igloo/consumer*`
+  (de+en gepflegt, robuste Inline-Fallbacks). Gruppen-Trigger sind `<button
+  aria-haspopup>`; Sichtbarkeit via `hover`/`focus-within` (Tastatur-tauglich).
+- **Nav-Stil:** `text-fg`/`fg-heading`, Hover `brand-blue` + Underline-Sweep,
+  Chevron rotiert. Dropdown hell (Surface). Fokus-Ring **Navy**
+  (`--color-focus-ring`), AA-sichtbar.
 - **Aktionen:** Suche (Icon, Hover `bg-fg/5`), `LanguageSwitcher` (auf hell
   getrimmt), **Primär-CTA Navy** (`Button primary`, immer).
 - **Mobile:** helle Sheet (`surface`), dunkle Typo, gleiche Tokens, Tap ≥44px.
@@ -151,6 +168,26 @@ Wissen → Fragen → Abschluss.
 - Bilder: sinnvolle Alt-Texte; rein dekorative Flächen `aria-hidden`.
 - **ASSUMPTION — needs real photography:** wo echte Medtech-Fotografie fehlt
   (Spotlight/Approach-Flächen), sauberes Treatment auf Weiß als Platzhalter.
+
+## 6a. Bild-Inventar (fotografie-forward)
+
+Echte Bilder statt leerer Platzhalter. EIGENE Assets dominieren Hero/Produkt;
+Stock nur dort, wo (noch) kein eigenes Foto existiert — klar markiert.
+
+| Slot | Quelle | Datei | Owned/Stock |
+|---|---|---|---|
+| Hero-Foto (Bleed) | eigen | `public/images/clinic-consultation.webp` (← `homeclinic.webp`) | **Owned** |
+| Hero-Credibility-Chip | eigen | `public/images/doctor-igloopro.webp` (← `hero_doctor.webp`) | **Owned** |
+| ProductSpotlight (Gerät) | eigen | `src/assets/Igloo-pro-frontal.webp` | **Owned** |
+| Approach (Explosion) | eigen | `src/assets/igloo_explode.webp` | **Owned** |
+| Domains: Dental | Unsplash | `photo-1581595219315-a187dd40c322` | Stock → *needs owned* |
+| Domains: Beauty | Unsplash | `photo-1559757148-5c350d0d3c56` | Stock → *needs owned* |
+| Domains: Longevity | Unsplash | `photo-1530026405186-ed1f139313f8` | Stock → *needs owned* |
+| Magazine | Artikel-DB | `articleImages` | Bestand |
+
+Stock-URLs mit `?w=1200&q=80&auto=format&fit=crop`, `loading="lazy"`, `sizes`,
+sinnvollem `alt`. CSP `img-src https:` erlaubt Unsplash. **ASSUMPTION — needs owned
+photography:** die drei Domain-Fotos durch eigene Praxis-/Fachgebiet-Aufnahmen ersetzen.
 
 ## 7. Definition of Done
 - Startseite + Header/Navigation/Footer im neuen hellen Medtech-Look.

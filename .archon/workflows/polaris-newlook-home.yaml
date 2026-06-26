@@ -1,48 +1,62 @@
-# polaris-newlook-home.yaml — ECHTER neuer Auftritt: Startseite (+ globale Chrome) komplett neu
-# in Medtech-Premium-Anmutung (Philips Healthcare / Siemens Healthineers). KEINE Token-Politur,
-# sondern neues Layout/Hero/Komposition/visuelle Sprache. Logo + primäre Markenfarben BLEIBEN,
-# Inhalte/Claims bleiben. Lean: nur Startseite + Header/Footer, auf Preview, kein Merge/Deploy.
+# polaris-newlook-home.yaml — v2: STARTSEITE im präzisen PHILIPS-MEDICAL-SYSTEMS-Brief,
+# FOTOGRAFIE-FORWARD mit echten/lizenzfreien Bildern. Mutiger als v1 (kein zaghaftes Token-Tweaking).
+# Logo + Navy/Blau-Markenfarben + Inhalte/Claims BLEIBEN. Nur Startseite + Header/Footer. Kein Merge/Deploy.
 name: polaris-newlook-home
 description: >
-  Komplett neu gestaltete Startseite (+ Header/Footer) in Medtech-Premium-Anmutung (Philips-Look):
-  neues Layout, neues Hero-Konzept, neue visuelle Sprache. Logo + Primärfarben + Inhalte bleiben.
-  Lean-Validierung der Richtung vor dem Full-Site-Rollout. Kein Merge, kein Deploy.
+  Startseite + Header/Footer im präzisen Philips-Healthcare-Brief: weiß, großer Foto-Hero, starke
+  Typo-Hierarchie, Zielgruppen-Nav, modulare Full-Width-Bänder — mit echten PolarisDX-Fotos + verifizierten
+  lizenzfreien Stocks. Logo + Markenfarben + Inhalte bleiben. Kein Merge, kein Deploy.
 nodes:
   - id: design_home
     model: opus
     loop:
       prompt: |
-        Du bist Lead-Designer einer Premium-Medtech-Agentur. Gestalte die STARTSEITE (+ globale Chrome:
-        Header/Navigation/Footer) der PolarisDX-Seite KOMPLETT NEU — ein ECHTER neuer Auftritt. Das ist
-        KEINE Token-Politur und KEIN Wiederverwenden der bestehenden Section-Kompositionen: Layout, Hero
-        und Bildaufteilung werden neu erfunden.
+        Du bist Lead-Designer einer Premium-Medtech-Agentur. Gestalte die STARTSEITE (+ Header/Navigation/
+        Footer) der PolarisDX-Seite KOMPLETT NEU, FOTOGRAFIE-FORWARD, nach einem PRÄZISEN VORBILD —
+        Philips Healthcare / Siemens Healthineers. Sei MUTIG: das ist kein Token-Tweak, Layout & Hero werden
+        neu erfunden. Aktualisiere docs/NEWLOOK-HOME.md (Konzept) und arbeite konsistent darauf hin.
 
-        REFERENZ-ANMUTUNG (verbindlich): führende Medtech-Marken wie **Philips Healthcare / Siemens
-        Healthineers** — sehr clean, viel Weißraum, große selbstbewusste Hero-Fläche (ruhig, produkt-/
-        glaubwürdigkeitsstark), klare bold Sans-Typografie mit STARKER Hierarchie, premium & vertrauens-
-        würdig, blauer Marken-Akzent auf viel Weiß, klare einzelne CTAs, ruhige Iconografie, großer
-        Section-Rhythmus. Modern, hochwertig, NICHT verspielt, NICHT generisch-SaaS, NICHT wie der Ist-Look.
+        PHILIPS-BRIEF (aus der echten Philips-Healthcare-Seite analysiert — verbindlich):
+        - GRUNDTON: viel WEISS, dunkler Charcoal/Navy-Text, Markenfarbe Navy/Blau NUR als dezenter Akzent
+          (Links, dünne Linien, kleine Flächen). Klarheit statt Drama. Großer Section-Rhythmus (py-24/28/32),
+          modulare FULL-WIDTH-Bänder mit viel Weißraum dazwischen, contained Lesebreite für Text.
+        - HERO: GROSSES, echtes FOTO (Mensch/Klinik) dominiert (~60-70% above-the-fold), dazu MINIMALER,
+          ruhiger Text (große Display-H1 + ein Satz Subline + EIN klarer CTA). Aspirational, ruhig, kein Slider.
+        - TYPO: moderne Sans (Inter), STARKER Größen-/Gewichtskontrast — H1 sehr groß (clamp ~40→72) fett,
+          Body leicht; Hierarchie über Größe, nicht Farbe.
+        - HEADER: hell (weiß/Blur), DUNKLES Logo; Nav NACH ZIELGRUPPE gegliedert — "Für Praxen / Fachkreise"
+          vs "Privatkunden" (Consumer) als zwei klare Stränge (Philips-Segment-Logik) + Sprache rechts.
+        - KARTEN/GRID: einheitliche Karten, BILD-OBEN, 2/3-Spalten-Grid, ruhige Lucide-Icons, dünne 1px-Linien.
+        - CTAs: zurückhaltend (klare aber ruhige Buttons/Text-Links), kein Conversion-Druck.
+        - WIRKUNG: professionell, vertrauenswürdig, zugänglich.
 
-        HART BEHALTEN: das PolarisDX-**Logo** und die **primären Markenfarben** (lies die aktuellen
-        Primary-/Brand-Tokens — Navy/Blau BLEIBT die Markenfarbe, eingesetzt als Akzent auf weißem Grund).
-        Alle **Inhalte/Texte/Claims/Preise** bleiben erhalten (Wording darf selbstbewusst-medtech
-        nachgeschärft werden — KEINE Fakten/medizinischen Aussagen erfinden oder streichen).
+        BILDER — DAS IST DER HEBEL (fotografie-forward!), nutze ECHTE Bilder, keine leeren Platzhalter:
+        - Eigene PolarisDX-Assets GROSS einsetzen: IglooPro-Gerät (email/assets/igloo_front.png,
+          hero_device.png, Igloo-pro-frontal.png) und hero_doctor.png. Kopiere die benötigten nach
+          public/images/ und binde sie web-optimiert ein (große, freigestellte Produkt-/Personenbilder).
+        - Für große Hero-/Section-Fotos (Klinik/Praxis/Labor/Diagnostik/Fachkraft), wo kein eigenes passt,
+          nutze diese VERIFIZIERTEN lizenzfreien Unsplash-Bilder (CSP img-src https: ist erlaubt), je mit
+          Query "?w=2000&q=80&auto=format&fit=crop" (bzw. kleinere Breite je Slot):
+            https://images.unsplash.com/photo-1579684385127-1ef15d508118
+            https://images.unsplash.com/photo-1576091160550-2173dba999ef
+            https://images.unsplash.com/photo-1505751172876-fa1923c5c528
+            https://images.unsplash.com/photo-1581595219315-a187dd40c322
+            https://images.unsplash.com/photo-1559757148-5c350d0d3c56
+            https://images.unsplash.com/photo-1530026405186-ed1f139313f8
+            https://images.unsplash.com/photo-1551601651-2a8555f1a136
+            https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb
+            https://images.unsplash.com/photo-1612349317150-e413f6a5b16d
+            https://images.unsplash.com/photo-1666214280557-f1b5022eb634
+          Dokumentarisch/authentisch (Menschen/Klinik > Glamour). Setze loading/sizes/alt sauber.
+        - Markiere im Konzept/PR, welche Bilder Stock sind und durch EIGENE Fotos ersetzt werden sollten
+          ("ASSUMPTION — needs owned photography").
 
-        FREI NEU GESTALTEN: Grid & Layout, **Hero-Konzept** (groß, klare Value-Proposition, produkt-/
-        fotografiestark), Reihenfolge & Komposition aller Sektionen, visuelle Sprache (Typo-Treatment &
-        Skala, Spacing-Rhythmus, Karten/Panels/Divider, Bild-Behandlung, Eyebrows, Button-Stil),
-        Iconografie. Baue dafür NEUE Section-Komponenten (atomar), nicht nur Klassen tauschen.
-        Bildwelt: vorhandene Bilder größer/selbstbewusster einsetzen; wo professionelle Medtech-Fotografie
-        fehlt, sauberes Treatment/Platzhalter setzen und "ASSUMPTION — needs real photography" markieren.
-
-        VORGEHEN: Falls docs/NEWLOOK-HOME.md noch nicht existiert, schreibe ZUERST das vollständige
-        Design-Konzept dorthin (Medtech-Art-Direction, Hero-Konzept, Sektionsplan/Reihenfolge, Typo-/
-        Farb-/Spacing-System) — danach setze es um. Lies das Konzept in JEDER Iteration und arbeite
-        konsistent darauf hin (eine kohärente Vision, nicht jede Iteration neu erfinden).
-
-        Technik: Stack bleibt (Vite/React-SSR, Tailwind, Tokens). WCAG 2.2 AA, responsive sm/md/lg/xl,
-        alle UI-States. Nach jeder Einheit build/typecheck/lint GRÜN. Wenn Startseite + Header/Footer im
-        neuen Medtech-Look fertig und grün sind, antworte exakt HOME_NEWLOOK_DONE.
+        HART BEHALTEN: PolarisDX-Logo, primäre Markenfarben (Navy #052740 / Blau #0d527f), alle Inhalte/
+        Texte/Claims/Preise (Wording darf selbstbewusst-medtech geschärft werden, keine Fakten erfinden/streichen).
+        Technik: Stack bleibt (Vite/React-SSR, Tailwind, Tokens), SSR-sicher (kein window beim Render),
+        WCAG 2.2 AA, responsive sm/md/lg/xl, alle UI-States, prefers-reduced-motion. Nach jeder Einheit
+        build/typecheck/lint GRÜN. Wenn Startseite + Header/Footer im neuen Philips-Look (mit echten Bildern)
+        fertig und grün sind, antworte exakt HOME_NEWLOOK_DONE.
       until: HOME_NEWLOOK_DONE
       fresh_context: true
       max_iterations: 25

@@ -26,8 +26,8 @@ import HomeMagazine from '../components/sections/home/HomeMagazine'
 import FAQSection from '../components/sections/FAQSection'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
 
-// Hero-Bild für LCP-Preload
-import heroDoctor from '../assets/hero_doctor.webp'
+// Hero-Foto (eigenes Dokumentarfoto, public/images) für LCP-Preload.
+const heroPhoto = '/images/clinic-consultation.webp'
 
 const HomePage = () => {
   const { t } = useTranslation('home')
@@ -79,7 +79,7 @@ const HomePage = () => {
           'CRP Schnelltest',
         ]}
         structuredData={structuredData}
-        preloadImages={[heroDoctor]}
+        preloadImages={[heroPhoto]}
       />
       {/* NEWLOOK-Komposition (§NEWLOOK-HOME §4): Aufmerksamkeit → Glaubwürdigkeit →
           Produkt → Anwendung → Vorgehen → Tiefe → Stimmen → Wissen → Fragen →

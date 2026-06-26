@@ -14,7 +14,13 @@
     "dental": "Dental Diagnostics",
     "beauty": "Beauty Diagnostics",
     "longevity": "Longevity Diagnostics",
-    "pocSystems": "POC Systems"
+    "pocSystems": "POC Systems",
+    "forProfessionals": "For Practices & Professionals",
+    "forConsumers": "Consumers",
+    "igloo": "IglooPro System",
+    "consumerSpray": "Vitamin D3 Spray",
+    "consumerMasks": "Hydrating Masks",
+    "consumerDuo": "Inside-Out Duo"
   },
   "badge": {
     "New": "New",

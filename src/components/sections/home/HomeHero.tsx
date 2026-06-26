@@ -2,34 +2,60 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ArrowRight, Clock3 } from 'lucide-react'
 import { Button } from '~/design-system'
-import heroDoctor from '../../../assets/hero_doctor.webp'
 
 /**
  * HomeHero — „Clarity Hero" der NEWLOOK-Startseite (§NEWLOOK-HOME §3).
  *
- * Ruhig, groß, glaubwürdig: weißer Grund mit weichem Blau-Wash, eine
- * selbstbewusste Aussage (H1) statt des bisherigen Navy-Sliders. Links Value-
- * Proposition + genau ein Primär-CTA + Sekundär-Textlink + schlanke Trust-Stats;
- * rechts das freigestellte Praxisfoto (Ärztin + IglooPro) auf einer hellen
- * Panel-Fläche. LCP: H1 + Bild sofort sichtbar (fetchPriority high), keine
- * Einstiegsanimation.
+ * Fotografie-forward nach Philips-Vorbild: ein GROSSES, echtes Dokumentarfoto
+ * (eigene Praxis-/Beratungsaufnahme) dominiert ~60 % above-the-fold; daneben ein
+ * ruhiger, weißer Textblock mit großer Display-H1, EINEM Satz Subline und genau
+ * EINEM Primär-CTA (+ leiser Sekundär-Textlink) sowie einer schlanken Trust-Zeile.
+ * Kein Slider, keine Einstiegsanimation. Auf lg blutet das Foto bis zum
+ * Viewport-Rand (volle Bildwirkung), mobil steht es als großes Bild unter dem Text.
+ *
+ * Bilder sind EIGENE Assets (public/images, web-optimiertes webp). LCP: H1 + Foto
+ * sofort sichtbar (fetchPriority="high").
  */
+const HERO_PHOTO = '/images/clinic-consultation.webp'
+const DOCTOR_THUMB = '/images/doctor-igloopro.webp'
+
 const HomeHero = () => {
   const { t } = useTranslation('home')
 
+  const photoAlt = t(
+    'hero.image_alt',
+    'Ärztin und Pflegekraft im Patientengespräch in einer modernen Praxis',
+  )
+  const chipValue = t('spotlight.spec1_value', '3 Min')
+  const chipLabel = t('spotlight.spec1_label', 'Ergebnis am Behandlungsstuhl')
+
   return (
-    <section id="hero" className="relative overflow-hidden bg-surface">
-      {/* Dekorativer Blau-Wash rechts + zarter Raster — reine Atmosphäre (a11y: hidden). */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute -right-32 -top-32 h-[640px] w-[640px] rounded-full bg-brand-blue/10 blur-3xl" />
-        <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-brand-blue/5 to-transparent" />
-        <div className="absolute inset-0 bg-noise opacity-[0.04]" />
+    <section
+      id="hero"
+      className="relative isolate overflow-hidden bg-surface"
+    >
+      {/* lg: großflächiges Dokumentarfoto, randvoll bis zum Viewport-Rand. */}
+      <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[50vw] lg:block xl:w-[52vw]">
+        <img
+          src={HERO_PHOTO}
+          alt={photoAlt}
+          width={1280}
+          height={1280}
+          fetchPriority="high"
+          decoding="async"
+          className="h-full w-full object-cover object-[60%_center]"
+        />
+        {/* Sanfter Verlauf links für nahtlosen Übergang ins Weiß (rein dekorativ). */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-surface to-transparent"
+        />
       </div>
 
-      <div className="relative mx-auto max-w-container px-4 pb-16 pt-28 sm:pt-32 lg:px-0 lg:pb-28 lg:pt-40">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-          {/* Inhalt */}
-          <div className="max-w-2xl">
+      <div className="relative mx-auto max-w-container px-4 lg:px-0">
+        <div className="grid items-center gap-10 lg:min-h-[660px] lg:grid-cols-2 lg:gap-0 xl:min-h-[720px]">
+          {/* Textspalte */}
+          <div className="max-w-2xl pt-28 sm:pt-32 lg:py-24 lg:pr-12 xl:pr-16">
             <span className="inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-overline text-brand-blue-bright sm:text-sm">
               <span aria-hidden="true" className="h-px w-8 bg-brand-blue-bright/50" />
               {t('hero.caption', 'Point-of-Care-Diagnostik')}
@@ -91,43 +117,60 @@ const HomeHero = () => {
             </dl>
           </div>
 
-          {/* Bild — freigestelltes Praxisfoto auf heller Panel-Fläche */}
-          <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-blue/15 via-bg-subtle to-surface shadow-2 ring-1 ring-brand-blue/10">
-              <div
-                aria-hidden="true"
-                className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-blue/15 blur-2xl"
-              />
+          {/* Mobil/Tablet: großes Foto unter dem Text (lg von der Bleed-Fläche ersetzt). */}
+          <div className="relative pb-12 lg:hidden">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-2 ring-1 ring-border sm:aspect-[16/10]">
               <img
-                src={heroDoctor}
-                alt="Ärztin mit dem IglooPro POC-Reader in der Praxis"
-                width={520}
-                height={650}
+                src={HERO_PHOTO}
+                alt={photoAlt}
+                width={1024}
+                height={768}
                 fetchPriority="high"
                 decoding="async"
-                className="absolute inset-x-0 bottom-0 mx-auto h-[108%] w-auto max-w-none object-contain object-bottom drop-shadow-xl"
+                className="h-full w-full object-cover"
               />
             </div>
-
-            {/* Schwebende Ergebnis-Kachel (premium, ruhig) */}
-            <div className="absolute -bottom-5 left-4 flex items-center gap-3 rounded-2xl border border-border bg-surface/95 px-4 py-3 shadow-2 backdrop-blur sm:left-6">
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-navy/5 text-brand-blue">
-                <Clock3 className="h-5 w-5" strokeWidth={1.75} aria-hidden="true" />
-              </span>
-              <div className="leading-tight">
-                <p className="text-sm font-semibold text-fg-heading">
-                  {t('spotlight.spec1_value', '3 Min')}
-                </p>
-                <p className="text-xs text-fg-muted">
-                  {t('spotlight.spec1_label', 'Ergebnis am Behandlungsstuhl')}
-                </p>
-              </div>
-            </div>
+            <HeroChip thumbAlt={photoAlt} value={chipValue} label={chipLabel} />
           </div>
         </div>
+      </div>
+
+      {/* lg: schwebende Ergebnis-Kachel über dem Bleed-Foto (eigenes Foto als Avatar). */}
+      <div className="pointer-events-none absolute bottom-10 right-6 hidden lg:block xl:right-[calc((100vw-1200px)/2+1.5rem)]">
+        <HeroChip thumbAlt={photoAlt} value={chipValue} label={chipLabel} />
       </div>
     </section>
   )
 }
+
+/** Premium-Credibility-Kachel: eigenes Ärztin-/Gerätefoto + „Ergebnis in 3 Min". */
+const HeroChip = ({
+  thumbAlt,
+  value,
+  label,
+}: {
+  thumbAlt: string
+  value: string
+  label: string
+}) => (
+  <div className="pointer-events-auto inline-flex items-center gap-3 rounded-2xl border border-border bg-surface/95 px-4 py-3 shadow-2 backdrop-blur">
+    <img
+      src={DOCTOR_THUMB}
+      alt={thumbAlt}
+      width={44}
+      height={44}
+      loading="lazy"
+      decoding="async"
+      className="h-11 w-11 rounded-xl bg-bg-subtle object-cover object-top"
+    />
+    <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-navy/5 text-brand-blue">
+      <Clock3 className="h-5 w-5" strokeWidth={1.75} aria-hidden="true" />
+    </span>
+    <div className="leading-tight">
+      <p className="text-sm font-semibold text-fg-heading">{value}</p>
+      <p className="text-xs text-fg-muted">{label}</p>
+    </div>
+  </div>
+)
 
 export default HomeHero
