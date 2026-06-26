@@ -73,6 +73,11 @@ export default {
         bg: 'rgb(var(--color-bg-rgb) / <alpha-value>)',
         'bg-subtle': 'rgb(var(--color-bg-subtle-rgb) / <alpha-value>)',
         surface: 'rgb(var(--color-surface-rgb) / <alpha-value>)',
+        // Semantic-Border als Farb-Keys (additiv): erlaubt border-border / bg-border /
+        // text-border / ring-border in den NEWLOOK-Sektionen. Bindet die bereits
+        // existierenden --color-border-* Kanaele (Single Source, §3.0 A).
+        border: 'rgb(var(--color-border-rgb) / <alpha-value>)',
+        'border-strong': 'rgb(var(--color-border-strong-rgb) / <alpha-value>)',
         fg: 'rgb(var(--color-fg-rgb) / <alpha-value>)',
         'fg-heading': 'rgb(var(--color-fg-heading-rgb) / <alpha-value>)',
         'fg-muted': 'rgb(var(--color-fg-muted-rgb) / <alpha-value>)',

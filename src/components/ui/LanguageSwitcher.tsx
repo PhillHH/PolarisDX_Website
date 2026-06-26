@@ -76,7 +76,7 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
     <div className={`relative ${className}`} ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`inline-flex items-center justify-center gap-2 rounded-full min-h-[var(--tap-target-min)] ${isMobile ? 'px-2' : 'px-3'} leading-none transition-colors hover:bg-fg-on-dark/10 text-current focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring-on-dark)]`}
+        className={`inline-flex items-center justify-center gap-2 rounded-full min-h-[var(--tap-target-min)] ${isMobile ? 'px-2' : 'px-3'} leading-none transition-colors hover:bg-bg-subtle text-current focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]`}
         aria-label="Select language"
         aria-haspopup="listbox"
         aria-expanded={isOpen}

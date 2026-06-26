@@ -11,16 +11,20 @@ import {
   type ReviewSchemaOptions,
 } from '../components/seo'
 import { testimonials } from '../data/testimonials'
-import HeroSection from '../components/sections/HeroSection'
-import AboutSection from '../components/sections/AboutSection'
-import DoctorsSection from '../components/sections/DoctorsSection'
-import IglooWidgetSection from '../components/sections/IglooWidgetSection'
-// import FeaturedCaseStudy from '../components/sections/FeaturedCaseStudy' // temporarily disabled
-import TestimonialsSection from '../components/sections/TestimonialsSection'
-import BlogSection from '../components/sections/BlogSection'
+// NEWLOOK-Startseite (§docs/NEWLOOK-HOME.md): heller Medtech-Auftritt
+// (Philips/Siemens-Anmutung) — neue, atomare Section-Komponenten unter
+// components/sections/home/. FAQ + Schluss-CTA werden bewusst wiederverwendet
+// (ein dunkles Band pro Seite, [FRO] keine Duplikate).
+import HomeHero from '../components/sections/home/HomeHero'
+import HomeTrustBar from '../components/sections/home/HomeTrustBar'
+import HomeProductSpotlight from '../components/sections/home/HomeProductSpotlight'
+import HomeDomains from '../components/sections/home/HomeDomains'
+import HomeApproach from '../components/sections/home/HomeApproach'
+import HomeFocusGrid from '../components/sections/home/HomeFocusGrid'
+import HomeVoices from '../components/sections/home/HomeVoices'
+import HomeMagazine from '../components/sections/home/HomeMagazine'
 import FAQSection from '../components/sections/FAQSection'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
-import Reveal from '../components/ui/Reveal'
 
 // Hero-Bild für LCP-Preload
 import heroDoctor from '../assets/hero_doctor.webp'
@@ -77,44 +81,27 @@ const HomePage = () => {
         structuredData={structuredData}
         preloadImages={[heroDoctor]}
       />
-      <HeroSection />
+      {/* NEWLOOK-Komposition (§NEWLOOK-HOME §4): Aufmerksamkeit → Glaubwürdigkeit →
+          Produkt → Anwendung → Vorgehen → Tiefe → Stimmen → Wissen → Fragen →
+          Abschluss. Jede Sektion ist voll-breit und bringt ihren eigenen Grund &
+          Rhythmus mit (großer Weißraum, ein dunkles Schluss-Band). */}
+      <HomeHero />
+      <HomeTrustBar />
+      <HomeProductSpotlight />
+      <HomeDomains />
+      <HomeApproach />
+      <HomeFocusGrid />
+      <HomeVoices />
+      <HomeMagazine />
 
-      {/* V2-Section-Rhythmus: Section-Gap 96px (gap-20 = --space-20), großzügige
-          Hero-Luft (pt-20). Reihenfolge: Value → Produkt-Snippet (IglooPro) →
-          Anwendungsbereiche → Trust-Block → Magazin → FAQ → Schluss-CTA. */}
-      <div className="mx-auto flex max-w-container flex-col gap-20 px-4 pt-20 lg:px-0">
-        <Reveal width="100%">
-          <AboutSection />
-        </Reveal>
-        {/* Produkt-Snippet IglooPro */}
-        <Reveal width="100%">
-          <DoctorsSection />
-        </Reveal>
-        {/* <Reveal width="100%">
-          <FeaturedCaseStudy />
-        </Reveal> */}
-        <Reveal width="100%">
-          <IglooWidgetSection />
-        </Reveal>
-      </div>
-
-      {/* Trust-Block (Autorität → Stimmen) — bewusst voll-breit auf Navy. */}
-      <div className="mt-20">
-        <Reveal width="100%">
-          <TestimonialsSection />
-        </Reveal>
-      </div>
-
-      <div className="mx-auto flex max-w-container flex-col gap-20 px-4 py-20 lg:px-0">
-        <Reveal width="100%">
-          <BlogSection />
-        </Reveal>
-        <Reveal width="100%">
+      {/* FAQ — wiederverwendetes Bauteil, in ein helles Band gefasst. */}
+      <div className="bg-surface">
+        <div className="mx-auto max-w-container px-4 py-24 lg:px-0 lg:py-32">
           <FAQSection />
-        </Reveal>
+        </div>
       </div>
 
-      {/* Schluss-CTA-Band (Navy-Gradient) */}
+      {/* Schluss-CTA-Band (Navy-Gradient) — der eine dunkle Moment der Seite. */}
       <FinalCtaSection />
     </>
   )

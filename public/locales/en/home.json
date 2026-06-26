@@ -26,6 +26,38 @@
       "description": "Detect trends early. High-precision monitoring of inflammation and metabolic markers for a long, healthy life."
     }
   },
+  "trust": {
+    "title": "What practices rely on",
+    "cv_value": "CV < 2%",
+    "cv_label": "Precision across the entire measuring range",
+    "ready_value": "3–5 working days",
+    "ready_label": "Ready to use after ordering",
+    "compat_value": "90%",
+    "compat_label": "of lateral-flow tests compatible",
+    "reviews_value": "250+",
+    "reviews_label": "reviews from everyday practice"
+  },
+  "spotlight": {
+    "spec1_value": "3 min",
+    "spec1_label": "Result at the chairside",
+    "spec2_value": "CV < 2%",
+    "spec2_label": "Lab-grade precision",
+    "spec3_value": "90%",
+    "spec3_label": "Lateral-flow compatible"
+  },
+  "domains": {
+    "caption": "Areas of application",
+    "title": "Point-of-care diagnostics for your specialty",
+    "subtitle": "One system, three focus areas — lab-grade biomarkers right where treatment happens."
+  },
+  "approach": {
+    "step1_title": "Configuration",
+    "step1_text": "Pre-configured and tailored precisely to your practice workflow.",
+    "step2_title": "Validated commissioning",
+    "step2_text": "We take responsibility for the result — from setup to sign-off.",
+    "step3_title": "First validated measurement",
+    "step3_text": "Diagnostic precision from day one, without the detour via a central lab."
+  },
   "about": {
     "caption": "YOUR PERFORMANCE GUARANTOR",
     "title": "Excellence and Safety: The Standard We Set.",

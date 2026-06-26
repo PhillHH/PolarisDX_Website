@@ -30,6 +30,38 @@
       "description": "Erkennen Sie Trends frühzeitig. Hochpräzises Monitoring von Entzündungs- und Stoffwechselmarkern für ein langes, gesundes Leben."
     }
   },
+  "trust": {
+    "title": "Worauf Praxen sich verlassen",
+    "cv_value": "CV < 2 %",
+    "cv_label": "Präzision über den gesamten Messbereich",
+    "ready_value": "3–5 Werktage",
+    "ready_label": "Einsatzbereit nach Bestellung",
+    "compat_value": "90 %",
+    "compat_label": "der Lateral-Flow-Tests kompatibel",
+    "reviews_value": "250+",
+    "reviews_label": "Bewertungen aus dem Praxisalltag"
+  },
+  "spotlight": {
+    "spec1_value": "3 Min",
+    "spec1_label": "Ergebnis am Behandlungsstuhl",
+    "spec2_value": "CV < 2 %",
+    "spec2_label": "Laborgenaue Präzision",
+    "spec3_value": "90 %",
+    "spec3_label": "Lateral-Flow kompatibel"
+  },
+  "domains": {
+    "caption": "Anwendungsbereiche",
+    "title": "Point-of-Care-Diagnostik für Ihr Fachgebiet",
+    "subtitle": "Ein System, drei Schwerpunkte — laborgenaue Biomarker direkt am Ort der Behandlung."
+  },
+  "approach": {
+    "step1_title": "Konfiguration",
+    "step1_text": "Vorkonfiguriert und exakt auf Ihren Praxis-Workflow abgestimmt.",
+    "step2_title": "Validierte Inbetriebnahme",
+    "step2_text": "Wir übernehmen die Verantwortung für das Ergebnis — von der Einrichtung bis zur Freigabe.",
+    "step3_title": "Erste validierte Messung",
+    "step3_text": "Diagnostische Präzision ab dem ersten Tag, ohne Umweg über ein Zentrallabor."
+  },
   "about": {
     "caption": "Performance-Setup",
     "title": "Einsatzbereit ab Tag 1 — validierte POC-Diagnostik.",

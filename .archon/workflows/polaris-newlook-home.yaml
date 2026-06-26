@@ -1,0 +1,54 @@
+# polaris-newlook-home.yaml — ECHTER neuer Auftritt: Startseite (+ globale Chrome) komplett neu
+# in Medtech-Premium-Anmutung (Philips Healthcare / Siemens Healthineers). KEINE Token-Politur,
+# sondern neues Layout/Hero/Komposition/visuelle Sprache. Logo + primäre Markenfarben BLEIBEN,
+# Inhalte/Claims bleiben. Lean: nur Startseite + Header/Footer, auf Preview, kein Merge/Deploy.
+name: polaris-newlook-home
+description: >
+  Komplett neu gestaltete Startseite (+ Header/Footer) in Medtech-Premium-Anmutung (Philips-Look):
+  neues Layout, neues Hero-Konzept, neue visuelle Sprache. Logo + Primärfarben + Inhalte bleiben.
+  Lean-Validierung der Richtung vor dem Full-Site-Rollout. Kein Merge, kein Deploy.
+nodes:
+  - id: design_home
+    model: opus
+    loop:
+      prompt: |
+        Du bist Lead-Designer einer Premium-Medtech-Agentur. Gestalte die STARTSEITE (+ globale Chrome:
+        Header/Navigation/Footer) der PolarisDX-Seite KOMPLETT NEU — ein ECHTER neuer Auftritt. Das ist
+        KEINE Token-Politur und KEIN Wiederverwenden der bestehenden Section-Kompositionen: Layout, Hero
+        und Bildaufteilung werden neu erfunden.
+
+        REFERENZ-ANMUTUNG (verbindlich): führende Medtech-Marken wie **Philips Healthcare / Siemens
+        Healthineers** — sehr clean, viel Weißraum, große selbstbewusste Hero-Fläche (ruhig, produkt-/
+        glaubwürdigkeitsstark), klare bold Sans-Typografie mit STARKER Hierarchie, premium & vertrauens-
+        würdig, blauer Marken-Akzent auf viel Weiß, klare einzelne CTAs, ruhige Iconografie, großer
+        Section-Rhythmus. Modern, hochwertig, NICHT verspielt, NICHT generisch-SaaS, NICHT wie der Ist-Look.
+
+        HART BEHALTEN: das PolarisDX-**Logo** und die **primären Markenfarben** (lies die aktuellen
+        Primary-/Brand-Tokens — Navy/Blau BLEIBT die Markenfarbe, eingesetzt als Akzent auf weißem Grund).
+        Alle **Inhalte/Texte/Claims/Preise** bleiben erhalten (Wording darf selbstbewusst-medtech
+        nachgeschärft werden — KEINE Fakten/medizinischen Aussagen erfinden oder streichen).
+
+        FREI NEU GESTALTEN: Grid & Layout, **Hero-Konzept** (groß, klare Value-Proposition, produkt-/
+        fotografiestark), Reihenfolge & Komposition aller Sektionen, visuelle Sprache (Typo-Treatment &
+        Skala, Spacing-Rhythmus, Karten/Panels/Divider, Bild-Behandlung, Eyebrows, Button-Stil),
+        Iconografie. Baue dafür NEUE Section-Komponenten (atomar), nicht nur Klassen tauschen.
+        Bildwelt: vorhandene Bilder größer/selbstbewusster einsetzen; wo professionelle Medtech-Fotografie
+        fehlt, sauberes Treatment/Platzhalter setzen und "ASSUMPTION — needs real photography" markieren.
+
+        VORGEHEN: Falls docs/NEWLOOK-HOME.md noch nicht existiert, schreibe ZUERST das vollständige
+        Design-Konzept dorthin (Medtech-Art-Direction, Hero-Konzept, Sektionsplan/Reihenfolge, Typo-/
+        Farb-/Spacing-System) — danach setze es um. Lies das Konzept in JEDER Iteration und arbeite
+        konsistent darauf hin (eine kohärente Vision, nicht jede Iteration neu erfinden).
+
+        Technik: Stack bleibt (Vite/React-SSR, Tailwind, Tokens). WCAG 2.2 AA, responsive sm/md/lg/xl,
+        alle UI-States. Nach jeder Einheit build/typecheck/lint GRÜN. Wenn Startseite + Header/Footer im
+        neuen Medtech-Look fertig und grün sind, antworte exakt HOME_NEWLOOK_DONE.
+      until: HOME_NEWLOOK_DONE
+      fresh_context: true
+      max_iterations: 25
+  - id: validate
+    depends_on: [design_home]
+    bash: |
+      set -e
+      npm install --no-audit --no-fund
+      npm run build && npm run typecheck && npm run lint

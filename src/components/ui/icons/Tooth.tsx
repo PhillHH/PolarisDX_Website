@@ -1,4 +1,14 @@
-export const Tooth = ({ className }: { className?: string }) => (
+import * as React from 'react'
+
+/**
+ * Tooth — lokales SVG-Icon im lucide-Stil (kein lucide-Export für „Zahn").
+ *
+ * Akzeptiert die üblichen `SVGProps` (u. a. `className`, `strokeWidth`,
+ * `aria-hidden`), damit es API-gleich zu den lucide-Icons verwendet werden kann
+ * (z. B. gemeinsam in einer Icon-Map). Default-`strokeWidth` = 2 (byte-stabil zu
+ * bestehenden Aufrufen ohne explizite Stärke).
+ */
+export const Tooth = ({ className, strokeWidth = 2, ...props }: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -6,10 +16,11 @@ export const Tooth = ({ className }: { className?: string }) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth="2"
+    strokeWidth={strokeWidth}
     strokeLinecap="round"
     strokeLinejoin="round"
     className={className}
+    {...props}
   >
     <path d="M7 20v-5" />
     <path d="M17 20v-5" />
