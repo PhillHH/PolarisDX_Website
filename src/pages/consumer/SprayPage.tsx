@@ -224,7 +224,7 @@ function SprayPageInner() {
                 data-gtm-cta={a.cta}
                 data-gtm-page="spray"
                 data-gtm-location={`audience-${a.title.toLowerCase().replace(/[ &]+/g, '-')}`}
-                className="mt-6 inline-flex items-center self-start text-sm font-semibold text-accent-strong transition-colors hover:text-accent-fg"
+                className="mt-6 inline-flex items-center self-start text-sm font-semibold text-accent-strong transition-colors hover:text-accent-fg rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
               >
                 {a.cta} →
               </button>
@@ -258,7 +258,7 @@ function SprayPageInner() {
         </div>
       </Section>
 
-      {/* 7 · HOW TO USE */}
+      {/* 7 · HOW TO USE + SUBLINGUAL — one merged explainer strecke */}
       <Section id="how" tone="tint" eyebrow="How to use" title="Spray. Hold. Swallow. Done.">
         <Steps
           items={[
@@ -276,6 +276,23 @@ function SprayPageInner() {
         <p className="mt-8 text-center text-sm text-fg-muted">
           Use once daily unless advised otherwise. Do not exceed the recommended daily intake.
         </p>
+
+        {/* Sublingual explained — same strecke, one place for the format story */}
+        <div className="mt-16 lg:mt-20">
+          <h3 className="text-center text-2xl font-bold tracking-tight text-fg-heading">
+            The under-the-tongue format, explained
+          </h3>
+          <div className="mt-10">
+            <Grid cols={3}>
+              {SUBLINGUAL.map((s) => (
+                <Card key={s.title}>
+                  <h4 className="text-xl font-semibold text-fg-heading">{s.title}</h4>
+                  <p className="mt-3 leading-relaxed text-fg">{s.body}</p>
+                </Card>
+              ))}
+            </Grid>
+          </div>
+        </div>
       </Section>
 
       {/* 8 · WHY SPRAY */}
@@ -291,22 +308,6 @@ function SprayPageInner() {
             ]}
           />
         </div>
-      </Section>
-
-      {/* 9 · SUBLINGUAL BENEFITS */}
-      <Section
-        tone="tint"
-        eyebrow="Sublingual spray"
-        title="The under-the-tongue format, explained"
-      >
-        <Grid cols={3}>
-          {SUBLINGUAL.map((s) => (
-            <Card key={s.title}>
-              <h3 className="text-xl font-semibold text-fg-heading">{s.title}</h3>
-              <p className="mt-3 leading-relaxed text-fg">{s.body}</p>
-            </Card>
-          ))}
-        </Grid>
       </Section>
 
       {/* 10 · BRIDGE TO DUO */}

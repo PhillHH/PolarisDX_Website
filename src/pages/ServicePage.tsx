@@ -10,7 +10,7 @@ import {
   createFAQSchema,
   type FAQItem,
 } from '../components/seo'
-import { Breadcrumbs, Button, NavTile, Panel, SectionHeader } from '~/design-system'
+import { Breadcrumbs, Button, Eyebrow, GradientHero, NavTile, Panel, SectionHeader } from '~/design-system'
 import { services } from '../data/services'
 import { articles } from '../data/articles'
 import FAQSection from '../components/sections/FAQSection'
@@ -35,7 +35,7 @@ const renderTextWithLinks = (text: string) => {
       <Link
         key={match.index}
         to={match[2]}
-        className="font-semibold text-brand-primary hover:underline"
+        className="font-semibold text-brand-primary hover:underline rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
       >
         {match[1]}
       </Link>,
@@ -95,7 +95,22 @@ const ServicePage = () => {
   const service = services.find((s) => s.id === slug)
 
   if (!service) {
-    return <div className="p-20 text-center">Service not found</div>
+    return (
+      <div className="mx-auto flex max-w-container flex-col items-center gap-4 px-4 py-32 text-center">
+        <h1 className="text-display-sm font-medium tracking-tight text-fg-heading">
+          {t('services:notFound.title', 'Leistung nicht gefunden')}
+        </h1>
+        <p className="max-w-reading text-base leading-body text-fg-muted">
+          {t(
+            'services:notFound.text',
+            'Diese Leistung ist nicht (mehr) verfügbar. Bitte kehren Sie zur Übersicht zurück.',
+          )}
+        </p>
+        <Button to="/diagnostics" variant="primary">
+          {t('services:notFound.cta', 'Zur Diagnostik-Übersicht')}
+        </Button>
+      </div>
+    )
   }
 
   // Determine translation key from service data
@@ -160,55 +175,34 @@ const ServicePage = () => {
       />
       <div className="bg-bg">
         {/* Hero / Header */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-fg-on-dark">
-          <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-fg-on-dark/30 to-transparent opacity-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-fg-on-dark/30 to-transparent opacity-10" />
+        <GradientHero>
+          <Reveal width="100%" yOffset={20}>
+            <Breadcrumbs
+              className="mb-4"
+              items={[
+                { label: t('common:nav.home', 'Home'), href: '/' },
+                { label: t('home:services.caption', 'Services'), href: '/diagnostics' },
+                { label: title },
+              ]}
+            />
 
-          <div className="relative mx-auto flex min-h-hero max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
-            <Reveal width="100%" yOffset={20}>
-              <div className="max-w-container">
-                <Breadcrumbs
-                  className="mb-4"
-                  items={[
-                    { label: t('common:nav.home', 'Home'), href: '/' },
-                    { label: t('home:services.caption', 'Services'), href: '/diagnostics' },
-                    { label: title },
-                  ]}
-                />
-
-                <p className="mb-3 text-xs font-semibold uppercase tracking-overline text-accent-strong">
-                  {t('home:services.caption', 'DIAGNOSTICS FOCUS')}
-                </p>
-                <h1 className="mb-4 text-3xl font-medium tracking-tight sm:text-4xl lg:text-4xl">
-                  {hasRichContent ? headline : title}
-                </h1>
-              </div>
-            </Reveal>
-          </div>
-        </section>
+            <Eyebrow size="sm" className="mb-3">
+              {t('home:services.caption', 'Services')}
+            </Eyebrow>
+            <h1 className="mb-4 text-display-sm font-medium tracking-tight">
+              {hasRichContent ? headline : title}
+            </h1>
+          </Reveal>
+        </GradientHero>
 
         <div className="mx-auto flex max-w-container flex-col gap-10 px-4 py-12 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,1.4fr)] lg:items-start lg:gap-12 lg:px-0 lg:py-16">
           {/* Main Content */}
           <article className="space-y-8 text-fg">
             <Reveal width="100%">
               {hasRichContent ? (
-                <>
-                  {/* Rich HTML pillar-page content */}
-                  <div className="rich-content" dangerouslySetInnerHTML={{ __html: richContent }} />
-
-                  {/* FAQ Section */}
-                  {hasFaq && (
-                    <div className="mt-16">
-                      <FAQSection
-                        items={faqItems}
-                        caption={faqCaption}
-                        title={faqTitle}
-                        showFooter={false}
-                      />
-                    </div>
-                  )}
-                </>
+                /* Rich-HTML-Pillar-Content (inkl. eigenem Inline-CTA-Block =
+                   Primär-Conversion). Inhalt unverändert (§SCHUTZ). */
+                <div className="rich-content" dangerouslySetInnerHTML={{ __html: richContent }} />
               ) : (
                 <>
                   <SectionHeader caption={service.title} title={headline} align="left" />
@@ -247,7 +241,7 @@ const ServicePage = () => {
 
                   {/* Conclusion */}
                   {(conclusion?.heading || conclusion?.text) && (
-                    <div className="rounded-2xl bg-brand-primary/5 p-6 text-base leading-body text-fg">
+                    <div className="rounded-[var(--radius-lg)] bg-brand-primary/5 p-6 text-base leading-body text-fg">
                       {conclusion.heading && (
                         <h3 className="mb-2 font-semibold text-fg-heading">{conclusion.heading}</h3>
                       )}
@@ -255,25 +249,27 @@ const ServicePage = () => {
                     </div>
                   )}
 
-                  {/* Content CTA Button */}
+                  {/* Inline Content-CTA = Primär-Conversion dieser Seite
+                      (Sidebar-Kontakt bleibt der persistente Sekundär-Zugang). */}
                   <div className="mt-8 pt-4">
                     <Button to="/contact" variant="primary">
                       {ctaText}
                     </Button>
                   </div>
-
-                  {/* FAQ Section */}
-                  {hasFaq && (
-                    <div className="mt-16">
-                      <FAQSection
-                        items={faqItems}
-                        caption={faqCaption}
-                        title={faqTitle}
-                        showFooter={false}
-                      />
-                    </div>
-                  )}
                 </>
+              )}
+
+              {/* FAQ — einmalig, unabhängig vom Content-Pfad gerendert
+                  (§RELAUNCH-PLAN B3: eine FAQ-Ausgabe statt Rich/Standard-Dopplung). */}
+              {hasFaq && (
+                <div className="mt-16">
+                  <FAQSection
+                    items={faqItems}
+                    caption={faqCaption}
+                    title={faqTitle}
+                    showFooter={false}
+                  />
+                </div>
               )}
             </Reveal>
           </article>
@@ -331,12 +327,12 @@ const ServicePage = () => {
               {/* Contact Widget */}
               <Panel bordered padding="sm" className="mt-8">
                 <h3 className="mb-2 text-sm font-semibold tracking-tight text-fg-heading">
-                  {t('shop:shop.needHelp', 'Need help right now?')}
+                  {t('services:contactWidget.title', 'Sie haben Fragen?')}
                 </h3>
                 <p className="mb-3 text-xs leading-relaxed text-fg-muted">
                   {t(
-                    'shop:shop.contactText',
-                    'Our medical team is available 24/7 to answer urgent questions and help you decide what to do next.',
+                    'services:contactWidget.text',
+                    'Unser Team berät Sie gern zu Auswahl und Einsatz. Wir melden uns innerhalb eines Werktags.',
                   )}
                 </p>
                 <Button to="/contact" variant="secondary" className="w-full justify-center">

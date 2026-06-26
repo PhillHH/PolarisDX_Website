@@ -7,11 +7,14 @@
     "cta_datasheet": "Fiche technique (PDF)"
   },
   "intro": {
+    "caption": "Le système",
     "title": "Le laboratoire mobile pour votre cabinet",
     "text1": "L'Igloo Pro est un analyseur portable Point-of-Care utilisant des technologies avancées de flux latéral pour effectuer des tests in vitro rapides et précis pour une variété de marqueurs sanguins, tests de drogues et maladies infectieuses.",
     "text2": "Vous pouvez évaluer environ 90% de tous les tests à flux latéral du marché, tous fabricants confondus, grâce à des adaptateurs dans un analyseur compact."
   },
   "features": {
+    "caption": "Caractéristiques",
+    "title": "Conçu pour la pratique quotidienne",
     "methods": {
       "title": "Méthodes polyvalentes",
       "description": "Colorimétrie, immunofluorescence, microfluidique et plus dans un seul appareil."
@@ -30,6 +33,7 @@
     }
   },
   "specs": {
+    "caption": "Technologie",
     "title": "Données Techniques",
     "methods": "Méthodes",
     "methods_value": "Colorimétrie, Immunofluorescence, Microfluidique, Multiplex, Points Quantiques, Chimie Sèche",
@@ -67,10 +71,19 @@
       "strep": "Streptocoque A"
     }
   },
+  "use_cases": {
+    "title": "Domaines d'application",
+    "dental": "Diagnostic dentaire",
+    "beauty": "Beauté & esthétique",
+    "longevity": "Longévité & prévention",
+    "articles": "Lire les articles spécialisés"
+  },
   "cta_bottom": {
+    "caption": "Démo & conseil",
     "title": "Élargissez vos possibilités diagnostiques",
     "description": "Parfait pour les pharmacies, cabinets, maisons de retraite, salles de sport et plus.",
-    "button": "Prendre rendez-vous maintenant"
+    "button": "Prendre rendez-vous maintenant",
+    "button_secondary": "Fiche technique"
   },
   "seo": {
     "title": "Reader POC IglooPro : spécifications et technologie",

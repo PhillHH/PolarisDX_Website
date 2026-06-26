@@ -20,6 +20,7 @@
       "message": "Mensaje",
       "message_placeholder": "Cuéntenos más sobre sus necesidades...",
       "submit": "Reservar cita",
+      "submitting": "Enviando...",
       "company_label": "Nombre de la empresa / consultorio",
       "company_placeholder": "ej. Consultorio Dr. Pérez o Farmacia León",
       "area_label": "Área principal de aplicación",

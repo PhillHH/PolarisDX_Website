@@ -2,13 +2,21 @@ import { Button } from '~/design-system'
 import avatar from '../../assets/avatar.webp'
 import { useTranslation } from 'react-i18next'
 
+/**
+ * CtaSection — globale Footer-Kontaktkarte (Avatar + Kontakt-CTA, ueberlappend
+ * gerundete Card). Bewusst KEIN Duplikat von {@link CtaBand} ([FRO]): CtaBand ist
+ * das schlanke Schluss-Band fuer Seiten mit eigenem Closing-CTA, CtaSection ist
+ * die seitenuebergreifende Kontaktkarte (Footer rendert genau eine der beiden via
+ * Hide-List). Geteilt wird nur die Navy-Gradient-Tonalitaet ueber Rollen-Tokens —
+ * Aenderungen am Band hier UND in CtaBand spiegeln, damit der Look nicht driftet.
+ */
 const CtaSection = () => {
   const { t } = useTranslation('common')
 
   return (
     <section
       id="contact"
-      className="relative mt-52 rounded-3xl bg-brand-secondary px-6 py-6 text-fg-on-dark shadow-2 sm:px-8 sm:py-8 lg:px-10 lg:py-8"
+      className="relative mt-52 rounded-3xl bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading px-6 py-6 text-fg-on-dark shadow-2 sm:px-8 sm:py-8 lg:px-10 lg:py-8"
     >
       <div className="grid items-center gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.3fr)]">
         {/* Bild links */}
@@ -32,7 +40,7 @@ const CtaSection = () => {
           <p className="text-sm leading-relaxed text-fg-on-dark/90 sm:text-base">
             {t('cta_section.text')}
           </p>
-          <Button to="/contact" variant="secondary">
+          <Button to="/contact" variant="secondary" onDark>
             {t('cta_section.button')}
           </Button>
         </div>

@@ -1,17 +1,20 @@
 {
   "hero": {
-    "caption": "Das All-in-One System",
-    "title": "Präzise Diagnostik.\nÜberall.",
-    "description": "Erleben Sie die nächste Generation der Point-of-Care Diagnostik. Schnell, zuverlässig und einfach zu bedienen.",
-    "cta_order": "Jetzt anfragen",
-    "cta_datasheet": "Datenblatt laden"
+    "caption": "Point-of-Care-Diagnostik",
+    "title": "Igloo Pro System",
+    "description": "Laborwerte aus Kapillarblut, ausgewertet direkt in Ihrer Praxis – in 3 bis 15 Minuten. Ein kompaktes Immunfluoreszenz-System für die patientennahe Diagnostik.",
+    "cta_order": "Angebot anfordern",
+    "cta_datasheet": "Datenblatt"
   },
   "intro": {
+    "caption": "Das System",
     "title": "Laborqualität im Handformat",
-    "text1": "Der Igloo Pro Reader setzt neue Maßstäbe in der mobilen Diagnostik. Mit modernster Technologie liefert er Ergebnisse, auf die Sie sich verlassen können.",
-    "text2": "Egal ob in der Praxis, im Krankenhaus oder mobil – der Igloo Pro ist Ihr zuverlässiger Partner für schnelle Entscheidungen."
+    "text1": "Der Igloo Pro Reader bringt quantitative Labordiagnostik an den Behandlungsplatz. Validierte Immunfluoreszenz-Technologie liefert Ergebnisse, auf die Sie sich verlassen können.",
+    "text2": "Ob in der Praxis, in der Klinik oder mobil – der Igloo Pro liefert die Werte für Ihre Entscheidung, ohne den Umweg über ein externes Labor."
   },
   "features": {
+    "caption": "Eigenschaften",
+    "title": "Für den Praxisalltag gebaut",
     "methods": {
       "title": "Vielseitige Methoden",
       "description": "Unterstützt diverse Testverfahren für maximale Flexibilität."
@@ -25,11 +28,12 @@
       "description": "WLAN, Bluetooth und USB für nahtlose Datenübertragung."
     },
     "precision": {
-      "title": "Höchste Präzision",
+      "title": "Validierte Präzision",
       "description": "Validierte Genauigkeit vergleichbar mit Großlaborgeräten."
     }
   },
   "specs": {
+    "caption": "Technik",
     "title": "Technische Daten",
     "methods": "Messmethode",
     "methods_value": "Immunfluoreszenz",
@@ -67,10 +71,19 @@
       "strep": "Streptokokken A"
     }
   },
+  "use_cases": {
+    "title": "Einsatzbereiche",
+    "dental": "Dental-Diagnostik",
+    "beauty": "Beauty & Ästhetik",
+    "longevity": "Longevity & Prävention",
+    "articles": "Fachartikel lesen"
+  },
   "cta_bottom": {
-    "title": "Bereit für den Igloo Pro?",
-    "description": "Nehmen Sie Kontakt auf und lassen Sie sich unverbindlich beraten.",
-    "button": "Kontakt aufnehmen"
+    "caption": "Demo & Beratung",
+    "title": "Sehen Sie den Igloo Pro in Ihrer Praxis.",
+    "description": "Fordern Sie ein unverbindliches Angebot an oder laden Sie das Datenblatt herunter. Wir melden uns innerhalb eines Werktags.",
+    "button": "Angebot anfordern",
+    "button_secondary": "Datenblatt"
   },
   "seo": {
     "title": "IglooPro POC-Reader: Spezifikationen & Technik",

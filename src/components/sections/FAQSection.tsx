@@ -55,11 +55,11 @@ const FAQSection = ({
         {showFooter && (
           <p className="mt-6 text-center text-sm text-fg-muted">
             {t('faq.more', 'Noch Fragen?')}{' '}
-            <Link to="/diagnostics" className="font-semibold text-brand-primary hover:underline">
+            <Link to="/diagnostics" className="font-semibold text-brand-primary hover:underline rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]">
               {t('faq.link_services', 'Diagnostik-Services ansehen')}
             </Link>{' '}
             {t('faq.or', 'oder')}{' '}
-            <Link to="/contact" className="font-semibold text-brand-primary hover:underline">
+            <Link to="/contact" className="font-semibold text-brand-primary hover:underline rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]">
               {t('faq.link_contact', 'direkt Kontakt aufnehmen')}
             </Link>
           </p>

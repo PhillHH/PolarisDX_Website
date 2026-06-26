@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, createBreadcrumbSchema } from '../components/seo'
-import { Breadcrumbs, Container, EmptyState, SectionHeader } from '~/design-system'
+import { Breadcrumbs, Container, EmptyState, Eyebrow, GradientHero, SectionHeader } from '~/design-system'
 import { FileText, Download } from 'lucide-react'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
@@ -79,6 +79,7 @@ const DownloadsPage = () => {
                   download={item.openInBrowser ? undefined : true}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`${t('downloads:downloadBtn')}: ${item.title} (${item.format}, ${item.size})`}
                   className="flex w-full items-center justify-center gap-2 min-h-[var(--tap-target-min)] rounded-lg border border-[var(--color-border)] py-2.5 text-sm font-medium text-fg transition-colors hover:border-primary hover:bg-primary/10 hover:text-primary"
                 >
                   <Download className="h-4 w-4" />
@@ -112,30 +113,18 @@ const DownloadsPage = () => {
       />
       <div className="bg-bg text-fg-heading">
         {/* Hero / Top */}
-        <section className="relative overflow-hidden bg-brand-primary text-fg-on-dark">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-fg-on-dark/30 to-transparent opacity-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-fg-on-dark/30 to-transparent opacity-10" />
-
-          <div className="relative mx-auto flex min-h-[320px] max-w-page flex-col justify-end px-4 pb-10 pt-28 lg:px-10 lg:pb-14 lg:pt-32">
-            <Reveal width="100%" yOffset={20}>
-              <div className="max-w-container">
-                <Breadcrumbs
-                  className="mb-3"
-                  items={[
-                    { label: t('downloads:home'), href: '/' },
-                    { label: t('downloads:title') },
-                  ]}
-                />
-                <p className="mb-2 text-xs font-semibold uppercase tracking-overline text-accent-strong">
-                  {t('downloads:subtitle')}
-                </p>
-                <h1 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
-                  {t('downloads:title')}
-                </h1>
-              </div>
-            </Reveal>
-          </div>
-        </section>
+        <GradientHero minHeight="min-h-[320px]">
+          <Reveal width="100%" yOffset={20}>
+            <Breadcrumbs
+              className="mb-3"
+              items={[{ label: t('downloads:home'), href: '/' }, { label: t('downloads:title') }]}
+            />
+            <Eyebrow size="sm" className="mb-3">
+              {t('downloads:subtitle')}
+            </Eyebrow>
+            <h1 className="text-display-sm font-medium tracking-tight">{t('downloads:title')}</h1>
+          </Reveal>
+        </GradientHero>
 
         {/* Main Content */}
         <Container className="py-12 lg:py-16">
@@ -157,19 +146,19 @@ const DownloadsPage = () => {
             <div className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
               <Link
                 to="/igloo-pro"
-                className="font-semibold text-brand-primary hover:text-brand-deep transition-colors"
+                className="font-semibold text-brand-primary hover:text-brand-deep transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
               >
                 {t('downloads:link_igloo', 'Zum IglooPro System')} →
               </Link>
               <Link
                 to="/diagnostics"
-                className="font-semibold text-brand-primary hover:text-brand-deep transition-colors"
+                className="font-semibold text-brand-primary hover:text-brand-deep transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
               >
                 {t('downloads:link_services', 'Diagnostik-Services')} →
               </Link>
               <Link
                 to="/contact"
-                className="font-semibold text-brand-primary hover:text-brand-deep transition-colors"
+                className="font-semibold text-brand-primary hover:text-brand-deep transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
               >
                 {t('downloads:link_contact', 'Beratung anfragen')} →
               </Link>

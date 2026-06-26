@@ -106,6 +106,10 @@ const HeroSection = () => {
               {/* Main Content - CSS animated on slide change */}
               {/* SEO: Only first slide (dental) gets H1, others get H2 */}
               <div className={getContentAnimationClass()}>
+                {/* Eyebrow (Overline, on-dark = teal-300) — §Konzept 1/5 */}
+                <p className="mb-3 text-sm font-semibold uppercase tracking-overline text-accent-on-dark">
+                  {t('hero.caption', 'Point-of-Care-Diagnostik')}
+                </p>
                 {displaySlide === 0 ? (
                   <h1 className="max-w-3xl font-medium tracking-headline text-display">
                     {currentDisplaySlide.content.title}
@@ -128,6 +132,7 @@ const HeroSection = () => {
                   to="/contact"
                   variant="primary"
                   size="sm"
+                  onDark
                   className="w-full text-center sm:w-auto sm:whitespace-nowrap"
                 >
                   {t('hero.cta', 'Termin buchen')}
@@ -136,6 +141,7 @@ const HeroSection = () => {
                   to="/downloads"
                   variant="outline"
                   size="sm"
+                  onDark
                   className="w-full text-center sm:w-auto sm:whitespace-nowrap"
                 >
                   {t('hero.cta_downloads', 'Infomaterialien herunterladen')}
@@ -162,8 +168,9 @@ const HeroSection = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className="group flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center"
+                  className="group flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring-on-dark)]"
                   aria-label={`Go to slide ${index + 1}`}
+                  aria-current={currentSlide === index}
                 >
                   <span
                     className={`h-2.5 rounded-full transition-all duration-300 ${

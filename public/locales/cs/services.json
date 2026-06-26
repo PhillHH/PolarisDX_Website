@@ -557,6 +557,20 @@
       ]
     }
   },
+  "notFound": {
+    "title": "Služba nenalezena",
+    "text": "Tato služba není (již) dostupná. Vraťte se na přehled.",
+    "cta": "Na přehled diagnostiky"
+  },
+  "contactWidget": {
+    "title": "Máte otázky?",
+    "text": "Náš tým vám rád poradí s výběrem a použitím. Ozveme se do jednoho pracovního dne."
+  },
+  "overview": {
+    "eyebrow": "Diagnostika",
+    "title": "Diagnostika pro vaši ordinaci",
+    "subtitle": "Rychlé testy v místě péče pro zubní lékařství, estetiku a dlouhověkost – vyhodnocené přímo na místě ošetření pomocí Igloo Pro. Vyberte si svou oblast."
+  },
   "seo": {
     "overview_title": "POC diagnostika pro ordinace: dental, beauty, longevity",
     "overview_description": "Rychlé testy v místě péče pro vitamin D, CRP, HbA1c a TSH – u křesla během minut. POC diagnostika s Igloo Pro pro zubní, estetické a preventivní ordinace."

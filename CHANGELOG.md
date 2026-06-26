@@ -5,6 +5,60 @@ versioniert nach SemVer + datiert (§1.18). Nutzersichtbare Aenderungen zuerst.
 
 ## [Unreleased]
 
+### Relaunch — Responsive & A11y (querschnittlich, §RELAUNCH-PLAN G)
+
+#### 2026-06-25 — Responsive/A11y-Pass (WCAG 2.2 AA)
+
+- **script · fix** — Modale Fokus-Steuerung: `SearchModal` (globale Chrome) und
+  Consumer-`OrderModal` erhalten **Fokus-Trap** (Tab/Shift-Tab zyklisch innerhalb
+  des Dialogs) + **Fokus-Rückgabe** an das auslösende Element beim Schließen
+  (WCAG 2.2 §2.4.3 Focus Order / §2.1.2 No Keyboard Trap). Bestehende
+  Escape-/Scroll-Lock-/`aria-modal`-Logik unberührt.
+- **spec · other** — Section G (A11y) im RELAUNCH-PLAN abgehakt mit Belegen:
+  Kontrast (Weiß-auf-Navy ≈ 15:1 AAA, Body 10,8:1, muted 4,76:1 AA), Fokus-Ring
+  (focus-visible auf allen interaktiven Atomen, on-dark = weiß), Tap-Targets ≥ 44px
+  (Token), Skip-Link + `<main>`-Landmark, kein Horizontal-Scroll (Deko in
+  `overflow-hidden`, breite Tabellen in `overflow-x-auto`), Feedback Icon+Text +
+  programmatische Form-Errors, `prefers-reduced-motion`/`color-scheme`, Reading-Width
+  68ch. Runtime-axe (`audit:a11y`) im Sandbox geblockt → CI-/Lokal-Verifikation.
+
+### Relaunch — Bereich CONSUMER (Landingpages)
+
+#### 2026-06-25 — Consumer-LP-Relaunch (C1–C3, §RELAUNCH-PLAN)
+
+- **markup · enhancement** — SprayPage (C1): „How to use" (Steps) + „Sublingual
+  erklärt" (3 Cards) zu **einer** Erklär-Strecke zusammengeführt (Sub-Block in
+  `id="how"`, vor „Why spray"); eigene Sublingual-Section entfällt. Alle Schritte
+  + Erklärungen erhalten; 169 €, „1000 IU D3 + 25 µg K2", EFSA-Claims, Made in
+  Germany & Disclaimer verbatim (Struktur-only).
+- **markup · enhancement** — MaskPage (C2): doppelte Aussagen an je **einem** Ort
+  gebündelt — „Who it is for" und Ingredient-Cards bleiben Master (Skin-type-Claim
+  + vollständige Ingredient-Liste **verbatim**), FAQ #3/#8 auf knappe Verweise
+  umgestellt statt zu doppeln. 45 €, „15–30 minutes" & Kosmetik-Disclaimer verbatim.
+- **other · other** — DuoPage (C3): kompakte Struktur + Cross-Sell-Links bestätigt;
+  Routine-/Bundle-Copy ohne Dark Patterns (`[NOR]` §1.13); 49,90 €, „€2/month" &
+  kombinierter Disclaimer verbatim (kein Eingriff). Consumer-Identität (light/Teal)
+  bleibt bewusst getrennt von der V2-B2B-Basis.
+
+### Relaunch — Bereich PRODUCT (B2B)
+
+#### 2026-06-25 — Produktseiten-Relaunch (B1–B6, §RELAUNCH-PLAN)
+
+- **script · enhancement** — `Button` (`src/design-system/core/button.tsx`):
+  additive Props `target` / `rel` für den polymorphen `href`-Pfad (`<a>`), damit
+  PDF-/Datenblatt-CTAs token-rein über das Atom laufen statt über Roh-Anchor.
+  Rückwärtskompatibel — kein Eingriff in bestehende Call-Sites.
+- **markup · enhancement** — IglooProPage (B1): Hero auf **eine** Display-Headline
+  + Primär/Sekundär-CTA umgebaut; Specs-Tabelle + Parameter-Cloud zu **einem**
+  Technik-Block zusammengeführt; Schluss-CTA als Navy-Gradient-Band. Spec-/Parameter-
+  Werte verbatim.
+- **markup · enhancement** — ServicesOverviewPage (B2): orientierender Hero
+  (Eyebrow + Display-Titel + Subline); ServicePage (B3): FAQ auf **eine** Ausgabe
+  vereinheitlicht (Rich/Standard-Dopplung entfernt), CTA-Rollen geklärt.
+- **markup · enhancement** — VitaminD3SprayPage (B6): drei PDF-Zugänge auf
+  Download-Block + Sidebar reduziert; VitaminD3Implantology/S3Leitlinie (B4/B5):
+  Reading-Width + gehobene Panels (className-only, Inhalt verbatim).
+
 ### Phase 7 — Doku, Pattern Library & Governance
 
 #### 2026-06-25 — Lebende Pattern Library (`/styleguide`) + 5-teilige Komponenten-Doku

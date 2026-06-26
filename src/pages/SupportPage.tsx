@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
-import { Breadcrumbs, Container, InfoItem, Panel, SectionHeader } from '~/design-system'
+import { Breadcrumbs, Container, Eyebrow, GradientHero, Panel } from '~/design-system'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, localBusinessSchema, createBreadcrumbSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import { SupportForm } from '../components/sections/SupportForm'
+import { ContactChannels } from '../components/sections/ContactChannels'
 
 const SupportPage = () => {
   const { t } = useTranslation('support')
@@ -33,27 +34,20 @@ const SupportPage = () => {
       />
       <div className="bg-bg text-fg-heading">
         {/* Hero */}
-        <section className="relative overflow-hidden bg-brand-primary text-fg-on-dark">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-fg-on-dark/30 to-transparent opacity-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-fg-on-dark/30 to-transparent opacity-10" />
-
-          <div className="relative mx-auto flex min-h-[340px] max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
-            <Reveal width="100%" yOffset={20}>
-              <div className="max-w-container">
-                <Breadcrumbs
-                  className="mb-4"
-                  items={[{ label: 'Home', href: '/' }, { label: t('support.hero.title') }]}
-                />
-                <p className="mb-2 text-xs font-semibold uppercase tracking-overline text-accent-strong">
-                  {t('support.hero.kicker')}
-                </p>
-                <h1 className="mb-3 text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
-                  {t('support.hero.title')}
-                </h1>
-              </div>
-            </Reveal>
-          </div>
-        </section>
+        <GradientHero minHeight="min-h-[340px]">
+          <Reveal width="100%" yOffset={20}>
+            <Breadcrumbs
+              className="mb-4"
+              items={[{ label: 'Home', href: '/' }, { label: t('support.hero.title') }]}
+            />
+            <Eyebrow size="sm" className="mb-3">
+              {t('support.hero.kicker')}
+            </Eyebrow>
+            <h1 className="text-display-sm font-medium tracking-tight">
+              {t('support.hero.title')}
+            </h1>
+          </Reveal>
+        </GradientHero>
 
         {/* Form + Info */}
         <Container className="py-12 lg:py-16">
@@ -61,23 +55,13 @@ const SupportPage = () => {
             {/* Form Card */}
             <Reveal width="100%">
               <Panel padding="lg" className="space-y-6">
-                <SectionHeader
-                  caption={t('support.hero.kicker')}
-                  title={t('support.hero.title')}
-                  align="left"
-                />
-
+                {/* Kein zweiter Großtitel: der Hero trägt bereits H1
+                    `support.hero.title`; das Formular-Panel führt direkt mit der
+                    Intro (§1 [FIL] — keine konkurrierenden Titel pro Section). */}
                 <p className="text-sm leading-relaxed text-fg">{t('support.intro')}</p>
 
-                {/* Contact channels */}
-                <div className="mt-2 flex flex-col gap-4 text-sm text-fg sm:flex-row sm:gap-8">
-                  <InfoItem icon="✉" label={t('support.info.email_label')}>
-                    contact@polarisdx.net
-                  </InfoItem>
-                  <InfoItem icon="☎" label={t('support.info.phone_label')}>
-                    +49 151 75011699
-                  </InfoItem>
-                </div>
+                {/* Kontakt-Kanäle (E-Mail/Telefon) leben konsolidiert in der
+                    persistenten Sidebar-Box — siehe ContactChannels (Plan E3). */}
 
                 <SupportForm />
               </Panel>
@@ -91,10 +75,11 @@ const SupportPage = () => {
                     {t('support.info.title')}
                   </h2>
                   <p className="mt-2 text-sm leading-relaxed text-fg">{t('support.info.text')}</p>
-                  <div className="mt-4 space-y-1 text-sm text-fg">
-                    <p>contact@polarisdx.net</p>
-                    <p>+49 151 75011699</p>
-                  </div>
+                  <ContactChannels
+                    className="mt-5 text-sm text-fg"
+                    emailLabel={t('support.info.email_label')}
+                    phoneLabel={t('support.info.phone_label')}
+                  />
                 </Panel>
 
                 <Panel>
@@ -104,19 +89,19 @@ const SupportPage = () => {
                   <nav className="space-y-2">
                     <Link
                       to="/downloads"
-                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
                     >
                       {t('support.sidebar_links.downloads', 'Downloads & Dokumentation')} →
                     </Link>
                     <Link
                       to="/contact"
-                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
                     >
                       {t('support.sidebar_links.contact', 'Allgemeine Kontaktanfrage')} →
                     </Link>
                     <Link
                       to="/igloo-pro"
-                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
                     >
                       {t('support.sidebar_links.igloo', 'IglooPro System')} →
                     </Link>

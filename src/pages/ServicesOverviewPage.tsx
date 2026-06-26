@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { SEOHead, createBreadcrumbSchema } from '../components/seo'
-import { Breadcrumbs } from '~/design-system'
+import { Breadcrumbs, Eyebrow, GradientHero } from '~/design-system'
 import ServicesSection from '../components/sections/ServicesSection'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
@@ -33,27 +33,29 @@ const ServicesOverviewPage = () => {
       />
       <div className="bg-bg">
         {/* Reusing a simplified Hero/Header style for consistency with subpages */}
-        <section className="relative overflow-hidden bg-brand-primary text-fg-on-dark">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-fg-on-dark/30 to-transparent opacity-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-fg-on-dark/30 to-transparent opacity-10" />
-
-          <div className="relative mx-auto flex min-h-[250px] max-w-page flex-col justify-end px-4 pb-10 pt-24 lg:px-10 lg:pb-12 lg:pt-28">
-            <Reveal width="100%" yOffset={20}>
-              <div className="max-w-container">
-                <Breadcrumbs
-                  className="mb-4"
-                  items={[
-                    { label: t('common:nav.home', 'Home'), href: '/' },
-                    { label: t('common:nav.service', 'Services') },
-                  ]}
-                />
-                <h1 className="mb-4 text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
-                  {t('common:nav.service', 'Services')}
-                </h1>
-              </div>
-            </Reveal>
-          </div>
-        </section>
+        <GradientHero>
+          <Reveal width="100%" yOffset={20}>
+            <Breadcrumbs
+              className="mb-4"
+              items={[
+                { label: t('common:nav.home', 'Home'), href: '/' },
+                { label: t('common:nav.service', 'Services') },
+              ]}
+            />
+            <Eyebrow size="sm" className="mb-4">
+              {t('services:overview.eyebrow', 'Diagnostik')}
+            </Eyebrow>
+            <h1 className="mb-4 max-w-2xl text-display-sm font-medium tracking-headline">
+              {t('services:overview.title', 'Diagnostik für Ihre Praxis')}
+            </h1>
+            <p className="max-w-reading text-base leading-relaxed text-fg-on-dark/80 sm:text-lg">
+              {t(
+                'services:overview.subtitle',
+                'Patientennahe Schnelltests für Dental, Beauty und Longevity – ausgewertet direkt am Behandlungsplatz mit dem Igloo Pro. Wählen Sie Ihren Bereich.',
+              )}
+            </p>
+          </Reveal>
+        </GradientHero>
 
         <div className="mx-auto flex max-w-container flex-col gap-32 px-4 pt-20 pb-40 lg:px-0 lg:pt-24 lg:pb-32">
           {/* Render the existing ServicesSection component which displays the grid */}

@@ -156,6 +156,7 @@ function OrderModalDialog({
   onClose: () => void
   onSubmitted: () => void
 }) {
+  const dialogRef = useRef<HTMLDivElement | null>(null)
   const closeBtnRef = useRef<HTMLButtonElement | null>(null)
   const dirtyRef = useRef(false)
   const titleId = `order-modal-title-${product}`
@@ -193,13 +194,44 @@ function OrderModalDialog({
     return () => window.removeEventListener('keydown', onKey)
   }, [requestClose])
 
-  // Move focus to the close button on open (light a11y baseline).
+  // A11y (WCAG 2.2 — 2.4.3 Focus Order / 2.1.2 No Keyboard Trap): with
+  // aria-modal, keyboard focus must stay inside the dialog and return to the
+  // element that opened it on close. We remember the trigger, move focus to the
+  // close button, trap Tab within the dialog, then restore focus on unmount.
   useEffect(() => {
+    const trigger = document.activeElement as HTMLElement | null
     closeBtnRef.current?.focus()
+
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key !== 'Tab') return
+      const dialog = dialogRef.current
+      if (!dialog) return
+      const focusable = dialog.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      )
+      if (focusable.length === 0) return
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      const active = document.activeElement
+      if (e.shiftKey && (active === first || !dialog.contains(active))) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
+
+    document.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.removeEventListener('keydown', onKeyDown)
+      trigger?.focus?.()
+    }
   }, [])
 
   return (
     <div
+      ref={dialogRef}
       role="dialog"
       aria-modal="true"
       aria-labelledby={titleId}
@@ -230,7 +262,7 @@ function OrderModalDialog({
             type="button"
             onClick={requestClose}
             aria-label="Close order request"
-            className="absolute right-4 top-4 flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full text-fg-muted transition-colors hover:bg-bg-subtle hover:text-fg-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line"
+            className="absolute right-4 top-4 flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full text-fg-muted transition-colors hover:bg-bg-subtle hover:text-fg-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong"
           >
             <X className="h-5 w-5" aria-hidden />
           </button>

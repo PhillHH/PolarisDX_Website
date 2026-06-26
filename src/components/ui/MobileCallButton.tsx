@@ -19,7 +19,7 @@ const MobileCallButton = () => {
       >
         <button
           onClick={() => setIsExpanded((prev) => !prev)}
-          className={`flex items-center justify-center rounded-full transition-colors ${
+          className={`flex items-center justify-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--color-focus-ring)] ${
             isExpanded
               ? 'h-[var(--tap-target-min)] w-[var(--tap-target-min)] bg-bg-subtle text-brand-primary'
               : 'h-[var(--tap-target-min)] w-[var(--tap-target-min)] bg-primary-hover text-fg-on-dark'
@@ -34,14 +34,14 @@ const MobileCallButton = () => {
             <a
               href={`tel:${phoneNumberClean}`}
               onClick={() => setIsExpanded(false)}
-              className="ml-3 mr-1 whitespace-nowrap text-sm font-semibold text-fg-heading"
+              className="ml-3 mr-1 whitespace-nowrap rounded-sm text-sm font-semibold text-fg-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
             >
               {t('contact.call_us_text', 'Rufen Sie uns an')}
             </a>
             <button
               onClick={() => setIsExpanded(false)}
               aria-label={t('contact.collapse_button', 'Schließen')}
-              className="ml-2 flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full bg-bg-subtle text-fg-muted transition-colors hover:bg-[var(--color-border)]"
+              className="ml-2 flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full bg-bg-subtle text-fg-muted transition-colors hover:bg-[var(--color-border)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--color-focus-ring)]"
             >
               <X className="h-4 w-4" />
             </button>

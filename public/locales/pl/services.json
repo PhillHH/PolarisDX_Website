@@ -557,6 +557,20 @@
       ]
     }
   },
+  "notFound": {
+    "title": "Nie znaleziono usługi",
+    "text": "Ta usługa jest niedostępna. Wróć do przeglądu.",
+    "cta": "Do przeglądu diagnostyki"
+  },
+  "contactWidget": {
+    "title": "Masz pytania?",
+    "text": "Nasz zespół chętnie doradzi w zakresie wyboru i zastosowania. Odezwiemy się w ciągu jednego dnia roboczego."
+  },
+  "overview": {
+    "eyebrow": "Diagnostyka",
+    "title": "Diagnostyka dla Twojego gabinetu",
+    "subtitle": "Szybkie testy w miejscu opieki dla stomatologii, estetyki i długowieczności – analizowane bezpośrednio w miejscu leczenia za pomocą Igloo Pro. Wybierz swój obszar."
+  },
   "seo": {
     "overview_title": "Diagnostyka POC dla gabinetów: stomatologia, estetyka, longevity",
     "overview_description": "Szybkie testy przy pacjencie na witaminę D, CRP, HbA1c i TSH – przy fotelu w kilka minut. Diagnostyka POC z Igloo Pro dla gabinetów stomatologicznych, estetycznych i profilaktycznych."

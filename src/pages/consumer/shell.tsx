@@ -75,7 +75,7 @@ export function CTA({
   track,
 }: CTAProps) {
   const base =
-    'inline-flex items-center justify-center gap-2 min-h-[var(--tap-target-min)] rounded-md font-semibold tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent-line'
+    'inline-flex items-center justify-center gap-2 min-h-[var(--tap-target-min)] rounded-md font-semibold tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent-strong'
   const sizes = {
     sm: 'px-5 py-2.5 text-sm',
     md: 'px-7 py-3.5 text-base',
@@ -84,7 +84,9 @@ export function CTA({
     navy: 'bg-brand-deep text-fg-on-dark hover:bg-brand-navy-hover shadow-1',
     'outline-navy':
       'bg-surface border border-brand-deep text-brand-deep hover:bg-brand-deep hover:text-fg-on-dark shadow-1',
-    teal: 'bg-accent text-fg-on-dark hover:bg-accent-strong shadow-1',
+    // teal-700 (accent-strong) statt teal-600: Weiß auf teal-600 = 3.74:1 (< AA);
+    // teal-700 = 5.47:1, Hover teal-800 = 7.6:1 — WCAG 2.2 AA durchgängig (§2).
+    teal: 'bg-accent-strong text-fg-on-dark hover:bg-accent-deep shadow-1',
     white: 'bg-surface text-brand-deep hover:bg-bg shadow-1',
     'outline-fg-on-dark': 'border border-fg-on-dark/60 text-fg-on-dark hover:bg-fg-on-dark/10',
   }
@@ -174,14 +176,14 @@ export function ConsumerHeader({
   return (
     <header className="sticky top-0 z-30 bg-brand-deep shadow-1">
       <div className="mx-auto flex max-w-container items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-0 lg:py-4">
-        <a href="#top" aria-label="PolarisDX" className="flex shrink-0 items-center">
+        <a href="#top" aria-label="PolarisDX" className="flex shrink-0 items-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring-on-dark)]">
           <Wordmark />
         </a>
 
         {/* Desktop nav */}
         <nav className="hidden flex-1 items-center justify-center gap-8 text-sm font-medium text-fg-on-dark/90 md:flex">
           {nav.map((n) => (
-            <a key={n.href} href={n.href} className="transition-colors hover:text-accent-on-dark">
+            <a key={n.href} href={n.href} className="transition-colors hover:text-accent-on-dark rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring-on-dark)]">
               {n.label}
             </a>
           ))}
@@ -206,7 +208,7 @@ export function ConsumerHeader({
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
-          className="flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-md border border-fg-on-dark/15 text-fg-on-dark transition-colors hover:bg-fg-on-dark/10 md:hidden"
+          className="flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-md border border-fg-on-dark/15 text-fg-on-dark transition-colors hover:bg-fg-on-dark/10 md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring-on-dark)] focus-visible:ring-offset-2"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
@@ -222,7 +224,7 @@ export function ConsumerHeader({
                   key={n.href}
                   href={n.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-md px-3 py-3 text-base font-medium text-fg-on-dark/90 transition-colors hover:bg-fg-on-dark/10 hover:text-accent-on-dark"
+                  className="rounded-md px-3 py-3 text-base font-medium text-fg-on-dark/90 transition-colors hover:bg-fg-on-dark/10 hover:text-accent-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring-on-dark)]"
                 >
                   {n.label}
                 </a>
@@ -339,7 +341,7 @@ export function Hero({
                   alt={image.alt}
                   loading="eager"
                   decoding="async"
-                  className="mx-auto block w-full max-w-md rounded-2xl object-cover shadow-3 lg:max-w-none"
+                  className="mx-auto block aspect-[4/5] w-full max-w-md rounded-2xl object-cover shadow-3 lg:max-w-none"
                 />
               ) : (
                 <div className="mx-auto flex aspect-[4/5] w-full max-w-md items-center justify-center rounded-2xl border-2 border-dashed border-accent-on-dark/60 bg-surface p-8 text-center text-sm text-fg-muted lg:max-w-none">
@@ -583,7 +585,7 @@ export function FAQ({ items }: { items: { q: string; a: string }[] }) {
           key={i}
           className="group rounded-2xl border border-[var(--color-border)] bg-surface px-6 py-5 shadow-1 transition-shadow hover:shadow-2"
         >
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-semibold text-fg-heading">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-md text-left font-semibold text-fg-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong focus-visible:ring-offset-2">
             <span className="text-lg">{it.q}</span>
             <span
               aria-hidden

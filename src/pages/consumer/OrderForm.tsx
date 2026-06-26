@@ -56,7 +56,7 @@ const DEFAULT_SUBMIT_LABEL: Record<ConsumerOrderProduct, string> = {
 // =============================================================================
 
 const inputClass =
-  'w-full rounded-md border border-[var(--color-border-strong)] bg-surface px-4 py-3 text-fg-heading placeholder:text-fg-muted transition-colors focus:border-accent-line focus:outline-none focus:ring-2 focus:ring-accent-line/30 disabled:bg-bg-subtle'
+  'w-full min-h-[var(--tap-target-min)] rounded-md border border-[var(--color-border-strong)] bg-surface px-4 py-3 text-base text-fg-heading placeholder:text-fg-muted transition-colors focus-visible:border-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong/40 disabled:bg-bg-subtle'
 
 const labelClass = 'mb-1.5 block text-sm font-semibold text-fg-heading'
 
@@ -77,7 +77,7 @@ function Field({
     <div>
       <label htmlFor={id} className={labelClass}>
         {label}
-        {required && <span className="ml-1 text-accent">*</span>}
+        {required && <span className="ml-1 text-accent-strong">*</span>}
       </label>
       {children}
       {error && (
@@ -260,6 +260,7 @@ export function OrderForm({
     <form
       onSubmit={handleSubmit}
       noValidate
+      aria-busy={status === 'submitting'}
       className="rounded-2xl bg-surface p-6 shadow-card sm:p-8 md:p-10"
       data-gtm-form="consumer-order"
       data-gtm-product={product}
@@ -436,21 +437,23 @@ export function OrderForm({
           type="checkbox"
           checked={consent}
           onChange={(e) => setConsent(e.target.checked)}
-          className="mt-1 h-4 w-4 flex-none rounded border-[var(--color-border-strong)] text-accent focus:ring-accent-line"
+          aria-describedby="order-consent-note"
+          aria-invalid={status === 'error' && !consent ? true : undefined}
+          className="mt-1 h-4 w-4 flex-none rounded border-[var(--color-border-strong)] text-accent focus-visible:ring-2 focus-visible:ring-accent-strong"
         />
         <span className="text-sm leading-relaxed text-fg">
           I consent to PolarisDX processing the data above for the sole purpose of handling this
           order request. Details on storage, retention and your rights are in our{' '}
           <Link
             to="/privacy"
-            className="font-medium text-accent-strong underline hover:text-accent-fg"
+            className="font-medium text-accent-strong underline hover:text-accent-fg rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
           >
             privacy policy
           </Link>
           .
         </span>
       </label>
-      <p className="mt-2 pl-7 text-xs text-fg-muted">
+      <p id="order-consent-note" className="mt-2 pl-7 text-xs text-fg-muted">
         Legal basis: Art. 6 (1) (b) GDPR — performance of a contract / pre-contractual measures.
       </p>
 
@@ -470,10 +473,14 @@ export function OrderForm({
           data-gtm-event="consumer_order_submit"
           data-gtm-page={page}
           data-gtm-product={product}
-          className="inline-flex items-center justify-center gap-2 rounded-md bg-brand-deep px-7 py-3.5 text-base font-semibold tracking-tight text-fg-on-dark shadow-1 transition-colors hover:bg-brand-navy-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none"
+          className="inline-flex items-center justify-center gap-2 rounded-md bg-brand-deep px-7 py-3.5 text-base font-semibold tracking-tight text-fg-on-dark shadow-1 transition-colors hover:bg-brand-navy-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none"
         >
           {status === 'submitting' ? 'Sending…' : submitLabel || DEFAULT_SUBMIT_LABEL[product]}
         </button>
+        {/* In-Flight-Status fuer Screenreader (WCAG 4.1.3 Status Messages). */}
+        <span aria-live="polite" className="sr-only">
+          {status === 'submitting' ? 'Sending…' : ''}
+        </span>
       </div>
 
       <p className="mt-4 text-xs text-fg-muted">

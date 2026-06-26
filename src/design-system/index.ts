@@ -11,6 +11,7 @@ export { Container, type ContainerProps } from './primitives-layout/container'
 export { Stack, type StackProps } from './primitives-layout/stack'
 export { Cluster, type ClusterProps } from './primitives-layout/cluster'
 export { Grid, type GridProps } from './primitives-layout/grid'
+export { GradientSurface, type GradientSurfaceProps } from './primitives-layout/gradient-surface'
 
 // Atoms (core/)
 export { Button, type ButtonProps } from './core/button'
@@ -32,6 +33,7 @@ export { MediaLink, type MediaLinkProps } from './compound/media-link'
 export { NavTile, type NavTileProps } from './compound/nav-tile'
 export { Panel, type PanelProps } from './compound/panel'
 export { FormField, type FormFieldProps } from './compound/form-field'
+export { GradientHero, type GradientHeroProps } from './compound/gradient-hero'
 export { SectionHeader, type SectionHeaderProps } from './compound/section-header'
 
 // Feedback (feedback/) — UI-States: loading/empty/error/success

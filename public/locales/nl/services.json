@@ -557,6 +557,20 @@
       ]
     }
   },
+  "notFound": {
+    "title": "Dienst niet gevonden",
+    "text": "Deze dienst is niet (meer) beschikbaar. Ga terug naar het overzicht.",
+    "cta": "Naar het diagnostiekoverzicht"
+  },
+  "contactWidget": {
+    "title": "Heeft u vragen?",
+    "text": "Ons team adviseert u graag over keuze en gebruik. We reageren binnen één werkdag."
+  },
+  "overview": {
+    "eyebrow": "Diagnostiek",
+    "title": "Diagnostiek voor uw praktijk",
+    "subtitle": "Patiëntnabije sneltests voor tandheelkunde, beauty en longevity – direct op de behandelplek geanalyseerd met de Igloo Pro. Kies uw vakgebied."
+  },
   "seo": {
     "overview_title": "POC-diagnostiek voor praktijken: dental, beauty, longevity",
     "overview_description": "Patiëntnabije sneltests voor vitamine D, CRP, HbA1c & TSH – chairside in minuten. POC-diagnostiek met de Igloo Pro voor tandarts-, esthetiek- & preventiepraktijken."

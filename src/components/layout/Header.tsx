@@ -39,6 +39,10 @@ const navItems: NavItem[] = [
   { label: 'support', route: '/support' },
 ]
 
+// Sichtbarer Tastatur-Fokus auf dem dunklen Header (§2 WCAG 2.4.7, on-dark = weiss).
+const focusOnDark =
+  'rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring-on-dark)]'
+
 const Header = () => {
   const { t } = useTranslation('common')
   const scrollY = useScrollPosition()
@@ -77,7 +81,7 @@ const Header = () => {
         }`}
       >
         <div className="mx-auto flex max-w-container items-center justify-between px-4 py-3 sm:px-6 lg:px-0 lg:py-4">
-          <Link to="/" className="flex shrink-0 items-center gap-3">
+          <Link to="/" className={`flex shrink-0 items-center gap-3 ${focusOnDark}`}>
             <img
               src={logo} // Always use white logo as background is always dark (either hero or dark header)
               alt="PolarisDX — POC-Diagnostik für Arztpraxen"
@@ -98,20 +102,20 @@ const Header = () => {
                   <div className="flex items-center gap-1 cursor-pointer">
                     <Link
                       to={item.route!}
-                      className={`flex items-center gap-1 transition-all duration-300 hover:opacity-70 text-fg-on-dark`}
+                      className={`flex items-center gap-1 transition-all duration-300 hover:opacity-70 text-fg-on-dark ${focusOnDark}`}
                     >
                       <span className="relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-current after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                         {t(`nav.${item.label}`)}
                       </span>
                     </Link>
                     {/* Hover trigger for submenu */}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-6 hidden group-hover:block min-w-[180px]">
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-6 hidden group-hover:block group-focus-within:block min-w-[180px]">
                       <div className="bg-surface/95 backdrop-blur-xl shadow-3 rounded-xl py-3 border border-fg-on-dark/20 overflow-hidden ring-1 ring-fg/5 animate-in fade-in zoom-in-95 duration-200">
                         {item.children.map((child) => (
                           <Link
                             key={child.label}
                             to={child.route}
-                            className="flex items-center min-h-[var(--tap-target-min)] px-6 py-2.5 text-sm text-fg hover:bg-bg-subtle hover:text-brand-primary transition-colors font-normal"
+                            className="flex items-center min-h-[var(--tap-target-min)] px-6 py-2.5 text-sm text-fg hover:bg-bg-subtle hover:text-brand-primary transition-colors font-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--color-focus-ring)]"
                           >
                             {t(`nav.${child.label}`)}
                           </Link>
@@ -122,7 +126,7 @@ const Header = () => {
                 ) : (
                   <Link
                     to={item.route!}
-                    className={`flex items-center gap-1 transition-all duration-300 hover:opacity-70 text-fg-on-dark`}
+                    className={`flex items-center gap-1 transition-all duration-300 hover:opacity-70 text-fg-on-dark ${focusOnDark}`}
                   >
                     <span className="relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-current after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                       {t(`nav.${item.label}`)}
@@ -137,7 +141,7 @@ const Header = () => {
             {/* Search Trigger Desktop */}
             <button
               onClick={searchModal.onOpen}
-              className={`flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full transition-all duration-300 hover:scale-110 text-fg-on-dark hover:bg-fg-on-dark/10`}
+              className={`flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full transition-all duration-300 hover:scale-110 text-fg-on-dark hover:bg-fg-on-dark/10 ${focusOnDark}`}
               aria-label="Search"
             >
               <Search className="h-4 w-4" />
@@ -148,6 +152,7 @@ const Header = () => {
             <div className={`${isScrolled ? '' : 'shadow-glow-deep'} rounded-full`}>
               <Button
                 to="/contact"
+                onDark
                 variant={isScrolled ? 'primary' : 'outline'}
                 className={
                   isScrolled
@@ -165,7 +170,7 @@ const Header = () => {
             {/* Search Trigger Mobile */}
             <button
               onClick={searchModal.onOpen}
-              className={`flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center mr-1 rounded-full text-fg-on-dark`}
+              className={`flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center mr-1 rounded-full text-fg-on-dark ${focusOnDark}`}
               aria-label="Search"
             >
               <Search className="h-5 w-5" />
@@ -175,7 +180,7 @@ const Header = () => {
 
             <button
               type="button"
-              className={`flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full border transition-colors duration-300 border-fg-on-dark/20 text-fg-on-dark bg-fg-on-dark/5`}
+              className={`flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full border transition-colors duration-300 border-fg-on-dark/20 text-fg-on-dark bg-fg-on-dark/5 ${focusOnDark}`}
               onClick={mobileMenu.onToggle}
               aria-label="Toggle navigation"
               aria-expanded={mobileMenu.isOpen}
@@ -210,7 +215,7 @@ const Header = () => {
                       <button
                         type="button"
                         aria-expanded={openSubmenu === item.label}
-                        className={`flex w-full min-h-[var(--tap-target-min)] items-center justify-between text-left text-lg font-medium tracking-wide text-fg-on-dark`}
+                        className={`flex w-full min-h-[var(--tap-target-min)] items-center justify-between text-left text-lg font-medium tracking-wide text-fg-on-dark ${focusOnDark}`}
                         onClick={() =>
                           setOpenSubmenu(openSubmenu === item.label ? null : item.label)
                         }
@@ -225,7 +230,7 @@ const Header = () => {
                         <div className={`pl-4 mt-3 space-y-3 border-l-2 border-fg-on-dark/20`}>
                           <Link
                             to={item.route!}
-                            className={`flex min-h-[var(--tap-target-min)] items-center text-base font-normal text-fg-on-dark/70`}
+                            className={`flex min-h-[var(--tap-target-min)] items-center text-base font-normal text-fg-on-dark/70 ${focusOnDark}`}
                             onClick={mobileMenu.onClose}
                           >
                             {t(`nav.${item.label}`)}
@@ -234,7 +239,7 @@ const Header = () => {
                             <Link
                               key={child.label}
                               to={child.route}
-                              className={`flex min-h-[var(--tap-target-min)] items-center text-base font-normal text-fg-on-dark/70`}
+                              className={`flex min-h-[var(--tap-target-min)] items-center text-base font-normal text-fg-on-dark/70 ${focusOnDark}`}
                               onClick={mobileMenu.onClose}
                             >
                               {t(`nav.${child.label}`)}
@@ -246,7 +251,7 @@ const Header = () => {
                   ) : (
                     <Link
                       to={item.route!}
-                      className={`flex min-h-[var(--tap-target-min)] items-center text-lg font-medium tracking-wide text-fg-on-dark`}
+                      className={`flex min-h-[var(--tap-target-min)] items-center text-lg font-medium tracking-wide text-fg-on-dark ${focusOnDark}`}
                       onClick={mobileMenu.onClose}
                     >
                       {t(`nav.${item.label}`)}
@@ -257,6 +262,7 @@ const Header = () => {
               <div className="pt-4">
                 <Button
                   to="/contact"
+                  onDark
                   className="w-full justify-center shadow-2"
                   onClick={mobileMenu.onClose}
                   variant={isScrolled ? 'primary' : 'outline'}

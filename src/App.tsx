@@ -33,7 +33,6 @@ import HomePage from './pages/HomePage'
 import { CookieBanner } from './components/ui/CookieBanner'
 import MobileCallButton from './components/ui/MobileCallButton'
 import ChatWidget from './components/ui/ChatWidget'
-import ThemePreviewSwitcher from './components/ui/ThemePreviewSwitcher'
 
 // =============================================================================
 // LAZY IMPORTS - Werden erst bei Bedarf geladen
@@ -337,9 +336,6 @@ function App() {
       </Routes>
       {/* Cookie consent — site-wide so the consumer landing pages get it too (GTM/Consent Mode). */}
       <CookieBanner />
-      {/* Preview-Umschalter fuer die Design-Varianten (fresh-1|2|3). Laeuft hinter
-          Basic-Auth im Preview; klein/unaufdringlich, a11y-ok. */}
-      <ThemePreviewSwitcher />
     </RootErrorBoundary>
   )
 }

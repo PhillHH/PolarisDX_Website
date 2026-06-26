@@ -83,9 +83,9 @@
     "status": "Online",
     "intro": "Willkommen bei PolarisDX. Wie können wir Ihnen heute helfen?",
     "welcome_prototype": "Willkommen! Unser Chatbot ist noch nicht aktiv. Bitte nutzen Sie unser <0>Kontaktformular</0> oder rufen Sie uns an unter <1>+49 151 75011699</1>.",
-    "placeholder": "Nachricht eingeben...",
+    "placeholder": "Nachricht eingeben …",
     "footer": "PolarisDX Private Assistant",
-    "error": "Entschuldigung, etwas ist schiefgelaufen.",
+    "error": "Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
     "unavailable": "Der Chat ist derzeit nicht verfügbar. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns per E-Mail."
   },
   "cookie": {
@@ -120,8 +120,8 @@
       "description": "Diese Seite existiert nicht oder wurde verschoben. Zurück zur Startseite oder direkt zu IglooPro, Diagnostik-Services und Kontakt von PolarisDX."
     },
     "badge": "Seite nicht gefunden",
-    "title": "Oops! Diese Seite existiert nicht",
-    "description": "Die von Ihnen gesuchte Seite wurde möglicherweise verschoben, gelöscht oder existiert nicht mehr.",
+    "title": "Diese Seite konnte nicht gefunden werden",
+    "description": "Die Seite wurde möglicherweise verschoben oder ist nicht mehr verfügbar. Kehren Sie zur Startseite zurück oder wählen Sie unten eine der häufig besuchten Seiten.",
     "backHome": "Zurück zur Startseite",
     "popularPages": "Beliebte Seiten",
     "links": {

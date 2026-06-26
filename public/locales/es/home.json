@@ -120,7 +120,8 @@
       "title": "32reasons Zahnteam / Hamburgo",
       "focus": "Prevención, Vitamina D, HbA1c, Salud sistémica",
       "text": "32reasons & Polaris DX — odontología reimaginada. El lector chairside nos permite determinar biomarcadores como Vitamina D y HbA1c directamente in situ. Esto vincula la odontología de forma inmediata con la salud sistémica para decisiones terapéuticas rápidas y basadas en evidencia."
-    }
+    },
+    "subtitle": "Dentistas y médicos comparten su experiencia en la práctica diaria."
   },
   "blog": {
     "caption": "Blog y noticias",
@@ -151,5 +152,12 @@
         "answer": "Nuestro portafolio actual incluye el lector POC IglooPro, una amplia gama de pruebas rápidas para biomarcadores como Vitamina D3, CRP y HbA1c, además de productos complementarios como nuestro spray de Vitamina D3. Ampliamos continuamente nuestra oferta para proporcionarle una solución diagnóstica integral."
       }
     ]
+  },
+  "final_cta": {
+    "caption": "Empezar ahora",
+    "title": "Vea el IglooPro en su consulta.",
+    "text": "Reserve una demostración sin compromiso. Le mostramos el flujo de trabajo a partir de sus preguntas — y le respondemos en un día laborable.",
+    "cta_primary": "Solicitar una demo",
+    "cta_secondary": "Descargar información"
   }
 }

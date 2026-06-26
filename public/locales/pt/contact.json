@@ -20,6 +20,7 @@
       "message": "Mensagem",
       "message_placeholder": "Conte-nos mais sobre as suas necessidades...",
       "submit": "Agendar consulta",
+      "submitting": "A enviar...",
       "company_label": "Nome da Empresa / Consultório",
       "company_placeholder": "ex: Consultório Dr. Silva ou Farmácia Central",
       "area_label": "Área Principal de Aplicação",

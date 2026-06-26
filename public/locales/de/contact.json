@@ -1,8 +1,8 @@
 {
   "contact": {
     "hero": {
-      "kicker": "TERMIN VEREINBAREN",
-      "title": "Termin vereinbaren",
+      "kicker": "Kontakt",
+      "title": "Demo anfragen",
       "breadcrumb": "Home / Kontakt"
     },
     "form": {
@@ -18,8 +18,9 @@
       "phone_placeholder": "+49 151 75011699",
       "email_placeholder": "sie@beispiel.de",
       "message": "Nachricht",
-      "message_placeholder": "Erzählen Sie uns mehr über Ihr Anliegen...",
-      "submit": "Termin vereinbaren",
+      "message_placeholder": "Erzählen Sie uns mehr über Ihr Anliegen …",
+      "submit": "Anfrage senden",
+      "submitting": "Wird gesendet …",
       "company_label": "Name des Unternehmens / der Praxis",
       "company_placeholder": "z.B. Praxis Dr. Müller oder Löwen-Apotheke",
       "area_label": "Primärer Einsatzbereich",
@@ -35,9 +36,9 @@
     },
     "info": {
       "title": "Kontaktinformationen",
-      "text": "Unser Team wird sich innerhalb eines Arbeitstages bei Ihnen melden. Für dringende Fragen nutzen Sie bitte die untenstehende Telefonnummer.",
-      "email_label": "EMAIL (24/7 Service)",
-      "phone_label": "PHONE (Priority-Line)"
+      "text": "Wir melden uns innerhalb eines Werktags bei Ihnen. Für dringende Fragen erreichen Sie uns direkt über die folgenden Kanäle.",
+      "email_label": "E-Mail (24/7 Service)",
+      "phone_label": "Telefon (Priority-Line)"
     },
     "bottom_cta": {
       "title": "Suchen Sie professionelle & vertrauenswürdige medizinische Versorgung?",

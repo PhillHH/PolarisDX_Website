@@ -557,6 +557,20 @@
       ]
     }
   },
+  "notFound": {
+    "title": "Prestation introuvable",
+    "text": "Cette prestation n'est pas (ou plus) disponible. Veuillez revenir à l'aperçu.",
+    "cta": "Vers l'aperçu des diagnostics"
+  },
+  "contactWidget": {
+    "title": "Des questions ?",
+    "text": "Notre équipe vous conseille volontiers sur le choix et l'utilisation. Nous vous répondons sous un jour ouvré."
+  },
+  "overview": {
+    "eyebrow": "Diagnostic",
+    "title": "Le diagnostic pour votre cabinet",
+    "subtitle": "Tests rapides au point de soins pour la dentisterie, l'esthétique et la longévité – analysés directement sur le lieu de traitement avec l'Igloo Pro. Choisissez votre domaine."
+  },
   "seo": {
     "overview_title": "Diagnostic POC pour cabinets : dentaire, esthétique, longévité",
     "overview_description": "Tests rapides au plus près du patient pour la vitamine D, la CRP, l'HbA1c et la TSH – au fauteuil en quelques minutes. Diagnostic POC avec l'Igloo Pro pour cabinets dentaires, esthétiques et de prévention."

@@ -557,6 +557,20 @@
       ]
     }
   },
+  "notFound": {
+    "title": "Prestazione non trovata",
+    "text": "Questa prestazione non è (più) disponibile. Torni alla panoramica.",
+    "cta": "Alla panoramica diagnostica"
+  },
+  "contactWidget": {
+    "title": "Hai domande?",
+    "text": "Il nostro team ti consiglia volentieri su scelta e utilizzo. Ti rispondiamo entro un giorno lavorativo."
+  },
+  "overview": {
+    "eyebrow": "Diagnostica",
+    "title": "La diagnostica per il tuo studio",
+    "subtitle": "Test rapidi point-of-care per odontoiatria, estetica e longevità – analizzati direttamente sul luogo del trattamento con l'Igloo Pro. Scegli il tuo ambito."
+  },
   "seo": {
     "overview_title": "Diagnostica POC per studi: dental, beauty, longevity",
     "overview_description": "Test rapidi al paziente per vitamina D, PCR, HbA1c e TSH, chairside in pochi minuti. Diagnostica POC con Igloo Pro per studi odontoiatrici, estetici e di prevenzione."

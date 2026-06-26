@@ -7,11 +7,14 @@
     "cta_datasheet": "Karta danych (PDF)"
   },
   "intro": {
+    "caption": "System",
     "title": "Mobilne laboratorium",
     "text1": "Igloo Pro to przenośny analizator.",
     "text2": "Obsługuje 90% testów."
   },
   "features": {
+    "caption": "Cechy",
+    "title": "Stworzony do codziennej praktyki",
     "methods": {
       "title": "Wszechstronne metody",
       "description": "Kolorymetria..."
@@ -30,6 +33,7 @@
     }
   },
   "specs": {
+    "caption": "Technologia",
     "title": "Dane techniczne",
     "methods": "Metody",
     "methods_value": "Kolorymetria...",
@@ -67,10 +71,19 @@
       "strep": "Paciorkowiec A"
     }
   },
+  "use_cases": {
+    "title": "Obszary zastosowania",
+    "dental": "Diagnostyka stomatologiczna",
+    "beauty": "Uroda i estetyka",
+    "longevity": "Długowieczność i profilaktyka",
+    "articles": "Czytaj artykuły eksperckie"
+  },
   "cta_bottom": {
+    "caption": "Demo i doradztwo",
     "title": "Rozszerz możliwości",
     "description": "Dla aptek i gabinetów.",
-    "button": "Umów się teraz"
+    "button": "Umów się teraz",
+    "button_secondary": "Karta katalogowa"
   },
   "seo": {
     "title": "IglooPro POC Reader: specyfikacja i technologia",

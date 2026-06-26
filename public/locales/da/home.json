@@ -120,7 +120,8 @@
       "title": "32reasons Zahnteam / Hamburg",
       "focus": "Forebyggelse, Vitamin D, HbA1c, Systemisk sundhed",
       "text": "32reasons & Polaris DX — tandpleje gentænkt. Chairside-readeren giver os mulighed for at bestemme biomarkører som Vitamin D og HbA1c direkte på stedet. Det kobler tandplejen umiddelbart sammen med systemisk sundhed for hurtige, evidensbaserede terapibeslutninger."
-    }
+    },
+    "subtitle": "Tandlæger og læger deler deres erfaring fra hverdagen i klinikken."
   },
   "blog": {
     "caption": "Blog & Nyheder",
@@ -151,5 +152,12 @@
         "answer": "Vores aktuelle portefølje omfatter IglooPro POC-readeren, et bredt udvalg af hurtigtests til biomarkører som Vitamin D3, CRP og HbA1c samt supplerende produkter som vores Vitamin D3-spray. Vi udvider løbende vores udbud for at give dig en omfattende diagnostisk løsning."
       }
     ]
+  },
+  "final_cta": {
+    "caption": "Kom i gang",
+    "title": "Se IglooPro i din klinik.",
+    "text": "Book en uforpligtende demo. Vi viser dig arbejdsgangen ud fra dine spørgsmål — og vender tilbage inden for én arbejdsdag.",
+    "cta_primary": "Anmod om en demo",
+    "cta_secondary": "Hent informationsmateriale"
   }
 }

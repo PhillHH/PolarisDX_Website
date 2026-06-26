@@ -557,6 +557,20 @@
       ]
     }
   },
+  "notFound": {
+    "title": "Ydelse ikke fundet",
+    "text": "Denne ydelse er ikke (længere) tilgængelig. Vend tilbage til oversigten.",
+    "cta": "Til diagnostikoversigten"
+  },
+  "contactWidget": {
+    "title": "Har du spørgsmål?",
+    "text": "Vores team rådgiver dig gerne om valg og anvendelse. Vi vender tilbage inden for én arbejdsdag."
+  },
+  "overview": {
+    "eyebrow": "Diagnostik",
+    "title": "Diagnostik til din klinik",
+    "subtitle": "Patientnære hurtigtests til dental, skønhed og longevity – analyseret direkte på behandlingsstedet med Igloo Pro. Vælg dit område."
+  },
   "seo": {
     "overview_title": "POC-diagnostik til klinikker: dental, beauty, longevity",
     "overview_description": "Patientnære hurtigtest til vitamin D, CRP, HbA1c & TSH – chairside på minutter. POC-diagnostik med Igloo Pro til tandlæge-, æstetik- og præventionsklinikker."

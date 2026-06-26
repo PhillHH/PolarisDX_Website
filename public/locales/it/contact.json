@@ -20,6 +20,7 @@
       "message": "Messaggio",
       "message_placeholder": "Raccontaci di più sulle tue esigenze...",
       "submit": "Prenota appuntamento",
+      "submitting": "Invio in corso...",
       "company_label": "Nome dell'azienda / dello studio",
       "company_placeholder": "es. Studio Dr. Rossi o Farmacia Leone",
       "area_label": "Area principale di applicazione",

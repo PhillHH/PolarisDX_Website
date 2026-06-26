@@ -56,8 +56,8 @@ const NotFoundPage = () => {
             </div>
 
             {/* Title */}
-            <h1 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl text-fg-on-dark mb-6">
-              {t('notFound.title', 'Oops! Diese Seite existiert nicht')}
+            <h1 className="text-display-sm font-medium tracking-tight text-fg-on-dark mb-6">
+              {t('notFound.title', 'Diese Seite konnte nicht gefunden werden')}
             </h1>
 
             {/* Description */}
@@ -71,7 +71,7 @@ const NotFoundPage = () => {
             {/* Primary CTA */}
             <Link
               to="/"
-              className="inline-flex items-center gap-2 rounded-lg bg-surface px-6 py-3 text-base font-semibold text-brand-primary shadow-2 transition-all hover:bg-bg-subtle hover:scale-105 focus:outline-none focus:ring-2 focus:ring-fg-on-dark/50"
+              className="inline-flex items-center gap-2 rounded-lg bg-surface px-6 py-3 text-base font-semibold text-brand-primary shadow-2 transition-all hover:bg-bg-subtle hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--color-focus-ring-on-dark)]"
             >
               <Home className="h-5 w-5" />
               {t('notFound.backHome', 'Zurück zur Startseite')}
@@ -89,7 +89,7 @@ const NotFoundPage = () => {
                   <Link
                     key={page.path}
                     to={page.path}
-                    className="group flex items-center gap-2 min-h-[var(--tap-target-min)] rounded-lg bg-fg-on-dark/10 px-4 py-2.5 text-sm font-medium text-fg-on-dark/90 backdrop-blur-sm transition-all hover:bg-fg-on-dark/20 hover:text-fg-on-dark"
+                    className="group flex items-center gap-2 min-h-[var(--tap-target-min)] rounded-lg bg-fg-on-dark/10 px-4 py-2.5 text-sm font-medium text-fg-on-dark/90 backdrop-blur-sm transition-all hover:bg-fg-on-dark/20 hover:text-fg-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring-on-dark)]"
                   >
                     <page.icon className="h-4 w-4 text-fg-on-dark/60 group-hover:text-fg-on-dark transition-colors" />
                     {page.name}

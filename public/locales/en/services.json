@@ -557,6 +557,20 @@
       ]
     }
   },
+  "notFound": {
+    "title": "Service not found",
+    "text": "This service is not (or no longer) available. Please return to the overview.",
+    "cta": "To the diagnostics overview"
+  },
+  "contactWidget": {
+    "title": "Have questions?",
+    "text": "Our team is happy to advise you on selection and use. We'll get back to you within one business day."
+  },
+  "overview": {
+    "eyebrow": "Diagnostics",
+    "title": "Diagnostics for your practice",
+    "subtitle": "Chairside rapid tests for dental, beauty, and longevity – analysed right at the point of care with the Igloo Pro. Choose your area."
+  },
   "seo": {
     "overview_title": "Point-of-Care Diagnostics: Dental, Beauty, Longevity",
     "overview_description": "Chairside rapid tests for vitamin D, CRP, HbA1c & TSH – results in minutes. Point-of-care diagnostics with the Igloo Pro for dental, aesthetic & prevention practices."

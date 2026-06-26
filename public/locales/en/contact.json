@@ -20,6 +20,7 @@
       "message": "Message",
       "message_placeholder": "Tell us more about your needs...",
       "submit": "Book Appointment",
+      "submitting": "Sending...",
       "company_label": "Company / Practice Name",
       "company_placeholder": "e.g. Dr. Smith Practice or City Pharmacy",
       "area_label": "Primary Application Area",

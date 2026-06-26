@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { Link } from 'react-router-dom'
 import { X, Search as SearchIcon, ChevronRight } from 'lucide-react'
@@ -17,17 +17,52 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
   const [query, setQuery] = useState('')
   const { results, isSearching, error } = useSearch(query)
 
+  const dialogRef = useRef<HTMLDivElement | null>(null)
+  const triggerRef = useRef<HTMLElement | null>(null)
+
   // Use generic hook to lock body scroll
   useScrollLock(isOpen)
 
-  // Focus input on open
+  // Focus input on open; restore focus to the trigger (search button) on close.
+  // A11y (WCAG 2.2 — 2.4.3 Focus Order): an aria-modal dialog must return focus
+  // to the element that invoked it once it is dismissed.
   useEffect(() => {
-    if (isOpen) {
-      setTimeout(() => {
-        const input = document.getElementById('search-input')
-        if (input) input.focus()
-      }, 100)
+    if (!isOpen) return
+    triggerRef.current = document.activeElement as HTMLElement | null
+    const focusTimer = setTimeout(() => {
+      document.getElementById('search-input')?.focus()
+    }, 100)
+    return () => {
+      clearTimeout(focusTimer)
+      triggerRef.current?.focus?.()
     }
+  }, [isOpen])
+
+  // A11y (WCAG 2.2 — 2.1.2 No Keyboard Trap): keep Tab focus inside the dialog
+  // while it is open by cycling between the first and last focusable elements.
+  useEffect(() => {
+    if (!isOpen) return
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key !== 'Tab') return
+      const dialog = dialogRef.current
+      if (!dialog) return
+      const focusable = dialog.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      )
+      if (focusable.length === 0) return
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      const active = document.activeElement
+      if (e.shiftKey && (active === first || !dialog.contains(active))) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
   }, [isOpen])
 
   // Reset query on close
@@ -54,6 +89,7 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
 
   return createPortal(
     <div
+      ref={dialogRef}
       role="dialog"
       aria-modal="true"
       aria-label={t('searchPlaceholder', 'Suche...')}
@@ -76,7 +112,7 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
           <input
             id="search-input"
             type="text"
-            className="flex-1 text-lg outline-none placeholder:text-fg-muted text-fg-heading"
+            className="flex-1 text-lg bg-transparent outline-none placeholder:text-fg-muted text-fg-heading rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2"
             placeholder={t('searchPlaceholder', 'Suche...')}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -84,7 +120,7 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
           <button
             onClick={onClose}
             aria-label={t('close', 'Schließen')}
-            className="flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full hover:bg-bg-subtle transition-colors text-fg-muted"
+            className="flex h-[var(--tap-target-min)] w-[var(--tap-target-min)] items-center justify-center rounded-full hover:bg-bg-subtle transition-colors text-fg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2"
           >
             <X className="h-5 w-5" aria-hidden />
           </button>
@@ -128,7 +164,7 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
                   key={`${result.path}-${idx}`}
                   to={result.path}
                   onClick={onClose}
-                  className="flex items-center justify-between p-3 rounded-xl hover:bg-bg-subtle group transition-colors"
+                  className="flex items-center justify-between p-3 rounded-xl hover:bg-bg-subtle group transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-inset"
                 >
                   <div className="flex flex-col gap-0.5">
                     <div className="flex items-center gap-2">
@@ -157,7 +193,7 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
         </div>
 
         {/* Footer */}
-        <div className="bg-bg-subtle p-3 text-xs text-center text-fg-muted border-t border-[var(--color-border)]">
+        <div className="bg-bg-subtle p-3 text-xs text-center text-fg border-t border-[var(--color-border)]">
           Esc to close
         </div>
       </div>

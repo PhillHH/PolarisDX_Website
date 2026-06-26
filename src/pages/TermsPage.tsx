@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { SEOHead } from '../components/seo'
-import { Container } from '~/design-system'
+import { Container, GradientHero } from '~/design-system'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 
@@ -24,29 +24,27 @@ const TermsPage = () => {
         )}
         noindex={true}
       />
-      <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-brand-primary text-fg-on-dark">
-        <Container className="text-center">
-          <Reveal width="100%" yOffset={20}>
-            <div className="flex justify-center">
-              {/* ASSUMPTION — needs human confirmation: dekorativer Rainbow-Gradient
-                  (cyan→blue→purple) hatte keine DS-Rolle; auf kohärenten Brand-
-                  Cool-Gradient (blue-bright→blue→heading) tokenisiert (§3.3). */}
-              <div className="inline-block rounded p-px bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-heading mb-2">
-                <div className="rounded-sm bg-bg px-3 py-1">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-fg-heading">
-                    {t('agb.title', 'AGB')}
-                  </span>
-                </div>
+      <GradientHero minHeight="min-h-[340px]" innerClassName="text-center">
+        <Reveal width="100%" yOffset={20}>
+          <div className="flex justify-center">
+            {/* ASSUMPTION — needs human confirmation: dekorativer Rainbow-Gradient
+                (cyan→blue→purple) hatte keine DS-Rolle; auf kohärenten Brand-
+                Cool-Gradient (blue-bright→blue→heading) tokenisiert (§3.3). */}
+            <div className="inline-block rounded p-px bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-heading mb-2">
+              <div className="rounded-sm bg-bg px-3 py-1">
+                <span className="text-xs font-semibold uppercase tracking-wide text-fg-heading">
+                  {t('agb.title', 'AGB')}
+                </span>
               </div>
             </div>
-            <h1 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl text-fg-on-dark">
-              {t('agb.title')}
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-fg-on-dark/80">{t('agb.subtitle')}</p>
-            <p className="mt-4 text-sm text-fg-on-dark/60">{t('agb.date')}</p>
-          </Reveal>
-        </Container>
-      </div>
+          </div>
+          <h1 className="text-display-sm font-medium tracking-tight text-fg-on-dark">
+            {t('agb.title')}
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-fg-on-dark/80">{t('agb.subtitle')}</p>
+          <p className="mt-4 text-sm text-fg-on-dark/80">{t('agb.date')}</p>
+        </Reveal>
+      </GradientHero>
 
       <Container className="py-16 lg:py-24">
         <div className="lg:grid lg:grid-cols-4 lg:gap-12">
@@ -83,7 +81,7 @@ const TermsPage = () => {
                       <a
                         key={section.id}
                         href={`#${section.id}`}
-                        className="text-sm text-fg-muted hover:text-brand-primary hover:translate-x-1 transition-all block truncate"
+                        className="text-sm text-fg-muted hover:text-brand-primary hover:translate-x-1 transition-all block truncate rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
                         title={section.title}
                       >
                         {section.title}

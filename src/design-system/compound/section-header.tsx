@@ -17,8 +17,13 @@ import { cn } from '../../lib/utils'
  */
 export interface SectionHeaderProps {
   id?: string
-  /** Eyebrow-Text (Section-Label). */
-  caption: string
+  /**
+   * Eyebrow-Text (Section-Label). Optional: ohne `caption` rendert der Kopf nur
+   * die Headline — fuer untergeordnete Panel-Koepfe (z. B. Formular-Panel), die
+   * kein zweites Eyebrow neben dem Hero-Eyebrow tragen sollen (§1 [FIL]: keine
+   * konkurrierenden Labels/Titel pro Section).
+   */
+  caption?: string
   /** Abschnitts-Headline (rendert als `<h2>`). */
   title: string
   align?: 'left' | 'center'
@@ -47,7 +52,7 @@ export function SectionHeader({
       id={id}
       className={cn('flex flex-col gap-[var(--section-header-gap)]', alignment, className)}
     >
-      <Eyebrow>{caption}</Eyebrow>
+      {caption && <Eyebrow>{caption}</Eyebrow>}
       <h2 className={titleClassName || DEFAULT_TITLE}>{title}</h2>
     </div>
   )

@@ -73,7 +73,7 @@ const TeamSection = () => {
               <div className="mt-auto flex gap-4">
                 <a
                   href={`mailto:${member.email}`}
-                  className="flex items-center gap-2 text-sm font-medium text-fg-muted hover:text-brand-primary transition-colors"
+                  className="flex items-center gap-2 text-sm font-medium text-fg-muted hover:text-brand-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
                 >
                   <Mail className="h-4 w-4" />
                   Email
@@ -82,7 +82,7 @@ const TeamSection = () => {
                   href={member.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2 text-sm font-medium text-fg-muted hover:text-social-linkedin transition-colors"
+                  className="flex items-center gap-2 text-sm font-medium text-fg-muted hover:text-social-linkedin transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
                 >
                   <Linkedin className="h-4 w-4" />
                   LinkedIn

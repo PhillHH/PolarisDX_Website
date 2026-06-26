@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
-import { Breadcrumbs, Container, InfoItem, Panel, SectionHeader } from '~/design-system'
+import { Breadcrumbs, Container, Eyebrow, GradientHero, Panel, SectionHeader } from '~/design-system'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, localBusinessSchema, createBreadcrumbSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import { ContactForm } from '../components/sections/ContactForm'
+import { ContactChannels } from '../components/sections/ContactChannels'
 
 const ContactPage = () => {
   const { t } = useTranslation('contact')
@@ -28,27 +29,20 @@ const ContactPage = () => {
       />
       <div className="bg-bg text-fg-heading">
         {/* Hero / Top */}
-        <section className="relative overflow-hidden bg-brand-primary text-fg-on-dark">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-fg-on-dark/30 to-transparent opacity-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-fg-on-dark/30 to-transparent opacity-10" />
-
-          <div className="relative mx-auto flex min-h-[340px] max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
-            <Reveal width="100%" yOffset={20}>
-              <div className="max-w-container">
-                <Breadcrumbs
-                  className="mb-4"
-                  items={[{ label: 'Home', href: '/' }, { label: t('contact.hero.title') }]}
-                />
-                <p className="mb-2 text-xs font-semibold uppercase tracking-overline text-accent-strong">
-                  {t('contact.hero.kicker')}
-                </p>
-                <h1 className="mb-3 text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
-                  {t('contact.hero.title')}
-                </h1>
-              </div>
-            </Reveal>
-          </div>
-        </section>
+        <GradientHero minHeight="min-h-[340px]">
+          <Reveal width="100%" yOffset={20}>
+            <Breadcrumbs
+              className="mb-4"
+              items={[{ label: 'Home', href: '/' }, { label: t('contact.hero.title') }]}
+            />
+            <Eyebrow size="sm" className="mb-3">
+              {t('contact.hero.kicker')}
+            </Eyebrow>
+            <h1 className="text-display-sm font-medium tracking-tight">
+              {t('contact.hero.title')}
+            </h1>
+          </Reveal>
+        </GradientHero>
 
         {/* Form + Info */}
         <Container className="py-12 lg:py-16">
@@ -56,21 +50,10 @@ const ContactPage = () => {
             {/* Form-Card */}
             <Reveal width="100%">
               <Panel padding="lg" className="space-y-6">
-                <SectionHeader
-                  caption={t('contact.hero.kicker')}
-                  title={t('contact.hero.title')}
-                  align="left"
-                />
+                <SectionHeader title={t('contact.form.title')} align="left" />
 
-                {/* Kontakt-Kanäle */}
-                <div className="mt-2 flex flex-col gap-4 text-sm text-fg sm:flex-row sm:gap-8">
-                  <InfoItem icon="✉" label={t('contact.info.email_label')}>
-                    contact@polarisdx.net
-                  </InfoItem>
-                  <InfoItem icon="☎" label={t('contact.info.phone_label')}>
-                    +49 151 75011699
-                  </InfoItem>
-                </div>
+                {/* Kontakt-Kanäle (E-Mail/Telefon) leben konsolidiert in der
+                    persistenten Sidebar-Box — siehe ContactChannels (Plan E2). */}
 
                 {/* Extracted Form Component */}
                 <ContactForm />
@@ -85,10 +68,11 @@ const ContactPage = () => {
                     {t('contact.info.title')}
                   </h2>
                   <p className="mt-2 text-sm leading-relaxed text-fg">{t('contact.info.text')}</p>
-                  <div className="mt-4 space-y-1 text-sm text-fg">
-                    <p>contact@polarisdx.net</p>
-                    <p>+49 151 75011699</p>
-                  </div>
+                  <ContactChannels
+                    className="mt-5 text-sm text-fg"
+                    emailLabel={t('contact.info.email_label')}
+                    phoneLabel={t('contact.info.phone_label')}
+                  />
                 </Panel>
 
                 <Panel>
@@ -98,19 +82,19 @@ const ContactPage = () => {
                   <nav className="space-y-2">
                     <Link
                       to="/diagnostics"
-                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
                     >
                       {t('contact.sidebar_links.services', 'Unsere Diagnostik-Services')} →
                     </Link>
                     <Link
                       to="/igloo-pro"
-                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
                     >
                       {t('contact.sidebar_links.igloo', 'IglooPro System kennenlernen')} →
                     </Link>
                     <Link
                       to="/articles"
-                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
                     >
                       {t('contact.sidebar_links.articles', 'Fachartikel lesen')} →
                     </Link>

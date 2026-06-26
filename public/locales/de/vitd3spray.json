@@ -89,7 +89,7 @@
     "message_label": "Anmerkungen zur Bestellung",
     "message_placeholder": "Optional: Lieferhinweise, abweichende Adresse, etc.",
     "submit": "Jetzt verbindlich bestellen",
-    "submitting": "Bestellung wird gesendet...",
+    "submitting": "Bestellung wird gesendet …",
     "submit_note": "Mit Absenden erhalten Sie eine Auftragsbestätigung per E-Mail. Zahlung auf Rechnung.",
     "success_title": "Vielen Dank für Ihre Bestellung!",
     "success_text": "Wir haben Ihre Bestellung erhalten und senden Ihnen in Kürze eine Bestätigung per E-Mail.",

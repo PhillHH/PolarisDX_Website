@@ -1,7 +1,16 @@
 import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, createArticleSchema, createBreadcrumbSchema } from '../components/seo'
-import { Alert, Breadcrumbs, Button, NavTile, Panel, SectionHeader, Spinner } from '~/design-system'
+import {
+  Alert,
+  Breadcrumbs,
+  Button,
+  Eyebrow,
+  GradientHero,
+  NavTile,
+  Panel,
+  Spinner,
+} from '~/design-system'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import { services } from '../data/services'
@@ -109,7 +118,7 @@ const ArticlePage = () => {
         return (
           <section key={index} className="space-y-4 overflow-x-auto">
             {section.heading && (
-              <h2 className="text-lg font-semibold tracking-tight text-fg-heading">
+              <h2 className="text-xl font-semibold tracking-tight text-fg-heading">
                 {section.heading}
               </h2>
             )}
@@ -144,10 +153,10 @@ const ArticlePage = () => {
         return (
           <section
             key={index}
-            className="my-8 rounded-lg border-l-4 border-accentBlue bg-primary/5 p-6 text-fg"
+            className="my-8 rounded-lg border-l-4 border-brand-primary bg-primary/5 p-6 text-fg"
           >
             {section.heading && (
-              <h3 className="mb-2 text-lg font-semibold text-accentBlue">{section.heading}</h3>
+              <h3 className="mb-2 text-lg font-semibold text-brand-primary">{section.heading}</h3>
             )}
             <p className="text-sm leading-relaxed sm:text-base">
               {(section as InfoboxSection).content}
@@ -158,7 +167,7 @@ const ArticlePage = () => {
         return (
           <section key={index} className="space-y-6">
             {section.heading && (
-              <h2 className="text-lg font-semibold tracking-tight text-fg-heading">
+              <h2 className="text-xl font-semibold tracking-tight text-fg-heading">
                 {section.heading}
               </h2>
             )}
@@ -182,18 +191,18 @@ const ArticlePage = () => {
         return (
           <section key={index} className="max-w-reading space-y-4">
             {textSection.heading && (
-              <h2 className="text-lg font-semibold tracking-tight text-fg-heading">
+              <h2 className="text-xl font-semibold tracking-tight text-fg-heading">
                 {textSection.heading}
               </h2>
             )}
             {textSection.paragraphs &&
               textSection.paragraphs.map((paragraph, pIndex) => (
-                <p key={pIndex} className="text-base leading-body text-fg-muted">
+                <p key={pIndex} className="text-base leading-body text-fg">
                   {paragraph}
                 </p>
               ))}
             {textSection.listItems && (
-              <ul className="list-disc space-y-2 pl-5 text-base leading-body text-fg-muted">
+              <ul className="list-disc space-y-2 pl-5 text-base leading-body text-fg">
                 {textSection.listItems.map((item, lIndex) => (
                   <li key={lIndex}>{item}</li>
                 ))}
@@ -237,50 +246,35 @@ const ArticlePage = () => {
         ]}
       />
       <div className="bg-bg">
-        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-fg-on-dark">
-          <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-fg-on-dark/30 to-transparent opacity-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-fg-on-dark/30 to-transparent opacity-10" />
+        <GradientHero minHeight="min-h-[420px]">
+          <Reveal width="100%" yOffset={20}>
+            <Breadcrumbs
+              className="mb-4"
+              items={[
+                { label: t('shop:shop.home', 'Home'), href: '/' },
+                { label: t('shop:shop.articles', 'Articles'), href: '/articles' },
+                { label: title },
+              ]}
+            />
 
-          <div className="relative mx-auto flex min-h-[420px] max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
-            <Reveal width="100%" yOffset={20}>
-              <div className="max-w-container">
-                <Breadcrumbs
-                  className="mb-4"
-                  items={[
-                    { label: t('shop:shop.home', 'Home'), href: '/' },
-                    { label: t('shop:shop.articles', 'Articles'), href: '/articles' },
-                    { label: title },
-                  ]}
-                />
-
-                <p className="mb-3 text-xs font-semibold uppercase tracking-overline text-accent-strong">
-                  {t(`common:category.${article.category}`, article.category)}
-                </p>
-                <h1 className="mb-4 text-2xl font-medium tracking-tight sm:text-3xl lg:text-3xl">
-                  {title}
-                </h1>
-                <div className="flex flex-wrap items-center gap-3 text-xs text-fg-on-dark/80 sm:text-sm">
-                  <span>{article.author}</span>
-                  <span className="h-1 w-1 rounded-full bg-fg-on-dark/60" />
-                  <span>{article.date}</span>
-                  <span className="h-1 w-1 rounded-full bg-fg-on-dark/60" />
-                  <span>{article.readTime}</span>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </section>
+            <Eyebrow size="sm" className="mb-3">
+              {t(`common:category.${article.category}`, article.category)}
+            </Eyebrow>
+            <h1 className="mb-4 text-display-sm font-medium tracking-tight">{title}</h1>
+            <div className="flex flex-wrap items-center gap-3 text-xs text-fg-on-dark/80 sm:text-sm">
+              <span>{article.author}</span>
+              <span className="h-1 w-1 rounded-full bg-fg-on-dark/60" />
+              <span>{article.date}</span>
+              <span className="h-1 w-1 rounded-full bg-fg-on-dark/60" />
+              <span>{article.readTime}</span>
+            </div>
+          </Reveal>
+        </GradientHero>
 
         <div className="mx-auto flex max-w-container flex-col gap-10 px-4 py-12 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,1.4fr)] lg:items-start lg:gap-12 lg:px-0 lg:py-16">
           <article className="space-y-8 text-fg">
             <Reveal width="100%">
-              <SectionHeader
-                caption={t('shop:shop.article', 'Article')}
-                title={excerpt}
-                align="left"
-                titleClassName="text-2xl sm:text-3xl lg:text-3xl"
-              />
+              <p className="max-w-reading text-lg leading-relaxed text-fg-muted">{excerpt}</p>
 
               <div className="relative w-full overflow-hidden rounded-lg aspect-[8/3] bg-bg-subtle mt-6">
                 {articleImage && getArticleImageUrl(articleImage) && (
@@ -302,7 +296,7 @@ const ArticlePage = () => {
                 {Array.isArray(translatedSections) && translatedSections.map(renderSection)}
               </div>
 
-              <div className="rounded-2xl bg-brand-primary/5 p-6 text-base leading-body text-fg mt-8">
+              <div className="max-w-reading rounded-2xl bg-brand-primary/5 p-6 text-base leading-body text-fg mt-8">
                 {t(
                   'shop:shop.articleDisclaimer',
                   "Regular check-ups and proactive care are the foundation of long-term health. If you have questions, don't hesitate to reach out to a medical professional.",
@@ -332,7 +326,7 @@ const ArticlePage = () => {
                       <Link
                         key={suggested.id}
                         to={`/articles/${suggested.slug}`}
-                        className="rounded-xl border border-[var(--color-border)] bg-surface p-4 shadow-1 transition hover:-translate-y-0.5 hover:shadow-card"
+                        className="rounded-xl border border-[var(--color-border)] bg-surface p-4 shadow-1 transition hover:-translate-y-0.5 hover:shadow-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2"
                       >
                         <p className="text-xs font-semibold uppercase tracking-overline text-accent-strong">
                           {t(`common:category.${suggested.category}`, suggested.category)}
@@ -360,7 +354,7 @@ const ArticlePage = () => {
                       <Link
                         key={s.id}
                         to={`/diagnostics/${s.id}`}
-                        className="group rounded-xl border border-[var(--color-border)] bg-surface p-4 shadow-1 transition hover:-translate-y-0.5 hover:shadow-card"
+                        className="group rounded-xl border border-[var(--color-border)] bg-surface p-4 shadow-1 transition hover:-translate-y-0.5 hover:shadow-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2"
                       >
                         <p className="text-sm font-semibold text-fg-heading group-hover:text-brand-secondary transition-colors">
                           {t(`home:services.${s.translationKey}.title`, s.title)}
@@ -389,7 +383,7 @@ const ArticlePage = () => {
                       <Link
                         key={suggested.id}
                         to={`/articles/${suggested.slug}`}
-                        className="block rounded-lg p-3 transition hover:bg-bg-subtle"
+                        className="block rounded-lg p-3 transition hover:bg-bg-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
                       >
                         <p className="text-xs font-semibold uppercase tracking-overline text-accent-strong">
                           {t(`common:category.${suggested.category}`, suggested.category)}

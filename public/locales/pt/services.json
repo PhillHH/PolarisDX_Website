@@ -557,6 +557,20 @@
       ]
     }
   },
+  "notFound": {
+    "title": "Serviço não encontrado",
+    "text": "Este serviço não está (ou já não está) disponível. Regresse à vista geral.",
+    "cta": "Para a vista geral de diagnóstico"
+  },
+  "contactWidget": {
+    "title": "Tem perguntas?",
+    "text": "A nossa equipa aconselha-o com prazer sobre a escolha e a utilização. Respondemos no prazo de um dia útil."
+  },
+  "overview": {
+    "eyebrow": "Diagnóstico",
+    "title": "Diagnóstico para a sua clínica",
+    "subtitle": "Testes rápidos no ponto de atendimento para medicina dentária, estética e longevidade – analisados diretamente no local de tratamento com o Igloo Pro. Escolha a sua área."
+  },
   "seo": {
     "overview_title": "Diagnóstico POC para consultórios: dental, estética, longevidade",
     "overview_description": "Testes rápidos junto ao paciente para vitamina D, PCR, HbA1c e TSH — resultados em minutos. Diagnóstico POC com o Igloo Pro para consultórios dentários, estéticos e de prevenção."

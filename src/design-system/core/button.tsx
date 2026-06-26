@@ -19,10 +19,15 @@ const button = cva(
     'rounded-[var(--button-radius)] min-h-[var(--button-min-height)] ' +
     'transition-colors duration-[var(--duration-base)] ' +
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ' +
-    'focus-visible:ring-[var(--color-focus-ring)] ' +
     'disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none',
   {
     variants: {
+      // Fokus-Ring rollenrein: auf hellem Grund Navy, auf dunklem Grund (Hero/
+      // CTA-Band) weiss (§2 „Fokus-Ring: Navy / on-dark = weiss", WCAG 2.4.7).
+      onDark: {
+        false: 'focus-visible:ring-[var(--color-focus-ring)]',
+        true: 'focus-visible:ring-[var(--color-focus-ring-on-dark)]',
+      },
       variant: {
         // Solid Navy — dominante Aktion (§3.1 Primary = Brand, nur Aktion/Focus).
         primary:
@@ -48,6 +53,7 @@ const button = cva(
     defaultVariants: {
       variant: 'primary',
       size: 'default',
+      onDark: false,
     },
   },
 )
@@ -58,6 +64,10 @@ export interface ButtonProps
   to?: string
   /** Externer/absoluter Link (rendert `<a>`). */
   href?: string
+  /** Anchor-Ziel (nur in Kombination mit `href`, z. B. `_blank` für PDFs). */
+  target?: string
+  /** Anchor-rel (nur mit `href`, z. B. `noopener noreferrer`). */
+  rel?: string
 }
 
 /**
@@ -65,13 +75,13 @@ export interface ButtonProps
  * Die Variant/Size/State-Logik bleibt fuer alle drei identisch (eine Quelle).
  */
 export const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
-  ({ className, variant, size, to, href, ...props }, ref) => {
+  ({ className, variant, size, onDark, to, href, ...props }, ref) => {
     const Component: React.ElementType = to ? Link : href ? 'a' : 'button'
     const linkProps = to ? { to } : href ? { href } : {}
     return (
       <Component
         ref={ref}
-        className={cn(button({ variant, size }), className)}
+        className={cn(button({ variant, size, onDark }), className)}
         {...linkProps}
         {...props}
       />

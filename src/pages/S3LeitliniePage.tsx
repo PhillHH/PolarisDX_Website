@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import {
   ArrowRight,
-  ChevronRight,
   Phone,
   FileText,
   BookOpen,
@@ -17,7 +16,15 @@ import {
 } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
-import { AuthorByline, ContactCallout, Eyebrow, MediaLink, Panel } from '~/design-system'
+import {
+  AuthorByline,
+  Breadcrumbs,
+  ContactCallout,
+  Eyebrow,
+  GradientHero,
+  MediaLink,
+  Panel,
+} from '~/design-system'
 import iglooProImage from '../assets/Igloo-pro-frontal.webp'
 
 const S3LeitliniePage = () => {
@@ -159,56 +166,45 @@ const S3LeitliniePage = () => {
       {/* Article Container */}
       <div className="bg-bg">
         {/* Hero / Above the Fold */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-fg-on-dark">
-          <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-fg-on-dark/30 to-transparent opacity-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-fg-on-dark/30 to-transparent opacity-10" />
+        <GradientHero minHeight="min-h-[380px]" innerClassName="max-w-4xl mx-auto">
+          <Reveal width="100%" yOffset={20}>
+            {/* Breadcrumb */}
+            <Breadcrumbs
+              className="mb-6"
+              items={[
+                { label: 'PolarisDX', href: '/' },
+                { label: 'Artikel', href: '/articles' },
+                { label: 'Vitamin D & Implantologie' },
+              ]}
+            />
 
-          <div className="relative mx-auto flex min-h-[380px] max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
-            <Reveal width="100%" yOffset={20}>
-              <div className="max-w-4xl mx-auto">
-                {/* Breadcrumb */}
-                <nav className="mb-6 flex items-center gap-1.5 text-sm text-fg-on-dark/60">
-                  <Link to="/" className="hover:text-brand-secondary transition-colors">
-                    PolarisDX
-                  </Link>
-                  <ChevronRight className="h-3.5 w-3.5" />
-                  <Link to="/articles" className="hover:text-brand-secondary transition-colors">
-                    Artikel
-                  </Link>
-                  <ChevronRight className="h-3.5 w-3.5" />
-                  <span className="text-fg-on-dark/80">Vitamin D & Implantologie</span>
-                </nav>
+            {/* Category Label */}
+            <Eyebrow size="sm" className="mb-4">
+              Dentale Diagnostik
+            </Eyebrow>
 
-                {/* Category Label */}
-                <Eyebrow size="sm" className="mb-4">
-                  Dentale Diagnostik
-                </Eyebrow>
+            {/* H1 */}
+            <h1 className="mb-5 text-display-sm font-medium tracking-tight">
+              Vitamin D in der Implantologie – S3-Leitlinie &amp; POC-Diagnostik für die
+              Zahnarzt&shy;praxis
+            </h1>
 
-                {/* H1 */}
-                <h1 className="mb-5 text-display-sm font-medium tracking-tight">
-                  Vitamin D in der Implantologie – S3-Leitlinie &amp; POC-Diagnostik für die
-                  Zahnarzt&shy;praxis
-                </h1>
+            {/* Subtitle */}
+            <p className="mb-6 text-base text-fg-on-dark/80 sm:text-lg lg:text-xl">
+              Warum Testen allein nicht reicht – und wie Chairside-Diagnostik mit
+              leitlinienkonformer POC-Analytik Ihre Implantatergebnisse verbessert.
+            </p>
 
-                {/* Subtitle */}
-                <p className="mb-6 text-base text-fg-on-dark/80 sm:text-lg lg:text-xl">
-                  Warum Testen allein nicht reicht – und wie Chairside-Diagnostik mit
-                  leitlinienkonformer POC-Analytik Ihre Implantatergebnisse verbessert.
-                </p>
-
-                {/* Meta with E-E-A-T */}
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-fg-on-dark/60">
-                  <span>Lesezeit: 7 Minuten</span>
-                  <span className="h-1 w-1 rounded-full bg-surface/40" />
-                  <span>Aktualisiert: Februar 2026</span>
-                  <span className="h-1 w-1 rounded-full bg-surface/40" />
-                  <span>PolarisDX Redaktionsteam</span>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </section>
+            {/* Meta with E-E-A-T */}
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-fg-on-dark/70">
+              <span>Lesezeit: 7 Minuten</span>
+              <span className="h-1 w-1 rounded-full bg-surface/40" />
+              <span>Aktualisiert: Februar 2026</span>
+              <span className="h-1 w-1 rounded-full bg-surface/40" />
+              <span>PolarisDX Redaktionsteam</span>
+            </div>
+          </Reveal>
+        </GradientHero>
 
         {/* Main Content with Sidebar */}
         <div className="mx-auto max-w-container px-4 py-12 lg:py-16">
@@ -278,8 +274,8 @@ const S3LeitliniePage = () => {
                   </div>
 
                   {/* Evidence Box: 3 Kernempfehlungen */}
-                  <div className="my-8 rounded-lg border-l-4 border-brand-primary bg-primary/5 p-6">
-                    <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-brand-primary">
+                  <div className="my-8 max-w-reading rounded-[var(--radius-lg)] border-l-4 border-brand-primary bg-primary/5 p-6 shadow-1">
+                    <p className="mb-3 text-sm font-semibold uppercase tracking-overline text-accent-strong">
                       Drei Kernempfehlungen
                     </p>
                     <ol className="space-y-3 text-base leading-body text-fg list-decimal list-inside">
@@ -345,7 +341,7 @@ const S3LeitliniePage = () => {
                   </div>
 
                   {/* Vergleichstabelle */}
-                  <div className="my-8 overflow-x-auto rounded-lg border border-[var(--color-border)]">
+                  <div className="my-8 overflow-x-auto rounded-[var(--radius-lg)] border border-[var(--color-border)] shadow-1">
                     <table className="w-full text-sm">
                       <thead className="bg-bg-subtle">
                         <tr>
@@ -484,8 +480,8 @@ const S3LeitliniePage = () => {
                   </h3>
 
                   {/* DEQAS Metrics Box */}
-                  <div className="my-6 rounded-lg border-l-4 border-success bg-success-soft/70 p-6">
-                    <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-success-fg">
+                  <div className="my-6 rounded-[var(--radius-lg)] border-l-4 border-success bg-success-soft/70 p-6 shadow-1">
+                    <p className="mb-3 text-sm font-semibold uppercase tracking-overline text-success-fg">
                       Zentrale Leistungskennzahlen
                     </p>
                     <div className="grid gap-4 sm:grid-cols-3">
@@ -520,7 +516,7 @@ const S3LeitliniePage = () => {
                     <p>
                       <Link
                         to="/igloo-pro"
-                        className="font-semibold text-brand-primary hover:underline"
+                        className="rounded-sm font-semibold text-brand-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
                       >
                         Alle Igloo Reader Pro Spezifikationen ansehen
                       </Link>
@@ -542,7 +538,7 @@ const S3LeitliniePage = () => {
                       />
                     </div>
                     <div className="flex flex-col justify-center p-6 sm:w-3/5">
-                      <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-primary">
+                      <p className="mb-2 text-xs font-semibold uppercase tracking-overline text-accent-strong">
                         Vitamin-D-Diagnostik in der Praxis
                       </p>
                       <p className="mb-3 text-base font-medium text-fg-heading">
@@ -551,7 +547,7 @@ const S3LeitliniePage = () => {
                       </p>
                       <Link
                         to="/igloo-pro"
-                        className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
                       >
                         Mehr zum Igloo Pro System erfahren
                         <ArrowRight className="h-4 w-4" />
@@ -619,7 +615,7 @@ const S3LeitliniePage = () => {
                       das POC-Gerät zum{' '}
                       <Link
                         to="/diagnostics/dental"
-                        className="font-semibold text-brand-primary hover:underline"
+                        className="rounded-sm font-semibold text-brand-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
                       >
                         erweiterbaren diagnostischen Profit-Center für Ihre Praxis
                       </Link>
@@ -715,7 +711,7 @@ const S3LeitliniePage = () => {
                       eigenständig ein Präparat – oder eben nicht. Mit dem{' '}
                       <Link
                         to="/vitamin-d3-implantologie"
-                        className="font-semibold text-brand-primary hover:underline"
+                        className="rounded-sm font-semibold text-brand-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
                       >
                         Polaris Vitamin D3+K2 Mundspray
                       </Link>{' '}
@@ -808,20 +804,20 @@ const S3LeitliniePage = () => {
                     <div className="flex flex-col gap-3 sm:flex-row">
                       <Link
                         to="/contact"
-                        className="inline-flex items-center justify-center gap-2 rounded-md bg-surface px-6 py-3 text-sm font-semibold text-brand-deep transition-colors hover:bg-bg-subtle"
+                        className="inline-flex items-center justify-center gap-2 rounded-md bg-surface px-6 py-3 text-sm font-semibold text-brand-deep transition-colors hover:bg-bg-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring-on-dark)] focus-visible:ring-offset-2"
                       >
                         Kostenlose Beratung vereinbaren
                         <ArrowRight className="h-4 w-4" />
                       </Link>
                       <a
                         href="tel:+4915175011699"
-                        className="inline-flex items-center justify-center gap-2 rounded-md border border-fg-on-dark/30 px-6 py-3 text-sm font-medium text-fg-on-dark transition-colors hover:bg-surface/10"
+                        className="inline-flex items-center justify-center gap-2 rounded-md border border-fg-on-dark/30 px-6 py-3 text-sm font-medium text-fg-on-dark transition-colors hover:bg-surface/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring-on-dark)] focus-visible:ring-offset-2"
                       >
                         <Phone className="h-4 w-4" />
                         +49 151 75011699
                       </a>
                     </div>
-                    <p className="mt-4 text-xs text-fg-on-dark/60">
+                    <p className="mt-4 text-xs text-fg-on-dark/70">
                       Kostenlose Beratung – unverbindlich – ca. 15 Minuten
                     </p>
                   </div>
@@ -849,7 +845,7 @@ const S3LeitliniePage = () => {
                 <div className="mt-12 border-t border-[var(--color-border)] pt-8">
                   <Link
                     to="/articles"
-                    className="inline-flex items-center gap-2 text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
                   >
                     <ArrowRight className="h-4 w-4 rotate-180" />
                     Zurück zu den Artikeln
@@ -878,7 +874,7 @@ const S3LeitliniePage = () => {
 
                 {/* CTA Box */}
                 <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-deep p-5 text-fg-on-dark">
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-secondary">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-overline text-accent-on-dark">
                     Kostenlose Beratung
                   </p>
                   <p className="mb-4 text-sm">
@@ -887,7 +883,7 @@ const S3LeitliniePage = () => {
                   </p>
                   <Link
                     to="/contact"
-                    className="flex items-center justify-center gap-2 min-h-[var(--tap-target-min)] rounded-md bg-surface px-4 py-2.5 text-sm font-semibold text-brand-deep transition-colors hover:bg-bg-subtle"
+                    className="flex items-center justify-center gap-2 min-h-[var(--tap-target-min)] rounded-md bg-surface px-4 py-2.5 text-sm font-semibold text-brand-deep transition-colors hover:bg-bg-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring-on-dark)] focus-visible:ring-offset-2"
                   >
                     Demo vereinbaren
                     <ArrowRight className="h-4 w-4" />

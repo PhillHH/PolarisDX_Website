@@ -557,6 +557,20 @@
       ]
     }
   },
+  "notFound": {
+    "title": "Leistung nicht gefunden",
+    "text": "Diese Leistung ist nicht (mehr) verfügbar. Bitte kehren Sie zur Übersicht zurück.",
+    "cta": "Zur Diagnostik-Übersicht"
+  },
+  "contactWidget": {
+    "title": "Sie haben Fragen?",
+    "text": "Unser Team berät Sie gern zu Auswahl und Einsatz. Wir melden uns innerhalb eines Werktags."
+  },
+  "overview": {
+    "eyebrow": "Diagnostik",
+    "title": "Diagnostik für Ihre Praxis",
+    "subtitle": "Patientennahe Schnelltests für Dental, Beauty und Longevity – ausgewertet direkt am Behandlungsplatz mit dem Igloo Pro. Wählen Sie Ihren Bereich."
+  },
   "seo": {
     "overview_title": "POC-Diagnostik für Praxen: Dental, Beauty, Longevity",
     "overview_description": "Patientennahe Schnelltests für Vitamin D, CRP, HbA1c & TSH – chairside in Minuten. POC-Diagnostik mit dem Igloo Pro für Zahnarzt-, Ästhetik- & Präventionspraxen."

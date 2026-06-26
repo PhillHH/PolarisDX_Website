@@ -38,7 +38,7 @@ const AboutSection = () => {
           caption={t('about.caption', 'IHR PERFORMANCE-GARANT')}
           title={t('about.title', 'Exzellenz und Sicherheit: Der Standard, den wir setzen.')}
           align="left"
-          titleClassName="text-display font-medium tracking-headline text-fg-heading max-w-xl lg:max-w-full"
+          titleClassName="text-display-sm font-medium tracking-headline text-fg-heading max-w-xl lg:max-w-full"
           className="gap-3 lg:max-w-full"
         />
         {/* Textabsätze mit Platzhaltertext. */}

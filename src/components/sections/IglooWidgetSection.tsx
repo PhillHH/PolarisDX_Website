@@ -107,6 +107,7 @@ const IglooWidgetSection = () => {
                 w-full max-w-[95vw] sm:max-w-[90vw] h-32 sm:h-36
                 bg-gradient-to-br from-brand-primary/90 via-brand-deep/90 to-brand-heading/90
                 border border-fg-on-dark/10 backdrop-blur-md
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring-on-dark)] focus-visible:ring-offset-2
                 lg:absolute lg:left-[var(--x)] lg:top-[var(--y)] lg:-translate-x-1/2 lg:-translate-y-1/2
                 lg:w-80 lg:h-48
               `}
@@ -139,7 +140,7 @@ const IglooWidgetSection = () => {
       <div className="flex justify-center mt-8 relative z-10">
         <Link
           to="/diagnostics"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary hover:text-brand-deep transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary hover:text-brand-deep transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
         >
           {t('igloo_widget.all_services', 'Alle Diagnostik-Services entdecken')} →
         </Link>

@@ -7,11 +7,14 @@
     "cta_datasheet": "Ficha técnica (PDF)"
   },
   "intro": {
+    "caption": "O sistema",
     "title": "O laboratório móvel",
     "text1": "Igloo Pro é um analisador portátil.",
     "text2": "Avalia 90% dos testes."
   },
   "features": {
+    "caption": "Características",
+    "title": "Concebido para o dia a dia da clínica",
     "methods": {
       "title": "Métodos versáteis",
       "description": "Colorimetria..."
@@ -30,6 +33,7 @@
     }
   },
   "specs": {
+    "caption": "Tecnologia",
     "title": "Dados Técnicos",
     "methods": "Métodos",
     "methods_value": "Colorimetria...",
@@ -67,10 +71,19 @@
       "strep": "Estreptococo A"
     }
   },
+  "use_cases": {
+    "title": "Áreas de aplicação",
+    "dental": "Diagnóstico dentário",
+    "beauty": "Beleza e estética",
+    "longevity": "Longevidade e prevenção",
+    "articles": "Ler artigos especializados"
+  },
   "cta_bottom": {
+    "caption": "Demonstração e aconselhamento",
     "title": "Expanda as possibilidades",
     "description": "Para farmácias e consultórios.",
-    "button": "Agendar agora"
+    "button": "Agendar agora",
+    "button_secondary": "Ficha técnica"
   },
   "seo": {
     "title": "IglooPro POC Reader: especificações e tecnologia",

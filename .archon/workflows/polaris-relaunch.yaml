@@ -1,0 +1,205 @@
+# polaris-relaunch.yaml — AGENTUR-RELAUNCH (kompletter neuer Auftritt), KONVERGENT pro Bereich.
+# Baut auf redesign/preview auf (tokenisiert + atomar + 3 Themes). Macht die Richtung V2
+# "Souverän & redaktionell" zum NEUEN DEFAULT, restrukturiert die IA + redesignt JEDE Seite und
+# schreibt die Marketing-Texte DEUTLICH um — OHNE Inhalte/Claims/Recht zu streichen. Nach den 5 Büchern.
+# Pro Bereich ein begrenzter, ledger-gesteuerter Loop + harte build/typecheck/lint-Gate; dann
+# Copy-Politur, Responsive/A11y, Gesamt-Review, EIN PR. NIE mergen, NIE deployen (Live-Site).
+#
+# HARTE SCHUTZREGEL (medizinische Seite): Fakten, medizinische/regulatorische Aussagen, Zahlen,
+# Preise, Produktdaten und RECHTSTEXTE (Impressum/Datenschutz/AGB/Widerruf) bleiben WÖRTLICH
+# erhalten. Nur Marketing-Prosa (Headlines/Intros/CTAs/Microcopy/Fließtext) wird in Ton/Klarheit/
+# Rhythmus überarbeitet — nichts inhaltlich gestrichen. Stil nur über Tokens (§1.7), Struktur atomar (§2).
+name: polaris-relaunch
+description: >
+  Kompletter Agentur-Relaunch auf Art-Direction V2: neue Default-Optik, restrukturierte IA + neu
+  gestaltete Seiten + deutlich überarbeitete Marketing-Copy (nichts gestrichen, Fakten/Claims/Recht
+  unverändert), buchtreu. Konvergent pro Bereich, build-grün. Kein Merge, kein Deploy.
+nodes:
+  - id: concept
+    model: opus
+    prompt: |
+      Du bist Art-Direction + Strategie einer Designagentur. Lies die Buecher in
+      knowledge/design-references/ ([FIL] Wahrnehmung/Craft, [BUD] Tokens/System, [FRO] Atomic/IA,
+      [NOR] humanity-centered, [BEC] UX-Prozess/Nielsen) + §0–§7 der knowledge/REFACTORING-ANWEISUNG.md
+      und docs/design-system/VARIANTS.md.
+      AUFGABE:
+      (a) Mache die Richtung "fresh-2 / Souveraen & redaktionell" zum NEUEN DEFAULT-Look: uebernimm die
+          Token-Werte von [data-theme="fresh-2"] in die Default-Token-Ebene (tokens.css/tailwind),
+          entferne bzw. deaktiviere den Preview-Umschalter (ThemePreviewSwitcher) und die fresh-1/3-Themes
+          (oder lasse sie inert) — Default = V2.
+      (b) Schreibe docs/RELAUNCH-CONCEPT.md: finalisierte Art-Direction (Typo-System, Farb-Rollen,
+          Spacing-Rhythmus, Schatten/Radius, Bild-/Section-Patterns, Komponenten-Treatments) +
+          Copy-Tonalitaets-Guide (souveraen, klar, vertrauenswuerdig, [NOR]-Klartext).
+      (c) Schreibe docs/RELAUNCH-PLAN.md als LEDGER mit je Bereich (home, product, consumer, content,
+          rest, copy, a11y) einer konkreten, abhakbaren Task-Liste (Struktur/Layout + Copy-Rewrite),
+          inkl. pro Seite: Section-Reihenfolge, Hero-Konzept, was zusammengefuehrt/neu gegliedert wird
+          (NICHTS inhaltlich streichen).
+      SCHUTZREGEL beachten (Fakten/medizinisch/Preise/Recht woertlich erhalten). build/typecheck/lint
+      gruen halten. Wenn Default=V2 gesetzt, Switcher weg und beide Docs geschrieben: antworte CONCEPT_DONE.
+
+  - id: build_home
+    depends_on: [concept]
+    model: opus
+    loop:
+      prompt: |
+        Bereich HOME = Startseite + globale Chrome (Header/Navigation/Footer/Suchmodal/Cookie). Arbeite die
+        offenen home-Tasks aus docs/RELAUNCH-PLAN.md ab: Sektionen + Hero RESTRUKTURIEREN und im neuen
+        Default-Look gestalten (grosszuegige Abstaende/Rhythmus, klare visuelle Hierarchie [FIL], genau EIN
+        dominantes Element/Sektion). Die Marketing-Texte DEUTLICH ueberarbeiten (Headlines/Intros/CTAs/
+        Microcopy: souveraener Ton, Klartext, Lesefluss) — NICHTS streichen, Fakten/medizinische Claims/
+        Preise WOERTLICH lassen. Atomic-Komponenten wiederverwenden/erweitern, keine Duplikate, Tokens-only,
+        alle UI-States, WCAG AA. Nach jeder Einheit build/typecheck/lint gruen; erledigte Tasks in
+        RELAUNCH-PLAN.md abhaken. Alle home-Tasks fertig -> antworte HOME_DONE.
+      until: HOME_DONE
+      fresh_context: true
+      max_iterations: 30
+  - id: val_home
+    depends_on: [build_home]
+    bash: |
+      set -e
+      npm install --no-audit --no-fund
+      npm run build && npm run typecheck && npm run lint
+
+  - id: build_product
+    depends_on: [val_home]
+    model: opus
+    loop:
+      prompt: |
+        Bereich PRODUCT = IglooPro / POC-Systeme + zugehoerige Produktseiten. Offene product-Tasks aus
+        docs/RELAUNCH-PLAN.md: Struktur + Layout neu, neuer Default-Look, Hero/Feature-/Spec-Sektionen
+        klar gegliedert; Marketing-Copy deutlich ueberarbeiten — aber Produktdaten/Spezifikationen/Claims/
+        Preise WOERTLICH erhalten. Tokens-only, Atomic, alle UI-States, WCAG AA, build/typecheck/lint gruen,
+        Tasks abhaken. Fertig -> PRODUCT_DONE.
+      until: PRODUCT_DONE
+      fresh_context: true
+      max_iterations: 28
+  - id: val_product
+    depends_on: [build_product]
+    bash: |
+      set -e
+      npm install --no-audit --no-fund
+      npm run build && npm run typecheck && npm run lint
+
+  - id: build_consumer
+    depends_on: [val_product]
+    model: opus
+    loop:
+      prompt: |
+        Bereich CONSUMER = Consumer-Landingpages (Dental/Beauty/Longevity, Vitamin-D3 etc.). Offene
+        consumer-Tasks aus docs/RELAUNCH-PLAN.md: Seiten restrukturieren + neu gestalten (neuer Default-Look),
+        Conversion-orientierter Aufbau (klarer Primaer-CTA), Marketing-Copy deutlich ueberarbeiten —
+        Health-Claims/Fakten/Preise WOERTLICH lassen (keine neuen Wirkversprechen!). Tokens-only, Atomic,
+        alle UI-States, WCAG AA, build/typecheck/lint gruen, Tasks abhaken. Fertig -> CONSUMER_DONE.
+      until: CONSUMER_DONE
+      fresh_context: true
+      max_iterations: 28
+  - id: val_consumer
+    depends_on: [build_consumer]
+    bash: |
+      set -e
+      npm install --no-audit --no-fund
+      npm run build && npm run typecheck && npm run lint
+
+  - id: build_content
+    depends_on: [val_consumer]
+    model: opus
+    loop:
+      prompt: |
+        Bereich CONTENT = Artikel-/Service-/Pillar-Seiten + Blog/Index (ArticlePage, ServicePage,
+        S3LeitliniePage, Artikel-Index, VitaminD3ImplantologyPage etc.). Offene content-Tasks aus
+        docs/RELAUNCH-PLAN.md: Lese-Layout neu (Reading-Width, Typo-Rhythmus, Abstaende im Text [FIL]),
+        Section-/Hero-Struktur, E-E-A-T-Elemente; Fliesstext-Marketingteile im Ton ueberarbeiten —
+        fachliche/medizinische Inhalte, Quellen, Leitlinien-Zitate WOERTLICH erhalten. Tokens-only, Atomic,
+        WCAG AA, build/typecheck/lint gruen, Tasks abhaken. Fertig -> CONTENT_DONE.
+      until: CONTENT_DONE
+      fresh_context: true
+      max_iterations: 28
+  - id: val_content
+    depends_on: [build_content]
+    bash: |
+      set -e
+      npm install --no-audit --no-fund
+      npm run build && npm run typecheck && npm run lint
+
+  - id: build_rest
+    depends_on: [val_content]
+    model: opus
+    loop:
+      prompt: |
+        Bereich REST = About, Events, Support, Kontakt + Rechtsseiten. About/Events/Support/Kontakt:
+        Struktur + Layout neu im Default-Look, Marketing-Copy deutlich ueberarbeiten (Kontaktdaten/Fakten
+        woertlich). RECHTSSEITEN (Impressum/Datenschutz/AGB/Widerruf): NUR Layout/Typo/Abstaende im neuen
+        Look — TEXT 1:1 UNVERAENDERT (kein Wort aendern). Tokens-only, Atomic, alle UI-States (Formulare:
+        loading/empty/error/success), WCAG AA, build/typecheck/lint gruen, Tasks abhaken. Fertig -> REST_DONE.
+      until: REST_DONE
+      fresh_context: true
+      max_iterations: 28
+  - id: val_rest
+    depends_on: [build_rest]
+    bash: |
+      set -e
+      npm install --no-audit --no-fund
+      npm run build && npm run typecheck && npm run lint
+
+  - id: copy_polish
+    depends_on: [val_rest]
+    model: opus
+    loop:
+      prompt: |
+        Site-weite COPY-POLITUR ([NOR] Klartext, [BEC] Nielsen H): einheitliche Tonalitaet/Stimme,
+        konsistente Headline-/CTA-Sprache, typografischer Rhythmus + Abstaende im Text, Microcopy/Fehlertexte
+        in Klartext. KEINE Inhalte streichen; Fakten/medizinische Claims/Preise/Rechtstexte WOERTLICH.
+        i18n: nur DE-Quelle anfassen, andere Locales-Keys konsistent halten (keine fehlenden Keys).
+        build/typecheck/lint gruen, RELAUNCH-PLAN.md copy-Tasks abhaken. Fertig -> COPY_DONE.
+      until: COPY_DONE
+      fresh_context: true
+      max_iterations: 20
+  - id: val_copy
+    depends_on: [copy_polish]
+    bash: |
+      set -e
+      npm install --no-audit --no-fund
+      npm run build && npm run typecheck && npm run lint
+
+  - id: responsive_a11y
+    depends_on: [val_copy]
+    model: opus
+    loop:
+      prompt: |
+        Alle neu gestalteten Seiten auf RESPONSIVE (sm/md/lg/xl, kein Horizontal-Scroll, Touch >=44px,
+        mobile Safe-Space) und A11y (WCAG 2.2 AA, sichtbarer Fokus, Tastatur, 0 kritische axe-Befunde,
+        prefers-reduced-motion/color-scheme) durchgehen und fixen. Tokens-only, build/typecheck/lint gruen,
+        a11y-Tasks abhaken. Fertig -> RA_DONE.
+      until: RA_DONE
+      fresh_context: true
+      max_iterations: 20
+  - id: val_ra
+    depends_on: [responsive_a11y]
+    bash: |
+      set -e
+      npm install --no-audit --no-fund
+      npm run build && npm run typecheck && npm run lint
+
+  - id: review_all
+    depends_on: [val_ra]
+    model: opus
+    loop:
+      prompt: |
+        Adversariales Agentur-Review des gesamten Relaunch-Diffs gegen docs/RELAUNCH-CONCEPT.md, die
+        5-Buch-Prinzipien und die globale DoD (§5) + Anti-Patterns (§6). Pruefe besonders: konsistente
+        Art-Direction ueber alle Seiten, visuelle Hierarchie [FIL], Atomic ohne Duplikate [FRO], 0
+        hartkodierte Design-Werte (Tokens), WCAG AA, alle UI-States, und vor allem die SCHUTZREGEL:
+        keine geaenderten Fakten/medizinischen Claims/Preise und RECHTSTEXTE 1:1 unveraendert (diff-pruefen!).
+        Behebe Befunde, build/typecheck/lint gruen. Keine offenen Befunde -> REVIEW_CLEAN.
+      until: REVIEW_CLEAN
+      fresh_context: true
+      max_iterations: 14
+
+  - id: pr
+    depends_on: [review_all]
+    model: sonnet
+    prompt: |
+      Pushe den Feature-Branch und oeffne EINEN Pull Request gegen main (Repo-PR-Template). PR-Text:
+      Relaunch-Konzept-Zusammenfassung, je Bereich was restrukturiert/neu gestaltet/umgeschrieben wurde,
+      Bestaetigung dass Fakten/medizinische Claims/Preise/Rechtstexte unveraendert sind, und alle
+      "ASSUMPTION — needs human confirmation"-Punkte gesammelt. NICHT mergen, NICHT deployen.

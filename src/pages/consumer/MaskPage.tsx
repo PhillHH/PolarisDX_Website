@@ -240,7 +240,7 @@ function MaskPageInner() {
       </Section>
 
       {/* 8 · 5-PACK OFFER */}
-      <Section id="order" eyebrow="The 5-pack" title="Five masks in one box">
+      <Section id="offer" eyebrow="The 5-pack" title="Five masks in one box">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-lg leading-relaxed text-fg">
             One folding box contains 5 individually packed 15 ml sheet masks — easy to keep on hand

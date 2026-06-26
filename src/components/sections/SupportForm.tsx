@@ -60,35 +60,35 @@ export const SupportForm = () => {
         placeholder={t('support.form.email_placeholder')}
       />
 
-      <div>
-        <FormField
-          id="udi"
-          name="udi"
-          type="text"
-          required
-          label={t('support.form.udi')}
-          placeholder={t('support.form.udi_placeholder')}
-        />
-        <p
-          className="mt-1 text-xs text-fg-muted leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: t('support.form.udi_help') }}
-        />
-      </div>
+      <FormField
+        id="udi"
+        name="udi"
+        type="text"
+        required
+        label={t('support.form.udi')}
+        placeholder={t('support.form.udi_placeholder')}
+        helperText={
+          <span
+            className="leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: t('support.form.udi_help') }}
+          />
+        }
+      />
 
-      <div>
-        <FormField
-          id="swVersion"
-          name="swVersion"
-          type="text"
-          required
-          label={t('support.form.sw_version')}
-          placeholder={t('support.form.sw_version_placeholder')}
-        />
-        <p
-          className="mt-1 text-xs text-fg-muted leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: t('support.form.sw_version_help') }}
-        />
-      </div>
+      <FormField
+        id="swVersion"
+        name="swVersion"
+        type="text"
+        required
+        label={t('support.form.sw_version')}
+        placeholder={t('support.form.sw_version_placeholder')}
+        helperText={
+          <span
+            className="leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: t('support.form.sw_version_help') }}
+          />
+        }
+      />
 
       <FormField
         as="select"
@@ -134,7 +134,7 @@ export const SupportForm = () => {
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="inline-flex items-center min-h-[var(--tap-target-min)] rounded-md border border-ui-border bg-surface px-4 py-2 text-sm font-medium text-fg hover:bg-bg-subtle transition-colors"
+            className="inline-flex items-center min-h-[var(--tap-target-min)] rounded-md border border-[var(--color-border)] bg-surface px-4 py-2 text-sm font-medium text-fg hover:bg-bg-subtle transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2"
           >
             {t('support.form.attachment_button')}
           </button>
@@ -165,7 +165,7 @@ export const SupportForm = () => {
               name="consent"
               type="checkbox"
               required
-              className="h-4 w-4 rounded border-[var(--color-border-strong)] text-brand-secondary focus:ring-brand-secondary"
+              className="h-4 w-4 rounded border-[var(--color-border-strong)] text-brand-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--color-focus-ring)]"
             />
           </div>
           <label htmlFor="consent" className="text-sm text-fg">

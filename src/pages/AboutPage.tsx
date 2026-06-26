@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { SEOHead, organizationSchema, createBreadcrumbSchema } from '../components/seo'
-import { Breadcrumbs, Button, Container, Eyebrow } from '~/design-system'
+import { Breadcrumbs, Button, Eyebrow, GradientHero } from '~/design-system'
 import TeamSection from '../components/sections/TeamSection'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
@@ -30,55 +30,56 @@ const AboutPage = () => {
           ]),
         ]}
       />
-      <div className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-fg-on-dark overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
-        <Container className="text-center relative z-10">
-          <Reveal width="100%" yOffset={20}>
-            <div className="flex justify-center mb-4">
-              <Breadcrumbs
-                items={[
-                  { label: 'Home', href: '/' },
-                  { label: t('about:hero.caption', 'Über uns') },
-                ]}
-              />
-            </div>
-            <div className="flex justify-center">
-              <Eyebrow size="sm" className="mb-2">
-                {t('about:hero.caption', 'ÜBER UNS')}
-              </Eyebrow>
-            </div>
-            <h1 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl text-fg-on-dark">
-              {t('about:hero.title', 'Wir definieren Diagnostik neu')}
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-fg-on-dark/80">
-              {t(
-                'about:hero.description',
-                'PolarisDX steht für Innovation, Präzision und Verlässlichkeit in der Medizintechnik. Lernen Sie die Menschen hinter unserer Mission kennen.',
-              )}
-            </p>
-          </Reveal>
-        </Container>
-      </div>
+      <GradientHero minHeight="min-h-[340px]" innerClassName="text-center">
+        <Reveal width="100%" yOffset={20}>
+          <div className="flex justify-center mb-4">
+            <Breadcrumbs
+              items={[
+                { label: 'Home', href: '/' },
+                { label: t('about:hero.caption', 'Über uns') },
+              ]}
+            />
+          </div>
+          <div className="flex justify-center">
+            <Eyebrow size="sm" className="mb-2">
+              {t('about:hero.caption', 'Über uns')}
+            </Eyebrow>
+          </div>
+          <h1 className="text-display-sm font-medium tracking-tight text-fg-on-dark">
+            {t('about:hero.title', 'Wir definieren Diagnostik neu')}
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-fg-on-dark/80">
+            {t(
+              'about:hero.description',
+              'PolarisDX steht für Innovation, Präzision und Verlässlichkeit in der Medizintechnik. Lernen Sie die Menschen hinter unserer Mission kennen.',
+            )}
+          </p>
+        </Reveal>
+      </GradientHero>
 
-      <div className="mx-auto flex max-w-container flex-col gap-32 px-4 py-24 lg:px-0 lg:gap-32 lg:py-32">
+      <div className="mx-auto flex max-w-container flex-col gap-20 px-4 py-24 lg:px-0 lg:py-32">
         <Reveal width="100%">
           <TeamSection />
         </Reveal>
 
         <Reveal width="100%">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-lg text-fg">
+          <div className="mx-auto flex max-w-reading flex-col items-center gap-4 text-center">
+            <Eyebrow size="sm">Partnerschaft</Eyebrow>
+            <h2 className="text-display-sm font-medium tracking-tight text-fg-heading">
+              Gemeinsam mit DX365
+            </h2>
+            <p className="text-lg leading-body text-fg">
               Als europäischer Distributionspartner von{' '}
               <a
                 href="https://dx365.world"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-brand-primary hover:text-brand-deep underline transition-colors"
+                className="text-brand-primary hover:text-brand-deep underline transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
               >
                 DX365
               </a>{' '}
-              bringen wir den IglooPro POC-Reader in Praxen und Kliniken — inklusive Vertrieb,
-              Integration, Schulung und laufendem Support.
+              bringen wir den IglooPro POC-Reader in Praxen und Kliniken — von der Beratung über
+              Integration und Schulung bis zum laufenden Support aus einer Hand.
             </p>
           </div>
         </Reveal>

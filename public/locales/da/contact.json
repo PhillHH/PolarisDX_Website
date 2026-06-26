@@ -20,6 +20,7 @@
       "message": "Besked",
       "message_placeholder": "Fortæl os mere om dine behov...",
       "submit": "Bestil tid",
+      "submitting": "Sender...",
       "company_label": "Virksomheds- / Praksisnavn",
       "company_placeholder": "f.eks. Lægehuset v/ Dr. Jensen eller Løve Apotek",
       "area_label": "Primært Anvendelsesområde",

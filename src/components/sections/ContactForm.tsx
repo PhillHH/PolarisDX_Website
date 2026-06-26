@@ -110,7 +110,7 @@ export const ContactForm = () => {
               name="consent"
               type="checkbox"
               required
-              className="h-4 w-4 rounded border-[var(--color-border-strong)] text-brand-secondary focus:ring-brand-secondary"
+              className="h-4 w-4 rounded border-[var(--color-border-strong)] text-brand-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--color-focus-ring)]"
             />
           </div>
           <label htmlFor="consent" className="text-sm text-fg">
@@ -127,7 +127,7 @@ export const ContactForm = () => {
           className="w-full justify-center md:w-auto"
           disabled={isSubmitting}
         >
-          {isSubmitting ? 'Sende...' : t('contact.form.submit')}
+          {isSubmitting ? t('contact.form.submitting', 'Wird gesendet …') : t('contact.form.submit')}
         </Button>
       </div>
     </form>

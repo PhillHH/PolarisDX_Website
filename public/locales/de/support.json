@@ -5,7 +5,7 @@
       "description": "Haben Sie Probleme mit Ihrem Igloo Reader oder Testkits? Senden Sie uns eine Support-Anfrage und wir helfen Ihnen schnellstmöglich weiter."
     },
     "hero": {
-      "kicker": "SUPPORT",
+      "kicker": "Support",
       "title": "Support-Anfrage",
       "breadcrumb": "Home / Support"
     },
@@ -34,21 +34,21 @@
       "subject": "Betreff",
       "subject_placeholder": "Kurze Beschreibung des Problems",
       "description": "Problembeschreibung",
-      "description_placeholder": "Beschreiben Sie das Problem so detailliert wie möglich...",
+      "description_placeholder": "Beschreiben Sie das Problem so detailliert wie möglich …",
       "attachment": "Foto, Video oder Dokument anhängen",
       "attachment_button": "Dateien auswählen",
       "attachment_none": "Keine ausgewählt",
       "consent": "Ich stimme zu, dass meine Angaben zur Bearbeitung der Support-Anfrage und für Rückfragen bis zu 12 Monate gespeichert werden.",
-      "submit": "Absenden",
-      "submitting": "Sende...",
+      "submit": "Anfrage senden",
+      "submitting": "Wird gesendet …",
       "success": "Vielen Dank! Ihre Support-Anfrage wurde gesendet. Wir melden uns schnellstmöglich bei Ihnen.",
       "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut."
     },
     "info": {
       "title": "Support-Informationen",
-      "text": "Unser Support-Team wird sich innerhalb eines Arbeitstages bei Ihnen melden. Für dringende Probleme nutzen Sie bitte die untenstehende Telefonnummer.",
-      "email_label": "EMAIL (24/7 Support)",
-      "phone_label": "TELEFON (Support-Hotline)"
+      "text": "Wir melden uns innerhalb eines Werktags bei Ihnen. Bei dringenden Störungen erreichen Sie uns direkt über die folgenden Kanäle.",
+      "email_label": "E-Mail (24/7 Support)",
+      "phone_label": "Telefon (Support-Hotline)"
     },
     "sidebar_links": {
       "title": "Hilfreiche Links",

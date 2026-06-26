@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   ArrowRight,
-  ChevronRight,
   Send,
   CheckCircle,
   Phone,
@@ -17,7 +16,16 @@ import {
 } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
-import { AuthorByline, ContactCallout, Eyebrow, MediaLink, Panel } from '~/design-system'
+import {
+  Alert,
+  AuthorByline,
+  Breadcrumbs,
+  ContactCallout,
+  Eyebrow,
+  GradientHero,
+  MediaLink,
+  Panel,
+} from '~/design-system'
 import iglooProImage from '../assets/Igloo-pro-frontal.webp'
 import { sendContactEmail } from '../api/contact'
 
@@ -111,56 +119,45 @@ const VitaminD3ImplantologyPage = () => {
       {/* Article Container */}
       <div className="bg-bg">
         {/* Hero / Above the Fold */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-fg-on-dark">
-          <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-fg-on-dark/30 to-transparent opacity-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-fg-on-dark/30 to-transparent opacity-10" />
+        <GradientHero minHeight="min-h-[380px]" innerClassName="max-w-4xl mx-auto">
+          <Reveal width="100%" yOffset={20}>
+            {/* Breadcrumb */}
+            <Breadcrumbs
+              className="mb-6"
+              items={[
+                { label: 'PolarisDX', href: '/' },
+                { label: 'Praxiswissen', href: '/articles' },
+                { label: 'Vitamin D3 & Implantologie' },
+              ]}
+            />
 
-          <div className="relative mx-auto flex min-h-[380px] max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
-            <Reveal width="100%" yOffset={20}>
-              <div className="max-w-4xl mx-auto">
-                {/* Breadcrumb */}
-                <nav className="mb-6 flex items-center gap-1.5 text-sm text-fg-on-dark/60">
-                  <Link to="/" className="hover:text-brand-secondary transition-colors">
-                    PolarisDX
-                  </Link>
-                  <ChevronRight className="h-3.5 w-3.5" />
-                  <Link to="/articles" className="hover:text-brand-secondary transition-colors">
-                    Praxiswissen
-                  </Link>
-                  <ChevronRight className="h-3.5 w-3.5" />
-                  <span className="text-fg-on-dark/80">Vitamin D3 & Implantologie</span>
-                </nav>
+            {/* Category Label */}
+            <Eyebrow size="sm" className="mb-4">
+              Praxistipp Implantologie
+            </Eyebrow>
 
-                {/* Category Label */}
-                <Eyebrow size="sm" className="mb-4">
-                  Praxistipp Implantologie
-                </Eyebrow>
+            {/* H1 */}
+            <h1 className="mb-5 text-display-sm font-medium tracking-tight">
+              Vitamin-D-Mangel vor Implantation? So schließen Sie die Lücke im
+              Behandlungs&shy;pfad
+            </h1>
 
-                {/* H1 */}
-                <h1 className="mb-5 text-display-sm font-medium tracking-tight">
-                  Vitamin-D-Mangel vor Implantation? So schließen Sie die Lücke im
-                  Behandlungs&shy;pfad
-                </h1>
+            {/* Subtitle */}
+            <p className="mb-6 text-base text-fg-on-dark/80 sm:text-lg lg:text-xl">
+              Warum Testen allein nicht reicht – und wie D3+K2-Supplementierung Ihre
+              Implantations&shy;ergebnisse und Ihren Praxisumsatz verbessert.
+            </p>
 
-                {/* Subtitle */}
-                <p className="mb-6 text-base text-fg-on-dark/80 sm:text-lg lg:text-xl">
-                  Warum Testen allein nicht reicht – und wie D3+K2-Supplementierung Ihre
-                  Implantations&shy;ergebnisse und Ihren Praxisumsatz verbessert.
-                </p>
-
-                {/* Meta with E-E-A-T */}
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-fg-on-dark/60">
-                  <span>Lesezeit: 5 Minuten</span>
-                  <span className="h-1 w-1 rounded-full bg-surface/40" />
-                  <span>Aktualisiert: Februar 2026</span>
-                  <span className="h-1 w-1 rounded-full bg-surface/40" />
-                  <span>Fachredaktion PolarisDX</span>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </section>
+            {/* Meta with E-E-A-T */}
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-fg-on-dark/70">
+              <span>Lesezeit: 5 Minuten</span>
+              <span className="h-1 w-1 rounded-full bg-surface/40" />
+              <span>Aktualisiert: Februar 2026</span>
+              <span className="h-1 w-1 rounded-full bg-surface/40" />
+              <span>Fachredaktion PolarisDX</span>
+            </div>
+          </Reveal>
+        </GradientHero>
 
         {/* Main Content with Sidebar */}
         <div className="mx-auto max-w-container px-4 py-12 lg:py-16">
@@ -172,7 +169,7 @@ const VitaminD3ImplantologyPage = () => {
                 <AuthorByline className="mb-10" initials="FP" name="Fachredaktion PolarisDX" />
 
                 {/* Problem Section */}
-                <div className="space-y-6 text-lg leading-body text-fg">
+                <div className="max-w-reading space-y-6 text-lg leading-body text-fg">
                   <p>
                     Alles lief nach Plan: saubere Augmentation, präzise Insertion, gute
                     Primärstabilität. Und trotzdem meldet sich der Patient sechs Wochen später mit
@@ -195,7 +192,7 @@ const VitaminD3ImplantologyPage = () => {
                     Was die Studienlage zur Osseointegration zeigt
                   </h2>
 
-                  <div className="space-y-6 text-lg leading-body text-fg">
+                  <div className="max-w-reading space-y-6 text-lg leading-body text-fg">
                     <p>
                       Ein aktueller systematischer Review in <em>Periodontology 2000</em> (Miron et
                       al., 2025) hat 27 Humanstudien zur Beziehung zwischen{' '}
@@ -207,8 +204,8 @@ const VitaminD3ImplantologyPage = () => {
                   </div>
 
                   {/* Evidence Box */}
-                  <div className="my-8 rounded-lg border-l-4 border-brand-primary bg-primary/5 p-6">
-                    <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-brand-primary">
+                  <div className="my-8 max-w-reading rounded-[var(--radius-lg)] border-l-4 border-brand-primary bg-primary/5 p-6 shadow-1">
+                    <p className="mb-3 text-sm font-semibold uppercase tracking-overline text-accent-strong">
                       Kernbefunde
                     </p>
                     <ul className="space-y-2 text-base leading-body text-fg">
@@ -234,7 +231,7 @@ const VitaminD3ImplantologyPage = () => {
                     </p>
                   </div>
 
-                  <div className="space-y-6 text-lg leading-body text-fg">
+                  <div className="max-w-reading space-y-6 text-lg leading-body text-fg">
                     <p>
                       Gleichzeitig zeigen RKI-Daten, dass rund <strong>30 % der Erwachsenen</strong>{' '}
                       in Deutschland mangelhaft mit Vitamin D versorgt sind – nur etwa 38 %
@@ -252,7 +249,7 @@ const VitaminD3ImplantologyPage = () => {
                     Präoperatives Protokoll: Zielwerte und Dosierung
                   </h2>
 
-                  <div className="space-y-6 text-lg leading-body text-fg">
+                  <div className="max-w-reading space-y-6 text-lg leading-body text-fg">
                     <p>
                       Für einen optimalen <strong>Vitamin D Implantaterfolg</strong> empfiehlt die
                       aktuelle Literatur einen <strong>25-OH-Vitamin-D-Spiegel</strong> von
@@ -263,7 +260,7 @@ const VitaminD3ImplantologyPage = () => {
                   </div>
 
                   {/* Dosing Table */}
-                  <div className="my-8 overflow-hidden rounded-lg border border-[var(--color-border)]">
+                  <div className="my-8 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border)] shadow-1">
                     <table className="w-full text-sm">
                       <thead className="bg-bg-subtle">
                         <tr>
@@ -303,7 +300,7 @@ const VitaminD3ImplantologyPage = () => {
                     </table>
                   </div>
 
-                  <div className="space-y-6 text-lg leading-body text-fg">
+                  <div className="max-w-reading space-y-6 text-lg leading-body text-fg">
                     <p>
                       Die Kombination mit <strong>Vitamin K2 (MK-7)</strong> ist bei höheren Dosen
                       empfehlenswert: K2 aktiviert das Osteocalcin, das für die gezielte Einlagerung
@@ -332,7 +329,7 @@ const VitaminD3ImplantologyPage = () => {
                       />
                     </div>
                     <div className="flex flex-col justify-center p-6 sm:w-3/5">
-                      <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-primary">
+                      <p className="mb-2 text-xs font-semibold uppercase tracking-overline text-accent-strong">
                         Vitamin-D-Diagnostik in der Praxis
                       </p>
                       <p className="mb-3 text-base font-medium text-fg-heading">
@@ -341,7 +338,7 @@ const VitaminD3ImplantologyPage = () => {
                       </p>
                       <Link
                         to="/igloo-pro"
-                        className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
                       >
                         Zum Igloo Pro Diagnostik-System
                         <ArrowRight className="h-4 w-4" />
@@ -356,12 +353,12 @@ const VitaminD3ImplantologyPage = () => {
                     Sie testen bereits – aber was empfehlen Sie danach?
                   </h2>
 
-                  <div className="space-y-6 text-lg leading-body text-fg">
+                  <div className="max-w-reading space-y-6 text-lg leading-body text-fg">
                     <p>
                       Viele Praxen, die{' '}
                       <Link
                         to="/diagnostics/dental"
-                        className="font-semibold text-brand-primary hover:underline"
+                        className="font-semibold text-brand-primary hover:underline rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
                       >
                         den Vitamin-D-Spiegel vor Implantationen bestimmen
                       </Link>
@@ -385,7 +382,7 @@ const VitaminD3ImplantologyPage = () => {
                     Den Behandlungspfad in der Praxis schließen
                   </h3>
 
-                  <div className="space-y-6 text-lg leading-body text-fg">
+                  <div className="max-w-reading space-y-6 text-lg leading-body text-fg">
                     <p>
                       Mit einem <strong>Vitamin D3+K2 Spray</strong> als Praxis-Dispensierprodukt
                       schließen Sie genau diese Lücke. Sublingual appliziert, hohe Bioverfügbarkeit,
@@ -413,7 +410,7 @@ const VitaminD3ImplantologyPage = () => {
                 <section id="bestellformular" className="my-12 scroll-mt-24">
                   <div className="rounded-xl border-2 border-brand-primary/20 bg-surface p-6 shadow-2 sm:p-8">
                     <div className="mb-6">
-                      <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-primary">
+                      <p className="mb-2 text-xs font-semibold uppercase tracking-overline text-accent-strong">
                         Vitamin D3+K2 Spray
                       </p>
                       <h3 className="text-xl font-semibold text-fg-heading sm:text-2xl">
@@ -426,8 +423,12 @@ const VitaminD3ImplantologyPage = () => {
                     </div>
 
                     {submitStatus === 'success' ? (
-                      <div className="flex flex-col items-center justify-center py-8 text-center">
-                        <CheckCircle className="mb-4 h-12 w-12 text-success" />
+                      <div
+                        role="status"
+                        aria-live="polite"
+                        className="flex flex-col items-center justify-center py-8 text-center"
+                      >
+                        <CheckCircle aria-hidden className="mb-4 h-12 w-12 text-success" />
                         <h4 className="mb-2 text-lg font-semibold text-fg-heading">
                           Vielen Dank für Ihre Bestellung!
                         </h4>
@@ -471,7 +472,7 @@ const VitaminD3ImplantologyPage = () => {
                             id="quantity"
                             value={formData.quantity}
                             onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
-                            className="w-full rounded-md border border-[var(--color-border-strong)] px-3 py-3 text-sm font-medium focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary"
+                            className="w-full rounded-md border border-[var(--color-border-strong)] min-h-[var(--tap-target-min)] px-3 py-3 text-base font-medium focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary"
                           >
                             <option value="5">5 Sprays – Starterpaket</option>
                             <option value="10">10 Sprays</option>
@@ -498,7 +499,7 @@ const VitaminD3ImplantologyPage = () => {
                                 onChange={(e) =>
                                   setFormData({ ...formData, praxisName: e.target.value })
                                 }
-                                className="w-full rounded-md border border-[var(--color-border-strong)] px-3 py-3 text-sm focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary"
+                                className="w-full rounded-md border border-[var(--color-border-strong)] min-h-[var(--tap-target-min)] px-3 py-3 text-base focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary"
                                 placeholder="Zahnarztpraxis Musterpraxis"
                               />
                             </div>
@@ -517,7 +518,7 @@ const VitaminD3ImplantologyPage = () => {
                                 onChange={(e) =>
                                   setFormData({ ...formData, ansprechpartner: e.target.value })
                                 }
-                                className="w-full rounded-md border border-[var(--color-border-strong)] px-3 py-3 text-sm focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary"
+                                className="w-full rounded-md border border-[var(--color-border-strong)] min-h-[var(--tap-target-min)] px-3 py-3 text-base focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary"
                                 placeholder="Ihr Name"
                               />
                             </div>
@@ -534,7 +535,7 @@ const VitaminD3ImplantologyPage = () => {
                                   onChange={(e) =>
                                     setFormData({ ...formData, email: e.target.value })
                                   }
-                                  className="w-full rounded-md border border-[var(--color-border-strong)] px-3 py-3 text-sm focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary"
+                                  className="w-full rounded-md border border-[var(--color-border-strong)] min-h-[var(--tap-target-min)] px-3 py-3 text-base focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary"
                                   placeholder="praxis@beispiel.de"
                                 />
                               </div>
@@ -549,7 +550,7 @@ const VitaminD3ImplantologyPage = () => {
                                   onChange={(e) =>
                                     setFormData({ ...formData, phone: e.target.value })
                                   }
-                                  className="w-full rounded-md border border-[var(--color-border-strong)] px-3 py-3 text-sm focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary"
+                                  className="w-full rounded-md border border-[var(--color-border-strong)] min-h-[var(--tap-target-min)] px-3 py-3 text-base focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary"
                                   placeholder="Für Rückfragen"
                                 />
                               </div>
@@ -566,25 +567,26 @@ const VitaminD3ImplantologyPage = () => {
                             rows={2}
                             value={formData.message}
                             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                            className="w-full rounded-md border border-[var(--color-border-strong)] px-3 py-3 text-sm focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary"
+                            className="w-full rounded-md border border-[var(--color-border-strong)] min-h-[var(--tap-target-min)] px-3 py-3 text-base focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary"
                             placeholder="Optional: Lieferhinweise, abweichende Adresse, etc."
                           />
                         </div>
 
                         {submitStatus === 'error' && (
-                          <p className="text-sm text-danger">
+                          <Alert variant="danger">
                             Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder rufen
                             Sie uns an.
-                          </p>
+                          </Alert>
                         )}
 
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className="flex w-full items-center justify-center gap-2 rounded-md bg-brand-primary px-6 py-3.5 text-base font-semibold text-fg-on-dark transition-colors hover:bg-brand-deep disabled:cursor-not-allowed disabled:opacity-50"
+                          aria-busy={isSubmitting}
+                          className="flex w-full items-center justify-center gap-2 rounded-md bg-brand-primary px-6 py-3.5 text-base font-semibold text-fg-on-dark transition-colors hover:bg-brand-deep disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2"
                         >
                           {isSubmitting ? (
-                            'Bestellung wird gesendet...'
+                            'Bestellung wird gesendet …'
                           ) : (
                             <>
                               Jetzt verbindlich bestellen
@@ -624,7 +626,7 @@ const VitaminD3ImplantologyPage = () => {
                 <div className="mt-12 border-t border-[var(--color-border)] pt-8">
                   <Link
                     to="/articles"
-                    className="inline-flex items-center gap-2 text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
                   >
                     <ArrowRight className="h-4 w-4 rotate-180" />
                     Zurück zur Übersicht
@@ -653,7 +655,7 @@ const VitaminD3ImplantologyPage = () => {
 
                 {/* Quick Order CTA */}
                 <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-deep p-5 text-fg-on-dark">
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-secondary">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-overline text-accent-on-dark">
                     Schnellbestellung
                   </p>
                   <p className="mb-4 text-sm">
@@ -661,7 +663,7 @@ const VitaminD3ImplantologyPage = () => {
                   </p>
                   <a
                     href="#bestellformular"
-                    className="flex items-center justify-center gap-2 min-h-[var(--tap-target-min)] rounded-md bg-surface px-4 py-2.5 text-sm font-semibold text-brand-deep transition-colors hover:bg-bg-subtle"
+                    className="flex items-center justify-center gap-2 min-h-[var(--tap-target-min)] rounded-md bg-surface px-4 py-2.5 text-sm font-semibold text-brand-deep transition-colors hover:bg-bg-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring-on-dark)] focus-visible:ring-offset-2"
                   >
                     Jetzt bestellen
                     <ArrowRight className="h-4 w-4" />
@@ -715,7 +717,7 @@ const VitaminD3ImplantologyPage = () => {
       <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-[var(--color-border)] bg-surface p-4 shadow-2 lg:hidden">
         <a
           href="#bestellformular"
-          className="flex w-full items-center justify-center gap-2 rounded-md bg-brand-primary px-6 py-3.5 text-sm font-semibold text-fg-on-dark shadow-2"
+          className="flex w-full items-center justify-center gap-2 rounded-md bg-brand-primary px-6 py-3.5 text-sm font-semibold text-fg-on-dark shadow-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2"
         >
           Jetzt D3+K2 Spray bestellen
           <ArrowRight className="h-4 w-4" />

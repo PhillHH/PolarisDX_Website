@@ -7,11 +7,14 @@
     "cta_datasheet": "Hoja de datos (PDF)"
   },
   "intro": {
+    "caption": "El sistema",
     "title": "El laboratorio móvil para su práctica",
     "text1": "El Igloo Pro es un analizador portátil Point-of-Care.",
     "text2": "Puede evaluar alrededor del 90% de todas las pruebas de flujo lateral del mercado."
   },
   "features": {
+    "caption": "Características",
+    "title": "Diseñado para el día a día de la consulta",
     "methods": {
       "title": "Métodos versátiles",
       "description": "Colorimetría, inmunofluorescencia y más."
@@ -30,6 +33,7 @@
     }
   },
   "specs": {
+    "caption": "Tecnología",
     "title": "Datos Técnicos",
     "methods": "Métodos",
     "methods_value": "Colorimetría, Inmunofluorescencia, Microfluidos...",
@@ -67,10 +71,19 @@
       "strep": "Estreptococo A"
     }
   },
+  "use_cases": {
+    "title": "Áreas de aplicación",
+    "dental": "Diagnóstico dental",
+    "beauty": "Belleza y estética",
+    "longevity": "Longevidad y prevención",
+    "articles": "Leer artículos especializados"
+  },
   "cta_bottom": {
+    "caption": "Demo y asesoramiento",
     "title": "Amplíe sus posibilidades diagnósticas",
     "description": "Perfecto para farmacias y consultorios.",
-    "button": "Agendar cita ahora"
+    "button": "Agendar cita ahora",
+    "button_secondary": "Ficha técnica"
   },
   "seo": {
     "title": "IglooPro POC Reader: especificaciones y tecnología",

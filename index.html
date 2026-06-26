@@ -9,31 +9,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- ================================================================== -->
-    <!-- DESIGN-VARIANTEN PREVIEW (FOUC-frei, vor dem Hydration-Bundle) -->
-    <!-- Setzt [data-theme] am <html> aus ?v=0|1|2|3 (0 = aktueller Look) bzw. -->
-    <!-- localStorage, BEVOR gerendert wird → kein Flash. Siehe -->
-    <!-- src/components/ui/ThemePreviewSwitcher.tsx + docs/design-system/VARIANTS.md -->
-    <!-- ================================================================== -->
-    <script>
-      ;(function () {
-        try {
-          var THEMES = ['', 'fresh-1', 'fresh-2', 'fresh-3']
-          var KEY = 'polaris-preview-theme'
-          var v = new URLSearchParams(window.location.search).get('v')
-          var theme = null
-          if (v !== null && /^[0-3]$/.test(v)) {
-            theme = THEMES[parseInt(v, 10)]
-            localStorage.setItem(KEY, theme)
-          } else {
-            var stored = localStorage.getItem(KEY)
-            if (stored !== null && THEMES.indexOf(stored) !== -1) theme = stored
-          }
-          if (theme) document.documentElement.setAttribute('data-theme', theme)
-        } catch (e) {}
-      })()
-    </script>
-
-    <!-- ================================================================== -->
     <!-- GOOGLE SITE VERIFICATION (Replace with your code) -->
     <!-- ================================================================== -->
     <meta name="google-site-verification" content="32dbwN77xqdzFz-VTni2JkGzTLaCp03gkm52vqi_1TQ" />
@@ -176,8 +151,8 @@
     <!-- ================================================================== -->
     <!-- THEME & MOBILE -->
     <!-- ================================================================== -->
-    <meta name="theme-color" content="#083358" />
-    <meta name="msapplication-TileColor" content="#083358" />
+    <meta name="theme-color" content="#052740" />
+    <meta name="msapplication-TileColor" content="#052740" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="PolarisDX" />

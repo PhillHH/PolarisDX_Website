@@ -20,7 +20,9 @@ const PrivacyPage = () => {
       <div className="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-bg">
         <Container>
           <Reveal width="100%" yOffset={20}>
-            <h1 className="text-3xl font-bold mb-8 text-fg-heading">{t('privacy.title')}</h1>
+            <h1 className="text-display-sm font-medium tracking-tight mb-8 text-fg-heading">
+              {t('privacy.title')}
+            </h1>
           </Reveal>
 
           <Reveal width="100%">

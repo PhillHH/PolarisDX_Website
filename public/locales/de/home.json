@@ -4,8 +4,8 @@
     "description": "Laborgenaue Diagnostik in 3 Minuten direkt in Ihrer Praxis: Der IglooPro POC-Reader für Dental, Longevity & Beauty. Jetzt Demo-Termin buchen."
   },
   "hero": {
-    "caption": "Point-of-care Performance",
-    "title": "IglooPro:\nPoint-of-Care. Perfekt. Sofort.",
+    "caption": "Point-of-Care-Diagnostik",
+    "title": "Laborergebnisse in 3 Minuten — direkt in Ihrer Praxis.",
     "description": "Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 3-5 Werktagen einsatzbereit – garantiert.",
     "cta": "Termin buchen",
     "cta_downloads": "Infomaterialien herunterladen",
@@ -18,8 +18,8 @@
       "label": "Präzision über den gesamten Messbereich"
     },
     "dental": {
-      "title": "IglooPro: Point-of-Care Diagnostik. Der neue Maßstab für Ihre Praxis.",
-      "description": "Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 3–5 Werktagen einsatzbereit – garantiert."
+      "title": "Laborergebnisse in 3 Minuten — direkt in Ihrer Praxis.",
+      "description": "Point-of-Care-Diagnostik in Laborqualität. Ihr IglooPro ist in 3–5 Werktagen einsatzbereit – garantiert."
     },
     "beauty": {
       "title": "Wissenschaftliche Ästhetik: Messergebnisse statt Vermutungen.",
@@ -31,16 +31,16 @@
     }
   },
   "about": {
-    "caption": "IHR PERFORMANCE-GARANT",
-    "title": "Das IglooPro Performance-Setup: Validierte POC-Diagnostik ab Tag 1.",
-    "text1": "Das IglooPro ist ein Premium-Gerät. Doch wahre Premium-Leistung entsteht erst durch eine perfektionierte, risikofreie Inbetriebnahme. Eine Standardlieferung überlässt Ihnen die Komplexität. Wir übernehmen die Verantwortung für das Ergebnis.",
-    "text2": "Deshalb liefern wir exklusiv das Performance-Setup-Versprechen. Unsere Performance-Säulen garantieren, dass Ihr POC-Workflow von der ersten Sekunde an optimiert ist und Sie die diagnostische Exzellenz sofort nutzen können.",
-    "cta": "Exklusiven Vorteil sichern"
+    "caption": "Performance-Setup",
+    "title": "Einsatzbereit ab Tag 1 — validierte POC-Diagnostik.",
+    "text1": "Ein Premium-Gerät entfaltet seine Leistung erst durch eine reibungslose Inbetriebnahme. Statt Ihnen die Komplexität zu überlassen, übernehmen wir die Verantwortung für das Ergebnis: von der Konfiguration bis zur ersten validierten Messung.",
+    "text2": "Dafür liefern wir das Performance-Setup — vorkonfiguriert, validiert und auf Ihren Workflow abgestimmt. So nutzen Sie die diagnostische Präzision Ihres IglooPro vom ersten Tag an.",
+    "cta": "Performance-Setup anfragen"
   },
   "doctors": {
-    "caption": "DIAGNOSTIK-FOKUS",
-    "title": "Präzise Diagnostik mit dem IglooPro: Sofortige Ergebnisse am Point-of-Care.",
-    "description": "Entdecken Sie mit Systemen wie dem Igloo Pro von DX365, wie Sie Ihre Patientenversorgung optimieren und wichtige Diagnosen direkt am Behandlungsort stellen können – mit laborgenaue Resultaten in Minutenschnelle.",
+    "caption": "IglooPro System",
+    "title": "Laborgenaue Ergebnisse — direkt am Behandlungsstuhl.",
+    "description": "Der Igloo Pro von DX365 bringt das Labor an den Behandlungsort. Sie bestimmen relevante Biomarker chairside und treffen Therapieentscheidungen ohne den Umweg über ein Zentrallabor — mit laborgenauen Resultaten in Minuten.",
     "cta": "Zum Igloo Pro System"
   },
   "igloo_widget": {
@@ -91,8 +91,9 @@
     }
   },
   "testimonials": {
-    "caption": "KUNDENSTIMMEN",
+    "caption": "Aus der Praxis",
     "title": "Was unsere Anwender über das Igloo Pro System sagen",
+    "subtitle": "Zahnärztinnen, Zahnärzte und Fachärzte berichten aus dem Praxisalltag.",
     "ratingLabel": "Gesamtbewertung\nbasierend auf 250+ Rezensionen",
     "positiveLabel": "Positive Bewertung",
     "richard_pollock": {
@@ -127,8 +128,8 @@
     }
   },
   "blog": {
-    "caption": "Blog & News",
-    "title": "Blog: Aktuelles zu Point-of-Care Diagnostik"
+    "caption": "Magazin",
+    "title": "Fachartikel und Aktuelles zur Point-of-Care-Diagnostik"
   },
   "faq": {
     "caption": "FAQ",
@@ -139,17 +140,24 @@
         "answer": "PolarisDX ist Ihr Partner für Point-of-Care Diagnostik in Europa. Wir liefern nicht nur Geräte und Schnelltests, sondern begleiten Sie von der Erstberatung über die Inbetriebnahme bis zum laufenden Betrieb. Unser Ziel: laborpräzise Diagnostik direkt in Ihrer Praxis — ohne Umwege über ein Zentrallabor."
       },
       {
-        "question": "Für welche Branchen ist Point-of-Care Diagnostik relevant?",
+        "question": "Für welche Branchen eignet sich Point-of-Care Diagnostik?",
         "answer": "Unsere Lösungen kommen überall dort zum Einsatz, wo schnelle und präzise Laborergebnisse direkt vor Ort gebraucht werden. Unsere Schwerpunkte sind Dental, Longevity und Beauty — wir unterstützen aber auch Allgemeinmediziner, Internisten und weitere Fachrichtungen, in denen POCT einen Mehrwert bietet."
       },
       {
-        "question": "Wie läuft die Zusammenarbeit mit PolarisDX ab?",
+        "question": "Wie arbeiten Sie mit PolarisDX zusammen?",
         "answer": "Nach einem persönlichen Beratungsgespräch stellen wir Ihr individuelles Setup zusammen. Sie erhalten Ihr Gerät innerhalb von 3–5 Werktagen inklusive validierter Inbetriebnahme. Danach stehen wir Ihnen mit Schulungen, technischem Support und laufender Betreuung zur Seite."
       },
       {
-        "question": "Welche Produkte und Lösungen bietet PolarisDX an?",
+        "question": "Welche Produkte und Lösungen erhalten Sie bei PolarisDX?",
         "answer": "Unser aktuelles Portfolio umfasst den IglooPro POC-Reader, ein breites Spektrum an Schnelltests für Biomarker wie Vitamin D3, CRP und HbA1c sowie ergänzende Produkte wie unser Vitamin D3 Spray. Wir erweitern unser Angebot kontinuierlich, um Ihnen eine umfassende diagnostische Lösung zu bieten."
       }
     ]
+  },
+  "final_cta": {
+    "caption": "Jetzt starten",
+    "title": "Sehen Sie den IglooPro in Ihrer Praxis.",
+    "text": "Vereinbaren Sie einen unverbindlichen Demo-Termin. Wir zeigen Ihnen den Workflow an Ihren Fragestellungen — und melden uns innerhalb eines Werktags.",
+    "cta_primary": "Demo anfragen",
+    "cta_secondary": "Infomaterial herunterladen"
   }
 }

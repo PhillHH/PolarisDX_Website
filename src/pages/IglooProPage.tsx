@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import { Wifi, Battery, ShieldCheck, Layers } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, iglooProProductSchema, createBreadcrumbSchema } from '../components/seo'
-import { Button, SectionHeader } from '~/design-system'
+import { Button, Eyebrow, GradientSurface } from '~/design-system'
+import CtaBand from '../components/sections/CtaBand'
 import iglooImage from '../assets/igloo_front.webp' // Using existing asset
 import IglooProFlyer from '../assets/downloads/igloo-pro-flyer.pdf'
 
@@ -37,7 +38,8 @@ const IglooProPage: React.FC = () => {
   const { t } = useTranslation(['products'])
   const featuresSection = useInView()
 
-  // Data based on the provided PDF content
+  // SCHUTZREGEL: Spec-Werte (Immunfluoreszenz, 600 g, 3–15 min, CV, USB/LAN/WLAN …)
+  // sind geschützte Fakten und bleiben wörtlich aus dem Locale erhalten.
   const specs = [
     { label: t('products:specs.methods'), value: t('products:specs.methods_value') },
     { label: t('products:specs.samples'), value: t('products:specs.samples_value') },
@@ -73,6 +75,7 @@ const IglooProPage: React.FC = () => {
     },
   ]
 
+  // SCHUTZREGEL: alle Biomarker/Parameter wörtlich erhalten.
   const parameters = [
     t('products:parameters.list.vitd3'),
     t('products:parameters.list.crp'),
@@ -111,53 +114,47 @@ const IglooProPage: React.FC = () => {
           ]),
         ]}
       />
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 bg-brand-heading overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="lg:w-1/2 space-y-6">
-              <SectionHeader
-                title="Igloo Pro System"
-                caption={t('products:hero.caption')}
-                align="left"
-                className="mb-0"
-                titleClassName="text-4xl md:text-5xl lg:text-6xl font-bold text-fg-on-dark leading-tight"
-              />
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-fg-on-dark leading-tight">
-                {t('products:hero.title')
-                  .split('Diagnostik')
-                  .map((part, i) =>
-                    i === 0 ? (
-                      <React.Fragment key={i}>
-                        {part}
-                        <br />
-                      </React.Fragment>
-                    ) : (
-                      <span key={i} className="text-fg-on-dark drop-shadow-md">
-                        Diagnostik{part}
-                      </span>
-                    ),
-                  )}
+      {/* Hero — Split, Navy-Gradient (§Konzept 5). Genau eine Display-Headline,
+          eine Primäraktion (Angebot anfordern) + Sekundär (Datenblatt). */}
+      <GradientSurface>
+        <div className="relative z-10 mx-auto max-w-container px-4 pb-16 pt-28 lg:px-0 lg:pb-24 lg:pt-36">
+          <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
+            <div>
+              <Eyebrow size="sm" className="mb-5">
+                {t('products:hero.caption', 'Point-of-Care-Diagnostik')}
+              </Eyebrow>
+              <h1 className="max-w-xl font-medium tracking-headline text-display-sm">
+                {t('products:hero.title', 'Igloo Pro System')}
               </h1>
-              <p className="text-xl text-fg-on-dark/80 max-w-xl">
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-fg-on-dark/80 sm:text-lg">
                 {t('products:hero.description')}
               </p>
-              <div className="flex gap-4 pt-4">
-                <Button href="/contact">{t('products:hero.cta_order')}</Button>
-                <a
+              <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4">
+                <Button
+                  to="/contact"
+                  variant="primary"
+                  size="lg"
+                  onDark
+                  className="w-full text-center sm:w-auto sm:whitespace-nowrap"
+                >
+                  {t('products:hero.cta_order', 'Angebot anfordern')}
+                </Button>
+                <Button
                   href={IglooProFlyer}
+                  variant="outline"
+                  size="lg"
+                  onDark
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-3 rounded-full border border-fg-on-dark/20 text-fg-on-dark font-medium hover:bg-fg-on-dark/10 transition-all"
+                  className="w-full text-center sm:w-auto sm:whitespace-nowrap"
                 >
-                  {t('products:hero.cta_datasheet')}
-                </a>
+                  {t('products:hero.cta_datasheet', 'Datenblatt')}
+                </Button>
               </div>
             </div>
 
-            <div className="lg:w-1/2 flex justify-center">
+            <div className="flex justify-center">
               <div className="relative animate-fade-in-scale">
                 <div className="absolute inset-0 bg-brand-primary/30 blur-3xl rounded-full" />
                 <img
@@ -167,39 +164,48 @@ const IglooProPage: React.FC = () => {
                   height={400}
                   loading="lazy"
                   decoding="async"
-                  className="relative z-10 w-full max-w-md drop-shadow-2xl transform hover:scale-105 transition-transform duration-500"
+                  className="relative z-10 w-full max-w-md drop-shadow-2xl"
                 />
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </GradientSurface>
 
-      {/* Description Section */}
-      <section className="py-20 bg-surface">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-3xl font-bold text-fg-heading">{t('products:intro.title')}</h2>
-            <p className="text-lg text-fg leading-relaxed">{t('products:intro.text1')}</p>
-            <p className="text-lg text-fg leading-relaxed">{t('products:intro.text2')}</p>
+      {/* Intro */}
+      <section className="bg-surface py-20 lg:py-24">
+        <div className="mx-auto max-w-container px-4 lg:px-0">
+          <div className="mx-auto flex max-w-reading flex-col items-center gap-6 text-center">
+            <Eyebrow size="sm">{t('products:intro.caption', 'Das System')}</Eyebrow>
+            <h2 className="text-display-sm font-medium tracking-headline text-fg-heading">
+              {t('products:intro.title')}
+            </h2>
+            <p className="text-lg leading-relaxed text-fg">{t('products:intro.text1')}</p>
+            <p className="text-lg leading-relaxed text-fg">{t('products:intro.text2')}</p>
           </div>
         </div>
       </section>
 
       {/* Features Grid */}
-      <section className="py-20 bg-bg relative" ref={featuresSection.ref}>
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <section className="bg-bg py-20 lg:py-24" ref={featuresSection.ref}>
+        <div className="mx-auto max-w-container px-4 lg:px-0">
+          <div className="mb-12 flex flex-col items-center gap-4 text-center">
+            <Eyebrow size="sm">{t('products:features.caption', 'Eigenschaften')}</Eyebrow>
+            <h2 className="text-display-sm font-medium tracking-headline text-fg-heading">
+              {t('products:features.title', 'Für den Praxisalltag gebaut')}
+            </h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, idx) => (
               <div
                 key={idx}
-                className={`bg-surface p-6 rounded-2xl shadow-2 border border-[var(--color-border)] hover:border-brand-primary/50 transition-all duration-500 ${
+                className={`rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-surface p-6 shadow-1 transition-all duration-500 hover:shadow-2 ${
                   featuresSection.inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
                 }`}
                 style={{ transitionDelay: `${idx * 100}ms` }}
               >
-                <feature.icon className="w-10 h-10 text-brand-primary mb-4" />
-                <h3 className="text-xl font-semibold text-fg-heading mb-2">{feature.title}</h3>
+                <feature.icon className="mb-4 h-10 w-10 text-brand-primary" />
+                <h3 className="mb-2 text-xl font-semibold text-fg-heading">{feature.title}</h3>
                 <p className="text-fg-muted">{feature.description}</p>
               </div>
             ))}
@@ -207,91 +213,89 @@ const IglooProPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Technical Specs */}
-      <section className="py-20 bg-surface">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-fg-heading text-center mb-12">
-            {t('products:specs.title')}
-          </h2>
-          <div className="max-w-4xl mx-auto bg-surface rounded-3xl overflow-hidden shadow-2 border border-[var(--color-border)]">
+      {/* Technik-Block — Specs-Tabelle + Parameter zusammengeführt (§RELAUNCH-PLAN B1).
+          Ein zusammenhängender Technik-Block statt zwei getrennter Wiederholungen. */}
+      <section className="bg-surface py-20 lg:py-24">
+        <div className="mx-auto max-w-container px-4 lg:px-0">
+          <div className="mb-12 flex flex-col items-center gap-4 text-center">
+            <Eyebrow size="sm">{t('products:specs.caption', 'Technik')}</Eyebrow>
+            <h2 className="text-display-sm font-medium tracking-headline text-fg-heading">
+              {t('products:specs.title')}
+            </h2>
+          </div>
+
+          {/* Specs-Tabelle (Werte wörtlich) */}
+          <div className="mx-auto max-w-4xl overflow-hidden rounded-[var(--radius-section)] border border-[var(--color-border)] shadow-1">
             <div className="grid gap-px bg-[var(--color-border)]">
               {specs.map((spec, idx) => (
                 <div
                   key={idx}
-                  className="grid md:grid-cols-3 bg-surface p-4 hover:bg-bg-subtle transition-colors"
+                  className="grid bg-surface p-4 transition-colors hover:bg-bg-subtle md:grid-cols-3"
                 >
-                  <div className="font-semibold text-brand-primary">{spec.label}</div>
-                  <div className="md:col-span-2 text-fg">{spec.value}</div>
+                  <div className="font-semibold text-fg-heading">{spec.label}</div>
+                  <div className="text-fg md:col-span-2">{spec.value}</div>
                 </div>
               ))}
             </div>
           </div>
+
           <p className="mt-4 text-center text-xs text-fg-muted">
             Hergestellt von{' '}
             <a
               href="https://dx365.world"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-fg transition-colors"
+              className="underline hover:text-fg transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
             >
               DX365 GmbH
             </a>
             , Berlin · Europäischer Vertrieb: PolarisDX
           </p>
-        </div>
-      </section>
 
-      {/* Parameters */}
-      <section className="py-20 bg-bg">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-fg-heading mb-12">
-            {t('products:parameters.title')}
-          </h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            {parameters.map((param, idx) => (
-              <span
-                key={idx}
-                className="px-6 py-3 bg-surface rounded-full text-fg font-medium shadow-1 border border-[var(--color-border)] hover:bg-brand-primary/5 hover:border-brand-primary hover:text-brand-primary transition-all cursor-default"
-              >
-                {param}
-              </span>
-            ))}
-          </div>
-          <p className="mt-8 text-fg-muted">
-            {t('products:parameters.disclaimer')
-              .split('. ')
-              .map((part, i) => (
-                <React.Fragment key={i}>
-                  {part}
-                  {i < 1 && '.'} <br />
-                </React.Fragment>
+          {/* Parameter (Biomarker) direkt im Technik-Block (Werte wörtlich) */}
+          <div className="mx-auto mt-16 max-w-4xl border-t border-[var(--color-border)] pt-12">
+            <h3 className="mb-8 text-center text-xl font-semibold text-fg-heading">
+              {t('products:parameters.title')}
+            </h3>
+            <div className="flex flex-wrap justify-center gap-3">
+              {parameters.map((param, idx) => (
+                <span
+                  key={idx}
+                  className="rounded-[var(--radius-full)] border border-[var(--color-border)] bg-bg px-5 py-2.5 font-medium text-fg transition-colors hover:border-brand-primary hover:text-brand-primary"
+                >
+                  {param}
+                </span>
               ))}
-          </p>
+            </div>
+            <p className="mt-8 text-center text-sm text-fg-muted">
+              {t('products:parameters.disclaimer')}
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Use Cases / Related Services */}
-      <section className="py-16 bg-surface">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold text-fg-heading mb-8">
+      <section className="bg-bg py-20 lg:py-24">
+        <div className="mx-auto max-w-container px-4 text-center lg:px-0">
+          <h2 className="mb-8 text-2xl font-semibold text-fg-heading">
             {t('products:use_cases.title', 'Einsatzbereiche')}
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               to="/diagnostics/dental"
-              className="rounded-xl border border-[var(--color-border)] bg-bg px-6 py-4 text-sm font-medium text-fg shadow-1 transition-all hover:border-brand-primary hover:text-brand-primary hover:shadow-2"
+              className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-surface px-6 py-4 text-sm font-medium text-fg shadow-1 transition-all hover:border-brand-primary hover:text-brand-primary hover:shadow-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--color-focus-ring)]"
             >
               {t('products:use_cases.dental', 'Dental-Diagnostik')}
             </Link>
             <Link
               to="/diagnostics/beauty"
-              className="rounded-xl border border-[var(--color-border)] bg-bg px-6 py-4 text-sm font-medium text-fg shadow-1 transition-all hover:border-brand-primary hover:text-brand-primary hover:shadow-2"
+              className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-surface px-6 py-4 text-sm font-medium text-fg shadow-1 transition-all hover:border-brand-primary hover:text-brand-primary hover:shadow-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--color-focus-ring)]"
             >
               {t('products:use_cases.beauty', 'Beauty & Ästhetik')}
             </Link>
             <Link
               to="/diagnostics/longevity"
-              className="rounded-xl border border-[var(--color-border)] bg-bg px-6 py-4 text-sm font-medium text-fg shadow-1 transition-all hover:border-brand-primary hover:text-brand-primary hover:shadow-2"
+              className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-surface px-6 py-4 text-sm font-medium text-fg shadow-1 transition-all hover:border-brand-primary hover:text-brand-primary hover:shadow-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--color-focus-ring)]"
             >
               {t('products:use_cases.longevity', 'Longevity & Prävention')}
             </Link>
@@ -299,7 +303,7 @@ const IglooProPage: React.FC = () => {
           <div className="mt-6">
             <Link
               to="/articles"
-              className="text-sm font-semibold text-brand-primary hover:text-brand-deep transition-colors"
+              className="text-sm font-semibold text-brand-primary transition-colors hover:text-brand-deep rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
             >
               {t('products:use_cases.articles', 'Fachartikel lesen')} →
             </Link>
@@ -307,23 +311,20 @@ const IglooProPage: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-brand-deep">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-fg-on-dark mb-6">
-            {t('products:cta_bottom.title')}
-          </h2>
-          <p className="text-fg-on-dark/80 mb-8 max-w-2xl mx-auto">
-            {t('products:cta_bottom.description')}
-          </p>
-          <Button
-            href="/contact"
-            className="text-lg px-10 py-4 bg-surface text-brand-deep hover:bg-bg-subtle border-none shadow-2"
-          >
-            {t('products:cta_bottom.button')}
-          </Button>
-        </div>
-      </section>
+      {/* Schluss-CTA-Band — geteiltes CtaBand (§Konzept 5, [FRO] keine Duplikate).
+          Eine Primär- (Angebot anfordern) + eine Sekundäraktion (Datenblatt). */}
+      <CtaBand
+        caption={t('products:cta_bottom.caption', 'Jetzt starten')}
+        title={t('products:cta_bottom.title')}
+        text={t('products:cta_bottom.description')}
+        primary={{ label: t('products:cta_bottom.button'), to: '/contact' }}
+        secondary={{
+          label: t('products:cta_bottom.button_secondary', 'Datenblatt'),
+          href: IglooProFlyer,
+          target: '_blank',
+          rel: 'noopener noreferrer',
+        }}
+      />
     </div>
   )
 }

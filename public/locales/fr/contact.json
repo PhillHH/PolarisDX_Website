@@ -20,6 +20,7 @@
       "message": "Message",
       "message_placeholder": "Dites-nous en plus sur vos besoins...",
       "submit": "Prendre rendez-vous",
+      "submitting": "Envoi...",
       "company_label": "Nom de l'entreprise / du cabinet",
       "company_placeholder": "ex. Cabinet Dr. Martin ou Pharmacie du Lion",
       "area_label": "Domaine d'application principal",

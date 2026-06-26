@@ -7,11 +7,14 @@
     "cta_datasheet": "Datablad (PDF)"
   },
   "intro": {
+    "caption": "Systemet",
     "title": "Det mobile laboratorium",
     "text1": "Igloo Pro er en bærbar analysator.",
     "text2": "Evaluerer 90% af tests."
   },
   "features": {
+    "caption": "Egenskaber",
+    "title": "Bygget til hverdagen i klinikken",
     "methods": {
       "title": "Alsidige metoder",
       "description": "Kolorimetri..."
@@ -30,6 +33,7 @@
     }
   },
   "specs": {
+    "caption": "Teknologi",
     "title": "Tekniske Data",
     "methods": "Metoder",
     "methods_value": "Kolorimetri...",
@@ -67,10 +71,19 @@
       "strep": "Streptokokker A"
     }
   },
+  "use_cases": {
+    "title": "Anvendelsesområder",
+    "dental": "Dental diagnostik",
+    "beauty": "Skønhed & æstetik",
+    "longevity": "Longevity & forebyggelse",
+    "articles": "Læs fagartikler"
+  },
   "cta_bottom": {
+    "caption": "Demo & rådgivning",
     "title": "Udvid mulighederne",
     "description": "For apoteker og klinikker.",
-    "button": "Book nu"
+    "button": "Book nu",
+    "button_secondary": "Datablad"
   },
   "seo": {
     "title": "IglooPro POC-reader: specifikationer & teknologi",

@@ -18,7 +18,7 @@ const BlogSection = () => {
       {/* Featured Article - Vitamin D3 Implantologie */}
       <Link
         to="/vitamin-d3-implantologie"
-        className="group block overflow-hidden rounded-2xl border border-brand-primary/20 bg-gradient-to-r from-brand-primary/5 to-transparent transition-all duration-300 hover:shadow-2 hover:border-brand-primary/40"
+        className="group block overflow-hidden rounded-2xl border border-brand-primary/20 bg-gradient-to-r from-brand-primary/5 to-transparent transition-all duration-300 hover:shadow-2 hover:border-brand-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--color-focus-ring)]"
       >
         <div className="p-6">
           <p className="mb-2 text-xs font-semibold uppercase tracking-overline text-accent-strong">
@@ -53,7 +53,7 @@ const BlogSection = () => {
       <div className="flex justify-center pt-4">
         <Link
           to="/articles"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary hover:text-brand-deep transition-colors"
+          className="inline-flex items-center gap-2 rounded-sm text-sm font-semibold text-brand-primary hover:text-brand-deep transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
         >
           {t('blog.all_articles', 'Alle Fachartikel anzeigen')} →
         </Link>

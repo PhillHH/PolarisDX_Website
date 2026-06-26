@@ -28,11 +28,14 @@
   --neutral-800-rgb: 30 41 59; /* slate-800 */
   --neutral-900-rgb: 15 23 42; /* slate-900 — Text-Schwarz, kein reines Schwarz [FIL] */
 
-  /* Brand Navy (kanonischer Dunkelblau-Cluster, Wave-2: cta = Navy) [BUD] */
-  --brand-navy-rgb: 8 51 88; /* #083358 — war brand.deep — kanonischer Navy / CTA-BG */
-  --brand-navy-hover-rgb: 10 63 99; /* #0a3f63 — CTA-Hover */
-  --brand-navy-mid-rgb: 10 63 99; /* #0a3f63 — theme-color / OG-Image */
-  --brand-heading-rgb: 32 56 100; /* #203864 — Headline-Navy (war "gray-900") */
+  /* Brand Navy (kanonischer Dunkelblau-Cluster, Wave-2: cta = Navy) [BUD]
+     RELAUNCH V2 ("Souveraen & redaktionell"): edlere, tiefere Primaeraktion —
+     premium, hoeherer Kontrast. (vormals #083358 / hover #0a3f63 / heading #203864;
+     fruehere Werte siehe REFACTOR-LOG / VARIANTS.md). */
+  --brand-navy-rgb: 5 39 64; /* #052740 — kanonischer Navy / CTA-BG (V2-Default) */
+  --brand-navy-hover-rgb: 8 52 79; /* #08344f — CTA-Hover */
+  --brand-navy-mid-rgb: 8 52 79; /* #08344f — theme-color / OG-Image */
+  --brand-heading-rgb: 27 50 87; /* #1b3257 — tiefe Headline-Navy (war "gray-900") */
 
   /* Brand Blue (mittelblauer Marken-Akzent, Footer) [BUD] */
   --brand-blue-rgb: 13 82 127; /* #0d527f — war brand.primary */
@@ -84,10 +87,12 @@
   --space-6: 24px;
   --space-8: 32px;
   --space-10: 40px;
-  --space-12: 48px;
-  --space-16: 64px;
-  --space-20: 80px;
-  --space-24: 96px;
+  /* Section-Rhythmus — RELAUNCH V2: strukturiert-grosszuegig (gerade 8pt-Vielfache,
+     mehr Weissraum durch groessere Nutzung der 8pt-Skala). War 48/64/80/96. */
+  --space-12: 56px; /* war 48 */
+  --space-16: 72px; /* war 64 */
+  --space-20: 96px; /* war 80 */
+  --space-24: 112px; /* war 96 */
 
   /* Typo-Skala: Basis 16px, handgebaut (kein Ratio), ~8 Stufen [FIL][BUD] */
   --font-size-100: 0.75rem; /* 12 */
@@ -97,20 +102,21 @@
   --font-size-500: 1.25rem; /* 20 */
   --font-size-600: 1.5rem; /* 24 */
   --font-size-700: 1.75rem; /* 28 */
-  --font-size-800: 2rem; /* 32 */
-  --font-size-900: 2.5rem; /* 40 */
-  /* Fluid Display-Titel (Hero/Section-Headline) — px-Bounds als rem (Zoom-A11y §1.11);
-     bei 16px-Root byte-identisch zur bisherigen clamp(px)-Schreibweise. */
-  --font-size-display: clamp(2rem, 7vw, 4rem); /* 32 → 64 */
-  --font-size-display-sm: clamp(1.75rem, 6.2vw, 3rem); /* 28 → 48 */
+  /* RELAUNCH V2: starke Typo-Hierarchie — groessere H2/H1 + Display-Stufen
+     (deutlicher Groessen-/Gewichtskontrast). War H2 32 · H1 40 · display 32→64. */
+  --font-size-800: 2.25rem; /* 36 — H2 (war 32) */
+  --font-size-900: 2.75rem; /* 44 — H1 / Section-Titel (war 40) */
+  /* Fluid Display-Titel (Hero/Section-Headline) — px-Bounds als rem (Zoom-A11y §1.11). */
+  --font-size-display: clamp(2.25rem, 8vw, 4.5rem); /* 36 → 72 (war 32→64) */
+  --font-size-display-sm: clamp(1.875rem, 6.6vw, 3.25rem); /* 30 → 52 (war 28→48) */
   --font-size-display-xl: clamp(10rem, 7.5rem + 12vw, 12rem); /* 160 → 192, 404-Numeral One-off */
 
   --line-height-tight: 1.1;
   --line-height-heading: 1.3;
   --line-height-body: 1.6;
-  --line-height-display: clamp(2.375rem, 7.6vw, 4.5rem); /* 38 → 72 */
-  --line-height-display-sm: clamp(2.125rem, 6.8vw, 3.5rem); /* 34 → 56 */
-  --letter-spacing-tight: -0.02em; /* Display-Titel-Tracking */
+  --line-height-display: clamp(2.625rem, 8.6vw, 5rem); /* RELAUNCH V2 (war 38→72) */
+  --line-height-display-sm: clamp(2.25rem, 7.2vw, 3.75rem); /* RELAUNCH V2 (war 34→56) */
+  --letter-spacing-tight: -0.025em; /* Display-Titel-Tracking — V2 tighter/premium (war -0.02em) */
   --letter-spacing-overline: 0.16em; /* Uppercase-Overline/Kicker-Tracking (Sperrung) */
   --font-weight-regular: 400;
   --font-weight-medium: 500;
@@ -120,10 +126,11 @@
   /* Schrift: @fontsource-variable/inter (self-hosted, DSGVO) — Token referenziert NUR den Stack [FIL] */
   --font-family-sans: 'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif;
 
+  /* RELAUNCH V2: mittlere, praezise-redaktionelle Radien (war lg 16 · section 24). */
   --radius-sm: 4px;
   --radius-md: 8px;
-  --radius-lg: 16px;
-  --radius-section: 24px;
+  --radius-lg: 14px; /* war 16 */
+  --radius-section: 20px; /* war 24 */
   --radius-full: 9999px;
 
   /* Tailwind-Radius-Bruecke: bindet die generischen `rounded-*`-Utilities an
@@ -135,15 +142,19 @@
   --radius-tw-md: 0.375rem; /* rounded-md  = 6px */
   --radius-tw-lg: 0.5rem; /* rounded-lg  = 8px */
   --radius-tw-xl: 0.75rem; /* rounded-xl  = 12px */
-  --radius-tw-2xl: 1rem; /* rounded-2xl = 16px */
-  --radius-tw-3xl: 1.5rem; /* rounded-3xl = 24px */
+  --radius-tw-2xl: 0.875rem; /* rounded-2xl = 14px — RELAUNCH V2 (war 16px) */
+  --radius-tw-3xl: 1.25rem; /* rounded-3xl = 20px — RELAUNCH V2 (war 24px) */
 
   /* Schatten: kein reines Schwarz — Navy-Palette-Tint, niedrige Opacity, erhoehtes Y [FIL]
      Tint referenziert das Navy-Primitive (Single Source). */
+  /* RELAUNCH V2: weiche, geschichtete Schatten (zwei Lagen, niedrige Opacity) [FIL][BUD].
+     War einlagig (s1 .06/.08 · s2 32px .15 · s3 60px .12). */
   --shadow-1:
-    0 1px 2px rgb(var(--brand-navy-rgb) / 0.06), 0 1px 3px rgb(var(--brand-navy-rgb) / 0.08);
-  --shadow-2: 0 8px 32px rgb(var(--brand-navy-rgb) / 0.15);
-  --shadow-3: 0 24px 60px rgb(var(--brand-navy-rgb) / 0.12);
+    0 1px 2px rgb(var(--brand-navy-rgb) / 0.05), 0 2px 6px rgb(var(--brand-navy-rgb) / 0.08);
+  --shadow-2:
+    0 4px 12px rgb(var(--brand-navy-rgb) / 0.08), 0 12px 32px rgb(var(--brand-navy-rgb) / 0.12);
+  --shadow-3:
+    0 8px 24px rgb(var(--brand-navy-rgb) / 0.1), 0 32px 64px rgb(var(--brand-navy-rgb) / 0.14);
   /* Inset: recessed Figure-Ground-Well (Icon-Tile etc.) — Navy-Tint statt Roh-#000 */
   --shadow-inset: inset 0 2px 4px rgb(var(--brand-navy-rgb) / 0.06);
 
@@ -566,158 +577,15 @@
 }
 
 /* ============================================================
-   PREVIEW-VARIANTEN — "spuerbar modernere" Auffrischungen als umschaltbare
-   Token-Themes. Default (kein data-theme) bleibt unveraendert. Alle drei folgen
-   STRENG den [FIL]/[BUD]/[NOR]-Foundations (8pt-Soft-Grid, non-lineare Spacing-
-   Skala, handgebaute Typo um 16px, ROLLENbasierte Farbe, WCAG-2.2-AA, leichte
-   Radien, palette-getoente Low-Opacity-Schatten nur auf erhobenen Elementen) und
-   unterscheiden sich NUR in zulaessigen Ausdrucks-Entscheidungen INNERHALB dieser
-   Regeln. Theming bindet ausschliesslich Token-WERTE neu (keine Komponenten-
-   Duplikate, §3.0 A / §1.7). KERN des Auffrischens = mehr Weissraum durch
-   GROSSZUEGIGERE Nutzung der 8pt-Skala (groessere Section-Paddings/Gaps/Hero-Luft),
-   buchtreu skaliert (nur gerade 8pt-Vielfache). Doku: docs/design-system/VARIANTS.md.
+   RELAUNCH-DEFAULT = V2 "Souveraen & redaktionell"
+   Die vormals umschaltbaren Preview-Themes [data-theme="fresh-1|2|3"] sind
+   ENTFERNT. Die V2-Token-Werte (tiefere Navy-Primaeraktion, strukturiert-
+   grosszuegiger Section-Rhythmus, starke Typo-Hierarchie, mittlere Radien,
+   weich geschichtete Schatten) leben jetzt direkt in der Default-Token-Ebene
+   (:root, oben). Der ThemePreviewSwitcher und das FOUC-Inline-Script in
+   index.html wurden ebenfalls entfernt. Doku: docs/RELAUNCH-CONCEPT.md,
+   docs/design-system/VARIANTS.md. (fresh-1/fresh-3 verworfen.)
    ============================================================ */
-
-/* ---------- fresh-1 "Klar & ruhig" ----------
-   Strenge [FIL]-Minimal-Hierarchie: maximaler Weissraum (grosse Skalen-Schritte),
-   Primary NUR fuer Aktion/Focus (Navy bleibt kanonisch), kalte/entsaettigte
-   Neutrals, sehr subtile Schatten, dezente (kleinere) Radien, ruhige Typo. */
-[data-theme='fresh-1'] {
-  /* Kalte, entsaettigte Neutrals (kuehler & flacher als Slate) [FIL] */
-  --neutral-0-rgb: 255 255 255;
-  --neutral-50-rgb: 249 250 251;
-  --neutral-100-rgb: 243 244 246;
-  --neutral-200-rgb: 226 228 232;
-  --neutral-300-rgb: 205 208 214;
-  --neutral-400-rgb: 145 150 160;
-  --neutral-500-rgb: 99 105 117; /* Muted-Text, AA auf Weiss (~5:1) */
-  --neutral-600-rgb: 71 77 89;
-  --neutral-700-rgb: 48 54 66; /* Body-Text */
-  --neutral-800-rgb: 30 35 45;
-  --neutral-900-rgb: 16 20 29;
-
-  /* Maximaler Weissraum: grosse Section-Schritte (gerade 8pt-Vielfache) [FIL][BUD] */
-  --space-12: 56px; /* war 48 */
-  --space-16: 80px; /* war 64 */
-  --space-20: 104px; /* war 80 */
-  --space-24: 128px; /* war 96 */
-
-  /* Dezente, kleinere Radien (crisper, ruhiger) [FIL §3.1] */
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 10px; /* war 16 */
-  --radius-section: 14px; /* war 24 */
-  --radius-tw-default: 0.1875rem; /* 3px */
-  --radius-tw-md: 0.25rem; /* 4px */
-  --radius-tw-lg: 0.375rem; /* 6px */
-  --radius-tw-xl: 0.5rem; /* 8px */
-  --radius-tw-2xl: 0.75rem; /* 12px */
-  --radius-tw-3xl: 1rem; /* 16px */
-
-  /* Sehr subtile Schatten (niedrigere Opacity, kleinerer Blur) [FIL] */
-  --shadow-1: 0 1px 2px rgb(var(--brand-navy-rgb) / 0.04), 0 1px 2px rgb(var(--brand-navy-rgb) / 0.05);
-  --shadow-2: 0 6px 24px rgb(var(--brand-navy-rgb) / 0.08);
-  --shadow-3: 0 16px 48px rgb(var(--brand-navy-rgb) / 0.08);
-
-  /* Ruhige Typo: etwas kleinere Display-Stufen, weniger aggressives Tracking [FIL] */
-  --font-size-display: clamp(1.875rem, 6vw, 3.5rem); /* 30 → 56 (war 32→64) */
-  --font-size-display-sm: clamp(1.625rem, 5.4vw, 2.75rem); /* 26 → 44 */
-  --line-height-display: clamp(2.25rem, 6.6vw, 4rem);
-  --line-height-display-sm: clamp(2rem, 6vw, 3.25rem);
-  --letter-spacing-tight: -0.015em; /* ruhiger als -0.02em */
-}
-
-/* ---------- fresh-2 "Souveraen & redaktionell" ----------
-   Starke [FIL]-Typo-Hierarchie (grosse Display-Stufen, mehr Tracking, groessere
-   Section-Titel), strukturiert-grosszuegige Abstaende, edlere/tiefere Primary-
-   Shade, mittlere Radien, weiche geschichtete Schatten. ([FIL]+[BUD] premium) */
-[data-theme='fresh-2'] {
-  /* Edlere, tiefere Primaeraktion (Navy-Cluster) — premium, hoher Kontrast [BUD] */
-  --brand-navy-rgb: 5 39 64; /* #052740 — tiefer als #083358 */
-  --brand-navy-hover-rgb: 8 52 79; /* #08344f */
-  --brand-navy-mid-rgb: 8 52 79;
-  --brand-heading-rgb: 27 50 87; /* #1b3257 — tiefe Headline-Navy */
-
-  /* Strukturiert-grosszuegige Abstaende (gerade 8pt-Vielfache) [FIL][BUD] */
-  --space-12: 56px; /* war 48 */
-  --space-16: 72px; /* war 64 */
-  --space-20: 96px; /* war 80 */
-  --space-24: 112px; /* war 96 */
-
-  /* Mittlere Radien (praezise-redaktionell) [FIL] */
-  --radius-lg: 14px; /* war 16 */
-  --radius-section: 20px; /* war 24 */
-  --radius-tw-2xl: 0.875rem; /* 14px */
-  --radius-tw-3xl: 1.25rem; /* 20px */
-
-  /* Weiche, geschichtete Schatten (zwei Lagen, niedrige Opacity) [FIL][BUD] */
-  --shadow-1: 0 1px 2px rgb(var(--brand-navy-rgb) / 0.05), 0 2px 6px rgb(var(--brand-navy-rgb) / 0.08);
-  --shadow-2: 0 4px 12px rgb(var(--brand-navy-rgb) / 0.08), 0 12px 32px rgb(var(--brand-navy-rgb) / 0.12);
-  --shadow-3: 0 8px 24px rgb(var(--brand-navy-rgb) / 0.10), 0 32px 64px rgb(var(--brand-navy-rgb) / 0.14);
-
-  /* Starke Typo-Hierarchie: grosse Display-Stufen + tieferes Tracking, groessere
-     Section-/Heading-Stufen (Gewichts-/Groessen-Kontrast) [FIL] */
-  --font-size-800: 2.25rem; /* 36 (war 32) — H2 */
-  --font-size-900: 2.75rem; /* 44 (war 40) — H1 / Section-Titel */
-  --font-size-display: clamp(2.25rem, 8vw, 4.5rem); /* 36 → 72 (war 32→64) */
-  --font-size-display-sm: clamp(1.875rem, 6.6vw, 3.25rem); /* 30 → 52 */
-  --line-height-display: clamp(2.625rem, 8.6vw, 5rem);
-  --line-height-display-sm: clamp(2.25rem, 7.2vw, 3.75rem);
-  --letter-spacing-tight: -0.025em; /* tighter, premium Display */
-}
-
-/* ---------- fresh-3 "Zugaenglich & freundlich" ----------
-   [NOR] humanity-centered: waermere/hellere (AA-konforme) Primary-/Accent-Rolle,
-   freundlichere groessere Radien (§3.1 "leichte Rundung statt 0, freundlicher"),
-   energetischerer Abstands-Rhythmus, etwas mehr Feedback-Farbpraesenz, offeneres
-   Body-Leading — barrierearm & einladend. */
-[data-theme='fresh-3'] {
-  /* Waerme Neutrals (waermer/heller als Slate, weiterhin AA) [NOR] */
-  --neutral-0-rgb: 255 255 255;
-  --neutral-50-rgb: 250 250 248;
-  --neutral-100-rgb: 245 244 240;
-  --neutral-200-rgb: 233 230 224;
-  --neutral-300-rgb: 215 211 203;
-  --neutral-400-rgb: 162 156 146;
-  --neutral-500-rgb: 116 110 100; /* Muted-Text, AA auf Weiss (~5:1) */
-  --neutral-600-rgb: 86 80 70;
-  --neutral-700-rgb: 64 59 50; /* Body-Text (warm) */
-  --neutral-800-rgb: 43 39 32;
-  --neutral-900-rgb: 30 27 22;
-
-  /* Waermere/hellere, freundliche Primaeraktion — tiefes Teal-Cyan, AA fuer
-     weissen Text (~5.5:1) [NOR][FIL]. Schatten erben diesen Ton automatisch. */
-  --brand-navy-rgb: 14 110 104; /* #0e6e68 */
-  --brand-navy-hover-rgb: 10 95 90; /* #0a5f5a */
-  --brand-navy-mid-rgb: 14 110 104;
-  --brand-heading-rgb: 19 78 73; /* #134e49 — warme tiefe Headline */
-
-  /* Energetischerer Abstands-Rhythmus (gerade 8pt-Vielfache) [FIL][NOR] */
-  --space-12: 56px; /* war 48 */
-  --space-16: 72px; /* war 64 */
-  --space-20: 96px; /* war 80 */
-  --space-24: 120px; /* war 96 */
-
-  /* Freundlichere, groessere Radien (§3.1 "freundlicher") [NOR][FIL] */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 20px; /* war 16 */
-  --radius-section: 28px; /* war 24 */
-  --radius-tw-default: 0.375rem; /* 6px */
-  --radius-tw-md: 0.5rem; /* 8px */
-  --radius-tw-lg: 0.75rem; /* 12px */
-  --radius-tw-xl: 1rem; /* 16px */
-  --radius-tw-2xl: 1.25rem; /* 20px */
-  --radius-tw-3xl: 1.75rem; /* 28px */
-
-  /* Etwas mehr Feedback-Farbpraesenz: kraeftigeres Success-Gruen [NOR] */
-  --color-success-rgb: var(--green-600-rgb);
-
-  /* Offeneres Body-Leading (Lesbarkeit), freundlicheres Display-Tracking [NOR] */
-  --line-height-body: 1.7; /* war 1.6 */
-  --letter-spacing-tight: -0.015em;
-  --font-size-display: clamp(2.125rem, 7.2vw, 4rem); /* 34 → 64 */
-}
 
 @media (prefers-reduced-motion: reduce) {
   :root {

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, createBreadcrumbSchema } from '../components/seo'
-import { Breadcrumbs, SectionHeader } from '~/design-system'
+import { Breadcrumbs, Eyebrow, GradientHero, SectionHeader } from '~/design-system'
 import BlogCard from '../components/ui/BlogCard'
 import { blogPosts } from '../data/blogPosts'
 import PageTransition from '../components/ui/PageTransition'
@@ -36,35 +36,30 @@ const ArticlesIndexPage = () => {
       />
       <div className="bg-bg min-h-screen">
         {/* Header Section */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-heading text-fg-on-dark">
-          <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-fg-on-dark/30 to-transparent opacity-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-fg-on-dark/30 to-transparent opacity-10" />
+        <GradientHero>
+          <Reveal width="100%" yOffset={20}>
+            <Breadcrumbs
+              className="mb-4"
+              items={[
+                { label: t('shop:shop.home', 'Home'), href: '/' },
+                { label: t('shop:shop.articles', 'Articles') },
+              ]}
+            />
 
-          <div className="relative mx-auto flex min-h-hero max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
-            <Reveal width="100%" yOffset={20}>
-              <div className="max-w-container">
-                <Breadcrumbs
-                  className="mb-4"
-                  items={[
-                    { label: t('shop:shop.home', 'Home'), href: '/' },
-                    { label: t('shop:shop.articles', 'Articles') },
-                  ]}
-                />
-
-                <h1 className="mb-4 text-display font-medium tracking-headline">
-                  {t('articles:index.title', 'Our Magazine')}
-                </h1>
-                <p className="max-w-2xl text-lg text-fg-on-dark/80">
-                  {t(
-                    'articles:index.subtitle',
-                    'Insights, news, and expert knowledge on modern diagnostics and health.',
-                  )}
-                </p>
-              </div>
-            </Reveal>
-          </div>
-        </section>
+            <Eyebrow size="sm" className="mb-3">
+              {t('articles:index.eyebrow', 'Magazin')}
+            </Eyebrow>
+            <h1 className="mb-4 text-display-sm font-medium tracking-headline">
+              {t('articles:index.title', 'Our Magazine')}
+            </h1>
+            <p className="max-w-2xl text-lg text-fg-on-dark/80">
+              {t(
+                'articles:index.subtitle',
+                'Insights, news, and expert knowledge on modern diagnostics and health.',
+              )}
+            </p>
+          </Reveal>
+        </GradientHero>
 
         {/* Content Section */}
         <div className="mx-auto max-w-container px-4 py-16 lg:px-10 lg:py-24">
@@ -76,7 +71,7 @@ const ArticlesIndexPage = () => {
               </p>
               <Link
                 to="/vitamin-d3-implantologie"
-                className="group block overflow-hidden rounded-2xl border border-[var(--color-border)] bg-surface shadow-1 transition-all duration-300 hover:shadow-2 hover:border-brand-primary/30"
+                className="group block overflow-hidden rounded-2xl border border-[var(--color-border)] bg-surface shadow-1 transition-all duration-300 hover:shadow-2 hover:border-brand-primary/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2"
               >
                 <div className="p-6 lg:p-8">
                   <h2 className="text-xl font-semibold text-fg-heading group-hover:text-brand-primary transition-colors lg:text-2xl">

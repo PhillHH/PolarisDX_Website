@@ -7,11 +7,14 @@
     "cta_datasheet": "Datový list (PDF)"
   },
   "intro": {
+    "caption": "Systém",
     "title": "Mobilní laboratoř",
     "text1": "Igloo Pro je přenosný analyzátor.",
     "text2": "Vyhodnocuje 90% testů."
   },
   "features": {
+    "caption": "Vlastnosti",
+    "title": "Vytvořeno pro každodenní praxi",
     "methods": {
       "title": "Všestranné metody",
       "description": "Kolorimetrie..."
@@ -30,6 +33,7 @@
     }
   },
   "specs": {
+    "caption": "Technologie",
     "title": "Technická data",
     "methods": "Metody",
     "methods_value": "Kolorimetrie...",
@@ -67,10 +71,19 @@
       "strep": "Streptokok A"
     }
   },
+  "use_cases": {
+    "title": "Oblasti použití",
+    "dental": "Zubní diagnostika",
+    "beauty": "Krása a estetika",
+    "longevity": "Dlouhověkost a prevence",
+    "articles": "Číst odborné články"
+  },
   "cta_bottom": {
+    "caption": "Ukázka a poradenství",
     "title": "Rozšiřte možnosti",
     "description": "Pro lékárny a ordinace.",
-    "button": "Rezervovat nyní"
+    "button": "Rezervovat nyní",
+    "button_secondary": "Katalogový list"
   },
   "seo": {
     "title": "IglooPro POC reader: specifikace a technologie",

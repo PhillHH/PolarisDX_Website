@@ -1,5 +1,14 @@
 # Design-Varianten (Preview) — fresh-1 · fresh-2 · fresh-3
 
+> **HISTORISCH (Stand 2026-06-25).** Die Preview-Phase ist abgeschlossen.
+> **fresh-2 „Souverän & redaktionell" ist zum Default-Look erhoben** — seine
+> Token-Werte leben jetzt direkt in der Default-Ebene (`tokens.css :root`). Der
+> `ThemePreviewSwitcher`, das FOUC-Inline-Script in `index.html` und die
+> `[data-theme="fresh-1|2|3"]`-Blöcke sind **entfernt**; fresh-1/fresh-3 wurden
+> verworfen. Maßgeblich ist jetzt [`docs/RELAUNCH-CONCEPT.md`](../RELAUNCH-CONCEPT.md)
+> + [`docs/RELAUNCH-PLAN.md`](../RELAUNCH-PLAN.md). Der folgende Text beschreibt den
+> historischen Preview-Stand.
+
 Drei umschaltbare, **buchtreue** Auffrischungen des bestehenden Looks als reine
 Token-Themes über `[data-theme="fresh-1|fresh-2|fresh-3"]` am `<html>`-Element.
 **Default (kein `data-theme`) bleibt unverändert** — byte-identisch zum Ist-Zustand.

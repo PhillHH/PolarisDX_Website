@@ -98,7 +98,7 @@ const FlagIcon = ({ countryCode, className = '' }: FlagIconProps) => {
     // Fallback: Zeige Ländercode als Text
     return (
       <span
-        className={`inline-flex items-center justify-center bg-gray-200 text-xs font-bold text-fg uppercase ${className}`}
+        className={`inline-flex items-center justify-center bg-[var(--color-border)] text-xs font-bold text-fg uppercase ${className}`}
       >
         {countryCode}
       </span>

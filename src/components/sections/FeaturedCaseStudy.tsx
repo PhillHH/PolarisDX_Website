@@ -57,7 +57,7 @@ const FeaturedCaseStudy = () => {
               <div>
                 <Link
                   to="/casestudys/32reasons"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand-primary to-brand-deep px-8 py-3 text-fg-on-dark font-medium shadow-glow-primary transition-all hover:shadow-glow-primary-strong hover:scale-105"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand-primary to-brand-deep px-8 py-3 text-fg-on-dark font-medium shadow-glow-primary transition-all hover:shadow-glow-primary-strong hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--color-focus-ring)]"
                 >
                   {t('teaser.cta')}
                   <ArrowRight className="w-4 h-4" />

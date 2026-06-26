@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { useState, useRef, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { Check } from 'lucide-react'
 import FlagIcon from './FlagIcon'
 
 const languages = [
@@ -75,8 +76,10 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
     <div className={`relative ${className}`} ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`inline-flex items-center justify-center gap-2 rounded-full min-h-[var(--tap-target-min)] ${isMobile ? 'px-2' : 'px-3'} leading-none transition-colors hover:bg-fg-on-dark/10 text-current`}
+        className={`inline-flex items-center justify-center gap-2 rounded-full min-h-[var(--tap-target-min)] ${isMobile ? 'px-2' : 'px-3'} leading-none transition-colors hover:bg-fg-on-dark/10 text-current focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring-on-dark)]`}
         aria-label="Select language"
+        aria-haspopup="listbox"
+        aria-expanded={isOpen}
       >
         <FlagIcon
           countryCode={currentLanguage.country_code}
@@ -97,21 +100,26 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
         <div
           className={`absolute right-0 top-full mt-1 w-48 rounded-md bg-surface py-1 shadow-2 ring-1 ring-brand-navy/5 z-50 overflow-hidden`}
         >
-          {languages.map((language) => (
-            <button
-              key={language.code}
-              onClick={() => changeLanguage(language.code)}
-              className={`flex w-full items-center gap-3 min-h-[var(--tap-target-min)] px-4 py-2 text-sm text-fg hover:bg-bg-subtle ${
-                i18n.language === language.code ? 'bg-bg-subtle font-medium text-brand-primary' : ''
-              }`}
-            >
-              <FlagIcon
-                countryCode={language.country_code}
-                className="h-5 w-8 rounded-sm bg-surface ring-1 ring-brand-primary/40 shadow-1"
-              />
-              <span>{language.name}</span>
-            </button>
-          ))}
+          {languages.map((language) => {
+            const isCurrent = normalizedCode === language.code
+            return (
+              <button
+                key={language.code}
+                onClick={() => changeLanguage(language.code)}
+                aria-current={isCurrent ? 'true' : undefined}
+                className={`flex w-full items-center gap-3 min-h-[var(--tap-target-min)] px-4 py-2 text-sm text-fg hover:bg-bg-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--color-focus-ring)] ${
+                  isCurrent ? 'bg-bg-subtle font-medium text-brand-primary' : ''
+                }`}
+              >
+                <FlagIcon
+                  countryCode={language.country_code}
+                  className="h-5 w-8 rounded-sm bg-surface ring-1 ring-brand-primary/40 shadow-1"
+                />
+                <span>{language.name}</span>
+                {isCurrent && <Check className="ml-auto h-4 w-4 text-brand-primary" />}
+              </button>
+            )
+          })}
         </div>
       )}
     </div>

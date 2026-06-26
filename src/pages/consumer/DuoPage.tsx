@@ -118,7 +118,7 @@ function DuoPageInner() {
               data-gtm-cta="See the spray page"
               data-gtm-page="duo"
               data-gtm-location="included-card"
-              className="mt-6 inline-block text-sm font-semibold text-accent-strong hover:text-accent-fg"
+              className="mt-6 inline-block text-sm font-semibold text-accent-strong hover:text-accent-fg rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
             >
               See the spray page →
             </Link>
@@ -135,7 +135,7 @@ function DuoPageInner() {
               data-gtm-cta="See the mask page"
               data-gtm-page="duo"
               data-gtm-location="included-card"
-              className="mt-6 inline-block text-sm font-semibold text-accent-strong hover:text-accent-fg"
+              className="mt-6 inline-block text-sm font-semibold text-accent-strong hover:text-accent-fg rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
             >
               See the mask page →
             </Link>

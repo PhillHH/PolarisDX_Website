@@ -7,11 +7,14 @@
     "cta_datasheet": "Datasheet (PDF)"
   },
   "intro": {
+    "caption": "Het systeem",
     "title": "Het mobiele lab",
     "text1": "Igloo Pro is een draagbare analyzer.",
     "text2": "Evalueert 90% van de tests."
   },
   "features": {
+    "caption": "Kenmerken",
+    "title": "Gebouwd voor de dagelijkse praktijk",
     "methods": {
       "title": "Veelzijdige methoden",
       "description": "Colorimetrie..."
@@ -30,6 +33,7 @@
     }
   },
   "specs": {
+    "caption": "Technologie",
     "title": "Technische Gegevens",
     "methods": "Methoden",
     "methods_value": "Colorimetrie...",
@@ -67,10 +71,19 @@
       "strep": "Streptokok A"
     }
   },
+  "use_cases": {
+    "title": "Toepassingsgebieden",
+    "dental": "Tandheelkundige diagnostiek",
+    "beauty": "Beauty & esthetiek",
+    "longevity": "Longevity & preventie",
+    "articles": "Lees vakartikelen"
+  },
   "cta_bottom": {
+    "caption": "Demo & advies",
     "title": "Breid mogelijkheden uit",
     "description": "Voor apotheken en praktijken.",
-    "button": "Nu afspraak maken"
+    "button": "Nu afspraak maken",
+    "button_secondary": "Datasheet"
   },
   "seo": {
     "title": "IglooPro POC-reader: specificaties & techniek",

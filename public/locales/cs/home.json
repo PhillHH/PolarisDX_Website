@@ -120,7 +120,8 @@
       "title": "32reasons Zahnteam / Hamburk",
       "focus": "Prevence, Vitamín D, HbA1c, Systémové zdraví",
       "text": "32reasons & Polaris DX — stomatologie nově promyšlená. Chairside čtečka nám umožňuje stanovit biomarkery jako Vitamín D a HbA1c přímo na místě. To propojuje stomatologii bezprostředně se systémovým zdravím pro rychlá, na důkazech založená terapeutická rozhodnutí."
-    }
+    },
+    "subtitle": "Zubní lékaři a odborní lékaři sdílejí zkušenosti z každodenní praxe."
   },
   "blog": {
     "caption": "Blog a novinky",
@@ -151,5 +152,12 @@
         "answer": "Naše aktuální portfolio zahrnuje POC čtečku IglooPro, širokou škálu rychlotestů na biomarkery jako Vitamín D3, CRP a HbA1c a doplňkové produkty jako náš sprej s Vitamínem D3. Naši nabídku průběžně rozšiřujeme, abychom vám poskytli komplexní diagnostické řešení."
       }
     ]
+  },
+  "final_cta": {
+    "caption": "Začněte nyní",
+    "title": "Vyzkoušejte IglooPro ve své ordinaci.",
+    "text": "Domluvte si nezávaznou ukázku. Provedeme vás pracovním postupem podle vašich otázek — a ozveme se do jednoho pracovního dne.",
+    "cta_primary": "Vyžádat ukázku",
+    "cta_secondary": "Stáhnout informace"
   }
 }
