@@ -125,7 +125,7 @@
   },
   "testimonials": {
     "caption": "PRAXIS-STIMMEN",
-    "title": "Was Praxen ueber das IglooPro-System sagen",
+    "title": "Was Praxen über das IglooPro-System sagen",
     "ratingLabel": "Gesamtbewertung\nbasierend auf Praxis-Bewertungen",
     "positiveLabel": "Positive Bewertung",
     "richard_pollock": {
@@ -171,28 +171,28 @@
     "title": "Häufige Fragen zu PolarisDX und Point-of-Care Diagnostik",
     "items": [
       {
-        "question": "Rechnet sich der IglooPro fuer meine Praxis?",
-        "answer": "Mit POC-Diagnostik koennen Sie Biomarker-Bestimmungen als Selbstzahler-Leistung direkt in der Praxis anbieten, statt sie an ein externes Labor abzugeben. Welche Auslastung und Erloese sich daraus fuer Ihren konkreten Fall ergeben, ermitteln Sie transparent im ROI-Rechner. So sehen Sie schon vor der Anschaffung, wie sich das System in Ihre Praxisstruktur einordnet."
+        "question": "Rechnet sich der IglooPro für meine Praxis?",
+        "answer": "Mit POC-Diagnostik können Sie Biomarker-Bestimmungen als Selbstzahler-Leistung direkt in der Praxis anbieten, statt sie an ein externes Labor abzugeben. Welche Auslastung und Erlöse sich daraus für Ihren konkreten Fall ergeben, ermitteln Sie transparent im ROI-Rechner. So sehen Sie schon vor der Anschaffung, wie sich das System in Ihre Praxisstruktur einordnet."
       },
       {
-        "question": "Ist der IglooPro fuer den Praxiseinsatz zugelassen und qualitaetsgesichert?",
-        "answer": "Der IglooPro ist IVDR/CE-konform und damit fuer die patientennahe Sofortdiagnostik (POCT) ausgelegt. Ueber den gesamten Messbereich erreicht das System eine Praezision von CV < 2 %, was reproduzierbare Ergebnisse unterstuetzt. Die Inbetriebnahme erfolgt validiert, sodass die Anforderungen an die Qualitaetssicherung im POCT von Beginn an beruecksichtigt sind."
+        "question": "Ist der IglooPro für den Praxiseinsatz zugelassen und qualitätsgesichert?",
+        "answer": "Der IglooPro ist IVDR/CE-konform und damit für die patientennahe Sofortdiagnostik (POCT) ausgelegt. Über den gesamten Messbereich erreicht das System eine Präzision von CV < 2 %, was reproduzierbare Ergebnisse unterstützt. Die Inbetriebnahme erfolgt validiert, sodass die Anforderungen an die Qualitätssicherung im POCT von Beginn an berücksichtigt sind."
       },
       {
         "question": "Bin ich nach dem Kauf an einen einzigen Anbieter gebunden?",
-        "answer": "Nein. Der IglooPro arbeitet herstelleruebergreifend, sodass Sie nicht auf die Tests eines einzigen Lieferanten festgelegt sind. Das gibt Ihnen Flexibilitaet bei der Auswahl Ihrer Test-Panels und schuetzt Ihre Investition, wenn sich Ihr diagnostischer Bedarf im Laufe der Zeit veraendert."
+        "answer": "Nein. Der IglooPro arbeitet herstellerübergreifend, sodass Sie nicht auf die Tests eines einzigen Lieferanten festgelegt sind. Das gibt Ihnen Flexibilität bei der Auswahl Ihrer Test-Panels und schützt Ihre Investition, wenn sich Ihr diagnostischer Bedarf im Laufe der Zeit verändert."
       },
       {
         "question": "Wie aufwendig ist die Integration in unseren Praxisalltag?",
-        "answer": "Der IglooPro ist fuer den Einsatz direkt am Behandlungsstuhl konzipiert und liefert das Ergebnis in Minuten, sodass die Messung in den laufenden Termin passt. Zur Inbetriebnahme schulen wir Ihr Team im Messablauf und in der Bedienung. Danach stehen wir Ihnen mit technischem Support und laufender Betreuung zur Seite."
+        "answer": "Der IglooPro ist für den Einsatz direkt am Behandlungsstuhl konzipiert und liefert das Ergebnis in Minuten, sodass die Messung in den laufenden Termin passt. Zur Inbetriebnahme schulen wir Ihr Team im Messablauf und in der Bedienung. Danach stehen wir Ihnen mit technischem Support und laufender Betreuung zur Seite."
       },
       {
         "question": "Wie schnell ist das System nach der Bestellung einsatzbereit?",
-        "answer": "Nach der Bestellung ist Ihr IglooPro in der Regel innerhalb von 3-5 Werktagen einsatzbereit. Wir nehmen das Geraet validiert in Betrieb, sodass Sie ab dem ersten Patienten verlaesslich messen koennen. Eine separate, langwierige Einrichtungsphase entfaellt damit."
+        "answer": "Nach der Bestellung ist Ihr IglooPro in der Regel innerhalb von 3–5 Werktagen einsatzbereit. Wir nehmen das Gerät validiert in Betrieb, sodass Sie ab dem ersten Patienten verlässlich messen können. Eine separate, langwierige Einrichtungsphase entfällt damit."
       },
       {
         "question": "Welche Biomarker kann ich je nach Fachrichtung bestimmen?",
-        "answer": "Das System deckt fachspezifische Panels fuer Dental, Beauty und Longevity ab - von Vitamin D und CRP ueber HbA1c bis zu Stoffwechsel- und Entzuendungsmarkern. In der Dentalmedizin stehen etwa Vitamin D und Entzuendungswerte im Fokus, im Longevity-Bereich das Monitoring von Stoffwechsel- und Entzuendungsmarkern. Welche Tests fuer Ihre Fachrichtung sinnvoll sind, stimmen wir im Beratungsgespraech individuell ab."
+        "answer": "Das System deckt fachspezifische Panels für Dental, Beauty und Longevity ab – von Vitamin D und CRP über HbA1c bis zu Stoffwechsel- und Entzündungsmarkern. In der Dentalmedizin stehen etwa Vitamin D und Entzündungswerte im Fokus, im Longevity-Bereich das Monitoring von Stoffwechsel- und Entzündungsmarkern. Welche Tests für Ihre Fachrichtung sinnvoll sind, stimmen wir im Beratungsgespräch individuell ab."
       }
     ]
   },
