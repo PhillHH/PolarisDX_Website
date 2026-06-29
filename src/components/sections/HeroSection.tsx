@@ -1,57 +1,41 @@
 import { useHeroSlider } from '../../hooks/useHeroSlider'
 import { Button } from '../ui/Button'
-import StatItem from '../ui/StatItem'
 import { useState, useEffect, useRef } from 'react'
+import { Check, Pause, Play } from 'lucide-react'
 import iglooLogoWhite from '../../assets/igloo_logo_white.webp'
 
 /**
- * SSR-safe HeroSection component - NO framer-motion, pure CSS animations
- *
- * CRITICAL FOR SEO & LCP:
- * - h1 and description are ALWAYS visible (no initial opacity:0)
- * - SSR renders content fully visible
- * - Client hydration keeps content visible (no animation on first render)
- * - Animations only play on SLIDE CHANGES, not on initial load
+ * SSR-safe HeroSection — NO framer-motion, pure CSS animations.
+ * SEO/LCP: h1 + description sind immer sichtbar (kein initiales opacity:0); nur Slide 0 = h1.
+ * B2B-Umbau (Phase 3.1): 4 Slides (speed/economics/compliance/segments), Teal-Primaer-CTA
+ * "Beratung buchen", Sekundaer-CTA "ROI-Rechner" (#roi-rechner), Proof-Chip-Reihe,
+ * Pause-on-hover/focus + prefers-reduced-motion + Dot-ARIA (aria-current/-label) + Pause/Play.
  */
 const HeroSection = () => {
-  const { currentSlide, setCurrentSlide, slides, t } = useHeroSlider()
+  const { currentSlide, setCurrentSlide, slides, t, isPaused, setIsPaused } = useHeroSlider()
 
-  // Track hydration and slide changes for animations
   const [isHydrated, setIsHydrated] = useState(false)
   const [displaySlide, setDisplaySlide] = useState(currentSlide)
   const [animationPhase, setAnimationPhase] = useState<'idle' | 'exiting' | 'entering'>('idle')
   const isFirstRender = useRef(true)
 
-  // Hydration effect
   useEffect(() => {
     setIsHydrated(true)
     isFirstRender.current = false
   }, [])
 
-  // Handle slide change with exit/enter animation phases
   useEffect(() => {
     if (isFirstRender.current || currentSlide === displaySlide) return
-
-    // Start exit animation
     setAnimationPhase('exiting')
-
-    // After exit animation, switch slide and start enter animation
     const exitTimer = setTimeout(() => {
       setDisplaySlide(currentSlide)
       setAnimationPhase('entering')
-
-      // After enter animation, go idle
-      const enterTimer = setTimeout(() => {
-        setAnimationPhase('idle')
-      }, 600) // Match CSS animation duration
-
+      const enterTimer = setTimeout(() => setAnimationPhase('idle'), 600)
       return () => clearTimeout(enterTimer)
-    }, 400) // Match CSS exit animation duration
-
+    }, 400)
     return () => clearTimeout(exitTimer)
   }, [currentSlide, displaySlide])
 
-  // Get animation classes for content
   const getContentAnimationClass = () => {
     if (!isHydrated || isFirstRender.current) return ''
     if (animationPhase === 'exiting') return 'animate-slide-out-up'
@@ -59,7 +43,6 @@ const HeroSection = () => {
     return ''
   }
 
-  // Get animation classes for visuals
   const getVisualAnimationClass = () => {
     if (!isHydrated || isFirstRender.current) return ''
     const slide = slides[displaySlide]
@@ -75,26 +58,41 @@ const HeroSection = () => {
 
   const currentDisplaySlide = slides[displaySlide]
 
+  const chips = [
+    t('hero.chips.cv', 'CV < 2 % Präzision'),
+    t('hero.chips.minutes', 'Ergebnis in Minuten'),
+    t('hero.chips.ivdr', 'IVDR/CE'),
+    t('hero.chips.delivery', 'Einsatzbereit in 3–5 Werktagen'),
+    t('hero.chips.compat', 'Herstellerübergreifend kompatibel'),
+  ]
+
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white min-h-[700px] lg:h-[800px]"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={t('hero.aria.carousel', 'IglooPro Highlights')}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
+      className="relative overflow-hidden bg-brand-deep text-white min-h-[700px] lg:h-[800px]"
     >
       {/* Noise Overlay */}
       <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
 
-      {/* Dynamic Background Gradients */}
+      {/* Dekorative Glow-Akzente (geringe Opazitaet, NICHT die Grundflaeche) */}
       <div className="pointer-events-none absolute inset-0 opacity-30">
         <div className="absolute inset-y-0 left-0 w-[500px] bg-gradient-to-br from-brand-secondary/20 via-brand-primary/10 to-transparent blur-3xl" />
-        <div className="absolute inset-y-0 right-0 w-[500px] bg-gradient-to-tl from-brand-deep/40 via-brand-primary/20 to-transparent blur-3xl" />
+        <div className="absolute inset-y-0 right-0 w-[500px] bg-gradient-to-tl from-accent/20 via-brand-primary/10 to-transparent blur-3xl" />
       </div>
 
       <div className="relative z-10 mx-auto flex h-full max-w-container items-stretch px-6 pt-12 pb-20 sm:px-8 lg:px-0 lg:pt-12 lg:pb-0">
         <div className="grid w-full h-full gap-4 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
-          {/* Left Content Area */}
-          <div className="flex flex-col justify-center space-y-9 lg:space-y-7 z-20">
-            <div className="space-y-3 lg:space-y-2 h-[300px] sm:h-[350px] lg:h-hero-lg flex flex-col justify-center">
-              {/* Logo - LCP Element - always visible, no animation delays */}
+          {/* Left Content */}
+          <div className="flex flex-col justify-center space-y-8 lg:space-y-6 z-20">
+            <div className="space-y-3 lg:space-y-2 min-h-[280px] sm:min-h-[330px] flex flex-col justify-center">
+              {/* Logo - LCP-Element - immer sichtbar */}
               <img
                 src={iglooLogoWhite}
                 alt="IglooPro — Point-of-Care Diagnostiksystem"
@@ -103,16 +101,14 @@ const HeroSection = () => {
                 fetchPriority="high"
                 className="h-14 w-auto drop-shadow-sm mb-4 self-start"
               />
-
-              {/* Main Content - CSS animated on slide change */}
-              {/* SEO: Only first slide (dental) gets H1, others get H2 */}
+              {/* SEO: nur Slide 0 = H1, sonst H2 */}
               <div className={getContentAnimationClass()}>
                 {displaySlide === 0 ? (
-                  <h1 className="max-w-3xl font-medium tracking-[-0.02em] text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)]">
+                  <h1 className="max-w-3xl font-medium tracking-[-0.02em] text-[clamp(30px,6vw,56px)] leading-[clamp(36px,6.6vw,64px)]">
                     {currentDisplaySlide.content.title}
                   </h1>
                 ) : (
-                  <h2 className="max-w-3xl font-medium tracking-[-0.02em] text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)]">
+                  <h2 className="max-w-3xl font-medium tracking-[-0.02em] text-[clamp(30px,6vw,56px)] leading-[clamp(36px,6.6vw,64px)]">
                     {currentDisplaySlide.content.title}
                   </h2>
                 )}
@@ -122,61 +118,71 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Buttons and Stats - always visible */}
-            <div className="flex flex-col gap-3">
-              <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-6">
-                <Button
-                  to="/contact"
-                  variant="primary"
-                  size="sm"
-                  className="w-full text-center sm:w-auto sm:whitespace-nowrap"
-                >
-                  {t('hero.cta', 'Termin buchen')}
-                </Button>
-                <Button
-                  to="/downloads"
-                  variant="outline"
-                  size="sm"
-                  className="w-full text-center sm:w-auto sm:whitespace-nowrap"
-                >
-                  {t('hero.cta_downloads', 'Infomaterialien herunterladen')}
-                </Button>
-              </div>
-
-              <div className="mt-6 flex flex-row items-start gap-6 lg:mt-4">
-                <StatItem
-                  value={t('hero.stat1.value', '48h')}
-                  label={t('hero.stat1.label', 'Einsatzbereit nach Bestellung')}
-                  size="sm"
-                  className="scale-75 origin-top-left py-0"
-                />
-                <StatItem
-                  value={t('hero.stat2.value', 'CV < 2%')}
-                  label={t('hero.stat2.label', 'Präzision über den gesamten Messbereich')}
-                  size="sm"
-                  className="scale-75 origin-top-left py-0"
-                />
-              </div>
+            {/* CTAs: Primaer (Teal) Beratung buchen + Sekundaer (Magnet) ROI-Rechner */}
+            <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4">
+              <Button
+                to="/contact"
+                variant="secondary"
+                size="sm"
+                className="w-full text-center sm:w-auto sm:whitespace-nowrap !bg-accent !shadow-accent/20 hover:!bg-accent-strong focus-visible:!ring-accent"
+              >
+                {t('hero.cta', 'Beratung buchen')}
+              </Button>
+              <Button
+                href="#roi-rechner"
+                variant="outline"
+                size="sm"
+                className="w-full text-center sm:w-auto sm:whitespace-nowrap"
+              >
+                {t('hero.cta_roi', 'ROI-Rechner starten')}
+              </Button>
             </div>
 
-            {/* Slider Navigation Dots */}
-            <div className="flex space-x-3 mt-8">
-              {slides.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    currentSlide === index
-                      ? 'w-8 bg-brand-secondary'
-                      : 'w-2.5 bg-white/30 hover:bg-white/50'
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
+            {/* Proof-Chips */}
+            <ul className="flex flex-wrap gap-2">
+              {chips.map((chip, i) => (
+                <li
+                  key={i}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs text-white/90 ring-1 ring-white/15"
+                >
+                  <Check size={13} className="text-accent-line" aria-hidden="true" />
+                  {chip}
+                </li>
               ))}
+            </ul>
+
+            {/* Slider-Steuerung: Dots + Pause/Play */}
+            <div className="mt-2 flex items-center gap-4">
+              <div className="flex space-x-3" role="group" aria-label={t('hero.aria.carousel', 'IglooPro Highlights')}>
+                {slides.map((_, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    onClick={() => setCurrentSlide(index)}
+                    aria-current={currentSlide === index ? 'true' : undefined}
+                    aria-label={t('hero.aria.go_to_slide', { n: index + 1, defaultValue: 'Gehe zu Slide {{n}}' })}
+                    className={`h-2.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 ${
+                      currentSlide === index ? 'w-8 bg-accent' : 'w-2.5 bg-white/30 hover:bg-white/50'
+                    }`}
+                  />
+                ))}
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsPaused((p) => !p)}
+                aria-label={
+                  isPaused
+                    ? t('hero.aria.play', 'Automatischen Wechsel fortsetzen')
+                    : t('hero.aria.pause', 'Automatischen Wechsel pausieren')
+                }
+                className="rounded text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+              >
+                {isPaused ? <Play size={16} aria-hidden="true" /> : <Pause size={16} aria-hidden="true" />}
+              </button>
             </div>
           </div>
 
-          {/* Right Visual Area - CSS animated on slide change */}
+          {/* Right Visual */}
           <div className="relative mx-auto hidden h-full w-full max-w-lg items-end justify-center lg:flex pointer-events-none">
             <div className={getVisualAnimationClass()}>
               {currentDisplaySlide.type === 'image' ? (

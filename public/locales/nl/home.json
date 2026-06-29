@@ -24,6 +24,36 @@
     "longevity": {
       "title": "Preventie opnieuw gedefinieerd: Vitaliteit meetbaar maken.",
       "description": "Herken trends vroegtijdig. Zeer nauwkeurige monitoring van ontstekings- en stofwisselingsmarkers voor een lang en gezond leven."
+    },
+    "cta_roi": "ROI-Rechner starten",
+    "speed": {
+      "title": "Laborwerte in Minuten – der Patient bleibt im Stuhl.",
+      "description": "Der IglooPro liefert das Messergebnis chairside in wenigen Minuten – ohne Laborversand und ohne Warten auf einen Befund. So besprechen Sie Werte und nächsten Schritt im selben Termin."
+    },
+    "economics": {
+      "title": "Diagnostik, die sich rechnet – neuer Selbstzahler-Umsatz, ohne Laborabhängigkeit.",
+      "description": "POC-Diagnostik erschließt neue Selbstzahler-Leistungen, statt Umsätze ans Labor abzugeben. Was das für Ihren Praxisumsatz bedeutet, rechnen Sie im ROI-Rechner aus."
+    },
+    "compliance": {
+      "title": "Geprüfte Laborpräzision: IVDR/CE und CV < 2 % – validiert ab Tag 1.",
+      "description": "Der IglooPro ist IVDR/CE-konform und erreicht CV < 2 % Präzision über den gesamten Messbereich. Wir nehmen das Gerät validiert in Betrieb, damit Sie ab dem ersten Patienten sicher messen."
+    },
+    "segments": {
+      "title": "Eine Plattform für Dental, Beauty und Longevity.",
+      "description": "Vom Vitamin-D-Check am Behandlungsstuhl bis zum Longevity-Monitoring – der IglooPro deckt herstellerübergreifend die fachspezifischen Biomarker-Panels Ihrer Fachrichtung ab. Wählen Sie Ihren Bereich: Dental, Beauty oder Longevity."
+    },
+    "chips": {
+      "cv": "CV < 2 % Präzision",
+      "minutes": "Ergebnis in Minuten",
+      "ivdr": "IVDR/CE",
+      "delivery": "Einsatzbereit in 3–5 Werktagen",
+      "compat": "Herstellerübergreifend kompatibel"
+    },
+    "aria": {
+      "carousel": "IglooPro Highlights",
+      "go_to_slide": "Gehe zu Slide {{n}}",
+      "pause": "Automatischen Wechsel pausieren",
+      "play": "Automatischen Wechsel fortsetzen"
     }
   },
   "about": {
