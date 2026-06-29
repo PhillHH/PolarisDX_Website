@@ -12,10 +12,11 @@ import {
 } from '../components/seo'
 import { testimonials } from '../data/testimonials'
 import HeroSection from '../components/sections/HeroSection'
+import TrustBar from '../components/sections/TrustBar'
+import WhyPocSection from '../components/sections/WhyPocSection'
+import FinalCtaSection from '../components/sections/FinalCtaSection'
 import AboutSection from '../components/sections/AboutSection'
-import DoctorsSection from '../components/sections/DoctorsSection'
 import IglooWidgetSection from '../components/sections/IglooWidgetSection'
-// import FeaturedCaseStudy from '../components/sections/FeaturedCaseStudy' // temporarily disabled
 import TestimonialsSection from '../components/sections/TestimonialsSection'
 import BlogSection from '../components/sections/BlogSection'
 import FAQSection from '../components/sections/FAQSection'
@@ -77,29 +78,20 @@ const HomePage = () => {
         preloadImages={[heroDoctor]}
       />
       <HeroSection />
-      <div className="mx-auto flex max-w-container flex-col gap-16 px-4 pt-16 lg:px-0 lg:gap-16 lg:pt-8">
+      <TrustBar />
+      <WhyPocSection />
+      <div className="mx-auto max-w-container px-4 pt-16 lg:px-0 lg:pt-24">
         <Reveal width="100%">
           <AboutSection />
         </Reveal>
-        <Reveal width="100%">
-          <IglooWidgetSection />
-        </Reveal>
-        {/* <Reveal width="100%">
-          <FeaturedCaseStudy />
-        </Reveal> */}
-        <Reveal width="100%">
-          <DoctorsSection />
-        </Reveal>
       </div>
-
-      {/* Testimonials section is po be full-width */}
-      <div className="mt-32 lg:mt-32">
+      <IglooWidgetSection />
+      <div className="mt-24 lg:mt-32">
         <Reveal width="100%">
           <TestimonialsSection />
         </Reveal>
       </div>
-
-      <div className="mx-auto flex max-w-container flex-col gap-32 px-4 py-32 lg:px-0 lg:gap-32 lg:py-32">
+      <div className="mx-auto flex max-w-container flex-col gap-24 px-4 py-24 lg:gap-32 lg:px-0 lg:py-32">
         <Reveal width="100%">
           <BlogSection />
         </Reveal>
@@ -107,6 +99,7 @@ const HomePage = () => {
           <FAQSection />
         </Reveal>
       </div>
+      <FinalCtaSection />
     </>
   )
 }

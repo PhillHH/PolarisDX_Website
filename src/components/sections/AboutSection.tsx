@@ -1,5 +1,6 @@
 // Importiert wiederverwendbare UI-Komponenten und Bild-Assets.
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import { Button } from '../ui/Button'
 import SectionHeader from '../ui/SectionHeader' // Kopfzeilen-Komponente für Abschnitte
 import iglooExplode from '../../assets/igloo_explode.webp' // Bild für diesen Abschnitt
@@ -16,7 +17,7 @@ const AboutSection = () => {
       {/* Mobil ausgeblendet, nur auf Desktop (lg) sichtbar */}
       <div className="hidden lg:relative lg:mx-auto lg:block lg:h-[728px] lg:max-w-3xl">
         {/* Dunkelblauer Akzentbalken bleibt erhalten. */}
-        <div className="absolute -left-8 top-12 h-full w-64 bg-brand-primary" />
+        <div className="absolute -left-8 top-12 h-full w-64 bg-brand-deep" />
 
         {/* Hauptbild ohne hellen Hintergrund/Verlauf. */}
         <div className="relative h-full w-full">
@@ -34,12 +35,17 @@ const AboutSection = () => {
 
       {/* Rechte Spalte: Container für den Textinhalt. */}
       <div className="space-y-8 lg:space-y-6 lg:max-w-none">
+        {/* Risk-Reversal-Pill über der Kopfzeile. */}
+        <span className="inline-flex w-fit items-center self-start rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
+          {t('about.badge', 'Validiert ab Tag 1')}
+        </span>
+
         {/* Kopfzeile des Abschnitts mit Untertitel und Haupttitel. */}
         <SectionHeader
           caption={t('about.caption', 'IHR PERFORMANCE-GARANT')}
           title={t('about.title', 'Exzellenz und Sicherheit: Der Standard, den wir setzen.')}
           align="left"
-          titleClassName="text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)] font-medium tracking-[-0.02em] text-gray-900 max-w-xl lg:max-w-full"
+          titleClassName="text-[clamp(32px,7vw,64px)] leading-[clamp(38px,7.6vw,72px)] font-medium tracking-[-0.02em] text-heading max-w-xl lg:max-w-full"
           className="gap-3 lg:max-w-full"
         />
         {/* Textabsätze mit Platzhaltertext. */}
@@ -49,11 +55,17 @@ const AboutSection = () => {
         <p className="text-sm leading-relaxed text-gray-500 sm:text-base">
           {t('about.text2', 'Deshalb liefern wir exklusiv...')}
         </p>
-        {/* Ein primärer Button, der als Link zum 'hero'-Abschnitt fungiert. */}
-        <div className="flex justify-center pt-1 sm:pt-2 lg:justify-start">
-          <Button to="/contact" size="lg">
-            {t('about.cta', 'Exklusiven Vorteil sichern')}
+        {/* Primärer Button zum IglooPro-System + sekundärer Text-Link. */}
+        <div className="flex flex-col items-center gap-4 pt-1 sm:pt-2 lg:items-start">
+          <Button to="/igloo-pro" size="lg">
+            {t('about.cta', 'Zum IglooPro-System')}
           </Button>
+          <Link
+            to="/about"
+            className="text-sm font-medium text-accent underline-offset-4 hover:underline"
+          >
+            {t('about.company_link', 'Mehr über PolarisDX')}
+          </Link>
         </div>
       </div>
     </section>

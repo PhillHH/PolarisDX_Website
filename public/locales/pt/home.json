@@ -61,7 +61,9 @@
     "title": "Excelência e Segurança: O padrão que estabelecemos.",
     "text1": "O IglooPro é um dispositivo premium. Mas o verdadeiro desempenho premium só vem de um comissionamento perfeito e sem riscos. Uma entrega padrão deixa a complexidade para você. Nós assumimos a responsabilidade pelo resultado.",
     "text2": "É por isso que entregamos exclusivamente a promessa de configuração em 48 horas. Nossos pilares de desempenho garantem que seu fluxo de trabalho POC seja otimizado desde o primeiro segundo e que você possa usar a excelência diagnóstica imediatamente.",
-    "cta": "Garantir benefício exclusivo"
+    "cta": "Garantir benefício exclusivo",
+    "badge": "Validiert ab Tag 1",
+    "company_link": "Mehr über PolarisDX"
   },
   "doctors": {
     "caption": "FOCO EM DIAGNÓSTICO",
@@ -74,7 +76,8 @@
     "dental": "Dental",
     "beauty": "Beauty",
     "longevity": "Longevity",
-    "all_services": "Descobrir todos os serviços de diagnóstico"
+    "all_services": "Descobrir todos os serviços de diagnóstico",
+    "subtitle": "Wählen Sie Ihren Bereich – wir zeigen die passenden Biomarker-Panels und Anwendungen für Ihre Fachrichtung."
   },
   "services": {
     "caption": "FOCO EM DIAGNÓSTICO",
@@ -181,5 +184,37 @@
         "answer": "O nosso portefólio atual inclui o leitor POC IglooPro, uma vasta gama de testes rápidos para biomarcadores como Vitamina D3, CRP e HbA1c, além de produtos complementares como o nosso spray de Vitamina D3. Expandimos continuamente a nossa oferta para lhe proporcionar uma solução diagnóstica completa."
       }
     ]
+  },
+  "trustbar": {
+    "aria": "Vertrauensmerkmale",
+    "ivdr": "IVDR/CE-konform",
+    "cv": "CV < 2 % Laborpräzision",
+    "minutes": "Ergebnis in Minuten",
+    "compat": "Herstellerübergreifend kompatibel",
+    "delivery": "Einsatzbereit in 3–5 Werktagen"
+  },
+  "why": {
+    "caption": "Point of Care",
+    "title": "Warum POC in Ihrer Praxis?",
+    "intro": "Diagnostik direkt am Behandlungsplatz: Ergebnis in Minuten statt Tage warten — das verändert Ablauf, Patientenerlebnis und Wirtschaftlichkeit Ihrer Praxis.",
+    "card1": {
+      "title": "Kein Laborversand",
+      "text": "Das Ergebnis liegt sofort vor Ort vor — keine Wartezeit auf den Befund aus dem externen Labor."
+    },
+    "card2": {
+      "title": "Patient bleibt im Stuhl",
+      "text": "Werte messen und den nächsten Schritt direkt im selben Termin besprechen — ohne erneute Einbestellung."
+    },
+    "card3": {
+      "title": "Neuer Selbstzahler-Umsatz",
+      "text": "POC erschließt neue Selbstzahler-Leistungen in Ihrer Praxis, statt Umsatz an das externe Labor abzugeben."
+    }
+  },
+  "final_cta": {
+    "caption": "Bereit loszulegen",
+    "title": "Bereit für laborgenaue Diagnostik in Ihrer Praxis?",
+    "subtitle": "Sprechen Sie mit unserem Team oder berechnen Sie Ihr Einsparpotenzial — herstellerübergreifend, IVDR/CE-konform und in 3–5 Werktagen einsatzbereit.",
+    "cta_primary": "Beratung buchen",
+    "cta_secondary": "ROI-Rechner"
   }
 }

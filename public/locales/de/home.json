@@ -65,7 +65,9 @@
     "title": "Das IglooPro Performance-Setup: Validierte POC-Diagnostik ab Tag 1.",
     "text1": "Das IglooPro ist ein Premium-Gerät. Doch wahre Premium-Leistung entsteht erst durch eine perfektionierte, risikofreie Inbetriebnahme. Eine Standardlieferung überlässt Ihnen die Komplexität. Wir übernehmen die Verantwortung für das Ergebnis.",
     "text2": "Deshalb liefern wir exklusiv das Performance-Setup-Versprechen. Unsere Performance-Säulen garantieren, dass Ihr POC-Workflow von der ersten Sekunde an optimiert ist und Sie die diagnostische Exzellenz sofort nutzen können.",
-    "cta": "Exklusiven Vorteil sichern"
+    "cta": "Zum IglooPro-System",
+    "badge": "Validiert ab Tag 1",
+    "company_link": "Mehr über PolarisDX"
   },
   "doctors": {
     "caption": "DIAGNOSTIK-FOKUS",
@@ -74,11 +76,12 @@
     "cta": "Zum Igloo Pro System"
   },
   "igloo_widget": {
-    "title": "Anwendungsbereiche: POCT für Dental, Beauty und Longevity",
+    "title": "Welche Praxis führen Sie?",
     "dental": "Dental",
     "beauty": "Beauty",
     "longevity": "Longevity",
-    "all_services": "Alle Diagnostik-Services entdecken"
+    "all_services": "Alle Diagnostik-Services entdecken",
+    "subtitle": "Wählen Sie Ihren Bereich – wir zeigen die passenden Biomarker-Panels und Anwendungen für Ihre Fachrichtung."
   },
   "services": {
     "caption": "DIAGNOSTIK-FOKUS",
@@ -181,5 +184,37 @@
         "answer": "Unser aktuelles Portfolio umfasst den IglooPro POC-Reader, ein breites Spektrum an Schnelltests für Biomarker wie Vitamin D3, CRP und HbA1c sowie ergänzende Produkte wie unser Vitamin D3 Spray. Wir erweitern unser Angebot kontinuierlich, um Ihnen eine umfassende diagnostische Lösung zu bieten."
       }
     ]
+  },
+  "trustbar": {
+    "aria": "Vertrauensmerkmale",
+    "ivdr": "IVDR/CE-konform",
+    "cv": "CV < 2 % Laborpräzision",
+    "minutes": "Ergebnis in Minuten",
+    "compat": "Herstellerübergreifend kompatibel",
+    "delivery": "Einsatzbereit in 3–5 Werktagen"
+  },
+  "why": {
+    "caption": "Point of Care",
+    "title": "Warum POC in Ihrer Praxis?",
+    "intro": "Diagnostik direkt am Behandlungsplatz: Ergebnis in Minuten statt Tage warten — das verändert Ablauf, Patientenerlebnis und Wirtschaftlichkeit Ihrer Praxis.",
+    "card1": {
+      "title": "Kein Laborversand",
+      "text": "Das Ergebnis liegt sofort vor Ort vor — keine Wartezeit auf den Befund aus dem externen Labor."
+    },
+    "card2": {
+      "title": "Patient bleibt im Stuhl",
+      "text": "Werte messen und den nächsten Schritt direkt im selben Termin besprechen — ohne erneute Einbestellung."
+    },
+    "card3": {
+      "title": "Neuer Selbstzahler-Umsatz",
+      "text": "POC erschließt neue Selbstzahler-Leistungen in Ihrer Praxis, statt Umsatz an das externe Labor abzugeben."
+    }
+  },
+  "final_cta": {
+    "caption": "Bereit loszulegen",
+    "title": "Bereit für laborgenaue Diagnostik in Ihrer Praxis?",
+    "subtitle": "Sprechen Sie mit unserem Team oder berechnen Sie Ihr Einsparpotenzial — herstellerübergreifend, IVDR/CE-konform und in 3–5 Werktagen einsatzbereit.",
+    "cta_primary": "Beratung buchen",
+    "cta_secondary": "ROI-Rechner"
   }
 }

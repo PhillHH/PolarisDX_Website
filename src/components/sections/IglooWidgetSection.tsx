@@ -46,8 +46,14 @@ const IglooWidgetSection = () => {
     <section className="relative py-20 lg:py-32 bg-slate-50 overflow-visible">
       <div className="mx-auto max-w-container px-4 text-center lg:px-0 mb-16 relative z-10">
         <Eyebrow size="default" className="mb-8">
-          {t('igloo_widget.title', 'Anwendungsbereiche')}
+          {t('igloo_widget.title', 'Welche Praxis führen Sie?')}
         </Eyebrow>
+        <p className="mx-auto max-w-2xl text-center text-gray-600">
+          {t(
+            'igloo_widget.subtitle',
+            'Wählen Sie Ihren Bereich – wir zeigen die passenden Biomarker-Panels und Anwendungen für Ihre Fachrichtung.'
+          )}
+        </p>
       </div>
 
       <div className="mx-auto flex w-full flex-col items-center justify-center gap-10 lg:block lg:h-[600px] lg:w-[1200px] relative px-4 lg:px-0">
