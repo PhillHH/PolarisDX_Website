@@ -1,272 +1,272 @@
 {
+  "seo": {
+    "title": "Diagnostic POC pour votre cabinet : des résultats de laboratoire en quelques minutes",
+    "description": "Diagnostic au point de soins de précision laboratoire à votre cabinet : IVDR/CE, CV < 2 % et résultat en minutes. Nouveaux revenus en prestations privées – réservez votre conseil."
+  },
   "hero": {
-    "caption": "Performance Point-of-Care",
-    "title": "IglooPro:\nPoint-of-Care. Parfait. Immédiat.",
-    "description": "Assurez-vous le pack performance : Votre IglooPro est prêt à l'emploi en 48 heures – garanti.",
-    "cta": "Prendre rendez-vous",
-    "cta_downloads": "Télécharger les documents d'information",
+    "caption": "Performance au point de soins",
+    "title": "IglooPro :\nPoint-of-Care. Parfait. Immédiat.",
+    "description": "Profitez du pack performance : votre IglooPro est prêt à l'emploi en 3 à 5 jours ouvrés – garanti.",
+    "cta": "Réserver un conseil",
+    "cta_roi": "Lancer le calculateur de ROI",
+    "cta_downloads": "Télécharger la documentation",
     "stat1": {
-      "value": "3-5 jours ouvrés",
+      "value": "3 à 5 jours ouvrés",
       "label": "Prêt à l'emploi après commande"
     },
     "stat2": {
-      "value": "CV < 2%",
+      "value": "CV < 2 %",
       "label": "Précision sur toute la plage de mesure"
     },
     "dental": {
-      "title": "Diagnostic intelligent : La nouvelle référence pour des flux de travail POC efficaces.",
-      "description": "Assurez-vous le pack performance : Votre IglooPro est prêt à l'emploi en 48 heures – garanti."
+      "title": "IglooPro : le diagnostic au point de soins. La nouvelle référence pour votre cabinet.",
+      "description": "Profitez du pack performance : votre IglooPro est prêt à l'emploi en 3 à 5 jours ouvrés – garanti."
     },
     "beauty": {
-      "title": "Esthétique scientifique : Des résultats mesurables au lieu de suppositions.",
-      "description": "Visualisez le succès de vos traitements. L'IglooPro fournit des données précises sur les marqueurs anti-âge et la santé de la peau en qualité laboratoire."
+      "title": "Esthétique scientifique : des résultats mesurés plutôt que des suppositions.",
+      "description": "Visualisez le succès de vos traitements. L'IglooPro fournit des données précises sur les marqueurs anti-âge et la santé de la peau, d'une qualité de laboratoire."
     },
     "longevity": {
-      "title": "La prévention redéfinie : Rendre la vitalité mesurable.",
-      "description": "Détectez les tendances tôt. Surveillance de haute précision des marqueurs d'inflammation et métaboliques pour une vie longue et saine."
+      "title": "La prévention redéfinie : rendre la vitalité mesurable.",
+      "description": "Détectez les tendances à temps. Une surveillance de haute précision des marqueurs inflammatoires et métaboliques pour une vie longue et en bonne santé."
     },
-    "cta_roi": "ROI-Rechner starten",
     "speed": {
-      "title": "Laborwerte in Minuten – der Patient bleibt im Stuhl.",
-      "description": "Der IglooPro liefert das Messergebnis chairside in wenigen Minuten – ohne Laborversand und ohne Warten auf einen Befund. So besprechen Sie Werte und nächsten Schritt im selben Termin."
+      "title": "Des résultats de laboratoire en quelques minutes – le patient reste au fauteuil.",
+      "description": "L'IglooPro fournit le résultat de mesure au fauteuil en quelques minutes – sans envoi au laboratoire ni attente d'un compte rendu. Vous discutez ainsi des valeurs et de l'étape suivante lors du même rendez-vous."
     },
     "economics": {
-      "title": "Diagnostik, die sich rechnet – neuer Selbstzahler-Umsatz, ohne Laborabhängigkeit.",
-      "description": "POC-Diagnostik erschließt neue Selbstzahler-Leistungen, statt Umsätze ans Labor abzugeben. Was das für Ihren Praxisumsatz bedeutet, rechnen Sie im ROI-Rechner aus."
+      "title": "Un diagnostic rentable – un nouveau chiffre d'affaires en prestations privées, sans dépendance au laboratoire.",
+      "description": "Le diagnostic POC ouvre de nouvelles prestations privées au lieu de céder le chiffre d'affaires au laboratoire. Calculez ce que cela représente pour le chiffre d'affaires de votre cabinet grâce au calculateur de ROI."
     },
     "compliance": {
-      "title": "Geprüfte Laborpräzision: IVDR/CE und CV < 2 % – validiert ab Tag 1.",
-      "description": "Der IglooPro ist IVDR/CE-konform und erreicht CV < 2 % Präzision über den gesamten Messbereich. Wir nehmen das Gerät validiert in Betrieb, damit Sie ab dem ersten Patienten sicher messen."
+      "title": "Une précision de laboratoire vérifiée : IVDR/CE et CV < 2 % – validé dès le premier jour.",
+      "description": "L'IglooPro est conforme à l'IVDR/CE et atteint une précision de CV < 2 % sur toute la plage de mesure. Nous mettons l'appareil en service après validation, afin que vous puissiez mesurer en toute fiabilité dès le premier patient."
     },
     "segments": {
-      "title": "Eine Plattform für Dental, Beauty und Longevity.",
-      "description": "Vom Vitamin-D-Check am Behandlungsstuhl bis zum Longevity-Monitoring – der IglooPro deckt herstellerübergreifend die fachspezifischen Biomarker-Panels Ihrer Fachrichtung ab. Wählen Sie Ihren Bereich: Dental, Beauty oder Longevity."
+      "title": "Une seule plateforme pour Dental, Beauty et Longevity.",
+      "description": "Du contrôle de la Vitamin D au fauteuil jusqu'au suivi Longevity – l'IglooPro couvre, tous fabricants confondus, les panels de biomarqueurs spécifiques à votre spécialité. Choisissez votre domaine : Dental, Beauty ou Longevity."
     },
     "chips": {
-      "cv": "CV < 2 % Präzision",
-      "minutes": "Ergebnis in Minuten",
+      "cv": "Précision CV < 2 %",
+      "minutes": "Résultat en quelques minutes",
       "ivdr": "IVDR/CE",
-      "delivery": "Einsatzbereit in 3–5 Werktagen",
-      "compat": "Herstellerübergreifend kompatibel"
+      "delivery": "Prêt à l'emploi en 3 à 5 jours ouvrés",
+      "compat": "Compatible tous fabricants"
     },
     "aria": {
-      "carousel": "IglooPro Highlights",
-      "go_to_slide": "Gehe zu Slide {{n}}",
-      "pause": "Automatischen Wechsel pausieren",
-      "play": "Automatischen Wechsel fortsetzen"
+      "carousel": "Points forts de l'IglooPro",
+      "go_to_slide": "Aller à la diapositive {{n}}",
+      "pause": "Mettre en pause le défilement automatique",
+      "play": "Reprendre le défilement automatique"
     }
   },
   "about": {
     "caption": "VOTRE GARANT DE PERFORMANCE",
-    "title": "Excellence et Sécurité : La norme que nous fixons.",
-    "text1": "L'IglooPro est un appareil haut de gamme. Mais la véritable performance haut de gamme ne vient que d'une mise en service parfaite et sans risque. Une livraison standard vous laisse la complexité. Nous prenons la responsabilité du résultat.",
-    "text2": "C'est pourquoi nous livrons exclusivement la promesse de configuration en 48 heures. Nos piliers de performance garantissent que votre flux de travail POC est optimisé dès la première seconde et que vous pouvez utiliser l'excellence diagnostique immédiatement.",
-    "cta": "Garantir un avantage exclusif",
-    "badge": "Validiert ab Tag 1",
-    "company_link": "Mehr über PolarisDX"
+    "title": "L'installation performance IglooPro : un diagnostic POC validé dès le premier jour.",
+    "text1": "L'IglooPro est un appareil haut de gamme. Mais une véritable performance haut de gamme ne naît que d'une mise en service parfaite et sans risque. Une livraison standard vous laisse gérer la complexité. Nous, nous assumons la responsabilité du résultat.",
+    "text2": "C'est pourquoi nous proposons en exclusivité la promesse d'installation performance. Nos piliers de performance garantissent que votre flux de travail POC est optimisé dès la première seconde et que vous pouvez profiter immédiatement de l'excellence diagnostique.",
+    "cta": "Découvrir le système IglooPro",
+    "badge": "Validé dès le premier jour",
+    "company_link": "En savoir plus sur PolarisDX"
   },
   "doctors": {
     "caption": "FOCUS DIAGNOSTIC",
-    "title": "Diagnostic précis. Résultats immédiats au Point-of-Care.",
-    "description": "Découvrez avec des systèmes comme l'Igloo Pro de DX365 comment optimiser vos soins aux patients et fournir des diagnostics importants directement sur le lieu de traitement – avec des résultats précis en quelques minutes.",
-    "cta": "Vers le système Igloo Pro"
+    "title": "Un diagnostic précis avec l'IglooPro : des résultats immédiats au point de soins.",
+    "description": "Découvrez, avec des systèmes comme l'Igloo Pro de DX365, comment optimiser la prise en charge de vos patients et poser des diagnostics importants directement sur le lieu de traitement – avec des résultats d'une précision de laboratoire en quelques minutes.",
+    "cta": "Découvrir le système Igloo Pro"
   },
   "igloo_widget": {
-    "title": "Domaines d'application",
+    "title": "Quel type de cabinet dirigez-vous ?",
     "dental": "Dental",
     "beauty": "Beauty",
     "longevity": "Longevity",
     "all_services": "Découvrir tous les services de diagnostic",
-    "subtitle": "Wählen Sie Ihren Bereich – wir zeigen die passenden Biomarker-Panels und Anwendungen für Ihre Fachrichtung."
+    "subtitle": "Choisissez votre domaine – nous vous présentons les panels de biomarqueurs et les applications adaptés à votre spécialité."
   },
   "services": {
     "caption": "FOCUS DIAGNOSTIC",
     "title": "Domaines clés du diagnostic préventif",
     "poc_systemloesungen": {
       "title": "Solutions système POC",
-      "description": "Votre centre de contrôle pour le diagnostic. Analyseurs mobiles qui fournissent des résultats de laboratoire en quelques minutes directement sur le lieu de traitement (par ex. Igloo Pro)."
+      "description": "Votre centre de pilotage pour le diagnostic. Des analyseurs mobiles qui fournissent des résultats d'une précision de laboratoire en quelques minutes, directement sur le lieu de traitement (par ex. Igloo Pro)."
     },
     "praeventions_checks": {
       "title": "Bilans de santé préventifs",
-      "description": "La prévention repensée. Détermination rapide de biomarqueurs importants (par ex. Vitamine D, CRP, HbA1c) pour la détection précoce des risques et des conseils de santé individuels."
+      "description": "La prévention repensée. Détermination rapide de biomarqueurs importants (par ex. Vitamin D, CRP, HbA1c) pour une détection précoce des risques et un conseil de santé personnalisé."
     },
     "infektion_entzuendung": {
       "title": "Marqueurs d'infection et d'inflammation",
-      "description": "Réponses rapides dans les cas critiques. Analyse immédiate des valeurs d'inflammation (CRP, PCT, IL-6) et des maladies infectieuses – essentiel pour les soins aigus et le triage."
+      "description": "Des réponses rapides dans les cas critiques. Analyse immédiate des marqueurs inflammatoires (CRP, PCT, IL-6) et des maladies infectieuses – essentielle pour les soins aigus et le triage."
     },
     "stoffwechsel_herz": {
       "title": "Métabolisme et santé cardiaque",
-      "description": "Indicateurs importants en un coup d'œil. Mesure précise de l'HbA1c, des profils de cholestérol et des marqueurs cardiaques (par ex. D-Dimère) pour la surveillance des maladies chroniques."
+      "description": "Des indicateurs essentiels sous contrôle. Mesure précise de l'HbA1c, des profils de cholestérol et des marqueurs cardiaques (par ex. D-Dimer) pour le suivi des maladies chroniques."
     },
     "hormon_tests": {
-      "title": "Tests hormonaux et endocrinologie",
-      "description": "Le diagnostic spécialisé rendu facile. Large gamme de tests pour les hormones thyroïdiennes et de reproduction (TSH, AMH) pour les cabinets spécialisés et les pharmacies."
+      "title": "Tests hormonaux et d'endocrinologie",
+      "description": "Le diagnostic spécialisé en toute simplicité. Un large éventail de tests pour les hormones thyroïdiennes et de la reproduction (TSH, AMH), destiné aux cabinets spécialisés et aux pharmacies."
     },
     "kompatibilitaet_integration": {
-      "title": "Compatibilité multi-fabricants",
-      "description": "Flexibilité maximale. Grâce à la technologie universelle, nos appareils évaluent 90% de tous les tests à flux latéral sur le marché. Sécurité d'investissement grâce à l'ouverture."
+      "title": "Compatibilité tous fabricants",
+      "description": "Une flexibilité maximale. Grâce à une technologie universelle, nos appareils analysent 90 % de tous les tests à flux latéral disponibles sur le marché. La sécurité de l'investissement par l'ouverture."
     },
     "dental": {
-      "title": "Dentaire",
-      "description": "Implantologie optimisée. Analyse immédiate de la vitamine D pour une meilleure cicatrisation et des marqueurs d'inflammation pour minimiser les risques directement au fauteuil."
+      "title": "Dental",
+      "description": "Une implantologie optimisée. Analyse immédiate de la Vitamin D pour une meilleure cicatrisation et des marqueurs inflammatoires pour minimiser les risques, directement au fauteuil."
     },
     "beauty": {
-      "title": "Beauté & Esthétique",
-      "description": "La beauté de l'intérieur. Esthétique scientifiquement fondée par l'analyse de la santé de la peau, du statut hormonal et des micronutriments pour des résultats visibles."
+      "title": "Beauty & Esthétique",
+      "description": "La beauté de l'intérieur. Une esthétique scientifiquement fondée grâce à l'analyse de la santé de la peau, du statut hormonal et des micronutriments pour des résultats visibles."
     },
     "longevity": {
-      "title": "Longévité",
-      "description": "Gestion proactive du vieillissement. Surveillance des biomarqueurs essentiels comme l'HbA1c, les lipides et les valeurs d'inflammation pour une vie plus longue et plus saine."
+      "title": "Longevity",
+      "description": "Une gestion proactive du vieillissement. Surveillance de biomarqueurs essentiels tels que l'HbA1c, les lipides et les marqueurs inflammatoires pour une vie plus longue et en meilleure santé."
     }
   },
   "testimonials": {
-    "caption": "TÉMOIGNAGES",
-    "title": "Ce que disent nos utilisateurs à propos du système Igloo Pro",
-    "ratingLabel": "Note globale\nbasée sur 3500+ avis",
+    "caption": "TÉMOIGNAGES DE CABINETS",
+    "title": "Ce que les cabinets disent du système IglooPro",
+    "ratingLabel": "Note globale\nbasée sur les évaluations de cabinets",
     "positiveLabel": "Avis positif",
     "richard_pollock": {
-      "role": "Dentiste (Avis réel)",
+      "role": "Dentiste (Avis authentique)",
       "title": "Dentiste biologique et chirurgien implantaire / Chelsea Dental Clinic",
-      "focus": "Bilans de santé rapides sur site (Prévention, Vitamine D)",
-      "text": "L'analyse des niveaux de vitamine D et d'autres indicateurs de santé clés sur site ne peut être sous-estimée. L'Igloo Pro me permet d'effectuer un simple test sanguin capillaire, de vérifier les besoins des patients et de les guider ensuite vers les suppléments supplémentaires dont ils pourraient avoir besoin pour optimiser le traitement. Cette capacité s'avère transformatrice en termes de résultats pour les patients."
-    },
-    "martin_fischer": {
-      "role": "Médecin généraliste/Cabinet",
-      "title": "Spécialiste en médecine interne / Cabinet de médecine interne Dr. Fischer",
-      "focus": "Diagnostic immédiat pour les patients aigus (Efficacité, Décision thérapeutique)",
-      "text": "La possibilité de déterminer immédiatement des marqueurs d'inflammation comme la CRP au cabinet a révolutionné notre flux de traitement. Nous pouvons décider plus rapidement si une antibiothérapie est nécessaire pour les patients souffrant d'infections peu claires et éviter les renvois inutiles. Cela nous fait gagner du temps et augmente considérablement la satisfaction des patients."
-    },
-    "goran_stojanovic": {
-      "title": "Biological Dentist / Principal Dentist & Owner",
-      "role": "Dentist (Real Review)",
-      "focus": "Rapid chairside diagnostics for implant planning (Vitamin D, CRP)",
-      "text": "As a biological dentist, I am deeply convinced that holistic health always begins with the teeth. The Igloo Pro allows me to make fast and precise diagnostic decisions exactly where they are needed: at the chair. With immediate Vitamin D and CRP analysis, I can plan implant placements optimally and often accelerate them significantly. This gives my patients safer and more efficient treatment."
-    },
-    "bastian_wessing": {
-      "role": "Medical Director",
-      "text": "The Igloo Multireader lets us measure inflammation markers, HbA1c, cholesterol, and Vitamin D right at the chair. That makes periodontal and implant treatments safer and faster to start. Training and support from PolarisDX are straightforward—the device has become a fixed part of our daily workflow.",
-      "focus": "Rapid chairside diagnostics for periodontology & implantology (Vitamin D, HbA1c, cholesterol, CRP)",
-      "title": "MVZ Zahnkultur Berlin Brandenburg GmbH"
+      "focus": "Bilans de santé rapides sur site (Prévention, Vitamin D)",
+      "text": "Réaliser sur site l'analyse des taux de Vitamin D et d'autres indicateurs de santé clés ne peut être sous-estimé. L'Igloo Pro me permet d'effectuer un simple test sanguin capillaire, de cerner les besoins des patients, puis de les orienter vers les compléments dont ils pourraient avoir besoin pour optimiser le traitement. Cette possibilité se révèle véritablement transformatrice pour les résultats des patients."
     },
     "kristian_grimm": {
-      "role": "Chirurgien-dentiste (Avis vérifié)",
+      "role": "Dentiste (Avis authentique)",
       "title": "32reasons Zahnteam / Hambourg",
-      "focus": "Prévention, Vitamine D, HbA1c, Santé systémique",
-      "text": "32reasons & Polaris DX — la médecine dentaire repensée. Le lecteur chairside nous permet de déterminer des biomarqueurs comme la Vitamine D et l'HbA1c directement sur place. Cela relie immédiatement la dentisterie à la santé systémique pour des décisions thérapeutiques rapides et fondées sur les preuves."
+      "focus": "Prévention, Vitamin D, HbA1c, Santé systémique",
+      "text": "32reasons & Polaris DX – la médecine dentaire repensée. Le lecteur chairside nous permet de déterminer des biomarqueurs comme la Vitamin D et l'HbA1c directement sur place. Cela relie immédiatement la médecine dentaire à la santé systémique pour des décisions thérapeutiques rapides et fondées sur les preuves."
+    },
+    "martin_fischer": {
+      "role": "Médecin généraliste / Cabinet",
+      "title": "Spécialiste en médecine interne / Cabinet de médecine interne Dr Fischer",
+      "focus": "Diagnostic immédiat chez les patients aigus (Efficacité, Décision thérapeutique)",
+      "text": "La possibilité de déterminer immédiatement au cabinet des marqueurs inflammatoires comme la CRP a révolutionné notre déroulement de traitement. Chez les patients présentant des infections d'origine incertaine, nous pouvons décider plus rapidement si une antibiothérapie est nécessaire et éviter des orientations inutiles. Cela nous fait gagner du temps et augmente nettement la satisfaction des patients."
+    },
+    "bastian_wessing": {
+      "role": "Directeur médical",
+      "title": "MVZ Zahnkultur Berlin Brandenburg GmbH",
+      "focus": "Diagnostic immédiat pour la parodontologie et l'implantologie (Vitamin D, HbA1c, cholestérol, CRP)",
+      "text": "L'Igloo Multireader permet de mesurer les marqueurs inflammatoires, l'HbA1c, le cholestérol et la Vitamin D directement au fauteuil. Nous planifions ainsi les traitements parodontaux et implantaires de manière plus sûre et les démarrons plus rapidement. La formation et le support assurés par PolarisDX sont simples – l'appareil est devenu un élément à part entière de notre quotidien."
+    },
+    "goran_stojanovic": {
+      "role": "Dentiste (Avis authentique)",
+      "title": "Dentiste biologique / Dentiste principal et propriétaire",
+      "focus": "Diagnostic immédiat pour la planification implantaire (Vitamin D, CRP)",
+      "text": "En tant que dentiste biologique, je suis profondément convaincu qu'une santé globale commence toujours aussi par les dents. L'Igloo Pro me permet de prendre des décisions diagnostiques rapides et précises – exactement là où elles sont nécessaires : au fauteuil. Grâce à l'analyse immédiate de la Vitamin D et de la CRP, je peux planifier les poses d'implants de façon optimale et souvent les accélérer nettement. Mes patientes et patients bénéficient ainsi d'un traitement plus sûr et plus efficace."
     }
   },
   "blog": {
     "caption": "Blog et actualités",
-    "title": "Nos articles sur la santé",
-    "eeat_text": "Fachbeiträge unseres POC-Diagnostik-Teams – fundiert, praxisnah, aktuell.",
-    "authors_link": "Über uns & Autoren",
-    "events_cta": "Termine & Webinare"
-  },
-  "seo": {
-    "title": "IglooPro, reader POC : résultats de laboratoire en 3 minutes",
-    "description": "Un diagnostic de précision laboratoire en 3 minutes, directement à votre cabinet : le reader POC IglooPro pour le dentaire, la longévité et l'esthétique. Réservez votre démo."
+    "title": "Blog : actualités du diagnostic au point de soins",
+    "eeat_text": "Des articles spécialisés de notre équipe de diagnostic POC – rigoureux, concrets et actuels.",
+    "authors_link": "À propos de nous et auteurs",
+    "events_cta": "Rendez-vous et webinaires"
   },
   "faq": {
     "caption": "FAQ",
     "title": "Questions fréquentes sur PolarisDX et le diagnostic au point de soins",
     "items": [
       {
-        "question": "Que fait PolarisDX ?",
-        "answer": "PolarisDX est votre partenaire pour le diagnostic au point de soins en Europe. Nous ne fournissons pas seulement des appareils et des tests rapides, mais vous accompagnons du conseil initial à la mise en service jusqu'au fonctionnement quotidien. Notre objectif : un diagnostic de précision laboratoire directement dans votre cabinet, sans détour par un laboratoire central."
+        "question": "L'IglooPro est-il rentable pour mon cabinet ?",
+        "answer": "Avec le diagnostic POC, vous pouvez proposer la détermination de biomarqueurs comme prestation privée directement au cabinet, au lieu de la confier à un laboratoire externe. Le calculateur de ROI vous permet d'estimer en toute transparence le volume d'utilisation et les revenus correspondants à votre cas concret. Vous voyez ainsi, dès avant l'acquisition, comment le système s'intègre à la structure de votre cabinet."
       },
       {
-        "question": "Pour quels secteurs le diagnostic au point de soins est-il pertinent ?",
-        "answer": "Nos solutions s'utilisent partout où des résultats de laboratoire rapides et précis sont nécessaires sur place. Nos domaines principaux sont le dentaire, la longévité et l'esthétique — mais nous accompagnons également les médecins généralistes, internistes et d'autres spécialités où le POCT apporte une valeur ajoutée."
+        "question": "L'IglooPro est-il homologué pour une utilisation en cabinet et soumis à une assurance qualité ?",
+        "answer": "L'IglooPro est conforme à l'IVDR/CE et donc conçu pour le diagnostic immédiat près du patient (POCT). Sur toute la plage de mesure, le système atteint une précision de CV < 2 %, ce qui favorise des résultats reproductibles. La mise en service est validée, de sorte que les exigences d'assurance qualité du POCT sont prises en compte dès le départ."
       },
       {
-        "question": "Comment se déroule la collaboration avec PolarisDX ?",
-        "answer": "Après un entretien personnalisé, nous composons votre installation sur mesure. Vous recevez votre appareil sous 3 à 5 jours ouvrés, mise en service validée incluse. Par la suite, nous restons à vos côtés avec des formations, un support technique et un suivi continu."
+        "question": "Suis-je lié à un seul fournisseur après l'achat ?",
+        "answer": "Non. L'IglooPro fonctionne tous fabricants confondus, vous n'êtes donc pas limité aux tests d'un seul fournisseur. Cela vous donne de la flexibilité dans le choix de vos panels de tests et protège votre investissement si vos besoins diagnostiques évoluent avec le temps."
       },
       {
-        "question": "Quels produits et solutions propose PolarisDX ?",
-        "answer": "Notre portfolio actuel comprend le lecteur POC IglooPro, une large gamme de tests rapides pour des biomarqueurs tels que la Vitamine D3, la CRP et l'HbA1c, ainsi que des produits complémentaires comme notre spray Vitamine D3. Nous élargissons continuellement notre offre pour vous fournir une solution diagnostique complète."
+        "question": "L'intégration dans notre quotidien de cabinet est-elle complexe ?",
+        "answer": "L'IglooPro est conçu pour une utilisation directement au fauteuil et fournit le résultat en quelques minutes, de sorte que la mesure s'intègre au rendez-vous en cours. Lors de la mise en service, nous formons votre équipe au déroulement de la mesure et à l'utilisation de l'appareil. Ensuite, nous restons à vos côtés avec un support technique et un accompagnement continu."
       },
       {
-        "question": "Wie schnell ist das System nach der Bestellung einsatzbereit?",
-        "answer": "Nach der Bestellung ist Ihr IglooPro in der Regel innerhalb von 3-5 Werktagen einsatzbereit. Wir nehmen das Geraet validiert in Betrieb, sodass Sie ab dem ersten Patienten verlaesslich messen koennen. Eine separate, langwierige Einrichtungsphase entfaellt damit."
+        "question": "À quelle vitesse le système est-il prêt à l'emploi après la commande ?",
+        "answer": "Après la commande, votre IglooPro est en général prêt à l'emploi sous 3 à 5 jours ouvrés. Nous mettons l'appareil en service après validation, afin que vous puissiez mesurer de façon fiable dès le premier patient. Une phase d'installation distincte et longue est ainsi évitée."
       },
       {
-        "question": "Welche Biomarker kann ich je nach Fachrichtung bestimmen?",
-        "answer": "Das System deckt fachspezifische Panels fuer Dental, Beauty und Longevity ab - von Vitamin D und CRP ueber HbA1c bis zu Stoffwechsel- und Entzuendungsmarkern. In der Dentalmedizin stehen etwa Vitamin D und Entzuendungswerte im Fokus, im Longevity-Bereich das Monitoring von Stoffwechsel- und Entzuendungsmarkern. Welche Tests fuer Ihre Fachrichtung sinnvoll sind, stimmen wir im Beratungsgespraech individuell ab."
+        "question": "Quels biomarqueurs puis-je déterminer selon ma spécialité ?",
+        "answer": "Le système couvre des panels spécifiques pour Dental, Beauty et Longevity – de la Vitamin D et la CRP à l'HbA1c, jusqu'aux marqueurs métaboliques et inflammatoires. En médecine dentaire, l'accent est mis par exemple sur la Vitamin D et les marqueurs inflammatoires, tandis que dans le domaine Longevity, c'est le suivi des marqueurs métaboliques et inflammatoires. Nous définissons ensemble, lors de l'entretien de conseil, les tests pertinents pour votre spécialité."
       }
     ]
   },
   "trustbar": {
-    "aria": "Vertrauensmerkmale",
-    "ivdr": "IVDR/CE-konform",
-    "cv": "CV < 2 % Laborpräzision",
-    "minutes": "Ergebnis in Minuten",
-    "compat": "Herstellerübergreifend kompatibel",
-    "delivery": "Einsatzbereit in 3–5 Werktagen"
+    "aria": "Gages de confiance",
+    "ivdr": "Conforme IVDR/CE",
+    "cv": "Précision de laboratoire CV < 2 %",
+    "minutes": "Résultat en quelques minutes",
+    "compat": "Compatible tous fabricants",
+    "delivery": "Prêt à l'emploi en 3 à 5 jours ouvrés"
   },
   "why": {
     "caption": "Point of Care",
-    "title": "Warum POC in Ihrer Praxis?",
-    "intro": "Diagnostik direkt am Behandlungsplatz: Ergebnis in Minuten statt Tage warten — das verändert Ablauf, Patientenerlebnis und Wirtschaftlichkeit Ihrer Praxis.",
+    "title": "Pourquoi le POC dans votre cabinet ?",
+    "intro": "Le diagnostic directement sur le lieu de traitement : un résultat en quelques minutes au lieu d'attendre des jours — cela transforme l'organisation, l'expérience patient et la rentabilité de votre cabinet.",
     "card1": {
-      "title": "Kein Laborversand",
-      "text": "Das Ergebnis liegt sofort vor Ort vor — keine Wartezeit auf den Befund aus dem externen Labor."
+      "title": "Aucun envoi au laboratoire",
+      "text": "Le résultat est disponible immédiatement sur place — aucune attente du compte rendu du laboratoire externe."
     },
     "card2": {
-      "title": "Patient bleibt im Stuhl",
-      "text": "Werte messen und den nächsten Schritt direkt im selben Termin besprechen — ohne erneute Einbestellung."
+      "title": "Le patient reste au fauteuil",
+      "text": "Mesurer les valeurs et discuter de l'étape suivante directement lors du même rendez-vous — sans nouvelle convocation."
     },
     "card3": {
-      "title": "Neuer Selbstzahler-Umsatz",
-      "text": "POC erschließt neue Selbstzahler-Leistungen in Ihrer Praxis, statt Umsatz an das externe Labor abzugeben."
+      "title": "Un nouveau chiffre d'affaires en prestations privées",
+      "text": "Le POC ouvre de nouvelles prestations privées dans votre cabinet, au lieu de céder du chiffre d'affaires au laboratoire externe."
     }
   },
   "final_cta": {
-    "caption": "Bereit loszulegen",
-    "title": "Bereit für laborgenaue Diagnostik in Ihrer Praxis?",
-    "subtitle": "Sprechen Sie mit unserem Team oder berechnen Sie Ihr Einsparpotenzial — herstellerübergreifend, IVDR/CE-konform und in 3–5 Werktagen einsatzbereit.",
-    "cta_primary": "Beratung buchen",
-    "cta_secondary": "ROI-Rechner"
+    "caption": "Prêt à vous lancer",
+    "title": "Prêt pour un diagnostic d'une précision de laboratoire dans votre cabinet ?",
+    "subtitle": "Échangez avec notre équipe ou calculez votre potentiel d'économies — compatible tous fabricants, conforme IVDR/CE et prêt à l'emploi en 3 à 5 jours ouvrés.",
+    "cta_primary": "Réserver un conseil",
+    "cta_secondary": "Calculateur de ROI"
   },
   "roi": {
-    "caption": "ROI-Rechner",
-    "title": "Was bringt POC-Diagnostik Ihrer Praxis?",
-    "intro": "In unter einer Minute sehen, welches Selbstzahler-Potenzial chairside Diagnostik in Ihrer Praxis hat.",
+    "caption": "Calculateur de ROI",
+    "title": "Qu'apporte le diagnostic POC à votre cabinet ?",
+    "intro": "Découvrez en moins d'une minute le potentiel de prestations privées que le diagnostic au fauteuil représente pour votre cabinet.",
     "input": {
-      "tests": "Tests pro Monat",
-      "price": "Preis pro Test (€)",
-      "material": "Materialkosten pro Test (€)",
-      "minutes": "Minuten pro Test",
-      "staff": "Personalkosten pro Stunde (€)",
-      "investment": "Geräteinvestition (€, optional)",
-      "hint": "Beispielwerte – bitte an Ihre Praxis anpassen."
+      "tests": "Tests par mois",
+      "price": "Prix par test (€)",
+      "material": "Coût du matériel par test (€)",
+      "minutes": "Minutes par test",
+      "staff": "Coût du personnel par heure (€)",
+      "investment": "Investissement matériel (€, facultatif)",
+      "hint": "Valeurs d'exemple – à adapter à votre cabinet."
     },
     "out": {
-      "month": "Deckungsbeitrag / Monat",
-      "revenue": "Selbstzahler-Umsatz / Monat",
-      "year": "Deckungsbeitrag / Jahr",
-      "per_test": "Deckungsbeitrag je Test",
-      "payback": "Amortisation (Monate)"
+      "month": "Marge sur coûts variables / mois",
+      "revenue": "Chiffre d'affaires en prestations privées / mois",
+      "year": "Marge sur coûts variables / an",
+      "per_test": "Marge sur coûts variables par test",
+      "payback": "Amortissement (mois)"
     },
-    "warn_negative": "Bei diesen Werten ist der Deckungsbeitrag negativ – bitte Preise/Kosten prüfen.",
-    "payback_hint": "Für Ihre individuelle Amortisation: Beratung buchen oder Report anfordern.",
-    "disclaimer": "Unverbindliche Beispielrechnung auf Basis Ihrer Eingaben. Keine Zusage von Umsatz oder Gewinn.",
-    "cta_consult": "Beratung buchen",
-    "cta_report": "Ergebnis als PDF zusenden",
+    "warn_negative": "Avec ces valeurs, la marge sur coûts variables est négative – veuillez vérifier les prix et les coûts.",
+    "payback_hint": "Pour votre amortissement personnalisé : réservez un conseil ou demandez le rapport.",
+    "disclaimer": "Calcul d'exemple sans engagement, fondé sur vos saisies. Aucune garantie de chiffre d'affaires ou de bénéfice.",
+    "cta_consult": "Réserver un conseil",
+    "cta_report": "Recevoir le résultat en PDF",
     "form": {
-      "email": "E-Mail-Adresse",
-      "field": "Fachrichtung",
+      "email": "Adresse e-mail",
+      "field": "Spécialité",
       "opt_dental": "Dental",
       "opt_beauty": "Beauty",
       "opt_longevity": "Longevity",
-      "opt_other": "Andere",
-      "practice": "Praxisname (optional)",
-      "consent": "Ich willige ein, dass meine Angaben zur Zusendung des Reports und zur Kontaktaufnahme verarbeitet werden.",
-      "privacy": "Datenschutzerklärung",
-      "submit": "Report anfordern",
-      "sending": "Wird gesendet …",
-      "success": "Danke! Wir senden Ihnen den Report in Kürze.",
-      "error": "Aktuell nicht möglich – bitte buchen Sie direkt eine Beratung."
+      "opt_other": "Autre",
+      "practice": "Nom du cabinet (facultatif)",
+      "consent": "J'accepte que mes données soient traitées pour l'envoi du rapport et la prise de contact.",
+      "privacy": "Politique de confidentialité",
+      "submit": "Demander le rapport",
+      "sending": "Envoi en cours …",
+      "success": "Merci ! Nous vous envoyons le rapport sous peu.",
+      "error": "Actuellement indisponible – veuillez réserver directement un conseil."
     }
   }
 }
