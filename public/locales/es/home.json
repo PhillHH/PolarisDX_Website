@@ -216,5 +216,46 @@
     "subtitle": "Sprechen Sie mit unserem Team oder berechnen Sie Ihr Einsparpotenzial — herstellerübergreifend, IVDR/CE-konform und in 3–5 Werktagen einsatzbereit.",
     "cta_primary": "Beratung buchen",
     "cta_secondary": "ROI-Rechner"
+  },
+  "roi": {
+    "caption": "ROI-Rechner",
+    "title": "Was bringt POC-Diagnostik Ihrer Praxis?",
+    "intro": "In unter einer Minute sehen, welches Selbstzahler-Potenzial chairside Diagnostik in Ihrer Praxis hat.",
+    "input": {
+      "tests": "Tests pro Monat",
+      "price": "Preis pro Test (€)",
+      "material": "Materialkosten pro Test (€)",
+      "minutes": "Minuten pro Test",
+      "staff": "Personalkosten pro Stunde (€)",
+      "investment": "Geräteinvestition (€, optional)",
+      "hint": "Beispielwerte – bitte an Ihre Praxis anpassen."
+    },
+    "out": {
+      "month": "Deckungsbeitrag / Monat",
+      "revenue": "Selbstzahler-Umsatz / Monat",
+      "year": "Deckungsbeitrag / Jahr",
+      "per_test": "Deckungsbeitrag je Test",
+      "payback": "Amortisation (Monate)"
+    },
+    "warn_negative": "Bei diesen Werten ist der Deckungsbeitrag negativ – bitte Preise/Kosten prüfen.",
+    "payback_hint": "Für Ihre individuelle Amortisation: Beratung buchen oder Report anfordern.",
+    "disclaimer": "Unverbindliche Beispielrechnung auf Basis Ihrer Eingaben. Keine Zusage von Umsatz oder Gewinn.",
+    "cta_consult": "Beratung buchen",
+    "cta_report": "Ergebnis als PDF zusenden",
+    "form": {
+      "email": "E-Mail-Adresse",
+      "field": "Fachrichtung",
+      "opt_dental": "Dental",
+      "opt_beauty": "Beauty",
+      "opt_longevity": "Longevity",
+      "opt_other": "Andere",
+      "practice": "Praxisname (optional)",
+      "consent": "Ich willige ein, dass meine Angaben zur Zusendung des Reports und zur Kontaktaufnahme verarbeitet werden.",
+      "privacy": "Datenschutzerklärung",
+      "submit": "Report anfordern",
+      "sending": "Wird gesendet …",
+      "success": "Danke! Wir senden Ihnen den Report in Kürze.",
+      "error": "Aktuell nicht möglich – bitte buchen Sie direkt eine Beratung."
+    }
   }
 }
