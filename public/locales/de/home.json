@@ -124,9 +124,9 @@
     }
   },
   "testimonials": {
-    "caption": "KUNDENSTIMMEN",
-    "title": "Was unsere Anwender über das Igloo Pro System sagen",
-    "ratingLabel": "Gesamtbewertung\nbasierend auf 250+ Rezensionen",
+    "caption": "PRAXIS-STIMMEN",
+    "title": "Was Praxen ueber das IglooPro-System sagen",
+    "ratingLabel": "Gesamtbewertung\nbasierend auf Praxis-Bewertungen",
     "positiveLabel": "Positive Bewertung",
     "richard_pollock": {
       "role": "Zahnarzt (Echte Rezension)",
@@ -161,27 +161,38 @@
   },
   "blog": {
     "caption": "Blog & News",
-    "title": "Blog: Aktuelles zu Point-of-Care Diagnostik"
+    "title": "Blog: Aktuelles zu Point-of-Care Diagnostik",
+    "eeat_text": "Fachbeiträge unseres POC-Diagnostik-Teams – fundiert, praxisnah, aktuell.",
+    "authors_link": "Über uns & Autoren",
+    "events_cta": "Termine & Webinare"
   },
   "faq": {
     "caption": "FAQ",
     "title": "Häufige Fragen zu PolarisDX und Point-of-Care Diagnostik",
     "items": [
       {
-        "question": "Was macht PolarisDX?",
-        "answer": "PolarisDX ist Ihr Partner für Point-of-Care Diagnostik in Europa. Wir liefern nicht nur Geräte und Schnelltests, sondern begleiten Sie von der Erstberatung über die Inbetriebnahme bis zum laufenden Betrieb. Unser Ziel: laborpräzise Diagnostik direkt in Ihrer Praxis — ohne Umwege über ein Zentrallabor."
+        "question": "Rechnet sich der IglooPro fuer meine Praxis?",
+        "answer": "Mit POC-Diagnostik koennen Sie Biomarker-Bestimmungen als Selbstzahler-Leistung direkt in der Praxis anbieten, statt sie an ein externes Labor abzugeben. Welche Auslastung und Erloese sich daraus fuer Ihren konkreten Fall ergeben, ermitteln Sie transparent im ROI-Rechner. So sehen Sie schon vor der Anschaffung, wie sich das System in Ihre Praxisstruktur einordnet."
       },
       {
-        "question": "Für welche Branchen ist Point-of-Care Diagnostik relevant?",
-        "answer": "Unsere Lösungen kommen überall dort zum Einsatz, wo schnelle und präzise Laborergebnisse direkt vor Ort gebraucht werden. Unsere Schwerpunkte sind Dental, Longevity und Beauty — wir unterstützen aber auch Allgemeinmediziner, Internisten und weitere Fachrichtungen, in denen POCT einen Mehrwert bietet."
+        "question": "Ist der IglooPro fuer den Praxiseinsatz zugelassen und qualitaetsgesichert?",
+        "answer": "Der IglooPro ist IVDR/CE-konform und damit fuer die patientennahe Sofortdiagnostik (POCT) ausgelegt. Ueber den gesamten Messbereich erreicht das System eine Praezision von CV < 2 %, was reproduzierbare Ergebnisse unterstuetzt. Die Inbetriebnahme erfolgt validiert, sodass die Anforderungen an die Qualitaetssicherung im POCT von Beginn an beruecksichtigt sind."
       },
       {
-        "question": "Wie läuft die Zusammenarbeit mit PolarisDX ab?",
-        "answer": "Nach einem persönlichen Beratungsgespräch stellen wir Ihr individuelles Setup zusammen. Sie erhalten Ihr Gerät innerhalb von 3–5 Werktagen inklusive validierter Inbetriebnahme. Danach stehen wir Ihnen mit Schulungen, technischem Support und laufender Betreuung zur Seite."
+        "question": "Bin ich nach dem Kauf an einen einzigen Anbieter gebunden?",
+        "answer": "Nein. Der IglooPro arbeitet herstelleruebergreifend, sodass Sie nicht auf die Tests eines einzigen Lieferanten festgelegt sind. Das gibt Ihnen Flexibilitaet bei der Auswahl Ihrer Test-Panels und schuetzt Ihre Investition, wenn sich Ihr diagnostischer Bedarf im Laufe der Zeit veraendert."
       },
       {
-        "question": "Welche Produkte und Lösungen bietet PolarisDX an?",
-        "answer": "Unser aktuelles Portfolio umfasst den IglooPro POC-Reader, ein breites Spektrum an Schnelltests für Biomarker wie Vitamin D3, CRP und HbA1c sowie ergänzende Produkte wie unser Vitamin D3 Spray. Wir erweitern unser Angebot kontinuierlich, um Ihnen eine umfassende diagnostische Lösung zu bieten."
+        "question": "Wie aufwendig ist die Integration in unseren Praxisalltag?",
+        "answer": "Der IglooPro ist fuer den Einsatz direkt am Behandlungsstuhl konzipiert und liefert das Ergebnis in Minuten, sodass die Messung in den laufenden Termin passt. Zur Inbetriebnahme schulen wir Ihr Team im Messablauf und in der Bedienung. Danach stehen wir Ihnen mit technischem Support und laufender Betreuung zur Seite."
+      },
+      {
+        "question": "Wie schnell ist das System nach der Bestellung einsatzbereit?",
+        "answer": "Nach der Bestellung ist Ihr IglooPro in der Regel innerhalb von 3-5 Werktagen einsatzbereit. Wir nehmen das Geraet validiert in Betrieb, sodass Sie ab dem ersten Patienten verlaesslich messen koennen. Eine separate, langwierige Einrichtungsphase entfaellt damit."
+      },
+      {
+        "question": "Welche Biomarker kann ich je nach Fachrichtung bestimmen?",
+        "answer": "Das System deckt fachspezifische Panels fuer Dental, Beauty und Longevity ab - von Vitamin D und CRP ueber HbA1c bis zu Stoffwechsel- und Entzuendungsmarkern. In der Dentalmedizin stehen etwa Vitamin D und Entzuendungswerte im Fokus, im Longevity-Bereich das Monitoring von Stoffwechsel- und Entzuendungsmarkern. Welche Tests fuer Ihre Fachrichtung sinnvoll sind, stimmen wir im Beratungsgespraech individuell ab."
       }
     ]
   },

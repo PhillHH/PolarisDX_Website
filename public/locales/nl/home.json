@@ -157,7 +157,10 @@
   },
   "blog": {
     "caption": "Blog & Nieuws",
-    "title": "Onze artikelen over gezondheid"
+    "title": "Onze artikelen over gezondheid",
+    "eeat_text": "Fachbeiträge unseres POC-Diagnostik-Teams – fundiert, praxisnah, aktuell.",
+    "authors_link": "Über uns & Autoren",
+    "events_cta": "Termine & Webinare"
   },
   "seo": {
     "title": "IglooPro POC-reader: labwaarden in 3 minuten",
@@ -182,6 +185,14 @@
       {
         "question": "Welke producten en oplossingen biedt PolarisDX?",
         "answer": "Ons huidige portfolio omvat de IglooPro POC-reader, een breed scala aan sneltests voor biomarkers zoals Vitamine D3, CRP en HbA1c, alsook aanvullende producten zoals onze Vitamine D3-spray. Wij breiden ons aanbod continu uit om u een alomvattende diagnostische oplossing te bieden."
+      },
+      {
+        "question": "Wie schnell ist das System nach der Bestellung einsatzbereit?",
+        "answer": "Nach der Bestellung ist Ihr IglooPro in der Regel innerhalb von 3-5 Werktagen einsatzbereit. Wir nehmen das Geraet validiert in Betrieb, sodass Sie ab dem ersten Patienten verlaesslich messen koennen. Eine separate, langwierige Einrichtungsphase entfaellt damit."
+      },
+      {
+        "question": "Welche Biomarker kann ich je nach Fachrichtung bestimmen?",
+        "answer": "Das System deckt fachspezifische Panels fuer Dental, Beauty und Longevity ab - von Vitamin D und CRP ueber HbA1c bis zu Stoffwechsel- und Entzuendungsmarkern. In der Dentalmedizin stehen etwa Vitamin D und Entzuendungswerte im Fokus, im Longevity-Bereich das Monitoring von Stoffwechsel- und Entzuendungsmarkern. Welche Tests fuer Ihre Fachrichtung sinnvoll sind, stimmen wir im Beratungsgespraech individuell ab."
       }
     ]
   },

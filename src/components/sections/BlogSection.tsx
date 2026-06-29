@@ -15,6 +15,13 @@ const BlogSection = () => {
         title={t('blog.title', 'Our Articles About Health')}
       />
 
+      <p className="text-gray-600">
+        {t(
+          'blog.eeat_text',
+          'Fachbeiträge unseres POC-Diagnostik-Teams – fundiert, praxisnah, aktuell.',
+        )}
+      </p>
+
       {/* Featured Article - Vitamin D3 Implantologie */}
       <Link
         to="/vitamin-d3-implantologie"
@@ -56,6 +63,15 @@ const BlogSection = () => {
           className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary hover:text-brand-deep transition-colors"
         >
           {t('blog.all_articles', 'Alle Fachartikel anzeigen')} →
+        </Link>
+      </div>
+
+      <div className="flex gap-6 flex-wrap justify-center text-sm font-semibold text-brand-primary">
+        <Link to="/about" className="hover:text-brand-deep transition-colors">
+          {t('blog.authors_link', 'Über uns & Autoren')}
+        </Link>
+        <Link to="/events" className="hover:text-brand-deep transition-colors">
+          {t('blog.events_cta', 'Termine & Webinare')}
         </Link>
       </div>
     </section>
