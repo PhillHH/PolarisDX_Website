@@ -186,7 +186,11 @@
     "title": "Blog: Aktuelles zu Point-of-Care Diagnostik",
     "eeat_text": "Fachbeiträge unseres POC-Diagnostik-Teams – fundiert, praxisnah, aktuell.",
     "authors_link": "Über uns & Autoren",
-    "events_cta": "Termine & Webinare"
+    "events_cta": "Termine & Webinare",
+    "featured": "Fachartikel",
+    "all_articles": "Alle Fachartikel anzeigen",
+    "featured_title": "Vitamin D3 und Implantologie — Evidenz und Praxisleitfaden",
+    "featured_desc": "Wissenschaftlich fundierte Erkenntnisse zur Rolle von Vitamin D bei der Osseointegration."
   },
   "faq": {
     "caption": "FAQ",
@@ -216,7 +220,11 @@
         "question": "Welche Biomarker kann ich je nach Fachrichtung bestimmen?",
         "answer": "Das System deckt fachspezifische Panels für Dental, Beauty und Longevity ab – von Vitamin D und CRP über HbA1c bis zu Stoffwechsel- und Entzündungsmarkern. In der Dentalmedizin stehen etwa Vitamin D und Entzündungswerte im Fokus, im Longevity-Bereich das Monitoring von Stoffwechsel- und Entzündungsmarkern. Welche Tests für Ihre Fachrichtung sinnvoll sind, stimmen wir im Beratungsgespräch individuell ab."
       }
-    ]
+    ],
+    "more": "Noch Fragen?",
+    "link_services": "Diagnostik-Services ansehen",
+    "or": "oder",
+    "link_contact": "direkt Kontakt aufnehmen"
   },
   "trustbar": {
     "aria": "Vertrauensmerkmale",

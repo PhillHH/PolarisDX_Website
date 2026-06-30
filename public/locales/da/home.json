@@ -186,7 +186,11 @@
     "title": "Blog: Aktuelt om point-of-care-diagnostik",
     "eeat_text": "Faglige artikler fra vores POC-diagnostik-team – velfunderede, praksisnære, aktuelle.",
     "authors_link": "Om os & forfattere",
-    "events_cta": "Arrangementer & webinarer"
+    "events_cta": "Arrangementer & webinarer",
+    "featured": "Fagartikel",
+    "all_articles": "Se alle fagartikler",
+    "featured_title": "Vitamin D3 og implantologi — evidens og praksisvejledning",
+    "featured_desc": "Videnskabeligt funderet viden om D-vitamins rolle i osseointegrationen."
   },
   "faq": {
     "caption": "FAQ",
@@ -216,7 +220,11 @@
         "question": "Hvilke biomarkører kan jeg bestemme alt efter speciale?",
         "answer": "Systemet dækker fagspecifikke paneler til Dental, Beauty og Longevity – fra Vitamin D og CRP over HbA1c til stofskifte- og inflammationsmarkører. Inden for tandmedicin er det f.eks. Vitamin D og inflammationsværdier, der er i fokus, og inden for Longevity monitorering af stofskifte- og inflammationsmarkører. Hvilke tests der giver mening for dit speciale, aftaler vi individuelt i rådgivningssamtalen."
       }
-    ]
+    ],
+    "more": "Har du flere spørgsmål?",
+    "link_services": "Se diagnostiske ydelser",
+    "or": "eller",
+    "link_contact": "kontakt os direkte"
   },
   "trustbar": {
     "aria": "Tillidsmærker",

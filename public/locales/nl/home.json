@@ -186,7 +186,11 @@
     "title": "Blog: actueel nieuws over point-of-care-diagnostiek",
     "eeat_text": "Vakartikelen van ons POC-diagnostiekteam – onderbouwd, praktijkgericht en actueel.",
     "authors_link": "Over ons & auteurs",
-    "events_cta": "Afspraken & webinars"
+    "events_cta": "Afspraken & webinars",
+    "featured": "Vakartikel",
+    "all_articles": "Alle vakartikelen bekijken",
+    "featured_title": "Vitamin D3 en implantologie — evidentie en praktijkgids",
+    "featured_desc": "Wetenschappelijk onderbouwde inzichten over de rol van vitamine D bij de osseo-integratie."
   },
   "faq": {
     "caption": "FAQ",
@@ -216,7 +220,11 @@
         "question": "Welke biomarkers kan ik bepalen, afhankelijk van mijn vakgebied?",
         "answer": "Het systeem dekt vakspecifieke panels voor Dental, Beauty en Longevity – van Vitamine D en CRP via HbA1c tot stofwisselings- en ontstekingsmarkers. In de tandheelkunde staan bijvoorbeeld Vitamine D en ontstekingswaarden centraal, in het Longevity-segment de monitoring van stofwisselings- en ontstekingsmarkers. Welke tests voor uw vakgebied zinvol zijn, stemmen wij individueel af tijdens het adviesgesprek."
       }
-    ]
+    ],
+    "more": "Nog vragen?",
+    "link_services": "Diagnostische diensten bekijken",
+    "or": "of",
+    "link_contact": "rechtstreeks contact opnemen"
   },
   "trustbar": {
     "aria": "Vertrouwenskenmerken",

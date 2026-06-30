@@ -186,7 +186,11 @@
     "title": "Blog: aktuality o point-of-care diagnostice",
     "eeat_text": "Odborné příspěvky našeho týmu pro POC diagnostiku – fundované, praktické, aktuální.",
     "authors_link": "O nás a autoři",
-    "events_cta": "Termíny a webináře"
+    "events_cta": "Termíny a webináře",
+    "featured": "Odborný článek",
+    "all_articles": "Zobrazit všechny odborné články",
+    "featured_title": "Vitamin D3 a implantologie — důkazy a praktický průvodce",
+    "featured_desc": "Vědecky podložené poznatky o úloze vitaminu D při oseointegraci."
   },
   "faq": {
     "caption": "Časté dotazy",
@@ -216,7 +220,11 @@
         "question": "Jaké biomarkery mohu stanovit podle své specializace?",
         "answer": "Systém pokrývá oborové panely pro Dental, Beauty a Longevity – od vitaminu D a CRP přes HbA1c až po metabolické a zánětlivé markery. Ve stomatologii jsou v centru pozornosti například vitamin D a zánětlivé hodnoty, v oblasti longevity pak monitorování metabolických a zánětlivých markerů. Které testy mají pro vaši specializaci smysl, individuálně sladíme během konzultace."
       }
-    ]
+    ],
+    "more": "Máte další otázky?",
+    "link_services": "Zobrazit diagnostické služby",
+    "or": "nebo",
+    "link_contact": "kontaktovat nás přímo"
   },
   "trustbar": {
     "aria": "Znaky důvěryhodnosti",

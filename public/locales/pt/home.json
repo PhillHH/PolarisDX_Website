@@ -186,7 +186,11 @@
     "title": "Blog: novidades sobre diagnóstico point-of-care",
     "eeat_text": "Artigos especializados da nossa equipa de diagnóstico POC – fundamentados, práticos e atuais.",
     "authors_link": "Sobre nós e autores",
-    "events_cta": "Datas e webinars"
+    "events_cta": "Datas e webinars",
+    "featured": "Artigo em destaque",
+    "all_articles": "Ver todos os artigos técnicos",
+    "featured_title": "Vitamina D3 e Implantologia — Evidência e Guia para a Prática Clínica",
+    "featured_desc": "Conhecimentos cientificamente fundamentados sobre o papel da vitamina D na osteointegração."
   },
   "faq": {
     "caption": "FAQ",
@@ -216,7 +220,11 @@
         "question": "Que biomarcadores posso determinar consoante a especialidade?",
         "answer": "O sistema cobre painéis específicos para Dental, Beauty e Longevity – desde Vitamin D e CRP, passando por HbA1c, até marcadores metabólicos e de inflamação. Na medicina dentária, o foco recai, por exemplo, sobre a Vitamin D e os valores de inflamação; na área Longevity, sobre a monitorização de marcadores metabólicos e de inflamação. Os testes que fazem sentido para a sua especialidade definimo-los individualmente na consulta de aconselhamento."
       }
-    ]
+    ],
+    "more": "Ainda tem dúvidas?",
+    "link_services": "Ver os serviços de diagnóstico",
+    "or": "ou",
+    "link_contact": "contacte-nos diretamente"
   },
   "trustbar": {
     "aria": "Selos de confiança",

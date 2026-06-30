@@ -186,7 +186,11 @@
     "title": "Blog: the latest on point-of-care diagnostics",
     "eeat_text": "Expert articles from our POC diagnostics team – well-founded, practical and up to date.",
     "authors_link": "About us & authors",
-    "events_cta": "Events & webinars"
+    "events_cta": "Events & webinars",
+    "featured": "Expert Articles",
+    "all_articles": "View all expert articles",
+    "featured_title": "Vitamin D3 and Implantology — Evidence and Clinical Practice Guide",
+    "featured_desc": "Scientifically grounded insights into the role of Vitamin D in osseointegration."
   },
   "faq": {
     "caption": "FAQ",
@@ -216,7 +220,11 @@
         "question": "Which biomarkers can I measure depending on my specialty?",
         "answer": "The system covers specialty-specific panels for Dental, Beauty and Longevity – from Vitamin D and CRP through HbA1c to metabolic and inflammation markers. In dentistry, for example, the focus is on Vitamin D and inflammation values; in the longevity field, on monitoring metabolic and inflammation markers. Which tests make sense for your specialty is something we agree on individually during the consultation."
       }
-    ]
+    ],
+    "more": "Still have questions?",
+    "link_services": "View our diagnostic services",
+    "or": "or",
+    "link_contact": "get in touch directly"
   },
   "trustbar": {
     "aria": "Trust indicators",

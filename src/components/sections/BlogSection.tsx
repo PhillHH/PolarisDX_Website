@@ -25,18 +25,23 @@ const BlogSection = () => {
       {/* Featured Article - Vitamin D3 Implantologie */}
       <Link
         to="/vitamin-d3-implantologie"
-        className="group block overflow-hidden rounded-2xl border border-brand-primary/20 bg-gradient-to-r from-brand-primary/5 to-transparent transition-all duration-300 hover:shadow-lg hover:border-brand-primary/40"
+        className="group block overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 transition-all duration-300 hover:shadow-lg hover:border-slate-300"
       >
         <div className="p-6">
           <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-primary">
             {t('blog.featured', 'Fachartikel')}
           </p>
           <h3 className="text-lg font-semibold text-gray-900 group-hover:text-brand-primary transition-colors">
-            Vitamin D3 und Implantologie — Evidenz und Praxisleitfaden
+            {t(
+              'blog.featured_title',
+              'Vitamin D3 und Implantologie — Evidenz und Praxisleitfaden',
+            )}
           </h3>
           <p className="mt-2 text-sm text-gray-500">
-            Wissenschaftlich fundierte Erkenntnisse zur Rolle von Vitamin D bei der
-            Osseointegration.
+            {t(
+              'blog.featured_desc',
+              'Wissenschaftlich fundierte Erkenntnisse zur Rolle von Vitamin D bei der Osseointegration.',
+            )}
           </p>
         </div>
       </Link>
