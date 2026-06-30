@@ -3,6 +3,7 @@ import { Button } from '../ui/Button'
 import { useState, useEffect, useRef } from 'react'
 import { Check, Pause, Play } from 'lucide-react'
 import iglooLogoWhite from '../../assets/igloo_logo_white.webp'
+import ImagePlaceholder from '../ui/ImagePlaceholder'
 
 /**
  * SSR-safe HeroSection — NO framer-motion, pure CSS animations.
@@ -209,10 +210,16 @@ const HeroSection = () => {
                         <Icon
                           size={600}
                           strokeWidth={0.5}
-                          className="text-white/90 drop-shadow-2xl relative z-10"
+                          className="absolute text-white/20 drop-shadow-2xl z-0"
+                          aria-hidden="true"
                         />
                       )
                     })()}
+                  {/* Bild-Slot (Platzhalter) — echtes Produktbild folgt vom Kunden */}
+                  <ImagePlaceholder
+                    label={t('hero.image_label', 'Produktbild')}
+                    className="relative z-10 aspect-[3/4] w-72 max-w-full bg-white/5 border-white/20 text-white/50"
+                  />
                 </div>
               )}
             </div>

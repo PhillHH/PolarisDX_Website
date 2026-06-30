@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Truck, UserCheck, Coins } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
+import ImagePlaceholder from '../ui/ImagePlaceholder'
 
 /**
  * WhyPocSection — Argument fuer Point-of-Care in der eigenen Praxis.
@@ -72,6 +73,10 @@ const WhyPocSection = () => {
                 key={card.title}
                 className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
               >
+                <ImagePlaceholder
+                  label={t('why.image_label', 'Anwendungsbild')}
+                  className="aspect-[4/3] w-full mb-4 bg-slate-100 border-slate-200"
+                />
                 <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-accent">
                   <Icon size={24} aria-hidden="true" />
                 </span>
