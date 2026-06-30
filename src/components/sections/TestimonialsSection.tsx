@@ -53,18 +53,18 @@ const TestimonialsSection = () => {
   }, [])
 
   return (
-    <section id="testimonials" className="bg-slate-50 py-20 lg:py-28">
+    <section id="testimonials" className="bg-brand-deep py-20 text-white lg:py-28">
       <div className="mx-auto flex max-w-container flex-col items-center gap-12 px-4 lg:px-8">
         {/* Kopf: GENAU EIN Eyebrow + h2 (helle Sektion) */}
         <div className="flex flex-col items-center gap-3 text-center">
           <Eyebrow>{t('testimonials.caption', 'PRAXIS-STIMMEN')}</Eyebrow>
-          <h2 className="text-3xl font-medium tracking-tight text-heading sm:text-4xl">
+          <h2 className="text-3xl font-medium tracking-tight text-white sm:text-4xl">
             {t('testimonials.title', 'Was Praxen über das IglooPro-System sagen')}
           </h2>
         </div>
 
         {/* Carousel: gerahmte Split-Karten */}
-        <div className="w-full max-w-4xl overflow-hidden">
+        <div className="w-full max-w-5xl overflow-hidden">
           <div
             className="flex transition-transform duration-700 ease-in-out"
             style={{ transform: `translateX(-${activeIndex * 100}%)` }}
@@ -128,7 +128,7 @@ const TestimonialsSection = () => {
               key={index}
               onClick={() => setActiveIndex(index)}
               className={`h-2.5 w-2.5 rounded-full transition-colors duration-300 ${
-                activeIndex === index ? 'bg-accent' : 'bg-slate-300 hover:bg-slate-400'
+                activeIndex === index ? 'bg-accent' : 'bg-white/30 hover:bg-white/50'
               }`}
               aria-label={t('testimonials.goTo', 'Bewertung {{n}} anzeigen', { n: index + 1 })}
             />
