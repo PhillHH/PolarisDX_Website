@@ -18,24 +18,28 @@ const Star = () => (
 )
 
 const StarRating = () => (
-  <div className="flex justify-center gap-0.5" aria-hidden="true">
+  <div className="flex gap-0.5" aria-hidden="true">
     {Array.from({ length: 5 }, (_, i) => (
       <Star key={i} />
     ))}
   </div>
 )
 
-// Initialen aus dem Namen (Titel wie Dr./Prof. ignorieren) — füllt den
-// Avatar-Kreis, keine frei schwebenden Bilder auf der Karte.
-const getInitials = (name: string) =>
-  name
-    .replace(/^(Dr\.|Prof\.)\s*/i, '')
-    .split(' ')
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((w) => w[0])
-    .join('')
-    .toUpperCase()
+// Sprach-neutrales Personen-Icon für den Kundenbild-Platzhalter (kein Bild vorhanden).
+const PersonIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    aria-hidden="true"
+    className="h-10 w-10"
+  >
+    <circle cx="12" cy="8" r="4" />
+    <path d="M4 20c0-4 3.6-6 8-6s8 2 8 6" />
+  </svg>
+)
 
 const TestimonialsSection = () => {
   const { t } = useTranslation('home')
@@ -45,100 +49,90 @@ const TestimonialsSection = () => {
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
     }, 8000)
-
     return () => clearInterval(interval)
   }, [])
 
   return (
-    <section id="testimonials" className="bg-brand-deep py-20 text-white lg:py-28">
+    <section id="testimonials" className="bg-slate-50 py-20 lg:py-28">
       <div className="mx-auto flex max-w-container flex-col items-center gap-12 px-4 lg:px-8">
-        {/* Kopf: GENAU EIN heller Eyebrow + h2 (kein Dunkel-auf-Dunkel) */}
+        {/* Kopf: GENAU EIN Eyebrow + h2 (helle Sektion) */}
         <div className="flex flex-col items-center gap-3 text-center">
           <Eyebrow>{t('testimonials.caption', 'PRAXIS-STIMMEN')}</Eyebrow>
-          <h2 className="text-3xl font-medium tracking-tight text-white sm:text-4xl">
+          <h2 className="text-3xl font-medium tracking-tight text-heading sm:text-4xl">
             {t('testimonials.title', 'Was Praxen über das IglooPro-System sagen')}
           </h2>
         </div>
 
-        {/* Weiße Beweis-Karte */}
-        <div className="w-full max-w-3xl rounded-xl border border-slate-200 bg-white p-8 text-center lg:p-10">
-          {/* Slider-Inhalt */}
-          <div className="overflow-hidden">
-            <div
-              className="flex transition-transform duration-700 ease-in-out"
-              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-            >
-              {testimonials.map((testimonial) => (
+        {/* Carousel: gerahmte Split-Karten */}
+        <div className="w-full max-w-4xl overflow-hidden">
+          <div
+            className="flex transition-transform duration-700 ease-in-out"
+            style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+          >
+            {testimonials.map((testimonial) => {
+              const role = t(`testimonials.${testimonial.id}.role`)
+              const practice = t(`testimonials.${testimonial.id}.practice`, '')
+              return (
                 <div
                   key={testimonial.id}
                   className="w-full flex-shrink-0 px-1"
                   role="group"
                   aria-roledescription="slide"
                 >
-                  <StarRating />
-                  <blockquote className="mt-5 text-lg leading-relaxed text-gray-700">
-                    „{t(`testimonials.${testimonial.id}.text`)}“
-                  </blockquote>
-                  <div className="mt-6 flex flex-col items-center gap-3">
-                    <span className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-deep text-base font-semibold text-white">
-                      {getInitials(testimonial.name)}
-                    </span>
-                    <div>
-                      <p className="font-semibold text-heading">{testimonial.name}</p>
-                      <p className="mt-0.5 text-sm text-gray-700">
-                        {t(`testimonials.${testimonial.id}.role`)} ·{' '}
-                        {t(`testimonials.${testimonial.id}.title`)}
-                      </p>
+                  <div className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white md:flex-row">
+                    {/* Foto LINKS (Mobil oben) */}
+                    <div className="bg-slate-100 md:w-2/5">
+                      {testimonial.avatar ? (
+                        <img
+                          src={testimonial.avatar}
+                          alt={testimonial.name}
+                          loading="lazy"
+                          decoding="async"
+                          className="h-60 w-full object-cover md:h-full"
+                        />
+                      ) : (
+                        <div className="flex h-60 w-full flex-col items-center justify-center gap-2 text-slate-400 md:h-full">
+                          <PersonIcon />
+                          <span className="text-sm font-medium">
+                            {t('testimonials.photo_placeholder', 'Kundenbild')}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Zitat RECHTS */}
+                    <div className="flex flex-1 flex-col justify-center p-8 text-left lg:p-10">
+                      <StarRating />
+                      <blockquote className="mt-4 text-lg leading-relaxed text-gray-700">
+                        „{t(`testimonials.${testimonial.id}.text`)}“
+                      </blockquote>
+                      <div className="mt-5">
+                        <p className="font-semibold text-heading">{testimonial.name}</p>
+                        <p className="mt-0.5 text-sm text-gray-600">
+                          {role}
+                          {practice ? ` · ${practice}` : ''}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
+              )
+            })}
           </div>
+        </div>
 
-          {/* Dots */}
-          <div className="mt-8 flex justify-center gap-2.5">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className={`h-2.5 w-2.5 rounded-full transition-colors duration-300 ${
-                  activeIndex === index ? 'bg-accent' : 'bg-slate-300 hover:bg-slate-400'
-                }`}
-                aria-label={t('testimonials.goTo', 'Bewertung {{n}} anzeigen', {
-                  n: index + 1,
-                })}
-              />
-            ))}
-          </div>
-
-          {/* Stat-Zeile mit Teal-Zahlen */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-slate-200 pt-6 text-sm text-gray-700">
-            <span>
-              <span className="font-semibold text-accent">
-                ★ {t('testimonials.stats.ratingValue', '4.9')}
-              </span>{' '}
-              {t('testimonials.stats.ratingLabel', 'Gesamt')}
-            </span>
-            <span aria-hidden="true" className="text-slate-300">
-              ·
-            </span>
-            <span>
-              <span className="font-semibold text-accent">
-                {t('testimonials.stats.positiveValue', '100 %')}
-              </span>{' '}
-              {t('testimonials.stats.positiveLabel', 'positiv')}
-            </span>
-            <span aria-hidden="true" className="text-slate-300">
-              ·
-            </span>
-            <span>
-              <span className="font-semibold text-accent">
-                {t('testimonials.stats.reviewsValue', '250+')}
-              </span>{' '}
-              {t('testimonials.stats.reviewsLabel', 'Rezensionen')}
-            </span>
-          </div>
+        {/* Dots */}
+        <div className="flex justify-center gap-2.5">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveIndex(index)}
+              className={`h-2.5 w-2.5 rounded-full transition-colors duration-300 ${
+                activeIndex === index ? 'bg-accent' : 'bg-slate-300 hover:bg-slate-400'
+              }`}
+              aria-label={t('testimonials.goTo', 'Bewertung {{n}} anzeigen', { n: index + 1 })}
+            />
+          ))}
         </div>
 
         {/* CTA: gefüllt Teal */}

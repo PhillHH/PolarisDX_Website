@@ -141,34 +141,39 @@
     "ratingLabel": "Celkové hodnocení\nna základě hodnocení z ordinací",
     "positiveLabel": "Pozitivní hodnocení",
     "richard_pollock": {
-      "role": "Zubař (Skutečná recenze)",
+      "role": "Biological Dentist & Implant Surgeon",
       "title": "Biologický zubní lékař a implantolog / Chelsea Dental Clinic",
       "focus": "Rychlé zdravotní kontroly na místě (prevence, Vitamin D)",
-      "text": "Možnost provádět analýzu hladiny vitaminu D a dalších klíčových zdravotních ukazatelů přímo na místě nelze podceňovat. Igloo Pro mi umožňuje provést jednoduchý odběr kapilární krve, zjistit potřeby pacientů a následně je nasměrovat k tomu, které doplňky stravy mohou potřebovat pro optimalizaci léčby. Tato schopnost se ukazuje jako přelomová z hlediska výsledků léčby pacientů."
+      "text": "Možnost provádět analýzu hladiny vitaminu D a dalších klíčových zdravotních ukazatelů přímo na místě nelze podceňovat. Igloo Pro mi umožňuje provést jednoduchý odběr kapilární krve, zjistit potřeby pacientů a následně je nasměrovat k tomu, které doplňky stravy mohou potřebovat pro optimalizaci léčby. Tato schopnost se ukazuje jako přelomová z hlediska výsledků léčby pacientů.",
+      "practice": "Chelsea Dental Clinic"
     },
     "kristian_grimm": {
-      "role": "Zubař (Skutečná recenze)",
+      "role": "Zahnarzt",
       "title": "32reasons Zahnteam / Hamburg",
       "focus": "Prevence, Vitamin D, HbA1c, systémové zdraví",
-      "text": "32reasons & Polaris DX – stomatologie v novém pojetí. Chairside čtečka nám umožňuje stanovit biomarkery jako Vitamin D a HbA1c přímo na místě. To propojuje stomatologii bezprostředně se systémovým zdravím pro rychlá, na důkazech založená terapeutická rozhodnutí."
+      "text": "32reasons & Polaris DX – stomatologie v novém pojetí. Chairside čtečka nám umožňuje stanovit biomarkery jako Vitamin D a HbA1c přímo na místě. To propojuje stomatologii bezprostředně se systémovým zdravím pro rychlá, na důkazech založená terapeutická rozhodnutí.",
+      "practice": "32reasons Zahnteam, Hamburg"
     },
     "martin_fischer": {
-      "role": "Praktický lékař / ordinace",
+      "role": "Facharzt für Innere Medizin",
       "title": "Specialista na vnitřní lékařství / Interní ordinace Dr. Fischer",
       "focus": "Okamžitá diagnostika u akutních pacientů (efektivita, rozhodnutí o terapii)",
-      "text": "Možnost okamžitě stanovit zánětlivé markery jako CRP přímo v ordinaci způsobila revoluci v našem léčebném postupu. U pacientů s nejasnými infekcemi se dokážeme rychleji rozhodnout, zda je nutná antibiotická léčba, a předcházíme zbytečným doporučením k dalším specialistům. To nám šetří čas a výrazně zvyšuje spokojenost pacientů."
+      "text": "Možnost okamžitě stanovit zánětlivé markery jako CRP přímo v ordinaci způsobila revoluci v našem léčebném postupu. U pacientů s nejasnými infekcemi se dokážeme rychleji rozhodnout, zda je nutná antibiotická léčba, a předcházíme zbytečným doporučením k dalším specialistům. To nám šetří čas a výrazně zvyšuje spokojenost pacientů.",
+      "practice": "Internistische Praxis Dr. Fischer"
     },
     "bastian_wessing": {
-      "role": "Vedoucí lékař",
+      "role": "Ärztlicher Leiter",
       "title": "MVZ Zahnkultur Berlin Brandenburg GmbH",
       "focus": "Okamžitá diagnostika pro parodontologii a implantologii (Vitamin D, HbA1c, cholesterol, CRP)",
-      "text": "Igloo Multireader umožňuje měřit zánětlivé markery, HbA1c, cholesterol a vitamin D přímo u křesla. Parodontologické a implantační zákroky tak plánujeme bezpečněji a začínáme rychleji. Školení a podpora od PolarisDX jsou nekomplikované – přístroj se stal pevnou součástí našeho každodenního provozu."
+      "text": "Igloo Multireader umožňuje měřit zánětlivé markery, HbA1c, cholesterol a vitamin D přímo u křesla. Parodontologické a implantační zákroky tak plánujeme bezpečněji a začínáme rychleji. Školení a podpora od PolarisDX jsou nekomplikované – přístroj se stal pevnou součástí našeho každodenního provozu.",
+      "practice": "MVZ Zahnkultur Berlin Brandenburg"
     },
     "goran_stojanovic": {
-      "role": "Zubař (Skutečná recenze)",
+      "role": "Biologischer Zahnarzt, Inhaber",
       "title": "Biologický zubní lékař / vedoucí zubní lékař a majitel",
       "focus": "Okamžitá diagnostika pro plánování implantátů (Vitamin D, CRP)",
-      "text": "Jako biologický zubní lékař jsem hluboce přesvědčen, že celostní zdraví vždy začíná i u zubů. Igloo Pro mi umožňuje činit rychlá a přesná diagnostická rozhodnutí – přesně tam, kde jsou potřeba: u zubařského křesla. Díky okamžité analýze vitaminu D a CRP dokážu optimálně naplánovat zavedení implantátů a často je výrazně urychlit. Moji pacienti tak dostávají bezpečnější a efektivnější léčbu."
+      "text": "Jako biologický zubní lékař jsem hluboce přesvědčen, že celostní zdraví vždy začíná i u zubů. Igloo Pro mi umožňuje činit rychlá a přesná diagnostická rozhodnutí – přesně tam, kde jsou potřeba: u zubařského křesla. Díky okamžité analýze vitaminu D a CRP dokážu optimálně naplánovat zavedení implantátů a často je výrazně urychlit. Moji pacienti tak dostávají bezpečnější a efektivnější léčbu.",
+      "practice": ""
     },
     "goTo": "Zobrazit hodnocení {{n}}",
     "stats": {
@@ -179,7 +184,8 @@
       "reviewsValue": "250+",
       "reviewsLabel": "Recenze"
     },
-    "cta": "Přesvědčte se sami"
+    "cta": "Přesvědčte se sami",
+    "photo_placeholder": "Kundenbild"
   },
   "blog": {
     "caption": "Blog a novinky",

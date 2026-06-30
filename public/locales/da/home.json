@@ -141,34 +141,39 @@
     "ratingLabel": "Samlet vurdering\nbaseret på vurderinger fra klinikker",
     "positiveLabel": "Positiv vurdering",
     "richard_pollock": {
-      "role": "Tandlæge (Ægte anmeldelse)",
+      "role": "Biological Dentist & Implant Surgeon",
       "title": "Biologisk tandlæge og implantatkirurg / Chelsea Dental Clinic",
       "focus": "Hurtige helbredstjek på stedet (Forebyggelse, Vitamin D)",
-      "text": "Betydningen af at udføre analyser af D-vitaminniveauer og andre vigtige sundhedsindikatorer på stedet kan ikke undervurderes. Med Igloo Pro kan jeg foretage en simpel kapillær blodprøve for at fastslå patienternes behov og derefter vejlede dem om, hvilke supplerende kosttilskud de eventuelt har brug for for at optimere behandlingen. Denne mulighed viser sig at være transformerende for patientresultaterne."
+      "text": "Betydningen af at udføre analyser af D-vitaminniveauer og andre vigtige sundhedsindikatorer på stedet kan ikke undervurderes. Med Igloo Pro kan jeg foretage en simpel kapillær blodprøve for at fastslå patienternes behov og derefter vejlede dem om, hvilke supplerende kosttilskud de eventuelt har brug for for at optimere behandlingen. Denne mulighed viser sig at være transformerende for patientresultaterne.",
+      "practice": "Chelsea Dental Clinic"
     },
     "kristian_grimm": {
-      "role": "Tandlæge (Ægte anmeldelse)",
+      "role": "Zahnarzt",
       "title": "32reasons Zahnteam / Hamburg",
       "focus": "Forebyggelse, Vitamin D, HbA1c, systemisk sundhed",
-      "text": "32reasons & Polaris DX – tandpleje gentænkt. Chairside-readeren giver os mulighed for at bestemme biomarkører som Vitamin D og HbA1c direkte på stedet. Det kobler tandplejen direkte sammen med systemisk sundhed for hurtige, evidensbaserede behandlingsbeslutninger."
+      "text": "32reasons & Polaris DX – tandpleje gentænkt. Chairside-readeren giver os mulighed for at bestemme biomarkører som Vitamin D og HbA1c direkte på stedet. Det kobler tandplejen direkte sammen med systemisk sundhed for hurtige, evidensbaserede behandlingsbeslutninger.",
+      "practice": "32reasons Zahnteam, Hamburg"
     },
     "martin_fischer": {
-      "role": "Almen praktiserende læge/klinik",
+      "role": "Facharzt für Innere Medizin",
       "title": "Speciallæge i intern medicin / Intern medicinsk klinik Dr. Fischer",
       "focus": "Øjeblikkelig diagnostik ved akutte patienter (Effektivitet, behandlingsbeslutning)",
-      "text": "Muligheden for at bestemme inflammationsmarkører som CRP øjeblikkeligt i klinikken har revolutioneret vores behandlingsforløb. Hos patienter med uklare infektioner kan vi hurtigere afgøre, om antibiotikabehandling er nødvendig, og undgå unødvendige henvisninger. Det sparer os tid og øger patienttilfredsheden betydeligt."
+      "text": "Muligheden for at bestemme inflammationsmarkører som CRP øjeblikkeligt i klinikken har revolutioneret vores behandlingsforløb. Hos patienter med uklare infektioner kan vi hurtigere afgøre, om antibiotikabehandling er nødvendig, og undgå unødvendige henvisninger. Det sparer os tid og øger patienttilfredsheden betydeligt.",
+      "practice": "Internistische Praxis Dr. Fischer"
     },
     "bastian_wessing": {
-      "role": "Lægelig leder",
+      "role": "Ärztlicher Leiter",
       "title": "MVZ Zahnkultur Berlin Brandenburg GmbH",
       "focus": "Øjeblikkelig diagnostik til parodontologi & implantologi (Vitamin D, HbA1c, kolesterol, CRP)",
-      "text": "Igloo Multireader gør det muligt at måle inflammationsmarkører, HbA1c, kolesterol og Vitamin D direkte ved behandlingsstolen. Sådan planlægger vi parodontale og implantatbehandlinger mere sikkert og kommer hurtigere i gang. Uddannelse og support fra PolarisDX er ukompliceret – apparatet er blevet en fast del af vores hverdag."
+      "text": "Igloo Multireader gør det muligt at måle inflammationsmarkører, HbA1c, kolesterol og Vitamin D direkte ved behandlingsstolen. Sådan planlægger vi parodontale og implantatbehandlinger mere sikkert og kommer hurtigere i gang. Uddannelse og support fra PolarisDX er ukompliceret – apparatet er blevet en fast del af vores hverdag.",
+      "practice": "MVZ Zahnkultur Berlin Brandenburg"
     },
     "goran_stojanovic": {
-      "role": "Tandlæge (Ægte anmeldelse)",
+      "role": "Biologischer Zahnarzt, Inhaber",
       "title": "Biologisk tandlæge / Ledende tandlæge og ejer",
       "focus": "Øjeblikkelig diagnostik til implantatplanlægning (Vitamin D, CRP)",
-      "text": "Som biologisk tandlæge er jeg dybt overbevist om, at helhedsorienteret sundhed altid også begynder ved tænderne. Igloo Pro giver mig mulighed for at træffe hurtige og præcise diagnostiske beslutninger – netop dér, hvor der er brug for dem: ved behandlingsstolen. Med den øjeblikkelige Vitamin D- og CRP-analyse kan jeg planlægge implantatindsættelser optimalt og ofte fremskynde dem betydeligt. Sådan får mine patienter en sikrere og mere effektiv behandling."
+      "text": "Som biologisk tandlæge er jeg dybt overbevist om, at helhedsorienteret sundhed altid også begynder ved tænderne. Igloo Pro giver mig mulighed for at træffe hurtige og præcise diagnostiske beslutninger – netop dér, hvor der er brug for dem: ved behandlingsstolen. Med den øjeblikkelige Vitamin D- og CRP-analyse kan jeg planlægge implantatindsættelser optimalt og ofte fremskynde dem betydeligt. Sådan får mine patienter en sikrere og mere effektiv behandling.",
+      "practice": ""
     },
     "goTo": "Vis anmeldelse {{n}}",
     "stats": {
@@ -179,7 +184,8 @@
       "reviewsValue": "250+",
       "reviewsLabel": "Anmeldelser"
     },
-    "cta": "Bliv selv overbevist"
+    "cta": "Bliv selv overbevist",
+    "photo_placeholder": "Kundenbild"
   },
   "blog": {
     "caption": "Blog & nyheder",

@@ -141,34 +141,39 @@
     "ratingLabel": "Ocena ogólna\nna podstawie ocen gabinetów",
     "positiveLabel": "Pozytywna ocena",
     "richard_pollock": {
-      "role": "Stomatolog (prawdziwa recenzja)",
+      "role": "Biological Dentist & Implant Surgeon",
       "title": "Stomatolog biologiczny i chirurg implantolog / Chelsea Dental Clinic",
       "focus": "Szybkie badania zdrowotne na miejscu (profilaktyka, Vitamin D)",
-      "text": "Nie sposób przecenić możliwości wykonywania na miejscu analizy poziomu witaminy D i innych kluczowych wskaźników zdrowotnych. Igloo Pro pozwala mi przeprowadzić proste badanie krwi włośniczkowej, aby ustalić potrzeby pacjentów, a następnie doradzić im, jakich dodatkowych suplementów mogą potrzebować, by zoptymalizować leczenie. Ta możliwość okazuje się przełomowa pod względem wyników leczenia pacjentów."
+      "text": "Nie sposób przecenić możliwości wykonywania na miejscu analizy poziomu witaminy D i innych kluczowych wskaźników zdrowotnych. Igloo Pro pozwala mi przeprowadzić proste badanie krwi włośniczkowej, aby ustalić potrzeby pacjentów, a następnie doradzić im, jakich dodatkowych suplementów mogą potrzebować, by zoptymalizować leczenie. Ta możliwość okazuje się przełomowa pod względem wyników leczenia pacjentów.",
+      "practice": "Chelsea Dental Clinic"
     },
     "kristian_grimm": {
-      "role": "Stomatolog (prawdziwa recenzja)",
+      "role": "Zahnarzt",
       "title": "32reasons Zahnteam / Hamburg",
       "focus": "Profilaktyka, Vitamin D, HbA1c, zdrowie systemowe",
-      "text": "32reasons & Polaris DX – stomatologia na nowo. Czytnik chairside umożliwia nam oznaczanie biomarkerów takich jak Vitamin D i HbA1c bezpośrednio na miejscu. To bezpośrednio łączy stomatologię ze zdrowiem systemowym, umożliwiając szybkie, oparte na dowodach decyzje terapeutyczne."
+      "text": "32reasons & Polaris DX – stomatologia na nowo. Czytnik chairside umożliwia nam oznaczanie biomarkerów takich jak Vitamin D i HbA1c bezpośrednio na miejscu. To bezpośrednio łączy stomatologię ze zdrowiem systemowym, umożliwiając szybkie, oparte na dowodach decyzje terapeutyczne.",
+      "practice": "32reasons Zahnteam, Hamburg"
     },
     "martin_fischer": {
-      "role": "Lekarz rodzinny / gabinet",
+      "role": "Facharzt für Innere Medizin",
       "title": "Specjalista chorób wewnętrznych / Gabinet Internistyczny dr. Fischer",
       "focus": "Natychmiastowa diagnostyka u pacjentów ostrych (efektywność, decyzja terapeutyczna)",
-      "text": "Możliwość natychmiastowego oznaczania markerów stanu zapalnego, takich jak CRP, bezpośrednio w gabinecie zrewolucjonizowała nasz przebieg leczenia. U pacjentów z niejasnymi infekcjami możemy szybciej zdecydować, czy konieczna jest antybiotykoterapia, i unikamy zbędnych skierowań. To oszczędza nam czas i wyraźnie zwiększa zadowolenie pacjentów."
+      "text": "Możliwość natychmiastowego oznaczania markerów stanu zapalnego, takich jak CRP, bezpośrednio w gabinecie zrewolucjonizowała nasz przebieg leczenia. U pacjentów z niejasnymi infekcjami możemy szybciej zdecydować, czy konieczna jest antybiotykoterapia, i unikamy zbędnych skierowań. To oszczędza nam czas i wyraźnie zwiększa zadowolenie pacjentów.",
+      "practice": "Internistische Praxis Dr. Fischer"
     },
     "bastian_wessing": {
-      "role": "Dyrektor medyczny",
+      "role": "Ärztlicher Leiter",
       "title": "MVZ Zahnkultur Berlin Brandenburg GmbH",
       "focus": "Natychmiastowa diagnostyka w periodontologii i implantologii (Vitamin D, HbA1c, cholesterol, CRP)",
-      "text": "Igloo Multireader umożliwia pomiar markerów stanu zapalnego, HbA1c, cholesterolu i Vitamin D bezpośrednio przy fotelu. Dzięki temu bezpieczniej planujemy zabiegi periodontologiczne i implantologiczne oraz szybciej je rozpoczynamy. Szkolenie i wsparcie ze strony PolarisDX są nieskomplikowane – urządzenie stało się stałym elementem naszej codziennej pracy."
+      "text": "Igloo Multireader umożliwia pomiar markerów stanu zapalnego, HbA1c, cholesterolu i Vitamin D bezpośrednio przy fotelu. Dzięki temu bezpieczniej planujemy zabiegi periodontologiczne i implantologiczne oraz szybciej je rozpoczynamy. Szkolenie i wsparcie ze strony PolarisDX są nieskomplikowane – urządzenie stało się stałym elementem naszej codziennej pracy.",
+      "practice": "MVZ Zahnkultur Berlin Brandenburg"
     },
     "goran_stojanovic": {
-      "role": "Stomatolog (prawdziwa recenzja)",
+      "role": "Biologischer Zahnarzt, Inhaber",
       "title": "Stomatolog biologiczny / Główny stomatolog i właściciel",
       "focus": "Natychmiastowa diagnostyka do planowania implantów (Vitamin D, CRP)",
-      "text": "Jako stomatolog biologiczny jestem głęboko przekonany, że zdrowie holistyczne zawsze zaczyna się także od zębów. Igloo Pro pozwala mi podejmować szybkie i precyzyjne decyzje diagnostyczne dokładnie tam, gdzie są potrzebne: przy fotelu. Dzięki natychmiastowej analizie Vitamin D i CRP mogę optymalnie planować wszczepianie implantów i często znacznie je przyspieszyć. Dzięki temu moje pacjentki i moi pacjenci otrzymują bezpieczniejsze i bardziej efektywne leczenie."
+      "text": "Jako stomatolog biologiczny jestem głęboko przekonany, że zdrowie holistyczne zawsze zaczyna się także od zębów. Igloo Pro pozwala mi podejmować szybkie i precyzyjne decyzje diagnostyczne dokładnie tam, gdzie są potrzebne: przy fotelu. Dzięki natychmiastowej analizie Vitamin D i CRP mogę optymalnie planować wszczepianie implantów i często znacznie je przyspieszyć. Dzięki temu moje pacjentki i moi pacjenci otrzymują bezpieczniejsze i bardziej efektywne leczenie.",
+      "practice": ""
     },
     "goTo": "Pokaż opinię {{n}}",
     "stats": {
@@ -179,7 +184,8 @@
       "reviewsValue": "250+",
       "reviewsLabel": "Recenzje"
     },
-    "cta": "Przekonaj się sam"
+    "cta": "Przekonaj się sam",
+    "photo_placeholder": "Kundenbild"
   },
   "blog": {
     "caption": "Blog i aktualności",

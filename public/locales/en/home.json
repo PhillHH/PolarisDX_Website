@@ -141,34 +141,39 @@
     "ratingLabel": "Overall rating\nbased on practice reviews",
     "positiveLabel": "Positive rating",
     "richard_pollock": {
-      "role": "Dentist (genuine review)",
+      "role": "Biological Dentist & Implant Surgeon",
       "title": "Biological Dentist and Implant Surgeon / Chelsea Dental Clinic",
       "focus": "Fast on-site health checks (prevention, Vitamin D)",
-      "text": "Carrying out analysis of Vitamin D levels and other key health indicators on-site cannot be underestimated. The Igloo Pro enables me to perform a simple capillary blood test, to ascertain patients’ needs and to then guide them as to which additional supplements they might require to optimise treatment. This capability is proving transformative in terms of patient outcomes."
+      "text": "Carrying out analysis of Vitamin D levels and other key health indicators on-site cannot be underestimated. The Igloo Pro enables me to perform a simple capillary blood test, to ascertain patients’ needs and to then guide them as to which additional supplements they might require to optimise treatment. This capability is proving transformative in terms of patient outcomes.",
+      "practice": "Chelsea Dental Clinic"
     },
     "kristian_grimm": {
-      "role": "Dentist (genuine review)",
+      "role": "Zahnarzt",
       "title": "32reasons Zahnteam / Hamburg",
       "focus": "Prevention, Vitamin D, HbA1c, systemic health",
-      "text": "32reasons & Polaris DX – dentistry reimagined. The chairside reader lets us determine biomarkers such as Vitamin D and HbA1c directly on site. This links dentistry immediately with systemic health for fast, evidence-based treatment decisions."
+      "text": "32reasons & Polaris DX – dentistry reimagined. The chairside reader lets us determine biomarkers such as Vitamin D and HbA1c directly on site. This links dentistry immediately with systemic health for fast, evidence-based treatment decisions.",
+      "practice": "32reasons Zahnteam, Hamburg"
     },
     "martin_fischer": {
-      "role": "General practitioner / practice",
+      "role": "Facharzt für Innere Medizin",
       "title": "Specialist in Internal Medicine / Dr Fischer Internal Medicine Practice",
       "focus": "Immediate diagnostics for acute patients (efficiency, treatment decisions)",
-      "text": "Being able to determine inflammation markers such as CRP immediately in the practice has revolutionised our treatment workflow. For patients with unclear infections we can decide more quickly whether antibiotic therapy is needed, and we avoid unnecessary referrals. This saves us time and noticeably increases patient satisfaction."
+      "text": "Being able to determine inflammation markers such as CRP immediately in the practice has revolutionised our treatment workflow. For patients with unclear infections we can decide more quickly whether antibiotic therapy is needed, and we avoid unnecessary referrals. This saves us time and noticeably increases patient satisfaction.",
+      "practice": "Internistische Praxis Dr. Fischer"
     },
     "bastian_wessing": {
-      "role": "Medical Director",
+      "role": "Ärztlicher Leiter",
       "title": "MVZ Zahnkultur Berlin Brandenburg GmbH",
       "focus": "Immediate diagnostics for periodontology & implantology (Vitamin D, HbA1c, cholesterol, CRP)",
-      "text": "The Igloo Multireader makes inflammation markers, HbA1c, cholesterol and Vitamin D measurable right at the chair. This lets us plan periodontal and implant treatments more safely and start faster. Training and support from PolarisDX are straightforward – the device has become a fixed part of our daily routine."
+      "text": "The Igloo Multireader makes inflammation markers, HbA1c, cholesterol and Vitamin D measurable right at the chair. This lets us plan periodontal and implant treatments more safely and start faster. Training and support from PolarisDX are straightforward – the device has become a fixed part of our daily routine.",
+      "practice": "MVZ Zahnkultur Berlin Brandenburg"
     },
     "goran_stojanovic": {
-      "role": "Dentist (genuine review)",
+      "role": "Biologischer Zahnarzt, Inhaber",
       "title": "Biological Dentist / Principal Dentist & Owner",
       "focus": "Immediate diagnostics for implant planning (Vitamin D, CRP)",
-      "text": "As a biological dentist, I am deeply convinced that holistic health always begins with the teeth. The Igloo Pro enables me to make fast, precise diagnostic decisions exactly where they are needed: at the chair. With immediate Vitamin D and CRP analysis, I can plan implant placements optimally and often accelerate them considerably. This gives my patients safer and more efficient treatment."
+      "text": "As a biological dentist, I am deeply convinced that holistic health always begins with the teeth. The Igloo Pro enables me to make fast, precise diagnostic decisions exactly where they are needed: at the chair. With immediate Vitamin D and CRP analysis, I can plan implant placements optimally and often accelerate them considerably. This gives my patients safer and more efficient treatment.",
+      "practice": ""
     },
     "goTo": "Show review {{n}}",
     "stats": {
@@ -179,7 +184,8 @@
       "reviewsValue": "250+",
       "reviewsLabel": "Reviews"
     },
-    "cta": "See for yourself"
+    "cta": "See for yourself",
+    "photo_placeholder": "Kundenbild"
   },
   "blog": {
     "caption": "Blog & News",
