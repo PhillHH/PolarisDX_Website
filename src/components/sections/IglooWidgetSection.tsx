@@ -1,164 +1,106 @@
+import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Sparkles, Infinity as InfinityIcon } from 'lucide-react'
 import { Tooth } from '../ui/icons/Tooth'
-import Eyebrow from '../ui/Eyebrow'
-import iglooImage from '../../assets/igloo_front.webp'
+
+/**
+ * IglooWidgetSection — Segment-Auswahl der Fachrichtung.
+ * Saubere 3-Karten-Reihe (Pattern wie WhyPocSection): zentrierter Kopf +
+ * grid md:grid-cols-3 mit gleich hohen, flachen Karten (Teal-Icon-Badge,
+ * Navy-Titel, Nutzen-Text, Biomarker-Zeile, Teal-Link).
+ * i18n-Namespace 'home'. SSR-sicher (kein window/localStorage).
+ */
+type Segment = {
+  id: 'dental' | 'beauty' | 'longevity'
+  icon: ReactNode
+  title: string
+  benefit: string
+  bio: string
+  cta: string
+}
 
 const IglooWidgetSection = () => {
   const { t } = useTranslation('home')
 
-  // Coordinates for the symmetrical triangle layout (1200x600 container)
-  const positions = {
-    dental: { x: 600, y: 80 },
-    beauty: { x: 150, y: 500 },
-    longevity: { x: 1050, y: 500 },
-  }
-
-  const widgets = [
+  const segments: Segment[] = [
     {
       id: 'dental',
-      label: t('igloo_widget.dental', 'Dental'),
-      path: '/diagnostics/dental',
-      icon: <Tooth className="w-12 h-12 text-brand-primary" />,
-      x: positions.dental.x,
-      y: positions.dental.y,
+      icon: <Tooth className="h-6 w-6" />,
+      title: t('segments.dental.title', 'Zahnarztpraxis'),
+      benefit: t(
+        'segments.dental.benefit',
+        'Entzündung, Vitalstatus und Stoffwechsel direkt am Behandlungsstuhl bewerten — und die Therapie im selben Termin begründen.',
+      ),
+      bio: t('segments.dental.bio', 'Vitamin D · CRP · HbA1c'),
+      cta: t('segments.dental.cta', 'Dental-Diagnostik ansehen'),
     },
     {
       id: 'beauty',
-      label: t('igloo_widget.beauty', 'Beauty'),
-      path: '/diagnostics/beauty',
-      icon: <Sparkles className="w-12 h-12 text-brand-primary" />,
-      x: positions.beauty.x,
-      y: positions.beauty.y,
+      icon: <Sparkles className="h-6 w-6" />,
+      title: t('segments.beauty.title', 'Ästhetik & Beauty'),
+      benefit: t(
+        'segments.beauty.benefit',
+        'Hormon- und Nährstoffstatus als Grundlage für Haut-, Haar- und Anti-Aging-Behandlungen — messbar statt geschätzt.',
+      ),
+      bio: t('segments.beauty.bio', 'Hormone · Mikronährstoffe'),
+      cta: t('segments.beauty.cta', 'Beauty-Diagnostik ansehen'),
     },
     {
       id: 'longevity',
-      label: t('igloo_widget.longevity', 'Longevity'),
-      path: '/diagnostics/longevity',
-      icon: <InfinityIcon className="w-12 h-12 text-brand-primary" />,
-      x: positions.longevity.x,
-      y: positions.longevity.y,
+      icon: <InfinityIcon className="h-6 w-6" />,
+      title: t('segments.longevity.title', 'Longevity & Prävention'),
+      benefit: t(
+        'segments.longevity.benefit',
+        'Stoffwechsel-, Herz-Kreislauf- und Risikomarker für datenbasierte Präventions- und Longevity-Programme.',
+      ),
+      bio: t('segments.longevity.bio', 'HbA1c · Lipide · D-Dimer'),
+      cta: t('segments.longevity.cta', 'Longevity-Diagnostik ansehen'),
     },
   ]
 
   return (
-    <section className="relative py-20 lg:py-32 bg-slate-50 overflow-visible">
-      <div className="mx-auto max-w-container px-4 text-center lg:px-0 mb-16 relative z-10">
-        <Eyebrow size="default" className="mb-8">
-          {t('igloo_widget.title', 'Welche Praxis führen Sie?')}
-        </Eyebrow>
-        <p className="mx-auto max-w-2xl text-center text-gray-600">
-          {t(
-            'igloo_widget.subtitle',
-            'Wählen Sie Ihren Bereich – wir zeigen die passenden Biomarker-Panels und Anwendungen für Ihre Fachrichtung.'
-          )}
-        </p>
-      </div>
-
-      <div className="mx-auto flex w-full flex-col items-center justify-center gap-10 lg:block lg:h-[600px] lg:w-[1200px] relative px-4 lg:px-0">
-        {/* Decorative connecting lines for desktop (Triangle) */}
-        <svg className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0">
-          <defs>
-            <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#e2e8f0">
-                <animate
-                  attributeName="stop-color"
-                  values="#e2e8f0;#cbd5e1;#e2e8f0"
-                  dur="4s"
-                  repeatCount="indefinite"
-                />
-              </stop>
-              <stop offset="100%" stopColor="#94a3b8">
-                <animate
-                  attributeName="stop-color"
-                  values="#94a3b8;#cbd5e1;#94a3b8"
-                  dur="4s"
-                  repeatCount="indefinite"
-                />
-              </stop>
-            </linearGradient>
-          </defs>
-
-          {/* Path connecting the centers of the widgets */}
-          <path
-            d={`M ${positions.dental.x} ${positions.dental.y} L ${positions.beauty.x} ${positions.beauty.y} L ${positions.longevity.x} ${positions.longevity.y} Z`}
-            stroke="url(#blueGradient)"
-            strokeWidth="2"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="opacity-50"
-          />
-        </svg>
-
-        {/* Central Image with Glow */}
-        <div className="relative z-10 flex justify-center items-center h-full w-full pointer-events-none">
-          {/* Blue Glow Effect */}
-          <div className="absolute w-[300px] h-[300px] bg-blue-100/50 blur-[80px] rounded-full mix-blend-multiply pointer-events-none" />
-
-          <img
-            src={iglooImage}
-            alt="IglooPro POC-Reader — kompaktes Analysegerät für Praxisdiagnostik"
-            width={256}
-            height={256}
-            loading="lazy"
-            decoding="async"
-            className="relative z-10 w-64 sm:w-72 md:w-56 lg:w-64 drop-shadow-2xl transition-all duration-500 ease-in-out hover:scale-110 pointer-events-none"
-          />
+    <section id="fachrichtung" className="bg-slate-50">
+      <div className="mx-auto max-w-container px-4 lg:px-0 py-20 lg:py-28">
+        {/* Kopf */}
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-sm font-semibold uppercase tracking-wide text-accent">
+            {t('igloo_widget.eyebrow', 'Ihre Fachrichtung')}
+          </p>
+          <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading sm:text-4xl lg:text-[42px]">
+            {t('igloo_widget.title', 'Welche Praxis führen Sie?')}
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-gray-700">
+            {t(
+              'igloo_widget.subtitle',
+              'Wählen Sie Ihren Bereich — wir zeigen die passenden Biomarker-Panels und Anwendungen für Ihre Fachrichtung.',
+            )}
+          </p>
         </div>
 
-        {/* Widgets */}
-        <div className="flex w-full flex-col items-center gap-6 lg:absolute lg:inset-0 lg:block z-30 pointer-events-auto px-2 lg:px-0">
-          {widgets.map((widget) => (
-            <Link
-              key={widget.id}
-              to={widget.path}
-              className={`
-                pointer-events-auto
-                group flex items-center justify-center
-                relative z-40
-                rounded-2xl
-                shadow-lg shadow-brand-deep/30 transition-all duration-300 hover:scale-105 hover:shadow-2xl
-                w-full max-w-[95vw] sm:max-w-[90vw] h-32 sm:h-36
-                bg-gradient-to-br from-brand-primary/90 via-brand-deep/90 to-gray-900/90
-                border border-white/10 backdrop-blur-md
-                lg:absolute lg:left-[var(--x)] lg:top-[var(--y)] lg:-translate-x-1/2 lg:-translate-y-1/2
-                lg:w-80 lg:h-48
-              `}
-              style={
-                {
-                  '--x': `${widget.x}px`,
-                  '--y': `${widget.y}px`,
-                } as React.CSSProperties
-              }
+        {/* Karten */}
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {segments.map((segment) => (
+            <div
+              key={segment.id}
+              className="flex h-full flex-col rounded-xl border border-slate-200 bg-white p-6"
             >
-              {/* Inner Content */}
-              <div className="flex h-full w-full flex-row items-center gap-4 sm:gap-5 p-3 sm:p-4 transition-colors">
-                <div className="flex-shrink-0 transform transition-transform duration-300 group-hover:-translate-y-1">
-                  {widget.icon}
-                </div>
-                <div className="flex flex-col items-start gap-1">
-                  <span className="text-2xl font-medium text-white text-left group-hover:text-white transition-colors">
-                    {widget.label}
-                  </span>
-                  <span className="text-sm font-medium text-slate-100 group-hover:text-white transition-colors">
-                    {t('common:read_more', 'Mehr erfahren')} →
-                  </span>
-                </div>
-              </div>
-            </Link>
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-accent">
+                {segment.icon}
+              </span>
+              <h3 className="mt-5 text-lg font-medium text-heading">{segment.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-gray-700">{segment.benefit}</p>
+              <p className="mt-4 text-sm font-medium text-gray-700">{segment.bio}</p>
+              <Link
+                to={`/diagnostics/${segment.id}`}
+                className="mt-6 inline-flex items-center gap-1 self-start text-sm font-semibold text-accent hover:text-accent-strong"
+              >
+                {segment.cta}
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
           ))}
         </div>
-      </div>
-
-      <div className="flex justify-center mt-8 relative z-10">
-        <Link
-          to="/diagnostics"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary hover:text-brand-deep transition-colors"
-        >
-          {t('igloo_widget.all_services', 'Alle Diagnostik-Services entdecken')} →
-        </Link>
       </div>
     </section>
   )

@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/Button'
-import ImagePlaceholder from '../ui/ImagePlaceholder'
 
 /**
  * SSR-safe interaktive ROI-Rechner-Sektion (#roi-rechner).
@@ -155,10 +154,6 @@ const RoiCalculatorSection = () => {
               'In unter einer Minute sehen, welches Selbstzahler-Potenzial chairside Diagnostik in Ihrer Praxis hat.',
             )}
           </p>
-          <ImagePlaceholder
-            label={t('roi.image_label', 'IglooPro in der Praxis')}
-            className="mt-6 aspect-video w-full max-w-md mx-auto lg:mx-0"
-          />
         </div>
 
         <div className="mt-10 grid gap-8 lg:grid-cols-2">
@@ -242,6 +237,21 @@ const RoiCalculatorSection = () => {
               </dl>
             )}
 
+            <div className="mt-6">
+              <Button
+                variant="secondary"
+                size="sm"
+                onClick={() => setShowForm((s) => !s)}
+                aria-expanded={showForm}
+                className="!bg-accent !text-white hover:!bg-accent-strong focus-visible:!ring-accent"
+              >
+                {t('roi.cta_report', 'Vollständigen ROI-Report erhalten')}
+              </Button>
+              <p className="mt-2 text-xs text-white/60">
+                {t('roi.report_hint', 'Als PDF an Ihre E-Mail')}
+              </p>
+            </div>
+
             <p className="mt-6 text-xs leading-relaxed text-white/50">
               {t(
                 'roi.disclaimer',
@@ -257,18 +267,9 @@ const RoiCalculatorSection = () => {
             to="/contact"
             variant="secondary"
             size="sm"
-            className="!bg-accent !shadow-accent/20 hover:!bg-accent-strong focus-visible:!ring-accent"
+            className="!bg-accent !text-white hover:!bg-accent-strong focus-visible:!ring-accent"
           >
             {t('roi.cta_consult', 'Beratung buchen')}
-          </Button>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => setShowForm((s) => !s)}
-            aria-expanded={showForm}
-            className="!border-brand-deep !text-brand-deep hover:!bg-brand-deep/5"
-          >
-            {t('roi.cta_report', 'Ergebnis als PDF zusenden')}
           </Button>
         </div>
 

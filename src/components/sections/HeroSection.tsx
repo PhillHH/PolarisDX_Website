@@ -61,10 +61,8 @@ const HeroSection = () => {
 
   const chips = [
     t('hero.chips.cv', 'CV < 2 % Präzision'),
-    t('hero.chips.minutes', 'Ergebnis in Minuten'),
+    t('hero.chips.minutes', 'Ergebnis in 3 Min.'),
     t('hero.chips.ivdr', 'IVDR/CE'),
-    t('hero.chips.delivery', 'Einsatzbereit in 3–5 Werktagen'),
-    t('hero.chips.compat', 'Herstellerübergreifend kompatibel'),
   ]
 
   return (
@@ -125,7 +123,7 @@ const HeroSection = () => {
                 to="/contact"
                 variant="secondary"
                 size="sm"
-                className="w-full text-center sm:w-auto sm:whitespace-nowrap !bg-accent !shadow-accent/20 hover:!bg-accent-strong focus-visible:!ring-accent"
+                className="w-full text-center sm:w-auto sm:whitespace-nowrap !bg-accent !text-white !shadow-accent/20 hover:!bg-accent-strong focus-visible:!ring-accent"
               >
                 {t('hero.cta', 'Beratung buchen')}
               </Button>

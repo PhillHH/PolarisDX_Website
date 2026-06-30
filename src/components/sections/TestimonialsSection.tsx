@@ -1,33 +1,41 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { testimonials } from '../../data/testimonials'
-import SectionHeader from '~/components/ui/SectionHeader'
+import Eyebrow from '~/components/ui/Eyebrow'
 import { Button } from '~/components/ui/Button'
 
-// A simple Star SVG component
-const Star = ({ filled }: { filled: boolean }) => (
+// Teal-Stern (Token text-accent, kein Raw-Hex).
+const Star = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    fill={filled ? 'currentColor' : 'none'}
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={`h-5 w-5 ${filled ? 'text-yellow-400' : 'text-gray-400'}`}
+    fill="currentColor"
+    aria-hidden="true"
+    className="h-5 w-5 text-accent"
   >
     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
   </svg>
 )
 
-// Star rating component
-const StarRating = ({ rating }: { rating: number }) => (
-  <div className="flex justify-center">
+const StarRating = () => (
+  <div className="flex justify-center gap-0.5" aria-hidden="true">
     {Array.from({ length: 5 }, (_, i) => (
-      <Star key={i} filled={i < rating} />
+      <Star key={i} />
     ))}
   </div>
 )
+
+// Initialen aus dem Namen (Titel wie Dr./Prof. ignorieren) — füllt den
+// Avatar-Kreis, keine frei schwebenden Bilder auf der Karte.
+const getInitials = (name: string) =>
+  name
+    .replace(/^(Dr\.|Prof\.)\s*/i, '')
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join('')
+    .toUpperCase()
 
 const TestimonialsSection = () => {
   const { t } = useTranslation('home')
@@ -36,78 +44,51 @@ const TestimonialsSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
-    }, 8000) // Slower slide change: 8 seconds
+    }, 8000)
 
     return () => clearInterval(interval)
   }, [])
 
-  const handleDotClick = (index: number) => {
-    setActiveIndex(index)
-  }
-
   return (
-    <section
-      id="testimonials"
-      className="relative bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 py-16 text-white"
-    >
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-80 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-80 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
-      <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
-
-      <div className="relative mx-auto flex max-w-container flex-col items-center gap-16 px-4 lg:gap-12 lg:px-8">
-        <div className="flex flex-col items-center gap-8 text-center lg:gap-6">
-          <SectionHeader
-            caption={t('testimonials.caption', 'KUNDENSTIMMEN')}
-            title={t('testimonials.title', 'Was unsere Anwender über das Igloo Pro System sagen')}
-            titleClassName="text-white"
-          />
+    <section id="testimonials" className="bg-brand-deep py-20 text-white lg:py-28">
+      <div className="mx-auto flex max-w-container flex-col items-center gap-12 px-4 lg:px-8">
+        {/* Kopf: GENAU EIN heller Eyebrow + h2 (kein Dunkel-auf-Dunkel) */}
+        <div className="flex flex-col items-center gap-3 text-center">
+          <Eyebrow>{t('testimonials.caption', 'PRAXIS-STIMMEN')}</Eyebrow>
+          <h2 className="text-3xl font-medium tracking-tight text-white sm:text-4xl">
+            {t('testimonials.title', 'Was Praxen über das IglooPro-System sagen')}
+          </h2>
         </div>
 
-        {/* Testimonial Card */}
-        <div className="w-full max-w-4xl space-y-10 rounded-2xl bg-white/5 p-6 shadow-2xl backdrop-blur lg:space-y-8 lg:p-8">
-          {/* Slider Content */}
+        {/* Weiße Beweis-Karte */}
+        <div className="w-full max-w-3xl rounded-xl border border-slate-200 bg-white p-8 text-center lg:p-10">
+          {/* Slider-Inhalt */}
           <div className="overflow-hidden">
             <div
-              className="flex transition-transform duration-1000 ease-in-out"
+              className="flex transition-transform duration-700 ease-in-out"
               style={{ transform: `translateX(-${activeIndex * 100}%)` }}
             >
-              {testimonials.map((testimonial, index) => (
+              {testimonials.map((testimonial) => (
                 <div
-                  key={index}
-                  className="w-full flex-shrink-0"
+                  key={testimonial.id}
+                  className="w-full flex-shrink-0 px-1"
                   role="group"
                   aria-roledescription="slide"
                 >
-                  <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-start md:gap-8 md:text-left">
-                    {/* Reviewer Image & Stars */}
-                    <div className="flex flex-col items-center gap-2">
-                      <div className="mx-auto h-32 w-32 flex-shrink-0 overflow-hidden rounded-full bg-white/20 md:mx-0">
-                        {testimonial.avatar ? (
-                          <img
-                            src={testimonial.avatar}
-                            alt={testimonial.name}
-                            width={128}
-                            height={128}
-                            loading="lazy"
-                            decoding="async"
-                            className="h-full w-full object-cover"
-                          />
-                        ) : null}
-                      </div>
-                      <StarRating rating={5} />
-                    </div>
-
-                    {/* Review Content */}
-                    <div className="flex-grow space-y-4">
-                      <blockquote className="text-lg leading-relaxed text-white/90">
-                        “{t(`testimonials.${testimonial.id}.text`)}”
-                      </blockquote>
-                      <div className="h-10">
-                        <p className="font-semibold">{testimonial.name}</p>
-                        <p className="text-sm text-white/70">
-                          {t(`testimonials.${testimonial.id}.title`)}
-                        </p>
-                      </div>
+                  <StarRating />
+                  <blockquote className="mt-5 text-lg leading-relaxed text-gray-700">
+                    „{t(`testimonials.${testimonial.id}.text`)}“
+                  </blockquote>
+                  <div className="mt-6 flex flex-col items-center gap-3">
+                    <span className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-deep text-base font-semibold text-white">
+                      {getInitials(testimonial.name)}
+                    </span>
+                    <div>
+                      <p className="font-semibold text-heading">{testimonial.name}</p>
+                      <p className="mt-0.5 text-sm text-gray-700">
+                        {t(`testimonials.${testimonial.id}.role`)} ·{' '}
+                        {t(`testimonials.${testimonial.id}.title`)}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -115,43 +96,58 @@ const TestimonialsSection = () => {
             </div>
           </div>
 
-          {/* Slider Dots */}
-          <div className="flex justify-center gap-3">
+          {/* Dots */}
+          <div className="mt-8 flex justify-center gap-2.5">
             {testimonials.map((_, index) => (
               <button
                 key={index}
-                onClick={() => handleDotClick(index)}
+                onClick={() => setActiveIndex(index)}
                 className={`h-2.5 w-2.5 rounded-full transition-colors duration-300 ${
-                  activeIndex === index ? 'bg-white' : 'bg-white/40 hover:bg-white/60'
+                  activeIndex === index ? 'bg-accent' : 'bg-slate-300 hover:bg-slate-400'
                 }`}
-                aria-label={`Go to testimonial ${index + 1}`}
+                aria-label={t('testimonials.goTo', 'Bewertung {{n}} anzeigen', {
+                  n: index + 1,
+                })}
               />
             ))}
           </div>
+
+          {/* Stat-Zeile mit Teal-Zahlen */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-slate-200 pt-6 text-sm text-gray-700">
+            <span>
+              <span className="font-semibold text-accent">
+                ★ {t('testimonials.stats.ratingValue', '4.9')}
+              </span>{' '}
+              {t('testimonials.stats.ratingLabel', 'Gesamt')}
+            </span>
+            <span aria-hidden="true" className="text-slate-300">
+              ·
+            </span>
+            <span>
+              <span className="font-semibold text-accent">
+                {t('testimonials.stats.positiveValue', '100 %')}
+              </span>{' '}
+              {t('testimonials.stats.positiveLabel', 'positiv')}
+            </span>
+            <span aria-hidden="true" className="text-slate-300">
+              ·
+            </span>
+            <span>
+              <span className="font-semibold text-accent">
+                {t('testimonials.stats.reviewsValue', '250+')}
+              </span>{' '}
+              {t('testimonials.stats.reviewsLabel', 'Rezensionen')}
+            </span>
+          </div>
         </div>
 
-        {/* Stats Section */}
-        <div className="flex flex-row justify-center gap-10 text-center md:gap-16">
-          <div>
-            <div className="flex items-baseline justify-center gap-1">
-              <span className="text-3xl font-medium tracking-tight sm:text-4xl">4.9</span>
-            </div>
-            <p className="mt-1 text-xs text-white/80 whitespace-pre-line sm:text-sm">
-              {t('testimonials.ratingLabel', 'Overall Rating\nbased on 500+ reviews')}
-            </p>
-          </div>
-          <div>
-            <div className="flex items-baseline justify-center gap-1">
-              <span className="text-3xl font-medium tracking-tight sm:text-4xl">100</span>
-              <span className="text-xl font-medium text-white/80 sm:text-2xl">%</span>
-            </div>
-            <p className="mt-1 text-xs text-white/80 sm:text-sm">
-              {t('testimonials.positiveLabel', 'Positive Review')}
-            </p>
-          </div>
-        </div>
-
-        <Button to="/contact" size="sm">
+        {/* CTA: gefüllt Teal */}
+        <Button
+          to="/contact"
+          variant="secondary"
+          size="sm"
+          className="!bg-accent !text-white hover:!bg-accent-strong focus-visible:!ring-accent"
+        >
           {t('testimonials.cta', 'Jetzt selbst überzeugen')}
         </Button>
       </div>
