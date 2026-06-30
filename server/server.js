@@ -2,6 +2,7 @@ const express = require('express')
 const sgMail = require('@sendgrid/mail')
 const cors = require('cors')
 const rateLimit = require('express-rate-limit')
+const PDFDocument = require('pdfkit')
 require('dotenv').config()
 
 const app = express()
@@ -45,6 +46,20 @@ if (missingEnvVars.length > 0) {
 // Set SendGrid API Key
 if (process.env.SENDGRID_API_KEY) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+}
+
+// DRY_RUN: global kill-switch for outbound email. Used by the ISOLATED PREVIEW
+// backend instance (started with DRY_RUN=1 on :5001) so preview form submits
+// never send real mail through the shared prod mailbox. Prod (:5000) runs
+// without DRY_RUN and is unaffected.
+const DRY_RUN = process.env.DRY_RUN === '1' || process.env.DRY_RUN === 'true'
+if (DRY_RUN) {
+  sgMail.send = async (msg) => {
+    const to = Array.isArray(msg.to) ? msg.to.join(',') : msg.to
+    console.log(`[DRY_RUN] email suppressed → to=${to} subject="${msg.subject}"`)
+    return [{ statusCode: 202, headers: {} }, {}]
+  }
+  console.log('[DRY_RUN] active — no real emails will be sent')
 }
 
 // API Endpoint
@@ -542,12 +557,174 @@ app.post('/api/chat', async (req, res) => {
  *         -   Connect via WebSocket or polling in `ChatWidget.tsx`.
  */
 
+// =============================================================================
+// ROI-REPORT (Lead-Magnet) ENDPOINT — Home ROI-Rechner (#roi-rechner)
+// =============================================================================
+// - Recipients fixed server-side (no `to` from body) → no open relay.
+// - DSGVO: explicit consent required; honeypot `_hp`; rate-limited (formLimiter).
+// - Single-Opt-in transactional: der ausdrücklich angeforderte Report wird sofort
+//   gesendet (Art. 6(1)(a)/(b)) + das Team als Lead benachrichtigt. Ein voller
+//   Confirmed-Opt-in-Handshake (Double-Opt-in) ist ein späterer Toggle (braucht
+//   einen persistenten Token-Store) — bewusst hier nicht implementiert.
+// - PDF: serverseitig via pdfkit erzeugt + als Anhang (best-effort; Mail geht
+//   auch ohne Anhang raus, falls PDF scheitert).
+// - DRY_RUN (Preview-Instanz): sgMail.send ist oben global stillgelegt.
+// =============================================================================
+
+const ROI_REPORT_RECIPIENTS = [
+  'ulrikes@polarisdx.net',
+  'inesr@polarisdx.net',
+  'adrianoz@polarisdx.net',
+  'contact@polarisdx.net',
+]
+
+const eur = (n) =>
+  new Intl.NumberFormat('de-DE', {
+    style: 'currency',
+    currency: 'EUR',
+    maximumFractionDigits: 0,
+  }).format(Number.isFinite(+n) ? +n : 0)
+
+function buildRoiPdf({ practice, area, inputs = {}, outputs = {} }) {
+  return new Promise((resolve, reject) => {
+    try {
+      const doc = new PDFDocument({ size: 'A4', margin: 50 })
+      const chunks = []
+      doc.on('data', (c) => chunks.push(c))
+      doc.on('end', () => resolve(Buffer.concat(chunks)))
+      doc.on('error', reject)
+
+      doc.fillColor('#083358').fontSize(22).text('IglooPro — ROI-Report')
+      doc.moveDown(0.3).fillColor('#0d9488').fontSize(11).text('Point-of-Care-Diagnostik · PolarisDX')
+      doc.moveDown(1).fillColor('#334155').fontSize(11)
+      if (practice) doc.text(`Praxis: ${practice}`)
+      if (area) doc.text(`Fachrichtung: ${area}`)
+      doc.moveDown(1)
+
+      doc.fillColor('#083358').fontSize(14).text('Ihre Eingaben')
+      doc.moveDown(0.3).fillColor('#334155').fontSize(11)
+      doc.text(`• Tests pro Monat: ${inputs.testsPerMonth ?? '-'}`)
+      doc.text(`• Preis pro Test: ${eur(inputs.pricePerTest)}`)
+      doc.text(`• Materialkosten pro Test: ${eur(inputs.materialCostPerTest)}`)
+      doc.text(`• Minuten pro Test: ${inputs.minutesPerTest ?? '-'}`)
+      doc.text(`• Personalkosten pro Stunde: ${eur(inputs.staffCostPerHour)}`)
+      if (inputs.deviceInvestment) doc.text(`• Geräteinvestition: ${eur(inputs.deviceInvestment)}`)
+      doc.moveDown(1)
+
+      doc.fillColor('#083358').fontSize(14).text('Ihr Ergebnis (Beispielrechnung)')
+      doc.moveDown(0.3).fillColor('#334155').fontSize(11)
+      doc.text(`• Deckungsbeitrag / Monat: ${eur(outputs.dbPerMonth)}`)
+      doc.text(`• Selbstzahler-Umsatz / Monat: ${eur(outputs.revenuePerMonth)}`)
+      doc.text(`• Deckungsbeitrag / Jahr: ${eur(outputs.dbPerYear)}`)
+      doc.text(`• Deckungsbeitrag je Test: ${eur(outputs.dbPerTest)}`)
+      if (outputs.payback != null) doc.text(`• Amortisation: ${outputs.payback} Monate`)
+      doc.moveDown(1.2)
+
+      doc
+        .fillColor('#64748b')
+        .fontSize(9)
+        .text(
+          'Unverbindliche Beispielrechnung auf Basis Ihrer Eingaben. Keine Zusage von Umsatz oder Gewinn — Ergebnisse hängen von Ihren individuellen Praxiswerten ab. IVDR/CE-konform · CV < 2 %.',
+        )
+      doc.end()
+    } catch (e) {
+      reject(e)
+    }
+  })
+}
+
+app.post('/api/roi-report', formLimiter, async (req, res) => {
+  try {
+    const { email, area, practice, consent, _hp, inputs = {}, outputs = {} } = req.body || {}
+
+    if (_hp) {
+      console.log('[roi-report] honeypot triggered, silently dropping')
+      return res.status(200).json({ success: true })
+    }
+    if (consent !== true) {
+      return res.status(400).json({ error: 'Consent required.' })
+    }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email))) {
+      return res.status(400).json({ error: 'Invalid email.' })
+    }
+
+    const sanArea = esc(area || '-')
+    const sanPractice = esc(practice || '-')
+    const rowsIn = `
+      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">Tests / Monat</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${esc(inputs.testsPerMonth ?? '-')}</td></tr>
+      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">Preis / Test</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(inputs.pricePerTest)}</td></tr>
+      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">Materialkosten / Test</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(inputs.materialCostPerTest)}</td></tr>
+      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">Minuten / Test</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${esc(inputs.minutesPerTest ?? '-')}</td></tr>
+      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">Personalkosten / Std.</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(inputs.staffCostPerHour)}</td></tr>
+      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">Geräteinvestition</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${inputs.deviceInvestment ? eur(inputs.deviceInvestment) : '-'}</td></tr>`
+    const rowsOut = `
+      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">Deckungsbeitrag / Monat</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(outputs.dbPerMonth)}</td></tr>
+      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">Selbstzahler-Umsatz / Monat</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(outputs.revenuePerMonth)}</td></tr>
+      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">Deckungsbeitrag / Jahr</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(outputs.dbPerYear)}</td></tr>
+      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">Deckungsbeitrag je Test</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(outputs.dbPerTest)}</td></tr>
+      ${outputs.payback != null ? `<tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">Amortisation</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${esc(outputs.payback)} Monate</td></tr>` : ''}`
+
+    let attachments
+    try {
+      const pdf = await buildRoiPdf({ practice, area, inputs, outputs })
+      attachments = [
+        {
+          content: pdf.toString('base64'),
+          filename: 'IglooPro-ROI-Report.pdf',
+          type: 'application/pdf',
+          disposition: 'attachment',
+        },
+      ]
+    } catch (e) {
+      console.error('[roi-report] PDF generation failed, sending without attachment:', e.message)
+    }
+
+    // 1) Lead → Team
+    const leadMsg = {
+      to: ROI_REPORT_RECIPIENTS,
+      from: process.env.SENDER_EMAIL,
+      replyTo: email,
+      subject: `Neuer ROI-Report-Lead — ${area || '-'} (${email})`,
+      text: `Neuer ROI-Rechner-Lead\n\nE-Mail: ${email}\nFachrichtung: ${area || '-'}\nPraxis: ${practice || '-'}\n\nEingaben: ${JSON.stringify(inputs)}\nErgebnis: ${JSON.stringify(outputs)}`,
+      html: `<h3>Neuer ROI-Report-Lead</h3>
+        <p><strong>E-Mail:</strong> ${esc(email)}<br><strong>Fachrichtung:</strong> ${sanArea}<br><strong>Praxis:</strong> ${sanPractice}</p>
+        <h4>Eingaben</h4><table style="border-collapse:collapse;width:100%;max-width:520px;">${rowsIn}</table>
+        <h4>Ergebnis</h4><table style="border-collapse:collapse;width:100%;max-width:520px;">${rowsOut}</table>`,
+    }
+
+    // 2) Report → Anfragender
+    const reportMsg = {
+      to: email,
+      from: process.env.SENDER_EMAIL,
+      subject: 'Ihr IglooPro ROI-Report',
+      text: `Vielen Dank für Ihr Interesse an IglooPro.\n\nIm Anhang finden Sie Ihren persönlichen ROI-Report (unverbindliche Beispielrechnung auf Basis Ihrer Eingaben).\n\nGerne besprechen wir die Zahlen für Ihre Praxis: https://polarisdx.net/contact\n\nMit freundlichen Grüßen\nPolarisDX`,
+      html: `<div style="font-family:system-ui,sans-serif;max-width:600px;">
+        <h2 style="color:#083358;">Ihr IglooPro ROI-Report</h2>
+        <p>vielen Dank für Ihr Interesse. Auf Basis Ihrer Eingaben haben wir Ihre persönliche Beispielrechnung erstellt${attachments ? ' (auch als PDF im Anhang)' : ''}:</p>
+        <h3 style="color:#083358;">Ergebnis</h3>
+        <table style="border-collapse:collapse;width:100%;max-width:520px;">${rowsOut}</table>
+        <p style="margin-top:18px;"><a href="https://polarisdx.net/contact" style="background:#0d9488;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;display:inline-block;">Beratung buchen</a></p>
+        <p style="color:#64748b;font-size:12px;margin-top:18px;">Unverbindliche Beispielrechnung auf Basis Ihrer Eingaben. Keine Zusage von Umsatz oder Gewinn.</p>
+      </div>`,
+      ...(attachments ? { attachments } : {}),
+    }
+
+    await Promise.all([sgMail.send(leadMsg), sgMail.send(reportMsg)])
+    console.log(`[roi-report] processed lead from ${email} (area=${area || '-'})`)
+    res.status(200).json({ success: true })
+  } catch (error) {
+    console.error('Error processing ROI report:', error)
+    if (error.response) console.error(error.response.body)
+    res.status(500).json({ success: false, error: 'Failed to process ROI report' })
+  }
+})
+
 // Start Server
 const PORT = process.env.PORT || 5000
 // Listen on 0.0.0.0 to ensure Docker accessibility.
 // Guard so importing this module for tests does not start a live server.
 if (require.main === module) {
-  app.listen(PORT, '0.0.0.0', () => {
+  app.listen(PORT, process.env.LISTEN_HOST || '0.0.0.0', () => {
     console.log(`Server running on port ${PORT}`)
   })
 }
