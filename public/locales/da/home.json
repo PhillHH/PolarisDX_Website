@@ -4,7 +4,7 @@
     "description": "Laboratorienøjagtig point-of-care-diagnostik direkte i din klinik: IVDR/CE, CV < 2 % og svar på minutter. Ny selvbetaler-omsætning – book rådgivning nu."
   },
   "hero": {
-    "caption": "Point-of-care-ydeevne",
+    "caption": "Point-of-care-ydelse",
     "title": "IglooPro:\nPoint-of-Care. Perfekt. Øjeblikkeligt.",
     "description": "Sikr dig præstationspakken: Din IglooPro er klar til brug på 3-5 hverdage – garanteret.",
     "cta": "Book rådgivning",
@@ -63,11 +63,22 @@
   "about": {
     "caption": "DIN YDEEVNEGARANT",
     "title": "IglooPro præstations-setup: Valideret POC-diagnostik fra dag 1.",
-    "text1": "IglooPro er et premium-apparat. Men ægte premium-ydeevne opstår først gennem en perfektioneret, risikofri idriftsættelse. En standardlevering overlader kompleksiteten til dig. Vi tager ansvaret for resultatet.",
-    "text2": "Derfor leverer vi udelukkende løftet om præstations-setup. Vores præstationssøjler garanterer, at dit POC-workflow er optimeret fra første sekund, og at du kan udnytte den diagnostiske excellence med det samme.",
     "cta": "Til IglooPro-systemet",
-    "badge": "Valideret fra dag 1",
-    "company_link": "Mere om PolarisDX"
+    "company_link": "Mere om PolarisDX",
+    "lede": "IglooPro er et premium-instrument — men ægte premium-ydelse opstår først gennem en perfektioneret, risikofri idriftsættelse. Vi tager ansvaret for resultatet, så jeres POC-workflow fungerer fejlfrit fra dag ét.",
+    "cv_chip": "CV < 2 %",
+    "pillar1": {
+      "title": "Valideret fra dag 1",
+      "text": "Vi idriftsætter jeres IglooPro efter CLSI-retningslinjerne og dokumenterer målepræcisionen, før I tester den første patient."
+    },
+    "pillar2": {
+      "title": "Workflow-klar opsætning",
+      "text": "Instrument, software og assay-profiler er tilpasset jeres kliniske arbejdsgang — uden konfigurationsarbejde fra jeres side."
+    },
+    "pillar3": {
+      "title": "Guidet opstart",
+      "text": "Oplæring af jeres team og en fast kontaktperson sikrer, at den diagnostiske topkvalitet kan udnyttes med det samme."
+    }
   },
   "doctors": {
     "caption": "DIAGNOSTIK-FOKUS",
@@ -81,7 +92,8 @@
     "beauty": "Beauty",
     "longevity": "Longevity",
     "all_services": "Oplev alle diagnostik-services",
-    "subtitle": "Vælg dit område – vi viser de passende biomarkør-paneler og anvendelser til dit speciale."
+    "subtitle": "Vælg dit område – vi viser de passende biomarkør-paneler og anvendelser til dit speciale.",
+    "eyebrow": "Jeres speciale"
   },
   "services": {
     "caption": "DIAGNOSTIK-FOKUS",
@@ -132,7 +144,7 @@
       "role": "Tandlæge (Ægte anmeldelse)",
       "title": "Biologisk tandlæge og implantatkirurg / Chelsea Dental Clinic",
       "focus": "Hurtige helbredstjek på stedet (Forebyggelse, Vitamin D)",
-      "text": "At udføre analyse af Vitamin D-niveauer og andre vigtige sundhedsindikatorer på stedet kan ikke undervurderes. Igloo Pro gør det muligt for mig at udføre en simpel kapillær blodprøve, fastslå patienternes behov og derefter vejlede dem om, hvilke yderligere kosttilskud de måtte have brug for for at optimere behandlingen. Denne evne viser sig at være transformerende for patientresultaterne."
+      "text": "Betydningen af at udføre analyser af D-vitaminniveauer og andre vigtige sundhedsindikatorer på stedet kan ikke undervurderes. Med Igloo Pro kan jeg foretage en simpel kapillær blodprøve for at fastslå patienternes behov og derefter vejlede dem om, hvilke supplerende kosttilskud de eventuelt har brug for for at optimere behandlingen. Denne mulighed viser sig at være transformerende for patientresultaterne."
     },
     "kristian_grimm": {
       "role": "Tandlæge (Ægte anmeldelse)",
@@ -154,10 +166,20 @@
     },
     "goran_stojanovic": {
       "role": "Tandlæge (Ægte anmeldelse)",
-      "title": "Biologisk tandlæge / Ledende tandlæge & ejer",
+      "title": "Biologisk tandlæge / Ledende tandlæge og ejer",
       "focus": "Øjeblikkelig diagnostik til implantatplanlægning (Vitamin D, CRP)",
       "text": "Som biologisk tandlæge er jeg dybt overbevist om, at helhedsorienteret sundhed altid også begynder ved tænderne. Igloo Pro giver mig mulighed for at træffe hurtige og præcise diagnostiske beslutninger – netop dér, hvor der er brug for dem: ved behandlingsstolen. Med den øjeblikkelige Vitamin D- og CRP-analyse kan jeg planlægge implantatindsættelser optimalt og ofte fremskynde dem betydeligt. Sådan får mine patienter en sikrere og mere effektiv behandling."
-    }
+    },
+    "goTo": "Vis anmeldelse {{n}}",
+    "stats": {
+      "ratingValue": "4.9",
+      "ratingLabel": "Samlet",
+      "positiveValue": "100 %",
+      "positiveLabel": "positiv",
+      "reviewsValue": "250+",
+      "reviewsLabel": "Anmeldelser"
+    },
+    "cta": "Bliv selv overbevist"
   },
   "blog": {
     "caption": "Blog & nyheder",
@@ -203,8 +225,8 @@
     "minutes": "Svar på minutter",
     "compat": "Kompatibel på tværs af producenter",
     "delivery": "Klar til brug på 3–5 hverdage",
-    "partner": "Premium-Partner: Nobel Biocare",
-    "reviews": "★ 4.9 · 250+ Bewertungen"
+    "partner": "Premium-partner: Nobel Biocare",
+    "reviews": "★ 4.9 · 250+ anmeldelser"
   },
   "why": {
     "caption": "Point of Care",
@@ -269,45 +291,27 @@
       "sending": "Sender …",
       "success": "Tak! Vi sender dig rapporten inden længe.",
       "error": "Ikke muligt i øjeblikket – book venligst en rådgivning direkte."
-    }
+    },
+    "report_hint": "Som PDF til jeres e-mail"
   },
-  "about.caption": "IHR PERFORMANCE-GARANT",
-  "about.title": "Das IglooPro Performance-Setup: Validierte POC-Diagnostik ab Tag 1.",
-  "about.lede": "Das IglooPro ist ein Premium-Gerät — doch wahre Premium-Leistung entsteht erst durch eine perfektionierte, risikofreie Inbetriebnahme. Wir übernehmen die Verantwortung für das Ergebnis, damit Ihr POC-Workflow vom ersten Tag an sitzt.",
-  "about.cv_chip": "CV < 2 %",
-  "about.pillar1.title": "Validiert ab Tag 1",
-  "about.pillar1.text": "Wir nehmen Ihr IglooPro nach CLSI-Vorgaben in Betrieb und belegen die Messpräzision, bevor Sie den ersten Patienten testen.",
-  "about.pillar2.title": "Workflow-fertig eingerichtet",
-  "about.pillar2.text": "Gerät, Software und Assay-Profile sind auf Ihren Praxisablauf abgestimmt — kein Konfigurationsaufwand auf Ihrer Seite.",
-  "about.pillar3.title": "Begleiteter Start",
-  "about.pillar3.text": "Einweisung Ihres Teams und ein direkter Ansprechpartner sorgen dafür, dass die diagnostische Exzellenz sofort nutzbar ist.",
-  "about.cta": "Zum IglooPro-System",
-  "about.company_link": "Mehr über PolarisDX →",
-  "igloo_widget.eyebrow": "Ihre Fachrichtung",
-  "igloo_widget.title": "Welche Praxis führen Sie?",
-  "igloo_widget.subtitle": "Wählen Sie Ihren Bereich — wir zeigen die passenden Biomarker-Panels und Anwendungen für Ihre Fachrichtung.",
-  "segments.dental.title": "Zahnarztpraxis",
-  "segments.dental.benefit": "Entzündung, Vitalstatus und Stoffwechsel direkt am Behandlungsstuhl bewerten — und die Therapie im selben Termin begründen.",
-  "segments.dental.bio": "Vitamin D · CRP · HbA1c",
-  "segments.dental.cta": "Dental-Diagnostik ansehen",
-  "segments.beauty.title": "Ästhetik & Beauty",
-  "segments.beauty.benefit": "Hormon- und Nährstoffstatus als Grundlage für Haut-, Haar- und Anti-Aging-Behandlungen — messbar statt geschätzt.",
-  "segments.beauty.bio": "Hormone · Mikronährstoffe",
-  "segments.beauty.cta": "Beauty-Diagnostik ansehen",
-  "segments.longevity.title": "Longevity & Prävention",
-  "segments.longevity.benefit": "Stoffwechsel-, Herz-Kreislauf- und Risikomarker für datenbasierte Präventions- und Longevity-Programme.",
-  "segments.longevity.bio": "HbA1c · Lipide · D-Dimer",
-  "segments.longevity.cta": "Longevity-Diagnostik ansehen",
-  "testimonials.caption": "PRAXIS-STIMMEN",
-  "testimonials.title": "Was Praxen über das IglooPro-System sagen",
-  "testimonials.goTo": "Bewertung {{n}} anzeigen",
-  "testimonials.stats.ratingValue": "4.9",
-  "testimonials.stats.ratingLabel": "Gesamt",
-  "testimonials.stats.positiveValue": "100 %",
-  "testimonials.stats.positiveLabel": "positiv",
-  "testimonials.stats.reviewsValue": "250+",
-  "testimonials.stats.reviewsLabel": "Rezensionen",
-  "testimonials.cta": "Jetzt selbst überzeugen",
-  "roi.cta_report": "Vollständigen ROI-Report erhalten",
-  "roi.report_hint": "Als PDF an Ihre E-Mail"
+  "segments": {
+    "dental": {
+      "title": "Tandlægeklinik",
+      "benefit": "Vurder inflammation, vitalstatus og stofskifte direkte ved behandlingsstolen — og begrund behandlingen i samme konsultation.",
+      "bio": "Vitamin D · CRP · HbA1c",
+      "cta": "Se dental-diagnostik"
+    },
+    "beauty": {
+      "title": "Æstetik & Beauty",
+      "benefit": "Hormon- og næringsstofstatus som grundlag for hud-, hår- og anti-aging-behandlinger — målbart i stedet for gættet.",
+      "bio": "Hormoner · Mikronæringsstoffer",
+      "cta": "Se beauty-diagnostik"
+    },
+    "longevity": {
+      "title": "Longevity & forebyggelse",
+      "benefit": "Stofskifte-, hjerte-kar- og risikomarkører til datadrevne forebyggelses- og longevity-programmer.",
+      "bio": "HbA1c · Lipider · D-Dimer",
+      "cta": "Se longevity-diagnostik"
+    }
+  }
 }
