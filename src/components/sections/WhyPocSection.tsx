@@ -47,9 +47,9 @@ const WhyPocSection = () => {
 
   return (
     <section id="warum-poc" className="bg-slate-50">
-      <div className="mx-auto max-w-container px-4 lg:px-0 py-20 lg:py-28">
+      <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-28">
         {/* Kopf */}
-        <div className="max-w-2xl">
+        <div className="max-w-2xl mb-14">
           <p className="text-sm font-semibold uppercase tracking-wide text-accent">
             {t('why.caption', 'Point of Care')}
           </p>
@@ -65,13 +65,13 @@ const WhyPocSection = () => {
         </div>
 
         {/* Karten */}
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 grid gap-7 md:grid-cols-3">
           {cards.map((card) => {
             const Icon = card.icon
             return (
               <div
                 key={card.title}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+                className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm"
               >
                 <ImagePlaceholder
                   label={t('why.image_label', 'Anwendungsbild')}

@@ -12,7 +12,7 @@ const FinalCtaSection = () => {
 
   return (
     <section id="los-gehts" className="bg-brand-deep text-white">
-      <div className="mx-auto max-w-container px-4 py-20 lg:py-28 lg:px-0 text-center">
+      <div className="mx-auto max-w-container px-4 py-24 lg:py-28 lg:px-0 text-center">
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">
           {t('final_cta.caption', 'Bereit loszulegen')}
         </p>

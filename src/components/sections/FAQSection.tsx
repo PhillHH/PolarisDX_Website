@@ -43,7 +43,7 @@ const FAQSection = ({
   }
 
   return (
-    <section id="faq" className="space-y-10">
+    <section id="faq" className="space-y-14">
       <SectionHeader
         caption={caption ?? t('faq.caption', 'FAQ')}
         title={title ?? t('faq.title', 'Häufige Fragen zu PolarisDX und Point-of-Care Diagnostik')}
@@ -56,7 +56,7 @@ const FAQSection = ({
               <div key={index} className="group">
                 <button
                   onClick={() => toggleItem(index)}
-                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-gray-50"
+                  className="flex w-full items-center justify-between gap-4 px-6 py-6 text-left transition-colors hover:bg-gray-50"
                   aria-expanded={openIndex === index}
                   aria-controls={`faq-answer-${index}`}
                 >

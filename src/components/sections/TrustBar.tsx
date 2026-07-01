@@ -22,7 +22,7 @@ const TrustBar = () => {
       aria-label={t('trustbar.aria', 'Vertrauensmerkmale')}
       className="border-y border-slate-200 bg-slate-50"
     >
-      <div className="mx-auto max-w-container px-4 lg:px-0 py-6">
+      <div className="mx-auto max-w-container px-4 lg:px-0 py-7">
         <ul className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3">
           {items.map(({ icon: Icon, label }) => (
             <li key={label} className="inline-flex items-center gap-2">

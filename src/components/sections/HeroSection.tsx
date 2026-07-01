@@ -86,7 +86,7 @@ const HeroSection = () => {
         <div className="absolute inset-y-0 right-0 w-[500px] bg-gradient-to-tl from-accent/20 via-brand-primary/10 to-transparent blur-3xl" />
       </div>
 
-      <div className="relative z-10 mx-auto flex h-full max-w-container items-stretch px-6 pt-12 pb-20 sm:px-8 lg:px-0 lg:pt-12 lg:pb-0">
+      <div className="relative z-10 mx-auto flex h-full max-w-container items-stretch px-6 pt-16 pb-24 sm:px-8 lg:px-0 lg:pt-16 lg:pb-0">
         <div className="grid w-full h-full gap-4 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
           {/* Left Content */}
           <div className="flex flex-col justify-center space-y-8 lg:space-y-6 z-20">

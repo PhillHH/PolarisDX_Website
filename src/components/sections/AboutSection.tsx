@@ -48,7 +48,7 @@ const AboutSection = () => {
   ]
 
   return (
-    <section id="about" className="flex flex-col items-stretch gap-10 lg:flex-row lg:gap-12">
+    <section id="about" className="flex flex-col items-stretch gap-10 lg:flex-row lg:gap-14">
       {/* Linke Spalte: Gerät in einem gerundeten Navy-Panel mit CV-Chip. */}
       <div className="relative flex min-h-[360px] flex-1 items-center justify-center rounded-2xl bg-brand-deep p-10 lg:min-h-[480px]">
         {/* CV-Chip oben rechts. */}
@@ -82,7 +82,7 @@ const AboutSection = () => {
         </p>
 
         {/* 3 Beweis-Säulen. */}
-        <ul className="mt-8 space-y-6">
+        <ul className="mt-8 space-y-8">
           {pillars.map((pillar) => {
             const Icon = pillar.icon
             return (

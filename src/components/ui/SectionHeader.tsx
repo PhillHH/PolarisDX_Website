@@ -23,7 +23,7 @@ const SectionHeader = ({
     'text-hero-sm leading-[47px] font-medium tracking-tight text-gray-900 lg:text-[44px] lg:leading-[52px]'
 
   return (
-    <div id={id} className={`flex flex-col gap-2 ${alignment} ${className}`}>
+    <div id={id} className={`flex flex-col gap-3 ${alignment} ${className}`}>
       <Eyebrow>{caption}</Eyebrow>
       <h2 className={titleClasses}>{title}</h2>
     </div>

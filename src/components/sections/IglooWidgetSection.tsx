@@ -61,9 +61,9 @@ const IglooWidgetSection = () => {
 
   return (
     <section id="fachrichtung" className="bg-slate-50">
-      <div className="mx-auto max-w-container px-4 lg:px-0 py-20 lg:py-28">
+      <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-28">
         {/* Kopf */}
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-2xl text-center mb-14">
           <p className="text-sm font-semibold uppercase tracking-wide text-accent">
             {t('igloo_widget.eyebrow', 'Ihre Fachrichtung')}
           </p>
@@ -79,11 +79,11 @@ const IglooWidgetSection = () => {
         </div>
 
         {/* Karten */}
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 grid gap-7 md:grid-cols-3">
           {segments.map((segment) => (
             <div
               key={segment.id}
-              className="flex h-full flex-col rounded-xl border border-slate-200 bg-white p-6"
+              className="flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7"
             >
               <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-accent">
                 {segment.icon}

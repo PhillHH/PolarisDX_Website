@@ -139,7 +139,7 @@ const RoiCalculatorSection = () => {
 
   return (
     <section id="roi-rechner" className="bg-slate-50">
-      <div className="mx-auto max-w-container px-4 py-20 lg:py-28 lg:px-0">
+      <div className="mx-auto max-w-container px-4 py-24 lg:py-28 lg:px-0">
         {/* Kopf */}
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-wider text-accent">
@@ -158,7 +158,7 @@ const RoiCalculatorSection = () => {
 
         <div className="mt-10 grid gap-8 lg:grid-cols-2">
           {/* LINKS: Eingabe-Karte */}
-          <div className="rounded-2xl border border-slate-200 bg-white p-6">
+          <div className="rounded-2xl border border-slate-200 bg-white p-7">
             <div className="grid gap-5 sm:grid-cols-2">
               {inputs.map((field) => (
                 <div key={field.id} className="flex flex-col">
@@ -172,7 +172,7 @@ const RoiCalculatorSection = () => {
                     inputMode="decimal"
                     value={field.value}
                     onChange={(e) => field.onChange(e.target.value)}
-                    className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-heading shadow-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                    className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-heading shadow-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                   />
                 </div>
               ))}
@@ -183,7 +183,7 @@ const RoiCalculatorSection = () => {
           </div>
 
           {/* RECHTS: Ergebnis-Karte */}
-          <div className="rounded-2xl bg-brand-deep p-6 text-white">
+          <div className="rounded-2xl bg-brand-deep p-7 text-white">
             {/* Grosse Kennzahl */}
             <p className="text-sm text-white/70">
               {t('roi.out.month', 'Deckungsbeitrag / Monat')}
@@ -275,7 +275,7 @@ const RoiCalculatorSection = () => {
 
         {/* CAPTURE-FORM (Toggle) */}
         {showForm && (
-          <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6">
+          <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-7">
             {status === 'success' ? (
               <div className="rounded-lg bg-accent/10 px-4 py-3 text-sm text-heading ring-1 ring-accent-line">
                 {t('roi.form.success', 'Danke! Wir senden Ihnen den Report in Kürze.')}
@@ -293,7 +293,7 @@ const RoiCalculatorSection = () => {
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-heading shadow-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                      className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-heading shadow-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                     />
                   </div>
                   <div className="flex flex-col">
@@ -304,7 +304,7 @@ const RoiCalculatorSection = () => {
                       id="roi-area"
                       value={area}
                       onChange={(e) => setArea(e.target.value)}
-                      className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-heading shadow-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                      className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-heading shadow-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                     >
                       <option value="dental">{t('roi.form.opt_dental', 'Dental')}</option>
                       <option value="beauty">{t('roi.form.opt_beauty', 'Beauty')}</option>
@@ -323,7 +323,7 @@ const RoiCalculatorSection = () => {
                       type="text"
                       value={practice}
                       onChange={(e) => setPractice(e.target.value)}
-                      className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-heading shadow-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                      className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-heading shadow-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                     />
                   </div>
                 </div>
