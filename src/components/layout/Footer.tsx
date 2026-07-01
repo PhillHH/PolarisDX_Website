@@ -7,9 +7,11 @@ import { useTranslation } from 'react-i18next'
 const Footer = () => {
   const location = useLocation()
   // CtaSection is the generic B2B "contact us" card. Hide it on contact/support
-  // (self-referential) and on the unlisted /consumer/* landing pages — they
-  // have their own product-specific FinalCTA per the marketing brief.
+  // (self-referential), on the unlisted /consumer/* landing pages (own FinalCTA),
+  // and on the HOME — the home has its own dedicated FinalCtaSection, so the
+  // generic card would be a duplicate closing CTA (Lastenheft S11).
   const isContactPage =
+    location.pathname === '/' ||
     location.pathname === '/contact' ||
     location.pathname === '/support' ||
     location.pathname.startsWith('/consumer/')
