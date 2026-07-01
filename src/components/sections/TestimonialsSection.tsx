@@ -64,7 +64,7 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Carousel: gerahmte Split-Karten */}
-        <div className="w-full max-w-5xl overflow-hidden">
+        <div className="w-full max-w-4xl overflow-hidden">
           <div
             className="flex transition-transform duration-700 ease-in-out"
             style={{ transform: `translateX(-${activeIndex * 100}%)` }}
@@ -81,17 +81,17 @@ const TestimonialsSection = () => {
                 >
                   <div className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white md:flex-row">
                     {/* Foto LINKS (Mobil oben) */}
-                    <div className="bg-slate-100 md:w-2/5">
+                    <div className="bg-slate-100 md:w-1/3">
                       {testimonial.avatar ? (
                         <img
                           src={testimonial.avatar}
                           alt={testimonial.name}
                           loading="lazy"
                           decoding="async"
-                          className="h-60 w-full object-cover md:h-full"
+                          className="h-48 w-full object-cover md:h-full"
                         />
                       ) : (
-                        <div className="flex h-60 w-full flex-col items-center justify-center gap-2 text-slate-400 md:h-full">
+                        <div className="flex h-48 w-full flex-col items-center justify-center gap-2 text-slate-400 md:h-full">
                           <PersonIcon />
                           <span className="text-sm font-medium">
                             {t('testimonials.photo_placeholder', 'Kundenbild')}
@@ -101,9 +101,9 @@ const TestimonialsSection = () => {
                     </div>
 
                     {/* Zitat RECHTS */}
-                    <div className="flex flex-1 flex-col justify-center p-8 text-left lg:p-10">
+                    <div className="flex flex-1 flex-col justify-center p-6 text-left lg:p-8">
                       <StarRating />
-                      <blockquote className="mt-4 text-lg leading-relaxed text-gray-700">
+                      <blockquote className="mt-3 text-base leading-relaxed text-gray-700">
                         „{t(`testimonials.${testimonial.id}.text`)}“
                       </blockquote>
                       <div className="mt-5">
