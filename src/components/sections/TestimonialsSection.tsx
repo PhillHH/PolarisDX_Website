@@ -53,8 +53,8 @@ const TestimonialsSection = () => {
   }, [])
 
   return (
-    <section id="testimonials" className="bg-brand-deep py-20 text-white lg:py-28">
-      <div className="mx-auto flex max-w-container flex-col items-center gap-12 px-4 lg:px-8">
+    <section id="testimonials" className="bg-brand-deep py-16 text-white lg:py-20">
+      <div className="mx-auto flex max-w-container flex-col items-center gap-8 px-4 lg:px-8">
         {/* Kopf: GENAU EIN Eyebrow + h2 (helle Sektion) */}
         <div className="flex flex-col items-center gap-3 text-center">
           <Eyebrow>{t('testimonials.caption', 'PRAXIS-STIMMEN')}</Eyebrow>
@@ -103,7 +103,7 @@ const TestimonialsSection = () => {
                     {/* Zitat RECHTS */}
                     <div className="flex flex-1 flex-col justify-center p-6 text-left lg:p-8">
                       <StarRating />
-                      <blockquote className="mt-3 text-base leading-relaxed text-gray-700">
+                      <blockquote className="mt-3 line-clamp-4 text-base leading-relaxed text-gray-700">
                         „{t(`testimonials.${testimonial.id}.text`)}“
                       </blockquote>
                       <div className="mt-5">
