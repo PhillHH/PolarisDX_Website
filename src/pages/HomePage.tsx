@@ -20,7 +20,6 @@ import IglooWidgetSection from '../components/sections/IglooWidgetSection'
 import StepsSection from '../components/sections/StepsSection'
 import TestimonialsSection from '../components/sections/TestimonialsSection'
 import RoiCalculatorSection from '../components/sections/RoiCalculatorSection'
-import BlogSection from '../components/sections/BlogSection'
 import FAQSection from '../components/sections/FAQSection'
 import Reveal from '../components/ui/Reveal'
 
@@ -94,10 +93,7 @@ const HomePage = () => {
         </Reveal>
       </div>
       <RoiCalculatorSection />
-      <div className="mx-auto flex max-w-container flex-col gap-24 px-4 py-24 lg:gap-32 lg:px-0 lg:py-32">
-        <Reveal width="100%">
-          <BlogSection />
-        </Reveal>
+      <div className="mx-auto flex max-w-container flex-col px-4 py-24 lg:px-0 lg:py-32">
         <Reveal width="100%">
           <FAQSection />
         </Reveal>
