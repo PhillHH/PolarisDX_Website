@@ -286,7 +286,12 @@
     "title": "Připraveni na laboratorně přesnou diagnostiku ve vaší ordinaci?",
     "subtitle": "Promluvte si s naším týmem nebo si spočítejte svůj potenciál úspor – kompatibilní napříč výrobci, v souladu s IVDR/CE a připraveno k použití za 3–5 pracovních dnů.",
     "cta_primary": "Rezervovat konzultaci",
-    "cta_secondary": "ROI kalkulačka"
+    "cta_secondary": "ROI kalkulačka",
+    "chips": {
+      "free": "Kostenlos & unverbindlich",
+      "reply": "Antwort < 24 h",
+      "delivery": "Lieferung in 3–5 Werktagen"
+    }
   },
   "roi": {
     "caption": "ROI kalkulačka",

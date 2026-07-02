@@ -286,7 +286,12 @@
     "title": "Prêt pour un diagnostic d'une précision de laboratoire dans votre cabinet ?",
     "subtitle": "Échangez avec notre équipe ou calculez votre potentiel d'économies — compatible tous fabricants, conforme IVDR/CE et prêt à l'emploi en 3 à 5 jours ouvrés.",
     "cta_primary": "Réserver un conseil",
-    "cta_secondary": "Calculateur de ROI"
+    "cta_secondary": "Calculateur de ROI",
+    "chips": {
+      "free": "Kostenlos & unverbindlich",
+      "reply": "Antwort < 24 h",
+      "delivery": "Lieferung in 3–5 Werktagen"
+    }
   },
   "roi": {
     "caption": "Calculateur de ROI",

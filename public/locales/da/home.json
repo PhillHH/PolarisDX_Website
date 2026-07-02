@@ -286,7 +286,12 @@
     "title": "Klar til laboratorienøjagtig diagnostik i din klinik?",
     "subtitle": "Tal med vores team eller beregn dit besparelsespotentiale — på tværs af producenter, IVDR/CE-konform og klar til brug på 3–5 hverdage.",
     "cta_primary": "Book rådgivning",
-    "cta_secondary": "ROI-beregner"
+    "cta_secondary": "ROI-beregner",
+    "chips": {
+      "free": "Kostenlos & unverbindlich",
+      "reply": "Antwort < 24 h",
+      "delivery": "Lieferung in 3–5 Werktagen"
+    }
   },
   "roi": {
     "caption": "ROI-beregner",

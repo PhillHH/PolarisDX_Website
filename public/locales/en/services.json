@@ -560,5 +560,107 @@
   "seo": {
     "overview_title": "Point-of-Care Diagnostics: Dental, Beauty, Longevity",
     "overview_description": "Chairside rapid tests for vitamin D, CRP, HbA1c & TSH – results in minutes. Point-of-care diagnostics with the Igloo Pro for dental, aesthetic & prevention practices."
+  },
+  "overview": {
+    "hero": {
+      "title": "Diagnostics",
+      "subtitle": "Lab-grade panels for every practice type — validated, IVDR-compliant and ready from day one. Choose your specialty or explore the diagnostic areas below.",
+      "chip_cv": "CV < 2%",
+      "chip_results": "Results in 3 min.",
+      "chip_lfa": "90% LFA compatibility",
+      "visual": {
+        "gauge": "36°",
+        "vitd_name": "Vitamin D",
+        "vitd_val": "34 ng/ml",
+        "time_val": "2:47",
+        "time_label": "min to result",
+        "crp_name": "CRP",
+        "crp_val": "< 5 mg/l"
+      }
+    },
+    "specialty": {
+      "eyebrow": "YOUR SPECIALTY",
+      "title": "Diagnostics for your practice type",
+      "subtitle": "Start where you earn — the matching biomarker panels and applications for your specialty.",
+      "dental": {
+        "title": "Dental practice",
+        "desc": "Vitamin D & inflammation right at the chair — safeguard implant success and de-risk treatment planning.",
+        "cta": "View dental diagnostics",
+        "tags": [
+          "Vitamin D",
+          "CRP",
+          "HbA1c"
+        ]
+      },
+      "beauty": {
+        "title": "Aesthetics & Beauty",
+        "desc": "Hormones, micronutrients and skin health — substantiate visible results with numbers.",
+        "cta": "View beauty diagnostics",
+        "tags": [
+          "Hormones",
+          "Micronutrients",
+          "Skin health"
+        ]
+      },
+      "longevity": {
+        "title": "Longevity & Prevention",
+        "desc": "HbA1c, lipids and inflammation markers — proactive ageing management your clients pay for.",
+        "cta": "View longevity diagnostics",
+        "tags": [
+          "HbA1c",
+          "Lipids",
+          "D-dimer"
+        ]
+      }
+    },
+    "focus": {
+      "subtitle": "Six diagnostic areas, one platform — every panel runs chairside on the IglooPro.",
+      "poc": {
+        "cta": "Explore POC systems",
+        "tags": [
+          "IglooPro",
+          "Mobile",
+          "LIMS/HIS"
+        ]
+      },
+      "checks": {
+        "cta": "Explore health checks",
+        "tags": [
+          "Vitamin D",
+          "CRP",
+          "HbA1c"
+        ]
+      },
+      "infection": {
+        "cta": "Explore inflammation markers",
+        "tags": [
+          "CRP",
+          "PCT",
+          "IL-6"
+        ]
+      },
+      "metabolism": {
+        "cta": "Explore metabolic panels",
+        "tags": [
+          "HbA1c",
+          "Cholesterol",
+          "D-dimer"
+        ]
+      },
+      "hormone": {
+        "cta": "Explore hormone tests",
+        "tags": [
+          "TSH",
+          "AMH"
+        ]
+      },
+      "compat": {
+        "cta": "See compatibility",
+        "tags": [
+          "90% LFA",
+          "Open platform"
+        ]
+      }
+    }
   }
 }

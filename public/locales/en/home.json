@@ -286,7 +286,12 @@
     "title": "Ready for lab-accurate diagnostics in your practice?",
     "subtitle": "Talk to our team or calculate your savings potential — cross-manufacturer, IVDR/CE-compliant and ready for use in 3–5 business days.",
     "cta_primary": "Book a consultation",
-    "cta_secondary": "ROI calculator"
+    "cta_secondary": "ROI calculator",
+    "chips": {
+      "free": "Free & non-binding",
+      "reply": "Reply < 24h",
+      "delivery": "Delivery in 3–5 business days"
+    }
   },
   "roi": {
     "caption": "ROI calculator",

@@ -286,7 +286,12 @@
     "title": "Bereit für laborgenaue Diagnostik in Ihrer Praxis?",
     "subtitle": "Sprechen Sie mit unserem Team oder berechnen Sie Ihr Einsparpotenzial — herstellerübergreifend, IVDR/CE-konform und in 3–5 Werktagen einsatzbereit.",
     "cta_primary": "Beratung buchen",
-    "cta_secondary": "ROI-Rechner"
+    "cta_secondary": "ROI-Rechner",
+    "chips": {
+      "free": "Kostenlos & unverbindlich",
+      "reply": "Antwort < 24 h",
+      "delivery": "Lieferung in 3–5 Werktagen"
+    }
   },
   "roi": {
     "caption": "ROI-Rechner",

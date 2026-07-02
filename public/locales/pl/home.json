@@ -286,7 +286,12 @@
     "title": "Gotów na diagnostykę o dokładności laboratoryjnej w swoim gabinecie?",
     "subtitle": "Porozmawiaj z naszym zespołem lub oblicz swój potencjał oszczędności — niezależnie od producenta, zgodnie z IVDR/CE i z gotowością do pracy w 3–5 dni roboczych.",
     "cta_primary": "Umów konsultację",
-    "cta_secondary": "Kalkulator ROI"
+    "cta_secondary": "Kalkulator ROI",
+    "chips": {
+      "free": "Kostenlos & unverbindlich",
+      "reply": "Antwort < 24 h",
+      "delivery": "Lieferung in 3–5 Werktagen"
+    }
   },
   "roi": {
     "caption": "Kalkulator ROI",

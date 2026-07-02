@@ -286,7 +286,12 @@
     "title": "¿Listo para un diagnóstico con precisión de laboratorio en su consulta?",
     "subtitle": "Hable con nuestro equipo o calcule su potencial de ahorro: independiente del fabricante, conforme con IVDR/CE y listo para usar en 3–5 días laborables.",
     "cta_primary": "Reservar asesoramiento",
-    "cta_secondary": "Calculadora de ROI"
+    "cta_secondary": "Calculadora de ROI",
+    "chips": {
+      "free": "Kostenlos & unverbindlich",
+      "reply": "Antwort < 24 h",
+      "delivery": "Lieferung in 3–5 Werktagen"
+    }
   },
   "roi": {
     "caption": "Calculadora de ROI",

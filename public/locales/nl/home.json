@@ -286,7 +286,12 @@
     "title": "Klaar voor labnauwkeurige diagnostiek in uw praktijk?",
     "subtitle": "Praat met ons team of bereken uw besparingspotentieel — fabrikantonafhankelijk, IVDR/CE-conform en binnen 3–5 werkdagen klaar voor gebruik.",
     "cta_primary": "Adviesgesprek boeken",
-    "cta_secondary": "ROI-calculator"
+    "cta_secondary": "ROI-calculator",
+    "chips": {
+      "free": "Kostenlos & unverbindlich",
+      "reply": "Antwort < 24 h",
+      "delivery": "Lieferung in 3–5 Werktagen"
+    }
   },
   "roi": {
     "caption": "ROI-calculator",

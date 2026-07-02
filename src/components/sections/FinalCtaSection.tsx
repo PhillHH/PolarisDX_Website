@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { Check } from 'lucide-react'
 import { Button } from '../ui/Button'
 
 /**
@@ -7,7 +8,7 @@ import { Button } from '../ui/Button'
  * Primaer (Teal) "Beratung buchen" -> /contact, Sekundaer (Outline) "ROI-Rechner" -> #roi-rechner.
  * SSR-sicher (kein window/localStorage). i18n-NS 'home', alle Texte via t().
  */
-const FinalCtaSection = () => {
+const FinalCtaSection = ({ roiHref = '#roi-rechner' }: { roiHref?: string }) => {
   const { t } = useTranslation('home')
 
   return (
@@ -33,9 +34,23 @@ const FinalCtaSection = () => {
           >
             {t('final_cta.cta_primary', 'Beratung buchen')}
           </Button>
-          <Button href="#roi-rechner" variant="outline">
+          <Button href={roiHref} variant="outline">
             {t('final_cta.cta_secondary', 'ROI-Rechner')}
           </Button>
+        </div>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/15">
+            <Check size={13} className="text-accent-line" aria-hidden />
+            {t('final_cta.chips.free', 'Kostenlos & unverbindlich')}
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/15">
+            <Check size={13} className="text-accent-line" aria-hidden />
+            {t('final_cta.chips.reply', 'Antwort < 24 h')}
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/15">
+            <Check size={13} className="text-accent-line" aria-hidden />
+            {t('final_cta.chips.delivery', 'Lieferung in 3–5 Werktagen')}
+          </span>
         </div>
       </div>
     </section>

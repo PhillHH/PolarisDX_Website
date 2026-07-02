@@ -560,5 +560,107 @@
   "seo": {
     "overview_title": "Diagnóstico POC para consultórios: dental, estética, longevidade",
     "overview_description": "Testes rápidos junto ao paciente para vitamina D, PCR, HbA1c e TSH — resultados em minutos. Diagnóstico POC com o Igloo Pro para consultórios dentários, estéticos e de prevenção."
+  },
+  "overview": {
+    "hero": {
+      "title": "Diagnostik",
+      "subtitle": "Laborgenaue Panels für jeden Praxistyp – validiert, IVDR-konform und ab Tag 1 einsatzbereit. Wählen Sie Ihre Fachrichtung oder erkunden Sie die Diagnostikbereiche unten.",
+      "chip_cv": "CV < 2 %",
+      "chip_results": "Ergebnis in 3 Min.",
+      "chip_lfa": "90 % LFA-Kompatibilität",
+      "visual": {
+        "gauge": "36°",
+        "vitd_name": "Vitamin D",
+        "vitd_val": "34 ng/ml",
+        "time_val": "2:47",
+        "time_label": "Min. bis Ergebnis",
+        "crp_name": "CRP",
+        "crp_val": "< 5 mg/l"
+      }
+    },
+    "specialty": {
+      "eyebrow": "IHRE FACHRICHTUNG",
+      "title": "Diagnostik für Ihren Praxistyp",
+      "subtitle": "Starten Sie da, wo Sie verdienen – die passenden Biomarker-Panels und Anwendungen für Ihre Fachrichtung.",
+      "dental": {
+        "title": "Zahnarztpraxis",
+        "desc": "Vitamin D & Entzündung direkt am Stuhl – Implantaterfolg sichern und die Behandlungsplanung absichern.",
+        "cta": "Dental-Diagnostik ansehen",
+        "tags": [
+          "Vitamin D",
+          "CRP",
+          "HbA1c"
+        ]
+      },
+      "beauty": {
+        "title": "Ästhetik & Beauty",
+        "desc": "Hormone, Mikronährstoffe und Hautgesundheit – sichtbare Ergebnisse mit Zahlen belegen.",
+        "cta": "Beauty-Diagnostik ansehen",
+        "tags": [
+          "Hormone",
+          "Mikronährstoffe",
+          "Hautgesundheit"
+        ]
+      },
+      "longevity": {
+        "title": "Longevity & Prävention",
+        "desc": "HbA1c, Lipide und Entzündungsmarker – proaktives Alternsmanagement, das Ihre Klienten zahlen.",
+        "cta": "Longevity-Diagnostik ansehen",
+        "tags": [
+          "HbA1c",
+          "Lipide",
+          "D-Dimer"
+        ]
+      }
+    },
+    "focus": {
+      "subtitle": "Sechs Diagnostikbereiche, eine Plattform – jedes Panel läuft chairside auf dem IglooPro.",
+      "poc": {
+        "cta": "POC-Systeme erkunden",
+        "tags": [
+          "IglooPro",
+          "Mobil",
+          "LIMS/HIS"
+        ]
+      },
+      "checks": {
+        "cta": "Gesundheits-Checks erkunden",
+        "tags": [
+          "Vitamin D",
+          "CRP",
+          "HbA1c"
+        ]
+      },
+      "infection": {
+        "cta": "Entzündungsmarker erkunden",
+        "tags": [
+          "CRP",
+          "PCT",
+          "IL-6"
+        ]
+      },
+      "metabolism": {
+        "cta": "Stoffwechsel-Panels erkunden",
+        "tags": [
+          "HbA1c",
+          "Cholesterin",
+          "D-Dimer"
+        ]
+      },
+      "hormone": {
+        "cta": "Hormon-Tests erkunden",
+        "tags": [
+          "TSH",
+          "AMH"
+        ]
+      },
+      "compat": {
+        "cta": "Kompatibilität ansehen",
+        "tags": [
+          "90 % LFA",
+          "Offene Plattform"
+        ]
+      }
+    }
   }
 }
