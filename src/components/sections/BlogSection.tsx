@@ -15,37 +15,6 @@ const BlogSection = () => {
         title={t('blog.title', 'Our Articles About Health')}
       />
 
-      <p className="text-gray-600">
-        {t(
-          'blog.eeat_text',
-          'Fachbeiträge unseres POC-Diagnostik-Teams – fundiert, praxisnah, aktuell.',
-        )}
-      </p>
-
-      {/* Featured Article - Vitamin D3 Implantologie */}
-      <Link
-        to="/vitamin-d3-implantologie"
-        className="group block overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 transition-all duration-300 hover:shadow-lg hover:border-slate-300"
-      >
-        <div className="p-7">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-primary">
-            {t('blog.featured', 'Fachartikel')}
-          </p>
-          <h3 className="text-lg font-semibold text-gray-900 group-hover:text-brand-primary transition-colors">
-            {t(
-              'blog.featured_title',
-              'Vitamin D3 und Implantologie — Evidenz und Praxisleitfaden',
-            )}
-          </h3>
-          <p className="mt-2 text-sm text-gray-500">
-            {t(
-              'blog.featured_desc',
-              'Wissenschaftlich fundierte Erkenntnisse zur Rolle von Vitamin D bei der Osseointegration.',
-            )}
-          </p>
-        </div>
-      </Link>
-
       <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-7">
         {blogPosts.slice(0, 3).map((post) => {
           // SSR-safe: Verwende zentrale Bild-Imports statt dynamischer URLs
@@ -68,15 +37,6 @@ const BlogSection = () => {
           className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary hover:text-brand-deep transition-colors"
         >
           {t('blog.all_articles', 'Alle Fachartikel anzeigen')} →
-        </Link>
-      </div>
-
-      <div className="flex gap-6 flex-wrap justify-center text-sm font-semibold text-brand-primary">
-        <Link to="/about" className="hover:text-brand-deep transition-colors">
-          {t('blog.authors_link', 'Über uns & Autoren')}
-        </Link>
-        <Link to="/events" className="hover:text-brand-deep transition-colors">
-          {t('blog.events_cta', 'Termine & Webinare')}
         </Link>
       </div>
     </section>
