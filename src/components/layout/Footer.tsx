@@ -1,40 +1,16 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import logo from '../../assets/polarisdx_logo.webp'
-import CtaSection from '../sections/CtaSection'
 import { Linkedin, Instagram } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 const Footer = () => {
-  const location = useLocation()
-  // CtaSection is the generic B2B "contact us" card. Hide it on contact/support
-  // (self-referential), on the unlisted /consumer/* landing pages (own FinalCTA),
-  // and on the HOME — the home has its own dedicated FinalCtaSection, so the
-  // generic card would be a duplicate closing CTA (Lastenheft S11).
-  const isContactPage =
-    location.pathname === '/' ||
-    location.pathname === '/contact' ||
-    location.pathname === '/support' ||
-    location.pathname.startsWith('/consumer/')
   const { t } = useTranslation('common')
 
   return (
     <footer className="mt-24 bg-brand-primary text-white lg:mt-32">
       <div className="relative">
-        {/* CTA-Karte in Content-Breite, die in den Footer hineinragt */}
-        {!isContactPage && (
-          <div className="mx-auto max-w-container px-4 lg:px-0">
-            <div className="-translate-y-1/2">
-              <CtaSection />
-            </div>
-          </div>
-        )}
-
-        {/* Footer-Inhalte, mit zusätzlichem Padding oben für die überlagernde Karte */}
-        <div
-          className={`mx-auto flex max-w-container flex-col gap-10 px-4 pb-12 lg:pb-16 ${
-            isContactPage ? 'pt-12 lg:pt-16' : 'pt-12 lg:pt-16'
-          }`}
-        >
+        {/* Footer-Inhalte */}
+        <div className="mx-auto flex max-w-container flex-col gap-10 px-4 pb-12 lg:pb-16 pt-12 lg:pt-16">
           <div className="flex flex-col gap-10 lg:flex-row lg:justify-between">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
