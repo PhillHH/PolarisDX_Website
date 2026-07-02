@@ -2,14 +2,29 @@
   "hero": {
     "caption": "Das All-in-One System",
     "title": "Präzise Diagnostik.\nÜberall.",
-    "description": "Erleben Sie die nächste Generation der Point-of-Care Diagnostik. Schnell, zuverlässig und einfach zu bedienen.",
-    "cta_order": "Jetzt anfragen",
-    "cta_datasheet": "Datenblatt laden"
+    "description": "Der IglooPro POC-Reader bringt laborgenaue Ergebnisse an den Behandlungsort — 600 g portabel, validiert und mit Ihren Praxissystemen vernetzt.",
+    "cta_order": "Angebot anfragen",
+    "cta_datasheet": "Datenblatt (PDF)",
+    "subline": "Kostenlos & unverbindlich · Antwort in 24 h",
+    "chip_ivdr": "IVDR/CE",
+    "chip_lis": "LIS/HIS-ready",
+    "chip_cross": "Herstellerübergreifend",
+    "visual": {
+      "gauge": "36°",
+      "portable_val": "600 g",
+      "portable_label": "portabel",
+      "cv_val": "CV < 2 %",
+      "cv_label": "Inter-Reader",
+      "time_val": "3–15 Min.",
+      "time_label": "pro Test"
+    }
   },
   "intro": {
     "title": "Laborqualität im Handformat",
     "text1": "Der Igloo Pro Reader setzt neue Maßstäbe in der mobilen Diagnostik. Mit modernster Technologie liefert er Ergebnisse, auf die Sie sich verlassen können.",
-    "text2": "Egal ob in der Praxis, im Krankenhaus oder mobil – der Igloo Pro ist Ihr zuverlässiger Partner für schnelle Entscheidungen."
+    "text2": "Egal ob in der Praxis, im Krankenhaus oder mobil – der Igloo Pro ist Ihr zuverlässiger Partner für schnelle Entscheidungen.",
+    "eyebrow": "WARUM DER IGLOOPRO",
+    "subtitle": "Ob in der Praxis, Klinik oder mobil — der IglooPro ist auf schnelle, verlässliche Entscheidungen am Behandlungsort ausgelegt."
   },
   "features": {
     "methods": {
@@ -22,7 +37,7 @@
     },
     "connectivity": {
       "title": "Volle Konnektivität",
-      "description": "WLAN, Bluetooth und USB für nahtlose Datenübertragung."
+      "description": "Wi-Fi, LAN und USB für nahtlose Datenübertragung."
     },
     "precision": {
       "title": "Höchste Präzision",
@@ -48,7 +63,21 @@
     "battery": "Stromversorgung",
     "battery_value": "Integrierter Lithium-Ionen-Akku",
     "communication": "Schnittstellen",
-    "communication_value": "USB, LAN, WLAN, LIS/HIS Anbindung"
+    "communication_value": "USB, LAN, WLAN, LIS/HIS Anbindung",
+    "eyebrow": "TECHNISCHE DATEN",
+    "headline": "Die Specs, die zählen",
+    "subtitle": "Alles, was Ihr IT- und QM-Team fragt — auf einen Blick.",
+    "manufacturer_note": "Hergestellt von DX365 GmbH, Berlin · Europäischer Vertrieb: PolarisDX",
+    "highlights": {
+      "label": "Highlights",
+      "cv_value": "CV < 2 %",
+      "cv_label": "Inter-Reader-Präzision, dokumentiert",
+      "records_value": "10.000",
+      "records_label": "Patientendatensätze auf dem Gerät",
+      "time_value": "3–15 Min.",
+      "time_label": "von der Probe zum Ergebnis",
+      "datasheet": "Datenblatt (PDF)"
+    }
   },
   "parameters": {
     "title": "Verfügbare Parameter",
@@ -65,15 +94,41 @@
       "flu": "Influenza A/B",
       "rsv": "RSV",
       "strep": "Streptokokken A"
-    }
+    },
+    "eyebrow": "VERFÜGBARE PARAMETER",
+    "headline": "Ein Reader, ein wachsendes Testmenü",
+    "subtitle": "Das Portfolio wächst ständig — hier gruppiert nach dem, was Ihre Praxis wirklich bucht.",
+    "groups": {
+      "prevention": "Prävention & Stoffwechsel",
+      "hormones": "Hormone",
+      "infection": "Infektion"
+    },
+    "request_text": "Ein Parameter fehlt in der Liste?",
+    "request_cta": "Aktuelle Testliste anfragen"
   },
   "cta_bottom": {
-    "title": "Bereit für den Igloo Pro?",
-    "description": "Nehmen Sie Kontakt auf und lassen Sie sich unverbindlich beraten.",
-    "button": "Kontakt aufnehmen"
+    "title": "Bereit, den IglooPro in Ihre Praxis zu holen?",
+    "description": "Fordern Sie ein Angebot an oder laden Sie das Datenblatt — herstellerübergreifend, IVDR/CE-konform und in 3–5 Werktagen einsatzbereit.",
+    "button": "Angebot anfragen",
+    "datasheet": "Datenblatt (PDF)",
+    "chips": {
+      "free": "Kostenlos & unverbindlich",
+      "reply": "Antwort < 24 h",
+      "delivery": "Lieferung in 3–5 Werktagen"
+    }
   },
   "seo": {
     "title": "IglooPro POC-Reader: Spezifikationen & Technik",
     "description": "IglooPro POC-Reader liefert Laborwerte chairside in 3–15 Min aus Kapillarblut: Vitamin D, CRP, HbA1c, TSH u.v.m. Immunfluoreszenz, CV < 5 %, 600 g portabel."
+  },
+  "help": {
+    "title": "Nicht sicher, ob der IglooPro zu Ihrem Workflow passt?",
+    "text": "15 Minuten mit einem POC-Spezialisten — eine konkrete Empfehlung für Ihr Setup, keine Verkaufsshow.",
+    "cta": "Termin wählen"
+  },
+  "application": {
+    "eyebrow": "ANWENDUNGSBEREICHE",
+    "title": "Für Ihre Fachrichtung gebaut",
+    "subtitle": "Derselbe Reader, drei Geschäftsfälle — sehen Sie, was der IglooPro in Ihrem Bereich leistet."
   }
 }

@@ -20,19 +20,29 @@ const CARDS: SpecialtyCard[] = [
   { key: 'longevity', id: 'longevity', tone: 'navy', icon: <InfinityIcon className="h-6 w-6" /> },
 ]
 
-export default function DiagnosticsSpecialtySection() {
+const DiagnosticsSpecialtySection = ({
+  eyebrow,
+  title,
+  subtitle,
+  sectionClassName,
+}: {
+  eyebrow?: string
+  title?: string
+  subtitle?: string
+  sectionClassName?: string
+} = {}) => {
   const { t } = useTranslation('services')
 
   return (
-    <section className="bg-white">
+    <section className={sectionClassName ?? 'bg-white'}>
       <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-28">
         <div className="text-center mb-14">
-          <Eyebrow>{t('overview.specialty.eyebrow', 'IHRE FACHRICHTUNG')}</Eyebrow>
+          <Eyebrow>{eyebrow ?? t('overview.specialty.eyebrow', 'IHRE FACHRICHTUNG')}</Eyebrow>
           <h2 className="mt-3 text-3xl lg:text-[42px] font-medium tracking-tight text-heading">
-            {t('overview.specialty.title')}
+            {title ?? t('overview.specialty.title')}
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-gray-700">
-            {t('overview.specialty.subtitle')}
+            {subtitle ?? t('overview.specialty.subtitle')}
           </p>
         </div>
 
@@ -86,3 +96,5 @@ export default function DiagnosticsSpecialtySection() {
     </section>
   )
 }
+
+export default DiagnosticsSpecialtySection

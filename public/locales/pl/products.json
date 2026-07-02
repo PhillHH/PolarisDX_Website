@@ -4,12 +4,27 @@
     "caption": "Diagnostyka Next Gen",
     "description": "Twoje centrum kontroli.",
     "cta_order": "Zamów teraz",
-    "cta_datasheet": "Karta danych (PDF)"
+    "cta_datasheet": "Karta danych (PDF)",
+    "subline": "Kostenlos & unverbindlich · Antwort in 24 h",
+    "chip_ivdr": "IVDR/CE",
+    "chip_lis": "LIS/HIS-ready",
+    "chip_cross": "Herstellerübergreifend",
+    "visual": {
+      "gauge": "36°",
+      "portable_val": "600 g",
+      "portable_label": "portabel",
+      "cv_val": "CV < 2 %",
+      "cv_label": "Inter-Reader",
+      "time_val": "3–15 Min.",
+      "time_label": "pro Test"
+    }
   },
   "intro": {
     "title": "Mobilne laboratorium",
     "text1": "Igloo Pro to przenośny analizator.",
-    "text2": "Obsługuje 90% testów."
+    "text2": "Obsługuje 90% testów.",
+    "eyebrow": "WARUM DER IGLOOPRO",
+    "subtitle": "Ob in der Praxis, Klinik oder mobil — der IglooPro ist auf schnelle, verlässliche Entscheidungen am Behandlungsort ausgelegt."
   },
   "features": {
     "methods": {
@@ -48,7 +63,21 @@
     "battery": "Bateria",
     "battery_value": "Litowa",
     "communication": "Komunikacja",
-    "communication_value": "USB-C, WiFi"
+    "communication_value": "USB-C, WiFi",
+    "eyebrow": "TECHNISCHE DATEN",
+    "headline": "Die Specs, die zählen",
+    "subtitle": "Alles, was Ihr IT- und QM-Team fragt — auf einen Blick.",
+    "manufacturer_note": "Hergestellt von DX365 GmbH, Berlin · Europäischer Vertrieb: PolarisDX",
+    "highlights": {
+      "label": "Highlights",
+      "cv_value": "CV < 2 %",
+      "cv_label": "Inter-Reader-Präzision, dokumentiert",
+      "records_value": "10.000",
+      "records_label": "Patientendatensätze auf dem Gerät",
+      "time_value": "3–15 Min.",
+      "time_label": "von der Probe zum Ergebnis",
+      "datasheet": "Datenblatt (PDF)"
+    }
   },
   "parameters": {
     "title": "Dostępne parametry",
@@ -65,15 +94,41 @@
       "flu": "Grypa A/B",
       "rsv": "RSV",
       "strep": "Paciorkowiec A"
-    }
+    },
+    "eyebrow": "VERFÜGBARE PARAMETER",
+    "headline": "Ein Reader, ein wachsendes Testmenü",
+    "subtitle": "Das Portfolio wächst ständig — hier gruppiert nach dem, was Ihre Praxis wirklich bucht.",
+    "groups": {
+      "prevention": "Prävention & Stoffwechsel",
+      "hormones": "Hormone",
+      "infection": "Infektion"
+    },
+    "request_text": "Ein Parameter fehlt in der Liste?",
+    "request_cta": "Aktuelle Testliste anfragen"
   },
   "cta_bottom": {
     "title": "Rozszerz możliwości",
     "description": "Dla aptek i gabinetów.",
-    "button": "Umów się teraz"
+    "button": "Umów się teraz",
+    "datasheet": "Datenblatt (PDF)",
+    "chips": {
+      "free": "Kostenlos & unverbindlich",
+      "reply": "Antwort < 24 h",
+      "delivery": "Lieferung in 3–5 Werktagen"
+    }
   },
   "seo": {
     "title": "IglooPro POC Reader: specyfikacja i technologia",
     "description": "IglooPro POC Reader dostarcza wyniki laboratoryjne przy fotelu w 3–15 min z krwi włośniczkowej: witamina D, CRP, HbA1c, TSH i więcej. Immunofluorescencja, CV < 5 %, 600 g."
+  },
+  "help": {
+    "title": "Nicht sicher, ob der IglooPro zu Ihrem Workflow passt?",
+    "text": "15 Minuten mit einem POC-Spezialisten — eine konkrete Empfehlung für Ihr Setup, keine Verkaufsshow.",
+    "cta": "Termin wählen"
+  },
+  "application": {
+    "eyebrow": "ANWENDUNGSBEREICHE",
+    "title": "Für Ihre Fachrichtung gebaut",
+    "subtitle": "Derselbe Reader, drei Geschäftsfälle — sehen Sie, was der IglooPro in Ihrem Bereich leistet."
   }
 }
