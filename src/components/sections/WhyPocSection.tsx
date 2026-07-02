@@ -1,18 +1,20 @@
 import { useTranslation } from 'react-i18next'
-import { Truck, UserCheck, Coins } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Truck, UserCheck, Coins, Play } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
-import ImagePlaceholder from '../ui/ImagePlaceholder'
 
 /**
  * WhyPocSection — Argument fuer Point-of-Care in der eigenen Praxis.
- * Full-width Section auf hellem Grund, 3 Nutzen-Karten (kein Laborversand /
- * Patient bleibt im Stuhl / neuer Selbstzahler-Umsatz).
+ * Split-Layout: links 3 gestapelte Nutzen-Karten (kein Laborversand /
+ * Patient bleibt im Stuhl / neuer Selbstzahler-Umsatz), rechts ein
+ * gruenes Media-Panel mit Play-Platzhalter (kein echtes Video).
  * i18n-Namespace 'home', Keys unter why.*. SSR-sicher (kein window/localStorage).
  */
 type WhyCard = {
   icon: LucideIcon
   title: string
   text: string
+  bg: string
 }
 
 const WhyPocSection = () => {
@@ -26,6 +28,7 @@ const WhyPocSection = () => {
         'why.card1.text',
         'Das Ergebnis liegt sofort vor Ort vor — keine Wartezeit auf den Befund aus dem externen Labor.',
       ),
+      bg: 'bg-brand-deep',
     },
     {
       icon: UserCheck,
@@ -34,6 +37,7 @@ const WhyPocSection = () => {
         'why.card2.text',
         'Werte messen und den nächsten Schritt direkt im selben Termin besprechen — ohne erneute Einbestellung.',
       ),
+      bg: 'bg-accent',
     },
     {
       icon: Coins,
@@ -42,6 +46,7 @@ const WhyPocSection = () => {
         'why.card3.text',
         'POC erschließt neue Selbstzahler-Leistungen in Ihrer Praxis, statt Umsatz an das externe Labor abzugeben.',
       ),
+      bg: 'bg-brand-deep',
     },
   ]
 
@@ -64,27 +69,52 @@ const WhyPocSection = () => {
           </p>
         </div>
 
-        {/* Karten */}
-        <div className="mt-12 grid gap-7 md:grid-cols-3">
-          {cards.map((card) => {
-            const Icon = card.icon
-            return (
-              <div
-                key={card.title}
-                className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm"
-              >
-                <ImagePlaceholder
-                  label={t('why.image_label', 'Anwendungsbild')}
-                  className="aspect-[4/3] w-full mb-4 bg-slate-100 border-slate-200"
-                />
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-accent">
-                  <Icon size={24} aria-hidden="true" />
-                </span>
-                <h3 className="mt-5 text-lg font-medium text-heading">{card.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-gray-600">{card.text}</p>
-              </div>
-            )
-          })}
+        {/* Split-Layout */}
+        <div className="grid gap-8 lg:grid-cols-2">
+          {/* LINKS: 3 gestapelte Karten */}
+          <div className="flex flex-col gap-4">
+            {cards.map((card) => {
+              const Icon = card.icon
+              return (
+                <div
+                  key={card.title}
+                  className={`rounded-2xl p-7 text-white ${card.bg}`}
+                >
+                  <span className="inline-flex rounded-lg bg-white/10 p-2">
+                    <Icon size={22} aria-hidden="true" />
+                  </span>
+                  <h3 className="mt-4 font-medium">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/80">
+                    {card.text}
+                  </p>
+                  <Link
+                    to="/diagnostics"
+                    className="mt-4 inline-block text-sm text-white/90 hover:underline"
+                  >
+                    {t('why.card_cta', 'Mehr erfahren') + ' →'}
+                  </Link>
+                </div>
+              )
+            })}
+          </div>
+
+          {/* RECHTS: gruenes Media-Panel (Play = Platzhalter, kein echtes Video) */}
+          <div className="relative h-full min-h-[20rem] overflow-hidden rounded-2xl bg-gradient-to-br from-accent to-emerald-600">
+            <span className="absolute top-4 left-4 text-xs uppercase tracking-wide text-white/80">
+              {t('why.video_label', 'ANWENDUNGSVIDEO')}
+            </span>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="inline-flex rounded-full bg-white/90 p-4 text-brand-deep">
+                <Play size={28} aria-hidden="true" />
+              </span>
+            </div>
+            <div className="absolute bottom-4 left-4 right-4 rounded-lg bg-white px-4 py-3 text-sm text-heading shadow">
+              {t(
+                'why.video_caption',
+                'So läuft der Test in Ihrer Praxis – in 3 Minuten',
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,9 +1,8 @@
 import { useHeroSlider } from '../../hooks/useHeroSlider'
 import { Button } from '../ui/Button'
 import { useState, useEffect, useRef } from 'react'
-import { Check, Pause, Play } from 'lucide-react'
+import { Pause, Play } from 'lucide-react'
 import iglooLogoWhite from '../../assets/igloo_logo_white.webp'
-import ImagePlaceholder from '../ui/ImagePlaceholder'
 
 /**
  * SSR-safe HeroSection — NO framer-motion, pure CSS animations.
@@ -44,26 +43,7 @@ const HeroSection = () => {
     return ''
   }
 
-  const getVisualAnimationClass = () => {
-    if (!isHydrated || isFirstRender.current) return ''
-    const slide = slides[displaySlide]
-    if (slide.type === 'image') {
-      if (animationPhase === 'exiting') return 'animate-slide-out-left'
-      if (animationPhase === 'entering') return 'animate-slide-in-right'
-    } else {
-      if (animationPhase === 'exiting') return 'animate-icon-out'
-      if (animationPhase === 'entering') return 'animate-icon-in'
-    }
-    return ''
-  }
-
   const currentDisplaySlide = slides[displaySlide]
-
-  const chips = [
-    t('hero.chips.cv', 'CV < 2 % Präzision'),
-    t('hero.chips.minutes', 'Ergebnis in 3 Min.'),
-    t('hero.chips.ivdr', 'IVDR/CE'),
-  ]
 
   return (
     <section
@@ -137,18 +117,38 @@ const HeroSection = () => {
               </Button>
             </div>
 
-            {/* Proof-Chips */}
-            <ul className="flex flex-wrap gap-2">
-              {chips.map((chip, i) => (
-                <li
-                  key={i}
-                  className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs text-white/90 ring-1 ring-white/15"
-                >
-                  <Check size={13} className="text-accent-line" aria-hidden="true" />
-                  {chip}
-                </li>
-              ))}
-            </ul>
+            {/* Stat-Zeile */}
+            <div>
+              <div className="flex flex-wrap gap-8">
+                <div>
+                  <div className="text-2xl font-medium text-white">
+                    {t('hero.stats.margin.value', '+18 %')}
+                  </div>
+                  <div className="text-xs text-white/70">
+                    {t('hero.stats.margin.label', 'Marge pro Test')}
+                  </div>
+                </div>
+                <div>
+                  <div className="text-2xl font-medium text-white">
+                    {t('hero.stats.time.value', '3 Min.')}
+                  </div>
+                  <div className="text-xs text-white/70">
+                    {t('hero.stats.time.label', 'bis zum Ergebnis')}
+                  </div>
+                </div>
+                <div>
+                  <div className="text-2xl font-medium text-white">
+                    {t('hero.stats.ready.value', 'IVDR/CE')}
+                  </div>
+                  <div className="text-xs text-white/70">
+                    {t('hero.stats.ready.label', 'zertifiziert')}
+                  </div>
+                </div>
+              </div>
+              <p className="mt-2 text-[11px] text-white/50">
+                {t('hero.stats_disclaimer', '* Beispielwert – abhängig von Ihren Praxiswerten.')}
+              </p>
+            </div>
 
             {/* Slider-Steuerung: Dots + Pause/Play */}
             <div className="mt-2 flex items-center gap-4">
@@ -181,45 +181,10 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Visual */}
-          <div className="relative mx-auto hidden h-full w-full max-w-lg items-end justify-center lg:flex pointer-events-none">
-            <div className={getVisualAnimationClass()}>
-              {currentDisplaySlide.type === 'image' ? (
-                <div className="relative h-full w-full flex items-end justify-center">
-                  <div className="absolute bottom-0 right-4 h-[440px] w-[280px] bg-brand-secondary lg:bottom-0 z-0" />
-                  <img
-                    src={currentDisplaySlide.visual}
-                    alt="Ärztin mit IglooPro POC-Diagnostik in der Praxis"
-                    width={390}
-                    height={780}
-                    fetchPriority="high"
-                    className="relative z-10 h-[780px] w-auto object-contain object-bottom -mb-8 right-8"
-                  />
-                </div>
-              ) : (
-                <div className="relative h-full w-full flex items-center justify-center">
-                  <div
-                    className={`absolute w-[400px] h-[400px] rounded-full blur-[100px] opacity-60 bg-gradient-to-r ${currentDisplaySlide.color}`}
-                  />
-                  {currentDisplaySlide.icon &&
-                    (() => {
-                      const Icon = currentDisplaySlide.icon
-                      return (
-                        <Icon
-                          size={600}
-                          strokeWidth={0.5}
-                          className="absolute text-white/20 drop-shadow-2xl z-0"
-                          aria-hidden="true"
-                        />
-                      )
-                    })()}
-                  {/* Bild-Slot (Platzhalter) — echtes Produktbild folgt vom Kunden */}
-                  <ImagePlaceholder
-                    label={t('hero.image_label', 'Produktbild')}
-                    className="relative z-10 aspect-[3/4] w-72 max-w-full bg-white/5 border-white/20 text-white/50"
-                  />
-                </div>
-              )}
+          {/* Right Visual — statisches Gradient-Panel */}
+          <div className="relative mx-auto hidden h-full w-full max-w-lg items-center justify-center lg:flex pointer-events-none">
+            <div className="flex min-h-[360px] w-full items-center justify-center rounded-3xl bg-gradient-to-br from-accent to-emerald-600">
+              <span className="text-white/70">{t('hero.visual_label', 'IglooPro-Visual')}</span>
             </div>
           </div>
         </div>

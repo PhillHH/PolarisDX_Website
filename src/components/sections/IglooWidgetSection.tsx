@@ -101,6 +101,27 @@ const IglooWidgetSection = () => {
             </div>
           ))}
         </div>
+
+        {/* Hilfeband */}
+        <div className="mt-10 flex flex-col gap-4 rounded-2xl bg-accent p-6 text-white md:flex-row md:items-center md:justify-between lg:p-8">
+          <div>
+            <p className="font-medium">
+              {t('igloo_widget.help_title', 'Nicht sicher, welches Panel zu Ihrer Praxis passt?')}
+            </p>
+            <p className="text-sm text-white/85">
+              {t(
+                'igloo_widget.help_text',
+                '15 Minuten mit einem POC-Spezialisten – eine konkrete Empfehlung für Ihre Fachrichtung, keine Verkaufsshow.',
+              )}
+            </p>
+          </div>
+          <Link
+            to="/contact"
+            className="whitespace-nowrap rounded-md bg-white px-5 py-3 font-medium text-brand-deep"
+          >
+            {t('igloo_widget.help_cta', 'Termin wählen')}
+          </Link>
+        </div>
       </div>
     </section>
   )

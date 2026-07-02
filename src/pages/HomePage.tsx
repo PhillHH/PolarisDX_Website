@@ -17,6 +17,7 @@ import WhyPocSection from '../components/sections/WhyPocSection'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
 import AboutSection from '../components/sections/AboutSection'
 import IglooWidgetSection from '../components/sections/IglooWidgetSection'
+import StepsSection from '../components/sections/StepsSection'
 import TestimonialsSection from '../components/sections/TestimonialsSection'
 import RoiCalculatorSection from '../components/sections/RoiCalculatorSection'
 import BlogSection from '../components/sections/BlogSection'
@@ -101,6 +102,7 @@ const HomePage = () => {
           <FAQSection />
         </Reveal>
       </div>
+      <StepsSection />
       <FinalCtaSection />
     </>
   )

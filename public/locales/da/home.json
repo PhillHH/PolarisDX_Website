@@ -58,7 +58,23 @@
       "go_to_slide": "Gå til slide {{n}}",
       "pause": "Sæt automatisk skift på pause",
       "play": "Genoptag automatisk skift"
-    }
+    },
+    "stats": {
+      "margin": {
+        "value": "Ø 980 €",
+        "label": "Zusätzlicher Deckungsbeitrag / Monat"
+      },
+      "time": {
+        "value": "3 Min.",
+        "label": "Ergebnisse verfügbar"
+      },
+      "ready": {
+        "value": "Tag 1",
+        "label": "Validiert & einsatzbereit"
+      }
+    },
+    "stats_disclaimer": "* Beispielwert – abhängig von Ihren Praxiswerten.",
+    "visual_label": "IglooPro-Visual"
   },
   "about": {
     "caption": "DIN YDEEVNEGARANT",
@@ -93,7 +109,10 @@
     "longevity": "Longevity",
     "all_services": "Oplev alle diagnostik-services",
     "subtitle": "Vælg dit område – vi viser de passende biomarkør-paneler og anvendelser til dit speciale.",
-    "eyebrow": "Jeres speciale"
+    "eyebrow": "Jeres speciale",
+    "help_title": "Nicht sicher, welches Panel zu Ihrer Praxis passt?",
+    "help_text": "15 Minuten mit einem POC-Spezialisten – eine konkrete Empfehlung für Ihre Fachrichtung, keine Verkaufsshow.",
+    "help_cta": "Termin wählen"
   },
   "services": {
     "caption": "DIAGNOSTIK-FOKUS",
@@ -257,7 +276,10 @@
     "card3": {
       "title": "Ny selvbetaler-omsætning",
       "text": "POC åbner for nye selvbetaler-ydelser i din klinik i stedet for at afgive omsætning til det eksterne laboratorium."
-    }
+    },
+    "card_cta": "Mehr erfahren",
+    "video_label": "ANWENDUNGSVIDEO",
+    "video_caption": "So läuft der Test in Ihrer Praxis – in 3 Minuten"
   },
   "final_cta": {
     "caption": "Klar til at komme i gang",
@@ -327,5 +349,26 @@
       "bio": "HbA1c · Lipider · D-Dimer",
       "cta": "Se longevity-diagnostik"
     }
+  },
+  "steps": {
+    "caption": "SO EINFACH STARTEN SIE",
+    "title": "Validierte POC-Diagnostik in 3 Schritten",
+    "intro": "Vom ersten Gespräch bis zur laborgenauen Diagnostik am Behandlungsstuhl – ohne Konfigurationsaufwand.",
+    "step1": {
+      "title": "Beratung & Panel-Empfehlung",
+      "text": "Wir analysieren Ihren Workflow und empfehlen die passenden Biomarker-Panels für Ihre Fachrichtung.",
+      "badge": "inkl. Beratung"
+    },
+    "step2": {
+      "title": "Performance-Setup",
+      "text": "Lieferung in 3–5 Werktagen inkl. validierter Inbetriebnahme und einfacher Assay-Profile.",
+      "badge": "vor Ort"
+    },
+    "step3": {
+      "title": "Erste Ergebnisse",
+      "text": "Ihr Team ist geschult, der erste Patient wird gemessen – laborgenau, dokumentiert, IVDR/CE-konform.",
+      "badge": "Tag 1"
+    },
+    "cta": "Beratung buchen"
   }
 }

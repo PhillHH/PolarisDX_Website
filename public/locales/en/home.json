@@ -58,7 +58,23 @@
       "go_to_slide": "Go to slide {{n}}",
       "pause": "Pause automatic rotation",
       "play": "Resume automatic rotation"
-    }
+    },
+    "stats": {
+      "margin": {
+        "value": "Ø €980",
+        "label": "Additional contribution margin / month"
+      },
+      "time": {
+        "value": "3 min.",
+        "label": "Results ready"
+      },
+      "ready": {
+        "value": "Day 1",
+        "label": "Validated & ready to use"
+      }
+    },
+    "stats_disclaimer": "* Example value — depends on your practice figures.",
+    "visual_label": "IglooPro visual"
   },
   "about": {
     "caption": "YOUR PERFORMANCE GUARANTEE",
@@ -93,7 +109,10 @@
     "longevity": "Longevity",
     "all_services": "Discover all diagnostics services",
     "subtitle": "Choose your area – we'll show the matching biomarker panels and applications for your specialty.",
-    "eyebrow": "Your specialty"
+    "eyebrow": "Your specialty",
+    "help_title": "Not sure which panel fits your practice?",
+    "help_text": "15 minutes with a POC specialist — a concrete recommendation for your specialty, no sales show.",
+    "help_cta": "Pick a time"
   },
   "services": {
     "caption": "DIAGNOSTICS FOCUS",
@@ -257,7 +276,10 @@
     "card3": {
       "title": "New self-pay revenue",
       "text": "POC unlocks new self-pay services in your practice instead of handing revenue to the external laboratory."
-    }
+    },
+    "card_cta": "Learn more",
+    "video_label": "APPLICATION VIDEO",
+    "video_caption": "How the test runs in your practice — in 3 minutes"
   },
   "final_cta": {
     "caption": "Ready to get started",
@@ -327,5 +349,26 @@
       "bio": "HbA1c · Lipids · D-Dimer",
       "cta": "View longevity diagnostics"
     }
+  },
+  "steps": {
+    "caption": "GETTING STARTED IS SIMPLE",
+    "title": "Validated POC diagnostics in 3 steps",
+    "intro": "From the first conversation to lab-grade diagnostics at the chairside — no configuration effort.",
+    "step1": {
+      "title": "Consultation & panel recommendation",
+      "text": "We analyze your workflow and recommend the right biomarker panels for your specialty.",
+      "badge": "incl. consultation"
+    },
+    "step2": {
+      "title": "Performance setup",
+      "text": "Delivery in 3–5 business days, incl. validated commissioning and easy assay profiles.",
+      "badge": "on-site"
+    },
+    "step3": {
+      "title": "First results",
+      "text": "Your team is trained, the first patient is measured — lab-accurate, documented, IVDR/CE-compliant.",
+      "badge": "day one"
+    },
+    "cta": "Book a consultation"
   }
 }
