@@ -31,11 +31,7 @@
         "other": "Jiné"
       },
       "requirements_label": "Vaše specifické požadavky na IglooPro",
-      "requirements_placeholder": "Které biomarkery (např. CRP, TSH, HbA1c) jsou pro vás primárně relevantní?",
-      "voucher_label": "Slevový kód (nepovinné)",
-      "voucher_none": "Bez slevového kódu",
-      "voucher_polaris10": "POLARIS10 – 10 % na celý sortiment",
-      "voucher_applied": "✓ Sleva 10 % na celý sortiment bude uplatněna na vaši nabídku."
+      "requirements_placeholder": "Které biomarkery (např. CRP, TSH, HbA1c) jsou pro vás primárně relevantní?"
     },
     "info": {
       "title": "Kontaktní informace",

@@ -20,7 +20,6 @@ export const useContactForm = (): UseContactFormReturn => {
     const phone = formData.get('phone')
     const email = formData.get('email')
     const area = formData.get('area')
-    const voucher = formData.get('voucher')
     const requirements = formData.get('requirements')
     const consent = formData.get('consent')
     const hp = formData.get('_hp')
@@ -47,7 +46,6 @@ export const useContactForm = (): UseContactFormReturn => {
       phone,
       email,
       area,
-      voucher: typeof voucher === 'string' ? voucher : '',
       requirements,
       message: requirements,
       // Consent is required + validated above, so it is always true when sent.

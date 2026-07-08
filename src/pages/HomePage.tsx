@@ -19,7 +19,6 @@ import IglooWidgetSection from '../components/sections/IglooWidgetSection'
 import TestimonialsSection from '../components/sections/TestimonialsSection'
 import BlogSection from '../components/sections/BlogSection'
 import FAQSection from '../components/sections/FAQSection'
-import VoucherPromo from '../components/sections/VoucherPromo'
 import DealPopup from '../components/sections/DealPopup'
 import Reveal from '../components/ui/Reveal'
 
@@ -81,9 +80,6 @@ const HomePage = () => {
       <HeroSection />
       <DealPopup />
       <div className="mx-auto flex max-w-container flex-col gap-16 px-4 pt-16 lg:px-0 lg:gap-16 lg:pt-8">
-        <Reveal width="100%">
-          <VoucherPromo />
-        </Reveal>
         <Reveal width="100%">
           <AboutSection />
         </Reveal>

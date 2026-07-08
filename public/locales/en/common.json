@@ -131,14 +131,6 @@
       "contact": "Contact"
     }
   },
-  "voucher_promo": {
-    "badge": "Offer",
-    "title": "10% off the entire range",
-    "text": "Use the voucher code POLARIS10 to get 10% off your entire order – just add it when you request your quote.",
-    "hint": "Select the code below in the form – we'll take 10% off your quote.",
-    "copy": "Copy",
-    "copied": "Copied!"
-  },
   "deal_popup": {
     "aria": "PolarisDX Summer Deal",
     "cta": "Request the deal",

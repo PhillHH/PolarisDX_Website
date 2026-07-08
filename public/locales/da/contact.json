@@ -31,11 +31,7 @@
         "other": "Andet"
       },
       "requirements_label": "Dine Specifikke Krav til IglooPro",
-      "requirements_placeholder": "Hvilke biomarkører (f.eks. CRP, TSH, HbA1c) er primært relevante for dig?",
-      "voucher_label": "Rabatkode (valgfrit)",
-      "voucher_none": "Ingen rabatkode",
-      "voucher_polaris10": "POLARIS10 – 10% på hele sortimentet",
-      "voucher_applied": "✓ 10% rabat på hele sortimentet anvendes på dit tilbud."
+      "requirements_placeholder": "Hvilke biomarkører (f.eks. CRP, TSH, HbA1c) er primært relevante for dig?"
     },
     "info": {
       "title": "Kontaktoplysninger",

@@ -31,11 +31,7 @@
         "other": "Outro"
       },
       "requirements_label": "Os seus Requisitos Específicos para o IglooPro",
-      "requirements_placeholder": "Quais biomarcadores (ex: CRP, TSH, HbA1c) são principalmente relevantes para si?",
-      "voucher_label": "Código de desconto (opcional)",
-      "voucher_none": "Sem código de desconto",
-      "voucher_polaris10": "POLARIS10 – 10% em todo o sortido",
-      "voucher_applied": "✓ Um desconto de 10% em todo o sortido será aplicado ao seu orçamento."
+      "requirements_placeholder": "Quais biomarcadores (ex: CRP, TSH, HbA1c) são principalmente relevantes para si?"
     },
     "info": {
       "title": "Informações de Contacto",

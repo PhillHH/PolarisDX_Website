@@ -31,11 +31,7 @@
         "other": "Autre"
       },
       "requirements_label": "Vos exigences spécifiques pour IglooPro",
-      "requirements_placeholder": "Quels biomarqueurs (ex. CRP, TSH, HbA1c) sont principalement pertinents pour vous ?",
-      "voucher_label": "Code promo (optionnel)",
-      "voucher_none": "Aucun code promo",
-      "voucher_polaris10": "POLARIS10 – 10 % sur toute la gamme",
-      "voucher_applied": "✓ Une remise de 10 % sur toute la gamme sera appliquée à votre devis."
+      "requirements_placeholder": "Quels biomarqueurs (ex. CRP, TSH, HbA1c) sont principalement pertinents pour vous ?"
     },
     "info": {
       "title": "Informations de contact",

@@ -50,7 +50,7 @@ if (process.env.SENDGRID_API_KEY) {
 // API Endpoint
 app.post('/api/contact', formLimiter, async (req, res) => {
   try {
-    const { name, email, message, company, phone, area, requirements, voucher, consent, _hp } =
+    const { name, email, message, company, phone, area, requirements, consent, _hp } =
       req.body || {}
 
     // Honeypot — bots almost always fill it; drop silently without sending.
@@ -93,7 +93,6 @@ app.post('/api/contact', formLimiter, async (req, res) => {
         Email: ${email}
         Telefon: ${phone || '-'}
         Bereich: ${area || '-'}
-        Gutschein-Code: ${voucher || '-'}
 
         Nachricht/Anforderungen:
         ${message || requirements || '-'}
@@ -105,7 +104,6 @@ app.post('/api/contact', formLimiter, async (req, res) => {
         <p><strong>Email:</strong> ${esc(email)}</p>
         <p><strong>Telefon:</strong> ${esc(phone || '-')}</p>
         <p><strong>Bereich:</strong> ${esc(area || '-')}</p>
-        <p><strong>Gutschein-Code:</strong> ${esc(voucher || '-')}</p>
         <br>
         <p><strong>Nachricht/Anforderungen:</strong></p>
         <p>${esc(message || requirements || '-').replace(/\n/g, '<br>')}</p>

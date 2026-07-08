@@ -131,14 +131,6 @@
       "contact": "Contact"
     }
   },
-  "voucher_promo": {
-    "badge": "Actie",
-    "title": "10% korting op het hele assortiment",
-    "text": "Gebruik de kortingscode POLARIS10 voor 10% korting op uw hele bestelling – vermeld deze bij het aanvragen van uw offerte.",
-    "hint": "Selecteer de code hieronder in het formulier – wij halen 10% van uw offerte af.",
-    "copy": "Kopiëren",
-    "copied": "Gekopieerd!"
-  },
   "deal_popup": {
     "aria": "PolarisDX Zomerdeal",
     "cta": "Deal aanvragen",

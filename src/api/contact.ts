@@ -6,8 +6,6 @@ export interface ContactFormData {
   phone?: string
   area?: string
   requirements?: string
-  /** Optional voucher code (e.g. POLARIS10 for 10% off the entire range). */
-  voucher?: string
   /** Explicit DSGVO consent — must be true. */
   consent?: boolean
   /** Honeypot — must stay empty (humans don't see it). */

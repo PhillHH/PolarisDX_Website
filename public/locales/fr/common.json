@@ -131,14 +131,6 @@
       "contact": "Contact"
     }
   },
-  "voucher_promo": {
-    "badge": "Offre",
-    "title": "10 % de remise sur toute la gamme",
-    "text": "Utilisez le code promo POLARIS10 pour bénéficier de 10 % de remise sur toute votre commande – indiquez-le lors de votre demande de devis.",
-    "hint": "Sélectionnez le code ci-dessous dans le formulaire – nous déduisons 10 % de votre devis.",
-    "copy": "Copier",
-    "copied": "Copié !"
-  },
   "deal_popup": {
     "aria": "PolarisDX Offre d'été",
     "cta": "Demander l'offre",

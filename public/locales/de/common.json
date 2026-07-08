@@ -131,14 +131,6 @@
       "contact": "Kontakt"
     }
   },
-  "voucher_promo": {
-    "badge": "Aktion",
-    "title": "10 % Rabatt auf das gesamte Sortiment",
-    "text": "Sichern Sie sich mit dem Gutschein-Code POLARIS10 10 % Rabatt auf Ihre gesamte Bestellung – einfach beim Angebot anfordern angeben.",
-    "hint": "Wählen Sie den Code unten im Formular aus – wir ziehen 10 % von Ihrem Angebot ab.",
-    "copy": "Kopieren",
-    "copied": "Kopiert!"
-  },
   "deal_popup": {
     "aria": "PolarisDX Sommer-Deal",
     "cta": "Deal anfordern",
