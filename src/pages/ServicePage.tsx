@@ -18,6 +18,7 @@ import { articles } from '../data/articles'
 import FAQSection from '../components/sections/FAQSection'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
+import PageSidebar, { type SidebarWidget } from '../components/sections/PageSidebar'
 
 // Helper function to render text with internal links
 // Supports syntax: [[link text|/path]]
@@ -287,79 +288,43 @@ const ServicePage = () => {
           </article>
 
           {/* Sidebar */}
-          <aside className="space-y-8 lg:sticky lg:top-32">
-            <Reveal width="100%" delay={0.2}>
-              {/* Other Services Widget */}
-              <section className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
-                <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-gray-500">
-                  {t('home:services.title', 'Key Areas')}
-                </h2>
-                <div className="space-y-3">
-                  {otherServices.map((s) => {
+          <PageSidebar
+            widgets={
+              [
+                {
+                  kind: 'services',
+                  titleKey: 'home:services.title',
+                  titleFallback: 'Key Areas',
+                  items: otherServices.map((s) => {
                     let IconComponent
                     if (s.id.includes('dental')) IconComponent = Tooth
                     else if (s.id.includes('beauty')) IconComponent = Sparkles
                     else IconComponent = InfinityIcon
-
-                    return (
-                      <Link
-                        key={s.id}
-                        to={`/diagnostics/${s.id}`}
-                        className="group flex items-center justify-between rounded-xl border border-gray-100 bg-gradient-to-br from-white to-slate-50 p-4 shadow-sm transition-all duration-300 hover:border-blue-200 hover:shadow-md hover:scale-[1.02]"
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-brand-secondary transition-colors group-hover:bg-brand-secondary group-hover:text-white">
-                            <IconComponent className="h-5 w-5" />
-                          </div>
-                          <span className="font-medium text-gray-900 group-hover:text-brand-secondary">
-                            {t(`home:services.${s.translationKey}.title`, s.title)}
-                          </span>
-                        </div>
-                      </Link>
-                    )
-                  })}
-                </div>
-              </section>
-
-              {/* Related Articles Widget */}
-              <section className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm mt-8">
-                <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-gray-500">
-                  {t('articles:index.title', 'Unsere Artikel')}
-                </h2>
-                <div className="space-y-4">
-                  {relatedArticles.map((post) => (
-                    <Link key={post.id} to={`/articles/${post.slug}`} className="block group">
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue mb-1">
-                        {t(`common:category.${post.category}`, post.category)}
-                      </p>
-                      <p className="text-sm font-semibold text-gray-900 group-hover:text-brand-secondary transition-colors">
-                        {t(`articles:${post.id}.title`)}
-                      </p>
-                      <p className="mt-1 text-xs text-gray-500">
-                        {post.readTime} · {post.date}
-                      </p>
-                    </Link>
-                  ))}
-                </div>
-              </section>
-
-              {/* Contact Widget */}
-              <section className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm mt-8">
-                <h3 className="mb-2 text-sm font-semibold tracking-tight text-gray-900">
-                  {t('shop:shop.needHelp', 'Need help right now?')}
-                </h3>
-                <p className="mb-3 text-xs leading-relaxed text-gray-500">
-                  {t(
-                    'shop:shop.contactText',
-                    'Our medical team is available 24/7 to answer urgent questions and help you decide what to do next.',
-                  )}
-                </p>
-                <Button to="/contact" variant="secondary" className="w-full justify-center">
-                  {t('common:nav.contact', 'Contact Us')}
-                </Button>
-              </section>
-            </Reveal>
-          </aside>
+                    return {
+                      id: s.id,
+                      translationKey: s.translationKey,
+                      title: s.title,
+                      icon: <IconComponent className="h-5 w-5" />,
+                    }
+                  }),
+                },
+                {
+                  kind: 'articles',
+                  titleKey: 'articles:index.title',
+                  titleFallback: 'Unsere Artikel',
+                  variant: 'plain',
+                  items: relatedArticles.map((post) => ({
+                    id: post.id,
+                    slug: post.slug,
+                    category: post.category,
+                    readTime: post.readTime,
+                    date: post.date,
+                  })),
+                },
+                { kind: 'contact' },
+              ] as SidebarWidget[]
+            }
+          />
         </div>
       </div>
     </PageTransition>

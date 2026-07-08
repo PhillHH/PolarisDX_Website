@@ -6,6 +6,7 @@ import SectionHeader from '../components/ui/SectionHeader'
 import { Button } from '../components/ui/Button'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
+import PageSidebar, { type SidebarWidget } from '../components/sections/PageSidebar'
 import { services } from '../data/services'
 import { useArticles } from '../hooks/useArticles'
 import { LoadingSpinner } from '../components/ui/LoadingSpinner'
@@ -381,79 +382,47 @@ const ArticlePage = () => {
           </article>
 
           {/* Sidebar for desktop */}
-          <aside className="space-y-8 lg:sticky lg:top-32">
-            <Reveal width="100%" delay={0.2}>
-              {otherArticles.length > 0 && (
-                <section className="hidden rounded-2xl border border-gray-100 bg-white p-5 shadow-sm lg:block">
-                  <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-gray-500">
-                    {t('shop:shop.moreArticles', 'More articles')}
-                  </h2>
-                  <div className="space-y-4">
-                    {otherArticles.slice(0, 4).map((suggested) => (
-                      <Link
-                        key={suggested.id}
-                        to={`/articles/${suggested.slug}`}
-                        className="block rounded-lg p-3 transition hover:bg-slate-50"
-                      >
-                        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
-                          {t(`common:category.${suggested.category}`, suggested.category)}
-                        </p>
-                        <p className="mt-1 text-sm font-semibold text-gray-900">
-                          {t(`articles:${suggested.id}.title`)}
-                        </p>
-                        <p className="mt-1 text-xs text-gray-500">
-                          {suggested.readTime} · {suggested.date}
-                        </p>
-                      </Link>
-                    ))}
-                  </div>
-                </section>
-              )}
-
-              {/* Related Services Widget */}
-              {relatedServices.length > 0 && (
-                <section className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm mt-8">
-                  <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-gray-500">
-                    {t('home:services.caption', 'Passende Diagnostik')}
-                  </h2>
-                  <div className="space-y-3">
-                    {relatedServices.map((s) => (
-                      <Link
-                        key={s.id}
-                        to={`/diagnostics/${s.id}`}
-                        className="group flex items-center justify-between rounded-xl border border-gray-100 bg-gradient-to-br from-white to-slate-50 p-4 shadow-sm transition-all duration-300 hover:border-blue-200 hover:shadow-md hover:scale-[1.02]"
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-brand-secondary transition-colors group-hover:bg-brand-secondary group-hover:text-white">
-                            {s.icon}
-                          </div>
-                          <span className="font-medium text-gray-900 group-hover:text-brand-secondary">
-                            {t(`home:services.${s.translationKey}.title`, s.title)}
-                          </span>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </section>
-              )}
-
-              {/* Contact Widget */}
-              <section className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm mt-8">
-                <h3 className="mb-2 text-sm font-semibold tracking-tight text-gray-900">
-                  {t('shop:shop.needHelp', 'Need help right now?')}
-                </h3>
-                <p className="mb-3 text-xs leading-relaxed text-gray-500">
-                  {t(
-                    'shop:shop.contactText',
-                    'Our medical team is available 24/7 to answer urgent questions and help you decide what to do next.',
-                  )}
-                </p>
-                <Button to="/contact" variant="secondary" className="w-full justify-center">
-                  {t('common:nav.contact', 'Kontakt aufnehmen')}
-                </Button>
-              </section>
-            </Reveal>
-          </aside>
+          <PageSidebar
+            widgets={
+              [
+                ...(otherArticles.length > 0
+                  ? [
+                      {
+                        kind: 'articles',
+                        titleKey: 'shop:shop.moreArticles',
+                        titleFallback: 'More articles',
+                        variant: 'card',
+                        limit: 4,
+                        hideOnMobile: true,
+                        items: otherArticles.map((suggested) => ({
+                          id: suggested.id,
+                          slug: suggested.slug,
+                          category: suggested.category,
+                          readTime: suggested.readTime,
+                          date: suggested.date,
+                        })),
+                      },
+                    ]
+                  : []),
+                ...(relatedServices.length > 0
+                  ? [
+                      {
+                        kind: 'services',
+                        titleKey: 'home:services.caption',
+                        titleFallback: 'Passende Diagnostik',
+                        items: relatedServices.map((s) => ({
+                          id: s.id,
+                          translationKey: s.translationKey,
+                          title: s.title,
+                          icon: s.icon,
+                        })),
+                      },
+                    ]
+                  : []),
+                { kind: 'contact' },
+              ] as SidebarWidget[]
+            }
+          />
         </div>
       </div>
     </PageTransition>
