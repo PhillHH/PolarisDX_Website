@@ -17,6 +17,18 @@ für diesen einen Artikel. **Bekanntes, dokumentiertes Defizit.** In Slice 1 wur
 **To-Do:** je Locale `rapid_setup_formula` (excerpt, title, sections inkl. listItems) + die 4–5
 `role`-Felder medizinisch korrekt übersetzen. i18n-Keyset-Guard bleibt derweil grün (Keys vorhanden).
 
+## G4c — Vorbestehende hartkodierte DE-Blöcke (nicht i18n) — eigener Slice
+**Status:** offen. **Aufgedeckt:** T2/T4-Review (Migration Phase 2). **Warum zurückgestellt:** identisch zu G4b —
+das sind pre-existing, hart im JSX kodierte deutsche Inhalte (kein Layout-Defekt der Migration), deren
+saubere i18n-Auslagerung + 10-Sprachen-Übersetzung eine eigene Content-Aufgabe ist.
+- `src/pages/ArticlesIndexPage.tsx` (~Z. 64–73): Featured-Artikel-Block (Titel „Vitamin D3 und
+  Implantologie…", Absatz, CTA „Fachartikel lesen →") hart in DE kodiert, nicht via `t()` → auf /en, /fr … deutscher Text.
+- `src/pages/AboutPage.tsx` (~Z. 52–65): DX365-Distributionspartner-Absatz hart in DE kodiert (nur DX365-Link
+  interpoliert) → auf allen Nicht-DE-Locales deutscher Rohtext. Auslagern nach `about:dx365_partner` (mit `<Trans>`).
+- `src/components/sections/TeamSection.tsx`: Link-Labels „Email" (übersetzbar) hartkodiert; „LinkedIn" (Markenname, unkritisch).
+
+**To-Do:** in i18n-Keys auslagern + in allen 10 Locales füllen. i18n-Guard bleibt derweil grün (betrifft nicht die home-Keyset-Prüfung).
+
 ## G5 — Widerspruch CV < 2 % vs. CV < 5 % (offene Fachfrage, NICHT raten)
 **Status:** blockiert auf Fachentscheidung DX365/Datenblatt. **Aufgedeckt:** Phase 1 (global-fixes G5).
 
