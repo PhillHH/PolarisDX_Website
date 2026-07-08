@@ -9,6 +9,16 @@
         "free": "Free & non-binding",
         "fast": "Reply within 24 h",
         "time": "15 min"
+      },
+      "cta_primary": "Fill in the form",
+      "cta_secondary": "Call us directly",
+      "value": {
+        "answer_value": "< 24 h",
+        "answer_label": "Response time",
+        "conform_value": "IVDR / CE",
+        "conform_label": "Certified",
+        "locations_value": "London · Hamburg",
+        "locations_label": "Two locations"
       }
     },
     "form": {
@@ -76,7 +86,65 @@
       "direct": "Prefer direct contact?",
       "rating": "4.9",
       "reviews": "250+ practice reviews"
-    }
+    },
+    "channels": {
+      "caption": "Contact channels",
+      "title": "How to reach us",
+      "subtitle": "Pick whichever route is fastest for you — we reply within 24 hours.",
+      "email": {
+        "label": "Email",
+        "value": "contact@polarisdx.net",
+        "desc": "Best for details, follow-ups and attachments."
+      },
+      "phone": {
+        "label": "Phone",
+        "value": "+49 151 75011699",
+        "desc": "Personal advice, Mon–Fri 9 am to 6 pm."
+      },
+      "demo": {
+        "label": "Live demo",
+        "value": "15-minute slot",
+        "desc": "See IglooPro live — remote or at your practice."
+      }
+    },
+    "form_aside": {
+      "caption": "Enquiry",
+      "title": "Tell us about your practice",
+      "subtitle": "One form for consultation, quote, product question or support — we get back with a concrete next step.",
+      "points": {
+        "one": "A personal reply, not an auto-responder",
+        "two": "A recommendation that fits your specialty",
+        "three": "Straight talk, not a sales pitch"
+      }
+    },
+    "process": {
+      "caption": "What happens next",
+      "title": "After you hit send",
+      "subtitle": "No sales funnel, no ticket queue — three clear steps to your answer.",
+      "steps": {
+        "one": {
+          "title": "Request received",
+          "desc": "You send the form in under two minutes — straight to the right team, no detours."
+        },
+        "two": {
+          "title": "A personal reply within 24 h",
+          "desc": "A real person who knows your field gets back to you — no auto-reply, no sales pitch."
+        },
+        "three": {
+          "title": "A concrete next step",
+          "desc": "A demo slot, a quote or a panel recommendation — exactly what fits your practice."
+        }
+      }
+    },
+    "locations": {
+      "caption": "Locations",
+      "title": "Two locations, one team",
+      "london_role": "UK headquarters",
+      "hamburg_role": "DACH region"
+    },
+    "call_us_button": "Call us",
+    "call_us_text": "Call us",
+    "collapse_button": "Close"
   },
   "seo": {
     "title": "Contact & Book an IglooPro Demo Appointment",

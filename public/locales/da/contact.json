@@ -1,47 +1,146 @@
 {
   "contact": {
     "hero": {
-      "kicker": "BESTIL TID",
-      "title": "Bestil tid",
-      "breadcrumb": "Hjem / Kontakt Os"
+      "kicker": "KONTAKT",
+      "title": "Lad os tale sammen.",
+      "subtitle": "Rådgivning, tilbud eller support — én formular, to minutter, et rigtigt svar inden for 24 t.",
+      "breadcrumb": "Kontakt",
+      "chips": {
+        "free": "Gratis og uforpligtende",
+        "fast": "Svar inden for 24 t",
+        "time": "15 min"
+      },
+      "cta_primary": "Udfyld formularen",
+      "cta_secondary": "Ring direkte",
+      "value": {
+        "answer_value": "< 24 h",
+        "answer_label": "Svartid",
+        "conform_value": "IVDR / CE",
+        "conform_label": "Certificeret",
+        "locations_value": "London · Hamburg",
+        "locations_label": "To lokationer"
+      }
     },
     "form": {
-      "title": "Bestil Tid",
-      "email": "E-mail",
-      "phone": "Telefon",
-      "specialty": "Vælg Medicinske Specialer",
-      "doctor": "Vælg Læge",
-      "any_doctor": "Enhver ledig læge",
-      "date": "Vælg Dato & Tid",
-      "name": "Navn",
-      "name_placeholder": "Dit fulde navn",
-      "phone_placeholder": "+49 151 75011699",
-      "email_placeholder": "dig@eksempel.dk",
-      "message": "Besked",
-      "message_placeholder": "Fortæl os mere om dine behov...",
-      "submit": "Bestil tid",
-      "company_label": "Virksomheds- / Praksisnavn",
-      "company_placeholder": "f.eks. Lægehuset v/ Dr. Jensen eller Løve Apotek",
-      "area_label": "Primært Anvendelsesområde",
-      "area_options": {
-        "pharmacy": "Apotek",
-        "practice": "Lægepraksis/Klinik",
-        "vet": "Veterinærmedicin",
-        "lab": "Forskning/Laboratorium",
-        "other": "Andet"
+      "progress": {
+        "start": "Lad os starte — kun få felter",
+        "going": "Ser godt ud — {{count}} tilbage",
+        "almost": "Næsten færdig — 1 tilbage",
+        "done": "Alt klar — send afsted"
       },
-      "requirements_label": "Dine Specifikke Krav til IglooPro",
-      "requirements_placeholder": "Hvilke biomarkører (f.eks. CRP, TSH, HbA1c) er primært relevante for dig?"
+      "intent": {
+        "label": "Hvad drejer det sig om?",
+        "options": {
+          "consultation": "Rådgivning",
+          "quote": "Tilbud",
+          "product": "Produktspørgsmål",
+          "support": "Support",
+          "other": "Noget andet"
+        }
+      },
+      "who": "Hvem skal vi vende tilbage til?",
+      "name": "Dit navn",
+      "name_placeholder": "Dr. Anna Weber",
+      "company_label": "Klinik / virksomhed",
+      "company_placeholder": "f.eks. Lægehuset v/ Dr. Jensen eller Løve Apotek",
+      "email": "E-mail",
+      "email_placeholder": "dig@eksempel.dk",
+      "phone": "Telefon",
+      "phone_placeholder": "+49 151 75011699",
+      "optional": "valgfrit",
+      "field": {
+        "label": "Hvad er dit område?",
+        "options": {
+          "dental": "Dental",
+          "beauty": "Beauty & æstetik",
+          "longevity": "Longevity",
+          "pharmacy": "Apotek",
+          "other": "Andet"
+        },
+        "hints": {
+          "dental": "Stærkt valg — D-vitamin og CRP direkte ved stolen er implantologiens klassikere.",
+          "beauty": "Godt — CRP og vitaminpaneler er æstetikkens basis for hud og restitution.",
+          "longevity": "Perfekt — HbA1c, CRP og D-vitamin er longevity-basismarkørerne.",
+          "pharmacy": "Smart — hurtige CRP- og D-vitamintests gør tilfældige kunder til faste kunder.",
+          "other": "Fortæl os om dit setup — vi sammensætter det rette point-of-care-panel."
+        }
+      },
+      "field_required": "Vælg dit område, så vi kan forberede det rette panel.",
+      "prepare_label": "Skal vi forberede noget?",
+      "prepare_placeholder": "Hvilke biomarkører interesserer dig — CRP, TSH, HbA1c?",
+      "consent": "Jeg accepterer, at mine oplysninger opbevares til kontakt og eventuelle spørgsmål i op til 12 måneder. Se vores",
+      "privacy_link": "privatlivspolitik",
+      "submit": {
+        "consultation": "Book min rådgivning",
+        "quote": "Anmod om tilbud",
+        "product": "Send mit spørgsmål",
+        "support": "Få support",
+        "other": "Send min besked"
+      },
+      "sending": "Sender…",
+      "microcopy": "Under 2 minutter — lovet. Svar inden for 24 t og derefter et konkret næste skridt.",
+      "success": "Tak! Din besked er sendt — vi vender tilbage inden for 24 t.",
+      "error": "Noget gik galt. Tjek dine oplysninger, eller prøv igen om et øjeblik."
     },
-    "info": {
-      "title": "Kontaktoplysninger",
-      "text": "Vores team vender tilbage til dig inden for en hverdag. For hastende spørgsmål, brug venligst telefonnummeret nedenfor.",
-      "email_label": "E-MAIL (Døgnservice)",
-      "phone_label": "TELEFON (Prioritetslinje)"
+    "trust": {
+      "direct": "Foretrækker du direkte kontakt?",
+      "rating": "4,9",
+      "reviews": "250+ klinikanmeldelser"
     },
-    "bottom_cta": {
-      "title": "Leder du efter professionel og pålidelig medicinsk sundhedspleje?",
-      "text": "Tøv ikke med at kontakte os. Vores koordinatorer står klar til at hjælpe dig med at vælge den rette læge og tid."
+    "channels": {
+      "caption": "Kontaktkanaler",
+      "title": "Sådan får du fat i os",
+      "subtitle": "Vælg den vej, der er hurtigst for dig — vi svarer inden for 24 timer.",
+      "email": {
+        "label": "E-mail",
+        "value": "contact@polarisdx.net",
+        "desc": "Bedst til detaljer, spørgsmål og vedhæftninger."
+      },
+      "phone": {
+        "label": "Telefon",
+        "value": "+49 151 75011699",
+        "desc": "Personlig rådgivning, man–fre kl. 9 til 18."
+      },
+      "demo": {
+        "label": "Live-demo",
+        "value": "15-minutters tid",
+        "desc": "Oplev IglooPro live — online eller i din klinik."
+      }
+    },
+    "form_aside": {
+      "caption": "Forespørgsel",
+      "title": "Fortæl os om din klinik",
+      "subtitle": "Én formular til rådgivning, tilbud, produktspørgsmål eller support — vi vender tilbage med et konkret næste skridt.",
+      "points": {
+        "one": "Et personligt svar, ikke et autosvar",
+        "two": "En anbefaling, der passer til dit speciale",
+        "three": "Ligefrem tale, ikke et salgsshow"
+      }
+    },
+    "process": {
+      "caption": "Sådan går det videre",
+      "title": "Efter du har sendt",
+      "subtitle": "Ingen salgstragt, ingen ticket-kø — tre klare skridt til dit svar.",
+      "steps": {
+        "one": {
+          "title": "Forespørgsel modtaget",
+          "desc": "Du sender formularen på under to minutter — direkte til det rette team, uden omveje."
+        },
+        "two": {
+          "title": "Et personligt svar inden for 24 t",
+          "desc": "Et rigtigt menneske med viden om dit område vender tilbage — intet autosvar, intet salgsshow."
+        },
+        "three": {
+          "title": "Et konkret næste skridt",
+          "desc": "En demo-tid, et tilbud eller en panelanbefaling — præcis det, der passer til din klinik."
+        }
+      }
+    },
+    "locations": {
+      "caption": "Lokationer",
+      "title": "To lokationer, ét team",
+      "london_role": "Hovedkontor i UK",
+      "hamburg_role": "DACH-region"
     },
     "call_us_button": "Ring til os",
     "call_us_text": "Ring til os",

@@ -1,47 +1,146 @@
 {
   "contact": {
     "hero": {
-      "kicker": "PRENOTA APPUNTAMENTO",
-      "title": "Prenota appuntamento",
-      "breadcrumb": "Home / Contatti"
+      "kicker": "CONTATTI",
+      "title": "Parliamone.",
+      "subtitle": "Consulenza, preventivo o supporto — un solo modulo, due minuti, una risposta vera entro 24 h.",
+      "breadcrumb": "Contatti",
+      "chips": {
+        "free": "Gratis e senza impegno",
+        "fast": "Risposta entro 24 h",
+        "time": "15 min"
+      },
+      "cta_primary": "Compila il modulo",
+      "cta_secondary": "Chiama direttamente",
+      "value": {
+        "answer_value": "< 24 h",
+        "answer_label": "Tempo di risposta",
+        "conform_value": "IVDR / CE",
+        "conform_label": "Certificato",
+        "locations_value": "London · Hamburg",
+        "locations_label": "Due sedi"
+      }
     },
     "form": {
-      "title": "Prenota appuntamento",
-      "email": "E-mail",
-      "phone": "Telefono",
-      "specialty": "Seleziona specialità mediche",
-      "doctor": "Seleziona medico",
-      "any_doctor": "Qualsiasi medico disponibile",
-      "date": "Seleziona data e ora",
-      "name": "Nome",
-      "name_placeholder": "Il tuo nome completo",
-      "phone_placeholder": "+49 151 75011699",
-      "email_placeholder": "tu@esempio.com",
-      "message": "Messaggio",
-      "message_placeholder": "Raccontaci di più sulle tue esigenze...",
-      "submit": "Prenota appuntamento",
-      "company_label": "Nome dell'azienda / dello studio",
-      "company_placeholder": "es. Studio Dr. Rossi o Farmacia Leone",
-      "area_label": "Area principale di applicazione",
-      "area_options": {
-        "pharmacy": "Farmacia",
-        "practice": "Studio medico/Clinica",
-        "vet": "Medicina veterinaria",
-        "lab": "Ricerca/Laboratorio",
-        "other": "Altro"
+      "progress": {
+        "start": "Iniziamo — solo pochi campi",
+        "going": "Ottimo — ancora {{count}}",
+        "almost": "Ci siamo quasi — ancora 1",
+        "done": "Tutto pronto — invia"
       },
-      "requirements_label": "I tuoi requisiti specifici per IglooPro",
-      "requirements_placeholder": "Quali biomarcatori (es. CRP, TSH, HbA1c) sono principalmente rilevanti per te?"
+      "intent": {
+        "label": "Di cosa hai bisogno?",
+        "options": {
+          "consultation": "Consulenza",
+          "quote": "Preventivo",
+          "product": "Domanda sul prodotto",
+          "support": "Supporto",
+          "other": "Altro"
+        }
+      },
+      "who": "A chi dobbiamo rispondere?",
+      "name": "Il tuo nome",
+      "name_placeholder": "Dr. Anna Weber",
+      "company_label": "Studio / azienda",
+      "company_placeholder": "es. Studio Dr. Rossi o Farmacia Leone",
+      "email": "E-mail",
+      "email_placeholder": "tu@esempio.com",
+      "phone": "Telefono",
+      "phone_placeholder": "+49 151 75011699",
+      "optional": "facoltativo",
+      "field": {
+        "label": "Qual è il tuo ambito?",
+        "options": {
+          "dental": "Odontoiatria",
+          "beauty": "Beauty & estetica",
+          "longevity": "Longevity",
+          "pharmacy": "Farmacia",
+          "other": "Altro"
+        },
+        "hints": {
+          "dental": "Ottima scelta — vitamina D e CRP direttamente alla poltrona sono i classici dell'implantologia.",
+          "beauty": "Perfetto — CRP e pannelli vitaminici sono i fondamentali dell'estetica per pelle e recupero.",
+          "longevity": "Ideale — HbA1c, CRP e vitamina D sono i marcatori base della longevity.",
+          "pharmacy": "Intelligente — i test rapidi CRP e vitamina D trasformano i clienti di passaggio in clienti fissi.",
+          "other": "Raccontaci il tuo setup — comporremo il pannello point-of-care più adatto."
+        }
+      },
+      "field_required": "Seleziona il tuo ambito così prepariamo il pannello giusto.",
+      "prepare_label": "Dobbiamo preparare qualcosa?",
+      "prepare_placeholder": "Quali biomarcatori ti interessano — CRP, TSH, HbA1c?",
+      "consent": "Acconsento alla conservazione dei miei dati per essere ricontattato e per eventuali domande, per un massimo di 12 mesi. Vedi la nostra",
+      "privacy_link": "informativa sulla privacy",
+      "submit": {
+        "consultation": "Prenota la consulenza",
+        "quote": "Richiedi il preventivo",
+        "product": "Invia la domanda",
+        "support": "Ricevi supporto",
+        "other": "Invia il messaggio"
+      },
+      "sending": "Invio…",
+      "microcopy": "Meno di 2 minuti — promesso. Risposta entro 24 h, poi un passo successivo concreto.",
+      "success": "Grazie! Il tuo messaggio è stato inviato — ti rispondiamo entro 24 h.",
+      "error": "Qualcosa è andato storto. Controlla i dati o riprova tra un istante."
     },
-    "info": {
-      "title": "Informazioni di contatto",
-      "text": "Il nostro team ti risponderà entro un giorno lavorativo. Per domande urgenti, utilizza il numero di telefono qui sotto.",
-      "email_label": "EMAIL (Servizio 24/7)",
-      "phone_label": "TELEFONO (Linea prioritaria)"
+    "trust": {
+      "direct": "Preferisci un contatto diretto?",
+      "rating": "4,9",
+      "reviews": "250+ recensioni di studi"
     },
-    "bottom_cta": {
-      "title": "Cerchi assistenza medica professionale e affidabile?",
-      "text": "Non esitare a contattarci. I nostri coordinatori sono pronti ad aiutarti a scegliere il medico e il momento giusti."
+    "channels": {
+      "caption": "Canali di contatto",
+      "title": "Come raggiungerci",
+      "subtitle": "Scegli la via più rapida per te — rispondiamo entro 24 ore.",
+      "email": {
+        "label": "E-mail",
+        "value": "contact@polarisdx.net",
+        "desc": "Ideale per dettagli, domande e allegati."
+      },
+      "phone": {
+        "label": "Telefono",
+        "value": "+49 151 75011699",
+        "desc": "Consulenza personale, lun–ven dalle 9 alle 18."
+      },
+      "demo": {
+        "label": "Demo dal vivo",
+        "value": "Slot di 15 minuti",
+        "desc": "Prova IglooPro dal vivo — da remoto o nel tuo studio."
+      }
+    },
+    "form_aside": {
+      "caption": "Richiesta",
+      "title": "Parlaci del tuo studio",
+      "subtitle": "Un unico modulo per consulenza, preventivo, domande sul prodotto o supporto — ti rispondiamo con un passo concreto.",
+      "points": {
+        "one": "Una risposta personale, non un risponditore automatico",
+        "two": "Una raccomandazione adatta alla tua specializzazione",
+        "three": "Parole chiare, non una vendita"
+      }
+    },
+    "process": {
+      "caption": "Come proseguiamo",
+      "title": "Dopo l'invio",
+      "subtitle": "Nessun imbuto di vendita, nessuna coda di ticket — tre passi chiari fino alla tua risposta.",
+      "steps": {
+        "one": {
+          "title": "Richiesta ricevuta",
+          "desc": "Invii il modulo in meno di due minuti — direttamente al team giusto, senza deviazioni."
+        },
+        "two": {
+          "title": "Una risposta personale entro 24 h",
+          "desc": "Ti risponde una persona vera che conosce il tuo ambito — nessun risponditore automatico, nessuna vendita."
+        },
+        "three": {
+          "title": "Un passo successivo concreto",
+          "desc": "Uno slot demo, un preventivo o una raccomandazione di pannello — esattamente ciò che serve al tuo studio."
+        }
+      }
+    },
+    "locations": {
+      "caption": "Sedi",
+      "title": "Due sedi, un unico team",
+      "london_role": "Sede UK",
+      "hamburg_role": "Regione DACH"
     },
     "call_us_button": "Chiamaci",
     "call_us_text": "Chiamaci",

@@ -1,47 +1,146 @@
 {
   "contact": {
     "hero": {
-      "kicker": "SJEDNAT SCHŮZKU",
-      "title": "Sjednat schůzku",
-      "breadcrumb": "Domů / Kontaktujte nás"
+      "kicker": "KONTAKT",
+      "title": "Pojďme si promluvit.",
+      "subtitle": "Poradenství, nabídka nebo podpora — jeden formulář, dvě minuty, skutečná odpověď do 24 h.",
+      "breadcrumb": "Kontakt",
+      "chips": {
+        "free": "Zdarma a nezávazně",
+        "fast": "Odpověď do 24 h",
+        "time": "15 min"
+      },
+      "cta_primary": "Vyplnit formulář",
+      "cta_secondary": "Zavolat přímo",
+      "value": {
+        "answer_value": "< 24 h",
+        "answer_label": "Doba odezvy",
+        "conform_value": "IVDR / CE",
+        "conform_label": "Certifikováno",
+        "locations_value": "London · Hamburg",
+        "locations_label": "Dvě pobočky"
+      }
     },
     "form": {
-      "title": "Domluvit schůzku",
-      "email": "E-mail",
-      "phone": "Telefon",
-      "specialty": "Vyberte lékařské specializace",
-      "doctor": "Vyberte lékaře",
-      "any_doctor": "Jakýkoli dostupný lékař",
-      "date": "Vyberte datum a čas",
-      "name": "Jméno",
-      "name_placeholder": "Vaše celé jméno",
-      "phone_placeholder": "+49 151 75011699",
-      "email_placeholder": "vy@priklad.cz",
-      "message": "Zpráva",
-      "message_placeholder": "Řekněte nám více o svých potřebách...",
-      "submit": "Sjednat schůzku",
-      "company_label": "Název společnosti / praxe",
-      "company_placeholder": "např. Ordinace Dr. Nováka nebo Lékárna Centrum",
-      "area_label": "Primární oblast použití",
-      "area_options": {
-        "pharmacy": "Lékárna",
-        "practice": "Lékařská praxe/Klinika",
-        "vet": "Veterinární medicína",
-        "lab": "Výzkum/Laboratoř",
-        "other": "Jiné"
+      "progress": {
+        "start": "Začínáme — jen pár polí",
+        "going": "Vypadá to dobře — zbývá {{count}}",
+        "almost": "Už skoro — zbývá 1",
+        "done": "Vše připraveno — odeslat"
       },
-      "requirements_label": "Vaše specifické požadavky na IglooPro",
-      "requirements_placeholder": "Které biomarkery (např. CRP, TSH, HbA1c) jsou pro vás primárně relevantní?"
+      "intent": {
+        "label": "O co se jedná?",
+        "options": {
+          "consultation": "Poradenství",
+          "quote": "Nabídka",
+          "product": "Dotaz na produkt",
+          "support": "Podpora",
+          "other": "Něco jiného"
+        }
+      },
+      "who": "Komu se máme ozvat?",
+      "name": "Vaše jméno",
+      "name_placeholder": "Dr. Anna Weber",
+      "company_label": "Ordinace / firma",
+      "company_placeholder": "např. Ordinace Dr. Nováka nebo Lékárna Centrum",
+      "email": "E-mail",
+      "email_placeholder": "vy@priklad.cz",
+      "phone": "Telefon",
+      "phone_placeholder": "+49 151 75011699",
+      "optional": "volitelné",
+      "field": {
+        "label": "Jaká je vaše oblast?",
+        "options": {
+          "dental": "Zubní",
+          "beauty": "Beauty & estetika",
+          "longevity": "Longevity",
+          "pharmacy": "Lékárna",
+          "other": "Jiné"
+        },
+        "hints": {
+          "dental": "Skvělá volba — vitamin D a CRP přímo u křesla jsou klasika implantologie.",
+          "beauty": "Výborně — CRP a vitaminové panely jsou základ estetiky pro pleť a regeneraci.",
+          "longevity": "Perfektní — HbA1c, CRP a vitamin D jsou základní markery longevity.",
+          "pharmacy": "Chytré — rychlé testy CRP a vitaminu D promění náhodné zákazníky ve stálé.",
+          "other": "Řekněte nám o svém provozu — sestavíme vhodný point-of-care panel."
+        }
+      },
+      "field_required": "Vyberte prosím svou oblast, abychom připravili správný panel.",
+      "prepare_label": "Máme něco připravit?",
+      "prepare_placeholder": "Které biomarkery vás zajímají — CRP, TSH, HbA1c?",
+      "consent": "Souhlasím, aby byly mé údaje uchovány za účelem kontaktování a případných dotazů po dobu až 12 měsíců. Viz naše",
+      "privacy_link": "zásady ochrany osobních údajů",
+      "submit": {
+        "consultation": "Rezervovat poradenství",
+        "quote": "Vyžádat nabídku",
+        "product": "Odeslat dotaz",
+        "support": "Získat podporu",
+        "other": "Odeslat zprávu"
+      },
+      "sending": "Odesílání…",
+      "microcopy": "Do 2 minut — slibujeme. Odpověď do 24 h a poté konkrétní další krok.",
+      "success": "Děkujeme! Vaše zpráva byla odeslána — ozveme se do 24 h.",
+      "error": "Něco se pokazilo. Zkontrolujte prosím své údaje nebo to za chvíli zkuste znovu."
     },
-    "info": {
-      "title": "Kontaktní informace",
-      "text": "Náš tým se vám ozve do jednoho pracovního dne. Pro naléhavé dotazy použijte prosím telefonní číslo níže.",
-      "email_label": "E-MAIL (Služba 24/7)",
-      "phone_label": "TELEFON (Prioritní linka)"
+    "trust": {
+      "direct": "Preferujete přímý kontakt?",
+      "rating": "4,9",
+      "reviews": "250+ hodnocení ordinací"
     },
-    "bottom_cta": {
-      "title": "Hledáte profesionální a důvěryhodnou lékařskou péči?",
-      "text": "Neváhejte nás kontaktovat. Naši koordinátoři jsou připraveni vám pomoci vybrat toho správného lékaře a čas."
+    "channels": {
+      "caption": "Kontaktní kanály",
+      "title": "Jak nás kontaktovat",
+      "subtitle": "Vyberte si cestu, která je pro vás nejrychlejší — odpovídáme do 24 hodin.",
+      "email": {
+        "label": "E-mail",
+        "value": "contact@polarisdx.net",
+        "desc": "Ideální pro detaily, dotazy a přílohy."
+      },
+      "phone": {
+        "label": "Telefon",
+        "value": "+49 151 75011699",
+        "desc": "Osobní poradenství, po–pá od 9 do 18 hodin."
+      },
+      "demo": {
+        "label": "Živé demo",
+        "value": "15minutový termín",
+        "desc": "Vyzkoušejte IglooPro naživo — vzdáleně nebo ve vaší ordinaci."
+      }
+    },
+    "form_aside": {
+      "caption": "Poptávka",
+      "title": "Řekněte nám o své ordinaci",
+      "subtitle": "Jeden formulář pro konzultaci, nabídku, dotaz na produkt nebo podporu — ozveme se s konkrétním dalším krokem.",
+      "points": {
+        "one": "Osobní odpověď, ne automat",
+        "two": "Doporučení na míru vaší specializaci",
+        "three": "Jasná řeč, ne prodejní show"
+      }
+    },
+    "process": {
+      "caption": "Jak to bude dál",
+      "title": "Po odeslání",
+      "subtitle": "Žádný prodejní trychtýř, žádná fronta tiketů — tři jasné kroky k vaší odpovědi.",
+      "steps": {
+        "one": {
+          "title": "Poptávka přijata",
+          "desc": "Formulář odešlete za méně než dvě minuty — rovnou správnému týmu, bez oklik."
+        },
+        "two": {
+          "title": "Osobní odpověď do 24 h",
+          "desc": "Ozve se vám skutečný člověk, který zná vaši oblast — žádný automat, žádná prodejní show."
+        },
+        "three": {
+          "title": "Konkrétní další krok",
+          "desc": "Termín dema, nabídka nebo doporučení panelu — přesně to, co sedí vaší ordinaci."
+        }
+      }
+    },
+    "locations": {
+      "caption": "Pobočky",
+      "title": "Dvě pobočky, jeden tým",
+      "london_role": "Centrála UK",
+      "hamburg_role": "Region DACH"
     },
     "call_us_button": "Zavolejte nám",
     "call_us_text": "Zavolejte nám",

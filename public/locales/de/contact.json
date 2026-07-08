@@ -9,6 +9,16 @@
         "free": "Kostenlos & unverbindlich",
         "fast": "Antwort in 24 h",
         "time": "15 Min."
+      },
+      "cta_primary": "Formular ausfüllen",
+      "cta_secondary": "Direkt anrufen",
+      "value": {
+        "answer_value": "< 24 h",
+        "answer_label": "Antwortzeit",
+        "conform_value": "IVDR / CE",
+        "conform_label": "Zertifiziert",
+        "locations_value": "London · Hamburg",
+        "locations_label": "Zwei Standorte"
       }
     },
     "form": {
@@ -76,7 +86,65 @@
       "direct": "Lieber direkter Kontakt?",
       "rating": "4,9",
       "reviews": "250+ Praxis-Bewertungen"
-    }
+    },
+    "channels": {
+      "caption": "Kontakt-Kanäle",
+      "title": "So erreichen Sie uns",
+      "subtitle": "Wählen Sie den Weg, der für Sie am schnellsten ist — wir antworten innerhalb von 24 Stunden.",
+      "email": {
+        "label": "E-Mail",
+        "value": "contact@polarisdx.net",
+        "desc": "Ideal für Details, Rückfragen und Anhänge."
+      },
+      "phone": {
+        "label": "Telefon",
+        "value": "+49 151 75011699",
+        "desc": "Persönliche Beratung, Mo–Fr von 9 bis 18 Uhr."
+      },
+      "demo": {
+        "label": "Live-Demo",
+        "value": "15-Minuten-Termin",
+        "desc": "IglooPro live erleben — remote oder in Ihrer Praxis."
+      }
+    },
+    "form_aside": {
+      "caption": "Anfrage",
+      "title": "Erzählen Sie uns von Ihrer Praxis",
+      "subtitle": "Ein Formular für Beratung, Angebot, Produktfrage oder Support — wir melden uns mit einem konkreten nächsten Schritt.",
+      "points": {
+        "one": "Persönliche Antwort statt Auto-Reply",
+        "two": "Empfehlung passend zu Ihrer Fachrichtung",
+        "three": "Klartext statt Verkaufsshow"
+      }
+    },
+    "process": {
+      "caption": "So geht es weiter",
+      "title": "Nach dem Absenden",
+      "subtitle": "Kein Verkaufstrichter, kein Warteschleifen-Ticket — drei klare Schritte bis zu Ihrer Antwort.",
+      "steps": {
+        "one": {
+          "title": "Anfrage eingegangen",
+          "desc": "Sie senden das Formular in unter zwei Minuten — direkt an das richtige Team, ohne Umwege."
+        },
+        "two": {
+          "title": "Persönliche Antwort in 24 h",
+          "desc": "Ein Mensch mit Fachwissen zu Ihrem Bereich meldet sich — kein Auto-Reply, keine Verkaufsshow."
+        },
+        "three": {
+          "title": "Konkreter nächster Schritt",
+          "desc": "Demo-Termin, Angebot oder Panel-Empfehlung — genau das, was zu Ihrer Praxis passt."
+        }
+      }
+    },
+    "locations": {
+      "caption": "Standorte",
+      "title": "Zwei Standorte, ein Team",
+      "london_role": "Hauptsitz UK",
+      "hamburg_role": "DACH-Region"
+    },
+    "call_us_button": "Rufen Sie uns an",
+    "call_us_text": "Rufen Sie uns an",
+    "collapse_button": "Schließen"
   },
   "seo": {
     "title": "Kontakt & Demo-Termin zum IglooPro vereinbaren",

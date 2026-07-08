@@ -1,50 +1,149 @@
 {
   "contact": {
     "hero": {
-      "kicker": "RESERVAR CITA",
-      "title": "Reservar cita",
-      "breadcrumb": "Inicio / Contacto"
+      "kicker": "CONTACTO",
+      "title": "Hablemos.",
+      "subtitle": "Asesoramiento, presupuesto o soporte — un formulario, dos minutos, una respuesta real en 24 h.",
+      "breadcrumb": "Contacto",
+      "chips": {
+        "free": "Gratis y sin compromiso",
+        "fast": "Respuesta en 24 h",
+        "time": "15 min"
+      },
+      "cta_primary": "Rellenar el formulario",
+      "cta_secondary": "Llamar directamente",
+      "value": {
+        "answer_value": "< 24 h",
+        "answer_label": "Tiempo de respuesta",
+        "conform_value": "IVDR / CE",
+        "conform_label": "Certificado",
+        "locations_value": "London · Hamburg",
+        "locations_label": "Dos sedes"
+      }
     },
     "form": {
-      "title": "Reservar cita",
-      "email": "Correo electrónico",
-      "phone": "Teléfono",
-      "specialty": "Seleccionar especialidades médicas",
-      "doctor": "Seleccionar médico",
-      "any_doctor": "Cualquier médico disponible",
-      "date": "Seleccionar fecha y hora",
-      "name": "Nombre",
-      "name_placeholder": "Su nombre completo",
-      "phone_placeholder": "+49 151 75011699",
-      "email_placeholder": "tu@ejemplo.com",
-      "message": "Mensaje",
-      "message_placeholder": "Cuéntenos más sobre sus necesidades...",
-      "submit": "Reservar cita",
-      "company_label": "Nombre de la empresa / consultorio",
-      "company_placeholder": "ej. Consultorio Dr. Pérez o Farmacia León",
-      "area_label": "Área principal de aplicación",
-      "area_options": {
-        "pharmacy": "Farmacia",
-        "practice": "Consultorio médico/Clínica",
-        "vet": "Medicina veterinaria",
-        "lab": "Investigación/Laboratorio",
-        "other": "Otro"
+      "progress": {
+        "start": "Empecemos — solo unos campos",
+        "going": "Buena pinta — quedan {{count}}",
+        "almost": "Casi está — queda 1",
+        "done": "Todo listo — enviar"
       },
-      "requirements_label": "Sus requisitos específicos para IglooPro",
-      "requirements_placeholder": "¿Qué biomarcadores (ej. CRP, TSH, HbA1c) son principalmente relevantes para usted?"
+      "intent": {
+        "label": "¿En qué podemos ayudarte?",
+        "options": {
+          "consultation": "Asesoramiento",
+          "quote": "Presupuesto",
+          "product": "Pregunta de producto",
+          "support": "Soporte",
+          "other": "Otra cosa"
+        }
+      },
+      "who": "¿A quién debemos responder?",
+      "name": "Tu nombre",
+      "name_placeholder": "Dr. Anna Weber",
+      "company_label": "Consulta / empresa",
+      "company_placeholder": "ej. Consultorio Dr. Pérez o Farmacia León",
+      "email": "Correo electrónico",
+      "email_placeholder": "tu@ejemplo.com",
+      "phone": "Teléfono",
+      "phone_placeholder": "+49 151 75011699",
+      "optional": "opcional",
+      "field": {
+        "label": "¿Cuál es tu área?",
+        "options": {
+          "dental": "Dental",
+          "beauty": "Beauty y estética",
+          "longevity": "Longevity",
+          "pharmacy": "Farmacia",
+          "other": "Otro"
+        },
+        "hints": {
+          "dental": "Buena elección — vitamina D y PCR directamente en el sillón son los clásicos de la implantología.",
+          "beauty": "Genial — PCR y paneles vitamínicos son la base de la estética para piel y recuperación.",
+          "longevity": "Perfecto — HbA1c, PCR y vitamina D son los marcadores base de la longevity.",
+          "pharmacy": "Inteligente — los test rápidos de PCR y vitamina D convierten el paso ocasional en clientes fieles.",
+          "other": "Cuéntanos tu setup — prepararemos el panel point-of-care adecuado."
+        }
+      },
+      "field_required": "Elige tu área para que preparemos el panel correcto.",
+      "prepare_label": "¿Debemos preparar algo?",
+      "prepare_placeholder": "¿Qué biomarcadores te interesan — PCR, TSH, HbA1c?",
+      "consent": "Acepto que mis datos se conserven para contactarme y para posibles consultas durante un máximo de 12 meses. Consulta nuestra",
+      "privacy_link": "política de privacidad",
+      "submit": {
+        "consultation": "Reservar mi asesoramiento",
+        "quote": "Solicitar mi presupuesto",
+        "product": "Enviar mi pregunta",
+        "support": "Obtener soporte",
+        "other": "Enviar mi mensaje"
+      },
+      "sending": "Enviando…",
+      "microcopy": "Menos de 2 minutos — prometido. Respuesta en 24 h y luego un siguiente paso concreto.",
+      "success": "¡Gracias! Tu mensaje se ha enviado — te respondemos en 24 h.",
+      "error": "Algo salió mal. Revisa tus datos o inténtalo de nuevo en un momento."
     },
-    "info": {
-      "title": "Información de contacto",
-      "text": "Nuestro equipo se pondrá en contacto con usted en un plazo de un día hábil. Para preguntas urgentes, utilice el número de teléfono a continuación.",
-      "email_label": "EMAIL (Servicio 24/7)",
-      "phone_label": "TELÉFONO (Línea prioritaria)"
+    "trust": {
+      "direct": "¿Prefieres el contacto directo?",
+      "rating": "4,9",
+      "reviews": "250+ reseñas de consultas"
     },
-    "bottom_cta": {
-      "title": "¿Busca atención médica profesional y de confianza?",
-      "text": "No dude en contactarnos. Nuestros coordinadores están listos para ayudarlo a elegir el médico y el momento adecuados."
+    "channels": {
+      "caption": "Canales de contacto",
+      "title": "Cómo contactarnos",
+      "subtitle": "Elige la vía más rápida para ti — respondemos en menos de 24 horas.",
+      "email": {
+        "label": "Correo",
+        "value": "contact@polarisdx.net",
+        "desc": "Ideal para detalles, consultas y archivos adjuntos."
+      },
+      "phone": {
+        "label": "Teléfono",
+        "value": "+49 151 75011699",
+        "desc": "Asesoramiento personal, lun–vie de 9 a 18 h."
+      },
+      "demo": {
+        "label": "Demo en directo",
+        "value": "Cita de 15 minutos",
+        "desc": "Descubre IglooPro en directo — en remoto o en tu consulta."
+      }
     },
-    "call_us_button": "Llámenos",
-    "call_us_text": "Llámenos",
+    "form_aside": {
+      "caption": "Solicitud",
+      "title": "Cuéntanos sobre tu consulta",
+      "subtitle": "Un solo formulario para asesoramiento, presupuesto, dudas de producto o soporte — te respondemos con un siguiente paso concreto.",
+      "points": {
+        "one": "Una respuesta personal, no un autorespondedor",
+        "two": "Una recomendación adaptada a tu especialidad",
+        "three": "Hablar claro, no vender"
+      }
+    },
+    "process": {
+      "caption": "Cómo seguimos",
+      "title": "Después de enviar",
+      "subtitle": "Sin embudo de ventas, sin cola de tickets — tres pasos claros hasta tu respuesta.",
+      "steps": {
+        "one": {
+          "title": "Solicitud recibida",
+          "desc": "Envías el formulario en menos de dos minutos — directo al equipo adecuado, sin rodeos."
+        },
+        "two": {
+          "title": "Una respuesta personal en 24 h",
+          "desc": "Te responde una persona real que conoce tu área — sin autorespondedor ni discurso de ventas."
+        },
+        "three": {
+          "title": "Un siguiente paso concreto",
+          "desc": "Una cita de demo, un presupuesto o una recomendación de panel — justo lo que encaja con tu consulta."
+        }
+      }
+    },
+    "locations": {
+      "caption": "Sedes",
+      "title": "Dos sedes, un equipo",
+      "london_role": "Sede en UK",
+      "hamburg_role": "Región DACH"
+    },
+    "call_us_button": "Llámanos",
+    "call_us_text": "Llámanos",
     "collapse_button": "Cerrar"
   },
   "seo": {

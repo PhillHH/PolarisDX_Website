@@ -1,49 +1,148 @@
 {
   "contact": {
     "hero": {
-      "kicker": "UMÓW WIZYTĘ",
-      "title": "Umów wizytę",
-      "breadcrumb": "Strona główna / Kontakt"
+      "kicker": "KONTAKT",
+      "title": "Porozmawiajmy.",
+      "subtitle": "Doradztwo, oferta lub wsparcie — jeden formularz, dwie minuty, prawdziwa odpowiedź w ciągu 24 h.",
+      "breadcrumb": "Kontakt",
+      "chips": {
+        "free": "Bezpłatnie i bez zobowiązań",
+        "fast": "Odpowiedź w 24 h",
+        "time": "15 min"
+      },
+      "cta_primary": "Wypełnij formularz",
+      "cta_secondary": "Zadzwoń bezpośrednio",
+      "value": {
+        "answer_value": "< 24 h",
+        "answer_label": "Czas odpowiedzi",
+        "conform_value": "IVDR / CE",
+        "conform_label": "Certyfikat",
+        "locations_value": "London · Hamburg",
+        "locations_label": "Dwie lokalizacje"
+      }
     },
     "form": {
-      "title": "Zarezerwuj wizytę",
-      "email": "E-mail",
-      "phone": "Telefon",
-      "specialty": "Wybierz specjalizacje medyczne",
-      "doctor": "Wybierz lekarza",
-      "any_doctor": "Dowolny dostępny lekarz",
-      "date": "Wybierz datę i godzinę",
-      "name": "Imię i nazwisko",
-      "name_placeholder": "Twoje pełne imię i nazwisko",
-      "phone_placeholder": "+49 151 75011699",
-      "email_placeholder": "ty@przyklad.com",
-      "message": "Wiadomość",
-      "message_placeholder": "Powiedz nam więcej o swoich potrzebach...",
-      "submit": "Umów wizytę",
-      "company_label": "Nazwa firmy / praktyki",
-      "company_placeholder": "np. Gabinet Dr. Nowaka lub Apteka Lwa",
-      "area_label": "Główny obszar zastosowania",
-      "area_options": {
-        "pharmacy": "Apteka",
-        "practice": "Gabinet lekarski/Klinika",
-        "vet": "Weterynaria",
-        "lab": "Badania/Laboratorium",
-        "other": "Inne"
+      "progress": {
+        "start": "Zaczynamy — tylko kilka pól",
+        "going": "Wygląda dobrze — jeszcze {{count}}",
+        "almost": "Już prawie — jeszcze 1",
+        "done": "Wszystko gotowe — wyślij"
       },
-      "requirements_label": "Twoje specyficzne wymagania dotyczące IglooPro",
-      "requirements_placeholder": "Które biomarkery (np. CRP, TSH, HbA1c) są dla Ciebie najważniejsze?"
+      "intent": {
+        "label": "W jakiej sprawie?",
+        "options": {
+          "consultation": "Doradztwo",
+          "quote": "Oferta",
+          "product": "Pytanie o produkt",
+          "support": "Wsparcie",
+          "other": "Coś innego"
+        }
+      },
+      "who": "Do kogo mamy się odezwać?",
+      "name": "Twoje imię i nazwisko",
+      "name_placeholder": "Dr. Anna Weber",
+      "company_label": "Gabinet / firma",
+      "company_placeholder": "np. Gabinet Dr. Nowaka lub Apteka Lwa",
+      "email": "E-mail",
+      "email_placeholder": "ty@przyklad.com",
+      "phone": "Telefon",
+      "phone_placeholder": "+49 151 75011699",
+      "optional": "opcjonalnie",
+      "field": {
+        "label": "Jaki jest Twój obszar?",
+        "options": {
+          "dental": "Stomatologia",
+          "beauty": "Beauty & estetyka",
+          "longevity": "Longevity",
+          "pharmacy": "Apteka",
+          "other": "Inne"
+        },
+        "hints": {
+          "dental": "Dobry wybór — witamina D i CRP prosto przy fotelu to klasyka implantologii.",
+          "beauty": "Świetnie — CRP i panele witaminowe to podstawa estetyki dla skóry i regeneracji.",
+          "longevity": "Idealnie — HbA1c, CRP i witamina D to podstawowe markery longevity.",
+          "pharmacy": "Sprytnie — szybkie testy CRP i witaminy D zamieniają klientów z ulicy w stałych.",
+          "other": "Opowiedz nam o swoim setupie — dobierzemy odpowiedni panel point-of-care."
+        }
+      },
+      "field_required": "Wybierz swój obszar, abyśmy przygotowali właściwy panel.",
+      "prepare_label": "Czy mamy coś przygotować?",
+      "prepare_placeholder": "Które biomarkery Cię interesują — CRP, TSH, HbA1c?",
+      "consent": "Wyrażam zgodę na przechowywanie moich danych w celu kontaktu i ewentualnych pytań przez maksymalnie 12 miesięcy. Zobacz naszą",
+      "privacy_link": "politykę prywatności",
+      "submit": {
+        "consultation": "Umów doradztwo",
+        "quote": "Poproś o ofertę",
+        "product": "Wyślij pytanie",
+        "support": "Uzyskaj wsparcie",
+        "other": "Wyślij wiadomość"
+      },
+      "sending": "Wysyłanie…",
+      "microcopy": "Poniżej 2 minut — obiecujemy. Odpowiedź w 24 h, a potem konkretny następny krok.",
+      "success": "Dziękujemy! Twoja wiadomość została wysłana — odezwiemy się w ciągu 24 h.",
+      "error": "Coś poszło nie tak. Sprawdź swoje dane lub spróbuj ponownie za chwilę."
     },
-    "info": {
-      "title": "Informacje kontaktowe",
-      "text": "Nasz zespół skontaktuje się z Tobą w ciągu jednego dnia roboczego. W przypadku pilnych pytań prosimy o kontakt telefoniczny poniżej.",
-      "email_label": "EMAIL (Obsługa 24/7)",
-      "phone_label": "TELEFON (Linia priorytetowa)"
+    "trust": {
+      "direct": "Wolisz kontakt bezpośredni?",
+      "rating": "4,9",
+      "reviews": "250+ opinii gabinetów"
     },
-    "bottom_cta": {
-      "title": "Szukasz profesjonalnej i zaufanej opieki medycznej?",
-      "text": "Nie wahaj się z nami skontaktować. Nasi koordynatorzy są gotowi pomóc Ci wybrać odpowiedniego lekarza i termin."
+    "channels": {
+      "caption": "Kanały kontaktu",
+      "title": "Jak się z nami skontaktować",
+      "subtitle": "Wybierz najszybszą dla siebie drogę — odpowiadamy w ciągu 24 godzin.",
+      "email": {
+        "label": "E-mail",
+        "value": "contact@polarisdx.net",
+        "desc": "Najlepsze do szczegółów, pytań i załączników."
+      },
+      "phone": {
+        "label": "Telefon",
+        "value": "+49 151 75011699",
+        "desc": "Osobiste doradztwo, pon.–pt. od 9 do 18."
+      },
+      "demo": {
+        "label": "Demo na żywo",
+        "value": "15-minutowy termin",
+        "desc": "Zobacz IglooPro na żywo — zdalnie lub w Twoim gabinecie."
+      }
     },
-    "call_us_button": "Zadzwoń",
+    "form_aside": {
+      "caption": "Zapytanie",
+      "title": "Opowiedz nam o swoim gabinecie",
+      "subtitle": "Jeden formularz na konsultację, ofertę, pytanie o produkt lub wsparcie — odezwiemy się z konkretnym kolejnym krokiem.",
+      "points": {
+        "one": "Osobista odpowiedź, nie autoresponder",
+        "two": "Rekomendacja dopasowana do Twojej specjalizacji",
+        "three": "Konkretna rozmowa, nie sprzedaż"
+      }
+    },
+    "process": {
+      "caption": "Co dalej",
+      "title": "Po wysłaniu",
+      "subtitle": "Żadnego lejka sprzedażowego, żadnej kolejki zgłoszeń — trzy jasne kroki do Twojej odpowiedzi.",
+      "steps": {
+        "one": {
+          "title": "Zapytanie przyjęte",
+          "desc": "Wysyłasz formularz w niecałe dwie minuty — prosto do właściwego zespołu, bez objazdów."
+        },
+        "two": {
+          "title": "Osobista odpowiedź w 24 h",
+          "desc": "Odezwie się prawdziwa osoba znająca Twój obszar — bez autorespondera i sprzedażowej gadki."
+        },
+        "three": {
+          "title": "Konkretny następny krok",
+          "desc": "Termin demo, oferta lub rekomendacja panelu — dokładnie to, co pasuje do Twojego gabinetu."
+        }
+      }
+    },
+    "locations": {
+      "caption": "Lokalizacje",
+      "title": "Dwie lokalizacje, jeden zespół",
+      "london_role": "Siedziba w UK",
+      "hamburg_role": "Region DACH"
+    },
+    "call_us_button": "Zadzwoń do nas",
     "call_us_text": "Zadzwoń do nas",
     "collapse_button": "Zamknij"
   },

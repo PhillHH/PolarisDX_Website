@@ -1,50 +1,149 @@
 {
   "contact": {
     "hero": {
-      "kicker": "PRENDRE RENDEZ-VOUS",
-      "title": "Prendre rendez-vous",
-      "breadcrumb": "Accueil / Contact"
+      "kicker": "CONTACT",
+      "title": "Parlons-en.",
+      "subtitle": "Conseil, devis ou support — un seul formulaire, deux minutes, une vraie réponse sous 24 h.",
+      "breadcrumb": "Contact",
+      "chips": {
+        "free": "Gratuit et sans engagement",
+        "fast": "Réponse sous 24 h",
+        "time": "15 min"
+      },
+      "cta_primary": "Remplir le formulaire",
+      "cta_secondary": "Appeler directement",
+      "value": {
+        "answer_value": "< 24 h",
+        "answer_label": "Temps de réponse",
+        "conform_value": "IVDR / CE",
+        "conform_label": "Certifié",
+        "locations_value": "London · Hamburg",
+        "locations_label": "Deux sites"
+      }
     },
     "form": {
-      "title": "Réserver un rendez-vous",
-      "email": "E-mail",
-      "phone": "Téléphone",
-      "specialty": "Sélectionner les spécialités médicales",
-      "doctor": "Sélectionner un médecin",
-      "any_doctor": "Tout médecin disponible",
-      "date": "Sélectionner la date et l'heure",
-      "name": "Nom",
-      "name_placeholder": "Votre nom complet",
-      "phone_placeholder": "+49 151 75011699",
-      "email_placeholder": "vous@exemple.com",
-      "message": "Message",
-      "message_placeholder": "Dites-nous en plus sur vos besoins...",
-      "submit": "Prendre rendez-vous",
-      "company_label": "Nom de l'entreprise / du cabinet",
-      "company_placeholder": "ex. Cabinet Dr. Martin ou Pharmacie du Lion",
-      "area_label": "Domaine d'application principal",
-      "area_options": {
-        "pharmacy": "Pharmacie",
-        "practice": "Cabinet médical/Clinique",
-        "vet": "Médecine vétérinaire",
-        "lab": "Recherche/Laboratoire",
-        "other": "Autre"
+      "progress": {
+        "start": "C'est parti — quelques champs rapides",
+        "going": "Ça avance — encore {{count}}",
+        "almost": "Presque fini — encore 1",
+        "done": "Tout est prêt — à envoyer"
       },
-      "requirements_label": "Vos exigences spécifiques pour IglooPro",
-      "requirements_placeholder": "Quels biomarqueurs (ex. CRP, TSH, HbA1c) sont principalement pertinents pour vous ?"
+      "intent": {
+        "label": "Quel est l'objet de votre demande ?",
+        "options": {
+          "consultation": "Conseil",
+          "quote": "Devis",
+          "product": "Question produit",
+          "support": "Support",
+          "other": "Autre chose"
+        }
+      },
+      "who": "À qui devons-nous répondre ?",
+      "name": "Votre nom",
+      "name_placeholder": "Dr. Anna Weber",
+      "company_label": "Cabinet / entreprise",
+      "company_placeholder": "ex. Cabinet Dr. Martin ou Pharmacie du Lion",
+      "email": "E-mail",
+      "email_placeholder": "vous@exemple.com",
+      "phone": "Téléphone",
+      "phone_placeholder": "+49 151 75011699",
+      "optional": "facultatif",
+      "field": {
+        "label": "Quel est votre domaine ?",
+        "options": {
+          "dental": "Dentaire",
+          "beauty": "Beauté & esthétique",
+          "longevity": "Longévité",
+          "pharmacy": "Pharmacie",
+          "other": "Autre"
+        },
+        "hints": {
+          "dental": "Excellent choix — la vitamine D et la CRP au fauteuil sont les classiques de l'implantologie.",
+          "beauty": "Très bien — la CRP et les panels vitaminiques sont les essentiels de l'esthétique pour la peau et la récupération.",
+          "longevity": "Parfait — HbA1c, CRP et vitamine D sont les marqueurs de base de la longévité.",
+          "pharmacy": "Malin — les tests rapides CRP et vitamine D transforment les passages en clients fidèles.",
+          "other": "Parlez-nous de votre configuration — nous composerons le panel point-of-care adapté."
+        }
+      },
+      "field_required": "Veuillez choisir votre domaine afin que nous préparions le bon panel.",
+      "prepare_label": "Devons-nous préparer quelque chose ?",
+      "prepare_placeholder": "Quels biomarqueurs vous intéressent — CRP, TSH, HbA1c ?",
+      "consent": "J'accepte que mes données soient conservées pour me recontacter et pour d'éventuelles questions, pendant 12 mois maximum. Voir notre",
+      "privacy_link": "politique de confidentialité",
+      "submit": {
+        "consultation": "Réserver mon conseil",
+        "quote": "Demander mon devis",
+        "product": "Envoyer ma question",
+        "support": "Obtenir de l'aide",
+        "other": "Envoyer mon message"
+      },
+      "sending": "Envoi…",
+      "microcopy": "Moins de 2 minutes — promis. Réponse sous 24 h, puis une prochaine étape concrète.",
+      "success": "Merci ! Votre message a bien été envoyé — nous vous répondons sous 24 h.",
+      "error": "Une erreur s'est produite. Vérifiez vos informations ou réessayez dans un instant."
     },
-    "info": {
-      "title": "Informations de contact",
-      "text": "Notre équipe vous répondra dans un délai d'un jour ouvrable. Pour les questions urgentes, veuillez utiliser le numéro de téléphone ci-dessous.",
-      "email_label": "EMAIL (Service 24/7)",
-      "phone_label": "TÉLÉPHONE (Ligne prioritaire)"
+    "trust": {
+      "direct": "Vous préférez un contact direct ?",
+      "rating": "4,9",
+      "reviews": "250+ avis de cabinets"
     },
-    "bottom_cta": {
-      "title": "Vous cherchez des soins médicaux professionnels et de confiance ?",
-      "text": "N'hésitez pas à nous contacter. Nos coordinateurs sont prêts à vous aider à choisir le bon médecin et le bon moment."
+    "channels": {
+      "caption": "Canaux de contact",
+      "title": "Comment nous joindre",
+      "subtitle": "Choisissez la voie la plus rapide pour vous — nous répondons sous 24 heures.",
+      "email": {
+        "label": "E-mail",
+        "value": "contact@polarisdx.net",
+        "desc": "Idéal pour les détails, les questions et les pièces jointes."
+      },
+      "phone": {
+        "label": "Téléphone",
+        "value": "+49 151 75011699",
+        "desc": "Conseil personnalisé, du lun. au ven. de 9 h à 18 h."
+      },
+      "demo": {
+        "label": "Démo en direct",
+        "value": "Créneau de 15 min",
+        "desc": "Découvrez IglooPro en direct — à distance ou dans votre cabinet."
+      }
     },
-    "call_us_button": "Appelle-nous",
-    "call_us_text": "Appelle-nous",
+    "form_aside": {
+      "caption": "Demande",
+      "title": "Parlez-nous de votre cabinet",
+      "subtitle": "Un seul formulaire pour un conseil, un devis, une question produit ou le support — nous revenons vers vous avec une étape concrète.",
+      "points": {
+        "one": "Une réponse personnelle, pas un message automatique",
+        "two": "Une recommandation adaptée à votre spécialité",
+        "three": "Du concret, pas un argumentaire de vente"
+      }
+    },
+    "process": {
+      "caption": "La suite",
+      "title": "Après l'envoi",
+      "subtitle": "Pas d'entonnoir commercial, pas de file d'attente — trois étapes claires jusqu'à votre réponse.",
+      "steps": {
+        "one": {
+          "title": "Demande reçue",
+          "desc": "Vous envoyez le formulaire en moins de deux minutes — directement à la bonne équipe, sans détour."
+        },
+        "two": {
+          "title": "Une réponse personnelle sous 24 h",
+          "desc": "Une vraie personne qui connaît votre domaine vous répond — sans message automatique ni argumentaire de vente."
+        },
+        "three": {
+          "title": "Une prochaine étape concrète",
+          "desc": "Un créneau de démo, un devis ou une recommandation de panel — exactement ce qui convient à votre cabinet."
+        }
+      }
+    },
+    "locations": {
+      "caption": "Sites",
+      "title": "Deux sites, une équipe",
+      "london_role": "Siège UK",
+      "hamburg_role": "Région DACH"
+    },
+    "call_us_button": "Appelez-nous",
+    "call_us_text": "Appelez-nous",
     "collapse_button": "Fermer"
   },
   "seo": {

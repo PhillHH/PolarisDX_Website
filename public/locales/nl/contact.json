@@ -1,47 +1,146 @@
 {
   "contact": {
     "hero": {
-      "kicker": "AFSPRAAK MAKEN",
-      "title": "Afspraak maken",
-      "breadcrumb": "Home / Contacteer Ons"
+      "kicker": "CONTACT",
+      "title": "Laten we praten.",
+      "subtitle": "Advies, offerte of support — één formulier, twee minuten, een echt antwoord binnen 24 u.",
+      "breadcrumb": "Contact",
+      "chips": {
+        "free": "Gratis en vrijblijvend",
+        "fast": "Antwoord binnen 24 u",
+        "time": "15 min"
+      },
+      "cta_primary": "Formulier invullen",
+      "cta_secondary": "Direct bellen",
+      "value": {
+        "answer_value": "< 24 h",
+        "answer_label": "Reactietijd",
+        "conform_value": "IVDR / CE",
+        "conform_label": "Gecertificeerd",
+        "locations_value": "London · Hamburg",
+        "locations_label": "Twee locaties"
+      }
     },
     "form": {
-      "title": "Afspraak Maken",
-      "email": "E-mail",
-      "phone": "Telefoon",
-      "specialty": "Selecteer Medische Specialismen",
-      "doctor": "Selecteer Arts",
-      "any_doctor": "Elke beschikbare arts",
-      "date": "Selecteer Datum & Tijd",
-      "name": "Naam",
-      "name_placeholder": "Uw volledige naam",
-      "phone_placeholder": "+49 151 75011699",
-      "email_placeholder": "u@voorbeeld.nl",
-      "message": "Bericht",
-      "message_placeholder": "Vertel ons meer over uw behoeften...",
-      "submit": "Afspraak maken",
-      "company_label": "Bedrijfs- / Praktijknaam",
-      "company_placeholder": "bijv. Huisartsenpraktijk Jansen of Apotheek Centrum",
-      "area_label": "Primair Toepassingsgebied",
-      "area_options": {
-        "pharmacy": "Apotheek",
-        "practice": "Huisartsenpraktijk/Kliniek",
-        "vet": "Diergeneeskunde",
-        "lab": "Onderzoek/Laboratorium",
-        "other": "Anders"
+      "progress": {
+        "start": "We beginnen — slechts een paar velden",
+        "going": "Ziet er goed uit — nog {{count}}",
+        "almost": "Bijna klaar — nog 1",
+        "done": "Alles klaar — verzenden"
       },
-      "requirements_label": "Uw Specifieke Eisen voor IglooPro",
-      "requirements_placeholder": "Welke biomarkers (bijv. CRP, TSH, HbA1c) zijn primair relevant voor u?"
+      "intent": {
+        "label": "Waar gaat het om?",
+        "options": {
+          "consultation": "Advies",
+          "quote": "Offerte",
+          "product": "Productvraag",
+          "support": "Support",
+          "other": "Iets anders"
+        }
+      },
+      "who": "Naar wie mogen we terugkoppelen?",
+      "name": "Uw naam",
+      "name_placeholder": "Dr. Anna Weber",
+      "company_label": "Praktijk / bedrijf",
+      "company_placeholder": "bijv. Huisartsenpraktijk Jansen of Apotheek Centrum",
+      "email": "E-mail",
+      "email_placeholder": "u@voorbeeld.nl",
+      "phone": "Telefoon",
+      "phone_placeholder": "+49 151 75011699",
+      "optional": "optioneel",
+      "field": {
+        "label": "Wat is uw vakgebied?",
+        "options": {
+          "dental": "Tandheelkunde",
+          "beauty": "Beauty & esthetiek",
+          "longevity": "Longevity",
+          "pharmacy": "Apotheek",
+          "other": "Anders"
+        },
+        "hints": {
+          "dental": "Sterke keuze — vitamine D en CRP direct aan de stoel zijn de klassiekers van de implantologie.",
+          "beauty": "Prima — CRP en vitaminepanels zijn de esthetiek-basis voor huid en herstel.",
+          "longevity": "Perfect — HbA1c, CRP en vitamine D zijn de basismarkers voor longevity.",
+          "pharmacy": "Slim — snelle CRP- en vitamine D-tests maken van passanten vaste klanten.",
+          "other": "Vertel ons uw setup — we stellen het juiste point-of-care-panel samen."
+        }
+      },
+      "field_required": "Kies uw vakgebied zodat we het juiste panel voorbereiden.",
+      "prepare_label": "Moeten we iets voorbereiden?",
+      "prepare_placeholder": "Welke biomarkers interesseren u — CRP, TSH, HbA1c?",
+      "consent": "Ik ga ermee akkoord dat mijn gegevens voor contact en eventuele vragen tot 12 maanden worden bewaard. Zie ons",
+      "privacy_link": "privacybeleid",
+      "submit": {
+        "consultation": "Advies boeken",
+        "quote": "Offerte aanvragen",
+        "product": "Vraag versturen",
+        "support": "Support krijgen",
+        "other": "Bericht versturen"
+      },
+      "sending": "Verzenden…",
+      "microcopy": "Minder dan 2 minuten — beloofd. Antwoord binnen 24 u en dan een concrete volgende stap.",
+      "success": "Bedankt! Uw bericht is verzonden — we reageren binnen 24 u.",
+      "error": "Er ging iets mis. Controleer uw gegevens of probeer het zo opnieuw."
     },
-    "info": {
-      "title": "Contactinformatie",
-      "text": "Ons team neemt binnen één werkdag contact met u op. Voor dringende vragen, gebruik het onderstaande telefoonnummer.",
-      "email_label": "E-MAIL (24/7 Service)",
-      "phone_label": "TELEFOON (Prioriteitslijn)"
+    "trust": {
+      "direct": "Liever direct contact?",
+      "rating": "4,9",
+      "reviews": "250+ praktijkbeoordelingen"
     },
-    "bottom_cta": {
-      "title": "Op zoek naar professionele & vertrouwde medische gezondheidszorg?",
-      "text": "Aarzel niet om contact met ons op te nemen. Onze coördinatoren staan klaar om u te helpen de juiste arts en tijd te kiezen."
+    "channels": {
+      "caption": "Contactkanalen",
+      "title": "Zo bereikt u ons",
+      "subtitle": "Kies de weg die voor u het snelst is — we reageren binnen 24 uur.",
+      "email": {
+        "label": "E-mail",
+        "value": "contact@polarisdx.net",
+        "desc": "Ideaal voor details, vragen en bijlagen."
+      },
+      "phone": {
+        "label": "Telefoon",
+        "value": "+49 151 75011699",
+        "desc": "Persoonlijk advies, ma–vr van 9 tot 18 uur."
+      },
+      "demo": {
+        "label": "Live demo",
+        "value": "Afspraak van 15 minuten",
+        "desc": "Ervaar IglooPro live — op afstand of in uw praktijk."
+      }
+    },
+    "form_aside": {
+      "caption": "Aanvraag",
+      "title": "Vertel ons over uw praktijk",
+      "subtitle": "Eén formulier voor advies, offerte, productvraag of support — we komen terug met een concrete volgende stap.",
+      "points": {
+        "one": "Een persoonlijk antwoord, geen automatisch bericht",
+        "two": "Een aanbeveling die past bij uw vakgebied",
+        "three": "Klare taal, geen verkooppraatje"
+      }
+    },
+    "process": {
+      "caption": "Hoe het verdergaat",
+      "title": "Na het versturen",
+      "subtitle": "Geen verkooptrechter, geen ticketwachtrij — drie duidelijke stappen tot uw antwoord.",
+      "steps": {
+        "one": {
+          "title": "Aanvraag ontvangen",
+          "desc": "U verstuurt het formulier in minder dan twee minuten — rechtstreeks naar het juiste team, zonder omwegen."
+        },
+        "two": {
+          "title": "Een persoonlijk antwoord binnen 24 u",
+          "desc": "Een echt persoon die uw vakgebied kent reageert — geen automatisch bericht, geen verkooppraatje."
+        },
+        "three": {
+          "title": "Een concrete volgende stap",
+          "desc": "Een demo-afspraak, een offerte of een paneladvies — precies wat bij uw praktijk past."
+        }
+      }
+    },
+    "locations": {
+      "caption": "Locaties",
+      "title": "Twee locaties, één team",
+      "london_role": "Hoofdkantoor VK",
+      "hamburg_role": "DACH-regio"
     },
     "call_us_button": "Bel ons",
     "call_us_text": "Bel ons",

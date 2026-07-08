@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Check } from 'lucide-react'
+import { Check, ArrowRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Input } from '../ui/Input'
 import { Textarea } from '../ui/Textarea'
@@ -147,14 +147,14 @@ export const ContactForm = () => {
         <div className="mt-2 flex items-center justify-between text-xs">
           <span className="text-gray-500">{progressMessage}</span>
           <span className="text-gray-400">
-            <span className="font-semibold text-text-heading">{done}</span>/{total}
+            <span className="font-semibold text-heading">{done}</span>/{total}
           </span>
         </div>
       </div>
 
       {/* Intent */}
       <fieldset className="space-y-3">
-        <legend className="text-sm font-semibold text-text-heading">
+        <legend className="text-sm font-semibold text-heading">
           {t('contact.form.intent.label')}
         </legend>
         <div className="flex flex-wrap gap-2.5">
@@ -174,7 +174,7 @@ export const ContactForm = () => {
 
       {/* Contact details */}
       <div className="space-y-4">
-        <h3 className="text-sm font-semibold text-text-heading">{t('contact.form.who')}</h3>
+        <h3 className="text-sm font-semibold text-heading">{t('contact.form.who')}</h3>
         <div className="grid gap-4 sm:grid-cols-2">
           <Input
             id="name"
@@ -227,7 +227,7 @@ export const ContactForm = () => {
 
       {/* Field */}
       <fieldset className="space-y-3">
-        <legend className="text-sm font-semibold text-text-heading">
+        <legend className="text-sm font-semibold text-heading">
           {t('contact.form.field.label')}
         </legend>
         <div className="flex flex-wrap gap-2.5">
@@ -300,9 +300,10 @@ export const ContactForm = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex w-full items-center justify-center rounded-md bg-accent px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:opacity-60 sm:w-auto"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-accent px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:opacity-60"
           >
             {isSubmitting ? t('contact.form.sending') : t(`contact.form.submit.${intent}`)}
+            {!isSubmitting && <ArrowRight className="h-4 w-4" aria-hidden />}
           </button>
           <p className="text-xs text-gray-400">{t('contact.form.microcopy')}</p>
         </div>
