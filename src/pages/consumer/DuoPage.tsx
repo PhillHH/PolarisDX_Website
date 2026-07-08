@@ -7,12 +7,25 @@
  */
 
 import { Link } from 'react-router-dom'
+import { Droplets, Sun } from 'lucide-react'
+
 import { SEOHead } from '../../components/seo'
 import Footer from '../../components/layout/Footer'
 import duoHero from '../../assets/landingpages-consumer/duo-hero-products-together.jpeg'
 import sprayStill from '../../assets/landingpages-consumer/spray-still-life.jpeg'
 import maskBotanical from '../../assets/landingpages-consumer/mask-hero-botanical.jpeg'
-import { Card, ConsumerHeader, Disclaimer, FactStrip, FAQ, FinalCTA, Hero, Section } from './shell'
+import {
+  Card,
+  ConsumerHeader,
+  Disclaimer,
+  FactStrip,
+  FAQ,
+  FinalCTA,
+  Hero,
+  IconTile,
+  Pills,
+  Section,
+} from './shell'
 import { OrderModalProvider } from './OrderModal'
 import { PriceBadge } from './PriceBadge'
 import { useConsumerPageView } from './tracking'
@@ -86,6 +99,8 @@ function DuoPageInner() {
         }}
         price={{ amount: '49,90 €', unit: 'Duo set' }}
         priceBadge={<PriceBadge product="duo" />}
+        highlights={['1 spray + 5 masks', 'Inside + outside routine', 'No payment on this page']}
+        floatingStat={{ value: '1 + 5', label: 'spray plus masks in the set' }}
       />
       <FactStrip
         items={[
@@ -106,9 +121,12 @@ function DuoPageInner() {
       {/* 4 · WHAT'S INCLUDED */}
       <Section id="included" eyebrow="What's included" title="Two products, one bundle">
         <div className="grid gap-6 md:grid-cols-2">
-          <Card>
-            <h3 className="text-xl font-semibold text-gray-900">1 × Vitamin D3+K2 Spray</h3>
-            <p className="mt-3 leading-relaxed text-gray-600">
+          <Card hover className="flex h-full flex-col">
+            <IconTile>
+              <Sun className="h-6 w-6" strokeWidth={1.75} />
+            </IconTile>
+            <h3 className="mt-5 text-xl font-semibold text-gray-900">1 × Vitamin D3+K2 Spray</h3>
+            <p className="mt-3 flex-grow leading-relaxed text-gray-600">
               An orange-flavoured sublingual spray for daily Vitamin D3+K2 support — the inside step
               of the routine.
             </p>
@@ -118,14 +136,22 @@ function DuoPageInner() {
               data-gtm-cta="See the spray page"
               data-gtm-page="duo"
               data-gtm-location="included-card"
-              className="mt-6 inline-block text-sm font-semibold text-teal-700 hover:text-teal-900"
+              className="group mt-6 inline-flex items-center gap-1.5 self-start rounded text-sm font-semibold text-teal-700 transition-colors hover:text-teal-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2"
             >
-              See the spray page →
+              See the spray page
+              <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
+                →
+              </span>
             </Link>
           </Card>
-          <Card>
-            <h3 className="text-xl font-semibold text-gray-900">1 × box of 5 Hydrating Masks</h3>
-            <p className="mt-3 leading-relaxed text-gray-600">
+          <Card hover className="flex h-full flex-col">
+            <IconTile>
+              <Droplets className="h-6 w-6" strokeWidth={1.75} />
+            </IconTile>
+            <h3 className="mt-5 text-xl font-semibold text-gray-900">
+              1 × box of 5 Hydrating Masks
+            </h3>
+            <p className="mt-3 flex-grow leading-relaxed text-gray-600">
               Five individually packed serum-soaked sheet masks — the outside step, for when skin
               needs visible hydration care.
             </p>
@@ -135,9 +161,12 @@ function DuoPageInner() {
               data-gtm-cta="See the mask page"
               data-gtm-page="duo"
               data-gtm-location="included-card"
-              className="mt-6 inline-block text-sm font-semibold text-teal-700 hover:text-teal-900"
+              className="group mt-6 inline-flex items-center gap-1.5 self-start rounded text-sm font-semibold text-teal-700 transition-colors hover:text-teal-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2"
             >
-              See the mask page →
+              See the mask page
+              <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
+                →
+              </span>
             </Link>
           </Card>
         </div>
@@ -146,7 +175,7 @@ function DuoPageInner() {
       {/* 5 + 6 · INSIDE STEP / OUTSIDE STEP */}
       <Section id="routine" tone="tint" eyebrow="The routine" title="Two simple steps">
         <div className="grid gap-6 md:grid-cols-2">
-          <Card>
+          <Card hover accent="teal" className="h-full">
             <p className="text-xs font-semibold uppercase tracking-wider text-teal-700">
               Step 1 · Inside
             </p>
@@ -156,7 +185,7 @@ function DuoPageInner() {
               daily Vitamin D3+K2 support.
             </p>
           </Card>
-          <Card>
+          <Card hover accent="navy" className="h-full">
             <p className="text-xs font-semibold uppercase tracking-wider text-teal-700">
               Step 2 · Outside
             </p>
@@ -174,16 +203,24 @@ function DuoPageInner() {
       {/* 7 · ROUTINE VISUAL */}
       <Section eyebrow="The routine in a day" title="Daily spray, occasional mask ritual">
         <div className="grid gap-6 md:grid-cols-2">
-          <img
-            src={sprayStill}
-            alt="Morning routine — Vitamin D3+K2 sublingual spray"
-            className="aspect-[4/3] w-full rounded-section object-cover shadow-card"
-          />
-          <img
-            src={maskBotanical}
-            alt="Evening self-care — Hydrating Hyaluronic Mask"
-            className="aspect-[4/3] w-full rounded-section object-cover shadow-card"
-          />
+          <div className="group overflow-hidden rounded-section shadow-card">
+            <img
+              src={sprayStill}
+              alt="Morning routine — Vitamin D3+K2 sublingual spray"
+              loading="lazy"
+              decoding="async"
+              className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+            />
+          </div>
+          <div className="group overflow-hidden rounded-section shadow-card">
+            <img
+              src={maskBotanical}
+              alt="Evening self-care — Hydrating Hyaluronic Mask"
+              loading="lazy"
+              decoding="async"
+              className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+            />
+          </div>
         </div>
       </Section>
 
@@ -194,7 +231,19 @@ function DuoPageInner() {
         eyebrow="Why buy them together"
         title="Two products, one simple routine."
         lead="A smarter way to build the full Inside-Out Care routine: unlock the Duo value. Complete your masks order with the addition of daily D3+K2 support for just €2/month."
-      />
+      >
+        <div className="flex justify-center">
+          <Pills
+            onDark
+            items={[
+              'Daily support from within',
+              'Hydrating care from outside',
+              'One simple routine',
+              'Preferred bundle value',
+            ]}
+          />
+        </div>
+      </Section>
 
       {/* 9 · FAQ */}
       <Section id="faq" eyebrow="FAQ" title="Practical questions, answered">
@@ -208,6 +257,7 @@ function DuoPageInner() {
         title="Start with a simple inside-out routine."
         body="Includes 1 Vitamin D3+K2 Spray + 1 box of 5 Hydrating Masks."
         primary={{ label: 'Shop the Duo', href: '#' }}
+        assurances={['1 spray + 5 masks', 'Preferred bundle value', 'No payment on this page']}
         note="No payment is taken on this page — sales confirms price and shipping."
       />
 

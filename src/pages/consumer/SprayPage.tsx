@@ -6,6 +6,9 @@
  * Indexable: in sitemap, no noindex — campaign landing page.
  */
 
+import type { ReactNode } from 'react'
+import { Building2, Dumbbell, Home, Package, Repeat, Share2, Users, Zap } from 'lucide-react'
+
 import { SEOHead } from '../../components/seo'
 import Footer from '../../components/layout/Footer'
 import sprayHero from '../../assets/landingpages-consumer/spray-hero-12pack-office.jpeg'
@@ -20,8 +23,10 @@ import {
   FinalCTA,
   Grid,
   Hero,
+  IconTile,
   Pills,
   Section,
+  Stats,
   Steps,
 } from './shell'
 import { OrderModalProvider, useOrderModal } from './OrderModal'
@@ -35,45 +40,55 @@ const NAV = [
   { label: 'FAQ', href: '#faq' },
 ]
 
-const BENEFITS = [
+const ICON_CLASS = 'h-6 w-6'
+
+const BENEFITS: { title: string; body: string; icon: ReactNode }[] = [
   {
     title: 'Easy to use',
     body: 'One spray under the tongue. No water, no tablets — a simple step in any morning routine.',
+    icon: <Zap className={ICON_CLASS} strokeWidth={1.75} />,
   },
   {
     title: 'Easy to share',
     body: 'A 12-pack splits cleanly across a team, a family or a group of friends.',
+    icon: <Share2 className={ICON_CLASS} strokeWidth={1.75} />,
   },
   {
     title: 'Easy to stock',
     body: 'Keep one practical box on hand so daily support never runs out.',
+    icon: <Package className={ICON_CLASS} strokeWidth={1.75} />,
   },
   {
     title: 'Fits everyday routines',
     body: 'Compact bottles for the kitchen, bathroom, a bag or an office wellbeing area.',
+    icon: <Repeat className={ICON_CLASS} strokeWidth={1.75} />,
   },
 ]
 
-const AUDIENCES = [
+const AUDIENCES: { title: string; body: string; cta: string; icon: ReactNode }[] = [
   {
     title: 'Workplaces',
     body: 'For staff kitchens, HR wellbeing orders, office care packs and everyday employee support.',
     cta: 'Order for your team',
+    icon: <Building2 className={ICON_CLASS} strokeWidth={1.75} />,
   },
   {
     title: 'Homes & families',
     body: 'For households, families or relatives who want to order together and stay stocked.',
     cta: 'Order the 12-pack',
+    icon: <Home className={ICON_CLASS} strokeWidth={1.75} />,
   },
   {
     title: 'Shared orders',
     body: 'For friends, colleagues or small groups who want to split one practical wellbeing box.',
     cta: 'Start a shared order',
+    icon: <Users className={ICON_CLASS} strokeWidth={1.75} />,
   },
   {
     title: 'Lifestyle spaces',
     body: 'For gyms, studios, retreats and wellness communities that want simple daily care products.',
     cta: 'Ask about group orders',
+    icon: <Dumbbell className={ICON_CLASS} strokeWidth={1.75} />,
   },
 ]
 
@@ -170,6 +185,8 @@ function SprayPageInner() {
         }}
         price={{ amount: '169 €', unit: '12-pack' }}
         priceBadge={<PriceBadge product="spray" />}
+        highlights={['Made in Germany', 'Vegan & alcohol-free', 'No payment on this page']}
+        floatingStat={{ value: '71', label: 'applications per bottle' }}
       />
       <FactStrip
         items={[
@@ -194,8 +211,9 @@ function SprayPageInner() {
       <Section eyebrow="Benefits" title="Built to fit everyday life">
         <Grid cols={4}>
           {BENEFITS.map((b) => (
-            <Card key={b.title}>
-              <h3 className="text-xl font-semibold text-gray-900">{b.title}</h3>
+            <Card key={b.title} hover className="flex h-full flex-col">
+              <IconTile>{b.icon}</IconTile>
+              <h3 className="mt-5 text-xl font-semibold text-gray-900">{b.title}</h3>
               <p className="mt-3 leading-relaxed text-gray-600">{b.body}</p>
             </Card>
           ))}
@@ -212,8 +230,9 @@ function SprayPageInner() {
       >
         <Grid cols={4}>
           {AUDIENCES.map((a) => (
-            <Card key={a.title} className="flex flex-col">
-              <h3 className="text-xl font-semibold text-gray-900">{a.title}</h3>
+            <Card key={a.title} hover className="flex h-full flex-col">
+              <IconTile>{a.icon}</IconTile>
+              <h3 className="mt-5 text-xl font-semibold text-gray-900">{a.title}</h3>
               <p className="mt-3 flex-grow leading-relaxed text-gray-600">{a.body}</p>
               <button
                 type="button"
@@ -224,9 +243,12 @@ function SprayPageInner() {
                 data-gtm-cta={a.cta}
                 data-gtm-page="spray"
                 data-gtm-location={`audience-${a.title.toLowerCase().replace(/[ &]+/g, '-')}`}
-                className="mt-6 inline-flex items-center self-start text-sm font-semibold text-teal-700 transition-colors hover:text-teal-900"
+                className="group mt-6 inline-flex items-center gap-1.5 self-start rounded text-sm font-semibold text-teal-700 transition-colors hover:text-teal-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2"
               >
-                {a.cta} →
+                {a.cta}
+                <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
+                  →
+                </span>
               </button>
             </Card>
           ))}
@@ -235,6 +257,16 @@ function SprayPageInner() {
 
       {/* 6 · WHAT IS INSIDE */}
       <Section eyebrow="What is inside" title="What you get in one pack">
+        <div className="mb-12 lg:mb-16">
+          <Stats
+            items={[
+              { value: '12', label: 'bottles per pack' },
+              { value: '71', label: 'applications per bottle' },
+              { value: '1000 IU', label: 'Vitamin D3 per spray' },
+              { value: '25 µg', label: 'Vitamin K2 per spray' },
+            ]}
+          />
+        </div>
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <Card className="p-0">
             <dl className="divide-y divide-slate-100">
@@ -246,13 +278,13 @@ function SprayPageInner() {
               ))}
             </dl>
           </Card>
-          <div>
+          <div className="group mx-auto w-full max-w-sm overflow-hidden rounded-2xl shadow-card lg:max-w-md">
             <img
               src={sprayStill}
               alt="PolarisDX Vitamin D3+K2 Sublingual Spray — bottle + box detail"
               loading="lazy"
               decoding="async"
-              className="mx-auto w-full max-w-sm rounded-2xl shadow-card lg:max-w-md"
+              className="w-full transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
             />
           </div>
         </div>
@@ -301,7 +333,7 @@ function SprayPageInner() {
       >
         <Grid cols={3}>
           {SUBLINGUAL.map((s) => (
-            <Card key={s.title}>
+            <Card key={s.title} hover className="flex h-full flex-col">
               <h3 className="text-xl font-semibold text-gray-900">{s.title}</h3>
               <p className="mt-3 leading-relaxed text-gray-600">{s.body}</p>
             </Card>
@@ -346,6 +378,7 @@ function SprayPageInner() {
           label: 'Ask about shared / workplace orders',
           href: 'mailto:contact@polarisdx.net',
         }}
+        assurances={['Made in Germany', 'Vegan · GMO-free · gluten-free', 'No payment on this page']}
         note="No payment is taken on this page — sales confirms price and shipping."
       />
 

@@ -6,6 +6,9 @@
  * Indexable: in sitemap, no noindex — campaign landing page.
  */
 
+import type { ReactNode } from 'react'
+import { Droplets, Feather, Heart, Sparkles } from 'lucide-react'
+
 import { SEOHead } from '../../components/seo'
 import Footer from '../../components/layout/Footer'
 import maskHero from '../../assets/landingpages-consumer/mask-hero-botanical.jpeg'
@@ -19,8 +22,10 @@ import {
   FinalCTA,
   Grid,
   Hero,
+  IconTile,
   Pills,
   Section,
+  Stats,
   Steps,
 } from './shell'
 import { OrderModalProvider, useOrderModal } from './OrderModal'
@@ -37,19 +42,28 @@ const NAV = [
   { label: 'FAQ', href: '#faq' },
 ]
 
-const BENEFITS = [
+const ICON_CLASS = 'h-6 w-6'
+
+const BENEFITS: { title: string; body: string; icon: ReactNode }[] = [
   {
     title: 'Hydration care',
     body: 'A serum-soaked step that helps skin feel hydrated and cared for.',
+    icon: <Droplets className={ICON_CLASS} strokeWidth={1.75} />,
   },
-  { title: 'Skin comfort', body: 'Soothing botanicals for a calm, comfortable feel after use.' },
+  {
+    title: 'Skin comfort',
+    body: 'Soothing botanicals for a calm, comfortable feel after use.',
+    icon: <Heart className={ICON_CLASS} strokeWidth={1.75} />,
+  },
   {
     title: 'Softer-feeling skin',
     body: 'Leaves skin feeling soft and supple once the serum is massaged in.',
+    icon: <Feather className={ICON_CLASS} strokeWidth={1.75} />,
   },
   {
     title: 'Refreshed appearance',
     body: 'A simple way to give tired-looking skin a refreshed appearance.',
+    icon: <Sparkles className={ICON_CLASS} strokeWidth={1.75} />,
   },
 ]
 
@@ -146,6 +160,8 @@ function MaskPageInner() {
         }}
         price={{ amount: '45 €', unit: '5-pack' }}
         priceBadge={<PriceBadge product="masks" />}
+        highlights={['All skin types', 'No added perfume oil', 'External use only']}
+        floatingStat={{ value: '15 ml', label: 'serum per sheet mask' }}
       />
       <FactStrip
         items={[
@@ -169,8 +185,9 @@ function MaskPageInner() {
       <Section id="benefits" eyebrow="Benefits" title="What the mask step gives you">
         <Grid cols={4}>
           {BENEFITS.map((b) => (
-            <Card key={b.title}>
-              <h3 className="text-xl font-semibold text-gray-900">{b.title}</h3>
+            <Card key={b.title} hover className="flex h-full flex-col">
+              <IconTile>{b.icon}</IconTile>
+              <h3 className="mt-5 text-xl font-semibold text-gray-900">{b.title}</h3>
               <p className="mt-3 leading-relaxed text-gray-600">{b.body}</p>
             </Card>
           ))}
@@ -187,13 +204,19 @@ function MaskPageInner() {
       >
         <Grid cols={4}>
           {INGREDIENTS.map((group, i) => (
-            <Card key={group.title} accent={INGREDIENT_ACCENTS[i]}>
+            <Card key={group.title} hover accent={INGREDIENT_ACCENTS[i]} className="h-full">
               <h3 className="text-base font-semibold tracking-tight text-gray-900">
                 {group.title}
               </h3>
-              <ul className="mt-4 space-y-2 text-gray-600">
+              <ul className="mt-4 space-y-2.5 text-sm text-gray-600">
                 {group.items.map((it) => (
-                  <li key={it}>{it}</li>
+                  <li key={it} className="flex items-start gap-2.5">
+                    <span
+                      aria-hidden
+                      className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-teal-400"
+                    />
+                    <span>{it}</span>
+                  </li>
                 ))}
               </ul>
             </Card>
@@ -240,8 +263,15 @@ function MaskPageInner() {
       </Section>
 
       {/* 8 · 5-PACK OFFER */}
-      <Section id="order" eyebrow="The 5-pack" title="Five masks in one box">
-        <div className="mx-auto max-w-2xl text-center">
+      <Section id="offer" eyebrow="The 5-pack" title="Five masks in one box">
+        <Stats
+          items={[
+            { value: '5', label: 'individually packed masks' },
+            { value: '15 ml', label: 'serum per mask' },
+            { value: '15–30', label: 'minutes per session' },
+          ]}
+        />
+        <div className="mx-auto mt-12 max-w-2xl text-center lg:mt-16">
           <p className="text-lg leading-relaxed text-gray-600">
             One folding box contains 5 individually packed 15 ml sheet masks — easy to keep on hand
             and to reach for whenever skin needs a hydration step.
@@ -263,7 +293,21 @@ function MaskPageInner() {
         tone="dark"
         eyebrow="On the packaging"
         title="Multiple Hydrating Sheet Mask · Intensive + Soothing · All Skin Types"
-      />
+        lead="Everything you see on the box, at a glance — an intensive, soothing hydration step made for every skin type."
+      >
+        <div className="flex justify-center">
+          <Pills
+            onDark
+            items={[
+              'Intensive hydration',
+              'Soothing botanicals',
+              'All skin types',
+              '5 sheet masks',
+              '15 ml serum each',
+            ]}
+          />
+        </div>
+      </Section>
 
       {/* Bridge — outside hydration → inside support (mirrors the Spray page) */}
       <Section
@@ -311,6 +355,7 @@ function MaskPageInner() {
         title="Order the 5-pack"
         body="Five individually packed sheet masks for dry, sensitive or mature skin."
         primary={{ label: 'Buy 5-pack', href: '#' }}
+        assurances={['All skin types', 'Fragrance-free formula', 'No payment on this page']}
         note="No payment is taken on this page — sales confirms price and shipping."
       />
 

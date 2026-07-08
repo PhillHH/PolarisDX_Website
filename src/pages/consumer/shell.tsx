@@ -18,10 +18,11 @@
 
 import { type ReactNode, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import { Check, Menu, X } from 'lucide-react'
 
 import Reveal from '../../components/ui/Reveal'
 import ImagePlaceholder from '../../components/ui/ImagePlaceholder'
+import { cn } from '../../lib/utils'
 import { trackConsumerCtaClick, type ConsumerPage } from './tracking'
 import { useOrderModal } from './OrderModal'
 import logoWhite from '../../assets/polaris_white.webp'
@@ -249,6 +250,8 @@ export function Hero({
   page,
   priceBadge,
   price,
+  highlights,
+  floatingStat,
 }: {
   eyebrow: string
   title: string
@@ -264,6 +267,10 @@ export function Hero({
   /** Headline list price shown prominently between the CTAs and the badge.
    *  `amount` e.g. "169 €", `unit` e.g. "12-pack". */
   price?: { amount: string; unit: string }
+  /** Short teal-check reassurance items shown under the CTAs (trust signals). */
+  highlights?: string[]
+  /** Floating stat card overlapping the product image (e.g. "71 · doses / bottle"). */
+  floatingStat?: { value: string; label: string }
 }) {
   const orderModal = useOrderModal()
   // Hero primary CTA opens the order modal when available; falls back to
@@ -311,6 +318,16 @@ export function Hero({
                   </CTA>
                 )}
               </div>
+              {highlights && highlights.length > 0 && (
+                <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
+                  {highlights.map((h) => (
+                    <li key={h} className="flex items-center gap-2 text-sm font-medium text-gray-700">
+                      <Check className="h-4 w-4 flex-none text-teal-600" strokeWidth={2.5} aria-hidden />
+                      {h}
+                    </li>
+                  ))}
+                </ul>
+              )}
               {price && (
                 <p className="mt-8 flex items-baseline gap-2">
                   <span className="text-3xl font-bold tracking-tight text-brand-deep sm:text-4xl">
@@ -325,13 +342,27 @@ export function Hero({
             {/* Image · right (responsive: stacks below text on mobile) */}
             <div className="relative">
               {image?.src ? (
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  loading="eager"
-                  decoding="async"
-                  className="mx-auto block w-full max-w-md rounded-2xl object-cover shadow-[0_20px_50px_rgba(8,51,88,0.18)] lg:max-w-none"
-                />
+                <div className="group relative mx-auto w-full max-w-md overflow-visible rounded-2xl lg:max-w-none">
+                  <div className="overflow-hidden rounded-2xl shadow-[0_20px_50px_rgba(8,51,88,0.18)] ring-1 ring-slate-900/5">
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      loading="eager"
+                      decoding="async"
+                      className="block w-full object-cover transition-transform duration-500 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                    />
+                  </div>
+                  {floatingStat && (
+                    <div className="absolute -bottom-5 -left-3 flex items-center gap-3 rounded-2xl border border-slate-100 bg-white px-5 py-3.5 shadow-[0_16px_40px_rgba(8,51,88,0.18)] sm:-left-6">
+                      <span className="text-2xl font-bold tracking-tight text-brand-deep sm:text-3xl">
+                        {floatingStat.value}
+                      </span>
+                      <span className="max-w-[7.5rem] text-xs font-medium leading-tight text-gray-500">
+                        {floatingStat.label}
+                      </span>
+                    </div>
+                  )}
+                </div>
               ) : (
                 <ImagePlaceholder
                   label={image?.placeholder ?? 'Produktbild'}
@@ -478,15 +509,18 @@ export function Card({
   children,
   className = '',
   accent = 'none',
+  hover = false,
 }: {
   children: ReactNode
   className?: string
   accent?: AccentBar
+  /** Enables the premium hover-lift (translate + card shadow + teal border). */
+  hover?: boolean
 }) {
   const barColor: Record<AccentBar, string> = {
     teal: 'before:bg-teal-500',
     navy: 'before:bg-brand-deep',
-    green: 'before:bg-emerald-500',
+    green: 'before:bg-success',
     amber: 'before:bg-amber-400',
     none: '',
   }
@@ -494,12 +528,36 @@ export function Card({
     accent === 'none'
       ? ''
       : `relative pl-8 before:absolute before:left-3 before:top-6 before:bottom-6 before:w-1 before:rounded-full ${barColor[accent]}`
+  // Motion only: instant (no transform) under prefers-reduced-motion.
+  const hoverClass = hover
+    ? 'transition duration-200 will-change-transform hover:-translate-y-1 hover:border-teal-200 hover:shadow-card motion-reduce:transition-none motion-reduce:hover:translate-y-0'
+    : ''
   return (
     <div
-      className={`rounded-2xl border border-slate-100 bg-white p-7 shadow-[0_10px_30px_rgba(8,51,88,0.08)] ${accentClass} ${className}`}
+      className={cn(
+        'rounded-2xl border border-slate-100 bg-white p-7 shadow-[0_10px_30px_rgba(8,51,88,0.08)]',
+        hoverClass,
+        accentClass,
+        className,
+      )}
     >
       {children}
     </div>
+  )
+}
+
+/**
+ * IconTile — soft teal-tint square that fronts a lucide icon on content cards.
+ * Decorative: always `aria-hidden` (the card heading carries the meaning).
+ */
+export function IconTile({ children }: { children: ReactNode }) {
+  return (
+    <span
+      aria-hidden
+      className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-700 ring-1 ring-teal-100"
+    >
+      {children}
+    </span>
   )
 }
 
@@ -512,16 +570,43 @@ export function Grid({ cols = 3, children }: { cols?: 2 | 3 | 4; children: React
   return <div className={map[cols]}>{children}</div>
 }
 
-export function Pills({ items }: { items: string[] }) {
+export function Pills({ items, onDark = false }: { items: string[]; onDark?: boolean }) {
+  const cls = onDark
+    ? 'rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur-sm'
+    : 'rounded-full border border-teal-200 bg-teal-50 px-4 py-2 text-sm font-medium text-teal-800'
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className={`flex flex-wrap gap-2 ${onDark ? 'justify-center' : ''}`}>
       {items.map((p, i) => (
-        <span
-          key={i}
-          className="rounded-full border border-teal-200 bg-teal-50 px-4 py-2 text-sm font-medium text-teal-800"
-        >
+        <span key={i} className={cls}>
           {p}
         </span>
+      ))}
+    </div>
+  )
+}
+
+/**
+ * Stats — a bright band of large teal numbers with labels. Re-presents the
+ * key product facts as a scannable "at a glance" strip. Works on light or
+ * tinted section backgrounds (used as <Section> children).
+ */
+export function Stats({ items }: { items: { value: string; label: string }[] }) {
+  const cols =
+    items.length === 4
+      ? 'sm:grid-cols-2 lg:grid-cols-4'
+      : items.length === 2
+        ? 'sm:grid-cols-2'
+        : 'sm:grid-cols-3'
+  return (
+    <div className={`grid gap-4 ${cols}`}>
+      {items.map((s) => (
+        <div
+          key={s.label}
+          className="rounded-2xl border border-slate-100 bg-white p-7 text-center shadow-[0_10px_30px_rgba(8,51,88,0.08)] transition duration-200 hover:-translate-y-1 hover:border-teal-200 hover:shadow-card motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+        >
+          <p className="text-3xl font-bold tracking-tight text-brand-deep sm:text-4xl">{s.value}</p>
+          <p className="mt-2 text-sm font-medium leading-snug text-gray-500">{s.label}</p>
+        </div>
       ))}
     </div>
   )
@@ -532,8 +617,8 @@ export function Steps({ items }: { items: { title: string; body: string }[] }) {
   return (
     <Grid cols={cols}>
       {items.map((s, i) => (
-        <Card key={i}>
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-teal-100 text-base font-bold text-teal-700">
+        <Card key={i} hover className="flex h-full flex-col">
+          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-teal-600 text-base font-bold text-white shadow-sm ring-4 ring-teal-100">
             {i + 1}
           </div>
           <h3 className="mt-5 text-xl font-semibold text-gray-900">{s.title}</h3>
@@ -605,6 +690,7 @@ export function FinalCTA({
   primary,
   secondary,
   note,
+  assurances,
   page,
 }: {
   id?: string
@@ -613,6 +699,8 @@ export function FinalCTA({
   primary: NavLink
   secondary?: NavLink
   note?: string
+  /** Teal-check reassurance chips (friction-killers) shown under the CTAs. */
+  assurances?: string[]
   /** Which consumer page — wires the final-CTA buttons into the dataLayer. */
   page: ConsumerPage
 }) {
@@ -647,6 +735,19 @@ export function FinalCTA({
             </CTA>
           )}
         </div>
+        {assurances && assurances.length > 0 && (
+          <ul className="mt-9 flex flex-wrap justify-center gap-2.5">
+            {assurances.map((a) => (
+              <li
+                key={a}
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white/90"
+              >
+                <Check className="h-4 w-4 flex-none text-teal-300" strokeWidth={2.5} aria-hidden />
+                {a}
+              </li>
+            ))}
+          </ul>
+        )}
         {note && <p className="mt-8 text-xs text-white/60">{note}</p>}
       </div>
     </section>
