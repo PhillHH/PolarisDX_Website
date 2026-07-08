@@ -168,12 +168,27 @@ const ServicePage = () => {
         eyebrow={t('home:services.caption', 'Diagnostik-Fokus')}
         title={title}
         subtitle={headline || undefined}
+        primaryCta={{ label: t('home:hero.cta', 'Beratung buchen'), to: '/contact' }}
         chips={[
           t('services:overview.hero.chip_cv', 'CV < 2 %'),
           t('services:overview.hero.chip_results', 'Ergebnis in 3–15 Min'),
           t('services:overview.hero.chip_lfa', 'IVDR/CE-konform'),
         ]}
-        icon={service.icon}
+        gauge={t('services:overview.hero.visual.gauge', '36°')}
+        valueChips={[
+          {
+            value: t('services:overview.hero.visual.vitd_name', 'Vitamin D'),
+            label: t('services:overview.hero.visual.vitd_val'),
+          },
+          {
+            value: t('services:overview.hero.visual.time_val'),
+            label: t('services:overview.hero.visual.time_label'),
+          },
+          {
+            value: t('services:overview.hero.visual.crp_name', 'CRP'),
+            label: t('services:overview.hero.visual.crp_val'),
+          },
+        ]}
       />
       <div className="bg-slate-50">
         <div className="mx-auto flex max-w-container flex-col gap-10 px-4 py-12 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,1.4fr)] lg:items-start lg:gap-12 lg:px-0 lg:py-16">

@@ -211,3 +211,44 @@
     text-decoration: none;
   }
 }
+
+/* ---------------------------------------------------------------------------
+ * Sales-Machine Motion-Layer — Hero-Visuals (Puls-Ring 3s, Float-Chips 6s),
+ * Karten-Hover-Lift, gestaffelte Reveals. Läuft NUR wenn der Nutzer keine
+ * Bewegungsreduktion wünscht (prefers-reduced-motion: no-preference).
+ * ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes heroPulseRing {
+    0% {
+      transform: scale(0.9);
+      opacity: 0.55;
+    }
+    70% {
+      transform: scale(1.4);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1.4);
+      opacity: 0;
+    }
+  }
+  @keyframes heroFloat {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+  .hero-pulse-ring {
+    animation: heroPulseRing 3s ease-out infinite;
+  }
+  .hero-float {
+    animation: heroFloat 6s ease-in-out infinite;
+  }
+  .hero-float-2 {
+    animation: heroFloat 6s ease-in-out infinite;
+    animation-delay: -3s;
+  }
+}
