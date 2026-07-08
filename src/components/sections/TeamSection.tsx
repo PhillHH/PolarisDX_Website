@@ -42,8 +42,10 @@ const TeamSection = () => {
     },
   ]
 
+  const emailLabel = t('team.email', 'E-Mail')
+
   return (
-    <section className="py-20 lg:py-32">
+    <section className="bg-slate-50 py-20 lg:py-28">
       <div className="mx-auto max-w-container px-4 lg:px-0">
         <SectionHeader
           caption={t('team.caption', 'UNSER TEAM')}
@@ -52,57 +54,66 @@ const TeamSection = () => {
           className="mb-16"
         />
 
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {team.map((member) => (
-            <div key={member.id} className="flex flex-col items-start text-left group">
-              {member.image ? (
-                <div className="mb-6 w-full overflow-hidden rounded-2xl bg-gray-100 relative">
-                  <img
-                    src={member.image}
-                    alt={t(`team.members.${member.id}.name`)}
-                    width={300}
-                    height={400}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-[400px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {team.map((member) => {
+            const name = t(`team.members.${member.id}.name`)
+            return (
+              <div
+                key={member.id}
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-1 hover:shadow-card"
+              >
+                {member.image ? (
+                  <div className="relative w-full overflow-hidden bg-gray-100">
+                    <img
+                      src={member.image}
+                      alt={name}
+                      width={300}
+                      height={360}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                ) : (
+                  <ImagePlaceholder
+                    label={t('team.photo_placeholder', 'Teamfoto')}
+                    className="h-72 w-full rounded-none border-0 border-b border-slate-200"
                   />
-                </div>
-              ) : (
-                <ImagePlaceholder
-                  label={t('team.photo_placeholder', 'Teamfoto')}
-                  className="mb-6 h-[400px] w-full rounded-2xl"
-                />
-              )}
-              <h3 className="font-sans text-2xl font-medium text-gray-900">
-                {t(`team.members.${member.id}.name`)}
-              </h3>
-              <p className="mb-4 font-sans text-base font-normal leading-8 text-brand-secondary h-16">
-                {t(`team.members.${member.id}.role`)}
-              </p>
-              <p className="mb-4 text-sm leading-relaxed text-gray-500">
-                {t(`team.members.${member.id}.bio`)}
-              </p>
+                )}
 
-              <div className="mt-auto flex gap-4">
-                <a
-                  href={`mailto:${member.email}`}
-                  className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-brand-primary transition-colors"
-                >
-                  <Mail className="h-4 w-4" />
-                  Email
-                </a>
-                <a
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-social-linkedin transition-colors"
-                >
-                  <Linkedin className="h-4 w-4" />
-                  LinkedIn
-                </a>
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="font-sans text-xl font-medium text-heading">{name}</h3>
+                  <p className="mt-1 text-sm font-semibold leading-snug text-accent">
+                    {t(`team.members.${member.id}.role`)}
+                  </p>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-500">
+                    {t(`team.members.${member.id}.bio`)}
+                  </p>
+
+                  <div className="mt-5 flex gap-4 border-t border-slate-100 pt-4">
+                    <a
+                      href={`mailto:${member.email}`}
+                      aria-label={`${emailLabel}: ${name}`}
+                      className="flex items-center gap-2 text-sm font-medium text-gray-500 transition-colors hover:text-accent"
+                    >
+                      <Mail className="h-4 w-4" aria-hidden="true" />
+                      {emailLabel}
+                    </a>
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`LinkedIn: ${name}`}
+                      className="flex items-center gap-2 text-sm font-medium text-gray-500 transition-colors hover:text-social-linkedin"
+                    >
+                      <Linkedin className="h-4 w-4" aria-hidden="true" />
+                      LinkedIn
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

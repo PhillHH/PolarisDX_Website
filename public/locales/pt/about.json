@@ -2,12 +2,29 @@
   "hero": {
     "caption": "SOBRE NÓS",
     "title": "Redefinindo Diagnósticos",
-    "description": "PolarisDX significa inovação, precisão e confiabilidade em tecnologia médica. Conheça as pessoas por trás de nossa missão."
+    "description": "PolarisDX significa inovação, precisão e confiabilidade em tecnologia médica. Conheça as pessoas por trás de nossa missão.",
+    "primary_cta": "Conheça a equipa",
+    "chips": {
+      "ivdr": "Conforme IVDR · CE",
+      "partner": "Parceiro de distribuição DX365",
+      "reach": "Escritórios em Londres e Hamburgo"
+    },
+    "visual": {
+      "c1": { "value": "2 escritórios", "label": "Londres e Hamburgo" },
+      "c2": { "value": "15+ países", "label": "Mercados ativos" },
+      "c3": { "value": "100+ dispositivos", "label": "Instalados" }
+    },
+    "stats": {
+      "locations": { "value": "2", "label": "Escritórios" },
+      "countries": { "value": "15+", "label": "Países" },
+      "devices": { "value": "100+", "label": "Dispositivos instalados" }
+    }
   },
   "team": {
     "caption": "NOSSA EQUIPE",
     "title": "Conheça Nossos Especialistas",
     "photo_placeholder": "Foto da equipa",
+    "email": "E-mail",
     "members": {
       "tim_ritson": {
         "name": "Tim Ritson",
@@ -30,6 +47,47 @@
         "bio": "Como Diretora Sênior de Operações Globais, Ulrike Schuerholz gerencia os processos operacionais. Ela garante processos eficientes e a implementação estratégica de nossos objetivos corporativos em um contexto global."
       }
     }
+  },
+  "mission": {
+    "caption": "A nossa missão",
+    "title": "Levar diagnóstico com qualidade de laboratório para onde os pacientes são tratados",
+    "lead": "A PolarisDX torna acessível o diagnóstico point-of-care com qualidade de laboratório a consultórios e clínicas em toda a Europa — independente do fabricante, conforme IVDR/CE e pronto a usar em poucos dias úteis.",
+    "body": "A partir dos nossos escritórios em Londres e Hamburgo, acompanhamos os médicos desde a seleção à integração e ao suporte contínuo — para que o diagnóstico junto ao paciente se torne mais rápido, preciso e económico.",
+    "point1": "Diagnóstico POC independente do fabricante a partir de uma única fonte",
+    "point2": "Venda, integração e formação incluídas",
+    "point3": "Suporte contínuo em mais de 15 países",
+    "highlight_label": "Point-of-care primeiro",
+    "highlight_title": "Resultados em minutos – não em dias",
+    "highlight_text": "O leitor IglooPro POC fornece valores comparáveis aos de laboratório diretamente no ponto de atendimento. Menos espera, menos deslocações, decisões terapêuticas mais rápidas."
+  },
+  "values": {
+    "caption": "O que defendemos",
+    "title": "Valores que orientam o nosso trabalho",
+    "items": {
+      "precision": {
+        "title": "Precisão",
+        "text": "Resultados comparáveis aos de laboratório com um coeficiente de variação inferior a 2% — um diagnóstico em que pode confiar."
+      },
+      "proximity": {
+        "title": "Proximidade ao paciente",
+        "text": "O diagnóstico diretamente no ponto de atendimento reduz deslocações e tempos de espera e reforça o vínculo com os seus pacientes."
+      },
+      "reliability": {
+        "title": "Confiabilidade",
+        "text": "Tecnologia conforme IVDR/CE, suporte pessoal e entrega em 3–5 dias úteis — a partir de Londres e Hamburgo."
+      }
+    }
+  },
+  "stats_strip": {
+    "s1": { "value": "2", "label": "Escritórios: Londres e Hamburgo" },
+    "s2": { "value": "15+", "label": "Países com instalações ativas" },
+    "s3": { "value": "100+", "label": "Leitores IglooPro instalados" },
+    "s4": { "value": "< 24 h", "label": "Tempo de resposta do suporte" }
+  },
+  "dx365_partner": {
+    "caption": "O nosso parceiro",
+    "title": "Parceiro de distribuição europeu da DX365",
+    "body": "Como parceiro de distribuição europeu da <dx365>DX365</dx365>, levamos o leitor IglooPro POC a consultórios e clínicas — incluindo venda, integração, formação e suporte contínuo."
   },
   "seo": {
     "title": "Sobre a PolarisDX: o seu parceiro em diagnóstico POC",

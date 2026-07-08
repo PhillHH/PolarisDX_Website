@@ -2,12 +2,29 @@
   "hero": {
     "caption": "O NAS",
     "title": "Definiujemy diagnostykę na nowo",
-    "description": "PolarisDX oznacza innowację, precyzję i niezawodność w technologii medycznej. Poznaj ludzi stojących za naszą misją."
+    "description": "PolarisDX oznacza innowację, precyzję i niezawodność w technologii medycznej. Poznaj ludzi stojących za naszą misją.",
+    "primary_cta": "Poznaj zespół",
+    "chips": {
+      "ivdr": "Zgodność z IVDR · CE",
+      "partner": "Partner dystrybucyjny DX365",
+      "reach": "Biura w Londynie i Hamburgu"
+    },
+    "visual": {
+      "c1": { "value": "2 biura", "label": "Londyn i Hamburg" },
+      "c2": { "value": "15+ krajów", "label": "Aktywne rynki" },
+      "c3": { "value": "100+ urządzeń", "label": "Zainstalowanych" }
+    },
+    "stats": {
+      "locations": { "value": "2", "label": "Biura" },
+      "countries": { "value": "15+", "label": "Kraje" },
+      "devices": { "value": "100+", "label": "Zainstalowane urządzenia" }
+    }
   },
   "team": {
     "caption": "NASZ ZESPÓŁ",
     "title": "Poznaj naszych ekspertów",
     "photo_placeholder": "Zdjęcie zespołu",
+    "email": "E-mail",
     "members": {
       "tim_ritson": {
         "name": "Tim Ritson",
@@ -30,6 +47,47 @@
         "bio": "Jako Starszy Dyrektor Operacyjny Globalny, Ulrike Schuerholz zarządza procesami operacyjnymi. Zapewnia efektywne procesy i strategiczną realizację naszych celów korporacyjnych w kontekście globalnym."
       }
     }
+  },
+  "mission": {
+    "caption": "Nasza misja",
+    "title": "Diagnostyka laboratoryjnej jakości tam, gdzie leczeni są pacjenci",
+    "lead": "PolarisDX udostępnia diagnostykę point-of-care o jakości laboratoryjnej gabinetom i klinikom w całej Europie — niezależnie od producenta, zgodnie z IVDR/CE i gotową do użycia w kilka dni roboczych.",
+    "body": "Z naszych biur w Londynie i Hamburgu wspieramy lekarzy od wyboru rozwiązania, przez integrację, aż po bieżące wsparcie — aby diagnostyka przy pacjencie była szybsza, dokładniejsza i bardziej ekonomiczna.",
+    "point1": "Niezależna od producenta diagnostyka POC z jednego źródła",
+    "point2": "Sprzedaż, integracja i szkolenia w cenie",
+    "point3": "Bieżące wsparcie w ponad 15 krajach",
+    "highlight_label": "Point-of-care przede wszystkim",
+    "highlight_title": "Wyniki w minuty – nie w dni",
+    "highlight_text": "Czytnik IglooPro POC dostarcza wartości porównywalne z laboratoryjnymi bezpośrednio w miejscu opieki. Mniej czekania, mniej podróży, szybsze decyzje terapeutyczne."
+  },
+  "values": {
+    "caption": "Za czym się opowiadamy",
+    "title": "Wartości, które kształtują naszą pracę",
+    "items": {
+      "precision": {
+        "title": "Precyzja",
+        "text": "Wyniki porównywalne z laboratoryjnymi ze współczynnikiem zmienności poniżej 2% — diagnostyka, na której można polegać."
+      },
+      "proximity": {
+        "title": "Bliskość pacjenta",
+        "text": "Diagnostyka bezpośrednio w miejscu opieki skraca drogi i czas oczekiwania oraz wzmacnia więź z pacjentami."
+      },
+      "reliability": {
+        "title": "Niezawodność",
+        "text": "Technologia zgodna z IVDR/CE, osobiste wsparcie i dostawa w 3–5 dni roboczych — z Londynu i Hamburga."
+      }
+    }
+  },
+  "stats_strip": {
+    "s1": { "value": "2", "label": "Biura: Londyn i Hamburg" },
+    "s2": { "value": "15+", "label": "Kraje z aktywnymi instalacjami" },
+    "s3": { "value": "100+", "label": "Zainstalowane czytniki IglooPro" },
+    "s4": { "value": "< 24 h", "label": "Czas reakcji wsparcia" }
+  },
+  "dx365_partner": {
+    "caption": "Nasz partner",
+    "title": "Europejski partner dystrybucyjny DX365",
+    "body": "Jako europejski partner dystrybucyjny <dx365>DX365</dx365> dostarczamy czytnik IglooPro POC do gabinetów i klinik — wraz ze sprzedażą, integracją, szkoleniem i bieżącym wsparciem."
   },
   "seo": {
     "title": "O PolarisDX: Twój partner w diagnostyce POC",

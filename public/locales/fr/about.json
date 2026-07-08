@@ -2,12 +2,29 @@
   "hero": {
     "caption": "À PROPOS DE NOUS",
     "title": "Redéfinir le diagnostic",
-    "description": "PolarisDX est synonyme d'innovation, de précision et de fiabilité dans la technologie médicale. Rencontrez les personnes derrière notre mission."
+    "description": "PolarisDX est synonyme d'innovation, de précision et de fiabilité dans la technologie médicale. Rencontrez les personnes derrière notre mission.",
+    "primary_cta": "Rencontrer l'équipe",
+    "chips": {
+      "ivdr": "Conforme IVDR · CE",
+      "partner": "Partenaire de distribution DX365",
+      "reach": "Bureaux à Londres et Hambourg"
+    },
+    "visual": {
+      "c1": { "value": "2 bureaux", "label": "Londres et Hambourg" },
+      "c2": { "value": "15+ pays", "label": "Marchés actifs" },
+      "c3": { "value": "100+ appareils", "label": "Installés" }
+    },
+    "stats": {
+      "locations": { "value": "2", "label": "Bureaux" },
+      "countries": { "value": "15+", "label": "Pays" },
+      "devices": { "value": "100+", "label": "Appareils installés" }
+    }
   },
   "team": {
     "caption": "NOTRE ÉQUIPE",
     "title": "Rencontrez nos experts",
     "photo_placeholder": "Photo d'équipe",
+    "email": "E-mail",
     "members": {
       "tim_ritson": {
         "name": "Tim Ritson",
@@ -30,6 +47,47 @@
         "bio": "En tant que Directrice principale des opérations mondiales, Ulrike Schuerholz gère les processus opérationnels. Elle assure des processus efficaces et la mise en œuvre stratégique de nos objectifs d'entreprise dans un contexte mondial."
       }
     }
+  },
+  "mission": {
+    "caption": "Notre mission",
+    "title": "Amener un diagnostic de qualité laboratoire là où les patients sont soignés",
+    "lead": "PolarisDX rend le diagnostic au point d'intervention de qualité laboratoire accessible aux cabinets et cliniques dans toute l'Europe — indépendant du fabricant, conforme IVDR/CE et opérationnel en quelques jours ouvrés.",
+    "body": "Depuis nos bureaux de Londres et Hambourg, nous accompagnons les médecins de la sélection à l'intégration jusqu'au support continu — pour que le diagnostic au chevet du patient devienne plus rapide, plus précis et plus économique.",
+    "point1": "Diagnostic POC indépendant du fabricant, d'une seule source",
+    "point2": "Vente, intégration et formation incluses",
+    "point3": "Support continu dans plus de 15 pays",
+    "highlight_label": "Le point d'intervention avant tout",
+    "highlight_title": "Des résultats en minutes – pas en jours",
+    "highlight_text": "Le lecteur IglooPro POC fournit des valeurs comparables à celles du laboratoire directement au point d'intervention. Moins d'attente, moins de déplacements, des décisions thérapeutiques plus rapides."
+  },
+  "values": {
+    "caption": "Ce que nous défendons",
+    "title": "Des valeurs qui façonnent notre travail",
+    "items": {
+      "precision": {
+        "title": "Précision",
+        "text": "Des résultats comparables au laboratoire avec un coefficient de variation inférieur à 2 % — un diagnostic sur lequel vous pouvez compter."
+      },
+      "proximity": {
+        "title": "Proximité du patient",
+        "text": "Le diagnostic directement au point d'intervention réduit les déplacements et les temps d'attente et renforce le lien avec vos patients."
+      },
+      "reliability": {
+        "title": "Fiabilité",
+        "text": "Technologie conforme IVDR/CE, support personnel et livraison en 3 à 5 jours ouvrés — depuis Londres et Hambourg."
+      }
+    }
+  },
+  "stats_strip": {
+    "s1": { "value": "2", "label": "Bureaux : Londres et Hambourg" },
+    "s2": { "value": "15+", "label": "Pays avec des installations actives" },
+    "s3": { "value": "100+", "label": "Lecteurs IglooPro installés" },
+    "s4": { "value": "< 24 h", "label": "Délai de réponse du support" }
+  },
+  "dx365_partner": {
+    "caption": "Notre partenaire",
+    "title": "Partenaire de distribution européen de DX365",
+    "body": "En tant que partenaire de distribution européen de <dx365>DX365</dx365>, nous apportons le lecteur IglooPro POC aux cabinets et cliniques — vente, intégration, formation et support continu inclus."
   },
   "seo": {
     "title": "À propos de PolarisDX : votre partenaire en diagnostic POC",

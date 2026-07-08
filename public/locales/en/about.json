@@ -2,12 +2,29 @@
   "hero": {
     "caption": "ABOUT US",
     "title": "Redefining Diagnostics",
-    "description": "PolarisDX stands for innovation, precision, and reliability in medical technology. Meet the people behind our mission."
+    "description": "PolarisDX stands for innovation, precision, and reliability in medical technology. Meet the people behind our mission.",
+    "primary_cta": "Meet the team",
+    "chips": {
+      "ivdr": "IVDR · CE compliant",
+      "partner": "DX365 distribution partner",
+      "reach": "Offices in London & Hamburg"
+    },
+    "visual": {
+      "c1": { "value": "2 offices", "label": "London & Hamburg" },
+      "c2": { "value": "15+ countries", "label": "Active markets" },
+      "c3": { "value": "100+ devices", "label": "Installed" }
+    },
+    "stats": {
+      "locations": { "value": "2", "label": "Offices" },
+      "countries": { "value": "15+", "label": "Countries" },
+      "devices": { "value": "100+", "label": "Installed devices" }
+    }
   },
   "team": {
     "caption": "OUR TEAM",
     "title": "Meet Our Experts",
     "photo_placeholder": "Team photo",
+    "email": "Email",
     "members": {
       "tim_ritson": {
         "name": "Tim Ritson",
@@ -30,6 +47,47 @@
         "bio": "As Senior Global Operations Director, Ulrike Schuerholz manages operational processes. She ensures efficient processes and the strategic implementation of our corporate goals in a global context."
       }
     }
+  },
+  "mission": {
+    "caption": "Our Mission",
+    "title": "Bringing lab-grade diagnostics to where patients are treated",
+    "lead": "PolarisDX makes lab-grade point-of-care diagnostics accessible to practices and clinics across Europe — vendor-agnostic, IVDR/CE compliant, and ready to use within a few business days.",
+    "body": "From our offices in London and Hamburg, we support physicians from selection through integration to ongoing support — so diagnostics at the patient become faster, more precise, and more economical.",
+    "point1": "Vendor-agnostic POC diagnostics from a single source",
+    "point2": "Sales, integration, and training included",
+    "point3": "Ongoing support in more than 15 countries",
+    "highlight_label": "Point-of-care first",
+    "highlight_title": "Results in minutes – not days",
+    "highlight_text": "The IglooPro POC reader delivers lab-comparable values right at the point of care. Less waiting, fewer trips, faster treatment decisions."
+  },
+  "values": {
+    "caption": "What We Stand For",
+    "title": "Values that shape our work",
+    "items": {
+      "precision": {
+        "title": "Precision",
+        "text": "Lab-comparable results with a coefficient of variation below 2% — diagnostics you can rely on."
+      },
+      "proximity": {
+        "title": "Patient proximity",
+        "text": "Diagnostics right at the point of care shortens trips and waiting times and strengthens the bond with your patients."
+      },
+      "reliability": {
+        "title": "Reliability",
+        "text": "IVDR/CE compliant technology, personal support, and delivery within 3–5 business days — from London and Hamburg."
+      }
+    }
+  },
+  "stats_strip": {
+    "s1": { "value": "2", "label": "Offices: London & Hamburg" },
+    "s2": { "value": "15+", "label": "Countries with active installations" },
+    "s3": { "value": "100+", "label": "Installed IglooPro readers" },
+    "s4": { "value": "< 24 h", "label": "Support response time" }
+  },
+  "dx365_partner": {
+    "caption": "Our Partner",
+    "title": "European distribution partner of DX365",
+    "body": "As the European distribution partner of <dx365>DX365</dx365>, we bring the IglooPro POC reader to practices and clinics — including sales, integration, training, and ongoing support."
   },
   "seo": {
     "title": "About PolarisDX: Your Partner in POC Diagnostics",

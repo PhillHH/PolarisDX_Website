@@ -2,12 +2,29 @@
   "hero": {
     "caption": "O NÁS",
     "title": "Redefinujeme diagnostiku",
-    "description": "PolarisDX znamená inovaci, přesnost a spolehlivost v lékařské technologii. Poznejte lidi, kteří stojí za naší misí."
+    "description": "PolarisDX znamená inovaci, přesnost a spolehlivost v lékařské technologii. Poznejte lidi, kteří stojí za naší misí.",
+    "primary_cta": "Poznejte tým",
+    "chips": {
+      "ivdr": "V souladu s IVDR · CE",
+      "partner": "Distribuční partner DX365",
+      "reach": "Pobočky v Londýně a Hamburku"
+    },
+    "visual": {
+      "c1": { "value": "2 pobočky", "label": "Londýn a Hamburk" },
+      "c2": { "value": "15+ zemí", "label": "Aktivní trhy" },
+      "c3": { "value": "100+ zařízení", "label": "Nainstalováno" }
+    },
+    "stats": {
+      "locations": { "value": "2", "label": "Pobočky" },
+      "countries": { "value": "15+", "label": "Země" },
+      "devices": { "value": "100+", "label": "Nainstalovaná zařízení" }
+    }
   },
   "team": {
     "caption": "NÁŠ TÝM",
     "title": "Poznejte naše odborníky",
     "photo_placeholder": "Fotografie týmu",
+    "email": "E-mail",
     "members": {
       "tim_ritson": {
         "name": "Tim Ritson",
@@ -30,6 +47,47 @@
         "bio": "Jako Senior Global Operations Director řídí Ulrike Schuerholz provozní procesy. Zajišťuje efektivní procesy a strategickou implementaci našich firemních cílů v globálním kontextu."
       }
     }
+  },
+  "mission": {
+    "caption": "Naše mise",
+    "title": "Přinášet diagnostiku v laboratorní kvalitě tam, kde jsou pacienti léčeni",
+    "lead": "PolarisDX zpřístupňuje diagnostiku point-of-care v laboratorní kvalitě ordinacím a klinikám po celé Evropě — nezávisle na výrobci, v souladu s IVDR/CE a připravenou k použití během několika pracovních dnů.",
+    "body": "Z našich poboček v Londýně a Hamburku doprovázíme lékaře od výběru přes integraci až po průběžnou podporu — aby se diagnostika u pacienta stala rychlejší, přesnější a hospodárnější.",
+    "point1": "Diagnostika POC nezávislá na výrobci z jednoho zdroje",
+    "point2": "Prodej, integrace a školení v ceně",
+    "point3": "Průběžná podpora ve více než 15 zemích",
+    "highlight_label": "Point-of-care na prvním místě",
+    "highlight_title": "Výsledky v minutách – ne ve dnech",
+    "highlight_text": "Čtečka IglooPro POC poskytuje hodnoty srovnatelné s laboratoří přímo v místě péče. Méně čekání, méně cest, rychlejší rozhodnutí o léčbě."
+  },
+  "values": {
+    "caption": "Za čím si stojíme",
+    "title": "Hodnoty, které utvářejí naši práci",
+    "items": {
+      "precision": {
+        "title": "Přesnost",
+        "text": "Výsledky srovnatelné s laboratoří s variačním koeficientem pod 2 % — diagnostika, na kterou se můžete spolehnout."
+      },
+      "proximity": {
+        "title": "Blízkost pacientovi",
+        "text": "Diagnostika přímo v místě péče zkracuje cesty a čekací doby a posiluje vztah s vašimi pacienty."
+      },
+      "reliability": {
+        "title": "Spolehlivost",
+        "text": "Technologie v souladu s IVDR/CE, osobní podpora a dodání do 3–5 pracovních dnů — z Londýna a Hamburku."
+      }
+    }
+  },
+  "stats_strip": {
+    "s1": { "value": "2", "label": "Pobočky: Londýn a Hamburk" },
+    "s2": { "value": "15+", "label": "Země s aktivními instalacemi" },
+    "s3": { "value": "100+", "label": "Nainstalované čtečky IglooPro" },
+    "s4": { "value": "< 24 h", "label": "Doba odezvy podpory" }
+  },
+  "dx365_partner": {
+    "caption": "Náš partner",
+    "title": "Evropský distribuční partner DX365",
+    "body": "Jako evropský distribuční partner <dx365>DX365</dx365> přinášíme čtečku IglooPro POC do ordinací a klinik — včetně prodeje, integrace, školení a průběžné podpory."
   },
   "seo": {
     "title": "O PolarisDX: váš partner pro POC diagnostiku",
