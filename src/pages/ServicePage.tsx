@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Tooth } from '../components/ui/icons/Tooth'
-import { Sparkles, Infinity as InfinityIcon } from 'lucide-react'
+import { Sparkles, Infinity as InfinityIcon, Check } from 'lucide-react'
 import {
   SEOHead,
   createServiceSchema,
@@ -10,15 +10,14 @@ import {
   createFAQSchema,
   type FAQItem,
 } from '../components/seo'
-import { Breadcrumbs } from '../components/ui/Breadcrumbs'
-import SectionHeader from '../components/ui/SectionHeader'
-import { Button } from '../components/ui/Button'
 import { services } from '../data/services'
 import { articles } from '../data/articles'
 import FAQSection from '../components/sections/FAQSection'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import PageSidebar, { type SidebarWidget } from '../components/sections/PageSidebar'
+import SubpageHero from '../components/sections/SubpageHero'
+import FinalCtaSection from '../components/sections/FinalCtaSection'
 
 // Helper function to render text with internal links
 // Supports syntax: [[link text|/path]]
@@ -111,7 +110,6 @@ const ServicePage = () => {
   const conclusion = t(`services:${transKey}.conclusion`, {
     returnObjects: true,
   }) as ServiceConclusion
-  const ctaText = t(`services:${transKey}.cta`, 'Contact Us')
 
   // Rich HTML content support (for pillar pages like dental)
   const richContentRaw = t(`services:${transKey}.richContent`, '')
@@ -161,93 +159,72 @@ const ServicePage = () => {
           ...(hasFaq ? [createFAQSchema(faqItems)] : []),
         ]}
       />
+      <SubpageHero
+        breadcrumbs={[
+          { label: t('common:nav.home', 'Home'), href: '/' },
+          { label: t('services:overview.hero.title', 'Diagnostik'), href: '/diagnostics' },
+          { label: title },
+        ]}
+        eyebrow={t('home:services.caption', 'Diagnostik-Fokus')}
+        title={title}
+        subtitle={headline || undefined}
+        chips={[
+          t('services:overview.hero.chip_cv', 'CV < 2 %'),
+          t('services:overview.hero.chip_results', 'Ergebnis in 3–15 Min'),
+          t('services:overview.hero.chip_lfa', 'IVDR/CE-konform'),
+        ]}
+        icon={service.icon}
+      />
       <div className="bg-slate-50">
-        {/* Hero / Header */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white">
-          <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
-
-          <div className="relative mx-auto flex min-h-hero max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
-            <Reveal width="100%" yOffset={20}>
-              <div className="max-w-container">
-                <Breadcrumbs
-                  variant="dark"
-                  className="mb-4"
-                  items={[
-                    { label: t('common:nav.home', 'Home'), href: '/' },
-                    { label: t('home:services.caption', 'Services'), href: '/diagnostics' },
-                    { label: title },
-                  ]}
-                />
-
-                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
-                  {t('home:services.caption', 'DIAGNOSTICS FOCUS')}
-                </p>
-                <h1 className="mb-4 text-3xl font-medium tracking-tight sm:text-4xl lg:text-4xl">
-                  {hasRichContent ? headline : title}
-                </h1>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
         <div className="mx-auto flex max-w-container flex-col gap-10 px-4 py-12 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,1.4fr)] lg:items-start lg:gap-12 lg:px-0 lg:py-16">
           {/* Main Content */}
-          <article className="space-y-8 text-gray-700">
+          <article className="space-y-10 text-gray-700">
             <Reveal width="100%">
               {hasRichContent ? (
-                <>
-                  {/* Rich HTML pillar-page content */}
-                  <div className="rich-content" dangerouslySetInnerHTML={{ __html: richContent }} />
-
-                  {/* FAQ Section */}
-                  {hasFaq && (
-                    <div className="mt-16">
-                      <FAQSection
-                        items={faqItems}
-                        caption={faqCaption}
-                        title={faqTitle}
-                        showFooter={false}
-                      />
-                    </div>
-                  )}
-                </>
+                /* Rich HTML pillar-page content (dental) */
+                <div className="rich-content" dangerouslySetInnerHTML={{ __html: richContent }} />
               ) : (
-                <>
-                  <SectionHeader caption={service.title} title={headline} align="left" />
-
-                  {/* Intro Text */}
-                  <div className="space-y-4">
-                    {Array.isArray(intro) &&
-                      intro.map((paragraph, index) => (
+                <div className="space-y-8">
+                  {/* Intro */}
+                  {Array.isArray(intro) && intro.length > 0 && (
+                    <div className="space-y-4">
+                      {intro.map((paragraph, index) => (
                         <p
                           key={index}
-                          className="text-sm leading-[32px] text-gray-500 sm:text-base"
+                          className={
+                            index === 0
+                              ? 'text-lg leading-relaxed text-gray-700'
+                              : 'leading-relaxed text-gray-700'
+                          }
                         >
                           {paragraph}
                         </p>
                       ))}
-                  </div>
+                    </div>
+                  )}
 
                   {/* Detailed Sections */}
                   {Array.isArray(sections) &&
                     sections.map((section, index) => (
                       <section key={index} className="space-y-4">
                         {section.heading && (
-                          <h2 className="text-xl font-semibold tracking-tight text-gray-900">
+                          <h2 className="text-2xl font-medium tracking-tight text-heading">
                             {section.heading}
                           </h2>
                         )}
                         {section.content && (
-                          <p className="text-sm leading-[32px] text-gray-500 sm:text-base">
-                            {section.content}
-                          </p>
+                          <p className="leading-relaxed text-gray-700">{section.content}</p>
                         )}
                         {section.listItems && (
-                          <ul className="list-disc space-y-2 pl-5 text-sm leading-[28px] text-gray-500 sm:text-base">
+                          <ul className="space-y-2.5">
                             {section.listItems.map((item, lIndex) => (
-                              <li key={lIndex}>{renderTextWithLinks(item)}</li>
+                              <li key={lIndex} className="flex gap-3 leading-relaxed text-gray-700">
+                                <Check
+                                  className="mt-1 h-4 w-4 flex-shrink-0 text-accent"
+                                  aria-hidden
+                                />
+                                <span>{renderTextWithLinks(item)}</span>
+                              </li>
                             ))}
                           </ul>
                         )}
@@ -256,35 +233,44 @@ const ServicePage = () => {
 
                   {/* Conclusion */}
                   {(conclusion?.heading || conclusion?.text) && (
-                    <div className="rounded-2xl bg-brand-primary/5 p-6 text-sm leading-[28px] text-gray-600 sm:text-base">
+                    <div className="rounded-2xl border border-accent/15 bg-accent/5 p-6">
                       {conclusion.heading && (
-                        <h3 className="mb-2 font-semibold text-gray-900">{conclusion.heading}</h3>
+                        <h3 className="mb-2 font-semibold text-heading">{conclusion.heading}</h3>
                       )}
-                      {conclusion.text && <p>{conclusion.text}</p>}
+                      {conclusion.text && (
+                        <p className="leading-relaxed text-gray-700">{conclusion.text}</p>
+                      )}
                     </div>
                   )}
-
-                  {/* Content CTA Button */}
-                  <div className="mt-8 pt-4">
-                    <Button to="/contact" variant="primary">
-                      {ctaText}
-                    </Button>
-                  </div>
-
-                  {/* FAQ Section */}
-                  {hasFaq && (
-                    <div className="mt-16">
-                      <FAQSection
-                        items={faqItems}
-                        caption={faqCaption}
-                        title={faqTitle}
-                        showFooter={false}
-                      />
-                    </div>
-                  )}
-                </>
+                </div>
               )}
             </Reveal>
+
+            {/* Mid-Page Teal CTA-Band */}
+            <div className="flex flex-col gap-4 rounded-2xl bg-accent p-6 text-white md:flex-row md:items-center md:justify-between lg:p-8">
+              <div>
+                <p className="font-medium">
+                  {t('home:igloo_widget.help_title', 'Nicht sicher, welcher Test zu Ihrer Praxis passt?')}
+                </p>
+                <p className="text-sm text-white/85">
+                  {t(
+                    'home:igloo_widget.help_text',
+                    '15 Minuten mit einem POC-Spezialisten – eine konkrete Empfehlung für Ihre Fachrichtung, keine Verkaufsshow.',
+                  )}
+                </p>
+              </div>
+              <Link
+                to="/contact"
+                className="whitespace-nowrap rounded-md bg-white px-5 py-3 font-medium text-brand-deep"
+              >
+                {t('home:igloo_widget.help_cta', 'Beratung buchen')}
+              </Link>
+            </div>
+
+            {/* FAQ */}
+            {hasFaq && (
+              <FAQSection items={faqItems} caption={faqCaption} title={faqTitle} showFooter={false} />
+            )}
           </article>
 
           {/* Sidebar */}
@@ -327,6 +313,8 @@ const ServicePage = () => {
           />
         </div>
       </div>
+
+      <FinalCtaSection roiHref="/#roi-rechner" />
     </PageTransition>
   )
 }
