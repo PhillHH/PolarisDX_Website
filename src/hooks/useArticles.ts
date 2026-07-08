@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useMemo } from 'react'
 import { articles as allArticles, getArticleBySlug } from '../data/articles'
 import type { Article } from '../types'
 
@@ -9,43 +9,21 @@ export interface UseArticlesReturn {
   error: Error | null
 }
 
-export const useArticles = (slug?: string) => {
-  const [data, setData] = useState<{ articles: Article[]; article: Article | undefined }>({
-    articles: [],
-    article: undefined,
-  })
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<Error | null>(null)
-
-  useEffect(() => {
-    let mounted = true
-    setLoading(true)
-
-    // Simulate network delay
-    const timer = setTimeout(() => {
-      if (!mounted) return
-
-      try {
-        if (slug) {
-          const found = getArticleBySlug(slug)
-          // Also return other articles for sidebar, filtering out the current one
-          const others = allArticles.filter((a) => a.slug !== slug)
-          setData({ articles: others, article: found })
-        } else {
-          setData({ articles: allArticles, article: undefined })
-        }
-        setLoading(false)
-      } catch (err) {
-        setError(err instanceof Error ? err : new Error('Unknown error'))
-        setLoading(false)
-      }
-    }, 300)
-
-    return () => {
-      mounted = false
-      clearTimeout(timer)
+/**
+ * useArticles — SSR-sicher: die Artikeldaten sind lokal/synchron verfügbar,
+ * daher werden sie via useMemo BEIM ERSTEN RENDER (Server UND Client) berechnet.
+ * Kein künstliches setTimeout/loading mehr — sonst rendert der Server nur den
+ * LoadingSpinner und Titel/H1/Body/structuredData fehlen im initialen HTML.
+ */
+export const useArticles = (slug?: string): UseArticlesReturn => {
+  const data = useMemo(() => {
+    if (slug) {
+      const found = getArticleBySlug(slug)
+      const others = allArticles.filter((a) => a.slug !== slug)
+      return { articles: others, article: found }
     }
+    return { articles: allArticles, article: undefined as Article | undefined }
   }, [slug])
 
-  return { ...data, loading, error }
+  return { ...data, loading: false, error: null }
 }
