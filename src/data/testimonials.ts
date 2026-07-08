@@ -7,7 +7,7 @@ import type { Testimonial } from '../types'
 export const testimonials: Testimonial[] = [
   {
     id: 'richard_pollock',
-    role: 'Zahnarzt (Echte Rezension)',
+    role: 'Zahnarzt',
     name: 'Richard Pollock',
     title: 'Biological Dentist and Implant Surgeon / Chelsea Dental Clinic',
     focus: 'Fast On-Site Health Checks (Prävention, Vitamin D)',
@@ -16,7 +16,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: 'kristian_grimm',
-    role: 'Zahnarzt (Echte Rezension)',
+    role: 'Zahnarzt',
     name: 'Dr. Kristian Grimm',
     title: '32reasons Zahnteam / Hamburg',
     focus: 'Prävention, Vitamin D, HbA1c, Systemische Gesundheit',
@@ -25,7 +25,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: 'goran_stojanovic',
-    role: 'Zahnarzt (Echte Rezension)',
+    role: 'Zahnarzt',
     name: 'Goran Stojanovic',
     title: 'Biological Dentist / Principal Dentist & Owner',
     focus: 'Sofortdiagnostik für Implantatplanung (Vitamin D, CRP)',
