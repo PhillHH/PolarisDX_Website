@@ -135,15 +135,11 @@ const Header = () => {
 
             <LanguageSwitcher className="text-white" />
 
-            <div className={`${isScrolled ? '' : 'shadow-lg shadow-blue-900/20'} rounded-full`}>
+            <div className="rounded-full">
               <Button
                 to="/contact"
-                variant={isScrolled ? 'primary' : 'outline'}
-                className={
-                  isScrolled
-                    ? 'shadow-lg shadow-blue-500/25'
-                    : 'border-white/40 hover:bg-white/10 hover:border-white'
-                }
+                variant="secondary"
+                className="!bg-accent !text-white !shadow-accent/20 hover:!bg-accent-strong focus-visible:!ring-accent"
               >
                 {t('nav.contact')}
               </Button>
@@ -245,9 +241,9 @@ const Header = () => {
               <div className="pt-4">
                 <Button
                   to="/contact"
-                  className="w-full justify-center shadow-lg"
+                  className="w-full justify-center shadow-lg !bg-accent !text-white hover:!bg-accent-strong focus-visible:!ring-accent"
                   onClick={mobileMenu.onClose}
-                  variant={isScrolled ? 'primary' : 'outline'}
+                  variant="secondary"
                 >
                   {t('nav.contact')}
                 </Button>

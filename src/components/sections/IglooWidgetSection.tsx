@@ -119,7 +119,7 @@ const IglooWidgetSection = () => {
             to="/contact"
             className="whitespace-nowrap rounded-md bg-white px-5 py-3 font-medium text-brand-deep"
           >
-            {t('igloo_widget.help_cta', 'Termin wählen')}
+            {t('igloo_widget.help_cta', 'Beratung buchen')}
           </Link>
         </div>
       </div>
