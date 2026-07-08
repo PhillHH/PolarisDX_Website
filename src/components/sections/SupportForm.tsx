@@ -134,7 +134,7 @@ export const SupportForm = () => {
 
       {/* File Upload */}
       <div className="space-y-1">
-        <label className="block text-sm font-medium text-gray-700">
+        <label htmlFor="attachment" className="block text-sm font-medium text-gray-700">
           {t('support.form.attachment')}
         </label>
         <div className="flex items-center gap-3">
@@ -182,7 +182,7 @@ export const SupportForm = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex w-full items-center justify-center rounded-md bg-accent px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:opacity-60 md:w-auto"
+            className="inline-flex w-full items-center justify-center rounded-md bg-accent px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:opacity-60 md:w-auto"
           >
             {isSubmitting ? t('support.form.submitting') : t('support.form.submit')}
           </button>

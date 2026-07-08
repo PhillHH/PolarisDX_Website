@@ -1,9 +1,5 @@
 {
   "support": {
-    "seo": {
-      "title": "Žádost o podporu | PolarisDX",
-      "description": "Máte potíže s vaším Igloo Reader nebo testovacími sadami? Zašlete nám žádost o podporu a co nejrychleji vám pomůžeme."
-    },
     "hero": {
       "kicker": "PODPORA",
       "title": "Žádost o podporu",
@@ -13,7 +9,17 @@
         "channels": "Podpora e-mailem a telefonicky",
         "attach": "Přiložte fotografii a soubor protokolu"
       },
-      "breadcrumb": "Domů / Podpora"
+      "breadcrumb": "Domů / Podpora",
+      "cta_primary": "Odeslat žádost",
+      "cta_secondary": "Zavolat na linku podpory",
+      "value": {
+        "response_value": "< 24 h",
+        "response_label": "Doba odezvy",
+        "channels_value": "E-mail a telefon",
+        "channels_label": "Kanály podpory",
+        "attach_value": "Foto a soubor protokolu",
+        "attach_label": "Přílohy možné"
+      }
     },
     "intro": "Pokud máte potíže s vaším Igloo Reader nebo testovacími sadami, použijte prosím tento formulář. Vážíme si vaší zprávy a uděláme vše pro to, abychom vám co nejrychleji pomohli. Připojte prosím krátký popis problému a pokud možno fotografii a sériové číslo zařízení.",
     "form": {
@@ -62,10 +68,66 @@
       "downloads": "Ke stažení a dokumentace",
       "contact": "Obecný kontaktní dotaz",
       "igloo": "Systém IglooPro"
+    },
+    "channels": {
+      "caption": "KANÁLY PODPORY",
+      "title": "Jak kontaktovat náš tým",
+      "subtitle": "Vyberte cestu, která nejlépe vyhovuje vašemu požadavku – pomůžeme vám rychle a odborně.",
+      "email": {
+        "title": "E-mailová podpora",
+        "desc": "Popište svůj problém e-mailem. Ideální pro dotazy s fotografií nebo souborem protokolu v příloze.",
+        "action": "Napsat e-mail"
+      },
+      "phone": {
+        "title": "Telefonní linka podpory",
+        "desc": "V naléhavých případech kontaktujte náš tým podpory přímo telefonicky.",
+        "action": "Zavolat nyní"
+      },
+      "docs": {
+        "title": "Ke stažení a dokumentace",
+        "desc": "Příručky, stručné návody a software najdete pohromadě v sekci ke stažení.",
+        "action": "Přejít ke stažení"
+      }
+    },
+    "prepare": {
+      "title": "Co si připravit",
+      "subtitle": "S těmito údaji můžeme vaši žádost vyřídit bez dalších dotazů:",
+      "items": {
+        "udi": "UDI čtečky (štítek na spodní straně zařízení)",
+        "sw": "Nainstalovaná verze softwaru čtečky",
+        "photo": "Fotografie problému nebo odpovídající soubor protokolu",
+        "desc": "Stručný, konkrétní popis závady"
+      }
+    },
+    "form_panel": {
+      "caption": "FORMULÁŘ PODPORY",
+      "title": "Odeslat žádost o podporu"
+    },
+    "faq": {
+      "caption": "ČASTÉ DOTAZY",
+      "title": "Odpovědi před odesláním",
+      "items": [
+        {
+          "q": "Jak rychle dostanu odpověď?",
+          "a": "Obvykle do jednoho pracovního dne. V případě naléhavých výpadků využijte prosím přímo linku podpory."
+        },
+        {
+          "q": "Jaké údaje urychlí zpracování?",
+          "a": "UDI čtečky, nainstalovaná verze softwaru, fotografie nebo soubor protokolu a stručný a konkrétní popis závady."
+        },
+        {
+          "q": "Kde najdu UDI a verzi softwaru?",
+          "a": "Na štítku na spodní straně zařízení nebo v nabídce čtečky v části Nastavení → O aplikaci."
+        },
+        {
+          "q": "Mohu přiložit soubory?",
+          "a": "Ano. Fotografii, PDF, soubor protokolu nebo textový soubor do 5 MB lze přiložit přímo k formuláři."
+        }
+      ]
     }
   },
   "seo": {
-    "title": "Podpora pro Igloo Reader a POC testovací sady",
-    "description": "Potíže s vaším Igloo Reader nebo testovací sadou? Zašlete nám žádost o podporu se sériovým číslem a fotografií – náš tým vám co nejrychleji pomůže."
+    "title": "Žádost o podporu | PolarisDX",
+    "description": "Máte potíže s vaším Igloo Reader nebo testovacími sadami? Zašlete nám žádost o podporu a co nejrychleji vám pomůžeme."
   }
 }

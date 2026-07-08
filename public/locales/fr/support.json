@@ -1,9 +1,5 @@
 {
   "support": {
-    "seo": {
-      "title": "Demande d'assistance | PolarisDX",
-      "description": "Vous rencontrez des problèmes avec votre Igloo Reader ou vos kits de test ? Envoyez-nous une demande d'assistance et nous vous aiderons dans les plus brefs délais."
-    },
     "hero": {
       "kicker": "ASSISTANCE",
       "title": "Demande d'assistance",
@@ -13,7 +9,17 @@
         "channels": "Assistance par e-mail et téléphone",
         "attach": "Joindre une photo et un fichier journal"
       },
-      "breadcrumb": "Accueil / Assistance"
+      "breadcrumb": "Accueil / Assistance",
+      "cta_primary": "Envoyer une demande",
+      "cta_secondary": "Appeler la hotline",
+      "value": {
+        "response_value": "< 24 h",
+        "response_label": "Temps de réponse",
+        "channels_value": "E-mail et téléphone",
+        "channels_label": "Canaux d'assistance",
+        "attach_value": "Photo et fichier journal",
+        "attach_label": "Pièces jointes possibles"
+      }
     },
     "intro": "Si vous rencontrez des problèmes avec votre Igloo Reader ou vos kits de test, veuillez utiliser ce formulaire. Nous accordons une grande importance à votre message et ferons de notre mieux pour vous aider dans les plus brefs délais. Merci de joindre une brève description du problème et, si possible, une photo ainsi que le numéro de série de l'appareil.",
     "form": {
@@ -62,10 +68,66 @@
       "downloads": "Téléchargements & documentation",
       "contact": "Demande de contact générale",
       "igloo": "Système IglooPro"
+    },
+    "channels": {
+      "caption": "CANAUX D'ASSISTANCE",
+      "title": "Comment joindre notre équipe",
+      "subtitle": "Choisissez la voie la plus adaptée à votre demande – nous vous aidons rapidement et avec compétence.",
+      "email": {
+        "title": "Assistance par e-mail",
+        "desc": "Décrivez votre problème par e-mail. Idéal pour les questions avec photo ou fichier journal en pièce jointe.",
+        "action": "Écrire un e-mail"
+      },
+      "phone": {
+        "title": "Hotline téléphonique",
+        "desc": "Pour les cas urgents, joignez directement notre équipe d'assistance par téléphone.",
+        "action": "Appeler maintenant"
+      },
+      "docs": {
+        "title": "Téléchargements et documentation",
+        "desc": "Manuels, guides rapides et logiciels sont regroupés dans l'espace de téléchargement.",
+        "action": "Vers les téléchargements"
+      }
+    },
+    "prepare": {
+      "title": "Ce que vous devez préparer",
+      "subtitle": "Avec ces informations, nous pouvons traiter votre demande sans questions supplémentaires :",
+      "items": {
+        "udi": "UDI du Reader (étiquette sous l'appareil)",
+        "sw": "Version logicielle installée du Reader",
+        "photo": "Photo du problème ou fichier journal correspondant",
+        "desc": "Une description brève et concrète du défaut"
+      }
+    },
+    "form_panel": {
+      "caption": "FORMULAIRE D'ASSISTANCE",
+      "title": "Envoyer une demande d'assistance"
+    },
+    "faq": {
+      "caption": "QUESTIONS FRÉQUENTES",
+      "title": "Des réponses avant l’envoi",
+      "items": [
+        {
+          "q": "Sous quel délai vais-je recevoir une réponse ?",
+          "a": "En général sous un jour ouvré. Pour les pannes urgentes, utilisez directement la hotline d’assistance."
+        },
+        {
+          "q": "Quelles informations accélèrent le traitement ?",
+          "a": "L’UDI du lecteur, la version logicielle installée, une photo ou un fichier journal et une description brève et précise du problème."
+        },
+        {
+          "q": "Où trouver l’UDI et la version logicielle ?",
+          "a": "Sur l’étiquette située sous l’appareil ou dans le menu du lecteur, sous Paramètres → À propos."
+        },
+        {
+          "q": "Puis-je joindre des fichiers ?",
+          "a": "Oui. Une photo, un PDF, un fichier journal ou un fichier texte jusqu’à 5 Mo peut être joint directement au formulaire."
+        }
+      ]
     }
   },
   "seo": {
-    "title": "Assistance pour l'Igloo Reader et les kits de test POC",
-    "description": "Un problème avec votre Igloo Reader ou votre kit de test ? Envoyez une demande d'assistance avec le numéro de série et une photo : notre équipe vous aide au plus vite."
+    "title": "Demande d'assistance | PolarisDX",
+    "description": "Vous rencontrez des problèmes avec votre Igloo Reader ou vos kits de test ? Envoyez-nous une demande d'assistance et nous vous aiderons dans les plus brefs délais."
   }
 }

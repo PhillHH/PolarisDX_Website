@@ -1,9 +1,5 @@
 {
   "support": {
-    "seo": {
-      "title": "Support Request | PolarisDX",
-      "description": "Having trouble with your Igloo Reader or test kits? Send us a support request and we will assist you as quickly as possible."
-    },
     "hero": {
       "kicker": "SUPPORT",
       "title": "Support Request",
@@ -13,7 +9,17 @@
         "channels": "Email & phone support",
         "attach": "Attach photo & log file"
       },
-      "breadcrumb": "Home / Support"
+      "breadcrumb": "Home / Support",
+      "cta_primary": "Send a request",
+      "cta_secondary": "Call the hotline",
+      "value": {
+        "response_value": "< 24 h",
+        "response_label": "Response time",
+        "channels_value": "Email & phone",
+        "channels_label": "Support channels",
+        "attach_value": "Photo & log file",
+        "attach_label": "Attachments welcome"
+      }
     },
     "intro": "If you're having trouble with your Igloo Reader or test kits, please reach out using this form. We value your message and will do our best to assist you as quickly as possible. Include a short description of the issue and, if possible, a photo and the device's serial number.",
     "form": {
@@ -62,10 +68,66 @@
       "downloads": "Downloads & Documentation",
       "contact": "General Contact Request",
       "igloo": "IglooPro System"
+    },
+    "channels": {
+      "caption": "SUPPORT CHANNELS",
+      "title": "How to reach our team",
+      "subtitle": "Choose whatever works best for your issue — we'll help you quickly and competently.",
+      "email": {
+        "title": "Email support",
+        "desc": "Describe your issue by email. Ideal for questions with a photo or log-file attachment.",
+        "action": "Write an email"
+      },
+      "phone": {
+        "title": "Phone hotline",
+        "desc": "For urgent cases, reach our support team directly by phone.",
+        "action": "Call now"
+      },
+      "docs": {
+        "title": "Downloads & documentation",
+        "desc": "Find manuals, quick guides and software bundled in the download area.",
+        "action": "Go to downloads"
+      }
+    },
+    "prepare": {
+      "title": "What to have ready",
+      "subtitle": "With these details we can handle your request without follow-up questions:",
+      "items": {
+        "udi": "Reader UDI (sticker on the underside of the device)",
+        "sw": "Installed software version of the reader",
+        "photo": "Photo of the problem or a matching log file",
+        "desc": "A short, concrete description of the fault"
+      }
+    },
+    "form_panel": {
+      "caption": "SUPPORT FORM",
+      "title": "Send a support request"
+    },
+    "faq": {
+      "caption": "FREQUENTLY ASKED",
+      "title": "Answers before you submit",
+      "items": [
+        {
+          "q": "How fast will I get a reply?",
+          "a": "Usually within one business day. For urgent outages, please use the support hotline directly."
+        },
+        {
+          "q": "What details speed up processing?",
+          "a": "Reader UDI, the installed software version, a photo or logfile, and a short, specific description of the fault."
+        },
+        {
+          "q": "Where do I find the UDI and software version?",
+          "a": "On the sticker on the underside of the device, or in the reader menu under Settings → About."
+        },
+        {
+          "q": "Can I attach files?",
+          "a": "Yes. A photo, PDF, logfile or text file up to 5 MB can be attached directly to the form."
+        }
+      ]
     }
   },
   "seo": {
-    "title": "Support for the Igloo Reader & POC Test Kits",
-    "description": "Issues with your Igloo reader or test kit? Send a support request with the serial number and a photo, and our team will help you as quickly as possible."
+    "title": "Support Request | PolarisDX",
+    "description": "Having trouble with your Igloo Reader or test kits? Send us a support request and we will assist you as quickly as possible."
   }
 }

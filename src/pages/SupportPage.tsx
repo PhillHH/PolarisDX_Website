@@ -1,14 +1,56 @@
+import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { LifeBuoy, Mail, Phone, Download, Package, ArrowRight } from 'lucide-react'
+import { LifeBuoy, Mail, Phone, Download, Package, ArrowRight, Check, HelpCircle } from 'lucide-react'
 import { SEOHead, localBusinessSchema, createBreadcrumbSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import SubpageHero from '../components/sections/SubpageHero'
+import TrustBar from '../components/sections/TrustBar'
 import { SupportForm } from '../components/sections/SupportForm'
+
+const EMAIL = 'contact@polarisdx.net'
+const PHONE_HREF = 'tel:+4915175011699'
+const PHONE_LABEL = '+49 151 75011699'
+
+type SupportChannel = {
+  icon: ReactNode
+  title: string
+  desc: string
+  action: string
+  value?: string
+  to?: string
+  href?: string
+}
 
 const SupportPage = () => {
   const { t } = useTranslation(['support', 'common'])
+
+  const channels: SupportChannel[] = [
+    {
+      icon: <Mail className="h-6 w-6" />,
+      title: t('support.channels.email.title'),
+      desc: t('support.channels.email.desc'),
+      action: t('support.channels.email.action'),
+      value: EMAIL,
+      href: `mailto:${EMAIL}`,
+    },
+    {
+      icon: <Phone className="h-6 w-6" />,
+      title: t('support.channels.phone.title'),
+      desc: t('support.channels.phone.desc'),
+      action: t('support.channels.phone.action'),
+      value: PHONE_LABEL,
+      href: PHONE_HREF,
+    },
+    {
+      icon: <Download className="h-6 w-6" />,
+      title: t('support.channels.docs.title'),
+      desc: t('support.channels.docs.desc'),
+      action: t('support.channels.docs.action'),
+      to: '/downloads',
+    },
+  ]
 
   const helpfulLinks = [
     {
@@ -27,6 +69,18 @@ const SupportPage = () => {
       icon: <Package className="h-5 w-5" />,
     },
   ]
+
+  const prepareItems = [
+    t('support.prepare.items.udi'),
+    t('support.prepare.items.sw'),
+    t('support.prepare.items.photo'),
+    t('support.prepare.items.desc'),
+  ]
+
+  const faqRaw = t('support.faq.items', { returnObjects: true })
+  const faqItems: { q: string; a: string }[] = Array.isArray(faqRaw)
+    ? (faqRaw as { q: string; a: string }[])
+    : []
 
   return (
     <PageTransition>
@@ -59,51 +113,109 @@ const SupportPage = () => {
         eyebrow={t('support.hero.kicker')}
         title={t('support.hero.title')}
         subtitle={t('support.hero.subtitle')}
+        primaryCta={{ label: t('support.hero.cta_primary'), href: '#support-form' }}
+        secondaryCta={{ label: t('support.hero.cta_secondary'), href: PHONE_HREF }}
         chips={[
           t('support.hero.chips.response'),
           t('support.hero.chips.channels'),
           t('support.hero.chips.attach'),
         ]}
+        valueChips={[
+          {
+            value: t('support.hero.value.response_value'),
+            label: t('support.hero.value.response_label'),
+          },
+          {
+            value: t('support.hero.value.channels_value'),
+            label: t('support.hero.value.channels_label'),
+          },
+          {
+            value: t('support.hero.value.attach_value'),
+            label: t('support.hero.value.attach_label'),
+          },
+        ]}
         icon={<LifeBuoy />}
       />
+
+      <TrustBar />
+
+      {/* Support channels — three rich, teal-tint cards */}
+      <section className="bg-white">
+        <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
+          <Reveal width="100%">
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+                {t('support.channels.caption')}
+              </p>
+              <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading lg:text-[38px]">
+                {t('support.channels.title')}
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-gray-700">
+                {t('support.channels.subtitle')}
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {channels.map((c, i) => {
+              const body = (
+                <>
+                  <span
+                    className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10 text-accent"
+                    aria-hidden
+                  >
+                    {c.icon}
+                  </span>
+                  <h3 className="mt-5 text-lg font-medium text-heading">{c.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-700">{c.desc}</p>
+                  {c.value && (
+                    <span className="mt-4 block text-sm font-medium text-heading">{c.value}</span>
+                  )}
+                  <span className="mt-auto inline-flex items-center gap-1 pt-6 text-sm font-semibold text-accent group-hover:text-accent-strong">
+                    {c.action}
+                    <ArrowRight
+                      className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                      aria-hidden
+                    />
+                  </span>
+                </>
+              )
+              const cls =
+                'group flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:shadow-card'
+              return (
+                <Reveal key={c.title} width="100%" delay={0.1 + i * 0.1}>
+                  {c.to ? (
+                    <Link to={c.to} className={cls}>
+                      {body}
+                    </Link>
+                  ) : (
+                    <a href={c.href} className={cls}>
+                      {body}
+                    </a>
+                  )}
+                </Reveal>
+              )
+            })}
+          </div>
+        </div>
+      </section>
 
       <div className="bg-slate-50">
         <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,2.1fr)_minmax(0,1.3fr)] lg:items-start lg:gap-12">
-            {/* Form card — the page's single, clear conversion */}
+            {/* Form panel — the page's single, clear conversion */}
             <Reveal width="100%">
-              <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card sm:p-8 lg:p-10">
-                <p className="text-base leading-relaxed text-gray-700">{t('support.intro')}</p>
-
-                {/* Contact channels */}
-                <div className="mt-6 flex flex-col gap-4 border-t border-slate-100 pt-6 sm:flex-row sm:gap-8">
-                  <a href="mailto:contact@polarisdx.net" className="group flex items-center gap-3">
-                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent">
-                      <Mail className="h-5 w-5" />
-                    </span>
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">
-                        {t('support.info.email_label')}
-                      </p>
-                      <p className="text-sm text-gray-700 group-hover:text-accent-strong">
-                        contact@polarisdx.net
-                      </p>
-                    </div>
-                  </a>
-                  <a href="tel:+4915175011699" className="group flex items-center gap-3">
-                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent">
-                      <Phone className="h-5 w-5" />
-                    </span>
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">
-                        {t('support.info.phone_label')}
-                      </p>
-                      <p className="text-sm text-gray-700 group-hover:text-accent-strong">
-                        +49 151 75011699
-                      </p>
-                    </div>
-                  </a>
-                </div>
+              <section
+                id="support-form"
+                className="scroll-mt-28 rounded-2xl border border-slate-200 bg-white p-6 shadow-card sm:p-8 lg:p-10"
+              >
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+                  {t('support.form_panel.caption')}
+                </p>
+                <h2 className="mt-3 text-2xl font-medium tracking-tight text-heading">
+                  {t('support.form_panel.title')}
+                </h2>
+                <p className="mt-3 text-base leading-relaxed text-gray-700">{t('support.intro')}</p>
 
                 <SupportForm />
               </section>
@@ -112,8 +224,26 @@ const SupportPage = () => {
             {/* Sidebar */}
             <aside className="lg:sticky lg:top-32">
               <Reveal width="100%" delay={0.2}>
+                {/* What to have ready — teal check-list */}
+                <section className="rounded-xl border border-accent/20 bg-accent/5 p-7">
+                  <h2 className="text-lg font-medium tracking-tight text-heading">
+                    {t('support.prepare.title')}
+                  </h2>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-700">
+                    {t('support.prepare.subtitle')}
+                  </p>
+                  <ul className="mt-4 space-y-2.5">
+                    {prepareItems.map((item) => (
+                      <li key={item} className="flex gap-3 text-sm leading-relaxed text-gray-700">
+                        <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" aria-hidden />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+
                 {/* Helpful links */}
-                <section className="rounded-xl border border-slate-200 bg-white p-7">
+                <section className="mt-6 rounded-xl border border-slate-200 bg-white p-7">
                   <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-gray-500">
                     {t('support.sidebar_links.title', 'Hilfreiche Links')}
                   </h2>
@@ -124,7 +254,10 @@ const SupportPage = () => {
                         to={link.to}
                         className="group flex items-center gap-3 rounded-lg border border-slate-200 p-3 transition hover:border-accent/40 hover:bg-accent/5"
                       >
-                        <span className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                        <span
+                          className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent"
+                          aria-hidden
+                        >
                           {link.icon}
                         </span>
                         <span className="flex-1 text-sm font-medium text-heading">{link.label}</span>
@@ -147,22 +280,28 @@ const SupportPage = () => {
                   </p>
                   <div className="mt-4 space-y-3">
                     <a
-                      href="mailto:contact@polarisdx.net"
+                      href={`mailto:${EMAIL}`}
                       className="flex items-center gap-3 text-sm font-medium text-heading hover:text-accent-strong"
                     >
-                      <span className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                      <span
+                        className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent"
+                        aria-hidden
+                      >
                         <Mail className="h-4 w-4" />
                       </span>
-                      contact@polarisdx.net
+                      {EMAIL}
                     </a>
                     <a
-                      href="tel:+4915175011699"
+                      href={PHONE_HREF}
                       className="flex items-center gap-3 text-sm font-medium text-heading hover:text-accent-strong"
                     >
-                      <span className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                      <span
+                        className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent"
+                        aria-hidden
+                      >
                         <Phone className="h-4 w-4" />
                       </span>
-                      +49 151 75011699
+                      {PHONE_LABEL}
                     </a>
                   </div>
                 </section>
@@ -171,6 +310,43 @@ const SupportPage = () => {
           </div>
         </div>
       </div>
+
+      {/* FAQ — quick answers before submitting */}
+      {faqItems.length > 0 && (
+        <section className="bg-white">
+          <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
+            <Reveal width="100%">
+              <div className="max-w-2xl">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+                  {t('support.faq.caption')}
+                </p>
+                <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading lg:text-[38px]">
+                  {t('support.faq.title')}
+                </h2>
+              </div>
+            </Reveal>
+
+            <div className="mt-10 grid gap-6 md:grid-cols-2">
+              {faqItems.map((item, i) => (
+                <Reveal key={item.q} width="100%" delay={0.08 + (i % 2) * 0.08}>
+                  <div className="flex h-full gap-4 rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:shadow-card">
+                    <span
+                      className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent"
+                      aria-hidden
+                    >
+                      <HelpCircle className="h-5 w-5" />
+                    </span>
+                    <div>
+                      <h3 className="text-lg font-medium text-heading">{item.q}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-gray-700">{item.a}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </PageTransition>
   )
 }

@@ -1,9 +1,5 @@
 {
   "support": {
-    "seo": {
-      "title": "Pedido de Apoio | PolarisDX",
-      "description": "Tem problemas com o seu Igloo Reader ou com os kits de teste? Envie-nos um pedido de apoio e ajudá-lo-emos com a maior brevidade possível."
-    },
     "hero": {
       "kicker": "APOIO",
       "title": "Pedido de Apoio",
@@ -13,7 +9,17 @@
         "channels": "Apoio por e-mail e telefone",
         "attach": "Anexe fotografia e ficheiro de registo"
       },
-      "breadcrumb": "Início / Apoio"
+      "breadcrumb": "Início / Apoio",
+      "cta_primary": "Enviar um pedido",
+      "cta_secondary": "Ligar para a linha de apoio",
+      "value": {
+        "response_value": "< 24 h",
+        "response_label": "Tempo de resposta",
+        "channels_value": "E-mail e telefone",
+        "channels_label": "Canais de apoio",
+        "attach_value": "Foto e ficheiro de registo",
+        "attach_label": "Anexos possíveis"
+      }
     },
     "intro": "Se tiver problemas com o seu Igloo Reader ou com os seus kits de teste, utilize, por favor, este formulário. Valorizamos a sua mensagem e faremos o nosso melhor para o ajudar com a maior brevidade possível. Inclua, por favor, uma breve descrição do problema e, se possível, uma fotografia, bem como o número de série do dispositivo.",
     "form": {
@@ -62,10 +68,66 @@
       "downloads": "Transferências e documentação",
       "contact": "Pedido de contacto geral",
       "igloo": "Sistema IglooPro"
+    },
+    "channels": {
+      "caption": "CANAIS DE APOIO",
+      "title": "Como contactar a nossa equipa",
+      "subtitle": "Escolha a via que melhor se adequa ao seu pedido — ajudamo-lo de forma rápida e competente.",
+      "email": {
+        "title": "Apoio por e-mail",
+        "desc": "Descreva o seu problema por e-mail. Ideal para questões com foto ou ficheiro de registo em anexo.",
+        "action": "Escrever um e-mail"
+      },
+      "phone": {
+        "title": "Linha telefónica",
+        "desc": "Para casos urgentes, contacte diretamente a nossa equipa de apoio por telefone.",
+        "action": "Ligar agora"
+      },
+      "docs": {
+        "title": "Downloads e documentação",
+        "desc": "Encontra manuais, guias rápidos e software reunidos na área de downloads.",
+        "action": "Ir para os downloads"
+      }
+    },
+    "prepare": {
+      "title": "O que deve ter à mão",
+      "subtitle": "Com estes dados podemos tratar o seu pedido sem perguntas adicionais:",
+      "items": {
+        "udi": "UDI do Reader (etiqueta na parte inferior do dispositivo)",
+        "sw": "Versão de software instalada do Reader",
+        "photo": "Foto do problema ou ficheiro de registo correspondente",
+        "desc": "Uma descrição breve e concreta da falha"
+      }
+    },
+    "form_panel": {
+      "caption": "FORMULÁRIO DE APOIO",
+      "title": "Enviar um pedido de apoio"
+    },
+    "faq": {
+      "caption": "PERGUNTAS FREQUENTES",
+      "title": "Respostas antes de enviar",
+      "items": [
+        {
+          "q": "Com que rapidez recebo uma resposta?",
+          "a": "Normalmente dentro de um dia útil. Para avarias urgentes, utilize diretamente a linha de apoio."
+        },
+        {
+          "q": "Que dados aceleram o atendimento?",
+          "a": "O UDI do leitor, a versão de software instalada, uma foto ou ficheiro de registo e uma descrição breve e concreta da falha."
+        },
+        {
+          "q": "Onde encontro o UDI e a versão de software?",
+          "a": "Na etiqueta na parte inferior do dispositivo ou no menu do leitor, em Definições → Sobre."
+        },
+        {
+          "q": "Posso anexar ficheiros?",
+          "a": "Sim. Uma foto, PDF, ficheiro de registo ou ficheiro de texto até 5 MB pode ser anexado diretamente ao formulário."
+        }
+      ]
     }
   },
   "seo": {
-    "title": "Apoio para o Igloo Reader e kits de teste POC",
-    "description": "Problemas com o seu Igloo Reader ou kit de teste? Envie um pedido de apoio com o número de série e uma fotografia — a nossa equipa ajuda-o com a maior brevidade possível."
+    "title": "Pedido de Apoio | PolarisDX",
+    "description": "Tem problemas com o seu Igloo Reader ou com os kits de teste? Envie-nos um pedido de apoio e ajudá-lo-emos com a maior brevidade possível."
   }
 }

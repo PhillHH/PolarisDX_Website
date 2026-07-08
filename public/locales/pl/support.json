@@ -1,9 +1,5 @@
 {
   "support": {
-    "seo": {
-      "title": "Zapytanie do działu wsparcia | PolarisDX",
-      "description": "Masz problemy z czytnikiem Igloo Reader lub zestawami testowymi? Wyślij nam zapytanie do działu wsparcia, a pomożemy Ci najszybciej, jak to możliwe."
-    },
     "hero": {
       "kicker": "WSPARCIE",
       "title": "Zapytanie do działu wsparcia",
@@ -13,7 +9,17 @@
         "channels": "Wsparcie e-mail i telefoniczne",
         "attach": "Dołącz zdjęcie i plik dziennika"
       },
-      "breadcrumb": "Strona główna / Wsparcie"
+      "breadcrumb": "Strona główna / Wsparcie",
+      "cta_primary": "Wyślij zapytanie",
+      "cta_secondary": "Zadzwoń na infolinię",
+      "value": {
+        "response_value": "< 24 h",
+        "response_label": "Czas odpowiedzi",
+        "channels_value": "E-mail i telefon",
+        "channels_label": "Kanały wsparcia",
+        "attach_value": "Zdjęcie i plik dziennika",
+        "attach_label": "Możliwe załączniki"
+      }
     },
     "intro": "Jeśli masz problemy z czytnikiem Igloo Reader lub zestawami testowymi, skorzystaj z tego formularza. Cenimy Twoją wiadomość i dołożymy wszelkich starań, aby pomóc Ci najszybciej, jak to możliwe. Dołącz krótki opis problemu, a w miarę możliwości także zdjęcie oraz numer seryjny urządzenia.",
     "form": {
@@ -62,10 +68,66 @@
       "downloads": "Pliki do pobrania i dokumentacja",
       "contact": "Ogólne zapytanie kontaktowe",
       "igloo": "System IglooPro"
+    },
+    "channels": {
+      "caption": "KANAŁY WSPARCIA",
+      "title": "Jak skontaktować się z naszym zespołem",
+      "subtitle": "Wybierz drogę najlepiej pasującą do Twojej sprawy – pomożemy szybko i fachowo.",
+      "email": {
+        "title": "Wsparcie e-mail",
+        "desc": "Opisz swój problem e-mailem. Idealne w przypadku pytań ze zdjęciem lub plikiem dziennika w załączniku.",
+        "action": "Napisz e-mail"
+      },
+      "phone": {
+        "title": "Infolinia telefoniczna",
+        "desc": "W pilnych przypadkach skontaktuj się z naszym zespołem wsparcia bezpośrednio telefonicznie.",
+        "action": "Zadzwoń teraz"
+      },
+      "docs": {
+        "title": "Pliki do pobrania i dokumentacja",
+        "desc": "Instrukcje, przewodniki skrócone i oprogramowanie znajdziesz w sekcji pobierania.",
+        "action": "Przejdź do pobierania"
+      }
+    },
+    "prepare": {
+      "title": "Co warto przygotować",
+      "subtitle": "Dzięki tym informacjom możemy obsłużyć Twoje zapytanie bez dodatkowych pytań:",
+      "items": {
+        "udi": "UDI czytnika (naklejka na spodzie urządzenia)",
+        "sw": "Zainstalowana wersja oprogramowania czytnika",
+        "photo": "Zdjęcie problemu lub odpowiedni plik dziennika",
+        "desc": "Krótki, konkretny opis usterki"
+      }
+    },
+    "form_panel": {
+      "caption": "FORMULARZ WSPARCIA",
+      "title": "Wyślij zapytanie do działu wsparcia"
+    },
+    "faq": {
+      "caption": "NAJCZĘŚCIEJ ZADAWANE",
+      "title": "Odpowiedzi przed wysłaniem",
+      "items": [
+        {
+          "q": "Jak szybko otrzymam odpowiedź?",
+          "a": "Zwykle w ciągu jednego dnia roboczego. W przypadku pilnych awarii prosimy o kontakt bezpośrednio z infolinią wsparcia."
+        },
+        {
+          "q": "Jakie dane przyspieszą obsługę?",
+          "a": "UDI czytnika, zainstalowana wersja oprogramowania, zdjęcie lub plik dziennika oraz krótki, konkretny opis usterki."
+        },
+        {
+          "q": "Gdzie znajdę UDI i wersję oprogramowania?",
+          "a": "Na naklejce na spodzie urządzenia lub w menu czytnika w sekcji Ustawienia → Informacje."
+        },
+        {
+          "q": "Czy mogę załączyć pliki?",
+          "a": "Tak. Zdjęcie, PDF, plik dziennika lub plik tekstowy do 5 MB można załączyć bezpośrednio do formularza."
+        }
+      ]
     }
   },
   "seo": {
-    "title": "Wsparcie dla Igloo Reader i zestawów testowych POC",
-    "description": "Problemy z czytnikiem Igloo Reader lub zestawem testowym? Wyślij zapytanie z numerem seryjnym i zdjęciem – nasz zespół pomoże Ci najszybciej, jak to możliwe."
+    "title": "Zapytanie do działu wsparcia | PolarisDX",
+    "description": "Masz problemy z czytnikiem Igloo Reader lub zestawami testowymi? Wyślij nam zapytanie do działu wsparcia, a pomożemy Ci najszybciej, jak to możliwe."
   }
 }

@@ -1,9 +1,5 @@
 {
   "support": {
-    "seo": {
-      "title": "Supportaanvraag | PolarisDX",
-      "description": "Heeft u problemen met uw Igloo Reader of testkits? Stuur ons een supportaanvraag en wij helpen u zo snel mogelijk verder."
-    },
     "hero": {
       "kicker": "SUPPORT",
       "title": "Supportaanvraag",
@@ -13,7 +9,17 @@
         "channels": "Support via e-mail en telefoon",
         "attach": "Foto en logbestand bijvoegen"
       },
-      "breadcrumb": "Home / Support"
+      "breadcrumb": "Home / Support",
+      "cta_primary": "Een aanvraag sturen",
+      "cta_secondary": "Bel de hotline",
+      "value": {
+        "response_value": "< 24 u",
+        "response_label": "Reactietijd",
+        "channels_value": "E-mail en telefoon",
+        "channels_label": "Supportkanalen",
+        "attach_value": "Foto en logbestand",
+        "attach_label": "Bijlagen mogelijk"
+      }
     },
     "intro": "Wanneer u problemen heeft met uw Igloo Reader of uw testkits, gebruik dan dit formulier. Wij waarderen uw bericht en doen ons best om u zo snel mogelijk te helpen. Voeg een korte beschrijving van het probleem toe en, indien mogelijk, een foto en het serienummer van het apparaat.",
     "form": {
@@ -62,10 +68,66 @@
       "downloads": "Downloads & documentatie",
       "contact": "Algemene contactaanvraag",
       "igloo": "IglooPro-systeem"
+    },
+    "channels": {
+      "caption": "SUPPORTKANALEN",
+      "title": "Zo bereikt u ons team",
+      "subtitle": "Kies de weg die het best bij uw vraag past – wij helpen u snel en deskundig verder.",
+      "email": {
+        "title": "E-mailsupport",
+        "desc": "Beschrijf uw probleem per e-mail. Ideaal voor vragen met een foto of logbestand als bijlage.",
+        "action": "E-mail schrijven"
+      },
+      "phone": {
+        "title": "Telefonische hotline",
+        "desc": "Voor dringende gevallen bereikt u ons supportteam rechtstreeks per telefoon.",
+        "action": "Nu bellen"
+      },
+      "docs": {
+        "title": "Downloads en documentatie",
+        "desc": "Handleidingen, snelgidsen en software vindt u gebundeld in het downloadgedeelte.",
+        "action": "Naar de downloads"
+      }
+    },
+    "prepare": {
+      "title": "Dit kunt u het best klaarleggen",
+      "subtitle": "Met deze gegevens kunnen we uw aanvraag zonder verdere vragen behandelen:",
+      "items": {
+        "udi": "Reader-UDI (sticker aan de onderkant van het apparaat)",
+        "sw": "Geïnstalleerde softwareversie van de reader",
+        "photo": "Foto van het probleem of een bijbehorend logbestand",
+        "desc": "Een korte, concrete beschrijving van de fout"
+      }
+    },
+    "form_panel": {
+      "caption": "SUPPORTFORMULIER",
+      "title": "Een supportaanvraag sturen"
+    },
+    "faq": {
+      "caption": "VEELGESTELDE VRAGEN",
+      "title": "Antwoorden vóór het versturen",
+      "items": [
+        {
+          "q": "Hoe snel krijg ik antwoord?",
+          "a": "Doorgaans binnen één werkdag. Gebruik bij dringende storingen rechtstreeks de support-hotline."
+        },
+        {
+          "q": "Welke gegevens versnellen de afhandeling?",
+          "a": "De UDI van de reader, de geïnstalleerde softwareversie, een foto of logbestand en een korte, concrete omschrijving van het probleem."
+        },
+        {
+          "q": "Waar vind ik de UDI en softwareversie?",
+          "a": "Op de sticker aan de onderkant van het apparaat of in het readermenu onder Instellingen → Info."
+        },
+        {
+          "q": "Kan ik bestanden bijvoegen?",
+          "a": "Ja. Een foto, PDF, logbestand of tekstbestand tot 5 MB kunt u rechtstreeks aan het formulier toevoegen."
+        }
+      ]
     }
   },
   "seo": {
-    "title": "Support voor de Igloo Reader & POC-testkits",
-    "description": "Problemen met uw Igloo Reader of testkit? Stuur ons een supportaanvraag met serienummer en foto – ons team helpt u zo snel mogelijk verder."
+    "title": "Supportaanvraag | PolarisDX",
+    "description": "Heeft u problemen met uw Igloo Reader of testkits? Stuur ons een supportaanvraag en wij helpen u zo snel mogelijk verder."
   }
 }

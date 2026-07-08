@@ -1,9 +1,5 @@
 {
   "support": {
-    "seo": {
-      "title": "Supportanmodning | PolarisDX",
-      "description": "Har du problemer med din Igloo Reader eller dine testkit? Send os en supportanmodning, så hjælper vi dig hurtigst muligt."
-    },
     "hero": {
       "kicker": "SUPPORT",
       "title": "Supportanmodning",
@@ -13,7 +9,17 @@
         "channels": "Support via e-mail og telefon",
         "attach": "Vedhæft foto og logfil"
       },
-      "breadcrumb": "Home / Support"
+      "breadcrumb": "Home / Support",
+      "cta_primary": "Send en anmodning",
+      "cta_secondary": "Ring til hotline",
+      "value": {
+        "response_value": "< 24 t",
+        "response_label": "Svartid",
+        "channels_value": "E-mail og telefon",
+        "channels_label": "Supportkanaler",
+        "attach_value": "Foto og logfil",
+        "attach_label": "Vedhæftninger mulige"
+      }
     },
     "intro": "Hvis du har problemer med din Igloo Reader eller dine testkit, bedes du bruge denne formular. Vi sætter pris på din henvendelse og gør vores bedste for at hjælpe dig hurtigst muligt. Vedlæg venligst en kort beskrivelse af problemet og, hvis muligt, et foto samt enhedens serienummer.",
     "form": {
@@ -62,10 +68,66 @@
       "downloads": "Downloads & dokumentation",
       "contact": "Generel kontaktanmodning",
       "igloo": "IglooPro-system"
+    },
+    "channels": {
+      "caption": "SUPPORTKANALER",
+      "title": "Sådan kontakter du vores team",
+      "subtitle": "Vælg den vej, der passer bedst til din henvendelse – vi hjælper dig hurtigt og kompetent.",
+      "email": {
+        "title": "E-mail-support",
+        "desc": "Beskriv dit problem via e-mail. Ideelt til spørgsmål med foto eller logfil som vedhæftning.",
+        "action": "Skriv en e-mail"
+      },
+      "phone": {
+        "title": "Telefon-hotline",
+        "desc": "I hastende tilfælde kan du kontakte vores supportteam direkte pr. telefon.",
+        "action": "Ring nu"
+      },
+      "docs": {
+        "title": "Downloads og dokumentation",
+        "desc": "Manualer, kvikguides og software er samlet i download-området.",
+        "action": "Til downloads"
+      }
+    },
+    "prepare": {
+      "title": "Det bør du have klar",
+      "subtitle": "Med disse oplysninger kan vi behandle din anmodning uden opfølgende spørgsmål:",
+      "items": {
+        "udi": "Reader-UDI (mærkat på undersiden af enheden)",
+        "sw": "Installeret softwareversion af readeren",
+        "photo": "Foto af problemet eller en tilhørende logfil",
+        "desc": "En kort, konkret beskrivelse af fejlen"
+      }
+    },
+    "form_panel": {
+      "caption": "SUPPORTFORMULAR",
+      "title": "Send en supportanmodning"
+    },
+    "faq": {
+      "caption": "OFTE STILLEDE SPØRGSMÅL",
+      "title": "Svar før du sender",
+      "items": [
+        {
+          "q": "Hvor hurtigt får jeg svar?",
+          "a": "Normalt inden for én arbejdsdag. Ved akutte nedbrud bedes du bruge support-hotline direkte."
+        },
+        {
+          "q": "Hvilke oplysninger fremskynder behandlingen?",
+          "a": "Læserens UDI, den installerede softwareversion, et foto eller en logfil samt en kort og præcis beskrivelse af fejlen."
+        },
+        {
+          "q": "Hvor finder jeg UDI og softwareversion?",
+          "a": "På mærkaten på undersiden af enheden eller i læserens menu under Indstillinger → Om."
+        },
+        {
+          "q": "Kan jeg vedhæfte filer?",
+          "a": "Ja. Et foto, en PDF, en logfil eller en tekstfil op til 5 MB kan vedhæftes direkte til formularen."
+        }
+      ]
     }
   },
   "seo": {
-    "title": "Support til Igloo Reader & POC-testkit",
-    "description": "Problemer med din Igloo Reader eller dit testkit? Send en supportanmodning med serienummer og foto – vores team hjælper dig hurtigst muligt."
+    "title": "Supportanmodning | PolarisDX",
+    "description": "Har du problemer med din Igloo Reader eller dine testkit? Send os en supportanmodning, så hjælper vi dig hurtigst muligt."
   }
 }
