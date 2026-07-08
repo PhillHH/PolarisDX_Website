@@ -1,51 +1,82 @@
 {
   "contact": {
     "hero": {
-      "kicker": "BOOK APPOINTMENT",
-      "title": "Book Appointment",
-      "breadcrumb": "Home / Contact Us"
+      "kicker": "CONTACT",
+      "title": "Let’s talk.",
+      "subtitle": "Consultation, quote or support — one form, two minutes, a real answer within 24 h.",
+      "breadcrumb": "Contact",
+      "chips": {
+        "free": "Free & non-binding",
+        "fast": "Reply within 24 h",
+        "time": "15 min"
+      }
     },
     "form": {
-      "title": "Book Appointment",
-      "email": "Email",
-      "phone": "Phone",
-      "specialty": "Select Medical Specialty",
-      "doctor": "Select Doctor",
-      "any_doctor": "Any available doctor",
-      "date": "Select Date & Time",
-      "name": "Name",
-      "name_placeholder": "Your full name",
-      "phone_placeholder": "+49 151 75011699",
-      "email_placeholder": "you@example.com",
-      "message": "Message",
-      "message_placeholder": "Tell us more about your needs...",
-      "submit": "Book Appointment",
-      "company_label": "Company / Practice Name",
-      "company_placeholder": "e.g. Dr. Smith Practice or City Pharmacy",
-      "area_label": "Primary Application Area",
-      "area_options": {
-        "pharmacy": "Pharmacy",
-        "practice": "Medical Practice/Clinic",
-        "vet": "Veterinary Medicine",
-        "lab": "Research/Laboratory",
-        "other": "Other"
+      "progress": {
+        "start": "Let’s start — a few quick fields",
+        "going": "Looking good — {{count}} to go",
+        "almost": "Almost there — 1 to go",
+        "done": "All set — ready to send"
       },
-      "requirements_label": "Your Specific Requirements for IglooPro",
-      "requirements_placeholder": "Which biomarkers (e.g. CRP, TSH, HbA1c) are primarily relevant for you?"
+      "intent": {
+        "label": "What brings you here?",
+        "options": {
+          "consultation": "Consultation",
+          "quote": "Quote",
+          "product": "Product question",
+          "support": "Support",
+          "other": "Something else"
+        }
+      },
+      "who": "Who should we get back to?",
+      "name": "Your name",
+      "name_placeholder": "Dr. Anna Weber",
+      "company_label": "Practice / company",
+      "company_placeholder": "e.g. Dr. Weber Practice or City Pharmacy",
+      "email": "Email",
+      "email_placeholder": "you@example.com",
+      "phone": "Phone",
+      "phone_placeholder": "+49 151 75011699",
+      "optional": "optional",
+      "field": {
+        "label": "What’s your field?",
+        "options": {
+          "dental": "Dental",
+          "beauty": "Beauty & Aesthetics",
+          "longevity": "Longevity",
+          "pharmacy": "Pharmacy",
+          "other": "Other"
+        },
+        "hints": {
+          "dental": "Strong choice — Vitamin D & CRP right at the chair are the implantology classics.",
+          "beauty": "Great — CRP & vitamin panels are the aesthetics staples for skin and recovery.",
+          "longevity": "Perfect — HbA1c, CRP & vitamin D are the longevity baseline markers.",
+          "pharmacy": "Smart — fast CRP & vitamin D testing turns walk-ins into repeat customers.",
+          "other": "Tell us your setup — we’ll map the right point-of-care panel for you."
+        }
+      },
+      "field_required": "Please pick your field so we can prepare the right panel.",
+      "prepare_label": "Anything we should prepare?",
+      "prepare_placeholder": "Which biomarkers make you curious — CRP, TSH, HbA1c?",
+      "consent": "I agree that my details may be stored for contacting me and for follow-up questions for up to 12 months. See our",
+      "privacy_link": "privacy policy",
+      "submit": {
+        "consultation": "Book my consultation",
+        "quote": "Request my quote",
+        "product": "Send my question",
+        "support": "Get support",
+        "other": "Send my message"
+      },
+      "sending": "Sending…",
+      "microcopy": "Less than 2 minutes — promised. Reply within 24 h, then a concrete next step.",
+      "success": "Thank you! Your message has been sent — we’ll get back to you within 24 h.",
+      "error": "Something went wrong. Please check your details or try again in a moment."
     },
-    "info": {
-      "title": "Contact Information",
-      "text": "Our team will contact you within one business day. For urgent inquiries, please use the phone number below.",
-      "email_label": "EMAIL (24/7 Service)",
-      "phone_label": "PHONE (Priority Line)"
-    },
-    "bottom_cta": {
-      "title": "Looking for professional & trusted medical care?",
-      "text": "Do not hesitate to contact us. Our coordinators are ready to help you choose the right doctor and time."
-    },
-    "call_us_button": "Call us",
-    "call_us_text": "Call us",
-    "collapse_button": "Close"
+    "trust": {
+      "direct": "Prefer direct contact?",
+      "rating": "4.9",
+      "reviews": "250+ practice reviews"
+    }
   },
   "seo": {
     "title": "Contact & Book an IglooPro Demo Appointment",

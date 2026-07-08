@@ -6,6 +6,10 @@ export interface ContactFormData {
   phone?: string
   area?: string
   requirements?: string
+  /** Intent pill — e.g. consultation / quote / support. */
+  intent?: string
+  /** Field pill — e.g. dental / beauty / longevity. */
+  field?: string
   /** Explicit DSGVO consent — must be true. */
   consent?: boolean
   /** Honeypot — must stay empty (humans don't see it). */

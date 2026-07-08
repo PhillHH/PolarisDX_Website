@@ -1,57 +1,69 @@
 import { useState } from 'react'
 import { sendContactEmail, type ContactFormData } from '../api/contact'
 
+export interface ContactSubmission {
+  intent: string
+  intentLabel: string
+  name: string
+  company: string
+  email: string
+  phone: string
+  field: string
+  fieldLabel: string
+  requirements: string
+  consent: boolean
+  /** Honeypot — forwarded raw so the server can drop bot submissions. */
+  _hp: string
+}
+
 interface UseContactFormReturn {
   isSubmitting: boolean
   submitStatus: 'idle' | 'success' | 'error'
-  submit: (formData: FormData) => Promise<boolean>
+  submit: (submission: ContactSubmission) => Promise<boolean>
 }
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export const useContactForm = (): UseContactFormReturn => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
-  const submit = async (formData: FormData) => {
+  const submit = async (s: ContactSubmission) => {
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
-    const company = formData.get('company')
-    const name = formData.get('name')
-    const phone = formData.get('phone')
-    const email = formData.get('email')
-    const area = formData.get('area')
-    const requirements = formData.get('requirements')
-    const consent = formData.get('consent')
-    const hp = formData.get('_hp')
-
-    // Basic validation
-    if (
-      typeof company !== 'string' ||
-      typeof name !== 'string' ||
-      typeof phone !== 'string' ||
-      typeof email !== 'string' ||
-      typeof area !== 'string' ||
-      typeof requirements !== 'string' ||
-      !consent
-    ) {
-      console.error('Invalid form data types')
+    // Client-side gate: name, valid email and explicit consent are mandatory.
+    if (s.name.length < 2 || !EMAIL_RE.test(s.email) || !s.consent) {
       setSubmitStatus('error')
       setIsSubmitting(false)
       return false
     }
 
+    // Compose a single rich message so the recipient sees intent + field even
+    // though the server only renders the `message` body. `message` is always
+    // non-empty (intent + field), which also satisfies the server's required
+    // `message` check when the optional details are left blank.
+    const message = [
+      `Anliegen: ${s.intentLabel}`,
+      `Bereich: ${s.fieldLabel || '-'}`,
+      '',
+      s.requirements || '(keine weiteren Angaben)',
+    ].join('\n')
+
     const data: ContactFormData = {
-      company,
-      name,
-      phone,
-      email,
-      area,
-      requirements,
-      message: requirements,
+      name: s.name,
+      email: s.email,
+      company: s.company,
+      phone: s.phone,
+      area: s.fieldLabel || s.field || '-',
+      requirements: s.requirements,
+      message,
       // Consent is required + validated above, so it is always true when sent.
       consent: true,
-      // Honeypot — forwarded raw so the server can drop bot submissions.
-      _hp: typeof hp === 'string' ? hp : '',
+      _hp: s._hp,
+      // Extra structured context — the server safely ignores unknown fields.
+      intent: s.intent,
+      field: s.field,
     }
 
     try {
@@ -60,10 +72,9 @@ export const useContactForm = (): UseContactFormReturn => {
       if (success) {
         setSubmitStatus('success')
         return true
-      } else {
-        setSubmitStatus('error')
-        return false
       }
+      setSubmitStatus('error')
+      return false
     } catch (error) {
       console.error('Submission error:', error)
       setSubmitStatus('error')

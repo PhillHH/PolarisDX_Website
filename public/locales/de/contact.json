@@ -1,51 +1,82 @@
 {
   "contact": {
     "hero": {
-      "kicker": "TERMIN VEREINBAREN",
-      "title": "Termin vereinbaren",
-      "breadcrumb": "Home / Kontakt"
+      "kicker": "KONTAKT",
+      "title": "Sprechen wir.",
+      "subtitle": "Beratung, Angebot oder Support — ein Formular, zwei Minuten, eine echte Antwort innerhalb von 24 h.",
+      "breadcrumb": "Kontakt",
+      "chips": {
+        "free": "Kostenlos & unverbindlich",
+        "fast": "Antwort in 24 h",
+        "time": "15 Min."
+      }
     },
     "form": {
-      "title": "Termin buchen",
-      "email": "E-Mail",
-      "phone": "Telefon",
-      "specialty": "Medizinische Fachrichtung wählen",
-      "doctor": "Arzt wählen",
-      "any_doctor": "Jeder verfügbare Arzt",
-      "date": "Datum & Uhrzeit wählen",
-      "name": "Name",
-      "name_placeholder": "Ihr voller Name",
-      "phone_placeholder": "+49 151 75011699",
-      "email_placeholder": "sie@beispiel.de",
-      "message": "Nachricht",
-      "message_placeholder": "Erzählen Sie uns mehr über Ihr Anliegen...",
-      "submit": "Termin vereinbaren",
-      "company_label": "Name des Unternehmens / der Praxis",
-      "company_placeholder": "z.B. Praxis Dr. Müller oder Löwen-Apotheke",
-      "area_label": "Primärer Einsatzbereich",
-      "area_options": {
-        "pharmacy": "Apotheke",
-        "practice": "Arztpraxis/Klinik",
-        "vet": "Veterinärmedizin",
-        "lab": "Forschung/Labor",
-        "other": "Sonstiges"
+      "progress": {
+        "start": "Los geht’s — nur ein paar Felder",
+        "going": "Sieht gut aus — noch {{count}}",
+        "almost": "Fast geschafft — noch 1",
+        "done": "Alles bereit — abschicken"
       },
-      "requirements_label": "Ihre spezifischen Anforderungen an IglooPro",
-      "requirements_placeholder": "Welche Biomarker (z.B. CRP, TSH, HbA1c) sind für Sie primär relevant?"
+      "intent": {
+        "label": "Worum geht es?",
+        "options": {
+          "consultation": "Beratung",
+          "quote": "Angebot",
+          "product": "Produktfrage",
+          "support": "Support",
+          "other": "Etwas anderes"
+        }
+      },
+      "who": "An wen dürfen wir uns wenden?",
+      "name": "Ihr Name",
+      "name_placeholder": "Dr. Anna Weber",
+      "company_label": "Praxis / Unternehmen",
+      "company_placeholder": "z. B. Praxis Dr. Müller oder Löwen-Apotheke",
+      "email": "E-Mail",
+      "email_placeholder": "sie@beispiel.de",
+      "phone": "Telefon",
+      "phone_placeholder": "+49 151 75011699",
+      "optional": "optional",
+      "field": {
+        "label": "Was ist Ihr Bereich?",
+        "options": {
+          "dental": "Dental",
+          "beauty": "Beauty & Ästhetik",
+          "longevity": "Longevity",
+          "pharmacy": "Apotheke",
+          "other": "Sonstiges"
+        },
+        "hints": {
+          "dental": "Starke Wahl — Vitamin D & CRP direkt am Stuhl sind die Klassiker der Implantologie.",
+          "beauty": "Sehr gut — CRP & Vitamin-Panels sind die Ästhetik-Basics für Haut und Regeneration.",
+          "longevity": "Perfekt — HbA1c, CRP & Vitamin D sind die Basiswerte für Longevity.",
+          "pharmacy": "Clever — schnelle CRP- & Vitamin-D-Tests machen aus Laufkundschaft Stammkunden.",
+          "other": "Erzählen Sie uns Ihr Setup — wir stellen das passende Point-of-Care-Panel zusammen."
+        }
+      },
+      "field_required": "Bitte wählen Sie Ihren Bereich, damit wir das richtige Panel vorbereiten.",
+      "prepare_label": "Sollen wir etwas vorbereiten?",
+      "prepare_placeholder": "Welche Biomarker interessieren Sie — CRP, TSH, HbA1c?",
+      "consent": "Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und für Rückfragen bis zu 12 Monate gespeichert werden. Siehe unsere",
+      "privacy_link": "Datenschutzerklärung",
+      "submit": {
+        "consultation": "Beratung buchen",
+        "quote": "Angebot anfordern",
+        "product": "Frage senden",
+        "support": "Support erhalten",
+        "other": "Nachricht senden"
+      },
+      "sending": "Senden…",
+      "microcopy": "Unter 2 Minuten — versprochen. Antwort in 24 h, dann ein konkreter nächster Schritt.",
+      "success": "Vielen Dank! Ihre Nachricht wurde gesendet — wir melden uns innerhalb von 24 h.",
+      "error": "Etwas ist schiefgelaufen. Bitte prüfen Sie Ihre Angaben oder versuchen Sie es gleich erneut."
     },
-    "info": {
-      "title": "Kontaktinformationen",
-      "text": "Unser Team wird sich innerhalb eines Arbeitstages bei Ihnen melden. Für dringende Fragen nutzen Sie bitte die untenstehende Telefonnummer.",
-      "email_label": "EMAIL (24/7 Service)",
-      "phone_label": "PHONE (Priority-Line)"
-    },
-    "bottom_cta": {
-      "title": "Suchen Sie professionelle & vertrauenswürdige medizinische Versorgung?",
-      "text": "Zögern Sie nicht, uns zu kontaktieren. Unsere Koordinatoren helfen Ihnen gerne bei der Wahl des richtigen Arztes und Zeitpunkts."
-    },
-    "call_us_button": "Rufen Sie uns an",
-    "call_us_text": "Rufen Sie uns an",
-    "collapse_button": "Schließen"
+    "trust": {
+      "direct": "Lieber direkter Kontakt?",
+      "rating": "4,9",
+      "reviews": "250+ Praxis-Bewertungen"
+    }
   },
   "seo": {
     "title": "Kontakt & Demo-Termin zum IglooPro vereinbaren",
