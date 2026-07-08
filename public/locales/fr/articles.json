@@ -164,7 +164,25 @@
     "caption": "Latest Posts",
     "subtitle": "Insights, news, and expert knowledge on modern diagnostics and health.",
     "title": "Our Magazine",
-    "heading": "Explore Our Articles"
+    "heading": "Explore Our Articles",
+    "featured": "À la une",
+    "featured_title": "Vitamine D3 et implantologie — données probantes et guide pratique",
+    "featured_excerpt": "Comment un taux optimal de vitamine D favorise l'ostéo-intégration et réduit la perte d'implants. Fondé sur la science, avec des recommandations pratiques.",
+    "featured_cta": "Lire l'article",
+    "hero_primary_cta": "Réserver un conseil",
+    "hero_secondary_cta": "Découvrir les diagnostics",
+    "stat_articles_label": "Articles d'experts",
+    "stat_topics_label": "Domaines thématiques",
+    "stat_languages_label": "Langues",
+    "vc_biomarker_label": "Biomarqueurs",
+    "vc_time_label": "jusqu'au résultat",
+    "vc_precision_label": "Précision",
+    "browse_caption": "Thèmes du magazine",
+    "featured_tags": [
+      "25-OH vitamine D",
+      "Ostéo-intégration",
+      "Recommandation S3"
+    ]
   },
   "five_minute_diagnosis": {
     "excerpt": "Time is money – especially in practice. An economic analysis of why the IGLO-PRO is more profitable than the central lab.",
@@ -485,5 +503,11 @@
   "seo": {
     "index_title": "Magazine spécialisé : diagnostic POC et savoir du labo de cabinet",
     "index_description": "Des articles spécialisés fondés sur le diagnostic au point d'intervention, les tests au fauteuil et le labo de cabinet – pour dentistes, médecins et personnel soignant. Du ROI à la pratique."
+  },
+  "detail": {
+    "vc_readtime_label": "Temps de lecture",
+    "vc_category_label": "Catégorie",
+    "vc_date_label": "Publié",
+    "primary_cta": "Réserver un conseil"
   }
 }

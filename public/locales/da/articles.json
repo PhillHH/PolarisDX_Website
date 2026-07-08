@@ -164,7 +164,25 @@
     "caption": "Latest Posts",
     "subtitle": "Insights, news, and expert knowledge on modern diagnostics and health.",
     "title": "Our Magazine",
-    "heading": "Explore Our Articles"
+    "heading": "Explore Our Articles",
+    "featured": "Fremhævet",
+    "featured_title": "D3-vitamin og implantologi — evidens og en praksisguide",
+    "featured_excerpt": "Hvordan et optimalt D-vitaminniveau støtter osseointegration og reducerer implantattab. Videnskabeligt funderet med praktiske anbefalinger.",
+    "featured_cta": "Læs artiklen",
+    "hero_primary_cta": "Book en rådgivning",
+    "hero_secondary_cta": "Udforsk diagnostik",
+    "stat_articles_label": "Fagartikler",
+    "stat_topics_label": "Emneområder",
+    "stat_languages_label": "Sprog",
+    "vc_biomarker_label": "Biomarkører",
+    "vc_time_label": "til resultat",
+    "vc_precision_label": "Præcision",
+    "browse_caption": "Emner i magasinet",
+    "featured_tags": [
+      "25-OH D-vitamin",
+      "Osseointegration",
+      "S3-retningslinje"
+    ]
   },
   "five_minute_diagnosis": {
     "excerpt": "Time is money – especially in practice. An economic analysis of why the IGLO-PRO is more profitable than the central lab.",
@@ -485,5 +503,11 @@
   "seo": {
     "index_title": "Fagmagasin: POC-diagnostik & viden om kliniklaboratorier",
     "index_description": "Fund, fagartikler om point-of-care-diagnostik, chairside-test og kliniklaboratorier – til tandlæger, læger og fagpersonale. Fra ROI til vitamin D3 i praksis."
+  },
+  "detail": {
+    "vc_readtime_label": "Læsetid",
+    "vc_category_label": "Kategori",
+    "vc_date_label": "Udgivet",
+    "primary_cta": "Book en rådgivning"
   }
 }

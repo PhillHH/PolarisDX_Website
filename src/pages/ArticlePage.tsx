@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { Newspaper } from 'lucide-react'
 import { SEOHead, createArticleSchema, createBreadcrumbSchema } from '../components/seo'
 import { Button } from '../components/ui/Button'
 import PageTransition from '../components/ui/PageTransition'
@@ -112,9 +113,9 @@ const ArticlePage = () => {
     switch (sType) {
       case 'table':
         return (
-          <section key={index} className="space-y-4 overflow-x-auto">
+          <section key={index} className="scroll-mt-28 space-y-4 overflow-x-auto">
             {section.heading && (
-              <h2 className="text-xl font-medium tracking-tight text-heading lg:text-2xl">
+              <h2 className="text-2xl font-medium tracking-tight text-heading lg:text-3xl">
                 {section.heading}
               </h2>
             )}
@@ -161,9 +162,9 @@ const ArticlePage = () => {
         )
       case 'key_points':
         return (
-          <section key={index} className="space-y-6">
+          <section key={index} className="scroll-mt-28 space-y-6">
             {section.heading && (
-              <h2 className="text-xl font-medium tracking-tight text-heading lg:text-2xl">
+              <h2 className="text-2xl font-medium tracking-tight text-heading lg:text-3xl">
                 {section.heading}
               </h2>
             )}
@@ -171,7 +172,7 @@ const ArticlePage = () => {
               {(section as KeyPointsSection).points.map((point, pIndex) => (
                 <div
                   key={pIndex}
-                  className="rounded-xl border border-slate-200 bg-white p-7"
+                  className="rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:shadow-card"
                 >
                   <h4 className="mb-2 font-medium text-heading">{point.title}</h4>
                   <p className="text-sm leading-relaxed text-gray-700">{point.description}</p>
@@ -185,22 +186,31 @@ const ArticlePage = () => {
         // Default text rendering
         const textSection = section as TextSection
         return (
-          <section key={index} className="space-y-4">
+          <section key={index} className="scroll-mt-28 space-y-5">
             {textSection.heading && (
-              <h2 className="text-xl font-medium tracking-tight text-heading lg:text-2xl">
+              <h2 className="text-2xl font-medium tracking-tight text-heading lg:text-3xl">
                 {textSection.heading}
               </h2>
             )}
             {textSection.paragraphs &&
               textSection.paragraphs.map((paragraph, pIndex) => (
-                <p key={pIndex} className="text-base leading-relaxed text-gray-700">
+                <p key={pIndex} className="text-[17px] leading-[1.8] text-gray-700">
                   {paragraph}
                 </p>
               ))}
             {textSection.listItems && (
-              <ul className="list-disc space-y-2 pl-5 text-base leading-relaxed text-gray-700">
+              <ul className="space-y-2.5">
                 {textSection.listItems.map((item, lIndex) => (
-                  <li key={lIndex}>{item}</li>
+                  <li
+                    key={lIndex}
+                    className="flex gap-3 text-[17px] leading-[1.8] text-gray-700"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="mt-[0.7em] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent"
+                    />
+                    <span>{item}</span>
+                  </li>
                 ))}
               </ul>
             )}
@@ -249,7 +259,17 @@ const ArticlePage = () => {
         eyebrow={t(`common:category.${article.category}`, article.category)}
         title={title}
         subtitle={excerpt}
-        chips={[article.author, article.readTime, article.date]}
+        primaryCta={{ label: t('articles:detail.primary_cta', 'Beratung buchen'), to: '/contact' }}
+        chips={[article.author]}
+        icon={<Newspaper />}
+        valueChips={[
+          { value: article.readTime, label: t('articles:detail.vc_readtime_label', 'Lesezeit') },
+          {
+            value: t(`common:category.${article.category}`, article.category),
+            label: t('articles:detail.vc_category_label', 'Kategorie'),
+          },
+          { value: article.date, label: t('articles:detail.vc_date_label', 'Veröffentlicht') },
+        ]}
       />
       <div className="bg-slate-50">
         <div className="mx-auto flex max-w-container flex-col gap-10 px-4 py-12 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,1.4fr)] lg:items-start lg:gap-12 lg:px-0 lg:py-16">
@@ -265,7 +285,10 @@ const ArticlePage = () => {
                     loading="lazy"
                     className="h-full w-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-brand-primary/20 mix-blend-multiply" />
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-brand-primary/20 mix-blend-multiply"
+                  />
                 </div>
               )}
 

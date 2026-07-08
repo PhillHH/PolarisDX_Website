@@ -431,7 +431,25 @@
     "title": "Nasz Magazyn",
     "subtitle": "Spostrzeżenia, nowości i wiedza ekspercka na temat nowoczesnej diagnostyki i zdrowia.",
     "heading": "Odkryj Nasze Artykuły",
-    "caption": "Najnowsze Wpisy"
+    "caption": "Najnowsze Wpisy",
+    "featured": "Polecane",
+    "featured_title": "Witamina D3 a implantologia — dowody i przewodnik praktyczny",
+    "featured_excerpt": "Jak optymalny poziom witaminy D wspiera osteointegrację i ogranicza utratę implantów. Naukowe podstawy oraz praktyczne zalecenia dla gabinetu.",
+    "featured_cta": "Przeczytaj artykuł",
+    "hero_primary_cta": "Umów konsultację",
+    "hero_secondary_cta": "Poznaj diagnostykę",
+    "stat_articles_label": "Artykuły eksperckie",
+    "stat_topics_label": "Obszary tematyczne",
+    "stat_languages_label": "Języki",
+    "vc_biomarker_label": "Biomarkery",
+    "vc_time_label": "do wyniku",
+    "vc_precision_label": "Precyzja",
+    "browse_caption": "Tematy w magazynie",
+    "featured_tags": [
+      "25-OH witamina D",
+      "Osteointegracja",
+      "Wytyczne S3"
+    ]
   },
   "rapid_setup_formula": {
     "excerpt": "Effizienz statt Einarbeitung: Der Weg zur schnellen Einsatzbereitschaft in der Praxis.",
@@ -485,5 +503,11 @@
   "seo": {
     "index_title": "Magazyn branżowy: diagnostyka POC i wiedza o laboratorium w gabinecie",
     "index_description": "Rzetelne artykuły branżowe o diagnostyce POC, testach przy fotelu i laboratorium w gabinecie – dla stomatologów, lekarzy i personelu medycznego. Od ROI po praktykę witaminy D3."
+  },
+  "detail": {
+    "vc_readtime_label": "Czas czytania",
+    "vc_category_label": "Kategoria",
+    "vc_date_label": "Opublikowano",
+    "primary_cta": "Umów konsultację"
   }
 }

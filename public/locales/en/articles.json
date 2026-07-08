@@ -431,7 +431,25 @@
     "title": "Our Magazine",
     "subtitle": "Insights, news, and expert knowledge on modern diagnostics and health.",
     "heading": "Explore Our Articles",
-    "caption": "Latest Posts"
+    "caption": "Latest Posts",
+    "featured": "Featured",
+    "featured_title": "Vitamin D3 and Implantology — Evidence and a Practical Guide",
+    "featured_excerpt": "How an optimal vitamin D level supports osseointegration and reduces implant loss. Scientifically grounded, with practical recommendations for your workflow.",
+    "featured_cta": "Read the article",
+    "hero_primary_cta": "Book a consultation",
+    "hero_secondary_cta": "Explore diagnostics",
+    "stat_articles_label": "Expert articles",
+    "stat_topics_label": "Topic areas",
+    "stat_languages_label": "Languages",
+    "vc_biomarker_label": "Biomarkers",
+    "vc_time_label": "to result",
+    "vc_precision_label": "Precision",
+    "browse_caption": "Topics in the magazine",
+    "featured_tags": [
+      "25-OH Vitamin D",
+      "Osseointegration",
+      "S3 Guideline"
+    ]
   },
   "rapid_setup_formula": {
     "excerpt": "Efficiency over onboarding: the path to rapid operational readiness in the practice.",
@@ -485,5 +503,11 @@
   "seo": {
     "index_title": "Magazine: Point-of-Care Diagnostics Insights",
     "index_description": "Expert articles on point-of-care diagnostics, chairside testing and in-practice labs for dentists, physicians and medical staff. From ROI to clinical practice guides."
+  },
+  "detail": {
+    "vc_readtime_label": "Reading time",
+    "vc_category_label": "Category",
+    "vc_date_label": "Published",
+    "primary_cta": "Book a consultation"
   }
 }

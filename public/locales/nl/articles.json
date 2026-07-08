@@ -164,7 +164,25 @@
     "caption": "Latest Posts",
     "subtitle": "Insights, news, and expert knowledge on modern diagnostics and health.",
     "title": "Our Magazine",
-    "heading": "Explore Our Articles"
+    "heading": "Explore Our Articles",
+    "featured": "Uitgelicht",
+    "featured_title": "Vitamine D3 en implantologie — bewijs en een praktijkgids",
+    "featured_excerpt": "Hoe een optimaal vitamine D-niveau osseo-integratie ondersteunt en implantaatverlies vermindert. Wetenschappelijk onderbouwd, met praktische aanbevelingen.",
+    "featured_cta": "Lees het artikel",
+    "hero_primary_cta": "Adviesgesprek boeken",
+    "hero_secondary_cta": "Diagnostiek ontdekken",
+    "stat_articles_label": "Vakartikelen",
+    "stat_topics_label": "Themagebieden",
+    "stat_languages_label": "Talen",
+    "vc_biomarker_label": "Biomarkers",
+    "vc_time_label": "tot resultaat",
+    "vc_precision_label": "Precisie",
+    "browse_caption": "Onderwerpen in het magazine",
+    "featured_tags": [
+      "25-OH vitamine D",
+      "Osseo-integratie",
+      "S3-richtlijn"
+    ]
   },
   "five_minute_diagnosis": {
     "excerpt": "Time is money – especially in practice. An economic analysis of why the IGLO-PRO is more profitable than the central lab.",
@@ -485,5 +503,11 @@
   "seo": {
     "index_title": "Vakblad: POC-diagnostiek & kennis praktijklab",
     "index_description": "Gefundeerde vakartikelen over point-of-care-diagnostiek, chairside-tests en praktijklab – voor tandartsen, artsen en vakpersoneel. Van ROI tot vitamine D3-praktijk."
+  },
+  "detail": {
+    "vc_readtime_label": "Leestijd",
+    "vc_category_label": "Categorie",
+    "vc_date_label": "Gepubliceerd",
+    "primary_cta": "Adviesgesprek boeken"
   }
 }

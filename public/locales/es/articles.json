@@ -431,7 +431,25 @@
     "title": "Nuestra Revista",
     "subtitle": "Perspectivas, noticias y conocimiento experto sobre diagnósticos modernos y salud.",
     "heading": "Explore Nuestros Artículos",
-    "caption": "Últimas Publicaciones"
+    "caption": "Últimas Publicaciones",
+    "featured": "Destacado",
+    "featured_title": "Vitamina D3 e implantología — evidencia y guía práctica",
+    "featured_excerpt": "Cómo un nivel óptimo de vitamina D favorece la osteointegración y reduce la pérdida de implantes. Con base científica y recomendaciones prácticas.",
+    "featured_cta": "Leer el artículo",
+    "hero_primary_cta": "Reservar una consulta",
+    "hero_secondary_cta": "Descubrir diagnósticos",
+    "stat_articles_label": "Artículos expertos",
+    "stat_topics_label": "Áreas temáticas",
+    "stat_languages_label": "Idiomas",
+    "vc_biomarker_label": "Biomarcadores",
+    "vc_time_label": "hasta el resultado",
+    "vc_precision_label": "Precisión",
+    "browse_caption": "Temas de la revista",
+    "featured_tags": [
+      "25-OH vitamina D",
+      "Osteointegración",
+      "Guía S3"
+    ]
   },
   "rapid_setup_formula": {
     "excerpt": "Effizienz statt Einarbeitung: Der Weg zur schnellen Einsatzbereitschaft in der Praxis.",
@@ -485,5 +503,11 @@
   "seo": {
     "index_title": "Revista especializada: diagnóstico POC y laboratorio en consulta",
     "index_description": "Artículos especializados sobre diagnóstico point-of-care, pruebas junto al sillón y laboratorio en consulta para dentistas, médicos y personal sanitario. Del ROI a la práctica clínica."
+  },
+  "detail": {
+    "vc_readtime_label": "Tiempo de lectura",
+    "vc_category_label": "Categoría",
+    "vc_date_label": "Publicado",
+    "primary_cta": "Reservar una consulta"
   }
 }

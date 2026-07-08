@@ -431,7 +431,25 @@
     "title": "La Nostra Rivista",
     "subtitle": "Approfondimenti, notizie e conoscenze esperte sulla diagnostica moderna e la salute.",
     "heading": "Esplora i Nostri Articoli",
-    "caption": "Ultimi Post"
+    "caption": "Ultimi Post",
+    "featured": "In evidenza",
+    "featured_title": "Vitamina D3 e implantologia — evidenze e guida pratica",
+    "featured_excerpt": "Come un livello ottimale di vitamina D favorisce l'osteointegrazione e riduce la perdita di impianti. Basato sull'evidenza, con raccomandazioni pratiche.",
+    "featured_cta": "Leggi l'articolo",
+    "hero_primary_cta": "Prenota una consulenza",
+    "hero_secondary_cta": "Scopri la diagnostica",
+    "stat_articles_label": "Articoli specialistici",
+    "stat_topics_label": "Aree tematiche",
+    "stat_languages_label": "Lingue",
+    "vc_biomarker_label": "Biomarcatori",
+    "vc_time_label": "al risultato",
+    "vc_precision_label": "Precisione",
+    "browse_caption": "Temi della rivista",
+    "featured_tags": [
+      "25-OH vitamina D",
+      "Osteointegrazione",
+      "Linea guida S3"
+    ]
   },
   "rapid_setup_formula": {
     "excerpt": "Effizienz statt Einarbeitung: Der Weg zur schnellen Einsatzbereitschaft in der Praxis.",
@@ -485,5 +503,11 @@
   "seo": {
     "index_title": "Magazine: diagnostica POC e know-how per il lab in studio",
     "index_description": "Articoli specialistici approfonditi su diagnostica point-of-care, test chairside e laboratorio in studio, per odontoiatri, medici e personale sanitario. Dal ROI alla pratica clinica."
+  },
+  "detail": {
+    "vc_readtime_label": "Tempo di lettura",
+    "vc_category_label": "Categoria",
+    "vc_date_label": "Pubblicato",
+    "primary_cta": "Prenota una consulenza"
   }
 }

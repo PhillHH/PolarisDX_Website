@@ -164,7 +164,25 @@
     "caption": "Latest Posts",
     "subtitle": "Insights, news, and expert knowledge on modern diagnostics and health.",
     "title": "Our Magazine",
-    "heading": "Explore Our Articles"
+    "heading": "Explore Our Articles",
+    "featured": "Destaque",
+    "featured_title": "Vitamina D3 e implantologia — evidências e guia prático",
+    "featured_excerpt": "Como um nível ideal de vitamina D favorece a osteointegração e reduz a perda de implantes. Com base científica e recomendações práticas.",
+    "featured_cta": "Ler o artigo",
+    "hero_primary_cta": "Agendar consulta",
+    "hero_secondary_cta": "Explorar diagnósticos",
+    "stat_articles_label": "Artigos técnicos",
+    "stat_topics_label": "Áreas temáticas",
+    "stat_languages_label": "Idiomas",
+    "vc_biomarker_label": "Biomarcadores",
+    "vc_time_label": "até ao resultado",
+    "vc_precision_label": "Precisão",
+    "browse_caption": "Temas da revista",
+    "featured_tags": [
+      "25-OH vitamina D",
+      "Osteointegração",
+      "Diretriz S3"
+    ]
   },
   "five_minute_diagnosis": {
     "excerpt": "Time is money – especially in practice. An economic analysis of why the IGLO-PRO is more profitable than the central lab.",
@@ -485,5 +503,11 @@
   "seo": {
     "index_title": "Revista técnica: diagnóstico POC e laboratório de consultório",
     "index_description": "Artigos técnicos fundamentados sobre diagnóstico point-of-care, testes no consultório e laboratório de prática — para médicos dentistas, médicos e profissionais. Do ROI à prática clínica."
+  },
+  "detail": {
+    "vc_readtime_label": "Tempo de leitura",
+    "vc_category_label": "Categoria",
+    "vc_date_label": "Publicado",
+    "primary_cta": "Agendar consulta"
   }
 }

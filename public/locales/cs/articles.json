@@ -431,7 +431,25 @@
     "title": "Náš magazín",
     "subtitle": "Postřehy, novinky a odborné znalosti o moderní diagnostice a zdraví.",
     "heading": "Prozkoumejte naše články",
-    "caption": "Nejnovější příspěvky"
+    "caption": "Nejnovější příspěvky",
+    "featured": "Doporučené",
+    "featured_title": "Vitamin D3 a implantologie — důkazy a praktický průvodce",
+    "featured_excerpt": "Jak optimální hladina vitaminu D podporuje oseointegraci a snižuje ztráty implantátů. Vědecky podložené, s praktickými doporučeními.",
+    "featured_cta": "Přečíst článek",
+    "hero_primary_cta": "Objednat konzultaci",
+    "hero_secondary_cta": "Prozkoumat diagnostiku",
+    "stat_articles_label": "Odborné články",
+    "stat_topics_label": "Tematické oblasti",
+    "stat_languages_label": "Jazyky",
+    "vc_biomarker_label": "Biomarkery",
+    "vc_time_label": "do výsledku",
+    "vc_precision_label": "Přesnost",
+    "browse_caption": "Témata v magazínu",
+    "featured_tags": [
+      "25-OH vitamin D",
+      "Oseointegrace",
+      "Směrnice S3"
+    ]
   },
   "rapid_setup_formula": {
     "excerpt": "Effizienz statt Einarbeitung: Der Weg zur schnellen Einsatzbereitschaft in der Praxis.",
@@ -485,5 +503,11 @@
   "seo": {
     "index_title": "Odborný magazín: POC diagnostika a znalosti praxe",
     "index_description": "Fundované odborné články o diagnostice v místě péče, testech u křesla a praktické laboratoři – pro zubní lékaře, lékaře a odborný personál. Od ROI po praxi vitaminu D3."
+  },
+  "detail": {
+    "vc_readtime_label": "Doba čtení",
+    "vc_category_label": "Kategorie",
+    "vc_date_label": "Publikováno",
+    "primary_cta": "Objednat konzultaci"
   }
 }

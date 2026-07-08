@@ -480,10 +480,34 @@
     "title": "Unser Magazin",
     "subtitle": "Einblicke, Neuigkeiten und Expertenwissen zu moderner Diagnostik und Gesundheit.",
     "heading": "Entdecken Sie unsere Artikel",
-    "caption": "Neueste Beiträge"
+    "caption": "Neueste Beiträge",
+    "featured": "Empfohlen",
+    "featured_title": "Vitamin D3 und Implantologie — Evidenz und Praxisleitfaden",
+    "featured_excerpt": "Wie ein optimaler Vitamin-D-Spiegel die Osseointegration fördert und Implantatverluste reduziert. Wissenschaftlich fundiert mit praktischen Handlungsempfehlungen.",
+    "featured_cta": "Fachartikel lesen",
+    "hero_primary_cta": "Beratung buchen",
+    "hero_secondary_cta": "Diagnostik entdecken",
+    "stat_articles_label": "Fachbeiträge",
+    "stat_topics_label": "Themenfelder",
+    "stat_languages_label": "Sprachen",
+    "vc_biomarker_label": "Biomarker",
+    "vc_time_label": "bis Ergebnis",
+    "vc_precision_label": "Präzision",
+    "browse_caption": "Themen im Magazin",
+    "featured_tags": [
+      "25-OH Vitamin D",
+      "Osseointegration",
+      "S3-Leitlinie"
+    ]
   },
   "seo": {
     "index_title": "Fachmagazin: POC-Diagnostik & Praxislabor-Wissen",
     "index_description": "Fundierte Fachartikel zu Point-of-Care-Diagnostik, Chairside-Tests und Praxislabor – für Zahnärzte, Ärzte und Fachpersonal. Von ROI bis Vitamin-D3-Praxis."
+  },
+  "detail": {
+    "vc_readtime_label": "Lesezeit",
+    "vc_category_label": "Kategorie",
+    "vc_date_label": "Veröffentlicht",
+    "primary_cta": "Beratung buchen"
   }
 }
