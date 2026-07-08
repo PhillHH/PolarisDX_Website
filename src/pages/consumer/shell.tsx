@@ -21,6 +21,7 @@ import { Link } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 
 import Reveal from '../../components/ui/Reveal'
+import ImagePlaceholder from '../../components/ui/ImagePlaceholder'
 import { trackConsumerCtaClick, type ConsumerPage } from './tracking'
 import { useOrderModal } from './OrderModal'
 import logoWhite from '../../assets/polaris_white.webp'
@@ -332,9 +333,10 @@ export function Hero({
                   className="mx-auto block w-full max-w-md rounded-2xl object-cover shadow-[0_20px_50px_rgba(8,51,88,0.18)] lg:max-w-none"
                 />
               ) : (
-                <div className="mx-auto flex aspect-[4/5] w-full max-w-md items-center justify-center rounded-2xl border-2 border-dashed border-teal-300/60 bg-white p-8 text-center text-sm text-gray-500 lg:max-w-none">
-                  Bildplatzhalter — {image?.placeholder ?? image?.alt}
-                </div>
+                <ImagePlaceholder
+                  label={image?.placeholder ?? 'Produktbild'}
+                  className="mx-auto aspect-[4/5] w-full max-w-md rounded-2xl border-teal-300/60 bg-teal-50/40 p-8 text-teal-700 lg:max-w-none"
+                />
               )}
             </div>
           </div>
@@ -544,11 +546,10 @@ export function Steps({ items }: { items: { title: string; body: string }[] }) {
 
 export function ImageArea({ label, className = '' }: { label: string; className?: string }) {
   return (
-    <div
-      className={`flex items-center justify-center rounded-2xl border-2 border-dashed border-teal-300/60 bg-teal-50/40 p-8 text-center text-sm text-gray-500 ${className}`}
-    >
-      Bildplatzhalter — {label}
-    </div>
+    <ImagePlaceholder
+      label={label}
+      className={`rounded-2xl border-teal-300/60 bg-teal-50/40 p-8 text-teal-700 ${className}`}
+    />
   )
 }
 
