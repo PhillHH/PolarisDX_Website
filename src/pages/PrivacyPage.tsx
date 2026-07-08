@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { ShieldCheck } from 'lucide-react'
 import { SEOHead } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import LegalLayout from '../components/layout/LegalLayout'
@@ -26,6 +27,15 @@ const PrivacyPage = () => {
         ]}
         eyebrow={t('eyebrow', 'Rechtliches')}
         title={t('privacy.title')}
+        subtitle={t('privacy.subtitle', '')}
+        icon={<ShieldCheck />}
+        valueChips={[
+          {
+            value: t('privacy.hero.gdprValue', 'DSGVO'),
+            label: t('privacy.hero.gdprLabel', 'konform'),
+          },
+          { value: t('privacy.hero.euValue', 'EU'), label: t('privacy.hero.euLabel', 'Hosting') },
+        ]}
       >
         <section>
           <h2 className={headingClass}>{t('privacy.section1.title')}</h2>

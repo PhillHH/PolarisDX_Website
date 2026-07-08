@@ -1,6 +1,7 @@
 {
   "eyebrow": "Legal",
   "imprint": {
+    "subtitle": "Legal information and contact details of Polaris Diagnostics Europe GmbH.",
     "title": "Imprint",
     "section1": {
       "title": "Information according to § 5 TMG",
@@ -74,9 +75,16 @@
     "seo": {
       "title": "Legal Notice (Imprint) – Polaris Diagnostics",
       "description": "Legal notice for PolarisDX: Polaris Diagnostics Europe GmbH (Hamburg & London), company representation, register entry, VAT ID and contact details."
+    },
+    "hero": {
+      "hqCity": "Hamburg",
+      "hqLabel": "HQ",
+      "officeCity": "London",
+      "officeLabel": "Office"
     }
   },
   "privacy": {
+    "subtitle": "How we collect, process and protect personal data.",
     "title": "Privacy Policy",
     "section1": {
       "title": "1. Data Protection at a Glance",
@@ -135,12 +143,19 @@
     "seo": {
       "title": "Privacy Policy – GDPR Compliant",
       "description": "PolarisDX privacy policy under GDPR: what personal data is collected when you visit the site and use the contact form, who is responsible and how long it is stored."
+    },
+    "hero": {
+      "gdprValue": "GDPR",
+      "gdprLabel": "compliant",
+      "euValue": "EU",
+      "euLabel": "Hosting"
     }
   },
   "agb": {
     "title": "General Terms and Conditions",
     "subtitle": "Polaris Diagnostics Europe GmbH | In-vitro Diagnostics | Medical Devices | Software & Cloud Services",
     "date": "As of: December 2025",
+    "tocLabel": "Table of Contents",
     "sections": [
       {
         "id": "section-1",
@@ -409,6 +424,11 @@
     "seo": {
       "title": "Terms & Conditions – Diagnostics & Software",
       "description": "General terms and conditions of Polaris Diagnostics Europe GmbH for in-vitro diagnostics, medical devices and software/cloud services: contracts, pricing, liability."
+    },
+    "hero": {
+      "paragraphsLabel": "Sections",
+      "scopeValue": "B2B",
+      "scopeLabel": "Business clients"
     }
   }
 }

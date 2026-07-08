@@ -12,6 +12,7 @@ interface AgbSection {
 const TermsPage = () => {
   const { t } = useTranslation(['legal', 'common'])
   const sections = t('agb.sections', { returnObjects: true }) as AgbSection[]
+  const sectionCount = Array.isArray(sections) ? sections.length : 0
 
   return (
     <PageTransition>
@@ -32,7 +33,42 @@ const TermsPage = () => {
         title={t('agb.title')}
         subtitle={t('agb.subtitle')}
         meta={t('agb.date')}
+        valueChips={[
+          {
+            value: sectionCount > 0 ? String(sectionCount) : '—',
+            label: t('agb.hero.paragraphsLabel', 'Paragraphen'),
+          },
+          {
+            value: t('agb.hero.scopeValue', 'B2B'),
+            label: t('agb.hero.scopeLabel', 'Geschäftskunden'),
+          },
+        ]}
       >
+        {sectionCount > 1 && (
+          <nav
+            aria-label={t('agb.tocLabel', 'Inhaltsübersicht')}
+            className="rounded-xl border border-slate-200 bg-slate-50 p-6 sm:p-7"
+          >
+            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-heading">
+              {t('agb.tocLabel', 'Inhaltsübersicht')}
+            </p>
+            <ol className="grid gap-x-8 gap-y-2 sm:grid-cols-2">
+              {sections.map((section) => (
+                <li key={section.id}>
+                  <a
+                    href={`#${section.id}`}
+                    className="inline-flex items-start gap-2 rounded text-sm leading-snug text-gray-700 transition-colors hover:text-accent focus-visible:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                  >
+                    <span aria-hidden className="text-accent">
+                      →
+                    </span>
+                    <span>{section.title}</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        )}
         {Array.isArray(sections) &&
           sections.map((section) => (
             <section key={section.id} id={section.id} className="scroll-mt-32">

@@ -1,6 +1,7 @@
 {
   "eyebrow": "Informations légales",
   "imprint": {
+    "subtitle": "Mentions légales et coordonnées de Polaris Diagnostics Europe GmbH.",
     "title": "Mentions Légales",
     "section1": {
       "title": "Informations selon le § 5 TMG",
@@ -74,9 +75,16 @@
     "seo": {
       "title": "Mentions légales – Polaris Diagnostics Europe GmbH",
       "description": "Mentions légales de PolarisDX selon le § 5 DDG : Polaris Diagnostics Europe GmbH (Hambourg & Londres), représentation, inscription au registre, n° de TVA et coordonnées."
+    },
+    "hero": {
+      "hqCity": "Hamburg",
+      "hqLabel": "Siège",
+      "officeCity": "London",
+      "officeLabel": "Bureau"
     }
   },
   "privacy": {
+    "subtitle": "Comment nous collectons, traitons et protégeons les données personnelles.",
     "title": "Politique de Confidentialité",
     "section1": {
       "title": "1. Protection des données en un coup d'œil",
@@ -135,12 +143,19 @@
     "seo": {
       "title": "Politique de confidentialité – conforme au RGPD",
       "description": "Politique de confidentialité de PolarisDX selon le RGPD : quelles données personnelles sont collectées lors de la visite du site et via le formulaire de contact – et de quelle manière."
+    },
+    "hero": {
+      "gdprValue": "RGPD",
+      "gdprLabel": "conforme",
+      "euValue": "EU",
+      "euLabel": "Hébergement"
     }
   },
   "agb": {
     "title": "Conditions Générales de Vente",
     "subtitle": "Polaris Diagnostics Europe GmbH | Diagnostic In-vitro | Dispositifs Médicaux | Logiciels & Services Cloud",
     "date": "État : Décembre 2025",
+    "tocLabel": "Sommaire",
     "sections": [
       {
         "id": "section-1",
@@ -409,6 +424,11 @@
     "seo": {
       "title": "CGV – diagnostic in vitro, dispositifs médicaux & logiciels",
       "description": "Conditions générales de vente de Polaris Diagnostics Europe GmbH pour le diagnostic, les dispositifs médicaux et les logiciels/cloud : conclusion du contrat, prix, livraison, responsabilité."
+    },
+    "hero": {
+      "paragraphsLabel": "Articles",
+      "scopeValue": "B2B",
+      "scopeLabel": "Clients professionnels"
     }
   }
 }

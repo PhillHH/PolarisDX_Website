@@ -1,6 +1,7 @@
 {
   "eyebrow": "Juridische informatie",
   "imprint": {
+    "subtitle": "Wettelijke informatie en contactgegevens van Polaris Diagnostics Europe GmbH.",
     "title": "Colofon",
     "section1": {
       "title": "Informatie volgens § 5 TMG",
@@ -74,9 +75,16 @@
     "seo": {
       "title": "Colofon – Polaris Diagnostics Europe GmbH",
       "description": "Colofon van PolarisDX conform § 5 DDG: Polaris Diagnostics Europe GmbH (Hamburg & Londen), vertegenwoordiging, registerinschrijving, btw-id en contactgegevens."
+    },
+    "hero": {
+      "hqCity": "Hamburg",
+      "hqLabel": "Hoofdkantoor",
+      "officeCity": "London",
+      "officeLabel": "Kantoor"
     }
   },
   "privacy": {
+    "subtitle": "Hoe wij persoonsgegevens verzamelen, verwerken en beschermen.",
     "title": "Privacyverklaring",
     "section1": {
       "title": "1. Gegevensbescherming in één oogopslag",
@@ -135,12 +143,19 @@
     "seo": {
       "title": "Privacyverklaring – AVG-conform",
       "description": "Privacyverklaring van PolarisDX conform de AVG: welke persoonsgegevens bij het bezoek van de website en via het contactformulier worden verzameld – en hoe."
+    },
+    "hero": {
+      "gdprValue": "AVG",
+      "gdprLabel": "conform",
+      "euValue": "EU",
+      "euLabel": "Hosting"
     }
   },
   "agb": {
     "title": "Algemene Voorwaarden",
     "subtitle": "Polaris Diagnostics Europe GmbH | In-vitro-diagnostiek | Medische hulpmiddelen | Software & Cloud-diensten",
     "date": "Status: December 2025",
+    "tocLabel": "Inhoudsopgave",
     "sections": [
       {
         "id": "section-1",
@@ -409,6 +424,11 @@
     "seo": {
       "title": "Algemene voorwaarden – in-vitrodiagnostiek, medische hulpmiddelen & software",
       "description": "Algemene voorwaarden van Polaris Diagnostics Europe GmbH voor diagnostiek, medische hulpmiddelen en software/cloud: contractsluiting, prijzen, levering, aansprakelijkheid."
+    },
+    "hero": {
+      "paragraphsLabel": "Paragrafen",
+      "scopeValue": "B2B",
+      "scopeLabel": "Zakelijke klanten"
     }
   }
 }

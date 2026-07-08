@@ -1,6 +1,7 @@
 {
   "eyebrow": "Právní informace",
   "imprint": {
+    "subtitle": "Právní informace a kontaktní údaje společnosti Polaris Diagnostics Europe GmbH.",
     "title": "Tiráž",
     "section1": {
       "title": "Informace podle § 5 TMG",
@@ -74,9 +75,16 @@
     "seo": {
       "title": "Tiráž – Polaris Diagnostics Europe GmbH",
       "description": "Tiráž PolarisDX dle § 5 DDG: Polaris Diagnostics Europe GmbH (Hamburk a Londýn), zastoupení, zápis v rejstříku, DIČ a kontaktní údaje."
+    },
+    "hero": {
+      "hqCity": "Hamburg",
+      "hqLabel": "Sídlo",
+      "officeCity": "London",
+      "officeLabel": "Kancelář"
     }
   },
   "privacy": {
+    "subtitle": "Jak shromažďujeme, zpracováváme a chráníme osobní údaje.",
     "title": "Prohlášení o ochraně osobních údajů",
     "section1": {
       "title": "1. Ochrana údajů na první pohled",
@@ -135,12 +143,19 @@
     "seo": {
       "title": "Zásady ochrany osobních údajů – v souladu s GDPR",
       "description": "Zásady ochrany osobních údajů PolarisDX dle GDPR: jaké osobní údaje jsou shromažďovány při návštěvě webu a přes kontaktní formulář – a jakým způsobem."
+    },
+    "hero": {
+      "gdprValue": "GDPR",
+      "gdprLabel": "v souladu",
+      "euValue": "EU",
+      "euLabel": "Hosting"
     }
   },
   "agb": {
     "title": "Všeobecné obchodní podmínky",
     "subtitle": "Polaris Diagnostics Europe GmbH | In-vitro diagnostika | Zdravotnické prostředky | Software a cloudové služby",
     "date": "Stav: Prosinec 2025",
+    "tocLabel": "Obsah",
     "sections": [
       {
         "id": "section-1",
@@ -409,6 +424,11 @@
     "seo": {
       "title": "Obchodní podmínky – diagnostika, zdravotnické prostředky a software",
       "description": "Všeobecné obchodní podmínky Polaris Diagnostics Europe GmbH pro diagnostiku, zdravotnické prostředky a software/cloud: uzavření smlouvy, ceny, dodání, odpovědnost."
+    },
+    "hero": {
+      "paragraphsLabel": "Paragrafy",
+      "scopeValue": "B2B",
+      "scopeLabel": "Firemní zákazníci"
     }
   }
 }

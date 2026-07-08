@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Home, ArrowLeft, Search, FileQuestion } from 'lucide-react'
+import { Home, Microscope, Activity, Mail } from 'lucide-react'
 import { SEOHead } from '../components/seo'
 import { Button } from '../components/ui/Button'
 import PageTransition from '../components/ui/PageTransition'
@@ -11,9 +11,9 @@ const NotFoundPage = () => {
 
   const popularPages = [
     { name: t('notFound.links.home', 'Startseite'), path: '/', icon: Home },
-    { name: t('notFound.links.iglooPro', 'IglooPro'), path: '/igloo-pro', icon: Search },
-    { name: t('notFound.links.services', 'Services'), path: '/diagnostics', icon: FileQuestion },
-    { name: t('notFound.links.contact', 'Kontakt'), path: '/contact', icon: ArrowLeft },
+    { name: t('notFound.links.iglooPro', 'IglooPro'), path: '/igloo-pro', icon: Microscope },
+    { name: t('notFound.links.services', 'Services'), path: '/diagnostics', icon: Activity },
+    { name: t('notFound.links.contact', 'Kontakt'), path: '/contact', icon: Mail },
   ]
 
   return (

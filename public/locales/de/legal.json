@@ -2,6 +2,7 @@
   "eyebrow": "Rechtliches",
   "imprint": {
     "title": "Impressum",
+    "subtitle": "Rechtliche Angaben und Kontaktdaten der Polaris Diagnostics Europe GmbH.",
     "section1": {
       "title": "Angaben gemäß § 5 TMG",
       "london": {
@@ -74,10 +75,17 @@
     "seo": {
       "title": "Impressum – Polaris Diagnostics Europe GmbH",
       "description": "Impressum von PolarisDX nach § 5 DDG: Polaris Diagnostics Europe GmbH (Hamburg & London), Vertretung, Registereintrag, USt-ID und Kontaktdaten."
+    },
+    "hero": {
+      "hqCity": "Hamburg",
+      "hqLabel": "Sitz",
+      "officeCity": "London",
+      "officeLabel": "Büro"
     }
   },
   "privacy": {
     "title": "Datenschutzerklärung",
+    "subtitle": "Wie wir personenbezogene Daten erheben, verarbeiten und schützen.",
     "section1": {
       "title": "1. Datenschutz auf einen Blick",
       "general": {
@@ -135,12 +143,19 @@
     "seo": {
       "title": "Datenschutzerklärung – DSGVO-konform",
       "description": "Datenschutzerklärung von PolarisDX nach DSGVO: Welche personenbezogenen Daten beim Besuch der Website und über das Kontaktformular erhoben werden – und wie."
+    },
+    "hero": {
+      "gdprValue": "DSGVO",
+      "gdprLabel": "konform",
+      "euValue": "EU",
+      "euLabel": "Hosting"
     }
   },
   "agb": {
     "title": "Allgemeine Geschäftsbedingungen",
     "subtitle": "Polaris Diagnostics Europe GmbH | In-vitro-Diagnostik | Medizinprodukte | Software & Cloud-Dienste",
     "date": "Stand: Dezember 2025",
+    "tocLabel": "Inhaltsübersicht",
     "sections": [
       {
         "id": "section-1",
@@ -409,6 +424,11 @@
     "seo": {
       "title": "AGB – In-vitro-Diagnostik, Medizinprodukte & Software",
       "description": "Allgemeine Geschäftsbedingungen der Polaris Diagnostics Europe GmbH für Diagnostik, Medizinprodukte und Software/Cloud: Vertragsschluss, Preise, Lieferung, Haftung."
+    },
+    "hero": {
+      "paragraphsLabel": "Paragraphen",
+      "scopeValue": "B2B",
+      "scopeLabel": "Geschäftskunden"
     }
   }
 }

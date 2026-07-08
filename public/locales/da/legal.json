@@ -1,6 +1,7 @@
 {
   "eyebrow": "Juridisk information",
   "imprint": {
+    "subtitle": "Juridiske oplysninger og kontaktinformation for Polaris Diagnostics Europe GmbH.",
     "title": "Impressum",
     "section1": {
       "title": "Oplysninger i henhold til § 5 TMG",
@@ -74,9 +75,16 @@
     "seo": {
       "title": "Kolofon – Polaris Diagnostics Europe GmbH",
       "description": "Kolofon for PolarisDX: Polaris Diagnostics Europe GmbH (Hamborg & London), repræsentation, registreringsoplysninger, momsnummer og kontaktoplysninger."
+    },
+    "hero": {
+      "hqCity": "Hamburg",
+      "hqLabel": "Hovedsæde",
+      "officeCity": "London",
+      "officeLabel": "Kontor"
     }
   },
   "privacy": {
+    "subtitle": "Hvordan vi indsamler, behandler og beskytter personoplysninger.",
     "title": "Privatlivspolitik",
     "section1": {
       "title": "1. Databeskyttelse i overblik",
@@ -135,12 +143,19 @@
     "seo": {
       "title": "Privatlivspolitik – i overensstemmelse med GDPR",
       "description": "PolarisDX' privatlivspolitik efter GDPR: Hvilke personoplysninger der indsamles ved besøg på websitet og via kontaktformularen – og hvordan de behandles."
+    },
+    "hero": {
+      "gdprValue": "GDPR",
+      "gdprLabel": "overholdt",
+      "euValue": "EU",
+      "euLabel": "Hosting"
     }
   },
   "agb": {
     "title": "Generelle forretningsbetingelser",
     "subtitle": "Polaris Diagnostics Europe GmbH | In-vitro-diagnostik | Medicinsk udstyr | Software & Cloud-tjenester",
     "date": "Status: December 2025",
+    "tocLabel": "Indholdsfortegnelse",
     "sections": [
       {
         "id": "section-1",
@@ -409,6 +424,11 @@
     "seo": {
       "title": "Handelsbetingelser – in vitro-diagnostik, medicinsk udstyr & software",
       "description": "Handelsbetingelser for Polaris Diagnostics Europe GmbH for diagnostik, medicinsk udstyr og software/cloud: aftaleindgåelse, priser, levering og ansvar."
+    },
+    "hero": {
+      "paragraphsLabel": "Paragraffer",
+      "scopeValue": "B2B",
+      "scopeLabel": "Erhvervskunder"
     }
   }
 }

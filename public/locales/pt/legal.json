@@ -1,6 +1,7 @@
 {
   "eyebrow": "Informação legal",
   "imprint": {
+    "subtitle": "Informações legais e dados de contacto da Polaris Diagnostics Europe GmbH.",
     "title": "Ficha Técnica",
     "section1": {
       "title": "Informações de acordo com § 5 TMG",
@@ -74,9 +75,16 @@
     "seo": {
       "title": "Ficha técnica — Polaris Diagnostics Europe GmbH",
       "description": "Ficha técnica legal da PolarisDX: Polaris Diagnostics Europe GmbH (Hamburgo e Londres), representação da empresa, registo comercial, NIF e dados de contacto."
+    },
+    "hero": {
+      "hqCity": "Hamburg",
+      "hqLabel": "Sede",
+      "officeCity": "London",
+      "officeLabel": "Escritório"
     }
   },
   "privacy": {
+    "subtitle": "Como recolhemos, tratamos e protegemos os dados pessoais.",
     "title": "Política de Privacidade",
     "section1": {
       "title": "1. Proteção de dados em resumo",
@@ -135,12 +143,19 @@
     "seo": {
       "title": "Política de privacidade — conforme o RGPD",
       "description": "Política de privacidade da PolarisDX ao abrigo do RGPD: que dados pessoais são recolhidos ao visitar o site e através do formulário de contacto, por quem e durante quanto tempo."
+    },
+    "hero": {
+      "gdprValue": "RGPD",
+      "gdprLabel": "conforme",
+      "euValue": "EU",
+      "euLabel": "Alojamento"
     }
   },
   "agb": {
     "title": "Termos e Condições Gerais",
     "subtitle": "Polaris Diagnostics Europe GmbH | Diagnóstico In-vitro | Dispositivos Médicos | Software e Serviços em Nuvem",
     "date": "Status: Dezembro 2025",
+    "tocLabel": "Índice",
     "sections": [
       {
         "id": "section-1",
@@ -409,6 +424,11 @@
     "seo": {
       "title": "Condições gerais — diagnóstico, dispositivos médicos e software",
       "description": "Condições gerais da Polaris Diagnostics Europe GmbH para diagnóstico in vitro, dispositivos médicos e software/cloud: celebração de contratos, preços, entrega e responsabilidade."
+    },
+    "hero": {
+      "paragraphsLabel": "Cláusulas",
+      "scopeValue": "B2B",
+      "scopeLabel": "Clientes empresariais"
     }
   }
 }

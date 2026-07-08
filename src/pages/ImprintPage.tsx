@@ -49,6 +49,14 @@ const ImprintPage = () => {
         ]}
         eyebrow={t('eyebrow', 'Rechtliches')}
         title={t('imprint.title')}
+        subtitle={t('imprint.subtitle', '')}
+        valueChips={[
+          { value: t('imprint.hero.hqCity', 'Hamburg'), label: t('imprint.hero.hqLabel', 'Sitz') },
+          {
+            value: t('imprint.hero.officeCity', 'London'),
+            label: t('imprint.hero.officeLabel', 'Büro'),
+          },
+        ]}
       >
         <section>
           <h2 className={headingClass}>{t('imprint.section1.title')}</h2>

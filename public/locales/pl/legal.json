@@ -1,6 +1,7 @@
 {
   "eyebrow": "Informacje prawne",
   "imprint": {
+    "subtitle": "Informacje prawne i dane kontaktowe Polaris Diagnostics Europe GmbH.",
     "title": "Impressum",
     "section1": {
       "title": "Informacje zgodnie z § 5 TMG",
@@ -74,9 +75,16 @@
     "seo": {
       "title": "Nota prawna – Polaris Diagnostics Europe GmbH",
       "description": "Nota prawna PolarisDX wg § 5 DDG: Polaris Diagnostics Europe GmbH (Hamburg i Londyn), reprezentacja, wpis do rejestru, numer VAT oraz dane kontaktowe."
+    },
+    "hero": {
+      "hqCity": "Hamburg",
+      "hqLabel": "Siedziba",
+      "officeCity": "London",
+      "officeLabel": "Biuro"
     }
   },
   "privacy": {
+    "subtitle": "Jak gromadzimy, przetwarzamy i chronimy dane osobowe.",
     "title": "Polityka prywatności",
     "section1": {
       "title": "1. Ochrona danych w skrócie",
@@ -135,12 +143,19 @@
     "seo": {
       "title": "Polityka prywatności – zgodna z RODO",
       "description": "Polityka prywatności PolarisDX zgodna z RODO: jakie dane osobowe są zbierane podczas wizyty na stronie oraz za pośrednictwem formularza kontaktowego – i w jaki sposób."
+    },
+    "hero": {
+      "gdprValue": "RODO",
+      "gdprLabel": "zgodność",
+      "euValue": "EU",
+      "euLabel": "Hosting"
     }
   },
   "agb": {
     "title": "Ogólne Warunki Handlowe",
     "subtitle": "Polaris Diagnostics Europe GmbH | Diagnostyka In-vitro | Wyroby Medyczne | Oprogramowanie i Usługi w Chmurze",
     "date": "Stan: Grudzień 2025",
+    "tocLabel": "Spis treści",
     "sections": [
       {
         "id": "section-1",
@@ -409,6 +424,11 @@
     "seo": {
       "title": "Regulamin – diagnostyka in vitro, wyroby medyczne i oprogramowanie",
       "description": "Ogólne warunki handlowe Polaris Diagnostics Europe GmbH dla diagnostyki, wyrobów medycznych i oprogramowania/chmury: zawarcie umowy, ceny, dostawa, odpowiedzialność."
+    },
+    "hero": {
+      "paragraphsLabel": "Paragrafy",
+      "scopeValue": "B2B",
+      "scopeLabel": "Klienci biznesowi"
     }
   }
 }
