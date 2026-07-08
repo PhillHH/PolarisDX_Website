@@ -573,7 +573,7 @@
         "vitd_name": "Vitamin D",
         "vitd_val": "34 ng/ml",
         "time_val": "2:47",
-        "time_label": "Min. bis Ergebnis",
+        "time_label": "min hasta el resultado",
         "crp_name": "CRP",
         "crp_val": "< 5 mg/l"
       }
@@ -661,6 +661,18 @@
           "Offene Plattform"
         ]
       }
+    },
+    "page": {
+      "intro_eyebrow": "Resumen",
+      "biomarkers_label": "Biomarcadores relevantes",
+      "sections_eyebrow": "En detalle",
+      "conclusion_eyebrow": "Conclusión",
+      "stats": [
+        { "value": "< 2 %", "label": "Coeficiente de variación (CV)" },
+        { "value": "3–15 min", "label": "hasta el resultado" },
+        { "value": "10+", "label": "biomarcadores en un solo dispositivo" },
+        { "value": "IVDR/CE", "label": "certificado y conforme" }
+      ]
     }
   }
 }

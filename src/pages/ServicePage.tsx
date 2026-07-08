@@ -18,6 +18,7 @@ import Reveal from '../components/ui/Reveal'
 import PageSidebar, { type SidebarWidget } from '../components/sections/PageSidebar'
 import SubpageHero from '../components/sections/SubpageHero'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
+import TrustBar from '../components/sections/TrustBar'
 
 // Helper function to render text with internal links
 // Supports syntax: [[link text|/path]]
@@ -53,6 +54,11 @@ const renderTextWithLinks = (text: string) => {
   return parts.length > 0 ? parts : text
 }
 
+// Strip a leading enumerator ("1. ", "2) " …) from a heading so it can be paired
+// with the rendered number badge without duplicating the count. Display-only —
+// the underlying i18n content is never mutated.
+const stripLeadingNumber = (heading: string) => heading.replace(/^\s*\d+\s*[.)]\s*/, '')
+
 type ServiceSection = {
   heading?: string
   content?: string
@@ -62,6 +68,23 @@ type ServiceSection = {
 type ServiceConclusion = {
   heading?: string
   text?: string
+}
+
+type PageStat = { value: string; label: string }
+
+// Slug → i18n path of the (already-translated) biomarker/feature tag list shown
+// as chips under the intro. Reuses the overview tags so no new per-slug strings
+// are required, and stays fully data-driven for all nine diagnostics slugs.
+const biomarkerTagKeys: Record<string, string> = {
+  dental: 'services:overview.specialty.dental.tags',
+  beauty: 'services:overview.specialty.beauty.tags',
+  longevity: 'services:overview.specialty.longevity.tags',
+  'poc-systemloesungen': 'services:overview.focus.poc.tags',
+  'praeventions-checks': 'services:overview.focus.checks.tags',
+  'infektion-entzuendung': 'services:overview.focus.infection.tags',
+  'stoffwechsel-herz': 'services:overview.focus.metabolism.tags',
+  'hormon-tests': 'services:overview.focus.hormone.tags',
+  'kompatibilitaet-integration': 'services:overview.focus.compat.tags',
 }
 
 // Slug-based SEO overrides for optimized titles & descriptions
@@ -116,6 +139,19 @@ const ServicePage = () => {
   const richContent =
     typeof richContentRaw === 'string' && richContentRaw.length > 10 ? richContentRaw : ''
   const hasRichContent = !!richContent
+
+  // Shared microcopy for the data-driven layout (labels only, no domain content).
+  const pageStatsRaw = t('services:overview.page.stats', { returnObjects: true, defaultValue: [] })
+  const pageStats: PageStat[] = Array.isArray(pageStatsRaw) ? (pageStatsRaw as PageStat[]) : []
+
+  // Biomarker / feature chips (reuse existing translated overview tags).
+  const biomarkerKey = service.id ? biomarkerTagKeys[service.id] : undefined
+  const biomarkerRaw = biomarkerKey ? t(biomarkerKey, { returnObjects: true, defaultValue: [] }) : []
+  const biomarkerTags: string[] = Array.isArray(biomarkerRaw) ? (biomarkerRaw as string[]) : []
+
+  const hasIntro = Array.isArray(intro) && intro.length > 0
+  const hasSections = Array.isArray(sections) && sections.length > 0
+  const hasConclusion = !!(conclusion?.heading || conclusion?.text)
 
   // Load FAQ data (graceful fallback: no FAQ rendered if data missing)
   const faqItemsRaw = t(`services:${transKey}.faq.items`, { returnObjects: true })
@@ -190,82 +226,154 @@ const ServicePage = () => {
           },
         ]}
       />
+
+      <TrustBar />
+
       <div className="bg-slate-50">
         <div className="mx-auto flex max-w-container flex-col gap-10 px-4 py-12 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,1.4fr)] lg:items-start lg:gap-12 lg:px-0 lg:py-16">
           {/* Main Content */}
           <article className="space-y-10 text-gray-700">
-            <Reveal width="100%">
-              {hasRichContent ? (
-                /* Rich HTML pillar-page content (dental) */
+            {hasRichContent ? (
+              /* Rich HTML pillar-page content (dental) — kept as-is */
+              <Reveal width="100%">
                 <div className="rich-content" dangerouslySetInnerHTML={{ __html: richContent }} />
-              ) : (
-                <div className="space-y-8">
-                  {/* Intro */}
-                  {Array.isArray(intro) && intro.length > 0 && (
-                    <div className="space-y-4">
-                      {intro.map((paragraph, index) => (
-                        <p
-                          key={index}
-                          className={
-                            index === 0
-                              ? 'text-lg leading-relaxed text-gray-700'
-                              : 'leading-relaxed text-gray-700'
-                          }
-                        >
-                          {paragraph}
-                        </p>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Detailed Sections */}
-                  {Array.isArray(sections) &&
-                    sections.map((section, index) => (
-                      <section key={index} className="space-y-4">
-                        {section.heading && (
-                          <h2 className="text-2xl font-medium tracking-tight text-heading">
-                            {section.heading}
-                          </h2>
-                        )}
-                        {section.content && (
-                          <p className="leading-relaxed text-gray-700">{section.content}</p>
-                        )}
-                        {section.listItems && (
-                          <ul className="space-y-2.5">
-                            {section.listItems.map((item, lIndex) => (
-                              <li key={lIndex} className="flex gap-3 leading-relaxed text-gray-700">
-                                <Check
-                                  className="mt-1 h-4 w-4 flex-shrink-0 text-accent"
-                                  aria-hidden
-                                />
-                                <span>{renderTextWithLinks(item)}</span>
-                              </li>
+              </Reveal>
+            ) : (
+              <>
+                {/* Intro + biomarker chips + proof stats */}
+                {(hasIntro || pageStats.length > 0) && (
+                  <Reveal width="100%">
+                    <div className="space-y-8">
+                      {hasIntro && (
+                        <div>
+                          <span className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
+                            {t('services:overview.page.intro_eyebrow', 'Überblick')}
+                          </span>
+                          <div className="mt-4 space-y-4">
+                            {intro.map((paragraph, index) => (
+                              <p
+                                key={index}
+                                className={
+                                  index === 0
+                                    ? 'text-lg leading-relaxed text-gray-700'
+                                    : 'leading-relaxed text-gray-700'
+                                }
+                              >
+                                {paragraph}
+                              </p>
                             ))}
-                          </ul>
-                        )}
-                      </section>
-                    ))}
+                          </div>
 
-                  {/* Conclusion */}
-                  {(conclusion?.heading || conclusion?.text) && (
-                    <div className="rounded-2xl border border-accent/15 bg-accent/5 p-6">
+                          {biomarkerTags.length > 0 && (
+                            <div className="mt-6">
+                              <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                                {t('services:overview.page.biomarkers_label', 'Relevante Biomarker')}
+                              </p>
+                              <div className="mt-2 flex flex-wrap gap-2">
+                                {biomarkerTags.map((tag) => (
+                                  <span
+                                    key={tag}
+                                    className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent"
+                                  >
+                                    {tag}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      {pageStats.length > 0 && (
+                        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-slate-200 bg-slate-200 sm:grid-cols-4">
+                          {pageStats.map((stat) => (
+                            <div key={stat.label} className="bg-white p-5 text-center">
+                              <div className="text-2xl font-medium tracking-tight text-heading lg:text-3xl">
+                                {stat.value}
+                              </div>
+                              <div className="mt-1 text-xs leading-snug text-gray-500">
+                                {stat.label}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </Reveal>
+                )}
+
+                {/* Detailed sections → rich cards with teal-check lists */}
+                {hasSections && (
+                  <div className="space-y-6">
+                    <span className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
+                      {t('services:overview.page.sections_eyebrow', 'Im Detail')}
+                    </span>
+                    {sections.map((section, index) => (
+                      <Reveal key={index} width="100%" delay={0.05 * index}>
+                        <section className="rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:shadow-card lg:p-8">
+                          {section.heading && (
+                            <div className="flex items-start gap-4">
+                              <span className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-base font-semibold text-accent">
+                                {String(index + 1).padStart(2, '0')}
+                              </span>
+                              <h2 className="mt-1 text-xl font-medium tracking-tight text-heading lg:text-2xl">
+                                {stripLeadingNumber(section.heading)}
+                              </h2>
+                            </div>
+                          )}
+                          {section.content && (
+                            <p className="mt-4 leading-relaxed text-gray-700">{section.content}</p>
+                          )}
+                          {section.listItems && section.listItems.length > 0 && (
+                            <ul className="mt-5 space-y-3">
+                              {section.listItems.map((item, lIndex) => (
+                                <li
+                                  key={lIndex}
+                                  className="flex gap-3 leading-relaxed text-gray-700"
+                                >
+                                  <span className="mt-0.5 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-accent/10">
+                                    <Check className="h-3 w-3 text-accent" aria-hidden />
+                                  </span>
+                                  <span>{renderTextWithLinks(item)}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </section>
+                      </Reveal>
+                    ))}
+                  </div>
+                )}
+
+                {/* Conclusion → teal-tint highlight */}
+                {hasConclusion && (
+                  <Reveal width="100%">
+                    <div className="rounded-2xl border border-accent/20 bg-accent/5 p-7 lg:p-8">
+                      <span className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
+                        {t('services:overview.page.conclusion_eyebrow', 'Fazit')}
+                      </span>
                       {conclusion.heading && (
-                        <h3 className="mb-2 font-semibold text-heading">{conclusion.heading}</h3>
+                        <h3 className="mt-4 text-xl font-medium tracking-tight text-heading">
+                          {conclusion.heading}
+                        </h3>
                       )}
                       {conclusion.text && (
-                        <p className="leading-relaxed text-gray-700">{conclusion.text}</p>
+                        <p className="mt-2 leading-relaxed text-gray-700">{conclusion.text}</p>
                       )}
                     </div>
-                  )}
-                </div>
-              )}
-            </Reveal>
+                  </Reveal>
+                )}
+              </>
+            )}
 
             {/* Mid-Page Teal CTA-Band */}
             <div className="flex flex-col gap-4 rounded-2xl bg-accent p-6 text-white md:flex-row md:items-center md:justify-between lg:p-8">
               <div>
                 <p className="font-medium">
-                  {t('home:igloo_widget.help_title', 'Nicht sicher, welcher Test zu Ihrer Praxis passt?')}
+                  {t(
+                    'home:igloo_widget.help_title',
+                    'Nicht sicher, welcher Test zu Ihrer Praxis passt?',
+                  )}
                 </p>
                 <p className="text-sm text-white/85">
                   {t(
@@ -276,7 +384,7 @@ const ServicePage = () => {
               </div>
               <Link
                 to="/contact"
-                className="whitespace-nowrap rounded-md bg-white px-5 py-3 font-medium text-brand-deep"
+                className="whitespace-nowrap rounded-md bg-white px-5 py-3 font-medium text-brand-deep transition hover:bg-white/90"
               >
                 {t('home:igloo_widget.help_cta', 'Beratung buchen')}
               </Link>

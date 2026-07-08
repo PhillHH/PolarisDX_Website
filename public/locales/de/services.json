@@ -661,6 +661,18 @@
           "Offene Plattform"
         ]
       }
+    },
+    "page": {
+      "intro_eyebrow": "Überblick",
+      "biomarkers_label": "Relevante Biomarker",
+      "sections_eyebrow": "Im Detail",
+      "conclusion_eyebrow": "Fazit",
+      "stats": [
+        { "value": "< 2 %", "label": "Variationskoeffizient (CV)" },
+        { "value": "3–15 Min.", "label": "bis zum Ergebnis" },
+        { "value": "10+", "label": "Biomarker aus einem Gerät" },
+        { "value": "IVDR/CE", "label": "zertifiziert & konform" }
+      ]
     }
   }
 }
