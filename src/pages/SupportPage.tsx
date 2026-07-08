@@ -1,14 +1,32 @@
 import { Link } from 'react-router-dom'
-import SectionHeader from '../components/ui/SectionHeader'
 import { useTranslation } from 'react-i18next'
+import { LifeBuoy, Mail, Phone, Download, Package, ArrowRight } from 'lucide-react'
 import { SEOHead, localBusinessSchema, createBreadcrumbSchema } from '../components/seo'
-import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
+import SubpageHero from '../components/sections/SubpageHero'
 import { SupportForm } from '../components/sections/SupportForm'
 
 const SupportPage = () => {
-  const { t } = useTranslation('support')
+  const { t } = useTranslation(['support', 'common'])
+
+  const helpfulLinks = [
+    {
+      to: '/downloads',
+      label: t('support.sidebar_links.downloads', 'Downloads & Dokumentation'),
+      icon: <Download className="h-5 w-5" />,
+    },
+    {
+      to: '/contact',
+      label: t('support.sidebar_links.contact', 'Allgemeine Kontaktanfrage'),
+      icon: <Mail className="h-5 w-5" />,
+    },
+    {
+      to: '/igloo-pro',
+      label: t('support.sidebar_links.igloo', 'IglooPro System'),
+      icon: <Package className="h-5 w-5" />,
+    },
+  ]
 
   return (
     <PageTransition>
@@ -32,69 +50,59 @@ const SupportPage = () => {
           ]),
         ]}
       />
-      <div className="bg-slate-50 text-gray-900">
-        {/* Hero */}
-        <section className="relative overflow-hidden bg-brand-primary text-white">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
 
-          <div className="relative mx-auto flex min-h-[340px] max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
-            <Reveal width="100%" yOffset={20}>
-              <div className="max-w-container">
-                <Breadcrumbs
-                  variant="dark"
-                  className="mb-4"
-                  items={[{ label: 'Home', href: '/' }, { label: t('support.hero.title') }]}
-                />
-                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
-                  {t('support.hero.kicker')}
-                </p>
-                <h1 className="mb-3 text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
-                  {t('support.hero.title')}
-                </h1>
-              </div>
-            </Reveal>
-          </div>
-        </section>
+      <SubpageHero
+        breadcrumbs={[
+          { label: t('common:nav.home', 'Home'), href: '/' },
+          { label: t('support.hero.title') },
+        ]}
+        eyebrow={t('support.hero.kicker')}
+        title={t('support.hero.title')}
+        subtitle={t('support.hero.subtitle')}
+        chips={[
+          t('support.hero.chips.response'),
+          t('support.hero.chips.channels'),
+          t('support.hero.chips.attach'),
+        ]}
+        icon={<LifeBuoy />}
+      />
 
-        {/* Form + Info */}
-        <div className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,2.1fr)_minmax(0,1.3fr)] lg:items-start">
-            {/* Form Card */}
+      <div className="bg-slate-50">
+        <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,2.1fr)_minmax(0,1.3fr)] lg:items-start lg:gap-12">
+            {/* Form card — the page's single, clear conversion */}
             <Reveal width="100%">
-              <section className="space-y-6 rounded-2xl bg-white p-6 shadow-sm lg:p-8">
-                <SectionHeader
-                  caption={t('support.hero.kicker')}
-                  title={t('support.hero.title')}
-                  align="left"
-                />
-
-                <p className="text-sm leading-relaxed text-gray-600">{t('support.intro')}</p>
+              <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card sm:p-8 lg:p-10">
+                <p className="text-base leading-relaxed text-gray-700">{t('support.intro')}</p>
 
                 {/* Contact channels */}
-                <div className="mt-2 flex flex-col gap-4 text-sm text-gray-600 sm:flex-row sm:gap-8">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-secondary/20 text-brand-secondary">
-                      ✉
+                <div className="mt-6 flex flex-col gap-4 border-t border-slate-100 pt-6 sm:flex-row sm:gap-8">
+                  <a href="mailto:contact@polarisdx.net" className="group flex items-center gap-3">
+                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                      <Mail className="h-5 w-5" />
                     </span>
                     <div>
-                      <p className="text-xs font-medium uppercase tracking-[0.16em] text-gray-500">
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">
                         {t('support.info.email_label')}
                       </p>
-                      <p>contact@polarisdx.net</p>
+                      <p className="text-sm text-gray-700 group-hover:text-accent-strong">
+                        contact@polarisdx.net
+                      </p>
                     </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-secondary/20 text-brand-secondary">
-                      ☎
+                  </a>
+                  <a href="tel:+4915175011699" className="group flex items-center gap-3">
+                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                      <Phone className="h-5 w-5" />
                     </span>
                     <div>
-                      <p className="text-xs font-medium uppercase tracking-[0.16em] text-gray-500">
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">
                         {t('support.info.phone_label')}
                       </p>
-                      <p>+49 151 75011699</p>
+                      <p className="text-sm text-gray-700 group-hover:text-accent-strong">
+                        +49 151 75011699
+                      </p>
                     </div>
-                  </div>
+                  </a>
                 </div>
 
                 <SupportForm />
@@ -102,45 +110,61 @@ const SupportPage = () => {
             </Reveal>
 
             {/* Sidebar */}
-            <aside className="space-y-6">
+            <aside className="lg:sticky lg:top-32">
               <Reveal width="100%" delay={0.2}>
-                <section className="rounded-2xl bg-white p-6 shadow-sm">
-                  <h2 className="text-lg font-semibold tracking-tight text-gray-900">
-                    {t('support.info.title')}
+                {/* Helpful links */}
+                <section className="rounded-xl border border-slate-200 bg-white p-7">
+                  <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-gray-500">
+                    {t('support.sidebar_links.title', 'Hilfreiche Links')}
                   </h2>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-600">
-                    {t('support.info.text')}
-                  </p>
-                  <div className="mt-4 space-y-1 text-sm text-gray-800">
-                    <p>contact@polarisdx.net</p>
-                    <p>+49 151 75011699</p>
-                  </div>
+                  <nav className="mt-4 space-y-2.5">
+                    {helpfulLinks.map((link) => (
+                      <Link
+                        key={link.to}
+                        to={link.to}
+                        className="group flex items-center gap-3 rounded-lg border border-slate-200 p-3 transition hover:border-accent/40 hover:bg-accent/5"
+                      >
+                        <span className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                          {link.icon}
+                        </span>
+                        <span className="flex-1 text-sm font-medium text-heading">{link.label}</span>
+                        <ArrowRight
+                          className="h-4 w-4 flex-shrink-0 text-accent transition-transform group-hover:translate-x-0.5"
+                          aria-hidden
+                        />
+                      </Link>
+                    ))}
+                  </nav>
                 </section>
 
-                <section className="rounded-2xl bg-white p-6 shadow-sm">
-                  <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-gray-500 mb-3">
-                    {t('support.sidebar_links.title', 'Hilfreiche Links')}
+                {/* Support info */}
+                <section className="mt-6 rounded-xl border border-slate-200 bg-white p-7">
+                  <h3 className="text-lg font-medium tracking-tight text-heading">
+                    {t('support.info.title')}
                   </h3>
-                  <nav className="space-y-2">
-                    <Link
-                      to="/downloads"
-                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                  <p className="mt-2 text-sm leading-relaxed text-gray-700">
+                    {t('support.info.text')}
+                  </p>
+                  <div className="mt-4 space-y-3">
+                    <a
+                      href="mailto:contact@polarisdx.net"
+                      className="flex items-center gap-3 text-sm font-medium text-heading hover:text-accent-strong"
                     >
-                      {t('support.sidebar_links.downloads', 'Downloads & Dokumentation')} →
-                    </Link>
-                    <Link
-                      to="/contact"
-                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                      <span className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                        <Mail className="h-4 w-4" />
+                      </span>
+                      contact@polarisdx.net
+                    </a>
+                    <a
+                      href="tel:+4915175011699"
+                      className="flex items-center gap-3 text-sm font-medium text-heading hover:text-accent-strong"
                     >
-                      {t('support.sidebar_links.contact', 'Allgemeine Kontaktanfrage')} →
-                    </Link>
-                    <Link
-                      to="/igloo-pro"
-                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
-                    >
-                      {t('support.sidebar_links.igloo', 'IglooPro System')} →
-                    </Link>
-                  </nav>
+                      <span className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                        <Phone className="h-4 w-4" />
+                      </span>
+                      +49 151 75011699
+                    </a>
+                  </div>
                 </section>
               </Reveal>
             </aside>

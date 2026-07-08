@@ -7,6 +7,12 @@
     "hero": {
       "kicker": "WSPARCIE",
       "title": "Zapytanie do działu wsparcia",
+      "subtitle": "Pomoc techniczna dla Twojego czytnika Igloo Reader i zestawów testowych – bezpośrednio od zespołu wsparcia PolarisDX.",
+      "chips": {
+        "response": "Odpowiedź w ciągu 1 dnia roboczego",
+        "channels": "Wsparcie e-mail i telefoniczne",
+        "attach": "Dołącz zdjęcie i plik dziennika"
+      },
       "breadcrumb": "Strona główna / Wsparcie"
     },
     "intro": "Jeśli masz problemy z czytnikiem Igloo Reader lub zestawami testowymi, skorzystaj z tego formularza. Cenimy Twoją wiadomość i dołożymy wszelkich starań, aby pomóc Ci najszybciej, jak to możliwe. Dołącz krótki opis problemu, a w miarę możliwości także zdjęcie oraz numer seryjny urządzenia.",
@@ -42,7 +48,8 @@
       "submit": "Wyślij",
       "submitting": "Wysyłanie...",
       "success": "Dziękujemy! Twoje zapytanie do działu wsparcia zostało wysłane. Skontaktujemy się z Tobą najszybciej, jak to możliwe.",
-      "error": "Wystąpił błąd. Spróbuj ponownie później."
+      "error": "Wystąpił błąd. Spróbuj ponownie później.",
+      "microcopy": "Zwykle odpowiadamy w ciągu jednego dnia roboczego."
     },
     "info": {
       "title": "Informacje o wsparciu",

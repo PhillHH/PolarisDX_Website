@@ -7,6 +7,12 @@
     "hero": {
       "kicker": "SUPPORT",
       "title": "Supportanmodning",
+      "subtitle": "Teknisk hjælp til din Igloo Reader og dine testkit – direkte fra PolarisDX-supportteamet.",
+      "chips": {
+        "response": "Svar inden for 1 arbejdsdag",
+        "channels": "Support via e-mail og telefon",
+        "attach": "Vedhæft foto og logfil"
+      },
       "breadcrumb": "Home / Support"
     },
     "intro": "Hvis du har problemer med din Igloo Reader eller dine testkit, bedes du bruge denne formular. Vi sætter pris på din henvendelse og gør vores bedste for at hjælpe dig hurtigst muligt. Vedlæg venligst en kort beskrivelse af problemet og, hvis muligt, et foto samt enhedens serienummer.",
@@ -42,7 +48,8 @@
       "submit": "Send",
       "submitting": "Sender...",
       "success": "Mange tak! Din supportanmodning er sendt. Vi vender tilbage til dig hurtigst muligt.",
-      "error": "Der opstod en fejl. Prøv venligst igen senere."
+      "error": "Der opstod en fejl. Prøv venligst igen senere.",
+      "microcopy": "Vi svarer normalt inden for én arbejdsdag."
     },
     "info": {
       "title": "Supportinformation",

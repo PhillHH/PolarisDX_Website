@@ -7,6 +7,12 @@
     "hero": {
       "kicker": "SUPPORTO",
       "title": "Richiesta di supporto",
+      "subtitle": "Assistenza tecnica per il tuo Igloo Reader e i tuoi kit di test – direttamente dal team di supporto PolarisDX.",
+      "chips": {
+        "response": "Risposta entro 1 giorno lavorativo",
+        "channels": "Supporto via e-mail e telefono",
+        "attach": "Allega foto e file di log"
+      },
       "breadcrumb": "Home / Supporto"
     },
     "intro": "Se hai problemi con il tuo Igloo Reader o con i tuoi kit di test, utilizza questo modulo. Diamo valore al tuo messaggio e faremo del nostro meglio per aiutarti nel più breve tempo possibile. Allega una breve descrizione del problema e, se possibile, una foto e il numero di serie del dispositivo.",
@@ -42,7 +48,8 @@
       "submit": "Invia",
       "submitting": "Invio in corso...",
       "success": "Grazie! La tua richiesta di supporto è stata inviata. Ti ricontatteremo nel più breve tempo possibile.",
-      "error": "Si è verificato un errore. Riprova più tardi."
+      "error": "Si è verificato un errore. Riprova più tardi.",
+      "microcopy": "Di solito rispondiamo entro un giorno lavorativo."
     },
     "info": {
       "title": "Informazioni sul supporto",

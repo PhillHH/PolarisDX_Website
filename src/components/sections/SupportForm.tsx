@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button } from '../ui/Button'
 import { Input } from '../ui/Input'
 import { Textarea } from '../ui/Textarea'
 import { Alert } from '../ui/Alert'
@@ -101,7 +100,7 @@ export const SupportForm = () => {
           id="issueType"
           name="issueType"
           required
-          className="flex w-full rounded-md border border-ui-border bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+          className="flex w-full rounded-md border border-ui-border bg-white px-3 py-2 text-sm text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
           defaultValue=""
         >
           <option value="" disabled>
@@ -165,30 +164,30 @@ export const SupportForm = () => {
 
       {submitStatus === 'error' && <Alert variant="destructive">{t('support.form.error')}</Alert>}
 
-      <div className="space-y-4 pt-2">
+      <div className="space-y-5 pt-2">
         <div className="flex items-start gap-3">
-          <div className="flex h-6 items-center">
-            <input
-              id="consent"
-              name="consent"
-              type="checkbox"
-              required
-              className="h-4 w-4 rounded border-gray-300 text-brand-secondary focus:ring-brand-secondary"
-            />
-          </div>
-          <label htmlFor="consent" className="text-sm text-gray-600">
+          <input
+            id="consent"
+            name="consent"
+            type="checkbox"
+            required
+            className="mt-0.5 h-4 w-4 rounded border-gray-300 text-accent focus:ring-accent"
+          />
+          <label htmlFor="consent" className="text-sm leading-relaxed text-gray-600">
             {t('support.form.consent')}
           </label>
         </div>
 
-        <Button
-          type="submit"
-          variant="primary"
-          className="w-full justify-center md:w-auto"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? t('support.form.submitting') : t('support.form.submit')}
-        </Button>
+        <div className="space-y-2">
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="inline-flex w-full items-center justify-center rounded-md bg-accent px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:opacity-60 md:w-auto"
+          >
+            {isSubmitting ? t('support.form.submitting') : t('support.form.submit')}
+          </button>
+          <p className="text-xs text-gray-400">{t('support.form.microcopy')}</p>
+        </div>
       </div>
     </form>
   )

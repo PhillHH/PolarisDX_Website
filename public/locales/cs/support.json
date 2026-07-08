@@ -7,6 +7,12 @@
     "hero": {
       "kicker": "PODPORA",
       "title": "Žádost o podporu",
+      "subtitle": "Technická pomoc pro váš Igloo Reader a testovací sady – přímo od týmu podpory PolarisDX.",
+      "chips": {
+        "response": "Odpověď do 1 pracovního dne",
+        "channels": "Podpora e-mailem a telefonicky",
+        "attach": "Přiložte fotografii a soubor protokolu"
+      },
       "breadcrumb": "Domů / Podpora"
     },
     "intro": "Pokud máte potíže s vaším Igloo Reader nebo testovacími sadami, použijte prosím tento formulář. Vážíme si vaší zprávy a uděláme vše pro to, abychom vám co nejrychleji pomohli. Připojte prosím krátký popis problému a pokud možno fotografii a sériové číslo zařízení.",
@@ -42,7 +48,8 @@
       "submit": "Odeslat",
       "submitting": "Odesílání...",
       "success": "Děkujeme! Vaše žádost o podporu byla odeslána. Ozveme se vám co nejdříve.",
-      "error": "Došlo k chybě. Zkuste to prosím později znovu."
+      "error": "Došlo k chybě. Zkuste to prosím později znovu.",
+      "microcopy": "Obvykle odpovídáme do jednoho pracovního dne."
     },
     "info": {
       "title": "Informace o podpoře",
