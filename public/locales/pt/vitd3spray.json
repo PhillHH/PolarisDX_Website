@@ -131,6 +131,28 @@
       }
     ]
   },
+  "trustbar": {
+    "aria": "Sinais de confiança",
+    "exclusive": "Em exclusivo através do seu consultório",
+    "bio": "2× biodisponibilidade"
+  },
+  "hero_stats": [
+    { "value": "2.000 UI", "label": "por aplicação" },
+    { "value": "71", "label": "aplicações / frasco" },
+    { "value": "2×", "label": "biodisponibilidade" }
+  ],
+  "visual_chips": [
+    { "value": "2.000 UI", "label": "Vitamina D3" },
+    { "value": "15 µg K2", "label": "MK-7" },
+    { "value": "71×", "label": "por frasco" }
+  ],
+  "stats": [
+    { "value": "2.000 UI", "label": "Vitamina D3 por aplicação" },
+    { "value": "15 µg", "label": "Vitamina K2 (MK-7)" },
+    { "value": "71", "label": "aplicações por frasco" },
+    { "value": "desde 10,90 €", "label": "por unidade (pacote consultório)" }
+  ],
+  "benefit_titles": ["Ossos e cálcio", "Osteointegração", "Prevenção periodontal"],
   "badges": {
     "vegan": "Vegano",
     "made_in": "Fabricado na Alemanha"

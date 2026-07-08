@@ -131,6 +131,28 @@
       }
     ]
   },
+  "trustbar": {
+    "aria": "Gages de confiance",
+    "exclusive": "En exclusivité via votre cabinet",
+    "bio": "2× biodisponibilité"
+  },
+  "hero_stats": [
+    { "value": "2 000 UI", "label": "par pulvérisation" },
+    { "value": "71", "label": "applications / flacon" },
+    { "value": "2×", "label": "biodisponibilité" }
+  ],
+  "visual_chips": [
+    { "value": "2 000 UI", "label": "Vitamine D3" },
+    { "value": "15 µg K2", "label": "MK-7" },
+    { "value": "71×", "label": "par flacon" }
+  ],
+  "stats": [
+    { "value": "2 000 UI", "label": "Vitamine D3 par pulvérisation" },
+    { "value": "15 µg", "label": "Vitamine K2 (MK-7)" },
+    { "value": "71", "label": "applications par flacon" },
+    { "value": "dès 10,90 €", "label": "par unité (pack cabinet)" }
+  ],
+  "benefit_titles": ["Os & calcium", "Ostéo-intégration", "Prévention parodontale"],
   "badges": {
     "vegan": "Vegan",
     "made_in": "Made in Germany"

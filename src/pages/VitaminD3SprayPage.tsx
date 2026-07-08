@@ -9,8 +9,12 @@ import {
   Sparkles,
   Shield,
   Leaf,
-  Check,
   Droplet,
+  Stethoscope,
+  Zap,
+  Bone,
+  Activity,
+  ShieldCheck,
 } from 'lucide-react'
 import { SEOHead, createBreadcrumbSchema, createFAQSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
@@ -32,6 +36,32 @@ const VitaminD3SprayPage = () => {
 
   const benefitItemsRaw = t('vitd3spray:benefits.items', { returnObjects: true })
   const benefitItems = Array.isArray(benefitItemsRaw) ? (benefitItemsRaw as string[]) : []
+
+  const benefitTitlesRaw = t('vitd3spray:benefit_titles', { returnObjects: true })
+  const benefitTitles = Array.isArray(benefitTitlesRaw) ? (benefitTitlesRaw as string[]) : []
+  const benefitIcons = [Bone, Activity, ShieldCheck]
+
+  const heroStatsRaw = t('vitd3spray:hero_stats', { returnObjects: true })
+  const heroStats = Array.isArray(heroStatsRaw)
+    ? (heroStatsRaw as Array<{ value: string; label: string }>)
+    : []
+
+  const visualChipsRaw = t('vitd3spray:visual_chips', { returnObjects: true })
+  const visualChips = Array.isArray(visualChipsRaw)
+    ? (visualChipsRaw as Array<{ value: string; label: string }>)
+    : []
+
+  const statStripRaw = t('vitd3spray:stats', { returnObjects: true })
+  const statStrip = Array.isArray(statStripRaw)
+    ? (statStripRaw as Array<{ value: string; label: string }>)
+    : []
+
+  const trustItems = [
+    { icon: Stethoscope, label: t('vitd3spray:trustbar.exclusive') },
+    { icon: Leaf, label: t('vitd3spray:badges.vegan') },
+    { icon: Shield, label: t('vitd3spray:badges.made_in') },
+    { icon: Zap, label: t('vitd3spray:trustbar.bio') },
+  ]
 
   const faqItemsRaw = t('vitd3spray:faq.items', { returnObjects: true })
   const faqItems = Array.isArray(faqItemsRaw)
@@ -74,13 +104,34 @@ const VitaminD3SprayPage = () => {
         eyebrow={t('vitd3spray:hero.caption')}
         title={t('vitd3spray:hero.title')}
         subtitle={t('vitd3spray:hero.subtitle')}
+        primaryCta={{ label: t('vitd3spray:hero.cta'), href: '#bestellformular' }}
+        secondaryCta={{ label: t('vitd3spray:hero.download'), href: sprayPdf }}
         chips={[
           t('vitd3spray:badges.vegan'),
           t('vitd3spray:badges.made_in'),
           t('vitd3spray:product.content_value'),
         ]}
+        stats={heroStats}
+        valueChips={visualChips}
         icon={<Droplet />}
       />
+
+      {/* Trust-Signal-Leiste direkt unter dem Hero */}
+      <section
+        aria-label={t('vitd3spray:trustbar.aria')}
+        className="border-b border-slate-200 bg-slate-50"
+      >
+        <div className="mx-auto max-w-container px-4 py-7 lg:px-0">
+          <ul className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3">
+            {trustItems.map(({ icon: Icon, label }) => (
+              <li key={label} className="inline-flex items-center gap-2">
+                <Icon size={18} className="text-accent" aria-hidden="true" />
+                <span className="text-sm font-medium text-gray-700">{label}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       <div className="bg-slate-50">
         {/* Main Content */}
@@ -133,6 +184,22 @@ const VitaminD3SprayPage = () => {
                   </div>
                 </section>
 
+                {/* Kennzahlen-Streifen */}
+                {statStrip.length > 0 && (
+                  <section className="mb-12">
+                    <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-slate-200 bg-slate-200 sm:grid-cols-4">
+                      {statStrip.map((s) => (
+                        <div key={s.label} className="bg-white p-5 text-center">
+                          <div className="text-2xl font-medium text-heading sm:text-3xl">
+                            {s.value}
+                          </div>
+                          <div className="mt-1 text-xs leading-snug text-gray-500">{s.label}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                )}
+
                 {/* Product Specs */}
                 <section className="mb-12">
                   <h2 className="mb-6 text-xl font-medium tracking-tight text-heading sm:text-2xl">
@@ -181,7 +248,7 @@ const VitaminD3SprayPage = () => {
                     ].map(({ icon: Icon, label }) => (
                       <span
                         key={label}
-                        className="inline-flex items-center gap-1.5 rounded-full bg-green-50 px-3 py-1 text-xs font-medium text-green-700"
+                        className="inline-flex items-center gap-1.5 rounded-full bg-success-soft px-3 py-1 text-xs font-medium text-success-strong"
                       >
                         <Icon className="h-3.5 w-3.5" />
                         {label}
@@ -190,23 +257,31 @@ const VitaminD3SprayPage = () => {
                   </div>
                 </section>
 
-                {/* Health Benefits */}
+                {/* Health Benefits — reiche Teal-Tint-Karten */}
                 <section className="mb-12">
                   <h2 className="mb-6 text-xl font-medium tracking-tight text-heading sm:text-2xl">
                     {t('vitd3spray:benefits.title')}
                   </h2>
-                  <div className="rounded-xl border border-slate-200 bg-white p-6">
-                    <ul className="space-y-3">
-                      {benefitItems.map((item, i) => (
-                        <li
+                  <div className="grid gap-4 sm:grid-cols-3">
+                    {benefitItems.map((item, i) => {
+                      const Icon = benefitIcons[i] ?? ShieldCheck
+                      return (
+                        <div
                           key={i}
-                          className="flex items-start gap-3 text-[15px] leading-relaxed text-gray-700"
+                          className="rounded-xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:shadow-card"
                         >
-                          <Check className="mt-1 h-4 w-4 flex-shrink-0 text-accent" aria-hidden />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
+                          <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                            <Icon className="h-5 w-5" aria-hidden />
+                          </span>
+                          {benefitTitles[i] && (
+                            <h3 className="mt-4 text-base font-medium text-heading">
+                              {benefitTitles[i]}
+                            </h3>
+                          )}
+                          <p className="mt-2 text-sm leading-relaxed text-gray-700">{item}</p>
+                        </div>
+                      )
+                    })}
                   </div>
                 </section>
 

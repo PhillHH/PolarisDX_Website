@@ -131,6 +131,28 @@
       }
     ]
   },
+  "trustbar": {
+    "aria": "Elementy zaufania",
+    "exclusive": "Wyłącznie przez Państwa gabinet",
+    "bio": "2× biodostępność"
+  },
+  "hero_stats": [
+    { "value": "2.000 IU", "label": "na dawkę" },
+    { "value": "71", "label": "zastosowań / butelkę" },
+    { "value": "2×", "label": "biodostępność" }
+  ],
+  "visual_chips": [
+    { "value": "2.000 IU", "label": "Witamina D3" },
+    { "value": "15 µg K2", "label": "MK-7" },
+    { "value": "71×", "label": "na butelkę" }
+  ],
+  "stats": [
+    { "value": "2.000 IU", "label": "Witamina D3 na dawkę" },
+    { "value": "15 µg", "label": "Witamina K2 (MK-7)" },
+    { "value": "71", "label": "zastosowań na butelkę" },
+    { "value": "od 10,90 €", "label": "za sztukę (pakiet gabinetowy)" }
+  ],
+  "benefit_titles": ["Kości i wapń", "Osseointegracja", "Profilaktyka przyzębia"],
   "badges": {
     "vegan": "Wegański",
     "made_in": "Made in Germany"

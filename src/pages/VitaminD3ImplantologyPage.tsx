@@ -1,5 +1,14 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Phone, FileText, BookOpen } from 'lucide-react'
+import {
+  ArrowRight,
+  Phone,
+  FileText,
+  BookOpen,
+  Microscope,
+  BarChart3,
+  BadgeCheck,
+  ShieldCheck,
+} from 'lucide-react'
 import {
   SEOHead,
   createArticleSchema,
@@ -98,9 +107,43 @@ const VitaminD3ImplantologyPage = () => {
         eyebrow="Praxistipp Implantologie"
         title="Vitamin-D-Mangel vor Implantation? So schließen Sie die Lücke im Behandlungspfad"
         subtitle="Warum Testen allein nicht reicht – und wie D3+K2-Supplementierung Ihre Implantationsergebnisse und Ihren Praxisumsatz verbessert."
+        primaryCta={{ label: 'D3+K2 Spray bestellen', href: '#bestellformular' }}
+        secondaryCta={{ label: 'Diagnostik-System ansehen', to: '/igloo-pro' }}
         chips={['Lesezeit: 5 Minuten', 'Aktualisiert: Februar 2026', 'Fachredaktion PolarisDX']}
+        stats={[
+          { value: '30 %', label: 'Patienten mit Vitamin-D-Mangel' },
+          { value: 'bis 4×', label: 'Risiko für Frühverluste' },
+          { value: '22/27', label: 'Studien mit positivem Effekt' },
+        ]}
+        valueChips={[
+          { value: '≥ 30 ng/ml', label: 'Zielwert vor OP' },
+          { value: 'bis 4×', label: 'Frühverlust-Risiko' },
+          { value: '30 %', label: 'Mangel-Prävalenz' },
+        ]}
         icon={<Tooth />}
       />
+
+      {/* Evidenz-Leiste direkt unter dem Hero */}
+      <section
+        aria-label="Evidenz und Vertrauen"
+        className="border-b border-slate-200 bg-slate-50"
+      >
+        <div className="mx-auto max-w-container px-4 py-7 lg:px-0">
+          <ul className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3">
+            {[
+              { icon: Microscope, label: '27 Humanstudien ausgewertet' },
+              { icon: BarChart3, label: 'RKI-Daten: 30 % Mangel' },
+              { icon: BadgeCheck, label: 'Systematischer Review 2025' },
+              { icon: ShieldCheck, label: 'D3+K2 evidenzbasiert' },
+            ].map(({ icon: Icon, label }) => (
+              <li key={label} className="inline-flex items-center gap-2">
+                <Icon size={18} className="text-accent" aria-hidden="true" />
+                <span className="text-sm font-medium text-gray-700">{label}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       {/* Article Container */}
       <div className="bg-slate-50">

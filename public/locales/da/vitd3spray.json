@@ -131,6 +131,28 @@
       }
     ]
   },
+  "trustbar": {
+    "aria": "Tillidsmærker",
+    "exclusive": "Udelukkende via din klinik",
+    "bio": "2× biotilgængelighed"
+  },
+  "hero_stats": [
+    { "value": "2.000 IE", "label": "pr. pust" },
+    { "value": "71", "label": "anvendelser / flaske" },
+    { "value": "2×", "label": "biotilgængelighed" }
+  ],
+  "visual_chips": [
+    { "value": "2.000 IE", "label": "Vitamin D3" },
+    { "value": "15 µg K2", "label": "MK-7" },
+    { "value": "71×", "label": "pr. flaske" }
+  ],
+  "stats": [
+    { "value": "2.000 IE", "label": "Vitamin D3 pr. pust" },
+    { "value": "15 µg", "label": "Vitamin K2 (MK-7)" },
+    { "value": "71", "label": "anvendelser pr. flaske" },
+    { "value": "fra 10,90 €", "label": "pr. enhed (klinikpakke)" }
+  ],
+  "benefit_titles": ["Knogler & calcium", "Osseointegration", "Parodontal forebyggelse"],
   "badges": {
     "vegan": "Vegansk",
     "made_in": "Made in Germany"

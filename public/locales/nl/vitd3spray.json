@@ -131,6 +131,28 @@
       }
     ]
   },
+  "trustbar": {
+    "aria": "Vertrouwenskenmerken",
+    "exclusive": "Exclusief via uw praktijk",
+    "bio": "2× biobeschikbaarheid"
+  },
+  "hero_stats": [
+    { "value": "2.000 IE", "label": "per sproeistoot" },
+    { "value": "71", "label": "toepassingen / flacon" },
+    { "value": "2×", "label": "biobeschikbaarheid" }
+  ],
+  "visual_chips": [
+    { "value": "2.000 IE", "label": "Vitamine D3" },
+    { "value": "15 µg K2", "label": "MK-7" },
+    { "value": "71×", "label": "per flacon" }
+  ],
+  "stats": [
+    { "value": "2.000 IE", "label": "Vitamine D3 per sproeistoot" },
+    { "value": "15 µg", "label": "Vitamine K2 (MK-7)" },
+    { "value": "71", "label": "toepassingen per flacon" },
+    { "value": "vanaf € 10,90", "label": "per eenheid (praktijkpakket)" }
+  ],
+  "benefit_titles": ["Botten & calcium", "Osseo-integratie", "Parodontale preventie"],
   "badges": {
     "vegan": "Veganistisch",
     "made_in": "Made in Germany"

@@ -131,6 +131,28 @@
       }
     ]
   },
+  "trustbar": {
+    "aria": "Trust signals",
+    "exclusive": "Exclusively through your practice",
+    "bio": "2× bioavailability"
+  },
+  "hero_stats": [
+    { "value": "2,000 IU", "label": "per spray" },
+    { "value": "71", "label": "applications / bottle" },
+    { "value": "2×", "label": "bioavailability" }
+  ],
+  "visual_chips": [
+    { "value": "2,000 IU", "label": "Vitamin D3" },
+    { "value": "15 µg K2", "label": "MK-7" },
+    { "value": "71×", "label": "per bottle" }
+  ],
+  "stats": [
+    { "value": "2,000 IU", "label": "Vitamin D3 per spray" },
+    { "value": "15 µg", "label": "Vitamin K2 (MK-7)" },
+    { "value": "71", "label": "applications per bottle" },
+    { "value": "from €10.90", "label": "per unit (practice bundle)" }
+  ],
+  "benefit_titles": ["Bones & calcium", "Osseointegration", "Periodontal prevention"],
   "badges": {
     "vegan": "Vegan",
     "made_in": "Made in Germany"

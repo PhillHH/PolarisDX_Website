@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Send, CheckCircle, Check } from 'lucide-react'
+import { Send, CheckCircle, Check, ShoppingBag } from 'lucide-react'
 import { Button } from '../ui/Button'
 import { sendContactEmail } from '../../api/contact'
 
@@ -82,8 +82,11 @@ export function PraxisOrderForm({
 
   return (
     <section id={id} className="scroll-mt-24">
-      <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+      <div className="rounded-2xl border border-accent/20 bg-white p-6 shadow-card sm:p-8">
         <div className="mb-6">
+          <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent">
+            <ShoppingBag className="h-5 w-5" aria-hidden />
+          </div>
           <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
             {texts.caption}
           </p>
