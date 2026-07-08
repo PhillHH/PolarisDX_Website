@@ -138,5 +138,14 @@
     "hint": "Selecteer de code hieronder in het formulier – wij halen 10% van uw offerte af.",
     "copy": "Kopiëren",
     "copied": "Gekopieerd!"
+  },
+  "deal_popup": {
+    "aria": "PolarisDX Zomerdeal",
+    "cta": "Deal aanvragen",
+    "close": "Sluiten",
+    "prev": "Vorige afbeelding",
+    "next": "Volgende afbeelding",
+    "alt1": "PolarisDX Zomerdeal – Igloo Pro Reader",
+    "alt2": "PolarisDX Zomerdeal – prijsoverzicht"
   }
 }

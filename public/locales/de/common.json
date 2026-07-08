@@ -138,5 +138,14 @@
     "hint": "Wählen Sie den Code unten im Formular aus – wir ziehen 10 % von Ihrem Angebot ab.",
     "copy": "Kopieren",
     "copied": "Kopiert!"
+  },
+  "deal_popup": {
+    "aria": "PolarisDX Sommer-Deal",
+    "cta": "Deal anfordern",
+    "close": "Schließen",
+    "prev": "Vorheriges Bild",
+    "next": "Nächstes Bild",
+    "alt1": "PolarisDX Sommer-Deal – Angebot Igloo Pro Reader",
+    "alt2": "PolarisDX Sommer-Deal – Preisübersicht für Dentalpraxen"
   }
 }

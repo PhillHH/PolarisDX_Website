@@ -138,5 +138,14 @@
     "hint": "Seleccione el código abajo en el formulario: le descontaremos un 10 % de su presupuesto.",
     "copy": "Copiar",
     "copied": "¡Copiado!"
+  },
+  "deal_popup": {
+    "aria": "PolarisDX Oferta de verano",
+    "cta": "Solicitar la oferta",
+    "close": "Cerrar",
+    "prev": "Imagen anterior",
+    "next": "Imagen siguiente",
+    "alt1": "PolarisDX Oferta de verano – Igloo Pro Reader",
+    "alt2": "PolarisDX Oferta de verano – resumen de precios"
   }
 }

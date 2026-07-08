@@ -138,5 +138,14 @@
     "hint": "Vyberte kód níže ve formuláři – odečteme 10 % z vaší nabídky.",
     "copy": "Kopírovat",
     "copied": "Zkopírováno!"
+  },
+  "deal_popup": {
+    "aria": "PolarisDX Letní nabídka",
+    "cta": "Vyžádat nabídku",
+    "close": "Zavřít",
+    "prev": "Předchozí obrázek",
+    "next": "Další obrázek",
+    "alt1": "PolarisDX Letní nabídka – Igloo Pro Reader",
+    "alt2": "PolarisDX Letní nabídka – přehled cen"
   }
 }

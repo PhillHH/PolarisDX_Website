@@ -138,5 +138,14 @@
     "hint": "Vælg koden nedenfor i formularen – vi trækker 10% fra dit tilbud.",
     "copy": "Kopiér",
     "copied": "Kopieret!"
+  },
+  "deal_popup": {
+    "aria": "PolarisDX Sommertilbud",
+    "cta": "Anmod om tilbuddet",
+    "close": "Luk",
+    "prev": "Forrige billede",
+    "next": "Næste billede",
+    "alt1": "PolarisDX Sommertilbud – Igloo Pro Reader",
+    "alt2": "PolarisDX Sommertilbud – prisoversigt"
   }
 }
