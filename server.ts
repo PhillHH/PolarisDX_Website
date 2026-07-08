@@ -538,7 +538,17 @@ async function createServer() {
         .replace('<!--helmet-head-->', helmetTags)
         .replace('<html lang="de">', `<html lang="${lang}">`)
 
-      res.status(200).set({ 'Content-Type': 'text/html' }).end(finalHtml)
+      // HTML NIE cachen: die Seite referenziert content-gehashte Assets, die sich
+      // bei jedem Deploy ändern. Ohne no-store zeigen Browser (heuristisch gecachte)
+      // ALTE HTML → alte Asset-Hashes → alte Seite. Assets selbst bleiben langzeit-
+      // cachebar (immutable, s. express.static oben).
+      res
+        .status(200)
+        .set({
+          'Content-Type': 'text/html',
+          'Cache-Control': 'no-store, no-cache, must-revalidate',
+        })
+        .end(finalHtml)
     } catch (error) {
       if (!isProduction && vite) {
         vite.ssrFixStacktrace(error as Error)
