@@ -44,7 +44,7 @@
     "doctors": "Onze artsen",
     "testimonials": "Getuigenissen",
     "faq": "FAQ",
-    "appointment": "Afspraak maken",
+    "appointment": "Offerte aanvragen",
     "diagnostics": "Diagnostiek",
     "allServices": "Alle diensten",
     "pocSystems": "POC-systemen",
@@ -53,13 +53,13 @@
   },
   "cta": {
     "title": "Op zoek naar professionele & vertrouwde <1>medische zorg?</1>",
-    "description": "Aarzel niet om contact met ons op te nemen. Ons team staat klaar om je te ondersteunen en de juiste afspraak te plannen.",
-    "button": "Afspraak maken"
+    "description": "Aarzel niet om contact met ons op te nemen. Ons team staat klaar om je te ondersteunen en de juiste offerte voor je op te stellen.",
+    "button": "Offerte aanvragen"
   },
   "cta_section": {
     "title": "Op zoek naar gegarandeerde prestaties en POC-expertise?",
     "text": "Spreek direct met onze IglooPro-specialisten. Ons team staat klaar om jouw individuele workflow-eisen te analyseren en je de snelste weg naar gevalideerde diagnostiek te tonen. Bij ons krijg je een oplossing op maat, geen standaard levering.",
-    "button": "Afspraak maken"
+    "button": "Offerte aanvragen"
   },
   "read_more": "Lees meer",
   "search": {

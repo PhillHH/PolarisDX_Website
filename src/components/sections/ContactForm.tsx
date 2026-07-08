@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/Button'
 import { Input } from '../ui/Input'
@@ -8,6 +9,7 @@ import { useContactForm } from '../../hooks/useContactForm'
 export const ContactForm = () => {
   const { t } = useTranslation('contact')
   const { isSubmitting, submitStatus, submit } = useContactForm()
+  const [voucher, setVoucher] = useState('')
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -15,6 +17,7 @@ export const ContactForm = () => {
     const success = await submit(formData)
     if (success) {
       e.currentTarget.reset()
+      setVoucher('')
     }
   }
 
@@ -88,6 +91,27 @@ export const ContactForm = () => {
           <option value="lab">{t('contact.form.area_options.lab')}</option>
           <option value="other">{t('contact.form.area_options.other')}</option>
         </select>
+      </div>
+
+      <div className="space-y-1">
+        <label htmlFor="voucher" className="block text-sm font-medium text-gray-700">
+          {t('contact.form.voucher_label')}
+        </label>
+        <select
+          id="voucher"
+          name="voucher"
+          value={voucher}
+          onChange={(e) => setVoucher(e.target.value)}
+          className="flex w-full rounded-md border border-ui-border bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+        >
+          <option value="">{t('contact.form.voucher_none')}</option>
+          <option value="POLARIS10">{t('contact.form.voucher_polaris10')}</option>
+        </select>
+        {voucher === 'POLARIS10' && (
+          <p className="pt-1 text-sm font-medium text-brand-secondary">
+            {t('contact.form.voucher_applied')}
+          </p>
+        )}
       </div>
 
       <Textarea

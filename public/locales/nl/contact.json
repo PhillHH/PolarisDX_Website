@@ -1,12 +1,12 @@
 {
   "contact": {
     "hero": {
-      "kicker": "AFSPRAAK MAKEN",
-      "title": "Afspraak maken",
+      "kicker": "OFFERTE AANVRAGEN",
+      "title": "Offerte aanvragen",
       "breadcrumb": "Home / Contacteer Ons"
     },
     "form": {
-      "title": "Afspraak Maken",
+      "title": "Offerte aanvragen",
       "email": "E-mail",
       "phone": "Telefoon",
       "specialty": "Selecteer Medische Specialismen",
@@ -19,7 +19,7 @@
       "email_placeholder": "u@voorbeeld.nl",
       "message": "Bericht",
       "message_placeholder": "Vertel ons meer over uw behoeften...",
-      "submit": "Afspraak maken",
+      "submit": "Offerte aanvragen",
       "company_label": "Bedrijfs- / Praktijknaam",
       "company_placeholder": "bijv. Huisartsenpraktijk Jansen of Apotheek Centrum",
       "area_label": "Primair Toepassingsgebied",
@@ -31,7 +31,11 @@
         "other": "Anders"
       },
       "requirements_label": "Uw Specifieke Eisen voor IglooPro",
-      "requirements_placeholder": "Welke biomarkers (bijv. CRP, TSH, HbA1c) zijn primair relevant voor u?"
+      "requirements_placeholder": "Welke biomarkers (bijv. CRP, TSH, HbA1c) zijn primair relevant voor u?",
+      "voucher_label": "Kortingscode (optioneel)",
+      "voucher_none": "Geen kortingscode",
+      "voucher_polaris10": "POLARIS10 – 10% op het hele assortiment",
+      "voucher_applied": "✓ 10% korting op het hele assortiment wordt toegepast op uw offerte."
     },
     "info": {
       "title": "Contactinformatie",
@@ -48,7 +52,7 @@
     "collapse_button": "Sluiten"
   },
   "seo": {
-    "title": "Contact & demoafspraak voor de IglooPro maken",
-    "description": "Maak uw persoonlijke demoafspraak voor de IglooPro POC-reader. Stel een aanvraag en laat u adviseren over point-of-care-diagnostiek voor uw praktijk."
+    "title": "Contact & offerte voor de IglooPro aanvragen",
+    "description": "Vraag uw persoonlijke offerte voor de IglooPro POC-reader aan. Dien een vrijblijvende aanvraag in en laat u adviseren over point-of-care-diagnostiek voor uw praktijk."
   }
 }

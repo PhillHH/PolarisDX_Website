@@ -44,7 +44,7 @@
     "doctors": "Naši lékaři",
     "testimonials": "Reference",
     "faq": "FAQ",
-    "appointment": "Rezervovat termín",
+    "appointment": "Vyžádat nabídku",
     "diagnostics": "Diagnostika",
     "allServices": "Všechny služby",
     "pocSystems": "POC systémy",
@@ -53,13 +53,13 @@
   },
   "cta": {
     "title": "Hledáte profesionální a důvěryhodnou <1>lékařskou péči?</1>",
-    "description": "Neváhejte nás kontaktovat. Náš tým je připraven vás podpořit a naplánovat správný termín.",
-    "button": "Rezervovat termín"
+    "description": "Neváhejte nás kontaktovat. Náš tým je připraven vás podpořit a připravit pro vás vhodnou nabídku.",
+    "button": "Vyžádat nabídku"
   },
   "cta_section": {
     "title": "Hledáte zaručený výkon a odbornost POC?",
     "text": "Mluvte přímo s našimi specialisty na IglooPro. Náš tým je připraven analyzovat vaše individuální požadavky na pracovní tok a ukázat vám nejrychlejší cestu k ověřené diagnostice. U nás získáte řešení na míru, ne standardní dodávku.",
-    "button": "Rezervovat termín"
+    "button": "Vyžádat nabídku"
   },
   "read_more": "Číst více",
   "chat": {

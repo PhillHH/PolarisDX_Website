@@ -1,12 +1,12 @@
 {
   "contact": {
     "hero": {
-      "kicker": "BOOK APPOINTMENT",
-      "title": "Book Appointment",
+      "kicker": "REQUEST A QUOTE",
+      "title": "Request a Quote",
       "breadcrumb": "Home / Contact Us"
     },
     "form": {
-      "title": "Book Appointment",
+      "title": "Request a Quote",
       "email": "Email",
       "phone": "Phone",
       "specialty": "Select Medical Specialty",
@@ -19,7 +19,7 @@
       "email_placeholder": "you@example.com",
       "message": "Message",
       "message_placeholder": "Tell us more about your needs...",
-      "submit": "Book Appointment",
+      "submit": "Request a Quote",
       "company_label": "Company / Practice Name",
       "company_placeholder": "e.g. Dr. Smith Practice or City Pharmacy",
       "area_label": "Primary Application Area",
@@ -31,7 +31,11 @@
         "other": "Other"
       },
       "requirements_label": "Your Specific Requirements for IglooPro",
-      "requirements_placeholder": "Which biomarkers (e.g. CRP, TSH, HbA1c) are primarily relevant for you?"
+      "requirements_placeholder": "Which biomarkers (e.g. CRP, TSH, HbA1c) are primarily relevant for you?",
+      "voucher_label": "Voucher code (optional)",
+      "voucher_none": "No voucher code",
+      "voucher_polaris10": "POLARIS10 – 10% off the entire range",
+      "voucher_applied": "✓ A 10% discount on the entire range will be applied to your quote."
     },
     "info": {
       "title": "Contact Information",
@@ -48,7 +52,7 @@
     "collapse_button": "Close"
   },
   "seo": {
-    "title": "Contact & Book an IglooPro Demo Appointment",
-    "description": "Book your personal IglooPro POC-reader demo appointment. Send your request and get expert advice on point-of-care diagnostics for your practice."
+    "title": "Contact & Request an IglooPro Quote",
+    "description": "Request your personal IglooPro POC-reader quote. Send a non-binding request and get expert advice on point-of-care diagnostics for your practice."
   }
 }

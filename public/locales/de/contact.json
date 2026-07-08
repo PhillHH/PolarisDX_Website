@@ -1,12 +1,12 @@
 {
   "contact": {
     "hero": {
-      "kicker": "TERMIN VEREINBAREN",
-      "title": "Termin vereinbaren",
+      "kicker": "ANGEBOT ANFORDERN",
+      "title": "Angebot anfordern",
       "breadcrumb": "Home / Kontakt"
     },
     "form": {
-      "title": "Termin buchen",
+      "title": "Angebot anfordern",
       "email": "E-Mail",
       "phone": "Telefon",
       "specialty": "Medizinische Fachrichtung wählen",
@@ -19,7 +19,7 @@
       "email_placeholder": "sie@beispiel.de",
       "message": "Nachricht",
       "message_placeholder": "Erzählen Sie uns mehr über Ihr Anliegen...",
-      "submit": "Termin vereinbaren",
+      "submit": "Angebot anfordern",
       "company_label": "Name des Unternehmens / der Praxis",
       "company_placeholder": "z.B. Praxis Dr. Müller oder Löwen-Apotheke",
       "area_label": "Primärer Einsatzbereich",
@@ -31,7 +31,11 @@
         "other": "Sonstiges"
       },
       "requirements_label": "Ihre spezifischen Anforderungen an IglooPro",
-      "requirements_placeholder": "Welche Biomarker (z.B. CRP, TSH, HbA1c) sind für Sie primär relevant?"
+      "requirements_placeholder": "Welche Biomarker (z.B. CRP, TSH, HbA1c) sind für Sie primär relevant?",
+      "voucher_label": "Gutschein-Code (optional)",
+      "voucher_none": "Kein Gutschein-Code",
+      "voucher_polaris10": "POLARIS10 – 10 % auf das gesamte Sortiment",
+      "voucher_applied": "✓ 10 % Rabatt auf das gesamte Sortiment wird auf Ihr Angebot angewendet."
     },
     "info": {
       "title": "Kontaktinformationen",
@@ -48,7 +52,7 @@
     "collapse_button": "Schließen"
   },
   "seo": {
-    "title": "Kontakt & Demo-Termin zum IglooPro vereinbaren",
-    "description": "Vereinbaren Sie Ihren persönlichen Demo-Termin zum IglooPro POC-Reader. Stellen Sie eine Anfrage und lassen Sie sich zur Point-of-Care-Diagnostik beraten."
+    "title": "Kontakt & Angebot zum IglooPro anfordern",
+    "description": "Fordern Sie Ihr persönliches Angebot zum IglooPro POC-Reader an. Stellen Sie eine unverbindliche Anfrage und lassen Sie sich zur Point-of-Care-Diagnostik beraten."
   }
 }

@@ -131,7 +131,7 @@ const HeroSection = () => {
                   size="sm"
                   className="w-full text-center sm:w-auto sm:whitespace-nowrap"
                 >
-                  {t('hero.cta', 'Termin buchen')}
+                  {t('hero.cta', 'Angebot anfordern')}
                 </Button>
                 <Button
                   to="/downloads"

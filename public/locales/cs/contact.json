@@ -1,12 +1,12 @@
 {
   "contact": {
     "hero": {
-      "kicker": "SJEDNAT SCHŮZKU",
-      "title": "Sjednat schůzku",
+      "kicker": "VYŽÁDAT NABÍDKU",
+      "title": "Vyžádat nabídku",
       "breadcrumb": "Domů / Kontaktujte nás"
     },
     "form": {
-      "title": "Domluvit schůzku",
+      "title": "Vyžádat nabídku",
       "email": "E-mail",
       "phone": "Telefon",
       "specialty": "Vyberte lékařské specializace",
@@ -19,7 +19,7 @@
       "email_placeholder": "vy@priklad.cz",
       "message": "Zpráva",
       "message_placeholder": "Řekněte nám více o svých potřebách...",
-      "submit": "Sjednat schůzku",
+      "submit": "Vyžádat nabídku",
       "company_label": "Název společnosti / praxe",
       "company_placeholder": "např. Ordinace Dr. Nováka nebo Lékárna Centrum",
       "area_label": "Primární oblast použití",
@@ -31,7 +31,11 @@
         "other": "Jiné"
       },
       "requirements_label": "Vaše specifické požadavky na IglooPro",
-      "requirements_placeholder": "Které biomarkery (např. CRP, TSH, HbA1c) jsou pro vás primárně relevantní?"
+      "requirements_placeholder": "Které biomarkery (např. CRP, TSH, HbA1c) jsou pro vás primárně relevantní?",
+      "voucher_label": "Slevový kód (nepovinné)",
+      "voucher_none": "Bez slevového kódu",
+      "voucher_polaris10": "POLARIS10 – 10 % na celý sortiment",
+      "voucher_applied": "✓ Sleva 10 % na celý sortiment bude uplatněna na vaši nabídku."
     },
     "info": {
       "title": "Kontaktní informace",
@@ -48,7 +52,7 @@
     "collapse_button": "Zavřít"
   },
   "seo": {
-    "title": "Kontakt a sjednání demo termínu k IglooPro",
-    "description": "Sjednejte si osobní demo termín k IglooPro POC readeru. Zašlete nezávaznou poptávku a nechte si poradit ohledně diagnostiky v místě péče (point-of-care)."
+    "title": "Kontakt a vyžádání nabídky k IglooPro",
+    "description": "Vyžádejte si osobní nabídku k IglooPro POC readeru. Zašlete nezávaznou poptávku a nechte si poradit ohledně diagnostiky v místě péče (point-of-care)."
   }
 }

@@ -1,12 +1,12 @@
 {
   "contact": {
     "hero": {
-      "kicker": "BESTIL TID",
-      "title": "Bestil tid",
+      "kicker": "ANMOD OM TILBUD",
+      "title": "Anmod om tilbud",
       "breadcrumb": "Hjem / Kontakt Os"
     },
     "form": {
-      "title": "Bestil Tid",
+      "title": "Anmod om tilbud",
       "email": "E-mail",
       "phone": "Telefon",
       "specialty": "Vælg Medicinske Specialer",
@@ -19,7 +19,7 @@
       "email_placeholder": "dig@eksempel.dk",
       "message": "Besked",
       "message_placeholder": "Fortæl os mere om dine behov...",
-      "submit": "Bestil tid",
+      "submit": "Anmod om tilbud",
       "company_label": "Virksomheds- / Praksisnavn",
       "company_placeholder": "f.eks. Lægehuset v/ Dr. Jensen eller Løve Apotek",
       "area_label": "Primært Anvendelsesområde",
@@ -31,7 +31,11 @@
         "other": "Andet"
       },
       "requirements_label": "Dine Specifikke Krav til IglooPro",
-      "requirements_placeholder": "Hvilke biomarkører (f.eks. CRP, TSH, HbA1c) er primært relevante for dig?"
+      "requirements_placeholder": "Hvilke biomarkører (f.eks. CRP, TSH, HbA1c) er primært relevante for dig?",
+      "voucher_label": "Rabatkode (valgfrit)",
+      "voucher_none": "Ingen rabatkode",
+      "voucher_polaris10": "POLARIS10 – 10% på hele sortimentet",
+      "voucher_applied": "✓ 10% rabat på hele sortimentet anvendes på dit tilbud."
     },
     "info": {
       "title": "Kontaktoplysninger",
@@ -48,7 +52,7 @@
     "collapse_button": "Luk"
   },
   "seo": {
-    "title": "Kontakt & book en demoaftale til IglooPro",
-    "description": "Book din personlige demoaftale til IglooPro POC-reader. Send en forespørgsel og få rådgivning om point-of-care-diagnostik til din klinik."
+    "title": "Kontakt & anmod om tilbud på IglooPro",
+    "description": "Anmod om dit personlige tilbud på IglooPro POC-reader. Send en uforpligtende forespørgsel og få rådgivning om point-of-care-diagnostik til din klinik."
   }
 }

@@ -1,12 +1,12 @@
 {
   "contact": {
     "hero": {
-      "kicker": "PRENOTA APPUNTAMENTO",
-      "title": "Prenota appuntamento",
+      "kicker": "RICHIEDI UN PREVENTIVO",
+      "title": "Richiedi un preventivo",
       "breadcrumb": "Home / Contatti"
     },
     "form": {
-      "title": "Prenota appuntamento",
+      "title": "Richiedi un preventivo",
       "email": "E-mail",
       "phone": "Telefono",
       "specialty": "Seleziona specialità mediche",
@@ -19,7 +19,7 @@
       "email_placeholder": "tu@esempio.com",
       "message": "Messaggio",
       "message_placeholder": "Raccontaci di più sulle tue esigenze...",
-      "submit": "Prenota appuntamento",
+      "submit": "Richiedi un preventivo",
       "company_label": "Nome dell'azienda / dello studio",
       "company_placeholder": "es. Studio Dr. Rossi o Farmacia Leone",
       "area_label": "Area principale di applicazione",
@@ -31,7 +31,11 @@
         "other": "Altro"
       },
       "requirements_label": "I tuoi requisiti specifici per IglooPro",
-      "requirements_placeholder": "Quali biomarcatori (es. CRP, TSH, HbA1c) sono principalmente rilevanti per te?"
+      "requirements_placeholder": "Quali biomarcatori (es. CRP, TSH, HbA1c) sono principalmente rilevanti per te?",
+      "voucher_label": "Codice sconto (opzionale)",
+      "voucher_none": "Nessun codice sconto",
+      "voucher_polaris10": "POLARIS10 – 10% su tutto l'assortimento",
+      "voucher_applied": "✓ Uno sconto del 10% su tutto l'assortimento sarà applicato al tuo preventivo."
     },
     "info": {
       "title": "Informazioni di contatto",
@@ -48,7 +52,7 @@
     "collapse_button": "Chiudi"
   },
   "seo": {
-    "title": "Contatti e prenotazione demo dell'IglooPro",
-    "description": "Prenota la tua demo personalizzata dell'IglooPro POC reader. Invia la tua richiesta e ricevi una consulenza dedicata sulla diagnostica point-of-care per il tuo studio."
+    "title": "Contatti e richiesta di preventivo per l'IglooPro",
+    "description": "Richiedi il tuo preventivo personalizzato per l'IglooPro POC reader. Invia una richiesta senza impegno e ricevi una consulenza dedicata sulla diagnostica point-of-care per il tuo studio."
   }
 }

@@ -44,7 +44,7 @@
     "doctors": "Nasi lekarze",
     "testimonials": "Opinie",
     "faq": "FAQ",
-    "appointment": "Umów wizytę",
+    "appointment": "Zapytaj o ofertę",
     "diagnostics": "Diagnostyka",
     "allServices": "Wszystkie usługi",
     "pocSystems": "Systemy POC",
@@ -53,13 +53,13 @@
   },
   "cta": {
     "title": "Szukasz profesjonalnej i zaufanej <1>opieki medycznej?</1>",
-    "description": "Nie wahaj się z nami skontaktować. Nasz zespół jest gotowy, aby Cię wesprzeć i zaplanować odpowiednią wizytę.",
-    "button": "Umów wizytę"
+    "description": "Nie wahaj się z nami skontaktować. Nasz zespół jest gotowy, aby Cię wesprzeć i przygotować odpowiednią ofertę.",
+    "button": "Zapytaj o ofertę"
   },
   "cta_section": {
     "title": "Szukasz gwarantowanej wydajności i ekspertyzy POC?",
     "text": "Porozmawiaj bezpośrednio z naszymi specjalistami IglooPro. Nasz zespół jest gotowy przeanalizować Twoje indywidualne wymagania dotyczące przepływu pracy i wskazać najszybszą drogę do zwalidowanej diagnostyki. U nas otrzymasz rozwiązanie szyte na miarę, a nie standardową dostawę.",
-    "button": "Zarezerwuj termin"
+    "button": "Zapytaj o ofertę"
   },
   "read_more": "Czytaj więcej",
   "chat": {

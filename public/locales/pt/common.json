@@ -44,7 +44,7 @@
     "doctors": "Nossos médicos",
     "testimonials": "Depoimentos",
     "faq": "FAQ",
-    "appointment": "Agendar consulta",
+    "appointment": "Solicitar orçamento",
     "diagnostics": "Diagnóstico",
     "allServices": "Todos os serviços",
     "pocSystems": "Sistemas POC",
@@ -53,13 +53,13 @@
   },
   "cta": {
     "title": "Procurando cuidados médicos <1>profissionais e confiáveis?</1>",
-    "description": "Não hesite em nos contatar. Nossa equipe está pronta para apoiá-lo e agendar a consulta certa.",
-    "button": "Agendar consulta"
+    "description": "Não hesite em nos contatar. Nossa equipe está pronta para apoiá-lo e preparar o orçamento certo para você.",
+    "button": "Solicitar orçamento"
   },
   "cta_section": {
     "title": "Procurando desempenho garantido e experiência em POC?",
     "text": "Fale diretamente com nossos especialistas em IglooPro. Nossa equipe está pronta para analisar seus requisitos de fluxo de trabalho individuais e mostrar o caminho mais rápido para diagnósticos validados. Conosco, você obtém uma solução sob medida, não uma entrega padrão.",
-    "button": "Marcar consulta"
+    "button": "Solicitar orçamento"
   },
   "read_more": "Leia mais",
   "chat": {

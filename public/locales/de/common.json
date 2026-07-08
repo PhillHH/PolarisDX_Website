@@ -49,17 +49,17 @@
     "doctors": "Unsere Ärzte",
     "testimonials": "Referenzen",
     "faq": "FAQ",
-    "appointment": "Termin vereinbaren"
+    "appointment": "Angebot anfordern"
   },
   "cta": {
     "title": "Suchen Sie professionelle & vertrauenswürdige <1>medizinische Versorgung?</1>",
-    "description": "Zögern Sie nicht, uns zu kontaktieren. Unser Team ist bereit, Sie zu unterstützen und den richtigen Termin zu planen.",
-    "button": "Termin vereinbaren"
+    "description": "Zögern Sie nicht, uns zu kontaktieren. Unser Team ist bereit, Sie zu unterstützen und Ihnen ein passendes Angebot zu erstellen.",
+    "button": "Angebot anfordern"
   },
   "cta_section": {
     "title": "Sie suchen nach garantierter Performance und POC-Expertise?",
     "text": "Sprechen Sie direkt mit unseren IglooPro-Spezialisten. Unser Team ist bereit, Ihre individuellen Workflow-Anforderungen zu analysieren und Ihnen den schnellsten Weg zur validierten Diagnostik zu zeigen. Bei uns erhalten Sie eine maßgeschneiderte Lösung, keine Standard-Lieferung.",
-    "button": "Termin buchen"
+    "button": "Angebot anfordern"
   },
   "read_more": "Weiterlesen",
   "search": {

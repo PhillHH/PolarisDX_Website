@@ -1,12 +1,12 @@
 {
   "contact": {
     "hero": {
-      "kicker": "UMÓW WIZYTĘ",
-      "title": "Umów wizytę",
+      "kicker": "ZAPYTAJ O OFERTĘ",
+      "title": "Zapytaj o ofertę",
       "breadcrumb": "Strona główna / Kontakt"
     },
     "form": {
-      "title": "Zarezerwuj wizytę",
+      "title": "Zapytaj o ofertę",
       "email": "E-mail",
       "phone": "Telefon",
       "specialty": "Wybierz specjalizacje medyczne",
@@ -19,7 +19,7 @@
       "email_placeholder": "ty@przyklad.com",
       "message": "Wiadomość",
       "message_placeholder": "Powiedz nam więcej o swoich potrzebach...",
-      "submit": "Umów wizytę",
+      "submit": "Zapytaj o ofertę",
       "company_label": "Nazwa firmy / praktyki",
       "company_placeholder": "np. Gabinet Dr. Nowaka lub Apteka Lwa",
       "area_label": "Główny obszar zastosowania",
@@ -31,7 +31,11 @@
         "other": "Inne"
       },
       "requirements_label": "Twoje specyficzne wymagania dotyczące IglooPro",
-      "requirements_placeholder": "Które biomarkery (np. CRP, TSH, HbA1c) są dla Ciebie najważniejsze?"
+      "requirements_placeholder": "Które biomarkery (np. CRP, TSH, HbA1c) są dla Ciebie najważniejsze?",
+      "voucher_label": "Kod rabatowy (opcjonalnie)",
+      "voucher_none": "Brak kodu rabatowego",
+      "voucher_polaris10": "POLARIS10 – 10% na cały asortyment",
+      "voucher_applied": "✓ Rabat 10% na cały asortyment zostanie uwzględniony w Twojej ofercie."
     },
     "info": {
       "title": "Informacje kontaktowe",
@@ -48,7 +52,7 @@
     "collapse_button": "Zamknij"
   },
   "seo": {
-    "title": "Kontakt i umówienie demo IglooPro",
-    "description": "Umów indywidualny termin prezentacji czytnika IglooPro POC. Wyślij zapytanie i skorzystaj z fachowego doradztwa w zakresie diagnostyki w miejscu opieki nad pacjentem."
+    "title": "Kontakt i zapytanie o ofertę IglooPro",
+    "description": "Zapytaj o indywidualną ofertę na czytnik IglooPro POC. Wyślij niezobowiązujące zapytanie i skorzystaj z fachowego doradztwa w zakresie diagnostyki w miejscu opieki nad pacjentem."
   }
 }

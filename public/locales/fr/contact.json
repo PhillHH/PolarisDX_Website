@@ -1,12 +1,12 @@
 {
   "contact": {
     "hero": {
-      "kicker": "PRENDRE RENDEZ-VOUS",
-      "title": "Prendre rendez-vous",
+      "kicker": "DEMANDER UN DEVIS",
+      "title": "Demander un devis",
       "breadcrumb": "Accueil / Contact"
     },
     "form": {
-      "title": "Réserver un rendez-vous",
+      "title": "Demander un devis",
       "email": "E-mail",
       "phone": "Téléphone",
       "specialty": "Sélectionner les spécialités médicales",
@@ -19,7 +19,7 @@
       "email_placeholder": "vous@exemple.com",
       "message": "Message",
       "message_placeholder": "Dites-nous en plus sur vos besoins...",
-      "submit": "Prendre rendez-vous",
+      "submit": "Demander un devis",
       "company_label": "Nom de l'entreprise / du cabinet",
       "company_placeholder": "ex. Cabinet Dr. Martin ou Pharmacie du Lion",
       "area_label": "Domaine d'application principal",
@@ -31,7 +31,11 @@
         "other": "Autre"
       },
       "requirements_label": "Vos exigences spécifiques pour IglooPro",
-      "requirements_placeholder": "Quels biomarqueurs (ex. CRP, TSH, HbA1c) sont principalement pertinents pour vous ?"
+      "requirements_placeholder": "Quels biomarqueurs (ex. CRP, TSH, HbA1c) sont principalement pertinents pour vous ?",
+      "voucher_label": "Code promo (optionnel)",
+      "voucher_none": "Aucun code promo",
+      "voucher_polaris10": "POLARIS10 – 10 % sur toute la gamme",
+      "voucher_applied": "✓ Une remise de 10 % sur toute la gamme sera appliquée à votre devis."
     },
     "info": {
       "title": "Informations de contact",
@@ -48,7 +52,7 @@
     "collapse_button": "Fermer"
   },
   "seo": {
-    "title": "Contact & prise de rendez-vous pour une démo de l'IglooPro",
-    "description": "Réservez votre rendez-vous de démonstration personnalisé du reader POC IglooPro. Envoyez votre demande et bénéficiez de conseils d'experts sur le diagnostic au point d'intervention."
+    "title": "Contact & demande de devis pour l'IglooPro",
+    "description": "Demandez votre devis personnalisé pour le reader POC IglooPro. Envoyez une demande sans engagement et bénéficiez de conseils d'experts sur le diagnostic au point d'intervention."
   }
 }
