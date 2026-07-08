@@ -93,6 +93,20 @@
           "La 'Práctica Verde' no es una tendencia que desaparecerá. Es el nuevo estándar de oro. Y con el equipo adecuado, es más fácil de lograr de lo que piensa."
         ]
       }
+    ],
+    "keyStats": [
+      {
+        "value": "30%",
+        "label": "menos desplazamientos por resultado"
+      },
+      {
+        "value": "0 km",
+        "label": "de transporte con POC"
+      },
+      {
+        "value": "200",
+        "label": "viajes en coche ahorrados/trimestre"
+      }
     ]
   },
   "invisible_patient": {
@@ -508,6 +522,10 @@
     "vc_readtime_label": "Tiempo de lectura",
     "vc_category_label": "Categoría",
     "vc_date_label": "Publicado",
-    "primary_cta": "Reservar una consulta"
+    "primary_cta": "Reservar una consulta",
+    "longread": "Lectura larga",
+    "cta_title": "Calcula tu potencial de ahorro.",
+    "cta_subtitle": "Calculadora de ROI o asesoramiento — en menos de un minuto.",
+    "cta_secondary": "Calculadora de ROI"
   }
 }

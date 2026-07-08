@@ -7,5 +7,32 @@
   "empty_title": "Aktuell keine Termine",
   "empty_text": "Derzeit stehen keine öffentlichen Termine an. Abonnieren Sie unseren Newsletter, um informiert zu bleiben, oder vereinbaren Sie einen persönlichen Termin.",
   "seo_title": "Events & Messen 2026: POC-Diagnostik live",
-  "seo_description": "PolarisDX auf 5 Events 2026 – von Stuttgart bis Hamburg. Erleben Sie Point-of-Care-Diagnostik live, gemeinsam mit Premium-Partner Nobel Biocare. Jetzt Termine entdecken."
+  "seo_description": "PolarisDX auf 5 Events 2026 – von Stuttgart bis Hamburg. Erleben Sie Point-of-Care-Diagnostik live, gemeinsam mit Premium-Partner Nobel Biocare. Jetzt Termine entdecken.",
+  "hero": {
+    "crumb": "Events 2026",
+    "title": "Treffen Sie uns 2026",
+    "subtitle": "Von Stuttgart bis Hamburg — erleben Sie den IglooPro live und sichern Sie sich an jedem Termin einen Slot mit unserem Team. Gemeinsam mit Premium-Partner Nobel Biocare.",
+    "chip_events": "5 Termine",
+    "chip_demos": "Live-Demos",
+    "chip_partner": "Partner: Nobel Biocare"
+  },
+  "upcoming": {
+    "eyebrow": "Aktuell · 2026",
+    "title": "Das Saison-Highlight — und der volle Kalender",
+    "subtitle": "Ein Flaggschiff-Event im Fokus, der Rest einen Klick entfernt."
+  },
+  "highlight": {
+    "label": "Highlight",
+    "description": "Der größte implantologische Fachkongress im deutschsprachigen Raum. Treffen Sie unser Team, erleben Sie den IglooPro live und sichern Sie sich einen Demo-Slot vor Ort.",
+    "book_cta": "Slot beim DGI 2026 sichern"
+  },
+  "list": {
+    "book": "Buchen"
+  },
+  "past": {
+    "eyebrow": "Wo wir waren",
+    "title": "Sie haben uns wahrscheinlich schon gesehen",
+    "subtitle": "Ein Rückblick auf 2025 — der IglooPro unterwegs in der DACH-Region.",
+    "recaps_cta": "Event-Rückblicke & Fotos ansehen"
+  }
 }

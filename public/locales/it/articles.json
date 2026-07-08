@@ -93,6 +93,20 @@
           "La 'Green Practice' non è una tendenza che scomparirà. È il nuovo standard di riferimento. E con l'attrezzatura giusta, è più facile da raggiungere di quanto pensi."
         ]
       }
+    ],
+    "keyStats": [
+      {
+        "value": "30%",
+        "label": "spostamenti in meno per referto"
+      },
+      {
+        "value": "0 km",
+        "label": "di trasporto con il POC"
+      },
+      {
+        "value": "200",
+        "label": "viaggi in auto risparmiati/trimestre"
+      }
     ]
   },
   "invisible_patient": {
@@ -508,6 +522,10 @@
     "vc_readtime_label": "Tempo di lettura",
     "vc_category_label": "Categoria",
     "vc_date_label": "Pubblicato",
-    "primary_cta": "Prenota una consulenza"
+    "primary_cta": "Prenota una consulenza",
+    "longread": "Approfondimento",
+    "cta_title": "Calcola il tuo potenziale di risparmio.",
+    "cta_subtitle": "Calcolatore ROI o consulenza — in meno di un minuto.",
+    "cta_secondary": "Calcolatore ROI"
   }
 }

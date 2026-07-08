@@ -93,6 +93,20 @@
           "The 'Green Practice' is not a trend that will disappear. It is the new gold standard. And with the right equipment, it is easier to achieve than you think."
         ]
       }
+    ],
+    "keyStats": [
+      {
+        "value": "30%",
+        "label": "fewer trips per result"
+      },
+      {
+        "value": "0 km",
+        "label": "transport with POC"
+      },
+      {
+        "value": "200",
+        "label": "car trips saved per quarter"
+      }
     ]
   },
   "invisible_patient": {
@@ -508,6 +522,10 @@
     "vc_readtime_label": "Reading time",
     "vc_category_label": "Category",
     "vc_date_label": "Published",
-    "primary_cta": "Book a consultation"
+    "primary_cta": "Book a consultation",
+    "longread": "Long-Read",
+    "cta_title": "Calculate your savings potential.",
+    "cta_subtitle": "ROI calculator or a consultation — in under a minute.",
+    "cta_secondary": "ROI calculator"
   }
 }

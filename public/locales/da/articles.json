@@ -409,6 +409,20 @@
           "The 'Green Practice' is not a trend that will disappear. It is the new gold standard. And with the right equipment, it is easier to achieve than you think."
         ]
       }
+    ],
+    "keyStats": [
+      {
+        "value": "30 %",
+        "label": "færre ture pr. resultat"
+      },
+      {
+        "value": "0 km",
+        "label": "transport ved POC"
+      },
+      {
+        "value": "200",
+        "label": "bilture sparet/kvartal"
+      }
     ]
   },
   "invisible_patient": {
@@ -508,6 +522,10 @@
     "vc_readtime_label": "Læsetid",
     "vc_category_label": "Kategori",
     "vc_date_label": "Udgivet",
-    "primary_cta": "Book en rådgivning"
+    "primary_cta": "Book en rådgivning",
+    "longread": "Long-read",
+    "cta_title": "Beregn dit besparelsespotentiale.",
+    "cta_subtitle": "ROI-beregner eller rådgivning — på under et minut.",
+    "cta_secondary": "ROI-beregner"
   }
 }

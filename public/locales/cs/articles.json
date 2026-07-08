@@ -93,6 +93,20 @@
           "„Zelená praxe“ není trend, který zmizí. Je to nový zlatý standard. A se správným vybavením je snazší ho dosáhnout, než si myslíte."
         ]
       }
+    ],
+    "keyStats": [
+      {
+        "value": "30 %",
+        "label": "méně cest na výsledek"
+      },
+      {
+        "value": "0 km",
+        "label": "přepravy u POC"
+      },
+      {
+        "value": "200",
+        "label": "ušetřených jízd autem/čtvrtletí"
+      }
     ]
   },
   "invisible_patient": {
@@ -508,6 +522,10 @@
     "vc_readtime_label": "Doba čtení",
     "vc_category_label": "Kategorie",
     "vc_date_label": "Publikováno",
-    "primary_cta": "Objednat konzultaci"
+    "primary_cta": "Objednat konzultaci",
+    "longread": "Long-read",
+    "cta_title": "Spočítejte si svůj potenciál úspor.",
+    "cta_subtitle": "Kalkulačka ROI nebo konzultace — za necelou minutu.",
+    "cta_secondary": "Kalkulačka ROI"
   }
 }

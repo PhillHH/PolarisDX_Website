@@ -93,6 +93,20 @@
           "Die \"Grüne Praxis\" ist kein Trend, der wieder verschwindet. Sie ist der neue Goldstandard. Und mit dem richtigen Equipment ist sie einfacher zu erreichen, als Sie denken."
         ]
       }
+    ],
+    "keyStats": [
+      {
+        "value": "30 %",
+        "label": "weniger Wege pro Befund"
+      },
+      {
+        "value": "0 km",
+        "label": "Transport bei POC"
+      },
+      {
+        "value": "200",
+        "label": "Autofahrten/Quartal gespart"
+      }
     ]
   },
   "invisible_patient": {
@@ -508,6 +522,10 @@
     "vc_readtime_label": "Lesezeit",
     "vc_category_label": "Kategorie",
     "vc_date_label": "Veröffentlicht",
-    "primary_cta": "Beratung buchen"
+    "primary_cta": "Beratung buchen",
+    "longread": "Long-Read",
+    "cta_title": "Rechnen Sie Ihr Einsparpotenzial durch.",
+    "cta_subtitle": "ROI-Rechner oder Beratung — in unter einer Minute.",
+    "cta_secondary": "ROI-Rechner"
   }
 }

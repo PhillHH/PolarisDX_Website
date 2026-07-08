@@ -1,58 +1,35 @@
 import React, { useMemo } from 'react'
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Calendar, MapPin, Award, Wind } from 'lucide-react'
-import { events } from '../data/events'
+import { Calendar, MapPin, ArrowRight } from 'lucide-react'
+import { events, pastEvents, HIGHLIGHT_EVENT_TITLE } from '../data/events'
 import { SEOHead, createBreadcrumbSchema, createEventSchema } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
-import Eyebrow from '../components/ui/Eyebrow'
 
 const monthNames: Record<string, string[]> = {
   de: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
   en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
 }
 
-function formatDateRange(date: string, endDate?: string, lang = 'de') {
-  const months = monthNames[lang] || monthNames.de
-  const start = new Date(date)
-  const startDay = start.getDate()
-  const startMonth = months[start.getMonth()]
-
-  if (!endDate) return `${startDay}. ${startMonth} ${start.getFullYear()}`
-
-  const end = new Date(endDate)
-  const endDay = end.getDate()
-  const endMonth = months[end.getMonth()]
-
-  if (start.getMonth() === end.getMonth()) {
-    return `${startDay}.–${endDay}. ${startMonth} ${start.getFullYear()}`
-  }
-  return `${startMonth} – ${endDay}. ${endMonth} ${end.getFullYear()}`
-}
-
-function getSeasonIcon(date: string) {
-  const month = new Date(date).getMonth()
-  if (month >= 5 && month <= 8) return Wind
-  return Calendar
-}
-
-const EventsPage: React.FC = () => {
+function EventsPage() {
   const { t, i18n } = useTranslation(['common', 'events'])
   const lang = i18n.language?.substring(0, 2) || 'de'
+  const months = monthNames[lang] || monthNames.de
 
-  const eventSchemas = useMemo(() => {
-    return events.map((event) =>
-      createEventSchema({
-        name: event.title,
-        description: event.description || event.title,
-        startDate: event.date,
-        endDate: event.endDate,
-        location: event.location,
-        url: event.link,
-      }),
-    )
-  }, [])
+  const highlight = events.find((e) => e.title.includes(HIGHLIGHT_EVENT_TITLE)) ?? events[events.length - 1]
+  const listEvents = events.filter((e) => e !== highlight)
+
+  const rangeLabel = (date: string, endDate?: string) => {
+    const s = new Date(date)
+    const sd = s.getDate()
+    const sm = months[s.getMonth()]
+    if (!endDate) return `${sd}. ${sm} ${s.getFullYear()}`
+    const e = new Date(endDate)
+    if (s.getMonth() === e.getMonth()) return `${sd}.–${e.getDate()}. ${sm} ${s.getFullYear()}`
+    return `${sd}. ${sm} – ${e.getDate()}. ${months[e.getMonth()]} ${e.getFullYear()}`
+  }
 
   const structuredData = useMemo(
     () => [
@@ -60,194 +37,230 @@ const EventsPage: React.FC = () => {
         { name: 'Home', url: '/' },
         { name: 'Events', url: '/events' },
       ]),
-      ...eventSchemas,
+      ...events.map((event) =>
+        createEventSchema({
+          name: event.title,
+          description: event.description || event.title,
+          startDate: event.date,
+          endDate: event.endDate,
+          location: event.location,
+          url: event.link,
+        }),
+      ),
     ],
-    [eventSchemas],
+    [],
   )
+
+  const gradients = [
+    'from-brand-deep to-accent',
+    'from-brand-deep to-brand-primary',
+    'from-accent-strong to-accent',
+    'from-brand-deep to-accent',
+  ]
 
   return (
     <PageTransition>
       <SEOHead
-        title={t(
-          'events:seo_title',
-          'Events & Messen 2026: POC-Diagnostik live erleben | PolarisDX',
-        )}
+        title={t('events:seo_title', 'Events & Messen 2026: POC-Diagnostik live | PolarisDX')}
         description={t(
           'events:seo_description',
-          'Polaris Diagnostics auf 5 Events in 2026 — von Stuttgart bis Hamburg. Point-of-Care-Diagnostik live mit Nobel Biocare.',
+          'PolarisDX auf 5 Events 2026 – von Stuttgart bis Hamburg, gemeinsam mit Nobel Biocare.',
         )}
-        keywords={[
-          'PolarisDX Events',
-          'Nobel Biocare',
-          'POC Diagnostik Messe',
-          'DGI Kongress',
-          'Kite Education Sylt',
-        ]}
+        keywords={['PolarisDX Events', 'Nobel Biocare', 'DGI Kongress', 'POC Diagnostik Messe']}
         structuredData={structuredData}
       />
 
-      {/* Hero Section */}
-      <div className="relative pt-32 pb-20 lg:pt-48 lg:pb-36 bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
-        {/* Decorative circles */}
-        <div className="absolute top-20 -left-32 w-96 h-96 rounded-full bg-brand-secondary/10 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-20 -right-32 w-80 h-80 rounded-full bg-brand-primary/20 blur-3xl pointer-events-none" />
-
-        <div className="mx-auto max-w-container px-4 text-center lg:px-0 relative z-10">
-          <Reveal width="100%" yOffset={20}>
-            <div className="flex justify-center mb-4">
+      {/* ===================== HERO (Navy, zentriert) ===================== */}
+      <section className="relative overflow-hidden bg-brand-deep text-white">
+        <div className="mx-auto max-w-container px-4 lg:px-0 pt-24 pb-20 lg:pt-28 text-center">
+          <Reveal width="100%">
+            <div className="mb-5 flex justify-center">
               <Breadcrumbs
                 variant="dark"
-                items={[{ label: 'Home', href: '/' }, { label: t('events:title') }]}
+                items={[
+                  { label: t('common:nav.home', 'Home'), href: '/' },
+                  { label: t('events:hero.crumb', 'Events 2026') },
+                ]}
               />
             </div>
-            <div className="flex justify-center">
-              <Eyebrow size="sm" className="mb-2">
-                2026
-              </Eyebrow>
-            </div>
-            <h1 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl text-white">
-              {t('events:title')}
+            <h1 className="mx-auto max-w-3xl text-4xl font-medium tracking-tight lg:text-5xl">
+              {t('events:hero.title', 'Meet us in 2026')}
             </h1>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-white/80">
-              {t('events:intro')}
+            <p className="mx-auto mt-5 max-w-2xl leading-relaxed text-white/80">
+              {t('events:hero.subtitle')}
             </p>
+            <div className="mt-7 flex flex-wrap justify-center gap-2">
+              {[
+                t('events:hero.chip_events', '5 events'),
+                t('events:hero.chip_demos', 'Live demos'),
+                t('events:hero.chip_partner', 'Partner: Nobel Biocare'),
+              ].map((c) => (
+                <span
+                  key={c}
+                  className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/90 ring-1 ring-white/15"
+                >
+                  {c}
+                </span>
+              ))}
+            </div>
           </Reveal>
         </div>
-      </div>
+      </section>
 
-      {/* Timeline Section */}
-      <div className="bg-slate-50 py-20 lg:py-28">
-        <div className="mx-auto max-w-5xl px-4">
-          {/* Nobel Biocare Partner Badge */}
-          <Reveal width="100%" yOffset={15}>
-            <div className="flex items-center justify-center gap-3 mb-16">
-              <div className="h-px flex-1 max-w-[120px] bg-gradient-to-r from-transparent to-brand-secondary/40" />
-              <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-brand-secondary/20 shadow-sm">
-                <Award className="w-4 h-4 text-brand-secondary" />
-                <span className="text-sm font-medium text-brand-deep">
-                  {t('events:premium_partner', 'Premium Partner: Nobel Biocare')}
-                </span>
-              </div>
-              <div className="h-px flex-1 max-w-[120px] bg-gradient-to-l from-transparent to-brand-secondary/40" />
-            </div>
-          </Reveal>
-
-          {/* Timeline */}
-          <div className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-6 lg:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-secondary via-brand-primary to-brand-deep lg:-translate-x-px" />
-
-            {events.map((event, index) => {
-              const isLeft = index % 2 === 0
-              const SeasonIcon = getSeasonIcon(event.date)
-
-              return (
-                <Reveal key={event.id} width="100%" delay={index * 0.12} yOffset={25}>
-                  <div
-                    className={`relative flex items-start gap-6 lg:gap-0 mb-12 last:mb-0 ${
-                      isLeft ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                    }`}
-                  >
-                    {/* Timeline dot */}
-                    <div className="absolute left-6 lg:left-1/2 -translate-x-1/2 z-10">
-                      <div
-                        className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg ${
-                          event.partner
-                            ? 'bg-gradient-to-br from-brand-secondary to-brand-primary'
-                            : 'bg-gradient-to-br from-brand-primary to-brand-deep'
-                        }`}
-                      >
-                        <SeasonIcon className="w-5 h-5 text-white" />
-                      </div>
-                    </div>
-
-                    {/* Spacer for mobile (left side of timeline) */}
-                    <div className="w-12 shrink-0 lg:hidden" />
-
-                    {/* Card */}
-                    <div
-                      className={`flex-1 lg:w-[calc(50%-3rem)] ${
-                        isLeft ? 'lg:pr-12' : 'lg:pl-12'
-                      } ${isLeft ? '' : 'lg:ml-auto'}`}
-                    >
-                      <div
-                        className={`group relative bg-white rounded-2xl border shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden ${
-                          event.partner ? 'border-brand-secondary/30' : 'border-gray-100'
-                        }`}
-                      >
-                        {/* Top accent bar */}
-                        <div
-                          className={`h-1 ${
-                            event.partner
-                              ? 'bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-secondary'
-                              : 'bg-gradient-to-r from-brand-primary to-brand-deep'
-                          }`}
-                        />
-
-                        <div className="p-6">
-                          {/* Tags row */}
-                          <div className="flex flex-wrap items-center gap-2 mb-3">
-                            {event.tag && (
-                              <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-brand-primary/10 text-brand-primary">
-                                {event.tag}
-                              </span>
-                            )}
-                            {event.partner && (
-                              <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full bg-brand-secondary/10 text-brand-secondary">
-                                <Award className="w-3 h-3" />
-                                {event.partner}
-                              </span>
-                            )}
-                          </div>
-
-                          {/* Title */}
-                          <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-primary transition-colors">
-                            {event.title}
-                          </h3>
-
-                          {/* Date & Location */}
-                          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-gray-500 mb-3">
-                            <div className="flex items-center gap-2">
-                              <Calendar className="w-4 h-4 text-brand-primary shrink-0" />
-                              <span className="font-medium">
-                                {formatDateRange(event.date, event.endDate, lang)}
-                              </span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <MapPin className="w-4 h-4 text-brand-primary shrink-0" />
-                              <span>{event.location}</span>
-                            </div>
-                          </div>
-
-                          {/* Description */}
-                          {event.description && (
-                            <p className="text-gray-600 text-sm leading-relaxed">
-                              {event.description}
-                            </p>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Empty space for the other side on desktop */}
-                    <div className="hidden lg:block lg:w-[calc(50%-3rem)]" />
-                  </div>
-                </Reveal>
-              )
-            })}
+      {/* ================ UPCOMING: Highlight + Kalender-Liste ================ */}
+      <section className="bg-slate-50">
+        <div className="mx-auto max-w-container px-4 lg:px-0 py-20 lg:py-28">
+          <div className="mb-12 text-center">
+            <span className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-strong">
+              {t('events:upcoming.eyebrow', 'Upcoming · 2026')}
+            </span>
+            <h2 className="mt-4 text-3xl font-medium tracking-tight text-heading lg:text-[38px]">
+              {t('events:upcoming.title', 'The season highlight — and the full calendar')}
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-gray-700">
+              {t('events:upcoming.subtitle', 'One flagship event featured, the rest one tap away.')}
+            </p>
           </div>
 
-          {/* Bottom flourish */}
-          <Reveal width="100%">
-            <div className="flex justify-center mt-16">
-              <div className="w-3 h-3 rounded-full bg-brand-deep" />
-            </div>
-          </Reveal>
+          <div className="grid items-stretch gap-6 lg:grid-cols-2">
+            {/* HIGHLIGHT-Karte */}
+            <Reveal width="100%">
+              <div className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-brand-deep p-8 text-white">
+                <span className="inline-flex w-fit rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-line ring-1 ring-white/15">
+                  {highlight.tag} · {t('events:highlight.label', 'Highlight')}
+                </span>
+                <h3 className="mt-6 text-3xl font-medium tracking-tight">{highlight.title}</h3>
+                <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/80">
+                  <span className="inline-flex items-center gap-2">
+                    <Calendar className="h-4 w-4 text-accent-line" aria-hidden />
+                    {rangeLabel(highlight.date, highlight.endDate)}
+                  </span>
+                  <span className="inline-flex items-center gap-2">
+                    <MapPin className="h-4 w-4 text-accent-line" aria-hidden />
+                    {highlight.location}
+                  </span>
+                </div>
+                <p className="mt-4 max-w-md leading-relaxed text-white/80">
+                  {t('events:highlight.description')}
+                </p>
+                <div className="mt-8">
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center justify-center rounded-md bg-accent px-6 py-3 text-sm font-medium text-white shadow-lg shadow-accent/20 transition hover:bg-accent-strong"
+                  >
+                    {t('events:highlight.book_cta', 'Book a slot at DGI 2026')}
+                  </Link>
+                </div>
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -bottom-2 left-6 select-none text-5xl font-bold text-white/5"
+                >
+                  {highlight.location}
+                </span>
+              </div>
+            </Reveal>
+
+            {/* KALENDER-LISTE */}
+            <Reveal width="100%" delay={0.1}>
+              <div className="h-full divide-y divide-slate-100 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+                {listEvents.map((event, i) => {
+                  const d = new Date(event.date)
+                  return (
+                    <div
+                      key={event.id}
+                      className="group flex items-center gap-4 p-4 transition hover:bg-slate-50"
+                    >
+                      <div
+                        className={`relative hidden h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-gradient-to-br sm:block ${gradients[i % gradients.length]}`}
+                      >
+                        <span className="pointer-events-none absolute bottom-0 left-1 select-none text-[9px] font-semibold text-white/40">
+                          {event.location}
+                        </span>
+                      </div>
+                      <div className="w-12 shrink-0 text-center">
+                        <div className="text-[11px] font-semibold uppercase tracking-wider text-accent-strong">
+                          {months[d.getMonth()]}
+                        </div>
+                        <div className="text-xl font-semibold leading-none text-heading">
+                          {d.getDate()}
+                        </div>
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="truncate font-medium text-heading">{event.title}</div>
+                        <div className="truncate text-sm text-gray-500">
+                          {event.location} · {event.tag}
+                        </div>
+                      </div>
+                      <Link
+                        to="/contact"
+                        className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-accent transition group-hover:gap-1.5 group-hover:text-accent-strong"
+                      >
+                        {t('events:list.book', 'Book')}
+                        <ArrowRight className="h-4 w-4" aria-hidden />
+                      </Link>
+                    </div>
+                  )
+                })}
+              </div>
+            </Reveal>
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* ==================== WHERE WE'VE BEEN (2025) ==================== */}
+      <section className="bg-white">
+        <div className="mx-auto max-w-container px-4 lg:px-0 pb-20 lg:pb-28">
+          <div className="mb-12 text-center">
+            <span className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-strong">
+              {t('events:past.eyebrow', "Where we've been")}
+            </span>
+            <h2 className="mt-4 text-3xl font-medium tracking-tight text-heading lg:text-[38px]">
+              {t('events:past.title', "You've probably seen us before")}
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-gray-700">
+              {t('events:past.subtitle')}
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {pastEvents.map((p, i) => (
+              <Reveal key={p.id} width="100%" delay={i * 0.05}>
+                <div
+                  className={`relative flex h-56 flex-col justify-end overflow-hidden rounded-2xl bg-gradient-to-br p-6 text-white ${gradients[i % gradients.length]}`}
+                >
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute bottom-3 left-5 select-none text-2xl font-bold text-white/10"
+                  >
+                    {p.watermark}
+                  </span>
+                  <div className="relative">
+                    <div className="text-[11px] font-semibold uppercase tracking-wider text-white/70">
+                      {months[p.month]} {p.year}
+                    </div>
+                    <div className="mt-1 text-lg font-semibold">{p.title}</div>
+                    <div className="mt-0.5 text-sm text-white/70">
+                      {p.location} · {p.detail}
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition hover:text-accent-strong"
+            >
+              {t('events:past.recaps_cta', 'See event recaps & photos')}
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </Link>
+          </div>
+        </div>
+      </section>
     </PageTransition>
   )
 }
 
-export default EventsPage
+export default React.memo(EventsPage)

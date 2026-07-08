@@ -7,5 +7,32 @@
   "empty_title": "No upcoming events",
   "empty_text": "There are currently no public events scheduled. Subscribe to our newsletter to stay informed, or schedule a personal appointment.",
   "seo_title": "Events & Trade Shows 2026: POC Diagnostics Live",
-  "seo_description": "Meet PolarisDX at 5 events in 2026 – from Stuttgart to Hamburg. Experience point-of-care diagnostics live alongside premium partner Nobel Biocare. See all dates."
+  "seo_description": "Meet PolarisDX at 5 events in 2026 – from Stuttgart to Hamburg. Experience point-of-care diagnostics live alongside premium partner Nobel Biocare. See all dates.",
+  "hero": {
+    "crumb": "Events 2026",
+    "title": "Meet us in 2026",
+    "subtitle": "From Stuttgart to Hamburg — see the IglooPro live and book a slot with our team at each show. Together with premium partner Nobel Biocare.",
+    "chip_events": "5 events",
+    "chip_demos": "Live demos",
+    "chip_partner": "Partner: Nobel Biocare"
+  },
+  "upcoming": {
+    "eyebrow": "Upcoming · 2026",
+    "title": "The season highlight — and the full calendar",
+    "subtitle": "One flagship event featured, the rest one tap away."
+  },
+  "highlight": {
+    "label": "Highlight",
+    "description": "The largest implantology congress in the German-speaking region. Meet our team, see the IglooPro live and secure a demo slot on site.",
+    "book_cta": "Book a slot at DGI 2026"
+  },
+  "list": {
+    "book": "Book"
+  },
+  "past": {
+    "eyebrow": "Where we've been",
+    "title": "You've probably seen us before",
+    "subtitle": "A look back at 2025 — the IglooPro on the road across the DACH region.",
+    "recaps_cta": "See event recaps & photos"
+  }
 }

@@ -7,5 +7,32 @@
   "details": "Podrobnosti",
   "seo_title": "Akce a veletrhy 2026: POC diagnostika naživo",
   "seo_description": "PolarisDX na 5 akcích roku 2026 – od Stuttgartu po Hamburk. Zažijte diagnostiku v místě péče naživo společně s prémiovým partnerem Nobel Biocare. Objevte termíny.",
-  "premium_partner": "Premium partner: Nobel Biocare"
+  "premium_partner": "Premium partner: Nobel Biocare",
+  "hero": {
+    "crumb": "Akce 2026",
+    "title": "Potkejte nás v roce 2026",
+    "subtitle": "Od Stuttgartu po Hamburk — prohlédněte si IglooPro naživo a rezervujte si termín s naším týmem na každé akci. Společně s premium partnerem Nobel Biocare.",
+    "chip_events": "5 akcí",
+    "chip_demos": "Živé ukázky",
+    "chip_partner": "Partner: Nobel Biocare"
+  },
+  "upcoming": {
+    "eyebrow": "Nadcházející · 2026",
+    "title": "Vrchol sezóny — a celý kalendář",
+    "subtitle": "Jedna vlajková akce v centru pozornosti, zbytek na jedno kliknutí."
+  },
+  "highlight": {
+    "label": "Highlight",
+    "description": "Největší implantologický kongres v německy mluvící oblasti. Poznejte náš tým, prohlédněte si IglooPro naživo a rezervujte si demo na místě.",
+    "book_cta": "Rezervovat termín na DGI 2026"
+  },
+  "list": {
+    "book": "Rezervovat"
+  },
+  "past": {
+    "eyebrow": "Kde jsme byli",
+    "title": "Pravděpodobně jste nás už viděli",
+    "subtitle": "Ohlédnutí za rokem 2025 — IglooPro na cestách po regionu DACH.",
+    "recaps_cta": "Zobrazit shrnutí a fotky"
+  }
 }

@@ -7,5 +7,32 @@
   "details": "Dettagli",
   "seo_title": "Eventi e fiere 2026: la diagnostica POC dal vivo",
   "seo_description": "PolarisDX a 5 eventi nel 2026, da Stoccarda ad Amburgo. Vivi dal vivo la diagnostica point-of-care insieme al partner premium Nobel Biocare. Scopri tutte le date.",
-  "premium_partner": "Partner Premium: Nobel Biocare"
+  "premium_partner": "Partner Premium: Nobel Biocare",
+  "hero": {
+    "crumb": "Eventi 2026",
+    "title": "Incontraci nel 2026",
+    "subtitle": "Da Stoccarda ad Amburgo — scopri l’IglooPro dal vivo e prenota uno slot con il nostro team a ogni fiera. Insieme al partner premium Nobel Biocare.",
+    "chip_events": "5 eventi",
+    "chip_demos": "Demo dal vivo",
+    "chip_partner": "Partner: Nobel Biocare"
+  },
+  "upcoming": {
+    "eyebrow": "In arrivo · 2026",
+    "title": "L’evento clou della stagione — e il calendario completo",
+    "subtitle": "Un evento di punta in primo piano, il resto a portata di clic."
+  },
+  "highlight": {
+    "label": "In evidenza",
+    "description": "Il più grande congresso di implantologia dell’area di lingua tedesca. Incontra il nostro team, scopri l’IglooPro dal vivo e prenota una demo in loco.",
+    "book_cta": "Prenota uno slot al DGI 2026"
+  },
+  "list": {
+    "book": "Prenota"
+  },
+  "past": {
+    "eyebrow": "Dove siamo stati",
+    "title": "Probabilmente ci hai già visti",
+    "subtitle": "Uno sguardo al 2025 — l’IglooPro in tour nella regione DACH.",
+    "recaps_cta": "Guarda resoconti e foto"
+  }
 }
