@@ -130,5 +130,13 @@
       "services": "Servicios",
       "contact": "Contacto"
     }
+  },
+  "voucher_promo": {
+    "badge": "Oferta",
+    "title": "10 % de descuento en todo el surtido",
+    "text": "Use el código de descuento POLARIS10 para obtener un 10 % de descuento en todo su pedido; indíquelo al solicitar su presupuesto.",
+    "hint": "Seleccione el código abajo en el formulario: le descontaremos un 10 % de su presupuesto.",
+    "copy": "Copiar",
+    "copied": "¡Copiado!"
   }
 }

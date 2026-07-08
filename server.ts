@@ -303,19 +303,19 @@ async function createServer() {
 
     // Content-Security-Policy im REPORT-ONLY Modus: bricht die Live-Seite NICHT,
     // protokolliert nur Verstöße. Erlaubt self + die tatsächlich genutzten
-    // Drittanbieter: Google Tag Manager, Google Analytics, HiHuman Chat-Widget
+    // Drittanbieter: Google Tag Manager, Google Analytics
     // und Google Fonts. Bewusst permissiv (https:/data: für Bilder/Styles/Fonts).
     const cspReportOnly = [
       "default-src 'self'",
       "base-uri 'self'",
       "object-src 'none'",
       "frame-ancestors 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://widget.hihuman.co.uk https:",
-      "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://widget.hihuman.co.uk https://*.hihuman.co.uk https:",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https:",
+      "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net https:",
       "img-src 'self' data: https:",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https:",
       "font-src 'self' data: https://fonts.gstatic.com https:",
-      "frame-src 'self' https://www.googletagmanager.com https://widget.hihuman.co.uk https:",
+      "frame-src 'self' https://www.googletagmanager.com https:",
     ].join('; ')
     res.setHeader('Content-Security-Policy-Report-Only', cspReportOnly)
 

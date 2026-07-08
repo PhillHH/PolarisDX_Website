@@ -130,5 +130,13 @@
       "services": "Tjenester",
       "contact": "Kontakt"
     }
+  },
+  "voucher_promo": {
+    "badge": "Tilbud",
+    "title": "10% rabat på hele sortimentet",
+    "text": "Brug rabatkoden POLARIS10 og få 10% rabat på hele din ordre – angiv den, når du anmoder om et tilbud.",
+    "hint": "Vælg koden nedenfor i formularen – vi trækker 10% fra dit tilbud.",
+    "copy": "Kopiér",
+    "copied": "Kopieret!"
   }
 }

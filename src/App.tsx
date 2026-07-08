@@ -31,7 +31,6 @@ import HomePage from './pages/HomePage'
 // Layout-Komponenten bleiben eager (werden auf allen Seiten gebraucht)
 import { CookieBanner } from './components/ui/CookieBanner'
 import MobileCallButton from './components/ui/MobileCallButton'
-import ChatWidget from './components/ui/ChatWidget'
 
 // =============================================================================
 // LAZY IMPORTS - Werden erst bei Bedarf geladen
@@ -104,14 +103,13 @@ function ServicesRedirect() {
 
 /**
  * Layout-Route für die reguläre B2B-Website: rendert die PolarisDX-Shell
- * (Header/Footer), Mobile-Call-Button, Chat-Widget und Cookie-Banner.
+ * (Header/Footer), Mobile-Call-Button und Cookie-Banner.
  * Die einzelnen Seiten erscheinen über <Outlet />.
  */
 function MainLayout() {
   return (
     <Layout>
       <MobileCallButton />
-      <ChatWidget />
       <Outlet />
     </Layout>
   )

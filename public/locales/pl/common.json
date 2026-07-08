@@ -130,5 +130,13 @@
       "services": "Usługi",
       "contact": "Kontakt"
     }
+  },
+  "voucher_promo": {
+    "badge": "Promocja",
+    "title": "10% rabatu na cały asortyment",
+    "text": "Użyj kodu rabatowego POLARIS10 i zyskaj 10% zniżki na całe zamówienie – podaj go, prosząc o ofertę.",
+    "hint": "Wybierz kod poniżej w formularzu – odejmiemy 10% od Twojej oferty.",
+    "copy": "Kopiuj",
+    "copied": "Skopiowano!"
   }
 }

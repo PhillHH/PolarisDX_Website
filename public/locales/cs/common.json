@@ -130,5 +130,13 @@
       "services": "Služby",
       "contact": "Kontakt"
     }
+  },
+  "voucher_promo": {
+    "badge": "Akce",
+    "title": "10 % sleva na celý sortiment",
+    "text": "Použijte slevový kód POLARIS10 a získejte 10 % slevu na celou objednávku – uveďte jej při vyžádání nabídky.",
+    "hint": "Vyberte kód níže ve formuláři – odečteme 10 % z vaší nabídky.",
+    "copy": "Kopírovat",
+    "copied": "Zkopírováno!"
   }
 }

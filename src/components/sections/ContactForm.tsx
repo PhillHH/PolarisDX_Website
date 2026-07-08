@@ -5,6 +5,7 @@ import { Input } from '../ui/Input'
 import { Textarea } from '../ui/Textarea'
 import { Alert } from '../ui/Alert'
 import { useContactForm } from '../../hooks/useContactForm'
+import VoucherPromo from './VoucherPromo'
 
 export const ContactForm = () => {
   const { t } = useTranslation('contact')
@@ -38,6 +39,8 @@ export const ContactForm = () => {
         <label htmlFor="contact-hp">Leave this field blank</label>
         <input id="contact-hp" name="_hp" type="text" tabIndex={-1} autoComplete="off" />
       </div>
+
+      <VoucherPromo variant="card" />
 
       <Input
         id="company"
@@ -93,7 +96,7 @@ export const ContactForm = () => {
         </select>
       </div>
 
-      <div className="space-y-1">
+      <div className="space-y-1 rounded-xl border border-accent-border/70 bg-accent-soft/40 p-4">
         <label htmlFor="voucher" className="block text-sm font-medium text-gray-700">
           {t('contact.form.voucher_label')}
         </label>
