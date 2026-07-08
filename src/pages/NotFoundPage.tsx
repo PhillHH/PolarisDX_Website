@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Home, ArrowLeft, Search, FileQuestion } from 'lucide-react'
 import { SEOHead } from '../components/seo'
+import { Button } from '../components/ui/Button'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 
@@ -26,39 +27,26 @@ const NotFoundPage = () => {
         noindex={true}
       />
 
-      <div className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-secondary/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl" />
-
-        <div className="relative z-10 mx-auto max-w-2xl px-4 text-center">
+      <div className="flex min-h-[80vh] items-center justify-center bg-brand-deep text-white">
+        <div className="mx-auto max-w-2xl px-4 py-24 text-center">
           <Reveal width="100%" yOffset={20}>
             {/* 404 Number */}
-            <div className="mb-8">
-              <span className="text-[10rem] sm:text-[12rem] font-bold leading-none bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent opacity-80">
-                404
-              </span>
-            </div>
+            <span className="block text-[8rem] font-medium leading-none tracking-tight text-accent sm:text-[10rem]">
+              404
+            </span>
 
-            {/* Badge */}
-            <div className="flex justify-center mb-6">
-              <div className="inline-block rounded p-px bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
-                <div className="rounded-sm bg-slate-50 px-4 py-1.5">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-gray-900">
-                    {t('notFound.badge', 'Seite nicht gefunden')}
-                  </span>
-                </div>
-              </div>
-            </div>
+            {/* Eyebrow */}
+            <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+              {t('notFound.badge', 'Seite nicht gefunden')}
+            </p>
 
             {/* Title */}
-            <h1 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl text-white mb-6">
+            <h1 className="mt-4 text-3xl font-medium tracking-tight text-white sm:text-4xl lg:text-5xl">
               {t('notFound.title', 'Oops! Diese Seite existiert nicht')}
             </h1>
 
             {/* Description */}
-            <p className="mx-auto max-w-lg text-lg text-white/80 mb-10">
+            <p className="mx-auto mt-5 max-w-lg text-lg leading-relaxed text-white/80">
               {t(
                 'notFound.description',
                 'Die von Ihnen gesuchte Seite wurde möglicherweise verschoben, gelöscht oder existiert nicht mehr.',
@@ -66,29 +54,32 @@ const NotFoundPage = () => {
             </p>
 
             {/* Primary CTA */}
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-base font-semibold text-brand-primary shadow-lg shadow-white/20 transition-all hover:bg-gray-100 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/50"
-            >
-              <Home className="h-5 w-5" />
-              {t('notFound.backHome', 'Zurück zur Startseite')}
-            </Link>
+            <div className="mt-10">
+              <Button
+                to="/"
+                variant="secondary"
+                className="!bg-accent !text-white !shadow-accent/20 hover:!bg-accent-strong focus-visible:!ring-accent"
+              >
+                <Home className="h-5 w-5" />
+                {t('notFound.backHome', 'Zurück zur Startseite')}
+              </Button>
+            </div>
           </Reveal>
 
           {/* Popular Pages */}
           <Reveal width="100%" delay={0.2}>
-            <div className="mt-16 pt-10 border-t border-white/20">
-              <p className="text-sm text-white/60 mb-6 uppercase tracking-wider">
+            <div className="mt-16 border-t border-white/15 pt-10">
+              <p className="mb-6 text-sm uppercase tracking-wider text-white/60">
                 {t('notFound.popularPages', 'Beliebte Seiten')}
               </p>
-              <div className="flex flex-wrap justify-center gap-4">
+              <div className="flex flex-wrap justify-center gap-3">
                 {popularPages.map((page) => (
                   <Link
                     key={page.path}
                     to={page.path}
-                    className="group flex items-center gap-2 rounded-lg bg-white/10 px-4 py-2.5 text-sm font-medium text-white/90 backdrop-blur-sm transition-all hover:bg-white/20 hover:text-white"
+                    className="group inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/90 ring-1 ring-white/15 transition-colors hover:bg-white/20 hover:text-white"
                   >
-                    <page.icon className="h-4 w-4 text-white/60 group-hover:text-white transition-colors" />
+                    <page.icon className="h-4 w-4 text-accent-line" aria-hidden />
                     {page.name}
                   </Link>
                 ))}
