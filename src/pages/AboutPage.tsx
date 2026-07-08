@@ -1,14 +1,13 @@
 import { useTranslation } from 'react-i18next'
 import { SEOHead, organizationSchema, createBreadcrumbSchema } from '../components/seo'
-import { Breadcrumbs } from '../components/ui/Breadcrumbs'
-import { Button } from '../components/ui/Button'
 import TeamSection from '../components/sections/TeamSection'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
-import Eyebrow from '../components/ui/Eyebrow'
+import SubpageHero from '../components/sections/SubpageHero'
+import FinalCtaSection from '../components/sections/FinalCtaSection'
 
 const AboutPage = () => {
-  const { t } = useTranslation(['about', 'home'])
+  const { t } = useTranslation(['about', 'common', 'home'])
 
   return (
     <PageTransition>
@@ -32,79 +31,44 @@ const AboutPage = () => {
           ]),
         ]}
       />
-      <div className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
-        <div className="mx-auto max-w-container px-4 text-center lg:px-0 relative z-10">
-          <Reveal width="100%" yOffset={20}>
-            <div className="flex justify-center mb-4">
-              <Breadcrumbs
-                variant="dark"
-                items={[
-                  { label: 'Home', href: '/' },
-                  { label: t('about:hero.caption', 'Über uns') },
-                ]}
-              />
+      <SubpageHero
+        breadcrumbs={[
+          { label: t('common:nav.home', 'Home'), href: '/' },
+          { label: t('about:hero.caption', 'Über uns') },
+        ]}
+        eyebrow={t('about:hero.caption', 'Über uns')}
+        title={t('about:hero.title', 'Wir definieren Diagnostik neu')}
+        subtitle={t(
+          'about:hero.description',
+          'PolarisDX steht für Innovation, Präzision und Verlässlichkeit in der Medizintechnik. Lernen Sie die Menschen hinter unserer Mission kennen.',
+        )}
+      />
+
+      <TeamSection />
+
+      <section className="bg-slate-50 py-16 lg:py-24">
+        <div className="mx-auto max-w-container px-4 lg:px-0">
+          <Reveal width="100%">
+            <div className="mx-auto max-w-3xl text-center text-gray-700">
+              <p className="text-lg leading-relaxed">
+                Als europäischer Distributionspartner von{' '}
+                <a
+                  href="https://dx365.world"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-accent underline transition-colors hover:text-accent-strong"
+                >
+                  DX365
+                </a>{' '}
+                bringen wir den IglooPro POC-Reader in Praxen und Kliniken — inklusive Vertrieb,
+                Integration, Schulung und laufendem Support.
+              </p>
             </div>
-            <div className="flex justify-center">
-              <Eyebrow size="sm" className="mb-2">
-                {t('about:hero.caption', 'ÜBER UNS')}
-              </Eyebrow>
-            </div>
-            <h1 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl text-white">
-              {t('about:hero.title', 'Wir definieren Diagnostik neu')}
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-white/80">
-              {t(
-                'about:hero.description',
-                'PolarisDX steht für Innovation, Präzision und Verlässlichkeit in der Medizintechnik. Lernen Sie die Menschen hinter unserer Mission kennen.',
-              )}
-            </p>
           </Reveal>
         </div>
-      </div>
+      </section>
 
-      <div className="mx-auto flex max-w-container flex-col gap-32 px-4 py-24 lg:px-0 lg:gap-32 lg:py-32">
-        <Reveal width="100%">
-          <TeamSection />
-        </Reveal>
-
-        <Reveal width="100%">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-lg text-gray-600">
-              Als europäischer Distributionspartner von{' '}
-              <a
-                href="https://dx365.world"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-brand-primary hover:text-brand-deep underline transition-colors"
-              >
-                DX365
-              </a>{' '}
-              bringen wir den IglooPro POC-Reader in Praxen und Kliniken — inklusive Vertrieb,
-              Integration, Schulung und laufendem Support.
-            </p>
-          </div>
-        </Reveal>
-
-        <Reveal width="100%">
-          <div className="flex flex-col items-center gap-4 text-center">
-            <p className="text-lg text-gray-600">
-              {t(
-                'about:cta.text',
-                'Lernen Sie unsere Diagnostik-Lösungen kennen oder nehmen Sie direkt Kontakt auf.',
-              )}
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button to="/diagnostics" size="sm">
-                {t('about:cta.services', 'Unsere Diagnostik-Services')}
-              </Button>
-              <Button to="/contact" variant="secondary" size="sm">
-                {t('about:cta.contact', 'Kontakt aufnehmen')}
-              </Button>
-            </div>
-          </div>
-        </Reveal>
-      </div>
+      <FinalCtaSection roiHref="/#roi-rechner" />
     </PageTransition>
   )
 }

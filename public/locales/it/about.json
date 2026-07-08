@@ -7,6 +7,7 @@
   "team": {
     "caption": "IL NOSTRO TEAM",
     "title": "Incontra i nostri esperti",
+    "photo_placeholder": "Foto del team",
     "members": {
       "tim_ritson": {
         "name": "Tim Ritson",

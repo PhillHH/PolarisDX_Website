@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Mail, Linkedin } from 'lucide-react'
 import SectionHeader from '../ui/SectionHeader'
+import ImagePlaceholder from '../ui/ImagePlaceholder'
 import AdrianoZuccalaJPEG from '../../assets/Adriano Zuccala.webp'
 import FrankStoffelsJPG from '../../assets/Frank Stoffels.webp'
 import UlrikeSchuerholzJPG from '../../assets/Ulrike Schuerholz.webp'
@@ -8,10 +9,16 @@ import UlrikeSchuerholzJPG from '../../assets/Ulrike Schuerholz.webp'
 const TeamSection = () => {
   const { t } = useTranslation('about')
 
-  const team = [
+  const team: {
+    id: string
+    image: string | null
+    email: string
+    linkedin: string
+  }[] = [
     {
       id: 'tim_ritson',
-      image: 'https://placehold.co/400x400',
+      // Kein echtes Foto vorhanden -> sprach-neutraler ImagePlaceholder (kein externes placehold.co).
+      image: null,
       email: 'timr@polarisdx.net',
       linkedin: 'https://www.linkedin.com/in/tim-ritson-0824491b/',
     },
@@ -48,18 +55,24 @@ const TeamSection = () => {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {team.map((member) => (
             <div key={member.id} className="flex flex-col items-start text-left group">
-              <div className="mb-6 w-full overflow-hidden rounded-2xl bg-gray-100 relative">
-                {/* Gradient overlay on hover could be nice, keeping it simple for now */}
-                <img
-                  src={member.image}
-                  alt={t(`team.members.${member.id}.name`)}
-                  width={300}
-                  height={400}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-[400px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              {member.image ? (
+                <div className="mb-6 w-full overflow-hidden rounded-2xl bg-gray-100 relative">
+                  <img
+                    src={member.image}
+                    alt={t(`team.members.${member.id}.name`)}
+                    width={300}
+                    height={400}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-[400px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              ) : (
+                <ImagePlaceholder
+                  label={t('team.photo_placeholder', 'Teamfoto')}
+                  className="mb-6 h-[400px] w-full rounded-2xl"
                 />
-              </div>
+              )}
               <h3 className="font-sans text-2xl font-medium text-gray-900">
                 {t(`team.members.${member.id}.name`)}
               </h3>
