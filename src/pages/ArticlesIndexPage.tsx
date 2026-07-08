@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, createBreadcrumbSchema } from '../components/seo'
-import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import SectionHeader from '../components/ui/SectionHeader'
-import BlogCard from '../components/ui/BlogCard'
-import { blogPosts } from '../data/blogPosts'
+import Eyebrow from '../components/ui/Eyebrow'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
-import { getArticleImageUrl } from '../assets/articleImages'
+import SubpageHero from '../components/sections/SubpageHero'
+import FinalCtaSection from '../components/sections/FinalCtaSection'
+import { articles } from '../data/articles'
 
 const ArticlesIndexPage = () => {
   const { t } = useTranslation(['articles', 'shop', 'common'])
@@ -35,64 +35,43 @@ const ArticlesIndexPage = () => {
           { name: 'Artikel', url: '/articles' },
         ])}
       />
-      <div className="bg-slate-50 min-h-screen">
-        {/* Header Section */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white">
-          <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
 
-          <div className="relative mx-auto flex min-h-hero max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
-            <Reveal width="100%" yOffset={20}>
-              <div className="max-w-container">
-                <Breadcrumbs
-                  variant="dark"
-                  className="mb-4"
-                  items={[
-                    { label: t('shop:shop.home', 'Home'), href: '/' },
-                    { label: t('shop:shop.articles', 'Articles') },
-                  ]}
-                />
+      <SubpageHero
+        breadcrumbs={[
+          { label: t('shop:shop.home', 'Home'), href: '/' },
+          { label: t('shop:shop.articles', 'Articles') },
+        ]}
+        eyebrow={t('articles:index.eyebrow', 'Fachwissen')}
+        title={t('articles:index.title', 'Our Magazine')}
+        subtitle={t(
+          'articles:index.subtitle',
+          'Insights, news, and expert knowledge on modern diagnostics and health.',
+        )}
+      />
 
-                <h1 className="mb-4 text-hero-sm leading-[47px] font-medium tracking-[-0.02em] sm:text-hero-md sm:leading-[58px] lg:text-hero-lg lg:leading-[69px]">
-                  {t('articles:index.title', 'Our Magazine')}
-                </h1>
-                <p className="max-w-2xl text-lg text-white/80">
-                  {t(
-                    'articles:index.subtitle',
-                    'Insights, news, and expert knowledge on modern diagnostics and health.',
-                  )}
-                </p>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
-        {/* Content Section */}
-        <div className="mx-auto max-w-container px-4 py-16 lg:px-10 lg:py-24">
+      <div className="bg-slate-50">
+        <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
           <Reveal width="100%">
             {/* Featured Article */}
             <div className="mb-12">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
+              <Eyebrow size="sm" className="mb-3">
                 {t('articles:index.featured', 'Featured')}
-              </p>
+              </Eyebrow>
               <Link
                 to="/vitamin-d3-implantologie"
-                className="group block overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-primary/30"
+                className="group block rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:shadow-card lg:p-8"
               >
-                <div className="p-6 lg:p-8">
-                  <h2 className="text-xl font-semibold text-gray-900 group-hover:text-brand-primary transition-colors lg:text-2xl">
-                    Vitamin D3 und Implantologie — Evidenz und Praxisleitfaden
-                  </h2>
-                  <p className="mt-3 text-sm text-gray-500 lg:text-base">
-                    Wie ein optimaler Vitamin-D-Spiegel die Osseointegration fördert und
-                    Implantatverluste reduziert. Wissenschaftlich fundiert mit praktischen
-                    Handlungsempfehlungen.
-                  </p>
-                  <p className="mt-4 text-sm font-medium text-brand-primary group-hover:underline">
-                    Fachartikel lesen →
-                  </p>
-                </div>
+                <h2 className="text-2xl font-medium tracking-tight text-heading lg:text-3xl">
+                  Vitamin D3 und Implantologie — Evidenz und Praxisleitfaden
+                </h2>
+                <p className="mt-3 leading-relaxed text-gray-700">
+                  Wie ein optimaler Vitamin-D-Spiegel die Osseointegration fördert und
+                  Implantatverluste reduziert. Wissenschaftlich fundiert mit praktischen
+                  Handlungsempfehlungen.
+                </p>
+                <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-accent group-hover:text-accent-strong">
+                  Fachartikel lesen →
+                </span>
               </Link>
             </div>
 
@@ -102,24 +81,36 @@ const ArticlesIndexPage = () => {
               align="left"
             />
 
-            <div className="mt-10 grid gap-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-              {blogPosts.map((post) => {
-                // SSR-safe: Verwende zentrale Bild-Imports
-                const imageUrl = getArticleImageUrl(post.image)
-
-                return (
-                  <BlogCard
-                    key={post.id}
-                    id={post.id}
-                    to={`/articles/${post.slug}`}
-                    imageUrl={imageUrl}
-                  />
-                )
-              })}
+            <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {articles.map((post) => (
+                <Link
+                  key={post.id}
+                  to={`/articles/${post.slug}`}
+                  className="group flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:shadow-card"
+                >
+                  <span className="inline-flex w-fit rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+                    {t(`common:category.${post.category}`, post.category)}
+                  </span>
+                  <h3 className="mt-4 text-lg font-medium text-heading">
+                    {t(`articles:${post.id}.title`)}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-700">
+                    {t(`articles:${post.id}.excerpt`)}
+                  </p>
+                  <p className="mt-3 text-xs text-gray-500">
+                    {post.readTime} · {post.date}
+                  </p>
+                  <span className="mt-auto pt-6 inline-flex items-center gap-1 text-sm font-semibold text-accent group-hover:text-accent-strong">
+                    {t('shop:shop.readMore', 'Weiterlesen')} →
+                  </span>
+                </Link>
+              ))}
             </div>
           </Reveal>
         </div>
       </div>
+
+      <FinalCtaSection roiHref="/#roi-rechner" />
     </PageTransition>
   )
 }

@@ -1,12 +1,12 @@
 import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, createArticleSchema, createBreadcrumbSchema } from '../components/seo'
-import { Breadcrumbs } from '../components/ui/Breadcrumbs'
-import SectionHeader from '../components/ui/SectionHeader'
 import { Button } from '../components/ui/Button'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import PageSidebar, { type SidebarWidget } from '../components/sections/PageSidebar'
+import SubpageHero from '../components/sections/SubpageHero'
+import FinalCtaSection from '../components/sections/FinalCtaSection'
 import { services } from '../data/services'
 import { useArticles } from '../hooks/useArticles'
 import { LoadingSpinner } from '../components/ui/LoadingSpinner'
@@ -114,17 +114,17 @@ const ArticlePage = () => {
         return (
           <section key={index} className="space-y-4 overflow-x-auto">
             {section.heading && (
-              <h2 className="text-lg font-semibold tracking-tight text-gray-900">
+              <h2 className="text-xl font-medium tracking-tight text-heading lg:text-2xl">
                 {section.heading}
               </h2>
             )}
-            <table className="w-full min-w-[600px] border-collapse text-left text-sm text-gray-600 sm:text-base">
+            <table className="w-full min-w-[600px] border-collapse text-left text-sm text-gray-700 sm:text-base">
               <thead>
                 <tr>
                   {(section as TableSection).headers.map((header, i) => (
                     <th
                       key={i}
-                      className="border-b border-gray-200 py-3 font-semibold text-gray-900"
+                      className="border-b border-slate-200 py-3 font-semibold text-heading"
                     >
                       {header}
                     </th>
@@ -149,10 +149,10 @@ const ArticlePage = () => {
         return (
           <section
             key={index}
-            className="my-8 rounded-lg border-l-4 border-accentBlue bg-blue-50/50 p-6 text-gray-700"
+            className="my-8 rounded-2xl border border-accent/15 bg-accent/5 p-6 text-gray-700"
           >
             {section.heading && (
-              <h3 className="mb-2 text-lg font-semibold text-accentBlue">{section.heading}</h3>
+              <h3 className="mb-2 text-lg font-semibold text-heading">{section.heading}</h3>
             )}
             <p className="text-sm leading-relaxed sm:text-base">
               {(section as InfoboxSection).content}
@@ -163,7 +163,7 @@ const ArticlePage = () => {
         return (
           <section key={index} className="space-y-6">
             {section.heading && (
-              <h2 className="text-lg font-semibold tracking-tight text-gray-900">
+              <h2 className="text-xl font-medium tracking-tight text-heading lg:text-2xl">
                 {section.heading}
               </h2>
             )}
@@ -171,10 +171,10 @@ const ArticlePage = () => {
               {(section as KeyPointsSection).points.map((point, pIndex) => (
                 <div
                   key={pIndex}
-                  className="rounded-xl border border-gray-100 bg-white p-5 shadow-sm"
+                  className="rounded-xl border border-slate-200 bg-white p-7"
                 >
-                  <h4 className="mb-2 font-semibold text-gray-900">{point.title}</h4>
-                  <p className="text-sm text-gray-500">{point.description}</p>
+                  <h4 className="mb-2 font-medium text-heading">{point.title}</h4>
+                  <p className="text-sm leading-relaxed text-gray-700">{point.description}</p>
                 </div>
               ))}
             </div>
@@ -187,18 +187,18 @@ const ArticlePage = () => {
         return (
           <section key={index} className="space-y-4">
             {textSection.heading && (
-              <h2 className="text-lg font-semibold tracking-tight text-gray-900">
+              <h2 className="text-xl font-medium tracking-tight text-heading lg:text-2xl">
                 {textSection.heading}
               </h2>
             )}
             {textSection.paragraphs &&
               textSection.paragraphs.map((paragraph, pIndex) => (
-                <p key={pIndex} className="text-sm leading-[32px] text-gray-500 sm:text-base">
+                <p key={pIndex} className="text-base leading-relaxed text-gray-700">
                   {paragraph}
                 </p>
               ))}
             {textSection.listItems && (
-              <ul className="list-disc space-y-2 pl-5 text-sm leading-[28px] text-gray-500 sm:text-base">
+              <ul className="list-disc space-y-2 pl-5 text-base leading-relaxed text-gray-700">
                 {textSection.listItems.map((item, lIndex) => (
                   <li key={lIndex}>{item}</li>
                 ))}
@@ -240,74 +240,40 @@ const ArticlePage = () => {
           ]),
         ]}
       />
+      <SubpageHero
+        breadcrumbs={[
+          { label: t('shop:shop.home', 'Home'), href: '/' },
+          { label: t('shop:shop.articles', 'Articles'), href: '/articles' },
+          { label: title },
+        ]}
+        eyebrow={t(`common:category.${article.category}`, article.category)}
+        title={title}
+        subtitle={excerpt}
+        chips={[article.author, article.readTime, article.date]}
+      />
       <div className="bg-slate-50">
-        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white">
-          <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
-
-          <div className="relative mx-auto flex min-h-[420px] max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
-            <Reveal width="100%" yOffset={20}>
-              <div className="max-w-container">
-                <Breadcrumbs
-                  variant="dark"
-                  className="mb-4"
-                  items={[
-                    { label: t('shop:shop.home', 'Home'), href: '/' },
-                    { label: t('shop:shop.articles', 'Articles'), href: '/articles' },
-                    { label: title },
-                  ]}
-                />
-
-                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
-                  {t(`common:category.${article.category}`, article.category)}
-                </p>
-                <h1 className="mb-4 text-2xl font-medium tracking-tight sm:text-3xl lg:text-3xl">
-                  {title}
-                </h1>
-                <div className="flex flex-wrap items-center gap-3 text-xs text-white/80 sm:text-sm">
-                  <span>{article.author}</span>
-                  <span className="h-1 w-1 rounded-full bg-white/60" />
-                  <span>{article.date}</span>
-                  <span className="h-1 w-1 rounded-full bg-white/60" />
-                  <span>{article.readTime}</span>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
         <div className="mx-auto flex max-w-container flex-col gap-10 px-4 py-12 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,1.4fr)] lg:items-start lg:gap-12 lg:px-0 lg:py-16">
           <article className="space-y-8 text-gray-700">
             <Reveal width="100%">
-              <SectionHeader
-                caption={t('shop:shop.article', 'Article')}
-                title={excerpt}
-                align="left"
-                titleClassName="text-2xl sm:text-3xl lg:text-3xl"
-              />
+              {articleImage && getArticleImageUrl(articleImage) && (
+                <div className="relative mb-8 w-full overflow-hidden rounded-2xl aspect-[8/3] bg-slate-100">
+                  <img
+                    src={getArticleImageUrl(articleImage)}
+                    alt={title}
+                    width={800}
+                    height={300}
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-brand-primary/20 mix-blend-multiply" />
+                </div>
+              )}
 
-              <div className="relative w-full overflow-hidden rounded-lg aspect-[8/3] bg-slate-200 mt-6">
-                {articleImage && getArticleImageUrl(articleImage) && (
-                  <>
-                    <img
-                      src={getArticleImageUrl(articleImage)}
-                      alt={title}
-                      width={800}
-                      height={300}
-                      loading="lazy"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-brand-primary/20 mix-blend-multiply" />
-                  </>
-                )}
-              </div>
-
-              <div className="space-y-6 mt-8">
+              <div className="space-y-6">
                 {Array.isArray(translatedSections) && translatedSections.map(renderSection)}
               </div>
 
-              <div className="rounded-2xl bg-brand-primary/5 p-6 text-sm leading-[28px] text-gray-600 sm:text-base mt-8">
+              <div className="mt-8 rounded-2xl bg-brand-primary/5 p-6 text-sm leading-relaxed text-gray-700 sm:text-base">
                 {t(
                   'shop:shop.articleDisclaimer',
                   "Regular check-ups and proactive care are the foundation of long-term health. If you have questions, don't hesitate to reach out to a medical professional.",
@@ -329,7 +295,7 @@ const ArticlePage = () => {
               {/* Suggested articles for mobile / small screens */}
               {otherArticles.length > 0 && (
                 <section className="mt-10 space-y-4 lg:hidden">
-                  <h2 className="text-lg font-semibold tracking-tight text-gray-900">
+                  <h2 className="text-xl font-medium tracking-tight text-heading">
                     {t('shop:shop.suggestedArticles', 'Suggested articles')}
                   </h2>
                   <div className="grid gap-4">
@@ -339,10 +305,10 @@ const ArticlePage = () => {
                         to={`/articles/${suggested.slug}`}
                         className="rounded-xl border border-gray-100 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-card"
                       >
-                        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue">
+                        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
                           {t(`common:category.${suggested.category}`, suggested.category)}
                         </p>
-                        <p className="mt-2 text-sm font-semibold text-gray-900">
+                        <p className="mt-2 text-sm font-semibold text-heading">
                           {t(`articles:${suggested.id}.title`)}
                         </p>
                         <p className="mt-1 text-xs text-gray-500">
@@ -357,7 +323,7 @@ const ArticlePage = () => {
               {/* Related services for mobile */}
               {relatedServices.length > 0 && (
                 <section className="mt-10 space-y-4 lg:hidden">
-                  <h2 className="text-lg font-semibold tracking-tight text-gray-900">
+                  <h2 className="text-xl font-medium tracking-tight text-heading">
                     {t('home:services.caption', 'Passende Diagnostik')}
                   </h2>
                   <div className="grid gap-4">
@@ -425,6 +391,8 @@ const ArticlePage = () => {
           />
         </div>
       </div>
+
+      <FinalCtaSection roiHref="/#roi-rechner" />
     </PageTransition>
   )
 }
