@@ -32,10 +32,23 @@ const Reveal = ({
   // This ensures hydration matches and content is always visible to crawlers
   const [isRevealed, setIsRevealed] = useState(true)
   const [isHydrated, setIsHydrated] = useState(false)
+  const [reduceMotion, setReduceMotion] = useState(false)
 
   useEffect(() => {
     // Mark as hydrated - animations can now be enabled
     setIsHydrated(true)
+
+    // Respect the user's reduced-motion preference: keep the content immediately
+    // visible, skip the reveal transition entirely and don't observe scrolling.
+    if (
+      typeof window !== 'undefined' &&
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      setReduceMotion(true)
+      setIsRevealed(true)
+      return
+    }
 
     const element = ref.current
     if (!element) return
@@ -74,13 +87,14 @@ const Reveal = ({
   // Build animation styles
   // - SSR (not hydrated): no animation styles, content fully visible
   // - Client (hydrated): apply opacity/transform based on reveal state
-  const animationStyle = isHydrated
-    ? {
-        opacity: isRevealed ? 1 : 0,
-        transform: isRevealed ? 'translateY(0)' : `translateY(${yOffset}px)`,
-        transition: `opacity ${duration}s ease-out ${delay}s, transform ${duration}s ease-out ${delay}s`,
-      }
-    : {}
+  const animationStyle =
+    isHydrated && !reduceMotion
+      ? {
+          opacity: isRevealed ? 1 : 0,
+          transform: isRevealed ? 'translateY(0)' : `translateY(${yOffset}px)`,
+          transition: `opacity ${duration}s ease-out ${delay}s, transform ${duration}s ease-out ${delay}s`,
+        }
+      : {}
 
   return (
     <div ref={ref} style={{ width }} className={className}>
