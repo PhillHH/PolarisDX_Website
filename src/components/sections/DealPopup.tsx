@@ -57,33 +57,46 @@ const CloseIcon = () => (
  * rendering (not an image) with an offer view and a price-breakdown view.
  * Shows once per browser session, dismissible via close / backdrop / Escape.
  */
-const DealPopup = () => {
+const DealPopup = ({ autoOpen = true }: { autoOpen?: boolean }) => {
   const [open, setOpen] = useState(false)
   const [show, setShow] = useState(false)
   const [tab, setTab] = useState<'offer' | 'prices'>(() =>
     typeof window !== 'undefined' && window.location.hash === '#preise' ? 'prices' : 'offer',
   )
 
+  const openNow = useCallback((initialTab?: 'offer' | 'prices') => {
+    if (initialTab) setTab(initialTab)
+    setOpen(true)
+    window.requestAnimationFrame(() => setShow(true))
+  }, [])
+
+  // Open on demand from anywhere (e.g. the "Deal ansehen" hint on the contact page).
+  useEffect(() => {
+    const onOpen = (e: Event) => openNow((e as CustomEvent).detail?.tab)
+    window.addEventListener('polaris:open-deal', onOpen)
+    return () => window.removeEventListener('polaris:open-deal', onOpen)
+  }, [openNow])
+
   useEffect(() => {
     const hash = window.location.hash
     // Deep-link: open the deal immediately (and ignore the once-per-session flag).
     const forced = hash === '#deal' || hash === '#preise'
-    let seen = false
-    try {
-      seen = sessionStorage.getItem(STORAGE_KEY) === '1'
-    } catch {
-      /* storage blocked */
+    if (!forced && !autoOpen) return
+    if (!forced) {
+      let seen = false
+      try {
+        seen = sessionStorage.getItem(STORAGE_KEY) === '1'
+      } catch {
+        /* storage blocked */
+      }
+      if (seen) return
     }
-    if (seen && !forced) return
     const timer = window.setTimeout(
-      () => {
-        setOpen(true)
-        window.requestAnimationFrame(() => setShow(true))
-      },
+      () => openNow(forced && hash === '#preise' ? 'prices' : undefined),
       forced ? 0 : OPEN_DELAY,
     )
     return () => window.clearTimeout(timer)
-  }, [])
+  }, [autoOpen, openNow])
 
   const close = useCallback(() => {
     setShow(false)
