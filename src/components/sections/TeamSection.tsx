@@ -48,7 +48,7 @@ const TeamSection = () => {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {team.map((member) => (
             <div key={member.id} className="flex flex-col items-start text-left group">
-              <div className="mb-6 w-full overflow-hidden rounded-2xl bg-gray-100 relative">
+              <div className="mb-6 w-full overflow-hidden rounded-2xl bg-surface-overlay relative">
                 {/* Gradient overlay on hover could be nice, keeping it simple for now */}
                 <img
                   src={member.image}
@@ -60,20 +60,20 @@ const TeamSection = () => {
                   className="h-[400px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <h3 className="font-sans text-2xl font-medium text-gray-900">
+              <h3 className="font-sans text-2xl font-medium text-ink">
                 {t(`team.members.${member.id}.name`)}
               </h3>
               <p className="mb-4 font-sans text-base font-normal leading-8 text-brand-secondary h-16">
                 {t(`team.members.${member.id}.role`)}
               </p>
-              <p className="mb-4 text-sm leading-relaxed text-gray-500">
+              <p className="mb-4 text-sm leading-relaxed text-ink-muted">
                 {t(`team.members.${member.id}.bio`)}
               </p>
 
               <div className="mt-auto flex gap-4">
                 <a
                   href={`mailto:${member.email}`}
-                  className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-brand-primary transition-colors"
+                  className="flex items-center gap-2 text-sm font-medium text-ink-muted hover:text-brand-sky transition-colors"
                 >
                   <Mail className="h-4 w-4" />
                   Email
@@ -82,7 +82,7 @@ const TeamSection = () => {
                   href={member.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-social-linkedin transition-colors"
+                  className="flex items-center gap-2 text-sm font-medium text-ink-muted hover:text-social-linkedin transition-colors"
                 >
                   <Linkedin className="h-4 w-4" />
                   LinkedIn

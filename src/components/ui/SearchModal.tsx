@@ -46,21 +46,21 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
   return createPortal(
     <div className="fixed inset-0 z-50 flex items-start justify-center bg-gray-900/60 backdrop-blur-sm pt-20 sm:pt-32 px-4">
       {/* Modal Container */}
-      <div className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh]">
+      <div className="w-full max-w-2xl bg-surface-overlay border border-line rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh]">
         {/* Header / Input */}
-        <div className="flex items-center gap-3 border-b border-gray-100 p-4">
-          <SearchIcon className="h-5 w-5 text-gray-400" />
+        <div className="flex items-center gap-3 border-b border-line p-4">
+          <SearchIcon className="h-5 w-5 text-ink-subtle" />
           <input
             id="search-input"
             type="text"
-            className="flex-1 text-lg outline-none placeholder:text-gray-400 text-gray-900"
+            className="flex-1 text-lg bg-transparent outline-none placeholder:text-ink-subtle text-ink"
             placeholder={t('searchPlaceholder', 'Suche...')}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
           <button
             onClick={onClose}
-            className="rounded-full p-1 hover:bg-gray-100 transition-colors text-gray-500"
+            className="rounded-full p-1 hover:bg-surface-raised transition-colors text-ink-subtle"
           >
             <X className="h-5 w-5" />
           </button>
@@ -70,7 +70,7 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
         <div className="overflow-y-auto flex-1 p-2">
           {/* Loading State */}
           {isSearching && (
-            <div className="py-10 flex justify-center text-gray-400">
+            <div className="py-10 flex justify-center text-ink-subtle">
               <LoadingSpinner />
             </div>
           )}
@@ -86,14 +86,14 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
 
           {/* No Results */}
           {!isSearching && !error && query && results.length === 0 && (
-            <div className="py-10 text-center text-gray-500">
+            <div className="py-10 text-center text-ink-muted">
               {t('noResults', 'Keine Ergebnisse gefunden.')}
             </div>
           )}
 
           {/* Start Typing */}
           {!query && !error && (
-            <div className="py-10 text-center text-gray-400 text-sm">
+            <div className="py-10 text-center text-ink-subtle text-sm">
               {t('startTyping', 'Tippen Sie, um zu suchen...')}
             </div>
           )}
@@ -106,28 +106,28 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
                   key={`${result.path}-${idx}`}
                   to={result.path}
                   onClick={onClose}
-                  className="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 group transition-colors"
+                  className="flex items-center justify-between p-3 rounded-xl hover:bg-surface-raised group transition-colors"
                 >
                   <div className="flex flex-col gap-0.5">
                     <div className="flex items-center gap-2">
                       <span
                         className={`text-xxs uppercase font-bold tracking-wider px-1.5 py-0.5 rounded
-                                        ${result.type === 'article' ? 'bg-purple-100 text-purple-700' : ''}
-                                        ${result.type === 'service' ? 'bg-blue-100 text-blue-700' : ''}
-                                        ${result.type === 'page' ? 'bg-gray-100 text-gray-600' : ''}
+                                        ${result.type === 'article' ? 'bg-purple-500/15 text-purple-300' : ''}
+                                        ${result.type === 'service' ? 'bg-blue-500/15 text-brand-sky' : ''}
+                                        ${result.type === 'page' ? 'bg-surface-overlay text-ink-muted' : ''}
                                     `}
                       >
                         {result.type}
                       </span>
-                      <span className="font-medium text-gray-900 group-hover:text-brand-primary transition-colors">
+                      <span className="font-medium text-ink group-hover:text-brand-sky transition-colors">
                         {result.title}
                       </span>
                     </div>
-                    <span className="text-sm text-gray-500 line-clamp-1 ml-1">
+                    <span className="text-sm text-ink-muted line-clamp-1 ml-1">
                       {result.description}
                     </span>
                   </div>
-                  <ChevronRight className="h-4 w-4 text-gray-300 group-hover:text-brand-primary" />
+                  <ChevronRight className="h-4 w-4 text-ink-subtle group-hover:text-brand-sky" />
                 </Link>
               ))}
             </div>
@@ -135,7 +135,7 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
         </div>
 
         {/* Footer */}
-        <div className="bg-gray-50 p-3 text-xs text-center text-gray-400 border-t border-gray-100">
+        <div className="bg-surface-sunken p-3 text-xs text-center text-ink-subtle border-t border-line">
           Esc to close
         </div>
       </div>

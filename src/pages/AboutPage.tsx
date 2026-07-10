@@ -32,7 +32,7 @@ const AboutPage = () => {
           ]),
         ]}
       />
-      <div className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white overflow-hidden">
+      <div className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 bg-gradient-to-br from-brand-primary via-brand-deep to-surface-base text-white overflow-hidden">
         <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
         <div className="mx-auto max-w-container px-4 text-center lg:px-0 relative z-10">
           <Reveal width="100%" yOffset={20}>
@@ -70,13 +70,13 @@ const AboutPage = () => {
 
         <Reveal width="100%">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-ink-muted">
               Als europäischer Distributionspartner von{' '}
               <a
                 href="https://dx365.world"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-brand-primary hover:text-brand-deep underline transition-colors"
+                className="text-brand-sky hover:text-white underline transition-colors"
               >
                 DX365
               </a>{' '}
@@ -88,7 +88,7 @@ const AboutPage = () => {
 
         <Reveal width="100%">
           <div className="flex flex-col items-center gap-4 text-center">
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-ink-muted">
               {t(
                 'about:cta.text',
                 'Lernen Sie unsere Diagnostik-Lösungen kennen oder nehmen Sie direkt Kontakt auf.',

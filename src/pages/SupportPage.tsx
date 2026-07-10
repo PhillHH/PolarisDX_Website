@@ -32,7 +32,7 @@ const SupportPage = () => {
           ]),
         ]}
       />
-      <div className="bg-slate-50 text-gray-900">
+      <div className="bg-surface-base text-ink">
         {/* Hero */}
         <section className="relative overflow-hidden bg-brand-primary text-white">
           <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
@@ -62,23 +62,23 @@ const SupportPage = () => {
           <div className="grid gap-10 lg:grid-cols-[minmax(0,2.1fr)_minmax(0,1.3fr)] lg:items-start">
             {/* Form Card */}
             <Reveal width="100%">
-              <section className="space-y-6 rounded-2xl bg-white p-6 shadow-sm lg:p-8">
+              <section className="space-y-6 rounded-2xl bg-surface-raised p-6 shadow-sm lg:p-8">
                 <SectionHeader
                   caption={t('support.hero.kicker')}
                   title={t('support.hero.title')}
                   align="left"
                 />
 
-                <p className="text-sm leading-relaxed text-gray-600">{t('support.intro')}</p>
+                <p className="text-sm leading-relaxed text-ink-muted">{t('support.intro')}</p>
 
                 {/* Contact channels */}
-                <div className="mt-2 flex flex-col gap-4 text-sm text-gray-600 sm:flex-row sm:gap-8">
+                <div className="mt-2 flex flex-col gap-4 text-sm text-ink-muted sm:flex-row sm:gap-8">
                   <div className="flex items-center gap-3">
                     <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-secondary/20 text-brand-secondary">
                       ✉
                     </span>
                     <div>
-                      <p className="text-xs font-medium uppercase tracking-[0.16em] text-gray-500">
+                      <p className="text-xs font-medium uppercase tracking-[0.16em] text-ink-muted">
                         {t('support.info.email_label')}
                       </p>
                       <p>contact@polarisdx.net</p>
@@ -89,7 +89,7 @@ const SupportPage = () => {
                       ☎
                     </span>
                     <div>
-                      <p className="text-xs font-medium uppercase tracking-[0.16em] text-gray-500">
+                      <p className="text-xs font-medium uppercase tracking-[0.16em] text-ink-muted">
                         {t('support.info.phone_label')}
                       </p>
                       <p>+49 151 75011699</p>
@@ -104,39 +104,39 @@ const SupportPage = () => {
             {/* Sidebar */}
             <aside className="space-y-6">
               <Reveal width="100%" delay={0.2}>
-                <section className="rounded-2xl bg-white p-6 shadow-sm">
-                  <h2 className="text-lg font-semibold tracking-tight text-gray-900">
+                <section className="rounded-2xl bg-surface-raised p-6 shadow-sm">
+                  <h2 className="text-lg font-semibold tracking-tight text-ink">
                     {t('support.info.title')}
                   </h2>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                  <p className="mt-2 text-sm leading-relaxed text-ink-muted">
                     {t('support.info.text')}
                   </p>
-                  <div className="mt-4 space-y-1 text-sm text-gray-800">
+                  <div className="mt-4 space-y-1 text-sm text-ink-muted">
                     <p>contact@polarisdx.net</p>
                     <p>+49 151 75011699</p>
                   </div>
                 </section>
 
-                <section className="rounded-2xl bg-white p-6 shadow-sm">
-                  <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-gray-500 mb-3">
+                <section className="rounded-2xl bg-surface-raised p-6 shadow-sm">
+                  <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-ink-muted mb-3">
                     {t('support.sidebar_links.title', 'Hilfreiche Links')}
                   </h3>
                   <nav className="space-y-2">
                     <Link
                       to="/downloads"
-                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                      className="block text-sm font-medium text-brand-sky hover:text-white transition-colors"
                     >
                       {t('support.sidebar_links.downloads', 'Downloads & Dokumentation')} →
                     </Link>
                     <Link
                       to="/contact"
-                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                      className="block text-sm font-medium text-brand-sky hover:text-white transition-colors"
                     >
                       {t('support.sidebar_links.contact', 'Allgemeine Kontaktanfrage')} →
                     </Link>
                     <Link
                       to="/igloo-pro"
-                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                      className="block text-sm font-medium text-brand-sky hover:text-white transition-colors"
                     >
                       {t('support.sidebar_links.igloo', 'IglooPro System')} →
                     </Link>

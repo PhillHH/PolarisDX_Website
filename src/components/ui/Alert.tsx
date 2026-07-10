@@ -6,9 +6,9 @@ import React from 'react'
 const alertVariants = cva('relative w-full rounded-lg border p-4 flex gap-3 items-start', {
   variants: {
     variant: {
-      default: 'bg-gray-50 border-gray-200 text-gray-800',
-      destructive: 'bg-red-50 border-red-200 text-red-800',
-      success: 'bg-green-50 border-green-200 text-green-800',
+      default: 'bg-surface-overlay border-line text-ink',
+      destructive: 'bg-red-950/40 border-red-800/50 text-red-200',
+      success: 'bg-emerald-950/40 border-emerald-800/50 text-emerald-200',
     },
   },
   defaultVariants: {

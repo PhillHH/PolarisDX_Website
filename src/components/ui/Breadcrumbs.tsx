@@ -12,7 +12,7 @@ interface BreadcrumbsProps {
   className?: string
 }
 
-export function Breadcrumbs({ items, variant = 'light', className = '' }: BreadcrumbsProps) {
+export function Breadcrumbs({ items, variant = 'dark', className = '' }: BreadcrumbsProps) {
   const isDark = variant === 'dark'
 
   return (

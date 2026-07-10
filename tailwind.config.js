@@ -31,9 +31,40 @@ export default {
           'navy-mid': '#0a3f63',
           blue: '#0d527f',
           'blue-bright': '#2f6fa0',
+          // -------------------------------------------------------------------
+          // NEW (Dark theme, a11y-only). sky = lighter tint of the SAME blue
+          // hue for links / accent text that must clear WCAG-AA on near-black.
+          // brand.blue #0d527f on surface.base ≈ 2.0:1 (FAILS AA for text);
+          // brand.sky  #4d9fd4 on surface.base ≈ 6.2:1 (PASSES AA). Hue ≈ 206°
+          // ≈ brand.blue 205° → blue brand hue not changed significantly.
+          // -------------------------------------------------------------------
+          sky: '#4d9fd4',
         },
         social: {
           linkedin: '#0077b5',
+        },
+        // -------------------------------------------------------------------
+        // DARK THEME semantic layer (additive — mirrors the surface.*/ink.*
+        // token philosophy in _project-knowledge/wave-2-analyse/farb-tokens.md).
+        // Dark is the new default; these replace the hardcoded light classes
+        // (bg-white, bg-slate-50, text-gray-900/600, border-slate-200) via the
+        // canonical find→replace mapping. WCAG-AA contrast noted per token.
+        // -------------------------------------------------------------------
+        surface: {
+          base: '#0b1118', // page canvas — deep anthracite, faint blue tint to harmonize w/ navy
+          sunken: '#0e1620', // alternating darker band (was bg-slate-50)
+          raised: '#131c27', // cards / panels (was bg-white / glass-panel)
+          overlay: '#1a2532', // modals, popovers, dropdowns, form inputs (was bg-white)
+        },
+        ink: {
+          DEFAULT: '#e6edf3', // primary text / headings (was text-gray-900) — ~15:1 on base
+          muted: '#9fb0c0', // body / secondary (was text-gray-600/500) — ~7:1 on base
+          subtle: '#6b7d8f', // least-important / captions (was text-gray-400) — large text only
+        },
+        line: {
+          subtle: '#1f2a37', // hairline dividers
+          DEFAULT: '#2a3744', // default card/section borders (was border-slate-200/gray-200)
+          strong: '#3a4a5a', // emphasis / hover borders (was border-slate-300)
         },
         ui: {
           border: '#e2e8f0', // slate-200

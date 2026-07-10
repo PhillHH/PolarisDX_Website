@@ -14,7 +14,7 @@ const Star = ({ filled }: { filled: boolean }) => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className={`h-5 w-5 ${filled ? 'text-yellow-400' : 'text-gray-400'}`}
+    className={`h-5 w-5 ${filled ? 'text-yellow-400' : 'text-ink-subtle'}`}
   >
     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
   </svg>
@@ -48,7 +48,7 @@ const TestimonialsSection = () => {
   return (
     <section
       id="testimonials"
-      className="relative bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 py-16 text-white"
+      className="relative bg-gradient-to-br from-brand-primary via-brand-deep to-surface-base py-16 text-white"
     >
       <div className="pointer-events-none absolute inset-y-0 left-0 w-80 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-80 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />

@@ -73,14 +73,14 @@ export const ContactForm = () => {
       />
 
       <div className="space-y-1">
-        <label htmlFor="area" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="area" className="block text-sm font-medium text-ink-muted">
           {t('contact.form.area_label')}
         </label>
         {/* Select is not yet an Atom, so keeping native styling consistent with Input atom for now */}
         <select
           id="area"
           name="area"
-          className="flex w-full rounded-md border border-ui-border bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+          className="flex w-full rounded-md border border-line bg-surface-overlay px-3 py-2 text-sm ring-offset-surface-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
         >
           <option value="pharmacy">{t('contact.form.area_options.pharmacy')}</option>
           <option value="practice">{t('contact.form.area_options.practice')}</option>
@@ -122,10 +122,10 @@ export const ContactForm = () => {
               name="consent"
               type="checkbox"
               required
-              className="h-4 w-4 rounded border-gray-300 text-brand-secondary focus:ring-brand-secondary"
+              className="h-4 w-4 rounded border-line-strong text-brand-secondary focus:ring-brand-secondary"
             />
           </div>
-          <label htmlFor="consent" className="text-sm text-gray-600">
+          <label htmlFor="consent" className="text-sm text-ink-muted">
             {t(
               'contact.form.consent',
               'Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und für Rückfragen bis zu 12 Monate gespeichert werden.',

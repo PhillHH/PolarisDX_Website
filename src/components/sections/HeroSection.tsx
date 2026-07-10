@@ -78,7 +78,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white min-h-[700px] lg:h-[800px]"
+      className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-surface-base text-white min-h-[700px] lg:h-[800px]"
     >
       {/* Noise Overlay */}
       <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />

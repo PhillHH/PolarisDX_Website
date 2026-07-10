@@ -96,12 +96,12 @@ const Header = () => {
                     </Link>
                     {/* Hover trigger for submenu */}
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-6 hidden group-hover:block min-w-[180px]">
-                      <div className="bg-white/95 backdrop-blur-xl shadow-2xl rounded-xl py-3 border border-white/20 overflow-hidden ring-1 ring-black/5 animate-in fade-in zoom-in-95 duration-200">
+                      <div className="bg-surface-overlay/95 backdrop-blur-xl shadow-2xl rounded-xl py-3 border border-line overflow-hidden ring-1 ring-line animate-in fade-in zoom-in-95 duration-200">
                         {item.children.map((child) => (
                           <Link
                             key={child.label}
                             to={child.route}
-                            className="block px-6 py-2.5 text-sm text-gray-600 hover:bg-blue-50/50 hover:text-brand-primary transition-colors font-normal"
+                            className="block px-6 py-2.5 text-sm text-ink-muted hover:bg-surface-raised hover:text-brand-sky transition-colors font-normal"
                           >
                             {t(`nav.${child.label}`)}
                           </Link>

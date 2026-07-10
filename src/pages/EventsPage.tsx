@@ -87,7 +87,7 @@ const EventsPage: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <div className="relative pt-32 pb-20 lg:pt-48 lg:pb-36 bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white overflow-hidden">
+      <div className="relative pt-32 pb-20 lg:pt-48 lg:pb-36 bg-gradient-to-br from-brand-primary via-brand-deep to-surface-base text-white overflow-hidden">
         <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
         {/* Decorative circles */}
         <div className="absolute top-20 -left-32 w-96 h-96 rounded-full bg-brand-secondary/10 blur-3xl pointer-events-none" />
@@ -117,15 +117,15 @@ const EventsPage: React.FC = () => {
       </div>
 
       {/* Timeline Section */}
-      <div className="bg-slate-50 py-20 lg:py-28">
+      <div className="bg-surface-base py-20 lg:py-28">
         <div className="mx-auto max-w-5xl px-4">
           {/* Nobel Biocare Partner Badge */}
           <Reveal width="100%" yOffset={15}>
             <div className="flex items-center justify-center gap-3 mb-16">
               <div className="h-px flex-1 max-w-[120px] bg-gradient-to-r from-transparent to-brand-secondary/40" />
-              <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-brand-secondary/20 shadow-sm">
+              <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-raised border border-brand-secondary/20 shadow-sm">
                 <Award className="w-4 h-4 text-brand-secondary" />
-                <span className="text-sm font-medium text-brand-deep">
+                <span className="text-sm font-medium text-brand-sky">
                   {t('events:premium_partner', 'Premium Partner: Nobel Biocare')}
                 </span>
               </div>
@@ -172,8 +172,8 @@ const EventsPage: React.FC = () => {
                       } ${isLeft ? '' : 'lg:ml-auto'}`}
                     >
                       <div
-                        className={`group relative bg-white rounded-2xl border shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden ${
-                          event.partner ? 'border-brand-secondary/30' : 'border-gray-100'
+                        className={`group relative bg-surface-raised rounded-2xl border shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden ${
+                          event.partner ? 'border-brand-secondary/30' : 'border-line-subtle'
                         }`}
                       >
                         {/* Top accent bar */}
@@ -189,7 +189,7 @@ const EventsPage: React.FC = () => {
                           {/* Tags row */}
                           <div className="flex flex-wrap items-center gap-2 mb-3">
                             {event.tag && (
-                              <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-brand-primary/10 text-brand-primary">
+                              <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-brand-primary/10 text-brand-sky">
                                 {event.tag}
                               </span>
                             )}
@@ -202,27 +202,27 @@ const EventsPage: React.FC = () => {
                           </div>
 
                           {/* Title */}
-                          <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-primary transition-colors">
+                          <h3 className="text-xl font-bold text-ink mb-3 group-hover:text-brand-sky transition-colors">
                             {event.title}
                           </h3>
 
                           {/* Date & Location */}
-                          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-gray-500 mb-3">
+                          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-ink-muted mb-3">
                             <div className="flex items-center gap-2">
-                              <Calendar className="w-4 h-4 text-brand-primary shrink-0" />
+                              <Calendar className="w-4 h-4 text-brand-sky shrink-0" />
                               <span className="font-medium">
                                 {formatDateRange(event.date, event.endDate, lang)}
                               </span>
                             </div>
                             <div className="flex items-center gap-2">
-                              <MapPin className="w-4 h-4 text-brand-primary shrink-0" />
+                              <MapPin className="w-4 h-4 text-brand-sky shrink-0" />
                               <span>{event.location}</span>
                             </div>
                           </div>
 
                           {/* Description */}
                           {event.description && (
-                            <p className="text-gray-600 text-sm leading-relaxed">
+                            <p className="text-ink-muted text-sm leading-relaxed">
                               {event.description}
                             </p>
                           )}

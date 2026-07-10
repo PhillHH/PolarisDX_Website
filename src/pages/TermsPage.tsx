@@ -28,8 +28,8 @@ const TermsPage = () => {
           <Reveal width="100%" yOffset={20}>
             <div className="flex justify-center">
               <div className="inline-block rounded p-px bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 mb-2">
-                <div className="rounded-sm bg-slate-50 px-3 py-1">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-gray-900">
+                <div className="rounded-sm bg-surface-raised px-3 py-1">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-ink">
                     {t('agb.title', 'AGB')}
                   </span>
                 </div>
@@ -52,12 +52,12 @@ const TermsPage = () => {
               {Array.isArray(sections) &&
                 sections.map((section) => (
                   <section key={section.id} id={section.id} className="mb-10 scroll-mt-32">
-                    <h2 className="text-xl font-semibold tracking-tight text-slate-900 mb-3">
+                    <h2 className="text-xl font-semibold tracking-tight text-ink mb-3">
                       {section.title}
                     </h2>
                     {Array.isArray(section.content) &&
                       section.content.map((paragraph, idx) => (
-                        <p key={idx} className="text-slate-700 leading-relaxed">
+                        <p key={idx} className="text-ink-muted leading-relaxed">
                           {paragraph}
                         </p>
                       ))}
@@ -70,7 +70,7 @@ const TermsPage = () => {
           <aside className="hidden lg:block lg:col-span-1">
             <Reveal width="100%" delay={0.2}>
               <div className="sticky top-32 max-h-[calc(100vh-10rem)] overflow-y-auto pr-2">
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-900 mb-4 border-b pb-2">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-ink mb-4 border-b pb-2">
                   Inhalt
                 </h3>
                 <nav className="flex flex-col space-y-2">
@@ -79,7 +79,7 @@ const TermsPage = () => {
                       <a
                         key={section.id}
                         href={`#${section.id}`}
-                        className="text-sm text-slate-600 hover:text-brand-primary hover:translate-x-1 transition-all block truncate"
+                        className="text-sm text-ink-muted hover:text-brand-sky hover:translate-x-1 transition-all block truncate"
                         title={section.title}
                       >
                         {section.title}

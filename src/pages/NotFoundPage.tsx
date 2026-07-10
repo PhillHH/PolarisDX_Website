@@ -26,7 +26,7 @@ const NotFoundPage = () => {
         noindex={true}
       />
 
-      <div className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white overflow-hidden">
+      <div className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-brand-primary via-brand-deep to-surface-base text-white overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-secondary/20 rounded-full blur-3xl" />
@@ -44,8 +44,8 @@ const NotFoundPage = () => {
             {/* Badge */}
             <div className="flex justify-center mb-6">
               <div className="inline-block rounded p-px bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
-                <div className="rounded-sm bg-slate-50 px-4 py-1.5">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-gray-900">
+                <div className="rounded-sm bg-surface-raised px-4 py-1.5">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-ink">
                     {t('notFound.badge', 'Seite nicht gefunden')}
                   </span>
                 </div>

@@ -11,8 +11,9 @@
  *    lg:py-1 / text-sm lg:text-xs). Auch IglooWidgetSection (+ mb-8 margin).
  *  - size="sm": fixe kleine Pill aus den Hero-Sektionen (AboutPage,
  *    EventsPage): px-3 py-1 / text-xs.
- * Beide nutzen denselben Gradient-Rand + bg-slate-50 + text-gray-900.
- * Eine "on-dark"/weiße Caption-Variante existiert im Live-Repo NICHT.
+ * Beide nutzen denselben Gradient-Rand + dunkle Pill (bg-surface-raised +
+ * text-ink) im Dark-Theme. Eine separate "on-dark"-Variante gibt es nicht —
+ * das Pill ist im neuen Default-Dark-Theme bereits dunkel.
  */
 
 import type { ReactNode } from 'react'
@@ -28,13 +29,13 @@ type EyebrowProps = {
 }
 
 const innerBySize: Record<EyebrowSize, string> = {
-  default: 'rounded-sm bg-slate-50 px-4 py-2 lg:px-3 lg:py-1',
-  sm: 'rounded-sm bg-slate-50 px-3 py-1',
+  default: 'rounded-sm bg-surface-raised px-4 py-2 lg:px-3 lg:py-1',
+  sm: 'rounded-sm bg-surface-raised px-3 py-1',
 }
 
 const captionBySize: Record<EyebrowSize, string> = {
-  default: 'text-sm font-semibold uppercase tracking-wide text-gray-900 lg:text-xs',
-  sm: 'text-xs font-semibold uppercase tracking-wide text-gray-900',
+  default: 'text-sm font-semibold uppercase tracking-wide text-ink lg:text-xs',
+  sm: 'text-xs font-semibold uppercase tracking-wide text-ink',
 }
 
 const Eyebrow = ({ children, size = 'default', className }: EyebrowProps) => {

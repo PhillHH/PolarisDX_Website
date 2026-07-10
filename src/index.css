@@ -4,11 +4,11 @@
 
 @layer components {
   .glass-panel {
-    @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-glass;
+    @apply bg-surface-raised/80 backdrop-blur-xl border border-line shadow-glass;
   }
 
   .glass-panel-dark {
-    @apply bg-gray-900/80 backdrop-blur-xl border border-white/10 shadow-glass;
+    @apply bg-surface-overlay/80 backdrop-blur-xl border border-white/10 shadow-glass;
   }
 
   .bg-noise {
@@ -20,8 +20,8 @@
 @layer base {
   :root {
     font-family: theme('fontFamily.sans');
-    color: theme('colors.gray-900');
-    background-color: #f8fafc;
+    color: theme('colors.ink.DEFAULT');
+    background-color: #0b1118;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -39,20 +39,20 @@
   }
 
   a {
-    @apply text-gray-900 no-underline;
+    @apply text-ink no-underline;
   }
 }
 
 /* Rich HTML content styling for pillar pages (e.g. dental) */
 @layer components {
   .rich-content {
-    color: #868c98;
+    color: #9fb0c0; /* ink-muted — body text on dark, ~7:1 */
     font-size: 1rem;
     line-height: 2rem;
   }
 
   .rich-content h2 {
-    color: #083358;
+    color: #e6edf3; /* ink — headings on dark */
     font-size: 1.25rem;
     font-weight: 600;
     letter-spacing: -0.025em;
@@ -61,7 +61,7 @@
   }
 
   .rich-content h3 {
-    color: #083358;
+    color: #e6edf3; /* ink */
     font-size: 1.1rem;
     font-weight: 600;
     margin-top: 1.5rem;
@@ -73,7 +73,7 @@
   }
 
   .rich-content strong {
-    color: #203864;
+    color: #e6edf3; /* ink */
     font-weight: 600;
   }
 
@@ -82,7 +82,7 @@
   }
 
   .rich-content a {
-    color: #0d527f;
+    color: #4d9fd4; /* brand.sky — AA link on dark */
     font-weight: 600;
     text-decoration: none;
   }
@@ -99,17 +99,17 @@
   }
 
   .rich-content thead th {
-    background: #f1f5f9;
-    color: #083358;
+    background: #131c27; /* surface-raised */
+    color: #e6edf3; /* ink */
     font-weight: 600;
     text-align: left;
     padding: 0.75rem 1rem;
-    border-bottom: 2px solid #e2e8f0;
+    border-bottom: 2px solid #2a3744; /* line */
   }
 
   .rich-content tbody td {
     padding: 0.75rem 1rem;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid #2a3744; /* line */
   }
 
   .rich-content tbody tr:last-child td {
@@ -117,15 +117,15 @@
   }
 
   .rich-content blockquote {
-    border-left: 4px solid #0d527f;
+    border-left: 4px solid #4d9fd4; /* brand.sky */
     padding: 1rem 1.5rem;
     margin: 1.5rem 0;
-    background: #f8fafc;
+    background: #0e1620; /* surface-sunken */
     border-radius: 0 0.5rem 0.5rem 0;
   }
 
   .rich-content blockquote p {
-    color: #203864;
+    color: #e6edf3; /* ink */
     font-style: italic;
   }
 
@@ -165,15 +165,15 @@
   }
 
   .rich-content .info-box {
-    background: #f0f7ff;
-    border: 1px solid #bfdbfe;
+    background: #0e1620; /* surface-sunken */
+    border: 1px solid #2a3744; /* line */
     border-radius: 0.75rem;
     padding: 1.5rem;
     margin: 1.5rem 0;
   }
 
   .rich-content .info-box p {
-    color: #203864;
+    color: #e6edf3; /* ink */
   }
 
   .rich-content .cta-block {
