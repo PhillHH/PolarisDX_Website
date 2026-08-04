@@ -42,7 +42,7 @@
     "speed": "Measurement Time",
     "speed_value": "3 - 15 Minutes (test dependent)",
     "accuracy": "Accuracy",
-    "accuracy_value": "CV < 5%",
+    "accuracy_value": "CV < 2%",
     "storage": "Memory",
     "storage_value": "Up to 10,000 patient records",
     "battery": "Power Supply",
