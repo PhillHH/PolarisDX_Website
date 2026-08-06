@@ -203,10 +203,10 @@ function OrderModalDialog({
       <div className="relative flex max-h-[95vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-2xl bg-slate-50 shadow-2xl animate-modal-card-in motion-reduce:animate-none motion-reduce:opacity-100 sm:max-h-[90vh] sm:rounded-2xl">
         {/* Header */}
         <div className="relative flex-none border-b border-slate-200 bg-white px-6 py-5 sm:px-8">
-          <p className="text-xs font-semibold uppercase tracking-[1.6px] text-teal-700">
+          <p className="text-xs font-semibold uppercase tracking-[1.6px] text-accent-strong">
             {titleCopy.eyebrow}
           </p>
-          <h2 id={titleId} className="mt-1 pr-10 text-xl font-bold text-gray-900 sm:text-2xl">
+          <h2 id={titleId} className="mt-1 pr-10 text-xl font-bold text-heading sm:text-2xl">
             {titleCopy.title}
           </h2>
           <p className="mt-2 max-w-md pr-10 text-sm leading-relaxed text-gray-600">
@@ -217,7 +217,7 @@ function OrderModalDialog({
             type="button"
             onClick={onClose}
             aria-label="Close order request"
-            className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-slate-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+            className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-slate-100 hover:text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line"
           >
             <X className="h-5 w-5" aria-hidden />
           </button>

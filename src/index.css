@@ -8,7 +8,7 @@
   }
 
   .glass-panel-dark {
-    @apply bg-gray-900/80 backdrop-blur-xl border border-white/10 shadow-glass;
+    @apply bg-brand-deep/80 backdrop-blur-xl border border-white/10 shadow-glass;
   }
 
   .bg-noise {
@@ -20,7 +20,7 @@
 @layer base {
   :root {
     font-family: theme('fontFamily.sans');
-    color: theme('colors.gray-900');
+    color: theme('colors.heading');
     background-color: #f8fafc;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -39,20 +39,20 @@
   }
 
   a {
-    @apply text-gray-900 no-underline;
+    @apply text-heading no-underline;
   }
 }
 
 /* Rich HTML content styling for pillar pages (e.g. dental) */
 @layer components {
   .rich-content {
-    color: #868c98;
+    color: theme('colors.gray-500');
     font-size: 1rem;
     line-height: 2rem;
   }
 
   .rich-content h2 {
-    color: #083358;
+    color: theme('colors.heading');
     font-size: 1.25rem;
     font-weight: 600;
     letter-spacing: -0.025em;
@@ -61,7 +61,7 @@
   }
 
   .rich-content h3 {
-    color: #083358;
+    color: theme('colors.heading');
     font-size: 1.1rem;
     font-weight: 600;
     margin-top: 1.5rem;
@@ -73,7 +73,7 @@
   }
 
   .rich-content strong {
-    color: #203864;
+    color: theme('colors.heading');
     font-weight: 600;
   }
 
@@ -82,7 +82,7 @@
   }
 
   .rich-content a {
-    color: #0d527f;
+    color: theme('colors.brand.primary');
     font-weight: 600;
     text-decoration: none;
   }
@@ -100,16 +100,16 @@
 
   .rich-content thead th {
     background: #f1f5f9;
-    color: #083358;
+    color: theme('colors.heading');
     font-weight: 600;
     text-align: left;
     padding: 0.75rem 1rem;
-    border-bottom: 2px solid #e2e8f0;
+    border-bottom: 2px solid theme('colors.ui.border');
   }
 
   .rich-content tbody td {
     padding: 0.75rem 1rem;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid theme('colors.ui.border');
   }
 
   .rich-content tbody tr:last-child td {
@@ -117,7 +117,7 @@
   }
 
   .rich-content blockquote {
-    border-left: 4px solid #0d527f;
+    border-left: 4px solid theme('colors.brand.primary');
     padding: 1rem 1.5rem;
     margin: 1.5rem 0;
     background: #f8fafc;
@@ -125,7 +125,7 @@
   }
 
   .rich-content blockquote p {
-    color: #203864;
+    color: theme('colors.heading');
     font-style: italic;
   }
 
@@ -149,7 +149,7 @@
     top: 0.5rem;
     width: 1.5rem;
     height: 1.5rem;
-    background: #0d527f;
+    background: theme('colors.brand.primary');
     color: white;
     border-radius: 50%;
     display: flex;
@@ -165,19 +165,19 @@
   }
 
   .rich-content .info-box {
-    background: #f0f7ff;
-    border: 1px solid #bfdbfe;
+    background: theme('colors.accent.soft');
+    border: 1px solid theme('colors.accent.border');
     border-radius: 0.75rem;
     padding: 1.5rem;
     margin: 1.5rem 0;
   }
 
   .rich-content .info-box p {
-    color: #203864;
+    color: theme('colors.heading');
   }
 
   .rich-content .cta-block {
-    background: linear-gradient(135deg, #0d527f, #083358);
+    background: linear-gradient(135deg, theme('colors.brand.primary'), theme('colors.heading'));
     color: white;
     border-radius: 1rem;
     padding: 2rem;
@@ -197,7 +197,7 @@
   .rich-content .cta-block a {
     display: inline-block;
     background: white;
-    color: #0d527f;
+    color: theme('colors.brand.primary');
     padding: 0.75rem 2rem;
     border-radius: 0.5rem;
     font-weight: 600;
@@ -207,7 +207,7 @@
   }
 
   .rich-content .cta-block a:hover {
-    background: #f0f7ff;
+    background: theme('colors.accent.soft');
     text-decoration: none;
   }
 }

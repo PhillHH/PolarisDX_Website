@@ -56,9 +56,9 @@ const DEFAULT_SUBMIT_LABEL: Record<ConsumerOrderProduct, string> = {
 // =============================================================================
 
 const inputClass =
-  'w-full rounded-md border border-slate-300 bg-white px-4 py-3 text-gray-900 placeholder:text-gray-400 transition-colors focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/30 disabled:bg-slate-100'
+  'w-full rounded-md border border-slate-300 bg-white px-4 py-3 text-heading placeholder:text-gray-400 transition-colors focus:border-accent-line focus:outline-none focus:ring-2 focus:ring-accent-line/30 disabled:bg-slate-100'
 
-const labelClass = 'mb-1.5 block text-sm font-semibold text-gray-900'
+const labelClass = 'mb-1.5 block text-sm font-semibold text-heading'
 
 function Field({
   id,
@@ -75,7 +75,7 @@ function Field({
     <div>
       <label htmlFor={id} className={labelClass}>
         {label}
-        {required && <span className="ml-1 text-teal-600">*</span>}
+        {required && <span className="ml-1 text-accent">*</span>}
       </label>
       {children}
     </div>
@@ -85,10 +85,10 @@ function Field({
 function SectionLabel({ children }: { children: ReactNode }) {
   return (
     <div className="mt-7 mb-4 first:mt-0">
-      <span className="inline-block text-xs font-semibold uppercase tracking-[1.6px] text-teal-700">
+      <span className="inline-block text-xs font-semibold uppercase tracking-[1.6px] text-accent-strong">
         {children}
       </span>
-      <span aria-hidden className="ml-3 inline-block h-px w-8 align-middle bg-teal-200" />
+      <span aria-hidden className="ml-3 inline-block h-px w-8 align-middle bg-accent-border" />
     </div>
   )
 }
@@ -179,7 +179,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
   if (status === 'success') {
     return (
       <div className="rounded-2xl bg-white p-8 text-center shadow-card sm:p-10">
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-teal-100 text-teal-700">
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-accent/15 text-accent-strong">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -194,7 +194,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
             <polyline points="20 6 9 17 4 12" />
           </svg>
         </div>
-        <h3 className="mt-5 text-2xl font-bold text-gray-900">
+        <h3 className="mt-5 text-2xl font-bold text-heading">
           Thank you — your order request is in.
         </h3>
         <p className="mx-auto mt-3 max-w-md text-gray-600">
@@ -375,12 +375,15 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
           type="checkbox"
           checked={consent}
           onChange={(e) => setConsent(e.target.checked)}
-          className="mt-1 h-4 w-4 flex-none rounded border-slate-300 text-teal-600 focus:ring-teal-500"
+          className="mt-1 h-4 w-4 flex-none rounded border-slate-300 text-accent focus:ring-accent-line"
         />
         <span className="text-sm leading-relaxed text-gray-600">
           I consent to PolarisDX processing the data above for the sole purpose of handling this
           order request. Details on storage, retention and your rights are in our{' '}
-          <Link to="/privacy" className="font-medium text-teal-700 underline hover:text-teal-900">
+          <Link
+            to="/privacy"
+            className="font-medium text-accent-strong underline hover:text-brand-deep"
+          >
             privacy policy
           </Link>
           .
@@ -406,7 +409,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
           data-gtm-event="consumer_order_submit"
           data-gtm-page={page}
           data-gtm-product={product}
-          className="inline-flex items-center justify-center gap-2 rounded-md bg-brand-deep px-7 py-3.5 text-base font-semibold tracking-tight text-white shadow-sm transition-colors hover:bg-brand-navy-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex items-center justify-center gap-2 rounded-md bg-brand-deep px-7 py-3.5 text-base font-semibold tracking-tight text-white shadow-sm transition-colors hover:bg-brand-navy-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {status === 'submitting' ? 'Sending…' : submitLabel || DEFAULT_SUBMIT_LABEL[product]}
         </button>
@@ -442,10 +445,13 @@ export function OrderSection({
     <section id={id} className="relative overflow-hidden bg-brand-deep py-20 lg:py-24">
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-20 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-teal-500/20 blur-3xl"
+        className="pointer-events-none absolute -top-20 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-accent-line/20 blur-3xl"
       />
       <div className="relative mx-auto max-w-3xl px-4 text-center text-white sm:px-6 lg:px-0">
-        <span aria-hidden className="mx-auto mb-6 block h-[3px] w-12 rounded-full bg-teal-400" />
+        <span
+          aria-hidden
+          className="mx-auto mb-6 block h-[3px] w-12 rounded-full bg-accent-on-dark"
+        />
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
         <p className="mx-auto mt-5 max-w-xl text-lg text-white/80">{body}</p>
       </div>

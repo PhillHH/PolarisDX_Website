@@ -67,13 +67,13 @@ export function PageSidebar({ widgets }: { widgets: SidebarWidget[] }) {
                     <Link
                       key={s.id}
                       to={`/diagnostics/${s.id}`}
-                      className="group flex items-center justify-between rounded-xl border border-gray-100 bg-gradient-to-br from-white to-slate-50 p-4 shadow-sm transition-all duration-300 hover:border-blue-200 hover:shadow-md hover:scale-[1.02]"
+                      className="group flex items-center justify-between rounded-xl border border-gray-100 bg-gradient-to-br from-white to-slate-50 p-4 shadow-sm transition-all duration-300 hover:border-brand-primary/30 hover:shadow-md hover:scale-[1.02]"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-brand-secondary transition-colors group-hover:bg-brand-secondary group-hover:text-white">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-primary/10 text-brand-secondary transition-colors group-hover:bg-brand-secondary group-hover:text-white">
                           {s.icon}
                         </div>
-                        <span className="font-medium text-gray-900 group-hover:text-brand-secondary">
+                        <span className="font-medium text-heading group-hover:text-brand-secondary">
                           {t(`home:services.${s.translationKey}.title`, s.title)}
                         </span>
                       </div>
@@ -99,7 +99,9 @@ export function PageSidebar({ widgets }: { widgets: SidebarWidget[] }) {
                       key={post.id}
                       to={`/articles/${post.slug}`}
                       className={
-                        variant === 'card' ? 'block rounded-lg p-3 transition hover:bg-slate-50' : 'block group'
+                        variant === 'card'
+                          ? 'block rounded-lg p-3 transition hover:bg-slate-50'
+                          : 'block group'
                       }
                     >
                       <p
@@ -114,8 +116,8 @@ export function PageSidebar({ widgets }: { widgets: SidebarWidget[] }) {
                       <p
                         className={
                           variant === 'card'
-                            ? 'mt-1 text-sm font-semibold text-gray-900'
-                            : 'text-sm font-semibold text-gray-900 group-hover:text-brand-secondary transition-colors'
+                            ? 'mt-1 text-sm font-semibold text-heading'
+                            : 'text-sm font-semibold text-heading group-hover:text-brand-secondary transition-colors'
                         }
                       >
                         {t(`articles:${post.id}.title`)}
@@ -133,7 +135,7 @@ export function PageSidebar({ widgets }: { widgets: SidebarWidget[] }) {
           // kind === 'contact'
           return (
             <section key={`contact-${i}`} className={sectionBase + spacing}>
-              <h3 className="mb-2 text-sm font-semibold tracking-tight text-gray-900">
+              <h3 className="mb-2 text-sm font-semibold tracking-tight text-heading">
                 {t('shop:shop.needHelp', 'Need help right now?')}
               </h3>
               <p className="mb-3 text-xs leading-relaxed text-gray-500">

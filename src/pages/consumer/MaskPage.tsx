@@ -33,7 +33,7 @@ import { PriceBadge } from './PriceBadge'
 import { useConsumerPageView } from './tracking'
 
 // Accent bars on the four ingredient cards — matches brief slide 13.
-const INGREDIENT_ACCENTS = ['teal', 'navy', 'green', 'amber'] as const
+const INGREDIENT_ACCENTS = ['teal', 'navy', 'green', 'blue'] as const
 
 const NAV = [
   { label: 'Mask benefits', href: '#benefits' },
@@ -138,7 +138,7 @@ function MaskPageInner() {
   useConsumerPageView('masks')
   const orderModal = useOrderModal()
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-gray-900">
+    <div className="flex min-h-screen flex-col bg-slate-50 text-heading">
       <SEOHead
         title="Hydrating Hyaluronic Sheet Mask 5-Pack"
         description="Intensive hydration for dry, sensitive or mature skin: 5 serum-soaked hyaluronic sheet masks, 15 ml each, with niacinamide and collagen. A calm 15–30 min care step."
@@ -187,7 +187,7 @@ function MaskPageInner() {
           {BENEFITS.map((b) => (
             <Card key={b.title} hover className="flex h-full flex-col">
               <IconTile>{b.icon}</IconTile>
-              <h3 className="mt-5 text-xl font-semibold text-gray-900">{b.title}</h3>
+              <h3 className="mt-5 text-xl font-semibold text-heading">{b.title}</h3>
               <p className="mt-3 leading-relaxed text-gray-600">{b.body}</p>
             </Card>
           ))}
@@ -205,15 +205,13 @@ function MaskPageInner() {
         <Grid cols={4}>
           {INGREDIENTS.map((group, i) => (
             <Card key={group.title} hover accent={INGREDIENT_ACCENTS[i]} className="h-full">
-              <h3 className="text-base font-semibold tracking-tight text-gray-900">
-                {group.title}
-              </h3>
+              <h3 className="text-base font-semibold tracking-tight text-heading">{group.title}</h3>
               <ul className="mt-4 space-y-2.5 text-sm text-gray-600">
                 {group.items.map((it) => (
                   <li key={it} className="flex items-start gap-2.5">
                     <span
                       aria-hidden
-                      className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-teal-400"
+                      className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-accent-on-dark"
                     />
                     <span>{it}</span>
                   </li>

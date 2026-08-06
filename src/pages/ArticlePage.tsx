@@ -57,7 +57,7 @@ const ArticlePage = () => {
           </div>
         ) : (
           <>
-            <h1 className="text-2xl font-bold text-gray-900">
+            <h1 className="text-2xl font-bold text-heading">
               {t('shop:shop.articleNotFound', 'Article not found')}
             </h1>
             <Button to="/articles">{t('shop:shop.backToArticles', 'Back to Overview')}</Button>
@@ -74,7 +74,10 @@ const ArticlePage = () => {
     returnObjects: true,
   }) as ArticleSection[]
 
-  const keyStatsRaw = t(`articles:${article.id}.keyStats`, { returnObjects: true, defaultValue: [] })
+  const keyStatsRaw = t(`articles:${article.id}.keyStats`, {
+    returnObjects: true,
+    defaultValue: [],
+  })
   const keyStats: KeyStat[] = Array.isArray(keyStatsRaw) ? (keyStatsRaw as KeyStat[]) : []
 
   const renderSection = (section: ArticleSection, index: number) => {
@@ -85,13 +88,18 @@ const ArticlePage = () => {
         return (
           <section key={index} className="scroll-mt-28 space-y-4 overflow-x-auto">
             {section.heading && (
-              <h2 className="text-2xl font-medium tracking-tight text-heading">{section.heading}</h2>
+              <h2 className="text-2xl font-medium tracking-tight text-heading">
+                {section.heading}
+              </h2>
             )}
             <table className="w-full min-w-[560px] border-collapse text-left text-sm text-gray-700 sm:text-base">
               <thead>
                 <tr>
                   {(section as TableSection).headers.map((header, i) => (
-                    <th key={i} className="border-b border-slate-200 py-3 font-semibold text-heading">
+                    <th
+                      key={i}
+                      className="border-b border-slate-200 py-3 font-semibold text-heading"
+                    >
                       {header}
                     </th>
                   ))}
@@ -127,7 +135,9 @@ const ArticlePage = () => {
         return (
           <section key={index} className="scroll-mt-28 space-y-6">
             {section.heading && (
-              <h2 className="text-2xl font-medium tracking-tight text-heading">{section.heading}</h2>
+              <h2 className="text-2xl font-medium tracking-tight text-heading">
+                {section.heading}
+              </h2>
             )}
             <div className="grid gap-6 sm:grid-cols-3">
               {(section as KeyPointsSection).points.map((point, pIndex) => (
@@ -160,7 +170,10 @@ const ArticlePage = () => {
                   const [term, rest] = splitLeadTerm(item)
                   return (
                     <li key={lIndex} className="flex gap-3 text-[17px] leading-[1.8] text-gray-700">
-                      <span aria-hidden="true" className="mt-[0.85em] h-px w-4 flex-shrink-0 bg-accent" />
+                      <span
+                        aria-hidden="true"
+                        className="mt-[0.85em] h-px w-4 flex-shrink-0 bg-accent"
+                      />
                       <span>
                         {term && <strong className="font-semibold text-heading">{term}: </strong>}
                         {rest}
@@ -244,7 +257,10 @@ const ArticlePage = () => {
             {keyStats.length > 0 && (
               <div className="mt-10 grid gap-4 sm:grid-cols-3">
                 {keyStats.slice(0, 3).map((s) => (
-                  <div key={s.label} className="rounded-2xl bg-brand-deep p-6 text-center text-white">
+                  <div
+                    key={s.label}
+                    className="rounded-2xl bg-brand-deep p-6 text-center text-white"
+                  >
                     <div className="text-2xl font-semibold">{s.value}</div>
                     <div className="mt-1 text-xs text-white/70">{s.label}</div>
                   </div>
@@ -263,7 +279,10 @@ const ArticlePage = () => {
                 {t('articles:detail.cta_title', 'Rechnen Sie Ihr Einsparpotenzial durch.')}
               </h2>
               <p className="mx-auto mt-2 max-w-md text-white/75">
-                {t('articles:detail.cta_subtitle', 'ROI-Rechner oder Beratung — in unter einer Minute.')}
+                {t(
+                  'articles:detail.cta_subtitle',
+                  'ROI-Rechner oder Beratung — in unter einer Minute.',
+                )}
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
                 <Link

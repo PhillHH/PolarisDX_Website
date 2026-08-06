@@ -159,7 +159,7 @@ const S3LeitliniePage = () => {
       {/* Article Container */}
       <div className="bg-slate-50">
         {/* Hero / Above the Fold */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-gray-900 text-white">
+        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-deep text-white">
           <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
           <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
@@ -221,7 +221,7 @@ const S3LeitliniePage = () => {
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-primary/10 text-brand-primary font-semibold text-lg">
                     PX
                   </div>
-                  <p className="text-sm font-medium text-gray-900">PolarisDX Redaktionsteam</p>
+                  <p className="text-sm font-medium text-heading">PolarisDX Redaktionsteam</p>
                 </div>
 
                 {/* Section 1: Einleitung */}
@@ -257,7 +257,7 @@ const S3LeitliniePage = () => {
 
                 {/* Section 2: S3-Leitlinie */}
                 <section className="mt-12">
-                  <h2 className="mb-6 text-xl font-semibold tracking-tight text-gray-900 sm:text-2xl">
+                  <h2 className="mb-6 text-xl font-semibold tracking-tight text-heading sm:text-2xl">
                     Die S3-Leitlinie „Vitamin D und Zahnimplantologie" – Was sie für Ihre Praxis
                     bedeutet
                   </h2>
@@ -283,7 +283,7 @@ const S3LeitliniePage = () => {
                   </div>
 
                   {/* Evidence Box: 3 Kernempfehlungen */}
-                  <div className="my-8 rounded-lg border-l-4 border-brand-primary bg-blue-50/70 p-6">
+                  <div className="my-8 rounded-lg border-l-4 border-brand-primary bg-brand-primary/5 p-6">
                     <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-brand-primary">
                       Drei Kernempfehlungen
                     </p>
@@ -326,7 +326,7 @@ const S3LeitliniePage = () => {
 
                 {/* Section 3: POC vs. Labor */}
                 <section className="mt-12">
-                  <h2 className="mb-6 text-xl font-semibold tracking-tight text-gray-900 sm:text-2xl">
+                  <h2 className="mb-6 text-xl font-semibold tracking-tight text-heading sm:text-2xl">
                     Warum POC statt Labor? Der Zeitvorteil am Behandlungsstuhl
                   </h2>
 
@@ -354,13 +354,13 @@ const S3LeitliniePage = () => {
                     <table className="w-full text-sm">
                       <thead className="bg-gray-50">
                         <tr>
-                          <th className="px-4 py-3 text-left font-semibold text-gray-900">
+                          <th className="px-4 py-3 text-left font-semibold text-heading">
                             Kriterium
                           </th>
-                          <th className="px-4 py-3 text-left font-semibold text-gray-900">
+                          <th className="px-4 py-3 text-left font-semibold text-heading">
                             Labortest
                           </th>
-                          <th className="px-4 py-3 text-left font-semibold text-gray-900">
+                          <th className="px-4 py-3 text-left font-semibold text-heading">
                             POC-Schnelltest (Igloo Reader Pro)
                           </th>
                         </tr>
@@ -369,38 +369,38 @@ const S3LeitliniePage = () => {
                         <tr>
                           <td className="px-4 py-3 text-gray-700">Zeit bis zum Ergebnis</td>
                           <td className="px-4 py-3 text-gray-700">2–5 Werktage</td>
-                          <td className="px-4 py-3 font-medium text-gray-900">&lt; 3 Minuten</td>
+                          <td className="px-4 py-3 font-medium text-heading">&lt; 3 Minuten</td>
                         </tr>
                         <tr>
                           <td className="px-4 py-3 text-gray-700">Probenversand</td>
                           <td className="px-4 py-3 text-gray-700">Ja (Blutentnahme → Kurier)</td>
-                          <td className="px-4 py-3 font-medium text-gray-900">Nein (Chairside)</td>
+                          <td className="px-4 py-3 font-medium text-heading">Nein (Chairside)</td>
                         </tr>
                         <tr>
                           <td className="px-4 py-3 text-gray-700">Therapieentscheidung</td>
                           <td className="px-4 py-3 text-gray-700">Verzögert (Folgetermin)</td>
-                          <td className="px-4 py-3 font-medium text-gray-900">
+                          <td className="px-4 py-3 font-medium text-heading">
                             Sofort am Behandlungsstuhl
                           </td>
                         </tr>
                         <tr>
                           <td className="px-4 py-3 text-gray-700">Delegation</td>
                           <td className="px-4 py-3 text-gray-700">Blutentnahme durch Arzt/MFA</td>
-                          <td className="px-4 py-3 font-medium text-gray-900">
+                          <td className="px-4 py-3 font-medium text-heading">
                             Delegierbar an ZFA/DH
                           </td>
                         </tr>
                         <tr>
                           <td className="px-4 py-3 text-gray-700">Genauigkeit (Bias)</td>
                           <td className="px-4 py-3 text-gray-700">±5–10 % (laborabhängig)</td>
-                          <td className="px-4 py-3 font-medium text-gray-900">
+                          <td className="px-4 py-3 font-medium text-heading">
                             ±3–8 % (DEQAS Klasse A)
                           </td>
                         </tr>
                         <tr>
                           <td className="px-4 py-3 text-gray-700">Patienten-Compliance</td>
                           <td className="px-4 py-3 text-gray-700">Laborbesuch erforderlich</td>
-                          <td className="px-4 py-3 font-medium text-gray-900">
+                          <td className="px-4 py-3 font-medium text-heading">
                             Kein zusätzlicher Termin
                           </td>
                         </tr>
@@ -421,11 +421,11 @@ const S3LeitliniePage = () => {
 
                 {/* Section 4: Igloo Reader Pro */}
                 <section className="mt-12">
-                  <h2 className="mb-6 text-xl font-semibold tracking-tight text-gray-900 sm:text-2xl">
+                  <h2 className="mb-6 text-xl font-semibold tracking-tight text-heading sm:text-2xl">
                     Igloo Reader Pro – Das POC-Diagnostiksystem für Zahnarztpraxen
                   </h2>
 
-                  <h3 className="mt-8 mb-4 text-lg font-semibold text-gray-900">
+                  <h3 className="mt-8 mb-4 text-lg font-semibold text-heading">
                     Technologie & Spezifikationen
                   </h3>
 
@@ -443,7 +443,7 @@ const S3LeitliniePage = () => {
                     <div className="rounded-lg border border-gray-200 bg-white p-4">
                       <div className="mb-2 flex items-center gap-2">
                         <Shield className="h-5 w-5 text-brand-primary" />
-                        <p className="text-sm font-semibold text-gray-900">5 Messtechnologien</p>
+                        <p className="text-sm font-semibold text-heading">5 Messtechnologien</p>
                       </div>
                       <p className="text-xs text-gray-600">
                         Kolorimetrie, Immunfluoreszenz, Mikrofluide, Quantenpunkte, Trockenchemie
@@ -452,9 +452,7 @@ const S3LeitliniePage = () => {
                     <div className="rounded-lg border border-gray-200 bg-white p-4">
                       <div className="mb-2 flex items-center gap-2">
                         <BarChart3 className="h-5 w-5 text-brand-primary" />
-                        <p className="text-sm font-semibold text-gray-900">
-                          140+ kalibrierte Tests
-                        </p>
+                        <p className="text-sm font-semibold text-heading">140+ kalibrierte Tests</p>
                       </div>
                       <p className="text-xs text-gray-600">
                         Von über 30 Herstellern, kompatibel mit ca. 90 % aller Lateral-Flow-Tests
@@ -463,7 +461,7 @@ const S3LeitliniePage = () => {
                     <div className="rounded-lg border border-gray-200 bg-white p-4">
                       <div className="mb-2 flex items-center gap-2">
                         <Clock className="h-5 w-5 text-brand-primary" />
-                        <p className="text-sm font-semibold text-gray-900">
+                        <p className="text-sm font-semibold text-heading">
                           24 Stunden Akkulaufzeit
                         </p>
                       </div>
@@ -474,7 +472,7 @@ const S3LeitliniePage = () => {
                     <div className="rounded-lg border border-gray-200 bg-white p-4">
                       <div className="mb-2 flex items-center gap-2">
                         <Shield className="h-5 w-5 text-brand-primary" />
-                        <p className="text-sm font-semibold text-gray-900">CE- & IVDR-konform</p>
+                        <p className="text-sm font-semibold text-heading">CE- & IVDR-konform</p>
                       </div>
                       <p className="text-xs text-gray-600">
                         WiFi, Bluetooth, USB-C, API-Integration (PVS/LIS-kompatibel)
@@ -482,28 +480,28 @@ const S3LeitliniePage = () => {
                     </div>
                   </div>
 
-                  <h3 className="mt-10 mb-4 text-lg font-semibold text-gray-900">
+                  <h3 className="mt-10 mb-4 text-lg font-semibold text-heading">
                     DEQAS-validierte Messqualität
                   </h3>
 
                   {/* DEQAS Metrics Box */}
-                  <div className="my-6 rounded-lg border-l-4 border-emerald-500 bg-emerald-50/70 p-6">
-                    <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-emerald-700">
+                  <div className="my-6 rounded-lg border-l-4 border-success bg-success-soft/70 p-6">
+                    <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-success-strong">
                       Zentrale Leistungskennzahlen
                     </p>
                     <div className="grid gap-4 sm:grid-cols-3">
                       <div className="text-center">
-                        <p className="text-2xl font-bold text-gray-900">#2</p>
+                        <p className="text-2xl font-bold text-heading">#2</p>
                         <p className="text-xs text-gray-600">
                           Weltweit im DEQAS-Ranking (Klasse A)
                         </p>
                       </div>
                       <div className="text-center">
-                        <p className="text-2xl font-bold text-gray-900">±3–8 %</p>
+                        <p className="text-2xl font-bold text-heading">±3–8 %</p>
                         <p className="text-xs text-gray-600">Bias vs. Referenzmethode</p>
                       </div>
                       <div className="text-center">
-                        <p className="text-2xl font-bold text-gray-900">&lt;2 %</p>
+                        <p className="text-2xl font-bold text-heading">&lt;2 %</p>
                         <p className="text-xs text-gray-600">VK Inter-Reader-Präzision</p>
                       </div>
                     </div>
@@ -550,7 +548,7 @@ const S3LeitliniePage = () => {
                       <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-primary">
                         Vitamin-D-Diagnostik in der Praxis
                       </p>
-                      <p className="mb-3 text-base font-medium text-gray-900">
+                      <p className="mb-3 text-base font-medium text-heading">
                         Bestimmen Sie den 25-OH-Vitamin-D-Spiegel direkt am Behandlungsstuhl – in
                         unter 15 Minuten.
                       </p>
@@ -567,11 +565,11 @@ const S3LeitliniePage = () => {
 
                 {/* Section 5: Wirtschaftlichkeit */}
                 <section className="mt-12">
-                  <h2 className="mb-6 text-xl font-semibold tracking-tight text-gray-900 sm:text-2xl">
+                  <h2 className="mb-6 text-xl font-semibold tracking-tight text-heading sm:text-2xl">
                     Wirtschaftlichkeit: IGeL-Abrechnung und ROI für Ihre Praxis
                   </h2>
 
-                  <h3 className="mt-8 mb-4 text-lg font-semibold text-gray-900">
+                  <h3 className="mt-8 mb-4 text-lg font-semibold text-heading">
                     Vitamin-D-Bestimmung als IGeL abrechnen
                   </h3>
 
@@ -587,7 +585,7 @@ const S3LeitliniePage = () => {
                     </p>
                   </div>
 
-                  <h3 className="mt-10 mb-4 text-lg font-semibold text-gray-900">
+                  <h3 className="mt-10 mb-4 text-lg font-semibold text-heading">
                     ROI-Kalkulation: Amortisation in 8–12 Wochen
                   </h3>
 
@@ -635,7 +633,7 @@ const S3LeitliniePage = () => {
 
                 {/* Section 6: 5-Schritte-Workflow */}
                 <section id="workflow" className="mt-12 scroll-mt-24">
-                  <h2 className="mb-6 text-xl font-semibold tracking-tight text-gray-900 sm:text-2xl">
+                  <h2 className="mb-6 text-xl font-semibold tracking-tight text-heading sm:text-2xl">
                     Praxis-Workflow: Vitamin-D-Diagnostik in 5 Schritten
                   </h2>
 
@@ -688,7 +686,7 @@ const S3LeitliniePage = () => {
                           {item.step}
                         </div>
                         <div>
-                          <h3 className="mb-1 text-base font-semibold text-gray-900">
+                          <h3 className="mb-1 text-base font-semibold text-heading">
                             {item.title}
                           </h3>
                           <p className="text-sm leading-relaxed text-gray-600">
@@ -711,7 +709,7 @@ const S3LeitliniePage = () => {
 
                 {/* Section 7: D3-Spray */}
                 <section className="mt-12">
-                  <h2 className="mb-6 text-xl font-semibold tracking-tight text-gray-900 sm:text-2xl">
+                  <h2 className="mb-6 text-xl font-semibold tracking-tight text-heading sm:text-2xl">
                     Polaris Vitamin D3 Spray – Diagnostik und Therapie aus einer Hand
                   </h2>
 
@@ -742,7 +740,7 @@ const S3LeitliniePage = () => {
 
                 {/* Section 8: Validierung & Partner */}
                 <section className="mt-12">
-                  <h2 className="mb-6 text-xl font-semibold tracking-tight text-gray-900 sm:text-2xl">
+                  <h2 className="mb-6 text-xl font-semibold tracking-tight text-heading sm:text-2xl">
                     Klinische Validierung und Partnerpraxen in der Implantologie
                   </h2>
 
@@ -757,14 +755,14 @@ const S3LeitliniePage = () => {
                   {/* Partner Grid */}
                   <div className="my-6 grid gap-4 sm:grid-cols-2">
                     <div className="rounded-lg border border-gray-200 bg-white p-4">
-                      <p className="text-sm font-semibold text-gray-900">Nobel Biocare / Envista</p>
+                      <p className="text-sm font-semibold text-heading">Nobel Biocare / Envista</p>
                       <p className="text-xs text-gray-600">
                         Weltmarktführer in der Implantologie – Kooperation für
                         Chairside-Diagnostik-Workflows
                       </p>
                     </div>
                     <div className="rounded-lg border border-gray-200 bg-white p-4">
-                      <p className="text-sm font-semibold text-gray-900">
+                      <p className="text-sm font-semibold text-heading">
                         Swiss Dental Solutions & Imperial College London
                       </p>
                       <p className="text-xs text-gray-600">
@@ -772,7 +770,7 @@ const S3LeitliniePage = () => {
                       </p>
                     </div>
                     <div className="rounded-lg border border-gray-200 bg-white p-4">
-                      <p className="text-sm font-semibold text-gray-900">
+                      <p className="text-sm font-semibold text-heading">
                         ndu Clinic, 22 Harley Street, London
                       </p>
                       <p className="text-xs text-gray-600">
@@ -780,7 +778,7 @@ const S3LeitliniePage = () => {
                       </p>
                     </div>
                     <div className="rounded-lg border border-gray-200 bg-white p-4">
-                      <p className="text-sm font-semibold text-gray-900">
+                      <p className="text-sm font-semibold text-heading">
                         100+ Praxen in 15+ Ländern
                       </p>
                       <p className="text-xs text-gray-600">
@@ -834,14 +832,14 @@ const S3LeitliniePage = () => {
 
                 {/* Section 10: FAQ */}
                 <section className="mt-12 border-t border-gray-200 pt-10">
-                  <h2 className="mb-8 text-xl font-semibold tracking-tight text-gray-900 sm:text-2xl">
+                  <h2 className="mb-8 text-xl font-semibold tracking-tight text-heading sm:text-2xl">
                     Häufige Fragen zur Vitamin-D-Diagnostik in der Zahnarztpraxis
                   </h2>
 
                   <div className="space-y-8">
                     {faqItems.map((faq, index) => (
                       <div key={index}>
-                        <h3 className="mb-3 text-base font-semibold text-gray-900">
+                        <h3 className="mb-3 text-base font-semibold text-heading">
                           {faq.question}
                         </h3>
                         <p className="text-[15px] leading-relaxed text-gray-600">{faq.answer}</p>
@@ -873,7 +871,7 @@ const S3LeitliniePage = () => {
                       <Phone className="h-5 w-5 text-brand-primary" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-gray-900">Fragen?</p>
+                      <p className="text-sm font-medium text-heading">Fragen?</p>
                       <p className="text-xs text-gray-500">Wir helfen gerne weiter</p>
                     </div>
                   </div>
@@ -907,7 +905,7 @@ const S3LeitliniePage = () => {
 
                 {/* Verwandte Artikel */}
                 <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-                  <p className="mb-4 flex items-center gap-2 text-sm font-semibold text-gray-900">
+                  <p className="mb-4 flex items-center gap-2 text-sm font-semibold text-heading">
                     <BookOpen className="h-4 w-4 text-brand-primary" />
                     Verwandte Inhalte
                   </p>
@@ -916,11 +914,11 @@ const S3LeitliniePage = () => {
                       to="/vitamin-d3-implantologie"
                       className="group flex items-start gap-3 rounded-lg p-2 transition-colors hover:bg-gray-50"
                     >
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-blue-50 text-brand-primary">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-brand-primary/10 text-brand-primary">
                         <FileText className="h-4 w-4" />
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-gray-900 group-hover:text-brand-primary">
+                        <p className="text-sm font-medium text-heading group-hover:text-brand-primary">
                           Vitamin D3 & Implantologie
                         </p>
                         <p className="text-xs text-gray-500">D3+K2-Supplementierungsevidenz</p>
@@ -930,11 +928,11 @@ const S3LeitliniePage = () => {
                       to="/igloo-pro"
                       className="group flex items-start gap-3 rounded-lg p-2 transition-colors hover:bg-gray-50"
                     >
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-blue-50 text-brand-primary">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-brand-primary/10 text-brand-primary">
                         <FileText className="h-4 w-4" />
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-gray-900 group-hover:text-brand-primary">
+                        <p className="text-sm font-medium text-heading group-hover:text-brand-primary">
                           Igloo Pro System
                         </p>
                         <p className="text-xs text-gray-500">
@@ -946,11 +944,11 @@ const S3LeitliniePage = () => {
                       to="/diagnostics/dental"
                       className="group flex items-start gap-3 rounded-lg p-2 transition-colors hover:bg-gray-50"
                     >
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-green-50 text-green-600">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-success-soft text-success-strong">
                         <FileText className="h-4 w-4" />
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-gray-900 group-hover:text-brand-primary">
+                        <p className="text-sm font-medium text-heading group-hover:text-brand-primary">
                           POC-Diagnostik für Zahnarztpraxen
                         </p>
                         <p className="text-xs text-gray-500">Vollständiges Biomarker-Portfolio</p>
@@ -960,11 +958,11 @@ const S3LeitliniePage = () => {
                       to="/articles/die-5-minuten-diagnose"
                       className="group flex items-start gap-3 rounded-lg p-2 transition-colors hover:bg-gray-50"
                     >
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-emerald-50 text-emerald-600">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-success-soft text-success-strong">
                         <FileText className="h-4 w-4" />
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-gray-900 group-hover:text-brand-primary">
+                        <p className="text-sm font-medium text-heading group-hover:text-brand-primary">
                           Die 5-Minuten-Diagnose
                         </p>
                         <p className="text-xs text-gray-500">

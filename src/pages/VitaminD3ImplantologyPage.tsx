@@ -124,10 +124,7 @@ const VitaminD3ImplantologyPage = () => {
       />
 
       {/* Evidenz-Leiste direkt unter dem Hero */}
-      <section
-        aria-label="Evidenz und Vertrauen"
-        className="border-b border-slate-200 bg-slate-50"
-      >
+      <section aria-label="Evidenz und Vertrauen" className="border-b border-slate-200 bg-slate-50">
         <div className="mx-auto max-w-container px-4 py-7 lg:px-0">
           <ul className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3">
             {[
@@ -158,7 +155,7 @@ const VitaminD3ImplantologyPage = () => {
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent/10 text-lg font-semibold text-accent">
                     FP
                   </div>
-                  <p className="text-sm font-medium text-gray-900">Fachredaktion PolarisDX</p>
+                  <p className="text-sm font-medium text-heading">Fachredaktion PolarisDX</p>
                 </div>
 
                 {/* Problem Section */}
@@ -204,7 +201,7 @@ const VitaminD3ImplantologyPage = () => {
                     <ul className="space-y-2 text-[15px] leading-relaxed text-gray-700">
                       <li>
                         <strong>Vitamin D Zahnimplantat</strong>: Mangel wurde mit einem{' '}
-                        <strong className="text-gray-900">bis zu vierfach erhöhten Risiko</strong>{' '}
+                        <strong className="text-heading">bis zu vierfach erhöhten Risiko</strong>{' '}
                         für frühe Implantatverluste assoziiert.
                       </li>
                       <li>
@@ -257,13 +254,13 @@ const VitaminD3ImplantologyPage = () => {
                     <table className="w-full text-sm">
                       <thead className="bg-gray-50">
                         <tr>
-                          <th className="px-4 py-3 text-left font-semibold text-gray-900">
+                          <th className="px-4 py-3 text-left font-semibold text-heading">
                             Ausgangsspiegel
                           </th>
-                          <th className="px-4 py-3 text-left font-semibold text-gray-900">
+                          <th className="px-4 py-3 text-left font-semibold text-heading">
                             Empfohlene Tagesdosis
                           </th>
-                          <th className="px-4 py-3 text-left font-semibold text-gray-900">
+                          <th className="px-4 py-3 text-left font-semibold text-heading">
                             Dauer bis Kontrolle
                           </th>
                         </tr>
@@ -368,7 +365,7 @@ const VitaminD3ImplantologyPage = () => {
                       Das Ergebnis: Keine Kontrolle über die Compliance, keine Sicherheit über das
                       Präparat, und die Praxis verschenkt den therapeutischen Abschluss ihres
                       eigenen Befundes an Dritte. Der Behandlungspfad{' '}
-                      <span className="whitespace-nowrap font-medium text-gray-900">
+                      <span className="whitespace-nowrap font-medium text-heading">
                         Testen → Erkennen → Handeln
                       </span>{' '}
                       bricht nach Schritt zwei ab.
@@ -458,7 +455,7 @@ const VitaminD3ImplantologyPage = () => {
                   <div className="space-y-8">
                     {faqItems.map((faq, index) => (
                       <div key={index}>
-                        <h3 className="mb-3 text-base font-semibold text-gray-900">
+                        <h3 className="mb-3 text-base font-semibold text-heading">
                           {faq.question}
                         </h3>
                         <p className="text-[15px] leading-relaxed text-gray-600">{faq.answer}</p>
@@ -490,7 +487,7 @@ const VitaminD3ImplantologyPage = () => {
                       <Phone className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-gray-900">Fragen zur Bestellung?</p>
+                      <p className="text-sm font-medium text-heading">Fragen zur Bestellung?</p>
                       <p className="text-xs text-gray-500">Wir beraten Sie gerne</p>
                     </div>
                   </div>
@@ -523,7 +520,7 @@ const VitaminD3ImplantologyPage = () => {
 
                 {/* Related Articles */}
                 <div className="rounded-xl border border-slate-200 bg-white p-5">
-                  <p className="mb-4 flex items-center gap-2 text-sm font-semibold text-gray-900">
+                  <p className="mb-4 flex items-center gap-2 text-sm font-semibold text-heading">
                     <BookOpen className="h-4 w-4 text-accent" />
                     Weiterführende Inhalte
                   </p>
@@ -536,7 +533,7 @@ const VitaminD3ImplantologyPage = () => {
                         <FileText className="h-4 w-4" />
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-gray-900 group-hover:text-accent">
+                        <p className="text-sm font-medium text-heading group-hover:text-accent">
                           Igloo Pro System
                         </p>
                         <p className="text-xs text-gray-500">
@@ -552,7 +549,7 @@ const VitaminD3ImplantologyPage = () => {
                         <FileText className="h-4 w-4" />
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-gray-900 group-hover:text-accent">
+                        <p className="text-sm font-medium text-heading group-hover:text-accent">
                           POC-Diagnostik für Zahnarztpraxen
                         </p>
                         <p className="text-xs text-gray-500">
@@ -568,7 +565,7 @@ const VitaminD3ImplantologyPage = () => {
                         <FileText className="h-4 w-4" />
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-gray-900 group-hover:text-accent">
+                        <p className="text-sm font-medium text-heading group-hover:text-accent">
                           Die grüne Praxis
                         </p>
                         <p className="text-xs text-gray-500">

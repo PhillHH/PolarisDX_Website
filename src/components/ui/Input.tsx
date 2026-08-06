@@ -7,7 +7,7 @@ const inputVariants = cva(
   {
     variants: {
       state: {
-        default: 'border-ui-border text-gray-900',
+        default: 'border-ui-border text-heading',
         error: 'border-red-500 text-red-900 focus-visible:ring-red-500',
       },
       size: {
@@ -66,7 +66,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           <label
             htmlFor={inputId}
             className={cn(
-              'text-sm font-medium leading-none text-gray-900',
+              'text-sm font-medium leading-none text-heading',
               disabled && 'cursor-not-allowed opacity-70',
             )}
           >

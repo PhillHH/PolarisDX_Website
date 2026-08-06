@@ -10,7 +10,7 @@ const FeaturedCaseStudy = () => {
   return (
     <section className="relative py-24 bg-slate-50 overflow-hidden">
       {/* Hintergrund-Akzent */}
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 w-[800px] h-[800px] bg-blue-100/50 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 w-[800px] h-[800px] bg-brand-primary/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative mx-auto max-w-container px-4">
         <Reveal>
@@ -31,12 +31,12 @@ const FeaturedCaseStudy = () => {
                 className="w-full h-full object-cover"
                 crossOrigin="anonymous"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-gray-900/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-deep/40 to-transparent" />
               <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md border border-white/20 rounded-xl px-4 py-3 flex items-center gap-3 shadow-lg">
-                <div className="bg-yellow-100 p-2 rounded-lg text-yellow-600 shrink-0">
+                <div className="bg-accent-soft p-2 rounded-lg text-accent-strong shrink-0">
                   <Trophy className="w-5 h-5" />
                 </div>
-                <p className="text-gray-900 font-semibold text-sm">{t('reasons32.about.award')}</p>
+                <p className="text-heading font-semibold text-sm">{t('reasons32.about.award')}</p>
               </div>
             </div>
 
@@ -46,7 +46,7 @@ const FeaturedCaseStudy = () => {
                 {t('reasons32.subtitle')}
               </span>
 
-              <h2 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+              <h2 className="text-2xl lg:text-4xl font-bold text-heading mb-6 leading-tight">
                 {t('reasons32.title')}
               </h2>
 

@@ -36,7 +36,10 @@ const OFF_FAMILIES =
 const RE_HEX = /#[0-9a-fA-F]{6}\b|#[0-9a-fA-F]{3}\b/g
 const RE_ARBITRARY = /\b[a-z-]+-\[(?:#[0-9a-fA-F]{3,8}|rgb|rgba|hsl)\b[^\]]*\]/g
 const RE_LEGACY_NAVY = /\bgray-900\b/g
-const RE_OFF_SCALE = new RegExp(`\\b(?:${OFF_FAMILIES})-(?:50|100|200|300|400|500|600|700|800|900|950)\\b`, 'g')
+const RE_OFF_SCALE = new RegExp(
+  `\\b(?:${OFF_FAMILIES})-(?:50|100|200|300|400|500|600|700|800|900|950)\\b`,
+  'g',
+)
 
 function walk(dir, out = []) {
   for (const entry of readdirSync(dir)) {
@@ -72,7 +75,11 @@ for (const file of walk(SRC)) {
       violations.push([at, `Legacy-Navy ${m} — nutze text-heading / brand-deep`, line.trim()])
     }
     for (const m of line.match(RE_OFF_SCALE) ?? []) {
-      violations.push([at, `Off-Token-Farbe ${m} — nutze accent-* / brand-* / success-*`, line.trim()])
+      violations.push([
+        at,
+        `Off-Token-Farbe ${m} — nutze accent-* / brand-* / success-*`,
+        line.trim(),
+      ])
     }
   })
 }

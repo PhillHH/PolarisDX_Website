@@ -76,17 +76,12 @@ const WhyPocSection = () => {
             {cards.map((card) => {
               const Icon = card.icon
               return (
-                <div
-                  key={card.title}
-                  className={`rounded-2xl p-7 text-white ${card.bg}`}
-                >
+                <div key={card.title} className={`rounded-2xl p-7 text-white ${card.bg}`}>
                   <span className="inline-flex rounded-lg bg-white/10 p-2">
                     <Icon size={22} aria-hidden="true" />
                   </span>
                   <h3 className="mt-4 font-medium">{card.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/80">
-                    {card.text}
-                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-white/80">{card.text}</p>
                   <Link
                     to="/diagnostics"
                     className="mt-4 inline-block text-sm text-white/90 hover:underline"
@@ -99,7 +94,7 @@ const WhyPocSection = () => {
           </div>
 
           {/* RECHTS: gruenes Media-Panel (Play = Platzhalter, kein echtes Video) */}
-          <div className="relative h-full min-h-[20rem] overflow-hidden rounded-2xl bg-gradient-to-br from-accent to-emerald-600">
+          <div className="relative h-full min-h-[20rem] overflow-hidden rounded-2xl bg-gradient-to-br from-accent to-accent-strong">
             <span className="absolute top-4 left-4 text-xs uppercase tracking-wide text-white/80">
               {t('why.video_label', 'ANWENDUNGSVIDEO')}
             </span>
@@ -109,10 +104,7 @@ const WhyPocSection = () => {
               </span>
             </div>
             <div className="absolute bottom-4 left-4 right-4 rounded-lg bg-white px-4 py-3 text-sm text-heading shadow">
-              {t(
-                'why.video_caption',
-                'So läuft der Test in Ihrer Praxis – in 3 Minuten',
-              )}
+              {t('why.video_caption', 'So läuft der Test in Ihrer Praxis – in 3 Minuten')}
             </div>
           </div>
         </div>

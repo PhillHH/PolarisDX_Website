@@ -7,7 +7,7 @@ const Footer = () => {
   const { t } = useTranslation('common')
 
   return (
-    <footer className="mt-24 bg-brand-primary text-white lg:mt-32">
+    <footer className="mt-24 bg-brand-deep text-white lg:mt-32">
       <div className="relative">
         {/* Footer-Inhalte */}
         <div className="mx-auto flex max-w-container flex-col gap-10 px-4 pb-12 lg:pb-16 pt-12 lg:pt-16">
@@ -33,7 +33,7 @@ const Footer = () => {
                   href="https://www.linkedin.com/company/polarisdx/"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-white hover:text-brand-secondary transition-colors"
+                  className="text-white hover:text-accent-on-dark transition-colors"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="h-6 w-6" />
@@ -42,7 +42,7 @@ const Footer = () => {
                   href="https://www.instagram.com/polaris_diagnostix/"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-white hover:text-brand-secondary transition-colors"
+                  className="text-white hover:text-accent-on-dark transition-colors"
                   aria-label="Instagram"
                 >
                   <Instagram className="h-6 w-6" />
@@ -57,37 +57,37 @@ const Footer = () => {
                 </h3>
                 <ul className="space-y-2 text-white/70">
                   <li>
-                    <Link to="/" className="hover:text-brand-secondary">
+                    <Link to="/" className="hover:text-accent-on-dark">
                       {t('nav.home')}
                     </Link>
                   </li>
                   <li>
-                    <Link to="/about" className="hover:text-brand-secondary">
+                    <Link to="/about" className="hover:text-accent-on-dark">
                       {t('nav.about')}
                     </Link>
                   </li>
                   <li>
-                    <Link to="/igloo-pro" className="hover:text-brand-secondary">
+                    <Link to="/igloo-pro" className="hover:text-accent-on-dark">
                       IglooPro
                     </Link>
                   </li>
                   <li>
-                    <Link to="/articles" className="hover:text-brand-secondary">
+                    <Link to="/articles" className="hover:text-accent-on-dark">
                       {t('nav.blog')}
                     </Link>
                   </li>
                   <li>
-                    <Link to="/events" className="hover:text-brand-secondary">
+                    <Link to="/events" className="hover:text-accent-on-dark">
                       {t('nav.events', 'Events')}
                     </Link>
                   </li>
                   <li>
-                    <Link to="/downloads" className="hover:text-brand-secondary">
+                    <Link to="/downloads" className="hover:text-accent-on-dark">
                       {t('nav.downloads', 'Downloads')}
                     </Link>
                   </li>
                   <li>
-                    <Link to="/contact" className="hover:text-brand-secondary">
+                    <Link to="/contact" className="hover:text-accent-on-dark">
                       {t('nav.contact')}
                     </Link>
                   </li>
@@ -100,29 +100,29 @@ const Footer = () => {
                 </h3>
                 <ul className="space-y-2 text-white/70">
                   <li>
-                    <Link to="/diagnostics" className="hover:text-brand-secondary">
+                    <Link to="/diagnostics" className="hover:text-accent-on-dark">
                       {t('footer.allServices', 'Alle Services')}
                     </Link>
                   </li>
                   <li>
-                    <Link to="/diagnostics/dental" className="hover:text-brand-secondary">
+                    <Link to="/diagnostics/dental" className="hover:text-accent-on-dark">
                       Dental
                     </Link>
                   </li>
                   <li>
-                    <Link to="/diagnostics/beauty" className="hover:text-brand-secondary">
+                    <Link to="/diagnostics/beauty" className="hover:text-accent-on-dark">
                       Beauty
                     </Link>
                   </li>
                   <li>
-                    <Link to="/diagnostics/longevity" className="hover:text-brand-secondary">
+                    <Link to="/diagnostics/longevity" className="hover:text-accent-on-dark">
                       Longevity
                     </Link>
                   </li>
                   <li>
                     <Link
                       to="/diagnostics/poc-systemloesungen"
-                      className="hover:text-brand-secondary"
+                      className="hover:text-accent-on-dark"
                     >
                       {t('footer.pocSystems', 'POC-Systeme')}
                     </Link>
@@ -130,13 +130,13 @@ const Footer = () => {
                   <li>
                     <Link
                       to="/diagnostics/praeventions-checks"
-                      className="hover:text-brand-secondary"
+                      className="hover:text-accent-on-dark"
                     >
                       {t('footer.preventionChecks', 'Präventions-Checks')}
                     </Link>
                   </li>
                   <li>
-                    <Link to="/diagnostics/hormon-tests" className="hover:text-brand-secondary">
+                    <Link to="/diagnostics/hormon-tests" className="hover:text-accent-on-dark">
                       {t('footer.hormonTests', 'Hormon-Tests')}
                     </Link>
                   </li>

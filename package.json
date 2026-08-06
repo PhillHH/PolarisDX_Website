@@ -15,6 +15,7 @@
     "preview": "NODE_ENV=production tsx server.ts",
     "lint": "eslint .",
     "typecheck": "tsc -b",
+    "check:colors": "node scripts/check-color-tokens.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "vitest run --reporter=default",

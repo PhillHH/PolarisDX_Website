@@ -68,7 +68,7 @@ export default function DuoPage() {
 function DuoPageInner() {
   useConsumerPageView('duo')
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-gray-900">
+    <div className="flex min-h-screen flex-col bg-slate-50 text-heading">
       {/* TODO: confirm final meta title with Claire (Wave-2 review). */}
       <SEOHead
         title="Inside-Out Care Duo: D3+K2 Spray + Masks"
@@ -86,7 +86,7 @@ function DuoPageInner() {
           <>
             A simple two-part care routine: one Vitamin D3+K2 Spray plus one box of five Hydrating
             Masks.
-            <span className="mt-3 block font-semibold text-gray-900">
+            <span className="mt-3 block font-semibold text-heading">
               More care in the routine. More value in the set.
             </span>
           </>
@@ -125,7 +125,7 @@ function DuoPageInner() {
             <IconTile>
               <Sun className="h-6 w-6" strokeWidth={1.75} />
             </IconTile>
-            <h3 className="mt-5 text-xl font-semibold text-gray-900">1 × Vitamin D3+K2 Spray</h3>
+            <h3 className="mt-5 text-xl font-semibold text-heading">1 × Vitamin D3+K2 Spray</h3>
             <p className="mt-3 flex-grow leading-relaxed text-gray-600">
               An orange-flavoured sublingual spray for daily Vitamin D3+K2 support — the inside step
               of the routine.
@@ -136,7 +136,7 @@ function DuoPageInner() {
               data-gtm-cta="See the spray page"
               data-gtm-page="duo"
               data-gtm-location="included-card"
-              className="group mt-6 inline-flex items-center gap-1.5 self-start rounded text-sm font-semibold text-teal-700 transition-colors hover:text-teal-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2"
+              className="group mt-6 inline-flex items-center gap-1.5 self-start rounded text-sm font-semibold text-accent-strong transition-colors hover:text-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line focus-visible:ring-offset-2"
             >
               See the spray page
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
@@ -148,7 +148,7 @@ function DuoPageInner() {
             <IconTile>
               <Droplets className="h-6 w-6" strokeWidth={1.75} />
             </IconTile>
-            <h3 className="mt-5 text-xl font-semibold text-gray-900">
+            <h3 className="mt-5 text-xl font-semibold text-heading">
               1 × box of 5 Hydrating Masks
             </h3>
             <p className="mt-3 flex-grow leading-relaxed text-gray-600">
@@ -161,7 +161,7 @@ function DuoPageInner() {
               data-gtm-cta="See the mask page"
               data-gtm-page="duo"
               data-gtm-location="included-card"
-              className="group mt-6 inline-flex items-center gap-1.5 self-start rounded text-sm font-semibold text-teal-700 transition-colors hover:text-teal-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2"
+              className="group mt-6 inline-flex items-center gap-1.5 self-start rounded text-sm font-semibold text-accent-strong transition-colors hover:text-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line focus-visible:ring-offset-2"
             >
               See the mask page
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
@@ -176,20 +176,20 @@ function DuoPageInner() {
       <Section id="routine" tone="tint" eyebrow="The routine" title="Two simple steps">
         <div className="grid gap-6 md:grid-cols-2">
           <Card hover accent="teal" className="h-full">
-            <p className="text-xs font-semibold uppercase tracking-wider text-teal-700">
+            <p className="text-xs font-semibold uppercase tracking-wider text-accent-strong">
               Step 1 · Inside
             </p>
-            <h3 className="mt-2 text-2xl font-semibold text-gray-900">Daily support from within</h3>
+            <h3 className="mt-2 text-2xl font-semibold text-heading">Daily support from within</h3>
             <p className="mt-3 leading-relaxed text-gray-600">
               Take the Vitamin D3+K2 Spray as part of a daily routine — one sublingual spray for
               daily Vitamin D3+K2 support.
             </p>
           </Card>
           <Card hover accent="navy" className="h-full">
-            <p className="text-xs font-semibold uppercase tracking-wider text-teal-700">
+            <p className="text-xs font-semibold uppercase tracking-wider text-accent-strong">
               Step 2 · Outside
             </p>
-            <h3 className="mt-2 text-2xl font-semibold text-gray-900">
+            <h3 className="mt-2 text-2xl font-semibold text-heading">
               Hydrating care from outside
             </h3>
             <p className="mt-3 leading-relaxed text-gray-600">

@@ -11,7 +11,7 @@
  *    lg:py-1 / text-sm lg:text-xs). Auch IglooWidgetSection (+ mb-8 margin).
  *  - size="sm": fixe kleine Pill aus den Hero-Sektionen (AboutPage,
  *    EventsPage): px-3 py-1 / text-xs.
- * Beide nutzen denselben Gradient-Rand + bg-slate-50 + text-gray-900.
+ * Beide nutzen denselben Gradient-Rand + bg-slate-50 + text-heading.
  * Eine "on-dark"/weiße Caption-Variante existiert im Live-Repo NICHT.
  */
 
@@ -33,8 +33,8 @@ const innerBySize: Record<EyebrowSize, string> = {
 }
 
 const captionBySize: Record<EyebrowSize, string> = {
-  default: 'text-sm font-semibold uppercase tracking-wide text-gray-900 lg:text-xs',
-  sm: 'text-xs font-semibold uppercase tracking-wide text-gray-900',
+  default: 'text-sm font-semibold uppercase tracking-wide text-heading lg:text-xs',
+  sm: 'text-xs font-semibold uppercase tracking-wide text-heading',
 }
 
 const Eyebrow = ({ children, size = 'default', className }: EyebrowProps) => {

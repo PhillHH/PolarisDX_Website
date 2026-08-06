@@ -40,13 +40,10 @@ export default {
           'border-hover': '#cbd5e1', // slate-300
           'text-muted': '#94a3b8', // slate-400
         },
-        // Semantic group for headline text colour. Replaces the misleadingly
-        // named "gray-900" (which is actually navy #203864, not gray). Both
-        // remain valid — `text-text-heading` (new) and `text-gray-900` (legacy)
-        // resolve to the same hex.
-        text: {
-          heading: '#083358',
-        },
+        // Kanonische Headline-/Body-Ink. `text-heading` ist die EINE Navy.
+        // Der frühere Alias "gray-900" (#203864) wurde entfernt — es gibt
+        // seitenweit nur noch #083358 (identisch mit brand.deep / brand.navy).
+        heading: '#083358',
         // Accent scale — same tones as the marketing brief presentation.
         // Canonical: accent = teal-600 (#0d9488). Use `bg-accent`, `text-accent`
         // for the DEFAULT; `bg-accent-strong`, `bg-accent-line`, `bg-accent-soft`,
@@ -57,7 +54,7 @@ export default {
           line: '#14b8a6', // teal-500 — underline accents, decorative lines
           soft: '#f0fdfa', // teal-50  — pill backgrounds, soft tints
           border: '#99f6e4', // teal-200 — pill borders
-          'on-dark': '#5eead4', // teal-300 — hover on the dark navy header
+          'on-dark': '#2dd4bf', // teal-400 — DER Akzent auf Navy (AA 6,9:1)
         },
         // Success / health semantic group — kept SEPARATE from accent because
         // emerald tones in S3-Leitlinie and Vitamin D3-Implantologie carry a
@@ -65,15 +62,14 @@ export default {
         success: {
           DEFAULT: '#10b981', // emerald-500
           soft: '#ecfdf5', // emerald-50
-          strong: '#059669', // emerald-600
+          strong: '#047857', // emerald-700 — AA-sicher auf Weiß (5,5:1)
         },
         // -------------------------------------------------------------------
-        // LEGACY flat colours (kept as aliases — see Wave 2 / 2-v migration).
-        // gray-900 has the same hex as text.heading above.
+        // Neutrale Legacy-Aliase. KEIN Navy mehr hier drin: 'gray-900'
+        // (#203864) ist entfernt — Headline-/Body-Ink ist `text-heading`.
         // -------------------------------------------------------------------
         'gray-100': '#F5F5F5',
         'gray-500': '#868C98',
-        'gray-900': '#203864', // Option A (default). Option B alternative: '#083358'
       },
       fontFamily: {
         sans: ['Inter Variable', 'Inter', 'system-ui', 'sans-serif'],

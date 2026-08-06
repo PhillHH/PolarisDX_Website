@@ -23,7 +23,7 @@ const ServiceCard = ({ service, className }: ServiceCardProps) => {
       <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-gray-100 to-white text-brand-primary shadow-inner border border-white">
         {service.icon}
       </div>
-      <h3 className="mb-3 text-xl font-medium tracking-tight text-gray-900 group-hover:text-brand-deep transition-colors">
+      <h3 className="mb-3 text-xl font-medium tracking-tight text-heading group-hover:text-brand-deep transition-colors">
         {service.title}
       </h3>
       <p className="mb-4 text-sm leading-relaxed text-gray-600">{service.description}</p>

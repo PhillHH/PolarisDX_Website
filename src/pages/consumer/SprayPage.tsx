@@ -163,7 +163,7 @@ function SprayPageInner() {
   useConsumerPageView('spray')
   const orderModal = useOrderModal()
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-gray-900">
+    <div className="flex min-h-screen flex-col bg-slate-50 text-heading">
       <SEOHead
         title="Vitamin D3+K2 Sublingual Spray 12-Pack"
         description="Daily Vitamin D3+K2 made simple: an orange-flavoured sublingual spray, 1000 IU and 71 doses per bottle. 12-pack for teams, homes and shared wellbeing orders."
@@ -213,7 +213,7 @@ function SprayPageInner() {
           {BENEFITS.map((b) => (
             <Card key={b.title} hover className="flex h-full flex-col">
               <IconTile>{b.icon}</IconTile>
-              <h3 className="mt-5 text-xl font-semibold text-gray-900">{b.title}</h3>
+              <h3 className="mt-5 text-xl font-semibold text-heading">{b.title}</h3>
               <p className="mt-3 leading-relaxed text-gray-600">{b.body}</p>
             </Card>
           ))}
@@ -232,7 +232,7 @@ function SprayPageInner() {
           {AUDIENCES.map((a) => (
             <Card key={a.title} hover className="flex h-full flex-col">
               <IconTile>{a.icon}</IconTile>
-              <h3 className="mt-5 text-xl font-semibold text-gray-900">{a.title}</h3>
+              <h3 className="mt-5 text-xl font-semibold text-heading">{a.title}</h3>
               <p className="mt-3 flex-grow leading-relaxed text-gray-600">{a.body}</p>
               <button
                 type="button"
@@ -243,7 +243,7 @@ function SprayPageInner() {
                 data-gtm-cta={a.cta}
                 data-gtm-page="spray"
                 data-gtm-location={`audience-${a.title.toLowerCase().replace(/[ &]+/g, '-')}`}
-                className="group mt-6 inline-flex items-center gap-1.5 self-start rounded text-sm font-semibold text-teal-700 transition-colors hover:text-teal-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2"
+                className="group mt-6 inline-flex items-center gap-1.5 self-start rounded text-sm font-semibold text-accent-strong transition-colors hover:text-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line focus-visible:ring-offset-2"
               >
                 {a.cta}
                 <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
@@ -272,7 +272,7 @@ function SprayPageInner() {
             <dl className="divide-y divide-slate-100">
               {FACTS.map(([label, value]) => (
                 <div key={label} className="flex gap-6 px-8 py-5">
-                  <dt className="w-40 flex-none text-sm font-semibold text-gray-900">{label}</dt>
+                  <dt className="w-40 flex-none text-sm font-semibold text-heading">{label}</dt>
                   <dd className="text-gray-600">{value}</dd>
                 </div>
               ))}
@@ -334,7 +334,7 @@ function SprayPageInner() {
         <Grid cols={3}>
           {SUBLINGUAL.map((s) => (
             <Card key={s.title} hover className="flex h-full flex-col">
-              <h3 className="text-xl font-semibold text-gray-900">{s.title}</h3>
+              <h3 className="text-xl font-semibold text-heading">{s.title}</h3>
               <p className="mt-3 leading-relaxed text-gray-600">{s.body}</p>
             </Card>
           ))}
@@ -378,7 +378,11 @@ function SprayPageInner() {
           label: 'Ask about shared / workplace orders',
           href: 'mailto:contact@polarisdx.net',
         }}
-        assurances={['Made in Germany', 'Vegan · GMO-free · gluten-free', 'No payment on this page']}
+        assurances={[
+          'Made in Germany',
+          'Vegan · GMO-free · gluten-free',
+          'No payment on this page',
+        ]}
         note="No payment is taken on this page — sales confirms price and shipping."
       />
 

@@ -60,7 +60,7 @@ const FAQSection = ({
                   aria-expanded={openIndex === index}
                   aria-controls={`faq-answer-${index}`}
                 >
-                  <span className="text-base font-medium text-gray-900 sm:text-lg">
+                  <span className="text-base font-medium text-heading sm:text-lg">
                     {item.question}
                   </span>
                   <ChevronDown

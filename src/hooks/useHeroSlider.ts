@@ -31,7 +31,7 @@ export const useHeroSlider = () => {
       id: 'economics',
       type: 'icon',
       icon: Calculator,
-      color: 'from-teal-400 to-emerald-600',
+      color: 'from-accent-line to-accent-strong',
       content: {
         title: t(
           'hero.economics.title',
@@ -47,7 +47,7 @@ export const useHeroSlider = () => {
       id: 'compliance',
       type: 'icon',
       icon: ShieldCheck,
-      color: 'from-sky-400 to-blue-600',
+      color: 'from-brand-secondary to-brand-primary',
       content: {
         title: t(
           'hero.compliance.title',
@@ -63,7 +63,7 @@ export const useHeroSlider = () => {
       id: 'segments',
       type: 'icon',
       icon: Stethoscope,
-      color: 'from-indigo-400 to-blue-600',
+      color: 'from-brand-primary to-brand-deep',
       content: {
         title: t('hero.segments.title', 'Eine Plattform für Dental, Beauty und Longevity.'),
         description: t(

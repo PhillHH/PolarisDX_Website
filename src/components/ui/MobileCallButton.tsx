@@ -14,7 +14,7 @@ const MobileCallButton = () => {
         className={`flex items-center overflow-hidden rounded-l-full shadow-lg transition-all duration-300 ease-in-out ${
           isExpanded
             ? 'translate-x-0 bg-white pl-3 pr-2 py-2'
-            : '-translate-x-2 bg-blue-600 pr-1 pl-3 py-3'
+            : '-translate-x-2 bg-brand-primary pr-1 pl-3 py-3'
         }`}
       >
         <button
@@ -22,7 +22,7 @@ const MobileCallButton = () => {
           className={`flex items-center justify-center rounded-full transition-colors ${
             isExpanded
               ? 'h-10 w-10 bg-gray-50 text-brand-primary'
-              : 'h-10 w-10 bg-blue-700 text-white'
+              : 'h-10 w-10 bg-brand-deep text-white'
           }`}
           aria-label={t('contact.call_us_button', 'Rufen Sie uns an')}
         >
@@ -34,7 +34,7 @@ const MobileCallButton = () => {
             <a
               href={`tel:${phoneNumberClean}`}
               onClick={() => setIsExpanded(false)}
-              className="ml-3 mr-1 whitespace-nowrap text-sm font-semibold text-gray-900"
+              className="ml-3 mr-1 whitespace-nowrap text-sm font-semibold text-heading"
             >
               {t('contact.call_us_text', 'Rufen Sie uns an')}
             </a>

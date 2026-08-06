@@ -36,7 +36,7 @@ export interface NavLink {
   href: string
 }
 
-type AccentBar = 'teal' | 'navy' | 'green' | 'amber' | 'none'
+type AccentBar = 'teal' | 'navy' | 'green' | 'blue' | 'none'
 
 // =============================================================================
 // BUTTONS — solid navy primary, outline navy secondary, teal for header
@@ -75,7 +75,7 @@ export function CTA({
   track,
 }: CTAProps) {
   const base =
-    'inline-flex items-center justify-center gap-2 rounded-md font-semibold tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500'
+    'inline-flex items-center justify-center gap-2 rounded-md font-semibold tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent-line'
   const sizes = {
     sm: 'px-5 py-2.5 text-sm',
     md: 'px-7 py-3.5 text-base',
@@ -84,7 +84,7 @@ export function CTA({
     navy: 'bg-brand-deep text-white hover:bg-brand-navy-hover shadow-sm',
     'outline-navy':
       'bg-white border border-brand-deep text-brand-deep hover:bg-brand-deep hover:text-white shadow-sm',
-    teal: 'bg-teal-600 text-white hover:bg-teal-700 shadow-sm',
+    teal: 'bg-accent text-white hover:bg-accent-strong shadow-sm',
     white: 'bg-white text-brand-deep hover:bg-slate-50 shadow-sm',
     'outline-white': 'border border-white/60 text-white hover:bg-white/10',
   }
@@ -171,7 +171,7 @@ export function ConsumerHeader({
         {/* Desktop nav */}
         <nav className="hidden flex-1 items-center justify-center gap-8 text-sm font-medium text-white/90 md:flex">
           {nav.map((n) => (
-            <a key={n.href} href={n.href} className="transition-colors hover:text-teal-300">
+            <a key={n.href} href={n.href} className="transition-colors hover:text-accent-on-dark">
               {n.label}
             </a>
           ))}
@@ -212,7 +212,7 @@ export function ConsumerHeader({
                   key={n.href}
                   href={n.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-md px-3 py-3 text-base font-medium text-white/90 transition-colors hover:bg-white/10 hover:text-teal-300"
+                  className="rounded-md px-3 py-3 text-base font-medium text-white/90 transition-colors hover:bg-white/10 hover:text-accent-on-dark"
                 >
                   {n.label}
                 </a>
@@ -280,7 +280,7 @@ export function Hero({
     <section id="top" className="relative overflow-hidden bg-gradient-to-b from-white to-slate-50">
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-teal-200/30 blur-3xl"
+        className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-accent-border/30 blur-3xl"
       />
       <div
         aria-hidden
@@ -292,10 +292,10 @@ export function Hero({
           <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
             {/* Text · left */}
             <div>
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[1.6px] text-teal-700">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[1.6px] text-accent-strong">
                 {eyebrow}
               </p>
-              <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-gray-900 sm:text-5xl lg:text-[3.25rem] lg:leading-[1.05]">
+              <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-heading sm:text-5xl lg:text-[3.25rem] lg:leading-[1.05]">
                 {title}
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-gray-600">{sub}</p>
@@ -321,8 +321,15 @@ export function Hero({
               {highlights && highlights.length > 0 && (
                 <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
                   {highlights.map((h) => (
-                    <li key={h} className="flex items-center gap-2 text-sm font-medium text-gray-700">
-                      <Check className="h-4 w-4 flex-none text-teal-600" strokeWidth={2.5} aria-hidden />
+                    <li
+                      key={h}
+                      className="flex items-center gap-2 text-sm font-medium text-gray-700"
+                    >
+                      <Check
+                        className="h-4 w-4 flex-none text-accent"
+                        strokeWidth={2.5}
+                        aria-hidden
+                      />
                       {h}
                     </li>
                   ))}
@@ -343,7 +350,7 @@ export function Hero({
             <div className="relative">
               {image?.src ? (
                 <div className="group relative mx-auto w-full max-w-md overflow-visible rounded-2xl lg:max-w-none">
-                  <div className="overflow-hidden rounded-2xl shadow-[0_20px_50px_rgba(8,51,88,0.18)] ring-1 ring-slate-900/5">
+                  <div className="overflow-hidden rounded-2xl shadow-[0_20px_50px_rgba(8,51,88,0.18)] ring-1 ring-brand-deep/5">
                     <img
                       src={image.src}
                       alt={image.alt}
@@ -366,7 +373,7 @@ export function Hero({
               ) : (
                 <ImagePlaceholder
                   label={image?.placeholder ?? 'Produktbild'}
-                  className="mx-auto aspect-[4/5] w-full max-w-md rounded-2xl border-teal-300/60 bg-teal-50/40 p-8 text-teal-700 lg:max-w-none"
+                  className="mx-auto aspect-[4/5] w-full max-w-md rounded-2xl border-accent-on-dark/60 bg-accent-soft/40 p-8 text-accent-strong lg:max-w-none"
                 />
               )}
             </div>
@@ -384,11 +391,11 @@ export function Hero({
 export function FactStrip({ items }: { items: string[] }) {
   return (
     <div className="border-y border-slate-200 bg-white">
-      <div className="mx-auto flex max-w-container flex-wrap items-center justify-center gap-x-3 gap-y-2 px-4 py-5 text-center text-sm text-gray-900 sm:px-6 lg:px-0">
+      <div className="mx-auto flex max-w-container flex-wrap items-center justify-center gap-x-3 gap-y-2 px-4 py-5 text-center text-sm text-heading sm:px-6 lg:px-0">
         {items.map((it, i) => (
           <span key={i} className="flex items-center gap-3">
             {i > 0 && (
-              <span aria-hidden className="text-teal-500">
+              <span aria-hidden className="text-accent-line">
                 ●
               </span>
             )}
@@ -421,7 +428,7 @@ function SectionTitle({
       {eyebrow && (
         <p
           className={`text-xs font-semibold uppercase tracking-[1.6px] ${
-            onDark ? 'text-teal-300' : 'text-teal-700'
+            onDark ? 'text-accent-on-dark' : 'text-accent-strong'
           }`}
         >
           {eyebrow}
@@ -430,14 +437,14 @@ function SectionTitle({
       {title && (
         <h2
           className={`text-3xl font-bold tracking-tight sm:text-4xl ${
-            onDark ? 'text-white' : 'text-gray-900'
+            onDark ? 'text-white' : 'text-heading'
           }`}
         >
           {title}
         </h2>
       )}
       {/* Teal underline accent — matches the brief's section-title style */}
-      <span aria-hidden className="block h-[3px] w-12 rounded-full bg-teal-500" />
+      <span aria-hidden className="block h-[3px] w-12 rounded-full bg-accent-line" />
     </div>
   )
 }
@@ -518,10 +525,10 @@ export function Card({
   hover?: boolean
 }) {
   const barColor: Record<AccentBar, string> = {
-    teal: 'before:bg-teal-500',
+    teal: 'before:bg-accent-line',
     navy: 'before:bg-brand-deep',
     green: 'before:bg-success',
-    amber: 'before:bg-amber-400',
+    blue: 'before:bg-brand-primary',
     none: '',
   }
   const accentClass =
@@ -530,7 +537,7 @@ export function Card({
       : `relative pl-8 before:absolute before:left-3 before:top-6 before:bottom-6 before:w-1 before:rounded-full ${barColor[accent]}`
   // Motion only: instant (no transform) under prefers-reduced-motion.
   const hoverClass = hover
-    ? 'transition duration-200 will-change-transform hover:-translate-y-1 hover:border-teal-200 hover:shadow-card motion-reduce:transition-none motion-reduce:hover:translate-y-0'
+    ? 'transition duration-200 will-change-transform hover:-translate-y-1 hover:border-accent-border hover:shadow-card motion-reduce:transition-none motion-reduce:hover:translate-y-0'
     : ''
   return (
     <div
@@ -554,7 +561,7 @@ export function IconTile({ children }: { children: ReactNode }) {
   return (
     <span
       aria-hidden
-      className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-700 ring-1 ring-teal-100"
+      className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent-soft text-accent-strong ring-1 ring-accent/15"
     >
       {children}
     </span>
@@ -573,7 +580,7 @@ export function Grid({ cols = 3, children }: { cols?: 2 | 3 | 4; children: React
 export function Pills({ items, onDark = false }: { items: string[]; onDark?: boolean }) {
   const cls = onDark
     ? 'rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur-sm'
-    : 'rounded-full border border-teal-200 bg-teal-50 px-4 py-2 text-sm font-medium text-teal-800'
+    : 'rounded-full border border-accent-border bg-accent-soft px-4 py-2 text-sm font-medium text-accent-strong'
   return (
     <div className={`flex flex-wrap gap-2 ${onDark ? 'justify-center' : ''}`}>
       {items.map((p, i) => (
@@ -602,7 +609,7 @@ export function Stats({ items }: { items: { value: string; label: string }[] }) 
       {items.map((s) => (
         <div
           key={s.label}
-          className="rounded-2xl border border-slate-100 bg-white p-7 text-center shadow-[0_10px_30px_rgba(8,51,88,0.08)] transition duration-200 hover:-translate-y-1 hover:border-teal-200 hover:shadow-card motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+          className="rounded-2xl border border-slate-100 bg-white p-7 text-center shadow-[0_10px_30px_rgba(8,51,88,0.08)] transition duration-200 hover:-translate-y-1 hover:border-accent-border hover:shadow-card motion-reduce:transition-none motion-reduce:hover:translate-y-0"
         >
           <p className="text-3xl font-bold tracking-tight text-brand-deep sm:text-4xl">{s.value}</p>
           <p className="mt-2 text-sm font-medium leading-snug text-gray-500">{s.label}</p>
@@ -618,10 +625,10 @@ export function Steps({ items }: { items: { title: string; body: string }[] }) {
     <Grid cols={cols}>
       {items.map((s, i) => (
         <Card key={i} hover className="flex h-full flex-col">
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-teal-600 text-base font-bold text-white shadow-sm ring-4 ring-teal-100">
+          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-accent text-base font-bold text-white shadow-sm ring-4 ring-accent/15">
             {i + 1}
           </div>
-          <h3 className="mt-5 text-xl font-semibold text-gray-900">{s.title}</h3>
+          <h3 className="mt-5 text-xl font-semibold text-heading">{s.title}</h3>
           <p className="mt-2 leading-relaxed text-gray-600">{s.body}</p>
         </Card>
       ))}
@@ -633,7 +640,7 @@ export function ImageArea({ label, className = '' }: { label: string; className?
   return (
     <ImagePlaceholder
       label={label}
-      className={`rounded-2xl border-teal-300/60 bg-teal-50/40 p-8 text-teal-700 ${className}`}
+      className={`rounded-2xl border-accent-on-dark/60 bg-accent-soft/40 p-8 text-accent-strong ${className}`}
     />
   )
 }
@@ -644,8 +651,8 @@ export function ImageArea({ label, className = '' }: { label: string; className?
 
 export function Callout({ title, children }: { title?: string; children: ReactNode }) {
   return (
-    <div className="mx-auto max-w-3xl rounded-2xl border border-teal-200/60 bg-teal-50/60 p-8 text-center shadow-sm">
-      {title && <p className="text-base font-semibold text-gray-900">{title}</p>}
+    <div className="mx-auto max-w-3xl rounded-2xl border border-accent-border/60 bg-accent-soft/60 p-8 text-center shadow-sm">
+      {title && <p className="text-base font-semibold text-heading">{title}</p>}
       <div className="mt-2 leading-relaxed text-gray-700">{children}</div>
     </div>
   )
@@ -663,11 +670,11 @@ export function FAQ({ items }: { items: { q: string; a: string }[] }) {
           key={i}
           className="group rounded-2xl border border-slate-200 bg-white px-6 py-5 shadow-sm transition-shadow hover:shadow-[0_10px_30px_rgba(8,51,88,0.08)]"
         >
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-semibold text-gray-900">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-semibold text-heading">
             <span className="text-lg">{it.q}</span>
             <span
               aria-hidden
-              className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-teal-100 text-xl leading-none text-teal-700 transition-transform group-open:rotate-45"
+              className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-accent/15 text-xl leading-none text-accent-strong transition-transform group-open:rotate-45"
             >
               +
             </span>
@@ -710,10 +717,13 @@ export function FinalCTA({
     <section id={id} className="relative overflow-hidden bg-brand-deep py-20 text-white lg:py-24">
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-20 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-teal-500/20 blur-3xl"
+        className="pointer-events-none absolute -top-20 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-accent-line/20 blur-3xl"
       />
       <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-0">
-        <span aria-hidden className="mx-auto mb-6 block h-[3px] w-12 rounded-full bg-teal-400" />
+        <span
+          aria-hidden
+          className="mx-auto mb-6 block h-[3px] w-12 rounded-full bg-accent-on-dark"
+        />
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
         <p className="mx-auto mt-5 max-w-xl text-lg text-white/80">{body}</p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
@@ -742,7 +752,11 @@ export function FinalCTA({
                 key={a}
                 className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white/90"
               >
-                <Check className="h-4 w-4 flex-none text-teal-300" strokeWidth={2.5} aria-hidden />
+                <Check
+                  className="h-4 w-4 flex-none text-accent-on-dark"
+                  strokeWidth={2.5}
+                  aria-hidden
+                />
                 {a}
               </li>
             ))}

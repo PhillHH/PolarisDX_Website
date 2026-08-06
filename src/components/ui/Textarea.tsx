@@ -7,7 +7,7 @@ const textareaVariants = cva(
   {
     variants: {
       state: {
-        default: 'border-ui-border text-gray-900',
+        default: 'border-ui-border text-heading',
         error: 'border-red-500 text-red-900 focus-visible:ring-red-500',
       },
     },
@@ -39,7 +39,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           <label
             htmlFor={textareaId}
             className={cn(
-              'text-sm font-medium leading-none text-gray-900',
+              'text-sm font-medium leading-none text-heading',
               disabled && 'cursor-not-allowed opacity-70',
             )}
           >

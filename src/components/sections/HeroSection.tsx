@@ -152,16 +152,25 @@ const HeroSection = () => {
 
             {/* Slider-Steuerung: Dots + Pause/Play */}
             <div className="mt-2 flex items-center gap-4">
-              <div className="flex space-x-3" role="group" aria-label={t('hero.aria.carousel', 'IglooPro Highlights')}>
+              <div
+                className="flex space-x-3"
+                role="group"
+                aria-label={t('hero.aria.carousel', 'IglooPro Highlights')}
+              >
                 {slides.map((_, index) => (
                   <button
                     key={index}
                     type="button"
                     onClick={() => setCurrentSlide(index)}
                     aria-current={currentSlide === index ? 'true' : undefined}
-                    aria-label={t('hero.aria.go_to_slide', { n: index + 1, defaultValue: 'Gehe zu Slide {{n}}' })}
+                    aria-label={t('hero.aria.go_to_slide', {
+                      n: index + 1,
+                      defaultValue: 'Gehe zu Slide {{n}}',
+                    })}
                     className={`h-2.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 ${
-                      currentSlide === index ? 'w-8 bg-accent' : 'w-2.5 bg-white/30 hover:bg-white/50'
+                      currentSlide === index
+                        ? 'w-8 bg-accent'
+                        : 'w-2.5 bg-white/30 hover:bg-white/50'
                     }`}
                   />
                 ))}
@@ -176,14 +185,18 @@ const HeroSection = () => {
                 }
                 className="rounded text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
               >
-                {isPaused ? <Play size={16} aria-hidden="true" /> : <Pause size={16} aria-hidden="true" />}
+                {isPaused ? (
+                  <Play size={16} aria-hidden="true" />
+                ) : (
+                  <Pause size={16} aria-hidden="true" />
+                )}
               </button>
             </div>
           </div>
 
           {/* Right Visual — statisches Gradient-Panel */}
           <div className="relative mx-auto hidden h-full w-full max-w-lg items-center justify-center lg:flex pointer-events-none">
-            <div className="flex min-h-[360px] w-full items-center justify-center rounded-3xl bg-gradient-to-br from-accent to-emerald-600">
+            <div className="flex min-h-[360px] w-full items-center justify-center rounded-3xl bg-gradient-to-br from-accent to-accent-strong">
               <span className="text-white/70">{t('hero.visual_label', 'IglooPro-Visual')}</span>
             </div>
           </div>

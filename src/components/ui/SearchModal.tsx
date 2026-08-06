@@ -44,7 +44,7 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
   if (typeof document === 'undefined') return null
 
   return createPortal(
-    <div className="fixed inset-0 z-50 flex items-start justify-center bg-gray-900/60 backdrop-blur-sm pt-20 sm:pt-32 px-4">
+    <div className="fixed inset-0 z-50 flex items-start justify-center bg-brand-deep/60 backdrop-blur-sm pt-20 sm:pt-32 px-4">
       {/* Modal Container */}
       <div className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh]">
         {/* Header / Input */}
@@ -53,7 +53,7 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
           <input
             id="search-input"
             type="text"
-            className="flex-1 text-lg outline-none placeholder:text-gray-400 text-gray-900"
+            className="flex-1 text-lg outline-none placeholder:text-gray-400 text-heading"
             placeholder={t('searchPlaceholder', 'Suche...')}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -112,14 +112,14 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
                     <div className="flex items-center gap-2">
                       <span
                         className={`text-xxs uppercase font-bold tracking-wider px-1.5 py-0.5 rounded
-                                        ${result.type === 'article' ? 'bg-purple-100 text-purple-700' : ''}
-                                        ${result.type === 'service' ? 'bg-blue-100 text-blue-700' : ''}
+                                        ${result.type === 'article' ? 'bg-accent-soft text-accent-strong' : ''}
+                                        ${result.type === 'service' ? 'bg-brand-primary/10 text-brand-primary' : ''}
                                         ${result.type === 'page' ? 'bg-gray-100 text-gray-600' : ''}
                                     `}
                       >
                         {result.type}
                       </span>
-                      <span className="font-medium text-gray-900 group-hover:text-brand-primary transition-colors">
+                      <span className="font-medium text-heading group-hover:text-brand-primary transition-colors">
                         {result.title}
                       </span>
                     </div>

@@ -100,7 +100,7 @@ export const SupportForm = () => {
           id="issueType"
           name="issueType"
           required
-          className="flex w-full rounded-md border border-ui-border bg-white px-3 py-2 text-sm text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+          className="flex w-full rounded-md border border-ui-border bg-white px-3 py-2 text-sm text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
           defaultValue=""
         >
           <option value="" disabled>

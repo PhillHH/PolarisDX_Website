@@ -25,5 +25,13 @@ export default defineConfig([
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    // eslint-plugin-import kennt ohne diesen Resolver keine .ts/.tsx-Endungen
+    // und meldete repo-weit falsche `import/no-unresolved`-Fehler.
+    settings: {
+      'import/resolver': {
+        typescript: { alwaysTryTypes: true, project: './tsconfig.app.json' },
+        node: { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
+      },
+    },
   },
 ])

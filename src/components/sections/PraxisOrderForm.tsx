@@ -143,7 +143,7 @@ export function PraxisOrderForm({
             </div>
 
             <div className="border-t border-gray-100 pt-4">
-              <p className="mb-3 text-sm font-medium text-gray-900">{texts.addressHeading}</p>
+              <p className="mb-3 text-sm font-medium text-heading">{texts.addressHeading}</p>
               <div className="space-y-3">
                 <div>
                   <label htmlFor="praxisName" className="mb-1 block text-sm text-gray-600">
