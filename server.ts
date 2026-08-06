@@ -166,6 +166,9 @@ const SITEMAP_ROUTES: SitemapRoute[] = [
     changefreq: 'yearly',
   },
 
+  // Partnerprogramm Epigenetik/Genetik
+  { path: '/epigenetics', priority: 0.8, changefreq: 'monthly' },
+
   // Events & Resources
   { path: '/events', priority: 0.6, changefreq: 'weekly' },
   { path: '/downloads', priority: 0.6, changefreq: 'monthly' },

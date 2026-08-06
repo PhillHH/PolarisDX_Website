@@ -1,0 +1,130 @@
+{
+  "seo": {
+    "title": "Epigenetik- und Genetik-Analysen: Unterlagen",
+    "description": "Unterlagen zum Epigenetik- und Genetik-Programm von PolarisDX. Sechs Analysen aus einem Tropfen Kapillarblut, alle Infoblätter als PDF in Deutsch und Englisch."
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "current": "Epigenetik und Genetik"
+  },
+  "hero": {
+    "eyebrow": "Partnerprogramm · Epigenetik und Genetik",
+    "title": "Epigenetik und Genetik aus einem Tropfen Blut",
+    "claim": "Sechs Analysen aus Kapillarblut, ausgewertet bei unserem europäischen Kooperationslabor — als messbare Grundlage für Ihre Beratung.",
+    "ctaDocs": "Unterlagen ansehen",
+    "ctaQuote": "Angebot anfragen",
+    "chips": [
+      { "label": "Probe", "value": "Trockenblutkarte, Fingerbeere" },
+      { "label": "Portfolio", "value": "6 Analysen, ein Probenweg" },
+      { "label": "Preise", "value": "B2B nach Absprache" }
+    ]
+  },
+  "downloads": {
+    "caption": "Unterlagen",
+    "title": "Die Unterlagen",
+    "sub": "Alle Blätter als PDF, DE und EN. Stand August 2026.",
+    "zipLabel": "Alle Blätter als ZIP · 0,6 MB",
+    "zipFile": "PolarisDX_Unterlagen_DE.zip",
+    "btn": "PDF laden"
+  },
+  "sheets": [
+    {
+      "num": "00",
+      "title": "Portfolio-Übersicht",
+      "desc": "Das Programm, das Prinzip, alle sechs Analysen im Vergleich, Ablauf und Konditionen.",
+      "file": "de/00_Portfolio_Uebersicht_PolarisDX.pdf",
+      "meta": "PDF · 3 Seiten · 79 KB",
+      "featured": true
+    },
+    {
+      "num": "01",
+      "title": "Metabolic Health",
+      "desc": "Stoffwechseltyp, Essverhalten, Gewichtsregulation — elf Auswertungsbereiche für die Ernährungsberatung.",
+      "file": "de/01_Metabolic_Health_PolarisDX.pdf",
+      "meta": "PDF · 3 Seiten · 81 KB"
+    },
+    {
+      "num": "02",
+      "title": "Healthy Aging",
+      "desc": "Biologisches Altern auf vier molekularen Ebenen, mit Ampelbewertung je Ebene.",
+      "file": "de/02_Healthy_Aging_PolarisDX.pdf",
+      "meta": "PDF · 2 Seiten · 74 KB"
+    },
+    {
+      "num": "03",
+      "title": "Biologische Alters-Uhr",
+      "desc": "Drei microRNA als exploratives Lebensstil-Signal — mit offengelegten Grenzen der Methode.",
+      "file": "de/03_Biologisches_Alter_PolarisDX.pdf",
+      "meta": "PDF · 3 Seiten · 79 KB"
+    },
+    {
+      "num": "04",
+      "title": "Telomer-Analyse",
+      "desc": "Telomerlänge in Kilobasenpaaren als Basiswert, eingeordnet gegen eine Referenzpopulation.",
+      "file": "de/04_Telomer_Analyse_PolarisDX.pdf",
+      "meta": "PDF · 2 Seiten · 73 KB"
+    },
+    {
+      "num": "05",
+      "title": "Stress Monitor",
+      "desc": "Sechs microRNA in vier Bereichen: gemessene Belastung neben empfundener Belastung.",
+      "file": "de/05_Stress_Monitor_PolarisDX.pdf",
+      "meta": "PDF · 3 Seiten · 79 KB"
+    },
+    {
+      "num": "06",
+      "title": "Healthy Sport",
+      "desc": "Acht epigenetische Bereiche zu Belastung und Regeneration, Plus-Variante mit vier genetischen Varianten.",
+      "file": "de/06_Healthy_Sport_PolarisDX.pdf",
+      "meta": "PDF · 3 Seiten · 81 KB"
+    },
+    {
+      "num": "07",
+      "title": "Konditionen und Anfrage",
+      "desc": "Preislogik und Anfrageformular. B2B-Konditionen nach Absprache.",
+      "file": "de/07_Konditionen_Anfrage_PolarisDX.pdf",
+      "meta": "PDF · 2 Seiten · 70 KB"
+    },
+    {
+      "num": "08",
+      "title": "Studienlage und Grenzen",
+      "desc": "Was belegt ist und was nicht — mit Quellen. Die Grundlage für das Gespräch mit Fachpublikum.",
+      "file": "de/08_Evidenz_Studienlage_PolarisDX.pdf",
+      "meta": "PDF · 3 Seiten · 79 KB",
+      "featured": true
+    }
+  ],
+  "workflow": {
+    "caption": "Ablauf",
+    "title": "So läuft es in der Praxis",
+    "steps": [
+      "Beratungsgespräch führen, Aufklärung und Einwilligung dokumentieren.",
+      "Probenahme: Fingerbeere punktieren, Blut auf die Karte auftragen, trocknen lassen.",
+      "Versand der Karte im vorbereiteten Umschlag an das Partnerlabor.",
+      "Laboranalyse der genetischen bzw. epigenetischen Marker.",
+      "Digitaler Befund mit Ampelbewertung und konkreten Empfehlungen.",
+      "Besprechung und Handlungsplan; Folgemessung frühestens nach 4 bis 6 Monaten."
+    ]
+  },
+  "evidence": {
+    "eyebrow": "Warum wir die Studienlage offenlegen",
+    "title": "Beratungswerkzeug, keine Diagnostik",
+    "text": "In diesem Feld wird viel überversprochen. Unsere Unterlagen trennen deshalb gesicherte von vorläufiger Evidenz und benennen die Grenzen jeder Methode — einschließlich der Stellen, an denen ein Einzelwert nicht individuell interpretierbar ist. Vor Fachpublikum ist das ein Vorteil, kein Risiko.",
+    "cta": "Studienlage als PDF",
+    "file": "de/08_Evidenz_Studienlage_PolarisDX.pdf"
+  },
+  "contact": {
+    "caption": "Kontakt",
+    "title": "Konditionen anfragen",
+    "sub": "Die Analysen werden ausschließlich an Fachanwenderinnen und Fachanwender abgegeben. B2B-Konditionen nach Absprache, gestaffelt nach Abnahmemenge.",
+    "overview": "Übersicht als PDF",
+    "overviewFile": "de/00_Portfolio_Uebersicht_PolarisDX.pdf",
+    "note": "Die Analysen sind Labordienstleistungen unseres Kooperationspartners und keine CE-gekennzeichneten In-vitro-Diagnostika. Sie dienen der Beratung und Verlaufskontrolle und ersetzen keine ärztliche Diagnostik. Genetische Analysen unterliegen in Deutschland dem Gendiagnostikgesetz.",
+    "lab": "Laboranalytik durch unseren Kooperationspartner · ISO 9001:2015"
+  },
+  "links": {
+    "longevity": "Longevity-Diagnostik",
+    "downloads": "Alle Downloads",
+    "contact": "Beratung anfragen"
+  }
+}
