@@ -33,6 +33,27 @@
     ],
     "ctaSheets": "All 18 documents"
   },
+  "teaser": {
+    "eyebrow": "New in the portfolio · Laboratory diagnostics",
+    "title": "Epigenetic and genetic analyses from one drop",
+    "text": "Alongside point-of-care testing on the Igloo reader we offer six analyses from capillary blood, processed by our European partner laboratory. They cover the layer a rapid test does not show: individual predisposition and regulatory processes that change over time.",
+    "cta": "See the six analyses",
+    "ctaPdf": "Overview as PDF",
+    "facts": [
+      {
+        "label": "Sample",
+        "value": "Dried blood card, fingertip"
+      },
+      {
+        "label": "Portfolio",
+        "value": "6 analyses, one route"
+      },
+      {
+        "label": "Pricing",
+        "value": "B2B on request"
+      }
+    ]
+  },
   "principle": {
     "caption": "The principle",
     "title": "The layer a rapid test does not cover",

@@ -33,6 +33,27 @@
     ],
     "ctaSheets": "Alle 18 Unterlagen"
   },
+  "teaser": {
+    "eyebrow": "Neu im Portfolio · Labordiagnostik",
+    "title": "Epigenetik und Genetik aus einem Tropfen Blut",
+    "text": "Neben der Point-of-Care-Diagnostik am Igloo-Reader bieten wir sechs Analysen aus Kapillarblut, ausgewertet bei unserem europäischen Kooperationslabor. Sie erfassen die Ebene, die ein Schnelltest nicht abbildet: individuelle Veranlagung und Regulationsprozesse, die sich über die Zeit verändern.",
+    "cta": "Die sechs Analysen ansehen",
+    "ctaPdf": "Übersicht als PDF",
+    "facts": [
+      {
+        "label": "Probe",
+        "value": "Trockenblutkarte, Fingerbeere"
+      },
+      {
+        "label": "Portfolio",
+        "value": "6 Analysen, ein Probenweg"
+      },
+      {
+        "label": "Preise",
+        "value": "B2B nach Absprache"
+      }
+    ]
+  },
   "principle": {
     "caption": "Das Prinzip",
     "title": "Die Ebene, die ein Schnelltest nicht abbildet",
