@@ -1,0 +1,140 @@
+{
+  "_translationStatus": "English fallback — translation pending",
+  "seo": {
+    "title": "Epigenetic and genetic analyses: documents",
+    "description": "Documents on the PolarisDX epigenetics and genetics programme. Six analyses from a single drop of capillary blood, all information sheets as PDF in German and English."
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "current": "Epigenetics and genetics"
+  },
+  "hero": {
+    "eyebrow": "Partner programme · Epigenetics and genetics",
+    "title": "Epigenetic and genetic analyses from one drop",
+    "claim": "Six analyses from capillary blood, processed by our European partner laboratory — a measurable basis for your consultation.",
+    "ctaDocs": "View documents",
+    "ctaQuote": "Request a quotation",
+    "chips": [
+      {
+        "label": "Sample",
+        "value": "Dried blood card, fingertip"
+      },
+      {
+        "label": "Portfolio",
+        "value": "6 analyses, one route"
+      },
+      {
+        "label": "Pricing",
+        "value": "B2B on request"
+      }
+    ]
+  },
+  "downloads": {
+    "caption": "Documents",
+    "title": "The documents",
+    "sub": "All sheets as PDF, German and English. As of August 2026.",
+    "zipLabel": "All sheets as ZIP · 0.6 MB",
+    "zipFile": "PolarisDX_Unterlagen_EN.zip",
+    "btn": "Get PDF"
+  },
+  "sheets": [
+    {
+      "num": "00",
+      "title": "Portfolio overview",
+      "desc": "The programme, the principle, all six analyses compared, workflow and commercial terms.",
+      "file": "en/00_Portfolio_Overview_PolarisDX.pdf",
+      "meta": "PDF · 3 pages · 78 KB",
+      "featured": true
+    },
+    {
+      "num": "01",
+      "title": "Metabolic Health",
+      "desc": "Metabolic type, eating behaviour, weight regulation — eleven areas of evaluation for nutritional counselling.",
+      "file": "en/01_Metabolic_Health_PolarisDX.pdf",
+      "meta": "PDF · 3 pages · 80 KB"
+    },
+    {
+      "num": "02",
+      "title": "Healthy Aging",
+      "desc": "Biological ageing across four molecular layers, with a traffic-light rating per layer.",
+      "file": "en/02_Healthy_Aging_PolarisDX.pdf",
+      "meta": "PDF · 2 pages · 73 KB"
+    },
+    {
+      "num": "03",
+      "title": "Biological age clock",
+      "desc": "Three microRNAs as an exploratory lifestyle signal — with the limits of the method stated openly.",
+      "file": "en/03_Biological_Age_PolarisDX.pdf",
+      "meta": "PDF · 3 pages · 79 KB"
+    },
+    {
+      "num": "04",
+      "title": "Telomere Analysis",
+      "desc": "Telomere length in kilobase pairs as a baseline, placed against a reference population.",
+      "file": "en/04_Telomere_Analysis_PolarisDX.pdf",
+      "meta": "PDF · 2 pages · 72 KB"
+    },
+    {
+      "num": "05",
+      "title": "Stress Monitor",
+      "desc": "Six microRNAs across four areas: measured strain alongside perceived strain.",
+      "file": "en/05_Stress_Monitor_PolarisDX.pdf",
+      "meta": "PDF · 3 pages · 78 KB"
+    },
+    {
+      "num": "06",
+      "title": "Healthy Sport",
+      "desc": "Eight epigenetic areas on load and recovery, plus variant with four genetic variants.",
+      "file": "en/06_Healthy_Sport_PolarisDX.pdf",
+      "meta": "PDF · 3 pages · 80 KB"
+    },
+    {
+      "num": "07",
+      "title": "Commercial terms and enquiry",
+      "desc": "Pricing logic and enquiry form. B2B terms on request.",
+      "file": "en/07_Terms_Enquiry_PolarisDX.pdf",
+      "meta": "PDF · 2 pages · 70 KB"
+    },
+    {
+      "num": "08",
+      "title": "Evidence base and limits",
+      "desc": "What is established and what is not — with sources. The basis for talking to professionals.",
+      "file": "en/08_Evidence_Base_PolarisDX.pdf",
+      "meta": "PDF · 3 pages · 78 KB",
+      "featured": true
+    }
+  ],
+  "workflow": {
+    "caption": "Workflow",
+    "title": "How it works in your practice",
+    "steps": [
+      "Hold the consultation; document the information given and the consent obtained.",
+      "Sampling: prick the fingertip, apply blood to the card, let it dry.",
+      "Send the card to the partner laboratory in the prepared envelope.",
+      "Laboratory analysis of the genetic or epigenetic markers.",
+      "Digital report with traffic-light rating and specific recommendations.",
+      "Review and action plan; follow-up measurement after 4 to 6 months at the earliest."
+    ]
+  },
+  "evidence": {
+    "eyebrow": "Why we state the evidence openly",
+    "title": "A consultation tool, not diagnostics",
+    "text": "This field is heavily over-promised. Our documents therefore separate established from preliminary evidence and name the limits of every method — including where a single value cannot be interpreted individually. With professionals that is an advantage, not a risk.",
+    "cta": "Evidence base as PDF",
+    "file": "en/08_Evidence_Base_PolarisDX.pdf"
+  },
+  "contact": {
+    "caption": "Contact",
+    "title": "Request terms",
+    "sub": "The analyses are supplied to professional users only. B2B terms on request, tiered by volume.",
+    "overview": "Overview as PDF",
+    "overviewFile": "en/00_Portfolio_Overview_PolarisDX.pdf",
+    "note": "The analyses are laboratory services provided by our cooperation partner and are not CE-marked in vitro diagnostic devices. They serve consultation and monitoring and do not replace clinical diagnostics. Genetic analyses are subject to national genetic testing legislation.",
+    "lab": "Laboratory analysis by our cooperation partner · ISO 9001:2015"
+  },
+  "links": {
+    "longevity": "Longevity diagnostics",
+    "downloads": "All downloads",
+    "contact": "Request advice"
+  }
+}

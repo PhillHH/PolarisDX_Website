@@ -39,6 +39,14 @@ export const useSearch = (query: string) => {
         ),
       },
       {
+        title: t('nav.epigenetics', 'Epigenetik'),
+        path: '/epigenetics',
+        keywords: t(
+          'common:search.keywords.epigenetics',
+          'epigenetik genetik epigenetics telomere biologisches alter microrna trockenblut longevity',
+        ),
+      },
+      {
         title: t('nav.contact', 'Kontakt'),
         path: '/contact',
         keywords: t('common:search.keywords.contact', 'contact kontakt email phone address'),

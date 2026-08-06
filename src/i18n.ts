@@ -72,6 +72,7 @@ export const NAMESPACES = [
   'services',
   'events',
   'downloads',
+  'epigenetics',
   'legal',
   'products',
   'shop',
