@@ -1,7 +1,16 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { LifeBuoy, Mail, Phone, Download, Package, ArrowRight, Check, HelpCircle } from 'lucide-react'
+import {
+  LifeBuoy,
+  Mail,
+  Phone,
+  Download,
+  Package,
+  ArrowRight,
+  Check,
+  HelpCircle,
+} from 'lucide-react'
 import { SEOHead, localBusinessSchema, createBreadcrumbSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
@@ -144,7 +153,7 @@ const SupportPage = () => {
         <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
           <Reveal width="100%">
             <div className="max-w-2xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                 {t('support.channels.caption')}
               </p>
               <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading lg:text-[38px]">
@@ -209,7 +218,7 @@ const SupportPage = () => {
                 id="support-form"
                 className="scroll-mt-28 rounded-2xl border border-slate-200 bg-white p-6 shadow-card sm:p-8 lg:p-10"
               >
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                   {t('support.form_panel.caption')}
                 </p>
                 <h2 className="mt-3 text-2xl font-medium tracking-tight text-heading">
@@ -244,7 +253,7 @@ const SupportPage = () => {
 
                 {/* Helpful links */}
                 <section className="mt-6 rounded-xl border border-slate-200 bg-white p-7">
-                  <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-gray-500">
+                  <h2 className="text-xs font-medium text-gray-500">
                     {t('support.sidebar_links.title', 'Hilfreiche Links')}
                   </h2>
                   <nav className="mt-4 space-y-2.5">
@@ -260,7 +269,9 @@ const SupportPage = () => {
                         >
                           {link.icon}
                         </span>
-                        <span className="flex-1 text-sm font-medium text-heading">{link.label}</span>
+                        <span className="flex-1 text-sm font-medium text-heading">
+                          {link.label}
+                        </span>
                         <ArrowRight
                           className="h-4 w-4 flex-shrink-0 text-accent transition-transform group-hover:translate-x-0.5"
                           aria-hidden
@@ -317,7 +328,7 @@ const SupportPage = () => {
           <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
             <Reveal width="100%">
               <div className="max-w-2xl">
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                   {t('support.faq.caption')}
                 </p>
                 <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading lg:text-[38px]">

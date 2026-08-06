@@ -14,7 +14,7 @@ const FinalCtaSection = ({ roiHref = '#roi-rechner' }: { roiHref?: string }) => 
   return (
     <section id="los-gehts" className="bg-brand-deep text-white">
       <div className="mx-auto max-w-container px-4 py-24 lg:py-28 lg:px-0 text-center">
-        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
           {t('final_cta.caption', 'Bereit loszulegen')}
         </p>
         <h2 className="mx-auto mt-4 max-w-3xl font-medium tracking-[-0.02em] text-white text-[clamp(28px,5vw,48px)] leading-[clamp(34px,5.6vw,56px)]">

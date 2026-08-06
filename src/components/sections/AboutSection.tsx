@@ -66,7 +66,7 @@ const AboutSection = () => {
       {/* Rechte Spalte: Textinhalt. */}
       <div className="flex flex-1 flex-col justify-center">
         {/* GENAU EIN Eyebrow. */}
-        <p className="text-sm font-semibold uppercase tracking-wide text-accent">
+        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
           {t('about.caption', 'IHR PERFORMANCE-GARANT')}
         </p>
 

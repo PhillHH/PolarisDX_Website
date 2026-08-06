@@ -49,7 +49,12 @@ function HeroCtaButton({ cta, variant }: { cta: HeroCta; variant: 'primary' | 's
       {cta.label}
     </Link>
   ) : (
-    <a href={cta.href} className={cls} target={cta.href?.startsWith('http') ? '_blank' : undefined} rel={cta.href?.startsWith('http') ? 'noopener noreferrer' : undefined}>
+    <a
+      href={cta.href}
+      className={cls}
+      target={cta.href?.startsWith('http') ? '_blank' : undefined}
+      rel={cta.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
+    >
       {cta.label}
     </a>
   )
@@ -87,7 +92,7 @@ export function SubpageHero({
           )}
 
           {eyebrow && (
-            <span className="inline-flex rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-line ring-1 ring-white/15">
+            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
               {eyebrow}
             </span>
           )}
@@ -137,7 +142,14 @@ export function SubpageHero({
                 {gauge ? (
                   <>
                     <svg viewBox="0 0 120 120" className="h-44 w-44 -rotate-90">
-                      <circle cx="60" cy="60" r={GAUGE_R} fill="none" strokeWidth="10" className="stroke-white/10" />
+                      <circle
+                        cx="60"
+                        cy="60"
+                        r={GAUGE_R}
+                        fill="none"
+                        strokeWidth="10"
+                        className="stroke-white/10"
+                      />
                       <circle
                         cx="60"
                         cy="60"

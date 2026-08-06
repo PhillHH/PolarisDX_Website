@@ -1,7 +1,16 @@
 import type { LucideIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Newspaper, Leaf, Radio, TrendingUp, Activity, FileText, ArrowRight, Sparkles } from 'lucide-react'
+import {
+  Newspaper,
+  Leaf,
+  Radio,
+  TrendingUp,
+  Activity,
+  FileText,
+  ArrowRight,
+  Sparkles,
+} from 'lucide-react'
 import { SEOHead, createBreadcrumbSchema } from '../components/seo'
 import SectionHeader from '../components/ui/SectionHeader'
 import PageTransition from '../components/ui/PageTransition'
@@ -65,11 +74,23 @@ const ArticlesIndexPage = () => {
           'articles:index.subtitle',
           'Insights, news, and expert knowledge on modern diagnostics and health.',
         )}
-        primaryCta={{ label: t('articles:index.hero_primary_cta', 'Beratung buchen'), to: '/contact' }}
-        secondaryCta={{ label: t('articles:index.hero_secondary_cta', 'Diagnostik entdecken'), to: '/diagnostics' }}
+        primaryCta={{
+          label: t('articles:index.hero_primary_cta', 'Beratung buchen'),
+          to: '/contact',
+        }}
+        secondaryCta={{
+          label: t('articles:index.hero_secondary_cta', 'Diagnostik entdecken'),
+          to: '/diagnostics',
+        }}
         stats={[
-          { value: `${articleCount}`, label: t('articles:index.stat_articles_label', 'Fachbeiträge') },
-          { value: `${categories.length}`, label: t('articles:index.stat_topics_label', 'Themenfelder') },
+          {
+            value: `${articleCount}`,
+            label: t('articles:index.stat_articles_label', 'Fachbeiträge'),
+          },
+          {
+            value: `${categories.length}`,
+            label: t('articles:index.stat_topics_label', 'Themenfelder'),
+          },
           { value: '10', label: t('articles:index.stat_languages_label', 'Sprachen') },
         ]}
         icon={<Newspaper />}
@@ -94,7 +115,7 @@ const ArticlesIndexPage = () => {
               />
               <div className="relative grid gap-8 lg:grid-cols-[1.6fr_1fr] lg:items-center">
                 <div>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-line ring-1 ring-white/15">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
                     <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
                     {t('articles:index.featured', 'Empfohlen')}
                   </span>
@@ -150,7 +171,7 @@ const ArticlesIndexPage = () => {
 
             {/* Topics covered — visual legend */}
             <div className="mt-6 flex flex-wrap items-center gap-2">
-              <span className="mr-1 text-xs font-semibold uppercase tracking-wider text-gray-500">
+              <span className="mr-1 text-xs font-medium text-gray-500">
                 {t('articles:index.browse_caption', 'Themen im Magazin')}
               </span>
               {categories.map((category) => (

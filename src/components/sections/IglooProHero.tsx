@@ -11,7 +11,10 @@ export default function IglooProHero() {
 
   return (
     <section className="relative overflow-hidden bg-brand-deep text-white">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-noise opacity-10" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-noise opacity-10"
+      />
 
       <div className="relative mx-auto max-w-container px-4 lg:px-0 pt-24 pb-16 lg:pt-28 grid lg:grid-cols-2 gap-10 items-center">
         {/* LEFT */}
@@ -22,7 +25,7 @@ export default function IglooProHero() {
             items={[{ label: t('common:nav.home', 'Home'), href: '/' }, { label: 'IglooPro' }]}
           />
 
-          <span className="inline-flex rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-line ring-1 ring-white/15">
+          <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
             {t('products:hero.caption')}
           </span>
 

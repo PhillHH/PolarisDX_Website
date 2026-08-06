@@ -230,7 +230,7 @@ const ArticlePage = () => {
               ]}
             />
           </div>
-          <span className="inline-flex rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-line ring-1 ring-white/15">
+          <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
             {category} · {t('articles:detail.longread', 'Long-Read')}
           </span>
           <h1 className="mx-auto mt-5 max-w-2xl text-3xl font-medium tracking-tight lg:text-[42px] lg:leading-[1.15]">

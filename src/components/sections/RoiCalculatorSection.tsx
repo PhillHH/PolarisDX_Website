@@ -142,7 +142,7 @@ const RoiCalculatorSection = () => {
       <div className="mx-auto max-w-container px-4 py-24 lg:py-28 lg:px-0">
         {/* Kopf */}
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-wider text-accent">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
             {t('roi.caption', 'ROI-Rechner')}
           </p>
           <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading sm:text-4xl">
@@ -185,9 +185,7 @@ const RoiCalculatorSection = () => {
           {/* RECHTS: Ergebnis-Karte */}
           <div className="rounded-2xl bg-brand-deep p-7 text-white">
             {/* Grosse Kennzahl */}
-            <p className="text-sm text-white/70">
-              {t('roi.out.month', 'Deckungsbeitrag / Monat')}
-            </p>
+            <p className="text-sm text-white/70">{t('roi.out.month', 'Deckungsbeitrag / Monat')}</p>
             <p className="mt-1 text-4xl font-semibold tracking-tight sm:text-5xl">
               {eur.format(dbPerMonth)}
             </p>
@@ -208,9 +206,7 @@ const RoiCalculatorSection = () => {
                   <dd className="font-medium">{eur.format(revenuePerMonth)}</dd>
                 </div>
                 <div className="flex items-center justify-between gap-4 border-t border-white/10 pt-3">
-                  <dt className="text-white/70">
-                    {t('roi.out.year', 'Deckungsbeitrag / Jahr')}
-                  </dt>
+                  <dt className="text-white/70">{t('roi.out.year', 'Deckungsbeitrag / Jahr')}</dt>
                   <dd className="font-medium">{eur.format(dbPerYear)}</dd>
                 </div>
                 <div className="flex items-center justify-between gap-4 border-t border-white/10 pt-3">
@@ -308,9 +304,7 @@ const RoiCalculatorSection = () => {
                     >
                       <option value="dental">{t('roi.form.opt_dental', 'Dental')}</option>
                       <option value="beauty">{t('roi.form.opt_beauty', 'Beauty')}</option>
-                      <option value="longevity">
-                        {t('roi.form.opt_longevity', 'Longevity')}
-                      </option>
+                      <option value="longevity">{t('roi.form.opt_longevity', 'Longevity')}</option>
                       <option value="other">{t('roi.form.opt_other', 'Andere')}</option>
                     </select>
                   </div>

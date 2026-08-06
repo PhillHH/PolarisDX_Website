@@ -59,7 +59,7 @@ export function PageSidebar({ widgets }: { widgets: SidebarWidget[] }) {
           if (w.kind === 'services') {
             return (
               <section key={`services-${i}`} className={sectionBase + spacing}>
-                <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-gray-500">
+                <h2 className="mb-4 text-xs font-medium text-gray-500">
                   {t(w.titleKey, w.titleFallback ?? '')}
                 </h2>
                 <div className="space-y-3">
@@ -90,7 +90,7 @@ export function PageSidebar({ widgets }: { widgets: SidebarWidget[] }) {
             const hide = w.hideOnMobile ? ' hidden lg:block' : ''
             return (
               <section key={`articles-${i}`} className={sectionBase + spacing + hide}>
-                <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-gray-500">
+                <h2 className="mb-4 text-xs font-medium text-gray-500">
                   {t(w.titleKey, w.titleFallback ?? '')}
                 </h2>
                 <div className="space-y-4">
@@ -107,8 +107,8 @@ export function PageSidebar({ widgets }: { widgets: SidebarWidget[] }) {
                       <p
                         className={
                           variant === 'card'
-                            ? 'text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue'
-                            : 'text-xs font-semibold uppercase tracking-[0.16em] text-accentBlue mb-1'
+                            ? 'text-xs font-medium text-gray-500'
+                            : 'text-xs font-medium text-gray-500 mb-1'
                         }
                       >
                         {t(`common:category.${post.category}`, post.category)}

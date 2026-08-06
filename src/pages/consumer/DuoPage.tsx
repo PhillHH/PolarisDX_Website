@@ -176,7 +176,7 @@ function DuoPageInner() {
       <Section id="routine" tone="tint" eyebrow="The routine" title="Two simple steps">
         <div className="grid gap-6 md:grid-cols-2">
           <Card hover accent="teal" className="h-full">
-            <p className="text-xs font-semibold uppercase tracking-wider text-accent-strong">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
               Step 1 · Inside
             </p>
             <h3 className="mt-2 text-2xl font-semibold text-heading">Daily support from within</h3>
@@ -186,7 +186,7 @@ function DuoPageInner() {
             </p>
           </Card>
           <Card hover accent="navy" className="h-full">
-            <p className="text-xs font-semibold uppercase tracking-wider text-accent-strong">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
               Step 2 · Outside
             </p>
             <h3 className="mt-2 text-2xl font-semibold text-heading">

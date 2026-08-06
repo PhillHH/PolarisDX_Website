@@ -181,7 +181,7 @@ const S3LeitliniePage = () => {
                 </nav>
 
                 {/* Category Label */}
-                <Eyebrow size="sm" className="mb-4">
+                <Eyebrow tone="dark" className="mb-4">
                   Dentale Diagnostik
                 </Eyebrow>
 
@@ -284,7 +284,7 @@ const S3LeitliniePage = () => {
 
                   {/* Evidence Box: 3 Kernempfehlungen */}
                   <div className="my-8 rounded-lg border-l-4 border-brand-primary bg-brand-primary/5 p-6">
-                    <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-brand-primary">
+                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                       Drei Kernempfehlungen
                     </p>
                     <ol className="space-y-3 text-[15px] leading-relaxed text-gray-700 list-decimal list-inside">
@@ -486,7 +486,7 @@ const S3LeitliniePage = () => {
 
                   {/* DEQAS Metrics Box */}
                   <div className="my-6 rounded-lg border-l-4 border-success bg-success-soft/70 p-6">
-                    <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-success-strong">
+                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                       Zentrale Leistungskennzahlen
                     </p>
                     <div className="grid gap-4 sm:grid-cols-3">
@@ -545,7 +545,7 @@ const S3LeitliniePage = () => {
                       />
                     </div>
                     <div className="flex flex-col justify-center p-6 sm:w-3/5">
-                      <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-primary">
+                      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                         Vitamin-D-Diagnostik in der Praxis
                       </p>
                       <p className="mb-3 text-base font-medium text-heading">
@@ -887,7 +887,7 @@ const S3LeitliniePage = () => {
 
                 {/* CTA Box */}
                 <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-deep p-5 text-white">
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-secondary">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                     Kostenlose Beratung
                   </p>
                   <p className="mb-4 text-sm">

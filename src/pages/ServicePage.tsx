@@ -146,7 +146,9 @@ const ServicePage = () => {
 
   // Biomarker / feature chips (reuse existing translated overview tags).
   const biomarkerKey = service.id ? biomarkerTagKeys[service.id] : undefined
-  const biomarkerRaw = biomarkerKey ? t(biomarkerKey, { returnObjects: true, defaultValue: [] }) : []
+  const biomarkerRaw = biomarkerKey
+    ? t(biomarkerKey, { returnObjects: true, defaultValue: [] })
+    : []
   const biomarkerTags: string[] = Array.isArray(biomarkerRaw) ? (biomarkerRaw as string[]) : []
 
   const hasIntro = Array.isArray(intro) && intro.length > 0
@@ -246,7 +248,7 @@ const ServicePage = () => {
                     <div className="space-y-8">
                       {hasIntro && (
                         <div>
-                          <span className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
+                          <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                             {t('services:overview.page.intro_eyebrow', 'Überblick')}
                           </span>
                           <div className="mt-4 space-y-4">
@@ -266,8 +268,11 @@ const ServicePage = () => {
 
                           {biomarkerTags.length > 0 && (
                             <div className="mt-6">
-                              <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
-                                {t('services:overview.page.biomarkers_label', 'Relevante Biomarker')}
+                              <p className="text-xs font-medium text-gray-500">
+                                {t(
+                                  'services:overview.page.biomarkers_label',
+                                  'Relevante Biomarker',
+                                )}
                               </p>
                               <div className="mt-2 flex flex-wrap gap-2">
                                 {biomarkerTags.map((tag) => (
@@ -305,7 +310,7 @@ const ServicePage = () => {
                 {/* Detailed sections → rich cards with teal-check lists */}
                 {hasSections && (
                   <div className="space-y-6">
-                    <span className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
+                    <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                       {t('services:overview.page.sections_eyebrow', 'Im Detail')}
                     </span>
                     {sections.map((section, index) => (
@@ -349,7 +354,7 @@ const ServicePage = () => {
                 {hasConclusion && (
                   <Reveal width="100%">
                     <div className="rounded-2xl border border-accent/20 bg-accent/5 p-7 lg:p-8">
-                      <span className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
+                      <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                         {t('services:overview.page.conclusion_eyebrow', 'Fazit')}
                       </span>
                       {conclusion.heading && (
@@ -392,7 +397,12 @@ const ServicePage = () => {
 
             {/* FAQ */}
             {hasFaq && (
-              <FAQSection items={faqItems} caption={faqCaption} title={faqTitle} showFooter={false} />
+              <FAQSection
+                items={faqItems}
+                caption={faqCaption}
+                title={faqTitle}
+                showFooter={false}
+              />
             )}
           </article>
 

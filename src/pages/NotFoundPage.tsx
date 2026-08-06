@@ -36,7 +36,7 @@ const NotFoundPage = () => {
             </span>
 
             {/* Eyebrow */}
-            <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+            <p className="mt-6 text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
               {t('notFound.badge', 'Seite nicht gefunden')}
             </p>
 
@@ -69,7 +69,7 @@ const NotFoundPage = () => {
           {/* Popular Pages */}
           <Reveal width="100%" delay={0.2}>
             <div className="mt-16 border-t border-white/15 pt-10">
-              <p className="mb-6 text-sm uppercase tracking-wider text-white/60">
+              <p className="mb-6 text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
                 {t('notFound.popularPages', 'Beliebte Seiten')}
               </p>
               <div className="flex flex-wrap justify-center gap-3">

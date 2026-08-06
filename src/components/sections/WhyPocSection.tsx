@@ -55,7 +55,7 @@ const WhyPocSection = () => {
       <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-28">
         {/* Kopf */}
         <div className="max-w-2xl mb-14">
-          <p className="text-sm font-semibold uppercase tracking-wide text-accent">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
             {t('why.caption', 'Point of Care')}
           </p>
           <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading sm:text-4xl lg:text-[42px]">
@@ -95,7 +95,7 @@ const WhyPocSection = () => {
 
           {/* RECHTS: gruenes Media-Panel (Play = Platzhalter, kein echtes Video) */}
           <div className="relative h-full min-h-[20rem] overflow-hidden rounded-2xl bg-gradient-to-br from-accent to-accent-strong">
-            <span className="absolute top-4 left-4 text-xs uppercase tracking-wide text-white/80">
+            <span className="absolute top-4 left-4 text-xs font-medium text-white/60">
               {t('why.video_label', 'ANWENDUNGSVIDEO')}
             </span>
             <div className="absolute inset-0 flex items-center justify-center">

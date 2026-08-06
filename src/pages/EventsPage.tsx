@@ -112,7 +112,7 @@ function EventsPage() {
       <section className="bg-slate-50">
         <div className="mx-auto max-w-container px-4 lg:px-0 py-20 lg:py-28">
           <div className="mb-12 text-center">
-            <span className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-strong">
+            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
               {t('events:upcoming.eyebrow', 'Upcoming · 2026')}
             </span>
             <h2 className="mt-4 text-3xl font-medium tracking-tight text-heading lg:text-[38px]">
@@ -127,7 +127,7 @@ function EventsPage() {
             {/* HIGHLIGHT-Karte */}
             <Reveal width="100%">
               <div className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-brand-deep p-8 text-white">
-                <span className="inline-flex w-fit rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-line ring-1 ring-white/15">
+                <span className="text-xs font-medium text-white/60">
                   {highlight.tag} · {t('events:highlight.label', 'Highlight')}
                 </span>
                 <h3 className="mt-6 text-3xl font-medium tracking-tight">{highlight.title}</h3>
@@ -179,7 +179,7 @@ function EventsPage() {
                         </span>
                       </div>
                       <div className="w-12 shrink-0 text-center">
-                        <div className="text-[11px] font-semibold uppercase tracking-wider text-accent-strong">
+                        <div className="text-xs font-medium text-gray-500">
                           {months[d.getMonth()]}
                         </div>
                         <div className="text-xl font-semibold leading-none text-heading">
@@ -212,7 +212,7 @@ function EventsPage() {
       <section className="bg-white">
         <div className="mx-auto max-w-container px-4 lg:px-0 pb-20 lg:pb-28">
           <div className="mb-12 text-center">
-            <span className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-strong">
+            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
               {t('events:past.eyebrow', "Where we've been")}
             </span>
             <h2 className="mt-4 text-3xl font-medium tracking-tight text-heading lg:text-[38px]">
@@ -234,7 +234,7 @@ function EventsPage() {
                     {p.watermark}
                   </span>
                   <div className="relative">
-                    <div className="text-[11px] font-semibold uppercase tracking-wider text-white/70">
+                    <div className="text-xs font-medium text-white/60">
                       {months[p.month]} {p.year}
                     </div>
                     <div className="mt-1 text-lg font-semibold">{p.title}</div>

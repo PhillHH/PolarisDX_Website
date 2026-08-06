@@ -105,7 +105,7 @@ const ContactPage = () => {
             <Reveal width="100%">
               <div className="space-y-8 lg:sticky lg:top-28">
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent-strong">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                     {t('contact.form_aside.caption')}
                   </p>
                   <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading">
@@ -177,7 +177,7 @@ const ContactPage = () => {
       <section className="bg-white">
         <div className="mx-auto max-w-container px-4 lg:px-0 py-16 lg:py-24">
           <div className="mb-12 max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent-strong">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
               {t('contact.process.caption')}
             </p>
             <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading lg:text-[38px]">
@@ -213,7 +213,7 @@ const ContactPage = () => {
       <section className="bg-slate-50">
         <div className="mx-auto max-w-container px-4 lg:px-0 py-16 lg:py-24">
           <div className="mb-12 text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent-strong">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
               {t('contact.locations.caption')}
             </p>
             <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading lg:text-[38px]">

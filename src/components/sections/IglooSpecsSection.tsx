@@ -55,7 +55,7 @@ const IglooSpecsSection = () => {
 
           {/* RECHTS: Navy-Highlight-Karte */}
           <div className="rounded-2xl bg-brand-deep text-white p-8 flex flex-col justify-center">
-            <p className="text-xs font-semibold uppercase tracking-wider text-accent-line">
+            <p className="text-xs font-medium text-white/60">
               {t('specs.highlights.label', 'Highlights')}
             </p>
             <div className="space-y-6 mt-6">
@@ -64,11 +64,15 @@ const IglooSpecsSection = () => {
                 <p className="text-sm text-white/70">{t('specs.highlights.cv_label')}</p>
               </div>
               <div>
-                <p className="text-3xl font-medium">{t('specs.highlights.records_value', '10.000')}</p>
+                <p className="text-3xl font-medium">
+                  {t('specs.highlights.records_value', '10.000')}
+                </p>
                 <p className="text-sm text-white/70">{t('specs.highlights.records_label')}</p>
               </div>
               <div>
-                <p className="text-3xl font-medium">{t('specs.highlights.time_value', '3–15 Min.')}</p>
+                <p className="text-3xl font-medium">
+                  {t('specs.highlights.time_value', '3–15 Min.')}
+                </p>
                 <p className="text-sm text-white/70">{t('specs.highlights.time_label')}</p>
               </div>
             </div>

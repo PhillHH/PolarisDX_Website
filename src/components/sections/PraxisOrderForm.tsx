@@ -87,7 +87,7 @@ export function PraxisOrderForm({
           <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent">
             <ShoppingBag className="h-5 w-5" aria-hidden />
           </div>
-          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
             {texts.caption}
           </p>
           <h2 className="text-2xl font-medium tracking-tight text-heading">{texts.title}</h2>

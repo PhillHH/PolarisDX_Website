@@ -178,7 +178,7 @@ const VitaminD3SprayPage = () => {
                     {t('vitd3spray:usp.text')}
                   </p>
                   <div className="border-t border-slate-100 pt-4">
-                    <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-accent">
+                    <p className="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                       {t('vitd3spray:usp.dosing_label')}
                     </p>
                     <p className="text-[15px] text-gray-800">{t('vitd3spray:usp.dosing_text')}</p>
@@ -441,7 +441,7 @@ const VitaminD3SprayPage = () => {
 
                 {/* Quick Order CTA — flaches Teal-Band */}
                 <div className="rounded-xl bg-accent p-6 text-white">
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/80">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-white">
                     {t('vitd3spray:sidebar.quick_order_caption')}
                   </p>
                   <p className="mb-4 text-sm text-white/90">

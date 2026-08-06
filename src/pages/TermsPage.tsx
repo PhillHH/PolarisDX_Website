@@ -49,7 +49,7 @@ const TermsPage = () => {
             aria-label={t('agb.tocLabel', 'Inhaltsübersicht')}
             className="rounded-xl border border-slate-200 bg-slate-50 p-6 sm:p-7"
           >
-            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-heading">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
               {t('agb.tocLabel', 'Inhaltsübersicht')}
             </p>
             <ol className="grid gap-x-8 gap-y-2 sm:grid-cols-2">

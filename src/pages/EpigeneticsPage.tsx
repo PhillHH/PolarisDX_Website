@@ -39,7 +39,7 @@ const STRETCH = 'h-full [&>div]:h-full'
 // Lesegroesse ueber alle Sektionen identisch bleibt.
 const BODY = 'text-base leading-7 lg:text-[17px] lg:leading-8'
 const LEAD = 'text-lg leading-relaxed text-gray-600 lg:text-xl lg:leading-relaxed'
-const LABEL = 'text-xs font-semibold uppercase tracking-[0.16em] text-gray-400'
+const LABEL = 'text-xs font-medium text-gray-500'
 
 interface Chip {
   label: string
@@ -200,9 +200,7 @@ const EpigeneticsPage = () => {
                       key={chip.label}
                       className="rounded-2xl border border-white/15 bg-white/10 px-5 py-4 backdrop-blur-sm"
                     >
-                      <dt className="text-xs font-medium uppercase tracking-[0.16em] text-white/60">
-                        {chip.label}
-                      </dt>
+                      <dt className="text-xs font-medium text-white/60">{chip.label}</dt>
                       <dd className="mt-1 text-base font-semibold text-white">{chip.value}</dd>
                     </div>
                   ))}
@@ -240,9 +238,7 @@ const EpigeneticsPage = () => {
 
           <Reveal width="100%" delay={0.1}>
             <div className="mt-6 rounded-3xl border border-accent-border bg-accent-soft p-7">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-                {t('principle.practice.title')}
-              </p>
+              <p className="text-xs font-medium text-gray-500">{t('principle.practice.title')}</p>
               <ul className="mt-4 grid gap-3 lg:grid-cols-3">
                 {practiceItems.map((item) => (
                   <li key={item} className={`flex gap-3 text-gray-700 ${BODY}`}>
@@ -309,9 +305,7 @@ const EpigeneticsPage = () => {
                           key={fact.k}
                           className="rounded-2xl border border-slate-200 bg-white px-4 py-3"
                         >
-                          <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-400">
-                            {fact.k}
-                          </dt>
+                          <dt className="text-xs font-medium text-gray-500">{fact.k}</dt>
                           <dd className="mt-1 text-base font-medium text-text-heading">{fact.v}</dd>
                         </div>
                       ))}
@@ -432,7 +426,7 @@ const EpigeneticsPage = () => {
             <div className="mt-10 grid gap-6 lg:grid-cols-2">
               <Reveal width="100%" className={STRETCH}>
                 <div className="h-full rounded-3xl border border-accent-border bg-accent-soft p-7 lg:p-8">
-                  <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-accent-strong">
+                  <h3 className="flex items-center gap-2 text-xs font-medium text-gray-500">
                     <Check className="h-4 w-4" />
                     {t('evidence.establishedTitle')}
                   </h3>
@@ -449,7 +443,7 @@ const EpigeneticsPage = () => {
 
               <Reveal width="100%" delay={0.08} className={STRETCH}>
                 <div className="h-full rounded-3xl border border-slate-200 bg-slate-50 p-7 lg:p-8">
-                  <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-gray-500">
+                  <h3 className="flex items-center gap-2 text-xs font-medium text-gray-500">
                     <Minus className="h-4 w-4" />
                     {t('evidence.preliminaryTitle')}
                   </h3>

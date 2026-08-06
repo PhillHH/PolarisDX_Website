@@ -20,10 +20,22 @@ const AboutPage = () => {
   ] as const
 
   const statStrip = [
-    { value: t('about:stats_strip.s1.value', '2'), label: t('about:stats_strip.s1.label', 'Standorte: London & Hamburg') },
-    { value: t('about:stats_strip.s2.value', '15+'), label: t('about:stats_strip.s2.label', 'Länder mit aktiven Installationen') },
-    { value: t('about:stats_strip.s3.value', '100+'), label: t('about:stats_strip.s3.label', 'Installierte IglooPro-Reader') },
-    { value: t('about:stats_strip.s4.value', '< 24 h'), label: t('about:stats_strip.s4.label', 'Reaktionszeit im Support') },
+    {
+      value: t('about:stats_strip.s1.value', '2'),
+      label: t('about:stats_strip.s1.label', 'Standorte: London & Hamburg'),
+    },
+    {
+      value: t('about:stats_strip.s2.value', '15+'),
+      label: t('about:stats_strip.s2.label', 'Länder mit aktiven Installationen'),
+    },
+    {
+      value: t('about:stats_strip.s3.value', '100+'),
+      label: t('about:stats_strip.s3.label', 'Installierte IglooPro-Reader'),
+    },
+    {
+      value: t('about:stats_strip.s4.value', '< 24 h'),
+      label: t('about:stats_strip.s4.label', 'Reaktionszeit im Support'),
+    },
   ]
 
   return (
@@ -103,11 +115,14 @@ const AboutPage = () => {
         <div className="mx-auto grid max-w-container items-center gap-12 px-4 lg:grid-cols-2 lg:px-0">
           <Reveal width="100%">
             <div>
-              <span className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
+              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                 {t('about:mission.caption', 'Unsere Mission')}
               </span>
               <h2 className="mt-4 text-3xl font-medium tracking-tight text-heading lg:text-[42px]">
-                {t('about:mission.title', 'Labordiagnostik dorthin bringen, wo Patienten behandelt werden')}
+                {t(
+                  'about:mission.title',
+                  'Labordiagnostik dorthin bringen, wo Patienten behandelt werden',
+                )}
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-gray-700">
                 {t(
@@ -139,7 +154,7 @@ const AboutPage = () => {
               <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/15 text-accent-on-dark">
                 <Zap className="h-6 w-6" aria-hidden="true" />
               </span>
-              <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+              <p className="mt-6 text-xs font-medium text-white/60">
                 {t('about:mission.highlight_label', 'Point-of-Care first')}
               </p>
               <p className="mt-2 text-2xl font-medium leading-snug">
@@ -178,7 +193,7 @@ const AboutPage = () => {
       <section className="py-16 lg:py-24">
         <div className="mx-auto max-w-container px-4 lg:px-0">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
+            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
               {t('about:values.caption', 'Wofür wir stehen')}
             </span>
             <h2 className="mt-4 text-3xl font-medium tracking-tight text-heading lg:text-[42px]">
@@ -212,7 +227,7 @@ const AboutPage = () => {
         <div className="mx-auto max-w-container px-4 lg:px-0">
           <Reveal width="100%">
             <div className="rounded-2xl border border-accent/20 bg-accent/5 p-8 text-center lg:p-10">
-              <span className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
+              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                 {t('about:dx365_partner.caption', 'Unser Partner')}
               </span>
               <h2 className="mt-4 text-2xl font-medium tracking-tight text-heading lg:text-3xl">

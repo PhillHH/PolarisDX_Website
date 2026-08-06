@@ -57,7 +57,7 @@ const TestimonialsSection = () => {
       <div className="mx-auto flex max-w-container flex-col items-center gap-10 px-4 lg:px-8">
         {/* Kopf: GENAU EIN Eyebrow + h2 (helle Sektion) */}
         <div className="flex flex-col items-center gap-3 text-center">
-          <Eyebrow>{t('testimonials.caption', 'PRAXIS-STIMMEN')}</Eyebrow>
+          <Eyebrow tone="dark">{t('testimonials.caption', 'PRAXIS-STIMMEN')}</Eyebrow>
           <h2 className="text-3xl font-medium tracking-tight text-white sm:text-4xl">
             {t('testimonials.title', 'Was Praxen über das IglooPro-System sagen')}
           </h2>

@@ -15,7 +15,7 @@ const FeaturedCaseStudy = () => {
       <div className="relative mx-auto max-w-container px-4">
         <Reveal>
           <div className="relative z-20 flex justify-center mb-8 md:mb-10">
-            <span className="inline-block rounded-full bg-white/90 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-brand-primary border border-white/60 shadow-sm backdrop-blur">
+            <span className="inline-block rounded-full bg-white/90 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong border border-white/60 shadow-sm backdrop-blur">
               Case Study
             </span>
           </div>
@@ -42,7 +42,7 @@ const FeaturedCaseStudy = () => {
 
             {/* Content-Karte (stärker nach unten/rechts verschoben) */}
             <div className="rounded-3xl bg-white/85 backdrop-blur-xl border border-white/50 p-8 lg:p-12 shadow-[0_30px_70px_-35px_rgba(15,23,42,0.45)] flex flex-col justify-center h-full min-h-[360px] md:min-h-[460px] md:-ml-20 md:-mt-24 md:translate-y-[72px] md:translate-x-[48px]">
-              <span className="inline-block text-brand-primary font-semibold tracking-wider text-sm mb-4 uppercase">
+              <span className="inline-block mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                 {t('reasons32.subtitle')}
               </span>
 

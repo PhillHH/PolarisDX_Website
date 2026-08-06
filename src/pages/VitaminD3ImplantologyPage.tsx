@@ -195,7 +195,7 @@ const VitaminD3ImplantologyPage = () => {
 
                   {/* Evidence Box */}
                   <div className="my-8 rounded-lg border-l-4 border-accent bg-accent/5 p-6">
-                    <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-accent">
+                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                       Kernbefunde
                     </p>
                     <ul className="space-y-2 text-[15px] leading-relaxed text-gray-700">
@@ -323,7 +323,7 @@ const VitaminD3ImplantologyPage = () => {
                       />
                     </div>
                     <div className="flex flex-col justify-center p-6 sm:w-3/5">
-                      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                         Vitamin-D-Diagnostik in der Praxis
                       </p>
                       <p className="mb-3 text-base font-medium text-heading">
@@ -503,7 +503,7 @@ const VitaminD3ImplantologyPage = () => {
 
                 {/* Quick Order CTA — flaches Teal-Band */}
                 <div className="rounded-xl bg-accent p-6 text-white">
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/80">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-white">
                     Schnellbestellung
                   </p>
                   <p className="mb-4 text-sm text-white/90">

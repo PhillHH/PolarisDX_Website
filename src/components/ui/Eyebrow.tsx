@@ -1,56 +1,31 @@
 /**
- * Eyebrow — die kanonische gradient-umrandete Pill (Section-Label).
+ * Eyebrow — das eine Sektions-Label.
  *
- * EINE Quelle für alle Pill-Renderings. SectionHeader nutzt die Default-
- * Variante; spätere Migrationen (3b-ii) von Heroes/IglooWidget greifen
- * dieselbe Komponente, ohne ein erzwungenes <h2> oder eine Titelfarbe
- * mitzuschleppen.
+ * Ein Stil, zwei Toene: auf hellem Grund `accent-strong` (Kontrast 5,5:1),
+ * auf Navy `accent-on-dark` (6,9:1). Beides erfuellt AA fuer Kleintext — die
+ * frueheren Varianten nicht (text-accent auf Weiss 3,6:1, text-accent-line
+ * 2,5:1, text-gray-400 2,4:1).
  *
- * Varianten stammen 1:1 aus dem Live-Repo (kein erfundener Stil):
- *  - size="default": responsive Pill aus SectionHeader (px-4 py-2 lg:px-3
- *    lg:py-1 / text-sm lg:text-xs). Auch IglooWidgetSection (+ mb-8 margin).
- *  - size="sm": fixe kleine Pill aus den Hero-Sektionen (AboutPage,
- *    EventsPage): px-3 py-1 / text-xs.
- * Beide nutzen denselben Gradient-Rand + bg-slate-50 + text-heading.
- * Eine "on-dark"/weiße Caption-Variante existiert im Live-Repo NICHT.
+ * Karten-Labels und Meta-Angaben nutzen bewusst NICHT diesen Stil, sondern
+ * eine ruhige Form ohne Versalien und Sperrung. Nur so bleibt die Eyebrow ein
+ * Hierarchie-Signal — max. eine je Sektion.
  */
-
 import type { ReactNode } from 'react'
 
-type EyebrowSize = 'default' | 'sm'
+export const EYEBROW_LIGHT = 'text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong'
+export const EYEBROW_DARK = 'text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark'
 
 type EyebrowProps = {
   children: ReactNode
-  /** Größe der Pill — reproduziert die zwei live gefundenen Varianten. */
-  size?: EyebrowSize
-  /** Passthrough am äußeren Wrapper (z. B. Layout-Margins wie mb-2 / mb-8). */
+  /** Untergrund der Sektion — entscheidet ueber den Ton. */
+  tone?: 'light' | 'dark'
+  /** Layout-Passthrough (z. B. mb-4). */
   className?: string
 }
 
-const innerBySize: Record<EyebrowSize, string> = {
-  default: 'rounded-sm bg-slate-50 px-4 py-2 lg:px-3 lg:py-1',
-  sm: 'rounded-sm bg-slate-50 px-3 py-1',
-}
-
-const captionBySize: Record<EyebrowSize, string> = {
-  default: 'text-sm font-semibold uppercase tracking-wide text-heading lg:text-xs',
-  sm: 'text-xs font-semibold uppercase tracking-wide text-heading',
-}
-
-const Eyebrow = ({ children, size = 'default', className }: EyebrowProps) => {
-  // Plain template statt cn(): garantiert byte-identischen Klassen-Output
-  // für den Default-Fall (kein className) — SectionHeader-Parität.
-  const outerClass =
-    'inline-block rounded p-px bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-deep shadow-lg shadow-brand-primary/20' +
-    (className ? ` ${className}` : '')
-
-  return (
-    <div className={outerClass}>
-      <div className={innerBySize[size]}>
-        <span className={captionBySize[size]}>{children}</span>
-      </div>
-    </div>
-  )
+const Eyebrow = ({ children, tone = 'light', className }: EyebrowProps) => {
+  const base = tone === 'dark' ? EYEBROW_DARK : EYEBROW_LIGHT
+  return <p className={className ? `${base} ${className}` : base}>{children}</p>
 }
 
 export default Eyebrow
