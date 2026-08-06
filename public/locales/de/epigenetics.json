@@ -14,11 +14,24 @@
     "ctaDocs": "Die sechs Analysen",
     "ctaQuote": "Angebot anfragen",
     "chips": [
-      { "label": "Probe", "value": "Trockenblutkarte, Fingerbeere" },
-      { "label": "Labor", "value": "Kooperationspartner, EU" },
-      { "label": "Portfolio", "value": "6 Analysen, ein Probenweg" },
-      { "label": "Preise", "value": "B2B nach Absprache" }
-    ]
+      {
+        "label": "Probe",
+        "value": "Trockenblutkarte, Fingerbeere"
+      },
+      {
+        "label": "Labor",
+        "value": "Kooperationspartner, EU"
+      },
+      {
+        "label": "Portfolio",
+        "value": "6 Analysen, ein Probenweg"
+      },
+      {
+        "label": "Preise",
+        "value": "B2B nach Absprache"
+      }
+    ],
+    "ctaSheets": "Alle 18 Unterlagen"
   },
   "principle": {
     "caption": "Das Prinzip",
@@ -45,7 +58,8 @@
         "Erstmessung und Folgemessung nach 4 bis 6 Monaten bilden ein planbares Programm.",
         "Ein Probenweg, ein Kartentyp, ein Laborpartner für alle sechs Analysen."
       ]
-    }
+    },
+    "pdfHint": "Sie wollen das Programm erst in Ruhe lesen? Die Portfolio-Übersicht fasst alle sechs Analysen, den Ablauf und die Konditionen auf drei Seiten zusammen."
   },
   "analyses": {
     "caption": "Portfolio",
@@ -60,8 +74,14 @@
         "name": "Metabolic Health",
         "subtitle": "Welche Ernährung zu welchem Menschen passt — genetisch veranlagt, epigenetisch überprüfbar.",
         "facts": [
-          { "k": "Umfang", "v": "11 Auswertungsbereiche" },
-          { "k": "Ergebnis", "v": "1 von 4 Stoffwechseltypen" }
+          {
+            "k": "Umfang",
+            "v": "11 Auswertungsbereiche"
+          },
+          {
+            "k": "Ergebnis",
+            "v": "1 von 4 Stoffwechseltypen"
+          }
         ],
         "what": "Ausgewertet wird, welche Makronährstoffverteilung zur individuellen Veranlagung passt — hinterlegt mit konkreten Portions- und Rezeptvorschlägen. Weil genetische Varianten das Gewichtsverhalten allein nicht erklären, kommen epigenetische Marker zu DNA-Stabilität und Entzündung dazu: Nur diese sind durch den Lebensstil beeinflussbar und taugen als Erfolgskontrolle.",
         "who": [
@@ -76,8 +96,14 @@
         "name": "Healthy Aging",
         "subtitle": "Biologisches Alter auf vier molekularen Ebenen — mit Ampelbewertung statt Einzelwert.",
         "facts": [
-          { "k": "Umfang", "v": "4 molekulare Ebenen" },
-          { "k": "Verlauf", "v": "Folgemessung nach 4–6 Monaten" }
+          {
+            "k": "Umfang",
+            "v": "4 molekulare Ebenen"
+          },
+          {
+            "k": "Verlauf",
+            "v": "Folgemessung nach 4–6 Monaten"
+          }
         ],
         "what": "Telomerlänge, epigenetische Alterungsmarker, Entzündung und DNA-Stabilität werden gegen alters- und geschlechtsbezogene Referenzwerte eingeordnet und jeweils grün, gelb oder rot bewertet. So ist erkennbar, welche Ebene den Befund treibt — und wo eine Intervention ansetzen sollte. Ergänzend werden Lebensstildaten erhoben und gegenübergestellt.",
         "who": [
@@ -92,8 +118,14 @@
         "name": "Biologische Alters-Uhr",
         "subtitle": "Ein exploratives Lebensstil-Signal aus drei microRNA — ausdrücklich keine Altersbestimmung.",
         "facts": [
-          { "k": "Marker", "v": "miR-21, miR-24, miR-155" },
-          { "k": "Aussagekraft", "v": "explorativ, nicht diagnostisch" }
+          {
+            "k": "Marker",
+            "v": "miR-21, miR-24, miR-155"
+          },
+          {
+            "k": "Aussagekraft",
+            "v": "explorativ, nicht diagnostisch"
+          }
         ],
         "what": "Drei microRNA werden mittels quantitativer PCR bestimmt, gegen miR-93 normalisiert und zu einem Wert verrechnet: der prozentualen Abweichung des biologischen vom chronologischen Alter. Das zugrunde liegende Modell ist publiziert, aber als Pilotstudie deklariert — der Ausgabewert ist ein exploratives Signal, kein belastbares biologisches Alter.",
         "who": [
@@ -108,8 +140,14 @@
         "name": "Telomer-Analyse",
         "subtitle": "Die Schutzkappen der Chromosomen als Basiswert — gemessen in Kilobasenpaaren.",
         "facts": [
-          { "k": "Methode", "v": "Quantitative PCR" },
-          { "k": "Ergebnis", "v": "Telomerlänge in kbp" }
+          {
+            "k": "Methode",
+            "v": "Quantitative PCR"
+          },
+          {
+            "k": "Ergebnis",
+            "v": "Telomerlänge in kbp"
+          }
         ],
         "what": "Telomere verkürzen sich mit jeder Zellteilung und gelten als Marker zellulärer Alterung. Die Bestimmung erfolgt aus getrocknetem Kapillarblut, das Ergebnis wird in Kilobasenpaaren angegeben und gegen eine alters- und geschlechtsangepasste Referenzpopulation eingeordnet. qPCR-Werte streuen zwischen Läufen und Laboren deutlich — aussagekräftig ist der Verlauf, nicht der Einzelwert.",
         "who": [
@@ -124,8 +162,14 @@
         "name": "Stress Monitor",
         "subtitle": "Gemessene Belastung neben empfundener Belastung — sechs microRNA in vier Bereichen.",
         "facts": [
-          { "k": "Umfang", "v": "6 microRNA, 4 Bereiche" },
-          { "k": "Befund", "v": "Ampel plus Gesamtprofil" }
+          {
+            "k": "Umfang",
+            "v": "6 microRNA, 4 Bereiche"
+          },
+          {
+            "k": "Befund",
+            "v": "Ampel plus Gesamtprofil"
+          }
         ],
         "what": "Physiologische Stressbelastung, Zellschutz, Serotoninregulation und Immunsignale werden je Bereich als Ampel ausgegeben und dem im Fragebogen erhobenen subjektiven Stresserleben gegenübergestellt. Gerade die Diskrepanz ist im Gespräch aufschlussreich: Personen mit hoher Belastungstoleranz unterschätzen ihre Belastung häufig.",
         "who": [
@@ -140,8 +184,14 @@
         "name": "Healthy Sport",
         "subtitle": "Acht epigenetische Bereiche zum aktuellen Zustand — in der Plus-Variante ergänzt um vier genetische Varianten.",
         "facts": [
-          { "k": "Umfang", "v": "8 Bereiche, Plus: + 4 Varianten" },
-          { "k": "Befund", "v": "Score 0–100 plus Ampel" }
+          {
+            "k": "Umfang",
+            "v": "8 Bereiche, Plus: + 4 Varianten"
+          },
+          {
+            "k": "Befund",
+            "v": "Score 0–100 plus Ampel"
+          }
         ],
         "what": "Nährstoff- und Hydrationsstatus, Belastungsniveau, Regeneration, Verletzungsrisiko, kardiovaskuläre Fitness, Entzündung und Muskelstatus bilden den veränderlichen Verlaufsteil. Die Plus-Variante ergänzt vier unveränderliche genetische Varianten zu Sporttyp, Trainingsmotivation, Muskelschädigungsrisiko und Gewichtsregulation — einmalig erhoben.",
         "who": [
@@ -152,6 +202,12 @@
         "file": "de/06_Healthy_Sport_PolarisDX.pdf"
       }
     ]
+  },
+  "docsBand": {
+    "title": "Alle Unterlagen auf einen Griff",
+    "text": "Neun Infoblätter je Sprache: Portfolio-Übersicht, die sechs Analysen im Detail, Konditionen und die vollständige Studienlage. Einzeln als PDF oder gesammelt als Archiv.",
+    "ctaZip": "Alle Blätter als ZIP",
+    "ctaAll": "Blätter einzeln ansehen"
   },
   "workflow": {
     "caption": "Ablauf",
