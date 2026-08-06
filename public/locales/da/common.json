@@ -13,9 +13,13 @@
     "dental": "Dental diagnostik",
     "beauty": "Beauty diagnostik",
     "longevity": "Longevity diagnostik",
-    "epigenetics": "Epigenetik",
+    "epigenetics": "Epigenetik og genetik",
     "pocSystems": "POC-systemer",
-    "support": "Support"
+    "support": "Support",
+    "group_poc": "Point-of-care",
+    "group_lab": "Laboratoriediagnostik",
+    "badge_new": "Ny",
+    "epigenetics_desc": "Seks analyser fra en dråbe blod"
   },
   "badge": {
     "New": "Ny",

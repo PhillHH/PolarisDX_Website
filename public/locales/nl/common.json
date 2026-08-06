@@ -13,9 +13,13 @@
     "dental": "Tandheelkundige diagnostiek",
     "beauty": "Beauty diagnostiek",
     "longevity": "Longevity diagnostiek",
-    "epigenetics": "Epigenetica",
+    "epigenetics": "Epigenetica en genetica",
     "pocSystems": "POC-systemen",
-    "support": "Support"
+    "support": "Support",
+    "group_poc": "Point-of-care",
+    "group_lab": "Laboratoriumdiagnostiek",
+    "badge_new": "Nieuw",
+    "epigenetics_desc": "Zes analyses uit één druppel bloed"
   },
   "badge": {
     "New": "Nieuw",

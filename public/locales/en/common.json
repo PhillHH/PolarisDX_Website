@@ -14,8 +14,12 @@
     "dental": "Dental Diagnostics",
     "beauty": "Beauty Diagnostics",
     "longevity": "Longevity Diagnostics",
-    "epigenetics": "Epigenetics",
-    "pocSystems": "POC Systems"
+    "epigenetics": "Epigenetics and genetics",
+    "pocSystems": "POC Systems",
+    "group_poc": "Point-of-care",
+    "group_lab": "Laboratory diagnostics",
+    "badge_new": "New",
+    "epigenetics_desc": "Six analyses from one drop of blood"
   },
   "badge": {
     "New": "New",
