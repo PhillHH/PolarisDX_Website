@@ -93,7 +93,7 @@ export default {
       },
       boxShadow: {
         card: '0 24px 60px rgba(8, 51, 88, 0.12)', // Tinted with brand-deep (hardcoded here because tokens in string might not work directly without interpolation, but this is JS)
-        'glow-secondary': '0 0 15px rgba(33, 153, 234, 0.5)', // Softer glow
+        'glow-secondary': '0 0 15px rgba(47, 111, 160, 0.5)', // Softer glow — brand.secondary
         glass: '0 8px 32px 0 rgba(8, 51, 88, 0.15)', // Glassmorphism shadow
       },
       borderRadius: {
@@ -146,18 +146,18 @@ export default {
             opacity: '0',
             transform: 'translateY(24px) scale(0.94)',
             'box-shadow':
-              '0 0 0 0 rgba(94,234,212,0), 0 0 0 0 rgba(13,148,136,0), 0 0 0 rgba(8,51,88,0)',
+              '0 0 0 0 rgba(45,212,191,0), 0 0 0 0 rgba(13,148,136,0), 0 0 0 rgba(8,51,88,0)',
           },
           '45%': {
             opacity: '1',
             'box-shadow':
-              '0 0 0 6px rgba(94,234,212,0.18), 0 0 60px 4px rgba(13,148,136,0.35), 0 20px 50px rgba(8,51,88,0.30)',
+              '0 0 0 6px rgba(45,212,191,0.18), 0 0 60px 4px rgba(13,148,136,0.35), 0 20px 50px rgba(8,51,88,0.30)',
           },
           '100%': {
             opacity: '1',
             transform: 'translateY(0) scale(1)',
             'box-shadow':
-              '0 0 0 0 rgba(94,234,212,0), 0 0 0 0 rgba(13,148,136,0), 0 20px 60px rgba(8,51,88,0.35)',
+              '0 0 0 0 rgba(45,212,191,0), 0 0 0 0 rgba(13,148,136,0), 0 20px 60px rgba(8,51,88,0.35)',
           },
         },
       },

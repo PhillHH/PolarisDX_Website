@@ -1,22 +1,25 @@
 #!/usr/bin/env node
 /**
- * Farb-Guard: erzwingt EINE Navy und EINEN Akzent.
+ * Farb-Guard: erzwingt EINE Navy (#083358) und EINEN Akzent (Teal #0d9488).
+ *
+ * Geprüft werden src/**\/*.{ts,tsx,css} UND tailwind.config.js.
  *
  * Regeln (Verstoß => Exit 1):
- *   1. Kein Raw-Hex in src/ (Tokens statt Literale).
+ *   1. Kein Raw-Hex ausserhalb der Palette (Tokens statt Literale).
  *   2. Keine Arbitrary-Farbklassen  bg-[#...] / text-[rgb(...)] etc.
  *   3. Kein `gray-900` — das Legacy-Navy #203864 ist abgeschafft.
  *      Headline-/Body-Ink ist `text-heading` (#083358).
  *   4. Keine rohen chromatischen Tailwind-Skalen (teal-600, blue-50, ...).
- *      Erlaubt sind ausschließlich die Tokens aus tailwind.config.js:
- *      brand-*, accent-*, success-*, heading, ui-*, gray-100/500.
+ *   5. Kein rgb()/rgba()-Literal ausserhalb der Palette — sonst schleichen
+ *      sich Farben an den Tokens vorbei in Shadows und Keyframes ein.
+ *
+ * Neue Tokens sind bewusst nicht "einfach so" moeglich: wer die Palette
+ * erweitert, muss PALETTE_HEX hier mitpflegen.
  *
  * Bewusste Ausnahmen:
- *   - `red-*`  : semantische Fehler-/Validierungszustände (kein Akzent).
- *                Es gibt dafür (noch) keine Token-Gruppe.
- *   - Neutrale Familien gray/slate/zinc/neutral/stone: Grautöne, kein Navy.
- *   - FlagIcon.tsx: Länderflaggen sind vorgegebene Fremdfarben.
- *   - Neutrale Flächen-Hexes in index.css (Seiten-Hintergrund).
+ *   - `red-*`  : semantische Fehler-/Validierungszustaende (kein Akzent).
+ *   - Neutrale Familien gray/slate/zinc/neutral/stone.
+ *   - FlagIcon.tsx: Laenderflaggen sind vorgegebene Fremdfarben.
  */
 import { readFileSync, readdirSync, statSync } from 'node:fs'
 import { join, relative } from 'node:path'
@@ -24,22 +27,60 @@ import { join, relative } from 'node:path'
 const ROOT = new URL('..', import.meta.url).pathname
 const SRC = join(ROOT, 'src')
 
-/** Dateien, in denen Raw-Hex erlaubt ist (mit Begründung). */
-const HEX_ALLOWED_FILES = new Set(['src/components/ui/FlagIcon.tsx'])
-/** Neutrale Flächen-Hexes, die kein Marken-Token haben. */
-const HEX_ALLOWED_VALUES = new Set(['#f8fafc', '#f1f5f9'])
+/** Kanonische Palette (tailwind.config.js). Erweiterung = bewusste Entscheidung. */
+const PALETTE_HEX = new Set([
+  '#083358', // brand.deep / brand.navy / heading — DIE Navy
+  '#0a3f63', // brand.navy-hover / navy-mid
+  '#0d527f', // brand.primary / brand.blue / accentBlue — sekundaeres Markenblau
+  '#2f6fa0', // brand.secondary / blue-bright
+  '#0d9488', // accent (teal-600) — DER Akzent
+  '#0f766e', // accent.strong
+  '#14b8a6', // accent.line
+  '#2dd4bf', // accent.on-dark — Teal auf Navy
+  '#99f6e4', // accent.border
+  '#f0fdfa', // accent.soft
+  '#10b981', // success
+  '#047857', // success.strong
+  '#ecfdf5', // success.soft
+  '#0077b5', // social.linkedin (Fremdmarke)
+  '#e2e8f0', // ui.border
+  '#cbd5e1', // ui.border-hover
+  '#94a3b8', // ui.text-muted
+  '#f5f5f5', // gray-100
+  '#868c98', // gray-500
+  '#f8fafc', // neutraler Seiten-/Panel-Hintergrund
+  '#f1f5f9', // neutraler Tabellenkopf
+])
 
-/** Chromatische Tailwind-Familien, die nicht roh verwendet werden dürfen. */
+/** Erlaubte rgb()-Tripel: Palette + bewusst neutrale Scrims. */
+const PALETTE_RGB = new Set([
+  '8,51,88',
+  '10,63,99',
+  '13,82,127',
+  '47,111,160',
+  '13,148,136',
+  '15,118,110',
+  '20,184,166',
+  '45,212,191',
+  '16,185,129',
+  '0,0,0',
+  '255,255,255',
+  '15,23,42', // slate-900 — neutraler Bild-Scrim
+])
+
+const HEX_ALLOWED_FILES = new Set(['src/components/ui/FlagIcon.tsx'])
+
 const OFF_FAMILIES =
   'teal|emerald|green|blue|indigo|sky|violet|purple|fuchsia|pink|amber|yellow|orange|lime|cyan|rose'
 
-const RE_HEX = /#[0-9a-fA-F]{6}\b|#[0-9a-fA-F]{3}\b/g
+const RE_HEX = /#[0-9a-fA-F]{6}\b/g
 const RE_ARBITRARY = /\b[a-z-]+-\[(?:#[0-9a-fA-F]{3,8}|rgb|rgba|hsl)\b[^\]]*\]/g
 const RE_LEGACY_NAVY = /\bgray-900\b/g
 const RE_OFF_SCALE = new RegExp(
   `\\b(?:${OFF_FAMILIES})-(?:50|100|200|300|400|500|600|700|800|900|950)\\b`,
   'g',
 )
+const RE_RGB = /rgba?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*[,)]/g
 
 function walk(dir, out = []) {
   for (const entry of readdirSync(dir)) {
@@ -51,20 +92,23 @@ function walk(dir, out = []) {
 }
 
 const violations = []
+const files = [...walk(SRC), join(ROOT, 'tailwind.config.js')]
 
-for (const file of walk(SRC)) {
+for (const file of files) {
   const rel = relative(ROOT, file).replace(/\\/g, '/')
+  const isConfig = rel === 'tailwind.config.js'
   const lines = readFileSync(file, 'utf8').split('\n')
 
   lines.forEach((line, i) => {
     const at = `${rel}:${i + 1}`
-    // Inline-SVG-Datenurls und Kommentarzeilen mit Erklärtext ausklammern
-    const isDataUrl = line.includes('data:image/svg+xml')
+    if (line.includes('data:image/svg+xml')) return
+    // Reine Kommentarzeilen erklaeren oft genau die abgeschafften Werte.
+    if (/^\s*(\/\/|\*|\/\*)/.test(line)) return
 
-    if (!HEX_ALLOWED_FILES.has(rel) && !isDataUrl) {
+    if (!HEX_ALLOWED_FILES.has(rel)) {
       for (const hex of line.match(RE_HEX) ?? []) {
-        if (!HEX_ALLOWED_VALUES.has(hex.toLowerCase())) {
-          violations.push([at, `Raw-Hex ${hex} — stattdessen Token verwenden`, line.trim()])
+        if (!PALETTE_HEX.has(hex.toLowerCase())) {
+          violations.push([at, `Hex ${hex} ist nicht in der Palette`, line.trim()])
         }
       }
     }
@@ -74,12 +118,20 @@ for (const file of walk(SRC)) {
     for (const m of line.match(RE_LEGACY_NAVY) ?? []) {
       violations.push([at, `Legacy-Navy ${m} — nutze text-heading / brand-deep`, line.trim()])
     }
-    for (const m of line.match(RE_OFF_SCALE) ?? []) {
-      violations.push([
-        at,
-        `Off-Token-Farbe ${m} — nutze accent-* / brand-* / success-*`,
-        line.trim(),
-      ])
+    if (!isConfig) {
+      for (const m of line.match(RE_OFF_SCALE) ?? []) {
+        violations.push([
+          at,
+          `Off-Token-Farbe ${m} — nutze accent-* / brand-* / success-*`,
+          line.trim(),
+        ])
+      }
+    }
+    for (const m of line.matchAll(RE_RGB)) {
+      const triple = `${+m[1]},${+m[2]},${+m[3]}`
+      if (!PALETTE_RGB.has(triple)) {
+        violations.push([at, `rgb(${triple}) ist nicht in der Palette`, line.trim()])
+      }
     }
   })
 }
@@ -90,8 +142,11 @@ if (violations.length) {
     console.error(`  ${at}\n    ${why}\n    > ${src.slice(0, 140)}\n`)
   }
   console.error('Erlaubt: brand-*, accent-*, success-*, heading, ui-*, gray-100/500,')
-  console.error('neutrale gray/slate/zinc/neutral/stone-Skalen und red-* (Fehlerzustände).\n')
+  console.error('neutrale gray/slate/zinc/neutral/stone-Skalen und red-* (Fehlerzustände).')
+  console.error('Neue Farbe? Erst Token in tailwind.config.js, dann PALETTE_HEX hier ergänzen.\n')
   process.exit(1)
 }
 
-console.log('✓ Farb-Guard: eine Navy (#083358), ein Akzent (Teal), kein Raw-Hex.')
+console.log(
+  '✓ Farb-Guard: eine Navy (#083358), ein Akzent (Teal), kein Raw-Hex, keine Fremd-rgb().',
+)
