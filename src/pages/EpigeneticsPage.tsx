@@ -12,6 +12,10 @@
  * - Keine Preise ("B2B nach Absprache") und keine Befundlaufzeit.
  * - Die Evidenz-Sektion trennt bewusst Gesichertes von Vorlaeufigem. Das ist
  *   Absicht: vor Fachpublikum traegt die Seite nur mit offengelegten Grenzen.
+ *
+ * TYPOGRAFIE: Fliesstext laeuft auf text-base und ab lg auf 17px/2rem. Das ist
+ * bewusst groesser als der Rest der Site — die Seite ist eine Lesestrecke fuer
+ * Fachpublikum, keine Uebersichtsseite.
  */
 
 import { Link } from 'react-router-dom'
@@ -26,6 +30,16 @@ import Reveal from '../components/ui/Reveal'
 
 // public/ wird nach dist/client kopiert — die oeffentliche URL ist /downloads/...
 const ASSET_BASE = '/downloads/epigenetics/'
+
+// Reveal rendert zwei verschachtelte divs; damit Grid-Karten auf Reihenhoehe
+// wachsen, muss h-full auf beide.
+const STRETCH = 'h-full [&>div]:h-full'
+
+// Fliesstext, Lead und Kleinlabel — an einer Stelle definiert, damit die
+// Lesegroesse ueber alle Sektionen identisch bleibt.
+const BODY = 'text-base leading-7 lg:text-[17px] lg:leading-8'
+const LEAD = 'text-lg leading-relaxed text-gray-600 lg:text-xl lg:leading-relaxed'
+const LABEL = 'text-xs font-semibold uppercase tracking-[0.16em] text-gray-400'
 
 interface Chip {
   label: string
@@ -100,6 +114,8 @@ const EpigeneticsPage = () => {
   const sheets = asArray<Sheet>(t('sheets', { returnObjects: true }))
 
   const faqSchemaItems: FAQItem[] = faq.map((item) => ({ question: item.q, answer: item.a }))
+  const overviewHref = `${ASSET_BASE}${t('contact.overviewFile')}`
+  const zipHref = `${ASSET_BASE}${t('downloads.zipFile')}`
 
   return (
     <PageTransition>
@@ -151,20 +167,27 @@ const EpigeneticsPage = () => {
                 <h1 className="max-w-3xl text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl lg:leading-[1.15]">
                   {t('hero.title')}
                 </h1>
-                <p className="mt-5 max-w-[60ch] text-base leading-relaxed text-white/80 lg:text-lg lg:leading-relaxed">
+                <p className="mt-5 max-w-[60ch] text-lg leading-relaxed text-white/85 lg:text-xl lg:leading-relaxed">
                   {t('hero.claim')}
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
                   <a
                     href="#analysen"
-                    className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-brand-deep transition-colors hover:bg-accent-soft"
+                    className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:bg-accent-soft"
                   >
                     {t('hero.ctaDocs')}
                   </a>
+                  <a
+                    href="#downloads"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 px-6 py-3.5 text-base font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
+                  >
+                    <Download className="h-4 w-4" />
+                    {t('hero.ctaSheets')}
+                  </a>
                   <Link
                     to="/contact"
-                    className="inline-flex items-center justify-center rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
+                    className="inline-flex items-center justify-center rounded-full border border-white/40 px-6 py-3.5 text-base font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
                   >
                     {t('hero.ctaQuote')}
                   </Link>
@@ -179,7 +202,7 @@ const EpigeneticsPage = () => {
                       <dt className="text-xs font-medium uppercase tracking-[0.16em] text-white/60">
                         {chip.label}
                       </dt>
-                      <dd className="mt-1 text-sm font-semibold text-white">{chip.value}</dd>
+                      <dd className="mt-1 text-base font-semibold text-white">{chip.value}</dd>
                     </div>
                   ))}
                 </dl>
@@ -198,24 +221,17 @@ const EpigeneticsPage = () => {
               title={t('principle.title')}
               align="left"
             />
-            <p className="mt-4 max-w-[68ch] text-lg leading-relaxed text-gray-600">
-              {t('principle.lead')}
-            </p>
+            <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('principle.lead')}</p>
           </Reveal>
 
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {principleCards.map((card, index) => (
-              <Reveal
-                key={card.title}
-                width="100%"
-                delay={0.05 * index}
-                className="h-full [&>div]:h-full"
-              >
+              <Reveal key={card.title} width="100%" delay={0.05 * index} className={STRETCH}>
                 <div className="h-full rounded-3xl border border-slate-200 bg-white p-7">
-                  <h3 className="text-lg font-semibold tracking-tight text-text-heading">
+                  <h3 className="text-xl font-semibold tracking-tight text-text-heading">
                     {card.title}
                   </h3>
-                  <p className="mt-3 text-[15px] leading-7 text-gray-600">{card.text}</p>
+                  <p className={`mt-3 text-gray-600 ${BODY}`}>{card.text}</p>
                 </div>
               </Reveal>
             ))}
@@ -228,12 +244,30 @@ const EpigeneticsPage = () => {
               </p>
               <ul className="mt-4 grid gap-3 lg:grid-cols-3">
                 {practiceItems.map((item) => (
-                  <li key={item} className="flex gap-3 text-[15px] leading-7 text-gray-700">
-                    <Check className="mt-1 h-4 w-4 shrink-0 text-accent-strong" />
+                  <li key={item} className={`flex gap-3 text-gray-700 ${BODY}`}>
+                    <Check className="mt-1.5 h-5 w-5 shrink-0 text-accent-strong" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
+            </div>
+          </Reveal>
+
+          {/* Erster Dokument-Hinweis: das Programm kompakt auf drei Seiten */}
+          <Reveal width="100%" delay={0.15}>
+            <div className="mt-6 flex flex-col gap-5 rounded-3xl border border-slate-200 bg-white p-7 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-start gap-4">
+                <FileText className="mt-0.5 h-6 w-6 shrink-0 text-brand-primary" />
+                <p className={`text-gray-700 ${BODY}`}>{t('principle.pdfHint')}</p>
+              </div>
+              <a
+                href={overviewHref}
+                download
+                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
+              >
+                <Download className="h-4 w-4" />
+                {t('contact.overview')}
+              </a>
             </div>
           </Reveal>
         </section>
@@ -249,29 +283,22 @@ const EpigeneticsPage = () => {
                 title={t('analyses.title')}
                 align="left"
               />
-              <p className="mt-4 max-w-[68ch] text-lg leading-relaxed text-gray-600">
-                {t('analyses.lead')}
-              </p>
+              <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('analyses.lead')}</p>
             </Reveal>
 
             <div className="mt-10 grid gap-6 lg:grid-cols-2">
               {analyses.map((item, index) => (
-                <Reveal
-                  key={item.num}
-                  width="100%"
-                  delay={0.05 * (index % 2)}
-                  className="h-full [&>div]:h-full"
-                >
+                <Reveal key={item.num} width="100%" delay={0.05 * (index % 2)} className={STRETCH}>
                   <article className="flex h-full flex-col rounded-3xl border border-slate-200 bg-slate-50 p-7 transition-shadow hover:shadow-card lg:p-8">
                     <div className="flex items-start gap-4">
-                      <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-deep text-sm font-semibold text-white">
+                      <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-deep text-base font-semibold text-white">
                         {item.num}
                       </span>
                       <div>
-                        <h3 className="text-xl font-semibold tracking-tight text-text-heading">
+                        <h3 className="text-2xl font-semibold tracking-tight text-text-heading">
                           {item.name}
                         </h3>
-                        <p className="mt-1 text-[15px] leading-7 text-gray-600">{item.subtitle}</p>
+                        <p className={`mt-1.5 text-gray-600 ${BODY}`}>{item.subtitle}</p>
                       </div>
                     </div>
 
@@ -281,43 +308,36 @@ const EpigeneticsPage = () => {
                           key={fact.k}
                           className="rounded-2xl border border-slate-200 bg-white px-4 py-3"
                         >
-                          <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gray-400">
+                          <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-400">
                             {fact.k}
                           </dt>
-                          <dd className="mt-0.5 text-sm font-medium text-text-heading">{fact.v}</dd>
+                          <dd className="mt-1 text-base font-medium text-text-heading">{fact.v}</dd>
                         </div>
                       ))}
                     </dl>
 
                     <div className="mt-6">
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gray-400">
-                        {t('analyses.whatLabel')}
-                      </p>
-                      <p className="mt-2 text-[15px] leading-7 text-gray-700">{item.what}</p>
+                      <p className={LABEL}>{t('analyses.whatLabel')}</p>
+                      <p className={`mt-2 text-gray-700 ${BODY}`}>{item.what}</p>
                     </div>
 
                     <div className="mt-5">
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gray-400">
-                        {t('analyses.whoLabel')}
-                      </p>
-                      <ul className="mt-2 space-y-1.5">
+                      <p className={LABEL}>{t('analyses.whoLabel')}</p>
+                      <ul className="mt-2 space-y-2">
                         {item.who?.map((who) => (
-                          <li
-                            key={who}
-                            className="flex gap-2.5 text-[15px] leading-7 text-gray-700"
-                          >
-                            <span className="mt-3 h-1 w-3 shrink-0 rounded-full bg-accent-line" />
+                          <li key={who} className={`flex gap-3 text-gray-700 ${BODY}`}>
+                            <span className="mt-3.5 h-1 w-3 shrink-0 rounded-full bg-accent-line" />
                             <span>{who}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
-                    <div className="mt-7 border-t border-slate-200 pt-5">
+                    <div className="mt-auto pt-7">
                       <a
                         href={`${ASSET_BASE}${item.file}`}
                         download
-                        className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary transition-colors hover:text-brand-deep"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary hover:bg-brand-primary hover:text-white sm:w-auto"
                       >
                         <Download className="h-4 w-4" />
                         {t('analyses.pdfBtn')}
@@ -331,6 +351,44 @@ const EpigeneticsPage = () => {
         </section>
 
         {/* ================================================================
+            DOKUMENTEN-BAND — zweiter, prominenter Weg zu den Unterlagen
+        ================================================================ */}
+        <section className="mx-auto max-w-container px-4 py-10 lg:px-0 lg:py-14">
+          <Reveal width="100%">
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-deep to-[#203864] px-7 py-10 text-white lg:px-12 lg:py-12">
+              <Sparkle className="pointer-events-none absolute -right-8 -top-8 hidden h-40 w-40 text-white/10 lg:block" />
+              <div className="relative flex flex-col gap-7 lg:flex-row lg:items-center lg:justify-between">
+                <div className="max-w-[52ch]">
+                  <h2 className="text-2xl font-medium tracking-tight lg:text-3xl">
+                    {t('docsBand.title')}
+                  </h2>
+                  <p className="mt-3 text-base leading-7 text-white/80 lg:text-[17px] lg:leading-8">
+                    {t('docsBand.text')}
+                  </p>
+                </div>
+                <div className="flex shrink-0 flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+                  <a
+                    href={zipHref}
+                    download
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:bg-accent-soft"
+                  >
+                    <Download className="h-4 w-4" />
+                    {t('docsBand.ctaZip')}
+                  </a>
+                  <a
+                    href="#downloads"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 px-6 py-3.5 text-base font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
+                  >
+                    <FileText className="h-4 w-4" />
+                    {t('docsBand.ctaAll')}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </section>
+
+        {/* ================================================================
             ABLAUF IN DER PRAXIS
         ================================================================ */}
         <section className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
@@ -340,23 +398,16 @@ const EpigeneticsPage = () => {
               title={t('workflow.title')}
               align="left"
             />
-            <p className="mt-4 max-w-[68ch] text-lg leading-relaxed text-gray-600">
-              {t('workflow.lead')}
-            </p>
+            <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('workflow.lead')}</p>
           </Reveal>
           <ol className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {steps.map((step, index) => (
-              <Reveal
-                key={index}
-                width="100%"
-                delay={0.05 * (index % 3)}
-                className="h-full [&>div]:h-full"
-              >
+              <Reveal key={index} width="100%" delay={0.05 * (index % 3)} className={STRETCH}>
                 <li className="h-full rounded-3xl border border-slate-200 bg-white p-6">
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent-strong">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent-soft text-base font-semibold text-accent-strong">
                     {index + 1}
                   </span>
-                  <p className="mt-4 text-[15px] leading-7 text-gray-700">{step}</p>
+                  <p className={`mt-4 text-gray-700 ${BODY}`}>{step}</p>
                 </li>
               </Reveal>
             ))}
@@ -374,13 +425,11 @@ const EpigeneticsPage = () => {
                 title={t('evidence.title')}
                 align="left"
               />
-              <p className="mt-4 max-w-[68ch] text-lg leading-relaxed text-gray-600">
-                {t('evidence.lead')}
-              </p>
+              <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('evidence.lead')}</p>
             </Reveal>
 
             <div className="mt-10 grid gap-6 lg:grid-cols-2">
-              <Reveal width="100%" className="h-full [&>div]:h-full">
+              <Reveal width="100%" className={STRETCH}>
                 <div className="h-full rounded-3xl border border-accent-border bg-accent-soft p-7 lg:p-8">
                   <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-accent-strong">
                     <Check className="h-4 w-4" />
@@ -389,15 +438,15 @@ const EpigeneticsPage = () => {
                   <ul className="mt-6 space-y-6">
                     {established.map((item) => (
                       <li key={item.title}>
-                        <p className="font-semibold text-text-heading">{item.title}</p>
-                        <p className="mt-1.5 text-[15px] leading-7 text-gray-700">{item.text}</p>
+                        <p className="text-lg font-semibold text-text-heading">{item.title}</p>
+                        <p className={`mt-1.5 text-gray-700 ${BODY}`}>{item.text}</p>
                       </li>
                     ))}
                   </ul>
                 </div>
               </Reveal>
 
-              <Reveal width="100%" delay={0.08} className="h-full [&>div]:h-full">
+              <Reveal width="100%" delay={0.08} className={STRETCH}>
                 <div className="h-full rounded-3xl border border-slate-200 bg-slate-50 p-7 lg:p-8">
                   <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-gray-500">
                     <Minus className="h-4 w-4" />
@@ -406,8 +455,8 @@ const EpigeneticsPage = () => {
                   <ul className="mt-6 space-y-6">
                     {preliminary.map((item) => (
                       <li key={item.title}>
-                        <p className="font-semibold text-text-heading">{item.title}</p>
-                        <p className="mt-1.5 text-[15px] leading-7 text-gray-600">{item.text}</p>
+                        <p className="text-lg font-semibold text-text-heading">{item.title}</p>
+                        <p className={`mt-1.5 text-gray-600 ${BODY}`}>{item.text}</p>
                       </li>
                     ))}
                   </ul>
@@ -420,7 +469,7 @@ const EpigeneticsPage = () => {
                 <a
                   href={`${ASSET_BASE}${t('evidence.file')}`}
                   download
-                  className="inline-flex items-center gap-2 rounded-full bg-brand-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-navy-hover"
+                  className="inline-flex items-center gap-2 rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
                 >
                   <Download className="h-4 w-4" />
                   {t('evidence.cta')}
@@ -442,13 +491,11 @@ const EpigeneticsPage = () => {
           <div className="mx-auto mt-10 max-w-[80ch] divide-y divide-slate-200 overflow-hidden rounded-3xl border border-slate-200 bg-white">
             {faq.map((item) => (
               <details key={item.q} className="group">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-left font-medium text-text-heading transition-colors hover:bg-slate-50 lg:px-8">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-6 text-left text-lg font-medium text-text-heading transition-colors hover:bg-slate-50 lg:px-8">
                   <span>{item.q}</span>
                   <ChevronDown className="h-5 w-5 shrink-0 text-brand-primary transition-transform duration-200 group-open:rotate-180" />
                 </summary>
-                <div className="px-6 pb-6 text-[15px] leading-7 text-gray-600 lg:px-8">
-                  {item.a}
-                </div>
+                <div className={`px-6 pb-7 text-gray-600 lg:px-8 ${BODY}`}>{item.a}</div>
               </details>
             ))}
           </div>
@@ -467,12 +514,12 @@ const EpigeneticsPage = () => {
                     title={t('downloads.title')}
                     align="left"
                   />
-                  <p className="mt-3 max-w-[68ch] text-gray-600">{t('downloads.sub')}</p>
+                  <p className={`mt-3 max-w-[68ch] ${LEAD}`}>{t('downloads.sub')}</p>
                 </div>
                 <a
-                  href={`${ASSET_BASE}${t('downloads.zipFile')}`}
+                  href={zipHref}
                   download
-                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-brand-deep transition-colors hover:border-brand-primary hover:bg-slate-50"
+                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
                 >
                   <Download className="h-4 w-4" />
                   {t('downloads.zipLabel')}
@@ -482,14 +529,9 @@ const EpigeneticsPage = () => {
 
             <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {sheets.map((sheet, index) => (
-                <Reveal
-                  key={sheet.num}
-                  width="100%"
-                  delay={0.04 * (index % 3)}
-                  className="h-full [&>div]:h-full"
-                >
+                <Reveal key={sheet.num} width="100%" delay={0.04 * (index % 3)} className={STRETCH}>
                   <article
-                    className={`group flex h-full flex-col justify-between rounded-2xl border bg-white p-5 transition-all hover:-translate-y-0.5 hover:shadow-card ${
+                    className={`group flex h-full flex-col justify-between rounded-2xl border bg-white p-6 transition-all hover:-translate-y-0.5 hover:shadow-card ${
                       sheet.featured
                         ? 'border-accent-border ring-1 ring-accent-border'
                         : 'border-slate-200'
@@ -498,7 +540,7 @@ const EpigeneticsPage = () => {
                     <div>
                       <div className="mb-3 flex items-center justify-between">
                         <span
-                          className={`inline-flex h-8 w-8 items-center justify-center rounded-full text-xs font-semibold ${
+                          className={`inline-flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold ${
                             sheet.featured
                               ? 'bg-accent-soft text-accent-strong'
                               : 'bg-slate-100 text-brand-primary'
@@ -506,22 +548,22 @@ const EpigeneticsPage = () => {
                         >
                           {sheet.num}
                         </span>
-                        <FileText className="h-4 w-4 text-slate-300 transition-colors group-hover:text-brand-primary" />
+                        <FileText className="h-5 w-5 text-slate-300 transition-colors group-hover:text-brand-primary" />
                       </div>
-                      <h3 className="font-semibold tracking-tight text-text-heading">
+                      <h3 className="text-lg font-semibold tracking-tight text-text-heading">
                         {sheet.title}
                       </h3>
-                      <p className="mt-1.5 text-sm leading-6 text-gray-600">{sheet.desc}</p>
+                      <p className="mt-2 text-base leading-7 text-gray-600">{sheet.desc}</p>
                     </div>
 
-                    <div className="mt-5 flex items-center justify-between gap-3 border-t border-slate-100 pt-4">
-                      <span className="text-xs text-gray-500">{sheet.meta}</span>
+                    <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-4">
+                      <span className="text-sm text-gray-500">{sheet.meta}</span>
                       <a
                         href={`${ASSET_BASE}${sheet.file}`}
                         download
-                        className="inline-flex items-center gap-1.5 rounded-full bg-brand-primary px-3.5 py-2 text-xs font-semibold text-white transition-colors hover:bg-brand-navy-hover"
+                        className="inline-flex items-center gap-2 rounded-full bg-brand-primary px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-navy-hover"
                       >
-                        <Download className="h-3.5 w-3.5" />
+                        <Download className="h-4 w-4" />
                         {t('downloads.btn')}
                       </a>
                     </div>
@@ -542,27 +584,25 @@ const EpigeneticsPage = () => {
               title={t('contact.title')}
               align="center"
             />
-            <p className="mx-auto mt-4 max-w-[62ch] text-lg leading-relaxed text-gray-600">
-              {t('contact.sub')}
-            </p>
+            <p className={`mx-auto mt-4 max-w-[62ch] ${LEAD}`}>{t('contact.sub')}</p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <a
                 href="mailto:contact@polarisdx.net"
-                className="inline-flex items-center justify-center rounded-full bg-brand-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-navy-hover"
+                className="inline-flex items-center justify-center rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
               >
                 contact@polarisdx.net
               </a>
               <a
                 href="tel:+4915228580999"
-                className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-brand-deep transition-colors hover:border-brand-primary"
+                className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
               >
                 +49 152 2858 0999
               </a>
               <a
-                href={`${ASSET_BASE}${t('contact.overviewFile')}`}
+                href={overviewHref}
                 download
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-brand-deep transition-colors hover:border-brand-primary"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
               >
                 <Download className="h-4 w-4" />
                 {t('contact.overview')}
@@ -570,12 +610,12 @@ const EpigeneticsPage = () => {
             </div>
 
             {/* Rechtlicher Hinweis — abgestimmt, bitte unveraendert lassen. */}
-            <p className="mx-auto mt-10 max-w-[80ch] text-xs leading-relaxed text-gray-500">
+            <p className="mx-auto mt-10 max-w-[80ch] text-sm leading-relaxed text-gray-500">
               {t('contact.note')}
             </p>
-            <p className="mt-3 text-xs text-gray-400">{t('contact.lab')}</p>
+            <p className="mt-3 text-sm text-gray-400">{t('contact.lab')}</p>
 
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-base">
               <Link
                 to="/diagnostics/longevity"
                 className="font-semibold text-brand-primary transition-colors hover:text-brand-deep"

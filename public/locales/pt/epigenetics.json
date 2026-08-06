@@ -31,7 +31,8 @@
         "label": "Pricing",
         "value": "B2B on request"
       }
-    ]
+    ],
+    "ctaSheets": "All 18 documents"
   },
   "principle": {
     "caption": "The principle",
@@ -58,7 +59,8 @@
         "An initial and a follow-up measurement after 4 to 6 months form a plannable programme.",
         "One sampling route, one card type, one laboratory partner for all six analyses."
       ]
-    }
+    },
+    "pdfHint": "Prefer to read the programme first? The portfolio overview covers all six analyses, the workflow and the commercial terms on three pages."
   },
   "analyses": {
     "caption": "Portfolio",
@@ -201,6 +203,12 @@
         "file": "en/06_Healthy_Sport_PolarisDX.pdf"
       }
     ]
+  },
+  "docsBand": {
+    "title": "Every document in one place",
+    "text": "Nine information sheets per language: portfolio overview, the six analyses in detail, commercial terms and the full evidence base. Individually as PDF or bundled as an archive.",
+    "ctaZip": "All sheets as ZIP",
+    "ctaAll": "Browse the sheets"
   },
   "workflow": {
     "caption": "Workflow",

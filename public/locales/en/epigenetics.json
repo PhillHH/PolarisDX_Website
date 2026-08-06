@@ -14,11 +14,24 @@
     "ctaDocs": "The six analyses",
     "ctaQuote": "Request a quotation",
     "chips": [
-      { "label": "Sample", "value": "Dried blood card, fingertip" },
-      { "label": "Laboratory", "value": "Partner lab, EU" },
-      { "label": "Portfolio", "value": "6 analyses, one route" },
-      { "label": "Pricing", "value": "B2B on request" }
-    ]
+      {
+        "label": "Sample",
+        "value": "Dried blood card, fingertip"
+      },
+      {
+        "label": "Laboratory",
+        "value": "Partner lab, EU"
+      },
+      {
+        "label": "Portfolio",
+        "value": "6 analyses, one route"
+      },
+      {
+        "label": "Pricing",
+        "value": "B2B on request"
+      }
+    ],
+    "ctaSheets": "All 18 documents"
   },
   "principle": {
     "caption": "The principle",
@@ -45,7 +58,8 @@
         "An initial and a follow-up measurement after 4 to 6 months form a plannable programme.",
         "One sampling route, one card type, one laboratory partner for all six analyses."
       ]
-    }
+    },
+    "pdfHint": "Prefer to read the programme first? The portfolio overview covers all six analyses, the workflow and the commercial terms on three pages."
   },
   "analyses": {
     "caption": "Portfolio",
@@ -60,8 +74,14 @@
         "name": "Metabolic Health",
         "subtitle": "Which diet suits which person — genetically predisposed, epigenetically verifiable.",
         "facts": [
-          { "k": "Scope", "v": "11 areas of evaluation" },
-          { "k": "Result", "v": "1 of 4 metabolic types" }
+          {
+            "k": "Scope",
+            "v": "11 areas of evaluation"
+          },
+          {
+            "k": "Result",
+            "v": "1 of 4 metabolic types"
+          }
         ],
         "what": "The analysis evaluates which distribution of macronutrients suits the individual predisposition, supported by specific portion and recipe suggestions. Because genetic variants do not explain weight behaviour on their own, epigenetic markers of DNA stability and inflammation are assessed in addition: only those respond to lifestyle and work as a measure of success.",
         "who": [
@@ -76,8 +96,14 @@
         "name": "Healthy Aging",
         "subtitle": "Biological age across four molecular layers — with a traffic-light rating rather than a single number.",
         "facts": [
-          { "k": "Scope", "v": "4 molecular layers" },
-          { "k": "Monitoring", "v": "Follow-up after 4–6 months" }
+          {
+            "k": "Scope",
+            "v": "4 molecular layers"
+          },
+          {
+            "k": "Monitoring",
+            "v": "Follow-up after 4–6 months"
+          }
         ],
         "what": "Telomere length, epigenetic ageing markers, inflammation and DNA stability are placed against age- and sex-related reference values and each rated green, amber or red. This shows which layer is driving the result — and where an intervention should start. Lifestyle data is recorded alongside and contrasted with the molecular findings.",
         "who": [
@@ -92,8 +118,14 @@
         "name": "Biological age clock",
         "subtitle": "An exploratory lifestyle signal from three microRNAs — explicitly not an age determination.",
         "facts": [
-          { "k": "Markers", "v": "miR-21, miR-24, miR-155" },
-          { "k": "Evidence", "v": "exploratory, not diagnostic" }
+          {
+            "k": "Markers",
+            "v": "miR-21, miR-24, miR-155"
+          },
+          {
+            "k": "Evidence",
+            "v": "exploratory, not diagnostic"
+          }
         ],
         "what": "Three microRNAs are determined by quantitative PCR, normalised against miR-93 and combined into a single value: the percentage deviation of biological from chronological age. The underlying model is published but declared a pilot study — the output is an exploratory signal, not a robust biological age.",
         "who": [
@@ -108,8 +140,14 @@
         "name": "Telomere Analysis",
         "subtitle": "The protective caps of the chromosomes as a baseline — measured in kilobase pairs.",
         "facts": [
-          { "k": "Method", "v": "Quantitative PCR" },
-          { "k": "Result", "v": "Telomere length in kbp" }
+          {
+            "k": "Method",
+            "v": "Quantitative PCR"
+          },
+          {
+            "k": "Result",
+            "v": "Telomere length in kbp"
+          }
         ],
         "what": "Telomeres shorten with each cell division and are regarded as a marker of cellular ageing. Measurement is performed from dried capillary blood, reported in kilobase pairs and placed against an age- and sex-matched reference population. qPCR values vary considerably between runs and laboratories — the trend carries the message, not the single value.",
         "who": [
@@ -124,8 +162,14 @@
         "name": "Stress Monitor",
         "subtitle": "Measured strain alongside perceived strain — six microRNAs across four areas.",
         "facts": [
-          { "k": "Scope", "v": "6 microRNAs, 4 areas" },
-          { "k": "Report", "v": "Traffic light plus overall profile" }
+          {
+            "k": "Scope",
+            "v": "6 microRNAs, 4 areas"
+          },
+          {
+            "k": "Report",
+            "v": "Traffic light plus overall profile"
+          }
         ],
         "what": "Physiological strain, cell protection, serotonin regulation and immune signals are each reported as a traffic light and contrasted with the subjective stress experience recorded in a questionnaire. The discrepancy is what makes the conversation useful: people with high tolerance for strain frequently underestimate their own load.",
         "who": [
@@ -140,8 +184,14 @@
         "name": "Healthy Sport",
         "subtitle": "Eight epigenetic areas on the current state — extended in the Plus variant by four genetic variants.",
         "facts": [
-          { "k": "Scope", "v": "8 areas, Plus: + 4 variants" },
-          { "k": "Report", "v": "Score 0–100 plus traffic light" }
+          {
+            "k": "Scope",
+            "v": "8 areas, Plus: + 4 variants"
+          },
+          {
+            "k": "Report",
+            "v": "Score 0–100 plus traffic light"
+          }
         ],
         "what": "Nutrient and hydration status, load level, recovery, injury risk, cardiovascular fitness, inflammation and muscle status form the variable monitoring part. The Plus variant adds four unchangeable genetic variants on sport type, training motivation, muscle damage risk and weight regulation — recorded once.",
         "who": [
@@ -152,6 +202,12 @@
         "file": "en/06_Healthy_Sport_PolarisDX.pdf"
       }
     ]
+  },
+  "docsBand": {
+    "title": "Every document in one place",
+    "text": "Nine information sheets per language: portfolio overview, the six analyses in detail, commercial terms and the full evidence base. Individually as PDF or bundled as an archive.",
+    "ctaZip": "All sheets as ZIP",
+    "ctaAll": "Browse the sheets"
   },
   "workflow": {
     "caption": "Workflow",
