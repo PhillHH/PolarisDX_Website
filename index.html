@@ -144,9 +144,17 @@
     <!-- ================================================================== -->
     <!-- FAVICON & ICONS -->
     <!-- ================================================================== -->
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/favicon.png" />
+    <!-- favicon.ico zuerst: Browser und Crawler fragen /favicon.ico ohne
+         Link-Tag ab. Enthaelt 16-256px in einer Datei. -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <link rel="icon" type="image/svg+xml" href="/polarisdx-mark.svg" />
+    <!-- iOS komponiert Transparenz auf Schwarz — deshalb eigene Datei mit
+         Navy-Hintergrund statt der transparenten Variante. -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- ================================================================== -->
     <!-- THEME & MOBILE -->
