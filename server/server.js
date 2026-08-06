@@ -415,7 +415,7 @@ ausdrücklich zugestimmt (DSGVO Art. 6 Abs. 1 lit. b).
 
     const row = (label, value) => `
   <tr>
-    <td style="padding:8px 10px;border-bottom:1px solid #e2e8f0;font-weight:600;width:180px;color:#0a2f55;font-family:system-ui,sans-serif;">${esc(label)}</td>
+    <td style="padding:8px 10px;border-bottom:1px solid #e2e8f0;font-weight:600;width:180px;color:#083358;font-family:system-ui,sans-serif;">${esc(label)}</td>
     <td style="padding:8px 10px;border-bottom:1px solid #e2e8f0;color:#334155;font-family:system-ui,sans-serif;">${value}</td>
   </tr>`
     const sectionRow = (label) => `
@@ -424,7 +424,7 @@ ausdrücklich zugestimmt (DSGVO Art. 6 Abs. 1 lit. b).
   </tr>`
 
     const orderHtml = `
-<h2 style="margin:0 0 12px;font-family:system-ui,sans-serif;color:#0a2f55;">
+<h2 style="margin:0 0 12px;font-family:system-ui,sans-serif;color:#083358;">
   Neue Bestellanfrage
 </h2>
 <p style="margin:0 0 16px;font-family:system-ui,sans-serif;color:#475569;">
@@ -450,7 +450,7 @@ ausdrücklich zugestimmt (DSGVO Art. 6 Abs. 1 lit. b).
 </table>
 ${
   message
-    ? `<p style="margin:18px 0 6px;font-family:system-ui,sans-serif;font-weight:600;color:#0a2f55;">Nachricht / Kontext</p>
+    ? `<p style="margin:18px 0 6px;font-family:system-ui,sans-serif;font-weight:600;color:#083358;">Nachricht / Kontext</p>
        <p style="margin:0;font-family:system-ui,sans-serif;color:#334155;white-space:pre-line;">${esc(message)}</p>`
     : ''
 }

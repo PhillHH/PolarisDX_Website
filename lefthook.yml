@@ -11,3 +11,5 @@ pre-commit:
       stage_fixed: true
     typecheck:
       run: npx tsc -b --noEmit
+    colors:
+      run: node scripts/check-color-tokens.mjs

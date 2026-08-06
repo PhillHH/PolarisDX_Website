@@ -2,7 +2,10 @@
 /**
  * Farb-Guard: erzwingt EINE Navy (#083358) und EINEN Akzent (Teal #0d9488).
  *
- * Geprüft werden src/**\/*.{ts,tsx,css} UND tailwind.config.js.
+ * Geprüft werden alle Flächen, die Marke transportieren:
+ *   src/**\/*.{ts,tsx,css} · tailwind.config.js · server.ts (SSR-Fehlerseite)
+ *   server/server.js (Kontakt-/ROI-Mails + PDF) · public/*.svg
+ *   scripts/og-image-template.html (erzeugt die Share-Karte)
  *
  * Regeln (Verstoß => Exit 1):
  *   1. Kein Raw-Hex ausserhalb der Palette (Tokens statt Literale).
@@ -21,7 +24,7 @@
  *   - Neutrale Familien gray/slate/zinc/neutral/stone.
  *   - FlagIcon.tsx: Laenderflaggen sind vorgegebene Fremdfarben.
  */
-import { readFileSync, readdirSync, statSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
 import { join, relative } from 'node:path'
 
 const ROOT = new URL('..', import.meta.url).pathname
@@ -68,7 +71,43 @@ const PALETTE_RGB = new Set([
   '15,23,42', // slate-900 — neutraler Bild-Scrim
 ])
 
-const HEX_ALLOWED_FILES = new Set(['src/components/ui/FlagIcon.tsx'])
+/**
+ * Neutrale Grau-/Slate-Skalen. In Mail-Templates und SVGs gibt es keine
+ * Tailwind-Klassen, dort MUESSEN Literale stehen — Grautoene sind erlaubt,
+ * Markenfarben nicht.
+ */
+const NEUTRAL_HEX = new Set([
+  '#ffffff',
+  '#000000',
+  // slate
+  '#f8fafc',
+  '#f1f5f9',
+  '#e2e8f0',
+  '#cbd5e1',
+  '#94a3b8',
+  '#64748b',
+  '#475569',
+  '#334155',
+  '#1e293b',
+  '#0f172a',
+  // gray
+  '#f9fafb',
+  '#f3f4f6',
+  '#e5e7eb',
+  '#d1d5db',
+  '#9ca3af',
+  '#6b7280',
+  '#4b5563',
+  '#374151',
+  '#1f2937',
+  '#111827',
+])
+
+/** Dateien mit legitimen Fremdfarben (mit Begruendung). */
+const HEX_ALLOWED_FILES = new Set([
+  'src/components/ui/FlagIcon.tsx', // Laenderflaggen
+  'public/polarisdx-mark.svg', // Firmenlogo — eigener Markenverlauf
+])
 
 const OFF_FAMILIES =
   'teal|emerald|green|blue|indigo|sky|violet|purple|fuchsia|pink|amber|yellow|orange|lime|cyan|rose'
@@ -92,11 +131,22 @@ function walk(dir, out = []) {
 }
 
 const violations = []
-const files = [...walk(SRC), join(ROOT, 'tailwind.config.js')]
+const files = [
+  ...walk(SRC),
+  join(ROOT, 'tailwind.config.js'),
+  // Flaechen ohne Tailwind-Klassen, die trotzdem Marke transportieren:
+  join(ROOT, 'server.ts'), // SSR-Fehlerseite
+  join(ROOT, 'server/server.js'), // Kontakt-/ROI-Mails + PDF-Report
+  join(ROOT, 'public/og-image.svg'), // Share-Karte (Quelle)
+  join(ROOT, 'public/polarisdx-mark.svg'), // Logo (allowlisted)
+  join(ROOT, 'scripts/og-image-template.html'), // erzeugt public/og-image.jpg
+].filter((f) => existsSync(f))
 
 for (const file of files) {
   const rel = relative(ROOT, file).replace(/\\/g, '/')
   const isConfig = rel === 'tailwind.config.js'
+  // Klassen-Regeln gelten nur fuer die App; Mail/SVG/HTML kennen kein Tailwind.
+  const isTailwindLand = rel.startsWith('src/')
   const lines = readFileSync(file, 'utf8').split('\n')
 
   lines.forEach((line, i) => {
@@ -107,24 +157,27 @@ for (const file of files) {
 
     if (!HEX_ALLOWED_FILES.has(rel)) {
       for (const hex of line.match(RE_HEX) ?? []) {
-        if (!PALETTE_HEX.has(hex.toLowerCase())) {
+        const h = hex.toLowerCase()
+        if (!PALETTE_HEX.has(h) && !NEUTRAL_HEX.has(h)) {
           violations.push([at, `Hex ${hex} ist nicht in der Palette`, line.trim()])
         }
       }
     }
-    for (const m of line.match(RE_ARBITRARY) ?? []) {
-      violations.push([at, `Arbitrary-Farbklasse ${m}`, line.trim()])
-    }
-    for (const m of line.match(RE_LEGACY_NAVY) ?? []) {
-      violations.push([at, `Legacy-Navy ${m} — nutze text-heading / brand-deep`, line.trim()])
-    }
-    if (!isConfig) {
+    if (isTailwindLand) {
+      for (const m of line.match(RE_ARBITRARY) ?? []) {
+        violations.push([at, `Arbitrary-Farbklasse ${m}`, line.trim()])
+      }
       for (const m of line.match(RE_OFF_SCALE) ?? []) {
         violations.push([
           at,
           `Off-Token-Farbe ${m} — nutze accent-* / brand-* / success-*`,
           line.trim(),
         ])
+      }
+    }
+    if (isTailwindLand || isConfig) {
+      for (const m of line.match(RE_LEGACY_NAVY) ?? []) {
+        violations.push([at, `Legacy-Navy ${m} — nutze text-heading / brand-deep`, line.trim()])
       }
     }
     for (const m of line.matchAll(RE_RGB)) {
