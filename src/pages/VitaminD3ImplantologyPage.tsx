@@ -148,7 +148,7 @@ const VitaminD3ImplantologyPage = () => {
         <div className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">
           <div className="lg:grid lg:grid-cols-[1fr_320px] lg:gap-10">
             {/* Main Article Column */}
-            <article>
+            <article className="article-col">
               <Reveal width="100%">
                 {/* Author Box - E-E-A-T Signal */}
                 <div className="mb-10 flex items-center gap-4 rounded-lg border border-slate-200 bg-white p-4">

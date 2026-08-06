@@ -111,7 +111,7 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
                   <div className="flex flex-col gap-0.5">
                     <div className="flex items-center gap-2">
                       <span
-                        className={`text-xxs uppercase font-bold tracking-wider px-1.5 py-0.5 rounded
+                        className={`text-xxs uppercase font-semibold tracking-wider px-1.5 py-0.5 rounded
                                         ${result.type === 'article' ? 'bg-accent-soft text-accent-strong' : ''}
                                         ${result.type === 'service' ? 'bg-brand-primary/10 text-brand-primary' : ''}
                                         ${result.type === 'page' ? 'bg-gray-100 text-gray-600' : ''}

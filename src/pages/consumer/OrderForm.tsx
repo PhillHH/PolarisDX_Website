@@ -194,7 +194,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
             <polyline points="20 6 9 17 4 12" />
           </svg>
         </div>
-        <h3 className="mt-5 text-2xl font-bold text-heading">
+        <h3 className="mt-5 text-2xl font-semibold text-heading">
           Thank you — your order request is in.
         </h3>
         <p className="mx-auto mt-3 max-w-md text-gray-600">
@@ -452,7 +452,7 @@ export function OrderSection({
           aria-hidden
           className="mx-auto mb-6 block h-[3px] w-12 rounded-full bg-accent-on-dark"
         />
-        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
+        <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h2>
         <p className="mx-auto mt-5 max-w-xl text-lg text-white/80">{body}</p>
       </div>
       <div className="relative mx-auto mt-12 max-w-3xl px-4 sm:px-6 lg:px-0">

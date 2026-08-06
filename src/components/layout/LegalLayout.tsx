@@ -52,7 +52,7 @@ export function LegalLayout({
         valueChips={valueChips}
       />
       <div className="bg-white">
-        <div className="mx-auto max-w-3xl px-4 py-16 lg:px-0 lg:py-24">
+        <div className="mx-auto max-w-[61ch] px-4 py-16 lg:px-0 lg:py-24">
           <Reveal width="100%">
             {meta && (
               <p className="mb-8 inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">

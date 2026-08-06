@@ -57,7 +57,7 @@ const ArticlePage = () => {
           </div>
         ) : (
           <>
-            <h1 className="text-2xl font-bold text-heading">
+            <h1 className="text-2xl font-semibold text-heading">
               {t('shop:shop.articleNotFound', 'Article not found')}
             </h1>
             <Button to="/articles">{t('shop:shop.backToArticles', 'Back to Overview')}</Button>
@@ -248,7 +248,7 @@ const ArticlePage = () => {
 
       {/* ===================== BODY (zentriert, ohne Sidebar) ===================== */}
       <div className="bg-white">
-        <div className="mx-auto max-w-3xl px-4 py-14 lg:py-20">
+        <div className="mx-auto max-w-[68ch] px-4 py-14 lg:py-20">
           <Reveal width="100%">
             {/* Lead */}
             <p className="text-xl font-medium leading-[1.7] text-gray-800">{excerpt}</p>

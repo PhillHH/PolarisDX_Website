@@ -78,7 +78,7 @@ const FAQSection = ({
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-6 pb-5 text-sm leading-relaxed text-gray-600 sm:text-base">
+                    <p className="max-w-[61ch] px-6 pb-5 text-sm leading-relaxed text-gray-600 sm:text-base">
                       {item.answer}
                     </p>
                   </div>

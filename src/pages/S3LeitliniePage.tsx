@@ -214,7 +214,7 @@ const S3LeitliniePage = () => {
         <div className="mx-auto max-w-[1200px] px-4 py-12 lg:py-16">
           <div className="lg:grid lg:grid-cols-[1fr_320px] lg:gap-10">
             {/* Main Article Column */}
-            <article>
+            <article className="article-col">
               <Reveal width="100%">
                 {/* Author Box - E-E-A-T Signal */}
                 <div className="mb-10 flex items-center gap-4 rounded-lg border border-gray-200 bg-white p-4">
@@ -491,17 +491,17 @@ const S3LeitliniePage = () => {
                     </p>
                     <div className="grid gap-4 sm:grid-cols-3">
                       <div className="text-center">
-                        <p className="text-2xl font-bold text-heading">#2</p>
+                        <p className="text-2xl font-semibold text-heading">#2</p>
                         <p className="text-xs text-gray-600">
                           Weltweit im DEQAS-Ranking (Klasse A)
                         </p>
                       </div>
                       <div className="text-center">
-                        <p className="text-2xl font-bold text-heading">±3–8 %</p>
+                        <p className="text-2xl font-semibold text-heading">±3–8 %</p>
                         <p className="text-xs text-gray-600">Bias vs. Referenzmethode</p>
                       </div>
                       <div className="text-center">
-                        <p className="text-2xl font-bold text-heading">&lt;2 %</p>
+                        <p className="text-2xl font-semibold text-heading">&lt;2 %</p>
                         <p className="text-xs text-gray-600">VK Inter-Reader-Präzision</p>
                       </div>
                     </div>
@@ -593,15 +593,15 @@ const S3LeitliniePage = () => {
                   <div className="my-6 rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
                     <div className="grid gap-4 sm:grid-cols-3 text-center">
                       <div>
-                        <p className="text-2xl font-bold text-brand-primary">3 Tests/Woche</p>
+                        <p className="text-2xl font-semibold text-brand-primary">3 Tests/Woche</p>
                         <p className="text-xs text-gray-600">Konservative Annahme</p>
                       </div>
                       <div>
-                        <p className="text-2xl font-bold text-brand-primary">600 €/Monat</p>
+                        <p className="text-2xl font-semibold text-brand-primary">600 €/Monat</p>
                         <p className="text-xs text-gray-600">Zusätzlicher Bruttoumsatz</p>
                       </div>
                       <div>
-                        <p className="text-2xl font-bold text-brand-primary">8–12 Wochen</p>
+                        <p className="text-2xl font-semibold text-brand-primary">8–12 Wochen</p>
                         <p className="text-xs text-gray-600">Amortisationsdauer</p>
                       </div>
                     </div>
@@ -682,7 +682,7 @@ const S3LeitliniePage = () => {
                         key={item.step}
                         className="flex gap-4 rounded-lg border border-gray-200 bg-white p-5"
                       >
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-primary text-white font-bold text-sm">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-primary text-white font-semibold text-sm">
                           {item.step}
                         </div>
                         <div>

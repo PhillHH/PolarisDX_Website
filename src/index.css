@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Groessenangepasster Fallback fuer Inter. @fontsource liefert
+ * font-display: swap — ohne diese Metriken springt das Layout, sobald
+ * Inter nachgeladen ist. Werte: Inter gegen Arial.
+ */
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial');
+  size-adjust: 107.12%;
+  ascent-override: 90.2%;
+  descent-override: 22.48%;
+  line-gap-override: 0%;
+}
+
 @layer components {
   .glass-panel {
     @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-glass;
@@ -41,6 +55,13 @@
   a {
     @apply text-heading no-underline;
   }
+
+  /* Preflight setzt b/strong auf "bolder" (=700). Der Satz kennt nur
+     400/500/600 — Hervorhebung im Flusstext ist Semibold. */
+  b,
+  strong {
+    font-weight: 600;
+  }
 }
 
 /* Rich HTML content styling for pillar pages (e.g. dental) */
@@ -70,6 +91,24 @@
 
   .rich-content p {
     margin-bottom: 1rem;
+  }
+
+  /* Zeilenlaenge im Lesekorridor halten (Ziel 65-75 Zeichen). Tabellen
+     und CTA-Bloecke bleiben bewusst ueber die volle Spaltenbreite. */
+  /* Textspalte langer Fachartikel: deckelt jeden Flusstext, auch in
+     Kaesten und Listen. Schmalere Elemente bleiben unberuehrt. */
+  .article-col p,
+  .article-col li,
+  .article-col blockquote {
+    max-width: 61ch;
+  }
+
+  .rich-content p,
+  .rich-content li,
+  .rich-content blockquote,
+  .rich-content h2,
+  .rich-content h3 {
+    max-width: 61ch;
   }
 
   .rich-content strong {

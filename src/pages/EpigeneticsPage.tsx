@@ -485,11 +485,11 @@ const EpigeneticsPage = () => {
         ================================================================ */}
         <section className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
           <Reveal width="100%">
-            <div className="mx-auto max-w-[80ch]">
+            <div className="mx-auto max-w-[68ch]">
               <SectionHeader caption={t('faq.caption')} title={t('faq.title')} align="left" />
             </div>
           </Reveal>
-          <div className="mx-auto mt-10 max-w-[80ch] divide-y divide-slate-200 overflow-hidden rounded-3xl border border-slate-200 bg-white">
+          <div className="mx-auto mt-10 max-w-[68ch] divide-y divide-slate-200 overflow-hidden rounded-3xl border border-slate-200 bg-white">
             {faq.map((item) => (
               <details key={item.q} className="group">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-6 text-left text-lg font-medium text-text-heading transition-colors hover:bg-slate-50 lg:px-8">
@@ -611,7 +611,7 @@ const EpigeneticsPage = () => {
             </div>
 
             {/* Rechtlicher Hinweis — abgestimmt, bitte unveraendert lassen. */}
-            <p className="mx-auto mt-10 max-w-[80ch] text-sm leading-relaxed text-gray-500">
+            <p className="mx-auto mt-10 max-w-[68ch] text-sm leading-relaxed text-gray-500">
               {t('contact.note')}
             </p>
             <p className="mt-3 text-sm text-gray-400">{t('contact.lab')}</p>

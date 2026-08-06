@@ -295,7 +295,7 @@ export function Hero({
               <p className="mb-4 text-xs font-semibold uppercase tracking-[1.6px] text-accent-strong">
                 {eyebrow}
               </p>
-              <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-heading sm:text-5xl lg:text-[3.25rem] lg:leading-[1.05]">
+              <h1 className="text-4xl font-semibold leading-[1.1] tracking-tight text-heading sm:text-5xl lg:text-[3.25rem] lg:leading-[1.05]">
                 {title}
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-gray-600">{sub}</p>
@@ -337,7 +337,7 @@ export function Hero({
               )}
               {price && (
                 <p className="mt-8 flex items-baseline gap-2">
-                  <span className="text-3xl font-bold tracking-tight text-brand-deep sm:text-4xl">
+                  <span className="text-3xl font-semibold tracking-tight text-brand-deep sm:text-4xl">
                     {price.amount}
                   </span>
                   <span className="text-sm text-gray-500">· {price.unit}</span>
@@ -361,7 +361,7 @@ export function Hero({
                   </div>
                   {floatingStat && (
                     <div className="absolute -bottom-5 -left-3 flex items-center gap-3 rounded-2xl border border-slate-100 bg-white px-5 py-3.5 shadow-[0_16px_40px_rgba(8,51,88,0.18)] sm:-left-6">
-                      <span className="text-2xl font-bold tracking-tight text-brand-deep sm:text-3xl">
+                      <span className="text-2xl font-semibold tracking-tight text-brand-deep sm:text-3xl">
                         {floatingStat.value}
                       </span>
                       <span className="max-w-[7.5rem] text-xs font-medium leading-tight text-gray-500">
@@ -436,7 +436,7 @@ function SectionTitle({
       )}
       {title && (
         <h2
-          className={`text-3xl font-bold tracking-tight sm:text-4xl ${
+          className={`text-3xl font-semibold tracking-tight sm:text-4xl ${
             onDark ? 'text-white' : 'text-heading'
           }`}
         >
@@ -611,7 +611,9 @@ export function Stats({ items }: { items: { value: string; label: string }[] }) 
           key={s.label}
           className="rounded-2xl border border-slate-100 bg-white p-7 text-center shadow-[0_10px_30px_rgba(8,51,88,0.08)] transition duration-200 hover:-translate-y-1 hover:border-accent-border hover:shadow-card motion-reduce:transition-none motion-reduce:hover:translate-y-0"
         >
-          <p className="text-3xl font-bold tracking-tight text-brand-deep sm:text-4xl">{s.value}</p>
+          <p className="text-3xl font-semibold tracking-tight text-brand-deep sm:text-4xl">
+            {s.value}
+          </p>
           <p className="mt-2 text-sm font-medium leading-snug text-gray-500">{s.label}</p>
         </div>
       ))}
@@ -625,7 +627,7 @@ export function Steps({ items }: { items: { title: string; body: string }[] }) {
     <Grid cols={cols}>
       {items.map((s, i) => (
         <Card key={i} hover className="flex h-full flex-col">
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-accent text-base font-bold text-white shadow-sm ring-4 ring-accent/15">
+          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-accent text-base font-semibold text-white shadow-sm ring-4 ring-accent/15">
             {i + 1}
           </div>
           <h3 className="mt-5 text-xl font-semibold text-heading">{s.title}</h3>
@@ -724,7 +726,7 @@ export function FinalCTA({
           aria-hidden
           className="mx-auto mb-6 block h-[3px] w-12 rounded-full bg-accent-on-dark"
         />
-        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
+        <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h2>
         <p className="mx-auto mt-5 max-w-xl text-lg text-white/80">{body}</p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           <CTA

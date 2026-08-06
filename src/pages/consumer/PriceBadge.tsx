@@ -206,7 +206,7 @@ export function PriceBadge({ product }: { product: ConsumerOrderProduct }) {
       <span className="inline-flex items-center gap-3 rounded-full border border-brand-blue/40 bg-white px-5 py-3 text-sm text-gray-700 shadow-[0_2px_8px_rgba(13,82,127,0.12)]">
         <span
           aria-hidden
-          className="flex h-9 w-9 items-center justify-center rounded-full bg-accent-soft text-base font-bold text-accent-strong"
+          className="flex h-9 w-9 items-center justify-center rounded-full bg-accent-soft text-base font-semibold text-accent-strong"
         >
           {avatarGlyph}
         </span>
@@ -257,7 +257,7 @@ export function PriceBadge({ product }: { product: ConsumerOrderProduct }) {
 
               <div className="flex items-center gap-2">
                 <span className="h-px w-6 bg-accent-line" aria-hidden />
-                <p className="text-[11px] font-bold uppercase tracking-[1.6px] text-brand-deep">
+                <p className="text-[11px] font-semibold uppercase tracking-[1.6px] text-brand-deep">
                   {copy.popoverEyebrow}
                 </p>
                 <span className="h-px flex-1 bg-slate-200" aria-hidden />
@@ -277,7 +277,7 @@ export function PriceBadge({ product }: { product: ConsumerOrderProduct }) {
 
               <div className="mt-4 flex items-center justify-between gap-3 rounded-xl border border-accent-border bg-accent-soft px-4 py-2.5">
                 <span className="text-sm font-semibold text-brand-deep">{copy.resultLabel}</span>
-                <span className="text-base font-bold tracking-tight text-accent-strong">
+                <span className="text-base font-semibold tracking-tight text-accent-strong">
                   {copy.resultValue.replace(/ /g, ' ')}
                 </span>
               </div>

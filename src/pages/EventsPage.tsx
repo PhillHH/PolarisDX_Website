@@ -18,7 +18,8 @@ function EventsPage() {
   const lang = i18n.language?.substring(0, 2) || 'de'
   const months = monthNames[lang] || monthNames.de
 
-  const highlight = events.find((e) => e.title.includes(HIGHLIGHT_EVENT_TITLE)) ?? events[events.length - 1]
+  const highlight =
+    events.find((e) => e.title.includes(HIGHLIGHT_EVENT_TITLE)) ?? events[events.length - 1]
   const listEvents = events.filter((e) => e !== highlight)
 
   const rangeLabel = (date: string, endDate?: string) => {
@@ -153,7 +154,7 @@ function EventsPage() {
                 </div>
                 <span
                   aria-hidden
-                  className="pointer-events-none absolute -bottom-2 left-6 select-none text-5xl font-bold text-white/5"
+                  className="pointer-events-none absolute -bottom-2 left-6 select-none text-5xl font-semibold text-white/5"
                 >
                   {highlight.location}
                 </span>
@@ -217,9 +218,7 @@ function EventsPage() {
             <h2 className="mt-4 text-3xl font-medium tracking-tight text-heading lg:text-[38px]">
               {t('events:past.title', "You've probably seen us before")}
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-gray-700">
-              {t('events:past.subtitle')}
-            </p>
+            <p className="mx-auto mt-3 max-w-2xl text-gray-700">{t('events:past.subtitle')}</p>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -230,7 +229,7 @@ function EventsPage() {
                 >
                   <span
                     aria-hidden
-                    className="pointer-events-none absolute bottom-3 left-5 select-none text-2xl font-bold text-white/10"
+                    className="pointer-events-none absolute bottom-3 left-5 select-none text-2xl font-semibold text-white/10"
                   >
                     {p.watermark}
                   </span>

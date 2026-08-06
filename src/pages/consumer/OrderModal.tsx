@@ -206,7 +206,7 @@ function OrderModalDialog({
           <p className="text-xs font-semibold uppercase tracking-[1.6px] text-accent-strong">
             {titleCopy.eyebrow}
           </p>
-          <h2 id={titleId} className="mt-1 pr-10 text-xl font-bold text-heading sm:text-2xl">
+          <h2 id={titleId} className="mt-1 pr-10 text-xl font-semibold text-heading sm:text-2xl">
             {titleCopy.title}
           </h2>
           <p className="mt-2 max-w-md pr-10 text-sm leading-relaxed text-gray-600">

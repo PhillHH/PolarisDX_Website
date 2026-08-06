@@ -46,7 +46,7 @@ const FeaturedCaseStudy = () => {
                 {t('reasons32.subtitle')}
               </span>
 
-              <h2 className="text-2xl lg:text-4xl font-bold text-heading mb-6 leading-tight">
+              <h2 className="text-2xl lg:text-4xl font-semibold text-heading mb-6 leading-tight">
                 {t('reasons32.title')}
               </h2>
 

@@ -27,6 +27,32 @@ const isProduction = process.env.NODE_ENV === 'production'
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000
 const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:5000'
 
+/**
+ * Preload-Tag fuer den Latin-Subset von Inter.
+ *
+ * Ohne Preload findet der Browser die woff2 erst, nachdem er das CSS
+ * geparst hat — ein zusaetzlicher Roundtrip, in dem die Seite im Fallback
+ * steht und danach sichtbar umspringt. Der Dateiname ist gehasht, also
+ * einmalig aus dem Build-Verzeichnis lesen und cachen.
+ */
+let fontPreloadTag: string | undefined
+function getFontPreloadTag(): string {
+  if (fontPreloadTag === undefined) {
+    try {
+      const assetDir = path.resolve(__dirname, 'dist/client/assets')
+      const file = fs
+        .readdirSync(assetDir)
+        .find((f) => /^inter-latin-wght-normal-.*\.woff2$/.test(f))
+      fontPreloadTag = file
+        ? `<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/${file}">`
+        : ''
+    } catch {
+      fontPreloadTag = ''
+    }
+  }
+  return fontPreloadTag
+}
+
 // Unterstützte Sprachen (muss mit i18n.ts übereinstimmen)
 const SUPPORTED_LANGUAGES = ['de', 'en', 'pl', 'fr', 'it', 'es', 'pt', 'da', 'nl', 'cs'] as const
 const DEFAULT_LANGUAGE = 'de'
@@ -473,6 +499,7 @@ async function createServer() {
         // PRODUCTION
         // -----------------------------------------------------------------------
         template = fs.readFileSync(path.resolve(__dirname, 'dist/client/index.html'), 'utf-8')
+        template = template.replace('</head>', `${getFontPreloadTag()}</head>`)
 
         const serverEntryPath = path.resolve(__dirname, 'dist/server/entry-server.js')
         const ssrModule = (await import(/* @vite-ignore */ serverEntryPath)) as RenderModule
