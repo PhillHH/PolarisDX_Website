@@ -531,8 +531,13 @@ async function createServer() {
           .replace(/<link\s+rel="canonical"[^>]*>\s*/i, '')
           // Veraltetes de_DE / English-Alternate og:locale entfernen — Helmet
           // setzt das korrekte per-Sprache og:locale.
-          .replace(/<meta\s+property="og:locale:alternate"[^>]*>\s*/i, '')
-          .replace(/<meta\s+property="og:locale"[^>]*>\s*/i, '')
+          // ALLE statischen og:/twitter:-Tags entfernen. Helmet liefert fuer
+          // jeden davon eine seiten-spezifische Fassung; ohne das Strippen
+          // steht die veraltete Variante VOR der richtigen, und Unfurler
+          // (LinkedIn, WhatsApp, Slack) nehmen die erste. Konkret gewinnt
+          // sonst nie ein seiten-eigenes og:image.
+          .replace(/<meta[^>]*property="og:[^>]*>\s*/gi, '')
+          .replace(/<meta[^>]*name="twitter:[^>]*>\s*/gi, '')
           // Veraltetes 'German' Sprach-Meta entfernen (gilt sonst für alle Sprachen).
           .replace(/<meta\s+name="language"[^>]*>\s*/i, '')
       }

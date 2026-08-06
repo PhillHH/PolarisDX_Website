@@ -195,6 +195,12 @@ const DownloadsPage = () => {
               {t('downloads:link_services', 'Diagnostik-Services')} →
             </Link>
             <Link
+              to="/epigenetics"
+              className="font-semibold text-accent transition-colors hover:text-accent-strong"
+            >
+              {t('downloads:link_epigenetics', 'Epigenetik und Genetik')} →
+            </Link>
+            <Link
               to="/contact"
               className="font-semibold text-accent transition-colors hover:text-accent-strong"
             >

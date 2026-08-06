@@ -122,6 +122,7 @@ const EpigeneticsPage = () => {
       <SEOHead
         title={t('seo.title')}
         description={t('seo.description')}
+        ogImage="/og-epigenetics.jpg"
         keywords={[
           'Epigenetik Analyse',
           'Genetik Analyse Praxis',
