@@ -140,11 +140,11 @@ const EpigeneticsPage = () => {
         ]}
       />
 
-      <div className="bg-slate-50 text-gray-900">
+      <div className="bg-slate-50 text-heading">
         {/* ================================================================
             HERO
         ================================================================ */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-[#203864] text-white">
+        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-navy-mid text-white">
           <div className="pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px] rounded-full bg-brand-secondary/30 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-32 left-1/4 h-[320px] w-[320px] rounded-full bg-accent/20 blur-3xl" />
           <Sparkle className="pointer-events-none absolute right-8 top-24 hidden h-40 w-40 text-white/15 lg:block" />
@@ -355,7 +355,7 @@ const EpigeneticsPage = () => {
         ================================================================ */}
         <section className="mx-auto max-w-container px-4 py-10 lg:px-0 lg:py-14">
           <Reveal width="100%">
-            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-deep to-[#203864] px-7 py-10 text-white lg:px-12 lg:py-12">
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-deep to-brand-navy-mid px-7 py-10 text-white lg:px-12 lg:py-12">
               <Sparkle className="pointer-events-none absolute -right-8 -top-8 hidden h-40 w-40 text-white/10 lg:block" />
               <div className="relative flex flex-col gap-7 lg:flex-row lg:items-center lg:justify-between">
                 <div className="max-w-[52ch]">
