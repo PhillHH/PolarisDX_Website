@@ -40,10 +40,11 @@
     "cta": "To the Igloo Pro System"
   },
   "igloo_widget": {
-    "title": "Application Areas",
+    "title": "Areas of application: POCT for dental, beauty and longevity — plus epigenetics from the lab",
     "dental": "Dental",
     "beauty": "Beauty",
     "longevity": "Longevity",
+    "epigenetics": "Epigenetics",
     "all_services": "Discover all diagnostics services"
   },
   "services": {

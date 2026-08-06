@@ -40,10 +40,11 @@
     "cta": "Do systemu Igloo Pro"
   },
   "igloo_widget": {
-    "title": "Obszary Zastosowań",
+    "title": "Obszary Zastosowań — plus epigenetyka z laboratorium",
     "dental": "Dental",
     "beauty": "Beauty",
     "longevity": "Longevity",
+    "epigenetics": "Epigenetyka",
     "all_services": "Odkryj wszystkie usługi diagnostyczne"
   },
   "services": {

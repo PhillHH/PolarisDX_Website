@@ -40,10 +40,11 @@
     "cta": "Til Igloo Pro Systemet"
   },
   "igloo_widget": {
-    "title": "Anvendelsesområder",
+    "title": "Anvendelsesområder — plus epigenetik fra laboratoriet",
     "dental": "Dental",
     "beauty": "Beauty",
     "longevity": "Longevity",
+    "epigenetics": "Epigenetik",
     "all_services": "Oplev alle diagnostiktjenester"
   },
   "services": {
