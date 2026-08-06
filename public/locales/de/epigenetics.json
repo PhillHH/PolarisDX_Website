@@ -1,7 +1,7 @@
 {
   "seo": {
-    "title": "Epigenetik- und Genetik-Analysen: Unterlagen",
-    "description": "Unterlagen zum Epigenetik- und Genetik-Programm von PolarisDX. Sechs Analysen aus einem Tropfen Kapillarblut, alle Infoblätter als PDF in Deutsch und Englisch."
+    "title": "Epigenetik- und Genetik-Analysen für die Praxis",
+    "description": "Sechs Epigenetik- und Genetik-Analysen aus einem Tropfen Kapillarblut: was gemessen wird, für wen es sich eignet, was belegt ist — und alle Infoblätter als PDF in Deutsch und Englisch."
   },
   "breadcrumb": {
     "home": "Home",
@@ -11,18 +11,248 @@
     "eyebrow": "Partnerprogramm · Epigenetik und Genetik",
     "title": "Epigenetik und Genetik aus einem Tropfen Blut",
     "claim": "Sechs Analysen aus Kapillarblut, ausgewertet bei unserem europäischen Kooperationslabor — als messbare Grundlage für Ihre Beratung.",
-    "ctaDocs": "Unterlagen ansehen",
+    "ctaDocs": "Die sechs Analysen",
     "ctaQuote": "Angebot anfragen",
     "chips": [
       { "label": "Probe", "value": "Trockenblutkarte, Fingerbeere" },
+      { "label": "Labor", "value": "Kooperationspartner, EU" },
       { "label": "Portfolio", "value": "6 Analysen, ein Probenweg" },
       { "label": "Preise", "value": "B2B nach Absprache" }
     ]
   },
+  "principle": {
+    "caption": "Das Prinzip",
+    "title": "Die Ebene, die ein Schnelltest nicht abbildet",
+    "lead": "Die sechs Analysen ergänzen die Point-of-Care-Diagnostik am Igloo-Reader um das, was dieser nicht zeigt: individuelle Veranlagung und Regulationsprozesse, die sich über die Zeit verändern.",
+    "cards": [
+      {
+        "title": "Zwei Ebenen: Genetik und Epigenetik",
+        "text": "Genetische Varianten beschreiben die lebenslang unveränderliche Veranlagung. Epigenetische Marker — microRNA-Muster und DNA-Methylierung — beschreiben den aktuellen Regulationszustand und reagieren auf Ernährung, Bewegung, Schlaf und Belastung. Genau deshalb sind sie im Verlauf messbar."
+      },
+      {
+        "title": "Probenmaterial: Trockenblutkarte",
+        "text": "Wenige Tropfen Kapillarblut aus der Fingerbeere werden auf eine Trockenblutkarte aufgebracht. Keine Venenpunktion, keine Zentrifuge, kein Kühlversand — die Probenahme ist in der Praxis oder zu Hause möglich."
+      },
+      {
+        "title": "Labor und Referenzdaten",
+        "text": "Die Auswertung erfolgt bei unserem Kooperationspartner, einem spezialisierten europäischen Labor mit über 15 Jahren Forschungsarbeit auf diesem Gebiet. Die Einordnung stützt sich auf über 60.000 validierte Referenzwerte. Qualitätsmanagement nach ISO 9001:2015."
+      }
+    ],
+    "practice": {
+      "title": "Wichtig für die Praxis",
+      "items": [
+        "Beratungswerkzeug, keine Diagnose — die Analysen ersetzen keine ärztliche Abklärung.",
+        "Erstmessung und Folgemessung nach 4 bis 6 Monaten bilden ein planbares Programm.",
+        "Ein Probenweg, ein Kartentyp, ein Laborpartner für alle sechs Analysen."
+      ]
+    }
+  },
+  "analyses": {
+    "caption": "Portfolio",
+    "title": "Die sechs Analysen",
+    "lead": "Jede Analyse läuft über denselben Probenweg. Unterschiedlich sind Umfang, Methode und die Frage, die sie beantwortet.",
+    "whatLabel": "Was analysiert wird",
+    "whoLabel": "Für wen geeignet",
+    "pdfBtn": "Infoblatt als PDF",
+    "items": [
+      {
+        "num": "01",
+        "name": "Metabolic Health",
+        "subtitle": "Welche Ernährung zu welchem Menschen passt — genetisch veranlagt, epigenetisch überprüfbar.",
+        "facts": [
+          { "k": "Umfang", "v": "11 Auswertungsbereiche" },
+          { "k": "Ergebnis", "v": "1 von 4 Stoffwechseltypen" }
+        ],
+        "what": "Ausgewertet wird, welche Makronährstoffverteilung zur individuellen Veranlagung passt — hinterlegt mit konkreten Portions- und Rezeptvorschlägen. Weil genetische Varianten das Gewichtsverhalten allein nicht erklären, kommen epigenetische Marker zu DNA-Stabilität und Entzündung dazu: Nur diese sind durch den Lebensstil beeinflussbar und taugen als Erfolgskontrolle.",
+        "who": [
+          "Ernährungsberatung, die über Standardpläne hinausgehen soll",
+          "Präventionspraxen mit strukturierten Gewichtsprogrammen",
+          "Klientinnen und Klienten, bei denen bisherige Umstellungen nicht gegriffen haben"
+        ],
+        "file": "de/01_Metabolic_Health_PolarisDX.pdf"
+      },
+      {
+        "num": "02",
+        "name": "Healthy Aging",
+        "subtitle": "Biologisches Alter auf vier molekularen Ebenen — mit Ampelbewertung statt Einzelwert.",
+        "facts": [
+          { "k": "Umfang", "v": "4 molekulare Ebenen" },
+          { "k": "Verlauf", "v": "Folgemessung nach 4–6 Monaten" }
+        ],
+        "what": "Telomerlänge, epigenetische Alterungsmarker, Entzündung und DNA-Stabilität werden gegen alters- und geschlechtsbezogene Referenzwerte eingeordnet und jeweils grün, gelb oder rot bewertet. So ist erkennbar, welche Ebene den Befund treibt — und wo eine Intervention ansetzen sollte. Ergänzend werden Lebensstildaten erhoben und gegenübergestellt.",
+        "who": [
+          "Longevity-Zentren und Präventionspraxen mit strukturierten Programmen",
+          "Ernährungsberatung und präventivmedizinisch arbeitende Ärztinnen und Ärzte",
+          "Personen ab etwa 40 Jahren, die ihren Alterungsprozess messbar begleiten wollen"
+        ],
+        "file": "de/02_Healthy_Aging_PolarisDX.pdf"
+      },
+      {
+        "num": "03",
+        "name": "Biologische Alters-Uhr",
+        "subtitle": "Ein exploratives Lebensstil-Signal aus drei microRNA — ausdrücklich keine Altersbestimmung.",
+        "facts": [
+          { "k": "Marker", "v": "miR-21, miR-24, miR-155" },
+          { "k": "Aussagekraft", "v": "explorativ, nicht diagnostisch" }
+        ],
+        "what": "Drei microRNA werden mittels quantitativer PCR bestimmt, gegen miR-93 normalisiert und zu einem Wert verrechnet: der prozentualen Abweichung des biologischen vom chronologischen Alter. Das zugrunde liegende Modell ist publiziert, aber als Pilotstudie deklariert — der Ausgabewert ist ein exploratives Signal, kein belastbares biologisches Alter.",
+        "who": [
+          "Longevity- und Functional-Medicine-Praxen als Einstiegs- und Verlaufsparameter",
+          "Gesundheitszentren, Coaching und betriebliches Gesundheitsmanagement",
+          "Als kompakter Einzelwert dort, wo ein volles Aging-Panel zu umfangreich ist"
+        ],
+        "file": "de/03_Biologisches_Alter_PolarisDX.pdf"
+      },
+      {
+        "num": "04",
+        "name": "Telomer-Analyse",
+        "subtitle": "Die Schutzkappen der Chromosomen als Basiswert — gemessen in Kilobasenpaaren.",
+        "facts": [
+          { "k": "Methode", "v": "Quantitative PCR" },
+          { "k": "Ergebnis", "v": "Telomerlänge in kbp" }
+        ],
+        "what": "Telomere verkürzen sich mit jeder Zellteilung und gelten als Marker zellulärer Alterung. Die Bestimmung erfolgt aus getrocknetem Kapillarblut, das Ergebnis wird in Kilobasenpaaren angegeben und gegen eine alters- und geschlechtsangepasste Referenzpopulation eingeordnet. qPCR-Werte streuen zwischen Läufen und Laboren deutlich — aussagekräftig ist der Verlauf, nicht der Einzelwert.",
+        "who": [
+          "Longevity-Programme und Präventionsmedizin als Basis- und Verlaufsmessung",
+          "Ernährungsberatung, die einen objektiven Ausgangswert dokumentieren will",
+          "Betriebliche Gesundheitsprogramme mit Longevity-Schwerpunkt"
+        ],
+        "file": "de/04_Telomer_Analyse_PolarisDX.pdf"
+      },
+      {
+        "num": "05",
+        "name": "Stress Monitor",
+        "subtitle": "Gemessene Belastung neben empfundener Belastung — sechs microRNA in vier Bereichen.",
+        "facts": [
+          { "k": "Umfang", "v": "6 microRNA, 4 Bereiche" },
+          { "k": "Befund", "v": "Ampel plus Gesamtprofil" }
+        ],
+        "what": "Physiologische Stressbelastung, Zellschutz, Serotoninregulation und Immunsignale werden je Bereich als Ampel ausgegeben und dem im Fragebogen erhobenen subjektiven Stresserleben gegenübergestellt. Gerade die Diskrepanz ist im Gespräch aufschlussreich: Personen mit hoher Belastungstoleranz unterschätzen ihre Belastung häufig.",
+        "who": [
+          "Betriebliches Gesundheitsmanagement und Resilienzprogramme",
+          "Praxen und Beratungsstellen mit Schwerpunkt Stressprävention",
+          "Personen in anhaltender beruflicher oder privater Belastung"
+        ],
+        "file": "de/05_Stress_Monitor_PolarisDX.pdf"
+      },
+      {
+        "num": "06",
+        "name": "Healthy Sport",
+        "subtitle": "Acht epigenetische Bereiche zum aktuellen Zustand — in der Plus-Variante ergänzt um vier genetische Varianten.",
+        "facts": [
+          { "k": "Umfang", "v": "8 Bereiche, Plus: + 4 Varianten" },
+          { "k": "Befund", "v": "Score 0–100 plus Ampel" }
+        ],
+        "what": "Nährstoff- und Hydrationsstatus, Belastungsniveau, Regeneration, Verletzungsrisiko, kardiovaskuläre Fitness, Entzündung und Muskelstatus bilden den veränderlichen Verlaufsteil. Die Plus-Variante ergänzt vier unveränderliche genetische Varianten zu Sporttyp, Trainingsmotivation, Muskelschädigungsrisiko und Gewichtsregulation — einmalig erhoben.",
+        "who": [
+          "Sportmedizinische Praxen und Leistungsdiagnostik",
+          "Sportwissenschaft, Trainerinnen und Trainer, Performance-Coaching",
+          "Ambitionierte Freizeit- und Wettkampfsportlerinnen und -sportler"
+        ],
+        "file": "de/06_Healthy_Sport_PolarisDX.pdf"
+      }
+    ]
+  },
+  "workflow": {
+    "caption": "Ablauf",
+    "title": "So läuft es in der Praxis",
+    "lead": "Sechs Schritte, ein Probenweg — identisch für alle sechs Analysen.",
+    "steps": [
+      "Beratungsgespräch führen, Aufklärung und Einwilligung dokumentieren.",
+      "Probenahme: Fingerbeere punktieren, Blut auf die Karte auftragen, trocknen lassen.",
+      "Versand der Karte im vorbereiteten Umschlag an das Partnerlabor.",
+      "Laboranalyse der genetischen bzw. epigenetischen Marker.",
+      "Digitaler Befund mit Ampelbewertung und konkreten Empfehlungen.",
+      "Besprechung und Handlungsplan; Folgemessung frühestens nach 4 bis 6 Monaten."
+    ]
+  },
+  "evidence": {
+    "caption": "Studienlage",
+    "title": "Was belegt ist — und was nicht",
+    "lead": "In diesem Feld wird viel überversprochen. Wer die Analysen im Gespräch vertritt, sollte die Grenzen kennen — sonst tragen sie im ersten kritischen Rückfragefall nicht. Vor Fachpublikum ist Offenheit ein Vorteil, kein Risiko.",
+    "establishedTitle": "Gut belegt",
+    "established": [
+      {
+        "title": "Lebensstil verändert epigenetische Marker",
+        "text": "Randomisierte Pilotstudie über 8 Wochen: epigenetisches Alter im Mittel 3,2 Jahre niedriger als in der Kontrollgruppe (Fitzgerald et al., Aging 2021). Gemessen wurde DNA-Methylierung, nicht microRNA."
+      },
+      {
+        "title": "Entzündung als Alterungsachse",
+        "text": "„Inflammaging\" ist ein etabliertes Konzept; miR-21 ist als zirkulierender Entzündungsmarker beschrieben (Olivieri et al. 2012)."
+      },
+      {
+        "title": "microRNA sind in Trockenblut stabil",
+        "text": "microRNA gelten als robuster als mRNA und bleiben in getrockneten Proben vergleichsweise stabil — der Probenweg selbst ist tragfähig."
+      },
+      {
+        "title": "Etablierter Standard für biologisches Alter",
+        "text": "Das sind Methylierungsuhren: Horvath, PhenoAge, GrimAge und DunedinPACE. DunedinPACE zeigt hohe Test-Retest-Reliabilität und Zusammenhänge zu Morbidität und Mortalität."
+      }
+    ],
+    "preliminaryTitle": "Vorläufig",
+    "preliminary": [
+      {
+        "title": "microRNA-Alters-Uhr",
+        "text": "Das publizierte Modell (n = 539) erklärt rund 5 % der Altersvarianz bei einem mittleren absoluten Fehler von 10,4 Jahren; zwei der drei Marker korrelierten nicht signifikant mit dem Lebensalter. Als Altersbestimmung ist der Wert nicht belastbar."
+      },
+      {
+        "title": "Telomerlänge aus qPCR",
+        "text": "Die Methode streut erheblich zwischen Läufen und Laboren; DNA-Extraktion, Lagerung und Zellzusammensetzung beeinflussen das Ergebnis systematisch. Aus Trockenblut liegt die Assay-Streuung höher als aus Venenblut."
+      },
+      {
+        "title": "Genbasierte Ernährungsempfehlungen",
+        "text": "Die Food4Me-Studie fand keinen Unterschied im Gewichtsverlust zwischen Personalisierungsstufen einschließlich Genetik. Der Nutzen liegt in Struktur, Gespräch und Adhärenz — nicht in der Überlegenheit gegenüber guter Standardberatung."
+      },
+      {
+        "title": "microRNA als Stressmarker",
+        "text": "Es gibt Arbeiten zu einzelnen microRNA und akutem wie chronischem Stress, aber keine etablierten Grenzwerte und keine diagnostische Validierung."
+      }
+    ],
+    "cta": "Vollständige Studienlage als PDF",
+    "file": "de/08_Evidenz_Studienlage_PolarisDX.pdf"
+  },
+  "faq": {
+    "caption": "Häufige Fragen",
+    "title": "Was Fachanwender wissen wollen",
+    "items": [
+      {
+        "q": "Worin unterscheiden sich Genetik und Epigenetik?",
+        "a": "Genetische Varianten sind lebenslang unveränderlich und beschreiben die Veranlagung — sie werden einmalig erhoben. Epigenetische Marker beschreiben den aktuellen Regulationszustand, reagieren auf Ernährung, Bewegung, Schlaf und Belastung und sind deshalb im Verlauf messbar. Nur die epigenetische Ebene eignet sich als Erfolgskontrolle."
+      },
+      {
+        "q": "Wie läuft die Probenahme ab?",
+        "a": "Wenige Tropfen Kapillarblut aus der Fingerbeere kommen auf eine Trockenblutkarte und trocknen dort. Keine Venenpunktion, keine Zentrifuge, kein Kühlversand — die Probenahme ist in der Praxis oder zu Hause möglich. Der Versand erfolgt im vorbereiteten Umschlag an das Partnerlabor."
+      },
+      {
+        "q": "Wann ist eine Folgemessung sinnvoll?",
+        "a": "Frühestens nach 4 bis 6 Monaten und unter möglichst gleichen Bedingungen. Aussagekräftig ist der Verlauf, nicht der Einzelwert — Erstmessung und Folgemessung bilden zusammen ein planbares Programm. Akute Infekte verschieben Entzündungsmarker, der Messzeitpunkt sollte deshalb bewusst gewählt werden."
+      },
+      {
+        "q": "Ersetzen die Analysen eine ärztliche Diagnostik?",
+        "a": "Nein. Es sind Beratungs- und Verlaufswerkzeuge, keine medizinische Diagnose und kein Ersatz für ärztliche Abklärung. Ergeben sich Hinweise auf behandlungsbedürftige Befunde, gehört die Person in ärztliche oder psychotherapeutische Abklärung."
+      },
+      {
+        "q": "Was ist rechtlich zu beachten?",
+        "a": "Genetische Analysen unterliegen in Deutschland dem Gendiagnostikgesetz: Aufklärung und schriftliche Einwilligung der untersuchten Person müssen vor der Probenahme vorliegen und dokumentiert sein. Das betrifft Metabolic Health und die Plus-Variante von Healthy Sport."
+      },
+      {
+        "q": "Wie belastbar sind die Ergebnisse?",
+        "a": "Das ist je Analyse unterschiedlich, und wir legen es offen. Der Probenweg selbst ist tragfähig, ebenso die Verlaufsbetrachtung. Die microRNA-Alters-Uhr ist dagegen explorativ, und qPCR-Telomerwerte streuen deutlich. Das Evidenzblatt trennt gesicherte von vorläufiger Evidenz und nennt die Quellen."
+      },
+      {
+        "q": "Was kosten die Analysen?",
+        "a": "B2B-Konditionen nach Absprache, gestaffelt nach Abnahmemenge und Vertragsmodell. Eine öffentliche Endkundenpreisliste gibt es nicht. Testkarten, Versandmaterial und Befundzustellung sind Bestandteil des Angebots."
+      },
+      {
+        "q": "Für welche Einrichtungen eignet sich das Programm?",
+        "a": "Die Analysen werden ausschließlich an Fachanwenderinnen und Fachanwender abgegeben: Präventions- und Longevity-Praxen, Ernährungsberatung, Sportmedizin und Coaching sowie betriebliches Gesundheitsmanagement."
+      }
+    ]
+  },
   "downloads": {
     "caption": "Unterlagen",
-    "title": "Die Unterlagen",
-    "sub": "Alle Blätter als PDF, DE und EN. Stand August 2026.",
+    "title": "Alle Blätter zum Mitnehmen",
+    "sub": "18 Infoblätter als PDF, je neun in Deutsch und Englisch. Stand August 2026.",
     "zipLabel": "Alle Blätter als ZIP · 0,6 MB",
     "zipFile": "PolarisDX_Unterlagen_DE.zip",
     "btn": "PDF laden"
@@ -94,25 +324,6 @@
       "featured": true
     }
   ],
-  "workflow": {
-    "caption": "Ablauf",
-    "title": "So läuft es in der Praxis",
-    "steps": [
-      "Beratungsgespräch führen, Aufklärung und Einwilligung dokumentieren.",
-      "Probenahme: Fingerbeere punktieren, Blut auf die Karte auftragen, trocknen lassen.",
-      "Versand der Karte im vorbereiteten Umschlag an das Partnerlabor.",
-      "Laboranalyse der genetischen bzw. epigenetischen Marker.",
-      "Digitaler Befund mit Ampelbewertung und konkreten Empfehlungen.",
-      "Besprechung und Handlungsplan; Folgemessung frühestens nach 4 bis 6 Monaten."
-    ]
-  },
-  "evidence": {
-    "eyebrow": "Warum wir die Studienlage offenlegen",
-    "title": "Beratungswerkzeug, keine Diagnostik",
-    "text": "In diesem Feld wird viel überversprochen. Unsere Unterlagen trennen deshalb gesicherte von vorläufiger Evidenz und benennen die Grenzen jeder Methode — einschließlich der Stellen, an denen ein Einzelwert nicht individuell interpretierbar ist. Vor Fachpublikum ist das ein Vorteil, kein Risiko.",
-    "cta": "Studienlage als PDF",
-    "file": "de/08_Evidenz_Studienlage_PolarisDX.pdf"
-  },
   "contact": {
     "caption": "Kontakt",
     "title": "Konditionen anfragen",
