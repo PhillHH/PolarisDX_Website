@@ -52,6 +52,7 @@ const ServicePage = lazy(() => import('./pages/ServicePage'))
 
 // Produkt-Seiten (große Komponenten)
 const IglooProPage = lazy(() => import('./pages/IglooProPage'))
+const EpigeneticsPage = lazy(() => import('./pages/EpigeneticsPage'))
 const VitaminD3ImplantologyPage = lazy(() => import('./pages/VitaminD3ImplantologyPage'))
 const S3LeitliniePage = lazy(() => import('./pages/S3LeitliniePage'))
 const VitaminD3SprayPage = lazy(() => import('./pages/VitaminD3SprayPage'))
@@ -281,6 +282,14 @@ function App() {
             element={
               <LazyRoute>
                 <VitaminD3SprayPage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/epigenetics"
+            element={
+              <LazyRoute>
+                <EpigeneticsPage />
               </LazyRoute>
             }
           />

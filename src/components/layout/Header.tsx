@@ -30,6 +30,7 @@ const navItems: NavItem[] = [
       { label: 'dental', route: '/diagnostics/dental' },
       { label: 'beauty', route: '/diagnostics/beauty' },
       { label: 'longevity', route: '/diagnostics/longevity' },
+      { label: 'epigenetics', route: '/epigenetics' },
       { label: 'pocSystems', route: '/diagnostics/poc-systemloesungen' },
     ],
   },
