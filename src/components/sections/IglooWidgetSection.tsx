@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Sparkles, Infinity as InfinityIcon } from 'lucide-react'
+import { Sparkles, Infinity as InfinityIcon, Dna } from 'lucide-react'
 import { Tooth } from '../ui/icons/Tooth'
 import Eyebrow from '../ui/Eyebrow'
 import iglooImage from '../../assets/igloo_front.webp'
@@ -8,11 +8,13 @@ import iglooImage from '../../assets/igloo_front.webp'
 const IglooWidgetSection = () => {
   const { t } = useTranslation('home')
 
-  // Coordinates for the symmetrical triangle layout (1200x600 container)
+  // Coordinates for the symmetrical square layout (1200x600 container).
+  // Vier Ecken statt Dreieck — der Reader steht in der Mitte des Rechtecks.
   const positions = {
-    dental: { x: 600, y: 80 },
-    beauty: { x: 150, y: 500 },
-    longevity: { x: 1050, y: 500 },
+    dental: { x: 200, y: 110 },
+    beauty: { x: 1000, y: 110 },
+    longevity: { x: 200, y: 490 },
+    epigenetics: { x: 1000, y: 490 },
   }
 
   const widgets = [
@@ -40,6 +42,14 @@ const IglooWidgetSection = () => {
       x: positions.longevity.x,
       y: positions.longevity.y,
     },
+    {
+      id: 'epigenetics',
+      label: t('igloo_widget.epigenetics', 'Epigenetik'),
+      path: '/epigenetics',
+      icon: <Dna className="w-12 h-12 text-brand-primary" />,
+      x: positions.epigenetics.x,
+      y: positions.epigenetics.y,
+    },
   ]
 
   return (
@@ -51,7 +61,7 @@ const IglooWidgetSection = () => {
       </div>
 
       <div className="mx-auto flex w-full flex-col items-center justify-center gap-10 lg:block lg:h-[600px] lg:w-[1200px] relative px-4 lg:px-0">
-        {/* Decorative connecting lines for desktop (Triangle) */}
+        {/* Decorative connecting lines for desktop (Square) */}
         <svg className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0">
           <defs>
             <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -76,7 +86,7 @@ const IglooWidgetSection = () => {
 
           {/* Path connecting the centers of the widgets */}
           <path
-            d={`M ${positions.dental.x} ${positions.dental.y} L ${positions.beauty.x} ${positions.beauty.y} L ${positions.longevity.x} ${positions.longevity.y} Z`}
+            d={`M ${positions.dental.x} ${positions.dental.y} L ${positions.beauty.x} ${positions.beauty.y} L ${positions.epigenetics.x} ${positions.epigenetics.y} L ${positions.longevity.x} ${positions.longevity.y} Z`}
             stroke="url(#blueGradient)"
             strokeWidth="2"
             fill="none"

@@ -40,10 +40,11 @@
     "cta": "Naar het Igloo Pro Systeem"
   },
   "igloo_widget": {
-    "title": "Toepassingsgebieden",
+    "title": "Toepassingsgebieden — plus epigenetica uit het lab",
     "dental": "Dental",
     "beauty": "Beauty",
     "longevity": "Longevity",
+    "epigenetics": "Epigenetica",
     "all_services": "Ontdek alle diagnostiekdiensten"
   },
   "services": {

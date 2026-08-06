@@ -44,10 +44,11 @@
     "cta": "Zum Igloo Pro System"
   },
   "igloo_widget": {
-    "title": "Anwendungsbereiche: POCT für Dental, Beauty und Longevity",
+    "title": "Anwendungsbereiche: POCT für Dental, Beauty und Longevity — plus Epigenetik aus dem Labor",
     "dental": "Dental",
     "beauty": "Beauty",
     "longevity": "Longevity",
+    "epigenetics": "Epigenetik",
     "all_services": "Alle Diagnostik-Services entdecken"
   },
   "services": {
