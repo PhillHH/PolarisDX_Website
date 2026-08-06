@@ -13,9 +13,13 @@
     "dental": "Diagnostic dentaire",
     "beauty": "Diagnostic beauté",
     "longevity": "Diagnostic longévité",
-    "epigenetics": "Épigénétique",
+    "epigenetics": "Épigénétique et génétique",
     "pocSystems": "Systèmes POC",
-    "support": "Support"
+    "support": "Support",
+    "group_poc": "Point-of-care",
+    "group_lab": "Diagnostic de laboratoire",
+    "badge_new": "Nouveau",
+    "epigenetics_desc": "Six analyses à partir d'une goutte de sang"
   },
   "badge": {
     "New": "Nouveau",

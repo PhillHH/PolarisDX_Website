@@ -13,9 +13,13 @@
     "dental": "Zubní diagnostika",
     "beauty": "Estetická diagnostika",
     "longevity": "Longevity diagnostika",
-    "epigenetics": "Epigenetika",
+    "epigenetics": "Epigenetika a genetika",
     "pocSystems": "POC systémy",
-    "support": "Podpora"
+    "support": "Podpora",
+    "group_poc": "Point-of-care",
+    "group_lab": "Laboratorní diagnostika",
+    "badge_new": "Novinka",
+    "epigenetics_desc": "Šest analýz z jedné kapky krve"
   },
   "badge": {
     "New": "Nové",
