@@ -159,12 +159,12 @@ const DownloadsPage = () => {
 
           {/* Dezente Schluss-CTA (Teal-Band) */}
           <Reveal width="100%">
-            <div className="mt-14 flex flex-col gap-4 rounded-2xl bg-accent p-6 text-white md:flex-row md:items-center md:justify-between lg:p-8">
+            <div className="mt-14 flex flex-col gap-4 rounded-2xl bg-accent-strong p-6 text-white md:flex-row md:items-center md:justify-between lg:p-8">
               <div>
                 <p className="text-lg font-medium">
                   {t('downloads:cta_title', 'Unterlage nicht gefunden?')}
                 </p>
-                <p className="mt-1 text-sm text-white/85">
+                <p className="mt-1 text-sm text-white">
                   {t(
                     'downloads:cta_text',
                     'Unser Team stellt Ihnen weitere Datenblätter, Zertifikate oder eine individuelle Produktberatung bereit.',

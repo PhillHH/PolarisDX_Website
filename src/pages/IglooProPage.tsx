@@ -47,10 +47,10 @@ const IglooProPage: React.FC = () => {
 
       <section className="bg-white">
         <div className="mx-auto max-w-container px-4 lg:px-0 pb-24 lg:pb-28">
-          <div className="flex flex-col gap-4 rounded-2xl bg-accent p-6 lg:p-8 text-white md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col gap-4 rounded-2xl bg-accent-strong p-6 lg:p-8 text-white md:flex-row md:items-center md:justify-between">
             <div>
               <p className="font-medium">{t('products:help.title')}</p>
-              <p className="text-sm text-white/85">{t('products:help.text')}</p>
+              <p className="text-sm text-white">{t('products:help.text')}</p>
             </div>
             <Link
               to="/contact"

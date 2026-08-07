@@ -502,11 +502,11 @@ const VitaminD3ImplantologyPage = () => {
                 </div>
 
                 {/* Quick Order CTA — flaches Teal-Band */}
-                <div className="rounded-xl bg-accent p-6 text-white">
+                <div className="rounded-xl bg-accent-strong p-6 text-white">
                   <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-white">
                     Schnellbestellung
                   </p>
-                  <p className="mb-4 text-sm text-white/90">
+                  <p className="mb-4 text-sm text-white">
                     Direkt zum Bestellformular und D3+K2 Spray für Ihre Praxis sichern.
                   </p>
                   <a
@@ -593,7 +593,7 @@ const VitaminD3ImplantologyPage = () => {
       <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-gray-200 bg-white p-4 shadow-lg lg:hidden">
         <a
           href="#bestellformular"
-          className="flex w-full items-center justify-center gap-2 rounded-md bg-accent px-6 py-3.5 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-accent-strong"
+          className="flex w-full items-center justify-center gap-2 rounded-md bg-accent-strong px-6 py-3.5 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-brand-deep"
         >
           Jetzt D3+K2 Spray bestellen
           <ArrowRight className="h-4 w-4" />

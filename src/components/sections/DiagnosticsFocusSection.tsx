@@ -1,13 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import {
-  MonitorSmartphone,
-  ShieldCheck,
-  Flame,
-  HeartPulse,
-  Dna,
-  Puzzle,
-} from 'lucide-react'
+import { MonitorSmartphone, ShieldCheck, Flame, HeartPulse, Dna, Puzzle } from 'lucide-react'
 import type { ReactNode } from 'react'
 import Eyebrow from '../ui/Eyebrow'
 
@@ -19,12 +12,27 @@ type FocusCard = {
 }
 
 const cards: FocusCard[] = [
-  { id: 'poc-systemloesungen', tkey: 'poc_systemloesungen', fkey: 'poc', icon: <MonitorSmartphone /> },
+  {
+    id: 'poc-systemloesungen',
+    tkey: 'poc_systemloesungen',
+    fkey: 'poc',
+    icon: <MonitorSmartphone />,
+  },
   { id: 'praeventions-checks', tkey: 'praeventions_checks', fkey: 'checks', icon: <ShieldCheck /> },
-  { id: 'infektion-entzuendung', tkey: 'infektion_entzuendung', fkey: 'infection', icon: <Flame /> },
+  {
+    id: 'infektion-entzuendung',
+    tkey: 'infektion_entzuendung',
+    fkey: 'infection',
+    icon: <Flame />,
+  },
   { id: 'stoffwechsel-herz', tkey: 'stoffwechsel_herz', fkey: 'metabolism', icon: <HeartPulse /> },
   { id: 'hormon-tests', tkey: 'hormon_tests', fkey: 'hormone', icon: <Dna /> },
-  { id: 'kompatibilitaet-integration', tkey: 'kompatibilitaet_integration', fkey: 'compat', icon: <Puzzle /> },
+  {
+    id: 'kompatibilitaet-integration',
+    tkey: 'kompatibilitaet_integration',
+    fkey: 'compat',
+    icon: <Puzzle />,
+  },
 ]
 
 const DiagnosticsFocusSection = () => {
@@ -88,10 +96,10 @@ const DiagnosticsFocusSection = () => {
 
       <section className="bg-white">
         <div className="mx-auto max-w-container px-4 lg:px-0 pb-24 lg:pb-28">
-          <div className="rounded-2xl bg-accent p-6 lg:p-8 text-white flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div className="rounded-2xl bg-accent-strong p-6 lg:p-8 text-white flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
               <p className="font-medium">{t('home:igloo_widget.help_title')}</p>
-              <p className="text-sm text-white/85">{t('home:igloo_widget.help_text')}</p>
+              <p className="text-sm text-white">{t('home:igloo_widget.help_text')}</p>
             </div>
             <Link
               to="/contact"

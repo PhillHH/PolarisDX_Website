@@ -372,7 +372,7 @@ const ServicePage = () => {
             )}
 
             {/* Mid-Page Teal CTA-Band */}
-            <div className="flex flex-col gap-4 rounded-2xl bg-accent p-6 text-white md:flex-row md:items-center md:justify-between lg:p-8">
+            <div className="flex flex-col gap-4 rounded-2xl bg-accent-strong p-6 text-white md:flex-row md:items-center md:justify-between lg:p-8">
               <div>
                 <p className="font-medium">
                   {t(
@@ -380,7 +380,7 @@ const ServicePage = () => {
                     'Nicht sicher, welcher Test zu Ihrer Praxis passt?',
                   )}
                 </p>
-                <p className="text-sm text-white/85">
+                <p className="text-sm text-white">
                   {t(
                     'home:igloo_widget.help_text',
                     '15 Minuten mit einem POC-Spezialisten – eine konkrete Empfehlung für Ihre Fachrichtung, keine Verkaufsshow.',

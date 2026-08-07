@@ -37,7 +37,7 @@ const WhyPocSection = () => {
         'why.card2.text',
         'Werte messen und den nächsten Schritt direkt im selben Termin besprechen — ohne erneute Einbestellung.',
       ),
-      bg: 'bg-accent',
+      bg: 'bg-accent-strong',
     },
     {
       icon: Coins,
@@ -81,10 +81,10 @@ const WhyPocSection = () => {
                     <Icon size={22} aria-hidden="true" />
                   </span>
                   <h3 className="mt-4 font-medium">{card.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/80">{card.text}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-white">{card.text}</p>
                   <Link
                     to="/diagnostics"
-                    className="mt-4 inline-block text-sm text-white/90 hover:underline"
+                    className="mt-4 inline-block text-sm text-white hover:underline"
                   >
                     {t('why.card_cta', 'Mehr erfahren') + ' →'}
                   </Link>

@@ -105,7 +105,7 @@ const AboutSection = () => {
             to="/igloo-pro"
             variant="secondary"
             size="lg"
-            className="!bg-accent !text-white hover:!bg-accent-strong focus-visible:!ring-accent"
+            className="!bg-accent-strong !text-white hover:!bg-brand-deep focus-visible:!ring-accent"
           >
             {t('about.cta', 'Zum IglooPro-System')}
           </Button>

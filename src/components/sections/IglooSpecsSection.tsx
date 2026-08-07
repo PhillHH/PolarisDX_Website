@@ -80,7 +80,7 @@ const IglooSpecsSection = () => {
               href={IglooProFlyer}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 block rounded-md bg-accent px-5 py-3 text-center font-medium text-white hover:bg-accent-strong"
+              className="mt-8 block rounded-md bg-accent-strong px-5 py-3 text-center font-medium text-white hover:bg-brand-deep"
             >
               {t('specs.highlights.datasheet', 'Datenblatt (PDF)')}
             </a>

@@ -84,7 +84,7 @@ export function CTA({
     navy: 'bg-brand-deep text-white hover:bg-brand-navy-hover shadow-sm',
     'outline-navy':
       'bg-white border border-brand-deep text-brand-deep hover:bg-brand-deep hover:text-white shadow-sm',
-    teal: 'bg-accent text-white hover:bg-accent-strong shadow-sm',
+    teal: 'bg-accent-strong text-white hover:bg-brand-deep shadow-sm',
     white: 'bg-white text-brand-deep hover:bg-slate-50 shadow-sm',
     'outline-white': 'border border-white/60 text-white hover:bg-white/10',
   }
@@ -627,7 +627,7 @@ export function Steps({ items }: { items: { title: string; body: string }[] }) {
     <Grid cols={cols}>
       {items.map((s, i) => (
         <Card key={i} hover className="flex h-full flex-col">
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-accent text-base font-semibold text-white shadow-sm ring-4 ring-accent/15">
+          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-accent-strong text-base font-semibold text-white shadow-sm ring-4 ring-accent/15">
             {i + 1}
           </div>
           <h3 className="mt-5 text-xl font-semibold text-heading">{s.title}</h3>

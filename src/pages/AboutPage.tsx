@@ -233,7 +233,7 @@ const AboutPage = () => {
               <h2 className="mt-4 text-2xl font-medium tracking-tight text-heading lg:text-3xl">
                 {t('about:dx365_partner.title', 'Europäischer Distributionspartner von DX365')}
               </h2>
-              <p className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-gray-700">
+              <p className="mx-auto mt-4 max-w-[61ch] text-lg leading-relaxed text-gray-700">
                 <Trans
                   i18nKey="about:dx365_partner.body"
                   components={{

@@ -72,7 +72,7 @@ export const SupportForm = () => {
           placeholder={t('support.form.udi_placeholder')}
         />
         <p
-          className="mt-1 text-xs text-gray-500 leading-relaxed"
+          className="mt-1 max-w-[61ch] text-xs text-gray-500 leading-relaxed"
           dangerouslySetInnerHTML={{ __html: t('support.form.udi_help') }}
         />
       </div>
@@ -87,7 +87,7 @@ export const SupportForm = () => {
           placeholder={t('support.form.sw_version_placeholder')}
         />
         <p
-          className="mt-1 text-xs text-gray-500 leading-relaxed"
+          className="mt-1 max-w-[61ch] text-xs text-gray-500 leading-relaxed"
           dangerouslySetInnerHTML={{ __html: t('support.form.sw_version_help') }}
         />
       </div>
@@ -182,7 +182,7 @@ export const SupportForm = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex w-full items-center justify-center rounded-md bg-accent px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:opacity-60 md:w-auto"
+            className="inline-flex w-full items-center justify-center rounded-md bg-accent-strong px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:opacity-60 md:w-auto"
           >
             {isSubmitting ? t('support.form.submitting') : t('support.form.submit')}
           </button>

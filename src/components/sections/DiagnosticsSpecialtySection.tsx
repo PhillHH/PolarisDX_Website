@@ -56,14 +56,12 @@ const DiagnosticsSpecialtySection = ({
               <div
                 key={key}
                 className={`rounded-2xl p-7 flex flex-col text-white ${
-                  isTeal ? 'bg-accent' : 'bg-brand-deep'
+                  isTeal ? 'bg-accent-strong' : 'bg-brand-deep'
                 }`}
               >
                 <div className="rounded-lg bg-white/10 p-2 w-fit">{icon}</div>
-                <h3 className="mt-5 text-xl font-medium">
-                  {t(`overview.specialty.${key}.title`)}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/80">
+                <h3 className="mt-5 text-xl font-medium">{t(`overview.specialty.${key}.title`)}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white">
                   {t(`overview.specialty.${key}.desc`)}
                 </p>
                 {tags.length > 0 && (
@@ -71,7 +69,7 @@ const DiagnosticsSpecialtySection = ({
                     {tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full bg-white/10 px-2.5 py-0.5 text-xs text-white/90"
+                        className="rounded-full bg-white/10 px-2.5 py-0.5 text-xs text-white"
                       >
                         {tag}
                       </span>
@@ -81,9 +79,7 @@ const DiagnosticsSpecialtySection = ({
                 <Link
                   to={`/diagnostics/${id}`}
                   className={`mt-6 mt-auto inline-flex items-center gap-1 text-sm font-semibold ${
-                    isTeal
-                      ? 'text-white hover:underline'
-                      : 'text-accent-line hover:text-white'
+                    isTeal ? 'text-white hover:underline' : 'text-accent-line hover:text-white'
                   }`}
                 >
                   {t(`overview.specialty.${key}.cta`)} {'→'}

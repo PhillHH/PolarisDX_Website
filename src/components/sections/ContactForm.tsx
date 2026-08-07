@@ -209,7 +209,9 @@ export const ContactForm = () => {
             placeholder={t('contact.form.email_placeholder')}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className={cn(emailValid && 'border-accent bg-accent-soft/40 focus-visible:ring-accent')}
+            className={cn(
+              emailValid && 'border-accent bg-accent-soft/40 focus-visible:ring-accent',
+            )}
             rightIcon={emailValid ? validIcon : undefined}
           />
           <Input
@@ -268,12 +270,8 @@ export const ContactForm = () => {
         onChange={(e) => setRequirements(e.target.value)}
       />
 
-      {submitStatus === 'success' && (
-        <Alert variant="success">{t('contact.form.success')}</Alert>
-      )}
-      {submitStatus === 'error' && (
-        <Alert variant="destructive">{t('contact.form.error')}</Alert>
-      )}
+      {submitStatus === 'success' && <Alert variant="success">{t('contact.form.success')}</Alert>}
+      {submitStatus === 'error' && <Alert variant="destructive">{t('contact.form.error')}</Alert>}
 
       {/* Consent + submit */}
       <div className="space-y-5">
@@ -300,7 +298,7 @@ export const ContactForm = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-accent px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:opacity-60"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-accent-strong px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:opacity-60"
           >
             {isSubmitting ? t('contact.form.sending') : t(`contact.form.submit.${intent}`)}
             {!isSubmitting && <ArrowRight className="h-4 w-4" aria-hidden />}

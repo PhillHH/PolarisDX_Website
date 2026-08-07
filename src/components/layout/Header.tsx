@@ -140,7 +140,7 @@ const Header = () => {
               <Button
                 to="/contact"
                 variant="secondary"
-                className="!bg-accent !text-white !shadow-accent/20 hover:!bg-accent-strong focus-visible:!ring-accent"
+                className="!bg-accent-strong !text-white !shadow-accent/20 hover:!bg-brand-deep focus-visible:!ring-accent"
               >
                 {t('nav.contact')}
               </Button>
@@ -242,7 +242,7 @@ const Header = () => {
               <div className="pt-4">
                 <Button
                   to="/contact"
-                  className="w-full justify-center shadow-lg !bg-accent !text-white hover:!bg-accent-strong focus-visible:!ring-accent"
+                  className="w-full justify-center shadow-lg !bg-accent-strong !text-white hover:!bg-brand-deep focus-visible:!ring-accent"
                   onClick={mobileMenu.onClose}
                   variant="secondary"
                 >
