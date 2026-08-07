@@ -61,7 +61,7 @@ const IglooWidgetSection = () => {
 
   return (
     <section id="fachrichtung" className="bg-slate-50">
-      <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-28">
+      <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-24">
         {/* Kopf */}
         <div className="mx-auto max-w-2xl text-center mb-14">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
@@ -79,7 +79,7 @@ const IglooWidgetSection = () => {
         </div>
 
         {/* Karten */}
-        <div className="mt-12 grid gap-7 md:grid-cols-3">
+        <div className="mt-12 grid gap-8 md:grid-cols-3">
           {segments.map((segment) => (
             <div
               key={segment.id}
@@ -103,7 +103,7 @@ const IglooWidgetSection = () => {
         </div>
 
         {/* Hilfeband */}
-        <div className="mt-10 flex flex-col gap-4 rounded-2xl bg-accent-strong p-6 text-white md:flex-row md:items-center md:justify-between lg:p-8">
+        <div className="mt-10 flex flex-col gap-4 rounded-2xl bg-accent-strong p-7 text-white md:flex-row md:items-center md:justify-between lg:p-7">
           <div>
             <p className="font-medium">
               {t('igloo_widget.help_title', 'Nicht sicher, welches Panel zu Ihrer Praxis passt?')}

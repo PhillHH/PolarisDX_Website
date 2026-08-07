@@ -48,11 +48,11 @@ const AboutSection = () => {
   ]
 
   return (
-    <section id="about" className="flex flex-col items-stretch gap-10 lg:flex-row lg:gap-14">
+    <section id="about" className="flex flex-col items-stretch gap-8 lg:flex-row lg:gap-14">
       {/* Linke Spalte: Gerät in einem gerundeten Navy-Panel mit CV-Chip. */}
       <div className="relative flex min-h-[360px] flex-1 items-center justify-center rounded-2xl bg-brand-deep p-10 lg:min-h-[480px]">
         {/* CV-Chip oben rechts. */}
-        <span className="absolute right-5 top-5 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-sm font-semibold text-brand-deep shadow-sm">
+        <span className="absolute right-5 top-5 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-sm font-semibold text-brand-deep">
           <span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
           {t('about.cv_chip', 'CV < 2 %')}
         </span>

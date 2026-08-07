@@ -3,10 +3,10 @@
  *
  * GDPR-friendly:
  *   - Explicit, separate consent checkbox (NOT pre-ticked) with a clear
- *     purpose statement and the legal basis (Art. 6(1)(b) GDPR).
+ * purpose statement and the legal basis (Art. 6(1)(b) GDPR).
  *   - Only the fields actually needed for the order intake are collected
  *     (data minimisation). Shipping address / payment details are
- *     collected by sales later, when they confirm price + delivery.
+ * collected by sales later, when they confirm price + delivery.
  *   - Link to the privacy policy.
  *   - Honeypot field to silently absorb spam bots — no tracking cookies.
  *
@@ -104,7 +104,7 @@ interface OrderFormProps {
   /** Optional submit button label override. */
   submitLabel?: string
   /** Called once the form has been submitted successfully (e.g. so a
-   *  hosting modal can mark this session as "submitted"). */
+   * hosting modal can mark this session as"submitted"). */
   onSubmitted?: () => void
 }
 
@@ -178,7 +178,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
 
   if (status === 'success') {
     return (
-      <div className="rounded-2xl bg-white p-8 text-center shadow-card sm:p-10">
+      <div className="rounded-2xl bg-white p-7 text-center sm:p-10">
         <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-accent/15 text-accent-strong">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -209,7 +209,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="rounded-2xl bg-white p-6 shadow-card sm:p-8 md:p-10"
+      className="rounded-2xl bg-white p-7 sm:p-7 md:p-10"
       data-gtm-form="consumer-order"
       data-gtm-product={product}
       data-gtm-page={page}
@@ -238,7 +238,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
       </div>
 
       <SectionLabel>Contact person</SectionLabel>
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="grid gap-6 sm:grid-cols-2">
         <Field id="order-name" label="Contact name" required>
           <input
             id="order-name"
@@ -291,7 +291,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
         Leave blank if you'd rather discuss shipping with us first — we'll ask when we confirm price
         and delivery.
       </p>
-      <div className="grid gap-5">
+      <div className="grid gap-6">
         <Field id="order-street" label="Street + house number">
           <input
             id="order-street"
@@ -302,7 +302,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
             className={inputClass}
           />
         </Field>
-        <div className="grid gap-5 sm:grid-cols-[1fr_2fr_1.4fr]">
+        <div className="grid gap-6 sm:grid-cols-[1fr_2fr_1.4fr]">
           <Field id="order-postcode" label="Postcode">
             <input
               id="order-postcode"
@@ -338,7 +338,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
       </div>
 
       <SectionLabel>Order</SectionLabel>
-      <div className="grid gap-5">
+      <div className="grid gap-6">
         <Field id="order-quantity" label="Quantity" required>
           <select
             id="order-quantity"
@@ -409,7 +409,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
           data-gtm-event="consumer_order_submit"
           data-gtm-page={page}
           data-gtm-product={product}
-          className="inline-flex items-center justify-center gap-2 rounded-md bg-brand-deep px-7 py-3.5 text-base font-semibold tracking-tight text-white shadow-sm transition-colors hover:bg-brand-navy-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex items-center justify-center gap-2 rounded-md bg-brand-deep px-7 py-3.5 text-base font-semibold tracking-tight text-white transition-colors hover:bg-brand-navy-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {status === 'submitting' ? 'Sending…' : submitLabel || DEFAULT_SUBMIT_LABEL[product]}
         </button>
@@ -442,7 +442,7 @@ export function OrderSection({
   submitLabel?: string
 }) {
   return (
-    <section id={id} className="relative overflow-hidden bg-brand-deep py-20 lg:py-24">
+    <section id={id} className="relative overflow-hidden bg-brand-deep py-24">
       <div
         aria-hidden
         className="pointer-events-none absolute -top-20 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-accent-line/20 blur-3xl"

@@ -15,7 +15,7 @@ const BlogSection = () => {
         title={t('blog.title', 'Our Articles About Health')}
       />
 
-      <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-7">
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
         {blogPosts.slice(0, 3).map((post) => {
           // SSR-safe: Verwende zentrale Bild-Imports statt dynamischer URLs
           const imageUrl = getArticleImageUrl(post.image)

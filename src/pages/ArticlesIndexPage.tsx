@@ -107,7 +107,7 @@ const ArticlesIndexPage = () => {
           <Reveal width="100%">
             <Link
               to="/vitamin-d3-implantologie"
-              className="group relative mb-14 block overflow-hidden rounded-2xl bg-brand-deep p-8 text-white transition hover:-translate-y-1 hover:shadow-card lg:mb-16 lg:p-12"
+              className="group relative mb-14 block overflow-hidden rounded-2xl bg-brand-deep p-7 text-white transition hover:-translate-y-1 lg:mb-16 lg:p-12"
             >
               <div
                 aria-hidden="true"
@@ -191,7 +191,7 @@ const ArticlesIndexPage = () => {
                   <Link
                     key={post.id}
                     to={`/articles/${post.slug}`}
-                    className="group flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:shadow-card"
+                    className="group flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1"
                   >
                     <div className="flex items-center justify-between gap-3">
                       <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent">

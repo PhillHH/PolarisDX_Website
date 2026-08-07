@@ -5,17 +5,17 @@
  *
  * Behaviour:
  *   - Popover is portaled into <body> so the hero's `overflow-hidden`
- *     never clips it. Position is computed via getBoundingClientRect(),
- *     centred on the trigger and clamped to the viewport.
+ * never clips it. Position is computed via getBoundingClientRect(),
+ * centred on the trigger and clamped to the viewport.
  *   - Opens on tap (mobile) AND hover/focus (desktop). Closes on
  *     Escape, outside pointer-down, mouseleave-of-popover, scroll/resize
- *     re-measures while open.
+ * re-measures while open.
  *   - Respects `prefers-reduced-motion`.
  *
  * Pricing / claims posture:
  *   - No list price is rendered in the DOM. The € figures are
- *     marketing positioning ("< €1 / week", "< €2 / month"); CONFIRM-
- *     flags live in this file's BADGE_COPY map.
+ * marketing positioning ("< €1 / week","< €2 / month"); CONFIRM-
+ * flags live in this file's BADGE_COPY map.
  *   - The Mask variant carries NO € figure — just product facts.
  */
 
@@ -32,17 +32,17 @@ import type { ConsumerOrderProduct } from '../../api/consumerOrder'
 // CONFIRM-FLAGS for the marketing team (already raised earlier in the project,
 // repeated here next to the live copy so they don't get lost):
 //
-//   spray.highlight = "< €1"  — verified vs. the FINAL 12-pack list price?
+// spray.highlight ="< €1"  — verified vs. the FINAL 12-pack list price?
 //                                Derivation: 71 sprays / 5 days / 12 people.
-//   duo.highlight   = "< €2"  — final figure for the Duo add-on per month?
+// duo.highlight   ="< €2"  — final figure for the Duo add-on per month?
 //                                Basis: spray-only add-on to a masks order.
 
 interface BadgeCopy {
-  /** Text before the highlight (e.g. "Weekday support for"). */
+  /** Text before the highlight (e.g."Weekday support for"). */
   intro: string
-  /** Highlighted value (e.g. "< €1"). Set to null to skip the highlight. */
+  /** Highlighted value (e.g."< €1"). Set to null to skip the highlight. */
   highlight: string | null
-  /** Dotted-underlined affordance text (e.g. "per employee / week"). */
+  /** Dotted-underlined affordance text (e.g."per employee / week"). */
   trigger: string
   /** Short caps title at the top of the popover. */
   popoverEyebrow: string
@@ -203,7 +203,7 @@ export function PriceBadge({ product }: { product: ConsumerOrderProduct }) {
 
   return (
     <>
-      <span className="inline-flex items-center gap-3 rounded-full border border-brand-blue/40 bg-white px-5 py-3 text-sm text-gray-700 shadow-[0_2px_8px_rgba(13,82,127,0.12)]">
+      <span className="inline-flex items-center gap-3 rounded-full border border-brand-blue/40 bg-white px-5 py-3 text-sm text-gray-700">
         <span
           aria-hidden
           className="flex h-9 w-9 items-center justify-center rounded-full bg-accent-soft text-base font-semibold text-accent-strong"

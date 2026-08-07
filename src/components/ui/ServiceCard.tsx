@@ -16,11 +16,11 @@ const ServiceCard = ({ service, className }: ServiceCardProps) => {
       to={`/diagnostics/${service.id}`}
       className={cn(
         'group flex flex-col rounded-xl glass-panel p-6 transition duration-300',
-        'hover:-translate-y-1 hover:shadow-card hover:bg-white/80',
+        'hover:-translate-y-1  hover:bg-white/80',
         className,
       )}
     >
-      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-gray-100 to-white text-brand-primary shadow-inner border border-white">
+      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-white text-brand-primary shadow-inner border border-white">
         {service.icon}
       </div>
       <h3 className="mb-3 text-xl font-medium tracking-tight text-heading group-hover:text-brand-deep transition-colors">

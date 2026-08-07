@@ -80,7 +80,7 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
       >
         <FlagIcon
           countryCode={currentLanguage.country_code}
-          className="h-5 w-8 rounded-sm align-middle shrink-0 ring-1 ring-brand-primary/40 bg-white shadow-sm"
+          className="h-5 w-8 rounded-sm align-middle shrink-0 ring-1 ring-brand-primary/40 bg-white"
         />
         <span className="uppercase text-sm font-medium leading-none">{currentLanguage.code}</span>
         <svg
@@ -107,7 +107,7 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
             >
               <FlagIcon
                 countryCode={language.country_code}
-                className="h-5 w-8 rounded-sm bg-white ring-1 ring-brand-primary/40 shadow-sm"
+                className="h-5 w-8 rounded-sm bg-white ring-1 ring-brand-primary/40"
               />
               <span>{language.name}</span>
             </button>

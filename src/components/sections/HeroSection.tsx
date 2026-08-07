@@ -8,7 +8,7 @@ import iglooLogoWhite from '../../assets/igloo_logo_white.webp'
  * SSR-safe HeroSection — NO framer-motion, pure CSS animations.
  * SEO/LCP: h1 + description sind immer sichtbar (kein initiales opacity:0); nur Slide 0 = h1.
  * B2B-Umbau (Phase 3.1): 4 Slides (speed/economics/compliance/segments), Teal-Primaer-CTA
- * "Beratung buchen", Sekundaer-CTA "ROI-Rechner" (#roi-rechner), Proof-Chip-Reihe,
+ *"Beratung buchen", Sekundaer-CTA"ROI-Rechner" (#roi-rechner), Proof-Chip-Reihe,
  * Pause-on-hover/focus + prefers-reduced-motion + Dot-ARIA (aria-current/-label) + Pause/Play.
  */
 const HeroSection = () => {
@@ -62,8 +62,8 @@ const HeroSection = () => {
 
       {/* Dekorative Glow-Akzente (geringe Opazitaet, NICHT die Grundflaeche) */}
       <div className="pointer-events-none absolute inset-0 opacity-30">
-        <div className="absolute inset-y-0 left-0 w-[500px] bg-gradient-to-br from-brand-secondary/20 via-brand-primary/10 to-transparent blur-3xl" />
-        <div className="absolute inset-y-0 right-0 w-[500px] bg-gradient-to-tl from-accent/20 via-brand-primary/10 to-transparent blur-3xl" />
+        <div className="absolute inset-y-0 left-0 w-[500px] bg-brand-deep blur-3xl" />
+        <div className="absolute inset-y-0 right-0 w-[500px] bg-brand-deep blur-3xl" />
       </div>
 
       <div className="relative z-10 mx-auto flex h-full max-w-container items-stretch px-6 pt-16 pb-24 sm:px-8 lg:px-0 lg:pt-16 lg:pb-0">
@@ -78,7 +78,7 @@ const HeroSection = () => {
                 width={200}
                 height={56}
                 fetchPriority="high"
-                className="h-14 w-auto drop-shadow-sm mb-4 self-start"
+                className="h-14 w-auto mb-4 self-start"
               />
               {/* SEO: nur Slide 0 = H1, sonst H2 */}
               <div className={getContentAnimationClass()}>
@@ -103,7 +103,7 @@ const HeroSection = () => {
                 to="/contact"
                 variant="secondary"
                 size="sm"
-                className="w-full text-center sm:w-auto sm:whitespace-nowrap !bg-accent-strong !text-white !shadow-accent/20 hover:!bg-brand-deep focus-visible:!ring-accent"
+                className="w-full text-center sm:w-auto sm:whitespace-nowrap !bg-accent-strong !text-white hover:!bg-brand-deep focus-visible:!ring-accent"
               >
                 {t('hero.cta', 'Beratung buchen')}
               </Button>

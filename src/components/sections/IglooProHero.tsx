@@ -16,7 +16,7 @@ export default function IglooProHero() {
         className="pointer-events-none absolute inset-0 bg-noise opacity-10"
       />
 
-      <div className="relative mx-auto max-w-container px-4 lg:px-0 pt-24 pb-16 lg:pt-28 grid lg:grid-cols-2 gap-10 items-center">
+      <div className="relative mx-auto max-w-container px-4 lg:px-0 pt-24 pb-16 lg:pt-28 grid lg:grid-cols-2 gap-8 items-center">
         {/* LEFT */}
         <div>
           <Breadcrumbs
@@ -79,7 +79,7 @@ export default function IglooProHero() {
         {/* RIGHT — decorative reader visual */}
         <div
           aria-hidden="true"
-          className="hidden lg:block relative min-h-[300px] rounded-2xl bg-white/5 p-8 ring-1 ring-white/10"
+          className="hidden lg:block relative min-h-[300px] rounded-2xl bg-white/5 p-7 ring-1 ring-white/10"
         >
           {/* Gauge */}
           <div className="relative mx-auto flex h-40 w-40 items-center justify-center">
@@ -108,7 +108,7 @@ export default function IglooProHero() {
           </div>
 
           {/* Floating cards */}
-          <div className="absolute left-4 top-6 flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-brand-deep shadow-lg">
+          <div className="absolute left-4 top-6 flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-brand-deep">
             <Check size={14} className="text-accent" />
             <span>
               <span className="block text-sm font-semibold">
@@ -120,7 +120,7 @@ export default function IglooProHero() {
             </span>
           </div>
 
-          <div className="absolute right-5 top-1/2 flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-brand-deep shadow-lg">
+          <div className="absolute right-5 top-1/2 flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-brand-deep">
             <Check size={14} className="text-accent" />
             <span>
               <span className="block text-sm font-semibold">
@@ -132,7 +132,7 @@ export default function IglooProHero() {
             </span>
           </div>
 
-          <div className="absolute bottom-8 left-10 flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-brand-deep shadow-lg">
+          <div className="absolute bottom-8 left-10 flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-brand-deep">
             <Check size={14} className="text-accent" />
             <span>
               <span className="block text-sm font-semibold">

@@ -7,7 +7,7 @@ export default function IglooProductFinalCta() {
 
   return (
     <section className="bg-brand-deep text-white">
-      <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-28 text-center">
+      <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-24 text-center">
         <h2 className="mx-auto max-w-3xl font-medium tracking-[-0.02em] text-[clamp(28px,5vw,48px)] leading-[clamp(34px,5.6vw,56px)]">
           {t('cta_bottom.title', 'Bereit, den IglooPro in Ihre Praxis zu holen?')}
         </h2>

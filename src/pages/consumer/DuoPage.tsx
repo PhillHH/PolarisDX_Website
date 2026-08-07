@@ -203,7 +203,7 @@ function DuoPageInner() {
       {/* 7 · ROUTINE VISUAL */}
       <Section eyebrow="The routine in a day" title="Daily spray, occasional mask ritual">
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="group overflow-hidden rounded-section shadow-card">
+          <div className="group overflow-hidden rounded-section">
             <img
               src={sprayStill}
               alt="Morning routine — Vitamin D3+K2 sublingual spray"
@@ -212,7 +212,7 @@ function DuoPageInner() {
               className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
             />
           </div>
-          <div className="group overflow-hidden rounded-section shadow-card">
+          <div className="group overflow-hidden rounded-section">
             <img
               src={maskBotanical}
               alt="Evening self-care — Hydrating Hyaluronic Mask"

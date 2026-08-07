@@ -36,7 +36,7 @@ export type PraxisOrderFormTexts = {
   submit: string
   submitting: string
   submitNote: string
-  /** Friction-Killer, z. B. "Kostenlos & unverbindlich · Antwort < 24 h". */
+  /** Friction-Killer, z. B."Kostenlos & unverbindlich · Antwort < 24 h". */
   reassurance: string
   errorText: string
   successTitle: string
@@ -82,7 +82,7 @@ export function PraxisOrderForm({
 
   return (
     <section id={id} className="scroll-mt-24">
-      <div className="rounded-2xl border border-accent/20 bg-white p-6 shadow-card sm:p-8">
+      <div className="rounded-2xl border border-accent/20 bg-white p-7 sm:p-7">
         <div className="mb-6">
           <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent">
             <ShoppingBag className="h-5 w-5" aria-hidden />
@@ -226,7 +226,7 @@ export function PraxisOrderForm({
               variant="secondary"
               size="sm"
               disabled={isSubmitting}
-              className="w-full !bg-accent-strong !text-white !shadow-accent/20 hover:!bg-brand-deep focus-visible:!ring-accent"
+              className="w-full !bg-accent-strong !text-white hover:!bg-brand-deep focus-visible:!ring-accent"
             >
               {isSubmitting ? (
                 texts.submitting

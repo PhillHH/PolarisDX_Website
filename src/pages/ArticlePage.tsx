@@ -22,7 +22,7 @@ type ArticleSection = TextSection | TableSection | InfoboxSection | KeyPointsSec
 
 type KeyStat = { value: string; label: string }
 
-/** Split "Term: rest" so the lead term can be emphasised in bullet lists. */
+/** Split"Term: rest" so the lead term can be emphasised in bullet lists. */
 const splitLeadTerm = (item: string): [string | null, string] => {
   const idx = item.indexOf(': ')
   if (idx > 0 && idx < 42) return [item.slice(0, idx), item.slice(idx + 2)]
@@ -141,7 +141,7 @@ const ArticlePage = () => {
             )}
             <div className="grid gap-6 sm:grid-cols-3">
               {(section as KeyPointsSection).points.map((point, pIndex) => (
-                <div key={pIndex} className="rounded-xl border border-slate-200 bg-white p-6">
+                <div key={pIndex} className="rounded-xl border border-slate-200 bg-white p-7">
                   <h3 className="mb-2 font-medium text-heading">{point.title}</h3>
                   <p className="text-sm leading-relaxed text-gray-700">{point.description}</p>
                 </div>
@@ -248,7 +248,7 @@ const ArticlePage = () => {
 
       {/* ===================== BODY (zentriert, ohne Sidebar) ===================== */}
       <div className="bg-white">
-        <div className="mx-auto max-w-[68ch] px-4 py-14 lg:py-20">
+        <div className="mx-auto max-w-[68ch] px-4 py-14 lg:py-24">
           <Reveal width="100%">
             {/* Lead */}
             <p className="text-xl font-medium leading-[1.7] text-gray-800">{excerpt}</p>
@@ -259,7 +259,7 @@ const ArticlePage = () => {
                 {keyStats.slice(0, 3).map((s) => (
                   <div
                     key={s.label}
-                    className="rounded-2xl bg-brand-deep p-6 text-center text-white"
+                    className="rounded-2xl bg-brand-deep p-7 text-center text-white"
                   >
                     <div className="text-2xl font-semibold">{s.value}</div>
                     <div className="mt-1 text-xs text-white/70">{s.label}</div>
@@ -274,7 +274,7 @@ const ArticlePage = () => {
             </div>
 
             {/* Navy Schluss-CTA-Karte */}
-            <div className="mt-14 rounded-2xl bg-brand-deep p-8 text-center text-white lg:p-10">
+            <div className="mt-14 rounded-2xl bg-brand-deep p-7 text-center text-white lg:p-7">
               <h2 className="text-2xl font-medium tracking-tight">
                 {t('articles:detail.cta_title', 'Rechnen Sie Ihr Einsparpotenzial durch.')}
               </h2>
@@ -287,7 +287,7 @@ const ArticlePage = () => {
               <div className="mt-6 flex flex-wrap justify-center gap-3">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 text-sm font-medium text-white shadow-lg shadow-accent/20 transition hover:bg-brand-deep"
+                  className="inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 text-sm font-medium text-white transition hover:bg-brand-deep"
                 >
                   {t('articles:detail.primary_cta', 'Beratung buchen')}
                 </Link>

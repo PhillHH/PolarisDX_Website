@@ -47,7 +47,7 @@ const TermsPage = () => {
         {sectionCount > 1 && (
           <nav
             aria-label={t('agb.tocLabel', 'Inhaltsübersicht')}
-            className="rounded-xl border border-slate-200 bg-slate-50 p-6 sm:p-7"
+            className="rounded-xl border border-slate-200 bg-slate-50 p-7 sm:p-7"
           >
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
               {t('agb.tocLabel', 'Inhaltsübersicht')}

@@ -9,9 +9,8 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-deep text-brand-deep shadow-lg shadow-brand-primary/20 border-0 hover:opacity-95 focus-visible:ring-brand-primary',
-        secondary:
-          'bg-brand-deep text-white shadow-lg shadow-brand-deep/20 hover:bg-brand-deep/90 focus-visible:ring-brand-deep',
+          'bg-brand-deep text-brand-deep border-0 hover:opacity-95 focus-visible:ring-brand-primary',
+        secondary: 'bg-brand-deep text-white hover:bg-brand-deep/90 focus-visible:ring-brand-deep',
         outline:
           'border border-white/80 bg-transparent text-white hover:bg-white/10 focus-visible:ring-white',
       },

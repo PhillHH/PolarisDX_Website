@@ -5,7 +5,7 @@ import { Button } from '../ui/Button'
 /**
  * FinalCtaSection — Full-width dunkle Schluss-CTA (B2B-Abschluss der HomePage).
  * Eyebrow (Teal) + grosse H2 + Untertitel, dann zwei CTAs nebeneinander:
- * Primaer (Teal) "Beratung buchen" -> /contact, Sekundaer (Outline) "ROI-Rechner" -> #roi-rechner.
+ * Primaer (Teal)"Beratung buchen" -> /contact, Sekundaer (Outline)"ROI-Rechner" -> #roi-rechner.
  * SSR-sicher (kein window/localStorage). i18n-NS 'home', alle Texte via t().
  */
 const FinalCtaSection = ({ roiHref = '#roi-rechner' }: { roiHref?: string }) => {
@@ -13,7 +13,7 @@ const FinalCtaSection = ({ roiHref = '#roi-rechner' }: { roiHref?: string }) => 
 
   return (
     <section id="los-gehts" className="bg-brand-deep text-white">
-      <div className="mx-auto max-w-container px-4 py-24 lg:py-28 lg:px-0 text-center">
+      <div className="mx-auto max-w-container px-4 py-24 lg:py-24 lg:px-0 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
           {t('final_cta.caption', 'Bereit loszulegen')}
         </p>
@@ -30,7 +30,7 @@ const FinalCtaSection = ({ roiHref = '#roi-rechner' }: { roiHref?: string }) => 
           <Button
             to="/contact"
             variant="secondary"
-            className="!bg-accent-strong !shadow-accent/20 hover:!bg-brand-deep focus-visible:!ring-accent"
+            className="!bg-accent-strong hover:!bg-brand-deep focus-visible:!ring-accent"
           >
             {t('final_cta.cta_primary', 'Beratung buchen')}
           </Button>

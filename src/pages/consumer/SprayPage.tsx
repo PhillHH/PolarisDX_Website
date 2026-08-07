@@ -267,7 +267,7 @@ function SprayPageInner() {
             ]}
           />
         </div>
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div className="grid items-center gap-8 lg:grid-cols-2">
           <Card className="p-0">
             <dl className="divide-y divide-slate-100">
               {FACTS.map(([label, value]) => (
@@ -278,7 +278,7 @@ function SprayPageInner() {
               ))}
             </dl>
           </Card>
-          <div className="group mx-auto w-full max-w-sm overflow-hidden rounded-2xl shadow-card lg:max-w-md">
+          <div className="group mx-auto w-full max-w-sm overflow-hidden rounded-2xl lg:max-w-md">
             <img
               src={sprayStill}
               alt="PolarisDX Vitamin D3+K2 Sublingual Spray — bottle + box detail"

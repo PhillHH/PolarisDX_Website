@@ -139,7 +139,7 @@ const RoiCalculatorSection = () => {
 
   return (
     <section id="roi-rechner" className="bg-slate-50">
-      <div className="mx-auto max-w-container px-4 py-24 lg:py-28 lg:px-0">
+      <div className="mx-auto max-w-container px-4 py-24 lg:py-24 lg:px-0">
         {/* Kopf */}
         <div className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
@@ -159,7 +159,7 @@ const RoiCalculatorSection = () => {
         <div className="mt-10 grid gap-8 lg:grid-cols-2">
           {/* LINKS: Eingabe-Karte */}
           <div className="rounded-2xl border border-slate-200 bg-white p-7">
-            <div className="grid gap-5 sm:grid-cols-2">
+            <div className="grid gap-6 sm:grid-cols-2">
               {inputs.map((field) => (
                 <div key={field.id} className="flex flex-col">
                   <label htmlFor={field.id} className="text-sm font-medium text-heading">
@@ -172,7 +172,7 @@ const RoiCalculatorSection = () => {
                     inputMode="decimal"
                     value={field.value}
                     onChange={(e) => field.onChange(e.target.value)}
-                    className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-heading shadow-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                    className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-heading focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                   />
                 </div>
               ))}
@@ -278,7 +278,7 @@ const RoiCalculatorSection = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid gap-5 sm:grid-cols-2">
+                <div className="grid gap-6 sm:grid-cols-2">
                   <div className="flex flex-col">
                     <label htmlFor="roi-email" className="text-sm font-medium text-heading">
                       {t('roi.form.email', 'E-Mail-Adresse')}
@@ -289,7 +289,7 @@ const RoiCalculatorSection = () => {
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-heading shadow-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                      className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-heading focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                     />
                   </div>
                   <div className="flex flex-col">
@@ -300,7 +300,7 @@ const RoiCalculatorSection = () => {
                       id="roi-area"
                       value={area}
                       onChange={(e) => setArea(e.target.value)}
-                      className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-heading shadow-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                      className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-heading focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                     >
                       <option value="dental">{t('roi.form.opt_dental', 'Dental')}</option>
                       <option value="beauty">{t('roi.form.opt_beauty', 'Beauty')}</option>
@@ -317,7 +317,7 @@ const RoiCalculatorSection = () => {
                       type="text"
                       value={practice}
                       onChange={(e) => setPractice(e.target.value)}
-                      className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-heading shadow-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                      className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-heading focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                     />
                   </div>
                 </div>
@@ -367,7 +367,7 @@ const RoiCalculatorSection = () => {
                   variant="secondary"
                   size="sm"
                   disabled={status === 'submitting'}
-                  className="!bg-accent-strong !shadow-accent/20 hover:!bg-brand-deep focus-visible:!ring-accent"
+                  className="!bg-accent-strong hover:!bg-brand-deep focus-visible:!ring-accent"
                 >
                   {status === 'submitting'
                     ? t('roi.form.sending', 'Wird gesendet …')

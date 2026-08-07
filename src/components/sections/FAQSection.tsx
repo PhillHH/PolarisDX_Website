@@ -50,7 +50,7 @@ const FAQSection = ({
       />
 
       <div className="mx-auto max-w-3xl">
-        <div className="divide-y divide-gray-200 rounded-2xl border border-gray-200 bg-white shadow-sm">
+        <div className="divide-y divide-gray-200 rounded-2xl border border-gray-200 bg-white">
           {Array.isArray(faqItems) &&
             faqItems.map((item, index) => (
               <div key={index} className="group">

@@ -52,7 +52,10 @@
     min-height: 100vh;
   }
 
-  a {
+  /* :where() nimmt der Regel die Spezifitaet — Utility-Klassen am <a>
+     gewinnen dadurch immer. Sonst faerbt sie z. B. Footer-Links navy
+     auf navy. */
+  :where(a) {
     @apply text-heading no-underline;
   }
 

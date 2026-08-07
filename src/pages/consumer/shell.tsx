@@ -5,7 +5,7 @@
  * (Vitamin D3+K2 Spray, Hydrating Masks, Inside-Out Care Duo).
  *
  * Visual language follows the PolarisDX Consumer Page Wireframe Brief
- * (slide 3 "Shared page style and build rules"):
+ * (slide 3"Shared page style and build rules"):
  *   - bright, clean, premium healthcare/wellbeing
  *   - soft neutrals, navy headings, TEAL accents
  *   - real product imagery, clear pack size on every page
@@ -45,11 +45,11 @@ type AccentBar = 'teal' | 'navy' | 'green' | 'blue' | 'none'
 type CTAVariant = 'navy' | 'outline-navy' | 'teal' | 'white' | 'outline-white'
 
 export interface TrackingMeta {
-  /** Human-readable label of the CTA, e.g. "Buy 12-pack". */
+  /** Human-readable label of the CTA, e.g."Buy 12-pack". */
   label: string
   /** Which consumer page emitted the click. */
   page: ConsumerPage
-  /** Where on the page the CTA sat, e.g. "hero" / "audience-card" / "final". */
+  /** Where on the page the CTA sat, e.g."hero" /"audience-card" /"final". */
   location?: string
 }
 
@@ -81,11 +81,11 @@ export function CTA({
     md: 'px-7 py-3.5 text-base',
   }
   const variants: Record<CTAVariant, string> = {
-    navy: 'bg-brand-deep text-white hover:bg-brand-navy-hover shadow-sm',
+    navy: 'bg-brand-deep text-white hover:bg-brand-navy-hover ',
     'outline-navy':
-      'bg-white border border-brand-deep text-brand-deep hover:bg-brand-deep hover:text-white shadow-sm',
-    teal: 'bg-accent-strong text-white hover:bg-brand-deep shadow-sm',
-    white: 'bg-white text-brand-deep hover:bg-slate-50 shadow-sm',
+      'bg-white border border-brand-deep text-brand-deep hover:bg-brand-deep hover:text-white ',
+    teal: 'bg-accent-strong text-white hover:bg-brand-deep ',
+    white: 'bg-white text-brand-deep hover:bg-slate-50 ',
     'outline-white': 'border border-white/60 text-white hover:bg-white/10',
   }
   const cls = `${base} ${sizes[size]} ${variants[variant]}`
@@ -265,11 +265,11 @@ export function Hero({
    *  (e.g. a price-positioning pill). */
   priceBadge?: ReactNode
   /** Headline list price shown prominently between the CTAs and the badge.
-   *  `amount` e.g. "169 €", `unit` e.g. "12-pack". */
+   *  `amount` e.g."169 €", `unit` e.g."12-pack". */
   price?: { amount: string; unit: string }
   /** Short teal-check reassurance items shown under the CTAs (trust signals). */
   highlights?: string[]
-  /** Floating stat card overlapping the product image (e.g. "71 · doses / bottle"). */
+  /** Floating stat card overlapping the product image (e.g."71 · doses / bottle"). */
   floatingStat?: { value: string; label: string }
 }) {
   const orderModal = useOrderModal()
@@ -277,7 +277,7 @@ export function Hero({
   // the anchor `primary.href` if no provider is wired up.
   const primaryClick = orderModal ? () => orderModal.open('hero') : undefined
   return (
-    <section id="top" className="relative overflow-hidden bg-gradient-to-b from-white to-slate-50">
+    <section id="top" className="relative overflow-hidden bg-white">
       <div
         aria-hidden
         className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-accent-border/30 blur-3xl"
@@ -289,7 +289,7 @@ export function Hero({
 
       <div className="relative mx-auto max-w-container px-4 pt-16 pb-20 sm:px-6 lg:px-0 lg:pt-24 lg:pb-28">
         <Reveal width="100%" yOffset={20}>
-          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+          <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_1fr] lg:gap-8">
             {/* Text · left */}
             <div>
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
@@ -350,7 +350,7 @@ export function Hero({
             <div className="relative">
               {image?.src ? (
                 <div className="group relative mx-auto w-full max-w-md overflow-visible rounded-2xl lg:max-w-none">
-                  <div className="overflow-hidden rounded-2xl shadow-[0_20px_50px_rgba(8,51,88,0.18)] ring-1 ring-brand-deep/5">
+                  <div className="overflow-hidden rounded-2xl ring-1 ring-brand-deep/5">
                     <img
                       src={image.src}
                       alt={image.alt}
@@ -373,7 +373,7 @@ export function Hero({
               ) : (
                 <ImagePlaceholder
                   label={image?.placeholder ?? 'Produktbild'}
-                  className="mx-auto aspect-[4/5] w-full max-w-md rounded-2xl border-accent-on-dark/60 bg-accent-soft/40 p-8 text-accent-strong lg:max-w-none"
+                  className="mx-auto aspect-[4/5] w-full max-w-md rounded-2xl border-accent-on-dark/60 bg-accent-soft/40 p-7 text-accent-strong lg:max-w-none"
                 />
               )}
             </div>
@@ -476,7 +476,7 @@ export function Section({
   const bg = tone === 'tint' ? 'bg-slate-50' : isDark ? 'bg-brand-deep' : 'bg-white'
 
   return (
-    <section id={id} className={`${bg} py-20 lg:py-24`}>
+    <section id={id} className={`${bg} py-24`}>
       <div className="mx-auto max-w-container px-4 sm:px-6 lg:px-0">
         {(eyebrow || title) && (
           <Reveal width="100%">
@@ -509,7 +509,7 @@ export function Section({
 // =============================================================================
 
 /**
- * Card with optional coloured left accent bar — matches the "ingredient
+ * Card with optional coloured left accent bar — matches the"ingredient
  * architecture" card style on slide 13 of the brief.
  */
 export function Card({
@@ -537,12 +537,12 @@ export function Card({
       : `relative pl-8 before:absolute before:left-3 before:top-6 before:bottom-6 before:w-1 before:rounded-full ${barColor[accent]}`
   // Motion only: instant (no transform) under prefers-reduced-motion.
   const hoverClass = hover
-    ? 'transition duration-200 will-change-transform hover:-translate-y-1 hover:border-accent-border hover:shadow-card motion-reduce:transition-none motion-reduce:hover:translate-y-0'
+    ? 'transition duration-200 will-change-transform hover:-translate-y-1 hover:border-accent-border  motion-reduce:transition-none motion-reduce:hover:translate-y-0'
     : ''
   return (
     <div
       className={cn(
-        'rounded-2xl border border-slate-100 bg-white p-7 shadow-[0_10px_30px_rgba(8,51,88,0.08)]',
+        'rounded-2xl border border-slate-100 bg-white p-7 ',
         hoverClass,
         accentClass,
         className,
@@ -594,7 +594,7 @@ export function Pills({ items, onDark = false }: { items: string[]; onDark?: boo
 
 /**
  * Stats — a bright band of large teal numbers with labels. Re-presents the
- * key product facts as a scannable "at a glance" strip. Works on light or
+ * key product facts as a scannable"at a glance" strip. Works on light or
  * tinted section backgrounds (used as <Section> children).
  */
 export function Stats({ items }: { items: { value: string; label: string }[] }) {
@@ -609,7 +609,7 @@ export function Stats({ items }: { items: { value: string; label: string }[] }) 
       {items.map((s) => (
         <div
           key={s.label}
-          className="rounded-2xl border border-slate-100 bg-white p-7 text-center shadow-[0_10px_30px_rgba(8,51,88,0.08)] transition duration-200 hover:-translate-y-1 hover:border-accent-border hover:shadow-card motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+          className="rounded-2xl border border-slate-100 bg-white p-7 text-center transition duration-200 hover:-translate-y-1 hover:border-accent-border motion-reduce:transition-none motion-reduce:hover:translate-y-0"
         >
           <p className="text-3xl font-semibold tracking-tight text-brand-deep sm:text-4xl">
             {s.value}
@@ -627,7 +627,7 @@ export function Steps({ items }: { items: { title: string; body: string }[] }) {
     <Grid cols={cols}>
       {items.map((s, i) => (
         <Card key={i} hover className="flex h-full flex-col">
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-accent-strong text-base font-semibold text-white shadow-sm ring-4 ring-accent/15">
+          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-accent-strong text-base font-semibold text-white ring-4 ring-accent/15">
             {i + 1}
           </div>
           <h3 className="mt-5 text-xl font-semibold text-heading">{s.title}</h3>
@@ -648,12 +648,12 @@ export function ImageArea({ label, className = '' }: { label: string; className?
 }
 
 // =============================================================================
-// CALLOUT BOX — light mint card (matches the brief's "core message" card)
+// CALLOUT BOX — light mint card (matches the brief's"core message" card)
 // =============================================================================
 
 export function Callout({ title, children }: { title?: string; children: ReactNode }) {
   return (
-    <div className="mx-auto max-w-3xl rounded-2xl border border-accent-border/60 bg-accent-soft/60 p-8 text-center shadow-sm">
+    <div className="mx-auto max-w-3xl rounded-2xl border border-accent-border/60 bg-accent-soft/60 p-7 text-center">
       {title && <p className="text-base font-semibold text-heading">{title}</p>}
       <div className="mt-2 leading-relaxed text-gray-700">{children}</div>
     </div>
@@ -670,7 +670,7 @@ export function FAQ({ items }: { items: { q: string; a: string }[] }) {
       {items.map((it, i) => (
         <details
           key={i}
-          className="group rounded-2xl border border-slate-200 bg-white px-6 py-5 shadow-sm transition-shadow hover:shadow-[0_10px_30px_rgba(8,51,88,0.08)]"
+          className="group rounded-2xl border border-slate-200 bg-white px-6 py-5 transition-shadow"
         >
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-semibold text-heading">
             <span className="text-lg">{it.q}</span>

@@ -52,7 +52,7 @@ const WhyPocSection = () => {
 
   return (
     <section id="warum-poc" className="bg-slate-50">
-      <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-28">
+      <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-24">
         {/* Kopf */}
         <div className="max-w-2xl mb-14">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">

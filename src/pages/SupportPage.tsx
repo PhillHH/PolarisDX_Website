@@ -191,7 +191,7 @@ const SupportPage = () => {
                 </>
               )
               const cls =
-                'group flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:shadow-card'
+                'group flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 '
               return (
                 <Reveal key={c.title} width="100%" delay={0.1 + i * 0.1}>
                   {c.to ? (
@@ -212,12 +212,12 @@ const SupportPage = () => {
 
       <div className="bg-slate-50">
         <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,2.1fr)_minmax(0,1.3fr)] lg:items-start lg:gap-12">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,2.1fr)_minmax(0,1.3fr)] lg:items-start lg:gap-8">
             {/* Form panel — the page's single, clear conversion */}
             <Reveal width="100%">
               <section
                 id="support-form"
-                className="scroll-mt-28 rounded-2xl border border-slate-200 bg-white p-6 shadow-card sm:p-8 lg:p-10"
+                className="scroll-mt-28 rounded-2xl border border-slate-200 bg-white p-7 sm:p-7 lg:p-7"
               >
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                   {t('support.form_panel.caption')}
@@ -341,7 +341,7 @@ const SupportPage = () => {
             <div className="mt-10 grid gap-6 md:grid-cols-2">
               {faqItems.map((item, i) => (
                 <Reveal key={item.q} width="100%" delay={0.08 + (i % 2) * 0.08}>
-                  <div className="flex h-full gap-4 rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:shadow-card">
+                  <div className="flex h-full gap-4 rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1">
                     <span
                       className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent"
                       aria-hidden

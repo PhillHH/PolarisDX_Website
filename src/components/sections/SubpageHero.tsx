@@ -42,7 +42,7 @@ const GAUGE_C = 2 * Math.PI * GAUGE_R
 function HeroCtaButton({ cta, variant }: { cta: HeroCta; variant: 'primary' | 'secondary' }) {
   const cls =
     variant === 'primary'
-      ? 'inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 text-sm font-medium text-white shadow-lg shadow-accent/20 transition hover:bg-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep'
+      ? 'inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 text-sm font-medium text-white transition hover:bg-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep'
       : 'inline-flex items-center justify-center rounded-md border border-white/25 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10'
   return cta.to ? (
     <Link to={cta.to} className={cls}>
@@ -82,7 +82,7 @@ export function SubpageHero({
     <section className="relative overflow-hidden bg-brand-deep text-white">
       <div
         className={`relative mx-auto max-w-container px-4 lg:px-0 pt-24 pb-16 lg:pt-28 ${
-          hasVisual ? 'grid items-center gap-10 lg:grid-cols-2' : ''
+          hasVisual ? 'grid items-center gap-8 lg:grid-cols-2' : ''
         }`}
       >
         {/* LEFT — copy */}
@@ -136,7 +136,7 @@ export function SubpageHero({
         {/* RIGHT — unified rich visual */}
         {hasVisual && (
           <div className="hidden lg:block" aria-hidden="true">
-            <div className="relative min-h-[320px] rounded-2xl bg-white/5 p-8 ring-1 ring-white/10">
+            <div className="relative min-h-[320px] rounded-2xl bg-white/5 p-7 ring-1 ring-white/10">
               <div className="relative mx-auto flex h-44 w-44 items-center justify-center">
                 <span className="hero-pulse-ring absolute inset-0 rounded-full ring-2 ring-accent/40" />
                 {gauge ? (
@@ -174,7 +174,7 @@ export function SubpageHero({
               {cards.map((c, i) => (
                 <div
                   key={c.label}
-                  className={`absolute ${positions[i]} ${floatCls[i]} flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-brand-deep shadow-lg`}
+                  className={`absolute ${positions[i]} ${floatCls[i]} flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-brand-deep `}
                 >
                   <Check size={14} className="text-accent" />
                   <span>

@@ -14,7 +14,7 @@ const DiagnosticsHero = () => {
 
   return (
     <section className="relative overflow-hidden bg-brand-deep text-white">
-      <div className="mx-auto max-w-container px-4 lg:px-0 pt-24 pb-16 lg:pt-28 grid lg:grid-cols-2 gap-10 items-center">
+      <div className="mx-auto max-w-container px-4 lg:px-0 pt-24 pb-16 lg:pt-28 grid lg:grid-cols-2 gap-8 items-center">
         {/* Links: Textspalte */}
         <div>
           <Breadcrumbs
@@ -49,7 +49,7 @@ const DiagnosticsHero = () => {
 
         {/* Rechts: dekoratives Reader-Visual */}
         <div className="hidden lg:block" aria-hidden="true">
-          <div className="relative rounded-2xl bg-white/5 ring-1 ring-white/10 p-8 min-h-[300px]">
+          <div className="relative rounded-2xl bg-white/5 ring-1 ring-white/10 p-7 min-h-[300px]">
             {/* Kreisfoermige Gauge */}
             <div className="relative mx-auto h-40 w-40">
               <svg viewBox="0 0 120 120" className="h-full w-full -rotate-90">
@@ -79,7 +79,7 @@ const DiagnosticsHero = () => {
             </div>
 
             {/* Schwebende Ergebnis-Kaertchen */}
-            <div className="absolute top-6 left-4 rounded-lg bg-white px-3 py-2 shadow-lg text-brand-deep flex items-center gap-2">
+            <div className="absolute top-6 left-4 rounded-lg bg-white px-3 py-2 text-brand-deep flex items-center gap-2">
               <Check size={14} className="text-accent" />
               <span>
                 <span className="block font-medium">
@@ -91,7 +91,7 @@ const DiagnosticsHero = () => {
               </span>
             </div>
 
-            <div className="absolute top-1/2 right-4 rounded-lg bg-white px-3 py-2 shadow-lg text-brand-deep flex items-center gap-2">
+            <div className="absolute top-1/2 right-4 rounded-lg bg-white px-3 py-2 text-brand-deep flex items-center gap-2">
               <Check size={14} className="text-accent" />
               <span>
                 <span className="block font-medium">
@@ -103,7 +103,7 @@ const DiagnosticsHero = () => {
               </span>
             </div>
 
-            <div className="absolute bottom-6 left-10 rounded-lg bg-white px-3 py-2 shadow-lg text-brand-deep flex items-center gap-2">
+            <div className="absolute bottom-6 left-10 rounded-lg bg-white px-3 py-2 text-brand-deep flex items-center gap-2">
               <Check size={14} className="text-accent" />
               <span>
                 <span className="block font-medium">

@@ -54,7 +54,7 @@ const TestimonialsSection = () => {
 
   return (
     <section id="testimonials" className="bg-brand-deep py-20 text-white lg:py-24">
-      <div className="mx-auto flex max-w-container flex-col items-center gap-10 px-4 lg:px-8">
+      <div className="mx-auto flex max-w-container flex-col items-center gap-8 px-4 lg:px-8">
         {/* Kopf: GENAU EIN Eyebrow + h2 (helle Sektion) */}
         <div className="flex flex-col items-center gap-3 text-center">
           <Eyebrow tone="dark">{t('testimonials.caption', 'PRAXIS-STIMMEN')}</Eyebrow>

@@ -147,7 +147,7 @@ const VitaminD3ImplantologyPage = () => {
       <div className="bg-slate-50">
         {/* Main Content with Sidebar */}
         <div className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">
-          <div className="lg:grid lg:grid-cols-[1fr_320px] lg:gap-10">
+          <div className="lg:grid lg:grid-cols-[1fr_320px] lg:gap-8">
             {/* Main Article Column */}
             <article className="article-col">
               <Reveal width="100%">
@@ -195,7 +195,7 @@ const VitaminD3ImplantologyPage = () => {
                   </div>
 
                   {/* Evidence Box */}
-                  <div className="my-8 rounded-lg border-l-4 border-accent bg-accent/5 p-6">
+                  <div className="my-8 rounded-lg border-l-4 border-accent bg-accent/5 p-7">
                     <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                       Kernbefunde
                     </p>
@@ -503,7 +503,7 @@ const VitaminD3ImplantologyPage = () => {
                 </div>
 
                 {/* Quick Order CTA — flaches Teal-Band */}
-                <div className="rounded-xl bg-accent-strong p-6 text-white">
+                <div className="rounded-xl bg-accent-strong p-7 text-white">
                   <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-white">
                     Schnellbestellung
                   </p>
@@ -591,10 +591,10 @@ const VitaminD3ImplantologyPage = () => {
       </div>
 
       {/* Sticky Mobile CTA */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-gray-200 bg-white p-4 shadow-lg lg:hidden">
+      <div className="fixed bottom-0 left-0 right-0 z-40 shadow-lg border-t border-gray-200 bg-white p-4 lg:hidden">
         <a
           href="#bestellformular"
-          className="flex w-full items-center justify-center gap-2 rounded-md bg-accent-strong px-6 py-3.5 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-brand-deep"
+          className="flex w-full items-center justify-center gap-2 rounded-md bg-accent-strong px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-brand-deep"
         >
           Jetzt D3+K2 Spray bestellen
           <ArrowRight className="h-4 w-4" />

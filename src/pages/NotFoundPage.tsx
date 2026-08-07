@@ -58,7 +58,7 @@ const NotFoundPage = () => {
               <Button
                 to="/"
                 variant="secondary"
-                className="!bg-accent-strong !text-white !shadow-accent/20 hover:!bg-brand-deep focus-visible:!ring-accent"
+                className="!bg-accent-strong !text-white hover:!bg-brand-deep focus-visible:!ring-accent"
               >
                 <Home className="h-5 w-5" />
                 {t('notFound.backHome', 'Zurück zur Startseite')}

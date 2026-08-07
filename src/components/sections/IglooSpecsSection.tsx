@@ -23,7 +23,7 @@ const IglooSpecsSection = () => {
 
   return (
     <section className="bg-slate-50">
-      <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-28">
+      <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-24">
         <div className="mb-14 text-center">
           <Eyebrow>{t('specs.eyebrow', 'TECHNISCHE DATEN')}</Eyebrow>
           <h2 className="mt-3 text-3xl lg:text-[42px] font-medium tracking-tight text-heading">
@@ -54,7 +54,7 @@ const IglooSpecsSection = () => {
           </div>
 
           {/* RECHTS: Navy-Highlight-Karte */}
-          <div className="rounded-2xl bg-brand-deep text-white p-8 flex flex-col justify-center">
+          <div className="rounded-2xl bg-brand-deep text-white p-7 flex flex-col justify-center">
             <p className="text-xs font-medium text-white/60">
               {t('specs.highlights.label', 'Highlights')}
             </p>

@@ -54,7 +54,7 @@ const renderTextWithLinks = (text: string) => {
   return parts.length > 0 ? parts : text
 }
 
-// Strip a leading enumerator ("1. ", "2) " …) from a heading so it can be paired
+// Strip a leading enumerator ("1.","2)" …) from a heading so it can be paired
 // with the rendered number badge without duplicating the count. Display-only —
 // the underlying i18n content is never mutated.
 const stripLeadingNumber = (heading: string) => heading.replace(/^\s*\d+\s*[.)]\s*/, '')
@@ -232,7 +232,7 @@ const ServicePage = () => {
       <TrustBar />
 
       <div className="bg-slate-50">
-        <div className="mx-auto flex max-w-container flex-col gap-10 px-4 py-12 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,1.4fr)] lg:items-start lg:gap-12 lg:px-0 lg:py-16">
+        <div className="mx-auto flex max-w-container flex-col gap-8 px-4 py-12 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,1.4fr)] lg:items-start lg:gap-8 lg:px-0 lg:py-16">
           {/* Main Content */}
           <article className="space-y-10 text-gray-700">
             {hasRichContent ? (
@@ -315,7 +315,7 @@ const ServicePage = () => {
                     </span>
                     {sections.map((section, index) => (
                       <Reveal key={index} width="100%" delay={0.05 * index}>
-                        <section className="rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:shadow-card lg:p-8">
+                        <section className="rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 lg:p-7">
                           {section.heading && (
                             <div className="flex items-start gap-4">
                               <span className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-base font-semibold text-accent">
@@ -353,7 +353,7 @@ const ServicePage = () => {
                 {/* Conclusion → teal-tint highlight */}
                 {hasConclusion && (
                   <Reveal width="100%">
-                    <div className="rounded-2xl border border-accent/20 bg-accent/5 p-7 lg:p-8">
+                    <div className="rounded-2xl border border-accent/20 bg-accent/5 p-7 lg:p-7">
                       <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                         {t('services:overview.page.conclusion_eyebrow', 'Fazit')}
                       </span>
@@ -372,7 +372,7 @@ const ServicePage = () => {
             )}
 
             {/* Mid-Page Teal CTA-Band */}
-            <div className="flex flex-col gap-4 rounded-2xl bg-accent-strong p-6 text-white md:flex-row md:items-center md:justify-between lg:p-8">
+            <div className="flex flex-col gap-4 rounded-2xl bg-accent-strong p-7 text-white md:flex-row md:items-center md:justify-between lg:p-7">
               <div>
                 <p className="font-medium">
                   {t(

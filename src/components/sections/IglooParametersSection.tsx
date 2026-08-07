@@ -25,23 +25,19 @@ const IglooParametersSection = () => {
 
   return (
     <section className="bg-white">
-      <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-28">
+      <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-24">
         <div className="mb-14 text-center">
           <Eyebrow>{t('parameters.eyebrow', 'VERFÜGBARE PARAMETER')}</Eyebrow>
           <h2 className="mt-3 text-3xl lg:text-[42px] font-medium tracking-tight text-heading">
             {t('parameters.headline', 'Ein Reader, ein wachsendes Testmenü')}
           </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-gray-700">
-            {t('parameters.subtitle')}
-          </p>
+          <p className="mt-4 max-w-2xl mx-auto text-gray-700">{t('parameters.subtitle')}</p>
         </div>
 
-        <div className="grid gap-7 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-3">
           {GROUPS.map(({ g, items }) => (
             <div key={g} className="rounded-xl border border-slate-200 bg-white p-7">
-              <h3 className="text-lg font-medium text-heading">
-                {t('parameters.groups.' + g)}
-              </h3>
+              <h3 className="text-lg font-medium text-heading">{t('parameters.groups.' + g)}</h3>
               <div className="mt-4 flex flex-wrap gap-2">
                 {items.map((item) => (
                   <span

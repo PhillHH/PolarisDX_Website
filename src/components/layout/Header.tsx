@@ -81,7 +81,7 @@ const Header = () => {
 
           {/* Desktop Nav */}
           <nav
-            className={`hidden flex-wrap items-center gap-8 text-sm font-medium tracking-wide md:flex xl:gap-12 text-white`}
+            className={`hidden flex-wrap items-center gap-8 text-sm font-medium tracking-wide md:flex xl:gap-8 text-white`}
           >
             {navItems.map((item) => (
               <div key={item.label} className="relative group">

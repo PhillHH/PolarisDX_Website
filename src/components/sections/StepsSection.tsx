@@ -3,7 +3,7 @@ import Eyebrow from '../ui/Eyebrow'
 import { Button } from '../ui/Button'
 
 /**
- * StepsSection — "So einfach starten Sie": validierte POC-Diagnostik in 3 Schritten.
+ * StepsSection —"So einfach starten Sie": validierte POC-Diagnostik in 3 Schritten.
  * Helle Sektion (bg-slate-50), zentrierter Kopf + 3 nummerierte Karten mit Teal-Badge,
  * darunter zentrierter gefüllt-Teal CTA zur Kontaktseite.
  * i18n-Namespace 'home', Keys unter steps.*. SSR-sicher (kein window/localStorage).
@@ -66,7 +66,7 @@ const StepsSection = () => {
         </div>
 
         {/* Grid */}
-        <div className="grid gap-7 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-3">
           {steps.map((step) => (
             <div
               key={step.number}

@@ -41,7 +41,7 @@ const DiagnosticsFocusSection = () => {
   return (
     <>
       <section className="bg-slate-50">
-        <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-28">
+        <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-24">
           <div className="mb-14 text-center">
             <Eyebrow>{t('home:services.caption', 'DIAGNOSTIK-FOKUS')}</Eyebrow>
             <h2 className="mt-3 text-3xl lg:text-[42px] font-medium tracking-tight text-heading">
@@ -52,7 +52,7 @@ const DiagnosticsFocusSection = () => {
             </p>
           </div>
 
-          <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {cards.map(({ id, tkey, fkey, icon }) => {
               const raw = t(`services:overview.focus.${fkey}.tags`, { returnObjects: true })
               const tags = Array.isArray(raw) ? raw : []
@@ -61,7 +61,7 @@ const DiagnosticsFocusSection = () => {
                 <Link
                   key={id}
                   to={`/diagnostics/${id}`}
-                  className="group flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:shadow-card"
+                  className="group flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1"
                 >
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent">
                     <span className="[&>svg]:h-5 [&>svg]:w-5">{icon}</span>
@@ -96,7 +96,7 @@ const DiagnosticsFocusSection = () => {
 
       <section className="bg-white">
         <div className="mx-auto max-w-container px-4 lg:px-0 pb-24 lg:pb-28">
-          <div className="rounded-2xl bg-accent-strong p-6 lg:p-8 text-white flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div className="rounded-2xl bg-accent-strong p-7 lg:p-7 text-white flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
               <p className="font-medium">{t('home:igloo_widget.help_title')}</p>
               <p className="text-sm text-white">{t('home:igloo_widget.help_text')}</p>

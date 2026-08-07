@@ -55,11 +55,11 @@ const DownloadsPage = () => {
       <h2 className="mb-6 text-2xl font-medium tracking-tight text-heading">{title}</h2>
       {items.length > 0 ? (
         <Reveal width="100%">
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {items.map((item) => (
               <div
                 key={item.id}
-                className="group relative flex h-full flex-col justify-between rounded-xl border border-slate-200 bg-white p-7 shadow-sm transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-card"
+                className="group relative flex h-full flex-col justify-between rounded-xl border border-slate-200 bg-white p-7 transition-all hover:-translate-y-1 hover:border-accent/40"
               >
                 <div>
                   <span className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent transition group-hover:bg-accent group-hover:text-white">
@@ -101,7 +101,7 @@ const DownloadsPage = () => {
           </div>
         </Reveal>
       ) : (
-        <div className="rounded-xl border border-dashed border-gray-300 bg-slate-50 p-8 text-center text-gray-500">
+        <div className="rounded-xl border border-dashed border-gray-300 bg-slate-50 p-7 text-center text-gray-500">
           <p>{t('downloads:comingSoon')}</p>
         </div>
       )}
@@ -159,7 +159,7 @@ const DownloadsPage = () => {
 
           {/* Dezente Schluss-CTA (Teal-Band) */}
           <Reveal width="100%">
-            <div className="mt-14 flex flex-col gap-4 rounded-2xl bg-accent-strong p-6 text-white md:flex-row md:items-center md:justify-between lg:p-8">
+            <div className="mt-14 flex flex-col gap-4 rounded-2xl bg-accent-strong p-7 text-white md:flex-row md:items-center md:justify-between lg:p-7">
               <div>
                 <p className="text-lg font-medium">
                   {t('downloads:cta_title', 'Unterlage nicht gefunden?')}

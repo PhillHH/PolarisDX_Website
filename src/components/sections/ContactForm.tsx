@@ -17,8 +17,8 @@ type FieldKey = (typeof FIELD_KEYS)[number]
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 /** Joyful, single-page contact form with a live completion meter, intent /
- *  field pills, contextual encouragement and a submit label that adapts to
- *  the selected intent. Fully controlled so the meter + checkmarks stay live. */
+ * field pills, contextual encouragement and a submit label that adapts to
+ * the selected intent. Fully controlled so the meter + checkmarks stay live. */
 export const ContactForm = () => {
   const { t } = useTranslation('contact')
   const { isSubmitting, submitStatus, submit } = useContactForm()
@@ -39,7 +39,7 @@ export const ContactForm = () => {
   const companyFilled = company.trim().length > 0
   const fieldSelected = field !== ''
 
-  // Five joyful "steps" that fill the progress meter. Intent is pre-selected
+  // Five joyful"steps" that fill the progress meter. Intent is pre-selected
   // (it always has a value), so it drives the button label, not the meter.
   const steps = [nameValid, companyFilled, emailValid, fieldSelected, consent]
   const done = steps.filter(Boolean).length
@@ -298,7 +298,7 @@ export const ContactForm = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-accent-strong px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:opacity-60"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-accent-strong px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:opacity-60"
           >
             {isSubmitting ? t('contact.form.sending') : t(`contact.form.submit.${intent}`)}
             {!isSubmitting && <ArrowRight className="h-4 w-4" aria-hidden />}

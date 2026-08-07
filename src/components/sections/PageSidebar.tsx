@@ -45,7 +45,7 @@ export type SidebarWidget =
     }
   | { kind: 'contact' }
 
-const sectionBase = 'rounded-2xl border border-gray-100 bg-white p-5 shadow-sm'
+const sectionBase = 'rounded-2xl border border-gray-100 bg-white p-5 '
 
 export function PageSidebar({ widgets }: { widgets: SidebarWidget[] }) {
   const { t } = useTranslation(['home', 'articles', 'shop', 'common'])
@@ -67,7 +67,7 @@ export function PageSidebar({ widgets }: { widgets: SidebarWidget[] }) {
                     <Link
                       key={s.id}
                       to={`/diagnostics/${s.id}`}
-                      className="group flex items-center justify-between rounded-xl border border-gray-100 bg-gradient-to-br from-white to-slate-50 p-4 shadow-sm transition-all duration-300 hover:border-brand-primary/30 hover:shadow-md hover:scale-[1.02]"
+                      className="group flex items-center justify-between rounded-xl border border-gray-100 bg-white p-4 transition-all duration-300 hover:border-brand-primary/30 hover:scale-[1.02]"
                     >
                       <div className="flex items-center gap-3">
                         <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-primary/10 text-brand-secondary transition-colors group-hover:bg-brand-secondary group-hover:text-white">

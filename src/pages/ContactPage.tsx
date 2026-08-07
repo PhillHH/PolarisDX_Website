@@ -100,7 +100,7 @@ const ContactPage = () => {
       {/* Form + aside */}
       <section className="bg-slate-50">
         <div className="mx-auto max-w-container px-4 lg:px-0 py-16 lg:py-24">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.55fr)] lg:items-start lg:gap-12">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.55fr)] lg:items-start lg:gap-8">
             {/* Aside */}
             <Reveal width="100%">
               <div className="space-y-8 lg:sticky lg:top-28">
@@ -130,7 +130,7 @@ const ContactPage = () => {
                     <a
                       key={key}
                       href={href}
-                      className="group flex items-start gap-4 rounded-xl border border-slate-200 bg-white p-4 transition hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                      className="group flex items-start gap-4 rounded-xl border border-slate-200 bg-white p-4 transition hover:-translate-y-0.5 hover:border-accent/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                       {...(external ? {} : { 'aria-label': t(`contact.channels.${key}.label`) })}
                     >
                       <span
@@ -161,7 +161,7 @@ const ContactPage = () => {
               <section
                 id="kontaktformular"
                 aria-label={t('contact.form_aside.title')}
-                className="scroll-mt-28 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card"
+                className="scroll-mt-28 overflow-hidden rounded-2xl border border-slate-200 bg-white"
               >
                 <div className="h-1.5 w-full bg-accent" aria-hidden />
                 <div className="p-6 sm:p-8 lg:p-10">
@@ -186,10 +186,10 @@ const ContactPage = () => {
             <p className="mt-4 leading-relaxed text-gray-700">{t('contact.process.subtitle')}</p>
           </div>
 
-          <div className="grid gap-7 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-3">
             {['one', 'two', 'three'].map((step, i) => (
               <Reveal key={step} width="100%" delay={0.1 + i * 0.1}>
-                <div className="relative flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:shadow-card">
+                <div className="relative flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1">
                   <span
                     className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-lg font-semibold text-accent"
                     aria-hidden
@@ -221,10 +221,10 @@ const ContactPage = () => {
             </h2>
           </div>
 
-          <div className="grid gap-7 md:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-2">
             {offices.map((office) => (
               <Reveal key={office.key} width="100%">
-                <div className="flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:shadow-card">
+                <div className="flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1">
                   <div className="flex items-center gap-4">
                     <span
                       className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent"

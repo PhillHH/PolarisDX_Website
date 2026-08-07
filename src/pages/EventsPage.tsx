@@ -53,13 +53,6 @@ function EventsPage() {
     [],
   )
 
-  const gradients = [
-    'from-brand-deep to-accent',
-    'from-brand-deep to-brand-primary',
-    'from-accent-strong to-accent',
-    'from-brand-deep to-accent',
-  ]
-
   return (
     <PageTransition>
       <SEOHead
@@ -111,7 +104,7 @@ function EventsPage() {
 
       {/* ================ UPCOMING: Highlight + Kalender-Liste ================ */}
       <section className="bg-slate-50">
-        <div className="mx-auto max-w-container px-4 lg:px-0 py-20 lg:py-28">
+        <div className="mx-auto max-w-container px-4 lg:px-0 py-24">
           <div className="mb-12 text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
               {t('events:upcoming.eyebrow', 'Upcoming · 2026')}
@@ -127,7 +120,7 @@ function EventsPage() {
           <div className="grid items-stretch gap-6 lg:grid-cols-2">
             {/* HIGHLIGHT-Karte */}
             <Reveal width="100%">
-              <div className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-brand-deep p-8 text-white">
+              <div className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-brand-deep p-7 text-white">
                 <span className="text-xs font-medium text-white/60">
                   {highlight.tag} · {t('events:highlight.label', 'Highlight')}
                 </span>
@@ -148,7 +141,7 @@ function EventsPage() {
                 <div className="mt-8">
                   <Link
                     to="/contact"
-                    className="inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 text-sm font-medium text-white shadow-lg shadow-accent/20 transition hover:bg-brand-deep"
+                    className="inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 text-sm font-medium text-white transition hover:bg-brand-deep"
                   >
                     {t('events:highlight.book_cta', 'Book a slot at DGI 2026')}
                   </Link>
@@ -165,7 +158,7 @@ function EventsPage() {
             {/* KALENDER-LISTE */}
             <Reveal width="100%" delay={0.1}>
               <div className="h-full divide-y divide-slate-100 overflow-hidden rounded-2xl border border-slate-200 bg-white">
-                {listEvents.map((event, i) => {
+                {listEvents.map((event) => {
                   const d = new Date(event.date)
                   return (
                     <div
@@ -173,7 +166,7 @@ function EventsPage() {
                       className="group flex items-center gap-4 p-4 transition hover:bg-slate-50"
                     >
                       <div
-                        className={`relative hidden h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-gradient-to-br sm:block ${gradients[i % gradients.length]}`}
+                        className={`relative hidden h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-brand-deep sm:block`}
                       >
                         <span className="pointer-events-none absolute bottom-0 left-1 select-none text-[9px] font-semibold text-white/40">
                           {event.location}
@@ -226,7 +219,7 @@ function EventsPage() {
             {pastEvents.map((p, i) => (
               <Reveal key={p.id} width="100%" delay={i * 0.05}>
                 <div
-                  className={`relative flex h-56 flex-col justify-end overflow-hidden rounded-2xl bg-gradient-to-br p-6 text-white ${gradients[i % gradients.length]}`}
+                  className={`relative flex h-56 flex-col justify-end overflow-hidden rounded-2xl bg-brand-deep p-7 text-white`}
                 >
                   <span
                     aria-hidden

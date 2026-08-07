@@ -182,7 +182,7 @@ export const SupportForm = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex w-full items-center justify-center rounded-md bg-accent-strong px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:opacity-60 md:w-auto"
+            className="inline-flex w-full items-center justify-center rounded-md bg-accent-strong px-8 py-3 text-sm font-semibold text-white transition hover:bg-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:opacity-60 md:w-auto"
           >
             {isSubmitting ? t('support.form.submitting') : t('support.form.submit')}
           </button>

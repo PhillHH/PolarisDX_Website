@@ -160,10 +160,8 @@ const S3LeitliniePage = () => {
       {/* Article Container */}
       <div className="bg-slate-50">
         {/* Hero / Above the Fold */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-deep to-brand-deep text-white">
+        <section className="relative overflow-hidden bg-brand-deep text-white">
           <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-60 bg-gradient-to-br from-white/30 to-transparent opacity-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-60 bg-gradient-to-tl from-white/30 to-transparent opacity-10" />
 
           <div className="relative mx-auto flex min-h-[380px] max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
             <Reveal width="100%" yOffset={20}>
@@ -213,7 +211,7 @@ const S3LeitliniePage = () => {
 
         {/* Main Content with Sidebar */}
         <div className="mx-auto max-w-[1200px] px-4 py-12 lg:py-16">
-          <div className="lg:grid lg:grid-cols-[1fr_320px] lg:gap-10">
+          <div className="lg:grid lg:grid-cols-[1fr_320px] lg:gap-8">
             {/* Main Article Column */}
             <article className="article-col">
               <Reveal width="100%">
@@ -284,7 +282,7 @@ const S3LeitliniePage = () => {
                   </div>
 
                   {/* Evidence Box: 3 Kernempfehlungen */}
-                  <div className="my-8 rounded-lg border-l-4 border-brand-primary bg-brand-primary/5 p-6">
+                  <div className="my-8 rounded-lg border-l-4 border-brand-primary bg-brand-primary/5 p-7">
                     <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                       Drei Kernempfehlungen
                     </p>
@@ -486,7 +484,7 @@ const S3LeitliniePage = () => {
                   </h3>
 
                   {/* DEQAS Metrics Box */}
-                  <div className="my-6 rounded-lg border-l-4 border-success bg-success-soft/70 p-6">
+                  <div className="my-6 rounded-lg border-l-4 border-success bg-success-soft/70 p-7">
                     <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                       Zentrale Leistungskennzahlen
                     </p>
@@ -533,7 +531,7 @@ const S3LeitliniePage = () => {
                 </section>
 
                 {/* Mid-CTA: Diagnostiksystem mit Bild */}
-                <div className="my-10 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
+                <div className="my-10 overflow-hidden rounded-xl border border-gray-200 bg-white">
                   <div className="flex flex-col sm:flex-row">
                     <div className="sm:w-2/5">
                       <img
@@ -591,7 +589,7 @@ const S3LeitliniePage = () => {
                   </h3>
 
                   {/* ROI Box */}
-                  <div className="my-6 rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                  <div className="my-6 rounded-lg border border-gray-200 bg-white p-7">
                     <div className="grid gap-4 sm:grid-cols-3 text-center">
                       <div>
                         <p className="text-2xl font-semibold text-brand-primary">3 Tests/Woche</p>
@@ -798,7 +796,7 @@ const S3LeitliniePage = () => {
 
                 {/* Section 9: CTA */}
                 <section className="mt-12">
-                  <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-deep p-8 text-white">
+                  <div className="rounded-xl bg-brand-deep p-7 text-white">
                     <h2 className="mb-4 text-xl font-semibold sm:text-2xl">
                       Bereit für leitlinienkonforme Diagnostik in Ihrer Praxis?
                     </h2>
@@ -866,7 +864,7 @@ const S3LeitliniePage = () => {
             <aside className="hidden lg:block">
               <div className="sticky top-24 space-y-6">
                 {/* Telefon-Kontaktbox */}
-                <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                <div className="rounded-xl border border-gray-200 bg-white p-5">
                   <div className="mb-3 flex items-center gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-primary/10">
                       <Phone className="h-5 w-5 text-brand-primary" />
@@ -887,7 +885,7 @@ const S3LeitliniePage = () => {
                 </div>
 
                 {/* CTA Box */}
-                <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-deep p-5 text-white">
+                <div className="rounded-xl bg-brand-deep p-5 text-white">
                   <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                     Kostenlose Beratung
                   </p>
@@ -905,7 +903,7 @@ const S3LeitliniePage = () => {
                 </div>
 
                 {/* Verwandte Artikel */}
-                <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                <div className="rounded-xl border border-gray-200 bg-white p-5">
                   <p className="mb-4 flex items-center gap-2 text-sm font-semibold text-heading">
                     <BookOpen className="h-4 w-4 text-brand-primary" />
                     Verwandte Inhalte
@@ -988,10 +986,10 @@ const S3LeitliniePage = () => {
       </div>
 
       {/* Sticky Mobile CTA */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-gray-200 bg-white p-4 shadow-lg lg:hidden">
+      <div className="fixed bottom-0 left-0 right-0 z-40 shadow-lg border-t border-gray-200 bg-white p-4 lg:hidden">
         <Link
           to="/contact"
-          className="flex w-full items-center justify-center gap-2 rounded-md bg-brand-primary px-6 py-3.5 text-sm font-semibold text-white shadow-lg"
+          className="flex w-full items-center justify-center gap-2 rounded-md bg-brand-primary px-6 py-3.5 text-sm font-semibold text-white"
         >
           Beratung buchen
           <ArrowRight className="h-4 w-4" />

@@ -112,7 +112,7 @@ const AboutPage = () => {
 
       {/* Mission — copy + navy highlight tile */}
       <section className="py-16 lg:py-24">
-        <div className="mx-auto grid max-w-container items-center gap-12 px-4 lg:grid-cols-2 lg:px-0">
+        <div className="mx-auto grid max-w-container items-center gap-8 px-4 lg:grid-cols-2 lg:px-0">
           <Reveal width="100%">
             <div>
               <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
@@ -150,7 +150,7 @@ const AboutPage = () => {
           </Reveal>
 
           <Reveal width="100%" delay={0.1}>
-            <div className="rounded-2xl bg-brand-deep p-8 text-white lg:p-10">
+            <div className="rounded-2xl bg-brand-deep p-7 text-white lg:p-7">
               <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/15 text-accent-on-dark">
                 <Zap className="h-6 w-6" aria-hidden="true" />
               </span>
@@ -172,7 +172,7 @@ const AboutPage = () => {
       </section>
 
       {/* Stat strip */}
-      <section className="bg-slate-50 py-16 lg:py-20">
+      <section className="bg-slate-50 py-16 lg:py-24">
         <div className="mx-auto max-w-container px-4 lg:px-0">
           <Reveal width="100%">
             <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 lg:grid-cols-4">
@@ -203,7 +203,7 @@ const AboutPage = () => {
           <div className="mt-14 grid gap-8 md:grid-cols-3">
             {values.map((v, i) => (
               <Reveal key={v.key} width="100%" delay={0.05 * i}>
-                <div className="h-full rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:shadow-card">
+                <div className="h-full rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1">
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent">
                     <v.icon className="h-5 w-5" aria-hidden="true" />
                   </span>
@@ -226,7 +226,7 @@ const AboutPage = () => {
       <section className="pb-16 lg:pb-24">
         <div className="mx-auto max-w-container px-4 lg:px-0">
           <Reveal width="100%">
-            <div className="rounded-2xl border border-accent/20 bg-accent/5 p-8 text-center lg:p-10">
+            <div className="rounded-2xl border border-accent/20 bg-accent/5 p-7 text-center lg:p-7">
               <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                 {t('about:dx365_partner.caption', 'Unser Partner')}
               </span>

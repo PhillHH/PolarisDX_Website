@@ -7,11 +7,11 @@ const Footer = () => {
   const { t } = useTranslation('common')
 
   return (
-    <footer className="mt-24 bg-brand-deep text-white lg:mt-32">
+    <footer className="bg-brand-deep text-white">
       <div className="relative">
         {/* Footer-Inhalte */}
-        <div className="mx-auto flex max-w-container flex-col gap-10 px-4 pb-12 lg:pb-16 pt-12 lg:pt-16">
-          <div className="flex flex-col gap-10 lg:flex-row lg:justify-between">
+        <div className="mx-auto flex max-w-container flex-col gap-8 px-4 pb-12 lg:pb-16 pt-12 lg:pt-16">
+          <div className="flex flex-col gap-8 lg:flex-row lg:justify-between">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <img
@@ -57,37 +57,58 @@ const Footer = () => {
                 </h3>
                 <ul className="space-y-2 text-white/70">
                   <li>
-                    <Link to="/" className="hover:text-accent-on-dark">
+                    <Link
+                      to="/"
+                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                    >
                       {t('nav.home')}
                     </Link>
                   </li>
                   <li>
-                    <Link to="/about" className="hover:text-accent-on-dark">
+                    <Link
+                      to="/about"
+                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                    >
                       {t('nav.about')}
                     </Link>
                   </li>
                   <li>
-                    <Link to="/igloo-pro" className="hover:text-accent-on-dark">
+                    <Link
+                      to="/igloo-pro"
+                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                    >
                       IglooPro
                     </Link>
                   </li>
                   <li>
-                    <Link to="/articles" className="hover:text-accent-on-dark">
+                    <Link
+                      to="/articles"
+                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                    >
                       {t('nav.blog')}
                     </Link>
                   </li>
                   <li>
-                    <Link to="/events" className="hover:text-accent-on-dark">
+                    <Link
+                      to="/events"
+                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                    >
                       {t('nav.events', 'Events')}
                     </Link>
                   </li>
                   <li>
-                    <Link to="/downloads" className="hover:text-accent-on-dark">
+                    <Link
+                      to="/downloads"
+                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                    >
                       {t('nav.downloads', 'Downloads')}
                     </Link>
                   </li>
                   <li>
-                    <Link to="/contact" className="hover:text-accent-on-dark">
+                    <Link
+                      to="/contact"
+                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                    >
                       {t('nav.contact')}
                     </Link>
                   </li>
@@ -100,29 +121,41 @@ const Footer = () => {
                 </h3>
                 <ul className="space-y-2 text-white/70">
                   <li>
-                    <Link to="/diagnostics" className="hover:text-accent-on-dark">
+                    <Link
+                      to="/diagnostics"
+                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                    >
                       {t('footer.allServices', 'Alle Services')}
                     </Link>
                   </li>
                   <li>
-                    <Link to="/diagnostics/dental" className="hover:text-accent-on-dark">
+                    <Link
+                      to="/diagnostics/dental"
+                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                    >
                       Dental
                     </Link>
                   </li>
                   <li>
-                    <Link to="/diagnostics/beauty" className="hover:text-accent-on-dark">
+                    <Link
+                      to="/diagnostics/beauty"
+                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                    >
                       Beauty
                     </Link>
                   </li>
                   <li>
-                    <Link to="/diagnostics/longevity" className="hover:text-accent-on-dark">
+                    <Link
+                      to="/diagnostics/longevity"
+                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                    >
                       Longevity
                     </Link>
                   </li>
                   <li>
                     <Link
                       to="/diagnostics/poc-systemloesungen"
-                      className="hover:text-accent-on-dark"
+                      className="text-white/70 transition-colors hover:text-accent-on-dark"
                     >
                       {t('footer.pocSystems', 'POC-Systeme')}
                     </Link>
@@ -130,13 +163,16 @@ const Footer = () => {
                   <li>
                     <Link
                       to="/diagnostics/praeventions-checks"
-                      className="hover:text-accent-on-dark"
+                      className="text-white/70 transition-colors hover:text-accent-on-dark"
                     >
                       {t('footer.preventionChecks', 'Präventions-Checks')}
                     </Link>
                   </li>
                   <li>
-                    <Link to="/diagnostics/hormon-tests" className="hover:text-accent-on-dark">
+                    <Link
+                      to="/diagnostics/hormon-tests"
+                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                    >
                       {t('footer.hormonTests', 'Hormon-Tests')}
                     </Link>
                   </li>
@@ -178,13 +214,13 @@ const Footer = () => {
               })}
             </p>
             <div className="flex gap-4 md:gap-8">
-              <Link to="/imprint" className="hover:text-white transition-colors">
+              <Link to="/imprint" className="text-white/60 transition-colors hover:text-white">
                 {t('footer.imprint', 'Impressum')}
               </Link>
-              <Link to="/privacy" className="hover:text-white transition-colors">
+              <Link to="/privacy" className="text-white/60 transition-colors hover:text-white">
                 {t('footer.privacy', 'Datenschutzerklärung')}
               </Link>
-              <Link to="/terms" className="hover:text-white transition-colors">
+              <Link to="/terms" className="text-white/60 transition-colors hover:text-white">
                 {t('nav.terms')}
               </Link>
             </div>

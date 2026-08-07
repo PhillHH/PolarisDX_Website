@@ -10,7 +10,7 @@ const DiagnosticsPitchSection = () => {
   return (
     <section
       id="diagnostics-pitch" // ID angepasst
-      className="grid items-center gap-8 lg:grid-cols-5 lg:gap-10"
+      className="grid items-center gap-8 lg:grid-cols-5 lg:gap-8"
     >
       <div className="relative order-2 space-y-6 lg:order-1 lg:col-span-3 lg:space-y-8">
         <SectionHeader
