@@ -594,7 +594,7 @@ const VitaminD3ImplantologyPage = () => {
       <div className="fixed bottom-0 left-0 right-0 z-40 shadow-lg border-t border-gray-200 bg-white p-4 lg:hidden">
         <a
           href="#bestellformular"
-          className="flex w-full items-center justify-center gap-2 rounded-md bg-accent-strong px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-brand-deep"
+          className="flex w-full items-center justify-center gap-2 rounded-md bg-accent-strong px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:brightness-110"
         >
           Jetzt D3+K2 Spray bestellen
           <ArrowRight className="h-4 w-4" />

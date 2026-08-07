@@ -30,7 +30,7 @@ const FinalCtaSection = ({ roiHref = '#roi-rechner' }: { roiHref?: string }) => 
           <Button
             to="/contact"
             variant="secondary"
-            className="!bg-accent-strong hover:!bg-brand-deep focus-visible:!ring-accent"
+            className="!bg-accent-strong hover:!brightness-110 focus-visible:!ring-accent"
           >
             {t('final_cta.cta_primary', 'Beratung buchen')}
           </Button>

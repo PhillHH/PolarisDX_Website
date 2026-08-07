@@ -103,7 +103,7 @@ const HeroSection = () => {
                 to="/contact"
                 variant="secondary"
                 size="sm"
-                className="w-full text-center sm:w-auto sm:whitespace-nowrap !bg-accent-strong !text-white hover:!bg-brand-deep focus-visible:!ring-accent"
+                className="w-full text-center sm:w-auto sm:whitespace-nowrap !bg-accent-strong !text-white hover:!brightness-110 focus-visible:!ring-accent"
               >
                 {t('hero.cta', 'Beratung buchen')}
               </Button>

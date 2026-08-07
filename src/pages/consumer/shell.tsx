@@ -84,7 +84,7 @@ export function CTA({
     navy: 'bg-brand-deep text-white hover:bg-brand-navy-hover ',
     'outline-navy':
       'bg-white border border-brand-deep text-brand-deep hover:bg-brand-deep hover:text-white ',
-    teal: 'bg-accent-strong text-white hover:bg-brand-deep ',
+    teal: 'bg-accent-strong text-white hover:brightness-110 ',
     white: 'bg-white text-brand-deep hover:bg-slate-50 ',
     'outline-white': 'border border-white/60 text-white hover:bg-white/10',
   }

@@ -140,7 +140,7 @@ const TestimonialsSection = () => {
           to="/contact"
           variant="secondary"
           size="sm"
-          className="!bg-accent-strong !text-white hover:!bg-brand-deep focus-visible:!ring-accent"
+          className="!bg-accent-strong !text-white hover:!brightness-110 focus-visible:!ring-accent"
         >
           {t('testimonials.cta', 'Jetzt selbst überzeugen')}
         </Button>

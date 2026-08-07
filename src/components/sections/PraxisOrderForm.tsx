@@ -226,7 +226,7 @@ export function PraxisOrderForm({
               variant="secondary"
               size="sm"
               disabled={isSubmitting}
-              className="w-full !bg-accent-strong !text-white hover:!bg-brand-deep focus-visible:!ring-accent"
+              className="w-full !bg-accent-strong !text-white hover:!brightness-110 focus-visible:!ring-accent"
             >
               {isSubmitting ? (
                 texts.submitting

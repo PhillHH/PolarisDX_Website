@@ -287,7 +287,7 @@ const ArticlePage = () => {
               <div className="mt-6 flex flex-wrap justify-center gap-3">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 text-sm font-medium text-white transition hover:bg-brand-deep"
+                  className="inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 text-sm font-medium text-white transition hover:brightness-110"
                 >
                   {t('articles:detail.primary_cta', 'Beratung buchen')}
                 </Link>

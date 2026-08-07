@@ -239,7 +239,7 @@ const RoiCalculatorSection = () => {
                 size="sm"
                 onClick={() => setShowForm((s) => !s)}
                 aria-expanded={showForm}
-                className="!bg-accent-strong !text-white hover:!bg-brand-deep focus-visible:!ring-accent"
+                className="!bg-accent-strong !text-white hover:!brightness-110 focus-visible:!ring-accent"
               >
                 {t('roi.cta_report', 'Vollständigen ROI-Report erhalten')}
               </Button>
@@ -263,7 +263,7 @@ const RoiCalculatorSection = () => {
             to="/contact"
             variant="secondary"
             size="sm"
-            className="!bg-accent-strong !text-white hover:!bg-brand-deep focus-visible:!ring-accent"
+            className="!bg-accent-strong !text-white hover:!brightness-110 focus-visible:!ring-accent"
           >
             {t('roi.cta_consult', 'Beratung buchen')}
           </Button>
@@ -367,7 +367,7 @@ const RoiCalculatorSection = () => {
                   variant="secondary"
                   size="sm"
                   disabled={status === 'submitting'}
-                  className="!bg-accent-strong hover:!bg-brand-deep focus-visible:!ring-accent"
+                  className="!bg-accent-strong hover:!brightness-110 focus-visible:!ring-accent"
                 >
                   {status === 'submitting'
                     ? t('roi.form.sending', 'Wird gesendet …')

@@ -141,7 +141,7 @@ function EventsPage() {
                 <div className="mt-8">
                   <Link
                     to="/contact"
-                    className="inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 text-sm font-medium text-white transition hover:bg-brand-deep"
+                    className="inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 text-sm font-medium text-white transition hover:brightness-110"
                   >
                     {t('events:highlight.book_cta', 'Book a slot at DGI 2026')}
                   </Link>

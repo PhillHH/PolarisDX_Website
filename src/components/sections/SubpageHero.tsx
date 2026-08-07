@@ -42,7 +42,7 @@ const GAUGE_C = 2 * Math.PI * GAUGE_R
 function HeroCtaButton({ cta, variant }: { cta: HeroCta; variant: 'primary' | 'secondary' }) {
   const cls =
     variant === 'primary'
-      ? 'inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 text-sm font-medium text-white transition hover:bg-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep'
+      ? 'inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 text-sm font-medium text-white transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep'
       : 'inline-flex items-center justify-center rounded-md border border-white/25 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10'
   return cta.to ? (
     <Link to={cta.to} className={cls}>
