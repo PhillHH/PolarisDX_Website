@@ -159,12 +159,6 @@ export const iglooProProductSchema = {
     value: '600',
     unitCode: 'GRM',
   },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '250',
-    bestRating: '5',
-  },
 }
 
 // =============================================================================

@@ -73,8 +73,7 @@
         "label": "Validiert & einsatzbereit"
       }
     },
-    "stats_disclaimer": "* Beispielwert – abhängig von Ihren Praxiswerten.",
-    "visual_label": "IglooPro-Visual"
+    "stats_disclaimer": "* Beispielwert – abhängig von Ihren Praxiswerten."
   },
   "about": {
     "caption": "TWOJA GWARANCJA WYDAJNOŚCI",
@@ -204,7 +203,7 @@
       "reviewsLabel": "Recenzje"
     },
     "cta": "Przekonaj się sam",
-    "photo_placeholder": "Kundenbild"
+    "photo_placeholder": "Zdjęcie klienta"
   },
   "blog": {
     "caption": "Blog i aktualności",

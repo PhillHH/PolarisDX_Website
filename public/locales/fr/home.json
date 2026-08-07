@@ -73,8 +73,7 @@
         "label": "Validiert & einsatzbereit"
       }
     },
-    "stats_disclaimer": "* Beispielwert – abhängig von Ihren Praxiswerten.",
-    "visual_label": "IglooPro-Visual"
+    "stats_disclaimer": "* Beispielwert – abhängig von Ihren Praxiswerten."
   },
   "about": {
     "caption": "VOTRE GARANT DE PERFORMANCE",
@@ -204,7 +203,7 @@
       "reviewsLabel": "avis"
     },
     "cta": "Convainquez-vous par vous-même",
-    "photo_placeholder": "Kundenbild"
+    "photo_placeholder": "Photo du client"
   },
   "blog": {
     "caption": "Blog & Actualités",

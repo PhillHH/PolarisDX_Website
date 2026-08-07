@@ -3,6 +3,7 @@ import { Button } from '../ui/Button'
 import { useState, useEffect, useRef } from 'react'
 import { Pause, Play } from 'lucide-react'
 import iglooLogoWhite from '../../assets/igloo_logo_white.webp'
+import IglooProImage from '../../assets/Igloo-pro-frontal.webp'
 
 /**
  * SSR-safe HeroSection — NO framer-motion, pure CSS animations.
@@ -196,9 +197,13 @@ const HeroSection = () => {
 
           {/* Right Visual — statisches Gradient-Panel */}
           <div className="relative mx-auto hidden h-full w-full max-w-lg items-center justify-center lg:flex pointer-events-none">
-            <div className="flex min-h-[360px] w-full items-center justify-center rounded-3xl bg-gradient-to-br from-accent to-accent-strong">
-              <span className="text-white/70">{t('hero.visual_label', 'IglooPro-Visual')}</span>
-            </div>
+            <img
+              src={IglooProImage}
+              alt={t('hero.visual_alt', 'IglooPro POC-Reader')}
+              width={512}
+              height={512}
+              className="w-full max-w-md object-contain"
+            />
           </div>
         </div>
       </div>

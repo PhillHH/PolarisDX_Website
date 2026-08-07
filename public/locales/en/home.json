@@ -73,8 +73,7 @@
         "label": "Validated & ready to use"
       }
     },
-    "stats_disclaimer": "* Example value — depends on your practice figures.",
-    "visual_label": "IglooPro visual"
+    "stats_disclaimer": "* Example value — depends on your practice figures."
   },
   "about": {
     "caption": "YOUR PERFORMANCE GUARANTEE",
@@ -204,7 +203,7 @@
       "reviewsLabel": "Reviews"
     },
     "cta": "See for yourself",
-    "photo_placeholder": "Kundenbild"
+    "photo_placeholder": "Customer photo"
   },
   "blog": {
     "caption": "Blog & News",

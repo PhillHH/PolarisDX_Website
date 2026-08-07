@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { ShieldCheck, Settings2, LifeBuoy } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { Button } from '../ui/Button'
+import IglooProImage from '../../assets/Igloo-pro-frontal.webp'
 
 /**
  * AboutSection — IglooPro Performance-Setup.
@@ -57,10 +58,13 @@ const AboutSection = () => {
           {t('about.cv_chip', 'CV < 2 %')}
         </span>
 
-        {/* Dezenter, runder Geräte-„Puck" als Platzhalter. */}
-        <div className="flex h-44 w-44 items-center justify-center rounded-full border border-white/15 bg-white/5 lg:h-56 lg:w-56">
-          <div className="h-24 w-24 rounded-full border border-white/20 bg-white/10 lg:h-32 lg:w-32" />
-        </div>
+        <img
+          src={IglooProImage}
+          alt={t('about.device_alt', 'IglooPro POC-Reader')}
+          width={448}
+          height={448}
+          className="w-full max-w-xs object-contain lg:max-w-sm"
+        />
       </div>
 
       {/* Rechte Spalte: Textinhalt. */}

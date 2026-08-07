@@ -6,7 +6,7 @@ import { cn } from '../../lib/utils'
  * Echte Fotos/Grafiken kommen spaeter vom Kunden. SSR-sicher (kein window/localStorage).
  *
  * Optik via className steuerbar (cn = tailwind-merge -> spaetere Klassen gewinnen):
- *  - hell  (Default): bg-slate-100 border-slate-300 text-slate-400
+ *  - hell  (Default): bg-slate-100 border-slate-300 text-slate-500
  *  - dunkel (auf dunklem Grund): z.B. 'bg-white/5 border-white/20 text-white/50'
  * Keine i18n noetig: dekoratives Icon + optionales label-Prop (role="img").
  */
@@ -21,7 +21,7 @@ const ImagePlaceholder = ({ label, className }: ImagePlaceholderProps) => {
       role="img"
       aria-label={label || 'Bildplatzhalter'}
       className={cn(
-        'flex flex-col items-center justify-center gap-2 rounded-xl border border-dashed text-center select-none bg-slate-100 border-slate-300 text-slate-400',
+        'flex flex-col items-center justify-center gap-2 rounded-xl border border-dashed text-center select-none bg-slate-100 border-slate-300 text-slate-500',
         className,
       )}
     >

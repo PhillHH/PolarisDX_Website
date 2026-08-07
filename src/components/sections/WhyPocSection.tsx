@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { Truck, UserCheck, Coins, Play } from 'lucide-react'
+import { Truck, UserCheck, Coins } from 'lucide-react'
+import IglooProImage from '../../assets/Igloo-pro-frontal.webp'
 import type { LucideIcon } from 'lucide-react'
 
 /**
@@ -93,19 +94,15 @@ const WhyPocSection = () => {
             })}
           </div>
 
-          {/* RECHTS: gruenes Media-Panel (Play = Platzhalter, kein echtes Video) */}
-          <div className="relative h-full min-h-[20rem] overflow-hidden rounded-2xl bg-gradient-to-br from-accent to-accent-strong">
-            <span className="absolute top-4 left-4 text-xs font-medium text-white/60">
-              {t('why.video_label', 'ANWENDUNGSVIDEO')}
-            </span>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="inline-flex rounded-full bg-white/90 p-4 text-brand-deep">
-                <Play size={28} aria-hidden="true" />
-              </span>
-            </div>
-            <div className="absolute bottom-4 left-4 right-4 rounded-lg bg-white px-4 py-3 text-sm text-heading shadow">
-              {t('why.video_caption', 'So läuft der Test in Ihrer Praxis – in 3 Minuten')}
-            </div>
+          {/* RECHTS: Produktfoto. Vorher stand hier ein Play-Symbol ohne Video. */}
+          <div className="relative flex h-full min-h-[20rem] items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-accent to-accent-strong p-8">
+            <img
+              src={IglooProImage}
+              alt={t('why.device_alt', 'IglooPro POC-Reader')}
+              width={448}
+              height={448}
+              className="max-h-full w-full max-w-sm object-contain"
+            />
           </div>
         </div>
       </div>

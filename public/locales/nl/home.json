@@ -73,8 +73,7 @@
         "label": "Validiert & einsatzbereit"
       }
     },
-    "stats_disclaimer": "* Beispielwert – abhängig von Ihren Praxiswerten.",
-    "visual_label": "IglooPro-Visual"
+    "stats_disclaimer": "* Beispielwert – abhängig von Ihren Praxiswerten."
   },
   "about": {
     "caption": "UW PRESTATIEGARANTIE",
@@ -204,7 +203,7 @@
       "reviewsLabel": "Recensies"
     },
     "cta": "Overtuig uzelf nu",
-    "photo_placeholder": "Kundenbild"
+    "photo_placeholder": "Klantfoto"
   },
   "blog": {
     "caption": "Blog & nieuws",

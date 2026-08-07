@@ -43,7 +43,6 @@ const HomePage = () => {
     const reviews: ReviewSchemaOptions[] = testimonials.map((testimonial) => ({
       author: testimonial.name,
       reviewBody: t(`testimonials.${testimonial.id}.text`),
-      ratingValue: testimonial.rating ?? 5,
       jobTitle: t(`testimonials.${testimonial.id}.title`),
     }))
     return createReviewSchema(reviews)
