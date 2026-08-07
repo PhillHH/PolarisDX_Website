@@ -7,6 +7,7 @@ import { SEOHead, createBreadcrumbSchema, createEventSchema } from '../component
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
+import FinalCtaSection from '../components/sections/FinalCtaSection'
 
 const monthNames: Record<string, string[]> = {
   de: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
@@ -258,6 +259,7 @@ function EventsPage() {
           </div>
         </div>
       </section>
+      <FinalCtaSection roiHref="/#roi-rechner" />
     </PageTransition>
   )
 }

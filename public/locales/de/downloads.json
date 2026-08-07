@@ -11,7 +11,7 @@
   "size": "Größe",
   "format": "Format",
   "comingSoon": "Demnächst verfügbar",
-  "hero_cta": "Beratung anfragen",
+  "hero_cta": "Beratung buchen",
   "chip_free": "Kostenlos & ohne Anmeldung",
   "chip_pdf": "PDF-Format",
   "chip_updated": "Regelmäßig aktualisiert",
@@ -21,10 +21,10 @@
   "vc_free_label": "Download",
   "link_igloo": "Zum IglooPro System",
   "link_services": "Diagnostik-Services",
-  "link_contact": "Beratung anfragen",
+  "link_contact": "Beratung buchen",
   "cta_title": "Unterlage nicht gefunden?",
   "cta_text": "Unser Team stellt Ihnen weitere Datenblätter, Zertifikate oder eine individuelle Produktberatung bereit.",
-  "cta_button": "Beratung anfragen",
+  "cta_button": "Beratung buchen",
   "seo": {
     "title": "Downloads: IglooPro Datenblätter & Produktflyer",
     "description": "Technische Datenblätter und Produktflyer zum IglooPro POC-Reader und zu Vitamin D3+K2 als PDF kostenlos herunterladen. Alle Unterlagen übersichtlich gebündelt."

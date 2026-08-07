@@ -21,6 +21,7 @@ import SubpageHero from '../components/sections/SubpageHero'
 import PraxisOrderForm from '../components/sections/PraxisOrderForm'
 import { Tooth } from '../components/ui/icons/Tooth'
 import iglooProImage from '../assets/Igloo-pro-frontal.webp'
+import FinalCtaSection from '../components/sections/FinalCtaSection'
 
 const VitaminD3ImplantologyPage = () => {
   // Author data for E-E-A-T
@@ -602,6 +603,7 @@ const VitaminD3ImplantologyPage = () => {
 
       {/* Mobile bottom padding for sticky CTA */}
       <div className="h-20 lg:hidden" />
+      <FinalCtaSection roiHref="/#roi-rechner" />
     </PageTransition>
   )
 }

@@ -17,6 +17,7 @@ import Reveal from '../components/ui/Reveal'
 import SubpageHero from '../components/sections/SubpageHero'
 import TrustBar from '../components/sections/TrustBar'
 import { SupportForm } from '../components/sections/SupportForm'
+import FinalCtaSection from '../components/sections/FinalCtaSection'
 
 const EMAIL = 'contact@polarisdx.net'
 const PHONE_HREF = 'tel:+4915175011699'
@@ -358,6 +359,7 @@ const SupportPage = () => {
           </div>
         </section>
       )}
+      <FinalCtaSection roiHref="/#roi-rechner" />
     </PageTransition>
   )
 }

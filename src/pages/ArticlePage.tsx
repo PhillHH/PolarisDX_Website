@@ -298,6 +298,20 @@ const ArticlePage = () => {
                   {t('articles:detail.cta_secondary', 'ROI-Rechner')}
                 </a>
               </div>
+              <div className="mt-6 flex flex-wrap justify-center gap-3">
+                {[
+                  t('home:final_cta.chips.free', 'Kostenlos & unverbindlich'),
+                  t('home:final_cta.chips.reply', 'Antwort < 24 h'),
+                  t('home:final_cta.chips.delivery', 'Lieferung in 3–5 Werktagen'),
+                ].map((chip) => (
+                  <span
+                    key={chip}
+                    className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs text-white ring-1 ring-white/15"
+                  >
+                    {chip}
+                  </span>
+                ))}
+              </div>
             </div>
           </Reveal>
         </div>

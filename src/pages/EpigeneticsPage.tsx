@@ -27,6 +27,7 @@ import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import SectionHeader from '../components/ui/SectionHeader'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
+import FinalCtaSection from '../components/sections/FinalCtaSection'
 
 // public/ wird nach dist/client kopiert — die oeffentliche URL ist /downloads/...
 const ASSET_BASE = '/downloads/epigenetics/'
@@ -175,7 +176,7 @@ const EpigeneticsPage = () => {
                 <div className="mt-8 flex flex-wrap gap-3">
                   <a
                     href="#analysen"
-                    className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:bg-accent-soft"
+                    className="inline-flex items-center justify-center rounded-full border border-white/40 px-6 py-3.5 text-base font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
                   >
                     {t('hero.ctaDocs')}
                   </a>
@@ -188,7 +189,7 @@ const EpigeneticsPage = () => {
                   </a>
                   <Link
                     to="/contact"
-                    className="inline-flex items-center justify-center rounded-full border border-white/40 px-6 py-3.5 text-base font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
+                    className="inline-flex items-center justify-center rounded-full bg-accent-strong px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-accent/20 transition-colors hover:bg-white hover:text-brand-deep"
                   >
                     {t('hero.ctaQuote')}
                   </Link>
@@ -633,6 +634,7 @@ const EpigeneticsPage = () => {
           </Reveal>
         </section>
       </div>
+      <FinalCtaSection roiHref="/#roi-rechner" />
     </PageTransition>
   )
 }
