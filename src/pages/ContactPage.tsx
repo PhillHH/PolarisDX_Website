@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin, Calendar, Check, MessageSquare, ArrowRight } from 
 import { useTranslation } from 'react-i18next'
 import { SEOHead, localBusinessSchema, createBreadcrumbSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
-import Reveal from '../components/ui/Reveal'
+import Reveal, { REVEAL_STAGGER } from '../components/ui/Reveal'
 import SubpageHero from '../components/sections/SubpageHero'
 import TrustBar from '../components/sections/TrustBar'
 import { ContactForm } from '../components/sections/ContactForm'
@@ -188,7 +188,7 @@ const ContactPage = () => {
 
           <div className="grid gap-8 md:grid-cols-3">
             {['one', 'two', 'three'].map((step, i) => (
-              <Reveal key={step} width="100%" delay={0.1 + i * 0.1}>
+              <Reveal key={step} width="100%" delay={i * REVEAL_STAGGER}>
                 <div className="relative flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1">
                   <span
                     className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-lg font-semibold text-accent"

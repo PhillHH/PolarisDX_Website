@@ -5,13 +5,18 @@ import heroDoctor from '../assets/hero_doctor.webp'
 
 /**
  * B2B-Hero (Phase 3.1): 4 Slides — speed (image) · economics · compliance · segments (icon).
- * Autoplay 6s, pausiert bei Hover/Focus (setIsPaused aus der View) und bei
- * prefers-reduced-motion. Discriminated Union per `type` ('image' | 'icon').
+ * Autoplay 6s, pausiert bei Hover/Focus (setIsHovered aus der View), per Pause-Knopf
+ * und bei prefers-reduced-motion. `isPlaying` bildet den tatsaechlichen Zustand ab,
+ * `reducedMotion` schaltet in der View die Slide-Keyframes ab.
+ * Discriminated Union per `type` ('image' | 'icon').
  */
 export const useHeroSlider = () => {
   const { t } = useTranslation('home')
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [isPaused, setIsPaused] = useState(false)
+  // 'auto' = Voreinstellung, 'on'/'off' = ausdrückliche Entscheidung am Pause/Play-Knopf.
+  const [autoplayIntent, setAutoplayIntent] = useState<'auto' | 'on' | 'off'>('auto')
+  // Hover/Focus hält nur vorübergehend an und überschreibt die Entscheidung nicht.
+  const [isHovered, setIsHovered] = useState(false)
   const [reducedMotion, setReducedMotion] = useState(false)
 
   const slides = [
@@ -83,21 +88,31 @@ export const useHeroSlider = () => {
     return () => mq.removeEventListener?.('change', handler)
   }, [])
 
-  // Autoplay — pausiert bei Hover/Focus (isPaused) und reduced-motion
+  // Läuft der automatische Wechsel wirklich? Genau diesen Zustand zeigt der
+  // Pause/Play-Knopf an - bei Bewegungsreduktion steht er von sich aus still.
+  const isPlaying = autoplayIntent === 'on' || (autoplayIntent === 'auto' && !reducedMotion)
+
+  // Autoplay - aus bei Bewegungsreduktion, bei Hover/Focus und nach Klick auf Pause
   useEffect(() => {
-    if (isPaused || reducedMotion) return
+    if (!isPlaying || isHovered) return
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
     }, 6000)
     return () => clearInterval(timer)
-  }, [isPaused, reducedMotion, slides.length])
+  }, [isPlaying, isHovered, slides.length])
+
+  // Ein Klick ist eine ausdrückliche Nutzerentscheidung und darf den automatischen
+  // Wechsel auch bei Bewegungsreduktion starten - die Slide-Animationen bleiben aus.
+  const toggleAutoplay = () => setAutoplayIntent(isPlaying ? 'off' : 'on')
 
   return {
     currentSlide,
     setCurrentSlide,
     slides,
     t,
-    isPaused,
-    setIsPaused,
+    isPlaying,
+    toggleAutoplay,
+    setIsHovered,
+    reducedMotion,
   }
 }

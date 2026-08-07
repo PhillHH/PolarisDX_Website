@@ -6,15 +6,14 @@
   "infoMaterials": "Materiały informacyjne",
   "discoverTitle": "Pobieranie i zasoby",
   "downloadBtn": "Pobierz",
-  "link_epigenetics": "Epigenetics and genetics",
+  "link_epigenetics": "Epigenetyka i genetyka",
   "size": "Rozmiar",
   "format": "Format",
-  "introText": "Tutaj znajdziesz wszystkie ważne dokumenty dotyczące naszych produktów i usług – karty techniczne i materiały informacyjne przejrzyście zestawione.",
-  "comingSoon": "Coming Soon",
+  "introText": "Ulotki produktowe i materiały informacyjne dotyczące systemu IglooPro oraz sprayu Vitamin D3+K2 – bezpłatnie w formacie PDF i bez rejestracji. Karty techniczne i certyfikaty przesyłamy na życzenie.",
   "hero_cta": "Poproś o konsultację",
   "chip_free": "Bezpłatnie i bez rejestracji",
   "chip_pdf": "Format PDF",
-  "chip_updated": "Regularnie aktualizowane",
+  "chip_updated": "Dostępne od razu",
   "vc_docs_label": "Dokumenty",
   "vc_format_label": "Format",
   "vc_free_value": "Bezpłatnie",
@@ -26,7 +25,7 @@
   "cta_text": "Nasz zespół udostępni dodatkowe karty danych, certyfikaty lub indywidualne doradztwo produktowe.",
   "cta_button": "Poproś o konsultację",
   "seo": {
-    "title": "Pliki do pobrania: karty danych i ulotki IglooPro",
-    "description": "Pobierz bezpłatnie karty danych technicznych oraz ulotki produktowe czytnika IglooPro POC i preparatu Vitamin D3+K2 w PDF. Wszystkie dokumenty zebrane w jednym miejscu."
+    "title": "Pliki do pobrania: ulotki IglooPro i Vitamin D3+K2",
+    "description": "Pobierz bezpłatnie w PDF ulotki produktowe czytnika IglooPro POC i sprayu Vitamin D3+K2 – bez rejestracji. Karty techniczne na życzenie."
   }
 }

@@ -29,7 +29,7 @@ const NotFoundPage = () => {
 
       <div className="flex min-h-[80vh] items-center justify-center bg-brand-deep text-white">
         <div className="mx-auto max-w-2xl px-4 py-24 text-center">
-          <Reveal width="100%" yOffset={20}>
+          <Reveal width="100%">
             {/* 404 Number */}
             <span className="block text-[8rem] font-medium leading-none tracking-tight text-accent sm:text-[10rem]">
               404
@@ -67,7 +67,7 @@ const NotFoundPage = () => {
           </Reveal>
 
           {/* Popular Pages */}
-          <Reveal width="100%" delay={0.2}>
+          <Reveal width="100%">
             <div className="mt-16 border-t border-white/15 pt-10">
               <p className="mb-6 text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
                 {t('notFound.popularPages', 'Beliebte Seiten')}

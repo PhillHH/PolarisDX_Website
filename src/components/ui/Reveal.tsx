@@ -10,6 +10,14 @@ interface RevealProps {
 }
 
 /**
+ * Single source of truth for the stagger step (in seconds) between siblings
+ * of one visual group: use `delay={index * REVEAL_STAGGER}` instead of
+ * per-page values. A lone Reveal gets no delay, so the first element shows
+ * up without idle time.
+ */
+export const REVEAL_STAGGER = 0.06
+
+/**
  * SSR-safe Reveal component
  *
  * CRITICAL FOR SEO: Content is ALWAYS rendered in the DOM.
@@ -22,9 +30,9 @@ const Reveal = ({
   children,
   width = 'fit-content',
   className = '',
-  delay = 0.1,
+  delay = 0,
   duration = 0.5,
-  yOffset = 30,
+  yOffset = 16,
 }: RevealProps) => {
   const ref = useRef<HTMLDivElement>(null)
 

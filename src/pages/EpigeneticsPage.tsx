@@ -26,7 +26,7 @@ import type { FAQItem } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import SectionHeader from '../components/ui/SectionHeader'
 import PageTransition from '../components/ui/PageTransition'
-import Reveal from '../components/ui/Reveal'
+import Reveal, { REVEAL_STAGGER } from '../components/ui/Reveal'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
 
 // public/ wird nach dist/client kopiert — die oeffentliche URL ist /downloads/...
@@ -153,7 +153,7 @@ const EpigeneticsPage = () => {
           <Sparkle className="pointer-events-none absolute right-52 top-56 hidden h-16 w-16 text-accent-on-dark/30 lg:block" />
 
           <div className="relative mx-auto max-w-page px-4 pb-16 pt-28 lg:px-10 lg:pb-20 lg:pt-32">
-            <Reveal width="100%" yOffset={20}>
+            <Reveal width="100%">
               <div className="max-w-container">
                 <Breadcrumbs
                   variant="dark"
@@ -226,7 +226,12 @@ const EpigeneticsPage = () => {
 
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
             {principleCards.map((card, index) => (
-              <Reveal key={card.title} width="100%" delay={0.05 * index} className={STRETCH}>
+              <Reveal
+                key={card.title}
+                width="100%"
+                delay={index * REVEAL_STAGGER}
+                className={STRETCH}
+              >
                 <div className="h-full rounded-3xl border border-slate-200 bg-white p-7">
                   <h3 className="text-xl font-semibold tracking-tight text-text-heading">
                     {card.title}
@@ -237,7 +242,7 @@ const EpigeneticsPage = () => {
             ))}
           </div>
 
-          <Reveal width="100%" delay={0.1}>
+          <Reveal width="100%">
             <div className="mt-6 rounded-3xl border border-accent-border bg-accent-soft p-7">
               <p className="text-xs font-medium text-gray-500">{t('principle.practice.title')}</p>
               <ul className="mt-4 grid gap-3 lg:grid-cols-3">
@@ -252,7 +257,7 @@ const EpigeneticsPage = () => {
           </Reveal>
 
           {/* Erster Dokument-Hinweis: das Programm kompakt auf drei Seiten */}
-          <Reveal width="100%" delay={0.15}>
+          <Reveal width="100%">
             <div className="mt-6 flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-7 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex items-start gap-4">
                 <FileText className="mt-0.5 h-6 w-6 shrink-0 text-brand-primary" />
@@ -286,7 +291,12 @@ const EpigeneticsPage = () => {
 
             <div className="mt-10 grid gap-6 lg:grid-cols-2">
               {analyses.map((item, index) => (
-                <Reveal key={item.num} width="100%" delay={0.05 * (index % 2)} className={STRETCH}>
+                <Reveal
+                  key={item.num}
+                  width="100%"
+                  delay={(index % 2) * REVEAL_STAGGER}
+                  className={STRETCH}
+                >
                   <article className="flex h-full flex-col rounded-3xl border border-slate-200 bg-slate-50 p-7 transition-shadow lg:p-7">
                     <div className="flex items-start gap-4">
                       <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-deep text-base font-semibold text-white">
@@ -398,7 +408,12 @@ const EpigeneticsPage = () => {
           </Reveal>
           <ol className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {steps.map((step, index) => (
-              <Reveal key={index} width="100%" delay={0.05 * (index % 3)} className={STRETCH}>
+              <Reveal
+                key={index}
+                width="100%"
+                delay={(index % 3) * REVEAL_STAGGER}
+                className={STRETCH}
+              >
                 <li className="h-full rounded-3xl border border-slate-200 bg-white p-7">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent-soft text-base font-semibold text-accent-strong">
                     {index + 1}
@@ -442,7 +457,7 @@ const EpigeneticsPage = () => {
                 </div>
               </Reveal>
 
-              <Reveal width="100%" delay={0.08} className={STRETCH}>
+              <Reveal width="100%" delay={REVEAL_STAGGER} className={STRETCH}>
                 <div className="h-full rounded-3xl border border-slate-200 bg-slate-50 p-7 lg:p-7">
                   <h3 className="flex items-center gap-2 text-xs font-medium text-gray-500">
                     <Minus className="h-4 w-4" />
@@ -460,7 +475,7 @@ const EpigeneticsPage = () => {
               </Reveal>
             </div>
 
-            <Reveal width="100%" delay={0.1}>
+            <Reveal width="100%">
               <div className="mt-6">
                 <a
                   href={`${ASSET_BASE}${t('evidence.file')}`}
@@ -525,7 +540,12 @@ const EpigeneticsPage = () => {
 
             <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {sheets.map((sheet, index) => (
-                <Reveal key={sheet.num} width="100%" delay={0.04 * (index % 3)} className={STRETCH}>
+                <Reveal
+                  key={sheet.num}
+                  width="100%"
+                  delay={(index % 3) * REVEAL_STAGGER}
+                  className={STRETCH}
+                >
                   <article
                     className={`group flex h-full flex-col justify-between rounded-2xl border bg-white p-6 transition-all hover:-translate-y-0.5 ${
                       sheet.featured

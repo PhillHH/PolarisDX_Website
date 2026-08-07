@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Pause, Play } from 'lucide-react'
 import { testimonials } from '../../data/testimonials'
 import Eyebrow from '~/components/ui/Eyebrow'
 import { Button } from '~/components/ui/Button'
@@ -44,16 +45,46 @@ const PersonIcon = () => (
 const TestimonialsSection = () => {
   const { t } = useTranslation('home')
   const [activeIndex, setActiveIndex] = useState(0)
+  // 'auto' = Voreinstellung, 'on'/'off' = ausdrückliche Entscheidung am Pause/Play-Knopf.
+  const [autoplayIntent, setAutoplayIntent] = useState<'auto' | 'on' | 'off'>('auto')
+  // Hover/Focus hält nur vorübergehend an und überschreibt die Entscheidung nicht.
+  const [isHovered, setIsHovered] = useState(false)
+  const [reducedMotion, setReducedMotion] = useState(false)
 
+  // prefers-reduced-motion respektieren (nur Client) - gleiches Muster wie useHeroSlider.
   useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setReducedMotion(mq.matches)
+    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches)
+    mq.addEventListener?.('change', handler)
+    return () => mq.removeEventListener?.('change', handler)
+  }, [])
+
+  // Läuft der automatische Wechsel wirklich? Genau diesen Zustand zeigt der Knopf an.
+  const isPlaying = autoplayIntent === 'on' || (autoplayIntent === 'auto' && !reducedMotion)
+
+  // Autoplay - aus bei Bewegungsreduktion, bei Hover/Focus und nach Klick auf Pause (WCAG 2.2.2).
+  useEffect(() => {
+    if (!isPlaying || isHovered) return
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
     }, 8000)
     return () => clearInterval(interval)
-  }, [])
+  }, [isPlaying, isHovered])
 
   return (
-    <section id="testimonials" className="bg-brand-deep py-20 text-white lg:py-24">
+    <section
+      id="testimonials"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={t('testimonials.aria.carousel', 'Praxis-Stimmen')}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onFocus={() => setIsHovered(true)}
+      onBlur={() => setIsHovered(false)}
+      className="bg-brand-deep py-20 text-white lg:py-24"
+    >
       <div className="mx-auto flex max-w-container flex-col items-center gap-8 px-4 lg:px-8">
         {/* Kopf: GENAU EIN Eyebrow + h2 (helle Sektion) */}
         <div className="flex flex-col items-center gap-3 text-center">
@@ -66,7 +97,7 @@ const TestimonialsSection = () => {
         {/* Carousel: gerahmte Split-Karten */}
         <div className="w-full max-w-4xl overflow-hidden">
           <div
-            className="flex transition-transform duration-700 ease-in-out"
+            className="flex transition-transform duration-700 ease-in-out motion-reduce:transition-none"
             style={{ transform: `translateX(-${activeIndex * 100}%)` }}
           >
             {testimonials.map((testimonial) => {
@@ -121,18 +152,42 @@ const TestimonialsSection = () => {
           </div>
         </div>
 
-        {/* Dots */}
-        <div className="flex justify-center gap-2.5">
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setActiveIndex(index)}
-              className={`h-2.5 w-2.5 rounded-full transition-colors duration-300 ${
-                activeIndex === index ? 'bg-accent' : 'bg-white/30 hover:bg-white/50'
-              }`}
-              aria-label={t('testimonials.goTo', 'Bewertung {{n}} anzeigen', { n: index + 1 })}
-            />
-          ))}
+        {/* Slider-Steuerung: Dots + Pause/Play (WCAG 2.2.2) */}
+        <div className="flex items-center justify-center gap-4">
+          <div
+            className="flex gap-2.5"
+            role="group"
+            aria-label={t('testimonials.aria.carousel', 'Praxis-Stimmen')}
+          >
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => setActiveIndex(index)}
+                aria-current={activeIndex === index ? 'true' : undefined}
+                className={`h-2.5 w-2.5 rounded-full transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 ${
+                  activeIndex === index ? 'bg-accent' : 'bg-white/30 hover:bg-white/50'
+                }`}
+                aria-label={t('testimonials.goTo', 'Bewertung {{n}} anzeigen', { n: index + 1 })}
+              />
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={() => setAutoplayIntent(isPlaying ? 'off' : 'on')}
+            aria-label={
+              isPlaying
+                ? t('testimonials.aria.pause', 'Automatischen Wechsel pausieren')
+                : t('testimonials.aria.play', 'Automatischen Wechsel fortsetzen')
+            }
+            className="rounded text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+          >
+            {isPlaying ? (
+              <Pause size={16} aria-hidden="true" />
+            ) : (
+              <Play size={16} aria-hidden="true" />
+            )}
+          </button>
         </div>
 
         {/* CTA: gefüllt Teal */}

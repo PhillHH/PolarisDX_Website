@@ -16,8 +16,9 @@
  *   server-seitig per Passwort (Basic Auth) geschützt.
  */
 
-import { lazy, Suspense } from 'react'
-import { Routes, Route, Navigate, Outlet, useParams } from 'react-router-dom'
+import { lazy, Suspense, useEffect } from 'react'
+import { Routes, Route, Navigate, Outlet, useParams, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import Layout from './components/layout/Layout'
 import GtmPageview from './components/analytics/GtmPageview'
 
@@ -97,6 +98,34 @@ function LazyRoute({ children }: { children: React.ReactNode }) {
 function ServicesRedirect() {
   const { slug } = useParams<{ slug: string }>()
   return <Navigate to={`/diagnostics/${slug}`} replace />
+}
+
+/**
+ * Guard for the two German-only landing pages (S3-Leitlinie, Vitamin D3 &
+ * Implantologie). Their copy is hand-written German without t() calls.
+ *
+ * server.ts 301s /<lang>/... to /de/... on a full page load, but that never
+ * fires for an in-app <Link>: client-side navigation stays inside the current
+ * basename and would render German text at an /en/ URL. So trigger a real
+ * navigation to the German URL when the page mounts under a foreign prefix.
+ *
+ * children render in every case on purpose - the server only ever renders
+ * these pages under /de, so a second markup branch would cause a hydration
+ * mismatch there. The redirect happens in an effect, i.e. after hydration.
+ */
+function GermanOnlyPage({ children }: { children: React.ReactNode }) {
+  const { i18n } = useTranslation()
+  const location = useLocation()
+  const lang = i18n.language?.split('-')[0] || 'de'
+  const needsGermanUrl = lang !== 'de'
+
+  useEffect(() => {
+    if (needsGermanUrl) {
+      window.location.replace(`/de${location.pathname}`)
+    }
+  }, [needsGermanUrl, location.pathname])
+
+  return <>{children}</>
 }
 
 // =============================================================================
@@ -266,17 +295,21 @@ function App() {
           <Route
             path="/vitamin-d3-implantologie"
             element={
-              <LazyRoute>
-                <VitaminD3ImplantologyPage />
-              </LazyRoute>
+              <GermanOnlyPage>
+                <LazyRoute>
+                  <VitaminD3ImplantologyPage />
+                </LazyRoute>
+              </GermanOnlyPage>
             }
           />
           <Route
             path="/s3_leitlinie"
             element={
-              <LazyRoute>
-                <S3LeitliniePage />
-              </LazyRoute>
+              <GermanOnlyPage>
+                <LazyRoute>
+                  <S3LeitliniePage />
+                </LazyRoute>
+              </GermanOnlyPage>
             }
           />
           <Route

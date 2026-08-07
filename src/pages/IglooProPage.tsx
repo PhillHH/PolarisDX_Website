@@ -54,7 +54,7 @@ const IglooProPage: React.FC = () => {
             </div>
             <Link
               to="/contact"
-              className="whitespace-nowrap rounded-md bg-white px-5 py-3 font-medium text-brand-deep"
+              className="whitespace-nowrap rounded-md bg-white px-5 py-3 font-medium text-brand-deep transition hover:bg-white/90"
             >
               {t('products:help.cta')}
             </Link>

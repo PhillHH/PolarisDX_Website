@@ -50,17 +50,8 @@
     "allServices": "Tutti i servizi",
     "pocSystems": "Sistemi POC",
     "preventionChecks": "Check-up preventivi",
-    "hormonTests": "Test ormonali"
-  },
-  "cta": {
-    "title": "Cerchi cure mediche <1>professionali e affidabili?</1>",
-    "description": "Non esitare a contattarci. Il nostro team è pronto a supportarti e pianificare l'appuntamento giusto.",
-    "button": "Prenota appuntamento"
-  },
-  "cta_section": {
-    "title": "Cerchi prestazioni garantite ed esperienza POC?",
-    "text": "Parla direttamente con i nostri specialisti IglooPro. Il nostro team è pronto ad analizzare le tue esigenze di flusso di lavoro individuali e mostrarti la via più rapida per una diagnostica validata. Con noi, ottieni una soluzione su misura, non una consegna standard.",
-    "button": "Prenota appuntamento"
+    "hormonTests": "Test ormonali",
+    "product_note": "IglooPro è un prodotto di DX365 GmbH"
   },
   "read_more": "Leggi di più",
   "chat": {

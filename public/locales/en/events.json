@@ -7,14 +7,15 @@
   "empty_title": "No upcoming events",
   "empty_text": "There are currently no public events scheduled. Subscribe to our newsletter to stay informed, or schedule a personal appointment.",
   "seo_title": "Events & Trade Shows 2026: POC Diagnostics Live",
-  "seo_description": "Meet PolarisDX at 5 events in 2026 – from Stuttgart to Hamburg. Experience point-of-care diagnostics live alongside premium partner Nobel Biocare. See all dates.",
+  "seo_description": "Meet PolarisDX at the trade shows and congresses of 2026. Experience point-of-care diagnostics live alongside premium partner Nobel Biocare. See all dates.",
   "hero": {
     "crumb": "Events 2026",
     "title": "Meet us in 2026",
     "subtitle": "From Stuttgart to Hamburg — see the IglooPro live and book a slot with our team at each show. Together with premium partner Nobel Biocare.",
-    "chip_events": "5 events",
     "chip_demos": "Live demos",
-    "chip_partner": "Partner: Nobel Biocare"
+    "chip_partner": "Partner: {{partner}}",
+    "chip_events": "{{count}} events",
+    "chip_events_one": "{{count}} event"
   },
   "upcoming": {
     "eyebrow": "Upcoming · 2026",
@@ -23,8 +24,7 @@
   },
   "highlight": {
     "label": "Highlight",
-    "description": "The largest implantology congress in the German-speaking region. Meet our team, see the IglooPro live and secure a demo slot on site.",
-    "book_cta": "Book a slot at DGI 2026"
+    "book_cta": "Book a slot at {{event}}"
   },
   "list": {
     "book": "Book"
@@ -32,7 +32,57 @@
   "past": {
     "eyebrow": "Where we've been",
     "title": "You've probably seen us before",
-    "subtitle": "A look back at 2025 — the IglooPro on the road across the DACH region.",
+    "subtitle": "A look back at our recent appearances — the IglooPro on the road across the DACH region.",
     "recaps_cta": "See event recaps & photos"
+  },
+  "seo_keywords": "PolarisDX events, Nobel Biocare, DGI congress, point-of-care diagnostics trade show",
+  "items": {
+    "dentale_themenwelt": {
+      "title": "Dentale Themenwelt",
+      "tag": "Training",
+      "description": "Point-of-care diagnostics meets dentistry — live on site in Stuttgart."
+    },
+    "dgi_summer_event": {
+      "title": "DGI Summer Event",
+      "tag": "Congress",
+      "description": "Summer, implantology and innovation — the DGI Summer Event in Düsseldorf."
+    },
+    "nobel_biocare_dach_symposium": {
+      "title": "Nobel Biocare DACH Symposium",
+      "tag": "Symposium",
+      "description": "Three days of in-depth exchange at the Nobel Biocare DACH Symposium."
+    },
+    "kite_education": {
+      "title": "Kite & Education",
+      "tag": "Training",
+      "description": "Wind, waves and knowledge — training meets lifestyle on Sylt."
+    },
+    "dgi_jahreskongress": {
+      "title": "DGI Annual Congress",
+      "tag": "Congress",
+      "description": "The largest implantology congress in the German-speaking region. Meet our team, see the IglooPro live and secure a demo slot on site."
+    }
+  },
+  "past_items": {
+    "ids_cologne": {
+      "title": "IDS Cologne",
+      "detail": "1,200 visitors",
+      "watermark": "Köln 2025"
+    },
+    "dgi_kongress_frankfurt": {
+      "title": "DGI Congress",
+      "detail": "Live demo",
+      "watermark": "Frankfurt 2025"
+    },
+    "dental_summer": {
+      "title": "Dental Summer",
+      "detail": "Workshop",
+      "watermark": "Timmendorf 2025"
+    },
+    "ids_innovation": {
+      "title": "IDS Innovation",
+      "detail": "Award",
+      "watermark": "IDS 2025"
+    }
   }
 }

@@ -6,15 +6,14 @@
   "infoMaterials": "Informatiematerialen",
   "discoverTitle": "Downloads & bronnen",
   "downloadBtn": "Downloaden",
-  "link_epigenetics": "Epigenetics and genetics",
+  "link_epigenetics": "Epigenetica en genetica",
   "size": "Grootte",
   "format": "Formaat",
-  "introText": "Hier vind je alle belangrijke documenten over onze producten en diensten – technische gegevensbladen en informatiematerialen overzichtelijk voor je samengesteld.",
-  "comingSoon": "Coming Soon",
+  "introText": "Productflyers en informatiematerialen over het IglooPro-systeem en de Vitamin D3+K2-spray – gratis als PDF en zonder registratie. Technische databladen en certificaten sturen wij u op aanvraag toe.",
   "hero_cta": "Advies aanvragen",
   "chip_free": "Gratis en zonder registratie",
   "chip_pdf": "PDF-formaat",
-  "chip_updated": "Regelmatig bijgewerkt",
+  "chip_updated": "Direct beschikbaar",
   "vc_docs_label": "Documenten",
   "vc_format_label": "Formaat",
   "vc_free_value": "Gratis",
@@ -26,7 +25,7 @@
   "cta_text": "Ons team levert u aanvullende databladen, certificaten of persoonlijk productadvies.",
   "cta_button": "Advies aanvragen",
   "seo": {
-    "title": "Downloads: IglooPro datasheets & productflyers",
-    "description": "Download gratis technische datasheets en productflyers voor de IglooPro POC-reader en Vitamin D3+K2 als PDF. Alle documenten overzichtelijk gebundeld."
+    "title": "Downloads: IglooPro & Vitamin D3+K2 productflyers",
+    "description": "Download gratis de productflyers van de IglooPro POC-reader en de Vitamin D3+K2-spray als PDF, zonder registratie. Technische databladen op aanvraag."
   }
 }

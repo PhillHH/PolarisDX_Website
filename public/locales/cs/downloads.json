@@ -6,15 +6,14 @@
   "infoMaterials": "Informační materiály",
   "discoverTitle": "Stažení a zdroje",
   "downloadBtn": "Stáhnout",
-  "link_epigenetics": "Epigenetics and genetics",
+  "link_epigenetics": "Epigenetika a genetika",
   "size": "Velikost",
   "format": "Formát",
-  "introText": "Zde najdete všechny důležité dokumenty k našim produktům a službám – technické listy a informační materiály přehledně uspořádané.",
-  "comingSoon": "Coming Soon",
+  "introText": "Produktové letáky a informační materiály k systému IglooPro a spreji Vitamin D3+K2 – zdarma ve formátu PDF a bez registrace. Technické listy a certifikáty zašleme na vyžádání.",
   "hero_cta": "Vyžádat konzultaci",
   "chip_free": "Zdarma a bez registrace",
   "chip_pdf": "Formát PDF",
-  "chip_updated": "Pravidelně aktualizováno",
+  "chip_updated": "Ihned k dispozici",
   "vc_docs_label": "Dokumenty",
   "vc_format_label": "Formát",
   "vc_free_value": "Zdarma",
@@ -26,7 +25,7 @@
   "cta_text": "Náš tým vám poskytne další datové listy, certifikáty nebo individuální poradenství k produktům.",
   "cta_button": "Vyžádat konzultaci",
   "seo": {
-    "title": "Ke stažení: datové listy IglooPro a produktové letáky",
-    "description": "Stáhněte si zdarma technické datové listy a produktové letáky k IglooPro POC readeru a Vitaminu D3+K2 ve formátu PDF. Všechny podklady přehledně na jednom místě."
+    "title": "Ke stažení: letáky IglooPro a Vitamin D3+K2",
+    "description": "Stáhněte si zdarma v PDF produktové letáky k IglooPro POC readeru a spreji Vitamin D3+K2 – bez registrace. Technické listy na vyžádání."
   }
 }

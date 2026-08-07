@@ -6,15 +6,16 @@
   "empty_text": "Il n'y a actuellement aucune date de salon ou événement prévu. Revenez plus tard ou abonnez-vous à notre newsletter.",
   "details": "Détails",
   "seo_title": "Événements & salons 2026 : le diagnostic POC en direct",
-  "seo_description": "PolarisDX sur 5 événements en 2026 – de Stuttgart à Hambourg. Vivez le diagnostic au point d'intervention en direct, aux côtés de notre partenaire premium Nobel Biocare. Découvrez les dates.",
+  "seo_description": "Rencontrez PolarisDX lors des salons et congrès 2026. Vivez le diagnostic au point d'intervention en direct, aux côtés de notre partenaire premium Nobel Biocare.",
   "premium_partner": "Partenaire Premium : Nobel Biocare",
   "hero": {
     "crumb": "Événements 2026",
     "title": "Rencontrez-nous en 2026",
     "subtitle": "De Stuttgart à Hambourg — découvrez l’IglooPro en direct et réservez un créneau avec notre équipe à chaque salon. En partenariat premium avec Nobel Biocare.",
-    "chip_events": "5 événements",
     "chip_demos": "Démos en direct",
-    "chip_partner": "Partenaire : Nobel Biocare"
+    "chip_partner": "Partenaire : {{partner}}",
+    "chip_events": "{{count}} événements",
+    "chip_events_one": "{{count}} événement"
   },
   "upcoming": {
     "eyebrow": "À venir · 2026",
@@ -23,8 +24,7 @@
   },
   "highlight": {
     "label": "À la une",
-    "description": "Le plus grand congrès d’implantologie de l’espace germanophone. Rencontrez notre équipe, découvrez l’IglooPro en direct et réservez une démo sur place.",
-    "book_cta": "Réserver un créneau au DGI 2026"
+    "book_cta": "Réserver un créneau au {{event}}"
   },
   "list": {
     "book": "Réserver"
@@ -32,7 +32,57 @@
   "past": {
     "eyebrow": "Où nous étions",
     "title": "Vous nous avez probablement déjà vus",
-    "subtitle": "Un retour sur 2025 — l’IglooPro sur les routes de la région DACH.",
+    "subtitle": "Un retour sur nos dernières participations — l'IglooPro sur les routes de la région DACH.",
     "recaps_cta": "Voir les résumés et photos"
+  },
+  "seo_keywords": "événements PolarisDX, Nobel Biocare, congrès DGI, salon diagnostic POC",
+  "items": {
+    "dentale_themenwelt": {
+      "title": "Dentale Themenwelt",
+      "tag": "Formation",
+      "description": "Le diagnostic au point d'intervention rencontre la médecine dentaire — en direct à Stuttgart."
+    },
+    "dgi_summer_event": {
+      "title": "DGI Summer Event",
+      "tag": "Congrès",
+      "description": "Été, implantologie et innovation — le DGI Summer Event à Düsseldorf."
+    },
+    "nobel_biocare_dach_symposium": {
+      "title": "Symposium DACH Nobel Biocare",
+      "tag": "Symposium",
+      "description": "Trois jours d'échanges approfondis au symposium DACH de Nobel Biocare."
+    },
+    "kite_education": {
+      "title": "Kite & Education",
+      "tag": "Formation",
+      "description": "Vent, vagues et savoir — la formation rencontre l'art de vivre à Sylt."
+    },
+    "dgi_jahreskongress": {
+      "title": "Congrès annuel DGI",
+      "tag": "Congrès",
+      "description": "Le plus grand congrès d'implantologie de l'espace germanophone. Rencontrez notre équipe, découvrez l'IglooPro en direct et réservez une démo sur place."
+    }
+  },
+  "past_items": {
+    "ids_cologne": {
+      "title": "IDS Cologne",
+      "detail": "1 200 visiteurs",
+      "watermark": "Köln 2025"
+    },
+    "dgi_kongress_frankfurt": {
+      "title": "Congrès DGI",
+      "detail": "Démo en direct",
+      "watermark": "Frankfurt 2025"
+    },
+    "dental_summer": {
+      "title": "Dental Summer",
+      "detail": "Atelier",
+      "watermark": "Timmendorf 2025"
+    },
+    "ids_innovation": {
+      "title": "IDS Innovation",
+      "detail": "Distinction",
+      "watermark": "IDS 2025"
+    }
   }
 }

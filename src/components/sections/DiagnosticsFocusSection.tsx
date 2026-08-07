@@ -103,7 +103,7 @@ const DiagnosticsFocusSection = () => {
             </div>
             <Link
               to="/contact"
-              className="whitespace-nowrap rounded-md bg-white px-5 py-3 font-medium text-brand-deep"
+              className="whitespace-nowrap rounded-md bg-white px-5 py-3 font-medium text-brand-deep transition hover:bg-white/90"
             >
               {t('home:igloo_widget.help_cta', 'Beratung buchen')}
             </Link>

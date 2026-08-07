@@ -5,16 +5,15 @@
   "techBrochures": "Tech Brochures",
   "infoMaterials": "Info Materials",
   "discoverTitle": "Downloads & Resources",
-  "introText": "Here you will find all important documents regarding our products and services – technical data sheets and information materials clearly arranged for you.",
+  "introText": "Product flyers and information materials on the IglooPro system and the Vitamin D3+K2 spray – free of charge as PDFs and without sign-up. Technical data sheets and certificates are available on request.",
   "downloadBtn": "Download",
   "link_epigenetics": "Epigenetics and genetics",
   "size": "Size",
   "format": "Format",
-  "comingSoon": "Coming Soon",
   "hero_cta": "Request a consultation",
   "chip_free": "Free & no sign-up",
   "chip_pdf": "PDF format",
-  "chip_updated": "Regularly updated",
+  "chip_updated": "Available instantly",
   "vc_docs_label": "Documents",
   "vc_format_label": "Format",
   "vc_free_value": "Free",
@@ -26,7 +25,7 @@
   "cta_text": "Our team can provide additional data sheets, certificates or individual product advice.",
   "cta_button": "Request a consultation",
   "seo": {
-    "title": "Downloads: IglooPro Data Sheets & Product Flyers",
-    "description": "Download technical data sheets and product flyers for the IglooPro POC reader and Vitamin D3+K2 as free PDFs. All key documents clearly arranged in one place."
+    "title": "Downloads: IglooPro & Vitamin D3+K2 Product Flyers",
+    "description": "Download product flyers for the IglooPro POC reader and the Vitamin D3+K2 spray as free PDFs, no sign-up required. Technical data sheets available on request."
   }
 }

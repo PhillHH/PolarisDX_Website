@@ -81,6 +81,16 @@ const LOCALE_MAP: Record<string, string> = {
 const SUPPORTED_LANGUAGES = Object.keys(LOCALE_MAP)
 const DEFAULT_LANGUAGE = 'de'
 
+/**
+ * Landing pages that exist in German only (mirrors GERMAN_ONLY_PATHS in
+ * server.ts, which 301s every non-German prefix to /de).
+ *
+ * For these, hreflang must NOT advertise all ten languages and the canonical
+ * must not follow the current language: exactly one URL exists, the German
+ * one. Otherwise the page announces alternates that all redirect to /de.
+ */
+const GERMAN_ONLY_PATHS: string[] = ['/s3_leitlinie', '/vitamin-d3-implantologie']
+
 // =============================================================================
 // COMPONENT
 // =============================================================================
@@ -108,9 +118,14 @@ export function SEOHead({
   // location.pathname returns path WITHOUT lang prefix (BrowserRouter basename strips it)
   // Build canonical with lang prefix: https://polarisdx.net/de/about
   const path = location.pathname
-  const canonicalUrl = canonical
-    ? canonical
-    : `${BASE_URL}/${currentLang}${path === '/' ? '/' : path}`
+
+  // German-only pages have exactly ONE URL: the German one. Canonical and
+  // hreflang point there no matter which prefix this component renders under.
+  const isGermanOnly = GERMAN_ONLY_PATHS.includes(path.replace(/\/$/, ''))
+  const urlLang = isGermanOnly ? DEFAULT_LANGUAGE : currentLang
+  const hreflangLanguages = isGermanOnly ? [DEFAULT_LANGUAGE] : SUPPORTED_LANGUAGES
+
+  const canonicalUrl = canonical ? canonical : `${BASE_URL}/${urlLang}${path === '/' ? '/' : path}`
 
   const ogImageUrl = ogImage?.startsWith('http')
     ? ogImage
@@ -145,12 +160,13 @@ export function SEOHead({
       <meta property="og:locale" content={locale} />
       <meta property="og:site_name" content={SITE_NAME} />
 
-      {/* Alternate locales for OG */}
-      {Object.entries(LOCALE_MAP)
-        .filter(([lang]) => lang !== currentLang)
-        .map(([, localeCode]) => (
-          <meta key={localeCode} property="og:locale:alternate" content={localeCode} />
-        ))}
+      {/* Alternate locales for OG (none on German-only pages) */}
+      {!isGermanOnly &&
+        Object.entries(LOCALE_MAP)
+          .filter(([lang]) => lang !== currentLang)
+          .map(([, localeCode]) => (
+            <meta key={localeCode} property="og:locale:alternate" content={localeCode} />
+          ))}
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -190,8 +206,8 @@ export function SEOHead({
         </>
       )}
 
-      {/* Hreflang tags for all supported languages (auto-generated) */}
-      {SUPPORTED_LANGUAGES.map((lang) => (
+      {/* Hreflang tags (auto-generated; German-only pages announce 'de' alone) */}
+      {hreflangLanguages.map((lang) => (
         <link
           key={lang}
           rel="alternate"

@@ -6,15 +6,14 @@
   "infoMaterials": "Informationsmaterialer",
   "discoverTitle": "Downloads og ressourcer",
   "downloadBtn": "Download",
-  "link_epigenetics": "Epigenetics and genetics",
+  "link_epigenetics": "Epigenetik og genetik",
   "size": "Størrelse",
   "format": "Format",
-  "introText": "Her finder du alle vigtige dokumenter om vores produkter og tjenester – tekniske datablade og informationsmaterialer overskueligt samlet for dig.",
-  "comingSoon": "Coming Soon",
+  "introText": "Produktflyers og informationsmaterialer om IglooPro-systemet og Vitamin D3+K2-sprayen – gratis som PDF og uden tilmelding. Tekniske datablade og certifikater sender vi på anmodning.",
   "hero_cta": "Anmod om rådgivning",
   "chip_free": "Gratis og uden tilmelding",
   "chip_pdf": "PDF-format",
-  "chip_updated": "Opdateres regelmæssigt",
+  "chip_updated": "Tilgængelig med det samme",
   "vc_docs_label": "Dokumenter",
   "vc_format_label": "Format",
   "vc_free_value": "Gratis",
@@ -26,7 +25,7 @@
   "cta_text": "Vores team kan levere yderligere datablade, certifikater eller individuel produktrådgivning.",
   "cta_button": "Anmod om rådgivning",
   "seo": {
-    "title": "Downloads: IglooPro datablade & produktflyere",
-    "description": "Download tekniske datablade og produktflyere til IglooPro POC-reader og Vitamin D3+K2 gratis som PDF. Alle dokumenter samlet overskueligt ét sted."
+    "title": "Downloads: IglooPro & Vitamin D3+K2 produktflyers",
+    "description": "Download produktflyers til IglooPro POC-reader og Vitamin D3+K2-spray gratis som PDF, uden tilmelding. Tekniske datablade på anmodning."
   }
 }

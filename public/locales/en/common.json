@@ -50,17 +50,8 @@
     "doctors": "Our Doctors",
     "testimonials": "Testimonials",
     "faq": "FAQ",
-    "appointment": "Book Appointment"
-  },
-  "cta": {
-    "title": "Looking for professional & trusted <1>medical care?</1>",
-    "description": "Don't hesitate to contact us. Our team is ready to support you and schedule the right appointment.",
-    "button": "Book Appointment"
-  },
-  "cta_section": {
-    "title": "Looking for guaranteed performance and POC expertise?",
-    "text": "Speak directly with our IglooPro specialists. Our team is ready to analyze your individual workflow requirements and show you the fastest way to validated diagnostics. With us, you get a tailored solution, not a standard delivery.",
-    "button": "Book Appointment"
+    "appointment": "Book Appointment",
+    "product_note": "IglooPro is a product of DX365 GmbH"
   },
   "read_more": "Read More",
   "search": {

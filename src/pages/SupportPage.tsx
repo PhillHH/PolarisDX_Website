@@ -13,7 +13,7 @@ import {
 } from 'lucide-react'
 import { SEOHead, localBusinessSchema, createBreadcrumbSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
-import Reveal from '../components/ui/Reveal'
+import Reveal, { REVEAL_STAGGER } from '../components/ui/Reveal'
 import SubpageHero from '../components/sections/SubpageHero'
 import TrustBar from '../components/sections/TrustBar'
 import { SupportForm } from '../components/sections/SupportForm'
@@ -193,7 +193,7 @@ const SupportPage = () => {
               const cls =
                 'group flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 '
               return (
-                <Reveal key={c.title} width="100%" delay={0.1 + i * 0.1}>
+                <Reveal key={c.title} width="100%" delay={i * REVEAL_STAGGER}>
                   {c.to ? (
                     <Link to={c.to} className={cls}>
                       {body}
@@ -233,7 +233,7 @@ const SupportPage = () => {
 
             {/* Sidebar */}
             <aside className="lg:sticky lg:top-32">
-              <Reveal width="100%" delay={0.2}>
+              <Reveal width="100%" delay={REVEAL_STAGGER}>
                 {/* What to have ready — teal check-list */}
                 <section className="rounded-xl border border-accent/20 bg-accent/5 p-7">
                   <h2 className="text-lg font-medium tracking-tight text-heading">
@@ -340,7 +340,7 @@ const SupportPage = () => {
 
             <div className="mt-10 grid gap-6 md:grid-cols-2">
               {faqItems.map((item, i) => (
-                <Reveal key={item.q} width="100%" delay={0.08 + (i % 2) * 0.08}>
+                <Reveal key={item.q} width="100%" delay={(i % 2) * REVEAL_STAGGER}>
                   <div className="flex h-full gap-4 rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1">
                     <span
                       className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent"

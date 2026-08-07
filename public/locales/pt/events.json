@@ -6,15 +6,16 @@
   "empty_text": "Sem eventos no momento.",
   "details": "Detalhes",
   "seo_title": "Eventos e feiras 2026: diagnóstico POC ao vivo",
-  "seo_description": "A PolarisDX em 5 eventos em 2026 — de Estugarda a Hamburgo. Viva o diagnóstico point-of-care ao vivo, com o parceiro premium Nobel Biocare. Descubra já as datas.",
+  "seo_description": "Encontre a PolarisDX nas feiras e congressos de 2026. Viva o diagnóstico point-of-care ao vivo, com o parceiro premium Nobel Biocare. Descubra as datas.",
   "premium_partner": "Parceiro Premium: Nobel Biocare",
   "hero": {
     "crumb": "Eventos 2026",
     "title": "Encontre-nos em 2026",
     "subtitle": "De Estugarda a Hamburgo — veja o IglooPro ao vivo e reserve um horário com a nossa equipa em cada feira. Em parceria premium com a Nobel Biocare.",
-    "chip_events": "5 eventos",
     "chip_demos": "Demos ao vivo",
-    "chip_partner": "Parceiro: Nobel Biocare"
+    "chip_partner": "Parceiro: {{partner}}",
+    "chip_events": "{{count}} eventos",
+    "chip_events_one": "{{count}} evento"
   },
   "upcoming": {
     "eyebrow": "Em breve · 2026",
@@ -23,8 +24,7 @@
   },
   "highlight": {
     "label": "Destaque",
-    "description": "O maior congresso de implantologia da região de língua alemã. Conheça a nossa equipa, veja o IglooPro ao vivo e reserve uma demo no local.",
-    "book_cta": "Reservar horário no DGI 2026"
+    "book_cta": "Reservar horário no {{event}}"
   },
   "list": {
     "book": "Reservar"
@@ -32,7 +32,57 @@
   "past": {
     "eyebrow": "Onde estivemos",
     "title": "Provavelmente já nos viu",
-    "subtitle": "Um olhar sobre 2025 — o IglooPro em digressão pela região DACH.",
+    "subtitle": "Um olhar sobre as nossas últimas participações — o IglooPro em digressão pela região DACH.",
     "recaps_cta": "Ver resumos e fotos"
+  },
+  "seo_keywords": "eventos PolarisDX, Nobel Biocare, congresso DGI, feira diagnóstico POC",
+  "items": {
+    "dentale_themenwelt": {
+      "title": "Dentale Themenwelt",
+      "tag": "Formação",
+      "description": "O diagnóstico point-of-care encontra a medicina dentária — ao vivo em Estugarda."
+    },
+    "dgi_summer_event": {
+      "title": "DGI Summer Event",
+      "tag": "Congresso",
+      "description": "Verão, implantologia e inovação — o DGI Summer Event em Düsseldorf."
+    },
+    "nobel_biocare_dach_symposium": {
+      "title": "Simpósio DACH da Nobel Biocare",
+      "tag": "Simpósio",
+      "description": "Três dias de intercâmbio intenso no Simpósio DACH da Nobel Biocare."
+    },
+    "kite_education": {
+      "title": "Kite & Education",
+      "tag": "Formação",
+      "description": "Vento, ondas e conhecimento — formação e lifestyle na ilha de Sylt."
+    },
+    "dgi_jahreskongress": {
+      "title": "Congresso anual DGI",
+      "tag": "Congresso",
+      "description": "O maior congresso de implantologia da região de língua alemã. Conheça a nossa equipa, veja o IglooPro ao vivo e reserve uma demo no local."
+    }
+  },
+  "past_items": {
+    "ids_cologne": {
+      "title": "IDS Cologne",
+      "detail": "1.200 visitantes",
+      "watermark": "Köln 2025"
+    },
+    "dgi_kongress_frankfurt": {
+      "title": "Congresso DGI",
+      "detail": "Demo ao vivo",
+      "watermark": "Frankfurt 2025"
+    },
+    "dental_summer": {
+      "title": "Dental Summer",
+      "detail": "Workshop",
+      "watermark": "Timmendorf 2025"
+    },
+    "ids_innovation": {
+      "title": "IDS Innovation",
+      "detail": "Prémio",
+      "watermark": "IDS 2025"
+    }
   }
 }

@@ -77,7 +77,7 @@ const TeamSection = () => {
                 ) : (
                   <ImagePlaceholder
                     label={t('team.photo_placeholder', 'Teamfoto')}
-                    className="h-72 w-full rounded-none border-0 border-b border-slate-200"
+                    className="h-72 w-full rounded-none border-x-0 border-t-0 border-b border-dashed border-slate-300"
                   />
                 )}
 

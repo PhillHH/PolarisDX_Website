@@ -6,15 +6,14 @@
   "infoMaterials": "Materiali informativi",
   "discoverTitle": "Download e risorse",
   "downloadBtn": "Scarica",
-  "link_epigenetics": "Epigenetics and genetics",
+  "link_epigenetics": "Epigenetica e genetica",
   "size": "Dimensione",
   "format": "Formato",
-  "introText": "Qui troverai tutti i documenti importanti sui nostri prodotti e servizi – schede tecniche e materiali informativi organizzati per te.",
-  "comingSoon": "Coming Soon",
+  "introText": "Flyer di prodotto e materiali informativi sul sistema IglooPro e sullo spray Vitamina D3+K2 – gratis in PDF e senza registrazione. Schede tecniche e certificati sono disponibili su richiesta.",
   "hero_cta": "Richiedi una consulenza",
   "chip_free": "Gratuito e senza registrazione",
   "chip_pdf": "Formato PDF",
-  "chip_updated": "Aggiornato regolarmente",
+  "chip_updated": "Disponibile subito",
   "vc_docs_label": "Documenti",
   "vc_format_label": "Formato",
   "vc_free_value": "Gratuito",
@@ -26,7 +25,7 @@
   "cta_text": "Il nostro team può fornirti ulteriori schede tecniche, certificati o una consulenza di prodotto personalizzata.",
   "cta_button": "Richiedi una consulenza",
   "seo": {
-    "title": "Download: schede tecniche e flyer IglooPro",
-    "description": "Scarica gratis in PDF le schede tecniche e i flyer dell'IglooPro POC reader e della Vitamina D3+K2. Tutta la documentazione raccolta in modo chiaro e ordinato."
+    "title": "Download: flyer IglooPro e Vitamina D3+K2",
+    "description": "Scarica gratis in PDF i flyer dell'IglooPro POC reader e dello spray Vitamina D3+K2, senza registrazione. Schede tecniche disponibili su richiesta."
   }
 }

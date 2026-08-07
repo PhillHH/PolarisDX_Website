@@ -294,3 +294,24 @@
     animation-delay: -3s;
   }
 }
+
+/* ---------------------------------------------------------------------------
+ * Sicherheitsnetz Bewegungsreduktion (WCAG 2.2.2 / 2.3.3).
+ * Faengt jede Transition und jede Keyframe-Animation ab, die keine eigene
+ * motion-reduce-Variante hat - inklusive Inline-Styles, denn eine !important-
+ * Deklaration aus dem Stylesheet gewinnt gegen ein normales style-Attribut.
+ * Bewusst 0.01ms statt 0: so feuern transitionend/animationend weiterhin.
+ * Steht am Dateiende, damit es nach allen Tailwind-Utilities greift.
+ * ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}

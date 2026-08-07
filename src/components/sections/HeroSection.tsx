@@ -10,10 +10,20 @@ import IglooProImage from '../../assets/Igloo-pro-frontal.webp'
  * SEO/LCP: h1 + description sind immer sichtbar (kein initiales opacity:0); nur Slide 0 = h1.
  * B2B-Umbau (Phase 3.1): 4 Slides (speed/economics/compliance/segments), Teal-Primaer-CTA
  *"Beratung buchen", Sekundaer-CTA"ROI-Rechner" (#roi-rechner), Proof-Chip-Reihe,
- * Pause-on-hover/focus + prefers-reduced-motion + Dot-ARIA (aria-current/-label) + Pause/Play.
+ * Pause-on-hover/focus + prefers-reduced-motion (Autoplay UND Slide-Keyframes)
+ * + Dot-ARIA (aria-current/-label) + Pause/Play mit echtem Zustand (isPlaying).
  */
 const HeroSection = () => {
-  const { currentSlide, setCurrentSlide, slides, t, isPaused, setIsPaused } = useHeroSlider()
+  const {
+    currentSlide,
+    setCurrentSlide,
+    slides,
+    t,
+    isPlaying,
+    toggleAutoplay,
+    setIsHovered,
+    reducedMotion,
+  } = useHeroSlider()
 
   const [isHydrated, setIsHydrated] = useState(false)
   const [displaySlide, setDisplaySlide] = useState(currentSlide)
@@ -27,18 +37,28 @@ const HeroSection = () => {
 
   useEffect(() => {
     if (isFirstRender.current || currentSlide === displaySlide) return
-    setAnimationPhase('exiting')
-    const exitTimer = setTimeout(() => {
+    // Bewegungsreduktion: direkt umschalten - ohne Keyframes gibt es auch nichts
+    // abzuwarten, sonst haengt der Slide 400 ms grundlos fest.
+    if (reducedMotion) {
       setDisplaySlide(currentSlide)
-      setAnimationPhase('entering')
-      const enterTimer = setTimeout(() => setAnimationPhase('idle'), 600)
-      return () => clearTimeout(enterTimer)
-    }, 400)
-    return () => clearTimeout(exitTimer)
-  }, [currentSlide, displaySlide])
+      setAnimationPhase('idle')
+      return
+    }
+    const timers: ReturnType<typeof setTimeout>[] = []
+    setAnimationPhase('exiting')
+    timers.push(
+      setTimeout(() => {
+        setDisplaySlide(currentSlide)
+        setAnimationPhase('entering')
+        timers.push(setTimeout(() => setAnimationPhase('idle'), 600))
+      }, 400),
+    )
+    return () => timers.forEach((id) => clearTimeout(id))
+  }, [currentSlide, displaySlide, reducedMotion])
 
   const getContentAnimationClass = () => {
-    if (!isHydrated || isFirstRender.current) return ''
+    // Bei Bewegungsreduktion keine Keyframes - auch nicht beim manuellen Dot-Klick.
+    if (!isHydrated || isFirstRender.current || reducedMotion) return ''
     if (animationPhase === 'exiting') return 'animate-slide-out-up'
     if (animationPhase === 'entering') return 'animate-slide-in-up'
     return ''
@@ -52,10 +72,10 @@ const HeroSection = () => {
       role="region"
       aria-roledescription="carousel"
       aria-label={t('hero.aria.carousel', 'IglooPro Highlights')}
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onFocus={() => setIsPaused(true)}
-      onBlur={() => setIsPaused(false)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onFocus={() => setIsHovered(true)}
+      onBlur={() => setIsHovered(false)}
       className="relative overflow-hidden bg-brand-deep text-white min-h-[700px] lg:h-[800px]"
     >
       {/* Noise Overlay */}
@@ -178,18 +198,18 @@ const HeroSection = () => {
               </div>
               <button
                 type="button"
-                onClick={() => setIsPaused((p) => !p)}
+                onClick={toggleAutoplay}
                 aria-label={
-                  isPaused
-                    ? t('hero.aria.play', 'Automatischen Wechsel fortsetzen')
-                    : t('hero.aria.pause', 'Automatischen Wechsel pausieren')
+                  isPlaying
+                    ? t('hero.aria.pause', 'Automatischen Wechsel pausieren')
+                    : t('hero.aria.play', 'Automatischen Wechsel fortsetzen')
                 }
                 className="rounded text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
               >
-                {isPaused ? (
-                  <Play size={16} aria-hidden="true" />
-                ) : (
+                {isPlaying ? (
                   <Pause size={16} aria-hidden="true" />
+                ) : (
+                  <Play size={16} aria-hidden="true" />
                 )}
               </button>
             </div>

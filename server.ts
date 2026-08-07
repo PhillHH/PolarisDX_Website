@@ -128,6 +128,26 @@ function isStaticAsset(pathname: string): boolean {
   )
 }
 
+/**
+ * Landing pages that exist in German only.
+ *
+ * S3LeitliniePage and VitaminD3ImplantologyPage are hand-written German copy
+ * without a single t() call. Served under /en/ or /fr/ they deliver German
+ * body text with a foreign lang attribute: broken for the reader and ten URLs
+ * with identical content for Google. So every non-German prefix 301s to /de,
+ * and sitemap plus hreflang know the German URL only.
+ * Mirrored in src/components/seo/SEOHead.tsx (GERMAN_ONLY_PATHS).
+ */
+const GERMAN_ONLY_PATHS: string[] = ['/s3_leitlinie', '/vitamin-d3-implantologie']
+
+/**
+ * True when a path WITHOUT language prefix is one of the German-only pages.
+ * A single trailing slash is ignored, so /s3_leitlinie/ counts as well.
+ */
+function isGermanOnlyPath(pathWithoutLangPrefix: string): boolean {
+  return GERMAN_ONLY_PATHS.includes(pathWithoutLangPrefix.replace(/\/$/, ''))
+}
+
 // =============================================================================
 // SITEMAP CONFIGURATION
 // =============================================================================
@@ -169,8 +189,8 @@ const SITEMAP_ROUTES: SitemapRoute[] = [
 
   // Content Hub
   { path: '/articles', priority: 0.7, changefreq: 'weekly' },
-  { path: '/vitamin-d3-implantologie', priority: 0.7, changefreq: 'monthly' },
-  { path: '/s3_leitlinie', priority: 0.7, changefreq: 'monthly' },
+  // /vitamin-d3-implantologie and /s3_leitlinie are deliberately absent here:
+  // they are German-only and listed once in GERMAN_ONLY_SITEMAP_ROUTES below.
 
   // Article Pages (6 articles from articles.ts slugs)
   { path: '/articles/die-gruene-praxis', priority: 0.6, changefreq: 'yearly' },
@@ -219,6 +239,14 @@ const CONSUMER_SITEMAP_ROUTES: SingleLangSitemapRoute[] = [
   { path: '/en/consumer/inside-out-duo', priority: 0.8, changefreq: 'weekly' },
 ]
 
+// German-only landing pages (see GERMAN_ONLY_PATHS) - the language-redirect
+// middleware 301s every non-German prefix to /de, so they belong in the
+// sitemap exactly once and without hreflang alternates.
+const GERMAN_ONLY_SITEMAP_ROUTES: SingleLangSitemapRoute[] = [
+  { path: '/de/vitamin-d3-implantologie', priority: 0.7, changefreq: 'monthly' },
+  { path: '/de/s3_leitlinie', priority: 0.7, changefreq: 'monthly' },
+]
+
 /**
  * Generates a complete XML sitemap with all routes in all languages.
  * Each URL includes hreflang alternates for all 10 supported languages
@@ -255,8 +283,9 @@ function generateSitemap(): string {
     }
   }
 
-  // Consumer landing pages — single-language entries, no hreflang.
-  for (const route of CONSUMER_SITEMAP_ROUTES) {
+  // Single-language entries, no hreflang: the English consumer landing pages
+  // and the two German-only content pages.
+  for (const route of [...CONSUMER_SITEMAP_ROUTES, ...GERMAN_ONLY_SITEMAP_ROUTES]) {
     xml += '  <url>\n'
     xml += `    <loc>${BASE_URL}${route.path}</loc>\n`
     xml += `    <lastmod>${today}</lastmod>\n`
@@ -434,6 +463,22 @@ async function createServer() {
       (pathname.slice(3) === '/consumer' || pathname.slice(3).startsWith('/consumer/'))
     ) {
       res.redirect(301, `/en${pathname.slice(3)}${query}`)
+      return
+    }
+
+    // -------------------------------------------------------------------------
+    // German-only landing pages. Under a foreign prefix they would serve German
+    // body text with a foreign lang attribute, so collapse all nine non-German
+    // prefixes onto /de.
+    //   /en/s3_leitlinie   -> /de/s3_leitlinie
+    //   /s3_leitlinie      -> /de/s3_leitlinie   (via the default rule below)
+    // -------------------------------------------------------------------------
+    if (
+      langPrefix !== null &&
+      langPrefix !== DEFAULT_LANGUAGE &&
+      isGermanOnlyPath(pathname.slice(3))
+    ) {
+      res.redirect(301, `/${DEFAULT_LANGUAGE}${pathname.slice(3)}${query}`)
       return
     }
 

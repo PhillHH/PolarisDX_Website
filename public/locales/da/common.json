@@ -50,17 +50,8 @@
     "allServices": "Alle tjenester",
     "pocSystems": "POC-systemer",
     "preventionChecks": "Forebyggelseschecks",
-    "hormonTests": "Hormontests"
-  },
-  "cta": {
-    "title": "Leder du efter professionel & betroet <1>lægehjælp?</1>",
-    "description": "Tøv ikke med at kontakte os. Vores team står klar til at støtte dig og planlægge den rette aftale.",
-    "button": "Bestil tid"
-  },
-  "cta_section": {
-    "title": "Leder du efter garanteret ydeevne og POC-ekspertise?",
-    "text": "Tal direkte med vores IglooPro-specialister. Vores team er klar til at analysere dine individuelle workflow-krav og vise dig den hurtigste vej til valideret diagnostik. Hos os får du en skræddersyet løsning, ikke en standardlevering.",
-    "button": "Bestil tid"
+    "hormonTests": "Hormontests",
+    "product_note": "IglooPro er et produkt fra DX365 GmbH"
   },
   "read_more": "Læs mere",
   "chat": {

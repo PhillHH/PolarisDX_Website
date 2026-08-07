@@ -3,7 +3,7 @@ import { Building2, Target, HeartPulse, ShieldCheck, Zap, Check } from 'lucide-r
 import { SEOHead, organizationSchema, createBreadcrumbSchema } from '../components/seo'
 import TeamSection from '../components/sections/TeamSection'
 import PageTransition from '../components/ui/PageTransition'
-import Reveal from '../components/ui/Reveal'
+import Reveal, { REVEAL_STAGGER } from '../components/ui/Reveal'
 import SubpageHero from '../components/sections/SubpageHero'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
 import TrustBar from '../components/sections/TrustBar'
@@ -149,7 +149,7 @@ const AboutPage = () => {
             </div>
           </Reveal>
 
-          <Reveal width="100%" delay={0.1}>
+          <Reveal width="100%" delay={REVEAL_STAGGER}>
             <div className="rounded-2xl bg-brand-deep p-7 text-white lg:p-7">
               <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/15 text-accent-on-dark">
                 <Zap className="h-6 w-6" aria-hidden="true" />
@@ -202,7 +202,7 @@ const AboutPage = () => {
           </div>
           <div className="mt-14 grid gap-8 md:grid-cols-3">
             {values.map((v, i) => (
-              <Reveal key={v.key} width="100%" delay={0.05 * i}>
+              <Reveal key={v.key} width="100%" delay={i * REVEAL_STAGGER}>
                 <div className="h-full rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1">
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent">
                     <v.icon className="h-5 w-5" aria-hidden="true" />

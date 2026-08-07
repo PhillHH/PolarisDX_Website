@@ -50,17 +50,8 @@
     "allServices": "Wszystkie usługi",
     "pocSystems": "Systemy POC",
     "preventionChecks": "Badania profilaktyczne",
-    "hormonTests": "Testy hormonalne"
-  },
-  "cta": {
-    "title": "Szukasz profesjonalnej i zaufanej <1>opieki medycznej?</1>",
-    "description": "Nie wahaj się z nami skontaktować. Nasz zespół jest gotowy, aby Cię wesprzeć i zaplanować odpowiednią wizytę.",
-    "button": "Umów wizytę"
-  },
-  "cta_section": {
-    "title": "Szukasz gwarantowanej wydajności i ekspertyzy POC?",
-    "text": "Porozmawiaj bezpośrednio z naszymi specjalistami IglooPro. Nasz zespół jest gotowy przeanalizować Twoje indywidualne wymagania dotyczące przepływu pracy i wskazać najszybszą drogę do zwalidowanej diagnostyki. U nas otrzymasz rozwiązanie szyte na miarę, a nie standardową dostawę.",
-    "button": "Zarezerwuj termin"
+    "hormonTests": "Testy hormonalne",
+    "product_note": "IglooPro jest produktem firmy DX365 GmbH"
   },
   "read_more": "Czytaj więcej",
   "chat": {

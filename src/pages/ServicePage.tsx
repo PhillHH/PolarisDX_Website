@@ -14,7 +14,7 @@ import { services } from '../data/services'
 import { articles } from '../data/articles'
 import FAQSection from '../components/sections/FAQSection'
 import PageTransition from '../components/ui/PageTransition'
-import Reveal from '../components/ui/Reveal'
+import Reveal, { REVEAL_STAGGER } from '../components/ui/Reveal'
 import PageSidebar, { type SidebarWidget } from '../components/sections/PageSidebar'
 import SubpageHero from '../components/sections/SubpageHero'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
@@ -314,7 +314,7 @@ const ServicePage = () => {
                       {t('services:overview.page.sections_eyebrow', 'Im Detail')}
                     </span>
                     {sections.map((section, index) => (
-                      <Reveal key={index} width="100%" delay={0.05 * index}>
+                      <Reveal key={index} width="100%" delay={index * REVEAL_STAGGER}>
                         <section className="rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 lg:p-7">
                           {section.heading && (
                             <div className="flex items-start gap-4">

@@ -1,20 +1,21 @@
 {
   "title": "Events & Termine 2026",
   "subtitle": "Triff uns persönlich",
-  "intro": "Von Stuttgart bis Hamburg, von Fortbildung bis Kongress — Polaris Diagnostics ist 2026 dort, wo die Zukunft der Praxisdiagnostik diskutiert wird. Gemeinsam mit Nobel Biocare zeigen wir auf fünf Events, wie Point-of-Care-Diagnostik den Praxisalltag verändert.",
+  "intro": "Von Stuttgart bis Hamburg, von Fortbildung bis Kongress — Polaris Diagnostics ist 2026 dort, wo die Zukunft der Praxisdiagnostik diskutiert wird. Gemeinsam mit Nobel Biocare zeigen wir auf unseren Messe- und Kongressterminen, wie Point-of-Care-Diagnostik den Praxisalltag verändert.",
   "premium_partner": "Premium Partner: Nobel Biocare",
   "details": "Details ansehen",
   "empty_title": "Aktuell keine Termine",
   "empty_text": "Derzeit stehen keine öffentlichen Termine an. Abonnieren Sie unseren Newsletter, um informiert zu bleiben, oder vereinbaren Sie einen persönlichen Termin.",
   "seo_title": "Events & Messen 2026: POC-Diagnostik live",
-  "seo_description": "PolarisDX auf 5 Events 2026 – von Stuttgart bis Hamburg. Erleben Sie Point-of-Care-Diagnostik live, gemeinsam mit Premium-Partner Nobel Biocare. Jetzt Termine entdecken.",
+  "seo_description": "PolarisDX live erleben: Point-of-Care-Diagnostik auf den Messen und Kongressen 2026, gemeinsam mit Premium-Partner Nobel Biocare. Jetzt Termine entdecken.",
   "hero": {
     "crumb": "Events 2026",
     "title": "Treffen Sie uns 2026",
     "subtitle": "Von Stuttgart bis Hamburg — erleben Sie den IglooPro live und sichern Sie sich an jedem Termin einen Slot mit unserem Team. Gemeinsam mit Premium-Partner Nobel Biocare.",
-    "chip_events": "5 Termine",
     "chip_demos": "Live-Demos",
-    "chip_partner": "Partner: Nobel Biocare"
+    "chip_partner": "Partner: {{partner}}",
+    "chip_events": "{{count}} Termine",
+    "chip_events_one": "{{count}} Termin"
   },
   "upcoming": {
     "eyebrow": "Aktuell · 2026",
@@ -23,8 +24,7 @@
   },
   "highlight": {
     "label": "Highlight",
-    "description": "Der größte implantologische Fachkongress im deutschsprachigen Raum. Treffen Sie unser Team, erleben Sie den IglooPro live und sichern Sie sich einen Demo-Slot vor Ort.",
-    "book_cta": "Slot beim DGI 2026 sichern"
+    "book_cta": "Slot beim {{event}} sichern"
   },
   "list": {
     "book": "Buchen"
@@ -32,7 +32,57 @@
   "past": {
     "eyebrow": "Wo wir waren",
     "title": "Sie haben uns wahrscheinlich schon gesehen",
-    "subtitle": "Ein Rückblick auf 2025 — der IglooPro unterwegs in der DACH-Region.",
+    "subtitle": "Ein Rückblick auf unsere letzten Auftritte — der IglooPro unterwegs in der DACH-Region.",
     "recaps_cta": "Event-Rückblicke & Fotos ansehen"
+  },
+  "seo_keywords": "PolarisDX Events, Nobel Biocare, DGI Kongress, POC-Diagnostik Messe",
+  "items": {
+    "dentale_themenwelt": {
+      "title": "Dentale Themenwelt",
+      "tag": "Fortbildung",
+      "description": "Point-of-Care-Diagnostik trifft Dentalmedizin — live vor Ort in Stuttgart."
+    },
+    "dgi_summer_event": {
+      "title": "DGI Summer Event",
+      "tag": "Kongress",
+      "description": "Sommer, Implantologie und Innovation — das DGI Summer Event in Düsseldorf."
+    },
+    "nobel_biocare_dach_symposium": {
+      "title": "Nobel Biocare DACH-Symposium",
+      "tag": "Symposium",
+      "description": "Drei Tage intensiver Austausch auf dem DACH-Symposium von Nobel Biocare."
+    },
+    "kite_education": {
+      "title": "Kite & Education",
+      "tag": "Fortbildung",
+      "description": "Wind, Wellen und Wissen — Fortbildung trifft Lifestyle auf Sylt."
+    },
+    "dgi_jahreskongress": {
+      "title": "DGI Jahreskongress",
+      "tag": "Kongress",
+      "description": "Der größte implantologische Fachkongress im deutschsprachigen Raum. Treffen Sie unser Team, erleben Sie den IglooPro live und sichern Sie sich einen Demo-Slot vor Ort."
+    }
+  },
+  "past_items": {
+    "ids_cologne": {
+      "title": "IDS Cologne",
+      "detail": "1.200 Besucher",
+      "watermark": "Köln 2025"
+    },
+    "dgi_kongress_frankfurt": {
+      "title": "DGI Kongress",
+      "detail": "Live-Demo",
+      "watermark": "Frankfurt 2025"
+    },
+    "dental_summer": {
+      "title": "Dental Summer",
+      "detail": "Workshop",
+      "watermark": "Timmendorf 2025"
+    },
+    "ids_innovation": {
+      "title": "IDS Innovation",
+      "detail": "Auszeichnung",
+      "watermark": "IDS 2025"
+    }
   }
 }

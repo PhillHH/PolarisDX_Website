@@ -14,10 +14,9 @@ Sie orchestrieren in der Regel mehrere Sections und UI‑Komponenten und binden 
   - `ServicesSection` (diagnostische Schwerpunkte),
   - `DoctorsSection` (Vorstellung medizinischer Kompetenz, sofern eingebunden),
   - `TestimonialsSection` (Kundenstimmen),
-  - `BlogSection` (Artikel‑Teaser),
-  - Shop‑Teaser mit ausgewählten Produkten aus `data/products.ts`.
+  - `BlogSection` (Artikel‑Teaser).
 
-Ziel: **Schnelles Verständnis des Angebots** und Führen des Nutzers zu Shop, Artikeln oder Kontakt.
+Ziel: **Schnelles Verständnis des Angebots** und Führen des Nutzers zu Diagnostik, Artikeln oder Kontakt.
 
 ---
 
