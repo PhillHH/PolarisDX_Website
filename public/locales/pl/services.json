@@ -324,6 +324,9 @@
           "answer": "Tak. Prewencyjne badania przesiewowe biomarkerów, wykraczające poza katalog świadczeń ustawowego ubezpieczenia zdrowotnego, podlegają rozliczeniu prywatnemu jako indywidualne świadczenia zdrowotne (IGeL) według GOÄ. Połączenie natychmiastowej analityki z kwalifikowanym poradnictwem tworzy ekonomicznie atrakcyjną ofertę dla samopłacących, która jednocześnie wzmacnia lojalność pacjentów."
         }
       ]
+    },
+    "seo": {
+      "description": "Badania profilaktyczne w Point-of-Care: natychmiastowe oznaczenie kluczowych biomarkerów i doradztwo oparte na danych – w gabinecie, aptece i klinice. Dowiedz się więcej."
     }
   },
   "infektion_entzuendung": {
@@ -386,6 +389,9 @@
           "answer": "IglooPro umożliwia oznaczanie CRP (białko C-reaktywne) jako centralnego markera fazy ostrej, PCT (prokalcytonina) do różnicowania infekcji bakteryjnych oraz ferrytyny, która oprócz statusu żelaza jest również istotna jako marker zapalny w procesach przewlekłych i ostrych. Dzięki otwartej platformie możliwa jest integracja dalszych testów przepływu bocznego dla IL-6 i innych parametrów."
         }
       ]
+    },
+    "seo": {
+      "description": "Oznaczanie markerów stanu zapalnego i objawów infekcji na miejscu: szybszy triage, odpowiedzialne zarządzanie antybiotykoterapią. Zapytaj o konsultację."
     }
   },
   "stoffwechsel_herz": {
@@ -448,6 +454,9 @@
           "answer": "Tak. Badania przesiewowe HbA1c, cholesterolu i innych parametrów metabolicznych to typowe świadczenia IGeL (indywidualne świadczenia zdrowotne), rozliczane prywatnie według GOÄ. Połączenie natychmiastowego pomiaru z kwalifikowanym poradnictwem tworzy wymierną wartość dodaną dla pacjentów i generuje planowany dodatkowy przychód dla Państwa gabinetu."
         }
       ]
+    },
+    "seo": {
+      "description": "Pomiar markerów metabolicznych i kardiologicznych w kilka minut: monitorowanie cukrzycy i dostosowanie terapii bezpośrednio w gabinecie. Skorzystaj z doradztwa."
     }
   },
   "hormon_tests": {
@@ -510,6 +519,9 @@
           "answer": "Diagnostyka hormonalna przy fotelu zabiegowym jest w równym stopniu istotna dla medycyny ogólnej, ginekologii, endokrynologii, dermatologii oraz ośrodków leczenia niepłodności. Wszędzie tam, gdzie konieczne jest szybkie wyjaśnienie funkcji tarczycy, stanu płodności lub zaburzeń równowagi hormonalnej, pomiar POC zapewnia bezpośrednią przewagę czasową w porównaniu z wysyłką do zewnętrznych laboratoriów."
         }
       ]
+    },
+    "seo": {
+      "description": "Diagnostyka hormonalna w Point-of-Care: oznaczanie kluczowych hormonów bezpośrednio przy pacjencie – od tarczycy po płodność. Umów konsultację."
     }
   },
   "kompatibilitaet_integration": {
@@ -571,6 +583,9 @@
           "answer": "Tak. W większych gabinetach, strukturach MVZ lub klinikach kilka urządzeń IglooPro może pracować we wspólnej sieci i być zarządzanych centralnie. Wszystkie wyniki pomiarów trafiają do jednolitego systemu, co upraszcza zapewnienie jakości i umożliwia przegląd diagnostyki POC obejmujący wiele lokalizacji."
         }
       ]
+    },
+    "seo": {
+      "description": "Otwarta platforma POC niezależna od producenta: Igloo Pro zapewnia elastyczność, niezależność technologiczną i bezpieczeństwo inwestycji. Dowiedz się więcej."
     }
   },
   "seo": {
@@ -579,11 +594,11 @@
   },
   "overview": {
     "hero": {
-      "title": "Diagnostik",
-      "subtitle": "Laborgenaue Panels für jeden Praxistyp – validiert, IVDR-konform und ab Tag 1 einsatzbereit. Wählen Sie Ihre Fachrichtung oder erkunden Sie die Diagnostikbereiche unten.",
+      "title": "Diagnostyka",
+      "subtitle": "Panele o dokładności laboratoryjnej dla każdego typu gabinetu – walidowane, zgodne z IVDR i gotowe do pracy od pierwszego dnia. Wybierz swoją specjalizację lub poznaj obszary diagnostyczne poniżej.",
       "chip_cv": "CV < 2 %",
-      "chip_results": "Ergebnis in 3 Min.",
-      "chip_lfa": "90 % LFA-Kompatibilität",
+      "chip_results": "Wynik w 3 min.",
+      "chip_lfa": "90 % kompatybilności LFA",
       "visual": {
         "gauge": "36°",
         "vitd_name": "Vitamin D",
@@ -595,60 +610,60 @@
       }
     },
     "specialty": {
-      "eyebrow": "IHRE FACHRICHTUNG",
-      "title": "Diagnostik für Ihren Praxistyp",
-      "subtitle": "Starten Sie da, wo Sie verdienen – die passenden Biomarker-Panels und Anwendungen für Ihre Fachrichtung.",
+      "eyebrow": "TWOJA SPECJALIZACJA",
+      "title": "Diagnostyka dla Twojego typu gabinetu",
+      "subtitle": "Zacznij tam, gdzie zarabiasz – odpowiednie panele biomarkerów i zastosowania dla Twojej specjalizacji.",
       "dental": {
-        "title": "Zahnarztpraxis",
-        "desc": "Vitamin D & Entzündung direkt am Stuhl – Implantaterfolg sichern und die Behandlungsplanung absichern.",
-        "cta": "Dental-Diagnostik ansehen",
+        "title": "Gabinet stomatologiczny",
+        "desc": "Witamina D i stan zapalny bezpośrednio przy fotelu – zabezpiecz powodzenie implantacji i planowanie leczenia.",
+        "cta": "Zobacz diagnostykę stomatologiczną",
         "tags": [
-          "Vitamin D",
+          "Witamina D",
           "CRP",
           "HbA1c"
         ]
       },
       "beauty": {
-        "title": "Ästhetik & Beauty",
-        "desc": "Hormone, Mikronährstoffe und Hautgesundheit – sichtbare Ergebnisse mit Zahlen belegen.",
-        "cta": "Beauty-Diagnostik ansehen",
+        "title": "Estetyka i beauty",
+        "desc": "Hormony, mikroelementy i zdrowie skóry – widoczne efekty poparte liczbami.",
+        "cta": "Zobacz diagnostykę beauty",
         "tags": [
-          "Hormone",
-          "Mikronährstoffe",
-          "Hautgesundheit"
+          "Hormony",
+          "Mikroelementy",
+          "Zdrowie skóry"
         ]
       },
       "longevity": {
-        "title": "Longevity & Prävention",
-        "desc": "HbA1c, Lipide und Entzündungsmarker – proaktives Alternsmanagement, das Ihre Klienten zahlen.",
-        "cta": "Longevity-Diagnostik ansehen",
+        "title": "Longevity i profilaktyka",
+        "desc": "HbA1c, lipidy i markery stanu zapalnego – proaktywne zarządzanie starzeniem, za które płacą Twoi klienci.",
+        "cta": "Zobacz diagnostykę longevity",
         "tags": [
           "HbA1c",
-          "Lipide",
+          "Lipidy",
           "D-Dimer"
         ]
       }
     },
     "focus": {
-      "subtitle": "Sechs Diagnostikbereiche, eine Plattform – jedes Panel läuft chairside auf dem IglooPro.",
+      "subtitle": "Sześć obszarów diagnostycznych, jedna platforma – każdy panel działa chairside na IglooPro.",
       "poc": {
-        "cta": "POC-Systeme erkunden",
+        "cta": "Poznaj systemy POC",
         "tags": [
           "IglooPro",
-          "Mobil",
+          "Mobilny",
           "LIMS/HIS"
         ]
       },
       "checks": {
-        "cta": "Gesundheits-Checks erkunden",
+        "cta": "Poznaj badania profilaktyczne",
         "tags": [
-          "Vitamin D",
+          "Witamina D",
           "CRP",
           "HbA1c"
         ]
       },
       "infection": {
-        "cta": "Entzündungsmarker erkunden",
+        "cta": "Poznaj markery zapalne",
         "tags": [
           "CRP",
           "PCT",
@@ -656,25 +671,25 @@
         ]
       },
       "metabolism": {
-        "cta": "Stoffwechsel-Panels erkunden",
+        "cta": "Poznaj panele metaboliczne",
         "tags": [
           "HbA1c",
-          "Cholesterin",
+          "Cholesterol",
           "D-Dimer"
         ]
       },
       "hormone": {
-        "cta": "Hormon-Tests erkunden",
+        "cta": "Poznaj testy hormonalne",
         "tags": [
           "TSH",
           "AMH"
         ]
       },
       "compat": {
-        "cta": "Kompatibilität ansehen",
+        "cta": "Zobacz kompatybilność",
         "tags": [
           "90 % LFA",
-          "Offene Plattform"
+          "Otwarta platforma"
         ]
       }
     },
@@ -684,10 +699,22 @@
       "sections_eyebrow": "Szczegóły",
       "conclusion_eyebrow": "Podsumowanie",
       "stats": [
-        { "value": "< 2 %", "label": "Współczynnik zmienności (CV)" },
-        { "value": "3–15 min", "label": "do wyniku" },
-        { "value": "10+", "label": "biomarkerów z jednego urządzenia" },
-        { "value": "IVDR/CE", "label": "certyfikowany i zgodny" }
+        {
+          "value": "< 2 %",
+          "label": "Współczynnik zmienności (CV)"
+        },
+        {
+          "value": "3–15 min",
+          "label": "do wyniku"
+        },
+        {
+          "value": "10+",
+          "label": "biomarkerów z jednego urządzenia"
+        },
+        {
+          "value": "IVDR/CE",
+          "label": "certyfikowany i zgodny"
+        }
       ]
     }
   }

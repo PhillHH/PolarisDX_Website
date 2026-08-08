@@ -2,11 +2,11 @@
   "eyebrow": "Juridisk information",
   "imprint": {
     "subtitle": "Juridiske oplysninger og kontaktinformation for Polaris Diagnostics Europe GmbH.",
-    "title": "Impressum",
+    "title": "Juridisk information",
     "section1": {
       "title": "Oplysninger i henhold til § 5 TMG",
       "london": {
-        "title": "London Office",
+        "title": "Kontor London",
         "company": "PolarisDX LTD",
         "address": [
           "262A Fulham Road",
@@ -20,7 +20,7 @@
         }
       },
       "hamburg": {
-        "title": "Hamburg Office",
+        "title": "Kontor Hamborg",
         "company": "PolarisDX Europe GmbH",
         "address": [
           "Große Bleichen 1 - 3",

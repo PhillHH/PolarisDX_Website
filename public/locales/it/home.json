@@ -62,18 +62,18 @@
     "stats": {
       "margin": {
         "value": "Ø 980 €",
-        "label": "Zusätzlicher Deckungsbeitrag / Monat"
+        "label": "Margine di contribuzione aggiuntivo / mese"
       },
       "time": {
-        "value": "3 Min.",
-        "label": "Ergebnisse verfügbar"
+        "value": "3 min",
+        "label": "Risultati disponibili"
       },
       "ready": {
-        "value": "Tag 1",
-        "label": "Validiert & einsatzbereit"
+        "value": "Giorno 1",
+        "label": "Validato e pronto all'uso"
       }
     },
-    "stats_disclaimer": "* Beispielwert – abhängig von Ihren Praxiswerten."
+    "stats_disclaimer": "* Valore esemplificativo – dipende dai dati del tuo studio."
   },
   "about": {
     "caption": "IL TUO GARANTE DI PRESTAZIONI",
@@ -109,8 +109,8 @@
     "all_services": "Scopri tutti i servizi di diagnostica",
     "subtitle": "Scegli la tua area – ti mostriamo i pannelli di biomarcatori e le applicazioni adatte alla tua specializzazione.",
     "eyebrow": "La vostra specializzazione",
-    "help_title": "Nicht sicher, welches Panel zu Ihrer Praxis passt?",
-    "help_text": "15 Minuten mit einem POC-Spezialisten – eine konkrete Empfehlung für Ihre Fachrichtung, keine Verkaufsshow.",
+    "help_title": "Non sai quale pannello è adatto al tuo studio?",
+    "help_text": "15 minuti con uno specialista POC: una raccomandazione concreta per la tua specialità, non una vendita.",
     "help_cta": "Prenota una consulenza"
   },
   "services": {
@@ -166,28 +166,28 @@
       "practice": "Chelsea Dental Clinic"
     },
     "kristian_grimm": {
-      "role": "Zahnarzt",
+      "role": "Odontoiatra",
       "title": "32reasons Zahnteam / Hamburg",
       "focus": "Prevenzione, Vitamin D, HbA1c, salute sistemica",
       "text": "32reasons & Polaris DX – l'odontoiatria ripensata. Il reader chairside ci consente di determinare biomarcatori come Vitamin D e HbA1c direttamente in loco. Questo collega immediatamente l'odontoiatria alla salute sistemica per decisioni terapeutiche rapide e basate sull'evidenza.",
       "practice": "32reasons Zahnteam, Hamburg"
     },
     "martin_fischer": {
-      "role": "Facharzt für Innere Medizin",
+      "role": "Specialista in medicina interna",
       "title": "Specialista in Medicina Interna / Studio internistico Dr. Fischer",
       "focus": "Diagnostica immediata nei pazienti acuti (efficienza, decisione terapeutica)",
       "text": "La possibilità di determinare immediatamente in studio marcatori infiammatori come la CRP ha rivoluzionato il nostro percorso di trattamento. Nei pazienti con infezioni non chiare possiamo decidere più rapidamente se è necessaria una terapia antibiotica, evitando invii non necessari. Questo ci fa risparmiare tempo e aumenta sensibilmente la soddisfazione dei pazienti.",
       "practice": "Internistische Praxis Dr. Fischer"
     },
     "bastian_wessing": {
-      "role": "Ärztlicher Leiter",
+      "role": "Direttore sanitario",
       "title": "MVZ Zahnkultur Berlin Brandenburg GmbH",
       "focus": "Diagnostica immediata per parodontologia e implantologia (Vitamin D, HbA1c, colesterolo, CRP)",
       "text": "L'Igloo Multireader rende misurabili marcatori infiammatori, HbA1c, colesterolo e Vitamin D direttamente alla poltrona. Così pianifichiamo i trattamenti parodontali e implantari in modo più sicuro e partiamo più velocemente. La formazione e il supporto di PolarisDX sono semplici – il dispositivo è diventato parte integrante della nostra quotidianità.",
       "practice": "MVZ Zahnkultur Berlin Brandenburg"
     },
     "goran_stojanovic": {
-      "role": "Biologischer Zahnarzt, Inhaber",
+      "role": "Odontoiatra biologico, titolare",
       "title": "Dentista biologico / Dentista responsabile e titolare",
       "focus": "Diagnostica immediata per la pianificazione implantare (Vitamin D, CRP)",
       "text": "Come dentista biologico sono profondamente convinto che la salute olistica inizi sempre anche dai denti. L'Igloo Pro mi consente di prendere decisioni diagnostiche rapide e precise esattamente dove servono: alla poltrona. Grazie all'analisi immediata di Vitamin D e CRP posso pianificare in modo ottimale il posizionamento degli impianti, spesso accelerandolo notevolmente. Così i miei pazienti ricevono un trattamento più sicuro ed efficiente.",
@@ -203,7 +203,13 @@
       "reviewsLabel": "Recensioni"
     },
     "cta": "Provate di persona",
-    "photo_placeholder": "Foto del cliente"
+    "photo_placeholder": "Foto del cliente",
+    "aria": {
+      "carousel": "Voci dagli studi",
+      "dots": "Seleziona una recensione",
+      "pause": "Metti in pausa lo scorrimento automatico",
+      "play": "Riprendi lo scorrimento automatico"
+    }
   },
   "blog": {
     "caption": "Blog & News",
@@ -275,9 +281,9 @@
       "title": "Nuovi ricavi da prestazioni private",
       "text": "Il POC apre nuove prestazioni private nel tuo studio, invece di cedere ricavi al laboratorio esterno."
     },
-    "card_cta": "Mehr erfahren",
-    "video_label": "ANWENDUNGSVIDEO",
-    "video_caption": "So läuft der Test in Ihrer Praxis – in 3 Minuten"
+    "card_cta": "Scopri di più",
+    "video_label": "VIDEO APPLICATIVO",
+    "video_caption": "Come si svolge il test nel tuo studio – in 3 minuti"
   },
   "final_cta": {
     "caption": "Pronto a iniziare",
@@ -286,9 +292,9 @@
     "cta_primary": "Prenota una consulenza",
     "cta_secondary": "Calcolatore ROI",
     "chips": {
-      "free": "Kostenlos & unverbindlich",
-      "reply": "Antwort < 24 h",
-      "delivery": "Lieferung in 3–5 Werktagen"
+      "free": "Gratuito e senza impegno",
+      "reply": "Risposta < 24 h",
+      "delivery": "Consegna in 3–5 giorni lavorativi"
     }
   },
   "roi": {
@@ -354,24 +360,24 @@
     }
   },
   "steps": {
-    "caption": "SO EINFACH STARTEN SIE",
-    "title": "Validierte POC-Diagnostik in 3 Schritten",
-    "intro": "Vom ersten Gespräch bis zur laborgenauen Diagnostik am Behandlungsstuhl – ohne Konfigurationsaufwand.",
+    "caption": "INIZIARE È SEMPLICE",
+    "title": "Diagnostica POC validata in 3 passaggi",
+    "intro": "Dal primo colloquio alla diagnostica con precisione di laboratorio alla poltrona – senza alcuna configurazione.",
     "step1": {
-      "title": "Beratung & Panel-Empfehlung",
-      "text": "Wir analysieren Ihren Workflow und empfehlen die passenden Biomarker-Panels für Ihre Fachrichtung.",
-      "badge": "inkl. Beratung"
+      "title": "Consulenza e raccomandazione del pannello",
+      "text": "Analizziamo il tuo flusso di lavoro e consigliamo i pannelli di biomarcatori adatti alla tua specialità.",
+      "badge": "consulenza inclusa"
     },
     "step2": {
-      "title": "Performance-Setup",
-      "text": "Lieferung in 3–5 Werktagen inkl. validierter Inbetriebnahme und einfacher Assay-Profile.",
-      "badge": "vor Ort"
+      "title": "Setup performance",
+      "text": "Consegna in 3–5 giorni lavorativi, inclusa la messa in servizio validata e profili di analisi semplici.",
+      "badge": "in loco"
     },
     "step3": {
-      "title": "Erste Ergebnisse",
-      "text": "Ihr Team ist geschult, der erste Patient wird gemessen – laborgenau, dokumentiert, IVDR/CE-konform.",
-      "badge": "Tag 1"
+      "title": "Primi risultati",
+      "text": "Il tuo team è formato, il primo paziente viene misurato: precisione di laboratorio, documentato, conforme a IVDR/CE.",
+      "badge": "giorno 1"
     },
-    "cta": "Beratung buchen"
+    "cta": "Prenota una consulenza"
   }
 }

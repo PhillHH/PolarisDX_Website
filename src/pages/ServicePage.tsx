@@ -1,8 +1,19 @@
-import type { ReactNode } from 'react'
+import type { ComponentType, ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Tooth } from '../components/ui/icons/Tooth'
-import { Sparkles, Infinity as InfinityIcon, Check } from 'lucide-react'
+import {
+  Activity,
+  Check,
+  Dna,
+  Flame,
+  HeartPulse,
+  MonitorSmartphone,
+  Puzzle,
+  ShieldCheck,
+  Sparkles,
+  Stethoscope,
+} from 'lucide-react'
 import {
   SEOHead,
   createServiceSchema,
@@ -59,6 +70,19 @@ const renderTextWithLinks = (text: string) => {
 // the underlying i18n content is never mutated.
 const stripLeadingNumber = (heading: string) => heading.replace(/^\s*\d+\s*[.)]\s*/, '')
 
+// Meta-Description auf einer Wortgrenze kuerzen. Der bisherige
+// substring(0, 155) + '...' schnitt mitten im Wort ab ('...Spezialisie...',
+// '...darf nicht d...') und ergab dabei 158 statt der angepeilten 155
+// Zeichen. Greift nur noch dort, wo keine redaktionelle Description
+// gepflegt ist.
+const truncateAtWord = (text: string, max: number) => {
+  if (text.length <= max) return text
+  const cut = text.slice(0, max - 1)
+  const lastSpace = cut.lastIndexOf(' ')
+  const body = lastSpace > 60 ? cut.slice(0, lastSpace) : cut
+  return body.replace(/[-–—\s.,;:]+$/, '') + '…'
+}
+
 type ServiceSection = {
   heading?: string
   content?: string
@@ -87,6 +111,30 @@ const biomarkerTagKeys: Record<string, string> = {
   'kompatibilitaet-integration': 'services:overview.focus.compat.tags',
 }
 
+// Slug -> Icon fuer die Sidebar. Vorher fielen sieben von neun Eintraegen auf
+// ein und dasselbe Unendlichkeits-Zeichen zurueck, die Spalte war visuell
+// bedeutungslos. Die Zuordnung ist dieselbe wie in src/data/services.tsx, damit
+// Uebersicht und Sidebar dasselbe Symbol fuer dieselbe Rubrik zeigen.
+const sidebarIcons: Record<string, ComponentType<{ className?: string }>> = {
+  dental: Tooth,
+  beauty: Sparkles,
+  longevity: Activity,
+  'poc-systemloesungen': MonitorSmartphone,
+  'praeventions-checks': ShieldCheck,
+  'infektion-entzuendung': Flame,
+  'stoffwechsel-herz': HeartPulse,
+  'hormon-tests': Dna,
+  'kompatibilitaet-integration': Puzzle,
+}
+
+// Diese beiden Slugs fuehren als title nur ein Ein-Wort-Label ('Dental',
+// 'Longevity'). Als <h1> ist das zu duenn - ausgerechnet dental ist die
+// laengste Seite der Gruppe. Fuer sie uebernimmt die bereits in allen zehn
+// Sprachen gepflegte headline die H1-Rolle; der Untertitel entfaellt dann,
+// sonst stuende derselbe Satz zweimal untereinander. Breadcrumb, Schema und
+// Sidebar behalten das kurze Label.
+const headlineAsH1Slugs = new Set(['dental', 'longevity'])
+
 const ServicePage = () => {
   const { t } = useTranslation(['services', 'common', 'home', 'articles'])
   const { slug } = useParams<{ slug: string }>()
@@ -96,7 +144,54 @@ const ServicePage = () => {
   const service = services.find((s) => s.id === slug)
 
   if (!service) {
-    return <div className="p-20 text-center">Service not found</div>
+    // Ohne eigenen Head gewann der statische Fallback aus index.html: ein
+    // unbekannter Slug kam als "IglooPro POC-Reader | ..." mit dem
+    // IglooPro-Verkaufstext als Description und robots "index, follow" zurueck.
+    // notFound setzt eigenen Titel, robots noindex, unterdrueckt canonical und
+    // hreflang und laesst server.ts einen echten 404 senden. Die Texte kommen
+    // aus common:notFound, das in allen zehn Sprachen gepflegt ist - ein
+    // services-eigener Schluessel waere nur auf de/en vorhanden und wuerde in
+    // den uebrigen acht Sprachen auf Deutsch zurueckfallen.
+    return (
+      <>
+        <SEOHead
+          title={t('common:notFound.seo.title', 'Seite nicht gefunden (404)')}
+          description={t(
+            'common:notFound.seo.description',
+            'Diese Seite existiert nicht oder wurde verschoben.',
+          )}
+          notFound
+        />
+        <div className="mx-auto flex max-w-container flex-col items-center gap-5 px-4 py-24 text-center">
+          <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
+            {t('common:notFound.badge', 'Seite nicht gefunden')}
+          </span>
+          <h1 className="text-2xl font-medium tracking-tight text-heading lg:text-3xl">
+            {t('common:notFound.title', 'Oops! Diese Seite existiert nicht')}
+          </h1>
+          <p className="max-w-xl leading-relaxed text-gray-700">
+            {t(
+              'common:notFound.description',
+              'Die von Ihnen gesuchte Seite wurde möglicherweise verschoben, gelöscht oder existiert nicht mehr.',
+            )}
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link
+              to="/diagnostics"
+              className="rounded-md bg-accent-strong px-5 py-3 font-medium text-white transition hover:bg-accent"
+            >
+              {t('services:overview.hero.title', 'Diagnostik')}
+            </Link>
+            <Link
+              to="/"
+              className="rounded-md border border-slate-200 bg-white px-5 py-3 font-medium text-heading transition hover:bg-slate-50"
+            >
+              {t('common:notFound.backHome', 'Zurück zur Startseite')}
+            </Link>
+          </div>
+        </div>
+      </>
+    )
   }
 
   // Determine translation key from service data
@@ -104,6 +199,11 @@ const ServicePage = () => {
 
   const title = t(`services:${transKey}.title`, service.title)
   const headline = t(`services:${transKey}.headline`, '')
+
+  // <h1> der Seite. Fuer dental/longevity die volle headline statt des
+  // Ein-Wort-Labels; der Untertitel faellt dann weg (siehe headlineAsH1Slugs).
+  const pageH1 = service.id && headlineAsH1Slugs.has(service.id) && headline ? headline : title
+  const heroSubtitle = headline && headline !== pageH1 ? headline : undefined
   const intro = t(`services:${transKey}.intro`, { returnObjects: true }) as string[]
   const sections = t(`services:${transKey}.sections`, { returnObjects: true }) as ServiceSection[]
   const conclusion = t(`services:${transKey}.conclusion`, {
@@ -149,10 +249,19 @@ const ServicePage = () => {
   // suffix is appended exactly once - by SEOHead - so it must NOT appear here.
   const seoTitle = t(`services:${transKey}.seo.title`, title)
   const seoDescriptionFallback =
-    Array.isArray(intro) && intro.length > 0
-      ? intro[0].substring(0, 155) + '...'
-      : headline || title
-  const seoDescription = t(`services:${transKey}.seo.description`, seoDescriptionFallback)
+    Array.isArray(intro) && intro.length > 0 ? truncateAtWord(intro[0], 155) : headline || title
+  // Die redaktionelle Description NUR aus der aktiven Sprache akzeptieren.
+  // Fuenf Routen haben sie bisher nur auf de/en. Ohne fallbackLng: false wuerde
+  // i18next fuer die uebrigen acht Sprachen die DEUTSCHE Fassung ausliefern -
+  // eine deutsche Meta-Description auf der franzoesischen Seite. Solange die
+  // Uebersetzung dort fehlt, bleibt es beim Auszug aus intro[0], der jetzt
+  // wenigstens auf einer Wortgrenze endet.
+  const ownSeoDescriptionRaw = t(`services:${transKey}.seo.description`, {
+    defaultValue: '',
+    fallbackLng: false,
+  })
+  const ownSeoDescription = typeof ownSeoDescriptionRaw === 'string' ? ownSeoDescriptionRaw : ''
+  const seoDescription = ownSeoDescription || seoDescriptionFallback
 
   return (
     <PageTransition>
@@ -181,8 +290,8 @@ const ServicePage = () => {
           { label: title },
         ]}
         eyebrow={t('home:services.caption', 'Diagnostik-Fokus')}
-        title={title}
-        subtitle={headline || undefined}
+        title={pageH1}
+        subtitle={heroSubtitle}
         primaryCta={{ label: t('home:hero.cta', 'Beratung buchen'), to: '/contact' }}
         chips={[
           t('services:overview.hero.chip_cv', 'CV < 2 %'),
@@ -334,10 +443,13 @@ const ServicePage = () => {
                       <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                         {t('services:overview.page.conclusion_eyebrow', 'Fazit')}
                       </span>
+                      {/* Der Fazit-Block steht auf derselben Ebene wie die
+                          <h2>-Detailsektionen darueber - als <h3> war das ein
+                          Gliederungssprung h2 -> h3 ohne Unterordnung. */}
                       {conclusion.heading && (
-                        <h3 className="mt-4 text-xl font-medium tracking-tight text-heading">
+                        <h2 className="mt-4 text-xl font-medium tracking-tight text-heading">
                           {conclusion.heading}
-                        </h3>
+                        </h2>
                       )}
                       {conclusion.text && (
                         <p className="mt-2 leading-relaxed text-gray-700">{conclusion.text}</p>
@@ -392,10 +504,7 @@ const ServicePage = () => {
                   titleKey: 'home:services.title',
                   titleFallback: 'Key Areas',
                   items: otherServices.map((s) => {
-                    let IconComponent
-                    if (s.id.includes('dental')) IconComponent = Tooth
-                    else if (s.id.includes('beauty')) IconComponent = Sparkles
-                    else IconComponent = InfinityIcon
+                    const IconComponent = sidebarIcons[s.id] ?? Stethoscope
                     return {
                       id: s.id,
                       translationKey: s.translationKey,

@@ -526,6 +526,7 @@
     "longread": "Long-Read",
     "cta_title": "Calculate your savings potential.",
     "cta_subtitle": "ROI calculator or a consultation — in under a minute.",
-    "cta_secondary": "ROI calculator"
+    "cta_secondary": "ROI calculator",
+    "read_time": "{{minutes}} min read"
   }
 }

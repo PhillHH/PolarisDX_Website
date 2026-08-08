@@ -31,7 +31,11 @@
     "Hygiene": "Hygiene",
     "Recovery": "Recovery",
     "Emergency": "Emergency",
-    "Service": "Service"
+    "Service": "Service",
+    "Sustainability": "Sustainability",
+    "Telemedicine": "Telemedicine",
+    "Economics": "Economics",
+    "Health Article": "Health Article"
   },
   "footer": {
     "description": "Your partner for Point-of-Care Diagnostics. Lab-grade instant diagnostics for Dental, Beauty and Longevity.",
@@ -122,5 +126,14 @@
       "services": "Services",
       "contact": "Contact"
     }
+  },
+  "logo": {
+    "alt": "PolarisDX — point-of-care diagnostics for medical practices",
+    "igloo_alt": "IglooPro — point-of-care diagnostic system"
+  },
+  "a11y": {
+    "search": "Open search",
+    "toggle_nav": "Toggle navigation",
+    "honeypot": "Leave this field blank"
   }
 }

@@ -5,78 +5,78 @@
     "description": "Uw controlecentrum.",
     "cta_order": "Nu bestellen",
     "cta_datasheet": "Datasheet (PDF)",
-    "subline": "Kostenlos & unverbindlich · Antwort in 24 h",
+    "subline": "Gratis & vrijblijvend · Antwoord binnen 24 u",
     "chip_ivdr": "IVDR/CE",
     "chip_lis": "LIS/HIS-ready",
-    "chip_cross": "Herstellerübergreifend",
+    "chip_cross": "Fabrikantonafhankelijk",
     "visual": {
       "gauge": "36°",
       "portable_val": "600 g",
-      "portable_label": "portabel",
+      "portable_label": "draagbaar",
       "cv_val": "CV < 2 %",
       "cv_label": "Inter-Reader",
       "time_val": "3–15 Min.",
-      "time_label": "pro Test"
+      "time_label": "per test"
     }
   },
   "intro": {
-    "title": "Het mobiele lab",
-    "text1": "Igloo Pro is een draagbare analyzer.",
-    "text2": "Evalueert 90% van de tests.",
-    "eyebrow": "WARUM DER IGLOOPRO",
-    "subtitle": "Ob in der Praxis, Klinik oder mobil — der IglooPro ist auf schnelle, verlässliche Entscheidungen am Behandlungsort ausgelegt."
+    "title": "Laboratoriumkwaliteit in handformaat",
+    "text1": "De Igloo Pro Reader zet nieuwe maatstaven in de mobiele diagnostiek. Met state-of-the-art technologie levert hij resultaten waarop u kunt vertrouwen.",
+    "text2": "Of het nu in de praktijk, in het ziekenhuis of mobiel is – de Igloo Pro is uw betrouwbare partner voor snelle beslissingen.",
+    "eyebrow": "WAAROM DE IGLOOPRO",
+    "subtitle": "Of het nu in de praktijk, kliniek of mobiel is — de IglooPro is ontworpen voor snelle, betrouwbare beslissingen op de behandellocatie."
   },
   "features": {
     "methods": {
       "title": "Veelzijdige methoden",
-      "description": "Colorimetrie..."
+      "description": "Ondersteunt diverse testmethoden voor maximale flexibiliteit."
     },
     "battery": {
-      "title": "24u Batterij",
-      "description": "Lithium batterij."
+      "title": "Lange gebruiksduur",
+      "description": "Krachtige accu voor mobiel gebruik gedurende de hele dag."
     },
     "connectivity": {
       "title": "Volledige connectiviteit",
-      "description": "WiFi, Bluetooth."
+      "description": "Wi-Fi, LAN en USB voor naadloze gegevensoverdracht."
     },
     "precision": {
-      "title": "Precisie",
-      "description": "CV < 2%."
+      "title": "Hoogste precisie",
+      "description": "Gevalideerde nauwkeurigheid vergelijkbaar met grote laboratoriumapparatuur."
     }
   },
   "specs": {
     "title": "Technische Gegevens",
-    "methods": "Methoden",
-    "methods_value": "Colorimetrie...",
-    "samples": "Monsters",
-    "samples_value": "Serum / Plasma...",
+    "methods": "Meetmethode",
+    "methods_value": "Immunofluorescentie",
+    "samples": "Monstermateriaal",
+    "samples_value": "Volbloed, serum, plasma, capillair bloed",
     "weight": "Gewicht",
-    "weight_value": "ca. 400g",
+    "weight_value": "600 g (draagbaar)",
     "dimensions": "Afmetingen",
-    "dimensions_value": "87,5 mm...",
-    "speed": "Snelheid",
-    "speed_value": "Enkele seconden",
+    "dimensions_value": "Handzaam & compact",
+    "speed": "Meetduur",
+    "speed_value": "3 - 15 minuten (testafhankelijk)",
     "accuracy": "Nauwkeurigheid",
     "accuracy_value": "CV < 2%",
     "storage": "Opslag",
-    "storage_value": "10.000 resultaten",
-    "battery": "Batterij",
-    "battery_value": "Lithium",
-    "communication": "Communicatie",
-    "communication_value": "USB-C, WiFi",
-    "eyebrow": "TECHNISCHE DATEN",
-    "headline": "Die Specs, die zählen",
-    "subtitle": "Alles, was Ihr IT- und QM-Team fragt — auf einen Blick.",
-    "manufacturer_note": "Hergestellt von DX365 GmbH, Berlin · Europäischer Vertrieb: PolarisDX",
+    "storage_value": "Tot 10.000 patiëntgegevens",
+    "battery": "Voeding",
+    "battery_value": "Geïntegreerde lithium-ionbatterij",
+    "communication": "Interfaces",
+    "communication_value": "USB, LAN, wifi, LIS/HIS-koppeling",
+    "eyebrow": "TECHNISCHE GEGEVENS",
+    "headline": "De specs die ertoe doen",
+    "subtitle": "Alles wat uw IT- en KM-team vraagt — in één oogopslag.",
+    "manufacturer_note": "Geproduceerd door DX365 GmbH, Berlijn · Europese distributie: PolarisDX",
     "highlights": {
-      "label": "Highlights",
+      "label": "Hoogtepunten",
       "cv_value": "CV < 2 %",
-      "cv_label": "Inter-Reader-Präzision, dokumentiert",
+      "cv_label": "Inter-reader-precisie, gedocumenteerd",
       "records_value": "10.000",
-      "records_label": "Patientendatensätze auf dem Gerät",
+      "records_label": "patiëntgegevens op het apparaat",
       "time_value": "3–15 Min.",
-      "time_label": "von der Probe zum Ergebnis",
-      "datasheet": "Datenblatt (PDF)"
+      "time_label": "van monster tot resultaat",
+      "datasheet": "Datablad (PDF)"
     }
   },
   "parameters": {
@@ -95,26 +95,26 @@
       "rsv": "RSV",
       "strep": "Streptokok A"
     },
-    "eyebrow": "VERFÜGBARE PARAMETER",
-    "headline": "Ein Reader, ein wachsendes Testmenü",
-    "subtitle": "Das Portfolio wächst ständig — hier gruppiert nach dem, was Ihre Praxis wirklich bucht.",
+    "eyebrow": "BESCHIKBARE PARAMETERS",
+    "headline": "Eén reader, een groeiend testmenu",
+    "subtitle": "Het portfolio groeit voortdurend — hier gegroepeerd naar wat uw praktijk werkelijk declareert.",
     "groups": {
-      "prevention": "Prävention & Stoffwechsel",
-      "hormones": "Hormone",
-      "infection": "Infektion"
+      "prevention": "Preventie & metabolisme",
+      "hormones": "Hormonen",
+      "infection": "Infectie"
     },
-    "request_text": "Ein Parameter fehlt in der Liste?",
-    "request_cta": "Aktuelle Testliste anfragen"
+    "request_text": "Ontbreekt er een parameter in de lijst?",
+    "request_cta": "Actuele testlijst aanvragen"
   },
   "cta_bottom": {
     "title": "Breid mogelijkheden uit",
     "description": "Voor apotheken en praktijken.",
     "button": "Nu afspraak maken",
-    "datasheet": "Datenblatt (PDF)",
+    "datasheet": "Datablad (PDF)",
     "chips": {
-      "free": "Kostenlos & unverbindlich",
-      "reply": "Antwort < 24 h",
-      "delivery": "Lieferung in 3–5 Werktagen"
+      "free": "Gratis & vrijblijvend",
+      "reply": "Antwoord < 24 u",
+      "delivery": "Levering in 3–5 werkdagen"
     }
   },
   "seo": {
@@ -122,13 +122,13 @@
     "description": "IglooPro POC-reader levert labwaarden chairside in 3–15 min uit capillair bloed: vitamine D, CRP, HbA1c, TSH e.v.a. Immunofluorescentie, CV < 2 %, 600 g."
   },
   "help": {
-    "title": "Nicht sicher, ob der IglooPro zu Ihrem Workflow passt?",
-    "text": "15 Minuten mit einem POC-Spezialisten — eine konkrete Empfehlung für Ihr Setup, keine Verkaufsshow.",
+    "title": "Niet zeker of de IglooPro bij uw workflow past?",
+    "text": "15 minuten met een POC-specialist — een concreet advies voor uw setup, geen verkooppraatje.",
     "cta": "Adviesgesprek boeken"
   },
   "application": {
-    "eyebrow": "ANWENDUNGSBEREICHE",
-    "title": "Für Ihre Fachrichtung gebaut",
-    "subtitle": "Derselbe Reader, drei Geschäftsfälle — sehen Sie, was der IglooPro in Ihrem Bereich leistet."
+    "eyebrow": "TOEPASSINGSGEBIEDEN",
+    "title": "Gebouwd voor uw vakgebied",
+    "subtitle": "Dezelfde reader, drie businesscases — bekijk wat de IglooPro in uw vakgebied presteert."
   }
 }

@@ -9,7 +9,8 @@ import IglooProImage from '../../assets/Igloo-pro-frontal.webp'
  * SSR-safe HeroSection — NO framer-motion, pure CSS animations.
  * SEO/LCP: h1 + description sind immer sichtbar (kein initiales opacity:0); nur Slide 0 = h1.
  * B2B-Umbau (Phase 3.1): 4 Slides (speed/economics/compliance/segments), Teal-Primaer-CTA
- *"Beratung buchen", Sekundaer-CTA"ROI-Rechner" (#roi-rechner), Proof-Chip-Reihe,
+ *"Beratung buchen", Sekundaer-CTA"ROI-Rechner" (<Link to="/#roi-rechner"> statt rohem
+ * Anchor: der Router setzt das Sprachpraefix, ScrollToHash den Header-Offset), Proof-Chip-Reihe,
  * Pause-on-hover/focus + prefers-reduced-motion (Autoplay UND Slide-Keyframes)
  * + Dot-ARIA (aria-current/-label) + Pause/Play mit echtem Zustand (isPlaying).
  */
@@ -95,7 +96,7 @@ const HeroSection = () => {
               {/* Logo - LCP-Element - immer sichtbar */}
               <img
                 src={iglooLogoWhite}
-                alt="IglooPro — Point-of-Care Diagnostiksystem"
+                alt={t('common:logo.igloo_alt', 'IglooPro — Point-of-Care Diagnostiksystem')}
                 width={200}
                 height={56}
                 fetchPriority="high"
@@ -129,7 +130,7 @@ const HeroSection = () => {
                 {t('hero.cta', 'Beratung buchen')}
               </Button>
               <Button
-                href="#roi-rechner"
+                to="/#roi-rechner"
                 variant="outline"
                 size="sm"
                 className="w-full text-center sm:w-auto sm:whitespace-nowrap"

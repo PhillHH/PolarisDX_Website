@@ -264,6 +264,9 @@
     }
   },
   "praeventions_checks": {
+    "seo": {
+      "description": "Preventive health checks at the point of care: measure key biomarkers on the spot and advise with data — in pharmacy, practice or clinic. Learn more."
+    },
     "title": "Preventive Health Checks: Prevention Reimagined",
     "headline": "Rapid Diagnostics as the Foundation of Modern Prevention",
     "intro": [
@@ -327,6 +330,9 @@
     }
   },
   "infektion_entzuendung": {
+    "seo": {
+      "description": "Determine inflammation markers and signs of infection on site: faster triage and responsible antibiotic management. Request a consultation."
+    },
     "title": "Infection & Inflammation Markers: Quick Answers in Critical Cases",
     "headline": "Triage in Minutes: How the Igloo Pro Accelerates Decision Making",
     "intro": [
@@ -389,6 +395,9 @@
     }
   },
   "stoffwechsel_herz": {
+    "seo": {
+      "description": "Measure metabolic and cardiac markers in minutes: diabetes monitoring and therapy adjustment right in your practice. Book a consultation."
+    },
     "title": "Metabolism & Heart Health: Chronic Monitoring at the Push of a Button",
     "headline": "Important Indicators at a Glance: Precise Measurement for Therapy Adjustment",
     "intro": [
@@ -451,6 +460,9 @@
     }
   },
   "hormon_tests": {
+    "seo": {
+      "description": "Hormone diagnostics at the point of care: determine critical hormones directly on the patient, from thyroid to fertility. Book a consultation."
+    },
     "title": "Hormone & Endocrinology Tests: Special Diagnostics Made Easy",
     "headline": "Precision in Endocrinology: Rapid Certainty for Complex Diagnoses",
     "intro": [
@@ -513,6 +525,9 @@
     }
   },
   "kompatibilitaet_integration": {
+    "seo": {
+      "description": "Open, cross-manufacturer POC platform: the Igloo Pro secures flexibility, technological independence and investment security. Learn more."
+    },
     "title": "Cross-Manufacturer Compatibility: Investment Security Through Openness",
     "headline": "Maximum Flexibility: How Your Igloo Pro Evaluates 90% of All Tests on the Market",
     "intro": [

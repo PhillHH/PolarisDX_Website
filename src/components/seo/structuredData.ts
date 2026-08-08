@@ -5,6 +5,8 @@
  * These can be passed to SEOHead's structuredData prop.
  */
 
+import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES, isValidLanguage } from '../../i18n'
+
 // =============================================================================
 // TYPES
 // =============================================================================
@@ -24,6 +26,101 @@ export interface FAQItem {
 // =============================================================================
 
 const BASE_URL = 'https://polarisdx.net'
+
+// =============================================================================
+// NORMALISIERUNG (Datum + kanonische URL)
+// =============================================================================
+
+/**
+ * Monatsnamen -> Monatszahl. Deutsche und englische Kurz- wie Langformen,
+ * weil die Artikeldaten in src/data/articles.ts als "28 Nov 2025" gepflegt
+ * sind und Redaktionstexte auch deutsche Schreibweisen liefern koennen.
+ */
+const MONTH_NUMBERS: Record<string, string> = {
+  jan: '01',
+  januar: '01',
+  january: '01',
+  feb: '02',
+  februar: '02',
+  february: '02',
+  mar: '03',
+  march: '03',
+  mrz: '03',
+  maerz: '03',
+  apr: '04',
+  april: '04',
+  may: '05',
+  mai: '05',
+  jun: '06',
+  june: '06',
+  juni: '06',
+  jul: '07',
+  july: '07',
+  juli: '07',
+  aug: '08',
+  august: '08',
+  sep: '09',
+  sept: '09',
+  september: '09',
+  oct: '10',
+  okt: '10',
+  october: '10',
+  oktober: '10',
+  nov: '11',
+  november: '11',
+  dec: '12',
+  dez: '12',
+  december: '12',
+  dezember: '12',
+}
+
+/**
+ * Bringt ein Datum auf ISO-8601 (YYYY-MM-DD).
+ *
+ * Google verwirft eine Datumsangabe im Rich Result, wenn sie nicht
+ * ISO-8601 ist - "28 Nov 2025" wurde genau so verworfen.
+ *
+ * Laesst sich ein Wert nicht eindeutig zerlegen, bleibt er unveraendert:
+ * lieber ein Rohwert im Markup als ein erfundenes Datum.
+ */
+function toIsoDate(value: string): string {
+  const raw = (value || '').trim()
+  if (!raw) return raw
+  // Bereits ISO (reines Datum oder Datum + Zeit).
+  if (/^\d{4}-\d{2}-\d{2}(?:[T ].*)?$/.test(raw)) return raw
+  // "28 Nov 2025", "2 Dec 2025", "28. November 2025"
+  const match = raw.match(/^(\d{1,2})\.?\s+([^\s\d.]+)\.?\s+(\d{4})$/)
+  if (match) {
+    const month = MONTH_NUMBERS[match[2].toLowerCase()]
+    if (month) return `${match[3]}-${month}-${match[1].padStart(2, '0')}`
+  }
+  return raw
+}
+
+/** Sprachpraefix am Pfadanfang - damit es nicht verdoppelt wird. */
+const LANG_PREFIX_RE = new RegExp(`^/(?:${SUPPORTED_LANGUAGES.join('|')})(?=/|$)`, 'i')
+
+/**
+ * Baut die kanonische, sprachpraefigierte Absolut-URL zu einem Seitenpfad.
+ *
+ * SEOHead setzt canonical auf `${BASE_URL}/${lang}${path}`. url und
+ * mainEntityOfPage.@id im Article-JSON-LD muessen exakt dasselbe sagen -
+ * ein prefixloses https://polarisdx.net/articles/<slug> neben einem
+ * canonical https://polarisdx.net/de/articles/<slug> ist ein Widerspruch.
+ */
+function canonicalUrlFor(url: string, language?: string): string {
+  const raw = (url || '').trim()
+  if (/^https?:\/\//i.test(raw)) return raw
+
+  const base = (language || DEFAULT_LANGUAGE).split('-')[0].toLowerCase()
+  const lang = isValidLanguage(base) ? base : DEFAULT_LANGUAGE
+
+  let path = raw.startsWith('/') ? raw : `/${raw}`
+  path = path.replace(LANG_PREFIX_RE, '')
+  if (path === '') path = '/'
+
+  return `${BASE_URL}/${lang}${path}`
+}
 
 // =============================================================================
 // MEDICAL BUSINESS (singleton - use on homepage)
@@ -212,7 +309,15 @@ export interface ArticleSchemaOptions {
   headline: string
   description: string
   image: string
+  /** Seitenpfad ohne Sprachpraefix, z. B. '/articles/die-gruene-praxis'. */
   url: string
+  /**
+   * Aktive Sprache der Seite (z. B. 'en'). Steuert das Sprachpraefix in url
+   * und mainEntityOfPage.@id, damit beide exakt dem canonical entsprechen.
+   * Ohne Angabe wird DEFAULT_LANGUAGE ('de') verwendet - richtig fuer die
+   * deutschsprachigen und die deutsch-only Seiten.
+   */
+  language?: string
   datePublished: string
   dateModified?: string
   authorName?: string
@@ -235,15 +340,19 @@ export function createArticleSchema(options: ArticleSchemaOptions) {
         url: BASE_URL,
       }
 
+  // url und mainEntityOfPage.@id sind derselbe Wert und muessen dem canonical
+  // aus SEOHead entsprechen.
+  const canonicalUrl = canonicalUrlFor(options.url, options.language)
+
   return {
     '@context': 'https://schema.org',
     '@type': options.articleType || 'Article',
     headline: options.headline,
     description: options.description,
     image: options.image.startsWith('http') ? options.image : `${BASE_URL}${options.image}`,
-    url: options.url.startsWith('http') ? options.url : `${BASE_URL}${options.url}`,
-    datePublished: options.datePublished,
-    dateModified: options.dateModified || options.datePublished,
+    url: canonicalUrl,
+    datePublished: toIsoDate(options.datePublished),
+    dateModified: toIsoDate(options.dateModified || options.datePublished),
     author: authorData,
     ...(options.reviewedBy && {
       reviewedBy: {
@@ -257,7 +366,7 @@ export function createArticleSchema(options: ArticleSchemaOptions) {
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': options.url.startsWith('http') ? options.url : `${BASE_URL}${options.url}`,
+      '@id': canonicalUrl,
     },
   }
 }

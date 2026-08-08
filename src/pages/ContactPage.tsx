@@ -22,6 +22,10 @@ type Channel = {
 const ContactPage = () => {
   const { t } = useTranslation(['contact', 'common'])
 
+  // (b) Sichtbare Breadcrumb und BreadcrumbList aus derselben Quelle speisen.
+  const crumbHome = t('common:nav.home', 'Startseite')
+  const crumbContact = t('contact.hero.breadcrumb')
+
   const channels: Channel[] = [
     { key: 'email', icon: <Mail />, href: EMAIL_HREF, external: true },
     { key: 'phone', icon: <Phone />, href: PHONE_HREF, external: true },
@@ -57,17 +61,14 @@ const ContactPage = () => {
         structuredData={[
           localBusinessSchema,
           createBreadcrumbSchema([
-            { name: 'Home', url: '/' },
-            { name: 'Kontakt', url: '/contact' },
+            { name: crumbHome, url: '/' },
+            { name: crumbContact, url: '/contact' },
           ]),
         ]}
       />
 
       <SubpageHero
-        breadcrumbs={[
-          { label: t('common:nav.home', 'Home'), href: '/' },
-          { label: t('contact.hero.breadcrumb') },
-        ]}
+        breadcrumbs={[{ label: crumbHome, href: '/' }, { label: crumbContact }]}
         eyebrow={t('contact.hero.kicker')}
         title={t('contact.hero.title')}
         subtitle={t('contact.hero.subtitle')}

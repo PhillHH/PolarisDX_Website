@@ -71,7 +71,7 @@ const Header = () => {
           <Link to="/" className="flex shrink-0 items-center gap-3">
             <img
               src={logo} // Always use white logo as background is always dark (either hero or dark header)
-              alt="PolarisDX — POC-Diagnostik für Arztpraxen"
+              alt={t('logo.alt', 'PolarisDX — POC-Diagnostik für Arztpraxen')}
               width={136}
               height={40}
               className="h-10 w-auto sm:h-12 transition-all duration-300"
@@ -129,7 +129,7 @@ const Header = () => {
             <button
               onClick={searchModal.onOpen}
               className={`p-2.5 rounded-full transition-all duration-300 hover:scale-110 text-white hover:bg-white/10`}
-              aria-label="Search"
+              aria-label={t('a11y.search', 'Suche öffnen')}
             >
               <Search className="h-4 w-4" />
             </button>
@@ -153,7 +153,7 @@ const Header = () => {
             <button
               onClick={searchModal.onOpen}
               className={`p-2 mr-1 rounded-full text-white`}
-              aria-label="Search"
+              aria-label={t('a11y.search', 'Suche öffnen')}
             >
               <Search className="h-5 w-5" />
             </button>
@@ -164,10 +164,10 @@ const Header = () => {
               type="button"
               className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors duration-300 border-white/20 text-white bg-white/5`}
               onClick={mobileMenu.onToggle}
-              aria-label="Toggle navigation"
+              aria-label={t('a11y.toggle_nav', 'Navigation umschalten')}
               aria-expanded={mobileMenu.isOpen}
             >
-              <span className="sr-only">Toggle navigation</span>
+              <span className="sr-only">{t('a11y.toggle_nav', 'Navigation umschalten')}</span>
               <div className="space-y-1.5">
                 <span className={`block h-0.5 w-5 transition-colors duration-300 bg-white`} />
                 <span className={`block h-0.5 w-5 transition-colors duration-300 bg-white`} />

@@ -31,7 +31,11 @@
     "Hygiene": "Hygiena",
     "Recovery": "Zotavení",
     "Emergency": "Pohotovost",
-    "Service": "Služba"
+    "Service": "Služba",
+    "Sustainability": "Udržitelnost",
+    "Telemedicine": "Telemedicína",
+    "Economics": "Ekonomika",
+    "Health Article": "Článek o zdraví"
   },
   "footer": {
     "description": "Komplexní péče a podpora. Moderní zdravotní služby pro vás a vaši rodinu, nepřetržitě.",
@@ -122,5 +126,14 @@
       "services": "Služby",
       "contact": "Kontakt"
     }
+  },
+  "logo": {
+    "alt": "PolarisDX — POC diagnostika pro lékařské praxe",
+    "igloo_alt": "IglooPro — diagnostický systém Point-of-Care"
+  },
+  "a11y": {
+    "search": "Otevřít vyhledávání",
+    "toggle_nav": "Přepnout navigaci",
+    "honeypot": "Toto pole prosím nechte prázdné"
   }
 }

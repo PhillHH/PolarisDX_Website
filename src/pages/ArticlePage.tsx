@@ -6,6 +6,7 @@ import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import { useArticles } from '../hooks/useArticles'
+import { articleDateIso, formatArticleDate, parseReadMinutes } from '../lib/articleMeta'
 import { LoadingSpinner } from '../components/ui/LoadingSpinner'
 import { Alert } from '../components/ui/Alert'
 
@@ -30,7 +31,7 @@ const splitLeadTerm = (item: string): [string | null, string] => {
 }
 
 const ArticlePage = () => {
-  const { t } = useTranslation(['articles', 'shop', 'common', 'home'])
+  const { t, i18n } = useTranslation(['articles', 'shop', 'common', 'home'])
   const { slug } = useParams<{ slug: string }>()
 
   const { article, loading, error } = useArticles(slug)
@@ -82,6 +83,19 @@ const ArticlePage = () => {
       </>
     )
   }
+
+  // (b) Sichtbare Breadcrumb und BreadcrumbList aus derselben Quelle speisen.
+  const crumbHome = t('common:nav.home', 'Startseite')
+  const crumbArticles = t('shop:shop.articles', 'Artikel')
+
+  // (d) Datum und Lesezeit stehen englisch in den Rohdaten. Sichtbar wird in
+  //     der aktiven Locale formatiert, maschinenlesbar bleibt ISO-8601.
+  const readMinutes = parseReadMinutes(article.readTime)
+  const readTimeLabel =
+    readMinutes === null
+      ? article.readTime
+      : t('articles:detail.read_time', { minutes: readMinutes, defaultValue: article.readTime })
+  const publishedIso = articleDateIso(article.date)
 
   const title = t(`articles:${article.id}.title`)
   const excerpt = t(`articles:${article.id}.excerpt`)
@@ -212,7 +226,7 @@ const ArticlePage = () => {
         description={excerpt}
         ogType="article"
         article={{
-          publishedTime: article.date,
+          publishedTime: publishedIso,
           author: article.author,
           section: article.category,
         }}
@@ -222,12 +236,13 @@ const ArticlePage = () => {
             description: excerpt,
             image: '/og-image.jpg',
             url: `/articles/${slug}`,
-            datePublished: article.date,
+            datePublished: publishedIso,
             authorName: article.author,
+            language: i18n.language,
           }),
           createBreadcrumbSchema([
-            { name: 'Home', url: '/' },
-            { name: 'Articles', url: '/articles' },
+            { name: crumbHome, url: '/' },
+            { name: crumbArticles, url: '/articles' },
             { name: title, url: `/articles/${slug}` },
           ]),
         ]}
@@ -240,8 +255,8 @@ const ArticlePage = () => {
             <Breadcrumbs
               variant="dark"
               items={[
-                { label: t('common:nav.home', 'Home'), href: '/' },
-                { label: t('shop:shop.articles', 'Articles'), href: '/articles' },
+                { label: crumbHome, href: '/' },
+                { label: crumbArticles, href: '/articles' },
                 { label: title },
               ]}
             />
@@ -255,9 +270,9 @@ const ArticlePage = () => {
           <div className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm text-white/70">
             <span>{article.author}</span>
             <span aria-hidden>·</span>
-            <span>{article.date}</span>
+            <span>{formatArticleDate(article.date, i18n.language)}</span>
             <span aria-hidden>·</span>
-            <span>{article.readTime}</span>
+            <span>{readTimeLabel}</span>
           </div>
         </div>
       </section>

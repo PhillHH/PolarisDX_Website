@@ -203,7 +203,13 @@
       "reviewsLabel": "Reviews"
     },
     "cta": "See for yourself",
-    "photo_placeholder": "Customer photo"
+    "photo_placeholder": "Customer photo",
+    "aria": {
+      "carousel": "Practice voices",
+      "dots": "Choose a review",
+      "pause": "Pause automatic rotation",
+      "play": "Resume automatic rotation"
+    }
   },
   "blog": {
     "caption": "Blog & News",

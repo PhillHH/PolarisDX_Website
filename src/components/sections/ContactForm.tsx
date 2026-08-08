@@ -120,7 +120,9 @@ export const ContactForm = () => {
           overflow: 'hidden',
         }}
       >
-        <label htmlFor="contact-hp">Leave this field blank</label>
+        <label htmlFor="contact-hp">
+          {t('common:a11y.honeypot', 'Dieses Feld bitte leer lassen')}
+        </label>
         <input
           id="contact-hp"
           name="_hp"

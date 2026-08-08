@@ -526,6 +526,7 @@
     "longread": "Long-Read",
     "cta_title": "Rechnen Sie Ihr Einsparpotenzial durch.",
     "cta_subtitle": "ROI-Rechner oder Beratung — in unter einer Minute.",
-    "cta_secondary": "ROI-Rechner"
+    "cta_secondary": "ROI-Rechner",
+    "read_time": "{{minutes}} Min. Lesezeit"
   }
 }

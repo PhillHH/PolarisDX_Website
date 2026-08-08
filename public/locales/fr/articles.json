@@ -267,53 +267,53 @@
     "title": "The 5-Minute Diagnosis: Why Point-of-Care is a Gamechanger Economically Too"
   },
   "rapid_setup_formula": {
-    "excerpt": "Effizienz statt Einarbeitung: Der Weg zur schnellen Einsatzbereitschaft in der Praxis.",
+    "excerpt": "L'efficacité plutôt que la prise en main : la voie vers une mise en service rapide au cabinet.",
     "sections": [
       {
-        "heading": "Einleitung",
+        "heading": "Introduction",
         "paragraphs": [
-          "Die Entscheidung für neue Point-of-Care (POC)-Diagnostikgeräte ist oft der erste Schritt zu einer besseren Patientenversorgung. Doch der Weg von der Anschaffung bis zur vollen Einsatzbereitschaft wird häufig unterschätzt. Langwierige Einarbeitung, administrative Hürden und komplexe IT-Integration fressen wertvolle Zeit und binden Personal, dessen Fokus eigentlich auf dem Patienten liegen sollte.",
-          "Dieser Engpass gehört der Vergangenheit an. Moderne Support-Konzepte revolutionieren die Inbetriebnahme und reduzieren den Aufwand für Praxen und Apotheken auf ein Minimum. Der Schlüssel ist der 'Remote-Setup'-Ansatz, der die sofortige Einsatzbereitschaft in kürzester Zeit garantiert."
+          "La décision d'acquérir de nouveaux appareils de diagnostic Point-of-Care (POC) est souvent le premier pas vers une meilleure prise en charge des patients. Mais le chemin entre l'achat et la pleine opérationnalité est fréquemment sous-estimé. Une prise en main laborieuse, des obstacles administratifs et une intégration informatique complexe consomment un temps précieux et mobilisent du personnel dont l'attention devrait porter sur le patient.",
+          "Ce goulet d'étranglement appartient au passé. Les concepts de support modernes révolutionnent la mise en service et réduisent au minimum la charge pour les cabinets et les pharmacies. La clé est l'approche « remote setup », qui garantit une opérationnalité immédiate dans les plus brefs délais."
         ]
       },
       {
-        "heading": "1. Das Effizienzdilemma: Warum herkömmliche Integration scheitert",
+        "heading": "1. Le dilemme de l'efficacité : pourquoi l'intégration classique échoue",
         "paragraphs": [
-          "Traditionell erfordert die Integration eines neuen POC-Systems mehrere zeitintensive Schritte, die oft Wochen in Anspruch nehmen:"
+          "Traditionnellement, l'intégration d'un nouveau système POC exige plusieurs étapes chronophages qui prennent souvent des semaines :"
         ],
         "listItems": [
-          "Administrative und regulatorische Einarbeitung: Schulung des Personals in Bezug auf das Qualitätsmanagement (z. B. nach RiliBÄK oder Qualab) und interne Protokolle.",
-          "Technisches Setup und Kalibrierung: Manuelle Erstinbetriebnahme und chargenspezifische Kalibrierung des Geräts.",
-          "IT-Anbindung und Datenaustausch: Die komplexe bidirektionale Verbindung zwischen dem POC-Reader und dem Praxis- oder Apothekenverwaltungssystem (PVS/AVS)."
+          "Prise en main administrative et réglementaire : formation du personnel à la gestion de la qualité (p. ex. selon RiliBÄK ou Qualab) et aux protocoles internes.",
+          "Installation technique et calibrage : première mise en service manuelle et calibrage de l'appareil spécifique au lot.",
+          "Connexion informatique et échange de données : la liaison bidirectionnelle complexe entre le lecteur POC et le système de gestion du cabinet ou de la pharmacie (PVS/AVS)."
         ]
       },
       {
-        "heading": "2. Der Remote-Setup-Ansatz: IT-Experten im Hintergrund",
+        "heading": "2. L'approche remote setup : des experts IT en arrière-plan",
         "paragraphs": [
-          "Der Remote-Setup-Ansatz basiert auf der digitalen Konnektivität der modernen POC-Reader. Anstatt einen Servicetechniker vor Ort zu benötigen, wird das Gerät aus der Ferne von spezialisierten Experten eingerichtet und validiert.",
-          "Kernprozesse, die Remote abgewickelt werden:"
+          "L'approche remote setup repose sur la connectivité numérique des lecteurs POC modernes. Au lieu de nécessiter un technicien de service sur place, l'appareil est configuré et validé à distance par des experts spécialisés.",
+          "Processus clés traités à distance :"
         ],
         "listItems": [
-          "Vollständige Kalibrierung: Die technische Kalibrierung des Multi-Readers auf die verwendeten Lateral Flow Tests (LFTs) wird extern vorgenommen. Dies stellt sicher, dass die analytische Präzision von Anfang an gewährleistet ist – ohne dass das Praxispersonal komplexe technische Schritte durchführen muss.",
-          "Nahtlose IT-Integration: Die Anbindung an das Labor- oder Praxisinformationssystem (LIS/PIS) erfolgt über sichere, webbasierte Schnittstellen (z. B. POC-IT-Lösungen). Externe Berater stellen sicher, dass alle Messwerte automatisch, sicher und fehlerfrei in die Patientenakte übertragen werden.",
-          "Firmware-Updates und System-Checks: Software-Updates zur Gewährleistung der Kompatibilität und Einhaltung neuer Standards können permanent und ohne Unterbrechung des Praxisbetriebs aus der Ferne eingespielt werden."
+          "Calibrage complet : le calibrage technique du multi-lecteur sur les tests à flux latéral (LFT) utilisés est réalisé en externe. La précision analytique est ainsi garantie dès le départ – sans que le personnel du cabinet ait à effectuer des étapes techniques complexes.",
+          "Intégration informatique sans rupture : la connexion au système d'information du laboratoire ou du cabinet (LIS/PIS) s'effectue via des interfaces web sécurisées (p. ex. solutions POC-IT). Des consultants externes veillent à ce que toutes les valeurs mesurées soient transférées dans le dossier patient de manière automatique, sécurisée et sans erreur.",
+          "Mises à jour du firmware et contrôles système : les mises à jour logicielles assurant la compatibilité et le respect des nouvelles normes peuvent être déployées à distance, en continu et sans interrompre l'activité du cabinet."
         ]
       },
       {
-        "heading": "3. Die Performance-Formel: Der Wettbewerbsvorteil",
+        "heading": "3. La formule de performance : l'avantage concurrentiel",
         "paragraphs": [
-          "Durch die Auslagerung der technischen und administrativen Komplexität an spezialisierte Remote-Services können Praxen und Apotheken den Zeitaufwand von Wochen auf minimal reduzieren.",
-          "Effizienzgewinn und Patientenzufriedenheit: Die sofortige Einsatzbereitschaft der POC-Diagnostikgeräte ermöglicht es dem Personal, sich unmittelbar auf die Patientenversorgung zu konzentrieren. Zeitersparnis bei der Diagnosestellung, schnellere Therapieentscheidungen und der Entfall eines zweiten Termins führen zu einer signifikant höheren Patientenzufriedenheit. Die optimierten Workflows verbessern die wirtschaftliche Effizienz der gesamten Einrichtung."
+          "En externalisant la complexité technique et administrative vers des services à distance spécialisés, les cabinets et les pharmacies peuvent réduire au minimum un temps qui se comptait auparavant en semaines.",
+          "Gain d'efficacité et satisfaction des patients : l'opérationnalité immédiate des appareils de diagnostic POC permet au personnel de se consacrer directement à la prise en charge des patients. Le temps gagné pour poser le diagnostic, des décisions thérapeutiques plus rapides et la suppression d'un second rendez-vous entraînent une satisfaction nettement plus élevée des patients. Les flux de travail optimisés améliorent l'efficacité économique de l'ensemble de l'établissement."
         ]
       },
       {
-        "heading": "Fazit: Investition in Zeit und Sicherheit",
+        "heading": "Conclusion : investir dans le temps et la sécurité",
         "paragraphs": [
-          "Moderne Point-of-Care-Diagnostik ist mehr als nur ein Gerät: Sie ist ein digital integriertes System. Wer auf Remote-Setup setzt, investiert nicht nur in präzisere und schnellere Diagnostik, sondern vor allem in die wertvolle Zeit seines Personals. Die Performance-Formel ist somit das Synonym für minimalen Integrationsstress und maximale Einsatzbereitschaft in der modernen Gesundheitsversorgung."
+          "Le diagnostic Point-of-Care moderne est bien plus qu'un simple appareil : c'est un système intégré numériquement. Miser sur le remote setup, c'est investir non seulement dans un diagnostic plus précis et plus rapide, mais surtout dans le temps précieux de son personnel. La formule de performance est ainsi synonyme d'un effort d'intégration minimal et d'une opérationnalité maximale dans le système de santé moderne."
         ]
       }
     ],
-    "title": "Die Performance-Formel: Effizienz in der POC-Diagnostik"
+    "title": "La formule de performance : l'efficacité en diagnostic POC"
   },
   "green_practice": {
     "excerpt": "Sustainability in healthcare doesn't start with solar panels, but with diagnostic logistics. A plea for Point-of-Care.",
@@ -526,6 +526,7 @@
     "longread": "Article long",
     "cta_title": "Calculez votre potentiel d’économies.",
     "cta_subtitle": "Calculateur de ROI ou conseil — en moins d’une minute.",
-    "cta_secondary": "Calculateur de ROI"
+    "cta_secondary": "Calculateur de ROI",
+    "read_time": "{{minutes}} min de lecture"
   }
 }

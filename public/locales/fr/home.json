@@ -62,18 +62,18 @@
     "stats": {
       "margin": {
         "value": "Ø 980 €",
-        "label": "Zusätzlicher Deckungsbeitrag / Monat"
+        "label": "Marge de contribution supplémentaire / mois"
       },
       "time": {
-        "value": "3 Min.",
-        "label": "Ergebnisse verfügbar"
+        "value": "3 min",
+        "label": "Résultats disponibles"
       },
       "ready": {
-        "value": "Tag 1",
-        "label": "Validiert & einsatzbereit"
+        "value": "Jour 1",
+        "label": "Validé et prêt à l'emploi"
       }
     },
-    "stats_disclaimer": "* Beispielwert – abhängig von Ihren Praxiswerten."
+    "stats_disclaimer": "* Valeur d'exemple – dépend des chiffres de votre cabinet."
   },
   "about": {
     "caption": "VOTRE GARANT DE PERFORMANCE",
@@ -109,8 +109,8 @@
     "all_services": "Découvrir tous les services de diagnostic",
     "subtitle": "Choisissez votre domaine – nous vous présentons les panels de biomarqueurs et les applications adaptés à votre spécialité.",
     "eyebrow": "Votre spécialité",
-    "help_title": "Nicht sicher, welches Panel zu Ihrer Praxis passt?",
-    "help_text": "15 Minuten mit einem POC-Spezialisten – eine konkrete Empfehlung für Ihre Fachrichtung, keine Verkaufsshow.",
+    "help_title": "Vous ne savez pas quel panel convient à votre cabinet ?",
+    "help_text": "15 minutes avec un spécialiste POC – une recommandation concrète pour votre spécialité, pas un argumentaire de vente.",
     "help_cta": "Réserver un conseil"
   },
   "services": {
@@ -166,28 +166,28 @@
       "practice": "Chelsea Dental Clinic"
     },
     "kristian_grimm": {
-      "role": "Zahnarzt",
+      "role": "Chirurgien-dentiste",
       "title": "32reasons Zahnteam / Hamburg",
       "focus": "Prévention, Vitamin D, HbA1c, Santé systémique",
       "text": "32reasons & Polaris DX – la médecine dentaire repensée. Le lecteur chairside nous permet de déterminer des biomarqueurs comme la Vitamin D et l'HbA1c directement sur place. Cela relie immédiatement la médecine dentaire à la santé systémique pour des décisions thérapeutiques rapides et fondées sur les preuves.",
       "practice": "32reasons Zahnteam, Hamburg"
     },
     "martin_fischer": {
-      "role": "Facharzt für Innere Medizin",
+      "role": "Spécialiste en médecine interne",
       "title": "Spécialiste en médecine interne / Cabinet de médecine interne Dr Fischer",
       "focus": "Diagnostic immédiat chez les patients aigus (Efficacité, Décision thérapeutique)",
       "text": "La possibilité de déterminer immédiatement au cabinet des marqueurs inflammatoires comme la CRP a révolutionné notre déroulement de traitement. Chez les patients présentant des infections d'origine incertaine, nous pouvons décider plus rapidement si une antibiothérapie est nécessaire et éviter des orientations inutiles. Cela nous fait gagner du temps et augmente nettement la satisfaction des patients.",
       "practice": "Internistische Praxis Dr. Fischer"
     },
     "bastian_wessing": {
-      "role": "Ärztlicher Leiter",
+      "role": "Directeur médical",
       "title": "MVZ Zahnkultur Berlin Brandenburg GmbH",
       "focus": "Diagnostic immédiat pour la parodontologie et l'implantologie (Vitamin D, HbA1c, cholestérol, CRP)",
       "text": "L'Igloo Multireader permet de mesurer les marqueurs inflammatoires, l'HbA1c, le cholestérol et la Vitamin D directement au fauteuil. Nous planifions ainsi les traitements parodontaux et implantaires de manière plus sûre et les démarrons plus rapidement. La formation et le support assurés par PolarisDX sont simples – l'appareil est devenu un élément à part entière de notre quotidien.",
       "practice": "MVZ Zahnkultur Berlin Brandenburg"
     },
     "goran_stojanovic": {
-      "role": "Biologischer Zahnarzt, Inhaber",
+      "role": "Chirurgien-dentiste biologique, propriétaire",
       "title": "Dentiste biologique / Dentiste principal et propriétaire",
       "focus": "Diagnostic immédiat pour la planification implantaire (Vitamin D, CRP)",
       "text": "En tant que dentiste biologique, je suis profondément convaincu qu'une santé globale commence toujours aussi par les dents. L'Igloo Pro me permet de prendre des décisions diagnostiques rapides et précises – exactement là où elles sont nécessaires : au fauteuil. Grâce à l'analyse immédiate de la Vitamin D et de la CRP, je peux planifier les poses d'implants de façon optimale et souvent les accélérer nettement. Mes patientes et patients bénéficient ainsi d'un traitement plus sûr et plus efficace.",
@@ -203,7 +203,13 @@
       "reviewsLabel": "avis"
     },
     "cta": "Convainquez-vous par vous-même",
-    "photo_placeholder": "Photo du client"
+    "photo_placeholder": "Photo du client",
+    "aria": {
+      "carousel": "Témoignages de cabinets",
+      "dots": "Sélectionner un avis",
+      "pause": "Mettre en pause le défilement automatique",
+      "play": "Reprendre le défilement automatique"
+    }
   },
   "blog": {
     "caption": "Blog & Actualités",
@@ -275,9 +281,9 @@
       "title": "Un nouveau chiffre d'affaires en prestations privées",
       "text": "Le POC ouvre de nouvelles prestations privées dans votre cabinet, au lieu de céder du chiffre d'affaires au laboratoire externe."
     },
-    "card_cta": "Mehr erfahren",
-    "video_label": "ANWENDUNGSVIDEO",
-    "video_caption": "So läuft der Test in Ihrer Praxis – in 3 Minuten"
+    "card_cta": "En savoir plus",
+    "video_label": "VIDÉO D'APPLICATION",
+    "video_caption": "Le déroulement du test dans votre cabinet – en 3 minutes"
   },
   "final_cta": {
     "caption": "Prêt à vous lancer",
@@ -286,9 +292,9 @@
     "cta_primary": "Réserver un conseil",
     "cta_secondary": "Calculateur de ROI",
     "chips": {
-      "free": "Kostenlos & unverbindlich",
-      "reply": "Antwort < 24 h",
-      "delivery": "Lieferung in 3–5 Werktagen"
+      "free": "Gratuit et sans engagement",
+      "reply": "Réponse < 24 h",
+      "delivery": "Livraison en 3–5 jours ouvrés"
     }
   },
   "roi": {
@@ -343,35 +349,35 @@
     "beauty": {
       "title": "Esthétique & Beauty",
       "benefit": "Le statut hormonal et nutritionnel comme base des soins de la peau, des cheveux et anti-âge — mesuré plutôt qu'estimé.",
-      "bio": "Hormone · Mikronährstoffe",
+      "bio": "Hormones · Micronutriments",
       "cta": "Voir le diagnostic Beauty"
     },
     "longevity": {
       "title": "Longevity & Prévention",
       "benefit": "Marqueurs métaboliques, cardiovasculaires et de risque pour des programmes de prévention et de Longevity fondés sur les données.",
-      "bio": "HbA1c · Lipide · D-Dimer",
+      "bio": "HbA1c · Lipides · D-dimères",
       "cta": "Voir le diagnostic Longevity"
     }
   },
   "steps": {
-    "caption": "SO EINFACH STARTEN SIE",
-    "title": "Validierte POC-Diagnostik in 3 Schritten",
-    "intro": "Vom ersten Gespräch bis zur laborgenauen Diagnostik am Behandlungsstuhl – ohne Konfigurationsaufwand.",
+    "caption": "DÉMARRER, C'EST SIMPLE",
+    "title": "Diagnostic POC validé en 3 étapes",
+    "intro": "Du premier entretien au diagnostic d'une précision de laboratoire au fauteuil – sans effort de configuration.",
     "step1": {
-      "title": "Beratung & Panel-Empfehlung",
-      "text": "Wir analysieren Ihren Workflow und empfehlen die passenden Biomarker-Panels für Ihre Fachrichtung.",
-      "badge": "inkl. Beratung"
+      "title": "Conseil et recommandation de panel",
+      "text": "Nous analysons votre flux de travail et recommandons les panels de biomarqueurs adaptés à votre spécialité.",
+      "badge": "conseil inclus"
     },
     "step2": {
-      "title": "Performance-Setup",
-      "text": "Lieferung in 3–5 Werktagen inkl. validierter Inbetriebnahme und einfacher Assay-Profile.",
-      "badge": "vor Ort"
+      "title": "Setup performance",
+      "text": "Livraison en 3–5 jours ouvrés, mise en service validée et profils d'essai simples inclus.",
+      "badge": "sur site"
     },
     "step3": {
-      "title": "Erste Ergebnisse",
-      "text": "Ihr Team ist geschult, der erste Patient wird gemessen – laborgenau, dokumentiert, IVDR/CE-konform.",
-      "badge": "Tag 1"
+      "title": "Premiers résultats",
+      "text": "Votre équipe est formée, le premier patient est mesuré – précision de laboratoire, documenté, conforme IVDR/CE.",
+      "badge": "jour 1"
     },
-    "cta": "Beratung buchen"
+    "cta": "Réserver un conseil"
   }
 }

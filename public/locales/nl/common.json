@@ -31,7 +31,11 @@
     "Hygiene": "Hygiëne",
     "Recovery": "Herstel",
     "Emergency": "Noodgeval",
-    "Service": "Dienst"
+    "Service": "Dienst",
+    "Sustainability": "Duurzaamheid",
+    "Telemedicine": "Telegeneeskunde",
+    "Economics": "Rentabiliteit",
+    "Health Article": "Gezondheidsartikel"
   },
   "footer": {
     "description": "Uitgebreide zorg en ondersteuning. Moderne gezondheidsdiensten voor jou en je familie, 24 uur per dag.",
@@ -122,5 +126,14 @@
       "services": "Diensten",
       "contact": "Contact"
     }
+  },
+  "logo": {
+    "alt": "PolarisDX — POC-diagnostiek voor artsenpraktijken",
+    "igloo_alt": "IglooPro — Point-of-Care diagnostisch systeem"
+  },
+  "a11y": {
+    "search": "Zoeken openen",
+    "toggle_nav": "Navigatie in-/uitklappen",
+    "honeypot": "Laat dit veld leeg"
   }
 }

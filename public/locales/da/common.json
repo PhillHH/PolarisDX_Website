@@ -31,7 +31,11 @@
     "Hygiene": "Hygiejne",
     "Recovery": "Restitution",
     "Emergency": "Nødsituation",
-    "Service": "Service"
+    "Service": "Service",
+    "Sustainability": "Bæredygtighed",
+    "Telemedicine": "Telemedicin",
+    "Economics": "Økonomi",
+    "Health Article": "Sundhedsartikel"
   },
   "footer": {
     "description": "Omfattende pleje og støtte. Moderne sundhedstjenester til dig og din familie, døgnet rundt.",
@@ -40,7 +44,7 @@
     "london": "London",
     "hamburg": "Hamborg",
     "copyright": "Copyright ©PolarisDX {{year}} Alle rettigheder forbeholdes.",
-    "imprint": "Impressum",
+    "imprint": "Juridisk information",
     "privacy": "Privatlivspolitik",
     "doctors": "Vores læger",
     "testimonials": "Udtalelser",
@@ -92,7 +96,7 @@
   },
   "search": {
     "keywords": {
-      "home": "home startseite igloo widget diagnostic",
+      "home": "home forside igloo widget diagnostik",
       "about": "team doctors polarisdx about us",
       "services": "services leistungen dental beauty longevity diagnostics",
       "contact": "contact kontakt email phone address",
@@ -122,5 +126,14 @@
       "services": "Tjenester",
       "contact": "Kontakt"
     }
+  },
+  "logo": {
+    "alt": "PolarisDX — POC-diagnostik til lægepraksis",
+    "igloo_alt": "IglooPro — Point-of-Care diagnostiksystem"
+  },
+  "a11y": {
+    "search": "Åbn søgning",
+    "toggle_nav": "Slå navigation til/fra",
+    "honeypot": "Lad venligst dette felt stå tomt"
   }
 }

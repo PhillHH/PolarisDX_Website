@@ -5,78 +5,78 @@
     "description": "Twoje centrum kontroli.",
     "cta_order": "Zamów teraz",
     "cta_datasheet": "Karta danych (PDF)",
-    "subline": "Kostenlos & unverbindlich · Antwort in 24 h",
+    "subline": "Bezpłatnie i bez zobowiązań · Odpowiedź w 24 h",
     "chip_ivdr": "IVDR/CE",
     "chip_lis": "LIS/HIS-ready",
-    "chip_cross": "Herstellerübergreifend",
+    "chip_cross": "Niezależny od producenta",
     "visual": {
       "gauge": "36°",
       "portable_val": "600 g",
-      "portable_label": "portabel",
+      "portable_label": "przenośny",
       "cv_val": "CV < 2 %",
       "cv_label": "Inter-Reader",
       "time_val": "3–15 Min.",
-      "time_label": "pro Test"
+      "time_label": "na test"
     }
   },
   "intro": {
-    "title": "Mobilne laboratorium",
-    "text1": "Igloo Pro to przenośny analizator.",
-    "text2": "Obsługuje 90% testów.",
-    "eyebrow": "WARUM DER IGLOOPRO",
-    "subtitle": "Ob in der Praxis, Klinik oder mobil — der IglooPro ist auf schnelle, verlässliche Entscheidungen am Behandlungsort ausgelegt."
+    "title": "Jakość laboratoryjna w formacie podręcznym",
+    "text1": "Czytnik Igloo Pro wyznacza nowe standardy w diagnostyce mobilnej. Dzięki najnowocześniejszej technologii dostarcza wyniki, na których możesz polegać.",
+    "text2": "Niezależnie od tego, czy w gabinecie, w szpitalu czy mobilnie – Igloo Pro jest Twoim niezawodnym partnerem przy szybkich decyzjach.",
+    "eyebrow": "DLACZEGO IGLOOPRO",
+    "subtitle": "Czy to w gabinecie, klinice czy mobilnie — IglooPro jest zaprojektowany do szybkich i wiarygodnych decyzji w miejscu opieki."
   },
   "features": {
     "methods": {
       "title": "Wszechstronne metody",
-      "description": "Kolorymetria..."
+      "description": "Obsługuje różnorodne metody testowe dla maksymalnej elastyczności."
     },
     "battery": {
-      "title": "24h Baterii",
-      "description": "Bateria litowa."
+      "title": "Długi czas pracy",
+      "description": "Wydajny akumulator do całodziennej pracy mobilnej."
     },
     "connectivity": {
       "title": "Pełna łączność",
-      "description": "WiFi, Bluetooth."
+      "description": "Wi-Fi, LAN i USB dla płynnego przesyłu danych."
     },
     "precision": {
-      "title": "Precyzja",
-      "description": "CV < 2%."
+      "title": "Najwyższa precyzja",
+      "description": "Walidowana dokładność porównywalna z aparaturą dużych laboratoriów."
     }
   },
   "specs": {
     "title": "Dane techniczne",
-    "methods": "Metody",
-    "methods_value": "Kolorymetria...",
-    "samples": "Próbki",
-    "samples_value": "Surowica / Osocze...",
+    "methods": "Metoda pomiaru",
+    "methods_value": "Immunofluorescencja",
+    "samples": "Materiał próbki",
+    "samples_value": "Krew pełna, surowica, osocze, krew włośniczkowa",
     "weight": "Waga",
-    "weight_value": "ok. 400g",
+    "weight_value": "600 g (przenośny)",
     "dimensions": "Wymiary",
-    "dimensions_value": "87,5 mm x 87,5 mm x 91 mm",
-    "speed": "Szybkość",
-    "speed_value": "Kilka sekund",
+    "dimensions_value": "Poręczny i kompaktowy",
+    "speed": "Czas pomiaru",
+    "speed_value": "3 - 15 minut (zależnie od testu)",
     "accuracy": "Dokładność",
     "accuracy_value": "CV < 2%",
     "storage": "Pamięć",
-    "storage_value": "10 000 wyników",
-    "battery": "Bateria",
-    "battery_value": "Litowa",
-    "communication": "Komunikacja",
-    "communication_value": "USB-C, WiFi",
-    "eyebrow": "TECHNISCHE DATEN",
-    "headline": "Die Specs, die zählen",
-    "subtitle": "Alles, was Ihr IT- und QM-Team fragt — auf einen Blick.",
-    "manufacturer_note": "Hergestellt von DX365 GmbH, Berlin · Europäischer Vertrieb: PolarisDX",
+    "storage_value": "Do 10 000 rekordów pacjentów",
+    "battery": "Zasilanie",
+    "battery_value": "Zintegrowany akumulator litowo-jonowy",
+    "communication": "Interfejsy",
+    "communication_value": "USB, LAN, Wi-Fi, podłączenie LIS/HIS",
+    "eyebrow": "DANE TECHNICZNE",
+    "headline": "Parametry, które mają znaczenie",
+    "subtitle": "Wszystko, o co zapyta Twój dział IT i QM — w jednym miejscu.",
+    "manufacturer_note": "Wyprodukowane przez DX365 GmbH, Berlin · Dystrybucja europejska: PolarisDX",
     "highlights": {
-      "label": "Highlights",
+      "label": "Najważniejsze",
       "cv_value": "CV < 2 %",
-      "cv_label": "Inter-Reader-Präzision, dokumentiert",
+      "cv_label": "Precyzja inter-reader, udokumentowana",
       "records_value": "10.000",
-      "records_label": "Patientendatensätze auf dem Gerät",
+      "records_label": "rekordów pacjentów w urządzeniu",
       "time_value": "3–15 Min.",
-      "time_label": "von der Probe zum Ergebnis",
-      "datasheet": "Datenblatt (PDF)"
+      "time_label": "od próbki do wyniku",
+      "datasheet": "Karta katalogowa (PDF)"
     }
   },
   "parameters": {
@@ -95,26 +95,26 @@
       "rsv": "RSV",
       "strep": "Paciorkowiec A"
     },
-    "eyebrow": "VERFÜGBARE PARAMETER",
-    "headline": "Ein Reader, ein wachsendes Testmenü",
-    "subtitle": "Das Portfolio wächst ständig — hier gruppiert nach dem, was Ihre Praxis wirklich bucht.",
+    "eyebrow": "DOSTĘPNE PARAMETRY",
+    "headline": "Jeden czytnik, stale rosnące menu testów",
+    "subtitle": "Portfolio stale się powiększa — tutaj pogrupowane według tego, co Twój gabinet rzeczywiście rozlicza.",
     "groups": {
-      "prevention": "Prävention & Stoffwechsel",
-      "hormones": "Hormone",
-      "infection": "Infektion"
+      "prevention": "Profilaktyka i metabolizm",
+      "hormones": "Hormony",
+      "infection": "Infekcje"
     },
-    "request_text": "Ein Parameter fehlt in der Liste?",
-    "request_cta": "Aktuelle Testliste anfragen"
+    "request_text": "Brakuje parametru na liście?",
+    "request_cta": "Poproś o aktualną listę testów"
   },
   "cta_bottom": {
     "title": "Rozszerz możliwości",
     "description": "Dla aptek i gabinetów.",
     "button": "Umów się teraz",
-    "datasheet": "Datenblatt (PDF)",
+    "datasheet": "Karta katalogowa (PDF)",
     "chips": {
-      "free": "Kostenlos & unverbindlich",
-      "reply": "Antwort < 24 h",
-      "delivery": "Lieferung in 3–5 Werktagen"
+      "free": "Bezpłatnie i bez zobowiązań",
+      "reply": "Odpowiedź < 24 h",
+      "delivery": "Dostawa w 3–5 dni roboczych"
     }
   },
   "seo": {
@@ -122,13 +122,13 @@
     "description": "IglooPro POC Reader dostarcza wyniki laboratoryjne przy fotelu w 3–15 min z krwi włośniczkowej: witamina D, CRP, HbA1c, TSH i więcej. Immunofluorescencja, CV < 2 %, 600 g."
   },
   "help": {
-    "title": "Nicht sicher, ob der IglooPro zu Ihrem Workflow passt?",
-    "text": "15 Minuten mit einem POC-Spezialisten — eine konkrete Empfehlung für Ihr Setup, keine Verkaufsshow.",
+    "title": "Nie wiesz, czy IglooPro pasuje do Twojego przepływu pracy?",
+    "text": "15 minut ze specjalistą POC — konkretna rekomendacja dla Twojej konfiguracji, bez pokazu sprzedażowego.",
     "cta": "Umów konsultację"
   },
   "application": {
-    "eyebrow": "ANWENDUNGSBEREICHE",
-    "title": "Für Ihre Fachrichtung gebaut",
-    "subtitle": "Derselbe Reader, drei Geschäftsfälle — sehen Sie, was der IglooPro in Ihrem Bereich leistet."
+    "eyebrow": "OBSZARY ZASTOSOWAŃ",
+    "title": "Zbudowany dla Twojej specjalizacji",
+    "subtitle": "Ten sam czytnik, trzy scenariusze biznesowe — zobacz, co IglooPro oferuje w Twoim obszarze."
   }
 }

@@ -324,6 +324,9 @@
           "answer": "Ja. Preventieve biomarkerscreenings die buiten het vergoedingenpakket van de wettelijke zorgverzekering vallen, kunnen als individuele gezondheidsdiensten privaat in rekening worden gebracht. De combinatie van directe analyse en gekwalificeerd advies vormt een economisch aantrekkelijk zelfbetalersaanbod dat tegelijkertijd de patiëntenbinding versterkt."
         }
       ]
+    },
+    "seo": {
+      "description": "Preventieve checks op het Point-of-Care: belangrijke biomarkers direct bepalen en datagestuurd adviseren – in praktijk, apotheek en kliniek. Informeer nu."
     }
   },
   "infektion_entzuendung": {
@@ -386,6 +389,9 @@
           "answer": "De IglooPro ondersteunt de bepaling van CRP (C-reactief proteïne) als centrale acute-fase marker, PCT (Procalcitonine) voor de differentiatie van bacteriële infecties, en Ferritine, dat naast de ijzerstatus ook als ontstekingsmarker bij chronische en acute processen relevant is. Door het open platform kunnen aanvullende Lateral-Flow-Tests voor IL-6 en andere parameters worden geïntegreerd."
         }
       ]
+    },
+    "seo": {
+      "description": "Ontstekingsmarkers en infectiesignalen ter plaatse bepalen: snellere triage, verantwoord antibioticabeleid. Vraag nu advies aan."
     }
   },
   "stoffwechsel_herz": {
@@ -448,6 +454,9 @@
           "answer": "Ja. Screenings op HbA1c, Cholesterol en overige metabole parameters zijn typische individuele gezondheidsdiensten die privaat in rekening kunnen worden gebracht. De combinatie van directe meting en gekwalificeerd advies creëert een meetbare meerwaarde voor patiënten en genereert planbare extra omzet voor uw praktijk."
         }
       ]
+    },
+    "seo": {
+      "description": "Metabole en cardiale markers in enkele minuten meten: diabetesmonitoring en therapieaanpassing direct in de praktijk. Laat u nu adviseren."
     }
   },
   "hormon_tests": {
@@ -510,6 +519,9 @@
           "answer": "Chairside hormoondiagnostiek is relevant voor de huisartsengeneeskunde, gynaecologie, endocrinologie, dermatologie en vruchtbaarheidsklinieken. Overal waar schildklierfunctie, vruchtbaarheidsstatus of hormonale disbalans snel moet worden opgehelderd, biedt de POC-meting een onmiddellijk tijdsvoordeel ten opzichte van inzending naar externe laboratoria."
         }
       ]
+    },
+    "seo": {
+      "description": "Hormoondiagnostiek op het Point-of-Care: kritische hormonen direct bij de patiënt bepalen – van schildklier tot fertiliteit. Maak nu een adviesafspraak."
     }
   },
   "kompatibilitaet_integration": {
@@ -571,6 +583,9 @@
           "answer": "Ja. In grotere praktijken, medische centra of klinieken kunnen meerdere IglooPro-apparaten via een gemeenschappelijk netwerk worden bediend en centraal worden beheerd. Alle meetresultaten komen samen in een uniform systeem, wat de kwaliteitsborging vereenvoudigt en een locatie-overstijgend overzicht van de POC-diagnostiek biedt."
         }
       ]
+    },
+    "seo": {
+      "description": "Open, fabrikantonafhankelijk POC-platform: Igloo Pro waarborgt flexibiliteit, technologische onafhankelijkheid en investeringszekerheid. Informeer nu."
     }
   },
   "seo": {
@@ -579,11 +594,11 @@
   },
   "overview": {
     "hero": {
-      "title": "Diagnostik",
-      "subtitle": "Laborgenaue Panels für jeden Praxistyp – validiert, IVDR-konform und ab Tag 1 einsatzbereit. Wählen Sie Ihre Fachrichtung oder erkunden Sie die Diagnostikbereiche unten.",
+      "title": "Diagnostiek",
+      "subtitle": "Labnauwkeurige panels voor elk praktijktype – gevalideerd, IVDR-conform en vanaf dag 1 inzetbaar. Kies uw vakgebied of verken de diagnostiekgebieden hieronder.",
       "chip_cv": "CV < 2 %",
-      "chip_results": "Ergebnis in 3 Min.",
-      "chip_lfa": "90 % LFA-Kompatibilität",
+      "chip_results": "Resultaat in 3 min.",
+      "chip_lfa": "90 % LFA-compatibiliteit",
       "visual": {
         "gauge": "36°",
         "vitd_name": "Vitamin D",
@@ -595,60 +610,60 @@
       }
     },
     "specialty": {
-      "eyebrow": "IHRE FACHRICHTUNG",
-      "title": "Diagnostik für Ihren Praxistyp",
-      "subtitle": "Starten Sie da, wo Sie verdienen – die passenden Biomarker-Panels und Anwendungen für Ihre Fachrichtung.",
+      "eyebrow": "UW VAKGEBIED",
+      "title": "Diagnostiek voor uw praktijktype",
+      "subtitle": "Begin daar waar u verdient – de passende biomarker-panels en toepassingen voor uw vakgebied.",
       "dental": {
-        "title": "Zahnarztpraxis",
-        "desc": "Vitamin D & Entzündung direkt am Stuhl – Implantaterfolg sichern und die Behandlungsplanung absichern.",
-        "cta": "Dental-Diagnostik ansehen",
+        "title": "Tandartspraktijk",
+        "desc": "Vitamine D & ontsteking direct aan de stoel – implantaatsucces borgen en de behandelplanning onderbouwen.",
+        "cta": "Dentale diagnostiek bekijken",
         "tags": [
-          "Vitamin D",
+          "Vitamine D",
           "CRP",
           "HbA1c"
         ]
       },
       "beauty": {
-        "title": "Ästhetik & Beauty",
-        "desc": "Hormone, Mikronährstoffe und Hautgesundheit – sichtbare Ergebnisse mit Zahlen belegen.",
-        "cta": "Beauty-Diagnostik ansehen",
+        "title": "Esthetiek & beauty",
+        "desc": "Hormonen, micronutriënten en huidgezondheid – zichtbare resultaten met cijfers onderbouwen.",
+        "cta": "Beauty-diagnostiek bekijken",
         "tags": [
-          "Hormone",
-          "Mikronährstoffe",
-          "Hautgesundheit"
+          "Hormonen",
+          "Micronutriënten",
+          "Huidgezondheid"
         ]
       },
       "longevity": {
-        "title": "Longevity & Prävention",
-        "desc": "HbA1c, Lipide und Entzündungsmarker – proaktives Alternsmanagement, das Ihre Klienten zahlen.",
-        "cta": "Longevity-Diagnostik ansehen",
+        "title": "Longevity & preventie",
+        "desc": "HbA1c, lipiden en ontstekingsmarkers – proactief verouderingsmanagement waarvoor uw cliënten betalen.",
+        "cta": "Longevity-diagnostiek bekijken",
         "tags": [
           "HbA1c",
-          "Lipide",
+          "Lipiden",
           "D-Dimer"
         ]
       }
     },
     "focus": {
-      "subtitle": "Sechs Diagnostikbereiche, eine Plattform – jedes Panel läuft chairside auf dem IglooPro.",
+      "subtitle": "Zes diagnostiekgebieden, één platform – elk panel draait chairside op de IglooPro.",
       "poc": {
-        "cta": "POC-Systeme erkunden",
+        "cta": "POC-systemen verkennen",
         "tags": [
           "IglooPro",
-          "Mobil",
+          "Mobiel",
           "LIMS/HIS"
         ]
       },
       "checks": {
-        "cta": "Gesundheits-Checks erkunden",
+        "cta": "Gezondheidschecks verkennen",
         "tags": [
-          "Vitamin D",
+          "Vitamine D",
           "CRP",
           "HbA1c"
         ]
       },
       "infection": {
-        "cta": "Entzündungsmarker erkunden",
+        "cta": "Ontstekingsmarkers verkennen",
         "tags": [
           "CRP",
           "PCT",
@@ -656,25 +671,25 @@
         ]
       },
       "metabolism": {
-        "cta": "Stoffwechsel-Panels erkunden",
+        "cta": "Metabolisme-panels verkennen",
         "tags": [
           "HbA1c",
-          "Cholesterin",
+          "Cholesterol",
           "D-Dimer"
         ]
       },
       "hormone": {
-        "cta": "Hormon-Tests erkunden",
+        "cta": "Hormoontests verkennen",
         "tags": [
           "TSH",
           "AMH"
         ]
       },
       "compat": {
-        "cta": "Kompatibilität ansehen",
+        "cta": "Compatibiliteit bekijken",
         "tags": [
           "90 % LFA",
-          "Offene Plattform"
+          "Open platform"
         ]
       }
     },
@@ -684,10 +699,22 @@
       "sections_eyebrow": "In detail",
       "conclusion_eyebrow": "Conclusie",
       "stats": [
-        { "value": "< 2 %", "label": "Variatiecoëfficiënt (CV)" },
-        { "value": "3–15 min", "label": "tot resultaat" },
-        { "value": "10+", "label": "biomarkers uit één apparaat" },
-        { "value": "IVDR/CE", "label": "gecertificeerd & conform" }
+        {
+          "value": "< 2 %",
+          "label": "Variatiecoëfficiënt (CV)"
+        },
+        {
+          "value": "3–15 min",
+          "label": "tot resultaat"
+        },
+        {
+          "value": "10+",
+          "label": "biomarkers uit één apparaat"
+        },
+        {
+          "value": "IVDR/CE",
+          "label": "gecertificeerd & conform"
+        }
       ]
     }
   }

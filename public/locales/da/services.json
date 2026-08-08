@@ -324,6 +324,9 @@
           "answer": "Ja. Forebyggende biomarkørscreeninger, der rækker ud over den lovpligtige sygesikrings ydelseskatalog, kan afregnes privat som individuelle sundhedsydelser (IGeL) i henhold til GOÄ. Kombinationen af øjeblikkelig analyse og kvalificeret rådgivning udgør et økonomisk attraktivt selvbetalertilbud, der samtidig styrker patientloyaliteten."
         }
       ]
+    },
+    "seo": {
+      "description": "Forebyggende tjek på Point-of-Care: bestem vigtige biomarkører med det samme, og rådgiv databaseret – i klinik, apotek og på hospital. Læs mere nu."
     }
   },
   "infektion_entzuendung": {
@@ -386,6 +389,9 @@
           "answer": "IglooPro understøtter bestemmelse af CRP (C-reaktivt protein) som central akut-fase-markør, PCT (procalcitonin) til differentiering af bakterielle infektioner samt ferritin, der ud over jernstatus også er relevant som inflammationsmarkør ved kroniske og akutte processer. Takket være den åbne platform kan yderligere lateral flow-tests for IL-6 og andre parametre integreres."
         }
       ]
+    },
+    "seo": {
+      "description": "Bestem inflammationsmarkører og infektionstegn på stedet: hurtigere triage, ansvarlig antibiotikahåndtering. Anmod om rådgivning nu."
     }
   },
   "stoffwechsel_herz": {
@@ -448,6 +454,9 @@
           "answer": "Ja. Screeninger for HbA1c, kolesterol og yderligere metaboliske parametre er typiske individuelle sundhedsydelser (IGeL), der kan afregnes privat i henhold til GOÄ. Kombinationen af øjeblikkelig måling og kvalificeret rådgivning skaber en målbar merværdi for patienterne og genererer planlagt tillægsomsætning for din praksis."
         }
       ]
+    },
+    "seo": {
+      "description": "Mål stofskifte- og hjertemarkører på få minutter: diabetesmonitorering og behandlingsjustering direkte i klinikken. Få rådgivning nu."
     }
   },
   "hormon_tests": {
@@ -510,6 +519,9 @@
           "answer": "Chairside hormondiagnostik er relevant for almen medicin, gynækologi, endokrinologi, dermatologi og fertilitetsklinikker i lige mål. Overalt, hvor skjoldbruskkirtelfunktion, fertilitetsstatus eller hormonelle ubalancer hurtigt skal afklares, tilbyder POC-målingen en umiddelbar tidsfordel i forhold til indsendelse til eksterne laboratorier."
         }
       ]
+    },
+    "seo": {
+      "description": "Hormondiagnostik på Point-of-Care: bestem kritiske hormoner direkte hos patienten – fra skjoldbruskkirtel til fertilitet. Book rådgivning nu."
     }
   },
   "kompatibilitaet_integration": {
@@ -571,6 +583,9 @@
           "answer": "Ja. I større praksisser, flerlægepraksis-strukturer eller klinikker kan flere IglooPro-apparater drives via et fælles netværk og administreres centralt. Alle måleresultater samles i ét samlet system, hvilket forenkler kvalitetssikringen og giver et tværgående overblik over POC-diagnostikken."
         }
       ]
+    },
+    "seo": {
+      "description": "Åben, producentuafhængig POC-platform: Igloo Pro sikrer fleksibilitet, teknologisk uafhængighed og investeringssikkerhed. Læs mere nu."
     }
   },
   "seo": {
@@ -580,10 +595,10 @@
   "overview": {
     "hero": {
       "title": "Diagnostik",
-      "subtitle": "Laborgenaue Panels für jeden Praxistyp – validiert, IVDR-konform und ab Tag 1 einsatzbereit. Wählen Sie Ihre Fachrichtung oder erkunden Sie die Diagnostikbereiche unten.",
+      "subtitle": "Laboratorienøjagtige paneler til enhver kliniktype – validerede, IVDR-konforme og klar til brug fra dag 1. Vælg dit speciale, eller udforsk diagnostikområderne nedenfor.",
       "chip_cv": "CV < 2 %",
-      "chip_results": "Ergebnis in 3 Min.",
-      "chip_lfa": "90 % LFA-Kompatibilität",
+      "chip_results": "Resultat på 3 min.",
+      "chip_lfa": "90 % LFA-kompatibilitet",
       "visual": {
         "gauge": "36°",
         "vitd_name": "Vitamin D",
@@ -595,44 +610,44 @@
       }
     },
     "specialty": {
-      "eyebrow": "IHRE FACHRICHTUNG",
-      "title": "Diagnostik für Ihren Praxistyp",
-      "subtitle": "Starten Sie da, wo Sie verdienen – die passenden Biomarker-Panels und Anwendungen für Ihre Fachrichtung.",
+      "eyebrow": "DIT SPECIALE",
+      "title": "Diagnostik til din kliniktype",
+      "subtitle": "Start dér, hvor du tjener – de rette biomarkør-paneler og anvendelser til dit speciale.",
       "dental": {
-        "title": "Zahnarztpraxis",
-        "desc": "Vitamin D & Entzündung direkt am Stuhl – Implantaterfolg sichern und die Behandlungsplanung absichern.",
-        "cta": "Dental-Diagnostik ansehen",
+        "title": "Tandlægepraksis",
+        "desc": "D-vitamin & inflammation direkte ved stolen – sikr implantatsucces og underbyg behandlingsplanlægningen.",
+        "cta": "Se dental diagnostik",
         "tags": [
-          "Vitamin D",
+          "D-vitamin",
           "CRP",
           "HbA1c"
         ]
       },
       "beauty": {
-        "title": "Ästhetik & Beauty",
-        "desc": "Hormone, Mikronährstoffe und Hautgesundheit – sichtbare Ergebnisse mit Zahlen belegen.",
-        "cta": "Beauty-Diagnostik ansehen",
+        "title": "Æstetik & beauty",
+        "desc": "Hormoner, mikronæringsstoffer og hudsundhed – synlige resultater dokumenteret med tal.",
+        "cta": "Se beauty-diagnostik",
         "tags": [
-          "Hormone",
-          "Mikronährstoffe",
-          "Hautgesundheit"
+          "Hormoner",
+          "Mikronæringsstoffer",
+          "Hudsundhed"
         ]
       },
       "longevity": {
-        "title": "Longevity & Prävention",
-        "desc": "HbA1c, Lipide und Entzündungsmarker – proaktives Alternsmanagement, das Ihre Klienten zahlen.",
-        "cta": "Longevity-Diagnostik ansehen",
+        "title": "Longevity & forebyggelse",
+        "desc": "HbA1c, lipider og inflammationsmarkører – proaktiv aldringspleje, som dine klienter betaler for.",
+        "cta": "Se longevity-diagnostik",
         "tags": [
           "HbA1c",
-          "Lipide",
+          "Lipider",
           "D-Dimer"
         ]
       }
     },
     "focus": {
-      "subtitle": "Sechs Diagnostikbereiche, eine Plattform – jedes Panel läuft chairside auf dem IglooPro.",
+      "subtitle": "Seks diagnostikområder, én platform – hvert panel kører chairside på IglooPro.",
       "poc": {
-        "cta": "POC-Systeme erkunden",
+        "cta": "Udforsk POC-systemer",
         "tags": [
           "IglooPro",
           "Mobil",
@@ -640,15 +655,15 @@
         ]
       },
       "checks": {
-        "cta": "Gesundheits-Checks erkunden",
+        "cta": "Udforsk sundhedstjek",
         "tags": [
-          "Vitamin D",
+          "D-vitamin",
           "CRP",
           "HbA1c"
         ]
       },
       "infection": {
-        "cta": "Entzündungsmarker erkunden",
+        "cta": "Udforsk inflammationsmarkører",
         "tags": [
           "CRP",
           "PCT",
@@ -656,25 +671,25 @@
         ]
       },
       "metabolism": {
-        "cta": "Stoffwechsel-Panels erkunden",
+        "cta": "Udforsk stofskifte-paneler",
         "tags": [
           "HbA1c",
-          "Cholesterin",
+          "Kolesterol",
           "D-Dimer"
         ]
       },
       "hormone": {
-        "cta": "Hormon-Tests erkunden",
+        "cta": "Udforsk hormontests",
         "tags": [
           "TSH",
           "AMH"
         ]
       },
       "compat": {
-        "cta": "Kompatibilität ansehen",
+        "cta": "Se kompatibilitet",
         "tags": [
           "90 % LFA",
-          "Offene Plattform"
+          "Åben platform"
         ]
       }
     },
@@ -684,10 +699,22 @@
       "sections_eyebrow": "I detaljer",
       "conclusion_eyebrow": "Konklusion",
       "stats": [
-        { "value": "< 2 %", "label": "Variationskoefficient (CV)" },
-        { "value": "3–15 min", "label": "til resultat" },
-        { "value": "10+", "label": "biomarkører fra ét apparat" },
-        { "value": "IVDR/CE", "label": "certificeret & konform" }
+        {
+          "value": "< 2 %",
+          "label": "Variationskoefficient (CV)"
+        },
+        {
+          "value": "3–15 min",
+          "label": "til resultat"
+        },
+        {
+          "value": "10+",
+          "label": "biomarkører fra ét apparat"
+        },
+        {
+          "value": "IVDR/CE",
+          "label": "certificeret & konform"
+        }
       ]
     }
   }

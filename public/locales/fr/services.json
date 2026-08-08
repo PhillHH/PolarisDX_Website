@@ -2,7 +2,7 @@
   "dental": {
     "seo": {
       "title": "Précision pour la dentisterie moderne",
-      "description": "Avec un appareil de diagnostic au point de soins tel que le Igloo Pro Reader, vous pouvez déterminer quantitativement la Vitamine D3, la CRP, l'HbA1c, la…"
+      "description": "Test sanguin chairside pour l'implantologie et la parodontite. Vitamin D, CRP, HbA1c en 3 min. La ligne directrice S3 recommande les tests rapides in-office. En savoir plus."
     },
     "title": "Dentaire",
     "headline": "Précision pour la dentisterie moderne",
@@ -324,6 +324,9 @@
           "answer": "Oui. Les dépistages préventifs par biomarqueurs dépassant le catalogue de l'assurance maladie obligatoire sont facturables comme prestations de santé individuelles (IGeL) selon la GOÄ. La combinaison d'une analytique instantanée et d'un conseil qualifié constitue une offre de prestation payante économiquement attractive qui renforce simultanément la fidélisation des patients."
         }
       ]
+    },
+    "seo": {
+      "description": "Bilans préventifs au Point-of-Care : déterminer immédiatement les biomarqueurs clés et conseiller sur la base de données – au cabinet, en pharmacie et en clinique. En savoir plus."
     }
   },
   "infektion_entzuendung": {
@@ -386,6 +389,9 @@
           "answer": "L'IglooPro permet la détermination de la CRP (protéine C-réactive) comme marqueur central de la phase aiguë, du PCT (procalcitonine) pour la différenciation des infections bactériennes, ainsi que de la ferritine, pertinente non seulement pour le statut en fer mais aussi comme marqueur inflammatoire dans les processus chroniques et aigus. Grâce à la plateforme ouverte, des tests à flux latéral supplémentaires pour l'IL-6 et d'autres paramètres peuvent être intégrés."
         }
       ]
+    },
+    "seo": {
+      "description": "Déterminer sur place les marqueurs inflammatoires et les signes d'infection : triage plus rapide, gestion responsable des antibiotiques. Demandez un conseil."
     }
   },
   "stoffwechsel_herz": {
@@ -448,6 +454,9 @@
           "answer": "Oui. Les dépistages d'HbA1c, de cholestérol et d'autres paramètres métaboliques sont des prestations IGeL typiques (prestations de santé individuelles) facturables en privé selon la GOÄ. La combinaison de mesure instantanée et de conseil qualifié crée une valeur ajoutée mesurable pour les patients et génère un chiffre d'affaires complémentaire planifiable pour votre cabinet."
         }
       ]
+    },
+    "seo": {
+      "description": "Mesurer les marqueurs métaboliques et cardiaques en quelques minutes : suivi du diabète et ajustement thérapeutique directement au cabinet. Faites-vous conseiller."
     }
   },
   "hormon_tests": {
@@ -510,6 +519,9 @@
           "answer": "Le diagnostic hormonal au fauteuil est pertinent pour la médecine générale, la gynécologie, l'endocrinologie, la dermatologie et les centres de fertilité. Partout où la fonction thyroïdienne, le statut de fertilité ou les déséquilibres hormonaux doivent être rapidement évalués, la mesure POC offre un avantage de temps immédiat par rapport à l'envoi en laboratoire externe."
         }
       ]
+    },
+    "seo": {
+      "description": "Diagnostic hormonal au Point-of-Care : déterminer les hormones critiques directement auprès du patient – de la thyroïde à la fertilité. Prenez rendez-vous pour un conseil."
     }
   },
   "kompatibilitaet_integration": {
@@ -571,6 +583,9 @@
           "answer": "Oui. Dans les cabinets de grande taille, les structures MVZ ou les cliniques, plusieurs appareils IglooPro peuvent être exploités via un réseau commun et gérés de manière centralisée. Tous les résultats de mesure convergent dans un système unifié, simplifiant l'assurance qualité et offrant une vue d'ensemble intersites du diagnostic POC."
         }
       ]
+    },
+    "seo": {
+      "description": "Plateforme POC ouverte et multi-fabricants : Igloo Pro garantit flexibilité, indépendance technologique et sécurité d'investissement. En savoir plus."
     }
   },
   "seo": {
@@ -579,11 +594,11 @@
   },
   "overview": {
     "hero": {
-      "title": "Diagnostik",
-      "subtitle": "Laborgenaue Panels für jeden Praxistyp – validiert, IVDR-konform und ab Tag 1 einsatzbereit. Wählen Sie Ihre Fachrichtung oder erkunden Sie die Diagnostikbereiche unten.",
+      "title": "Diagnostic",
+      "subtitle": "Des panels d'une précision de laboratoire pour chaque type de cabinet – validés, conformes IVDR et opérationnels dès le jour 1. Choisissez votre spécialité ou explorez les domaines de diagnostic ci-dessous.",
       "chip_cv": "CV < 2 %",
-      "chip_results": "Ergebnis in 3 Min.",
-      "chip_lfa": "90 % LFA-Kompatibilität",
+      "chip_results": "Résultat en 3 min",
+      "chip_lfa": "90 % de compatibilité LFA",
       "visual": {
         "gauge": "36°",
         "vitd_name": "Vitamin D",
@@ -595,13 +610,13 @@
       }
     },
     "specialty": {
-      "eyebrow": "IHRE FACHRICHTUNG",
-      "title": "Diagnostik für Ihren Praxistyp",
-      "subtitle": "Starten Sie da, wo Sie verdienen – die passenden Biomarker-Panels und Anwendungen für Ihre Fachrichtung.",
+      "eyebrow": "VOTRE SPÉCIALITÉ",
+      "title": "Un diagnostic adapté à votre type de cabinet",
+      "subtitle": "Commencez là où vous gagnez – les panels de biomarqueurs et les applications adaptés à votre spécialité.",
       "dental": {
-        "title": "Zahnarztpraxis",
-        "desc": "Vitamin D & Entzündung direkt am Stuhl – Implantaterfolg sichern und die Behandlungsplanung absichern.",
-        "cta": "Dental-Diagnostik ansehen",
+        "title": "Cabinet dentaire",
+        "desc": "Vitamin D et inflammation directement au fauteuil – sécuriser le succès implantaire et fiabiliser la planification du traitement.",
+        "cta": "Voir le diagnostic dentaire",
         "tags": [
           "Vitamin D",
           "CRP",
@@ -609,38 +624,38 @@
         ]
       },
       "beauty": {
-        "title": "Ästhetik & Beauty",
-        "desc": "Hormone, Mikronährstoffe und Hautgesundheit – sichtbare Ergebnisse mit Zahlen belegen.",
-        "cta": "Beauty-Diagnostik ansehen",
+        "title": "Esthétique et beauté",
+        "desc": "Hormones, micronutriments et santé de la peau – étayer par des chiffres des résultats visibles.",
+        "cta": "Voir le diagnostic beauté",
         "tags": [
-          "Hormone",
-          "Mikronährstoffe",
-          "Hautgesundheit"
+          "Hormones",
+          "Micronutriments",
+          "Santé de la peau"
         ]
       },
       "longevity": {
-        "title": "Longevity & Prävention",
-        "desc": "HbA1c, Lipide und Entzündungsmarker – proaktives Alternsmanagement, das Ihre Klienten zahlen.",
-        "cta": "Longevity-Diagnostik ansehen",
+        "title": "Longevity et prévention",
+        "desc": "HbA1c, lipides et marqueurs inflammatoires – une gestion proactive du vieillissement que vos clients financent.",
+        "cta": "Voir le diagnostic longévité",
         "tags": [
           "HbA1c",
-          "Lipide",
-          "D-Dimer"
+          "Lipides",
+          "D-dimères"
         ]
       }
     },
     "focus": {
-      "subtitle": "Sechs Diagnostikbereiche, eine Plattform – jedes Panel läuft chairside auf dem IglooPro.",
+      "subtitle": "Six domaines de diagnostic, une seule plateforme – chaque panel fonctionne chairside sur l'IglooPro.",
       "poc": {
-        "cta": "POC-Systeme erkunden",
+        "cta": "Explorer les systèmes POC",
         "tags": [
           "IglooPro",
-          "Mobil",
+          "Mobile",
           "LIMS/HIS"
         ]
       },
       "checks": {
-        "cta": "Gesundheits-Checks erkunden",
+        "cta": "Explorer les bilans de santé",
         "tags": [
           "Vitamin D",
           "CRP",
@@ -648,7 +663,7 @@
         ]
       },
       "infection": {
-        "cta": "Entzündungsmarker erkunden",
+        "cta": "Explorer les marqueurs inflammatoires",
         "tags": [
           "CRP",
           "PCT",
@@ -656,25 +671,25 @@
         ]
       },
       "metabolism": {
-        "cta": "Stoffwechsel-Panels erkunden",
+        "cta": "Explorer les panels métaboliques",
         "tags": [
           "HbA1c",
-          "Cholesterin",
-          "D-Dimer"
+          "Cholestérol",
+          "D-dimères"
         ]
       },
       "hormone": {
-        "cta": "Hormon-Tests erkunden",
+        "cta": "Explorer les tests hormonaux",
         "tags": [
           "TSH",
           "AMH"
         ]
       },
       "compat": {
-        "cta": "Kompatibilität ansehen",
+        "cta": "Voir la compatibilité",
         "tags": [
           "90 % LFA",
-          "Offene Plattform"
+          "Plateforme ouverte"
         ]
       }
     },
@@ -684,10 +699,22 @@
       "sections_eyebrow": "En détail",
       "conclusion_eyebrow": "Conclusion",
       "stats": [
-        { "value": "< 2 %", "label": "Coefficient de variation (CV)" },
-        { "value": "3–15 min", "label": "jusqu'au résultat" },
-        { "value": "10+", "label": "biomarqueurs sur un seul appareil" },
-        { "value": "IVDR/CE", "label": "certifié & conforme" }
+        {
+          "value": "< 2 %",
+          "label": "Coefficient de variation (CV)"
+        },
+        {
+          "value": "3–15 min",
+          "label": "jusqu'au résultat"
+        },
+        {
+          "value": "10+",
+          "label": "biomarqueurs sur un seul appareil"
+        },
+        {
+          "value": "IVDR/CE",
+          "label": "certifié & conforme"
+        }
       ]
     }
   }

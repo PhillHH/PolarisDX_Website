@@ -157,7 +157,7 @@ const TestimonialsSection = () => {
           <div
             className="flex gap-2.5"
             role="group"
-            aria-label={t('testimonials.aria.carousel', 'Praxis-Stimmen')}
+            aria-label={t('testimonials.aria.dots', 'Bewertung auswählen')}
           >
             {testimonials.map((_, index) => (
               <button

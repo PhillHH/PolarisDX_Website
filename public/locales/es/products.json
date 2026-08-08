@@ -5,31 +5,31 @@
     "description": "Su centro de control para diagnósticos rápidos, precisos y flexibles.",
     "cta_order": "Pedir ahora",
     "cta_datasheet": "Hoja de datos (PDF)",
-    "subline": "Kostenlos & unverbindlich · Antwort in 24 h",
+    "subline": "Gratuito y sin compromiso · Respuesta en 24 h",
     "chip_ivdr": "IVDR/CE",
-    "chip_lis": "LIS/HIS-ready",
-    "chip_cross": "Herstellerübergreifend",
+    "chip_lis": "Compatible con LIS/HIS",
+    "chip_cross": "Multifabricante",
     "visual": {
       "gauge": "36°",
       "portable_val": "600 g",
-      "portable_label": "portabel",
+      "portable_label": "portátil",
       "cv_val": "CV < 2 %",
-      "cv_label": "Inter-Reader",
-      "time_val": "3–15 Min.",
-      "time_label": "pro Test"
+      "cv_label": "inter-lector",
+      "time_val": "3–15 min",
+      "time_label": "por test"
     }
   },
   "intro": {
     "title": "El laboratorio móvil para su práctica",
     "text1": "El Igloo Pro es un analizador portátil Point-of-Care.",
     "text2": "Puede evaluar alrededor del 90% de todas las pruebas de flujo lateral del mercado.",
-    "eyebrow": "WARUM DER IGLOOPRO",
-    "subtitle": "Ob in der Praxis, Klinik oder mobil — der IglooPro ist auf schnelle, verlässliche Entscheidungen am Behandlungsort ausgelegt."
+    "eyebrow": "POR QUÉ EL IGLOOPRO",
+    "subtitle": "En la consulta, en la clínica o en movilidad: el IglooPro está diseñado para decisiones rápidas y fiables en el lugar de atención."
   },
   "features": {
     "methods": {
       "title": "Métodos versátiles",
-      "description": "Colorimetría, inmunofluorescencia y más."
+      "description": "Admite diversos procedimientos de test para una flexibilidad máxima."
     },
     "battery": {
       "title": "Autonomía 24h",
@@ -47,9 +47,9 @@
   "specs": {
     "title": "Datos Técnicos",
     "methods": "Métodos",
-    "methods_value": "Colorimetría, Inmunofluorescencia, Microfluidos...",
+    "methods_value": "Inmunofluorescencia",
     "samples": "Muestras",
-    "samples_value": "Suero / Plasma / Sangre Entera / Capilar...",
+    "samples_value": "Sangre total, suero, plasma, sangre capilar",
     "weight": "Peso",
     "weight_value": "aprox. 400g",
     "dimensions": "Dimensiones",
@@ -64,19 +64,19 @@
     "battery_value": "Batería de Litio",
     "communication": "Comunicación",
     "communication_value": "USB-C, WiFi, Bluetooth",
-    "eyebrow": "TECHNISCHE DATEN",
-    "headline": "Die Specs, die zählen",
-    "subtitle": "Alles, was Ihr IT- und QM-Team fragt — auf einen Blick.",
-    "manufacturer_note": "Hergestellt von DX365 GmbH, Berlin · Europäischer Vertrieb: PolarisDX",
+    "eyebrow": "DATOS TÉCNICOS",
+    "headline": "Las especificaciones que importan",
+    "subtitle": "Todo lo que preguntarán sus equipos de TI y calidad, de un vistazo.",
+    "manufacturer_note": "Fabricado por DX365 GmbH, Berlin · Distribución europea: PolarisDX",
     "highlights": {
       "label": "Highlights",
       "cv_value": "CV < 2 %",
-      "cv_label": "Inter-Reader-Präzision, dokumentiert",
+      "cv_label": "Precisión inter-lector, documentada",
       "records_value": "10.000",
-      "records_label": "Patientendatensätze auf dem Gerät",
-      "time_value": "3–15 Min.",
-      "time_label": "von der Probe zum Ergebnis",
-      "datasheet": "Datenblatt (PDF)"
+      "records_label": "registros de pacientes en el equipo",
+      "time_value": "3–15 min",
+      "time_label": "de la muestra al resultado",
+      "datasheet": "Ficha técnica (PDF)"
     }
   },
   "parameters": {
@@ -95,26 +95,26 @@
       "rsv": "VRS",
       "strep": "Estreptococo A"
     },
-    "eyebrow": "VERFÜGBARE PARAMETER",
-    "headline": "Ein Reader, ein wachsendes Testmenü",
-    "subtitle": "Das Portfolio wächst ständig — hier gruppiert nach dem, was Ihre Praxis wirklich bucht.",
+    "eyebrow": "PARÁMETROS DISPONIBLES",
+    "headline": "Un lector, un menú de test en crecimiento",
+    "subtitle": "El portafolio crece constantemente: aquí agrupado según lo que su consulta solicita realmente.",
     "groups": {
-      "prevention": "Prävention & Stoffwechsel",
-      "hormones": "Hormone",
-      "infection": "Infektion"
+      "prevention": "Prevención y metabolismo",
+      "hormones": "Hormonas",
+      "infection": "Infección"
     },
-    "request_text": "Ein Parameter fehlt in der Liste?",
-    "request_cta": "Aktuelle Testliste anfragen"
+    "request_text": "¿Falta algún parámetro en la lista?",
+    "request_cta": "Solicitar la lista de test actual"
   },
   "cta_bottom": {
     "title": "Amplíe sus posibilidades diagnósticas",
     "description": "Perfecto para farmacias y consultorios.",
     "button": "Agendar cita ahora",
-    "datasheet": "Datenblatt (PDF)",
+    "datasheet": "Ficha técnica (PDF)",
     "chips": {
-      "free": "Kostenlos & unverbindlich",
-      "reply": "Antwort < 24 h",
-      "delivery": "Lieferung in 3–5 Werktagen"
+      "free": "Gratuito y sin compromiso",
+      "reply": "Respuesta < 24 h",
+      "delivery": "Entrega en 3–5 días laborables"
     }
   },
   "seo": {
@@ -122,13 +122,13 @@
     "description": "El IglooPro POC Reader ofrece valores de laboratorio junto al sillón en 3–15 min a partir de sangre capilar: vitamina D, PCR, HbA1c, TSH y más. Inmunofluorescencia, CV < 2 %, 600 g."
   },
   "help": {
-    "title": "Nicht sicher, ob der IglooPro zu Ihrem Workflow passt?",
-    "text": "15 Minuten mit einem POC-Spezialisten — eine konkrete Empfehlung für Ihr Setup, keine Verkaufsshow.",
+    "title": "¿No está seguro de si el IglooPro encaja en su flujo de trabajo?",
+    "text": "15 minutos con un especialista POC: una recomendación concreta para su configuración, no un argumentario de ventas.",
     "cta": "Reservar asesoramiento"
   },
   "application": {
-    "eyebrow": "ANWENDUNGSBEREICHE",
-    "title": "Für Ihre Fachrichtung gebaut",
-    "subtitle": "Derselbe Reader, drei Geschäftsfälle — sehen Sie, was der IglooPro in Ihrem Bereich leistet."
+    "eyebrow": "ÁMBITOS DE APLICACIÓN",
+    "title": "Diseñado para su especialidad",
+    "subtitle": "El mismo lector, tres casos de negocio: descubra qué aporta el IglooPro en su ámbito."
   }
 }

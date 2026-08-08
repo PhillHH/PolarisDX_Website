@@ -5,78 +5,78 @@
     "description": "Vaše řídicí centrum.",
     "cta_order": "Objednat nyní",
     "cta_datasheet": "Datový list (PDF)",
-    "subline": "Kostenlos & unverbindlich · Antwort in 24 h",
+    "subline": "Zdarma a nezávazně · Odpověď do 24 h",
     "chip_ivdr": "IVDR/CE",
     "chip_lis": "LIS/HIS-ready",
-    "chip_cross": "Herstellerübergreifend",
+    "chip_cross": "Nezávislý na výrobci",
     "visual": {
       "gauge": "36°",
       "portable_val": "600 g",
-      "portable_label": "portabel",
+      "portable_label": "přenosný",
       "cv_val": "CV < 2 %",
       "cv_label": "Inter-Reader",
       "time_val": "3–15 Min.",
-      "time_label": "pro Test"
+      "time_label": "na test"
     }
   },
   "intro": {
-    "title": "Mobilní laboratoř",
-    "text1": "Igloo Pro je přenosný analyzátor.",
-    "text2": "Vyhodnocuje 90% testů.",
-    "eyebrow": "WARUM DER IGLOOPRO",
-    "subtitle": "Ob in der Praxis, Klinik oder mobil — der IglooPro ist auf schnelle, verlässliche Entscheidungen am Behandlungsort ausgelegt."
+    "title": "Laboratorní kvalita v ruční velikosti",
+    "text1": "Čtečka Igloo Pro nastavuje nové standardy v mobilní diagnostice. Díky nejmodernější technologii poskytuje výsledky, na které se můžete spolehnout.",
+    "text2": "Ať už v ordinaci, v nemocnici nebo v terénu – Igloo Pro je vaším spolehlivým partnerem pro rychlá rozhodnutí.",
+    "eyebrow": "PROČ IGLOOPRO",
+    "subtitle": "Ať už v ordinaci, na klinice nebo v terénu — IglooPro je určen pro rychlá a spolehlivá rozhodnutí přímo v místě péče."
   },
   "features": {
     "methods": {
       "title": "Všestranné metody",
-      "description": "Kolorimetrie..."
+      "description": "Podporuje různé testovací metody pro maximální flexibilitu."
     },
     "battery": {
-      "title": "24h Baterie",
-      "description": "Lithiová baterie."
+      "title": "Dlouhá výdrž",
+      "description": "Výkonný akumulátor pro celodenní mobilní použití."
     },
     "connectivity": {
       "title": "Plná konektivita",
-      "description": "WiFi, Bluetooth."
+      "description": "Wi-Fi, LAN a USB pro plynulý přenos dat."
     },
     "precision": {
-      "title": "Přesnost",
-      "description": "CV < 2%."
+      "title": "Nejvyšší přesnost",
+      "description": "Validovaná přesnost srovnatelná s přístroji velkých laboratoří."
     }
   },
   "specs": {
     "title": "Technická data",
-    "methods": "Metody",
-    "methods_value": "Kolorimetrie...",
-    "samples": "Vzorky",
-    "samples_value": "Sérum / Plazma...",
+    "methods": "Metoda měření",
+    "methods_value": "Imunofluorescence",
+    "samples": "Materiál vzorku",
+    "samples_value": "Plná krev, sérum, plazma, kapilární krev",
     "weight": "Hmotnost",
-    "weight_value": "cca 400g",
+    "weight_value": "600 g (přenosný)",
     "dimensions": "Rozměry",
-    "dimensions_value": "87,5 mm...",
-    "speed": "Rychlost",
-    "speed_value": "Pár sekund",
+    "dimensions_value": "Praktický a kompaktní",
+    "speed": "Doba měření",
+    "speed_value": "3 - 15 minut (podle testu)",
     "accuracy": "Přesnost",
     "accuracy_value": "CV < 2%",
     "storage": "Paměť",
-    "storage_value": "10 000 výsledků",
-    "battery": "Baterie",
-    "battery_value": "Lithium",
-    "communication": "Komunikace",
-    "communication_value": "USB-C, WiFi",
-    "eyebrow": "TECHNISCHE DATEN",
-    "headline": "Die Specs, die zählen",
-    "subtitle": "Alles, was Ihr IT- und QM-Team fragt — auf einen Blick.",
-    "manufacturer_note": "Hergestellt von DX365 GmbH, Berlin · Europäischer Vertrieb: PolarisDX",
+    "storage_value": "Až 10 000 záznamů pacientů",
+    "battery": "Napájení",
+    "battery_value": "Integrovaný lithium-iontový akumulátor",
+    "communication": "Rozhraní",
+    "communication_value": "USB, LAN, Wi-Fi, připojení LIS/HIS",
+    "eyebrow": "TECHNICKÁ DATA",
+    "headline": "Parametry, na kterých záleží",
+    "subtitle": "Vše, na co se zeptá váš IT a QM tým — na jednom místě.",
+    "manufacturer_note": "Vyrobeno společností DX365 GmbH, Berlín · Evropská distribuce: PolarisDX",
     "highlights": {
-      "label": "Highlights",
+      "label": "Nejdůležitější",
       "cv_value": "CV < 2 %",
-      "cv_label": "Inter-Reader-Präzision, dokumentiert",
+      "cv_label": "Inter-reader přesnost, zdokumentováno",
       "records_value": "10.000",
-      "records_label": "Patientendatensätze auf dem Gerät",
+      "records_label": "záznamů pacientů v přístroji",
       "time_value": "3–15 Min.",
-      "time_label": "von der Probe zum Ergebnis",
-      "datasheet": "Datenblatt (PDF)"
+      "time_label": "od vzorku k výsledku",
+      "datasheet": "Datový list (PDF)"
     }
   },
   "parameters": {
@@ -86,7 +86,7 @@
       "vitd3": "Vitamín D3",
       "crp": "CRP",
       "hba1c": "HbA1c",
-      "ferritin": "Ferritin",
+      "ferritin": "Feritin",
       "cortisol": "Kortizol",
       "tsh": "TSH",
       "ddimer": "D-Dimer",
@@ -95,26 +95,26 @@
       "rsv": "RSV",
       "strep": "Streptokok A"
     },
-    "eyebrow": "VERFÜGBARE PARAMETER",
-    "headline": "Ein Reader, ein wachsendes Testmenü",
-    "subtitle": "Das Portfolio wächst ständig — hier gruppiert nach dem, was Ihre Praxis wirklich bucht.",
+    "eyebrow": "DOSTUPNÉ PARAMETRY",
+    "headline": "Jeden reader, rostoucí nabídka testů",
+    "subtitle": "Portfolio se neustále rozšiřuje — zde seskupeno podle toho, co vaše ordinace skutečně vykazuje.",
     "groups": {
-      "prevention": "Prävention & Stoffwechsel",
-      "hormones": "Hormone",
-      "infection": "Infektion"
+      "prevention": "Prevence a metabolismus",
+      "hormones": "Hormony",
+      "infection": "Infekce"
     },
-    "request_text": "Ein Parameter fehlt in der Liste?",
-    "request_cta": "Aktuelle Testliste anfragen"
+    "request_text": "Chybí na seznamu nějaký parametr?",
+    "request_cta": "Vyžádat aktuální seznam testů"
   },
   "cta_bottom": {
     "title": "Rozšiřte možnosti",
     "description": "Pro lékárny a ordinace.",
     "button": "Rezervovat nyní",
-    "datasheet": "Datenblatt (PDF)",
+    "datasheet": "Datový list (PDF)",
     "chips": {
-      "free": "Kostenlos & unverbindlich",
-      "reply": "Antwort < 24 h",
-      "delivery": "Lieferung in 3–5 Werktagen"
+      "free": "Zdarma a nezávazně",
+      "reply": "Odpověď < 24 h",
+      "delivery": "Dodání do 3–5 pracovních dnů"
     }
   },
   "seo": {
@@ -122,13 +122,13 @@
     "description": "IglooPro POC reader dodá laboratorní hodnoty u křesla za 3–15 minut z kapilární krve: vitamin D, CRP, HbA1c, TSH aj. Imunofluorescence, CV < 2 %, 600 g přenosný."
   },
   "help": {
-    "title": "Nicht sicher, ob der IglooPro zu Ihrem Workflow passt?",
-    "text": "15 Minuten mit einem POC-Spezialisten — eine konkrete Empfehlung für Ihr Setup, keine Verkaufsshow.",
+    "title": "Nejste si jisti, zda IglooPro zapadne do vašeho pracovního postupu?",
+    "text": "15 minut se specialistou na POC — konkrétní doporučení pro vaše nastavení, žádná prodejní show.",
     "cta": "Rezervovat konzultaci"
   },
   "application": {
-    "eyebrow": "ANWENDUNGSBEREICHE",
-    "title": "Für Ihre Fachrichtung gebaut",
-    "subtitle": "Derselbe Reader, drei Geschäftsfälle — sehen Sie, was der IglooPro in Ihrem Bereich leistet."
+    "eyebrow": "OBLASTI POUŽITÍ",
+    "title": "Vytvořeno pro vaši odbornost",
+    "subtitle": "Stejný reader, tři obchodní scénáře — podívejte se, co IglooPro dokáže ve vaší oblasti."
   }
 }

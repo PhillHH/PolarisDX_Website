@@ -203,7 +203,13 @@
       "reviewsLabel": "Rezensionen"
     },
     "cta": "Jetzt selbst überzeugen",
-    "photo_placeholder": "Kundenbild"
+    "photo_placeholder": "Kundenbild",
+    "aria": {
+      "carousel": "Praxis-Stimmen",
+      "dots": "Bewertung auswählen",
+      "pause": "Automatischen Wechsel pausieren",
+      "play": "Automatischen Wechsel fortsetzen"
+    }
   },
   "blog": {
     "caption": "Blog & News",

@@ -1,6 +1,6 @@
 {
   "nav": {
-    "home": "Home",
+    "home": "Startseite",
     "about": "Über uns",
     "service": "Diagnostik",
     "casestudies": "Case Study",
@@ -31,7 +31,11 @@
     "Hygiene": "Hygiene",
     "Recovery": "Genesung",
     "Emergency": "Notfall",
-    "Service": "Service"
+    "Service": "Service",
+    "Sustainability": "Nachhaltigkeit",
+    "Telemedicine": "Telemedizin",
+    "Economics": "Wirtschaftlichkeit",
+    "Health Article": "Gesundheitsartikel"
   },
   "footer": {
     "description": "Ihr Partner für Point-of-Care Diagnostik. Laborpräzise Sofortdiagnostik für Dental, Beauty und Longevity.",
@@ -122,5 +126,14 @@
       "services": "Services",
       "contact": "Kontakt"
     }
+  },
+  "logo": {
+    "alt": "PolarisDX — POC-Diagnostik für Arztpraxen",
+    "igloo_alt": "IglooPro — Point-of-Care Diagnostiksystem"
+  },
+  "a11y": {
+    "search": "Suche öffnen",
+    "toggle_nav": "Navigation umschalten",
+    "honeypot": "Dieses Feld bitte leer lassen"
   }
 }

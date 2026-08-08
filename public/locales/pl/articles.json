@@ -466,50 +466,50 @@
     ]
   },
   "rapid_setup_formula": {
-    "excerpt": "Effizienz statt Einarbeitung: Der Weg zur schnellen Einsatzbereitschaft in der Praxis.",
-    "title": "Die Performance-Formel: Effizienz in der POC-Diagnostik",
+    "excerpt": "Efektywność zamiast długiego wdrażania: droga do szybkiej gotowości operacyjnej w gabinecie.",
+    "title": "Formuła wydajności: efektywność w diagnostyce POC",
     "sections": [
       {
-        "heading": "Einleitung",
+        "heading": "Wprowadzenie",
         "paragraphs": [
-          "Die Entscheidung für neue Point-of-Care (POC)-Diagnostikgeräte ist oft der erste Schritt zu einer besseren Patientenversorgung. Doch der Weg von der Anschaffung bis zur vollen Einsatzbereitschaft wird häufig unterschätzt. Langwierige Einarbeitung, administrative Hürden und komplexe IT-Integration fressen wertvolle Zeit und binden Personal, dessen Fokus eigentlich auf dem Patienten liegen sollte.",
-          "Dieser Engpass gehört der Vergangenheit an. Moderne Support-Konzepte revolutionieren die Inbetriebnahme und reduzieren den Aufwand für Praxen und Apotheken auf ein Minimum. Der Schlüssel ist der 'Remote-Setup'-Ansatz, der die sofortige Einsatzbereitschaft in kürzester Zeit garantiert."
+          "Decyzja o zakupie nowych urządzeń diagnostycznych Point-of-Care (POC) to często pierwszy krok do lepszej opieki nad pacjentem. Droga od zakupu do pełnej gotowości operacyjnej bywa jednak niedoceniana. Długotrwałe wdrażanie, bariery administracyjne i złożona integracja IT pochłaniają cenny czas i angażują personel, którego uwaga powinna koncentrować się na pacjencie.",
+          "To wąskie gardło należy już do przeszłości. Nowoczesne koncepcje wsparcia zmieniają proces uruchomienia i ograniczają nakład pracy gabinetów i aptek do minimum. Kluczem jest podejście „Remote Setup”, które gwarantuje natychmiastową gotowość operacyjną w bardzo krótkim czasie."
         ]
       },
       {
-        "heading": "1. Das Effizienzdilemma: Warum herkömmliche Integration scheitert",
+        "heading": "1. Dylemat efektywności: dlaczego tradycyjna integracja zawodzi",
         "paragraphs": [
-          "Traditionell erfordert die Integration eines neuen POC-Systems mehrere zeitintensive Schritte, die oft Wochen in Anspruch nehmen:"
+          "Tradycyjnie integracja nowego systemu POC wymaga kilku czasochłonnych kroków, które często trwają tygodniami:"
         ],
         "listItems": [
-          "Administrative und regulatorische Einarbeitung: Schulung des Personals in Bezug auf das Qualitätsmanagement (z. B. nach RiliBÄK oder Qualab) und interne Protokolle.",
-          "Technisches Setup und Kalibrierung: Manuelle Erstinbetriebnahme und chargenspezifische Kalibrierung des Geräts.",
-          "IT-Anbindung und Datenaustausch: Die komplexe bidirektionale Verbindung zwischen dem POC-Reader und dem Praxis- oder Apothekenverwaltungssystem (PVS/AVS)."
+          "Wdrożenie administracyjne i regulacyjne: szkolenie personelu w zakresie zarządzania jakością (np. zgodnie z RiliBÄK lub Qualab) oraz procedur wewnętrznych.",
+          "Konfiguracja techniczna i kalibracja: ręczne pierwsze uruchomienie i kalibracja urządzenia dla danej serii.",
+          "Podłączenie IT i wymiana danych: złożone dwukierunkowe połączenie między czytnikiem POC a systemem zarządzania gabinetem lub apteką (PVS/AVS)."
         ]
       },
       {
-        "heading": "2. Der Remote-Setup-Ansatz: IT-Experten im Hintergrund",
+        "heading": "2. Podejście Remote Setup: eksperci IT w tle",
         "paragraphs": [
-          "Der Remote-Setup-Ansatz basiert auf der digitalen Konnektivität der modernen POC-Reader. Anstatt einen Servicetechniker vor Ort zu benötigen, wird das Gerät aus der Ferne von spezialisierten Experten eingerichtet und validiert.",
-          "Kernprozesse, die Remote abgewickelt werden:"
+          "Podejście Remote Setup opiera się na cyfrowej łączności nowoczesnych czytników POC. Zamiast angażować technika serwisowego na miejscu, urządzenie jest konfigurowane i walidowane zdalnie przez wyspecjalizowanych ekspertów.",
+          "Kluczowe procesy realizowane zdalnie:"
         ],
         "listItems": [
-          "Vollständige Kalibrierung: Die technische Kalibrierung des Multi-Readers auf die verwendeten Lateral Flow Tests (LFTs) wird extern vorgenommen. Dies stellt sicher, dass die analytische Präzision von Anfang an gewährleistet ist – ohne dass das Praxispersonal komplexe technische Schritte durchführen muss.",
-          "Nahtlose IT-Integration: Die Anbindung an das Labor- oder Praxisinformationssystem (LIS/PIS) erfolgt über sichere, webbasierte Schnittstellen (z. B. POC-IT-Lösungen). Externe Berater stellen sicher, dass alle Messwerte automatisch, sicher und fehlerfrei in die Patientenakte übertragen werden.",
-          "Firmware-Updates und System-Checks: Software-Updates zur Gewährleistung der Kompatibilität und Einhaltung neuer Standards können permanent und ohne Unterbrechung des Praxisbetriebs aus der Ferne eingespielt werden."
+          "Pełna kalibracja: techniczna kalibracja czytnika wielofunkcyjnego pod kątem stosowanych testów Lateral Flow (LFT) odbywa się zewnętrznie. Zapewnia to precyzję analityczną od samego początku – bez konieczności wykonywania złożonych czynności technicznych przez personel gabinetu.",
+          "Płynna integracja IT: podłączenie do systemu informatycznego laboratorium lub gabinetu (LIS/PIS) odbywa się przez bezpieczne interfejsy webowe (np. rozwiązania POC-IT). Zewnętrzni konsultanci dbają o to, aby wszystkie wyniki pomiarów były przenoszone do dokumentacji pacjenta automatycznie, bezpiecznie i bezbłędnie.",
+          "Aktualizacje firmware i kontrole systemu: aktualizacje oprogramowania zapewniające kompatybilność i zgodność z nowymi standardami mogą być wgrywane zdalnie na bieżąco, bez przerywania pracy gabinetu."
         ]
       },
       {
-        "heading": "3. Die Performance-Formel: Der Wettbewerbsvorteil",
+        "heading": "3. Formuła wydajności: przewaga konkurencyjna",
         "paragraphs": [
-          "Durch die Auslagerung der technischen und administrativen Komplexität an spezialisierte Remote-Services können Praxen und Apotheken den Zeitaufwand von Wochen auf minimal reduzieren.",
-          "Effizienzgewinn und Patientenzufriedenheit: Die sofortige Einsatzbereitschaft der POC-Diagnostikgeräte ermöglicht es dem Personal, sich unmittelbar auf die Patientenversorgung zu konzentrieren. Zeitersparnis bei der Diagnosestellung, schnellere Therapieentscheidungen und der Entfall eines zweiten Termins führen zu einer signifikant höheren Patientenzufriedenheit. Die optimierten Workflows verbessern die wirtschaftliche Effizienz der gesamten Einrichtung."
+          "Dzięki przeniesieniu złożoności technicznej i administracyjnej na wyspecjalizowane usługi zdalne gabinety i apteki mogą ograniczyć nakład czasu z tygodni do minimum.",
+          "Wzrost efektywności i zadowolenie pacjentów: natychmiastowa gotowość urządzeń diagnostycznych POC pozwala personelowi skupić się bezpośrednio na opiece nad pacjentem. Oszczędność czasu przy stawianiu diagnozy, szybsze decyzje terapeutyczne i brak konieczności drugiej wizyty prowadzą do istotnie wyższego zadowolenia pacjentów. Zoptymalizowane przepływy pracy poprawiają efektywność ekonomiczną całej placówki."
         ]
       },
       {
-        "heading": "Fazit: Investition in Zeit und Sicherheit",
+        "heading": "Podsumowanie: inwestycja w czas i bezpieczeństwo",
         "paragraphs": [
-          "Moderne Point-of-Care-Diagnostik ist mehr als nur ein Gerät: Sie ist ein digital integriertes System. Wer auf Remote-Setup setzt, investiert nicht nur in präzisere und schnellere Diagnostik, sondern vor allem in die wertvolle Zeit seines Personals. Die Performance-Formel ist somit das Synonym für minimalen Integrationsstress und maximale Einsatzbereitschaft in der modernen Gesundheitsversorgung."
+          "Nowoczesna diagnostyka Point-of-Care to więcej niż samo urządzenie: to cyfrowo zintegrowany system. Kto stawia na Remote Setup, inwestuje nie tylko w dokładniejszą i szybszą diagnostykę, lecz przede wszystkim w cenny czas swojego personelu. Formuła wydajności jest zatem synonimem minimalnego obciążenia integracyjnego i maksymalnej gotowości operacyjnej w nowoczesnej opiece zdrowotnej."
         ]
       }
     ]
@@ -526,6 +526,7 @@
     "longread": "Long-read",
     "cta_title": "Oblicz swój potencjał oszczędności.",
     "cta_subtitle": "Kalkulator ROI lub konsultacja — w niecałą minutę.",
-    "cta_secondary": "Kalkulator ROI"
+    "cta_secondary": "Kalkulator ROI",
+    "read_time": "{{minutes}} min czytania"
   }
 }

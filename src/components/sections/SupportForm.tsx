@@ -6,7 +6,7 @@ import { Alert } from '../ui/Alert'
 import { useSupportForm } from '../../hooks/useSupportForm'
 
 export const SupportForm = () => {
-  const { t } = useTranslation('support')
+  const { t } = useTranslation(['support', 'common'])
   const { isSubmitting, submitStatus, submit } = useSupportForm()
   const [fileName, setFileName] = useState<string>('')
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -40,7 +40,9 @@ export const SupportForm = () => {
           overflow: 'hidden',
         }}
       >
-        <label htmlFor="support-hp">Leave this field blank</label>
+        <label htmlFor="support-hp">
+          {t('common:a11y.honeypot', 'Dieses Feld bitte leer lassen')}
+        </label>
         <input id="support-hp" name="_hp" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 

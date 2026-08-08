@@ -31,7 +31,11 @@
     "Hygiene": "Hygiène",
     "Recovery": "Récupération",
     "Emergency": "Urgence",
-    "Service": "Service"
+    "Service": "Service",
+    "Sustainability": "Durabilité",
+    "Telemedicine": "Télémédecine",
+    "Economics": "Rentabilité",
+    "Health Article": "Article santé"
   },
   "footer": {
     "description": "Soins et soutien complets. Services de santé modernes pour vous et votre famille, 24 heures sur 24.",
@@ -122,5 +126,14 @@
       "services": "Services",
       "contact": "Contact"
     }
+  },
+  "logo": {
+    "alt": "PolarisDX — diagnostic Point-of-Care pour cabinets médicaux",
+    "igloo_alt": "IglooPro — système de diagnostic Point-of-Care"
+  },
+  "a11y": {
+    "search": "Ouvrir la recherche",
+    "toggle_nav": "Basculer la navigation",
+    "honeypot": "Veuillez laisser ce champ vide"
   }
 }

@@ -1,6 +1,6 @@
 {
   "nav": {
-    "home": "Home",
+    "home": "Strona główna",
     "about": "O nas",
     "service": "Diagnostyka",
     "shop": "Sklep",
@@ -31,7 +31,11 @@
     "Hygiene": "Higiena",
     "Recovery": "Regeneracja",
     "Emergency": "Nagły wypadek",
-    "Service": "Usługa"
+    "Service": "Usługa",
+    "Sustainability": "Zrównoważony rozwój",
+    "Telemedicine": "Telemedycyna",
+    "Economics": "Efektywność ekonomiczna",
+    "Health Article": "Artykuł o zdrowiu"
   },
   "footer": {
     "description": "Kompleksowa opieka i wsparcie. Nowoczesne usługi zdrowotne dla Ciebie i Twojej rodziny, przez całą dobę.",
@@ -92,7 +96,7 @@
   },
   "search": {
     "keywords": {
-      "home": "home startseite igloo widget diagnostic",
+      "home": "home strona główna igloo widget diagnostyka",
       "about": "team doctors polarisdx about us",
       "services": "services leistungen dental beauty longevity diagnostics",
       "contact": "contact kontakt email phone address",
@@ -122,5 +126,14 @@
       "services": "Usługi",
       "contact": "Kontakt"
     }
+  },
+  "logo": {
+    "alt": "PolarisDX — diagnostyka POC dla gabinetów lekarskich",
+    "igloo_alt": "IglooPro — system diagnostyczny Point-of-Care"
+  },
+  "a11y": {
+    "search": "Otwórz wyszukiwanie",
+    "toggle_nav": "Przełącz nawigację",
+    "honeypot": "Prosimy pozostawić to pole puste"
   }
 }

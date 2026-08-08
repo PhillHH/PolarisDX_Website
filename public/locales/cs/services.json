@@ -324,6 +324,9 @@
           "answer": "Ano. Preventivní screeningy biomarkerů, které přesahují katalog výkonů zákonného zdravotního pojištění, jsou jako individuální zdravotní služby (IGeL) soukromě účtovatelné podle GOÄ. Kombinace okamžité analytiky a kvalifikovaného poradenství tvoří ekonomicky atraktivní nabídku pro samoplátce, která současně posiluje vazbu s pacientem."
         }
       ]
+    },
+    "seo": {
+      "description": "Preventivní kontroly v Point-of-Care: okamžité stanovení klíčových biomarkerů a poradenství založené na datech – v ordinaci, lékárně i na klinice. Zjistěte více."
     }
   },
   "infektion_entzuendung": {
@@ -386,6 +389,9 @@
           "answer": "IglooPro podporuje stanovení CRP (C-reaktivní protein) jako centrálního markeru akutní fáze, PCT (prokalcitonin) pro diferenciaci bakteriálních infekcí a ferritinu, který je kromě stavu železa relevantní i jako zánětlivý marker u chronických a akutních procesů. Díky otevřené platformě lze integrovat další Lateral-Flow testy pro IL-6 a další parametry."
         }
       ]
+    },
+    "seo": {
+      "description": "Stanovení zánětlivých markerů a známek infekce přímo na místě: rychlejší triáž, odpovědné řízení antibiotické léčby. Vyžádejte si konzultaci."
     }
   },
   "stoffwechsel_herz": {
@@ -448,6 +454,9 @@
           "answer": "Ano. Screeningy HbA1c, cholesterolu a dalších metabolických parametrů jsou typické individuální zdravotní služby (IGeL), které se soukromě účtují podle GOÄ. Kombinace okamžitého měření a kvalifikovaného poradenství přináší měřitelnou přidanou hodnotu pro pacienty a generuje plánovatelný dodatečný příjem pro vaši ordinaci."
         }
       ]
+    },
+    "seo": {
+      "description": "Měření metabolických a kardiálních markerů během několika minut: monitorování diabetu a úprava terapie přímo v ordinaci. Nechte si poradit."
     }
   },
   "hormon_tests": {
@@ -510,6 +519,9 @@
           "answer": "Diagnostika hormonů u pacienta je stejně relevantní pro praktické lékařství, gynekologii, endokrinologii, dermatologii a centra asistované reprodukce. Všude tam, kde je třeba rychle objasnit funkci štítné žlázy, stav fertility nebo hormonální dysbalanci, nabízí POC měření okamžitou časovou výhodu oproti odesílání do externích laboratoří."
         }
       ]
+    },
+    "seo": {
+      "description": "Hormonální diagnostika v Point-of-Care: stanovení klíčových hormonů přímo u pacienta – od štítné žlázy po fertilitu. Domluvte si konzultaci."
     }
   },
   "kompatibilitaet_integration": {
@@ -571,6 +583,9 @@
           "answer": "Ano. Ve větších ordinacích, strukturách MVZ nebo klinikách lze více přístrojů IglooPro provozovat přes společnou síť a centrálně spravovat. Všechny výsledky měření plynou do jednotného systému, což zjednodušuje zajištění kvality a umožňuje přehled o POC diagnostice napříč pracovišti."
         }
       ]
+    },
+    "seo": {
+      "description": "Otevřená platforma POC nezávislá na výrobci: Igloo Pro zajišťuje flexibilitu, technologickou nezávislost a jistotu investice. Zjistěte více."
     }
   },
   "seo": {
@@ -579,11 +594,11 @@
   },
   "overview": {
     "hero": {
-      "title": "Diagnostik",
-      "subtitle": "Laborgenaue Panels für jeden Praxistyp – validiert, IVDR-konform und ab Tag 1 einsatzbereit. Wählen Sie Ihre Fachrichtung oder erkunden Sie die Diagnostikbereiche unten.",
+      "title": "Diagnostika",
+      "subtitle": "Laboratorně přesné panely pro každý typ ordinace – validované, v souladu s IVDR a připravené k použití od prvního dne. Vyberte svou odbornost nebo prozkoumejte diagnostické oblasti níže.",
       "chip_cv": "CV < 2 %",
-      "chip_results": "Ergebnis in 3 Min.",
-      "chip_lfa": "90 % LFA-Kompatibilität",
+      "chip_results": "Výsledek za 3 min.",
+      "chip_lfa": "90 % kompatibilita s LFA",
       "visual": {
         "gauge": "36°",
         "vitd_name": "Vitamin D",
@@ -595,13 +610,13 @@
       }
     },
     "specialty": {
-      "eyebrow": "IHRE FACHRICHTUNG",
-      "title": "Diagnostik für Ihren Praxistyp",
-      "subtitle": "Starten Sie da, wo Sie verdienen – die passenden Biomarker-Panels und Anwendungen für Ihre Fachrichtung.",
+      "eyebrow": "VAŠE ODBORNOST",
+      "title": "Diagnostika pro váš typ ordinace",
+      "subtitle": "Začněte tam, kde vyděláváte – vhodné panely biomarkerů a aplikace pro vaši odbornost.",
       "dental": {
-        "title": "Zahnarztpraxis",
-        "desc": "Vitamin D & Entzündung direkt am Stuhl – Implantaterfolg sichern und die Behandlungsplanung absichern.",
-        "cta": "Dental-Diagnostik ansehen",
+        "title": "Zubní ordinace",
+        "desc": "Vitamin D a zánět přímo u křesla – zajistěte úspěšnost implantace a podložte plánování léčby.",
+        "cta": "Zobrazit dentální diagnostiku",
         "tags": [
           "Vitamin D",
           "CRP",
@@ -609,38 +624,38 @@
         ]
       },
       "beauty": {
-        "title": "Ästhetik & Beauty",
-        "desc": "Hormone, Mikronährstoffe und Hautgesundheit – sichtbare Ergebnisse mit Zahlen belegen.",
-        "cta": "Beauty-Diagnostik ansehen",
+        "title": "Estetika a beauty",
+        "desc": "Hormony, mikroživiny a zdraví pokožky – viditelné výsledky podložené čísly.",
+        "cta": "Zobrazit beauty diagnostiku",
         "tags": [
-          "Hormone",
-          "Mikronährstoffe",
-          "Hautgesundheit"
+          "Hormony",
+          "Mikroživiny",
+          "Zdraví pokožky"
         ]
       },
       "longevity": {
-        "title": "Longevity & Prävention",
-        "desc": "HbA1c, Lipide und Entzündungsmarker – proaktives Alternsmanagement, das Ihre Klienten zahlen.",
-        "cta": "Longevity-Diagnostik ansehen",
+        "title": "Longevity a prevence",
+        "desc": "HbA1c, lipidy a zánětlivé markery – proaktivní management stárnutí, za který vaši klienti platí.",
+        "cta": "Zobrazit longevity diagnostiku",
         "tags": [
           "HbA1c",
-          "Lipide",
+          "Lipidy",
           "D-Dimer"
         ]
       }
     },
     "focus": {
-      "subtitle": "Sechs Diagnostikbereiche, eine Plattform – jedes Panel läuft chairside auf dem IglooPro.",
+      "subtitle": "Šest diagnostických oblastí, jedna platforma – každý panel běží chairside na IglooPro.",
       "poc": {
-        "cta": "POC-Systeme erkunden",
+        "cta": "Prozkoumat POC systémy",
         "tags": [
           "IglooPro",
-          "Mobil",
+          "Mobilní",
           "LIMS/HIS"
         ]
       },
       "checks": {
-        "cta": "Gesundheits-Checks erkunden",
+        "cta": "Prozkoumat zdravotní kontroly",
         "tags": [
           "Vitamin D",
           "CRP",
@@ -648,7 +663,7 @@
         ]
       },
       "infection": {
-        "cta": "Entzündungsmarker erkunden",
+        "cta": "Prozkoumat zánětlivé markery",
         "tags": [
           "CRP",
           "PCT",
@@ -656,25 +671,25 @@
         ]
       },
       "metabolism": {
-        "cta": "Stoffwechsel-Panels erkunden",
+        "cta": "Prozkoumat metabolické panely",
         "tags": [
           "HbA1c",
-          "Cholesterin",
+          "Cholesterol",
           "D-Dimer"
         ]
       },
       "hormone": {
-        "cta": "Hormon-Tests erkunden",
+        "cta": "Prozkoumat hormonální testy",
         "tags": [
           "TSH",
           "AMH"
         ]
       },
       "compat": {
-        "cta": "Kompatibilität ansehen",
+        "cta": "Zobrazit kompatibilitu",
         "tags": [
           "90 % LFA",
-          "Offene Plattform"
+          "Otevřená platforma"
         ]
       }
     },
@@ -684,10 +699,22 @@
       "sections_eyebrow": "Podrobně",
       "conclusion_eyebrow": "Závěr",
       "stats": [
-        { "value": "< 2 %", "label": "Variační koeficient (CV)" },
-        { "value": "3–15 min", "label": "do výsledku" },
-        { "value": "10+", "label": "biomarkerů z jednoho přístroje" },
-        { "value": "IVDR/CE", "label": "certifikováno a v souladu" }
+        {
+          "value": "< 2 %",
+          "label": "Variační koeficient (CV)"
+        },
+        {
+          "value": "3–15 min",
+          "label": "do výsledku"
+        },
+        {
+          "value": "10+",
+          "label": "biomarkerů z jednoho přístroje"
+        },
+        {
+          "value": "IVDR/CE",
+          "label": "certifikováno a v souladu"
+        }
       ]
     }
   }

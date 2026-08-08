@@ -264,6 +264,9 @@
     }
   },
   "praeventions_checks": {
+    "seo": {
+      "description": "Präventive Checks am Point-of-Care: wichtige Biomarker sofort bestimmen und datenbasiert beraten – in Praxis, Apotheke und Klinik. Jetzt informieren."
+    },
     "title": "Präventive Gesundheits-Checks: Vorsorge neu gedacht",
     "headline": "Schnelle Diagnostik als Fundament moderner Prävention",
     "intro": [
@@ -327,6 +330,9 @@
     }
   },
   "infektion_entzuendung": {
+    "seo": {
+      "description": "Entzündungsmarker und Infektionsanzeichen vor Ort bestimmen: schnellere Triage, verantwortungsvolles Antibiotika-Management. Jetzt Beratung anfragen."
+    },
     "title": "Infektion & Entzündungsmarker: Schnelle Antworten in kritischen Fällen",
     "headline": "Triage in Minuten: Wie der Igloo Pro die Entscheidungsfindung beschleunigt",
     "intro": [
@@ -389,6 +395,9 @@
     }
   },
   "stoffwechsel_herz": {
+    "seo": {
+      "description": "Stoffwechsel- und kardiale Marker in wenigen Minuten messen: Diabetes-Monitoring und Therapieanpassung direkt in der Praxis. Jetzt beraten lassen."
+    },
     "title": "Stoffwechsel & Herzgesundheit: Chronische Überwachung auf Knopfdruck",
     "headline": "Wichtige Indikatoren im Blick: Präzise Messung für die Therapieanpassung",
     "intro": [
@@ -451,6 +460,9 @@
     }
   },
   "hormon_tests": {
+    "seo": {
+      "description": "Hormondiagnostik am Point-of-Care: kritische Hormone direkt am Patienten bestimmen – von Schilddrüse bis Fertilität. Jetzt Beratung vereinbaren."
+    },
     "title": "Hormon- & Endokrinologie-Tests: Spezialdiagnostik leicht gemacht",
     "headline": "Präzision in der Endokrinologie: Schnelle Gewissheit für komplexe Diagnosen",
     "intro": [
@@ -513,6 +525,9 @@
     }
   },
   "kompatibilitaet_integration": {
+    "seo": {
+      "description": "Offene, herstellerübergreifende POC-Plattform: Igloo Pro sichert Flexibilität, technologische Unabhängigkeit und Investitionssicherheit. Jetzt informieren."
+    },
     "title": "Herstellerübergreifende Kompatibilität: Investitionssicherheit durch Offenheit",
     "headline": "Maximale Flexibilität: Wie Ihr Igloo Pro 90% aller Tests auf dem Markt auswertet",
     "intro": [

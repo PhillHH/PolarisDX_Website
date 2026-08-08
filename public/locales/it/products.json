@@ -5,31 +5,31 @@
     "description": "Il vostro centro di controllo per diagnostica rapida.",
     "cta_order": "Ordina ora",
     "cta_datasheet": "Scheda tecnica (PDF)",
-    "subline": "Kostenlos & unverbindlich · Antwort in 24 h",
+    "subline": "Gratuito e senza impegno · Risposta entro 24 h",
     "chip_ivdr": "IVDR/CE",
-    "chip_lis": "LIS/HIS-ready",
-    "chip_cross": "Herstellerübergreifend",
+    "chip_lis": "Pronto per LIS/HIS",
+    "chip_cross": "Multi-produttore",
     "visual": {
       "gauge": "36°",
       "portable_val": "600 g",
-      "portable_label": "portabel",
+      "portable_label": "portatile",
       "cv_val": "CV < 2 %",
-      "cv_label": "Inter-Reader",
-      "time_val": "3–15 Min.",
-      "time_label": "pro Test"
+      "cv_label": "inter-reader",
+      "time_val": "3–15 min",
+      "time_label": "per test"
     }
   },
   "intro": {
     "title": "Il laboratorio mobile per il vostro studio",
     "text1": "Igloo Pro è un analizzatore portatile.",
     "text2": "Valuta circa il 90% dei test a flusso laterale.",
-    "eyebrow": "WARUM DER IGLOOPRO",
-    "subtitle": "Ob in der Praxis, Klinik oder mobil — der IglooPro ist auf schnelle, verlässliche Entscheidungen am Behandlungsort ausgelegt."
+    "eyebrow": "PERCHÉ L'IGLOOPRO",
+    "subtitle": "In studio, in clinica o in mobilità: l'IglooPro è progettato per decisioni rapide e affidabili sul luogo di cura."
   },
   "features": {
     "methods": {
       "title": "Metodi versatili",
-      "description": "Colorimetria, immunofluorescenza..."
+      "description": "Supporta diversi metodi di test per la massima flessibilità."
     },
     "battery": {
       "title": "Autonomia 24h",
@@ -47,9 +47,9 @@
   "specs": {
     "title": "Dati Tecnici",
     "methods": "Metodi",
-    "methods_value": "Colorimetria, Immunofluorescenza...",
+    "methods_value": "Immunofluorescenza",
     "samples": "Campioni",
-    "samples_value": "Siero / Plasma / Sangue Intero...",
+    "samples_value": "Sangue intero, siero, plasma, sangue capillare",
     "weight": "Peso",
     "weight_value": "ca. 400g",
     "dimensions": "Dimensioni",
@@ -64,19 +64,19 @@
     "battery_value": "Batteria al Litio",
     "communication": "Comunicazione",
     "communication_value": "USB-C, WiFi, Bluetooth",
-    "eyebrow": "TECHNISCHE DATEN",
-    "headline": "Die Specs, die zählen",
-    "subtitle": "Alles, was Ihr IT- und QM-Team fragt — auf einen Blick.",
-    "manufacturer_note": "Hergestellt von DX365 GmbH, Berlin · Europäischer Vertrieb: PolarisDX",
+    "eyebrow": "DATI TECNICI",
+    "headline": "Le specifiche che contano",
+    "subtitle": "Tutto ciò che il tuo team IT e qualità chiederà, a colpo d'occhio.",
+    "manufacturer_note": "Prodotto da DX365 GmbH, Berlin · Distribuzione europea: PolarisDX",
     "highlights": {
       "label": "Highlights",
       "cv_value": "CV < 2 %",
-      "cv_label": "Inter-Reader-Präzision, dokumentiert",
+      "cv_label": "Precisione inter-reader, documentata",
       "records_value": "10.000",
-      "records_label": "Patientendatensätze auf dem Gerät",
-      "time_value": "3–15 Min.",
-      "time_label": "von der Probe zum Ergebnis",
-      "datasheet": "Datenblatt (PDF)"
+      "records_label": "record paziente sul dispositivo",
+      "time_value": "3–15 min",
+      "time_label": "dal campione al risultato",
+      "datasheet": "Scheda tecnica (PDF)"
     }
   },
   "parameters": {
@@ -95,26 +95,26 @@
       "rsv": "RSV",
       "strep": "Streptococco A"
     },
-    "eyebrow": "VERFÜGBARE PARAMETER",
-    "headline": "Ein Reader, ein wachsendes Testmenü",
-    "subtitle": "Das Portfolio wächst ständig — hier gruppiert nach dem, was Ihre Praxis wirklich bucht.",
+    "eyebrow": "PARAMETRI DISPONIBILI",
+    "headline": "Un reader, un menu di test in crescita",
+    "subtitle": "Il portfolio cresce costantemente: qui è raggruppato in base a ciò che il tuo studio richiede realmente.",
     "groups": {
-      "prevention": "Prävention & Stoffwechsel",
-      "hormones": "Hormone",
-      "infection": "Infektion"
+      "prevention": "Prevenzione e metabolismo",
+      "hormones": "Ormoni",
+      "infection": "Infezione"
     },
-    "request_text": "Ein Parameter fehlt in der Liste?",
-    "request_cta": "Aktuelle Testliste anfragen"
+    "request_text": "Manca un parametro nell'elenco?",
+    "request_cta": "Richiedi l'elenco test aggiornato"
   },
   "cta_bottom": {
     "title": "Espandete le vostre possibilità diagnostiche",
     "description": "Perfetto per farmacie e studi.",
     "button": "Prenota ora",
-    "datasheet": "Datenblatt (PDF)",
+    "datasheet": "Scheda tecnica (PDF)",
     "chips": {
-      "free": "Kostenlos & unverbindlich",
-      "reply": "Antwort < 24 h",
-      "delivery": "Lieferung in 3–5 Werktagen"
+      "free": "Gratuito e senza impegno",
+      "reply": "Risposta < 24 h",
+      "delivery": "Consegna in 3–5 giorni lavorativi"
     }
   },
   "seo": {
@@ -122,13 +122,13 @@
     "description": "L'IglooPro POC reader fornisce valori di laboratorio chairside in 3-15 min da sangue capillare: vitamina D, PCR, HbA1c, TSH e altro. Immunofluorescenza, CV < 2%, 600 g."
   },
   "help": {
-    "title": "Nicht sicher, ob der IglooPro zu Ihrem Workflow passt?",
-    "text": "15 Minuten mit einem POC-Spezialisten — eine konkrete Empfehlung für Ihr Setup, keine Verkaufsshow.",
+    "title": "Non sai se l'IglooPro è adatto al tuo flusso di lavoro?",
+    "text": "15 minuti con uno specialista POC: una raccomandazione concreta per il tuo setup, non una vendita.",
     "cta": "Prenota una consulenza"
   },
   "application": {
-    "eyebrow": "ANWENDUNGSBEREICHE",
-    "title": "Für Ihre Fachrichtung gebaut",
-    "subtitle": "Derselbe Reader, drei Geschäftsfälle — sehen Sie, was der IglooPro in Ihrem Bereich leistet."
+    "eyebrow": "AMBITI DI APPLICAZIONE",
+    "title": "Costruito per la tua specialità",
+    "subtitle": "Lo stesso reader, tre casi d'uso: scopri cosa offre l'IglooPro nel tuo ambito."
   }
 }

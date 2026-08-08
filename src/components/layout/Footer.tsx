@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
-import logo from '../../assets/polarisdx_logo.webp'
+// Weisse Variante wie im Header: der Footer ist immer dunkelblau, die dunkle
+// Logo-Datei kam dort nur auf 1,53:1 Kontrast — "POLARIS" war unlesbar.
+import logo from '../../assets/polaris_white.webp'
 import { Linkedin, Instagram } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
@@ -14,13 +16,7 @@ const Footer = () => {
           <div className="flex flex-col gap-8 lg:flex-row lg:justify-between">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <img
-                  src={logo}
-                  alt="PolarisDX — POC-Diagnostik für Arztpraxen"
-                  width={136}
-                  height={40}
-                  className="h-10 w-auto sm:h-12"
-                />
+                <img src={logo} alt="" width={136} height={40} className="h-10 w-auto sm:h-12" />
               </div>
               <p className="max-w-sm text-sm text-white/70">
                 {t(

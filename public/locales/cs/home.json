@@ -62,18 +62,18 @@
     "stats": {
       "margin": {
         "value": "Ø 980 €",
-        "label": "Zusätzlicher Deckungsbeitrag / Monat"
+        "label": "Dodatečný příspěvek na úhradu / měsíc"
       },
       "time": {
         "value": "3 Min.",
-        "label": "Ergebnisse verfügbar"
+        "label": "Výsledky k dispozici"
       },
       "ready": {
         "value": "Tag 1",
-        "label": "Validiert & einsatzbereit"
+        "label": "Validováno a připraveno k použití"
       }
     },
-    "stats_disclaimer": "* Beispielwert – abhängig von Ihren Praxiswerten."
+    "stats_disclaimer": "* Příkladová hodnota – závisí na hodnotách vaší ordinace."
   },
   "about": {
     "caption": "VÁŠ GARANT VÝKONU",
@@ -109,8 +109,8 @@
     "all_services": "Objevit všechny diagnostické služby",
     "subtitle": "Zvolte svou oblast – ukážeme vám odpovídající panely biomarkerů a aplikace pro vaši specializaci.",
     "eyebrow": "Váš obor",
-    "help_title": "Nicht sicher, welches Panel zu Ihrer Praxis passt?",
-    "help_text": "15 Minuten mit einem POC-Spezialisten – eine konkrete Empfehlung für Ihre Fachrichtung, keine Verkaufsshow.",
+    "help_title": "Nejste si jisti, který panel se hodí pro vaši ordinaci?",
+    "help_text": "15 minut se specialistou na POC – konkrétní doporučení pro vaši odbornost, žádná prodejní show.",
     "help_cta": "Rezervovat konzultaci"
   },
   "services": {
@@ -166,28 +166,28 @@
       "practice": "Chelsea Dental Clinic"
     },
     "kristian_grimm": {
-      "role": "Zahnarzt",
+      "role": "Zubní lékař",
       "title": "32reasons Zahnteam / Hamburg",
       "focus": "Prevence, Vitamin D, HbA1c, systémové zdraví",
       "text": "32reasons & Polaris DX – stomatologie v novém pojetí. Chairside čtečka nám umožňuje stanovit biomarkery jako Vitamin D a HbA1c přímo na místě. To propojuje stomatologii bezprostředně se systémovým zdravím pro rychlá, na důkazech založená terapeutická rozhodnutí.",
       "practice": "32reasons Zahnteam, Hamburg"
     },
     "martin_fischer": {
-      "role": "Facharzt für Innere Medizin",
+      "role": "Specialista vnitřního lékařství",
       "title": "Specialista na vnitřní lékařství / Interní ordinace Dr. Fischer",
       "focus": "Okamžitá diagnostika u akutních pacientů (efektivita, rozhodnutí o terapii)",
       "text": "Možnost okamžitě stanovit zánětlivé markery jako CRP přímo v ordinaci způsobila revoluci v našem léčebném postupu. U pacientů s nejasnými infekcemi se dokážeme rychleji rozhodnout, zda je nutná antibiotická léčba, a předcházíme zbytečným doporučením k dalším specialistům. To nám šetří čas a výrazně zvyšuje spokojenost pacientů.",
       "practice": "Internistische Praxis Dr. Fischer"
     },
     "bastian_wessing": {
-      "role": "Ärztlicher Leiter",
+      "role": "Lékařský ředitel",
       "title": "MVZ Zahnkultur Berlin Brandenburg GmbH",
       "focus": "Okamžitá diagnostika pro parodontologii a implantologii (Vitamin D, HbA1c, cholesterol, CRP)",
       "text": "Igloo Multireader umožňuje měřit zánětlivé markery, HbA1c, cholesterol a vitamin D přímo u křesla. Parodontologické a implantační zákroky tak plánujeme bezpečněji a začínáme rychleji. Školení a podpora od PolarisDX jsou nekomplikované – přístroj se stal pevnou součástí našeho každodenního provozu.",
       "practice": "MVZ Zahnkultur Berlin Brandenburg"
     },
     "goran_stojanovic": {
-      "role": "Biologischer Zahnarzt, Inhaber",
+      "role": "Biologický zubní lékař, majitel",
       "title": "Biologický zubní lékař / vedoucí zubní lékař a majitel",
       "focus": "Okamžitá diagnostika pro plánování implantátů (Vitamin D, CRP)",
       "text": "Jako biologický zubní lékař jsem hluboce přesvědčen, že celostní zdraví vždy začíná i u zubů. Igloo Pro mi umožňuje činit rychlá a přesná diagnostická rozhodnutí – přesně tam, kde jsou potřeba: u zubařského křesla. Díky okamžité analýze vitaminu D a CRP dokážu optimálně naplánovat zavedení implantátů a často je výrazně urychlit. Moji pacienti tak dostávají bezpečnější a efektivnější léčbu.",
@@ -203,7 +203,13 @@
       "reviewsLabel": "Recenze"
     },
     "cta": "Přesvědčte se sami",
-    "photo_placeholder": "Fotografie zákazníka"
+    "photo_placeholder": "Fotografie zákazníka",
+    "aria": {
+      "carousel": "Hlasy z praxí",
+      "dots": "Vybrat hodnocení",
+      "pause": "Pozastavit automatické přepínání",
+      "play": "Obnovit automatické přepínání"
+    }
   },
   "blog": {
     "caption": "Blog a novinky",
@@ -275,9 +281,9 @@
       "title": "Nový příjem od samoplátců",
       "text": "POC otevírá ve vaší ordinaci nové služby pro samoplátce, místo abyste příjmy přenechávali externí laboratoři."
     },
-    "card_cta": "Mehr erfahren",
-    "video_label": "ANWENDUNGSVIDEO",
-    "video_caption": "So läuft der Test in Ihrer Praxis – in 3 Minuten"
+    "card_cta": "Zjistit více",
+    "video_label": "INSTRUKTÁŽNÍ VIDEO",
+    "video_caption": "Takto probíhá test ve vaší ordinaci – za 3 minuty"
   },
   "final_cta": {
     "caption": "Připraveni začít",
@@ -286,9 +292,9 @@
     "cta_primary": "Rezervovat konzultaci",
     "cta_secondary": "ROI kalkulačka",
     "chips": {
-      "free": "Kostenlos & unverbindlich",
-      "reply": "Antwort < 24 h",
-      "delivery": "Lieferung in 3–5 Werktagen"
+      "free": "Zdarma a nezávazně",
+      "reply": "Odpověď < 24 h",
+      "delivery": "Dodání do 3–5 pracovních dnů"
     }
   },
   "roi": {
@@ -354,24 +360,24 @@
     }
   },
   "steps": {
-    "caption": "SO EINFACH STARTEN SIE",
-    "title": "Validierte POC-Diagnostik in 3 Schritten",
-    "intro": "Vom ersten Gespräch bis zur laborgenauen Diagnostik am Behandlungsstuhl – ohne Konfigurationsaufwand.",
+    "caption": "TAK JEDNODUŠE ZAČNETE",
+    "title": "Validovaná POC diagnostika ve 3 krocích",
+    "intro": "Od první konzultace až po laboratorně přesnou diagnostiku přímo u křesla – bez nutnosti konfigurace.",
     "step1": {
-      "title": "Beratung & Panel-Empfehlung",
-      "text": "Wir analysieren Ihren Workflow und empfehlen die passenden Biomarker-Panels für Ihre Fachrichtung.",
-      "badge": "inkl. Beratung"
+      "title": "Konzultace a doporučení panelu",
+      "text": "Analyzujeme váš pracovní postup a doporučíme vhodné panely biomarkerů pro vaši odbornost.",
+      "badge": "včetně konzultace"
     },
     "step2": {
-      "title": "Performance-Setup",
-      "text": "Lieferung in 3–5 Werktagen inkl. validierter Inbetriebnahme und einfacher Assay-Profile.",
-      "badge": "vor Ort"
+      "title": "Nastavení Performance",
+      "text": "Dodání do 3–5 pracovních dnů včetně validovaného uvedení do provozu a jednoduchých profilů testů.",
+      "badge": "na místě"
     },
     "step3": {
-      "title": "Erste Ergebnisse",
-      "text": "Ihr Team ist geschult, der erste Patient wird gemessen – laborgenau, dokumentiert, IVDR/CE-konform.",
-      "badge": "Tag 1"
+      "title": "První výsledky",
+      "text": "Váš tým je proškolen, první pacient je změřen – laboratorně přesně, zdokumentováno, v souladu s IVDR/CE.",
+      "badge": "Den 1"
     },
-    "cta": "Beratung buchen"
+    "cta": "Rezervovat konzultaci"
   }
 }

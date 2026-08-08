@@ -62,18 +62,18 @@
     "stats": {
       "margin": {
         "value": "Ø 980 €",
-        "label": "Zusätzlicher Deckungsbeitrag / Monat"
+        "label": "Margen de contribución adicional / mes"
       },
       "time": {
-        "value": "3 Min.",
-        "label": "Ergebnisse verfügbar"
+        "value": "3 min",
+        "label": "Resultados disponibles"
       },
       "ready": {
-        "value": "Tag 1",
-        "label": "Validiert & einsatzbereit"
+        "value": "Día 1",
+        "label": "Validado y listo para usar"
       }
     },
-    "stats_disclaimer": "* Beispielwert – abhängig von Ihren Praxiswerten."
+    "stats_disclaimer": "* Valor de ejemplo: depende de las cifras de su consulta."
   },
   "about": {
     "caption": "SU GARANTÍA DE RENDIMIENTO",
@@ -109,8 +109,8 @@
     "all_services": "Descubrir todos los servicios de diagnóstico",
     "subtitle": "Elija su área: le mostramos los paneles de biomarcadores y las aplicaciones adecuados para su especialidad.",
     "eyebrow": "Su especialidad",
-    "help_title": "Nicht sicher, welches Panel zu Ihrer Praxis passt?",
-    "help_text": "15 Minuten mit einem POC-Spezialisten – eine konkrete Empfehlung für Ihre Fachrichtung, keine Verkaufsshow.",
+    "help_title": "¿No está seguro de qué panel encaja en su consulta?",
+    "help_text": "15 minutos con un especialista POC: una recomendación concreta para su especialidad, no un argumentario de ventas.",
     "help_cta": "Reservar asesoramiento"
   },
   "services": {
@@ -166,28 +166,28 @@
       "practice": "Chelsea Dental Clinic"
     },
     "kristian_grimm": {
-      "role": "Zahnarzt",
+      "role": "Odontólogo",
       "title": "32reasons Zahnteam / Hamburg",
       "focus": "Prevención, Vitamin D, HbA1c, salud sistémica",
       "text": "32reasons & Polaris DX: la odontología reimaginada. El lector chairside nos permite determinar biomarcadores como Vitamin D y HbA1c directamente in situ. Esto vincula la odontología de forma inmediata con la salud sistémica para tomar decisiones terapéuticas rápidas y basadas en evidencia.",
       "practice": "32reasons Zahnteam, Hamburg"
     },
     "martin_fischer": {
-      "role": "Facharzt für Innere Medizin",
+      "role": "Especialista en medicina interna",
       "title": "Especialista en Medicina Interna / Consulta de Medicina Interna Dr. Fischer",
       "focus": "Diagnóstico inmediato en pacientes agudos (eficiencia, decisión terapéutica)",
       "text": "La posibilidad de determinar marcadores de inflamación como CRP de inmediato en la consulta ha revolucionado nuestro flujo de tratamiento. En pacientes con infecciones poco claras podemos decidir más rápido si es necesaria una terapia antibiótica y evitamos derivaciones innecesarias. Esto nos ahorra tiempo y aumenta notablemente la satisfacción de los pacientes.",
       "practice": "Internistische Praxis Dr. Fischer"
     },
     "bastian_wessing": {
-      "role": "Ärztlicher Leiter",
+      "role": "Director médico",
       "title": "MVZ Zahnkultur Berlin Brandenburg GmbH",
       "focus": "Diagnóstico inmediato para periodoncia e implantología (Vitamin D, HbA1c, colesterol, CRP)",
       "text": "El Igloo Multireader permite medir marcadores de inflamación, HbA1c, colesterol y Vitamin D directamente junto al sillón. Así planificamos los tratamientos periodontales y de implantes con mayor seguridad y empezamos antes. La formación y el soporte de PolarisDX son sencillos: el equipo se ha convertido en una parte fija de nuestro día a día.",
       "practice": "MVZ Zahnkultur Berlin Brandenburg"
     },
     "goran_stojanovic": {
-      "role": "Biologischer Zahnarzt, Inhaber",
+      "role": "Odontólogo biológico, propietario",
       "title": "Dentista biológico / Dentista principal y propietario",
       "focus": "Diagnóstico inmediato para la planificación de implantes (Vitamin D, CRP)",
       "text": "Como dentista biológico, estoy profundamente convencido de que la salud integral siempre empieza también por los dientes. El Igloo Pro me permite tomar decisiones diagnósticas rápidas y precisas justo donde se necesitan: junto al sillón. Gracias al análisis inmediato de Vitamin D y CRP, puedo planificar las colocaciones de implantes de forma óptima y, a menudo, acelerarlas notablemente. Así, mis pacientes reciben un tratamiento más seguro y eficiente.",
@@ -203,7 +203,13 @@
       "reviewsLabel": "Reseñas"
     },
     "cta": "Compruébelo usted mismo",
-    "photo_placeholder": "Foto del cliente"
+    "photo_placeholder": "Foto del cliente",
+    "aria": {
+      "carousel": "Voces de consultas",
+      "dots": "Seleccionar una valoración",
+      "pause": "Pausar el cambio automático",
+      "play": "Reanudar el cambio automático"
+    }
   },
   "blog": {
     "caption": "Blog y noticias",
@@ -275,9 +281,9 @@
       "title": "Nuevos ingresos por pacientes privados",
       "text": "El POC abre nuevas prestaciones para pacientes privados en su consulta, en lugar de ceder ingresos al laboratorio externo."
     },
-    "card_cta": "Mehr erfahren",
-    "video_label": "ANWENDUNGSVIDEO",
-    "video_caption": "So läuft der Test in Ihrer Praxis – in 3 Minuten"
+    "card_cta": "Más información",
+    "video_label": "VÍDEO DE APLICACIÓN",
+    "video_caption": "Así se realiza el test en su consulta: en 3 minutos"
   },
   "final_cta": {
     "caption": "Listo para empezar",
@@ -286,9 +292,9 @@
     "cta_primary": "Reservar asesoramiento",
     "cta_secondary": "Calculadora de ROI",
     "chips": {
-      "free": "Kostenlos & unverbindlich",
-      "reply": "Antwort < 24 h",
-      "delivery": "Lieferung in 3–5 Werktagen"
+      "free": "Gratuito y sin compromiso",
+      "reply": "Respuesta < 24 h",
+      "delivery": "Entrega en 3–5 días laborables"
     }
   },
   "roi": {
@@ -343,35 +349,35 @@
     "beauty": {
       "title": "Estética y Beauty",
       "benefit": "Estado hormonal y nutricional como base para tratamientos de la piel, el cabello y antiedad: medido en lugar de estimado.",
-      "bio": "Hormone · Mikronährstoffe",
+      "bio": "Hormonas · Micronutrientes",
       "cta": "Ver diagnóstico beauty"
     },
     "longevity": {
       "title": "Longevity y prevención",
       "benefit": "Marcadores metabólicos, cardiovasculares y de riesgo para programas de prevención y longevity basados en datos.",
-      "bio": "HbA1c · Lipide · D-Dimer",
+      "bio": "HbA1c · Lípidos · Dímero D",
       "cta": "Ver diagnóstico longevity"
     }
   },
   "steps": {
-    "caption": "SO EINFACH STARTEN SIE",
-    "title": "Validierte POC-Diagnostik in 3 Schritten",
-    "intro": "Vom ersten Gespräch bis zur laborgenauen Diagnostik am Behandlungsstuhl – ohne Konfigurationsaufwand.",
+    "caption": "EMPEZAR ES ASÍ DE SENCILLO",
+    "title": "Diagnóstico POC validado en 3 pasos",
+    "intro": "Desde la primera conversación hasta el diagnóstico con precisión de laboratorio junto al sillón, sin esfuerzo de configuración.",
     "step1": {
-      "title": "Beratung & Panel-Empfehlung",
-      "text": "Wir analysieren Ihren Workflow und empfehlen die passenden Biomarker-Panels für Ihre Fachrichtung.",
-      "badge": "inkl. Beratung"
+      "title": "Asesoramiento y recomendación de panel",
+      "text": "Analizamos su flujo de trabajo y recomendamos los paneles de biomarcadores adecuados para su especialidad.",
+      "badge": "asesoramiento incluido"
     },
     "step2": {
-      "title": "Performance-Setup",
-      "text": "Lieferung in 3–5 Werktagen inkl. validierter Inbetriebnahme und einfacher Assay-Profile.",
-      "badge": "vor Ort"
+      "title": "Setup de rendimiento",
+      "text": "Entrega en 3–5 días laborables, incluida la puesta en marcha validada y perfiles de ensayo sencillos.",
+      "badge": "in situ"
     },
     "step3": {
-      "title": "Erste Ergebnisse",
-      "text": "Ihr Team ist geschult, der erste Patient wird gemessen – laborgenau, dokumentiert, IVDR/CE-konform.",
-      "badge": "Tag 1"
+      "title": "Primeros resultados",
+      "text": "Su equipo está formado, se mide al primer paciente: precisión de laboratorio, documentado y conforme con IVDR/CE.",
+      "badge": "día 1"
     },
-    "cta": "Beratung buchen"
+    "cta": "Reservar asesoramiento"
   }
 }

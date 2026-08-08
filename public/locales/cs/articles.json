@@ -466,50 +466,50 @@
     ]
   },
   "rapid_setup_formula": {
-    "excerpt": "Effizienz statt Einarbeitung: Der Weg zur schnellen Einsatzbereitschaft in der Praxis.",
-    "title": "Die Performance-Formel: Effizienz in der POC-Diagnostik",
+    "excerpt": "Efektivita místo zdlouhavého zaškolování: cesta k rychlé provozní připravenosti v ordinaci.",
+    "title": "Formule výkonu: efektivita v POC diagnostice",
     "sections": [
       {
-        "heading": "Einleitung",
+        "heading": "Úvod",
         "paragraphs": [
-          "Die Entscheidung für neue Point-of-Care (POC)-Diagnostikgeräte ist oft der erste Schritt zu einer besseren Patientenversorgung. Doch der Weg von der Anschaffung bis zur vollen Einsatzbereitschaft wird häufig unterschätzt. Langwierige Einarbeitung, administrative Hürden und komplexe IT-Integration fressen wertvolle Zeit und binden Personal, dessen Fokus eigentlich auf dem Patienten liegen sollte.",
-          "Dieser Engpass gehört der Vergangenheit an. Moderne Support-Konzepte revolutionieren die Inbetriebnahme und reduzieren den Aufwand für Praxen und Apotheken auf ein Minimum. Der Schlüssel ist der 'Remote-Setup'-Ansatz, der die sofortige Einsatzbereitschaft in kürzester Zeit garantiert."
+          "Rozhodnutí pořídit nové diagnostické přístroje Point-of-Care (POC) je často prvním krokem k lepší péči o pacienty. Cesta od pořízení k plné provozní připravenosti se však běžně podceňuje. Zdlouhavé zaškolování, administrativní překážky a složitá integrace IT spotřebovávají cenný čas a vážou personál, jehož pozornost by měla patřit pacientovi.",
+          "Toto úzké hrdlo je minulostí. Moderní koncepty podpory mění způsob uvedení do provozu a snižují zátěž ordinací a lékáren na minimum. Klíčem je přístup „Remote Setup“, který zaručuje okamžitou provozní připravenost ve velmi krátkém čase."
         ]
       },
       {
-        "heading": "1. Das Effizienzdilemma: Warum herkömmliche Integration scheitert",
+        "heading": "1. Dilema efektivity: proč tradiční integrace selhává",
         "paragraphs": [
-          "Traditionell erfordert die Integration eines neuen POC-Systems mehrere zeitintensive Schritte, die oft Wochen in Anspruch nehmen:"
+          "Tradičně vyžaduje integrace nového POC systému několik časově náročných kroků, které často trvají týdny:"
         ],
         "listItems": [
-          "Administrative und regulatorische Einarbeitung: Schulung des Personals in Bezug auf das Qualitätsmanagement (z. B. nach RiliBÄK oder Qualab) und interne Protokolle.",
-          "Technisches Setup und Kalibrierung: Manuelle Erstinbetriebnahme und chargenspezifische Kalibrierung des Geräts.",
-          "IT-Anbindung und Datenaustausch: Die komplexe bidirektionale Verbindung zwischen dem POC-Reader und dem Praxis- oder Apothekenverwaltungssystem (PVS/AVS)."
+          "Administrativní a regulatorní zaškolení: školení personálu v oblasti řízení kvality (např. podle RiliBÄK nebo Qualab) a interních postupů.",
+          "Technické nastavení a kalibrace: ruční první uvedení do provozu a kalibrace přístroje pro konkrétní šarži.",
+          "Připojení IT a výměna dat: složité obousměrné propojení mezi POC readerem a systémem správy ordinace nebo lékárny (PVS/AVS)."
         ]
       },
       {
-        "heading": "2. Der Remote-Setup-Ansatz: IT-Experten im Hintergrund",
+        "heading": "2. Přístup Remote Setup: IT experti v pozadí",
         "paragraphs": [
-          "Der Remote-Setup-Ansatz basiert auf der digitalen Konnektivität der modernen POC-Reader. Anstatt einen Servicetechniker vor Ort zu benötigen, wird das Gerät aus der Ferne von spezialisierten Experten eingerichtet und validiert.",
-          "Kernprozesse, die Remote abgewickelt werden:"
+          "Přístup Remote Setup staví na digitální konektivitě moderních POC readerů. Namísto servisního technika na místě přístroj nastaví a zvalidují specializovaní experti na dálku.",
+          "Klíčové procesy řešené na dálku:"
         ],
         "listItems": [
-          "Vollständige Kalibrierung: Die technische Kalibrierung des Multi-Readers auf die verwendeten Lateral Flow Tests (LFTs) wird extern vorgenommen. Dies stellt sicher, dass die analytische Präzision von Anfang an gewährleistet ist – ohne dass das Praxispersonal komplexe technische Schritte durchführen muss.",
-          "Nahtlose IT-Integration: Die Anbindung an das Labor- oder Praxisinformationssystem (LIS/PIS) erfolgt über sichere, webbasierte Schnittstellen (z. B. POC-IT-Lösungen). Externe Berater stellen sicher, dass alle Messwerte automatisch, sicher und fehlerfrei in die Patientenakte übertragen werden.",
-          "Firmware-Updates und System-Checks: Software-Updates zur Gewährleistung der Kompatibilität und Einhaltung neuer Standards können permanent und ohne Unterbrechung des Praxisbetriebs aus der Ferne eingespielt werden."
+          "Kompletní kalibrace: technická kalibrace multi-readeru na používané testy Lateral Flow (LFT) probíhá externě. Tím je analytická přesnost zajištěna od samého začátku – aniž by personál ordinace musel provádět složité technické kroky.",
+          "Plynulá integrace IT: napojení na laboratorní nebo ordinační informační systém (LIS/PIS) probíhá přes zabezpečená webová rozhraní (např. řešení POC-IT). Externí konzultanti zajistí, že se všechny naměřené hodnoty přenesou do dokumentace pacienta automaticky, bezpečně a bez chyb.",
+          "Aktualizace firmwaru a kontroly systému: softwarové aktualizace zajišťující kompatibilitu a soulad s novými standardy lze nahrávat průběžně na dálku, bez přerušení provozu ordinace."
         ]
       },
       {
-        "heading": "3. Die Performance-Formel: Der Wettbewerbsvorteil",
+        "heading": "3. Formule výkonu: konkurenční výhoda",
         "paragraphs": [
-          "Durch die Auslagerung der technischen und administrativen Komplexität an spezialisierte Remote-Services können Praxen und Apotheken den Zeitaufwand von Wochen auf minimal reduzieren.",
-          "Effizienzgewinn und Patientenzufriedenheit: Die sofortige Einsatzbereitschaft der POC-Diagnostikgeräte ermöglicht es dem Personal, sich unmittelbar auf die Patientenversorgung zu konzentrieren. Zeitersparnis bei der Diagnosestellung, schnellere Therapieentscheidungen und der Entfall eines zweiten Termins führen zu einer signifikant höheren Patientenzufriedenheit. Die optimierten Workflows verbessern die wirtschaftliche Effizienz der gesamten Einrichtung."
+          "Přenesením technické a administrativní složitosti na specializované vzdálené služby mohou ordinace a lékárny snížit časovou náročnost z týdnů na minimum.",
+          "Nárůst efektivity a spokojenost pacientů: okamžitá provozní připravenost diagnostických přístrojů POC umožňuje personálu soustředit se přímo na péči o pacienty. Úspora času při stanovení diagnózy, rychlejší terapeutická rozhodnutí a odpadnutí druhé návštěvy vedou k výrazně vyšší spokojenosti pacientů. Optimalizované pracovní postupy zlepšují ekonomickou efektivitu celého pracoviště."
         ]
       },
       {
-        "heading": "Fazit: Investition in Zeit und Sicherheit",
+        "heading": "Závěr: investice do času a jistoty",
         "paragraphs": [
-          "Moderne Point-of-Care-Diagnostik ist mehr als nur ein Gerät: Sie ist ein digital integriertes System. Wer auf Remote-Setup setzt, investiert nicht nur in präzisere und schnellere Diagnostik, sondern vor allem in die wertvolle Zeit seines Personals. Die Performance-Formel ist somit das Synonym für minimalen Integrationsstress und maximale Einsatzbereitschaft in der modernen Gesundheitsversorgung."
+          "Moderní diagnostika Point-of-Care je více než jen přístroj: je to digitálně integrovaný systém. Kdo vsadí na Remote Setup, investuje nejen do přesnější a rychlejší diagnostiky, ale především do cenného času svého personálu. Formule výkonu je tak synonymem pro minimální zátěž při integraci a maximální provozní připravenost v moderním zdravotnictví."
         ]
       }
     ]
@@ -526,6 +526,7 @@
     "longread": "Long-read",
     "cta_title": "Spočítejte si svůj potenciál úspor.",
     "cta_subtitle": "Kalkulačka ROI nebo konzultace — za necelou minutu.",
-    "cta_secondary": "Kalkulačka ROI"
+    "cta_secondary": "Kalkulačka ROI",
+    "read_time": "{{minutes}} min čtení"
   }
 }

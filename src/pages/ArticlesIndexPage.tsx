@@ -19,6 +19,7 @@ import SubpageHero from '../components/sections/SubpageHero'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
 import { Tooth } from '../components/ui/icons/Tooth'
 import { articles } from '../data/articles'
+import { formatArticleDate, parseReadMinutes } from '../lib/articleMeta'
 
 // Map article category → topical icon for the card icon-tile (FileText fallback).
 const categoryIcon: Record<string, LucideIcon> = {
@@ -29,11 +30,21 @@ const categoryIcon: Record<string, LucideIcon> = {
 }
 
 const ArticlesIndexPage = () => {
-  const { t } = useTranslation(['articles', 'shop', 'common'])
+  const { t, i18n } = useTranslation(['articles', 'shop', 'common'])
 
   // Derive live values for the hero + topics row from the real article set.
   const categories = Array.from(new Set(articles.map((a) => a.category)))
   const articleCount = articles.length
+
+  // (b) Sichtbare Breadcrumb und BreadcrumbList aus derselben Quelle speisen.
+  const crumbHome = t('shop:shop.home', 'Startseite')
+  const crumbArticles = t('shop:shop.articles', 'Artikel')
+
+  // (d) Lesezeit steht englisch in den Rohdaten ('6 min read').
+  const readTimeLabel = (raw: string) => {
+    const minutes = parseReadMinutes(raw)
+    return minutes === null ? raw : t('articles:detail.read_time', { minutes, defaultValue: raw })
+  }
 
   // Localised proof tags for the featured tile (returnObjects → string[]).
   const featuredTagsRaw = t('articles:index.featured_tags', { returnObjects: true })
@@ -58,16 +69,13 @@ const ArticlesIndexPage = () => {
           'POCT Fachbeiträge',
         ]}
         structuredData={createBreadcrumbSchema([
-          { name: 'Home', url: '/' },
-          { name: 'Artikel', url: '/articles' },
+          { name: crumbHome, url: '/' },
+          { name: crumbArticles, url: '/articles' },
         ])}
       />
 
       <SubpageHero
-        breadcrumbs={[
-          { label: t('shop:shop.home', 'Home'), href: '/' },
-          { label: t('shop:shop.articles', 'Articles') },
-        ]}
+        breadcrumbs={[{ label: crumbHome, href: '/' }, { label: crumbArticles }]}
         eyebrow={t('articles:index.eyebrow', 'Fachwissen')}
         title={t('articles:index.title', 'Our Magazine')}
         subtitle={t(
@@ -208,9 +216,9 @@ const ArticlesIndexPage = () => {
                       {t(`articles:${post.id}.excerpt`)}
                     </p>
                     <div className="mt-4 flex items-center gap-2 text-xs text-gray-500">
-                      <span>{post.readTime}</span>
+                      <span>{readTimeLabel(post.readTime)}</span>
                       <span aria-hidden="true">·</span>
-                      <span>{post.date}</span>
+                      <span>{formatArticleDate(post.date, i18n.language)}</span>
                     </div>
                     <span className="mt-auto inline-flex items-center gap-1 pt-6 text-sm font-semibold text-accent transition-all group-hover:gap-2 group-hover:text-accent-strong">
                       {t('shop:shop.readMore', 'Weiterlesen')}

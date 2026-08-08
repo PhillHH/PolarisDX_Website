@@ -267,53 +267,53 @@
     "title": "The 5-Minute Diagnosis: Why Point-of-Care is a Gamechanger Economically Too"
   },
   "rapid_setup_formula": {
-    "excerpt": "Effizienz statt Einarbeitung: Der Weg zur schnellen Einsatzbereitschaft in der Praxis.",
+    "excerpt": "Effektivitet frem for lang oplæring: vejen til hurtig driftsklarhed i klinikken.",
     "sections": [
       {
-        "heading": "Einleitung",
+        "heading": "Indledning",
         "paragraphs": [
-          "Die Entscheidung für neue Point-of-Care (POC)-Diagnostikgeräte ist oft der erste Schritt zu einer besseren Patientenversorgung. Doch der Weg von der Anschaffung bis zur vollen Einsatzbereitschaft wird häufig unterschätzt. Langwierige Einarbeitung, administrative Hürden und komplexe IT-Integration fressen wertvolle Zeit und binden Personal, dessen Fokus eigentlich auf dem Patienten liegen sollte.",
-          "Dieser Engpass gehört der Vergangenheit an. Moderne Support-Konzepte revolutionieren die Inbetriebnahme und reduzieren den Aufwand für Praxen und Apotheken auf ein Minimum. Der Schlüssel ist der 'Remote-Setup'-Ansatz, der die sofortige Einsatzbereitschaft in kürzester Zeit garantiert."
+          "Beslutningen om at anskaffe nyt Point-of-Care (POC)-diagnostikudstyr er ofte det første skridt mod bedre patientbehandling. Men vejen fra anskaffelse til fuld driftsklarhed undervurderes ofte. Langvarig oplæring, administrative forhindringer og kompleks IT-integration æder værdifuld tid og binder personale, hvis fokus egentlig burde ligge på patienten.",
+          "Denne flaskehals hører fortiden til. Moderne supportkoncepter forandrer idriftsættelsen og reducerer arbejdet for klinikker og apoteker til et minimum. Nøglen er 'remote setup'-tilgangen, der garanterer øjeblikkelig driftsklarhed på meget kort tid."
         ]
       },
       {
-        "heading": "1. Das Effizienzdilemma: Warum herkömmliche Integration scheitert",
+        "heading": "1. Effektivitetsdilemmaet: hvorfor traditionel integration slår fejl",
         "paragraphs": [
-          "Traditionell erfordert die Integration eines neuen POC-Systems mehrere zeitintensive Schritte, die oft Wochen in Anspruch nehmen:"
+          "Traditionelt kræver integrationen af et nyt POC-system flere tidskrævende trin, som ofte tager uger:"
         ],
         "listItems": [
-          "Administrative und regulatorische Einarbeitung: Schulung des Personals in Bezug auf das Qualitätsmanagement (z. B. nach RiliBÄK oder Qualab) und interne Protokolle.",
-          "Technisches Setup und Kalibrierung: Manuelle Erstinbetriebnahme und chargenspezifische Kalibrierung des Geräts.",
-          "IT-Anbindung und Datenaustausch: Die komplexe bidirektionale Verbindung zwischen dem POC-Reader und dem Praxis- oder Apothekenverwaltungssystem (PVS/AVS)."
+          "Administrativ og regulatorisk oplæring: uddannelse af personalet i kvalitetsstyring (f.eks. efter RiliBÄK eller Qualab) og interne protokoller.",
+          "Teknisk opsætning og kalibrering: manuel første idriftsættelse og batchspecifik kalibrering af enheden.",
+          "IT-tilkobling og dataudveksling: den komplekse bidirektionelle forbindelse mellem POC-readeren og klinik- eller apotekssystemet (PVS/AVS)."
         ]
       },
       {
-        "heading": "2. Der Remote-Setup-Ansatz: IT-Experten im Hintergrund",
+        "heading": "2. Remote-setup-tilgangen: IT-eksperter i baggrunden",
         "paragraphs": [
-          "Der Remote-Setup-Ansatz basiert auf der digitalen Konnektivität der modernen POC-Reader. Anstatt einen Servicetechniker vor Ort zu benötigen, wird das Gerät aus der Ferne von spezialisierten Experten eingerichtet und validiert.",
-          "Kernprozesse, die Remote abgewickelt werden:"
+          "Remote-setup-tilgangen bygger på moderne POC-readeres digitale konnektivitet. I stedet for at have brug for en servicetekniker på stedet bliver enheden opsat og valideret på afstand af specialiserede eksperter.",
+          "Kerneprocesser, der håndteres på afstand:"
         ],
         "listItems": [
-          "Vollständige Kalibrierung: Die technische Kalibrierung des Multi-Readers auf die verwendeten Lateral Flow Tests (LFTs) wird extern vorgenommen. Dies stellt sicher, dass die analytische Präzision von Anfang an gewährleistet ist – ohne dass das Praxispersonal komplexe technische Schritte durchführen muss.",
-          "Nahtlose IT-Integration: Die Anbindung an das Labor- oder Praxisinformationssystem (LIS/PIS) erfolgt über sichere, webbasierte Schnittstellen (z. B. POC-IT-Lösungen). Externe Berater stellen sicher, dass alle Messwerte automatisch, sicher und fehlerfrei in die Patientenakte übertragen werden.",
-          "Firmware-Updates und System-Checks: Software-Updates zur Gewährleistung der Kompatibilität und Einhaltung neuer Standards können permanent und ohne Unterbrechung des Praxisbetriebs aus der Ferne eingespielt werden."
+          "Fuld kalibrering: den tekniske kalibrering af multi-readeren til de anvendte Lateral Flow Tests (LFT) foretages eksternt. Det sikrer analytisk præcision fra begyndelsen – uden at klinikpersonalet skal udføre komplekse tekniske trin.",
+          "Sømløs IT-integration: tilkoblingen til laboratorie- eller klinikinformationssystemet (LIS/PIS) sker via sikre, webbaserede grænseflader (f.eks. POC-IT-løsninger). Eksterne konsulenter sikrer, at alle måleværdier overføres automatisk, sikkert og fejlfrit til patientjournalen.",
+          "Firmware-opdateringer og systemtjek: softwareopdateringer, der sikrer kompatibilitet og overholdelse af nye standarder, kan installeres løbende på afstand uden at afbryde klinikkens drift."
         ]
       },
       {
-        "heading": "3. Die Performance-Formel: Der Wettbewerbsvorteil",
+        "heading": "3. Performance-formlen: konkurrencefordelen",
         "paragraphs": [
-          "Durch die Auslagerung der technischen und administrativen Komplexität an spezialisierte Remote-Services können Praxen und Apotheken den Zeitaufwand von Wochen auf minimal reduzieren.",
-          "Effizienzgewinn und Patientenzufriedenheit: Die sofortige Einsatzbereitschaft der POC-Diagnostikgeräte ermöglicht es dem Personal, sich unmittelbar auf die Patientenversorgung zu konzentrieren. Zeitersparnis bei der Diagnosestellung, schnellere Therapieentscheidungen und der Entfall eines zweiten Termins führen zu einer signifikant höheren Patientenzufriedenheit. Die optimierten Workflows verbessern die wirtschaftliche Effizienz der gesamten Einrichtung."
+          "Ved at lægge den tekniske og administrative kompleksitet ud til specialiserede remote-services kan klinikker og apoteker reducere tidsforbruget fra uger til et minimum.",
+          "Effektivitetsgevinst og patienttilfredshed: POC-diagnostikudstyrets øjeblikkelige driftsklarhed gør det muligt for personalet at koncentrere sig direkte om patientbehandlingen. Tidsbesparelse ved diagnosticering, hurtigere behandlingsbeslutninger og bortfald af en ekstra konsultation fører til markant højere patienttilfredshed. De optimerede workflows forbedrer hele klinikkens økonomiske effektivitet."
         ]
       },
       {
-        "heading": "Fazit: Investition in Zeit und Sicherheit",
+        "heading": "Konklusion: en investering i tid og sikkerhed",
         "paragraphs": [
-          "Moderne Point-of-Care-Diagnostik ist mehr als nur ein Gerät: Sie ist ein digital integriertes System. Wer auf Remote-Setup setzt, investiert nicht nur in präzisere und schnellere Diagnostik, sondern vor allem in die wertvolle Zeit seines Personals. Die Performance-Formel ist somit das Synonym für minimalen Integrationsstress und maximale Einsatzbereitschaft in der modernen Gesundheitsversorgung."
+          "Moderne Point-of-Care-diagnostik er mere end blot en enhed: det er et digitalt integreret system. Den, der satser på remote setup, investerer ikke kun i mere præcis og hurtigere diagnostik, men først og fremmest i sit personales værdifulde tid. Performance-formlen er dermed synonym med minimalt integrationsbesvær og maksimal driftsklarhed i det moderne sundhedsvæsen."
         ]
       }
     ],
-    "title": "Die Performance-Formel: Effizienz in der POC-Diagnostik"
+    "title": "Performance-formlen: effektivitet i POC-diagnostikken"
   },
   "green_practice": {
     "excerpt": "Sustainability in healthcare doesn't start with solar panels, but with diagnostic logistics. A plea for Point-of-Care.",
@@ -526,6 +526,7 @@
     "longread": "Long-read",
     "cta_title": "Beregn dit besparelsespotentiale.",
     "cta_subtitle": "ROI-beregner eller rådgivning — på under et minut.",
-    "cta_secondary": "ROI-beregner"
+    "cta_secondary": "ROI-beregner",
+    "read_time": "{{minutes}} min. læsetid"
   }
 }
