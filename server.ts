@@ -247,6 +247,66 @@ const GERMAN_ONLY_SITEMAP_ROUTES: SingleLangSitemapRoute[] = [
   { path: '/de/s3_leitlinie', priority: 0.7, changefreq: 'monthly' },
 ]
 
+// =============================================================================
+// LEGACY PATHS AND ROUTE KNOWLEDGE
+// =============================================================================
+
+/**
+ * Old / mistyped URLs that must 301 onto their canonical counterpart.
+ * Keys and values are written WITHOUT language prefix; the prefix of the
+ * request is reused (or forced to /de for the German-only pages).
+ *
+ *   /agb           the German terms page used to live here and is still linked
+ *   /s3-leitlinie  hyphen spelling; the route is /s3_leitlinie (underscore)
+ *
+ * Without these both paths fall through to the catch-all and render the 404
+ * page under a URL that looks perfectly valid.
+ */
+const LEGACY_PATH_REDIRECTS: Record<string, string> = {
+  '/agb': '/terms',
+  '/s3-leitlinie': '/s3_leitlinie',
+}
+
+/**
+ * Routes that exist but are deliberately not in SITEMAP_ROUTES.
+ * Everything else is derived from the sitemap, so a new sitemap entry is known
+ * automatically. MIRRORS src/App.tsx: a <Route> added there without an entry
+ * here renders fine but answers 404.
+ */
+const EXTRA_KNOWN_PATHS: string[] = [
+  '/support', // reachable from the header, intentionally unlisted
+  '/vitamin-d3-spray', // B2B twin of the consumer landing page
+  '/services', // client-side redirect to /diagnostics
+  '/consumer/vitamin-d3-spray',
+  '/consumer/hydrating-masks',
+  '/consumer/inside-out-duo',
+  ...GERMAN_ONLY_PATHS,
+]
+
+const KNOWN_PATHS = new Set<string>([...SITEMAP_ROUTES.map((r) => r.path), ...EXTRA_KNOWN_PATHS])
+
+/**
+ * True when the path (WITHOUT language prefix) matches a route of the React
+ * app. Used to answer a real 404 instead of 200 for unknown URLs.
+ *
+ * /services/:slug is matched by pattern because it only renders a redirect to
+ * /diagnostics/:slug — the target then decides whether it is a 404.
+ */
+function isKnownPath(pathWithoutLangPrefix: string): boolean {
+  const p = pathWithoutLangPrefix.replace(/\/+$/, '') || '/'
+  if (KNOWN_PATHS.has(p)) {
+    return true
+  }
+  return p.startsWith('/services/') && p.split('/').length === 3
+}
+
+/**
+ * The app flags a soft 404 (catch-all route, unknown article slug) by emitting
+ * <meta name="prerender-status-code" content="404"> via <SEOHead notFound>.
+ * That covers the dynamic cases the path table above cannot know.
+ */
+const NOT_FOUND_MARKER = /name="prerender-status-code"[^>]*content="404"/i
+
 /**
  * Generates a complete XML sitemap with all routes in all languages.
  * Each URL includes hreflang alternates for all 10 supported languages
@@ -467,6 +527,21 @@ async function createServer() {
     }
 
     // -------------------------------------------------------------------------
+    // Legacy paths (/agb, /s3-leitlinie) for every language prefix, resolved in
+    // ONE hop: the German-only correction is applied here instead of chaining a
+    // second redirect. /en/s3-leitlinie -> /de/s3_leitlinie, /agb -> /de/terms.
+    // -------------------------------------------------------------------------
+    const pathWithoutLang = langPrefix ? pathname.slice(3) || '/' : pathname
+    const legacyTarget = LEGACY_PATH_REDIRECTS[pathWithoutLang.replace(/\/$/, '')]
+    if (legacyTarget) {
+      const targetLang = isGermanOnlyPath(legacyTarget)
+        ? DEFAULT_LANGUAGE
+        : langPrefix || DEFAULT_LANGUAGE
+      res.redirect(301, `/${targetLang}${legacyTarget}${query}`)
+      return
+    }
+
+    // -------------------------------------------------------------------------
     // German-only landing pages. Under a foreign prefix they would serve German
     // body text with a foreign lang attribute, so collapse all nine non-German
     // prefixes onto /de.
@@ -555,6 +630,20 @@ async function createServer() {
       // App rendern mit voller URL (inkl. Sprach-Prefix) und erkannter Sprache
       const { html: appHtml, helmet } = await render(routerUrl, lang)
 
+      // -----------------------------------------------------------------------
+      // STATUS CODE
+      // -----------------------------------------------------------------------
+      // Unbekannte Pfade rendern die 404-Seite, wurden aber mit 200 ausgeliefert
+      // — fuer Crawler war die Fehlerseite damit eine gueltige Seite. Zwei
+      // unabhaengige Signale entscheiden jetzt:
+      //   1. der Pfad passt auf keine Route (isKnownPath)
+      //   2. die App selbst meldet einen Soft-404 (Marker-Meta aus <SEOHead
+      //      notFound>) — deckt unbekannte Artikel-Slugs ab, die die Pfadliste
+      //      nicht kennen kann
+      const pathWithoutLang = pathname.slice(3) || '/'
+      const isNotFound =
+        !isKnownPath(pathWithoutLang) || NOT_FOUND_MARKER.test(helmet.meta.toString())
+
       // React 19 "Float": renderToString() emits <link rel="preload"> hints
       // at the beginning of the output for images encountered during render.
       // These cause hydration mismatches because hydrateRoot() doesn't expect
@@ -612,6 +701,15 @@ async function createServer() {
           .replace(/<meta[^>]*name="twitter:[^>]*>\s*/gi, '')
           // Veraltetes 'German' Sprach-Meta entfernen (gilt sonst für alle Sprachen).
           .replace(/<meta\s+name="language"[^>]*>\s*/i, '')
+          // Statische robots-/googlebot-Direktive entfernen, sobald Helmet
+          // eigene liefert. Sonst tragen /imprint, /privacy und /terms ZWEI
+          // widersprüchliche Angaben: statisch "index, follow, …" und per
+          // Helmet "noindex, nofollow" — Suchmaschinen nehmen die
+          // restriktivste. Hier verschwindet nur die Doppelung, kein Wert
+          // wird geändert. Ohne echten Helmet-Titel (Lazy-Chunk-Fallback)
+          // bleibt die statische Angabe als Default stehen.
+          .replace(/<meta\s+name="robots"[\s\S]*?>\s*/i, '')
+          .replace(/<meta\s+name="googlebot"[^>]*>\s*/i, '')
       }
       const finalHtml = prepared
         .replace('<!--ssr-outlet-->', cleanAppHtml)
@@ -623,7 +721,7 @@ async function createServer() {
       // ALTE HTML → alte Asset-Hashes → alte Seite. Assets selbst bleiben langzeit-
       // cachebar (immutable, s. express.static oben).
       res
-        .status(200)
+        .status(isNotFound ? 404 : 200)
         .set({
           'Content-Type': 'text/html',
           'Cache-Control': 'no-store, no-cache, must-revalidate',

@@ -182,7 +182,10 @@ for (const file of files) {
     }
     for (const m of line.matchAll(RE_RGB)) {
       const triple = `${+m[1]},${+m[2]},${+m[3]}`
-      if (!PALETTE_RGB.has(triple)) {
+      // Ein rgb()-Wert ist auch dann in Ordnung, wenn seine Hex-Schreibweise erlaubt
+      // ist — sonst waere #f8fafc gueltig, rgb(248, 250, 252) aber nicht.
+      const asHex = '#' + [+m[1], +m[2], +m[3]].map((v) => v.toString(16).padStart(2, '0')).join('')
+      if (!PALETTE_RGB.has(triple) && !PALETTE_HEX.has(asHex) && !NEUTRAL_HEX.has(asHex)) {
         violations.push([at, `rgb(${triple}) ist nicht in der Palette`, line.trim()])
       }
     }

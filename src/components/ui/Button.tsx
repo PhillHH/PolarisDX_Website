@@ -46,8 +46,9 @@ const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPro
       className: cn(
         buttonVariants({ variant, size, className }),
         // Override padding for primary variant to handle the border width hack
-        variant === 'primary' && '!p-[2px]',
-        'text-inherit',
+        // Nur die Gradient-Variante braucht text-inherit — sonst frisst twMerge
+        // die Textfarbe der secondary-Variante (Button wurde dadurch unsichtbar).
+        variant === 'primary' && '!p-[2px] text-inherit',
       ),
       ref: ref as any,
       ...props,

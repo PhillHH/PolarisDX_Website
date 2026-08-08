@@ -45,25 +45,41 @@ const ArticlePage = () => {
 
   if (error || !article) {
     return (
-      <div className="flex h-screen flex-col items-center justify-center gap-4 bg-slate-50 p-4">
-        {error ? (
-          <div className="w-full max-w-md">
-            <Alert variant="destructive" title={t('common:error', 'Error')}>
-              {error.message || t('shop:shop.articleNotFound', 'Article not found')}
-            </Alert>
-            <div className="mt-6 flex justify-center">
-              <Button to="/articles">{t('shop:shop.backToArticles', 'Back to Overview')}</Button>
+      <>
+        {/* Ohne eigenen Head lieferte dieser Zweig einen LEEREN Helmet-Titel.
+            Damit gewann der statische Fallback aus index.html: ein unbekannter
+            Slug kam als "IglooPro POC-Reader | …" mit dem IglooPro-Verkaufstext
+            als Description und robots "index, follow" zurueck. notFound setzt
+            eigenen Titel, robots noindex, follow, unterdrueckt canonical und
+            hreflang und laesst server.ts einen echten 404 senden. */}
+        <SEOHead
+          title={t('shop:shop.articleNotFound', 'Article not found')}
+          description={t(
+            'common:notFound.seo.description',
+            'Die angeforderte Seite konnte nicht gefunden werden.',
+          )}
+          notFound
+        />
+        <div className="flex h-screen flex-col items-center justify-center gap-4 bg-slate-50 p-4">
+          {error ? (
+            <div className="w-full max-w-md">
+              <Alert variant="destructive" title={t('common:error', 'Error')}>
+                {error.message || t('shop:shop.articleNotFound', 'Article not found')}
+              </Alert>
+              <div className="mt-6 flex justify-center">
+                <Button to="/articles">{t('shop:shop.backToArticles', 'Back to Overview')}</Button>
+              </div>
             </div>
-          </div>
-        ) : (
-          <>
-            <h1 className="text-2xl font-semibold text-heading">
-              {t('shop:shop.articleNotFound', 'Article not found')}
-            </h1>
-            <Button to="/articles">{t('shop:shop.backToArticles', 'Back to Overview')}</Button>
-          </>
-        )}
-      </div>
+          ) : (
+            <>
+              <h1 className="text-2xl font-semibold text-heading">
+                {t('shop:shop.articleNotFound', 'Article not found')}
+              </h1>
+              <Button to="/articles">{t('shop:shop.backToArticles', 'Back to Overview')}</Button>
+            </>
+          )}
+        </div>
+      </>
     )
   }
 
@@ -291,12 +307,16 @@ const ArticlePage = () => {
                 >
                   {t('articles:detail.primary_cta', 'Beratung buchen')}
                 </Link>
-                <a
-                  href="/#roi-rechner"
+                {/* <Link> statt <a href="/#roi-rechner">: der rohe Anchor kannte
+                    den Sprach-Prefix nicht und landete immer auf /de/. Der
+                    Router haengt den Basename an; das Scrollen zum Anker
+                    uebernimmt ScrollToHash in App.tsx. */}
+                <Link
+                  to="/#roi-rechner"
                   className="inline-flex items-center justify-center rounded-md border border-white/25 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10"
                 >
                   {t('articles:detail.cta_secondary', 'ROI-Rechner')}
-                </a>
+                </Link>
               </div>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
                 {[

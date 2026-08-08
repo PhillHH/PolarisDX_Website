@@ -43,14 +43,18 @@ export function LegalLayout({
 }: LegalLayoutProps) {
   return (
     <>
-      <SubpageHero
-        breadcrumbs={breadcrumbs}
-        eyebrow={eyebrow}
-        title={title}
-        subtitle={subtitle}
-        icon={icon ?? <FileText />}
-        valueChips={valueChips}
-      />
+      {/* Hook fuer die Silbentrennung der H1 (siehe .legal-hero in index.css).
+          Die H1 selbst gehoert zu SubpageHero und wird hier nicht angefasst. */}
+      <div className="legal-hero">
+        <SubpageHero
+          breadcrumbs={breadcrumbs}
+          eyebrow={eyebrow}
+          title={title}
+          subtitle={subtitle}
+          icon={icon ?? <FileText />}
+          valueChips={valueChips}
+        />
+      </div>
       <div className="bg-white">
         <div className="mx-auto max-w-[61ch] px-4 py-16 lg:px-0 lg:py-24">
           <Reveal width="100%">

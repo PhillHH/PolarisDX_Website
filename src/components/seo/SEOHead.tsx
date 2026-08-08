@@ -32,6 +32,17 @@ export interface SEOHeadProps {
   ogType?: 'website' | 'article' | 'product'
   /** Set to true for pages that should not be indexed (e.g., legal pages) */
   noindex?: boolean
+  /**
+   * Set to true when this render IS an error page (catch-all route, unknown
+   * article slug). It does three things at once, because they only ever make
+   * sense together:
+   *   - robots becomes 'noindex, follow' (implies noindex, ignores that prop)
+   *   - no canonical, no hreflang, no og:locale:alternate — an error page must
+   *     not advertise itself as a valid URL in ten languages
+   *   - emits <meta name="prerender-status-code" content="404">, which the SSR
+   *     server (server.ts) reads to answer a real HTTP 404
+   */
+  notFound?: boolean
   /** Additional JSON-LD structured data */
   structuredData?: object | object[]
   /** Article-specific metadata */
@@ -102,6 +113,7 @@ export function SEOHead({
   ogImage,
   ogType = 'website',
   noindex = false,
+  notFound = false,
   structuredData,
   article,
   product,
@@ -123,7 +135,9 @@ export function SEOHead({
   // hreflang point there no matter which prefix this component renders under.
   const isGermanOnly = GERMAN_ONLY_PATHS.includes(path.replace(/\/$/, ''))
   const urlLang = isGermanOnly ? DEFAULT_LANGUAGE : currentLang
-  const hreflangLanguages = isGermanOnly ? [DEFAULT_LANGUAGE] : SUPPORTED_LANGUAGES
+  // An error page has no valid alternates in any language, so the list stays
+  // empty for it — see the notFound prop.
+  const hreflangLanguages = notFound ? [] : isGermanOnly ? [DEFAULT_LANGUAGE] : SUPPORTED_LANGUAGES
 
   const canonicalUrl = canonical ? canonical : `${BASE_URL}/${urlLang}${path === '/' ? '/' : path}`
 
@@ -131,10 +145,16 @@ export function SEOHead({
     ? ogImage
     : `${BASE_URL}${ogImage || DEFAULT_OG_IMAGE}`
 
-  // Robots directive
-  const robotsContent = noindex
-    ? 'noindex, nofollow'
-    : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+  // Robots directive.
+  //
+  // An error page must never be indexed, but crawlers should still follow the
+  // links leading out of it (home, popular pages, article index) — hence
+  // 'noindex, follow' rather than the 'noindex, nofollow' the legal pages use.
+  const robotsContent = notFound
+    ? 'noindex, follow'
+    : noindex
+      ? 'noindex, nofollow'
+      : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
 
   return (
     <Helmet>
@@ -146,7 +166,10 @@ export function SEOHead({
       {keywords && keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
       <meta name="robots" content={robotsContent} />
       <meta name="googlebot" content={robotsContent} />
-      <link rel="canonical" href={canonicalUrl} />
+      {/* Read by server.ts to turn a rendered error page into a real 404
+          response instead of a 200 that crawlers treat as a valid page. */}
+      {notFound && <meta name="prerender-status-code" content="404" />}
+      {!notFound && <link rel="canonical" href={canonicalUrl} />}
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={ogType} />
@@ -160,8 +183,9 @@ export function SEOHead({
       <meta property="og:locale" content={locale} />
       <meta property="og:site_name" content={SITE_NAME} />
 
-      {/* Alternate locales for OG (none on German-only pages) */}
+      {/* Alternate locales for OG (none on German-only pages / error pages) */}
       {!isGermanOnly &&
+        !notFound &&
         Object.entries(LOCALE_MAP)
           .filter(([lang]) => lang !== currentLang)
           .map(([, localeCode]) => (
@@ -217,11 +241,13 @@ export function SEOHead({
       ))}
 
       {/* x-default hreflang (points to German as primary market) */}
-      <link
-        rel="alternate"
-        hrefLang="x-default"
-        href={`${BASE_URL}/${DEFAULT_LANGUAGE}${path === '/' ? '/' : path}`}
-      />
+      {!notFound && (
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href={`${BASE_URL}/${DEFAULT_LANGUAGE}${path === '/' ? '/' : path}`}
+        />
+      )}
 
       {/* JSON-LD Structured Data */}
       {structuredData && (

@@ -5,7 +5,7 @@ import { ShieldCheck, Award, Layers, Timer, type LucideIcon } from 'lucide-react
  * TrustBar — schmale, helle FULL-WIDTH Credibility-Leiste direkt unter dem Hero.
  * SSR-sicher (kein window/localStorage). Eigenständiger Inhalt, NICHT identisch zu
  * den Hero-Chips: genau 4 Vertrauenspunkte (IVDR·CE, Premium-Partner Nobel Biocare,
- * 90 % LFA-Kompatibilität, Ergebnis in 3–15 Minuten).
+ * 90 % LFA-Kompatibilität, Ergebnis in Minuten).
  */
 const TrustBar = () => {
   const { t } = useTranslation('home')
@@ -14,7 +14,7 @@ const TrustBar = () => {
     { icon: ShieldCheck, label: t('trustbar.ivdr', 'IVDR · CE') },
     { icon: Award, label: t('trustbar.partner', 'Premium-Partner: Nobel Biocare') },
     { icon: Layers, label: t('trustbar.compat', '90 % LFA-Kompatibilität') },
-    { icon: Timer, label: t('trustbar.speed', 'Ergebnis in 3–15 Minuten') },
+    { icon: Timer, label: t('trustbar.minutes', 'Ergebnis in Minuten') },
   ]
 
   return (

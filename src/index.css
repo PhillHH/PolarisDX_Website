@@ -133,11 +133,58 @@
     text-decoration: underline;
   }
 
+  /* Tabellen scrollen in sich selbst, statt die Seite zu verbreitern.
+     display:block macht die Tabelle zum Scroll-Container - auf einer
+     display:table-Box wird overflow nachweislich ignoriert (gemessen:
+     overflow-x allein liess scrollWidth bei 489px). Die innere anonyme
+     Tabellenbox behaelt ihre Eigenbreite und schiebt sich horizontal.
+     Desktop bleibt unveraendert, weil der Block width:100% behaelt.
+     Die Zeilenlaengen-Regel (p/li/blockquote max-width:61ch) bleibt
+     unberuehrt - Tabellen stehen bewusst nicht in jener Selektorliste. */
   .rich-content table {
+    display: block;
     width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
     border-collapse: collapse;
     margin: 1.5rem 0;
     font-size: 0.875rem;
+    /* Scroll-Andeutung ("scrolling shadows"): die beiden Deck-Layer haengen
+       am Inhalt (local), die Schatten an der Box (scroll). Am jeweiligen
+       Ende schiebt sich das Deck ueber den Schatten - sichtbar ist er also
+       nur, solange dort noch Inhalt folgt. Die Deckfarbe ist zugleich der
+       eigene Tabellenhintergrund und kann daher nie gegen die Flaeche
+       verrutschen. */
+    --table-surface: #f8fafc; /* slate-50 = Flaeche der ServicePage */
+    background-color: var(--table-surface);
+    background-image:
+      linear-gradient(to right, var(--table-surface) 55%, rgba(248, 250, 252, 0)),
+      linear-gradient(to left, var(--table-surface) 55%, rgba(248, 250, 252, 0)),
+      linear-gradient(to right, rgba(15, 23, 42, 0.13), rgba(15, 23, 42, 0)),
+      linear-gradient(to left, rgba(15, 23, 42, 0.13), rgba(15, 23, 42, 0));
+    background-position:
+      left center,
+      right center,
+      left center,
+      right center;
+    background-repeat: no-repeat;
+    background-size:
+      28px 100%,
+      28px 100%,
+      16px 100%,
+      16px 100%;
+    background-attachment: local, local, scroll, scroll;
+    scrollbar-width: thin;
+  }
+
+  .rich-content table::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .rich-content table::-webkit-scrollbar-thumb {
+    background: rgba(15, 23, 42, 0.22);
+    border-radius: 3px;
   }
 
   .rich-content thead th {
@@ -252,6 +299,26 @@
     background: theme('colors.accent.soft');
     text-decoration: none;
   }
+}
+
+/* ---------------------------------------------------------------------------
+ * Rechtsseiten-Hero: lange deutsche Komposita ("Geschaeftsbedingungen",
+ * "Datenschutzerklaerung") sind als Wort breiter als die Textspalte. Der
+ * Hero-Container ist ein Grid; sein Item hat min-width:auto, die Spur wird
+ * also auf die min-content-Breite des laengsten Wortes aufgeblasen (gemessen:
+ * 383px statt 358px auf /de/terms). Die H1 ragt dadurch rechts aus dem
+ * Viewport und wird von overflow-hidden der Section abgeschnitten - das
+ * letzte "n" von "Geschaeftsbedingungen" fehlte. hyphens:auto gibt dem
+ * Browser Trennstellen; damit sinkt die min-content-Breite, die Spur passt
+ * wieder in den Container und der Text bleibt vollstaendig. Setzt <html
+ * lang> voraus (ist gesetzt). break-word ist der Rueckfall fuer Sprachen
+ * ohne Trennmuster. Bewusst nur auf die Rechtsseiten begrenzt, damit die
+ * Typografie der uebrigen Heroes unveraendert bleibt.
+ * ------------------------------------------------------------------------- */
+.legal-hero h1 {
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  overflow-wrap: break-word;
 }
 
 /* ---------------------------------------------------------------------------

@@ -18,13 +18,18 @@ const NotFoundPage = () => {
 
   return (
     <PageTransition>
+      {/* notFound (statt noindex) sagt SEOHead: robots noindex, KEIN canonical
+          und KEINE hreflang-Alternates. Vorher warb die Fehlerseite unter z.B.
+          /de/agb per canonical und elf Alternates fuer sich selbst als
+          gueltige zehnsprachige Seite. Der Marker im Head laesst server.ts
+          ausserdem einen echten HTTP 404 senden statt 200. */}
       <SEOHead
-        title={t('notFound.seo.title', 'Seite nicht gefunden | PolarisDX')}
+        title={t('notFound.seo.title', 'Seite nicht gefunden (404)')}
         description={t(
           'notFound.seo.description',
           'Die angeforderte Seite konnte nicht gefunden werden.',
         )}
-        noindex={true}
+        notFound
       />
 
       <div className="flex min-h-[80vh] items-center justify-center bg-brand-deep text-white">

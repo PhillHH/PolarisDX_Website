@@ -128,6 +128,59 @@ function GermanOnlyPage({ children }: { children: React.ReactNode }) {
   return <>{children}</>
 }
 
+/**
+ * Scrollt nach einer Navigation zum Ziel von location.hash.
+ *
+ * Warum das eine eigene Komponente braucht:
+ *   1. React Router stellt bei clientseitiger Navigation KEIN Hash-Ziel her.
+ *      Ein Klick auf "/#roi-rechner" aenderte nur die URL, window.scrollY
+ *      blieb bei 0.
+ *   2. <ScrollToTop> im Layout springt bei jedem Pfadwechsel nach oben, und
+ *      der Zielabschnitt wird lazy gerendert. Deshalb laeuft das Scrollen in
+ *      requestAnimationFrame und versucht es ueber mehrere Frames erneut,
+ *      statt einmalig im Effect zu feuern.
+ *
+ * SSR-sicher: greift nur im Effect auf document/window zu.
+ */
+function ScrollToHash() {
+  // Das ganze location-Objekt als Dependency: es wechselt die Identitaet bei
+  // JEDER Navigation, auch beim zweiten Klick auf denselben Link.
+  const location = useLocation()
+
+  useEffect(() => {
+    if (!location.hash) return
+    const id = decodeURIComponent(location.hash.slice(1))
+    if (!id) return
+
+    // ~1s bei 60fps — genug Zeit fuer den Lazy-Chunk der Zielsektion.
+    const MAX_FRAMES = 60
+    let frames = 0
+    let raf = 0
+
+    const scrollToTarget = () => {
+      const target = document.getElementById(id)
+      if (!target) {
+        if (frames++ < MAX_FRAMES) raf = requestAnimationFrame(scrollToTarget)
+        return
+      }
+      // Der Header ist position:fixed — ohne Offset schoebe sich der Abschnitt
+      // darunter. Hoehe messen statt hartkodieren (Header schrumpft beim Scroll).
+      const header = document.querySelector('header')
+      const offset = (header?.getBoundingClientRect().height ?? 0) + 16
+      const top = target.getBoundingClientRect().top + window.scrollY - offset
+      // Gleiches Muster wie Reveal/useHeroSlider: kein Smooth-Scroll, wenn der
+      // Nutzer reduzierte Bewegung eingestellt hat.
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      window.scrollTo({ top: Math.max(top, 0), behavior: reduceMotion ? 'auto' : 'smooth' })
+    }
+
+    raf = requestAnimationFrame(scrollToTarget)
+    return () => cancelAnimationFrame(raf)
+  }, [location])
+
+  return null
+}
+
 // =============================================================================
 // LAYOUT ROUTE
 // =============================================================================
@@ -352,6 +405,9 @@ function App() {
           />
         </Route>
       </Routes>
+      {/* Nach <Routes> gerendert: der Effect von <ScrollToTop> im Layout laeuft
+          damit zuerst, das rAF-Scrollen hier gewinnt. */}
+      <ScrollToHash />
       {/* Cookie consent — site-wide so the consumer landing pages get it too (GTM/Consent Mode). */}
       <CookieBanner />
     </>
