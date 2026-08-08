@@ -88,11 +88,14 @@ const VitaminD3SprayPage = () => {
           'PolarisDX Vitamin D',
         ]}
         structuredData={[
-          createBreadcrumbSchema([
-            { name: 'PolarisDX', url: '/' },
-            { name: t('vitd3spray:hero.breadcrumb_products'), url: '/downloads' },
-            { name: 'Vitamin D3+K2 Spray', url: '/vitamin-d3-spray' },
-          ]),
+          createBreadcrumbSchema(
+            [
+              { name: 'PolarisDX', url: '/' },
+              { name: t('vitd3spray:hero.breadcrumb_products'), url: '/downloads' },
+              { name: 'Vitamin D3+K2 Spray', url: '/vitamin-d3-spray' },
+            ],
+            i18n.language,
+          ),
           ...(faqItems.length > 0 ? [createFAQSchema(faqItems)] : []),
         ]}
       />

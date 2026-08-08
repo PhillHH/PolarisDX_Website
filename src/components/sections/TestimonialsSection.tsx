@@ -26,22 +26,6 @@ const StarRating = () => (
   </div>
 )
 
-// Sprach-neutrales Personen-Icon für den Kundenbild-Platzhalter (kein Bild vorhanden).
-const PersonIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    aria-hidden="true"
-    className="h-10 w-10"
-  >
-    <circle cx="12" cy="8" r="4" />
-    <path d="M4 20c0-4 3.6-6 8-6s8 2 8 6" />
-  </svg>
-)
-
 const TestimonialsSection = () => {
   const { t } = useTranslation('home')
   const [activeIndex, setActiveIndex] = useState(0)
@@ -111,9 +95,12 @@ const TestimonialsSection = () => {
                   aria-roledescription="slide"
                 >
                   <div className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white md:flex-row">
-                    {/* Foto LINKS (Mobil oben) */}
-                    <div className="bg-slate-100 md:w-1/3">
-                      {testimonial.avatar ? (
+                    {/* Foto LINKS (Mobil oben) — nur wenn wirklich eines vorliegt.
+                        Ohne Foto entfällt die Spalte komplett und das Zitat nimmt die
+                        volle Breite ein; eine beschriftete Leerfläche wäre schlechter
+                        als gar keine. */}
+                    {testimonial.avatar && (
+                      <div className="bg-slate-100 md:w-1/3">
                         <img
                           src={testimonial.avatar}
                           alt={testimonial.name}
@@ -121,15 +108,8 @@ const TestimonialsSection = () => {
                           decoding="async"
                           className="h-48 w-full object-cover md:h-full"
                         />
-                      ) : (
-                        <div className="flex h-48 w-full flex-col items-center justify-center gap-2 text-slate-400 md:h-full">
-                          <PersonIcon />
-                          <span className="text-sm font-medium">
-                            {t('testimonials.photo_placeholder', 'Kundenbild')}
-                          </span>
-                        </div>
-                      )}
-                    </div>
+                      </div>
+                    )}
 
                     {/* Zitat RECHTS */}
                     <div className="flex flex-1 flex-col justify-center p-6 text-left lg:p-8">

@@ -49,7 +49,10 @@
           "De kracht van een multi-reader ligt in het vermogen om een breed diagnostisch spectrum te dekken. Echter, deze kracht kan alleen worden ontketend door een uitgebreid, beveiligd ecosysteem van compatibele tests. Degenen die investeren in een POC-lezer moeten tegelijkertijd investeren in de expertise en garantie die hun diagnostische portfolio veiligstelt. Zo wordt flexibiliteit geen risico, maar de hoogste vorm van patiëntveiligheid."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Sneltests: compatibiliteit geeft veiligheid"
+    }
   },
   "precision_point_of_care": {
     "title": "Precisie in Point-of-Care: De Sleutel tot Patiëntveiligheid",
@@ -102,7 +105,10 @@
           "Alleen door de combinatie van een robuuste, gekalibreerde lezer en strikte validatieprocedures wordt een sneltest een betrouwbare diagnostische basis."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Precisie in Point-of-Care: patiëntveiligheid"
+    }
   },
   "first_checkup": {
     "title": "Hoe u zich voorbereidt op uw eerste medische check-up",
@@ -264,7 +270,10 @@
         ]
       }
     ],
-    "title": "The 5-Minute Diagnosis: Why Point-of-Care is a Gamechanger Economically Too"
+    "title": "The 5-Minute Diagnosis: Why Point-of-Care is a Gamechanger Economically Too",
+    "seo": {
+      "title": "The 5-Minute Diagnosis: POC That Pays Off"
+    }
   },
   "rapid_setup_formula": {
     "excerpt": "Efficiëntie in plaats van inwerken: de weg naar snelle inzetbaarheid in de praktijk.",
@@ -313,7 +322,10 @@
         ]
       }
     ],
-    "title": "De performance-formule: efficiëntie in de POC-diagnostiek"
+    "title": "De performance-formule: efficiëntie in de POC-diagnostiek",
+    "seo": {
+      "title": "De performance-formule in POC-diagnostiek"
+    }
   },
   "green_practice": {
     "excerpt": "Sustainability in healthcare doesn't start with solar panels, but with diagnostic logistics. A plea for Point-of-Care.",
@@ -423,7 +435,10 @@
         "value": "200",
         "label": "autoritten bespaard/kwartaal"
       }
-    ]
+    ],
+    "seo": {
+      "title": "Green Practice: Sustainability Starts Here"
+    }
   },
   "invisible_patient": {
     "title": "The Invisible Patient: How Remote Monitoring Frees Medicine from the Practice",
@@ -512,7 +527,10 @@
           "The IGLO-PRO in combination with DX365 is more than a measuring device. It is an extended arm of the practice reaching into the patient's living room. It is time to free medicine from its shackles."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "The Invisible Patient: Remote Monitoring"
+    }
   },
   "seo": {
     "index_title": "Vakblad: POC-diagnostiek & kennis praktijklab",

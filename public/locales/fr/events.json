@@ -27,7 +27,8 @@
     "book_cta": "Réserver un créneau au {{event}}"
   },
   "list": {
-    "book": "Réserver"
+    "book": "Réserver",
+    "running_until": "En cours · jusqu’au {{date}}"
   },
   "past": {
     "eyebrow": "Où nous étions",

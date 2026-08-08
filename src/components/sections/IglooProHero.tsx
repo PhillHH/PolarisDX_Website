@@ -3,6 +3,7 @@ import { Check } from 'lucide-react'
 import { Button } from '../ui/Button'
 import { Breadcrumbs } from '../ui/Breadcrumbs'
 import IglooProFlyer from '../../assets/downloads/igloo-pro-flyer.pdf'
+import IglooProImage from '../../assets/Igloo-pro-frontal.webp'
 
 export default function IglooProHero() {
   const { t } = useTranslation(['products', 'common'])
@@ -76,39 +77,25 @@ export default function IglooProHero() {
           </div>
         </div>
 
-        {/* RIGHT — decorative reader visual */}
-        <div
-          aria-hidden="true"
-          className="hidden lg:block relative min-h-[300px] rounded-2xl bg-white/5 p-7 ring-1 ring-white/10"
-        >
-          {/* Gauge */}
-          <div className="relative mx-auto flex h-40 w-40 items-center justify-center">
-            <svg viewBox="0 0 120 120" className="h-40 w-40 -rotate-90">
-              <circle
-                cx="60"
-                cy="60"
-                r="52"
-                fill="none"
-                strokeWidth="10"
-                className="stroke-white/10"
-              />
-              <circle
-                cx="60"
-                cy="60"
-                r="52"
-                fill="none"
-                strokeWidth="10"
-                strokeLinecap="round"
-                className="stroke-accent"
-                strokeDasharray={2 * Math.PI * 52}
-                strokeDashoffset={2 * Math.PI * 52 * 0.3}
-              />
-            </svg>
-            <span className="absolute text-2xl font-medium">{t('products:hero.visual.gauge')}</span>
-          </div>
+        {/* RIGHT — Produktfoto des Geräts, umrahmt von den Kennzahlen-Karten.
+            Vorher stand hier ein Ring-Diagramm mit der Zahl "36°", für die sich
+            weder im Datenblatt noch in den technischen Daten eine Bedeutung
+            belegen ließ — ersetzt statt beschriftet. */}
+        <div className="relative hidden min-h-[300px] items-center justify-center rounded-2xl bg-white/5 p-7 ring-1 ring-white/10 lg:flex">
+          <img
+            src={IglooProImage}
+            alt={t('products:hero.visual.device_alt', 'IglooPro POC-Reader')}
+            width={650}
+            height={650}
+            decoding="async"
+            className="h-auto w-full max-w-[240px] object-contain xl:max-w-[320px]"
+          />
 
-          {/* Floating cards */}
-          <div className="absolute left-4 top-6 flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-brand-deep">
+          {/* Floating cards — dekorative Wiederholung der technischen Daten */}
+          <div
+            aria-hidden="true"
+            className="absolute left-4 top-6 flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-brand-deep"
+          >
             <Check size={14} className="text-accent" />
             <span>
               <span className="block text-sm font-semibold">
@@ -120,7 +107,10 @@ export default function IglooProHero() {
             </span>
           </div>
 
-          <div className="absolute right-5 top-1/2 flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-brand-deep">
+          <div
+            aria-hidden="true"
+            className="absolute right-5 top-1/2 flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-brand-deep"
+          >
             <Check size={14} className="text-accent" />
             <span>
               <span className="block text-sm font-semibold">
@@ -132,7 +122,10 @@ export default function IglooProHero() {
             </span>
           </div>
 
-          <div className="absolute bottom-8 left-10 flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-brand-deep">
+          <div
+            aria-hidden="true"
+            className="absolute bottom-8 left-10 flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-brand-deep"
+          >
             <Check size={14} className="text-accent" />
             <span>
               <span className="block text-sm font-semibold">

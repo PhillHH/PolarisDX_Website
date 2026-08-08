@@ -75,7 +75,7 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
     <div className={`relative ${className}`} ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`inline-flex items-center justify-center gap-2 rounded-full ${isMobile ? 'h-10 px-3 py-2' : 'px-3 py-2'} leading-none transition-colors hover:bg-white/10 text-current`}
+        className={`inline-flex items-center justify-center gap-2 rounded-full ${isMobile ? 'h-11 px-3 py-2' : 'min-h-[44px] px-3 py-2'} leading-none transition-colors hover:bg-white/10 text-current`}
         aria-label="Select language"
       >
         <FlagIcon
@@ -101,7 +101,7 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
             <button
               key={language.code}
               onClick={() => changeLanguage(language.code)}
-              className={`flex w-full items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${
+              className={`flex min-h-[44px] w-full items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${
                 i18n.language === language.code ? 'bg-gray-50 font-medium text-brand-primary' : ''
               }`}
             >

@@ -68,10 +68,13 @@ const ArticlesIndexPage = () => {
           'Medizintechnik Blog',
           'POCT Fachbeiträge',
         ]}
-        structuredData={createBreadcrumbSchema([
-          { name: crumbHome, url: '/' },
-          { name: crumbArticles, url: '/articles' },
-        ])}
+        structuredData={createBreadcrumbSchema(
+          [
+            { name: crumbHome, url: '/' },
+            { name: crumbArticles, url: '/articles' },
+          ],
+          i18n.language,
+        )}
       />
 
       <SubpageHero

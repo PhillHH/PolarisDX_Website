@@ -34,7 +34,7 @@ type SupportChannel = {
 }
 
 const SupportPage = () => {
-  const { t } = useTranslation(['support', 'common'])
+  const { t, i18n } = useTranslation(['support', 'common'])
 
   const channels: SupportChannel[] = [
     {
@@ -108,10 +108,13 @@ const SupportPage = () => {
         ]}
         structuredData={[
           localBusinessSchema,
-          createBreadcrumbSchema([
-            { name: 'Home', url: '/' },
-            { name: 'Support', url: '/support' },
-          ]),
+          createBreadcrumbSchema(
+            [
+              { name: 'Home', url: '/' },
+              { name: 'Support', url: '/support' },
+            ],
+            i18n.language,
+          ),
         ]}
       />
 

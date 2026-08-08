@@ -10,7 +10,7 @@
     "chip_lis": "LIS/HIS-ready",
     "chip_cross": "Nezávislý na výrobci",
     "visual": {
-      "gauge": "36°",
+      "device_alt": "POC čtečka IglooPro, pohled zepředu",
       "portable_val": "600 g",
       "portable_label": "přenosný",
       "cv_val": "CV < 2 %",

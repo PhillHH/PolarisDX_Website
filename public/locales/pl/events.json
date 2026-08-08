@@ -29,7 +29,8 @@
     "book_cta": "Zarezerwuj termin na {{event}}"
   },
   "list": {
-    "book": "Rezerwuj"
+    "book": "Rezerwuj",
+    "running_until": "Trwa · do {{date}}"
   },
   "past": {
     "eyebrow": "Gdzie byliśmy",

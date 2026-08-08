@@ -24,12 +24,15 @@ const Footer = () => {
                   'Umfassende Betreuung und Fürsorge. Moderne Gesundheitsdienste für Sie und Ihre Familie, rund um die Uhr.',
                 )}
               </p>
-              <div className="flex gap-4">
+              {/* h-11/w-11: 44px Trefferflaeche (WCAG 2.5.5); die Icons bleiben 24px.
+                  -ml-2.5 gleicht den neuen Innenabstand des ersten Icons aus, damit
+                  die Icon-Reihe buendig unter dem Text startet. */}
+              <div className="-ml-2.5 flex gap-1">
                 <a
                   href="https://www.linkedin.com/company/polarisdx/"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-white hover:text-accent-on-dark transition-colors"
+                  className="inline-flex h-11 w-11 items-center justify-center text-white hover:text-accent-on-dark transition-colors"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="h-6 w-6" />
@@ -38,7 +41,7 @@ const Footer = () => {
                   href="https://www.instagram.com/polaris_diagnostix/"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-white hover:text-accent-on-dark transition-colors"
+                  className="inline-flex h-11 w-11 items-center justify-center text-white hover:text-accent-on-dark transition-colors"
                   aria-label="Instagram"
                 >
                   <Instagram className="h-6 w-6" />
@@ -51,11 +54,14 @@ const Footer = () => {
                 <h3 className="text-sm font-semibold tracking-tight">
                   {t('footer.links', 'Links')}
                 </h3>
-                <ul className="space-y-2 text-white/70">
+                {/* Ohne space-y: die Zeilenabstaende stecken jetzt im py der Links
+                    (44px Trefferflaeche auf Touch, ab lg wieder kompakt). Dadurch
+                    liegen die Flaechen luecken- und ueberlappungsfrei aneinander. */}
+                <ul className="text-white/70">
                   <li>
                     <Link
                       to="/"
-                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                      className="block py-3 lg:py-1 text-white/70 transition-colors hover:text-accent-on-dark"
                     >
                       {t('nav.home')}
                     </Link>
@@ -63,7 +69,7 @@ const Footer = () => {
                   <li>
                     <Link
                       to="/about"
-                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                      className="block py-3 lg:py-1 text-white/70 transition-colors hover:text-accent-on-dark"
                     >
                       {t('nav.about')}
                     </Link>
@@ -71,7 +77,7 @@ const Footer = () => {
                   <li>
                     <Link
                       to="/igloo-pro"
-                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                      className="block py-3 lg:py-1 text-white/70 transition-colors hover:text-accent-on-dark"
                     >
                       IglooPro
                     </Link>
@@ -79,7 +85,7 @@ const Footer = () => {
                   <li>
                     <Link
                       to="/articles"
-                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                      className="block py-3 lg:py-1 text-white/70 transition-colors hover:text-accent-on-dark"
                     >
                       {t('nav.blog')}
                     </Link>
@@ -87,7 +93,7 @@ const Footer = () => {
                   <li>
                     <Link
                       to="/events"
-                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                      className="block py-3 lg:py-1 text-white/70 transition-colors hover:text-accent-on-dark"
                     >
                       {t('nav.events', 'Events')}
                     </Link>
@@ -95,7 +101,7 @@ const Footer = () => {
                   <li>
                     <Link
                       to="/downloads"
-                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                      className="block py-3 lg:py-1 text-white/70 transition-colors hover:text-accent-on-dark"
                     >
                       {t('nav.downloads', 'Downloads')}
                     </Link>
@@ -103,7 +109,7 @@ const Footer = () => {
                   <li>
                     <Link
                       to="/contact"
-                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                      className="block py-3 lg:py-1 text-white/70 transition-colors hover:text-accent-on-dark"
                     >
                       {t('nav.contact')}
                     </Link>
@@ -115,11 +121,14 @@ const Footer = () => {
                 <h3 className="text-sm font-semibold tracking-tight">
                   {t('footer.diagnostics', 'Diagnostik')}
                 </h3>
-                <ul className="space-y-2 text-white/70">
+                {/* Ohne space-y: die Zeilenabstaende stecken jetzt im py der Links
+                    (44px Trefferflaeche auf Touch, ab lg wieder kompakt). Dadurch
+                    liegen die Flaechen luecken- und ueberlappungsfrei aneinander. */}
+                <ul className="text-white/70">
                   <li>
                     <Link
                       to="/diagnostics"
-                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                      className="block py-3 lg:py-1 text-white/70 transition-colors hover:text-accent-on-dark"
                     >
                       {t('footer.allServices', 'Alle Services')}
                     </Link>
@@ -127,7 +136,7 @@ const Footer = () => {
                   <li>
                     <Link
                       to="/diagnostics/dental"
-                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                      className="block py-3 lg:py-1 text-white/70 transition-colors hover:text-accent-on-dark"
                     >
                       Dental
                     </Link>
@@ -135,7 +144,7 @@ const Footer = () => {
                   <li>
                     <Link
                       to="/diagnostics/beauty"
-                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                      className="block py-3 lg:py-1 text-white/70 transition-colors hover:text-accent-on-dark"
                     >
                       Beauty
                     </Link>
@@ -143,7 +152,7 @@ const Footer = () => {
                   <li>
                     <Link
                       to="/diagnostics/longevity"
-                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                      className="block py-3 lg:py-1 text-white/70 transition-colors hover:text-accent-on-dark"
                     >
                       Longevity
                     </Link>
@@ -151,7 +160,7 @@ const Footer = () => {
                   <li>
                     <Link
                       to="/diagnostics/poc-systemloesungen"
-                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                      className="block py-3 lg:py-1 text-white/70 transition-colors hover:text-accent-on-dark"
                     >
                       {t('footer.pocSystems', 'POC-Systeme')}
                     </Link>
@@ -159,7 +168,7 @@ const Footer = () => {
                   <li>
                     <Link
                       to="/diagnostics/praeventions-checks"
-                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                      className="block py-3 lg:py-1 text-white/70 transition-colors hover:text-accent-on-dark"
                     >
                       {t('footer.preventionChecks', 'Präventions-Checks')}
                     </Link>
@@ -167,7 +176,7 @@ const Footer = () => {
                   <li>
                     <Link
                       to="/diagnostics/hormon-tests"
-                      className="text-white/70 transition-colors hover:text-accent-on-dark"
+                      className="block py-3 lg:py-1 text-white/70 transition-colors hover:text-accent-on-dark"
                     >
                       {t('footer.hormonTests', 'Hormon-Tests')}
                     </Link>
@@ -209,14 +218,26 @@ const Footer = () => {
                 defaultValue: 'Copyright ©PolarisDX {{year}} All Rights Reserved.',
               })}
             </p>
-            <div className="flex gap-4 md:gap-8">
-              <Link to="/imprint" className="text-white/60 transition-colors hover:text-white">
+            {/* flex-wrap: die drei Rechtslinks belegen bei 390px zusammen ~356 von
+                358 verfuegbaren Pixeln — ohne Umbruchmoeglichkeit reisst die Zeile
+                in Sprachen mit laengeren Woertern aus dem Container. */}
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 md:gap-x-8">
+              <Link
+                to="/imprint"
+                className="inline-flex min-h-[44px] items-center text-white/60 transition-colors hover:text-white"
+              >
                 {t('footer.imprint', 'Impressum')}
               </Link>
-              <Link to="/privacy" className="text-white/60 transition-colors hover:text-white">
+              <Link
+                to="/privacy"
+                className="inline-flex min-h-[44px] items-center text-white/60 transition-colors hover:text-white"
+              >
                 {t('footer.privacy', 'Datenschutzerklärung')}
               </Link>
-              <Link to="/terms" className="text-white/60 transition-colors hover:text-white">
+              <Link
+                to="/terms"
+                className="inline-flex min-h-[44px] items-center text-white/60 transition-colors hover:text-white"
+              >
                 {t('nav.terms')}
               </Link>
             </div>

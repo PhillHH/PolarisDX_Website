@@ -107,7 +107,10 @@
         "value": "200",
         "label": "przejazdów oszczędzonych/kwartał"
       }
-    ]
+    ],
+    "seo": {
+      "title": "Zielona praktyka: zrównoważony gabinet"
+    }
   },
   "invisible_patient": {
     "title": "Niewidzialny pacjent: Jak zdalne monitorowanie uwalnia medycynę z gabinetu",
@@ -196,7 +199,10 @@
           "IGLO-PRO w połączeniu z DX365 to coś więcej niż urządzenie pomiarowe. To przedłużone ramię gabinetu, które sięga aż do salonu pacjenta. Czas uwolnić medycynę z jej kajdan."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Niewidzialny pacjent: zdalne monitorowanie"
+    }
   },
   "five_minute_diagnosis": {
     "title": "5-minutowa diagnoza: Dlaczego Point-of-Care to przełom nie tylko medyczny, ale i ekonomiczny",
@@ -278,7 +284,10 @@
           "W czasach niedoboru wykwalifikowanych pracowników bezstresowe środowisko pracy jest największą dźwignią ekonomiczną, jaką masz. IGLO-PRO pomaga Ci nie tylko uprawiać lepszą medycynę – pomaga Ci prowadzić praktykę jako wydajne przedsiębiorstwo."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "5-minutowa diagnoza: POC, który się opłaca"
+    }
   },
   "ecosystem_of_rapid_tests": {
     "title": "Ekosystem szybkich testów: Dlaczego kompatybilność tworzy bezpieczeństwo",
@@ -330,7 +339,10 @@
           "Siła multi-czytnika tkwi w jego zdolności do pokrycia szerokiego spektrum diagnostycznego. Jednak tę siłę można uwolnić tylko poprzez kompleksowy, zabezpieczony ekosystem kompatybilnych testów. Kto inwestuje w czytnik POC, powinien jednocześnie inwestować w ekspertyzę i gwarancję, która zabezpiecza jego portfel diagnostyczny. W ten sposób elastyczność nie staje się ryzykiem, ale najwyższą formą bezpieczeństwa pacjenta."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Szybkie testy: kompatybilność to bezpieczeństwo"
+    }
   },
   "precision_point_of_care": {
     "title": "Precyzja w Point-of-Care: Klucz do bezpieczeństwa pacjenta",
@@ -383,7 +395,10 @@
           "Tylko dzięki połączeniu solidnego, skalibrowanego czytnika i rygorystycznych procedur walidacji, szybki test staje się niezawodną podstawą diagnostyczną."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Precyzja POC: bezpieczeństwo pacjenta"
+    }
   },
   "first_checkup": {
     "title": "Jak przygotować się do pierwszej wizyty kontrolnej",
@@ -512,7 +527,10 @@
           "Nowoczesna diagnostyka Point-of-Care to więcej niż samo urządzenie: to cyfrowo zintegrowany system. Kto stawia na Remote Setup, inwestuje nie tylko w dokładniejszą i szybszą diagnostykę, lecz przede wszystkim w cenny czas swojego personelu. Formuła wydajności jest zatem synonimem minimalnego obciążenia integracyjnego i maksymalnej gotowości operacyjnej w nowoczesnej opiece zdrowotnej."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Formuła wydajności w diagnostyce POC"
+    }
   },
   "seo": {
     "index_title": "Magazyn branżowy: diagnostyka POC i wiedza o laboratorium w gabinecie",

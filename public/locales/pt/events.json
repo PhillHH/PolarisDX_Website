@@ -27,7 +27,8 @@
     "book_cta": "Reservar horário no {{event}}"
   },
   "list": {
-    "book": "Reservar"
+    "book": "Reservar",
+    "running_until": "A decorrer · até {{date}}"
   },
   "past": {
     "eyebrow": "Onde estivemos",

@@ -27,7 +27,8 @@
     "book_cta": "Book en tid til {{event}}"
   },
   "list": {
-    "book": "Book"
+    "book": "Book",
+    "running_until": "I gang · til {{date}}"
   },
   "past": {
     "eyebrow": "Hvor vi har været",

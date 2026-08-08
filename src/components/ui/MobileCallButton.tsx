@@ -9,7 +9,13 @@ const MobileCallButton = () => {
   const phoneNumberClean = phoneNumber.replace(/\s/g, '')
 
   return (
-    <div className="fixed bottom-6 right-0 z-50 flex flex-col items-end lg:hidden">
+    // --cookie-banner-height wird vom CookieBanner gesetzt, solange dieser sichtbar
+    // ist (sonst 0px). Ohne das liegt der Anruf-Button beim Erstbesuch komplett
+    // hinter dem Banner (Banner z-[70] > z-50) und ist nicht erreichbar.
+    <div
+      className="fixed bottom-6 right-0 z-50 flex flex-col items-end transition-[bottom] duration-300 lg:hidden"
+      style={{ bottom: 'calc(1.5rem + var(--cookie-banner-height, 0px))' }}
+    >
       <div
         className={`flex items-center overflow-hidden rounded-l-full shadow-lg ring-1 ring-white/25 transition-all duration-300 ease-in-out ${
           isExpanded
@@ -21,8 +27,8 @@ const MobileCallButton = () => {
           onClick={() => setIsExpanded((prev) => !prev)}
           className={`flex items-center justify-center rounded-full transition-colors ${
             isExpanded
-              ? 'h-10 w-10 bg-gray-50 text-brand-primary'
-              : 'h-10 w-10 bg-brand-deep text-white'
+              ? 'h-11 w-11 bg-gray-50 text-brand-primary'
+              : 'h-11 w-11 bg-brand-deep text-white'
           }`}
           aria-label={t('contact.call_us_button', 'Rufen Sie uns an')}
         >
@@ -34,14 +40,14 @@ const MobileCallButton = () => {
             <a
               href={`tel:${phoneNumberClean}`}
               onClick={() => setIsExpanded(false)}
-              className="ml-3 mr-1 whitespace-nowrap text-sm font-semibold text-heading"
+              className="ml-3 mr-1 flex min-h-[44px] items-center whitespace-nowrap text-sm font-semibold text-heading"
             >
               {t('contact.call_us_text', 'Rufen Sie uns an')}
             </a>
             <button
               onClick={() => setIsExpanded(false)}
               aria-label={t('contact.collapse_button', 'Schließen')}
-              className="ml-2 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-500 transition-colors hover:bg-gray-200"
+              className="ml-2 flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 text-gray-500 transition-colors hover:bg-gray-200"
             >
               <X className="h-4 w-4" />
             </button>

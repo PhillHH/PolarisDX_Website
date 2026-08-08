@@ -68,7 +68,9 @@ const Header = () => {
         }`}
       >
         <div className="mx-auto flex max-w-container items-center justify-between px-4 py-3 sm:px-6 lg:px-0 lg:py-4">
-          <Link to="/" className="flex shrink-0 items-center gap-3">
+          {/* min-h-[44px]: Trefferflaeche des Logo-Links auf WCAG-2.5.5-Mindestmass.
+              Das Bild bleibt h-10/h-12, nur die Klickflaeche waechst. */}
+          <Link to="/" className="flex min-h-[44px] shrink-0 items-center gap-3">
             <img
               src={logo} // Always use white logo as background is always dark (either hero or dark header)
               alt={t('logo.alt', 'PolarisDX — POC-Diagnostik für Arztpraxen')}
@@ -102,7 +104,7 @@ const Header = () => {
                           <Link
                             key={child.label}
                             to={child.route}
-                            className="block px-6 py-2.5 text-sm text-gray-600 hover:bg-brand-primary/5 hover:text-brand-primary transition-colors font-normal"
+                            className="block px-6 py-3 text-sm text-gray-600 hover:bg-brand-primary/5 hover:text-brand-primary transition-colors font-normal"
                           >
                             {t(`nav.${child.label}`)}
                           </Link>
@@ -128,7 +130,7 @@ const Header = () => {
             {/* Search Trigger Desktop */}
             <button
               onClick={searchModal.onOpen}
-              className={`p-2.5 rounded-full transition-all duration-300 hover:scale-110 text-white hover:bg-white/10`}
+              className={`flex h-11 w-11 items-center justify-center rounded-full transition-all duration-300 hover:scale-110 text-white hover:bg-white/10`}
               aria-label={t('a11y.search', 'Suche öffnen')}
             >
               <Search className="h-4 w-4" />
@@ -152,7 +154,7 @@ const Header = () => {
             {/* Search Trigger Mobile */}
             <button
               onClick={searchModal.onOpen}
-              className={`p-2 mr-1 rounded-full text-white`}
+              className={`flex h-11 w-11 items-center justify-center rounded-full text-white`}
               aria-label={t('a11y.search', 'Suche öffnen')}
             >
               <Search className="h-5 w-5" />
@@ -162,7 +164,7 @@ const Header = () => {
 
             <button
               type="button"
-              className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors duration-300 border-white/20 text-white bg-white/5`}
+              className={`flex h-11 w-11 items-center justify-center rounded-full border transition-colors duration-300 border-white/20 text-white bg-white/5`}
               onClick={mobileMenu.onToggle}
               aria-label={t('a11y.toggle_nav', 'Navigation umschalten')}
               aria-expanded={mobileMenu.isOpen}
@@ -195,7 +197,7 @@ const Header = () => {
                   {item.children ? (
                     <div>
                       <div
-                        className={`flex items-center justify-between text-lg font-normal tracking-wide cursor-pointer text-white`}
+                        className={`flex min-h-[44px] items-center justify-between text-lg font-normal tracking-wide cursor-pointer text-white`}
                         onClick={() =>
                           setOpenSubmenu(openSubmenu === item.label ? null : item.label)
                         }
@@ -210,7 +212,7 @@ const Header = () => {
                         <div className={`pl-4 mt-3 space-y-3 border-l-2 border-white/20`}>
                           <Link
                             to={item.route!}
-                            className={`block text-base font-normal text-white/70`}
+                            className={`block py-2.5 text-base font-normal text-white/70`}
                             onClick={mobileMenu.onClose}
                           >
                             {t(`nav.${item.label}`)}
@@ -219,7 +221,7 @@ const Header = () => {
                             <Link
                               key={child.label}
                               to={child.route}
-                              className={`block text-base font-normal text-white/70`}
+                              className={`block py-2.5 text-base font-normal text-white/70`}
                               onClick={mobileMenu.onClose}
                             >
                               {t(`nav.${child.label}`)}
@@ -231,7 +233,7 @@ const Header = () => {
                   ) : (
                     <Link
                       to={item.route!}
-                      className={`block text-lg font-normal tracking-wide text-white`}
+                      className={`block py-2 text-lg font-normal tracking-wide text-white`}
                       onClick={mobileMenu.onClose}
                     >
                       {t(`nav.${item.label}`)}

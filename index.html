@@ -89,10 +89,13 @@
       name="description"
       content="Laborergebnisse in 3 Minuten — direkt in Ihrer Praxis. Der IglooPro POC-Reader für Dental, Longevity & Beauty. Jetzt beraten lassen."
     />
-    <meta
-      name="keywords"
-      content="POC Diagnostik, Point-of-Care, IglooPro, POC Reader, Schnelltest Praxis, Vitamin D Test, CRP Schnelltest, HbA1c Soforttest, Medizintechnik, POCT Gerät"
-    />
+    <!--
+      Hier stand ein globaler meta-keywords-Tag. Er war statisch und deutsch und
+      wurde damit auf JEDER Seite JEDER Sprache ausgeliefert (nachgemessen u. a.
+      auf /en/terms und /fr/). Google wertet das Signal seit Jahren nicht aus;
+      auf neun nicht-deutschen Sprachversionen war es zudem sprachfremd.
+      Seitenspezifische Keywords setzt weiterhin SEOHead per Helmet.
+    -->
     <meta name="author" content="PolarisDX Europe GmbH" />
     <!--
       robots/googlebot sind hier NUR Fallback fuer den Fall, dass Helmet keine

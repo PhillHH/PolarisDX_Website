@@ -98,6 +98,9 @@ const ArticlePage = () => {
   const publishedIso = articleDateIso(article.date)
 
   const title = t(`articles:${article.id}.title`)
+  // Die lange Headline bleibt H1 und JSON-LD-headline; nur der <title> wird
+  // gekuerzt, sonst stehen bis zu 121 Zeichen in der Suchergebnisliste.
+  const seoTitle = t(`articles:${article.id}.seo.title`, title)
   const excerpt = t(`articles:${article.id}.excerpt`)
   const category = t(`common:category.${article.category}`, article.category)
   const translatedSections = t(`articles:${article.id}.sections`, {
@@ -116,37 +119,44 @@ const ArticlePage = () => {
     switch (sType) {
       case 'table':
         return (
-          <section key={index} className="scroll-mt-28 space-y-4 overflow-x-auto">
+          <section key={index} className="scroll-mt-28 space-y-4">
             {section.heading && (
               <h2 className="text-2xl font-medium tracking-tight text-heading">
                 {section.heading}
               </h2>
             )}
-            <table className="w-full min-w-[560px] border-collapse text-left text-sm text-gray-700 sm:text-base">
-              <thead>
-                <tr>
-                  {(section as TableSection).headers.map((header, i) => (
-                    <th
-                      key={i}
-                      className="border-b border-slate-200 py-3 font-semibold text-heading"
-                    >
-                      {header}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {(section as TableSection).rows.map((row, rIndex) => (
-                  <tr key={rIndex} className="border-b border-gray-100 last:border-0">
-                    {row.map((cell, cIndex) => (
-                      <td key={cIndex} className="py-3 pr-4 align-top">
-                        {cell}
-                      </td>
+            {/* Der Scroll-Container umschliesst nur noch die Tabelle, nicht mehr
+                die ganze Section samt Ueberschrift. .table-scroll blendet den
+                Rand-Fade und die Hinweiszeile (duenne Scrollleiste) ein, solange
+                seitlich noch Inhalt folgt — bei 375px waren 217px der dritten
+                Spalte verdeckt, ohne jede Andeutung. Siehe src/index.css. */}
+            <div className="table-scroll">
+              <table className="w-full min-w-[560px] border-collapse text-left text-sm text-gray-700 sm:text-base">
+                <thead>
+                  <tr>
+                    {(section as TableSection).headers.map((header, i) => (
+                      <th
+                        key={i}
+                        className="border-b border-slate-200 py-3 font-semibold text-heading"
+                      >
+                        {header}
+                      </th>
                     ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {(section as TableSection).rows.map((row, rIndex) => (
+                    <tr key={rIndex} className="border-b border-gray-100 last:border-0">
+                      {row.map((cell, cIndex) => (
+                        <td key={cIndex} className="py-3 pr-4 align-top">
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </section>
         )
       case 'infobox':
@@ -222,7 +232,7 @@ const ArticlePage = () => {
   return (
     <PageTransition>
       <SEOHead
-        title={title}
+        title={seoTitle}
         description={excerpt}
         ogType="article"
         article={{
@@ -240,11 +250,14 @@ const ArticlePage = () => {
             authorName: article.author,
             language: i18n.language,
           }),
-          createBreadcrumbSchema([
-            { name: crumbHome, url: '/' },
-            { name: crumbArticles, url: '/articles' },
-            { name: title, url: `/articles/${slug}` },
-          ]),
+          createBreadcrumbSchema(
+            [
+              { name: crumbHome, url: '/' },
+              { name: crumbArticles, url: '/articles' },
+              { name: title, url: `/articles/${slug}` },
+            ],
+            i18n.language,
+          ),
         ]}
       />
 

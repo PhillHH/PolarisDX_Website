@@ -107,7 +107,10 @@
         "value": "200",
         "label": "car trips saved per quarter"
       }
-    ]
+    ],
+    "seo": {
+      "title": "Green Practice: Sustainability Starts Here"
+    }
   },
   "invisible_patient": {
     "title": "The Invisible Patient: How Remote Monitoring Frees Medicine from the Practice",
@@ -196,7 +199,10 @@
           "The IGLO-PRO in combination with DX365 is more than a measuring device. It is an extended arm of the practice reaching into the patient's living room. It is time to free medicine from its shackles."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "The Invisible Patient: Remote Monitoring"
+    }
   },
   "five_minute_diagnosis": {
     "title": "The 5-Minute Diagnosis: Why Point-of-Care is a Gamechanger Economically Too",
@@ -278,7 +284,10 @@
           "In times of skilled worker shortage, a stress-free working environment is the biggest economic lever you have. The IGLO-PRO helps you not only to practice better medicine – it helps you to run your practice as an efficient business."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "The 5-Minute Diagnosis: POC That Pays Off"
+    }
   },
   "ecosystem_of_rapid_tests": {
     "title": "The Ecosystem of Rapid Tests: Why Compatibility Creates Safety",
@@ -330,7 +339,10 @@
           "The strength of a multi-reader lies in its ability to cover a wide diagnostic spectrum. However, this strength can only be unleashed through a comprehensive, secured ecosystem of compatible tests. Those investing in a POC reader should simultaneously invest in the expertise and guarantee that secures their diagnostic portfolio. Thus, flexibility does not become a risk, but the highest form of patient safety."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Rapid Tests: Compatibility Creates Safety"
+    }
   },
   "precision_point_of_care": {
     "title": "Precision in Point-of-Care: The Key to Patient Safety",
@@ -383,7 +395,10 @@
           "Only through the combination of a robust, calibrated reader and strict validation procedures does a rapid test become a reliable diagnostic basis."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Precision in Point-of-Care: Patient Safety"
+    }
   },
   "first_checkup": {
     "title": "How to prepare for your first medical check-up",
@@ -512,7 +527,10 @@
           "Modern point-of-care diagnostics is more than just a device: it is a digitally integrated system. Those who rely on remote setup invest not only in more precise and faster diagnostics, but above all in the valuable time of their staff. The Performance Formula is thus synonymous with minimal integration stress and maximum operational readiness in modern healthcare."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "The Performance Formula for POC Diagnostics"
+    }
   },
   "seo": {
     "index_title": "Magazine: Point-of-Care Diagnostics Insights",

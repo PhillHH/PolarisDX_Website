@@ -1,11 +1,11 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { SEOHead } from '../components/seo'
+import { SEOHead, createBreadcrumbSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import LegalLayout from '../components/layout/LegalLayout'
 
 const ImprintPage = () => {
-  const { t } = useTranslation(['legal', 'common'])
+  const { t, i18n } = useTranslation(['legal', 'common'])
   const toSafeArray = (value: unknown): string[] =>
     Array.isArray(value) ? value.filter((item): item is string => typeof item === 'string') : []
 
@@ -32,6 +32,11 @@ const ImprintPage = () => {
 
   const headingClass = 'text-xl font-semibold tracking-tight text-heading mb-4'
 
+  // Sichtbarer Breadcrumb und BreadcrumbList aus DERSELBEN Quelle - beide
+  // Beschriftungen kommen aus dem i18n-Katalog, nichts ist hier hartkodiert.
+  const crumbHome = t('common:nav.home', 'Home')
+  const crumbImprint = t('imprint.title')
+
   return (
     <PageTransition>
       <SEOHead
@@ -41,12 +46,16 @@ const ImprintPage = () => {
           'Impressum der Polaris Diagnostics Europe GmbH - Kontakt und rechtliche Informationen.',
         )}
         noindex={true}
+        structuredData={createBreadcrumbSchema(
+          [
+            { name: crumbHome, url: '/' },
+            { name: crumbImprint, url: '/imprint' },
+          ],
+          i18n.language,
+        )}
       />
       <LegalLayout
-        breadcrumbs={[
-          { label: t('common:nav.home', 'Home'), href: '/' },
-          { label: t('imprint.title') },
-        ]}
+        breadcrumbs={[{ label: crumbHome, href: '/' }, { label: crumbImprint }]}
         eyebrow={t('eyebrow', 'Rechtliches')}
         title={t('imprint.title')}
         subtitle={t('imprint.subtitle', '')}
@@ -62,7 +71,9 @@ const ImprintPage = () => {
           <h2 className={headingClass}>{t('imprint.section1.title')}</h2>
           <div className="grid gap-8 md:grid-cols-2">
             <div>
-              <h3 className="mb-2 font-semibold text-heading">{t('imprint.section1.london.title')}</h3>
+              <h3 className="mb-2 font-semibold text-heading">
+                {t('imprint.section1.london.title')}
+              </h3>
               <p>
                 <strong>{t('imprint.section1.london.company')}</strong>
               </p>

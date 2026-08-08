@@ -10,7 +10,7 @@ import DiagnosticsSpecialtySection from '../components/sections/DiagnosticsSpeci
 import IglooProductFinalCta from '../components/sections/IglooProductFinalCta'
 
 const IglooProPage: React.FC = () => {
-  const { t } = useTranslation(['products', 'services', 'common'])
+  const { t, i18n } = useTranslation(['products', 'services', 'common'])
 
   return (
     <div>
@@ -27,10 +27,13 @@ const IglooProPage: React.FC = () => {
         ]}
         structuredData={[
           iglooProProductSchema,
-          createBreadcrumbSchema([
-            { name: 'Home', url: '/' },
-            { name: 'IglooPro', url: '/igloo-pro' },
-          ]),
+          createBreadcrumbSchema(
+            [
+              { name: 'Home', url: '/' },
+              { name: 'IglooPro', url: '/igloo-pro' },
+            ],
+            i18n.language,
+          ),
         ]}
       />
 

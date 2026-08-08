@@ -265,7 +265,8 @@
   },
   "praeventions_checks": {
     "seo": {
-      "description": "Präventive Checks am Point-of-Care: wichtige Biomarker sofort bestimmen und datenbasiert beraten – in Praxis, Apotheke und Klinik. Jetzt informieren."
+      "description": "Präventive Checks am Point-of-Care: wichtige Biomarker sofort bestimmen und datenbasiert beraten – in Praxis, Apotheke und Klinik. Jetzt informieren.",
+      "title": "Präventions-Checks für die Praxis"
     },
     "title": "Präventive Gesundheits-Checks: Vorsorge neu gedacht",
     "headline": "Schnelle Diagnostik als Fundament moderner Prävention",
@@ -331,7 +332,8 @@
   },
   "infektion_entzuendung": {
     "seo": {
-      "description": "Entzündungsmarker und Infektionsanzeichen vor Ort bestimmen: schnellere Triage, verantwortungsvolles Antibiotika-Management. Jetzt Beratung anfragen."
+      "description": "Entzündungsmarker und Infektionsanzeichen vor Ort bestimmen: schnellere Triage, verantwortungsvolles Antibiotika-Management. Jetzt Beratung anfragen.",
+      "title": "Infektions- & Entzündungsmarker vor Ort"
     },
     "title": "Infektion & Entzündungsmarker: Schnelle Antworten in kritischen Fällen",
     "headline": "Triage in Minuten: Wie der Igloo Pro die Entscheidungsfindung beschleunigt",
@@ -396,7 +398,8 @@
   },
   "stoffwechsel_herz": {
     "seo": {
-      "description": "Stoffwechsel- und kardiale Marker in wenigen Minuten messen: Diabetes-Monitoring und Therapieanpassung direkt in der Praxis. Jetzt beraten lassen."
+      "description": "Stoffwechsel- und kardiale Marker in wenigen Minuten messen: Diabetes-Monitoring und Therapieanpassung direkt in der Praxis. Jetzt beraten lassen.",
+      "title": "Stoffwechsel & Herzgesundheit messen"
     },
     "title": "Stoffwechsel & Herzgesundheit: Chronische Überwachung auf Knopfdruck",
     "headline": "Wichtige Indikatoren im Blick: Präzise Messung für die Therapieanpassung",
@@ -461,7 +464,8 @@
   },
   "hormon_tests": {
     "seo": {
-      "description": "Hormondiagnostik am Point-of-Care: kritische Hormone direkt am Patienten bestimmen – von Schilddrüse bis Fertilität. Jetzt Beratung vereinbaren."
+      "description": "Hormondiagnostik am Point-of-Care: kritische Hormone direkt am Patienten bestimmen – von Schilddrüse bis Fertilität. Jetzt Beratung vereinbaren.",
+      "title": "Hormon- & Endokrinologie-Tests chairside"
     },
     "title": "Hormon- & Endokrinologie-Tests: Spezialdiagnostik leicht gemacht",
     "headline": "Präzision in der Endokrinologie: Schnelle Gewissheit für komplexe Diagnosen",
@@ -526,7 +530,8 @@
   },
   "kompatibilitaet_integration": {
     "seo": {
-      "description": "Offene, herstellerübergreifende POC-Plattform: Igloo Pro sichert Flexibilität, technologische Unabhängigkeit und Investitionssicherheit. Jetzt informieren."
+      "description": "Offene, herstellerübergreifende POC-Plattform: Igloo Pro sichert Flexibilität, technologische Unabhängigkeit und Investitionssicherheit. Jetzt informieren.",
+      "title": "Herstellerübergreifende Kompatibilität"
     },
     "title": "Herstellerübergreifende Kompatibilität: Investitionssicherheit durch Offenheit",
     "headline": "Maximale Flexibilität: Wie Ihr Igloo Pro 90% aller Tests auf dem Markt auswertet",
@@ -699,10 +704,22 @@
       "sections_eyebrow": "Im Detail",
       "conclusion_eyebrow": "Fazit",
       "stats": [
-        { "value": "< 2 %", "label": "Variationskoeffizient (CV)" },
-        { "value": "3–15 Min.", "label": "bis zum Ergebnis" },
-        { "value": "10+", "label": "Biomarker aus einem Gerät" },
-        { "value": "IVDR/CE", "label": "zertifiziert & konform" }
+        {
+          "value": "< 2 %",
+          "label": "Variationskoeffizient (CV)"
+        },
+        {
+          "value": "3–15 Min.",
+          "label": "bis zum Ergebnis"
+        },
+        {
+          "value": "10+",
+          "label": "Biomarker aus einem Gerät"
+        },
+        {
+          "value": "IVDR/CE",
+          "label": "zertifiziert & konform"
+        }
       ]
     }
   }

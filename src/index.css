@@ -322,6 +322,87 @@
 }
 
 /* ---------------------------------------------------------------------------
+ * Vergleichstabellen mit eigenem Scroll-Container (ArticlePage,
+ * S3LeitliniePage). Gemessen auf preview bei 375px Viewport:
+ * /de/articles/die-5-minuten-diagnose 560px Tabelle in 343px Container
+ * (217px verdeckt), /de/s3_leitlinie 468px in 341px (127px verdeckt) —
+ * abgeschnitten war jeweils die dritte Spalte mit dem Verkaufsargument, und
+ * zwar ohne jede Andeutung (background-image: none). Bei 1440px scrollt
+ * nichts (Overflow 0), dort darf sich also auch nichts zeigen.
+ *
+ * Technik wie bei .rich-content table (dort in einer frueheren Welle
+ * nachgemessen): zwei Deck-Layer haengen am Inhalt (background-attachment:
+ * local), zwei Schatten an der Box (scroll). Am jeweiligen Ende schiebt sich
+ * das Deck ueber den Schatten — sichtbar ist der Schatten also genau dann,
+ * wenn in dieser Richtung noch Inhalt folgt (rechts: scrollLeft +
+ * clientWidth < scrollWidth). Das braucht kein JS und kann nicht veralten.
+ * Die Deckfarbe ist zugleich der Containerhintergrund und kann daher nie
+ * gegen die Flaeche verrutschen; --table-scroll-surface waehlt sie pro
+ * Einsatzort (weiss im Artikel, slate-50 auf der Leitlinien-Seite — beides
+ * exakt die Farbe, die dort heute schon durchscheint).
+ *
+ * Die Hinweiszeile ist die dauerhaft sichtbare duenne Scrollleiste am
+ * unteren Rand (padding-bottom haelt sie von der letzten Zeile frei). Sie
+ * existiert nur, solange der Container ueberhaupt scrollt, und verschwindet
+ * auf dem Desktop von selbst. Farben: nur slate-900-Neutraltoene.
+ *
+ * Steht bewusst ausserhalb von @layer und am Dateiende, damit die Regel nach
+ * den Tailwind-Utilities greift. Die Regeln der frueheren Welle bleiben
+ * unberuehrt: .article-col/.rich-content max-width 61ch und der
+ * Tabellen-Overflow von .rich-content table stehen weiter oben und werden
+ * hier weder ueberschrieben noch angefasst.
+ * ------------------------------------------------------------------------- */
+.table-scroll {
+  --table-scroll-surface: #ffffff;
+  --table-scroll-surface-fade: rgba(255, 255, 255, 0);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding-bottom: 0.625rem;
+  background-color: var(--table-scroll-surface);
+  background-image:
+    linear-gradient(to right, var(--table-scroll-surface) 45%, var(--table-scroll-surface-fade)),
+    linear-gradient(to left, var(--table-scroll-surface) 45%, var(--table-scroll-surface-fade)),
+    linear-gradient(to right, rgba(15, 23, 42, 0.18), rgba(15, 23, 42, 0)),
+    linear-gradient(to left, rgba(15, 23, 42, 0.18), rgba(15, 23, 42, 0));
+  background-position:
+    left center,
+    right center,
+    left center,
+    right center;
+  background-repeat: no-repeat;
+  background-size:
+    32px 100%,
+    32px 100%,
+    22px 100%,
+    22px 100%;
+  background-attachment: local, local, scroll, scroll;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(15, 23, 42, 0.28) rgba(15, 23, 42, 0.08);
+}
+
+/* Flaeche der Leitlinien-Seite (slate-50) statt Weiss. */
+.table-scroll-slate {
+  --table-scroll-surface: #f8fafc;
+  --table-scroll-surface-fade: rgba(248, 250, 252, 0);
+}
+
+.table-scroll::-webkit-scrollbar {
+  height: 8px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.table-scroll::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.08);
+  border-radius: 4px;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.28);
+  border-radius: 4px;
+}
+
+/* ---------------------------------------------------------------------------
  * Sales-Machine Motion-Layer — Hero-Visuals (Puls-Ring 3s, Float-Chips 6s),
  * Karten-Hover-Lift, gestaffelte Reveals. Läuft NUR wenn der Nutzer keine
  * Bewegungsreduktion wünscht (prefers-reduced-motion: no-preference).

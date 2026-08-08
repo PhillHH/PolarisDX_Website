@@ -102,7 +102,7 @@ const Sparkle = ({ className = '' }: { className?: string }) => (
 )
 
 const EpigeneticsPage = () => {
-  const { t } = useTranslation('epigenetics')
+  const { t, i18n } = useTranslation('epigenetics')
 
   const chips = asArray<Chip>(t('hero.chips', { returnObjects: true }))
   const principleCards = asArray<TitledText>(t('principle.cards', { returnObjects: true }))
@@ -134,10 +134,13 @@ const EpigeneticsPage = () => {
           'PolarisDX',
         ]}
         structuredData={[
-          createBreadcrumbSchema([
-            { name: t('breadcrumb.home'), url: '/' },
-            { name: t('breadcrumb.current'), url: '/epigenetics' },
-          ]),
+          createBreadcrumbSchema(
+            [
+              { name: t('breadcrumb.home'), url: '/' },
+              { name: t('breadcrumb.current'), url: '/epigenetics' },
+            ],
+            i18n.language,
+          ),
           ...(faqSchemaItems.length > 0 ? [createFAQSchema(faqSchemaItems)] : []),
         ]}
       />

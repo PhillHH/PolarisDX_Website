@@ -136,7 +136,7 @@ const sidebarIcons: Record<string, ComponentType<{ className?: string }>> = {
 const headlineAsH1Slugs = new Set(['dental', 'longevity'])
 
 const ServicePage = () => {
-  const { t } = useTranslation(['services', 'common', 'home', 'articles'])
+  const { t, i18n } = useTranslation(['services', 'common', 'home', 'articles'])
   const { slug } = useParams<{ slug: string }>()
 
   // Find service by slug (assuming slug maps to ID, or we check mapping)
@@ -275,11 +275,14 @@ const ServicePage = () => {
             description: seoDescription,
             url: `/diagnostics/${slug}`,
           }),
-          createBreadcrumbSchema([
-            { name: t('common:nav.home', 'Home'), url: '/' },
-            { name: t('services:overview.hero.title', 'Diagnostik'), url: '/diagnostics' },
-            { name: title, url: `/diagnostics/${slug}` },
-          ]),
+          createBreadcrumbSchema(
+            [
+              { name: t('common:nav.home', 'Home'), url: '/' },
+              { name: t('services:overview.hero.title', 'Diagnostik'), url: '/diagnostics' },
+              { name: title, url: `/diagnostics/${slug}` },
+            ],
+            i18n.language,
+          ),
           ...(hasFaq ? [createFAQSchema(faqItems)] : []),
         ]}
       />

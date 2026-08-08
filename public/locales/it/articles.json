@@ -107,7 +107,10 @@
         "value": "200",
         "label": "viaggi in auto risparmiati/trimestre"
       }
-    ]
+    ],
+    "seo": {
+      "title": "Green Practice: sostenibilità in sala d'attesa"
+    }
   },
   "invisible_patient": {
     "title": "Il paziente invisibile: come il monitoraggio remoto libera la medicina dallo studio",
@@ -196,7 +199,10 @@
           "L'IGLO-PRO in combinazione con DX365 è più di un dispositivo di misurazione. È un braccio esteso dello studio che arriva fino al soggiorno del paziente. È tempo di liberare la medicina dalle sue catene."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Il paziente invisibile: monitoraggio remoto"
+    }
   },
   "five_minute_diagnosis": {
     "title": "La diagnosi in 5 minuti: perché il Point-of-Care è un punto di svolta anche economicamente",
@@ -278,7 +284,10 @@
           "In tempi di carenza di lavoratori qualificati, un ambiente di lavoro privo di stress è la più grande leva economica che hai. L'IGLO-PRO ti aiuta non solo a praticare una medicina migliore – ti aiuta a gestire il tuo studio come un'azienda efficiente."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "La diagnosi in 5 minuti: il POC che conviene"
+    }
   },
   "ecosystem_of_rapid_tests": {
     "title": "L'ecosistema dei test rapidi: perché la compatibilità crea sicurezza",
@@ -330,7 +339,10 @@
           "La forza di un multi-lettore risiede nella sua capacità di coprire un ampio spettro diagnostico. Tuttavia, questa forza può essere liberata solo attraverso un ecosistema completo e sicuro di test compatibili. Chi investe in un lettore POC dovrebbe investire contemporaneamente nell'esperienza e nella garanzia che assicura il proprio portafoglio diagnostico. Così, la flessibilità non diventa un rischio, ma la forma più alta di sicurezza del paziente."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Test rapidi: la compatibilità crea sicurezza"
+    }
   },
   "precision_point_of_care": {
     "title": "Precisione nel Point-of-Care: La chiave per la sicurezza del paziente",
@@ -383,7 +395,10 @@
           "Solo attraverso la combinazione di un lettore robusto e calibrato e procedure di validazione rigorose, un test rapido diventa una base diagnostica affidabile."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Precisione nel Point-of-Care: sicurezza paziente"
+    }
   },
   "first_checkup": {
     "title": "Come prepararsi per il tuo primo check-up medico",
@@ -512,7 +527,10 @@
           "La diagnostica Point-of-Care moderna è molto più di un semplice dispositivo: è un sistema integrato digitalmente. Chi punta sul remote setup investe non solo in una diagnostica più precisa e più rapida, ma soprattutto nel tempo prezioso del proprio personale. La formula della performance è quindi sinonimo di impegno di integrazione minimo e massima operatività nella sanità moderna."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "La formula della performance in diagnostica POC"
+    }
   },
   "seo": {
     "index_title": "Magazine: diagnostica POC e know-how per il lab in studio",

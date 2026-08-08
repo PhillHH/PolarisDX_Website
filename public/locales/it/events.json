@@ -27,7 +27,8 @@
     "book_cta": "Prenota uno slot al {{event}}"
   },
   "list": {
-    "book": "Prenota"
+    "book": "Prenota",
+    "running_until": "In corso · fino al {{date}}"
   },
   "past": {
     "eyebrow": "Dove siamo stati",

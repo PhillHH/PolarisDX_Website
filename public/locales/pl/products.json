@@ -10,7 +10,7 @@
     "chip_lis": "LIS/HIS-ready",
     "chip_cross": "Niezależny od producenta",
     "visual": {
-      "gauge": "36°",
+      "device_alt": "Czytnik POC IglooPro, widok z przodu",
       "portable_val": "600 g",
       "portable_label": "przenośny",
       "cv_val": "CV < 2 %",

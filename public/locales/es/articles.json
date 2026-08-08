@@ -107,7 +107,10 @@
         "value": "200",
         "label": "viajes en coche ahorrados/trimestre"
       }
-    ]
+    ],
+    "seo": {
+      "title": "Práctica Verde: sostenibilidad en la consulta"
+    }
   },
   "invisible_patient": {
     "title": "El paciente invisible: Cómo el monitoreo remoto libera a la medicina de la consulta",
@@ -196,7 +199,10 @@
           "El IGLO-PRO en combinación con DX365 es más que un dispositivo de medición. Es un brazo extendido de la consulta que llega hasta la sala de estar del paciente. Es hora de liberar a la medicina de sus ataduras."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "El paciente invisible: monitoreo remoto"
+    }
   },
   "five_minute_diagnosis": {
     "title": "El diagnóstico de 5 minutos: Por qué el Point-of-Care es un cambio de juego económicamente también",
@@ -278,7 +284,10 @@
           "En tiempos de escasez de trabajadores cualificados, un entorno de trabajo libre de estrés es la mayor palanca económica que tiene. El IGLO-PRO le ayuda no solo a practicar una mejor medicina, sino a gestionar su consulta como un negocio eficiente."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "El diagnóstico de 5 minutos: POC rentable"
+    }
   },
   "ecosystem_of_rapid_tests": {
     "title": "El ecosistema de pruebas rápidas: Por qué la compatibilidad crea seguridad",
@@ -330,7 +339,10 @@
           "La fuerza de un multilector radica en su capacidad para cubrir un amplio espectro diagnóstico. Sin embargo, esta fuerza solo se puede liberar a través de un ecosistema integral y seguro de pruebas compatibles. Aquellos que invierten en un lector POC deben invertir simultáneamente en la experiencia y la garantía que asegura su cartera de diagnósticos. Así, la flexibilidad no se convierte en un riesgo, sino en la forma más alta de seguridad del paciente."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Pruebas rápidas: compatibilidad y seguridad"
+    }
   },
   "precision_point_of_care": {
     "title": "Precisión en Point-of-Care: La clave para la seguridad del paciente",
@@ -383,7 +395,10 @@
           "Solo a través de la combinación de un lector robusto y calibrado y procedimientos de validación estrictos, una prueba rápida se convierte en una base de diagnóstico fiable."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Precisión POC: seguridad del paciente"
+    }
   },
   "first_checkup": {
     "title": "Cómo prepararse para su primer chequeo médico",
@@ -512,7 +527,10 @@
           "El diagnóstico Point-of-Care moderno es mucho más que un aparato: es un sistema integrado digitalmente. Quien apuesta por el remote setup no solo invierte en un diagnóstico más preciso y rápido, sino sobre todo en el valioso tiempo de su personal. La fórmula del rendimiento es, por tanto, sinónimo de un esfuerzo de integración mínimo y de una operatividad máxima en la sanidad moderna."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "La fórmula del rendimiento en diagnóstico POC"
+    }
   },
   "seo": {
     "index_title": "Revista especializada: diagnóstico POC y laboratorio en consulta",

@@ -29,7 +29,8 @@
     "book_cta": "Rezervovat termín na {{event}}"
   },
   "list": {
-    "book": "Rezervovat"
+    "book": "Rezervovat",
+    "running_until": "Právě probíhá · do {{date}}"
   },
   "past": {
     "eyebrow": "Kde jsme byli",

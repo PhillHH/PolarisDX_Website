@@ -100,6 +100,18 @@ function EventsPage() {
     return `${s.day}${dot} ${months[s.month]} – ${e.day}${dot} ${months[e.month]} ${e.year}`
   }
 
+  /** Ein einzelner Tag ohne Jahr — für den "bis …"-Hinweis laufender Termine. */
+  const dayLabel = (date: string) => {
+    const d = parseIsoDate(date)
+    if (lang === 'en') return `${months[d.month]} ${d.day}`
+    const dot = DAY_DOT_LANGUAGES.has(lang) ? '.' : ''
+    return `${d.day}${dot} ${months[d.month]}`
+  }
+
+  /** Läuft der Termin heute bereits, ist aber noch nicht vorbei? */
+  const isRunning = (event: { date: string; endDate?: string }) =>
+    event.date <= today && today <= (event.endDate ?? event.date)
+
   /** Rückblick: automatisch abgelaufene Termine plus der kuratierte Bestand. */
   const pastCards = useMemo<PastCard[]>(() => {
     const fromExpired: PastCard[] = expiredEvents.map((event) => {
@@ -130,10 +142,13 @@ function EventsPage() {
 
   const structuredData = useMemo(
     () => [
-      createBreadcrumbSchema([
-        { name: t('common:nav.home', 'Home'), url: '/' },
-        { name: t('common:nav.events', 'Events'), url: '/events' },
-      ]),
+      createBreadcrumbSchema(
+        [
+          { name: t('common:nav.home', 'Home'), url: '/' },
+          { name: t('common:nav.events', 'Events'), url: '/events' },
+        ],
+        i18n.language,
+      ),
       // Nur kommende Termine — abgelaufene als BusinessEvent auszuzeichnen wäre
       // gegenüber Suchmaschinen schlicht falsch.
       ...upcoming.map((event) =>
@@ -303,15 +318,19 @@ function EventsPage() {
                     {listEvents.map((event) => {
                       const d = parseIsoDate(event.date)
                       const tag = t(`events:items.${event.id}.tag`, '')
+                      const multiDay = Boolean(event.endDate && event.endDate !== event.date)
+                      const running = isRunning(event)
                       return (
                         <div
                           key={event.id}
                           className="group flex items-center gap-4 p-4 transition hover:bg-slate-50"
                         >
-                          <div className="relative hidden h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-brand-deep sm:block">
-                            <span className="pointer-events-none absolute bottom-0 left-1 select-none text-[9px] font-semibold text-white/40">
-                              {event.location}
-                            </span>
+                          {/* Ortskürzel als Monogramm — lesbare Größe statt 9px-Fußnote. */}
+                          <div
+                            aria-hidden
+                            className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-brand-deep text-sm font-semibold text-white/70 sm:flex"
+                          >
+                            {event.location.charAt(0).toUpperCase()}
                           </div>
                           <div className="w-12 shrink-0 text-center">
                             <div className="text-xs font-medium text-gray-500">
@@ -328,6 +347,23 @@ function EventsPage() {
                             <div className="truncate text-sm text-gray-500">
                               {tag ? `${event.location} · ${tag}` : event.location}
                             </div>
+                            {/* Die große Tageszahl links zeigt nur den Beginn. Bei mehrtägigen
+                                Terminen steht der volle Zeitraum darunter, laufende Termine
+                                bekommen zusätzlich einen "läuft gerade"-Hinweis — sonst liest
+                                sich ein noch laufender Termin wie ein abgelaufener. */}
+                            {(multiDay || running) && (
+                              <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-gray-500">
+                                <span>{rangeLabel(event.date, event.endDate)}</span>
+                                {running && (
+                                  <span className="rounded-full bg-accent-soft px-2 py-0.5 font-semibold text-accent-strong ring-1 ring-accent-border">
+                                    {t('events:list.running_until', {
+                                      date: dayLabel(event.endDate ?? event.date),
+                                      defaultValue: 'Running now · until {{date}}',
+                                    })}
+                                  </span>
+                                )}
+                              </div>
+                            )}
                           </div>
                           <Link
                             to="/contact"

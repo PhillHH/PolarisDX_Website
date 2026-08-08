@@ -262,7 +262,19 @@ export const iglooProProductSchema = {
 // BREADCRUMB GENERATOR
 // =============================================================================
 
-export function createBreadcrumbSchema(items: BreadcrumbItem[]) {
+/**
+ * BreadcrumbList aus Seitenpfaden OHNE Sprachpraefix.
+ *
+ * `language` steuert das Praefix der item-URLs, damit sie exakt auf die Seiten
+ * zeigen, auf denen der Breadcrumb steht: auf /en/articles/<slug> muss die
+ * Stufe "Articles" auf /en/articles verweisen und nicht auf das prefixlose
+ * /articles, das per 301 auf die DEUTSCHE Fassung laeuft.
+ *
+ * Ohne Angabe wird DEFAULT_LANGUAGE ('de') verwendet - dasselbe Muster wie in
+ * createArticleSchema. Fuer deutschsprachige Aufrufer bleibt das Ergebnis
+ * inhaltlich gleich, nur ohne den Redirect-Zwischenschritt.
+ */
+export function createBreadcrumbSchema(items: BreadcrumbItem[], language?: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -270,7 +282,7 @@ export function createBreadcrumbSchema(items: BreadcrumbItem[]) {
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: item.url.startsWith('http') ? item.url : `${BASE_URL}${item.url}`,
+      item: canonicalUrlFor(item.url, language),
     })),
   }
 }
@@ -378,7 +390,15 @@ export function createArticleSchema(options: ArticleSchemaOptions) {
 export interface ServiceSchemaOptions {
   name: string
   description: string
+  /** Seitenpfad ohne Sprachpraefix, z. B. '/diagnostics/hormon-tests'. */
   url: string
+  /**
+   * Aktive Sprache der Seite. Steuert das Sprachpraefix in url, damit sie dem
+   * canonical aus SEOHead entspricht - ohne sie zeigte die Service-URL auf
+   * /en/diagnostics/<slug> auf das prefixlose /diagnostics/<slug>.
+   * Ohne Angabe wird DEFAULT_LANGUAGE ('de') verwendet.
+   */
+  language?: string
   image?: string
   areaServed?: string[]
 }
@@ -389,7 +409,7 @@ export function createServiceSchema(options: ServiceSchemaOptions) {
     '@type': 'Service',
     name: options.name,
     description: options.description,
-    url: options.url.startsWith('http') ? options.url : `${BASE_URL}${options.url}`,
+    url: canonicalUrlFor(options.url, options.language),
     provider: {
       '@id': `${BASE_URL}/#organization`,
     },
@@ -410,6 +430,12 @@ export interface EventSchemaOptions {
   startDate: string
   endDate?: string
   location: string
+  /**
+   * EXTERNE Detailseite des Veranstalters (src/data/events.ts, `link`) - kein
+   * Pfad auf polarisdx.net. Sie wird deshalb bewusst unveraendert uebernommen
+   * und bekommt KEIN Sprachpraefix: das Praefix waere auf einer fremden Domain
+   * schlicht falsch.
+   */
   url?: string
   image?: string
 }
@@ -467,6 +493,9 @@ export function createReviewSchema(reviews: ReviewSchemaOptions[]) {
       bestRating: 5,
     },
     ...(review.datePublished && { datePublished: review.datePublished }),
+    // Knoten-Referenz auf iglooProProductSchema, KEINE Seiten-URL. Der Wert
+    // muss zeichengleich zu dessen '@id' bleiben - ein Sprachpraefix wuerde die
+    // Verknuepfung Review -> Product zerreissen.
     itemReviewed: {
       '@id': `${BASE_URL}/igloo-pro#product`,
     },

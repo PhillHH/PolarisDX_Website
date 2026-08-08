@@ -32,7 +32,7 @@ type DownloadRecord = {
 }
 
 const DownloadsPage = () => {
-  const { t } = useTranslation(['downloads', 'common'])
+  const { t, i18n } = useTranslation(['downloads', 'common'])
 
   const records = (downloadsData as { items: DownloadRecord[] }).items
 
@@ -110,10 +110,13 @@ const DownloadsPage = () => {
         )}
         keywords={['PolarisDX Downloads', 'Produktdatenblatt', 'POC Diagnostik PDF']}
         structuredData={[
-          createBreadcrumbSchema([
-            { name: 'Home', url: '/' },
-            { name: 'Downloads', url: '/downloads' },
-          ]),
+          createBreadcrumbSchema(
+            [
+              { name: 'Home', url: '/' },
+              { name: 'Downloads', url: '/downloads' },
+            ],
+            i18n.language,
+          ),
         ]}
       />
 
@@ -188,17 +191,17 @@ const DownloadsPage = () => {
             >
               {t('downloads:link_services', 'Diagnostik-Services')} →
             </Link>
+            {/* Der vierte Quick-Link zeigte mit identischem Label ("Beratung
+                buchen") auf dasselbe Ziel wie die Schluss-CTA 100px darueber
+                (gemessen: CTA top=1042, Quick-Link top=1144, Footer top=1259)
+                und hat sie damit verwaessert. Die Schluss-CTA ist jetzt die
+                einzige Beratungs-Aktion am Seitenende; die uebrigen drei
+                Quick-Links fuehren auf andere Seiten und bleiben. */}
             <Link
               to="/epigenetics"
               className="font-semibold text-accent transition-colors hover:text-accent-strong"
             >
               {t('downloads:link_epigenetics', 'Epigenetik und Genetik')} →
-            </Link>
-            <Link
-              to="/contact"
-              className="font-semibold text-accent transition-colors hover:text-accent-strong"
-            >
-              {t('downloads:link_contact', 'Beratung anfragen')} →
             </Link>
           </div>
         </div>

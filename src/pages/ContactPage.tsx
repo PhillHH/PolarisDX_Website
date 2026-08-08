@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { Mail, Phone, MapPin, Calendar, Check, MessageSquare, ArrowRight } from 'lucide-react'
+import { Mail, Phone, MapPin, Calendar, Check, MessageSquare } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, localBusinessSchema, createBreadcrumbSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
@@ -20,7 +20,7 @@ type Channel = {
 }
 
 const ContactPage = () => {
-  const { t } = useTranslation(['contact', 'common'])
+  const { t, i18n } = useTranslation(['contact', 'common'])
 
   // (b) Sichtbare Breadcrumb und BreadcrumbList aus derselben Quelle speisen.
   const crumbHome = t('common:nav.home', 'Startseite')
@@ -60,10 +60,13 @@ const ContactPage = () => {
         keywords={['PolarisDX Kontakt', 'IglooPro Demo', 'POC Beratung', 'Medizintechnik Anfrage']}
         structuredData={[
           localBusinessSchema,
-          createBreadcrumbSchema([
-            { name: crumbHome, url: '/' },
-            { name: crumbContact, url: '/contact' },
-          ]),
+          createBreadcrumbSchema(
+            [
+              { name: crumbHome, url: '/' },
+              { name: crumbContact, url: '/contact' },
+            ],
+            i18n.language,
+          ),
         ]}
       />
 
@@ -262,15 +265,52 @@ const ContactPage = () => {
                       contact@polarisdx.net
                     </a>
                   </div>
-                  <a
-                    href={FORM_ANCHOR}
-                    className="mt-auto inline-flex items-center gap-1 pt-6 text-sm font-semibold text-accent hover:text-accent-strong"
-                  >
-                    {t('contact.hero.cta_primary')}
-                    <ArrowRight className="h-4 w-4" aria-hidden />
-                  </a>
                 </div>
               </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Abschlussblock. Vorher endete die Seite mit zwei gleichgewichteten
+          Standort-Spalten, die beide denselben Textlink "Formular ausfuellen"
+          trugen; die letzte gefuellte Aktion lag bei top=1437 und damit 1450px
+          ueber dem Footer (gemessen auf preview, 1440x900). Jetzt steht am Ende
+          genau EINE gefuellte Aktion — zurueck zum Formular, der Konversion
+          dieser Seite — plus die Vertrauens-Chips aus dem Hero. Alle Texte
+          stammen aus bereits vorhandenen Keys (in allen zehn Sprachen belegt). */}
+      <section className="bg-brand-deep text-white">
+        <div className="mx-auto max-w-container px-4 py-16 text-center lg:px-0 lg:py-24">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
+            {t('contact.form_aside.caption')}
+          </p>
+          <h2 className="mx-auto mt-4 max-w-2xl text-3xl font-medium tracking-tight text-white lg:text-[38px]">
+            {t('contact.form_aside.title')}
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl leading-relaxed text-white/80">
+            {t('contact.form.microcopy')}
+          </p>
+          <div className="mt-10 flex justify-center">
+            <a
+              href={FORM_ANCHOR}
+              className="inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 font-medium text-white transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
+            >
+              {t('contact.hero.cta_primary')}
+            </a>
+          </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            {[
+              t('contact.hero.chips.free'),
+              t('contact.hero.chips.fast'),
+              t('contact.hero.chips.time'),
+            ].map((chip) => (
+              <span
+                key={chip}
+                className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/15"
+              >
+                <Check className="h-3.5 w-3.5 text-accent-line" aria-hidden />
+                {chip}
+              </span>
             ))}
           </div>
         </div>

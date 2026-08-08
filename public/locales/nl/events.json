@@ -27,7 +27,8 @@
     "book_cta": "Boek een slot op {{event}}"
   },
   "list": {
-    "book": "Boeken"
+    "book": "Boeken",
+    "running_until": "Loopt nu · tot {{date}}"
   },
   "past": {
     "eyebrow": "Waar we waren",

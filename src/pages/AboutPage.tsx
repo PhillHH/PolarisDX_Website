@@ -9,7 +9,7 @@ import FinalCtaSection from '../components/sections/FinalCtaSection'
 import TrustBar from '../components/sections/TrustBar'
 
 const AboutPage = () => {
-  const { t } = useTranslation(['about', 'common', 'home'])
+  const { t, i18n } = useTranslation(['about', 'common', 'home'])
 
   const missionPoints = ['point1', 'point2', 'point3'] as const
 
@@ -54,10 +54,13 @@ const AboutPage = () => {
         ]}
         structuredData={[
           organizationSchema,
-          createBreadcrumbSchema([
-            { name: 'Home', url: '/' },
-            { name: 'Über uns', url: '/about' },
-          ]),
+          createBreadcrumbSchema(
+            [
+              { name: 'Home', url: '/' },
+              { name: 'Über uns', url: '/about' },
+            ],
+            i18n.language,
+          ),
         ]}
       />
       <SubpageHero

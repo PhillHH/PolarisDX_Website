@@ -1,14 +1,19 @@
 import { useTranslation } from 'react-i18next'
 import { ShieldCheck } from 'lucide-react'
-import { SEOHead } from '../components/seo'
+import { SEOHead, createBreadcrumbSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import LegalLayout from '../components/layout/LegalLayout'
 
 const PrivacyPage = () => {
-  const { t } = useTranslation(['legal', 'common'])
+  const { t, i18n } = useTranslation(['legal', 'common'])
 
   const headingClass = 'text-xl font-semibold tracking-tight text-heading mb-4'
   const subHeadingClass = 'mt-4 mb-2 font-semibold text-heading'
+
+  // Sichtbarer Breadcrumb und BreadcrumbList aus DERSELBEN Quelle - beide
+  // Beschriftungen kommen aus dem i18n-Katalog, nichts ist hier hartkodiert.
+  const crumbHome = t('common:nav.home', 'Home')
+  const crumbPrivacy = t('privacy.title')
 
   return (
     <PageTransition>
@@ -19,12 +24,16 @@ const PrivacyPage = () => {
           'Datenschutzerklärung der Polaris Diagnostics Europe GmbH - Informationen zur Datenverarbeitung.',
         )}
         noindex={true}
+        structuredData={createBreadcrumbSchema(
+          [
+            { name: crumbHome, url: '/' },
+            { name: crumbPrivacy, url: '/privacy' },
+          ],
+          i18n.language,
+        )}
       />
       <LegalLayout
-        breadcrumbs={[
-          { label: t('common:nav.home', 'Home'), href: '/' },
-          { label: t('privacy.title') },
-        ]}
+        breadcrumbs={[{ label: crumbHome, href: '/' }, { label: crumbPrivacy }]}
         eyebrow={t('eyebrow', 'Rechtliches')}
         title={t('privacy.title')}
         subtitle={t('privacy.subtitle', '')}

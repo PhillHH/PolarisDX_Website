@@ -107,7 +107,10 @@
         "value": "200",
         "label": "ušetřených jízd autem/čtvrtletí"
       }
-    ]
+    ],
+    "seo": {
+      "title": "Zelená praxe: udržitelnost v čekárně"
+    }
   },
   "invisible_patient": {
     "title": "Neviditelný pacient: Jak dálkové monitorování osvobozuje medicínu z ordinace",
@@ -196,7 +199,10 @@
           "IGLO-PRO v kombinaci s DX365 je více než měřicí přístroj. Je to prodloužená ruka ordinace, která sahá až do obývacího pokoje pacienta. Je čas osvobodit medicínu z jejích pout."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Neviditelný pacient: dálkové monitorování"
+    }
   },
   "five_minute_diagnosis": {
     "title": "5minutová diagnóza: Proč je Point-of-Care nejen medicínsky, ale i ekonomicky gamechanger",
@@ -278,7 +284,10 @@
           "V dobách nedostatku kvalifikovaných pracovníků je pracovní prostředí bez stresu největší ekonomickou pákou, kterou máte. IGLO-PRO vám pomáhá nejen dělat lepší medicínu – pomáhá vám vést vaši ordinaci jako efektivní podnik."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "5minutová diagnóza: POC, který se vyplatí"
+    }
   },
   "ecosystem_of_rapid_tests": {
     "title": "Ekosystém rychlotestů: Proč kompatibilita vytváří bezpečnost",
@@ -330,7 +339,10 @@
           "Síla multi-readeru spočívá v jeho schopnosti pokrýt široké diagnostické spektrum. Tuto sílu však lze uvolnit pouze prostřednictvím komplexního, zajištěného ekosystému kompatibilních testů. Kdo investuje do POC čtečky, měl by zároveň investovat do odbornosti a záruky, která zajišťuje jeho diagnostické portfolio. Flexibilita se tak nestává rizikem, ale nejvyšší formou bezpečnosti pacientů."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Rychlotesty: kompatibilita znamená bezpečí"
+    }
   },
   "precision_point_of_care": {
     "title": "Přesnost v Point-of-Care: Klíč k bezpečnosti pacientů",
@@ -383,7 +395,10 @@
           "Pouze kombinací robustní, kalibrované čtečky a přísných validačních postupů se z rychlotestu stává spolehlivý diagnostický základ."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Přesnost v Point-of-Care: bezpečnost pacientů"
+    }
   },
   "first_checkup": {
     "title": "Jak se připravit na první zdravotní prohlídku",
@@ -512,7 +527,10 @@
           "Moderní diagnostika Point-of-Care je více než jen přístroj: je to digitálně integrovaný systém. Kdo vsadí na Remote Setup, investuje nejen do přesnější a rychlejší diagnostiky, ale především do cenného času svého personálu. Formule výkonu je tak synonymem pro minimální zátěž při integraci a maximální provozní připravenost v moderním zdravotnictví."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Formule výkonu v POC diagnostice"
+    }
   },
   "seo": {
     "index_title": "Odborný magazín: POC diagnostika a znalosti praxe",

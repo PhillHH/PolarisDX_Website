@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { SEOHead } from '../components/seo'
+import { SEOHead, createBreadcrumbSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import LegalLayout from '../components/layout/LegalLayout'
 
@@ -10,9 +10,14 @@ interface AgbSection {
 }
 
 const TermsPage = () => {
-  const { t } = useTranslation(['legal', 'common'])
+  const { t, i18n } = useTranslation(['legal', 'common'])
   const sections = t('agb.sections', { returnObjects: true }) as AgbSection[]
   const sectionCount = Array.isArray(sections) ? sections.length : 0
+
+  // Sichtbarer Breadcrumb und BreadcrumbList aus DERSELBEN Quelle - beide
+  // Beschriftungen kommen aus dem i18n-Katalog, nichts ist hier hartkodiert.
+  const crumbHome = t('common:nav.home', 'Home')
+  const crumbTerms = t('agb.title')
 
   return (
     <PageTransition>
@@ -23,12 +28,16 @@ const TermsPage = () => {
           'Allgemeine Geschäftsbedingungen der Polaris Diagnostics Europe GmbH für den Verkauf von POC-Diagnostik Produkten.',
         )}
         noindex={true}
+        structuredData={createBreadcrumbSchema(
+          [
+            { name: crumbHome, url: '/' },
+            { name: crumbTerms, url: '/terms' },
+          ],
+          i18n.language,
+        )}
       />
       <LegalLayout
-        breadcrumbs={[
-          { label: t('common:nav.home', 'Home'), href: '/' },
-          { label: t('agb.title') },
-        ]}
+        breadcrumbs={[{ label: crumbHome, href: '/' }, { label: crumbTerms }]}
         eyebrow={t('eyebrow', 'Rechtliches')}
         title={t('agb.title')}
         subtitle={t('agb.subtitle')}

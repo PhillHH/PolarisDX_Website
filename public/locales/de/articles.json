@@ -107,7 +107,10 @@
         "value": "200",
         "label": "Autofahrten/Quartal gespart"
       }
-    ]
+    ],
+    "seo": {
+      "title": "Grüne Praxis: Nachhaltigkeit im Wartezimmer"
+    }
   },
   "invisible_patient": {
     "title": "Der unsichtbare Patient: Wie Remote-Monitoring die Medizin aus der Praxis befreit",
@@ -196,7 +199,10 @@
           "Das IGLO-PRO in Kombination mit DX365 ist mehr als ein Messgerät. Es ist ein verlängerter Arm der Praxis, der bis in das Wohnzimmer des Patienten reicht. Es ist Zeit, die Medizin von ihren Fesseln zu befreien."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Der unsichtbare Patient: Remote-Monitoring"
+    }
   },
   "five_minute_diagnosis": {
     "title": "Die 5-Minuten-Diagnose: Warum Point-of-Care nicht nur medizinisch, sondern wirtschaftlich ein Gamechanger ist",
@@ -278,7 +284,10 @@
           "In Zeiten des Fachkräftemangels ist eine stressfreie Arbeitsumgebung der größte wirtschaftliche Hebel, den Sie haben. Das IGLO-PRO hilft Ihnen nicht nur, bessere Medizin zu machen – es hilft Ihnen, Ihre Praxis als effizientes Unternehmen zu führen."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Die 5-Minuten-Diagnose: POC rechnet sich"
+    }
   },
   "ecosystem_of_rapid_tests": {
     "title": "Das Ökosystem der Schnelltests: Warum Kompatibilität Sicherheit schafft",
@@ -330,7 +339,10 @@
           "Die Stärke eines Multi-Readers liegt in seiner Fähigkeit, ein breites diagnostisches Spektrum abzudecken. Diese Stärke kann jedoch nur durch ein umfassendes, gesichertes Ökosystem von kompatiblen Tests freigesetzt werden. Wer in einen POC-Reader investiert, sollte gleichzeitig in die Expertise und die Garantie investieren, die sein diagnostisches Portfolio absichert. So wird Flexibilität nicht zum Risiko, sondern zur höchsten Form der Patientensicherheit."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Schnelltests: Kompatibilität schafft Sicherheit"
+    }
   },
   "rapid_setup_formula": {
     "title": "Die Performance-Formel: Effizienz in der POC-Diagnostik",
@@ -379,7 +391,10 @@
           "Moderne Point-of-Care-Diagnostik ist mehr als nur ein Gerät: Sie ist ein digital integriertes System. Wer auf Remote-Setup setzt, investiert nicht nur in präzisere und schnellere Diagnostik, sondern vor allem in die wertvolle Zeit seines Personals. Die Performance-Formel ist somit das Synonym für minimalen Integrationsstress und maximale Einsatzbereitschaft in der modernen Gesundheitsversorgung."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Die Performance-Formel für POC-Diagnostik"
+    }
   },
   "precision_point_of_care": {
     "title": "Präzision im Point-of-Care: Der Schlüssel zur Patientensicherheit",
@@ -432,7 +447,10 @@
           "Nur durch die Kombination aus einem robusten, kalibrierten Reader und strikten Validierungsverfahren wird aus einem Schnelltest eine verlässliche diagnostische Grundlage."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Präzision im Point-of-Care: Patientensicherheit"
+    }
   },
   "first_checkup": {
     "title": "So bereiten Sie sich auf Ihren ersten Gesundheits-Check-up vor",

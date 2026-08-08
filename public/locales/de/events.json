@@ -27,7 +27,8 @@
     "book_cta": "Slot beim {{event}} sichern"
   },
   "list": {
-    "book": "Buchen"
+    "book": "Buchen",
+    "running_until": "Läuft gerade · bis {{date}}"
   },
   "past": {
     "eyebrow": "Wo wir waren",

@@ -348,8 +348,12 @@ const S3LeitliniePage = () => {
                     </p>
                   </div>
 
-                  {/* Vergleichstabelle */}
-                  <div className="my-8 overflow-x-auto rounded-lg border border-gray-200">
+                  {/* Vergleichstabelle. .table-scroll blendet Rand-Fade und
+                      Hinweiszeile ein, solange seitlich noch Inhalt folgt; bei
+                      375px waren 127px der dritten Spalte verdeckt, ohne jede
+                      Andeutung. -slate setzt die Deckfarbe auf die Flaeche
+                      dieser Seite (slate-50). Siehe src/index.css. */}
+                  <div className="table-scroll table-scroll-slate my-8 rounded-lg border border-gray-200">
                     <table className="w-full text-sm">
                       <thead className="bg-gray-50">
                         <tr>

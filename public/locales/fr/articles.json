@@ -49,7 +49,10 @@
           "La force d'un multi-lecteur réside dans sa capacité à couvrir un large spectre diagnostique. Cette force ne peut cependant être libérée que par un écosystème complet et sécurisé de tests compatibles. Quiconque investit dans un lecteur POC devrait simultanément investir dans l'expertise et la garantie qui sécurisent son portefeuille diagnostique. Ainsi, la flexibilité ne devient pas un risque, mais la forme la plus élevée de sécurité des patients."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Tests rapides : la compatibilité sécurise"
+    }
   },
   "precision_point_of_care": {
     "title": "Précision au Point-of-Care : La clé de la sécurité des patients",
@@ -102,7 +105,10 @@
           "Ce n'est qu'en combinant un lecteur robuste et étalonné et des procédures de validation strictes qu'un test rapide devient une base diagnostique fiable."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "Précision au Point-of-Care : sécurité patient"
+    }
   },
   "first_checkup": {
     "title": "Comment vous préparer à votre premier bilan de santé",
@@ -264,7 +270,10 @@
         ]
       }
     ],
-    "title": "The 5-Minute Diagnosis: Why Point-of-Care is a Gamechanger Economically Too"
+    "title": "The 5-Minute Diagnosis: Why Point-of-Care is a Gamechanger Economically Too",
+    "seo": {
+      "title": "The 5-Minute Diagnosis: POC That Pays Off"
+    }
   },
   "rapid_setup_formula": {
     "excerpt": "L'efficacité plutôt que la prise en main : la voie vers une mise en service rapide au cabinet.",
@@ -313,7 +322,10 @@
         ]
       }
     ],
-    "title": "La formule de performance : l'efficacité en diagnostic POC"
+    "title": "La formule de performance : l'efficacité en diagnostic POC",
+    "seo": {
+      "title": "La formule de performance en diagnostic POC"
+    }
   },
   "green_practice": {
     "excerpt": "Sustainability in healthcare doesn't start with solar panels, but with diagnostic logistics. A plea for Point-of-Care.",
@@ -423,7 +435,10 @@
         "value": "200",
         "label": "trajets en voiture économisés/trimestre"
       }
-    ]
+    ],
+    "seo": {
+      "title": "Green Practice: Sustainability Starts Here"
+    }
   },
   "invisible_patient": {
     "title": "The Invisible Patient: How Remote Monitoring Frees Medicine from the Practice",
@@ -512,7 +527,10 @@
           "The IGLO-PRO in combination with DX365 is more than a measuring device. It is an extended arm of the practice reaching into the patient's living room. It is time to free medicine from its shackles."
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "The Invisible Patient: Remote Monitoring"
+    }
   },
   "seo": {
     "index_title": "Magazine spécialisé : diagnostic POC et savoir du labo de cabinet",

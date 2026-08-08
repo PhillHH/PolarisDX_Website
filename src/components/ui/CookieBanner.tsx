@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { Shield, ChevronDown, ChevronUp } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
@@ -112,6 +112,7 @@ export const CookieBanner: React.FC = () => {
   const { t } = useTranslation('common')
   const [isVisible, setIsVisible] = useState(false)
   const [showSettings, setShowSettings] = useState(false)
+  const bannerRef = useRef<HTMLDivElement>(null)
 
   const defaultCategories: CookieCategory[] = [
     {
@@ -162,6 +163,52 @@ export const CookieBanner: React.FC = () => {
     }
   }, [])
 
+  /**
+   * Der Banner liegt fixed ueber dem Seitenende. Bei 390x844 verdeckte er die
+   * unteren 239px (28% des Viewports) — auf Seiten, deren Schluss-CTA kurz vor
+   * dem Footer sitzt, lag dieser dadurch je nach Scrollposition komplett hinter
+   * dem Banner (gemessen z. B. auf /pl/igloo-pro und /fr/diagnostics).
+   *
+   * Deshalb: solange der Banner sichtbar ist, bekommt <body> unten genau die
+   * Bannerhoehe als Innenabstand. Jeder Inhalt laesst sich damit ueber die
+   * Bannerkante scrollen. Zusaetzlich steht die Hoehe als CSS-Variable
+   * --cookie-banner-height bereit (der MobileCallButton hebt sich damit an).
+   */
+  useEffect(() => {
+    const root = document.documentElement
+    const clear = () => {
+      root.style.removeProperty('--cookie-banner-height')
+      document.body.style.removeProperty('padding-bottom')
+    }
+
+    const el = bannerRef.current
+    if (!isVisible || !el) {
+      clear()
+      return
+    }
+
+    const apply = () => {
+      const height = Math.ceil(el.getBoundingClientRect().height)
+      root.style.setProperty('--cookie-banner-height', `${height}px`)
+      document.body.style.paddingBottom = `${height}px`
+    }
+
+    apply()
+
+    let observer: ResizeObserver | undefined
+    if (typeof ResizeObserver !== 'undefined') {
+      observer = new ResizeObserver(apply)
+      observer.observe(el)
+    }
+    window.addEventListener('resize', apply)
+
+    return () => {
+      observer?.disconnect()
+      window.removeEventListener('resize', apply)
+      clear()
+    }
+  }, [isVisible, showSettings])
+
   const saveConsent = useCallback((preferences: CookieCategory[]) => {
     try {
       localStorage.setItem('cookie-consent', JSON.stringify(preferences))
@@ -205,16 +252,19 @@ export const CookieBanner: React.FC = () => {
   if (!isVisible) return null
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[70] p-4 bg-white border-t border-gray-200 shadow-lg md:p-6 animate-in slide-in-from-bottom duration-300">
+    <div
+      ref={bannerRef}
+      className="fixed bottom-0 left-0 right-0 z-[70] p-3 bg-white border-t border-gray-200 shadow-lg md:p-6 animate-in slide-in-from-bottom duration-300"
+    >
       <div className="max-w-7xl mx-auto flex flex-col gap-4">
         {/* Main Content */}
-        <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
+        <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-start md:items-center justify-between">
           <div className="flex gap-4 items-start">
             <div className="p-2 bg-brand-primary/10 rounded-lg text-brand-primary hidden md:block">
               <Shield size={24} />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-heading mb-1">
+              <h3 className="text-base md:text-lg font-semibold text-heading mb-1">
                 {t('cookie.title', 'Wir respektieren Ihre Privatsphäre')}
               </h3>
               <p className="text-gray-600 text-sm md:text-base max-w-3xl">
@@ -226,27 +276,32 @@ export const CookieBanner: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto min-w-[300px]">
+          {/* Mobil ein 2-spaltiges Raster statt drei gestapelter Zeilen: Ablehnen
+              und Akzeptieren liegen gleich gross nebeneinander, "Einstellungen"
+              darunter ueber beide Spalten. Die drei gestapelten Buttons waren mit
+              138px der groesste Einzelposten der 239px hohen Bannerzeile.
+              Ab md wieder eine Reihe. Alle Buttons min. 44px hoch (WCAG 2.5.5). */}
+          <div className="grid w-full grid-cols-2 gap-2 md:flex md:w-auto md:min-w-[300px] md:gap-3">
             <button
               onClick={handleRejectAll}
-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary transition-colors"
+              className="inline-flex min-h-[44px] items-center justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary transition-colors"
             >
               {t('cookie.reject_all', 'Nur notwendige')}
             </button>
             <button
+              onClick={handleAcceptAll}
+              className="inline-flex min-h-[44px] items-center justify-center px-4 py-2 text-sm font-medium text-white bg-brand-primary border border-transparent rounded-md hover:bg-brand-deep focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary transition-colors shadow-sm"
+            >
+              {t('cookie.accept_all', 'Alle akzeptieren')}
+            </button>
+            <button
               onClick={() => setShowSettings(!showSettings)}
-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary transition-colors flex items-center justify-center gap-2"
+              className="col-span-2 inline-flex min-h-[44px] items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary transition-colors"
             >
               {showSettings
                 ? t('cookie.hide', 'Ausblenden')
                 : t('cookie.settings', 'Einstellungen')}
               {showSettings ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-            </button>
-            <button
-              onClick={handleAcceptAll}
-              className="px-4 py-2 text-sm font-medium text-white bg-brand-primary border border-transparent rounded-md hover:bg-brand-deep focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary transition-colors shadow-sm"
-            >
-              {t('cookie.accept_all', 'Alle akzeptieren')}
             </button>
           </div>
         </div>
@@ -266,7 +321,12 @@ export const CookieBanner: React.FC = () => {
                 >
                   <div className="flex items-center justify-between mb-2">
                     <span className="font-medium text-heading">{t(category.nameKey)}</span>
-                    <label className="relative inline-flex items-center cursor-pointer">
+                    {/* min-h-[44px]: der sichtbare Schalter bleibt 44x24, die
+                        Trefferflaeche des Labels waechst auf 44px Hoehe. Das
+                        funktioniert nur, weil der Schalter-Div jetzt selbst
+                        `relative` ist — der Knopf (after:) wurde vorher gegen das
+                        Label positioniert und waere sonst nach oben verrutscht. */}
+                    <label className="relative inline-flex min-h-[44px] items-center cursor-pointer">
                       <input
                         type="checkbox"
                         className="sr-only peer"
@@ -275,7 +335,7 @@ export const CookieBanner: React.FC = () => {
                         onChange={() => toggleCategory(category.id)}
                       />
                       <div
-                        className={`w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-brand-primary/40 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
+                        className={`relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-brand-primary/40 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
                           category.required ? 'opacity-50 cursor-not-allowed' : ''
                         } peer-checked:bg-brand-primary`}
                       ></div>
@@ -288,7 +348,7 @@ export const CookieBanner: React.FC = () => {
             <div className="mt-4 flex justify-end">
               <button
                 onClick={handleSaveSettings}
-                className="px-6 py-2 text-sm font-medium text-white bg-brand-deep rounded-md hover:bg-brand-navy-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-deep transition-colors"
+                className="inline-flex min-h-[44px] items-center justify-center px-6 py-2 text-sm font-medium text-white bg-brand-deep rounded-md hover:bg-brand-navy-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-deep transition-colors"
               >
                 {t('cookie.save_selection', 'Auswahl speichern')}
               </button>

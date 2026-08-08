@@ -10,7 +10,7 @@
     "chip_lis": "LIS/HIS-ready",
     "chip_cross": "Fabrikantonafhankelijk",
     "visual": {
-      "gauge": "36°",
+      "device_alt": "IglooPro POC-reader, vooraanzicht",
       "portable_val": "600 g",
       "portable_label": "draagbaar",
       "cv_val": "CV < 2 %",

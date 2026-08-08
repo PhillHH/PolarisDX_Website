@@ -7,7 +7,7 @@ import DiagnosticsFocusSection from '../components/sections/DiagnosticsFocusSect
 import FinalCtaSection from '../components/sections/FinalCtaSection'
 
 const ServicesOverviewPage = () => {
-  const { t } = useTranslation(['common', 'home', 'services'])
+  const { t, i18n } = useTranslation(['common', 'home', 'services'])
 
   return (
     <PageTransition>
@@ -27,10 +27,13 @@ const ServicesOverviewPage = () => {
           'Beauty Diagnostik',
           'Longevity Tests',
         ]}
-        structuredData={createBreadcrumbSchema([
-          { name: 'Home', url: '/' },
-          { name: 'Diagnostik', url: '/diagnostics' },
-        ])}
+        structuredData={createBreadcrumbSchema(
+          [
+            { name: 'Home', url: '/' },
+            { name: 'Diagnostik', url: '/diagnostics' },
+          ],
+          i18n.language,
+        )}
       />
       <div>
         <DiagnosticsHero />

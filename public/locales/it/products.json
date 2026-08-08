@@ -10,7 +10,7 @@
     "chip_lis": "Pronto per LIS/HIS",
     "chip_cross": "Multi-produttore",
     "visual": {
-      "gauge": "36°",
+      "device_alt": "Lettore POC IglooPro, vista frontale",
       "portable_val": "600 g",
       "portable_label": "portatile",
       "cv_val": "CV < 2 %",
