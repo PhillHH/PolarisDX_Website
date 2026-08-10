@@ -64,6 +64,7 @@ const ChapterNav = ({
   const [active, setActive] = useState<string>(chapters[0]?.id ?? '')
   const [progress, setProgress] = useState(0)
   const listRef = useRef<HTMLDivElement>(null)
+  const barRef = useRef<HTMLDivElement>(null)
 
   // Aktives Kapitel: das oberste, dessen Anfang bereits ueber der Lesemarke
   // liegt. Ein IntersectionObserver auf "sichtbar" waere hier unbrauchbar —
@@ -86,6 +87,15 @@ const ChapterNav = ({
 
         const max = document.documentElement.scrollHeight - window.innerHeight
         setProgress(max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0)
+
+        // Sprungziele muessen unter Seitenkopf UND Leiste landen. Beide Hoehen
+        // sind je nach Viewport verschieden — deshalb gemessen statt geraten.
+        const bar = barRef.current
+        const header = document.querySelector('header')
+        if (bar && header) {
+          const offset = Math.round(header.getBoundingClientRect().height + bar.offsetHeight + 8)
+          document.documentElement.style.setProperty('--chapterbar-offset', `${offset}px`)
+        }
       })
     }
     onScroll()
@@ -114,6 +124,7 @@ const ChapterNav = ({
 
   return (
     <div
+      ref={barRef}
       className={`sticky ${TOP} z-20 border-b border-slate-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80`}
     >
       {/* Auf schmalen Viewports bekommen die Kapitel eine eigene Zeile — zu
@@ -197,14 +208,13 @@ const ChapterNav = ({
         ) : null}
       </div>
 
+      {/* Rein visuell. Als role=progressbar mit aria-valuenow, das der
+          Scroll-Handler pro Bild neu setzt, meldet ein Screenreader den Wert
+          ueber die gesamte Lesestrecke. */}
       <div
+        aria-hidden="true"
         className="h-0.5 bg-accent-strong transition-[width] duration-150"
         style={{ width: `${progress}%` }}
-        role="progressbar"
-        aria-label={progressLabel}
-        aria-valuenow={Math.round(progress)}
-        aria-valuemin={0}
-        aria-valuemax={100}
       />
     </div>
   )

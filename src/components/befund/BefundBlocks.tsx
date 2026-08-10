@@ -73,7 +73,7 @@ const Section = ({ children }: { children: ReactNode }) => {
   return (
     <section
       id={id}
-      className={`scroll-mt-[124px] lg:scroll-mt-[148px] ${
+      className={`scroll-mt-[var(--chapterbar-offset,148px)] ${
         tint ? 'border-y border-slate-200 bg-slate-50' : 'bg-white'
       }`}
     >
