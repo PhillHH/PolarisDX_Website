@@ -26,7 +26,8 @@
      "v": "3 microRNAs"
     }
    ],
-   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net"
+   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+   "id": "deckblatt"
   },
   {
    "type": "principle",
@@ -64,7 +65,8 @@
      "title": "Verändern",
      "text": "Konkrete Ernährungs- und Lebensstil-Hebel je Signal, dazu die Verlaufskontrolle bei der Folgemessung."
     }
-   ]
+   ],
+   "id": "so-lesen"
   },
   {
    "type": "callout",
@@ -74,7 +76,8 @@
     "Was das praktisch heißt: Das ausgewiesene biologische Alter ist keine Altersbestimmung und keine Aussage über Lebenserwartung oder Krankheitsrisiko. Aussagekräftig ist die Veränderung zwischen zwei Messungen unter gleichen Bedingungen — deshalb steht der Verlauf in diesem Befund im Mittelpunkt und nicht die einzelne Zahl.",
     "Ein Vergleich mit methylierungsbasierten Altersuhren ist nicht zulässig: andere Methodik, andere Datenlage. Quelle: Schneider J. et al., miRNA-3Age, Frontiers in Nutrition 2025, doi:10.3389/fnut.2025.1659730."
    ],
-   "tone": "neutral"
+   "tone": "neutral",
+   "id": "hinweis"
   },
   {
    "type": "bigResult",
@@ -93,7 +96,8 @@
     "−20 J."
    ],
    "tone": "green",
-   "text": "Aus der kombinierten Auswertung von miR-21, miR-24 und miR-155. Kalenderalter 48 Jahre. Ihr biologisches Alter liegt bei 52 Jahren, vier Jahre über dem Kalenderalter. Der Bereich von −5 bis +5 Jahren gilt als altersentsprechend — Ihr Wert liegt damit innerhalb dieses Bereichs. Zur Einordnung: Das Referenzband von ±5 Jahren ist enger als der mittlere Fehler des Modells von 10,4 Jahren. Eine Abweichung dieser Größenordnung ist deshalb nicht von der Modellstreuung zu unterscheiden."
+   "text": "Aus der kombinierten Auswertung von miR-21, miR-24 und miR-155. Kalenderalter 48 Jahre. Ihr biologisches Alter liegt bei 52 Jahren, vier Jahre über dem Kalenderalter. Der Bereich von −5 bis +5 Jahren gilt als altersentsprechend — Ihr Wert liegt damit innerhalb dieses Bereichs. Zur Einordnung: Das Referenzband von ±5 Jahren ist enger als der mittlere Fehler des Modells von 10,4 Jahren. Eine Abweichung dieser Größenordnung ist deshalb nicht von der Modellstreuung zu unterscheiden.",
+   "id": "ergebnis"
   },
   {
    "type": "ageDots",
@@ -111,7 +115,8 @@
      "delta": "+4",
      "tone": "green"
     }
-   ]
+   ],
+   "id": "biologisches-alter"
   },
   {
    "type": "callout",
@@ -121,7 +126,8 @@
     "72 / 100 · Ernährung — Gute Nährstoffkombination mit Verbesserungspotenzial in Details. Referenz: ≥ 60.",
     "65 / 100 · Lebensstil — Ausgewogen, mit Raum für mehr Bewegung und Stressreduktion. Referenz: ≥ 60."
    ],
-   "tone": "neutral"
+   "tone": "neutral",
+   "id": "hinweis-2"
   },
   {
    "type": "markers",
@@ -163,7 +169,8 @@
      "text": "Das stärkste Ihrer drei Signale — genau in der Mitte der Skala. Reparaturkapazität und Seneszenz-Niveau sind unauffällig."
     }
    ],
-   "note": "In der Publikation zum Modell korrelierten zwei der drei microRNAs nicht signifikant mit dem Lebensalter. Die Einzelsignale sind deshalb als Ansatzpunkte für Interventionen zu lesen, nicht als eigenständige Altersmarker."
+   "note": "In der Publikation zum Modell korrelierten zwei der drei microRNAs nicht signifikant mit dem Lebensalter. Die Einzelsignale sind deshalb als Ansatzpunkte für Interventionen zu lesen, nicht als eigenständige Altersmarker.",
+   "id": "marker"
   },
   {
    "type": "radar",
@@ -207,7 +214,8 @@
     "Tabak (9 von 10) ist dagegen deutlich überdurchschnittlich — der zweite der beiden im Modell ungünstigen Faktoren trifft bei Ihnen also nicht zu.",
     "Omega-3 (6) und Sport (7) sind ausbaufähig; beide gehören zu den Hebeln, die in der Studie mit einem niedrigeren miRNA-Alter einhergingen."
    ],
-   "note": "Standortbestimmung auf Basis Ihrer Selbstauskunft, keine individuelle Diagnose. Die genannten Zusammenhänge stammen aus der Modellstudie und sind Gruppenbefunde, keine Vorhersage für den Einzelfall."
+   "note": "Standortbestimmung auf Basis Ihrer Selbstauskunft, keine individuelle Diagnose. Die genannten Zusammenhänge stammen aus der Modellstudie und sind Gruppenbefunde, keine Vorhersage für den Einzelfall.",
+   "id": "lebensstil"
   },
   {
    "type": "table",
@@ -279,7 +287,8 @@
      "Senolytisch; besser bioverfügbar mit Vitamin C"
     ]
    ],
-   "note": "Die Zuordnung „wirkt auf“ bezeichnet den Signalweg, auf den der jeweilige Hebel abzielt. Sie ist keine Zusage einer messbaren Veränderung im Einzelfall. Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen; diese Übersicht ersetzt keine ärztliche Beratung."
+   "note": "Die Zuordnung „wirkt auf“ bezeichnet den Signalweg, auf den der jeweilige Hebel abzielt. Sie ist keine Zusage einer messbaren Veränderung im Einzelfall. Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen; diese Übersicht ersetzt keine ärztliche Beratung.",
+   "id": "uebersicht"
   },
   {
    "type": "trend",
@@ -301,7 +310,8 @@
      "tone": "green"
     }
    ],
-   "note": "Auswertung: Erstmessung 15.03.2026, Kontrolle 15.06.2026, Veränderung −2 Jahre, Abweichung heute +4 gegenüber dem Kalenderalter."
+   "note": "Auswertung: Erstmessung 15.03.2026, Kontrolle 15.06.2026, Veränderung −2 Jahre, Abweichung heute +4 gegenüber dem Kalenderalter.",
+   "id": "verlauf"
   },
   {
    "type": "callout",
@@ -311,7 +321,8 @@
     "Gleichzeitig gilt: Eine Differenz von zwei Jahren liegt deutlich innerhalb der Modellstreuung von rund zehn Jahren. Ein einzelner Verlaufsschritt dieser Größe belegt noch keinen Effekt — erst eine über mehrere Messungen gleichbleibende Richtung tut das.",
     "Zwischen den beiden Messungen lagen rund drei Monate. Den Abstand zur nächsten Kontrolle legt die betreuende Einrichtung fest; Probenahme und Tageszeit sollten vergleichbar bleiben."
    ],
-   "tone": "accent"
+   "tone": "accent",
+   "id": "hinweis-3"
   },
   {
    "type": "summary",
@@ -336,7 +347,8 @@
    "controlItems": [
     "Alle genannten Zusammenhänge zwischen Lebensstil und miRNA-Alter stammen aus der Modellstudie und sind Gruppenbefunde. Ob sich Ihr persönlicher Wert durch diese Maßnahmen verändert, zeigt allein Ihre nächste Messung.",
     "Dieser Befund ist keine Diagnose und ersetzt keine ärztliche Beratung."
-   ]
+   ],
+   "id": "zusammenfassung"
   },
   {
    "type": "science",
@@ -374,7 +386,8 @@
      "source": "Schneider J. et al., miRNA-3Age: a microRNA-based biological age model and its modulation by lifestyle and nutrition. Frontiers in Nutrition (2025), doi:10.3389/fnut.2025.1659730"
     }
    ],
-   "note": "Diese Unterlage ersetzt keine ärztliche Beurteilung und begründet keine Heilversprechen im Sinne des Heilmittelwerbegesetzes."
+   "note": "Diese Unterlage ersetzt keine ärztliche Beurteilung und begründet keine Heilversprechen im Sinne des Heilmittelwerbegesetzes.",
+   "id": "einordnung"
   },
   {
    "type": "callout",
@@ -383,7 +396,8 @@
    "items": [
     "Ein Einzelwert innerhalb von ±10 Jahren um das Kalenderalter ist von der Streuung des Modells nicht zu unterscheiden."
    ],
-   "tone": "accent"
+   "tone": "accent",
+   "id": "hinweis-4"
   },
   {
    "type": "contact",
@@ -421,7 +435,8 @@
      "text": "Die Laboranalytik erfolgt durch unseren Kooperationspartner. Polaris Diagnostics Europe GmbH verantwortet Vertrieb und Betreuung. Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen. Diese Unterlage begründet keine Heilversprechen im Sinne des Heilmittelwerbegesetzes."
     }
    ],
-   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand: August 2026"
+   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand: August 2026",
+   "id": "kontakt"
   }
  ]
 }

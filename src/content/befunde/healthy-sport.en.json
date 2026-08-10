@@ -25,7 +25,8 @@
      "k": "Scope",
      "v": "8 miRNA + 4 SNP"
     }
-   ]
+   ],
+   "id": "deckblatt"
   },
   {
    "type": "principle",
@@ -83,7 +84,8 @@
      "label": "7–9 · Green",
      "text": "Within the optimal range. Maintain existing routines."
     }
-   ]
+   ],
+   "id": "so-lesen"
   },
   {
    "type": "callout",
@@ -93,7 +95,8 @@
     "The four genetic variants are innate and are determined only once. Information and written consent are required before the genetic analysis (German Genetic Diagnostics Act, GenDG).",
     "Only the eight microRNA values can change — they alone are suitable for monitoring progress."
    ],
-   "tone": "neutral"
+   "tone": "neutral",
+   "id": "hinweis"
   },
   {
    "type": "evaluations",
@@ -150,7 +153,8 @@
      "display": "2 / 9",
      "tone": "red"
     }
-   ]
+   ],
+   "id": "auswertungen"
   },
   {
    "type": "callout",
@@ -161,7 +165,8 @@
     "One value in the green range — hydration status (8) is stable and should stay that way.",
     "The interval to the next follow-up measurement is determined by the facility looking after you; your two previous measurements were around three months apart."
    ],
-   "tone": "accent"
+   "tone": "accent",
+   "id": "hinweis-2"
   },
   {
    "type": "table",
@@ -232,7 +237,8 @@
      "2 / 9",
      "Regulates inflammatory signalling pathways under training load."
     ]
-   ]
+   ],
+   "id": "uebersicht"
   },
   {
    "type": "callout",
@@ -241,7 +247,8 @@
    "items": [
     "The two muscle markers miR-378a-3p and miR-101-3p are both in the green range at 7/9. The musculature itself is not the problem — recovery is."
    ],
-   "tone": "accent"
+   "tone": "accent",
+   "id": "hinweis-3"
   },
   {
    "type": "markers",
@@ -278,13 +285,15 @@
      "tone": "red",
      "text": "Your value is outside the optimal range. Pay attention to recovery and sufficient sleep, to vitamin C and zinc from fruit, vegetables, broccoli and citrus fruits, and to relaxation, moderate exercise and a fibre-rich diet for the gut flora."
     }
-   ]
+   ],
+   "id": "marker"
   },
   {
    "type": "callout",
    "title": "The common denominator",
    "text": "All three assessments include miR-146a-5p or miR-22-5p — the two weakest individual markers. Managing training load and recovery therefore acts on all three values at once, not just on one.",
-   "tone": "accent"
+   "tone": "accent",
+   "id": "hinweis-4"
   },
   {
    "type": "markers",
@@ -331,7 +340,8 @@
      "tone": "green",
      "text": "Your value is within the optimal range. Continue to ensure at least two litres of fluid a day, including during training sessions."
     }
-   ]
+   ],
+   "id": "marker-2"
   },
   {
    "type": "table",
@@ -358,7 +368,8 @@
      "Determines muscle fibre composition; the mixed form combines fast and slow fibres."
     ]
    ],
-   "note": "Your sport type on the scale endurance type — mixed type — strength type: predominantly strength type. You are predominantly the strength-sport type. Suitable activities are strength sports such as weightlifting, powerlifting or bodybuilding."
+   "note": "Your sport type on the scale endurance type — mixed type — strength type: predominantly strength type. You are predominantly the strength-sport type. Suitable activities are strength sports such as weightlifting, powerlifting or bodybuilding.",
+   "id": "uebersicht-2"
   },
   {
    "type": "table",
@@ -390,7 +401,8 @@
      "Slightly elevated. Pay particular attention to warming up and to cooling down or stretching afterwards."
     ]
    ],
-   "note": "The scales of these four assessments indicate a position between two poles, not a traffic light: a sport type is neither good nor bad. Genetic variants are determined only once and remain unchanged for life."
+   "note": "The scales of these four assessments indicate a position between two poles, not a traffic light: a sport type is neither good nor bad. Genetic variants are determined only once and remain unchanged for life.",
+   "id": "uebersicht-3"
   },
   {
    "type": "radar",
@@ -427,7 +439,8 @@
      "text": "Clearly above average. The fluid value is consistent with your good hydration status (8/9)."
     }
    ],
-   "note": "An assessment of where you stand based on your self-report, not an individual diagnosis. In the case of illness or during special life stages, please have any major dietary changes supervised by a doctor."
+   "note": "An assessment of where you stand based on your self-report, not an individual diagnosis. In the case of illness or during special life stages, please have any major dietary changes supervised by a doctor.",
+   "id": "lebensstil"
   },
   {
    "type": "table",
@@ -541,7 +554,8 @@
      "A high phytate intake inhibits absorption"
     ]
    ],
-   "note": "Please review food supplements individually and in consultation with a qualified professional — particularly during pregnancy, with pre-existing conditions or when taking medication at the same time. This overview is not a substitute for medical advice."
+   "note": "Please review food supplements individually and in consultation with a qualified professional — particularly during pregnancy, with pre-existing conditions or when taking medication at the same time. This overview is not a substitute for medical advice.",
+   "id": "uebersicht-4"
   },
   {
    "type": "trend",
@@ -623,7 +637,8 @@
      "status": "Average"
     }
    ],
-   "note": "The interval between the two measurements was around three months. Whether this interval is also appropriate for the next follow-up is determined by the facility looking after you."
+   "note": "The interval between the two measurements was around three months. Whether this interval is also appropriate for the next follow-up is determined by the facility looking after you.",
+   "id": "verlauf"
   },
   {
    "type": "callout",
@@ -633,7 +648,8 @@
     "Two deteriorations: load/stress level (3 → 2) and inflammation (4 → 3). Both include miR-146a-5p. Between the two measurements it was therefore the load side that worsened, not the performance side.",
     "Four unchanged values: hydration, injury risk, cardiovascular fitness and muscle status have remained stable."
    ],
-   "tone": "accent"
+   "tone": "accent",
+   "id": "hinweis-5"
   },
   {
    "type": "summary",
@@ -659,7 +675,8 @@
     "The interval to the next follow-up measurement is determined by the facility looking after you. Your two previous measurements were around three months apart.",
     "The four genetic variants remain unchanged and are not repeated.",
     "For comparability, sample collection, time of day and the interval since the last training session should remain similar."
-   ]
+   ],
+   "id": "zusammenfassung"
   },
   {
    "type": "contact",
@@ -697,7 +714,8 @@
      "text": "Genetic testing is subject to the German Genetic Diagnostics Act (GenDG); information and written consent are required before sample collection. The laboratory analysis is carried out by our cooperation partner. Polaris Diagnostics Europe GmbH is responsible for distribution and support. Please review food supplements individually and in consultation with a qualified professional."
     }
    ],
-   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · As at: August 2026"
+   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · As at: August 2026",
+   "id": "kontakt"
   }
  ]
 }

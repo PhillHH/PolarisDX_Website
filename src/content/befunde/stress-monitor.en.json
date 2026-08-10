@@ -25,7 +25,8 @@
      "k": "Scope",
      "v": "6 microRNAs"
     }
-   ]
+   ],
+   "id": "deckblatt"
   },
   {
    "type": "principle",
@@ -90,7 +91,8 @@
      "label": "7–9 · Green",
      "text": "Maintain the result."
     }
-   ]
+   ],
+   "id": "so-lesen"
   },
   {
    "type": "callout",
@@ -99,7 +101,8 @@
    "items": [
     "The six microRNA values describe a snapshot in time and can be influenced through lifestyle — which makes them suitable for monitoring over time."
    ],
-   "tone": "neutral"
+   "tone": "neutral",
+   "id": "hinweis"
   },
   {
    "type": "markers",
@@ -136,7 +139,8 @@
       "low risk"
      ]
     }
-   ]
+   ],
+   "id": "marker"
   },
   {
    "type": "resultTable",
@@ -211,7 +215,8 @@
      "tone": "red"
     }
    ],
-   "note": "The two evaluations are calculated by the laboratory from the microRNAs assigned to them; they are not the average of these individual values."
+   "note": "The two evaluations are calculated by the laboratory from the microRNAs assigned to them; they are not the average of these individual values.",
+   "id": "ergebnis"
   },
   {
    "type": "bigResult",
@@ -228,7 +233,8 @@
     "acute stress",
     "no stress"
    ],
-   "text": "The evaluation shows where your current stress response lies between ‘no stress’ and ‘chronic stress’. Your value is in the favourable range — your body is coping well with current stress. The assessment is always made in the context of the other markers."
+   "text": "The evaluation shows where your current stress response lies between ‘no stress’ and ‘chronic stress’. Your value is in the favourable range — your body is coping well with current stress. The assessment is always made in the context of the other markers.",
+   "id": "ergebnis-2"
   },
   {
    "type": "markers",
@@ -253,7 +259,8 @@
      "tone": "amber",
      "text": "Regulates inflammatory and metabolic processes that influence systemic homeostasis. Markedly weaker than the acute indicator."
     }
-   ]
+   ],
+   "id": "marker-2"
   },
   {
    "type": "callout",
@@ -262,7 +269,8 @@
    "items": [
     "Four of the eleven recommendations — quercetin, EGCG, oleuropein and resveratrol — target precisely the chronic indicator let-7g-5p."
    ],
-   "tone": "accent"
+   "tone": "accent",
+   "id": "hinweis-2"
   },
   {
    "type": "table",
@@ -304,7 +312,8 @@
      "100 mg/day",
      "Leaves are 3,000 times more concentrated, but very bitter"
     ]
-   ]
+   ],
+   "id": "uebersicht"
   },
   {
    "type": "bigResult",
@@ -321,7 +330,8 @@
     "moderate risk",
     "low risk"
    ],
-   "text": "The evaluation does not yet show any acute stress-related overload. The risk of secondary conditions is, however, already elevated — it is worth acting here before long-term effects become manifest. This is the focus of your report."
+   "text": "The evaluation does not yet show any acute stress-related overload. The risk of secondary conditions is, however, already elevated — it is worth acting here before long-term effects become manifest. This is the focus of your report.",
+   "id": "ergebnis-3"
   },
   {
    "type": "markers",
@@ -364,7 +374,8 @@
      "tone": "green",
      "text": "Regulates cell survival and apoptosis; involved in stress and repair processes. The best individual value in the entire report."
     }
-   ]
+   ],
+   "id": "marker-3"
   },
   {
    "type": "table",
@@ -406,7 +417,8 @@
      "300 µg/day",
      "Smoking reduces uptake"
     ]
-   ]
+   ],
+   "id": "uebersicht-2"
   },
   {
    "type": "table",
@@ -499,7 +511,8 @@
      "Best raw or briefly steamed"
     ]
    ],
-   "note": "Please review food supplements individually and in consultation with a qualified professional — particularly in the case of pregnancy, pre-existing conditions or concurrent medication. This overview does not replace medical advice."
+   "note": "Please review food supplements individually and in consultation with a qualified professional — particularly in the case of pregnancy, pre-existing conditions or concurrent medication. This overview does not replace medical advice.",
+   "id": "uebersicht-3"
   },
   {
    "type": "trend",
@@ -530,7 +543,8 @@
      "status": "Elevated",
      "tone": "amber"
     }
-   ]
+   ],
+   "id": "verlauf"
   },
   {
    "type": "callout",
@@ -540,7 +554,8 @@
     "This is the real finding of this measurement: acute strain is being coped with better, while the long-term regulatory level has deteriorated. A good stress level alone says nothing about the long-term effects level.",
     "The two measurements were around three months apart. The interval until the next follow-up measurement is set by the supervising institution."
    ],
-   "tone": "accent"
+   "tone": "accent",
+   "id": "hinweis-3"
   },
   {
    "type": "summary",
@@ -566,7 +581,8 @@
     "Your two measurements to date were around three months apart. The interval until the next follow-up is set by the supervising institution.",
     "For comparability, sample collection and time of day should remain similar.",
     "In cases of persistent exhaustion, sleep problems or low mood, this report does not replace medical assessment."
-   ]
+   ],
+   "id": "zusammenfassung"
   },
   {
    "type": "contact",
@@ -604,7 +620,8 @@
      "text": "The laboratory analysis is carried out by our cooperation partner. Polaris Diagnostics Europe GmbH is responsible for distribution and support. Please review food supplements individually and in consultation with a qualified professional."
     }
    ],
-   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · As at: August 2026"
+   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · As at: August 2026",
+   "id": "kontakt"
   }
  ]
 }
