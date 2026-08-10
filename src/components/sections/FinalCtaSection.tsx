@@ -51,7 +51,7 @@ const FinalCtaSection = ({ roiHref = '/#roi-rechner' }: { roiHref?: string }) =>
   const roiTo = normalizeRoiTo(roiHref)
 
   return (
-    <section id="los-gehts" className="bg-brand-deep text-white">
+    <section id="los-gehts" className="scroll-mt-[124px] lg:scroll-mt-[148px] bg-brand-deep text-white">
       <div className="mx-auto max-w-container px-4 py-24 lg:py-24 lg:px-0 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
           {t('final_cta.caption', 'Bereit loszulegen')}

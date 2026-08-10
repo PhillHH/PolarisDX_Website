@@ -24,7 +24,7 @@ import { SEOHead, createBreadcrumbSchema } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
 import { BefundBlock, BlockChromeProvider, type Block } from '../components/befund/BefundBlocks'
-import BefundNav, { type Chapter } from '../components/befund/BefundNav'
+import ChapterNav, { type Chapter } from '../components/ui/ChapterNav'
 import { BEFUNDE, BEFUND_ORDER, RADAR_VALUES } from '../content/befunde'
 
 const ASSET_BASE = '/downloads/epigenetics/'
@@ -162,15 +162,18 @@ const MusterbefundPage = () => {
             {/* Die Kapitelleiste steht direkt hinter dem Deckblatt: sie soll
                 mitscrollen, aber den Hero nicht ueberdecken. */}
             {block.type === 'cover' ? (
-              <BefundNav
+              <ChapterNav
                 chapters={chapters}
-                panel={befund.panel}
-                slug={slug}
-                others={others}
-                backLabel={t('befund.navBack')}
-                othersLabel={t('befund.othersTitle')}
                 chaptersLabel={t('befund.navChapters')}
                 progressLabel={t('befund.navProgress')}
+                back={{ to: '/epigenetics#musterbefunde', label: t('befund.navBack') }}
+                switcher={{
+                  current: befund.panel,
+                  currentSlug: slug,
+                  entries: others,
+                  label: t('befund.othersTitle'),
+                  hrefFor: (s) => `/epigenetics/musterbefund/${s}`,
+                }}
               />
             ) : null}
           </BlockChromeProvider>
