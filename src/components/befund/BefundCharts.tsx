@@ -185,13 +185,13 @@ export const ScaleBar = ({
       </svg>
 
       {ticks && ticks.length > 0 ? (
-        <div className="mt-1.5 flex justify-between text-xs text-gray-500">
+        <div className="mt-1.5 flex justify-between text-xs text-gray-600">
           {ticks.map((tick) => (
             <span key={tick}>{tick}</span>
           ))}
         </div>
       ) : kind === 'traffic' ? (
-        <div className="mt-1.5 flex justify-between text-xs text-gray-500">
+        <div className="mt-1.5 flex justify-between text-xs text-gray-600">
           <span>1</span>
           <span>5</span>
           <span>9</span>
@@ -199,7 +199,7 @@ export const ScaleBar = ({
       ) : null}
 
       {zoneLabels && zoneLabels.length > 0 ? (
-        <div className="mt-2 flex justify-between gap-3 text-xs text-gray-500">
+        <div className="mt-2 flex justify-between gap-3 text-xs text-gray-600">
           {zoneLabels.map((z, i) => (
             <span
               key={z}
@@ -251,7 +251,7 @@ export const AgeDots = ({
           <span />
           <div className="relative h-4">
             <span
-              className="absolute -translate-x-1/2 whitespace-nowrap text-xs text-gray-500"
+              className="absolute -translate-x-1/2 whitespace-nowrap text-xs text-gray-600"
               style={{ left: `${pct(chronological)}%` }}
             >
               {chronologicalLabel}
@@ -304,12 +304,12 @@ export const AgeDots = ({
 
       <div className="mt-3 grid grid-cols-[minmax(0,11rem)_1fr_auto] gap-3">
         <span />
-        <div className="flex justify-between text-xs text-gray-500">
+        <div className="flex justify-between text-xs text-gray-600">
           {ticks.map((v) => (
             <span key={v}>{Math.round(v)}</span>
           ))}
         </div>
-        <span className="text-xs text-gray-500">{unit}</span>
+        <span className="text-xs text-gray-600">{unit}</span>
       </div>
     </div>
   )
@@ -408,7 +408,7 @@ export const RadarChart = ({
               y={y}
               textAnchor={anchor}
               dominantBaseline="middle"
-              className="fill-current text-[13px] font-medium text-gray-600"
+              className="fill-current text-[13px] font-medium text-gray-700"
             >
               {axis}
             </text>
