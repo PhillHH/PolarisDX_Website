@@ -42,12 +42,15 @@ const MusterbefundPage = () => {
   if (!befund) {
     return (
       <PageTransition>
-        {/* notFound statt noindex: der SSR-Server liest das Meta-Tag und
-            antwortet mit echtem HTTP 404 statt 200. */}
+        {/* notFound laesst den SSR-Server mit echtem HTTP 404 antworten.
+            noindex steht bewusst daneben: der 404-Mechanismus existiert noch
+            nicht in jedem Stand, und ohne ihn waere diese Seite sonst
+            indexierbar. */}
         <SEOHead
           title={t('befund.notFoundTitle')}
           description={t('befund.notFoundText')}
           notFound
+          noindex
         />
         <div className="mx-auto max-w-container px-4 py-24 lg:px-0 lg:py-32">
           <h1 className="text-3xl font-semibold tracking-tight text-text-heading">
