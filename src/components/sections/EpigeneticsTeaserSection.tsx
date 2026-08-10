@@ -1,7 +1,7 @@
 /**
  * EpigeneticsTeaserSection
  *
- * Teaser auf der Startseite, direkt unter den drei Anwendungsbereich-Widgets.
+ * Teaser auf der Startseite, direkt unter den Anwendungsbereich-Widgets.
  * Fuehrt die zweite Saeule neben dem Point-of-Care-Geschaeft ein: die
  * Labordiagnostik des Epigenetik- und Genetik-Partnerprogramms (/epigenetics).
  *
@@ -12,14 +12,15 @@
  * die abgestimmten Formulierungen an einer Stelle gepflegt werden. Es gelten
  * dieselben Vorgaben wie auf der Zielseite: kein Partnername, kein CE-Zeichen,
  * keine Preise ausser "B2B nach Absprache", keine Befundlaufzeit.
+ *
+ * Der zweite Button fuehrt bewusst auf die Musterbefunde und nicht mehr auf die
+ * Portfolio-Uebersicht als PDF: das Dokument liegt auf der Zielseite an drei
+ * Stellen, die Musterbefunde sind der konkretere Grund fuer den Klick.
  */
 
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { ArrowRight, Download } from 'lucide-react'
-
-const OVERVIEW_PDF_DE = '/downloads/epigenetics/de/00_Portfolio_Uebersicht_PolarisDX.pdf'
-const OVERVIEW_PDF_EN = '/downloads/epigenetics/en/00_Portfolio_Overview_PolarisDX.pdf'
+import { ArrowRight, FileText } from 'lucide-react'
 
 interface Fact {
   label: string
@@ -42,9 +43,8 @@ const Sparkle = ({ className = '' }: { className?: string }) => (
 )
 
 const EpigeneticsTeaserSection = () => {
-  const { t, i18n } = useTranslation('epigenetics')
+  const { t } = useTranslation('epigenetics')
   const facts = asArray<Fact>(t('teaser.facts', { returnObjects: true }))
-  const pdfHref = i18n.language?.startsWith('de') ? OVERVIEW_PDF_DE : OVERVIEW_PDF_EN
 
   return (
     <section aria-labelledby="epigenetics-teaser-title">
@@ -76,14 +76,15 @@ const EpigeneticsTeaserSection = () => {
                 {t('teaser.cta')}
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              <a
-                href={pdfHref}
-                download
+              {/* Hash laeuft ueber den Router; das Sprachpraefix haengt der
+                  basename der BrowserRouter-Instanz an. */}
+              <Link
+                to="/epigenetics#musterbefunde"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 px-6 py-3.5 text-base font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
               >
-                <Download className="h-4 w-4" />
-                {t('teaser.ctaPdf')}
-              </a>
+                <FileText className="h-4 w-4" />
+                {t('teaser.ctaSamples')}
+              </Link>
             </div>
           </div>
 

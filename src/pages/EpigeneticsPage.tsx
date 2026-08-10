@@ -27,6 +27,7 @@ import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import SectionHeader from '../components/ui/SectionHeader'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
+import { BEFUND_IMAGES, BEFUND_IMAGE_SIZE } from '../assets/epigenetics/befundImages'
 
 // public/ wird nach dist/client kopiert — die oeffentliche URL ist /downloads/...
 const ASSET_BASE = '/downloads/epigenetics/'
@@ -75,6 +76,23 @@ interface TitledText {
   text: string
 }
 
+interface Sample {
+  slug: string
+  panel: string
+  subtitle: string
+  pages: string
+  what: string
+  bullets: string[]
+  file: string
+}
+
+interface Concept {
+  num: string
+  title: string
+  text: string
+  key: string
+}
+
 interface QA {
   q: string
   a: string
@@ -112,10 +130,18 @@ const EpigeneticsPage = () => {
   const preliminary = asArray<TitledText>(t('evidence.preliminary', { returnObjects: true }))
   const faq = asArray<QA>(t('faq.items', { returnObjects: true }))
   const sheets = asArray<Sheet>(t('sheets', { returnObjects: true }))
+  const samples = asArray<Sample>(t('samples.items', { returnObjects: true }))
+  const compareCols = asArray<string>(t('compare.cols', { returnObjects: true }))
+  const compareRows = asArray<string[]>(t('compare.rows', { returnObjects: true }))
+  const compareShared = asArray<TitledText>(t('compare.shared', { returnObjects: true }))
+  const compareCaveats = asArray<TitledText>(t('compare.caveats', { returnObjects: true }))
+  const concepts = asArray<Concept>(t('basics.concepts', { returnObjects: true }))
+  const scales = asArray<Fact>(t('basics.scales', { returnObjects: true }))
 
   const faqSchemaItems: FAQItem[] = faq.map((item) => ({ question: item.q, answer: item.a }))
   const overviewHref = `${ASSET_BASE}${t('contact.overviewFile')}`
   const zipHref = `${ASSET_BASE}${t('downloads.zipFile')}`
+  const samplesZipHref = `${ASSET_BASE}${t('samples.zipFile')}`
 
   return (
     <PageTransition>
@@ -334,7 +360,7 @@ const EpigeneticsPage = () => {
                       </ul>
                     </div>
 
-                    <div className="mt-auto pt-7">
+                    <div className="mt-auto flex flex-col gap-3 pt-7 sm:flex-row sm:flex-wrap sm:items-center">
                       <a
                         href={`${ASSET_BASE}${item.file}`}
                         download
@@ -343,11 +369,217 @@ const EpigeneticsPage = () => {
                         <Download className="h-4 w-4" />
                         {t('analyses.pdfBtn')}
                       </a>
+                      {samples[index] ? (
+                        <a
+                          href={`${ASSET_BASE}${samples[index].file}`}
+                          className="inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-base font-semibold text-brand-primary underline-offset-4 transition-colors hover:text-brand-deep hover:underline sm:w-auto"
+                        >
+                          <FileText className="h-4 w-4" />
+                          {t('analyses.sampleBtn')}
+                        </a>
+                      ) : null}
                     </div>
                   </article>
                 </Reveal>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ================================================================
+            DIE SECHS PANELS IM VERGLEICH
+        ================================================================ */}
+        <section id="vergleich" className="scroll-mt-24 border-b border-slate-200 bg-slate-50">
+          <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-20">
+            <Reveal width="100%">
+              <SectionHeader
+                caption={t('compare.caption')}
+                title={t('compare.title')}
+                align="left"
+              />
+              <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('compare.lead')}</p>
+            </Reveal>
+
+            {/* Die Tabelle ist auf schmalen Viewports breiter als der Bildschirm.
+                overflow-x-auto plus min-w haelt sie scrollbar statt sie zu
+                quetschen; die Randlinie zeigt, dass rechts noch etwas kommt. */}
+            <Reveal width="100%">
+              <div className="mt-10 overflow-x-auto rounded-3xl border border-slate-200 bg-white">
+                <table className="w-full min-w-[54rem] border-collapse text-left">
+                  <thead>
+                    <tr className="bg-brand-deep text-white">
+                      {compareCols.map((col) => (
+                        <th key={col} scope="col" className="px-5 py-4 text-sm font-semibold">
+                          {col}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {compareRows.map((row, rowIndex) => (
+                      <tr
+                        key={row[0]}
+                        className={rowIndex % 2 === 1 ? 'bg-slate-50' : 'bg-white'}
+                      >
+                        {row.map((cell, cellIndex) => (
+                          <td
+                            key={`${row[0]}-${cellIndex}`}
+                            className={
+                              cellIndex === 0
+                                ? 'px-5 py-4 text-base font-semibold text-text-heading'
+                                : 'px-5 py-4 text-base text-gray-700'
+                            }
+                          >
+                            {cell}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              {/* Die Tabelle ist breiter als schmale Viewports. Ohne Hinweis
+                  bleibt die Spalte mit der Ergebnisform unentdeckt. */}
+              <p className="mt-3 text-sm text-gray-500 lg:hidden">{t('compare.scrollHint')}</p>
+            </Reveal>
+
+            <div className="mt-6 grid gap-5 lg:grid-cols-3">
+              {compareShared.map((item, index) => (
+                <Reveal key={item.title} width="100%" delay={0.05 * index} className={STRETCH}>
+                  <div className="h-full rounded-3xl border border-slate-200 bg-white p-6">
+                    <p className="text-lg font-semibold text-text-heading">{item.title}</p>
+                    <p className={`mt-2 text-gray-700 ${BODY}`}>{item.text}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            {/* Die methodischen Grenzen stehen bewusst neben der Tabelle und
+                nicht im Kleingedruckten — vor Fachpublikum ist das ein
+                Vertrauensargument. */}
+            <Reveal width="100%">
+              <div className="mt-6 rounded-3xl border border-accent-border bg-accent-soft p-7">
+                <p className="text-sm font-semibold text-accent-strong">{t('compare.caveatTitle')}</p>
+                <div className="mt-4 grid gap-5 lg:grid-cols-2">
+                  {compareCaveats.map((item) => (
+                    <div key={item.title}>
+                      <p className="text-base font-semibold text-text-heading">{item.title}</p>
+                      <p className={`mt-1.5 text-gray-700 ${BODY}`}>{item.text}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal width="100%">
+              <div className="mt-6 flex flex-col gap-5 rounded-3xl border border-slate-200 bg-white p-7 sm:flex-row sm:items-center sm:justify-between">
+                <p className={`text-gray-700 ${BODY}`}>{t('compare.gendg')}</p>
+                <a
+                  href={`${ASSET_BASE}${t('compare.file')}`}
+                  download
+                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
+                >
+                  <Download className="h-4 w-4" />
+                  {t('compare.cta')}
+                </a>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ================================================================
+            MUSTERBEFUNDE — was am Ende in der Hand liegt
+        ================================================================ */}
+        <section id="musterbefunde" className="scroll-mt-24 border-b border-slate-200 bg-white">
+          <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
+            <Reveal width="100%">
+              <SectionHeader
+                caption={t('samples.caption')}
+                title={t('samples.title')}
+                align="left"
+              />
+              <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('samples.lead')}</p>
+            </Reveal>
+
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {samples.map((item, index) => (
+                <Reveal
+                  key={item.slug}
+                  width="100%"
+                  delay={0.05 * (index % 3)}
+                  className={STRETCH}
+                >
+                  <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white">
+                    {BEFUND_IMAGES[item.slug] ? (
+                      <img
+                        src={BEFUND_IMAGES[item.slug].src}
+                        srcSet={`${BEFUND_IMAGES[item.slug].src} 640w, ${BEFUND_IMAGES[item.slug].src2x} 1200w`}
+                        sizes="(min-width: 1024px) 22rem, (min-width: 640px) 45vw, 92vw"
+                        width={BEFUND_IMAGE_SIZE.width}
+                        height={BEFUND_IMAGE_SIZE.height}
+                        loading="lazy"
+                        decoding="async"
+                        alt={t('samples.imgAlt', { panel: item.panel })}
+                        className="w-full border-b border-slate-200 object-cover"
+                      />
+                    ) : null}
+
+                    <div className="flex flex-1 flex-col p-7">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-accent-strong">
+                          {t('samples.badge')}
+                        </span>
+                        {/* Bewusst nicht `count` als Variablenname: i18next wuerde
+                            daraus einen Plural-Lookup machen und _other suchen. */}
+                        <span className="text-sm text-gray-500">
+                          {t('samples.pagesLabel', { pages: item.pages })}
+                        </span>
+                      </div>
+
+                      <h3 className="mt-4 text-xl font-semibold tracking-tight text-text-heading">
+                        {item.panel}
+                      </h3>
+                      <p className={`mt-2 text-gray-700 ${BODY}`}>{item.what}</p>
+
+                      <ul className="mt-5 space-y-2">
+                        {item.bullets?.map((bullet) => (
+                          <li key={bullet} className="flex gap-3 text-base leading-7 text-gray-600">
+                            <span className="mt-3 h-1 w-3 shrink-0 rounded-full bg-accent-line" />
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="mt-auto pt-6">
+                        <a
+                          href={`${ASSET_BASE}${item.file}`}
+                          className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary hover:bg-brand-primary hover:text-white"
+                        >
+                          <FileText className="h-4 w-4" />
+                          {t('samples.btn')}
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal width="100%">
+              <div className="mt-8 flex flex-col gap-5 rounded-3xl border border-slate-200 bg-slate-50 p-7 sm:flex-row sm:items-center sm:justify-between">
+                <p className="max-w-[62ch] text-sm leading-relaxed text-gray-500">
+                  {t('samples.note')}
+                </p>
+                <a
+                  href={samplesZipHref}
+                  download
+                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
+                >
+                  <Download className="h-4 w-4" />
+                  {t('samples.zipLabel')}
+                </a>
+              </div>
+            </Reveal>
           </div>
         </section>
 
@@ -413,6 +645,67 @@ const EpigeneticsPage = () => {
               </Reveal>
             ))}
           </ol>
+        </section>
+
+        {/* ================================================================
+            WERTE VERSTEHEN — die vier Ebenen und die drei Zahlenformate
+        ================================================================ */}
+        <section id="werte-verstehen" className="scroll-mt-24 border-y border-slate-200 bg-white">
+          <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
+            <Reveal width="100%">
+              <SectionHeader
+                caption={t('basics.caption')}
+                title={t('basics.title')}
+                align="left"
+              />
+              <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('basics.lead')}</p>
+            </Reveal>
+
+            <div className="mt-10 grid gap-6 md:grid-cols-2">
+              {concepts.map((item, index) => (
+                <Reveal key={item.num} width="100%" delay={0.05 * (index % 2)} className={STRETCH}>
+                  <div className="h-full rounded-3xl border border-slate-200 bg-slate-50 p-7">
+                    <div className="flex items-start gap-4">
+                      <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-deep text-sm font-semibold text-white">
+                        {item.num}
+                      </span>
+                      <h3 className="mt-1.5 text-xl font-semibold tracking-tight text-text-heading">
+                        {item.title}
+                      </h3>
+                    </div>
+                    <p className={`mt-4 text-gray-700 ${BODY}`}>{item.text}</p>
+                    <p className="mt-4 border-t border-slate-200 pt-4 text-base font-medium text-accent-strong">
+                      {item.key}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal width="100%">
+              <div className="mt-6 rounded-3xl border border-slate-200 bg-white p-7">
+                <p className={LABEL}>{t('basics.scaleTitle')}</p>
+                <dl className="mt-4 grid gap-5 lg:grid-cols-3">
+                  {scales.map((scale) => (
+                    <div key={scale.k}>
+                      <dt className="text-base font-semibold text-text-heading">{scale.k}</dt>
+                      <dd className={`mt-1.5 text-gray-700 ${BODY}`}>{scale.v}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <div className="mt-6 border-t border-slate-200 pt-6">
+                  <a
+                    href={`${ASSET_BASE}${t('basics.file')}`}
+                    download
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
+                  >
+                    <Download className="h-4 w-4" />
+                    {t('basics.cta')}
+                  </a>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </section>
 
         {/* ================================================================
@@ -572,6 +865,24 @@ const EpigeneticsPage = () => {
                 </Reveal>
               ))}
             </div>
+
+            <Reveal width="100%">
+              <div className="mt-8 flex flex-col gap-5 rounded-3xl border border-slate-200 bg-slate-50 p-7 sm:flex-row sm:items-center sm:justify-between">
+                <div className="max-w-[62ch]">
+                  <p className="text-lg font-semibold text-text-heading">
+                    {t('downloads.samplesTitle')}
+                  </p>
+                  <p className={`mt-1.5 text-gray-700 ${BODY}`}>{t('downloads.samplesText')}</p>
+                </div>
+                <a
+                  href="#musterbefunde"
+                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
+                >
+                  <FileText className="h-4 w-4" />
+                  {t('downloads.samplesCta')}
+                </a>
+              </div>
+            </Reveal>
           </div>
         </section>
 

@@ -34,25 +34,25 @@
     "ctaSheets": "Alle 18 Unterlagen"
   },
   "teaser": {
-    "eyebrow": "Neu im Portfolio · Labordiagnostik",
+    "eyebrow": "Neu im Portfolio · Musterbefunde",
     "title": "Epigenetik und Genetik aus einem Tropfen Blut",
-    "text": "Neben der Point-of-Care-Diagnostik am Igloo-Reader bieten wir sechs Analysen aus Kapillarblut, ausgewertet bei unserem europäischen Kooperationslabor. Sie erfassen die Ebene, die ein Schnelltest nicht abbildet: individuelle Veranlagung und Regulationsprozesse, die sich über die Zeit verändern.",
+    "text": "Neben der Point-of-Care-Diagnostik am Igloo-Reader bieten wir sechs Analysen aus Kapillarblut, ausgewertet bei unserem Kooperationspartner. Zu jeder der sechs Analysen liegt jetzt ein vollständiger Musterbefund als PDF vor — mit frei erfundenen Beispieldaten, im Aufbau aber identisch mit dem Befund, den Ihre Klientinnen und Klienten am Ende erhalten. So sehen Sie den vollen Umfang der Auswertung, bevor Sie anfragen.",
     "cta": "Die sechs Analysen ansehen",
-    "ctaPdf": "Übersicht als PDF",
     "facts": [
-      {
-        "label": "Probe",
-        "value": "Trockenblutkarte, Fingerbeere"
-      },
       {
         "label": "Portfolio",
         "value": "6 Analysen, ein Probenweg"
       },
       {
-        "label": "Preise",
-        "value": "B2B nach Absprache"
+        "label": "Probe",
+        "value": "Trockenblutkarte, Fingerbeere"
+      },
+      {
+        "label": "Musterbefunde",
+        "value": "6 PDFs mit Beispieldaten"
       }
-    ]
+    ],
+    "ctaSamples": "Die sechs Musterbefunde"
   },
   "principle": {
     "caption": "Das Prinzip",
@@ -222,7 +222,8 @@
         ],
         "file": "de/06_Healthy_Sport_PolarisDX.pdf"
       }
-    ]
+    ],
+    "sampleBtn": "Musterbefund"
   },
   "docsBand": {
     "title": "Alle Unterlagen auf einen Griff",
@@ -332,7 +333,10 @@
     "sub": "18 Infoblätter als PDF, je neun in Deutsch und Englisch. Stand August 2026.",
     "zipLabel": "Alle Blätter als ZIP · 0,6 MB",
     "zipFile": "PolarisDX_Unterlagen_DE.zip",
-    "btn": "PDF laden"
+    "btn": "PDF laden",
+    "samplesTitle": "Dazu die sechs Musterbefunde",
+    "samplesText": "Vollständige Beispielbefunde je Analyse, dazu Parameterübersicht und Werte-Glossar — auf Deutsch.",
+    "samplesCta": "Zu den Musterbefunden"
   },
   "sheets": [
     {
@@ -414,5 +418,231 @@
     "longevity": "Longevity-Diagnostik",
     "downloads": "Alle Downloads",
     "contact": "Beratung anfragen"
+  },
+  "samples": {
+    "caption": "Musterbefunde",
+    "title": "Was am Ende auf dem Tisch liegt",
+    "lead": "Sechs vollständige Musterbefunde, je einer pro Analyse. Sie zeigen vor der Anfrage, wie das Dokument aufgebaut ist, das Ihre Klientinnen und Klienten am Ende in der Hand halten.",
+    "note": "Alle sechs Dokumente sind Musterbefunde: Sämtliche Werte, Genotypen und Angaben zur Person sind frei erfunden und dienen ausschließlich der Darstellung des Berichtsformats. Es handelt sich nicht um reale Befunde.",
+    "badge": "Deutsch",
+    "btn": "Musterbefund öffnen",
+    "items": [
+      {
+        "slug": "metabolic-health",
+        "panel": "Metabolic Health",
+        "pages": "15",
+        "what": "Wie ein Befund beide Ebenen zusammenführt — 17 genetische Auswertungen und vier epigenetische Marker auf derselben Ampel von 1 bis 9, mit dem Hinweis auf Aufklärung und schriftliche Einwilligung nach Gendiagnostikgesetz.",
+        "bullets": [
+          "Vier beeinflussbare Werte, Ampel 1–9",
+          "17 genetische Auswertungen, 21 Varianten",
+          "Handlungsplan mit drei Schwerpunkten"
+        ],
+        "file": "de/10_Musterbefund_Metabolic_Health_PolarisDX.pdf"
+      },
+      {
+        "slug": "healthy-aging",
+        "panel": "Healthy Aging",
+        "pages": "9",
+        "what": "Wie vier Marker getrennt ausgewiesen werden — Telomere, LINE-1, epigenetische Alterungsmarker und IL-6, jeweils in Prozent der Referenz und mit eigenem biologischem Alter, bewusst ohne Gesamtwert.",
+        "bullets": [
+          "Biologisches Alter je Marker",
+          "Lebensstil-Radar mit elf Faktoren",
+          "13 Empfehlungen, je Marker zugeordnet"
+        ],
+        "file": "de/11_Musterbefund_Healthy_Aging_PolarisDX.pdf"
+      },
+      {
+        "slug": "biologische-altersuhr",
+        "panel": "Biologische Altersuhr",
+        "pages": "10",
+        "what": "Wie ein exploratives Ergebnis dargestellt wird: biologisches Alter 52 Jahre gegen Kalenderalter 48 — und die Grenzen des Modells auf einer eigenen Seite.",
+        "bullets": [
+          "Die drei microRNAs einzeln ausgewiesen",
+          "Acht Empfehlungen, den Signalen zugeordnet",
+          "Verlauf aus zwei gemessenen Werten"
+        ],
+        "file": "de/12_Musterbefund_Biologische_Altersuhr_PolarisDX.pdf"
+      },
+      {
+        "slug": "telomer-analyse",
+        "panel": "Telomer-Analyse",
+        "pages": "9",
+        "what": "Wie ein Einzelwert eingeordnet wird: 108 kbp gegen einen Referenzwert von 112 kbp, mit der Messstreuung der qPCR als ausdrücklichem Teil des Befunds.",
+        "bullets": [
+          "Acht Empfehlungen mit Quelle und Menge",
+          "Verlauf aus zwei gemessenen Werten",
+          "Wissenschaftliche Einordnung der Methode"
+        ],
+        "file": "de/13_Musterbefund_Telomer_Analyse_PolarisDX.pdf"
+      },
+      {
+        "slug": "stress-monitor",
+        "panel": "Stress Monitor",
+        "pages": "9",
+        "what": "Wie aus sechs microRNAs zwei getrennte Auswertungen entstehen — jede aus den ihr zugeordneten Markern, im Musterbefund mit unterschiedlichem Ergebnis.",
+        "bullets": [
+          "Die sechs Einzelmarker als Tabelle",
+          "Elf Empfehlungen mit Quelle und Menge",
+          "Verlauf zweier Messungen im Vergleich"
+        ],
+        "file": "de/14_Musterbefund_Stress_Monitor_PolarisDX.pdf"
+      },
+      {
+        "slug": "healthy-sport",
+        "panel": "Healthy Sport",
+        "pages": "12",
+        "what": "Wie acht microRNAs in sieben Auswertungen einfließen. Der Musterbefund zeigt die Plus-Variante, die vier genetische Varianten einmalig ergänzt — mit dem Hinweis auf Aufklärung und schriftliche Einwilligung nach Gendiagnostikgesetz.",
+        "bullets": [
+          "Sieben Auswertungen, nach Wert sortiert",
+          "Die acht microRNAs einzeln ausgewiesen",
+          "14 Empfehlungen, dazu der Messverlauf"
+        ],
+        "file": "de/15_Musterbefund_Healthy_Sport_PolarisDX.pdf"
+      }
+    ],
+    "pagesLabel": "{{pages}} Seiten",
+    "imgAlt": "Deckblatt des Musterbefunds {{panel}}",
+    "zipLabel": "Alle sechs als ZIP · 4,2 MB",
+    "zipFile": "PolarisDX_Musterbefunde_DE.zip"
+  },
+  "compare": {
+    "caption": "Auf einen Blick",
+    "title": "Die sechs Panels im Vergleich",
+    "lead": "Alle sechs Panels laufen über dieselbe Trockenblutkarte aus der Fingerbeere. Sie unterscheiden sich in dem, was daraus bestimmt wird — in Umfang, molekularer Ebene und Ergebnisform. Epigenetische Marker und microRNAs verändern sich durch Ernährung, Bewegung, Schlaf und Stress; genetische Varianten bleiben lebenslang unverändert. Nur die epigenetische Ebene eignet sich als Erfolgskontrolle.",
+    "cols": [
+      "Panel",
+      "Parameter",
+      "Ebene",
+      "Für den Verlauf",
+      "Genetische Analyse",
+      "Ergebnisform"
+    ],
+    "rows": [
+      [
+        "Metabolic Health",
+        "4 + 21",
+        "Epigenetik und Genetik",
+        "nur die 4 epigenetischen",
+        "ja",
+        "Ampel 1–9"
+      ],
+      [
+        "Healthy Aging",
+        "4",
+        "Epigenetik",
+        "alle 4",
+        "nein",
+        "% der Referenz, biol. Alter"
+      ],
+      [
+        "Biologische Altersuhr",
+        "3",
+        "microRNA",
+        "alle 3",
+        "nein",
+        "Abweichung in Jahren"
+      ],
+      [
+        "Telomer-Analyse",
+        "1",
+        "Telomerlänge",
+        "ja",
+        "nein",
+        "% der Referenz, biol. Alter"
+      ],
+      [
+        "Stress Monitor",
+        "6",
+        "microRNA",
+        "alle 6",
+        "nein",
+        "Ampel 1–9"
+      ],
+      [
+        "Healthy Sport",
+        "8 (Plus: + 4)",
+        "microRNA (Plus: + Genetik)",
+        "nur die 8 microRNAs",
+        "nur Plus-Variante",
+        "Ampel 1–9"
+      ]
+    ],
+    "shared": [
+      {
+        "title": "Probenmaterial",
+        "text": "Trockenblutkarte, wenige Tropfen Kapillarblut aus der Fingerbeere — kein Kühlversand, kein Nüchternstatus."
+      },
+      {
+        "title": "Lebensstil-Radar",
+        "text": "11 Faktoren aus Selbstauskunft in Healthy Aging, Healthy Sport, Altersuhr und Telomer-Analyse."
+      },
+      {
+        "title": "Interventionen",
+        "text": "Zu jedem Marker konkrete Empfehlungen mit Quelle, Menge und Hinweis — 8 bis 14 je Panel."
+      }
+    ],
+    "caveatTitle": "Bei zwei Panels gehört die Methodik ins Gespräch",
+    "caveats": [
+      {
+        "title": "Biologische Altersuhr",
+        "text": "Das zugrunde liegende Modell ist als Pilotstudie publiziert (n = 539) und hat einen mittleren absoluten Fehler von rund 10 Jahren. Der Einzelwert ist keine Altersbestimmung; belastbar ist der Verlauf."
+      },
+      {
+        "title": "Telomer-Analyse",
+        "text": "Die qPCR-Messung streut erheblich zwischen Läufen und Laboren, aus Trockenblut stärker als aus Venenblut. Auch hier trägt der Verlauf, nicht der Einzelwert. Beide Musterbefunde enthalten dazu eine eigene Seite „Wissenschaftliche Einordnung“."
+      }
+    ],
+    "gendg": "Zwei Panels enthalten genetische Analysen: Metabolic Health und die Plus-Variante von Healthy Sport. Dort sind Aufklärung und schriftliche Einwilligung vor der Probenahme erforderlich (Gendiagnostikgesetz).",
+    "cta": "Parameterübersicht als PDF",
+    "file": "de/16_Parameteruebersicht_PolarisDX.pdf",
+    "scrollHint": "Tabelle seitlich scrollbar"
+  },
+  "basics": {
+    "caption": "Werte verstehen",
+    "title": "Was in den Befunden gemessen wird",
+    "lead": "In den Befunden stehen Werte aus vier verschiedenen Ebenen. Wer den Unterschied kennt, sieht sofort, welche Zahl sich ändern kann und welche nicht — und kann im Gespräch trennen, was Veranlagung ist und was Momentaufnahme. Kein Wert ist eine Diagnose; die Auswertungen beschreiben Veranlagungen und Momentaufnahmen.",
+    "concepts": [
+      {
+        "num": "01",
+        "title": "Die Gene — der Bauplan",
+        "text": "Die Gene sind so etwas wie der Bauplan eines Hauses: Sie legen fest, wie der Körper gebaut ist — wie er Fett verwertet, wie schnell Sättigung eintritt, wie gut er Vitamin D durchs Blut transportiert. Kleine Abweichungen in diesem Bauplan heißen Genvarianten oder SNPs; davon trägt jeder Mensch Tausende, sie sind weder gut noch schlecht, sondern einfach unterschiedlich. Genetische Analysen unterliegen in Deutschland dem Gendiagnostikgesetz — Aufklärung und schriftliche Einwilligung müssen vor der Probenahme vorliegen.",
+        "key": "Der Bauplan ändert sich nie. Eine genetische Analyse wird einmal im Leben erhoben, eine zweite Messung ergäbe exakt dasselbe."
+      },
+      {
+        "num": "02",
+        "title": "Die Methylierung — die Lautstärkeregler",
+        "text": "Der Bauplan sagt noch nicht, was gerade gebaut wird. Dafür sitzen an der DNA chemische Markierungen, die einzelne Gene lauter oder leiser stellen; dieses System heißt Methylierung. Es reagiert auf Ernährung, Bewegung, Schlaf und Stress.",
+        "key": "Diese Werte ändern sich. Sie zeigen nicht, welche Gene jemand hat, sondern wie aktiv sie gerade sind — deshalb eignen sie sich als Erfolgskontrolle."
+      },
+      {
+        "num": "03",
+        "title": "Die microRNAs — die Boten im Blut",
+        "text": "microRNAs sind winzige Moleküle, die im Blut zirkulieren und die Aktivität von Genen fein nachjustieren. Man kann sie sich als Kurznachrichten vorstellen, die der Körper laufend verschickt. Ihre Menge verändert sich schneller als die Methylierung — oft innerhalb von Wochen.",
+        "key": "Ihr Name ist immer gleich aufgebaut: „miR“ plus eine Nummer. Die Nummer ist nur eine Katalognummer und sagt nichts über Wichtigkeit aus."
+      },
+      {
+        "num": "04",
+        "title": "Die Telomere — die Schutzkappen",
+        "text": "An den Enden der Chromosomen sitzen Schutzkappen, ähnlich den Plastikhülsen an Schnürsenkeln. Sie heißen Telomere und verhindern, dass bei jeder Zellteilung Erbinformation verloren geht. Mit jeder Teilung werden sie ein Stück kürzer.",
+        "key": "Telomere lassen sich nicht gezielt verlängern. Beeinflussbar ist nur, wie schnell sie kürzer werden."
+      }
+    ],
+    "scaleTitle": "Und die Zahlen?",
+    "scales": [
+      {
+        "k": "Skala 1 bis 9",
+        "v": "Die häufigste Darstellung. Links rot, rechts grün, höher ist immer besser: 1–3 rot, 4–6 gelb, 7–9 grün."
+      },
+      {
+        "k": "Prozent",
+        "v": "Der Wert im Vergleich zu einer Referenzgruppe. 100 % heißt: genau im erwarteten Bereich."
+      },
+      {
+        "k": "Jahre",
+        "v": "Ein aus Messwerten berechnetes „biologisches Alter“ im Vergleich zum Kalenderalter. Es ist ein Rechenergebnis, keine Altersbestimmung."
+      }
+    ],
+    "cta": "Werte verstehen als PDF",
+    "file": "de/17_Werte_verstehen_PolarisDX.pdf"
   }
 }
