@@ -26,6 +26,7 @@ import type { FAQItem } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import SectionHeader from '../components/ui/SectionHeader'
 import PageTransition from '../components/ui/PageTransition'
+import ChapterNav, { type Chapter } from '../components/ui/ChapterNav'
 import Reveal from '../components/ui/Reveal'
 import { BEFUND_IMAGES, BEFUND_IMAGE_SIZE } from '../assets/epigenetics/befundImages'
 
@@ -141,6 +142,22 @@ const EpigeneticsPage = () => {
   const faqSchemaItems: FAQItem[] = faq.map((item) => ({ question: item.q, answer: item.a }))
   const overviewHref = `${ASSET_BASE}${t('contact.overviewFile')}`
   const zipHref = `${ASSET_BASE}${t('downloads.zipFile')}`
+
+  // Kapitel der Seite. Die Kurzform aus dem jeweiligen Kicker ist als Chip
+  // besser lesbar als die Ueberschrift — ausser bei den Analysen, wo der
+  // Kicker nur "Portfolio" heisst.
+  const chapters: Chapter[] = [
+    { id: 'prinzip', label: t('principle.caption') },
+    { id: 'analysen', label: t('analyses.title') },
+    { id: 'vergleich', label: t('compare.caption') },
+    { id: 'musterbefunde', label: t('samples.caption') },
+    { id: 'ablauf', label: t('workflow.caption') },
+    { id: 'werte-verstehen', label: t('basics.caption') },
+    { id: 'studienlage', label: t('evidence.caption') },
+    { id: 'fragen', label: t('faq.caption') },
+    { id: 'downloads', label: t('downloads.caption') },
+    { id: 'contact', label: t('contact.caption') },
+  ]
   const samplesZipHref = `${ASSET_BASE}${t('samples.zipFile')}`
 
   return (
@@ -238,10 +255,17 @@ const EpigeneticsPage = () => {
           </div>
         </section>
 
+        <ChapterNav
+          chapters={chapters}
+          chaptersLabel={t('befund.navChapters')}
+          progressLabel={t('befund.navProgress')}
+          action={{ to: '/contact', label: t('hero.ctaQuote') }}
+        />
+
         {/* ================================================================
             DAS PRINZIP
         ================================================================ */}
-        <section className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
+        <section id="prinzip" className="scroll-mt-[124px] lg:scroll-mt-[148px] mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
           <Reveal width="100%">
             <SectionHeader
               caption={t('principle.caption')}
@@ -302,7 +326,7 @@ const EpigeneticsPage = () => {
         {/* ================================================================
             DIE SECHS ANALYSEN
         ================================================================ */}
-        <section id="analysen" className="scroll-mt-24 border-y border-slate-200 bg-white">
+        <section id="analysen" className="scroll-mt-[124px] lg:scroll-mt-[148px] border-y border-slate-200 bg-white">
           <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
             <Reveal width="100%">
               <SectionHeader
@@ -389,7 +413,7 @@ const EpigeneticsPage = () => {
         {/* ================================================================
             DIE SECHS PANELS IM VERGLEICH
         ================================================================ */}
-        <section id="vergleich" className="scroll-mt-24 border-b border-slate-200 bg-slate-50">
+        <section id="vergleich" className="scroll-mt-[124px] lg:scroll-mt-[148px] border-b border-slate-200 bg-slate-50">
           <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-20">
             <Reveal width="100%">
               <SectionHeader
@@ -490,7 +514,7 @@ const EpigeneticsPage = () => {
         {/* ================================================================
             MUSTERBEFUNDE — was am Ende in der Hand liegt
         ================================================================ */}
-        <section id="musterbefunde" className="scroll-mt-24 border-b border-slate-200 bg-white">
+        <section id="musterbefunde" className="scroll-mt-[124px] lg:scroll-mt-[148px] border-b border-slate-200 bg-white">
           <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
             <Reveal width="100%">
               <SectionHeader
@@ -634,7 +658,7 @@ const EpigeneticsPage = () => {
         {/* ================================================================
             ABLAUF IN DER PRAXIS
         ================================================================ */}
-        <section className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
+        <section id="ablauf" className="scroll-mt-[124px] lg:scroll-mt-[148px] mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
           <Reveal width="100%">
             <SectionHeader
               caption={t('workflow.caption')}
@@ -660,7 +684,7 @@ const EpigeneticsPage = () => {
         {/* ================================================================
             WERTE VERSTEHEN — die vier Ebenen und die drei Zahlenformate
         ================================================================ */}
-        <section id="werte-verstehen" className="scroll-mt-24 border-y border-slate-200 bg-white">
+        <section id="werte-verstehen" className="scroll-mt-[124px] lg:scroll-mt-[148px] border-y border-slate-200 bg-white">
           <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
             <Reveal width="100%">
               <SectionHeader
@@ -721,7 +745,7 @@ const EpigeneticsPage = () => {
         {/* ================================================================
             STUDIENLAGE — GESICHERT VS. VORLAEUFIG
         ================================================================ */}
-        <section className="border-y border-slate-200 bg-white">
+        <section id="studienlage" className="scroll-mt-[124px] lg:scroll-mt-[148px] border-y border-slate-200 bg-white">
           <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
             <Reveal width="100%">
               <SectionHeader
@@ -786,7 +810,7 @@ const EpigeneticsPage = () => {
         {/* ================================================================
             FAQ — natives <details>, kein JavaScript noetig
         ================================================================ */}
-        <section className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
+        <section id="fragen" className="scroll-mt-[124px] lg:scroll-mt-[148px] mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
           <Reveal width="100%">
             <div className="mx-auto max-w-[80ch]">
               <SectionHeader caption={t('faq.caption')} title={t('faq.title')} align="left" />
@@ -808,7 +832,7 @@ const EpigeneticsPage = () => {
         {/* ================================================================
             ALLE UNTERLAGEN
         ================================================================ */}
-        <section id="downloads" className="scroll-mt-24 border-y border-slate-200 bg-white">
+        <section id="downloads" className="scroll-mt-[124px] lg:scroll-mt-[148px] border-y border-slate-200 bg-white">
           <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
             <Reveal width="100%">
               <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
