@@ -19,7 +19,9 @@
     "group_poc": "Point-of-Care",
     "group_lab": "Labordiagnostik",
     "badge_new": "Neu",
-    "epigenetics_desc": "Sechs Analysen aus einem Tropfen Blut"
+    "epigenetics_desc": "Sechs Analysen aus einem Tropfen Blut",
+    "musterbefunde": "Musterbefunde",
+    "musterbefunde_desc": "Sechs Beispielbefunde zum Lesen"
   },
   "badge": {
     "New": "Neu",

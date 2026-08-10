@@ -19,7 +19,9 @@
     "group_poc": "Point-of-care",
     "group_lab": "Diagnóstico de laboratorio",
     "badge_new": "Nuevo",
-    "epigenetics_desc": "Seis análisis a partir de una gota de sangre"
+    "epigenetics_desc": "Seis análisis a partir de una gota de sangre",
+    "musterbefunde": "Informes de ejemplo",
+    "musterbefunde_desc": "Seis informes de ejemplo para leer"
   },
   "badge": {
     "New": "Nuevo",

@@ -129,6 +129,7 @@ const MusterbefundPage = () => {
             [
               { name: t('breadcrumb.home'), url: '/' },
               { name: t('breadcrumb.current'), url: '/epigenetics' },
+              { name: t('samples.caption'), url: '/epigenetics#musterbefunde' },
               { name: befund.panel, url: `/epigenetics/musterbefund/${slug}` },
             ],
             i18n.language,
@@ -144,6 +145,7 @@ const MusterbefundPage = () => {
               items={[
                 { label: t('breadcrumb.home'), href: '/' },
                 { label: t('breadcrumb.current'), href: '/epigenetics' },
+                { label: t('samples.caption'), href: '/epigenetics#musterbefunde' },
                 { label: befund.panel },
               ]}
             />

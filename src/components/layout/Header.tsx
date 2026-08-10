@@ -71,6 +71,11 @@ const navItems: NavItem[] = [
             description: 'epigenetics_desc',
             badge: 'badge_new',
           },
+          {
+            label: 'musterbefunde',
+            route: '/epigenetics#musterbefunde',
+            description: 'musterbefunde_desc',
+          },
         ],
       },
     ],
@@ -80,6 +85,29 @@ const navItems: NavItem[] = [
   { label: 'blog', route: '/articles' },
   { label: 'support', route: '/support' },
 ]
+
+/**
+ * Ist dieser Pfad der aktuelle Bereich? Ein Anker hinter der Route zaehlt
+ * nicht mit — /epigenetics#musterbefunde und /epigenetics sind dieselbe Seite.
+ */
+function isPathActive(route: string | undefined, pathname: string): boolean {
+  if (!route) return false
+  const clean = route.split('#')[0]
+  if (clean === '/') return pathname === '/'
+  return pathname === clean || pathname.startsWith(clean + '/')
+}
+
+/** Genau die Seite, auf der man steht — Ankereintraege zaehlen nicht. */
+function isExactPage(route: string, pathname: string): boolean {
+  return !route.includes('#') && pathname === route
+}
+
+/** Ein Menuepunkt ist aktiv, wenn er selbst oder eines seiner Ziele aktiv ist. */
+function isItemActive(item: NavItem, pathname: string): boolean {
+  if (isPathActive(item.route, pathname)) return true
+  if (item.children?.some((c) => isPathActive(c.route, pathname))) return true
+  return Boolean(item.groups?.some((g) => g.items.some((c) => isPathActive(c.route, pathname))))
+}
 
 const Header = () => {
   const { t } = useTranslation('common')
@@ -130,9 +158,24 @@ const Header = () => {
                   <div className="flex items-center gap-1 cursor-pointer">
                     <Link
                       to={item.route!}
-                      className={`flex items-center gap-1 transition-all duration-300 hover:opacity-70 text-white`}
+                      aria-current={
+                        item.route && isExactPage(item.route, location.pathname)
+                          ? 'page'
+                          : isItemActive(item, location.pathname)
+                            ? 'true'
+                            : undefined
+                      }
+                      className={`flex items-center gap-1 transition-all duration-300 text-white ${
+                        isItemActive(item, location.pathname) ? '' : 'hover:opacity-70'
+                      }`}
                     >
-                      <span className="relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-current after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                      <span
+                        className={`relative after:content-[''] after:absolute after:w-full after:h-px after:bottom-0 after:left-0 after:bg-current after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left ${
+                          isItemActive(item, location.pathname)
+                            ? 'after:scale-x-100 after:origin-bottom-left'
+                            : 'after:scale-x-0 after:origin-bottom-right'
+                        }`}
+                      >
                         {t(`nav.${item.label}`)}
                       </span>
                     </Link>
@@ -154,7 +197,16 @@ const Header = () => {
                                   <Link
                                     key={child.label}
                                     to={child.route}
-                                    className="block rounded-lg px-2 py-2 transition-colors hover:bg-blue-50/60"
+                                    aria-current={
+                                      isExactPage(child.route, location.pathname)
+                                        ? 'page'
+                                        : undefined
+                                    }
+                                    className={`block rounded-lg px-2 py-2 transition-colors hover:bg-slate-100 ${
+                                      isPathActive(child.route, location.pathname)
+                                        ? 'bg-slate-100'
+                                        : ''
+                                    }`}
                                   >
                                     <span className="flex items-center gap-2 text-sm font-medium text-gray-700">
                                       {t(`nav.${child.label}`)}
@@ -191,9 +243,20 @@ const Header = () => {
                 ) : (
                   <Link
                     to={item.route!}
-                    className={`flex items-center gap-1 transition-all duration-300 hover:opacity-70 text-white`}
+                    aria-current={
+                      item.route && isExactPage(item.route, location.pathname) ? 'page' : undefined
+                    }
+                    className={`flex items-center gap-1 transition-all duration-300 text-white ${
+                      isItemActive(item, location.pathname) ? '' : 'hover:opacity-70'
+                    }`}
                   >
-                    <span className="relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-current after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                    <span
+                        className={`relative after:content-[''] after:absolute after:w-full after:h-px after:bottom-0 after:left-0 after:bg-current after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left ${
+                          isItemActive(item, location.pathname)
+                            ? 'after:scale-x-100 after:origin-bottom-left'
+                            : 'after:scale-x-0 after:origin-bottom-right'
+                        }`}
+                      >
                       {t(`nav.${item.label}`)}
                     </span>
                   </Link>

@@ -19,7 +19,9 @@
     "group_poc": "Point-of-care",
     "group_lab": "Laboratory diagnostics",
     "badge_new": "New",
-    "epigenetics_desc": "Six analyses from one drop of blood"
+    "epigenetics_desc": "Six analyses from one drop of blood",
+    "musterbefunde": "Sample reports",
+    "musterbefunde_desc": "Six example reports to read"
   },
   "badge": {
     "New": "New",

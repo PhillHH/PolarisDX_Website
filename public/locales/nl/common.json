@@ -19,7 +19,9 @@
     "group_poc": "Point-of-care",
     "group_lab": "Laboratoriumdiagnostiek",
     "badge_new": "Nieuw",
-    "epigenetics_desc": "Zes analyses uit één druppel bloed"
+    "epigenetics_desc": "Zes analyses uit één druppel bloed",
+    "musterbefunde": "Voorbeeldrapporten",
+    "musterbefunde_desc": "Zes voorbeeldrapporten om te lezen"
   },
   "badge": {
     "New": "Nieuw",
