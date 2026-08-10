@@ -653,6 +653,10 @@
     "notFoundText": "Der aufgerufene Befund existiert nicht. Sechs Musterbefunde stehen bereit — je einer pro Analyse.",
     "backToAll": "Alle sechs Musterbefunde",
     "pdfCta": "Diesen Befund als PDF",
-    "othersTitle": "Die anderen Musterbefunde"
+    "othersTitle": "Die anderen Musterbefunde",
+    "navBack": "Übersicht",
+    "navChapters": "Kapitel",
+    "navProgress": "Lesefortschritt",
+    "toTop": "Nach oben"
   }
 }
