@@ -9,7 +9,10 @@ const MobileCallButton = () => {
   const phoneNumberClean = phoneNumber.replace(/\s/g, '')
 
   return (
-    <div className="fixed right-0 top-24 z-50 flex flex-col items-end lg:hidden">
+    {/* Unten rechts statt oben: bei top-24 lag der Knopf ueber der
+          Kapitelleiste und fing genau die Taps ab, mit denen man die
+          Kapitel weiterschiebt. */}
+    <div className="fixed bottom-6 right-0 z-50 flex flex-col items-end lg:hidden">
       <div
         className={`flex items-center overflow-hidden rounded-l-full shadow-lg transition-all duration-300 ease-in-out ${
           isExpanded
