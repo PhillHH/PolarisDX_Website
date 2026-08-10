@@ -15,7 +15,13 @@
     "longevity": "Longevity diagnostika",
     "epigenetics": "Epigenetika",
     "pocSystems": "POC systémy",
-    "support": "Podpora"
+    "support": "Podpora",
+    "group_poc": "Point-of-care",
+    "group_lab": "Laboratorní diagnostika",
+    "badge_new": "Novinka",
+    "epigenetics_desc": "Šest analýz z jedné kapky krve",
+    "musterbefunde": "Vzorové nálezy",
+    "musterbefunde_desc": "Šest vzorových nálezů ke čtení"
   },
   "badge": {
     "New": "Nové",

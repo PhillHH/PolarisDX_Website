@@ -15,7 +15,13 @@
     "longevity": "Diagnostic longévité",
     "epigenetics": "Épigénétique",
     "pocSystems": "Systèmes POC",
-    "support": "Support"
+    "support": "Support",
+    "group_poc": "Point-of-care",
+    "group_lab": "Diagnostic de laboratoire",
+    "badge_new": "Nouveau",
+    "epigenetics_desc": "Six analyses à partir d'une goutte de sang",
+    "musterbefunde": "Rapports types",
+    "musterbefunde_desc": "Six rapports d'exemple à lire"
   },
   "badge": {
     "New": "Nouveau",

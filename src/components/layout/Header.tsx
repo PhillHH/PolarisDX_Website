@@ -9,10 +9,36 @@ import logo from '../../assets/polaris_white.webp'
 import { useDisclosure } from '../../hooks/useDisclosure'
 import { useScrollPosition } from '../../hooks/useScrollPosition'
 
+interface NavChild {
+  label: string
+  route: string
+  /** Zweite Zeile im Dropdown — nur dort gesetzt, wo sie etwas erklaert. */
+  description?: string
+  /** i18n-Key fuer ein kleines Label, z. B. "Neu". */
+  badge?: string
+}
+
+/**
+ * Gruppe im Dropdown. Wird `groups` gesetzt, rendert das Menue zweispaltig
+ * mit Ueberschriften statt als flache Liste.
+ *
+ * Hintergrund: Das Diagnostik-Menue mischte zwei grundverschiedene
+ * Liefermodelle — die Anwendungsbereiche am Igloo-Reader (Geraet in der
+ * Praxis) und das Epigenetik-Programm (Laborleistung mit eigenem Probenweg).
+ * Die Zweiteilung macht das sichtbar, statt den Laborteil in der POC-Liste
+ * zu verstecken.
+ */
+interface NavGroup {
+  /** i18n-Key der Spaltenueberschrift. */
+  heading: string
+  items: NavChild[]
+}
+
 interface NavItem {
   label: string
   route?: string
-  children?: { label: string; route: string }[]
+  children?: NavChild[]
+  groups?: NavGroup[]
 }
 
 const navItems: NavItem[] = [
@@ -26,12 +52,32 @@ const navItems: NavItem[] = [
   {
     label: 'service',
     route: '/diagnostics',
-    children: [
-      { label: 'dental', route: '/diagnostics/dental' },
-      { label: 'beauty', route: '/diagnostics/beauty' },
-      { label: 'longevity', route: '/diagnostics/longevity' },
-      { label: 'epigenetics', route: '/epigenetics' },
-      { label: 'pocSystems', route: '/diagnostics/poc-systemloesungen' },
+    groups: [
+      {
+        heading: 'group_poc',
+        items: [
+          { label: 'dental', route: '/diagnostics/dental' },
+          { label: 'beauty', route: '/diagnostics/beauty' },
+          { label: 'longevity', route: '/diagnostics/longevity' },
+          { label: 'pocSystems', route: '/diagnostics/poc-systemloesungen' },
+        ],
+      },
+      {
+        heading: 'group_lab',
+        items: [
+          {
+            label: 'epigenetics',
+            route: '/epigenetics',
+            description: 'epigenetics_desc',
+            badge: 'badge_new',
+          },
+          {
+            label: 'musterbefunde',
+            route: '/epigenetics#musterbefunde',
+            description: 'musterbefunde_desc',
+          },
+        ],
+      },
     ],
   },
   // { label: 'casestudies', route: '/casestudys/32reasons' }, // temporarily disabled
@@ -39,6 +85,29 @@ const navItems: NavItem[] = [
   { label: 'blog', route: '/articles' },
   { label: 'support', route: '/support' },
 ]
+
+/**
+ * Ist dieser Pfad der aktuelle Bereich? Ein Anker hinter der Route zaehlt
+ * nicht mit — /epigenetics#musterbefunde und /epigenetics sind dieselbe Seite.
+ */
+function isPathActive(route: string | undefined, pathname: string): boolean {
+  if (!route) return false
+  const clean = route.split('#')[0]
+  if (clean === '/') return pathname === '/'
+  return pathname === clean || pathname.startsWith(clean + '/')
+}
+
+/** Genau die Seite, auf der man steht — Ankereintraege zaehlen nicht. */
+function isExactPage(route: string, pathname: string): boolean {
+  return !route.includes('#') && pathname === route
+}
+
+/** Ein Menuepunkt ist aktiv, wenn er selbst oder eines seiner Ziele aktiv ist. */
+function isItemActive(item: NavItem, pathname: string): boolean {
+  if (isPathActive(item.route, pathname)) return true
+  if (item.children?.some((c) => isPathActive(c.route, pathname))) return true
+  return Boolean(item.groups?.some((g) => g.items.some((c) => isPathActive(c.route, pathname))))
+}
 
 const Header = () => {
   const { t } = useTranslation('common')
@@ -87,37 +156,109 @@ const Header = () => {
           >
             {navItems.map((item) => (
               <div key={item.label} className="relative group">
-                {item.children ? (
+                {item.children || item.groups ? (
                   <div className="flex items-center gap-1 cursor-pointer">
                     <Link
                       to={item.route!}
-                      className={`flex items-center gap-1 transition-all duration-300 hover:opacity-70 text-white`}
+                      aria-current={
+                        item.route && isExactPage(item.route, location.pathname)
+                          ? 'page'
+                          : isItemActive(item, location.pathname)
+                            ? 'true'
+                            : undefined
+                      }
+                      className={`flex items-center gap-1 transition-all duration-300 text-white ${
+                        isItemActive(item, location.pathname) ? '' : 'hover:opacity-70'
+                      }`}
                     >
-                      <span className="relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-current after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                      <span
+                        className={`relative after:content-[''] after:absolute after:w-full after:h-px after:bottom-0 after:left-0 after:bg-current after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left ${
+                          isItemActive(item, location.pathname)
+                            ? 'after:scale-x-100 after:origin-bottom-left'
+                            : 'after:scale-x-0 after:origin-bottom-right'
+                        }`}
+                      >
                         {t(`nav.${item.label}`)}
                       </span>
                     </Link>
                     {/* Hover trigger for submenu */}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-6 hidden group-hover:block min-w-[180px]">
+                    <div
+                      className={`absolute top-full left-1/2 -translate-x-1/2 pt-6 hidden group-hover:block ${
+                        item.groups ? 'w-[600px]' : 'min-w-[180px]'
+                      }`}
+                    >
                       <div className="bg-white/95 backdrop-blur-xl shadow-2xl rounded-xl py-3 border border-white/20 overflow-hidden ring-1 ring-black/5 animate-in fade-in zoom-in-95 duration-200">
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.label}
-                            to={child.route}
-                            className="block px-6 py-3 text-sm text-gray-600 hover:bg-brand-primary/5 hover:text-brand-primary transition-colors font-normal"
-                          >
-                            {t(`nav.${child.label}`)}
-                          </Link>
-                        ))}
+                        {item.groups ? (
+                          <div className="grid grid-cols-2 gap-x-2 divide-x divide-slate-200/70 px-2">
+                            {item.groups.map((group) => (
+                              <div key={group.heading} className="px-4 py-2">
+                                <p className="mb-2 px-2 text-[11px] font-medium text-gray-500">
+                                  {t(`nav.${group.heading}`)}
+                                </p>
+                                {group.items.map((child) => (
+                                  <Link
+                                    key={child.label}
+                                    to={child.route}
+                                    aria-current={
+                                      isExactPage(child.route, location.pathname)
+                                        ? 'page'
+                                        : undefined
+                                    }
+                                    className={`block rounded-lg px-2 py-2 transition-colors hover:bg-slate-100 ${
+                                      isPathActive(child.route, location.pathname)
+                                        ? 'bg-slate-100'
+                                        : ''
+                                    }`}
+                                  >
+                                    <span className="flex items-center gap-2 text-sm font-medium text-text-heading">
+                                      {t(`nav.${child.label}`)}
+                                      {child.badge && (
+                                        <span className="rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-accent-strong">
+                                          {t(`nav.${child.badge}`)}
+                                        </span>
+                                      )}
+                                    </span>
+                                    {child.description && (
+                                      <span className="mt-0.5 block text-xs leading-5 text-gray-500">
+                                        {t(`nav.${child.description}`)}
+                                      </span>
+                                    )}
+                                  </Link>
+                                ))}
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          item.children?.map((child) => (
+                            <Link
+                              key={child.label}
+                              to={child.route}
+                              className="block px-6 py-3 text-sm text-gray-600 hover:bg-brand-primary/5 hover:text-brand-primary transition-colors font-normal"
+                            >
+                              {t(`nav.${child.label}`)}
+                            </Link>
+                          ))
+                        )}
                       </div>
                     </div>
                   </div>
                 ) : (
                   <Link
                     to={item.route!}
-                    className={`flex items-center gap-1 transition-all duration-300 hover:opacity-70 text-white`}
+                    aria-current={
+                      item.route && isExactPage(item.route, location.pathname) ? 'page' : undefined
+                    }
+                    className={`flex items-center gap-1 transition-all duration-300 text-white ${
+                      isItemActive(item, location.pathname) ? '' : 'hover:opacity-70'
+                    }`}
                   >
-                    <span className="relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-current after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                    <span
+                        className={`relative after:content-[''] after:absolute after:w-full after:h-px after:bottom-0 after:left-0 after:bg-current after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left ${
+                          isItemActive(item, location.pathname)
+                            ? 'after:scale-x-100 after:origin-bottom-left'
+                            : 'after:scale-x-0 after:origin-bottom-right'
+                        }`}
+                      >
                       {t(`nav.${item.label}`)}
                     </span>
                   </Link>
@@ -194,7 +335,7 @@ const Header = () => {
                   key={item.label}
                   className="border-b border-white/5 pb-2 last:border-0 last:pb-0"
                 >
-                  {item.children ? (
+                  {item.children || item.groups ? (
                     <div>
                       <div
                         className={`flex min-h-[44px] items-center justify-between text-lg font-normal tracking-wide cursor-pointer text-white`}
@@ -217,7 +358,31 @@ const Header = () => {
                           >
                             {t(`nav.${item.label}`)}
                           </Link>
-                          {item.children.map((child) => (
+                          {/* Ueberschrift je Block, damit die Trennung
+                              POC / Labor auch mobil sichtbar bleibt. */}
+                          {item.groups?.map((group) => (
+                            <div key={group.heading} className="space-y-3 pt-1">
+                              <p className="text-[11px] font-medium text-white/40">
+                                {t(`nav.${group.heading}`)}
+                              </p>
+                              {group.items.map((child) => (
+                                <Link
+                                  key={child.label}
+                                  to={child.route}
+                                  className="flex min-h-[44px] items-center gap-2 text-base font-normal text-white/70"
+                                  onClick={mobileMenu.onClose}
+                                >
+                                  {t(`nav.${child.label}`)}
+                                  {child.badge && (
+                                    <span className="rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-accent-strong">
+                                      {t(`nav.${child.badge}`)}
+                                    </span>
+                                  )}
+                                </Link>
+                              ))}
+                            </div>
+                          ))}
+                          {item.children?.map((child) => (
                             <Link
                               key={child.label}
                               to={child.route}

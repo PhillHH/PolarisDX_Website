@@ -15,7 +15,13 @@
     "longevity": "Longevity diagnostik",
     "epigenetics": "Epigenetik",
     "pocSystems": "POC-systemer",
-    "support": "Support"
+    "support": "Support",
+    "group_poc": "Point-of-care",
+    "group_lab": "Laboratoriediagnostik",
+    "badge_new": "Ny",
+    "epigenetics_desc": "Seks analyser fra en dråbe blod",
+    "musterbefunde": "Eksempelrapporter",
+    "musterbefunde_desc": "Seks eksempelrapporter at læse"
   },
   "badge": {
     "New": "Ny",
