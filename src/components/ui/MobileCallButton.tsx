@@ -8,10 +8,9 @@ const MobileCallButton = () => {
   const phoneNumber = '+49 151 75011699'
   const phoneNumberClean = phoneNumber.replace(/\s/g, '')
 
+  // Unten rechts statt oben: bei top-24 lag der Knopf ueber der Kapitelleiste
+  // und fing genau die Taps ab, mit denen man die Kapitel weiterschiebt.
   return (
-    {/* Unten rechts statt oben: bei top-24 lag der Knopf ueber der
-          Kapitelleiste und fing genau die Taps ab, mit denen man die
-          Kapitel weiterschiebt. */}
     <div className="fixed bottom-6 right-0 z-50 flex flex-col items-end lg:hidden">
       <div
         className={`flex items-center overflow-hidden rounded-l-full shadow-lg transition-all duration-300 ease-in-out ${
