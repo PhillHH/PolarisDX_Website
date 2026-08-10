@@ -653,6 +653,10 @@
     "notFoundText": "The report you requested is not available. Six sample reports are ready — one for each analysis.",
     "backToAll": "All six sample reports",
     "pdfCta": "This report as a PDF",
-    "othersTitle": "The other sample reports"
+    "othersTitle": "The other sample reports",
+    "navBack": "Overview",
+    "navChapters": "Chapters",
+    "navProgress": "Reading progress",
+    "toTop": "Back to top"
   }
 }

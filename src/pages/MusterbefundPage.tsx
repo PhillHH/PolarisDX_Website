@@ -19,14 +19,33 @@
 
 import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { ArrowLeft, Download } from 'lucide-react'
+import { ArrowLeft, ArrowUp, Download } from 'lucide-react'
 import { SEOHead, createBreadcrumbSchema } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
-import { BefundBlock, type Block } from '../components/befund/BefundBlocks'
+import { BefundBlock, BlockChromeProvider, type Block } from '../components/befund/BefundBlocks'
+import BefundNav, { type Chapter } from '../components/befund/BefundNav'
 import { BEFUNDE, BEFUND_ORDER, RADAR_VALUES } from '../content/befunde'
 
 const ASSET_BASE = '/downloads/epigenetics/'
+
+/** Blocktypen, die kein eigenes Kapitel sind: Deckblatt und Einschuebe. */
+const NOT_A_CHAPTER = new Set(['cover', 'callout'])
+
+const UMLAUTS: Record<string, string> = { ä: 'ae', ö: 'oe', ü: 'ue', ß: 'ss' }
+
+const toId = (text: string, index: number) => {
+  const base = text
+    .toLowerCase()
+    .replace(/[äöüß]/g, (c) => UMLAUTS[c] ?? c)
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 48)
+  return base ? `${base}-${index}` : `abschnitt-${index}`
+}
+
+/** Kapitelname: die Ueberschrift ohne Schlusspunkt. */
+const toLabel = (title: string) => title.replace(/\s*[.:]\s*$/, '')
 
 const MusterbefundPage = () => {
   const { slug = '' } = useParams<{ slug: string }>()
@@ -70,7 +89,34 @@ const MusterbefundPage = () => {
   }
 
   const blocks = (befund.blocks ?? []) as Block[]
-  const others = BEFUND_ORDER.filter((s) => s !== slug)
+
+  /**
+   * Anker, Kapitelliste und Hintergrundwechsel in einem Durchgang.
+   *
+   * Der Wechsel haengt an der POSITION, nicht am Blocktyp — sonst haette jeder
+   * Befund einen anderen Rhythmus, weil die Blockfolgen sich unterscheiden.
+   * Ein `callout` uebernimmt den Ton seines Vorgaengers, damit der Einschub
+   * optisch zu dem gehoert, was er kommentiert.
+   */
+  const chapters: Chapter[] = []
+  let tint = false
+  const chrome = blocks.map((block, index) => {
+    const isCover = block.type === 'cover'
+    if (!isCover && block.type !== 'callout') tint = !tint
+
+    const title = typeof block.title === 'string' ? block.title : ''
+    let id: string | undefined
+    if (!NOT_A_CHAPTER.has(block.type) && title) {
+      id = toId(title, index)
+      chapters.push({ id, label: toLabel(title) })
+    }
+    return { tint: isCover ? false : tint, id }
+  })
+
+  const others = BEFUND_ORDER.map((s) => ({
+    slug: s,
+    panel: BEFUNDE[s]?.[lang]?.panel ?? BEFUNDE[s]?.de?.panel ?? s,
+  }))
 
   return (
     <PageTransition>
@@ -105,12 +151,27 @@ const MusterbefundPage = () => {
         </div>
 
         {blocks.map((block, index) => (
-          <BefundBlock
-            key={`${block.type}-${index}`}
-            block={block}
-            radarValues={RADAR_VALUES[slug]}
-            scrollHint={t('compare.scrollHint')}
-          />
+          <BlockChromeProvider key={`${block.type}-${index}`} value={chrome[index]}>
+            <BefundBlock
+              block={block}
+              radarValues={RADAR_VALUES[slug]}
+              scrollHint={t('compare.scrollHint')}
+            />
+            {/* Die Kapitelleiste steht direkt hinter dem Deckblatt: sie soll
+                mitscrollen, aber den Hero nicht ueberdecken. */}
+            {block.type === 'cover' ? (
+              <BefundNav
+                chapters={chapters}
+                panel={befund.panel}
+                slug={slug}
+                others={others}
+                backLabel={t('befund.navBack')}
+                othersLabel={t('befund.othersTitle')}
+                chaptersLabel={t('befund.navChapters')}
+                progressLabel={t('befund.navProgress')}
+              />
+            ) : null}
+          </BlockChromeProvider>
         ))}
 
         {/* Hinweisband und Weg zurueck. Der Beispieldaten-Hinweis steht hier ein
@@ -140,24 +201,32 @@ const MusterbefundPage = () => {
                   <ArrowLeft className="h-4 w-4" />
                   {t('befund.backToAll')}
                 </Link>
+                {chapters[0] ? (
+                  <a
+                    href={`#${chapters[0].id}`}
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
+                  >
+                    <ArrowUp className="h-4 w-4" />
+                    {t('befund.toTop')}
+                  </a>
+                ) : null}
               </div>
             </div>
 
             <div className="mt-10">
               <p className="text-xs font-medium text-gray-500">{t('befund.othersTitle')}</p>
               <div className="mt-4 flex flex-wrap gap-3">
-                {others.map((other) => {
-                  const label = BEFUNDE[other]?.[lang]?.panel ?? BEFUNDE[other]?.de?.panel ?? other
-                  return (
+                {others
+                  .filter((o) => o.slug !== slug)
+                  .map((o) => (
                     <Link
-                      key={other}
-                      to={`/epigenetics/musterbefund/${other}`}
+                      key={o.slug}
+                      to={`/epigenetics/musterbefund/${o.slug}`}
                       className="inline-flex items-center rounded-full border border-slate-300 px-5 py-2.5 text-base font-medium text-brand-deep transition-colors hover:border-brand-primary hover:bg-slate-50"
                     >
-                      {label}
+                      {o.panel}
                     </Link>
-                  )
-                })}
+                  ))}
               </div>
             </div>
           </div>

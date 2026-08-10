@@ -8,7 +8,7 @@
  * Jeder Renderer prueft deshalb, bevor er etwas ausgibt.
  */
 
-import type { ReactNode } from 'react'
+import { createContext, useContext, type ReactNode } from 'react'
 import {
   AgeDots,
   EvaluationBars,
@@ -56,17 +56,31 @@ const Head = ({
   </>
 )
 
-const Section = ({
-  children,
-  tint = false,
-}: {
-  children: ReactNode
-  tint?: boolean
-}) => (
-  <section className={tint ? 'border-y border-slate-200 bg-slate-50' : 'bg-white'}>
-    <div className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">{children}</div>
-  </section>
-)
+/**
+ * Rahmen eines Blocks. Hintergrund und Anker kommen von aussen, nicht vom
+ * Blocktyp: die sechs Befunde haben unterschiedliche Blockfolgen, und ein an
+ * den Typ gekoppelter Wechsel ergab je Befund einen anderen Rhythmus — bei
+ * Metabolic Health 16 gleichfarbige Nachbarn am Stueck.
+ *
+ * scroll-mt haelt den Abschnitt beim Sprung aus der Kapitelleiste unter
+ * Seitenkopf (68/88 px) und Leiste (~56 px) frei.
+ */
+const BlockChrome = createContext<{ tint: boolean; id?: string }>({ tint: false })
+export const BlockChromeProvider = BlockChrome.Provider
+
+const Section = ({ children }: { children: ReactNode }) => {
+  const { tint, id } = useContext(BlockChrome)
+  return (
+    <section
+      id={id}
+      className={`scroll-mt-[124px] lg:scroll-mt-[148px] ${
+        tint ? 'border-y border-slate-200 bg-slate-50' : 'bg-white'
+      }`}
+    >
+      <div className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">{children}</div>
+    </section>
+  )
+}
 
 /** Waagerecht scrollbare Tabelle — die Befunde haben bis zu fuenf Spalten. */
 const DataTable = ({
@@ -165,7 +179,7 @@ const Principle = ({ b }: { b: Block }) => {
   const zones = arr<{ tone: string; label: string; text: string }>(b.scaleZones)
   const ticks = arr<string>(b.scaleTicks)
   return (
-    <Section tint>
+    <Section>
       <Head caption={str(b.caption)} title={str(b.title)} lead={str(b.lead)} />
 
       {cards.length > 0 ? (
@@ -251,7 +265,7 @@ const ResultTable = ({ b, hint }: { b: Block; hint?: string }) => (
 )
 
 const AgeBlock = ({ b }: { b: Block }) => (
-  <Section tint>
+  <Section>
     <Head caption={str(b.caption)} title={str(b.title)} lead={str(b.lead)} />
     <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 lg:p-8">
       <AgeDots
@@ -335,7 +349,7 @@ const Radar = ({
   if (!values || axes.length === 0) return null
   const labels = (b.seriesLabels ?? {}) as { profile?: string; reference?: string }
   return (
-    <Section tint>
+    <Section>
       <Head caption={str(b.caption)} title={str(b.title)} lead={str(b.lead)} />
       <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-center">
         <div className="rounded-3xl border border-slate-200 bg-white p-6">
@@ -392,7 +406,7 @@ const TableBlock = ({ b, hint }: { b: Block; hint?: string }) => (
 )
 
 const Evaluations = ({ b }: { b: Block }) => (
-  <Section tint>
+  <Section>
     <Head caption={str(b.caption)} title={str(b.title)} lead={str(b.lead)} />
     <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 lg:p-8">
       <EvaluationBars items={arr(b.items)} />
@@ -447,7 +461,7 @@ const BigResult = ({ b }: { b: Block }) => {
 }
 
 const Trend = ({ b }: { b: Block }) => (
-  <Section tint>
+  <Section>
     <Head caption={str(b.caption)} title={str(b.title)} lead={str(b.lead)} />
     <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 lg:p-8">
       <TrendChart
@@ -500,7 +514,7 @@ const Summary = ({ b }: { b: Block }) => {
   const focuses = arr<{ num: string; title: string; text: string }>(b.focuses)
   const control = arr<string>(b.controlItems)
   return (
-    <Section tint>
+    <Section>
       <Head caption={str(b.caption)} title={str(b.title)} lead={str(b.lead)} />
       <div className="mt-8 space-y-5">
         {focuses.map((f) => (
@@ -565,7 +579,7 @@ const Science = ({ b }: { b: Block }) => (
 )
 
 const Contact = ({ b }: { b: Block }) => (
-  <Section tint>
+  <Section>
     <h2 className="text-2xl font-semibold tracking-tight text-text-heading lg:text-3xl">
       {str(b.title)}
     </h2>
