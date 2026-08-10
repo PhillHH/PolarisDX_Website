@@ -1,0 +1,1284 @@
+{
+ "slug": "metabolic-health",
+ "panel": "Metabolic Health",
+ "blocks": [
+  {
+   "type": "cover",
+   "badge": "Sample report · Example data",
+   "panel": "Metabolic Health",
+   "subtitle": "Genetics and Epigenetics",
+   "claim": "Your metabolic profile on two levels: the inherited genetic predisposition and the epigenetic markers that can be changed through diet, exercise, sleep and stress.",
+   "meta": [
+    {
+     "k": "Report for",
+     "v": "Muster, Erika"
+    },
+    {
+     "k": "Sample collection",
+     "v": "08.04.2026"
+    },
+    {
+     "k": "Material",
+     "v": "Dried blood spot card"
+    },
+    {
+     "k": "Evaluations",
+     "v": "17 + 4 epigenetic"
+    }
+   ],
+   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net"
+  },
+  {
+   "type": "principle",
+   "caption": "The principle",
+   "title": "How to read this report.",
+   "lead": "This report combines two levels: your genetics — inherited and unchangeable — and your epigenetics, which can be influenced by lifestyle. Both are shown on the same scale.",
+   "cards": [
+    {
+     "title": "Level 1 · Genetics",
+     "text": "Your genes are the blueprint of your metabolism: how you process carbohydrates, fats and proteins, how appetite and satiety work, how your body handles vitamins and salt. These predispositions do not change.",
+     "items": [
+      "SNP — a well-researched variant in your DNA.",
+      "Three forms — wild type, heterozygous or homozygous; without any value judgement.",
+      "Your profile — several SNPs together produce your metabolic type and evaluations."
+     ]
+    },
+    {
+     "title": "Level 2 · Epigenetics",
+     "text": "Epigenetics does not show which genes you have, but how active they currently are. These four values can be changed — and are therefore the only ones in which the effect of an intervention can be demonstrated over time.",
+     "items": [
+      "LINE-1 — global DNA regulation and stability.",
+      "Inflammation regulation — combined score from IL-6 and TNF-α.",
+      "miR-21 · miR-155 — microRNAs of metabolic activity."
+     ]
+    }
+   ],
+   "scaleTitle": "How do I read the scale?",
+   "scaleCaption": "Orientation",
+   "scaleLead": "All evaluations — genetic and epigenetic alike — use the same traffic-light scale from 1 to 9. Red on the left, green on the right: 1–3 red, 4–6 amber, 7–9 green. Higher is always more favourable.",
+   "scaleKind": "traffic",
+   "scaleTicks": [
+    "1",
+    "3",
+    "5",
+    "7",
+    "9"
+   ],
+   "scaleZones": [
+    {
+     "tone": "red",
+     "label": "1–3 · Red",
+     "text": "Outside the optimal range. This is where the greatest leverage lies."
+    },
+    {
+     "tone": "amber",
+     "label": "4–6 · Amber",
+     "text": "Moderate need for support. Monitor specifically."
+    },
+    {
+     "tone": "green",
+     "label": "7–9 · Green",
+     "text": "In the favourable range. Maintain existing routines."
+    }
+   ]
+  },
+  {
+   "type": "callout",
+   "title": "Important",
+   "tone": "neutral",
+   "items": [
+    "This report is not a diagnosis. Interpretation takes place in consultation with qualified professionals and always in the individual context.",
+    "Information and written consent are required before a genetic analysis (German Genetic Diagnostics Act, GenDG).",
+    "The genetic values never change. Only the four epigenetic values are suitable for monitoring progress."
+   ]
+  },
+  {
+   "type": "resultTable",
+   "caption": "Results at a glance",
+   "title": "Your four modifiable values.",
+   "lead": "These four markers change through diet, exercise, sleep and stress. They are the part of the report in which an effect can be measured — and the reason for a follow-up measurement.",
+   "cols": [
+    "Marker",
+    "Level",
+    "Your value",
+    "Optimal",
+    "Interpretation"
+   ],
+   "rows": [
+    {
+     "cells": [
+      "LINE-1 · DNA stability",
+      "Methylation",
+      "2 / 9",
+      "7–9",
+      "Outside range"
+     ],
+     "tone": "red"
+    },
+    {
+     "cells": [
+      "Inflammation regulation (IL-6 & TNF-α)",
+      "Methylation",
+      "7 / 9",
+      "7–9",
+      "Optimal"
+     ],
+     "tone": "green"
+    },
+    {
+     "cells": [
+      "miR-21 · Inflammation & micronutrients",
+      "microRNA",
+      "3 / 9",
+      "7–9",
+      "Outside range"
+     ],
+     "tone": "red"
+    },
+    {
+     "cells": [
+      "miR-155 · FTO regulation, adipose tissue",
+      "microRNA",
+      "8 / 9",
+      "7–9",
+      "Optimal"
+     ],
+     "tone": "green"
+    }
+   ]
+  },
+  {
+   "type": "callout",
+   "caption": "Genetic interpretation",
+   "title": "Your metabolic type: balanced type",
+   "text": "Your metabolism does not favour any one of the three macronutrients. Recommended distribution: 55 % carbohydrates · 20 % protein · 25 % fat, with a calculated requirement of 1,900 kcal/day.",
+   "tone": "neutral"
+  },
+  {
+   "type": "callout",
+   "caption": "Genetic interpretation",
+   "title": "Your exercise type: endurance type",
+   "text": "ACE and ACTN3 point to an endurance predisposition. Longer, steady exertion suits you better than short bursts of strength — a strength component nevertheless remains important.",
+   "tone": "neutral"
+  },
+  {
+   "type": "callout",
+   "title": "What follows from this",
+   "tone": "accent",
+   "items": [
+    "Two red values — LINE-1 (2/9) and miR-21 (3/9). Both depend on folate, zinc and methylation metabolism; the genetic MTHFR variant (2/9) points in the same direction. This is the central starting point of this report.",
+    "Two green values — inflammation regulation (7/9) and miR-155 (8/9) are in the optimal range and should be kept there.",
+    "A follow-up measurement is meaningful after 4 to 6 months at the earliest."
+   ]
+  },
+  {
+   "type": "evaluations",
+   "caption": "Results at a glance",
+   "title": "All genetic evaluations.",
+   "lead": "Seventeen evaluations on the 1–9 traffic-light scale. These values are inherited and do not change — they describe where your metabolism needs more support than average.",
+   "items": [
+    {
+     "label": "Skin hydration",
+     "sub": "AQPR",
+     "value": 9,
+     "display": "9 / 9",
+     "status": "Favourable",
+     "tone": "green"
+    },
+    {
+     "label": "Difficulty maintaining weight",
+     "value": 8,
+     "display": "8 / 9",
+     "status": "Favourable",
+     "tone": "green"
+    },
+    {
+     "label": "Salt sensitivity",
+     "value": 8,
+     "display": "8 / 9",
+     "status": "Favourable",
+     "tone": "green"
+    },
+    {
+     "label": "Obesity risk",
+     "value": 7,
+     "display": "7 / 9",
+     "status": "Favourable",
+     "tone": "green"
+    },
+    {
+     "label": "Vitamin D",
+     "sub": "Transport, GC",
+     "value": 7,
+     "display": "7 / 9",
+     "status": "Favourable",
+     "tone": "green"
+    },
+    {
+     "label": "Oxidative cell protection",
+     "sub": "SOD2",
+     "value": 7,
+     "display": "7 / 9",
+     "status": "Favourable",
+     "tone": "green"
+    },
+    {
+     "label": "Food cravings",
+     "value": 6,
+     "display": "6 / 9",
+     "status": "Moderate",
+     "tone": "amber"
+    },
+    {
+     "label": "Skin elasticity & inflammation",
+     "sub": "IL-6",
+     "value": 6,
+     "display": "6 / 9",
+     "status": "Moderate",
+     "tone": "amber"
+    },
+    {
+     "label": "Difficulty losing weight",
+     "value": 5,
+     "display": "5 / 9",
+     "status": "Moderate",
+     "tone": "amber"
+    },
+    {
+     "label": "B vitamins",
+     "sub": "Requirement",
+     "value": 5,
+     "display": "5 / 9",
+     "status": "Moderate",
+     "tone": "amber"
+    },
+    {
+     "label": "Hunger/satiety regulation",
+     "value": 4,
+     "display": "4 / 9",
+     "status": "Moderate",
+     "tone": "amber"
+    },
+    {
+     "label": "Antioxidant capacity",
+     "sub": "NADPH",
+     "value": 4,
+     "display": "4 / 9",
+     "status": "Moderate",
+     "tone": "amber"
+    },
+    {
+     "label": "Diabetes risk",
+     "value": 3,
+     "display": "3 / 9",
+     "status": "Increased need",
+     "tone": "red"
+    },
+    {
+     "label": "Blood lipids & fatty acid metabolism",
+     "value": 2,
+     "display": "2 / 9",
+     "status": "Increased need",
+     "tone": "red"
+    },
+    {
+     "label": "Omega-3 supply",
+     "sub": "ALA → EPA/DHA",
+     "value": 2,
+     "display": "2 / 9",
+     "status": "Increased need",
+     "tone": "red"
+    },
+    {
+     "label": "Folate",
+     "sub": "MTHFR",
+     "value": 2,
+     "display": "2 / 9",
+     "status": "Increased need",
+     "tone": "red"
+    },
+    {
+     "label": "Weight loss through exercise",
+     "sub": "FTO",
+     "value": 2,
+     "display": "2 / 9",
+     "status": "Increased need",
+     "tone": "red"
+    }
+   ],
+   "note": "Sorted by value, not by topic. The detailed interpretation with genotypes and interventions follows from page 07."
+  },
+  {
+   "type": "markers",
+   "caption": "Epigenetic status",
+   "title": "Methylation.",
+   "lead": "DNA methylation shows how active your genes currently are — governed by diet, exercise, sleep and stress. Unlike the genes themselves, these values can be changed.",
+   "items": [
+    {
+     "name": "LINE-1",
+     "category": "DNA stability",
+     "intro": "LINE-1 elements make up around 17 % of the genome. Their methylation is regarded as a marker of global DNA regulation.",
+     "kind": "traffic",
+     "value": 2,
+     "display": "2 / 9",
+     "status": "Outside range",
+     "tone": "red",
+     "text": "Your value lies outside the optimal range. This marker is most effectively supported through the nutrients involved in folate metabolism — which gains additional importance given your MTHFR variant (genetic 2/9).",
+     "table": {
+      "cols": [
+       "Measure",
+       "Source",
+       "Amount / frequency",
+       "Effect"
+      ],
+      "rows": [
+       [
+        "Folic acid",
+        "green leafy vegetables, tomato, pulses, nuts, sprouts",
+        "daily",
+        "If needed, 2 months as methylfolate (5-MTHF)"
+       ],
+       [
+        "Riboflavin (B2)",
+        "germinated seeds, sprouts, cheese",
+        "daily",
+        "Cofactor of methylation"
+       ],
+       [
+        "Cobalamin (B12)",
+        "egg, cheese, fermented foods",
+        "daily",
+        "Regeneration of active folate"
+       ],
+       [
+        "Methionine",
+        "Brazil nuts, sesame, soya, peas, leafy vegetables",
+        "daily",
+        "Direct methyl group donor"
+       ],
+       [
+        "Pyridoxine (B6)",
+        "cabbage, green beans, lentils, bananas",
+        "daily",
+        "Cofactor of methylation"
+       ],
+       [
+        "Fibre",
+        "wholegrains, vegetables, pulses",
+        "at least 30 g/day",
+        "Bioavailability of phytochemicals"
+       ]
+      ]
+     }
+    },
+    {
+     "name": "Inflammation regulation (IL-6 & TNF-α)",
+     "intro": "Combined score from the methylation of both gene regions — not the acute blood level. Individual values: IL-6 8/9 · TNF-α 6/9.",
+     "kind": "traffic",
+     "value": 7,
+     "display": "7 / 9",
+     "status": "Optimal",
+     "tone": "green",
+     "text": "Your combined value is in the optimal range. A plant-focused, low-inflammatory diet continues to work preventively against a rising level of TNF-α.",
+     "table": {
+      "cols": [
+       "Measure",
+       "Source",
+       "Amount / frequency",
+       "Effect"
+      ],
+      "rows": [
+       [
+        "Resveratrol",
+        "grape skins, raspberry seeds, blueberries, peanuts",
+        "1 portion of berries/day",
+        "Regulates immune cells, inhibits NF-κB"
+       ],
+       [
+        "Sulforaphane",
+        "broccoli, cauliflower, Brussels sprouts, cress",
+        "3–4×/week",
+        "Anti-inflammatory, antioxidant"
+       ],
+       [
+        "Quercetin",
+        "onions, garlic, capers, chives",
+        "daily",
+        "Let onions stand for 10 min after chopping"
+       ],
+       [
+        "Curcumin",
+        "turmeric with black pepper",
+        "1 tsp daily",
+        "Inhibits DNA methyltransferases"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "type": "markers",
+   "caption": "Epigenetic status",
+   "title": "microRNA.",
+   "lead": "microRNAs fine-tune the activity of your genes and reflect current metabolic and inflammatory activity. Like methylation, they can be influenced through lifestyle.",
+   "items": [
+    {
+     "name": "miR-21",
+     "category": "Inflammation and micronutrients",
+     "intro": "Worsens with more pronounced inflammatory activity as well as with a poor zinc and folate supply.",
+     "kind": "traffic",
+     "value": 3,
+     "display": "3 / 9",
+     "status": "Outside range",
+     "tone": "red",
+     "text": "With a red or amber value, a normal BMI should be aimed for; in addition, targeted zinc and folate intake is worthwhile. Antioxidant micronutrients such as vitamin D, vitamin E and lycopene as well as resveratrol support immune regulation.",
+     "table": {
+      "cols": [
+       "Measure",
+       "Source",
+       "Amount / frequency",
+       "Effect"
+      ],
+      "rows": [
+       [
+        "Zinc",
+        "pumpkin seeds, oats, lentils, cheese, beef",
+        "daily",
+        "A poor zinc supply worsens this value"
+       ],
+       [
+        "Folate",
+        "leafy vegetables, pulses, tomato, sprouts",
+        "daily",
+        "A poor folate supply worsens this value"
+       ],
+       [
+        "Resveratrol",
+        "grape skins, blueberries, peanuts",
+        "1 portion of berries/day",
+        "Inhibits the NF-κB signalling pathway"
+       ],
+       [
+        "Vitamin D",
+        "salmon, butter, egg, avocado, mushrooms",
+        "regularly",
+        "Important for immune regulation"
+       ],
+       [
+        "Vitamin E",
+        "wheatgerm oil, nuts, spinach, broccoli",
+        "daily",
+        "Antioxidant, protects cell membranes"
+       ],
+       [
+        "Lycopene",
+        "tomatoes, melon, carrots, papaya",
+        "daily",
+        "Carotenoid with an antioxidant effect"
+       ]
+      ]
+     }
+    },
+    {
+     "name": "miR-155",
+     "category": "FTO regulation and adipose tissue formation",
+     "intro": "Central regulator of immune and inflammatory responses; influences the formation of brown and beige adipose tissue.",
+     "kind": "traffic",
+     "value": 8,
+     "display": "8 / 9",
+     "status": "Optimal",
+     "tone": "green",
+     "text": "Your result is in the optimal range. Exercise, fasting and cold stimuli have an additional favourable effect, activate the formation of brown and beige adipose tissue and influence the FTO effect positively — particularly relevant because your genetic FTO evaluation is 2/9.",
+     "table": {
+      "cols": [
+       "Measure",
+       "Source",
+       "Amount / frequency",
+       "Effect"
+      ],
+      "rows": [
+       [
+        "Regular exercise",
+        "endurance and strength combined",
+        "150 min/week",
+        "Demonstrably has a favourable effect on this value"
+       ],
+       [
+        "Cold stimuli",
+        "cold showers, ice bathing, cool rooms",
+        "regularly, briefly",
+        "Activates brown/beige adipose tissue"
+       ],
+       [
+        "Fasting phases",
+        "extended overnight break from eating",
+        "after consultation",
+        "Supports the activation of brown adipose tissue"
+       ],
+       [
+        "Quercetin",
+        "onions, garlic, capers, chives",
+        "at least 200 mg/day",
+        "Influences mitochondrial biogenesis"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "caption": "Genetics · Macronutrients",
+   "title": "Metabolic type: balanced type.",
+   "lead": "Your metabolism does not particularly favour any one of the three macronutrients. The general recommendation of the DACH reference values therefore applies to you — a good starting position that requires no special adjustment of the distribution. More important in your case is the quality of the foods.",
+   "cols": [
+    "Share",
+    "Macronutrient",
+    "Note"
+   ],
+   "rows": [
+    [
+     "55 %",
+     "Carbohydrates",
+     "Wholegrains, pulses and vegetables as the basis"
+    ],
+    [
+     "20 %",
+     "Protein",
+     "20–30 g per main meal"
+    ],
+    [
+     "25 %",
+     "Fat",
+     "Focus on unsaturated fats"
+    ]
+   ],
+   "note": "Individually calculated daily energy requirement: 1,900 kcal."
+  },
+  {
+   "type": "table",
+   "caption": "Genetics · Exercise",
+   "title": "Exercise type: endurance type.",
+   "lead": "Both ACE and ACTN3 point to a predisposition for endurance performance. For context: genetics explains only up to around 20 % of the difference between strength and endurance performance — training, diet and consistency have by far the greater influence.",
+   "cols": [
+    "Gene",
+    "Your genotype",
+    "Predisposition"
+   ],
+   "rows": [
+    [
+     "ACE",
+     "GG (homozygous)",
+     "Rather endurance — variant associated with better oxygen utilisation and efficiency."
+    ],
+    [
+     "ACTN3",
+     "TT (wild type)",
+     "Rather endurance — XX type without α-actinin-3, more slow, endurance-oriented muscle fibres."
+    ]
+   ]
+  },
+  {
+   "type": "markers",
+   "caption": "Genetics · Exercise",
+   "title": "Weight loss through exercise.",
+   "items": [
+    {
+     "name": "Weight loss through exercise",
+     "category": "FTO rs1121980",
+     "intro": "Genotype AT (heterozygous). How much exercise alone contributes to weight loss.",
+     "kind": "traffic",
+     "value": 2,
+     "display": "2 / 9",
+     "status": "Increased need",
+     "tone": "red",
+     "text": "In your case, exercise alone leads to weight loss somewhat more slowly than with other genotypes. The effect on fitness and metabolic health remains unchanged — for weight reduction, the combination of exercise and dietary adjustment is particularly worthwhile.",
+     "table": {
+      "cols": [
+       "Measure",
+       "Source",
+       "Amount / frequency",
+       "Effect"
+      ],
+      "rows": [
+       [
+        "Endurance component",
+        "cycling, running, swimming",
+        "2–3×/week",
+        "Oxygen supply, basic endurance"
+       ],
+       [
+        "Strength component",
+        "full-body strength training",
+        "2×/week",
+        "Maintains muscle mass and metabolic activity"
+       ],
+       [
+        "Combine with diet",
+        "see metabolic type recommendation",
+        "individual",
+        "With FTO, the most effective additional lever"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "type": "markers",
+   "caption": "Genetics · Metabolism",
+   "title": "Obesity and diabetes predisposition.",
+   "lead": "Genetic predisposition for excess weight and for blood sugar metabolism — as a starting point for targeted nutrition, not as a prediction.",
+   "items": [
+    {
+     "name": "Obesity risk",
+     "intro": "Summary of variants that are associated with an increased risk of excess weight.",
+     "kind": "traffic",
+     "value": 7,
+     "display": "7 / 9",
+     "status": "Favourable",
+     "tone": "green",
+     "text": "Your result is in the favourable range — the genetic background does not indicate an increased risk. Meal structure, fibre and regular exercise maintain this good starting position.",
+     "sub": "Genotypes: FTO rs9939609 TT · PPARG2 CC (wild type) · MC4R CT · TCF7L2 CT · SLC6A14 CA · TFAP2B GG",
+     "table": {
+      "cols": [
+       "Measure",
+       "Source",
+       "Amount / frequency",
+       "Effect"
+      ],
+      "rows": [
+       [
+        "Fibre",
+        "wholegrains, pulses, vegetables",
+        "at least 30 g/day",
+        "Prolongs satiety, stabilises blood sugar"
+       ],
+       [
+        "Protein per meal",
+        "eggs, pulses, fish, meat",
+        "20–30 g/meal",
+        "Supports satiety signals"
+       ],
+       [
+        "Exercise",
+        "—",
+        "150 min/week",
+        "Demonstrably attenuates genetically driven effects"
+       ]
+      ]
+     }
+    },
+    {
+     "name": "Diabetes risk",
+     "intro": "Genes that influence insulin secretion, insulin sensitivity and blood sugar metabolism.",
+     "kind": "traffic",
+     "value": 3,
+     "display": "3 / 9",
+     "status": "Increased need",
+     "tone": "red",
+     "text": "Your value lies outside the favourable range. Carbohydrate quality and regular exercise are the most effective levers in your case — and, together with the red miR-21 value, the second focus of this report.",
+     "sub": "Genotypes: TCF7L2 CT · IL-6 CG · ADRB3 GG (wild type) · PPARG2 CC",
+     "table": {
+      "cols": [
+       "Measure",
+       "Source",
+       "Amount / frequency",
+       "Effect"
+      ],
+      "rows": [
+       [
+        "Low glycaemic index",
+        "wholegrains, pulses, vegetables",
+        "every main meal",
+        "Avoids sharp blood sugar peaks"
+       ],
+       [
+        "Movement after eating",
+        "short walk",
+        "10–15 min",
+        "Measurably improves insulin sensitivity"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "type": "markers",
+   "caption": "Genetics · Eating behaviour",
+   "title": "Nutrition type.",
+   "lead": "Satiety, food cravings and the tendency to lose or maintain weight — your genetic levers around eating behaviour.",
+   "items": [
+    {
+     "name": "Food cravings",
+     "sub": "MC4R CT · FTO rs9939609 TT · LEPR AA · SLC6A14 CA · PPARG2 CC",
+     "kind": "traffic",
+     "value": 6,
+     "display": "6 / 9",
+     "status": "Moderate",
+     "tone": "amber",
+     "text": "A slightly increased tendency towards spontaneous eating impulses. Meal structure and protein intake are your most effective levers here.",
+     "table": {
+      "cols": [
+       "Measure",
+       "Source",
+       "Amount / frequency",
+       "Effect"
+      ],
+      "rows": [
+       [
+        "Protein with every meal",
+        "eggs, pulses, fish, meat, tofu",
+        "20–30 g/meal",
+        "Strongest known satiety signal"
+       ],
+       [
+        "Regular meals",
+        "—",
+        "3 fixed times/day",
+        "Reduces blood sugar fluctuations"
+       ]
+      ]
+     }
+    },
+    {
+     "name": "Hunger and satiety regulation",
+     "sub": "MC4R, LEPR and FTO rs1121980 (AT) together",
+     "kind": "traffic",
+     "value": 4,
+     "display": "4 / 9",
+     "status": "Moderate",
+     "tone": "amber",
+     "text": "A somewhat delayed satiety signal — slow, mindful eating gives this signal the time it needs.",
+     "table": {
+      "cols": [
+       "Measure",
+       "Source",
+       "Amount / frequency",
+       "Effect"
+      ],
+      "rows": [
+       [
+        "Slow, mindful eating",
+        "—",
+        "at least 20 min/meal",
+        "Gives the delayed signal time"
+       ],
+       [
+        "High-fibre diet",
+        "vegetables, wholegrains",
+        "at least 30 g/day",
+        "Prolongs the feeling of fullness"
+       ]
+      ]
+     }
+    },
+    {
+     "name": "Losing weight",
+     "sub": "ADRB3 GG · PLIN CT",
+     "kind": "traffic",
+     "value": 5,
+     "display": "5 / 9",
+     "tone": "amber",
+     "text": "Increased need for support with sleep and leptin sensitivity. 7–9 hrs of sleep and combined training 2–3×/week."
+    },
+    {
+     "name": "Maintaining weight",
+     "sub": "TCF7L2 CT",
+     "kind": "traffic",
+     "value": 8,
+     "display": "8 / 9",
+     "tone": "green",
+     "text": "Favourable starting position against the yo-yo effect. Stable meal times and 150 min of exercise/week maintain it."
+    }
+   ]
+  },
+  {
+   "type": "markers",
+   "caption": "Genetics · Micronutrients",
+   "title": "Vitamin uptake.",
+   "lead": "How well your body utilises vitamin D and converts folate into its active form — including the resulting requirement for B vitamins.",
+   "items": [
+    {
+     "name": "Folate",
+     "category": "MTHFR",
+     "intro": "Genotype homozygous variant. Key enzyme in folate metabolism.",
+     "kind": "traffic",
+     "value": 2,
+     "display": "2 / 9",
+     "status": "Increased need",
+     "tone": "red",
+     "text": "Your MTHFR variant indicates a markedly limited conversion of folate into its active form (5-MTHF). Your requirement for folate from food is higher than with other genotypes. This value also explains the red LINE-1 marker on the epigenetic level — both depend on the same metabolic pathway.",
+     "table": {
+      "cols": [
+       "Measure",
+       "Source",
+       "Amount / frequency",
+       "Effect"
+      ],
+      "rows": [
+       [
+        "Folate from food",
+        "green leafy vegetables, pulses, asparagus",
+        "2–3 portions/day",
+        "MTHFR variants benefit from a consistently high intake"
+       ],
+       [
+        "Active folate (5-MTHF)",
+        "if required, as a food supplement",
+        "after consultation with a doctor",
+        "Bypasses the limited conversion directly"
+       ]
+      ]
+     }
+    },
+    {
+     "name": "Vitamin D",
+     "category": "Transport",
+     "intro": "GC (vitamin D-binding protein), genotype GT (heterozygous)",
+     "kind": "traffic",
+     "value": 7,
+     "display": "7 / 9",
+     "status": "Favourable",
+     "tone": "green",
+     "text": "Vitamin D transport in your blood is only slightly limited. This does not mean a deficiency, but it does make a blood level check worthwhile during the months with little sunlight.",
+     "table": {
+      "cols": [
+       "Measure",
+       "Source",
+       "Amount / frequency",
+       "Effect"
+      ],
+      "rows": [
+       [
+        "Vitamin D",
+        "oily fish, eggs; sunlight",
+        "15–20 min/day regularly, check levels",
+        "Checking is worthwhile above all in winter"
+       ],
+       [
+        "Vitamin K2",
+        "fermented foods, egg yolk, hard cheese",
+        "daily",
+        "Supports vitamin D in bone and vascular metabolism"
+       ]
+      ]
+     }
+    },
+    {
+     "name": "B vitamins",
+     "category": "Requirement",
+     "intro": "Follows from the MTHFR variant via the methylation cycle.",
+     "kind": "traffic",
+     "value": 5,
+     "display": "5 / 9",
+     "status": "Moderate",
+     "tone": "amber",
+     "table": {
+      "cols": [
+       "Measure",
+       "Source",
+       "Amount / frequency",
+       "Effect"
+      ],
+      "rows": [
+       [
+        "Vitamin B2",
+        "eggs, dairy products, wholegrains",
+        "daily",
+        "Direct cofactor of the MTHFR enzyme"
+       ],
+       [
+        "Vitamin B6",
+        "potatoes, pulses, bananas",
+        "daily",
+        "Homocysteine metabolism"
+       ],
+       [
+        "Vitamin B12",
+        "eggs, fish, dairy products",
+        "daily",
+        "Regeneration of active folate"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "type": "markers",
+   "caption": "Genetics · Lipid metabolism",
+   "title": "Omega 3 and blood lipids.",
+   "lead": "How well you utilise plant-based omega-3 precursors and how your blood lipid levels are genetically predisposed.",
+   "items": [
+    {
+     "name": "Blood lipids and fatty acid metabolism",
+     "sub": "FADS1 TT · APOA5 AG · LPL AA (wild type) · PPARG2 CC",
+     "kind": "traffic",
+     "value": 2,
+     "display": "2 / 9",
+     "status": "Increased need",
+     "tone": "red",
+     "text": "Your FADS1 variant indicates that the body converts plant-based omega-3 precursors (ALA) into the active forms EPA and DHA only to a limited extent. It is more practical to take in EPA and DHA directly. The separate evaluation “Omega-3 supply” looks exclusively at this conversion step and is likewise 2 / 9.",
+     "table": {
+      "cols": [
+       "Measure",
+       "Source",
+       "Amount / frequency",
+       "Effect"
+      ],
+      "rows": [
+       [
+        "EPA and DHA directly",
+        "oily sea fish (salmon, mackerel, herring); alternatively algal oil",
+        "fish 2×/week or algal oil daily",
+        "Bypasses the limited FADS1 conversion"
+       ],
+       [
+        "Plant-based omega-3 sources",
+        "linseed oil, walnuts, chia seeds",
+        "in addition, not as the sole source",
+        "In your case only partly converted"
+       ],
+       [
+        "Limit omega-6",
+        "sunflower, safflower and corn oil sparingly",
+        "in everyday life",
+        "Favourable omega-6 to omega-3 ratio"
+       ],
+       [
+        "Reduce sugar and white flour",
+        "in favour of wholegrains",
+        "in everyday life",
+        "Counteracts elevated triglycerides (APOA5)"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "type": "markers",
+   "caption": "Genetics · Blood pressure",
+   "title": "Salt sensitivity.",
+   "items": [
+    {
+     "name": "Salt sensitivity",
+     "sub": "ACE, genotype GG (homozygous)",
+     "kind": "traffic",
+     "value": 8,
+     "display": "8 / 9",
+     "status": "Favourable",
+     "tone": "green",
+     "text": "Your ACE variant shows no increased salt sensitivity. As a general rule: anyone who eats a saltier diet should deliberately drink more so that excess salt is excreted via the kidneys.",
+     "table": {
+      "cols": [
+       "Measure",
+       "Source",
+       "Amount / frequency",
+       "Effect"
+      ],
+      "rows": [
+       [
+        "Keep an eye on salt intake",
+        "processed foods, ready meals",
+        "max. 6 g salt/day",
+        "Reduces water retention"
+       ],
+       [
+        "Drink enough",
+        "water, unsweetened tea",
+        "at least 1.5–2 l/day",
+        "Supports sodium excretion"
+       ],
+       [
+        "Potassium from vegetables and fruit",
+        "bananas, potatoes, green vegetables",
+        "daily",
+        "Counteracts salt-related retention"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "type": "markers",
+   "caption": "Genetics · Skin and antioxidants",
+   "title": "Nutricosmetics.",
+   "lead": "Skin elasticity, hydration and antioxidant protection — how diet supports your skin from within.",
+   "items": [
+    {
+     "name": "Skin hydration",
+     "sub": "AQPR CC (wild type)",
+     "kind": "traffic",
+     "value": 9,
+     "display": "9 / 9",
+     "tone": "green",
+     "text": "Your skin retains moisture well — a normal care routine is usually sufficient. Supportive: at least 1.5–2 l of water daily."
+    },
+    {
+     "name": "Oxidative cell protection",
+     "sub": "SOD2 AG (heterozygous)",
+     "kind": "traffic",
+     "value": 7,
+     "display": "7 / 9",
+     "tone": "green",
+     "text": "Solid protection against oxidative stress. Daily antioxidants and consistent UV protection maintain this starting position."
+    },
+    {
+     "name": "Skin elasticity and inflammation",
+     "intro": "IL-6 CG (heterozygous). Increased activity can accelerate collagen breakdown.",
+     "kind": "traffic",
+     "value": 6,
+     "display": "6 / 9",
+     "status": "Moderate",
+     "tone": "amber",
+     "text": "A moderate tendency towards inflammation in the skin — an anti-inflammatory diet has a visible effect on your skin.",
+     "table": {
+      "cols": [
+       "Measure",
+       "Source",
+       "Amount / frequency",
+       "Effect"
+      ],
+      "rows": [
+       [
+        "Omega-3 fatty acids",
+        "salmon, linseed, walnuts",
+        "fish 2×/week",
+        "Supports the skin barrier"
+       ],
+       [
+        "Antioxidants",
+        "berries, colourful vegetables, green tea",
+        "daily",
+        "Counteracts oxidative stress"
+       ]
+      ]
+     }
+    },
+    {
+     "name": "Antioxidant capacity",
+     "intro": "NADPH AG (heterozygous). Provides the reducing power for cellular antioxidant systems.",
+     "kind": "traffic",
+     "value": 4,
+     "display": "4 / 9",
+     "status": "Moderate",
+     "tone": "amber",
+     "text": "A moderately reduced antioxidant capacity — an intake of antioxidants through the diet provides additional support for your skin.",
+     "table": {
+      "cols": [
+       "Measure",
+       "Source",
+       "Amount / frequency",
+       "Effect"
+      ],
+      "rows": [
+       [
+        "Antioxidants",
+        "berries, colourful vegetables, green tea",
+        "daily",
+        "Supports the cellular defence against free radicals"
+       ],
+       [
+        "UV protection",
+        "sunscreen, headwear",
+        "when exposed to the sun",
+        "Reduces the oxidative burden on the skin"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "caption": "Genetic basis",
+   "title": "All genes analysed.",
+   "lead": "The complete list of the variants examined together with your genotype. These values are inherited and remain unchanged throughout life — repeating the genetic analysis serves no purpose.",
+   "cols": [
+    "Gene",
+    "Your genotype",
+    "Function"
+   ],
+   "rows": [
+    [
+     "FTO rs9939609",
+     "TT (homozygous)",
+     "Risk allele A. Associated with BMI, body fat mass and waist circumference when the intake of saturated fatty acids is high."
+    ],
+    [
+     "FTO rs1121980",
+     "AT (heterozygous)",
+     "Risk allele A. Responds less well to weight loss through physical activity."
+    ],
+    [
+     "MTHFR",
+     "homozygous variant",
+     "Key enzyme in folate and methylation metabolism; influences the homocysteine level."
+    ],
+    [
+     "FADS1",
+     "TT (homozygous)",
+     "Controls the conversion of plant-based omega-3/-6 precursors into the active, long-chain fatty acids."
+    ],
+    [
+     "APOA5",
+     "AG (heterozygous)",
+     "Regulates the breakdown of triglycerides in the blood and influences blood lipid levels."
+    ],
+    [
+     "LPL",
+     "AA (wild type)",
+     "Breaks down fats from the blood; influences HDL cholesterol and blood lipid levels."
+    ],
+    [
+     "PPARG2",
+     "CC (wild type)",
+     "Regulates fat cell formation, fat storage and insulin sensitivity; influences appetite and satiety."
+    ],
+    [
+     "PLIN",
+     "CT (heterozygous)",
+     "Coats fat droplets in fat cells and regulates their build-up and breakdown."
+    ],
+    [
+     "ADRB3",
+     "GG (wild type)",
+     "Regulates fat burning in fat cells and the utilisation of stored fat."
+    ],
+    [
+     "MC4R",
+     "CT (heterozygous)",
+     "Centrally involved in controlling appetite, hunger and satiety signals in the brain."
+    ],
+    [
+     "LEPR",
+     "AA (homozygous)",
+     "Transmits the satiety signal of the hormone leptin."
+    ],
+    [
+     "SLC6A14",
+     "CA (heterozygous)",
+     "Transports amino acids; influences appetite, satiety and stress eating."
+    ],
+    [
+     "TCF7L2",
+     "CT (heterozygous)",
+     "Influences insulin secretion after carbohydrate-rich meals."
+    ],
+    [
+     "TFAP2B",
+     "GG (wild type)",
+     "Involved in the regulation of body weight and fat distribution."
+    ],
+    [
+     "IL-6",
+     "CG (heterozygous)",
+     "Central messenger substance of inflammation regulation; influences blood lipids, appetite and stress eating."
+    ],
+    [
+     "GC",
+     "GT (heterozygous)",
+     "Influences the transport of vitamin D in the blood."
+    ],
+    [
+     "ACE",
+     "GG (homozygous)",
+     "Part of the bradykinin-aldosterone system; influences endurance/strength predisposition and salt sensitivity."
+    ],
+    [
+     "ACTN3",
+     "TT (wild type)",
+     "Influences muscle fibre composition (fast vs. slow fibres)."
+    ],
+    [
+     "AQPR",
+     "CC (wild type)",
+     "Influences water retention in the skin."
+    ],
+    [
+     "NADPH",
+     "AG (heterozygous)",
+     "Contributes to the antioxidant capacity of the cells."
+    ],
+    [
+     "SOD2",
+     "AG (heterozygous)",
+     "Important antioxidant enzyme, protects cells from oxidative stress."
+    ]
+   ],
+   "note": "21 variants. Each of the evaluations on page 04 is derived from several of these genes together; a single genotype on its own does not allow any conclusion."
+  },
+  {
+   "type": "summary",
+   "caption": "Summary",
+   "title": "Your three focus areas.",
+   "lead": "From 21 genes and four epigenetic markers, three areas emerge in which effort and effect meet most clearly in your case.",
+   "focuses": [
+    {
+     "num": "01",
+     "title": "Methylation metabolism — folate, B vitamins, zinc",
+     "text": "Three values point in the same direction: LINE-1 2/9 (epigenetic), miR-21 3/9 (epigenetic) and folate/MTHFR 2/9 (genetic). This is no coincidence — all three depend on the same metabolic pathway. This is where the greatest leverage of this report lies, and it is at the same time the only area whose effect can be demonstrated in a follow-up measurement. In concrete terms: green leafy vegetables and pulses daily, B2/B6/B12 via eggs, cheese and fermented foods, zinc via pumpkin seeds, oats and lentils. Active folate (5-MTHF) for two months after consultation with a doctor."
+    },
+    {
+     "num": "02",
+     "title": "Fat quality — EPA and DHA directly",
+     "text": "Blood lipids 2/9 and omega-3 supply 2/9. Your FADS1 variant makes plant-based omega-3 sources alone insufficient: linseed oil and walnuts are only partly converted. Oily sea fish twice a week or algal oil daily bypasses this bottleneck directly. At the same time, use omega-6-rich oils sparingly."
+    },
+    {
+     "num": "03",
+     "title": "Blood sugar quality rather than calorie quantity",
+     "text": "Diabetes risk 3/9 alongside a favourable obesity value (7/9). For you, the quality of the carbohydrates counts for more than the quantity: a low glycaemic index at every main meal, 20–30 g of protein per meal and a short walk after eating. Since exercise alone works more slowly in your case (FTO 2/9), this combination is the more effective route."
+    }
+   ],
+   "controlTitle": "Follow-up and next step",
+   "controlItems": [
+    "A follow-up measurement of the four epigenetic markers is meaningful after 4 to 6 months at the earliest — before that, changes cannot be measured reliably.",
+    "The genetic evaluations remain unchanged and never need to be repeated.",
+    "A comparison of the measurement points over time is reported from the second measurement onwards."
+   ]
+  },
+  {
+   "type": "contact",
+   "title": "Questions about your report?",
+   "text": "Discuss the results with the facility that carried out the sample collection. That is where the clinical context needed for interpretation is available.",
+   "columns": [
+    {
+     "k": "Contact",
+     "lines": [
+      "contact@polarisdx.net",
+      "+49 152 2858 0999",
+      "www.polarisdx.net"
+     ]
+    },
+    {
+     "k": "Distribution",
+     "lines": [
+      "Polaris Diagnostics Europe GmbH",
+      "Große Bleichen 1–3",
+      "20354 Hamburg"
+     ]
+    }
+   ],
+   "legal": [
+    {
+     "title": "Sample report",
+     "text": "All values, genotypes and personal details in this document are fictitious and serve solely to illustrate the report format. This is not a real report."
+    },
+    {
+     "title": "Interpretation",
+     "text": "This report is not a diagnosis and does not replace medical advice. Genetic evaluations describe predispositions, not diseases; epigenetic markers describe a momentary state. Both are to be assessed in the individual clinical context by qualified professionals."
+    },
+    {
+     "title": "Legal framework",
+     "text": "Genetic testing is subject to the German Genetic Diagnostics Act (GenDG); information and written consent are required before sample collection. The laboratory analysis is carried out by our cooperation partner. Polaris Diagnostics Europe GmbH is responsible for distribution and support."
+    }
+   ],
+   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · As at: August 2026"
+  }
+ ]
+}

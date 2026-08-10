@@ -425,7 +425,7 @@
     "lead": "Sechs vollständige Musterbefunde, je einer pro Analyse. Sie zeigen vor der Anfrage, wie das Dokument aufgebaut ist, das Ihre Klientinnen und Klienten am Ende in der Hand halten.",
     "note": "Alle sechs Dokumente sind Musterbefunde: Sämtliche Werte, Genotypen und Angaben zur Person sind frei erfunden und dienen ausschließlich der Darstellung des Berichtsformats. Es handelt sich nicht um reale Befunde.",
     "badge": "Deutsch",
-    "btn": "Musterbefund öffnen",
+    "btn": "Befund ansehen",
     "items": [
       {
         "slug": "metabolic-health",
@@ -503,7 +503,8 @@
     "pagesLabel": "{{pages}} Seiten",
     "imgAlt": "Deckblatt des Musterbefunds {{panel}}",
     "zipLabel": "Alle sechs als ZIP · 4,2 MB",
-    "zipFile": "PolarisDX_Musterbefunde_DE.zip"
+    "zipFile": "PolarisDX_Musterbefunde_DE.zip",
+    "pdfBtn": "PDF laden"
   },
   "compare": {
     "caption": "Auf einen Blick",
@@ -644,5 +645,14 @@
     ],
     "cta": "Werte verstehen als PDF",
     "file": "de/17_Werte_verstehen_PolarisDX.pdf"
+  },
+  "befund": {
+    "seoTitle": "Musterbefund {{panel}}",
+    "seoDescription": "Der vollständige Musterbefund {{panel}} zum Lesen — alle Marker, Skalen und Empfehlungen. Beispieldaten, keine realen Patientendaten.",
+    "notFoundTitle": "Diesen Musterbefund gibt es nicht",
+    "notFoundText": "Der aufgerufene Befund existiert nicht. Sechs Musterbefunde stehen bereit — je einer pro Analyse.",
+    "backToAll": "Alle sechs Musterbefunde",
+    "pdfCta": "Diesen Befund als PDF",
+    "othersTitle": "Die anderen Musterbefunde"
   }
 }

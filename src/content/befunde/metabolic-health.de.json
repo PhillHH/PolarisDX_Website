@@ -1,0 +1,1284 @@
+{
+ "slug": "metabolic-health",
+ "panel": "Metabolic Health",
+ "blocks": [
+  {
+   "type": "cover",
+   "badge": "Musterbefund · Beispieldaten",
+   "panel": "Metabolic Health",
+   "subtitle": "Genetik und Epigenetik",
+   "claim": "Ihr Stoffwechselprofil auf zwei Ebenen: die angeborene genetische Veranlagung und die epigenetischen Marker, die sich durch Ernährung, Bewegung, Schlaf und Stress verändern lassen.",
+   "meta": [
+    {
+     "k": "Befund für",
+     "v": "Muster, Erika"
+    },
+    {
+     "k": "Probenahme",
+     "v": "08.04.2026"
+    },
+    {
+     "k": "Material",
+     "v": "Trockenblutkarte"
+    },
+    {
+     "k": "Auswertungen",
+     "v": "17 + 4 epigen."
+    }
+   ],
+   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net"
+  },
+  {
+   "type": "principle",
+   "caption": "Das Prinzip",
+   "title": "So lesen Sie diesen Befund.",
+   "lead": "Dieser Befund kombiniert zwei Ebenen: Ihre Genetik — angeboren und unveränderlich — und Ihre Epigenetik, die durch den Lebensstil beeinflussbar ist. Beide werden auf derselben Skala dargestellt.",
+   "cards": [
+    {
+     "title": "Ebene 1 · Genetik",
+     "text": "Ihre Gene sind der Bauplan des Stoffwechsels: wie Sie Kohlenhydrate, Fette und Proteine verwerten, wie Appetit und Sättigung funktionieren, wie der Körper mit Vitaminen und Salz umgeht. Diese Veranlagungen ändern sich nicht.",
+     "items": [
+      "SNP — eine gut erforschte Variante in Ihrer DNA.",
+      "Drei Ausprägungen — Wildtyp, heterozygot oder homozygot; ohne Wertung.",
+      "Ihr Profil — mehrere SNPs ergeben Metabotyp und Auswertungen."
+     ]
+    },
+    {
+     "title": "Ebene 2 · Epigenetik",
+     "text": "Die Epigenetik zeigt nicht, welche Gene Sie besitzen, sondern wie aktiv sie gerade sind. Diese vier Werte sind veränderbar — und damit die einzigen, an denen sich eine Intervention im Verlauf belegen lässt.",
+     "items": [
+      "LINE-1 — globale DNA-Regulation und -Stabilität.",
+      "Entzündungsregulation — kombinierter Score aus IL-6 und TNF-α.",
+      "miR-21 · miR-155 — microRNA des Stoffwechselgeschehens."
+     ]
+    }
+   ],
+   "scaleTitle": "Wie lese ich die Skala?",
+   "scaleCaption": "Orientierung",
+   "scaleLead": "Alle Auswertungen — genetische wie epigenetische — laufen auf derselben Ampel von 1 bis 9. Links rot, rechts grün: 1–3 rot, 4–6 gelb, 7–9 grün. Höher ist immer günstiger.",
+   "scaleKind": "traffic",
+   "scaleTicks": [
+    "1",
+    "3",
+    "5",
+    "7",
+    "9"
+   ],
+   "scaleZones": [
+    {
+     "tone": "red",
+     "label": "1–3 · Rot",
+     "text": "Außerhalb des optimalen Bereichs. Hier liegt der größte Hebel."
+    },
+    {
+     "tone": "amber",
+     "label": "4–6 · Gelb",
+     "text": "Moderater Unterstützungsbedarf. Gezielt beobachten."
+    },
+    {
+     "tone": "green",
+     "label": "7–9 · Grün",
+     "text": "Im günstigen Bereich. Bestehende Routinen beibehalten."
+    }
+   ]
+  },
+  {
+   "type": "callout",
+   "title": "Wichtig",
+   "tone": "neutral",
+   "items": [
+    "Dieser Befund ist keine Diagnose. Die Einordnung erfolgt im Gespräch mit qualifiziertem Fachpersonal und stets im individuellen Kontext.",
+    "Vor einer genetischen Analyse sind Aufklärung und schriftliche Einwilligung erforderlich (Gendiagnostikgesetz).",
+    "Die genetischen Werte ändern sich nie. Nur die vier epigenetischen Werte eignen sich als Erfolgskontrolle."
+   ]
+  },
+  {
+   "type": "resultTable",
+   "caption": "Ergebnis auf einen Blick",
+   "title": "Ihre vier beeinflussbaren Werte.",
+   "lead": "Diese vier Marker verändern sich durch Ernährung, Bewegung, Schlaf und Stress. Sie sind der Teil des Befunds, an dem sich Wirkung messen lässt — und der Grund für eine Kontrollmessung.",
+   "cols": [
+    "Marker",
+    "Ebene",
+    "Ihr Wert",
+    "Optimal",
+    "Einordnung"
+   ],
+   "rows": [
+    {
+     "cells": [
+      "LINE-1 · DNA-Stabilität",
+      "Methylierung",
+      "2 / 9",
+      "7–9",
+      "Außerhalb"
+     ],
+     "tone": "red"
+    },
+    {
+     "cells": [
+      "Entzündungsregulation (IL-6 & TNF-α)",
+      "Methylierung",
+      "7 / 9",
+      "7–9",
+      "Optimal"
+     ],
+     "tone": "green"
+    },
+    {
+     "cells": [
+      "miR-21 · Entzündung & Mikronährstoffe",
+      "microRNA",
+      "3 / 9",
+      "7–9",
+      "Außerhalb"
+     ],
+     "tone": "red"
+    },
+    {
+     "cells": [
+      "miR-155 · FTO-Regulation, Fettgewebe",
+      "microRNA",
+      "8 / 9",
+      "7–9",
+      "Optimal"
+     ],
+     "tone": "green"
+    }
+   ]
+  },
+  {
+   "type": "callout",
+   "caption": "Genetische Einordnung",
+   "title": "Ihr Metabotyp: Balancierter Typ",
+   "text": "Ihr Stoffwechsel bevorzugt keinen der drei Makronährstoffe. Empfohlene Verteilung: 55 % Kohlenhydrate · 20 % Protein · 25 % Fett bei einem berechneten Bedarf von 1.900 kcal/Tag.",
+   "tone": "neutral"
+  },
+  {
+   "type": "callout",
+   "caption": "Genetische Einordnung",
+   "title": "Ihr Sporttyp: Ausdauertyp",
+   "text": "ACE und ACTN3 sprechen für eine Ausdauerveranlagung. Längere, gleichmäßige Belastungen liegen Ihnen mehr als kurze Kraftspitzen — ein Kraftanteil bleibt dennoch wichtig.",
+   "tone": "neutral"
+  },
+  {
+   "type": "callout",
+   "title": "Was daraus folgt",
+   "tone": "accent",
+   "items": [
+    "Zwei rote Werte — LINE-1 (2/9) und miR-21 (3/9). Beide hängen am Folat-, Zink- und Methylierungsstoffwechsel; die genetische MTHFR-Ausprägung (2/9) zeigt in dieselbe Richtung. Das ist der zentrale Ansatzpunkt dieses Befunds.",
+    "Zwei grüne Werte — Entzündungsregulation (7/9) und miR-155 (8/9) liegen im optimalen Bereich und sollten dort gehalten werden.",
+    "Eine Kontrollmessung ist frühestens nach 4 bis 6 Monaten sinnvoll."
+   ]
+  },
+  {
+   "type": "evaluations",
+   "caption": "Ergebnis auf einen Blick",
+   "title": "Alle genetischen Auswertungen.",
+   "lead": "Siebzehn Auswertungen auf der Ampel 1–9. Diese Werte sind angeboren und ändern sich nicht — sie beschreiben, wo Ihr Stoffwechsel mehr Unterstützung braucht als der Durchschnitt.",
+   "items": [
+    {
+     "label": "Hautfeuchtigkeit",
+     "sub": "AQPR",
+     "value": 9,
+     "display": "9 / 9",
+     "status": "Günstig",
+     "tone": "green"
+    },
+    {
+     "label": "Schwierigkeiten, das Gewicht zu halten",
+     "value": 8,
+     "display": "8 / 9",
+     "status": "Günstig",
+     "tone": "green"
+    },
+    {
+     "label": "Salzsensitivität",
+     "value": 8,
+     "display": "8 / 9",
+     "status": "Günstig",
+     "tone": "green"
+    },
+    {
+     "label": "Adipositas-Risiko",
+     "value": 7,
+     "display": "7 / 9",
+     "status": "Günstig",
+     "tone": "green"
+    },
+    {
+     "label": "Vitamin D",
+     "sub": "Transport, GC",
+     "value": 7,
+     "display": "7 / 9",
+     "status": "Günstig",
+     "tone": "green"
+    },
+    {
+     "label": "Oxidativer Zellschutz",
+     "sub": "SOD2",
+     "value": 7,
+     "display": "7 / 9",
+     "status": "Günstig",
+     "tone": "green"
+    },
+    {
+     "label": "Food Cravings",
+     "value": 6,
+     "display": "6 / 9",
+     "status": "Moderat",
+     "tone": "amber"
+    },
+    {
+     "label": "Hautelastizität & Entzündung",
+     "sub": "IL-6",
+     "value": 6,
+     "display": "6 / 9",
+     "status": "Moderat",
+     "tone": "amber"
+    },
+    {
+     "label": "Schwierigkeiten beim Gewichtsverlust",
+     "value": 5,
+     "display": "5 / 9",
+     "status": "Moderat",
+     "tone": "amber"
+    },
+    {
+     "label": "B-Vitamine",
+     "sub": "Bedarf",
+     "value": 5,
+     "display": "5 / 9",
+     "status": "Moderat",
+     "tone": "amber"
+    },
+    {
+     "label": "Hunger-/Sättigungsregulation",
+     "value": 4,
+     "display": "4 / 9",
+     "status": "Moderat",
+     "tone": "amber"
+    },
+    {
+     "label": "Antioxidative Kapazität",
+     "sub": "NADPH",
+     "value": 4,
+     "display": "4 / 9",
+     "status": "Moderat",
+     "tone": "amber"
+    },
+    {
+     "label": "Diabetes-Risiko",
+     "value": 3,
+     "display": "3 / 9",
+     "status": "Erhöhter Bedarf",
+     "tone": "red"
+    },
+    {
+     "label": "Blutfette & Fettsäurestoffwechsel",
+     "value": 2,
+     "display": "2 / 9",
+     "status": "Erhöhter Bedarf",
+     "tone": "red"
+    },
+    {
+     "label": "Omega-3-Versorgung",
+     "sub": "ALA → EPA/DHA",
+     "value": 2,
+     "display": "2 / 9",
+     "status": "Erhöhter Bedarf",
+     "tone": "red"
+    },
+    {
+     "label": "Folat",
+     "sub": "MTHFR",
+     "value": 2,
+     "display": "2 / 9",
+     "status": "Erhöhter Bedarf",
+     "tone": "red"
+    },
+    {
+     "label": "Gewichtsverlust durch Sport",
+     "sub": "FTO",
+     "value": 2,
+     "display": "2 / 9",
+     "status": "Erhöhter Bedarf",
+     "tone": "red"
+    }
+   ],
+   "note": "Sortiert nach Wert, nicht nach Themengebiet. Die ausführliche Einordnung mit Genotypen und Interventionen folgt ab Seite 07."
+  },
+  {
+   "type": "markers",
+   "caption": "Epigenetischer Status",
+   "title": "Methylierung.",
+   "lead": "Die DNA-Methylierung zeigt, wie aktiv Ihre Gene gerade sind — gesteuert durch Ernährung, Bewegung, Schlaf und Stress. Anders als die Gene selbst sind diese Werte veränderbar.",
+   "items": [
+    {
+     "name": "LINE-1",
+     "category": "DNA-Stabilität",
+     "intro": "LINE-1-Elemente machen rund 17 % des Genoms aus. Ihre Methylierung gilt als Marker für die globale DNA-Regulation.",
+     "kind": "traffic",
+     "value": 2,
+     "display": "2 / 9",
+     "status": "Außerhalb",
+     "tone": "red",
+     "text": "Ihr Wert liegt außerhalb des optimalen Bereichs. Am wirksamsten lässt sich dieser Marker über die am Folat-Stoffwechsel beteiligten Nährstoffe unterstützen — was durch Ihre MTHFR-Ausprägung (genetisch 2/9) zusätzlich an Bedeutung gewinnt.",
+     "table": {
+      "cols": [
+       "Maßnahme",
+       "Quelle",
+       "Menge / Frequenz",
+       "Wirkung"
+      ],
+      "rows": [
+       [
+        "Folsäure",
+        "grünes Blattgemüse, Tomate, Hülsenfrüchte, Nüsse, Sprossen",
+        "täglich",
+        "Bei Bedarf 2 Monate als Methylfolat (5-MTHF)"
+       ],
+       [
+        "Riboflavin (B2)",
+        "Keimlinge, Sprossen, Käse",
+        "täglich",
+        "Kofaktor der Methylierung"
+       ],
+       [
+        "Cobalamin (B12)",
+        "Ei, Käse, fermentierte Lebensmittel",
+        "täglich",
+        "Regeneration von aktivem Folat"
+       ],
+       [
+        "Methionin",
+        "Paranüsse, Sesam, Soja, Erbsen, Blattgemüse",
+        "täglich",
+        "Direkter Methylgruppen-Donator"
+       ],
+       [
+        "Pyridoxin (B6)",
+        "Kohl, grüne Bohnen, Linsen, Bananen",
+        "täglich",
+        "Kofaktor der Methylierung"
+       ],
+       [
+        "Ballaststoffe",
+        "Vollkorn, Gemüse, Hülsenfrüchte",
+        "mind. 30 g/Tag",
+        "Bioverfügbarkeit sekundärer Pflanzenstoffe"
+       ]
+      ]
+     }
+    },
+    {
+     "name": "Entzündungsregulation (IL-6 & TNF-α)",
+     "intro": "Kombinierter Score aus der Methylierung beider Genregionen — nicht der akute Blutspiegel. Einzelwerte: IL-6 8/9 · TNF-α 6/9.",
+     "kind": "traffic",
+     "value": 7,
+     "display": "7 / 9",
+     "status": "Optimal",
+     "tone": "green",
+     "text": "Ihr kombinierter Wert liegt im optimalen Bereich. Pflanzenbetonte, entzündungsarme Kost wirkt einem steigenden TNF-α-Aufkommen weiterhin vorbeugend entgegen.",
+     "table": {
+      "cols": [
+       "Maßnahme",
+       "Quelle",
+       "Menge / Frequenz",
+       "Wirkung"
+      ],
+      "rows": [
+       [
+        "Resveratrol",
+        "Traubenschalen, Himbeerkerne, Heidelbeeren, Erdnüsse",
+        "1 Portion Beeren/Tag",
+        "Reguliert Immunzellen, hemmt NF-κB"
+       ],
+       [
+        "Sulforaphan",
+        "Brokkoli, Blumenkohl, Rosenkohl, Kresse",
+        "3–4×/Woche",
+        "Entzündungshemmend, antioxidativ"
+       ],
+       [
+        "Quercetin",
+        "Zwiebeln, Knoblauch, Kapern, Schnittlauch",
+        "täglich",
+        "Zwiebel nach dem Schneiden 10 Min. stehen lassen"
+       ],
+       [
+        "Curcumin",
+        "Kurkuma mit schwarzem Pfeffer",
+        "1 TL täglich",
+        "Hemmt DNA-Methyltransferasen"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "type": "markers",
+   "caption": "Epigenetischer Status",
+   "title": "microRNA.",
+   "lead": "microRNAs steuern die Aktivität Ihrer Gene fein und spiegeln das aktuelle Stoffwechsel- und Entzündungsgeschehen wider. Wie die Methylierung sind sie über den Lebensstil beeinflussbar.",
+   "items": [
+    {
+     "name": "miR-21",
+     "category": "Entzündung und Mikronährstoffe",
+     "intro": "Verschlechtert sich bei stärkerem Entzündungsgeschehen sowie bei schlechter Zink- und Folatversorgung.",
+     "kind": "traffic",
+     "value": 3,
+     "display": "3 / 9",
+     "status": "Außerhalb",
+     "tone": "red",
+     "text": "Bei einem roten oder gelben Wert ist ein normaler BMI anzustreben; zusätzlich lohnt die gezielte Zink- und Folatzufuhr. Antioxidative Mikronährstoffe wie Vitamin D, Vitamin E und Lycopin sowie Resveratrol unterstützen die Immunregulation.",
+     "table": {
+      "cols": [
+       "Maßnahme",
+       "Quelle",
+       "Menge / Frequenz",
+       "Wirkung"
+      ],
+      "rows": [
+       [
+        "Zink",
+        "Kürbiskerne, Haferflocken, Linsen, Käse, Rindfleisch",
+        "täglich",
+        "Schlechte Zinkversorgung verschlechtert den Wert"
+       ],
+       [
+        "Folat",
+        "Blattgemüse, Hülsenfrüchte, Tomate, Sprossen",
+        "täglich",
+        "Schlechte Folatversorgung verschlechtert den Wert"
+       ],
+       [
+        "Resveratrol",
+        "Traubenschalen, Heidelbeeren, Erdnüsse",
+        "1 Portion Beeren/Tag",
+        "Hemmt den NF-κB-Signalweg"
+       ],
+       [
+        "Vitamin D",
+        "Lachs, Butter, Ei, Avocado, Pilze",
+        "regelmäßig",
+        "Wichtig für die Immunregulation"
+       ],
+       [
+        "Vitamin E",
+        "Weizenkeimöl, Nüsse, Spinat, Brokkoli",
+        "täglich",
+        "Antioxidativ, schützt Zellmembranen"
+       ],
+       [
+        "Lycopin",
+        "Tomaten, Melone, Karotten, Papaya",
+        "täglich",
+        "Carotinoid mit antioxidativer Wirkung"
+       ]
+      ]
+     }
+    },
+    {
+     "name": "miR-155",
+     "category": "FTO-Regulation und Fettgewebsbildung",
+     "intro": "Zentraler Regulator von Immun- und Entzündungsantworten; beeinflusst die Bildung von braunem bzw. beigem Fettgewebe.",
+     "kind": "traffic",
+     "value": 8,
+     "display": "8 / 9",
+     "status": "Optimal",
+     "tone": "green",
+     "text": "Ihr Ergebnis liegt im optimalen Bereich. Sport, Fasten und Kältereize wirken zusätzlich günstig, aktivieren die Bildung von braunem bzw. beigem Fettgewebe und beeinflussen den FTO-Effekt positiv — besonders relevant, weil Ihre genetische FTO-Auswertung bei 2/9 liegt.",
+     "table": {
+      "cols": [
+       "Maßnahme",
+       "Quelle",
+       "Menge / Frequenz",
+       "Wirkung"
+      ],
+      "rows": [
+       [
+        "Regelmäßiger Sport",
+        "Ausdauer und Kraft kombiniert",
+        "150 Min./Woche",
+        "Wirkt nachweislich günstig auf diesen Wert"
+       ],
+       [
+        "Kältereize",
+        "kalte Duschen, Eisbaden, kühle Räume",
+        "regelmäßig, kurz",
+        "Aktiviert braunes/beiges Fettgewebe"
+       ],
+       [
+        "Fasten-Phasen",
+        "verlängerte nächtliche Essenspause",
+        "nach Rücksprache",
+        "Unterstützt die Aktivierung von braunem Fettgewebe"
+       ],
+       [
+        "Quercetin",
+        "Zwiebeln, Knoblauch, Kapern, Schnittlauch",
+        "mind. 200 mg/Tag",
+        "Beeinflusst die Mitochondrien-Biogenese"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "caption": "Genetik · Makronährstoffe",
+   "title": "Metabotyp: Balancierter Typ.",
+   "lead": "Ihr Stoffwechsel bevorzugt keinen der drei Makronährstoffe besonders. Damit gilt für Sie die allgemeine Empfehlung der DACH-Referenzwerte — eine gute Ausgangslage, die keine besondere Anpassung der Verteilung erfordert. Wichtiger ist bei Ihnen die Qualität der Lebensmittel.",
+   "cols": [
+    "Anteil",
+    "Makronährstoff",
+    "Hinweis"
+   ],
+   "rows": [
+    [
+     "55 %",
+     "Kohlenhydrate",
+     "Vollkorn, Hülsenfrüchte, Gemüse als Basis"
+    ],
+    [
+     "20 %",
+     "Protein",
+     "20–30 g pro Hauptmahlzeit"
+    ],
+    [
+     "25 %",
+     "Fett",
+     "Schwerpunkt auf ungesättigten Fetten"
+    ]
+   ],
+   "note": "Individuell berechneter täglicher Energiebedarf: 1.900 kcal."
+  },
+  {
+   "type": "table",
+   "caption": "Genetik · Bewegung",
+   "title": "Sporttyp: Ausdauertyp.",
+   "lead": "Sowohl ACE als auch ACTN3 sprechen für eine Veranlagung zur Ausdauerleistung. Zur Einordnung: Die Genetik erklärt nur bis zu rund 20 % des Unterschieds zwischen Kraft- und Ausdauerleistung — Training, Ernährung und Konsequenz haben den weit größeren Einfluss.",
+   "cols": [
+    "Gen",
+    "Ihr Genotyp",
+    "Veranlagung"
+   ],
+   "rows": [
+    [
+     "ACE",
+     "GG (homozygot)",
+     "Eher Ausdauer — Variante, die mit besserer Sauerstoffnutzung und Effizienz assoziiert ist."
+    ],
+    [
+     "ACTN3",
+     "TT (Wildtyp)",
+     "Eher Ausdauer — XX-Typ ohne α-Actinin-3, mehr langsame, ausdauernde Muskelfasern."
+    ]
+   ]
+  },
+  {
+   "type": "markers",
+   "caption": "Genetik · Bewegung",
+   "title": "Gewichtsverlust durch Sport.",
+   "items": [
+    {
+     "name": "Gewichtsverlust durch Sport",
+     "category": "FTO rs1121980",
+     "intro": "Genotyp AT (heterozygot). Wie stark Sport allein zu Gewichtsverlust beiträgt.",
+     "kind": "traffic",
+     "value": 2,
+     "display": "2 / 9",
+     "status": "Erhöhter Bedarf",
+     "tone": "red",
+     "text": "Sport allein führt bei Ihnen etwas langsamer zu Gewichtsverlust als bei anderen Genotypen. Der Effekt auf Fitness und Stoffwechselgesundheit bleibt unverändert bestehen — für eine Gewichtsreduktion lohnt sich die Kombination aus Bewegung und Ernährungsanpassung besonders.",
+     "table": {
+      "cols": [
+       "Maßnahme",
+       "Quelle",
+       "Menge / Frequenz",
+       "Wirkung"
+      ],
+      "rows": [
+       [
+        "Ausdaueranteil",
+        "Radfahren, Laufen, Schwimmen",
+        "2–3×/Woche",
+        "Sauerstoffversorgung, Grundlagenausdauer"
+       ],
+       [
+        "Kraftanteil",
+        "Ganzkörper-Krafttraining",
+        "2×/Woche",
+        "Erhält Muskelmasse und Stoffwechselaktivität"
+       ],
+       [
+        "Ernährung kombinieren",
+        "siehe Metabotyp-Empfehlung",
+        "individuell",
+        "Bei FTO der wirksamste zusätzliche Hebel"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "type": "markers",
+   "caption": "Genetik · Stoffwechsel",
+   "title": "Adipositas- und Diabetes-Veranlagung.",
+   "lead": "Genetische Veranlagung für Übergewicht und den Blutzuckerstoffwechsel — als Ausgangspunkt für gezielte Ernährung, nicht als Vorhersage.",
+   "items": [
+    {
+     "name": "Adipositas-Risiko",
+     "intro": "Zusammenfassung von Varianten, die mit einem erhöhten Risiko für Übergewicht in Verbindung stehen.",
+     "kind": "traffic",
+     "value": 7,
+     "display": "7 / 9",
+     "status": "Günstig",
+     "tone": "green",
+     "text": "Ihr Ergebnis liegt im günstigen Bereich — der genetische Hintergrund spricht nicht für ein erhöhtes Risiko. Mahlzeitenstruktur, Ballaststoffe und regelmäßige Bewegung halten diese gute Ausgangslage.",
+     "sub": "Genotypen: FTO rs9939609 TT · PPARG2 CC (Wildtyp) · MC4R CT · TCF7L2 CT · SLC6A14 CA · TFAP2B GG",
+     "table": {
+      "cols": [
+       "Maßnahme",
+       "Quelle",
+       "Menge / Frequenz",
+       "Wirkung"
+      ],
+      "rows": [
+       [
+        "Ballaststoffe",
+        "Vollkorn, Hülsenfrüchte, Gemüse",
+        "mind. 30 g/Tag",
+        "Verlängert Sättigung, stabilisiert Blutzucker"
+       ],
+       [
+        "Protein pro Mahlzeit",
+        "Eier, Hülsenfrüchte, Fisch, Fleisch",
+        "20–30 g/Mahlzeit",
+        "Unterstützt Sättigungssignale"
+       ],
+       [
+        "Bewegung",
+        "—",
+        "150 Min./Woche",
+        "Schwächt genetisch bedingte Effekte nachweislich ab"
+       ]
+      ]
+     }
+    },
+    {
+     "name": "Diabetes-Risiko",
+     "intro": "Gene, die Insulinausschüttung, Insulinsensitivität und den Blutzuckerstoffwechsel beeinflussen.",
+     "kind": "traffic",
+     "value": 3,
+     "display": "3 / 9",
+     "status": "Erhöhter Bedarf",
+     "tone": "red",
+     "text": "Ihr Wert liegt außerhalb des günstigen Bereichs. Kohlenhydratqualität und regelmäßige Bewegung sind bei Ihnen die wirksamsten Stellschrauben — und zusammen mit dem roten miR-21-Wert der zweite Schwerpunkt dieses Befunds.",
+     "sub": "Genotypen: TCF7L2 CT · IL-6 CG · ADRB3 GG (Wildtyp) · PPARG2 CC",
+     "table": {
+      "cols": [
+       "Maßnahme",
+       "Quelle",
+       "Menge / Frequenz",
+       "Wirkung"
+      ],
+      "rows": [
+       [
+        "Niedriger glykämischer Index",
+        "Vollkorn, Hülsenfrüchte, Gemüse",
+        "jede Hauptmahlzeit",
+        "Vermeidet starke Blutzuckerspitzen"
+       ],
+       [
+        "Bewegung nach dem Essen",
+        "kurzer Spaziergang",
+        "10–15 Min.",
+        "Verbessert die Insulinsensitivität messbar"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "type": "markers",
+   "caption": "Genetik · Essverhalten",
+   "title": "Ernährungstyp.",
+   "lead": "Sättigung, Heißhunger und die Neigung, Gewicht zu verlieren oder zu halten — Ihre genetischen Stellschrauben rund ums Essverhalten.",
+   "items": [
+    {
+     "name": "Food Cravings",
+     "sub": "MC4R CT · FTO rs9939609 TT · LEPR AA · SLC6A14 CA · PPARG2 CC",
+     "kind": "traffic",
+     "value": 6,
+     "display": "6 / 9",
+     "status": "Moderat",
+     "tone": "amber",
+     "text": "Eine leicht erhöhte Neigung zu spontanen Essimpulsen. Mahlzeitenstruktur und Proteinzufuhr sind hier Ihre wirksamsten Hebel.",
+     "table": {
+      "cols": [
+       "Maßnahme",
+       "Quelle",
+       "Menge / Frequenz",
+       "Wirkung"
+      ],
+      "rows": [
+       [
+        "Protein zu jeder Mahlzeit",
+        "Eier, Hülsenfrüchte, Fisch, Fleisch, Tofu",
+        "20–30 g/Mahlzeit",
+        "Stärkstes bekanntes Sättigungssignal"
+       ],
+       [
+        "Regelmäßige Mahlzeiten",
+        "—",
+        "3 feste Zeiten/Tag",
+        "Reduziert Blutzuckerschwankungen"
+       ]
+      ]
+     }
+    },
+    {
+     "name": "Hunger- und Sättigungsregulation",
+     "sub": "MC4R, LEPR und FTO rs1121980 (AT) gemeinsam",
+     "kind": "traffic",
+     "value": 4,
+     "display": "4 / 9",
+     "status": "Moderat",
+     "tone": "amber",
+     "text": "Ein etwas verzögertes Sättigungssignal — langsames, achtsames Essen gibt diesem Signal die nötige Zeit.",
+     "table": {
+      "cols": [
+       "Maßnahme",
+       "Quelle",
+       "Menge / Frequenz",
+       "Wirkung"
+      ],
+      "rows": [
+       [
+        "Langsames, achtsames Essen",
+        "—",
+        "mind. 20 Min./Mahlzeit",
+        "Gibt dem verzögerten Signal Zeit"
+       ],
+       [
+        "Ballaststoffreiche Kost",
+        "Gemüse, Vollkorn",
+        "mind. 30 g/Tag",
+        "Verlängert das Sättigungsgefühl"
+       ]
+      ]
+     }
+    },
+    {
+     "name": "Gewicht verlieren",
+     "sub": "ADRB3 GG · PLIN CT",
+     "kind": "traffic",
+     "value": 5,
+     "display": "5 / 9",
+     "tone": "amber",
+     "text": "Erhöhter Unterstützungsbedarf bei Schlaf und Leptin-Sensitivität. 7–9 Std. Schlaf und kombiniertes Training 2–3×/Woche."
+    },
+    {
+     "name": "Gewicht halten",
+     "sub": "TCF7L2 CT",
+     "kind": "traffic",
+     "value": 8,
+     "display": "8 / 9",
+     "tone": "green",
+     "text": "Günstige Ausgangslage gegen den Jo-Jo-Effekt. Stabile Mahlzeitenzeiten und 150 Min. Bewegung/Woche erhalten sie."
+    }
+   ]
+  },
+  {
+   "type": "markers",
+   "caption": "Genetik · Mikronährstoffe",
+   "title": "Vitaminaufnahme.",
+   "lead": "Wie gut Ihr Körper Vitamin D verwertet und Folat in seine aktive Form umwandelt — inklusive des daraus folgenden Bedarfs an B-Vitaminen.",
+   "items": [
+    {
+     "name": "Folat",
+     "category": "MTHFR",
+     "intro": "Genotyp homozygote Variante. Schlüsselenzym im Folatstoffwechsel.",
+     "kind": "traffic",
+     "value": 2,
+     "display": "2 / 9",
+     "status": "Erhöhter Bedarf",
+     "tone": "red",
+     "text": "Ihre MTHFR-Ausprägung spricht für eine deutlich eingeschränkte Umwandlung von Folat in seine aktive Form (5-MTHF). Der Bedarf an Folat aus der Nahrung ist bei Ihnen höher als bei anderen Genotypen. Dieser Wert erklärt zugleich den roten LINE-1-Marker auf der epigenetischen Ebene — beide hängen am selben Stoffwechselweg.",
+     "table": {
+      "cols": [
+       "Maßnahme",
+       "Quelle",
+       "Menge / Frequenz",
+       "Wirkung"
+      ],
+      "rows": [
+       [
+        "Folat aus der Nahrung",
+        "grünes Blattgemüse, Hülsenfrüchte, Spargel",
+        "2–3 Portionen/Tag",
+        "MTHFR-Varianten profitieren von konstant hoher Zufuhr"
+       ],
+       [
+        "Aktives Folat (5-MTHF)",
+        "ggf. als Nahrungsergänzung",
+        "nach ärztlicher Abstimmung",
+        "Umgeht die eingeschränkte Umwandlung direkt"
+       ]
+      ]
+     }
+    },
+    {
+     "name": "Vitamin D",
+     "category": "Transport",
+     "intro": "GC (Vitamin-D-bindendes Protein), Genotyp GT (heterozygot)",
+     "kind": "traffic",
+     "value": 7,
+     "display": "7 / 9",
+     "status": "Günstig",
+     "tone": "green",
+     "text": "Der Vitamin-D-Transport im Blut ist bei Ihnen nur geringfügig eingeschränkt. Das bedeutet keinen Mangel, macht aber einen Blutspiegel-Check in den sonnenarmen Monaten sinnvoll.",
+     "table": {
+      "cols": [
+       "Maßnahme",
+       "Quelle",
+       "Menge / Frequenz",
+       "Wirkung"
+      ],
+      "rows": [
+       [
+        "Vitamin D",
+        "fetter Fisch, Eier; Sonnenlicht",
+        "15–20 Min./Tag regelmäßig, Spiegel prüfen",
+        "Kontrolle lohnt vor allem im Winter"
+       ],
+       [
+        "Vitamin K2",
+        "fermentierte Lebensmittel, Eigelb, Hartkäse",
+        "täglich",
+        "Unterstützt Vitamin D im Knochen- und Gefäßstoffwechsel"
+       ]
+      ]
+     }
+    },
+    {
+     "name": "B-Vitamine",
+     "category": "Bedarf",
+     "intro": "Folgt aus der MTHFR-Ausprägung über den Methylierungszyklus.",
+     "kind": "traffic",
+     "value": 5,
+     "display": "5 / 9",
+     "status": "Moderat",
+     "tone": "amber",
+     "table": {
+      "cols": [
+       "Maßnahme",
+       "Quelle",
+       "Menge / Frequenz",
+       "Wirkung"
+      ],
+      "rows": [
+       [
+        "Vitamin B2",
+        "Eier, Milchprodukte, Vollkorn",
+        "täglich",
+        "Direkter Kofaktor des MTHFR-Enzyms"
+       ],
+       [
+        "Vitamin B6",
+        "Kartoffeln, Hülsenfrüchte, Bananen",
+        "täglich",
+        "Homocysteinstoffwechsel"
+       ],
+       [
+        "Vitamin B12",
+        "Eier, Fisch, Milchprodukte",
+        "täglich",
+        "Regeneration von aktivem Folat"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "type": "markers",
+   "caption": "Genetik · Fettstoffwechsel",
+   "title": "Omega 3 und Blutfette.",
+   "lead": "Wie gut Sie pflanzliche Omega-3-Vorstufen verwerten und wie Ihre Blutfettwerte genetisch veranlagt sind.",
+   "items": [
+    {
+     "name": "Blutfette und Fettsäurestoffwechsel",
+     "sub": "FADS1 TT · APOA5 AG · LPL AA (Wildtyp) · PPARG2 CC",
+     "kind": "traffic",
+     "value": 2,
+     "display": "2 / 9",
+     "status": "Erhöhter Bedarf",
+     "tone": "red",
+     "text": "Ihre FADS1-Ausprägung spricht dafür, dass der Körper pflanzliche Omega-3-Vorstufen (ALA) nur eingeschränkt in die aktiven Formen EPA und DHA umwandelt. Praktikabler ist es, EPA und DHA direkt aufzunehmen. Die separate Auswertung „Omega-3-Versorgung“ betrachtet ausschließlich diesen Umwandlungsschritt und liegt ebenfalls bei 2 / 9.",
+     "table": {
+      "cols": [
+       "Maßnahme",
+       "Quelle",
+       "Menge / Frequenz",
+       "Wirkung"
+      ],
+      "rows": [
+       [
+        "EPA und DHA direkt",
+        "fetter Seefisch (Lachs, Makrele, Hering); alternativ Algenöl",
+        "2×/Woche Fisch oder täglich Algenöl",
+        "Umgeht die eingeschränkte FADS1-Umwandlung"
+       ],
+       [
+        "Pflanzliche Omega-3-Quellen",
+        "Leinöl, Walnüsse, Chiasamen",
+        "ergänzend, nicht als einzige Quelle",
+        "Werden bei Ihnen nur teilweise umgewandelt"
+       ],
+       [
+        "Omega-6 begrenzen",
+        "Sonnenblumen-, Distel-, Maiskeimöl sparsam",
+        "im Alltag",
+        "Günstiges Omega-6-zu-Omega-3-Verhältnis"
+       ],
+       [
+        "Zucker und Weißmehl reduzieren",
+        "zugunsten Vollkorn",
+        "im Alltag",
+        "Wirkt erhöhten Triglyceriden (APOA5) entgegen"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "type": "markers",
+   "caption": "Genetik · Blutdruck",
+   "title": "Salzsensitivität.",
+   "items": [
+    {
+     "name": "Salzsensitivität",
+     "sub": "ACE, Genotyp GG (homozygot)",
+     "kind": "traffic",
+     "value": 8,
+     "display": "8 / 9",
+     "status": "Günstig",
+     "tone": "green",
+     "text": "Ihre ACE-Ausprägung zeigt keine erhöhte Salzsensitivität. Grundsätzlich gilt: Wer salzreicher isst, sollte bewusst mehr trinken, damit überschüssiges Salz über die Nieren ausgeschieden wird.",
+     "table": {
+      "cols": [
+       "Maßnahme",
+       "Quelle",
+       "Menge / Frequenz",
+       "Wirkung"
+      ],
+      "rows": [
+       [
+        "Salzzufuhr im Blick behalten",
+        "verarbeitete Lebensmittel, Fertigprodukte",
+        "max. 6 g Salz/Tag",
+        "Reduziert Wassereinlagerungen"
+       ],
+       [
+        "Ausreichend trinken",
+        "Wasser, ungesüßter Tee",
+        "mind. 1,5–2 l/Tag",
+        "Unterstützt die Natriumausscheidung"
+       ],
+       [
+        "Kalium aus Gemüse und Obst",
+        "Bananen, Kartoffeln, grünes Gemüse",
+        "täglich",
+        "Wirkt salzbedingten Einlagerungen entgegen"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "type": "markers",
+   "caption": "Genetik · Haut und Antioxidantien",
+   "title": "Nutrikosmetik.",
+   "lead": "Hautelastizität, Feuchtigkeit und antioxidativer Schutz — wie Ernährung Ihr Hautbild von innen unterstützt.",
+   "items": [
+    {
+     "name": "Hautfeuchtigkeit",
+     "sub": "AQPR CC (Wildtyp)",
+     "kind": "traffic",
+     "value": 9,
+     "display": "9 / 9",
+     "tone": "green",
+     "text": "Ihre Haut hält Feuchtigkeit gut — eine normale Pflegeroutine reicht meist aus. Unterstützend: mind. 1,5–2 l Wasser täglich."
+    },
+    {
+     "name": "Oxidativer Zellschutz",
+     "sub": "SOD2 AG (heterozygot)",
+     "kind": "traffic",
+     "value": 7,
+     "display": "7 / 9",
+     "tone": "green",
+     "text": "Solider Schutz vor oxidativem Stress. Antioxidantien täglich und konsequenter UV-Schutz erhalten diese Ausgangslage."
+    },
+    {
+     "name": "Hautelastizität und Entzündung",
+     "intro": "IL-6 CG (heterozygot). Erhöhte Aktivität kann den Kollagenabbau beschleunigen.",
+     "kind": "traffic",
+     "value": 6,
+     "display": "6 / 9",
+     "status": "Moderat",
+     "tone": "amber",
+     "text": "Eine moderate Entzündungsneigung in der Haut — entzündungshemmende Ernährung wirkt sich bei Ihnen sichtbar auf das Hautbild aus.",
+     "table": {
+      "cols": [
+       "Maßnahme",
+       "Quelle",
+       "Menge / Frequenz",
+       "Wirkung"
+      ],
+      "rows": [
+       [
+        "Omega-3-Fettsäuren",
+        "Lachs, Leinsamen, Walnüsse",
+        "2×/Woche Fisch",
+        "Unterstützt die Hautbarriere"
+       ],
+       [
+        "Antioxidantien",
+        "Beeren, buntes Gemüse, grüner Tee",
+        "täglich",
+        "Wirkt oxidativem Stress entgegen"
+       ]
+      ]
+     }
+    },
+    {
+     "name": "Antioxidative Kapazität",
+     "intro": "NADPH AG (heterozygot). Liefert die Reduktionskraft für zelluläre Antioxidans-Systeme.",
+     "kind": "traffic",
+     "value": 4,
+     "display": "4 / 9",
+     "status": "Moderat",
+     "tone": "amber",
+     "text": "Eine moderat reduzierte antioxidative Kapazität — die Zufuhr von Antioxidantien über die Ernährung unterstützt Ihre Haut zusätzlich.",
+     "table": {
+      "cols": [
+       "Maßnahme",
+       "Quelle",
+       "Menge / Frequenz",
+       "Wirkung"
+      ],
+      "rows": [
+       [
+        "Antioxidantien",
+        "Beeren, buntes Gemüse, grüner Tee",
+        "täglich",
+        "Unterstützt die zelluläre Abwehr freier Radikale"
+       ],
+       [
+        "UV-Schutz",
+        "Sonnencreme, Kopfbedeckung",
+        "bei Sonnenexposition",
+        "Reduziert die oxidative Belastung der Haut"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "caption": "Genetische Grundlage",
+   "title": "Alle analysierten Gene.",
+   "lead": "Die vollständige Liste der untersuchten Varianten mit Ihrem Genotyp. Diese Werte sind angeboren und bleiben lebenslang unverändert — eine Wiederholung der genetischen Analyse ist nicht sinnvoll.",
+   "cols": [
+    "Gen",
+    "Ihr Genotyp",
+    "Funktion"
+   ],
+   "rows": [
+    [
+     "FTO rs9939609",
+     "TT (homozygot)",
+     "Risiko-Allel A. Assoziiert mit BMI, Körperfettmasse und Taillenumfang bei hoher Zufuhr gesättigter Fettsäuren."
+    ],
+    [
+     "FTO rs1121980",
+     "AT (heterozygot)",
+     "Risiko-Allel A. Spricht schlechter auf Gewichtsverlust durch körperliche Aktivität an."
+    ],
+    [
+     "MTHFR",
+     "homozygote Variante",
+     "Schlüsselenzym im Folat- und Methylierungsstoffwechsel; beeinflusst den Homocysteinspiegel."
+    ],
+    [
+     "FADS1",
+     "TT (homozygot)",
+     "Steuert die Umwandlung pflanzlicher Omega-3/-6-Vorstufen in die aktiven, langkettigen Fettsäuren."
+    ],
+    [
+     "APOA5",
+     "AG (heterozygot)",
+     "Reguliert den Abbau von Triglyceriden im Blut und beeinflusst die Blutfettwerte."
+    ],
+    [
+     "LPL",
+     "AA (Wildtyp)",
+     "Baut Fette aus dem Blut ab; beeinflusst HDL-Cholesterin und die Blutfettwerte."
+    ],
+    [
+     "PPARG2",
+     "CC (Wildtyp)",
+     "Reguliert Fettzellbildung, -speicherung und Insulinsensitivität; beeinflusst Appetit und Sättigung."
+    ],
+    [
+     "PLIN",
+     "CT (heterozygot)",
+     "Umhüllt Fetttröpfchen in Fettzellen und reguliert deren Auf- und Abbau."
+    ],
+    [
+     "ADRB3",
+     "GG (Wildtyp)",
+     "Reguliert die Fettverbrennung in Fettzellen und die Verwertung von Depotfett."
+    ],
+    [
+     "MC4R",
+     "CT (heterozygot)",
+     "Zentral an der Steuerung von Appetit-, Hunger- und Sättigungssignalen im Gehirn beteiligt."
+    ],
+    [
+     "LEPR",
+     "AA (homozygot)",
+     "Vermittelt das Sättigungssignal des Hormons Leptin."
+    ],
+    [
+     "SLC6A14",
+     "CA (heterozygot)",
+     "Transportiert Aminosäuren; beeinflusst Appetit, Sättigung und Stressessen."
+    ],
+    [
+     "TCF7L2",
+     "CT (heterozygot)",
+     "Beeinflusst die Insulinausschüttung nach kohlenhydratreichen Mahlzeiten."
+    ],
+    [
+     "TFAP2B",
+     "GG (Wildtyp)",
+     "An der Regulation des Körpergewichts und der Fettverteilung beteiligt."
+    ],
+    [
+     "IL-6",
+     "CG (heterozygot)",
+     "Zentraler Botenstoff der Entzündungsregulation; beeinflusst Blutfette, Appetit und Stressessen."
+    ],
+    [
+     "GC",
+     "GT (heterozygot)",
+     "Beeinflusst den Transport von Vitamin D im Blut."
+    ],
+    [
+     "ACE",
+     "GG (homozygot)",
+     "Teil des Bradykinin-Aldosteron-Systems; beeinflusst Ausdauer-/Kraftveranlagung und Salzsensitivität."
+    ],
+    [
+     "ACTN3",
+     "TT (Wildtyp)",
+     "Beeinflusst die Muskelfaser-Zusammensetzung (schnelle vs. langsame Fasern)."
+    ],
+    [
+     "AQPR",
+     "CC (Wildtyp)",
+     "Beeinflusst die Wassereinlagerung in der Haut."
+    ],
+    [
+     "NADPH",
+     "AG (heterozygot)",
+     "Trägt zur antioxidativen Kapazität der Zellen bei."
+    ],
+    [
+     "SOD2",
+     "AG (heterozygot)",
+     "Wichtiges antioxidatives Enzym, schützt Zellen vor oxidativem Stress."
+    ]
+   ],
+   "note": "21 Varianten. Die Auswertungen auf Seite 04 entstehen jeweils aus mehreren dieser Gene gemeinsam; ein einzelner Genotyp lässt für sich genommen keine Aussage zu."
+  },
+  {
+   "type": "summary",
+   "caption": "Zusammenfassung",
+   "title": "Ihre drei Schwerpunkte.",
+   "lead": "Aus 21 Genen und vier epigenetischen Markern ergeben sich drei Bereiche, in denen sich Aufwand und Wirkung bei Ihnen am deutlichsten treffen.",
+   "focuses": [
+    {
+     "num": "01",
+     "title": "Methylierungsstoffwechsel — Folat, B-Vitamine, Zink",
+     "text": "Drei Werte zeigen in dieselbe Richtung: LINE-1 2/9 (epigenetisch), miR-21 3/9 (epigenetisch) und Folat/MTHFR 2/9 (genetisch). Das ist kein Zufall — alle drei hängen am selben Stoffwechselweg. Hier liegt der größte Hebel dieses Befunds, und es ist zugleich der einzige Bereich, dessen Wirkung sich in einer Kontrollmessung nachweisen lässt. Konkret: täglich grünes Blattgemüse und Hülsenfrüchte, B2/B6/B12 über Eier, Käse und fermentierte Lebensmittel, Zink über Kürbiskerne, Haferflocken und Linsen. Aktives Folat (5-MTHF) für zwei Monate nach ärztlicher Abstimmung."
+    },
+    {
+     "num": "02",
+     "title": "Fettqualität — EPA und DHA direkt",
+     "text": "Blutfette 2/9 und Omega-3-Versorgung 2/9. Ihre FADS1-Ausprägung macht pflanzliche Omega-3-Quellen allein unzureichend: Leinöl und Walnüsse werden nur teilweise umgewandelt. Zweimal wöchentlich fetter Seefisch oder täglich Algenöl umgeht diesen Engpass direkt. Gleichzeitig Omega-6-reiche Öle sparsam einsetzen."
+    },
+    {
+     "num": "03",
+     "title": "Blutzuckerqualität statt Kalorienmenge",
+     "text": "Diabetes-Risiko 3/9 bei gleichzeitig günstigem Adipositas-Wert (7/9). Für Sie zählt weniger die Menge als die Qualität der Kohlenhydrate: niedriger glykämischer Index zu jeder Hauptmahlzeit, 20–30 g Protein pro Mahlzeit und ein kurzer Spaziergang nach dem Essen. Da Sport allein bei Ihnen (FTO 2/9) langsamer wirkt, ist diese Kombination der wirksamere Weg."
+    }
+   ],
+   "controlTitle": "Kontrolle und nächster Schritt",
+   "controlItems": [
+    "Eine Kontrollmessung der vier epigenetischen Marker ist frühestens nach 4 bis 6 Monaten sinnvoll — vorher sind Veränderungen nicht belastbar messbar.",
+    "Die genetischen Auswertungen bleiben unverändert und müssen nie wiederholt werden.",
+    "Ein Verlaufsvergleich der Messpunkte wird ab der zweiten Messung ausgewiesen."
+   ]
+  },
+  {
+   "type": "contact",
+   "title": "Fragen zu Ihrem Befund?",
+   "text": "Besprechen Sie die Ergebnisse mit der Einrichtung, die die Probenahme durchgeführt hat. Dort liegt der klinische Kontext vor, der für die Einordnung nötig ist.",
+   "columns": [
+    {
+     "k": "Kontakt",
+     "lines": [
+      "contact@polarisdx.net",
+      "+49 152 2858 0999",
+      "www.polarisdx.net"
+     ]
+    },
+    {
+     "k": "Vertrieb",
+     "lines": [
+      "Polaris Diagnostics Europe GmbH",
+      "Große Bleichen 1–3",
+      "20354 Hamburg"
+     ]
+    }
+   ],
+   "legal": [
+    {
+     "title": "Musterbefund",
+     "text": "Sämtliche Werte, Genotypen und Angaben zur Person in diesem Dokument sind frei erfunden und dienen ausschließlich der Darstellung des Berichtsformats. Es handelt sich nicht um einen realen Befund."
+    },
+    {
+     "title": "Einordnung",
+     "text": "Dieser Bericht ist keine Diagnose und ersetzt keine ärztliche Beratung. Genetische Auswertungen beschreiben Veranlagungen, keine Erkrankungen; epigenetische Marker beschreiben einen Momentzustand. Beides ist im individuellen klinischen Kontext durch qualifiziertes Fachpersonal zu bewerten."
+    },
+    {
+     "title": "Rechtlicher Rahmen",
+     "text": "Genetische Untersuchungen unterliegen dem Gendiagnostikgesetz (GenDG); Aufklärung und schriftliche Einwilligung sind vor der Probenahme erforderlich. Die Laboranalytik erfolgt durch unseren Kooperationspartner. Polaris Diagnostics Europe GmbH verantwortet Vertrieb und Betreuung."
+    }
+   ],
+   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand: August 2026"
+  }
+ ]
+}

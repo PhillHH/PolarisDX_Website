@@ -62,6 +62,18 @@ export default {
         // Success / health semantic group — kept SEPARATE from accent because
         // emerald tones in S3-Leitlinie and Vitamin D3-Implantologie carry a
         // success / health meaning, not the brand-accent meaning.
+        // -------------------------------------------------------------------
+        // BEFUND-AMPEL — nur auf den Musterbefund-Seiten.
+        // Aus den Quell-PDFs gemessen, damit Web- und PDF-Fassung dieselbe
+        // Bildsprache haben. `ink` traegt alle bedeutungstragenden Grafiken
+        // und Beschriftungen (AA auf `soft`), `soft` die Flaechen, `DEFAULT`
+        // grosse dekorative Fuellungen wie das Netzdiagramm.
+        // -------------------------------------------------------------------
+        befund: {
+          red: { DEFAULT: '#c8553d', soft: '#fcf5f4', ink: '#bb4c35' },
+          amber: { DEFAULT: '#d69b2e', soft: '#fcf9f2', ink: '#946a1d' },
+          green: { DEFAULT: '#3e8e6b', soft: '#f1f9f5', ink: '#377d5e' },
+        },
         success: {
           DEFAULT: '#10b981', // emerald-500
           soft: '#ecfdf5', // emerald-50

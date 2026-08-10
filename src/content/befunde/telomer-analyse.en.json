@@ -1,0 +1,384 @@
+{
+ "blocks": [
+  {
+   "type": "cover",
+   "badge": "Sample report · Example data",
+   "panel": "Telomere Analysis",
+   "subtitle": "Your cellular reserve",
+   "claim": "Telomeres are the protective caps at the ends of your chromosomes. Their length is regarded as a marker of cumulative cellular strain and regenerative capacity — measured from a drop of capillary blood.",
+   "meta": [
+    {
+     "k": "Report for",
+     "v": "Muster, Erika"
+    },
+    {
+     "k": "Sample collection",
+     "v": "15.06.2026"
+    },
+    {
+     "k": "Material",
+     "v": "Dried blood spot card"
+    },
+    {
+     "k": "Method",
+     "v": "qPCR, relative"
+    }
+   ],
+   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net"
+  },
+  {
+   "type": "principle",
+   "caption": "The principle",
+   "title": "Your telomeres. Your cellular reserve.",
+   "lead": "Telomeres stabilise the DNA at every cell division and prevent the loss of genetic information. With each division they become a little shorter. If they fall below a critical length, cells lose their ability to divide or enter senescence — a central driver of biological ageing.",
+   "cards": [
+    {
+     "title": "Protection",
+     "text": "How stably your DNA is protected and how efficiently repair mechanisms work."
+    },
+    {
+     "title": "Regeneration",
+     "text": "How much division reserve your cells retain and how resilient your tissue remains."
+    },
+    {
+     "title": "Context",
+     "text": "How your telomere length compares with an age- and sex-matched reference group."
+    }
+   ],
+   "flowTitle": "The process",
+   "flow": [
+    {
+     "num": "01",
+     "title": "Measure",
+     "text": "Dried blood spot card, fingertip. Telomere length as a relative quantification by qPCR. No fasting required."
+    },
+    {
+     "num": "02",
+     "title": "Contextualise",
+     "text": "Comparison with an age- and sex-matched reference group. 112 kbp corresponds to the reference value (100 %)."
+    },
+    {
+     "num": "03",
+     "title": "Change",
+     "text": "Telomeres cannot be lengthened in isolation. What matters is slowing the processes that accelerate their shortening."
+    }
+   ]
+  },
+  {
+   "type": "callout",
+   "title": "How robust is this value?",
+   "text": "Telomere length measurement by qPCR varies considerably — between individual runs and between laboratories. DNA extraction, storage and the composition of the blood cells systematically influence the result. From dried blood this variation is higher than from venous blood. For diagnostic questions, flow-FISH is regarded as the superior method.",
+   "items": [
+    "What this means in practice: a deviation of a few per cent from the reference value is of the same order of magnitude as the measurement variation and is not meaningful in itself. The analysis only becomes robust across several measurements taken under the same conditions — same laboratory, same material, comparable sample collection.",
+    "Telomere length is a marker of cumulative cellular strain. It is not a diagnosis, not a statement about life expectancy and not a measure of individual disease risk."
+   ],
+   "tone": "accent"
+  },
+  {
+   "type": "bigResult",
+   "caption": "Your result",
+   "title": "Your telomere length.",
+   "lead": "Telomere length · cellular stability. Relative quantification against the reference value of 112 kbp (= 100 %).",
+   "display": "108 kbp",
+   "sub": "96 % of the reference",
+   "kind": "percent",
+   "value": 96,
+   "ticks": [
+    "70 %",
+    "85 %",
+    "100 %",
+    "115 %",
+    "130 %"
+   ],
+   "tone": "amber",
+   "text": "Your telomere length is 4 % below the value expected for your age. This gives a telomere-based biological age of 53 years, five years above your chronological age. For context: a deviation of 4 % is of the same order of magnitude as the variation that qPCR measurements from dried blood show between runs. The value should therefore be read as a starting point for the trend, not as a precise single determination."
+  },
+  {
+   "type": "ageDots",
+   "caption": "Biological versus chronological",
+   "title": "Telomere age",
+   "chronological": 48,
+   "min": 35,
+   "max": 60,
+   "unit": "years",
+   "ticks": [
+    "35",
+    "40",
+    "45",
+    "50",
+    "55",
+    "60"
+   ],
+   "note": "48 yrs (chronological age)",
+   "items": [
+    {
+     "label": "Telomere age",
+     "age": 53,
+     "delta": "+5",
+     "display": "53 yrs · +5 years",
+     "tone": "red"
+    }
+   ]
+  },
+  {
+   "type": "radar",
+   "caption": "Where you stand",
+   "title": "Diet and lifestyle habits.",
+   "lead": "The radar shows how close your current habits are to the reference values. The further out a factor lies, the more favourable — 10 is optimal.",
+   "axes": [
+    "Everyday activity",
+    "Exercise",
+    "Stress",
+    "Tobacco",
+    "Alcohol",
+    "Snacks",
+    "Meat",
+    "Omega-3",
+    "Fibre",
+    "Fruit/vegetables",
+    "Fluid intake"
+   ],
+   "seriesLabels": {
+    "profile": "Your profile",
+    "reference": "Reference group"
+   },
+   "scores": [
+    {
+     "value": "72 / 100",
+     "label": "Diet",
+     "text": "Good nutrient combination, room for improvement in the details.",
+     "ref": "Reference: ≥ 60"
+    },
+    {
+     "value": "65 / 100",
+     "label": "Lifestyle",
+     "text": "Balanced, with room for more exercise and stress reduction.",
+     "ref": "Reference: ≥ 60"
+    }
+   ],
+   "noticeTitle": "Relation to telomere length",
+   "notices": [
+    "Not smoking (tobacco 9 out of 10) is the factor with the strongest documented relation to telomere length — and in your case already well above average.",
+    "Stress (4 out of 10) is your weakest lifestyle factor and the area with the greatest scope for improvement.",
+    "Exercise (7) and everyday activity (6) have room to grow; regular physical activity is among the measures with a documented relation to telomere biology."
+   ],
+   "note": "Assessment based on your own self-reported information, not an individual diagnosis. The relationships mentioned are group findings from the literature, not a prediction for the individual case."
+  },
+  {
+   "type": "table",
+   "caption": "All recommendations at a glance",
+   "title": "Your interventions.",
+   "lead": "Telomeres cannot be lengthened deliberately. All measures aim to slow the processes that accelerate their shortening — oxidative strain and impaired methylation.",
+   "cols": [
+    "Measure",
+    "Source",
+    "Amount",
+    "Note"
+   ],
+   "rows": [
+    [
+     "Lifestyle",
+     "Do not smoke, moderate alcohol consumption, regular exercise",
+     "150 min/week",
+     "Greatest demonstrable influencing factor on telomere length"
+    ],
+    [
+     "Folate",
+     "Green leafy vegetables, spinach, kale, tomato, pulses, sprouts",
+     "2 portions/day",
+     "Raw or briefly steamed — heat-sensitive. If required, 2 months as methylfolate (5-MTHF)"
+    ],
+    [
+     "Riboflavin (B2)",
+     "Seedlings, sprouts, cheese",
+     "daily",
+     "Cofactor of methylation"
+    ],
+    [
+     "Cobalamin (B12)",
+     "Egg, cheese, fermented foods",
+     "4 µg/day",
+     "Supplement specifically in the case of a vegan diet"
+    ],
+    [
+     "Pyridoxine (B6)",
+     "Cabbage, green beans, lentils, bananas, wheat germ",
+     "1.5–2.0 mg/day",
+     "Important for amino acid metabolism"
+    ],
+    [
+     "Methionine",
+     "Brazil nuts, sesame, soya, peas, green leafy vegetables",
+     "2–3 Brazil nuts/day",
+     "Because of the selenium content, no more than 3–4 nuts per day"
+    ],
+    [
+     "EGCG (green tea)",
+     "Green tea, matcha, sencha",
+     "300–400 mg/day (3–4 cups)",
+     "Antioxidant; do not drink directly with iron-rich meals"
+    ],
+    [
+     "Fibre",
+     "Wholegrain, vegetables, pulses, seeds (and seed husks)",
+     "at least 30 g/day",
+     "Stabilises blood sugar, lowers oxidative strain"
+    ]
+   ],
+   "note": "Five of these eight measures — folate, B2, B12, B6 and methionine — act via the same metabolic pathway: methylation. Please review food supplements individually and in consultation with a specialist; this overview does not replace medical advice."
+  },
+  {
+   "type": "trend",
+   "caption": "Trend",
+   "title": "The actual finding.",
+   "lead": "Because a single value does not reliably overcome the variation of the method, the informative value lies in the trend. Only measured values are shown — no prognosis.",
+   "firstLabel": "15.03.2026",
+   "secondLabel": "15.06.2026",
+   "cols": [
+    "Analysis",
+    "15.03.2026",
+    "15.06.2026",
+    "Change",
+    "Deviation today"
+   ],
+   "items": [
+    {
+     "label": "Telomere age",
+     "first": 55,
+     "second": 53,
+     "firstDisplay": "55 years",
+     "secondDisplay": "53 years",
+     "delta": "−2 years",
+     "deviation": "+5 vs chronological age",
+     "tone": "green"
+    }
+   ],
+   "kind": "years",
+   "unit": "years"
+  },
+  {
+   "type": "callout",
+   "title": "What the trend shows",
+   "text": "The telomere-based age has fallen by two years between the two measurements, from 55 to 53 — while the chronological age rose by three months at the same time. The direction is right.",
+   "items": [
+    "At the same time: telomeres do not lengthen appreciably. An improvement of this magnitude is therefore more likely attributable to measurement variation than to actual lengthening. Only a direction that stays the same across several measurements permits a conclusion.",
+    "Roughly three months lay between the two measurements. The interval to the next check is set by the supervising institution. For comparability, the laboratory, sample material and sample collection should remain the same."
+   ],
+   "tone": "accent"
+  },
+  {
+   "type": "summary",
+   "caption": "Summary",
+   "title": "Two levers, and one is the bigger one.",
+   "lead": "Eight measures appear in this report. They differ considerably in the strength of the evidence behind them — that should determine the order in which you tackle them.",
+   "focuses": [
+    {
+     "num": "01",
+     "title": "Lifestyle — the factor with the strongest evidence",
+     "text": "According to your report, not smoking, moderate alcohol consumption and regular exercise are the greatest demonstrable influencing factor on telomere length. Two of these are already well established in your case: tobacco stands at 9 out of 10 on the radar, alcohol at 6. Specifically: the lever lies in physical activity — exercise 7 out of 10, everyday activity 6 out of 10. At least 150 minutes per week."
+    },
+    {
+     "num": "02",
+     "title": "Methylation nutrients",
+     "text": "Five of the eight measures — folate, B2, B12, B6 and methionine — act via the same metabolic pathway. In practice this means: two portions of green leafy vegetables daily (raw or briefly steamed, because folate is heat-sensitive), eggs or cheese for B12, 2–3 Brazil nuts. Plus 3–4 cups of green tea and at least 30 g of fibre."
+    }
+   ],
+   "keepTitle": "What is already working",
+   "keepText": "Not smoking (9/10), fruit and vegetables (8/10) and fluid intake (8/10) are well above the reference group, and the diet score of 72/100 is solid. And the trend points in the right direction.",
+   "controlTitle": "Staying realistic",
+   "controlItems": [
+    "Telomeres cannot be deliberately lengthened through diet or lifestyle. All measures aim to slow the shortening. Whether this is reflected in your personal value can, given the measurement variation, only be judged across several measurements — not from the next single figure."
+   ]
+  },
+  {
+   "type": "science",
+   "caption": "What is established — and what is not",
+   "title": "Scientific context.",
+   "lead": "We set out the limits of this analysis openly, because an honest interpretation is worth more than an impressive number.",
+   "cols": [
+    "Point",
+    "Context"
+   ],
+   "items": [
+    {
+     "title": "Measurement method",
+     "text": "Relative quantification by qPCR"
+    },
+    {
+     "title": "Variation",
+     "text": "Considerable — between runs and between laboratories"
+    },
+    {
+     "title": "Influencing factors",
+     "text": "DNA extraction, storage and cell composition have a systematic effect"
+    },
+    {
+     "title": "Sample material",
+     "text": "Higher variation from dried blood than from venous blood"
+    },
+    {
+     "title": "For diagnostic questions",
+     "text": "Flow-FISH is regarded as the superior method"
+    },
+    {
+     "title": "What the analysis is suited for",
+     "text": "As a counselling and trend tool: it puts cellular strain on the agenda, creates a concrete occasion to act and, through repeated measurements under the same conditions, provides a trend line."
+    },
+    {
+     "title": "What it is not suited for",
+     "text": "As diagnostics, as a statement about life expectancy or individual disease risk — and as a precise single determination, as long as the deviation is of the same order of magnitude as the measurement variation."
+    }
+   ],
+   "note": "Sources on methodology: Lin et al., PMC6363640 (qPCR telomere measurement, critical factors); Olivieri et al., Mech Ageing Dev 2012. This document does not replace a medical assessment and does not constitute any promise of cure within the meaning of the German Therapeutic Products Advertising Act (Heilmittelwerbegesetz)."
+  },
+  {
+   "type": "callout",
+   "title": "The underlying principle",
+   "text": "The trend carries weight, the single value does not. An initial and a follow-up measurement under the same conditions are the actual benefit of this analysis.",
+   "items": [
+    "For comparability, the laboratory, sample material and sample collection must remain the same — changing the laboratory means two values are no longer comparable."
+   ],
+   "tone": "neutral"
+  },
+  {
+   "type": "contact",
+   "title": "Questions about your report?",
+   "text": "Discuss the results with the institution that carried out the sample collection. That is where the context needed for interpretation is available.",
+   "columns": [
+    {
+     "k": "Contact",
+     "lines": [
+      "contact@polarisdx.net",
+      "+49 152 2858 0999",
+      "www.polarisdx.net"
+     ]
+    },
+    {
+     "k": "Distribution",
+     "lines": [
+      "Polaris Diagnostics Europe GmbH",
+      "Große Bleichen 1–3",
+      "20354 Hamburg"
+     ]
+    }
+   ],
+   "legal": [
+    {
+     "title": "Sample report",
+     "text": "All values and personal details in this document are fictitious and serve solely to illustrate the report format. This is not a real report."
+    },
+    {
+     "title": "Interpretation",
+     "text": "Telomere length is determined by qPCR as a relative value. This method varies considerably between runs and between laboratories; from dried blood the variation is higher than from venous blood. The report is not a diagnosis, not a statement about life expectancy and not a measure of individual disease risk. Informative value only emerges across several measurements under the same conditions."
+    },
+    {
+     "title": "Legal framework",
+     "text": "The laboratory analysis is performed by our cooperation partner. Polaris Diagnostics Europe GmbH is responsible for distribution and support. Please review food supplements individually and in consultation with a specialist. This document does not constitute any promise of cure within the meaning of the German Therapeutic Products Advertising Act (Heilmittelwerbegesetz)."
+    }
+   ],
+   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · As at: August 2026"
+  }
+ ],
+ "panel": "Telomere Analysis",
+ "slug": "telomer-analyse"
+}

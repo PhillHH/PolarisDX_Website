@@ -1,0 +1,427 @@
+{
+ "slug": "biologische-altersuhr",
+ "panel": "Biologische Altersuhr",
+ "blocks": [
+  {
+   "type": "cover",
+   "badge": "Musterbefund · Beispieldaten",
+   "panel": "Biologische Altersuhr",
+   "subtitle": "microRNA-basiert",
+   "claim": "Drei zirkulierende microRNAs — miR-21, miR-24 und miR-155 — bilden Entzündung, Zellalterung und Stoffwechsel ab. Aus ihrem Zusammenspiel wird ein biologisches Alter berechnet und dem chronologischen gegenübergestellt.",
+   "meta": [
+    {
+     "k": "Befund für",
+     "v": "Muster, Erika"
+    },
+    {
+     "k": "Probenahme",
+     "v": "15.06.2026"
+    },
+    {
+     "k": "Material",
+     "v": "Trockenblutkarte"
+    },
+    {
+     "k": "Umfang",
+     "v": "3 microRNAs"
+    }
+   ],
+   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net"
+  },
+  {
+   "type": "principle",
+   "caption": "Das Prinzip",
+   "title": "Nicht nur, wie alt Sie sind. Sondern wie schnell Sie altern.",
+   "lead": "microRNAs sind kleine RNA-Moleküle, die regulieren, wie stark einzelne Gene abgelesen werden. Drei von ihnen — miR-21, miR-24 und miR-155 — stehen für Entzündung, Zellalterung und Stoffwechsel. Aus ihrem Zusammenspiel berechnet ein Regressionsmodell ein biologisches Alter und stellt es dem Kalenderalter gegenüber. Weil microRNAs dynamisch reagieren, können sich Veränderungen vergleichsweise rasch abbilden.",
+   "cards": [
+    {
+     "title": "Drei Signale",
+     "text": "miR-21 (Entzündung), miR-24 (Seneszenz und Reparatur) und miR-155 (Immunbalance und Stoffwechsel)."
+    },
+    {
+     "title": "Dynamisch",
+     "text": "microRNA-Werte verändern sich unter Ernährung, Bewegung, Schlaf, Stress und Rauchen."
+    },
+    {
+     "title": "Verlaufsorientiert",
+     "text": "Aussagekräftig ist die Entwicklung zwischen zwei Messungen unter gleichen Bedingungen — nicht der Einzelwert."
+    }
+   ],
+   "flowTitle": "Der Ablauf",
+   "flow": [
+    {
+     "num": "01",
+     "title": "Messen",
+     "text": "Trockenblutkarte, Fingerbeere. microRNA-Expression per qPCR, normalisiert gegen miR-93. Kein Nüchternstatus nötig."
+    },
+    {
+     "num": "02",
+     "title": "Einordnen",
+     "text": "Ein multivariates Regressionsmodell berechnet aus den drei Signalen das biologische Alter und die Abweichung zum Kalenderalter."
+    },
+    {
+     "num": "03",
+     "title": "Verändern",
+     "text": "Konkrete Ernährungs- und Lebensstil-Hebel je Signal, dazu die Verlaufskontrolle bei der Folgemessung."
+    }
+   ]
+  },
+  {
+   "type": "callout",
+   "title": "Wie belastbar ist dieser Wert?",
+   "text": "Das zugrunde liegende Modell ist als Pilotstudie publiziert (n = 539). Es erklärt rund 5 % der Altersvarianz, der mittlere absolute Fehler liegt bei 10,4 Jahren, und zwei der drei microRNAs korrelierten in dieser Arbeit nicht signifikant mit dem Lebensalter. Die Autoren fordern selbst eine Validierung vor klinischer Anwendung.",
+   "items": [
+    "Was das praktisch heißt: Das ausgewiesene biologische Alter ist keine Altersbestimmung und keine Aussage über Lebenserwartung oder Krankheitsrisiko. Aussagekräftig ist die Veränderung zwischen zwei Messungen unter gleichen Bedingungen — deshalb steht der Verlauf in diesem Befund im Mittelpunkt und nicht die einzelne Zahl.",
+    "Ein Vergleich mit methylierungsbasierten Altersuhren ist nicht zulässig: andere Methodik, andere Datenlage. Quelle: Schneider J. et al., miRNA-3Age, Frontiers in Nutrition 2025, doi:10.3389/fnut.2025.1659730."
+   ],
+   "tone": "neutral"
+  },
+  {
+   "type": "bigResult",
+   "caption": "Ihr Ergebnis",
+   "title": "Ihre biologische Altersuhr.",
+   "display": "+4 Jahre",
+   "sub": "Abweichung vom Kalenderalter",
+   "kind": "deviation",
+   "value": 4,
+   "unit": "Jahre",
+   "ticks": [
+    "+20 J.",
+    "+10",
+    "0",
+    "−10",
+    "−20 J."
+   ],
+   "tone": "green",
+   "text": "Aus der kombinierten Auswertung von miR-21, miR-24 und miR-155. Kalenderalter 48 Jahre. Ihr biologisches Alter liegt bei 52 Jahren, vier Jahre über dem Kalenderalter. Der Bereich von −5 bis +5 Jahren gilt als altersentsprechend — Ihr Wert liegt damit innerhalb dieses Bereichs. Zur Einordnung: Das Referenzband von ±5 Jahren ist enger als der mittlere Fehler des Modells von 10,4 Jahren. Eine Abweichung dieser Größenordnung ist deshalb nicht von der Modellstreuung zu unterscheiden."
+  },
+  {
+   "type": "ageDots",
+   "caption": "Biologisch gegen chronologisch",
+   "title": "Biologisches Alter",
+   "lead": "Kalenderalter 48 Jahre.",
+   "chronological": 48,
+   "min": 35,
+   "max": 60,
+   "unit": "Jahre",
+   "items": [
+    {
+     "label": "Biologisches Alter",
+     "age": 52,
+     "delta": "+4",
+     "tone": "green"
+    }
+   ]
+  },
+  {
+   "type": "callout",
+   "title": "Standortbestimmung",
+   "text": "Zwei Scores aus Ihrer Selbstauskunft, jeweils mit der Referenz verglichen.",
+   "items": [
+    "72 / 100 · Ernährung — Gute Nährstoffkombination mit Verbesserungspotenzial in Details. Referenz: ≥ 60.",
+    "65 / 100 · Lebensstil — Ausgewogen, mit Raum für mehr Bewegung und Stressreduktion. Referenz: ≥ 60."
+   ],
+   "tone": "neutral"
+  },
+  {
+   "type": "markers",
+   "caption": "Grundlage der Berechnung",
+   "title": "Die drei microRNAs.",
+   "lead": "Die Einzelsignale auf der Skala 1–9, höher ist besser. Erst ihr Zusammenspiel ergibt die Altersuhr — ein einzelnes Signal lässt für sich genommen keine Aussage zu.",
+   "items": [
+    {
+     "name": "miR-21",
+     "category": "Entzündung und Gewebeumbau",
+     "intro": "Leit-microRNA des „Inflammaging“. Steigt bei chronischer, niedriggradiger Entzündung und ist eng mit Seneszenz und Fibrose verknüpft.",
+     "kind": "traffic",
+     "value": 3,
+     "display": "3 / 9",
+     "sub": "Außerhalb",
+     "tone": "red",
+     "text": "Das schwächste Ihrer drei Signale. Alle acht Empfehlungen in diesem Befund adressieren den Signalweg von miR-21."
+    },
+    {
+     "name": "miR-155",
+     "category": "Immunbalance und Stoffwechsel",
+     "intro": "Zentraler Schalter der Immunantwort. Erhöhte Werte begleiten metabolischen Stress und eine überaktive Entzündungsregulation.",
+     "kind": "traffic",
+     "value": 4,
+     "display": "4 / 9",
+     "sub": "Mittlerer Bereich",
+     "tone": "amber",
+     "text": "Im unteren Mittelfeld. Zusammen mit miR-21 zeigt dieses Signal in dieselbe Richtung: Entzündungs- und Immunregulation sind die Achse dieses Befunds."
+    },
+    {
+     "name": "miR-24",
+     "category": "Zellzyklus und Seneszenz",
+     "intro": "Reguliert Zellteilung, DNA-Reparatur und Apoptose. Spiegelt Reparaturkapazität und Seneszenz-Niveau der Zellen wider.",
+     "kind": "traffic",
+     "value": 5,
+     "display": "5 / 9",
+     "sub": "Mittlerer Bereich",
+     "tone": "amber",
+     "text": "Das stärkste Ihrer drei Signale — genau in der Mitte der Skala. Reparaturkapazität und Seneszenz-Niveau sind unauffällig."
+    }
+   ],
+   "note": "In der Publikation zum Modell korrelierten zwei der drei microRNAs nicht signifikant mit dem Lebensalter. Die Einzelsignale sind deshalb als Ansatzpunkte für Interventionen zu lesen, nicht als eigenständige Altersmarker."
+  },
+  {
+   "type": "radar",
+   "caption": "Standortbestimmung",
+   "title": "Ernährung und Lebensgewohnheiten.",
+   "lead": "Das Radar zeigt, wie nah Ihre aktuellen Gewohnheiten an den Referenzwerten liegen. Je weiter außen ein Faktor liegt, desto günstiger — optimal ist 10.",
+   "axes": [
+    "Alltagsbewegung",
+    "Sport",
+    "Stress",
+    "Tabak",
+    "Alkohol",
+    "Snacks",
+    "Fleisch",
+    "Omega-3",
+    "Ballaststoffe",
+    "Obst/Gemüse",
+    "Flüssigkeit"
+   ],
+   "seriesLabels": {
+    "profile": "Ihr Profil",
+    "reference": "Referenzgruppe"
+   },
+   "scores": [
+    {
+     "value": "72 / 100",
+     "label": "Ernährung",
+     "text": "Gute Nährstoffkombination, Verbesserungspotenzial in Details.",
+     "ref": "Referenz: ≥ 60"
+    },
+    {
+     "value": "65 / 100",
+     "label": "Lebensstil",
+     "text": "Ausgewogen, mit Raum für mehr Bewegung und Stressreduktion.",
+     "ref": "Referenz: ≥ 60"
+    }
+   ],
+   "noticeTitle": "Bezug zur Altersuhr",
+   "notices": [
+    "Stress (4 von 10) ist Ihr schwächster Lebensstilfaktor. In der Modellstudie gehörten Stress und Rauchen zu den Faktoren, die mit einem höheren miRNA-Alter einhergingen.",
+    "Tabak (9 von 10) ist dagegen deutlich überdurchschnittlich — der zweite der beiden im Modell ungünstigen Faktoren trifft bei Ihnen also nicht zu.",
+    "Omega-3 (6) und Sport (7) sind ausbaufähig; beide gehören zu den Hebeln, die in der Studie mit einem niedrigeren miRNA-Alter einhergingen."
+   ],
+   "note": "Standortbestimmung auf Basis Ihrer Selbstauskunft, keine individuelle Diagnose. Die genannten Zusammenhänge stammen aus der Modellstudie und sind Gruppenbefunde, keine Vorhersage für den Einzelfall."
+  },
+  {
+   "type": "table",
+   "caption": "Alle Empfehlungen auf einen Blick",
+   "title": "Ihre Interventionen.",
+   "lead": "Acht Hebel, jeweils den microRNA-Signalen zugeordnet, auf die sie wirken, mit deren aktuellem Wert. Sortiert nach Dringlichkeit — das schwächste Signal zuerst.",
+   "cols": [
+    "Hebel",
+    "Wirkt auf",
+    "Quelle",
+    "Menge",
+    "Hinweis"
+   ],
+   "rows": [
+    [
+     "Resveratrol",
+     "miR-21 · 3",
+     "Traubenschalen, Heidelbeeren, Erdnüsse",
+     "150–500 mg/Tag",
+     "Aktiviert Sirtuine, hemmt NF-κB"
+    ],
+    [
+     "Omega-3-Fettsäuren",
+     "miR-21 · 3, miR-155 · 4",
+     "Lachs, Makrele, Hering, Leinsamen; alternativ Algenöl",
+     "2×/Woche, 150–200 g",
+     "Entzündungshemmend; im Modell mit jüngerem miRNA-Alter assoziiert"
+    ],
+    [
+     "EGCG (Grüner Tee)",
+     "miR-21 · 3, miR-155 · 4",
+     "Grüner Tee, Matcha, Sencha",
+     "300–400 mg/Tag (3–4 Tassen)",
+     "Antioxidativ; günstiger Lebensstilfaktor im Modell"
+    ],
+    [
+     "Curcumin",
+     "miR-21 · 3, miR-155 · 4",
+     "Kurkuma, mit schwarzem Pfeffer",
+     "1 TL täglich",
+     "Piperin erhöht die Aufnahme deutlich"
+    ],
+    [
+     "Sulforaphan",
+     "miR-21 · 3, miR-155 · 4",
+     "Brokkoli(-sprossen), Blumenkohl, Rosenkohl, Kresse",
+     "25 mg/Tag (ca. 250 g)",
+     "3–4 Min. bei 80 °C erhitzen erhöht die Bioverfügbarkeit"
+    ],
+    [
+     "Schlaf und Stress",
+     "miR-21 · 3, miR-155 · 4",
+     "Erholsamer Schlaf, Stressregulation, Nichtrauchen",
+     "täglich",
+     "Stress und Rauchen gingen im Modell mit höherem miRNA-Alter einher"
+    ],
+    [
+     "Bewegung",
+     "miR-21 · 3, miR-155 · 4, miR-24 · 5",
+     "Ausdauer und Kraft kombiniert",
+     "≥ 150 Min./Woche",
+     "Regelmäßige Aktivität ging im Modell mit niedrigerem miRNA-Alter einher"
+    ],
+    [
+     "Quercetin",
+     "miR-21 · 3, miR-24 · 5",
+     "Zwiebel, Knoblauch, Kapern, Grünkohl",
+     "500–1.000 mg/Tag",
+     "Senolytisch; besser bioverfügbar mit Vitamin C"
+    ]
+   ],
+   "note": "Die Zuordnung „wirkt auf“ bezeichnet den Signalweg, auf den der jeweilige Hebel abzielt. Sie ist keine Zusage einer messbaren Veränderung im Einzelfall. Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen; diese Übersicht ersetzt keine ärztliche Beratung."
+  },
+  {
+   "type": "trend",
+   "caption": "Verlauf",
+   "title": "Der eigentliche Befund.",
+   "lead": "Weil der Einzelwert die Streuung des Modells nicht überwindet, liegt die Aussagekraft dieser Analyse im Verlauf. Dargestellt sind ausschließlich gemessene Werte — keine Prognose.",
+   "firstLabel": "15.03.2026",
+   "secondLabel": "15.06.2026",
+   "kind": "age",
+   "items": [
+    {
+     "label": "Biologisches Alter",
+     "first": 54,
+     "second": 52,
+     "firstDisplay": "54 Jahre",
+     "secondDisplay": "52 Jahre",
+     "delta": "−2 Jahre",
+     "sub": "+4 ggü. Kalenderalter",
+     "tone": "green"
+    }
+   ],
+   "note": "Auswertung: Erstmessung 15.03.2026, Kontrolle 15.06.2026, Veränderung −2 Jahre, Abweichung heute +4 gegenüber dem Kalenderalter."
+  },
+  {
+   "type": "callout",
+   "title": "Was der Verlauf zeigt",
+   "text": "Das biologische Alter ist zwischen den beiden Messungen um zwei Jahre gesunken, von 54 auf 52 — bei einem gleichzeitig um drei Monate gestiegenen Kalenderalter. Die Richtung stimmt.",
+   "items": [
+    "Gleichzeitig gilt: Eine Differenz von zwei Jahren liegt deutlich innerhalb der Modellstreuung von rund zehn Jahren. Ein einzelner Verlaufsschritt dieser Größe belegt noch keinen Effekt — erst eine über mehrere Messungen gleichbleibende Richtung tut das.",
+    "Zwischen den beiden Messungen lagen rund drei Monate. Den Abstand zur nächsten Kontrolle legt die betreuende Einrichtung fest; Probenahme und Tageszeit sollten vergleichbar bleiben."
+   ],
+   "tone": "accent"
+  },
+  {
+   "type": "summary",
+   "caption": "Zusammenfassung",
+   "title": "Ihr Schwerpunkt: die Entzündungsachse.",
+   "lead": "Zwei Ihrer drei Signale — miR-21 (3/9) und miR-155 (4/9) — beschreiben Entzündungs- und Immunregulation und liegen beide im unteren Bereich. miR-24, das Reparatur und Seneszenz abbildet, liegt mit 5/9 in der Mitte. Das ergibt ein klares Schwerpunktbild.",
+   "focuses": [
+    {
+     "num": "01",
+     "title": "Entzündungsarm essen",
+     "text": "Alle acht Hebel in diesem Befund wirken auf miR-21, sechs davon zusätzlich auf miR-155. Die Schnittmenge ist überschaubar und alltagstauglich. Konkret: zweimal wöchentlich fetter Seefisch oder täglich Algenöl, 3–4 Tassen grüner Tee, Kurkuma mit schwarzem Pfeffer, Brokkoli 3–4 Minuten bei 80 °C gegart, Beeren für Resveratrol."
+    },
+    {
+     "num": "02",
+     "title": "Stress und Bewegung",
+     "text": "Ihr Lebensstil-Radar zeigt Stress mit 4 von 10 als schwächsten Faktor, Sport mit 7 und Omega-3 mit 6 als ausbaufähig. In der Modellstudie gingen Stress und Rauchen mit einem höheren, regelmäßige Bewegung und Fisch mit einem niedrigeren miRNA-Alter einher. Bewegung ist der einzige Hebel, der auf alle drei Signale zugleich zielt: mindestens 150 Minuten pro Woche, Ausdauer und Kraft kombiniert."
+    }
+   ],
+   "keepTitle": "Was bereits trägt",
+   "keepText": "Nichtrauchen (Tabak 9/10), Obst und Gemüse (8/10) und die Flüssigkeitszufuhr (8/10) liegen deutlich über der Referenzgruppe. Auch der Ernährungsscore von 72/100 ist solide. Und der Verlauf zeigt in die richtige Richtung.",
+   "controlTitle": "Bitte im Blick behalten",
+   "controlItems": [
+    "Alle genannten Zusammenhänge zwischen Lebensstil und miRNA-Alter stammen aus der Modellstudie und sind Gruppenbefunde. Ob sich Ihr persönlicher Wert durch diese Maßnahmen verändert, zeigt allein Ihre nächste Messung.",
+    "Dieser Befund ist keine Diagnose und ersetzt keine ärztliche Beratung."
+   ]
+  },
+  {
+   "type": "science",
+   "caption": "Was belegt ist — und was nicht",
+   "title": "Wissenschaftliche Einordnung.",
+   "lead": "Wir legen die Grenzen dieser Analyse offen, weil eine ehrliche Einordnung mehr wert ist als eine beeindruckende Zahl.",
+   "items": [
+    {
+     "title": "Studientyp",
+     "text": "Pilotstudie, Validierung von den Autoren selbst gefordert"
+    },
+    {
+     "title": "Stichprobe",
+     "text": "n = 539"
+    },
+    {
+     "title": "Erklärte Altersvarianz",
+     "text": "rund 5 %"
+    },
+    {
+     "title": "Mittlerer absoluter Fehler",
+     "text": "10,4 Jahre"
+    },
+    {
+     "title": "Marker mit signifikanter Alterskorrelation",
+     "text": "1 von 3"
+    },
+    {
+     "title": "Wofür sich die Analyse eignet",
+     "text": "Als Beratungs- und Verlaufswerkzeug: Sie schafft einen konkreten Anlass, macht Lebensstilthemen greifbar und liefert über wiederholte Messungen unter gleichen Bedingungen eine Verlaufslinie."
+    },
+    {
+     "title": "Wofür sie sich nicht eignet",
+     "text": "Als Altersbestimmung, als Aussage über Lebenserwartung oder Krankheitsrisiko, als Diagnostik — und als Vergleichsgröße gegenüber methylierungsbasierten Altersuhren, die auf anderer Methodik und Datenlage beruhen.",
+     "source": "Schneider J. et al., miRNA-3Age: a microRNA-based biological age model and its modulation by lifestyle and nutrition. Frontiers in Nutrition (2025), doi:10.3389/fnut.2025.1659730"
+    }
+   ],
+   "note": "Diese Unterlage ersetzt keine ärztliche Beurteilung und begründet keine Heilversprechen im Sinne des Heilmittelwerbegesetzes."
+  },
+  {
+   "type": "callout",
+   "title": "Der Grundsatz",
+   "text": "Der Verlauf trägt, der Einzelwert nicht. Erst- und Folgemessung unter gleichen Bedingungen sind der eigentliche Nutzen dieser Analyse.",
+   "items": [
+    "Ein Einzelwert innerhalb von ±10 Jahren um das Kalenderalter ist von der Streuung des Modells nicht zu unterscheiden."
+   ],
+   "tone": "accent"
+  },
+  {
+   "type": "contact",
+   "title": "Fragen zu Ihrem Befund?",
+   "text": "Besprechen Sie die Ergebnisse mit der Einrichtung, die die Probenahme durchgeführt hat. Dort liegt der Kontext vor, der für die Einordnung nötig ist.",
+   "columns": [
+    {
+     "k": "Kontakt",
+     "lines": [
+      "contact@polarisdx.net",
+      "+49 152 2858 0999",
+      "www.polarisdx.net"
+     ]
+    },
+    {
+     "k": "Vertrieb",
+     "lines": [
+      "Polaris Diagnostics Europe GmbH",
+      "Große Bleichen 1–3",
+      "20354 Hamburg"
+     ]
+    }
+   ],
+   "legal": [
+    {
+     "title": "Musterbefund",
+     "text": "Sämtliche Werte und Angaben zur Person in diesem Dokument sind frei erfunden und dienen ausschließlich der Darstellung des Berichtsformats. Es handelt sich nicht um einen realen Befund."
+    },
+    {
+     "title": "Einordnung",
+     "text": "Das ausgewiesene biologische Alter ist ein Modellwert aus drei microRNA-Signalen. Das zugrunde liegende Modell ist als Pilotstudie publiziert; sein mittlerer absoluter Fehler liegt bei rund zehn Jahren. Der Wert ist keine Altersbestimmung, keine Diagnose und keine Aussage über Lebenserwartung oder Krankheitsrisiko. Aussagekraft entsteht erst im Verlauf mehrerer Messungen unter gleichen Bedingungen. Ein Vergleich mit methylierungsbasierten Altersuhren ist nicht zulässig."
+    },
+    {
+     "title": "Rechtlicher Rahmen",
+     "text": "Die Laboranalytik erfolgt durch unseren Kooperationspartner. Polaris Diagnostics Europe GmbH verantwortet Vertrieb und Betreuung. Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen. Diese Unterlage begründet keine Heilversprechen im Sinne des Heilmittelwerbegesetzes."
+    }
+   ],
+   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand: August 2026"
+  }
+ ]
+}

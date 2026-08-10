@@ -20,7 +20,7 @@
 
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Check, ChevronDown, Download, FileText, Minus } from 'lucide-react'
+import { ArrowRight, Check, ChevronDown, Download, FileText, Minus } from 'lucide-react'
 import { SEOHead, createBreadcrumbSchema, createFAQSchema } from '../components/seo'
 import type { FAQItem } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
@@ -370,13 +370,13 @@ const EpigeneticsPage = () => {
                         {t('analyses.pdfBtn')}
                       </a>
                       {samples[index] ? (
-                        <a
-                          href={`${ASSET_BASE}${samples[index].file}`}
+                        <Link
+                          to={`/epigenetics/musterbefund/${samples[index].slug}`}
                           className="inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-base font-semibold text-brand-primary underline-offset-4 transition-colors hover:text-brand-deep hover:underline sm:w-auto"
                         >
                           <FileText className="h-4 w-4" />
                           {t('analyses.sampleBtn')}
-                        </a>
+                        </Link>
                       ) : null}
                     </div>
                   </article>
@@ -550,13 +550,23 @@ const EpigeneticsPage = () => {
                         ))}
                       </ul>
 
-                      <div className="mt-auto pt-6">
+                      {/* Der Befund liegt vollstaendig als Seite vor; das PDF
+                          bleibt daneben als Mitnehm-Fassung. */}
+                      <div className="mt-auto space-y-3 pt-6">
+                        <Link
+                          to={`/epigenetics/musterbefund/${item.slug}`}
+                          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-primary px-5 py-3 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
+                        >
+                          {t('samples.btn')}
+                          <ArrowRight className="h-4 w-4" />
+                        </Link>
                         <a
                           href={`${ASSET_BASE}${item.file}`}
-                          className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary hover:bg-brand-primary hover:text-white"
+                          download
+                          className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-base font-medium text-brand-deep transition-colors hover:border-brand-primary"
                         >
-                          <FileText className="h-4 w-4" />
-                          {t('samples.btn')}
+                          <Download className="h-4 w-4" />
+                          {t('samples.pdfBtn')}
                         </a>
                       </div>
                     </div>
