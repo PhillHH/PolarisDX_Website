@@ -214,6 +214,12 @@ const SITEMAP_ROUTES: SitemapRoute[] = [
 
   // Partnerprogramm Epigenetik/Genetik
   { path: '/epigenetics', priority: 0.8, changefreq: 'monthly' },
+  { path: '/epigenetics/musterbefund/metabolic-health', priority: 0.6, changefreq: 'yearly' },
+  { path: '/epigenetics/musterbefund/healthy-aging', priority: 0.6, changefreq: 'yearly' },
+  { path: '/epigenetics/musterbefund/biologische-altersuhr', priority: 0.6, changefreq: 'yearly' },
+  { path: '/epigenetics/musterbefund/telomer-analyse', priority: 0.6, changefreq: 'yearly' },
+  { path: '/epigenetics/musterbefund/stress-monitor', priority: 0.6, changefreq: 'yearly' },
+  { path: '/epigenetics/musterbefund/healthy-sport', priority: 0.6, changefreq: 'yearly' },
 
   // Events & Resources
   { path: '/events', priority: 0.6, changefreq: 'weekly' },

@@ -1,0 +1,649 @@
+{
+ "slug": "healthy-aging",
+ "panel": "Healthy Aging",
+ "blocks": [
+  {
+   "type": "cover",
+   "badge": "Sample report · Example data",
+   "panel": "Healthy Aging",
+   "subtitle": "Your epigenetic clock",
+   "claim": "A few drops of blood show the state in which your cellular regulation is working — and which levers can be used to influence biological age.",
+   "meta": [
+    {
+     "k": "Report for",
+     "v": "Muster, Erika"
+    },
+    {
+     "k": "Sample collection",
+     "v": "15.06.2026"
+    },
+    {
+     "k": "Material",
+     "v": "Dried blood spot card"
+    },
+    {
+     "k": "Markers",
+     "v": "4 + lifestyle"
+    }
+   ],
+   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net"
+  },
+  {
+   "type": "principle",
+   "caption": "The principle",
+   "title": "How to read this report.",
+   "lead": "Your body renews itself every day: cells divide, repair DNA damage and respond to stress, nutrition, sleep and the environment. These processes leave traces in DNA methylation. From these patterns the report reads your biological age — not in calendar years, but in the state of your cellular regulation.",
+   "cards": [
+    {
+     "title": "Protection",
+     "text": "How stably your DNA is protected and how efficiently the repair mechanisms work. Markers: telomeres, LINE-1."
+    },
+    {
+     "title": "Regulation",
+     "text": "How controlled inflammatory processes remain and how resilient the cellular balance is. Marker: IL-6."
+    },
+    {
+     "title": "Interpretation",
+     "text": "How your values compare with a reference group matched for age, sex and ethnicity."
+    }
+   ],
+   "flowTitle": "The process",
+   "flow": [
+    {
+     "num": "01",
+     "title": "Measure",
+     "text": "Dried blood spot card, fingertip. Telomere length and methylation markers (LINE-1, IL-6, ageing markers). No fasting required."
+    },
+    {
+     "num": "02",
+     "title": "Interpret",
+     "text": "Comparison with the reference group. 100 % corresponds to the methylation value of the healthy control group."
+    },
+    {
+     "num": "03",
+     "title": "Change",
+     "text": "For every marker the matching intervention — what specifically to eat, to avoid or to change — plus follow-up monitoring."
+    }
+   ],
+   "scaleCaption": "Orientation",
+   "scaleTitle": "How do I read the scale?",
+   "scaleLead": "All markers are given as a percentage of the reference. 100 % is the normal range, and higher is better. Telomere length is additionally reported in kilobase pairs (kbp).",
+   "scaleKind": "percent",
+   "scaleTicks": [
+    "70 %",
+    "85 %",
+    "100 %",
+    "115 %",
+    "130 %"
+   ],
+   "scaleZones": [
+    {
+     "tone": "red",
+     "label": "Below 90 % · Red",
+     "text": "Urgent action needed."
+    },
+    {
+     "tone": "amber",
+     "label": "90–100 % · Amber",
+     "text": "Action needed, counteract in a targeted way."
+    },
+    {
+     "tone": "green",
+     "label": "From 100 % · Green",
+     "text": "No action needed, maintain the result."
+    }
+   ]
+  },
+  {
+   "type": "resultTable",
+   "caption": "Results at a glance",
+   "title": "All markers in overview.",
+   "cols": [
+    "Marker",
+    "Your value",
+    "Reference",
+    "Interpretation"
+   ],
+   "rows": [
+    {
+     "cells": [
+      "Telomeres · Cellular stability",
+      "108 kbp (96 %)",
+      "112 kbp = 100 %",
+      "Action needed"
+     ],
+     "tone": "amber"
+    },
+    {
+     "cells": [
+      "LINE-1 · DNA stability",
+      "96 %",
+      "≥ 100 %",
+      "Action needed"
+     ],
+     "tone": "amber"
+    },
+    {
+     "cells": [
+      "Epigenetic ageing markers · Biological age",
+      "103 %",
+      "≥ 100 %",
+      "Within the normal range"
+     ],
+     "tone": "green"
+    },
+    {
+     "cells": [
+      "IL-6 · Inflammation regulation",
+      "108 %",
+      "≥ 100 %",
+      "Within the normal range"
+     ],
+     "tone": "green"
+    },
+    {
+     "cells": [
+      "Nutrition · Baseline assessment",
+      "72 / 100",
+      "≥ 60",
+      "Within the normal range"
+     ],
+     "tone": "green"
+    },
+    {
+     "cells": [
+      "Lifestyle · Baseline assessment",
+      "65 / 100",
+      "≥ 60",
+      "Within the normal range"
+     ],
+     "tone": "green"
+    }
+   ]
+  },
+  {
+   "type": "ageDots",
+   "caption": "Biological age",
+   "title": "Marker-specific age in comparison",
+   "lead": "Chronological age: 48 years. Each marker yields its own biological age — an overall combined value is deliberately not calculated.",
+   "chronological": 48,
+   "min": 35,
+   "max": 60,
+   "unit": "years",
+   "ticks": [
+    "35",
+    "40",
+    "45",
+    "50",
+    "55",
+    "60"
+   ],
+   "chronologicalLabel": "48 yrs",
+   "note": "The dashed line marks the chronological age of 48 years. To the left of it: younger than chronological. To the right of it: older.",
+   "items": [
+    {
+     "label": "Telomeres",
+     "age": 53,
+     "delta": "+5",
+     "display": "53 yrs · +5",
+     "tone": "red"
+    },
+    {
+     "label": "LINE-1",
+     "age": 50,
+     "delta": "+2",
+     "display": "50 yrs · +2",
+     "tone": "amber"
+    },
+    {
+     "label": "IL-6",
+     "age": 46,
+     "delta": "−2",
+     "display": "46 yrs · −2",
+     "tone": "green"
+    },
+    {
+     "label": "Epigen. ageing markers",
+     "age": 45,
+     "delta": "−3",
+     "display": "45 yrs · −3",
+     "tone": "green"
+    }
+   ]
+  },
+  {
+   "type": "markers",
+   "caption": "Your markers",
+   "title": "Telomeres and ageing markers.",
+   "items": [
+    {
+     "name": "Telomeres",
+     "category": "Cellular stability",
+     "intro": "Protective structures at the ends of the chromosomes. If they shorten too much, cells lose their ability to divide — a central driver of biological ageing.",
+     "kind": "percent",
+     "value": 96,
+     "display": "96 %",
+     "sub": "108 kbp",
+     "ticks": [
+      "70 %",
+      "85 %",
+      "100 %",
+      "115 %",
+      "130 %"
+     ],
+     "tone": "amber",
+     "text": "Your telomere length is 4 % below the expected value for your age (108 instead of 112 kbp). This gives a biological telomere age of 53 years, five years above the chronological age. Together with LINE-1 this is the focus of this report; the assessment is always made in the context of the remaining markers.",
+     "table": {
+      "cols": [
+       "Active substance",
+       "Source",
+       "Amount",
+       "Note"
+      ],
+      "rows": [
+       [
+        "Folate",
+        "Spinach, kale, pulses, tomatoes, sprouts",
+        "2 handfuls of green vegetables daily",
+        "Raw or briefly steamed — heat-sensitive"
+       ],
+       [
+        "Vitamin B2 and B12",
+        "Eggs, cheese, fermented foods",
+        "1 portion daily",
+        "Vegan: supplement B12 specifically"
+       ],
+       [
+        "Methionine",
+        "Sesame, soya, peas, Brazil nuts",
+        "2–3 Brazil nuts/day",
+        "Because of the selenium, no more than 3–4 nuts"
+       ],
+       [
+        "EGCG",
+        "Green tea, matcha",
+        "3–4 cups/day",
+        "Not with iron-rich meals"
+       ]
+      ]
+     }
+    },
+    {
+     "name": "Epigenetic ageing markers",
+     "category": "Biological age",
+     "intro": "The methylation of strongly age-related genes, compared with a control group matched for age, sex and ethnicity.",
+     "kind": "percent",
+     "value": 103,
+     "display": "103 %",
+     "sub": "45 years",
+     "ticks": [
+      "70 %",
+      "85 %",
+      "100 %",
+      "115 %",
+      "130 %"
+     ],
+     "tone": "green",
+     "text": "Slightly above the expected range — a favourable epigenetic profile. The biological age derived from this is 45 years, three years below the chronological age.",
+     "table": {
+      "cols": [
+       "Active substance",
+       "Source",
+       "Amount",
+       "Note"
+      ],
+      "rows": [
+       [
+        "Coffee",
+        "Filter coffee, espresso",
+        "2–3 cups/day",
+        "Not after 2 p.m. — may disturb sleep"
+       ],
+       [
+        "Green leafy vegetables",
+        "Spinach, kale, chard",
+        "1 portion daily",
+        "Provides folate, supports methylation"
+       ],
+       [
+        "Cheese and dairy products",
+        "Hard and soft cheese, yoghurt",
+        "in moderation",
+        "Excessive consumption may reduce regulation"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "type": "markers",
+   "caption": "Your markers",
+   "title": "LINE-1 and IL-6.",
+   "items": [
+    {
+     "name": "LINE-1",
+     "category": "DNA stability",
+     "intro": "LINE-1 elements make up around 17 % of the genome. Their methylation is regarded as a marker of global DNA regulation and thus of overall genomic stability.",
+     "kind": "percent",
+     "value": 96,
+     "display": "96 %",
+     "sub": "50 years",
+     "ticks": [
+      "70 %",
+      "85 %",
+      "100 %",
+      "115 %",
+      "130 %"
+     ],
+     "tone": "amber",
+     "text": "Slightly reduced global DNA regulation, to be assessed within the overall profile. The derived biological age is 50 years. This marker depends on the same metabolic pathway as the telomeres — both respond to the same methyl donors.",
+     "table": {
+      "cols": [
+       "Active substance",
+       "Source",
+       "Amount",
+       "Note"
+      ],
+      "rows": [
+       [
+        "Methyl donors",
+        "Leafy vegetables, pulses, eggs, nuts, sesame, soya",
+        "daily in at least 2 meals",
+        "Take folate, B2, B6 and B12 together"
+       ],
+       [
+        "Fibre",
+        "Wholegrain products, vegetables, pulses",
+        "at least 30 g/day",
+        "Stabilises blood sugar, lowers oxidative burden"
+       ]
+      ]
+     }
+    },
+    {
+     "name": "IL-6",
+     "category": "Inflammation regulation",
+     "intro": "Interleukin-6 is a central messenger substance of inflammation regulation. What is assessed is the DNA methylation of IL-6-associated gene regions — not the acute blood level.",
+     "kind": "percent",
+     "value": 108,
+     "display": "108 %",
+     "sub": "46 years",
+     "ticks": [
+      "70 %",
+      "85 %",
+      "100 %",
+      "115 %",
+      "130 %"
+     ],
+     "tone": "green",
+     "text": "Indicates stable regulation of IL-6 activity — the best value in your profile. Here the recommendations serve maintenance, not correction.",
+     "table": {
+      "cols": [
+       "Active substance",
+       "Source",
+       "Amount",
+       "Note"
+      ],
+      "rows": [
+       [
+        "Exercise and weight",
+        "moderate everyday activity, weight regulation",
+        "30 min. daily",
+        "Adipose tissue is a central source of pro-inflammatory messenger substances"
+       ],
+       [
+        "Resveratrol",
+        "Grape skins, raspberry seeds, blueberries, peanuts",
+        "1 portion of berries/day",
+        "Inhibits the NF-κB signalling pathway"
+       ],
+       [
+        "Sulforaphane",
+        "Broccoli, cauliflower, Brussels sprouts, cress",
+        "250 g, 3–4×/week",
+        "Brief heating (3–4 min., 80 °C) increases bioavailability"
+       ],
+       [
+        "Curcumin",
+        "Turmeric with black pepper",
+        "1 tsp daily",
+        "Piperine markedly increases absorption"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "type": "radar",
+   "caption": "Baseline assessment",
+   "title": "Nutrition and lifestyle habits.",
+   "lead": "The radar shows how close your current habits are to the scientific reference values. The further out a factor lies, the more favourable — 10 is optimal.",
+   "axes": [
+    "Everyday activity",
+    "Exercise",
+    "Stress",
+    "Tobacco",
+    "Alcohol",
+    "Snacks",
+    "Meat",
+    "Omega-3",
+    "Fibre",
+    "Fruit/vegetables",
+    "Fluid intake"
+   ],
+   "seriesLabels": {
+    "profile": "Your profile",
+    "reference": "Reference group"
+   },
+   "scores": [
+    {
+     "value": "72 / 100",
+     "label": "Nutrition",
+     "text": "Good nutrient combination, room for improvement in the details.",
+     "ref": "Reference: ≥ 60."
+    },
+    {
+     "value": "65 / 100",
+     "label": "Lifestyle",
+     "text": "Balanced, with room for more exercise and stress reduction.",
+     "ref": "Reference: ≥ 60."
+    }
+   ],
+   "noticeTitle": "What stands out",
+   "notices": [
+    "Stress (4 out of 10) is the weakest factor and lies below the reference group. Chronic stress acts via the cortisol axis directly on inflammation and methylation markers.",
+    "Snacks and meat (5 each) are at the level of the reference group — this is where the greatest untapped potential for the telomere and LINE-1 values lies.",
+    "Tobacco (9), fruit and vegetables (8) and fluid intake (8) are clearly above average and support the good values for IL-6 and the ageing markers."
+   ],
+   "note": "A baseline assessment, not an individual diagnosis. In the case of illness or during special phases of life, please have larger dietary changes supervised by a doctor."
+  },
+  {
+   "type": "table",
+   "caption": "All recommendations at a glance",
+   "title": "Your interventions.",
+   "lead": "Every recommendation is assigned to the marker it derives from and marked in the colour of the actual result. Sorted by urgency — the markers requiring action first.",
+   "cols": [
+    "Active substance",
+    "From marker",
+    "Food source",
+    "Amount",
+    "Note"
+   ],
+   "rows": [
+    [
+     "Folate",
+     "Telomeres · 96 %",
+     "Spinach, kale, pulses, tomatoes, sprouts",
+     "2 handfuls of green vegetables daily",
+     "Raw or briefly steamed — heat-sensitive"
+    ],
+    [
+     "Vitamin B2 and B12",
+     "Telomeres · 96 %",
+     "Eggs, cheese, fermented foods (sauerkraut, ayran)",
+     "1 portion daily",
+     "With a vegan diet, supplement B12 specifically"
+    ],
+    [
+     "Methionine",
+     "Telomeres · 96 %",
+     "Sesame, soya, peas, Brazil nuts",
+     "2–3 Brazil nuts/day",
+     "Because of the selenium content, no more than 3–4 nuts daily"
+    ],
+    [
+     "EGCG (green tea)",
+     "Telomeres · 96 %",
+     "Green tea, matcha",
+     "3–4 cups/day",
+     "Do not drink directly with iron-rich meals"
+    ],
+    [
+     "Methyl donors",
+     "LINE-1 · 96 %",
+     "Leafy vegetables, pulses, eggs, nuts, sesame, soya",
+     "daily in at least 2 meals",
+     "Take in sufficient folate, B2, B6 and B12 together"
+    ],
+    [
+     "Fibre",
+     "LINE-1 · 96 %",
+     "Wholegrain products, vegetables, pulses",
+     "at least 30 g/day",
+     "Stabilises blood sugar, lowers oxidative burden"
+    ],
+    [
+     "Green leafy vegetables",
+     "Ageing m. · 103 %",
+     "Spinach, kale, chard",
+     "1 portion daily",
+     "Provides folate, supports methylation"
+    ],
+    [
+     "Coffee",
+     "Ageing m. · 103 %",
+     "Filter coffee, espresso",
+     "2–3 cups/day",
+     "Not after 2 p.m. — may disturb sleep"
+    ],
+    [
+     "Cheese and dairy products",
+     "Ageing m. · 103 %",
+     "Hard and soft cheese, yoghurt",
+     "in moderation",
+     "Excessive consumption may reduce regulation"
+    ],
+    [
+     "Exercise and weight",
+     "IL-6 · 108 %",
+     "moderate everyday activity, weight regulation",
+     "30 min. daily",
+     "Adipose tissue is a source of pro-inflammatory messenger substances"
+    ],
+    [
+     "Resveratrol",
+     "IL-6 · 108 %",
+     "Grape skins, raspberry seeds, blueberries, peanuts",
+     "1 portion of berries/day",
+     "Inhibits the NF-κB signalling pathway"
+    ],
+    [
+     "Sulforaphane",
+     "IL-6 · 108 %",
+     "Broccoli, cauliflower, Brussels sprouts, cress",
+     "250 g, 3–4×/week",
+     "Brief heating (3–4 min., 80 °C) increases bioavailability"
+    ],
+    [
+     "Curcumin",
+     "IL-6 · 108 %",
+     "Turmeric, ideally with black pepper",
+     "1 tsp daily",
+     "Piperine from pepper markedly increases absorption"
+    ]
+   ],
+   "rowTones": [
+    "amber",
+    "amber",
+    "amber",
+    "amber",
+    "amber",
+    "amber",
+    "green",
+    "green",
+    "green",
+    "green",
+    "green",
+    "green",
+    "green"
+   ],
+   "note": "Please review food supplements individually and in consultation with a qualified professional. This overview does not replace medical advice."
+  },
+  {
+   "type": "summary",
+   "caption": "Summary",
+   "title": "Your two focus areas.",
+   "lead": "Two of your four markers are in the green range and should stay there. Two are at 96 % — and both depend on the same metabolic pathway. This results in a remarkably simple plan.",
+   "focuses": [
+    {
+     "num": "01",
+     "title": "Methyl donors — the common denominator of telomeres and LINE-1",
+     "text": "Telomeres 96 % (biologically 53 yrs) and LINE-1 96 % (biologically 50 yrs) are the two values requiring action. Both are regulated via the same nutrients: folate, vitamin B2, B6, B12 and methionine. Six of the thirteen recommendations in this report target exactly that. Specifically: two handfuls of green leafy vegetables daily, raw or briefly steamed. Eggs, cheese or fermented foods daily. 2–3 Brazil nuts. Plus at least 30 g of fibre and 3–4 cups of green tea, not with iron-rich meals."
+    },
+    {
+     "num": "02",
+     "title": "Stress — the weakest lifestyle factor",
+     "text": "At 4 out of 10, stress is the only factor that lies clearly below the reference group. Via the cortisol axis it acts on exactly those markers that require action in your case. The nutrition part is already solid at 72/100 — the greater effect lies here. In addition: everyday activity (6) and exercise (7) have room to grow; 30 minutes daily also supports the IL-6 value."
+    }
+   ],
+   "keepTitle": "Maintain, do not change",
+   "keepText": "IL-6 at 108 % and the epigenetic ageing markers at 103 % are within the normal range. The recommendations for these two markers serve maintenance. Tobacco (9/10), fruit and vegetables (8/10) and fluid intake (8/10) support this result — nothing needs to change here.",
+   "controlTitle": "Follow-up and next step",
+   "controlItems": [
+    "A follow-up measurement is useful after 4 to 6 months at the earliest — before that, changes in the methylation markers cannot be measured reliably.",
+    "From the second measurement onwards, the measured trend is reported for each marker.",
+    "For follow-up monitoring, sample collection and time of day should remain comparable."
+   ]
+  },
+  {
+   "type": "contact",
+   "title": "Questions about your report?",
+   "text": "Discuss the results with the facility that carried out the sample collection. That is where the clinical context needed for interpretation is available.",
+   "columns": [
+    {
+     "k": "Contact",
+     "lines": [
+      "contact@polarisdx.net",
+      "+49 152 2858 0999",
+      "www.polarisdx.net"
+     ]
+    },
+    {
+     "k": "Distribution",
+     "lines": [
+      "Polaris Diagnostics Europe GmbH",
+      "Große Bleichen 1–3",
+      "20354 Hamburg"
+     ]
+    }
+   ],
+   "legal": [
+    {
+     "title": "Sample report",
+     "text": "All values and personal details in this document are fictitious and serve solely to illustrate the report format. This is not a real report."
+    },
+    {
+     "title": "Interpretation",
+     "text": "This report is not a diagnosis and does not replace medical advice. The biological age reported is a model value derived from epigenetic markers, not a statement about life expectancy or disease risk. Markers describe a momentary state and are to be assessed in the individual clinical context by qualified specialists."
+    },
+    {
+     "title": "Legal framework",
+     "text": "The laboratory analysis is carried out by our cooperation partner. Polaris Diagnostics Europe GmbH is responsible for distribution and support. Please review food supplements individually and in consultation with a qualified professional."
+    }
+   ],
+   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Last updated: August 2026"
+  }
+ ]
+}

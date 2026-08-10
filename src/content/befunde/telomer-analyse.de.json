@@ -1,0 +1,384 @@
+{
+ "slug": "telomer-analyse",
+ "panel": "Telomer-Analyse",
+ "blocks": [
+  {
+   "type": "cover",
+   "badge": "Musterbefund · Beispieldaten",
+   "panel": "Telomer-Analyse",
+   "subtitle": "Ihre zelluläre Reserve",
+   "claim": "Telomere sind die Schutzkappen an den Enden Ihrer Chromosomen. Ihre Länge gilt als Marker für kumulative zelluläre Belastung und Regenerationskapazität — gemessen aus einem Tropfen Kapillarblut.",
+   "meta": [
+    {
+     "k": "Befund für",
+     "v": "Muster, Erika"
+    },
+    {
+     "k": "Probenahme",
+     "v": "15.06.2026"
+    },
+    {
+     "k": "Material",
+     "v": "Trockenblutkarte"
+    },
+    {
+     "k": "Methode",
+     "v": "qPCR, relativ"
+    }
+   ],
+   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net"
+  },
+  {
+   "type": "principle",
+   "caption": "Das Prinzip",
+   "title": "Ihre Telomere. Ihre zelluläre Reserve.",
+   "lead": "Telomere stabilisieren die DNA bei jeder Zellteilung und verhindern den Verlust genetischer Information. Mit jeder Teilung werden sie ein Stück kürzer. Unterschreiten sie eine kritische Länge, verlieren Zellen ihre Teilungsfähigkeit oder gehen in Seneszenz über — ein zentraler Treiber des biologischen Alterns.",
+   "cards": [
+    {
+     "title": "Schutz",
+     "text": "Wie stabil Ihre DNA geschützt ist und wie effizient Reparaturmechanismen arbeiten."
+    },
+    {
+     "title": "Regeneration",
+     "text": "Wie viel Teilungsreserve Ihre Zellen behalten und wie belastbar Ihr Gewebe bleibt."
+    },
+    {
+     "title": "Einordnung",
+     "text": "Wie Ihre Telomerlänge im Vergleich zu einer alters- und geschlechtsgleichen Referenzgruppe steht."
+    }
+   ],
+   "flowTitle": "Der Ablauf",
+   "flow": [
+    {
+     "num": "01",
+     "title": "Messen",
+     "text": "Trockenblutkarte, Fingerbeere. Telomerlänge als relative Quantifizierung per qPCR. Kein Nüchternstatus nötig."
+    },
+    {
+     "num": "02",
+     "title": "Einordnen",
+     "text": "Vergleich mit einer alters- und geschlechtsgleichen Referenzgruppe. 112 kbp entspricht dem Referenzwert (100 %)."
+    },
+    {
+     "num": "03",
+     "title": "Verändern",
+     "text": "Telomere lassen sich nicht isoliert verlängern. Entscheidend ist, die Prozesse zu bremsen, die ihre Verkürzung beschleunigen."
+    }
+   ]
+  },
+  {
+   "type": "callout",
+   "title": "Wie belastbar ist dieser Wert?",
+   "text": "Die Telomerlängenmessung per qPCR streut erheblich — zwischen einzelnen Läufen und zwischen Laboren. DNA-Extraktion, Lagerung und die Zusammensetzung der Blutzellen beeinflussen das Ergebnis systematisch. Aus Trockenblut liegt diese Streuung höher als aus Venenblut. Für diagnostische Fragestellungen gilt Flow-FISH als die überlegene Methode.",
+   "items": [
+    "Was das praktisch heißt: Eine Abweichung von wenigen Prozent gegenüber dem Referenzwert liegt in der Größenordnung der Messstreuung und ist für sich genommen nicht aussagekräftig. Belastbar wird die Analyse erst im Verlauf mehrerer Messungen unter gleichen Bedingungen — gleiches Labor, gleiches Material, vergleichbare Probenahme.",
+    "Die Telomerlänge ist ein Marker für kumulative zelluläre Belastung. Sie ist keine Diagnose, keine Aussage über Lebenserwartung und kein Maß für ein individuelles Krankheitsrisiko."
+   ],
+   "tone": "accent"
+  },
+  {
+   "type": "bigResult",
+   "caption": "Ihr Ergebnis",
+   "title": "Ihre Telomerlänge.",
+   "lead": "Telomerlänge · zelluläre Stabilität. Relative Quantifizierung gegen den Referenzwert von 112 kbp (= 100 %).",
+   "display": "108 kbp",
+   "sub": "96 % der Referenz",
+   "kind": "percent",
+   "value": 96,
+   "ticks": [
+    "70 %",
+    "85 %",
+    "100 %",
+    "115 %",
+    "130 %"
+   ],
+   "tone": "amber",
+   "text": "Ihre Telomerlänge liegt 4 % unter dem Erwartungswert für Ihr Alter. Daraus ergibt sich ein telomerbasiertes biologisches Alter von 53 Jahren, fünf Jahre über dem Kalenderalter. Zur Einordnung: Eine Abweichung von 4 % liegt in der Größenordnung der Streuung, die qPCR-Messungen aus Trockenblut zwischen Läufen aufweisen. Der Wert ist deshalb als Ausgangspunkt für den Verlauf zu lesen, nicht als präzise Einzelbestimmung."
+  },
+  {
+   "type": "ageDots",
+   "caption": "Biologisch gegen chronologisch",
+   "title": "Telomer-Alter",
+   "chronological": 48,
+   "min": 35,
+   "max": 60,
+   "unit": "Jahre",
+   "ticks": [
+    "35",
+    "40",
+    "45",
+    "50",
+    "55",
+    "60"
+   ],
+   "note": "48 J. (Kalenderalter)",
+   "items": [
+    {
+     "label": "Telomer-Alter",
+     "age": 53,
+     "delta": "+5",
+     "display": "53 J. · +5 Jahre",
+     "tone": "red"
+    }
+   ]
+  },
+  {
+   "type": "radar",
+   "caption": "Standortbestimmung",
+   "title": "Ernährung und Lebensgewohnheiten.",
+   "lead": "Das Radar zeigt, wie nah Ihre aktuellen Gewohnheiten an den Referenzwerten liegen. Je weiter außen ein Faktor liegt, desto günstiger — optimal ist 10.",
+   "axes": [
+    "Alltagsbewegung",
+    "Sport",
+    "Stress",
+    "Tabak",
+    "Alkohol",
+    "Snacks",
+    "Fleisch",
+    "Omega-3",
+    "Ballaststoffe",
+    "Obst/Gemüse",
+    "Flüssigkeit"
+   ],
+   "seriesLabels": {
+    "profile": "Ihr Profil",
+    "reference": "Referenzgruppe"
+   },
+   "scores": [
+    {
+     "value": "72 / 100",
+     "label": "Ernährung",
+     "text": "Gute Nährstoffkombination, Verbesserungspotenzial in Details.",
+     "ref": "Referenz: ≥ 60"
+    },
+    {
+     "value": "65 / 100",
+     "label": "Lebensstil",
+     "text": "Ausgewogen, mit Raum für mehr Bewegung und Stressreduktion.",
+     "ref": "Referenz: ≥ 60"
+    }
+   ],
+   "noticeTitle": "Bezug zur Telomerlänge",
+   "notices": [
+    "Nichtrauchen (Tabak 9 von 10) ist der Faktor mit dem stärksten dokumentierten Bezug zur Telomerlänge — und bei Ihnen bereits deutlich überdurchschnittlich.",
+    "Stress (4 von 10) ist Ihr schwächster Lebensstilfaktor und der Bereich mit dem größten Spielraum.",
+    "Sport (7) und Alltagsbewegung (6) sind ausbaufähig; regelmäßige Bewegung gehört zu den Maßnahmen mit dokumentiertem Bezug zur Telomerbiologie."
+   ],
+   "note": "Standortbestimmung auf Basis Ihrer Selbstauskunft, keine individuelle Diagnose. Die genannten Zusammenhänge sind Gruppenbefunde aus der Literatur, keine Vorhersage für den Einzelfall."
+  },
+  {
+   "type": "table",
+   "caption": "Alle Empfehlungen auf einen Blick",
+   "title": "Ihre Interventionen.",
+   "lead": "Telomere lassen sich nicht gezielt verlängern. Alle Maßnahmen zielen darauf, die Prozesse zu bremsen, die ihre Verkürzung beschleunigen — oxidative Belastung und eine gestörte Methylierung.",
+   "cols": [
+    "Maßnahme",
+    "Quelle",
+    "Menge",
+    "Hinweis"
+   ],
+   "rows": [
+    [
+     "Lebensstil",
+     "Nicht rauchen, moderater Alkoholkonsum, regelmäßige Bewegung",
+     "150 Min./Woche",
+     "Größter nachweisbarer Einflussfaktor auf die Telomerlänge"
+    ],
+    [
+     "Folat",
+     "Grünes Blattgemüse, Spinat, Grünkohl, Tomate, Hülsenfrüchte, Sprossen",
+     "2 Portionen/Tag",
+     "Roh oder kurz gedünstet — hitzeempfindlich. Ggf. 2 Monate als Methylfolat (5-MTHF)"
+    ],
+    [
+     "Riboflavin (B2)",
+     "Keimlinge, Sprossen, Käse",
+     "täglich",
+     "Kofaktor der Methylierung"
+    ],
+    [
+     "Cobalamin (B12)",
+     "Ei, Käse, fermentierte Lebensmittel",
+     "4 µg/Tag",
+     "Bei veganer Ernährung gezielt supplementieren"
+    ],
+    [
+     "Pyridoxin (B6)",
+     "Kohl, grüne Bohnen, Linsen, Bananen, Weizenkeime",
+     "1,5–2,0 mg/Tag",
+     "Wichtig für den Aminosäure-Stoffwechsel"
+    ],
+    [
+     "Methionin",
+     "Paranüsse, Sesam, Soja, Erbsen, grünes Blattgemüse",
+     "2–3 Paranüsse/Tag",
+     "Wegen des Selengehalts nicht mehr als 3–4 Nüsse täglich"
+    ],
+    [
+     "EGCG (Grüner Tee)",
+     "Grüner Tee, Matcha, Sencha",
+     "300–400 mg/Tag (3–4 Tassen)",
+     "Antioxidativ; nicht direkt zu eisenreichen Mahlzeiten trinken"
+    ],
+    [
+     "Ballaststoffe",
+     "Vollkorn, Gemüse, Hülsenfrüchte, Samen(-schalen)",
+     "mind. 30 g/Tag",
+     "Stabilisiert den Blutzucker, senkt die oxidative Belastung"
+    ]
+   ],
+   "note": "Fünf dieser acht Maßnahmen — Folat, B2, B12, B6 und Methionin — wirken über denselben Stoffwechselweg: die Methylierung. Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen; diese Übersicht ersetzt keine ärztliche Beratung."
+  },
+  {
+   "type": "trend",
+   "caption": "Verlauf",
+   "title": "Der eigentliche Befund.",
+   "lead": "Weil der Einzelwert die Streuung der Methode nicht sicher überwindet, liegt die Aussagekraft im Verlauf. Dargestellt sind ausschließlich gemessene Werte — keine Prognose.",
+   "firstLabel": "15.03.2026",
+   "secondLabel": "15.06.2026",
+   "cols": [
+    "Auswertung",
+    "15.03.2026",
+    "15.06.2026",
+    "Veränderung",
+    "Abweichung heute"
+   ],
+   "items": [
+    {
+     "label": "Telomer-Alter",
+     "first": 55,
+     "second": 53,
+     "firstDisplay": "55 Jahre",
+     "secondDisplay": "53 Jahre",
+     "delta": "−2 Jahre",
+     "deviation": "+5 ggü. Kalenderalter",
+     "tone": "green"
+    }
+   ],
+   "kind": "years",
+   "unit": "Jahre"
+  },
+  {
+   "type": "callout",
+   "title": "Was der Verlauf zeigt",
+   "text": "Das telomerbasierte Alter ist zwischen den beiden Messungen um zwei Jahre gesunken, von 55 auf 53 — bei gleichzeitig um drei Monate gestiegenem Kalenderalter. Die Richtung stimmt.",
+   "items": [
+    "Gleichzeitig gilt: Telomere verlängern sich nicht nennenswert. Eine Verbesserung dieser Größe ist deshalb eher der Messstreuung als einer tatsächlichen Verlängerung zuzuschreiben. Erst eine über mehrere Messungen gleichbleibende Richtung erlaubt eine Aussage.",
+    "Zwischen den beiden Messungen lagen rund drei Monate. Den Abstand zur nächsten Kontrolle legt die betreuende Einrichtung fest. Für die Vergleichbarkeit sollten Labor, Probenmaterial und Probenahme gleich bleiben."
+   ],
+   "tone": "accent"
+  },
+  {
+   "type": "summary",
+   "caption": "Zusammenfassung",
+   "title": "Zwei Hebel, und einer ist der größere.",
+   "lead": "Acht Maßnahmen stehen in diesem Befund. Sie unterscheiden sich deutlich in ihrer Belegstärke — das sollte die Reihenfolge bestimmen, in der Sie sie angehen.",
+   "focuses": [
+    {
+     "num": "01",
+     "title": "Lebensstil — der Faktor mit der stärksten Evidenz",
+     "text": "Nichtrauchen, moderater Alkoholkonsum und regelmäßige Bewegung sind laut Ihrem Befund der größte nachweisbare Einflussfaktor auf die Telomerlänge. Zwei davon sind bei Ihnen bereits gut aufgestellt: Tabak steht mit 9 von 10 im Radar, Alkohol mit 6. Konkret: Der Hebel liegt bei der Bewegung — Sport 7 von 10, Alltagsbewegung 6 von 10. Mindestens 150 Minuten pro Woche."
+    },
+    {
+     "num": "02",
+     "title": "Methylierungs-Nährstoffe",
+     "text": "Fünf der acht Maßnahmen — Folat, B2, B12, B6 und Methionin — wirken über denselben Stoffwechselweg. Praktisch heißt das: täglich zwei Portionen grünes Blattgemüse (roh oder kurz gedünstet, weil Folat hitzeempfindlich ist), Eier oder Käse für B12, 2–3 Paranüsse. Dazu 3–4 Tassen grüner Tee und mindestens 30 g Ballaststoffe."
+    }
+   ],
+   "keepTitle": "Was bereits trägt",
+   "keepText": "Nichtrauchen (9/10), Obst und Gemüse (8/10) und die Flüssigkeitszufuhr (8/10) liegen deutlich über der Referenzgruppe, der Ernährungsscore mit 72/100 ist solide. Und der Verlauf zeigt in die richtige Richtung.",
+   "controlTitle": "Realistisch bleiben",
+   "controlItems": [
+    "Telomere lassen sich durch Ernährung oder Lebensstil nicht gezielt verlängern. Alle Maßnahmen zielen darauf, die Verkürzung zu verlangsamen. Ob sich das in Ihrem persönlichen Wert abbildet, lässt sich angesichts der Messstreuung erst über mehrere Messungen hinweg beurteilen — nicht an der nächsten einzelnen Zahl."
+   ]
+  },
+  {
+   "type": "science",
+   "caption": "Was belegt ist — und was nicht",
+   "title": "Wissenschaftliche Einordnung.",
+   "lead": "Wir legen die Grenzen dieser Analyse offen, weil eine ehrliche Einordnung mehr wert ist als eine beeindruckende Zahl.",
+   "cols": [
+    "Punkt",
+    "Einordnung"
+   ],
+   "items": [
+    {
+     "title": "Messmethode",
+     "text": "Relative Quantifizierung per qPCR"
+    },
+    {
+     "title": "Streuung",
+     "text": "Erheblich — zwischen Läufen und zwischen Laboren"
+    },
+    {
+     "title": "Einflussgrößen",
+     "text": "DNA-Extraktion, Lagerung und Zellzusammensetzung wirken systematisch"
+    },
+    {
+     "title": "Probenmaterial",
+     "text": "Aus Trockenblut höhere Streuung als aus Venenblut"
+    },
+    {
+     "title": "Für diagnostische Fragen",
+     "text": "Flow-FISH gilt als die überlegene Methode"
+    },
+    {
+     "title": "Wofür sich die Analyse eignet",
+     "text": "Als Beratungs- und Verlaufswerkzeug: Sie macht zelluläre Belastung zum Thema, schafft einen konkreten Anlass und liefert über wiederholte Messungen unter gleichen Bedingungen eine Verlaufslinie."
+    },
+    {
+     "title": "Wofür sie sich nicht eignet",
+     "text": "Als Diagnostik, als Aussage über Lebenserwartung oder individuelles Krankheitsrisiko — und als präzise Einzelbestimmung, solange die Abweichung in der Größenordnung der Messstreuung liegt."
+    }
+   ],
+   "note": "Quellen zur Methodik: Lin et al., PMC6363640 (qPCR-Telomermessung, kritische Faktoren); Olivieri et al., Mech Ageing Dev 2012. Diese Unterlage ersetzt keine ärztliche Beurteilung und begründet keine Heilversprechen im Sinne des Heilmittelwerbegesetzes."
+  },
+  {
+   "type": "callout",
+   "title": "Der Grundsatz",
+   "text": "Der Verlauf trägt, der Einzelwert nicht. Erst- und Folgemessung unter gleichen Bedingungen sind der eigentliche Nutzen dieser Analyse.",
+   "items": [
+    "Für die Vergleichbarkeit müssen Labor, Probenmaterial und Probenahme gleich bleiben — ein Wechsel des Labors macht zwei Werte nicht mehr vergleichbar."
+   ],
+   "tone": "neutral"
+  },
+  {
+   "type": "contact",
+   "title": "Fragen zu Ihrem Befund?",
+   "text": "Besprechen Sie die Ergebnisse mit der Einrichtung, die die Probenahme durchgeführt hat. Dort liegt der Kontext vor, der für die Einordnung nötig ist.",
+   "columns": [
+    {
+     "k": "Kontakt",
+     "lines": [
+      "contact@polarisdx.net",
+      "+49 152 2858 0999",
+      "www.polarisdx.net"
+     ]
+    },
+    {
+     "k": "Vertrieb",
+     "lines": [
+      "Polaris Diagnostics Europe GmbH",
+      "Große Bleichen 1–3",
+      "20354 Hamburg"
+     ]
+    }
+   ],
+   "legal": [
+    {
+     "title": "Musterbefund",
+     "text": "Sämtliche Werte und Angaben zur Person in diesem Dokument sind frei erfunden und dienen ausschließlich der Darstellung des Berichtsformats. Es handelt sich nicht um einen realen Befund."
+    },
+    {
+     "title": "Einordnung",
+     "text": "Die Telomerlänge wird per qPCR als relativer Wert bestimmt. Diese Methode streut erheblich zwischen Läufen und Laboren; aus Trockenblut liegt die Streuung höher als aus Venenblut. Der Befund ist keine Diagnose, keine Aussage über Lebenserwartung und kein Maß für ein individuelles Krankheitsrisiko. Aussagekraft entsteht erst im Verlauf mehrerer Messungen unter gleichen Bedingungen."
+    },
+    {
+     "title": "Rechtlicher Rahmen",
+     "text": "Die Laboranalytik erfolgt durch unseren Kooperationspartner. Polaris Diagnostics Europe GmbH verantwortet Vertrieb und Betreuung. Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen. Diese Unterlage begründet keine Heilversprechen im Sinne des Heilmittelwerbegesetzes."
+    }
+   ],
+   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand: August 2026"
+  }
+ ]
+}

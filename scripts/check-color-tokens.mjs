@@ -41,6 +41,16 @@ const PALETTE_HEX = new Set([
   '#14b8a6', // accent.line
   '#2dd4bf', // accent.on-dark — Teal auf Navy
   '#99f6e4', // accent.border
+  // Befund-Ampel (aus den Quell-PDFs gemessen, nur Musterbefund-Seiten)
+  '#c8553d', // befund.red
+  '#fcf5f4', // befund.red.soft
+  '#bb4c35', // befund.red.ink
+  '#d69b2e', // befund.amber
+  '#fcf9f2', // befund.amber.soft
+  '#946a1d', // befund.amber.ink
+  '#3e8e6b', // befund.green
+  '#f1f9f5', // befund.green.soft
+  '#377d5e', // befund.green.ink
   '#f0fdfa', // accent.soft
   '#10b981', // success
   '#047857', // success.strong

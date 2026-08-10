@@ -405,7 +405,7 @@
     "lead": "Six complete sample reports, one for each analysis. Before you enquire, they show how the document is built that your clients finally receive.",
     "note": "All six documents are sample reports: every value, genotype and personal detail is fictitious and serves solely to illustrate the report format. These are not real results.",
     "badge": "PDF in German",
-    "btn": "Open sample report",
+    "btn": "View report",
     "items": [
       {
         "slug": "metabolic-health",
@@ -483,7 +483,8 @@
     "pagesLabel": "{{pages}} pages",
     "imgAlt": "Cover of the {{panel}} sample report",
     "zipLabel": "All six as ZIP · 4.2 MB",
-    "zipFile": "PolarisDX_Musterbefunde_DE.zip"
+    "zipFile": "PolarisDX_Musterbefunde_DE.zip",
+    "pdfBtn": "Download PDF"
   },
   "compare": {
     "caption": "At a glance",
@@ -645,5 +646,14 @@
         "value": "6 PDFs with example data"
       }
     ]
+  },
+  "befund": {
+    "seoTitle": "{{panel}} sample report",
+    "seoDescription": "The complete {{panel}} sample report to read online — every marker, scale and recommendation. Example data, not real patient data.",
+    "notFoundTitle": "This sample report does not exist",
+    "notFoundText": "The report you requested is not available. Six sample reports are ready — one for each analysis.",
+    "backToAll": "All six sample reports",
+    "pdfCta": "This report as a PDF",
+    "othersTitle": "The other sample reports"
   }
 }
