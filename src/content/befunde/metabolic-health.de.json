@@ -26,7 +26,8 @@
      "v": "17 + 4 epigen."
     }
    ],
-   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net"
+   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+   "id": "deckblatt"
   },
   {
    "type": "principle",
@@ -80,7 +81,8 @@
      "label": "7–9 · Grün",
      "text": "Im günstigen Bereich. Bestehende Routinen beibehalten."
     }
-   ]
+   ],
+   "id": "so-lesen"
   },
   {
    "type": "callout",
@@ -90,7 +92,8 @@
     "Dieser Befund ist keine Diagnose. Die Einordnung erfolgt im Gespräch mit qualifiziertem Fachpersonal und stets im individuellen Kontext.",
     "Vor einer genetischen Analyse sind Aufklärung und schriftliche Einwilligung erforderlich (Gendiagnostikgesetz).",
     "Die genetischen Werte ändern sich nie. Nur die vier epigenetischen Werte eignen sich als Erfolgskontrolle."
-   ]
+   ],
+   "id": "hinweis"
   },
   {
    "type": "resultTable",
@@ -145,21 +148,24 @@
      ],
      "tone": "green"
     }
-   ]
+   ],
+   "id": "ergebnis"
   },
   {
    "type": "callout",
    "caption": "Genetische Einordnung",
    "title": "Ihr Metabotyp: Balancierter Typ",
    "text": "Ihr Stoffwechsel bevorzugt keinen der drei Makronährstoffe. Empfohlene Verteilung: 55 % Kohlenhydrate · 20 % Protein · 25 % Fett bei einem berechneten Bedarf von 1.900 kcal/Tag.",
-   "tone": "neutral"
+   "tone": "neutral",
+   "id": "hinweis-2"
   },
   {
    "type": "callout",
    "caption": "Genetische Einordnung",
    "title": "Ihr Sporttyp: Ausdauertyp",
    "text": "ACE und ACTN3 sprechen für eine Ausdauerveranlagung. Längere, gleichmäßige Belastungen liegen Ihnen mehr als kurze Kraftspitzen — ein Kraftanteil bleibt dennoch wichtig.",
-   "tone": "neutral"
+   "tone": "neutral",
+   "id": "hinweis-3"
   },
   {
    "type": "callout",
@@ -169,7 +175,8 @@
     "Zwei rote Werte — LINE-1 (2/9) und miR-21 (3/9). Beide hängen am Folat-, Zink- und Methylierungsstoffwechsel; die genetische MTHFR-Ausprägung (2/9) zeigt in dieselbe Richtung. Das ist der zentrale Ansatzpunkt dieses Befunds.",
     "Zwei grüne Werte — Entzündungsregulation (7/9) und miR-155 (8/9) liegen im optimalen Bereich und sollten dort gehalten werden.",
     "Eine Kontrollmessung ist frühestens nach 4 bis 6 Monaten sinnvoll."
-   ]
+   ],
+   "id": "hinweis-4"
   },
   {
    "type": "evaluations",
@@ -306,7 +313,8 @@
      "tone": "red"
     }
    ],
-   "note": "Sortiert nach Wert, nicht nach Themengebiet. Die ausführliche Einordnung mit Genotypen und Interventionen folgt ab Seite 07."
+   "note": "Sortiert nach Wert, nicht nach Themengebiet. Die ausführliche Einordnung mit Genotypen und Interventionen folgt ab Seite 07.",
+   "id": "auswertungen"
   },
   {
    "type": "markers",
@@ -415,7 +423,8 @@
       ]
      }
     }
-   ]
+   ],
+   "id": "marker"
   },
   {
    "type": "markers",
@@ -525,7 +534,8 @@
       ]
      }
     }
-   ]
+   ],
+   "id": "marker-2"
   },
   {
    "type": "table",
@@ -554,7 +564,8 @@
      "Schwerpunkt auf ungesättigten Fetten"
     ]
    ],
-   "note": "Individuell berechneter täglicher Energiebedarf: 1.900 kcal."
+   "note": "Individuell berechneter täglicher Energiebedarf: 1.900 kcal.",
+   "id": "uebersicht"
   },
   {
    "type": "table",
@@ -577,7 +588,8 @@
      "TT (Wildtyp)",
      "Eher Ausdauer — XX-Typ ohne α-Actinin-3, mehr langsame, ausdauernde Muskelfasern."
     ]
-   ]
+   ],
+   "id": "uebersicht-2"
   },
   {
    "type": "markers",
@@ -623,7 +635,8 @@
       ]
      }
     }
-   ]
+   ],
+   "id": "marker-3"
   },
   {
    "type": "markers",
@@ -703,7 +716,8 @@
       ]
      }
     }
-   ]
+   ],
+   "id": "marker-4"
   },
   {
    "type": "markers",
@@ -793,7 +807,8 @@
      "tone": "green",
      "text": "Günstige Ausgangslage gegen den Jo-Jo-Effekt. Stabile Mahlzeitenzeiten und 150 Min. Bewegung/Woche erhalten sie."
     }
-   ]
+   ],
+   "id": "marker-5"
   },
   {
    "type": "markers",
@@ -905,7 +920,8 @@
       ]
      }
     }
-   ]
+   ],
+   "id": "marker-6"
   },
   {
    "type": "markers",
@@ -957,7 +973,8 @@
       ]
      }
     }
-   ]
+   ],
+   "id": "marker-7"
   },
   {
    "type": "markers",
@@ -1002,7 +1019,8 @@
       ]
      }
     }
-   ]
+   ],
+   "id": "marker-8"
   },
   {
    "type": "markers",
@@ -1092,7 +1110,8 @@
       ]
      }
     }
-   ]
+   ],
+   "id": "marker-9"
   },
   {
    "type": "table",
@@ -1211,7 +1230,8 @@
      "Wichtiges antioxidatives Enzym, schützt Zellen vor oxidativem Stress."
     ]
    ],
-   "note": "21 Varianten. Die Auswertungen auf Seite 04 entstehen jeweils aus mehreren dieser Gene gemeinsam; ein einzelner Genotyp lässt für sich genommen keine Aussage zu."
+   "note": "21 Varianten. Die Auswertungen auf Seite 04 entstehen jeweils aus mehreren dieser Gene gemeinsam; ein einzelner Genotyp lässt für sich genommen keine Aussage zu.",
+   "id": "uebersicht-3"
   },
   {
    "type": "summary",
@@ -1240,7 +1260,8 @@
     "Eine Kontrollmessung der vier epigenetischen Marker ist frühestens nach 4 bis 6 Monaten sinnvoll — vorher sind Veränderungen nicht belastbar messbar.",
     "Die genetischen Auswertungen bleiben unverändert und müssen nie wiederholt werden.",
     "Ein Verlaufsvergleich der Messpunkte wird ab der zweiten Messung ausgewiesen."
-   ]
+   ],
+   "id": "zusammenfassung"
   },
   {
    "type": "contact",
@@ -1278,7 +1299,8 @@
      "text": "Genetische Untersuchungen unterliegen dem Gendiagnostikgesetz (GenDG); Aufklärung und schriftliche Einwilligung sind vor der Probenahme erforderlich. Die Laboranalytik erfolgt durch unseren Kooperationspartner. Polaris Diagnostics Europe GmbH verantwortet Vertrieb und Betreuung."
     }
    ],
-   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand: August 2026"
+   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand: August 2026",
+   "id": "kontakt"
   }
  ]
 }

@@ -17,7 +17,8 @@
  * Quell-PDFs abgeleitet. Nach einem Neubau der PDFs dort nachziehen.
  */
 
-import { Link, useParams } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ArrowLeft, ArrowUp, Download } from 'lucide-react'
 import { SEOHead, createBreadcrumbSchema } from '../components/seo'
@@ -26,29 +27,19 @@ import PageTransition from '../components/ui/PageTransition'
 import { BefundBlock, BlockChromeProvider, type Block } from '../components/befund/BefundBlocks'
 import ChapterNav, { type Chapter } from '../components/ui/ChapterNav'
 import { BEFUNDE, BEFUND_ORDER, RADAR_VALUES } from '../content/befunde'
+import { LEGACY_ANCHORS } from '../content/befunde/legacyAnchors'
 
 const ASSET_BASE = '/downloads/epigenetics/'
 
 /** Blocktypen, die kein eigenes Kapitel sind: Deckblatt und Einschuebe. */
 const NOT_A_CHAPTER = new Set(['cover', 'callout'])
 
-const UMLAUTS: Record<string, string> = { ä: 'ae', ö: 'oe', ü: 'ue', ß: 'ss' }
-
-const toId = (text: string, index: number) => {
-  const base = text
-    .toLowerCase()
-    .replace(/[äöüß]/g, (c) => UMLAUTS[c] ?? c)
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 48)
-  return base ? `${base}-${index}` : `abschnitt-${index}`
-}
-
 /** Kapitelname: die Ueberschrift ohne Schlusspunkt. */
 const toLabel = (title: string) => title.replace(/\s*[.:]\s*$/, '')
 
 const MusterbefundPage = () => {
   const { slug = '' } = useParams<{ slug: string }>()
+  const { hash } = useLocation()
   const { t, i18n } = useTranslation('epigenetics')
   const lang = i18n.language?.startsWith('de') ? 'de' : 'en'
 
@@ -100,18 +91,33 @@ const MusterbefundPage = () => {
    */
   const chapters: Chapter[] = []
   let tint = false
-  const chrome = blocks.map((block, index) => {
+  const chrome = blocks.map((block) => {
     const isCover = block.type === 'cover'
     if (!isCover && block.type !== 'callout') tint = !tint
 
+    // Die Marke steht im Block. Sie leitet sich aus seiner Rolle ab, nicht
+    // aus der uebersetzten Ueberschrift und nicht aus der Position — deshalb
+    // ist sie in allen zehn Sprachen dieselbe und ueberlebt jede Umstellung.
     const title = typeof block.title === 'string' ? block.title : ''
-    let id: string | undefined
-    if (!NOT_A_CHAPTER.has(block.type) && title) {
-      id = toId(title, index)
+    const id = typeof block.id === 'string' ? block.id : undefined
+    if (id && !NOT_A_CHAPTER.has(block.type) && title) {
       chapters.push({ id, label: toLabel(title) })
     }
     return { tint: isCover ? false : tint, id }
   })
+
+  // Wer einen Link mit einer alten Marke verschickt hat, soll trotzdem am
+  // richtigen Abschnitt ankommen. Die Tabelle darf verschwinden, sobald diese
+  // Links niemanden mehr erreichen.
+  useEffect(() => {
+    const alt = hash.slice(1)
+    if (!alt || document.getElementById(alt)) return
+    const neu = LEGACY_ANCHORS[slug]?.[alt]
+    const ziel = neu ? document.getElementById(neu) : null
+    if (!ziel || !neu) return
+    window.history.replaceState(null, '', `#${neu}`)
+    ziel.scrollIntoView()
+  }, [slug, hash])
 
   const others = BEFUND_ORDER.map((s) => ({
     slug: s,

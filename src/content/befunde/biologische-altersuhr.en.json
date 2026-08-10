@@ -26,7 +26,8 @@
      "v": "3 microRNAs"
     }
    ],
-   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net"
+   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+   "id": "deckblatt"
   },
   {
    "type": "principle",
@@ -64,7 +65,8 @@
      "title": "Change",
      "text": "Specific nutrition and lifestyle levers for each signal, plus follow-up monitoring at the next measurement."
     }
-   ]
+   ],
+   "id": "so-lesen"
   },
   {
    "type": "callout",
@@ -74,7 +76,8 @@
     "What this means in practice: the biological age reported here is not an age determination and says nothing about life expectancy or disease risk. What carries meaning is the change between two measurements under the same conditions — which is why this report centres on the trend and not on the single figure.",
     "A comparison with methylation-based age clocks is not permissible: different methodology, different evidence base. Source: Schneider J. et al., miRNA-3Age, Frontiers in Nutrition 2025, doi:10.3389/fnut.2025.1659730."
    ],
-   "tone": "neutral"
+   "tone": "neutral",
+   "id": "hinweis"
   },
   {
    "type": "bigResult",
@@ -93,7 +96,8 @@
     "−20 yrs"
    ],
    "tone": "green",
-   "text": "From the combined evaluation of miR-21, miR-24 and miR-155. Chronological age 48 years. Your biological age is 52 years, four years above your chronological age. The range from −5 to +5 years is regarded as age-appropriate — your value therefore lies within this range. For context: the reference band of ±5 years is narrower than the model's mean error of 10.4 years. A deviation of this magnitude therefore cannot be distinguished from the model's scatter."
+   "text": "From the combined evaluation of miR-21, miR-24 and miR-155. Chronological age 48 years. Your biological age is 52 years, four years above your chronological age. The range from −5 to +5 years is regarded as age-appropriate — your value therefore lies within this range. For context: the reference band of ±5 years is narrower than the model's mean error of 10.4 years. A deviation of this magnitude therefore cannot be distinguished from the model's scatter.",
+   "id": "ergebnis"
   },
   {
    "type": "ageDots",
@@ -111,7 +115,8 @@
      "delta": "+4",
      "tone": "green"
     }
-   ]
+   ],
+   "id": "biologisches-alter"
   },
   {
    "type": "callout",
@@ -121,7 +126,8 @@
     "72 / 100 · Nutrition — Good nutrient combination with room for improvement in the details. Reference: ≥ 60.",
     "65 / 100 · Lifestyle — Balanced, with room for more physical activity and stress reduction. Reference: ≥ 60."
    ],
-   "tone": "neutral"
+   "tone": "neutral",
+   "id": "hinweis-2"
   },
   {
    "type": "markers",
@@ -163,7 +169,8 @@
      "text": "The strongest of your three signals — exactly in the middle of the scale. Repair capacity and senescence level are unremarkable."
     }
    ],
-   "note": "In the publication describing the model, two of the three microRNAs did not correlate significantly with chronological age. The individual signals should therefore be read as starting points for interventions, not as age markers in their own right."
+   "note": "In the publication describing the model, two of the three microRNAs did not correlate significantly with chronological age. The individual signals should therefore be read as starting points for interventions, not as age markers in their own right.",
+   "id": "marker"
   },
   {
    "type": "radar",
@@ -207,7 +214,8 @@
     "Tobacco (9 out of 10), by contrast, is well above average — so the second of the two factors that were unfavourable in the model does not apply to you.",
     "Omega-3 (6) and exercise (7) have room for improvement; both are among the levers that were associated with a lower miRNA age in the study."
    ],
-   "note": "Assessment based on your self-reported information, not an individual diagnosis. The associations described come from the model study and are group findings, not a prediction for the individual case."
+   "note": "Assessment based on your self-reported information, not an individual diagnosis. The associations described come from the model study and are group findings, not a prediction for the individual case.",
+   "id": "lebensstil"
   },
   {
    "type": "table",
@@ -279,7 +287,8 @@
      "Senolytic; better bioavailability with vitamin C"
     ]
    ],
-   "note": "The ‘acts on’ assignment denotes the pathway the respective lever targets. It is not a promise of a measurable change in the individual case. Please review food supplements individually and in consultation with a qualified professional; this overview does not replace medical advice."
+   "note": "The ‘acts on’ assignment denotes the pathway the respective lever targets. It is not a promise of a measurable change in the individual case. Please review food supplements individually and in consultation with a qualified professional; this overview does not replace medical advice.",
+   "id": "uebersicht"
   },
   {
    "type": "trend",
@@ -301,7 +310,8 @@
      "tone": "green"
     }
    ],
-   "note": "Evaluation: initial measurement 15.03.2026, follow-up 15.06.2026, change −2 years, deviation today +4 compared with chronological age."
+   "note": "Evaluation: initial measurement 15.03.2026, follow-up 15.06.2026, change −2 years, deviation today +4 compared with chronological age.",
+   "id": "verlauf"
   },
   {
    "type": "callout",
@@ -311,7 +321,8 @@
     "At the same time: a difference of two years lies well within the model's scatter of around ten years. A single step of this size does not yet demonstrate an effect — only a direction that stays consistent across several measurements does that.",
     "The two measurements were around three months apart. The interval to the next check is set by the institution providing your care; sample collection and time of day should remain comparable."
    ],
-   "tone": "accent"
+   "tone": "accent",
+   "id": "hinweis-3"
   },
   {
    "type": "summary",
@@ -336,7 +347,8 @@
    "controlItems": [
     "All the associations described between lifestyle and miRNA age come from the model study and are group findings. Whether your personal value changes as a result of these measures can only be shown by your next measurement.",
     "This report is not a diagnosis and does not replace medical advice."
-   ]
+   ],
+   "id": "zusammenfassung"
   },
   {
    "type": "science",
@@ -374,7 +386,8 @@
      "source": "Schneider J. et al., miRNA-3Age: a microRNA-based biological age model and its modulation by lifestyle and nutrition. Frontiers in Nutrition (2025), doi:10.3389/fnut.2025.1659730"
     }
    ],
-   "note": "This document does not replace medical assessment and does not constitute any promise of cure within the meaning of the German Therapeutic Products Advertising Act (HWG)."
+   "note": "This document does not replace medical assessment and does not constitute any promise of cure within the meaning of the German Therapeutic Products Advertising Act (HWG).",
+   "id": "einordnung"
   },
   {
    "type": "callout",
@@ -383,7 +396,8 @@
    "items": [
     "A single value within ±10 years of chronological age cannot be distinguished from the model's scatter."
    ],
-   "tone": "accent"
+   "tone": "accent",
+   "id": "hinweis-4"
   },
   {
    "type": "contact",
@@ -421,7 +435,8 @@
      "text": "The laboratory analysis is carried out by our cooperation partner. Polaris Diagnostics Europe GmbH is responsible for distribution and support. Please review food supplements individually and in consultation with a qualified professional. This document does not constitute any promise of cure within the meaning of the German Therapeutic Products Advertising Act (HWG)."
     }
    ],
-   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · As at: August 2026"
+   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · As at: August 2026",
+   "id": "kontakt"
   }
  ]
 }

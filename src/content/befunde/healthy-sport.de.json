@@ -25,7 +25,8 @@
      "k": "Umfang",
      "v": "8 miRNA + 4 SNP"
     }
-   ]
+   ],
+   "id": "deckblatt"
   },
   {
    "type": "principle",
@@ -83,7 +84,8 @@
      "label": "7–9 · Grün",
      "text": "Im optimalen Bereich. Bestehende Routinen beibehalten."
     }
-   ]
+   ],
+   "id": "so-lesen"
   },
   {
    "type": "callout",
@@ -93,7 +95,8 @@
     "Die vier genetischen Varianten sind angeboren und werden nur einmalig erhoben. Vor der genetischen Analyse sind Aufklärung und schriftliche Einwilligung erforderlich (Gendiagnostikgesetz).",
     "Nur die acht microRNA-Werte sind veränderbar — sie allein eignen sich als Erfolgskontrolle."
    ],
-   "tone": "neutral"
+   "tone": "neutral",
+   "id": "hinweis"
   },
   {
    "type": "evaluations",
@@ -150,7 +153,8 @@
      "display": "2 / 9",
      "tone": "red"
     }
-   ]
+   ],
+   "id": "auswertungen"
   },
   {
    "type": "callout",
@@ -161,7 +165,8 @@
     "Ein Wert im grünen Bereich — der Hydrationsstatus (8) ist stabil und soll es bleiben.",
     "Den Abstand zur nächsten Kontrollmessung legt die betreuende Einrichtung fest; Ihre bisherigen beiden Messungen lagen rund drei Monate auseinander."
    ],
-   "tone": "accent"
+   "tone": "accent",
+   "id": "hinweis-2"
   },
   {
    "type": "table",
@@ -232,7 +237,8 @@
      "2 / 9",
      "Reguliert Entzündungssignalwege unter Trainingsbelastung."
     ]
-   ]
+   ],
+   "id": "uebersicht"
   },
   {
    "type": "callout",
@@ -241,7 +247,8 @@
    "items": [
     "Die beiden Muskelmarker miR-378a-3p und miR-101-3p liegen mit je 7/9 im grünen Bereich. Die Muskulatur selbst ist nicht das Problem — die Erholung ist es."
    ],
-   "tone": "accent"
+   "tone": "accent",
+   "id": "hinweis-3"
   },
   {
    "type": "markers",
@@ -278,13 +285,15 @@
      "tone": "red",
      "text": "Ihr Wert liegt außerhalb des optimalen Bereichs. Achten Sie auf Regeneration und ausreichend Schlaf, auf Vitamin C und Zink über Obst, Gemüse, Brokkoli und Zitrusfrüchte, auf Entspannung, moderate Bewegung und eine ballaststoffreiche Ernährung für die Darmflora."
     }
-   ]
+   ],
+   "id": "marker"
   },
   {
    "type": "callout",
    "title": "Der gemeinsame Nenner",
    "text": "Alle drei Auswertungen enthalten miR-146a-5p oder miR-22-5p — die beiden schwächsten Einzelmarker. Belastungssteuerung und Regeneration wirken deshalb auf alle drei Werte gleichzeitig, nicht nur auf einen.",
-   "tone": "accent"
+   "tone": "accent",
+   "id": "hinweis-4"
   },
   {
    "type": "markers",
@@ -331,7 +340,8 @@
      "tone": "green",
      "text": "Ihr Wert liegt im optimalen Bereich. Achten Sie weiterhin auf mindestens zwei Liter Flüssigkeit täglich, auch während der Trainingseinheiten."
     }
-   ]
+   ],
+   "id": "marker-2"
   },
   {
    "type": "table",
@@ -358,7 +368,8 @@
      "Bestimmt die Muskelfaser-Zusammensetzung; die Mischform vereint schnelle und langsame Fasern."
     ]
    ],
-   "note": "Ihr Sporttyp auf der Skala Ausdauertyp — Mischtyp — Krafttyp: vorwiegend Krafttyp. Sie sind vorwiegend der Kraftsporttyp. Geeignet sind Kraftsportarten wie Gewichtheben, Kraft-Dreikampf oder Bodybuilding."
+   "note": "Ihr Sporttyp auf der Skala Ausdauertyp — Mischtyp — Krafttyp: vorwiegend Krafttyp. Sie sind vorwiegend der Kraftsporttyp. Geeignet sind Kraftsportarten wie Gewichtheben, Kraft-Dreikampf oder Bodybuilding.",
+   "id": "uebersicht-2"
   },
   {
    "type": "table",
@@ -390,7 +401,8 @@
      "Leicht erhöht. Achten Sie besonders auf Aufwärmen und anschließendes Abkühlen oder Dehnen."
     ]
    ],
-   "note": "Die Skalen dieser vier Auswertungen sind Positionsangaben zwischen zwei Polen, keine Ampel: Ein Sporttyp ist weder gut noch schlecht. Genetische Varianten werden nur einmalig erhoben und bleiben lebenslang unverändert."
+   "note": "Die Skalen dieser vier Auswertungen sind Positionsangaben zwischen zwei Polen, keine Ampel: Ein Sporttyp ist weder gut noch schlecht. Genetische Varianten werden nur einmalig erhoben und bleiben lebenslang unverändert.",
+   "id": "uebersicht-3"
   },
   {
    "type": "radar",
@@ -427,7 +439,8 @@
      "text": "Deutlich überdurchschnittlich. Der Flüssigkeitswert steht im Einklang mit Ihrem guten Hydrationsstatus (8/9)."
     }
    ],
-   "note": "Standortbestimmung auf Basis Ihrer Selbstauskunft, keine individuelle Diagnose. Bei Erkrankungen oder in besonderen Lebensphasen größere Ernährungsänderungen bitte ärztlich begleiten lassen."
+   "note": "Standortbestimmung auf Basis Ihrer Selbstauskunft, keine individuelle Diagnose. Bei Erkrankungen oder in besonderen Lebensphasen größere Ernährungsänderungen bitte ärztlich begleiten lassen.",
+   "id": "lebensstil"
   },
   {
    "type": "table",
@@ -541,7 +554,8 @@
      "Hohe Phytatzufuhr hemmt die Aufnahme"
     ]
    ],
-   "note": "Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen — insbesondere bei Schwangerschaft, Vorerkrankungen oder gleichzeitiger Medikamenteneinnahme. Diese Übersicht ersetzt keine ärztliche Beratung."
+   "note": "Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen — insbesondere bei Schwangerschaft, Vorerkrankungen oder gleichzeitiger Medikamenteneinnahme. Diese Übersicht ersetzt keine ärztliche Beratung.",
+   "id": "uebersicht-4"
   },
   {
    "type": "trend",
@@ -623,7 +637,8 @@
      "status": "Durchschnitt"
     }
    ],
-   "note": "Der Abstand zwischen den beiden Messungen betrug rund drei Monate. Ob dieser Abstand auch für die nächste Kontrolle passt, legt die betreuende Einrichtung fest."
+   "note": "Der Abstand zwischen den beiden Messungen betrug rund drei Monate. Ob dieser Abstand auch für die nächste Kontrolle passt, legt die betreuende Einrichtung fest.",
+   "id": "verlauf"
   },
   {
    "type": "callout",
@@ -633,7 +648,8 @@
     "Zwei Verschlechterungen: Belastungs-/Stressniveau (3 → 2) und Entzündung (4 → 3). Beide enthalten miR-146a-5p. Zwischen den beiden Messungen hat sich die Belastungsseite also verschlechtert, nicht die Leistungsseite.",
     "Vier unveränderte Werte: Hydration, Verletzungsrisiko, kardiovaskuläre Fitness und Muskelstatus sind stabil geblieben."
    ],
-   "tone": "accent"
+   "tone": "accent",
+   "id": "hinweis-5"
   },
   {
    "type": "summary",
@@ -659,7 +675,8 @@
     "Den Abstand zur nächsten Kontrollmessung legt die betreuende Einrichtung fest. Zwischen Ihren bisherigen beiden Messungen lagen rund drei Monate.",
     "Die vier genetischen Varianten bleiben unverändert und werden nicht wiederholt.",
     "Für die Vergleichbarkeit sollten Probenahme, Tageszeit und der Abstand zur letzten Trainingseinheit ähnlich bleiben."
-   ]
+   ],
+   "id": "zusammenfassung"
   },
   {
    "type": "contact",
@@ -697,7 +714,8 @@
      "text": "Genetische Untersuchungen unterliegen dem Gendiagnostikgesetz (GenDG); Aufklärung und schriftliche Einwilligung sind vor der Probenahme erforderlich. Die Laboranalytik erfolgt durch unseren Kooperationspartner. Polaris Diagnostics Europe GmbH verantwortet Vertrieb und Betreuung. Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen."
     }
    ],
-   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand: August 2026"
+   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand: August 2026",
+   "id": "kontakt"
   }
  ]
 }

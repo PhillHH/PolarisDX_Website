@@ -26,7 +26,8 @@
      "v": "4 + lifestyle"
     }
    ],
-   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net"
+   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+   "id": "deckblatt"
   },
   {
    "type": "principle",
@@ -92,7 +93,8 @@
      "label": "From 100 % · Green",
      "text": "No action needed, maintain the result."
     }
-   ]
+   ],
+   "id": "so-lesen"
   },
   {
    "type": "resultTable",
@@ -159,7 +161,8 @@
      ],
      "tone": "green"
     }
-   ]
+   ],
+   "id": "ergebnis"
   },
   {
    "type": "ageDots",
@@ -209,7 +212,8 @@
      "display": "45 yrs · −3",
      "tone": "green"
     }
-   ]
+   ],
+   "id": "biologisches-alter"
   },
   {
    "type": "markers",
@@ -314,7 +318,8 @@
       ]
      }
     }
-   ]
+   ],
+   "id": "marker"
   },
   {
    "type": "markers",
@@ -413,7 +418,8 @@
       ]
      }
     }
-   ]
+   ],
+   "id": "marker-2"
   },
   {
    "type": "radar",
@@ -457,7 +463,8 @@
     "Snacks and meat (5 each) are at the level of the reference group — this is where the greatest untapped potential for the telomere and LINE-1 values lies.",
     "Tobacco (9), fruit and vegetables (8) and fluid intake (8) are clearly above average and support the good values for IL-6 and the ageing markers."
    ],
-   "note": "A baseline assessment, not an individual diagnosis. In the case of illness or during special phases of life, please have larger dietary changes supervised by a doctor."
+   "note": "A baseline assessment, not an individual diagnosis. In the case of illness or during special phases of life, please have larger dietary changes supervised by a doctor.",
+   "id": "lebensstil"
   },
   {
    "type": "table",
@@ -579,7 +586,8 @@
     "green",
     "green"
    ],
-   "note": "Please review food supplements individually and in consultation with a qualified professional. This overview does not replace medical advice."
+   "note": "Please review food supplements individually and in consultation with a qualified professional. This overview does not replace medical advice.",
+   "id": "uebersicht"
   },
   {
    "type": "summary",
@@ -605,7 +613,8 @@
     "A follow-up measurement is useful after 4 to 6 months at the earliest — before that, changes in the methylation markers cannot be measured reliably.",
     "From the second measurement onwards, the measured trend is reported for each marker.",
     "For follow-up monitoring, sample collection and time of day should remain comparable."
-   ]
+   ],
+   "id": "zusammenfassung"
   },
   {
    "type": "contact",
@@ -643,7 +652,8 @@
      "text": "The laboratory analysis is carried out by our cooperation partner. Polaris Diagnostics Europe GmbH is responsible for distribution and support. Please review food supplements individually and in consultation with a qualified professional."
     }
    ],
-   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Last updated: August 2026"
+   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Last updated: August 2026",
+   "id": "kontakt"
   }
  ]
 }

@@ -25,7 +25,8 @@
      "k": "Umfang",
      "v": "6 microRNAs"
     }
-   ]
+   ],
+   "id": "deckblatt"
   },
   {
    "type": "principle",
@@ -90,7 +91,8 @@
      "label": "7–9 · Grün",
      "text": "Ergebnis erhalten."
     }
-   ]
+   ],
+   "id": "so-lesen"
   },
   {
    "type": "callout",
@@ -99,7 +101,8 @@
    "items": [
     "Die sechs microRNA-Werte beschreiben einen Momentzustand und sind über den Lebensstil beeinflussbar — sie eignen sich damit als Verlaufskontrolle."
    ],
-   "tone": "neutral"
+   "tone": "neutral",
+   "id": "hinweis"
   },
   {
    "type": "markers",
@@ -136,7 +139,8 @@
       "niedriges Risiko"
      ]
     }
-   ]
+   ],
+   "id": "marker"
   },
   {
    "type": "resultTable",
@@ -211,7 +215,8 @@
      "tone": "red"
     }
    ],
-   "note": "Die beiden Auswertungen werden vom Labor aus den ihnen zugeordneten microRNAs berechnet; sie sind nicht der Mittelwert dieser Einzelwerte."
+   "note": "Die beiden Auswertungen werden vom Labor aus den ihnen zugeordneten microRNAs berechnet; sie sind nicht der Mittelwert dieser Einzelwerte.",
+   "id": "ergebnis"
   },
   {
    "type": "bigResult",
@@ -228,7 +233,8 @@
     "akuter Stress",
     "kein Stress"
    ],
-   "text": "Die Auswertung zeigt, wo Ihre aktuelle Stressreaktion zwischen „kein Stress“ und „chronischer Stress“ liegt. Ihr Wert liegt im günstigen Bereich — Ihr Körper kommt mit dem aktuellen Stress gut zurecht. Die Bewertung erfolgt stets im Kontext der weiteren Marker."
+   "text": "Die Auswertung zeigt, wo Ihre aktuelle Stressreaktion zwischen „kein Stress“ und „chronischer Stress“ liegt. Ihr Wert liegt im günstigen Bereich — Ihr Körper kommt mit dem aktuellen Stress gut zurecht. Die Bewertung erfolgt stets im Kontext der weiteren Marker.",
+   "id": "ergebnis-2"
   },
   {
    "type": "markers",
@@ -253,7 +259,8 @@
      "tone": "amber",
      "text": "Reguliert entzündliche und metabolische Prozesse mit Einfluss auf die systemische Homöostase. Deutlich schwächer als der akute Indikator."
     }
-   ]
+   ],
+   "id": "marker-2"
   },
   {
    "type": "callout",
@@ -262,7 +269,8 @@
    "items": [
     "Vier der elf Empfehlungen — Quercetin, EGCG, Oleuropein und Resveratrol — zielen genau auf den chronischen Indikator let-7g-5p."
    ],
-   "tone": "accent"
+   "tone": "accent",
+   "id": "hinweis-2"
   },
   {
    "type": "table",
@@ -304,7 +312,8 @@
      "100 mg/Tag",
      "Blätter 3.000-fach konzentrierter, aber sehr bitter"
     ]
-   ]
+   ],
+   "id": "uebersicht"
   },
   {
    "type": "bigResult",
@@ -321,7 +330,8 @@
     "mittleres Risiko",
     "niedriges Risiko"
    ],
-   "text": "Die Auswertung zeigt noch keine akute stressbedingte Überbelastung. Das Risiko für Folgeerkrankungen ist aber bereits erhöht — hier lohnt es sich zu handeln, bevor sich Spätfolgen manifestieren. Dies ist der Schwerpunkt Ihres Befunds."
+   "text": "Die Auswertung zeigt noch keine akute stressbedingte Überbelastung. Das Risiko für Folgeerkrankungen ist aber bereits erhöht — hier lohnt es sich zu handeln, bevor sich Spätfolgen manifestieren. Dies ist der Schwerpunkt Ihres Befunds.",
+   "id": "ergebnis-3"
   },
   {
    "type": "markers",
@@ -364,7 +374,8 @@
      "tone": "green",
      "text": "Reguliert Zellüberleben und Apoptose; beteiligt an Stress- und Reparaturprozessen. Der beste Einzelwert des gesamten Befunds."
     }
-   ]
+   ],
+   "id": "marker-3"
   },
   {
    "type": "table",
@@ -406,7 +417,8 @@
      "300 µg/Tag",
      "Rauchen reduziert die Aufnahme"
     ]
-   ]
+   ],
+   "id": "uebersicht-2"
   },
   {
    "type": "table",
@@ -499,7 +511,8 @@
      "Am besten roh oder kurz gedünstet"
     ]
    ],
-   "note": "Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen — insbesondere bei Schwangerschaft, Vorerkrankungen oder gleichzeitiger Medikamenteneinnahme. Diese Übersicht ersetzt keine ärztliche Beratung."
+   "note": "Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen — insbesondere bei Schwangerschaft, Vorerkrankungen oder gleichzeitiger Medikamenteneinnahme. Diese Übersicht ersetzt keine ärztliche Beratung.",
+   "id": "uebersicht-3"
   },
   {
    "type": "trend",
@@ -530,7 +543,8 @@
      "status": "Erhöht",
      "tone": "amber"
     }
-   ]
+   ],
+   "id": "verlauf"
   },
   {
    "type": "callout",
@@ -540,7 +554,8 @@
     "Das ist der eigentliche Befund dieser Messung: Die akute Belastung wird besser bewältigt, während sich die langfristige Regulationsebene verschlechtert hat. Ein gutes Stresslevel allein sagt über die Spätfolgen-Ebene nichts aus.",
     "Zwischen den beiden Messungen lagen rund drei Monate. Den Abstand zur nächsten Kontrollmessung legt die betreuende Einrichtung fest."
    ],
-   "tone": "accent"
+   "tone": "accent",
+   "id": "hinweis-3"
   },
   {
    "type": "summary",
@@ -566,7 +581,8 @@
     "Zwischen Ihren bisherigen beiden Messungen lagen rund drei Monate. Den Abstand zur nächsten Kontrolle legt die betreuende Einrichtung fest.",
     "Für die Vergleichbarkeit sollten Probenahme und Tageszeit ähnlich bleiben.",
     "Bei anhaltender Erschöpfung, Schlafstörungen oder Niedergeschlagenheit ersetzt dieser Befund keine ärztliche Abklärung."
-   ]
+   ],
+   "id": "zusammenfassung"
   },
   {
    "type": "contact",
@@ -604,7 +620,8 @@
      "text": "Die Laboranalytik erfolgt durch unseren Kooperationspartner. Polaris Diagnostics Europe GmbH verantwortet Vertrieb und Betreuung. Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen."
     }
    ],
-   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand: August 2026"
+   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand: August 2026",
+   "id": "kontakt"
   }
  ]
 }

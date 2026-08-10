@@ -26,7 +26,8 @@
      "v": "qPCR, relativ"
     }
    ],
-   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net"
+   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+   "id": "deckblatt"
   },
   {
    "type": "principle",
@@ -64,7 +65,8 @@
      "title": "Verändern",
      "text": "Telomere lassen sich nicht isoliert verlängern. Entscheidend ist, die Prozesse zu bremsen, die ihre Verkürzung beschleunigen."
     }
-   ]
+   ],
+   "id": "so-lesen"
   },
   {
    "type": "callout",
@@ -74,7 +76,8 @@
     "Was das praktisch heißt: Eine Abweichung von wenigen Prozent gegenüber dem Referenzwert liegt in der Größenordnung der Messstreuung und ist für sich genommen nicht aussagekräftig. Belastbar wird die Analyse erst im Verlauf mehrerer Messungen unter gleichen Bedingungen — gleiches Labor, gleiches Material, vergleichbare Probenahme.",
     "Die Telomerlänge ist ein Marker für kumulative zelluläre Belastung. Sie ist keine Diagnose, keine Aussage über Lebenserwartung und kein Maß für ein individuelles Krankheitsrisiko."
    ],
-   "tone": "accent"
+   "tone": "accent",
+   "id": "hinweis"
   },
   {
    "type": "bigResult",
@@ -93,7 +96,8 @@
     "130 %"
    ],
    "tone": "amber",
-   "text": "Ihre Telomerlänge liegt 4 % unter dem Erwartungswert für Ihr Alter. Daraus ergibt sich ein telomerbasiertes biologisches Alter von 53 Jahren, fünf Jahre über dem Kalenderalter. Zur Einordnung: Eine Abweichung von 4 % liegt in der Größenordnung der Streuung, die qPCR-Messungen aus Trockenblut zwischen Läufen aufweisen. Der Wert ist deshalb als Ausgangspunkt für den Verlauf zu lesen, nicht als präzise Einzelbestimmung."
+   "text": "Ihre Telomerlänge liegt 4 % unter dem Erwartungswert für Ihr Alter. Daraus ergibt sich ein telomerbasiertes biologisches Alter von 53 Jahren, fünf Jahre über dem Kalenderalter. Zur Einordnung: Eine Abweichung von 4 % liegt in der Größenordnung der Streuung, die qPCR-Messungen aus Trockenblut zwischen Läufen aufweisen. Der Wert ist deshalb als Ausgangspunkt für den Verlauf zu lesen, nicht als präzise Einzelbestimmung.",
+   "id": "ergebnis"
   },
   {
    "type": "ageDots",
@@ -120,7 +124,8 @@
      "display": "53 J. · +5 Jahre",
      "tone": "red"
     }
-   ]
+   ],
+   "id": "biologisches-alter"
   },
   {
    "type": "radar",
@@ -164,7 +169,8 @@
     "Stress (4 von 10) ist Ihr schwächster Lebensstilfaktor und der Bereich mit dem größten Spielraum.",
     "Sport (7) und Alltagsbewegung (6) sind ausbaufähig; regelmäßige Bewegung gehört zu den Maßnahmen mit dokumentiertem Bezug zur Telomerbiologie."
    ],
-   "note": "Standortbestimmung auf Basis Ihrer Selbstauskunft, keine individuelle Diagnose. Die genannten Zusammenhänge sind Gruppenbefunde aus der Literatur, keine Vorhersage für den Einzelfall."
+   "note": "Standortbestimmung auf Basis Ihrer Selbstauskunft, keine individuelle Diagnose. Die genannten Zusammenhänge sind Gruppenbefunde aus der Literatur, keine Vorhersage für den Einzelfall.",
+   "id": "lebensstil"
   },
   {
    "type": "table",
@@ -227,7 +233,8 @@
      "Stabilisiert den Blutzucker, senkt die oxidative Belastung"
     ]
    ],
-   "note": "Fünf dieser acht Maßnahmen — Folat, B2, B12, B6 und Methionin — wirken über denselben Stoffwechselweg: die Methylierung. Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen; diese Übersicht ersetzt keine ärztliche Beratung."
+   "note": "Fünf dieser acht Maßnahmen — Folat, B2, B12, B6 und Methionin — wirken über denselben Stoffwechselweg: die Methylierung. Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen; diese Übersicht ersetzt keine ärztliche Beratung.",
+   "id": "uebersicht"
   },
   {
    "type": "trend",
@@ -256,7 +263,8 @@
     }
    ],
    "kind": "years",
-   "unit": "Jahre"
+   "unit": "Jahre",
+   "id": "verlauf"
   },
   {
    "type": "callout",
@@ -266,7 +274,8 @@
     "Gleichzeitig gilt: Telomere verlängern sich nicht nennenswert. Eine Verbesserung dieser Größe ist deshalb eher der Messstreuung als einer tatsächlichen Verlängerung zuzuschreiben. Erst eine über mehrere Messungen gleichbleibende Richtung erlaubt eine Aussage.",
     "Zwischen den beiden Messungen lagen rund drei Monate. Den Abstand zur nächsten Kontrolle legt die betreuende Einrichtung fest. Für die Vergleichbarkeit sollten Labor, Probenmaterial und Probenahme gleich bleiben."
    ],
-   "tone": "accent"
+   "tone": "accent",
+   "id": "hinweis-2"
   },
   {
    "type": "summary",
@@ -290,7 +299,8 @@
    "controlTitle": "Realistisch bleiben",
    "controlItems": [
     "Telomere lassen sich durch Ernährung oder Lebensstil nicht gezielt verlängern. Alle Maßnahmen zielen darauf, die Verkürzung zu verlangsamen. Ob sich das in Ihrem persönlichen Wert abbildet, lässt sich angesichts der Messstreuung erst über mehrere Messungen hinweg beurteilen — nicht an der nächsten einzelnen Zahl."
-   ]
+   ],
+   "id": "zusammenfassung"
   },
   {
    "type": "science",
@@ -331,7 +341,8 @@
      "text": "Als Diagnostik, als Aussage über Lebenserwartung oder individuelles Krankheitsrisiko — und als präzise Einzelbestimmung, solange die Abweichung in der Größenordnung der Messstreuung liegt."
     }
    ],
-   "note": "Quellen zur Methodik: Lin et al., PMC6363640 (qPCR-Telomermessung, kritische Faktoren); Olivieri et al., Mech Ageing Dev 2012. Diese Unterlage ersetzt keine ärztliche Beurteilung und begründet keine Heilversprechen im Sinne des Heilmittelwerbegesetzes."
+   "note": "Quellen zur Methodik: Lin et al., PMC6363640 (qPCR-Telomermessung, kritische Faktoren); Olivieri et al., Mech Ageing Dev 2012. Diese Unterlage ersetzt keine ärztliche Beurteilung und begründet keine Heilversprechen im Sinne des Heilmittelwerbegesetzes.",
+   "id": "einordnung"
   },
   {
    "type": "callout",
@@ -340,7 +351,8 @@
    "items": [
     "Für die Vergleichbarkeit müssen Labor, Probenmaterial und Probenahme gleich bleiben — ein Wechsel des Labors macht zwei Werte nicht mehr vergleichbar."
    ],
-   "tone": "neutral"
+   "tone": "neutral",
+   "id": "hinweis-3"
   },
   {
    "type": "contact",
@@ -378,7 +390,8 @@
      "text": "Die Laboranalytik erfolgt durch unseren Kooperationspartner. Polaris Diagnostics Europe GmbH verantwortet Vertrieb und Betreuung. Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen. Diese Unterlage begründet keine Heilversprechen im Sinne des Heilmittelwerbegesetzes."
     }
    ],
-   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand: August 2026"
+   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand: August 2026",
+   "id": "kontakt"
   }
  ]
 }

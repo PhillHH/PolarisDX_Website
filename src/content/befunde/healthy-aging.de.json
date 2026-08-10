@@ -26,7 +26,8 @@
      "v": "4 + Lebensstil"
     }
    ],
-   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net"
+   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+   "id": "deckblatt"
   },
   {
    "type": "principle",
@@ -92,7 +93,8 @@
      "label": "Ab 100 % · Grün",
      "text": "Kein Handlungsbedarf, Ergebnis erhalten."
     }
-   ]
+   ],
+   "id": "so-lesen"
   },
   {
    "type": "resultTable",
@@ -159,7 +161,8 @@
      ],
      "tone": "green"
     }
-   ]
+   ],
+   "id": "ergebnis"
   },
   {
    "type": "ageDots",
@@ -209,7 +212,8 @@
      "display": "45 J. · −3",
      "tone": "green"
     }
-   ]
+   ],
+   "id": "biologisches-alter"
   },
   {
    "type": "markers",
@@ -314,7 +318,8 @@
       ]
      }
     }
-   ]
+   ],
+   "id": "marker"
   },
   {
    "type": "markers",
@@ -413,7 +418,8 @@
       ]
      }
     }
-   ]
+   ],
+   "id": "marker-2"
   },
   {
    "type": "radar",
@@ -457,7 +463,8 @@
     "Snacks und Fleisch (je 5) liegen auf dem Niveau der Referenzgruppe — hier liegt das größte unausgeschöpfte Potenzial für die Telomer- und LINE-1-Werte.",
     "Tabak (9), Obst und Gemüse (8), Flüssigkeit (8) sind deutlich überdurchschnittlich und tragen die guten Werte bei IL-6 und den Alterungsmarkern."
    ],
-   "note": "Standortbestimmung, keine individuelle Diagnose. Bei Erkrankungen oder in besonderen Lebensphasen größere Ernährungsänderungen bitte ärztlich begleiten lassen."
+   "note": "Standortbestimmung, keine individuelle Diagnose. Bei Erkrankungen oder in besonderen Lebensphasen größere Ernährungsänderungen bitte ärztlich begleiten lassen.",
+   "id": "lebensstil"
   },
   {
    "type": "table",
@@ -579,7 +586,8 @@
     "green",
     "green"
    ],
-   "note": "Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen. Diese Übersicht ersetzt keine ärztliche Beratung."
+   "note": "Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen. Diese Übersicht ersetzt keine ärztliche Beratung.",
+   "id": "uebersicht"
   },
   {
    "type": "summary",
@@ -605,7 +613,8 @@
     "Eine Kontrollmessung ist frühestens nach 4 bis 6 Monaten sinnvoll — vorher sind Veränderungen der Methylierungsmarker nicht belastbar messbar.",
     "Ab der zweiten Messung wird der gemessene Verlauf je Marker ausgewiesen.",
     "Für die Verlaufskontrolle sollten Probenahme und Tageszeit vergleichbar bleiben."
-   ]
+   ],
+   "id": "zusammenfassung"
   },
   {
    "type": "contact",
@@ -643,7 +652,8 @@
      "text": "Die Laboranalytik erfolgt durch unseren Kooperationspartner. Polaris Diagnostics Europe GmbH verantwortet Vertrieb und Betreuung. Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen."
     }
    ],
-   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand: August 2026"
+   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand: August 2026",
+   "id": "kontakt"
   }
  ]
 }

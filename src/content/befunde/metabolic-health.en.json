@@ -26,7 +26,8 @@
      "v": "17 + 4 epigenetic"
     }
    ],
-   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net"
+   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+   "id": "deckblatt"
   },
   {
    "type": "principle",
@@ -80,7 +81,8 @@
      "label": "7–9 · Green",
      "text": "In the favourable range. Maintain existing routines."
     }
-   ]
+   ],
+   "id": "so-lesen"
   },
   {
    "type": "callout",
@@ -90,7 +92,8 @@
     "This report is not a diagnosis. Interpretation takes place in consultation with qualified professionals and always in the individual context.",
     "Information and written consent are required before a genetic analysis (German Genetic Diagnostics Act, GenDG).",
     "The genetic values never change. Only the four epigenetic values are suitable for monitoring progress."
-   ]
+   ],
+   "id": "hinweis"
   },
   {
    "type": "resultTable",
@@ -145,21 +148,24 @@
      ],
      "tone": "green"
     }
-   ]
+   ],
+   "id": "ergebnis"
   },
   {
    "type": "callout",
    "caption": "Genetic interpretation",
    "title": "Your metabolic type: balanced type",
    "text": "Your metabolism does not favour any one of the three macronutrients. Recommended distribution: 55 % carbohydrates · 20 % protein · 25 % fat, with a calculated requirement of 1,900 kcal/day.",
-   "tone": "neutral"
+   "tone": "neutral",
+   "id": "hinweis-2"
   },
   {
    "type": "callout",
    "caption": "Genetic interpretation",
    "title": "Your exercise type: endurance type",
    "text": "ACE and ACTN3 point to an endurance predisposition. Longer, steady exertion suits you better than short bursts of strength — a strength component nevertheless remains important.",
-   "tone": "neutral"
+   "tone": "neutral",
+   "id": "hinweis-3"
   },
   {
    "type": "callout",
@@ -169,7 +175,8 @@
     "Two red values — LINE-1 (2/9) and miR-21 (3/9). Both depend on folate, zinc and methylation metabolism; the genetic MTHFR variant (2/9) points in the same direction. This is the central starting point of this report.",
     "Two green values — inflammation regulation (7/9) and miR-155 (8/9) are in the optimal range and should be kept there.",
     "A follow-up measurement is meaningful after 4 to 6 months at the earliest."
-   ]
+   ],
+   "id": "hinweis-4"
   },
   {
    "type": "evaluations",
@@ -306,7 +313,8 @@
      "tone": "red"
     }
    ],
-   "note": "Sorted by value, not by topic. The detailed interpretation with genotypes and interventions follows from page 07."
+   "note": "Sorted by value, not by topic. The detailed interpretation with genotypes and interventions follows from page 07.",
+   "id": "auswertungen"
   },
   {
    "type": "markers",
@@ -415,7 +423,8 @@
       ]
      }
     }
-   ]
+   ],
+   "id": "marker"
   },
   {
    "type": "markers",
@@ -525,7 +534,8 @@
       ]
      }
     }
-   ]
+   ],
+   "id": "marker-2"
   },
   {
    "type": "table",
@@ -554,7 +564,8 @@
      "Focus on unsaturated fats"
     ]
    ],
-   "note": "Individually calculated daily energy requirement: 1,900 kcal."
+   "note": "Individually calculated daily energy requirement: 1,900 kcal.",
+   "id": "uebersicht"
   },
   {
    "type": "table",
@@ -577,7 +588,8 @@
      "TT (wild type)",
      "Rather endurance — XX type without α-actinin-3, more slow, endurance-oriented muscle fibres."
     ]
-   ]
+   ],
+   "id": "uebersicht-2"
   },
   {
    "type": "markers",
@@ -623,7 +635,8 @@
       ]
      }
     }
-   ]
+   ],
+   "id": "marker-3"
   },
   {
    "type": "markers",
@@ -703,7 +716,8 @@
       ]
      }
     }
-   ]
+   ],
+   "id": "marker-4"
   },
   {
    "type": "markers",
@@ -793,7 +807,8 @@
      "tone": "green",
      "text": "Favourable starting position against the yo-yo effect. Stable meal times and 150 min of exercise/week maintain it."
     }
-   ]
+   ],
+   "id": "marker-5"
   },
   {
    "type": "markers",
@@ -905,7 +920,8 @@
       ]
      }
     }
-   ]
+   ],
+   "id": "marker-6"
   },
   {
    "type": "markers",
@@ -957,7 +973,8 @@
       ]
      }
     }
-   ]
+   ],
+   "id": "marker-7"
   },
   {
    "type": "markers",
@@ -1002,7 +1019,8 @@
       ]
      }
     }
-   ]
+   ],
+   "id": "marker-8"
   },
   {
    "type": "markers",
@@ -1092,7 +1110,8 @@
       ]
      }
     }
-   ]
+   ],
+   "id": "marker-9"
   },
   {
    "type": "table",
@@ -1211,7 +1230,8 @@
      "Important antioxidant enzyme, protects cells from oxidative stress."
     ]
    ],
-   "note": "21 variants. Each of the evaluations on page 04 is derived from several of these genes together; a single genotype on its own does not allow any conclusion."
+   "note": "21 variants. Each of the evaluations on page 04 is derived from several of these genes together; a single genotype on its own does not allow any conclusion.",
+   "id": "uebersicht-3"
   },
   {
    "type": "summary",
@@ -1240,7 +1260,8 @@
     "A follow-up measurement of the four epigenetic markers is meaningful after 4 to 6 months at the earliest — before that, changes cannot be measured reliably.",
     "The genetic evaluations remain unchanged and never need to be repeated.",
     "A comparison of the measurement points over time is reported from the second measurement onwards."
-   ]
+   ],
+   "id": "zusammenfassung"
   },
   {
    "type": "contact",
@@ -1278,7 +1299,8 @@
      "text": "Genetic testing is subject to the German Genetic Diagnostics Act (GenDG); information and written consent are required before sample collection. The laboratory analysis is carried out by our cooperation partner. Polaris Diagnostics Europe GmbH is responsible for distribution and support."
     }
    ],
-   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · As at: August 2026"
+   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · As at: August 2026",
+   "id": "kontakt"
   }
  ]
 }

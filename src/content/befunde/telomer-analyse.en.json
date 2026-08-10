@@ -24,7 +24,8 @@
      "v": "qPCR, relative"
     }
    ],
-   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net"
+   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+   "id": "deckblatt"
   },
   {
    "type": "principle",
@@ -62,7 +63,8 @@
      "title": "Change",
      "text": "Telomeres cannot be lengthened in isolation. What matters is slowing the processes that accelerate their shortening."
     }
-   ]
+   ],
+   "id": "so-lesen"
   },
   {
    "type": "callout",
@@ -72,7 +74,8 @@
     "What this means in practice: a deviation of a few per cent from the reference value is of the same order of magnitude as the measurement variation and is not meaningful in itself. The analysis only becomes robust across several measurements taken under the same conditions — same laboratory, same material, comparable sample collection.",
     "Telomere length is a marker of cumulative cellular strain. It is not a diagnosis, not a statement about life expectancy and not a measure of individual disease risk."
    ],
-   "tone": "accent"
+   "tone": "accent",
+   "id": "hinweis"
   },
   {
    "type": "bigResult",
@@ -91,7 +94,8 @@
     "130 %"
    ],
    "tone": "amber",
-   "text": "Your telomere length is 4 % below the value expected for your age. This gives a telomere-based biological age of 53 years, five years above your chronological age. For context: a deviation of 4 % is of the same order of magnitude as the variation that qPCR measurements from dried blood show between runs. The value should therefore be read as a starting point for the trend, not as a precise single determination."
+   "text": "Your telomere length is 4 % below the value expected for your age. This gives a telomere-based biological age of 53 years, five years above your chronological age. For context: a deviation of 4 % is of the same order of magnitude as the variation that qPCR measurements from dried blood show between runs. The value should therefore be read as a starting point for the trend, not as a precise single determination.",
+   "id": "ergebnis"
   },
   {
    "type": "ageDots",
@@ -118,7 +122,8 @@
      "display": "53 yrs · +5 years",
      "tone": "red"
     }
-   ]
+   ],
+   "id": "biologisches-alter"
   },
   {
    "type": "radar",
@@ -162,7 +167,8 @@
     "Stress (4 out of 10) is your weakest lifestyle factor and the area with the greatest scope for improvement.",
     "Exercise (7) and everyday activity (6) have room to grow; regular physical activity is among the measures with a documented relation to telomere biology."
    ],
-   "note": "Assessment based on your own self-reported information, not an individual diagnosis. The relationships mentioned are group findings from the literature, not a prediction for the individual case."
+   "note": "Assessment based on your own self-reported information, not an individual diagnosis. The relationships mentioned are group findings from the literature, not a prediction for the individual case.",
+   "id": "lebensstil"
   },
   {
    "type": "table",
@@ -225,7 +231,8 @@
      "Stabilises blood sugar, lowers oxidative strain"
     ]
    ],
-   "note": "Five of these eight measures — folate, B2, B12, B6 and methionine — act via the same metabolic pathway: methylation. Please review food supplements individually and in consultation with a specialist; this overview does not replace medical advice."
+   "note": "Five of these eight measures — folate, B2, B12, B6 and methionine — act via the same metabolic pathway: methylation. Please review food supplements individually and in consultation with a specialist; this overview does not replace medical advice.",
+   "id": "uebersicht"
   },
   {
    "type": "trend",
@@ -254,7 +261,8 @@
     }
    ],
    "kind": "years",
-   "unit": "years"
+   "unit": "years",
+   "id": "verlauf"
   },
   {
    "type": "callout",
@@ -264,7 +272,8 @@
     "At the same time: telomeres do not lengthen appreciably. An improvement of this magnitude is therefore more likely attributable to measurement variation than to actual lengthening. Only a direction that stays the same across several measurements permits a conclusion.",
     "Roughly three months lay between the two measurements. The interval to the next check is set by the supervising institution. For comparability, the laboratory, sample material and sample collection should remain the same."
    ],
-   "tone": "accent"
+   "tone": "accent",
+   "id": "hinweis-2"
   },
   {
    "type": "summary",
@@ -288,7 +297,8 @@
    "controlTitle": "Staying realistic",
    "controlItems": [
     "Telomeres cannot be deliberately lengthened through diet or lifestyle. All measures aim to slow the shortening. Whether this is reflected in your personal value can, given the measurement variation, only be judged across several measurements — not from the next single figure."
-   ]
+   ],
+   "id": "zusammenfassung"
   },
   {
    "type": "science",
@@ -329,7 +339,8 @@
      "text": "As diagnostics, as a statement about life expectancy or individual disease risk — and as a precise single determination, as long as the deviation is of the same order of magnitude as the measurement variation."
     }
    ],
-   "note": "Sources on methodology: Lin et al., PMC6363640 (qPCR telomere measurement, critical factors); Olivieri et al., Mech Ageing Dev 2012. This document does not replace a medical assessment and does not constitute any promise of cure within the meaning of the German Therapeutic Products Advertising Act (Heilmittelwerbegesetz)."
+   "note": "Sources on methodology: Lin et al., PMC6363640 (qPCR telomere measurement, critical factors); Olivieri et al., Mech Ageing Dev 2012. This document does not replace a medical assessment and does not constitute any promise of cure within the meaning of the German Therapeutic Products Advertising Act (Heilmittelwerbegesetz).",
+   "id": "einordnung"
   },
   {
    "type": "callout",
@@ -338,7 +349,8 @@
    "items": [
     "For comparability, the laboratory, sample material and sample collection must remain the same — changing the laboratory means two values are no longer comparable."
    ],
-   "tone": "neutral"
+   "tone": "neutral",
+   "id": "hinweis-3"
   },
   {
    "type": "contact",
@@ -376,7 +388,8 @@
      "text": "The laboratory analysis is performed by our cooperation partner. Polaris Diagnostics Europe GmbH is responsible for distribution and support. Please review food supplements individually and in consultation with a specialist. This document does not constitute any promise of cure within the meaning of the German Therapeutic Products Advertising Act (Heilmittelwerbegesetz)."
     }
    ],
-   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · As at: August 2026"
+   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · As at: August 2026",
+   "id": "kontakt"
   }
  ],
  "panel": "Telomere Analysis",
