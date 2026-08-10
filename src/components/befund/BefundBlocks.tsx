@@ -89,9 +89,12 @@ const DataTable = ({
   rowTones,
   badgeLastCell = false,
   scrollHint,
+  label,
 }: {
   cols: string[]
   rows: (string[] | { cells: string[]; tone?: string })[]
+  /** Name der Tabelle fuer Screenreader — sonst heisst sie nur "Tabelle". */
+  label?: string
   /** Ton je Zeile — faerbt nur den linken Rand, weil nicht feststeht, auf
       welche Spalte er sich bezieht. */
   rowTones?: string[]
@@ -101,11 +104,17 @@ const DataTable = ({
 }) => (
   <>
     <div className="mt-6 overflow-x-auto rounded-2xl border border-slate-200">
-      <table className="w-full min-w-[44rem] border-collapse text-left">
+      <table aria-label={label} className="w-full min-w-[44rem] border-collapse text-left">
         <thead>
           <tr className="bg-brand-deep text-white">
-            {cols.map((c) => (
-              <th key={c} scope="col" className="px-4 py-3 text-sm font-semibold">
+            {cols.map((c, j) => (
+              <th
+                key={c}
+                scope="col"
+                className={`px-4 py-3 text-sm font-semibold ${
+                  j === 0 ? 'sticky left-0 z-20 bg-brand-deep' : ''
+                }`}
+              >
                 {c}
               </th>
             ))}
@@ -120,9 +129,16 @@ const DataTable = ({
                 {cells.map((cell, j) => (
                   <td
                     key={`${cell}-${j}`}
+                    /* Die erste Spalte laeuft mit: die Tabellen sind 704 px
+                       breit und stehen mobil in 356 px. Ohne sie liest man
+                       Mengen, ohne zu wissen, wozu sie gehoeren. Der
+                       Hintergrund muss deckend sein und die Zebrastreifung
+                       aufnehmen, sonst scheint der Inhalt durch. */
                     className={`px-4 py-3 align-top text-base ${
                       j === 0
-                        ? `font-semibold text-text-heading ${tone ? 'border-l-4 ' + toneClasses(tone).border : ''}`
+                        ? `sticky left-0 z-10 font-semibold text-text-heading ${
+                            i % 2 === 1 ? 'bg-slate-50' : 'bg-white'
+                          } ${tone ? 'border-l-4 ' + toneClasses(tone).border : ''}`
                         : 'text-gray-700'
                     }`}
                   >
@@ -259,6 +275,7 @@ const ResultTable = ({ b, hint }: { b: Block; hint?: string }) => (
       rowTones={arr<string>(b.rowTones)}
       badgeLastCell
       scrollHint={hint}
+      label={str(b.title)}
     />
     {str(b.note) ? <p className="mt-3 text-sm text-gray-500">{str(b.note)}</p> : null}
   </Section>
@@ -328,7 +345,12 @@ const Markers = ({ b, hint }: { b: Block; hint?: string }) => (
           {m.text ? <p className={`mt-6 max-w-[72ch] text-gray-700 ${BODY}`}>{m.text}</p> : null}
 
           {m.table && m.table.cols?.length ? (
-            <DataTable cols={m.table.cols} rows={m.table.rows ?? []} scrollHint={hint} />
+            <DataTable
+              cols={m.table.cols}
+              rows={m.table.rows ?? []}
+              scrollHint={hint}
+              label={`${m.name} — ${m.table.cols[0]}`}
+            />
           ) : null}
         </article>
       ))}
@@ -400,6 +422,7 @@ const TableBlock = ({ b, hint }: { b: Block; hint?: string }) => (
       rows={arr<string[]>(b.rows)}
       rowTones={arr<string>(b.rowTones)}
       scrollHint={hint}
+      label={str(b.title)}
     />
     {str(b.note) ? <p className="mt-3 text-sm text-gray-500">{str(b.note)}</p> : null}
   </Section>

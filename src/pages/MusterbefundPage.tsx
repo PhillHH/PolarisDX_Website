@@ -167,6 +167,7 @@ const MusterbefundPage = () => {
                 chaptersLabel={t('befund.navChapters')}
                 progressLabel={t('befund.navProgress')}
                 back={{ to: '/epigenetics#musterbefunde', label: t('befund.navBack') }}
+                action={{ to: '/contact', label: t('hero.ctaQuote') }}
                 switcher={{
                   current: befund.panel,
                   currentSlug: slug,
@@ -199,6 +200,12 @@ const MusterbefundPage = () => {
                     {t('befund.pdfCta')}
                   </a>
                 ) : null}
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-accent-strong px-6 py-3.5 text-base font-semibold text-white transition-colors hover:brightness-110"
+                >
+                  {t('hero.ctaQuote')}
+                </Link>
                 <Link
                   to="/epigenetics#musterbefunde"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
