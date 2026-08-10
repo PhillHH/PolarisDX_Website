@@ -17,6 +17,7 @@ import WhyPocSection from '../components/sections/WhyPocSection'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
 import AboutSection from '../components/sections/AboutSection'
 import IglooWidgetSection from '../components/sections/IglooWidgetSection'
+import EpigeneticsTeaserSection from '../components/sections/EpigeneticsTeaserSection'
 import StepsSection from '../components/sections/StepsSection'
 import TestimonialsSection from '../components/sections/TestimonialsSection'
 import RoiCalculatorSection from '../components/sections/RoiCalculatorSection'
@@ -86,6 +87,11 @@ const HomePage = () => {
         </Reveal>
       </div>
       <IglooWidgetSection />
+      <div className="mx-auto max-w-container px-4 pt-24 lg:px-0 lg:pt-32">
+        <Reveal width="100%">
+          <EpigeneticsTeaserSection />
+        </Reveal>
+      </div>
       <div className="mt-24 lg:mt-32">
         <Reveal width="100%">
           <TestimonialsSection />

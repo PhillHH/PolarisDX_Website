@@ -201,7 +201,8 @@
         ],
         "file": "en/06_Healthy_Sport_PolarisDX.pdf"
       }
-    ]
+    ],
+    "sampleBtn": "Sample report"
   },
   "docsBand": {
     "title": "Every document in one place",
@@ -311,7 +312,10 @@
     "sub": "18 information sheets as PDF, nine each in German and English. As of August 2026.",
     "zipLabel": "All sheets as ZIP · 0.6 MB",
     "zipFile": "PolarisDX_Unterlagen_EN.zip",
-    "btn": "Get PDF"
+    "btn": "Get PDF",
+    "samplesTitle": "Plus the six sample reports",
+    "samplesText": "A complete example report for each analysis, along with the parameter overview and the glossary of values — in German.",
+    "samplesCta": "Go to the sample reports"
   },
   "sheets": [
     {
@@ -393,5 +397,252 @@
     "longevity": "Longevity diagnostics",
     "downloads": "All downloads",
     "contact": "Request advice"
+  },
+  "samples": {
+    "caption": "Sample reports",
+    "title": "What ends up on the table",
+    "lead": "Six complete sample reports, one for each analysis. Before you enquire, they show how the document is built that your clients finally receive.",
+    "note": "All six documents are sample reports: every value, genotype and personal detail is fictitious and serves solely to illustrate the report format. These are not real results.",
+    "badge": "PDF in German",
+    "btn": "Open sample report",
+    "items": [
+      {
+        "slug": "metabolic-health",
+        "panel": "Metabolic Health",
+        "pages": "15",
+        "what": "How one report brings both levels together — 17 genetic evaluations and four epigenetic markers on the same traffic-light scale from 1 to 9, including the reference to information and written consent under the German Genetic Diagnostics Act (GenDG).",
+        "bullets": [
+          "Four modifiable values, traffic light 1–9",
+          "17 genetic evaluations, 21 variants",
+          "Action plan with three focus areas"
+        ],
+        "file": "de/10_Musterbefund_Metabolic_Health_PolarisDX.pdf"
+      },
+      {
+        "slug": "healthy-aging",
+        "panel": "Healthy Aging",
+        "pages": "9",
+        "what": "How four markers are reported separately — telomeres, LINE-1, epigenetic ageing markers and IL-6, each as a percentage of the reference and each with its own biological age, deliberately without a combined score.",
+        "bullets": [
+          "Biological age for each marker",
+          "Lifestyle radar with eleven factors",
+          "13 recommendations, each assigned to a marker"
+        ],
+        "file": "de/11_Musterbefund_Healthy_Aging_PolarisDX.pdf"
+      },
+      {
+        "slug": "biologische-altersuhr",
+        "panel": "Biological Age Clock",
+        "pages": "10",
+        "what": "How an exploratory result is presented: biological age 52 years against a chronological age of 48 — and the limits of the model set out on a page of its own.",
+        "bullets": [
+          "The three microRNAs reported individually",
+          "Eight recommendations, mapped to the signals",
+          "Trend from two measured values"
+        ],
+        "file": "de/12_Musterbefund_Biologische_Altersuhr_PolarisDX.pdf"
+      },
+      {
+        "slug": "telomer-analyse",
+        "panel": "Telomere Analysis",
+        "pages": "9",
+        "what": "How a single value is put into context: 108 kbp against a reference value of 112 kbp, with the measurement variability of the qPCR stated explicitly as part of the report.",
+        "bullets": [
+          "Eight recommendations with source and amount",
+          "Trend from two measured values",
+          "Scientific context for the method"
+        ],
+        "file": "de/13_Musterbefund_Telomer_Analyse_PolarisDX.pdf"
+      },
+      {
+        "slug": "stress-monitor",
+        "panel": "Stress Monitor",
+        "pages": "9",
+        "what": "How six microRNAs yield two separate evaluations — each from the markers assigned to it, with different results in the sample report.",
+        "bullets": [
+          "The six individual markers as a table",
+          "Eleven recommendations with source and amount",
+          "Two measurements compared over time"
+        ],
+        "file": "de/14_Musterbefund_Stress_Monitor_PolarisDX.pdf"
+      },
+      {
+        "slug": "healthy-sport",
+        "panel": "Healthy Sport",
+        "pages": "12",
+        "what": "How eight microRNAs feed into seven evaluations. The sample report shows the Plus variant, which adds four genetic variants once — including the reference to information and written consent under the German Genetic Diagnostics Act (GenDG).",
+        "bullets": [
+          "Seven evaluations, sorted by value",
+          "The eight microRNAs reported individually",
+          "14 recommendations, plus the measurement trend"
+        ],
+        "file": "de/15_Musterbefund_Healthy_Sport_PolarisDX.pdf"
+      }
+    ],
+    "pagesLabel": "{{pages}} pages",
+    "imgAlt": "Cover of the {{panel}} sample report",
+    "zipLabel": "All six as ZIP · 4.2 MB",
+    "zipFile": "PolarisDX_Musterbefunde_DE.zip"
+  },
+  "compare": {
+    "caption": "At a glance",
+    "title": "The six panels compared",
+    "lead": "All six panels run from the same dried blood spot card, collected from a fingertip. What differs is what is determined from it — the scope, the molecular level and the form the result takes. Epigenetic markers and microRNAs shift with diet, physical activity, sleep and stress; genetic variants remain unchanged for life. Only the epigenetic level lends itself to checking whether an intervention is working.",
+    "cols": [
+      "Panel",
+      "Parameters",
+      "Molecular level",
+      "For tracking over time",
+      "Genetic analysis",
+      "Result format"
+    ],
+    "rows": [
+      [
+        "Metabolic Health",
+        "4 + 21",
+        "Epigenetics and genetics",
+        "the 4 epigenetic markers only",
+        "yes",
+        "Traffic light 1–9"
+      ],
+      [
+        "Healthy Aging",
+        "4",
+        "Epigenetics",
+        "all 4",
+        "no",
+        "% of reference, biological age"
+      ],
+      [
+        "Biological Age Clock",
+        "3",
+        "microRNA",
+        "all 3",
+        "no",
+        "Deviation in years"
+      ],
+      [
+        "Telomere Analysis",
+        "1",
+        "Telomere length",
+        "yes",
+        "no",
+        "% of reference, biological age"
+      ],
+      [
+        "Stress Monitor",
+        "6",
+        "microRNA",
+        "all 6",
+        "no",
+        "Traffic light 1–9"
+      ],
+      [
+        "Healthy Sport",
+        "8 (Plus: + 4)",
+        "microRNA (Plus: + genetics)",
+        "the 8 microRNAs only",
+        "Plus variant only",
+        "Traffic light 1–9"
+      ]
+    ],
+    "shared": [
+      {
+        "title": "Sample material",
+        "text": "Dried blood spot card, a few drops of capillary blood from a fingertip — no refrigerated shipping, no fasting required."
+      },
+      {
+        "title": "Lifestyle radar",
+        "text": "11 self-reported factors in Healthy Aging, Healthy Sport, Biological Age Clock and Telomere Analysis."
+      },
+      {
+        "title": "Interventions",
+        "text": "Specific recommendations for every marker, each with source, amount and a practical note — 8 to 14 per panel."
+      }
+    ],
+    "caveatTitle": "Two panels where the methodology belongs in the conversation",
+    "caveats": [
+      {
+        "title": "Biological Age Clock",
+        "text": "The underlying model has been published as a pilot study (n = 539) and carries a mean absolute error of around 10 years. A single reading is not a determination of age; what holds up is the trend over time."
+      },
+      {
+        "title": "Telomere Analysis",
+        "text": "qPCR measurement varies considerably between runs and between laboratories, more so from dried blood than from venous blood. Here too it is the trend that carries the interpretation, not the individual value. Both sample reports devote a page to this under the heading “Scientific context”."
+      }
+    ],
+    "gendg": "Two panels include genetic analyses: Metabolic Health and the Plus variant of Healthy Sport. For these, the person concerned must be informed and give written consent before the sample is taken (German Genetic Diagnostics Act, GenDG).",
+    "cta": "Parameter overview as PDF",
+    "file": "de/16_Parameteruebersicht_PolarisDX.pdf",
+    "scrollHint": "Table scrolls sideways"
+  },
+  "basics": {
+    "caption": "Understanding the values",
+    "title": "What the reports actually measure",
+    "lead": "The reports contain values from four different levels. Once the distinction is clear, it is immediately obvious which figures can change and which cannot — and which findings describe a predisposition rather than a snapshot in time. No value is a diagnosis; the analyses describe predispositions and snapshots in time.",
+    "concepts": [
+      {
+        "num": "01",
+        "title": "The genes — the blueprint",
+        "text": "The genes are rather like the blueprint of a house: they set out how the body is built — how it uses fat, how quickly satiety sets in, how well it transports vitamin D through the blood. Small deviations in this blueprint are called gene variants, or SNPs; every person carries thousands of them, and they are neither good nor bad, simply different. In Germany, genetic analyses fall under the Genetic Diagnostics Act (Gendiagnostikgesetz, GenDG) — information and written consent must be in place before the sample is taken.",
+        "key": "The blueprint never changes. A genetic analysis is carried out once in a lifetime; a second measurement would return exactly the same result."
+      },
+      {
+        "num": "02",
+        "title": "Methylation — the volume controls",
+        "text": "The blueprint says nothing about what is being built right now. That is governed by chemical markers sitting on the DNA, which turn individual genes up or down; this system is known as methylation. It responds to diet, exercise, sleep and stress.",
+        "key": "These values change. They do not show which genes someone has, but how active those genes currently are — which is what makes them suitable for monitoring progress."
+      },
+      {
+        "num": "03",
+        "title": "MicroRNAs — the messengers in the blood",
+        "text": "MicroRNAs are tiny molecules that circulate in the blood and fine-tune the activity of genes. They can be pictured as short messages the body sends out continuously. Their quantity shifts faster than methylation — often within weeks.",
+        "key": "Their names always follow the same pattern: \"miR\" plus a number. The number is simply a catalogue number and says nothing about importance."
+      },
+      {
+        "num": "04",
+        "title": "Telomeres — the protective caps",
+        "text": "At the ends of the chromosomes sit protective caps, much like the plastic tips on shoelaces. They are called telomeres, and they prevent genetic information from being lost each time a cell divides. With every division they become a little shorter.",
+        "key": "Telomeres cannot be deliberately lengthened. The only thing open to influence is how quickly they shorten."
+      }
+    ],
+    "scaleTitle": "And the numbers?",
+    "scales": [
+      {
+        "k": "Scale of 1 to 9",
+        "v": "The most common format. Red on the left, green on the right; higher is always better: 1–3 red, 4–6 yellow, 7–9 green."
+      },
+      {
+        "k": "Percentages",
+        "v": "The value in comparison with a reference group. 100 % means: precisely within the expected range."
+      },
+      {
+        "k": "Years",
+        "v": "A \"biological age\" calculated from measured values and set against chronological age. It is the result of a calculation, not a determination of age."
+      }
+    ],
+    "cta": "Understanding the values as PDF",
+    "file": "de/17_Werte_verstehen_PolarisDX.pdf"
+  },
+  "teaser": {
+    "eyebrow": "New in the portfolio · Sample reports",
+    "title": "Epigenetics and genetics from a drop of blood",
+    "text": "Alongside point-of-care testing on the Igloo reader, we offer six analyses from capillary blood, evaluated by our partner laboratory. A complete sample report is now available as a PDF for each of the six analyses — the values are invented example data, but the structure is identical to the report your clients ultimately receive. That way you see the full scope of the evaluation before you enquire.",
+    "cta": "View the six analyses",
+    "ctaSamples": "The six sample reports",
+    "facts": [
+      {
+        "label": "Portfolio",
+        "value": "6 analyses, one sample path"
+      },
+      {
+        "label": "Sample",
+        "value": "Dried blood card, fingertip"
+      },
+      {
+        "label": "Sample reports",
+        "value": "6 PDFs with example data"
+      }
+    ]
   }
 }
