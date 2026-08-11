@@ -72,8 +72,12 @@ Beide „Angebot anfragen"-Knöpfe auf `/de/epigenetics` verlinken auf `/de/cont
 „ja", „nein", „Ampel 1–9" ohne Spaltennamen. Beim Hochscrollen verdeckt sie die Kopfzeile erneut.
 Dieselbe Überlagerung schneidet Analysekarte 01 mitten im Satz ab.
 
-**Mobil bleiben 61 % Bildschirm.** Kopfzeile, CTA-Band und Kapitelleiste belegen rund 330 der
-844 px. Die Kapitelleiste zeigt 2,5 von 10 Kapiteln; der Chip „Auf einen Blick" liegt bei
+**Mobil bleiben 81 % Bildschirm.** Kopfzeile und Kapitelleiste belegen beim Scrollen 163 der
+844 px (19 %), auf dem Desktop 143 von 900 px (16 %). Am Seitenanfang ist es mehr, weil dort
+zusaetzlich ein CTA-Band steht — die zunaechst genannten 39 % stammten aus dieser Position und
+gelten nicht fuer den Lesefluss. Die Ankersprünge landen korrekt unter den Leisten (gemessen:
+Abschnitt bei y=156 auf dem Desktop, y=168 mobil); dort ist nichts zu reparieren. Der echte
+Defekt war die Tabellenkopfzeile, die beim normalen Scrollen hinter den Leisten verschwand. Die Kapitelleiste zeigt 2,5 von 10 Kapiteln; der Chip „Auf einen Blick" liegt bei
 x 278–401 px in einem Container, der bei 374 px endet — die Abkürzung zur Tabelle ist faktisch
 abgeschnitten. Die Vergleichstabelle scrollt horizontal, die Panel-Spalte ist ab 143 px Scroll weg,
 keine Zelle ist sticky.
@@ -187,7 +191,7 @@ der Fixes und dazu Fremdes (Leadmagnet-Startseite, neu geschriebenes Formular, F
 | CTA-Benennung vereinheitlichen | S | ein Weg statt vier Namen | keins |
 | Tabelle mobil als Karten | M | einziger Auswahlvergleich wird am Telefon nutzbar | zwei Darstellungen, eine Quelle |
 | Skalenlegende an die Tabelle | S | Ergebnisformen dort erklärt, wo sie stehen | keins |
-| Anker-Offset + Leistenlogik | S | kein verdeckter Inhalt mehr | keins |
+| Klebende Tabellenkopfzeile | S | Spaltennamen bleiben beim Scrollen lesbar | keins |
 | Umschalter-Fix | S | Sackgassen-Klick weg | keins |
 | Messpunkte prüfen | S | Grundlage für alles Weitere | keins |
 

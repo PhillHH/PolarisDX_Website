@@ -20,6 +20,7 @@
 
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { trackEvent } from '../lib/tracking'
 import { ArrowRight, Check, ChevronDown, Download, FileText, Minus } from 'lucide-react'
 import { SEOHead, createBreadcrumbSchema, createFAQSchema } from '../components/seo'
 import type { FAQItem } from '../components/seo'
@@ -1005,18 +1006,21 @@ const EpigeneticsPage = () => {
                   direkten Wege bleiben als Alternative daneben stehen. */}
               <Link
                 to="/contact"
+                onClick={() => trackEvent('epigenetics_request', { method: 'form' })}
                 className="inline-flex items-center justify-center rounded-full bg-accent-strong px-6 py-3.5 text-base font-semibold text-white transition-colors hover:brightness-110"
               >
                 {t('contact.title')}
               </Link>
               <a
                 href="mailto:contact@polarisdx.net"
+                onClick={() => trackEvent('epigenetics_request', { method: 'email' })}
                 className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
               >
                 contact@polarisdx.net
               </a>
               <a
                 href="tel:+4915228580999"
+                onClick={() => trackEvent('epigenetics_request', { method: 'phone' })}
                 className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
               >
                 +49 152 2858 0999
@@ -1024,6 +1028,7 @@ const EpigeneticsPage = () => {
               <a
                 href={overviewHref}
                 download
+                onClick={() => trackEvent('epigenetics_download', { file: 'portfolio-uebersicht' })}
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
               >
                 <Download className="h-4 w-4" />

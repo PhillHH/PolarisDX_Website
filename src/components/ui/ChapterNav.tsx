@@ -138,6 +138,10 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, action }: Chapter
           // koennen das ohne Zutun.
           <details className="group relative shrink-0">
             <summary className="flex h-9 cursor-pointer list-none items-center gap-1.5 rounded-full border border-slate-300 px-3 text-sm font-semibold text-text-heading transition-colors hover:border-brand-primary">
+              {/* Sichtbar steht hier nur der Name des aktuellen Befunds. Ohne
+                  Zusatz meldet ein Screenreader ihn ohne jeden Hinweis darauf,
+                  dass sich dahinter die Auswahl der anderen verbirgt. */}
+              <span className="sr-only">{switcher.label}: </span>
               <span className="max-w-[9rem] truncate lg:max-w-none">{switcher.current}</span>
               <ChevronDown
                 className="h-4 w-4 shrink-0 text-brand-primary transition-transform group-open:rotate-180"
@@ -146,20 +150,23 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, action }: Chapter
             </summary>
             <div className="absolute left-0 top-full z-30 mt-2 w-64 overflow-hidden rounded-2xl border border-slate-200 bg-white py-2 shadow-lg">
               <p className="px-4 pb-1 pt-1 text-xs font-medium text-gray-500">{switcher.label}</p>
-              {switcher.entries.map((o) => (
-                <Link
-                  key={o.slug}
-                  to={switcher.hrefFor(o.slug)}
-                  aria-current={o.slug === switcher.currentSlug ? 'page' : undefined}
-                  className={`block px-4 py-2.5 text-base transition-colors hover:bg-slate-50 ${
-                    o.slug === switcher.currentSlug
-                      ? 'font-semibold text-brand-primary'
-                      : 'text-text-heading'
-                  }`}
-                >
-                  {o.panel}
-                </Link>
-              ))}
+              {/* Der aktuelle Befund faellt raus — er steht schon im Ausloeser.
+                  Vorher stand er hier als hervorgehobener Eintrag: ein Klick
+                  darauf fuehrte auf dieselbe Seite und liess das Menue offen.
+                  Die Liste am Seitenende filtert ihn ohnehin schon heraus, die
+                  beiden Inventare zeigten also 6 gegen 5 unter derselben
+                  Ueberschrift "weitere Musterbefunde". */}
+              {switcher.entries
+                .filter((o) => o.slug !== switcher.currentSlug)
+                .map((o) => (
+                  <Link
+                    key={o.slug}
+                    to={switcher.hrefFor(o.slug)}
+                    className="block px-4 py-2.5 text-base text-text-heading transition-colors hover:bg-slate-50"
+                  >
+                    {o.panel}
+                  </Link>
+                ))}
             </div>
           </details>
         ) : null}
