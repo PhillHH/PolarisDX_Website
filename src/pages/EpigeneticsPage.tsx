@@ -21,15 +21,15 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { trackEvent } from '../lib/tracking'
-import { ArrowRight, Check, ChevronDown, Download, FileText, Minus } from 'lucide-react'
+import { Check, ChevronDown, Download, FileText, Minus } from 'lucide-react'
 import { SEOHead, createBreadcrumbSchema, createFAQSchema } from '../components/seo'
 import type { FAQItem } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import SectionHeader from '../components/ui/SectionHeader'
+import EpigeneticsPanels from '../components/sections/EpigeneticsPanels'
 import PageTransition from '../components/ui/PageTransition'
 import ChapterNav, { type Chapter } from '../components/ui/ChapterNav'
 import Reveal from '../components/ui/Reveal'
-import { BEFUND_IMAGES, BEFUND_IMAGE_SIZE } from '../assets/epigenetics/befundImages'
 
 // public/ wird nach dist/client kopiert — die oeffentliche URL ist /downloads/...
 const ASSET_BASE = '/downloads/epigenetics/'
@@ -54,16 +54,6 @@ interface Fact {
   v: string
 }
 
-interface Analysis {
-  num: string
-  name: string
-  subtitle: string
-  facts: Fact[]
-  what: string
-  who: string[]
-  file: string
-}
-
 interface Sheet {
   num: string
   title: string
@@ -76,16 +66,6 @@ interface Sheet {
 interface TitledText {
   title: string
   text: string
-}
-
-interface Sample {
-  slug: string
-  panel: string
-  subtitle: string
-  pages: string
-  what: string
-  bullets: string[]
-  file: string
 }
 
 interface Concept {
@@ -126,13 +106,11 @@ const EpigeneticsPage = () => {
   const chips = asArray<Chip>(t('hero.chips', { returnObjects: true }))
   const principleCards = asArray<TitledText>(t('principle.cards', { returnObjects: true }))
   const practiceItems = asArray<string>(t('principle.practice.items', { returnObjects: true }))
-  const analyses = asArray<Analysis>(t('analyses.items', { returnObjects: true }))
   const steps = asArray<string>(t('workflow.steps', { returnObjects: true }))
   const established = asArray<TitledText>(t('evidence.established', { returnObjects: true }))
   const preliminary = asArray<TitledText>(t('evidence.preliminary', { returnObjects: true }))
   const faq = asArray<QA>(t('faq.items', { returnObjects: true }))
   const sheets = asArray<Sheet>(t('sheets', { returnObjects: true }))
-  const samples = asArray<Sample>(t('samples.items', { returnObjects: true }))
   const compareCols = asArray<string>(t('compare.cols', { returnObjects: true }))
   const compareRows = asArray<string[]>(t('compare.rows', { returnObjects: true }))
   const compareShared = asArray<TitledText>(t('compare.shared', { returnObjects: true }))
@@ -151,7 +129,6 @@ const EpigeneticsPage = () => {
     { id: 'prinzip', label: t('principle.caption') },
     { id: 'analysen', label: t('analyses.title') },
     { id: 'vergleich', label: t('compare.caption') },
-    { id: 'musterbefunde', label: t('samples.caption') },
     { id: 'ablauf', label: t('workflow.caption') },
     { id: 'werte-verstehen', label: t('basics.caption') },
     { id: 'studienlage', label: t('evidence.caption') },
@@ -161,7 +138,6 @@ const EpigeneticsPage = () => {
     // </main>, der zum IglooPro fuehrt. Das Kapitel meint den eigenen Block.
     { id: 'konditionen', label: t('contact.navLabel') },
   ]
-  const samplesZipHref = `${ASSET_BASE}${t('samples.zipFile')}`
 
   return (
     <PageTransition>
@@ -331,91 +307,21 @@ const EpigeneticsPage = () => {
         {/* ================================================================
             DIE SECHS ANALYSEN
         ================================================================ */}
+        {/* ================================================================
+            DIE SECHS PANELS — eine Darstellung statt zwei
+
+            Vorher standen dieselben sechs Panels hier als Textkarten und rund
+            4.700px weiter unten nochmal als Bildkarten, mit je anderen Angaben.
+            Beide Anker bleiben erhalten: #analysen liegt auf dem Abschnitt,
+            #musterbefunde als Sprungmarke davor — beide sind extern verlinkt
+            und stehen in den PDFs.
+        ================================================================ */}
         <section
           id="analysen"
           className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-slate-200 bg-white"
         >
-          <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
-            <Reveal width="100%">
-              <SectionHeader
-                caption={t('analyses.caption')}
-                title={t('analyses.title')}
-                align="left"
-              />
-              <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('analyses.lead')}</p>
-            </Reveal>
-
-            <div className="mt-10 grid gap-6 lg:grid-cols-2">
-              {analyses.map((item, index) => (
-                <Reveal key={item.num} width="100%" delay={0.05 * (index % 2)} className={STRETCH}>
-                  <article className="flex h-full flex-col rounded-3xl border border-slate-200 bg-slate-50 p-7 transition-shadow hover:shadow-card lg:p-8">
-                    <div className="flex items-start gap-4">
-                      <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-deep text-base font-semibold text-white">
-                        {item.num}
-                      </span>
-                      <div>
-                        <h3 className="text-2xl font-semibold tracking-tight text-text-heading">
-                          {item.name}
-                        </h3>
-                        <p className={`mt-1.5 text-gray-600 ${BODY}`}>{item.subtitle}</p>
-                      </div>
-                    </div>
-
-                    <dl className="mt-6 grid gap-3 sm:grid-cols-2">
-                      {item.facts?.map((fact) => (
-                        <div
-                          key={fact.k}
-                          className="rounded-2xl border border-slate-200 bg-white px-4 py-3"
-                        >
-                          <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-400">
-                            {fact.k}
-                          </dt>
-                          <dd className="mt-1 text-base font-medium text-text-heading">{fact.v}</dd>
-                        </div>
-                      ))}
-                    </dl>
-
-                    <div className="mt-6">
-                      <p className={LABEL}>{t('analyses.whatLabel')}</p>
-                      <p className={`mt-2 text-gray-700 ${BODY}`}>{item.what}</p>
-                    </div>
-
-                    <div className="mt-5">
-                      <p className={LABEL}>{t('analyses.whoLabel')}</p>
-                      <ul className="mt-2 space-y-2">
-                        {item.who?.map((who) => (
-                          <li key={who} className={`flex gap-3 text-gray-700 ${BODY}`}>
-                            <span className="mt-3.5 h-1 w-3 shrink-0 rounded-full bg-accent-line" />
-                            <span>{who}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="mt-auto flex flex-col gap-3 pt-7 sm:flex-row sm:flex-wrap sm:items-center">
-                      <a
-                        href={`${ASSET_BASE}${item.file}`}
-                        download
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary hover:bg-brand-primary hover:text-white sm:w-auto"
-                      >
-                        <Download className="h-4 w-4" />
-                        {t('analyses.pdfBtn')}
-                      </a>
-                      {samples[index] ? (
-                        <Link
-                          to={`/epigenetics/musterbefund/${samples[index].slug}`}
-                          className="inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-base font-semibold text-brand-primary underline-offset-4 transition-colors hover:text-brand-deep hover:underline sm:w-auto"
-                        >
-                          <FileText className="h-4 w-4" />
-                          {t('analyses.sampleBtn')}
-                        </Link>
-                      ) : null}
-                    </div>
-                  </article>
-                </Reveal>
-              ))}
-            </div>
-          </div>
+          <span id="musterbefunde" className="block scroll-mt-[var(--chapterbar-offset,148px)]" />
+          <EpigeneticsPanels />
         </section>
 
         {/* ================================================================
@@ -576,106 +482,6 @@ const EpigeneticsPage = () => {
         {/* ================================================================
             MUSTERBEFUNDE — was am Ende in der Hand liegt
         ================================================================ */}
-        <section
-          id="musterbefunde"
-          className="scroll-mt-[var(--chapterbar-offset,148px)] border-b border-slate-200 bg-white"
-        >
-          <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
-            <Reveal width="100%">
-              <SectionHeader
-                caption={t('samples.caption')}
-                title={t('samples.title')}
-                align="left"
-              />
-              <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('samples.lead')}</p>
-            </Reveal>
-
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {samples.map((item, index) => (
-                <Reveal key={item.slug} width="100%" delay={0.05 * (index % 3)} className={STRETCH}>
-                  <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white">
-                    {BEFUND_IMAGES[item.slug] ? (
-                      <img
-                        src={BEFUND_IMAGES[item.slug].src}
-                        srcSet={`${BEFUND_IMAGES[item.slug].src} 640w, ${BEFUND_IMAGES[item.slug].src2x} 1200w`}
-                        sizes="(min-width: 1024px) 22rem, (min-width: 640px) 45vw, 92vw"
-                        width={BEFUND_IMAGE_SIZE.width}
-                        height={BEFUND_IMAGE_SIZE.height}
-                        loading="lazy"
-                        decoding="async"
-                        alt={t('samples.imgAlt', { panel: item.panel })}
-                        className="w-full border-b border-slate-200 object-cover"
-                      />
-                    ) : null}
-
-                    <div className="flex flex-1 flex-col p-7">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-accent-strong">
-                          {t('samples.badge')}
-                        </span>
-                        {/* Bewusst nicht `count` als Variablenname: i18next wuerde
-                            daraus einen Plural-Lookup machen und _other suchen. */}
-                        <span className="text-sm text-gray-500">
-                          {t('samples.pagesLabel', { pages: item.pages })}
-                        </span>
-                      </div>
-
-                      <h3 className="mt-4 text-xl font-semibold tracking-tight text-text-heading">
-                        {item.panel}
-                      </h3>
-                      <p className={`mt-2 text-gray-700 ${BODY}`}>{item.what}</p>
-
-                      <ul className="mt-5 space-y-2">
-                        {item.bullets?.map((bullet) => (
-                          <li key={bullet} className="flex gap-3 text-base leading-7 text-gray-600">
-                            <span className="mt-3 h-1 w-3 shrink-0 rounded-full bg-accent-line" />
-                            <span>{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      {/* Der Befund liegt vollstaendig als Seite vor; das PDF
-                          bleibt daneben als Mitnehm-Fassung. */}
-                      <div className="mt-auto space-y-3 pt-6">
-                        <Link
-                          to={`/epigenetics/musterbefund/${item.slug}`}
-                          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-primary px-5 py-3 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
-                        >
-                          {t('samples.btn')}
-                          <ArrowRight className="h-4 w-4" />
-                        </Link>
-                        <a
-                          href={`${ASSET_BASE}${item.file}`}
-                          download
-                          className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-base font-medium text-brand-deep transition-colors hover:border-brand-primary"
-                        >
-                          <Download className="h-4 w-4" />
-                          {t('samples.pdfBtn')}
-                        </a>
-                      </div>
-                    </div>
-                  </article>
-                </Reveal>
-              ))}
-            </div>
-
-            <Reveal width="100%">
-              <div className="mt-8 flex flex-col gap-5 rounded-3xl border border-slate-200 bg-slate-50 p-7 sm:flex-row sm:items-center sm:justify-between">
-                <p className="max-w-[62ch] text-sm leading-relaxed text-gray-500">
-                  {t('samples.note')}
-                </p>
-                <a
-                  href={samplesZipHref}
-                  download
-                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
-                >
-                  <Download className="h-4 w-4" />
-                  {t('samples.zipLabel')}
-                </a>
-              </div>
-            </Reveal>
-          </div>
-        </section>
 
         {/* ================================================================
             DOKUMENTEN-BAND — zweiter, prominenter Weg zu den Unterlagen

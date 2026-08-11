@@ -136,7 +136,7 @@
       },
       {
         "num": "03",
-        "name": "Biologische Alters-Uhr",
+        "name": "Biologische Altersuhr",
         "subtitle": "Ein exploratives Lebensstil-Signal aus drei microRNA — ausdrücklich keine Altersbestimmung.",
         "facts": [
           {
@@ -270,7 +270,7 @@
     "preliminaryTitle": "Vorläufig",
     "preliminary": [
       {
-        "title": "microRNA-Alters-Uhr",
+        "title": "microRNA-Altersuhr",
         "text": "Das publizierte Modell (n = 539) erklärt rund 5 % der Altersvarianz bei einem mittleren absoluten Fehler von 10,4 Jahren; zwei der drei Marker korrelierten nicht signifikant mit dem Lebensalter. Als Altersbestimmung ist der Wert nicht belastbar."
       },
       {
@@ -315,7 +315,7 @@
       },
       {
         "q": "Wie belastbar sind die Ergebnisse?",
-        "a": "Das ist je Analyse unterschiedlich, und wir legen es offen. Der Probenweg selbst ist tragfähig, ebenso die Verlaufsbetrachtung. Die microRNA-Alters-Uhr ist dagegen explorativ, und qPCR-Telomerwerte streuen deutlich. Das Evidenzblatt trennt gesicherte von vorläufiger Evidenz und nennt die Quellen."
+        "a": "Das ist je Analyse unterschiedlich, und wir legen es offen. Der Probenweg selbst ist tragfähig, ebenso die Verlaufsbetrachtung. Die microRNA-Altersuhr ist dagegen explorativ, und qPCR-Telomerwerte streuen deutlich. Das Evidenzblatt trennt gesicherte von vorläufiger Evidenz und nennt die Quellen."
       },
       {
         "q": "Was kosten die Analysen?",
@@ -363,7 +363,7 @@
     },
     {
       "num": "03",
-      "title": "Biologische Alters-Uhr",
+      "title": "Biologische Altersuhr",
       "desc": "Drei microRNA als exploratives Lebensstil-Signal — mit offengelegten Grenzen der Methode.",
       "file": "de/03_Biologisches_Alter_PolarisDX.pdf",
       "meta": "PDF · 3 Seiten · 79 KB"
