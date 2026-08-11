@@ -260,14 +260,16 @@ const EpigeneticsPage = () => {
         <ChapterNav
           chapters={chapters}
           chaptersLabel={t('befund.navChapters')}
-          progressLabel={t('befund.navProgress')}
           action={{ to: '/contact', label: t('hero.ctaQuote') }}
         />
 
         {/* ================================================================
             DAS PRINZIP
         ================================================================ */}
-        <section id="prinzip" className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
+        <section
+          id="prinzip"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24"
+        >
           <Reveal width="100%">
             <SectionHeader
               caption={t('principle.caption')}
@@ -328,7 +330,10 @@ const EpigeneticsPage = () => {
         {/* ================================================================
             DIE SECHS ANALYSEN
         ================================================================ */}
-        <section id="analysen" className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-slate-200 bg-white">
+        <section
+          id="analysen"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-slate-200 bg-white"
+        >
           <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
             <Reveal width="100%">
               <SectionHeader
@@ -415,7 +420,10 @@ const EpigeneticsPage = () => {
         {/* ================================================================
             DIE SECHS PANELS IM VERGLEICH
         ================================================================ */}
-        <section id="vergleich" className="scroll-mt-[var(--chapterbar-offset,148px)] border-b border-slate-200 bg-slate-50">
+        <section
+          id="vergleich"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] border-b border-slate-200 bg-slate-50"
+        >
           <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-20">
             <Reveal width="100%">
               <SectionHeader
@@ -443,10 +451,7 @@ const EpigeneticsPage = () => {
                   </thead>
                   <tbody>
                     {compareRows.map((row, rowIndex) => (
-                      <tr
-                        key={row[0]}
-                        className={rowIndex % 2 === 1 ? 'bg-slate-50' : 'bg-white'}
-                      >
+                      <tr key={row[0]} className={rowIndex % 2 === 1 ? 'bg-slate-50' : 'bg-white'}>
                         {row.map((cell, cellIndex) => (
                           <td
                             key={`${row[0]}-${cellIndex}`}
@@ -485,7 +490,9 @@ const EpigeneticsPage = () => {
                 Vertrauensargument. */}
             <Reveal width="100%">
               <div className="mt-6 rounded-3xl border border-accent-border bg-accent-soft p-7">
-                <p className="text-sm font-semibold text-accent-strong">{t('compare.caveatTitle')}</p>
+                <p className="text-sm font-semibold text-accent-strong">
+                  {t('compare.caveatTitle')}
+                </p>
                 <div className="mt-4 grid gap-5 lg:grid-cols-2">
                   {compareCaveats.map((item) => (
                     <div key={item.title}>
@@ -516,7 +523,10 @@ const EpigeneticsPage = () => {
         {/* ================================================================
             MUSTERBEFUNDE — was am Ende in der Hand liegt
         ================================================================ */}
-        <section id="musterbefunde" className="scroll-mt-[var(--chapterbar-offset,148px)] border-b border-slate-200 bg-white">
+        <section
+          id="musterbefunde"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] border-b border-slate-200 bg-white"
+        >
           <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
             <Reveal width="100%">
               <SectionHeader
@@ -529,12 +539,7 @@ const EpigeneticsPage = () => {
 
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {samples.map((item, index) => (
-                <Reveal
-                  key={item.slug}
-                  width="100%"
-                  delay={0.05 * (index % 3)}
-                  className={STRETCH}
-                >
+                <Reveal key={item.slug} width="100%" delay={0.05 * (index % 3)} className={STRETCH}>
                   <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white">
                     {BEFUND_IMAGES[item.slug] ? (
                       <img
@@ -660,7 +665,10 @@ const EpigeneticsPage = () => {
         {/* ================================================================
             ABLAUF IN DER PRAXIS
         ================================================================ */}
-        <section id="ablauf" className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
+        <section
+          id="ablauf"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24"
+        >
           <Reveal width="100%">
             <SectionHeader
               caption={t('workflow.caption')}
@@ -686,14 +694,13 @@ const EpigeneticsPage = () => {
         {/* ================================================================
             WERTE VERSTEHEN — die vier Ebenen und die drei Zahlenformate
         ================================================================ */}
-        <section id="werte-verstehen" className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-slate-200 bg-white">
+        <section
+          id="werte-verstehen"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-slate-200 bg-white"
+        >
           <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
             <Reveal width="100%">
-              <SectionHeader
-                caption={t('basics.caption')}
-                title={t('basics.title')}
-                align="left"
-              />
+              <SectionHeader caption={t('basics.caption')} title={t('basics.title')} align="left" />
               <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('basics.lead')}</p>
             </Reveal>
 
@@ -747,7 +754,10 @@ const EpigeneticsPage = () => {
         {/* ================================================================
             STUDIENLAGE — GESICHERT VS. VORLAEUFIG
         ================================================================ */}
-        <section id="studienlage" className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-slate-200 bg-white">
+        <section
+          id="studienlage"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-slate-200 bg-white"
+        >
           <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
             <Reveal width="100%">
               <SectionHeader
@@ -812,7 +822,10 @@ const EpigeneticsPage = () => {
         {/* ================================================================
             FAQ — natives <details>, kein JavaScript noetig
         ================================================================ */}
-        <section id="fragen" className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
+        <section
+          id="fragen"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24"
+        >
           <Reveal width="100%">
             <div className="mx-auto max-w-[80ch]">
               <SectionHeader caption={t('faq.caption')} title={t('faq.title')} align="left" />
@@ -834,7 +847,10 @@ const EpigeneticsPage = () => {
         {/* ================================================================
             ALLE UNTERLAGEN
         ================================================================ */}
-        <section id="downloads" className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-slate-200 bg-white">
+        <section
+          id="downloads"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-slate-200 bg-white"
+        >
           <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
             <Reveal width="100%">
               <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -925,7 +941,10 @@ const EpigeneticsPage = () => {
         {/* ================================================================
             KONDITIONEN ANFRAGEN + RECHTLICHER HINWEIS
         ================================================================ */}
-        <section id="konditionen" className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 text-center lg:px-0 lg:py-24">
+        <section
+          id="konditionen"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 text-center lg:px-0 lg:py-24"
+        >
           <Reveal width="100%">
             <SectionHeader
               caption={t('contact.caption')}

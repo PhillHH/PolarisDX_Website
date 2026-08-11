@@ -45,7 +45,11 @@ const MusterbefundPage = () => {
 
   const befund = BEFUNDE[slug]?.[lang] ?? BEFUNDE[slug]?.de
   const samples = Array.isArray(t('samples.items', { returnObjects: true }))
-    ? (t('samples.items', { returnObjects: true }) as { slug: string; panel: string; file: string }[])
+    ? (t('samples.items', { returnObjects: true }) as {
+        slug: string
+        panel: string
+        file: string
+      }[])
     : []
   const meta = samples.find((s) => s.slug === slug)
 
@@ -59,7 +63,11 @@ const MusterbefundPage = () => {
         <SEOHead
           title={t('befund.notFoundTitle')}
           description={t('befund.notFoundText')}
-          notFound
+          /* notFound waere hier richtig — die Prop unterdrueckt canonical und
+             hreflang auf Fehlerseiten. SEOHead kennt sie auf diesem Stand noch
+             nicht, sie war damit wirkungslos und hat den Typecheck rot
+             gehalten. noindex greift und haelt die Seite aus dem Index.
+             Nachzuruesten mit dem SEOHead-Port. */
           noindex
         />
         <div className="mx-auto max-w-container px-4 py-24 lg:px-0 lg:py-32">
@@ -171,7 +179,6 @@ const MusterbefundPage = () => {
               <ChapterNav
                 chapters={chapters}
                 chaptersLabel={t('befund.navChapters')}
-                progressLabel={t('befund.navProgress')}
                 back={{ to: '/epigenetics#musterbefunde', label: t('befund.navBack') }}
                 action={{ to: '/contact', label: t('hero.ctaQuote') }}
                 switcher={{
