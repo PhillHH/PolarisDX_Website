@@ -12,7 +12,7 @@
     "title": "Epigenetic and genetic analyses from one drop",
     "claim": "Six analyses from capillary blood, processed by our European partner laboratory — a measurable basis for your consultation.",
     "ctaDocs": "The six analyses",
-    "ctaQuote": "Request a quotation",
+    "ctaQuote": "Request terms",
     "chips": [
       {
         "label": "Sample",
@@ -412,12 +412,12 @@
     "overview": "Overview as PDF",
     "overviewFile": "en/00_Portfolio_Overview_PolarisDX.pdf",
     "note": "The analyses are laboratory services provided by our cooperation partner and are not CE-marked in vitro diagnostic devices. They serve consultation and monitoring and do not replace clinical diagnostics. Genetic analyses are subject to national genetic testing legislation.",
-    "lab": "Laboratory analysis by our cooperation partner · ISO 9001:2015"
+    "lab": "Laboratory analysis by our cooperation partner · ISO 9001:2015",
+    "navLabel": "Terms"
   },
   "links": {
     "longevity": "Longevity diagnostics",
-    "downloads": "All downloads",
-    "contact": "Request advice"
+    "downloads": "All downloads"
   },
   "samples": {
     "caption": "Sample reports",

@@ -9,17 +9,25 @@ const Footer = () => {
   // CtaSection is the generic B2B "contact us" card. Hide it on contact/support
   // (self-referential) and on the unlisted /consumer/* landing pages — they
   // have their own product-specific FinalCTA per the marketing brief.
-  const isContactPage =
-    location.pathname === '/contact' ||
-    location.pathname === '/support' ||
-    location.pathname.startsWith('/consumer/')
+  //
+  // Ebenfalls aus auf der Epigenetik-Strecke: die Karte wirbt fuer den
+  // IglooPro-Reader und traegt einen Garantie-Anspruch, der dort rund 500 px
+  // hinter dem Satz "keine CE-gekennzeichneten In-vitro-Diagnostika" landet.
+  // Die Strecke hat ihren eigenen Abschluss im Abschnitt #konditionen.
+  const path = location.pathname.replace(/^\/[a-z]{2}(?=\/|$)/, '')
+  const hideGenericCta =
+    path === '/contact' ||
+    path === '/support' ||
+    path.startsWith('/consumer/') ||
+    path === '/epigenetics' ||
+    path.startsWith('/epigenetics/')
   const { t } = useTranslation('common')
 
   return (
     <footer className="mt-24 bg-brand-primary text-white lg:mt-32">
       <div className="relative">
         {/* CTA-Karte in Content-Breite, die in den Footer hineinragt */}
-        {!isContactPage && (
+        {!hideGenericCta && (
           <div className="mx-auto max-w-container px-4 lg:px-0">
             <div className="-translate-y-1/2">
               <CtaSection />
@@ -30,7 +38,7 @@ const Footer = () => {
         {/* Footer-Inhalte, mit zusätzlichem Padding oben für die überlagernde Karte */}
         <div
           className={`mx-auto flex max-w-container flex-col gap-10 px-4 pb-12 lg:pb-16 ${
-            isContactPage ? 'pt-12 lg:pt-16' : 'pt-12 lg:pt-16'
+            hideGenericCta ? 'pt-12 lg:pt-16' : 'pt-12 lg:pt-16'
           }`}
         >
           <div className="flex flex-col gap-10 lg:flex-row lg:justify-between">

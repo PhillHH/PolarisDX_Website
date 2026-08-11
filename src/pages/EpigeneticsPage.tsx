@@ -158,7 +158,7 @@ const EpigeneticsPage = () => {
     { id: 'downloads', label: t('downloads.caption') },
     // NICHT #contact — diese id gehoert dem globalen Abschlussblock nach
     // </main>, der zum IglooPro fuehrt. Das Kapitel meint den eigenen Block.
-    { id: 'konditionen', label: t('contact.caption') },
+    { id: 'konditionen', label: t('contact.navLabel') },
   ]
   const samplesZipHref = `${ASSET_BASE}${t('samples.zipFile')}`
 
@@ -954,9 +954,18 @@ const EpigeneticsPage = () => {
             <p className={`mx-auto mt-4 max-w-[62ch] ${LEAD}`}>{t('contact.sub')}</p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-3">
+              {/* Der Abschluss endete bisher in mailto und Telefon. Das Formular
+                  ist der eigentliche Weg — es bekommt den Primaerknopf, die
+                  direkten Wege bleiben als Alternative daneben stehen. */}
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-accent-strong px-6 py-3.5 text-base font-semibold text-white transition-colors hover:brightness-110"
+              >
+                {t('contact.title')}
+              </Link>
               <a
                 href="mailto:contact@polarisdx.net"
-                className="inline-flex items-center justify-center rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
+                className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
               >
                 contact@polarisdx.net
               </a>
@@ -976,11 +985,15 @@ const EpigeneticsPage = () => {
               </a>
             </div>
 
-            {/* Rechtlicher Hinweis — abgestimmt, bitte unveraendert lassen. */}
-            <p className="mx-auto mt-10 max-w-[80ch] text-sm leading-relaxed text-gray-500">
+            {/* Rechtlicher Hinweis — Wortlaut abgestimmt, bitte unveraendert lassen.
+                Die Farbe ist nicht Teil der Abstimmung: text-gray-500 ergab auf
+                diesem Grund 3,23:1 und text-gray-400 sogar 2,43:1 bei 14px.
+                Der CE- und GenDG-Hinweis war damit der am schlechtesten lesbare
+                Text der Seite. text-gray-600 bringt beide auf ueber 7:1. */}
+            <p className="mx-auto mt-10 max-w-[80ch] text-sm leading-relaxed text-gray-600">
               {t('contact.note')}
             </p>
-            <p className="mt-3 text-sm text-gray-400">{t('contact.lab')}</p>
+            <p className="mt-3 text-sm text-gray-600">{t('contact.lab')}</p>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-base">
               <Link
@@ -994,12 +1007,6 @@ const EpigeneticsPage = () => {
                 className="font-semibold text-brand-primary transition-colors hover:text-brand-deep"
               >
                 {t('links.downloads')} →
-              </Link>
-              <Link
-                to="/contact"
-                className="font-semibold text-brand-primary transition-colors hover:text-brand-deep"
-              >
-                {t('links.contact')} →
               </Link>
             </div>
           </Reveal>

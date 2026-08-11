@@ -12,7 +12,7 @@
     "title": "Epigenetik und Genetik aus einem Tropfen Blut",
     "claim": "Sechs Analysen aus Kapillarblut, ausgewertet bei unserem europäischen Kooperationslabor — als messbare Grundlage für Ihre Beratung.",
     "ctaDocs": "Die sechs Analysen",
-    "ctaQuote": "Angebot anfragen",
+    "ctaQuote": "Konditionen anfragen",
     "chips": [
       {
         "label": "Probe",
@@ -412,12 +412,12 @@
     "overview": "Übersicht als PDF",
     "overviewFile": "de/00_Portfolio_Uebersicht_PolarisDX.pdf",
     "note": "Die Analysen sind Labordienstleistungen unseres Kooperationspartners und keine CE-gekennzeichneten In-vitro-Diagnostika. Sie dienen der Beratung und Verlaufskontrolle und ersetzen keine ärztliche Diagnostik. Genetische Analysen unterliegen in Deutschland dem Gendiagnostikgesetz.",
-    "lab": "Laboranalytik durch unseren Kooperationspartner · ISO 9001:2015"
+    "lab": "Laboranalytik durch unseren Kooperationspartner · ISO 9001:2015",
+    "navLabel": "Konditionen"
   },
   "links": {
     "longevity": "Longevity-Diagnostik",
-    "downloads": "Alle Downloads",
-    "contact": "Beratung anfragen"
+    "downloads": "Alle Downloads"
   },
   "samples": {
     "caption": "Musterbefunde",
