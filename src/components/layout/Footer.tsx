@@ -170,7 +170,7 @@ const Footer = () => {
                   {t('footer.london', 'London')}
                 </h3>
                 <div className="space-y-1 text-white/70">
-                  <p className="font-semibold">PolarisDX LTD</p>
+                  <p className="font-semibold">Polaris Diagnostics Ltd</p>
                   <p>262A Fulham Road</p>
                   <p>London SW10 9EL</p>
                   <p>+44 7879 433019</p>
@@ -183,7 +183,7 @@ const Footer = () => {
                   {t('footer.hamburg', 'Hamburg')}
                 </h3>
                 <div className="space-y-1 text-white/70">
-                  <p className="font-semibold">PolarisDX Europe GmbH</p>
+                  <p className="font-semibold">Polaris Diagnostics Europe GmbH</p>
                   <p>Große Bleichen 1 - 3</p>
                   <p>20354 Hamburg</p>
                   <p>contact@polarisdx.net</p>

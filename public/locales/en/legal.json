@@ -5,7 +5,7 @@
       "title": "Information according to § 5 TMG",
       "london": {
         "title": "London Office",
-        "company": "PolarisDX LTD",
+        "company": "Polaris Diagnostics Ltd",
         "address": [
           "262A Fulham Road",
           "London SW10 9EL",
@@ -19,7 +19,7 @@
       },
       "hamburg": {
         "title": "Hamburg Office",
-        "company": "PolarisDX Europe GmbH",
+        "company": "Polaris Diagnostics Europe GmbH",
         "address": [
           "Große Bleichen 1 - 3",
           "20097 Hamburg",
@@ -40,7 +40,7 @@
       "title": "Register Entry",
       "content": [
         "Entry in the commercial register.",
-        "Register Court: District Court Hamburg (for PolarisDX Europe GmbH)",
+        "Register Court: District Court Hamburg (for Polaris Diagnostics Europe GmbH)",
         "Register Number: HRB 193415"
       ]
     },
@@ -48,8 +48,8 @@
       "title": "VAT ID",
       "content": [
         "VAT Identification Number according to §27 a Value Added Tax Act:",
-        "DE46131849",
-        "Tax Number (PolarisDX Europe GmbH):",
+        "DE461318497",
+        "Tax Number (Polaris Diagnostics Europe GmbH):",
         "48/751/05723"
       ]
     },
@@ -106,7 +106,7 @@
         "title": "Note on the Responsible Body",
         "content": "The responsible body for data processing on this website is:",
         "address": [
-          "PolarisDX Europe GmbH",
+          "Polaris Diagnostics Europe GmbH",
           "Große Bleichen 1 - 3",
           "20097 Hamburg",
           "Email: contact@polarisdx.net"

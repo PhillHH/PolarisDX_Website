@@ -5,6 +5,8 @@
  * These can be passed to SEOHead's structuredData prop.
  */
 
+import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES, isValidLanguage } from '../../i18n'
+
 // =============================================================================
 // TYPES
 // =============================================================================
@@ -33,7 +35,7 @@ export const medicalBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'MedicalBusiness',
   '@id': `${BASE_URL}/#organization`,
-  name: 'PolarisDX Europe GmbH',
+  name: 'Polaris Diagnostics Europe GmbH',
   alternateName: 'PolarisDX',
   url: BASE_URL,
   logo: `${BASE_URL}/favicon.png`,
@@ -79,7 +81,7 @@ export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   '@id': `${BASE_URL}/#organization`,
-  name: 'PolarisDX Europe GmbH',
+  name: 'Polaris Diagnostics Europe GmbH',
   legalName: 'Polaris Diagnostics Europe GmbH',
   url: BASE_URL,
   logo: {
@@ -171,7 +173,31 @@ export const iglooProProductSchema = {
 // BREADCRUMB GENERATOR
 // =============================================================================
 
-export function createBreadcrumbSchema(items: BreadcrumbItem[]) {
+const LANG_PREFIX_RE = new RegExp(`^/(?:${SUPPORTED_LANGUAGES.join('|')})(?=/|$)`, 'i')
+
+/**
+ * Baut die kanonische, sprachpraefigierte Absolut-URL zu einem Seitenpfad.
+ *
+ * SEOHead setzt canonical auf `${BASE_URL}/${lang}${path}`. Die Breadcrumb-URLs
+ * muessen dasselbe sagen — ein prefixloses https://polarisdx.net/epigenetics
+ * neben einem canonical https://polarisdx.net/de/epigenetics ist ein
+ * Widerspruch und zeigt auf eine Adresse, die es so nicht gibt.
+ */
+function canonicalUrlFor(url: string, language?: string): string {
+  const raw = (url || '').trim()
+  if (/^https?:\/\//i.test(raw)) return raw
+
+  const base = (language || DEFAULT_LANGUAGE).split('-')[0].toLowerCase()
+  const lang = isValidLanguage(base) ? base : DEFAULT_LANGUAGE
+
+  let path = raw.startsWith('/') ? raw : `/${raw}`
+  path = path.replace(LANG_PREFIX_RE, '')
+  if (path === '') path = '/'
+
+  return `${BASE_URL}/${lang}${path}`
+}
+
+export function createBreadcrumbSchema(items: BreadcrumbItem[], language?: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -179,7 +205,7 @@ export function createBreadcrumbSchema(items: BreadcrumbItem[]) {
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: item.url.startsWith('http') ? item.url : `${BASE_URL}${item.url}`,
+      item: canonicalUrlFor(item.url, language),
     })),
   }
 }
@@ -378,7 +404,7 @@ export const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'MedicalBusiness',
   '@id': `${BASE_URL}/#localbusiness`,
-  name: 'PolarisDX Europe GmbH',
+  name: 'Polaris Diagnostics Europe GmbH',
   image: `${BASE_URL}/favicon.png`,
   url: BASE_URL,
   telephone: '+44-7879-433019',
