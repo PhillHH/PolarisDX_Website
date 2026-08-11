@@ -23,15 +23,23 @@ import { useTranslation } from 'react-i18next'
 import LanguageFallbackNotice from '../components/ui/LanguageFallbackNotice'
 import { isEnglishFallback } from '../lib/translationStatus'
 import { ArrowLeft, ArrowUp, Download } from 'lucide-react'
-import { SEOHead, createBreadcrumbSchema } from '../components/seo'
+import { SEOHead, createBreadcrumbSchema, createArticleSchema } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
 import { BefundBlock, BlockChromeProvider, type Block } from '../components/befund/BefundBlocks'
 import ChapterNav, { type Chapter } from '../components/ui/ChapterNav'
 import { BEFUNDE, BEFUND_ORDER, RADAR_VALUES } from '../content/befunde'
+import { BEFUND_IMAGES } from '../assets/epigenetics/befundImages'
 import { LEGACY_ANCHORS } from '../content/befunde/legacyAnchors'
 
 const ASSET_BASE = '/downloads/epigenetics/'
+
+/**
+ * Tag, an dem die sechs Musterbefunde als Webseiten online gingen. Fest
+ * verdrahtet, weil ein gerechnetes Datum bei jedem Build ein neues
+ * datePublished erzeugen wuerde.
+ */
+const PUBLISHED = '2026-08-10'
 
 /** Blocktypen, die kein eigenes Kapitel sind: Deckblatt und Einschuebe. */
 const NOT_A_CHAPTER = new Set(['cover', 'callout'])
@@ -139,6 +147,22 @@ const MusterbefundPage = () => {
         description={t('befund.seoDescription', { panel: befund.panel })}
         ogImage="/og-epigenetics.jpg"
         structuredData={[
+          /*
+           * Bewusst 'Article' und nicht 'MedicalWebPage': diese Seiten zeigen
+           * einen Beispielbefund mit frei erfundenen Werten und erklaeren den
+           * Aufbau eines Befunds. Sie geben keine medizinische Auskunft. Der
+           * medizinische Typ wuerde Suchmaschinen genau das signalisieren —
+           * auf einer IVD-Seite die falsche Aussage.
+           */
+          createArticleSchema({
+            headline: t('befund.seoTitle', { panel: befund.panel }),
+            description: t('befund.seoDescription', { panel: befund.panel }),
+            image: BEFUND_IMAGES[slug]?.src2x ?? '/og-epigenetics.jpg',
+            url: `/epigenetics/musterbefund/${slug}`,
+            language: i18n.language,
+            datePublished: PUBLISHED,
+            articleType: 'Article',
+          }),
           createBreadcrumbSchema(
             [
               { name: t('breadcrumb.home'), url: '/' },
