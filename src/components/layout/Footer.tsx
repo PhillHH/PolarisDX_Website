@@ -211,7 +211,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="mt-8 border-t border-white/10 pt-8 flex flex-col items-center gap-4 text-lg text-white/60 md:flex-row md:justify-center md:gap-8">
+          <div className="mt-8 border-t border-white/10 pt-8 flex flex-col items-center gap-4 text-lg text-white/70 md:flex-row md:justify-center md:gap-8">
             <p>
               {t('footer.copyright', {
                 year: new Date().getFullYear(),
@@ -242,7 +242,7 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-          <p className="mt-2 text-center text-xs text-white/40">
+          <p className="mt-2 text-center text-xs text-white/70">
             {t('footer.product_note', 'IglooPro ist ein Produkt der DX365 GmbH')}
           </p>
         </div>
