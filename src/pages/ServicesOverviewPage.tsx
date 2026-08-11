@@ -5,6 +5,7 @@ import DiagnosticsHero from '../components/sections/DiagnosticsHero'
 import DiagnosticsSpecialtySection from '../components/sections/DiagnosticsSpecialtySection'
 import DiagnosticsFocusSection from '../components/sections/DiagnosticsFocusSection'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
+import EpigeneticsTeaserSection from '../components/sections/EpigeneticsTeaserSection'
 
 const ServicesOverviewPage = () => {
   const { t, i18n } = useTranslation(['common', 'home', 'services'])
@@ -39,6 +40,11 @@ const ServicesOverviewPage = () => {
         <DiagnosticsHero />
         <DiagnosticsSpecialtySection />
         <DiagnosticsFocusSection />
+        {/* Zweite Saeule neben Point-of-Care: der Laborweg. Steht hinter den
+            Fachrichtungen, weil dort die Reader-Diagnostik endet. */}
+        <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+          <EpigeneticsTeaserSection />
+        </div>
         <FinalCtaSection roiHref="/#roi-rechner" />
       </div>
     </PageTransition>

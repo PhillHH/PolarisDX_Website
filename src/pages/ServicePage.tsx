@@ -529,6 +529,7 @@ const ServicePage = () => {
                     date: post.date,
                   })),
                 },
+                { kind: 'epigenetics' },
                 { kind: 'contact' },
               ] as SidebarWidget[]
             }

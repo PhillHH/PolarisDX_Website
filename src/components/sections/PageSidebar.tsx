@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
+import { ArrowRight, Sparkles } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import Reveal from '../ui/Reveal'
 import { Button } from '../ui/Button'
@@ -44,11 +45,13 @@ export type SidebarWidget =
       hideOnMobile?: boolean
     }
   | { kind: 'contact' }
+  /** Querverweis auf die Epigenetik-Strecke — die zweite Saeule neben Point-of-Care. */
+  | { kind: 'epigenetics' }
 
 const sectionBase = 'rounded-2xl border border-gray-100 bg-white p-5 '
 
 export function PageSidebar({ widgets }: { widgets: SidebarWidget[] }) {
-  const { t } = useTranslation(['home', 'articles', 'shop', 'common'])
+  const { t } = useTranslation(['home', 'articles', 'shop', 'common', 'epigenetics'])
 
   return (
     <aside className="space-y-8 lg:sticky lg:top-32">
@@ -128,6 +131,32 @@ export function PageSidebar({ widgets }: { widgets: SidebarWidget[] }) {
                     </Link>
                   ))}
                 </div>
+              </section>
+            )
+          }
+
+          if (w.kind === 'epigenetics') {
+            return (
+              <section key={`epigenetics-${i}`} className={sectionBase + spacing}>
+                <div className="mb-2 flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 text-accent-strong" aria-hidden="true" />
+                  <h3 className="text-sm font-semibold tracking-tight text-heading">
+                    {t('epigenetics:sidebar.title')}
+                  </h3>
+                </div>
+                <p className="mb-3 text-xs leading-relaxed text-gray-500">
+                  {t('epigenetics:sidebar.text')}
+                </p>
+                <Link
+                  to="/epigenetics"
+                  className="group inline-flex items-center gap-1.5 text-sm font-semibold text-accent-strong"
+                >
+                  {t('epigenetics:sidebar.cta')}
+                  <ArrowRight
+                    className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5"
+                    aria-hidden="true"
+                  />
+                </Link>
               </section>
             )
           }

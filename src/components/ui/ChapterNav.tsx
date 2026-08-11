@@ -35,7 +35,6 @@ interface SwitcherEntry {
 interface ChapterNavProps {
   chapters: Chapter[]
   chaptersLabel: string
-  progressLabel: string
   /** Rueckweg — nur auf Unterseiten sinnvoll. */
   back?: { to: string; label: string }
   /** Umschalter zwischen gleichrangigen Seiten. */
@@ -53,14 +52,7 @@ interface ChapterNavProps {
 /** Kopfhoehe der Seite; die Leiste sitzt buendig darunter. */
 const TOP = 'top-[68px] lg:top-[88px]'
 
-const ChapterNav = ({
-  chapters,
-  chaptersLabel,
-  progressLabel,
-  back,
-  switcher,
-  action,
-}: ChapterNavProps) => {
+const ChapterNav = ({ chapters, chaptersLabel, back, switcher, action }: ChapterNavProps) => {
   const [active, setActive] = useState<string>(chapters[0]?.id ?? '')
   const [progress, setProgress] = useState(0)
   const listRef = useRef<HTMLDivElement>(null)

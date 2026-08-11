@@ -656,7 +656,11 @@
     "othersTitle": "The other sample reports",
     "navBack": "Overview",
     "navChapters": "Chapters",
-    "navProgress": "Reading progress",
     "toTop": "Back to top"
+  },
+  "sidebar": {
+    "title": "Epigenetics and genetics",
+    "text": "Six laboratory analyses from a drop of capillary blood — complementing instant diagnostics at the reader.",
+    "cta": "View the portfolio"
   }
 }

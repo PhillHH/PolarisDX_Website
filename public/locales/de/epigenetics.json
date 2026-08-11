@@ -656,7 +656,11 @@
     "othersTitle": "Die anderen Musterbefunde",
     "navBack": "Übersicht",
     "navChapters": "Kapitel",
-    "navProgress": "Lesefortschritt",
     "toTop": "Nach oben"
+  },
+  "sidebar": {
+    "title": "Epigenetik und Genetik",
+    "text": "Sechs Laboranalysen aus einem Tropfen Kapillarblut — ergänzend zur Sofortdiagnostik am Reader.",
+    "cta": "Portfolio ansehen"
   }
 }

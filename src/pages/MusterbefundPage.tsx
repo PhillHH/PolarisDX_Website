@@ -45,7 +45,11 @@ const MusterbefundPage = () => {
 
   const befund = BEFUNDE[slug]?.[lang] ?? BEFUNDE[slug]?.de
   const samples = Array.isArray(t('samples.items', { returnObjects: true }))
-    ? (t('samples.items', { returnObjects: true }) as { slug: string; panel: string; file: string }[])
+    ? (t('samples.items', { returnObjects: true }) as {
+        slug: string
+        panel: string
+        file: string
+      }[])
     : []
   const meta = samples.find((s) => s.slug === slug)
 
@@ -171,7 +175,6 @@ const MusterbefundPage = () => {
               <ChapterNav
                 chapters={chapters}
                 chaptersLabel={t('befund.navChapters')}
-                progressLabel={t('befund.navProgress')}
                 back={{ to: '/epigenetics#musterbefunde', label: t('befund.navBack') }}
                 action={{ to: '/contact', label: t('hero.ctaQuote') }}
                 switcher={{
