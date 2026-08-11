@@ -31,7 +31,23 @@
         "other": "Andet"
       },
       "requirements_label": "Dine Specifikke Krav til IglooPro",
-      "requirements_placeholder": "Hvilke biomarkører (f.eks. CRP, TSH, HbA1c) er primært relevante for dig?"
+      "requirements_placeholder": "Hvilke biomarkører (f.eks. CRP, TSH, HbA1c) er primært relevante for dig?",
+      "epigenetics": {
+        "context": "Your enquiry relates to the epigenetic and genetic analyses.",
+        "context_panel": "Your enquiry relates to the {{panel}} sample report.",
+        "area_label": "Your organisation",
+        "area_options": {
+          "longevity": "Longevity or prevention centre",
+          "nutrition": "Nutritional counselling",
+          "sports": "Sports medicine or performance diagnostics",
+          "bgm": "Corporate health management",
+          "practice": "Medical practice or clinic",
+          "other": "Other"
+        },
+        "requirements_label": "What is this about?",
+        "requirements_placeholder": "Which analyses are of interest, and how many cases per month do you expect?",
+        "panel_prefill": "Interested in: {{panel}}"
+      }
     },
     "info": {
       "title": "Kontaktoplysninger",

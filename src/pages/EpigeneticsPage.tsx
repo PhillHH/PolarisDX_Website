@@ -240,7 +240,7 @@ const EpigeneticsPage = () => {
         <ChapterNav
           chapters={chapters}
           chaptersLabel={t('befund.navChapters')}
-          action={{ to: '/contact', label: t('hero.ctaQuote') }}
+          action={{ to: '/contact?topic=epigenetik', label: t('hero.ctaQuote') }}
         />
 
         {/* ================================================================
@@ -825,7 +825,7 @@ const EpigeneticsPage = () => {
                   ist der eigentliche Weg — es bekommt den Primaerknopf, die
                   direkten Wege bleiben als Alternative daneben stehen. */}
               <Link
-                to="/contact"
+                to="/contact?topic=epigenetik"
                 onClick={() => trackEvent('epigenetics_request', { method: 'form' })}
                 className="inline-flex items-center justify-center rounded-full bg-accent-strong px-6 py-3.5 text-base font-semibold text-white transition-colors hover:brightness-110"
               >

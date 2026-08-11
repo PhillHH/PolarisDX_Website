@@ -180,7 +180,12 @@ const MusterbefundPage = () => {
                 chapters={chapters}
                 chaptersLabel={t('befund.navChapters')}
                 back={{ to: '/epigenetics#musterbefunde', label: t('befund.navBack') }}
-                action={{ to: '/contact', label: t('hero.ctaQuote') }}
+                // Der Musterbefund gibt zusaetzlich mit, um welches Panel es geht —
+                // das steht dann in der Benachrichtigung und im vorbelegten Freitext.
+                action={{
+                  to: `/contact?topic=epigenetik&panel=${encodeURIComponent(befund.panel)}`,
+                  label: t('hero.ctaQuote'),
+                }}
                 switcher={{
                   current: befund.panel,
                   currentSlug: slug,

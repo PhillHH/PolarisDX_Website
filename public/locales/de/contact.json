@@ -31,7 +31,23 @@
         "other": "Sonstiges"
       },
       "requirements_label": "Ihre spezifischen Anforderungen an IglooPro",
-      "requirements_placeholder": "Welche Biomarker (z.B. CRP, TSH, HbA1c) sind für Sie primär relevant?"
+      "requirements_placeholder": "Welche Biomarker (z.B. CRP, TSH, HbA1c) sind für Sie primär relevant?",
+      "epigenetics": {
+        "context": "Ihre Anfrage bezieht sich auf die Epigenetik- und Genetik-Analysen.",
+        "context_panel": "Ihre Anfrage bezieht sich auf den Musterbefund {{panel}}.",
+        "area_label": "Ihre Einrichtung",
+        "area_options": {
+          "longevity": "Longevity- oder Präventionszentrum",
+          "nutrition": "Ernährungsberatung",
+          "sports": "Sportmedizin oder Leistungsdiagnostik",
+          "bgm": "Betriebliches Gesundheitsmanagement",
+          "practice": "Arztpraxis oder Klinik",
+          "other": "Sonstiges"
+        },
+        "requirements_label": "Worum geht es Ihnen?",
+        "requirements_placeholder": "Welche Analysen sind für Sie interessant, und mit wie vielen Fällen pro Monat rechnen Sie?",
+        "panel_prefill": "Interesse an: {{panel}}"
+      }
     },
     "info": {
       "title": "Kontaktinformationen",
