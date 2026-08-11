@@ -438,7 +438,33 @@ const EpigeneticsPage = () => {
                 overflow-x-auto plus min-w haelt sie scrollbar statt sie zu
                 quetschen; die Randlinie zeigt, dass rechts noch etwas kommt. */}
             <Reveal width="100%">
-              <div className="mt-10 overflow-x-auto rounded-3xl border border-slate-200 bg-white">
+              {/* Mobil: die Tabelle ist 54rem breit und scrollt quer — die
+                  Panel-Spalte war nach rund 140px Scroll komplett weg, keine
+                  Zelle bleibt stehen. Unter lg stehen deshalb dieselben Daten
+                  als Karten, eine je Panel, aus derselben Quelle. */}
+              <div className="mt-10 grid gap-4 lg:hidden">
+                {compareRows.map((row) => (
+                  <div
+                    key={`karte-${row[0]}`}
+                    className="rounded-3xl border border-slate-200 bg-white p-6"
+                  >
+                    <p className="text-lg font-semibold text-text-heading">{row[0]}</p>
+                    <dl className="mt-4">
+                      {compareCols.slice(1).map((col, i) => (
+                        <div
+                          key={`${row[0]}-${col}`}
+                          className="flex flex-wrap justify-between gap-x-6 gap-y-1 border-t border-slate-100 py-3"
+                        >
+                          <dt className="text-sm text-gray-600">{col}</dt>
+                          <dd className="text-sm font-semibold text-text-heading">{row[i + 1]}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-10 hidden overflow-x-auto rounded-3xl border border-slate-200 bg-white lg:block">
                 <table className="w-full min-w-[54rem] border-collapse text-left">
                   <thead>
                     <tr className="bg-brand-deep text-white">
@@ -469,9 +495,23 @@ const EpigeneticsPage = () => {
                   </tbody>
                 </table>
               </div>
-              {/* Die Tabelle ist breiter als schmale Viewports. Ohne Hinweis
-                  bleibt die Spalte mit der Ergebnisform unentdeckt. */}
-              <p className="mt-3 text-sm text-gray-500 lg:hidden">{t('compare.scrollHint')}</p>
+            </Reveal>
+
+            {/* Die Ergebnisformen der letzten Spalte werden hier erklaert und
+                nicht erst rund 4.900px weiter unten unter "Werte verstehen".
+                Eine Legende, die man erst suchen muss, ist keine Legende. */}
+            <Reveal width="100%">
+              <div className="mt-6 rounded-3xl border border-slate-200 bg-white p-7">
+                <p className={LABEL}>{t('basics.scaleTitle')}</p>
+                <dl className="mt-4 grid gap-5 lg:grid-cols-3">
+                  {scales.map((scale) => (
+                    <div key={`vergleich-${scale.k}`}>
+                      <dt className="text-base font-semibold text-text-heading">{scale.k}</dt>
+                      <dd className={`mt-1.5 text-gray-700 ${BODY}`}>{scale.v}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
             </Reveal>
 
             <div className="mt-6 grid gap-5 lg:grid-cols-3">
@@ -727,16 +767,10 @@ const EpigeneticsPage = () => {
 
             <Reveal width="100%">
               <div className="mt-6 rounded-3xl border border-slate-200 bg-white p-7">
-                <p className={LABEL}>{t('basics.scaleTitle')}</p>
-                <dl className="mt-4 grid gap-5 lg:grid-cols-3">
-                  {scales.map((scale) => (
-                    <div key={scale.k}>
-                      <dt className="text-base font-semibold text-text-heading">{scale.k}</dt>
-                      <dd className={`mt-1.5 text-gray-700 ${BODY}`}>{scale.v}</dd>
-                    </div>
-                  ))}
-                </dl>
-                <div className="mt-6 border-t border-slate-200 pt-6">
+                {/* Die Skalenlegende steht jetzt direkt unter der
+                    Vergleichstabelle, wo die Ergebnisformen auftauchen. Hier
+                    bleibt der Download der ausfuehrlichen Fassung. */}
+                <div>
                   <a
                     href={`${ASSET_BASE}${t('basics.file')}`}
                     download
