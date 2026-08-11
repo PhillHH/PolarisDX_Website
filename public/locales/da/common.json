@@ -141,5 +141,8 @@
     "search": "Åbn søgning",
     "toggle_nav": "Slå navigation til/fra",
     "honeypot": "Lad venligst dette felt stå tomt"
+  },
+  "languageFallback": {
+    "notice": "Denne side er indtil videre kun tilgængelig på engelsk."
   }
 }

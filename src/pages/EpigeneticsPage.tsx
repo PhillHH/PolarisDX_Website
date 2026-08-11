@@ -20,6 +20,8 @@
 
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import LanguageFallbackNotice from '../components/ui/LanguageFallbackNotice'
+import { isEnglishFallback } from '../lib/translationStatus'
 import { ArrowRight, Check, ChevronDown, Download, FileText, Minus } from 'lucide-react'
 import { SEOHead, createBreadcrumbSchema, createFAQSchema } from '../components/seo'
 import type { FAQItem } from '../components/seo'
@@ -121,6 +123,8 @@ const Sparkle = ({ className = '' }: { className?: string }) => (
 
 const EpigeneticsPage = () => {
   const { t, i18n } = useTranslation('epigenetics')
+  // Acht Sprachen zeigen hier englischen Text — das muss ausgezeichnet werden.
+  const englishFallback = isEnglishFallback(t('_translationStatus', { defaultValue: '' }))
 
   const chips = asArray<Chip>(t('hero.chips', { returnObjects: true }))
   const principleCards = asArray<TitledText>(t('principle.cards', { returnObjects: true }))
@@ -189,7 +193,8 @@ const EpigeneticsPage = () => {
         ]}
       />
 
-      <div className="bg-slate-50 text-heading">
+      <div className="bg-slate-50 text-heading" lang={englishFallback ? 'en' : undefined}>
+        {englishFallback ? <LanguageFallbackNotice lang={i18n.language} /> : null}
         {/* ================================================================
             HERO
         ================================================================ */}

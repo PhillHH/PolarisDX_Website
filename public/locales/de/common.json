@@ -141,5 +141,8 @@
     "search": "Suche öffnen",
     "toggle_nav": "Navigation umschalten",
     "honeypot": "Dieses Feld bitte leer lassen"
+  },
+  "languageFallback": {
+    "notice": "Diese Seite liegt bislang nur auf Englisch vor."
   }
 }

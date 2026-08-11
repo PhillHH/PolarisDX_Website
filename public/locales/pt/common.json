@@ -141,5 +141,8 @@
     "search": "Abrir a pesquisa",
     "toggle_nav": "Alternar a navegação",
     "honeypot": "Deixe este campo em branco"
+  },
+  "languageFallback": {
+    "notice": "Esta página está disponível apenas em inglês de momento."
   }
 }

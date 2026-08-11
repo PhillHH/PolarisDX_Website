@@ -141,5 +141,8 @@
     "search": "Zoeken openen",
     "toggle_nav": "Navigatie in-/uitklappen",
     "honeypot": "Laat dit veld leeg"
+  },
+  "languageFallback": {
+    "notice": "Deze pagina is momenteel alleen in het Engels beschikbaar."
   }
 }

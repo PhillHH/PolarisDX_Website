@@ -20,6 +20,8 @@
 import { useEffect } from 'react'
 import { Link, useLocation, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import LanguageFallbackNotice from '../components/ui/LanguageFallbackNotice'
+import { isEnglishFallback } from '../lib/translationStatus'
 import { ArrowLeft, ArrowUp, Download } from 'lucide-react'
 import { SEOHead, createBreadcrumbSchema } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
@@ -41,6 +43,8 @@ const MusterbefundPage = () => {
   const { slug = '' } = useParams<{ slug: string }>()
   const { hash } = useLocation()
   const { t, i18n } = useTranslation('epigenetics')
+  // Acht Sprachen zeigen hier englischen Text — das muss ausgezeichnet werden.
+  const englishFallback = isEnglishFallback(t('_translationStatus', { defaultValue: '' }))
   const lang = i18n.language?.startsWith('de') ? 'de' : 'en'
 
   const befund = BEFUNDE[slug]?.[lang] ?? BEFUNDE[slug]?.de
@@ -147,7 +151,8 @@ const MusterbefundPage = () => {
         ]}
       />
 
-      <div className="bg-white text-text-heading">
+      <div className="bg-white text-text-heading" lang={englishFallback ? 'en' : undefined}>
+        {englishFallback ? <LanguageFallbackNotice lang={i18n.language} /> : null}
         <div className="bg-brand-deep">
           <div className="mx-auto max-w-container px-4 pt-28 lg:px-0 lg:pt-32">
             <Breadcrumbs

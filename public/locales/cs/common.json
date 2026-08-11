@@ -141,5 +141,8 @@
     "search": "Otevřít vyhledávání",
     "toggle_nav": "Přepnout navigaci",
     "honeypot": "Toto pole prosím nechte prázdné"
+  },
+  "languageFallback": {
+    "notice": "Tato stránka je zatím k dispozici pouze v angličtině."
   }
 }
