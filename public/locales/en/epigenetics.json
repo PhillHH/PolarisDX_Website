@@ -596,7 +596,46 @@
     "gendg": "Two panels include genetic analyses: Metabolic Health and the Plus variant of Healthy Sport. For these, the person concerned must be informed and give written consent before the sample is taken (German Genetic Diagnostics Act, GenDG).",
     "cta": "Parameter overview as PDF",
     "file": "de/16_Parameteruebersicht_PolarisDX.pdf",
-    "scrollHint": "Table scrolls sideways"
+    "scrollHint": "Table scrolls sideways",
+    "groups": [
+      [
+        "nutrition",
+        "practice"
+      ],
+      [
+        "longevity",
+        "nutrition",
+        "practice"
+      ],
+      [
+        "longevity",
+        "bgm"
+      ],
+      [
+        "longevity",
+        "nutrition",
+        "bgm"
+      ],
+      [
+        "bgm",
+        "practice"
+      ],
+      [
+        "sports"
+      ]
+    ],
+    "filter": {
+      "label": "What are you looking for?",
+      "all": "All six",
+      "options": {
+        "longevity": "Longevity and prevention",
+        "nutrition": "Nutritional counselling",
+        "sports": "Sports medicine",
+        "bgm": "Corporate health management",
+        "practice": "Practice and clinic"
+      },
+      "empty": "No panel is listed for this selection."
+    }
   },
   "basics": {
     "caption": "Understanding the values",

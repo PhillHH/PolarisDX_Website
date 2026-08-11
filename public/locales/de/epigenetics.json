@@ -596,7 +596,46 @@
     "gendg": "Zwei Panels enthalten genetische Analysen: Metabolic Health und die Plus-Variante von Healthy Sport. Dort sind Aufklärung und schriftliche Einwilligung vor der Probenahme erforderlich (Gendiagnostikgesetz).",
     "cta": "Parameterübersicht als PDF",
     "file": "de/16_Parameteruebersicht_PolarisDX.pdf",
-    "scrollHint": "Tabelle seitlich scrollbar"
+    "scrollHint": "Tabelle seitlich scrollbar",
+    "groups": [
+      [
+        "nutrition",
+        "practice"
+      ],
+      [
+        "longevity",
+        "nutrition",
+        "practice"
+      ],
+      [
+        "longevity",
+        "bgm"
+      ],
+      [
+        "longevity",
+        "nutrition",
+        "bgm"
+      ],
+      [
+        "bgm",
+        "practice"
+      ],
+      [
+        "sports"
+      ]
+    ],
+    "filter": {
+      "label": "Wofür suchen Sie?",
+      "all": "Alle sechs",
+      "options": {
+        "longevity": "Longevity und Prävention",
+        "nutrition": "Ernährungsberatung",
+        "sports": "Sportmedizin",
+        "bgm": "Betriebliches Gesundheitsmanagement",
+        "practice": "Praxis und Klinik"
+      },
+      "empty": "Für diese Auswahl ist kein Panel hinterlegt."
+    }
   },
   "basics": {
     "caption": "Werte verstehen",

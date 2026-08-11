@@ -1,3 +1,4 @@
+import { useState } from 'react'
 /**
  * EpigeneticsPage — /epigenetics
  *
@@ -113,6 +114,16 @@ const EpigeneticsPage = () => {
   const sheets = asArray<Sheet>(t('sheets', { returnObjects: true }))
   const compareCols = asArray<string>(t('compare.cols', { returnObjects: true }))
   const compareRows = asArray<string[]>(t('compare.rows', { returnObjects: true }))
+  const compareGroups = asArray<string[]>(t('compare.groups', { returnObjects: true }))
+  // Einstiegsfilter: sechs Zeilen sind auf dem Desktop ueberschaubar, mobil sind
+  // es sechs gestapelte Karten. Wer aus einer bestimmten Richtung kommt, will
+  // nicht alle sechs lesen. Voreinstellung bleibt "alle" — welche Zielgruppe
+  // vorsortiert wuerde, ist eine offene Entscheidung.
+  const [panelGroup, setPanelGroup] = useState<string | null>(null)
+  const filterKeys = ['longevity', 'nutrition', 'sports', 'bgm', 'practice']
+  const visibleRows = panelGroup
+    ? compareRows.filter((_, i) => compareGroups[i]?.includes(panelGroup))
+    : compareRows
   const compareShared = asArray<TitledText>(t('compare.shared', { returnObjects: true }))
   const compareCaveats = asArray<TitledText>(t('compare.caveats', { returnObjects: true }))
   const concepts = asArray<Concept>(t('basics.concepts', { returnObjects: true }))
@@ -269,6 +280,39 @@ const EpigeneticsPage = () => {
                 {t('basics.title')}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
+
+              <div className="mt-8">
+                <p className="text-xs font-medium text-gray-600">{t('compare.filter.label')}</p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setPanelGroup(null)}
+                    aria-pressed={panelGroup === null}
+                    className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+                      panelGroup === null
+                        ? 'border-brand-deep bg-brand-deep text-white'
+                        : 'border-slate-300 bg-white text-brand-deep hover:border-brand-primary'
+                    }`}
+                  >
+                    {t('compare.filter.all')}
+                  </button>
+                  {filterKeys.map((key) => (
+                    <button
+                      key={key}
+                      type="button"
+                      onClick={() => setPanelGroup(panelGroup === key ? null : key)}
+                      aria-pressed={panelGroup === key}
+                      className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+                        panelGroup === key
+                          ? 'border-brand-deep bg-brand-deep text-white'
+                          : 'border-slate-300 bg-white text-brand-deep hover:border-brand-primary'
+                      }`}
+                    >
+                      {t(`compare.filter.options.${key}`)}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </Reveal>
 
             {/* Die Tabelle ist auf schmalen Viewports breiter als der Bildschirm.
@@ -280,7 +324,7 @@ const EpigeneticsPage = () => {
                   Zelle bleibt stehen. Unter lg stehen deshalb dieselben Daten
                   als Karten, eine je Panel, aus derselben Quelle. */}
               <div className="mt-10 grid gap-4 lg:hidden">
-                {compareRows.map((row) => (
+                {visibleRows.map((row) => (
                   <div
                     key={`karte-${row[0]}`}
                     className="rounded-3xl border border-slate-200 bg-white p-6"
@@ -325,7 +369,7 @@ const EpigeneticsPage = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {compareRows.map((row, rowIndex) => (
+                    {visibleRows.map((row, rowIndex) => (
                       <tr key={row[0]} className={rowIndex % 2 === 1 ? 'bg-slate-50' : 'bg-white'}>
                         {row.map((cell, cellIndex) => (
                           <td
@@ -344,6 +388,9 @@ const EpigeneticsPage = () => {
                   </tbody>
                 </table>
               </div>
+              {visibleRows.length === 0 ? (
+                <p className="mt-4 text-base text-gray-600">{t('compare.filter.empty')}</p>
+              ) : null}
             </Reveal>
 
             {/* Die Ergebnisformen der letzten Spalte werden hier erklaert und
