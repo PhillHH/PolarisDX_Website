@@ -25,6 +25,7 @@ import { SEOHead, createBreadcrumbSchema } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
 import { BefundBlock, BlockChromeProvider, type Block } from '../components/befund/BefundBlocks'
+import BefundOverview from '../components/befund/BefundOverview'
 import ChapterNav, { type Chapter } from '../components/ui/ChapterNav'
 import { BEFUNDE, BEFUND_ORDER, RADAR_VALUES } from '../content/befunde'
 import { LEGACY_ANCHORS } from '../content/befunde/legacyAnchors'
@@ -98,6 +99,7 @@ const MusterbefundPage = () => {
    * optisch zu dem gehoert, was er kommentiert.
    */
   const chapters: Chapter[] = []
+  let markersChapterGesetzt = false
   let tint = false
   const chrome = blocks.map((block) => {
     const isCover = block.type === 'cover'
@@ -108,8 +110,20 @@ const MusterbefundPage = () => {
     // ist sie in allen zehn Sprachen dieselbe und ueberlebt jede Umstellung.
     const title = typeof block.title === 'string' ? block.title : ''
     const id = typeof block.id === 'string' ? block.id : undefined
+    // Die Einzelwerte verteilten sich auf bis zu neun eigene Kapitel — bei
+    // Metabolic Health ueber rund 13.000px. In der Leiste standen dadurch 17
+    // Eintraege, von denen bei 1440px nur fuenf sichtbar waren. Sie bekommen
+    // jetzt EIN gemeinsames Kapitel; die Anker der einzelnen Bloecke bleiben
+    // bestehen, damit der Ueberblick und alte Links weiter dorthin springen.
     if (id && !NOT_A_CHAPTER.has(block.type) && title) {
-      chapters.push({ id, label: toLabel(title) })
+      if (block.type === 'markers') {
+        if (!markersChapterGesetzt) {
+          markersChapterGesetzt = true
+          chapters.push({ id, label: t('befund.markersChapter') })
+        }
+      } else {
+        chapters.push({ id, label: toLabel(title) })
+      }
     }
     return { tint: isCover ? false : tint, id }
   })
@@ -176,24 +190,39 @@ const MusterbefundPage = () => {
             {/* Die Kapitelleiste steht direkt hinter dem Deckblatt: sie soll
                 mitscrollen, aber den Hero nicht ueberdecken. */}
             {block.type === 'cover' ? (
-              <ChapterNav
-                chapters={chapters}
-                chaptersLabel={t('befund.navChapters')}
-                back={{ to: '/epigenetics#musterbefunde', label: t('befund.navBack') }}
-                // Der Musterbefund gibt zusaetzlich mit, um welches Panel es geht —
-                // das steht dann in der Benachrichtigung und im vorbelegten Freitext.
-                action={{
-                  to: `/contact?topic=epigenetik&panel=${encodeURIComponent(befund.panel)}`,
-                  label: t('hero.ctaQuote'),
-                }}
-                switcher={{
-                  current: befund.panel,
-                  currentSlug: slug,
-                  entries: others,
-                  label: t('befund.othersTitle'),
-                  hrefFor: (s) => `/epigenetics/musterbefund/${s}`,
-                }}
-              />
+              <>
+                <ChapterNav
+                  chapters={chapters}
+                  chaptersLabel={t('befund.navChapters')}
+                  back={{ to: '/epigenetics#musterbefunde', label: t('befund.navBack') }}
+                  // Der Musterbefund gibt zusaetzlich mit, um welches Panel es geht —
+                  // das steht dann in der Benachrichtigung und im vorbelegten Freitext.
+                  action={{
+                    to: `/contact?topic=epigenetik&panel=${encodeURIComponent(befund.panel)}`,
+                    label: t('hero.ctaQuote'),
+                  }}
+                  switcher={{
+                    current: befund.panel,
+                    currentSlug: slug,
+                    entries: others,
+                    label: t('befund.othersTitle'),
+                    hrefFor: (s) => `/epigenetics/musterbefund/${s}`,
+                  }}
+                />
+                {/* Der Ueberblick steht bewusst vor allem anderen: er beantwortet
+                    die erste Frage eines Befundlesers, ohne 13.000px zu scrollen. */}
+                <BefundOverview
+                  blocks={blocks}
+                  labels={{
+                    caption: t('befund.overviewCaption'),
+                    title: t('befund.overviewTitle'),
+                    lead: t('befund.overviewLead'),
+                    red: t('befund.toneRed'),
+                    amber: t('befund.toneAmber'),
+                    green: t('befund.toneGreen'),
+                  }}
+                />
+              </>
             ) : null}
           </BlockChromeProvider>
         ))}

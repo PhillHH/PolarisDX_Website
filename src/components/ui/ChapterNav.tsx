@@ -55,7 +55,28 @@ const TOP = 'top-[68px] lg:top-[88px]'
 const ChapterNav = ({ chapters, chaptersLabel, back, switcher, action }: ChapterNavProps) => {
   const [active, setActive] = useState<string>(chapters[0]?.id ?? '')
   const [progress, setProgress] = useState(0)
+  // Der Streifen versteckt seinen Scrollbalken per CSS. Ohne sichtbare Kante
+  // sieht man deshalb nicht, dass rechts noch Kapitel stehen — bei siebzehn
+  // Kapiteln waren bei 1440px nur fuenf im Bild.
+  const [ueberlauf, setUeberlauf] = useState({ links: false, rechts: false })
   const listRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const el = listRef.current
+    if (!el) return
+    const messen = () => {
+      const rest = el.scrollWidth - el.clientWidth - el.scrollLeft
+      setUeberlauf({ links: el.scrollLeft > 4, rechts: rest > 4 })
+    }
+    messen()
+    el.addEventListener('scroll', messen, { passive: true })
+    const ro = new ResizeObserver(messen)
+    ro.observe(el)
+    return () => {
+      el.removeEventListener('scroll', messen)
+      ro.disconnect()
+    }
+  }, [chapters.length])
   const barRef = useRef<HTMLDivElement>(null)
 
   // Aktives Kapitel: das oberste, dessen Anfang bereits ueber der Lesemarke
@@ -175,25 +196,39 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, action }: Chapter
           aria-label={chaptersLabel}
           className="order-last min-w-0 basis-full pb-1 lg:order-none lg:flex-1 lg:basis-auto lg:pb-0"
         >
-          <div
-            ref={listRef}
-            className="flex gap-1 overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-          >
-            {chapters.map((c) => (
-              <a
-                key={c.id}
-                href={`#${c.id}`}
-                data-chapter={c.id}
-                aria-current={active === c.id ? 'true' : undefined}
-                className={`inline-flex h-9 items-center whitespace-nowrap rounded-full px-3 text-sm transition-colors ${
-                  active === c.id
-                    ? 'bg-brand-deep font-semibold text-white'
-                    : 'text-gray-600 hover:bg-slate-100 hover:text-brand-deep'
-                }`}
-              >
-                {c.label}
-              </a>
-            ))}
+          <div className="relative">
+            {ueberlauf.links ? (
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-white to-transparent"
+              />
+            ) : null}
+            {ueberlauf.rechts ? (
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-white to-transparent"
+              />
+            ) : null}
+            <div
+              ref={listRef}
+              className="flex gap-1 overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {chapters.map((c) => (
+                <a
+                  key={c.id}
+                  href={`#${c.id}`}
+                  data-chapter={c.id}
+                  aria-current={active === c.id ? 'true' : undefined}
+                  className={`inline-flex h-9 items-center whitespace-nowrap rounded-full px-3 text-sm transition-colors ${
+                    active === c.id
+                      ? 'bg-brand-deep font-semibold text-white'
+                      : 'text-gray-600 hover:bg-slate-100 hover:text-brand-deep'
+                  }`}
+                >
+                  {c.label}
+                </a>
+              ))}
+            </div>
           </div>
         </nav>
 

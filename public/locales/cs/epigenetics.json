@@ -697,6 +697,13 @@
     "navBack": "Overview",
     "navChapters": "Chapters",
     "navProgress": "Reading progress",
-    "toTop": "Back to top"
+    "toTop": "Back to top",
+    "overviewCaption": "At a glance",
+    "overviewTitle": "Every value in this report",
+    "overviewLead": "Each value with its classification. One click jumps to the full explanation below.",
+    "toneRed": "outside the range",
+    "toneAmber": "borderline",
+    "toneGreen": "within range",
+    "markersChapter": "The individual values"
   }
 }
