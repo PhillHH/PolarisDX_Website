@@ -37,14 +37,14 @@ const ContactPage = () => {
       key: 'london',
       city: 'London',
       role: t('contact.locations.london_role'),
-      lines: ['PolarisDX LTD', '262A Fulham Road', 'London SW10 9EL'],
+      lines: ['Polaris Diagnostics Ltd', '262A Fulham Road', 'London SW10 9EL'],
       phone: '+44 7879 433019',
     },
     {
       key: 'hamburg',
       city: 'Hamburg',
       role: t('contact.locations.hamburg_role'),
-      lines: ['PolarisDX Europe GmbH', 'Große Bleichen 1 – 3', '20354 Hamburg'],
+      lines: ['Polaris Diagnostics Europe GmbH', 'Große Bleichen 1 – 3', '20354 Hamburg'],
       phone: '+49 151 75011699',
     },
   ]
