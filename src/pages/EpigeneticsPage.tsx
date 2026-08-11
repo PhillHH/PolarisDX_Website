@@ -464,12 +464,24 @@ const EpigeneticsPage = () => {
                 ))}
               </div>
 
-              <div className="mt-10 hidden overflow-x-auto rounded-3xl border border-slate-200 bg-white lg:block">
+              {/* Kein overflow auf dem Wrapper: das machte ihn zum Scroll-Container und
+                  die klebende Kopfzeile haette sich an ihm statt am Viewport
+                  ausgerichtet — sie blieb dann 58px zu weit oben hinter der Leiste.
+                  Die Rundung uebernehmen stattdessen die aeusseren Kopfzellen. */}
+              <div className="mt-10 hidden rounded-3xl border border-slate-200 bg-white lg:block">
                 <table className="w-full min-w-[54rem] border-collapse text-left">
                   <thead>
+                    {/* Die Kopfzeile bleibt beim Scrollen stehen — sonst liest man
+                        ab der dritten Zeile "ja", "nein", "Ampel 1-9" ohne zu
+                        wissen, welche Spalte das ist. Sie haengt sich unter die
+                        Kapitelleiste; deren Hoehe steht in --chapterbar-offset. */}
                     <tr className="bg-brand-deep text-white">
                       {compareCols.map((col) => (
-                        <th key={col} scope="col" className="px-5 py-4 text-sm font-semibold">
+                        <th
+                          key={col}
+                          scope="col"
+                          className="sticky top-[var(--chapterbar-offset,153px)] z-10 bg-brand-deep px-5 py-4 text-sm font-semibold first:rounded-tl-3xl last:rounded-tr-3xl"
+                        >
                           {col}
                         </th>
                       ))}
