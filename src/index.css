@@ -38,7 +38,12 @@
     min-height: 100vh;
   }
 
-  a {
+  /* :where() statt "a": Spezifitaet 0. Sonst schlaegt diese Regel jede geerbte
+     Farbe — im Footer stand dadurch #203864 auf #0d527f, Kontrast 1,40:1, die
+     komplette Fussnavigation war auf jeder Seite unlesbar. Mit :where() gewinnt
+     wieder die Farbe des Elternelements (dort text-white/70), waehrend blanke
+     Links auf hellem Grund weiterhin ihre Standardfarbe bekommen. */
+  :where(a) {
     @apply text-gray-900 no-underline;
   }
 }
