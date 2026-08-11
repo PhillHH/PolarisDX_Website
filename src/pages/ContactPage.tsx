@@ -6,8 +6,6 @@ import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import { ContactForm } from '../components/sections/ContactForm'
-import DealHint from '../components/sections/DealHint'
-import DealPopup from '../components/sections/DealPopup'
 
 const ContactPage = () => {
   const { t } = useTranslation('contact')
@@ -92,8 +90,6 @@ const ContactPage = () => {
                   </div>
                 </div>
 
-                <DealHint />
-
                 {/* Extracted Form Component */}
                 <ContactForm />
               </section>
@@ -145,7 +141,6 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
-      <DealPopup autoOpen={false} />
     </PageTransition>
   )
 }
