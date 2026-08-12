@@ -54,6 +54,10 @@
           "dental": "Dental",
           "beauty": "Beauty & æstetik",
           "longevity": "Longevity",
+          "nutrition": "Nutritional counselling",
+          "sports": "Sports medicine",
+          "bgm": "Corporate health management",
+          "practice": "Practice and clinic",
           "pharmacy": "Apotek",
           "other": "Andet"
         },
@@ -61,6 +65,10 @@
           "dental": "Stærkt valg — D-vitamin og CRP direkte ved stolen er implantologiens klassikere.",
           "beauty": "Godt — CRP og vitaminpaneler er æstetikkens basis for hud og restitution.",
           "longevity": "Perfekt — HbA1c, CRP og D-vitamin er longevity-basismarkørerne.",
+          "nutrition": "We will get back to you with the documents relevant to nutritional counselling.",
+          "sports": "We will get back to you with the documents relevant to sports medicine.",
+          "bgm": "We will get back to you with the documents relevant to corporate health management.",
+          "practice": "We will get back to you with the documents relevant to practice and clinic.",
           "pharmacy": "Smart — hurtige CRP- og D-vitamintests gør tilfældige kunder til faste kunder.",
           "other": "Fortæl os om dit setup — vi sammensætter det rette point-of-care-panel."
         }

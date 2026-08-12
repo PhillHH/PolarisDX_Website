@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { Check, ArrowRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Input } from '../ui/Input'
@@ -9,7 +9,17 @@ import { cn } from '../../lib/utils'
 import { useContactForm } from '../../hooks/useContactForm'
 
 const INTENT_KEYS = ['consultation', 'quote', 'product', 'support', 'other'] as const
-const FIELD_KEYS = ['dental', 'beauty', 'longevity', 'pharmacy', 'other'] as const
+const FIELD_KEYS = [
+  'dental',
+  'beauty',
+  'longevity',
+  'nutrition',
+  'sports',
+  'bgm',
+  'practice',
+  'pharmacy',
+  'other',
+] as const
 
 type IntentKey = (typeof INTENT_KEYS)[number]
 type FieldKey = (typeof FIELD_KEYS)[number]
@@ -23,13 +33,29 @@ export const ContactForm = () => {
   const { t } = useTranslation('contact')
   const { isSubmitting, submitStatus, submit } = useContactForm()
 
-  const [intent, setIntent] = useState<IntentKey>('consultation')
+  // Kontext aus der Epigenetik-Strecke. Bewusst als Startwert und NICHT per
+  // useEffect nachgereicht: ein spaeteres setState wuerde den servergerenderten
+  // Baum veraendern und einen Hydration-Mismatch ausloesen.
+  const [searchParams] = useSearchParams()
+  const paramIntent = searchParams.get('intent')
+  const initialIntent: IntentKey = INTENT_KEYS.includes(paramIntent as IntentKey)
+    ? (paramIntent as IntentKey)
+    : 'consultation'
+  const panelParam = (searchParams.get('panel') ?? '').trim()
+  const sourceParam = (searchParams.get('source') ?? '').trim()
+  const submissionSource = sourceParam
+    ? panelParam
+      ? `${sourceParam} · ${panelParam}`
+      : sourceParam
+    : ''
+
+  const [intent, setIntent] = useState<IntentKey>(initialIntent)
   const [field, setField] = useState<FieldKey | ''>('')
   const [name, setName] = useState('')
   const [company, setCompany] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
-  const [requirements, setRequirements] = useState('')
+  const [requirements, setRequirements] = useState(panelParam)
   const [consent, setConsent] = useState(false)
   const [hp, setHp] = useState('')
   const [showFieldError, setShowFieldError] = useState(false)
@@ -59,13 +85,13 @@ export const ContactForm = () => {
   const fieldHint = fieldSelected ? t(`contact.form.field.hints.${field}`) : ''
 
   const resetForm = () => {
-    setIntent('consultation')
+    setIntent(initialIntent)
     setField('')
     setName('')
     setCompany('')
     setEmail('')
     setPhone('')
-    setRequirements('')
+    setRequirements(panelParam)
     setConsent(false)
     setHp('')
     setShowFieldError(false)
@@ -89,6 +115,7 @@ export const ContactForm = () => {
       field,
       fieldLabel: t(`contact.form.field.options.${field}`),
       requirements: requirements.trim(),
+      source: submissionSource || undefined,
       consent,
       _hp: hp,
     })

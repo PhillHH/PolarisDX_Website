@@ -54,6 +54,10 @@
           "dental": "Dentária",
           "beauty": "Beauty e estética",
           "longevity": "Longevity",
+          "nutrition": "Nutritional counselling",
+          "sports": "Sports medicine",
+          "bgm": "Corporate health management",
+          "practice": "Practice and clinic",
           "pharmacy": "Farmácia",
           "other": "Outra"
         },
@@ -61,6 +65,10 @@
           "dental": "Ótima escolha — vitamina D e PCR mesmo na cadeira são os clássicos da implantologia.",
           "beauty": "Muito bem — PCR e painéis vitamínicos são os essenciais da estética para pele e recuperação.",
           "longevity": "Perfeito — HbA1c, PCR e vitamina D são os marcadores base da longevity.",
+          "nutrition": "We will get back to you with the documents relevant to nutritional counselling.",
+          "sports": "We will get back to you with the documents relevant to sports medicine.",
+          "bgm": "We will get back to you with the documents relevant to corporate health management.",
+          "practice": "We will get back to you with the documents relevant to practice and clinic.",
           "pharmacy": "Inteligente — testes rápidos de PCR e vitamina D transformam quem passa em clientes fiéis.",
           "other": "Conte-nos o seu setup — montamos o painel point-of-care adequado."
         }

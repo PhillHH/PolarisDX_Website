@@ -229,7 +229,7 @@ const EpigeneticsPage = () => {
                     {t('hero.ctaSheets')}
                   </a>
                   <Link
-                    to="/contact"
+                    to="/contact?intent=quote&source=epigenetics#kontaktformular"
                     className="inline-flex items-center justify-center rounded-full bg-accent-strong px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-white hover:text-brand-deep"
                   >
                     {t('hero.ctaQuote')}
@@ -255,7 +255,10 @@ const EpigeneticsPage = () => {
         <ChapterNav
           chapters={chapters}
           chaptersLabel={t('befund.navChapters')}
-          action={{ to: '/contact', label: t('hero.ctaQuote') }}
+          action={{
+            to: '/contact?intent=quote&source=epigenetics#kontaktformular',
+            label: t('hero.ctaQuote'),
+          }}
         />
 
         {/* ================================================================
@@ -881,7 +884,7 @@ const EpigeneticsPage = () => {
                 {t('links.downloads')} →
               </Link>
               <Link
-                to="/contact"
+                to="/contact?intent=quote&source=epigenetics#kontaktformular"
                 className="font-semibold text-brand-primary transition-colors hover:text-brand-deep"
               >
                 {t('links.contact')} →

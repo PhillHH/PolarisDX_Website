@@ -54,6 +54,10 @@
           "dental": "Dental",
           "beauty": "Beauty & Aesthetics",
           "longevity": "Longevity",
+          "nutrition": "Nutritional counselling",
+          "sports": "Sports medicine",
+          "bgm": "Corporate health management",
+          "practice": "Practice and clinic",
           "pharmacy": "Pharmacy",
           "other": "Other"
         },
@@ -61,6 +65,10 @@
           "dental": "Strong choice — Vitamin D & CRP right at the chair are the implantology classics.",
           "beauty": "Great — CRP & vitamin panels are the aesthetics staples for skin and recovery.",
           "longevity": "Perfect — HbA1c, CRP & vitamin D are the longevity baseline markers.",
+          "nutrition": "We will get back to you with the documents relevant to nutritional counselling.",
+          "sports": "We will get back to you with the documents relevant to sports medicine.",
+          "bgm": "We will get back to you with the documents relevant to corporate health management.",
+          "practice": "We will get back to you with the documents relevant to practice and clinic.",
           "pharmacy": "Smart — fast CRP & vitamin D testing turns walk-ins into repeat customers.",
           "other": "Tell us your setup — we’ll map the right point-of-care panel for you."
         }

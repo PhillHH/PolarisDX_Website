@@ -11,6 +11,10 @@ export interface ContactSubmission {
   field: string
   fieldLabel: string
   requirements: string
+  /** Woher die Anfrage kam, z. B. "Epigenetik · Metabolic Health".
+   *  Gehoert in die Nachricht, NICHT in `area` — dort steht der Bereich,
+   *  den der Absender selbst gewaehlt hat. */
+  source?: string
   consent: boolean
   /** Honeypot — forwarded raw so the server can drop bot submissions. */
   _hp: string
@@ -46,6 +50,7 @@ export const useContactForm = (): UseContactFormReturn => {
     const message = [
       `Anliegen: ${s.intentLabel}`,
       `Bereich: ${s.fieldLabel || '-'}`,
+      ...(s.source ? [`Herkunft: ${s.source}`] : []),
       '',
       s.requirements || '(keine weiteren Angaben)',
     ].join('\n')

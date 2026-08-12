@@ -213,7 +213,10 @@ const MusterbefundPage = () => {
                 chapters={chapters}
                 chaptersLabel={t('befund.navChapters')}
                 back={{ to: '/epigenetics#musterbefunde', label: t('befund.navBack') }}
-                action={{ to: '/contact', label: t('hero.ctaQuote') }}
+                action={{
+                  to: `/contact?intent=quote&source=epigenetics&panel=${encodeURIComponent(befund.panel)}#kontaktformular`,
+                  label: t('hero.ctaQuote'),
+                }}
                 switcher={{
                   current: befund.panel,
                   currentSlug: slug,
@@ -247,7 +250,7 @@ const MusterbefundPage = () => {
                   </a>
                 ) : null}
                 <Link
-                  to="/contact"
+                  to={`/contact?intent=quote&source=epigenetics&panel=${encodeURIComponent(befund.panel)}#kontaktformular`}
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-accent-strong px-6 py-3.5 text-base font-semibold text-white transition-colors hover:brightness-110"
                 >
                   {t('hero.ctaQuote')}

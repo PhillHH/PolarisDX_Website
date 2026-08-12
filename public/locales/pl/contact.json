@@ -54,6 +54,10 @@
           "dental": "Stomatologia",
           "beauty": "Beauty & estetyka",
           "longevity": "Longevity",
+          "nutrition": "Nutritional counselling",
+          "sports": "Sports medicine",
+          "bgm": "Corporate health management",
+          "practice": "Practice and clinic",
           "pharmacy": "Apteka",
           "other": "Inne"
         },
@@ -61,6 +65,10 @@
           "dental": "Dobry wybór — witamina D i CRP prosto przy fotelu to klasyka implantologii.",
           "beauty": "Świetnie — CRP i panele witaminowe to podstawa estetyki dla skóry i regeneracji.",
           "longevity": "Idealnie — HbA1c, CRP i witamina D to podstawowe markery longevity.",
+          "nutrition": "We will get back to you with the documents relevant to nutritional counselling.",
+          "sports": "We will get back to you with the documents relevant to sports medicine.",
+          "bgm": "We will get back to you with the documents relevant to corporate health management.",
+          "practice": "We will get back to you with the documents relevant to practice and clinic.",
           "pharmacy": "Sprytnie — szybkie testy CRP i witaminy D zamieniają klientów z ulicy w stałych.",
           "other": "Opowiedz nam o swoim setupie — dobierzemy odpowiedni panel point-of-care."
         }
