@@ -18,6 +18,7 @@
  * Fachpublikum, keine Uebersichtsseite.
  */
 
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import LanguageFallbackNotice from '../components/ui/LanguageFallbackNotice'
@@ -116,6 +117,15 @@ const EpigeneticsPage = () => {
   const sheets = asArray<Sheet>(t('sheets', { returnObjects: true }))
   const compareCols = asArray<string>(t('compare.cols', { returnObjects: true }))
   const compareRows = asArray<string[]>(t('compare.rows', { returnObjects: true }))
+  // Einstiegsfilter. Die Kopplung Zeile -> Zielgruppe laeuft POSITIONELL ueber
+  // den Index: compare.groups[i] gehoert zu compare.rows[i]. Wer in einer
+  // Locale eine Zeile einfuegt, muss die Gruppe an derselben Stelle einfuegen.
+  const compareGroups = asArray<string[]>(t('compare.groups', { returnObjects: true }))
+  const [panelGroup, setPanelGroup] = useState<string | null>(null)
+  const filterKeys = ['longevity', 'nutrition', 'sports', 'bgm', 'practice']
+  const visibleRows = panelGroup
+    ? compareRows.filter((_, i) => compareGroups[i]?.includes(panelGroup))
+    : compareRows
   const compareShared = asArray<TitledText>(t('compare.shared', { returnObjects: true }))
   const compareCaveats = asArray<TitledText>(t('compare.caveats', { returnObjects: true }))
   const concepts = asArray<Concept>(t('basics.concepts', { returnObjects: true }))
@@ -274,6 +284,39 @@ const EpigeneticsPage = () => {
                 {t('basics.title')}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
+
+              <div className="mt-8">
+                <p className={LABEL}>{t('compare.filter.label')}</p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setPanelGroup(null)}
+                    aria-pressed={panelGroup === null}
+                    className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+                      panelGroup === null
+                        ? 'border-brand-deep bg-brand-deep text-white'
+                        : 'border-slate-300 bg-white text-brand-deep hover:border-brand-primary'
+                    }`}
+                  >
+                    {t('compare.filter.all')}
+                  </button>
+                  {filterKeys.map((key) => (
+                    <button
+                      key={key}
+                      type="button"
+                      onClick={() => setPanelGroup(panelGroup === key ? null : key)}
+                      aria-pressed={panelGroup === key}
+                      className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+                        panelGroup === key
+                          ? 'border-brand-deep bg-brand-deep text-white'
+                          : 'border-slate-300 bg-white text-brand-deep hover:border-brand-primary'
+                      }`}
+                    >
+                      {t(`compare.filter.options.${key}`)}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </Reveal>
 
             {/* Die Tabelle ist auf schmalen Viewports breiter als der Bildschirm.
@@ -292,7 +335,7 @@ const EpigeneticsPage = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {compareRows.map((row, rowIndex) => (
+                    {visibleRows.map((row, rowIndex) => (
                       <tr key={row[0]} className={rowIndex % 2 === 1 ? 'bg-slate-50' : 'bg-white'}>
                         {row.map((cell, cellIndex) => (
                           <td
@@ -311,6 +354,9 @@ const EpigeneticsPage = () => {
                   </tbody>
                 </table>
               </div>
+              {visibleRows.length === 0 ? (
+                <p className="mt-4 text-base text-gray-600">{t('compare.filter.empty')}</p>
+              ) : null}
               {/* Die Tabelle ist breiter als schmale Viewports. Ohne Hinweis
                   bleibt die Spalte mit der Ergebnisform unentdeckt. */}
               <p className="mt-3 text-sm text-gray-500 lg:hidden">{t('compare.scrollHint')}</p>
