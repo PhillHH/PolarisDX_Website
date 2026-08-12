@@ -22,7 +22,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import LanguageFallbackNotice from '../components/ui/LanguageFallbackNotice'
 import { isEnglishFallback } from '../lib/translationStatus'
-import { Check, ChevronDown, Download, FileText, Minus } from 'lucide-react'
+import { ArrowRight, Check, ChevronDown, Download, FileText, Minus } from 'lucide-react'
 import { SEOHead, createBreadcrumbSchema, createFAQSchema } from '../components/seo'
 import type { FAQItem } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
@@ -128,17 +128,20 @@ const EpigeneticsPage = () => {
   // Kapitel der Seite. Die Kurzform aus dem jeweiligen Kicker ist als Chip
   // besser lesbar als die Ueberschrift — ausser bei den Analysen, wo der
   // Kicker nur "Portfolio" heisst.
+  // Reihenfolge wie die Abschnitte: erst die Auswahl, dann die Grundlagen,
+  // dann die Panels. Vorher standen die Einzelkarten vor der Vergleichstabelle
+  // und das Vokabular rund 8.000px hinter seiner ersten Verwendung.
   const chapters: Chapter[] = [
-    { id: 'prinzip', label: t('principle.caption') },
-    { id: 'analysen', label: t('analyses.title') },
     { id: 'vergleich', label: t('compare.caption') },
-    { id: 'ablauf', label: t('workflow.caption') },
+    { id: 'prinzip', label: t('principle.caption') },
     { id: 'werte-verstehen', label: t('basics.caption') },
+    { id: 'analysen', label: t('analyses.title') },
+    { id: 'ablauf', label: t('workflow.caption') },
     { id: 'studienlage', label: t('evidence.caption') },
     { id: 'fragen', label: t('faq.caption') },
     { id: 'downloads', label: t('downloads.caption') },
     // NICHT #contact — diese id gehoert dem globalen Abschlussblock nach
-    // </main>, der zum IglooPro fuehrt. Das Kapitel meint den eigenen Block.
+    // </main>. Das Kapitel meint den eigenen Block.
     { id: 'konditionen', label: t('contact.caption') },
   ]
 
@@ -246,93 +249,6 @@ const EpigeneticsPage = () => {
         />
 
         {/* ================================================================
-            DAS PRINZIP
-        ================================================================ */}
-        <section
-          id="prinzip"
-          className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24"
-        >
-          <Reveal width="100%">
-            <SectionHeader
-              caption={t('principle.caption')}
-              title={t('principle.title')}
-              align="left"
-            />
-            <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('principle.lead')}</p>
-          </Reveal>
-
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            {principleCards.map((card, index) => (
-              <Reveal
-                key={card.title}
-                width="100%"
-                delay={index * REVEAL_STAGGER}
-                className={STRETCH}
-              >
-                <div className="h-full rounded-3xl border border-slate-200 bg-white p-7">
-                  <h3 className="text-xl font-semibold tracking-tight text-text-heading">
-                    {card.title}
-                  </h3>
-                  <p className={`mt-3 text-gray-600 ${BODY}`}>{card.text}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-
-          <Reveal width="100%">
-            <div className="mt-6 rounded-3xl border border-accent-border bg-accent-soft p-7">
-              <p className="text-xs font-medium text-gray-500">{t('principle.practice.title')}</p>
-              <ul className="mt-4 grid gap-3 lg:grid-cols-3">
-                {practiceItems.map((item) => (
-                  <li key={item} className={`flex gap-3 text-gray-700 ${BODY}`}>
-                    <Check className="mt-1.5 h-5 w-5 shrink-0 text-accent-strong" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
-
-          {/* Erster Dokument-Hinweis: das Programm kompakt auf drei Seiten */}
-          <Reveal width="100%">
-            <div className="mt-6 flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-7 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex items-start gap-4">
-                <FileText className="mt-0.5 h-6 w-6 shrink-0 text-brand-primary" />
-                <p className={`text-gray-700 ${BODY}`}>{t('principle.pdfHint')}</p>
-              </div>
-              <a
-                href={overviewHref}
-                download
-                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
-              >
-                <Download className="h-4 w-4" />
-                {t('contact.overview')}
-              </a>
-            </div>
-          </Reveal>
-        </section>
-
-        {/* ================================================================
-            DIE SECHS ANALYSEN
-        ================================================================ */}
-        {/* ================================================================
-            DIE SECHS PANELS — eine Darstellung statt zwei
-
-            Vorher standen dieselben sechs Panels hier als Textkarten und rund
-            4.700px weiter unten nochmal als Bildkarten, mit je anderen Angaben.
-            Beide Anker bleiben erhalten: #analysen liegt auf dem Abschnitt,
-            #musterbefunde als Sprungmarke davor — beide sind extern verlinkt
-            und stehen in den PDFs.
-        ================================================================ */}
-        <section
-          id="analysen"
-          className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-slate-200 bg-white"
-        >
-          <span id="musterbefunde" className="block scroll-mt-[var(--chapterbar-offset,148px)]" />
-          <EpigeneticsPanels />
-        </section>
-
-        {/* ================================================================
             DIE SECHS PANELS IM VERGLEICH
         ================================================================ */}
         <section
@@ -347,6 +263,17 @@ const EpigeneticsPage = () => {
                 align="left"
               />
               <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('compare.lead')}</p>
+              {/* Die Tabelle nennt die molekulare Ebene beim Namen — microRNA,
+                  Telomerlaenge, Methylierung. Erklaert werden die Begriffe im
+                  Vokabelabschnitt rund 3.000px weiter unten. Vorher gab es
+                  keinen einzigen Verweis dorthin. */}
+              <a
+                href="#werte-verstehen"
+                className="mt-3 inline-flex items-center gap-1.5 text-base font-semibold text-accent-strong"
+              >
+                {t('basics.title')}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </a>
             </Reveal>
 
             {/* Die Tabelle ist auf schmalen Viewports breiter als der Bildschirm.
@@ -436,6 +363,153 @@ const EpigeneticsPage = () => {
         </section>
 
         {/* ================================================================
+            DAS PRINZIP
+        ================================================================ */}
+        <section
+          id="prinzip"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24"
+        >
+          <Reveal width="100%">
+            <SectionHeader
+              caption={t('principle.caption')}
+              title={t('principle.title')}
+              align="left"
+            />
+            <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('principle.lead')}</p>
+          </Reveal>
+
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+            {principleCards.map((card, index) => (
+              <Reveal
+                key={card.title}
+                width="100%"
+                delay={index * REVEAL_STAGGER}
+                className={STRETCH}
+              >
+                <div className="h-full rounded-3xl border border-slate-200 bg-white p-7">
+                  <h3 className="text-xl font-semibold tracking-tight text-text-heading">
+                    {card.title}
+                  </h3>
+                  <p className={`mt-3 text-gray-600 ${BODY}`}>{card.text}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal width="100%">
+            <div className="mt-6 rounded-3xl border border-accent-border bg-accent-soft p-7">
+              <p className="text-xs font-medium text-gray-500">{t('principle.practice.title')}</p>
+              <ul className="mt-4 grid gap-3 lg:grid-cols-3">
+                {practiceItems.map((item) => (
+                  <li key={item} className={`flex gap-3 text-gray-700 ${BODY}`}>
+                    <Check className="mt-1.5 h-5 w-5 shrink-0 text-accent-strong" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+
+          {/* Erster Dokument-Hinweis: das Programm kompakt auf drei Seiten */}
+          <Reveal width="100%">
+            <div className="mt-6 flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-7 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-start gap-4">
+                <FileText className="mt-0.5 h-6 w-6 shrink-0 text-brand-primary" />
+                <p className={`text-gray-700 ${BODY}`}>{t('principle.pdfHint')}</p>
+              </div>
+              <a
+                href={overviewHref}
+                download
+                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
+              >
+                <Download className="h-4 w-4" />
+                {t('contact.overview')}
+              </a>
+            </div>
+          </Reveal>
+        </section>
+
+        {/* ================================================================
+            WERTE VERSTEHEN — die vier Ebenen und die drei Zahlenformate
+        ================================================================ */}
+        <section
+          id="werte-verstehen"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-slate-200 bg-white"
+        >
+          <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
+            <Reveal width="100%">
+              <SectionHeader caption={t('basics.caption')} title={t('basics.title')} align="left" />
+              <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('basics.lead')}</p>
+            </Reveal>
+
+            <div className="mt-10 grid gap-6 md:grid-cols-2">
+              {concepts.map((item, index) => (
+                <Reveal key={item.num} width="100%" delay={0.05 * (index % 2)} className={STRETCH}>
+                  <div className="h-full rounded-3xl border border-slate-200 bg-slate-50 p-7">
+                    <div className="flex items-start gap-4">
+                      <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-deep text-sm font-semibold text-white">
+                        {item.num}
+                      </span>
+                      <h3 className="mt-1.5 text-xl font-semibold tracking-tight text-text-heading">
+                        {item.title}
+                      </h3>
+                    </div>
+                    <p className={`mt-4 text-gray-700 ${BODY}`}>{item.text}</p>
+                    <p className="mt-4 border-t border-slate-200 pt-4 text-base font-medium text-accent-strong">
+                      {item.key}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal width="100%">
+              <div className="mt-6 rounded-3xl border border-slate-200 bg-white p-7">
+                <p className={LABEL}>{t('basics.scaleTitle')}</p>
+                <dl className="mt-4 grid gap-5 lg:grid-cols-3">
+                  {scales.map((scale) => (
+                    <div key={scale.k}>
+                      <dt className="text-base font-semibold text-text-heading">{scale.k}</dt>
+                      <dd className={`mt-1.5 text-gray-700 ${BODY}`}>{scale.v}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <div className="mt-6 border-t border-slate-200 pt-6">
+                  <a
+                    href={`${ASSET_BASE}${t('basics.file')}`}
+                    download
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
+                  >
+                    <Download className="h-4 w-4" />
+                    {t('basics.cta')}
+                  </a>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ================================================================
+            DIE SECHS ANALYSEN
+        ================================================================ */}
+        {/* ================================================================
+            DIE SECHS PANELS — eine Darstellung statt zwei
+
+            Vorher standen dieselben sechs Panels hier als Textkarten und rund
+            4.700px weiter unten nochmal als Bildkarten, mit je anderen Angaben.
+            Beide Anker bleiben erhalten: #analysen liegt auf dem Abschnitt,
+            #musterbefunde als Sprungmarke davor — beide sind extern verlinkt
+            und stehen in den PDFs.
+        ================================================================ */}
+        <section
+          id="analysen"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-slate-200 bg-white"
+        >
+          <span id="musterbefunde" className="block scroll-mt-[var(--chapterbar-offset,148px)]" />
+          <EpigeneticsPanels />
+        </section>
+
+        {/* ================================================================
             MUSTERBEFUNDE — was am Ende in der Hand liegt
         ================================================================ */}
 
@@ -509,66 +583,6 @@ const EpigeneticsPage = () => {
               </Reveal>
             ))}
           </ol>
-        </section>
-
-        {/* ================================================================
-            WERTE VERSTEHEN — die vier Ebenen und die drei Zahlenformate
-        ================================================================ */}
-        <section
-          id="werte-verstehen"
-          className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-slate-200 bg-white"
-        >
-          <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
-            <Reveal width="100%">
-              <SectionHeader caption={t('basics.caption')} title={t('basics.title')} align="left" />
-              <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('basics.lead')}</p>
-            </Reveal>
-
-            <div className="mt-10 grid gap-6 md:grid-cols-2">
-              {concepts.map((item, index) => (
-                <Reveal key={item.num} width="100%" delay={0.05 * (index % 2)} className={STRETCH}>
-                  <div className="h-full rounded-3xl border border-slate-200 bg-slate-50 p-7">
-                    <div className="flex items-start gap-4">
-                      <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-deep text-sm font-semibold text-white">
-                        {item.num}
-                      </span>
-                      <h3 className="mt-1.5 text-xl font-semibold tracking-tight text-text-heading">
-                        {item.title}
-                      </h3>
-                    </div>
-                    <p className={`mt-4 text-gray-700 ${BODY}`}>{item.text}</p>
-                    <p className="mt-4 border-t border-slate-200 pt-4 text-base font-medium text-accent-strong">
-                      {item.key}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-
-            <Reveal width="100%">
-              <div className="mt-6 rounded-3xl border border-slate-200 bg-white p-7">
-                <p className={LABEL}>{t('basics.scaleTitle')}</p>
-                <dl className="mt-4 grid gap-5 lg:grid-cols-3">
-                  {scales.map((scale) => (
-                    <div key={scale.k}>
-                      <dt className="text-base font-semibold text-text-heading">{scale.k}</dt>
-                      <dd className={`mt-1.5 text-gray-700 ${BODY}`}>{scale.v}</dd>
-                    </div>
-                  ))}
-                </dl>
-                <div className="mt-6 border-t border-slate-200 pt-6">
-                  <a
-                    href={`${ASSET_BASE}${t('basics.file')}`}
-                    download
-                    className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
-                  >
-                    <Download className="h-4 w-4" />
-                    {t('basics.cta')}
-                  </a>
-                </div>
-              </div>
-            </Reveal>
-          </div>
         </section>
 
         {/* ================================================================
