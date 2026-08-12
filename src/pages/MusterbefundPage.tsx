@@ -51,6 +51,22 @@ const MusterbefundPage = () => {
   const { slug = '' } = useParams<{ slug: string }>()
   const { hash } = useLocation()
   const { t, i18n } = useTranslation('epigenetics')
+
+  // Steht bewusst VOR dem vorzeitigen return fuer den unbekannten Slug: React
+  // ordnet Hooks ueber ihre Aufrufreihenfolge zu. Lag der Effekt dahinter, lief
+  // die Komponente je nach Slug mit zwei oder drei Hooks.
+  // Wer einen Link mit einer alten Marke verschickt hat, soll trotzdem am
+  // richtigen Abschnitt ankommen. Die Tabelle darf verschwinden, sobald diese
+  // Links niemanden mehr erreichen.
+  useEffect(() => {
+    const alt = hash.slice(1)
+    if (!alt || document.getElementById(alt)) return
+    const neu = LEGACY_ANCHORS[slug]?.[alt]
+    const ziel = neu ? document.getElementById(neu) : null
+    if (!ziel || !neu) return
+    window.history.replaceState(null, '', `#${neu}`)
+    ziel.scrollIntoView()
+  }, [slug, hash])
   // Acht Sprachen zeigen hier englischen Text — das muss ausgezeichnet werden.
   const englishFallback = isEnglishFallback(t('_translationStatus', { defaultValue: '' }))
   const lang = i18n.language?.startsWith('de') ? 'de' : 'en'
@@ -106,8 +122,13 @@ const MusterbefundPage = () => {
    * optisch zu dem gehoert, was er kommentiert.
    */
   const chapters: Chapter[] = []
+  const chrome: { tint: boolean; id: string | undefined }[] = []
+  // Schleife statt map: `tint` traegt Zustand von Block zu Block weiter. In
+  // einem map-Callback ist das eine Zuweisung waehrend des Renderings —
+  // react-hooks/immutability verbietet sie, weil der Wert bei einem erneuten
+  // Rendering derselben Liste nicht mehr derselbe waere.
   let tint = false
-  const chrome = blocks.map((block) => {
+  for (const block of blocks) {
     const isCover = block.type === 'cover'
     if (!isCover && block.type !== 'callout') tint = !tint
 
@@ -119,21 +140,8 @@ const MusterbefundPage = () => {
     if (id && !NOT_A_CHAPTER.has(block.type) && title) {
       chapters.push({ id, label: toLabel(title) })
     }
-    return { tint: isCover ? false : tint, id }
-  })
-
-  // Wer einen Link mit einer alten Marke verschickt hat, soll trotzdem am
-  // richtigen Abschnitt ankommen. Die Tabelle darf verschwinden, sobald diese
-  // Links niemanden mehr erreichen.
-  useEffect(() => {
-    const alt = hash.slice(1)
-    if (!alt || document.getElementById(alt)) return
-    const neu = LEGACY_ANCHORS[slug]?.[alt]
-    const ziel = neu ? document.getElementById(neu) : null
-    if (!ziel || !neu) return
-    window.history.replaceState(null, '', `#${neu}`)
-    ziel.scrollIntoView()
-  }, [slug, hash])
+    chrome.push({ tint: isCover ? false : tint, id })
+  }
 
   const others = BEFUND_ORDER.map((s) => ({
     slug: s,
