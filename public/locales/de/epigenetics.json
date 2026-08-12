@@ -386,7 +386,7 @@
   ],
   "contact": {
     "caption": "Kontakt",
-    "title": "Konditionen anfragen",
+    "title": "Angebot anfragen",
     "sub": "Die Analysen werden ausschließlich an Fachanwenderinnen und Fachanwender abgegeben. B2B-Konditionen nach Absprache, gestaffelt nach Abnahmemenge.",
     "overview": "Übersicht als PDF",
     "overviewFile": "de/00_Portfolio_Uebersicht_PolarisDX.pdf",
@@ -396,7 +396,7 @@
   "links": {
     "longevity": "Longevity-Diagnostik",
     "downloads": "Alle Downloads",
-    "contact": "Beratung buchen"
+    "contact": "Angebot anfragen"
   },
   "samples": {
     "caption": "Musterbefunde",

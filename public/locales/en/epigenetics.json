@@ -386,7 +386,7 @@
   ],
   "contact": {
     "caption": "Contact",
-    "title": "Request terms",
+    "title": "Request a quotation",
     "sub": "The analyses are supplied to professional users only. B2B terms on request, tiered by volume.",
     "overview": "Overview as PDF",
     "overviewFile": "en/00_Portfolio_Overview_PolarisDX.pdf",
@@ -396,7 +396,7 @@
   "links": {
     "longevity": "Longevity diagnostics",
     "downloads": "All downloads",
-    "contact": "Request advice"
+    "contact": "Request a quotation"
   },
   "samples": {
     "caption": "Sample reports",
