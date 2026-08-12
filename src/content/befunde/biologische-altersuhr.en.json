@@ -1,442 +1,423 @@
 {
- "slug": "biologische-altersuhr",
- "panel": "Biological Age Clock",
- "blocks": [
-  {
-   "type": "cover",
-   "badge": "Sample report · Example data",
-   "panel": "Biological Age Clock",
-   "subtitle": "microRNA-based",
-   "claim": "Three circulating microRNAs — miR-21, miR-24 and miR-155 — reflect inflammation, cellular ageing and metabolism. Their interplay is used to calculate a biological age, which is then set against the chronological one.",
-   "meta": [
+  "slug": "biologische-altersuhr",
+  "panel": "Biological Age Clock",
+  "blocks": [
     {
-     "k": "Report for",
-     "v": "Doe, Jane"
+      "type": "cover",
+      "badge": "Sample report · Example data",
+      "panel": "Biological Age Clock",
+      "subtitle": "microRNA-based",
+      "claim": "Three circulating microRNAs — miR-21, miR-24 and miR-155 — reflect inflammation, cellular ageing and metabolism. Their interplay is used to calculate a biological age, which is then set against the chronological one.",
+      "meta": [
+        {
+          "k": "Report for",
+          "v": "Doe, Jane"
+        },
+        {
+          "k": "Sample collection",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Material",
+          "v": "Dried blood spot card"
+        },
+        {
+          "k": "Scope",
+          "v": "3 microRNAs"
+        }
+      ],
+      "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+      "id": "deckblatt",
+      "benefit": "A single figure that makes your conversation about exercise, stress and diet concrete."
     },
     {
-     "k": "Sample collection",
-     "v": "15.06.2026"
+      "type": "principle",
+      "caption": "The principle",
+      "title": "Not just how old you are. But how fast you are ageing.",
+      "lead": "microRNAs are small RNA molecules that regulate how strongly individual genes are read. Three of them — miR-21, miR-24 and miR-155 — stand for inflammation, cellular ageing and metabolism. A regression model uses their interplay to calculate a biological age and sets it against chronological age. Because microRNAs respond dynamically, changes can show up comparatively quickly.",
+      "cards": [
+        {
+          "title": "Three signals",
+          "text": "miR-21 (inflammation), miR-24 (senescence and repair) and miR-155 (immune balance and metabolism)."
+        },
+        {
+          "title": "Dynamic",
+          "text": "microRNA levels change with diet, exercise, sleep, stress and smoking."
+        },
+        {
+          "title": "Trend-oriented",
+          "text": "What carries meaning is the development between two measurements under the same conditions — not the single value."
+        }
+      ],
+      "flowTitle": "The process",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Measure",
+          "text": "Dried blood spot card, from the fingertip. microRNA expression by qPCR, normalised against miR-93. No fasting required."
+        },
+        {
+          "num": "02",
+          "title": "Interpret",
+          "text": "A multivariate regression model uses the three signals to calculate the biological age and its deviation from chronological age."
+        },
+        {
+          "num": "03",
+          "title": "Change",
+          "text": "Specific nutrition and lifestyle levers for each signal, plus follow-up monitoring at the next measurement."
+        }
+      ],
+      "id": "so-lesen"
     },
     {
-     "k": "Material",
-     "v": "Dried blood spot card"
+      "type": "callout",
+      "title": "How reliable is this figure?",
+      "text": "The underlying model has been published as a pilot study (n = 539). It explains around 5% of the variance in age, the mean absolute error is 10.4 years, and two of the three microRNAs did not correlate significantly with chronological age in that work. The authors themselves call for validation before clinical use.",
+      "items": [
+        "What this means in practice: the biological age reported here is not an age determination and says nothing about life expectancy or disease risk. What carries meaning is the change between two measurements under the same conditions — which is why this report centres on the trend and not on the single figure.",
+        "A comparison with methylation-based age clocks is not permissible: different methodology, different evidence base. Source: Schneider J. et al., miRNA-3Age, Frontiers in Nutrition 2025, doi:10.3389/fnut.2025.1659730."
+      ],
+      "tone": "neutral",
+      "id": "hinweis"
     },
     {
-     "k": "Scope",
-     "v": "3 microRNAs"
+      "type": "bigResult",
+      "caption": "Your result",
+      "title": "Your biological age clock.",
+      "display": "+4 years",
+      "sub": "Deviation from chronological age",
+      "kind": "deviation",
+      "value": 4,
+      "unit": "years",
+      "ticks": ["+20 yrs", "+10", "0", "−10", "−20 yrs"],
+      "tone": "green",
+      "text": "From the combined evaluation of miR-21, miR-24 and miR-155. Chronological age 48 years. Your biological age is 52 years, four years above your chronological age. The range from −5 to +5 years is regarded as age-appropriate — your value therefore lies within this range. For context: the reference band of ±5 years is narrower than the model's mean error of 10.4 years. A deviation of this magnitude therefore cannot be distinguished from the model's scatter.",
+      "id": "ergebnis"
+    },
+    {
+      "type": "ageDots",
+      "caption": "Biological versus chronological",
+      "title": "Biological age",
+      "lead": "Chronological age 48 years.",
+      "chronological": 48,
+      "min": 35,
+      "max": 60,
+      "unit": "years",
+      "items": [
+        {
+          "label": "Biological age",
+          "age": 52,
+          "delta": "+4",
+          "tone": "green"
+        }
+      ],
+      "id": "biologisches-alter"
+    },
+    {
+      "type": "callout",
+      "title": "Where you stand",
+      "text": "Two scores from your self-reported information, each compared with the reference.",
+      "items": [
+        "72 / 100 · Nutrition — Good nutrient combination with room for improvement in the details. Reference: ≥ 60.",
+        "65 / 100 · Lifestyle — Balanced, with room for more physical activity and stress reduction. Reference: ≥ 60."
+      ],
+      "tone": "neutral",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "markers",
+      "caption": "Basis of the calculation",
+      "title": "The three microRNAs.",
+      "lead": "The individual signals on a scale of 1–9; higher is better. Only their interplay produces the age clock — a single signal on its own does not permit any conclusion.",
+      "items": [
+        {
+          "name": "miR-21",
+          "category": "Inflammation and tissue remodelling",
+          "intro": "Lead microRNA of ‘inflammaging’. Rises with chronic, low-grade inflammation and is closely linked to senescence and fibrosis.",
+          "kind": "traffic",
+          "value": 3,
+          "display": "3 / 9",
+          "sub": "Outside range",
+          "tone": "red",
+          "text": "The weakest of your three signals. All eight recommendations in this report address the miR-21 pathway."
+        },
+        {
+          "name": "miR-155",
+          "category": "Immune balance and metabolism",
+          "intro": "Central switch of the immune response. Elevated levels accompany metabolic stress and overactive inflammatory regulation.",
+          "kind": "traffic",
+          "value": 4,
+          "display": "4 / 9",
+          "sub": "Mid range",
+          "tone": "amber",
+          "text": "In the lower middle range. Together with miR-21, this signal points in the same direction: inflammation and immune regulation are the axis of this report."
+        },
+        {
+          "name": "miR-24",
+          "category": "Cell cycle and senescence",
+          "intro": "Regulates cell division, DNA repair and apoptosis. Reflects the repair capacity and senescence level of cells.",
+          "kind": "traffic",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Mid range",
+          "tone": "amber",
+          "text": "The strongest of your three signals — exactly in the middle of the scale. Repair capacity and senescence level are unremarkable."
+        }
+      ],
+      "note": "In the publication describing the model, two of the three microRNAs did not correlate significantly with chronological age. The individual signals should therefore be read as starting points for interventions, not as age markers in their own right.",
+      "id": "marker"
+    },
+    {
+      "type": "radar",
+      "caption": "Where you stand",
+      "title": "Nutrition and lifestyle habits.",
+      "lead": "The radar shows how close your current habits are to the reference values. The further out a factor lies, the more favourable — 10 is optimal.",
+      "axes": [
+        "Everyday activity",
+        "Exercise",
+        "Stress",
+        "Tobacco",
+        "Alcohol",
+        "Snacks",
+        "Meat",
+        "Omega-3",
+        "Fibre",
+        "Fruit/vegetables",
+        "Fluid intake"
+      ],
+      "seriesLabels": {
+        "profile": "Your profile",
+        "reference": "Reference group"
+      },
+      "scores": [
+        {
+          "value": "72 / 100",
+          "label": "Nutrition",
+          "text": "Good nutrient combination, room for improvement in the details.",
+          "ref": "Reference: ≥ 60"
+        },
+        {
+          "value": "65 / 100",
+          "label": "Lifestyle",
+          "text": "Balanced, with room for more physical activity and stress reduction.",
+          "ref": "Reference: ≥ 60"
+        }
+      ],
+      "noticeTitle": "Link to the age clock",
+      "notices": [
+        "Stress (4 out of 10) is your weakest lifestyle factor. In the model study, stress and smoking were among the factors associated with a higher miRNA age.",
+        "Tobacco (9 out of 10), by contrast, is well above average — so the second of the two factors that were unfavourable in the model does not apply to you.",
+        "Omega-3 (6) and exercise (7) have room for improvement; both are among the levers that were associated with a lower miRNA age in the study."
+      ],
+      "note": "Assessment based on your self-reported information, not an individual diagnosis. The associations described come from the model study and are group findings, not a prediction for the individual case.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "All recommendations at a glance",
+      "title": "Your interventions.",
+      "lead": "Eight levers, each assigned to the microRNA signals they act on, together with their current values. Sorted by urgency — the weakest signal first.",
+      "cols": ["Lever", "Acts on", "Source", "Amount", "Note"],
+      "rows": [
+        [
+          "Resveratrol",
+          "miR-21 · 3",
+          "Grape skins, blueberries, peanuts",
+          "150–500 mg/day",
+          "Activates sirtuins, inhibits NF-κB"
+        ],
+        [
+          "Omega-3 fatty acids",
+          "miR-21 · 3, miR-155 · 4",
+          "Salmon, mackerel, herring, linseed; alternatively algal oil",
+          "2×/week, 150–200 g",
+          "Anti-inflammatory; associated with a younger miRNA age in the model"
+        ],
+        [
+          "EGCG (green tea)",
+          "miR-21 · 3, miR-155 · 4",
+          "Green tea, matcha, sencha",
+          "300–400 mg/day (3–4 cups)",
+          "Antioxidant; favourable lifestyle factor in the model"
+        ],
+        [
+          "Curcumin",
+          "miR-21 · 3, miR-155 · 4",
+          "Turmeric, with black pepper",
+          "1 tsp daily",
+          "Piperine markedly increases absorption"
+        ],
+        [
+          "Sulforaphane",
+          "miR-21 · 3, miR-155 · 4",
+          "Broccoli (and broccoli sprouts), cauliflower, Brussels sprouts, cress",
+          "25 mg/day (approx. 250 g)",
+          "Heating for 3–4 min at 80 °C increases bioavailability"
+        ],
+        [
+          "Sleep and stress",
+          "miR-21 · 3, miR-155 · 4",
+          "Restorative sleep, stress regulation, not smoking",
+          "daily",
+          "Stress and smoking were associated with a higher miRNA age in the model"
+        ],
+        [
+          "Physical activity",
+          "miR-21 · 3, miR-155 · 4, miR-24 · 5",
+          "Endurance and strength combined",
+          "≥ 150 min/week",
+          "Regular activity was associated with a lower miRNA age in the model"
+        ],
+        [
+          "Quercetin",
+          "miR-21 · 3, miR-24 · 5",
+          "Onion, garlic, capers, kale",
+          "500–1,000 mg/day",
+          "Senolytic; better bioavailability with vitamin C"
+        ]
+      ],
+      "note": "The ‘acts on’ assignment denotes the pathway the respective lever targets. It is not a promise of a measurable change in the individual case. Please review food supplements individually and in consultation with a qualified professional; this overview does not replace medical advice.",
+      "id": "uebersicht"
+    },
+    {
+      "type": "trend",
+      "caption": "Trend",
+      "title": "The actual finding.",
+      "lead": "Because the single value does not overcome the model's scatter, the informative value of this analysis lies in the trend. Only measured values are shown — no forecast.",
+      "firstLabel": "15.03.2026",
+      "secondLabel": "15.06.2026",
+      "kind": "age",
+      "items": [
+        {
+          "label": "Biological age",
+          "first": 54,
+          "second": 52,
+          "firstDisplay": "54 years",
+          "secondDisplay": "52 years",
+          "delta": "−2 years",
+          "sub": "+4 vs chronological age",
+          "tone": "green"
+        }
+      ],
+      "note": "Evaluation: initial measurement 15.03.2026, follow-up 15.06.2026, change −2 years, deviation today +4 compared with chronological age.",
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "What the trend shows",
+      "text": "Biological age has fallen by two years between the two measurements, from 54 to 52 — while chronological age rose by three months over the same period. The direction is right.",
+      "items": [
+        "At the same time: a difference of two years lies well within the model's scatter of around ten years. A single step of this size does not yet demonstrate an effect — only a direction that stays consistent across several measurements does that.",
+        "The two measurements were around three months apart. The interval to the next check is set by the institution providing your care; sample collection and time of day should remain comparable."
+      ],
+      "tone": "accent",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "summary",
+      "caption": "Summary",
+      "title": "Your focus: the inflammation axis.",
+      "lead": "Two of your three signals — miR-21 (3/9) and miR-155 (4/9) — describe inflammation and immune regulation, and both lie in the lower range. miR-24, which reflects repair and senescence, sits in the middle at 5/9. This produces a clear picture of where to focus.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Eat an anti-inflammatory diet",
+          "text": "All eight levers in this report act on miR-21, six of them additionally on miR-155. The overlap is manageable and practical for everyday life. Specifically: oily sea fish twice a week or algal oil daily, 3–4 cups of green tea, turmeric with black pepper, broccoli cooked for 3–4 minutes at 80 °C, berries for resveratrol."
+        },
+        {
+          "num": "02",
+          "title": "Stress and physical activity",
+          "text": "Your lifestyle radar shows stress at 4 out of 10 as the weakest factor, with exercise at 7 and omega-3 at 6 leaving room for improvement. In the model study, stress and smoking were associated with a higher miRNA age, while regular physical activity and fish were associated with a lower one. Physical activity is the only lever that targets all three signals at once: at least 150 minutes per week, endurance and strength combined."
+        }
+      ],
+      "keepTitle": "What is already working",
+      "keepText": "Not smoking (tobacco 9/10), fruit and vegetables (8/10) and fluid intake (8/10) are well above the reference group. The nutrition score of 72/100 is solid as well. And the trend is pointing in the right direction.",
+      "controlTitle": "Please keep in mind",
+      "controlItems": [
+        "All the associations described between lifestyle and miRNA age come from the model study and are group findings. Whether your personal value changes as a result of these measures can only be shown by your next measurement.",
+        "This report is not a diagnosis and does not replace medical advice."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "science",
+      "caption": "What is established — and what is not",
+      "title": "Scientific context.",
+      "lead": "We set out the limits of this analysis openly, because an honest interpretation is worth more than an impressive number.",
+      "items": [
+        {
+          "title": "Study type",
+          "text": "Pilot study; validation called for by the authors themselves"
+        },
+        {
+          "title": "Sample",
+          "text": "n = 539"
+        },
+        {
+          "title": "Explained variance in age",
+          "text": "around 5%"
+        },
+        {
+          "title": "Mean absolute error",
+          "text": "10.4 years"
+        },
+        {
+          "title": "Markers with a significant age correlation",
+          "text": "1 of 3"
+        },
+        {
+          "title": "What the analysis is suitable for",
+          "text": "As a consultation and monitoring tool: it creates a concrete occasion, makes lifestyle topics tangible and, through repeated measurements under the same conditions, provides a trend line."
+        },
+        {
+          "title": "What it is not suitable for",
+          "text": "As an age determination, as a statement about life expectancy or disease risk, as diagnostics — and as a basis for comparison with methylation-based age clocks, which rest on a different methodology and a different evidence base.",
+          "source": "Schneider J. et al., miRNA-3Age: a microRNA-based biological age model and its modulation by lifestyle and nutrition. Frontiers in Nutrition (2025), doi:10.3389/fnut.2025.1659730"
+        }
+      ],
+      "note": "This document does not replace medical assessment and does not constitute any promise of cure within the meaning of the German Therapeutic Products Advertising Act (HWG).",
+      "id": "einordnung"
+    },
+    {
+      "type": "callout",
+      "title": "The guiding principle",
+      "text": "The trend carries the meaning, the single value does not. An initial and a follow-up measurement under the same conditions are the real benefit of this analysis.",
+      "items": [
+        "A single value within ±10 years of chronological age cannot be distinguished from the model's scatter."
+      ],
+      "tone": "accent",
+      "id": "hinweis-4"
+    },
+    {
+      "type": "contact",
+      "title": "Questions about your report?",
+      "text": "Discuss the results with the institution that carried out the sample collection. That is where the context needed for interpretation is available.",
+      "columns": [
+        {
+          "k": "Contact",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribution",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Sample report",
+          "text": "All values and personal details in this document are fictitious and serve solely to illustrate the report format. This is not a real report."
+        },
+        {
+          "title": "Interpretation",
+          "text": "The biological age reported here is a model value derived from three microRNA signals. The underlying model has been published as a pilot study; its mean absolute error is around ten years. The value is not an age determination, not a diagnosis and not a statement about life expectancy or disease risk. Informative value only emerges across several measurements under the same conditions. A comparison with methylation-based age clocks is not permissible."
+        },
+        {
+          "title": "Legal framework",
+          "text": "The laboratory analysis is carried out by our cooperation partner. Polaris Diagnostics Europe GmbH is responsible for distribution and support. Please review food supplements individually and in consultation with a qualified professional. This document does not constitute any promise of cure within the meaning of the German Therapeutic Products Advertising Act (HWG)."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · As at: August 2026",
+      "id": "kontakt"
     }
-   ],
-   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
-   "id": "deckblatt"
-  },
-  {
-   "type": "principle",
-   "caption": "The principle",
-   "title": "Not just how old you are. But how fast you are ageing.",
-   "lead": "microRNAs are small RNA molecules that regulate how strongly individual genes are read. Three of them — miR-21, miR-24 and miR-155 — stand for inflammation, cellular ageing and metabolism. A regression model uses their interplay to calculate a biological age and sets it against chronological age. Because microRNAs respond dynamically, changes can show up comparatively quickly.",
-   "cards": [
-    {
-     "title": "Three signals",
-     "text": "miR-21 (inflammation), miR-24 (senescence and repair) and miR-155 (immune balance and metabolism)."
-    },
-    {
-     "title": "Dynamic",
-     "text": "microRNA levels change with diet, exercise, sleep, stress and smoking."
-    },
-    {
-     "title": "Trend-oriented",
-     "text": "What carries meaning is the development between two measurements under the same conditions — not the single value."
-    }
-   ],
-   "flowTitle": "The process",
-   "flow": [
-    {
-     "num": "01",
-     "title": "Measure",
-     "text": "Dried blood spot card, from the fingertip. microRNA expression by qPCR, normalised against miR-93. No fasting required."
-    },
-    {
-     "num": "02",
-     "title": "Interpret",
-     "text": "A multivariate regression model uses the three signals to calculate the biological age and its deviation from chronological age."
-    },
-    {
-     "num": "03",
-     "title": "Change",
-     "text": "Specific nutrition and lifestyle levers for each signal, plus follow-up monitoring at the next measurement."
-    }
-   ],
-   "id": "so-lesen"
-  },
-  {
-   "type": "callout",
-   "title": "How reliable is this figure?",
-   "text": "The underlying model has been published as a pilot study (n = 539). It explains around 5% of the variance in age, the mean absolute error is 10.4 years, and two of the three microRNAs did not correlate significantly with chronological age in that work. The authors themselves call for validation before clinical use.",
-   "items": [
-    "What this means in practice: the biological age reported here is not an age determination and says nothing about life expectancy or disease risk. What carries meaning is the change between two measurements under the same conditions — which is why this report centres on the trend and not on the single figure.",
-    "A comparison with methylation-based age clocks is not permissible: different methodology, different evidence base. Source: Schneider J. et al., miRNA-3Age, Frontiers in Nutrition 2025, doi:10.3389/fnut.2025.1659730."
-   ],
-   "tone": "neutral",
-   "id": "hinweis"
-  },
-  {
-   "type": "bigResult",
-   "caption": "Your result",
-   "title": "Your biological age clock.",
-   "display": "+4 years",
-   "sub": "Deviation from chronological age",
-   "kind": "deviation",
-   "value": 4,
-   "unit": "years",
-   "ticks": [
-    "+20 yrs",
-    "+10",
-    "0",
-    "−10",
-    "−20 yrs"
-   ],
-   "tone": "green",
-   "text": "From the combined evaluation of miR-21, miR-24 and miR-155. Chronological age 48 years. Your biological age is 52 years, four years above your chronological age. The range from −5 to +5 years is regarded as age-appropriate — your value therefore lies within this range. For context: the reference band of ±5 years is narrower than the model's mean error of 10.4 years. A deviation of this magnitude therefore cannot be distinguished from the model's scatter.",
-   "id": "ergebnis"
-  },
-  {
-   "type": "ageDots",
-   "caption": "Biological versus chronological",
-   "title": "Biological age",
-   "lead": "Chronological age 48 years.",
-   "chronological": 48,
-   "min": 35,
-   "max": 60,
-   "unit": "years",
-   "items": [
-    {
-     "label": "Biological age",
-     "age": 52,
-     "delta": "+4",
-     "tone": "green"
-    }
-   ],
-   "id": "biologisches-alter"
-  },
-  {
-   "type": "callout",
-   "title": "Where you stand",
-   "text": "Two scores from your self-reported information, each compared with the reference.",
-   "items": [
-    "72 / 100 · Nutrition — Good nutrient combination with room for improvement in the details. Reference: ≥ 60.",
-    "65 / 100 · Lifestyle — Balanced, with room for more physical activity and stress reduction. Reference: ≥ 60."
-   ],
-   "tone": "neutral",
-   "id": "hinweis-2"
-  },
-  {
-   "type": "markers",
-   "caption": "Basis of the calculation",
-   "title": "The three microRNAs.",
-   "lead": "The individual signals on a scale of 1–9; higher is better. Only their interplay produces the age clock — a single signal on its own does not permit any conclusion.",
-   "items": [
-    {
-     "name": "miR-21",
-     "category": "Inflammation and tissue remodelling",
-     "intro": "Lead microRNA of ‘inflammaging’. Rises with chronic, low-grade inflammation and is closely linked to senescence and fibrosis.",
-     "kind": "traffic",
-     "value": 3,
-     "display": "3 / 9",
-     "sub": "Outside range",
-     "tone": "red",
-     "text": "The weakest of your three signals. All eight recommendations in this report address the miR-21 pathway."
-    },
-    {
-     "name": "miR-155",
-     "category": "Immune balance and metabolism",
-     "intro": "Central switch of the immune response. Elevated levels accompany metabolic stress and overactive inflammatory regulation.",
-     "kind": "traffic",
-     "value": 4,
-     "display": "4 / 9",
-     "sub": "Mid range",
-     "tone": "amber",
-     "text": "In the lower middle range. Together with miR-21, this signal points in the same direction: inflammation and immune regulation are the axis of this report."
-    },
-    {
-     "name": "miR-24",
-     "category": "Cell cycle and senescence",
-     "intro": "Regulates cell division, DNA repair and apoptosis. Reflects the repair capacity and senescence level of cells.",
-     "kind": "traffic",
-     "value": 5,
-     "display": "5 / 9",
-     "sub": "Mid range",
-     "tone": "amber",
-     "text": "The strongest of your three signals — exactly in the middle of the scale. Repair capacity and senescence level are unremarkable."
-    }
-   ],
-   "note": "In the publication describing the model, two of the three microRNAs did not correlate significantly with chronological age. The individual signals should therefore be read as starting points for interventions, not as age markers in their own right.",
-   "id": "marker"
-  },
-  {
-   "type": "radar",
-   "caption": "Where you stand",
-   "title": "Nutrition and lifestyle habits.",
-   "lead": "The radar shows how close your current habits are to the reference values. The further out a factor lies, the more favourable — 10 is optimal.",
-   "axes": [
-    "Everyday activity",
-    "Exercise",
-    "Stress",
-    "Tobacco",
-    "Alcohol",
-    "Snacks",
-    "Meat",
-    "Omega-3",
-    "Fibre",
-    "Fruit/vegetables",
-    "Fluid intake"
-   ],
-   "seriesLabels": {
-    "profile": "Your profile",
-    "reference": "Reference group"
-   },
-   "scores": [
-    {
-     "value": "72 / 100",
-     "label": "Nutrition",
-     "text": "Good nutrient combination, room for improvement in the details.",
-     "ref": "Reference: ≥ 60"
-    },
-    {
-     "value": "65 / 100",
-     "label": "Lifestyle",
-     "text": "Balanced, with room for more physical activity and stress reduction.",
-     "ref": "Reference: ≥ 60"
-    }
-   ],
-   "noticeTitle": "Link to the age clock",
-   "notices": [
-    "Stress (4 out of 10) is your weakest lifestyle factor. In the model study, stress and smoking were among the factors associated with a higher miRNA age.",
-    "Tobacco (9 out of 10), by contrast, is well above average — so the second of the two factors that were unfavourable in the model does not apply to you.",
-    "Omega-3 (6) and exercise (7) have room for improvement; both are among the levers that were associated with a lower miRNA age in the study."
-   ],
-   "note": "Assessment based on your self-reported information, not an individual diagnosis. The associations described come from the model study and are group findings, not a prediction for the individual case.",
-   "id": "lebensstil"
-  },
-  {
-   "type": "table",
-   "caption": "All recommendations at a glance",
-   "title": "Your interventions.",
-   "lead": "Eight levers, each assigned to the microRNA signals they act on, together with their current values. Sorted by urgency — the weakest signal first.",
-   "cols": [
-    "Lever",
-    "Acts on",
-    "Source",
-    "Amount",
-    "Note"
-   ],
-   "rows": [
-    [
-     "Resveratrol",
-     "miR-21 · 3",
-     "Grape skins, blueberries, peanuts",
-     "150–500 mg/day",
-     "Activates sirtuins, inhibits NF-κB"
-    ],
-    [
-     "Omega-3 fatty acids",
-     "miR-21 · 3, miR-155 · 4",
-     "Salmon, mackerel, herring, linseed; alternatively algal oil",
-     "2×/week, 150–200 g",
-     "Anti-inflammatory; associated with a younger miRNA age in the model"
-    ],
-    [
-     "EGCG (green tea)",
-     "miR-21 · 3, miR-155 · 4",
-     "Green tea, matcha, sencha",
-     "300–400 mg/day (3–4 cups)",
-     "Antioxidant; favourable lifestyle factor in the model"
-    ],
-    [
-     "Curcumin",
-     "miR-21 · 3, miR-155 · 4",
-     "Turmeric, with black pepper",
-     "1 tsp daily",
-     "Piperine markedly increases absorption"
-    ],
-    [
-     "Sulforaphane",
-     "miR-21 · 3, miR-155 · 4",
-     "Broccoli (and broccoli sprouts), cauliflower, Brussels sprouts, cress",
-     "25 mg/day (approx. 250 g)",
-     "Heating for 3–4 min at 80 °C increases bioavailability"
-    ],
-    [
-     "Sleep and stress",
-     "miR-21 · 3, miR-155 · 4",
-     "Restorative sleep, stress regulation, not smoking",
-     "daily",
-     "Stress and smoking were associated with a higher miRNA age in the model"
-    ],
-    [
-     "Physical activity",
-     "miR-21 · 3, miR-155 · 4, miR-24 · 5",
-     "Endurance and strength combined",
-     "≥ 150 min/week",
-     "Regular activity was associated with a lower miRNA age in the model"
-    ],
-    [
-     "Quercetin",
-     "miR-21 · 3, miR-24 · 5",
-     "Onion, garlic, capers, kale",
-     "500–1,000 mg/day",
-     "Senolytic; better bioavailability with vitamin C"
-    ]
-   ],
-   "note": "The ‘acts on’ assignment denotes the pathway the respective lever targets. It is not a promise of a measurable change in the individual case. Please review food supplements individually and in consultation with a qualified professional; this overview does not replace medical advice.",
-   "id": "uebersicht"
-  },
-  {
-   "type": "trend",
-   "caption": "Trend",
-   "title": "The actual finding.",
-   "lead": "Because the single value does not overcome the model's scatter, the informative value of this analysis lies in the trend. Only measured values are shown — no forecast.",
-   "firstLabel": "15.03.2026",
-   "secondLabel": "15.06.2026",
-   "kind": "age",
-   "items": [
-    {
-     "label": "Biological age",
-     "first": 54,
-     "second": 52,
-     "firstDisplay": "54 years",
-     "secondDisplay": "52 years",
-     "delta": "−2 years",
-     "sub": "+4 vs chronological age",
-     "tone": "green"
-    }
-   ],
-   "note": "Evaluation: initial measurement 15.03.2026, follow-up 15.06.2026, change −2 years, deviation today +4 compared with chronological age.",
-   "id": "verlauf"
-  },
-  {
-   "type": "callout",
-   "title": "What the trend shows",
-   "text": "Biological age has fallen by two years between the two measurements, from 54 to 52 — while chronological age rose by three months over the same period. The direction is right.",
-   "items": [
-    "At the same time: a difference of two years lies well within the model's scatter of around ten years. A single step of this size does not yet demonstrate an effect — only a direction that stays consistent across several measurements does that.",
-    "The two measurements were around three months apart. The interval to the next check is set by the institution providing your care; sample collection and time of day should remain comparable."
-   ],
-   "tone": "accent",
-   "id": "hinweis-3"
-  },
-  {
-   "type": "summary",
-   "caption": "Summary",
-   "title": "Your focus: the inflammation axis.",
-   "lead": "Two of your three signals — miR-21 (3/9) and miR-155 (4/9) — describe inflammation and immune regulation, and both lie in the lower range. miR-24, which reflects repair and senescence, sits in the middle at 5/9. This produces a clear picture of where to focus.",
-   "focuses": [
-    {
-     "num": "01",
-     "title": "Eat an anti-inflammatory diet",
-     "text": "All eight levers in this report act on miR-21, six of them additionally on miR-155. The overlap is manageable and practical for everyday life. Specifically: oily sea fish twice a week or algal oil daily, 3–4 cups of green tea, turmeric with black pepper, broccoli cooked for 3–4 minutes at 80 °C, berries for resveratrol."
-    },
-    {
-     "num": "02",
-     "title": "Stress and physical activity",
-     "text": "Your lifestyle radar shows stress at 4 out of 10 as the weakest factor, with exercise at 7 and omega-3 at 6 leaving room for improvement. In the model study, stress and smoking were associated with a higher miRNA age, while regular physical activity and fish were associated with a lower one. Physical activity is the only lever that targets all three signals at once: at least 150 minutes per week, endurance and strength combined."
-    }
-   ],
-   "keepTitle": "What is already working",
-   "keepText": "Not smoking (tobacco 9/10), fruit and vegetables (8/10) and fluid intake (8/10) are well above the reference group. The nutrition score of 72/100 is solid as well. And the trend is pointing in the right direction.",
-   "controlTitle": "Please keep in mind",
-   "controlItems": [
-    "All the associations described between lifestyle and miRNA age come from the model study and are group findings. Whether your personal value changes as a result of these measures can only be shown by your next measurement.",
-    "This report is not a diagnosis and does not replace medical advice."
-   ],
-   "id": "zusammenfassung"
-  },
-  {
-   "type": "science",
-   "caption": "What is established — and what is not",
-   "title": "Scientific context.",
-   "lead": "We set out the limits of this analysis openly, because an honest interpretation is worth more than an impressive number.",
-   "items": [
-    {
-     "title": "Study type",
-     "text": "Pilot study; validation called for by the authors themselves"
-    },
-    {
-     "title": "Sample",
-     "text": "n = 539"
-    },
-    {
-     "title": "Explained variance in age",
-     "text": "around 5%"
-    },
-    {
-     "title": "Mean absolute error",
-     "text": "10.4 years"
-    },
-    {
-     "title": "Markers with a significant age correlation",
-     "text": "1 of 3"
-    },
-    {
-     "title": "What the analysis is suitable for",
-     "text": "As a consultation and monitoring tool: it creates a concrete occasion, makes lifestyle topics tangible and, through repeated measurements under the same conditions, provides a trend line."
-    },
-    {
-     "title": "What it is not suitable for",
-     "text": "As an age determination, as a statement about life expectancy or disease risk, as diagnostics — and as a basis for comparison with methylation-based age clocks, which rest on a different methodology and a different evidence base.",
-     "source": "Schneider J. et al., miRNA-3Age: a microRNA-based biological age model and its modulation by lifestyle and nutrition. Frontiers in Nutrition (2025), doi:10.3389/fnut.2025.1659730"
-    }
-   ],
-   "note": "This document does not replace medical assessment and does not constitute any promise of cure within the meaning of the German Therapeutic Products Advertising Act (HWG).",
-   "id": "einordnung"
-  },
-  {
-   "type": "callout",
-   "title": "The guiding principle",
-   "text": "The trend carries the meaning, the single value does not. An initial and a follow-up measurement under the same conditions are the real benefit of this analysis.",
-   "items": [
-    "A single value within ±10 years of chronological age cannot be distinguished from the model's scatter."
-   ],
-   "tone": "accent",
-   "id": "hinweis-4"
-  },
-  {
-   "type": "contact",
-   "title": "Questions about your report?",
-   "text": "Discuss the results with the institution that carried out the sample collection. That is where the context needed for interpretation is available.",
-   "columns": [
-    {
-     "k": "Contact",
-     "lines": [
-      "contact@polarisdx.net",
-      "+49 152 2858 0999",
-      "www.polarisdx.net"
-     ]
-    },
-    {
-     "k": "Distribution",
-     "lines": [
-      "Polaris Diagnostics Europe GmbH",
-      "Große Bleichen 1–3",
-      "20354 Hamburg"
-     ]
-    }
-   ],
-   "legal": [
-    {
-     "title": "Sample report",
-     "text": "All values and personal details in this document are fictitious and serve solely to illustrate the report format. This is not a real report."
-    },
-    {
-     "title": "Interpretation",
-     "text": "The biological age reported here is a model value derived from three microRNA signals. The underlying model has been published as a pilot study; its mean absolute error is around ten years. The value is not an age determination, not a diagnosis and not a statement about life expectancy or disease risk. Informative value only emerges across several measurements under the same conditions. A comparison with methylation-based age clocks is not permissible."
-    },
-    {
-     "title": "Legal framework",
-     "text": "The laboratory analysis is carried out by our cooperation partner. Polaris Diagnostics Europe GmbH is responsible for distribution and support. Please review food supplements individually and in consultation with a qualified professional. This document does not constitute any promise of cure within the meaning of the German Therapeutic Products Advertising Act (HWG)."
-    }
-   ],
-   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · As at: August 2026",
-   "id": "kontakt"
-  }
- ]
+  ]
 }

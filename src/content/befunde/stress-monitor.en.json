@@ -1,627 +1,574 @@
 {
- "slug": "stress-monitor",
- "panel": "Stress Monitor",
- "blocks": [
-  {
-   "type": "cover",
-   "badge": "Sample report · Example data",
-   "panel": "Stress Monitor",
-   "subtitle": "Your stress regulation",
-   "claim": "What is measured is not stress itself, but how well your body regulates it. Six microRNAs from a single drop of capillary blood give an insight into the cellular control of your stress response.",
-   "meta": [
+  "slug": "stress-monitor",
+  "panel": "Stress Monitor",
+  "blocks": [
     {
-     "k": "Report for",
-     "v": "Muster, Erika"
+      "type": "cover",
+      "badge": "Sample report · Example data",
+      "panel": "Stress Monitor",
+      "subtitle": "Your stress regulation",
+      "claim": "What is measured is not stress itself, but how well your body regulates it. Six microRNAs from a single drop of capillary blood give an insight into the cellular control of your stress response.",
+      "meta": [
+        {
+          "k": "Report for",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Sample collection",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Material",
+          "v": "Dried blood spot card"
+        },
+        {
+          "k": "Scope",
+          "v": "6 microRNAs"
+        }
+      ],
+      "id": "deckblatt",
+      "benefit": "How your client's body handles stress — and what they can change."
     },
     {
-     "k": "Sample collection",
-     "v": "15.06.2026"
+      "type": "principle",
+      "caption": "The principle",
+      "title": "Your stress regulation. Not your stress level.",
+      "lead": "Stress is not a single quantity but a network of neuroendocrine, immunological and metabolic processes — controlled, among other things, via the HPA axis, inflammatory signalling pathways and mitochondrial adaptations. Six microRNAs are analysed: small, non-coding RNA molecules that help determine which genes are actually read under stress conditions.",
+      "cards": [
+        {
+          "title": "Acute & chronic",
+          "text": "How your stress response is currently running and whether a lasting burden is emerging."
+        },
+        {
+          "title": "Regulation",
+          "text": "How well your body balances stress signals at the cellular level."
+        },
+        {
+          "title": "Long-term effects",
+          "text": "How high the risk is that sustained stress will make itself felt in the long term."
+        }
+      ],
+      "flowTitle": "The process",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Measure",
+          "text": "Dried blood spot card, fingertip. Six microRNAs, normalised to the reference gene miR-24-3p. No fasting required."
+        },
+        {
+          "num": "02",
+          "title": "Evaluate",
+          "text": "Two evaluations on the 1–9 scale: physiological stress level and risk of long-term effects."
+        },
+        {
+          "num": "03",
+          "title": "Regulate",
+          "text": "Targeted recommendations on plant-derived bioactive compounds and follow-up monitoring over time."
+        }
+      ],
+      "scaleTitle": "How do I read the scale?",
+      "scaleLead": "Both evaluations and all six individual markers run on the scale from 1 to 9. Higher is always better: 1–3 red, 4–6 amber, 7–9 green. Each of the two evaluations additionally carries its own zone labelling.",
+      "scaleKind": "traffic",
+      "scaleTicks": ["1", "3", "5", "7", "9"],
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "1–3 · Red",
+          "text": "Highest priority."
+        },
+        {
+          "tone": "amber",
+          "label": "4–6 · Amber",
+          "text": "Take targeted countermeasures."
+        },
+        {
+          "tone": "green",
+          "label": "7–9 · Green",
+          "text": "Maintain the result."
+        }
+      ],
+      "id": "so-lesen"
     },
     {
-     "k": "Material",
-     "v": "Dried blood spot card"
+      "type": "callout",
+      "title": "Important",
+      "text": "This report is not a diagnosis and does not replace medical or psychotherapeutic advice. If strain, exhaustion or sleep problems persist, please seek medical advice.",
+      "items": [
+        "The six microRNA values describe a snapshot in time and can be influenced through lifestyle — which makes them suitable for monitoring over time."
+      ],
+      "tone": "neutral",
+      "id": "hinweis"
     },
     {
-     "k": "Scope",
-     "v": "6 microRNAs"
+      "type": "markers",
+      "caption": "Results at a glance",
+      "title": "Your two evaluations.",
+      "items": [
+        {
+          "name": "Physiological stress level",
+          "category": "Acute and chronic strain",
+          "kind": "traffic",
+          "value": 7,
+          "display": "7 / 9",
+          "sub": "Favourable",
+          "tone": "green",
+          "text": "Your body is coping well with current stress.",
+          "zoneLabels": ["chronic stress", "acute stress", "no stress"]
+        },
+        {
+          "name": "Risk of long-term effects",
+          "category": "Long-term regulation",
+          "kind": "traffic",
+          "value": 4,
+          "display": "4 / 9",
+          "sub": "Elevated",
+          "tone": "amber",
+          "text": "Elevated risk — preventive action recommended.",
+          "zoneLabels": ["high risk", "moderate risk", "low risk"]
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "resultTable",
+      "caption": "The six individual markers",
+      "title": "All microRNAs at a glance.",
+      "cols": ["microRNA", "Designation", "Level of regulation", "Value", "Feeds into"],
+      "rows": [
+        {
+          "cells": [
+            "miR-21-5p",
+            "Cell protection indicator",
+            "Cellular protective and adaptive mechanisms",
+            "8 / 9",
+            "Long-term effects"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "let-7a-5p",
+            "Acute stress indicator",
+            "Baseline inflammatory regulation",
+            "7 / 9",
+            "Stress level"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "miR-16-5p",
+            "Serotonin-regulating indicator",
+            "Serotonergic regulation",
+            "6 / 9",
+            "Long-term effects"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "miR-15a-5p",
+            "Neuronal indicator",
+            "Neuronal stability and adaptation",
+            "5 / 9",
+            "Long-term effects"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "let-7g-5p",
+            "Chronic stress indicator",
+            "Inflammatory and metabolic regulation",
+            "4 / 9",
+            "Stress level"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "miR-106b-5p",
+            "Immune signal activating indicator",
+            "Immunological activation",
+            "3 / 9",
+            "Long-term effects"
+          ],
+          "tone": "red"
+        }
+      ],
+      "note": "The two evaluations are calculated by the laboratory from the microRNAs assigned to them; they are not the average of these individual values.",
+      "id": "ergebnis"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Evaluation 01",
+      "title": "Physiological stress level.",
+      "lead": "Composed of the acute and the chronic stress indicator (let-7a-5p, let-7g-5p).",
+      "display": "7 / 9",
+      "sub": "Favourable",
+      "kind": "traffic",
+      "value": 7,
+      "tone": "green",
+      "zoneLabels": ["chronic stress", "acute stress", "no stress"],
+      "text": "The evaluation shows where your current stress response lies between ‘no stress’ and ‘chronic stress’. Your value is in the favourable range — your body is coping well with current stress. The assessment is always made in the context of the other markers.",
+      "id": "ergebnis-2"
+    },
+    {
+      "type": "markers",
+      "caption": "Evaluation 01",
+      "title": "The two individual indicators.",
+      "items": [
+        {
+          "name": "let-7a-5p",
+          "category": "Acute stress indicator",
+          "kind": "traffic",
+          "value": 7,
+          "display": "7 / 9",
+          "tone": "green",
+          "text": "Part of the let-7 family; regulates inflammatory signalling pathways and is involved in stress and immune processes. The more favourable of the two values."
+        },
+        {
+          "name": "let-7g-5p",
+          "category": "Chronic stress indicator",
+          "kind": "traffic",
+          "value": 4,
+          "display": "4 / 9",
+          "tone": "amber",
+          "text": "Regulates inflammatory and metabolic processes that influence systemic homeostasis. Markedly weaker than the acute indicator."
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "callout",
+      "title": "What matters here",
+      "text": "The two individual indicators diverge widely: acute 7/9, chronic 4/9. The acute stress response is working; the chronic level is the weaker of the two.",
+      "items": [
+        "Four of the eleven recommendations — quercetin, EGCG, oleuropein and resveratrol — target precisely the chronic indicator let-7g-5p."
+      ],
+      "tone": "accent",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "table",
+      "caption": "Recommendations",
+      "title": "Compounds for evaluation 01.",
+      "cols": ["Compound", "From marker", "Source", "Amount", "Note"],
+      "rows": [
+        [
+          "Butyrate",
+          "let-7a-5p · 7",
+          "Pectin (apple, rosehip), inulin (chicory, artichoke)",
+          "at least 30 g/day",
+          "Formed during the fermentation of prebiotic fibre in the gut"
+        ],
+        [
+          "Quercetin",
+          "let-7g-5p · 4",
+          "Onion, capers, lovage, chives",
+          "at least 200 mg/day",
+          "Heat-sensitive — eat raw or prepare gently"
+        ],
+        [
+          "EGCG",
+          "let-7g-5p · 4",
+          "White or green tea (unfermented)",
+          "max. 800 mg/day",
+          "Piperine, vitamin C and fish oil improve bioavailability"
+        ],
+        [
+          "Oleuropein",
+          "let-7g-5p · 4",
+          "Olives, olive leaf, argan oil",
+          "100 mg/day",
+          "Leaves are 3,000 times more concentrated, but very bitter"
+        ]
+      ],
+      "id": "uebersicht"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Evaluation 02",
+      "title": "Risk of long-term effects.",
+      "lead": "Calculated from four microRNAs: miR-16-5p, miR-15a-5p, miR-106b-5p and miR-21-5p.",
+      "display": "4 / 9",
+      "sub": "Elevated",
+      "kind": "traffic",
+      "value": 4,
+      "tone": "amber",
+      "zoneLabels": ["high risk", "moderate risk", "low risk"],
+      "text": "The evaluation does not yet show any acute stress-related overload. The risk of secondary conditions is, however, already elevated — it is worth acting here before long-term effects become manifest. This is the focus of your report.",
+      "id": "ergebnis-3"
+    },
+    {
+      "type": "markers",
+      "caption": "Evaluation 02",
+      "title": "The four microRNAs.",
+      "items": [
+        {
+          "name": "miR-106b-5p",
+          "category": "Immune signal",
+          "kind": "traffic",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red",
+          "text": "Regulates immune responses and inflammatory signalling pathways. The only red individual value in this report; four of the eleven recommendations address it."
+        },
+        {
+          "name": "miR-15a-5p",
+          "category": "Neuronal",
+          "kind": "traffic",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber",
+          "text": "Regulates neuronal processes, apoptosis and the cell cycle; influences neuronal homeostasis."
+        },
+        {
+          "name": "miR-16-5p",
+          "category": "Serotonergic",
+          "kind": "traffic",
+          "value": 6,
+          "display": "6 / 9",
+          "tone": "amber",
+          "text": "Regulates serotonergic signalling pathways and the serotonin transporter; involved in neuronal plasticity."
+        },
+        {
+          "name": "miR-21-5p",
+          "category": "Cell protection",
+          "kind": "traffic",
+          "value": 8,
+          "display": "8 / 9",
+          "tone": "green",
+          "text": "Regulates cell survival and apoptosis; involved in stress and repair processes. The best individual value in the entire report."
+        }
+      ],
+      "id": "marker-3"
+    },
+    {
+      "type": "table",
+      "caption": "Recommendations",
+      "title": "Compounds for evaluation 02.",
+      "cols": ["Compound", "From marker", "Source", "Amount", "Note"],
+      "rows": [
+        [
+          "Resveratrol",
+          "miR-106b-5p · 3",
+          "Grape skins, raspberries, lingonberries, strawberries",
+          "150 mg/day",
+          "Hard to achieve through diet alone"
+        ],
+        [
+          "Omega-3 (PUFAs)",
+          "miR-106b-5p · 3",
+          "Oily fish, walnuts, algae, rapeseed and linseed oil",
+          "250–500 mg/day",
+          "Keep omega-3 and omega-6 in balance"
+        ],
+        [
+          "Berberine",
+          "miR-106b-5p · 3",
+          "Barberry root bark, orange root",
+          "max. 500 mg/day",
+          "Known as a tea from Ayurvedic medicine"
+        ],
+        [
+          "Folate",
+          "miR-16-5p · 6",
+          "Green leafy vegetables, spinach, kale, broccoli",
+          "300 µg/day",
+          "Smoking reduces uptake"
+        ]
+      ],
+      "id": "uebersicht-2"
+    },
+    {
+      "type": "table",
+      "caption": "All recommendations at a glance",
+      "title": "Your interventions.",
+      "lead": "Eleven compounds, each assigned to the microRNA marker it acts on, together with that marker’s current value. Sorted by urgency — the weakest markers first.",
+      "cols": ["Compound", "From marker", "Source", "Amount", "Note"],
+      "rows": [
+        [
+          "Resveratrol",
+          "miR-106b-5p · 3, let-7g-5p · 4, miR-15a-5p · 5",
+          "Grape skins, raspberries, lingonberries, strawberries",
+          "150 mg/day",
+          "Hard to achieve in this amount through diet alone"
+        ],
+        [
+          "Berberine",
+          "miR-106b-5p · 3",
+          "Barberry root bark, orange root",
+          "max. 500 mg/day",
+          "Known as a tea from Ayurvedic medicine"
+        ],
+        [
+          "Butyrate",
+          "miR-106b-5p · 3, let-7a-5p · 7, miR-21-5p · 8",
+          "Pectin (apple, rosehip), inulin (chicory, artichoke)",
+          "at least 30 g/day",
+          "Formed during the fermentation of prebiotic fibre in the gut"
+        ],
+        [
+          "Omega-3 (PUFAs)",
+          "miR-106b-5p · 3, miR-21-5p · 8",
+          "Oily fish, walnuts, algae, rapeseed and linseed oil",
+          "250–500 mg/day",
+          "Keep omega-3 and omega-6 in balance"
+        ],
+        [
+          "Quercetin",
+          "let-7g-5p · 4",
+          "Onion, capers, lovage, chives",
+          "at least 200 mg/day",
+          "Heat-sensitive — eat raw or prepare gently"
+        ],
+        [
+          "Oleuropein",
+          "let-7g-5p · 4",
+          "Olives, olive leaf, argan oil",
+          "100 mg/day",
+          "Leaves are 3,000 times more concentrated, but very bitter"
+        ],
+        [
+          "EGCG (green tea)",
+          "let-7g-5p · 4, miR-15a-5p · 5",
+          "White or green tea (unfermented)",
+          "max. 800 mg/day",
+          "Piperine, vitamin C and fish oil improve bioavailability"
+        ],
+        [
+          "Folate",
+          "miR-16-5p · 6",
+          "Green leafy vegetables, spinach, kale, broccoli",
+          "300 µg/day",
+          "Smoking reduces uptake"
+        ],
+        [
+          "Curcumin",
+          "miR-21-5p · 8",
+          "Turmeric",
+          "max. 300 mg/day",
+          "Check with a doctor in case of pregnancy or gallstones"
+        ],
+        [
+          "Gingerol",
+          "miR-21-5p · 8",
+          "Ginger root",
+          "max. 5 g/day",
+          "During pregnancy only after consultation"
+        ],
+        [
+          "Sulforaphane",
+          "miR-21-5p · 8",
+          "Cruciferous vegetables, cabbage, broccoli (sprouts)",
+          "25 mg/day",
+          "Best raw or briefly steamed"
+        ]
+      ],
+      "note": "Please review food supplements individually and in consultation with a qualified professional — particularly in the case of pregnancy, pre-existing conditions or concurrent medication. This overview does not replace medical advice.",
+      "id": "uebersicht-3"
+    },
+    {
+      "type": "trend",
+      "caption": "Trend",
+      "title": "Two measurements compared.",
+      "lead": "A comparison of your two measurements to date. Only measured values are shown — no prognosis.",
+      "firstLabel": "15.03.2026",
+      "secondLabel": "15.06.2026",
+      "kind": "traffic",
+      "items": [
+        {
+          "label": "Physiological stress level",
+          "first": 6,
+          "second": 7,
+          "firstDisplay": "6 / 9",
+          "secondDisplay": "7 / 9",
+          "delta": "+1",
+          "status": "Favourable",
+          "tone": "green"
+        },
+        {
+          "label": "Risk of long-term effects",
+          "first": 5,
+          "second": 4,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "4 / 9",
+          "delta": "−1",
+          "status": "Elevated",
+          "tone": "amber"
+        }
+      ],
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "What the trend shows",
+      "text": "The two evaluations are moving in opposite directions: the current stress level has improved from 6 to 7 and is now in the green range. The value for long-term effects has fallen from 5 to 4 over the same period — and because a higher value here means a lower risk, this means the risk has increased.",
+      "items": [
+        "This is the real finding of this measurement: acute strain is being coped with better, while the long-term regulatory level has deteriorated. A good stress level alone says nothing about the long-term effects level.",
+        "The two measurements were around three months apart. The interval until the next follow-up measurement is set by the supervising institution."
+      ],
+      "tone": "accent",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "summary",
+      "caption": "Summary",
+      "title": "Your focus: the long view.",
+      "lead": "Your current stress level is good — and that is precisely the point at which this report pushes back: the level that has deteriorated is the one you cannot feel.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "miR-106b-5p — the only red individual value",
+          "text": "At 3/9, the immune signal activating indicator is the weakest value in the report and feeds into the risk of long-term effects. Four of the eleven recommendations target it: resveratrol, berberine, butyrate and omega-3. In concrete terms: at least 30 g of fibre daily for butyrate formation in the gut, 250–500 mg of omega-3 from oily fish, walnuts or algal oil, plus berries for resveratrol."
+        },
+        {
+          "num": "02",
+          "title": "let-7g-5p — the chronic level",
+          "text": "At 4/9, the chronic stress indicator lies well below the acute one (7/9) — even though the evaluation as a whole is in the green range. The report does not show which of the two indicators carried the improvement from 6 to 7. Quercetin, EGCG, oleuropein and resveratrol act on the chronic level. The preparation notes differ from compound to compound — details in the table on page 06."
+        }
+      ],
+      "keepTitle": "Maintain",
+      "keepText": "miR-21-5p (8/9) and let-7a-5p (7/9) are the two strongest values — cellular protective mechanisms and the acute stress response are working well. Curcumin, gingerol and sulforaphane serve to maintain here, not to correct.",
+      "controlTitle": "Follow-up and next step",
+      "controlItems": [
+        "Your two measurements to date were around three months apart. The interval until the next follow-up is set by the supervising institution.",
+        "For comparability, sample collection and time of day should remain similar.",
+        "In cases of persistent exhaustion, sleep problems or low mood, this report does not replace medical assessment."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Questions about your report?",
+      "text": "Discuss the results with the institution that carried out the sample collection. That is where the context needed to interpret them is held.",
+      "columns": [
+        {
+          "k": "Contact",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribution",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Sample report",
+          "text": "All values and personal details in this document are fictitious and serve solely to illustrate the report format. This is not a real report."
+        },
+        {
+          "title": "Interpretation",
+          "text": "This report is not a diagnosis and does not replace medical or psychotherapeutic advice. The microRNA values describe a snapshot of cellular regulation; they are not a measurement of perceived stress and make no statement about the presence or development of a disease. If strain, exhaustion, sleep problems or low mood persist, please seek medical advice."
+        },
+        {
+          "title": "Legal framework",
+          "text": "The laboratory analysis is carried out by our cooperation partner. Polaris Diagnostics Europe GmbH is responsible for distribution and support. Please review food supplements individually and in consultation with a qualified professional."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · As at: August 2026",
+      "id": "kontakt"
     }
-   ],
-   "id": "deckblatt"
-  },
-  {
-   "type": "principle",
-   "caption": "The principle",
-   "title": "Your stress regulation. Not your stress level.",
-   "lead": "Stress is not a single quantity but a network of neuroendocrine, immunological and metabolic processes — controlled, among other things, via the HPA axis, inflammatory signalling pathways and mitochondrial adaptations. Six microRNAs are analysed: small, non-coding RNA molecules that help determine which genes are actually read under stress conditions.",
-   "cards": [
-    {
-     "title": "Acute & chronic",
-     "text": "How your stress response is currently running and whether a lasting burden is emerging."
-    },
-    {
-     "title": "Regulation",
-     "text": "How well your body balances stress signals at the cellular level."
-    },
-    {
-     "title": "Long-term effects",
-     "text": "How high the risk is that sustained stress will make itself felt in the long term."
-    }
-   ],
-   "flowTitle": "The process",
-   "flow": [
-    {
-     "num": "01",
-     "title": "Measure",
-     "text": "Dried blood spot card, fingertip. Six microRNAs, normalised to the reference gene miR-24-3p. No fasting required."
-    },
-    {
-     "num": "02",
-     "title": "Evaluate",
-     "text": "Two evaluations on the 1–9 scale: physiological stress level and risk of long-term effects."
-    },
-    {
-     "num": "03",
-     "title": "Regulate",
-     "text": "Targeted recommendations on plant-derived bioactive compounds and follow-up monitoring over time."
-    }
-   ],
-   "scaleTitle": "How do I read the scale?",
-   "scaleLead": "Both evaluations and all six individual markers run on the scale from 1 to 9. Higher is always better: 1–3 red, 4–6 amber, 7–9 green. Each of the two evaluations additionally carries its own zone labelling.",
-   "scaleKind": "traffic",
-   "scaleTicks": [
-    "1",
-    "3",
-    "5",
-    "7",
-    "9"
-   ],
-   "scaleZones": [
-    {
-     "tone": "red",
-     "label": "1–3 · Red",
-     "text": "Highest priority."
-    },
-    {
-     "tone": "amber",
-     "label": "4–6 · Amber",
-     "text": "Take targeted countermeasures."
-    },
-    {
-     "tone": "green",
-     "label": "7–9 · Green",
-     "text": "Maintain the result."
-    }
-   ],
-   "id": "so-lesen"
-  },
-  {
-   "type": "callout",
-   "title": "Important",
-   "text": "This report is not a diagnosis and does not replace medical or psychotherapeutic advice. If strain, exhaustion or sleep problems persist, please seek medical advice.",
-   "items": [
-    "The six microRNA values describe a snapshot in time and can be influenced through lifestyle — which makes them suitable for monitoring over time."
-   ],
-   "tone": "neutral",
-   "id": "hinweis"
-  },
-  {
-   "type": "markers",
-   "caption": "Results at a glance",
-   "title": "Your two evaluations.",
-   "items": [
-    {
-     "name": "Physiological stress level",
-     "category": "Acute and chronic strain",
-     "kind": "traffic",
-     "value": 7,
-     "display": "7 / 9",
-     "sub": "Favourable",
-     "tone": "green",
-     "text": "Your body is coping well with current stress.",
-     "zoneLabels": [
-      "chronic stress",
-      "acute stress",
-      "no stress"
-     ]
-    },
-    {
-     "name": "Risk of long-term effects",
-     "category": "Long-term regulation",
-     "kind": "traffic",
-     "value": 4,
-     "display": "4 / 9",
-     "sub": "Elevated",
-     "tone": "amber",
-     "text": "Elevated risk — preventive action recommended.",
-     "zoneLabels": [
-      "high risk",
-      "moderate risk",
-      "low risk"
-     ]
-    }
-   ],
-   "id": "marker"
-  },
-  {
-   "type": "resultTable",
-   "caption": "The six individual markers",
-   "title": "All microRNAs at a glance.",
-   "cols": [
-    "microRNA",
-    "Designation",
-    "Level of regulation",
-    "Value",
-    "Feeds into"
-   ],
-   "rows": [
-    {
-     "cells": [
-      "miR-21-5p",
-      "Cell protection indicator",
-      "Cellular protective and adaptive mechanisms",
-      "8 / 9",
-      "Long-term effects"
-     ],
-     "tone": "green"
-    },
-    {
-     "cells": [
-      "let-7a-5p",
-      "Acute stress indicator",
-      "Baseline inflammatory regulation",
-      "7 / 9",
-      "Stress level"
-     ],
-     "tone": "green"
-    },
-    {
-     "cells": [
-      "miR-16-5p",
-      "Serotonin-regulating indicator",
-      "Serotonergic regulation",
-      "6 / 9",
-      "Long-term effects"
-     ],
-     "tone": "amber"
-    },
-    {
-     "cells": [
-      "miR-15a-5p",
-      "Neuronal indicator",
-      "Neuronal stability and adaptation",
-      "5 / 9",
-      "Long-term effects"
-     ],
-     "tone": "amber"
-    },
-    {
-     "cells": [
-      "let-7g-5p",
-      "Chronic stress indicator",
-      "Inflammatory and metabolic regulation",
-      "4 / 9",
-      "Stress level"
-     ],
-     "tone": "amber"
-    },
-    {
-     "cells": [
-      "miR-106b-5p",
-      "Immune signal activating indicator",
-      "Immunological activation",
-      "3 / 9",
-      "Long-term effects"
-     ],
-     "tone": "red"
-    }
-   ],
-   "note": "The two evaluations are calculated by the laboratory from the microRNAs assigned to them; they are not the average of these individual values.",
-   "id": "ergebnis"
-  },
-  {
-   "type": "bigResult",
-   "caption": "Evaluation 01",
-   "title": "Physiological stress level.",
-   "lead": "Composed of the acute and the chronic stress indicator (let-7a-5p, let-7g-5p).",
-   "display": "7 / 9",
-   "sub": "Favourable",
-   "kind": "traffic",
-   "value": 7,
-   "tone": "green",
-   "zoneLabels": [
-    "chronic stress",
-    "acute stress",
-    "no stress"
-   ],
-   "text": "The evaluation shows where your current stress response lies between ‘no stress’ and ‘chronic stress’. Your value is in the favourable range — your body is coping well with current stress. The assessment is always made in the context of the other markers.",
-   "id": "ergebnis-2"
-  },
-  {
-   "type": "markers",
-   "caption": "Evaluation 01",
-   "title": "The two individual indicators.",
-   "items": [
-    {
-     "name": "let-7a-5p",
-     "category": "Acute stress indicator",
-     "kind": "traffic",
-     "value": 7,
-     "display": "7 / 9",
-     "tone": "green",
-     "text": "Part of the let-7 family; regulates inflammatory signalling pathways and is involved in stress and immune processes. The more favourable of the two values."
-    },
-    {
-     "name": "let-7g-5p",
-     "category": "Chronic stress indicator",
-     "kind": "traffic",
-     "value": 4,
-     "display": "4 / 9",
-     "tone": "amber",
-     "text": "Regulates inflammatory and metabolic processes that influence systemic homeostasis. Markedly weaker than the acute indicator."
-    }
-   ],
-   "id": "marker-2"
-  },
-  {
-   "type": "callout",
-   "title": "What matters here",
-   "text": "The two individual indicators diverge widely: acute 7/9, chronic 4/9. The acute stress response is working; the chronic level is the weaker of the two.",
-   "items": [
-    "Four of the eleven recommendations — quercetin, EGCG, oleuropein and resveratrol — target precisely the chronic indicator let-7g-5p."
-   ],
-   "tone": "accent",
-   "id": "hinweis-2"
-  },
-  {
-   "type": "table",
-   "caption": "Recommendations",
-   "title": "Compounds for evaluation 01.",
-   "cols": [
-    "Compound",
-    "From marker",
-    "Source",
-    "Amount",
-    "Note"
-   ],
-   "rows": [
-    [
-     "Butyrate",
-     "let-7a-5p · 7",
-     "Pectin (apple, rosehip), inulin (chicory, artichoke)",
-     "at least 30 g/day",
-     "Formed during the fermentation of prebiotic fibre in the gut"
-    ],
-    [
-     "Quercetin",
-     "let-7g-5p · 4",
-     "Onion, capers, lovage, chives",
-     "at least 200 mg/day",
-     "Heat-sensitive — eat raw or prepare gently"
-    ],
-    [
-     "EGCG",
-     "let-7g-5p · 4",
-     "White or green tea (unfermented)",
-     "max. 800 mg/day",
-     "Piperine, vitamin C and fish oil improve bioavailability"
-    ],
-    [
-     "Oleuropein",
-     "let-7g-5p · 4",
-     "Olives, olive leaf, argan oil",
-     "100 mg/day",
-     "Leaves are 3,000 times more concentrated, but very bitter"
-    ]
-   ],
-   "id": "uebersicht"
-  },
-  {
-   "type": "bigResult",
-   "caption": "Evaluation 02",
-   "title": "Risk of long-term effects.",
-   "lead": "Calculated from four microRNAs: miR-16-5p, miR-15a-5p, miR-106b-5p and miR-21-5p.",
-   "display": "4 / 9",
-   "sub": "Elevated",
-   "kind": "traffic",
-   "value": 4,
-   "tone": "amber",
-   "zoneLabels": [
-    "high risk",
-    "moderate risk",
-    "low risk"
-   ],
-   "text": "The evaluation does not yet show any acute stress-related overload. The risk of secondary conditions is, however, already elevated — it is worth acting here before long-term effects become manifest. This is the focus of your report.",
-   "id": "ergebnis-3"
-  },
-  {
-   "type": "markers",
-   "caption": "Evaluation 02",
-   "title": "The four microRNAs.",
-   "items": [
-    {
-     "name": "miR-106b-5p",
-     "category": "Immune signal",
-     "kind": "traffic",
-     "value": 3,
-     "display": "3 / 9",
-     "tone": "red",
-     "text": "Regulates immune responses and inflammatory signalling pathways. The only red individual value in this report; four of the eleven recommendations address it."
-    },
-    {
-     "name": "miR-15a-5p",
-     "category": "Neuronal",
-     "kind": "traffic",
-     "value": 5,
-     "display": "5 / 9",
-     "tone": "amber",
-     "text": "Regulates neuronal processes, apoptosis and the cell cycle; influences neuronal homeostasis."
-    },
-    {
-     "name": "miR-16-5p",
-     "category": "Serotonergic",
-     "kind": "traffic",
-     "value": 6,
-     "display": "6 / 9",
-     "tone": "amber",
-     "text": "Regulates serotonergic signalling pathways and the serotonin transporter; involved in neuronal plasticity."
-    },
-    {
-     "name": "miR-21-5p",
-     "category": "Cell protection",
-     "kind": "traffic",
-     "value": 8,
-     "display": "8 / 9",
-     "tone": "green",
-     "text": "Regulates cell survival and apoptosis; involved in stress and repair processes. The best individual value in the entire report."
-    }
-   ],
-   "id": "marker-3"
-  },
-  {
-   "type": "table",
-   "caption": "Recommendations",
-   "title": "Compounds for evaluation 02.",
-   "cols": [
-    "Compound",
-    "From marker",
-    "Source",
-    "Amount",
-    "Note"
-   ],
-   "rows": [
-    [
-     "Resveratrol",
-     "miR-106b-5p · 3",
-     "Grape skins, raspberries, lingonberries, strawberries",
-     "150 mg/day",
-     "Hard to achieve through diet alone"
-    ],
-    [
-     "Omega-3 (PUFAs)",
-     "miR-106b-5p · 3",
-     "Oily fish, walnuts, algae, rapeseed and linseed oil",
-     "250–500 mg/day",
-     "Keep omega-3 and omega-6 in balance"
-    ],
-    [
-     "Berberine",
-     "miR-106b-5p · 3",
-     "Barberry root bark, orange root",
-     "max. 500 mg/day",
-     "Known as a tea from Ayurvedic medicine"
-    ],
-    [
-     "Folate",
-     "miR-16-5p · 6",
-     "Green leafy vegetables, spinach, kale, broccoli",
-     "300 µg/day",
-     "Smoking reduces uptake"
-    ]
-   ],
-   "id": "uebersicht-2"
-  },
-  {
-   "type": "table",
-   "caption": "All recommendations at a glance",
-   "title": "Your interventions.",
-   "lead": "Eleven compounds, each assigned to the microRNA marker it acts on, together with that marker’s current value. Sorted by urgency — the weakest markers first.",
-   "cols": [
-    "Compound",
-    "From marker",
-    "Source",
-    "Amount",
-    "Note"
-   ],
-   "rows": [
-    [
-     "Resveratrol",
-     "miR-106b-5p · 3, let-7g-5p · 4, miR-15a-5p · 5",
-     "Grape skins, raspberries, lingonberries, strawberries",
-     "150 mg/day",
-     "Hard to achieve in this amount through diet alone"
-    ],
-    [
-     "Berberine",
-     "miR-106b-5p · 3",
-     "Barberry root bark, orange root",
-     "max. 500 mg/day",
-     "Known as a tea from Ayurvedic medicine"
-    ],
-    [
-     "Butyrate",
-     "miR-106b-5p · 3, let-7a-5p · 7, miR-21-5p · 8",
-     "Pectin (apple, rosehip), inulin (chicory, artichoke)",
-     "at least 30 g/day",
-     "Formed during the fermentation of prebiotic fibre in the gut"
-    ],
-    [
-     "Omega-3 (PUFAs)",
-     "miR-106b-5p · 3, miR-21-5p · 8",
-     "Oily fish, walnuts, algae, rapeseed and linseed oil",
-     "250–500 mg/day",
-     "Keep omega-3 and omega-6 in balance"
-    ],
-    [
-     "Quercetin",
-     "let-7g-5p · 4",
-     "Onion, capers, lovage, chives",
-     "at least 200 mg/day",
-     "Heat-sensitive — eat raw or prepare gently"
-    ],
-    [
-     "Oleuropein",
-     "let-7g-5p · 4",
-     "Olives, olive leaf, argan oil",
-     "100 mg/day",
-     "Leaves are 3,000 times more concentrated, but very bitter"
-    ],
-    [
-     "EGCG (green tea)",
-     "let-7g-5p · 4, miR-15a-5p · 5",
-     "White or green tea (unfermented)",
-     "max. 800 mg/day",
-     "Piperine, vitamin C and fish oil improve bioavailability"
-    ],
-    [
-     "Folate",
-     "miR-16-5p · 6",
-     "Green leafy vegetables, spinach, kale, broccoli",
-     "300 µg/day",
-     "Smoking reduces uptake"
-    ],
-    [
-     "Curcumin",
-     "miR-21-5p · 8",
-     "Turmeric",
-     "max. 300 mg/day",
-     "Check with a doctor in case of pregnancy or gallstones"
-    ],
-    [
-     "Gingerol",
-     "miR-21-5p · 8",
-     "Ginger root",
-     "max. 5 g/day",
-     "During pregnancy only after consultation"
-    ],
-    [
-     "Sulforaphane",
-     "miR-21-5p · 8",
-     "Cruciferous vegetables, cabbage, broccoli (sprouts)",
-     "25 mg/day",
-     "Best raw or briefly steamed"
-    ]
-   ],
-   "note": "Please review food supplements individually and in consultation with a qualified professional — particularly in the case of pregnancy, pre-existing conditions or concurrent medication. This overview does not replace medical advice.",
-   "id": "uebersicht-3"
-  },
-  {
-   "type": "trend",
-   "caption": "Trend",
-   "title": "Two measurements compared.",
-   "lead": "A comparison of your two measurements to date. Only measured values are shown — no prognosis.",
-   "firstLabel": "15.03.2026",
-   "secondLabel": "15.06.2026",
-   "kind": "traffic",
-   "items": [
-    {
-     "label": "Physiological stress level",
-     "first": 6,
-     "second": 7,
-     "firstDisplay": "6 / 9",
-     "secondDisplay": "7 / 9",
-     "delta": "+1",
-     "status": "Favourable",
-     "tone": "green"
-    },
-    {
-     "label": "Risk of long-term effects",
-     "first": 5,
-     "second": 4,
-     "firstDisplay": "5 / 9",
-     "secondDisplay": "4 / 9",
-     "delta": "−1",
-     "status": "Elevated",
-     "tone": "amber"
-    }
-   ],
-   "id": "verlauf"
-  },
-  {
-   "type": "callout",
-   "title": "What the trend shows",
-   "text": "The two evaluations are moving in opposite directions: the current stress level has improved from 6 to 7 and is now in the green range. The value for long-term effects has fallen from 5 to 4 over the same period — and because a higher value here means a lower risk, this means the risk has increased.",
-   "items": [
-    "This is the real finding of this measurement: acute strain is being coped with better, while the long-term regulatory level has deteriorated. A good stress level alone says nothing about the long-term effects level.",
-    "The two measurements were around three months apart. The interval until the next follow-up measurement is set by the supervising institution."
-   ],
-   "tone": "accent",
-   "id": "hinweis-3"
-  },
-  {
-   "type": "summary",
-   "caption": "Summary",
-   "title": "Your focus: the long view.",
-   "lead": "Your current stress level is good — and that is precisely the point at which this report pushes back: the level that has deteriorated is the one you cannot feel.",
-   "focuses": [
-    {
-     "num": "01",
-     "title": "miR-106b-5p — the only red individual value",
-     "text": "At 3/9, the immune signal activating indicator is the weakest value in the report and feeds into the risk of long-term effects. Four of the eleven recommendations target it: resveratrol, berberine, butyrate and omega-3. In concrete terms: at least 30 g of fibre daily for butyrate formation in the gut, 250–500 mg of omega-3 from oily fish, walnuts or algal oil, plus berries for resveratrol."
-    },
-    {
-     "num": "02",
-     "title": "let-7g-5p — the chronic level",
-     "text": "At 4/9, the chronic stress indicator lies well below the acute one (7/9) — even though the evaluation as a whole is in the green range. The report does not show which of the two indicators carried the improvement from 6 to 7. Quercetin, EGCG, oleuropein and resveratrol act on the chronic level. The preparation notes differ from compound to compound — details in the table on page 06."
-    }
-   ],
-   "keepTitle": "Maintain",
-   "keepText": "miR-21-5p (8/9) and let-7a-5p (7/9) are the two strongest values — cellular protective mechanisms and the acute stress response are working well. Curcumin, gingerol and sulforaphane serve to maintain here, not to correct.",
-   "controlTitle": "Follow-up and next step",
-   "controlItems": [
-    "Your two measurements to date were around three months apart. The interval until the next follow-up is set by the supervising institution.",
-    "For comparability, sample collection and time of day should remain similar.",
-    "In cases of persistent exhaustion, sleep problems or low mood, this report does not replace medical assessment."
-   ],
-   "id": "zusammenfassung"
-  },
-  {
-   "type": "contact",
-   "title": "Questions about your report?",
-   "text": "Discuss the results with the institution that carried out the sample collection. That is where the context needed to interpret them is held.",
-   "columns": [
-    {
-     "k": "Contact",
-     "lines": [
-      "contact@polarisdx.net",
-      "+49 152 2858 0999",
-      "www.polarisdx.net"
-     ]
-    },
-    {
-     "k": "Distribution",
-     "lines": [
-      "Polaris Diagnostics Europe GmbH",
-      "Große Bleichen 1–3",
-      "20354 Hamburg"
-     ]
-    }
-   ],
-   "legal": [
-    {
-     "title": "Sample report",
-     "text": "All values and personal details in this document are fictitious and serve solely to illustrate the report format. This is not a real report."
-    },
-    {
-     "title": "Interpretation",
-     "text": "This report is not a diagnosis and does not replace medical or psychotherapeutic advice. The microRNA values describe a snapshot of cellular regulation; they are not a measurement of perceived stress and make no statement about the presence or development of a disease. If strain, exhaustion, sleep problems or low mood persist, please seek medical advice."
-    },
-    {
-     "title": "Legal framework",
-     "text": "The laboratory analysis is carried out by our cooperation partner. Polaris Diagnostics Europe GmbH is responsible for distribution and support. Please review food supplements individually and in consultation with a qualified professional."
-    }
-   ],
-   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · As at: August 2026",
-   "id": "kontakt"
-  }
- ]
+  ]
 }

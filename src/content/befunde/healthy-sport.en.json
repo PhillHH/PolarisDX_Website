@@ -1,721 +1,692 @@
 {
- "slug": "healthy-sport",
- "panel": "Healthy Sport",
- "blocks": [
-  {
-   "type": "cover",
-   "badge": "Sample report · Example data",
-   "panel": "Healthy Sport",
-   "subtitle": "Your cellular training",
-   "claim": "Eight sport-relevant microRNAs from a single drop of capillary blood, translated into seven assessments covering nutrition, recovery and performance — complemented by four genetic variants.",
-   "meta": [
+  "slug": "healthy-sport",
+  "panel": "Healthy Sport",
+  "blocks": [
     {
-     "k": "Report for",
-     "v": "Muster, Erika"
+      "type": "cover",
+      "badge": "Sample report · Example data",
+      "panel": "Healthy Sport",
+      "subtitle": "Your cellular training",
+      "claim": "Eight sport-relevant microRNAs from a single drop of capillary blood, translated into seven assessments covering nutrition, recovery and performance — complemented by four genetic variants.",
+      "meta": [
+        {
+          "k": "Report for",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Sample collection",
+          "v": "18.02.2026"
+        },
+        {
+          "k": "Material",
+          "v": "Dried blood spot card"
+        },
+        {
+          "k": "Scope",
+          "v": "8 miRNA + 4 SNP"
+        }
+      ],
+      "id": "deckblatt",
+      "benefit": "Nutrition, recovery, training load: where your client can start."
     },
     {
-     "k": "Sample collection",
-     "v": "18.02.2026"
+      "type": "principle",
+      "caption": "The principle",
+      "title": "How to read this report.",
+      "lead": "Regular training changes the body right down to the cellular level. These processes leave traces in the form of circulating microRNAs — small RNA molecules that regulate how strongly particular genes are actually expressed. Unlike genetics, these values can change, which makes them the trend component of the analysis.",
+      "cards": [
+        {
+          "title": "Nutritional status",
+          "text": "Vitamin and micronutrient requirements as well as fluid balance. Assessments: nutritional status, hydration status."
+        },
+        {
+          "title": "Recovery",
+          "text": "Capacity to recover, training load and inflammatory activity. Assessments: injury risk, load level, inflammation."
+        },
+        {
+          "title": "Performance",
+          "text": "Endurance capacity and the condition of the musculature. Assessments: cardiovascular fitness, muscle status."
+        }
+      ],
+      "flowTitle": "The process",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Measure",
+          "text": "Dried blood spot card, fingertip. Eight microRNAs and four genetic variants. No fasting required."
+        },
+        {
+          "num": "02",
+          "title": "Assess",
+          "text": "The microRNAs feed into seven assessments on a scale of 1–9. Each assessment combines several markers."
+        },
+        {
+          "num": "03",
+          "title": "Adjust",
+          "text": "Targeted recommendations on training, recovery and phytonutrients — plus follow-up monitoring."
+        }
+      ],
+      "scaleTitle": "How do I read the scale?",
+      "scaleLead": "All assessments and all individual markers use the same scale from 1 to 9. Red on the left, green on the right — higher is always better: 1–3 red, 4–6 amber, 7–9 green.",
+      "scaleKind": "traffic",
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "1–3 · Red",
+          "text": "Outside the optimal range. This is where the greatest leverage lies."
+        },
+        {
+          "tone": "amber",
+          "label": "4–6 · Amber",
+          "text": "Average range with room for improvement."
+        },
+        {
+          "tone": "green",
+          "label": "7–9 · Green",
+          "text": "Within the optimal range. Maintain existing routines."
+        }
+      ],
+      "id": "so-lesen"
     },
     {
-     "k": "Material",
-     "v": "Dried blood spot card"
+      "type": "callout",
+      "title": "Important",
+      "text": "This report is not a substitute for a sports medicine examination or performance diagnostics.",
+      "items": [
+        "The four genetic variants are innate and are determined only once. Information and written consent are required before the genetic analysis (German Genetic Diagnostics Act, GenDG).",
+        "Only the eight microRNA values can change — they alone are suitable for monitoring progress."
+      ],
+      "tone": "neutral",
+      "id": "hinweis"
     },
     {
-     "k": "Scope",
-     "v": "8 miRNA + 4 SNP"
+      "type": "evaluations",
+      "caption": "Results at a glance",
+      "title": "Your seven assessments.",
+      "lead": "Each assessment is derived from several microRNAs together. Sorted by value — the areas requiring the most action appear at the bottom.",
+      "items": [
+        {
+          "label": "Hydration status",
+          "sub": "Within the optimal range",
+          "value": 8,
+          "display": "8 / 9",
+          "tone": "green"
+        },
+        {
+          "label": "Injury risk & recovery",
+          "sub": "Average",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Cardiovascular fitness",
+          "sub": "Average",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Muscle status",
+          "sub": "Average",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Nutritional status",
+          "sub": "Outside range",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red"
+        },
+        {
+          "label": "Inflammation",
+          "sub": "Outside range",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red"
+        },
+        {
+          "label": "Load / stress level",
+          "sub": "Outside range",
+          "value": 2,
+          "display": "2 / 9",
+          "tone": "red"
+        }
+      ],
+      "id": "auswertungen"
+    },
+    {
+      "type": "callout",
+      "title": "What this means",
+      "text": "Three values in the red range — load/stress level (2), nutritional status (3) and inflammation (3). Two of them — load and inflammation — depend on miR-146a-5p (overload miRNA, 2/9), the weakest individual marker in the profile; in total it feeds into four of the seven assessments. Nutritional status, by contrast, depends on the second-weakest marker, miR-22-5p (3/9).",
+      "items": [
+        "Three values in the mid-range — injury risk, cardiovascular fitness and muscle status each sit at 5/9 and can be influenced directly through training.",
+        "One value in the green range — hydration status (8) is stable and should stay that way.",
+        "The interval to the next follow-up measurement is determined by the facility looking after you; your two previous measurements were around three months apart."
+      ],
+      "tone": "accent",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "table",
+      "caption": "Basis of the assessments",
+      "title": "The eight microRNAs.",
+      "lead": "The individual values from which the seven assessments are calculated. They too use the 1–9 scale; higher is better.",
+      "cols": ["Marker", "Name", "Level of regulation", "Value", "Function"],
+      "rows": [
+        [
+          "miR-378a-3p",
+          "Muscle gain miRNA",
+          "Muscle building & performance adaptation",
+          "7 / 9",
+          "Regulates muscle building and adaptation to training stimuli."
+        ],
+        [
+          "miR-101-3p",
+          "Muscle vitality miRNA",
+          "Cellular protection of the musculature",
+          "7 / 9",
+          "Regulates muscle vitality and cellular protection."
+        ],
+        [
+          "miR-505-3p",
+          "Sport & Lifestyle miRNA",
+          "Lifestyle balance",
+          "5 / 9",
+          "Reflects the interplay of exercise, nutrition and lifestyle."
+        ],
+        [
+          "miR-19b-3p",
+          "Mind miRNA",
+          "Neuronal & cognitive regulation",
+          "4 / 9",
+          "Regulates neuronal signalling pathways, supports cognitive resilience and endurance performance."
+        ],
+        [
+          "miR-20a-5p",
+          "Cell renewal miRNA",
+          "Cellular regeneration",
+          "4 / 9",
+          "Regulates cell renewal and repair processes after exertion."
+        ],
+        [
+          "miR-30e-3p",
+          "Fitness miRNA",
+          "Muscular endurance regulation",
+          "4 / 9",
+          "Regulates muscular endurance and fitness adaptation."
+        ],
+        [
+          "miR-22-5p",
+          "Fat burning miRNA",
+          "Metabolic regulation",
+          "3 / 9",
+          "Regulates fat metabolism and energy provision."
+        ],
+        [
+          "miR-146a-5p",
+          "Overload miRNA",
+          "Inflammation regulation under exertion",
+          "2 / 9",
+          "Regulates inflammatory signalling pathways under training load."
+        ]
+      ],
+      "id": "uebersicht"
+    },
+    {
+      "type": "callout",
+      "title": "The key marker",
+      "text": "At 2/9, miR-146a-5p is the weakest individual value and feeds into four of the seven assessments: load/stress level, inflammation, injury risk and cardiovascular fitness. A single marker therefore shapes a large part of the overall picture.",
+      "items": [
+        "The two muscle markers miR-378a-3p and miR-101-3p are both in the green range at 7/9. The musculature itself is not the problem — recovery is."
+      ],
+      "tone": "accent",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "markers",
+      "caption": "Your assessments",
+      "title": "What takes priority.",
+      "items": [
+        {
+          "name": "Load / stress level",
+          "intro": "From miR-146a-5p (2/9) and miR-20a-5p (4/9). Stress disturbs resting homeostasis and increases energy turnover — what matters is whether recovery offsets the load.",
+          "kind": "traffic",
+          "value": 2,
+          "display": "2 / 9",
+          "sub": "Outside range",
+          "tone": "red",
+          "text": "Your value is outside the optimal range — the weakest of the seven assessments. Reduce everyday stressors, avoid time pressure, periodise your training (1–2 training-free days per week, a recovery week every 2–4 weeks) and use relaxation techniques such as autogenic training or biofeedback."
+        },
+        {
+          "name": "Nutritional status",
+          "intro": "From miR-30e-3p (4/9), miR-22-5p (3/9) and miR-19b-3p (4/9). Indicates vitamin and micronutrient requirements, including B vitamins, iron and magnesium.",
+          "kind": "traffic",
+          "value": 3,
+          "display": "3 / 9",
+          "sub": "Outside range",
+          "tone": "red",
+          "text": "Your value is outside the optimal range. Pay particular attention to fruit, vegetables and wholegrain products — rich in B vitamins, magnesium, iron and zinc. Magnesium from nuts and sunflower seeds, zinc from dairy products, cheese and pulses."
+        },
+        {
+          "name": "Inflammation",
+          "intro": "From five microRNAs: miR-505-3p, miR-30e-3p, miR-22-5p, miR-20a-5p and miR-146a-5p. Exercise helps prevent inflammation, but at the same time releases stress hormones during exertion.",
+          "kind": "traffic",
+          "value": 3,
+          "display": "3 / 9",
+          "sub": "Outside range",
+          "tone": "red",
+          "text": "Your value is outside the optimal range. Pay attention to recovery and sufficient sleep, to vitamin C and zinc from fruit, vegetables, broccoli and citrus fruits, and to relaxation, moderate exercise and a fibre-rich diet for the gut flora."
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "callout",
+      "title": "The common denominator",
+      "text": "All three assessments include miR-146a-5p or miR-22-5p — the two weakest individual markers. Managing training load and recovery therefore acts on all three values at once, not just on one.",
+      "tone": "accent",
+      "id": "hinweis-4"
+    },
+    {
+      "type": "markers",
+      "caption": "Your assessments",
+      "title": "Performance and recovery.",
+      "items": [
+        {
+          "name": "Injury risk & recovery",
+          "intro": "From five microRNAs: miR-30e-3p, miR-22-5p, miR-146a-5p, miR-20a-5p and miR-505-3p. Insufficient recovery increases the risk of injury.",
+          "kind": "traffic",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Average",
+          "tone": "amber",
+          "text": "Your value is in the average range. Ensure sufficient recovery phases between training sessions and pay attention to warming up, stretching and cooling down. Your genetic assessment of muscle damage risk on page 07 complements this value."
+        },
+        {
+          "name": "Cardiovascular fitness",
+          "intro": "From miR-20a-5p (4/9), miR-146a-5p (2/9) and miR-505-3p (5/9). Describes how efficiently the heart pumps blood and oxygen around the body.",
+          "kind": "traffic",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Average",
+          "tone": "amber",
+          "text": "Your value is in the average range. Include endurance training at least twice a week — running, brisk walking, cycling, swimming or aqua aerobics, depending on your level of fitness."
+        },
+        {
+          "name": "Muscle status",
+          "intro": "From miR-101-3p (7/9), miR-378a-3p (7/9), miR-19b-3p (4/9) and miR-30e-3p (4/9). Strength, explosive power and endurance depend on the muscle's state of fatigue and recovery.",
+          "kind": "traffic",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Average",
+          "tone": "amber",
+          "text": "Your value is in the average range. Include strength training at least twice a week as a full-body workout with weights or body weight, each time with a warm-up, cool-down and stretching phase."
+        },
+        {
+          "name": "Hydration status",
+          "intro": "From miR-101-3p (7/9) and miR-378a-3p (7/9). Fluid losses through sweat and respiration impair bodily functions and performance.",
+          "kind": "traffic",
+          "value": 8,
+          "display": "8 / 9",
+          "sub": "Optimal",
+          "tone": "green",
+          "text": "Your value is within the optimal range. Continue to ensure at least two litres of fluid a day, including during training sessions."
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "table",
+      "caption": "Genetics · innate, determined once",
+      "title": "Your sport markers.",
+      "lead": "Four genetic variants complementing the changeable microRNA values. They describe predispositions — not an evaluation and not a performance forecast — and are determined only once. Sport type · ACE and ACTN3: the combination of both variants determines the predisposition between endurance and strength.",
+      "cols": ["Gene", "Genotype", "Predisposition", "Meaning"],
+      "rows": [
+        [
+          "ACE",
+          "GG (homozygous)",
+          "Strength type",
+          "Influences the bradykinin–aldosterone system and thus oxygen utilisation."
+        ],
+        [
+          "ACTN3",
+          "CT (heterozygous)",
+          "Mixed type",
+          "Determines muscle fibre composition; the mixed form combines fast and slow fibres."
+        ]
+      ],
+      "note": "Your sport type on the scale endurance type — mixed type — strength type: predominantly strength type. You are predominantly the strength-sport type. Suitable activities are strength sports such as weightlifting, powerlifting or bodybuilding.",
+      "id": "uebersicht-2"
+    },
+    {
+      "type": "table",
+      "caption": "Genetics · innate, determined once",
+      "title": "Three further genetic assessments.",
+      "cols": ["Gene", "Trait", "Scale", "Your result"],
+      "rows": [
+        [
+          "FTO gene",
+          "Effect of exercise on body weight",
+          "Low · Moderate · Very good",
+          "Very good. You can lose weight very effectively through exercise — physical activity is a particularly effective lever for you."
+        ],
+        [
+          "BDNF gene",
+          "Motivation to exercise",
+          "Low · Moderate · High",
+          "No heightened motivation. Fixed appointments, training partners or class formats help more than good intentions."
+        ],
+        [
+          "ACTN3 gene",
+          "Risk of muscle damage",
+          "Low · Moderate · High",
+          "Slightly elevated. Pay particular attention to warming up and to cooling down or stretching afterwards."
+        ]
+      ],
+      "note": "The scales of these four assessments indicate a position between two poles, not a traffic light: a sport type is neither good nor bad. Genetic variants are determined only once and remain unchanged for life.",
+      "id": "uebersicht-3"
+    },
+    {
+      "type": "radar",
+      "caption": "Where you stand",
+      "title": "Nutrition and lifestyle habits.",
+      "lead": "The radar shows how close your current habits are to the scientific reference values. The further out a factor lies, the more favourable — 10 is optimal.",
+      "axes": [
+        "Everyday activity",
+        "Exercise",
+        "Stress",
+        "Tobacco",
+        "Alcohol",
+        "Snacks",
+        "Meat",
+        "Omega-3",
+        "Fibre",
+        "Fruit/vegetables",
+        "Fluids"
+      ],
+      "scores": [
+        {
+          "value": "4 out of 10",
+          "label": "Stress",
+          "text": "The weakest factor in your self-report. It coincides with your weakest laboratory value (load/stress level 2/9) — both point in the same direction."
+        },
+        {
+          "value": "5 each",
+          "label": "Snacks & meat",
+          "text": "Both mid-range — the two dietary factors with the most room for improvement, in line with the nutritional status of 3/9."
+        },
+        {
+          "value": "9 · 8 · 8",
+          "label": "Tobacco · Fruit/vegetables · Fluids",
+          "text": "Clearly above average. The fluid value is consistent with your good hydration status (8/9)."
+        }
+      ],
+      "note": "An assessment of where you stand based on your self-report, not an individual diagnosis. In the case of illness or during special life stages, please have any major dietary changes supervised by a doctor.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "All recommendations at a glance",
+      "title": "Your interventions.",
+      "lead": "Each recommendation is assigned to the microRNA marker it derives from, together with that marker's current value. Sorted by urgency — the weakest markers first.",
+      "cols": ["Active substance", "From marker", "Source", "Amount", "Note"],
+      "rows": [
+        [
+          "Kaempferol",
+          "miR-146a-5p · 2",
+          "Red grapes, grapefruit, broccoli, Brussels sprouts, potatoes, onions, pumpkin",
+          "200–600 mg extract/day",
+          "Antioxidant, anti-inflammatory, analgesic"
+        ],
+        [
+          "Vitamin D3",
+          "miR-146a-5p · 2",
+          "Cod liver oil, herring, salmon, sardine, tuna, mackerel, hen's egg",
+          "100 µg/day (4,000 IU)",
+          "Fat-soluble — best taken with oil and a meal"
+        ],
+        [
+          "Resveratrol",
+          "miR-146a-5p · 2, miR-19b-3p · 4, miR-378a-3p · 7",
+          "Skin of grapes, raspberries, lingonberries, currants, strawberries",
+          "150 mg trans-resveratrol/day",
+          "Difficult to achieve in this amount through diet alone"
+        ],
+        [
+          "Capsaicin",
+          "miR-22-5p · 3",
+          "Peppers and chilli pods",
+          "0.8–1.5 mg/day (or 1 g chilli powder)",
+          "Fat-soluble; pain-relieving and circulation-promoting"
+        ],
+        [
+          "Proanthocyanidin",
+          "miR-30e-3p · 4",
+          "Elderberries, cranberry, wild blackberries, rosehips, grape seeds",
+          "36 mg/day",
+          "Skin, core and seeds in particular contain high amounts"
+        ],
+        [
+          "Selenium",
+          "miR-30e-3p · 4",
+          "Meat, fish, eggs, dairy and cereal products",
+          "60–75 µg/day",
+          "Protects cell membranes; plays a role in DNA synthesis and cell division"
+        ],
+        [
+          "Genistein",
+          "miR-20a-5p · 4",
+          "Soybeans, kidney beans, chickpeas, dark chocolate",
+          "40–80 mg red clover extract/day",
+          "Extracts more effective than powder"
+        ],
+        [
+          "Curcumin",
+          "miR-19b-3p · 4",
+          "Turmeric",
+          "max. 300 mg/day (5–10 g powder)",
+          "With black pepper and oil; not during pregnancy or with gallstones"
+        ],
+        [
+          "Quercetin",
+          "miR-505-3p · 5, miR-19b-3p · 4",
+          "Onion, capers, lovage, chives",
+          "min. 200 mg/day",
+          "Heat-sensitive — do not heat strongly"
+        ],
+        [
+          "EGCG (green tea)",
+          "miR-505-3p · 5",
+          "Unfermented tea (white and green tea)",
+          "max. 800 mg/day (1 cup ≈ 165 mg)",
+          "Piperine, vitamin C and fish oil improve bioavailability"
+        ],
+        [
+          "Sulforaphane",
+          "miR-505-3p · 5",
+          "Cruciferous vegetables, cabbage, broccoli (sprouts)",
+          "25 mg/day (250 g broccoli)",
+          "Steam only briefly or eat raw — otherwise the active substance is lost"
+        ],
+        [
+          "Betaine",
+          "miR-378a-3p · 7",
+          "Quinoa, white goosefoot, broccoli, spinach, beetroot",
+          "500–2,000 mg/day",
+          "Partly synthesised by the body itself"
+        ],
+        [
+          "Celastrol",
+          "miR-101-3p · 7",
+          "Wilford's thunder god vine",
+          "30 mg/day",
+          "Antioxidant and anti-inflammatory; as capsules or drops"
+        ],
+        [
+          "Zinc",
+          "miR-101-3p · 7",
+          "Meat, dairy products, wholegrain products",
+          "7–16 mg/day",
+          "A high phytate intake inhibits absorption"
+        ]
+      ],
+      "note": "Please review food supplements individually and in consultation with a qualified professional — particularly during pregnancy, with pre-existing conditions or when taking medication at the same time. This overview is not a substitute for medical advice.",
+      "id": "uebersicht-4"
+    },
+    {
+      "type": "trend",
+      "caption": "Trend",
+      "title": "Two measurements compared.",
+      "lead": "A comparison of your two measurements to date. Only measured values are shown — not a forecast.",
+      "firstLabel": "20.11.2025",
+      "secondLabel": "18.02.2026",
+      "kind": "traffic",
+      "items": [
+        {
+          "label": "Nutritional status",
+          "first": 2,
+          "second": 3,
+          "firstDisplay": "2 / 9",
+          "secondDisplay": "3 / 9",
+          "delta": "+1",
+          "tone": "red",
+          "status": "Outside"
+        },
+        {
+          "label": "Hydration status",
+          "first": 8,
+          "second": 8,
+          "firstDisplay": "8 / 9",
+          "secondDisplay": "8 / 9",
+          "delta": "±0",
+          "tone": "green",
+          "status": "Optimal"
+        },
+        {
+          "label": "Injury risk & recovery",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Average"
+        },
+        {
+          "label": "Load / stress level",
+          "first": 3,
+          "second": 2,
+          "firstDisplay": "3 / 9",
+          "secondDisplay": "2 / 9",
+          "delta": "−1",
+          "tone": "red",
+          "status": "Outside"
+        },
+        {
+          "label": "Cardiovascular fitness",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Average"
+        },
+        {
+          "label": "Inflammation",
+          "first": 4,
+          "second": 3,
+          "firstDisplay": "4 / 9",
+          "secondDisplay": "3 / 9",
+          "delta": "−1",
+          "tone": "red",
+          "status": "Outside"
+        },
+        {
+          "label": "Muscle status",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Average"
+        }
+      ],
+      "note": "The interval between the two measurements was around three months. Whether this interval is also appropriate for the next follow-up is determined by the facility looking after you.",
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "What the trend shows",
+      "text": "One improvement: nutritional status from 2 to 3 — the direction is right, but the value is still outside the optimal range.",
+      "items": [
+        "Two deteriorations: load/stress level (3 → 2) and inflammation (4 → 3). Both include miR-146a-5p. Between the two measurements it was therefore the load side that worsened, not the performance side.",
+        "Four unchanged values: hydration, injury risk, cardiovascular fitness and muscle status have remained stable."
+      ],
+      "tone": "accent",
+      "id": "hinweis-5"
+    },
+    {
+      "type": "summary",
+      "caption": "Summary",
+      "title": "Your focus: recovery.",
+      "lead": "The profile is unusually clear-cut. The muscle markers are in the green range, the load and inflammation markers in the red — and both deteriorations since the first measurement are on the same side.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Manage your load before you train more",
+          "text": "The weakest individual marker, miR-146a-5p (2/9), feeds into four of the seven assessments. Exactly two of them — load/stress level and inflammation — have deteriorated since November. As long as this value stays low, additional training works against you rather than for you. Specifically: one to two training-free days per week, a recovery week every two to four weeks, relaxation techniques in everyday life. In addition, kaempferol and vitamin D3 from the intervention list."
+        },
+        {
+          "num": "02",
+          "title": "Micronutrients from food, not from supplements",
+          "text": "Nutritional status (3/9) has improved from 2 to 3 — the direction is right. From the lifestyle radar, snacks and meat (5 out of 10 each) are the two levers with the most room for improvement. Focus on fruit, vegetables and wholegrains for B vitamins, magnesium, iron and zinc."
+        }
+      ],
+      "keepTitle": "Maintain",
+      "keepText": "Hydration status (8/9) has been stable since the first measurement and matches your radar value for fluids (8/10). The two muscle markers are also in the green range at 7/9 each — the musculature is not the problem. Genetically, your FTO gene suggests that physical activity has a particularly strong effect on your body weight.",
+      "controlTitle": "Follow-up and next step",
+      "controlItems": [
+        "The interval to the next follow-up measurement is determined by the facility looking after you. Your two previous measurements were around three months apart.",
+        "The four genetic variants remain unchanged and are not repeated.",
+        "For comparability, sample collection, time of day and the interval since the last training session should remain similar."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Questions about your report?",
+      "text": "Discuss the results with the facility that carried out the sample collection. That is where the training and health context needed to interpret them is held.",
+      "columns": [
+        {
+          "k": "Contact",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribution",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Sample report",
+          "text": "All values, genotypes and personal details in this document are fictitious and serve solely to illustrate the report format. This is not a real report."
+        },
+        {
+          "title": "Interpretation",
+          "text": "This report is not a diagnosis and is not a substitute for medical advice, a sports medicine examination or performance diagnostics. The microRNA values describe a snapshot in time; the genetic variants describe predispositions, not diseases and not a performance forecast."
+        },
+        {
+          "title": "Legal framework",
+          "text": "Genetic testing is subject to the German Genetic Diagnostics Act (GenDG); information and written consent are required before sample collection. The laboratory analysis is carried out by our cooperation partner. Polaris Diagnostics Europe GmbH is responsible for distribution and support. Please review food supplements individually and in consultation with a qualified professional."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · As at: August 2026",
+      "id": "kontakt"
     }
-   ],
-   "id": "deckblatt"
-  },
-  {
-   "type": "principle",
-   "caption": "The principle",
-   "title": "How to read this report.",
-   "lead": "Regular training changes the body right down to the cellular level. These processes leave traces in the form of circulating microRNAs — small RNA molecules that regulate how strongly particular genes are actually expressed. Unlike genetics, these values can change, which makes them the trend component of the analysis.",
-   "cards": [
-    {
-     "title": "Nutritional status",
-     "text": "Vitamin and micronutrient requirements as well as fluid balance. Assessments: nutritional status, hydration status."
-    },
-    {
-     "title": "Recovery",
-     "text": "Capacity to recover, training load and inflammatory activity. Assessments: injury risk, load level, inflammation."
-    },
-    {
-     "title": "Performance",
-     "text": "Endurance capacity and the condition of the musculature. Assessments: cardiovascular fitness, muscle status."
-    }
-   ],
-   "flowTitle": "The process",
-   "flow": [
-    {
-     "num": "01",
-     "title": "Measure",
-     "text": "Dried blood spot card, fingertip. Eight microRNAs and four genetic variants. No fasting required."
-    },
-    {
-     "num": "02",
-     "title": "Assess",
-     "text": "The microRNAs feed into seven assessments on a scale of 1–9. Each assessment combines several markers."
-    },
-    {
-     "num": "03",
-     "title": "Adjust",
-     "text": "Targeted recommendations on training, recovery and phytonutrients — plus follow-up monitoring."
-    }
-   ],
-   "scaleTitle": "How do I read the scale?",
-   "scaleLead": "All assessments and all individual markers use the same scale from 1 to 9. Red on the left, green on the right — higher is always better: 1–3 red, 4–6 amber, 7–9 green.",
-   "scaleKind": "traffic",
-   "scaleZones": [
-    {
-     "tone": "red",
-     "label": "1–3 · Red",
-     "text": "Outside the optimal range. This is where the greatest leverage lies."
-    },
-    {
-     "tone": "amber",
-     "label": "4–6 · Amber",
-     "text": "Average range with room for improvement."
-    },
-    {
-     "tone": "green",
-     "label": "7–9 · Green",
-     "text": "Within the optimal range. Maintain existing routines."
-    }
-   ],
-   "id": "so-lesen"
-  },
-  {
-   "type": "callout",
-   "title": "Important",
-   "text": "This report is not a substitute for a sports medicine examination or performance diagnostics.",
-   "items": [
-    "The four genetic variants are innate and are determined only once. Information and written consent are required before the genetic analysis (German Genetic Diagnostics Act, GenDG).",
-    "Only the eight microRNA values can change — they alone are suitable for monitoring progress."
-   ],
-   "tone": "neutral",
-   "id": "hinweis"
-  },
-  {
-   "type": "evaluations",
-   "caption": "Results at a glance",
-   "title": "Your seven assessments.",
-   "lead": "Each assessment is derived from several microRNAs together. Sorted by value — the areas requiring the most action appear at the bottom.",
-   "items": [
-    {
-     "label": "Hydration status",
-     "sub": "Within the optimal range",
-     "value": 8,
-     "display": "8 / 9",
-     "tone": "green"
-    },
-    {
-     "label": "Injury risk & recovery",
-     "sub": "Average",
-     "value": 5,
-     "display": "5 / 9",
-     "tone": "amber"
-    },
-    {
-     "label": "Cardiovascular fitness",
-     "sub": "Average",
-     "value": 5,
-     "display": "5 / 9",
-     "tone": "amber"
-    },
-    {
-     "label": "Muscle status",
-     "sub": "Average",
-     "value": 5,
-     "display": "5 / 9",
-     "tone": "amber"
-    },
-    {
-     "label": "Nutritional status",
-     "sub": "Outside range",
-     "value": 3,
-     "display": "3 / 9",
-     "tone": "red"
-    },
-    {
-     "label": "Inflammation",
-     "sub": "Outside range",
-     "value": 3,
-     "display": "3 / 9",
-     "tone": "red"
-    },
-    {
-     "label": "Load / stress level",
-     "sub": "Outside range",
-     "value": 2,
-     "display": "2 / 9",
-     "tone": "red"
-    }
-   ],
-   "id": "auswertungen"
-  },
-  {
-   "type": "callout",
-   "title": "What this means",
-   "text": "Three values in the red range — load/stress level (2), nutritional status (3) and inflammation (3). Two of them — load and inflammation — depend on miR-146a-5p (overload miRNA, 2/9), the weakest individual marker in the profile; in total it feeds into four of the seven assessments. Nutritional status, by contrast, depends on the second-weakest marker, miR-22-5p (3/9).",
-   "items": [
-    "Three values in the mid-range — injury risk, cardiovascular fitness and muscle status each sit at 5/9 and can be influenced directly through training.",
-    "One value in the green range — hydration status (8) is stable and should stay that way.",
-    "The interval to the next follow-up measurement is determined by the facility looking after you; your two previous measurements were around three months apart."
-   ],
-   "tone": "accent",
-   "id": "hinweis-2"
-  },
-  {
-   "type": "table",
-   "caption": "Basis of the assessments",
-   "title": "The eight microRNAs.",
-   "lead": "The individual values from which the seven assessments are calculated. They too use the 1–9 scale; higher is better.",
-   "cols": [
-    "Marker",
-    "Name",
-    "Level of regulation",
-    "Value",
-    "Function"
-   ],
-   "rows": [
-    [
-     "miR-378a-3p",
-     "Muscle gain miRNA",
-     "Muscle building & performance adaptation",
-     "7 / 9",
-     "Regulates muscle building and adaptation to training stimuli."
-    ],
-    [
-     "miR-101-3p",
-     "Muscle vitality miRNA",
-     "Cellular protection of the musculature",
-     "7 / 9",
-     "Regulates muscle vitality and cellular protection."
-    ],
-    [
-     "miR-505-3p",
-     "Sport & Lifestyle miRNA",
-     "Lifestyle balance",
-     "5 / 9",
-     "Reflects the interplay of exercise, nutrition and lifestyle."
-    ],
-    [
-     "miR-19b-3p",
-     "Mind miRNA",
-     "Neuronal & cognitive regulation",
-     "4 / 9",
-     "Regulates neuronal signalling pathways, supports cognitive resilience and endurance performance."
-    ],
-    [
-     "miR-20a-5p",
-     "Cell renewal miRNA",
-     "Cellular regeneration",
-     "4 / 9",
-     "Regulates cell renewal and repair processes after exertion."
-    ],
-    [
-     "miR-30e-3p",
-     "Fitness miRNA",
-     "Muscular endurance regulation",
-     "4 / 9",
-     "Regulates muscular endurance and fitness adaptation."
-    ],
-    [
-     "miR-22-5p",
-     "Fat burning miRNA",
-     "Metabolic regulation",
-     "3 / 9",
-     "Regulates fat metabolism and energy provision."
-    ],
-    [
-     "miR-146a-5p",
-     "Overload miRNA",
-     "Inflammation regulation under exertion",
-     "2 / 9",
-     "Regulates inflammatory signalling pathways under training load."
-    ]
-   ],
-   "id": "uebersicht"
-  },
-  {
-   "type": "callout",
-   "title": "The key marker",
-   "text": "At 2/9, miR-146a-5p is the weakest individual value and feeds into four of the seven assessments: load/stress level, inflammation, injury risk and cardiovascular fitness. A single marker therefore shapes a large part of the overall picture.",
-   "items": [
-    "The two muscle markers miR-378a-3p and miR-101-3p are both in the green range at 7/9. The musculature itself is not the problem — recovery is."
-   ],
-   "tone": "accent",
-   "id": "hinweis-3"
-  },
-  {
-   "type": "markers",
-   "caption": "Your assessments",
-   "title": "What takes priority.",
-   "items": [
-    {
-     "name": "Load / stress level",
-     "intro": "From miR-146a-5p (2/9) and miR-20a-5p (4/9). Stress disturbs resting homeostasis and increases energy turnover — what matters is whether recovery offsets the load.",
-     "kind": "traffic",
-     "value": 2,
-     "display": "2 / 9",
-     "sub": "Outside range",
-     "tone": "red",
-     "text": "Your value is outside the optimal range — the weakest of the seven assessments. Reduce everyday stressors, avoid time pressure, periodise your training (1–2 training-free days per week, a recovery week every 2–4 weeks) and use relaxation techniques such as autogenic training or biofeedback."
-    },
-    {
-     "name": "Nutritional status",
-     "intro": "From miR-30e-3p (4/9), miR-22-5p (3/9) and miR-19b-3p (4/9). Indicates vitamin and micronutrient requirements, including B vitamins, iron and magnesium.",
-     "kind": "traffic",
-     "value": 3,
-     "display": "3 / 9",
-     "sub": "Outside range",
-     "tone": "red",
-     "text": "Your value is outside the optimal range. Pay particular attention to fruit, vegetables and wholegrain products — rich in B vitamins, magnesium, iron and zinc. Magnesium from nuts and sunflower seeds, zinc from dairy products, cheese and pulses."
-    },
-    {
-     "name": "Inflammation",
-     "intro": "From five microRNAs: miR-505-3p, miR-30e-3p, miR-22-5p, miR-20a-5p and miR-146a-5p. Exercise helps prevent inflammation, but at the same time releases stress hormones during exertion.",
-     "kind": "traffic",
-     "value": 3,
-     "display": "3 / 9",
-     "sub": "Outside range",
-     "tone": "red",
-     "text": "Your value is outside the optimal range. Pay attention to recovery and sufficient sleep, to vitamin C and zinc from fruit, vegetables, broccoli and citrus fruits, and to relaxation, moderate exercise and a fibre-rich diet for the gut flora."
-    }
-   ],
-   "id": "marker"
-  },
-  {
-   "type": "callout",
-   "title": "The common denominator",
-   "text": "All three assessments include miR-146a-5p or miR-22-5p — the two weakest individual markers. Managing training load and recovery therefore acts on all three values at once, not just on one.",
-   "tone": "accent",
-   "id": "hinweis-4"
-  },
-  {
-   "type": "markers",
-   "caption": "Your assessments",
-   "title": "Performance and recovery.",
-   "items": [
-    {
-     "name": "Injury risk & recovery",
-     "intro": "From five microRNAs: miR-30e-3p, miR-22-5p, miR-146a-5p, miR-20a-5p and miR-505-3p. Insufficient recovery increases the risk of injury.",
-     "kind": "traffic",
-     "value": 5,
-     "display": "5 / 9",
-     "sub": "Average",
-     "tone": "amber",
-     "text": "Your value is in the average range. Ensure sufficient recovery phases between training sessions and pay attention to warming up, stretching and cooling down. Your genetic assessment of muscle damage risk on page 07 complements this value."
-    },
-    {
-     "name": "Cardiovascular fitness",
-     "intro": "From miR-20a-5p (4/9), miR-146a-5p (2/9) and miR-505-3p (5/9). Describes how efficiently the heart pumps blood and oxygen around the body.",
-     "kind": "traffic",
-     "value": 5,
-     "display": "5 / 9",
-     "sub": "Average",
-     "tone": "amber",
-     "text": "Your value is in the average range. Include endurance training at least twice a week — running, brisk walking, cycling, swimming or aqua aerobics, depending on your level of fitness."
-    },
-    {
-     "name": "Muscle status",
-     "intro": "From miR-101-3p (7/9), miR-378a-3p (7/9), miR-19b-3p (4/9) and miR-30e-3p (4/9). Strength, explosive power and endurance depend on the muscle's state of fatigue and recovery.",
-     "kind": "traffic",
-     "value": 5,
-     "display": "5 / 9",
-     "sub": "Average",
-     "tone": "amber",
-     "text": "Your value is in the average range. Include strength training at least twice a week as a full-body workout with weights or body weight, each time with a warm-up, cool-down and stretching phase."
-    },
-    {
-     "name": "Hydration status",
-     "intro": "From miR-101-3p (7/9) and miR-378a-3p (7/9). Fluid losses through sweat and respiration impair bodily functions and performance.",
-     "kind": "traffic",
-     "value": 8,
-     "display": "8 / 9",
-     "sub": "Optimal",
-     "tone": "green",
-     "text": "Your value is within the optimal range. Continue to ensure at least two litres of fluid a day, including during training sessions."
-    }
-   ],
-   "id": "marker-2"
-  },
-  {
-   "type": "table",
-   "caption": "Genetics · innate, determined once",
-   "title": "Your sport markers.",
-   "lead": "Four genetic variants complementing the changeable microRNA values. They describe predispositions — not an evaluation and not a performance forecast — and are determined only once. Sport type · ACE and ACTN3: the combination of both variants determines the predisposition between endurance and strength.",
-   "cols": [
-    "Gene",
-    "Genotype",
-    "Predisposition",
-    "Meaning"
-   ],
-   "rows": [
-    [
-     "ACE",
-     "GG (homozygous)",
-     "Strength type",
-     "Influences the bradykinin–aldosterone system and thus oxygen utilisation."
-    ],
-    [
-     "ACTN3",
-     "CT (heterozygous)",
-     "Mixed type",
-     "Determines muscle fibre composition; the mixed form combines fast and slow fibres."
-    ]
-   ],
-   "note": "Your sport type on the scale endurance type — mixed type — strength type: predominantly strength type. You are predominantly the strength-sport type. Suitable activities are strength sports such as weightlifting, powerlifting or bodybuilding.",
-   "id": "uebersicht-2"
-  },
-  {
-   "type": "table",
-   "caption": "Genetics · innate, determined once",
-   "title": "Three further genetic assessments.",
-   "cols": [
-    "Gene",
-    "Trait",
-    "Scale",
-    "Your result"
-   ],
-   "rows": [
-    [
-     "FTO gene",
-     "Effect of exercise on body weight",
-     "Low · Moderate · Very good",
-     "Very good. You can lose weight very effectively through exercise — physical activity is a particularly effective lever for you."
-    ],
-    [
-     "BDNF gene",
-     "Motivation to exercise",
-     "Low · Moderate · High",
-     "No heightened motivation. Fixed appointments, training partners or class formats help more than good intentions."
-    ],
-    [
-     "ACTN3 gene",
-     "Risk of muscle damage",
-     "Low · Moderate · High",
-     "Slightly elevated. Pay particular attention to warming up and to cooling down or stretching afterwards."
-    ]
-   ],
-   "note": "The scales of these four assessments indicate a position between two poles, not a traffic light: a sport type is neither good nor bad. Genetic variants are determined only once and remain unchanged for life.",
-   "id": "uebersicht-3"
-  },
-  {
-   "type": "radar",
-   "caption": "Where you stand",
-   "title": "Nutrition and lifestyle habits.",
-   "lead": "The radar shows how close your current habits are to the scientific reference values. The further out a factor lies, the more favourable — 10 is optimal.",
-   "axes": [
-    "Everyday activity",
-    "Exercise",
-    "Stress",
-    "Tobacco",
-    "Alcohol",
-    "Snacks",
-    "Meat",
-    "Omega-3",
-    "Fibre",
-    "Fruit/vegetables",
-    "Fluids"
-   ],
-   "scores": [
-    {
-     "value": "4 out of 10",
-     "label": "Stress",
-     "text": "The weakest factor in your self-report. It coincides with your weakest laboratory value (load/stress level 2/9) — both point in the same direction."
-    },
-    {
-     "value": "5 each",
-     "label": "Snacks & meat",
-     "text": "Both mid-range — the two dietary factors with the most room for improvement, in line with the nutritional status of 3/9."
-    },
-    {
-     "value": "9 · 8 · 8",
-     "label": "Tobacco · Fruit/vegetables · Fluids",
-     "text": "Clearly above average. The fluid value is consistent with your good hydration status (8/9)."
-    }
-   ],
-   "note": "An assessment of where you stand based on your self-report, not an individual diagnosis. In the case of illness or during special life stages, please have any major dietary changes supervised by a doctor.",
-   "id": "lebensstil"
-  },
-  {
-   "type": "table",
-   "caption": "All recommendations at a glance",
-   "title": "Your interventions.",
-   "lead": "Each recommendation is assigned to the microRNA marker it derives from, together with that marker's current value. Sorted by urgency — the weakest markers first.",
-   "cols": [
-    "Active substance",
-    "From marker",
-    "Source",
-    "Amount",
-    "Note"
-   ],
-   "rows": [
-    [
-     "Kaempferol",
-     "miR-146a-5p · 2",
-     "Red grapes, grapefruit, broccoli, Brussels sprouts, potatoes, onions, pumpkin",
-     "200–600 mg extract/day",
-     "Antioxidant, anti-inflammatory, analgesic"
-    ],
-    [
-     "Vitamin D3",
-     "miR-146a-5p · 2",
-     "Cod liver oil, herring, salmon, sardine, tuna, mackerel, hen's egg",
-     "100 µg/day (4,000 IU)",
-     "Fat-soluble — best taken with oil and a meal"
-    ],
-    [
-     "Resveratrol",
-     "miR-146a-5p · 2, miR-19b-3p · 4, miR-378a-3p · 7",
-     "Skin of grapes, raspberries, lingonberries, currants, strawberries",
-     "150 mg trans-resveratrol/day",
-     "Difficult to achieve in this amount through diet alone"
-    ],
-    [
-     "Capsaicin",
-     "miR-22-5p · 3",
-     "Peppers and chilli pods",
-     "0.8–1.5 mg/day (or 1 g chilli powder)",
-     "Fat-soluble; pain-relieving and circulation-promoting"
-    ],
-    [
-     "Proanthocyanidin",
-     "miR-30e-3p · 4",
-     "Elderberries, cranberry, wild blackberries, rosehips, grape seeds",
-     "36 mg/day",
-     "Skin, core and seeds in particular contain high amounts"
-    ],
-    [
-     "Selenium",
-     "miR-30e-3p · 4",
-     "Meat, fish, eggs, dairy and cereal products",
-     "60–75 µg/day",
-     "Protects cell membranes; plays a role in DNA synthesis and cell division"
-    ],
-    [
-     "Genistein",
-     "miR-20a-5p · 4",
-     "Soybeans, kidney beans, chickpeas, dark chocolate",
-     "40–80 mg red clover extract/day",
-     "Extracts more effective than powder"
-    ],
-    [
-     "Curcumin",
-     "miR-19b-3p · 4",
-     "Turmeric",
-     "max. 300 mg/day (5–10 g powder)",
-     "With black pepper and oil; not during pregnancy or with gallstones"
-    ],
-    [
-     "Quercetin",
-     "miR-505-3p · 5, miR-19b-3p · 4",
-     "Onion, capers, lovage, chives",
-     "min. 200 mg/day",
-     "Heat-sensitive — do not heat strongly"
-    ],
-    [
-     "EGCG (green tea)",
-     "miR-505-3p · 5",
-     "Unfermented tea (white and green tea)",
-     "max. 800 mg/day (1 cup ≈ 165 mg)",
-     "Piperine, vitamin C and fish oil improve bioavailability"
-    ],
-    [
-     "Sulforaphane",
-     "miR-505-3p · 5",
-     "Cruciferous vegetables, cabbage, broccoli (sprouts)",
-     "25 mg/day (250 g broccoli)",
-     "Steam only briefly or eat raw — otherwise the active substance is lost"
-    ],
-    [
-     "Betaine",
-     "miR-378a-3p · 7",
-     "Quinoa, white goosefoot, broccoli, spinach, beetroot",
-     "500–2,000 mg/day",
-     "Partly synthesised by the body itself"
-    ],
-    [
-     "Celastrol",
-     "miR-101-3p · 7",
-     "Wilford's thunder god vine",
-     "30 mg/day",
-     "Antioxidant and anti-inflammatory; as capsules or drops"
-    ],
-    [
-     "Zinc",
-     "miR-101-3p · 7",
-     "Meat, dairy products, wholegrain products",
-     "7–16 mg/day",
-     "A high phytate intake inhibits absorption"
-    ]
-   ],
-   "note": "Please review food supplements individually and in consultation with a qualified professional — particularly during pregnancy, with pre-existing conditions or when taking medication at the same time. This overview is not a substitute for medical advice.",
-   "id": "uebersicht-4"
-  },
-  {
-   "type": "trend",
-   "caption": "Trend",
-   "title": "Two measurements compared.",
-   "lead": "A comparison of your two measurements to date. Only measured values are shown — not a forecast.",
-   "firstLabel": "20.11.2025",
-   "secondLabel": "18.02.2026",
-   "kind": "traffic",
-   "items": [
-    {
-     "label": "Nutritional status",
-     "first": 2,
-     "second": 3,
-     "firstDisplay": "2 / 9",
-     "secondDisplay": "3 / 9",
-     "delta": "+1",
-     "tone": "red",
-     "status": "Outside"
-    },
-    {
-     "label": "Hydration status",
-     "first": 8,
-     "second": 8,
-     "firstDisplay": "8 / 9",
-     "secondDisplay": "8 / 9",
-     "delta": "±0",
-     "tone": "green",
-     "status": "Optimal"
-    },
-    {
-     "label": "Injury risk & recovery",
-     "first": 5,
-     "second": 5,
-     "firstDisplay": "5 / 9",
-     "secondDisplay": "5 / 9",
-     "delta": "±0",
-     "tone": "amber",
-     "status": "Average"
-    },
-    {
-     "label": "Load / stress level",
-     "first": 3,
-     "second": 2,
-     "firstDisplay": "3 / 9",
-     "secondDisplay": "2 / 9",
-     "delta": "−1",
-     "tone": "red",
-     "status": "Outside"
-    },
-    {
-     "label": "Cardiovascular fitness",
-     "first": 5,
-     "second": 5,
-     "firstDisplay": "5 / 9",
-     "secondDisplay": "5 / 9",
-     "delta": "±0",
-     "tone": "amber",
-     "status": "Average"
-    },
-    {
-     "label": "Inflammation",
-     "first": 4,
-     "second": 3,
-     "firstDisplay": "4 / 9",
-     "secondDisplay": "3 / 9",
-     "delta": "−1",
-     "tone": "red",
-     "status": "Outside"
-    },
-    {
-     "label": "Muscle status",
-     "first": 5,
-     "second": 5,
-     "firstDisplay": "5 / 9",
-     "secondDisplay": "5 / 9",
-     "delta": "±0",
-     "tone": "amber",
-     "status": "Average"
-    }
-   ],
-   "note": "The interval between the two measurements was around three months. Whether this interval is also appropriate for the next follow-up is determined by the facility looking after you.",
-   "id": "verlauf"
-  },
-  {
-   "type": "callout",
-   "title": "What the trend shows",
-   "text": "One improvement: nutritional status from 2 to 3 — the direction is right, but the value is still outside the optimal range.",
-   "items": [
-    "Two deteriorations: load/stress level (3 → 2) and inflammation (4 → 3). Both include miR-146a-5p. Between the two measurements it was therefore the load side that worsened, not the performance side.",
-    "Four unchanged values: hydration, injury risk, cardiovascular fitness and muscle status have remained stable."
-   ],
-   "tone": "accent",
-   "id": "hinweis-5"
-  },
-  {
-   "type": "summary",
-   "caption": "Summary",
-   "title": "Your focus: recovery.",
-   "lead": "The profile is unusually clear-cut. The muscle markers are in the green range, the load and inflammation markers in the red — and both deteriorations since the first measurement are on the same side.",
-   "focuses": [
-    {
-     "num": "01",
-     "title": "Manage your load before you train more",
-     "text": "The weakest individual marker, miR-146a-5p (2/9), feeds into four of the seven assessments. Exactly two of them — load/stress level and inflammation — have deteriorated since November. As long as this value stays low, additional training works against you rather than for you. Specifically: one to two training-free days per week, a recovery week every two to four weeks, relaxation techniques in everyday life. In addition, kaempferol and vitamin D3 from the intervention list."
-    },
-    {
-     "num": "02",
-     "title": "Micronutrients from food, not from supplements",
-     "text": "Nutritional status (3/9) has improved from 2 to 3 — the direction is right. From the lifestyle radar, snacks and meat (5 out of 10 each) are the two levers with the most room for improvement. Focus on fruit, vegetables and wholegrains for B vitamins, magnesium, iron and zinc."
-    }
-   ],
-   "keepTitle": "Maintain",
-   "keepText": "Hydration status (8/9) has been stable since the first measurement and matches your radar value for fluids (8/10). The two muscle markers are also in the green range at 7/9 each — the musculature is not the problem. Genetically, your FTO gene suggests that physical activity has a particularly strong effect on your body weight.",
-   "controlTitle": "Follow-up and next step",
-   "controlItems": [
-    "The interval to the next follow-up measurement is determined by the facility looking after you. Your two previous measurements were around three months apart.",
-    "The four genetic variants remain unchanged and are not repeated.",
-    "For comparability, sample collection, time of day and the interval since the last training session should remain similar."
-   ],
-   "id": "zusammenfassung"
-  },
-  {
-   "type": "contact",
-   "title": "Questions about your report?",
-   "text": "Discuss the results with the facility that carried out the sample collection. That is where the training and health context needed to interpret them is held.",
-   "columns": [
-    {
-     "k": "Contact",
-     "lines": [
-      "contact@polarisdx.net",
-      "+49 152 2858 0999",
-      "www.polarisdx.net"
-     ]
-    },
-    {
-     "k": "Distribution",
-     "lines": [
-      "Polaris Diagnostics Europe GmbH",
-      "Große Bleichen 1–3",
-      "20354 Hamburg"
-     ]
-    }
-   ],
-   "legal": [
-    {
-     "title": "Sample report",
-     "text": "All values, genotypes and personal details in this document are fictitious and serve solely to illustrate the report format. This is not a real report."
-    },
-    {
-     "title": "Interpretation",
-     "text": "This report is not a diagnosis and is not a substitute for medical advice, a sports medicine examination or performance diagnostics. The microRNA values describe a snapshot in time; the genetic variants describe predispositions, not diseases and not a performance forecast."
-    },
-    {
-     "title": "Legal framework",
-     "text": "Genetic testing is subject to the German Genetic Diagnostics Act (GenDG); information and written consent are required before sample collection. The laboratory analysis is carried out by our cooperation partner. Polaris Diagnostics Europe GmbH is responsible for distribution and support. Please review food supplements individually and in consultation with a qualified professional."
-    }
-   ],
-   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · As at: August 2026",
-   "id": "kontakt"
-  }
- ]
+  ]
 }
