@@ -695,7 +695,8 @@
     "othersTitle": "The other sample reports",
     "navBack": "Overview",
     "navChapters": "Chapters",
-    "toTop": "Back to top"
+    "toTop": "Back to top",
+    "ctaPdf": "This report as PDF"
   },
   "sidebar": {
     "title": "Epigenetics and genetics",
