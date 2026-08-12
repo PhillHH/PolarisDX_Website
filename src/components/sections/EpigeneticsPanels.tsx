@@ -111,6 +111,10 @@ const EpigeneticsPanels = () => {
                   <span className="text-sm text-gray-600">
                     {t('samples.pagesLabel', { pages: sample.pages })}
                   </span>
+                  {/* Sprachhinweis. Stand vor dem Umbau in der Pille, die jetzt
+                      analysis.num traegt — ohne ihn laden neun Locales ein
+                      deutsches PDF ohne Hinweis am Knopf. */}
+                  <span className="text-sm text-gray-500">{t('samples.badge')}</span>
                 </div>
 
                 <h3 className="mt-4 text-xl font-semibold tracking-tight text-text-heading">
