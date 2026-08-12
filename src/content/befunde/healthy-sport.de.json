@@ -1,721 +1,692 @@
 {
- "slug": "healthy-sport",
- "panel": "Healthy Sport",
- "blocks": [
-  {
-   "type": "cover",
-   "badge": "Musterbefund · Beispieldaten",
-   "panel": "Healthy Sport",
-   "subtitle": "Ihr zelluläres Training",
-   "claim": "Acht sportrelevante microRNAs aus einem Tropfen Kapillarblut, übersetzt in sieben Auswertungen zu Ernährung, Regeneration und Leistung — ergänzt um vier genetische Varianten.",
-   "meta": [
+  "slug": "healthy-sport",
+  "panel": "Healthy Sport",
+  "blocks": [
     {
-     "k": "Befund für",
-     "v": "Muster, Erika"
+      "type": "cover",
+      "badge": "Musterbefund · Beispieldaten",
+      "panel": "Healthy Sport",
+      "subtitle": "Ihr zelluläres Training",
+      "claim": "Acht sportrelevante microRNAs aus einem Tropfen Kapillarblut, übersetzt in sieben Auswertungen zu Ernährung, Regeneration und Leistung — ergänzt um vier genetische Varianten.",
+      "meta": [
+        {
+          "k": "Befund für",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Probenahme",
+          "v": "18.02.2026"
+        },
+        {
+          "k": "Material",
+          "v": "Trockenblutkarte"
+        },
+        {
+          "k": "Umfang",
+          "v": "8 miRNA + 4 SNP"
+        }
+      ],
+      "id": "deckblatt",
+      "benefit": "Ernährung, Erholung, Belastung: woran Ihr Klient ansetzen kann."
     },
     {
-     "k": "Probenahme",
-     "v": "18.02.2026"
+      "type": "principle",
+      "caption": "Das Prinzip",
+      "title": "So lesen Sie diesen Befund.",
+      "lead": "Regelmäßiges Training verändert den Körper bis auf die zelluläre Ebene. Diese Prozesse hinterlassen Spuren in Form zirkulierender microRNAs — kleiner RNA-Moleküle, die regulieren, wie stark bestimmte Gene tatsächlich umgesetzt werden. Anders als die Genetik sind diese Werte veränderbar und damit der Verlaufsteil der Analyse.",
+      "cards": [
+        {
+          "title": "Ernährungszustand",
+          "text": "Vitamin- und Mikronährstoffbedarf sowie Flüssigkeitshaushalt. Auswertungen: Ernährungszustand, Hydrationsstatus."
+        },
+        {
+          "title": "Regeneration",
+          "text": "Erholungsfähigkeit, Belastung und Entzündungsgeschehen. Auswertungen: Verletzungsrisiko, Belastungsniveau, Entzündung."
+        },
+        {
+          "title": "Leistung",
+          "text": "Ausdauerkapazität und Zustand der Muskulatur. Auswertungen: Kardiovaskuläre Fitness, Muskelstatus."
+        }
+      ],
+      "flowTitle": "Der Ablauf",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Messen",
+          "text": "Trockenblutkarte, Fingerbeere. Acht microRNAs und vier genetische Varianten. Kein Nüchternstatus nötig."
+        },
+        {
+          "num": "02",
+          "title": "Auswerten",
+          "text": "Die microRNAs fließen in sieben Auswertungen auf der Skala 1–9. Jede Auswertung kombiniert mehrere Marker."
+        },
+        {
+          "num": "03",
+          "title": "Steuern",
+          "text": "Gezielte Empfehlungen zu Training, Regeneration und sekundären Pflanzenstoffen — plus Verlaufskontrolle."
+        }
+      ],
+      "scaleTitle": "Wie lese ich die Skala?",
+      "scaleLead": "Alle Auswertungen und alle Einzelmarker laufen auf derselben Skala von 1 bis 9. Links rot, rechts grün — höher ist immer besser: 1–3 rot, 4–6 gelb, 7–9 grün.",
+      "scaleKind": "traffic",
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "1–3 · Rot",
+          "text": "Außerhalb des optimalen Bereichs. Hier liegt der größte Hebel."
+        },
+        {
+          "tone": "amber",
+          "label": "4–6 · Gelb",
+          "text": "Durchschnittlicher Bereich mit Handlungsspielraum."
+        },
+        {
+          "tone": "green",
+          "label": "7–9 · Grün",
+          "text": "Im optimalen Bereich. Bestehende Routinen beibehalten."
+        }
+      ],
+      "id": "so-lesen"
     },
     {
-     "k": "Material",
-     "v": "Trockenblutkarte"
+      "type": "callout",
+      "title": "Wichtig",
+      "text": "Dieser Befund ersetzt keine sportmedizinische Untersuchung und keine Leistungsdiagnostik.",
+      "items": [
+        "Die vier genetischen Varianten sind angeboren und werden nur einmalig erhoben. Vor der genetischen Analyse sind Aufklärung und schriftliche Einwilligung erforderlich (Gendiagnostikgesetz).",
+        "Nur die acht microRNA-Werte sind veränderbar — sie allein eignen sich als Erfolgskontrolle."
+      ],
+      "tone": "neutral",
+      "id": "hinweis"
     },
     {
-     "k": "Umfang",
-     "v": "8 miRNA + 4 SNP"
+      "type": "evaluations",
+      "caption": "Ergebnis auf einen Blick",
+      "title": "Ihre sieben Auswertungen.",
+      "lead": "Jede Auswertung entsteht aus mehreren microRNAs gemeinsam. Sortiert nach Wert — die Bereiche mit dem größten Handlungsbedarf stehen unten.",
+      "items": [
+        {
+          "label": "Hydrationsstatus",
+          "sub": "Im optimalen Bereich",
+          "value": 8,
+          "display": "8 / 9",
+          "tone": "green"
+        },
+        {
+          "label": "Verletzungsrisiko & Regeneration",
+          "sub": "Durchschnittlich",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Kardiovaskuläre Fitness",
+          "sub": "Durchschnittlich",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Muskelstatus",
+          "sub": "Durchschnittlich",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Ernährungszustand",
+          "sub": "Außerhalb",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red"
+        },
+        {
+          "label": "Entzündung",
+          "sub": "Außerhalb",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red"
+        },
+        {
+          "label": "Belastungs- / Stressniveau",
+          "sub": "Außerhalb",
+          "value": 2,
+          "display": "2 / 9",
+          "tone": "red"
+        }
+      ],
+      "id": "auswertungen"
+    },
+    {
+      "type": "callout",
+      "title": "Was daraus folgt",
+      "text": "Drei Werte im roten Bereich — Belastungs-/Stressniveau (2), Ernährungszustand (3) und Entzündung (3). Zwei davon — Belastung und Entzündung — hängen an miR-146a-5p (Überlastungs-miRNA, 2/9), dem schwächsten Einzelmarker des Profils; er geht insgesamt in vier der sieben Auswertungen ein. Der Ernährungszustand hängt dagegen am zweitschwächsten Marker miR-22-5p (3/9).",
+      "items": [
+        "Drei Werte im Mittelfeld — Verletzungsrisiko, kardiovaskuläre Fitness und Muskelstatus liegen bei je 5/9 und sind über Training direkt beeinflussbar.",
+        "Ein Wert im grünen Bereich — der Hydrationsstatus (8) ist stabil und soll es bleiben.",
+        "Den Abstand zur nächsten Kontrollmessung legt die betreuende Einrichtung fest; Ihre bisherigen beiden Messungen lagen rund drei Monate auseinander."
+      ],
+      "tone": "accent",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "table",
+      "caption": "Grundlage der Auswertungen",
+      "title": "Die acht microRNAs.",
+      "lead": "Die Einzelwerte, aus denen die sieben Auswertungen berechnet werden. Auch sie laufen auf der Skala 1–9, höher ist besser.",
+      "cols": ["Marker", "Bezeichnung", "Regulationsebene", "Wert", "Funktion"],
+      "rows": [
+        [
+          "miR-378a-3p",
+          "Muscle gain miRNA",
+          "Muskelaufbau & Leistungsanpassung",
+          "7 / 9",
+          "Reguliert Muskelaufbau und Anpassung an Trainingsreize."
+        ],
+        [
+          "miR-101-3p",
+          "Muskelvitalitäts-miRNA",
+          "Zellschutz der Muskulatur",
+          "7 / 9",
+          "Reguliert Muskelvitalität und zellulären Schutz."
+        ],
+        [
+          "miR-505-3p",
+          "Sport & Lifestyle miRNA",
+          "Lifestyle-Balance",
+          "5 / 9",
+          "Reflektiert das Zusammenspiel von Sport, Ernährung und Lebensstil."
+        ],
+        [
+          "miR-19b-3p",
+          "Mind miRNA",
+          "Neuronale & kognitive Regulation",
+          "4 / 9",
+          "Reguliert neuronale Signalwege, unterstützt kognitive Belastbarkeit und Ausdauerleistung."
+        ],
+        [
+          "miR-20a-5p",
+          "Zellerneuerungs-miRNA",
+          "Zelluläre Regeneration",
+          "4 / 9",
+          "Reguliert Zellerneuerung und Reparaturprozesse nach Belastung."
+        ],
+        [
+          "miR-30e-3p",
+          "Fitness miRNA",
+          "Muskuläre Ausdauerregulation",
+          "4 / 9",
+          "Reguliert Muskelausdauer und Fitnessadaption."
+        ],
+        [
+          "miR-22-5p",
+          "Fat burning miRNA",
+          "Metabolische Regulation",
+          "3 / 9",
+          "Reguliert Fettstoffwechsel und Energiebereitstellung."
+        ],
+        [
+          "miR-146a-5p",
+          "Überlastungs-miRNA",
+          "Entzündungsregulation bei Belastung",
+          "2 / 9",
+          "Reguliert Entzündungssignalwege unter Trainingsbelastung."
+        ]
+      ],
+      "id": "uebersicht"
+    },
+    {
+      "type": "callout",
+      "title": "Der Schlüsselmarker",
+      "text": "miR-146a-5p ist mit 2/9 der schwächste Einzelwert und fließt in vier der sieben Auswertungen ein: Belastungs-/Stressniveau, Entzündung, Verletzungsrisiko und kardiovaskuläre Fitness. Damit geht ein einzelner Marker in einen großen Teil des Gesamtbilds ein.",
+      "items": [
+        "Die beiden Muskelmarker miR-378a-3p und miR-101-3p liegen mit je 7/9 im grünen Bereich. Die Muskulatur selbst ist nicht das Problem — die Erholung ist es."
+      ],
+      "tone": "accent",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "markers",
+      "caption": "Ihre Auswertungen",
+      "title": "Was Vorrang hat.",
+      "items": [
+        {
+          "name": "Belastungs- / Stressniveau",
+          "intro": "Aus miR-146a-5p (2/9) und miR-20a-5p (4/9). Stress stört die Ruhehomöostase und erhöht den Energieumsatz — entscheidend ist, ob Erholung die Belastung ausgleicht.",
+          "kind": "traffic",
+          "value": 2,
+          "display": "2 / 9",
+          "sub": "Außerhalb",
+          "tone": "red",
+          "text": "Ihr Wert liegt außerhalb des optimalen Bereichs — der schwächste der sieben Auswertungen. Reduzieren Sie Alltagsbelastungen, vermeiden Sie Zeitdruck, periodisieren Sie Ihr Training (1–2 trainingsfreie Tage pro Woche, alle 2–4 Wochen eine Erholungswoche) und nutzen Sie Entspannungstechniken wie autogenes Training oder Biofeedback."
+        },
+        {
+          "name": "Ernährungszustand",
+          "intro": "Aus miR-30e-3p (4/9), miR-22-5p (3/9) und miR-19b-3p (4/9). Gibt Hinweise auf Vitamin- und Mikronährstoffbedarf, unter anderem B-Vitamine, Eisen und Magnesium.",
+          "kind": "traffic",
+          "value": 3,
+          "display": "3 / 9",
+          "sub": "Außerhalb",
+          "tone": "red",
+          "text": "Ihr Wert liegt außerhalb des optimalen Bereichs. Achten Sie besonders auf Obst, Gemüse und Vollkornprodukte — reich an B-Vitaminen, Magnesium, Eisen und Zink. Magnesium über Nüsse und Sonnenblumenkerne, Zink über Milchprodukte, Käse und Hülsenfrüchte."
+        },
+        {
+          "name": "Entzündung",
+          "intro": "Aus fünf microRNAs: miR-505-3p, miR-30e-3p, miR-22-5p, miR-20a-5p und miR-146a-5p. Sport beugt Entzündungen vor, setzt bei Belastung aber zugleich Stresshormone frei.",
+          "kind": "traffic",
+          "value": 3,
+          "display": "3 / 9",
+          "sub": "Außerhalb",
+          "tone": "red",
+          "text": "Ihr Wert liegt außerhalb des optimalen Bereichs. Achten Sie auf Regeneration und ausreichend Schlaf, auf Vitamin C und Zink über Obst, Gemüse, Brokkoli und Zitrusfrüchte, auf Entspannung, moderate Bewegung und eine ballaststoffreiche Ernährung für die Darmflora."
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "callout",
+      "title": "Der gemeinsame Nenner",
+      "text": "Alle drei Auswertungen enthalten miR-146a-5p oder miR-22-5p — die beiden schwächsten Einzelmarker. Belastungssteuerung und Regeneration wirken deshalb auf alle drei Werte gleichzeitig, nicht nur auf einen.",
+      "tone": "accent",
+      "id": "hinweis-4"
+    },
+    {
+      "type": "markers",
+      "caption": "Ihre Auswertungen",
+      "title": "Leistung und Erholung.",
+      "items": [
+        {
+          "name": "Verletzungsrisiko & Regeneration",
+          "intro": "Aus fünf microRNAs: miR-30e-3p, miR-22-5p, miR-146a-5p, miR-20a-5p und miR-505-3p. Bei ungenügender Erholung steigt das Verletzungsrisiko.",
+          "kind": "traffic",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Durchschnittlich",
+          "tone": "amber",
+          "text": "Ihr Wert liegt im durchschnittlichen Bereich. Achten Sie auf ausreichende Erholungsphasen zwischen den Trainingseinheiten sowie auf Aufwärmen, Dehnen und Abkühlen. Ihre genetische Auswertung zum Muskelschädigungsrisiko auf Seite 07 ergänzt diesen Wert."
+        },
+        {
+          "name": "Kardiovaskuläre Fitness",
+          "intro": "Aus miR-20a-5p (4/9), miR-146a-5p (2/9) und miR-505-3p (5/9). Beschreibt, wie effizient das Herz Blut und Sauerstoff durch den Körper pumpt.",
+          "kind": "traffic",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Durchschnittlich",
+          "tone": "amber",
+          "text": "Ihr Wert liegt im durchschnittlichen Bereich. Integrieren Sie mindestens zweimal wöchentlich Ausdauertraining — Laufen, schnelles Gehen, Radfahren, Schwimmen oder Wassergymnastik, je nach Trainingszustand."
+        },
+        {
+          "name": "Muskelstatus",
+          "intro": "Aus miR-101-3p (7/9), miR-378a-3p (7/9), miR-19b-3p (4/9) und miR-30e-3p (4/9). Kraft, Schnellkraft und Ausdauer hängen vom Ermüdungs- und Erholungszustand des Muskels ab.",
+          "kind": "traffic",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Durchschnittlich",
+          "tone": "amber",
+          "text": "Ihr Wert liegt im durchschnittlichen Bereich. Integrieren Sie mindestens zweimal wöchentlich Krafttraining als Ganzkörpertraining mit Gewichten oder Eigengewicht, jeweils mit Aufwärm-, Abkühl- und Dehnungsphase."
+        },
+        {
+          "name": "Hydrationsstatus",
+          "intro": "Aus miR-101-3p (7/9) und miR-378a-3p (7/9). Flüssigkeitsverluste durch Schweiß und Atmung beeinträchtigen Körperfunktionen und Leistungsfähigkeit.",
+          "kind": "traffic",
+          "value": 8,
+          "display": "8 / 9",
+          "sub": "Optimal",
+          "tone": "green",
+          "text": "Ihr Wert liegt im optimalen Bereich. Achten Sie weiterhin auf mindestens zwei Liter Flüssigkeit täglich, auch während der Trainingseinheiten."
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "table",
+      "caption": "Genetik · angeboren, einmalig erhoben",
+      "title": "Ihre Sportmarker.",
+      "lead": "Vier genetische Varianten als Ergänzung zu den veränderlichen microRNA-Werten. Sie beschreiben Veranlagungen — keine Bewertung und keine Leistungsprognose — und werden nur einmalig erhoben. Sporttyp · ACE und ACTN3: Die Kombination beider Varianten bestimmt die Veranlagung zwischen Ausdauer und Kraft.",
+      "cols": ["Gen", "Genotyp", "Veranlagung", "Bedeutung"],
+      "rows": [
+        [
+          "ACE",
+          "GG (homozygot)",
+          "Krafttyp",
+          "Beeinflusst das Bradykinin-Aldosteron-System und damit die Sauerstoffnutzung."
+        ],
+        [
+          "ACTN3",
+          "CT (heterozygot)",
+          "Mischtyp",
+          "Bestimmt die Muskelfaser-Zusammensetzung; die Mischform vereint schnelle und langsame Fasern."
+        ]
+      ],
+      "note": "Ihr Sporttyp auf der Skala Ausdauertyp — Mischtyp — Krafttyp: vorwiegend Krafttyp. Sie sind vorwiegend der Kraftsporttyp. Geeignet sind Kraftsportarten wie Gewichtheben, Kraft-Dreikampf oder Bodybuilding.",
+      "id": "uebersicht-2"
+    },
+    {
+      "type": "table",
+      "caption": "Genetik · angeboren, einmalig erhoben",
+      "title": "Drei weitere genetische Auswertungen.",
+      "cols": ["Gen", "Merkmal", "Skala", "Ihr Ergebnis"],
+      "rows": [
+        [
+          "FTO-Gen",
+          "Einfluss von Sport auf das Körpergewicht",
+          "Gering · Mittel · Sehr gut",
+          "Sehr gut. Sie können durch Sport sehr gut abnehmen — Bewegung ist bei Ihnen ein besonders wirksamer Hebel."
+        ],
+        [
+          "BDNF-Gen",
+          "Motivation, Sport zu betreiben",
+          "Niedrig · Mittel · Hoch",
+          "Keine gesteigerte Motivation. Feste Termine, Trainingspartner oder Kursformate helfen mehr als Vorsätze."
+        ],
+        [
+          "ACTN3-Gen",
+          "Risiko für Muskelschäden",
+          "Gering · Mittel · Hoch",
+          "Leicht erhöht. Achten Sie besonders auf Aufwärmen und anschließendes Abkühlen oder Dehnen."
+        ]
+      ],
+      "note": "Die Skalen dieser vier Auswertungen sind Positionsangaben zwischen zwei Polen, keine Ampel: Ein Sporttyp ist weder gut noch schlecht. Genetische Varianten werden nur einmalig erhoben und bleiben lebenslang unverändert.",
+      "id": "uebersicht-3"
+    },
+    {
+      "type": "radar",
+      "caption": "Standortbestimmung",
+      "title": "Ernährung und Lebensgewohnheiten.",
+      "lead": "Das Radar zeigt, wie nah Ihre aktuellen Gewohnheiten an den wissenschaftlichen Referenzwerten liegen. Je weiter außen ein Faktor liegt, desto günstiger — optimal ist 10.",
+      "axes": [
+        "Alltagsbewegung",
+        "Sport",
+        "Stress",
+        "Tabak",
+        "Alkohol",
+        "Snacks",
+        "Fleisch",
+        "Omega-3",
+        "Ballaststoffe",
+        "Obst/Gemüse",
+        "Flüssigkeit"
+      ],
+      "scores": [
+        {
+          "value": "4 von 10",
+          "label": "Stress",
+          "text": "Der schwächste Faktor Ihrer Selbstauskunft. Er fällt mit Ihrem schwächsten Laborwert zusammen (Belastungs-/Stressniveau 2/9) — beides deutet in dieselbe Richtung."
+        },
+        {
+          "value": "je 5",
+          "label": "Snacks & Fleisch",
+          "text": "Beide im Mittelfeld — die beiden Ernährungsfaktoren mit dem größten Spielraum nach oben, passend zum Ernährungszustand von 3/9."
+        },
+        {
+          "value": "9 · 8 · 8",
+          "label": "Tabak · Obst/Gemüse · Flüssigkeit",
+          "text": "Deutlich überdurchschnittlich. Der Flüssigkeitswert steht im Einklang mit Ihrem guten Hydrationsstatus (8/9)."
+        }
+      ],
+      "note": "Standortbestimmung auf Basis Ihrer Selbstauskunft, keine individuelle Diagnose. Bei Erkrankungen oder in besonderen Lebensphasen größere Ernährungsänderungen bitte ärztlich begleiten lassen.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Alle Empfehlungen auf einen Blick",
+      "title": "Ihre Interventionen.",
+      "lead": "Jede Empfehlung ist dem microRNA-Marker zugeordnet, aus dem sie stammt, mit dessen aktuellem Wert. Sortiert nach Dringlichkeit — die schwächsten Marker zuerst.",
+      "cols": ["Wirkstoff", "Aus Marker", "Quelle", "Menge", "Hinweis"],
+      "rows": [
+        [
+          "Kaempferol",
+          "miR-146a-5p · 2",
+          "Rote Weintrauben, Grapefruit, Brokkoli, Rosenkohl, Kartoffeln, Zwiebeln, Kürbis",
+          "200–600 mg Extrakt/Tag",
+          "Antioxidativ, entzündungshemmend, schmerzstillend"
+        ],
+        [
+          "Vitamin D3",
+          "miR-146a-5p · 2",
+          "Lebertran, Hering, Lachs, Sardine, Thunfisch, Makrele, Hühnerei",
+          "100 µg/Tag (4.000 IE)",
+          "Fettlöslich — am besten mit Öl und einer Mahlzeit"
+        ],
+        [
+          "Resveratrol",
+          "miR-146a-5p · 2, miR-19b-3p · 4, miR-378a-3p · 7",
+          "Haut von Weintrauben, Himbeeren, Preiselbeeren, Johannisbeeren, Erdbeeren",
+          "150 mg trans-Resveratrol/Tag",
+          "Über die Ernährung allein schwer in dieser Menge erreichbar"
+        ],
+        [
+          "Capsaicin",
+          "miR-22-5p · 3",
+          "Paprika- und Chilischoten",
+          "0,8–1,5 mg/Tag (bzw. 1 g Chili-Pulver)",
+          "Fettlöslich; schmerzhemmend und durchblutungsfördernd"
+        ],
+        [
+          "Proanthocyanidin",
+          "miR-30e-3p · 4",
+          "Holunderbeeren, Cranberry, wilde Brombeeren, Hagebutten, Traubenkerne",
+          "36 mg/Tag",
+          "Besonders Schale, Kerngehäuse und Kerne enthalten viel"
+        ],
+        [
+          "Selen",
+          "miR-30e-3p · 4",
+          "Fleisch, Fisch, Eier, Milch- und Getreideprodukte",
+          "60–75 µg/Tag",
+          "Schützt Zellmembranen; Rolle bei DNA-Synthese und Zellteilung"
+        ],
+        [
+          "Genistein",
+          "miR-20a-5p · 4",
+          "Sojabohnen, Kidney-Bohnen, Kichererbsen, dunkle Schokolade",
+          "40–80 mg Rotkleeextrakt/Tag",
+          "Extrakte wirksamer als Pulver"
+        ],
+        [
+          "Curcumin",
+          "miR-19b-3p · 4",
+          "Kurkuma",
+          "max. 300 mg/Tag (5–10 g Pulver)",
+          "Mit schwarzem Pfeffer und Öl; nicht bei Schwangerschaft oder Gallensteinen"
+        ],
+        [
+          "Quercetin",
+          "miR-505-3p · 5, miR-19b-3p · 4",
+          "Zwiebel, Kapern, Liebstöckel, Schnittlauch",
+          "mind. 200 mg/Tag",
+          "Hitzeempfindlich — nicht stark erhitzen"
+        ],
+        [
+          "EGCG (Grüner Tee)",
+          "miR-505-3p · 5",
+          "Unfermentierter Tee (weißer und grüner Tee)",
+          "max. 800 mg/Tag (1 Tasse ≈ 165 mg)",
+          "Piperin, Vitamin C und Fischöl verbessern die Bioverfügbarkeit"
+        ],
+        [
+          "Sulforaphan",
+          "miR-505-3p · 5",
+          "Kreuzblütengewächse, Kohl, Brokkoli(-sprossen)",
+          "25 mg/Tag (250 g Brokkoli)",
+          "Nur kurz dünsten oder roh — sonst geht der Wirkstoff verloren"
+        ],
+        [
+          "Betain",
+          "miR-378a-3p · 7",
+          "Quinoa, weißer Gänsefuß, Brokkoli, Spinat, rote Beete",
+          "500–2.000 mg/Tag",
+          "Wird teilweise selbst synthetisiert"
+        ],
+        [
+          "Celastrol",
+          "miR-101-3p · 7",
+          "Wilfords Dreiflügelfrucht",
+          "30 mg/Tag",
+          "Antioxidativ und entzündungshemmend; als Kapseln oder Tropfen"
+        ],
+        [
+          "Zink",
+          "miR-101-3p · 7",
+          "Fleisch, Milchprodukte, Vollkornprodukte",
+          "7–16 mg/Tag",
+          "Hohe Phytatzufuhr hemmt die Aufnahme"
+        ]
+      ],
+      "note": "Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen — insbesondere bei Schwangerschaft, Vorerkrankungen oder gleichzeitiger Medikamenteneinnahme. Diese Übersicht ersetzt keine ärztliche Beratung.",
+      "id": "uebersicht-4"
+    },
+    {
+      "type": "trend",
+      "caption": "Verlauf",
+      "title": "Zwei Messungen im Vergleich.",
+      "lead": "Gegenüberstellung Ihrer beiden bisherigen Messungen. Dargestellt sind ausschließlich gemessene Werte — keine Prognose.",
+      "firstLabel": "20.11.2025",
+      "secondLabel": "18.02.2026",
+      "kind": "traffic",
+      "items": [
+        {
+          "label": "Ernährungszustand",
+          "first": 2,
+          "second": 3,
+          "firstDisplay": "2 / 9",
+          "secondDisplay": "3 / 9",
+          "delta": "+1",
+          "tone": "red",
+          "status": "Außerhalb"
+        },
+        {
+          "label": "Hydrationsstatus",
+          "first": 8,
+          "second": 8,
+          "firstDisplay": "8 / 9",
+          "secondDisplay": "8 / 9",
+          "delta": "±0",
+          "tone": "green",
+          "status": "Optimal"
+        },
+        {
+          "label": "Verletzungsrisiko & Regeneration",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Durchschnitt"
+        },
+        {
+          "label": "Belastungs- / Stressniveau",
+          "first": 3,
+          "second": 2,
+          "firstDisplay": "3 / 9",
+          "secondDisplay": "2 / 9",
+          "delta": "−1",
+          "tone": "red",
+          "status": "Außerhalb"
+        },
+        {
+          "label": "Kardiovaskuläre Fitness",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Durchschnitt"
+        },
+        {
+          "label": "Entzündung",
+          "first": 4,
+          "second": 3,
+          "firstDisplay": "4 / 9",
+          "secondDisplay": "3 / 9",
+          "delta": "−1",
+          "tone": "red",
+          "status": "Außerhalb"
+        },
+        {
+          "label": "Muskelstatus",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Durchschnitt"
+        }
+      ],
+      "note": "Der Abstand zwischen den beiden Messungen betrug rund drei Monate. Ob dieser Abstand auch für die nächste Kontrolle passt, legt die betreuende Einrichtung fest.",
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "Was der Verlauf zeigt",
+      "text": "Eine Verbesserung: der Ernährungszustand von 2 auf 3 — die Richtung stimmt, der Wert liegt aber weiterhin außerhalb des optimalen Bereichs.",
+      "items": [
+        "Zwei Verschlechterungen: Belastungs-/Stressniveau (3 → 2) und Entzündung (4 → 3). Beide enthalten miR-146a-5p. Zwischen den beiden Messungen hat sich die Belastungsseite also verschlechtert, nicht die Leistungsseite.",
+        "Vier unveränderte Werte: Hydration, Verletzungsrisiko, kardiovaskuläre Fitness und Muskelstatus sind stabil geblieben."
+      ],
+      "tone": "accent",
+      "id": "hinweis-5"
+    },
+    {
+      "type": "summary",
+      "caption": "Zusammenfassung",
+      "title": "Ihr Schwerpunkt: Erholung.",
+      "lead": "Das Profil ist ungewöhnlich eindeutig. Die Muskelmarker liegen im grünen Bereich, die Belastungs- und Entzündungsmarker im roten — und beide Verschlechterungen seit der Erstmessung liegen auf derselben Seite.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Belastung steuern, bevor Sie mehr trainieren",
+          "text": "Der schwächste Einzelmarker miR-146a-5p (2/9) geht in vier der sieben Auswertungen ein. Genau zwei davon — Belastungs-/Stressniveau und Entzündung — haben sich seit November verschlechtert. Solange dieser Wert unten bleibt, wirkt zusätzliches Training eher gegen Sie als für Sie. Konkret: ein bis zwei trainingsfreie Tage pro Woche, alle zwei bis vier Wochen eine Erholungswoche, Entspannungstechniken im Alltag. Ergänzend Kaempferol und Vitamin D3 aus der Interventionsliste."
+        },
+        {
+          "num": "02",
+          "title": "Mikronährstoffe über das Essen, nicht über Präparate",
+          "text": "Der Ernährungszustand (3/9) hat sich von 2 auf 3 verbessert — die Richtung stimmt. Aus dem Lebensstil-Radar sind Snacks und Fleisch (je 5 von 10) die beiden Stellschrauben mit dem größten Spielraum. Schwerpunkt auf Obst, Gemüse und Vollkorn für B-Vitamine, Magnesium, Eisen und Zink."
+        }
+      ],
+      "keepTitle": "Beibehalten",
+      "keepText": "Der Hydrationsstatus (8/9) ist seit der Erstmessung stabil und passt zu Ihrem Radarwert für Flüssigkeit (8/10). Auch die beiden Muskelmarker liegen mit je 7/9 im grünen Bereich — die Muskulatur ist nicht das Problem. Genetisch spricht Ihr FTO-Gen dafür, dass Bewegung bei Ihnen besonders gut auf das Körpergewicht wirkt.",
+      "controlTitle": "Kontrolle und nächster Schritt",
+      "controlItems": [
+        "Den Abstand zur nächsten Kontrollmessung legt die betreuende Einrichtung fest. Zwischen Ihren bisherigen beiden Messungen lagen rund drei Monate.",
+        "Die vier genetischen Varianten bleiben unverändert und werden nicht wiederholt.",
+        "Für die Vergleichbarkeit sollten Probenahme, Tageszeit und der Abstand zur letzten Trainingseinheit ähnlich bleiben."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Fragen zu Ihrem Befund?",
+      "text": "Besprechen Sie die Ergebnisse mit der Einrichtung, die die Probenahme durchgeführt hat. Dort liegt der Trainings- und Gesundheitskontext vor, der für die Einordnung nötig ist.",
+      "columns": [
+        {
+          "k": "Kontakt",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Vertrieb",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Musterbefund",
+          "text": "Sämtliche Werte, Genotypen und Angaben zur Person in diesem Dokument sind frei erfunden und dienen ausschließlich der Darstellung des Berichtsformats. Es handelt sich nicht um einen realen Befund."
+        },
+        {
+          "title": "Einordnung",
+          "text": "Dieser Bericht ist keine Diagnose, ersetzt keine ärztliche Beratung und keine sportmedizinische Untersuchung oder Leistungsdiagnostik. Die microRNA-Werte beschreiben einen Momentzustand; die genetischen Varianten beschreiben Veranlagungen, keine Erkrankungen und keine Leistungsprognose."
+        },
+        {
+          "title": "Rechtlicher Rahmen",
+          "text": "Genetische Untersuchungen unterliegen dem Gendiagnostikgesetz (GenDG); Aufklärung und schriftliche Einwilligung sind vor der Probenahme erforderlich. Die Laboranalytik erfolgt durch unseren Kooperationspartner. Polaris Diagnostics Europe GmbH verantwortet Vertrieb und Betreuung. Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand: August 2026",
+      "id": "kontakt"
     }
-   ],
-   "id": "deckblatt"
-  },
-  {
-   "type": "principle",
-   "caption": "Das Prinzip",
-   "title": "So lesen Sie diesen Befund.",
-   "lead": "Regelmäßiges Training verändert den Körper bis auf die zelluläre Ebene. Diese Prozesse hinterlassen Spuren in Form zirkulierender microRNAs — kleiner RNA-Moleküle, die regulieren, wie stark bestimmte Gene tatsächlich umgesetzt werden. Anders als die Genetik sind diese Werte veränderbar und damit der Verlaufsteil der Analyse.",
-   "cards": [
-    {
-     "title": "Ernährungszustand",
-     "text": "Vitamin- und Mikronährstoffbedarf sowie Flüssigkeitshaushalt. Auswertungen: Ernährungszustand, Hydrationsstatus."
-    },
-    {
-     "title": "Regeneration",
-     "text": "Erholungsfähigkeit, Belastung und Entzündungsgeschehen. Auswertungen: Verletzungsrisiko, Belastungsniveau, Entzündung."
-    },
-    {
-     "title": "Leistung",
-     "text": "Ausdauerkapazität und Zustand der Muskulatur. Auswertungen: Kardiovaskuläre Fitness, Muskelstatus."
-    }
-   ],
-   "flowTitle": "Der Ablauf",
-   "flow": [
-    {
-     "num": "01",
-     "title": "Messen",
-     "text": "Trockenblutkarte, Fingerbeere. Acht microRNAs und vier genetische Varianten. Kein Nüchternstatus nötig."
-    },
-    {
-     "num": "02",
-     "title": "Auswerten",
-     "text": "Die microRNAs fließen in sieben Auswertungen auf der Skala 1–9. Jede Auswertung kombiniert mehrere Marker."
-    },
-    {
-     "num": "03",
-     "title": "Steuern",
-     "text": "Gezielte Empfehlungen zu Training, Regeneration und sekundären Pflanzenstoffen — plus Verlaufskontrolle."
-    }
-   ],
-   "scaleTitle": "Wie lese ich die Skala?",
-   "scaleLead": "Alle Auswertungen und alle Einzelmarker laufen auf derselben Skala von 1 bis 9. Links rot, rechts grün — höher ist immer besser: 1–3 rot, 4–6 gelb, 7–9 grün.",
-   "scaleKind": "traffic",
-   "scaleZones": [
-    {
-     "tone": "red",
-     "label": "1–3 · Rot",
-     "text": "Außerhalb des optimalen Bereichs. Hier liegt der größte Hebel."
-    },
-    {
-     "tone": "amber",
-     "label": "4–6 · Gelb",
-     "text": "Durchschnittlicher Bereich mit Handlungsspielraum."
-    },
-    {
-     "tone": "green",
-     "label": "7–9 · Grün",
-     "text": "Im optimalen Bereich. Bestehende Routinen beibehalten."
-    }
-   ],
-   "id": "so-lesen"
-  },
-  {
-   "type": "callout",
-   "title": "Wichtig",
-   "text": "Dieser Befund ersetzt keine sportmedizinische Untersuchung und keine Leistungsdiagnostik.",
-   "items": [
-    "Die vier genetischen Varianten sind angeboren und werden nur einmalig erhoben. Vor der genetischen Analyse sind Aufklärung und schriftliche Einwilligung erforderlich (Gendiagnostikgesetz).",
-    "Nur die acht microRNA-Werte sind veränderbar — sie allein eignen sich als Erfolgskontrolle."
-   ],
-   "tone": "neutral",
-   "id": "hinweis"
-  },
-  {
-   "type": "evaluations",
-   "caption": "Ergebnis auf einen Blick",
-   "title": "Ihre sieben Auswertungen.",
-   "lead": "Jede Auswertung entsteht aus mehreren microRNAs gemeinsam. Sortiert nach Wert — die Bereiche mit dem größten Handlungsbedarf stehen unten.",
-   "items": [
-    {
-     "label": "Hydrationsstatus",
-     "sub": "Im optimalen Bereich",
-     "value": 8,
-     "display": "8 / 9",
-     "tone": "green"
-    },
-    {
-     "label": "Verletzungsrisiko & Regeneration",
-     "sub": "Durchschnittlich",
-     "value": 5,
-     "display": "5 / 9",
-     "tone": "amber"
-    },
-    {
-     "label": "Kardiovaskuläre Fitness",
-     "sub": "Durchschnittlich",
-     "value": 5,
-     "display": "5 / 9",
-     "tone": "amber"
-    },
-    {
-     "label": "Muskelstatus",
-     "sub": "Durchschnittlich",
-     "value": 5,
-     "display": "5 / 9",
-     "tone": "amber"
-    },
-    {
-     "label": "Ernährungszustand",
-     "sub": "Außerhalb",
-     "value": 3,
-     "display": "3 / 9",
-     "tone": "red"
-    },
-    {
-     "label": "Entzündung",
-     "sub": "Außerhalb",
-     "value": 3,
-     "display": "3 / 9",
-     "tone": "red"
-    },
-    {
-     "label": "Belastungs- / Stressniveau",
-     "sub": "Außerhalb",
-     "value": 2,
-     "display": "2 / 9",
-     "tone": "red"
-    }
-   ],
-   "id": "auswertungen"
-  },
-  {
-   "type": "callout",
-   "title": "Was daraus folgt",
-   "text": "Drei Werte im roten Bereich — Belastungs-/Stressniveau (2), Ernährungszustand (3) und Entzündung (3). Zwei davon — Belastung und Entzündung — hängen an miR-146a-5p (Überlastungs-miRNA, 2/9), dem schwächsten Einzelmarker des Profils; er geht insgesamt in vier der sieben Auswertungen ein. Der Ernährungszustand hängt dagegen am zweitschwächsten Marker miR-22-5p (3/9).",
-   "items": [
-    "Drei Werte im Mittelfeld — Verletzungsrisiko, kardiovaskuläre Fitness und Muskelstatus liegen bei je 5/9 und sind über Training direkt beeinflussbar.",
-    "Ein Wert im grünen Bereich — der Hydrationsstatus (8) ist stabil und soll es bleiben.",
-    "Den Abstand zur nächsten Kontrollmessung legt die betreuende Einrichtung fest; Ihre bisherigen beiden Messungen lagen rund drei Monate auseinander."
-   ],
-   "tone": "accent",
-   "id": "hinweis-2"
-  },
-  {
-   "type": "table",
-   "caption": "Grundlage der Auswertungen",
-   "title": "Die acht microRNAs.",
-   "lead": "Die Einzelwerte, aus denen die sieben Auswertungen berechnet werden. Auch sie laufen auf der Skala 1–9, höher ist besser.",
-   "cols": [
-    "Marker",
-    "Bezeichnung",
-    "Regulationsebene",
-    "Wert",
-    "Funktion"
-   ],
-   "rows": [
-    [
-     "miR-378a-3p",
-     "Muscle gain miRNA",
-     "Muskelaufbau & Leistungsanpassung",
-     "7 / 9",
-     "Reguliert Muskelaufbau und Anpassung an Trainingsreize."
-    ],
-    [
-     "miR-101-3p",
-     "Muskelvitalitäts-miRNA",
-     "Zellschutz der Muskulatur",
-     "7 / 9",
-     "Reguliert Muskelvitalität und zellulären Schutz."
-    ],
-    [
-     "miR-505-3p",
-     "Sport & Lifestyle miRNA",
-     "Lifestyle-Balance",
-     "5 / 9",
-     "Reflektiert das Zusammenspiel von Sport, Ernährung und Lebensstil."
-    ],
-    [
-     "miR-19b-3p",
-     "Mind miRNA",
-     "Neuronale & kognitive Regulation",
-     "4 / 9",
-     "Reguliert neuronale Signalwege, unterstützt kognitive Belastbarkeit und Ausdauerleistung."
-    ],
-    [
-     "miR-20a-5p",
-     "Zellerneuerungs-miRNA",
-     "Zelluläre Regeneration",
-     "4 / 9",
-     "Reguliert Zellerneuerung und Reparaturprozesse nach Belastung."
-    ],
-    [
-     "miR-30e-3p",
-     "Fitness miRNA",
-     "Muskuläre Ausdauerregulation",
-     "4 / 9",
-     "Reguliert Muskelausdauer und Fitnessadaption."
-    ],
-    [
-     "miR-22-5p",
-     "Fat burning miRNA",
-     "Metabolische Regulation",
-     "3 / 9",
-     "Reguliert Fettstoffwechsel und Energiebereitstellung."
-    ],
-    [
-     "miR-146a-5p",
-     "Überlastungs-miRNA",
-     "Entzündungsregulation bei Belastung",
-     "2 / 9",
-     "Reguliert Entzündungssignalwege unter Trainingsbelastung."
-    ]
-   ],
-   "id": "uebersicht"
-  },
-  {
-   "type": "callout",
-   "title": "Der Schlüsselmarker",
-   "text": "miR-146a-5p ist mit 2/9 der schwächste Einzelwert und fließt in vier der sieben Auswertungen ein: Belastungs-/Stressniveau, Entzündung, Verletzungsrisiko und kardiovaskuläre Fitness. Damit geht ein einzelner Marker in einen großen Teil des Gesamtbilds ein.",
-   "items": [
-    "Die beiden Muskelmarker miR-378a-3p und miR-101-3p liegen mit je 7/9 im grünen Bereich. Die Muskulatur selbst ist nicht das Problem — die Erholung ist es."
-   ],
-   "tone": "accent",
-   "id": "hinweis-3"
-  },
-  {
-   "type": "markers",
-   "caption": "Ihre Auswertungen",
-   "title": "Was Vorrang hat.",
-   "items": [
-    {
-     "name": "Belastungs- / Stressniveau",
-     "intro": "Aus miR-146a-5p (2/9) und miR-20a-5p (4/9). Stress stört die Ruhehomöostase und erhöht den Energieumsatz — entscheidend ist, ob Erholung die Belastung ausgleicht.",
-     "kind": "traffic",
-     "value": 2,
-     "display": "2 / 9",
-     "sub": "Außerhalb",
-     "tone": "red",
-     "text": "Ihr Wert liegt außerhalb des optimalen Bereichs — der schwächste der sieben Auswertungen. Reduzieren Sie Alltagsbelastungen, vermeiden Sie Zeitdruck, periodisieren Sie Ihr Training (1–2 trainingsfreie Tage pro Woche, alle 2–4 Wochen eine Erholungswoche) und nutzen Sie Entspannungstechniken wie autogenes Training oder Biofeedback."
-    },
-    {
-     "name": "Ernährungszustand",
-     "intro": "Aus miR-30e-3p (4/9), miR-22-5p (3/9) und miR-19b-3p (4/9). Gibt Hinweise auf Vitamin- und Mikronährstoffbedarf, unter anderem B-Vitamine, Eisen und Magnesium.",
-     "kind": "traffic",
-     "value": 3,
-     "display": "3 / 9",
-     "sub": "Außerhalb",
-     "tone": "red",
-     "text": "Ihr Wert liegt außerhalb des optimalen Bereichs. Achten Sie besonders auf Obst, Gemüse und Vollkornprodukte — reich an B-Vitaminen, Magnesium, Eisen und Zink. Magnesium über Nüsse und Sonnenblumenkerne, Zink über Milchprodukte, Käse und Hülsenfrüchte."
-    },
-    {
-     "name": "Entzündung",
-     "intro": "Aus fünf microRNAs: miR-505-3p, miR-30e-3p, miR-22-5p, miR-20a-5p und miR-146a-5p. Sport beugt Entzündungen vor, setzt bei Belastung aber zugleich Stresshormone frei.",
-     "kind": "traffic",
-     "value": 3,
-     "display": "3 / 9",
-     "sub": "Außerhalb",
-     "tone": "red",
-     "text": "Ihr Wert liegt außerhalb des optimalen Bereichs. Achten Sie auf Regeneration und ausreichend Schlaf, auf Vitamin C und Zink über Obst, Gemüse, Brokkoli und Zitrusfrüchte, auf Entspannung, moderate Bewegung und eine ballaststoffreiche Ernährung für die Darmflora."
-    }
-   ],
-   "id": "marker"
-  },
-  {
-   "type": "callout",
-   "title": "Der gemeinsame Nenner",
-   "text": "Alle drei Auswertungen enthalten miR-146a-5p oder miR-22-5p — die beiden schwächsten Einzelmarker. Belastungssteuerung und Regeneration wirken deshalb auf alle drei Werte gleichzeitig, nicht nur auf einen.",
-   "tone": "accent",
-   "id": "hinweis-4"
-  },
-  {
-   "type": "markers",
-   "caption": "Ihre Auswertungen",
-   "title": "Leistung und Erholung.",
-   "items": [
-    {
-     "name": "Verletzungsrisiko & Regeneration",
-     "intro": "Aus fünf microRNAs: miR-30e-3p, miR-22-5p, miR-146a-5p, miR-20a-5p und miR-505-3p. Bei ungenügender Erholung steigt das Verletzungsrisiko.",
-     "kind": "traffic",
-     "value": 5,
-     "display": "5 / 9",
-     "sub": "Durchschnittlich",
-     "tone": "amber",
-     "text": "Ihr Wert liegt im durchschnittlichen Bereich. Achten Sie auf ausreichende Erholungsphasen zwischen den Trainingseinheiten sowie auf Aufwärmen, Dehnen und Abkühlen. Ihre genetische Auswertung zum Muskelschädigungsrisiko auf Seite 07 ergänzt diesen Wert."
-    },
-    {
-     "name": "Kardiovaskuläre Fitness",
-     "intro": "Aus miR-20a-5p (4/9), miR-146a-5p (2/9) und miR-505-3p (5/9). Beschreibt, wie effizient das Herz Blut und Sauerstoff durch den Körper pumpt.",
-     "kind": "traffic",
-     "value": 5,
-     "display": "5 / 9",
-     "sub": "Durchschnittlich",
-     "tone": "amber",
-     "text": "Ihr Wert liegt im durchschnittlichen Bereich. Integrieren Sie mindestens zweimal wöchentlich Ausdauertraining — Laufen, schnelles Gehen, Radfahren, Schwimmen oder Wassergymnastik, je nach Trainingszustand."
-    },
-    {
-     "name": "Muskelstatus",
-     "intro": "Aus miR-101-3p (7/9), miR-378a-3p (7/9), miR-19b-3p (4/9) und miR-30e-3p (4/9). Kraft, Schnellkraft und Ausdauer hängen vom Ermüdungs- und Erholungszustand des Muskels ab.",
-     "kind": "traffic",
-     "value": 5,
-     "display": "5 / 9",
-     "sub": "Durchschnittlich",
-     "tone": "amber",
-     "text": "Ihr Wert liegt im durchschnittlichen Bereich. Integrieren Sie mindestens zweimal wöchentlich Krafttraining als Ganzkörpertraining mit Gewichten oder Eigengewicht, jeweils mit Aufwärm-, Abkühl- und Dehnungsphase."
-    },
-    {
-     "name": "Hydrationsstatus",
-     "intro": "Aus miR-101-3p (7/9) und miR-378a-3p (7/9). Flüssigkeitsverluste durch Schweiß und Atmung beeinträchtigen Körperfunktionen und Leistungsfähigkeit.",
-     "kind": "traffic",
-     "value": 8,
-     "display": "8 / 9",
-     "sub": "Optimal",
-     "tone": "green",
-     "text": "Ihr Wert liegt im optimalen Bereich. Achten Sie weiterhin auf mindestens zwei Liter Flüssigkeit täglich, auch während der Trainingseinheiten."
-    }
-   ],
-   "id": "marker-2"
-  },
-  {
-   "type": "table",
-   "caption": "Genetik · angeboren, einmalig erhoben",
-   "title": "Ihre Sportmarker.",
-   "lead": "Vier genetische Varianten als Ergänzung zu den veränderlichen microRNA-Werten. Sie beschreiben Veranlagungen — keine Bewertung und keine Leistungsprognose — und werden nur einmalig erhoben. Sporttyp · ACE und ACTN3: Die Kombination beider Varianten bestimmt die Veranlagung zwischen Ausdauer und Kraft.",
-   "cols": [
-    "Gen",
-    "Genotyp",
-    "Veranlagung",
-    "Bedeutung"
-   ],
-   "rows": [
-    [
-     "ACE",
-     "GG (homozygot)",
-     "Krafttyp",
-     "Beeinflusst das Bradykinin-Aldosteron-System und damit die Sauerstoffnutzung."
-    ],
-    [
-     "ACTN3",
-     "CT (heterozygot)",
-     "Mischtyp",
-     "Bestimmt die Muskelfaser-Zusammensetzung; die Mischform vereint schnelle und langsame Fasern."
-    ]
-   ],
-   "note": "Ihr Sporttyp auf der Skala Ausdauertyp — Mischtyp — Krafttyp: vorwiegend Krafttyp. Sie sind vorwiegend der Kraftsporttyp. Geeignet sind Kraftsportarten wie Gewichtheben, Kraft-Dreikampf oder Bodybuilding.",
-   "id": "uebersicht-2"
-  },
-  {
-   "type": "table",
-   "caption": "Genetik · angeboren, einmalig erhoben",
-   "title": "Drei weitere genetische Auswertungen.",
-   "cols": [
-    "Gen",
-    "Merkmal",
-    "Skala",
-    "Ihr Ergebnis"
-   ],
-   "rows": [
-    [
-     "FTO-Gen",
-     "Einfluss von Sport auf das Körpergewicht",
-     "Gering · Mittel · Sehr gut",
-     "Sehr gut. Sie können durch Sport sehr gut abnehmen — Bewegung ist bei Ihnen ein besonders wirksamer Hebel."
-    ],
-    [
-     "BDNF-Gen",
-     "Motivation, Sport zu betreiben",
-     "Niedrig · Mittel · Hoch",
-     "Keine gesteigerte Motivation. Feste Termine, Trainingspartner oder Kursformate helfen mehr als Vorsätze."
-    ],
-    [
-     "ACTN3-Gen",
-     "Risiko für Muskelschäden",
-     "Gering · Mittel · Hoch",
-     "Leicht erhöht. Achten Sie besonders auf Aufwärmen und anschließendes Abkühlen oder Dehnen."
-    ]
-   ],
-   "note": "Die Skalen dieser vier Auswertungen sind Positionsangaben zwischen zwei Polen, keine Ampel: Ein Sporttyp ist weder gut noch schlecht. Genetische Varianten werden nur einmalig erhoben und bleiben lebenslang unverändert.",
-   "id": "uebersicht-3"
-  },
-  {
-   "type": "radar",
-   "caption": "Standortbestimmung",
-   "title": "Ernährung und Lebensgewohnheiten.",
-   "lead": "Das Radar zeigt, wie nah Ihre aktuellen Gewohnheiten an den wissenschaftlichen Referenzwerten liegen. Je weiter außen ein Faktor liegt, desto günstiger — optimal ist 10.",
-   "axes": [
-    "Alltagsbewegung",
-    "Sport",
-    "Stress",
-    "Tabak",
-    "Alkohol",
-    "Snacks",
-    "Fleisch",
-    "Omega-3",
-    "Ballaststoffe",
-    "Obst/Gemüse",
-    "Flüssigkeit"
-   ],
-   "scores": [
-    {
-     "value": "4 von 10",
-     "label": "Stress",
-     "text": "Der schwächste Faktor Ihrer Selbstauskunft. Er fällt mit Ihrem schwächsten Laborwert zusammen (Belastungs-/Stressniveau 2/9) — beides deutet in dieselbe Richtung."
-    },
-    {
-     "value": "je 5",
-     "label": "Snacks & Fleisch",
-     "text": "Beide im Mittelfeld — die beiden Ernährungsfaktoren mit dem größten Spielraum nach oben, passend zum Ernährungszustand von 3/9."
-    },
-    {
-     "value": "9 · 8 · 8",
-     "label": "Tabak · Obst/Gemüse · Flüssigkeit",
-     "text": "Deutlich überdurchschnittlich. Der Flüssigkeitswert steht im Einklang mit Ihrem guten Hydrationsstatus (8/9)."
-    }
-   ],
-   "note": "Standortbestimmung auf Basis Ihrer Selbstauskunft, keine individuelle Diagnose. Bei Erkrankungen oder in besonderen Lebensphasen größere Ernährungsänderungen bitte ärztlich begleiten lassen.",
-   "id": "lebensstil"
-  },
-  {
-   "type": "table",
-   "caption": "Alle Empfehlungen auf einen Blick",
-   "title": "Ihre Interventionen.",
-   "lead": "Jede Empfehlung ist dem microRNA-Marker zugeordnet, aus dem sie stammt, mit dessen aktuellem Wert. Sortiert nach Dringlichkeit — die schwächsten Marker zuerst.",
-   "cols": [
-    "Wirkstoff",
-    "Aus Marker",
-    "Quelle",
-    "Menge",
-    "Hinweis"
-   ],
-   "rows": [
-    [
-     "Kaempferol",
-     "miR-146a-5p · 2",
-     "Rote Weintrauben, Grapefruit, Brokkoli, Rosenkohl, Kartoffeln, Zwiebeln, Kürbis",
-     "200–600 mg Extrakt/Tag",
-     "Antioxidativ, entzündungshemmend, schmerzstillend"
-    ],
-    [
-     "Vitamin D3",
-     "miR-146a-5p · 2",
-     "Lebertran, Hering, Lachs, Sardine, Thunfisch, Makrele, Hühnerei",
-     "100 µg/Tag (4.000 IE)",
-     "Fettlöslich — am besten mit Öl und einer Mahlzeit"
-    ],
-    [
-     "Resveratrol",
-     "miR-146a-5p · 2, miR-19b-3p · 4, miR-378a-3p · 7",
-     "Haut von Weintrauben, Himbeeren, Preiselbeeren, Johannisbeeren, Erdbeeren",
-     "150 mg trans-Resveratrol/Tag",
-     "Über die Ernährung allein schwer in dieser Menge erreichbar"
-    ],
-    [
-     "Capsaicin",
-     "miR-22-5p · 3",
-     "Paprika- und Chilischoten",
-     "0,8–1,5 mg/Tag (bzw. 1 g Chili-Pulver)",
-     "Fettlöslich; schmerzhemmend und durchblutungsfördernd"
-    ],
-    [
-     "Proanthocyanidin",
-     "miR-30e-3p · 4",
-     "Holunderbeeren, Cranberry, wilde Brombeeren, Hagebutten, Traubenkerne",
-     "36 mg/Tag",
-     "Besonders Schale, Kerngehäuse und Kerne enthalten viel"
-    ],
-    [
-     "Selen",
-     "miR-30e-3p · 4",
-     "Fleisch, Fisch, Eier, Milch- und Getreideprodukte",
-     "60–75 µg/Tag",
-     "Schützt Zellmembranen; Rolle bei DNA-Synthese und Zellteilung"
-    ],
-    [
-     "Genistein",
-     "miR-20a-5p · 4",
-     "Sojabohnen, Kidney-Bohnen, Kichererbsen, dunkle Schokolade",
-     "40–80 mg Rotkleeextrakt/Tag",
-     "Extrakte wirksamer als Pulver"
-    ],
-    [
-     "Curcumin",
-     "miR-19b-3p · 4",
-     "Kurkuma",
-     "max. 300 mg/Tag (5–10 g Pulver)",
-     "Mit schwarzem Pfeffer und Öl; nicht bei Schwangerschaft oder Gallensteinen"
-    ],
-    [
-     "Quercetin",
-     "miR-505-3p · 5, miR-19b-3p · 4",
-     "Zwiebel, Kapern, Liebstöckel, Schnittlauch",
-     "mind. 200 mg/Tag",
-     "Hitzeempfindlich — nicht stark erhitzen"
-    ],
-    [
-     "EGCG (Grüner Tee)",
-     "miR-505-3p · 5",
-     "Unfermentierter Tee (weißer und grüner Tee)",
-     "max. 800 mg/Tag (1 Tasse ≈ 165 mg)",
-     "Piperin, Vitamin C und Fischöl verbessern die Bioverfügbarkeit"
-    ],
-    [
-     "Sulforaphan",
-     "miR-505-3p · 5",
-     "Kreuzblütengewächse, Kohl, Brokkoli(-sprossen)",
-     "25 mg/Tag (250 g Brokkoli)",
-     "Nur kurz dünsten oder roh — sonst geht der Wirkstoff verloren"
-    ],
-    [
-     "Betain",
-     "miR-378a-3p · 7",
-     "Quinoa, weißer Gänsefuß, Brokkoli, Spinat, rote Beete",
-     "500–2.000 mg/Tag",
-     "Wird teilweise selbst synthetisiert"
-    ],
-    [
-     "Celastrol",
-     "miR-101-3p · 7",
-     "Wilfords Dreiflügelfrucht",
-     "30 mg/Tag",
-     "Antioxidativ und entzündungshemmend; als Kapseln oder Tropfen"
-    ],
-    [
-     "Zink",
-     "miR-101-3p · 7",
-     "Fleisch, Milchprodukte, Vollkornprodukte",
-     "7–16 mg/Tag",
-     "Hohe Phytatzufuhr hemmt die Aufnahme"
-    ]
-   ],
-   "note": "Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen — insbesondere bei Schwangerschaft, Vorerkrankungen oder gleichzeitiger Medikamenteneinnahme. Diese Übersicht ersetzt keine ärztliche Beratung.",
-   "id": "uebersicht-4"
-  },
-  {
-   "type": "trend",
-   "caption": "Verlauf",
-   "title": "Zwei Messungen im Vergleich.",
-   "lead": "Gegenüberstellung Ihrer beiden bisherigen Messungen. Dargestellt sind ausschließlich gemessene Werte — keine Prognose.",
-   "firstLabel": "20.11.2025",
-   "secondLabel": "18.02.2026",
-   "kind": "traffic",
-   "items": [
-    {
-     "label": "Ernährungszustand",
-     "first": 2,
-     "second": 3,
-     "firstDisplay": "2 / 9",
-     "secondDisplay": "3 / 9",
-     "delta": "+1",
-     "tone": "red",
-     "status": "Außerhalb"
-    },
-    {
-     "label": "Hydrationsstatus",
-     "first": 8,
-     "second": 8,
-     "firstDisplay": "8 / 9",
-     "secondDisplay": "8 / 9",
-     "delta": "±0",
-     "tone": "green",
-     "status": "Optimal"
-    },
-    {
-     "label": "Verletzungsrisiko & Regeneration",
-     "first": 5,
-     "second": 5,
-     "firstDisplay": "5 / 9",
-     "secondDisplay": "5 / 9",
-     "delta": "±0",
-     "tone": "amber",
-     "status": "Durchschnitt"
-    },
-    {
-     "label": "Belastungs- / Stressniveau",
-     "first": 3,
-     "second": 2,
-     "firstDisplay": "3 / 9",
-     "secondDisplay": "2 / 9",
-     "delta": "−1",
-     "tone": "red",
-     "status": "Außerhalb"
-    },
-    {
-     "label": "Kardiovaskuläre Fitness",
-     "first": 5,
-     "second": 5,
-     "firstDisplay": "5 / 9",
-     "secondDisplay": "5 / 9",
-     "delta": "±0",
-     "tone": "amber",
-     "status": "Durchschnitt"
-    },
-    {
-     "label": "Entzündung",
-     "first": 4,
-     "second": 3,
-     "firstDisplay": "4 / 9",
-     "secondDisplay": "3 / 9",
-     "delta": "−1",
-     "tone": "red",
-     "status": "Außerhalb"
-    },
-    {
-     "label": "Muskelstatus",
-     "first": 5,
-     "second": 5,
-     "firstDisplay": "5 / 9",
-     "secondDisplay": "5 / 9",
-     "delta": "±0",
-     "tone": "amber",
-     "status": "Durchschnitt"
-    }
-   ],
-   "note": "Der Abstand zwischen den beiden Messungen betrug rund drei Monate. Ob dieser Abstand auch für die nächste Kontrolle passt, legt die betreuende Einrichtung fest.",
-   "id": "verlauf"
-  },
-  {
-   "type": "callout",
-   "title": "Was der Verlauf zeigt",
-   "text": "Eine Verbesserung: der Ernährungszustand von 2 auf 3 — die Richtung stimmt, der Wert liegt aber weiterhin außerhalb des optimalen Bereichs.",
-   "items": [
-    "Zwei Verschlechterungen: Belastungs-/Stressniveau (3 → 2) und Entzündung (4 → 3). Beide enthalten miR-146a-5p. Zwischen den beiden Messungen hat sich die Belastungsseite also verschlechtert, nicht die Leistungsseite.",
-    "Vier unveränderte Werte: Hydration, Verletzungsrisiko, kardiovaskuläre Fitness und Muskelstatus sind stabil geblieben."
-   ],
-   "tone": "accent",
-   "id": "hinweis-5"
-  },
-  {
-   "type": "summary",
-   "caption": "Zusammenfassung",
-   "title": "Ihr Schwerpunkt: Erholung.",
-   "lead": "Das Profil ist ungewöhnlich eindeutig. Die Muskelmarker liegen im grünen Bereich, die Belastungs- und Entzündungsmarker im roten — und beide Verschlechterungen seit der Erstmessung liegen auf derselben Seite.",
-   "focuses": [
-    {
-     "num": "01",
-     "title": "Belastung steuern, bevor Sie mehr trainieren",
-     "text": "Der schwächste Einzelmarker miR-146a-5p (2/9) geht in vier der sieben Auswertungen ein. Genau zwei davon — Belastungs-/Stressniveau und Entzündung — haben sich seit November verschlechtert. Solange dieser Wert unten bleibt, wirkt zusätzliches Training eher gegen Sie als für Sie. Konkret: ein bis zwei trainingsfreie Tage pro Woche, alle zwei bis vier Wochen eine Erholungswoche, Entspannungstechniken im Alltag. Ergänzend Kaempferol und Vitamin D3 aus der Interventionsliste."
-    },
-    {
-     "num": "02",
-     "title": "Mikronährstoffe über das Essen, nicht über Präparate",
-     "text": "Der Ernährungszustand (3/9) hat sich von 2 auf 3 verbessert — die Richtung stimmt. Aus dem Lebensstil-Radar sind Snacks und Fleisch (je 5 von 10) die beiden Stellschrauben mit dem größten Spielraum. Schwerpunkt auf Obst, Gemüse und Vollkorn für B-Vitamine, Magnesium, Eisen und Zink."
-    }
-   ],
-   "keepTitle": "Beibehalten",
-   "keepText": "Der Hydrationsstatus (8/9) ist seit der Erstmessung stabil und passt zu Ihrem Radarwert für Flüssigkeit (8/10). Auch die beiden Muskelmarker liegen mit je 7/9 im grünen Bereich — die Muskulatur ist nicht das Problem. Genetisch spricht Ihr FTO-Gen dafür, dass Bewegung bei Ihnen besonders gut auf das Körpergewicht wirkt.",
-   "controlTitle": "Kontrolle und nächster Schritt",
-   "controlItems": [
-    "Den Abstand zur nächsten Kontrollmessung legt die betreuende Einrichtung fest. Zwischen Ihren bisherigen beiden Messungen lagen rund drei Monate.",
-    "Die vier genetischen Varianten bleiben unverändert und werden nicht wiederholt.",
-    "Für die Vergleichbarkeit sollten Probenahme, Tageszeit und der Abstand zur letzten Trainingseinheit ähnlich bleiben."
-   ],
-   "id": "zusammenfassung"
-  },
-  {
-   "type": "contact",
-   "title": "Fragen zu Ihrem Befund?",
-   "text": "Besprechen Sie die Ergebnisse mit der Einrichtung, die die Probenahme durchgeführt hat. Dort liegt der Trainings- und Gesundheitskontext vor, der für die Einordnung nötig ist.",
-   "columns": [
-    {
-     "k": "Kontakt",
-     "lines": [
-      "contact@polarisdx.net",
-      "+49 152 2858 0999",
-      "www.polarisdx.net"
-     ]
-    },
-    {
-     "k": "Vertrieb",
-     "lines": [
-      "Polaris Diagnostics Europe GmbH",
-      "Große Bleichen 1–3",
-      "20354 Hamburg"
-     ]
-    }
-   ],
-   "legal": [
-    {
-     "title": "Musterbefund",
-     "text": "Sämtliche Werte, Genotypen und Angaben zur Person in diesem Dokument sind frei erfunden und dienen ausschließlich der Darstellung des Berichtsformats. Es handelt sich nicht um einen realen Befund."
-    },
-    {
-     "title": "Einordnung",
-     "text": "Dieser Bericht ist keine Diagnose, ersetzt keine ärztliche Beratung und keine sportmedizinische Untersuchung oder Leistungsdiagnostik. Die microRNA-Werte beschreiben einen Momentzustand; die genetischen Varianten beschreiben Veranlagungen, keine Erkrankungen und keine Leistungsprognose."
-    },
-    {
-     "title": "Rechtlicher Rahmen",
-     "text": "Genetische Untersuchungen unterliegen dem Gendiagnostikgesetz (GenDG); Aufklärung und schriftliche Einwilligung sind vor der Probenahme erforderlich. Die Laboranalytik erfolgt durch unseren Kooperationspartner. Polaris Diagnostics Europe GmbH verantwortet Vertrieb und Betreuung. Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen."
-    }
-   ],
-   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand: August 2026",
-   "id": "kontakt"
-  }
- ]
+  ]
 }

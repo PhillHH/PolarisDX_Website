@@ -703,6 +703,7 @@
     "toneRed": "outside the range",
     "toneAmber": "borderline",
     "toneGreen": "within range",
-    "markersChapter": "The individual values"
+    "markersChapter": "The individual values",
+    "ctaPdf": "This report as PDF"
   }
 }

@@ -703,6 +703,7 @@
     "toneRed": "außerhalb",
     "toneAmber": "im Grenzbereich",
     "toneGreen": "im Bereich",
-    "markersChapter": "Die Einzelwerte"
+    "markersChapter": "Die Einzelwerte",
+    "ctaPdf": "Diesen Befund als PDF"
   }
 }

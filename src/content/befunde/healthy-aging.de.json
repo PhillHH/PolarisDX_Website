@@ -1,659 +1,559 @@
 {
- "slug": "healthy-aging",
- "panel": "Healthy Aging",
- "blocks": [
-  {
-   "type": "cover",
-   "badge": "Musterbefund · Beispieldaten",
-   "panel": "Healthy Aging",
-   "subtitle": "Ihre epigenetische Uhr",
-   "claim": "Ein paar Tropfen Blut zeigen, in welchem Zustand Ihre zelluläre Regulation arbeitet — und an welchen Stellschrauben sich das biologische Alter beeinflussen lässt.",
-   "meta": [
+  "slug": "healthy-aging",
+  "panel": "Healthy Aging",
+  "blocks": [
     {
-     "k": "Befund für",
-     "v": "Muster, Erika"
-    },
-    {
-     "k": "Probenahme",
-     "v": "15.06.2026"
-    },
-    {
-     "k": "Material",
-     "v": "Trockenblutkarte"
-    },
-    {
-     "k": "Marker",
-     "v": "4 + Lebensstil"
-    }
-   ],
-   "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
-   "id": "deckblatt"
-  },
-  {
-   "type": "principle",
-   "caption": "Das Prinzip",
-   "title": "So lesen Sie diesen Befund.",
-   "lead": "Ihr Körper erneuert sich täglich: Zellen teilen sich, reparieren DNA-Schäden und reagieren auf Stress, Ernährung, Schlaf und Umwelt. Diese Prozesse hinterlassen Spuren in der DNA-Methylierung. Aus diesen Mustern liest der Befund Ihr biologisches Alter — nicht in Kalenderjahren, sondern im Zustand Ihrer zellulären Regulation.",
-   "cards": [
-    {
-     "title": "Schutz",
-     "text": "Wie stabil Ihre DNA geschützt ist und wie effizient die Reparaturmechanismen arbeiten. Marker: Telomere, LINE-1."
-    },
-    {
-     "title": "Regulation",
-     "text": "Wie kontrolliert entzündliche Prozesse bleiben und wie belastbar die zelluläre Balance reagiert. Marker: IL-6."
-    },
-    {
-     "title": "Einordnung",
-     "text": "Wie Ihre Werte im Vergleich zu einer alters-, geschlechts- und ethnienabgestimmten Referenzgruppe stehen."
-    }
-   ],
-   "flowTitle": "Der Ablauf",
-   "flow": [
-    {
-     "num": "01",
-     "title": "Messen",
-     "text": "Trockenblutkarte, Fingerbeere. Telomerlänge und Methylierungsmarker (LINE-1, IL-6, Alterungsmarker). Kein Nüchternstatus nötig."
-    },
-    {
-     "num": "02",
-     "title": "Einordnen",
-     "text": "Vergleich mit der Referenzgruppe. 100 % entspricht dem Methylierungswert der gesunden Kontrollgruppe."
-    },
-    {
-     "num": "03",
-     "title": "Verändern",
-     "text": "Zu jedem Marker die passende Intervention — was konkret zu essen, zu meiden oder zu ändern ist — plus Verlaufskontrolle."
-    }
-   ],
-   "scaleCaption": "Orientierung",
-   "scaleTitle": "Wie lese ich die Skala?",
-   "scaleLead": "Alle Marker werden in Prozent der Referenz angegeben. 100 % ist der Normbereich, und höher ist besser. Die Telomerlänge wird zusätzlich in Kilobasenpaaren (kbp) ausgewiesen.",
-   "scaleKind": "percent",
-   "scaleTicks": [
-    "70 %",
-    "85 %",
-    "100 %",
-    "115 %",
-    "130 %"
-   ],
-   "scaleZones": [
-    {
-     "tone": "red",
-     "label": "Unter 90 % · Rot",
-     "text": "Dringender Handlungsbedarf."
-    },
-    {
-     "tone": "amber",
-     "label": "90–100 % · Gelb",
-     "text": "Handlungsbedarf, gezielt gegensteuern."
-    },
-    {
-     "tone": "green",
-     "label": "Ab 100 % · Grün",
-     "text": "Kein Handlungsbedarf, Ergebnis erhalten."
-    }
-   ],
-   "id": "so-lesen"
-  },
-  {
-   "type": "resultTable",
-   "caption": "Ergebnis auf einen Blick",
-   "title": "Alle Marker im Überblick.",
-   "cols": [
-    "Marker",
-    "Ihr Wert",
-    "Referenz",
-    "Einordnung"
-   ],
-   "rows": [
-    {
-     "cells": [
-      "Telomere · Zelluläre Stabilität",
-      "108 kbp (96 %)",
-      "112 kbp = 100 %",
-      "Handlungsbedarf"
-     ],
-     "tone": "amber"
-    },
-    {
-     "cells": [
-      "LINE-1 · DNA-Stabilität",
-      "96 %",
-      "≥ 100 %",
-      "Handlungsbedarf"
-     ],
-     "tone": "amber"
-    },
-    {
-     "cells": [
-      "Epigenetische Alterungsmarker · Biologisches Alter",
-      "103 %",
-      "≥ 100 %",
-      "Im Normbereich"
-     ],
-     "tone": "green"
-    },
-    {
-     "cells": [
-      "IL-6 · Entzündungsregulation",
-      "108 %",
-      "≥ 100 %",
-      "Im Normbereich"
-     ],
-     "tone": "green"
-    },
-    {
-     "cells": [
-      "Ernährung · Standortbestimmung",
-      "72 / 100",
-      "≥ 60",
-      "Im Normbereich"
-     ],
-     "tone": "green"
-    },
-    {
-     "cells": [
-      "Lebensstil · Standortbestimmung",
-      "65 / 100",
-      "≥ 60",
-      "Im Normbereich"
-     ],
-     "tone": "green"
-    }
-   ],
-   "id": "ergebnis"
-  },
-  {
-   "type": "ageDots",
-   "caption": "Biologisches Alter",
-   "title": "Markerspezifisches Alter im Vergleich",
-   "lead": "Chronologisches Alter: 48 Jahre. Jeder Marker ergibt ein eigenes biologisches Alter — ein Gesamtwert wird bewusst nicht gebildet.",
-   "chronological": 48,
-   "min": 35,
-   "max": 60,
-   "unit": "Jahre",
-   "ticks": [
-    "35",
-    "40",
-    "45",
-    "50",
-    "55",
-    "60"
-   ],
-   "chronologicalLabel": "48 J.",
-   "note": "Die gestrichelte Linie markiert das chronologische Alter von 48 Jahren. Links davon: jünger als chronologisch. Rechts davon: älter.",
-   "items": [
-    {
-     "label": "Telomere",
-     "age": 53,
-     "delta": "+5",
-     "display": "53 J. · +5",
-     "tone": "red"
-    },
-    {
-     "label": "LINE-1",
-     "age": 50,
-     "delta": "+2",
-     "display": "50 J. · +2",
-     "tone": "amber"
-    },
-    {
-     "label": "IL-6",
-     "age": 46,
-     "delta": "−2",
-     "display": "46 J. · −2",
-     "tone": "green"
-    },
-    {
-     "label": "Epigen. Alterungsmarker",
-     "age": 45,
-     "delta": "−3",
-     "display": "45 J. · −3",
-     "tone": "green"
-    }
-   ],
-   "id": "biologisches-alter"
-  },
-  {
-   "type": "markers",
-   "caption": "Ihre Marker",
-   "title": "Telomere und Alterungsmarker.",
-   "items": [
-    {
-     "name": "Telomere",
-     "category": "Zelluläre Stabilität",
-     "intro": "Schutzstrukturen an den Chromosomenenden. Verkürzen sie sich zu stark, verlieren Zellen ihre Teilungsfähigkeit — ein zentraler Treiber des biologischen Alterns.",
-     "kind": "percent",
-     "value": 96,
-     "display": "96 %",
-     "sub": "108 kbp",
-     "ticks": [
-      "70 %",
-      "85 %",
-      "100 %",
-      "115 %",
-      "130 %"
-     ],
-     "tone": "amber",
-     "text": "Ihre Telomerlänge liegt 4 % unter dem Erwartungswert für Ihr Alter (108 statt 112 kbp). Daraus ergibt sich ein biologisches Telomeralter von 53 Jahren, fünf Jahre über dem chronologischen. Zusammen mit LINE-1 ist das der Schwerpunkt dieses Befunds; die Bewertung erfolgt stets im Kontext der übrigen Marker.",
-     "table": {
-      "cols": [
-       "Wirkstoff",
-       "Quelle",
-       "Menge",
-       "Hinweis"
+      "type": "cover",
+      "badge": "Musterbefund · Beispieldaten",
+      "panel": "Healthy Aging",
+      "subtitle": "Ihre epigenetische Uhr",
+      "claim": "Ein paar Tropfen Blut zeigen, in welchem Zustand Ihre zelluläre Regulation arbeitet — und an welchen Stellschrauben sich das biologische Alter beeinflussen lässt.",
+      "meta": [
+        {
+          "k": "Befund für",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Probenahme",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Material",
+          "v": "Trockenblutkarte"
+        },
+        {
+          "k": "Marker",
+          "v": "4 + Lebensstil"
+        }
       ],
-      "rows": [
-       [
-        "Folat",
-        "Spinat, Grünkohl, Hülsenfrüchte, Tomaten, Sprossen",
-        "2 Handvoll grünes Gemüse tägl.",
-        "Roh oder kurz gedünstet — hitzeempfindlich"
-       ],
-       [
-        "Vitamin B2 und B12",
-        "Eier, Käse, fermentierte Lebensmittel",
-        "täglich 1 Portion",
-        "Vegan: B12 gezielt supplementieren"
-       ],
-       [
-        "Methionin",
-        "Sesam, Soja, Erbsen, Paranüsse",
-        "2–3 Paranüsse/Tag",
-        "Wegen Selen nicht mehr als 3–4 Nüsse"
-       ],
-       [
-        "EGCG",
-        "Grüner Tee, Matcha",
-        "3–4 Tassen/Tag",
-        "Nicht zu eisenreichen Mahlzeiten"
-       ]
-      ]
-     }
+      "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+      "id": "deckblatt",
+      "benefit": "Wie Ihr Klient altert — in vier getrennten Werten, und was er daran ändern kann."
     },
     {
-     "name": "Epigenetische Alterungsmarker",
-     "category": "Biologisches Alter",
-     "intro": "Die Methylierung stark altersbezogener Gene, verglichen mit einer alters-, geschlechts- und ethnienabgestimmten Kontrollgruppe.",
-     "kind": "percent",
-     "value": 103,
-     "display": "103 %",
-     "sub": "45 Jahre",
-     "ticks": [
-      "70 %",
-      "85 %",
-      "100 %",
-      "115 %",
-      "130 %"
-     ],
-     "tone": "green",
-     "text": "Leicht über dem erwarteten Bereich — eine günstige epigenetische Ausprägung. Das daraus abgeleitete biologische Alter liegt bei 45 Jahren, drei Jahre unter dem chronologischen.",
-     "table": {
-      "cols": [
-       "Wirkstoff",
-       "Quelle",
-       "Menge",
-       "Hinweis"
+      "type": "principle",
+      "caption": "Das Prinzip",
+      "title": "So lesen Sie diesen Befund.",
+      "lead": "Ihr Körper erneuert sich täglich: Zellen teilen sich, reparieren DNA-Schäden und reagieren auf Stress, Ernährung, Schlaf und Umwelt. Diese Prozesse hinterlassen Spuren in der DNA-Methylierung. Aus diesen Mustern liest der Befund Ihr biologisches Alter — nicht in Kalenderjahren, sondern im Zustand Ihrer zellulären Regulation.",
+      "cards": [
+        {
+          "title": "Schutz",
+          "text": "Wie stabil Ihre DNA geschützt ist und wie effizient die Reparaturmechanismen arbeiten. Marker: Telomere, LINE-1."
+        },
+        {
+          "title": "Regulation",
+          "text": "Wie kontrolliert entzündliche Prozesse bleiben und wie belastbar die zelluläre Balance reagiert. Marker: IL-6."
+        },
+        {
+          "title": "Einordnung",
+          "text": "Wie Ihre Werte im Vergleich zu einer alters-, geschlechts- und ethnienabgestimmten Referenzgruppe stehen."
+        }
       ],
-      "rows": [
-       [
-        "Kaffee",
-        "Filterkaffee, Espresso",
-        "2–3 Tassen/Tag",
-        "Nicht nach 14 Uhr — kann den Schlaf stören"
-       ],
-       [
-        "Grünes Blattgemüse",
-        "Spinat, Grünkohl, Mangold",
-        "1 Portion täglich",
-        "Liefert Folat, unterstützt die Methylierung"
-       ],
-       [
-        "Käse und Milchprodukte",
-        "Hart- und Frischkäse, Joghurt",
-        "in Maßen",
-        "Übermäßiger Konsum kann die Regulation reduzieren"
-       ]
-      ]
-     }
-    }
-   ],
-   "id": "marker"
-  },
-  {
-   "type": "markers",
-   "caption": "Ihre Marker",
-   "title": "LINE-1 und IL-6.",
-   "items": [
+      "flowTitle": "Der Ablauf",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Messen",
+          "text": "Trockenblutkarte, Fingerbeere. Telomerlänge und Methylierungsmarker (LINE-1, IL-6, Alterungsmarker). Kein Nüchternstatus nötig."
+        },
+        {
+          "num": "02",
+          "title": "Einordnen",
+          "text": "Vergleich mit der Referenzgruppe. 100 % entspricht dem Methylierungswert der gesunden Kontrollgruppe."
+        },
+        {
+          "num": "03",
+          "title": "Verändern",
+          "text": "Zu jedem Marker die passende Intervention — was konkret zu essen, zu meiden oder zu ändern ist — plus Verlaufskontrolle."
+        }
+      ],
+      "scaleCaption": "Orientierung",
+      "scaleTitle": "Wie lese ich die Skala?",
+      "scaleLead": "Alle Marker werden in Prozent der Referenz angegeben. 100 % ist der Normbereich, und höher ist besser. Die Telomerlänge wird zusätzlich in Kilobasenpaaren (kbp) ausgewiesen.",
+      "scaleKind": "percent",
+      "scaleTicks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "Unter 90 % · Rot",
+          "text": "Dringender Handlungsbedarf."
+        },
+        {
+          "tone": "amber",
+          "label": "90–100 % · Gelb",
+          "text": "Handlungsbedarf, gezielt gegensteuern."
+        },
+        {
+          "tone": "green",
+          "label": "Ab 100 % · Grün",
+          "text": "Kein Handlungsbedarf, Ergebnis erhalten."
+        }
+      ],
+      "id": "so-lesen"
+    },
     {
-     "name": "LINE-1",
-     "category": "DNA-Stabilität",
-     "intro": "LINE-1-Elemente machen rund 17 % des Genoms aus. Ihre Methylierung gilt als Marker für die globale DNA-Regulation und damit für die genomische Stabilität insgesamt.",
-     "kind": "percent",
-     "value": 96,
-     "display": "96 %",
-     "sub": "50 Jahre",
-     "ticks": [
-      "70 %",
-      "85 %",
-      "100 %",
-      "115 %",
-      "130 %"
-     ],
-     "tone": "amber",
-     "text": "Leicht reduzierte globale DNA-Regulation, im Gesamtprofil zu bewerten. Das abgeleitete biologische Alter liegt bei 50 Jahren. Der Marker hängt am selben Stoffwechselweg wie die Telomere — beide sprechen auf dieselben Methyl-Donatoren an.",
-     "table": {
-      "cols": [
-       "Wirkstoff",
-       "Quelle",
-       "Menge",
-       "Hinweis"
-      ],
+      "type": "resultTable",
+      "caption": "Ergebnis auf einen Blick",
+      "title": "Alle Marker im Überblick.",
+      "cols": ["Marker", "Ihr Wert", "Referenz", "Einordnung"],
       "rows": [
-       [
-        "Methyl-Donatoren",
-        "Blattgemüse, Hülsenfrüchte, Eier, Nüsse, Sesam, Soja",
-        "täglich in mind. 2 Mahlzeiten",
-        "Folat, B2, B6, B12 gemeinsam zuführen"
-       ],
-       [
+        {
+          "cells": [
+            "Telomere · Zelluläre Stabilität",
+            "108 kbp (96 %)",
+            "112 kbp = 100 %",
+            "Handlungsbedarf"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": ["LINE-1 · DNA-Stabilität", "96 %", "≥ 100 %", "Handlungsbedarf"],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "Epigenetische Alterungsmarker · Biologisches Alter",
+            "103 %",
+            "≥ 100 %",
+            "Im Normbereich"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": ["IL-6 · Entzündungsregulation", "108 %", "≥ 100 %", "Im Normbereich"],
+          "tone": "green"
+        },
+        {
+          "cells": ["Ernährung · Standortbestimmung", "72 / 100", "≥ 60", "Im Normbereich"],
+          "tone": "green"
+        },
+        {
+          "cells": ["Lebensstil · Standortbestimmung", "65 / 100", "≥ 60", "Im Normbereich"],
+          "tone": "green"
+        }
+      ],
+      "id": "ergebnis"
+    },
+    {
+      "type": "ageDots",
+      "caption": "Biologisches Alter",
+      "title": "Markerspezifisches Alter im Vergleich",
+      "lead": "Chronologisches Alter: 48 Jahre. Jeder Marker ergibt ein eigenes biologisches Alter — ein Gesamtwert wird bewusst nicht gebildet.",
+      "chronological": 48,
+      "min": 35,
+      "max": 60,
+      "unit": "Jahre",
+      "ticks": ["35", "40", "45", "50", "55", "60"],
+      "chronologicalLabel": "48 J.",
+      "note": "Die gestrichelte Linie markiert das chronologische Alter von 48 Jahren. Links davon: jünger als chronologisch. Rechts davon: älter.",
+      "items": [
+        {
+          "label": "Telomere",
+          "age": 53,
+          "delta": "+5",
+          "display": "53 J. · +5",
+          "tone": "red"
+        },
+        {
+          "label": "LINE-1",
+          "age": 50,
+          "delta": "+2",
+          "display": "50 J. · +2",
+          "tone": "amber"
+        },
+        {
+          "label": "IL-6",
+          "age": 46,
+          "delta": "−2",
+          "display": "46 J. · −2",
+          "tone": "green"
+        },
+        {
+          "label": "Epigen. Alterungsmarker",
+          "age": 45,
+          "delta": "−3",
+          "display": "45 J. · −3",
+          "tone": "green"
+        }
+      ],
+      "id": "biologisches-alter"
+    },
+    {
+      "type": "markers",
+      "caption": "Ihre Marker",
+      "title": "Telomere und Alterungsmarker.",
+      "items": [
+        {
+          "name": "Telomere",
+          "category": "Zelluläre Stabilität",
+          "intro": "Schutzstrukturen an den Chromosomenenden. Verkürzen sie sich zu stark, verlieren Zellen ihre Teilungsfähigkeit — ein zentraler Treiber des biologischen Alterns.",
+          "kind": "percent",
+          "value": 96,
+          "display": "96 %",
+          "sub": "108 kbp",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "amber",
+          "text": "Ihre Telomerlänge liegt 4 % unter dem Erwartungswert für Ihr Alter (108 statt 112 kbp). Daraus ergibt sich ein biologisches Telomeralter von 53 Jahren, fünf Jahre über dem chronologischen. Zusammen mit LINE-1 ist das der Schwerpunkt dieses Befunds; die Bewertung erfolgt stets im Kontext der übrigen Marker.",
+          "table": {
+            "cols": ["Wirkstoff", "Quelle", "Menge", "Hinweis"],
+            "rows": [
+              [
+                "Folat",
+                "Spinat, Grünkohl, Hülsenfrüchte, Tomaten, Sprossen",
+                "2 Handvoll grünes Gemüse tägl.",
+                "Roh oder kurz gedünstet — hitzeempfindlich"
+              ],
+              [
+                "Vitamin B2 und B12",
+                "Eier, Käse, fermentierte Lebensmittel",
+                "täglich 1 Portion",
+                "Vegan: B12 gezielt supplementieren"
+              ],
+              [
+                "Methionin",
+                "Sesam, Soja, Erbsen, Paranüsse",
+                "2–3 Paranüsse/Tag",
+                "Wegen Selen nicht mehr als 3–4 Nüsse"
+              ],
+              ["EGCG", "Grüner Tee, Matcha", "3–4 Tassen/Tag", "Nicht zu eisenreichen Mahlzeiten"]
+            ]
+          }
+        },
+        {
+          "name": "Epigenetische Alterungsmarker",
+          "category": "Biologisches Alter",
+          "intro": "Die Methylierung stark altersbezogener Gene, verglichen mit einer alters-, geschlechts- und ethnienabgestimmten Kontrollgruppe.",
+          "kind": "percent",
+          "value": 103,
+          "display": "103 %",
+          "sub": "45 Jahre",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "green",
+          "text": "Leicht über dem erwarteten Bereich — eine günstige epigenetische Ausprägung. Das daraus abgeleitete biologische Alter liegt bei 45 Jahren, drei Jahre unter dem chronologischen.",
+          "table": {
+            "cols": ["Wirkstoff", "Quelle", "Menge", "Hinweis"],
+            "rows": [
+              [
+                "Kaffee",
+                "Filterkaffee, Espresso",
+                "2–3 Tassen/Tag",
+                "Nicht nach 14 Uhr — kann den Schlaf stören"
+              ],
+              [
+                "Grünes Blattgemüse",
+                "Spinat, Grünkohl, Mangold",
+                "1 Portion täglich",
+                "Liefert Folat, unterstützt die Methylierung"
+              ],
+              [
+                "Käse und Milchprodukte",
+                "Hart- und Frischkäse, Joghurt",
+                "in Maßen",
+                "Übermäßiger Konsum kann die Regulation reduzieren"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "markers",
+      "caption": "Ihre Marker",
+      "title": "LINE-1 und IL-6.",
+      "items": [
+        {
+          "name": "LINE-1",
+          "category": "DNA-Stabilität",
+          "intro": "LINE-1-Elemente machen rund 17 % des Genoms aus. Ihre Methylierung gilt als Marker für die globale DNA-Regulation und damit für die genomische Stabilität insgesamt.",
+          "kind": "percent",
+          "value": 96,
+          "display": "96 %",
+          "sub": "50 Jahre",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "amber",
+          "text": "Leicht reduzierte globale DNA-Regulation, im Gesamtprofil zu bewerten. Das abgeleitete biologische Alter liegt bei 50 Jahren. Der Marker hängt am selben Stoffwechselweg wie die Telomere — beide sprechen auf dieselben Methyl-Donatoren an.",
+          "table": {
+            "cols": ["Wirkstoff", "Quelle", "Menge", "Hinweis"],
+            "rows": [
+              [
+                "Methyl-Donatoren",
+                "Blattgemüse, Hülsenfrüchte, Eier, Nüsse, Sesam, Soja",
+                "täglich in mind. 2 Mahlzeiten",
+                "Folat, B2, B6, B12 gemeinsam zuführen"
+              ],
+              [
+                "Ballaststoffe",
+                "Vollkorn, Gemüse, Hülsenfrüchte",
+                "mind. 30 g/Tag",
+                "Stabilisiert Blutzucker, senkt oxidative Belastung"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "IL-6",
+          "category": "Entzündungsregulation",
+          "intro": "Interleukin-6 ist ein zentraler Botenstoff der Entzündungsregulation. Bewertet wird die DNA-Methylierung IL-6-assoziierter Genregionen — nicht der akute Blutspiegel.",
+          "kind": "percent",
+          "value": 108,
+          "display": "108 %",
+          "sub": "46 Jahre",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "green",
+          "text": "Spricht für eine stabile Regulation der IL-6-Aktivität — der beste Wert Ihres Profils. Die Empfehlungen dienen hier dem Erhalt, nicht der Korrektur.",
+          "table": {
+            "cols": ["Wirkstoff", "Quelle", "Menge", "Hinweis"],
+            "rows": [
+              [
+                "Bewegung und Gewicht",
+                "moderate Alltagsaktivität, Gewichtsregulation",
+                "täglich 30 Min.",
+                "Fettgewebe ist eine zentrale Quelle proinflammatorischer Botenstoffe"
+              ],
+              [
+                "Resveratrol",
+                "Traubenschalen, Himbeerkerne, Heidelbeeren, Erdnüsse",
+                "1 Portion Beeren/Tag",
+                "Hemmt den NF-κB-Signalweg"
+              ],
+              [
+                "Sulforaphan",
+                "Brokkoli, Blumenkohl, Rosenkohl, Kresse",
+                "250 g, 3–4×/Woche",
+                "Kurz erhitzen (3–4 Min., 80 °C) erhöht die Bioverfügbarkeit"
+              ],
+              [
+                "Curcumin",
+                "Kurkuma mit schwarzem Pfeffer",
+                "1 TL täglich",
+                "Piperin erhöht die Aufnahme deutlich"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "radar",
+      "caption": "Standortbestimmung",
+      "title": "Ernährung und Lebensgewohnheiten.",
+      "lead": "Das Radar zeigt, wie nah Ihre aktuellen Gewohnheiten an den wissenschaftlichen Referenzwerten liegen. Je weiter außen ein Faktor liegt, desto günstiger — optimal ist 10.",
+      "axes": [
+        "Alltagsbewegung",
+        "Sport",
+        "Stress",
+        "Tabak",
+        "Alkohol",
+        "Snacks",
+        "Fleisch",
+        "Omega-3",
         "Ballaststoffe",
-        "Vollkorn, Gemüse, Hülsenfrüchte",
-        "mind. 30 g/Tag",
-        "Stabilisiert Blutzucker, senkt oxidative Belastung"
-       ]
-      ]
-     }
-    },
-    {
-     "name": "IL-6",
-     "category": "Entzündungsregulation",
-     "intro": "Interleukin-6 ist ein zentraler Botenstoff der Entzündungsregulation. Bewertet wird die DNA-Methylierung IL-6-assoziierter Genregionen — nicht der akute Blutspiegel.",
-     "kind": "percent",
-     "value": 108,
-     "display": "108 %",
-     "sub": "46 Jahre",
-     "ticks": [
-      "70 %",
-      "85 %",
-      "100 %",
-      "115 %",
-      "130 %"
-     ],
-     "tone": "green",
-     "text": "Spricht für eine stabile Regulation der IL-6-Aktivität — der beste Wert Ihres Profils. Die Empfehlungen dienen hier dem Erhalt, nicht der Korrektur.",
-     "table": {
-      "cols": [
-       "Wirkstoff",
-       "Quelle",
-       "Menge",
-       "Hinweis"
+        "Obst/Gemüse",
+        "Flüssigkeit"
       ],
+      "seriesLabels": {
+        "profile": "Ihr Profil",
+        "reference": "Referenzgruppe"
+      },
+      "scores": [
+        {
+          "value": "72 / 100",
+          "label": "Ernährung",
+          "text": "Gute Nährstoffkombination, Verbesserungspotenzial in Details.",
+          "ref": "Referenz: ≥ 60."
+        },
+        {
+          "value": "65 / 100",
+          "label": "Lebensstil",
+          "text": "Ausgewogen, mit Raum für mehr Bewegung und Stressreduktion.",
+          "ref": "Referenz: ≥ 60."
+        }
+      ],
+      "noticeTitle": "Was auffällt",
+      "notices": [
+        "Stress (4 von 10) ist der schwächste Faktor und liegt unter der Referenzgruppe. Chronischer Stress wirkt über die Cortisolachse direkt auf Entzündungs- und Methylierungsmarker.",
+        "Snacks und Fleisch (je 5) liegen auf dem Niveau der Referenzgruppe — hier liegt das größte unausgeschöpfte Potenzial für die Telomer- und LINE-1-Werte.",
+        "Tabak (9), Obst und Gemüse (8), Flüssigkeit (8) sind deutlich überdurchschnittlich und tragen die guten Werte bei IL-6 und den Alterungsmarkern."
+      ],
+      "note": "Standortbestimmung, keine individuelle Diagnose. Bei Erkrankungen oder in besonderen Lebensphasen größere Ernährungsänderungen bitte ärztlich begleiten lassen.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Alle Empfehlungen auf einen Blick",
+      "title": "Ihre Interventionen.",
+      "lead": "Jede Empfehlung ist dem Marker zugeordnet, aus dem sie stammt, und in der Farbe des tatsächlichen Ergebnisses gekennzeichnet. Sortiert nach Dringlichkeit — die Marker mit Handlungsbedarf zuerst.",
+      "cols": ["Wirkstoff", "Aus Marker", "Lebensmittelquelle", "Menge", "Hinweis"],
       "rows": [
-       [
-        "Bewegung und Gewicht",
-        "moderate Alltagsaktivität, Gewichtsregulation",
-        "täglich 30 Min.",
-        "Fettgewebe ist eine zentrale Quelle proinflammatorischer Botenstoffe"
-       ],
-       [
-        "Resveratrol",
-        "Traubenschalen, Himbeerkerne, Heidelbeeren, Erdnüsse",
-        "1 Portion Beeren/Tag",
-        "Hemmt den NF-κB-Signalweg"
-       ],
-       [
-        "Sulforaphan",
-        "Brokkoli, Blumenkohl, Rosenkohl, Kresse",
-        "250 g, 3–4×/Woche",
-        "Kurz erhitzen (3–4 Min., 80 °C) erhöht die Bioverfügbarkeit"
-       ],
-       [
-        "Curcumin",
-        "Kurkuma mit schwarzem Pfeffer",
-        "1 TL täglich",
-        "Piperin erhöht die Aufnahme deutlich"
-       ]
-      ]
-     }
-    }
-   ],
-   "id": "marker-2"
-  },
-  {
-   "type": "radar",
-   "caption": "Standortbestimmung",
-   "title": "Ernährung und Lebensgewohnheiten.",
-   "lead": "Das Radar zeigt, wie nah Ihre aktuellen Gewohnheiten an den wissenschaftlichen Referenzwerten liegen. Je weiter außen ein Faktor liegt, desto günstiger — optimal ist 10.",
-   "axes": [
-    "Alltagsbewegung",
-    "Sport",
-    "Stress",
-    "Tabak",
-    "Alkohol",
-    "Snacks",
-    "Fleisch",
-    "Omega-3",
-    "Ballaststoffe",
-    "Obst/Gemüse",
-    "Flüssigkeit"
-   ],
-   "seriesLabels": {
-    "profile": "Ihr Profil",
-    "reference": "Referenzgruppe"
-   },
-   "scores": [
-    {
-     "value": "72 / 100",
-     "label": "Ernährung",
-     "text": "Gute Nährstoffkombination, Verbesserungspotenzial in Details.",
-     "ref": "Referenz: ≥ 60."
+        [
+          "Folat",
+          "Telomere · 96 %",
+          "Spinat, Grünkohl, Hülsenfrüchte, Tomaten, Sprossen",
+          "2 Handvoll grünes Gemüse täglich",
+          "Roh oder kurz gedünstet — hitzeempfindlich"
+        ],
+        [
+          "Vitamin B2 und B12",
+          "Telomere · 96 %",
+          "Eier, Käse, fermentierte Lebensmittel (Sauerkraut, Ayran)",
+          "täglich 1 Portion",
+          "Bei veganer Ernährung B12 gezielt supplementieren"
+        ],
+        [
+          "Methionin",
+          "Telomere · 96 %",
+          "Sesam, Soja, Erbsen, Paranüsse",
+          "2–3 Paranüsse/Tag",
+          "Wegen Selengehalt nicht mehr als 3–4 Nüsse täglich"
+        ],
+        [
+          "EGCG (Grüner Tee)",
+          "Telomere · 96 %",
+          "Grüner Tee, Matcha",
+          "3–4 Tassen/Tag",
+          "Nicht direkt zu eisenreichen Mahlzeiten trinken"
+        ],
+        [
+          "Methyl-Donatoren",
+          "LINE-1 · 96 %",
+          "Blattgemüse, Hülsenfrüchte, Eier, Nüsse, Sesam, Soja",
+          "täglich in mind. 2 Mahlzeiten",
+          "Folat, B2, B6, B12 gemeinsam ausreichend zuführen"
+        ],
+        [
+          "Ballaststoffe",
+          "LINE-1 · 96 %",
+          "Vollkorn, Gemüse, Hülsenfrüchte",
+          "mind. 30 g/Tag",
+          "Stabilisiert den Blutzucker, senkt oxidative Belastung"
+        ],
+        [
+          "Grünes Blattgemüse",
+          "Alterungsm. · 103 %",
+          "Spinat, Grünkohl, Mangold",
+          "1 Portion täglich",
+          "Liefert Folat, unterstützt die Methylierung"
+        ],
+        [
+          "Kaffee",
+          "Alterungsm. · 103 %",
+          "Filterkaffee, Espresso",
+          "2–3 Tassen/Tag",
+          "Nicht nach 14 Uhr — kann den Schlaf stören"
+        ],
+        [
+          "Käse und Milchprodukte",
+          "Alterungsm. · 103 %",
+          "Hart- und Frischkäse, Joghurt",
+          "in Maßen",
+          "Übermäßiger Konsum kann die Regulation reduzieren"
+        ],
+        [
+          "Bewegung und Gewicht",
+          "IL-6 · 108 %",
+          "moderate Alltagsaktivität, Gewichtsregulation",
+          "täglich 30 Min.",
+          "Fettgewebe ist Quelle proinflammatorischer Botenstoffe"
+        ],
+        [
+          "Resveratrol",
+          "IL-6 · 108 %",
+          "Traubenschalen, Himbeerkerne, Heidelbeeren, Erdnüsse",
+          "1 Portion Beeren/Tag",
+          "Hemmt den NF-κB-Signalweg"
+        ],
+        [
+          "Sulforaphan",
+          "IL-6 · 108 %",
+          "Brokkoli, Blumenkohl, Rosenkohl, Kresse",
+          "250 g, 3–4×/Woche",
+          "Kurz erhitzen (3–4 Min., 80 °C) erhöht Bioverfügbarkeit"
+        ],
+        [
+          "Curcumin",
+          "IL-6 · 108 %",
+          "Kurkuma, idealerweise mit schwarzem Pfeffer",
+          "1 TL täglich",
+          "Piperin aus Pfeffer erhöht die Aufnahme deutlich"
+        ]
+      ],
+      "rowTones": [
+        "amber",
+        "amber",
+        "amber",
+        "amber",
+        "amber",
+        "amber",
+        "green",
+        "green",
+        "green",
+        "green",
+        "green",
+        "green",
+        "green"
+      ],
+      "note": "Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen. Diese Übersicht ersetzt keine ärztliche Beratung.",
+      "id": "uebersicht"
     },
     {
-     "value": "65 / 100",
-     "label": "Lebensstil",
-     "text": "Ausgewogen, mit Raum für mehr Bewegung und Stressreduktion.",
-     "ref": "Referenz: ≥ 60."
-    }
-   ],
-   "noticeTitle": "Was auffällt",
-   "notices": [
-    "Stress (4 von 10) ist der schwächste Faktor und liegt unter der Referenzgruppe. Chronischer Stress wirkt über die Cortisolachse direkt auf Entzündungs- und Methylierungsmarker.",
-    "Snacks und Fleisch (je 5) liegen auf dem Niveau der Referenzgruppe — hier liegt das größte unausgeschöpfte Potenzial für die Telomer- und LINE-1-Werte.",
-    "Tabak (9), Obst und Gemüse (8), Flüssigkeit (8) sind deutlich überdurchschnittlich und tragen die guten Werte bei IL-6 und den Alterungsmarkern."
-   ],
-   "note": "Standortbestimmung, keine individuelle Diagnose. Bei Erkrankungen oder in besonderen Lebensphasen größere Ernährungsänderungen bitte ärztlich begleiten lassen.",
-   "id": "lebensstil"
-  },
-  {
-   "type": "table",
-   "caption": "Alle Empfehlungen auf einen Blick",
-   "title": "Ihre Interventionen.",
-   "lead": "Jede Empfehlung ist dem Marker zugeordnet, aus dem sie stammt, und in der Farbe des tatsächlichen Ergebnisses gekennzeichnet. Sortiert nach Dringlichkeit — die Marker mit Handlungsbedarf zuerst.",
-   "cols": [
-    "Wirkstoff",
-    "Aus Marker",
-    "Lebensmittelquelle",
-    "Menge",
-    "Hinweis"
-   ],
-   "rows": [
-    [
-     "Folat",
-     "Telomere · 96 %",
-     "Spinat, Grünkohl, Hülsenfrüchte, Tomaten, Sprossen",
-     "2 Handvoll grünes Gemüse täglich",
-     "Roh oder kurz gedünstet — hitzeempfindlich"
-    ],
-    [
-     "Vitamin B2 und B12",
-     "Telomere · 96 %",
-     "Eier, Käse, fermentierte Lebensmittel (Sauerkraut, Ayran)",
-     "täglich 1 Portion",
-     "Bei veganer Ernährung B12 gezielt supplementieren"
-    ],
-    [
-     "Methionin",
-     "Telomere · 96 %",
-     "Sesam, Soja, Erbsen, Paranüsse",
-     "2–3 Paranüsse/Tag",
-     "Wegen Selengehalt nicht mehr als 3–4 Nüsse täglich"
-    ],
-    [
-     "EGCG (Grüner Tee)",
-     "Telomere · 96 %",
-     "Grüner Tee, Matcha",
-     "3–4 Tassen/Tag",
-     "Nicht direkt zu eisenreichen Mahlzeiten trinken"
-    ],
-    [
-     "Methyl-Donatoren",
-     "LINE-1 · 96 %",
-     "Blattgemüse, Hülsenfrüchte, Eier, Nüsse, Sesam, Soja",
-     "täglich in mind. 2 Mahlzeiten",
-     "Folat, B2, B6, B12 gemeinsam ausreichend zuführen"
-    ],
-    [
-     "Ballaststoffe",
-     "LINE-1 · 96 %",
-     "Vollkorn, Gemüse, Hülsenfrüchte",
-     "mind. 30 g/Tag",
-     "Stabilisiert den Blutzucker, senkt oxidative Belastung"
-    ],
-    [
-     "Grünes Blattgemüse",
-     "Alterungsm. · 103 %",
-     "Spinat, Grünkohl, Mangold",
-     "1 Portion täglich",
-     "Liefert Folat, unterstützt die Methylierung"
-    ],
-    [
-     "Kaffee",
-     "Alterungsm. · 103 %",
-     "Filterkaffee, Espresso",
-     "2–3 Tassen/Tag",
-     "Nicht nach 14 Uhr — kann den Schlaf stören"
-    ],
-    [
-     "Käse und Milchprodukte",
-     "Alterungsm. · 103 %",
-     "Hart- und Frischkäse, Joghurt",
-     "in Maßen",
-     "Übermäßiger Konsum kann die Regulation reduzieren"
-    ],
-    [
-     "Bewegung und Gewicht",
-     "IL-6 · 108 %",
-     "moderate Alltagsaktivität, Gewichtsregulation",
-     "täglich 30 Min.",
-     "Fettgewebe ist Quelle proinflammatorischer Botenstoffe"
-    ],
-    [
-     "Resveratrol",
-     "IL-6 · 108 %",
-     "Traubenschalen, Himbeerkerne, Heidelbeeren, Erdnüsse",
-     "1 Portion Beeren/Tag",
-     "Hemmt den NF-κB-Signalweg"
-    ],
-    [
-     "Sulforaphan",
-     "IL-6 · 108 %",
-     "Brokkoli, Blumenkohl, Rosenkohl, Kresse",
-     "250 g, 3–4×/Woche",
-     "Kurz erhitzen (3–4 Min., 80 °C) erhöht Bioverfügbarkeit"
-    ],
-    [
-     "Curcumin",
-     "IL-6 · 108 %",
-     "Kurkuma, idealerweise mit schwarzem Pfeffer",
-     "1 TL täglich",
-     "Piperin aus Pfeffer erhöht die Aufnahme deutlich"
-    ]
-   ],
-   "rowTones": [
-    "amber",
-    "amber",
-    "amber",
-    "amber",
-    "amber",
-    "amber",
-    "green",
-    "green",
-    "green",
-    "green",
-    "green",
-    "green",
-    "green"
-   ],
-   "note": "Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen. Diese Übersicht ersetzt keine ärztliche Beratung.",
-   "id": "uebersicht"
-  },
-  {
-   "type": "summary",
-   "caption": "Zusammenfassung",
-   "title": "Ihre zwei Schwerpunkte.",
-   "lead": "Zwei Ihrer vier Marker liegen im grünen Bereich und sollen dort bleiben. Zwei liegen bei 96 % — und beide hängen am selben Stoffwechselweg. Daraus ergibt sich ein bemerkenswert einfacher Plan.",
-   "focuses": [
-    {
-     "num": "01",
-     "title": "Methyl-Donatoren — der gemeinsame Nenner von Telomeren und LINE-1",
-     "text": "Telomere 96 % (biologisch 53 J.) und LINE-1 96 % (biologisch 50 J.) sind die beiden Werte mit Handlungsbedarf. Beide werden über dieselben Nährstoffe reguliert: Folat, Vitamin B2, B6, B12 und Methionin. Sechs der dreizehn Empfehlungen in diesem Befund zielen genau darauf. Konkret: zwei Handvoll grünes Blattgemüse täglich, roh oder kurz gedünstet. Eier, Käse oder fermentierte Lebensmittel täglich. 2–3 Paranüsse. Dazu mindestens 30 g Ballaststoffe und 3–4 Tassen grüner Tee, nicht zu eisenreichen Mahlzeiten."
+      "type": "summary",
+      "caption": "Zusammenfassung",
+      "title": "Ihre zwei Schwerpunkte.",
+      "lead": "Zwei Ihrer vier Marker liegen im grünen Bereich und sollen dort bleiben. Zwei liegen bei 96 % — und beide hängen am selben Stoffwechselweg. Daraus ergibt sich ein bemerkenswert einfacher Plan.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Methyl-Donatoren — der gemeinsame Nenner von Telomeren und LINE-1",
+          "text": "Telomere 96 % (biologisch 53 J.) und LINE-1 96 % (biologisch 50 J.) sind die beiden Werte mit Handlungsbedarf. Beide werden über dieselben Nährstoffe reguliert: Folat, Vitamin B2, B6, B12 und Methionin. Sechs der dreizehn Empfehlungen in diesem Befund zielen genau darauf. Konkret: zwei Handvoll grünes Blattgemüse täglich, roh oder kurz gedünstet. Eier, Käse oder fermentierte Lebensmittel täglich. 2–3 Paranüsse. Dazu mindestens 30 g Ballaststoffe und 3–4 Tassen grüner Tee, nicht zu eisenreichen Mahlzeiten."
+        },
+        {
+          "num": "02",
+          "title": "Stress — der schwächste Lebensstilfaktor",
+          "text": "Mit 4 von 10 ist Stress der einzige Faktor, der deutlich unter der Referenzgruppe liegt. Er wirkt über die Cortisolachse auf genau die Marker, die bei Ihnen Handlungsbedarf zeigen. Der Ernährungsteil ist mit 72/100 bereits solide — die größere Wirkung liegt hier. Ergänzend: Alltagsbewegung (6) und Sport (7) sind ausbaufähig, 30 Minuten täglich unterstützen zugleich den IL-6-Wert."
+        }
+      ],
+      "keepTitle": "Erhalten, nicht ändern",
+      "keepText": "IL-6 108 % und Epigenetische Alterungsmarker 103 % liegen im Normbereich. Die Empfehlungen zu diesen beiden Markern dienen dem Erhalt. Tabak (9/10), Obst und Gemüse (8/10) und die Flüssigkeitszufuhr (8/10) tragen dieses Ergebnis — hier ist nichts zu ändern.",
+      "controlTitle": "Kontrolle und nächster Schritt",
+      "controlItems": [
+        "Eine Kontrollmessung ist frühestens nach 4 bis 6 Monaten sinnvoll — vorher sind Veränderungen der Methylierungsmarker nicht belastbar messbar.",
+        "Ab der zweiten Messung wird der gemessene Verlauf je Marker ausgewiesen.",
+        "Für die Verlaufskontrolle sollten Probenahme und Tageszeit vergleichbar bleiben."
+      ],
+      "id": "zusammenfassung"
     },
     {
-     "num": "02",
-     "title": "Stress — der schwächste Lebensstilfaktor",
-     "text": "Mit 4 von 10 ist Stress der einzige Faktor, der deutlich unter der Referenzgruppe liegt. Er wirkt über die Cortisolachse auf genau die Marker, die bei Ihnen Handlungsbedarf zeigen. Der Ernährungsteil ist mit 72/100 bereits solide — die größere Wirkung liegt hier. Ergänzend: Alltagsbewegung (6) und Sport (7) sind ausbaufähig, 30 Minuten täglich unterstützen zugleich den IL-6-Wert."
+      "type": "contact",
+      "title": "Fragen zu Ihrem Befund?",
+      "text": "Besprechen Sie die Ergebnisse mit der Einrichtung, die die Probenahme durchgeführt hat. Dort liegt der klinische Kontext vor, der für die Einordnung nötig ist.",
+      "columns": [
+        {
+          "k": "Kontakt",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Vertrieb",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Musterbefund",
+          "text": "Sämtliche Werte und Angaben zur Person in diesem Dokument sind frei erfunden und dienen ausschließlich der Darstellung des Berichtsformats. Es handelt sich nicht um einen realen Befund."
+        },
+        {
+          "title": "Einordnung",
+          "text": "Dieser Bericht ist keine Diagnose und ersetzt keine ärztliche Beratung. Das ausgewiesene biologische Alter ist ein Modellwert aus epigenetischen Markern, keine Aussage über Lebenserwartung oder Krankheitsrisiko. Marker beschreiben einen Momentzustand und sind im individuellen klinischen Kontext durch qualifiziertes Fachpersonal zu bewerten."
+        },
+        {
+          "title": "Rechtlicher Rahmen",
+          "text": "Die Laboranalytik erfolgt durch unseren Kooperationspartner. Polaris Diagnostics Europe GmbH verantwortet Vertrieb und Betreuung. Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand: August 2026",
+      "id": "kontakt"
     }
-   ],
-   "keepTitle": "Erhalten, nicht ändern",
-   "keepText": "IL-6 108 % und Epigenetische Alterungsmarker 103 % liegen im Normbereich. Die Empfehlungen zu diesen beiden Markern dienen dem Erhalt. Tabak (9/10), Obst und Gemüse (8/10) und die Flüssigkeitszufuhr (8/10) tragen dieses Ergebnis — hier ist nichts zu ändern.",
-   "controlTitle": "Kontrolle und nächster Schritt",
-   "controlItems": [
-    "Eine Kontrollmessung ist frühestens nach 4 bis 6 Monaten sinnvoll — vorher sind Veränderungen der Methylierungsmarker nicht belastbar messbar.",
-    "Ab der zweiten Messung wird der gemessene Verlauf je Marker ausgewiesen.",
-    "Für die Verlaufskontrolle sollten Probenahme und Tageszeit vergleichbar bleiben."
-   ],
-   "id": "zusammenfassung"
-  },
-  {
-   "type": "contact",
-   "title": "Fragen zu Ihrem Befund?",
-   "text": "Besprechen Sie die Ergebnisse mit der Einrichtung, die die Probenahme durchgeführt hat. Dort liegt der klinische Kontext vor, der für die Einordnung nötig ist.",
-   "columns": [
-    {
-     "k": "Kontakt",
-     "lines": [
-      "contact@polarisdx.net",
-      "+49 152 2858 0999",
-      "www.polarisdx.net"
-     ]
-    },
-    {
-     "k": "Vertrieb",
-     "lines": [
-      "Polaris Diagnostics Europe GmbH",
-      "Große Bleichen 1–3",
-      "20354 Hamburg"
-     ]
-    }
-   ],
-   "legal": [
-    {
-     "title": "Musterbefund",
-     "text": "Sämtliche Werte und Angaben zur Person in diesem Dokument sind frei erfunden und dienen ausschließlich der Darstellung des Berichtsformats. Es handelt sich nicht um einen realen Befund."
-    },
-    {
-     "title": "Einordnung",
-     "text": "Dieser Bericht ist keine Diagnose und ersetzt keine ärztliche Beratung. Das ausgewiesene biologische Alter ist ein Modellwert aus epigenetischen Markern, keine Aussage über Lebenserwartung oder Krankheitsrisiko. Marker beschreiben einen Momentzustand und sind im individuellen klinischen Kontext durch qualifiziertes Fachpersonal zu bewerten."
-    },
-    {
-     "title": "Rechtlicher Rahmen",
-     "text": "Die Laboranalytik erfolgt durch unseren Kooperationspartner. Polaris Diagnostics Europe GmbH verantwortet Vertrieb und Betreuung. Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen."
-    }
-   ],
-   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand: August 2026",
-   "id": "kontakt"
-  }
- ]
+  ]
 }

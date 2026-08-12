@@ -1,627 +1,574 @@
 {
- "slug": "stress-monitor",
- "panel": "Stress Monitor",
- "blocks": [
-  {
-   "type": "cover",
-   "badge": "Musterbefund · Beispieldaten",
-   "panel": "Stress Monitor",
-   "subtitle": "Ihre Stress-Regulation",
-   "claim": "Gemessen wird nicht Stress an sich, sondern wie gut Ihr Körper ihn reguliert. Sechs microRNAs aus einem Tropfen Kapillarblut geben Einblick in die zelluläre Steuerung Ihrer Stressantwort.",
-   "meta": [
+  "slug": "stress-monitor",
+  "panel": "Stress Monitor",
+  "blocks": [
     {
-     "k": "Befund für",
-     "v": "Muster, Erika"
+      "type": "cover",
+      "badge": "Musterbefund · Beispieldaten",
+      "panel": "Stress Monitor",
+      "subtitle": "Ihre Stress-Regulation",
+      "claim": "Gemessen wird nicht Stress an sich, sondern wie gut Ihr Körper ihn reguliert. Sechs microRNAs aus einem Tropfen Kapillarblut geben Einblick in die zelluläre Steuerung Ihrer Stressantwort.",
+      "meta": [
+        {
+          "k": "Befund für",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Probenahme",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Material",
+          "v": "Trockenblutkarte"
+        },
+        {
+          "k": "Umfang",
+          "v": "6 microRNAs"
+        }
+      ],
+      "id": "deckblatt",
+      "benefit": "Wie der Körper Ihres Klienten mit Stress umgeht — und was sich daran ändern lässt."
     },
     {
-     "k": "Probenahme",
-     "v": "15.06.2026"
+      "type": "principle",
+      "caption": "Das Prinzip",
+      "title": "Ihre Stress-Regulation. Nicht Ihr Stresslevel.",
+      "lead": "Stress ist keine einzelne Größe, sondern ein Netzwerk aus neuroendokrinen, immunologischen und metabolischen Prozessen — gesteuert unter anderem über die HPA-Achse, entzündliche Signalwege und mitochondriale Anpassungen. Analysiert werden sechs microRNAs: kleine, nichtkodierende RNA-Moleküle, die mitentscheiden, welche Gene unter Stressbedingungen tatsächlich abgelesen werden.",
+      "cards": [
+        {
+          "title": "Akut & chronisch",
+          "text": "Wie Ihre Stressreaktion aktuell verläuft und ob sich eine dauerhafte Belastung abzeichnet."
+        },
+        {
+          "title": "Regulation",
+          "text": "Wie gut Ihr Körper Stresssignale auf zellulärer Ebene ausgleicht."
+        },
+        {
+          "title": "Spätfolgen",
+          "text": "Wie hoch das Risiko ist, dass sich anhaltender Stress langfristig niederschlägt."
+        }
+      ],
+      "flowTitle": "Der Ablauf",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Messen",
+          "text": "Trockenblutkarte, Fingerbeere. Sechs microRNAs, normalisiert auf das Referenzgen miR-24-3p. Kein Nüchternstatus nötig."
+        },
+        {
+          "num": "02",
+          "title": "Auswerten",
+          "text": "Zwei Auswertungen auf der Skala 1–9: physiologisches Stresslevel und Risiko für Spätfolgen."
+        },
+        {
+          "num": "03",
+          "title": "Regulieren",
+          "text": "Gezielte Empfehlungen zu sekundären Pflanzenstoffen und Verlaufskontrolle über die Zeit."
+        }
+      ],
+      "scaleTitle": "Wie lese ich die Skala?",
+      "scaleLead": "Beide Auswertungen und alle sechs Einzelmarker laufen auf der Skala 1 bis 9. Höher ist immer besser: 1–3 rot, 4–6 gelb, 7–9 grün. Jede der beiden Auswertungen trägt zusätzlich ihre eigene Zonenbeschriftung.",
+      "scaleKind": "traffic",
+      "scaleTicks": ["1", "3", "5", "7", "9"],
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "1–3 · Rot",
+          "text": "Höchste Priorität."
+        },
+        {
+          "tone": "amber",
+          "label": "4–6 · Gelb",
+          "text": "Gezielt gegensteuern."
+        },
+        {
+          "tone": "green",
+          "label": "7–9 · Grün",
+          "text": "Ergebnis erhalten."
+        }
+      ],
+      "id": "so-lesen"
     },
     {
-     "k": "Material",
-     "v": "Trockenblutkarte"
+      "type": "callout",
+      "title": "Wichtig",
+      "text": "Dieser Befund ist keine Diagnose und ersetzt keine ärztliche oder psychotherapeutische Beratung. Bei anhaltender Belastung, Erschöpfung oder Schlafstörungen suchen Sie bitte ärztlichen Rat.",
+      "items": [
+        "Die sechs microRNA-Werte beschreiben einen Momentzustand und sind über den Lebensstil beeinflussbar — sie eignen sich damit als Verlaufskontrolle."
+      ],
+      "tone": "neutral",
+      "id": "hinweis"
     },
     {
-     "k": "Umfang",
-     "v": "6 microRNAs"
+      "type": "markers",
+      "caption": "Ergebnis auf einen Blick",
+      "title": "Ihre zwei Auswertungen.",
+      "items": [
+        {
+          "name": "Physiologisches Stresslevel",
+          "category": "Akute und chronische Belastung",
+          "kind": "traffic",
+          "value": 7,
+          "display": "7 / 9",
+          "sub": "Günstig",
+          "tone": "green",
+          "text": "Ihr Körper kommt mit aktuellem Stress gut zurecht.",
+          "zoneLabels": ["chronischer Stress", "akuter Stress", "kein Stress"]
+        },
+        {
+          "name": "Risiko für Spätfolgen",
+          "category": "Langfristige Regulation",
+          "kind": "traffic",
+          "value": 4,
+          "display": "4 / 9",
+          "sub": "Erhöht",
+          "tone": "amber",
+          "text": "Erhöhtes Risiko — präventives Handeln empfohlen.",
+          "zoneLabels": ["hohes Risiko", "mittleres Risiko", "niedriges Risiko"]
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "resultTable",
+      "caption": "Die sechs Einzelmarker",
+      "title": "Alle microRNAs im Überblick.",
+      "cols": ["microRNA", "Bezeichnung", "Regulationsebene", "Wert", "Fließt ein in"],
+      "rows": [
+        {
+          "cells": [
+            "miR-21-5p",
+            "Zellschutz Indikator",
+            "Zelluläre Schutz- und Anpassungsmechanismen",
+            "8 / 9",
+            "Spätfolgen"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "let-7a-5p",
+            "Akuter Stress Indikator",
+            "Inflammatorische Grundregulation",
+            "7 / 9",
+            "Stresslevel"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "miR-16-5p",
+            "Serotonin regulierender Indikator",
+            "Serotonerge Regulation",
+            "6 / 9",
+            "Spätfolgen"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "miR-15a-5p",
+            "Neuronaler Indikator",
+            "Neuronale Stabilität und Anpassung",
+            "5 / 9",
+            "Spätfolgen"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "let-7g-5p",
+            "Chronischer Stress Indikator",
+            "Inflammatorische und metabolische Regulation",
+            "4 / 9",
+            "Stresslevel"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "miR-106b-5p",
+            "Immunsignal aktivierender Indikator",
+            "Immunologische Aktivierung",
+            "3 / 9",
+            "Spätfolgen"
+          ],
+          "tone": "red"
+        }
+      ],
+      "note": "Die beiden Auswertungen werden vom Labor aus den ihnen zugeordneten microRNAs berechnet; sie sind nicht der Mittelwert dieser Einzelwerte.",
+      "id": "ergebnis"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Auswertung 01",
+      "title": "Physiologisches Stresslevel.",
+      "lead": "Zusammengesetzt aus dem Akuten und dem Chronischen Stress Indikator (let-7a-5p, let-7g-5p).",
+      "display": "7 / 9",
+      "sub": "Günstig",
+      "kind": "traffic",
+      "value": 7,
+      "tone": "green",
+      "zoneLabels": ["chronischer Stress", "akuter Stress", "kein Stress"],
+      "text": "Die Auswertung zeigt, wo Ihre aktuelle Stressreaktion zwischen „kein Stress“ und „chronischer Stress“ liegt. Ihr Wert liegt im günstigen Bereich — Ihr Körper kommt mit dem aktuellen Stress gut zurecht. Die Bewertung erfolgt stets im Kontext der weiteren Marker.",
+      "id": "ergebnis-2"
+    },
+    {
+      "type": "markers",
+      "caption": "Auswertung 01",
+      "title": "Die beiden Einzelindikatoren.",
+      "items": [
+        {
+          "name": "let-7a-5p",
+          "category": "Akuter Stress Indikator",
+          "kind": "traffic",
+          "value": 7,
+          "display": "7 / 9",
+          "tone": "green",
+          "text": "Teil der let-7-Familie; reguliert entzündliche Signalwege und ist an Stress- und Immunprozessen beteiligt. Der günstigere der beiden Werte."
+        },
+        {
+          "name": "let-7g-5p",
+          "category": "Chronischer Stress Indikator",
+          "kind": "traffic",
+          "value": 4,
+          "display": "4 / 9",
+          "tone": "amber",
+          "text": "Reguliert entzündliche und metabolische Prozesse mit Einfluss auf die systemische Homöostase. Deutlich schwächer als der akute Indikator."
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "callout",
+      "title": "Worauf es hier ankommt",
+      "text": "Die beiden Einzelindikatoren gehen weit auseinander: akut 7/9, chronisch 4/9. Die akute Stressantwort funktioniert; die chronische Ebene ist die schwächere von beiden.",
+      "items": [
+        "Vier der elf Empfehlungen — Quercetin, EGCG, Oleuropein und Resveratrol — zielen genau auf den chronischen Indikator let-7g-5p."
+      ],
+      "tone": "accent",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "table",
+      "caption": "Empfehlungen",
+      "title": "Wirkstoffe zu Auswertung 01.",
+      "cols": ["Wirkstoff", "Aus Marker", "Quelle", "Menge", "Hinweis"],
+      "rows": [
+        [
+          "Butyrat",
+          "let-7a-5p · 7",
+          "Pektin (Apfel, Hagebutte), Inulin (Chicorée, Artischocke)",
+          "mind. 30 g/Tag",
+          "Entsteht bei Fermentation präbiotischer Ballaststoffe im Darm"
+        ],
+        [
+          "Quercetin",
+          "let-7g-5p · 4",
+          "Zwiebel, Kapern, Liebstöckel, Schnittlauch",
+          "mind. 200 mg/Tag",
+          "Hitzeempfindlich — roh oder schonend zubereiten"
+        ],
+        [
+          "EGCG",
+          "let-7g-5p · 4",
+          "Weißer oder grüner Tee (unfermentiert)",
+          "max. 800 mg/Tag",
+          "Piperin, Vitamin C und Fischöl verbessern die Bioverfügbarkeit"
+        ],
+        [
+          "Oleuropein",
+          "let-7g-5p · 4",
+          "Oliven, Olivenblatt, Arganöl",
+          "100 mg/Tag",
+          "Blätter 3.000-fach konzentrierter, aber sehr bitter"
+        ]
+      ],
+      "id": "uebersicht"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Auswertung 02",
+      "title": "Risiko für Spätfolgen.",
+      "lead": "Berechnet aus vier microRNAs: miR-16-5p, miR-15a-5p, miR-106b-5p und miR-21-5p.",
+      "display": "4 / 9",
+      "sub": "Erhöht",
+      "kind": "traffic",
+      "value": 4,
+      "tone": "amber",
+      "zoneLabels": ["hohes Risiko", "mittleres Risiko", "niedriges Risiko"],
+      "text": "Die Auswertung zeigt noch keine akute stressbedingte Überbelastung. Das Risiko für Folgeerkrankungen ist aber bereits erhöht — hier lohnt es sich zu handeln, bevor sich Spätfolgen manifestieren. Dies ist der Schwerpunkt Ihres Befunds.",
+      "id": "ergebnis-3"
+    },
+    {
+      "type": "markers",
+      "caption": "Auswertung 02",
+      "title": "Die vier microRNAs.",
+      "items": [
+        {
+          "name": "miR-106b-5p",
+          "category": "Immunsignal",
+          "kind": "traffic",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red",
+          "text": "Reguliert Immunantworten und entzündliche Signalwege. Der einzige rote Einzelwert des Befunds; vier der elf Empfehlungen adressieren ihn."
+        },
+        {
+          "name": "miR-15a-5p",
+          "category": "Neuronal",
+          "kind": "traffic",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber",
+          "text": "Reguliert neuronale Prozesse, Apoptose und Zellzyklus; beeinflusst die neuronale Homöostase."
+        },
+        {
+          "name": "miR-16-5p",
+          "category": "Serotonerg",
+          "kind": "traffic",
+          "value": 6,
+          "display": "6 / 9",
+          "tone": "amber",
+          "text": "Reguliert serotonerge Signalwege und den Serotonin-Transporter; beteiligt an neuronaler Plastizität."
+        },
+        {
+          "name": "miR-21-5p",
+          "category": "Zellschutz",
+          "kind": "traffic",
+          "value": 8,
+          "display": "8 / 9",
+          "tone": "green",
+          "text": "Reguliert Zellüberleben und Apoptose; beteiligt an Stress- und Reparaturprozessen. Der beste Einzelwert des gesamten Befunds."
+        }
+      ],
+      "id": "marker-3"
+    },
+    {
+      "type": "table",
+      "caption": "Empfehlungen",
+      "title": "Wirkstoffe zu Auswertung 02.",
+      "cols": ["Wirkstoff", "Aus Marker", "Quelle", "Menge", "Hinweis"],
+      "rows": [
+        [
+          "Resveratrol",
+          "miR-106b-5p · 3",
+          "Traubenschalen, Himbeeren, Preiselbeeren, Erdbeeren",
+          "150 mg/Tag",
+          "Über die Ernährung allein schwer erreichbar"
+        ],
+        [
+          "Omega-3 (PUFAs)",
+          "miR-106b-5p · 3",
+          "Fetter Fisch, Walnüsse, Algen, Raps- und Leinöl",
+          "250–500 mg/Tag",
+          "Omega-3 und Omega-6 im Gleichgewicht halten"
+        ],
+        [
+          "Berberin",
+          "miR-106b-5p · 3",
+          "Berberitzenwurzelrinde, Orangenwurzel",
+          "max. 500 mg/Tag",
+          "Als Tee aus der ayurvedischen Medizin bekannt"
+        ],
+        [
+          "Folat",
+          "miR-16-5p · 6",
+          "Grünes Blattgemüse, Spinat, Grünkohl, Brokkoli",
+          "300 µg/Tag",
+          "Rauchen reduziert die Aufnahme"
+        ]
+      ],
+      "id": "uebersicht-2"
+    },
+    {
+      "type": "table",
+      "caption": "Alle Empfehlungen auf einen Blick",
+      "title": "Ihre Interventionen.",
+      "lead": "Elf Wirkstoffe, jeweils dem microRNA-Marker zugeordnet, auf den sie wirken, mit dessen aktuellem Wert. Sortiert nach Dringlichkeit — die schwächsten Marker zuerst.",
+      "cols": ["Wirkstoff", "Aus Marker", "Quelle", "Menge", "Hinweis"],
+      "rows": [
+        [
+          "Resveratrol",
+          "miR-106b-5p · 3, let-7g-5p · 4, miR-15a-5p · 5",
+          "Traubenschalen, Himbeeren, Preiselbeeren, Erdbeeren",
+          "150 mg/Tag",
+          "Über die Ernährung allein schwer in dieser Menge erreichbar"
+        ],
+        [
+          "Berberin",
+          "miR-106b-5p · 3",
+          "Berberitzenwurzelrinde, Orangenwurzel",
+          "max. 500 mg/Tag",
+          "Als Tee aus der ayurvedischen Medizin bekannt"
+        ],
+        [
+          "Butyrat",
+          "miR-106b-5p · 3, let-7a-5p · 7, miR-21-5p · 8",
+          "Pektin (Apfel, Hagebutte), Inulin (Chicorée, Artischocke)",
+          "mind. 30 g/Tag",
+          "Entsteht bei Fermentation präbiotischer Ballaststoffe im Darm"
+        ],
+        [
+          "Omega-3 (PUFAs)",
+          "miR-106b-5p · 3, miR-21-5p · 8",
+          "Fetter Fisch, Walnüsse, Algen, Raps- und Leinöl",
+          "250–500 mg/Tag",
+          "Omega-3 und Omega-6 im Gleichgewicht halten"
+        ],
+        [
+          "Quercetin",
+          "let-7g-5p · 4",
+          "Zwiebel, Kapern, Liebstöckel, Schnittlauch",
+          "mind. 200 mg/Tag",
+          "Hitzeempfindlich — roh oder schonend zubereiten"
+        ],
+        [
+          "Oleuropein",
+          "let-7g-5p · 4",
+          "Oliven, Olivenblatt, Arganöl",
+          "100 mg/Tag",
+          "Blätter 3.000-fach konzentrierter, aber sehr bitter"
+        ],
+        [
+          "EGCG (Grüner Tee)",
+          "let-7g-5p · 4, miR-15a-5p · 5",
+          "Weißer oder grüner Tee (unfermentiert)",
+          "max. 800 mg/Tag",
+          "Piperin, Vitamin C und Fischöl verbessern die Bioverfügbarkeit"
+        ],
+        [
+          "Folat",
+          "miR-16-5p · 6",
+          "Grünes Blattgemüse, Spinat, Grünkohl, Brokkoli",
+          "300 µg/Tag",
+          "Rauchen reduziert die Aufnahme"
+        ],
+        [
+          "Curcumin",
+          "miR-21-5p · 8",
+          "Curcuma",
+          "max. 300 mg/Tag",
+          "Bei Schwangerschaft oder Gallensteinen ärztlich abklären"
+        ],
+        [
+          "Gingerol",
+          "miR-21-5p · 8",
+          "Ingwerwurzel",
+          "max. 5 g/Tag",
+          "In der Schwangerschaft nur nach Rücksprache"
+        ],
+        [
+          "Sulforaphan",
+          "miR-21-5p · 8",
+          "Kreuzblütler, Kohl, Brokkoli(-sprossen)",
+          "25 mg/Tag",
+          "Am besten roh oder kurz gedünstet"
+        ]
+      ],
+      "note": "Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen — insbesondere bei Schwangerschaft, Vorerkrankungen oder gleichzeitiger Medikamenteneinnahme. Diese Übersicht ersetzt keine ärztliche Beratung.",
+      "id": "uebersicht-3"
+    },
+    {
+      "type": "trend",
+      "caption": "Verlauf",
+      "title": "Zwei Messungen im Vergleich.",
+      "lead": "Gegenüberstellung Ihrer beiden bisherigen Messungen. Dargestellt sind ausschließlich gemessene Werte — keine Prognose.",
+      "firstLabel": "15.03.2026",
+      "secondLabel": "15.06.2026",
+      "kind": "traffic",
+      "items": [
+        {
+          "label": "Physiologisches Stresslevel",
+          "first": 6,
+          "second": 7,
+          "firstDisplay": "6 / 9",
+          "secondDisplay": "7 / 9",
+          "delta": "+1",
+          "status": "Günstig",
+          "tone": "green"
+        },
+        {
+          "label": "Risiko für Spätfolgen",
+          "first": 5,
+          "second": 4,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "4 / 9",
+          "delta": "−1",
+          "status": "Erhöht",
+          "tone": "amber"
+        }
+      ],
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "Was der Verlauf zeigt",
+      "text": "Die beiden Auswertungen laufen gegenläufig: Das aktuelle Stresslevel hat sich von 6 auf 7 verbessert und liegt jetzt im grünen Bereich. Der Wert für die Spätfolgen ist im selben Zeitraum von 5 auf 4 gesunken — und weil hier ein höherer Wert das geringere Risiko bedeutet, heißt das: Das Risiko hat zugenommen.",
+      "items": [
+        "Das ist der eigentliche Befund dieser Messung: Die akute Belastung wird besser bewältigt, während sich die langfristige Regulationsebene verschlechtert hat. Ein gutes Stresslevel allein sagt über die Spätfolgen-Ebene nichts aus.",
+        "Zwischen den beiden Messungen lagen rund drei Monate. Den Abstand zur nächsten Kontrollmessung legt die betreuende Einrichtung fest."
+      ],
+      "tone": "accent",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "summary",
+      "caption": "Zusammenfassung",
+      "title": "Ihr Schwerpunkt: die lange Linie.",
+      "lead": "Ihr aktuelles Stresslevel ist gut — und genau das ist der Punkt, an dem dieser Befund widerspricht: Die Ebene, die sich verschlechtert hat, ist die, die man nicht spürt.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "miR-106b-5p — der einzige rote Einzelwert",
+          "text": "Mit 3/9 ist der Immunsignal aktivierende Indikator der schwächste Wert des Befunds und geht in das Risiko für Spätfolgen ein. Vier der elf Empfehlungen zielen auf ihn: Resveratrol, Berberin, Butyrat und Omega-3. Konkret: mindestens 30 g Ballaststoffe täglich für die Butyrat-Bildung im Darm, 250–500 mg Omega-3 aus fettem Fisch, Walnüssen oder Algenöl, dazu Beeren für Resveratrol."
+        },
+        {
+          "num": "02",
+          "title": "let-7g-5p — die chronische Ebene",
+          "text": "Der Chronische Stress Indikator liegt mit 4/9 deutlich unter dem akuten (7/9) — obwohl die Auswertung insgesamt im grünen Bereich liegt. Welcher der beiden Indikatoren die Verbesserung von 6 auf 7 getragen hat, weist der Befund nicht aus. Quercetin, EGCG, Oleuropein und Resveratrol setzen an der chronischen Ebene an. Die Zubereitungshinweise unterscheiden sich je Wirkstoff — Einzelheiten in der Tabelle auf Seite 06."
+        }
+      ],
+      "keepTitle": "Erhalten",
+      "keepText": "miR-21-5p (8/9) und let-7a-5p (7/9) sind die beiden stärksten Werte — zelluläre Schutzmechanismen und akute Stressantwort arbeiten gut. Curcumin, Gingerol und Sulforaphan dienen hier dem Erhalt, nicht der Korrektur.",
+      "controlTitle": "Kontrolle und nächster Schritt",
+      "controlItems": [
+        "Zwischen Ihren bisherigen beiden Messungen lagen rund drei Monate. Den Abstand zur nächsten Kontrolle legt die betreuende Einrichtung fest.",
+        "Für die Vergleichbarkeit sollten Probenahme und Tageszeit ähnlich bleiben.",
+        "Bei anhaltender Erschöpfung, Schlafstörungen oder Niedergeschlagenheit ersetzt dieser Befund keine ärztliche Abklärung."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Fragen zu Ihrem Befund?",
+      "text": "Besprechen Sie die Ergebnisse mit der Einrichtung, die die Probenahme durchgeführt hat. Dort liegt der Kontext vor, der für die Einordnung nötig ist.",
+      "columns": [
+        {
+          "k": "Kontakt",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Vertrieb",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Musterbefund",
+          "text": "Sämtliche Werte und Angaben zur Person in diesem Dokument sind frei erfunden und dienen ausschließlich der Darstellung des Berichtsformats. Es handelt sich nicht um einen realen Befund."
+        },
+        {
+          "title": "Einordnung",
+          "text": "Dieser Bericht ist keine Diagnose und ersetzt keine ärztliche oder psychotherapeutische Beratung. Die microRNA-Werte beschreiben einen Momentzustand der zellulären Regulation; sie sind keine Messung von Stresserleben und keine Aussage über das Vorliegen oder Entstehen einer Erkrankung. Bei anhaltender Belastung, Erschöpfung, Schlafstörungen oder Niedergeschlagenheit suchen Sie bitte ärztlichen Rat."
+        },
+        {
+          "title": "Rechtlicher Rahmen",
+          "text": "Die Laboranalytik erfolgt durch unseren Kooperationspartner. Polaris Diagnostics Europe GmbH verantwortet Vertrieb und Betreuung. Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand: August 2026",
+      "id": "kontakt"
     }
-   ],
-   "id": "deckblatt"
-  },
-  {
-   "type": "principle",
-   "caption": "Das Prinzip",
-   "title": "Ihre Stress-Regulation. Nicht Ihr Stresslevel.",
-   "lead": "Stress ist keine einzelne Größe, sondern ein Netzwerk aus neuroendokrinen, immunologischen und metabolischen Prozessen — gesteuert unter anderem über die HPA-Achse, entzündliche Signalwege und mitochondriale Anpassungen. Analysiert werden sechs microRNAs: kleine, nichtkodierende RNA-Moleküle, die mitentscheiden, welche Gene unter Stressbedingungen tatsächlich abgelesen werden.",
-   "cards": [
-    {
-     "title": "Akut & chronisch",
-     "text": "Wie Ihre Stressreaktion aktuell verläuft und ob sich eine dauerhafte Belastung abzeichnet."
-    },
-    {
-     "title": "Regulation",
-     "text": "Wie gut Ihr Körper Stresssignale auf zellulärer Ebene ausgleicht."
-    },
-    {
-     "title": "Spätfolgen",
-     "text": "Wie hoch das Risiko ist, dass sich anhaltender Stress langfristig niederschlägt."
-    }
-   ],
-   "flowTitle": "Der Ablauf",
-   "flow": [
-    {
-     "num": "01",
-     "title": "Messen",
-     "text": "Trockenblutkarte, Fingerbeere. Sechs microRNAs, normalisiert auf das Referenzgen miR-24-3p. Kein Nüchternstatus nötig."
-    },
-    {
-     "num": "02",
-     "title": "Auswerten",
-     "text": "Zwei Auswertungen auf der Skala 1–9: physiologisches Stresslevel und Risiko für Spätfolgen."
-    },
-    {
-     "num": "03",
-     "title": "Regulieren",
-     "text": "Gezielte Empfehlungen zu sekundären Pflanzenstoffen und Verlaufskontrolle über die Zeit."
-    }
-   ],
-   "scaleTitle": "Wie lese ich die Skala?",
-   "scaleLead": "Beide Auswertungen und alle sechs Einzelmarker laufen auf der Skala 1 bis 9. Höher ist immer besser: 1–3 rot, 4–6 gelb, 7–9 grün. Jede der beiden Auswertungen trägt zusätzlich ihre eigene Zonenbeschriftung.",
-   "scaleKind": "traffic",
-   "scaleTicks": [
-    "1",
-    "3",
-    "5",
-    "7",
-    "9"
-   ],
-   "scaleZones": [
-    {
-     "tone": "red",
-     "label": "1–3 · Rot",
-     "text": "Höchste Priorität."
-    },
-    {
-     "tone": "amber",
-     "label": "4–6 · Gelb",
-     "text": "Gezielt gegensteuern."
-    },
-    {
-     "tone": "green",
-     "label": "7–9 · Grün",
-     "text": "Ergebnis erhalten."
-    }
-   ],
-   "id": "so-lesen"
-  },
-  {
-   "type": "callout",
-   "title": "Wichtig",
-   "text": "Dieser Befund ist keine Diagnose und ersetzt keine ärztliche oder psychotherapeutische Beratung. Bei anhaltender Belastung, Erschöpfung oder Schlafstörungen suchen Sie bitte ärztlichen Rat.",
-   "items": [
-    "Die sechs microRNA-Werte beschreiben einen Momentzustand und sind über den Lebensstil beeinflussbar — sie eignen sich damit als Verlaufskontrolle."
-   ],
-   "tone": "neutral",
-   "id": "hinweis"
-  },
-  {
-   "type": "markers",
-   "caption": "Ergebnis auf einen Blick",
-   "title": "Ihre zwei Auswertungen.",
-   "items": [
-    {
-     "name": "Physiologisches Stresslevel",
-     "category": "Akute und chronische Belastung",
-     "kind": "traffic",
-     "value": 7,
-     "display": "7 / 9",
-     "sub": "Günstig",
-     "tone": "green",
-     "text": "Ihr Körper kommt mit aktuellem Stress gut zurecht.",
-     "zoneLabels": [
-      "chronischer Stress",
-      "akuter Stress",
-      "kein Stress"
-     ]
-    },
-    {
-     "name": "Risiko für Spätfolgen",
-     "category": "Langfristige Regulation",
-     "kind": "traffic",
-     "value": 4,
-     "display": "4 / 9",
-     "sub": "Erhöht",
-     "tone": "amber",
-     "text": "Erhöhtes Risiko — präventives Handeln empfohlen.",
-     "zoneLabels": [
-      "hohes Risiko",
-      "mittleres Risiko",
-      "niedriges Risiko"
-     ]
-    }
-   ],
-   "id": "marker"
-  },
-  {
-   "type": "resultTable",
-   "caption": "Die sechs Einzelmarker",
-   "title": "Alle microRNAs im Überblick.",
-   "cols": [
-    "microRNA",
-    "Bezeichnung",
-    "Regulationsebene",
-    "Wert",
-    "Fließt ein in"
-   ],
-   "rows": [
-    {
-     "cells": [
-      "miR-21-5p",
-      "Zellschutz Indikator",
-      "Zelluläre Schutz- und Anpassungsmechanismen",
-      "8 / 9",
-      "Spätfolgen"
-     ],
-     "tone": "green"
-    },
-    {
-     "cells": [
-      "let-7a-5p",
-      "Akuter Stress Indikator",
-      "Inflammatorische Grundregulation",
-      "7 / 9",
-      "Stresslevel"
-     ],
-     "tone": "green"
-    },
-    {
-     "cells": [
-      "miR-16-5p",
-      "Serotonin regulierender Indikator",
-      "Serotonerge Regulation",
-      "6 / 9",
-      "Spätfolgen"
-     ],
-     "tone": "amber"
-    },
-    {
-     "cells": [
-      "miR-15a-5p",
-      "Neuronaler Indikator",
-      "Neuronale Stabilität und Anpassung",
-      "5 / 9",
-      "Spätfolgen"
-     ],
-     "tone": "amber"
-    },
-    {
-     "cells": [
-      "let-7g-5p",
-      "Chronischer Stress Indikator",
-      "Inflammatorische und metabolische Regulation",
-      "4 / 9",
-      "Stresslevel"
-     ],
-     "tone": "amber"
-    },
-    {
-     "cells": [
-      "miR-106b-5p",
-      "Immunsignal aktivierender Indikator",
-      "Immunologische Aktivierung",
-      "3 / 9",
-      "Spätfolgen"
-     ],
-     "tone": "red"
-    }
-   ],
-   "note": "Die beiden Auswertungen werden vom Labor aus den ihnen zugeordneten microRNAs berechnet; sie sind nicht der Mittelwert dieser Einzelwerte.",
-   "id": "ergebnis"
-  },
-  {
-   "type": "bigResult",
-   "caption": "Auswertung 01",
-   "title": "Physiologisches Stresslevel.",
-   "lead": "Zusammengesetzt aus dem Akuten und dem Chronischen Stress Indikator (let-7a-5p, let-7g-5p).",
-   "display": "7 / 9",
-   "sub": "Günstig",
-   "kind": "traffic",
-   "value": 7,
-   "tone": "green",
-   "zoneLabels": [
-    "chronischer Stress",
-    "akuter Stress",
-    "kein Stress"
-   ],
-   "text": "Die Auswertung zeigt, wo Ihre aktuelle Stressreaktion zwischen „kein Stress“ und „chronischer Stress“ liegt. Ihr Wert liegt im günstigen Bereich — Ihr Körper kommt mit dem aktuellen Stress gut zurecht. Die Bewertung erfolgt stets im Kontext der weiteren Marker.",
-   "id": "ergebnis-2"
-  },
-  {
-   "type": "markers",
-   "caption": "Auswertung 01",
-   "title": "Die beiden Einzelindikatoren.",
-   "items": [
-    {
-     "name": "let-7a-5p",
-     "category": "Akuter Stress Indikator",
-     "kind": "traffic",
-     "value": 7,
-     "display": "7 / 9",
-     "tone": "green",
-     "text": "Teil der let-7-Familie; reguliert entzündliche Signalwege und ist an Stress- und Immunprozessen beteiligt. Der günstigere der beiden Werte."
-    },
-    {
-     "name": "let-7g-5p",
-     "category": "Chronischer Stress Indikator",
-     "kind": "traffic",
-     "value": 4,
-     "display": "4 / 9",
-     "tone": "amber",
-     "text": "Reguliert entzündliche und metabolische Prozesse mit Einfluss auf die systemische Homöostase. Deutlich schwächer als der akute Indikator."
-    }
-   ],
-   "id": "marker-2"
-  },
-  {
-   "type": "callout",
-   "title": "Worauf es hier ankommt",
-   "text": "Die beiden Einzelindikatoren gehen weit auseinander: akut 7/9, chronisch 4/9. Die akute Stressantwort funktioniert; die chronische Ebene ist die schwächere von beiden.",
-   "items": [
-    "Vier der elf Empfehlungen — Quercetin, EGCG, Oleuropein und Resveratrol — zielen genau auf den chronischen Indikator let-7g-5p."
-   ],
-   "tone": "accent",
-   "id": "hinweis-2"
-  },
-  {
-   "type": "table",
-   "caption": "Empfehlungen",
-   "title": "Wirkstoffe zu Auswertung 01.",
-   "cols": [
-    "Wirkstoff",
-    "Aus Marker",
-    "Quelle",
-    "Menge",
-    "Hinweis"
-   ],
-   "rows": [
-    [
-     "Butyrat",
-     "let-7a-5p · 7",
-     "Pektin (Apfel, Hagebutte), Inulin (Chicorée, Artischocke)",
-     "mind. 30 g/Tag",
-     "Entsteht bei Fermentation präbiotischer Ballaststoffe im Darm"
-    ],
-    [
-     "Quercetin",
-     "let-7g-5p · 4",
-     "Zwiebel, Kapern, Liebstöckel, Schnittlauch",
-     "mind. 200 mg/Tag",
-     "Hitzeempfindlich — roh oder schonend zubereiten"
-    ],
-    [
-     "EGCG",
-     "let-7g-5p · 4",
-     "Weißer oder grüner Tee (unfermentiert)",
-     "max. 800 mg/Tag",
-     "Piperin, Vitamin C und Fischöl verbessern die Bioverfügbarkeit"
-    ],
-    [
-     "Oleuropein",
-     "let-7g-5p · 4",
-     "Oliven, Olivenblatt, Arganöl",
-     "100 mg/Tag",
-     "Blätter 3.000-fach konzentrierter, aber sehr bitter"
-    ]
-   ],
-   "id": "uebersicht"
-  },
-  {
-   "type": "bigResult",
-   "caption": "Auswertung 02",
-   "title": "Risiko für Spätfolgen.",
-   "lead": "Berechnet aus vier microRNAs: miR-16-5p, miR-15a-5p, miR-106b-5p und miR-21-5p.",
-   "display": "4 / 9",
-   "sub": "Erhöht",
-   "kind": "traffic",
-   "value": 4,
-   "tone": "amber",
-   "zoneLabels": [
-    "hohes Risiko",
-    "mittleres Risiko",
-    "niedriges Risiko"
-   ],
-   "text": "Die Auswertung zeigt noch keine akute stressbedingte Überbelastung. Das Risiko für Folgeerkrankungen ist aber bereits erhöht — hier lohnt es sich zu handeln, bevor sich Spätfolgen manifestieren. Dies ist der Schwerpunkt Ihres Befunds.",
-   "id": "ergebnis-3"
-  },
-  {
-   "type": "markers",
-   "caption": "Auswertung 02",
-   "title": "Die vier microRNAs.",
-   "items": [
-    {
-     "name": "miR-106b-5p",
-     "category": "Immunsignal",
-     "kind": "traffic",
-     "value": 3,
-     "display": "3 / 9",
-     "tone": "red",
-     "text": "Reguliert Immunantworten und entzündliche Signalwege. Der einzige rote Einzelwert des Befunds; vier der elf Empfehlungen adressieren ihn."
-    },
-    {
-     "name": "miR-15a-5p",
-     "category": "Neuronal",
-     "kind": "traffic",
-     "value": 5,
-     "display": "5 / 9",
-     "tone": "amber",
-     "text": "Reguliert neuronale Prozesse, Apoptose und Zellzyklus; beeinflusst die neuronale Homöostase."
-    },
-    {
-     "name": "miR-16-5p",
-     "category": "Serotonerg",
-     "kind": "traffic",
-     "value": 6,
-     "display": "6 / 9",
-     "tone": "amber",
-     "text": "Reguliert serotonerge Signalwege und den Serotonin-Transporter; beteiligt an neuronaler Plastizität."
-    },
-    {
-     "name": "miR-21-5p",
-     "category": "Zellschutz",
-     "kind": "traffic",
-     "value": 8,
-     "display": "8 / 9",
-     "tone": "green",
-     "text": "Reguliert Zellüberleben und Apoptose; beteiligt an Stress- und Reparaturprozessen. Der beste Einzelwert des gesamten Befunds."
-    }
-   ],
-   "id": "marker-3"
-  },
-  {
-   "type": "table",
-   "caption": "Empfehlungen",
-   "title": "Wirkstoffe zu Auswertung 02.",
-   "cols": [
-    "Wirkstoff",
-    "Aus Marker",
-    "Quelle",
-    "Menge",
-    "Hinweis"
-   ],
-   "rows": [
-    [
-     "Resveratrol",
-     "miR-106b-5p · 3",
-     "Traubenschalen, Himbeeren, Preiselbeeren, Erdbeeren",
-     "150 mg/Tag",
-     "Über die Ernährung allein schwer erreichbar"
-    ],
-    [
-     "Omega-3 (PUFAs)",
-     "miR-106b-5p · 3",
-     "Fetter Fisch, Walnüsse, Algen, Raps- und Leinöl",
-     "250–500 mg/Tag",
-     "Omega-3 und Omega-6 im Gleichgewicht halten"
-    ],
-    [
-     "Berberin",
-     "miR-106b-5p · 3",
-     "Berberitzenwurzelrinde, Orangenwurzel",
-     "max. 500 mg/Tag",
-     "Als Tee aus der ayurvedischen Medizin bekannt"
-    ],
-    [
-     "Folat",
-     "miR-16-5p · 6",
-     "Grünes Blattgemüse, Spinat, Grünkohl, Brokkoli",
-     "300 µg/Tag",
-     "Rauchen reduziert die Aufnahme"
-    ]
-   ],
-   "id": "uebersicht-2"
-  },
-  {
-   "type": "table",
-   "caption": "Alle Empfehlungen auf einen Blick",
-   "title": "Ihre Interventionen.",
-   "lead": "Elf Wirkstoffe, jeweils dem microRNA-Marker zugeordnet, auf den sie wirken, mit dessen aktuellem Wert. Sortiert nach Dringlichkeit — die schwächsten Marker zuerst.",
-   "cols": [
-    "Wirkstoff",
-    "Aus Marker",
-    "Quelle",
-    "Menge",
-    "Hinweis"
-   ],
-   "rows": [
-    [
-     "Resveratrol",
-     "miR-106b-5p · 3, let-7g-5p · 4, miR-15a-5p · 5",
-     "Traubenschalen, Himbeeren, Preiselbeeren, Erdbeeren",
-     "150 mg/Tag",
-     "Über die Ernährung allein schwer in dieser Menge erreichbar"
-    ],
-    [
-     "Berberin",
-     "miR-106b-5p · 3",
-     "Berberitzenwurzelrinde, Orangenwurzel",
-     "max. 500 mg/Tag",
-     "Als Tee aus der ayurvedischen Medizin bekannt"
-    ],
-    [
-     "Butyrat",
-     "miR-106b-5p · 3, let-7a-5p · 7, miR-21-5p · 8",
-     "Pektin (Apfel, Hagebutte), Inulin (Chicorée, Artischocke)",
-     "mind. 30 g/Tag",
-     "Entsteht bei Fermentation präbiotischer Ballaststoffe im Darm"
-    ],
-    [
-     "Omega-3 (PUFAs)",
-     "miR-106b-5p · 3, miR-21-5p · 8",
-     "Fetter Fisch, Walnüsse, Algen, Raps- und Leinöl",
-     "250–500 mg/Tag",
-     "Omega-3 und Omega-6 im Gleichgewicht halten"
-    ],
-    [
-     "Quercetin",
-     "let-7g-5p · 4",
-     "Zwiebel, Kapern, Liebstöckel, Schnittlauch",
-     "mind. 200 mg/Tag",
-     "Hitzeempfindlich — roh oder schonend zubereiten"
-    ],
-    [
-     "Oleuropein",
-     "let-7g-5p · 4",
-     "Oliven, Olivenblatt, Arganöl",
-     "100 mg/Tag",
-     "Blätter 3.000-fach konzentrierter, aber sehr bitter"
-    ],
-    [
-     "EGCG (Grüner Tee)",
-     "let-7g-5p · 4, miR-15a-5p · 5",
-     "Weißer oder grüner Tee (unfermentiert)",
-     "max. 800 mg/Tag",
-     "Piperin, Vitamin C und Fischöl verbessern die Bioverfügbarkeit"
-    ],
-    [
-     "Folat",
-     "miR-16-5p · 6",
-     "Grünes Blattgemüse, Spinat, Grünkohl, Brokkoli",
-     "300 µg/Tag",
-     "Rauchen reduziert die Aufnahme"
-    ],
-    [
-     "Curcumin",
-     "miR-21-5p · 8",
-     "Curcuma",
-     "max. 300 mg/Tag",
-     "Bei Schwangerschaft oder Gallensteinen ärztlich abklären"
-    ],
-    [
-     "Gingerol",
-     "miR-21-5p · 8",
-     "Ingwerwurzel",
-     "max. 5 g/Tag",
-     "In der Schwangerschaft nur nach Rücksprache"
-    ],
-    [
-     "Sulforaphan",
-     "miR-21-5p · 8",
-     "Kreuzblütler, Kohl, Brokkoli(-sprossen)",
-     "25 mg/Tag",
-     "Am besten roh oder kurz gedünstet"
-    ]
-   ],
-   "note": "Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen — insbesondere bei Schwangerschaft, Vorerkrankungen oder gleichzeitiger Medikamenteneinnahme. Diese Übersicht ersetzt keine ärztliche Beratung.",
-   "id": "uebersicht-3"
-  },
-  {
-   "type": "trend",
-   "caption": "Verlauf",
-   "title": "Zwei Messungen im Vergleich.",
-   "lead": "Gegenüberstellung Ihrer beiden bisherigen Messungen. Dargestellt sind ausschließlich gemessene Werte — keine Prognose.",
-   "firstLabel": "15.03.2026",
-   "secondLabel": "15.06.2026",
-   "kind": "traffic",
-   "items": [
-    {
-     "label": "Physiologisches Stresslevel",
-     "first": 6,
-     "second": 7,
-     "firstDisplay": "6 / 9",
-     "secondDisplay": "7 / 9",
-     "delta": "+1",
-     "status": "Günstig",
-     "tone": "green"
-    },
-    {
-     "label": "Risiko für Spätfolgen",
-     "first": 5,
-     "second": 4,
-     "firstDisplay": "5 / 9",
-     "secondDisplay": "4 / 9",
-     "delta": "−1",
-     "status": "Erhöht",
-     "tone": "amber"
-    }
-   ],
-   "id": "verlauf"
-  },
-  {
-   "type": "callout",
-   "title": "Was der Verlauf zeigt",
-   "text": "Die beiden Auswertungen laufen gegenläufig: Das aktuelle Stresslevel hat sich von 6 auf 7 verbessert und liegt jetzt im grünen Bereich. Der Wert für die Spätfolgen ist im selben Zeitraum von 5 auf 4 gesunken — und weil hier ein höherer Wert das geringere Risiko bedeutet, heißt das: Das Risiko hat zugenommen.",
-   "items": [
-    "Das ist der eigentliche Befund dieser Messung: Die akute Belastung wird besser bewältigt, während sich die langfristige Regulationsebene verschlechtert hat. Ein gutes Stresslevel allein sagt über die Spätfolgen-Ebene nichts aus.",
-    "Zwischen den beiden Messungen lagen rund drei Monate. Den Abstand zur nächsten Kontrollmessung legt die betreuende Einrichtung fest."
-   ],
-   "tone": "accent",
-   "id": "hinweis-3"
-  },
-  {
-   "type": "summary",
-   "caption": "Zusammenfassung",
-   "title": "Ihr Schwerpunkt: die lange Linie.",
-   "lead": "Ihr aktuelles Stresslevel ist gut — und genau das ist der Punkt, an dem dieser Befund widerspricht: Die Ebene, die sich verschlechtert hat, ist die, die man nicht spürt.",
-   "focuses": [
-    {
-     "num": "01",
-     "title": "miR-106b-5p — der einzige rote Einzelwert",
-     "text": "Mit 3/9 ist der Immunsignal aktivierende Indikator der schwächste Wert des Befunds und geht in das Risiko für Spätfolgen ein. Vier der elf Empfehlungen zielen auf ihn: Resveratrol, Berberin, Butyrat und Omega-3. Konkret: mindestens 30 g Ballaststoffe täglich für die Butyrat-Bildung im Darm, 250–500 mg Omega-3 aus fettem Fisch, Walnüssen oder Algenöl, dazu Beeren für Resveratrol."
-    },
-    {
-     "num": "02",
-     "title": "let-7g-5p — die chronische Ebene",
-     "text": "Der Chronische Stress Indikator liegt mit 4/9 deutlich unter dem akuten (7/9) — obwohl die Auswertung insgesamt im grünen Bereich liegt. Welcher der beiden Indikatoren die Verbesserung von 6 auf 7 getragen hat, weist der Befund nicht aus. Quercetin, EGCG, Oleuropein und Resveratrol setzen an der chronischen Ebene an. Die Zubereitungshinweise unterscheiden sich je Wirkstoff — Einzelheiten in der Tabelle auf Seite 06."
-    }
-   ],
-   "keepTitle": "Erhalten",
-   "keepText": "miR-21-5p (8/9) und let-7a-5p (7/9) sind die beiden stärksten Werte — zelluläre Schutzmechanismen und akute Stressantwort arbeiten gut. Curcumin, Gingerol und Sulforaphan dienen hier dem Erhalt, nicht der Korrektur.",
-   "controlTitle": "Kontrolle und nächster Schritt",
-   "controlItems": [
-    "Zwischen Ihren bisherigen beiden Messungen lagen rund drei Monate. Den Abstand zur nächsten Kontrolle legt die betreuende Einrichtung fest.",
-    "Für die Vergleichbarkeit sollten Probenahme und Tageszeit ähnlich bleiben.",
-    "Bei anhaltender Erschöpfung, Schlafstörungen oder Niedergeschlagenheit ersetzt dieser Befund keine ärztliche Abklärung."
-   ],
-   "id": "zusammenfassung"
-  },
-  {
-   "type": "contact",
-   "title": "Fragen zu Ihrem Befund?",
-   "text": "Besprechen Sie die Ergebnisse mit der Einrichtung, die die Probenahme durchgeführt hat. Dort liegt der Kontext vor, der für die Einordnung nötig ist.",
-   "columns": [
-    {
-     "k": "Kontakt",
-     "lines": [
-      "contact@polarisdx.net",
-      "+49 152 2858 0999",
-      "www.polarisdx.net"
-     ]
-    },
-    {
-     "k": "Vertrieb",
-     "lines": [
-      "Polaris Diagnostics Europe GmbH",
-      "Große Bleichen 1–3",
-      "20354 Hamburg"
-     ]
-    }
-   ],
-   "legal": [
-    {
-     "title": "Musterbefund",
-     "text": "Sämtliche Werte und Angaben zur Person in diesem Dokument sind frei erfunden und dienen ausschließlich der Darstellung des Berichtsformats. Es handelt sich nicht um einen realen Befund."
-    },
-    {
-     "title": "Einordnung",
-     "text": "Dieser Bericht ist keine Diagnose und ersetzt keine ärztliche oder psychotherapeutische Beratung. Die microRNA-Werte beschreiben einen Momentzustand der zellulären Regulation; sie sind keine Messung von Stresserleben und keine Aussage über das Vorliegen oder Entstehen einer Erkrankung. Bei anhaltender Belastung, Erschöpfung, Schlafstörungen oder Niedergeschlagenheit suchen Sie bitte ärztlichen Rat."
-    },
-    {
-     "title": "Rechtlicher Rahmen",
-     "text": "Die Laboranalytik erfolgt durch unseren Kooperationspartner. Polaris Diagnostics Europe GmbH verantwortet Vertrieb und Betreuung. Nahrungsergänzungsmittel bitte individuell und in fachlicher Abstimmung prüfen."
-    }
-   ],
-   "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand: August 2026",
-   "id": "kontakt"
-  }
- ]
+  ]
 }

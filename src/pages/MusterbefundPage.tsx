@@ -192,6 +192,7 @@ const MusterbefundPage = () => {
           <BlockChromeProvider key={`${block.type}-${index}`} value={chrome[index]}>
             <BefundBlock
               block={block}
+              slug={slug}
               radarValues={RADAR_VALUES[slug]}
               scrollHint={t('compare.scrollHint')}
             />

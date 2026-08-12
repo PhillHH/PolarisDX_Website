@@ -9,6 +9,8 @@
  */
 
 import { createContext, useContext, type ReactNode } from 'react'
+import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import {
   AgeDots,
   EvaluationBars,
@@ -32,15 +34,7 @@ const str = (v: unknown) => (typeof v === 'string' ? v : undefined)
 const num = (v: unknown) => (typeof v === 'number' ? v : undefined)
 
 /** Kopfzeile aus Kicker und Ueberschrift, in allen Bloecken gleich. */
-const Head = ({
-  caption,
-  title,
-  lead,
-}: {
-  caption?: string
-  title?: string
-  lead?: string
-}) => (
+const Head = ({ caption, title, lead }: { caption?: string; title?: string; lead?: string }) => (
   <>
     {caption ? (
       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
@@ -161,33 +155,103 @@ const DataTable = ({
 
 // ===========================================================================
 
-const Cover = ({ b }: { b: Block }) => (
-  <section className="relative overflow-hidden bg-brand-deep text-white">
-    <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
-      {str(b.badge) ? (
-        <span className="inline-flex rounded-full bg-accent-on-dark px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-brand-deep">
-          {str(b.badge)}
-        </span>
-      ) : null}
-      <h1 className="mt-6 text-4xl font-semibold tracking-tight lg:text-5xl">{str(b.panel)}</h1>
-      {str(b.subtitle) ? (
-        <p className="mt-1 text-2xl font-medium text-white/60 lg:text-3xl">{str(b.subtitle)}</p>
-      ) : null}
-      {str(b.claim) ? (
-        <p className="mt-6 max-w-[62ch] text-lg leading-relaxed text-white/80">{str(b.claim)}</p>
-      ) : null}
+const Cover = ({ b, slug }: { b: Block; slug?: string }) => {
+  const { t } = useTranslation('epigenetics')
 
-      <dl className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {arr<{ k: string; v: string }>(b.meta).map((m) => (
-          <div key={m.k} className="rounded-2xl border border-white/15 bg-white/10 px-5 py-4">
-            <dt className="text-xs font-medium text-white/60">{m.k}</dt>
-            <dd className="mt-1 text-base font-semibold text-white">{m.v}</dd>
-          </div>
+  // Fakten und Zielgruppen kommen aus der Vergleichstabelle, nicht aus dem
+  // Befund-JSON: dort liegen sie in allen zehn Sprachen, und Hero und Tabelle
+  // koennen so nicht auseinanderlaufen. Geschluesselt ueber den Slug — der
+  // Panelname ist uebersetzt, der Slug nicht.
+  const samples = arr<{ slug: string; pages: string; file: string }>(
+    t('samples.items', { returnObjects: true }),
+  )
+  const idx = slug ? samples.findIndex((x) => x.slug === slug) : -1
+  const sample = idx >= 0 ? samples[idx] : undefined
+
+  // compare.cols[0] ist der Panelname selbst, ab 1 stehen die fuenf Achsen.
+  // compare.rows und compare.groups haengen positionell am selben Index.
+  const cols = arr<string>(t('compare.cols', { returnObjects: true })).slice(1)
+  const rows = arr<string[]>(t('compare.rows', { returnObjects: true }))
+  const groups = arr<string[]>(t('compare.groups', { returnObjects: true }))
+  const facts = idx >= 0 && rows[idx] ? cols.map((k, n) => ({ k, v: rows[idx][n + 1] })) : []
+  const zielgruppen =
+    idx >= 0 && groups[idx]
+      ? groups[idx].map((g) => t(`compare.filter.options.${g}`)).join(' · ')
+      : ''
+
+  const anfrage = `/contact?intent=quote&source=epigenetics&panel=${encodeURIComponent(
+    str(b.panel) ?? '',
+  )}#kontaktformular`
+
+  return (
+    <section className="relative overflow-hidden bg-brand-deep text-white">
+      <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
+        {zielgruppen ? (
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
+            {zielgruppen}
+          </p>
+        ) : str(b.badge) ? (
+          <span className="inline-flex rounded-full bg-accent-on-dark px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-brand-deep">
+            {str(b.badge)}
+          </span>
+        ) : null}
+
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight lg:text-5xl">{str(b.panel)}</h1>
+
+        {/* Nutzen vor Methode. Wo noch kein benefit hinterlegt ist, bleibt der
+            bisherige Fachclaim stehen. */}
+        <p className="mt-4 max-w-[62ch] text-lg leading-relaxed text-white/80 lg:text-xl">
+          {str(b.benefit) || str(b.claim)}
+        </p>
+
+        {facts.length > 0 ? (
+          <dl className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            {facts.map((f) => (
+              <div key={f.k} className="rounded-2xl border border-white/15 bg-white/10 px-5 py-4">
+                <dt className="text-xs font-medium text-white/60">{f.k}</dt>
+                <dd className="mt-1 text-base font-semibold text-white">{f.v}</dd>
+              </div>
+            ))}
+          </dl>
+        ) : null}
+
+        <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
+          <Link
+            to={anfrage}
+            className="inline-flex items-center justify-center rounded-full bg-accent-on-dark px-7 py-3.5 text-base font-semibold text-brand-deep transition-opacity hover:opacity-90"
+          >
+            {t('hero.ctaQuote')}
+          </Link>
+          {sample?.file ? (
+            <a
+              href={`/downloads/epigenetics/${sample.file}`}
+              className="text-base font-medium text-white/80 underline underline-offset-4 hover:text-white"
+            >
+              {t('befund.ctaPdf')}
+            </a>
+          ) : null}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+const CoverMeta = ({ b }: { b: Block }) => {
+  const meta = arr<{ k: string; v: string }>(b.meta)
+  if (meta.length === 0) return null
+  return (
+    <div className="border-b border-slate-200 bg-slate-50">
+      <div className="mx-auto flex max-w-container flex-wrap items-center gap-x-6 gap-y-1 px-4 py-3 text-sm text-gray-600 lg:px-0">
+        {str(b.badge) ? <span className="font-semibold text-heading">{str(b.badge)}</span> : null}
+        {meta.map((m) => (
+          <span key={m.k}>
+            <span className="text-gray-500">{m.k}:</span> {m.v}
+          </span>
         ))}
-      </dl>
+      </div>
     </div>
-  </section>
-)
+  )
+}
 
 const Principle = ({ b }: { b: Block }) => {
   const cards = arr<{ title: string; text: string }>(b.cards)
@@ -324,7 +388,9 @@ const Markers = ({ b, hint }: { b: Block; hint?: string }) => (
           <div className="flex flex-wrap items-baseline justify-between gap-3">
             <h3 className="text-xl font-semibold tracking-tight text-text-heading">
               {m.name}
-              {m.category ? <span className="ml-2 text-base text-gray-500">{m.category}</span> : null}
+              {m.category ? (
+                <span className="ml-2 text-base text-gray-500">{m.category}</span>
+              ) : null}
             </h3>
           </div>
           {m.intro ? <p className={`mt-2 max-w-[72ch] text-gray-600 ${BODY}`}>{m.intro}</p> : null}
@@ -509,9 +575,7 @@ const Callout = ({ b }: { b: Block }) => {
         }`}
       >
         {str(b.title) ? (
-          <p
-            className={`text-sm font-semibold ${accent ? 'text-accent-strong' : 'text-gray-500'}`}
-          >
+          <p className={`text-sm font-semibold ${accent ? 'text-accent-strong' : 'text-gray-500'}`}>
             {str(b.title)}
           </p>
         ) : null}
@@ -630,9 +694,7 @@ const Contact = ({ b }: { b: Block }) => (
           <span className="font-semibold text-gray-600">{l.title}.</span> {l.text}
         </p>
       ))}
-      {str(b.copyright) ? (
-        <p className="text-sm text-gray-400">{str(b.copyright)}</p>
-      ) : null}
+      {str(b.copyright) ? <p className="text-sm text-gray-400">{str(b.copyright)}</p> : null}
     </div>
   </Section>
 )
@@ -641,16 +703,23 @@ const Contact = ({ b }: { b: Block }) => (
 
 export const BefundBlock = ({
   block,
+  slug,
   radarValues,
   scrollHint,
 }: {
   block: Block
+  slug?: string
   radarValues?: { profile: number[]; reference?: number[] }
   scrollHint?: string
 }) => {
   switch (block.type) {
     case 'cover':
-      return <Cover b={block} />
+      return (
+        <>
+          <Cover b={block} slug={slug} />
+          <CoverMeta b={block} />
+        </>
+      )
     case 'principle':
       return <Principle b={block} />
     case 'resultTable':
