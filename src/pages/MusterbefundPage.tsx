@@ -24,7 +24,12 @@ import { ArrowLeft, ArrowUp, Download } from 'lucide-react'
 import { SEOHead, createBreadcrumbSchema } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
-import { BefundBlock, BlockChromeProvider, type Block } from '../components/befund/BefundBlocks'
+import {
+  BefundBlock,
+  BefundNotice,
+  BlockChromeProvider,
+  type Block,
+} from '../components/befund/BefundBlocks'
 import BefundOverview from '../components/befund/BefundOverview'
 import ChapterNav, { type Chapter } from '../components/ui/ChapterNav'
 import { BEFUNDE, BEFUND_ORDER, RADAR_VALUES } from '../content/befunde'
@@ -164,6 +169,17 @@ const MusterbefundPage = () => {
   const blocks = (befund.blocks ?? []) as Block[]
 
   /**
+   * Die Pflichttexte dieses Befunds. Sie stehen im Kontaktblock am Seitenende
+   * und werden von dort auch fuer den Hinweisrahmen weiter oben gelesen — eine
+   * Quelle, ein Wortlaut, kein zweiter Abstimmungsstand.
+   */
+  const legalBlock = blocks.find((bl) => bl.type === 'contact')?.legal
+  const legal = (Array.isArray(legalBlock) ? legalBlock : []) as {
+    title: string
+    text: string
+  }[]
+
+  /**
    * Anker, Kapitelliste und Hintergrundwechsel in einem Durchgang.
    *
    * Der Wechsel haengt an der POSITION, nicht am Blocktyp — sonst haette jeder
@@ -269,6 +285,16 @@ const MusterbefundPage = () => {
               radarValues={RADAR_VALUES[slug]}
               scrollHint={t('compare.scrollHint')}
             />
+            {/* Der feste Hinweisrahmen steht hinter dem Grundsatzblock — auf
+                allen sechs Panels an derselben Stelle, bevor der erste Wert
+                kommt. Er nimmt keinem der bisherigen Hinweise seinen Platz. */}
+            {block.type === 'principle' ? (
+              <BefundNotice
+                caption={t('befund.noticeTitle')}
+                legal={legal}
+                tint={chrome[index].tint}
+              />
+            ) : null}
             {/* Die Kapitelleiste steht direkt hinter dem Deckblatt: sie soll
                 mitscrollen, aber den Hero nicht ueberdecken. */}
             {block.type === 'cover' ? (
