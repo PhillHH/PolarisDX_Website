@@ -31,7 +31,10 @@
         "value": "B2B nach Absprache"
       }
     ],
-    "ctaSheets": "Alle 18 Unterlagen"
+    "ctaSheets": "Alle 18 Unterlagen",
+    "chooseTitle": "Sechs Analysen. Welche passt zu Ihrer Einrichtung?",
+    "consultLine": "Nur die epigenetische Ebene reagiert auf Ernährung, Bewegung, Schlaf und Belastung — sie allein eignet sich als Verlaufskontrolle. Den Abstand zwischen den Messungen legt die betreuende Einrichtung fest.",
+    "trustEvidence": "Studienlage offengelegt: {{established}} gut belegte und {{preliminary}} vorläufige Punkte."
   },
   "principle": {
     "caption": "Das Prinzip",
