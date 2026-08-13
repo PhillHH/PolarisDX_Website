@@ -26,7 +26,13 @@ export const ContactForm = () => {
   // fragt und als Einsatzbereich Apotheke, Veterinaermedizin oder Labor
   // anbietet — nichts davon passt. Mit ?topic=epigenetik zeigt das Formular
   // die passenden Angaben, und die Herkunft steht in der Benachrichtigung.
-  const isEpigenetics = params.get('topic') === 'epigenetik'
+  // Zwei Herkunfts-Vertraege zeigen auf dieses Formular: der ChapterNav-CTA
+  // schickt ?topic=epigenetik, der Deckblatt-CTA der Musterbefund-Seiten
+  // ?intent=quote&source=epigenetics. Bisher zaehlte nur der erste - der
+  // Deckblatt-Link verlor damit den Panel-Kontext vollstaendig, obwohl er ihn
+  // als ?panel= mitbringt. Beide Vertraege gelten jetzt.
+  const isEpigenetics =
+    params.get('topic') === 'epigenetik' || params.get('source') === 'epigenetics'
   const panel = params.get('panel')?.slice(0, 60) ?? ''
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

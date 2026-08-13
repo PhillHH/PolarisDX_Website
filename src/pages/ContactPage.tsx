@@ -57,7 +57,16 @@ const ContactPage = () => {
           <div className="grid gap-10 lg:grid-cols-[minmax(0,2.1fr)_minmax(0,1.3fr)] lg:items-start">
             {/* Form-Card */}
             <Reveal width="100%">
-              <section className="space-y-6 rounded-2xl bg-white p-6 shadow-sm lg:p-8">
+              {/* Ankerziel des Deckblatt-CTA der Musterbefund-Seiten
+                  (/contact?...#kontaktformular). scroll-mt-28 haelt den
+                  Abstand zum fixierten Header, falls der Browser nativ
+                  springt; im Regelfall rechnet <ScrollToHash> in App.tsx
+                  die gemessene Headerhoehe heraus. */}
+              <section
+                id="kontaktformular"
+                aria-label={t('contact.hero.title')}
+                className="scroll-mt-28 space-y-6 rounded-2xl bg-white p-6 shadow-sm lg:p-8"
+              >
                 <SectionHeader
                   caption={t('contact.hero.kicker')}
                   title={t('contact.hero.title')}
