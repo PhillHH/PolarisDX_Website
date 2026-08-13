@@ -10,12 +10,15 @@
  * Dinge, jedes davon optional:
  * - einen Rueckweg
  * - einen Umschalter (auf den Befundseiten: das jeweils andere Panel)
- * - die Kapitel der Seite, waagerecht scrollbar
+ * - die Kapitel der Seite: ab lg ein waagerechter Streifen, darunter ein
+ *   Aufklapper, weil ein seitlich zu wischendes Band auf dem Telefon kaum zu
+ *   treffen ist
  * - eine Handlungsaufforderung, damit sie nicht erst nach 33.000 px auftaucht
  *
  * Alles sind echte Links mit href — die Seite funktioniert damit auch ohne
  * JavaScript, und Tastaturbedienung sowie "Link in neuem Tab" bleiben heil.
- * JavaScript fuegt nur die aktive Markierung und den Lesefortschritt hinzu.
+ * JavaScript fuegt nur die aktive Markierung, den Lesefortschritt und die
+ * Staffelung der Handlungsaufforderung hinzu.
  */
 
 import { useEffect, useRef, useState } from 'react'
@@ -32,6 +35,19 @@ interface SwitcherEntry {
   panel: string
 }
 
+/**
+ * Ein Ziel auf dem Aktionsplatz der Leiste. Entweder ein Router-Ziel (`to`)
+ * oder ein direktes `href` — letzteres fuer Sprungmarken innerhalb der Seite
+ * und fuer den PDF-Download, den der Router nicht anfassen darf.
+ */
+export interface NavAction {
+  label: string
+  to?: string
+  href?: string
+  /** Nur zusammen mit href sinnvoll: Datei laden statt navigieren. */
+  download?: boolean
+}
+
 interface ChapterNavProps {
   chapters: Chapter[]
   chaptersLabel: string
@@ -45,21 +61,44 @@ interface ChapterNavProps {
     label: string
     hrefFor: (slug: string) => string
   }
-  /** Handlungsaufforderung, die sonst am Seitenende steht. */
-  action?: { to: string; label: string }
+  /**
+   * Der Aktionsplatz. Ein Eintrag steht fest; mehrere teilen die Lesestrecke
+   * in gleich grosse Abschnitte — bei dreien also 0-33 / 33-66 / 66-100 %.
+   * Wer oben steht, braucht Orientierung; wer unten angekommen ist, den Weg
+   * zur Anfrage. Der letzte Eintrag ist der eigentliche Anfrageweg und traegt
+   * als einziger die volle Akzentfarbe, damit pro Seite genau eine Schaltflaeche
+   * als Primaeraufforderung auftritt.
+   */
+  actions?: NavAction[]
 }
 
 /** Kopfhoehe der Seite; die Leiste sitzt buendig darunter. */
 const TOP = 'top-[68px] lg:top-[88px]'
 
-const ChapterNav = ({ chapters, chaptersLabel, back, switcher, action }: ChapterNavProps) => {
+/**
+ * Totzone um die Stufengrenzen, in Prozentpunkten.
+ *
+ * Ohne sie flackert die Aufforderung, wenn der Leser genau auf einer Grenze
+ * steht — ein einziges Rad-Rasten schiebt den Wert dort hin und her.
+ */
+const HYSTERESE = 3
+
+const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: ChapterNavProps) => {
   const [active, setActive] = useState<string>(chapters[0]?.id ?? '')
-  const [progress, setProgress] = useState(0)
+  const [stufe, setStufe] = useState(0)
   // Der Streifen versteckt seinen Scrollbalken per CSS. Ohne sichtbare Kante
   // sieht man deshalb nicht, dass rechts noch Kapitel stehen — bei siebzehn
   // Kapiteln waren bei 1440px nur fuenf im Bild.
   const [ueberlauf, setUeberlauf] = useState({ links: false, rechts: false })
   const listRef = useRef<HTMLDivElement>(null)
+  const barRef = useRef<HTMLDivElement>(null)
+  const sheetRef = useRef<HTMLDetailsElement>(null)
+  // Spiegel der beiden Zustaende plus letzte Scrollposition. Der Scroll-Handler
+  // laeuft pro Bild; ohne diese Refs muesste er den React-Zustand lesen und
+  // haenge damit an einem Rendering, das genau nicht stattfinden soll.
+  const activeRef = useRef(active)
+  const stufeRef = useRef(0)
+  const lastYRef = useRef(0)
 
   useEffect(() => {
     const el = listRef.current
@@ -77,16 +116,16 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, action }: Chapter
       ro.disconnect()
     }
   }, [chapters.length])
-  const barRef = useRef<HTMLDivElement>(null)
 
   // Aktives Kapitel: das oberste, dessen Anfang bereits ueber der Lesemarke
   // liegt. Ein IntersectionObserver auf "sichtbar" waere hier unbrauchbar —
   // einzelne Abschnitte sind laenger als der Viewport und blieben dauerhaft
   // sichtbar.
+  const stufen = actions?.length ?? 0
   useEffect(() => {
     if (chapters.length === 0) return
     let frame = 0
-    const onScroll = () => {
+    const messen = () => {
       if (frame) return
       frame = window.requestAnimationFrame(() => {
         frame = 0
@@ -96,10 +135,44 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, action }: Chapter
           const el = document.getElementById(c.id)
           if (el && el.getBoundingClientRect().top <= line) current = c.id
         }
-        setActive(current)
+        // Nur bei echtem Wechsel in den React-Zustand. Vorher lief bei jedem
+        // Bild ein setState mit demselben Wert durch.
+        if (current !== activeRef.current) {
+          activeRef.current = current
+          setActive(current)
+        }
 
+        // Die Hoehe wird in jedem Bild neu gemessen, nie gemerkt: die
+        // Wertekapitel der Musterbefunde liegen in <details>. Klappt ein Leser
+        // einen auf, waechst die Seite um Tausende Pixel — eine einmal
+        // notierte Hoehe waere ab da falsch, und der Balken zeigte Unsinn.
+        const y = window.scrollY
         const max = document.documentElement.scrollHeight - window.innerHeight
-        setProgress(max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0)
+        const pct = max > 0 ? Math.min(100, Math.max(0, (y / max) * 100)) : 0
+
+        // Der Fortschritt geht als CSS-Variable direkt an den Knoten. Ueber
+        // useState waere das ein React-Rendering pro Bild, also sechzig in der
+        // Sekunde, nur damit ein Balken zwei Pixel breiter wird.
+        barRef.current?.style.setProperty('--nav-progress', `${pct.toFixed(2)}%`)
+
+        if (stufen > 1) {
+          const breite = 100 / stufen
+          let next = stufeRef.current
+          while (next < stufen - 1 && pct >= (next + 1) * breite + HYSTERESE) next += 1
+          // Zurueck nur, wenn der Leser wirklich nach oben rollt. Klappt er
+          // einen Block auf, waechst die Seite unter ihm: derselbe Punkt ist
+          // dann ein kleinerer Prozentwert. Ohne diese Sperre spraenge die
+          // Aufforderung im Moment des Aufklappens eine Stufe zurueck, obwohl
+          // sich der Leser keinen Pixel bewegt hat.
+          if (y < lastYRef.current - 1) {
+            while (next > 0 && pct < next * breite - HYSTERESE) next -= 1
+          }
+          if (next !== stufeRef.current) {
+            stufeRef.current = next
+            setStufe(next)
+          }
+        }
+        lastYRef.current = y
 
         // Sprungziele muessen unter Seitenkopf UND Leiste landen. Beide Hoehen
         // sind je nach Viewport verschieden — deshalb gemessen statt geraten.
@@ -111,15 +184,20 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, action }: Chapter
         }
       })
     }
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onScroll)
+    messen()
+    window.addEventListener('scroll', messen, { passive: true })
+    window.addEventListener('resize', messen)
+    // <details> meldet sein Auf und Zu ueber toggle. Das Ereignis steigt nicht
+    // auf, deshalb in der Erfassungsphase am Dokument. Ohne das bliebe der
+    // Balken nach dem Aufklappen bis zur naechsten Scrollbewegung falsch.
+    document.addEventListener('toggle', messen, true)
     return () => {
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
+      window.removeEventListener('scroll', messen)
+      window.removeEventListener('resize', messen)
+      document.removeEventListener('toggle', messen, true)
       if (frame) window.cancelAnimationFrame(frame)
     }
-  }, [chapters])
+  }, [chapters, stufen])
 
   // Das aktive Kapitel in den sichtbaren Bereich der Leiste holen — sonst
   // steht die Markierung bei langen Seiten ausserhalb.
@@ -134,6 +212,22 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, action }: Chapter
       list.scrollTo({ left: el.offsetLeft - list.clientWidth / 2 + el.clientWidth / 2 })
     }
   }, [active])
+
+  const aktivIndex = chapters.findIndex((c) => c.id === active)
+  const aktivLabel = aktivIndex >= 0 ? chapters[aktivIndex].label : (chapters[0]?.label ?? '')
+  const aktion = actions && actions.length > 0 ? actions[Math.min(stufe, actions.length - 1)] : null
+  const istAnfrage = !!actions && stufe >= actions.length - 1
+  // Der Anfrageweg traegt die Akzentfarbe, die Wegweiser davor bleiben ruhig.
+  const aktionKlasse = `inline-flex h-9 min-w-0 shrink items-center rounded-full px-4 text-sm font-semibold transition-colors lg:shrink-0 ${
+    istAnfrage
+      ? 'bg-accent-strong text-white hover:brightness-110'
+      : 'border border-slate-300 text-brand-deep hover:border-brand-primary hover:bg-slate-50'
+  }`
+
+  /** Nach der Auswahl schliesst sich das Kapitel-Sheet wieder. */
+  const sheetSchliessen = () => {
+    if (sheetRef.current) sheetRef.current.open = false
+  }
 
   return (
     <div
@@ -165,7 +259,7 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, action }: Chapter
               <span className="sr-only">{switcher.label}: </span>
               <span className="max-w-[9rem] truncate lg:max-w-none">{switcher.current}</span>
               <ChevronDown
-                className="h-4 w-4 shrink-0 text-brand-primary transition-transform group-open:rotate-180"
+                className="h-4 w-4 shrink-0 text-brand-primary motion-safe:transition-transform group-open:rotate-180"
                 aria-hidden="true"
               />
             </summary>
@@ -196,7 +290,54 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, action }: Chapter
           aria-label={chaptersLabel}
           className="order-last min-w-0 basis-full pb-1 lg:order-none lg:flex-1 lg:basis-auto lg:pb-0"
         >
-          <div className="relative">
+          {/* Unter lg: ein Aufklapper ueber die volle Breite.
+              Der waagerechte Streifen war hier kaum bedienbar — dreissig
+              Zeichen breite Kapitelnamen in einem 360px-Fenster heisst, dass
+              zwei Kapitel sichtbar sind und der Rest nur durch seitliches
+              Wischen kommt, quer zur Leserichtung der Seite. Der Aufklapper
+              zeigt stattdessen alle Kapitel untereinander, jedes mit voller
+              Zeilenhoehe als Ziel. Wieder ein natives <details>: ohne
+              JavaScript aufklappbar, tastaturbedienbar, ohne ARIA-Nachbau. */}
+          <details ref={sheetRef} className="group lg:hidden">
+            <summary className="flex h-11 cursor-pointer list-none items-center gap-2 rounded-full border border-slate-300 px-4 text-sm text-brand-deep [&::-webkit-details-marker]:hidden">
+              <span className="shrink-0 font-semibold">{chaptersLabel}</span>
+              <span className="min-w-0 flex-1 truncate text-left text-gray-600">{aktivLabel}</span>
+              {chapters.length > 0 ? (
+                <span className="shrink-0 text-xs font-medium tabular-nums text-gray-500">
+                  {Math.max(aktivIndex, 0) + 1}/{chapters.length}
+                </span>
+              ) : null}
+              <ChevronDown
+                className="h-4 w-4 shrink-0 text-brand-primary motion-safe:transition-transform group-open:rotate-180"
+                aria-hidden="true"
+              />
+            </summary>
+            {/* Absolut ueber dem Inhalt statt in der Leiste: sonst waechst die
+                Leiste beim Aufklappen auf halbe Bildschirmhoehe und schoebe
+                den Text weg, den der Leser gerade liest. */}
+            <ul className="absolute inset-x-0 top-full z-30 max-h-[60vh] list-none overflow-y-auto border-b border-slate-200 bg-white p-2 shadow-lg">
+              {chapters.map((c) => (
+                <li key={c.id}>
+                  <a
+                    href={`#${c.id}`}
+                    onClick={sheetSchliessen}
+                    aria-current={active === c.id ? 'true' : undefined}
+                    className={`flex min-h-[44px] items-center rounded-xl px-4 py-2 text-base ${
+                      active === c.id
+                        ? 'bg-brand-deep font-semibold text-white'
+                        : 'text-text-heading hover:bg-slate-50'
+                    }`}
+                  >
+                    {c.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </details>
+
+          {/* Ab lg: der waagerechte Streifen. Hier passen sieben bis neun
+              Kapitel ins Bild, und der Zeiger findet sie ohne Umweg. */}
+          <div className="relative hidden lg:block">
             {ueberlauf.links ? (
               <div
                 aria-hidden="true"
@@ -211,7 +352,7 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, action }: Chapter
             ) : null}
             <div
               ref={listRef}
-              className="flex gap-1 overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              className="flex gap-1 overflow-x-auto [scrollbar-width:none] motion-safe:scroll-smooth [&::-webkit-scrollbar]:hidden"
             >
               {chapters.map((c) => (
                 <a
@@ -232,23 +373,35 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, action }: Chapter
           </div>
         </nav>
 
-        {action ? (
-          <Link
-            to={action.to}
-            className="inline-flex h-9 shrink-0 items-center rounded-full bg-accent-strong px-4 text-sm font-semibold text-white transition-colors hover:brightness-110"
-          >
-            {action.label}
-          </Link>
+        {/* Der Aktionsplatz. Was hier steht, haengt an der Lesetiefe — siehe
+            `actions`. Es bleibt eine einzige Schaltflaeche an einer festen
+            Stelle; sie wechselt nur ihre Beschriftung und ihr Ziel. */}
+        {aktion ? (
+          aktion.to ? (
+            <Link to={aktion.to} className={aktionKlasse}>
+              {/* Eigener Knoten: text-overflow greift nicht auf einem
+                  Flex-Container, die Beschriftung wuerde auf schmalen
+                  Viewports hart abgeschnitten statt ausgelassen. */}
+              <span className="truncate">{aktion.label}</span>
+            </Link>
+          ) : (
+            <a href={aktion.href} download={aktion.download} className={aktionKlasse}>
+              <span className="truncate">{aktion.label}</span>
+            </a>
+          )
         ) : null}
       </div>
 
       {/* Rein visuell. Als role=progressbar mit aria-valuenow, das der
           Scroll-Handler pro Bild neu setzt, meldet ein Screenreader den Wert
-          ueber die gesamte Lesestrecke. */}
+          ueber die gesamte Lesestrecke. Die Breite kommt aus --nav-progress,
+          das der Handler direkt am Knoten setzt — ohne Uebergang, weil ein
+          Uebergang bei sechzig Aktualisierungen je Sekunde ohnehin nie
+          ankaeme und nur nachliefe. */}
       <div
         aria-hidden="true"
-        className="h-0.5 bg-accent-strong transition-[width] duration-150"
-        style={{ width: `${progress}%` }}
+        className="h-0.5 bg-accent-strong"
+        style={{ width: 'var(--nav-progress, 0%)' }}
       />
     </div>
   )
