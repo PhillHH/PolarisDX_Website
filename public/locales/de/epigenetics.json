@@ -696,7 +696,16 @@
     "navBack": "Übersicht",
     "navChapters": "Kapitel",
     "toTop": "Nach oben",
-    "ctaPdf": "Diesen Befund als PDF"
+    "ctaPdf": "Diesen Befund als PDF",
+    "overviewCaption": "Auf einen Blick",
+    "overviewTitle": "Alle Werte dieses Befunds",
+    "overviewLead": "Jeder Wert mit seiner Einordnung. Ein Klick springt zur ausführlichen Erklärung weiter unten.",
+    "toneRed": "außerhalb",
+    "toneAmber": "im Grenzbereich",
+    "toneGreen": "im Bereich",
+    "entryCount": "{{count}} Werte",
+    "entryCount_one": "{{count}} Wert",
+    "entryCount_other": "{{count}} Werte"
   },
   "sidebar": {
     "title": "Epigenetik und Genetik",

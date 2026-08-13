@@ -11,6 +11,7 @@
 import { createContext, useContext, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { ChevronDown } from 'lucide-react'
 import {
   AgeDots,
   EvaluationBars,
@@ -33,22 +34,51 @@ const arr = <T,>(v: unknown): T[] => (Array.isArray(v) ? (v as T[]) : [])
 const str = (v: unknown) => (typeof v === 'string' ? v : undefined)
 const num = (v: unknown) => (typeof v === 'number' ? v : undefined)
 
-/** Kopfzeile aus Kicker und Ueberschrift, in allen Bloecken gleich. */
-const Head = ({ caption, title, lead }: { caption?: string; title?: string; lead?: string }) => (
-  <>
-    {caption ? (
-      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-        {caption}
-      </p>
-    ) : null}
-    {title ? (
-      <h2 className="mt-2 text-2xl font-semibold tracking-tight text-text-heading lg:text-3xl">
-        {title}
-      </h2>
-    ) : null}
-    {lead ? <p className={`mt-3 max-w-[68ch] ${LEAD}`}>{lead}</p> : null}
-  </>
-)
+/**
+ * Rahmen eines Blocks — Hintergrund, Anker und Aufklappzustand kommen von
+ * aussen, nicht vom Blocktyp. Siehe Section weiter unten.
+ */
+const BlockChrome = createContext<{
+  tint: boolean
+  id?: string
+  /**
+   * Zugeklappt: der Block liegt in einem <details>, seine Ueberschrift wird
+   * zum Aufklapper. Der Inhalt bleibt im DOM — er ist damit indexierbar und
+   * ueber die Seitensuche des Browsers auffindbar.
+   */
+  collapsed?: boolean
+  /** Beschriftung des Aufklappers. */
+  label?: string
+  /** Zweite Zeile im Aufklapper, etwa die Zahl der Werte darin. */
+  hint?: string
+}>({ tint: false })
+export const BlockChromeProvider = BlockChrome.Provider
+
+/**
+ * Kopfzeile aus Kicker und Ueberschrift, in allen Bloecken gleich.
+ *
+ * Im zugeklappten Block traegt der Aufklapper bereits die Ueberschrift — sie
+ * hier ein zweites Mal auszugeben, ergaebe sie doppelt, sobald jemand oeffnet.
+ * Kicker und Fuehrungstext bleiben, sie stehen nicht im Aufklapper.
+ */
+const Head = ({ caption, title, lead }: { caption?: string; title?: string; lead?: string }) => {
+  const { collapsed } = useContext(BlockChrome)
+  return (
+    <>
+      {caption ? (
+        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
+          {caption}
+        </p>
+      ) : null}
+      {title && !collapsed ? (
+        <h2 className="mt-2 text-2xl font-semibold tracking-tight text-text-heading lg:text-3xl">
+          {title}
+        </h2>
+      ) : null}
+      {lead ? <p className={`mt-3 max-w-[68ch] ${LEAD}`}>{lead}</p> : null}
+    </>
+  )
+}
 
 /**
  * Rahmen eines Blocks. Hintergrund und Anker kommen von aussen, nicht vom
@@ -59,19 +89,44 @@ const Head = ({ caption, title, lead }: { caption?: string; title?: string; lead
  * scroll-mt haelt den Abschnitt beim Sprung aus der Kapitelleiste unter
  * Seitenkopf (68/88 px) und Leiste (~56 px) frei.
  */
-const BlockChrome = createContext<{ tint: boolean; id?: string }>({ tint: false })
-export const BlockChromeProvider = BlockChrome.Provider
-
 const Section = ({ children }: { children: ReactNode }) => {
-  const { tint, id } = useContext(BlockChrome)
+  const { tint, id, collapsed, label, hint } = useContext(BlockChrome)
+  const shell = `scroll-mt-[var(--chapterbar-offset,148px)] ${
+    tint ? 'border-y border-slate-200 bg-slate-50' : 'bg-white'
+  }`
+
+  if (!collapsed || !label) {
+    return (
+      <section id={id} className={shell}>
+        <div className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">{children}</div>
+      </section>
+    )
+  }
+
+  /*
+   * Zugeklappt. <details> statt einer eigenen Loesung, weil der Browser damit
+   * alles mitbringt, was hier zaehlt: Tastaturbedienung, die richtige Rolle
+   * fuer Screenreader, und in aktuellen Browsern findet die Seitensuche auch
+   * Text im geschlossenen Block und klappt ihn auf. Der Inhalt ist zu keiner
+   * Zeit aus dem DOM entfernt — fuer Suchmaschinen bleibt die Seite, was sie
+   * war.
+   */
   return (
-    <section
-      id={id}
-      className={`scroll-mt-[var(--chapterbar-offset,148px)] ${
-        tint ? 'border-y border-slate-200 bg-slate-50' : 'bg-white'
-      }`}
-    >
-      <div className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">{children}</div>
+    <section id={id} className={shell}>
+      <details className="group mx-auto max-w-container px-4 lg:px-0">
+        <summary className="flex cursor-pointer list-none items-center gap-4 py-7 [&::-webkit-details-marker]:hidden">
+          <span className="min-w-0 flex-1">
+            <span className="block text-2xl font-semibold tracking-tight text-text-heading lg:text-3xl">
+              {label}
+            </span>
+            {hint ? <span className="mt-1 block text-base text-gray-500">{hint}</span> : null}
+          </span>
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-300 text-brand-deep transition-colors group-hover:border-brand-primary">
+            <ChevronDown className="h-5 w-5 transition-transform group-open:rotate-180" />
+          </span>
+        </summary>
+        <div className="pb-12 lg:pb-16">{children}</div>
+      </details>
     </section>
   )
 }

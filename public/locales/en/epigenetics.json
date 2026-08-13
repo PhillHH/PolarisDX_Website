@@ -696,7 +696,16 @@
     "navBack": "Overview",
     "navChapters": "Chapters",
     "toTop": "Back to top",
-    "ctaPdf": "This report as PDF"
+    "ctaPdf": "This report as PDF",
+    "overviewCaption": "At a glance",
+    "overviewTitle": "Every value in this report",
+    "overviewLead": "Each value with its classification. One click jumps to the full explanation below.",
+    "toneRed": "outside the range",
+    "toneAmber": "borderline",
+    "toneGreen": "within range",
+    "entryCount": "{{count}} values",
+    "entryCount_one": "{{count}} value",
+    "entryCount_other": "{{count}} values"
   },
   "sidebar": {
     "title": "Epigenetics and genetics",
