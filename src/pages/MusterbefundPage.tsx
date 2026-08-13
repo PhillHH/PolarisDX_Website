@@ -21,7 +21,7 @@ import { useEffect } from 'react'
 import { Link, useLocation, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ArrowLeft, ArrowUp, Download } from 'lucide-react'
-import { SEOHead, createBreadcrumbSchema } from '../components/seo'
+import { SEOHead, createArticleSchema, createBreadcrumbSchema } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
 import {
@@ -36,8 +36,16 @@ import { MerkButton, Merkliste } from '../components/befund/Merkliste'
 import ChapterNav, { type Chapter, type NavAction } from '../components/ui/ChapterNav'
 import { BEFUNDE, BEFUND_ORDER, RADAR_VALUES } from '../content/befunde'
 import { LEGACY_ANCHORS } from '../content/befunde/legacyAnchors'
+import { BEFUND_IMAGES } from '../assets/epigenetics/befundImages'
 
 const ASSET_BASE = '/downloads/epigenetics/'
+
+/**
+ * Tag, an dem die sechs Musterbefunde als Webseiten online gingen. Fest
+ * verdrahtet, weil ein gerechnetes Datum bei jedem Build ein neues
+ * datePublished erzeugen wuerde.
+ */
+const PUBLISHED = '2026-08-10'
 
 /** Blocktypen, die kein eigenes Kapitel sind: Deckblatt und Einschuebe. */
 const NOT_A_CHAPTER = new Set(['cover', 'callout'])
@@ -288,13 +296,47 @@ const MusterbefundPage = () => {
     },
   ]
 
+  /**
+   * Titel und Beschreibung fuer die Suche.
+   *
+   * Die Vorlage "Musterbefund {{panel}}" gab allen sechs Seiten denselben
+   * Bau; in der Suche standen sie damit fuer dieselbe Frage. befund.seo.<slug>
+   * traegt je Panel einen eigenen Titel, der die Frage nennt, auf die diese
+   * Seite antwortet. Fehlt der Eintrag — etwa fuer ein spaeter dazukommendes
+   * Panel —, greift die alte Vorlage weiter.
+   */
+  const seoTitel = t(`befund.seo.${slug}.title`, {
+    defaultValue: t('befund.seoTitle', { panel: befund.panel }),
+  })
+  const seoBeschreibung = t(`befund.seo.${slug}.description`, {
+    defaultValue: t('befund.seoDescription', { panel: befund.panel }),
+  })
+
   return (
     <PageTransition>
       <SEOHead
-        title={t('befund.seoTitle', { panel: befund.panel })}
-        description={t('befund.seoDescription', { panel: befund.panel })}
+        title={seoTitel}
+        description={seoBeschreibung}
         ogImage="/og-epigenetics.jpg"
+        /* Die Seite traegt ein Article-Schema — og:type muss dasselbe sagen. */
+        ogType="article"
         structuredData={[
+          /*
+           * Bewusst 'Article' und nicht 'MedicalWebPage': diese Seiten zeigen
+           * einen Beispielbefund mit frei erfundenen Werten und erklaeren den
+           * Aufbau eines Befunds. Sie geben keine medizinische Auskunft. Der
+           * medizinische Typ wuerde Suchmaschinen genau das signalisieren —
+           * auf einer IVD-Seite die falsche Aussage.
+           */
+          createArticleSchema({
+            headline: seoTitel,
+            description: seoBeschreibung,
+            image: BEFUND_IMAGES[slug]?.src2x ?? '/og-epigenetics.jpg',
+            url: `/epigenetics/musterbefund/${slug}`,
+            language: i18n.language,
+            datePublished: PUBLISHED,
+            articleType: 'Article',
+          }),
           createBreadcrumbSchema(
             [
               { name: t('breadcrumb.home'), url: '/' },

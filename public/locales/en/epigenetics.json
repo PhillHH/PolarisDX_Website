@@ -691,6 +691,32 @@
   "befund": {
     "seoTitle": "{{panel}} sample report",
     "seoDescription": "The complete {{panel}} sample report to read online — every marker, scale and recommendation. Example data, not real patient data.",
+    "seo": {
+      "metabolic-health": {
+        "title": "Metabolic Health sample report: nutrition type",
+        "description": "Metabolic Health example report: metabotype, sport type and four modifiable values on nutrition and metabolism, explained page by page. Example data."
+      },
+      "healthy-aging": {
+        "title": "Healthy Aging sample report: biological age",
+        "description": "Healthy Aging example report: four epigenetic values on biological age, each with a 1 to 9 traffic light and an explanation. Example data, not patient data."
+      },
+      "biologische-altersuhr": {
+        "title": "Biological Age Clock sample report: microRNA",
+        "description": "Biological Age Clock example report: three microRNA as an exploratory lifestyle signal, explicitly not an age determination. Example data, each value explained."
+      },
+      "telomer-analyse": {
+        "title": "Telomere Analysis sample report: telomere length",
+        "description": "Telomere Analysis example report: telomere length in kilobase pairs as a baseline value, with context and explanation. Example data, not patient data."
+      },
+      "stress-monitor": {
+        "title": "Stress Monitor sample report: six microRNA",
+        "description": "Stress Monitor example report: six microRNA across four areas put measured strain next to perceived strain. Example data, every value explained."
+      },
+      "healthy-sport": {
+        "title": "Healthy Sport sample report: training values",
+        "description": "Healthy Sport example report: eight epigenetic areas on current condition, plus four unchangeable genetic variants. Example data, everything explained."
+      }
+    },
     "notFoundTitle": "This sample report does not exist",
     "notFoundText": "The report you requested is not available. Six sample reports are ready — one for each analysis.",
     "backToAll": "All six sample reports",

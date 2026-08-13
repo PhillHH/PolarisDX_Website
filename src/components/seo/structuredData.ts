@@ -251,9 +251,29 @@ export interface ArticleSchemaOptions {
   author?: ArticleAuthor
   reviewedBy?: ArticleAuthor
   articleType?: 'Article' | 'MedicalWebPage'
+  /**
+   * Aktive Sprache der Seite, z. B. 'en'.
+   *
+   * Ist sie gesetzt, bekommen url und mainEntityOfPage.@id dasselbe
+   * Sprachpraefix wie der canonical aus SEOHead — sonst behauptet das Schema
+   * eine Adresse, die es nur als Weiterleitung gibt.
+   *
+   * Ohne Angabe bleibt es beim praefixlosen Pfad. Das ist der Stand der
+   * bestehenden Aufrufer (ArticlePage, S3LeitliniePage,
+   * VitaminD3ImplantologyPage); sie ziehen mit einem eigenen Schritt nach.
+   */
+  language?: string
 }
 
 export function createArticleSchema(options: ArticleSchemaOptions) {
+  // url und mainEntityOfPage.@id sind derselbe Wert und muessen dem canonical
+  // aus SEOHead entsprechen.
+  const articleUrl = options.language
+    ? canonicalUrlFor(options.url, options.language)
+    : options.url.startsWith('http')
+      ? options.url
+      : `${BASE_URL}${options.url}`
+
   const authorData = options.author
     ? {
         '@type': options.author.type || 'Organization',
@@ -273,7 +293,7 @@ export function createArticleSchema(options: ArticleSchemaOptions) {
     headline: options.headline,
     description: options.description,
     image: options.image.startsWith('http') ? options.image : `${BASE_URL}${options.image}`,
-    url: options.url.startsWith('http') ? options.url : `${BASE_URL}${options.url}`,
+    url: articleUrl,
     datePublished: options.datePublished,
     dateModified: options.dateModified || options.datePublished,
     author: authorData,
@@ -284,12 +304,24 @@ export function createArticleSchema(options: ArticleSchemaOptions) {
         ...(options.reviewedBy.jobTitle && { jobTitle: options.reviewedBy.jobTitle }),
       },
     }),
+    /*
+     * Der Verlagsknoten stand hier als blosse Referenz auf
+     * <BASE_URL>/#organization. Dieser Knoten wird aber nur auf der Startseite
+     * und auf /about ausgegeben — auf jeder Artikel- und Musterbefundseite
+     * zeigte die Referenz damit ins Leere, und die Rich-Results-Pruefung
+     * meldete einen Publisher ohne Namen. Die @id bleibt stehen, damit die
+     * Verknuepfung dort greift, wo der Knoten existiert; Typ, Name und URL
+     * stehen jetzt daneben, damit das Schema auch allein vollstaendig ist.
+     */
     publisher: {
+      '@type': 'Organization',
       '@id': `${BASE_URL}/#organization`,
+      name: 'PolarisDX',
+      url: BASE_URL,
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': options.url.startsWith('http') ? options.url : `${BASE_URL}${options.url}`,
+      '@id': articleUrl,
     },
   }
 }
