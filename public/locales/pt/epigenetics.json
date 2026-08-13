@@ -77,7 +77,7 @@
         "facts": [
           {
             "k": "Scope",
-            "v": "11 areas of evaluation"
+            "v": "17 genetic evaluations, 4 epigenetic values"
           },
           {
             "k": "Result",
@@ -330,7 +330,7 @@
     {
       "num": "01",
       "title": "Metabolic Health",
-      "desc": "Metabolic type, eating behaviour, weight regulation — eleven areas of evaluation for nutritional counselling.",
+      "desc": "Metabolic type, eating behaviour, weight regulation — seventeen genetic evaluations and four epigenetic values for nutritional counselling.",
       "file": "en/01_Metabolic_Health_PolarisDX.pdf",
       "meta": "PDF · 3 pages · 80 KB"
     },
@@ -411,7 +411,7 @@
         "slug": "metabolic-health",
         "panel": "Metabolic Health",
         "pages": "15",
-        "what": "How one report brings both levels together — 17 genetic evaluations and four epigenetic markers on the same traffic-light scale from 1 to 9, including the reference to information and written consent under the German Genetic Diagnostics Act (GenDG).",
+        "what": "How one report brings both levels together — 17 genetic evaluations and four epigenetic markers on the same traffic light 1–9, including the reference to information and written consent under the German Genetic Diagnostics Act (GenDG).",
         "bullets": [
           "Four modifiable values, traffic light 1–9",
           "17 genetic evaluations, 21 variants",
@@ -501,7 +501,7 @@
     "rows": [
       [
         "Metabolic Health",
-        "4 + 21",
+        "4 epigenetic + 17 genetic",
         "Epigenetics and genetics",
         "the 4 epigenetic markers only",
         "yes",
@@ -650,8 +650,8 @@
     "scaleTitle": "And the numbers?",
     "scales": [
       {
-        "k": "Scale of 1 to 9",
-        "v": "The most common format. Red on the left, green on the right; higher is always better: 1–3 red, 4–6 yellow, 7–9 green."
+        "k": "Traffic light 1–9",
+        "v": "The most common format, also called the scale of 1 to 9 in the text. Red on the left, green on the right; higher is always better: 1–3 red, 4–6 yellow, 7–9 green."
       },
       {
         "k": "Percentages",

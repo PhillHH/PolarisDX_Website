@@ -92,6 +92,17 @@
       "id": "so-lesen"
     },
     {
+      "type": "callout",
+      "title": "How robust is the telomere value?",
+      "text": "Telomere length measurement varies considerably — between individual runs and between laboratories. DNA extraction, storage and the composition of the blood cells systematically influence the result. From dried blood this variation is higher than from venous blood.",
+      "items": [
+        "What this means in practice: a deviation of a few per cent from the reference value is of the same order of magnitude as the measurement variation and is not meaningful in itself. Telomere length only becomes robust across several measurements taken under the same conditions — same laboratory, same material, comparable sample collection.",
+        "Telomere length is a marker of cumulative cellular strain. It is not a diagnosis, not a statement about life expectancy and not a measure of individual disease risk."
+      ],
+      "tone": "accent",
+      "id": "hinweis"
+    },
+    {
       "type": "resultTable",
       "caption": "Results at a glance",
       "title": "All markers in overview.",
@@ -208,7 +219,7 @@
           "sub": "108 kbp",
           "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
           "tone": "amber",
-          "text": "Your telomere length is 4 % below the expected value for your age (108 instead of 112 kbp). This gives a biological telomere age of 53 years, five years above the chronological age. Together with LINE-1 this is the focus of this report; the assessment is always made in the context of the remaining markers.",
+          "text": "Your telomere length is 4 % below the expected value for your age (108 instead of 112 kbp). This gives a biological telomere age of 53 years, five years above the chronological age. A deviation of this magnitude lies within the range of the measurement variation and is not meaningful in itself — the value is to be read as a starting point for the trend. The recommendations in this section rest on LINE-1; they act via the same metabolic pathway.",
           "table": {
             "cols": ["Active substance", "Source", "Amount", "Note"],
             "rows": [
@@ -516,17 +527,17 @@
       "type": "summary",
       "caption": "Summary",
       "title": "Your two focus areas.",
-      "lead": "Two of your four markers are in the green range and should stay there. Two are at 96 % — and both depend on the same metabolic pathway. This results in a remarkably simple plan.",
+      "lead": "Two of your four markers are in the green range and should stay there. Two are at 96 % and depend on the same metabolic pathway. LINE-1 is the load-bearing one here: because of its measurement variation, telomere length is only monitored over time. This results in a remarkably simple plan.",
       "focuses": [
         {
           "num": "01",
-          "title": "Methyl donors — the common denominator of telomeres and LINE-1",
-          "text": "Telomeres 96 % (biologically 53 yrs) and LINE-1 96 % (biologically 50 yrs) are the two values requiring action. Both are regulated via the same nutrients: folate, vitamin B2, B6, B12 and methionine. Six of the thirteen recommendations in this report target exactly that. Specifically: two handfuls of green leafy vegetables daily, raw or briefly steamed. Eggs, cheese or fermented foods daily. 2–3 Brazil nuts. Plus at least 30 g of fibre and 3–4 cups of green tea, not with iron-rich meals."
+          "title": "Methyl donors — the starting point at LINE-1",
+          "text": "LINE-1 at 96 % (biologically 50 yrs) is the load-bearing value — the marker on which change can be shown reliably. Telomere length is also at 96 %, but that lies within the order of magnitude of the measurement variation and carries no recommendation on its own; it is monitored over time. Both depend on the same nutrients: folate, vitamin B2, B6, B12 and methionine. Six of the thirteen recommendations target exactly that. Specifically: two handfuls of green leafy vegetables daily, raw or briefly steamed. Eggs, cheese or fermented foods daily. 2–3 Brazil nuts. Plus at least 30 g of fibre and 3–4 cups of green tea, not with iron-rich meals."
         },
         {
           "num": "02",
           "title": "Stress — the weakest lifestyle factor",
-          "text": "At 4 out of 10, stress is the only factor that lies clearly below the reference group. Via the cortisol axis it acts on exactly those markers that require action in your case. The nutrition part is already solid at 72/100 — the greater effect lies here. In addition: everyday activity (6) and exercise (7) have room to grow; 30 minutes daily also supports the IL-6 value."
+          "text": "At 4 out of 10, stress is the only factor that lies clearly below the reference group. Via the cortisol axis it acts on the methylation markers that require action in your case. The nutrition part is already solid at 72/100 — the greater effect lies here. In addition: everyday activity (6) and exercise (7) have room to grow; 30 minutes daily also supports the IL-6 value."
         }
       ],
       "keepTitle": "Maintain, do not change",

@@ -92,6 +92,17 @@
       "id": "so-lesen"
     },
     {
+      "type": "callout",
+      "title": "Wie belastbar ist der Telomerwert?",
+      "text": "Die Telomerlängenmessung streut erheblich — zwischen einzelnen Messläufen und zwischen Laboren. DNA-Extraktion, Lagerung und die Zusammensetzung der Blutzellen beeinflussen das Ergebnis systematisch. Aus Trockenblut liegt diese Streuung höher als aus Venenblut.",
+      "items": [
+        "Was das praktisch heißt: Eine Abweichung von wenigen Prozent gegenüber dem Referenzwert liegt in der Größenordnung der Messstreuung und ist für sich genommen nicht aussagekräftig. Belastbar wird die Telomerlänge erst im Verlauf mehrerer Messungen unter gleichen Bedingungen — gleiches Labor, gleiches Material, vergleichbare Probenahme.",
+        "Die Telomerlänge ist ein Marker für kumulative zelluläre Belastung. Sie ist keine Diagnose, keine Aussage über Lebenserwartung und kein Maß für ein individuelles Krankheitsrisiko."
+      ],
+      "tone": "accent",
+      "id": "hinweis"
+    },
+    {
       "type": "resultTable",
       "caption": "Ergebnis auf einen Blick",
       "title": "Alle Marker im Überblick.",
@@ -193,7 +204,7 @@
           "sub": "108 kbp",
           "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
           "tone": "amber",
-          "text": "Ihre Telomerlänge liegt 4 % unter dem Erwartungswert für Ihr Alter (108 statt 112 kbp). Daraus ergibt sich ein biologisches Telomeralter von 53 Jahren, fünf Jahre über dem chronologischen. Zusammen mit LINE-1 ist das der Schwerpunkt dieses Befunds; die Bewertung erfolgt stets im Kontext der übrigen Marker.",
+          "text": "Ihre Telomerlänge liegt 4 % unter dem Erwartungswert für Ihr Alter (108 statt 112 kbp). Daraus ergibt sich ein biologisches Telomeralter von 53 Jahren, fünf Jahre über dem chronologischen. Eine Abweichung dieser Größenordnung liegt im Bereich der Messstreuung und ist für sich genommen nicht aussagekräftig — der Wert ist als Ausgangspunkt für den Verlauf zu lesen. Die Empfehlungen dieses Abschnitts stützen sich auf LINE-1; sie wirken über denselben Stoffwechselweg.",
           "table": {
             "cols": ["Wirkstoff", "Quelle", "Menge", "Hinweis"],
             "rows": [
@@ -501,17 +512,17 @@
       "type": "summary",
       "caption": "Zusammenfassung",
       "title": "Ihre zwei Schwerpunkte.",
-      "lead": "Zwei Ihrer vier Marker liegen im grünen Bereich und sollen dort bleiben. Zwei liegen bei 96 % — und beide hängen am selben Stoffwechselweg. Daraus ergibt sich ein bemerkenswert einfacher Plan.",
+      "lead": "Zwei Ihrer vier Marker liegen im grünen Bereich und sollen dort bleiben. Zwei liegen bei 96 % und hängen am selben Stoffwechselweg. Tragend ist dabei LINE-1: Die Telomerlänge wird wegen ihrer Messstreuung nur im Verlauf beobachtet. Daraus ergibt sich ein bemerkenswert einfacher Plan.",
       "focuses": [
         {
           "num": "01",
-          "title": "Methyl-Donatoren — der gemeinsame Nenner von Telomeren und LINE-1",
-          "text": "Telomere 96 % (biologisch 53 J.) und LINE-1 96 % (biologisch 50 J.) sind die beiden Werte mit Handlungsbedarf. Beide werden über dieselben Nährstoffe reguliert: Folat, Vitamin B2, B6, B12 und Methionin. Sechs der dreizehn Empfehlungen in diesem Befund zielen genau darauf. Konkret: zwei Handvoll grünes Blattgemüse täglich, roh oder kurz gedünstet. Eier, Käse oder fermentierte Lebensmittel täglich. 2–3 Paranüsse. Dazu mindestens 30 g Ballaststoffe und 3–4 Tassen grüner Tee, nicht zu eisenreichen Mahlzeiten."
+          "title": "Methyl-Donatoren — der Ansatzpunkt bei LINE-1",
+          "text": "Tragend ist LINE-1 mit 96 % (biologisch 50 J.) — der Marker, an dem sich Veränderung belastbar abbilden lässt. Die Telomerlänge liegt ebenfalls bei 96 %, bewegt sich damit aber in der Größenordnung der Messstreuung und trägt für sich keine Empfehlung; sie wird im Verlauf beobachtet. Beide hängen an denselben Nährstoffen: Folat, Vitamin B2, B6, B12 und Methionin. Sechs der dreizehn Empfehlungen zielen genau darauf. Konkret: zwei Handvoll grünes Blattgemüse täglich, roh oder kurz gedünstet. Eier, Käse oder fermentierte Lebensmittel täglich. 2–3 Paranüsse. Dazu mindestens 30 g Ballaststoffe und 3–4 Tassen grüner Tee, nicht zu eisenreichen Mahlzeiten."
         },
         {
           "num": "02",
           "title": "Stress — der schwächste Lebensstilfaktor",
-          "text": "Mit 4 von 10 ist Stress der einzige Faktor, der deutlich unter der Referenzgruppe liegt. Er wirkt über die Cortisolachse auf genau die Marker, die bei Ihnen Handlungsbedarf zeigen. Der Ernährungsteil ist mit 72/100 bereits solide — die größere Wirkung liegt hier. Ergänzend: Alltagsbewegung (6) und Sport (7) sind ausbaufähig, 30 Minuten täglich unterstützen zugleich den IL-6-Wert."
+          "text": "Mit 4 von 10 ist Stress der einzige Faktor, der deutlich unter der Referenzgruppe liegt. Er wirkt über die Cortisolachse auf die Methylierungsmarker, die bei Ihnen Handlungsbedarf zeigen. Der Ernährungsteil ist mit 72/100 bereits solide — die größere Wirkung liegt hier. Ergänzend: Alltagsbewegung (6) und Sport (7) sind ausbaufähig, 30 Minuten täglich unterstützen zugleich den IL-6-Wert."
         }
       ],
       "keepTitle": "Erhalten, nicht ändern",
