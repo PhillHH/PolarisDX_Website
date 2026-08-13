@@ -31,7 +31,7 @@ import EpigeneticsPanels from '../components/sections/EpigeneticsPanels'
 import PageTransition from '../components/ui/PageTransition'
 import ChapterNav, { type Chapter, type NavAction } from '../components/ui/ChapterNav'
 import Reveal from '../components/ui/Reveal'
-import ConsultSteps from '../components/befund/ConsultSteps'
+import ConsultSteps, { CONSULT_ID } from '../components/befund/ConsultSteps'
 
 // public/ wird nach dist/client kopiert — die oeffentliche URL ist /downloads/...
 const ASSET_BASE = '/downloads/epigenetics/'
@@ -45,11 +45,6 @@ const STRETCH = 'h-full [&>div]:h-full'
 const BODY = 'text-base leading-7 lg:text-[17px] lg:leading-8'
 const LEAD = 'text-lg leading-relaxed text-gray-600 lg:text-xl lg:leading-relaxed'
 const LABEL = 'text-xs font-semibold uppercase tracking-[0.16em] text-gray-400'
-
-interface Chip {
-  label: string
-  value: string
-}
 
 interface Fact {
   k: string
@@ -105,7 +100,6 @@ const Sparkle = ({ className = '' }: { className?: string }) => (
 const EpigeneticsPage = () => {
   const { t } = useTranslation('epigenetics')
 
-  const chips = asArray<Chip>(t('hero.chips', { returnObjects: true }))
   const principleCards = asArray<TitledText>(t('principle.cards', { returnObjects: true }))
   const practiceItems = asArray<string>(t('principle.practice.items', { returnObjects: true }))
   const steps = asArray<string>(t('workflow.steps', { returnObjects: true }))
@@ -131,7 +125,6 @@ const EpigeneticsPage = () => {
   const scales = asArray<Fact>(t('basics.scales', { returnObjects: true }))
 
   const faqSchemaItems: FAQItem[] = faq.map((item) => ({ question: item.q, answer: item.a }))
-  const overviewHref = `${ASSET_BASE}${t('contact.overviewFile')}`
   const zipHref = `${ASSET_BASE}${t('downloads.zipFile')}`
 
   // Kapitel der Seite. Die Kurzform aus dem jeweiligen Kicker ist als Chip
@@ -146,6 +139,7 @@ const EpigeneticsPage = () => {
     { id: 'werte-verstehen', label: t('basics.caption') },
     { id: 'analysen', label: t('analyses.title') },
     { id: 'ablauf', label: t('workflow.caption') },
+    { id: CONSULT_ID, label: t('consult.caption') },
     { id: 'studienlage', label: t('evidence.caption') },
     { id: 'fragen', label: t('faq.caption') },
     { id: 'downloads', label: t('downloads.caption') },
@@ -225,49 +219,93 @@ const EpigeneticsPage = () => {
                   {t('hero.claim')}
                 </p>
 
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <a
-                    href="#analysen"
-                    className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:bg-accent-soft"
-                  >
-                    {t('hero.ctaDocs')}
-                  </a>
-                  <a
-                    href="#downloads"
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 px-6 py-3.5 text-base font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
-                  >
-                    <Download className="h-4 w-4" />
-                    {t('hero.ctaSheets')}
-                  </a>
+                {/* Der Kernsatz aus dem Beratungsabschnitt. Er ist das
+                    Argument fuer wiederkehrende Termine und steht deshalb im
+                    ersten Bildschirm. Bewusst OHNE Monatszahl: die Untergrenze
+                    "fruehestens nach vier bis sechs Monaten" ist nur fuer die
+                    beiden Methylierungspanels belegt, der Hero gilt aber fuer
+                    alle sechs. Der vollstaendige Abschnitt steht als eigenes
+                    Kapitel hinter dem Ablauf. */}
+                <p className="mt-5 max-w-[60ch] text-base leading-7 text-white/80 lg:text-[17px] lg:leading-8">
+                  {t('hero.consultLine')}
+                </p>
+
+                {/* Vertrauenszeile im ersten Bildschirm. Zwei Elemente statt
+                    drei: der dritte Platz waere eine Praktiker-Stimme zum
+                    Programm — es liegt keine echte vor (die Rezensionen in
+                    src/data/testimonials.ts betreffen die Point-of-Care-
+                    Diagnostik und tragen keinen Text), und erfundene kommen
+                    nicht auf die Seite. Die Zahlen der Studienzeile kommen aus
+                    derselben Quelle wie der Abschnitt Studienlage und koennen
+                    deshalb nicht auseinanderlaufen. */}
+                <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+                  <li className="rounded-2xl border border-white/15 bg-white/10 px-5 py-4 text-base text-white/85 backdrop-blur-sm">
+                    {t('contact.lab')}
+                  </li>
+                  <li className="rounded-2xl border border-white/15 bg-white/10 px-5 py-4 text-base text-white/85 backdrop-blur-sm">
+                    <a
+                      href="#studienlage"
+                      className="inline-flex items-start gap-1.5 transition-colors hover:text-white"
+                    >
+                      {t('hero.trustEvidence', {
+                        established: established.length,
+                        preliminary: preliminary.length,
+                      })}
+                      <ArrowRight className="mt-1 h-4 w-4 shrink-0" aria-hidden="true" />
+                    </a>
+                  </li>
+                </ul>
+
+                {/* Die einzige Aufgabe des Heros: die Auswahl. Der
+                    Einstiegsfilter stand bisher erst an der Vergleichstabelle,
+                    rund einen Bildschirm zu spaet. Die Chips sind Links auf die
+                    Tabelle — sie setzen die Auswahl und springen dorthin, wo sie
+                    wirkt. Vorher standen hier drei gleichrangige Knoepfe, einer
+                    davon ein Download. */}
+                <div className="mt-10 rounded-3xl border border-white/15 bg-white/5 p-6 backdrop-blur-sm lg:p-8">
+                  <h2 className="max-w-[26ch] text-2xl font-semibold tracking-tight lg:text-3xl">
+                    {t('hero.chooseTitle')}
+                  </h2>
+                  <p className="mt-2 text-sm text-white/70">{t('compare.filter.label')}</p>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    <a
+                      href="#vergleich"
+                      onClick={() => setPanelGroup(null)}
+                      aria-current={panelGroup === null ? 'true' : undefined}
+                      className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+                        panelGroup === null
+                          ? 'border-white bg-white text-brand-deep'
+                          : 'border-white/40 text-white hover:border-white hover:bg-white/10'
+                      }`}
+                    >
+                      {t('compare.filter.all')}
+                    </a>
+                    {filterKeys.map((key) => (
+                      <a
+                        key={key}
+                        href="#vergleich"
+                        onClick={() => setPanelGroup(key)}
+                        aria-current={panelGroup === key ? 'true' : undefined}
+                        className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+                          panelGroup === key
+                            ? 'border-white bg-white text-brand-deep'
+                            : 'border-white/40 text-white hover:border-white hover:bg-white/10'
+                        }`}
+                      >
+                        {t(`compare.filter.options.${key}`)}
+                      </a>
+                    ))}
+                  </div>
+                  {/* Der Anfrageweg bleibt im ersten Bildschirm erreichbar,
+                      aber als Textlink: er steht dem Filter nicht mehr als
+                      gleichrangiger Knopf gegenueber. */}
                   <Link
-                    to="/contact"
-                    className="inline-flex items-center justify-center rounded-full border border-white/40 px-6 py-3.5 text-base font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
+                    to="/contact?topic=epigenetik"
+                    className="mt-6 inline-flex items-center gap-1.5 text-base font-semibold text-accent-on-dark transition-colors hover:text-white"
                   >
                     {t('hero.ctaQuote')}
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </Link>
-                </div>
-
-                <dl className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                  {chips.map((chip) => (
-                    <div
-                      key={chip.label}
-                      className="rounded-2xl border border-white/15 bg-white/10 px-5 py-4 backdrop-blur-sm"
-                    >
-                      <dt className="text-xs font-medium uppercase tracking-[0.16em] text-white/60">
-                        {chip.label}
-                      </dt>
-                      <dd className="mt-1 text-base font-semibold text-white">{chip.value}</dd>
-                    </div>
-                  ))}
-                </dl>
-
-                {/* "So wird daraus eine Beratung" — derselbe Abschnitt wie auf
-                    den sechs Musterbefunden, hier ohne Panelbezug und damit
-                    ohne Zahlenangabe. Er steht im Hero, weil er die Frage
-                    beantwortet, die vor jeder Anfrage steht: was der Partner
-                    mit den Werten anfaengt. */}
-                <div className="mt-12 border-t border-white/15 pt-10">
-                  <ConsultSteps variant="hero" />
                 </div>
               </div>
             </Reveal>
@@ -307,38 +345,27 @@ const EpigeneticsPage = () => {
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
 
-              <div className="mt-8">
-                <p className="text-xs font-medium text-gray-600">{t('compare.filter.label')}</p>
-                <div className="mt-3 flex flex-wrap gap-2">
+              {/* Der Filter selbst steht jetzt im Hero. Hier bleibt nur die
+                  Anzeige, welche Auswahl die Tabelle gerade zeigt, und der Weg
+                  zurueck auf alle sechs — ein zweites Chip-Raster an derselben
+                  Seite waere ein zweiter Bedienort fuer denselben Zustand. */}
+              {panelGroup ? (
+                <div className="mt-8 flex flex-wrap items-center gap-3">
+                  <p className="text-base text-gray-600">
+                    {t('compare.filter.label')}{' '}
+                    <span className="font-semibold text-brand-deep">
+                      {t(`compare.filter.options.${panelGroup}`)}
+                    </span>
+                  </p>
                   <button
                     type="button"
                     onClick={() => setPanelGroup(null)}
-                    aria-pressed={panelGroup === null}
-                    className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
-                      panelGroup === null
-                        ? 'border-brand-deep bg-brand-deep text-white'
-                        : 'border-slate-300 bg-white text-brand-deep hover:border-brand-primary'
-                    }`}
+                    className="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-brand-deep transition-colors hover:border-brand-primary"
                   >
                     {t('compare.filter.all')}
                   </button>
-                  {filterKeys.map((key) => (
-                    <button
-                      key={key}
-                      type="button"
-                      onClick={() => setPanelGroup(panelGroup === key ? null : key)}
-                      aria-pressed={panelGroup === key}
-                      className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
-                        panelGroup === key
-                          ? 'border-brand-deep bg-brand-deep text-white'
-                          : 'border-slate-300 bg-white text-brand-deep hover:border-brand-primary'
-                      }`}
-                    >
-                      {t(`compare.filter.options.${key}`)}
-                    </button>
-                  ))}
                 </div>
-              </div>
+              ) : null}
             </Reveal>
 
             {/* Die Tabelle ist auf schmalen Viewports breiter als der Bildschirm.
@@ -466,17 +493,13 @@ const EpigeneticsPage = () => {
               </div>
             </Reveal>
 
+            {/* Der GenDG-Hinweis bleibt an der Tabelle stehen, wo die beiden
+                genetischen Panels sichtbar sind. Die Parameteruebersicht als
+                PDF stand hier als eigener Knopf — sie liegt jetzt im
+                Unterlagen-Abschnitt bei allen anderen Blaettern. */}
             <Reveal width="100%">
-              <div className="mt-6 flex flex-col gap-5 rounded-3xl border border-slate-200 bg-white p-7 sm:flex-row sm:items-center sm:justify-between">
+              <div className="mt-6 rounded-3xl border border-slate-200 bg-white p-7">
                 <p className={`text-gray-700 ${BODY}`}>{t('compare.gendg')}</p>
-                <a
-                  href={`${ASSET_BASE}${t('compare.file')}`}
-                  download
-                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
-                >
-                  <Download className="h-4 w-4" />
-                  {t('compare.cta')}
-                </a>
               </div>
             </Reveal>
           </div>
@@ -527,23 +550,10 @@ const EpigeneticsPage = () => {
             </div>
           </Reveal>
 
-          {/* Erster Dokument-Hinweis: das Programm kompakt auf drei Seiten */}
-          <Reveal width="100%" delay={0.15}>
-            <div className="mt-6 flex flex-col gap-5 rounded-3xl border border-slate-200 bg-white p-7 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex items-start gap-4">
-                <FileText className="mt-0.5 h-6 w-6 shrink-0 text-brand-primary" />
-                <p className={`text-gray-700 ${BODY}`}>{t('principle.pdfHint')}</p>
-              </div>
-              <a
-                href={overviewHref}
-                download
-                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
-              >
-                <Download className="h-4 w-4" />
-                {t('contact.overview')}
-              </a>
-            </div>
-          </Reveal>
+          {/* Hier stand der erste von mehreren ueber die Seite verteilten
+              Dokument-Hinweisen (Portfolio-Uebersicht als PDF). Alle
+              Unterlagen liegen jetzt in einem Abschnitt; die Portfolio-
+              Uebersicht ist dort das hervorgehobene erste Blatt. */}
         </section>
 
         {/* ================================================================
@@ -580,23 +590,10 @@ const EpigeneticsPage = () => {
               ))}
             </div>
 
-            <Reveal width="100%">
-              <div className="mt-6 rounded-3xl border border-slate-200 bg-white p-7">
-                {/* Die Skalenlegende steht jetzt direkt unter der
-                    Vergleichstabelle, wo die Ergebnisformen auftauchen. Hier
-                    bleibt der Download der ausfuehrlichen Fassung. */}
-                <div>
-                  <a
-                    href={`${ASSET_BASE}${t('basics.file')}`}
-                    download
-                    className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
-                  >
-                    <Download className="h-4 w-4" />
-                    {t('basics.cta')}
-                  </a>
-                </div>
-              </div>
-            </Reveal>
+            {/* Die Skalenlegende steht jetzt direkt unter der
+                Vergleichstabelle, wo die Ergebnisformen auftauchen. Der
+                Download der ausfuehrlichen Fassung stand hier als einzelner
+                Knopf — er liegt jetzt im Unterlagen-Abschnitt. */}
           </div>
         </section>
 
@@ -624,43 +621,10 @@ const EpigeneticsPage = () => {
             MUSTERBEFUNDE — was am Ende in der Hand liegt
         ================================================================ */}
 
-        {/* ================================================================
-            DOKUMENTEN-BAND — zweiter, prominenter Weg zu den Unterlagen
-        ================================================================ */}
-        <section className="mx-auto max-w-container px-4 py-10 lg:px-0 lg:py-14">
-          <Reveal width="100%">
-            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-deep to-[#203864] px-7 py-10 text-white lg:px-12 lg:py-12">
-              <Sparkle className="pointer-events-none absolute -right-8 -top-8 hidden h-40 w-40 text-white/10 lg:block" />
-              <div className="relative flex flex-col gap-7 lg:flex-row lg:items-center lg:justify-between">
-                <div className="max-w-[52ch]">
-                  <h2 className="text-2xl font-medium tracking-tight lg:text-3xl">
-                    {t('docsBand.title')}
-                  </h2>
-                  <p className="mt-3 text-base leading-7 text-white/80 lg:text-[17px] lg:leading-8">
-                    {t('docsBand.text')}
-                  </p>
-                </div>
-                <div className="flex shrink-0 flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
-                  <a
-                    href={zipHref}
-                    download
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:bg-accent-soft"
-                  >
-                    <Download className="h-4 w-4" />
-                    {t('docsBand.ctaZip')}
-                  </a>
-                  <a
-                    href="#downloads"
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 px-6 py-3.5 text-base font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
-                  >
-                    <FileText className="h-4 w-4" />
-                    {t('docsBand.ctaAll')}
-                  </a>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        </section>
+        {/* Hier stand das Dokumenten-Band — ein zweiter, gleich prominenter
+            Weg zu denselben Unterlagen, mit eigenem ZIP-Knopf und eigenem
+            Verweis auf #downloads. Es ist entfallen: die Unterlagen haben
+            genau einen Ort auf der Seite. */}
 
         {/* ================================================================
             ABLAUF IN DER PRAXIS
@@ -690,6 +654,16 @@ const EpigeneticsPage = () => {
             ))}
           </ol>
         </section>
+
+        {/* ================================================================
+            SO WIRD DARAUS EINE BERATUNG
+
+            Der Abschnitt stand bisher vollstaendig im Hero. Der Hero traegt
+            jetzt nur noch seinen Kernsatz und die Auswahl; die drei Schritte
+            stehen hier, hinter dem Ablauf und vor der Studienlage — dieselbe
+            Fassung ohne Panelbezug und damit ohne Monatszahl.
+        ================================================================ */}
+        <ConsultSteps />
 
         {/* ================================================================
             STUDIENLAGE — GESICHERT VS. VORLAEUFIG
@@ -744,18 +718,9 @@ const EpigeneticsPage = () => {
               </Reveal>
             </div>
 
-            <Reveal width="100%" delay={0.1}>
-              <div className="mt-6">
-                <a
-                  href={`${ASSET_BASE}${t('evidence.file')}`}
-                  download
-                  className="inline-flex items-center gap-2 rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
-                >
-                  <Download className="h-4 w-4" />
-                  {t('evidence.cta')}
-                </a>
-              </div>
-            </Reveal>
+            {/* Die vollstaendige Studienlage als PDF stand hier als eigener
+                Knopf. Sie ist Blatt 08 im Unterlagen-Abschnitt und dort
+                hervorgehoben. */}
           </div>
         </section>
 
@@ -858,6 +823,33 @@ const EpigeneticsPage = () => {
               ))}
             </div>
 
+            {/* Die beiden Blaetter, die nicht in der Neuner-Reihe stehen:
+                Parameteruebersicht und "Werte verstehen". Sie hingen bisher
+                als einzelne Knoepfe an der Vergleichstabelle und am
+                Grundlagenkapitel — die einzigen zwei PDFs, die sonst nirgends
+                aufgefuehrt sind. Ohne diese Zeile waeren sie nach dem
+                Zusammenfuehren nicht mehr erreichbar. */}
+            <Reveal width="100%">
+              <div className="mt-4 flex flex-wrap gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                <a
+                  href={`${ASSET_BASE}${t('compare.file')}`}
+                  download
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
+                >
+                  <Download className="h-4 w-4" />
+                  {t('compare.cta')}
+                </a>
+                <a
+                  href={`${ASSET_BASE}${t('basics.file')}`}
+                  download
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
+                >
+                  <Download className="h-4 w-4" />
+                  {t('basics.cta')}
+                </a>
+              </div>
+            </Reveal>
+
             <Reveal width="100%">
               <div className="mt-8 flex flex-col gap-5 rounded-3xl border border-slate-200 bg-slate-50 p-7 sm:flex-row sm:items-center sm:justify-between">
                 <div className="max-w-[62ch]">
@@ -917,15 +909,6 @@ const EpigeneticsPage = () => {
                 className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
               >
                 +49 152 2858 0999
-              </a>
-              <a
-                href={overviewHref}
-                download
-                onClick={() => trackEvent('epigenetics_download', { file: 'portfolio-uebersicht' })}
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
-              >
-                <Download className="h-4 w-4" />
-                {t('contact.overview')}
               </a>
             </div>
 

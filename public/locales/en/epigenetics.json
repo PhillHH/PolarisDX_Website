@@ -31,7 +31,10 @@
         "value": "B2B on request"
       }
     ],
-    "ctaSheets": "All 18 documents"
+    "ctaSheets": "All 18 documents",
+    "chooseTitle": "Six analyses. Which one fits your institution?",
+    "consultLine": "Only the epigenetic level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress. The interval between measurements is set by the supervising institution.",
+    "trustEvidence": "Evidence disclosed: {{established}} well-established and {{preliminary}} preliminary points."
   },
   "teaser": {
     "eyebrow": "New in the portfolio · Sample reports",
