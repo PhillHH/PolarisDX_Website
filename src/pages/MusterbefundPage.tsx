@@ -106,6 +106,25 @@ const MusterbefundPage = () => {
     // nicht mehr.
     ziel.scrollIntoView()
   }, [slug, hash])
+
+  // Der Effekt oben haengt am Hash. Klickt jemand denselben Anker ein zweites
+  // Mal — nachdem er das Kapitel zwischendurch wieder zugeklappt hat —, aendert
+  // sich der Hash nicht und der Block bliebe zu. Im Ueberblick zeigen 26
+  // Eintraege auf 14 Anker, der Fall tritt im normalen Gebrauch auf.
+  useEffect(() => {
+    const aufklappen = (e: MouseEvent) => {
+      const a = (e.target as HTMLElement)?.closest?.('a[href^="#"]')
+      if (!a) return
+      const ziel = document.getElementById(a.getAttribute('href')!.slice(1))
+      const auf = ziel?.querySelector('details')
+      if (!ziel || !auf || auf.open) return
+      auf.open = true
+      requestAnimationFrame(() => ziel.scrollIntoView())
+    }
+    document.addEventListener('click', aufklappen)
+    return () => document.removeEventListener('click', aufklappen)
+  }, [])
+
   // Acht Sprachen zeigen hier englischen Text — das muss ausgezeichnet werden.
   const englishFallback = isEnglishFallback(t('_translationStatus', { defaultValue: '' }))
   const lang = i18n.language?.startsWith('de') ? 'de' : 'en'

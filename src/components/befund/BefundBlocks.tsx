@@ -115,11 +115,19 @@ const Section = ({ children }: { children: ReactNode }) => {
     <section id={id} className={shell}>
       <details className="group mx-auto max-w-container px-4 lg:px-0">
         <summary className="flex cursor-pointer list-none items-center gap-4 py-7 [&::-webkit-details-marker]:hidden">
+          {/*
+           * Die Ueberschrift steht als echtes h2 im Aufklapper, nicht als span.
+           * Auf einer Seite dieser Laenge ist die Ueberschriftenliste des
+           * Screenreaders der Hauptnavigationsweg — ohne h2 fehlen dort genau
+           * die vierzehn Kapitelnamen, nach denen jemand sucht. Der HTML-
+           * Standard erlaubt Ueberschriften in <summary>; die Rolle des
+           * Aufklappers bleibt daneben erhalten.
+           */}
           <span className="min-w-0 flex-1">
-            <span className="block text-2xl font-semibold tracking-tight text-text-heading lg:text-3xl">
+            <h2 className="text-2xl font-semibold tracking-tight text-text-heading lg:text-3xl">
               {label}
-            </span>
-            {hint ? <span className="mt-1 block text-base text-gray-500">{hint}</span> : null}
+            </h2>
+            {hint ? <span className="mt-1 block text-base text-gray-600">{hint}</span> : null}
           </span>
           <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-300 text-brand-deep transition-colors group-hover:border-brand-primary">
             <ChevronDown className="h-5 w-5 transition-transform group-open:rotate-180" />

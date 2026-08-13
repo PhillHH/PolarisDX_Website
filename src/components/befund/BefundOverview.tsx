@@ -147,7 +147,7 @@ const BefundOverview = ({ blocks, labels }: { blocks: Block[]; labels: Labels })
           ))}
         </div>
 
-        <ul className="mt-8 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-8 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
           {entries.map((e, i) => {
             const inner = (
               <>
