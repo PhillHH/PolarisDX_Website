@@ -691,6 +691,32 @@
   "befund": {
     "seoTitle": "Musterbefund {{panel}}",
     "seoDescription": "Der vollständige Musterbefund {{panel}} zum Lesen — alle Marker, Skalen und Empfehlungen. Beispieldaten, keine realen Patientendaten.",
+    "seo": {
+      "metabolic-health": {
+        "title": "Musterbefund Metabolic Health: Ernährungstyp",
+        "description": "Beispielbefund Metabolic Health: Metabotyp, Sporttyp und vier beeinflussbare Werte zu Ernährung und Stoffwechsel, Seite für Seite erklärt. Beispieldaten."
+      },
+      "healthy-aging": {
+        "title": "Musterbefund Healthy Aging: biologisches Alter",
+        "description": "Beispielbefund Healthy Aging: vier epigenetische Werte zum biologischen Alter, jeder mit Ampel 1 bis 9 und Erklärung. Beispieldaten, keine Patientendaten."
+      },
+      "biologische-altersuhr": {
+        "title": "Musterbefund Biologische Altersuhr: microRNA",
+        "description": "Beispielbefund Biologische Altersuhr: drei microRNA als exploratives Lebensstil-Signal, ausdrücklich keine Altersbestimmung. Beispieldaten, jeder Wert erklärt."
+      },
+      "telomer-analyse": {
+        "title": "Musterbefund Telomer-Analyse: Telomerlänge",
+        "description": "Beispielbefund Telomer-Analyse: die Telomerlänge in Kilobasenpaaren als Basiswert, mit Einordnung und Erklärung. Beispieldaten, keine echten Patientendaten."
+      },
+      "stress-monitor": {
+        "title": "Musterbefund Stress Monitor: sechs microRNA",
+        "description": "Beispielbefund Stress Monitor: sechs microRNA aus vier Bereichen stellen gemessene neben empfundene Belastung. Beispieldaten, jeder Wert erklärt."
+      },
+      "healthy-sport": {
+        "title": "Musterbefund Healthy Sport: acht Trainingswerte",
+        "description": "Beispielbefund Healthy Sport: acht epigenetische Bereiche zum aktuellen Zustand, dazu vier unveränderliche genetische Varianten. Beispieldaten."
+      }
+    },
     "notFoundTitle": "Diesen Musterbefund gibt es nicht",
     "notFoundText": "Der aufgerufene Befund existiert nicht. Sechs Musterbefunde stehen bereit — je einer pro Analyse.",
     "backToAll": "Alle sechs Musterbefunde",

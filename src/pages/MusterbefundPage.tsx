@@ -284,12 +284,30 @@ const MusterbefundPage = () => {
     },
   ]
 
+  /**
+   * Titel und Beschreibung fuer die Suche.
+   *
+   * Die Vorlage "Musterbefund {{panel}}" gab allen sechs Seiten denselben
+   * Bau; in der Suche standen sie damit fuer dieselbe Frage. befund.seo.<slug>
+   * traegt je Panel einen eigenen Titel, der die Frage nennt, auf die diese
+   * Seite antwortet. Fehlt der Eintrag — etwa fuer ein spaeter dazukommendes
+   * Panel —, greift die alte Vorlage weiter.
+   */
+  const seoTitel = t(`befund.seo.${slug}.title`, {
+    defaultValue: t('befund.seoTitle', { panel: befund.panel }),
+  })
+  const seoBeschreibung = t(`befund.seo.${slug}.description`, {
+    defaultValue: t('befund.seoDescription', { panel: befund.panel }),
+  })
+
   return (
     <PageTransition>
       <SEOHead
-        title={t('befund.seoTitle', { panel: befund.panel })}
-        description={t('befund.seoDescription', { panel: befund.panel })}
+        title={seoTitel}
+        description={seoBeschreibung}
         ogImage="/og-epigenetics.jpg"
+        /* Die Seite traegt ein Article-Schema — og:type muss dasselbe sagen. */
+        ogType="article"
         structuredData={[
           /*
            * Bewusst 'Article' und nicht 'MedicalWebPage': diese Seiten zeigen
@@ -299,8 +317,8 @@ const MusterbefundPage = () => {
            * auf einer IVD-Seite die falsche Aussage.
            */
           createArticleSchema({
-            headline: t('befund.seoTitle', { panel: befund.panel }),
-            description: t('befund.seoDescription', { panel: befund.panel }),
+            headline: seoTitel,
+            description: seoBeschreibung,
             image: BEFUND_IMAGES[slug]?.src2x ?? '/og-epigenetics.jpg',
             url: `/epigenetics/musterbefund/${slug}`,
             language: i18n.language,
