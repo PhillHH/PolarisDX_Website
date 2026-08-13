@@ -34,7 +34,7 @@ import {
 } from '../components/befund/BefundBlocks'
 import BefundOverview from '../components/befund/BefundOverview'
 import ConsultSteps, { CONSULT_ID } from '../components/befund/ConsultSteps'
-import ChapterNav, { type Chapter } from '../components/ui/ChapterNav'
+import ChapterNav, { type Chapter, type NavAction } from '../components/ui/ChapterNav'
 import { BEFUNDE, BEFUND_ORDER, RADAR_VALUES } from '../content/befunde'
 import { BEFUND_IMAGES } from '../assets/epigenetics/befundImages'
 import { LEGACY_ANCHORS } from '../content/befunde/legacyAnchors'
@@ -258,6 +258,31 @@ const MusterbefundPage = () => {
     panel: BEFUNDE[s]?.[lang]?.panel ?? BEFUNDE[s]?.de?.panel ?? s,
   }))
 
+  /**
+   * Die Aufforderung in der Kapitelleiste wechselt mit der Lesetiefe.
+   *
+   * Im ersten Drittel steht der Leser noch vor der Frage, ob dieses Panel
+   * ueberhaupt das richtige ist — dort fuehrt der Weg in die
+   * Vergleichstabelle. In der Mitte hat er den Aufbau gesehen und will das
+   * Dokument mitnehmen. Erst im letzten Drittel steht die Anfrage. Alle drei
+   * Beschriftungen sind bestehende Schluessel, es kommt kein neuer Text in
+   * zehn Sprachen hinzu.
+   */
+  const navAktionen: NavAction[] = [
+    { to: '/epigenetics#vergleich', label: t('compare.title') },
+    // Ohne Musterbefund-Metadaten faellt die mittlere Stufe weg; die Leiste
+    // teilt dann in Haelften statt in Drittel.
+    ...(meta
+      ? [{ href: `${ASSET_BASE}${meta.file}`, download: true, label: t('befund.pdfCta') }]
+      : []),
+    // Der Musterbefund gibt zusaetzlich mit, um welches Panel es geht — das
+    // steht dann in der Benachrichtigung und im vorbelegten Freitext.
+    {
+      to: `/contact?intent=quote&source=epigenetics&panel=${encodeURIComponent(befund.panel)}#kontaktformular`,
+      label: t('hero.ctaQuote'),
+    },
+  ]
+
   return (
     <PageTransition>
       <SEOHead
@@ -340,10 +365,7 @@ const MusterbefundPage = () => {
                   chapters={chapters}
                   chaptersLabel={t('befund.navChapters')}
                   back={{ to: '/epigenetics#musterbefunde', label: t('befund.navBack') }}
-                  action={{
-                    to: `/contact?intent=quote&source=epigenetics&panel=${encodeURIComponent(befund.panel)}#kontaktformular`,
-                    label: t('hero.ctaQuote'),
-                  }}
+                  actions={navAktionen}
                   switcher={{
                     current: befund.panel,
                     currentSlug: slug,

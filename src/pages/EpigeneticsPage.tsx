@@ -30,7 +30,7 @@ import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import SectionHeader from '../components/ui/SectionHeader'
 import EpigeneticsPanels from '../components/sections/EpigeneticsPanels'
 import PageTransition from '../components/ui/PageTransition'
-import ChapterNav, { type Chapter } from '../components/ui/ChapterNav'
+import ChapterNav, { type Chapter, type NavAction } from '../components/ui/ChapterNav'
 import Reveal, { REVEAL_STAGGER } from '../components/ui/Reveal'
 import ConsultSteps from '../components/befund/ConsultSteps'
 
@@ -156,6 +156,22 @@ const EpigeneticsPage = () => {
     { id: 'konditionen', label: t('contact.caption') },
   ]
 
+  /**
+   * Die Aufforderung in der Kapitelleiste wechselt mit der Lesetiefe, statt
+   * ueber die ganze Seite hinweg denselben Satz zu wiederholen. Sie teilt die
+   * Lesestrecke in drei gleich grosse Abschnitte.
+   *
+   * Wer oben steht, hat die sechs Panels noch nicht nebeneinander gesehen; in
+   * der Mitte ist die naechste Frage, wie ein fertiger Befund aussieht; unten
+   * steht die Anfrage. Alle drei Beschriftungen sind bestehende Schluessel —
+   * es kommt kein Text hinzu, der in zehn Sprachen nachzuziehen waere.
+   */
+  const navAktionen: NavAction[] = [
+    { href: '#vergleich', label: t('compare.title') },
+    { href: '#musterbefunde', label: t('downloads.samplesCta') },
+    { to: '/contact?intent=quote&source=epigenetics#kontaktformular', label: t('hero.ctaQuote') },
+  ]
+
   return (
     <PageTransition>
       <SEOHead
@@ -265,10 +281,7 @@ const EpigeneticsPage = () => {
         <ChapterNav
           chapters={chapters}
           chaptersLabel={t('befund.navChapters')}
-          action={{
-            to: '/contact?intent=quote&source=epigenetics#kontaktformular',
-            label: t('hero.ctaQuote'),
-          }}
+          actions={navAktionen}
         />
 
         {/* ================================================================
