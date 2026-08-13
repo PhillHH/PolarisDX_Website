@@ -709,7 +709,31 @@
     "toneGreen": "im Bereich",
     "entryCount": "{{count}} Werte",
     "entryCount_one": "{{count}} Wert",
-    "entryCount_other": "{{count}} Werte"
+    "entryCount_other": "{{count}} Werte",
+    "mini": {
+      "caption": "Die Miniatur",
+      "title": "Der Befund im Kleinen.",
+      "lead": "Diese Miniatur zeigt vorab, welche Darstellungsformen dieser Befund führt. Sie ist aus den Beispieldaten dieser Seite gerechnet und keine Abbildung. Jede Marke steht für eine Form, die weiter unten in voller Größe wiederkommt — und was dieses Panel nicht führt, fehlt hier ebenso.",
+      "alt": "Schematische Miniatur des Befunds mit nummerierten Marken für die Darstellungsformen dieses Panels.",
+      "marks": {
+        "traffic": {
+          "title": "Die Ampel 1 bis 9",
+          "text": "Jede Auswertung steht als Marke auf derselben Skala von 1 bis 9. Links rot, rechts grün, höher ist günstiger. Wie sich die Marken auf dem Band verteilen, zeigt ohne Umweg, ob dieses Panel eher im roten, gelben oder grünen Bereich steht."
+        },
+        "percent": {
+          "title": "Prozent der Referenz",
+          "text": "Die Marker stehen in Prozent einer abgestimmten Referenzgruppe. 100 % ist der Normbereich, höher ist günstiger. Die Marken auf dem Band zeigen, wo die Werte dieses Beispielbefunds gegenüber der Referenz liegen."
+        },
+        "age": {
+          "title": "Biologisch gegen chronologisch",
+          "text": "Die gestrichelte Linie ist das Kalenderalter, der Punkt das biologische Alter je Marker. Der Abstand zwischen beiden ist die Aussage — nicht die einzelne Jahreszahl."
+        },
+        "trend": {
+          "title": "Der Verlauf als Erfolgskontrolle",
+          "text": "Zwei Messungen desselben Werts nebeneinander: der offene Punkt ist die erste, der volle die zweite. Verglichen wird nur, was sich überhaupt verändern kann — genetische Varianten bleiben unverändert. Den Abstand zwischen zwei Messungen legt die betreuende Einrichtung fest."
+        }
+      }
+    }
   },
   "consult": {
     "caption": "So wird daraus eine Beratung",
@@ -738,5 +762,16 @@
     "title": "Epigenetik und Genetik",
     "text": "Sechs Laboranalysen aus einem Tropfen Kapillarblut — ergänzend zur Sofortdiagnostik am Reader.",
     "cta": "Portfolio ansehen"
+  },
+  "merk": {
+    "add": "Panel vormerken",
+    "added": "Vorgemerkt",
+    "addAria": "{{panel}} vormerken",
+    "removeAria": "{{panel}} von der Merkliste nehmen",
+    "caption": "Ihre Merkliste",
+    "title": "Vorgemerkt für die Anfrage",
+    "lead": "Diese Panels haben Sie vorgemerkt. Die Liste liegt ausschließlich in diesem Browser: nichts davon wird übertragen oder ausgewertet, solange Sie hier nichts absenden. Erst mit „Angebot anfragen“ wandern die Namen in das Kontaktformular — dort stehen sie im Freitext und lassen sich vor dem Absenden ändern oder löschen.",
+    "clear": "Liste leeren",
+    "note": "Gespeichert wird nur im Speicher dieses Browsers (localStorage), und zwar nur der Name des Panels. Kein Konto, keine Serverablage, keine Weitergabe an Dritte. Mit „Liste leeren“ ist der Eintrag vollständig entfernt."
   }
 }

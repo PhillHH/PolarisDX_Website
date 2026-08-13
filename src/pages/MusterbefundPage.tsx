@@ -34,6 +34,7 @@ import {
 } from '../components/befund/BefundBlocks'
 import BefundOverview from '../components/befund/BefundOverview'
 import ConsultSteps, { CONSULT_ID } from '../components/befund/ConsultSteps'
+import { MerkButton, Merkliste } from '../components/befund/Merkliste'
 import ChapterNav, { type Chapter, type NavAction } from '../components/ui/ChapterNav'
 import { BEFUNDE, BEFUND_ORDER, RADAR_VALUES } from '../content/befunde'
 import { BEFUND_IMAGES } from '../assets/epigenetics/befundImages'
@@ -338,6 +339,8 @@ const MusterbefundPage = () => {
           <BlockChromeProvider key={`${block.type}-${index}`} value={chrome[index]}>
             <BefundBlock
               block={block}
+              /* Der Grundsatzblock rechnet daraus seine Miniatur. */
+              blocks={blocks}
               slug={slug}
               radarValues={RADAR_VALUES[slug]}
               scrollHint={t('compare.scrollHint')}
@@ -399,6 +402,10 @@ const MusterbefundPage = () => {
             Deckblatt beim Lesen laengst aus dem Blick sind. */}
         <section className="border-t border-slate-200 bg-white">
           <div className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">
+            {/* Die Merkliste steht vor dem Hinweisband: wer bis hierher
+                gelesen hat, entscheidet jetzt. Sie erscheint nur, wenn etwas
+                darin steht, und liegt allein im Browser dieses Geraets. */}
+            <Merkliste className="mb-6" />
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-7">
               <p className="max-w-[80ch] text-sm leading-relaxed text-gray-500">
                 {t('samples.note')}
@@ -414,6 +421,9 @@ const MusterbefundPage = () => {
                     {t('befund.pdfCta')}
                   </a>
                 ) : null}
+                {/* Die Zwischenstufe zwischen Lesen und Anfragen: dieses Panel
+                    vormerken, ohne die Seite zu verlassen. */}
+                <MerkButton slug={slug} panel={befund.panel} className="bg-white" />
                 <Link
                   to={`/contact?intent=quote&source=epigenetics&panel=${encodeURIComponent(befund.panel)}#kontaktformular`}
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-accent-strong px-6 py-3.5 text-base font-semibold text-white transition-colors hover:brightness-110"

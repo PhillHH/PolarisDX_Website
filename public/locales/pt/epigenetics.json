@@ -701,7 +701,31 @@
     "navChapters": "Chapters",
     "noticeTitle": "Important notices",
     "toTop": "Back to top",
-    "ctaPdf": "This report as PDF"
+    "ctaPdf": "This report as PDF",
+    "mini": {
+      "caption": "The miniature",
+      "title": "The report in miniature.",
+      "lead": "This miniature shows in advance which result formats this report uses. It is calculated from the sample values on this page and is not a picture. Each mark stands for a format that reappears at full size further down — and whatever this panel does not use is missing here as well.",
+      "alt": "Schematic miniature of the report with numbered marks for the result formats of this panel.",
+      "marks": {
+        "traffic": {
+          "title": "The 1 to 9 scale",
+          "text": "Every evaluation sits as a mark on the same scale from 1 to 9. Red on the left, green on the right, higher is more favourable. How the marks spread across the band shows directly whether this panel sits more towards the red, amber or green range."
+        },
+        "percent": {
+          "title": "Per cent of the reference",
+          "text": "The markers are given as a percentage of a matched reference group. 100 % is the normal range, higher is more favourable. The marks on the band show where the values of this sample report sit against the reference."
+        },
+        "age": {
+          "title": "Biological against chronological",
+          "text": "The dashed line is the calendar age, the dot the biological age for each marker. The distance between the two is what the report states — not the single figure in years."
+        },
+        "trend": {
+          "title": "The trend as a check on progress",
+          "text": "Two measurements of the same value side by side: the open dot is the first, the filled one the second. Only what can actually change is compared — genetic variants stay the same. The interval between two measurements is set by the supervising institution."
+        }
+      }
+    }
   },
   "consult": {
     "caption": "How this becomes a consultation",
@@ -730,5 +754,16 @@
     "title": "Epigenetics and genetics",
     "text": "Six laboratory analyses from a drop of capillary blood — complementing instant diagnostics at the reader.",
     "cta": "View the portfolio"
+  },
+  "merk": {
+    "add": "Save this panel",
+    "added": "Saved",
+    "addAria": "Save {{panel}} to your shortlist",
+    "removeAria": "Remove {{panel}} from your shortlist",
+    "caption": "Your shortlist",
+    "title": "Saved for your enquiry",
+    "lead": "These are the panels you have saved. The list stays in this browser only: nothing is transmitted or evaluated as long as you do not submit anything here. Only “Request a quotation” carries the names into the contact form — where they appear in the free-text field and can be changed or deleted before you send it.",
+    "clear": "Clear the list",
+    "note": "Stored in this browser's storage (localStorage) only, and only the name of the panel. No account, no server record, nothing passed on to third parties. “Clear the list” removes the entry completely."
   }
 }
