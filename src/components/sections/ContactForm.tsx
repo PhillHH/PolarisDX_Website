@@ -33,7 +33,11 @@ export const ContactForm = () => {
   // als ?panel= mitbringt. Beide Vertraege gelten jetzt.
   const isEpigenetics =
     params.get('topic') === 'epigenetik' || params.get('source') === 'epigenetics'
-  const panel = params.get('panel')?.slice(0, 60) ?? ''
+  // Die Grenze schuetzt vor einem aufgeblasenen Fremdparameter, nicht vor dem
+  // eigenen Vertrag: aus der Merkliste kommen bis zu sechs Panelnamen in einem
+  // `panel` — zusammen rund 100 Zeichen, bei 60 waere die Liste abgeschnitten
+  // im Formular gelandet.
+  const panel = params.get('panel')?.slice(0, 200) ?? ''
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()

@@ -32,6 +32,7 @@ import { ArrowRight, Download } from 'lucide-react'
 import Reveal from '../ui/Reveal'
 import SectionHeader from '../ui/SectionHeader'
 import { BEFUND_IMAGES, BEFUND_IMAGE_SIZE } from '../../assets/epigenetics/befundImages'
+import { MerkButton, Merkliste } from '../befund/Merkliste'
 
 interface AnalysisItem {
   num: string
@@ -152,7 +153,10 @@ const EpigeneticsPanels = () => {
                   </>
                 ) : null}
 
-                <div className="mt-auto pt-6">
+                {/* Zwei Wege statt einem: den Befund lesen — oder das Panel
+                    vormerken und weiterlesen. Die Merkliste liegt allein im
+                    Browser dieses Geraets, siehe src/lib/merkliste.ts. */}
+                <div className="mt-auto space-y-3 pt-6">
                   <Link
                     to={`/epigenetics/musterbefund/${sample.slug}`}
                     className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-primary px-5 py-3 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
@@ -160,12 +164,21 @@ const EpigeneticsPanels = () => {
                     {t('samples.btn')}
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </Link>
+                  <MerkButton slug={sample.slug} panel={sample.panel} className="w-full" />
                 </div>
               </div>
             </article>
           </Reveal>
         ))}
       </div>
+
+      {/* Die Merkliste direkt unter dem Raster: dort wird vorgemerkt, dort
+          gehoert die Rueckmeldung hin. Sie erscheint nur, wenn etwas darin
+          steht, und fuehrt von dort in die Anfrage. */}
+      {/* Ohne Reveal: die Liste erscheint erst nach der Hydration, und eine
+          Einblend-Animation auf einem Element, das schon im Bild steht, kann
+          sie unsichtbar halten. */}
+      <Merkliste className="mt-8" />
 
       {/* Beispieldaten-Hinweis und ZIP wie bisher — die Bilder zeigen echte
           Befundlayouts mit frei erfundenen Werten, das muss dabeistehen. */}

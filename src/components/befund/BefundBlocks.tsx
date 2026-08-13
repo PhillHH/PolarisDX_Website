@@ -21,6 +21,9 @@ import {
   TrendChart,
   toneClasses,
 } from './BefundCharts'
+// Die Miniatur holt sich von hier nur den Typ `Block` zurueck. `import type`
+// wird beim Bauen entfernt — zur Laufzeit entsteht kein Ringschluss.
+import BefundMiniature from './BefundMiniature'
 
 const BODY = 'text-base leading-7 lg:text-[17px] lg:leading-8'
 const LEAD = 'text-lg leading-relaxed text-gray-600'
@@ -316,8 +319,19 @@ const CoverMeta = ({ b }: { b: Block }) => {
   )
 }
 
-const Principle = ({ b }: { b: Block }) => {
-  const cards = arr<{ title: string; text: string }>(b.cards)
+/**
+ * "So lesen Sie diesen Befund" — der zweite Hauptabschnitt der Seite.
+ *
+ * Hier steht jetzt alles beisammen, was man braucht, BEVOR der erste Wert
+ * kommt: die Ebenen des Panels, die Skalenlegende und die annotierte Miniatur.
+ * Vorher erklaerte sich jede Darstellungsform erst dort, wo sie zum ersten Mal
+ * auftauchte — bei Metabolic Health rund 13.000 px weiter unten.
+ *
+ * `blocks` ist der ganze Befund, nicht nur dieser Block: die Miniatur rechnet
+ * ihre Marken aus den Ergebnisbloecken desselben Dokuments.
+ */
+const Principle = ({ b, blocks }: { b: Block; blocks?: Block[] }) => {
+  const cards = arr<{ title: string; text: string; items?: string[] }>(b.cards)
   const flow = arr<{ num: string; title: string; text: string }>(b.flow)
   const zones = arr<{ tone: string; label: string; text: string }>(b.scaleZones)
   const ticks = arr<string>(b.scaleTicks)
@@ -326,11 +340,30 @@ const Principle = ({ b }: { b: Block }) => {
       <Head caption={str(b.caption)} title={str(b.title)} lead={str(b.lead)} />
 
       {cards.length > 0 ? (
-        <div className="mt-8 grid gap-5 lg:grid-cols-3">
+        /* Zwei Karten sind die Zwei-Ebenen-Erklaerung (Genetik/Epigenetik) und
+           tragen Listen — im Dreierraster stuenden sie schmal und mit einer
+           Luecke daneben. */
+        <div
+          className={`mt-8 grid gap-5 ${cards.length === 2 ? 'lg:grid-cols-2' : 'lg:grid-cols-3'}`}
+        >
           {cards.map((c) => (
             <div key={c.title} className="rounded-3xl border border-slate-200 bg-white p-6">
               <h3 className="text-lg font-semibold text-text-heading">{c.title}</h3>
               <p className={`mt-2 text-gray-700 ${BODY}`}>{c.text}</p>
+              {/* Die Aufzaehlung stand seit jeher im Inhalts-JSON, wurde aber
+                  nie ausgegeben — bei Metabolic Health sind das die sechs
+                  Zeilen, die erklaeren, was ein SNP ist und welche vier Werte
+                  auf der epigenetischen Ebene liegen. */}
+              {arr<string>(c.items).length > 0 ? (
+                <ul className="mt-3 space-y-2">
+                  {arr<string>(c.items).map((i) => (
+                    <li key={i} className={`flex gap-3 text-gray-700 ${BODY}`}>
+                      <span className="mt-3.5 h-1 w-3 shrink-0 rounded-full bg-accent-line" />
+                      <span>{i}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
             </div>
           ))}
         </div>
@@ -389,6 +422,10 @@ const Principle = ({ b }: { b: Block }) => {
           </dl>
         </div>
       ) : null}
+
+      {/* Die Miniatur steht hinter der Skalenlegende: erst was die Skala
+          bedeutet, dann wie sie in diesem Panel aussieht. */}
+      {blocks && blocks.length > 0 ? <BefundMiniature blocks={blocks} /> : null}
     </Section>
   )
 }
@@ -832,11 +869,14 @@ const Contact = ({ b }: { b: Block }) => (
 
 export const BefundBlock = ({
   block,
+  blocks,
   slug,
   radarValues,
   scrollHint,
 }: {
   block: Block
+  /** Der ganze Befund. Nur der Grundsatzblock braucht ihn — fuer die Miniatur. */
+  blocks?: Block[]
   slug?: string
   radarValues?: { profile: number[]; reference?: number[] }
   scrollHint?: string
@@ -850,7 +890,7 @@ export const BefundBlock = ({
         </>
       )
     case 'principle':
-      return <Principle b={block} />
+      return <Principle b={block} blocks={blocks} />
     case 'resultTable':
       return <ResultTable b={block} hint={scrollHint} />
     case 'ageDots':
