@@ -52,7 +52,7 @@ const WERT = /^\s*[\d.,]+\s*(\/|%)/
  *   resultTable  rows[]  mit cells[] und tone
  * Deshalb alle drei Formen, statt sich auf eine zu verlassen.
  */
-export function collectOverview(blocks: Block[]): OverviewEntry[] {
+function collectOverview(blocks: Block[]): OverviewEntry[] {
   const out: OverviewEntry[] = []
   for (const block of blocks) {
     const anchor = typeof block.id === 'string' ? block.id : undefined

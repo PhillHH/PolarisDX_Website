@@ -704,6 +704,9 @@
     "toneAmber": "im Grenzbereich",
     "toneGreen": "im Bereich",
     "markersChapter": "Die Einzelwerte",
-    "ctaPdf": "Diesen Befund als PDF"
+    "ctaPdf": "Diesen Befund als PDF",
+    "entryCount": "{{count}} Werte",
+    "entryCount_one": "{{count}} Wert",
+    "entryCount_other": "{{count}} Werte"
   }
 }

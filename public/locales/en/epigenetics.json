@@ -704,6 +704,9 @@
     "toneAmber": "borderline",
     "toneGreen": "within range",
     "markersChapter": "The individual values",
-    "ctaPdf": "This report as PDF"
+    "ctaPdf": "This report as PDF",
+    "entryCount": "{{count}} values",
+    "entryCount_one": "{{count}} value",
+    "entryCount_other": "{{count}} values"
   }
 }

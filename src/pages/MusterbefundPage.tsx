@@ -35,6 +35,28 @@ const ASSET_BASE = '/downloads/epigenetics/'
 /** Blocktypen, die kein eigenes Kapitel sind: Deckblatt und Einschuebe. */
 const NOT_A_CHAPTER = new Set(['cover', 'callout'])
 
+/**
+ * Bloecke, die offen bleiben — alles andere liegt hinter einem Aufklapper.
+ *
+ * Die Auswahl ist keine Geschmacksfrage: `cover` und `principle` tragen die
+ * Seite und beantworten, was der Leser zuerst wissen will. Die `callout`-
+ * Bloecke sind Pflichthinweise (Beispieldaten, GenDG, keine Diagnose) und
+ * duerfen nicht hinter einem Klick verschwinden. `summary` und `contact`
+ * bilden den Abschluss mit den Rechtstexten.
+ *
+ * Zugeklappt werden damit die Wertekapitel — bei Metabolic Health neun
+ * `markers`, drei `table` und die Auswertungsuebersicht. Kein Wort geht
+ * verloren, der Inhalt bleibt im DOM.
+ */
+const ALWAYS_OPEN = new Set(['cover', 'principle', 'callout', 'summary', 'contact'])
+
+/** Zahl der Werte in einem Block — steht als zweite Zeile im Aufklapper. */
+const entryCount = (b: Block) => {
+  if (Array.isArray(b.items)) return b.items.length
+  if (Array.isArray(b.rows)) return b.rows.length
+  return 0
+}
+
 /** Kapitelname: die Ueberschrift ohne Schlusspunkt. */
 const toLabel = (title: string) => title.replace(/\s*[.:]\s*$/, '')
 
@@ -58,6 +80,23 @@ const MusterbefundPage = () => {
     window.history.replaceState(null, '', `#${neu}`)
     ziel.scrollIntoView()
   }, [slug, hash])
+
+  // Wer aus dem Ueberblick oder der Kapitelleiste auf ein Wertekapitel springt,
+  // landet sonst auf einem zugeklappten Block und sieht nur dessen Aufklapper.
+  // Steht nach dem Anker-Effekt, damit eine bereits umgeschriebene Marke hier
+  // schon die richtige ist.
+  useEffect(() => {
+    const id = hash.slice(1)
+    if (!id) return
+    const ziel = document.getElementById(id)
+    const aufklapper = ziel?.querySelector('details')
+    if (!ziel || !aufklapper || aufklapper.open) return
+    aufklapper.open = true
+    // Der Browser hat vor dem Aufklappen gescrollt; die Zielhoehe stimmt danach
+    // nicht mehr.
+    ziel.scrollIntoView()
+  }, [slug, hash])
+
   const lang = i18n.language?.startsWith('de') ? 'de' : 'en'
 
   const befund = BEFUNDE[slug]?.[lang] ?? BEFUNDE[slug]?.de
@@ -115,7 +154,13 @@ const MusterbefundPage = () => {
    * optisch zu dem gehoert, was er kommentiert.
    */
   const chapters: Chapter[] = []
-  const chrome: { tint: boolean; id: string | undefined }[] = []
+  const chrome: {
+    tint: boolean
+    id: string | undefined
+    collapsed?: boolean
+    label?: string
+    hint?: string
+  }[] = []
   // Schleife statt map: `tint` und `markersChapterGesetzt` tragen Zustand von
   // Block zu Block weiter. In einem map-Callback ist das eine Zuweisung
   // waehrend des Renderings — react-hooks/immutability verbietet sie, weil der
@@ -146,7 +191,17 @@ const MusterbefundPage = () => {
         chapters.push({ id, label: toLabel(title) })
       }
     }
-    chrome.push({ tint: isCover ? false : tint, id })
+    // Ohne Ueberschrift gaebe es nichts, was auf dem Aufklapper stehen koennte —
+    // ein solcher Block bleibt offen, statt namenlos zu verschwinden.
+    const collapsed = !ALWAYS_OPEN.has(block.type) && Boolean(title)
+    const n = collapsed ? entryCount(block) : 0
+    chrome.push({
+      tint: isCover ? false : tint,
+      id,
+      collapsed,
+      label: collapsed ? toLabel(title) : undefined,
+      hint: n > 0 ? t('befund.entryCount', { count: n }) : undefined,
+    })
   }
 
   const others = BEFUND_ORDER.map((s) => ({
