@@ -700,6 +700,29 @@
     "toTop": "Back to top",
     "ctaPdf": "This report as PDF"
   },
+  "consult": {
+    "caption": "How this becomes a consultation",
+    "title": "A report is a programme, not a single value.",
+    "before": {
+      "title": "Before the consultation",
+      "text": "The full report is available ahead of the appointment. Read it through once and mark what stands out: the traffic-light ratings, how they are distributed across the evaluations, and the starting points named in the report. That way it is clear from the outset what the conversation is about and which questions remain open."
+    },
+    "during": {
+      "title": "During the consultation",
+      "general": "Genetic variants are determined once in a lifetime and remain unchanged; they describe the starting position. Only the epigenetic level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress. How many values of a panel sit on that level is stated in the respective sample report.",
+      "metabolic-health": "Four values in this panel sit on the epigenetic level and can therefore be influenced. The genetic variants alongside them are determined once in a lifetime and remain unchanged; they describe the starting position. Only the epigenetic level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress.",
+      "healthy-aging": "All four values in this panel sit on the epigenetic level. Unlike genetic variants, which are determined once in a lifetime and remain unchanged, this level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress. The conversation therefore separates what is fixed from what can be worked on.",
+      "biologische-altersuhr": "All three values in this panel sit on the epigenetic level. Unlike genetic variants, which are determined once in a lifetime and remain unchanged, this level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress. The conversation therefore separates what is fixed from what can be worked on.",
+      "telomer-analyse": "This panel carries exactly one value on the epigenetic level. Unlike genetic variants, which are determined once in a lifetime and remain unchanged, it responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress. The conversation therefore separates what is fixed from what can be worked on.",
+      "stress-monitor": "All six values in this panel sit on the epigenetic level. Unlike genetic variants, which are determined once in a lifetime and remain unchanged, this level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress. The conversation therefore separates what is fixed from what can be worked on.",
+      "healthy-sport": "Eight values in this panel sit on the epigenetic level and can therefore be influenced. The genetic variants alongside them are determined once in a lifetime and remain unchanged — they describe the starting position, not a goal. Only the epigenetic level responds to nutrition, exercise, sleep and strain; it alone is suitable for tracking progress."
+    },
+    "after": {
+      "title": "Afterwards",
+      "general": "The interval to a follow-up measurement is set by the supervising institution. For comparability, the laboratory, sample material and sampling should stay the same. Whatever happens between the measurements — nutrition, exercise, sleep, strain — belongs in the same documentation as the values; otherwise a change cannot be attributed.",
+      "methylation": "A follow-up measurement is meaningful at the earliest after four to six months; before that, changes cannot be measured reliably. The interval is set by the supervising institution. For comparability, the laboratory, sample material and sampling should stay the same — and whatever happens between the measurements belongs in the same documentation as the values."
+    }
+  },
   "sidebar": {
     "title": "Epigenetics and genetics",
     "text": "Six laboratory analyses from a drop of capillary blood — complementing instant diagnostics at the reader.",

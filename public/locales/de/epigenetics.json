@@ -708,6 +708,29 @@
     "entryCount_one": "{{count}} Wert",
     "entryCount_other": "{{count}} Werte"
   },
+  "consult": {
+    "caption": "So wird daraus eine Beratung",
+    "title": "Aus dem Befund wird ein Programm, kein Einzelwert.",
+    "before": {
+      "title": "Vor dem Gespräch",
+      "text": "Der vollständige Befund liegt zum Termin vor. Gehen Sie ihn einmal in Ruhe durch und markieren Sie, was auffällt: die Ampelbewertungen, die Verteilung über die Auswertungen und die im Befund genannten Ansatzpunkte. So steht zu Beginn des Gesprächs fest, worüber gesprochen wird und welche Fragen offenbleiben."
+    },
+    "during": {
+      "title": "Im Gespräch",
+      "general": "Genetische Varianten werden einmal im Leben erhoben und bleiben unverändert; sie beschreiben die Ausgangslage. Nur die epigenetische Ebene reagiert auf Ernährung, Bewegung, Schlaf und Belastung — sie allein eignet sich als Erfolgskontrolle. Wie viele Werte eines Panels auf dieser Ebene liegen, steht im jeweiligen Musterbefund.",
+      "metabolic-health": "Vier Werte dieses Panels liegen auf der epigenetischen Ebene und sind damit beeinflussbar. Die genetischen Varianten daneben werden einmal im Leben erhoben und bleiben unverändert; sie beschreiben die Ausgangslage. Nur die epigenetische Ebene reagiert auf Ernährung, Bewegung, Schlaf und Belastung — sie allein eignet sich als Erfolgskontrolle.",
+      "healthy-aging": "Alle vier Werte dieses Panels liegen auf der epigenetischen Ebene. Anders als genetische Varianten, die einmal im Leben erhoben werden und unverändert bleiben, reagiert diese Ebene auf Ernährung, Bewegung, Schlaf und Belastung — sie allein eignet sich als Erfolgskontrolle. Das Gespräch trennt deshalb, was feststeht, von dem, woran gearbeitet werden kann.",
+      "biologische-altersuhr": "Alle drei Werte dieses Panels liegen auf der epigenetischen Ebene. Anders als genetische Varianten, die einmal im Leben erhoben werden und unverändert bleiben, reagiert diese Ebene auf Ernährung, Bewegung, Schlaf und Belastung — sie allein eignet sich als Erfolgskontrolle. Das Gespräch trennt deshalb, was feststeht, von dem, woran gearbeitet werden kann.",
+      "telomer-analyse": "Dieses Panel führt genau einen Wert auf der epigenetischen Ebene. Anders als genetische Varianten, die einmal im Leben erhoben werden und unverändert bleiben, reagiert er auf Ernährung, Bewegung, Schlaf und Belastung — er allein eignet sich als Erfolgskontrolle. Das Gespräch trennt deshalb, was feststeht, von dem, woran gearbeitet werden kann.",
+      "stress-monitor": "Alle sechs Werte dieses Panels liegen auf der epigenetischen Ebene. Anders als genetische Varianten, die einmal im Leben erhoben werden und unverändert bleiben, reagiert diese Ebene auf Ernährung, Bewegung, Schlaf und Belastung — sie allein eignet sich als Erfolgskontrolle. Das Gespräch trennt deshalb, was feststeht, von dem, woran gearbeitet werden kann.",
+      "healthy-sport": "Acht Werte dieses Panels liegen auf der epigenetischen Ebene und sind damit beeinflussbar. Die genetischen Varianten daneben werden einmal im Leben erhoben und bleiben unverändert — sie beschreiben die Ausgangslage, nicht ein Ziel. Nur die epigenetische Ebene reagiert auf Ernährung, Bewegung, Schlaf und Belastung; sie allein eignet sich als Erfolgskontrolle."
+    },
+    "after": {
+      "title": "Danach",
+      "general": "Den Abstand zur Kontrollmessung legt die betreuende Einrichtung fest. Für die Vergleichbarkeit sollten Labor, Probenmaterial und Probenahme gleich bleiben. Was zwischen den Messungen geschieht — Ernährung, Bewegung, Schlaf, Belastung — gehört in dieselbe Dokumentation wie die Werte; sonst lässt sich eine Veränderung nicht zuordnen.",
+      "methylation": "Eine Folgemessung ist frühestens nach vier bis sechs Monaten aussagekräftig; vorher sind Veränderungen nicht belastbar messbar. Den Abstand legt die betreuende Einrichtung fest. Für die Vergleichbarkeit sollten Labor, Probenmaterial und Probenahme gleich bleiben — und was zwischen den Messungen geschieht, gehört in dieselbe Dokumentation wie die Werte."
+    }
+  },
   "sidebar": {
     "title": "Epigenetik und Genetik",
     "text": "Sechs Laboranalysen aus einem Tropfen Kapillarblut — ergänzend zur Sofortdiagnostik am Reader.",
