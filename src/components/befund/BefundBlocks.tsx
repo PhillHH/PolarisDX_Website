@@ -660,6 +660,72 @@ const Callout = ({ b }: { b: Block }) => {
   )
 }
 
+/**
+ * Fester Hinweisrahmen — die Pflichttexte an einer auf allen sechs Panels
+ * gleichen Stelle, direkt hinter "So lesen Sie diesen Befund".
+ *
+ * Bisher standen die Pflichttexte geschlossen nur ganz am Seitenende unter dem
+ * Kontaktblock. Wer den Befund von oben liest, kam an ihnen erst nach dem
+ * letzten Kapitel vorbei, und welcher Hinweis wo auftauchte, unterschied sich
+ * von Panel zu Panel. Der Rahmen zieht sie nach vorn, ohne sie unten
+ * wegzunehmen: der Hinweis auf die Beispieldaten muss an allen Stellen stehen
+ * bleiben, an denen er heute steht.
+ *
+ * Der Wortlaut kommt UNVERAENDERT aus dem legal-Feld des Kontaktblocks
+ * desselben Befunds — abgestimmter Text, woertlich wie im PDF. Damit steht im
+ * Rahmen kein Satz, der nicht schon freigegeben waere, und er bleibt von
+ * selbst panelrichtig: der Hinweis auf das Gendiagnostikgesetz erscheint
+ * weiter nur dort, wo genetisch ausgewertet wird.
+ *
+ * Der Rahmen liegt nie hinter einem Aufklapper. Er uebernimmt den Ton des
+ * Grundsatzblocks davor, damit er sichtbar zu ihm gehoert — dieselbe Regel,
+ * nach der auch ein callout den Ton seines Vorgaengers erbt.
+ */
+export const BefundNotice = ({
+  caption,
+  legal,
+  tint,
+  id = 'pflichthinweise',
+}: {
+  caption: string
+  legal: { title: string; text: string }[]
+  tint: boolean
+  id?: string
+}) => {
+  if (legal.length === 0) return null
+  return (
+    <BlockChromeProvider value={{ tint, id }}>
+      <Section>
+        {/*
+         * Echtes h2: auf einer Seite dieser Laenge ist die Ueberschriftenliste
+         * des Screenreaders der Hauptnavigationsweg, und die Pflichthinweise
+         * gehoeren dort hinein. Die Kapitelleiste bleibt unberuehrt — sie
+         * fuehrt durch die Wertekapitel, nicht durch die Rechtstexte.
+         */}
+        <h2 className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
+          {caption}
+        </h2>
+        <div
+          className={`mt-4 rounded-3xl border border-slate-200 p-7 ${
+            tint ? 'bg-white' : 'bg-slate-50'
+          }`}
+        >
+          <dl className="space-y-4">
+            {legal.map((l) => (
+              <div key={l.title}>
+                <dt className="text-sm font-semibold text-gray-600">{l.title}</dt>
+                <dd className="mt-1 max-w-[80ch] text-sm leading-relaxed text-gray-600">
+                  {l.text}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </Section>
+    </BlockChromeProvider>
+  )
+}
+
 const Summary = ({ b }: { b: Block }) => {
   const focuses = arr<{ num: string; title: string; text: string }>(b.focuses)
   const control = arr<string>(b.controlItems)
