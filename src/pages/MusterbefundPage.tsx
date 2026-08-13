@@ -31,6 +31,7 @@ import {
   type Block,
 } from '../components/befund/BefundBlocks'
 import BefundOverview from '../components/befund/BefundOverview'
+import ConsultSteps, { CONSULT_ID } from '../components/befund/ConsultSteps'
 import ChapterNav, { type Chapter } from '../components/ui/ChapterNav'
 import { BEFUNDE, BEFUND_ORDER, RADAR_VALUES } from '../content/befunde'
 import { LEGACY_ANCHORS } from '../content/befunde/legacyAnchors'
@@ -169,6 +170,19 @@ const MusterbefundPage = () => {
   const blocks = (befund.blocks ?? []) as Block[]
 
   /**
+   * Position des Beratungsabschnitts: hinter dem Kapitel "So lesen Sie diesen
+   * Befund" und den Pflichthinweisen, die unmittelbar daran haengen — und vor
+   * dem ersten Wert des Beispielbefunds. Der Index wird gesucht statt fest
+   * verdrahtet, weil die sechs Befunde unterschiedliche Blockfolgen haben.
+   *
+   * Findet sich kein `principle`-Block, bleibt der Wert -1 und der Abschnitt
+   * entfaellt, statt an einer beliebigen Stelle zu landen. Alle sechs Befunde
+   * haben ihn; die Bedingung ist die Absicherung fuer einen siebten.
+   */
+  let consultAfter = blocks.findIndex((b) => b.type === 'principle')
+  while (consultAfter >= 0 && blocks[consultAfter + 1]?.type === 'callout') consultAfter += 1
+
+  /**
    * Die Pflichttexte dieses Befunds. Sie stehen im Kontaktblock am Seitenende
    * und werden von dort auch fuer den Hinweisrahmen weiter oben gelesen — eine
    * Quelle, ein Wortlaut, kein zweiter Abstimmungsstand.
@@ -224,6 +238,11 @@ const MusterbefundPage = () => {
       } else {
         chapters.push({ id, label: toLabel(title) })
       }
+    }
+    // Der Beratungsabschnitt ist kein Block, steht aber zwischen zweien. Sein
+    // Kapiteleintrag gehoert damit direkt hinter den des Grundsatzblocks.
+    if (block.type === 'principle' && consultAfter >= 0) {
+      chapters.push({ id: CONSULT_ID, label: t('consult.caption') })
     }
     // Ohne Ueberschrift gaebe es nichts, was auf dem Aufklapper stehen koennte —
     // ein solcher Block bleibt offen, statt namenlos zu verschwinden.
@@ -295,6 +314,11 @@ const MusterbefundPage = () => {
                 tint={chrome[index].tint}
               />
             ) : null}
+            {/* "So wird daraus eine Beratung" — der Abschnitt bleibt offen und
+                traegt seinen eigenen dunklen Rahmen. Damit bricht er den
+                Wechsel weiss/hell der Bloecke nicht, sondern setzt sich
+                bewusst davon ab. */}
+            {index === consultAfter ? <ConsultSteps slug={slug} /> : null}
             {/* Die Kapitelleiste steht direkt hinter dem Deckblatt: sie soll
                 mitscrollen, aber den Hero nicht ueberdecken. */}
             {block.type === 'cover' ? (

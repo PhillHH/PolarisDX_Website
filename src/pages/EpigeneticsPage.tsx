@@ -31,6 +31,7 @@ import EpigeneticsPanels from '../components/sections/EpigeneticsPanels'
 import PageTransition from '../components/ui/PageTransition'
 import ChapterNav, { type Chapter } from '../components/ui/ChapterNav'
 import Reveal from '../components/ui/Reveal'
+import ConsultSteps from '../components/befund/ConsultSteps'
 
 // public/ wird nach dist/client kopiert — die oeffentliche URL ist /downloads/...
 const ASSET_BASE = '/downloads/epigenetics/'
@@ -243,6 +244,15 @@ const EpigeneticsPage = () => {
                     </div>
                   ))}
                 </dl>
+
+                {/* "So wird daraus eine Beratung" — derselbe Abschnitt wie auf
+                    den sechs Musterbefunden, hier ohne Panelbezug und damit
+                    ohne Zahlenangabe. Er steht im Hero, weil er die Frage
+                    beantwortet, die vor jeder Anfrage steht: was der Partner
+                    mit den Werten anfaengt. */}
+                <div className="mt-12 border-t border-white/15 pt-10">
+                  <ConsultSteps variant="hero" />
+                </div>
               </div>
             </Reveal>
           </div>
