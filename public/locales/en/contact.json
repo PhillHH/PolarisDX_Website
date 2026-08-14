@@ -1,12 +1,12 @@
 {
   "contact": {
     "hero": {
-      "kicker": "REQUEST A QUOTE",
-      "title": "Request a Quote",
+      "kicker": "REQUEST A QUOTATION",
+      "title": "Request a quotation",
       "breadcrumb": "Home / Contact Us"
     },
     "form": {
-      "title": "Request a Quote",
+      "title": "Request a quotation",
       "email": "Email",
       "phone": "Phone",
       "specialty": "Select Medical Specialty",
@@ -19,7 +19,7 @@
       "email_placeholder": "you@example.com",
       "message": "Message",
       "message_placeholder": "Tell us more about your needs...",
-      "submit": "Request a Quote",
+      "submit": "Request a quotation",
       "company_label": "Company / Practice Name",
       "company_placeholder": "e.g. Dr. Smith Practice or City Pharmacy",
       "area_label": "Primary Application Area",

@@ -1,12 +1,12 @@
 {
   "contact": {
     "hero": {
-      "kicker": "ANGEBOT ANFORDERN",
-      "title": "Angebot anfordern",
+      "kicker": "ANGEBOT ANFRAGEN",
+      "title": "Angebot anfragen",
       "breadcrumb": "Home / Kontakt"
     },
     "form": {
-      "title": "Angebot anfordern",
+      "title": "Angebot anfragen",
       "email": "E-Mail",
       "phone": "Telefon",
       "specialty": "Medizinische Fachrichtung wählen",
@@ -19,7 +19,7 @@
       "email_placeholder": "sie@beispiel.de",
       "message": "Nachricht",
       "message_placeholder": "Erzählen Sie uns mehr über Ihr Anliegen...",
-      "submit": "Angebot anfordern",
+      "submit": "Angebot anfragen",
       "company_label": "Name des Unternehmens / der Praxis",
       "company_placeholder": "z.B. Praxis Dr. Müller oder Löwen-Apotheke",
       "area_label": "Primärer Einsatzbereich",
