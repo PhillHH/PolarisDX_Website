@@ -128,7 +128,7 @@
       "type": "markers",
       "caption": "Grundlage der Berechnung",
       "title": "Die drei microRNAs.",
-      "lead": "Die Einzelsignale auf der Skala 1–9, höher ist besser. Erst ihr Zusammenspiel ergibt die Altersuhr — ein einzelnes Signal lässt für sich genommen keine Aussage zu.",
+      "lead": "Die Einzelsignale auf der Ampel 1–9, höher ist besser. Erst ihr Zusammenspiel ergibt die Altersuhr — ein einzelnes Signal lässt für sich genommen keine Aussage zu.",
       "items": [
         {
           "name": "miR-21",

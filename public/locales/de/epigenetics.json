@@ -674,7 +674,7 @@
     "scales": [
       {
         "k": "Ampel 1–9",
-        "v": "Die häufigste Darstellung, im Text auch Skala 1 bis 9 genannt. Links rot, rechts grün, höher ist immer besser: 1–3 rot, 4–6 gelb, 7–9 grün."
+        "v": "Die häufigste Darstellung. Links rot, rechts grün, höher ist immer besser: 1–3 rot, 4–6 gelb, 7–9 grün."
       },
       {
         "k": "Prozent",
@@ -698,7 +698,7 @@
       },
       "healthy-aging": {
         "title": "Musterbefund Healthy Aging: biologisches Alter",
-        "description": "Beispielbefund Healthy Aging: vier epigenetische Werte zum biologischen Alter, jeder mit Ampel 1 bis 9 und Erklärung. Beispieldaten, keine Patientendaten."
+        "description": "Beispielbefund Healthy Aging: vier epigenetische Werte zum biologischen Alter, jeder mit der Ampel 1–9 und Erklärung. Beispieldaten, keine Patientendaten."
       },
       "biologische-altersuhr": {
         "title": "Musterbefund Biologische Altersuhr: microRNA",
@@ -745,8 +745,8 @@
       "alt": "Schematische Miniatur des Befunds mit nummerierten Marken für die Darstellungsformen dieses Panels.",
       "marks": {
         "traffic": {
-          "title": "Die Ampel 1 bis 9",
-          "text": "Jede Auswertung steht als Marke auf derselben Skala von 1 bis 9. Links rot, rechts grün, höher ist günstiger. Wie sich die Marken auf dem Band verteilen, zeigt ohne Umweg, ob dieses Panel eher im roten, gelben oder grünen Bereich steht."
+          "title": "Die Ampel 1–9",
+          "text": "Jede Auswertung steht als Marke auf derselben Ampel 1–9. Links rot, rechts grün, höher ist günstiger. Wie sich die Marken auf dem Band verteilen, zeigt ohne Umweg, ob dieses Panel eher im roten, gelben oder grünen Bereich steht."
         },
         "percent": {
           "title": "Prozent der Referenz",

@@ -34,7 +34,7 @@
       "type": "principle",
       "caption": "The principle",
       "title": "How to read this report.",
-      "lead": "This report combines two levels: your genetics — inherited and unchangeable — and your epigenetics, which can be influenced by lifestyle. Both are shown on the same scale.",
+      "lead": "This report combines two levels: your genetics — inherited and unchangeable — and your epigenetics, which can be influenced by lifestyle. Both are shown on the same traffic light.",
       "cards": [
         {
           "title": "Level 1 · Genetics",
@@ -57,7 +57,7 @@
       ],
       "scaleTitle": "How do I read the scale?",
       "scaleCaption": "Orientation",
-      "scaleLead": "All evaluations — genetic and epigenetic alike — use the same traffic-light scale from 1 to 9. Red on the left, green on the right: 1–3 red, 4–6 amber, 7–9 green. Higher is always more favourable.",
+      "scaleLead": "All evaluations — genetic and epigenetic alike — use the same traffic light 1–9. Red on the left, green on the right: 1–3 red, 4–6 amber, 7–9 green. Higher is always more favourable.",
       "scaleKind": "traffic",
       "scaleTicks": ["1", "3", "5", "7", "9"],
       "scaleZones": [
@@ -165,7 +165,7 @@
       "type": "evaluations",
       "caption": "Results at a glance",
       "title": "All genetic evaluations.",
-      "lead": "Seventeen evaluations on the 1–9 traffic-light scale. These values are inherited and do not change — they describe where your metabolism needs more support than average.",
+      "lead": "Seventeen evaluations on the traffic light 1–9. These values are inherited and do not change — they describe where your metabolism needs more support than average.",
       "items": [
         {
           "label": "Skin hydration",

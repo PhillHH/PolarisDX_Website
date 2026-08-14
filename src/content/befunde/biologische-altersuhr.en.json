@@ -128,7 +128,7 @@
       "type": "markers",
       "caption": "Basis of the calculation",
       "title": "The three microRNAs.",
-      "lead": "The individual signals on a scale of 1–9; higher is better. Only their interplay produces the age clock — a single signal on its own does not permit any conclusion.",
+      "lead": "The individual signals on the traffic light 1–9; higher is better. Only their interplay produces the age clock — a single signal on its own does not permit any conclusion.",
       "items": [
         {
           "name": "miR-21",
