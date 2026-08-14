@@ -34,7 +34,7 @@
     ],
     "ctaSheets": "All 18 documents",
     "chooseTitle": "Six analyses. Which one fits your institution?",
-    "consultLine": "Only the epigenetic level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress. The interval between measurements is set by the supervising institution.",
+    "consultLine": "Only the epigenetic level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress.",
     "trustEvidence": "Evidence disclosed: {{established}} well-established and {{preliminary}} preliminary points."
   },
   "teaser": {
@@ -65,15 +65,15 @@
     "cards": [
       {
         "title": "Two layers: genetics and epigenetics",
-        "text": "Genetic variants describe lifelong, unchangeable predisposition. Epigenetic markers — microRNA patterns and DNA methylation — describe the current regulatory state and respond to nutrition, exercise, sleep and strain. That is precisely why they can be measured over time."
+        "text": "Genetic variants describe unchangeable predisposition. Epigenetic markers — microRNA and DNA methylation — show the regulatory state: they follow lifestyle and can be measured over time."
       },
       {
         "title": "Sample material: dried blood card",
-        "text": "A few drops of capillary blood from the fingertip are applied to a dried blood card. No venipuncture, no centrifuge, no cold chain — sampling is possible in the practice or at home."
+        "text": "A few drops of capillary blood from the fingertip go onto a dried blood card. No venipuncture, no centrifuge, no cold chain — sampling in the practice or at home."
       },
       {
         "title": "Laboratory and reference data",
-        "text": "Analysis is carried out by our cooperation partner, a specialised European laboratory with more than 15 years of research in this field. Results are placed against more than 60,000 validated reference values. Quality management to ISO 9001:2015."
+        "text": "Analysis is carried out by our European cooperation partner: more than 15 years of research, more than 60,000 validated reference values, ISO 9001:2015."
       }
     ],
     "practice": {
@@ -97,7 +97,7 @@
       {
         "num": "01",
         "name": "Metabolic Health",
-        "subtitle": "Which diet suits which person — genetically predisposed, epigenetically verifiable.",
+        "subtitle": "Diet by predisposition — epigenetically verifiable.",
         "facts": [
           {
             "k": "Scope",
@@ -110,16 +110,16 @@
         ],
         "what": "The analysis evaluates which distribution of macronutrients suits the individual predisposition, supported by specific portion and recipe suggestions. Because genetic variants do not explain weight behaviour on their own, epigenetic markers of DNA stability and inflammation are assessed in addition: only those respond to lifestyle and work as a measure of success.",
         "who": [
-          "Nutritional counselling that needs to go beyond standard plans",
-          "Prevention practices running structured weight programmes",
-          "Clients for whom previous dietary changes have not worked"
+          "Nutritional counselling beyond standard plans",
+          "Prevention practices with weight programmes",
+          "Where previous dietary changes have not worked"
         ],
         "file": "en/01_Metabolic_Health_PolarisDX.pdf"
       },
       {
         "num": "02",
         "name": "Healthy Aging",
-        "subtitle": "Biological age across four molecular layers — with a traffic-light rating rather than a single number.",
+        "subtitle": "Biological age across four layers — traffic light, not one number.",
         "facts": [
           {
             "k": "Scope",
@@ -132,16 +132,16 @@
         ],
         "what": "Telomere length, epigenetic ageing markers, inflammation and DNA stability are placed against age- and sex-related reference values and each rated green, amber or red. This shows which layer is driving the result — and where an intervention should start. Lifestyle data is recorded alongside and contrasted with the molecular findings.",
         "who": [
-          "Longevity centres and prevention practices running structured programmes",
-          "Nutritional counselling and doctors working in preventive medicine",
-          "People aged roughly 40 and over who want to track their ageing process"
+          "Longevity centres and prevention practices",
+          "Nutritional counselling and preventive medicine",
+          "People aged roughly 40 and over tracking the trend"
         ],
         "file": "en/02_Healthy_Aging_PolarisDX.pdf"
       },
       {
         "num": "03",
         "name": "Biological age clock",
-        "subtitle": "An exploratory lifestyle signal from three microRNAs — explicitly not an age determination.",
+        "subtitle": "An exploratory lifestyle signal — not an age determination.",
         "facts": [
           {
             "k": "Markers",
@@ -154,16 +154,16 @@
         ],
         "what": "Three microRNAs are determined by quantitative PCR, normalised against miR-93 and combined into a single value: the percentage deviation of biological from chronological age. The underlying model is published but declared a pilot study — the output is an exploratory signal, not a robust biological age.",
         "who": [
-          "Longevity and functional medicine practices, as an entry and monitoring parameter",
-          "Health centres, coaching and workplace health programmes",
-          "As a compact single value where a full ageing panel would be too extensive"
+          "Longevity and functional medicine practices",
+          "Health centres, coaching and workplace health",
+          "Where a full ageing panel would be too extensive"
         ],
         "file": "en/03_Biological_Age_PolarisDX.pdf"
       },
       {
         "num": "04",
         "name": "Telomere Analysis",
-        "subtitle": "The protective caps of the chromosomes as a baseline — measured in kilobase pairs.",
+        "subtitle": "The protective caps of the chromosomes — measured in kilobase pairs.",
         "facts": [
           {
             "k": "Method",
@@ -176,16 +176,16 @@
         ],
         "what": "Telomeres shorten with each cell division and are regarded as a marker of cellular ageing. Measurement is performed from dried capillary blood, reported in kilobase pairs and placed against an age- and sex-matched reference population. qPCR values vary considerably between runs and laboratories — the trend carries the message, not the single value.",
         "who": [
-          "Longevity programmes and preventive medicine, as a baseline and monitoring measurement",
-          "Nutritional counselling that wants to document an objective starting value",
-          "Workplace health programmes with a longevity focus"
+          "Longevity programmes and preventive medicine",
+          "Nutritional counselling needing a baseline",
+          "Workplace programmes with a longevity focus"
         ],
         "file": "en/04_Telomere_Analysis_PolarisDX.pdf"
       },
       {
         "num": "05",
         "name": "Stress Monitor",
-        "subtitle": "Measured strain alongside perceived strain — six microRNAs across four areas.",
+        "subtitle": "Measured alongside perceived strain — four areas.",
         "facts": [
           {
             "k": "Scope",
@@ -198,16 +198,16 @@
         ],
         "what": "Physiological strain, cell protection, serotonin regulation and immune signals are each reported as a traffic light and contrasted with the subjective stress experience recorded in a questionnaire. The discrepancy is what makes the conversation useful: people with high tolerance for strain frequently underestimate their own load.",
         "who": [
-          "Workplace health management and resilience programmes",
-          "Practices and advisory services focused on stress prevention",
-          "People under sustained professional or personal strain"
+          "Workplace health management and resilience",
+          "Practices focused on stress prevention",
+          "People under sustained strain"
         ],
         "file": "en/05_Stress_Monitor_PolarisDX.pdf"
       },
       {
         "num": "06",
         "name": "Healthy Sport",
-        "subtitle": "Eight epigenetic areas on the current state — extended in the Plus variant by four genetic variants.",
+        "subtitle": "Eight epigenetic areas; Plus variant adds four variants.",
         "facts": [
           {
             "k": "Scope",
@@ -220,9 +220,9 @@
         ],
         "what": "Nutrient and hydration status, load level, recovery, injury risk, cardiovascular fitness, inflammation and muscle status form the variable monitoring part. The Plus variant adds four unchangeable genetic variants on sport type, training motivation, muscle damage risk and weight regulation — recorded once.",
         "who": [
-          "Sports medicine practices and performance diagnostics",
-          "Sports science, coaches and performance coaching",
-          "Committed recreational and competitive athletes"
+          "Sports medicine and performance diagnostics",
+          "Sports science and performance coaching",
+          "Recreational and competitive athletes"
         ],
         "file": "en/06_Healthy_Sport_PolarisDX.pdf"
       }
@@ -241,7 +241,7 @@
     "lead": "Six steps, one sampling route — identical for all six analyses.",
     "steps": [
       "Hold the consultation; document the information given and the consent obtained.",
-      "Sampling: prick the fingertip, apply blood to the card, let it dry.",
+      "Sampling: prick the fingertip, apply blood to the card.",
       "Send the card to the partner laboratory in the prepared envelope.",
       "Laboratory analysis of the genetic or epigenetic markers.",
       "Digital report with traffic-light rating and specific recommendations.",
@@ -251,12 +251,12 @@
   "evidence": {
     "caption": "Evidence base",
     "title": "What is established — and what is not",
-    "lead": "This field is heavily over-promised. Anyone presenting these analyses should know the limits — otherwise they collapse at the first critical question. With professionals, candour is an advantage, not a risk.",
+    "lead": "This field is heavily over-promised. Anyone presenting these analyses should know the limits — with professionals, candour is an advantage, not a risk.",
     "establishedTitle": "Well established",
     "established": [
       {
         "title": "Lifestyle changes epigenetic markers",
-        "text": "Randomised pilot trial over 8 weeks: epigenetic age on average 3.2 years lower than in the control group (Fitzgerald et al., Aging 2021). This measured DNA methylation, not microRNA."
+        "text": "Randomised pilot trial over 8 weeks: epigenetic age on average 3.2 years lower than in the control group (Fitzgerald et al., Aging 2021) — DNA methylation, not microRNA."
       },
       {
         "title": "Inflammation as an ageing axis",
@@ -275,15 +275,15 @@
     "preliminary": [
       {
         "title": "microRNA age clock",
-        "text": "The published model (n = 539) explains about 5 % of the variance in age with a mean absolute error of 10.4 years; two of the three markers did not correlate significantly with chronological age. As an age determination the value does not hold."
+        "text": "The published model (n = 539) explains about 5 % of the variance in age, mean absolute error 10.4 years; two of the three markers did not correlate significantly with chronological age."
       },
       {
         "title": "Telomere length by qPCR",
-        "text": "The method varies considerably between runs and laboratories; DNA extraction, storage and cell composition systematically affect the result. Assay variation from dried blood is higher than from venous blood."
+        "text": "The method varies between runs and laboratories; DNA extraction, storage and cell composition all contribute. From dried blood more than from venous blood."
       },
       {
         "title": "Gene-based dietary advice",
-        "text": "The Food4Me study found no difference in weight loss between levels of personalisation including genetics. The benefit lies in structure, conversation and adherence — not in superiority over good standard counselling."
+        "text": "The Food4Me study found no difference in weight loss between levels of personalisation including genetics. The benefit lies in structure, conversation and adherence."
       },
       {
         "title": "microRNA as stress markers",
@@ -299,7 +299,7 @@
     "items": [
       {
         "q": "What is the difference between genetics and epigenetics?",
-        "a": "Genetic variants are unchangeable for life and describe predisposition — they are recorded once. Epigenetic markers describe the current regulatory state, respond to nutrition, exercise, sleep and strain, and can therefore be measured over time. Only the epigenetic layer works as a measure of success."
+        "a": "Genetic variants are unchangeable for life and are recorded once; epigenetic markers describe the current regulatory state and can be measured over time. Only the epigenetic layer works as a measure of success — set out in full under “Understanding the values”."
       },
       {
         "q": "How is the sample taken?",
@@ -346,7 +346,7 @@
     {
       "num": "00",
       "title": "Portfolio overview",
-      "desc": "The programme, the principle, all six analyses compared, workflow and commercial terms.",
+      "desc": "Programme, principle, analyses, workflow, terms.",
       "file": "en/00_Portfolio_Overview_PolarisDX.pdf",
       "meta": "PDF · 3 pages · 78 KB",
       "featured": true
@@ -354,56 +354,56 @@
     {
       "num": "01",
       "title": "Metabolic Health",
-      "desc": "Metabolic type, eating behaviour, weight regulation — seventeen genetic evaluations and four epigenetic values for nutritional counselling.",
+      "desc": "Metabolic type, eating behaviour, weight regulation.",
       "file": "en/01_Metabolic_Health_PolarisDX.pdf",
       "meta": "PDF · 3 pages · 80 KB"
     },
     {
       "num": "02",
       "title": "Healthy Aging",
-      "desc": "Biological ageing across four molecular layers, with a traffic-light rating per layer.",
+      "desc": "Biological ageing across four layers, rating per layer.",
       "file": "en/02_Healthy_Aging_PolarisDX.pdf",
       "meta": "PDF · 2 pages · 73 KB"
     },
     {
       "num": "03",
       "title": "Biological age clock",
-      "desc": "Three microRNAs as an exploratory lifestyle signal — with the limits of the method stated openly.",
+      "desc": "Three microRNAs as an exploratory lifestyle signal.",
       "file": "en/03_Biological_Age_PolarisDX.pdf",
       "meta": "PDF · 3 pages · 79 KB"
     },
     {
       "num": "04",
       "title": "Telomere Analysis",
-      "desc": "Telomere length in kilobase pairs as a baseline, placed against a reference population.",
+      "desc": "Telomere length in kilobase pairs as a baseline.",
       "file": "en/04_Telomere_Analysis_PolarisDX.pdf",
       "meta": "PDF · 2 pages · 72 KB"
     },
     {
       "num": "05",
       "title": "Stress Monitor",
-      "desc": "Six microRNAs across four areas: measured strain alongside perceived strain.",
+      "desc": "Six microRNAs: measured alongside perceived strain.",
       "file": "en/05_Stress_Monitor_PolarisDX.pdf",
       "meta": "PDF · 3 pages · 78 KB"
     },
     {
       "num": "06",
       "title": "Healthy Sport",
-      "desc": "Eight epigenetic areas on load and recovery, plus variant with four genetic variants.",
+      "desc": "Eight epigenetic areas; Plus adds four variants.",
       "file": "en/06_Healthy_Sport_PolarisDX.pdf",
       "meta": "PDF · 3 pages · 80 KB"
     },
     {
       "num": "07",
       "title": "Commercial terms and enquiry",
-      "desc": "Pricing logic and enquiry form. B2B terms on request.",
+      "desc": "Pricing logic and enquiry form, B2B terms on request.",
       "file": "en/07_Terms_Enquiry_PolarisDX.pdf",
       "meta": "PDF · 2 pages · 70 KB"
     },
     {
       "num": "08",
       "title": "Evidence base and limits",
-      "desc": "What is established and what is not — with sources. The basis for talking to professionals.",
+      "desc": "What is established and what is not — with sources.",
       "file": "en/08_Evidence_Base_PolarisDX.pdf",
       "meta": "PDF · 3 pages · 78 KB",
       "featured": true
@@ -513,7 +513,7 @@
   "compare": {
     "caption": "At a glance",
     "title": "The six panels compared",
-    "lead": "All six panels run from the same dried blood spot card, collected from a fingertip. What differs is what is determined from it — the scope, the molecular level and the form the result takes. Epigenetic markers and microRNAs shift with diet, physical activity, sleep and stress; genetic variants remain unchanged for life. Only the epigenetic level lends itself to checking whether an intervention is working.",
+    "lead": "All six panels run from the same dried blood spot card, collected from a fingertip. What differs is scope, molecular level and result format.",
     "cols": [
       "Panel",
       "Parameters",
@@ -575,26 +575,26 @@
     "shared": [
       {
         "title": "Sample material",
-        "text": "Dried blood spot card, a few drops of capillary blood from a fingertip — no refrigerated shipping, no fasting required."
+        "text": "Dried blood spot card from a fingertip — no refrigerated shipping, no fasting."
       },
       {
         "title": "Lifestyle radar",
-        "text": "11 self-reported factors in Healthy Aging, Healthy Sport, Biological Age Clock and Telomere Analysis."
+        "text": "11 self-reported factors: Healthy Aging, Healthy Sport, Age Clock, Telomere Analysis."
       },
       {
         "title": "Interventions",
-        "text": "Specific recommendations for every marker, each with source, amount and a practical note — 8 to 14 per panel."
+        "text": "Recommendations for every marker, with source and amount — 8 to 14 per panel."
       }
     ],
     "caveatTitle": "Two panels where the methodology belongs in the conversation",
     "caveats": [
       {
         "title": "Biological Age Clock",
-        "text": "The underlying model has been published as a pilot study (n = 539) and carries a mean absolute error of around 10 years. A single reading is not a determination of age; what holds up is the trend over time."
+        "text": "The underlying model is published as a pilot study (n = 539), with a mean absolute error of around 10 years. A single reading is not a determination of age; what holds up is the trend."
       },
       {
         "title": "Telomere Analysis",
-        "text": "qPCR measurement varies considerably between runs and between laboratories, more so from dried blood than from venous blood. Here too it is the trend that carries the interpretation, not the individual value. Both sample reports devote a page to this under the heading “Scientific context”."
+        "text": "qPCR measurement varies considerably between runs and laboratories, more so from dried blood than from venous blood. Here too it is the trend that carries the interpretation."
       }
     ],
     "gendg": "Two panels include genetic analyses: Metabolic Health and the Plus variant of Healthy Sport. For these, the person concerned must be informed and give written consent before the sample is taken (German Genetic Diagnostics Act, GenDG).",
@@ -644,12 +644,12 @@
   "basics": {
     "caption": "Understanding the values",
     "title": "What the reports actually measure",
-    "lead": "The reports contain values from four different levels. Once the distinction is clear, it is immediately obvious which figures can change and which cannot — and which findings describe a predisposition rather than a snapshot in time. No value is a diagnosis; the analyses describe predispositions and snapshots in time.",
+    "lead": "The reports contain values from four levels. Once the distinction is clear, it is obvious which figures can change and which cannot — and predisposition can be separated from snapshot in the consultation. No value is a diagnosis.",
     "concepts": [
       {
         "num": "01",
         "title": "The genes — the blueprint",
-        "text": "The genes are rather like the blueprint of a house: they set out how the body is built — how it uses fat, how quickly satiety sets in, how well it transports vitamin D through the blood. Small deviations in this blueprint are called gene variants, or SNPs; every person carries thousands of them, and they are neither good nor bad, simply different. In Germany, genetic analyses fall under the Genetic Diagnostics Act (Gendiagnostikgesetz, GenDG) — information and written consent must be in place before the sample is taken.",
+        "text": "The genes are the body’s blueprint: they set out how it uses fat and how it transports vitamin D. Small deviations in it are called gene variants, or SNPs — every person carries thousands of them, neither good nor bad. In Germany, genetic analyses fall under the Genetic Diagnostics Act (Gendiagnostikgesetz, GenDG) — information and written consent must be in place before the sample is taken.",
         "key": "The blueprint never changes. A genetic analysis is carried out once in a lifetime; a second measurement would return exactly the same result."
       },
       {
@@ -661,13 +661,13 @@
       {
         "num": "03",
         "title": "MicroRNAs — the messengers in the blood",
-        "text": "MicroRNAs are tiny molecules that circulate in the blood and fine-tune the activity of genes. They can be pictured as short messages the body sends out continuously. Their quantity shifts faster than methylation — often within weeks.",
+        "text": "MicroRNAs are tiny molecules that circulate in the blood and fine-tune gene activity — short messages the body sends out continuously. Their quantity shifts faster than methylation, often within weeks.",
         "key": "Their names always follow the same pattern: \"miR\" plus a number. The number is simply a catalogue number and says nothing about importance."
       },
       {
         "num": "04",
         "title": "Telomeres — the protective caps",
-        "text": "At the ends of the chromosomes sit protective caps, much like the plastic tips on shoelaces. They are called telomeres, and they prevent genetic information from being lost each time a cell divides. With every division they become a little shorter.",
+        "text": "At the ends of the chromosomes sit protective caps, much like the plastic tips on shoelaces. These telomeres keep genetic information from being lost when a cell divides — and grow a little shorter with every division.",
         "key": "Telomeres cannot be deliberately lengthened. The only thing open to influence is how quickly they shorten."
       }
     ],
@@ -683,7 +683,7 @@
       },
       {
         "k": "Years",
-        "v": "A \"biological age\" calculated from measured values and set against chronological age. It is the result of a calculation, not a determination of age."
+        "v": "A “biological age” calculated from measured values, against chronological age — a calculation, not a determination of age."
       }
     ],
     "cta": "Understanding the values as PDF",
@@ -766,11 +766,11 @@
     "title": "A report is a programme, not a single value.",
     "before": {
       "title": "Before the consultation",
-      "text": "The full report is available ahead of the appointment. Read it through once and mark what stands out: the traffic-light ratings, how they are distributed across the evaluations, and the starting points named in the report. That way it is clear from the outset what the conversation is about and which questions remain open."
+      "text": "The full report is available ahead of the appointment. Read it through and mark what stands out: the traffic-light ratings, their distribution across the evaluations, the starting points named. That way it is clear from the outset what to discuss."
     },
     "during": {
       "title": "During the consultation",
-      "general": "Genetic variants are determined once in a lifetime and remain unchanged; they describe the starting position. Only the epigenetic level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress. How many values of a panel sit on that level is stated in the respective sample report.",
+      "general": "Genetic variants are determined once in a lifetime and describe the starting position. Only the epigenetic level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress.",
       "metabolic-health": "Four values in this panel sit on the epigenetic level and can therefore be influenced. The genetic variants alongside them are determined once in a lifetime and remain unchanged; they describe the starting position. Only the epigenetic level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress.",
       "healthy-aging": "All four values in this panel sit on the epigenetic level. Unlike genetic variants, which are determined once in a lifetime and remain unchanged, this level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress. The conversation therefore separates what is fixed from what can be worked on.",
       "biologische-altersuhr": "All three values in this panel sit on the epigenetic level. Unlike genetic variants, which are determined once in a lifetime and remain unchanged, this level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress. The conversation therefore separates what is fixed from what can be worked on.",
@@ -780,7 +780,7 @@
     },
     "after": {
       "title": "Afterwards",
-      "general": "The interval to a follow-up measurement is set by the supervising institution. For comparability, the laboratory, sample material and sampling should stay the same. Whatever happens between the measurements — nutrition, exercise, sleep, strain — belongs in the same documentation as the values; otherwise a change cannot be attributed.",
+      "general": "The interval to a follow-up measurement is set by the supervising institution. Laboratory, sample material and sampling should stay the same — and whatever happens in between belongs in the same documentation as the values.",
       "methylation": "A follow-up measurement is meaningful at the earliest after four to six months; before that, changes cannot be measured reliably. The interval is set by the supervising institution. For comparability, the laboratory, sample material and sampling should stay the same — and whatever happens between the measurements belongs in the same documentation as the values."
     }
   },

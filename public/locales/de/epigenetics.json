@@ -33,7 +33,7 @@
     ],
     "ctaSheets": "Alle 18 Unterlagen",
     "chooseTitle": "Sechs Analysen. Welche passt zu Ihrer Einrichtung?",
-    "consultLine": "Nur die epigenetische Ebene reagiert auf Ernährung, Bewegung, Schlaf und Belastung — sie allein eignet sich als Verlaufskontrolle. Den Abstand zwischen den Messungen legt die betreuende Einrichtung fest.",
+    "consultLine": "Nur die epigenetische Ebene reagiert auf Ernährung, Bewegung, Schlaf und Belastung — sie allein eignet sich als Verlaufskontrolle.",
     "trustEvidence": "Studienlage offengelegt: {{established}} gut belegte und {{preliminary}} vorläufige Punkte."
   },
   "teaser": {
@@ -64,15 +64,15 @@
     "cards": [
       {
         "title": "Zwei Ebenen: Genetik und Epigenetik",
-        "text": "Genetische Varianten beschreiben die lebenslang unveränderliche Veranlagung. Epigenetische Marker — microRNA-Muster und DNA-Methylierung — beschreiben den aktuellen Regulationszustand und reagieren auf Ernährung, Bewegung, Schlaf und Belastung. Genau deshalb sind sie im Verlauf messbar."
+        "text": "Genetische Varianten beschreiben die unveränderliche Veranlagung. Epigenetische Marker — microRNA und DNA-Methylierung — zeigen den Regulationszustand: Sie folgen dem Lebensstil und sind im Verlauf messbar."
       },
       {
         "title": "Probenmaterial: Trockenblutkarte",
-        "text": "Wenige Tropfen Kapillarblut aus der Fingerbeere werden auf eine Trockenblutkarte aufgebracht. Keine Venenpunktion, keine Zentrifuge, kein Kühlversand — die Probenahme ist in der Praxis oder zu Hause möglich."
+        "text": "Wenige Tropfen Kapillarblut aus der Fingerbeere kommen auf eine Trockenblutkarte. Keine Venenpunktion, keine Zentrifuge, kein Kühlversand — Probenahme in der Praxis oder zu Hause."
       },
       {
         "title": "Labor und Referenzdaten",
-        "text": "Die Auswertung erfolgt bei unserem Kooperationspartner, einem spezialisierten europäischen Labor mit über 15 Jahren Forschungsarbeit auf diesem Gebiet. Die Einordnung stützt sich auf über 60.000 validierte Referenzwerte. Qualitätsmanagement nach ISO 9001:2015."
+        "text": "Die Auswertung erfolgt bei unserem europäischen Kooperationspartner: über 15 Jahre Forschungsarbeit, über 60.000 validierte Referenzwerte, ISO 9001:2015."
       }
     ],
     "practice": {
@@ -96,7 +96,7 @@
       {
         "num": "01",
         "name": "Metabolic Health",
-        "subtitle": "Welche Ernährung zu welchem Menschen passt — genetisch veranlagt, epigenetisch überprüfbar.",
+        "subtitle": "Ernährung nach Veranlagung — epigenetisch überprüfbar.",
         "facts": [
           {
             "k": "Umfang",
@@ -109,16 +109,16 @@
         ],
         "what": "Ausgewertet wird, welche Makronährstoffverteilung zur individuellen Veranlagung passt — hinterlegt mit konkreten Portions- und Rezeptvorschlägen. Weil genetische Varianten das Gewichtsverhalten allein nicht erklären, kommen epigenetische Marker zu DNA-Stabilität und Entzündung dazu: Nur diese sind durch den Lebensstil beeinflussbar und taugen als Erfolgskontrolle.",
         "who": [
-          "Ernährungsberatung, die über Standardpläne hinausgehen soll",
-          "Präventionspraxen mit strukturierten Gewichtsprogrammen",
-          "Klientinnen und Klienten, bei denen bisherige Umstellungen nicht gegriffen haben"
+          "Ernährungsberatung über Standardpläne hinaus",
+          "Präventionspraxen mit Gewichtsprogrammen",
+          "Wenn bisherige Umstellungen nicht gegriffen haben"
         ],
         "file": "de/01_Metabolic_Health_PolarisDX.pdf"
       },
       {
         "num": "02",
         "name": "Healthy Aging",
-        "subtitle": "Biologisches Alter auf vier molekularen Ebenen — mit Ampelbewertung statt Einzelwert.",
+        "subtitle": "Biologisches Alter auf vier Ebenen — Ampel statt Einzelwert.",
         "facts": [
           {
             "k": "Umfang",
@@ -131,16 +131,16 @@
         ],
         "what": "Telomerlänge, epigenetische Alterungsmarker, Entzündung und DNA-Stabilität werden gegen alters- und geschlechtsbezogene Referenzwerte eingeordnet und jeweils grün, gelb oder rot bewertet. So ist erkennbar, welche Ebene den Befund treibt — und wo eine Intervention ansetzen sollte. Ergänzend werden Lebensstildaten erhoben und gegenübergestellt.",
         "who": [
-          "Longevity-Zentren und Präventionspraxen mit strukturierten Programmen",
-          "Ernährungsberatung und präventivmedizinisch arbeitende Ärztinnen und Ärzte",
-          "Personen ab etwa 40 Jahren, die ihren Alterungsprozess messbar begleiten wollen"
+          "Longevity-Zentren und Präventionspraxen",
+          "Ernährungsberatung und Präventivmedizin",
+          "Personen ab etwa 40 Jahren mit Verlaufsinteresse"
         ],
         "file": "de/02_Healthy_Aging_PolarisDX.pdf"
       },
       {
         "num": "03",
         "name": "Biologische Altersuhr",
-        "subtitle": "Ein exploratives Lebensstil-Signal aus drei microRNA — ausdrücklich keine Altersbestimmung.",
+        "subtitle": "Exploratives Lebensstil-Signal — keine Altersbestimmung.",
         "facts": [
           {
             "k": "Marker",
@@ -153,16 +153,16 @@
         ],
         "what": "Drei microRNA werden mittels quantitativer PCR bestimmt, gegen miR-93 normalisiert und zu einem Wert verrechnet: der prozentualen Abweichung des biologischen vom chronologischen Alter. Das zugrunde liegende Modell ist publiziert, aber als Pilotstudie deklariert — der Ausgabewert ist ein exploratives Signal, kein belastbares biologisches Alter.",
         "who": [
-          "Longevity- und Functional-Medicine-Praxen als Einstiegs- und Verlaufsparameter",
-          "Gesundheitszentren, Coaching und betriebliches Gesundheitsmanagement",
-          "Als kompakter Einzelwert dort, wo ein volles Aging-Panel zu umfangreich ist"
+          "Longevity- und Functional-Medicine-Praxen",
+          "Gesundheitszentren, Coaching und BGM",
+          "Wo ein volles Aging-Panel zu umfangreich ist"
         ],
         "file": "de/03_Biologisches_Alter_PolarisDX.pdf"
       },
       {
         "num": "04",
         "name": "Telomer-Analyse",
-        "subtitle": "Die Schutzkappen der Chromosomen als Basiswert — gemessen in Kilobasenpaaren.",
+        "subtitle": "Die Schutzkappen der Chromosomen — gemessen in Kilobasenpaaren.",
         "facts": [
           {
             "k": "Methode",
@@ -175,16 +175,16 @@
         ],
         "what": "Telomere verkürzen sich mit jeder Zellteilung und gelten als Marker zellulärer Alterung. Die Bestimmung erfolgt aus getrocknetem Kapillarblut, das Ergebnis wird in Kilobasenpaaren angegeben und gegen eine alters- und geschlechtsangepasste Referenzpopulation eingeordnet. qPCR-Werte streuen zwischen Läufen und Laboren deutlich — aussagekräftig ist der Verlauf, nicht der Einzelwert.",
         "who": [
-          "Longevity-Programme und Präventionsmedizin als Basis- und Verlaufsmessung",
-          "Ernährungsberatung, die einen objektiven Ausgangswert dokumentieren will",
-          "Betriebliche Gesundheitsprogramme mit Longevity-Schwerpunkt"
+          "Longevity-Programme und Präventionsmedizin",
+          "Ernährungsberatung mit objektivem Ausgangswert",
+          "Betriebliche Programme mit Longevity-Schwerpunkt"
         ],
         "file": "de/04_Telomer_Analyse_PolarisDX.pdf"
       },
       {
         "num": "05",
         "name": "Stress Monitor",
-        "subtitle": "Gemessene Belastung neben empfundener Belastung — sechs microRNA in vier Bereichen.",
+        "subtitle": "Gemessene neben empfundener Belastung — vier Bereiche.",
         "facts": [
           {
             "k": "Umfang",
@@ -197,16 +197,16 @@
         ],
         "what": "Physiologische Stressbelastung, Zellschutz, Serotoninregulation und Immunsignale werden je Bereich als Ampel ausgegeben und dem im Fragebogen erhobenen subjektiven Stresserleben gegenübergestellt. Gerade die Diskrepanz ist im Gespräch aufschlussreich: Personen mit hoher Belastungstoleranz unterschätzen ihre Belastung häufig.",
         "who": [
-          "Betriebliches Gesundheitsmanagement und Resilienzprogramme",
-          "Praxen und Beratungsstellen mit Schwerpunkt Stressprävention",
-          "Personen in anhaltender beruflicher oder privater Belastung"
+          "Betriebliches Gesundheitsmanagement und Resilienz",
+          "Praxen mit Schwerpunkt Stressprävention",
+          "Personen in anhaltender Belastung"
         ],
         "file": "de/05_Stress_Monitor_PolarisDX.pdf"
       },
       {
         "num": "06",
         "name": "Healthy Sport",
-        "subtitle": "Acht epigenetische Bereiche zum aktuellen Zustand — in der Plus-Variante ergänzt um vier genetische Varianten.",
+        "subtitle": "Acht epigenetische Bereiche, Plus-Variante mit vier Varianten.",
         "facts": [
           {
             "k": "Umfang",
@@ -219,9 +219,9 @@
         ],
         "what": "Nährstoff- und Hydrationsstatus, Belastungsniveau, Regeneration, Verletzungsrisiko, kardiovaskuläre Fitness, Entzündung und Muskelstatus bilden den veränderlichen Verlaufsteil. Die Plus-Variante ergänzt vier unveränderliche genetische Varianten zu Sporttyp, Trainingsmotivation, Muskelschädigungsrisiko und Gewichtsregulation — einmalig erhoben.",
         "who": [
-          "Sportmedizinische Praxen und Leistungsdiagnostik",
-          "Sportwissenschaft, Trainerinnen und Trainer, Performance-Coaching",
-          "Ambitionierte Freizeit- und Wettkampfsportlerinnen und -sportler"
+          "Sportmedizin und Leistungsdiagnostik",
+          "Sportwissenschaft und Performance-Coaching",
+          "Freizeit- und Wettkampfsport"
         ],
         "file": "de/06_Healthy_Sport_PolarisDX.pdf"
       }
@@ -240,7 +240,7 @@
     "lead": "Sechs Schritte, ein Probenweg — identisch für alle sechs Analysen.",
     "steps": [
       "Beratungsgespräch führen, Aufklärung und Einwilligung dokumentieren.",
-      "Probenahme: Fingerbeere punktieren, Blut auf die Karte auftragen, trocknen lassen.",
+      "Probenahme: Fingerbeere punktieren, Blut auf die Karte auftragen.",
       "Versand der Karte im vorbereiteten Umschlag an das Partnerlabor.",
       "Laboranalyse der genetischen bzw. epigenetischen Marker.",
       "Digitaler Befund mit Ampelbewertung und konkreten Empfehlungen.",
@@ -250,12 +250,12 @@
   "evidence": {
     "caption": "Studienlage",
     "title": "Was belegt ist — und was nicht",
-    "lead": "In diesem Feld wird viel überversprochen. Wer die Analysen im Gespräch vertritt, sollte die Grenzen kennen — sonst tragen sie im ersten kritischen Rückfragefall nicht. Vor Fachpublikum ist Offenheit ein Vorteil, kein Risiko.",
+    "lead": "In diesem Feld wird viel überversprochen. Wer die Analysen im Gespräch vertritt, sollte die Grenzen kennen — vor Fachpublikum ist Offenheit ein Vorteil, kein Risiko.",
     "establishedTitle": "Gut belegt",
     "established": [
       {
         "title": "Lebensstil verändert epigenetische Marker",
-        "text": "Randomisierte Pilotstudie über 8 Wochen: epigenetisches Alter im Mittel 3,2 Jahre niedriger als in der Kontrollgruppe (Fitzgerald et al., Aging 2021). Gemessen wurde DNA-Methylierung, nicht microRNA."
+        "text": "Randomisierte Pilotstudie über 8 Wochen: epigenetisches Alter im Mittel 3,2 Jahre niedriger als in der Kontrollgruppe (Fitzgerald et al., Aging 2021) — DNA-Methylierung, nicht microRNA."
       },
       {
         "title": "Entzündung als Alterungsachse",
@@ -274,15 +274,15 @@
     "preliminary": [
       {
         "title": "microRNA-Altersuhr",
-        "text": "Das publizierte Modell (n = 539) erklärt rund 5 % der Altersvarianz bei einem mittleren absoluten Fehler von 10,4 Jahren; zwei der drei Marker korrelierten nicht signifikant mit dem Lebensalter. Als Altersbestimmung ist der Wert nicht belastbar."
+        "text": "Das publizierte Modell (n = 539) erklärt rund 5 % der Altersvarianz, mittlerer absoluter Fehler 10,4 Jahre; zwei der drei Marker korrelierten nicht signifikant mit dem Lebensalter."
       },
       {
         "title": "Telomerlänge aus qPCR",
-        "text": "Die Methode streut erheblich zwischen Läufen und Laboren; DNA-Extraktion, Lagerung und Zellzusammensetzung beeinflussen das Ergebnis systematisch. Aus Trockenblut liegt die Assay-Streuung höher als aus Venenblut."
+        "text": "Die Methode streut zwischen Läufen und Laboren; DNA-Extraktion, Lagerung und Zellzusammensetzung wirken mit. Aus Trockenblut stärker als aus Venenblut."
       },
       {
         "title": "Genbasierte Ernährungsempfehlungen",
-        "text": "Die Food4Me-Studie fand keinen Unterschied im Gewichtsverlust zwischen Personalisierungsstufen einschließlich Genetik. Der Nutzen liegt in Struktur, Gespräch und Adhärenz — nicht in der Überlegenheit gegenüber guter Standardberatung."
+        "text": "Die Food4Me-Studie fand keinen Unterschied im Gewichtsverlust zwischen den Personalisierungsstufen einschließlich Genetik. Der Nutzen liegt in Struktur, Gespräch und Adhärenz."
       },
       {
         "title": "microRNA als Stressmarker",
@@ -298,7 +298,7 @@
     "items": [
       {
         "q": "Worin unterscheiden sich Genetik und Epigenetik?",
-        "a": "Genetische Varianten sind lebenslang unveränderlich und beschreiben die Veranlagung — sie werden einmalig erhoben. Epigenetische Marker beschreiben den aktuellen Regulationszustand, reagieren auf Ernährung, Bewegung, Schlaf und Belastung und sind deshalb im Verlauf messbar. Nur die epigenetische Ebene eignet sich als Erfolgskontrolle."
+        "a": "Genetische Varianten sind lebenslang unveränderlich und werden einmalig erhoben; epigenetische Marker beschreiben den aktuellen Regulationszustand und sind im Verlauf messbar. Nur die epigenetische Ebene eignet sich als Erfolgskontrolle — ausführlich im Kapitel „Werte verstehen“."
       },
       {
         "q": "Wie läuft die Probenahme ab?",
@@ -345,7 +345,7 @@
     {
       "num": "00",
       "title": "Portfolio-Übersicht",
-      "desc": "Das Programm, das Prinzip, alle sechs Analysen im Vergleich, Ablauf und Konditionen.",
+      "desc": "Programm, Prinzip, Analysen, Ablauf, Konditionen.",
       "file": "de/00_Portfolio_Uebersicht_PolarisDX.pdf",
       "meta": "PDF · 3 Seiten · 79 KB",
       "featured": true
@@ -353,56 +353,56 @@
     {
       "num": "01",
       "title": "Metabolic Health",
-      "desc": "Stoffwechseltyp, Essverhalten, Gewichtsregulation — siebzehn genetische Auswertungen und vier epigenetische Werte für die Ernährungsberatung.",
+      "desc": "Stoffwechseltyp, Essverhalten, Gewichtsregulation.",
       "file": "de/01_Metabolic_Health_PolarisDX.pdf",
       "meta": "PDF · 3 Seiten · 81 KB"
     },
     {
       "num": "02",
       "title": "Healthy Aging",
-      "desc": "Biologisches Altern auf vier molekularen Ebenen, mit Ampelbewertung je Ebene.",
+      "desc": "Biologisches Altern auf vier Ebenen, Ampel je Ebene.",
       "file": "de/02_Healthy_Aging_PolarisDX.pdf",
       "meta": "PDF · 2 Seiten · 74 KB"
     },
     {
       "num": "03",
       "title": "Biologische Altersuhr",
-      "desc": "Drei microRNA als exploratives Lebensstil-Signal — mit offengelegten Grenzen der Methode.",
+      "desc": "Drei microRNA als exploratives Lebensstil-Signal.",
       "file": "de/03_Biologisches_Alter_PolarisDX.pdf",
       "meta": "PDF · 3 Seiten · 79 KB"
     },
     {
       "num": "04",
       "title": "Telomer-Analyse",
-      "desc": "Telomerlänge in Kilobasenpaaren als Basiswert, eingeordnet gegen eine Referenzpopulation.",
+      "desc": "Telomerlänge in Kilobasenpaaren als Basiswert.",
       "file": "de/04_Telomer_Analyse_PolarisDX.pdf",
       "meta": "PDF · 2 Seiten · 73 KB"
     },
     {
       "num": "05",
       "title": "Stress Monitor",
-      "desc": "Sechs microRNA in vier Bereichen: gemessene Belastung neben empfundener Belastung.",
+      "desc": "Sechs microRNA: gemessene neben empfundener Belastung.",
       "file": "de/05_Stress_Monitor_PolarisDX.pdf",
       "meta": "PDF · 3 Seiten · 79 KB"
     },
     {
       "num": "06",
       "title": "Healthy Sport",
-      "desc": "Acht epigenetische Bereiche zu Belastung und Regeneration, Plus-Variante mit vier genetischen Varianten.",
+      "desc": "Acht epigenetische Bereiche, Plus mit vier Varianten.",
       "file": "de/06_Healthy_Sport_PolarisDX.pdf",
       "meta": "PDF · 3 Seiten · 81 KB"
     },
     {
       "num": "07",
       "title": "Konditionen und Anfrage",
-      "desc": "Preislogik und Anfrageformular. B2B-Konditionen nach Absprache.",
+      "desc": "Preislogik und Anfrageformular, B2B nach Absprache.",
       "file": "de/07_Konditionen_Anfrage_PolarisDX.pdf",
       "meta": "PDF · 2 Seiten · 70 KB"
     },
     {
       "num": "08",
       "title": "Studienlage und Grenzen",
-      "desc": "Was belegt ist und was nicht — mit Quellen. Die Grundlage für das Gespräch mit Fachpublikum.",
+      "desc": "Was belegt ist und was nicht — mit Quellen.",
       "file": "de/08_Evidenz_Studienlage_PolarisDX.pdf",
       "meta": "PDF · 3 Seiten · 79 KB",
       "featured": true
@@ -512,7 +512,7 @@
   "compare": {
     "caption": "Auf einen Blick",
     "title": "Die sechs Panels im Vergleich",
-    "lead": "Alle sechs Panels laufen über dieselbe Trockenblutkarte aus der Fingerbeere. Sie unterscheiden sich in dem, was daraus bestimmt wird — in Umfang, molekularer Ebene und Ergebnisform. Epigenetische Marker und microRNAs verändern sich durch Ernährung, Bewegung, Schlaf und Stress; genetische Varianten bleiben lebenslang unverändert. Nur die epigenetische Ebene eignet sich als Erfolgskontrolle.",
+    "lead": "Alle sechs Panels laufen über dieselbe Trockenblutkarte aus der Fingerbeere. Sie unterscheiden sich in Umfang, molekularer Ebene und Ergebnisform.",
     "cols": [
       "Panel",
       "Parameter",
@@ -574,26 +574,26 @@
     "shared": [
       {
         "title": "Probenmaterial",
-        "text": "Trockenblutkarte, wenige Tropfen Kapillarblut aus der Fingerbeere — kein Kühlversand, kein Nüchternstatus."
+        "text": "Trockenblutkarte aus der Fingerbeere — kein Kühlversand, kein Nüchternstatus."
       },
       {
         "title": "Lebensstil-Radar",
-        "text": "11 Faktoren aus Selbstauskunft in Healthy Aging, Healthy Sport, Altersuhr und Telomer-Analyse."
+        "text": "11 Faktoren aus Selbstauskunft: Healthy Aging, Healthy Sport, Altersuhr, Telomer-Analyse."
       },
       {
         "title": "Interventionen",
-        "text": "Zu jedem Marker konkrete Empfehlungen mit Quelle, Menge und Hinweis — 8 bis 14 je Panel."
+        "text": "Zu jedem Marker Empfehlungen mit Quelle und Menge — 8 bis 14 je Panel."
       }
     ],
     "caveatTitle": "Bei zwei Panels gehört die Methodik ins Gespräch",
     "caveats": [
       {
         "title": "Biologische Altersuhr",
-        "text": "Das zugrunde liegende Modell ist als Pilotstudie publiziert (n = 539) und hat einen mittleren absoluten Fehler von rund 10 Jahren. Der Einzelwert ist keine Altersbestimmung; belastbar ist der Verlauf."
+        "text": "Das zugrunde liegende Modell ist als Pilotstudie publiziert (n = 539), mit einem mittleren absoluten Fehler von rund 10 Jahren. Der Einzelwert ist keine Altersbestimmung; belastbar ist der Verlauf."
       },
       {
         "title": "Telomer-Analyse",
-        "text": "Die qPCR-Messung streut erheblich zwischen Läufen und Laboren, aus Trockenblut stärker als aus Venenblut. Auch hier trägt der Verlauf, nicht der Einzelwert. Beide Musterbefunde enthalten dazu eine eigene Seite „Wissenschaftliche Einordnung“."
+        "text": "Die qPCR-Messung streut erheblich zwischen Läufen und Laboren, aus Trockenblut stärker als aus Venenblut. Auch hier trägt der Verlauf, nicht der Einzelwert."
       }
     ],
     "gendg": "Zwei Panels enthalten genetische Analysen: Metabolic Health und die Plus-Variante von Healthy Sport. Dort sind Aufklärung und schriftliche Einwilligung vor der Probenahme erforderlich (Gendiagnostikgesetz).",
@@ -643,12 +643,12 @@
   "basics": {
     "caption": "Werte verstehen",
     "title": "Was in den Befunden gemessen wird",
-    "lead": "In den Befunden stehen Werte aus vier verschiedenen Ebenen. Wer den Unterschied kennt, sieht sofort, welche Zahl sich ändern kann und welche nicht — und kann im Gespräch trennen, was Veranlagung ist und was Momentaufnahme. Kein Wert ist eine Diagnose; die Auswertungen beschreiben Veranlagungen und Momentaufnahmen.",
+    "lead": "In den Befunden stehen Werte aus vier Ebenen. Wer den Unterschied kennt, sieht sofort, welche Zahl sich ändern kann und welche nicht — und trennt im Gespräch Veranlagung von Momentaufnahme. Kein Wert ist eine Diagnose.",
     "concepts": [
       {
         "num": "01",
         "title": "Die Gene — der Bauplan",
-        "text": "Die Gene sind so etwas wie der Bauplan eines Hauses: Sie legen fest, wie der Körper gebaut ist — wie er Fett verwertet, wie schnell Sättigung eintritt, wie gut er Vitamin D durchs Blut transportiert. Kleine Abweichungen in diesem Bauplan heißen Genvarianten oder SNPs; davon trägt jeder Mensch Tausende, sie sind weder gut noch schlecht, sondern einfach unterschiedlich. Genetische Analysen unterliegen in Deutschland dem Gendiagnostikgesetz — Aufklärung und schriftliche Einwilligung müssen vor der Probenahme vorliegen.",
+        "text": "Die Gene sind der Bauplan des Körpers: Sie legen fest, wie er Fett verwertet und wie er Vitamin D transportiert. Kleine Abweichungen darin heißen Genvarianten oder SNPs — jeder Mensch trägt Tausende davon, weder gut noch schlecht. Genetische Analysen unterliegen in Deutschland dem Gendiagnostikgesetz — Aufklärung und schriftliche Einwilligung müssen vor der Probenahme vorliegen.",
         "key": "Der Bauplan ändert sich nie. Eine genetische Analyse wird einmal im Leben erhoben, eine zweite Messung ergäbe exakt dasselbe."
       },
       {
@@ -660,13 +660,13 @@
       {
         "num": "03",
         "title": "Die microRNAs — die Boten im Blut",
-        "text": "microRNAs sind winzige Moleküle, die im Blut zirkulieren und die Aktivität von Genen fein nachjustieren. Man kann sie sich als Kurznachrichten vorstellen, die der Körper laufend verschickt. Ihre Menge verändert sich schneller als die Methylierung — oft innerhalb von Wochen.",
+        "text": "microRNAs sind winzige Moleküle, die im Blut zirkulieren und die Aktivität von Genen nachjustieren — Kurznachrichten, die der Körper laufend verschickt. Ihre Menge verändert sich schneller als die Methylierung, oft innerhalb von Wochen.",
         "key": "Ihr Name ist immer gleich aufgebaut: „miR“ plus eine Nummer. Die Nummer ist nur eine Katalognummer und sagt nichts über Wichtigkeit aus."
       },
       {
         "num": "04",
         "title": "Die Telomere — die Schutzkappen",
-        "text": "An den Enden der Chromosomen sitzen Schutzkappen, ähnlich den Plastikhülsen an Schnürsenkeln. Sie heißen Telomere und verhindern, dass bei jeder Zellteilung Erbinformation verloren geht. Mit jeder Teilung werden sie ein Stück kürzer.",
+        "text": "An den Enden der Chromosomen sitzen Schutzkappen, ähnlich den Plastikhülsen an Schnürsenkeln. Diese Telomere verhindern, dass bei jeder Zellteilung Erbinformation verloren geht — und werden mit jeder Teilung ein Stück kürzer.",
         "key": "Telomere lassen sich nicht gezielt verlängern. Beeinflussbar ist nur, wie schnell sie kürzer werden."
       }
     ],
@@ -682,7 +682,7 @@
       },
       {
         "k": "Jahre",
-        "v": "Ein aus Messwerten berechnetes „biologisches Alter“ im Vergleich zum Kalenderalter. Es ist ein Rechenergebnis, keine Altersbestimmung."
+        "v": "Ein berechnetes „biologisches Alter“ gegen das Kalenderalter — ein Rechenergebnis, keine Altersbestimmung."
       }
     ],
     "cta": "Werte verstehen als PDF",
@@ -768,11 +768,11 @@
     "title": "Aus dem Befund wird ein Programm, kein Einzelwert.",
     "before": {
       "title": "Vor dem Gespräch",
-      "text": "Der vollständige Befund liegt zum Termin vor. Gehen Sie ihn einmal in Ruhe durch und markieren Sie, was auffällt: die Ampelbewertungen, die Verteilung über die Auswertungen und die im Befund genannten Ansatzpunkte. So steht zu Beginn des Gesprächs fest, worüber gesprochen wird und welche Fragen offenbleiben."
+      "text": "Der vollständige Befund liegt zum Termin vor. Gehen Sie ihn durch und markieren Sie, was auffällt: die Ampelbewertungen, ihre Verteilung über die Auswertungen, die genannten Ansatzpunkte. So steht zu Beginn fest, worüber gesprochen wird."
     },
     "during": {
       "title": "Im Gespräch",
-      "general": "Genetische Varianten werden einmal im Leben erhoben und bleiben unverändert; sie beschreiben die Ausgangslage. Nur die epigenetische Ebene reagiert auf Ernährung, Bewegung, Schlaf und Belastung — sie allein eignet sich als Erfolgskontrolle. Wie viele Werte eines Panels auf dieser Ebene liegen, steht im jeweiligen Musterbefund.",
+      "general": "Genetische Varianten werden einmal im Leben erhoben und beschreiben die Ausgangslage. Nur die epigenetische Ebene reagiert auf Ernährung, Bewegung, Schlaf und Belastung — sie allein eignet sich als Erfolgskontrolle.",
       "metabolic-health": "Vier Werte dieses Panels liegen auf der epigenetischen Ebene und sind damit beeinflussbar. Die genetischen Varianten daneben werden einmal im Leben erhoben und bleiben unverändert; sie beschreiben die Ausgangslage. Nur die epigenetische Ebene reagiert auf Ernährung, Bewegung, Schlaf und Belastung — sie allein eignet sich als Erfolgskontrolle.",
       "healthy-aging": "Alle vier Werte dieses Panels liegen auf der epigenetischen Ebene. Anders als genetische Varianten, die einmal im Leben erhoben werden und unverändert bleiben, reagiert diese Ebene auf Ernährung, Bewegung, Schlaf und Belastung — sie allein eignet sich als Erfolgskontrolle. Das Gespräch trennt deshalb, was feststeht, von dem, woran gearbeitet werden kann.",
       "biologische-altersuhr": "Alle drei Werte dieses Panels liegen auf der epigenetischen Ebene. Anders als genetische Varianten, die einmal im Leben erhoben werden und unverändert bleiben, reagiert diese Ebene auf Ernährung, Bewegung, Schlaf und Belastung — sie allein eignet sich als Erfolgskontrolle. Das Gespräch trennt deshalb, was feststeht, von dem, woran gearbeitet werden kann.",
@@ -782,7 +782,7 @@
     },
     "after": {
       "title": "Danach",
-      "general": "Den Abstand zur Kontrollmessung legt die betreuende Einrichtung fest. Für die Vergleichbarkeit sollten Labor, Probenmaterial und Probenahme gleich bleiben. Was zwischen den Messungen geschieht — Ernährung, Bewegung, Schlaf, Belastung — gehört in dieselbe Dokumentation wie die Werte; sonst lässt sich eine Veränderung nicht zuordnen.",
+      "general": "Den Abstand zur Kontrollmessung legt die betreuende Einrichtung fest. Labor, Probenmaterial und Probenahme sollten gleich bleiben — und was dazwischen geschieht, gehört in dieselbe Dokumentation wie die Werte.",
       "methylation": "Eine Folgemessung ist frühestens nach vier bis sechs Monaten aussagekräftig; vorher sind Veränderungen nicht belastbar messbar. Den Abstand legt die betreuende Einrichtung fest. Für die Vergleichbarkeit sollten Labor, Probenmaterial und Probenahme gleich bleiben — und was zwischen den Messungen geschieht, gehört in dieselbe Dokumentation wie die Werte."
     }
   },
