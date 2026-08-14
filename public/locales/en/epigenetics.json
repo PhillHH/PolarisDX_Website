@@ -185,18 +185,18 @@
       {
         "num": "06",
         "name": "Healthy Sport",
-        "subtitle": "Eight epigenetic areas; Plus variant adds four variants.",
+        "subtitle": "Eight microRNAs in seven assessments; Plus variant adds four variants.",
         "facts": [
           {
             "k": "Scope",
-            "v": "8 areas, Plus: + 4 variants"
+            "v": "8 microRNAs in 7 assessments, Plus: + 4 variants"
           },
           {
             "k": "Report",
             "v": "Traffic light 1–9"
           }
         ],
-        "what": "Nutrient and hydration status, load level, recovery, injury risk, cardiovascular fitness, inflammation and muscle status form the variable monitoring part. The Plus variant adds four unchangeable genetic variants on sport type, training motivation, muscle damage risk and weight regulation — recorded once.",
+        "what": "Nutrient status, hydration status, load and stress level, injury risk and recovery, cardiovascular fitness, inflammation and muscle status — seven assessments from eight microRNAs — form the variable monitoring part. The Plus variant adds four unchangeable genetic variants on sport type, training motivation, muscle damage risk and weight regulation — recorded once.",
         "who": [
           "Sports medicine and performance diagnostics",
           "Sports science and performance coaching",
@@ -367,7 +367,7 @@
     {
       "num": "06",
       "title": "Healthy Sport",
-      "desc": "Eight epigenetic areas; Plus adds four variants.",
+      "desc": "Eight microRNAs in seven assessments; Plus adds four variants.",
       "file": "en/06_Healthy_Sport_PolarisDX.pdf",
       "meta": "PDF · 3 pages · 80 KB"
     },
@@ -714,7 +714,7 @@
       },
       "healthy-sport": {
         "title": "Healthy Sport sample report: training values",
-        "description": "Healthy Sport example report: eight epigenetic areas on current condition, plus four unchangeable genetic variants. Example data, everything explained."
+        "description": "Healthy Sport example report: eight microRNAs in seven assessments on current condition, plus four unchangeable genetic variants. Example data, everything explained."
       }
     },
     "notFoundTitle": "This sample report does not exist",
