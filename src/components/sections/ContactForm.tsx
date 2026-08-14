@@ -7,6 +7,7 @@ import { Textarea } from '../ui/Textarea'
 import { Alert } from '../ui/Alert'
 import { cn } from '../../lib/utils'
 import { useContactForm } from '../../hooks/useContactForm'
+import { resolvePanelNames } from '../../content/befunde/panelNames'
 
 const INTENT_KEYS = ['consultation', 'quote', 'product', 'support', 'other'] as const
 const FIELD_KEYS = [
@@ -49,27 +50,29 @@ export const ContactForm = () => {
   const initialIntent: IntentKey = INTENT_KEYS.includes(paramIntent as IntentKey)
     ? (paramIntent as IntentKey)
     : 'consultation'
-  // Die Grenze schuetzt vor einem aufgeblasenen Fremdparameter, nicht vor dem
-  // eigenen Vertrag: aus der Merkliste kommen bis zu sechs Panelnamen in einem
-  // `panel` — zusammen rund 100 Zeichen.
-  const panelParam = (searchParams.get('panel') ?? '').trim().slice(0, 200)
-  const sourceParam = (searchParams.get('source') ?? '').trim()
+  // `panel` kommt aus der URL und damit von jedem, der einen Link schreibt.
+  // Ungeprueft stand hier jeder Text als Panelname im servergerenderten HTML —
+  // also als Aussage von PolarisDX, crawlbar und zitierfaehig — und lief
+  // ausserdem in den vorbelegten Freitext und in die Benachrichtigung. Deshalb
+  // laeuft der Parameter durch die bekannte Panelliste: die Merkliste haengt
+  // mehrere Namen kommasepariert in EIN `panel`, jeder wird einzeln geprueft,
+  // Unbekanntes faellt weg, ausgegeben wird immer die Schreibweise aus der
+  // Liste. Die Laengengrenze steckt in resolvePanelNames.
+  const panels = resolvePanelNames(searchParams.get('panel'))
+  const panelText = panels.join(', ')
+  // Auch die Herkunft geht ungefiltert in die Benachrichtigung — sie hat
+  // genau einen Wert, also wird sie wie `intent` gegen ihn geprueft.
+  const sourceParam = searchParams.get('source')?.trim() === 'epigenetics' ? 'epigenetics' : ''
   const submissionSource = sourceParam
-    ? panelParam
-      ? `${sourceParam} · ${panelParam}`
+    ? panelText
+      ? `${sourceParam} · ${panelText}`
       : sourceParam
     : ''
 
-  // Die Merkliste haengt mehrere Panelnamen kommasepariert in EIN `panel`.
-  // Der Hinweis oberhalb des Formulars nennt sie alle: wer aus einem
-  // Musterbefund kommt, sah bisher nur den vorbelegten Freitext und damit
-  // nirgends, dass seine Auswahl mitgereist ist.
-  const panels = panelParam
-    ? panelParam
-        .split(',')
-        .map((p) => p.trim())
-        .filter(Boolean)
-    : []
+  // Der Hinweis oberhalb des Formulars nennt alle vorgemerkten Panels: wer aus
+  // einem Musterbefund kommt, sah bisher nur den vorbelegten Freitext und
+  // damit nirgends, dass seine Auswahl mitgereist ist. Bleibt nach der
+  // Pruefung nichts uebrig, entfaellt er — lieber kein Hinweis als Fremdtext.
   const showPanelContext = sourceParam === 'epigenetics' && panels.length > 0
 
   const [intent, setIntent] = useState<IntentKey>(initialIntent)
@@ -78,7 +81,7 @@ export const ContactForm = () => {
   const [company, setCompany] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
-  const [requirements, setRequirements] = useState(panelParam)
+  const [requirements, setRequirements] = useState(panelText)
   const [consent, setConsent] = useState(false)
   const [hp, setHp] = useState('')
   const [errors, setErrors] = useState<Partial<Record<ErrorKey, string>>>({})
@@ -124,7 +127,7 @@ export const ContactForm = () => {
     setCompany('')
     setEmail('')
     setPhone('')
-    setRequirements(panelParam)
+    setRequirements(panelText)
     setConsent(false)
     setHp('')
     setErrors({})
