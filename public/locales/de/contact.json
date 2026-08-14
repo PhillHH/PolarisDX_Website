@@ -34,7 +34,8 @@
       "requirements_placeholder": "Welche Biomarker (z.B. CRP, TSH, HbA1c) sind für Sie primär relevant?",
       "epigenetics": {
         "context": "Ihre Anfrage bezieht sich auf die Epigenetik- und Genetik-Analysen.",
-        "context_panel": "Ihre Anfrage bezieht sich auf den Musterbefund {{panel}}.",
+        "context_panel_one": "Ihre Anfrage bezieht sich auf den Musterbefund {{panels}}.",
+        "context_panel_other": "Ihre Anfrage bezieht sich auf die Musterbefunde {{panels}}.",
         "area_label": "Ihre Einrichtung",
         "area_options": {
           "longevity": "Longevity- oder Präventionszentrum",
@@ -47,6 +48,13 @@
         "requirements_label": "Worum geht es Ihnen?",
         "requirements_placeholder": "Welche Analysen sind für Sie interessant, und mit wie vielen Fällen pro Monat rechnen Sie?",
         "panel_prefill": "Interesse an: {{panel}}"
+      },
+      "errors": {
+        "company": "Bitte geben Sie den Namen Ihrer Praxis oder Ihres Unternehmens an.",
+        "name": "Bitte geben Sie Ihren Namen an — mindestens zwei Zeichen.",
+        "email": "Bitte geben Sie eine gültige E-Mail-Adresse an, zum Beispiel name@praxis.de.",
+        "requirements": "Bitte beschreiben Sie kurz Ihr Anliegen, damit wir gezielt antworten können.",
+        "consent": "Bitte setzen Sie das Häkchen bei der Einwilligung, damit wir Ihre Anfrage beantworten dürfen."
       }
     },
     "info": {

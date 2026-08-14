@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router-dom'
 import { Button } from '../ui/Button'
@@ -15,6 +16,16 @@ import { useContactForm } from '../../hooks/useContactForm'
  * schon heute in `area`.
  */
 const EPI_AREAS = ['longevity', 'nutrition', 'sports', 'bgm', 'practice', 'other'] as const
+
+/**
+ * Lesereihenfolge des Formulars. Sie entscheidet, welches Feld nach einem
+ * abgelehnten Absenden den Fokus bekommt — "erstes fehlerhaftes Feld" heisst:
+ * das oberste, nicht das zuerst gepruefte.
+ */
+const ERROR_ORDER = ['company', 'name', 'email', 'requirements', 'consent'] as const
+type ErrorKey = (typeof ERROR_ORDER)[number]
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export const ContactForm = () => {
   const { t } = useTranslation('contact')
@@ -38,22 +49,94 @@ export const ContactForm = () => {
   // `panel` — zusammen rund 100 Zeichen, bei 60 waere die Liste abgeschnitten
   // im Formular gelandet.
   const panel = params.get('panel')?.slice(0, 200) ?? ''
+  // Die Merkliste haengt mehrere Panelnamen kommasepariert in EIN `panel`.
+  // Der Hinweis oberhalb des Formulars nennt sie alle statt nur den ersten.
+  const panels = panel
+    ? panel
+        .split(',')
+        .map((p) => p.trim())
+        .filter(Boolean)
+    : []
+
+  const [errors, setErrors] = useState<Partial<Record<ErrorKey, string>>>({})
+
+  const companyRef = useRef<HTMLInputElement>(null)
+  const nameRef = useRef<HTMLInputElement>(null)
+  const emailRef = useRef<HTMLInputElement>(null)
+  const requirementsRef = useRef<HTMLTextAreaElement>(null)
+  const consentRef = useRef<HTMLInputElement>(null)
+  const successRef = useRef<HTMLDivElement>(null)
+  const errorRef = useRef<HTMLDivElement>(null)
+
+  const clearError = (key: ErrorKey) =>
+    setErrors((prev) => (prev[key] ? { ...prev, [key]: undefined } : prev))
+
+  // Nach dem Absenden fuehrt der Fokus weiter: bei Erfolg auf die
+  // Bestaetigung (der deaktivierte Knopf haette ihn sonst auf BODY
+  // abgeworfen), bei einem Transportfehler auf die Fehlermeldung.
+  useEffect(() => {
+    if (submitStatus === 'success') successRef.current?.focus()
+    if (submitStatus === 'error') errorRef.current?.focus()
+  }, [submitStatus])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const formData = new FormData(e.currentTarget)
+    // `currentTarget` ist nach dem ersten await nicht mehr gesetzt — deshalb
+    // das Formular vorher festhalten.
+    const form = e.currentTarget
+    const formData = new FormData(form)
+
+    const value = (key: string) => String(formData.get(key) ?? '').trim()
+
+    // Jede Pflichtangabe bekommt ihre eigene Meldung. Die Browser-Validierung
+    // ist dafuer abgeschaltet (noValidate): ihre Blase haengt nicht am Feld,
+    // verschwindet beim ersten Tastendruck und ist nicht uebersetzbar.
+    const next: Partial<Record<ErrorKey, string>> = {}
+    if (!value('company')) next.company = t('contact.form.errors.company')
+    if (value('name').length < 2) next.name = t('contact.form.errors.name')
+    if (!EMAIL_RE.test(value('email'))) next.email = t('contact.form.errors.email')
+    if (!value('requirements')) next.requirements = t('contact.form.errors.requirements')
+    if (!formData.get('consent')) next.consent = t('contact.form.errors.consent')
+    setErrors(next)
+
+    const firstInvalid = ERROR_ORDER.find((key) => next[key])
+    if (firstInvalid) {
+      const target =
+        firstInvalid === 'company'
+          ? companyRef.current
+          : firstInvalid === 'name'
+            ? nameRef.current
+            : firstInvalid === 'email'
+              ? emailRef.current
+              : firstInvalid === 'requirements'
+                ? requirementsRef.current
+                : consentRef.current
+      target?.focus()
+      return
+    }
+
     const success = await submit(formData)
     if (success) {
-      e.currentTarget.reset()
+      form.reset()
+      setErrors({})
     }
   }
 
+  const alertFocusClass =
+    'focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2'
+
   return (
-    <form className="mt-4 space-y-5" onSubmit={handleSubmit}>
+    <form className="mt-4 space-y-5" onSubmit={handleSubmit} noValidate>
       {isEpigenetics ? (
-        <p className="rounded-xl border border-accent-border bg-accent-soft px-4 py-3 text-sm text-accent-strong">
-          {panel
-            ? t('contact.form.epigenetics.context_panel', { panel })
+        <p
+          data-testid="panel-context"
+          className="rounded-xl border border-accent-border bg-accent-soft px-4 py-3 text-sm text-accent-strong"
+        >
+          {panels.length
+            ? t('contact.form.epigenetics.context_panel', {
+                count: panels.length,
+                panels: panels.join(', '),
+              })
             : t('contact.form.epigenetics.context')}
         </p>
       ) : null}
@@ -78,6 +161,9 @@ export const ContactForm = () => {
         name="company"
         type="text"
         required
+        ref={companyRef}
+        error={errors.company}
+        onChange={() => clearError('company')}
         label={t('contact.form.company_label')}
         placeholder={t('contact.form.company_placeholder')}
       />
@@ -88,6 +174,9 @@ export const ContactForm = () => {
           name="name"
           type="text"
           required
+          ref={nameRef}
+          error={errors.name}
+          onChange={() => clearError('name')}
           label={t('contact.form.name')}
           placeholder={t('contact.form.name_placeholder')}
         />
@@ -105,6 +194,9 @@ export const ContactForm = () => {
         name="email"
         type="email"
         required
+        ref={emailRef}
+        error={errors.email}
+        onChange={() => clearError('email')}
         label={t('contact.form.email')}
         placeholder={t('contact.form.email_placeholder')}
       />
@@ -145,6 +237,9 @@ export const ContactForm = () => {
         name="requirements"
         rows={4}
         required
+        ref={requirementsRef}
+        error={errors.requirements}
+        onChange={() => clearError('requirements')}
         label={
           isEpigenetics
             ? t('contact.form.epigenetics.requirements_label')
@@ -163,13 +258,25 @@ export const ContactForm = () => {
       />
 
       {submitStatus === 'success' && (
-        <Alert variant="success">
+        <Alert
+          ref={successRef}
+          role="status"
+          tabIndex={-1}
+          className={alertFocusClass}
+          variant="success"
+        >
           {t('contact.form.success', 'Vielen Dank! Ihre Nachricht wurde gesendet.')}
         </Alert>
       )}
 
       {submitStatus === 'error' && (
-        <Alert variant="destructive">
+        <Alert
+          ref={errorRef}
+          role="alert"
+          tabIndex={-1}
+          className={alertFocusClass}
+          variant="destructive"
+        >
           {t(
             'contact.form.error',
             'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.',
@@ -185,6 +292,10 @@ export const ContactForm = () => {
               name="consent"
               type="checkbox"
               required
+              ref={consentRef}
+              onChange={() => clearError('consent')}
+              aria-invalid={errors.consent ? true : undefined}
+              aria-describedby={errors.consent ? 'consent-error' : undefined}
               className="h-4 w-4 rounded border-gray-300 text-brand-secondary focus:ring-brand-secondary"
             />
           </div>
@@ -195,6 +306,11 @@ export const ContactForm = () => {
             )}
           </label>
         </div>
+        {errors.consent && (
+          <p id="consent-error" className="text-sm font-medium text-red-500">
+            {errors.consent}
+          </p>
+        )}
 
         <Button
           type="submit"

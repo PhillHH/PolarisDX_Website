@@ -34,7 +34,8 @@
       "requirements_placeholder": "¿Qué biomarcadores (ej. CRP, TSH, HbA1c) son principalmente relevantes para usted?",
       "epigenetics": {
         "context": "Your enquiry relates to the epigenetic and genetic analyses.",
-        "context_panel": "Your enquiry relates to the {{panel}} sample report.",
+        "context_panel_one": "Your enquiry refers to the sample report {{panels}}.",
+        "context_panel_other": "Your enquiry refers to the sample reports {{panels}}.",
         "area_label": "Your organisation",
         "area_options": {
           "longevity": "Longevity or prevention centre",
@@ -47,6 +48,13 @@
         "requirements_label": "What is this about?",
         "requirements_placeholder": "Which analyses are of interest, and how many cases per month do you expect?",
         "panel_prefill": "Interested in: {{panel}}"
+      },
+      "errors": {
+        "company": "Please enter the name of your practice or company.",
+        "name": "Please enter your name — at least two characters.",
+        "email": "Please enter a valid email address, for example name@practice.com.",
+        "requirements": "Please describe your enquiry briefly so we can reply precisely.",
+        "consent": "Please tick the consent box so we may reply to your enquiry."
       }
     },
     "info": {
