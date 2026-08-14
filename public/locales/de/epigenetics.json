@@ -206,18 +206,18 @@
       {
         "num": "06",
         "name": "Healthy Sport",
-        "subtitle": "Acht epigenetische Bereiche, Plus-Variante mit vier Varianten.",
+        "subtitle": "Acht microRNAs in sieben Auswertungen, Plus-Variante mit vier Varianten.",
         "facts": [
           {
             "k": "Umfang",
-            "v": "8 Bereiche, Plus: + 4 Varianten"
+            "v": "8 microRNAs in 7 Auswertungen, Plus: + 4 Varianten"
           },
           {
             "k": "Befund",
             "v": "Ampel 1–9"
           }
         ],
-        "what": "Nährstoff- und Hydrationsstatus, Belastungsniveau, Regeneration, Verletzungsrisiko, kardiovaskuläre Fitness, Entzündung und Muskelstatus bilden den veränderlichen Verlaufsteil. Die Plus-Variante ergänzt vier unveränderliche genetische Varianten zu Sporttyp, Trainingsmotivation, Muskelschädigungsrisiko und Gewichtsregulation — einmalig erhoben.",
+        "what": "Ernährungszustand, Hydrationsstatus, Belastungs- und Stressniveau, Verletzungsrisiko und Regeneration, kardiovaskuläre Fitness, Entzündung und Muskelstatus — sieben Auswertungen aus acht microRNAs — bilden den veränderlichen Verlaufsteil. Die Plus-Variante ergänzt vier unveränderliche genetische Varianten zu Sporttyp, Trainingsmotivation, Muskelschädigungsrisiko und Gewichtsregulation — einmalig erhoben.",
         "who": [
           "Sportmedizin und Leistungsdiagnostik",
           "Sportwissenschaft und Performance-Coaching",
@@ -388,7 +388,7 @@
     {
       "num": "06",
       "title": "Healthy Sport",
-      "desc": "Acht epigenetische Bereiche, Plus mit vier Varianten.",
+      "desc": "Acht microRNAs in sieben Auswertungen, Plus mit vier Varianten.",
       "file": "de/06_Healthy_Sport_PolarisDX.pdf",
       "meta": "PDF · 3 Seiten · 81 KB"
     },
@@ -714,7 +714,7 @@
       },
       "healthy-sport": {
         "title": "Musterbefund Healthy Sport: acht Trainingswerte",
-        "description": "Beispielbefund Healthy Sport: acht epigenetische Bereiche zum aktuellen Zustand, dazu vier unveränderliche genetische Varianten. Beispieldaten."
+        "description": "Beispielbefund Healthy Sport: acht microRNAs in sieben Auswertungen zum aktuellen Zustand, dazu vier unveränderliche genetische Varianten. Beispieldaten."
       }
     },
     "notFoundTitle": "Diesen Musterbefund gibt es nicht",
