@@ -32,6 +32,7 @@ import PageTransition from '../components/ui/PageTransition'
 import ChapterNav, { type Chapter, type NavAction } from '../components/ui/ChapterNav'
 import Reveal from '../components/ui/Reveal'
 import ConsultSteps, { CONSULT_ID } from '../components/befund/ConsultSteps'
+import { isEnglishFallback } from '../lib/translationStatus'
 
 // public/ wird nach dist/client kopiert — die oeffentliche URL ist /downloads/...
 const ASSET_BASE = '/downloads/epigenetics/'
@@ -99,6 +100,10 @@ const Sparkle = ({ className = '' }: { className?: string }) => (
 
 const EpigeneticsPage = () => {
   const { t } = useTranslation('epigenetics')
+  // Acht Sprachen zeigen diese Seite auf Englisch (Marker `_translationStatus`
+  // im Namensraum). Ohne Auszeichnung liest ein tschechischer Screenreader den
+  // englischen Text mit tschechischer Phonetik vor — WCAG 3.1.2, Level AA.
+  const englishFallback = isEnglishFallback(t('_translationStatus', { defaultValue: '' }))
 
   const principleCards = asArray<TitledText>(t('principle.cards', { returnObjects: true }))
   const practiceItems = asArray<string>(t('principle.practice.items', { returnObjects: true }))
@@ -188,7 +193,7 @@ const EpigeneticsPage = () => {
         ]}
       />
 
-      <div className="bg-slate-50 text-gray-900">
+      <div className="bg-slate-50 text-gray-900" lang={englishFallback ? 'en' : undefined}>
         {/* ================================================================
             HERO
         ================================================================ */}

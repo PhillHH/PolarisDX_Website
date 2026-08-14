@@ -7,6 +7,7 @@ import { Textarea } from '../ui/Textarea'
 import { Alert } from '../ui/Alert'
 import { useContactForm } from '../../hooks/useContactForm'
 import { resolvePanelNames } from '../../content/befunde/panelNames'
+import { isEnglishFallback } from '../../lib/translationStatus'
 
 /**
  * Einrichtungstypen der Epigenetik-Strecke. Der Wert wandert unveraendert als
@@ -60,6 +61,26 @@ export const ContactForm = () => {
   // Satz zurueckzufallen. Ohne `panel` bleibt es beim allgemeinen Satz — das
   // ist der Weg ueber den ChapterNav-CTA, der nie ein Panel mitbringt.
   const showContext = isEpigenetics && (panels.length > 0 || panelParam.trim() === '')
+
+  // Die Angaben der Epigenetik-Strecke — Kontexthinweis, Einrichtungsauswahl,
+  // Freitextfeld — und die Feldfehler liegen in den acht Fallback-Sprachen nur
+  // auf Englisch vor; der uebrige Namensraum `contact` ist uebersetzt. Bisher
+  // lief dieser Text unter dem lang-Attribut der Seite, ein tschechischer
+  // Screenreader hat ihn also mit tschechischer Phonetik vorgelesen (WCAG
+  // 3.1.2, Level AA). Erkannt wird das ueber denselben Marker wie auf der
+  // Epigenetik-Strecke, hier am Teilbaum `contact.form`; ausgezeichnet werden
+  // nur die betroffenen Knoten, nicht das Formular.
+  //
+  // OFFEN: Die Meldungen an Firma, Name und E-Mail rendert das Input-Atom
+  // selbst und reicht keine Sprache durch. Sie bleiben vorerst
+  // unausgezeichnet; die Einwilligungsmeldung steht hier im Formular und
+  // traegt die Auszeichnung.
+  const fallbackLang = isEnglishFallback(t('contact.form._translationStatus', { defaultValue: '' }))
+    ? 'en'
+    : undefined
+  // Nur im Epigenetik-Modus stehen Beschriftung und Auswahl auf Englisch; ohne
+  // ihn kommen sie aus den uebersetzten Schluesseln.
+  const epiLang = isEpigenetics ? fallbackLang : undefined
 
   const [errors, setErrors] = useState<Partial<Record<ErrorKey, string>>>({})
 
@@ -133,6 +154,7 @@ export const ContactForm = () => {
       {showContext ? (
         <p
           data-testid="panel-context"
+          lang={fallbackLang}
           className="rounded-xl border border-accent-border bg-accent-soft px-4 py-3 text-sm text-accent-strong"
         >
           {panels.length
@@ -204,7 +226,7 @@ export const ContactForm = () => {
         placeholder={t('contact.form.email_placeholder')}
       />
 
-      <div className="space-y-1">
+      <div className="space-y-1" lang={epiLang}>
         <label htmlFor="area" className="block text-sm font-medium text-gray-700">
           {isEpigenetics ? t('contact.form.epigenetics.area_label') : t('contact.form.area_label')}
         </label>
@@ -235,30 +257,35 @@ export const ContactForm = () => {
         </select>
       </div>
 
-      <Textarea
-        id="requirements"
-        name="requirements"
-        rows={4}
-        required
-        ref={requirementsRef}
-        error={errors.requirements}
-        onChange={() => clearError('requirements')}
-        label={
-          isEpigenetics
-            ? t('contact.form.epigenetics.requirements_label')
-            : t('contact.form.requirements_label')
-        }
-        placeholder={
-          isEpigenetics
-            ? t('contact.form.epigenetics.requirements_placeholder')
-            : t('contact.form.requirements_placeholder')
-        }
-        defaultValue={
-          isEpigenetics && panel
-            ? t('contact.form.epigenetics.panel_prefill', { panel })
-            : undefined
-        }
-      />
+      {/* Beschriftung, Platzhalter, Vorbelegung und Fehlermeldung dieses Felds
+          kommen im Epigenetik-Modus alle aus englischen Schluesseln — deshalb
+          steht die Auszeichnung am Rahmen und nicht an vier Einzelstellen. */}
+      <div lang={epiLang}>
+        <Textarea
+          id="requirements"
+          name="requirements"
+          rows={4}
+          required
+          ref={requirementsRef}
+          error={errors.requirements}
+          onChange={() => clearError('requirements')}
+          label={
+            isEpigenetics
+              ? t('contact.form.epigenetics.requirements_label')
+              : t('contact.form.requirements_label')
+          }
+          placeholder={
+            isEpigenetics
+              ? t('contact.form.epigenetics.requirements_placeholder')
+              : t('contact.form.requirements_placeholder')
+          }
+          defaultValue={
+            isEpigenetics && panel
+              ? t('contact.form.epigenetics.panel_prefill', { panel })
+              : undefined
+          }
+        />
+      </div>
 
       {submitStatus === 'success' && (
         <Alert
@@ -310,7 +337,7 @@ export const ContactForm = () => {
           </label>
         </div>
         {errors.consent && (
-          <p id="consent-error" className="text-sm font-medium text-red-500">
+          <p id="consent-error" lang={fallbackLang} className="text-sm font-medium text-red-500">
             {errors.consent}
           </p>
         )}

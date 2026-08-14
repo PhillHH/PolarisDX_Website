@@ -36,6 +36,7 @@ import { MerkButton, Merkliste } from '../components/befund/Merkliste'
 import ChapterNav, { type Chapter, type NavAction } from '../components/ui/ChapterNav'
 import { BEFUNDE, BEFUND_ORDER, RADAR_VALUES } from '../content/befunde'
 import { LEGACY_ANCHORS } from '../content/befunde/legacyAnchors'
+import { isEnglishFallback } from '../lib/translationStatus'
 import { BEFUND_IMAGES } from '../assets/epigenetics/befundImages'
 
 const ASSET_BASE = '/downloads/epigenetics/'
@@ -79,6 +80,9 @@ const MusterbefundPage = () => {
   const { slug = '' } = useParams<{ slug: string }>()
   const { hash } = useLocation()
   const { t, i18n } = useTranslation('epigenetics')
+  // Wie auf der Epigenetik-Seite: acht Sprachen fuehren diesen Namensraum nur
+  // auf Englisch, der Text muss deshalb als englisch ausgezeichnet sein.
+  const englishFallback = isEnglishFallback(t('_translationStatus', { defaultValue: '' }))
 
   // Steht bewusst VOR dem vorzeitigen return fuer den unbekannten Slug: React
   // ordnet Hooks ueber ihre Aufrufreihenfolge zu. Lag der Effekt dahinter, lief
@@ -349,7 +353,7 @@ const MusterbefundPage = () => {
         ]}
       />
 
-      <div className="bg-white text-text-heading">
+      <div className="bg-white text-text-heading" lang={englishFallback ? 'en' : undefined}>
         <div className="bg-brand-deep">
           <div className="mx-auto max-w-container px-4 pt-28 lg:px-0 lg:pt-32">
             <Breadcrumbs
