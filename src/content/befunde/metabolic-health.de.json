@@ -34,7 +34,7 @@
       "type": "principle",
       "caption": "Das Prinzip",
       "title": "So lesen Sie diesen Befund.",
-      "lead": "Dieser Befund kombiniert zwei Ebenen: Ihre Genetik — angeboren und unveränderlich — und Ihre Epigenetik, die durch den Lebensstil beeinflussbar ist. Beide werden auf derselben Ampel dargestellt.",
+      "lead": "Dieser Befund kombiniert zwei Ebenen: Ihre Genetik — angeboren und unveränderlich — und Ihre Epigenetik, die durch den Lebensstil beeinflussbar ist.",
       "cards": [
         {
           "title": "Ebene 1 · Genetik",
@@ -94,7 +94,7 @@
       "type": "resultTable",
       "caption": "Ergebnis auf einen Blick",
       "title": "Ihre vier beeinflussbaren Werte.",
-      "lead": "Diese vier Marker verändern sich durch Ernährung, Bewegung, Schlaf und Stress. Sie sind der Teil des Befunds, an dem sich Wirkung messen lässt — und der Grund für eine Kontrollmessung.",
+      "lead": "Diese vier Marker verändern sich durch Ernährung, Bewegung, Schlaf und Stress — der Grund für eine Kontrollmessung.",
       "cols": ["Marker", "Ebene", "Ihr Wert", "Optimal", "Einordnung"],
       "rows": [
         {
@@ -132,7 +132,7 @@
       "type": "callout",
       "caption": "Genetische Einordnung",
       "title": "Ihr Metabotyp: Balancierter Typ",
-      "text": "Ihr Stoffwechsel bevorzugt keinen der drei Makronährstoffe. Empfohlene Verteilung: 55 % Kohlenhydrate · 20 % Protein · 25 % Fett bei einem berechneten Bedarf von 1.900 kcal/Tag.",
+      "text": "Ihr Stoffwechsel bevorzugt keinen der drei Makronährstoffe. Verteilung und berechneter Energiebedarf folgen im Kapitel „Metabotyp“.",
       "tone": "neutral",
       "id": "hinweis-2"
     },
@@ -140,7 +140,7 @@
       "type": "callout",
       "caption": "Genetische Einordnung",
       "title": "Ihr Sporttyp: Ausdauertyp",
-      "text": "ACE und ACTN3 sprechen für eine Ausdauerveranlagung. Längere, gleichmäßige Belastungen liegen Ihnen mehr als kurze Kraftspitzen — ein Kraftanteil bleibt dennoch wichtig.",
+      "text": "Längere, gleichmäßige Belastungen liegen Ihnen mehr als kurze Kraftspitzen — ein Kraftanteil bleibt dennoch wichtig.",
       "tone": "neutral",
       "id": "hinweis-3"
     },
@@ -149,7 +149,7 @@
       "title": "Was daraus folgt",
       "tone": "accent",
       "items": [
-        "Zwei rote Werte — LINE-1 (2/9) und miR-21 (3/9). Beide hängen am Folat-, Zink- und Methylierungsstoffwechsel; die genetische MTHFR-Ausprägung (2/9) zeigt in dieselbe Richtung. Das ist der zentrale Ansatzpunkt dieses Befunds.",
+        "Zwei rote epigenetische Werte — LINE-1 (2/9) und miR-21 (3/9); die genetische MTHFR-Ausprägung (2/9) hängt am selben Stoffwechselweg. Das ist der zentrale Ansatzpunkt dieses Befunds.",
         "Zwei grüne Werte — Entzündungsregulation (7/9) und miR-155 (8/9) liegen im optimalen Bereich und sollten dort gehalten werden.",
         "Eine Kontrollmessung ist frühestens nach 4 bis 6 Monaten sinnvoll."
       ],
@@ -297,7 +297,7 @@
       "type": "markers",
       "caption": "Epigenetischer Status",
       "title": "Methylierung.",
-      "lead": "Die DNA-Methylierung zeigt, wie aktiv Ihre Gene gerade sind — gesteuert durch Ernährung, Bewegung, Schlaf und Stress. Anders als die Gene selbst sind diese Werte veränderbar.",
+      "lead": "Die DNA-Methylierung zeigt, wie aktiv Ihre Gene gerade sind. Anders als die Gene selbst sind diese Werte veränderbar.",
       "items": [
         {
           "name": "LINE-1",
@@ -308,7 +308,7 @@
           "display": "2 / 9",
           "status": "Außerhalb",
           "tone": "red",
-          "text": "Ihr Wert liegt außerhalb des optimalen Bereichs. Am wirksamsten lässt sich dieser Marker über die am Folat-Stoffwechsel beteiligten Nährstoffe unterstützen — was durch Ihre MTHFR-Ausprägung (genetisch 2/9) zusätzlich an Bedeutung gewinnt.",
+          "text": "Am wirksamsten lässt sich dieser Marker über die am Folat-Stoffwechsel beteiligten Nährstoffe unterstützen — was durch Ihre MTHFR-Ausprägung (genetisch 2/9) zusätzlich an Bedeutung gewinnt.",
           "table": {
             "cols": ["Maßnahme", "Quelle", "Menge / Frequenz", "Wirkung"],
             "rows": [
@@ -359,7 +359,7 @@
           "display": "7 / 9",
           "status": "Optimal",
           "tone": "green",
-          "text": "Ihr kombinierter Wert liegt im optimalen Bereich. Pflanzenbetonte, entzündungsarme Kost wirkt einem steigenden TNF-α-Aufkommen weiterhin vorbeugend entgegen.",
+          "text": "Pflanzenbetonte, entzündungsarme Kost unterstützt diesen Bereich weiterhin.",
           "table": {
             "cols": ["Maßnahme", "Quelle", "Menge / Frequenz", "Wirkung"],
             "rows": [
@@ -460,7 +460,7 @@
           "display": "8 / 9",
           "status": "Optimal",
           "tone": "green",
-          "text": "Ihr Ergebnis liegt im optimalen Bereich. Sport, Fasten und Kältereize wirken zusätzlich günstig, aktivieren die Bildung von braunem bzw. beigem Fettgewebe und beeinflussen den FTO-Effekt positiv — besonders relevant, weil Ihre genetische FTO-Auswertung bei 2/9 liegt.",
+          "text": "Sport, Fasten und Kältereize wirken hier günstig und beeinflussen den FTO-Effekt positiv — besonders relevant, weil Ihre genetische FTO-Auswertung bei 2/9 liegt.",
           "table": {
             "cols": ["Maßnahme", "Quelle", "Menge / Frequenz", "Wirkung"],
             "rows": [
@@ -498,7 +498,7 @@
       "type": "table",
       "caption": "Genetik · Makronährstoffe",
       "title": "Metabotyp: Balancierter Typ.",
-      "lead": "Ihr Stoffwechsel bevorzugt keinen der drei Makronährstoffe besonders. Damit gilt für Sie die allgemeine Empfehlung der DACH-Referenzwerte — eine gute Ausgangslage, die keine besondere Anpassung der Verteilung erfordert. Wichtiger ist bei Ihnen die Qualität der Lebensmittel.",
+      "lead": "Ihr Stoffwechsel bevorzugt keinen der drei Makronährstoffe besonders. Damit gilt für Sie die allgemeine Empfehlung der DACH-Referenzwerte. Wichtiger ist bei Ihnen die Qualität der Lebensmittel.",
       "cols": ["Anteil", "Makronährstoff", "Hinweis"],
       "rows": [
         ["55 %", "Kohlenhydrate", "Vollkorn, Hülsenfrüchte, Gemüse als Basis"],
@@ -584,7 +584,7 @@
           "display": "7 / 9",
           "status": "Günstig",
           "tone": "green",
-          "text": "Ihr Ergebnis liegt im günstigen Bereich — der genetische Hintergrund spricht nicht für ein erhöhtes Risiko. Mahlzeitenstruktur, Ballaststoffe und regelmäßige Bewegung halten diese gute Ausgangslage.",
+          "text": "Ihr genetischer Hintergrund spricht nicht für ein erhöhtes Risiko. Mahlzeitenstruktur, Ballaststoffe und regelmäßige Bewegung halten diese Ausgangslage.",
           "sub": "Genotypen: FTO rs9939609 TT · PPARG2 CC (Wildtyp) · MC4R CT · TCF7L2 CT · SLC6A14 CA · TFAP2B GG",
           "table": {
             "cols": ["Maßnahme", "Quelle", "Menge / Frequenz", "Wirkung"],
@@ -834,7 +834,7 @@
           "display": "2 / 9",
           "status": "Erhöhter Bedarf",
           "tone": "red",
-          "text": "Ihre FADS1-Ausprägung spricht dafür, dass der Körper pflanzliche Omega-3-Vorstufen (ALA) nur eingeschränkt in die aktiven Formen EPA und DHA umwandelt. Praktikabler ist es, EPA und DHA direkt aufzunehmen. Die separate Auswertung „Omega-3-Versorgung“ betrachtet ausschließlich diesen Umwandlungsschritt und liegt ebenfalls bei 2 / 9.",
+          "text": "Ihre FADS1-Ausprägung spricht dafür, dass der Körper pflanzliche Omega-3-Vorstufen (ALA) nur eingeschränkt in die aktiven Formen EPA und DHA umwandelt. Die separate Auswertung „Omega-3-Versorgung“ betrachtet ausschließlich diesen Umwandlungsschritt und liegt ebenfalls bei 2 / 9.",
           "table": {
             "cols": ["Maßnahme", "Quelle", "Menge / Frequenz", "Wirkung"],
             "rows": [
@@ -881,7 +881,7 @@
           "display": "8 / 9",
           "status": "Günstig",
           "tone": "green",
-          "text": "Ihre ACE-Ausprägung zeigt keine erhöhte Salzsensitivität. Grundsätzlich gilt: Wer salzreicher isst, sollte bewusst mehr trinken, damit überschüssiges Salz über die Nieren ausgeschieden wird.",
+          "text": "Ihre ACE-Ausprägung zeigt keine erhöhte Salzsensitivität. Grundsätzlich gilt: Wer salzreicher isst, sollte bewusst mehr trinken.",
           "table": {
             "cols": ["Maßnahme", "Quelle", "Menge / Frequenz", "Wirkung"],
             "rows": [
@@ -968,7 +968,7 @@
           "display": "4 / 9",
           "status": "Moderat",
           "tone": "amber",
-          "text": "Eine moderat reduzierte antioxidative Kapazität — die Zufuhr von Antioxidantien über die Ernährung unterstützt Ihre Haut zusätzlich.",
+          "text": "Eine moderat reduzierte antioxidative Kapazität — Antioxidantien über die Ernährung unterstützen hier zusätzlich.",
           "table": {
             "cols": ["Maßnahme", "Quelle", "Menge / Frequenz", "Wirkung"],
             "rows": [
@@ -1099,12 +1099,12 @@
         {
           "num": "01",
           "title": "Methylierungsstoffwechsel — Folat, B-Vitamine, Zink",
-          "text": "Drei Werte zeigen in dieselbe Richtung: LINE-1 2/9 (epigenetisch), miR-21 3/9 (epigenetisch) und Folat/MTHFR 2/9 (genetisch). Das ist kein Zufall — alle drei hängen am selben Stoffwechselweg. Hier liegt der größte Hebel dieses Befunds, und es ist zugleich der einzige Bereich, dessen Wirkung sich in einer Kontrollmessung nachweisen lässt. Konkret: täglich grünes Blattgemüse und Hülsenfrüchte, B2/B6/B12 über Eier, Käse und fermentierte Lebensmittel, Zink über Kürbiskerne, Haferflocken und Linsen. Aktives Folat (5-MTHF) für zwei Monate nach ärztlicher Abstimmung."
+          "text": "Drei Werte zeigen in dieselbe Richtung: LINE-1 2/9 (epigenetisch), miR-21 3/9 (epigenetisch) und Folat/MTHFR 2/9 (genetisch) — alle drei hängen am selben Stoffwechselweg. Dieser Bereich ist zugleich der einzige, dessen Wirkung sich in einer Kontrollmessung nachweisen lässt. Konkret: täglich grünes Blattgemüse und Hülsenfrüchte, B2/B6/B12 über Eier, Käse und fermentierte Lebensmittel, Zink über Kürbiskerne, Haferflocken und Linsen. Aktives Folat (5-MTHF) für zwei Monate nach ärztlicher Abstimmung."
         },
         {
           "num": "02",
           "title": "Fettqualität — EPA und DHA direkt",
-          "text": "Blutfette 2/9 und Omega-3-Versorgung 2/9. Ihre FADS1-Ausprägung macht pflanzliche Omega-3-Quellen allein unzureichend: Leinöl und Walnüsse werden nur teilweise umgewandelt. Zweimal wöchentlich fetter Seefisch oder täglich Algenöl umgeht diesen Engpass direkt. Gleichzeitig Omega-6-reiche Öle sparsam einsetzen."
+          "text": "Blutfette 2/9 und Omega-3-Versorgung 2/9. Ihre FADS1-Ausprägung macht pflanzliche Omega-3-Quellen wie Leinöl und Walnüsse allein unzureichend. Zweimal wöchentlich fetter Seefisch oder täglich Algenöl umgeht diesen Engpass direkt; Omega-6-reiche Öle sparsam einsetzen."
         },
         {
           "num": "03",
