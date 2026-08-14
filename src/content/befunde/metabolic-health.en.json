@@ -34,7 +34,7 @@
       "type": "principle",
       "caption": "The principle",
       "title": "How to read this report.",
-      "lead": "This report combines two levels: your genetics — inherited and unchangeable — and your epigenetics, which can be influenced by lifestyle. Both are shown on the same traffic light.",
+      "lead": "This report combines two levels: your genetics — inherited and unchangeable — and your epigenetics, which can be influenced by lifestyle.",
       "cards": [
         {
           "title": "Level 1 · Genetics",
@@ -94,7 +94,7 @@
       "type": "resultTable",
       "caption": "Results at a glance",
       "title": "Your four modifiable values.",
-      "lead": "These four markers change through diet, exercise, sleep and stress. They are the part of the report in which an effect can be measured — and the reason for a follow-up measurement.",
+      "lead": "These four markers change through diet, exercise, sleep and stress — the reason for a follow-up measurement.",
       "cols": ["Marker", "Level", "Your value", "Optimal", "Interpretation"],
       "rows": [
         {
@@ -138,7 +138,7 @@
       "type": "callout",
       "caption": "Genetic interpretation",
       "title": "Your metabolic type: balanced type",
-      "text": "Your metabolism does not favour any one of the three macronutrients. Recommended distribution: 55 % carbohydrates · 20 % protein · 25 % fat, with a calculated requirement of 1,900 kcal/day.",
+      "text": "Your metabolism does not favour any one of the three macronutrients. The distribution and calculated energy requirement follow in the “Metabolic type” chapter.",
       "tone": "neutral",
       "id": "hinweis-2"
     },
@@ -146,7 +146,7 @@
       "type": "callout",
       "caption": "Genetic interpretation",
       "title": "Your exercise type: endurance type",
-      "text": "ACE and ACTN3 point to an endurance predisposition. Longer, steady exertion suits you better than short bursts of strength — a strength component nevertheless remains important.",
+      "text": "Longer, steady exertion suits you better than short bursts of strength — a strength component nevertheless remains important.",
       "tone": "neutral",
       "id": "hinweis-3"
     },
@@ -155,7 +155,7 @@
       "title": "What follows from this",
       "tone": "accent",
       "items": [
-        "Two red values — LINE-1 (2/9) and miR-21 (3/9). Both depend on folate, zinc and methylation metabolism; the genetic MTHFR variant (2/9) points in the same direction. This is the central starting point of this report.",
+        "Two red epigenetic values — LINE-1 (2/9) and miR-21 (3/9); the genetic MTHFR variant (2/9) depends on the same metabolic pathway. This is the central starting point of this report.",
         "Two green values — inflammation regulation (7/9) and miR-155 (8/9) are in the optimal range and should be kept there.",
         "A follow-up measurement is meaningful after 4 to 6 months at the earliest."
       ],
@@ -303,7 +303,7 @@
       "type": "markers",
       "caption": "Epigenetic status",
       "title": "Methylation.",
-      "lead": "DNA methylation shows how active your genes currently are — governed by diet, exercise, sleep and stress. Unlike the genes themselves, these values can be changed.",
+      "lead": "DNA methylation shows how active your genes currently are. Unlike the genes themselves, these values can be changed.",
       "items": [
         {
           "name": "LINE-1",
@@ -314,7 +314,7 @@
           "display": "2 / 9",
           "status": "Outside range",
           "tone": "red",
-          "text": "Your value lies outside the optimal range. This marker is most effectively supported through the nutrients involved in folate metabolism — which gains additional importance given your MTHFR variant (genetic 2/9).",
+          "text": "This marker is most effectively supported through the nutrients involved in folate metabolism — which gains additional importance given your MTHFR variant (genetic 2/9).",
           "table": {
             "cols": ["Measure", "Source", "Amount / frequency", "Effect"],
             "rows": [
@@ -365,7 +365,7 @@
           "display": "7 / 9",
           "status": "Optimal",
           "tone": "green",
-          "text": "Your combined value is in the optimal range. A plant-focused, low-inflammatory diet continues to work preventively against a rising level of TNF-α.",
+          "text": "A plant-focused, low-inflammatory diet continues to support this area.",
           "table": {
             "cols": ["Measure", "Source", "Amount / frequency", "Effect"],
             "rows": [
@@ -466,7 +466,7 @@
           "display": "8 / 9",
           "status": "Optimal",
           "tone": "green",
-          "text": "Your result is in the optimal range. Exercise, fasting and cold stimuli have an additional favourable effect, activate the formation of brown and beige adipose tissue and influence the FTO effect positively — particularly relevant because your genetic FTO evaluation is 2/9.",
+          "text": "Exercise, fasting and cold stimuli have a favourable effect here and influence the FTO effect positively — particularly relevant because your genetic FTO evaluation is 2/9.",
           "table": {
             "cols": ["Measure", "Source", "Amount / frequency", "Effect"],
             "rows": [
@@ -504,7 +504,7 @@
       "type": "table",
       "caption": "Genetics · Macronutrients",
       "title": "Metabolic type: balanced type.",
-      "lead": "Your metabolism does not particularly favour any one of the three macronutrients. The general recommendation of the DACH reference values therefore applies to you — a good starting position that requires no special adjustment of the distribution. More important in your case is the quality of the foods.",
+      "lead": "Your metabolism does not particularly favour any one of the three macronutrients. The general recommendation of the DACH reference values therefore applies to you. More important in your case is the quality of the foods.",
       "cols": ["Share", "Macronutrient", "Note"],
       "rows": [
         ["55 %", "Carbohydrates", "Wholegrains, pulses and vegetables as the basis"],
@@ -590,7 +590,7 @@
           "display": "7 / 9",
           "status": "Favourable",
           "tone": "green",
-          "text": "Your result is in the favourable range — the genetic background does not indicate an increased risk. Meal structure, fibre and regular exercise maintain this good starting position.",
+          "text": "Your genetic background does not indicate an increased risk. Meal structure, fibre and regular exercise maintain this starting position.",
           "sub": "Genotypes: FTO rs9939609 TT · PPARG2 CC (wild type) · MC4R CT · TCF7L2 CT · SLC6A14 CA · TFAP2B GG",
           "table": {
             "cols": ["Measure", "Source", "Amount / frequency", "Effect"],
@@ -830,7 +830,7 @@
           "display": "2 / 9",
           "status": "Increased need",
           "tone": "red",
-          "text": "Your FADS1 variant indicates that the body converts plant-based omega-3 precursors (ALA) into the active forms EPA and DHA only to a limited extent. It is more practical to take in EPA and DHA directly. The separate evaluation “Omega-3 supply” looks exclusively at this conversion step and is likewise 2 / 9.",
+          "text": "Your FADS1 variant indicates that the body converts plant-based omega-3 precursors (ALA) into the active forms EPA and DHA only to a limited extent. The separate evaluation “Omega-3 supply” looks exclusively at this conversion step and is likewise 2 / 9.",
           "table": {
             "cols": ["Measure", "Source", "Amount / frequency", "Effect"],
             "rows": [
@@ -877,7 +877,7 @@
           "display": "8 / 9",
           "status": "Favourable",
           "tone": "green",
-          "text": "Your ACE variant shows no increased salt sensitivity. As a general rule: anyone who eats a saltier diet should deliberately drink more so that excess salt is excreted via the kidneys.",
+          "text": "Your ACE variant shows no increased salt sensitivity. As a general rule: anyone who eats a saltier diet should deliberately drink more.",
           "table": {
             "cols": ["Measure", "Source", "Amount / frequency", "Effect"],
             "rows": [
@@ -964,7 +964,7 @@
           "display": "4 / 9",
           "status": "Moderate",
           "tone": "amber",
-          "text": "A moderately reduced antioxidant capacity — an intake of antioxidants through the diet provides additional support for your skin.",
+          "text": "A moderately reduced antioxidant capacity — antioxidants through the diet provide additional support here.",
           "table": {
             "cols": ["Measure", "Source", "Amount / frequency", "Effect"],
             "rows": [
@@ -1091,12 +1091,12 @@
         {
           "num": "01",
           "title": "Methylation metabolism — folate, B vitamins, zinc",
-          "text": "Three values point in the same direction: LINE-1 2/9 (epigenetic), miR-21 3/9 (epigenetic) and folate/MTHFR 2/9 (genetic). This is no coincidence — all three depend on the same metabolic pathway. This is where the greatest leverage of this report lies, and it is at the same time the only area whose effect can be demonstrated in a follow-up measurement. In concrete terms: green leafy vegetables and pulses daily, B2/B6/B12 via eggs, cheese and fermented foods, zinc via pumpkin seeds, oats and lentils. Active folate (5-MTHF) for two months after consultation with a doctor."
+          "text": "Three values point in the same direction: LINE-1 2/9 (epigenetic), miR-21 3/9 (epigenetic) and folate/MTHFR 2/9 (genetic) — all three depend on the same metabolic pathway. This area is at the same time the only one whose effect can be demonstrated in a follow-up measurement. In concrete terms: green leafy vegetables and pulses daily, B2/B6/B12 via eggs, cheese and fermented foods, zinc via pumpkin seeds, oats and lentils. Active folate (5-MTHF) for two months after consultation with a doctor."
         },
         {
           "num": "02",
           "title": "Fat quality — EPA and DHA directly",
-          "text": "Blood lipids 2/9 and omega-3 supply 2/9. Your FADS1 variant makes plant-based omega-3 sources alone insufficient: linseed oil and walnuts are only partly converted. Oily sea fish twice a week or algal oil daily bypasses this bottleneck directly. At the same time, use omega-6-rich oils sparingly."
+          "text": "Blood lipids 2/9 and omega-3 supply 2/9. Your FADS1 variant makes plant-based omega-3 sources such as linseed oil and walnuts alone insufficient. Oily sea fish twice a week or algal oil daily bypasses this bottleneck directly; use omega-6-rich oils sparingly."
         },
         {
           "num": "03",
