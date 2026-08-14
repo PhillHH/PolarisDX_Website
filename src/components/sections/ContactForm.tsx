@@ -6,6 +6,7 @@ import { Input } from '../ui/Input'
 import { Textarea } from '../ui/Textarea'
 import { Alert } from '../ui/Alert'
 import { useContactForm } from '../../hooks/useContactForm'
+import { resolvePanelNames } from '../../content/befunde/panelNames'
 
 /**
  * Einrichtungstypen der Epigenetik-Strecke. Der Wert wandert unveraendert als
@@ -44,19 +45,21 @@ export const ContactForm = () => {
   // als ?panel= mitbringt. Beide Vertraege gelten jetzt.
   const isEpigenetics =
     params.get('topic') === 'epigenetik' || params.get('source') === 'epigenetics'
-  // Die Grenze schuetzt vor einem aufgeblasenen Fremdparameter, nicht vor dem
-  // eigenen Vertrag: aus der Merkliste kommen bis zu sechs Panelnamen in einem
-  // `panel` — zusammen rund 100 Zeichen, bei 60 waere die Liste abgeschnitten
-  // im Formular gelandet.
-  const panel = params.get('panel')?.slice(0, 200) ?? ''
-  // Die Merkliste haengt mehrere Panelnamen kommasepariert in EIN `panel`.
-  // Der Hinweis oberhalb des Formulars nennt sie alle statt nur den ersten.
-  const panels = panel
-    ? panel
-        .split(',')
-        .map((p) => p.trim())
-        .filter(Boolean)
-    : []
+  // `panel` kommt aus der URL und damit von jedem, der einen Link schreibt.
+  // Ungeprueft stand hier jeder Text als Panelname im servergerenderten HTML —
+  // also als Aussage von PolarisDX, crawlbar und zitierfaehig. Deshalb laeuft
+  // der Parameter durch die bekannte Panelliste: die Merkliste haengt mehrere
+  // Namen kommasepariert in EIN `panel`, jeder wird einzeln geprueft,
+  // Unbekanntes faellt weg, ausgegeben wird immer die Schreibweise aus der
+  // Liste. Die Laengengrenze steckt in resolvePanelNames.
+  const panelParam = params.get('panel') ?? ''
+  const panels = resolvePanelNames(panelParam)
+  const panel = panels.join(', ')
+  // Ein mitgeschickter, aber unbekannter Panelname ist kein Kontext, sondern
+  // Fremdtext: dann faellt der Hinweis ganz weg, statt auf den allgemeinen
+  // Satz zurueckzufallen. Ohne `panel` bleibt es beim allgemeinen Satz — das
+  // ist der Weg ueber den ChapterNav-CTA, der nie ein Panel mitbringt.
+  const showContext = isEpigenetics && (panels.length > 0 || panelParam.trim() === '')
 
   const [errors, setErrors] = useState<Partial<Record<ErrorKey, string>>>({})
 
@@ -127,7 +130,7 @@ export const ContactForm = () => {
 
   return (
     <form className="mt-4 space-y-5" onSubmit={handleSubmit} noValidate>
-      {isEpigenetics ? (
+      {showContext ? (
         <p
           data-testid="panel-context"
           className="rounded-xl border border-accent-border bg-accent-soft px-4 py-3 text-sm text-accent-strong"
