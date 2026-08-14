@@ -22,6 +22,7 @@
       }
     },
     "form": {
+      "_translationStatus": "English fallback — panel context, epigenetics field options and field errors",
       "progress": {
         "start": "We beginnen — slechts een paar velden",
         "going": "Ziet er goed uit — nog {{count}}",

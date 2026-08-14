@@ -19,6 +19,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ArrowRight, FileText } from 'lucide-react'
 import Eyebrow from '../ui/Eyebrow'
+import { isEnglishFallback } from '../../lib/translationStatus'
 
 interface Fact {
   label: string
@@ -44,9 +45,14 @@ const Sparkle = ({ className = '' }: { className?: string }) => (
 const EpigeneticsTeaserSection = () => {
   const { t } = useTranslation('epigenetics')
   const facts = asArray<Fact>(t('teaser.facts', { returnObjects: true }))
+  // Acht Sprachen fuehren den Namensraum `epigenetics` bislang auf Englisch.
+  // Die Zielseite zeichnet das an ihrem Inhaltscontainer aus; dieser Abschnitt
+  // steht dagegen mitten in einer uebersetzten Seite und braucht die
+  // Auszeichnung deshalb selbst.
+  const englishFallback = isEnglishFallback(t('_translationStatus', { defaultValue: '' }))
 
   return (
-    <section aria-labelledby="epigenetics-teaser-title">
+    <section aria-labelledby="epigenetics-teaser-title" lang={englishFallback ? 'en' : undefined}>
       <div className="relative overflow-hidden rounded-3xl bg-brand-deep px-7 py-12 text-white lg:px-14 lg:py-16">
         <Sparkle className="pointer-events-none absolute -right-10 -top-10 hidden h-44 w-44 text-white/10 lg:block" />
 
