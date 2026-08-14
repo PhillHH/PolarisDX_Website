@@ -58,7 +58,7 @@
         {
           "num": "02",
           "title": "Evaluate",
-          "text": "Two evaluations on the 1–9 scale: physiological stress level and risk of long-term effects."
+          "text": "Two evaluations on the traffic light 1–9: physiological stress level and risk of long-term effects."
         },
         {
           "num": "03",
@@ -67,7 +67,7 @@
         }
       ],
       "scaleTitle": "How do I read the scale?",
-      "scaleLead": "Both evaluations and all six individual markers run on the scale from 1 to 9. Higher is always better: 1–3 red, 4–6 amber, 7–9 green. Each of the two evaluations additionally carries its own zone labelling.",
+      "scaleLead": "Both evaluations and all six individual markers run on the traffic light 1–9. Higher is always better: 1–3 red, 4–6 amber, 7–9 green. Each of the two evaluations additionally carries its own zone labelling.",
       "scaleKind": "traffic",
       "scaleTicks": ["1", "3", "5", "7", "9"],
       "scaleZones": [
