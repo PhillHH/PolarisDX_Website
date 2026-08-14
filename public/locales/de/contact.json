@@ -74,6 +74,13 @@
         }
       },
       "field_required": "Bitte wählen Sie Ihren Bereich, damit wir das richtige Panel vorbereiten.",
+      "panel_context_one": "Ihre Anfrage bezieht sich auf das Panel {{panels}}.",
+      "panel_context_other": "Ihre Anfrage bezieht sich auf die Panels {{panels}}.",
+      "errors": {
+        "name": "Bitte geben Sie Ihren Namen an — mindestens zwei Zeichen.",
+        "email": "Bitte geben Sie eine gültige E-Mail-Adresse an, zum Beispiel name@praxis.de.",
+        "consent": "Bitte setzen Sie das Häkchen bei der Einwilligung, damit wir Ihre Anfrage beantworten dürfen."
+      },
       "prepare_label": "Sollen wir etwas vorbereiten?",
       "prepare_placeholder": "Welche Biomarker interessieren Sie — CRP, TSH, HbA1c?",
       "consent": "Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und für Rückfragen bis zu 12 Monate gespeichert werden. Siehe unsere",

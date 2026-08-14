@@ -74,6 +74,13 @@
         }
       },
       "field_required": "Vælg dit område, så vi kan forberede det rette panel.",
+      "panel_context_one": "Your enquiry refers to the panel {{panels}}.",
+      "panel_context_other": "Your enquiry refers to the panels {{panels}}.",
+      "errors": {
+        "name": "Please enter your name — at least two characters.",
+        "email": "Please enter a valid email address, for example name@practice.com.",
+        "consent": "Please tick the consent box so we may reply to your enquiry."
+      },
       "prepare_label": "Skal vi forberede noget?",
       "prepare_placeholder": "Hvilke biomarkører interesserer dig — CRP, TSH, HbA1c?",
       "consent": "Jeg accepterer, at mine oplysninger opbevares til kontakt og eventuelle spørgsmål i op til 12 måneder. Se vores",

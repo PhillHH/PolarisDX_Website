@@ -74,6 +74,13 @@
         }
       },
       "field_required": "Vyberte prosím svou oblast, abychom připravili správný panel.",
+      "panel_context_one": "Your enquiry refers to the panel {{panels}}.",
+      "panel_context_other": "Your enquiry refers to the panels {{panels}}.",
+      "errors": {
+        "name": "Please enter your name — at least two characters.",
+        "email": "Please enter a valid email address, for example name@practice.com.",
+        "consent": "Please tick the consent box so we may reply to your enquiry."
+      },
       "prepare_label": "Máme něco připravit?",
       "prepare_placeholder": "Které biomarkery vás zajímají — CRP, TSH, HbA1c?",
       "consent": "Souhlasím, aby byly mé údaje uchovány za účelem kontaktování a případných dotazů po dobu až 12 měsíců. Viz naše",

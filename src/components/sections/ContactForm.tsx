@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { Check, ArrowRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
@@ -24,6 +24,14 @@ const FIELD_KEYS = [
 type IntentKey = (typeof INTENT_KEYS)[number]
 type FieldKey = (typeof FIELD_KEYS)[number]
 
+/**
+ * Die Reihenfolge ist die Lesereihenfolge des Formulars. Sie entscheidet,
+ * welches Feld nach einem fehlgeschlagenen Absenden den Fokus bekommt —
+ * "erstes fehlerhaftes Feld" heisst: das oberste, nicht das zuerst geprüfte.
+ */
+const ERROR_ORDER = ['name', 'email', 'field', 'consent'] as const
+type ErrorKey = (typeof ERROR_ORDER)[number]
+
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 /** Joyful, single-page contact form with a live completion meter, intent /
@@ -41,13 +49,28 @@ export const ContactForm = () => {
   const initialIntent: IntentKey = INTENT_KEYS.includes(paramIntent as IntentKey)
     ? (paramIntent as IntentKey)
     : 'consultation'
-  const panelParam = (searchParams.get('panel') ?? '').trim()
+  // Die Grenze schuetzt vor einem aufgeblasenen Fremdparameter, nicht vor dem
+  // eigenen Vertrag: aus der Merkliste kommen bis zu sechs Panelnamen in einem
+  // `panel` — zusammen rund 100 Zeichen.
+  const panelParam = (searchParams.get('panel') ?? '').trim().slice(0, 200)
   const sourceParam = (searchParams.get('source') ?? '').trim()
   const submissionSource = sourceParam
     ? panelParam
       ? `${sourceParam} · ${panelParam}`
       : sourceParam
     : ''
+
+  // Die Merkliste haengt mehrere Panelnamen kommasepariert in EIN `panel`.
+  // Der Hinweis oberhalb des Formulars nennt sie alle: wer aus einem
+  // Musterbefund kommt, sah bisher nur den vorbelegten Freitext und damit
+  // nirgends, dass seine Auswahl mitgereist ist.
+  const panels = panelParam
+    ? panelParam
+        .split(',')
+        .map((p) => p.trim())
+        .filter(Boolean)
+    : []
+  const showPanelContext = sourceParam === 'epigenetics' && panels.length > 0
 
   const [intent, setIntent] = useState<IntentKey>(initialIntent)
   const [field, setField] = useState<FieldKey | ''>('')
@@ -58,7 +81,14 @@ export const ContactForm = () => {
   const [requirements, setRequirements] = useState(panelParam)
   const [consent, setConsent] = useState(false)
   const [hp, setHp] = useState('')
-  const [showFieldError, setShowFieldError] = useState(false)
+  const [errors, setErrors] = useState<Partial<Record<ErrorKey, string>>>({})
+
+  const nameRef = useRef<HTMLInputElement>(null)
+  const emailRef = useRef<HTMLInputElement>(null)
+  const fieldRef = useRef<HTMLButtonElement>(null)
+  const consentRef = useRef<HTMLInputElement>(null)
+  const successRef = useRef<HTMLDivElement>(null)
+  const errorRef = useRef<HTMLDivElement>(null)
 
   const nameValid = name.trim().length >= 2
   const emailValid = EMAIL_RE.test(email.trim())
@@ -84,6 +114,9 @@ export const ContactForm = () => {
 
   const fieldHint = fieldSelected ? t(`contact.form.field.hints.${field}`) : ''
 
+  const clearError = (key: ErrorKey) =>
+    setErrors((prev) => (prev[key] ? { ...prev, [key]: undefined } : prev))
+
   const resetForm = () => {
     setIntent(initialIntent)
     setField('')
@@ -94,14 +127,40 @@ export const ContactForm = () => {
     setRequirements(panelParam)
     setConsent(false)
     setHp('')
-    setShowFieldError(false)
+    setErrors({})
   }
+
+  // Nach dem Absenden fuehrt der Fokus weiter: bei Erfolg auf die
+  // Bestaetigung (der deaktivierte Knopf haette ihn sonst auf BODY
+  // abgeworfen), bei einem Transportfehler auf die Fehlermeldung.
+  useEffect(() => {
+    if (submitStatus === 'success') successRef.current?.focus()
+    if (submitStatus === 'error') errorRef.current?.focus()
+  }, [submitStatus])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    if (!fieldSelected) {
-      setShowFieldError(true)
+    // Jede Pflichtangabe bekommt ihre eigene Meldung — vorher lief alles in
+    // dieselbe generische Fehlerzeile und liess offen, was zu tun ist.
+    const next: Partial<Record<ErrorKey, string>> = {}
+    if (!nameValid) next.name = t('contact.form.errors.name')
+    if (!emailValid) next.email = t('contact.form.errors.email')
+    if (!fieldSelected) next.field = t('contact.form.field_required')
+    if (!consent) next.consent = t('contact.form.errors.consent')
+    setErrors(next)
+
+    const firstInvalid = ERROR_ORDER.find((key) => next[key])
+    if (firstInvalid) {
+      const target =
+        firstInvalid === 'name'
+          ? nameRef.current
+          : firstInvalid === 'email'
+            ? emailRef.current
+            : firstInvalid === 'field'
+              ? fieldRef.current
+              : consentRef.current
+      target?.focus()
       return
     }
 
@@ -130,6 +189,8 @@ export const ContactForm = () => {
         ? 'border-accent bg-accent-soft text-accent-strong'
         : 'border-ui-border bg-white text-gray-700 hover:border-accent/60 hover:text-accent-strong',
     )
+
+  const alertFocusClass = 'focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2'
 
   const validIcon = <Check className="h-4 w-4 text-accent" aria-hidden />
 
@@ -160,6 +221,23 @@ export const ContactForm = () => {
           onChange={(e) => setHp(e.target.value)}
         />
       </div>
+
+      {/* Panel-Kontext aus dem Musterbefund — stellt nur fest, worum es geht */}
+      {showPanelContext && (
+        <p
+          id="panel-context"
+          data-testid="panel-context"
+          className="flex items-start gap-2 text-sm text-accent-strong"
+        >
+          <Check className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
+          <span>
+            {t('contact.form.panel_context', {
+              count: panels.length,
+              panels: panels.join(', '),
+            })}
+          </span>
+        </p>
+      )}
 
       {/* Progress meter */}
       <div>
@@ -211,10 +289,15 @@ export const ContactForm = () => {
             type="text"
             required
             autoComplete="name"
+            ref={nameRef}
             label={t('contact.form.name')}
             placeholder={t('contact.form.name_placeholder')}
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => {
+              setName(e.target.value)
+              clearError('name')
+            }}
+            error={errors.name}
             className={cn(nameValid && 'border-accent bg-accent-soft/40 focus-visible:ring-accent')}
             rightIcon={nameValid ? validIcon : undefined}
           />
@@ -234,10 +317,15 @@ export const ContactForm = () => {
             type="email"
             required
             autoComplete="email"
+            ref={emailRef}
             label={t('contact.form.email')}
             placeholder={t('contact.form.email_placeholder')}
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value)
+              clearError('email')
+            }}
+            error={errors.email}
             className={cn(
               emailValid && 'border-accent bg-accent-soft/40 focus-visible:ring-accent',
             )}
@@ -257,18 +345,23 @@ export const ContactForm = () => {
       </div>
 
       {/* Field */}
-      <fieldset className="space-y-3">
+      <fieldset
+        className="space-y-3"
+        aria-invalid={errors.field ? true : undefined}
+        aria-describedby={errors.field ? 'field-error' : undefined}
+      >
         <legend className="text-sm font-semibold text-heading">
           {t('contact.form.field.label')}
         </legend>
         <div className="flex flex-wrap gap-2.5">
-          {FIELD_KEYS.map((key) => (
+          {FIELD_KEYS.map((key, index) => (
             <button
               key={key}
               type="button"
+              ref={index === 0 ? fieldRef : undefined}
               onClick={() => {
                 setField(key)
-                setShowFieldError(false)
+                clearError('field')
               }}
               aria-pressed={field === key}
               className={pillClass(field === key)}
@@ -283,8 +376,10 @@ export const ContactForm = () => {
             <span>{fieldHint}</span>
           </div>
         )}
-        {showFieldError && !fieldSelected && (
-          <p className="text-sm font-medium text-red-500">{t('contact.form.field_required')}</p>
+        {errors.field && (
+          <p id="field-error" className="text-sm font-medium text-red-500">
+            {errors.field}
+          </p>
         )}
       </fieldset>
 
@@ -299,8 +394,28 @@ export const ContactForm = () => {
         onChange={(e) => setRequirements(e.target.value)}
       />
 
-      {submitStatus === 'success' && <Alert variant="success">{t('contact.form.success')}</Alert>}
-      {submitStatus === 'error' && <Alert variant="destructive">{t('contact.form.error')}</Alert>}
+      {submitStatus === 'success' && (
+        <Alert
+          ref={successRef}
+          role="status"
+          tabIndex={-1}
+          className={alertFocusClass}
+          variant="success"
+        >
+          {t('contact.form.success')}
+        </Alert>
+      )}
+      {submitStatus === 'error' && (
+        <Alert
+          ref={errorRef}
+          role="alert"
+          tabIndex={-1}
+          className={alertFocusClass}
+          variant="destructive"
+        >
+          {t('contact.form.error')}
+        </Alert>
+      )}
 
       {/* Consent + submit */}
       <div className="space-y-5">
@@ -310,8 +425,14 @@ export const ContactForm = () => {
             name="consent"
             type="checkbox"
             required
+            ref={consentRef}
             checked={consent}
-            onChange={(e) => setConsent(e.target.checked)}
+            onChange={(e) => {
+              setConsent(e.target.checked)
+              clearError('consent')
+            }}
+            aria-invalid={errors.consent ? true : undefined}
+            aria-describedby={errors.consent ? 'consent-error' : undefined}
             className="mt-0.5 h-4 w-4 rounded border-gray-300 text-accent focus:ring-accent"
           />
           <label htmlFor="consent" className="text-sm leading-relaxed text-gray-600">
@@ -322,6 +443,11 @@ export const ContactForm = () => {
             .
           </label>
         </div>
+        {errors.consent && (
+          <p id="consent-error" className="text-sm font-medium text-red-500">
+            {errors.consent}
+          </p>
+        )}
 
         <div className="space-y-2">
           <button

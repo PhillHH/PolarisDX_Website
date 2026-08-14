@@ -74,6 +74,13 @@
         }
       },
       "field_required": "Seleziona il tuo ambito così prepariamo il pannello giusto.",
+      "panel_context_one": "Your enquiry refers to the panel {{panels}}.",
+      "panel_context_other": "Your enquiry refers to the panels {{panels}}.",
+      "errors": {
+        "name": "Please enter your name — at least two characters.",
+        "email": "Please enter a valid email address, for example name@practice.com.",
+        "consent": "Please tick the consent box so we may reply to your enquiry."
+      },
       "prepare_label": "Dobbiamo preparare qualcosa?",
       "prepare_placeholder": "Quali biomarcatori ti interessano — CRP, TSH, HbA1c?",
       "consent": "Acconsento alla conservazione dei miei dati per essere ricontattato e per eventuali domande, per un massimo di 12 mesi. Vedi la nostra",

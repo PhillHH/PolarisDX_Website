@@ -22,16 +22,25 @@ interface AlertProps
   children?: React.ReactNode
 }
 
-export const Alert = ({ className, variant, title, children, ...props }: AlertProps) => {
-  const Icon = variant === 'success' ? CheckCircle : AlertCircle
+/**
+ * `role` und `tabIndex` kommen bewusst von aussen: erst die Aufrufstelle weiss,
+ * ob eine Meldung eine Bestaetigung (`role="status"`) oder ein Fehler
+ * (`role="alert"`) ist. Der weitergereichte `ref` macht die Meldung
+ * ansteuerbar, damit der Fokus nach dem Absenden gezielt dort landen kann.
+ */
+export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
+  ({ className, variant, title, children, ...props }, ref) => {
+    const Icon = variant === 'success' ? CheckCircle : AlertCircle
 
-  return (
-    <div className={cn(alertVariants({ variant }), className)} {...props}>
-      <Icon className="h-5 w-5 mt-0.5 shrink-0" />
-      <div className="flex-1">
-        {title && <h5 className="mb-1 font-medium leading-none tracking-tight">{title}</h5>}
-        {children && <div className="text-sm opacity-90">{children}</div>}
+    return (
+      <div ref={ref} className={cn(alertVariants({ variant }), className)} {...props}>
+        <Icon className="h-5 w-5 mt-0.5 shrink-0" />
+        <div className="flex-1">
+          {title && <h5 className="mb-1 font-medium leading-none tracking-tight">{title}</h5>}
+          {children && <div className="text-sm opacity-90">{children}</div>}
+        </div>
       </div>
-    </div>
-  )
-}
+    )
+  },
+)
+Alert.displayName = 'Alert'

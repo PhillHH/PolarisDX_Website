@@ -74,6 +74,13 @@
         }
       },
       "field_required": "Kies uw vakgebied zodat we het juiste panel voorbereiden.",
+      "panel_context_one": "Your enquiry refers to the panel {{panels}}.",
+      "panel_context_other": "Your enquiry refers to the panels {{panels}}.",
+      "errors": {
+        "name": "Please enter your name — at least two characters.",
+        "email": "Please enter a valid email address, for example name@practice.com.",
+        "consent": "Please tick the consent box so we may reply to your enquiry."
+      },
       "prepare_label": "Moeten we iets voorbereiden?",
       "prepare_placeholder": "Welke biomarkers interesseren u — CRP, TSH, HbA1c?",
       "consent": "Ik ga ermee akkoord dat mijn gegevens voor contact en eventuele vragen tot 12 maanden worden bewaard. Zie ons",
