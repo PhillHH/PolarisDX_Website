@@ -35,6 +35,11 @@ import Reveal, { REVEAL_STAGGER } from '../components/ui/Reveal'
 import ConsultSteps, { CONSULT_ID } from '../components/befund/ConsultSteps'
 import { ScaleRamp } from '../components/befund/BefundCharts'
 import { useScrollDepth } from '../lib/useScrollDepth'
+// Die Schnittstelle beschrieb `quote_request` als "der Weg Angebot anfragen
+// wurde begonnen" und wurde nirgends ausgeloest. Ohne dieses Ereignis laesst
+// sich nicht sagen, ob der umgebaute Anfrageweg traegt.
+import { track } from '../lib/tracking'
+import { useMerkliste } from '../lib/merkliste'
 
 // public/ wird nach dist/client kopiert — die oeffentliche URL ist /downloads/...
 const ASSET_BASE = '/downloads/epigenetics/'
@@ -109,6 +114,9 @@ const Sparkle = ({ className = '' }: { className?: string }) => (
 const EpigeneticsPage = () => {
   const { t, i18n } = useTranslation('epigenetics')
   useScrollDepth('epigenetics')
+  // Die vorgemerkten Panels reisen im Ereignis mit: eine Anfrage nach drei
+  // vorgemerkten Panels ist etwas anderes als eine aus dem Vorbeigehen.
+  const { slugs: gemerkt } = useMerkliste()
   // Acht Sprachen zeigen hier englischen Text — das muss ausgezeichnet werden.
   const englishFallback = isEnglishFallback(t('_translationStatus', { defaultValue: '' }))
 
@@ -316,6 +324,9 @@ const EpigeneticsPage = () => {
                       gleichrangiger Knopf gegenueber. */}
                   <Link
                     to="/contact?intent=quote&source=epigenetics#kontaktformular"
+                    onClick={() =>
+                      track({ name: 'quote_request', panels: gemerkt, quelle: 'landing' })
+                    }
                     className="mt-6 inline-flex items-center gap-1.5 text-base font-semibold text-accent-on-dark transition-colors hover:text-white"
                   >
                     {t('hero.ctaQuote')}
@@ -406,7 +417,7 @@ const EpigeneticsPage = () => {
                             key={`${row[0]}-${cellIndex}`}
                             className={
                               cellIndex === 0
-                                ? 'px-5 py-4 text-base font-semibold text-text-heading'
+                                ? 'px-5 py-4 text-base font-semibold text-heading'
                                 : 'px-5 py-4 text-base text-gray-700'
                             }
                           >
@@ -435,7 +446,7 @@ const EpigeneticsPage = () => {
                 <dl className="mt-4 grid gap-5 lg:grid-cols-3">
                   {scales.map((scale, scaleIndex) => (
                     <div key={`vergleich-${scale.k}`}>
-                      <dt className="text-base font-semibold text-text-heading">{scale.k}</dt>
+                      <dt className="text-base font-semibold text-heading">{scale.k}</dt>
                       <dd className="mt-2">
                         <ScaleRamp kind={SCALE_KINDS[scaleIndex] ?? 'deviation'} />
                         <p className={`mt-2 text-gray-700 ${BODY}`}>{scale.v}</p>
@@ -450,7 +461,7 @@ const EpigeneticsPage = () => {
               {compareShared.map((item, index) => (
                 <Reveal key={item.title} width="100%" delay={0.05 * index} className={STRETCH}>
                   <div className="h-full rounded-3xl border border-slate-200 bg-white p-6">
-                    <p className="text-lg font-semibold text-text-heading">{item.title}</p>
+                    <p className="text-lg font-semibold text-heading">{item.title}</p>
                     <p className={`mt-2 text-gray-700 ${BODY}`}>{item.text}</p>
                   </div>
                 </Reveal>
@@ -468,7 +479,7 @@ const EpigeneticsPage = () => {
                 <div className="mt-4 grid gap-5 lg:grid-cols-2">
                   {compareCaveats.map((item) => (
                     <div key={item.title}>
-                      <p className="text-base font-semibold text-text-heading">{item.title}</p>
+                      <p className="text-base font-semibold text-heading">{item.title}</p>
                       <p className={`mt-1.5 text-gray-700 ${BODY}`}>{item.text}</p>
                     </div>
                   ))}
@@ -513,7 +524,7 @@ const EpigeneticsPage = () => {
                 className={STRETCH}
               >
                 <div className="h-full rounded-3xl border border-slate-200 bg-white p-7">
-                  <h3 className="text-xl font-semibold tracking-tight text-text-heading">
+                  <h3 className="text-xl font-semibold tracking-tight text-heading">
                     {card.title}
                   </h3>
                   <p className={`mt-3 text-gray-600 ${BODY}`}>{card.text}</p>
@@ -563,7 +574,7 @@ const EpigeneticsPage = () => {
                       <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-deep text-sm font-semibold text-white">
                         {item.num}
                       </span>
-                      <h3 className="mt-1.5 text-xl font-semibold tracking-tight text-text-heading">
+                      <h3 className="mt-1.5 text-xl font-semibold tracking-tight text-heading">
                         {item.title}
                       </h3>
                     </div>
@@ -683,7 +694,7 @@ const EpigeneticsPage = () => {
                   <ul className="mt-6 space-y-6">
                     {established.map((item) => (
                       <li key={item.title}>
-                        <p className="text-lg font-semibold text-text-heading">{item.title}</p>
+                        <p className="text-lg font-semibold text-heading">{item.title}</p>
                         <p className={`mt-1.5 text-gray-700 ${BODY}`}>{item.text}</p>
                       </li>
                     ))}
@@ -700,7 +711,7 @@ const EpigeneticsPage = () => {
                   <ul className="mt-6 space-y-6">
                     {preliminary.map((item) => (
                       <li key={item.title}>
-                        <p className="text-lg font-semibold text-text-heading">{item.title}</p>
+                        <p className="text-lg font-semibold text-heading">{item.title}</p>
                         <p className={`mt-1.5 text-gray-600 ${BODY}`}>{item.text}</p>
                       </li>
                     ))}
@@ -730,7 +741,7 @@ const EpigeneticsPage = () => {
           <div className="mx-auto mt-10 max-w-[68ch] divide-y divide-slate-200 overflow-hidden rounded-3xl border border-slate-200 bg-white">
             {faq.map((item) => (
               <details key={item.q} className="group">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-6 text-left text-lg font-medium text-text-heading transition-colors hover:bg-slate-50 lg:px-8">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-6 text-left text-lg font-medium text-heading transition-colors hover:bg-slate-50 lg:px-8">
                   <span>{item.q}</span>
                   <ChevronDown className="h-5 w-5 shrink-0 text-brand-primary transition-transform duration-200 group-open:rotate-180" />
                 </summary>
@@ -797,7 +808,7 @@ const EpigeneticsPage = () => {
                         </span>
                         <FileText className="h-5 w-5 text-slate-300 transition-colors group-hover:text-brand-primary" />
                       </div>
-                      <h3 className="text-lg font-semibold tracking-tight text-text-heading">
+                      <h3 className="text-lg font-semibold tracking-tight text-heading">
                         {sheet.title}
                       </h3>
                       <p className="mt-2 text-base leading-7 text-gray-600">{sheet.desc}</p>
@@ -849,7 +860,7 @@ const EpigeneticsPage = () => {
             <Reveal width="100%">
               <div className="mt-8 flex flex-col gap-5 rounded-3xl border border-slate-200 bg-slate-50 p-7 sm:flex-row sm:items-center sm:justify-between">
                 <div className="max-w-[62ch]">
-                  <p className="text-lg font-semibold text-text-heading">
+                  <p className="text-lg font-semibold text-heading">
                     {t('downloads.samplesTitle')}
                   </p>
                   <p className={`mt-1.5 text-gray-700 ${BODY}`}>{t('downloads.samplesText')}</p>
@@ -881,10 +892,22 @@ const EpigeneticsPage = () => {
             />
             <p className={`mx-auto mt-4 max-w-[62ch] ${LEAD}`}>{t('contact.sub')}</p>
 
+            {/* Der Abschnitt heisst "Angebot anfragen" und hatte als
+                Primaerknopf die Mailadresse; ins Formular fuehrte nur ein
+                Textlink weiter unten, zwischen zwei themenfremden Links. Jetzt
+                traegt der Anfrageweg den Knopf und die beiden direkten
+                Kontaktwege stehen daneben. */}
             <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <Link
+                to="/contact?intent=quote&source=epigenetics#kontaktformular"
+                onClick={() => track({ name: 'quote_request', panels: gemerkt, quelle: 'landing' })}
+                className="inline-flex items-center justify-center rounded-full bg-accent-strong px-6 py-3.5 text-base font-semibold text-white transition-colors hover:brightness-110"
+              >
+                {t('hero.ctaQuote')}
+              </Link>
               <a
                 href="mailto:contact@polarisdx.net"
-                className="inline-flex items-center justify-center rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
+                className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
               >
                 contact@polarisdx.net
               </a>
@@ -897,10 +920,13 @@ const EpigeneticsPage = () => {
             </div>
 
             {/* Rechtlicher Hinweis — abgestimmt, bitte unveraendert lassen. */}
-            <p className="mx-auto mt-10 max-w-[68ch] text-sm leading-relaxed text-gray-500">
+            {/* CE- und Laborhinweis standen hier bei 3,2:1 bzw. 2,4:1 - unter
+                der Lesbarkeitsschwelle. Ein Pflichthinweis, den man nicht lesen
+                kann, ist keiner. */}
+            <p className="mx-auto mt-10 max-w-[68ch] text-sm leading-relaxed text-gray-700">
               {t('contact.note')}
             </p>
-            <p className="mt-3 text-sm text-gray-400">{t('contact.lab')}</p>
+            <p className="mt-3 text-sm text-gray-600">{t('contact.lab')}</p>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-base">
               <Link
@@ -914,12 +940,6 @@ const EpigeneticsPage = () => {
                 className="font-semibold text-brand-primary transition-colors hover:text-brand-deep"
               >
                 {t('links.downloads')} →
-              </Link>
-              <Link
-                to="/contact?intent=quote&source=epigenetics#kontaktformular"
-                className="font-semibold text-brand-primary transition-colors hover:text-brand-deep"
-              >
-                {t('links.contact')} →
               </Link>
             </div>
           </Reveal>

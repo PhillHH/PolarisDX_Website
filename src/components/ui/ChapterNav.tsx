@@ -231,7 +231,7 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
           // Natives details statt Menue-Nachbau — Tastatur und Screenreader
           // koennen das ohne Zutun.
           <details className="group relative shrink-0">
-            <summary className="flex h-9 cursor-pointer list-none items-center gap-1.5 rounded-full border border-slate-300 px-3 text-sm font-semibold text-text-heading transition-colors hover:border-brand-primary">
+            <summary className="flex h-9 cursor-pointer list-none items-center gap-1.5 rounded-full border border-slate-300 px-3 text-sm font-semibold text-heading transition-colors hover:border-brand-primary">
               <span className="max-w-[9rem] truncate lg:max-w-none">{switcher.current}</span>
               <ChevronDown
                 className="h-4 w-4 shrink-0 text-brand-primary motion-safe:transition-transform group-open:rotate-180"
@@ -239,7 +239,7 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
               />
             </summary>
             <div className="absolute left-0 top-full z-30 mt-2 w-64 overflow-hidden rounded-2xl border border-slate-200 bg-white py-2 shadow-lg">
-              <p className="px-4 pb-1 pt-1 text-xs font-medium text-gray-500">{switcher.label}</p>
+              <p className="px-4 pb-1 pt-1 text-xs font-medium text-gray-600">{switcher.label}</p>
               {switcher.entries.map((o) => (
                 <Link
                   key={o.slug}
@@ -248,7 +248,7 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
                   className={`block px-4 py-2.5 text-base transition-colors hover:bg-slate-50 ${
                     o.slug === switcher.currentSlug
                       ? 'font-semibold text-brand-primary'
-                      : 'text-text-heading'
+                      : 'text-heading'
                   }`}
                 >
                   {o.panel}
@@ -275,7 +275,7 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
               <span className="shrink-0 font-semibold">{chaptersLabel}</span>
               <span className="min-w-0 flex-1 truncate text-left text-gray-600">{aktivLabel}</span>
               {chapters.length > 0 ? (
-                <span className="shrink-0 text-xs font-medium tabular-nums text-gray-500">
+                <span className="shrink-0 text-xs font-medium tabular-nums text-gray-600">
                   {Math.max(aktivIndex, 0) + 1}/{chapters.length}
                 </span>
               ) : null}
@@ -297,7 +297,7 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
                     className={`flex min-h-[44px] items-center rounded-xl px-4 py-2 text-base ${
                       active === c.id
                         ? 'bg-brand-deep font-semibold text-white'
-                        : 'text-text-heading hover:bg-slate-50'
+                        : 'text-heading hover:bg-slate-50'
                     }`}
                   >
                     {c.label}

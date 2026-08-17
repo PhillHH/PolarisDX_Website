@@ -165,7 +165,7 @@ const MusterbefundPage = () => {
           noindex
         />
         <div className="mx-auto max-w-container px-4 py-24 lg:px-0 lg:py-32">
-          <h1 className="text-3xl font-semibold tracking-tight text-text-heading">
+          <h1 className="text-3xl font-semibold tracking-tight text-heading">
             {t('befund.notFoundTitle')}
           </h1>
           <p className="mt-4 max-w-[62ch] text-lg text-gray-600">{t('befund.notFoundText')}</p>
@@ -344,7 +344,7 @@ const MusterbefundPage = () => {
         ]}
       />
 
-      <div className="bg-white text-text-heading" lang={englishFallback ? 'en' : undefined}>
+      <div className="bg-white text-heading" lang={englishFallback ? 'en' : undefined}>
         {englishFallback ? <LanguageFallbackNotice lang={i18n.language} /> : null}
         <div className="bg-brand-deep">
           <div className="mx-auto max-w-container px-4 pt-28 lg:px-0 lg:pt-32">

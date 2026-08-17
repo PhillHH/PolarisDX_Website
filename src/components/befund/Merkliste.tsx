@@ -107,15 +107,13 @@ export const Merkliste = ({ className = '' }: { className?: string }) => {
       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
         {t('merk.caption')}
       </p>
-      <h2 className="mt-2 text-2xl font-semibold tracking-tight text-text-heading">
-        {t('merk.title')}
-      </h2>
+      <h2 className="mt-2 text-2xl font-semibold tracking-tight text-heading">{t('merk.title')}</h2>
       <p className="mt-3 max-w-[72ch] text-base leading-7 text-gray-700">{t('merk.lead')}</p>
 
       <ul className="mt-6 flex flex-wrap gap-3">
         {slugs.map((slug) => (
           <li key={slug}>
-            <span className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white py-1.5 pl-4 pr-1.5 text-base font-medium text-text-heading">
+            <span className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white py-1.5 pl-4 pr-1.5 text-base font-medium text-heading">
               {names[slug] ?? slug}
               <button
                 type="button"

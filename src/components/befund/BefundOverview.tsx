@@ -134,7 +134,7 @@ const BefundOverview = ({ blocks, labels }: { blocks: Block[]; labels: Labels })
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
           {labels.caption}
         </p>
-        <h2 className="mt-3 text-2xl font-medium tracking-tight text-text-heading lg:text-3xl">
+        <h2 className="mt-3 text-2xl font-medium tracking-tight text-heading lg:text-3xl">
           {labels.title}
         </h2>
         <p className="mt-3 max-w-[72ch] text-lg leading-8 text-gray-700">{labels.lead}</p>
@@ -151,13 +151,9 @@ const BefundOverview = ({ blocks, labels }: { blocks: Block[]; labels: Labels })
           {entries.map((e, i) => {
             const inner = (
               <>
-                <span className="min-w-0 flex-1 truncate text-base text-text-heading">
-                  {e.name}
-                </span>
+                <span className="min-w-0 flex-1 truncate text-base text-heading">{e.name}</span>
                 {e.display ? (
-                  <span className="shrink-0 text-base font-semibold text-text-heading">
-                    {e.display}
-                  </span>
+                  <span className="shrink-0 text-base font-semibold text-heading">{e.display}</span>
                 ) : null}
                 {e.status ? <ToneBadge tone={e.tone}>{e.status}</ToneBadge> : null}
               </>
