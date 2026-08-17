@@ -12,43 +12,9 @@
 
 import type { ReactNode } from 'react'
 
-export type Tone = 'red' | 'amber' | 'green'
-
-/** Vollstaendig ausgeschriebene Klassen — Tailwind scannt statisch. */
-const TONE = {
-  red: {
-    fill: 'fill-befund-red-ink',
-    stroke: 'stroke-befund-red-ink',
-    text: 'text-befund-red-ink',
-    zone: 'fill-befund-red-soft',
-    band: 'bg-befund-red-soft',
-    ink: 'text-befund-red-ink',
-    border: 'border-befund-red-ink',
-    dot: 'bg-befund-red-ink',
-  },
-  amber: {
-    fill: 'fill-befund-amber-ink',
-    stroke: 'stroke-befund-amber-ink',
-    text: 'text-befund-amber-ink',
-    zone: 'fill-befund-amber-soft',
-    band: 'bg-befund-amber-soft',
-    ink: 'text-befund-amber-ink',
-    border: 'border-befund-amber-ink',
-    dot: 'bg-befund-amber-ink',
-  },
-  green: {
-    fill: 'fill-befund-green-ink',
-    stroke: 'stroke-befund-green-ink',
-    text: 'text-befund-green-ink',
-    zone: 'fill-befund-green-soft',
-    band: 'bg-befund-green-soft',
-    ink: 'text-befund-green-ink',
-    border: 'border-befund-green-ink',
-    dot: 'bg-befund-green-ink',
-  },
-} as const
-
-export const toneClasses = (tone?: string) => TONE[(tone as Tone) ?? 'green'] ?? TONE.green
+// Die Farbtabelle liegt in tone.ts — siehe dort, warum sie diese Datei
+// verlassen hat. Wer sie braucht, importiert von dort, nicht von hier.
+import { toneClasses, type Tone } from './tone'
 
 /** Einordnungs-Plakette, wie im PDF neben jedem Wert. */
 export const ToneBadge = ({ tone, children }: { tone?: string; children: ReactNode }) => {
@@ -117,6 +83,53 @@ const domainFor = (kind: string, value: number) => {
   // Unbekannte Skala: eine Spanne um den Wert, damit die Marke nicht am Rand klebt.
   const pad = Math.max(5, Math.abs(value) * 0.25)
   return { min: value - pad, max: value + pad }
+}
+
+/**
+ * Die Rampe ohne Wert — nur die Zonen einer Ergebnisform.
+ *
+ * Die Vergleichstabelle nennt drei Ergebnisformen nebeneinander und erklaert
+ * sie in der Legende bisher nur in Worten. Damit blieb die wichtigste Spalte
+ * der Auswahl abstrakt. Die Rampe zeigt jede Form in derselben Farbfolge und
+ * derselben Leserichtung, in der sie spaeter im Befund wieder auftaucht.
+ *
+ * Wo das Quelldokument keine Schwellen ausweist — die Jahresskala —, bleibt
+ * sie grau. Eine eingefaerbte Rampe waere dort eine Aussage ueber Grenzen,
+ * die es nicht gibt.
+ *
+ * Rein schmueckend: die Legende danebendran sagt dasselbe in Worten, deshalb
+ * aria-hidden statt einer zweiten Vorlesung fuer den Screenreader.
+ */
+export const ScaleRamp = ({ kind }: { kind: string }) => {
+  const zones = zonesFor(kind)
+  const dom = domainFor(kind, 0)
+  const span = dom.max - dom.min || 1
+  const W = 100
+  const H = 8
+
+  return (
+    <svg
+      viewBox={`0 0 ${W} ${H}`}
+      preserveAspectRatio="none"
+      aria-hidden="true"
+      className="h-2 w-full rounded-full"
+    >
+      {zones.length > 0 ? (
+        zones.map((z) => (
+          <rect
+            key={z.tone}
+            x={((z.from - dom.min) / span) * W}
+            y={0}
+            width={((z.to - z.from) / span) * W}
+            height={H}
+            className={toneClasses(z.tone).zone}
+          />
+        ))
+      ) : (
+        <rect x={0} y={0} width={W} height={H} className="fill-slate-100" />
+      )}
+    </svg>
+  )
 }
 
 export const ScaleBar = ({
@@ -203,7 +216,9 @@ export const ScaleBar = ({
           {zoneLabels.map((z, i) => (
             <span
               key={z}
-              className={i === 0 ? 'text-left' : i === zoneLabels.length - 1 ? 'text-right' : 'text-center'}
+              className={
+                i === 0 ? 'text-left' : i === zoneLabels.length - 1 ? 'text-right' : 'text-center'
+              }
             >
               {z}
             </span>
@@ -581,11 +596,11 @@ export const EvaluationBars = ({
             <rect x={0} y={0} width={90} height={8} className="fill-slate-100" />
             <rect x={0} y={0} width={(item.value / 9) * 90} height={8} className={t.fill} />
           </svg>
-          <span className={`whitespace-nowrap text-right text-base font-semibold tabular-nums ${t.text}`}>
+          <span
+            className={`whitespace-nowrap text-right text-base font-semibold tabular-nums ${t.text}`}
+          >
             {item.value}/9
-            {item.status ? (
-              <span className="ml-2 font-medium">· {item.status}</span>
-            ) : null}
+            {item.status ? <span className="ml-2 font-medium">· {item.status}</span> : null}
           </span>
         </div>
       )

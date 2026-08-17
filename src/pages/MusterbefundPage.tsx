@@ -37,6 +37,7 @@ import ChapterNav, { type Chapter, type NavAction } from '../components/ui/Chapt
 import { BEFUNDE, BEFUND_ORDER, RADAR_VALUES } from '../content/befunde'
 import { LEGACY_ANCHORS } from '../content/befunde/legacyAnchors'
 import { isEnglishFallback } from '../lib/translationStatus'
+import { useScrollDepth } from '../lib/useScrollDepth'
 import { BEFUND_IMAGES } from '../assets/epigenetics/befundImages'
 
 const ASSET_BASE = '/downloads/epigenetics/'
@@ -133,6 +134,10 @@ const MusterbefundPage = () => {
     document.addEventListener('click', aufklappen)
     return () => document.removeEventListener('click', aufklappen)
   }, [])
+
+  // Vor dem fruehen Ausstieg fuer unbekannte Slugs: Hooks duerfen nicht hinter
+  // einem return stehen.
+  useScrollDepth('musterbefund', slug)
 
   const lang = i18n.language?.startsWith('de') ? 'de' : 'en'
 

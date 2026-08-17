@@ -32,10 +32,18 @@ import PageTransition from '../components/ui/PageTransition'
 import ChapterNav, { type Chapter, type NavAction } from '../components/ui/ChapterNav'
 import Reveal from '../components/ui/Reveal'
 import ConsultSteps, { CONSULT_ID } from '../components/befund/ConsultSteps'
+import { ScaleRamp } from '../components/befund/BefundCharts'
 import { isEnglishFallback } from '../lib/translationStatus'
+import { useScrollDepth } from '../lib/useScrollDepth'
 
 // public/ wird nach dist/client kopiert — die oeffentliche URL ist /downloads/...
 const ASSET_BASE = '/downloads/epigenetics/'
+
+// Die drei Eintraege in basics.scales stehen in allen Sprachen in derselben
+// Reihenfolge — Ampel, Prozent, Jahre. Sie tragen keinen eigenen Typschluessel,
+// deshalb haengt die Rampe positionell daran. Kommt eine vierte Ergebnisform
+// dazu, faellt sie auf die neutrale Rampe zurueck statt auf eine falsche.
+const SCALE_KINDS = ['traffic', 'percent', 'deviation']
 
 // Reveal rendert zwei verschachtelte divs; damit Grid-Karten auf Reihenhoehe
 // wachsen, muss h-full auf beide.
@@ -100,6 +108,7 @@ const Sparkle = ({ className = '' }: { className?: string }) => (
 
 const EpigeneticsPage = () => {
   const { t } = useTranslation('epigenetics')
+  useScrollDepth('epigenetics')
   // Acht Sprachen zeigen diese Seite auf Englisch (Marker `_translationStatus`
   // im Namensraum). Ohne Auszeichnung liest ein tschechischer Screenreader den
   // englischen Text mit tschechischer Phonetik vor — WCAG 3.1.2, Level AA.
@@ -458,10 +467,13 @@ const EpigeneticsPage = () => {
               <div className="mt-6 rounded-3xl border border-slate-200 bg-white p-7">
                 <p className={LABEL}>{t('basics.scaleTitle')}</p>
                 <dl className="mt-4 grid gap-5 lg:grid-cols-3">
-                  {scales.map((scale) => (
+                  {scales.map((scale, scaleIndex) => (
                     <div key={`vergleich-${scale.k}`}>
                       <dt className="text-base font-semibold text-text-heading">{scale.k}</dt>
-                      <dd className={`mt-1.5 text-gray-700 ${BODY}`}>{scale.v}</dd>
+                      <dd className="mt-2">
+                        <ScaleRamp kind={SCALE_KINDS[scaleIndex] ?? 'deviation'} />
+                        <p className={`mt-2 text-gray-700 ${BODY}`}>{scale.v}</p>
+                      </dd>
                     </div>
                   ))}
                 </dl>

@@ -19,11 +19,12 @@ import {
   ScaleBar,
   ToneBadge,
   TrendChart,
-  toneClasses,
 } from './BefundCharts'
+import { toneClasses } from './tone'
 // Die Miniatur holt sich von hier nur den Typ `Block` zurueck. `import type`
 // wird beim Bauen entfernt — zur Laufzeit entsteht kein Ringschluss.
 import BefundMiniature from './BefundMiniature'
+import { trackEvent } from '../../lib/tracking'
 
 const BODY = 'text-base leading-7 lg:text-[17px] lg:leading-8'
 const LEAD = 'text-lg leading-relaxed text-gray-600'
@@ -116,7 +117,24 @@ const Section = ({ children }: { children: ReactNode }) => {
    */
   return (
     <section id={id} className={shell}>
-      <details className="group mx-auto max-w-container px-4 lg:px-0">
+      <details
+        className="group mx-auto max-w-container px-4 lg:px-0"
+        /*
+         * Die Aufklapp-Rate ist die einzige Messgroesse, die es vor der
+         * Staffelung nicht geben konnte: sie sagt, welche Tiefe wirklich
+         * gebraucht wird. Ein Kapitel, das niemand oeffnet, ist der erste
+         * Kandidat fuers Kuerzen — ein Kapitel, das fast jeder oeffnet, gehoert
+         * womoeglich wieder aufgeklappt.
+         *
+         * Nur das Oeffnen wird gemeldet. Das Zuklappen sagt nichts Eigenes:
+         * wer zuklappt, hat vorher geoeffnet und ist damit schon gezaehlt.
+         */
+        onToggle={(e) => {
+          if (e.currentTarget.open) {
+            trackEvent('befund_block_open', { block: id ?? 'ohne-anker', label })
+          }
+        }}
+      >
         <summary className="flex cursor-pointer list-none items-center gap-4 py-7 [&::-webkit-details-marker]:hidden">
           {/*
            * Die Ueberschrift steht als echtes h2 im Aufklapper, nicht als span.
@@ -249,6 +267,16 @@ const Cover = ({ b, slug }: { b: Block; slug?: string }) => {
     str(b.panel) ?? '',
   )}#kontaktformular`
 
+  // Die sechs Panels stehen sichtbar im Hero, nicht nur im Aufklappmenue der
+  // Kapitelleiste. Grund: ein Drittel der Sitzungen betritt die Website ueber
+  // eine dieser sechs Seiten. Wer hier einsteigt, sieht sonst nirgends, dass es
+  // fuenf weitere gibt — er muesste erst ein Menue oeffnen, von dem er nicht
+  // weiss, dass es eines ist. Die Namen kommen aus derselben Quelle wie die
+  // Fakten oben: compare.rows[n][0], in allen zehn Sprachen vorhanden.
+  const panels = samples
+    .map((s, n) => ({ slug: s.slug, name: rows[n]?.[0] }))
+    .filter((p): p is { slug: string; name: string } => Boolean(p.slug && p.name))
+
   return (
     <section className="relative overflow-hidden bg-brand-deep text-white">
       <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
@@ -270,8 +298,13 @@ const Cover = ({ b, slug }: { b: Block; slug?: string }) => {
           {str(b.benefit) || str(b.claim)}
         </p>
 
+        {/* Die Faktenachsen stehen schon auf dem schmalsten Geraet zweispaltig:
+            fuenf gestapelte Karten schoben CTA und Panelreihe rund 450 px nach
+            unten, und genau die beiden sind der Grund, warum jemand ueberhaupt
+            auf dieser Seite einsteigt. Die Achsenwerte sind kurz genug fuer die
+            halbe Breite. */}
         {facts.length > 0 ? (
-          <dl className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+          <dl className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-5">
             {facts.map((f) => (
               <div key={f.k} className="rounded-2xl border border-white/15 bg-white/10 px-5 py-4">
                 <dt className="text-xs font-medium text-white/60">{f.k}</dt>
@@ -297,6 +330,51 @@ const Cover = ({ b, slug }: { b: Block; slug?: string }) => {
             </a>
           ) : null}
         </div>
+
+        {panels.length > 1 ? (
+          <nav aria-label={t('samples.caption')} className="mt-12 border-t border-white/15 pt-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/50">
+              {t('samples.caption')}
+            </p>
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {panels.map((p) => {
+                const aktuell = p.slug === slug
+                // Der Punkt vor dem Namen traegt die Reihe optisch — gefuellt
+                // fuer das Panel, auf dem der Leser steht. Der Name bleibt
+                // trotzdem stehen: sechs nackte Punkte waeren sechs Raetsel.
+                const punkt = (
+                  <span
+                    aria-hidden="true"
+                    className={`h-1.5 w-1.5 shrink-0 rounded-full ${
+                      aktuell ? 'bg-brand-deep' : 'bg-white/40'
+                    }`}
+                  />
+                )
+                return (
+                  <li key={p.slug}>
+                    {aktuell ? (
+                      <span
+                        aria-current="page"
+                        className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-brand-deep"
+                      >
+                        {punkt}
+                        {p.name}
+                      </span>
+                    ) : (
+                      <Link
+                        to={`/epigenetics/musterbefund/${p.slug}`}
+                        className="inline-flex items-center gap-2 rounded-full border border-white/25 px-4 py-2 text-sm font-medium text-white/80 transition-colors hover:border-white/60 hover:text-white"
+                      >
+                        {punkt}
+                        {p.name}
+                      </Link>
+                    )}
+                  </li>
+                )
+              })}
+            </ul>
+          </nav>
+        ) : null}
       </div>
     </section>
   )
