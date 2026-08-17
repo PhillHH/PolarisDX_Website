@@ -37,6 +37,7 @@ import ConsultSteps, { CONSULT_ID } from '../components/befund/ConsultSteps'
 import { MerkButton, Merkliste } from '../components/befund/Merkliste'
 import ChapterNav, { type Chapter, type NavAction } from '../components/ui/ChapterNav'
 import { BEFUNDE, BEFUND_ORDER, RADAR_VALUES } from '../content/befunde'
+import { useScrollDepth } from '../lib/useScrollDepth'
 import { BEFUND_IMAGES } from '../assets/epigenetics/befundImages'
 import { LEGACY_ANCHORS } from '../content/befunde/legacyAnchors'
 
@@ -134,6 +135,10 @@ const MusterbefundPage = () => {
 
   // Acht Sprachen zeigen hier englischen Text — das muss ausgezeichnet werden.
   const englishFallback = isEnglishFallback(t('_translationStatus', { defaultValue: '' }))
+
+  // Vor dem fruehen Ausstieg fuer unbekannte Slugs: Hooks duerfen nicht hinter
+  // einem return stehen.
+  useScrollDepth('musterbefund', slug)
   const lang = i18n.language?.startsWith('de') ? 'de' : 'en'
 
   const befund = BEFUNDE[slug]?.[lang] ?? BEFUNDE[slug]?.de
@@ -217,6 +222,7 @@ const MusterbefundPage = () => {
     collapsed?: boolean
     label?: string
     hint?: string
+    panel?: string
   }[] = []
   // Schleife statt map: `tint` traegt Zustand von Block zu Block weiter. In
   // einem map-Callback ist das eine Zuweisung waehrend des Renderings —
@@ -251,6 +257,7 @@ const MusterbefundPage = () => {
       collapsed,
       label: collapsed ? toLabel(title) : undefined,
       hint: n > 0 ? t('befund.entryCount', { count: n }) : undefined,
+      panel: slug,
     })
   }
 

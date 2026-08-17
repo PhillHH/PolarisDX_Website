@@ -33,9 +33,17 @@ import PageTransition from '../components/ui/PageTransition'
 import ChapterNav, { type Chapter, type NavAction } from '../components/ui/ChapterNav'
 import Reveal, { REVEAL_STAGGER } from '../components/ui/Reveal'
 import ConsultSteps, { CONSULT_ID } from '../components/befund/ConsultSteps'
+import { ScaleRamp } from '../components/befund/BefundCharts'
+import { useScrollDepth } from '../lib/useScrollDepth'
 
 // public/ wird nach dist/client kopiert — die oeffentliche URL ist /downloads/...
 const ASSET_BASE = '/downloads/epigenetics/'
+
+// Die drei Eintraege in basics.scales stehen in allen Sprachen in derselben
+// Reihenfolge — Ampel, Prozent, Jahre. Sie tragen keinen eigenen Typschluessel,
+// deshalb haengt die Rampe positionell daran. Kommt eine vierte Ergebnisform
+// dazu, faellt sie auf die neutrale Rampe zurueck statt auf eine falsche.
+const SCALE_KINDS = ['traffic', 'percent', 'deviation']
 
 // Reveal rendert zwei verschachtelte divs; damit Grid-Karten auf Reihenhoehe
 // wachsen, muss h-full auf beide.
@@ -100,6 +108,7 @@ const Sparkle = ({ className = '' }: { className?: string }) => (
 
 const EpigeneticsPage = () => {
   const { t, i18n } = useTranslation('epigenetics')
+  useScrollDepth('epigenetics')
   // Acht Sprachen zeigen hier englischen Text — das muss ausgezeichnet werden.
   const englishFallback = isEnglishFallback(t('_translationStatus', { defaultValue: '' }))
 
@@ -417,6 +426,26 @@ const EpigeneticsPage = () => {
               <p className="mt-3 text-sm text-gray-500 lg:hidden">{t('compare.scrollHint')}</p>
             </Reveal>
 
+            {/* Die Ergebnisformen der letzten Spalte werden hier erklaert und
+                nicht erst rund 4.900px weiter unten unter "Werte verstehen".
+                Eine Legende, die man erst suchen muss, ist keine Legende. */}
+            <Reveal width="100%">
+              <div className="mt-6 rounded-3xl border border-slate-200 bg-white p-7">
+                <p className={LABEL}>{t('basics.scaleTitle')}</p>
+                <dl className="mt-4 grid gap-5 lg:grid-cols-3">
+                  {scales.map((scale, scaleIndex) => (
+                    <div key={`vergleich-${scale.k}`}>
+                      <dt className="text-base font-semibold text-text-heading">{scale.k}</dt>
+                      <dd className="mt-2">
+                        <ScaleRamp kind={SCALE_KINDS[scaleIndex] ?? 'deviation'} />
+                        <p className={`mt-2 text-gray-700 ${BODY}`}>{scale.v}</p>
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </Reveal>
+
             <div className="mt-6 grid gap-5 lg:grid-cols-3">
               {compareShared.map((item, index) => (
                 <Reveal key={item.title} width="100%" delay={0.05 * index} className={STRETCH}>
@@ -547,21 +576,10 @@ const EpigeneticsPage = () => {
               ))}
             </div>
 
-            <Reveal width="100%">
-              <div className="mt-6 rounded-3xl border border-slate-200 bg-white p-7">
-                <p className={LABEL}>{t('basics.scaleTitle')}</p>
-                <dl className="mt-4 grid gap-5 lg:grid-cols-3">
-                  {scales.map((scale) => (
-                    <div key={scale.k}>
-                      <dt className="text-base font-semibold text-text-heading">{scale.k}</dt>
-                      <dd className={`mt-1.5 text-gray-700 ${BODY}`}>{scale.v}</dd>
-                    </div>
-                  ))}
-                </dl>
-                {/* Der Download der ausfuehrlichen Fassung stand hier als
-                    einzelner Knopf — er liegt jetzt im Unterlagen-Abschnitt. */}
-              </div>
-            </Reveal>
+            {/* Die Skalenlegende steht jetzt direkt unter der
+                Vergleichstabelle, wo die Ergebnisformen auftauchen. Der
+                Download der ausfuehrlichen Fassung stand hier als einzelner
+                Knopf — er liegt jetzt im Unterlagen-Abschnitt. */}
           </div>
         </section>
 

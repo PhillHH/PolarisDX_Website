@@ -19,11 +19,13 @@ import {
   ScaleBar,
   ToneBadge,
   TrendChart,
-  toneClasses,
 } from './BefundCharts'
+import { toneClasses } from './tone'
 // Die Miniatur holt sich von hier nur den Typ `Block` zurueck. `import type`
 // wird beim Bauen entfernt — zur Laufzeit entsteht kein Ringschluss.
 import BefundMiniature from './BefundMiniature'
+import { track } from '../../lib/tracking'
+import { MERK_SLUGS, type MerkSlug } from '../../lib/merkliste'
 
 const BODY = 'text-base leading-7 lg:text-[17px] lg:leading-8'
 const LEAD = 'text-lg leading-relaxed text-gray-600'
@@ -54,6 +56,12 @@ const BlockChrome = createContext<{
   label?: string
   /** Zweite Zeile im Aufklapper, etwa die Zahl der Werte darin. */
   hint?: string
+  /**
+   * Slug des Panels, zu dem der Block gehoert. Nur die Aufklapp-Messung
+   * braucht ihn: das Ereignis `chapter_toggle` will wissen, in welchem der
+   * sechs Befunde das Kapitel aufgegangen ist.
+   */
+  panel?: string
 }>({ tint: false })
 export const BlockChromeProvider = BlockChrome.Provider
 
@@ -93,7 +101,7 @@ const Head = ({ caption, title, lead }: { caption?: string; title?: string; lead
  * Seitenkopf (68/88 px) und Leiste (~56 px) frei.
  */
 const Section = ({ children }: { children: ReactNode }) => {
-  const { tint, id, collapsed, label, hint } = useContext(BlockChrome)
+  const { tint, id, collapsed, label, hint, panel } = useContext(BlockChrome)
   const shell = `scroll-mt-[var(--chapterbar-offset,148px)] ${
     tint ? 'border-y border-slate-200 bg-slate-50' : 'bg-white'
   }`
@@ -116,7 +124,32 @@ const Section = ({ children }: { children: ReactNode }) => {
    */
   return (
     <section id={id} className={shell}>
-      <details className="group mx-auto max-w-container px-4 lg:px-0">
+      <details
+        className="group mx-auto max-w-container px-4 lg:px-0"
+        /*
+         * Die Aufklapp-Rate ist die einzige Messgroesse, die es vor der
+         * Staffelung nicht geben konnte: sie sagt, welche Tiefe wirklich
+         * gebraucht wird. Ein Kapitel, das niemand oeffnet, ist der erste
+         * Kandidat fuers Kuerzen — ein Kapitel, das fast jeder oeffnet, gehoert
+         * womoeglich wieder aufgeklappt.
+         *
+         * Auf- und Zuklappen gehen beide raus — so ist das Ereignis in
+         * tracking.ts beschrieben, und das Zuklappen sagt fuer sich genommen
+         * etwas: ein Kapitel, das reihenweise sofort wieder geschlossen wird,
+         * hat die falsche Ueberschrift.
+         */
+        onToggle={(e) => {
+          // Ohne Anker oder ohne bekanntes Panel laesst sich das Ereignis
+          // keiner Stelle zuordnen — dann lieber gar nichts melden.
+          if (!id || !panel || !(MERK_SLUGS as readonly string[]).includes(panel)) return
+          track({
+            name: 'chapter_toggle',
+            panel: panel as MerkSlug,
+            block: id,
+            offen: e.currentTarget.open,
+          })
+        }}
+      >
         <summary className="flex cursor-pointer list-none items-center gap-4 py-7 [&::-webkit-details-marker]:hidden">
           {/*
            * Die Ueberschrift steht als echtes h2 im Aufklapper, nicht als span.
@@ -249,6 +282,16 @@ const Cover = ({ b, slug }: { b: Block; slug?: string }) => {
     str(b.panel) ?? '',
   )}#kontaktformular`
 
+  // Die sechs Panels stehen sichtbar im Hero, nicht nur im Aufklappmenue der
+  // Kapitelleiste. Grund: ein Drittel der Sitzungen betritt die Website ueber
+  // eine dieser sechs Seiten. Wer hier einsteigt, sieht sonst nirgends, dass es
+  // fuenf weitere gibt — er muesste erst ein Menue oeffnen, von dem er nicht
+  // weiss, dass es eines ist. Die Namen kommen aus derselben Quelle wie die
+  // Fakten oben: compare.rows[n][0], in allen zehn Sprachen vorhanden.
+  const panels = samples
+    .map((s, n) => ({ slug: s.slug, name: rows[n]?.[0] }))
+    .filter((p): p is { slug: string; name: string } => Boolean(p.slug && p.name))
+
   return (
     <section className="relative overflow-hidden bg-brand-deep text-white">
       <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
@@ -270,8 +313,13 @@ const Cover = ({ b, slug }: { b: Block; slug?: string }) => {
           {str(b.benefit) || str(b.claim)}
         </p>
 
+        {/* Die Faktenachsen stehen schon auf dem schmalsten Geraet zweispaltig:
+            fuenf gestapelte Karten schoben CTA und Panelreihe rund 450 px nach
+            unten, und genau die beiden sind der Grund, warum jemand ueberhaupt
+            auf dieser Seite einsteigt. Die Achsenwerte sind kurz genug fuer die
+            halbe Breite. */}
         {facts.length > 0 ? (
-          <dl className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+          <dl className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-5">
             {facts.map((f) => (
               <div key={f.k} className="rounded-2xl border border-white/15 bg-white/10 px-5 py-4">
                 <dt className="text-xs font-medium text-white/60">{f.k}</dt>
@@ -297,6 +345,51 @@ const Cover = ({ b, slug }: { b: Block; slug?: string }) => {
             </a>
           ) : null}
         </div>
+
+        {panels.length > 1 ? (
+          <nav aria-label={t('samples.caption')} className="mt-12 border-t border-white/15 pt-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/50">
+              {t('samples.caption')}
+            </p>
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {panels.map((p) => {
+                const aktuell = p.slug === slug
+                // Der Punkt vor dem Namen traegt die Reihe optisch — gefuellt
+                // fuer das Panel, auf dem der Leser steht. Der Name bleibt
+                // trotzdem stehen: sechs nackte Punkte waeren sechs Raetsel.
+                const punkt = (
+                  <span
+                    aria-hidden="true"
+                    className={`h-1.5 w-1.5 shrink-0 rounded-full ${
+                      aktuell ? 'bg-brand-deep' : 'bg-white/40'
+                    }`}
+                  />
+                )
+                return (
+                  <li key={p.slug}>
+                    {aktuell ? (
+                      <span
+                        aria-current="page"
+                        className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-brand-deep"
+                      >
+                        {punkt}
+                        {p.name}
+                      </span>
+                    ) : (
+                      <Link
+                        to={`/epigenetics/musterbefund/${p.slug}`}
+                        className="inline-flex items-center gap-2 rounded-full border border-white/25 px-4 py-2 text-sm font-medium text-white/80 transition-colors hover:border-white/60 hover:text-white"
+                      >
+                        {punkt}
+                        {p.name}
+                      </Link>
+                    )}
+                  </li>
+                )
+              })}
+            </ul>
+          </nav>
+        ) : null}
       </div>
     </section>
   )

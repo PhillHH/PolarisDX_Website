@@ -31,7 +31,7 @@
 
 import { useId } from 'react'
 import { useTranslation } from 'react-i18next'
-import { toneClasses } from './BefundCharts'
+import { toneClasses } from './tone'
 import type { Block } from './BefundBlocks'
 
 const arr = <T,>(v: unknown): T[] => (Array.isArray(v) ? (v as T[]) : [])
