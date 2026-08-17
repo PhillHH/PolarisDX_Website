@@ -264,7 +264,7 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
               />
             </summary>
             <div className="absolute left-0 top-full z-30 mt-2 w-64 overflow-hidden rounded-2xl border border-slate-200 bg-white py-2 shadow-lg">
-              <p className="px-4 pb-1 pt-1 text-xs font-medium text-gray-500">{switcher.label}</p>
+              <p className="px-4 pb-1 pt-1 text-xs font-medium text-gray-600">{switcher.label}</p>
               {/* Der aktuelle Befund faellt raus — er steht schon im Ausloeser.
                   Vorher stand er hier als hervorgehobener Eintrag: ein Klick
                   darauf fuehrte auf dieselbe Seite und liess das Menue offen.
@@ -303,7 +303,7 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
               <span className="shrink-0 font-semibold">{chaptersLabel}</span>
               <span className="min-w-0 flex-1 truncate text-left text-gray-600">{aktivLabel}</span>
               {chapters.length > 0 ? (
-                <span className="shrink-0 text-xs font-medium tabular-nums text-gray-500">
+                <span className="shrink-0 text-xs font-medium tabular-nums text-gray-600">
                   {Math.max(aktivIndex, 0) + 1}/{chapters.length}
                 </span>
               ) : null}

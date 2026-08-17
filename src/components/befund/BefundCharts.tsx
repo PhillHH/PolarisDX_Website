@@ -157,15 +157,18 @@ export const ScaleBar = ({
     <div>
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-2">
         <span className={`text-3xl font-semibold tabular-nums ${t.text}`}>{display}</span>
-        {sub ? <span className="text-base text-gray-500">{sub}</span> : null}
+        {sub ? <span className="text-base text-gray-600">{sub}</span> : null}
         {status ? <ToneBadge tone={tone}>{status}</ToneBadge> : null}
       </div>
 
+      {/* Die Spur ist Beiwerk: der Wert steht als Text direkt darueber, die
+          Zonen erklaert die Legende. Ein aria-label haette ihn ein zweites Mal
+          vorgelesen — und in der Legende selbst, wo gar kein Wert uebergeben
+          wird, meldete es "Grafik, Wert" ohne Wert. */}
       <svg
         viewBox={`0 0 ${W} ${H}`}
         preserveAspectRatio="none"
-        role="img"
-        aria-label={`Wert ${display ?? value}`}
+        aria-hidden="true"
         className="mt-3 h-2.5 w-full"
       >
         {zones.length > 0 ? (
@@ -301,8 +304,7 @@ export const AgeDots = ({
                 <span
                   className={`absolute top-1/2 h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full ring-2 ring-white ${t.band}`}
                   style={{ left: `${pct(item.age)}%` }}
-                  role="img"
-                  aria-label={`${item.label}: ${item.age} ${unit}`}
+                  aria-hidden="true"
                 >
                   <span
                     className={`block h-full w-full rounded-full border-[3px] border-current ${t.text}`}
@@ -341,6 +343,8 @@ interface RadarProps {
   labels?: { profile?: string; reference?: string }
   max?: number
   rings?: number
+  /** Textalternative der Grafik, uebersetzt. Ohne sie bleibt der alte, deutsche Satz. */
+  beschreibung?: string
 }
 
 const RADAR_SIZE = 520
@@ -362,17 +366,22 @@ export const RadarChart = ({
   labels,
   max = 10,
   rings = 5,
+  beschreibung,
 }: RadarProps) => {
   const n = axes.length
   const ringValues = Array.from({ length: rings }, (_, i) => ((i + 1) / rings) * max)
 
   return (
     <figure className="m-0">
+      {/* Als einzige der fuenf Grafiken traegt das Netzdiagramm etwas, das
+          nirgends sonst als Text steht: seine Form. Die Beschreibung kommt
+          deshalb von aussen aus dem Sprachbestand — hart verdrahtet war sie
+          auch auf den englischen Seiten deutsch. */}
       <svg
         viewBox={`0 0 ${RADAR_SIZE} ${RADAR_SIZE}`}
         className="mx-auto h-auto w-full max-w-[34rem]"
         role="img"
-        aria-label={`Netzdiagramm mit ${n} Faktoren`}
+        aria-label={beschreibung ?? `Netzdiagramm mit ${n} Faktoren`}
       >
         {ringValues.map((rv) => (
           <polygon
@@ -523,13 +532,9 @@ export const TrendChart = ({
               </span>
               {/* Punkte als HTML statt SVG: ein Kreis in einem auf 100 %
                   gestreckten viewBox wird zur Ellipse. */}
-              <div
-                className="relative h-5"
-                role="img"
-                aria-label={`${item.label}: von ${item.firstDisplay ?? item.first} auf ${
-                  item.secondDisplay ?? item.second
-                }`}
-              >
+              {/* Beschriftung, Ausgangs- und Zielwert stehen alle drei als Text
+                  in derselben Zeile — die Punktspur wiederholt sie nur. */}
+              <div className="relative h-5" aria-hidden="true">
                 <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-slate-200" />
                 <div
                   className={`absolute top-1/2 h-0.5 -translate-y-1/2 ${t.dot}`}
@@ -545,7 +550,7 @@ export const TrendChart = ({
                 />
               </div>
               <span className="whitespace-nowrap text-base tabular-nums text-gray-600">
-                <span className="text-gray-500">{item.firstDisplay ?? item.first}</span>
+                <span className="text-gray-600">{item.firstDisplay ?? item.first}</span>
                 <span className="px-1.5 text-gray-400">→</span>
                 <span className={`font-semibold ${t.text}`}>
                   {item.secondDisplay ?? item.second}
@@ -584,14 +589,13 @@ export const EvaluationBars = ({
         >
           <span className="text-base text-text-heading">
             {item.label}
-            {item.sub ? <span className="ml-2 text-sm text-gray-500">{item.sub}</span> : null}
+            {item.sub ? <span className="ml-2 text-sm text-gray-600">{item.sub}</span> : null}
           </span>
           <svg
             viewBox="0 0 90 8"
             preserveAspectRatio="none"
             className="h-2.5 w-full"
-            role="img"
-            aria-label={`${item.label}: ${item.value} von 9`}
+            aria-hidden="true"
           >
             <rect x={0} y={0} width={90} height={8} className="fill-slate-100" />
             <rect x={0} y={0} width={(item.value / 9) * 90} height={8} className={t.fill} />

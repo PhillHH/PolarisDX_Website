@@ -761,6 +761,9 @@
           "text": "Two measurements of the same value side by side: the open dot is the first, the filled one the second. Only what can actually change is compared — genetic variants stay the same. The interval between two measurements is set by the supervising institution."
         }
       }
+    },
+    "a11y": {
+      "radar": "Radar chart with {{n}} factors"
     }
   },
   "consult": {

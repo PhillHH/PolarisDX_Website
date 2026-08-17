@@ -761,6 +761,9 @@
           "text": "Zwei Messungen desselben Werts nebeneinander: der offene Punkt ist die erste, der volle die zweite. Verglichen wird nur, was sich überhaupt verändern kann — genetische Varianten bleiben unverändert. Den Abstand zwischen zwei Messungen legt die betreuende Einrichtung fest."
         }
       }
+    },
+    "a11y": {
+      "radar": "Netzdiagramm mit {{n}} Faktoren"
     }
   },
   "consult": {

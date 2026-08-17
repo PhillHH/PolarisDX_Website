@@ -300,7 +300,7 @@ const MusterbefundPage = () => {
     // Der Musterbefund gibt zusaetzlich mit, um welches Panel es geht — das
     // steht dann in der Benachrichtigung und im vorbelegten Freitext.
     {
-      to: `/contact?topic=epigenetik&panel=${encodeURIComponent(befund.panel)}`,
+      to: `/contact?intent=quote&source=epigenetics&panel=${encodeURIComponent(befund.panel)}#kontaktformular`,
       label: t('hero.ctaQuote'),
     },
   ]
@@ -460,8 +460,11 @@ const MusterbefundPage = () => {
                 {/* Die Zwischenstufe zwischen Lesen und Anfragen: dieses Panel
                     vormerken, ohne die Seite zu verlassen. */}
                 <MerkButton slug={slug} panel={befund.panel} className="bg-white" />
+                {/* Derselbe Vertrag wie im Deckblatt und in der Leiste: ohne ihn
+                    war ausgerechnet der Abschluss-CTA der Seite der einzige
+                    Anfrageweg ohne Panel-Kontext. */}
                 <Link
-                  to="/contact"
+                  to={`/contact?intent=quote&source=epigenetics&panel=${encodeURIComponent(befund.panel)}#kontaktformular`}
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-accent-strong px-6 py-3.5 text-base font-semibold text-white transition-colors hover:brightness-110"
                 >
                   {t('hero.ctaQuote')}

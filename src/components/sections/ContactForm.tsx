@@ -165,6 +165,18 @@ export const ContactForm = () => {
             : t('contact.form.epigenetics.context')}
         </p>
       ) : null}
+      {/* Die Herkunft reiste bisher nur als vorbelegter Freitext mit: wer das
+          Textfeld ueberschrieb, loeschte damit die einzige Spur, aus welcher
+          Strecke und welchem Panel die Anfrage kam. Als eigenes Feld ueberlebt
+          sie das. Es steht nichts darin, was der Absender nicht ohnehin sieht -
+          der Panelname stammt aus der geprueften Liste, nicht aus der URL. */}
+      {isEpigenetics ? (
+        <input
+          type="hidden"
+          name="herkunft"
+          value={['Epigenetik-Strecke', panel].filter(Boolean).join(' · ')}
+        />
+      ) : null}
       {/* Honeypot — visually & semantically hidden; bots tend to fill it */}
       <div
         aria-hidden

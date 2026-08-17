@@ -144,12 +144,16 @@ const Section = ({ children }: { children: ReactNode }) => {
            * Standard erlaubt Ueberschriften in <summary>; die Rolle des
            * Aufklappers bleibt daneben erhalten.
            */}
-          <span className="min-w-0 flex-1">
+          {/* div, nicht span: span ist Phrasing Content und darf laut
+              HTML-Inhaltsmodell keine Ueberschrift aufnehmen. Browser rendern
+              es trotzdem, aber die Ueberschriftenliste des Screenreaders hing
+              damit an einer Duldung statt am Standard. */}
+          <div className="min-w-0 flex-1">
             <h2 className="text-2xl font-semibold tracking-tight text-text-heading lg:text-3xl">
               {label}
             </h2>
             {hint ? <span className="mt-1 block text-base text-gray-600">{hint}</span> : null}
-          </span>
+          </div>
           <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-300 text-brand-deep transition-colors group-hover:border-brand-primary">
             <ChevronDown className="h-5 w-5 transition-transform group-open:rotate-180" />
           </span>
@@ -233,14 +237,15 @@ const DataTable = ({
         </tbody>
       </table>
     </div>
-    {scrollHint ? <p className="mt-2 text-sm text-gray-500 lg:hidden">{scrollHint}</p> : null}
+    {scrollHint ? <p className="mt-2 text-sm text-gray-600 lg:hidden">{scrollHint}</p> : null}
   </>
 )
 
 // ===========================================================================
 
 const Cover = ({ b, slug }: { b: Block; slug?: string }) => {
-  const { t } = useTranslation('epigenetics')
+  const { t, i18n } = useTranslation('epigenetics')
+  const istDeutsch = i18n.language?.startsWith('de') ?? false
 
   // Fakten und Zielgruppen kommen aus der Vergleichstabelle, nicht aus dem
   // Befund-JSON: dort liegen sie in allen zehn Sprachen, und Hero und Tabelle
@@ -324,16 +329,23 @@ const Cover = ({ b, slug }: { b: Block; slug?: string }) => {
           {sample?.file ? (
             <a
               href={`/downloads/epigenetics/${sample.file}`}
+              /* Die Musterbefund-PDFs gibt es nur auf Deutsch. Der englische
+                 Hero versprach bisher "This report as PDF" und lieferte
+                 wortlos ein deutsches Dokument. */
+              hrefLang="de"
               className="text-base font-medium text-white/80 underline underline-offset-4 hover:text-white"
             >
               {t('befund.ctaPdf')}
             </a>
           ) : null}
+          {sample?.file && !istDeutsch ? (
+            <span className="text-sm text-white/70">{t('samples.badge')}</span>
+          ) : null}
         </div>
 
         {panels.length > 1 ? (
           <nav aria-label={t('samples.caption')} className="mt-12 border-t border-white/15 pt-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/50">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/70">
               {t('samples.caption')}
             </p>
             <ul className="mt-3 flex flex-wrap gap-2">
@@ -389,7 +401,7 @@ const CoverMeta = ({ b }: { b: Block }) => {
         {str(b.badge) ? <span className="font-semibold text-heading">{str(b.badge)}</span> : null}
         {meta.map((m) => (
           <span key={m.k}>
-            <span className="text-gray-500">{m.k}:</span> {m.v}
+            <span className="text-gray-600">{m.k}:</span> {m.v}
           </span>
         ))}
       </div>
@@ -450,7 +462,7 @@ const Principle = ({ b, blocks }: { b: Block; blocks?: Block[] }) => {
       {flow.length > 0 ? (
         <div className="mt-6">
           {str(b.flowTitle) ? (
-            <p className="text-xs font-medium text-gray-500">{str(b.flowTitle)}</p>
+            <p className="text-xs font-medium text-gray-600">{str(b.flowTitle)}</p>
           ) : null}
           <ol className="mt-3 grid gap-5 lg:grid-cols-3">
             {flow.map((f) => (
@@ -469,7 +481,7 @@ const Principle = ({ b, blocks }: { b: Block; blocks?: Block[] }) => {
       {zones.length > 0 ? (
         <div className="mt-6 rounded-3xl border border-slate-200 bg-white p-7">
           {str(b.scaleCaption) ? (
-            <p className="text-xs font-medium text-gray-500">{str(b.scaleCaption)}</p>
+            <p className="text-xs font-medium text-gray-600">{str(b.scaleCaption)}</p>
           ) : null}
           {str(b.scaleTitle) ? (
             <h3 className="mt-1 text-lg font-semibold text-text-heading">{str(b.scaleTitle)}</h3>
@@ -519,7 +531,7 @@ const ResultTable = ({ b, hint }: { b: Block; hint?: string }) => (
       scrollHint={hint}
       label={str(b.title)}
     />
-    {str(b.note) ? <p className="mt-3 text-sm text-gray-500">{str(b.note)}</p> : null}
+    {str(b.note) ? <p className="mt-3 text-sm text-gray-600">{str(b.note)}</p> : null}
   </Section>
 )
 
@@ -536,7 +548,7 @@ const AgeBlock = ({ b }: { b: Block }) => (
         unit={str(b.unit) ?? 'Jahre'}
       />
     </div>
-    {str(b.note) ? <p className="mt-3 text-sm text-gray-500">{str(b.note)}</p> : null}
+    {str(b.note) ? <p className="mt-3 text-sm text-gray-600">{str(b.note)}</p> : null}
   </Section>
 )
 
@@ -567,7 +579,7 @@ const Markers = ({ b, hint }: { b: Block; hint?: string }) => (
             <h3 className="text-xl font-semibold tracking-tight text-text-heading">
               {m.name}
               {m.category ? (
-                <span className="ml-2 text-base text-gray-500">{m.category}</span>
+                <span className="ml-2 text-base text-gray-600">{m.category}</span>
               ) : null}
             </h3>
           </div>
@@ -609,6 +621,7 @@ const Radar = ({
   b: Block
   values?: { profile: number[]; reference?: number[] }
 }) => {
+  const { t } = useTranslation('epigenetics')
   const axes = arr<string>(b.axes)
   const scores = arr<{ value: string; label: string; text?: string; ref?: string }>(b.scores)
   const notices = arr<string>(b.notices)
@@ -624,6 +637,10 @@ const Radar = ({
             profile={values.profile}
             reference={values.reference}
             labels={labels}
+            /* `n` statt `count`: `count` schaltet in i18next die
+               Pluralbehandlung ein und verlangte dann je Sprache zwei
+               Schluessel fuer einen Satz, den niemand liest, sondern hoert. */
+            beschreibung={t('befund.a11y.radar', { n: axes.length })}
           />
         </div>
         <div className="space-y-4">
@@ -632,7 +649,7 @@ const Radar = ({
               <p className="text-3xl font-semibold tabular-nums text-text-heading">{s.value}</p>
               <p className="mt-1 text-base font-semibold text-text-heading">{s.label}</p>
               {s.text ? <p className={`mt-2 text-gray-700 ${BODY}`}>{s.text}</p> : null}
-              {s.ref ? <p className="mt-2 text-sm text-gray-500">{s.ref}</p> : null}
+              {s.ref ? <p className="mt-2 text-sm text-gray-600">{s.ref}</p> : null}
             </div>
           ))}
         </div>
@@ -653,7 +670,7 @@ const Radar = ({
           </ul>
         </div>
       ) : null}
-      {str(b.note) ? <p className="mt-4 text-sm text-gray-500">{str(b.note)}</p> : null}
+      {str(b.note) ? <p className="mt-4 text-sm text-gray-600">{str(b.note)}</p> : null}
     </Section>
   )
 }
@@ -668,7 +685,7 @@ const TableBlock = ({ b, hint }: { b: Block; hint?: string }) => (
       scrollHint={hint}
       label={str(b.title)}
     />
-    {str(b.note) ? <p className="mt-3 text-sm text-gray-500">{str(b.note)}</p> : null}
+    {str(b.note) ? <p className="mt-3 text-sm text-gray-600">{str(b.note)}</p> : null}
   </Section>
 )
 
@@ -678,7 +695,7 @@ const Evaluations = ({ b }: { b: Block }) => (
     <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 lg:p-8">
       <EvaluationBars items={arr(b.items)} />
     </div>
-    {str(b.note) ? <p className="mt-3 text-sm text-gray-500">{str(b.note)}</p> : null}
+    {str(b.note) ? <p className="mt-3 text-sm text-gray-600">{str(b.note)}</p> : null}
   </Section>
 )
 
@@ -704,7 +721,7 @@ const BigResult = ({ b }: { b: Block }) => {
         {compare.length > 0 ? (
           <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 lg:p-8">
             {str(b.compareTitle) ? (
-              <p className="text-xs font-medium text-gray-500">{str(b.compareTitle)}</p>
+              <p className="text-xs font-medium text-gray-600">{str(b.compareTitle)}</p>
             ) : null}
             <dl className="mt-4 space-y-4">
               {compare.map((c) => (
@@ -738,7 +755,7 @@ const Trend = ({ b }: { b: Block }) => (
         secondLabel={str(b.secondLabel)}
       />
     </div>
-    {str(b.note) ? <p className="mt-3 text-sm text-gray-500">{str(b.note)}</p> : null}
+    {str(b.note) ? <p className="mt-3 text-sm text-gray-600">{str(b.note)}</p> : null}
   </Section>
 )
 
@@ -753,7 +770,7 @@ const Callout = ({ b }: { b: Block }) => {
         }`}
       >
         {str(b.title) ? (
-          <p className={`text-sm font-semibold ${accent ? 'text-accent-strong' : 'text-gray-500'}`}>
+          <p className={`text-sm font-semibold ${accent ? 'text-accent-strong' : 'text-gray-600'}`}>
             {str(b.title)}
           </p>
         ) : null}
@@ -875,7 +892,7 @@ const Summary = ({ b }: { b: Block }) => {
       {control.length > 0 ? (
         <div className="mt-5 rounded-3xl border border-slate-200 bg-white p-7">
           {str(b.controlTitle) ? (
-            <p className="text-xs font-medium text-gray-500">{str(b.controlTitle)}</p>
+            <p className="text-xs font-medium text-gray-600">{str(b.controlTitle)}</p>
           ) : null}
           <ul className="mt-3 space-y-2">
             {control.map((c) => (
@@ -899,12 +916,12 @@ const Science = ({ b }: { b: Block }) => (
         <div key={i.title} className="rounded-3xl border border-slate-200 bg-slate-50 p-6 lg:p-7">
           <h3 className="text-lg font-semibold text-text-heading">{i.title}</h3>
           <p className={`mt-2 text-gray-700 ${BODY}`}>{i.text}</p>
-          {i.source ? <p className="mt-3 text-sm text-gray-500">{i.source}</p> : null}
+          {i.source ? <p className="mt-3 text-sm text-gray-600">{i.source}</p> : null}
         </div>
       ))}
     </div>
     {str(b.note) ? (
-      <p className="mt-6 max-w-[80ch] text-sm leading-relaxed text-gray-500">{str(b.note)}</p>
+      <p className="mt-6 max-w-[80ch] text-sm leading-relaxed text-gray-600">{str(b.note)}</p>
     ) : null}
   </Section>
 )
@@ -919,7 +936,7 @@ const Contact = ({ b }: { b: Block }) => (
     <div className="mt-8 grid gap-5 sm:grid-cols-2">
       {arr<{ k: string; lines: string[] }>(b.columns).map((c) => (
         <div key={c.k} className="rounded-3xl border border-slate-200 bg-white p-6">
-          <p className="text-xs font-medium text-gray-500">{c.k}</p>
+          <p className="text-xs font-medium text-gray-600">{c.k}</p>
           <ul className="mt-2 space-y-1">
             {arr<string>(c.lines).map((l) => (
               <li key={l} className="text-base text-text-heading">
@@ -934,7 +951,7 @@ const Contact = ({ b }: { b: Block }) => (
     {/* Die Rechtstexte sind abgestimmt und stehen woertlich wie im PDF. */}
     <div className="mt-8 space-y-4">
       {arr<{ title: string; text: string }>(b.legal).map((l) => (
-        <p key={l.title} className="max-w-[80ch] text-sm leading-relaxed text-gray-500">
+        <p key={l.title} className="max-w-[80ch] text-sm leading-relaxed text-gray-600">
           <span className="font-semibold text-gray-600">{l.title}.</span> {l.text}
         </p>
       ))}

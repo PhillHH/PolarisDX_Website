@@ -122,9 +122,13 @@ const Header = () => {
   const location = useLocation()
 
   // Close mobile menu on route change
+  // Beim Seitenwechsel schliesst das mobile Menue. Das aufgeklappte
+  // Untermenue wird hier NICHT mehr zurueckgesetzt: es ist nur innerhalb des
+  // geoeffneten Menues ueberhaupt sichtbar, und ein setState im Effekt laeuft
+  // eine Runde zu spaet - React raet davon ab. Zurueckgesetzt wird beim
+  // Oeffnen, also dort, wo es jemand zu sehen bekommt.
   useEffect(() => {
     mobileMenu.onClose()
-    setOpenSubmenu(null)
   }, [location, mobileMenu.onClose])
 
   return (
@@ -251,12 +255,12 @@ const Header = () => {
                     }`}
                   >
                     <span
-                        className={`relative after:content-[''] after:absolute after:w-full after:h-px after:bottom-0 after:left-0 after:bg-current after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left ${
-                          isItemActive(item, location.pathname)
-                            ? 'after:scale-x-100 after:origin-bottom-left'
-                            : 'after:scale-x-0 after:origin-bottom-right'
-                        }`}
-                      >
+                      className={`relative after:content-[''] after:absolute after:w-full after:h-px after:bottom-0 after:left-0 after:bg-current after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left ${
+                        isItemActive(item, location.pathname)
+                          ? 'after:scale-x-100 after:origin-bottom-left'
+                          : 'after:scale-x-0 after:origin-bottom-right'
+                      }`}
+                    >
                       {t(`nav.${item.label}`)}
                     </span>
                   </Link>
@@ -308,7 +312,10 @@ const Header = () => {
             <button
               type="button"
               className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors duration-300 border-white/20 text-white bg-white/5`}
-              onClick={mobileMenu.onToggle}
+              onClick={() => {
+                if (!mobileMenu.isOpen) setOpenSubmenu(null)
+                mobileMenu.onToggle()
+              }}
               aria-label="Toggle navigation"
               aria-expanded={mobileMenu.isOpen}
             >
@@ -339,17 +346,24 @@ const Header = () => {
                 >
                   {item.children || item.groups ? (
                     <div>
-                      <div
-                        className={`flex items-center justify-between text-lg font-light tracking-wide cursor-pointer text-white`}
+                      {/* Ein button, kein div mit onClick: der Aufklapper war
+                          mit der Maus bedienbar und mit der Tastatur nicht -
+                          das gesamte Untermenue war damit fuer Tastaturnutzer
+                          unerreichbar. */}
+                      <button
+                        type="button"
+                        className={`flex min-h-[44px] w-full items-center justify-between text-left text-lg font-light tracking-wide text-white`}
                         onClick={() =>
                           setOpenSubmenu(openSubmenu === item.label ? null : item.label)
                         }
+                        aria-expanded={openSubmenu === item.label}
                       >
                         <span>{t(`nav.${item.label}`)}</span>
                         <ChevronDown
                           className={`h-4 w-4 transition-transform duration-300 ${openSubmenu === item.label ? 'rotate-180' : ''}`}
+                          aria-hidden="true"
                         />
-                      </div>
+                      </button>
                       {/* Submenu */}
                       {openSubmenu === item.label && (
                         <div className={`pl-4 mt-3 space-y-3 border-l-2 border-white/20`}>
