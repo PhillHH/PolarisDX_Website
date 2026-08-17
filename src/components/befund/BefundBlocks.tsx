@@ -284,7 +284,7 @@ const Cover = ({ b, slug }: { b: Block; slug?: string }) => {
 
   return (
     <section className="relative overflow-hidden bg-brand-deep text-white">
-      <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
+      <div className="mx-auto max-w-container px-4 py-10 lg:px-0 lg:py-24">
         {zielgruppen ? (
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
             {zielgruppen}
@@ -309,9 +309,12 @@ const Cover = ({ b, slug }: { b: Block; slug?: string }) => {
             auf dieser Seite einsteigt. Die Achsenwerte sind kurz genug fuer die
             halbe Breite. */}
         {facts.length > 0 ? (
-          <dl className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-5">
+          <dl className="mt-8 grid grid-cols-2 gap-2.5 lg:mt-10 lg:gap-3 lg:grid-cols-5">
             {facts.map((f) => (
-              <div key={f.k} className="rounded-2xl border border-white/15 bg-white/10 px-5 py-4">
+              <div
+                key={f.k}
+                className="rounded-2xl border border-white/15 bg-white/10 px-4 py-3 lg:px-5 lg:py-4"
+              >
                 <dt className="text-xs font-medium text-white/60">{f.k}</dt>
                 <dd className="mt-1 text-base font-semibold text-white">{f.v}</dd>
               </div>
@@ -319,7 +322,7 @@ const Cover = ({ b, slug }: { b: Block; slug?: string }) => {
           </dl>
         ) : null}
 
-        <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
+        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 lg:mt-10">
           <Link
             to={anfrage}
             className="inline-flex items-center justify-center rounded-full bg-accent-on-dark px-7 py-3.5 text-base font-semibold text-brand-deep transition-opacity hover:opacity-90"
@@ -344,7 +347,10 @@ const Cover = ({ b, slug }: { b: Block; slug?: string }) => {
         </div>
 
         {panels.length > 1 ? (
-          <nav aria-label={t('samples.caption')} className="mt-12 border-t border-white/15 pt-6">
+          <nav
+            aria-label={t('samples.caption')}
+            className="mt-8 border-t border-white/15 pt-5 lg:mt-12 lg:pt-6"
+          >
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/70">
               {t('samples.caption')}
             </p>
@@ -489,7 +495,12 @@ const Principle = ({ b, blocks }: { b: Block; blocks?: Block[] }) => {
           {str(b.scaleLead) ? (
             <p className={`mt-2 max-w-[68ch] text-gray-700 ${BODY}`}>{str(b.scaleLead)}</p>
           ) : null}
-          {ticks.length > 0 ? (
+          {/* Frueher hing das Band an den Ticks aus dem JSON. Fehlten sie -
+              wie bei healthy-sport -, verschwand die Skala aus der
+              Skalenlegende und es blieben drei Zonen ohne Achse. Jetzt
+              entscheidet die Skalenart; die Beschriftung der Ampel bringt
+              ScaleBar selbst mit. */}
+          {ticks.length > 0 || str(b.scaleKind) ? (
             <div className="mt-5">
               <ScaleBar
                 kind={str(b.scaleKind) ?? 'percent'}
@@ -955,7 +966,7 @@ const Contact = ({ b }: { b: Block }) => (
           <span className="font-semibold text-gray-600">{l.title}.</span> {l.text}
         </p>
       ))}
-      {str(b.copyright) ? <p className="text-sm text-gray-400">{str(b.copyright)}</p> : null}
+      {str(b.copyright) ? <p className="text-sm text-gray-600">{str(b.copyright)}</p> : null}
     </div>
   </Section>
 )

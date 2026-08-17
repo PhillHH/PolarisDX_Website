@@ -246,7 +246,7 @@ export const ContactForm = () => {
         <select
           id="area"
           name="area"
-          className="flex w-full rounded-md border border-ui-border bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+          className="flex w-full rounded-md border border-ui-field bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
         >
           {isEpigenetics ? (
             EPI_AREAS.map((key) => {
@@ -349,7 +349,7 @@ export const ContactForm = () => {
           </label>
         </div>
         {errors.consent && (
-          <p id="consent-error" lang={fallbackLang} className="text-sm font-medium text-red-500">
+          <p id="consent-error" lang={fallbackLang} className="text-sm font-medium text-red-600">
             {errors.consent}
           </p>
         )}

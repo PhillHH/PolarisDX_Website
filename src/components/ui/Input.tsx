@@ -3,11 +3,11 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
 
 const inputVariants = cva(
-  'flex w-full rounded-md border border-ui-border bg-white px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-ui-text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+  'flex w-full rounded-md border border-ui-field bg-white px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-ui-field focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       state: {
-        default: 'border-ui-border text-gray-900',
+        default: 'border-ui-field text-gray-900',
         error: 'border-red-500 text-red-900 focus-visible:ring-red-500',
       },
       size: {
@@ -101,13 +101,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         </div>
 
         {error && typeof error === 'string' && (
-          <p id={errorId} className="text-sm font-medium text-red-500">
+          <p id={errorId} className="text-sm font-medium text-red-600">
             {error}
           </p>
         )}
 
         {!error && helperText && (
-          <p id={helperId} className="text-sm text-ui-text-muted">
+          <p id={helperId} className="text-sm text-ui-field">
             {helperText}
           </p>
         )}
@@ -117,4 +117,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 )
 Input.displayName = 'Input'
 
-export { Input, inputVariants }
+// inputVariants bleibt modullokal: es wird nirgends importiert, und als
+// einziger Nicht-Komponenten-Export hielt es react-refresh/only-export-
+// components rot.
+export { Input }

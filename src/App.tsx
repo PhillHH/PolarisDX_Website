@@ -136,8 +136,20 @@ function ScrollToHash() {
       }
       // Der Header ist position:fixed - ohne Offset schoebe sich der Abschnitt
       // darunter. Hoehe messen statt hartkodieren (Header schrumpft beim Scroll).
+      //
+      // Auf Seiten mit Kapitelleiste steht unter dem Header noch eine zweite
+      // klebende Zeile. Sie schreibt ihre Gesamthoehe als --chapterbar-offset
+      // ans Wurzelelement; ohne sie landete jedes angesprungene Kapitel rund
+      // 40 px hinter der Leiste. Wo es die Variable nicht gibt, bleibt es beim
+      // Header allein.
       const header = document.querySelector('header')
-      const offset = (header?.getBoundingClientRect().height ?? 0) + 16
+      const leiste = parseFloat(
+        getComputedStyle(document.documentElement).getPropertyValue('--chapterbar-offset'),
+      )
+      const offset =
+        Number.isFinite(leiste) && leiste > 0
+          ? leiste
+          : (header?.getBoundingClientRect().height ?? 0) + 16
       const top = target.getBoundingClientRect().top + window.scrollY - offset
       // Kein Smooth-Scroll, wenn der Nutzer reduzierte Bewegung eingestellt hat.
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches

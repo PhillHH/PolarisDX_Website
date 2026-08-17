@@ -39,6 +39,12 @@ export default {
           border: '#e2e8f0', // slate-200
           'border-hover': '#cbd5e1', // slate-300
           'text-muted': '#94a3b8', // slate-400
+          // Formularsteuerelemente. WCAG 1.4.11 verlangt 3:1 fuer die
+          // Begrenzung eines Bedienelements, Platzhalter- und Hilfstext
+          // brauchen als Text 4,5:1. `border` und `text-muted` darueber
+          // bleiben, wo sie sind: sie tragen Trennlinien und Beiwerk, nichts,
+          // das man bedient.
+          field: '#6b7280',
         },
         // Semantic group for headline text colour. Replaces the misleadingly
         // named "gray-900" (which is actually navy #203864, not gray). Both
@@ -47,6 +53,10 @@ export default {
         text: {
           heading: '#083358',
         },
+        // Zweiter Name derselben Navy. Die Preview kennt nur `text-heading`,
+        // dieser Stand nur `text-text-heading` - ein Baustein, der von dort
+        // herueberkommt, verlor damit stillschweigend seine Farbe.
+        heading: '#083358',
         // Accent scale — same tones as the marketing brief presentation.
         // Canonical: accent = teal-600 (#0d9488). Use `bg-accent`, `text-accent`
         // for the DEFAULT; `bg-accent-strong`, `bg-accent-line`, `bg-accent-soft`,

@@ -176,6 +176,7 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
 
         // Sprungziele muessen unter Seitenkopf UND Leiste landen. Beide Hoehen
         // sind je nach Viewport verschieden — deshalb gemessen statt geraten.
+        //
         const bar = barRef.current
         const header = document.querySelector('header')
         if (bar && header) {
@@ -195,6 +196,10 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
       window.removeEventListener('scroll', messen)
       window.removeEventListener('resize', messen)
       document.removeEventListener('toggle', messen, true)
+      // Ohne das behielte eine Seite ohne Kapitelleiste den Abstand der
+      // vorigen - und ScrollToHash rechnete dort mit einer Leiste, die es
+      // nicht gibt.
+      document.documentElement.style.removeProperty('--chapterbar-offset')
       if (frame) window.cancelAnimationFrame(frame)
     }
   }, [chapters, stufen])

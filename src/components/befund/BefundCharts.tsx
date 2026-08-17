@@ -551,7 +551,7 @@ export const TrendChart = ({
               </div>
               <span className="whitespace-nowrap text-base tabular-nums text-gray-600">
                 <span className="text-gray-600">{item.firstDisplay ?? item.first}</span>
-                <span className="px-1.5 text-gray-400">→</span>
+                <span className="px-1.5 text-gray-600">→</span>
                 <span className={`font-semibold ${t.text}`}>
                   {item.secondDisplay ?? item.second}
                 </span>

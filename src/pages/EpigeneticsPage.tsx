@@ -53,7 +53,7 @@ const STRETCH = 'h-full [&>div]:h-full'
 // Lesegroesse ueber alle Sektionen identisch bleibt.
 const BODY = 'text-base leading-7 lg:text-[17px] lg:leading-8'
 const LEAD = 'text-lg leading-relaxed text-gray-600 lg:text-xl lg:leading-relaxed'
-const LABEL = 'text-xs font-semibold uppercase tracking-[0.16em] text-gray-400'
+const LABEL = 'text-xs font-semibold uppercase tracking-[0.16em] text-gray-600'
 
 interface Fact {
   k: string
@@ -175,7 +175,7 @@ const EpigeneticsPage = () => {
   const navAktionen: NavAction[] = [
     { href: '#vergleich', label: t('compare.title') },
     { href: '#musterbefunde', label: t('downloads.samplesCta') },
-    { to: '/contact?topic=epigenetik', label: t('hero.ctaQuote') },
+    { to: '/contact?intent=quote&source=epigenetics#kontaktformular', label: t('hero.ctaQuote') },
   ]
 
   return (
@@ -314,7 +314,7 @@ const EpigeneticsPage = () => {
                       aber als Textlink: er steht dem Filter nicht mehr als
                       gleichrangiger Knopf gegenueber. */}
                   <Link
-                    to="/contact?topic=epigenetik"
+                    to="/contact?intent=quote&source=epigenetics#kontaktformular"
                     className="mt-6 inline-flex items-center gap-1.5 text-base font-semibold text-accent-on-dark transition-colors hover:text-white"
                   >
                     {t('hero.ctaQuote')}
@@ -907,7 +907,7 @@ const EpigeneticsPage = () => {
                   ist der eigentliche Weg — es bekommt den Primaerknopf, die
                   direkten Wege bleiben als Alternative daneben stehen. */}
               <Link
-                to="/contact?topic=epigenetik"
+                to="/contact?intent=quote&source=epigenetics#kontaktformular"
                 onClick={() => trackEvent('epigenetics_request', { method: 'form' })}
                 className="inline-flex items-center justify-center rounded-full bg-accent-strong px-6 py-3.5 text-base font-semibold text-white transition-colors hover:brightness-110"
               >
