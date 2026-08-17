@@ -222,7 +222,7 @@ const Header = () => {
                                       )}
                                     </span>
                                     {child.description && (
-                                      <span className="mt-0.5 block text-xs leading-5 text-gray-500">
+                                      <span className="mt-0.5 block text-xs leading-5 text-gray-600">
                                         {t(`nav.${child.description}`)}
                                       </span>
                                     )}

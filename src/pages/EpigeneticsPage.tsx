@@ -58,7 +58,7 @@ const STRETCH = 'h-full [&>div]:h-full'
 // Lesegroesse ueber alle Sektionen identisch bleibt.
 const BODY = 'text-base leading-7 lg:text-[17px] lg:leading-8'
 const LEAD = 'text-lg leading-relaxed text-gray-600 lg:text-xl lg:leading-relaxed'
-const LABEL = 'text-xs font-medium text-gray-500'
+const LABEL = 'text-xs font-medium text-gray-600'
 
 interface Fact {
   k: string

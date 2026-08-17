@@ -86,6 +86,10 @@ const HYSTERESE = 3
 const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: ChapterNavProps) => {
   const [active, setActive] = useState<string>(chapters[0]?.id ?? '')
   const [stufe, setStufe] = useState(0)
+  // Der Streifen versteckt seinen Scrollbalken per CSS. Ohne sichtbare Kante
+  // sieht man deshalb nicht, dass rechts noch Kapitel stehen — bei achtzehn
+  // Kapiteln ist das die Mehrheit.
+  const [ueberlauf, setUeberlauf] = useState({ links: false, rechts: false })
   const listRef = useRef<HTMLDivElement>(null)
   const barRef = useRef<HTMLDivElement>(null)
   const sheetRef = useRef<HTMLDetailsElement>(null)
@@ -95,6 +99,23 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
   const activeRef = useRef(active)
   const stufeRef = useRef(0)
   const lastYRef = useRef(0)
+
+  useEffect(() => {
+    const el = listRef.current
+    if (!el) return
+    const messen = () => {
+      const rest = el.scrollWidth - el.clientWidth - el.scrollLeft
+      setUeberlauf({ links: el.scrollLeft > 4, rechts: rest > 4 })
+    }
+    messen()
+    el.addEventListener('scroll', messen, { passive: true })
+    const ro = new ResizeObserver(messen)
+    ro.observe(el)
+    return () => {
+      el.removeEventListener('scroll', messen)
+      ro.disconnect()
+    }
+  }, [chapters])
 
   // Aktives Kapitel: das oberste, dessen Anfang bereits ueber der Lesemarke
   // liegt. Ein IntersectionObserver auf "sichtbar" waere hier unbrauchbar —
@@ -155,6 +176,7 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
 
         // Sprungziele muessen unter Seitenkopf UND Leiste landen. Beide Hoehen
         // sind je nach Viewport verschieden — deshalb gemessen statt geraten.
+        //
         const bar = barRef.current
         const header = document.querySelector('header')
         if (bar && header) {
@@ -174,6 +196,10 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
       window.removeEventListener('scroll', messen)
       window.removeEventListener('resize', messen)
       document.removeEventListener('toggle', messen, true)
+      // Ohne das behielte eine Seite ohne Kapitelleiste den Abstand der
+      // vorigen - und ScrollToHash rechnete dort mit einer Leiste, die es
+      // nicht gibt.
+      document.documentElement.style.removeProperty('--chapterbar-offset')
       if (frame) window.cancelAnimationFrame(frame)
     }
   }, [chapters, stufen])
@@ -309,25 +335,39 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
 
           {/* Ab lg: der waagerechte Streifen. Hier passen sieben bis neun
               Kapitel ins Bild, und der Zeiger findet sie ohne Umweg. */}
-          <div
-            ref={listRef}
-            className="hidden gap-1 overflow-x-auto [scrollbar-width:none] motion-safe:scroll-smooth lg:flex [&::-webkit-scrollbar]:hidden"
-          >
-            {chapters.map((c) => (
-              <a
-                key={c.id}
-                href={`#${c.id}`}
-                data-chapter={c.id}
-                aria-current={active === c.id ? 'true' : undefined}
-                className={`inline-flex h-9 items-center whitespace-nowrap rounded-full px-3 text-sm transition-colors ${
-                  active === c.id
-                    ? 'bg-brand-deep font-semibold text-white'
-                    : 'text-gray-600 hover:bg-slate-100 hover:text-brand-deep'
-                }`}
-              >
-                {c.label}
-              </a>
-            ))}
+          <div className="relative hidden lg:block">
+            {ueberlauf.links ? (
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-white to-transparent"
+              />
+            ) : null}
+            {ueberlauf.rechts ? (
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-white to-transparent"
+              />
+            ) : null}
+            <div
+              ref={listRef}
+              className="flex gap-1 overflow-x-auto [scrollbar-width:none] motion-safe:scroll-smooth [&::-webkit-scrollbar]:hidden"
+            >
+              {chapters.map((c) => (
+                <a
+                  key={c.id}
+                  href={`#${c.id}`}
+                  data-chapter={c.id}
+                  aria-current={active === c.id ? 'true' : undefined}
+                  className={`inline-flex h-9 items-center whitespace-nowrap rounded-full px-3 text-sm transition-colors ${
+                    active === c.id
+                      ? 'bg-brand-deep font-semibold text-white'
+                      : 'text-gray-600 hover:bg-slate-100 hover:text-brand-deep'
+                  }`}
+                >
+                  {c.label}
+                </a>
+              ))}
+            </div>
           </div>
         </nav>
 

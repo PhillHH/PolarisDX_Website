@@ -576,7 +576,7 @@
       }
     ],
     "gendg": "Two panels include genetic analyses: Metabolic Health and the Plus variant of Healthy Sport. For these, the person concerned must be informed and give written consent before the sample is taken (German Genetic Diagnostics Act, GenDG).",
-    "cta": "Parameter overview as PDF",
+    "cta": "Parameter overview as PDF (German)",
     "file": "de/16_Parameteruebersicht_PolarisDX.pdf",
     "scrollHint": "Table scrolls sideways",
     "groups": [
@@ -664,7 +664,7 @@
         "v": "A “biological age” calculated from measured values, against chronological age — a calculation, not a determination of age."
       }
     ],
-    "cta": "Understanding the values as PDF",
+    "cta": "Understanding the values as PDF (German)",
     "file": "de/17_Werte_verstehen_PolarisDX.pdf"
   },
   "teaser": {

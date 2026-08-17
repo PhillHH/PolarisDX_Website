@@ -216,7 +216,7 @@ export const ContactForm = () => {
       'rounded-full border px-4 py-2 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2',
       active
         ? 'border-accent bg-accent-soft text-accent-strong'
-        : 'border-ui-border bg-white text-gray-700 hover:border-accent/60 hover:text-accent-strong',
+        : 'border-ui-field bg-white text-gray-700 hover:border-accent/60 hover:text-accent-strong',
     )
 
   const alertFocusClass = 'focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2'
@@ -411,7 +411,7 @@ export const ContactForm = () => {
           </div>
         )}
         {errors.field && (
-          <p id="field-error" className="text-sm font-medium text-red-500">
+          <p id="field-error" className="text-sm font-medium text-red-600">
             {errors.field}
           </p>
         )}
@@ -478,7 +478,7 @@ export const ContactForm = () => {
           </label>
         </div>
         {errors.consent && (
-          <p id="consent-error" lang={fallbackLang} className="text-sm font-medium text-red-500">
+          <p id="consent-error" lang={fallbackLang} className="text-sm font-medium text-red-600">
             {errors.consent}
           </p>
         )}

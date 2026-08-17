@@ -432,7 +432,7 @@ const MusterbefundPage = () => {
                 darin steht, und liegt allein im Browser dieses Geraets. */}
             <Merkliste className="mb-6" />
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-7">
-              <p className="max-w-[80ch] text-sm leading-relaxed text-gray-500">
+              <p className="max-w-[80ch] text-sm leading-relaxed text-gray-600">
                 {t('samples.note')}
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
@@ -475,7 +475,7 @@ const MusterbefundPage = () => {
             </div>
 
             <div className="mt-10">
-              <p className="text-xs font-medium text-gray-500">{t('befund.othersTitle')}</p>
+              <p className="text-xs font-medium text-gray-600">{t('befund.othersTitle')}</p>
               <div className="mt-4 flex flex-wrap gap-3">
                 {others
                   .filter((o) => o.slug !== slug)
