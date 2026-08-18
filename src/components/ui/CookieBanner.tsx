@@ -150,6 +150,11 @@ export const CookieBanner: React.FC = () => {
     }
 
     if (!consent) {
+      // Der gespeicherte Zustand darf erst nach der Hydrierung gelesen werden:
+      // der Server kennt den localStorage nicht und wuerde sonst einen anderen
+      // Zustand ausliefern als der Browser. Deshalb hier und nicht als
+      // Anfangswert - die Regel kennt diesen Fall nicht.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsVisible(true)
     } else {
       // Load saved preferences
@@ -327,6 +332,11 @@ export const CookieBanner: React.FC = () => {
                         `relative` ist — der Knopf (after:) wurde vorher gegen das
                         Label positioniert und waere sonst nach oben verrutscht. */}
                     <label className="relative inline-flex min-h-[44px] items-center cursor-pointer">
+                      {/* Der Schalter trug keinen Namen - ein Screenreader las
+                          "Kontrollkaestchen, aktiviert", ohne zu sagen, wofuer.
+                          Der Name steht sichtbar daneben, hier noch einmal fuer
+                          die Sprachausgabe. */}
+                      <span className="sr-only">{t(category.nameKey)}</span>
                       <input
                         type="checkbox"
                         className="sr-only peer"

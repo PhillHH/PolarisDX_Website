@@ -40,7 +40,7 @@
           "text": "Wie Ihre Stressreaktion aktuell verläuft und ob sich eine dauerhafte Belastung abzeichnet."
         },
         {
-          "title": "Regulation",
+          "title": "Zelluläre Regulation",
           "text": "Wie gut Ihr Körper Stresssignale auf zellulärer Ebene ausgleicht."
         },
         {
@@ -58,7 +58,7 @@
         {
           "num": "02",
           "title": "Auswerten",
-          "text": "Zwei Auswertungen auf der Ampel 1–9: physiologisches Stresslevel und Risiko für Spätfolgen."
+          "text": "Zwei Auswertungen auf der Ampel 1–9: physiologisches Stresslevel und langfristige Regulation."
         },
         {
           "num": "03",
@@ -116,15 +116,15 @@
           "zoneLabels": ["chronischer Stress", "akuter Stress", "kein Stress"]
         },
         {
-          "name": "Risiko für Spätfolgen",
+          "name": "Langfristige Regulation",
           "category": "Langfristige Regulation",
           "kind": "traffic",
           "value": 4,
           "display": "4 / 9",
-          "sub": "Erhöht",
+          "sub": "Eingeschränkt",
           "tone": "amber",
-          "text": "Erhöhtes Risiko — präventives Handeln empfohlen.",
-          "zoneLabels": ["hohes Risiko", "mittleres Risiko", "niedriges Risiko"]
+          "text": "Eingeschränkte Regulation auf der langsameren Ebene.",
+          "zoneLabels": ["schwache Regulation", "mittlere Regulation", "stabile Regulation"]
         }
       ],
       "id": "marker"
@@ -141,7 +141,7 @@
             "Zellschutz Indikator",
             "Zelluläre Schutz- und Anpassungsmechanismen",
             "8 / 9",
-            "Spätfolgen"
+            "Langfristige Regulation"
           ],
           "tone": "green"
         },
@@ -161,7 +161,7 @@
             "Serotonin regulierender Indikator",
             "Serotonerge Regulation",
             "6 / 9",
-            "Spätfolgen"
+            "Langfristige Regulation"
           ],
           "tone": "amber"
         },
@@ -171,7 +171,7 @@
             "Neuronaler Indikator",
             "Neuronale Stabilität und Anpassung",
             "5 / 9",
-            "Spätfolgen"
+            "Langfristige Regulation"
           ],
           "tone": "amber"
         },
@@ -191,7 +191,7 @@
             "Immunsignal aktivierender Indikator",
             "Immunologische Aktivierung",
             "3 / 9",
-            "Spätfolgen"
+            "Langfristige Regulation"
           ],
           "tone": "red"
         }
@@ -289,15 +289,15 @@
     {
       "type": "bigResult",
       "caption": "Auswertung 02",
-      "title": "Risiko für Spätfolgen.",
+      "title": "Langfristige Regulation.",
       "lead": "Berechnet aus vier microRNAs: miR-16-5p, miR-15a-5p, miR-106b-5p und miR-21-5p.",
       "display": "4 / 9",
-      "sub": "Erhöht",
+      "sub": "Eingeschränkt",
       "kind": "traffic",
       "value": 4,
       "tone": "amber",
-      "zoneLabels": ["hohes Risiko", "mittleres Risiko", "niedriges Risiko"],
-      "text": "Die Auswertung zeigt noch keine akute stressbedingte Überbelastung. Das Risiko für Folgeerkrankungen ist aber bereits erhöht — hier lohnt es sich zu handeln, bevor sich Spätfolgen manifestieren. Dies ist der Schwerpunkt Ihres Befunds.",
+      "zoneLabels": ["schwache Regulation", "mittlere Regulation", "stabile Regulation"],
+      "text": "Die Auswertung zeigt auf der akuten Ebene keine stressbedingte Überbelastung. Die langsamere Regulationsebene liegt mit 4/9 dagegen im gelben Bereich — sie ist der Schwerpunkt Ihres Befunds und der Ansatzpunkt für das Gespräch.",
       "id": "ergebnis-3"
     },
     {
@@ -368,7 +368,7 @@
           "Berberin",
           "miR-106b-5p · 3",
           "Berberitzenwurzelrinde, Orangenwurzel",
-          "max. 500 mg/Tag",
+          "nur nach fachlicher Abstimmung",
           "Als Tee aus der ayurvedischen Medizin bekannt"
         ],
         [
@@ -399,7 +399,7 @@
           "Berberin",
           "miR-106b-5p · 3",
           "Berberitzenwurzelrinde, Orangenwurzel",
-          "max. 500 mg/Tag",
+          "nur nach fachlicher Abstimmung",
           "Als Tee aus der ayurvedischen Medizin bekannt"
         ],
         [
@@ -489,13 +489,13 @@
           "tone": "green"
         },
         {
-          "label": "Risiko für Spätfolgen",
+          "label": "Langfristige Regulation",
           "first": 5,
           "second": 4,
           "firstDisplay": "5 / 9",
           "secondDisplay": "4 / 9",
           "delta": "−1",
-          "status": "Erhöht",
+          "status": "Eingeschränkt",
           "tone": "amber"
         }
       ],
@@ -504,9 +504,9 @@
     {
       "type": "callout",
       "title": "Was der Verlauf zeigt",
-      "text": "Die beiden Auswertungen laufen gegenläufig: Das aktuelle Stresslevel hat sich von 6 auf 7 verbessert und liegt jetzt im grünen Bereich. Der Wert für die Spätfolgen ist im selben Zeitraum von 5 auf 4 gesunken — und weil hier ein höherer Wert das geringere Risiko bedeutet, heißt das: Das Risiko hat zugenommen.",
+      "text": "Die beiden Auswertungen laufen gegenläufig: Das aktuelle Stresslevel hat sich von 6 auf 7 verbessert und liegt jetzt im grünen Bereich. Der Wert der langfristigen Regulation ist im selben Zeitraum von 5 auf 4 gesunken — und weil auch hier ein höherer Wert die stabilere Regulation bedeutet, heißt das: Diese Ebene hat sich verschlechtert.",
       "items": [
-        "Das ist der eigentliche Befund dieser Messung: Die akute Belastung wird besser bewältigt, während sich die langfristige Regulationsebene verschlechtert hat. Ein gutes Stresslevel allein sagt über die Spätfolgen-Ebene nichts aus.",
+        "Das ist der eigentliche Befund dieser Messung: Die akute Belastung wird besser bewältigt, während sich die langfristige Regulationsebene verschlechtert hat. Ein gutes Stresslevel allein sagt über die langfristige Ebene nichts aus.",
         "Zwischen den beiden Messungen lagen rund drei Monate. Den Abstand zur nächsten Kontrollmessung legt die betreuende Einrichtung fest."
       ],
       "tone": "accent",
@@ -521,12 +521,12 @@
         {
           "num": "01",
           "title": "miR-106b-5p — der einzige rote Einzelwert",
-          "text": "Mit 3/9 ist der Immunsignal aktivierende Indikator der schwächste Wert des Befunds und geht in das Risiko für Spätfolgen ein. Vier der elf Empfehlungen zielen auf ihn: Resveratrol, Berberin, Butyrat und Omega-3. Konkret: mindestens 30 g Ballaststoffe täglich für die Butyrat-Bildung im Darm, 250–500 mg Omega-3 aus fettem Fisch, Walnüssen oder Algenöl, dazu Beeren für Resveratrol."
+          "text": "Mit 3/9 ist der Immunsignal aktivierende Indikator der schwächste Wert des Befunds und geht in die langfristige Regulation ein. Vier der elf Empfehlungen zielen auf ihn: Resveratrol, Berberin, Butyrat und Omega-3. Konkret: mindestens 30 g Ballaststoffe täglich für die Butyrat-Bildung im Darm, 250–500 mg Omega-3 aus fettem Fisch, Walnüssen oder Algenöl, dazu Beeren für Resveratrol."
         },
         {
           "num": "02",
           "title": "let-7g-5p — die chronische Ebene",
-          "text": "Der Chronische Stress Indikator liegt mit 4/9 deutlich unter dem akuten (7/9) — obwohl die Auswertung insgesamt im grünen Bereich liegt. Welcher der beiden Indikatoren die Verbesserung von 6 auf 7 getragen hat, weist der Befund nicht aus. Quercetin, EGCG, Oleuropein und Resveratrol setzen an der chronischen Ebene an. Die Zubereitungshinweise unterscheiden sich je Wirkstoff — Einzelheiten in der Tabelle auf Seite 06."
+          "text": "Der Chronische Stress Indikator liegt mit 4/9 deutlich unter dem akuten (7/9) — obwohl die Auswertung insgesamt im grünen Bereich liegt. Welcher der beiden Indikatoren die Verbesserung von 6 auf 7 getragen hat, weist der Befund nicht aus. Quercetin, EGCG, Oleuropein und Resveratrol setzen an der chronischen Ebene an. Die Zubereitungshinweise unterscheiden sich je Wirkstoff — Einzelheiten in der Tabelle „Ihre Interventionen“."
         }
       ],
       "keepTitle": "Erhalten",
@@ -561,6 +561,10 @@
         {
           "title": "Einordnung",
           "text": "Dieser Bericht ist keine Diagnose und ersetzt keine ärztliche oder psychotherapeutische Beratung. Die microRNA-Werte beschreiben einen Momentzustand der zellulären Regulation; sie sind keine Messung von Stresserleben und keine Aussage über das Vorliegen oder Entstehen einer Erkrankung. Bei anhaltender Belastung, Erschöpfung, Schlafstörungen oder Niedergeschlagenheit suchen Sie bitte ärztlichen Rat."
+        },
+        {
+          "title": "Status der Analysen",
+          "text": "Die Analysen sind Labordienstleistungen unseres Kooperationspartners und keine CE-gekennzeichneten In-vitro-Diagnostika. Sie dienen der Beratung und Verlaufskontrolle und ersetzen keine ärztliche Diagnostik. Die Analysen werden ausschließlich an Fachanwenderinnen und Fachanwender abgegeben."
         },
         {
           "title": "Rechtlicher Rahmen",

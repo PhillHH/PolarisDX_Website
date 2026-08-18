@@ -85,8 +85,8 @@
       "tone": "neutral",
       "items": [
         "Dieser Befund ist keine Diagnose. Die Einordnung erfolgt im Gespräch mit qualifiziertem Fachpersonal und stets im individuellen Kontext.",
-        "Vor einer genetischen Analyse sind Aufklärung und schriftliche Einwilligung erforderlich (Gendiagnostikgesetz).",
-        "Die genetischen Werte ändern sich nie. Nur die vier epigenetischen Werte eignen sich als Erfolgskontrolle."
+        "Vor einer genetischen Analyse sind Aufklärung und schriftliche Einwilligung erforderlich (Gendiagnostikgesetz). Prädiktive genetische Untersuchungen dürfen nur unter der Verantwortung entsprechend qualifizierter Ärztinnen und Ärzte vorgenommen werden; vor und nach der Untersuchung ist eine genetische Beratung anzubieten (§§ 7 und 10 GenDG).",
+        "Die genetischen Werte ändern sich nie. Nur die vier epigenetischen Werte eignen sich als Verlaufskontrolle."
       ],
       "id": "hinweis"
     },
@@ -184,7 +184,7 @@
           "tone": "green"
         },
         {
-          "label": "Adipositas-Risiko",
+          "label": "Körpergewichtsregulation",
           "value": 7,
           "display": "7 / 9",
           "status": "Günstig",
@@ -252,7 +252,7 @@
           "tone": "amber"
         },
         {
-          "label": "Diabetes-Risiko",
+          "label": "Blutzucker- und Insulinstoffwechsel",
           "value": 3,
           "display": "3 / 9",
           "status": "Erhöhter Bedarf",
@@ -290,7 +290,7 @@
           "tone": "red"
         }
       ],
-      "note": "Sortiert nach Wert, nicht nach Themengebiet. Die ausführliche Einordnung mit Genotypen und Interventionen folgt ab Seite 07.",
+      "note": "Sortiert nach Wert, nicht nach Themengebiet. Die ausführliche Einordnung mit Genotypen und Interventionen folgt in den nachfolgenden Kapiteln.",
       "id": "auswertungen"
     },
     {
@@ -367,13 +367,13 @@
                 "Resveratrol",
                 "Traubenschalen, Himbeerkerne, Heidelbeeren, Erdnüsse",
                 "1 Portion Beeren/Tag",
-                "Reguliert Immunzellen, hemmt NF-κB"
+                "Vor allem in Schalen und Kernen enthalten"
               ],
               [
                 "Sulforaphan",
                 "Brokkoli, Blumenkohl, Rosenkohl, Kresse",
                 "3–4×/Woche",
-                "Entzündungshemmend, antioxidativ"
+                "Nur kurz dünsten oder roh — sonst geht der Wirkstoff verloren"
               ],
               [
                 "Quercetin",
@@ -385,7 +385,7 @@
                 "Curcumin",
                 "Kurkuma mit schwarzem Pfeffer",
                 "1 TL täglich",
-                "Hemmt DNA-Methyltransferasen"
+                "Öl verbessert die Aufnahme; nicht bei Schwangerschaft oder Gallensteinen"
               ]
             ]
           }
@@ -468,7 +468,7 @@
                 "Regelmäßiger Sport",
                 "Ausdauer und Kraft kombiniert",
                 "150 Min./Woche",
-                "Wirkt nachweislich günstig auf diesen Wert"
+                "Wirkt günstig auf diesen Wert"
               ],
               [
                 "Kältereize",
@@ -573,18 +573,18 @@
     {
       "type": "markers",
       "caption": "Genetik · Stoffwechsel",
-      "title": "Adipositas- und Diabetes-Veranlagung.",
-      "lead": "Genetische Veranlagung für Übergewicht und den Blutzuckerstoffwechsel — als Ausgangspunkt für gezielte Ernährung, nicht als Vorhersage.",
+      "title": "Veranlagung: Körpergewichtsregulation und Blutzuckerstoffwechsel.",
+      "lead": "Genetische Veranlagung für die Regulation des Körpergewichts und für den Blutzuckerstoffwechsel — als Ausgangspunkt für gezielte Ernährung, nicht als Vorhersage.",
       "items": [
         {
-          "name": "Adipositas-Risiko",
-          "intro": "Zusammenfassung von Varianten, die mit einem erhöhten Risiko für Übergewicht in Verbindung stehen.",
+          "name": "Körpergewichtsregulation",
+          "intro": "Zusammenfassung von Varianten, die mit der Regulation des Körpergewichts in Verbindung stehen.",
           "kind": "traffic",
           "value": 7,
           "display": "7 / 9",
           "status": "Günstig",
           "tone": "green",
-          "text": "Ihr genetischer Hintergrund spricht nicht für ein erhöhtes Risiko. Mahlzeitenstruktur, Ballaststoffe und regelmäßige Bewegung halten diese Ausgangslage.",
+          "text": "Ihr genetischer Hintergrund zeigt hier keine ungünstige Ausprägung. Mahlzeitenstruktur, Ballaststoffe und regelmäßige Bewegung halten diese Ausgangslage.",
           "sub": "Genotypen: FTO rs9939609 TT · PPARG2 CC (Wildtyp) · MC4R CT · TCF7L2 CT · SLC6A14 CA · TFAP2B GG",
           "table": {
             "cols": ["Maßnahme", "Quelle", "Menge / Frequenz", "Wirkung"],
@@ -601,17 +601,12 @@
                 "20–30 g/Mahlzeit",
                 "Unterstützt Sättigungssignale"
               ],
-              [
-                "Bewegung",
-                "—",
-                "150 Min./Woche",
-                "Schwächt genetisch bedingte Effekte nachweislich ab"
-              ]
+              ["Bewegung", "—", "150 Min./Woche", "Schwächt genetisch bedingte Effekte ab"]
             ]
           }
         },
         {
-          "name": "Diabetes-Risiko",
+          "name": "Blutzucker- und Insulinstoffwechsel",
           "intro": "Gene, die Insulinausschüttung, Insulinsensitivität und den Blutzuckerstoffwechsel beeinflussen.",
           "kind": "traffic",
           "value": 3,
@@ -633,7 +628,7 @@
                 "Bewegung nach dem Essen",
                 "kurzer Spaziergang",
                 "10–15 Min.",
-                "Verbessert die Insulinsensitivität messbar"
+                "Verbessert die Insulinsensitivität"
               ]
             ]
           }
@@ -860,7 +855,7 @@
                 "Zucker und Weißmehl reduzieren",
                 "zugunsten Vollkorn",
                 "im Alltag",
-                "Wirkt erhöhten Triglyceriden (APOA5) entgegen"
+                "Betrifft den Triglyceridstoffwechsel (APOA5)"
               ]
             ]
           }
@@ -982,7 +977,7 @@
                 "UV-Schutz",
                 "Sonnencreme, Kopfbedeckung",
                 "bei Sonnenexposition",
-                "Reduziert die oxidative Belastung der Haut"
+                "Begrenzt die UV-Exposition der Haut"
               ]
             ]
           }
@@ -1087,7 +1082,7 @@
           "Wichtiges antioxidatives Enzym, schützt Zellen vor oxidativem Stress."
         ]
       ],
-      "note": "21 Varianten. Die Auswertungen auf Seite 04 entstehen jeweils aus mehreren dieser Gene gemeinsam; ein einzelner Genotyp lässt für sich genommen keine Aussage zu.",
+      "note": "21 Varianten. Die Auswertungen im Kapitel „Alle genetischen Auswertungen“ entstehen jeweils aus mehreren dieser Gene gemeinsam; ein einzelner Genotyp lässt für sich genommen keine Aussage zu.",
       "id": "uebersicht-3"
     },
     {
@@ -1109,7 +1104,7 @@
         {
           "num": "03",
           "title": "Blutzuckerqualität statt Kalorienmenge",
-          "text": "Diabetes-Risiko 3/9 bei gleichzeitig günstigem Adipositas-Wert (7/9). Für Sie zählt weniger die Menge als die Qualität der Kohlenhydrate: niedriger glykämischer Index zu jeder Hauptmahlzeit, 20–30 g Protein pro Mahlzeit und ein kurzer Spaziergang nach dem Essen. Da Sport allein bei Ihnen (FTO 2/9) langsamer wirkt, ist diese Kombination der wirksamere Weg."
+          "text": "Blutzucker- und Insulinstoffwechsel 3/9 bei gleichzeitig günstiger Körpergewichtsregulation (7/9). Für Sie zählt weniger die Menge als die Qualität der Kohlenhydrate: niedriger glykämischer Index zu jeder Hauptmahlzeit, 20–30 g Protein pro Mahlzeit und ein kurzer Spaziergang nach dem Essen. Da Sport allein bei Ihnen (FTO 2/9) langsamer wirkt, ist diese Kombination der wirksamere Weg."
         }
       ],
       "controlTitle": "Kontrolle und nächster Schritt",
@@ -1144,8 +1139,12 @@
           "text": "Dieser Bericht ist keine Diagnose und ersetzt keine ärztliche Beratung. Genetische Auswertungen beschreiben Veranlagungen, keine Erkrankungen; epigenetische Marker beschreiben einen Momentzustand. Beides ist im individuellen klinischen Kontext durch qualifiziertes Fachpersonal zu bewerten."
         },
         {
+          "title": "Status der Analysen",
+          "text": "Die Analysen sind Labordienstleistungen unseres Kooperationspartners und keine CE-gekennzeichneten In-vitro-Diagnostika. Sie dienen der Beratung und Verlaufskontrolle und ersetzen keine ärztliche Diagnostik. Die Analysen werden ausschließlich an Fachanwenderinnen und Fachanwender abgegeben."
+        },
+        {
           "title": "Rechtlicher Rahmen",
-          "text": "Genetische Untersuchungen unterliegen dem Gendiagnostikgesetz (GenDG); Aufklärung und schriftliche Einwilligung sind vor der Probenahme erforderlich. Die Laboranalytik erfolgt durch unseren Kooperationspartner. Polaris Diagnostics Europe GmbH verantwortet Vertrieb und Betreuung."
+          "text": "Genetische Untersuchungen unterliegen dem Gendiagnostikgesetz (GenDG); Aufklärung und schriftliche Einwilligung sind vor der Probenahme erforderlich. Die Laboranalytik erfolgt durch unseren Kooperationspartner. Polaris Diagnostics Europe GmbH verantwortet Vertrieb und Betreuung. Diese Unterlage begründet keine Heilversprechen im Sinne des Heilmittelwerbegesetzes."
         }
       ],
       "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand: August 2026",

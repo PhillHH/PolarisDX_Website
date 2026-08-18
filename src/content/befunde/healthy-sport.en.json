@@ -93,7 +93,7 @@
       "title": "Important",
       "text": "This report is not a substitute for a sports medicine examination or performance diagnostics.",
       "items": [
-        "The four genetic variants are innate and are determined only once. Information and written consent are required before the genetic analysis (German Genetic Diagnostics Act, GenDG).",
+        "The four genetic variants are innate and are determined only once. Information and written consent are required before the genetic analysis (German Genetic Diagnostics Act, GenDG). Predictive genetic testing may only be conducted under the responsibility of appropriately qualified physicians; genetic counselling must be offered before and after the test (Sections 7 and 10 GenDG).",
         "Only the eight microRNA values can change — they alone are suitable for monitoring progress."
       ],
       "tone": "neutral",
@@ -272,7 +272,7 @@
         },
         {
           "name": "Inflammation",
-          "intro": "From five microRNAs: miR-505-3p, miR-30e-3p, miR-22-5p, miR-20a-5p and miR-146a-5p. Exercise helps prevent inflammation, but at the same time releases stress hormones during exertion.",
+          "intro": "From five microRNAs: miR-505-3p, miR-30e-3p, miR-22-5p, miR-20a-5p and miR-146a-5p. These markers map inflammatory regulation under training load; at the same time, physical exertion releases stress hormones.",
           "kind": "traffic",
           "value": 3,
           "display": "3 / 9",
@@ -303,7 +303,7 @@
           "display": "5 / 9",
           "sub": "Average",
           "tone": "amber",
-          "text": "Your value is in the average range. Ensure sufficient recovery phases between training sessions and pay attention to warming up, stretching and cooling down. Your genetic assessment of muscle damage risk on page 07 complements this value."
+          "text": "Your value is in the average range. Ensure sufficient recovery phases between training sessions and pay attention to warming up, stretching and cooling down. Your genetic assessment of muscle damage risk in the chapter “Three further genetic assessments” complements this value."
         },
         {
           "name": "Cardiovascular fitness",
@@ -439,13 +439,13 @@
           "miR-146a-5p · 2",
           "Red grapes, grapefruit, broccoli, Brussels sprouts, potatoes, onions, pumpkin",
           "200–600 mg extract/day",
-          "Antioxidant, anti-inflammatory, analgesic"
+          "As an extract — difficult to achieve in this amount through diet alone"
         ],
         [
           "Vitamin D3",
           "miR-146a-5p · 2",
           "Cod liver oil, herring, salmon, sardine, tuna, mackerel, hen's egg",
-          "100 µg/day (4,000 IU)",
+          "after medical assessment of vitamin D levels",
           "Fat-soluble — best taken with oil and a meal"
         ],
         [
@@ -460,7 +460,7 @@
           "miR-22-5p · 3",
           "Peppers and chilli pods",
           "0.8–1.5 mg/day (or 1 g chilli powder)",
-          "Fat-soluble; pain-relieving and circulation-promoting"
+          "Fat-soluble — best taken together with oil"
         ],
         [
           "Proanthocyanidin",
@@ -474,14 +474,14 @@
           "miR-30e-3p · 4",
           "Meat, fish, eggs, dairy and cereal products",
           "60–75 µg/day",
-          "Protects cell membranes; plays a role in DNA synthesis and cell division"
+          "Contributes to the protection of cells from oxidative stress"
         ],
         [
           "Genistein",
           "miR-20a-5p · 4",
           "Soybeans, kidney beans, chickpeas, dark chocolate",
           "40–80 mg red clover extract/day",
-          "Extracts more effective than powder"
+          "More concentrated as an extract than in powder form"
         ],
         [
           "Curcumin",
@@ -517,13 +517,6 @@
           "Quinoa, white goosefoot, broccoli, spinach, beetroot",
           "500–2,000 mg/day",
           "Partly synthesised by the body itself"
-        ],
-        [
-          "Celastrol",
-          "miR-101-3p · 7",
-          "Wilford's thunder god vine",
-          "30 mg/day",
-          "Antioxidant and anti-inflammatory; as capsules or drops"
         ],
         [
           "Zinc",
@@ -681,8 +674,12 @@
           "text": "This report is not a diagnosis and is not a substitute for medical advice, a sports medicine examination or performance diagnostics. The microRNA values describe a snapshot in time; the genetic variants describe predispositions, not diseases and not a performance forecast."
         },
         {
+          "title": "Status of the analyses",
+          "text": "The analyses are laboratory services provided by our cooperation partner and are not CE-marked in vitro diagnostic devices. They serve consultation and monitoring and do not replace clinical diagnostics. The analyses are supplied to professional users only."
+        },
+        {
           "title": "Legal framework",
-          "text": "Genetic testing is subject to the German Genetic Diagnostics Act (GenDG); information and written consent are required before sample collection. The laboratory analysis is carried out by our cooperation partner. Polaris Diagnostics Europe GmbH is responsible for distribution and support. Please review food supplements individually and in consultation with a qualified professional."
+          "text": "Genetic testing is subject to the German Genetic Diagnostics Act (GenDG); information and written consent are required before sample collection. Predictive genetic testing may only be conducted under the responsibility of appropriately qualified physicians; genetic counselling must be offered before and after the test (Sections 7 and 10 GenDG). The laboratory analysis is carried out by our cooperation partner. Polaris Diagnostics Europe GmbH is responsible for distribution and support. Please review food supplements individually and in consultation with a qualified professional."
         }
       ],
       "copyright": "© 2026 Polaris Diagnostics Europe GmbH · As at: August 2026",
