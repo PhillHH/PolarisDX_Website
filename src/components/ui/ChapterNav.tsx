@@ -266,20 +266,23 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
             </summary>
             <div className="absolute left-0 top-full z-30 mt-2 w-64 overflow-hidden rounded-2xl border border-slate-200 bg-white py-2 shadow-lg">
               <p className="px-4 pb-1 pt-1 text-xs font-medium text-gray-600">{switcher.label}</p>
-              {switcher.entries.map((o) => (
-                <Link
-                  key={o.slug}
-                  to={switcher.hrefFor(o.slug)}
-                  aria-current={o.slug === switcher.currentSlug ? 'page' : undefined}
-                  className={`block px-4 py-2.5 text-base transition-colors hover:bg-slate-50 ${
-                    o.slug === switcher.currentSlug
-                      ? 'font-semibold text-brand-primary'
-                      : 'text-heading'
-                  }`}
-                >
-                  {o.panel}
-                </Link>
-              ))}
+              {/* Die Seite, auf der man steht, gehoert nicht in eine Liste
+                  mit der Ueberschrift "die anderen Musterbefunde". */}
+              {switcher.entries
+                .filter((o) => o.slug !== switcher.currentSlug)
+                .map((o) => (
+                  <Link
+                    key={o.slug}
+                    to={switcher.hrefFor(o.slug)}
+                    className={`block px-4 py-2.5 text-base transition-colors hover:bg-slate-50 ${
+                      o.slug === switcher.currentSlug
+                        ? 'font-semibold text-brand-primary'
+                        : 'text-heading'
+                    }`}
+                  >
+                    {o.panel}
+                  </Link>
+                ))}
             </div>
           </details>
         ) : null}

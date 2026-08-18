@@ -229,6 +229,7 @@ const MusterbefundPage = () => {
   // react-hooks/immutability verbietet sie, weil der Wert bei einem erneuten
   // Rendering derselben Liste nicht mehr derselbe waere.
   let tint = false
+  let markersChapterGesetzt = false
   for (const block of blocks) {
     const isCover = block.type === 'cover'
     if (!isCover && block.type !== 'callout') tint = !tint
@@ -238,8 +239,20 @@ const MusterbefundPage = () => {
     // ist sie in allen zehn Sprachen dieselbe und ueberlebt jede Umstellung.
     const title = typeof block.title === 'string' ? block.title : ''
     const id = typeof block.id === 'string' ? block.id : undefined
+    // Die Einzelwerte verteilen sich auf bis zu neun eigene Bloecke - bei
+    // Metabolic Health ueber rund 13.000 px. In der Leiste standen dadurch 18
+    // Eintraege, von denen nur ein Teil ins Bild passt. Sie bekommen ein
+    // gemeinsames Kapitel; die Anker der einzelnen Bloecke bleiben bestehen,
+    // damit der Ueberblick und alte Links weiter dorthin springen.
     if (id && !NOT_A_CHAPTER.has(block.type) && title) {
-      chapters.push({ id, label: toLabel(title) })
+      if (block.type === 'markers') {
+        if (!markersChapterGesetzt) {
+          markersChapterGesetzt = true
+          chapters.push({ id, label: t('befund.markersChapter') })
+        }
+      } else {
+        chapters.push({ id, label: toLabel(title) })
+      }
     }
 
     // Der Beratungsabschnitt ist kein Block, steht aber zwischen zweien. Sein
