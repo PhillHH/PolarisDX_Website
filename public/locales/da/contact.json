@@ -56,7 +56,8 @@
         "email": "Please enter a valid email address, for example name@practice.com.",
         "requirements": "Please describe your enquiry briefly so we can reply precisely.",
         "consent": "Please tick the consent box so we may reply to your enquiry."
-      }
+      },
+      "consent": "I agree that my details may be stored for contact and follow-up questions for up to 12 months."
     },
     "info": {
       "title": "Kontaktoplysninger",

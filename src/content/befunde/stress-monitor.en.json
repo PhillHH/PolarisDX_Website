@@ -40,12 +40,12 @@
           "text": "How your stress response is currently running and whether a lasting burden is emerging."
         },
         {
-          "title": "Regulation",
+          "title": "Cellular regulation",
           "text": "How well your body balances stress signals at the cellular level."
         },
         {
-          "title": "Long-term effects",
-          "text": "How high the risk is that sustained stress will make itself felt in the long term."
+          "title": "Long-term regulation",
+          "text": "How regulation turns out at the long-term level — a good current stress level alone says nothing about it."
         }
       ],
       "flowTitle": "The process",
@@ -58,7 +58,7 @@
         {
           "num": "02",
           "title": "Evaluate",
-          "text": "Two evaluations on the traffic light 1–9: physiological stress level and risk of long-term effects."
+          "text": "Two evaluations on the traffic light 1–9: physiological stress level and long-term regulation."
         },
         {
           "num": "03",
@@ -116,15 +116,15 @@
           "zoneLabels": ["chronic stress", "acute stress", "no stress"]
         },
         {
-          "name": "Risk of long-term effects",
-          "category": "Long-term regulation",
+          "name": "Long-term regulation",
+          "category": "Four microRNAs from four levels of regulation",
           "kind": "traffic",
           "value": 4,
           "display": "4 / 9",
-          "sub": "Elevated",
+          "sub": "Limited",
           "tone": "amber",
-          "text": "Elevated risk — preventive action recommended.",
-          "zoneLabels": ["high risk", "moderate risk", "low risk"]
+          "text": "Limited regulation on the slower level.",
+          "zoneLabels": ["weak regulation", "moderate regulation", "stable regulation"]
         }
       ],
       "id": "marker"
@@ -141,7 +141,7 @@
             "Cell protection indicator",
             "Cellular protective and adaptive mechanisms",
             "8 / 9",
-            "Long-term effects"
+            "Long-term regulation"
           ],
           "tone": "green"
         },
@@ -161,7 +161,7 @@
             "Serotonin-regulating indicator",
             "Serotonergic regulation",
             "6 / 9",
-            "Long-term effects"
+            "Long-term regulation"
           ],
           "tone": "amber"
         },
@@ -171,7 +171,7 @@
             "Neuronal indicator",
             "Neuronal stability and adaptation",
             "5 / 9",
-            "Long-term effects"
+            "Long-term regulation"
           ],
           "tone": "amber"
         },
@@ -191,7 +191,7 @@
             "Immune signal activating indicator",
             "Immunological activation",
             "3 / 9",
-            "Long-term effects"
+            "Long-term regulation"
           ],
           "tone": "red"
         }
@@ -289,15 +289,15 @@
     {
       "type": "bigResult",
       "caption": "Evaluation 02",
-      "title": "Risk of long-term effects.",
+      "title": "Long-term regulation.",
       "lead": "Calculated from four microRNAs: miR-16-5p, miR-15a-5p, miR-106b-5p and miR-21-5p.",
       "display": "4 / 9",
-      "sub": "Elevated",
+      "sub": "Limited",
       "kind": "traffic",
       "value": 4,
       "tone": "amber",
-      "zoneLabels": ["high risk", "moderate risk", "low risk"],
-      "text": "The evaluation does not yet show any acute stress-related overload. The risk of secondary conditions is, however, already elevated — it is worth acting here before long-term effects become manifest. This is the focus of your report.",
+      "zoneLabels": ["weak regulation", "moderate regulation", "stable regulation"],
+      "text": "On the acute level, the evaluation shows no stress-related overload. The slower regulation level, by contrast, sits at 4/9 in the amber range — it is the focus of this report and the starting point for the conversation.",
       "id": "ergebnis-3"
     },
     {
@@ -368,7 +368,7 @@
           "Berberine",
           "miR-106b-5p · 3",
           "Barberry root bark, orange root",
-          "max. 500 mg/day",
+          "only after professional consultation",
           "Known as a tea from Ayurvedic medicine"
         ],
         [
@@ -399,7 +399,7 @@
           "Berberine",
           "miR-106b-5p · 3",
           "Barberry root bark, orange root",
-          "max. 500 mg/day",
+          "only after professional consultation",
           "Known as a tea from Ayurvedic medicine"
         ],
         [
@@ -489,13 +489,13 @@
           "tone": "green"
         },
         {
-          "label": "Risk of long-term effects",
+          "label": "Long-term regulation",
           "first": 5,
           "second": 4,
           "firstDisplay": "5 / 9",
           "secondDisplay": "4 / 9",
           "delta": "−1",
-          "status": "Elevated",
+          "status": "Limited",
           "tone": "amber"
         }
       ],
@@ -504,9 +504,9 @@
     {
       "type": "callout",
       "title": "What the trend shows",
-      "text": "The two evaluations are moving in opposite directions: the current stress level has improved from 6 to 7 and is now in the green range. The value for long-term effects has fallen from 5 to 4 over the same period — and because a higher value here means a lower risk, this means the risk has increased.",
+      "text": "The two evaluations are moving in opposite directions: the current stress level has improved from 6 to 7 and is now in the green range. The value for long-term regulation has fallen from 5 to 4 over the same period — and because here too a higher value means more stable regulation, this means that this level has deteriorated.",
       "items": [
-        "This is the real finding of this measurement: acute strain is being coped with better, while the long-term regulatory level has deteriorated. A good stress level alone says nothing about the long-term effects level.",
+        "This is the real finding of this measurement: acute strain is being coped with better, while the long-term regulatory level has deteriorated. A good stress level alone says nothing about the long-term level.",
         "The two measurements were around three months apart. The interval until the next follow-up measurement is set by the supervising institution."
       ],
       "tone": "accent",
@@ -521,12 +521,12 @@
         {
           "num": "01",
           "title": "miR-106b-5p — the only red individual value",
-          "text": "At 3/9, the immune signal activating indicator is the weakest value in the report and feeds into the risk of long-term effects. Four of the eleven recommendations target it: resveratrol, berberine, butyrate and omega-3. In concrete terms: at least 30 g of fibre daily for butyrate formation in the gut, 250–500 mg of omega-3 from oily fish, walnuts or algal oil, plus berries for resveratrol."
+          "text": "At 3/9, the immune signal activating indicator is the weakest value in the report and feeds into long-term regulation. Four of the eleven recommendations target it: resveratrol, berberine, butyrate and omega-3. In concrete terms: at least 30 g of fibre daily for butyrate formation in the gut, 250–500 mg of omega-3 from oily fish, walnuts or algal oil, plus berries for resveratrol."
         },
         {
           "num": "02",
           "title": "let-7g-5p — the chronic level",
-          "text": "At 4/9, the chronic stress indicator lies well below the acute one (7/9) — even though the evaluation as a whole is in the green range. The report does not show which of the two indicators carried the improvement from 6 to 7. Quercetin, EGCG, oleuropein and resveratrol act on the chronic level. The preparation notes differ from compound to compound — details in the table on page 06."
+          "text": "At 4/9, the chronic stress indicator lies well below the acute one (7/9) — even though the evaluation as a whole is in the green range. The report does not show which of the two indicators carried the improvement from 6 to 7. Quercetin, EGCG, oleuropein and resveratrol act on the chronic level. The preparation notes differ from compound to compound — details in the table “Your interventions”."
         }
       ],
       "keepTitle": "Maintain",
@@ -561,6 +561,10 @@
         {
           "title": "Interpretation",
           "text": "This report is not a diagnosis and does not replace medical or psychotherapeutic advice. The microRNA values describe a snapshot of cellular regulation; they are not a measurement of perceived stress and make no statement about the presence or development of a disease. If strain, exhaustion, sleep problems or low mood persist, please seek medical advice."
+        },
+        {
+          "title": "Status of the analyses",
+          "text": "The analyses are laboratory services provided by our cooperation partner and are not CE-marked in vitro diagnostic devices. They serve consultation and monitoring and do not replace clinical diagnostics. The analyses are supplied to professional users only."
         },
         {
           "title": "Legal framework",

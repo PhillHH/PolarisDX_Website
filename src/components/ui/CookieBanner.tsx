@@ -149,6 +149,11 @@ export const CookieBanner: React.FC = () => {
     }
 
     if (!consent) {
+      // Der gespeicherte Zustand darf erst nach der Hydrierung gelesen werden:
+      // der Server kennt den localStorage nicht und wuerde sonst einen anderen
+      // Zustand ausliefern als der Browser. Deshalb hier und nicht als
+      // Anfangswert - die Regel kennt diesen Fall nicht.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsVisible(true)
     } else {
       // Load saved preferences
@@ -205,16 +210,16 @@ export const CookieBanner: React.FC = () => {
   if (!isVisible) return null
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[70] p-4 bg-white border-t border-gray-200 shadow-lg md:p-6 animate-in slide-in-from-bottom duration-300">
+    <div className="fixed bottom-0 left-0 right-0 z-[70] p-3 bg-white border-t border-gray-200 shadow-lg md:p-6 animate-in slide-in-from-bottom duration-300">
       <div className="max-w-7xl mx-auto flex flex-col gap-4">
         {/* Main Content */}
-        <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
+        <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-start md:items-center justify-between">
           <div className="flex gap-4 items-start">
             <div className="p-2 bg-blue-50 rounded-lg text-blue-600 hidden md:block">
               <Shield size={24} />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-1">
+              <h3 className="text-base font-semibold text-gray-900 md:mb-1 md:text-lg">
                 {t('cookie.title', 'Wir respektieren Ihre Privatsphäre')}
               </h3>
               <p className="text-gray-600 text-sm md:text-base max-w-3xl">
@@ -226,27 +231,33 @@ export const CookieBanner: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto min-w-[300px]">
+          {/* Drei gestapelte Knoepfe machten den Balken auf dem Telefon
+              239 px hoch und verdeckten damit den halben ersten Bildschirm der
+              Panel-Seiten. Jetzt stehen die beiden Zustimmungswege
+              nebeneinander, "Einstellungen" darunter. Beide Zustimmungswege
+              sind gleich gross: eine Wahl, in der das Annehmen groesser ist
+              als das Ablehnen, waere schneller, aber angreifbar. */}
+          <div className="grid w-full grid-cols-2 gap-2 md:flex md:w-auto md:min-w-[300px] md:gap-3">
             <button
               onClick={handleRejectAll}
-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+              className="inline-flex min-h-[44px] items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
               {t('cookie.reject_all', 'Nur notwendige')}
             </button>
             <button
+              onClick={handleAcceptAll}
+              className="inline-flex min-h-[44px] items-center justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            >
+              {t('cookie.accept_all', 'Alle akzeptieren')}
+            </button>
+            <button
               onClick={() => setShowSettings(!showSettings)}
-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors flex items-center justify-center gap-2"
+              className="col-span-2 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 md:col-span-1"
             >
               {showSettings
                 ? t('cookie.hide', 'Ausblenden')
                 : t('cookie.settings', 'Einstellungen')}
               {showSettings ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-            </button>
-            <button
-              onClick={handleAcceptAll}
-              className="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors shadow-sm"
-            >
-              {t('cookie.accept_all', 'Alle akzeptieren')}
             </button>
           </div>
         </div>
@@ -267,6 +278,11 @@ export const CookieBanner: React.FC = () => {
                   <div className="flex items-center justify-between mb-2">
                     <span className="font-medium text-gray-900">{t(category.nameKey)}</span>
                     <label className="relative inline-flex items-center cursor-pointer">
+                      {/* Der Schalter trug keinen Namen - ein Screenreader las
+                          "Kontrollkaestchen, aktiviert", ohne zu sagen, wofuer.
+                          Der Name steht sichtbar daneben, hier noch einmal fuer
+                          die Sprachausgabe. */}
+                      <span className="sr-only">{t(category.nameKey)}</span>
                       <input
                         type="checkbox"
                         className="sr-only peer"

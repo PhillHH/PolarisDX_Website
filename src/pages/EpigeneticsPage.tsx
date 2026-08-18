@@ -751,6 +751,11 @@ const EpigeneticsPage = () => {
           <Reveal width="100%">
             <div className="mx-auto max-w-[80ch]">
               <SectionHeader caption={t('faq.caption')} title={t('faq.title')} align="left" />
+              {/* Kernsatz wie in jedem anderen Abschnitt: wer nur die
+                  Kernsaetze liest, hat die Seite verstanden. Hier fiel der
+                  Leser bisher von der Ueberschrift direkt in acht zugeklappte
+                  Fragen. */}
+              <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('faq.lead')}</p>
             </div>
           </Reveal>
           <div className="mx-auto mt-10 max-w-[80ch] divide-y divide-slate-200 overflow-hidden rounded-3xl border border-slate-200 bg-white">

@@ -55,7 +55,8 @@
         "email": "Bitte geben Sie eine gültige E-Mail-Adresse an, zum Beispiel name@praxis.de.",
         "requirements": "Bitte beschreiben Sie kurz Ihr Anliegen, damit wir gezielt antworten können.",
         "consent": "Bitte setzen Sie das Häkchen bei der Einwilligung, damit wir Ihre Anfrage beantworten dürfen."
-      }
+      },
+      "consent": "Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und für Rückfragen bis zu 12 Monate gespeichert werden."
     },
     "info": {
       "title": "Kontaktinformationen",
