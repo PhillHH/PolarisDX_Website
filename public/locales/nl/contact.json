@@ -57,7 +57,8 @@
         "requirements": "Please describe your enquiry briefly so we can reply precisely.",
         "consent": "Please tick the consent box so we may reply to your enquiry."
       },
-      "consent": "I agree that my details may be stored for contact and follow-up questions for up to 12 months."
+      "consent": "I agree that my details may be stored for contacting me and for follow-up questions for up to 12 months. See our",
+      "privacy_link": "privacy policy"
     },
     "info": {
       "title": "Contactinformatie",

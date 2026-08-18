@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { Button } from '../ui/Button'
 import { Input } from '../ui/Input'
 import { Textarea } from '../ui/Textarea'
@@ -342,10 +342,16 @@ export const ContactForm = () => {
             />
           </div>
           <label htmlFor="consent" className="text-sm text-gray-600">
-            {t(
-              'contact.form.consent',
-              'Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und für Rückfragen bis zu 12 Monate gespeichert werden.',
-            )}
+            {/* Der hartcodierte deutsche Vorgabewert stand hier, weil der
+                Schluessel fehlte - und hat verdeckt, dass die Einwilligung in
+                allen zehn Sprachen deutsch war. Jetzt kommt der Satz aus dem
+                Sprachbestand und endet im Link auf die Datenschutzerklaerung;
+                beides gehoert zusammen, sonst steht dort ein halber Satz. */}
+            {t('contact.form.consent')}{' '}
+            <Link to="/privacy" className="font-medium text-brand-primary hover:underline">
+              {t('contact.form.privacy_link')}
+            </Link>
+            .
           </label>
         </div>
         {errors.consent && (
