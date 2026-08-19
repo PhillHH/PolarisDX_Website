@@ -23,6 +23,7 @@
 import { useTranslation } from 'react-i18next'
 import { Check, Download, Minus } from 'lucide-react'
 import EpiSubpage from '../components/epigenetics/EpiSubpage'
+import type { Chapter } from '../components/ui/ChapterNav'
 import { ASSET_BASE, asArray, BODY, STRETCH } from '../components/epigenetics/tokens'
 import Reveal from '../components/ui/Reveal'
 import { trackEvent } from '../lib/tracking'
@@ -39,17 +40,34 @@ const EpigeneticsEvidencePage = () => {
   const preliminary = asArray<TitledText>(t('evidence.preliminary', { returnObjects: true }))
   const caveats = asArray<TitledText>(t('compare.caveats', { returnObjects: true }))
 
+  // Zwei Kapitel. Der zweite Abschnitt traegt als Ueberschrift
+  // `compare.caveatTitle` — 48 Zeichen und damit als Chip unbrauchbar. Als
+  // Beschriftung steht deshalb `befund.noticeTitle` ("Pflichthinweise") dort,
+  // derselbe Begriff, den die Musterbefunde fuer genau diesen Inhalt benutzen
+  // (methodische Grenzen, GenDG, Rechtshinweis). Ein eigener, treffenderer
+  // Kurztitel waere neuer Text in zehn Sprachen und gehoert in die
+  // Redaktionsrunde, nicht hierher.
+  const chapters: Chapter[] = [
+    { id: 'studienlage', label: t('evidence.caption') },
+    { id: 'grenzen', label: t('befund.noticeTitle') },
+  ]
+
   return (
     <EpiSubpage
       path="/epigenetics/studienlage"
       caption="evidence.caption"
       title="evidence.title"
       lead="evidence.lead"
+      chapters={chapters}
+      source="studienlage"
     >
       {/* ================================================================
           GESICHERT GEGEN VORLAEUFIG
       ================================================================ */}
-      <section id="studienlage" className="scroll-mt-28 mx-auto max-w-container px-4 py-14 lg:px-0">
+      <section
+        id="studienlage"
+        className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-20"
+      >
         <div className="grid gap-6 lg:grid-cols-2">
           <Reveal width="100%" className={STRETCH}>
             <div className="h-full rounded-3xl border border-accent-border bg-accent-soft p-7 lg:p-8">
@@ -112,8 +130,11 @@ const EpigeneticsEvidencePage = () => {
           METHODISCHE GRENZEN — die zwei Panels, bei denen es ins Gespraech
           gehoert
       ================================================================ */}
-      <section id="grenzen" className="scroll-mt-28 border-y border-slate-200 bg-white">
-        <div className="mx-auto max-w-container px-4 py-14 lg:px-0 lg:py-16">
+      <section
+        id="grenzen"
+        className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-slate-200 bg-white"
+      >
+        <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-20">
           <Reveal width="100%">
             <div className="rounded-3xl border border-accent-border bg-accent-soft p-7">
               <h2 className="text-sm font-semibold text-accent-strong">

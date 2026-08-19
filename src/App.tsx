@@ -152,10 +152,29 @@ function ScrollToHash() {
       const leiste = parseFloat(
         getComputedStyle(document.documentElement).getPropertyValue('--chapterbar-offset'),
       )
-      const offset =
-        Number.isFinite(leiste) && leiste > 0
-          ? leiste
-          : (header?.getBoundingClientRect().height ?? 0) + 16
+      const leisteBereit = Number.isFinite(leiste) && leiste > 0
+
+      // Die Kapitelleiste misst ihre eigene Hoehe erst in einem
+      // requestAnimationFrame und schreibt sie dann nach --chapterbar-offset.
+      // Beim DIREKTAUFRUF einer URL mit Anker kann dieser Frame nach dem hier
+      // liegen — dann rechnete der Sprung mit dem Header allein, und das
+      // Kapitel landete exakt um die Leistenhoehe zu weit oben, also dahinter.
+      //
+      // Gemessen auf /de/epigenetics/grundlagen#prinzip: Abschnitt bei 106px
+      // statt 161px, also 55px hinter der Leiste. Auf der Live-Seite trifft es
+      // /de/epigenetics#vergleich genauso — und damit jeden Anker, der in den
+      // ausgelieferten PDFs steht. Beim KLICK auf einen Kapitel-Chip trat der
+      // Fehler nie auf, weil die Leiste da laengst gemessen hatte.
+      //
+      // Deshalb: steht eine Leiste im Dokument, hat aber noch keinen Wert
+      // geschrieben, auf den naechsten Frame warten statt falsch zu springen.
+      // Seiten ohne Leiste laufen unveraendert sofort durch.
+      if (document.querySelector('[data-chapterbar]') && !leisteBereit && frames++ < MAX_FRAMES) {
+        raf = requestAnimationFrame(scrollToTarget)
+        return
+      }
+
+      const offset = leisteBereit ? leiste : (header?.getBoundingClientRect().height ?? 0) + 16
       const top = target.getBoundingClientRect().top + window.scrollY - offset
       // Kein Smooth-Scroll, wenn der Nutzer reduzierte Bewegung eingestellt hat.
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches

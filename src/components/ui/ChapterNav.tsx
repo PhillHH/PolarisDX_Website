@@ -46,6 +46,12 @@ export interface NavAction {
   href?: string
   /** Nur zusammen mit href sinnvoll: Datei laden statt navigieren. */
   download?: boolean
+  /**
+   * Messung. Der Aktionsplatz ist laut Kommentar unten "pro Seite genau eine
+   * Schaltflaeche als Primaeraufforderung" — er war bis hierher der einzige
+   * Anfrageweg der Strecke, der kein Ereignis meldete.
+   */
+  onClick?: () => void
 }
 
 interface ChapterNavProps {
@@ -237,6 +243,10 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
   return (
     <div
       ref={barRef}
+      // Marke fuer ScrollToHash in App.tsx: solange eine Leiste im Dokument
+      // steht, aber --chapterbar-offset noch nicht geschrieben hat, darf kein
+      // Ankersprung gerechnet werden — er landete sonst hinter der Leiste.
+      data-chapterbar=""
       className={`sticky ${TOP} z-20 border-b border-slate-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80`}
     >
       {/* Auf schmalen Viewports bekommen die Kapitel eine eigene Zeile — zu
@@ -383,14 +393,19 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
             Stelle; sie wechselt nur ihre Beschriftung und ihr Ziel. */}
         {aktion ? (
           aktion.to ? (
-            <Link to={aktion.to} className={aktionKlasse}>
+            <Link to={aktion.to} onClick={aktion.onClick} className={aktionKlasse}>
               {/* Eigener Knoten: text-overflow greift nicht auf einem
                   Flex-Container, die Beschriftung wuerde auf schmalen
                   Viewports hart abgeschnitten statt ausgelassen. */}
               <span className="truncate">{aktion.label}</span>
             </Link>
           ) : (
-            <a href={aktion.href} download={aktion.download} className={aktionKlasse}>
+            <a
+              href={aktion.href}
+              download={aktion.download}
+              onClick={aktion.onClick}
+              className={aktionKlasse}
+            >
               <span className="truncate">{aktion.label}</span>
             </a>
           )

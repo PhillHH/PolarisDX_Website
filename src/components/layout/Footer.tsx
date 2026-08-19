@@ -13,7 +13,16 @@ const Footer = () => {
   // Ebenfalls aus auf der Epigenetik-Strecke: die Karte wirbt fuer den
   // IglooPro-Reader und traegt einen Garantie-Anspruch, der dort rund 500 px
   // hinter dem Satz "keine CE-gekennzeichneten In-vitro-Diagnostika" landet.
-  // Die Strecke hat ihren eigenen Abschluss im Abschnitt #konditionen.
+  //
+  // ENTSCHIEDEN: die Karte bleibt auf der ganzen Strecke aus, auch auf den drei
+  // Vertiefungsseiten. Die Begruendung galt bis hierher nur fuer die
+  // Programmseite mit ihrem Abschnitt #konditionen — die Unterseiten hatten
+  // gar keinen Anfrageweg und verloren damit jeden, der sich dort ueberzeugt
+  // hatte. Sie tragen ihn jetzt selbst, auf dem Aktionsplatz ihrer
+  // Kapitelleiste (EpiSubpage.tsx). Damit gilt fuer jede Seite der Strecke
+  // dasselbe: genau ein Anfrageweg, und keiner davon wirbt fuer ein anderes
+  // Produkt. Die Alternative — Karte hier wieder einschalten — haette zwei
+  // konkurrierende Abschluesse ergeben, einen davon mit dem Garantie-Anspruch.
   const path = location.pathname.replace(/^\/[a-z]{2}(?=\/|$)/, '')
   const hideGenericCta =
     path === '/contact' ||

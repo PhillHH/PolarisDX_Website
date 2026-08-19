@@ -17,6 +17,7 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Download, FileText } from 'lucide-react'
 import EpiSubpage from '../components/epigenetics/EpiSubpage'
+import type { Chapter } from '../components/ui/ChapterNav'
 import { ASSET_BASE, asArray, BODY } from '../components/epigenetics/tokens'
 import Reveal from '../components/ui/Reveal'
 import { trackEvent } from '../lib/tracking'
@@ -40,14 +41,32 @@ const EpigeneticsDocsPage = () => {
     { label: t('basics.cta'), file: t('basics.file'), doc: 'basics' },
   ]
 
+  // Die Seite fuehrt zwei Bestaende: die Infoblaetter und den Verweis auf die
+  // sechs Musterbefunde. `samples.caption` beschriftet den zweiten — der
+  // Schluessel liegt in allen zehn Sprachen vor und wurde seit dem Umbau
+  // nirgends mehr gerendert.
+  const chapters: Chapter[] = [
+    { id: 'downloads', label: t('downloads.caption') },
+    { id: 'musterbefunde', label: t('samples.caption') },
+  ]
+
   return (
     <EpiSubpage
       path="/epigenetics/unterlagen"
       caption="downloads.caption"
       title="downloads.title"
       lead="downloads.sub"
+      // downloads.sub ist mit 75-81 Zeichen nur die halbe Snippet-Breite.
+      // docsBand.text ist in allen zehn Sprachen freigegeben und wurde seit
+      // dem Umbau nirgends mehr gerendert — er beschreibt genau diese Seite.
+      leadExtra="docsBand.text"
+      chapters={chapters}
+      source="unterlagen"
     >
-      <section id="downloads" className="scroll-mt-28 mx-auto max-w-container px-4 py-14 lg:px-0">
+      <section
+        id="downloads"
+        className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-20"
+      >
         {/* Die beiden Pakete zuerst: wer alles will, ist damit in einem Klick
             fertig und muss nicht neun Karten durchgehen. */}
         <Reveal width="100%">
@@ -130,6 +149,12 @@ const EpigeneticsDocsPage = () => {
                       })
                     }
                     download
+                    // Ohne dies tragen alle neun Knoepfe denselben
+                    // zugaenglichen Namen ("PDF laden"). Wer sich die
+                    // Linkliste vorlesen laesst oder per Sprachsteuerung
+                    // arbeitet, bekommt neunmal dieselbe Ansage. Zwei bereits
+                    // uebersetzte Schluessel zusammengesetzt — kein neuer Text.
+                    aria-label={`${t('downloads.btn')}: ${sheet.title}`}
                     className="inline-flex items-center gap-2 rounded-full bg-brand-primary px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-navy-hover"
                   >
                     <Download className="h-4 w-4" aria-hidden="true" />
@@ -169,7 +194,10 @@ const EpigeneticsDocsPage = () => {
         {/* Die sechs Musterbefunde stehen als Seiten auf der Programmseite —
             von hier fuehrt genau ein Weg dorthin. */}
         <Reveal width="100%">
-          <div className="mt-8 flex flex-col gap-5 rounded-3xl border border-slate-200 bg-white p-7 sm:flex-row sm:items-center sm:justify-between">
+          <div
+            id="musterbefunde"
+            className="mt-8 flex scroll-mt-[var(--chapterbar-offset,148px)] flex-col gap-5 rounded-3xl border border-slate-200 bg-white p-7 sm:flex-row sm:items-center sm:justify-between"
+          >
             <div className="max-w-[62ch]">
               <h2 className="text-lg font-semibold text-text-heading">
                 {t('downloads.samplesTitle')}

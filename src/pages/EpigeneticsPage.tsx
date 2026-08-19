@@ -32,7 +32,7 @@ import { useEffect } from 'react'
  * Fachpublikum, keine Uebersichtsseite.
  */
 
-import { Link, useNavigate, useSearchParams } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { trackEvent } from '../lib/tracking'
 import { ArrowRight, ChevronDown, Download, FileText, FlaskConical } from 'lucide-react'
@@ -134,11 +134,16 @@ const EpigeneticsPage = () => {
    * wenn tatsaechlich ein solcher Anker in der URL steht — ein Aufruf ohne Hash
    * bleibt unberuehrt.
    */
+  const { hash } = useLocation()
   useEffect(() => {
-    const hash = window.location.hash.replace('#', '')
-    const ziel = hash ? ANKER_ALIAS[hash] : undefined
+    // Haengt an useLocation().hash statt an window.location beim Mounten:
+    // ein repo-interner Link auf #downloads waere sonst ein Klick ins Leere
+    // gewesen — die Adresse haette sich geaendert, der Effekt nicht noch
+    // einmal gelaufen. Beim Direktaufruf aendert sich nichts.
+    const marke = hash.replace('#', '')
+    const ziel = marke ? ANKER_ALIAS[marke] : undefined
     if (ziel) navigate(ziel, { replace: true })
-  }, [navigate])
+  }, [hash, navigate])
 
   const established = asArray<TitledText>(t('evidence.established', { returnObjects: true }))
   const preliminary = asArray<TitledText>(t('evidence.preliminary', { returnObjects: true }))
@@ -147,6 +152,7 @@ const EpigeneticsPage = () => {
   const compareCols = asArray<string>(t('compare.cols', { returnObjects: true }))
   const compareRows = asArray<string[]>(t('compare.rows', { returnObjects: true }))
   const compareGroups = asArray<string[]>(t('compare.groups', { returnObjects: true }))
+  const compareShared = asArray<TitledText>(t('compare.shared', { returnObjects: true }))
   const compareCaveats = asArray<TitledText>(t('compare.caveats', { returnObjects: true }))
   const scales = asArray<Fact>(t('basics.scales', { returnObjects: true }))
 
@@ -512,6 +518,23 @@ const EpigeneticsPage = () => {
                 </dl>
               </div>
             </Reveal>
+
+            {/* Was alle sechs teilen — Probenweg, Ebene, Wiederholbarkeit.
+                Der Block stand kurzzeitig auf der Grundlagenseite und ist
+                hierher zurueckgezogen: sein Text sagt "je Panel" und nennt
+                Metabolic Health, das ergibt nur neben der Tabelle einen Sinn.
+                Er beantwortet keine Auswahlfrage — deshalb steht er unter der
+                Tabelle und nicht darueber. */}
+            <div className="mt-6 grid gap-5 lg:grid-cols-3">
+              {compareShared.map((item, index) => (
+                <Reveal key={item.title} width="100%" delay={0.05 * index} className={STRETCH}>
+                  <div className="h-full rounded-3xl border border-slate-200 bg-white p-6">
+                    <p className="text-lg font-semibold text-text-heading">{item.title}</p>
+                    <p className={`mt-2 text-gray-700 ${BODY}`}>{item.text}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
 
             {/* Methodische Grenzen und der GenDG-Hinweis bleiben an der Tabelle,
                 wo die betroffenen Panels sichtbar sind — aber zugeklappt. Zuvor

@@ -16,6 +16,7 @@
 
 import { useTranslation } from 'react-i18next'
 import EpiSubpage from '../components/epigenetics/EpiSubpage'
+import type { Chapter } from '../components/ui/ChapterNav'
 import { asArray, BODY, LABEL, LEAD, STRETCH } from '../components/epigenetics/tokens'
 import SectionHeader from '../components/ui/SectionHeader'
 import Reveal from '../components/ui/Reveal'
@@ -53,7 +54,13 @@ const EpigeneticsBasicsPage = () => {
   const practiceItems = asArray<string>(t('principle.practice.items', { returnObjects: true }))
   const concepts = asArray<Concept>(t('basics.concepts', { returnObjects: true }))
   const scales = asArray<Fact>(t('basics.scales', { returnObjects: true }))
-  const compareShared = asArray<TitledText>(t('compare.shared', { returnObjects: true }))
+
+  // Beschriftungen aus den Captions der beiden Abschnitte — bestehende
+  // Schluessel, in allen zehn Sprachen vorhanden.
+  const chapters: Chapter[] = [
+    { id: 'prinzip', label: t('principle.caption') },
+    { id: 'werte-verstehen', label: t('basics.caption') },
+  ]
 
   return (
     <EpiSubpage
@@ -61,11 +68,16 @@ const EpigeneticsBasicsPage = () => {
       caption="principle.caption"
       title="principle.title"
       lead="principle.lead"
+      chapters={chapters}
+      source="grundlagen"
     >
       {/* ================================================================
           DAS PRINZIP — zwei Ebenen
       ================================================================ */}
-      <section id="prinzip" className="scroll-mt-28 mx-auto max-w-container px-4 py-14 lg:px-0">
+      <section
+        id="prinzip"
+        className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-20"
+      >
         <div className="grid gap-5 lg:grid-cols-3">
           {principleCards.map((card, index) => (
             <Reveal key={card.title} width="100%" delay={0.05 * index} className={STRETCH}>
@@ -99,7 +111,10 @@ const EpigeneticsBasicsPage = () => {
       {/* ================================================================
           WERTE VERSTEHEN — die vier Ebenen und die drei Zahlenformate
       ================================================================ */}
-      <section id="werte-verstehen" className="scroll-mt-28 border-y border-slate-200 bg-white">
+      <section
+        id="werte-verstehen"
+        className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-slate-200 bg-white"
+      >
         <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-20">
           <Reveal width="100%">
             <SectionHeader caption={t('basics.caption')} title={t('basics.title')} align="left" />
@@ -149,24 +164,12 @@ const EpigeneticsBasicsPage = () => {
         </div>
       </section>
 
-      {/* ================================================================
-          WAS ALLE SECHS TEILEN — Probenweg, Ebene, Wiederholbarkeit
-
-          Stand als drittes Kartenraster unter der Vergleichstabelle. Es
-          beantwortet keine Auswahlfrage: alle sechs Panels teilen es.
-      ================================================================ */}
-      <section className="mx-auto max-w-container px-4 py-14 lg:px-0 lg:py-16">
-        <div className="grid gap-5 lg:grid-cols-3">
-          {compareShared.map((item, index) => (
-            <Reveal key={item.title} width="100%" delay={0.05 * index} className={STRETCH}>
-              <div className="h-full rounded-3xl border border-slate-200 bg-white p-6">
-                <h2 className="text-lg font-semibold text-text-heading">{item.title}</h2>
-                <p className={`mt-2 text-gray-700 ${BODY}`}>{item.text}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+      {/* Hier stand das Kartenraster compare.shared ("Probenmaterial",
+          "Lebensstil-Radar", "Interventionen"). Es ist zurueck an die
+          Vergleichstabelle gezogen: sein Text spricht von "je Panel" und
+          nennt Metabolic Health beim Namen — auf dieser Seite gibt es keine
+          Paneltabelle, auf die er sich beziehen koennte. Ausserdem stand er
+          ohne Kicker und ohne Ueberschrift am Seitenende. */}
     </EpiSubpage>
   )
 }
