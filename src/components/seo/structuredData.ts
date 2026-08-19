@@ -101,7 +101,7 @@ export const organizationSchema = {
   },
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: '+44-7879-433019',
+    telephone: '+49-151-75011699',
     contactType: 'sales',
     availableLanguage: ['German', 'English'],
     areaServed: ['DE', 'AT', 'CH', 'GB'],
@@ -439,7 +439,7 @@ export const localBusinessSchema = {
   name: 'Polaris Diagnostics Europe GmbH',
   image: `${BASE_URL}/favicon.png`,
   url: BASE_URL,
-  telephone: '+44-7879-433019',
+  telephone: '+49-151-75011699',
   email: 'contact@polarisdx.net',
   address: {
     '@type': 'PostalAddress',
