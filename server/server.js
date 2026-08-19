@@ -80,33 +80,66 @@ app.post('/api/contact', formLimiter, async (req, res) => {
     const recipient = isSprayOrder ? SPRAY_ORDER_RECIPIENT : process.env.CONTACT_RECEIVER
 
     // Email content construction
+    // Herkunft der Anfrage.
+    //
+    // Bis hierher lautete der Betreff fuer JEDE Anfrage gleich: "Neue
+    // Kontaktanfrage von <Name>". Eine Anfrage aus dem Partnerprogramm war im
+    // Posteingang erst nach dem Oeffnen von einer IglooPro-Anfrage zu
+    // unterscheiden, und die Herkunft stand ganz unten im Fliesstext.
+    //
+    // Das Formular haengt sie als letzte Zeile an die Nachricht an (siehe
+    // useContactForm.ts): ein eigenes verstecktes Feld, das den Freitext
+    // ueberlebt, auch wenn der Absender ihn ueberschreibt, und das das Panel
+    // mittraegt. Hier wird sie wieder herausgeloest und nach OBEN gestellt.
+    // `area` dient nur als Rueckfallebene — es kann seit dem leeren
+    // Voreintrag der Auswahl auch leer sein.
+    //
+    // Interne Mail, rein deutsch — keine Uebersetzung noetig.
+    const treffer = /\n\nHerkunft: (.+)$/s.exec(message || '')
+    const herkunft = treffer
+      ? treffer[1].trim()
+      : area && area.startsWith('Epigenetik')
+        ? 'Epigenetik-Strecke'
+        : 'Website-Formular'
+    const nachricht =
+      (treffer ? (message || '').slice(0, treffer.index) : message) || requirements || '-'
+    const isEpigenetik =
+      herkunft.startsWith('Epigenetik') || Boolean(area && area.startsWith('Epigenetik'))
+    const subject = isEpigenetik
+      ? `[Epigenetik] Neue Anfrage von ${name}`
+      : `Neue Kontaktanfrage von ${name}`
+
     const msg = {
       to: recipient,
       from: process.env.SENDER_EMAIL, // Must be a verified sender in SendGrid
       replyTo: email,
-      subject: `Neue Kontaktanfrage von ${name}`,
+      subject,
       text: `
         Neue Kontaktanfrage über das Webseiten-Formular:
+
+        Herkunft: ${herkunft}
+        Bereich: ${area || '-'}
 
         Name: ${name}
         Firma: ${company || '-'}
         Email: ${email}
         Telefon: ${phone || '-'}
-        Bereich: ${area || '-'}
 
         Nachricht/Anforderungen:
-        ${message || requirements || '-'}
+        ${nachricht}
       `,
       html: `
-        <h3>Neue Kontaktanfrage</h3>
+        <h3>${esc(subject)}</h3>
+        <p><strong>Herkunft:</strong> ${esc(herkunft)}</p>
+        <p><strong>Bereich:</strong> ${esc(area || '-')}</p>
+        <br>
         <p><strong>Name:</strong> ${esc(name)}</p>
         <p><strong>Firma:</strong> ${esc(company || '-')}</p>
         <p><strong>Email:</strong> ${esc(email)}</p>
         <p><strong>Telefon:</strong> ${esc(phone || '-')}</p>
-        <p><strong>Bereich:</strong> ${esc(area || '-')}</p>
         <br>
         <p><strong>Nachricht/Anforderungen:</strong></p>
-        <p>${esc(message || requirements || '-').replace(/\n/g, '<br>')}</p>
+        <p>${esc(nachricht).replace(/\n/g, '<br>')}</p>
       `,
     }
 

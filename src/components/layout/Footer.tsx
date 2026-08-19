@@ -30,6 +30,12 @@ const Footer = () => {
     path.startsWith('/consumer/') ||
     path === '/epigenetics' ||
     path.startsWith('/epigenetics/')
+  // Wie im Header: auf der Epigenetik-Strecke fuehrt auch der Fusslink in das
+  // Formular mit Herkunft statt in den IglooPro-Fragebogen. `path` ist oben
+  // bereits ohne Sprachpraefix.
+  const kontaktZiel = /^\/epigenetics(\/|$)/.test(path)
+    ? '/contact?topic=epigenetik#kontaktformular'
+    : '/contact'
   const { t } = useTranslation('common')
 
   return (
@@ -126,7 +132,7 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/contact" className="hover:text-brand-secondary">
+                    <Link to={kontaktZiel} className="hover:text-brand-secondary">
                       {t('nav.contact')}
                     </Link>
                   </li>

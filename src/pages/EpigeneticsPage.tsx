@@ -202,7 +202,14 @@ const EpigeneticsPage = () => {
   const navAktionen: NavAction[] = [
     { href: '#vergleich', label: t('compare.title') },
     { href: '#analysen', label: t('downloads.samplesCta') },
-    { to: '/contact?intent=quote&source=epigenetics#kontaktformular', label: t('hero.ctaQuote') },
+    {
+      to: '/contact?intent=quote&source=epigenetics#kontaktformular',
+      label: t('hero.ctaQuote'),
+      // Der Aktionsplatz der Leiste ist laut eigenem Kommentar "pro Seite
+      // genau eine Schaltflaeche als Primaeraufforderung" — und war bis
+      // hierher der einzige Anfrageweg der Strecke ohne Ereignis.
+      onClick: () => trackEvent('epigenetics_request', { method: 'form', source: 'leiste' }),
+    },
   ]
 
   /** Die drei Vertiefungsseiten — Wegweiser vor der Anfrage. */
@@ -359,6 +366,9 @@ const EpigeneticsPage = () => {
                       gleichrangiger Knopf gegenueber. */}
                   <Link
                     to="/contact?intent=quote&source=epigenetics#kontaktformular"
+                    onClick={() =>
+                      trackEvent('epigenetics_request', { method: 'form', source: 'hero' })
+                    }
                     className="mt-6 inline-flex items-center gap-1.5 text-base font-semibold text-accent-on-dark transition-colors hover:text-white"
                   >
                     {t('hero.ctaQuote')}

@@ -7,6 +7,7 @@ import { Textarea } from '../ui/Textarea'
 import { Alert } from '../ui/Alert'
 import { useContactForm } from '../../hooks/useContactForm'
 import { resolvePanelNames } from '../../content/befunde/panelNames'
+import { trackEvent } from '../../lib/tracking'
 import { isEnglishFallback } from '../../lib/translationStatus'
 
 /**
@@ -31,6 +32,8 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export const ContactForm = () => {
   const { t } = useTranslation('contact')
+  // Nur fuer den leeren Voreintrag der Einsatzbereich-Auswahl.
+  const { t: tSupport } = useTranslation('support')
   const { isSubmitting, submitStatus, submit } = useContactForm()
   const [params] = useSearchParams()
 
@@ -141,6 +144,18 @@ export const ContactForm = () => {
 
     const success = await submit(formData)
     if (success) {
+      // Bis hierher meldete die Strecke nur Absicht: epigenetics_request feuert
+      // beim KLICK auf einen Anfrageweg, danach passierte nichts mehr. Es gab
+      // damit keine Conversion, keine Abschlussquote und keine Verbindung
+      // zwischen einem gemessenen Klick und einer tatsaechlich abgeschickten
+      // Anfrage. Consent Mode v2 haelt die Tags ohnehin zurueck, solange keine
+      // Einwilligung vorliegt — siehe Kopfkommentar in src/lib/tracking.ts.
+      trackEvent('contact_submit', {
+        source: isEpigenetics ? 'epigenetics' : 'default',
+        // Nur der gepruefte Panelname, nie der rohe URL-Parameter.
+        panel: panel || undefined,
+        area: value('area') || undefined,
+      })
       form.reset()
       setErrors({})
     }
@@ -248,6 +263,15 @@ export const ContactForm = () => {
           name="area"
           className="flex w-full rounded-md border border-ui-field bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
         >
+          {/* Leerer Voreintrag. Ohne ihn ist die erste Option vorbelegt: jede
+              Anfrage, bei der niemand bewusst gewaehlt hat, kam als "Apotheke"
+              bzw. "Longevity- oder Praeventionszentrum" im Vertrieb an und
+              verfaelschte die Auswertung. Die Beschriftung ist ein bereits in
+              zehn Sprachen uebersetzter Schluessel aus dem Support-Formular —
+              kein neuer Text. Die Herkunft der Anfrage haengt NICHT an diesem
+              Feld: sie reist im versteckten `herkunft`-Feld und ueberlebt eine
+              leere Auswahl (siehe useContactForm.ts). */}
+          <option value="">{tSupport('support.form.issue_type_placeholder')}</option>
           {isEpigenetics ? (
             EPI_AREAS.map((key) => {
               const label = t(`contact.form.epigenetics.area_options.${key}`)

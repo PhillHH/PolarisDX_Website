@@ -120,6 +120,25 @@ const Header = () => {
 
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
   const location = useLocation()
+  /**
+   * Ziel des Dauer-Kontaktknopfes.
+   *
+   * Die sieben Anfragelinks, die die Epigenetik-Strecke selbst baut, tragen
+   * alle eine Herkunft. Dieser Knopf hier ist auf JEDER Seite der Strecke
+   * sichtbar und zeigte als einziger auf das nackte /contact — wer ihn
+   * benutzte, landete im Fragebogen ueber den IglooPro-Reader, mit
+   * Einsatzbereichen wie Apotheke oder Veterinaermedizin. Genau der Befund,
+   * den die Strecke sonst hinter sich hat.
+   *
+   * `?topic=epigenetik` ist einer der beiden bestehenden Herkunftsvertraege,
+   * die ContactForm.tsx auswertet — kein neuer Parameter, keine Beschriftung
+   * aendert sich. Dieselbe Pfadnormalisierung wie in Footer.tsx.
+   */
+  const kontaktZiel = /^\/epigenetics(\/|$)/.test(
+    location.pathname.replace(/^\/[a-z]{2}(?=\/|$)/, ''),
+  )
+    ? '/contact?topic=epigenetik#kontaktformular'
+    : '/contact'
 
   // Close mobile menu on route change
   // Beim Seitenwechsel schliesst das mobile Menue. Das aufgeklappte
@@ -283,7 +302,7 @@ const Header = () => {
 
             <div className={`${isScrolled ? '' : 'shadow-lg shadow-blue-900/20'} rounded-full`}>
               <Button
-                to="/contact"
+                to={kontaktZiel}
                 variant={isScrolled ? 'primary' : 'outline'}
                 className={
                   isScrolled
@@ -426,7 +445,7 @@ const Header = () => {
               ))}
               <div className="pt-4">
                 <Button
-                  to="/contact"
+                  to={kontaktZiel}
                   className="w-full justify-center shadow-lg"
                   onClick={mobileMenu.onClose}
                   variant={isScrolled ? 'primary' : 'outline'}

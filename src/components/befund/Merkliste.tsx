@@ -22,6 +22,7 @@
 
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { trackEvent } from '../../lib/tracking'
 import { Bookmark, BookmarkCheck, X } from 'lucide-react'
 import { useMerkliste, type MerkSlug } from '../../lib/merkliste'
 
@@ -59,7 +60,13 @@ export const MerkButton = ({
   return (
     <button
       type="button"
-      onClick={() => toggle(slug)}
+      onClick={() => {
+        // Die Merkliste ist die Zwischenstufe zwischen Lesen und Anfragen und
+        // war bis hierher vollstaendig ungemessen — man sah weder, ob sie
+        // benutzt wird, noch welche Panels zusammen vorgemerkt werden.
+        trackEvent(gemerkt ? 'merk_remove' : 'merk_add', { panel, slug })
+        toggle(slug)
+      }}
       aria-pressed={gemerkt}
       aria-label={t(gemerkt ? 'merk.removeAria' : 'merk.addAria', { panel })}
       className={`inline-flex items-center justify-center gap-2 rounded-full border px-5 py-3 text-base font-semibold transition-colors ${
@@ -133,6 +140,13 @@ export const Merkliste = ({ className = '' }: { className?: string }) => {
       <div className="mt-6 flex flex-wrap items-center gap-3">
         <Link
           to={anfrage}
+          onClick={() =>
+            trackEvent('epigenetics_request', {
+              method: 'form',
+              source: 'merkliste',
+              panel: slugs.map((s) => names[s] ?? s).join(', '),
+            })
+          }
           className="inline-flex items-center justify-center rounded-full bg-accent-strong px-6 py-3.5 text-base font-semibold text-white transition-colors hover:brightness-110"
         >
           {t('hero.ctaQuote')}

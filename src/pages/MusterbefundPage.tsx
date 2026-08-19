@@ -37,6 +37,7 @@ import { MerkButton, Merkliste } from '../components/befund/Merkliste'
 import ChapterNav, { type Chapter, type NavAction } from '../components/ui/ChapterNav'
 import { BEFUNDE, BEFUND_ORDER, RADAR_VALUES } from '../content/befunde'
 import { LEGACY_ANCHORS } from '../content/befunde/legacyAnchors'
+import { trackEvent } from '../lib/tracking'
 import { isEnglishFallback } from '../lib/translationStatus'
 import { useScrollDepth } from '../lib/useScrollDepth'
 import { BEFUND_IMAGES } from '../assets/epigenetics/befundImages'
@@ -299,13 +300,32 @@ const MusterbefundPage = () => {
     // Ohne Musterbefund-Metadaten faellt die mittlere Stufe weg; die Leiste
     // teilt dann in Haelften statt in Drittel.
     ...(meta
-      ? [{ href: `${ASSET_BASE}${meta.file}`, download: true, label: t('befund.pdfCta') }]
+      ? [
+          {
+            href: `${ASSET_BASE}${meta.file}`,
+            download: true,
+            label: t('befund.pdfCta'),
+            onClick: () =>
+              trackEvent('epigenetics_request', {
+                method: 'pdf',
+                source: 'leiste',
+                document: 'musterbefund',
+                panel: befund.panel,
+              }),
+          },
+        ]
       : []),
     // Der Musterbefund gibt zusaetzlich mit, um welches Panel es geht — das
     // steht dann in der Benachrichtigung und im vorbelegten Freitext.
     {
       to: `/contact?intent=quote&source=epigenetics&panel=${encodeURIComponent(befund.panel)}#kontaktformular`,
       label: t('hero.ctaQuote'),
+      onClick: () =>
+        trackEvent('epigenetics_request', {
+          method: 'form',
+          source: 'leiste',
+          panel: befund.panel,
+        }),
     },
   ]
 
@@ -469,6 +489,14 @@ const MusterbefundPage = () => {
                 {meta ? (
                   <a
                     href={`${ASSET_BASE}${meta.file}`}
+                    onClick={() =>
+                      trackEvent('epigenetics_request', {
+                        method: 'pdf',
+                        source: 'befund',
+                        document: 'musterbefund',
+                        panel: befund.panel,
+                      })
+                    }
                     download
                     className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
                   >
@@ -484,6 +512,13 @@ const MusterbefundPage = () => {
                     Anfrageweg ohne Panel-Kontext. */}
                 <Link
                   to={`/contact?intent=quote&source=epigenetics&panel=${encodeURIComponent(befund.panel)}#kontaktformular`}
+                  onClick={() =>
+                    trackEvent('epigenetics_request', {
+                      method: 'form',
+                      source: 'befund',
+                      panel: befund.panel,
+                    })
+                  }
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-accent-strong px-6 py-3.5 text-base font-semibold text-white transition-colors hover:brightness-110"
                 >
                   {t('hero.ctaQuote')}

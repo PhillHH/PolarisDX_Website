@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import SectionHeader from '../components/ui/SectionHeader'
 import { useTranslation } from 'react-i18next'
+import { VERTIEFUNGEN } from '../components/epigenetics/tokens'
 import { SEOHead, localBusinessSchema, createBreadcrumbSchema } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
@@ -9,16 +10,46 @@ import { ContactForm } from '../components/sections/ContactForm'
 
 const ContactPage = () => {
   const { t } = useTranslation('contact')
+  // Die abgestimmten Saetze der Epigenetik-Strecke liegen in ihrem eigenen
+  // Namensraum und in allen zehn Sprachen vor.
+  const { t: tEpi } = useTranslation('epigenetics')
+  const [params] = useSearchParams()
+
+  /**
+   * Derselbe Herkunftsvertrag, den ContactForm.tsx auswertet — bewusst
+   * dieselbe Bedingung, damit Seitenkopf und Formular nie auseinanderlaufen.
+   *
+   * Wer aus der Epigenetik-Strecke kommt, las bis hierher eine Seite, die im
+   * Tab, im Suchergebnis und in der Seitenspalte die IglooPro-Erzaehlung
+   * fuehrt: "Kontakt & Angebot zum IglooPro anfordern", POC-Reader,
+   * Fachartikel. Der Aufruf OHNE Parameter bleibt unveraendert — das
+   * indexierte Suchergebnis fuer /contact aendert sich dadurch nicht, und
+   * SEOHead baut canonical ohnehin nur aus dem Pfad.
+   */
+  const istEpigenetik =
+    params.get('topic') === 'epigenetik' || params.get('source') === 'epigenetics'
 
   return (
     <PageTransition>
       <SEOHead
-        title={t('contact:seo.title', 'IglooPro Demo anfragen: Kostenlose Beratung | PolarisDX')}
-        description={t(
-          'contact:seo.description',
-          'Vereinbaren Sie eine kostenlose IglooPro Demo. POC-Diagnostik live erleben — Beratung zu Integration, Abrechnung & Praxislabor. Schnelle Antwort.',
-        )}
-        keywords={['PolarisDX Kontakt', 'IglooPro Demo', 'POC Beratung', 'Medizintechnik Anfrage']}
+        title={
+          istEpigenetik
+            ? tEpi('contact.title')
+            : t('contact:seo.title', 'IglooPro Demo anfragen: Kostenlose Beratung | PolarisDX')
+        }
+        description={
+          istEpigenetik
+            ? tEpi('contact.sub')
+            : t(
+                'contact:seo.description',
+                'Vereinbaren Sie eine kostenlose IglooPro Demo. POC-Diagnostik live erleben — Beratung zu Integration, Abrechnung & Praxislabor. Schnelle Antwort.',
+              )
+        }
+        keywords={
+          istEpigenetik
+            ? ['Epigenetik Analyse', 'Genetik Analyse Praxis', 'Konditionen anfragen', 'PolarisDX']
+            : ['PolarisDX Kontakt', 'IglooPro Demo', 'POC Beratung', 'Medizintechnik Anfrage']
+        }
         structuredData={[
           localBusinessSchema,
           createBreadcrumbSchema([
@@ -124,25 +155,52 @@ const ContactPage = () => {
                   <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-gray-500 mb-3">
                     {t('contact.sidebar_links.title', 'Entdecken')}
                   </h3>
+                  {/* Im Epigenetik-Modus fuehren die Verweise dorthin zurueck,
+                      wo der Leser herkommt — statt zu IglooPro und Fachartikeln,
+                      die mit seiner Anfrage nichts zu tun haben. Beschriftungen
+                      aus VERTIEFUNGEN, also bestehende Schluessel in zehn
+                      Sprachen. */}
                   <nav className="space-y-2">
-                    <Link
-                      to="/diagnostics"
-                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
-                    >
-                      {t('contact.sidebar_links.services', 'Unsere Diagnostik-Services')} →
-                    </Link>
-                    <Link
-                      to="/igloo-pro"
-                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
-                    >
-                      {t('contact.sidebar_links.igloo', 'IglooPro System kennenlernen')} →
-                    </Link>
-                    <Link
-                      to="/articles"
-                      className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
-                    >
-                      {t('contact.sidebar_links.articles', 'Fachartikel lesen')} →
-                    </Link>
+                    {istEpigenetik ? (
+                      <>
+                        <Link
+                          to="/epigenetics"
+                          className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                        >
+                          {tEpi('breadcrumb.current')} →
+                        </Link>
+                        {VERTIEFUNGEN.map((v) => (
+                          <Link
+                            key={v.key}
+                            to={v.to}
+                            className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                          >
+                            {tEpi(v.titleKey)} →
+                          </Link>
+                        ))}
+                      </>
+                    ) : (
+                      <>
+                        <Link
+                          to="/diagnostics"
+                          className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                        >
+                          {t('contact.sidebar_links.services', 'Unsere Diagnostik-Services')} →
+                        </Link>
+                        <Link
+                          to="/igloo-pro"
+                          className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                        >
+                          {t('contact.sidebar_links.igloo', 'IglooPro System kennenlernen')} →
+                        </Link>
+                        <Link
+                          to="/articles"
+                          className="block text-sm font-medium text-brand-primary hover:text-brand-deep transition-colors"
+                        >
+                          {t('contact.sidebar_links.articles', 'Fachartikel lesen')} →
+                        </Link>
+                      </>
+                    )}
                   </nav>
                 </section>
               </Reveal>
