@@ -325,6 +325,18 @@ const Cover = ({ b, slug }: { b: Block; slug?: string }) => {
         <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 lg:mt-10">
           <Link
             to={anfrage}
+            /* Der Panel-Hero ist der Anfrageweg, dessen Quote der Umbau heben
+               soll (heute 4 von 52 Musterbefund-Lesern). Ungemessen waere jede
+               spaetere Aussage darueber eine Schaetzung. Dasselbe Ereignis wie
+               auf der Landingpage, damit beide Wege in einer Zahl zusammen-
+               laufen — unterschieden ueber `source`. */
+            onClick={() =>
+              trackEvent('epigenetics_request', {
+                method: 'form',
+                source: 'panel',
+                panel: str(b.panel) ?? '',
+              })
+            }
             className="inline-flex items-center justify-center rounded-full bg-accent-on-dark px-7 py-3.5 text-base font-semibold text-brand-deep transition-opacity hover:opacity-90"
           >
             {t('hero.ctaQuote')}
@@ -336,6 +348,15 @@ const Cover = ({ b, slug }: { b: Block; slug?: string }) => {
                  Hero versprach bisher "This report as PDF" und lieferte
                  wortlos ein deutsches Dokument. */
               hrefLang="de"
+              /* Der PDF-Weg ist der vierte Anfrageweg des Messplans und war
+                 als einziger nicht verdrahtet. */
+              onClick={() =>
+                trackEvent('epigenetics_request', {
+                  method: 'pdf',
+                  source: 'panel',
+                  panel: str(b.panel) ?? '',
+                })
+              }
               className="text-base font-medium text-white/80 underline underline-offset-4 hover:text-white"
             >
               {t('befund.ctaPdf')}

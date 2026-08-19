@@ -791,6 +791,13 @@ const EpigeneticsPage = () => {
                 </div>
                 <a
                   href={zipHref}
+                  onClick={() =>
+                    trackEvent('epigenetics_request', {
+                      method: 'pdf',
+                      source: 'landing',
+                      document: 'zip',
+                    })
+                  }
                   download
                   className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
                 >
@@ -833,6 +840,13 @@ const EpigeneticsPage = () => {
                       <span className="text-sm text-gray-500">{sheet.meta}</span>
                       <a
                         href={`${ASSET_BASE}${sheet.file}`}
+                        onClick={() =>
+                          trackEvent('epigenetics_request', {
+                            method: 'pdf',
+                            source: 'landing',
+                            document: 'sheet',
+                          })
+                        }
                         download
                         className="inline-flex items-center gap-2 rounded-full bg-brand-primary px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-navy-hover"
                       >
@@ -855,6 +869,13 @@ const EpigeneticsPage = () => {
               <div className="mt-4 flex flex-wrap gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-6">
                 <a
                   href={`${ASSET_BASE}${t('compare.file')}`}
+                  onClick={() =>
+                    trackEvent('epigenetics_request', {
+                      method: 'pdf',
+                      source: 'landing',
+                      document: 'compare',
+                    })
+                  }
                   download
                   className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
                 >
@@ -863,6 +884,13 @@ const EpigeneticsPage = () => {
                 </a>
                 <a
                   href={`${ASSET_BASE}${t('basics.file')}`}
+                  onClick={() =>
+                    trackEvent('epigenetics_request', {
+                      method: 'pdf',
+                      source: 'landing',
+                      document: 'basics',
+                    })
+                  }
                   download
                   className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
                 >
@@ -913,21 +941,27 @@ const EpigeneticsPage = () => {
                   direkten Wege bleiben als Alternative daneben stehen. */}
               <Link
                 to="/contact?intent=quote&source=epigenetics#kontaktformular"
-                onClick={() => trackEvent('epigenetics_request', { method: 'form' })}
+                onClick={() =>
+                  trackEvent('epigenetics_request', { method: 'form', source: 'landing' })
+                }
                 className="inline-flex items-center justify-center rounded-full bg-accent-strong px-6 py-3.5 text-base font-semibold text-white transition-colors hover:brightness-110"
               >
                 {t('contact.title')}
               </Link>
               <a
                 href="mailto:contact@polarisdx.net"
-                onClick={() => trackEvent('epigenetics_request', { method: 'email' })}
+                onClick={() =>
+                  trackEvent('epigenetics_request', { method: 'email', source: 'landing' })
+                }
                 className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
               >
                 contact@polarisdx.net
               </a>
               <a
                 href="tel:+4915228580999"
-                onClick={() => trackEvent('epigenetics_request', { method: 'phone' })}
+                onClick={() =>
+                  trackEvent('epigenetics_request', { method: 'phone', source: 'landing' })
+                }
                 className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
               >
                 +49 152 2858 0999
