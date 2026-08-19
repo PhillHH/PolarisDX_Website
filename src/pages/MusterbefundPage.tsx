@@ -26,6 +26,7 @@ import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
 import {
   BefundBlock,
+  SampleMeta,
   BefundNotice,
   BlockChromeProvider,
   type Block,
@@ -197,6 +198,9 @@ const MusterbefundPage = () => {
    * entfaellt, statt an einer beliebigen Stelle zu landen. Alle sechs Befunde
    * haben ihn; die Bedingung ist die Absicherung fuer einen siebten.
    */
+  /** Traegt die Kopfdaten der Beispielauswertung; von SampleMeta gelesen. */
+  const coverBlock = blocks.find((b) => b.type === 'cover')
+
   let consultAfter = blocks.findIndex((b) => b.type === 'principle')
   while (consultAfter >= 0 && blocks[consultAfter + 1]?.type === 'callout') consultAfter += 1
 
@@ -397,7 +401,22 @@ const MusterbefundPage = () => {
                 traegt seinen eigenen dunklen Rahmen. Damit bricht er den
                 Wechsel weiss/hell der Bloecke nicht, sondern setzt sich
                 bewusst davon ab. */}
-            {index === consultAfter ? <ConsultSteps slug={slug} /> : null}
+            {index === consultAfter ? (
+              <>
+                <ConsultSteps slug={slug} />
+                {/* Ab hier beginnt der Beispielbefund. Die Kopfdaten der
+                    Beispielauswertung stehen deshalb genau hier — nicht mehr
+                    unter dem Hero, wo sie den teuersten Bildschirm der Seite
+                    mit den Angaben einer erfundenen Person belegten. */}
+                {coverBlock ? (
+                  <SampleMeta
+                    b={coverBlock}
+                    caption={t('befund.sampleMetaCaption')}
+                    lead={t('befund.sampleMetaLead')}
+                  />
+                ) : null}
+              </>
+            ) : null}
             {/* Die Kapitelleiste steht direkt hinter dem Deckblatt: sie soll
                 mitscrollen, aber den Hero nicht ueberdecken. */}
             {block.type === 'cover' ? (
