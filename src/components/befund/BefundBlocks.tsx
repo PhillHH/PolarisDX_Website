@@ -398,20 +398,43 @@ const Cover = ({ b, slug }: { b: Block; slug?: string }) => {
   )
 }
 
-const CoverMeta = ({ b }: { b: Block }) => {
+/**
+ * Die Kopfdaten der Beispielauswertung — Name, Probenahme, Material, Umfang.
+ *
+ * WARUM SIE NICHT MEHR UNTER DEM HERO STEHEN: sie beschreiben eine erfundene
+ * Person. Auf dem ersten Bildschirm beantworteten sie damit keine einzige
+ * Frage, die jemand an dieser Stelle hat — und ein Drittel der Sitzungen
+ * betritt die Website ueber genau diese Seiten. Der Platz gehoert der
+ * Kaufinformation (Zielgruppe, Nutzen, fuenf Faktenachsen), nicht dem
+ * Anschauungsmaterial.
+ *
+ * Geloescht werden sie deshalb nicht: sie sind der Beleg, dass ein echter
+ * Befund Herkunft und Umfang ausweist. Sie stehen jetzt dort, wo die
+ * Beispielwerte beginnen, und tragen die Rahmung mit, die sie oben nie hatten
+ * — als Demonstration erkennbar statt als Angabe ueber einen Patienten.
+ */
+export const SampleMeta = ({ b, caption, lead }: { b: Block; caption: string; lead: string }) => {
   const meta = arr<{ k: string; v: string }>(b.meta)
   if (meta.length === 0) return null
   return (
-    <div className="border-b border-slate-200 bg-slate-50">
-      <div className="mx-auto flex max-w-container flex-wrap items-center gap-x-6 gap-y-1 px-4 py-3 text-sm text-gray-600 lg:px-0">
-        {str(b.badge) ? <span className="font-semibold text-heading">{str(b.badge)}</span> : null}
-        {meta.map((m) => (
-          <span key={m.k}>
-            <span className="text-gray-600">{m.k}:</span> {m.v}
-          </span>
-        ))}
+    <section className="border-y border-slate-200 bg-slate-50">
+      <div className="mx-auto max-w-container px-4 py-8 lg:px-0 lg:py-10">
+        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-blue">
+          {caption}
+        </p>
+        <p className="mt-2 max-w-[70ch] text-base leading-relaxed text-gray-600">{lead}</p>
+        <dl className="mt-6 grid grid-cols-2 gap-2.5 lg:grid-cols-4 lg:gap-3">
+          {meta.map((m) => (
+            <div key={m.k} className="rounded-2xl bg-white px-4 py-3 ring-1 ring-slate-200">
+              <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-gray-600">
+                {m.k}
+              </dt>
+              <dd className="mt-1 text-sm font-semibold text-heading">{m.v}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
-    </div>
+    </section>
   )
 }
 
@@ -989,12 +1012,10 @@ export const BefundBlock = ({
 }) => {
   switch (block.type) {
     case 'cover':
-      return (
-        <>
-          <Cover b={block} slug={slug} />
-          <CoverMeta b={block} />
-        </>
-      )
+      // Nur der Hero. Die Kopfdaten der Beispielauswertung rendert
+      // MusterbefundPage weiter unten als <SampleMeta>, dort wo die
+      // Beispielwerte beginnen.
+      return <Cover b={block} slug={slug} />
     case 'principle':
       return <Principle b={block} blocks={blocks} />
     case 'resultTable':

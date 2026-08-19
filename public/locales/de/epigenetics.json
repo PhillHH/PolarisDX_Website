@@ -671,6 +671,8 @@
     "overviewCaption": "Auf einen Blick",
     "overviewTitle": "Alle Werte dieses Befunds",
     "overviewLead": "Jeder Wert mit seiner Einordnung. Ein Klick springt zur ausführlichen Erklärung weiter unten.",
+    "sampleMetaCaption": "Beispielauswertung",
+    "sampleMetaLead": "Die folgenden Werte stammen aus einer vollständigen Beispielauswertung — so, wie Ihr Klient sie erhält. Beispieldaten, keine echte Person.",
     "toneRed": "außerhalb",
     "toneAmber": "im Grenzbereich",
     "toneGreen": "im Bereich",

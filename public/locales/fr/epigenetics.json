@@ -672,6 +672,8 @@
     "overviewCaption": "At a glance",
     "overviewTitle": "Every value in this report",
     "overviewLead": "Each value with its classification. One click jumps to the full explanation below.",
+    "sampleMetaCaption": "Sample evaluation",
+    "sampleMetaLead": "The values below come from a complete sample evaluation — exactly as your client receives it. Sample data, not a real person.",
     "toneRed": "outside the range",
     "toneAmber": "borderline",
     "toneGreen": "within range",
