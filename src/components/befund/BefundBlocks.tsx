@@ -11,6 +11,8 @@
 import { createContext, useContext, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { MerkButton } from './Merkliste'
+import { BEFUND_IMAGES, BEFUND_IMAGE_SIZE } from '../../assets/epigenetics/befundImages'
 import { ChevronDown } from 'lucide-react'
 import {
   AgeDots,
@@ -285,17 +287,53 @@ const Cover = ({ b, slug }: { b: Block; slug?: string }) => {
   return (
     <section className="relative overflow-hidden bg-brand-deep text-white">
       <div className="mx-auto max-w-container px-4 py-10 lg:px-0 lg:py-24">
-        {zielgruppen ? (
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
-            {zielgruppen}
-          </p>
-        ) : str(b.badge) ? (
+        {/* Badge UND Zielgruppen, nicht Badge ODER Zielgruppen.
+            Vorher hing der Badge an einem else-Zweig: er erschien nur, wenn
+            KEINE Zielgruppen vorlagen. Die liegen aber fuer alle sechs Panels
+            vor (compare.groups), also gewann immer der Kicker und der Badge
+            fiel auf allen zwoelf Befunden still weg — waehrend darunter 26
+            frei erfundene Werte mit Ampelbewertung stehen. Der Kopfkommentar
+            dieser Strecke verlangt ausdruecklich drei Kennzeichnungsstellen;
+            das Deckblatt war die erste davon und lieferte nichts.
+            Der Wortlaut liegt in den Befund-JSONs (de und en) und ist
+            abgestimmt — hier wird nur wieder ausgegeben, was schon dasteht. */}
+        {str(b.badge) ? (
           <span className="inline-flex rounded-full bg-accent-on-dark px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-brand-deep">
             {str(b.badge)}
           </span>
         ) : null}
+        {zielgruppen ? (
+          <p
+            className={`text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark ${
+              str(b.badge) ? 'mt-3' : ''
+            }`}
+          >
+            {zielgruppen}
+          </p>
+        ) : null}
 
         <h1 className="mt-4 text-4xl font-semibold tracking-tight lg:text-5xl">{str(b.panel)}</h1>
+
+        {/* Das Deckblatt des Musterbefunds. Es stand bisher NUR im
+            Article-Schema (MusterbefundPage.tsx: image) — Google verlangt dort
+            ein Bild, das die Seite auch zeigt; ein Verweis auf ein Asset, das
+            nur im Bundle existiert, ist inkonsistentes Markup. Gleichzeitig war
+            die laengste Seite der Site ohne jede Abbildung.
+            Markup wie in EpigeneticsPanels, aber OHNE loading="lazy": hier ist
+            es das LCP-Element. width/height stehen dran, damit beim Laden
+            nichts springt. */}
+        {slug && BEFUND_IMAGES[slug] ? (
+          <img
+            src={BEFUND_IMAGES[slug].src}
+            srcSet={`${BEFUND_IMAGES[slug].src} 640w, ${BEFUND_IMAGES[slug].src2x} 1200w`}
+            sizes="(min-width: 1024px) 22rem, 60vw"
+            width={BEFUND_IMAGE_SIZE.width}
+            height={BEFUND_IMAGE_SIZE.height}
+            decoding="async"
+            alt={t('samples.imgAlt', { panel: str(b.panel) ?? '' })}
+            className="mt-6 w-44 rounded-xl border border-white/20 shadow-lg lg:w-56"
+          />
+        ) : null}
 
         {/* Nutzen vor Methode. Wo noch kein benefit hinterlegt ist, bleibt der
             bisherige Fachclaim stehen. */}
@@ -341,6 +379,10 @@ const Cover = ({ b, slug }: { b: Block; slug?: string }) => {
           >
             {t('hero.ctaQuote')}
           </Link>
+          {/* Vormerken war bisher nur ganz am Seitenende erreichbar — auf einer
+              Seite von rund 24.000px also auf dem letzten Prozent. Wer zwei
+              Panels vergleichen will, entscheidet das oben, nicht unten. */}
+          {slug ? <MerkButton slug={slug} panel={str(b.panel) ?? ''} /> : null}
           {sample?.file ? (
             <a
               href={`/downloads/epigenetics/${sample.file}`}

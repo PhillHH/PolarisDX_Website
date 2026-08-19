@@ -34,8 +34,10 @@ import {
 import BefundOverview from '../components/befund/BefundOverview'
 import ConsultSteps, { CONSULT_ID } from '../components/befund/ConsultSteps'
 import { MerkButton, Merkliste } from '../components/befund/Merkliste'
+import { useMerkliste } from '../lib/merkliste'
 import ChapterNav, { type Chapter, type NavAction } from '../components/ui/ChapterNav'
-import { BEFUNDE, BEFUND_ORDER, RADAR_VALUES } from '../content/befunde'
+import { BEFUND_ORDER, RADAR_VALUES, type BefundSprachen } from '../content/befunde/meta'
+import { PANELS } from '../content/befunde/panelNames'
 import { LEGACY_ANCHORS } from '../content/befunde/legacyAnchors'
 import { trackEvent } from '../lib/tracking'
 import { isEnglishFallback } from '../lib/translationStatus'
@@ -67,22 +69,73 @@ const NOT_A_CHAPTER = new Set(['cover', 'callout'])
  * `markers`, drei `table` und die Auswertungsuebersicht. Kein Wort geht
  * verloren, der Inhalt bleibt im DOM.
  */
-const ALWAYS_OPEN = new Set(['cover', 'principle', 'callout', 'summary', 'contact'])
+// `bigResult` traegt bei Telomer-Analyse und biologischer Altersuhr das
+// namensgebende Ergebnis ("Ihre Telomerlaenge", das biologische Alter). Es lag
+// zugeklappt — auf genau den beiden Panels, auf denen der Ueberblick fehlte.
+// Wer die Seite oeffnete, sah dort also weder Ueberblick noch Hauptwert.
+const ALWAYS_OPEN = new Set(['cover', 'principle', 'callout', 'summary', 'contact', 'bigResult'])
 
-/** Zahl der Werte in einem Block — steht als zweite Zeile im Aufklapper. */
+/**
+ * Blocktypen, deren Eintraege tatsaechlich MESSWERTE sind.
+ *
+ * Vorher zaehlte der Aufklapper stumpf items bzw. rows. Bei `science`
+ * ("Wissenschaftliche Einordnung.", 7 Eintraege) stand dadurch "7 Werte" —
+ * das sind Literaturpunkte, keine Messwerte. `radar` liefert ohnehin immer 0,
+ * `trend` und `ageDots` zaehlen Kurvenpunkte bzw. Skalenmarken.
+ */
+const ZAEHLBAR = new Set(['markers', 'resultTable', 'evaluations', 'table'])
+
+/**
+ * Zahl der Werte in einem Block — steht als zweite Zeile im Aufklapper.
+ *
+ * Gibt 0 zurueck, wenn die Zahl nichts aussagt. Auch bei genau EINEM Eintrag:
+ * `befund.entryCount` lautet "{{count}} Werte" und hat keine Singularform, es
+ * stuende also "1 Werte" da. Eine Singularform waere neuer Text in zehn
+ * Sprachen; die Angabe wegzulassen kostet nichts und sagt bei einem einzelnen
+ * Wert ohnehin nichts.
+ */
 const entryCount = (b: Block) => {
-  if (Array.isArray(b.items)) return b.items.length
-  if (Array.isArray(b.rows)) return b.rows.length
-  return 0
+  if (!ZAEHLBAR.has(b.type)) return 0
+  const n = Array.isArray(b.items) ? b.items.length : Array.isArray(b.rows) ? b.rows.length : 0
+  return n > 1 ? n : 0
 }
 
 /** Kapitelname: die Ueberschrift ohne Schlusspunkt. */
 const toLabel = (title: string) => title.replace(/\s*[.:]\s*$/, '')
 
-const MusterbefundPage = () => {
-  const { slug = '' } = useParams<{ slug: string }>()
+/**
+ * Der Befund kommt als Prop, nicht mehr aus einer Sammlung aller zwoelf.
+ *
+ * Vorher importierte diese Datei `BEFUNDE` und damit alle sechs Panels auf
+ * Deutsch UND Englisch: 322 KB Quelltext, 287 KB Client-Chunk, um 24 KB
+ * anzuzeigen. Jetzt liegt je Slug ein winziges Routenmodul unter
+ * src/pages/musterbefund/, das nur seine beiden JSON-Dateien importiert —
+ * Vite splittet dadurch pro Route. Ohne Prop (Route mit unbekanntem Slug)
+ * rendert die Seite ihren Nicht-gefunden-Zweig.
+ */
+interface MusterbefundPageProps {
+  befunde?: BefundSprachen
+  /**
+   * Slug der Seite. Die sechs Routen sind seit dem Chunk-Split feste Pfade
+   * OHNE :slug-Parameter — useParams liefert dort nichts, und daran haengen
+   * zwoelf Dinge: SEO-Titel (befund.seo.<slug>), das Bild im Article-Schema,
+   * die Radarwerte, der Beratungstext, die Merkliste und die Umleitung alter
+   * Anker. Fehlte er, fiel jede dieser Stellen still auf einen Ersatzwert
+   * zurueck — die Titel verloren zum Beispiel ihren Zusatz.
+   * Die Auffangroute fuer unbekannte Slugs liefert ihn weiter ueber useParams.
+   */
+  slug?: string
+}
+
+const MusterbefundPage = ({ befunde, slug: slugProp }: MusterbefundPageProps = {}) => {
+  const { slug: slugParam = '' } = useParams<{ slug: string }>()
+  const slug = slugProp ?? slugParam
   const { hash } = useLocation()
   const { t, i18n } = useTranslation('epigenetics')
+  // Wird gebraucht, um den Abschluss-CTA zu unterdruecken, sobald die
+  // Merkliste ihren eigenen traegt. useSyncExternalStore mit serverSnapshot —
+  // dieselbe Quelle wie die Merkliste selbst, deshalb hydrationssicher.
+  const { slugs: gemerkt } = useMerkliste()
   // Wie auf der Epigenetik-Seite: acht Sprachen fuehren diesen Namensraum nur
   // auf Englisch, der Text muss deshalb als englisch ausgezeichnet sein.
   const englishFallback = isEnglishFallback(t('_translationStatus', { defaultValue: '' }))
@@ -143,7 +196,7 @@ const MusterbefundPage = () => {
 
   const lang = i18n.language?.startsWith('de') ? 'de' : 'en'
 
-  const befund = BEFUNDE[slug]?.[lang] ?? BEFUNDE[slug]?.de
+  const befund = befunde?.[lang] ?? befunde?.de
   const samples = Array.isArray(t('samples.items', { returnObjects: true }))
     ? (t('samples.items', { returnObjects: true }) as {
         slug: string
@@ -237,6 +290,8 @@ const MusterbefundPage = () => {
   // waehrend des Renderings — react-hooks/immutability verbietet sie, weil der
   // Wert bei einem erneuten Rendering derselben Liste nicht mehr derselbe waere.
   let markersChapterGesetzt = false
+  let markersLaufNr = 0
+  let ersterWerteblockOffen = false
   let tint = false
   for (const block of blocks) {
     const isCover = block.type === 'cover'
@@ -254,11 +309,30 @@ const MusterbefundPage = () => {
     // bestehen, damit der Ueberblick und alte Links weiter dorthin springen.
     if (id && !NOT_A_CHAPTER.has(block.type) && title) {
       if (block.type === 'markers') {
+        // Ein Kapiteleintrag je zusammenhaengendem LAUF, nicht einer pro
+        // Befund. Gemessen: Metabolic Health hat neun markers-Bloecke in zwei
+        // Laeufen (dazwischen zwei Tabellen), Stress Monitor drei Bloecke in
+        // drei Laeufen. Mit einem globalen Schalter bekam nur der jeweils
+        // erste Lauf einen Eintrag — fuer alles danach gab es keinen, und weil
+        // ChapterNav das aktive Kapitel als "letztes, dessen Oberkante ueber
+        // der Lesemarke liegt" bestimmt, blieb die Leiste dort auf dem
+        // falschen Kapitel stehen.
         if (!markersChapterGesetzt) {
           markersChapterGesetzt = true
-          chapters.push({ id, label: t('befund.markersChapter') })
+          // Der ERSTE Lauf traegt die Sammelbeschriftung "Die Einzelwerte".
+          // Jeder weitere bekommt seinen eigenen Blocktitel — sonst stuende
+          // bei Stress Monitor dreimal derselbe Eintrag in der Leiste, und
+          // man koennte sie nicht auseinanderhalten.
+          chapters.push({
+            id,
+            label: markersLaufNr === 0 ? t('befund.markersChapter') : toLabel(title),
+          })
+          markersLaufNr += 1
         }
       } else {
+        // Ein Block mit eigenem Kapitel beendet den Lauf: der naechste
+        // markers-Block beginnt einen neuen und bekommt wieder einen Eintrag.
+        markersChapterGesetzt = false
         chapters.push({ id, label: toLabel(title) })
       }
     }
@@ -269,7 +343,19 @@ const MusterbefundPage = () => {
     }
     // Ohne Ueberschrift gaebe es nichts, was auf dem Aufklapper stehen koennte —
     // ein solcher Block bleibt offen, statt namenlos zu verschwinden.
-    const collapsed = !ALWAYS_OPEN.has(block.type) && Boolean(title)
+    //
+    // Und der ERSTE Werteblock eines Befunds bleibt offen, egal welchen Typ er
+    // hat. Gemessen: bei Metabolic Health lagen 14 von 22 Bloecken zu, davon 13
+    // unmittelbar hintereinander — nach dem Beratungsabschnitt sah der Leser
+    // eine Wand aus optisch gleichen Zeilen "Titel + n Werte + Chevron", ohne
+    // je einen Wert gesehen zu haben. Eine Position-1-Regel statt einer
+    // Typliste, weil je nach Panel resultTable, evaluations oder markers vorne
+    // steht.
+    let collapsed = !ALWAYS_OPEN.has(block.type) && Boolean(title)
+    if (collapsed && !ersterWerteblockOffen) {
+      ersterWerteblockOffen = true
+      collapsed = false
+    }
     const n = collapsed ? entryCount(block) : 0
     chrome.push({
       tint: isCover ? false : tint,
@@ -280,10 +366,15 @@ const MusterbefundPage = () => {
     })
   }
 
-  const others = BEFUND_ORDER.map((s) => ({
-    slug: s,
-    panel: BEFUNDE[s]?.[lang]?.panel ?? BEFUNDE[s]?.de?.panel ?? s,
-  }))
+  // Die Namen der anderen fuenf kommen aus PANELS statt aus den Inhalten —
+  // sonst muessten fuer den Umschalter doch wieder alle zwoelf JSON-Dateien
+  // geladen werden. PANELS fuehrt [de, en]; panelNames.test.ts prueft die
+  // Liste Zeile fuer Zeile gegen BEFUNDE, sie kann also nicht auseinanderlaufen.
+  const others = BEFUND_ORDER.map((s) => {
+    const eintrag = PANELS.find((p) => p.slug === s)
+    const namen = eintrag?.names ?? []
+    return { slug: s, panel: (lang === 'de' ? namen[0] : (namen[1] ?? namen[0])) ?? s }
+  })
 
   /**
    * Die Aufforderung in der Kapitelleiste wechselt mit der Lesetiefe.
@@ -465,6 +556,9 @@ const MusterbefundPage = () => {
                     red: t('befund.toneRed'),
                     amber: t('befund.toneAmber'),
                     green: t('befund.toneGreen'),
+                    // Derselbe abgestimmte Wortlaut wie auf dem Deckblatt,
+                    // aus derselben Quelle — kein zweiter Textstand.
+                    badge: typeof coverBlock?.badge === 'string' ? coverBlock.badge : undefined,
                   }}
                 />
               </>
@@ -510,19 +604,28 @@ const MusterbefundPage = () => {
                 {/* Derselbe Vertrag wie im Deckblatt und in der Leiste: ohne ihn
                     war ausgerechnet der Abschluss-CTA der Seite der einzige
                     Anfrageweg ohne Panel-Kontext. */}
-                <Link
-                  to={`/contact?intent=quote&source=epigenetics&panel=${encodeURIComponent(befund.panel)}#kontaktformular`}
-                  onClick={() =>
-                    trackEvent('epigenetics_request', {
-                      method: 'form',
-                      source: 'befund',
-                      panel: befund.panel,
-                    })
-                  }
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-accent-strong px-6 py-3.5 text-base font-semibold text-white transition-colors hover:brightness-110"
-                >
-                  {t('hero.ctaQuote')}
-                </Link>
+                {/* Sobald etwas vorgemerkt ist, traegt die Merkliste direkt
+                    darueber einen Knopf mit DERSELBEN Beschriftung
+                    ("Angebot anfragen") in derselben Akzentfarbe — aber mit
+                    anderer Nutzlast: sie schickt alle vorgemerkten Panels,
+                    dieser hier nur das aktuelle. Zwei gleich aussehende
+                    Knoepfe mit verschiedenem Ziel sind keine Auswahl, sondern
+                    eine Falle. Der spezifischere gewinnt. */}
+                {gemerkt.length === 0 ? (
+                  <Link
+                    to={`/contact?intent=quote&source=epigenetics&panel=${encodeURIComponent(befund.panel)}#kontaktformular`}
+                    onClick={() =>
+                      trackEvent('epigenetics_request', {
+                        method: 'form',
+                        source: 'befund',
+                        panel: befund.panel,
+                      })
+                    }
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-accent-strong px-6 py-3.5 text-base font-semibold text-white transition-colors hover:brightness-110"
+                  >
+                    {t('hero.ctaQuote')}
+                  </Link>
+                ) : null}
                 {/* Hier standen zusaetzlich "Alle sechs Musterbefunde" und
                     "Nach oben". Beide fuehrten dorthin, wo der Leser ohnehin
                     schon hinkommt: die Kapitelleiste klebt am oberen Rand und
@@ -534,22 +637,12 @@ const MusterbefundPage = () => {
               </div>
             </div>
 
-            <div className="mt-10">
-              <p className="text-xs font-medium text-gray-600">{t('befund.othersTitle')}</p>
-              <div className="mt-4 flex flex-wrap gap-3">
-                {others
-                  .filter((o) => o.slug !== slug)
-                  .map((o) => (
-                    <Link
-                      key={o.slug}
-                      to={`/epigenetics/musterbefund/${o.slug}`}
-                      className="inline-flex items-center rounded-full border border-slate-300 px-5 py-2.5 text-base font-medium text-brand-deep transition-colors hover:border-brand-primary hover:bg-slate-50"
-                    >
-                      {o.panel}
-                    </Link>
-                  ))}
-              </div>
-            </div>
+            {/* Hier stand die Liste der fuenf anderen Musterbefunde. Der
+                Umschalter war damit DREIFACH: die Panelreihe im Deckblatt, das
+                Aufklappmenue der Kapitelleiste und diese Liste — jedes
+                Fremdpanel dreimal verlinkt. Deckblatt und Leiste decken sie
+                vollstaendig ab; die Leiste steht zudem durchgehend im Bild,
+                diese Liste erst nach 24.000px. */}
           </div>
         </section>
       </div>

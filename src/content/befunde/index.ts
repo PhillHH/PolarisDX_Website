@@ -25,47 +25,25 @@ import stressEn from './stress-monitor.en.json'
 import sportDe from './healthy-sport.de.json'
 import sportEn from './healthy-sport.en.json'
 
-export interface Befund {
-  slug: string
-  panel: string
-  blocks: { type: string; [key: string]: unknown }[]
-}
+export type { Befund, BefundSprachen } from './meta'
+export { BEFUND_ORDER, RADAR_VALUES } from './meta'
 
-type ByLanguage = { de: Befund; en: Befund }
+import type { Befund, BefundSprachen } from './meta'
 
-/** Reihenfolge wie die sechs Analysen auf /epigenetics (01–06). */
-export const BEFUND_ORDER = [
-  'metabolic-health',
-  'healthy-aging',
-  'biologische-altersuhr',
-  'telomer-analyse',
-  'stress-monitor',
-  'healthy-sport',
-] as const
-
-export const BEFUNDE: Record<string, ByLanguage> = {
+/**
+ * ALLE zwoelf Inhalte auf einmal.
+ *
+ * ACHTUNG: Wer das hier importiert, zieht 322 KB Quelltext mit. Die
+ * Musterbefund-Seiten tun das NICHT mehr — sie bekommen ihren Befund ueber je
+ * ein eigenes Routenmodul unter src/pages/musterbefund/, damit Vite pro Slug
+ * splittet. Diese Sammlung bleibt fuer Werkzeuge und Tests, die wirklich alle
+ * Befunde brauchen (panelNames.test.ts prueft die Panelnamen gegen sie).
+ */
+export const BEFUNDE: Record<string, BefundSprachen> = {
   'metabolic-health': { de: metabolicDe as Befund, en: metabolicEn as Befund },
   'healthy-aging': { de: agingDe as Befund, en: agingEn as Befund },
   'biologische-altersuhr': { de: clockDe as Befund, en: clockEn as Befund },
   'telomer-analyse': { de: telomerDe as Befund, en: telomerEn as Befund },
   'stress-monitor': { de: stressDe as Befund, en: stressEn as Befund },
   'healthy-sport': { de: sportDe as Befund, en: sportEn as Befund },
-}
-
-/**
- * Lebensstil-Radar, elf Achsen im Uhrzeigersinn ab 12 Uhr:
- * Alltagsbewegung, Sport, Stress, Tabak, Alkohol, Snacks, Fleisch, Omega-3,
- * Ballaststoffe, Obst/Gemuese, Fluessigkeit.
- *
- * Es ist in allen Befunden dieselbe Beispielperson, deshalb dieselben Werte.
- * Healthy Sport zeigt im PDF keine Referenzgruppe.
- */
-const LIFESTYLE_PROFILE = [6, 7, 4, 9, 6, 5, 5, 6, 7, 8, 8]
-const LIFESTYLE_REFERENCE = [5, 5, 5, 6, 5, 5, 5, 5, 6, 6, 6]
-
-export const RADAR_VALUES: Record<string, { profile: number[]; reference?: number[] }> = {
-  'healthy-aging': { profile: LIFESTYLE_PROFILE, reference: LIFESTYLE_REFERENCE },
-  'biologische-altersuhr': { profile: LIFESTYLE_PROFILE, reference: LIFESTYLE_REFERENCE },
-  'telomer-analyse': { profile: LIFESTYLE_PROFILE, reference: LIFESTYLE_REFERENCE },
-  'healthy-sport': { profile: LIFESTYLE_PROFILE },
 }

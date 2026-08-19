@@ -115,11 +115,21 @@ interface Labels {
   red: string
   amber: string
   green: string
+  /**
+   * Kennzeichnung, dass die Zahlen daneben erfunden sind. Optional, weil der
+   * Wortlaut aus dem Befund-JSON kommt und dort theoretisch fehlen kann.
+   */
+  badge?: string
 }
 
 const BefundOverview = ({ blocks, labels }: { blocks: Block[]; labels: Labels }) => {
   const entries = collectOverview(blocks)
-  if (entries.length < 4) return null
+  // Schwelle 2 statt 4. Der Ueberblick steht laut eigenem Kommentar "bewusst
+  // vor allem anderen" — er stieg aber unter vier Eintraegen still aus, und
+  // die Telomer-Analyse erzeugt genau zwei, die biologische Altersuhr vier.
+  // Auf einer von sechs Seiten gab es ihn damit gar nicht. Zwei Kacheln sind
+  // ehrlich: das Panel fuehrt eben zwei Werte.
+  if (entries.length < 2) return null
 
   const count = (tone: string) => entries.filter((e) => e.tone === tone).length
   const summary = [
@@ -138,6 +148,15 @@ const BefundOverview = ({ blocks, labels }: { blocks: Block[]; labels: Labels })
           {labels.title}
         </h2>
         <p className="mt-3 max-w-[72ch] text-lg leading-8 text-gray-700">{labels.lead}</p>
+
+        {/* Zweite Kennzeichnungsstelle. Direkt darunter stehen Ampelzaehler
+            ueber frei erfundene Werte — ohne diesen Hinweis lesen sie sich wie
+            das Ergebnis einer echten Messung. */}
+        {labels.badge ? (
+          <p className="mt-4 inline-flex rounded-full bg-accent-soft px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
+            {labels.badge}
+          </p>
+        ) : null}
 
         <div className="mt-6 flex flex-wrap gap-3">
           {summary.map((s) => (
