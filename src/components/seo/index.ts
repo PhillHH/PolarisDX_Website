@@ -15,6 +15,7 @@ export {
   localBusinessSchema,
   createBreadcrumbSchema,
   createFAQSchema,
+  createItemListSchema,
   createArticleSchema,
   createServiceSchema,
   createEventSchema,

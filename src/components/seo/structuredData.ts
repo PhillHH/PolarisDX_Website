@@ -211,6 +211,46 @@ export function createBreadcrumbSchema(items: BreadcrumbItem[], language?: strin
 }
 
 // =============================================================================
+// ITEM LIST GENERATOR
+// =============================================================================
+
+export interface ItemListEntry {
+  /** Anzeigename des Eintrags, z.B. der Panelname. */
+  name: string
+  /** Pfad ohne Sprachpraefix, z.B. /epigenetics/musterbefund/healthy-aging. */
+  url: string
+  /** Optionaler Zweizeiler; Suchmaschinen zeigen ihn teilweise mit an. */
+  description?: string
+}
+
+/**
+ * Eine geordnete Liste gleichrangiger Angebote als ItemList.
+ *
+ * Auf /epigenetics stehen sechs Analysen nebeneinander, jede mit eigener
+ * Detailseite. Ohne ItemList sieht eine Suchmaschine dort nur Fliesstext und
+ * muss raten, dass es sich um sechs abgrenzbare Angebote handelt.
+ *
+ * Bewusst ohne Preis- oder Verfuegbarkeitsangaben: die Strecke nennt keine
+ * Preise ("B2B nach Absprache"), und ein Offer-Objekt ohne Preis ist fuer
+ * Google ungueltiges Markup statt eines leeren Feldes.
+ */
+export function createItemListSchema(entries: ItemListEntry[], language?: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    numberOfItems: entries.length,
+    itemListOrder: 'https://schema.org/ItemListOrderAscending',
+    itemListElement: entries.map((entry, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: entry.name,
+      ...(entry.description ? { description: entry.description } : {}),
+      url: canonicalUrlFor(entry.url, language),
+    })),
+  }
+}
+
+// =============================================================================
 // FAQ SCHEMA GENERATOR
 // =============================================================================
 

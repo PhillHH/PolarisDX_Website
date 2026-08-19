@@ -36,7 +36,12 @@ import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-do
 import { useTranslation } from 'react-i18next'
 import { trackEvent } from '../lib/tracking'
 import { ArrowRight, ChevronDown, Download, FileText, FlaskConical } from 'lucide-react'
-import { SEOHead, createBreadcrumbSchema, createFAQSchema } from '../components/seo'
+import {
+  SEOHead,
+  createBreadcrumbSchema,
+  createFAQSchema,
+  createItemListSchema,
+} from '../components/seo'
 import type { FAQItem } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import SectionHeader from '../components/ui/SectionHeader'
@@ -121,8 +126,12 @@ const Sparkle = ({ className = '' }: { className?: string }) => (
 
 const EpigeneticsPage = () => {
   const { t } = useTranslation('epigenetics')
+  // Bedienoberflaechen-Text ("Weiterlesen"). Liegt im Namensraum common und ist
+  // dort in allen zehn Sprachen echt uebersetzt, waehrend `epigenetics` in acht
+  // davon auf Englisch laeuft.
+  const { t: tCommon } = useTranslation('common')
   const navigate = useNavigate()
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams] = useSearchParams()
   useScrollDepth('epigenetics')
   // Acht Sprachen zeigen diese Seite auf Englisch (Marker `_translationStatus`
   // im Namensraum). Ohne Auszeichnung liest ein tschechischer Screenreader den
@@ -164,17 +173,38 @@ const EpigeneticsPage = () => {
    */
   const fokus = searchParams.get(FILTER_PARAM)
   const panelGroup = fokus && FILTER_KEYS.includes(fokus) ? fokus : null
+  /**
+   * Auswahl setzen und zur Tabelle springen.
+   *
+   * Die Chips waren Anker auf #vergleich und erledigten den Sprung nebenbei.
+   * Als Umschalter (button) tun sie das nicht mehr von selbst — der Hash muss
+   * deshalb hier gesetzt werden, sonst aendert sich die Tabelle weit unterhalb
+   * des Bildschirms, ohne dass der Leser es sieht.
+   *
+   * `replace: true`: ein Klick auf einen Filter ist keine neue Station im
+   * Verlauf. Sonst haette der Zurueck-Knopf sich durch jede angetippte
+   * Zielgruppe zurueckgearbeitet, statt auf die vorige Seite zu gehen.
+   */
   const setPanelGroup = (key: string | null) => {
     const next = new URLSearchParams(searchParams)
     if (key) next.set(FILTER_PARAM, key)
     else next.delete(FILTER_PARAM)
-    setSearchParams(next, { replace: true })
+    const suche = next.toString()
+    navigate({ search: suche ? `?${suche}` : '', hash: '#vergleich' }, { replace: true })
   }
   const visibleRows = panelGroup
     ? compareRows.filter((_, i) => compareGroups[i]?.includes(panelGroup))
     : compareRows
 
   const faqSchemaItems: FAQItem[] = faq.map((item) => ({ question: item.q, answer: item.a }))
+  /**
+   * Die sechs Analysen als ItemList. Namen und Slugs kommen aus samples.items,
+   * also aus derselben Quelle wie die Panelkarten — die Liste kann damit nicht
+   * von dem abweichen, was auf der Seite steht.
+   */
+  const panelListe = asArray<{ slug: string; panel: string }>(
+    t('samples.items', { returnObjects: true }),
+  ).map((item) => ({ name: item.panel, url: `/epigenetics/musterbefund/${item.slug}` }))
   const zipHref = `${ASSET_BASE}${t('downloads.zipFile')}`
 
   /**
@@ -255,6 +285,7 @@ const EpigeneticsPage = () => {
             { name: t('breadcrumb.current'), url: '/epigenetics' },
           ]),
           ...(faqSchemaItems.length > 0 ? [createFAQSchema(faqSchemaItems)] : []),
+          ...(panelListe.length > 0 ? [createItemListSchema(panelListe)] : []),
         ]}
       />
 
@@ -299,12 +330,94 @@ const EpigeneticsPage = () => {
                   {t('hero.consultLine')}
                 </p>
 
-                {/* Vertrauenszeile im ersten Bildschirm. Zwei Elemente statt
-                    drei: der dritte Platz waere eine Praktiker-Stimme zum
-                    Programm — es liegt keine echte vor, und erfundene kommen
-                    nicht auf die Seite. Die Zahlen der Studienzeile kommen aus
-                    derselben Quelle wie die Studienlage-Seite und koennen
-                    deshalb nicht auseinanderlaufen. */}
+                {/* Die einzige Aufgabe des Heros: die Auswahl.
+                    Sie steht jetzt direkt hinter dem Einleitungstext, nicht
+                    mehr hinter der Vertrauenszeile. Gemessen bei 390x844 lag
+                    der erste Chip vorher bei 890px — 46px UNTER der Falz, bei
+                    einer Seite von 21,8 Bildschirmen. Die Ueberschrift der
+                    Filterbox war gerade noch sichtbar, die Chips nicht: die
+                    schlechteste Variante, weil sie nicht einmal zum Scrollen
+                    auffordert. Die Vertrauenszeile steht darunter — sie ist
+                    Beleg, keine Handlung.
+
+                    Die Chips sind BUTTONS, keine Links. Sie navigieren nicht,
+                    sie tauschen den Inhalt der Tabelle darunter aus; als
+                    <a aria-current="true"> meldete ein Screenreader "Link,
+                    aktuelle Seite" statt eines gedrueckten Umschalters. Der
+                    Zustand steht weiterhin in der URL (?fokus=), die
+                    Vorauswahl bleibt also verlinkbar und teilbar. */}
+                <div className="mt-10 rounded-3xl border border-white/15 bg-white/5 p-6 backdrop-blur-sm lg:p-8">
+                  <h2
+                    id="auswahl-titel"
+                    className="max-w-[26ch] text-2xl font-semibold tracking-tight lg:text-3xl"
+                  >
+                    {t('hero.chooseTitle')}
+                  </h2>
+                  <p id="auswahl-hinweis" className="mt-2 text-sm text-white/70">
+                    {t('compare.filter.label')}
+                  </p>
+                  <div
+                    role="group"
+                    aria-labelledby="auswahl-titel auswahl-hinweis"
+                    className="mt-5 flex flex-wrap gap-2"
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setPanelGroup(null)}
+                      aria-pressed={panelGroup === null}
+                      className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+                        panelGroup === null
+                          ? 'border-white bg-white text-brand-deep'
+                          : 'border-white/40 text-white hover:border-white hover:bg-white/10'
+                      }`}
+                    >
+                      {t('compare.filter.all')}
+                    </button>
+                    {FILTER_KEYS.map((key) => (
+                      <button
+                        key={key}
+                        type="button"
+                        onClick={() => setPanelGroup(key)}
+                        aria-pressed={panelGroup === key}
+                        className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+                          panelGroup === key
+                            ? 'border-white bg-white text-brand-deep'
+                            : 'border-white/40 text-white hover:border-white hover:bg-white/10'
+                        }`}
+                      >
+                        {t(`compare.filter.options.${key}`)}
+                      </button>
+                    ))}
+                  </div>
+                  {/* Ohne Ansage bleibt der Wechsel fuer einen Screenreader
+                      stumm: der Knopf meldet seinen neuen Zustand, aber nicht,
+                      dass die Tabelle jetzt drei statt sechs Panels fuehrt.
+                      Der Text besteht aus vorhandenen Schluesseln. */}
+                  <p role="status" className="sr-only">
+                    {panelGroup
+                      ? `${t(`compare.filter.options.${panelGroup}`)}: ${visibleRows.length}`
+                      : `${t('compare.filter.all')}: ${visibleRows.length}`}
+                  </p>
+                  {/* Der Anfrageweg bleibt im ersten Bildschirm erreichbar,
+                      aber als Textlink: er steht dem Filter nicht mehr als
+                      gleichrangiger Knopf gegenueber. */}
+                  <Link
+                    to="/contact?intent=quote&source=epigenetics#kontaktformular"
+                    onClick={() =>
+                      trackEvent('epigenetics_request', { method: 'form', source: 'hero' })
+                    }
+                    className="mt-6 inline-flex items-center gap-1.5 text-base font-semibold text-accent-on-dark transition-colors hover:text-white"
+                  >
+                    {t('hero.ctaQuote')}
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </Link>
+                </div>
+
+                {/* Vertrauenszeile. Zwei Elemente statt drei: der dritte Platz
+                    waere eine Praktiker-Stimme zum Programm — es liegt keine
+                    echte vor, und erfundene kommen nicht auf die Seite. Die
+                    Zahlen der Studienzeile kommen aus derselben Quelle wie die
+                    Studienlage-Seite und koennen deshalb nicht auseinanderlaufen. */}
                 <ul className="mt-8 grid gap-3 sm:grid-cols-2">
                   <li className="rounded-2xl border border-white/15 bg-white/10 px-5 py-4 text-base text-white/85 backdrop-blur-sm">
                     {t('contact.lab')}
@@ -322,59 +435,6 @@ const EpigeneticsPage = () => {
                     </Link>
                   </li>
                 </ul>
-
-                {/* Die einzige Aufgabe des Heros: die Auswahl. Die Chips setzen
-                    den Filter in der URL und springen auf die Tabelle, wo er
-                    wirkt — dadurch ist jede Vorauswahl verlinkbar, und der
-                    Teaser der Startseite kann direkt darauf zeigen. */}
-                <div className="mt-10 rounded-3xl border border-white/15 bg-white/5 p-6 backdrop-blur-sm lg:p-8">
-                  <h2 className="max-w-[26ch] text-2xl font-semibold tracking-tight lg:text-3xl">
-                    {t('hero.chooseTitle')}
-                  </h2>
-                  <p className="mt-2 text-sm text-white/70">{t('compare.filter.label')}</p>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    <a
-                      href="#vergleich"
-                      onClick={() => setPanelGroup(null)}
-                      aria-current={panelGroup === null ? 'true' : undefined}
-                      className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
-                        panelGroup === null
-                          ? 'border-white bg-white text-brand-deep'
-                          : 'border-white/40 text-white hover:border-white hover:bg-white/10'
-                      }`}
-                    >
-                      {t('compare.filter.all')}
-                    </a>
-                    {FILTER_KEYS.map((key) => (
-                      <a
-                        key={key}
-                        href="#vergleich"
-                        onClick={() => setPanelGroup(key)}
-                        aria-current={panelGroup === key ? 'true' : undefined}
-                        className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
-                          panelGroup === key
-                            ? 'border-white bg-white text-brand-deep'
-                            : 'border-white/40 text-white hover:border-white hover:bg-white/10'
-                        }`}
-                      >
-                        {t(`compare.filter.options.${key}`)}
-                      </a>
-                    ))}
-                  </div>
-                  {/* Der Anfrageweg bleibt im ersten Bildschirm erreichbar,
-                      aber als Textlink: er steht dem Filter nicht mehr als
-                      gleichrangiger Knopf gegenueber. */}
-                  <Link
-                    to="/contact?intent=quote&source=epigenetics#kontaktformular"
-                    onClick={() =>
-                      trackEvent('epigenetics_request', { method: 'form', source: 'hero' })
-                    }
-                    className="mt-6 inline-flex items-center gap-1.5 text-base font-semibold text-accent-on-dark transition-colors hover:text-white"
-                  >
-                    {t('hero.ctaQuote')}
-                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                  </Link>
-                </div>
               </div>
             </Reveal>
           </div>
@@ -642,36 +702,7 @@ const EpigeneticsPage = () => {
         <ConsultSteps />
 
         {/* ================================================================
-            4 · HAEUFIGE FRAGEN — natives <details>, kein JavaScript noetig
-        ================================================================ */}
-        <section
-          id="fragen"
-          className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-20"
-        >
-          <Reveal width="100%">
-            <div className="mx-auto max-w-[80ch]">
-              <SectionHeader caption={t('faq.caption')} title={t('faq.title')} align="left" />
-              <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('faq.lead')}</p>
-            </div>
-          </Reveal>
-          <div className="mx-auto mt-10 max-w-[80ch] divide-y divide-slate-200 overflow-hidden rounded-3xl border border-slate-200 bg-white">
-            {faq.map((item) => (
-              <details key={item.q} className="group">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-6 text-left text-lg font-medium text-text-heading transition-colors hover:bg-slate-50 lg:px-8">
-                  <span>{item.q}</span>
-                  <ChevronDown
-                    className="h-5 w-5 shrink-0 text-brand-primary transition-transform duration-200 group-open:rotate-180"
-                    aria-hidden="true"
-                  />
-                </summary>
-                <div className={`px-6 pb-7 text-gray-600 lg:px-8 ${BODY}`}>{item.a}</div>
-              </details>
-            ))}
-          </div>
-        </section>
-
-        {/* ================================================================
-            5 · ZUM NACHLESEN — die drei Vertiefungsseiten
+            4 · ZUM NACHLESEN — die drei Vertiefungsseiten
 
             Kein Kapitel, sondern der Wegweiser: hier steht, was von dieser
             Seite abgezogen wurde und wo es jetzt liegt. Ohne ihn waeren die
@@ -694,8 +725,14 @@ const EpigeneticsPage = () => {
                       {item.title}
                     </h2>
                     <p className={`mt-3 line-clamp-4 text-gray-600 ${BODY}`}>{item.text}</p>
+                    {/* Hier stand ein zweites Mal item.title — dieselbe
+                        Ueberschrift woertlich als Linktext darunter. Weil die
+                        ganze Karte ein Link ist, las ein Screenreader den Titel
+                        doppelt, und optisch sah es nach einem Kopierfehler aus.
+                        `read_more` liegt im Namensraum common in allen zehn
+                        Sprachen echt uebersetzt vor. */}
                     <span className="mt-auto inline-flex items-center gap-1.5 pt-6 text-base font-semibold text-brand-primary">
-                      {item.title}
+                      {tCommon('read_more')}
                       <ArrowRight
                         className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
                         aria-hidden="true"
@@ -726,6 +763,35 @@ const EpigeneticsPage = () => {
                 {t('downloads.zipLabel')}
               </a>
             </Reveal>
+          </div>
+        </section>
+
+        {/* ================================================================
+            5 · HAEUFIGE FRAGEN — natives <details>, kein JavaScript noetig
+        ================================================================ */}
+        <section
+          id="fragen"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-20"
+        >
+          <Reveal width="100%">
+            <div className="mx-auto max-w-[80ch]">
+              <SectionHeader caption={t('faq.caption')} title={t('faq.title')} align="left" />
+              <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('faq.lead')}</p>
+            </div>
+          </Reveal>
+          <div className="mx-auto mt-10 max-w-[80ch] divide-y divide-slate-200 overflow-hidden rounded-3xl border border-slate-200 bg-white">
+            {faq.map((item) => (
+              <details key={item.q} className="group">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-6 text-left text-lg font-medium text-text-heading transition-colors hover:bg-slate-50 lg:px-8">
+                  <span>{item.q}</span>
+                  <ChevronDown
+                    className="h-5 w-5 shrink-0 text-brand-primary transition-transform duration-200 group-open:rotate-180"
+                    aria-hidden="true"
+                  />
+                </summary>
+                <div className={`px-6 pb-7 text-gray-600 lg:px-8 ${BODY}`}>{item.a}</div>
+              </details>
+            ))}
           </div>
         </section>
 

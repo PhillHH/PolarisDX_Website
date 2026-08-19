@@ -33,6 +33,7 @@ import { useTranslation } from 'react-i18next'
 import { ArrowRight, Download } from 'lucide-react'
 import Reveal from '../ui/Reveal'
 import SectionHeader from '../ui/SectionHeader'
+import { trackEvent } from '../../lib/tracking'
 import { BEFUND_IMAGES, BEFUND_IMAGE_SIZE } from '../../assets/epigenetics/befundImages'
 import { MerkButton, Merkliste } from '../befund/Merkliste'
 
@@ -59,6 +60,8 @@ const LEAD = 'text-lg leading-8 text-gray-700'
 // unterschiedlicher Hoehe. [&>div]:h-full reicht sie durch, ohne Reveal selbst
 // anzufassen (die Komponente wird seitenweit benutzt).
 const STRETCH = 'h-full [&>div]:h-full'
+/** Wie in EpigeneticsPage: die PDFs liegen unter public/downloads/epigenetics/. */
+const ASSET_BASE = '/downloads/epigenetics/'
 
 const EpigeneticsPanels = () => {
   const { t } = useTranslation('epigenetics')
@@ -199,13 +202,27 @@ const EpigeneticsPanels = () => {
       <Reveal width="100%">
         <div className="mt-8 flex flex-col gap-5 rounded-3xl border border-slate-200 bg-slate-50 p-7 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-[62ch] text-sm leading-relaxed text-gray-600">{t('samples.note')}</p>
-          <Link
-            to="/epigenetics/unterlagen"
+          {/* Der Knopf trug Download-Symbol und die Dateigroesse "· 4,2 MB",
+              war aber ein Link auf die Unterlagenseite: es passierte kein
+              Download, sondern ein Seitenwechsel, und dort musste man ihn unter
+              dreizehn weiteren Downloadwegen erneut suchen. Ein Knopf, der eine
+              Dateigroesse verspricht, muss die Datei liefern.
+              PolarisDX_Musterbefunde_DE.zip existiert, 4.262.171 Byte. */}
+          <a
+            href={`${ASSET_BASE}${t('samples.zipFile')}`}
+            onClick={() =>
+              trackEvent('epigenetics_request', {
+                method: 'pdf',
+                source: 'panels',
+                document: 'samples-zip',
+              })
+            }
+            download
             className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
           >
             <Download className="h-4 w-4" aria-hidden="true" />
             {t('samples.zipLabel')}
-          </Link>
+          </a>
         </div>
       </Reveal>
     </div>
