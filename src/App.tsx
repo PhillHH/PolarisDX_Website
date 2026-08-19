@@ -53,6 +53,12 @@ const ServicePage = lazy(() => import('./pages/ServicePage'))
 // Produkt-Seiten (große Komponenten)
 const IglooProPage = lazy(() => import('./pages/IglooProPage'))
 const EpigeneticsPage = lazy(() => import('./pages/EpigeneticsPage'))
+// Vertiefungsseiten der Epigenetik-Strecke. Sie tragen die Kapitel, die auf der
+// Programmseite keine Auswahlfrage beantworten: Grundlagen, Studienlage,
+// Unterlagen. Siehe src/components/epigenetics/EpiSubpage.tsx.
+const EpigeneticsBasicsPage = lazy(() => import('./pages/EpigeneticsBasicsPage'))
+const EpigeneticsEvidencePage = lazy(() => import('./pages/EpigeneticsEvidencePage'))
+const EpigeneticsDocsPage = lazy(() => import('./pages/EpigeneticsDocsPage'))
 const MusterbefundPage = lazy(() => import('./pages/MusterbefundPage'))
 const VitaminD3ImplantologyPage = lazy(() => import('./pages/VitaminD3ImplantologyPage'))
 const S3LeitliniePage = lazy(() => import('./pages/S3LeitliniePage'))
@@ -355,6 +361,30 @@ function App() {
             element={
               <LazyRoute>
                 <EpigeneticsPage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/epigenetics/grundlagen"
+            element={
+              <LazyRoute>
+                <EpigeneticsBasicsPage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/epigenetics/studienlage"
+            element={
+              <LazyRoute>
+                <EpigeneticsEvidencePage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/epigenetics/unterlagen"
+            element={
+              <LazyRoute>
+                <EpigeneticsDocsPage />
               </LazyRoute>
             }
           />

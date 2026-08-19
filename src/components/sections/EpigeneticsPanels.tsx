@@ -10,9 +10,11 @@
  * Jetzt eine Karte je Panel:
  *   - Deckblatt des Musterbefunds als Bild
  *   - eine Zeile, die sagt, worum es geht
- *   - dieselben fuenf Achsen wie die Vergleichstabelle, aus derselben Quelle
- *     (compare.cols / compare.rows) — vorher trugen die sechs Karten sechs
- *     verschiedene Label-Paare, weshalb sich aus ihnen nichts vergleichen liess
+ *   - zwei Achsen aus derselben Quelle wie die Vergleichstabelle (Umfang und
+ *     Ebene, aus compare.cols / compare.rows) — vorher trugen die sechs Karten
+ *     sechs verschiedene Label-Paare, weshalb sich aus ihnen nichts vergleichen
+ *     liess, danach alle fuenf Achsen und damit die komplette Tabelle ein
+ *     zweites Mal
  *   - "Fuer wen geeignet" — die Angabe, wegen der ein Fachanwender ueberhaupt
  *     auf der Seite ist
  *   - genau eine Aktion: der vollstaendige Musterbefund als Seite
@@ -57,8 +59,6 @@ const LEAD = 'text-lg leading-8 text-gray-700'
 // unterschiedlicher Hoehe. [&>div]:h-full reicht sie durch, ohne Reveal selbst
 // anzufassen (die Komponente wird seitenweit benutzt).
 const STRETCH = 'h-full [&>div]:h-full'
-/** Wie in EpigeneticsPage: die PDFs liegen unter public/downloads/epigenetics/. */
-const ASSET_BASE = '/downloads/epigenetics/'
 
 const EpigeneticsPanels = () => {
   const { t } = useTranslation('epigenetics')
@@ -123,18 +123,27 @@ const EpigeneticsPanels = () => {
                 </h3>
                 <p className="mt-2 text-base leading-7 text-gray-700">{analysis.subtitle}</p>
 
-                {/* Dieselben Achsen wie in der Vergleichstabelle — so laesst sich
-                    von der Karte auf die Tabelle und zurueck lesen. */}
-                <dl className="mt-5 border-t border-slate-100">
-                  {cols.slice(1).map((col, i) => (
-                    <div
-                      key={col}
-                      className="flex flex-wrap justify-between gap-x-4 gap-y-0.5 border-b border-slate-100 py-2"
-                    >
-                      <dt className="text-sm text-gray-600">{col}</dt>
-                      <dd className="text-sm font-semibold text-text-heading">{row[i + 1]}</dd>
-                    </div>
-                  ))}
+                {/* Hier standen alle fuenf Achsen aus compare.rows — dieselben
+                    Angaben, die die Vergleichstabelle weiter oben Zeile fuer
+                    Zeile zeigt, mobil sogar in derselben Kartenform. Eine Karte,
+                    die die Tabelle wiederholt, traegt nichts zur Entscheidung
+                    bei; sie machte das Raster nur doppelt so hoch.
+
+                    Zwei Achsen bleiben: Umfang und Ebene sind die beiden
+                    Angaben, die beim Ueberfliegen einer einzelnen Karte
+                    tatsaechlich zaehlen. Beschriftung weiter aus compare.cols,
+                    damit Karte und Tabelle dieselben Woerter benutzen. Alles
+                    Uebrige fuehrt die Karte allein: wofuer das Panel taugt und
+                    der Weg in den Befund. */}
+                <dl className="mt-5 grid grid-cols-2 gap-x-4 gap-y-1 border-t border-slate-100 pt-4">
+                  {[1, 2].map((i) =>
+                    row[i] ? (
+                      <div key={cols[i]}>
+                        <dt className="text-xs text-gray-600">{cols[i]}</dt>
+                        <dd className="mt-0.5 text-sm font-semibold text-text-heading">{row[i]}</dd>
+                      </div>
+                    ) : null,
+                  )}
                 </dl>
 
                 {analysis.who?.length ? (
@@ -180,19 +189,23 @@ const EpigeneticsPanels = () => {
           sie unsichtbar halten. */}
       <Merkliste className="mt-8" />
 
-      {/* Beispieldaten-Hinweis und ZIP wie bisher — die Bilder zeigen echte
-          Befundlayouts mit frei erfundenen Werten, das muss dabeistehen. */}
+      {/* Beispieldaten-Hinweis — die Bilder zeigen echte Befundlayouts mit frei
+          erfundenen Werten, das muss dabeistehen.
+
+          Das ZIP mit allen sechs Musterbefunden stand hier als zweiter,
+          gleich prominenter Downloadweg neben dem Unterlagen-Abschnitt. Beide
+          Pakete liegen jetzt zusammen auf /epigenetics/unterlagen — die
+          Unterlagen haben genau einen Ort. */}
       <Reveal width="100%">
         <div className="mt-8 flex flex-col gap-5 rounded-3xl border border-slate-200 bg-slate-50 p-7 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-[62ch] text-sm leading-relaxed text-gray-600">{t('samples.note')}</p>
-          <a
-            href={`${ASSET_BASE}${t('samples.zipFile')}`}
-            download
-            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
+          <Link
+            to="/epigenetics/unterlagen"
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
           >
             <Download className="h-4 w-4" aria-hidden="true" />
             {t('samples.zipLabel')}
-          </a>
+          </Link>
         </div>
       </Reveal>
     </div>

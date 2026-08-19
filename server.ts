@@ -108,7 +108,7 @@ function isStaticAsset(pathname: string): boolean {
 
 /**
  * All routes with SEO metadata for dynamic sitemap generation.
- * 27 routes × 10 languages = 270 URLs with full hreflang support.
+ * 30 routes × 10 languages = 300 URLs with full hreflang support.
  */
 interface SitemapRoute {
   path: string
@@ -168,6 +168,12 @@ const SITEMAP_ROUTES: SitemapRoute[] = [
 
   // Partnerprogramm Epigenetik/Genetik
   { path: '/epigenetics', priority: 0.8, changefreq: 'monthly' },
+  // Vertiefungsseiten der Strecke. Sie tragen die Kapitel, die von der
+  // Programmseite abgezogen wurden — jedes mit eigenem Thema und eigener
+  // Ueberschrift, statt als Kapitel 2, 7 und 9 einer 17.000px-Seite.
+  { path: '/epigenetics/grundlagen', priority: 0.6, changefreq: 'monthly' },
+  { path: '/epigenetics/studienlage', priority: 0.6, changefreq: 'monthly' },
+  { path: '/epigenetics/unterlagen', priority: 0.6, changefreq: 'monthly' },
   { path: '/epigenetics/musterbefund/metabolic-health', priority: 0.6, changefreq: 'yearly' },
   { path: '/epigenetics/musterbefund/healthy-aging', priority: 0.6, changefreq: 'yearly' },
   { path: '/epigenetics/musterbefund/biologische-altersuhr', priority: 0.6, changefreq: 'yearly' },
@@ -335,7 +341,7 @@ async function createServer() {
   // DYNAMIC SITEMAP ENDPOINT
   // ---------------------------------------------------------------------------
   // Serves before static assets and language redirects.
-  // 27 routes × 10 languages = 270 URLs with full hreflang support.
+  // 30 routes × 10 languages = 300 URLs with full hreflang support.
   // ---------------------------------------------------------------------------
   app.get('/sitemap.xml', (_req: Request, res: Response) => {
     const xml = generateSitemap()

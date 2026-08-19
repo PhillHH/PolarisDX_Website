@@ -28,6 +28,14 @@ interface Fact {
   value: string
 }
 
+/**
+ * Dieselben fuenf Zielgruppen wie der Einstiegsfilter auf /epigenetics.
+ * Reihenfolge und Schluessel muessen zu FILTER_KEYS in EpigeneticsPage.tsx
+ * passen — die Seite prueft den Wert aus `?fokus=` gegen diese Liste und
+ * ignoriert alles andere.
+ */
+const FILTER_KEYS = ['longevity', 'nutrition', 'sports', 'bgm', 'practice']
+
 function asArray<T>(value: unknown): T[] {
   return Array.isArray(value) ? (value as T[]) : []
 }
@@ -74,24 +82,51 @@ const EpigeneticsTeaserSection = () => {
               {t('teaser.text')}
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            {/* Ein Primaerknopf statt zweier gleichrangiger. Der zweite Weg
+                bleibt als Textlink darunter — er ist eine Vertiefung, keine
+                Alternative zum Einstieg. */}
+            <div className="mt-8">
               <Link
                 to="/epigenetics"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:bg-accent-soft"
               >
                 {t('teaser.cta')}
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              {/* Hash laeuft ueber den Router; das Sprachpraefix haengt der
-                  basename der BrowserRouter-Instanz an. */}
-              <Link
-                to="/epigenetics#musterbefunde"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 px-6 py-3.5 text-base font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
-              >
-                <FileText className="h-4 w-4" />
-                {t('teaser.ctaSamples')}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
+
+            {/* Direkteinstieg nach Zielgruppe. Die Chips setzen denselben
+                Filter, den der Hero der Zielseite anbietet (?fokus=), und
+                springen auf die Vergleichstabelle: eine Ernaehrungsberatung
+                landet damit von der Startseite aus direkt bei den Panels, die
+                fuer sie in Frage kommen, statt bei allen sechs.
+
+                Die Beschriftungen sind dieselben Schluessel wie dort — es
+                kommt kein Text hinzu, der in zehn Sprachen nachzuziehen waere. */}
+            <div className="mt-7 border-t border-white/15 pt-6">
+              <p className="text-sm text-white/70">{t('compare.filter.label')}</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {FILTER_KEYS.map((key) => (
+                  <Link
+                    key={key}
+                    to={`/epigenetics?fokus=${key}#vergleich`}
+                    className="rounded-full border border-white/40 px-4 py-2 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10"
+                  >
+                    {t(`compare.filter.options.${key}`)}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Hash laeuft ueber den Router; das Sprachpraefix haengt der
+                basename der BrowserRouter-Instanz an. */}
+            <Link
+              to="/epigenetics#analysen"
+              className="mt-6 inline-flex items-center gap-1.5 text-base font-semibold text-accent-on-dark transition-colors hover:text-white"
+            >
+              <FileText className="h-4 w-4" aria-hidden="true" />
+              {t('teaser.ctaSamples')}
+            </Link>
           </div>
 
           <dl className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">

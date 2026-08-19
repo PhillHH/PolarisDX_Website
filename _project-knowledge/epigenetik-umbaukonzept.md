@@ -234,3 +234,77 @@ Firmierung („Polaris Diagnostics Europe GmbH") und die vollständige USt-IdNr.
 In git steht die achtstellige, ungültige `DE46131849`. Die Korrektur existiert **nur** im
 Arbeitsverzeichnis und geht bei einem Rebuild aus git verloren. Sie gehört gesichert, bevor auf
 Prod gebaut wird. Auf `feat/home-leadmagnet` ist sie mit `e96b486` bereits nachgezogen.
+
+---
+
+## Welle 4 — Aufteilung auf Unterseiten (umgesetzt 19.08.2026)
+
+Die Programmseite trug nach Welle 1–3 immer noch **zehn Kapitel**. Der verbleibende
+Ballast waren nicht Auswahlhilfen, sondern Nachschlagestoff: Prinzip, Werte verstehen,
+Studienlage, dreizehn Downloadwege. Die Anbieter, mit denen Fachanwender diese Seite
+vergleichen, trennen genau das — Programmseite, Testkatalog, „Our Science" und
+Download-Center sind dort eigene Seiten.
+
+**Wettbewerbsabgleich** (TruDiagnostic/Providers, Hurdle, MyAgingTests/Clinics, biovis,
+GANZIMMUN): Programmseite 6–9 kurze Abschnitte; Panels als Karte mit eigener Seite;
+Wissenschaft als eigener Menüpunkt; Unterlagen als Download-Center; **ein** Name für die
+Anfrage, 2–4× wiederholt; **ein** Onboarding-Diagramm statt zweier Schrittlisten.
+
+### Neue Informationsarchitektur
+
+| Route | Inhalt | Herkunft |
+|---|---|---|
+| `/epigenetics` | Auswahl → Panels → Ablauf → Fragen → Nachlesen → Anfrage | 5 Kapitel statt 10 |
+| `/epigenetics/grundlagen` | `principle` + `basics` + `compare.shared` | Kapitel 2 und 3 |
+| `/epigenetics/studienlage` | `evidence` + `compare.caveats` + `compare.gendg` + `contact.note` | Kapitel 7 + zwei Kästen + Seitenfuß |
+| `/epigenetics/unterlagen` | `sheets` (9) + 2 Einzelblätter + beide ZIP | Kapitel 9 + ZIP aus dem Panel-Raster |
+
+**Kein neuer Text.** Alle drei Unterseiten bestehen aus Schlüsseln, die im Namensraum
+`epigenetics` bereits in zehn Sprachen stehen — auch Seitentitel und Meta-Description
+(aus `*.title` / `*.lead`, bei >158 Zeichen gekürzt). Keine Übersetzungsrunde, keine
+erneute HWG-Freigabe.
+
+**Alte Anker.** `#prinzip`, `#werte-verstehen`, `#studienlage`, `#downloads` stehen in den
+PDFs. `ANKER_ALIAS` in `EpigeneticsPage.tsx` leitet sie per `navigate(..., {replace:true})`
+auf ihr neues Ziel. `#analysen`, `#musterbefunde`, `#vergleich`, `#beratung` liegen weiter
+auf der Programmseite.
+
+### Weitere Eingriffe
+
+- **Einstiegsfilter steht in der URL** (`?fokus=longevity|nutrition|sports|bgm|practice`)
+  statt nur im React-State. Damit ist jede Vorauswahl verlinkbar, teilbar und schon im
+  SSR-HTML gefiltert (geprüft: `?fokus=sports` liefert 1 statt 6 Tabellenzeilen, ein
+  ungültiger Wert fällt auf alle sechs zurück).
+- **Startseiten-Teaser** führt die fünf Zielgruppen als Deep-Links auf die vorgefilterte
+  Tabelle, dazu **ein** Primärknopf statt zweier gleichrangiger.
+- **Panel-Karten entdoppelt**: statt aller fünf Achsen aus `compare.rows` (= die
+  Vergleichstabelle ein zweites Mal, mobil in derselben Kartenform) nur noch Umfang und
+  Ebene. Die Karte führt, was nur sie hat.
+- **Ablauf und Beratung** sind ein Kapitel; `ConsultSteps` hat keinen eigenen
+  Leisteneintrag mehr.
+- **Musterbefund-Seiten**: Abschlussblock von fünf auf drei Aktionen (mitnehmen,
+  vormerken, anfragen). „Alle sechs Musterbefunde" und „Nach oben" führten dorthin, wo die
+  klebende Kapitelleiste ohnehin hinführt.
+- Methodische Grenzen und GenDG stehen an der Tabelle jetzt als `<details>` — im Markup
+  offen, im Layout zugeklappt.
+
+### Gemessen (SSR, `de`, gleicher Server, Alt- gegen Neustand)
+
+| | vorher | nachher |
+|---|---|---|
+| `/de/epigenetics` Wörter | 3.381 | **2.377** (−30 %) |
+| `<section>` | 11 | **8** |
+| `<h3>` | 31 | **13** |
+| Download-Knöpfe | 13 | **1** |
+| Kapitel in der Leiste | 10 | **5** |
+
+Die abgezogenen Kapitel: Grundlagen 1.030 W, Studienlage 804 W, Unterlagen 614 W — jedes
+mit eigenem Titel, eigener Description und eigenem Sitemap-Eintrag (383 URLs statt 353).
+
+### Offen
+
+1. **Header-Menü.** Die drei Unterseiten stehen nicht im Dropdown „Labordiagnostik" —
+   dafür bräuchte es Label und Beschreibung in `common.json` × 10 Sprachen. Erreichbar
+   sind sie über den Abschnitt „Zum Nachlesen" und die Verweise im Text.
+2. Die offenen Entscheidungen 1–5 aus Abschnitt 6 bleiben offen; insbesondere der
+   Name der Anfrage und die eigene Anfragestrecke.

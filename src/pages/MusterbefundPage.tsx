@@ -20,7 +20,7 @@
 import { useEffect } from 'react'
 import { Link, useLocation, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { ArrowLeft, ArrowUp, Download } from 'lucide-react'
+import { ArrowLeft, Download } from 'lucide-react'
 import { SEOHead, createArticleSchema, createBreadcrumbSchema } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
@@ -488,22 +488,14 @@ const MusterbefundPage = () => {
                 >
                   {t('hero.ctaQuote')}
                 </Link>
-                <Link
-                  to="/epigenetics#musterbefunde"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
-                >
-                  <ArrowLeft className="h-4 w-4" />
-                  {t('befund.backToAll')}
-                </Link>
-                {chapters[0] ? (
-                  <a
-                    href={`#${chapters[0].id}`}
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
-                  >
-                    <ArrowUp className="h-4 w-4" />
-                    {t('befund.toTop')}
-                  </a>
-                ) : null}
+                {/* Hier standen zusaetzlich "Alle sechs Musterbefunde" und
+                    "Nach oben". Beide fuehrten dorthin, wo der Leser ohnehin
+                    schon hinkommt: die Kapitelleiste klebt am oberen Rand und
+                    traegt sowohl den Weg zurueck als auch den Umschalter, und
+                    die Liste der anderen fuenf Befunde steht direkt darunter.
+                    Fuenf gleich aussehende Knoepfe am Seitenende heissen, dass
+                    keiner von ihnen der naechste Schritt ist — jetzt sind es
+                    drei: mitnehmen, vormerken, anfragen. */}
               </div>
             </div>
 
