@@ -10,13 +10,14 @@ kein `work-packages/APxx-STATE.md`).
 
 - Work package: AP02 — Zielarchitektur: SSR, Routing, Lead Platform und Betrieb
 - Status: IN_PROGRESS <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
-- Last completed PT: PT02.4 — Lead-/Backend-Zielbild (PASS)
-- Next PT: PT02.5 — Produktionsbetriebs-Zielbild (nicht begonnen)
+- Last completed PT: PT02.5 — Produktionsbetriebs-Zielbild (PASS) — **letzter Primärtask von AP02**
+- Next task: **AP02-CLOSURE** (separater Lauf; nicht begonnen). Kein weiterer PT02.x offen.
 - SSR/rendering contract: recorded (`building-docs/RUNTIME-CONTRACT.md`)
 - Routing/route-registry contract: recorded (`building-docs/ROUTING-CONTRACT.md`)
 - Content/asset contract: recorded (`building-docs/CONTENT-ASSET-CONTRACT.md`)
 - Lead/backend contract: recorded — verteilt auf `LEAD-DATA-CONTRACT.md` (Hub, §2.1 Vertragslandkarte),
   `BACKEND-API-CONTRACT.md`, `LEAD-DELIVERY-CONTRACT.md`, `CRM-INTEGRATION.md`
+- Production/deployment contract: recorded (`building-docs/DEPLOYMENT-CONTRACT.md`)
 - AP01: COMPLETE · AP01 closure: PASS (43/43, `C01-01`–`C01-43`) — unverändert erhalten
 - AP00: COMPLETE · AP00 closure: PASS (unverändert erhalten)
 - AP03: NOT STARTED
@@ -25,7 +26,7 @@ kein `work-packages/APxx-STATE.md`).
   legacy classification: recorded · final clean build evidence: recorded · **closure evidence: recorded**
   (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§9)
 - Current branch: `console/ap02-2026-08-24T12-30-23`
-- Current HEAD: `81be126fb0142d3d48ceed180af0a205cf98cab7` — PT02.3-Commit; enthält den
+- Current HEAD: `58f05044336fd7abf2af6f8557b0cf3bc659f5c0` — PT02.4-Commit; enthält den
   AP01-Final-HEAD `3736d1a` als Ancestor; Delta `3736d1a..HEAD` = **0 Nicht-Dokumentationsdateien**
 - Started: 2026-08-24 (AP02); AP01 gestartet und abgeschlossen 2026-08-24
 - Last updated: 2026-08-24
@@ -113,6 +114,14 @@ kein `work-packages/APxx-STATE.md`).
   **Keine neue Ist-Schuld** — die Messung bestätigt `AD-1`–`AD-11`, `LDD-1`–`LDD-12`, `LVD-1`–`LVD-12`
   und die CRM-Schulden. Kein Endpunkt, keine Persistenz, keine Queue, kein CRM, kein Gating
   implementiert; **keine Anbieterentscheidung** getroffen.
+- PT02.5 — Produktionsbetriebs-Zielbild im kanonischen `DEPLOYMENT-CONTRACT.md` präzisiert: §3.1
+  Ist-Erhebung (read-only, ohne Dienststart, ohne Secret-Zugriff), **DEP-37–DEP-57** (privates Netz und
+  Exposition, Reverse Proxy im Detail inkl. Forwarded-Header und Cache-Verträglichkeit, Gesundheit und
+  Bereitschaft, Logs und Korrelation, Umfang/Abgrenzung inkl. Legacy, Docker/Compose-Grenze,
+  Anbieterneutralität, Network-Allowlist), **§5.6 Ausfallmodi** (12 Fälle), **DD-15–DD-17**,
+  **M-09/M-10**, **D-T16–D-T22** und §9.2 mit der Zuordnung der geforderten Betriebssemantik auf die
+  bestehende `DEP-`-Systematik, Owner-Grenzen §11.1. **Kein Deployment, kein Dienststart, kein
+  Image-Build, keine Docker-/Compose-/nginx-/Environment-Änderung.**
 
 ## Current Invariants
 
@@ -196,8 +205,22 @@ kein `work-packages/APxx-STATE.md`).
   und darf legitime getrennte Anfragen nicht zusammenwerfen.
 - **Aufbewahrungsfristen sind `TBD_OWNER_LEGAL`** (LD-29) — keine Frist wird architekturseitig erfunden,
   und unbegrenzte Haltung ist kein zulässiger Default.
-- **Anbieterneutral** (LD-32/LD-33, CRM-02): Datenbank, Queue, CRM und Monitoring-Senke sind offen;
-  das Zielbild ist ohne diese Entscheidungen baubar.
+- **Anbieterneutral** (LD-32/LD-33, CRM-02, DEP-56): Datenbank, Queue, CRM, Log-Senke, Monitoring und
+  Secret-Manager sind offen; das Zielbild ist ohne diese Entscheidungen baubar.
+- **Kanonischer Produktionsbetriebsvertrag: `building-docs/DEPLOYMENT-CONTRACT.md`** (AP02 PT02.5).
+  Es gibt **genau einen** produktiven Deployment-Vertrag (DEP-02/DEP-54); kein zweiter Ops-Contract.
+- **`REST-01` ist umgesetzt als Zielbild:** Docker/Compose, Reverse Proxy als öffentliche Grenze,
+  Web/SSR und Backend/API containerisiert, privates Service-Netz (DEP-37), persistente Daten außerhalb
+  des flüchtigen Layers (DEP-10), Backup **mit belegtem Restore** (DEP-17), Secrets außerhalb Repo und
+  Image (DEP-31), anwendungsnahe Healthchecks je Dienst (DEP-46), Restart Policies (DEP-34),
+  Monitoring (DEP-35), image-basiertes Rollback (DEP-22/DEP-26).
+- **Startreihenfolge ist kein Bereitschaftsnachweis** (DEP-49); **Healthchecks erzeugen keine
+  produktiven Nebenwirkungen und geben keine Secrets aus** (DEP-48).
+- **Legacy ist keine produktive Wahrheit** (DEP-54): `vercel.json`, das statische SPA-`nginx.conf` und
+  `scripts/prerender.mjs` überschreiben `REST-01` nicht; eine SPA-Proxy-Konfiguration darf die
+  SSR-Laufzeit nie ersetzen (DEP-45). Bereinigung bleibt **AP28 PT28.7**.
+- **Docker/Compose bleibt der Produktionsstandard** (DEP-55) — keine Cluster-, Blue-Green- oder
+  Multi-Region-Pflicht wird erfunden.
 - **Eigentümer-AP (liefert) ≠ Accountable Owner Role (nimmt ab).** Wer liefert, nimmt nicht ab.
 - Technische Gate-Kriterien stehen in `MASTER-SCOPE.md` §8 und `QUALITY-GATES.md` §12 und werden in
   `RELEASE-ACCEPTANCE.md` nur referenziert, nicht dupliziert.
@@ -226,14 +249,22 @@ kein `work-packages/APxx-STATE.md`).
 - `building-docs/CONTEXT-INDEX.md` — Matrixzeilen AP02/AP04/AP19 (required) und
   AP08/AP14/AP16/AP17/AP18/AP21 (optional) plus eine Regelzeile in §4.1
 
-**PT02.4 — ausschließlich Dokumentation:**
+**PT02.4 — ausschließlich Dokumentation** (committet als `58f0504`):
 
 - `building-docs/LEAD-DATA-CONTRACT.md` (§2 Stand, §2.1 Vertragslandkarte, §3.1 Ist-Zustand,
   LD-27–LD-33, §9.1, §10)
 - `building-docs/BACKEND-API-CONTRACT.md` (§2 Stand, API-21–API-23)
 - `building-docs/CRM-INTEGRATION.md` (§2 Stand, CRM-09 präzisiert)
 - `building-docs/LEAD-DELIVERY-CONTRACT.md` (§2 Stand — inhaltlich unverändert bestätigt)
+
+**PT02.5 — ausschließlich Dokumentation:**
+
+- `building-docs/DEPLOYMENT-CONTRACT.md` (§2 Stand, §3.1 Ist-Zustand, DEP-37–DEP-57, §5.6 Ausfallmodi,
+  §6 DD-15–DD-17, M-09/M-10, §9.1/§9.2, §10, §11.1)
 - `building-docs/state/AP-STATE.md`
+
+`RUNTIME-CONTRACT.md`, `NETWORK-ALLOWLIST.md` und `QUALITY-GATES.md` sind **unverändert** — eine
+referenzielle Korrektur war nicht erforderlich.
 
 **Anwendungscode / Locale-Dateien / Assets / Runtime / Config / Dependencies / Lockfiles: NONE.**
 `MASTER-SCOPE.md`, `DECISIONS.md`, `PROJECT-CONSTRAINTS.md`, `I18N-CONTRACT.md`, `SEO-CONTRACT.md`,
@@ -273,7 +304,13 @@ kein `work-packages/APxx-STATE.md`).
 <!-- Jeweils: ID/Kurztitel · was blockiert ist · was zur Auflösung gebraucht wird. -->
 
 - **Keine offenen Blocker.** PT01.1–PT01.5 und das AP01-Closure Gate sind `PASS`; AP01 ist `COMPLETE`.
-  PT02.1–PT02.4 sind `PASS`; AP02 ist `IN_PROGRESS`.
+  **PT02.1–PT02.5 sind alle `PASS`; AP02 ist `IN_PROGRESS` und wartet auf den Closure-Lauf.**
+- **Hinweis, kein Blocker — neu aus PT02.5:** drei Betriebsschulden `DD-15`–`DD-17` in
+  `DEPLOYMENT-CONTRACT.md` §6 — `DD-15` (Backend-Host-Port ohne Bedarf veröffentlicht, loopback-gebunden,
+  AP28 mit AP26), `DD-16` (`depends_on` ohne Bedingung, also keine Readiness-Prüfung, AP28 PT28.2),
+  `DD-17` (kein Deployment-/Image-/Scan-Schritt in CI, damit entsteht nirgends eine Release-Identität,
+  AP27/AP28). Dazu bestätigt: `DD-1`–`DD-14` gelten unverändert — **keine Persistenz, kein Backup, kein
+  Monitoring, kein image-basiertes Rollback**. Nichts davon wurde repariert.
 - **Hinweis, kein Blocker — aus PT02.4 bestätigt (nicht neu):** der Backend-Ist-Zustand ist **Mail-only**
   und damit die Gegenposition zu `DEC-RL-009` — keine Persistenz, kein CRM, keine Queue, keine
   Idempotenz, `/api/consumer-order` ohne Rate Limit, `/api/chat` noch vorhanden, Backend-Tests decken
@@ -386,63 +423,62 @@ kein `work-packages/APxx-STATE.md`).
   sind Evidenz mit Owner-AP, keine AP01-Zusage und keine Freigabe.
 - **Keine Toolchain-Festlegung.** Node-/Paketmanager-Pinning ist offen und gehört zu PT01.5.3.
 
-## Required Context for Next PT
+## Required Context for Next Task
 
-<!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste PT braucht. -->
+<!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste Lauf braucht. -->
 
-- Nächster Primärtask ist **PT02.5 — Produktionsbetriebs-Zielbild** innerhalb von AP02. Er ist **nicht**
-  gestartet. Danach folgt der Lauf **AP02-CLOSURE**.
-- Gemäß `CONTEXT-INDEX.md` liest AP02 zusätzlich zu `ALWAYS_READ`: `RUNTIME-CONTRACT.md` ·
-  `ROUTING-CONTRACT.md` · `BACKEND-API-CONTRACT.md` · `LEAD-DATA-CONTRACT.md` ·
-  `DEPLOYMENT-CONTRACT.md` · `CONTENT-ASSET-CONTRACT.md`; optional bei Anlass `SEO-CONTRACT.md` ·
-  `CRM-INTEGRATION.md` · `LEAD-DELIVERY-CONTRACT.md` · `REPO-BASELINE.md`. `work-packages/AP02.md` §1.3
-  nennt für PT02.5 zusätzlich verbindlich `DEPLOYMENT-CONTRACT.md`, `RUNTIME-CONTRACT.md`,
-  `NETWORK-ALLOWLIST.md` und `QUALITY-GATES.md`.
-- **Weiterhin Pflicht für AP02:** `building-docs/AP01-RECONCILIATION-RESULT.md` — §2 Baseline Guards
-  (`BG-01`–`BG-12`, darunter **`BG-11`** `DRY_RUN`), §6 Legacy Classification (aktiver vs. toter
-  Deployment-Pfad), §7 Toolchain Contract, §8 Known Remaining Debt (`D-01`–`D-30`).
-- **Neu aus PT02.4 für PT02.5 relevant:** `LEAD-DELIVERY-CONTRACT.md` **§5.4** listet die
-  Betriebsanforderungen der Lead-Plattform an `REST-01` bereits auf — persistenter Speicher außerhalb
-  des flüchtigen Containers, Backup/Restore, Worker-Service mit Healthcheck und Restart Policy,
-  Metriken und Alarme für Queue/Dead-Letter, Secret-Injektion außerhalb Image und Repository,
-  Migrations-/Rollback-Verträglichkeit, wirksame Umgebungsisolation. **Das ist der direkte Input für
-  PT02.5.** Dazu **LD-24 · API-19 · LDV-16 · CRM-18**: `DRY_RUN` existiert heute nur für Mail, die
-  Ausweitung auf CRM und Queue ist AP22 PT22.8.4 zugewiesen — **keine Flags erfinden**
-  (`AGENT-CONTRACT.md` Regel 18).
-- **Ebenfalls relevant:** `RUNTIME-CONTRACT.md` **RD-1 bis RD-10** (u. a. Preview als Host-Prozess statt
-  Container, aktiv wirkende Alt-Konfiguration, fehlende Healthchecks, keine `volumes:`, kein Worker,
-  kein Monitoring) — das sind die Betriebsschulden, die PT02.5 als Ist-Ausgangspunkt nimmt, ohne sie zu
-  reparieren.
-- Für AP02 weiterhin offene Punkte aus AP01: `D-11` (Node-Vertrag ungepinnt, AP28 PT28.7) ·
-  `D-25` (Pre-Consent-Netzaktivität inkl. Chat-Resten) · `D-27` (zweite Betriebswahrheit in
-  `server/docker-compose.yml`, AP28 PT28.7) · `D-30` (Security-Advisories, AP26 PT26.5).
+- Nächster Lauf ist **AP02-CLOSURE** — ein **Validator**, kein Primärtask. Er prüft den realen
+  Repository-Zustand gegen die Zusagen von PT02.1–PT02.5 und setzt AP02 erst danach auf `COMPLETE`.
+  **PT02.x ist vollständig; AP03 ist nicht gestartet.**
+- Zu prüfende Artefakte der fünf Primärtasks:
+  - PT02.1 → `RUNTIME-CONTRACT.md` §3.1, RT-38–RT-70, §5.4/§5.5, §6.1 RD-11–RD-16, §9.1 RT-T14–RT-T22
+  - PT02.2 → `ROUTING-CONTRACT.md` §3.1, R-17–R-53, §5.1 RD-8–RD-14, §8.1/§8.2
+  - PT02.3 → `CONTENT-ASSET-CONTRACT.md` (neu) vollständig, plus die `CONTEXT-INDEX.md`-Registrierung
+  - PT02.4 → `LEAD-DATA-CONTRACT.md` §2.1/§3.1, LD-27–LD-33, §9.1 · `BACKEND-API-CONTRACT.md`
+    API-21–API-23 · `CRM-INTEGRATION.md` CRM-09 · `LEAD-DELIVERY-CONTRACT.md` §2
+  - PT02.5 → `DEPLOYMENT-CONTRACT.md` §3.1, DEP-37–DEP-57, §5.6, §6 DD-15–DD-17, §9.1/§9.2, §11.1
+- **Erwartete Closure-Prüfpunkte:** Decision Locks 18/18 · **kein Quell-, Runtime-, Backend-, Asset-,
+  Locale-, Config- oder Lockfile-Delta durch AP02** (Delta `3736d1a..HEAD` muss 0 Nicht-Doku-Dateien
+  bleiben) · genau **ein** kanonischer Contract je Domäne, kein konkurrierendes Architekturdokument ·
+  `CONTEXT-INDEX.md` konsistent mit dem neuen `CONTENT-ASSET-CONTRACT.md` · keine vorgezogene
+  Implementierung aus AP03–AP33 · alle dokumentierten Schulden mit Owner-AP und ohne Zielcharakter.
+- **Bekannte ID-Kollisionen, die die Closure kennen muss:** `CD-` existiert in
+  `CONTENT-ASSET-CONTRACT.md` **und** `CRM-INTEGRATION.md`; `RD-` in `RUNTIME-CONTRACT.md` **und**
+  `ROUTING-CONTRACT.md`; `DD-` nur in `DEPLOYMENT-CONTRACT.md`. **Debt-IDs immer mit ihrem Vertrag
+  nennen.**
+- **Weiterhin gültig:** `building-docs/AP01-RECONCILIATION-RESULT.md` §2 Baseline Guards
+  (`BG-01`–`BG-12`), §6 Legacy Classification, §7 Toolchain Contract, §8 Known Remaining Debt
+  (`D-01`–`D-30`).
+- **Nicht durch AP02 abgenommen:** kein Launch-Gate, kein Risiko geschlossen, keine Anbieterentscheidung,
+  keine Legal-Freigabe. Aufbewahrungsfristen bleiben `TBD_OWNER_LEGAL`
+  (`LEAD-DATA-CONTRACT.md` LD-29).
 - Reproduzierbare Verifikation (unverändert): isolierter Worktree auf HEAD, `npm ci` **im Root und in
   `server/`**, `tsc -b` (mit `--max-old-space-size=3072`), `vitest run`, `npm run build`, dann SSR auf
   isoliertem freiem Port (`NODE_ENV=production PORT=<frei> BACKEND_URL=http://127.0.0.1:39999
 npx tsx server.ts`). `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-`prepare`-Script
   (`lefthook install`) schreibt in die **geteilten** Git-Hooks — vorher sichern, danach zurückspielen
-  (`D-13`).
-- **Cold-Render-Regel für jede spätere SSR-Messung** (`RUNTIME-CONTRACT.md` M-08): eine Route, die der
-  Prozess schon einmal gerendert hat, beweist nichts über die erste Auslieferung.
-- **Debt-IDs immer mit ihrem Vertrag nennen.** Mehrere Verträge führen gleichnamige Serien
-  (`CD-` in `CONTENT-ASSET-CONTRACT.md` **und** `CRM-INTEGRATION.md`; `RD-` in `RUNTIME-CONTRACT.md`
-  **und** `ROUTING-CONTRACT.md`).
+  (`D-13`). **Cold-Render-Regel** (`RUNTIME-CONTRACT.md` M-08) beachten.
+- **AP03** liegt seit dem 2026-08-24 als untracked Spezifikation unter
+  `building-docs/work-packages/AP03.md` (Status dort: `BLOCKED UNTIL AP02 CLOSURE PASS`). Nicht von
+  einem PT02.x erzeugt, nicht angefasst — und **nicht** zu starten, bevor die Closure `PASS` ist.
 
 ## Handoff
 
-- **AP02: `IN_PROGRESS`** · Last completed PT: **PT02.4 (`PASS`)** · **Next PT: PT02.5 — nicht gestartet**
+- **AP02: `IN_PROGRESS`** · Last completed PT: **PT02.5 (`PASS`)** · **Next task: `AP02-CLOSURE` —
+  nicht gestartet.** Alle fünf Primärtasks PT02.1–PT02.5 sind `PASS`; **AP02 wird erst durch den
+  separaten Closure-Lauf `COMPLETE`.**
 - **AP01: `COMPLETE`** · AP01 closure: `PASS` (43/43) · **AP00: `COMPLETE`**, Closure `PASS` — beide
   unverändert erhalten
 - **AP03: NOT STARTED.** AP02 ist **nicht** `COMPLETE`; das AP02-Closure Gate ist nicht gelaufen.
-- Decision Locks: **18/18 `LOCKED`**, durch PT02.1–PT02.4 unverändert. Baseline
+- Decision Locks: **18/18 `LOCKED`**, durch PT02.1–PT02.5 unverändert. Baseline
   `feat/home-leadmagnet@961f65d` bleibt gesperrt und ist Ancestor des HEAD.
 
 Kanonische Ausführungsevidenz AP01: **`building-docs/AP01-RECONCILIATION-RESULT.md`** (§1–§9).
 Kanonische Ausführungsevidenz PT02.1: **`building-docs/RUNTIME-CONTRACT.md`** · PT02.2:
 **`building-docs/ROUTING-CONTRACT.md`** · PT02.3: **`building-docs/CONTENT-ASSET-CONTRACT.md`** ·
 PT02.4: **`LEAD-DATA-CONTRACT.md`** (Hub, §2.1/§3.1) mit `BACKEND-API-CONTRACT.md`,
-`LEAD-DELIVERY-CONTRACT.md` und `CRM-INTEGRATION.md` — der jeweilige Vertrag ist das Artefakt; ein
-zweiter Report wird dafür nicht angelegt.
+`LEAD-DELIVERY-CONTRACT.md` und `CRM-INTEGRATION.md` · PT02.5: **`DEPLOYMENT-CONTRACT.md`** — der
+jeweilige Vertrag ist das Artefakt; ein zweiter Report wird dafür nicht angelegt.
 
 Was PT02.1 hergestellt hat:
 
@@ -525,15 +561,27 @@ Was PT02.4 hergestellt hat:
 - **Testbarkeit:** §9.1 ordnet die geforderten `LEAD-01`–`LEAD-22` auf die vier bestehenden
   ID-Systematiken zu, ohne eine fünfte einzuführen.
 
-Verbindlicher Rahmen für PT02.5:
+Was PT02.5 hergestellt hat:
 
-- **PT02.5 ist Betrieb, nicht Anwendung.** Der Bedarf der Lead-Plattform an den Betrieb steht bereits in
-  `LEAD-DELIVERY-CONTRACT.md` §5.4; PT02.5 beantwortet ihn im `DEPLOYMENT-CONTRACT.md`/
-  `RUNTIME-CONTRACT.md`, ohne die Lead-Verträge neu zu verhandeln.
-- **`REST-01` ist die Zielautorität**: Docker/Compose hinter Reverse Proxy, persistente Daten separat und
-  backupfähig, Secrets außerhalb Images und Repository, Healthchecks, Restart Policies, Monitoring,
-  image-basiertes Rollback, `DRY_RUN`-/Staging-Isolation.
-- **Keine Anbieterentscheidung** ohne kanonische Grundlage (LD-32, CRM-02, `AP02.md` §3.1).
+- **Ist/Soll getrennt:** §3.1 misst den Betriebs-Ist-Zustand ohne Dienststart und ohne Secret-Zugriff.
+  Von `REST-01` sind heute Docker/Compose, Reverse Proxy davor, Restart Policies und Secrets außerhalb
+  des Images erfüllt — **nicht** Persistenz, Backupfähigkeit, vollständige Healthchecks, Monitoring und
+  image-basiertes Rollback.
+- **Geschlossene Lücken:** DEP-37–DEP-40 (privates Netz, keine unnötige Exposition), DEP-41–DEP-45
+  (Proxy-Detailvertrag inkl. Forwarded-Header und `no-store`-Verträglichkeit, keine SPA-Konfiguration als
+  Produktionswahrheit), DEP-46–DEP-49 (anwendungsnahe Gesundheit, Readiness ≠ Startreihenfolge, keine
+  Nebenwirkungen), DEP-50–DEP-53 (strukturierte, datensparsame, korrelierbare Logs), DEP-54–DEP-57
+  (Legacy ist keine Wahrheit, Docker/Compose-Grenze, Anbieterneutralität, Allowlist-Bezug).
+- **Ausfallmodi §5.6:** zwölf Fälle vom Web-Ausfall bis zum überfälligen Restore-Test, jeweils mit
+  Erkennung und erwarteter Antwort der Architektur.
+- **Schulden statt Reparaturen:** `DD-15`–`DD-17` neu, `DD-1`–`DD-14` bestätigt. **Keine** behoben.
+
+Verbindlicher Rahmen für `AP02-CLOSURE`:
+
+- Die Closure ist **Validator, kein Primärtask**: sie prüft den realen Repository-Zustand, nicht die
+  Reports — Vorbild ist `AP01-RECONCILIATION-RESULT.md` §9.
+- **AP02 darf erst durch die Closure `COMPLETE` werden.** Bis dahin bleibt der Status `IN_PROGRESS`.
+- **AP03 bleibt gesperrt**, bis die Closure `PASS` meldet.
 
 - **Die Content-/Lead-Grenze aus PT02.3 ist eingelöst:** die Ressource kennt Zugangsklasse und
   Resource-ID (`CONTENT-ASSET-CONTRACT.md` CA-30/CA-33/CA-34), die Lead-Seite kennt Entitlement,
