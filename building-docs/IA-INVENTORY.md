@@ -27,10 +27,14 @@ AP11–AP21 (Seitenumsetzung je Familie), AP22 (Lead-Plattform), AP27 (Guards).
 (Indexierbarkeit, Sitemap), `I18N-CONTRACT.md` (Sprachmenge), `RUNTIME-CONTRACT.md` (SSR-Fähigkeit),
 `CONTENT-ASSET-CONTRACT.md` (dynamische Slug-Quellen, PUBLIC/GATED).
 
-**Stand AP03 PT03.1 (2026-08-24):** Inventar vollständig (§4–§7). Seitentypen (PT03.2), Kernjourneys
-(PT03.3) und Navigation/Findability (PT03.4) sind in §8 als **reserviert** gekennzeichnet und
-ausdrücklich **nicht** vorweggenommen. PT03.1 ist ein reiner **Dokumentationsschritt**: keine Route,
-Navigation, Suche, SEO-, Content- oder i18n-Änderung; keine Anwendungsdatei berührt.
+**Stand AP03 PT03.1 (2026-08-24):** Inventar vollständig (§4–§7).
+**Stand AP03 PT03.2 (2026-08-24):** Seitentyp-Taxonomie und Rollenmodell vollständig (§8) — zehn
+primäre Seitentypen, Rollenmatrix über alle 27 logischen Seiten, kontrollierte Vokabulare, vorläufige
+Findability- und Indexierungsrollen. Kernjourneys (PT03.3) und die finale Navigations-/
+Findability-Strategie (PT03.4) sind in §8.7 reserviert und ausdrücklich **nicht** vorweggenommen.
+
+Beide Primärtasks sind reine **Dokumentationsschritte**: keine Route, Navigation, Suche, Breadcrumb,
+ChapterNav, SEO-, Content-, i18n- oder Lead-Änderung; keine Anwendungsdatei berührt.
 
 ---
 
@@ -62,9 +66,10 @@ gültigen Slugs besitzt die fachliche Datenquelle (`ROUTING-CONTRACT.md` R-30/R-
 
 ### 2.4 Noch nicht entschieden
 
-Werte, die erst ein späterer Primärtask verbindlich macht, tragen `TO_BE_FINALIZED_PT03.2`,
-`TO_BE_FINALIZED_PT03.3` oder `TO_BE_FINALIZED_PT03.4`. Sie sind **offene Punkte**, keine
-stillschweigenden Entscheidungen.
+Werte, die erst ein späterer Primärtask verbindlich macht, tragen `FINAL_JOURNEY_DETAIL_PT03.3` oder
+`FINALIZE_PT03.4`. Sie sind **offene Punkte**, keine stillschweigenden Entscheidungen.
+Die `TO_BE_FINALIZED_PT03.2`-Marker aus PT03.1 sind mit §8 aufgelöst; **§8.4 und §8.6 sind ab jetzt die
+maßgebliche Rollenquelle**, die Spalten in §4 bleiben die Inventarsicht.
 
 ---
 
@@ -93,16 +98,17 @@ heutiger Stand.
 | **P-02** | About                | `/about`       | **PRESENT** | 10           | 10          | B2B, Presse        | Unternehmens- und Vertrauenskontext              | „Angebot anfragen"                | AP20     |
 | **P-03** | Contact              | `/contact`     | **PRESENT** | 10           | 10          | B2B-Interessent    | allgemeine Anfrage aufnehmen                     | „Angebot anfragen"                | AP20     |
 | **P-04** | Support              | `/support`     | **PRESENT** | 10           | 10          | **Bestandskunde**  | Supportfall melden — **kein** Sales-Lead         | Support-Anfrage (eigene Rolle)    | AP20     |
-| **P-05** | Events               | `/events`      | **PRESENT** | 10           | 10          | B2B, Fachpublikum  | Messe-/Terminpräsenz, Kontaktanlass              | `TO_BE_FINALIZED_PT03.2`          | AP18     |
+| **P-05** | Events               | `/events`      | **PRESENT** | 10           | 10          | B2B, Fachpublikum  | Messe-/Terminpräsenz, Kontaktanlass              | `EVENT_CONTACT` (§8.4)            | AP18     |
 | **P-06** | Downloads / Resource | `/downloads`   | **PRESENT** | 10           | 10          | B2B, Bestandskunde | Materialien auffindbar und beziehbar machen      | Download (frei) · Gate (gated)    | AP19     |
-| **P-07** | Article Index        | `/articles`    | **PRESENT** | 10           | 10          | B2B, Recherche     | Editorial-Einstieg und Themenüberblick           | `TO_BE_FINALIZED_PT03.2`          | AP17     |
+| **P-07** | Article Index        | `/articles`    | **PRESENT** | 10           | 10          | B2B, Recherche     | Editorial-Einstieg und Themenüberblick           | `VIEW_DETAIL` (§8.4)              | AP17     |
 | **P-08** | IglooPro (Produkt)   | `/igloo-pro`   | **PRESENT** | 10           | 10          | B2B-Entscheider    | Produktstrecke, Spezifikation, Anfrage           | „Angebot anfragen" · ROI/Download | AP14     |
 | **P-09** | Diagnostics Hub      | `/diagnostics` | **PRESENT** | 10           | 10          | B2B-Praxis         | Einstieg in die neun Leistungsbereiche           | „Angebot anfragen"                | AP12     |
 | **P-10** | **Epigenetik-Hub**   | `/epigenetics` | **PRESENT** | 10           | 10          | B2B + Fachanwender | Einstieg der **eigenständigen Geschäftssäule**   | Epigenetik-Inquiry (eigene Rolle) | AP15     |
 
 Anmerkung zu **P-08**: Der ROI-Rechner ist heute eine **Section der Homepage**
 (`src/components/sections/RoiCalculatorSection.tsx` in `HomePage.tsx`), keine eigene Seite. Ob er eine
-eigene Route oder eine IglooPro-Section wird, ist `TO_BE_FINALIZED_PT03.2` (AP11/AP14). Der Claim
+eigene Route oder eine IglooPro-Section wird, entscheiden **AP11/AP14**; als CTA-Rolle ist er in §8.3
+als `ROI_CALCULATE` geführt und in §8.4 P-01/P-08 als sekundärer CTA verankert. Der Claim
 **`CV < 2 %`** ist gelockte Produktentscheidung (`DEC-RL-008`) und wird hier weder validiert noch
 verändert.
 
@@ -265,7 +271,7 @@ bewusst nicht in der Sitemap geführt, aber als bekannte Route erreichbar (`EXTR
 | **P-27** | **Epigenetik-Inquiry**       | **PLANNED** | `DEC-RL-011` verlangt eine **eigene** Inquiry-/Lead-Strecke; heute multiplext sie über `/api/contact` | AP15/AP22 |
 
 Ob **P-27** eine eigene Route, ein Abschnitt des Hubs oder ein wiederverwendbarer Formularkontext wird,
-ist `TO_BE_FINALIZED_PT03.2` (AP15). Verbindlich ist nur: die Strecke ist **eigenständig** und wird
+entscheidet **AP15**; die Rolle ist in §8.4 als `T8` / `epigenetics-inquiry` festgeschrieben (P-27). Verbindlich ist nur: die Strecke ist **eigenständig** und wird
 nicht als allgemeiner Contact-Lead behandelt (`LEAD-DATA-CONTRACT.md` §5.1,
 `CRM-INTEGRATION.md` §5.2).
 
@@ -347,18 +353,190 @@ Einträge (nur `/en/`) und 2 einsprachige Sonderseiten.
 
 ---
 
-## 8. Reserviert für PT03.2 – PT03.4
+## 8. Seitentypen und Rollen (AP03 PT03.2)
 
-Diese Abschnitte gehören **in dieses Dokument**, werden aber ausdrücklich **nicht** von PT03.1
-gefüllt:
+**Stand PT03.2 (2026-08-24):** Taxonomie und Rollenmodell festgeschrieben. Jede logische Inhaltsseite
+aus §4 besitzt **genau einen** primären Seitentyp; keine Seite bleibt `UNCLASSIFIED`. Journeys
+(PT03.3) und die finale Findability-Strategie (PT03.4) sind in §8.6 reserviert und **nicht**
+vorweggenommen.
 
-| Abschnitt                                                                 | Primärtask | Bezug                              |
-| ------------------------------------------------------------------------- | ---------- | ---------------------------------- |
-| Seitentyp-Taxonomie und Rollen-/CTA-Matrix                                | **PT03.2** | `IA-03`–`IA-07`                    |
-| Kernjourneys (sieben aus `MASTER-SCOPE.md`)                               | **PT03.3** | `IA-15`, `IA-16`, `IA-21`, `IA-22` |
-| Navigation, Footer, Search, Breadcrumb, ChapterNav, bewusste Sichtbarkeit | **PT03.4** | `IA-09`, `IA-12`, `IA-17`–`IA-20`  |
+> **Seitentyp ≠ Template-Zwang.** Der Typ beschreibt fachliche und IA-seitige Rolle. Er schreibt kein
+> Layout, keine Komponente und keine Design-Entscheidung vor — die gehören AP05 und den jeweiligen
+> Seiten-APs.
 
-Alle Inventarzeilen, die diese Werte brauchen, sind mit `TO_BE_FINALIZED_PT03.2/.3/.4` markiert.
+### 8.1 Primäre Seitentypen
+
+Die zehn Typen aus `MASTER-SCOPE.md` AP03 PT03.2. Technische Pfade erhalten **keinen** dieser Typen
+(§8.5).
+
+| ID      | Seitentyp            | Kernaufgabe                                        | Zulässige Sekundärrollen                                          |
+| ------- | -------------------- | -------------------------------------------------- | ----------------------------------------------------------------- |
+| **T1**  | **HOMEPAGE**         | zentraler Einstieg, Positionierung, Weiterleitung  | `conversion-entry`                                                |
+| **T2**  | **HUB_OVERVIEW**     | Orientierung, Auswahl, Vergleich, Weiterleitung    | `corporate` · `resource-hub` · `editorial-index` · `pillar-entry` |
+| **T3**  | **SERVICE_DETAIL**   | diagnostische Leistung verstehen und bewerten      | `decision-support` · `proof`                                      |
+| **T4**  | **PRODUCT_PAGE**     | Produktverständnis, Specs, Proof, Entscheidung     | `decision-support` · `proof`                                      |
+| **T5**  | **EPIGENETICS_PAGE** | Entscheidung, Panel-Verständnis, Evidenz der Säule | `decision-support` · `evidence` · `panel-sample` · `resource`     |
+| **T6**  | **EDITORIAL**        | fachliche Information, Relevanz, Vertrauen         | `article` · `event` · `knowledge-landing`                         |
+| **T7**  | **CONSUMER_LANDING** | Consumer-Produkt verstehen und bestellen           | `transactional`                                                   |
+| **T8**  | **FORM_LEAD**        | qualifizierte Nutzerhandlung ermöglichen           | `general-inquiry` · `epigenetics-inquiry` · `gate-form`           |
+| **T9**  | **RESOURCE**         | Ressource bereitstellen bzw. gegen Gate ausliefern | `public-resource` · `gated-lead-magnet`                           |
+| **T10** | **LEGAL_SUPPORT**    | rechtliche Information **oder** Hilfe/Service      | `legal` · `support`                                               |
+
+**Zu T10:** Der Master-Scope führt Legal und Support als **einen** Seitentyp. Dieses Dokument hält sie
+über **zwei verbindlich getrennte Sekundärrollen** auseinander: `legal` hat typischerweise CTA `NONE`,
+`support` hat eine **eigene** Support-CTA-Rolle und ist **kein** Sales-Lead (§8.2, `IA-06`).
+
+### 8.2 Rollenmodell je Seitentyp
+
+| Typ     | Hauptzielgruppe                                           | Primäre Nutzerabsicht                                    | Hauptaufgabe                     | Primärer CTA (Rolle)                         | Zulässige sekundäre CTA-Rollen                              | Typische Einstiege                         | Typischer nächster Schritt                       | Conversion-Rolle                     | Owner-AP              |
+| ------- | --------------------------------------------------------- | -------------------------------------------------------- | -------------------------------- | -------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------ | ------------------------------------------------ | ------------------------------------ | --------------------- |
+| **T1**  | `B2B_PROSPECT`                                            | `orient`                                                 | Orientierung                     | `QUOTE_REQUEST`                              | `ROI_CALCULATE` · `GATE_SUBMIT` · `VIEW_DETAIL`             | Direkt, Marke, Kampagne                    | Hub, Produkt, Säule oder Anfrage                 | `PRIMARY_CONVERSION`                 | AP11                  |
+| **T2**  | `B2B_PROSPECT`                                            | `orient` / `compare`                                     | Orientierung                     | `VIEW_DETAIL`                                | `QUOTE_REQUEST` · `DOWNLOAD_PUBLIC` · `EPIGENETICS_INQUIRY` | Homepage, Navigation, Suche                | Detailseite der jeweiligen Familie               | `ASSISTING`                          | je Familie            |
+| **T3**  | `B2B_PROSPECT`                                            | `evaluate`                                               | Entscheidung                     | `QUOTE_REQUEST`                              | `DOWNLOAD_PUBLIC` · `VIEW_DETAIL`                           | Hub, Suche, Artikel-Crosslink              | Anfrage oder verwandte Leistung                  | `PRIMARY_CONVERSION`                 | AP13                  |
+| **T4**  | `B2B_PROSPECT`                                            | `evaluate`                                               | Entscheidung                     | `QUOTE_REQUEST`                              | `ROI_CALCULATE` · `DOWNLOAD_PUBLIC`                         | Homepage, Navigation, Suche                | Anfrage, ROI oder Unterlagen                     | `PRIMARY_CONVERSION`                 | AP14                  |
+| **T5**  | `PROFESSIONAL_AUDIENCE`                                   | `understand` / `read_evidence` / `inspect_sample_report` | fachliche Erklärung bzw. Proof   | `EPIGENETICS_INQUIRY`                        | `VIEW_SAMPLE_REPORT` · `DOWNLOAD_PUBLIC` · `VIEW_DETAIL`    | Epigenetik-Hub, Suche, Direkt-URL          | weitere Vertiefung, Musterbefund oder Inquiry    | `ASSISTING`                          | AP15 / AP16           |
+| **T6**  | `B2B_PROSPECT` · `PROFESSIONAL_AUDIENCE`                  | `understand`                                             | fachliche Erklärung              | **kontextabhängig**                          | `QUOTE_REQUEST` · `VIEW_DETAIL` · `EVENT_CONTACT`           | Index, Suche, Crosslink, extern            | fachlich passende Lösung — **kein Einheits-CTA** | `ASSISTING`                          | AP17 / AP18           |
+| **T7**  | `CONSUMER`                                                | `order`                                                  | Bestellung                       | `ORDER`                                      | `NONE`                                                      | Suchmaschine, Kampagne, Social             | Bestellabschluss                                 | `PRIMARY_CONVERSION`                 | AP21 / AP22           |
+| **T8**  | je Journey                                                | `request_quote` / `contact`                              | Conversion                       | journeyspezifisch                            | `NONE` — **kein Einheitsformular**                          | Seite der jeweiligen Journey               | Bestätigung und Nachverfolgung                   | `PRIMARY_CONVERSION`                 | AP20/AP15/AP19 + AP22 |
+| **T9**  | `B2B_PROSPECT` · `EXISTING_CUSTOMER`                      | `download`                                               | Download                         | `DOWNLOAD_PUBLIC` **oder** `GATE_SUBMIT`     | `VIEW_DETAIL`                                               | Resource-Hub, Säulenseite, Artikel         | weitere Ressource oder Anfrage                   | `ASSISTING` / `SECONDARY_CONVERSION` | AP19 / AP22           |
+| **T10** | `GENERAL_VISITOR` (legal) · `EXISTING_CUSTOMER` (support) | `understand` / `get_support`                             | rechtliche Information / Support | `NONE` (legal) · `SUPPORT_REQUEST` (support) | `NONE`                                                      | Footer (legal), Navigation/Suche (support) | legal: keiner · support: Fallbearbeitung         | `NONE` / `PRIMARY_CONVERSION`        | AP20 / AP22           |
+
+**Informationshierarchie** ist je Typ eine Design-/Content-Frage und bleibt AP04/AP05 und den
+Seiten-APs; PT03.2 legt sie nicht fest.
+
+### 8.3 Kontrollierte Vokabulare
+
+Klein und konsistent gehalten — keine Persona-Erfindung, keine Intent-Synonyme.
+
+**Zielgruppen:** `B2B_PROSPECT` · `EXISTING_CUSTOMER` · `CONSUMER` · `PROFESSIONAL_AUDIENCE`
+(fachlich/klinisch qualifiziertes Publikum, insbesondere der Epigenetik-Säule) · `GENERAL_VISITOR`.
+
+**Nutzerabsichten:** `orient` · `compare` · `understand` · `evaluate` · `read_evidence` ·
+`inspect_sample_report` · `request_quote` · `order` · `download` · `get_support` · `contact`.
+
+**Primäre Aufgaben:** Orientierung · Entscheidung · fachliche Erklärung · Proof · Conversion ·
+Bestellung · Download · Support · rechtliche Information.
+
+**CTA-Rollen:**
+
+| Rolle                 | Bedeutung                                                 | Bezug                             |
+| --------------------- | --------------------------------------------------------- | --------------------------------- |
+| `QUOTE_REQUEST`       | **allgemeiner B2B-Sales-Anfrageweg — „Angebot anfragen"** | `DEC-RL-013`, `IA-07`             |
+| `ORDER`               | Consumer-Bestellhandlung                                  | `consumer_order`                  |
+| `EPIGENETICS_INQUIRY` | eigene Anfrage der Epigenetik-Säule                       | `DEC-RL-011`                      |
+| `SUPPORT_REQUEST`     | Supportfall melden — **kein** Sales-Lead                  | AP20 PT20.3                       |
+| `GATE_SUBMIT`         | Gate-Formular eines gegateten Assets                      | `DEC-RL-014`, `content_download`  |
+| `DOWNLOAD_PUBLIC`     | frei zugängliche Ressource beziehen                       | `CONTENT-ASSET-CONTRACT.md` CA-30 |
+| `ROI_CALCULATE`       | ROI-Rechner nutzen                                        | AP11/AP14                         |
+| `VIEW_SAMPLE_REPORT`  | Musterbefund ansehen                                      | AP16                              |
+| `VIEW_DETAIL`         | in die passende Detailseite wechseln                      | —                                 |
+| `EVENT_CONTACT`       | Terminbezogener Kontakt                                   | AP18                              |
+| `CONTACT`             | allgemeiner Kontakt ohne Angebotsabsicht                  | AP20                              |
+| `NONE`                | bewusst kein CTA                                          | —                                 |
+
+**Conversion-Rollen:** `PRIMARY_CONVERSION` · `SECONDARY_CONVERSION` · `ASSISTING` · `NONE`,
+jeweils mit dem AP02-Lead-Typ aus `LEAD-DATA-CONTRACT.md` §5.1, wo einer entsteht. Das Lead-Ziel ist
+**Persistenz + CRM** (`DEC-RL-009`) — **kein Mail-only-Modell**.
+
+### 8.4 Rollenmatrix je logischer Seite — Zweck und CTA
+
+Alle 27 logischen Seiten aus §4. **Keine Seite ist `UNCLASSIFIED`.**
+
+| IA-ID    | Seite                      | Typ     | Sekundärrolle         | Zielgruppe                                    | Absicht                 | Hauptaufgabe           | Primärer CTA                       | Sekundärer CTA                              | Conversion-Rolle · Lead-Typ                     |
+| -------- | -------------------------- | ------- | --------------------- | --------------------------------------------- | ----------------------- | ---------------------- | ---------------------------------- | ------------------------------------------- | ----------------------------------------------- |
+| **P-01** | Homepage                   | **T1**  | `conversion-entry`    | `B2B_PROSPECT`                                | `orient`                | Orientierung           | `QUOTE_REQUEST`                    | `ROI_CALCULATE` · `GATE_SUBMIT`             | `PRIMARY_CONVERSION` · `general_inquiry`        |
+| **P-02** | About                      | **T2**  | `corporate`           | `B2B_PROSPECT` · `GENERAL_VISITOR`            | `understand`            | Vertrauen              | `CONTACT`                          | `NONE`                                      | `ASSISTING` · —                                 |
+| **P-03** | Contact                    | **T8**  | `general-inquiry`     | `B2B_PROSPECT`                                | `request_quote`         | Conversion             | `QUOTE_REQUEST`                    | `NONE`                                      | `PRIMARY_CONVERSION` · `general_inquiry`        |
+| **P-04** | Support                    | **T10** | `support`             | `EXISTING_CUSTOMER`                           | `get_support`           | Support                | `SUPPORT_REQUEST`                  | `NONE` — **kein Sales-CTA**                 | `PRIMARY_CONVERSION` · `support`                |
+| **P-05** | Events                     | **T6**  | `event`               | `B2B_PROSPECT` · `PROFESSIONAL_AUDIENCE`      | `orient`                | fachliche Erklärung    | `EVENT_CONTACT`                    | `QUOTE_REQUEST`                             | `ASSISTING` · —                                 |
+| **P-06** | Downloads-/Resource-Hub    | **T2**  | `resource-hub`        | `B2B_PROSPECT` · `EXISTING_CUSTOMER`          | `download`              | Orientierung           | `DOWNLOAD_PUBLIC`                  | `GATE_SUBMIT`                               | `ASSISTING` · —                                 |
+| **P-07** | Article Index              | **T2**  | `editorial-index`     | `B2B_PROSPECT`                                | `orient`                | Orientierung           | `VIEW_DETAIL`                      | `NONE`                                      | `ASSISTING` · —                                 |
+| **P-08** | IglooPro                   | **T4**  | `decision-support`    | `B2B_PROSPECT`                                | `evaluate`              | Entscheidung           | `QUOTE_REQUEST`                    | `ROI_CALCULATE` · `DOWNLOAD_PUBLIC`         | `PRIMARY_CONVERSION` · `general_inquiry`        |
+| **P-09** | Diagnostics Hub            | **T2**  | —                     | `B2B_PROSPECT`                                | `compare`               | Orientierung           | `VIEW_DETAIL`                      | `QUOTE_REQUEST`                             | `ASSISTING` · —                                 |
+| **P-10** | **Epigenetik-Hub**         | **T2**  | `pillar-entry`        | `PROFESSIONAL_AUDIENCE` · `B2B_PROSPECT`      | `orient`                | Orientierung           | `EPIGENETICS_INQUIRY`              | `VIEW_SAMPLE_REPORT` · `VIEW_DETAIL`        | `PRIMARY_CONVERSION` · `epigenetics_inquiry`    |
+| **P-11** | Service-Detail (× 9)       | **T3**  | `decision-support`    | `B2B_PROSPECT`                                | `evaluate`              | Entscheidung           | `QUOTE_REQUEST`                    | `DOWNLOAD_PUBLIC` · `VIEW_DETAIL`           | `PRIMARY_CONVERSION` · `general_inquiry`        |
+| **P-12** | Epigenetik — Grundlagen    | **T5**  | `decision-support`    | `PROFESSIONAL_AUDIENCE`                       | `understand`            | fachliche Erklärung    | `EPIGENETICS_INQUIRY`              | `VIEW_SAMPLE_REPORT`                        | `ASSISTING` · —                                 |
+| **P-13** | Epigenetik — Studienlage   | **T5**  | `evidence`            | `PROFESSIONAL_AUDIENCE`                       | `read_evidence`         | Proof                  | `EPIGENETICS_INQUIRY`              | `DOWNLOAD_PUBLIC`                           | `ASSISTING` · —                                 |
+| **P-14** | Epigenetik — Unterlagen    | **T5**  | `resource`            | `PROFESSIONAL_AUDIENCE` · `EXISTING_CUSTOMER` | `download`              | Download               | `DOWNLOAD_PUBLIC`                  | `EPIGENETICS_INQUIRY`                       | `ASSISTING` · — _(Gate-Kandidat, AP19)_         |
+| **P-15** | Musterbefund (× 6)         | **T5**  | `panel-sample`        | `PROFESSIONAL_AUDIENCE`                       | `inspect_sample_report` | Proof                  | `EPIGENETICS_INQUIRY`              | `VIEW_DETAIL`                               | `ASSISTING` · —                                 |
+| **P-16** | Artikel-Detail (× 6)       | **T6**  | `article`             | `B2B_PROSPECT`                                | `understand`            | fachliche Erklärung    | `VIEW_DETAIL` _(fachlich passend)_ | `QUOTE_REQUEST` _(wo inhaltlich begründet)_ | `ASSISTING` · —                                 |
+| **P-17** | **Gated Resource**         | **T9**  | `gated-lead-magnet`   | `B2B_PROSPECT`                                | `download`              | Conversion             | `GATE_SUBMIT`                      | `NONE`                                      | **`SECONDARY_CONVERSION`** · `content_download` |
+| **P-18** | Consumer Vitamin-D3-Spray  | **T7**  | `transactional`       | `CONSUMER`                                    | `order`                 | Bestellung             | `ORDER`                            | `NONE`                                      | `PRIMARY_CONVERSION` · `consumer_order`         |
+| **P-19** | Consumer Hydrating Masks   | **T7**  | `transactional`       | `CONSUMER`                                    | `order`                 | Bestellung             | `ORDER`                            | `NONE`                                      | `PRIMARY_CONVERSION` · `consumer_order`         |
+| **P-20** | Consumer Inside-Out Duo    | **T7**  | `transactional`       | `CONSUMER`                                    | `order`                 | Bestellung             | `ORDER`                            | `NONE`                                      | `PRIMARY_CONVERSION` · `consumer_order`         |
+| **P-21** | Privacy                    | **T10** | `legal`               | `GENERAL_VISITOR`                             | `understand`            | rechtliche Information | **`NONE`**                         | `NONE`                                      | `NONE` · —                                      |
+| **P-22** | Imprint                    | **T10** | `legal`               | `GENERAL_VISITOR`                             | `understand`            | rechtliche Information | **`NONE`**                         | `NONE`                                      | `NONE` · —                                      |
+| **P-23** | Terms                      | **T10** | `legal`               | `GENERAL_VISITOR`                             | `understand`            | rechtliche Information | **`NONE`**                         | `NONE`                                      | `NONE` · —                                      |
+| **P-24** | S3-Leitlinie               | **T6**  | `knowledge-landing`   | `PROFESSIONAL_AUDIENCE`                       | `understand`            | fachliche Erklärung    | `QUOTE_REQUEST`                    | `VIEW_DETAIL`                               | `ASSISTING` · —                                 |
+| **P-25** | Vitamin D3 & Implantologie | **T6**  | `knowledge-landing`   | `PROFESSIONAL_AUDIENCE`                       | `understand`            | fachliche Erklärung    | `QUOTE_REQUEST`                    | `VIEW_DETAIL`                               | `ASSISTING` · —                                 |
+| **P-26** | Vitamin D3 Spray (**B2B**) | **T4**  | —                     | `B2B_PROSPECT`                                | `evaluate`              | Entscheidung           | `QUOTE_REQUEST`                    | `DOWNLOAD_PUBLIC`                           | `PRIMARY_CONVERSION` · `general_inquiry`        |
+| **P-27** | **Epigenetik-Inquiry**     | **T8**  | `epigenetics-inquiry` | `PROFESSIONAL_AUDIENCE`                       | `request_quote`         | Conversion             | `EPIGENETICS_INQUIRY`              | `NONE`                                      | `PRIMARY_CONVERSION` · `epigenetics_inquiry`    |
+
+**Verbindliche Lesarten dieser Matrix:**
+
+- **P-24/P-25 sind bewusst nicht `T3`.** Sie sind fachliche Wissens-Landingpages, keine
+  Diagnostik-Leistungsseiten; die historische URL-Struktur begründet keinen Seitentyp (`AP03.md` §7.5).
+- **P-26 ist bewusst `T4`, nicht `T7`.** Es ist das B2B-Pendant, nicht die Consumer-Familie.
+- **P-16 erhält keinen Einheits-CTA.** Der nächste Schritt folgt dem Artikelthema; ein pauschaler
+  kommerzieller CTA auf jedem Artikel ist ausdrücklich nicht das Ziel (`IAD-12`).
+- **P-04 trägt keinen Sales-CTA.** Support ist eine eigene Journey mit eigenem Lead-Typ.
+- **P-14 ist heute `public-resource`.** Ob es zum gated Pfad wird, entscheidet **AP19 PT19.4** — PT03.2
+  legt kein Asset fest.
+
+### 8.5 Technische Klassifikation — keine Inhaltsseiten
+
+Redirect Sources, Not Found und technische Pfade erhalten **keinen** Seitentyp aus §8.1 und **keine**
+Zielgruppen-, Aufgaben- oder CTA-Rolle.
+
+| Klasse           | IA-IDs        | Klassifikation    | CTA | Conversion | Indexierbarkeit                  |
+| ---------------- | ------------- | ----------------- | --- | ---------- | -------------------------------- |
+| Redirect Sources | `X-01`–`X-06` | `REDIRECT_SOURCE` | —   | —          | **keine Inhaltsseite** (`IA-23`) |
+| Not Found        | `N-01`        | `NOT_FOUND`       | —   | —          | **nicht indexierbar** (`IA-24`)  |
+| Technische Pfade | `T-01`–`T-06` | `TECHNICAL_PATH`  | —   | —          | nicht anwendbar                  |
+
+### 8.6 Findability- und Indexierungsrollen (vorläufig)
+
+Verbindlich ist hier die **bewusste Klassifikation** (`IA-20`); die finale Findability-Strategie
+entscheidet **PT03.4** (`FINALIZE_PT03.4`). Indexierbarkeit ist **ausschließlich** aus
+`SEO-CONTRACT.md` und `ROUTING-CONTRACT.md` referenziert — PT03.2 trifft keine SEO-Entscheidung.
+
+| IA-ID             | Search                   | Main Nav                                       | Footer            | Breadcrumb       | ChapterNav       | Indexierbarkeit (Referenz)                                   | Ziel-Sprachumfang |
+| ----------------- | ------------------------ | ---------------------------------------------- | ----------------- | ---------------- | ---------------- | ------------------------------------------------------------ | ----------------- |
+| **P-01**          | `SEARCHABLE`             | `DIRECT`                                       | `DIRECT`          | `NOT_APPLICABLE` | `NOT_APPLICABLE` | indexierbar (S-01/S-02)                                      | 10                |
+| **P-02**          | `SEARCHABLE`             | `DIRECT`                                       | `DIRECT`          | `OPTIONAL`       | `NOT_APPLICABLE` | indexierbar                                                  | 10                |
+| **P-03**          | `SEARCHABLE`             | `DIRECT`                                       | `DIRECT`          | `OPTIONAL`       | `NOT_APPLICABLE` | indexierbar                                                  | 10                |
+| **P-04**          | `SEARCHABLE`             | `FINALIZE_PT03.4`                              | `DIRECT`          | `OPTIONAL`       | `NOT_APPLICABLE` | indexierbar                                                  | 10                |
+| **P-05**          | `SEARCHABLE`             | `DIRECT`                                       | `DIRECT`          | `OPTIONAL`       | `NOT_APPLICABLE` | indexierbar                                                  | 10                |
+| **P-06**          | `SEARCHABLE`             | `FINALIZE_PT03.4`                              | `DIRECT`          | `OPTIONAL`       | `NOT_APPLICABLE` | indexierbar                                                  | 10                |
+| **P-07**          | `SEARCHABLE`             | `DIRECT`                                       | `DIRECT`          | `OPTIONAL`       | `NOT_APPLICABLE` | indexierbar                                                  | 10                |
+| **P-08**          | `SEARCHABLE`             | `DIRECT`                                       | `DIRECT`          | `OPTIONAL`       | **`CANDIDATE`**  | indexierbar                                                  | 10                |
+| **P-09**          | `SEARCHABLE`             | `DIRECT`                                       | `DIRECT`          | `OPTIONAL`       | `NOT_APPLICABLE` | indexierbar                                                  | 10                |
+| **P-10**          | `SEARCHABLE`             | **`DIRECT` — eigener Punkt (`IA-09`, PT03.4)** | `DIRECT`          | `OPTIONAL`       | **`CANDIDATE`**  | indexierbar (S-10)                                           | 10                |
+| **P-11**          | `SEARCHABLE`             | `INDIRECT`                                     | `INDIRECT`        | **`REQUIRED`**   | **`CANDIDATE`**  | indexierbar                                                  | 10                |
+| **P-12**–**P-14** | `SEARCHABLE`             | `INDIRECT`                                     | `INDIRECT`        | **`REQUIRED`**   | **`CANDIDATE`**  | indexierbar (S-10)                                           | 10                |
+| **P-15**          | `SEARCHABLE`             | `INDIRECT`                                     | `INDIRECT`        | **`REQUIRED`**   | **`CANDIDATE`**  | indexierbar (S-10)                                           | 10                |
+| **P-16**          | `SEARCHABLE`             | `INDIRECT`                                     | `INDIRECT`        | **`REQUIRED`**   | `NOT_APPLICABLE` | indexierbar (S-11)                                           | 10                |
+| **P-17**          | `FINALIZE_PT03.4`        | `INTENTIONALLY_NONE`                           | `INDIRECT`        | `OPTIONAL`       | `NOT_APPLICABLE` | Gate-Seite indexierbar, **Asset kontrolliert** (CA-30/CA-31) | 10                |
+| **P-18**–**P-20** | `FINALIZE_PT03.4`        | **`INTENTIONALLY_NONE`** (`IA-12`)             | `FINALIZE_PT03.4` | `OPTIONAL`       | `NOT_APPLICABLE` | **indexierbar × 10** (S-09, `DEC-RL-006`)                    | **10**            |
+| **P-21**–**P-23** | `INTENTIONALLY_EXCLUDED` | `INTENTIONALLY_NONE`                           | `DIRECT`          | `OPTIONAL`       | `NOT_APPLICABLE` | **offene Policy** (`IAD-05`, AP20)                           | 10                |
+| **P-24**–**P-25** | `SEARCHABLE`             | `INTENTIONALLY_NONE`                           | `FINALIZE_PT03.4` | `OPTIONAL`       | **`CANDIDATE`**  | indexierbar, single-locale `de` (S-17)                       | **1 (`de`)**      |
+| **P-26**          | `SEARCHABLE`             | `INTENTIONALLY_NONE`                           | `FINALIZE_PT03.4` | `OPTIONAL`       | `NOT_APPLICABLE` | bekannt, bewusst nicht in Sitemap                            | 10                |
+| **P-27**          | `INTENTIONALLY_EXCLUDED` | `INDIRECT`                                     | `INDIRECT`        | `OPTIONAL`       | `NOT_APPLICABLE` | `FINALIZE_PT03.4` — Form der Seite offen                     | 10                |
+
+**Bereits verbindlich, unabhängig von PT03.4:** Epigenetik erhält im Zielbild einen **eigenen**
+Hauptnavigationspunkt und bleibt von Diagnostik getrennt (`DEC-RL-005`, `IAD-02`) · Consumer muss
+**nicht** in der B2B-Hauptnavigation stehen (`IA-12`), besitzt aber eine bewusst definierte
+Findability · **Chat ist kein Navigationseintrag** (`DEC-RL-007`) · Deal/Voucher/Case Studies/Shop
+bleiben Backlog (`DEC-RL-015`).
+
+### 8.7 Reserviert für PT03.3 – PT03.4
+
+| Abschnitt                                                             | Primärtask | Bezug                              |
+| --------------------------------------------------------------------- | ---------- | ---------------------------------- |
+| Kernjourneys (sieben aus `MASTER-SCOPE.md`), Sackgassen-Analyse       | **PT03.3** | `IA-16`, `IA-21`, `IA-22`          |
+| Navigation, Footer, Search, Breadcrumb, ChapterNav — finale Strategie | **PT03.4** | `IA-09`, `IA-17`, `IA-18`, `IA-19` |
+
+Inventarzeilen mit `FINALIZE_PT03.4` bzw. `FINAL_JOURNEY_DETAIL_PT03.3` sind die Arbeitsliste.
 
 ---
 
@@ -382,8 +560,19 @@ hier referenziert statt dupliziert.
 | **IAD-10** | **`/services*` ist keine echte 301-Brücke** — die Umleitung macht ein clientseitiges `<Navigate>`; `/services` steht als bekannte Route auf 200                                      | Client-Redirect              | **echte serverseitige 301, ein Hop**       | AP10 PT10.1.2       | **Gate 4**                 |
 | **IAD-11** | **Epigenetik-Inquiry ist nicht eigenständig** — die Strecke multiplext über `/api/contact`, ohne eigenen Lead-Typ oder CRM-Routing                                                   | als Contact-Lead behandelt   | **eigene Inquiry-Strecke** (`DEC-RL-011`)  | AP15/AP22           | **Gate 6 + Gate 3**        |
 
-Keine dieser Schulden ist PT03.1-blockierend; jede hat einen Owner-AP. **Aus keiner Schuld wird eine
-neue Product Decision abgeleitet.**
+**Neu aus AP03 PT03.2 (Rollen- und Taxonomie-Schulden, gemessen 2026-08-24):**
+
+| ID         | Schuld (belegt)                                                                                                                                                                                                                                                      | Current                                 | Target                                                                         | Owner-AP                                       | Launch-Relevanz |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------ | ---------------------------------------------- | --------------- |
+| **IAD-12** | **Der allgemeine Sales-CTA heißt heute überwiegend nicht „Angebot anfragen"** — in den `de`-Namespaces steht „Beratung buchen" **15×** in sechs Dateien (`home`, `products`, `contact`, `articles`, `downloads`, `support`), „Angebot anfragen" nur **7×** in dreien | zwei konkurrierende Sales-CTA-Wortlaute | **ein Standard: „Angebot anfragen"** (`IA-07`, `DEC-RL-013`)                   | **AP04**/**AP08** mit AP11/AP13/AP14/AP17/AP19 | **Gate 9**      |
+| **IAD-13** | **Artikel tragen einen pauschalen kommerziellen Einheits-CTA** — `ArticlePage.tsx` zeigt auf **jedem** Artikel denselben Primär-CTA plus ROI-Rechner, unabhängig vom Thema                                                                                           | Einheits-CTA je Artikel                 | **kontextabhängiger nächster Schritt** (§8.2 T6)                               | **AP17** mit AP04                              | IA-Qualität     |
+| **IAD-14** | **Ressourcen tragen keine Zugangsklasse** — die Einträge in `src/content/downloads.json` führen weder ein `public`/`gated`-Merkmal noch eine Entitlement-Referenz; die Rolle `public-resource` vs. `gated-lead-magnet` ist heute nicht auslesbar                     | keine Klassifikation                    | **deklarierte Zugangsklasse je Ressource** (`CONTENT-ASSET-CONTRACT.md` CA-30) | **AP19 PT19.1/PT19.2**                         | **Gate 10**     |
+
+`IAD-14` ist die **IA-Sicht** auf denselben Sachverhalt, den `CONTENT-ASSET-CONTRACT.md` `CD-6`/`CD-8`
+aus der Content-/Asset-Sicht führen; er wird hier nicht dupliziert, sondern als Rollenlücke benannt.
+
+Keine dieser Schulden ist PT03.1- oder PT03.2-blockierend; jede hat einen Owner-AP. **Aus keiner Schuld
+wird eine neue Product Decision abgeleitet.**
 
 ---
 
@@ -417,27 +606,38 @@ neue Product Decision abgeleitet.**
 
 Die kanonische Systematik `IA-01`–`IA-25` stammt aus `AP03.md` §10 und wird hier **nicht** erweitert.
 
-### 11.1 Durch PT03.1 abgedeckt
+### 11.1 Durch PT03.1 und PT03.2 abgedeckt
 
-| ID        | Invariante                                                                 | Nachweis in diesem Dokument                                    |
-| --------- | -------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| **IA-01** | Jede scope-verbindliche Seitenfamilie ist im kanonischen Inventar erfasst  | §4 (P-01–P-27), §7 Abdeckung                                   |
-| **IA-02** | Keine IA-Seite behauptet einen Pfad gegen den Routing-Vertrag              | §2.3, §3, §4 — alle Pfade aus `ROUTING-CONTRACT.md` abgeleitet |
-| **IA-08** | Epigenetik ist als eigenständige Geschäftssäule modelliert                 | §4.3 Kopfhinweis, §4.4                                         |
-| **IA-10** | Jede Consumer-Familie unterstützt im Ziel alle zehn Locales                | §4.8 (P-18–P-20, Ziel-Locales = 10)                            |
-| **IA-11** | Consumer ist als indexierbarer SEO-Bereich klassifiziert                   | §4.8 Kopfhinweis                                               |
-| **IA-13** | Deal/Voucher/Case Studies/Shop sind nicht Teil der Launch-IA               | §12, `IAD-09`                                                  |
-| **IA-14** | Chat ist kein Navigations-, Support- oder Conversion-Pfad des Zielbilds    | §13, `IAD-08`                                                  |
-| **IA-23** | Redirect Sources sind keine normalen Inhaltsseiten                         | §5 Kopfhinweis                                                 |
-| **IA-24** | 404 ist keine reguläre indexierbare Inhaltsseite                           | §6.1                                                           |
-| **IA-25** | AP03 verändert keine Navigation, Routes, Search oder Anwendungskomponenten | §1 Stand, Scope-Nachweis im PT03.1-Report                      |
+| ID        | Invariante                                                                 | Nachweis in diesem Dokument                                         |
+| --------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| **IA-01** | Jede scope-verbindliche Seitenfamilie ist im kanonischen Inventar erfasst  | §4 (P-01–P-27), §7 Abdeckung                                        |
+| **IA-02** | Keine IA-Seite behauptet einen Pfad gegen den Routing-Vertrag              | §2.3, §3, §4 — alle Pfade aus `ROUTING-CONTRACT.md` abgeleitet      |
+| **IA-03** | Jede logische Inhaltsseite besitzt genau einen primären Seitentyp          | §8.1 Taxonomie, §8.4 Matrix — 27/27, keine `UNCLASSIFIED`           |
+| **IA-04** | Jede logische Inhaltsseite besitzt eine definierte primäre Zielgruppe      | §8.3 Vokabular, §8.4 Spalte „Zielgruppe" — 27/27                    |
+| **IA-05** | Jede logische Inhaltsseite besitzt eine definierte primäre Aufgabe         | §8.3 Vokabular, §8.4 Spalte „Hauptaufgabe" — 27/27                  |
+| **IA-06** | Jede logische Inhaltsseite besitzt einen primären CTA oder explizit `NONE` | §8.4 — 24 mit CTA-Rolle, 3 Legal-Seiten explizit `NONE`             |
+| **IA-07** | Der allgemeine B2B-Sales-Anfrageweg verwendet „Angebot anfragen"           | §8.3 `QUOTE_REQUEST`; Ist-Abweichung als `IAD-12` geführt           |
+| **IA-12** | Consumer muss nicht automatisch in der B2B-Hauptnavigation erscheinen      | §8.6 (P-18–P-20 `INTENTIONALLY_NONE`); finale Findability PT03.4    |
+| **IA-15** | Mindestens eine gated Secondary Conversion ist IA-seitig vorgesehen        | §8.4 P-17 `SECONDARY_CONVERSION` · `content_download`               |
+| **IA-20** | Findability ist je Seitenfamilie bewusst klassifiziert                     | §8.6 — jede Familie mit Rolle oder ausdrücklichem `FINALIZE_PT03.4` |
+| **IA-08** | Epigenetik ist als eigenständige Geschäftssäule modelliert                 | §4.3 Kopfhinweis, §4.4                                              |
+| **IA-10** | Jede Consumer-Familie unterstützt im Ziel alle zehn Locales                | §4.8 (P-18–P-20, Ziel-Locales = 10)                                 |
+| **IA-11** | Consumer ist als indexierbarer SEO-Bereich klassifiziert                   | §4.8 Kopfhinweis                                                    |
+| **IA-13** | Deal/Voucher/Case Studies/Shop sind nicht Teil der Launch-IA               | §12, `IAD-09`                                                       |
+| **IA-14** | Chat ist kein Navigations-, Support- oder Conversion-Pfad des Zielbilds    | §13, `IAD-08`                                                       |
+| **IA-23** | Redirect Sources sind keine normalen Inhaltsseiten                         | §5 Kopfhinweis                                                      |
+| **IA-24** | 404 ist keine reguläre indexierbare Inhaltsseite                           | §6.1                                                                |
+| **IA-25** | AP03 verändert keine Navigation, Routes, Search oder Anwendungskomponenten | §1 Stand, Scope-Nachweis im PT03.1-Report                           |
 
 ### 11.2 Offen — spätere Primärtasks
 
-`IA-03`–`IA-07` (Typisierung, Zielgruppe, Aufgabe, CTA, Sales-CTA) → **PT03.2** ·
-`IA-15`, `IA-16`, `IA-21`, `IA-22` (Conversion, Lead-Ziel, Journey-Abdeckung, Sackgassen) → **PT03.3** ·
-`IA-09`, `IA-12`, `IA-17`–`IA-20` (Navigation, Findability, Breadcrumb, ChapterNav, bewusste
-Sichtbarkeit) → **PT03.4**. Sie sind hier **nicht** vorweggenommen.
+`IA-16`, `IA-21`, `IA-22` (Lead-Ziel je Journey, Journey-Abdeckung, Sackgassen) → **PT03.3** ·
+`IA-09`, `IA-17`, `IA-18`, `IA-19` (eigener Epigenetik-Navigationspunkt, Search-Validität,
+Breadcrumb-Intent, ChapterNav-Intent) → **PT03.4**. Sie sind hier **nicht** vorweggenommen.
+
+`IA-20` ist durch §8.6 in **vorläufiger** Form abgedeckt: jede Seitenfamilie ist bewusst klassifiziert;
+die verbleibenden `FINALIZE_PT03.4`-Werte sind ausgewiesene offene Punkte, kein unbeabsichtigter
+Default.
 
 ---
 
@@ -470,6 +670,9 @@ Dies ist **IA-Wahrheit**, keine Routing-, Scope- oder Decision-Wahrheit.
 Bei Widerspruch gewinnen `MASTER-SCOPE.md` und `PROJECT-CONSTRAINTS.md`; bei Pfad-, Locale- oder
 Statusfragen gewinnt `ROUTING-CONTRACT.md`, bei Indexierung `SEO-CONTRACT.md`, bei Sprachumfang
 `I18N-CONTRACT.md`. Dieses Dokument ist dann falsch und wird korrigiert.
+
+Die Rollenquelle für Seitentyp, Zielgruppe, Aufgabe und CTA ist **§8.4/§8.6**; §4 bleibt die
+Inventarsicht. Bei Abweichung zwischen beiden gilt §8.
 
 **Änderungen** verantwortet AP03; nach AP03-Closure die jeweils betroffenen Owner-APs aus §10.
 Decision Locks werden hier nie geändert.
