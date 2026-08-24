@@ -8,7 +8,7 @@
 Kein Ersatz für `BRANCH-RECONCILIATION-MAP.md`, `REPO-BASELINE.md`, `QUALITY-GATES.md`,
 `RISK-REGISTER.md` oder `scope/MASTER-SCOPE.md`.
 
-**Ausführungsstand:** PT01.1 `PASS` · PT01.2 `PASS` · PT01.3–PT01.5 `NOT_RUN` · AP01 Closure `NOT_RUN`.
+**Ausführungsstand:** PT01.1 `PASS` · PT01.2 `PASS` · PT01.3 `PASS` · PT01.4–PT01.5 `NOT_RUN` · AP01 Closure `NOT_RUN`.
 
 ---
 
@@ -326,10 +326,142 @@ sind heute über die `EpiSubpage`-Querverweise („Weiterlesen") und per Direkt-
 
 ## 4. `redesign/preview` Import Ledger
 
-**NOT_RUN — PT01.3.** In PT01.1 wurde ausschließlich die Erreichbarkeit von
-`redesign/preview@5673b61` verifiziert. Es wurde **nichts** übernommen.
+**Ausgeführt:** PT01.3, 2026-08-24.
+**Quelle — verifiziert:** `redesign/preview@5673b611de5225c52fd304c874389c58dee85a14`
+(2026-06-26 13:27:35 +0200, „preview snapshot (incl. uncommitted WIP)").
+`git cat-file -t` → `commit`; `git branch -a --contains 5673b61` → `redesign/preview`,
+`origin/redesign/preview`. Jeder Kandidat wurde mit `git show 5673b61:<pfad>` gegen **genau diesen**
+Commit analysiert. Kein `git merge`, kein Cherry-Pick, kein Tree-Checkout.
 
-## 5. Rejected / Explicitly Not Imported
+**Grundsatz:** `redesign/preview` ist **keine Designquelle** (`DEC-RL-002`, `DEC-RL-003`). Übernommen
+wurde ausschließlich der art-direction-neutrale Engineering-/QA-Anteil.
+
+### 4.1 Pattern-Matrix
+
+| Gr. | Audit | Source (`5673b61`) | Target | Type | Dependencies | Decision | Reason | Guards |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **P1** | B4 | `scripts/baseline-screenshots.mjs` | identisch | FILE | `playwright` (vorhanden, jetzt deklariert) | **ADAPT** | Deterministische Viewports (sm/md/lg/xl), ganzseitige Aufnahmen, Overflow-Zusicherung. Einziges art-direction-neutrales Visual-Scaffold des Branches. Routenliste auf Pfade **dieser** Linie umgestellt (inkl. der PT01.2-Epigenetik-Routen); Kopfkommentar stellt klar, dass die Aufnahmen Ist-Stand sind und **keine** visuelle Soll-Vorgabe. | BG-06, BG-07, BG-12 |
+| **P1** | X2 | `e2e/styleguide-visual.spec.ts` + CI-Schritt „Visual regression (Pattern Library)" | — | FILE | `src/design-system/**` | **REJECT** | Die Spec fotografiert 20+ Specimens, die ausschließlich im alternativen Design-System (**X1**) existieren. Ohne X1 nicht lauffähig, mit X1 gebrochene Locks. | DN-01, DN-05 |
+| **P1** | — | `playwright.config.ts` | — | FILE | — | **ALREADY_PRESENT** | `git diff HEAD 5673b61 -- playwright.config.ts` ist **leer** — identisch. Nichts zu übernehmen. (`reuseExistingServer`-Schwäche bleibt `D-09`/`QD-4`, Owner AP27.) | BG-12 |
+| **P2** | B1 | `src/routing/ErrorBoundary.tsx` | identisch | FILE | `react`, `../lib/monitoring` | **IMPORT** (byte-identisch) | Reiner Mechanismus: Klassen-Boundary, `getDerivedStateFromError`, `componentDidCatch` → `reportError`, `reset()`. Null Gestaltung, null Token-Bindung. | BG-01, BG-02 |
+| **P2** | B1 | `src/routing/RootErrorBoundary.tsx` | identisch | FILE | `react-i18next`, `./ErrorBoundary` | **ADAPT** | Verhalten übernommen, Darstellung neu geschrieben — siehe §4.2 **PD-1**. Eingehängt **nur im Client**, siehe **PD-2**. | BG-01, BG-02, BG-06, BG-07 |
+| **P2** | B1 | `src/routing/SegmentErrorBoundary.tsx` | identisch | FILE | `react-i18next`, `./ErrorBoundary` | **ADAPT** | Wie oben; **noch nicht eingehängt** — wo Segmentgrenzen sitzen, entscheidet die App-Shell-Arbeit von AP06. Bauteil steht bereit. | BG-06, BG-07 |
+| **P2** | B1 | `src/routing/index.ts` | identisch | FILE | — | **ADAPT** | Barrel ohne `RouteFallback`. | — |
+| **P2** | B1 | `src/routing/RouteFallback.tsx` | — | FILE | — | **REJECT** | Lade-Skelett mit `animate-pulse`, vollständig an die Token-Schicht von **X1** gebunden (`bg-bg-subtle`, `max-w-container`+`var(--tap-target-min)`). Reine Darstellungs-/A11y-Politur → AP06/AP24. Der `Suspense`-Fallback dieser Linie ist bewusst `null` (SSR-HTML bleibt stehen, React 19). | DN-01, DN-03 |
+| **P2** | B1 | `public/locales/{de,en}/common.json` → `errors.*` | identisch | HUNK | — | **ADAPT** | 7 Schlüssel je Datei, wortgleich aus der Quelle. **Nur `de` und `en`** — siehe §4.2 **PD-3**. | — |
+| **P2** | — | `src/entry-client.tsx` (**G3-Hotspot**) | identisch | HUNK (2 Stück) | `./routing` | **ADAPT** | Import + `<RootErrorBoundary>` um den bestehenden `<Suspense>`. `entry-server.tsx` und `App.tsx` bleiben unangetastet. Siehe **PD-2**. | **BG-01**, **BG-02** |
+| **P3** | B2 | `src/lib/monitoring/web-vitals.ts` | identisch | FILE | **keine** | **IMPORT** (byte-identisch) | Nativer Sammler auf `PerformanceObserver` (LCP/CLS/INP/FCP/TTFB) — die Quelle verzichtet bewusst auf die `web-vitals`-Bibliothek. Null Bundle-Kosten, null neue Dependency. | BG-10 |
+| **P3** | B2 | `src/lib/monitoring/report.ts` | identisch | FILE | keine | **ADAPT** | **Pflicht-Adaption.** Die Quelle feuert per `sendBeacon` an `/api/monitoring/client-error` und `/api/monitoring/web-vitals` — beide Endpunkte existieren nirgends (`RUNTIME-CONTRACT.md` RD-10). Ersetzt durch eine providerneutrale Senke mit Standard **No-Op**, nach dem Vorbild von `src/lib/tracking.ts`. Siehe §4.2 **PD-4**. | **BG-10**, BG-11 |
+| **P3** | B2 | `src/lib/monitoring/index.ts` | identisch | FILE | — | **ADAPT** | Barrel plus `setMonitoringSink`/`monitoringAktiv`. | BG-10 |
+| **P3** | B10 | `src/lib/metrics/{definitions,thresholds,aggregate,aggregate.test}.ts` | — | FILE | — | **REJECT** | Im Audit `REFERENCE_ONLY`. Kennzahlen-Definitionen und Aggregation sind CWV-Budget-Arbeit → **AP25**. | — |
+| **P4** | B3 | `scripts/a11y-audit.mjs` | identisch | FILE | `playwright`, `axe-core` (beide jetzt deklariert) | **ADAPT** | axe-core WCAG 2.0/2.1/2.2 A+AA gegen den laufenden Server, Quelle aus `node_modules` injiziert — **kein Netzzugriff**. Routenliste auf diese Linie umgestellt; Kopfkommentar stellt ausdrücklich klar, dass ein Lauf **kein** WCAG-Nachweis ist. | BG-12 |
+| **P4** | B4 | `scripts/baseline-screenshots.mjs` | identisch | FILE | `playwright` | **ADAPT** | Derselbe Import wie P1 — das Skript bedient beide Gruppen (Screenshots + Overflow-Zusicherung). | BG-12 |
+| **P4** | B3 | `package.json` (**geschützt**) | identisch | HUNK (2 Stück) | — | **ADAPT** | (1) zwei Scripts `audit:a11y`, `screenshots:baseline`; (2) `axe-core@^4.11.3` und `playwright@^1.57.0` als devDependencies **deklariert**. Beide waren bereits im Lockfile — aber nur **transitiv** über `@playwright/test`; die Skripte importieren sie direkt. Siehe §4.2 **PD-5**. | BG-12 |
+| **P5** | B7 | `.github/workflows/ci.yml` → Job `changelog-gate` | — | HUNK | — | **ADAPT → `PATTERN_RECORDED_NOT_ACTIVATED`** | Der Mechanismus ist neutral und wertvoll (siehe §4.3), aber: sein Pfad-Grep zielt auf `src/design-system/**` (**X1**, existiert hier nicht), und die CI dieser Linie triggert ausschließlich auf `main` (`QD-3`/`D-06`) — der Job könnte gar nicht feuern. Ein hart fehlschlagendes PR-Gate zu verdrahten ist **AP27 PT27.6**. `.github/workflows/ci.yml` bleibt unverändert. | BG-12 |
+| **P5** | X2 | CI-Schritt „Visual regression (Pattern Library)" | — | HUNK | — | **REJECT** | Siehe P1/X2. | DN-01 |
+| **P5** | B9 | `.github/CODEOWNERS` | — | FILE | — | **REJECT** | Jeder geschützte Pfad ist redesign-only (`src/design-system/**`, `StyleguidePage.tsx`, `e2e/styleguide-visual.spec.ts`, `docs/design-system/**`), und die genannte Team-Kennung `@design-system-owners` ist laut eigenem Kopfkommentar eine unbestätigte Annahme. | — |
+| **P5** | B8 | `CHANGELOG.md` | — | FILE | — | **REJECT** (`REFERENCE_ONLY`) | Formale Content-/Release-Governance ist per `DEC-RL-010` Backlog, nicht Launch-Scope. Ohne aktives Gate wäre die Datei totes Dokument. | — |
+| **P5** | B13 | `.madgerc` | — | FILE | `madge` | **REJECT** (`DEFER`) | `madge` ist auf keinem Branch Dependency, kein Script ruft es auf. Nur zusammen mit einem echten Zyklus-Gate sinnvoll → AP27. | — |
+
+**Nicht Teil der fünf Pflichtgruppen, bewusst nicht übernommen:** `src/hooks/usePrefersReducedMotion.ts`
+(B5, `IMPORT`-Kandidat, WCAG 2.2.2/2.3.3 → **AP24**) und `src/lib/i18n/format.ts` (B6,
+`IMPORT`-Kandidat, ersetzt langfristig die `MONTH_NUMBERS`-Tabelle in `structuredData.ts` → **AP08/AP09**).
+Beides ist Produktcode, kein QA-/Engineering-Pattern; ihre Übernahme wäre eine Scope-Ausweitung von
+PT01.3. → **D-24**.
+
+### 4.2 Dokumentierte Abweichungen von der Quelle
+
+| ID | Abweichung | Betroffen | Warum |
+| --- | --- | --- | --- |
+| **PD-1** | Darstellung der beiden Fehlergrenzen neu geschrieben | `RootErrorBoundary`, `SegmentErrorBoundary` | Die Quellfassungen hängen über `bg-bg`, `text-fg`, `text-fg-heading`, `bg-action-primary`, `action-primary-hover`, `text-fg-on-dark`, `border-border-strong`, `bg-bg-subtle`, `max-w-reading` und `var(--tap-target-min)` an der Token-Schicht des alternativen Design-Systems (**X1**). Unverändert übernommen hätten sie entweder X1 nachgezogen (verboten, `DEC-RL-002`/`DEC-RL-003`) oder farblos gerendert. Umgeschrieben auf die Tokens dieser Linie (`text-heading`, `brand-primary`, `brand-navy-hover`, `brand-deep`, slate-Skala) — **Verhalten unverändert**, `check:colors` grün. Die 44-px-Trefferfläche der Quelle ist als `min-h-[44px]` erhalten. |
+| **PD-2** | `RootErrorBoundary` wird in `src/entry-client.tsx` eingehängt, **nicht** in `src/App.tsx` | `entry-client.tsx` | `App.tsx` wird von `entry-server.tsx` **und** `entry-client.tsx` gerendert. Eine Grenze dort hätte auch beim SSR gegriffen und einen Renderfehler abgefangen, den `server.ts:741–747` heute über `next(error)` als echten **HTTP 500** beantwortet — das Ergebnis wäre HTTP 200 mit Fehlerseite gewesen. Genau das verbietet der PT01.3-Auftrag („Server-Error-Semantik"). Client-only wahrt beides: kein weißer Bildschirm im Browser, unveränderte Statussemantik auf dem Server. `entry-server.tsx` und `App.tsx` sind **unverändert**. |
+| **PD-3** | `errors.*` nur in `de` und `en` ergänzt, nicht in allen zehn Locales | `public/locales/{de,en}/common.json` | Auf `5673b61` tragen zwar alle zehn `common.json` einen `errors`-Block, aber **nur `de` und `en` sind übersetzt** — `pl`, `fr`, `it`, `es`, `pt`, `da`, `nl`, `cs` enthalten dort den **deutschen** Text unverändert. Diese acht zu importieren hätte deutschen Text als polnisch/tschechisch/dänisch/niederländisch/portugiesisch ausgeliefert und der Key-Paritätsprüfung von AP08 eine Vollständigkeit vorgetäuscht, die nicht besteht. Mit `fallbackLng: 'en'` (`src/i18n.ts:61`) laufen die acht stattdessen auf Englisch — das dokumentierte, beabsichtigte Fallback-Verhalten dieser Linie. Nachziehen: **AP08** → **D-22**. |
+| **PD-4** | Beacon-Transport durch providerneutrale Senke ersetzt | `src/lib/monitoring/report.ts` | Die Quelle sendet unbedingt an `/api/monitoring/client-error` und `/api/monitoring/web-vitals`. Beide Endpunkte existieren weder auf `5673b61` noch auf der Baseline noch auf `main`; über den `/api`-Proxy in `server.ts` wären das reale, ins Leere laufende POSTs — also **neue Laufzeit-Datenübertragung**, die PT01.3 ausdrücklich nicht aktivieren darf. Ersetzt durch `setMonitoringSink()` mit Standard-No-Op, exakt nach dem Vorbild von `setTrackingProvider()` in `src/lib/tracking.ts`. Kein `sendBeacon`, kein `fetch`, kein Endpunkt im gebauten Client-Bundle. Wer die Senke einhängt, entscheiden **AP25** (CWV) und **AP26/AP28** (Betrieb), Consent-Frage **AP23** → **D-21**. |
+| **PD-5** | `axe-core` und `playwright` explizit als devDependencies deklariert | `package.json`, `package-lock.json` | Beide waren bereits im Lockfile aufgelöst (`axe-core@4.11.3`, `playwright@1.57.0`), aber nur **transitiv** über `@playwright/test`; auf `5673b61` fehlt `axe-core` in der `package.json` ganz, obwohl das Skript es per `require.resolve` lädt. Ein Verlass auf eine transitive Kopie bricht still, sobald `@playwright/test` sie nicht mehr mitbringt. Deklariert wurden **exakt die bereits aufgelösten Versionen** — der Lockfile-Diff umfasst genau die zwei neuen Deklarationszeilen, **kein einziger `"version"`-Eintrag ändert sich**, kein Paket kommt hinzu. |
+| **PD-6** | Routenlisten beider Skripte auf diese Linie umgestellt | `a11y-audit.mjs`, `baseline-screenshots.mjs` | Die Quelllisten stammen aus dem Redesign-Programm. Ergänzt um `/de/epigenetics`, `/de/epigenetics/grundlagen` und `/de/epigenetics/musterbefund/metabolic-health`, damit die in PT01.2 aktivierten Routen mit abgedeckt sind. |
+| **PD-7** | `docs/baseline-screenshots/` in `.gitignore` | `.gitignore` | Die Ausgabe ist ein Werkzeug-Artefakt. Ein eingecheckter Screenshot-Satz würde als visuelle Soll-Vorgabe missverstanden; die Art Direction ist Sales-Machine (`DEC-RL-002`), nicht ein Bilderordner. |
+
+### 4.3 P5 — aufgezeichnetes, nicht aktiviertes Pattern
+
+`PATTERN_RECORDED_NOT_ACTIVATED`. Der Mechanismus aus `5673b61:.github/workflows/ci.yml`, für eine
+spätere Aktivierung durch **AP27 PT27.6** festgehalten:
+
+> Eigener Job, nur bei `pull_request`. `actions/checkout@v4` mit `fetch-depth: 0`, dann
+> `git diff --name-only "origin/<base_ref>"...HEAD`. Trifft die Änderungsliste einen geschützten
+> Pfad (Quelle: `^(src/design-system/|tailwind\.config\.js)`), muss `CHANGELOG.md` in derselben
+> Änderungsliste stehen, sonst `exit 1`. Trifft sie keinen, meldet der Job „nicht anwendbar" und
+> ist grün.
+
+Für diese Linie zu klären, bevor er verdrahtet wird: die geschützte Pfadmenge (`src/design-system/**`
+existiert hier nicht — Kandidaten wären `tailwind.config.js`, `src/components/ui/**`), ob
+`CHANGELOG.md` überhaupt eingeführt wird (`DEC-RL-010` stellt formale Governance in den Backlog), und
+die Auflösung von `QD-3`/`D-06` — solange CI nur auf `main` triggert, feuert kein PR-Gate dieser Linie.
+
+### 4.4 QA-Pattern-Smoke
+
+Beide Skripte wurden gegen den **gebauten** PT01.3-Stand auf isoliertem Port 39031 ausgeführt.
+Chromium ist in dieser Umgebung verfügbar; `ENVIRONMENT_NOT_VERIFIED` trifft **nicht** zu.
+
+| Pattern | Smoke | Ergebnis |
+| --- | --- | --- |
+| P1 `screenshots:baseline` | **PASS** (rc 0) | 32 Aufnahmen (8 Routen × 4 Breakpoints) erzeugt. Overflow-Zusicherung meldet **8 Befunde bei `lg` (1024 px): `scrollWidth` 1037 > 1024 auf allen acht Routen** — auch auf `home`, `diagnostics`, `articles`, `contact`, `notfound`, die PT01.2/PT01.3 nicht berührt haben. Bestandsbefund, kein Import-Schaden → **D-20**. |
+| P4 `audit:a11y` | **PASS als Werkzeug** (rc 1 = Befunde, kein Werkzeugfehler) | 9 Routen × axe (WCAG 2.0/2.1/2.2 A+AA) plus Overflow bei sm/xl. **8 kritische/schwerwiegende Befunde**: `contact` `aria-progressbar-name` (1); `imprint` `color-contrast` (1); `epigenetics` `list` (1) + `listitem` (6). Alle drei Seiten stammen aus der Baseline. Die beiden in PT01.2 importierten Seiten (`epigenetics/grundlagen`, `musterbefund/metabolic-health`) und die 404-Seite: **keine** kritischen/schwerwiegenden Befunde. → **D-23**. **Dies ist kein WCAG-Nachweis** (siehe §4.5). |
+| P2 Error Boundary | **PASS** | Typecheck grün; `RootErrorBoundary` im Client-Bundle; SSR-Statussemantik unverändert (Smoke §4.5). |
+| P3 Web Vitals / Monitoring | **PASS** | Modul baut und typisiert; **keine** Netzaktivität: im gebauten Client-Bundle kein `api/monitoring`, kein `sendBeacon`, keine Analytics-Domain. `initWebVitals()` wird nirgends aufgerufen, `setMonitoringSink()` nirgends registriert. |
+| P5 CI | **n. a.** | Keine CI-Datei geändert; Mechanismus nur dokumentiert (§4.3). |
+
+### 4.5 Validierung
+
+| Prüfung | Ergebnis |
+| --- | --- |
+| Typecheck (`tsc -b`) | **PASS** |
+| Unit Tests (`vitest run`) | **PASS — 7 Dateien, 18/18** (unverändert) |
+| Design-/Token-Guard (`check:colors`) | **PASS** |
+| Build (`npm run build`) | **PASS** |
+| ESLint | **129 — unverändert** (`_project-knowledge` 111 · `src` 17 · `server.ts` 1); **0 Befunde in PT01.3-Dateien** |
+| Prettier | **0 Verstöße** in PT01.3-Dateien; getrackte Gesamtzahl **39 — unverändert** gegenüber PT01.2 |
+| Lockfile | **konsistent** — Diff = 2 Zeilen (die beiden Deklarationen), keine Versionsänderung; `npm ls axe-core playwright` → `4.11.3` / `1.57.0` |
+| SSR 200 | `/de/`, `/de/about`, `/de/epigenetics` → **200** |
+| SSR — PT01.2-Routen weiter aktiv | `/de/epigenetics/{grundlagen,studienlage,unterlagen}` und `/de/epigenetics/musterbefund/metabolic-health` → **200** |
+| SSR 301 | `/agb` → `/de/terms`, `/s3-leitlinie` → `/de/s3_leitlinie`, `/about` → `/de/about` |
+| SSR 404 | unbekannter statischer Pfad, unbekannter Musterbefund-Slug, unbekannter Artikel-Slug → **404** |
+| `no-store` | HTML 200 **und** 404: `no-store, no-cache, must-revalidate` |
+| SEOHead/notFound | 404: `prerender-status-code`-Marker, robots `noindex, follow`, **0** Canonical, **0** hreflang |
+| Canonical/hreflang | reale Seite: 1 Canonical + 11 `rel="alternate"` (10 + `x-default`) |
+| Sitemap | **365 `<loc>`** — unverändert gegenüber PT01.2 |
+| Netz-/Consent-Negativprüfung | **keine** neue externe Anfrage: kein `api/monitoring`, kein `sendBeacon`, keine GA/GTM-Domain im Client-Bundle; `index.html`, `src/lib/tracking.ts`, `CookieBanner.tsx` **unverändert** |
+
+**Ausdrücklich nicht behauptet:** WCAG 2.2 AA ist **nicht** erfüllt, das Accessibility-Gate ist **nicht**
+abgenommen, AP24 ist **nicht** abgeschlossen. PT01.3 hat ein Werkzeug bereitgestellt und damit
+Bestandsbefunde sichtbar gemacht — mehr nicht.
+
+## 4a. `redesign/preview` Explicitly Rejected
+
+| Abgelehnt | Audit-ID | Nachweis nach dem Import |
+| --- | --- | --- |
+| **Alternatives Design-System** (`src/design-system/**`, 29 Dateien, eigene `tokens.ts`/`tokens.css`) | X1 | `src/design-system` existiert nicht; keine Referenz in `src/**`. |
+| **Dark Theme / Dark Tokens** | — | Auf `5673b61` ist kein Dark-Theme-Code vorhanden; unabhängig geprüft: `darkMode` in `tailwind.config.js` = 0, `dark:`-Klassen in `src/**` = 0, `tailwind.config.js` und `src/index.css` **unverändert**. |
+| **Theme Switcher** | — | Keine Fundstelle für `themeSwitch`/`toggleTheme`/`useTheme`/`setTheme` in `src/**`. |
+| **Pattern-Library-Seite + Visual-Suite + CI-Schritt** | X2 | `StyleguidePage.tsx`, `e2e/styleguide-visual.spec.ts` nicht vorhanden; `.github/workflows/ci.yml` **unverändert**. |
+| **Redesign-Homepage-Komposition** (`sections/home/*`, 9 Dateien) | X3 | Nicht vorhanden — würde die Sales-Machine-Startseite ersetzen. |
+| **Alternative CTA-Bänder** (`CtaBand.tsx`, `CtaSection.tsx`, `ContactChannels.tsx`) | X4 | Keine Datei vorhanden; `cta_section`-Schlüssel in `public/locales/**`: **0**. Dies ist dasselbe verbotene Band wie `N5` (`DEC-RL-012`). |
+| **Statische `public/sitemap.xml`** | X5 | Nicht vorhanden — die Sitemap wird weiter in `server.ts` erzeugt (365 `<loc>`); eine statische Datei würde sie beschatten. |
+| **Shop-Katalog `src/data/products.ts`** | X6 | Nicht vorhanden (`DEC-RL-015`). |
+| **Feature-Flag-Stub `src/lib/flags.ts`** | X7 | Nicht vorhanden. |
+| **Redesign-Bildmaterial** (`public/images/{clinic-consultation,doctor-igloopro,igloopro-device,igloopro-frontal}.webp`) | X8 | Nicht importiert. |
+| **Archon-Orchestrierung + Phasenpläne** (`.archon/**`, `EXECUTION-PLAN.md`, `REFACTOR-LOG.md`, `docs/RELAUNCH-*.md`, `docs/NEWLOOK-HOME.md`) | X9 | Nicht importiert — würde einen zweiten, widersprüchlichen Relaunch-Plan ins Repository stellen. |
+| **Doppeltes og-image-Skript `scripts/convert-og-image.js`** | X10 | Nicht importiert; `scripts/convert-og-image.mjs` bleibt die einzige Fassung. |
+| **Vollständige fremde `.github/workflows/ci.yml`** | B7/X2 | **Unverändert** — kein Workflow-Ersatz. Nur der Changelog-Mechanismus ist dokumentiert (§4.3). |
+| **Vollständige fremde `package.json`** | — | Nur zwei Hunks: zwei Scripts, zwei devDependency-Deklarationen (§4.2 **PD-5**). |
+| **Externe Telemetry-/Analytics-Aktivierung** (`/api/monitoring/*`-Beacons) | B2 | Durch **PD-4** ersetzt; kein Endpunkt und kein `sendBeacon` im gebauten Client-Bundle. |
+| **`RouteFallback.tsx`** | B1 | Nicht importiert (X1-Token-Bindung; AP06/AP24). |
+| **`src/lib/metrics/**`** | B10 | Nicht importiert (`REFERENCE_ONLY` → AP25). |
+| **`.github/CODEOWNERS`** | B9 | Nicht importiert (redesign-only Pfade, unbestätigte Team-Kennung). |
+| **`CHANGELOG.md`** | B8 | Nicht importiert (`DEC-RL-010`). |
+| **`.madgerc`** | B13 | Nicht importiert (`madge` ist nirgends Dependency). |
+| **UX-/Persona-/Design-System-Dokumentation** (`docs/ux/*`, `docs/personas/*`, `docs/design-system/**`, `docs/interface-inventory.md`, `docs/REFACTOR_BACKLOG.md`, `docs/GRAVEYARD.md`) | B11, B12 | Nicht importiert (`REFERENCE_ONLY`). |
+
+## 5. Rejected / Explicitly Not Imported (`main`)
 
 **Stand PT01.2.** Jede Zeile wurde nach dem Import repositoryweit gegen den Arbeitsbaum **und** gegen
 das Laufzeitverhalten geprüft, nicht nur gegen Dateinamen.
@@ -405,6 +537,12 @@ in PT01.1; keines setzt PT01.1 auf FAIL.
 | D-18 | **Messung der Epigenetik-Vertiefungsseiten fehlt** — die aus `main` stammende `epigenetics_request`-Instrumentierung wurde bewusst nicht übernommen (§3.2 AD-2); die Baseline-Ereignis-Union kennt kein passendes Ereignis | PT01.2 §3.2 AD-2 | Blueprint §6.1 Schritt 2 („AP23 gate for AP15") | **AP23 / AP15** | NO |
 | D-19 | **PT01.1-Dokumentationsartefakte verletzen Prettier** — `building-docs/AP01-RECONCILIATION-RESULT.md` und `state/AP-STATE.md` stehen in der Prettier-Liste; `QUALITY-GATES.md` QG-09 überlässt die Dokumentationspolitik ausdrücklich AP27 | `prettier --check` über getrackte Dateien | QG-09 | **AP27** | NO |
 
+| D-20 | **Horizontaler Überlauf bei 1024 px** — `scrollWidth` 1037 > 1024 auf allen acht geprüften Routen, einschließlich unberührter Baseline-Seiten (`home`, `diagnostics`, `articles`, `contact`, `notfound`) | PT01.3 §4.4, `npm run screenshots:baseline` | neu (durch das PT01.3-Werkzeug sichtbar gemacht) | **AP24 / AP25** | NO |
+| D-21 | **Monitoring-Senke nicht eingehängt** — `setMonitoringSink()` ist nirgends registriert, `initWebVitals()` wird nicht aufgerufen; das Gerüst ist bewusst inert | PT01.3 §4.2 PD-4 | `RUNTIME-CONTRACT.md` RD-10 | **AP25** (CWV) · **AP26/AP28** (Betrieb) · **AP23** (Consent) | NO |
+| D-22 | **`errors.*` nur in `de`/`en`** — die acht übrigen Sprachen laufen über `fallbackLng: 'en'`; auf `5673b61` sind die anderen acht Blöcke unübersetzt (deutscher Text) und deshalb nicht importierbar | PT01.3 §4.2 PD-3 | `DEC-RL-001` | **AP08** | NO |
+| D-23 | **8 kritische/schwerwiegende axe-Befunde** auf Baseline-Seiten: `contact` `aria-progressbar-name`, `imprint` `color-contrast`, `epigenetics` `list` + `listitem` (6 Knoten) | PT01.3 §4.4, `npm run audit:a11y` | neu (durch das PT01.3-Werkzeug sichtbar gemacht) | **AP24** | NO |
+| D-24 | **`usePrefersReducedMotion` und `lib/i18n/format.ts` nicht übernommen** — beide auf `5673b61` als `IMPORT` auditiert, aber Produktcode außerhalb der fünf PT01.3-Pflichtgruppen | PT01.3 §4.1 | `BRANCH-RECONCILIATION-MAP.md` B5, B6 | **AP24** bzw. **AP08/AP09** | NO |
+
 **Nicht reproduzierbare Baseline-Härtung: KEINE.** Jede in `AP01.md` §0 als zu schützend benannte
 Eigenschaft (echte 404, Redirects, `no-store`, SEOHead/404, Canonical/hreflang, Sales-Machine,
 Light Theme, kein Garantie-Band, `CV < 2 %`, `DRY_RUN`, vorhandene Guards) wurde an `961f65d`
@@ -422,6 +560,7 @@ der dokumentierte Ist-Zustand, keine verlorene Härtung.
 | PT | Datum | Ergebnis | Geänderte Dateien |
 | --- | --- | --- | --- |
 | PT01.1 | 2026-08-24 | **PASS** | `building-docs/AP01-RECONCILIATION-RESULT.md` (neu), `building-docs/state/AP-STATE.md` |
+| PT01.3 | 2026-08-24 | **PASS** | **neu:** `src/routing/*` (4) · `src/lib/monitoring/*` (3) · `scripts/{a11y-audit,baseline-screenshots}.mjs` · **Hunks:** `src/entry-client.tsx`, `package.json`, `package-lock.json`, `public/locales/{de,en}/common.json`, `.gitignore` · **Doku:** `AP01-RECONCILIATION-RESULT.md`, `state/AP-STATE.md` |
 | PT01.2 | 2026-08-24 | **PASS** | **neu:** `src/components/epigenetics/{tokens.ts,EpiSubpage.tsx}`, `src/pages/Epigenetics{Basics,Evidence,Docs}Page.tsx`, `src/content/befunde/meta.ts`, `src/pages/musterbefund/*.tsx` (6) · **Hunks:** `src/App.tsx`, `server.ts`, `src/pages/MusterbefundPage.tsx`, `src/content/befunde/index.ts` · **Doku:** `AP01-RECONCILIATION-RESULT.md`, `state/AP-STATE.md` |
 
 **PT01.1** hat weder Anwendungscode noch Runtime-/Config-Dateien, Dependencies oder Lockfiles verändert.
@@ -430,3 +569,9 @@ der dokumentierte Ist-Zustand, keine verlorene Härtung.
 blieben: `package.json`, beide Lockfiles, `tsconfig*`, `vite.config.ts`, `tailwind.config.js`,
 `index.html`, Docker-/nginx-/CI-Dateien, `public/**`, `src/lib/tracking.ts`,
 `src/components/seo/**`, `src/components/layout/**` und `src/hooks/useSearch.ts`.
+
+**PT01.3** hat `package.json`/`package-lock.json` um zwei devDependency-Deklarationen und zwei
+Scripts ergänzt und `public/locales/{de,en}/common.json` um einen `errors`-Block. Unverändert blieben:
+`server.ts`, `src/App.tsx`, `src/entry-server.tsx`, `src/components/seo/**`, `src/lib/tracking.ts`,
+`index.html`, `tailwind.config.js`, `src/index.css`, `.github/workflows/ci.yml`, `tsconfig*`,
+`vite.config.ts`, Docker-/nginx-Dateien und die acht übrigen `public/locales/*/common.json`.

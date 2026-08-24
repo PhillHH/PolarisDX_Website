@@ -39,3 +39,8 @@ __pycache__/
 *.xlsx
 *.csv
 kontakte.*
+
+# AP01 PT01.3: Ausgabe von scripts/baseline-screenshots.mjs. Werkzeug-Artefakt,
+# kein Repository-Inhalt — die visuelle Soll-Baseline ist Sales-Machine
+# (DEC-RL-002), nicht ein eingecheckter Screenshot-Satz.
+docs/baseline-screenshots/

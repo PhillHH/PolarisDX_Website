@@ -29,6 +29,13 @@ import { i18nReady } from './i18n.client'
 // App - Client-Version mit lazy loading für Code-Splitting
 import App from './App'
 
+// Fehlergrenze der Client-Laufzeit (AP01 PT01.3, aus redesign/preview@5673b61).
+// BEWUSST NUR HIER und nicht in App.tsx: entry-server.tsx bleibt ohne Grenze,
+// damit ein Renderfehler beim SSR weiterhin als echter HTTP 500 aus server.ts
+// herauskommt statt als HTTP 200 mit Fehlerseite. Die 404-Semantik ist davon
+// unberührt — sie läuft über SEOHead notFound und NOT_FOUND_MARKER.
+import { RootErrorBoundary } from './routing'
+
 // =============================================================================
 // LANGUAGE FROM URL
 // =============================================================================
@@ -55,9 +62,11 @@ i18nReady.then(() => {
     <StrictMode>
       <HelmetProvider>
         <BrowserRouter basename={`/${lang}`}>
-          <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
-            <App />
-          </Suspense>
+          <RootErrorBoundary>
+            <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
+              <App />
+            </Suspense>
+          </RootErrorBoundary>
         </BrowserRouter>
       </HelmetProvider>
     </StrictMode>,
