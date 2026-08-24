@@ -403,11 +403,7 @@ const EpigeneticsPage = () => {
                   <thead>
                     <tr className="bg-brand-deep text-white">
                       {compareCols.map((col) => (
-                        <th
-                          key={col}
-                          scope="col"
-                          className="sticky top-[var(--chapterbar-offset,153px)] z-10 bg-brand-deep px-5 py-4 text-sm font-semibold first:rounded-tl-3xl last:rounded-tr-3xl"
-                        >
+                        <th key={col} scope="col" className="px-5 py-4 text-sm font-semibold">
                           {col}
                         </th>
                       ))}
