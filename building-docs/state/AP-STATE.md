@@ -8,19 +8,22 @@ kein `work-packages/APxx-STATE.md`).
 
 ## Current
 
-- Work package: AP01 — Repository-Baseline, Branch-Reconciliation und Import-Hygiene
-- Primary task: — (AP01 abgeschlossen; AP02 noch nicht gestartet)
-- Status: COMPLETE <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
-- AP01 closure: PASS (43/43, `C01-01`–`C01-43`)
-- Next work package: AP02 — Zielarchitektur: SSR, Routing, Lead Platform und Betrieb
+- Work package: AP02 — Zielarchitektur: SSR, Routing, Lead Platform und Betrieb
+- Status: IN_PROGRESS <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
+- Last completed PT: PT02.1 — SSR- und Rendering-Zielbild (PASS)
+- Next PT: PT02.2 — Routing-Zielbild / Route Registry (nicht begonnen)
+- SSR/rendering contract: recorded (`building-docs/RUNTIME-CONTRACT.md`)
+- AP01: COMPLETE · AP01 closure: PASS (43/43, `C01-01`–`C01-43`) — unverändert erhalten
 - AP00: COMPLETE · AP00 closure: PASS (unverändert erhalten)
+- AP03: NOT STARTED
 - Baseline: `feat/home-leadmagnet@961f65d` — Ancestor des aktuellen HEAD, empirisch bestätigt
 - Baseline evidence: recorded · `main` Import Ledger: recorded · redesign patterns: recorded ·
   legacy classification: recorded · final clean build evidence: recorded · **closure evidence: recorded**
   (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§9)
-- Current branch: `console/ap01-2026-08-24T10-46-05`
-- Current HEAD: `d6ef83a43eba51a08c840d323183273a7939f844` (PT01.5-Commit; Closure-Commit folgt)
-- Started: 2026-08-24 (AP01)
+- Current branch: `console/ap02-2026-08-24T12-30-23`
+- Current HEAD: `bfacda2434f56fba5b701904e4a32ad75686a9ec` — enthält den AP01-Final-HEAD
+  `3736d1a` als Ancestor; Delta `3736d1a..HEAD` = **0 Nicht-Dokumentationsdateien**
+- Started: 2026-08-24 (AP02); AP01 gestartet und abgeschlossen 2026-08-24
 - Last updated: 2026-08-24
 
 <!-- AP00-HEAD-Historie: f8692c0 = PT00.1, bf125d2 = PT00.2, cad9b6c = PT00.3, 0c58d44 = PT00.4,
@@ -74,6 +77,12 @@ kein `work-packages/APxx-STATE.md`).
   byte-identisch zur Quelle, alle übrigen mit begründeter Abweichung; **keine** Whole-File-Ersetzung
   eines geschützten Hotspots; kein Quellbranch ist Ancestor. Build, Tests und SSR-Smoke auf dem
   Closure-HEAD erneut grün. Baseline Guards **12/12** ohne neue Regression, Decision Locks **18/18**.
+- PT02.1 — SSR-/Rendering-Zielvertrag im kanonischen `RUNTIME-CONTRACT.md` festgeschrieben: Ist-Erhebung
+  §3.1 (read-only, inkl. SSR-Smoke gegen das vorhandene Build-Artefakt), Zielinvarianten **RT-38–RT-70**
+  (SSR-Standard, Hydration, Lazy Loading, 404 vs. Runtime Error, Head-/SEO-SSR, Consumer- und
+  Epigenetik-SSR), Zielmodell §5.4/§5.5, Rendering-Schulden **RD-11–RD-16** mit Owner-AP, Regeln
+  **M-08–M-11**, Nachweise **RT-T14–RT-T22**, Owner-Grenzen §11.1. **Kein** Quell-, Runtime-, Config-
+  oder Dependency-Delta; keine AP09-/AP10-/AP21-/AP25-/AP27-Implementierung vorgezogen.
 
 ## Current Invariants
 
@@ -103,6 +112,16 @@ kein `work-packages/APxx-STATE.md`).
 - Owner-Rollen im Risikoregister sind fachliche Zuständigkeiten, **nicht** die formale
   Launch-Gate-Verantwortung. Letztere wird erst in PT00.4 verbindlich zugewiesen.
 - Kanonischer Abnahmevertrag: `building-docs/RELEASE-ACCEPTANCE.md`. Keine zweite Release-/Gate-Datei.
+- **Kanonischer SSR-/Rendering-Vertrag: `building-docs/RUNTIME-CONTRACT.md`** (AP02 PT02.1). Es gibt
+  keinen zweiten SSR-/Rendering-Contract; spätere APs erweitern diesen oder gar keinen.
+- **SSR ist der Standard für jede indexierbare Seite** (RT-38–RT-42); SSR ist nicht aufwärmabhängig
+  (RT-40). Hydration ist deterministisch (RT-43–RT-48). Lazy Loading ist zulässig, verändert aber nie
+  den semantischen Inhalt des initialen Response (RT-49–RT-53).
+- **404 und Laufzeitfehler sind getrennte Antwortklassen** (RT-54–RT-60): fachlich nicht vorhanden → 404
+  ohne Canonical/hreflang; technischer Fehler → 5xx, nie als 404 maskiert; eine Fehlergrenze ersetzt
+  weder Route-NotFound noch Statuscode.
+- **Genau ein kanonischer Head-/SEO-Pfad** (RT-61–RT-66); Consumer und Epigenetik laufen im normalen
+  SSR-Vertrag, Consumer in allen 10 Sprachen (RT-67–RT-70).
 - **Eigentümer-AP (liefert) ≠ Accountable Owner Role (nimmt ab).** Wer liefert, nimmt nicht ab.
 - Technische Gate-Kriterien stehen in `MASTER-SCOPE.md` §8 und `QUALITY-GATES.md` §12 und werden in
   `RELEASE-ACCEPTANCE.md` nur referenziert, nicht dupliziert.
@@ -113,7 +132,20 @@ kein `work-packages/APxx-STATE.md`).
 
 ## Files Changed by Current AP
 
-<!-- AP01, vollständig. Beim Start von AP02 leeren (siehe `Benutzung`). -->
+<!-- AP02. Beim Start von AP03 leeren (siehe `Benutzung`). -->
+
+**PT02.1 — ausschließlich Dokumentation:**
+
+- `building-docs/RUNTIME-CONTRACT.md` (§2 Stand, §3.1 Ist-Zustand, RT-38–RT-70, §5.4/§5.5,
+  §6.1 RD-11–RD-16, M-08–M-11, §9.1 RT-T14–RT-T22, §10, §11/§11.1)
+- `building-docs/state/AP-STATE.md`
+
+**Anwendungscode / Runtime / Config / Dependencies / Lockfiles: NONE.** `SEO-CONTRACT.md`,
+`QUALITY-GATES.md`, `ROUTING-CONTRACT.md` und `CONTEXT-INDEX.md` sind **unverändert** — eine
+referenzielle Korrektur war nicht erforderlich.
+
+<details>
+<summary>AP01 — Files Changed (abgeschlossen, zur Nachvollziehbarkeit)</summary>
 
 **Anwendungscode / Config — ausschließlich aus PT01.2 (`4e8a774`) und PT01.3 (`1f1f236`):**
 
@@ -138,11 +170,20 @@ kein `work-packages/APxx-STATE.md`).
 `index.html`, `tailwind.config.js`, `src/index.css`, `.github/workflows/ci.yml`, `tsconfig*`,
 `vite.config.ts`, Docker/nginx, `server/**`. **Keine Datei entfernt oder verschoben.**
 
+</details>
+
 ## Open Blockers
 
 <!-- Jeweils: ID/Kurztitel · was blockiert ist · was zur Auflösung gebraucht wird. -->
 
-- **Keine offenen Blocker.** PT01.1–PT01.5 und das Closure Gate sind `PASS`; AP01 ist `COMPLETE`.
+- **Keine offenen Blocker.** PT01.1–PT01.5 und das AP01-Closure Gate sind `PASS`; AP01 ist `COMPLETE`.
+  PT02.1 ist `PASS`; AP02 ist `IN_PROGRESS`.
+- **Hinweis, kein Blocker — neu aus PT02.1:** sechs Rendering-Schulden `RD-11`–`RD-16` in
+  `RUNTIME-CONTRACT.md` §6.1, jede mit Owner-AP, keine davon PT02.1-blockierend. Die schwerste ist
+  **`RD-11`**: die erste SSR-Anfrage je Lazy-Route und Prozess liefert Layout ohne Seiteninhalt und mit
+  leerem Head (statische `index.html`-Defaults bleiben stehen); ab der zweiten Anfrage ist dieselbe
+  Route vollständig. Gemessen, **pre-existing**, vergeben an AP25 (mit AP09), Nachweis AP27. Direkt
+  daran hängt **`RD-12`** (render-abhängige Soft-404-Erkennung, AP10).
 - **Hinweis, kein Blocker:** `RISK-007` ist `MITIGATING` — die AP00-Nachfolgerlinie ist über
   `origin/console/ap00-2026-08-24T09-32-23` gesichert (inhaltsgleich mit HEAD `4f70801`), aber weder
   `feat/home-leadmagnet` noch der aktive Arbeitsbranch hat ein Upstream. Auflösung liegt beim Owner.
@@ -230,67 +271,81 @@ kein `work-packages/APxx-STATE.md`).
 
 <!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste PT braucht. -->
 
-- Nächstes Arbeitspaket ist **AP02 — Zielarchitektur: SSR, Routing, Lead Platform und Betrieb**.
-  Es ist **nicht** gestartet.
+- Nächster Primärtask ist **PT02.2 — Routing-Zielbild / Route Registry** innerhalb von AP02.
+  Er ist **nicht** gestartet.
 - Gemäß `CONTEXT-INDEX.md` liest AP02 zusätzlich zu `ALWAYS_READ`: `RUNTIME-CONTRACT.md` ·
   `ROUTING-CONTRACT.md` · `BACKEND-API-CONTRACT.md` · `LEAD-DATA-CONTRACT.md` ·
   `DEPLOYMENT-CONTRACT.md`; optional bei Anlass `SEO-CONTRACT.md` · `CRM-INTEGRATION.md` ·
-  `LEAD-DELIVERY-CONTRACT.md` · `REPO-BASELINE.md`.
-- **Zusätzlich Pflicht für AP02:** `building-docs/AP01-RECONCILIATION-RESULT.md` — es beschreibt den
-  technischen Ist-Zustand, den AP02 als Ausgangspunkt nimmt: §2 Baseline Guards (`BG-01`–`BG-12`, gelten
-  weiter), §6 Legacy Classification (aktiver vs. toter Deployment-Pfad), §7 Toolchain Contract,
-  §8 Known Remaining Debt (`D-01`–`D-30` mit Owner-APs).
-- Für AP02 besonders relevante offene Punkte aus AP01: `D-11` (Node-Vertrag ungepinnt, AP28 PT28.7) ·
+  `LEAD-DELIVERY-CONTRACT.md` · `REPO-BASELINE.md`. `work-packages/AP02.md` §7.2 nennt für PT02.2
+  zusätzlich verbindlich `ROUTING-CONTRACT.md`, `SEO-CONTRACT.md`, `RUNTIME-CONTRACT.md` und
+  `QUALITY-GATES.md`.
+- **Weiterhin Pflicht für AP02:** `building-docs/AP01-RECONCILIATION-RESULT.md` — §2 Baseline Guards
+  (`BG-01`–`BG-12`, gelten weiter), §6 Legacy Classification, §7 Toolchain Contract, §8 Known Remaining
+  Debt (`D-01`–`D-30` mit Owner-APs).
+- **Neu aus PT02.1 für PT02.2 relevant:** `RUNTIME-CONTRACT.md` **RT-52/RT-56** und **`RD-12`** —
+  die 404-Entscheidung darf nicht an einem render-abhängigen Signal hängen; die Route Registry ist die
+  vorgesehene renderunabhängige Routenwahrheit. Dazu **`RD-13`** (Consumer-Sprachzwang, mit
+  `ROUTING-CONTRACT.md` RD-6 / `SEO-CONTRACT.md` SD-3) und **RT-67/RT-68** (Consumer × 10 als Zielbild).
+- Für AP02 weiterhin offene Punkte aus AP01: `D-11` (Node-Vertrag ungepinnt, AP28 PT28.7) ·
   `D-16` (vier manuelle Routenspiegel, AP07/AP10/AP27) · `D-25` (Pre-Consent-Netzaktivität,
   AP06/AP22/AP23/AP26) · `D-27` (zweite Betriebswahrheit in `server/docker-compose.yml`, AP28 PT28.7) ·
   `D-29` (Musterbefund-Bundle, AP25/AP16).
-- Reproduzierbare Verifikation: isolierter Worktree auf HEAD, `npm ci` **im Root und in `server/`**,
-  `tsc -b` (mit `--max-old-space-size=3072`), `vitest run`, `npm run build`, dann SSR auf isoliertem
-  freiem Port (`NODE_ENV=production PORT=<frei> BACKEND_URL=http://127.0.0.1:39999 npx tsx server.ts`).
-  `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-`prepare`-Script (`lefthook install`)
-  schreibt in die **geteilten** Git-Hooks — vorher sichern, danach zurückspielen (`D-13`).
+- Reproduzierbare Verifikation (unverändert): isolierter Worktree auf HEAD, `npm ci` **im Root und in
+  `server/`**, `tsc -b` (mit `--max-old-space-size=3072`), `vitest run`, `npm run build`, dann SSR auf
+  isoliertem freiem Port (`NODE_ENV=production PORT=<frei> BACKEND_URL=http://127.0.0.1:39999
+npx tsx server.ts`). `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-`prepare`-Script
+  (`lefthook install`) schreibt in die **geteilten** Git-Hooks — vorher sichern, danach zurückspielen
+  (`D-13`).
+- **Cold-Render-Regel für jede spätere SSR-Messung** (`RUNTIME-CONTRACT.md` M-08): eine Route, die der
+  Prozess schon einmal gerendert hat, beweist nichts über die erste Auslieferung. Immer gegen einen
+  frisch gestarteten Dienst und eine bis dahin nicht angeforderte Route messen.
 
 ## Handoff
 
-- **AP01: `COMPLETE`** · **AP01 closure: `PASS` (43/43, `C01-01`–`C01-43`)**
-- Last completed PT: **PT01.5**
-- **Next work package: AP02 — Zielarchitektur: SSR, Routing, Lead Platform und Betrieb — NICHT gestartet**
-- AP00: `COMPLETE`, Closure `PASS` (unverändert erhalten)
+- **AP02: `IN_PROGRESS`** · Last completed PT: **PT02.1 (`PASS`)** · **Next PT: PT02.2 — nicht gestartet**
+- **AP01: `COMPLETE`** · AP01 closure: `PASS` (43/43) · **AP00: `COMPLETE`**, Closure `PASS` — beide
+  unverändert erhalten
+- **AP03: NOT STARTED.** AP02 ist **nicht** `COMPLETE`; das AP02-Closure Gate ist nicht gelaufen.
+- Decision Locks: **18/18 `LOCKED`**, durch PT02.1 unverändert. Baseline `feat/home-leadmagnet@961f65d`
+  bleibt gesperrt und ist Ancestor des HEAD.
 
-Kanonische Ausführungsevidenz: **`building-docs/AP01-RECONCILIATION-RESULT.md`** (§1–§9).
-Der State dupliziert sie nicht.
+Kanonische Ausführungsevidenz AP01: **`building-docs/AP01-RECONCILIATION-RESULT.md`** (§1–§9).
+Kanonische Ausführungsevidenz PT02.1: **`building-docs/RUNTIME-CONTRACT.md`** — der Vertrag selbst ist
+das Artefakt; ein zweiter Report wird dafür nicht angelegt.
 
-Was AP01 hergestellt hat:
+Was PT02.1 hergestellt hat:
 
-- **Baseline** `feat/home-leadmagnet@961f65d` empirisch verifiziert und weiterhin Ancestor der Linie;
-  12 Baseline Guards `BG-01`–`BG-12` festgeschrieben (§1–§2).
-- **`main@d0fdf29`** selektiv importiert: 3 Vertiefungsseiten, `EpiSubpage` + `tokens.ts`,
-  `content/befunde/meta.ts`, 6/6 Musterbefund-Routenmodule, 7 Kompatibilitäts-Hunks in 4 Dateien.
-  Neun Routen sind aktiv, Sitemap 365 `<loc>` (§3, §5).
-- **`redesign/preview@5673b61`** selektiv importiert: P1–P5 alle entschieden; Fehlergrenzen-Mechanismus,
-  providerneutrales Monitoring-Gerüst (Senke standardmäßig No-Op), a11y- und Screenshot-Skripte.
-  Kein Design-System, kein Dark Theme, keine externe Telemetrie (§4, §4a).
-- **40 Legacy-Artefakte klassifiziert**, `LEGACY_LAUNCH_BLOCKING` = 0, **keine Datei entfernt**;
-  kanonische Doku-Einstiegskette abgesichert (§6).
-- **Toolchain-, Dependency-, Security-, Quality-, Build- und Bundle-Baseline** aus einem isolierten
-  Clean Checkout (§7).
-- **Closure-Gate `PASS`**: Herkunft je Datei, Hotfile-Integrität, Build und SSR-Smoke unabhängig
-  nachgemessen (§9).
+- **Ist/Soll getrennt:** §3.1 hält den gemessenen Rendering-Ist-Zustand fest (SSR-Entry, Hydration,
+  Express-SSR-Pfad, Head-Injektion, Code-Splitting, Cold-Render-Verhalten, 404-Handshake,
+  Runtime-Error-Pfad, Consumer, Epigenetik) — als Evidenz, ausdrücklich **nicht** als Ziel.
+- **Zielvertrag RT-38–RT-70:** SSR als Standard für jede indexierbare Seite, Hydration-Determinismus,
+  Lazy-Loading-Grenzen, saubere Trennung 404 vs. Runtime Error, ein kanonischer Head-/SEO-Pfad,
+  Consumer × 10 und Epigenetik im normalen SSR-Vertrag.
+- **Testbarkeit:** Zielmodell §5.4/§5.5 (Rendering-Pfad und Antwortklassen-Tabelle), Nachweise
+  `RT-T14`–`RT-T22`, Modifikationsregeln `M-08`–`M-11`, Owner-Grenzen §11.1.
+- **Schulden statt Reparaturen:** `RD-11`–`RD-16`, jede mit Owner-AP. **Keine** wurde behoben.
 
-Verbindlicher Rahmen für AP02:
+Weiterhin gültiger AP01-Rahmen (nicht dupliziert, nur gezeigt, wo er steht):
 
-- Baseline `feat/home-leadmagnet@961f65d` bleibt gesperrt. `main@d0fdf29` und
-  `redesign/preview@5673b61` bleiben **ausschließlich selektive Quellen**; keiner ist Ancestor der Linie.
-- **Decision Locks 18/18 `LOCKED`** — durch AP01 unverändert.
-- **`BG-01`–`BG-12` gelten weiter** und sind vor jedem Merge in die Relaunch-Linie erneut zu prüfen.
-  Nachweismethodik: §3.4, §4.5, §7.6, §9.5.
-- **Toolchain:** npm, ein `package-lock.json` je Paket; Clean Install ist `npm ci` **im Root und in
-  `server/`**. Der Node-Vertrag ist **dokumentiert, aber nicht gepinnt** — AP01 empfiehlt Node 22,
-  die Festlegung setzt den Container-Angleich voraus (`D-11`, AP28 PT28.7).
-- **30 dokumentierte Schulden** (`D-01`–`D-30`), jede mit Evidenz und Owner-AP, **keine**
-  launch-blockierend für AP01. Die schwerste ist `D-25`: vier externe Hosts vor jeder Einwilligung —
-  pre-existing, vergeben an AP06 PT06.4.6, AP22 PT22.7, AP23 PT23.1, AP26 PT26.2.
-- AP02 ist Zielbild-Arbeit: es beschreibt die Architektur, es implementiert sie nicht.
+- Baseline `feat/home-leadmagnet@961f65d` gesperrt; `main@d0fdf29` und `redesign/preview@5673b61` bleiben
+  **ausschließlich selektive Quellen**, keiner ist Ancestor der Linie
+  (`AP01-RECONCILIATION-RESULT.md` §1, §3, §4).
+- **`BG-01`–`BG-12` gelten weiter** und sind vor jedem Merge in die Relaunch-Linie erneut zu prüfen
+  (§2; Nachweismethodik §3.4, §4.5, §7.6, §9.5).
+- **Toolchain:** npm, ein `package-lock.json` je Paket, Clean Install `npm ci` **im Root und in
+  `server/`**; der Node-Vertrag ist dokumentiert, aber **nicht gepinnt** (`D-11`, AP28 PT28.7) — §7.
+- **30 dokumentierte Schulden `D-01`–`D-30`** mit Evidenz und Owner-AP, keine AP01-blockierend (§8);
+  die schwerste bleibt `D-25` (vier externe Hosts vor jeder Einwilligung, AP06/AP22/AP23/AP26).
+
+Verbindlicher Rahmen für PT02.2:
+
+- **`RUNTIME-CONTRACT.md` ist der einzige kanonische SSR-/Rendering-Vertrag.** PT02.2 erweitert
+  `ROUTING-CONTRACT.md` und legt keinen konkurrierenden Rendering-Contract an.
+- Die Route Registry muss die **renderunabhängige** Routenwahrheit liefern, aus der 404, Canonical und
+  hreflang gemeinsam abgeleitet werden (RT-52, RT-56, `RD-12`).
+- `BG-01`–`BG-12` gelten weiter; `REST-03`, `DEC-RL-005` und `DEC-RL-006` sind durch PT02.1 bestätigt
+  und nicht aufgeweicht.
+- AP02 bleibt Zielbild-Arbeit: es beschreibt die Architektur, es implementiert sie nicht.
 
 ---
 
