@@ -8,11 +8,12 @@ kein `work-packages/APxx-STATE.md`).
 
 ## Current
 
-- Work package: AP02 — Zielarchitektur: SSR, Routing, Lead Platform und Betrieb
-- Status: COMPLETE <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
-- AP02 closure: PASS (23/23, `C02-01`–`C02-23`)
-- Last completed PT: PT02.5 — Produktionsbetriebs-Zielbild (PASS); PT02.1–PT02.5 alle PASS
-- Next work package: AP03 — Informationsarchitektur und vollständiges Seiteninventar
+- Work package: AP03 — Informationsarchitektur und vollständiges Seiteninventar
+- Status: IN_PROGRESS <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
+- Last completed PT: PT03.1 — Vollständiges Inventar (PASS)
+- Next PT: PT03.2 — Seitentypen und Rollen (nicht begonnen)
+- IA inventory: recorded (`building-docs/IA-INVENTORY.md`, neu)
+- AP02: COMPLETE · AP02 closure: PASS (23/23, `C02-01`–`C02-23`) — unverändert erhalten
 - SSR/rendering contract: recorded (`building-docs/RUNTIME-CONTRACT.md`)
 - Routing/route-registry contract: recorded (`building-docs/ROUTING-CONTRACT.md`)
 - Content/asset contract: recorded (`building-docs/CONTENT-ASSET-CONTRACT.md`)
@@ -21,15 +22,15 @@ kein `work-packages/APxx-STATE.md`).
 - Production/deployment contract: recorded (`building-docs/DEPLOYMENT-CONTRACT.md`)
 - AP01: COMPLETE · AP01 closure: PASS (43/43, `C01-01`–`C01-43`) — unverändert erhalten
 - AP00: COMPLETE · AP00 closure: PASS (unverändert erhalten)
-- AP03: NOT STARTED — kein `PT03.x` aktiv
+- AP04: NOT STARTED
 - Baseline: `feat/home-leadmagnet@961f65d` — Ancestor des aktuellen HEAD, empirisch bestätigt
 - Baseline evidence: recorded · `main` Import Ledger: recorded · redesign patterns: recorded ·
   legacy classification: recorded · final clean build evidence: recorded · **closure evidence: recorded**
   (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§9)
 - Current branch: `console/ap02-2026-08-24T12-30-23`
-- Current HEAD: `fffd7129ae700b2ac747c23ffc3be846d06ee9e9` — PT02.5-Commit; enthält den
-  AP01-Final-HEAD `3736d1a` als Ancestor; Delta `3736d1a..HEAD` = **0 Nicht-Dokumentationsdateien**
-  (12 geänderte Dateien, alle unter `building-docs/`) — im Closure-Lauf unabhängig nachgemessen
+- Current HEAD: `d760b1d911ef361d23afa3b8f3cc3191733399a2` — AP02-Closure-Commit; enthält den
+  AP01-Final-HEAD `3736d1a` als Ancestor. AP02-Delta `3736d1a..fffd712` = **0
+  Nicht-Dokumentationsdateien**; AP03 setzt diese Linie fort und ändert ebenfalls nur `building-docs/`
 - Started: 2026-08-24 (AP02); AP01 gestartet und abgeschlossen 2026-08-24
 - Last updated: 2026-08-24
 
@@ -124,6 +125,15 @@ kein `work-packages/APxx-STATE.md`).
   **M-09/M-10**, **D-T16–D-T22** und §9.2 mit der Zuordnung der geforderten Betriebssemantik auf die
   bestehende `DEP-`-Systematik, Owner-Grenzen §11.1. **Kein Deployment, kein Dienststart, kein
   Image-Build, keine Docker-/Compose-/nginx-/Environment-Änderung.**
+- PT03.1 — Kanonisches Seiten- und Routeninventar im **neuen** `IA-INVENTORY.md` erstellt
+  (`AP03.md` §5.2: genau ein IA-Hauptartefakt, da keines existierte): 10 Hauptseiten, 9
+  Diagnostik-Services, IglooPro, Epigenetik-Hub + 3 Vertiefungen, 6 Musterbefunde, 6 Artikel, Events,
+  Downloads/Resources, 3 Consumer-Familien, About/Contact/Support/Legal, 3 Spezialseiten, 6 Redirect
+  Sources, 404 und 6 technische Pfadklassen — insgesamt **27 Seitenfamilien/Rollen** (P-01–P-27) mit
+  CURRENT-/TARGET-Trennung, Ziel-URL-Abdeckung **412**, IA-Schulden `IAD-01`–`IAD-11` mit Owner-AP,
+  Owner-Mapping §10, Invarianten-Nachweis §11 (`IA-01`, `IA-02`, `IA-08`, `IA-10`, `IA-11`, `IA-13`,
+  `IA-14`, `IA-23`, `IA-24`, `IA-25`). `CONTEXT-INDEX.md` ergänzt. **Keine Route, Navigation, Suche,
+  SEO-, Content- oder i18n-Änderung; PT03.2–PT03.4 nicht vorgezogen.**
 - AP02-CLOSURE — Closure Gate `PASS`: `C02-01` bis `C02-23` geprüft. PT02.1–PT02.5 vollständig gegen
   Master-Scope, `AP02.md` und den realen Contract-Zustand verifiziert; Cross-Contract-Konsistenz in
   13 Querbezügen belegt; Decision Locks **18/18**; **0 Nicht-Dokumentationsdateien** im AP02-Delta;
@@ -236,6 +246,13 @@ kein `work-packages/APxx-STATE.md`).
   `LEAD-DATA-CONTRACT.md` §2.1 als Einstieg mit `BACKEND-API-CONTRACT.md` (API-21–API-23),
   `LEAD-DELIVERY-CONTRACT.md`, `CRM-INTEGRATION.md` und LD-27–LD-33 · production/deployment
   `DEPLOYMENT-CONTRACT.md` (DEP-37–DEP-57).
+- **Kanonisches IA-Artefakt: `building-docs/IA-INVENTORY.md`** (AP03 PT03.1). Es gibt genau eines;
+  es ist **IA-Wahrheit, keine zweite Routing-Wahrheit** (`AP03.md` §5.3). Pfade, Locale-Policy und
+  Status bleiben `ROUTING-CONTRACT.md`.
+- **Epigenetik ist im Inventar eine eigenständige Geschäftssäule** (IA-08); die heutige
+  Navigationsunterordnung unter Diagnostik ist Debt `IAD-02`, nicht Ziel.
+- **Consumer ist im Inventar dreimal 10 Locales und indexierbar** (IA-10/IA-11); der heutige
+  `/en/`-Zwang ist Debt `IAD-01`.
 - **`ARCHITECTURE BASELINE COMPLETE` heißt nicht launch-ready.** AP02 hat nichts implementiert: kein
   Routing, keine Lead-Plattform, kein Docker-Zielstack, kein Consumer × 10, keine SEO-Umsetzung, keine
   Consent-Reparatur. Alle 12 Launch-Gates stehen unverändert auf `NOT_RUN`.
@@ -249,7 +266,22 @@ kein `work-packages/APxx-STATE.md`).
 
 ## Files Changed by Current AP
 
-<!-- AP02. Beim Start von AP03 leeren (siehe `Benutzung`). -->
+<!-- AP03. Beim Start von AP04 leeren (siehe `Benutzung`). -->
+
+**PT03.1 — ausschließlich Dokumentation:**
+
+- `building-docs/IA-INVENTORY.md` — **neu**, das kanonische IA-Hauptartefakt
+- `building-docs/CONTEXT-INDEX.md` — Matrixzeile AP03 (required) und AP04/AP06/AP07/AP19/AP21
+  (optional) plus eine Regelzeile in §4.1
+- `building-docs/state/AP-STATE.md`
+
+**Anwendungscode / Locale-Dateien / Assets / Runtime / Config / Dependencies / Lockfiles: NONE.**
+`MASTER-SCOPE.md`, `DECISIONS.md`, `PROJECT-CONSTRAINTS.md`, `ROUTING-CONTRACT.md`,
+`SEO-CONTRACT.md`, `I18N-CONTRACT.md`, `RUNTIME-CONTRACT.md` und `CONTENT-ASSET-CONTRACT.md` sind
+**unverändert**.
+
+<details>
+<summary>AP02 — Files Changed (abgeschlossen, zur Nachvollziehbarkeit)</summary>
 
 **PT02.1 — ausschließlich Dokumentation** (committet als `f7a7ff0`):
 
@@ -283,6 +315,8 @@ kein `work-packages/APxx-STATE.md`).
 
 `RUNTIME-CONTRACT.md`, `NETWORK-ALLOWLIST.md` und `QUALITY-GATES.md` sind **unverändert** — eine
 referenzielle Korrektur war nicht erforderlich.
+
+</details>
 
 **Anwendungscode / Locale-Dateien / Assets / Runtime / Config / Dependencies / Lockfiles: NONE.**
 `MASTER-SCOPE.md`, `DECISIONS.md`, `PROJECT-CONSTRAINTS.md`, `I18N-CONTRACT.md`, `SEO-CONTRACT.md`,
@@ -322,7 +356,13 @@ referenzielle Korrektur war nicht erforderlich.
 <!-- Jeweils: ID/Kurztitel · was blockiert ist · was zur Auflösung gebraucht wird. -->
 
 - **Keine offenen Blocker.** PT01.1–PT01.5 und das AP01-Closure Gate sind `PASS`; AP01 ist `COMPLETE`.
-  **PT02.1–PT02.5 sind alle `PASS`; AP02 ist `IN_PROGRESS` und wartet auf den Closure-Lauf.**
+  **PT02.1–PT02.5 sind alle `PASS`, AP02 ist `COMPLETE` mit Closure `PASS`; PT03.1 ist `PASS`.**
+- **Hinweis, kein Blocker — neu aus PT03.1:** elf IA-Schulden `IAD-01`–`IAD-11` in `IA-INVENTORY.md`
+  §9, jede mit Owner-AP und Launch-Gate-Bezug, keine PT03.1-blockierend. Launch-Gate-relevant sind
+  `IAD-01` (Consumer EN-only → Gate 1/4, AP21), `IAD-02` (Epigenetik unter Diagnostik → Gate 6,
+  AP03 PT03.4/AP06), `IAD-05` (Legal `noindex` trotz Sitemap → Gate 4, AP20), `IAD-07` (kein gated
+  Pfad → Gate 10, AP19), `IAD-08` (Chat-Reste → Gate 5), `IAD-10` (`/services*` clientseitig → Gate 4,
+  AP10) und `IAD-11` (Epigenetik-Inquiry nicht eigenständig → Gate 6/3, AP15/AP22).
 - **Hinweis, kein Blocker — neu aus PT02.5:** drei Betriebsschulden `DD-15`–`DD-17` in
   `DEPLOYMENT-CONTRACT.md` §6 — `DD-15` (Backend-Host-Port ohne Bedarf veröffentlicht, loopback-gebunden,
   AP28 mit AP26), `DD-16` (`depends_on` ohne Bedingung, also keine Readiness-Prüfung, AP28 PT28.2),
@@ -441,28 +481,30 @@ referenzielle Korrektur war nicht erforderlich.
   sind Evidenz mit Owner-AP, keine AP01-Zusage und keine Freigabe.
 - **Keine Toolchain-Festlegung.** Node-/Paketmanager-Pinning ist offen und gehört zu PT01.5.3.
 
-## Required Context for Next Work Package
+## Required Context for Next PT
 
-<!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste Lauf braucht. -->
+<!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste PT braucht. -->
 
-- Nächstes Arbeitspaket ist **AP03 — Informationsarchitektur und vollständiges Seiteninventar**.
-  Es ist **nicht** gestartet; Spezifikation: `building-docs/work-packages/AP03.md`.
+- Nächster Primärtask ist **PT03.2 — Seitentypen und Rollen** innerhalb von AP03. Er ist **nicht**
+  gestartet.
 - Gemäß `CONTEXT-INDEX.md` liest AP03 zusätzlich zu `ALWAYS_READ`: `ROUTING-CONTRACT.md` ·
-  `SEO-CONTRACT.md` · `I18N-CONTRACT.md`; optional bei Anlass `REPO-BASELINE.md` · `QUALITY-GATES.md`.
-- **AP02 liefert AP03 die Routenwahrheit, nicht das Inventar.** Direkt relevant:
-  `ROUTING-CONTRACT.md` **R-23** (13 Route-Klassen), **R-40** (Existenz, Sitemap-, Search- und
-  Navigations-Teilnahme sind vier getrennte Eigenschaften), **R-51** (Navigation ist Konsument, nicht
-  Registry — Hierarchie und Platzierung entscheidet AP03/AP06) und **R-53** (Epigenetik ist eine
-  eigenständige Säule). Dazu `CONTENT-ASSET-CONTRACT.md` **§5.1** (Content ≠ Route Registry) und
-  **CA-14** (Consumer und Epigenetik × 10).
-- **Für AP03 bereits erhobene Ist-Evidenz, nicht neu messen:** `ROUTING-CONTRACT.md` §3.1 (acht
-  handgeführte Routenspiegel, 37 `<Route>`-Elemente, drei Sitemap-Tabellen) und `RD-11` (Epigenetik
-  hängt navigatorisch unter Diagnostik — **ein AP03-/AP06-Thema**), `RD-12` (toter Suchtreffer).
+  `SEO-CONTRACT.md` · `I18N-CONTRACT.md` · **`IA-INVENTORY.md`**; optional bei Anlass
+  `REPO-BASELINE.md` · `QUALITY-GATES.md`.
+- **PT03.2 erweitert dasselbe Dokument**, es legt kein zweites an: `IA-INVENTORY.md` §8 reserviert die
+  Abschnitte für Seitentyp-Taxonomie und Rollen-/CTA-Matrix. Zu füllen sind dort die Invarianten
+  **`IA-03`–`IA-07`**; alle Inventarzeilen mit `TO_BE_FINALIZED_PT03.2` sind die Arbeitsliste.
+- **Verbindliche Vorgaben für PT03.2:** die zehn Seitentypen aus `MASTER-SCOPE.md` AP03 PT03.2;
+  der allgemeine Sales-CTA heißt **„Angebot anfragen"** (`DEC-RL-013`, `IA-07`), fachliche Ausnahmen
+  (Support, Consumer Order, Download-Gate, Epigenetik-Inquiry, ROI) sind bewusst und benannt.
+  **Support ist kein Sales-Lead** (P-04).
+- **Nicht vorziehen:** Kernjourneys (PT03.3, `IA-15`/`IA-16`/`IA-21`/`IA-22`) und
+  Navigation/Findability (PT03.4, `IA-09`/`IA-12`/`IA-17`–`IA-20`).
 - **Weiterhin gültig:** `AP01-RECONCILIATION-RESULT.md` §2 Baseline Guards (`BG-01`–`BG-12`), §6 Legacy
-  Classification, §7 Toolchain Contract, §8 Known Remaining Debt (`D-01`–`D-30`).
+  Classification, §7 Toolchain Contract, §8 Known Remaining Debt (`D-01`–`D-30`); die AP02-Verträge
+  RT-38–RT-70, R-17–R-53, CA-01–CA-40, LD-27–LD-33 und DEP-37–DEP-57.
 - **Debt-IDs immer mit ihrem Vertrag nennen.** Gleichnamige Serien: `CD-` in
   `CONTENT-ASSET-CONTRACT.md` **und** `CRM-INTEGRATION.md`; `RD-` in `RUNTIME-CONTRACT.md` **und**
-  `ROUTING-CONTRACT.md`.
+  `ROUTING-CONTRACT.md`. Die IA-Serie ist `IAD-`.
 - Reproduzierbare Verifikation (unverändert): isolierter Worktree auf HEAD, `npm ci` **im Root und in
   `server/`**, `tsc -b` (mit `--max-old-space-size=3072`), `vitest run`, `npm run build`, dann SSR auf
   isoliertem freiem Port (`NODE_ENV=production PORT=<frei> BACKEND_URL=http://127.0.0.1:39999
@@ -472,16 +514,14 @@ npx tsx server.ts`). `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-
 
 ## Handoff
 
-- **AP02: `COMPLETE`** · **AP02 closure: `PASS` (23/23, `C02-01`–`C02-23`)** · Last completed PT:
-  **PT02.5**. Alle fünf Primärtasks PT02.1–PT02.5 sind `PASS`.
-- **Next work package: AP03 — Informationsarchitektur und vollständiges Seiteninventar — NICHT
-  gestartet.** Die Spezifikation liegt seit `58f0504` unter `building-docs/work-packages/AP03.md`
-  (Status dort: `READY FOR EXECUTION`, Vorgänger `AP02 Closure PASS`) und wurde von AP02 weder
-  erzeugt noch verändert.
+- **AP03: `IN_PROGRESS`** · Last completed PT: **PT03.1 (`PASS`)** · **Next PT: PT03.2 — nicht
+  gestartet.** AP03 ist **nicht** `COMPLETE`; das AP03-Closure Gate ist nicht gelaufen.
+- **AP02: `COMPLETE`** · **AP02 closure: `PASS` (23/23, `C02-01`–`C02-23`)** — unverändert erhalten.
+- **AP04: NOT STARTED.**
 - **AP01: `COMPLETE`** · AP01 closure: `PASS` (43/43) · **AP00: `COMPLETE`**, Closure `PASS` — beide
   unverändert erhalten
-- **AP03: NOT STARTED.** AP02 ist **nicht** `COMPLETE`; das AP02-Closure Gate ist nicht gelaufen.
-- Decision Locks: **18/18 `LOCKED`**, durch PT02.1–PT02.5 und den Closure-Lauf unverändert;
+- Decision Locks: **18/18 `LOCKED`**, durch PT02.1–PT02.5, den AP02-Closure-Lauf und PT03.1
+  unverändert;
   `MASTER-SCOPE.md`, `DECISIONS.md`, `PROJECT-CONSTRAINTS.md` und `SCOPE-CHANGELOG.md` sind im gesamten
   AP02-Delta **unberührt**. Baseline
   `feat/home-leadmagnet@961f65d` bleibt gesperrt und ist Ancestor des HEAD.
@@ -490,8 +530,9 @@ Kanonische Ausführungsevidenz AP01: **`building-docs/AP01-RECONCILIATION-RESULT
 Kanonische Ausführungsevidenz PT02.1: **`building-docs/RUNTIME-CONTRACT.md`** · PT02.2:
 **`building-docs/ROUTING-CONTRACT.md`** · PT02.3: **`building-docs/CONTENT-ASSET-CONTRACT.md`** ·
 PT02.4: **`LEAD-DATA-CONTRACT.md`** (Hub, §2.1/§3.1) mit `BACKEND-API-CONTRACT.md`,
-`LEAD-DELIVERY-CONTRACT.md` und `CRM-INTEGRATION.md` · PT02.5: **`DEPLOYMENT-CONTRACT.md`** — der
-jeweilige Vertrag ist das Artefakt; ein zweiter Report wird dafür nicht angelegt.
+`LEAD-DELIVERY-CONTRACT.md` und `CRM-INTEGRATION.md` · PT02.5: **`DEPLOYMENT-CONTRACT.md`** · PT03.1:
+**`building-docs/IA-INVENTORY.md`** — das jeweilige Artefakt ist der Nachweis; ein zweiter Report wird
+dafür nicht angelegt.
 
 Was PT02.1 hergestellt hat:
 
@@ -573,6 +614,29 @@ Was PT02.4 hergestellt hat:
   offener Relay).
 - **Testbarkeit:** §9.1 ordnet die geforderten `LEAD-01`–`LEAD-22` auf die vier bestehenden
   ID-Systematiken zu, ohne eine fünfte einzuführen.
+
+Was PT03.1 hergestellt hat:
+
+- **Ein kanonisches IA-Artefakt**, weil keines existierte (`AP03.md` §5.1/§5.2): `IA-INVENTORY.md`.
+  Es ersetzt die Route Registry **nicht** — Pfade, Locale-Policy und Status bleiben
+  `ROUTING-CONTRACT.md` (§5.3 dort).
+- **Vollständiges Inventar (§4–§7):** 27 Seitenfamilien und Rollen `P-01`–`P-27`, dazu 6 Redirect
+  Sources `X-01`–`X-06`, der Not-Found-Zustand `N-01` und 6 technische Pfadklassen `T-01`–`T-06`.
+  Pflichtabdeckung erfüllt: 10 Hauptseiten · 9 Diagnostik-Services · IglooPro · Epigenetik-Hub +
+  3 Vertiefungen · 6 Musterbefunde · 6 Artikel · Events · Downloads/Resources · 3 Consumer-Familien ·
+  About/Contact/Support/Legal · 3 Spezialseiten · Legacy/Redirects · 404 · technische Abgrenzung.
+- **CURRENT und TARGET getrennt** über `PRESENT`/`PARTIAL`/`PLANNED`/`LEGACY`/`REDIRECT_SOURCE`/
+  `TECHNICAL`/`NOT_FOUND`; aus keinem Ist-Mangel wurde eine Product Decision abgeleitet.
+- **Route Pattern und Ressource getrennt** (§2.3): 9 Services, 6 Musterbefunde, 6 Artikel als
+  Ressourcen ihrer fachlichen Quelle; Events sind Inhalt der Seite, keine eigene Route.
+- **Schulden statt Reparaturen:** `IAD-01`–`IAD-11`, jede mit Owner-AP und Launch-Gate-Bezug. **Keine**
+  wurde behoben.
+
+Verbindlicher Rahmen für PT03.2:
+
+- **PT03.2 erweitert `IA-INVENTORY.md` §8**, es legt kein zweites IA-Dokument an.
+- Zu füllen sind `IA-03`–`IA-07`; die Arbeitsliste sind die Zeilen mit `TO_BE_FINALIZED_PT03.2`.
+- Journeys (PT03.3) und Navigation/Findability (PT03.4) bleiben unberührt.
 
 Was PT02.5 hergestellt hat:
 
