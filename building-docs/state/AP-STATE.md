@@ -10,9 +10,10 @@ kein `work-packages/APxx-STATE.md`).
 
 - Work package: AP02 — Zielarchitektur: SSR, Routing, Lead Platform und Betrieb
 - Status: IN_PROGRESS <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
-- Last completed PT: PT02.1 — SSR- und Rendering-Zielbild (PASS)
-- Next PT: PT02.2 — Routing-Zielbild / Route Registry (nicht begonnen)
+- Last completed PT: PT02.2 — Routing-Zielbild / Route Registry (PASS)
+- Next PT: PT02.3 — Content-/Asset-Architektur (nicht begonnen)
 - SSR/rendering contract: recorded (`building-docs/RUNTIME-CONTRACT.md`)
+- Routing/route-registry contract: recorded (`building-docs/ROUTING-CONTRACT.md`)
 - AP01: COMPLETE · AP01 closure: PASS (43/43, `C01-01`–`C01-43`) — unverändert erhalten
 - AP00: COMPLETE · AP00 closure: PASS (unverändert erhalten)
 - AP03: NOT STARTED
@@ -21,8 +22,8 @@ kein `work-packages/APxx-STATE.md`).
   legacy classification: recorded · final clean build evidence: recorded · **closure evidence: recorded**
   (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§9)
 - Current branch: `console/ap02-2026-08-24T12-30-23`
-- Current HEAD: `bfacda2434f56fba5b701904e4a32ad75686a9ec` — enthält den AP01-Final-HEAD
-  `3736d1a` als Ancestor; Delta `3736d1a..HEAD` = **0 Nicht-Dokumentationsdateien**
+- Current HEAD: `f7a7ff0ff42b9750db00e548adf17acdde24319a` — PT02.1-Commit; enthält den
+  AP01-Final-HEAD `3736d1a` als Ancestor; Delta `3736d1a..HEAD` = **0 Nicht-Dokumentationsdateien**
 - Started: 2026-08-24 (AP02); AP01 gestartet und abgeschlossen 2026-08-24
 - Last updated: 2026-08-24
 
@@ -83,6 +84,13 @@ kein `work-packages/APxx-STATE.md`).
   Epigenetik-SSR), Zielmodell §5.4/§5.5, Rendering-Schulden **RD-11–RD-16** mit Owner-AP, Regeln
   **M-08–M-11**, Nachweise **RT-T14–RT-T22**, Owner-Grenzen §11.1. **Kein** Quell-, Runtime-, Config-
   oder Dependency-Delta; keine AP09-/AP10-/AP21-/AP25-/AP27-Implementierung vorgezogen.
+- PT02.2 — Routing-Zielbild im kanonischen `ROUTING-CONTRACT.md` festgeschrieben: Ist-Erhebung §3.1
+  (acht handgeführte Routenspiegel A–H, read-only), Zielinvarianten **R-17–R-53** (URL-/Locale-Vertrag,
+  13 Route-Klassen, Route Registry als Single Source of Truth mit 14 Metadatenfeldern, dynamische
+  Ressourcen, Redirect-Klassen A–E, Statusmatrix, Canonical-/hreflang-Ableitung, Sitemap/Search/
+  Navigation als Konsumenten, Consumer × 10, Epigenetik als eigene Säule), Schulden **RD-8–RD-14**,
+  Regeln **M-06–M-08**, Nachweise **T-11–T-20** mit RTG-Zuordnung §8.2, Owner-Grenzen §10.1.
+  **Keine Route Registry implementiert**, kein Quell-/Runtime-/Config-/Dependency-Delta.
 
 ## Current Invariants
 
@@ -122,6 +130,21 @@ kein `work-packages/APxx-STATE.md`).
   weder Route-NotFound noch Statuscode.
 - **Genau ein kanonischer Head-/SEO-Pfad** (RT-61–RT-66); Consumer und Epigenetik laufen im normalen
   SSR-Vertrag, Consumer in allen 10 Sprachen (RT-67–RT-70).
+- **Kanonischer Routing-/URL-/HTTP-Vertrag: `building-docs/ROUTING-CONTRACT.md`** (AP02 PT02.2). Es gibt
+  keine zweite Routing-Wahrheit und keinen konkurrierenden Routing-Contract.
+- **Es gibt genau eine kanonische Routing-Wahrheit** (R-24/R-25): App-Routen, Known Paths, Sitemap,
+  Canonical/hreflang, Search, Redirects, Navigations-Linkziele und Route-Tests leiten daraus ab und
+  pflegen keine eigene Liste existierender URLs. Ableitbarkeit ist verbindlich, ein bestimmtes
+  Dateilayout nicht (R-26/R-29).
+- **Route Registry ≠ Content-Datenbank** (R-28): gültige Slugs bleiben bei der fachlichen Datenquelle;
+  jede dynamische Route benennt genau eine Slug-Quelle (R-33).
+- **Existenz, Sitemap-Teilnahme, Search-Teilnahme und Navigationsplatzierung sind vier getrennte
+  Eigenschaften** (R-40). „Nicht in der Sitemap = unbekannte Route" ist ausgeschlossen — heute ist genau
+  das die Ist-Architektur (`RD-8`).
+- **Route-Identität ist Locale + Pfadmuster + aufgelöste Parameter** (R-21); Query und Fragment gehören
+  nicht dazu. Die Locale kommt ausschließlich aus der URL (R-18).
+- **`/services*` ist im Ziel eine echte serverseitige 301-Brücke** in einem Hop (R-38); Redirect-Quellen
+  sind keine kanonischen Seiten (R-37).
 - **Eigentümer-AP (liefert) ≠ Accountable Owner Role (nimmt ab).** Wer liefert, nimmt nicht ab.
 - Technische Gate-Kriterien stehen in `MASTER-SCOPE.md` §8 und `QUALITY-GATES.md` §12 und werden in
   `RELEASE-ACCEPTANCE.md` nur referenziert, nicht dupliziert.
@@ -134,15 +157,22 @@ kein `work-packages/APxx-STATE.md`).
 
 <!-- AP02. Beim Start von AP03 leeren (siehe `Benutzung`). -->
 
-**PT02.1 — ausschließlich Dokumentation:**
+**PT02.1 — ausschließlich Dokumentation** (committet als `f7a7ff0`):
 
 - `building-docs/RUNTIME-CONTRACT.md` (§2 Stand, §3.1 Ist-Zustand, RT-38–RT-70, §5.4/§5.5,
   §6.1 RD-11–RD-16, M-08–M-11, §9.1 RT-T14–RT-T22, §10, §11/§11.1)
+
+**PT02.2 — ausschließlich Dokumentation:**
+
+- `building-docs/ROUTING-CONTRACT.md` (§2 Stand, §3.1 Ist-Zustand, R-17–R-53, §5.1 RD-8–RD-14,
+  M-06–M-08, §8.1/§8.2, §9, §10/§10.1)
 - `building-docs/state/AP-STATE.md`
 
 **Anwendungscode / Runtime / Config / Dependencies / Lockfiles: NONE.** `SEO-CONTRACT.md`,
-`QUALITY-GATES.md`, `ROUTING-CONTRACT.md` und `CONTEXT-INDEX.md` sind **unverändert** — eine
-referenzielle Korrektur war nicht erforderlich.
+`QUALITY-GATES.md`, `CONTEXT-INDEX.md`, `MASTER-SCOPE.md` und `DECISIONS.md` sind **unverändert** — eine
+referenzielle Korrektur war in beiden PTs nicht erforderlich. `CONTEXT-INDEX.md` weist
+`ROUTING-CONTRACT.md` bereits als AP02-Pflichtkontext aus; ein neuer Routing-Contract wurde **nicht**
+angelegt.
 
 <details>
 <summary>AP01 — Files Changed (abgeschlossen, zur Nachvollziehbarkeit)</summary>
@@ -177,7 +207,12 @@ referenzielle Korrektur war nicht erforderlich.
 <!-- Jeweils: ID/Kurztitel · was blockiert ist · was zur Auflösung gebraucht wird. -->
 
 - **Keine offenen Blocker.** PT01.1–PT01.5 und das AP01-Closure Gate sind `PASS`; AP01 ist `COMPLETE`.
-  PT02.1 ist `PASS`; AP02 ist `IN_PROGRESS`.
+  PT02.1 und PT02.2 sind `PASS`; AP02 ist `IN_PROGRESS`.
+- **Hinweis, kein Blocker — neu aus PT02.2:** sieben Routing-Schulden `RD-8`–`RD-14` in
+  `ROUTING-CONTRACT.md` §5.1, jede mit Owner-AP, keine PT02.2-blockierend. Die schwerste ist **`RD-8`**:
+  `KNOWN_PATHS` wird **aus der Sitemap abgeleitet**, „nicht in der Sitemap = unbekannte Route" ist damit
+  die reale Architektur (geflickt durch acht Handausnahmen). Owner AP10 PT10.3. Dazu `RD-10`
+  (**acht** statt vier Routenspiegel) und `RD-13` (der einzige Routen-Guard prüft keine Statuscodes).
 - **Hinweis, kein Blocker — neu aus PT02.1:** sechs Rendering-Schulden `RD-11`–`RD-16` in
   `RUNTIME-CONTRACT.md` §6.1, jede mit Owner-AP, keine davon PT02.1-blockierend. Die schwerste ist
   **`RD-11`**: die erste SSR-Anfrage je Lazy-Route und Prozess liefert Layout ohne Seiteninhalt und mit
@@ -271,23 +306,30 @@ referenzielle Korrektur war nicht erforderlich.
 
 <!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste PT braucht. -->
 
-- Nächster Primärtask ist **PT02.2 — Routing-Zielbild / Route Registry** innerhalb von AP02.
-  Er ist **nicht** gestartet.
+- Nächster Primärtask ist **PT02.3 — Content-/Asset-Architektur** innerhalb von AP02. Er ist **nicht**
+  gestartet.
 - Gemäß `CONTEXT-INDEX.md` liest AP02 zusätzlich zu `ALWAYS_READ`: `RUNTIME-CONTRACT.md` ·
   `ROUTING-CONTRACT.md` · `BACKEND-API-CONTRACT.md` · `LEAD-DATA-CONTRACT.md` ·
   `DEPLOYMENT-CONTRACT.md`; optional bei Anlass `SEO-CONTRACT.md` · `CRM-INTEGRATION.md` ·
-  `LEAD-DELIVERY-CONTRACT.md` · `REPO-BASELINE.md`. `work-packages/AP02.md` §7.2 nennt für PT02.2
-  zusätzlich verbindlich `ROUTING-CONTRACT.md`, `SEO-CONTRACT.md`, `RUNTIME-CONTRACT.md` und
-  `QUALITY-GATES.md`.
+  `LEAD-DELIVERY-CONTRACT.md` · `REPO-BASELINE.md`. `work-packages/AP02.md` §1.3 nennt für PT02.3
+  zusätzlich die content-/asset-relevanten kanonischen Contracts, die AP01-Evidenz zu Musterbefunden,
+  Epigenetik und Legacy-Assets sowie die Repository-Datenmodelle **read-only**.
+- **Offene Dokumententscheidung für PT02.3:** In `building-docs/` existiert **kein** Content-/Asset-
+  Contract. `I18N-CONTRACT.md` ist der nächstliegende bestehende Kanon und zuerst zu prüfen.
+  `work-packages/AP02.md` §5.2 erlaubt, genau **einen** neuen kanonischen Contract je fehlender Domäne
+  anzulegen (Namensvorschlag dort: `CONTENT-ASSET-CONTRACT.md`) — mit anschließender Aktualisierung von
+  `CONTEXT-INDEX.md`. PT02.2 hat diese Entscheidung **nicht** vorweggenommen.
 - **Weiterhin Pflicht für AP02:** `building-docs/AP01-RECONCILIATION-RESULT.md` — §2 Baseline Guards
   (`BG-01`–`BG-12`, gelten weiter), §6 Legacy Classification, §7 Toolchain Contract, §8 Known Remaining
   Debt (`D-01`–`D-30` mit Owner-APs).
-- **Neu aus PT02.1 für PT02.2 relevant:** `RUNTIME-CONTRACT.md` **RT-52/RT-56** und **`RD-12`** —
-  die 404-Entscheidung darf nicht an einem render-abhängigen Signal hängen; die Route Registry ist die
-  vorgesehene renderunabhängige Routenwahrheit. Dazu **`RD-13`** (Consumer-Sprachzwang, mit
-  `ROUTING-CONTRACT.md` RD-6 / `SEO-CONTRACT.md` SD-3) und **RT-67/RT-68** (Consumer × 10 als Zielbild).
+- **Neu aus PT02.2 für PT02.3 relevant:** `ROUTING-CONTRACT.md` **R-28** (Route Registry ist keine
+  Content-Datenbank) und **R-33** (genau eine Slug-Quelle je dynamischer Route) ziehen die Grenze, an
+  der PT02.3 ansetzt: die fachlichen Datenquellen `src/data/services.tsx` (9), `src/data/articles.ts`
+  (6/7) und `src/content/befunde/` (6 Panels, **JSON nur `de`/`en`**, `RD-14`) bleiben Eigentümer ihrer
+  Datensätze. Dazu **R-49** (Sitemap-Einträge dynamischer Routen entstehen aus realer Datenquelle) und
+  **`RD-9`** (Slugs heute doppelt geführt).
 - Für AP02 weiterhin offene Punkte aus AP01: `D-11` (Node-Vertrag ungepinnt, AP28 PT28.7) ·
-  `D-16` (vier manuelle Routenspiegel, AP07/AP10/AP27) · `D-25` (Pre-Consent-Netzaktivität,
+  `D-16` (manuelle Routenspiegel, jetzt präzisiert als `RD-10`) · `D-25` (Pre-Consent-Netzaktivität,
   AP06/AP22/AP23/AP26) · `D-27` (zweite Betriebswahrheit in `server/docker-compose.yml`, AP28 PT28.7) ·
   `D-29` (Musterbefund-Bundle, AP25/AP16).
 - Reproduzierbare Verifikation (unverändert): isolierter Worktree auf HEAD, `npm ci` **im Root und in
@@ -302,16 +344,17 @@ npx tsx server.ts`). `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-
 
 ## Handoff
 
-- **AP02: `IN_PROGRESS`** · Last completed PT: **PT02.1 (`PASS`)** · **Next PT: PT02.2 — nicht gestartet**
+- **AP02: `IN_PROGRESS`** · Last completed PT: **PT02.2 (`PASS`)** · **Next PT: PT02.3 — nicht gestartet**
 - **AP01: `COMPLETE`** · AP01 closure: `PASS` (43/43) · **AP00: `COMPLETE`**, Closure `PASS` — beide
   unverändert erhalten
 - **AP03: NOT STARTED.** AP02 ist **nicht** `COMPLETE`; das AP02-Closure Gate ist nicht gelaufen.
-- Decision Locks: **18/18 `LOCKED`**, durch PT02.1 unverändert. Baseline `feat/home-leadmagnet@961f65d`
-  bleibt gesperrt und ist Ancestor des HEAD.
+- Decision Locks: **18/18 `LOCKED`**, durch PT02.1 und PT02.2 unverändert. Baseline
+  `feat/home-leadmagnet@961f65d` bleibt gesperrt und ist Ancestor des HEAD.
 
 Kanonische Ausführungsevidenz AP01: **`building-docs/AP01-RECONCILIATION-RESULT.md`** (§1–§9).
-Kanonische Ausführungsevidenz PT02.1: **`building-docs/RUNTIME-CONTRACT.md`** — der Vertrag selbst ist
-das Artefakt; ein zweiter Report wird dafür nicht angelegt.
+Kanonische Ausführungsevidenz PT02.1: **`building-docs/RUNTIME-CONTRACT.md`** · PT02.2:
+**`building-docs/ROUTING-CONTRACT.md`** — der jeweilige Vertrag ist das Artefakt; ein zweiter Report
+wird dafür nicht angelegt.
 
 Was PT02.1 hergestellt hat:
 
@@ -325,6 +368,31 @@ Was PT02.1 hergestellt hat:
   `RT-T14`–`RT-T22`, Modifikationsregeln `M-08`–`M-11`, Owner-Grenzen §11.1.
 - **Schulden statt Reparaturen:** `RD-11`–`RD-16`, jede mit Owner-AP. **Keine** wurde behoben.
 
+Was PT02.2 hergestellt hat:
+
+- **Ist/Soll getrennt:** §3.1 klassifiziert die reale Routing-Wahrheit in acht Handspiegel (React Router ·
+  Known Paths/Status · drei Sitemap-Tabellen · Search · Redirects · Canonical/hreflang · Navigation ·
+  Tests) — als Evidenz, ausdrücklich nicht als Ziel.
+- **Zielvertrag R-17–R-53:** zehn Locales aus der URL, unpräfixierte URLs nur als Redirect-Einstieg,
+  13 Route-Klassen, eine kanonische Routing-Wahrheit mit 14 konzeptionellen Metadatenfeldern, klare
+  Grenze Registry ↔ Content-Datenquelle, dynamische Slug-Auflösung mit echter 404, Redirect-Klassen
+  A–E, verbindliche Statusmatrix, Canonical-/hreflang-Ableitung, Sitemap/Search/Navigation als
+  **Konsumenten**, Consumer × 10, Epigenetik als eigenständige Säule.
+- **Testbarkeit:** Nachweise `T-11`–`T-20`, Zuordnung der geforderten `RTG-01`–`RTG-14` auf die
+  bestehende `R-`/`T-`-Konvention (§8.2), Modifikationsregeln `M-06`–`M-08`, Owner-Grenzen §10.1.
+- **Schulden statt Reparaturen:** `RD-8`–`RD-14`, jede mit Owner-AP. **Keine** wurde behoben; `RD-2`
+  (`/services*`) und `RD-6` (Consumer-`/en/`-Zwang) sind nun ausdrücklich als Zielverletzung benannt.
+
+Verbindlicher Rahmen für PT02.3:
+
+- **`ROUTING-CONTRACT.md` ist die einzige kanonische Routing-Wahrheit.** PT02.3 legt keinen zweiten
+  Routing-, URL- oder Status-Contract an und verschiebt keine Routing-Entscheidung in die
+  Content-Ebene.
+- **R-28/R-33 sind die Schnittstelle:** die Registry kennt Existenz und Policy, die fachliche
+  Datenquelle besitzt die gültigen Slugs. PT02.3 modelliert diese Quellen, ohne die Routing-Wahrheit zu
+  duplizieren.
+- AP02 bleibt Zielbild-Arbeit: es beschreibt die Architektur, es implementiert sie nicht.
+
 Weiterhin gültiger AP01-Rahmen (nicht dupliziert, nur gezeigt, wo er steht):
 
 - Baseline `feat/home-leadmagnet@961f65d` gesperrt; `main@d0fdf29` und `redesign/preview@5673b61` bleiben
@@ -337,15 +405,9 @@ Weiterhin gültiger AP01-Rahmen (nicht dupliziert, nur gezeigt, wo er steht):
 - **30 dokumentierte Schulden `D-01`–`D-30`** mit Evidenz und Owner-AP, keine AP01-blockierend (§8);
   die schwerste bleibt `D-25` (vier externe Hosts vor jeder Einwilligung, AP06/AP22/AP23/AP26).
 
-Verbindlicher Rahmen für PT02.2:
-
-- **`RUNTIME-CONTRACT.md` ist der einzige kanonische SSR-/Rendering-Vertrag.** PT02.2 erweitert
-  `ROUTING-CONTRACT.md` und legt keinen konkurrierenden Rendering-Contract an.
-- Die Route Registry muss die **renderunabhängige** Routenwahrheit liefern, aus der 404, Canonical und
-  hreflang gemeinsam abgeleitet werden (RT-52, RT-56, `RD-12`).
-- `BG-01`–`BG-12` gelten weiter; `REST-03`, `DEC-RL-005` und `DEC-RL-006` sind durch PT02.1 bestätigt
-  und nicht aufgeweicht.
-- AP02 bleibt Zielbild-Arbeit: es beschreibt die Architektur, es implementiert sie nicht.
+Durchgehend gültig: `BG-01`–`BG-12` gelten weiter; `REST-03`, `DEC-RL-005` und `DEC-RL-006` sind durch
+PT02.1 und PT02.2 bestätigt und nicht aufgeweicht. Der SSR-Vertrag verlangt eine **renderunabhängige**
+Routenwahrheit (`RUNTIME-CONTRACT.md` RT-52/RT-56); PT02.2 weist sie der Route Registry zu (R-32, R-40).
 
 ---
 
