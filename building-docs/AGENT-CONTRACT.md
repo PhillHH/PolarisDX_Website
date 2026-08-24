@@ -29,7 +29,7 @@ Autoritätsreihenfolge: siehe `building-docs/PROJECT-CONSTRAINTS.md`.
 12. **Vor jeder Mutation** aktuellen Zustand lesen: `git status`, aktueller Branch, `HEAD`.
 13. **Keine globalen oder destruktiven Git-Operationen.** Kein `stash`, `reset`, `clean`, `rebase`, `merge`, `cherry-pick`, `checkout` eines anderen Branches, kein Löschen von Worktrees — es sei denn, die konkrete Aufgabe autorisiert genau diese Operation ausdrücklich.
 14. **Kein Commit, kein Push, kein Staging ohne ausdrücklichen Auftrag.**
-15. **Fremde Änderungen bleiben unangetastet.** Vorhandene uncommittete Änderungen und untracked Dateien anderer Arbeit werden weder entfernt noch „aufgeräumt". Insbesondere: `projektverzeichnis/` ist untracked und darf nicht gelöscht, verschoben oder gestaged werden.
+15. **Fremde Änderungen bleiben unangetastet.** Vorhandene uncommittete Änderungen und untracked Dateien anderer Arbeit werden weder entfernt noch „aufgeräumt". Insbesondere: `projektverzeichnis/` darf nicht gelöscht oder verschoben werden. _(Korrektur AP01 PT01.4: Das Verzeichnis ist seit `f8692c0` **getrackt** — 11 Dateien. Die frühere Fassung dieser Regel nannte es untracked; das war bis AP00 PT00.1 richtig und ist es seitdem nicht mehr. `REPO-BASELINE.md` und `BRANCH-RECONCILIATION-MAP.md` beschreiben weiterhin den Stand vom 2026-08-21 — sie sind Evidenzdokumente und werden nicht rückwirkend umgeschrieben.)_
 
 ## 4. Sicherheit und Daten
 
