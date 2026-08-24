@@ -9,12 +9,16 @@ kein `work-packages/APxx-STATE.md`).
 ## Current
 
 - Work package: AP00 — Programmsteuerung, Scope Lock und Delivery Governance
-- Primary task: PT00.2 — Priorisierungssystem und Delivery-Abhängigkeiten (noch nicht begonnen)
+- Primary task: PT00.3 — Risiko- und Annahmenregister (noch nicht begonnen)
 - Status: IN_PROGRESS <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
 - Baseline: `feat/home-leadmagnet@961f65d`
-- Current HEAD: `961f65d456e2790e7063d1a6575651dff724e4ca`
+- Current HEAD: `f8692c0f6ec2ce4b32eb2a9c478db014f163529b`
 - Started: 2026-08-24
 - Last updated: 2026-08-24
+
+<!-- HEAD-Abweichung geklärt: f8692c0 ist der Commit, mit dem die PT00.1-Ergebnisse
+     (building-docs/**) und die zuvor uncommittete Änderung an src/pages/EpigeneticsPage.tsx
+     festgeschrieben wurden. Baseline-Entscheidung unverändert: feat/home-leadmagnet@961f65d. -->
 
 ## Completed Work
 
@@ -22,6 +26,8 @@ kein `work-packages/APxx-STATE.md`).
 
 - PT00.1 — Kanonische Decision-/Scope-Baseline hergestellt: `DECISIONS.md` (18/18 Locks `LOCKED`) und
   `SCOPE-CHANGELOG.md` (Change Control) erzeugt, Baseline und Branch-Rollen festgeschrieben.
+- PT00.2 — Prioritäts- und Delivery-Modell erzeugt: `RELAUNCH-BACKLOG.md` mit AP-Abdeckung 34/34,
+  Prioritätsmodell P0-P3, Wellenlogik W0-W6 und Hard Barriers HB-01 bis HB-08.
 
 ## Current Invariants
 
@@ -37,12 +43,20 @@ kein `work-packages/APxx-STATE.md`).
 - Baseline `feat/home-leadmagnet@961f65d` ist gesperrt; `main@d0fdf29`, `redesign/preview@5673b61`
   und optional `feat/contact-joyful@ab373a3` sind ausschließlich selektive Quellen (Details:
   `DECISIONS.md` §2, `BRANCH-RECONCILIATION-MAP.md`).
+- Kanonischer Delivery-/Prioritätsindex: `building-docs/RELAUNCH-BACKLOG.md`. Keine zweite Backlog-Datei.
+- Gearbeitet wird nach **Welle -> Hard Barrier -> Priorität**, nicht nach aufsteigender AP-Nummer.
+  Die AP-Nummer ist Scope-Struktur, keine Ausführungsreihenfolge.
+- Hard Barriers `HB-01`-`HB-08` sind verbindlich serialisierend (Producer/Consumer siehe
+  `RELAUNCH-BACKLOG.md` §4). Parallelisierung nur gemäß §5 dort.
+- Backlog-Grenze aus `DEC-RL-010` / `DEC-RL-015` ist als P3 geschützt; Hochstufung nur über
+  einen `ACCEPTED`-Eintrag in `SCOPE-CHANGELOG.md`.
 
 ## Files Changed by Current AP
 
 - `building-docs/DECISIONS.md` (neu, PT00.1)
 - `building-docs/SCOPE-CHANGELOG.md` (neu, PT00.1)
-- `building-docs/state/AP-STATE.md` (fortgeschrieben, PT00.1)
+- `building-docs/RELAUNCH-BACKLOG.md` (neu, PT00.2)
+- `building-docs/state/AP-STATE.md` (fortgeschrieben, PT00.1 + PT00.2)
 
 Quellcode-, Runtime-, Config- und Dependency-Dateien: **keine**.
 
@@ -56,9 +70,14 @@ Quellcode-, Runtime-, Config- und Dependency-Dateien: **keine**.
 
 <!-- Was bewusst NICHT entschieden wurde, damit ein späterer Lauf es nicht als entschieden behandelt. -->
 
-- Prioritätsmodell P0–P3 und die Hard Barriers `HB-01`–`HB-08` sind noch **nicht** festgeschrieben — das ist PT00.2.
 - Risiko-/Annahmenregister ist noch **nicht** erstellt — das ist PT00.3.
 - Launch-Gate-Owner und Abnahmeregeln sind noch **nicht** festgelegt — das ist PT00.4.
+- Die Prioritäten in `RELAUNCH-BACKLOG.md` sind Delivery-Risiko-Einstufungen, **keine** Product
+  Decisions. Sie ändern keinen Lock und ersetzen keine Release-Entscheidung.
+- Innerhalb eines AP sind die einzelnen PTs **nicht** einzeln priorisiert; sie erben die AP-Priorität,
+  soweit `RELAUNCH-BACKLOG.md` §3.2 nichts anderes ausweist.
+- Kein Termin-, Aufwands- oder Kapazitätsmodell entschieden — PT00.2 priorisiert nach Launch-Risiko,
+  nicht nach Aufwand.
 - Ist-/Soll-Prüfung des IglooPro-Claims im Repository ist **nicht** erfolgt und gehört zu AP14 / Gate 7.
   Die Product Decision selbst (`DEC-RL-008`, `CV < 2 %`) ist geschlossen und wird davon nicht berührt.
 - Es wurde **keine** Repository-Ist-Analyse und **kein** selektiver Import vorgenommen — das ist AP01.
@@ -68,15 +87,21 @@ Quellcode-, Runtime-, Config- und Dependency-Dateien: **keine**.
 <!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste PT braucht. -->
 
 - Keine Abweichung von `CONTEXT-INDEX.md`: AP00 benötigt nur `ALWAYS_READ`.
-- Für PT00.2 zusätzlich lesen: `building-docs/DECISIONS.md` (Launch-Scope/Backlog-Grenze, §5) sowie
-  `scope/MASTER-SCOPE.md` §7 (kritische Abhängigkeitslogik) und §8 (12 Launch-Gates).
-- PT00.2 erzeugt `building-docs/RELAUNCH-BACKLOG.md` (AP00–AP33, P0–P3, Hard Barriers `HB-01`–`HB-08`).
+- Für PT00.3 zusätzlich lesen: `building-docs/DECISIONS.md` und `building-docs/RELAUNCH-BACKLOG.md`
+  (Hard Barriers §4, Backlog-Grenze §6 — Risiken werden an AP/PT und Launch Gates gekoppelt).
+- PT00.3 erzeugt `building-docs/RISK-REGISTER.md` mit mindestens `RISK-001`-`RISK-006`
+  (siehe `work-packages/AP00.md`, Abschnitt PT00.3).
 
 ## Handoff
 
-- Last completed PT: PT00.1
-- Next PT: PT00.2
+- Last completed PT: PT00.2
+- Next PT: PT00.3
 - Next work package: AP00 (unverändert; AP01 erst nach AP00 Closure Gate `PASS`)
+
+Stand für PT00.3:
+
+- `RELAUNCH-BACKLOG.md` erstellt — AP coverage 34/34, Prioritätsmodell P0-P3, HB-01 bis HB-08 dokumentiert.
+- Decision Locks 18/18 unverändert `LOCKED`; keine offenen Product Decisions.
 
 ---
 
