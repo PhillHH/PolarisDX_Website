@@ -35,6 +35,11 @@ AP22 PT22.5–PT22.6, AP26 PT26.4 (Secrets, Redaction), AP27 PT27.2.5 (Retry/Dea
 **AP28 PT28.2/PT28.5/PT28.6** (Worker, Persistenz, Monitoring), AP31 PT31.5 (Rollback), AP32 (Betrieb).
 
 **Launch-Gate 3** und **Gate 10** hängen an diesem Vertrag.
+**Stand AP02 PT02.4 (2026-08-24):** Der Zustell-, Retry- und Dead-Letter-Teil des Lead-/Backend-Zielbilds
+ist geprüft und **unverändert gültig** — PT02.4 hat hier keine Lücke gefunden und keine Invariante
+ergänzt. Ist-Erhebung und **Vertragslandkarte** stehen in `LEAD-DATA-CONTRACT.md` §2.1/§3.1. PT02.4 hat
+**keine Queue, keinen Worker, keinen Retry und keine Zustellung implementiert**.
+
 **Baseline:** `feat/home-leadmagnet@961f65d`. Keine Decision-Lock-Änderung durch diesen Vertrag.
 
 ---

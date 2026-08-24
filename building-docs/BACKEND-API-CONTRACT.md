@@ -34,6 +34,13 @@ AP02 PT02.4.1 (einheitliches Fehlerformat und Validierung), AP26 PT26.3 (API-Sec
 AP20 PT20.2–PT20.3, AP21 PT21.5, AP22 PT22.5–PT22.7, AP23 (Consent-Abgrenzung),
 AP27 PT27.2 (Integrationstests), AP28 (Betrieb), AP30/AP31 (Abnahme).
 
+**Stand AP02 PT02.4 (2026-08-24):** Der API-Teil des Lead-/Backend-Zielbilds ist bestätigt und um
+**API-21 bis API-23** ergänzt. Die Ist-Erhebung und die **Vertragslandkarte** des gesamten Zielbilds
+stehen in `LEAD-DATA-CONTRACT.md` §2.1/§3.1 — dort steht auch, welcher der vier Verträge welches Thema
+besitzt. PT02.4 ist ein reiner **Dokumentationsschritt**: keine Quell-, Backend-, Runtime-,
+Konfigurations- oder Abhängigkeitsdatei geändert, **kein Endpunkt, keine Persistenz, keine Queue, kein
+CRM, kein Gating implementiert**.
+
 **Baseline:** `feat/home-leadmagnet@961f65d`. Keine Decision-Lock-Änderung durch diesen Vertrag.
 
 ---
@@ -141,6 +148,22 @@ zugestellt wird. Ein Routingmerkmal ist ein validiertes Enum, kein Substring in 
 Schalter unterbindet sie. Heute existiert `DRY_RUN` **ausschließlich für den Mailversand**
 (`server/server.js:51-63`); die Ausweitung auf CRM und Queue ist AP22 PT22.8.4 zugewiesen.
 **Keine Flags erfinden.** _(AGENT-CONTRACT Regel 18)_
+
+### Transport und Exposition (AP02 PT02.4)
+
+**API-21 · Personenbezogene und sensible Daten stehen nie in der URL.** Kontaktangaben, Freitext,
+Bestelldaten, Tokens und Entitlement-Nachweise gehören in den Request-Body oder in einen Header — nicht
+in Query-String oder Pfad. URLs landen in Proxy-, Server- und Browserverläufen sowie in Referrern.
+
+**API-22 · Origin-, CORS- und CSRF-Bedarf wird je Endpunkt bewusst entschieden**, nicht global geerbt.
+Für jede schreibende Route ist festgelegt, welche Ursprünge zulässig sind und ob ein
+Cross-Site-Request-Schutz erforderlich ist. Eine pauschal offene CORS-Konfiguration ist keine
+Entscheidung, sondern deren Abwesenheit. _(AP26 PT26.3)_
+
+**API-23 · Kein offener Relay und keine freie Provider-Proxynutzung.** Kein Endpunkt leitet
+clientbestimmte Inhalte ungeprüft an einen externen Provider weiter, und kein Endpunkt versendet an
+clientbestimmte Empfänger (API-18). Ziel, Absender und Vorlage bestimmt der Server; der Client liefert
+ausschließlich validierte Nutzlast.
 
 ### Bestand
 
