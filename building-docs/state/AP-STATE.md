@@ -134,6 +134,9 @@ Closure-Korrekturen (rein dokumentarisch, additiv):
 - Next PT: — (wird beim Start von AP01 gesetzt)
 - Next work package: AP01 — Repository-Baseline, Branch-Reconciliation und Import-Hygiene
 
+Pre-AP01 branch hygiene completed; accidental EpigeneticsPage delta removed.
+AP00-Linie auf `origin` gesichert (`console/ap00-2026-08-24T09-32-23`); `RISK-007` auf `MITIGATING`.
+
 Übergabe an AP01 (AP00 liefert keine Implementierung, sondern Governance):
 
 - gesperrte Baseline `feat/home-leadmagnet@961f65d`; `main@d0fdf29`, `redesign/preview@5673b61`,
