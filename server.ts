@@ -214,6 +214,11 @@ const SITEMAP_ROUTES: SitemapRoute[] = [
 
   // Partnerprogramm Epigenetik/Genetik
   { path: '/epigenetics', priority: 0.8, changefreq: 'monthly' },
+  // AP01 PT01.2: Die drei Vertiefungsseiten. KNOWN_PATHS wird aus SITEMAP_ROUTES
+  // gebaut — ohne diese drei Zeilen antworten die neuen URLs echt 404.
+  { path: '/epigenetics/grundlagen', priority: 0.6, changefreq: 'monthly' },
+  { path: '/epigenetics/studienlage', priority: 0.6, changefreq: 'monthly' },
+  { path: '/epigenetics/unterlagen', priority: 0.6, changefreq: 'monthly' },
   { path: '/epigenetics/musterbefund/metabolic-health', priority: 0.6, changefreq: 'yearly' },
   { path: '/epigenetics/musterbefund/healthy-aging', priority: 0.6, changefreq: 'yearly' },
   { path: '/epigenetics/musterbefund/biologische-altersuhr', priority: 0.6, changefreq: 'yearly' },

@@ -55,6 +55,22 @@ const ServicePage = lazy(() => import('./pages/ServicePage'))
 // Produkt-Seiten (große Komponenten)
 const IglooProPage = lazy(() => import('./pages/IglooProPage'))
 const EpigeneticsPage = lazy(() => import('./pages/EpigeneticsPage'))
+// Vertiefungsseiten der Epigenetik-Strecke. Sie tragen die Kapitel, die auf der
+// Programmseite keine Auswahlfrage beantworten: Grundlagen, Studienlage,
+// Unterlagen. Siehe src/components/epigenetics/EpiSubpage.tsx.
+const EpigeneticsBasicsPage = lazy(() => import('./pages/EpigeneticsBasicsPage'))
+const EpigeneticsEvidencePage = lazy(() => import('./pages/EpigeneticsEvidencePage'))
+const EpigeneticsDocsPage = lazy(() => import('./pages/EpigeneticsDocsPage'))
+// Musterbefunde: je Slug ein eigenes Routenmodul, damit Vite pro Befund
+// splittet. Ein gemeinsames Modul zog alle sechs Panels in beiden Sprachen in
+// einen 287-KB-Chunk, um 24 KB anzuzeigen.
+const MusterbefundMetabolicHealth = lazy(() => import('./pages/musterbefund/metabolic-health'))
+const MusterbefundHealthyAging = lazy(() => import('./pages/musterbefund/healthy-aging'))
+const MusterbefundAltersuhr = lazy(() => import('./pages/musterbefund/biologische-altersuhr'))
+const MusterbefundTelomer = lazy(() => import('./pages/musterbefund/telomer-analyse'))
+const MusterbefundStress = lazy(() => import('./pages/musterbefund/stress-monitor'))
+const MusterbefundHealthySport = lazy(() => import('./pages/musterbefund/healthy-sport'))
+// Ohne passenden Slug rendert die Seite ihren Nicht-gefunden-Zweig (HTTP 404).
 const MusterbefundPage = lazy(() => import('./pages/MusterbefundPage'))
 const VitaminD3ImplantologyPage = lazy(() => import('./pages/VitaminD3ImplantologyPage'))
 const S3LeitliniePage = lazy(() => import('./pages/S3LeitliniePage'))
@@ -393,6 +409,79 @@ function App() {
               </LazyRoute>
             }
           />
+          <Route
+            path="/epigenetics/grundlagen"
+            element={
+              <LazyRoute>
+                <EpigeneticsBasicsPage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/epigenetics/studienlage"
+            element={
+              <LazyRoute>
+                <EpigeneticsEvidencePage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/epigenetics/unterlagen"
+            element={
+              <LazyRoute>
+                <EpigeneticsDocsPage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/epigenetics/musterbefund/metabolic-health"
+            element={
+              <LazyRoute>
+                <MusterbefundMetabolicHealth />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/epigenetics/musterbefund/healthy-aging"
+            element={
+              <LazyRoute>
+                <MusterbefundHealthyAging />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/epigenetics/musterbefund/biologische-altersuhr"
+            element={
+              <LazyRoute>
+                <MusterbefundAltersuhr />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/epigenetics/musterbefund/telomer-analyse"
+            element={
+              <LazyRoute>
+                <MusterbefundTelomer />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/epigenetics/musterbefund/stress-monitor"
+            element={
+              <LazyRoute>
+                <MusterbefundStress />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/epigenetics/musterbefund/healthy-sport"
+            element={
+              <LazyRoute>
+                <MusterbefundHealthySport />
+              </LazyRoute>
+            }
+          />
+          {/* Muss NACH den sechs stehen: faengt unbekannte Slugs ab. */}
           <Route
             path="/epigenetics/musterbefund/:slug"
             element={

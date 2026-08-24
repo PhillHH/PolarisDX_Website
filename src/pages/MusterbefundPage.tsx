@@ -36,7 +36,8 @@ import BefundOverview from '../components/befund/BefundOverview'
 import ConsultSteps, { CONSULT_ID } from '../components/befund/ConsultSteps'
 import { MerkButton, Merkliste } from '../components/befund/Merkliste'
 import ChapterNav, { type Chapter, type NavAction } from '../components/ui/ChapterNav'
-import { BEFUNDE, BEFUND_ORDER, RADAR_VALUES } from '../content/befunde'
+import { BEFUNDE } from '../content/befunde'
+import { BEFUND_ORDER, RADAR_VALUES, type BefundSprachen } from '../content/befunde/meta'
 import { useScrollDepth } from '../lib/useScrollDepth'
 import { BEFUND_IMAGES } from '../assets/epigenetics/befundImages'
 import { LEGACY_ANCHORS } from '../content/befunde/legacyAnchors'
@@ -78,8 +79,25 @@ const entryCount = (b: Block) => {
 /** Kapitelname: die Ueberschrift ohne Schlusspunkt. */
 const toLabel = (title: string) => title.replace(/\s*[.:]\s*$/, '')
 
-const MusterbefundPage = () => {
-  const { slug = '' } = useParams<{ slug: string }>()
+interface MusterbefundPageProps {
+  /**
+   * Slug aus dem Routenmodul. Fehlt er, kommt er wie bisher aus der URL —
+   * der `:slug`-Auffangpfad in App.tsx rendert diese Seite weiterhin ohne
+   * Props, und ein unbekannter Slug faellt damit unveraendert auf den
+   * notFound-Zweig weiter unten.
+   */
+  slug?: string
+  /**
+   * Inhalt aus dem Routenmodul. Nur so laedt Vite je Slug einen eigenen
+   * Chunk, statt alle zwoelf JSON-Dateien in einen gemeinsamen zu packen.
+   * Ohne Prop wird wie bisher in BEFUNDE nachgeschlagen.
+   */
+  befunde?: BefundSprachen
+}
+
+const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {}) => {
+  const { slug: slugParam = '' } = useParams<{ slug: string }>()
+  const slug = slugProp ?? slugParam
   const { hash } = useLocation()
   const { t, i18n } = useTranslation('epigenetics')
 
@@ -141,7 +159,9 @@ const MusterbefundPage = () => {
   useScrollDepth('musterbefund', slug)
   const lang = i18n.language?.startsWith('de') ? 'de' : 'en'
 
-  const befund = BEFUNDE[slug]?.[lang] ?? BEFUNDE[slug]?.de
+  // Routenmodul-Inhalt hat Vorrang; der Auffangpfad schlaegt weiterhin nach.
+  const quelle = befunde ?? BEFUNDE[slug]
+  const befund = quelle?.[lang] ?? quelle?.de
   const samples = Array.isArray(t('samples.items', { returnObjects: true }))
     ? (t('samples.items', { returnObjects: true }) as {
         slug: string

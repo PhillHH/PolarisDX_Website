@@ -9,13 +9,14 @@ kein `work-packages/APxx-STATE.md`).
 ## Current
 
 - Work package: AP01 — Repository-Baseline, Branch-Reconciliation und Import-Hygiene
-- Primary task: PT01.1 abgeschlossen; PT01.2 noch nicht gestartet
+- Primary task: PT01.2 abgeschlossen; PT01.3 noch nicht gestartet
 - Status: IN_PROGRESS <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
 - AP00: COMPLETE · AP00 closure: PASS (unverändert erhalten)
 - Baseline: `feat/home-leadmagnet@961f65d` — Ancestor des aktuellen HEAD, empirisch bestätigt
-- Baseline evidence: recorded (`building-docs/AP01-RECONCILIATION-RESULT.md` §1)
+- Baseline evidence: recorded · `main` Import Ledger: recorded
+  (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§3, §5)
 - Current branch: `console/ap01-2026-08-24T10-46-05`
-- Current HEAD: `4f70801d4a3166c1caccc69bb3b7b7f254ac044c`
+- Current HEAD: `9f8ed1e13dbd561d75807b97640d75cbcfa7e874` (PT01.1-Commit; PT01.2 folgt)
 - Started: 2026-08-24 (AP01)
 - Last updated: 2026-08-24
 
@@ -45,6 +46,11 @@ kein `work-packages/APxx-STATE.md`).
   (200 · echte 301 für `/agb`, `/s3-leitlinie`, Locale-Präfix, je ein Hop · echte 404 statisch und
   dynamisch), `no-store` runtime-geprüft, SEOHead-/notFound-Handshake bestätigt, 12 Baseline Guards
   (BG-01–BG-12) und 15 reproduzierte Baseline-Schulden festgeschrieben.
+- PT01.2 — Auditierte Epigenetik-/Musterbefund-Struktur aus `main@d0fdf29` selektiv übernommen:
+  3 Vertiefungsseiten, `EpiSubpage` + `tokens.ts`, `content/befunde/meta.ts` und 6/6
+  Musterbefund-Routenmodule; 4 minimale Kompatibilitäts-Hunks (`App.tsx`, `server.ts`,
+  `MusterbefundPage.tsx`, `befunde/index.ts`), keine Whole-File-Ersetzung, keine Dependency-Änderung.
+  Alle 12 Baseline Guards nach dem Import erneut geprüft.
 
 ## Current Invariants
 
@@ -87,23 +93,40 @@ kein `work-packages/APxx-STATE.md`).
 <!-- AP01. Die AP00-Dateiliste wurde beim AP-Wechsel geleert (siehe `Benutzung`);
      sie steht in `Completed Work` und in der Git-Historie. -->
 
-- `building-docs/AP01-RECONCILIATION-RESULT.md` (neu, PT01.1)
-- `building-docs/state/AP-STATE.md` (fortgeschrieben, PT01.1)
+- `building-docs/AP01-RECONCILIATION-RESULT.md` (neu PT01.1, fortgeschrieben PT01.2)
+- `building-docs/state/AP-STATE.md` (fortgeschrieben, PT01.1 + PT01.2)
 
-Quellcode-, Runtime-, Config-, Dependency- und Lockfile-Dateien: **keine**.
-Kein Import aus `main` oder `redesign/preview` (gehört zu PT01.2/PT01.3).
+PT01.2 — Anwendungscode (neu, aus `main@d0fdf29`):
+
+- `src/components/epigenetics/tokens.ts`, `src/components/epigenetics/EpiSubpage.tsx`
+- `src/pages/EpigeneticsBasicsPage.tsx`, `EpigeneticsEvidencePage.tsx`, `EpigeneticsDocsPage.tsx`
+- `src/content/befunde/meta.ts`
+- `src/pages/musterbefund/{metabolic-health,healthy-aging,biologische-altersuhr,telomer-analyse,stress-monitor,healthy-sport}.tsx`
+
+PT01.2 — Anwendungscode (Hunks in bestehenden Dateien, kein Whole-File-Ersatz):
+
+- `src/App.tsx` (2 additive Hunks: 9 `lazy()`-Importe, 9 Routen)
+- `server.ts` (1 Hunk: 3 `SITEMAP_ROUTES`-Einträge)
+- `src/pages/MusterbefundPage.tsx` (3 Hunks: optionale `slug`/`befunde`-Props)
+- `src/content/befunde/index.ts` (Typen/Metadaten als Re-Export aus `./meta`)
+
+Dependencies, Lockfiles, `tsconfig*`, `vite.config.ts`, `tailwind.config.js`, `index.html`,
+`public/**`, Docker/nginx/CI: **unverändert**.
+Kein Import aus `redesign/preview` (gehört zu PT01.3).
 
 ## Open Blockers
 
 <!-- Jeweils: ID/Kurztitel · was blockiert ist · was zur Auflösung gebraucht wird. -->
 
-- Keine AP01-Ausführungsblocker. PT01.1 ist `PASS`.
+- Keine AP01-Ausführungsblocker. PT01.1 und PT01.2 sind `PASS`.
 - **Hinweis, kein Blocker:** `RISK-007` ist `MITIGATING` — die AP00-Nachfolgerlinie ist über
   `origin/console/ap00-2026-08-24T09-32-23` gesichert (inhaltsgleich mit HEAD `4f70801`), aber weder
   `feat/home-leadmagnet` noch der aktive Arbeitsbranch hat ein Upstream. Auflösung liegt beim Owner.
-- **Hinweis, kein Blocker:** 15 reproduzierte Baseline-Schulden (D-01 bis D-15 in
+- **Hinweis, kein Blocker:** 19 dokumentierte Schulden (D-01 bis D-19 in
   `AP01-RECONCILIATION-RESULT.md` §8), jeweils einem Owner-AP zugeordnet; keine davon ist
   AP01-blockierend. `BG-10` (Consent/Tracking) steht bereits an der Baseline auf `BASELINE_DEBT`.
+  Neu aus PT01.2: `D-16` (Spiegel-Lücke Suche/E2E), `D-17` (kein Navigationseinstieg),
+  `D-18` (fehlende Messung der Vertiefungsseiten), `D-19` (Prettier auf PT01.1-Doku).
 
 ## Explicit Non-Decisions
 
@@ -121,8 +144,14 @@ Kein Import aus `main` oder `redesign/preview` (gehört zu PT01.2/PT01.3).
   **keine** Product Decisions.
 - Die Remote-Sicherung der Baseline-Linie (`RISK-007`) ist über den AP00-Branch **mitigiert**, aber
   nicht abgeschlossen: `feat/home-leadmagnet` und der aktive Arbeitsbranch haben weiterhin kein Upstream.
-- **Es wurde kein selektiver Import vorgenommen.** PT01.1 hat `main@d0fdf29` und
-  `redesign/preview@5673b61` ausschließlich auf Erreichbarkeit geprüft; PT01.2/PT01.3 sind nicht gestartet.
+- **Aus `redesign/preview@5673b61` wurde nichts übernommen.** PT01.3 ist nicht gestartet.
+- **PT01.2 hat keine Messplan-Entscheidung getroffen.** Die `epigenetics_request`-Instrumentierung aus
+  `main` wurde bewusst nicht übernommen; ob die Baseline-Ereignis-Union erweitert oder ein Shim
+  gebaut wird, entscheidet AP23/AP15 (`D-18`).
+- **PT01.2 hat keine Route Registry gebaut.** Die neun Routen sind Hand-Einträge in den bestehenden
+  Spiegeln; die Registry als Single Source of Truth bleibt AP10 PT10.3.
+- **Die drei Vertiefungsseiten sind nicht in Navigation, Footer oder Suchindex eingebunden**
+  (`D-16`, `D-17`) — das ist AP03/AP06/AP07/AP15.
 - **PT01.1 hat keine Baseline-Schuld repariert.** Die 15 Befunde in `AP01-RECONCILIATION-RESULT.md` §8
   sind Evidenz mit Owner-AP, keine AP01-Zusage und keine Freigabe.
 - **Keine Toolchain-Festlegung.** Node-/Paketmanager-Pinning ist offen und gehört zu PT01.5.3.
@@ -134,56 +163,67 @@ Kein Import aus `main` oder `redesign/preview` (gehört zu PT01.2/PT01.3).
 - Keine Abweichung von `CONTEXT-INDEX.md`. AP01 verwendet die dort für AP01 definierte
   `Required context`-Menge (`REPO-BASELINE`, `BRANCH-RECONCILIATION-MAP`, `QUALITY-GATES`,
   `ROUTING-CONTRACT`, `RUNTIME-CONTRACT`); `Optional context` nur bei konkretem Anlass.
-- PT01.1 hat zusätzlich `SEO-CONTRACT.md` geladen — in `AP01.md` §1.2 ausdrücklich für AP01 gelistet,
-  in der `CONTEXT-INDEX.md`-Matrix nicht. Für PT01.2/PT01.3 bleibt es relevant (SEOHead-/404-Handshake).
-- Für PT01.2 zusätzlich Pflicht: `BRANCH-RECONCILIATION-MAP.md` — Positivliste (Gruppen M1–M5),
-  Negativliste `DO_NOT_IMPORT`, Commit-Sicherheitsmatrix, insbesondere **N1**, **N2**, **N12**.
-- Weiter relevant: `DECISIONS.md` §2 (Baseline und Branch-Rollen), `RELAUNCH-BACKLOG.md` §4 `HB-02`,
-  `RISK-REGISTER.md` `RISK-002` / `RISK-003` / `RISK-007` / `RISK-008`.
-- Konkrete Repo-Dateien für PT01.2 (Hotspots, nur Hunks, nie als Datei ersetzen):
-  `src/App.tsx`, `server.ts`, `src/components/seo/SEOHead.tsx`, `src/pages/EpigeneticsPage.tsx`,
-  `src/pages/MusterbefundPage.tsx`, `src/content/befunde/`, `src/components/layout/Footer.tsx`.
-- **Baseline Guards `BG-01`–`BG-12`** in `AP01-RECONCILIATION-RESULT.md` §2 sind nach jedem Import
-  erneut auszuführen.
+- PT01.1/PT01.2 haben zusätzlich `SEO-CONTRACT.md` geladen — in `AP01.md` §1.2 für AP01 gelistet,
+  in der `CONTEXT-INDEX.md`-Matrix nicht.
+- **Für PT01.3 Pflicht:** `BRANCH-RECONCILIATION-MAP.md` §7 (neutrale Engineering-Patterns aus
+  `redesign/preview@5673b61`) und §8 (Art-Direction-/Legacy-Ausschlüsse). Laut `CONTEXT-INDEX.md`
+  bei PT01.3 ggf. zusätzliche Quality-/A11y-/Performance-Contracts.
+- **Baseline Guards `BG-01`–`BG-12`** in `AP01-RECONCILIATION-RESULT.md` §2 sind nach jedem weiteren
+  Import erneut auszuführen; die PT01.2-Nachweismethodik steht in §3.4.
+- Reproduzierbare SSR-Regression: gebauten Stand auf isoliertem freien Port starten
+  (`NODE_ENV=production PORT=<frei> BACKEND_URL=http://127.0.0.1:39999 npx tsx server.ts`),
+  **nicht** an einen vorhandenen Prozess auf Port 3000 hängen (`QD-4`).
+- Toolchain-Hinweis: `NODE_ENV` muss für `npm ci` **ungesetzt** sein, sonst werden devDependencies
+  ausgelassen; Node 20.19.6 über `nvm`; `tsc -b` braucht in diesem Worktree
+  `--max-old-space-size=3072`.
 
 ## Handoff
 
-- Last completed PT: **PT01.1** — Baseline verifizieren · `PASS`
-- Next PT: **PT01.2** — Gezielte `main`-Imports (**noch nicht gestartet**)
+- Last completed PT: **PT01.2** — Gezielte `main`-Imports · `PASS`
+- Next PT: **PT01.3** — Gezielte `redesign/preview`-Imports (**noch nicht gestartet**)
 - Work package: AP01 · Status `IN_PROGRESS`
-- AP00: `COMPLETE`, Closure `PASS` (unverändert)
-- AP02: **nicht gestartet**
+- AP00: `COMPLETE`, Closure `PASS` (unverändert) · AP02: **nicht gestartet**
 
-Ergebnis PT01.1 (Details ausschließlich in `building-docs/AP01-RECONCILIATION-RESULT.md`):
+Ergebnis PT01.1 (Details in `AP01-RECONCILIATION-RESULT.md` §1–§2):
 
-- **Baseline evidence: recorded.** `feat/home-leadmagnet@961f65d` existiert, ist Ancestor von HEAD
-  `4f70801`; Delta Baseline→HEAD sind 46 reine `.md`-Additionen, **kein** Anwendungscode-/Runtime-/
-  Dependency-Delta; `src/pages/EpigeneticsPage.tsx` ohne Delta.
-- **Baseline build: PASS** aus isoliertem Clean Checkout (`npm ci` ohne Lockfile-Mutation, Node 20.19.6 /
-  npm 10.8.2; Typecheck PASS, Unit 18/18 PASS, `check:colors` PASS, Build PASS; Lint und Prettier rot als
-  bekannte Baseline Debt; E2E bewusst nicht ausgeführt, siehe D-09).
-- **Baseline SSR smoke: PASS** auf isoliertem Port 39017 — 200, echte 301 (`/agb` → `/de/terms`,
-  `/s3-leitlinie` → `/de/s3_leitlinie`, `/about` → `/de/about`, je genau ein Hop), echte 404 statisch und
-  für unbekannte dynamische Slugs, HTML `no-store, no-cache, must-revalidate`, gehashte Assets
-  `immutable`, SEOHead-/notFound-Handshake intakt (404 ohne Canonical/hreflang, `noindex, follow`,
-  `prerender-status-code`-Marker), reale Seite mit einem Canonical und 10 hreflang + `x-default`.
-- **Baseline guards recorded: `BG-01`–`BG-12`** als *must survive PT01.2/PT01.3 imports*.
-  11 × `PASS`, `BG-10` (Consent/Tracking) × `BASELINE_DEBT`.
-- **Known baseline debt: 15 Befunde** (`D-01`–`D-15`), jeder mit Evidenz und Owner-AP; **keiner**
-  AP01-blockierend. Keine als Baseline-Härtung geltende Eigenschaft war nicht reproduzierbar.
-- **Kein Anwendungscode, keine Runtime-/Config-Datei, keine Dependency und kein Lockfile geändert.**
-  Der temporäre Baseline-Worktree wurde kontrolliert entfernt; aktiver Branch und Working Tree
-  unverändert.
+- Baseline `feat/home-leadmagnet@961f65d` empirisch verifiziert und Ancestor des aktuellen HEAD;
+  Baseline-Build, SSR-Smoke (200/301/404), `no-store` und SEOHead-/notFound-Handshake reproduziert;
+  `BG-01`–`BG-12` als *must survive imports* festgeschrieben.
 
-Rahmen für PT01.2 (unverändert gültig, hier nur referenziert):
+Ergebnis PT01.2 (Details in `AP01-RECONCILIATION-RESULT.md` §3 und §5):
 
-- Baseline `feat/home-leadmagnet@961f65d` bleibt gesperrt; `main@d0fdf29`,
-  `redesign/preview@5673b61`, `feat/contact-joyful@ab373a3` sind **ausschließlich selektive Quellen**.
-- Decision Locks 18/18 `LOCKED` — `DECISIONS.md` / `PROJECT-CONSTRAINTS.md`.
-- `HB-02` erfüllt: PT01.1 liegt vor, branch-abgeleitete Schritte sind ab jetzt zulässig —
-  `BRANCH-RECONCILIATION-MAP.md` ist bei **jedem** Import Pflicht.
-- Kein Branch-Merge, kein branchweiter Cherry-Pick, kein Datei-Checkout aus einem Quellbranch für eine
-  Datei, die auf der Baseline ebenfalls existiert (`AGENT-CONTRACT.md` §2).
+- **Quelle:** `main@d0fdf29`, verifiziert (`git cat-file -t` → commit; enthalten in `main`/`origin/main`).
+  Kein Branch-Merge, kein Cherry-Pick, kein Tree-Checkout.
+- **M1 — Vertiefungsseiten: 3/3** (`EpigeneticsBasicsPage`, `EpigeneticsEvidencePage`,
+  `EpigeneticsDocsPage`) · `ADAPT`.
+- **M2 — Gemeinsamer Rahmen: 2/2** (`EpiSubpage.tsx` `ADAPT`, `tokens.ts` byte-identisch) .
+- **M3 — Musterbefund-Metadaten: IMPORTED** (`content/befunde/meta.ts`, byte-identisch, JSON-frei).
+- **M4 — Routenmodule: 6/6**, alle byte-identisch zur Quelle.
+- **M5 — Kompatibilitäts-Hunks: 4 Dateien** (`App.tsx` 2 Hunks, `server.ts` 1 Hunk,
+  `MusterbefundPage.tsx` 3 Hunks, `befunde/index.ts`). **Whole-File-Ersetzungen: NONE.**
+- **Vier dokumentierte Abweichungen von der Quelle** (`§3.2`): `AD-1` Ink-Token
+  `text-text-heading`→`text-heading` statt `main`s `tailwind.config.js` (**N4**); `AD-2` `trackEvent`-
+  Instrumentierung nicht übernommen (**N9**, Messplan gehört AP23/AP15); `AD-3` Hero auf
+  `bg-brand-deep` statt Legacy-Navy-Verlauf (sonst wäre `check:colors` rot geworden);
+  `AD-4` Prettier-Normalisierung als Folge von `AD-1`.
+- **Baseline Guards nach dem Import: 11 × `PASS`, `BG-10` unverändert `BASELINE_DEBT`.**
+  Keine Regression. Runtime geprüft: `/agb`→301 `/de/terms`, `/s3-leitlinie`→301 `/de/s3_leitlinie`,
+  `/about`→301 `/de/about`, unbekannte statische Pfade und unbekannte dynamische Slugs → echte 404,
+  HTML `no-store`, 404 ohne Canonical/hreflang mit `prerender-status-code`-Marker.
+- **Neue Routen aktiv:** `/[lang]/epigenetics/{grundlagen,studienlage,unterlagen}` → 200 und die sechs
+  expliziten Musterbefund-Pfade → 200; der `:slug`-Auffangpfad bleibt **letzter** Eintrag und liefert
+  für unbekannte Slugs weiter 404. Sitemap 335 → **365 `<loc>`** (3 × 10).
+  `IMPORTED_NOT_YET_ACTIVATED_BY_SCOPE` trifft **nicht** zu.
+- **Build `PASS`** (je Slug ein eigener Chunk), **Typecheck `PASS`**, **Tests 18/18 `PASS`**,
+  **`check:colors` `PASS`**, **ESLint unverändert 129**, **Prettier: 0 Verstöße in PT01.2-Dateien**.
+- **Dependencies/Lockfiles: unverändert.**
+
+Rahmen für PT01.3 (unverändert gültig, hier nur referenziert):
+
+- Baseline `feat/home-leadmagnet@961f65d` bleibt gesperrt; `redesign/preview@5673b61` liefert
+  **ausschließlich art-direction-neutrale Technik-/QA-Patterns** (`DEC-RL-002`, `DEC-RL-003`).
+- Decision Locks 18/18 `LOCKED`. Kein Branch-Merge, kein branchweiter Cherry-Pick.
+- `BRANCH-RECONCILIATION-MAP.md` ist bei **jedem** Import Pflicht.
 
 ---
 

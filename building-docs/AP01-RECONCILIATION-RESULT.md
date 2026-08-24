@@ -8,7 +8,7 @@
 Kein Ersatz für `BRANCH-RECONCILIATION-MAP.md`, `REPO-BASELINE.md`, `QUALITY-GATES.md`,
 `RISK-REGISTER.md` oder `scope/MASTER-SCOPE.md`.
 
-**Ausführungsstand:** PT01.1 `PASS` · PT01.2–PT01.5 `NOT_RUN` · AP01 Closure `NOT_RUN`.
+**Ausführungsstand:** PT01.1 `PASS` · PT01.2 `PASS` · PT01.3–PT01.5 `NOT_RUN` · AP01 Closure `NOT_RUN`.
 
 ---
 
@@ -236,10 +236,93 @@ Nach jedem Import sind mindestens die runtime-geprüften Guards (BG-01 bis BG-05
 
 ## 3. `main` Import Ledger
 
-**NOT_RUN — PT01.2.** In PT01.1 wurde ausschließlich die Erreichbarkeit von `main@d0fdf29`
-verifiziert. Es wurde **nichts** übernommen: keine Epigenetik-Vertiefungsseiten, kein `EpiSubpage`,
-keine `epigenetics/tokens.ts`, keine Musterbefund-Metadaten oder -Routenmodule, keine
-Kompatibilitäts-Hunks nach `App.tsx`/`server.ts`.
+**Ausgeführt:** PT01.2, 2026-08-24.
+**Quelle — verifiziert:** `main@d0fdf29cb1dbde78cc743b4d7a5077b79c6dafaf` (2026-08-19 17:02:08 +0200,
+„Epigenetik-Strecke: AP4 — die laengste Seite der Site"). `git cat-file -t` → `commit`;
+`git branch -a --contains d0fdf29` → `main`, `origin/main`. Jeder Kandidat wurde mit
+`git show d0fdf29:<pfad>` gegen **genau diesen** Commit geprüft; kein `origin/main`-Tip, kein späterer
+Commit, kein Branch-Merge, kein Whole-Tree-Checkout.
+**Methode:** dateiweise bzw. hunkweise Übernahme. Kein `git merge`, kein `git cherry-pick`,
+kein `git checkout d0fdf29 -- …`.
+
+### 3.1 Importmatrix
+
+Typ: `FILE` = ganze Datei · `HUNK` = einzelne Hunks in einer bestehenden Baseline-Datei.
+Aktion: `IMPORT` = unverändert · `ADAPT` = übernommen mit dokumentierter Abweichung · `REJECT` = nicht übernommen.
+
+| Gr. | Audit | Quelle (`d0fdf29`) | Ziel | Typ | Aktion | Abhängigkeiten | Guards | Begründung / Abweichung |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **M2** | A1 | `src/components/epigenetics/tokens.ts` | identisch | FILE | **IMPORT** (byte-identisch) | keine — reine Konstanten | BG-06, BG-07 | Auf der Baseline nicht vorhanden. Null Importe, keine Layout-/Art-Direction-Berührung. `diff` gegen `d0fdf29` = leer. |
+| **M2** | A2 | `src/components/epigenetics/EpiSubpage.tsx` | identisch | FILE | **ADAPT** | `seo/index`, `ui/Breadcrumbs`, `ui/ChapterNav`, `ui/PageTransition`, `ui/Reveal`, `./tokens`, `lib/translationStatus`, `lib/useScrollDepth` — **alle auf der Baseline vorhanden** | BG-06, BG-07, BG-10, BG-12 | Drei dokumentierte Abweichungen, siehe §3.2 **AD-1**, **AD-2**, **AD-3**. |
+| **M1** | A3 | `src/pages/EpigeneticsBasicsPage.tsx` | identisch | FILE | **ADAPT** | `EpiSubpage`, `tokens`, `ui/SectionHeader`, `ui/Reveal`, `befund/BefundCharts` (`ScaleRamp`), `lucide-react` | BG-06 | Abweichung **AD-1** + Prettier-Normalisierung (§3.2 **AD-4**). |
+| **M1** | A3 | `src/pages/EpigeneticsEvidencePage.tsx` | identisch | FILE | **ADAPT** | `EpiSubpage`, `tokens`, `ui/Reveal`, `lucide-react` | BG-06, BG-10 | Abweichungen **AD-1**, **AD-2**. |
+| **M1** | A3 | `src/pages/EpigeneticsDocsPage.tsx` | identisch | FILE | **ADAPT** | `EpiSubpage`, `tokens`, `ui/Reveal`, `react-router-dom`, `lucide-react` | BG-06, BG-10 | Abweichungen **AD-1**, **AD-2**, **AD-4**. |
+| **M3** | A6 | `src/content/befunde/meta.ts` | identisch | FILE | **IMPORT** (byte-identisch) | keine — JSON-frei | BG-01 | Typen (`Befund`, `BefundSprachen`), `BEFUND_ORDER`, `RADAR_VALUES`. Enthält **keine** Inhalte; die zwölf Content-JSONs bleiben unangetastet in `index.ts`. `diff` gegen `d0fdf29` = leer. |
+| **M4** | A5 | `src/pages/musterbefund/metabolic-health.tsx` | identisch | FILE | **IMPORT** (byte-identisch) | eigene zwei JSON, `befunde/meta`, `MusterbefundPage` | BG-01 | 20 Zeilen, je Slug ein eigener Vite-Chunk. |
+| **M4** | A5 | `src/pages/musterbefund/healthy-aging.tsx` | identisch | FILE | **IMPORT** (byte-identisch) | s. o. | BG-01 | s. o. |
+| **M4** | A5 | `src/pages/musterbefund/biologische-altersuhr.tsx` | identisch | FILE | **IMPORT** (byte-identisch) | s. o. | BG-01 | s. o. |
+| **M4** | A5 | `src/pages/musterbefund/telomer-analyse.tsx` | identisch | FILE | **IMPORT** (byte-identisch) | s. o. | BG-01 | s. o. |
+| **M4** | A5 | `src/pages/musterbefund/stress-monitor.tsx` | identisch | FILE | **IMPORT** (byte-identisch) | s. o. | BG-01 | s. o. |
+| **M4** | A5 | `src/pages/musterbefund/healthy-sport.tsx` | identisch | FILE | **IMPORT** (byte-identisch) | s. o. | BG-01 | s. o. |
+| **M5** | A7 | `src/content/befunde/index.ts` | identisch | HUNK | **ADAPT** | `./meta` | BG-01, BG-12 | Typ-/Metadaten-Definitionen durch Re-Export aus `./meta` ersetzt (`export type { Befund, BefundSprachen }`, `export { BEFUND_ORDER, RADAR_VALUES }`); `BEFUNDE` und die zwölf JSON-Importe bleiben unverändert. Alle bisherigen Exporte bleiben verfügbar — `panelNames.test.ts` läuft unverändert grün. |
+| **M5** | A7 | `src/pages/MusterbefundPage.tsx` (**G3-Hotspot**) | identisch | HUNK (3 Stück) | **ADAPT** | `befunde/meta` | **BG-01**, **BG-02** | Nur die Prop-Schnittstelle: (1) Import-Zeile auf `meta` umgestellt, (2) optionale Props `slug?` / `befunde?` mit Rückfall auf `useParams` bzw. `BEFUNDE`, (3) Lookup `quelle = befunde ?? BEFUNDE[slug]`. **Nicht übernommen** aus `main`: der Wegfall von `LanguageFallbackNotice` und der `ArrowUp`/`befund.toTop`-Bedienung (**N13**) sowie `SampleMeta`, `useMerkliste`, `PANELS`, `trackEvent`. Der `notFound`-Zweig mit `SEOHead notFound` bleibt unverändert — unbekannte Slugs antworten weiter echt 404. |
+| **M5** | A4 + A5 | `src/App.tsx` (**G3-Hotspot**) | identisch | HUNK (2 Stück) | **ADAPT** | die neun importierten Module | **BG-01** | (1) Neun `lazy()`-Importe; (2) neun `<Route>`-Blöcke. Die sechs expliziten Musterbefund-Routen stehen **vor** dem `:slug`-Auffangpfad, der Auffangpfad bleibt letzter Eintrag der Familie (`ROUTING-CONTRACT.md` **R-08**). Nicht übernommen: alles Übrige aus `main`s `App.tsx`, insbesondere der Wegfall von `GermanOnlyPage` (**N12**). |
+| **M5** | A10 | `server.ts` (**G3-Hotspot**) | identisch | HUNK (1 Stück) | **ADAPT** | — | **BG-01**, **BG-03**, **BG-04** | Genau drei `SITEMAP_ROUTES`-Einträge für die Vertiefungsseiten (+2 Kommentarzeilen). `KNOWN_PATHS` wird aus `SITEMAP_ROUTES` abgeleitet — **das** ist der Grund, warum die Datei editiert und niemals ersetzt wird. `isKnownPath`, `KNOWN_PATHS`, `EXTRA_KNOWN_PATHS`, `NOT_FOUND_MARKER`, `LEGACY_PATH_REDIRECTS`, `no-store` und die Locale-301-Kette sind unverändert. Die sechs Musterbefund-Sitemap-Einträge existierten bereits auf der Baseline — kein Hunk nötig. |
+| — | A8 | `src/components/ui/ChapterNav.tsx` | — | HUNK | **REJECT (DEFER)** | — | BG-10, BG-12 | `onClick?: () => void` auf `NavAction` war nur für die `trackEvent`-Instrumentierung nötig, die PT01.2 nicht übernimmt (**AD-2**). `data-chapterbar=""` und das `sr-only`-Switcher-Label sind für M1–M4 **nicht** erforderlich — sie gehören zu A9 (AP10/AP24) bzw. AP24. Der `text-heading`→Legacy-Umbenennungs-Hunk derselben Datei ist Teil von **N4** und bleibt abgelehnt. |
+| — | A9, A11–A16, A17–A21 | diverse | — | — | **REJECT (DEFER)** | — | — | Außerhalb M1–M5: Anker-Guard (AP10/AP24), `createItemListSchema` (AP09), Funnel-Schluss A12–A14 (AP15), Telefonnummern-Vereinheitlichung (AP08/AP09), `bigResult`/`ZAEHLBAR` (AP16), Umbaukonzept (Referenz), Chat-Entfernung/CSP/Instrumentierung (AP23), `EpigeneticsPanels`/`EpigeneticsTeaserSection` (AP15). |
+
+**Summe:** 9 Dateien neu (`FILE`), davon **6 byte-identisch** zur Quelle und 3 adaptiert;
+2 weitere Dateien adaptiert übernommen (`tokens.ts` byte-identisch, `meta.ts` byte-identisch sind darin enthalten);
+4 bestehende Dateien per Hunk angepasst; **0 Whole-File-Ersetzungen eines geschützten Hotspots**.
+
+### 3.2 Dokumentierte Abweichungen von der Quelle
+
+| ID | Abweichung | Betroffen | Warum |
+| --- | --- | --- | --- |
+| **AD-1** | `text-text-heading` → `text-heading` (9 Vorkommen) | `EpiSubpage`, alle drei Vertiefungsseiten | `main` benennt den Ink-Token in `tailwind.config.js` um. Diese Datei ist **N4** und wird nicht übernommen; die Baseline führt den identischen Hex `#083358` unter `heading`. Blueprint §6.1 Schritt 1, Variante B — die Variante, die `tailwind.config.js` **nicht** anfasst. |
+| **AD-2** | `trackEvent`-Instrumentierung entfernt: 3 Import-Zeilen und 6 `onClick`-Handler (`epigenetics_request`) | `EpiSubpage`, `EpigeneticsEvidencePage`, `EpigeneticsDocsPage` | `main`s `trackEvent` schreibt direkt in `window.dataLayer` (**N9**). Die Baseline führt eine einwilligungsgebundene, providerneutrale Schnittstelle mit geschlossener Ereignis-Union. Ein fünftes Ereignis darin ist eine **Messplan-Entscheidung von AP23/AP15** (Blueprint §6.1 Schritt 2, ausdrücklich „AP23 gate for AP15"), nicht ein Kompatibilitäts-Hunk von AP01. `src/lib/tracking.ts` bleibt unangetastet. Die Download-Links und der Anfrage-Button funktionieren unverändert — nur die Messung fehlt und wird von AP23/AP15 nachgezogen. `useScrollDepth('epigenetics')` bleibt erhalten: die Baseline-Fassung ist bereits einwilligungsgebunden und signaturkompatibel. |
+| **AD-3** | Hero der Vertiefungsseiten: `bg-gradient-to-br from-brand-primary via-brand-deep to-[#203864] text-white` → `bg-brand-deep text-white`; Rahmen `text-gray-900` → `text-heading` | `EpiSubpage` | Die Quellfassung nutzt das Legacy-Navy, das diese Linie abgeschafft hat. Unverändert übernommen **schlug `npm run check:colors` mit 3 Verstößen fehl** — an der Baseline war der Guard grün, das wäre eine neue PT01.2-Regression gewesen (BG-06, BG-12). Die Programmseite `/epigenetics` trägt auf dieser Linie `bg-brand-deep text-white`; die Vertiefungsseiten folgen ihr, statt eine zweite Art Direction aus `main` mitzubringen (`DEC-RL-002`). Guard danach wieder grün. |
+| **AD-4** | Prettier-Normalisierung zweier JSX-Zeilen | `EpigeneticsBasicsPage`, `EpigeneticsDocsPage` | Rein mechanische Folge von **AD-1**: die kürzeren Klassennamen lassen zwei `<h2>` in eine Zeile passen. Ohne die Normalisierung wären zwei neue Prettier-Verstöße entstanden — verbotenes Wachstum bestehender Baseline Debt (`QUALITY-GATES.md` §6.1). |
+
+### 3.3 Routing-Aktivierung und Spiegelpflicht
+
+Die drei Vertiefungsseiten und die sechs Musterbefund-Routenmodule sind **aktiv integriert** —
+`IMPORTED_NOT_YET_ACTIVATED_BY_SCOPE` trifft **nicht** zu. Grundlage ist `AP01.md` ST01.2.5
+(„Route-/Sitemap-Hunks nur so weit wie AP01-Import tatsächlich benötigt") und Blueprint §6.1
+Schritte 9–11.
+
+`ROUTING-CONTRACT.md` **M-01** verlangt bei einer Routenänderung die koordinierte Prüfung von fünf
+Spiegeln. Ergebnis dieser Prüfung:
+
+| Spiegel | Behandlung in PT01.2 |
+| --- | --- |
+| `src/App.tsx` | **geändert** — neun Routen, Auffangpfad-Reihenfolge geprüft |
+| `server.ts` (`SITEMAP_ROUTES` → `KNOWN_PATHS`) | **geändert** — drei Einträge; die sechs Musterbefund-Pfade waren bereits vorhanden |
+| `src/components/seo/SEOHead.tsx` (`GERMAN_ONLY_PATHS`) | **nicht betroffen** — alle neun Routen sind zehnsprachig, keine German-only-Sonderfälle |
+| `src/hooks/useSearch.ts` | **bewusst ausgelassen** — der Such-Index führt auf der Baseline auch `/epigenetics` selbst nicht; die Aufnahme ist AP07 PT07.1.9 (`RD-5`). Keine Verschlechterung, aber eine offene Spiegel-Lücke → **D-16**. |
+| `e2e/url-smoke.spec.ts` | **bewusst ausgelassen** — der Guard deckt 15 von 38 Sitemap-Pfaden ab und ist laut `QD-5` ohnehin semantisch zu schwach; ein Eintrag dort ist AP10 PT10.4 / AP27 PT27.5. Keine Verschlechterung → **D-16**. |
+
+Navigations-/Footer-Einstieg für die drei Vertiefungsseiten: **nicht gebaut** — `AP01.md` §4.2 führt die
+Navigationseinbindung der Epigenetik-Säule ausdrücklich als Out of Scope (AP03/AP06/AP15). Die Seiten
+sind heute über die `EpiSubpage`-Querverweise („Weiterlesen") und per Direkt-URL erreichbar.
+
+### 3.4 Validierung
+
+| Prüfung | Ergebnis |
+| --- | --- |
+| Typecheck (`tsc -b`) | **PASS** |
+| Unit Tests (`vitest run`) | **PASS — 7 Dateien, 18/18** (unverändert zur Baseline) |
+| Design-/Token-Guard (`check:colors`) | **PASS** (nach **AD-3**) |
+| Build (`npm run build`) | **PASS** — je Slug ein eigener Chunk: `metabolic-health`, `healthy-aging`, `biologische-altersuhr`, `telomer-analyse`, `stress-monitor`, `healthy-sport`, dazu `EpigeneticsBasicsPage`, `EpigeneticsEvidencePage`, `EpigeneticsDocsPage`, `EpiSubpage` |
+| ESLint | **129 Probleme — unverändert** (`_project-knowledge` 111 · `src` 17 · `server.ts` 1); **0 Befunde in den importierten Dateien** |
+| Prettier | **0 Verstöße** in allen PT01.2-Dateien |
+| SSR — neue Vertiefungsseiten | `/de/epigenetics/{grundlagen,studienlage,unterlagen}` → **200**, `/en/epigenetics/grundlagen` → **200** |
+| SSR — sechs Musterbefunde | alle sechs `/de/epigenetics/musterbefund/<slug>` → **200** mit echtem Inhalt (103–197 KB SSR-HTML) |
+| SSR — unbekannter Musterbefund-Slug | `/de/epigenetics/musterbefund/kein-panel-ap01` → **404** |
+| SSR — unbekannter Unterpfad | `/de/epigenetics/kein-unterpfad-ap01` → **404** |
+| Sitemap | 335 → **365 `<loc>`**; exakt **30** neue Einträge (3 Seiten × 10 Sprachen); die 60 Musterbefund-Einträge unverändert |
+| Canonical/hreflang neue Seite | ein Canonical + **11** `rel="alternate"` (10 Sprachen + `x-default`), robots `index, follow` |
+| Dependencies / Lockfiles | **keine Änderung** — alle Abhängigkeiten der importierten Dateien (`react-router-dom`, `react-i18next`, `lucide-react`) waren bereits vorhanden |
 
 ## 4. `redesign/preview` Import Ledger
 
@@ -248,7 +331,34 @@ Kompatibilitäts-Hunks nach `App.tsx`/`server.ts`.
 
 ## 5. Rejected / Explicitly Not Imported
 
-**NOT_RUN — PT01.2 / PT01.3.**
+**Stand PT01.2.** Jede Zeile wurde nach dem Import repositoryweit gegen den Arbeitsbaum **und** gegen
+das Laufzeitverhalten geprüft, nicht nur gegen Dateinamen.
+
+| Abgelehnt | Audit-ID | Nachweis nach dem Import |
+| --- | --- | --- |
+| **Ganze `server.ts` aus `main`** | N1 | `git diff server.ts` = **genau ein Hunk**, 3 Sitemap-Zeilen + 2 Kommentarzeilen. `isKnownPath`, `KNOWN_PATHS`, `EXTRA_KNOWN_PATHS`, `NOT_FOUND_MARKER`, `LEGACY_PATH_REDIRECTS`, `no-store` alle unverändert vorhanden. |
+| **Ganze `src/App.tsx` aus `main`** | N12 | `git diff src/App.tsx` = **zwei additive Hunks** (+89 / −0). `GermanOnlyPage`, `ScrollToHash`, Catch-all-Reihenfolge und Layout-Zuordnung unverändert. |
+| **Ganze `SEOHead.tsx` aus `main`** | N2 | `git diff src/components/seo/SEOHead.tsx` = **leer**. `notFound`-Prop und `GERMAN_ONLY_PATHS` unangetastet; 404-Handshake runtime-geprüft. |
+| **Ganze `EpigeneticsPage.tsx` aus `main`** | §6.2, A21 | `git diff src/pages/EpigeneticsPage.tsx` = **leer**. |
+| **`MusterbefundPage`-Verluste aus `main`** | N13 | `LanguageFallbackNotice` und `befund.toTop`/`ArrowUp` weiterhin in der Datei (3 Treffer). Nur die Prop-Schnittstelle wurde portiert. |
+| **`CtaSection` / site-weites Garantie-CTA-Band** | N5 | Kein `CtaSection`-Modul im Baum; kein `cta_section`-Schlüssel in `public/locales/**`. Die Treffer auf „garantierte Performance" liegen ausschließlich in `public/locales/{de,en}/services.json` als Fließtext einer Service-Seite — **identisch zu `961f65d`**, kein CTA-Band, von PT01.2 nicht berührt. |
+| **Ersatzband für das Garantie-Band** | `DEC-RL-012` | Nicht gebaut. Keine neue site-weite CTA-Sektion. |
+| **`Footer.tsx` aus `main`** | N6 | `git diff` = **leer** — `main`s Footer rendert `<CtaSection />` und hätte das Band zurückgebracht. |
+| **`Header.tsx` aus `main`** | N11 | `git diff` = **leer** — `main` verliert die WCAG-2.5.5-Trefferflächen und übersetzte Aria-Labels. |
+| **`DealPopup`, `DealHint`, Voucher-/Promo-UI** | N7 | Keine Datei mit `Deal`/`Voucher`/`Promo` im Namen; keine Referenz in `src/**`. |
+| **Shop-Reaktivierung (`src/data/products.ts`)** | N15 | Datei existiert nicht. |
+| **Case-Study-Reaktivierung** | `DEC-RL-015` | Nicht importiert. |
+| **`.bak-nopopup`-Dateien** | N8 | `find . -name '*.bak-nopopup*'` (ohne `node_modules`) = **leer**. |
+| **`<5 %`-IglooPro-Claim** | `DEC-RL-008` | `CV < 5` / `CV<5` in `src/**` und `public/locales/**`: **0 Treffer**. `CV < 2 %` in **30** Locale-Dateien. |
+| **`main`s `src/lib/tracking.ts` / direktes `dataLayer`-Tracking** | N9 | `git diff src/lib/tracking.ts` = **leer**. Kein `trackEvent(` mehr im Baum (nur eine erklärende Kommentarzeile). Die verbleibenden `window.dataLayer`-Stellen (`src/pages/consumer/*`, `CookieBanner.tsx`) sind **byte-identisch zu `961f65d`** und wurden von PT01.2 nicht berührt. |
+| **`CookieBanner.tsx` aus `main`** | N10 | `git diff` = **leer**. |
+| **Pre-Consent-GTM/GA4-Verschärfung** | `DEC-RL-004`, `REST-02` | `git diff index.html` = **leer**. Der Ist-Zustand (GTM lädt unbedingt, Consent Mode v2 `default: denied`) ist unverändert — weder verbessert noch verschlechtert; Auflösung bleibt AP23 (`D-15`). |
+| **`tailwind.config.js` aus `main` / Legacy-Navy / Dark Theme** | N4, `DEC-RL-003` | `git diff tailwind.config.js` = **leer**. `darkMode`: 0 Vorkommen. `dark:`-Klassen in `src/**`: **0**. `check:colors` **PASS**. |
+| **Alternative Art Direction** | `DEC-RL-002` | Der einzige Art-Direction-Konflikt des Imports wurde zugunsten der Baseline aufgelöst (**AD-3**). |
+| **`structuredData.ts` aus `main`** | N14 | `git diff` = **leer** — `main` verliert die ISO-8601-Datumsnormalisierung. |
+| **`main`s Script-Set / `docs/`-Löschungen** | N18, N19 | Keine Datei entfernt; `scripts/` und `docs/` unverändert. `check-color-tokens.mjs` weiterhin verdrahtet. |
+| **`ChapterNav`-Hunks A8 (`onClick`, `data-chapterbar`, `sr-only`)** | A8 | Für M1–M4 nicht erforderlich; `onClick` wäre nur für die abgelehnte Instrumentierung nötig gewesen. `git diff src/components/ui/ChapterNav.tsx` = **leer**. → AP23 / AP24 / AP10. |
+| **`index.html` aus `main`** | N3 | `git diff` = **leer** — `main` bringt den globalen deutschen `meta keywords`-Block zurück. |
 
 ## 6. Legacy Classification
 
@@ -290,6 +400,11 @@ in PT01.1; keines setzt PT01.1 auf FAIL.
 | D-14 | **Chat-Rest in der Laufzeit** — `widget.hihuman.co.uk` steht in der Report-Only-CSP von `server.ts` (`script-src`, `connect-src`, `frame-src`) | §1.7, Response-Header | `DEC-RL-007`, Master-Scope §5 | **AP01 PT01.4.2** (Klassifikation), AP26 (CSP-Finalisierung) | NO |
 | D-15 | **GTM lädt vor Consent** — `index.html` lädt `GTM-TW6JFX7K` unbedingt; Consent Mode v2 setzt nur `default: denied`, es gibt keinen Ladeverzicht (`REST-02`) | §1.9, `index.html:79`, Response-HTML | `DEC-RL-004`, `REST-02` | **AP23** | NO |
 
+| D-16 | **Spiegel-Lücke der neun neuen Routen** — `useSearch.ts` und `e2e/url-smoke.spec.ts` führen die drei Vertiefungsseiten nicht; `ROUTING-CONTRACT.md` M-01 nennt fünf Spiegel, PT01.2 hat zwei davon bewusst nicht angefasst | PT01.2 §3.3 | `ROUTING-CONTRACT.md` RD-1/RD-5, `QUALITY-GATES.md` QD-5 | **AP07 PT07.1.9** (Suche), **AP10 PT10.4 / AP27 PT27.5** (Guard) | NO |
+| D-17 | **Kein Navigations-/Footer-Einstieg** für die drei Vertiefungsseiten — sie sind nur per Direkt-URL und über die `EpiSubpage`-Querverweise erreichbar (`ROUTING-CONTRACT.md` R-16) | PT01.2 §3.3 | `AP01.md` §4.2 Out of Scope | **AP03 / AP06 / AP15** | NO |
+| D-18 | **Messung der Epigenetik-Vertiefungsseiten fehlt** — die aus `main` stammende `epigenetics_request`-Instrumentierung wurde bewusst nicht übernommen (§3.2 AD-2); die Baseline-Ereignis-Union kennt kein passendes Ereignis | PT01.2 §3.2 AD-2 | Blueprint §6.1 Schritt 2 („AP23 gate for AP15") | **AP23 / AP15** | NO |
+| D-19 | **PT01.1-Dokumentationsartefakte verletzen Prettier** — `building-docs/AP01-RECONCILIATION-RESULT.md` und `state/AP-STATE.md` stehen in der Prettier-Liste; `QUALITY-GATES.md` QG-09 überlässt die Dokumentationspolitik ausdrücklich AP27 | `prettier --check` über getrackte Dateien | QG-09 | **AP27** | NO |
+
 **Nicht reproduzierbare Baseline-Härtung: KEINE.** Jede in `AP01.md` §0 als zu schützend benannte
 Eigenschaft (echte 404, Redirects, `no-store`, SEOHead/404, Canonical/hreflang, Sales-Machine,
 Light Theme, kein Garantie-Band, `CV < 2 %`, `DRY_RUN`, vorhandene Guards) wurde an `961f65d`
@@ -307,6 +422,11 @@ der dokumentierte Ist-Zustand, keine verlorene Härtung.
 | PT | Datum | Ergebnis | Geänderte Dateien |
 | --- | --- | --- | --- |
 | PT01.1 | 2026-08-24 | **PASS** | `building-docs/AP01-RECONCILIATION-RESULT.md` (neu), `building-docs/state/AP-STATE.md` |
+| PT01.2 | 2026-08-24 | **PASS** | **neu:** `src/components/epigenetics/{tokens.ts,EpiSubpage.tsx}`, `src/pages/Epigenetics{Basics,Evidence,Docs}Page.tsx`, `src/content/befunde/meta.ts`, `src/pages/musterbefund/*.tsx` (6) · **Hunks:** `src/App.tsx`, `server.ts`, `src/pages/MusterbefundPage.tsx`, `src/content/befunde/index.ts` · **Doku:** `AP01-RECONCILIATION-RESULT.md`, `state/AP-STATE.md` |
 
-**Anwendungscode, Runtime-/Config-Dateien, Dependencies und Lockfiles wurden durch PT01.1 nicht
-verändert.**
+**PT01.1** hat weder Anwendungscode noch Runtime-/Config-Dateien, Dependencies oder Lockfiles verändert.
+
+**PT01.2** hat ausschließlich Anwendungscode im auditierten Import-Umfang verändert. Unverändert
+blieben: `package.json`, beide Lockfiles, `tsconfig*`, `vite.config.ts`, `tailwind.config.js`,
+`index.html`, Docker-/nginx-/CI-Dateien, `public/**`, `src/lib/tracking.ts`,
+`src/components/seo/**`, `src/components/layout/**` und `src/hooks/useSearch.ts`.
