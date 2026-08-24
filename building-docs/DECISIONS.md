@@ -30,6 +30,17 @@ definierten Change-Control-Mechanismus zulässig.
 (`DOCS.md`, `AUDIT_I18N_ROUTING.md`, `SEO_STRATEGY.md`, `CHAT_INTEGRATION.md`, …) ist die schwächste
 Quelle und darf einen Lock nicht überschreiben.
 
+**Ausdrücklich nicht kanonisch** — gleichnamig oder rollenähnlich, aber ohne Autorität:
+
+| Datei                                   | Tatsächliche Rolle                                           | Warum nicht kanonisch                                                                                                                                                                                                                                                                                        |
+| --------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `POLARISDX-RELAUNCH-MASTER-SCOPE(1).md` | Root-Kopie des Master-Scope                                  | Kanon ist `building-docs/scope/MASTER-SCOPE.md`.                                                                                                                                                                                                                                                             |
+| `knowledge/PROJECT-DECISIONS.md`        | Archon-Design-Brief („vor dem ersten Archon-Lauf ausfüllen") | Enthält **keine** `DEC-RL-`/`REST-`IDs und ist kein Relaunch-Decision-Register. Seine `TODO`-Felder (u. a. zu Themes) sind **keine** offenen Relaunch-Entscheidungen — `DEC-RL-003` ist gesperrt.                                                                                                            |
+| `docs/backlog.md`                       | Preview-Defizit-Log aus Phase 1                              | Kein Delivery-Index; Kanon ist `RELAUNCH-BACKLOG.md`. **Eintrag `G5` ist überholt:** Er führt `CV < 2 %` vs. `< 5 %` als offene Fachfrage und zitiert `accuracy_value: "CV < 5%"`. Beides trifft nicht mehr zu — der Ist-Zustand führt `CV < 2 %` in allen 10 Locales. `DEC-RL-008` ist und bleibt `LOCKED`. |
+
+Diese Dateien werden **nicht gelöscht** (historische Evidenz), dürfen aber nie als Entscheidungs-,
+Scope- oder Backlog-Quelle herangezogen werden.
+
 ### 1.1 Autoritätsreihenfolge
 
 ```

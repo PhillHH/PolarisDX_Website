@@ -9,15 +9,16 @@ kein `work-packages/APxx-STATE.md`).
 ## Current
 
 - Work package: AP00 — Programmsteuerung, Scope Lock und Delivery Governance
-- Primary task: AP00 Closure Gate (Validator, kein fünfter Primärtask) — noch nicht begonnen
-- Status: IN_PROGRESS <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
+- Primary task: — (AP00 abgeschlossen; AP01 noch nicht gestartet)
+- Status: COMPLETE <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
+- AP00 closure: PASS
 - Baseline: `feat/home-leadmagnet@961f65d`
-- Current HEAD: `cad9b6cc2dad92e638e7b11db98b792207ed30fb`
+- Current HEAD: `0c58d445acc3a601414df5e574d28c138e18b1fd`
 - Started: 2026-08-24
 - Last updated: 2026-08-24
 
 <!-- HEAD-Historie: f8692c0 = PT00.1-Ergebnisse (inkl. der zuvor uncommitteten Änderung an
-     src/pages/EpigeneticsPage.tsx), bf125d2 = PT00.2, cad9b6c = PT00.3.
+     src/pages/EpigeneticsPage.tsx), bf125d2 = PT00.2, cad9b6c = PT00.3, 0c58d44 = PT00.4.
      Baseline-Entscheidung unverändert: feat/home-leadmagnet@961f65d. -->
 
 ## Completed Work
@@ -32,6 +33,9 @@ kein `work-packages/APxx-STATE.md`).
   (RISK-001 bis RISK-015), Gate-Bindung 15/15 und 1 akzeptiertem Product Risk.
 - PT00.4 — Release-Abnahmevertrag erzeugt: `RELEASE-ACCEPTANCE.md` mit 7 Abnahmedomänen,
   12/12 Launch-Gates, je einer accountable Owner-Rolle, Evidence Contract und Waiver-Politik.
+- AP00-CLOSURE — Closure Gate `PASS`: C00-01 bis C00-20 geprüft; Decision Locks 18/18, AP coverage
+  34/34, Launch Gates 12/12, Owner-Rollen 12/12, Context Mappings 34/34, Duplicate Canon NONE,
+  Source/Config NONE.
 
 ## Current Invariants
 
@@ -76,9 +80,16 @@ kein `work-packages/APxx-STATE.md`).
 - `building-docs/RELAUNCH-BACKLOG.md` (neu, PT00.2)
 - `building-docs/RISK-REGISTER.md` (neu, PT00.3)
 - `building-docs/RELEASE-ACCEPTANCE.md` (neu, PT00.4)
-- `building-docs/state/AP-STATE.md` (fortgeschrieben, PT00.1–PT00.4)
+- `building-docs/state/AP-STATE.md` (fortgeschrieben, PT00.1–PT00.4 + Closure)
 
 Quellcode-, Runtime-, Config- und Dependency-Dateien: **keine**.
+
+Closure-Korrekturen (rein dokumentarisch, additiv):
+
+- `building-docs/DECISIONS.md` §1 — Liste **ausdrücklich nicht kanonischer** gleichnamiger Dateien
+  ergänzt (`POLARISDX-RELAUNCH-MASTER-SCOPE(1).md`, `knowledge/PROJECT-DECISIONS.md`,
+  `docs/backlog.md` inkl. Hinweis, dass dessen Eintrag `G5` überholt ist).
+- `building-docs/state/AP-STATE.md` — `Current HEAD` auf den tatsächlichen Stand nachgezogen.
 
 ## Open Blockers
 
@@ -111,30 +122,32 @@ Quellcode-, Runtime-, Config- und Dependency-Dateien: **keine**.
 
 <!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste PT braucht. -->
 
-- Keine Abweichung von `CONTEXT-INDEX.md`: AP00 benötigt nur `ALWAYS_READ`.
-- Der AP00 Closure Gate ist ein **Validator**, kein Primärtask. Er prüft `C00-01` bis `C00-15`
-  (`work-packages/AP00.md` §6) gegen die sechs Artefakte: `DECISIONS.md` · `SCOPE-CHANGELOG.md` ·
-  `RELAUNCH-BACKLOG.md` · `RISK-REGISTER.md` · `RELEASE-ACCEPTANCE.md` · `state/AP-STATE.md`.
-- Erwartete Sollwerte für die Closure-Prüfung: Decision Coverage 18/18 · AP coverage 34/34 ·
-  Launch Gates 12/12 · Owner-Rollen 12/12 · Hard Barriers HB-01–HB-08 · Risiken 15 · Waiver 0 ·
-  Source/config modified NONE.
-- Optionale Evidenz bei Bedarf: `QUALITY-GATES.md` §12 (technischer Gate-Ist-Zustand).
+- Keine Abweichung von `CONTEXT-INDEX.md`. AP01 verwendet die dort für AP01 definierte
+  `Required context`-Menge; `Optional context` nur bei konkretem Anlass.
+- Für AP01 zusätzlich relevant: `DECISIONS.md` §2 (Baseline und Branch-Rollen),
+  `RELAUNCH-BACKLOG.md` §4 `HB-02`, `RISK-REGISTER.md` `RISK-002` / `RISK-003` / `RISK-007` / `RISK-008`.
 
 ## Handoff
 
 - Last completed PT: PT00.4
-- Next PT: AP00-CLOSURE (Closure Gate — Validator)
-- Next work package: AP01 — **erst nach AP00 Closure Gate `PASS`**
+- AP00 closure: PASS
+- Next PT: — (wird beim Start von AP01 gesetzt)
+- Next work package: AP01 — Repository-Baseline, Branch-Reconciliation und Import-Hygiene
 
-Stand für AP00-CLOSURE:
+Übergabe an AP01 (AP00 liefert keine Implementierung, sondern Governance):
 
-- Alle vier Primärtasks abgeschlossen: PT00.1–PT00.4 (**4/4**).
-- Alle fünf Governance-Artefakte erzeugt; keine parallele Kanon-Datei angelegt.
-- `RELEASE-ACCEPTANCE.md`: 12/12 Gates, 12/12 accountable Owner-Rollen, 7 Abnahmedomänen,
-  maschinelle und manuelle Evidenz getrennt, PASS/FAIL/BLOCKED definiert, Waiver-Politik vorhanden.
-- Alle Gate-Ergebnisse `NOT_RUN`; 0/12 abgenommen; 0 Waiver.
-- Decision Locks 18/18 unverändert `LOCKED`; keine offenen Product Decisions.
-- Keine Source-/Runtime-/Dependency-Datei durch AP00 verändert.
+- gesperrte Baseline `feat/home-leadmagnet@961f65d`; `main@d0fdf29`, `redesign/preview@5673b61`,
+  `feat/contact-joyful@ab373a3` bleiben **ausschließlich selektive Quellen**.
+- Decision Locks 18/18 `LOCKED` — `DECISIONS.md` / `PROJECT-CONSTRAINTS.md`.
+- Prioritäts- und Abhängigkeitslogik — `RELAUNCH-BACKLOG.md` (P0–P3, Wellen W0–W6, `HB-01`–`HB-08`).
+- Bekannte Risiken — `RISK-REGISTER.md` (15 Einträge; für AP01 besonders `RISK-002`, `RISK-003`,
+  `RISK-007`, `RISK-008`).
+- Abnahme-/Gate-Struktur — `RELEASE-ACCEPTANCE.md` (12/12 Gates, alle `NOT_RUN`).
+- **`HB-02` gilt ab sofort:** `PT01.1` (Baseline verifizieren) vor jedem branch-abgeleiteten Schritt;
+  `BRANCH-RECONCILIATION-MAP.md` ist bei **jedem** Import Pflicht.
+- AP01 liest laut `CONTEXT-INDEX.md` zusätzlich: `REPO-BASELINE`, `BRANCH-RECONCILIATION-MAP`,
+  `QUALITY-GATES`, `ROUTING-CONTRACT`, `RUNTIME-CONTRACT` sowie `DECISIONS.md`,
+  `RELAUNCH-BACKLOG.md`, `RISK-REGISTER.md`.
 
 ---
 
