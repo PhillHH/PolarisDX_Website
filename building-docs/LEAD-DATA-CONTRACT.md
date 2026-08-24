@@ -44,6 +44,39 @@ AP27 PT27.2 (Integrationstests), AP28 PT28.5 (Persistenz/Backup), AP32 (Betrieb)
 **Launch-Gate 3** und **Gate 10** hängen an diesem Vertrag.
 **Baseline:** `feat/home-leadmagnet@961f65d`. Keine Decision-Lock-Änderung durch diesen Vertrag.
 
+### 2.1 Lead-/Backend-Zielbild — Vertragslandkarte (AP02 PT02.4)
+
+**Stand AP02 PT02.4 (2026-08-24):** Das Lead-/Backend-Zielbild ist festgeschrieben. Es liegt **nicht** in
+einem einzelnen neuen Dokument, sondern verteilt auf die **vier bereits kanonischen** Verträge dieser
+Domäne. PT02.4 hat sie gegen den realen Repository-Zustand geprüft, die verbliebenen Lücken geschlossen
+(**LD-27 bis LD-33**, **API-21 bis API-23**) und diese Landkarte ergänzt. **Es wurde kein konkurrierendes
+Architektur-Dokument erzeugt.**
+
+| Thema                                             | Kanonischer Ort                                                              |
+| ------------------------------------------------- | ---------------------------------------------------------------------------- |
+| Lead-Domänenmodell, Journey-Typen, Feldkategorien | **dieser Vertrag** §4 „Modell", §5.1, §5.2                                   |
+| Datenminimierung je Journey                       | **dieser Vertrag** LD-06/LD-07, §5.2                                         |
+| Systemgrenzen (CRM/Mail/Browser ≠ Persistenz)     | **dieser Vertrag** LD-03, **LD-27**                                          |
+| Deduplication ≠ Idempotenz                        | **dieser Vertrag** LD-19, **LD-28**                                          |
+| Consent-/Legal-Kontext im Lead                    | **dieser Vertrag** LD-12–LD-15                                               |
+| Retention, Löschung, Auskunft                     | **dieser Vertrag** LD-21/LD-22, **LD-29/LD-30**                              |
+| API-Fehlervertrag, Validierung, Statuscodes       | `BACKEND-API-CONTRACT.md` API-03–API-13                                      |
+| Persistenz-First und Transaktionsgrenze           | `BACKEND-API-CONTRACT.md` API-01, §5.2 · LD-01                               |
+| Idempotenzmodell (fünf Ebenen A–E)                | `BACKEND-API-CONTRACT.md` §5.3                                               |
+| Rate Limit, Abuse-Schutz, API-Security            | `BACKEND-API-CONTRACT.md` API-05/06/16/17, **API-21–API-23**                 |
+| Lead-Statusmodell je Kanal                        | `LEAD-DELIVERY-CONTRACT.md` §5.1                                             |
+| Queue, Retry, Backoff, Dead-Letter, Replay        | `LEAD-DELIVERY-CONTRACT.md` LDV-05–LDV-08                                    |
+| Outbox-/Konsistenzprinzip                         | `LEAD-DELIVERY-CONTRACT.md` LDV-03                                           |
+| Mailzustellung als nachgelagerter Kanal           | `LEAD-DELIVERY-CONTRACT.md` LDV-17–LDV-20                                    |
+| Gated Asset Delivery / Entitlement                | `LEAD-DELIVERY-CONTRACT.md` LDV-24 · `CONTENT-ASSET-CONTRACT.md` CA-30–CA-34 |
+| Logging-/PII-Minimierung                          | `LEAD-DELIVERY-CONTRACT.md` LDV-21/LDV-22 · LD-17/LD-18                      |
+| CRM-Adaptergrenze, Mapping, Provider-Neutralität  | `CRM-INTEGRATION.md` CRM-01–CRM-06, §5.1, §5.4                               |
+| Epigenetik-Inquiry als eigene Zuordnung           | §5.1 hier · `CRM-INTEGRATION.md` §5.2 (`DEC-RL-011`)                         |
+| Consumer Order als eigener Vorgang                | §5.1/§5.2 hier · `BACKEND-API-CONTRACT.md` §5.1                              |
+| Kein Chat im Zielmodell                           | `BACKEND-API-CONTRACT.md` API-20 · **LD-31**                                 |
+| DRY_RUN-/Staging-Isolation                        | LD-24 · API-19 · LDV-16 · CRM-18 (`REST-01`)                                 |
+| Betriebsanforderungen an die Lead-Plattform       | `LEAD-DELIVERY-CONTRACT.md` §5.4 → **AP28/PT02.5**                           |
+
 ---
 
 ## 3. Current Participating Files / Current State
@@ -57,6 +90,36 @@ AP27 PT27.2 (Integrationstests), AP28 PT28.5 (Persistenz/Backup), AP32 (Betrieb)
 | `src/pages/consumer/{OrderForm,OrderModal}.tsx`                                                                 | Consumer-Bestellung                                                                                    | G2     |
 | **künftige Persistenzschicht**                                                                                  | existiert nicht                                                                                        | **G3** |
 | `docker-compose.yml`                                                                                            | heute zwei Services, **kein persistenter Speicher**                                                    | G2     |
+
+### 3.1 Ist-Zustand Lead und Backend (AP02 PT02.4, read-only erhoben 2026-08-24)
+
+**Gemessener IST-Zustand, nicht das SOLL.** Erhebung durch Quelllesung ohne Änderung — kein Request
+abgesetzt, keine Mail gesendet, kein CRM-Aufruf, kein Lead erzeugt.
+
+| Klasse                | Ist-Befund                                                                                                                                                                                                                                              |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **A** API-Endpunkte   | **fünf** in `server/server.js` (733 Zeilen): `/api/contact`, `/api/support`, `/api/consumer-order`, `/api/chat`, `/api/roi-report`                                                                                                                      |
+| **B** Validierung     | Einzelprüfungen je Handler — Consent-Flag, Pflichtfeld-Existenz, ein E-Mail-Regex, Honeypot `_hp`. **Kein Schema**, keine Feldlängenbegrenzung; einzige Schranke ist `express.json({limit:'10mb'})`                                                     |
+| **C** Mailverhalten   | **synchroner SendGrid-Versand vor jeder Erfolgsantwort**; Erfolg = „Provider hat angenommen". Providerfehler ⇒ `500`, der Vorgang ist verloren. Empfängerwahl teils aus **Client-Freitext** (`area.includes(...)` schaltet auf eine andere Zieladresse) |
+| **D** Persistenz      | **keine.** Keine Datenbank, kein Dateispeicher, kein Lead-Datensatz. `server/package.json` führt genau sechs Laufzeitabhängigkeiten: `@sendgrid/mail`, `cors`, `dotenv`, `express`, `express-rate-limit`, `pdfkit`                                      |
+| **E** CRM             | **keins.** Kein Adapter, kein Port, keine Anbieterbibliothek                                                                                                                                                                                            |
+| **F** Queue / Retry   | **keine.** Kein Job-Store, kein Worker, kein Backoff, kein Dead-Letter                                                                                                                                                                                  |
+| **G** Rate Limits     | `formLimiter` (per-IP) an `/api/contact`, `/api/support`, `/api/roi-report`. **`/api/consumer-order` und `/api/chat` ohne Limit**; `trust proxy` ist gesetzt, damit `req.ip` belastbar bleibt                                                           |
+| **H** Consent / Audit | Consent wird als Boolean geprüft und in den Mailtext übernommen. **Keine Consent-Evidence** (Zeitpunkt, Version, Umfang), keine Korrelationskennung, kein Audit-Datensatz                                                                               |
+| **I** Consumer Order  | eigener Endpunkt, aber **mail-only**, ohne Rate Limit, ohne Idempotenz, ohne Order-Zustand                                                                                                                                                              |
+| **J** Chat-Rest       | `POST /api/chat` existiert weiterhin (Mock-Antwort), ohne Frontend-Aufrufer                                                                                                                                                                             |
+| **K** Testabdeckung   | `server/server.test.js`, 41 Zeilen: ausschließlich Fälle für die Hilfsfunktion `esc()`. **Kein einziger Endpunkt-Test**                                                                                                                                 |
+
+**Antwortform (gemessen):** Erfolg `200 {success:true}`, Fehler `400`/`500` mit `{error:"<feste
+englische Prosa>"}` — **kein** stabiler Fehlercode, **keine** `request_id`, **keine** feldbezogenen
+Fehler. `DRY_RUN` existiert als globaler Kill-Switch **ausschließlich für den Mailversand**
+(`server/server.js`), nicht für CRM oder Queue.
+
+**Bewertung:** Der heutige Stand ist **Mail-only** und damit die genaue Gegenposition zu `DEC-RL-009`.
+Diese Messung hat **keine neue** Schuld ergeben — sie bestätigt die bereits dokumentierten Einträge in
+`BACKEND-API-CONTRACT.md` §6 (`AD-1`–`AD-11`), §6 hier (`LDD-1`–`LDD-12`),
+`LEAD-DELIVERY-CONTRACT.md` §6 (`LVD-1`–`LVD-12`) und `CRM-INTEGRATION.md` §6. **Keine davon wurde in
+PT02.4 repariert.**
 
 ---
 
@@ -141,6 +204,64 @@ Welche Merkmale gelten, entscheidet AP22 PT22.2.7 je Journey; das Modell hält P
 
 **LD-20 · Audit-Zeitstempel und Korrelationskennung sind Pflicht** — Erstellung, Änderung, relevante
 Verarbeitungsschritte, Request-/Correlation-ID und der Idempotenzschlüssel. _(AP22 PT22.2.9)_
+
+### Systemgrenzen und Abgrenzungen (AP02 PT02.4)
+
+**LD-27 · Die Systemgrenzen sind eindeutig.** Keine dieser Rollen darf mit der Lead-Persistenz
+verwechselt werden:
+
+| System                                             | Rolle                                 | **Nicht**                                                                 |
+| -------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------------------- |
+| eigener Lead-Speicher                              | **System of Record** (LD-03)          | —                                                                         |
+| CRM                                                | nachgelagertes Zielsystem             | primäre Website-Datenbank; **nicht** die Instanz, die Annahme entscheidet |
+| Mailprovider / Postfach                            | Transport- und Benachrichtigungskanal | Persistenz, Archiv oder Beleg der Annahme                                 |
+| Browser-Speicher (`localStorage`, Session, Cookie) | Bedienkomfort im Client               | **niemals** Lead-Persistenz, Zustands- oder Idempotenzquelle              |
+| Log                                                | Spur                                  | Zustand (`LEAD-DELIVERY-CONTRACT.md` LDV-25)                              |
+
+**LD-28 · Deduplication ist nicht Idempotenz — beide sind Pflicht, aber getrennt.**
+
+| Begriff           | Frage                                                                      | Verbindlichkeit                                                               |
+| ----------------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| **Idempotenz**    | Derselbe **technische** Vorgang läuft mehrfach — wirkt er nur einmal?      | **technische Pflicht**; Modell in `BACKEND-API-CONTRACT.md` §5.3 (Ebenen A–E) |
+| **Deduplication** | Zwei **fachlich** ähnliche, technisch verschiedene Leads — dieselbe Sache? | **fachliche Strategie**; Merkmale je Journey (LD-19, AP22 PT22.2.7)           |
+
+Daraus folgt verbindlich:
+
+- Deduplication darf **legitime getrennte Anfragen nicht zusammenwerfen**. Dieselbe Person darf
+  zweimal etwas anderes anfragen; das sind zwei Vorgänge.
+- Dedup-Regeln sind **journey-spezifisch** definierbar; eine globale Regel über alle Lead-Typen ist
+  unzulässig.
+- Das **CRM ist nicht die einzige Stelle**, an der Duplikate erkannt werden. Wer Dedup ausschließlich
+  dem Zielsystem überlässt, hat im eigenen System of Record keine Wahrheit darüber (LD-03).
+- Eine Dedup-Entscheidung wird **nachvollziehbar festgehalten**, nicht stillschweigend angewendet.
+
+**LD-29 · Aufbewahrungsfristen sind eine Rechtsentscheidung, keine Architekturentscheidung.** Dieser
+Vertrag verlangt, dass je Lead-Typ eine Frist **existiert und durchsetzbar ist** (LD-21) — er erfindet
+**keine Dauer**. Solange keine kanonisch belegte Frist vorliegt, gilt sie als
+**`TBD_OWNER_LEGAL`**; das ist ein ausgewiesener offener Punkt, kein stillschweigendes „unbegrenzt".
+**Ewige Datenhaltung ist kein zulässiger Default.**
+
+**LD-30 · Löschung und Anonymisierung dürfen die Verarbeitungskonsistenz nicht stillschweigend
+zerstören.** Eine Lösch- oder Anonymisierungsmaßnahme bezieht offene Jobs, Dead-Letter-Einträge,
+Audit-Spuren und Sicherungen ausdrücklich ein — entweder werden sie mit behandelt oder ihr Verbleib ist
+begründet und dokumentiert. Ein Löschlauf, der einen Job mit personenbezogener Nutzlast zurücklässt,
+erfüllt LD-22 nicht.
+
+**LD-31 · Chat ist kein Bestandteil des Zielmodells.** Es gibt keinen Chat-Lead-Typ, keinen
+Chat-Source-Kontext, keine Chat-CRM-Zuordnung und keinen Chat-Provider-Adapter. Die vorhandenen Reste
+sind Baseline Debt der Owner-APs, kein Vertragsgegenstand. _(`DEC-RL-007`,
+`BACKEND-API-CONTRACT.md` API-20, Gate 5)_
+
+**LD-32 · Speicher- und Queue-Technologie sind offen und anbieterneutral zu halten.** Dieser Vertrag
+formuliert **Anforderungen** — Dauerhaftigkeit, Statusübergänge, Auffindbarkeit, Backup-/Restore-Fähigkeit,
+Transaktions- oder Outbox-Fähigkeit — und **keine Produktwahl**. Datenbank, Queue, Monitoring-Senke und
+Secrets-Verwaltung entscheiden **AP22** und **AP28** auf kanonischer Grundlage.
+_(vgl. `CRM-INTEGRATION.md` §5.4 für dieselbe Logik beim CRM)_
+
+**LD-33 · Das Zielbild ist ohne Anbieterentscheidung baubar.** Lead-Modell, Persistenz-First,
+Statusmodell, Idempotenz, Queue-Semantik, Fehlerklassifikation und Testadapter lassen sich vollständig
+umsetzen, bevor CRM, Datenbank oder Queue-Produkt feststehen. Eine offene Anbieterfrage ist **kein**
+Grund, Mail-only beizubehalten.
 
 ### Betroffenenrechte
 
@@ -316,6 +437,41 @@ Kein Test darf ein echtes CRM oder einen echten Mailversand auslösen.
 
 _(AP27 PT27.2.4, PT27.3)_
 
+### 9.1 Zuordnung der PT02.4-Zielinvarianten
+
+Die Aufgabenstellung von PT02.4 nennt Invarianten als `LEAD-xx`. Die Lead-/Backend-Domäne führt bereits
+vier kanonische ID-Systematiken (`LD-`, `API-`, `LDV-`, `CRM-`); es wird **keine parallele** hinzugefügt.
+Die Zuordnung ist:
+
+| LEAD        | Inhalt                                                      | hier / Nachbarvertrag                           |
+| ----------- | ----------------------------------------------------------- | ----------------------------------------------- |
+| **LEAD-01** | stabile interne Lead-ID                                     | LD-04 · LD-T1                                   |
+| **LEAD-02** | Persistenz vor endgültiger Erfolgsbestätigung               | LD-01 · API-01 · LDV-02 · LD-T1                 |
+| **LEAD-03** | CRM-Ausfall verliert keinen Lead                            | LD-02, LD-03 · LDV-01 · LD-T2                   |
+| **LEAD-04** | Mailausfall verliert keinen Lead                            | LD-02 · LDV-01, LDV-18 · LD-T2                  |
+| **LEAD-05** | externe Side Effects sind retryfähig                        | `LEAD-DELIVERY-CONTRACT.md` LDV-05–LDV-07       |
+| **LEAD-06** | Wiederholung erzeugt keine unkontrollierten Duplikate       | `BACKEND-API-CONTRACT.md` §5.3 · LDV-08/LDV-11  |
+| **LEAD-07** | permanente Fehler sichtbar und wiederaufnehmbar             | LDV-07, LDV-12 · LD-16                          |
+| **LEAD-08** | jeder Lead hat einen Journey-Typ                            | LD-05 · §5.1 · LD-T6                            |
+| **LEAD-09** | Epigenetik mit eigenem Typ/CRM-Routing                      | §5.1 · `CRM-INTEGRATION.md` §5.2 (`DEC-RL-011`) |
+| **LEAD-10** | Content Download als eigener gated Typ                      | §5.1 `content_download` · LDV-24 · CA-30–CA-34  |
+| **LEAD-11** | Consumer Order unterscheidbar                               | §5.1, §5.2 · `BACKEND-API-CONTRACT.md` §5.1     |
+| **LEAD-12** | Server validiert autoritativ                                | `BACKEND-API-CONTRACT.md` API-03/API-04         |
+| **LEAD-13** | Rate-/Abuse-Schutz je öffentlicher Route                    | `BACKEND-API-CONTRACT.md` API-16/API-17         |
+| **LEAD-14** | Analytics-Consent ≠ Marketing-/CRM-Consent                  | LD-12, LD-13 · CRM-13 · LD-T8                   |
+| **LEAD-15** | Auffinden, Löschen, Anonymisieren möglich                   | LD-21, LD-22, **LD-29**, **LD-30** · LD-T12     |
+| **LEAD-16** | keine unnötigen PII-Payloads in Logs                        | LD-17, LD-18 · LDV-21/LDV-22 · CRM-16           |
+| **LEAD-17** | Preview/Staging ohne produktive Side Effects                | LD-24 · API-19 · LDV-16 · CRM-18                |
+| **LEAD-18** | Chat ist kein Bestandteil des Zielmodells                   | **LD-31** · `BACKEND-API-CONTRACT.md` API-20    |
+| **LEAD-19** | CRM ist nicht die primäre Persistenz                        | LD-03, **LD-27** · CRM-01                       |
+| **LEAD-20** | Mail ist nicht die primäre Persistenz                       | LD-03, **LD-27** · LDV-17                       |
+| **LEAD-21** | gated Asset Delivery ist idempotent                         | LDV-08, LDV-11, LDV-24 · §5.3 Ebene C           |
+| **LEAD-22** | Lead und Downstream-Work fallen nicht dauerhaft auseinander | `LEAD-DELIVERY-CONTRACT.md` LDV-03 (Outbox)     |
+
+Ergänzend aus PT02.4: **Deduplication ≠ Idempotenz** (LD-28), **Systemgrenzen inkl. Browser-Speicher**
+(LD-27), **Retention als `TBD_OWNER_LEGAL`** (LD-29), **Anbieterneutralität von Speicher und Queue**
+(LD-32/LD-33), **Transport-/Expositionsregeln** (`BACKEND-API-CONTRACT.md` API-21–API-23).
+
 ---
 
 ## 10. Forbidden Regressions
@@ -334,6 +490,20 @@ _(AP27 PT27.2.4, PT27.3)_
 - ❌ In Preview/Staging produktive Datensätze erzeugen
 - ❌ Lead-Typ-Bezeichner außerhalb von AP22 festlegen
 - ❌ Ein Feld als Gesundheitsdatum klassifizieren oder entklassifizieren ohne Beleg
+
+**Aus AP02 PT02.4 zusätzlich:**
+
+- ❌ **Mail-only als Zielmodell behandeln** oder eine Erfolgsantwort an einen Providererfolg binden (`DEC-RL-009`)
+- ❌ CRM, Postfach oder Browser-Speicher als Lead-Persistenz verwenden (LD-27)
+- ❌ Deduplication als Ersatz für technische Idempotenz behandeln — oder umgekehrt (LD-28)
+- ❌ Fachlich getrennte Anfragen durch eine globale Dedup-Regel zusammenwerfen (LD-28)
+- ❌ Duplikaterkennung ausschließlich dem CRM überlassen (LD-28)
+- ❌ Eine Aufbewahrungsfrist erfinden, statt sie als `TBD_OWNER_LEGAL` auszuweisen (LD-29)
+- ❌ Unbegrenzte Aufbewahrung als stillschweigenden Default akzeptieren (LD-29)
+- ❌ Löschen, ohne offene Jobs, Dead-Letter-Einträge und Sicherungen zu betrachten (LD-30)
+- ❌ **Einen Chat-Lead-Typ, Chat-Source-Kontext oder Chat-Adapter in das Zielmodell aufnehmen** (LD-31)
+- ❌ Eine Datenbank-, Queue- oder Monitoring-Anbieterentscheidung ohne kanonische Grundlage treffen (LD-32)
+- ❌ Eine offene Anbieterfrage als Begründung dafür verwenden, Mail-only beizubehalten (LD-33)
 
 ---
 

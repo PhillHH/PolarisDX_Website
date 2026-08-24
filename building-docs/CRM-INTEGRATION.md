@@ -42,6 +42,11 @@ AP26 PT26.4 (Secrets, Least Privilege, PII-Redaction), AP27 PT27.1.5/PT27.2.4 (T
 AP28 (Betrieb, Secrets), AP32 PT32.1.3 (Monitoring), AP33 (Doku).
 
 **Launch-Gate 3** hängt an diesem Vertrag. Scope §10 Nr. 9 fordert genau dieses Dokument.
+**Stand AP02 PT02.4 (2026-08-24):** Die CRM-Adaptergrenze des Lead-/Backend-Zielbilds ist bestätigt und
+um die Abgrenzung zu LD-28 (Deduplication ≠ Idempotenz) ergänzt. Ist-Erhebung und **Vertragslandkarte**
+stehen in `LEAD-DATA-CONTRACT.md` §2.1/§3.1. **Keine CRM-Anbieterentscheidung** und keine Integration
+durch PT02.4.
+
 **Baseline:** `feat/home-leadmagnet@961f65d`. Keine Decision-Lock-Änderung durch diesen Vertrag.
 
 ---
@@ -99,6 +104,9 @@ blockieren noch einen Job unbegrenzt offen halten. _(AP22 PT22.3.6)_
 
 **CRM-09 · Deduplizierung ist ausdrücklich geregelt.** Ob und wie ein bestehender CRM-Kontakt erkannt und
 aktualisiert statt neu angelegt wird, entscheidet AP22 PT22.2.7/PT22.3 je Journey.
+**Deduplizierung ist nicht Idempotenz** (CRM-05) und das CRM ist **nicht** die einzige Stelle, an der
+Duplikate erkannt werden — die Abgrenzung und die Regeln dafür stehen in `LEAD-DATA-CONTRACT.md` LD-28.
+_(AP02 PT02.4)_
 
 **CRM-10 · CRM und Mail sind unabhängige Kanäle.** Der Erfolg des einen ist keine Vorbedingung des
 anderen, und ein Wiederholungslauf des einen wiederholt nie den bereits erfolgreichen anderen.

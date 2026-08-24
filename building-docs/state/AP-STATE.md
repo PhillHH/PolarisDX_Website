@@ -10,11 +10,13 @@ kein `work-packages/APxx-STATE.md`).
 
 - Work package: AP02 — Zielarchitektur: SSR, Routing, Lead Platform und Betrieb
 - Status: IN_PROGRESS <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
-- Last completed PT: PT02.3 — Content-/Asset-Architektur (PASS)
-- Next PT: PT02.4 — Lead-/Backend-Zielbild (nicht begonnen)
+- Last completed PT: PT02.4 — Lead-/Backend-Zielbild (PASS)
+- Next PT: PT02.5 — Produktionsbetriebs-Zielbild (nicht begonnen)
 - SSR/rendering contract: recorded (`building-docs/RUNTIME-CONTRACT.md`)
 - Routing/route-registry contract: recorded (`building-docs/ROUTING-CONTRACT.md`)
-- Content/asset contract: recorded (`building-docs/CONTENT-ASSET-CONTRACT.md`, neu)
+- Content/asset contract: recorded (`building-docs/CONTENT-ASSET-CONTRACT.md`)
+- Lead/backend contract: recorded — verteilt auf `LEAD-DATA-CONTRACT.md` (Hub, §2.1 Vertragslandkarte),
+  `BACKEND-API-CONTRACT.md`, `LEAD-DELIVERY-CONTRACT.md`, `CRM-INTEGRATION.md`
 - AP01: COMPLETE · AP01 closure: PASS (43/43, `C01-01`–`C01-43`) — unverändert erhalten
 - AP00: COMPLETE · AP00 closure: PASS (unverändert erhalten)
 - AP03: NOT STARTED
@@ -23,7 +25,7 @@ kein `work-packages/APxx-STATE.md`).
   legacy classification: recorded · final clean build evidence: recorded · **closure evidence: recorded**
   (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§9)
 - Current branch: `console/ap02-2026-08-24T12-30-23`
-- Current HEAD: `0aaa092a59fa009c688d3c2460062bc04aca1b72` — PT02.2-Commit; enthält den
+- Current HEAD: `81be126fb0142d3d48ceed180af0a205cf98cab7` — PT02.3-Commit; enthält den
   AP01-Final-HEAD `3736d1a` als Ancestor; Delta `3736d1a..HEAD` = **0 Nicht-Dokumentationsdateien**
 - Started: 2026-08-24 (AP02); AP01 gestartet und abgeschlossen 2026-08-24
 - Last updated: 2026-08-24
@@ -100,6 +102,17 @@ kein `work-packages/APxx-STATE.md`).
   plus SEO-Grenze, Schulden **CD-1–CD-10**, Regeln **CM-01–CM-06**, Nachweise **CA-T1–CA-T14** mit
   `CONTENT-xx`-Zuordnung, Owner-Grenzen §11. `CONTEXT-INDEX.md` entsprechend ergänzt.
   **Kein Inhalt migriert, keine Übersetzung erzeugt, kein Asset geändert, kein Gating, kein CMS.**
+- PT02.4 — Lead-/Backend-Zielbild in den **vier bestehenden** kanonischen Verträgen bestätigt und
+  vervollständigt statt in einem neuen Dokument: `LEAD-DATA-CONTRACT.md` erhält §2.1 (Vertragslandkarte
+  über alle 28 Themen), §3.1 (Ist-Erhebung A–K, read-only), **LD-27–LD-33** (Systemgrenzen inkl.
+  Browser-Speicher, Deduplication ≠ Idempotenz, Retention als `TBD_OWNER_LEGAL`, Löschkonsistenz, kein
+  Chat, Anbieterneutralität von Speicher/Queue), §9.1 (`LEAD-01`–`LEAD-22`-Zuordnung) und erweiterte
+  Forbidden Regressions; `BACKEND-API-CONTRACT.md` erhält **API-21–API-23** (keine sensiblen Daten in
+  der URL, Origin-/CORS-/CSRF-Entscheidung je Endpunkt, kein offener Relay); `CRM-INTEGRATION.md`
+  präzisiert CRM-09 gegen LD-28; `LEAD-DELIVERY-CONTRACT.md` geprüft und **ohne Lücke** bestätigt.
+  **Keine neue Ist-Schuld** — die Messung bestätigt `AD-1`–`AD-11`, `LDD-1`–`LDD-12`, `LVD-1`–`LVD-12`
+  und die CRM-Schulden. Kein Endpunkt, keine Persistenz, keine Queue, kein CRM, kein Gating
+  implementiert; **keine Anbieterentscheidung** getroffen.
 
 ## Current Invariants
 
@@ -170,6 +183,21 @@ kein `work-packages/APxx-STATE.md`).
   geschützt** (CA-31); ein Gate prüft eine Berechtigung, keine Herkunft (CA-32).
 - **CMS ist keine Launch-Voraussetzung** (CA-39/CA-40, `DEC-RL-010`); die Architektur bleibt
   anschlussfähig, ohne ein CMS zu verlangen.
+- **Kanonischer Lead-/Backend-Vertrag: vier Dokumente, ein Einstieg.** `LEAD-DATA-CONTRACT.md` §2.1 ist
+  die Vertragslandkarte; sie sagt, welches der vier Dokumente welches Thema besitzt. Es gibt **kein**
+  fünftes Lead-/Backend-Architekturdokument.
+- **Persist-before-deliver ist verbindlich** (LD-01, API-01, LDV-02): eine Erfolgsantwort bestätigt die
+  dauerhafte Annahme, nie den Erfolg eines externen Providers. **Mail-only ist ausgeschlossen**
+  (`DEC-RL-009`).
+- **Systemgrenzen** (LD-27): eigener Speicher ist System of Record; CRM und Mailprovider sind
+  nachgelagert; **Browser-Speicher ist niemals Lead-Persistenz**; das Log ist Spur, nicht Zustand.
+- **Idempotenz und Deduplication sind getrennt** (LD-28): technische Idempotenz ist Pflicht (fünf Ebenen
+  A–E in `BACKEND-API-CONTRACT.md` §5.3), fachliche Deduplication ist eine journey-spezifische Strategie
+  und darf legitime getrennte Anfragen nicht zusammenwerfen.
+- **Aufbewahrungsfristen sind `TBD_OWNER_LEGAL`** (LD-29) — keine Frist wird architekturseitig erfunden,
+  und unbegrenzte Haltung ist kein zulässiger Default.
+- **Anbieterneutral** (LD-32/LD-33, CRM-02): Datenbank, Queue, CRM und Monitoring-Senke sind offen;
+  das Zielbild ist ohne diese Entscheidungen baubar.
 - **Eigentümer-AP (liefert) ≠ Accountable Owner Role (nimmt ab).** Wer liefert, nimmt nicht ab.
 - Technische Gate-Kriterien stehen in `MASTER-SCOPE.md` §8 und `QUALITY-GATES.md` §12 und werden in
   `RELEASE-ACCEPTANCE.md` nur referenziert, nicht dupliziert.
@@ -192,11 +220,19 @@ kein `work-packages/APxx-STATE.md`).
 - `building-docs/ROUTING-CONTRACT.md` (§2 Stand, §3.1 Ist-Zustand, R-17–R-53, §5.1 RD-8–RD-14,
   M-06–M-08, §8.1/§8.2, §9, §10/§10.1)
 
-**PT02.3 — ausschließlich Dokumentation:**
+**PT02.3 — ausschließlich Dokumentation** (committet als `81be126`):
 
 - `building-docs/CONTENT-ASSET-CONTRACT.md` — **neu**, der einzige neue Contract dieses AP
 - `building-docs/CONTEXT-INDEX.md` — Matrixzeilen AP02/AP04/AP19 (required) und
   AP08/AP14/AP16/AP17/AP18/AP21 (optional) plus eine Regelzeile in §4.1
+
+**PT02.4 — ausschließlich Dokumentation:**
+
+- `building-docs/LEAD-DATA-CONTRACT.md` (§2 Stand, §2.1 Vertragslandkarte, §3.1 Ist-Zustand,
+  LD-27–LD-33, §9.1, §10)
+- `building-docs/BACKEND-API-CONTRACT.md` (§2 Stand, API-21–API-23)
+- `building-docs/CRM-INTEGRATION.md` (§2 Stand, CRM-09 präzisiert)
+- `building-docs/LEAD-DELIVERY-CONTRACT.md` (§2 Stand — inhaltlich unverändert bestätigt)
 - `building-docs/state/AP-STATE.md`
 
 **Anwendungscode / Locale-Dateien / Assets / Runtime / Config / Dependencies / Lockfiles: NONE.**
@@ -237,14 +273,25 @@ kein `work-packages/APxx-STATE.md`).
 <!-- Jeweils: ID/Kurztitel · was blockiert ist · was zur Auflösung gebraucht wird. -->
 
 - **Keine offenen Blocker.** PT01.1–PT01.5 und das AP01-Closure Gate sind `PASS`; AP01 ist `COMPLETE`.
-  PT02.1, PT02.2 und PT02.3 sind `PASS`; AP02 ist `IN_PROGRESS`.
+  PT02.1–PT02.4 sind `PASS`; AP02 ist `IN_PROGRESS`.
+- **Hinweis, kein Blocker — aus PT02.4 bestätigt (nicht neu):** der Backend-Ist-Zustand ist **Mail-only**
+  und damit die Gegenposition zu `DEC-RL-009` — keine Persistenz, kein CRM, keine Queue, keine
+  Idempotenz, `/api/consumer-order` ohne Rate Limit, `/api/chat` noch vorhanden, Backend-Tests decken
+  nur `esc()` ab. Alles bereits als `AD-1`–`AD-11`, `LDD-1`–`LDD-12`, `LVD-1`–`LVD-12` und in
+  `CRM-INTEGRATION.md` §6 dokumentiert; Owner ist überwiegend **AP22**. PT02.4 hat nichts davon
+  repariert und **keine neue** Schuld gefunden.
+- **Offener Punkt mit Legal-Bezug, kein Blocker:** Aufbewahrungsfristen je Lead-Typ sind
+  `TBD_OWNER_LEGAL` (`LEAD-DATA-CONTRACT.md` LD-29). Die Architektur verlangt eine durchsetzbare Frist,
+  legt aber keine fest.
 - **Hinweis, kein Blocker — neu aus PT02.3:** zehn Content-/Asset-Schulden `CD-1`–`CD-10` in
   `CONTENT-ASSET-CONTRACT.md` §6, jede mit Owner-AP, keine PT02.3-blockierend. Die schwerste ist
   **`CD-2`**: die Sprachzuordnung der Epigenetik-Unterlagen steht als übersetzbarer String in den
   Locale-Dateien — `pl`, `fr` und `cs` tragen dort die **englischen** Dateinamen, also ein **stiller
-  EN-Asset-Fallback**, der heute nicht als Lücke erkennbar ist (AP19 mit AP08). Dazu **`CD-8`**
-  (kein Gating-Mechanismus vorhanden, während `DEC-RL-014` mindestens einen gated Pfad verlangt —
-  AP19 PT19.3 mit AP22) und `CD-1` (zwei getrennte Download-Welten).
+  EN-Asset-Fallback**, der heute nicht als Lücke erkennbar ist (AP19 mit AP08). Dazu
+  **`CONTENT-ASSET CD-8`** (kein Gating-Mechanismus vorhanden, während `DEC-RL-014` mindestens einen
+  gated Pfad verlangt — AP19 PT19.3 mit AP22) und `CONTENT-ASSET CD-1` (zwei getrennte
+  Download-Welten). _Hinweis: `CRM-INTEGRATION.md` führt eine eigene, gleichnamige `CD-`-Serie —
+  Debt-IDs immer mit ihrem Vertrag nennen._
 - **Hinweis, kein Blocker — neu aus PT02.2:** sieben Routing-Schulden `RD-8`–`RD-14` in
   `ROUTING-CONTRACT.md` §5.1, jede mit Owner-AP, keine PT02.2-blockierend. Die schwerste ist **`RD-8`**:
   `KNOWN_PATHS` wird **aus der Sitemap abgeleitet**, „nicht in der Sitemap = unbekannte Route" ist damit
@@ -343,29 +390,32 @@ kein `work-packages/APxx-STATE.md`).
 
 <!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste PT braucht. -->
 
-- Nächster Primärtask ist **PT02.4 — Lead-/Backend-Zielbild** innerhalb von AP02. Er ist **nicht**
-  gestartet.
+- Nächster Primärtask ist **PT02.5 — Produktionsbetriebs-Zielbild** innerhalb von AP02. Er ist **nicht**
+  gestartet. Danach folgt der Lauf **AP02-CLOSURE**.
 - Gemäß `CONTEXT-INDEX.md` liest AP02 zusätzlich zu `ALWAYS_READ`: `RUNTIME-CONTRACT.md` ·
   `ROUTING-CONTRACT.md` · `BACKEND-API-CONTRACT.md` · `LEAD-DATA-CONTRACT.md` ·
-  `DEPLOYMENT-CONTRACT.md` · **`CONTENT-ASSET-CONTRACT.md`** (seit PT02.3); optional bei Anlass
-  `SEO-CONTRACT.md` · `CRM-INTEGRATION.md` · `LEAD-DELIVERY-CONTRACT.md` · `REPO-BASELINE.md`.
-  `work-packages/AP02.md` §1.3 nennt für PT02.4 zusätzlich verbindlich `CONSENT-CONTRACT.md`,
-  `RUNTIME-CONTRACT.md`, `DEPLOYMENT-CONTRACT.md` und — soweit Datenflüsse/Providergrenzen betroffen
-  sind — `NETWORK-ALLOWLIST.md`, dazu die AP01-Evidenz zu Chat-/Backend-/Lead-Resten.
+  `DEPLOYMENT-CONTRACT.md` · `CONTENT-ASSET-CONTRACT.md`; optional bei Anlass `SEO-CONTRACT.md` ·
+  `CRM-INTEGRATION.md` · `LEAD-DELIVERY-CONTRACT.md` · `REPO-BASELINE.md`. `work-packages/AP02.md` §1.3
+  nennt für PT02.5 zusätzlich verbindlich `DEPLOYMENT-CONTRACT.md`, `RUNTIME-CONTRACT.md`,
+  `NETWORK-ALLOWLIST.md` und `QUALITY-GATES.md`.
 - **Weiterhin Pflicht für AP02:** `building-docs/AP01-RECONCILIATION-RESULT.md` — §2 Baseline Guards
-  (`BG-01`–`BG-12`, gelten weiter, darunter **`BG-11`** `DRY_RUN` als Kill-Switch), §6 Legacy
-  Classification, §7 Toolchain Contract, §8 Known Remaining Debt (`D-01`–`D-30`).
-- **Neu aus PT02.3 für PT02.4 relevant:** `CONTENT-ASSET-CONTRACT.md` **CA-30–CA-34** definiert die
-  Content-Seite von PUBLIC/GATED und endet bewusst an der Lead-Grenze: die Ressource kennt ihre
-  Zugangsklasse und ihre stabile Resource-ID, **nicht** den Anforderer (CA-34). PT02.4 modelliert die
-  Gegenseite — Entitlement, Persistenz, Zustellung, CRM-Zuordnung — und referenziert die Resource-ID
-  (CA-33). **`CD-8`** hält fest, dass heute **kein** Gating existiert, während `DEC-RL-014` mindestens
-  einen gated Pfad verlangt.
+  (`BG-01`–`BG-12`, darunter **`BG-11`** `DRY_RUN`), §6 Legacy Classification (aktiver vs. toter
+  Deployment-Pfad), §7 Toolchain Contract, §8 Known Remaining Debt (`D-01`–`D-30`).
+- **Neu aus PT02.4 für PT02.5 relevant:** `LEAD-DELIVERY-CONTRACT.md` **§5.4** listet die
+  Betriebsanforderungen der Lead-Plattform an `REST-01` bereits auf — persistenter Speicher außerhalb
+  des flüchtigen Containers, Backup/Restore, Worker-Service mit Healthcheck und Restart Policy,
+  Metriken und Alarme für Queue/Dead-Letter, Secret-Injektion außerhalb Image und Repository,
+  Migrations-/Rollback-Verträglichkeit, wirksame Umgebungsisolation. **Das ist der direkte Input für
+  PT02.5.** Dazu **LD-24 · API-19 · LDV-16 · CRM-18**: `DRY_RUN` existiert heute nur für Mail, die
+  Ausweitung auf CRM und Queue ist AP22 PT22.8.4 zugewiesen — **keine Flags erfinden**
+  (`AGENT-CONTRACT.md` Regel 18).
+- **Ebenfalls relevant:** `RUNTIME-CONTRACT.md` **RD-1 bis RD-10** (u. a. Preview als Host-Prozess statt
+  Container, aktiv wirkende Alt-Konfiguration, fehlende Healthchecks, keine `volumes:`, kein Worker,
+  kein Monitoring) — das sind die Betriebsschulden, die PT02.5 als Ist-Ausgangspunkt nimmt, ohne sie zu
+  reparieren.
 - Für AP02 weiterhin offene Punkte aus AP01: `D-11` (Node-Vertrag ungepinnt, AP28 PT28.7) ·
-  `D-25` (Pre-Consent-Netzaktivität inkl. Chat-Resten, AP06/AP22/AP23/AP26 — für PT02.4 unmittelbar
-  relevant, weil `DEC-RL-007` **kein Chat-Backend** im Zielbild erlaubt) · `D-27` (zweite
-  Betriebswahrheit in `server/docker-compose.yml`, AP28 PT28.7) · `D-29` (Musterbefund-Bundle,
-  entspricht `CD-3`).
+  `D-25` (Pre-Consent-Netzaktivität inkl. Chat-Resten) · `D-27` (zweite Betriebswahrheit in
+  `server/docker-compose.yml`, AP28 PT28.7) · `D-30` (Security-Advisories, AP26 PT26.5).
 - Reproduzierbare Verifikation (unverändert): isolierter Worktree auf HEAD, `npm ci` **im Root und in
   `server/`**, `tsc -b` (mit `--max-old-space-size=3072`), `vitest run`, `npm run build`, dann SSR auf
   isoliertem freiem Port (`NODE_ENV=production PORT=<frei> BACKEND_URL=http://127.0.0.1:39999
@@ -373,22 +423,26 @@ npx tsx server.ts`). `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-
   (`lefthook install`) schreibt in die **geteilten** Git-Hooks — vorher sichern, danach zurückspielen
   (`D-13`).
 - **Cold-Render-Regel für jede spätere SSR-Messung** (`RUNTIME-CONTRACT.md` M-08): eine Route, die der
-  Prozess schon einmal gerendert hat, beweist nichts über die erste Auslieferung. Immer gegen einen
-  frisch gestarteten Dienst und eine bis dahin nicht angeforderte Route messen.
+  Prozess schon einmal gerendert hat, beweist nichts über die erste Auslieferung.
+- **Debt-IDs immer mit ihrem Vertrag nennen.** Mehrere Verträge führen gleichnamige Serien
+  (`CD-` in `CONTENT-ASSET-CONTRACT.md` **und** `CRM-INTEGRATION.md`; `RD-` in `RUNTIME-CONTRACT.md`
+  **und** `ROUTING-CONTRACT.md`).
 
 ## Handoff
 
-- **AP02: `IN_PROGRESS`** · Last completed PT: **PT02.3 (`PASS`)** · **Next PT: PT02.4 — nicht gestartet**
+- **AP02: `IN_PROGRESS`** · Last completed PT: **PT02.4 (`PASS`)** · **Next PT: PT02.5 — nicht gestartet**
 - **AP01: `COMPLETE`** · AP01 closure: `PASS` (43/43) · **AP00: `COMPLETE`**, Closure `PASS` — beide
   unverändert erhalten
 - **AP03: NOT STARTED.** AP02 ist **nicht** `COMPLETE`; das AP02-Closure Gate ist nicht gelaufen.
-- Decision Locks: **18/18 `LOCKED`**, durch PT02.1–PT02.3 unverändert. Baseline
+- Decision Locks: **18/18 `LOCKED`**, durch PT02.1–PT02.4 unverändert. Baseline
   `feat/home-leadmagnet@961f65d` bleibt gesperrt und ist Ancestor des HEAD.
 
 Kanonische Ausführungsevidenz AP01: **`building-docs/AP01-RECONCILIATION-RESULT.md`** (§1–§9).
 Kanonische Ausführungsevidenz PT02.1: **`building-docs/RUNTIME-CONTRACT.md`** · PT02.2:
-**`building-docs/ROUTING-CONTRACT.md`** · PT02.3: **`building-docs/CONTENT-ASSET-CONTRACT.md`** — der
-jeweilige Vertrag ist das Artefakt; ein zweiter Report wird dafür nicht angelegt.
+**`building-docs/ROUTING-CONTRACT.md`** · PT02.3: **`building-docs/CONTENT-ASSET-CONTRACT.md`** ·
+PT02.4: **`LEAD-DATA-CONTRACT.md`** (Hub, §2.1/§3.1) mit `BACKEND-API-CONTRACT.md`,
+`LEAD-DELIVERY-CONTRACT.md` und `CRM-INTEGRATION.md` — der jeweilige Vertrag ist das Artefakt; ein
+zweiter Report wird dafür nicht angelegt.
 
 Was PT02.1 hergestellt hat:
 
@@ -455,15 +509,36 @@ Was PT02.3 hergestellt hat:
 - **Schulden statt Reparaturen:** `CD-1`–`CD-10`, jede mit Owner-AP. **Keine** wurde behoben; sprachliche
   Lücken bleiben in `I18N-CONTRACT.md` §5 geführt statt dupliziert.
 
-Verbindlicher Rahmen für PT02.4:
+Was PT02.4 hergestellt hat:
 
-- **`CONTENT-ASSET-CONTRACT.md` endet an der Lead-Grenze.** Die Ressource kennt Zugangsklasse und
-  Resource-ID, nicht den Anforderer (CA-34). PT02.4 modelliert Entitlement, Persistenz, Zustellung und
-  CRM-Zuordnung und referenziert die Resource-ID (CA-33).
-- **Security by obscurity ist ausgeschlossen** (CA-31/CA-32): ein zugesagtes Gate braucht eine geprüfte
-  Berechtigung. `DEC-RL-014` verlangt mindestens einen gated Pfad; heute existiert keiner (`CD-8`).
-- **Keine Lead-, CRM- oder Kundendaten in Content oder Assets** (CA-34/CA-35) — und `DEC-RL-007`
-  schließt ein Chat-Backend im Zielbild aus.
+- **Kein fünftes Dokument.** Die Lead-/Backend-Domäne besaß bereits vier kanonische Verträge; PT02.4 hat
+  sie gegen den realen Stand geprüft, die Lücken geschlossen und mit **§2.1 (Vertragslandkarte)** einen
+  eindeutigen Einstieg geschaffen.
+- **Ist/Soll getrennt:** §3.1 misst den Backend-Ist-Zustand (A–K) — fünf Endpunkte, keine Persistenz,
+  kein CRM, keine Queue, Erfolg = „SendGrid hat angenommen". Die Messung bestätigt die dokumentierte
+  Schuld und fand **keine neue**.
+- **Geschlossene Lücken:** LD-27 (Systemgrenzen inkl. Browser-Speicher), LD-28 (Deduplication ≠
+  Idempotenz), LD-29 (`TBD_OWNER_LEGAL` statt erfundener Frist), LD-30 (Löschkonsistenz über Jobs,
+  Dead-Letter und Sicherungen), LD-31 (kein Chat im Zielmodell), LD-32/LD-33 (Anbieterneutralität),
+  API-21–API-23 (keine sensiblen Daten in der URL, Origin-/CORS-/CSRF-Entscheidung je Endpunkt, kein
+  offener Relay).
+- **Testbarkeit:** §9.1 ordnet die geforderten `LEAD-01`–`LEAD-22` auf die vier bestehenden
+  ID-Systematiken zu, ohne eine fünfte einzuführen.
+
+Verbindlicher Rahmen für PT02.5:
+
+- **PT02.5 ist Betrieb, nicht Anwendung.** Der Bedarf der Lead-Plattform an den Betrieb steht bereits in
+  `LEAD-DELIVERY-CONTRACT.md` §5.4; PT02.5 beantwortet ihn im `DEPLOYMENT-CONTRACT.md`/
+  `RUNTIME-CONTRACT.md`, ohne die Lead-Verträge neu zu verhandeln.
+- **`REST-01` ist die Zielautorität**: Docker/Compose hinter Reverse Proxy, persistente Daten separat und
+  backupfähig, Secrets außerhalb Images und Repository, Healthchecks, Restart Policies, Monitoring,
+  image-basiertes Rollback, `DRY_RUN`-/Staging-Isolation.
+- **Keine Anbieterentscheidung** ohne kanonische Grundlage (LD-32, CRM-02, `AP02.md` §3.1).
+
+- **Die Content-/Lead-Grenze aus PT02.3 ist eingelöst:** die Ressource kennt Zugangsklasse und
+  Resource-ID (`CONTENT-ASSET-CONTRACT.md` CA-30/CA-33/CA-34), die Lead-Seite kennt Entitlement,
+  Persistenz und Zustellung (`LEAD-DELIVERY-CONTRACT.md` LDV-24, `BACKEND-API-CONTRACT.md` §5.1).
+  `DEC-RL-014` verlangt weiterhin mindestens einen gated Pfad; gebaut ist keiner.
 - AP02 bleibt Zielbild-Arbeit: es beschreibt die Architektur, es implementiert sie nicht.
 
 Durchgehend gültig: `BG-01`–`BG-12` gelten weiter; `REST-03`, `DEC-RL-005` und `DEC-RL-006` sind durch
