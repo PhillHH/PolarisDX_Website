@@ -8,7 +8,7 @@
 Kein Ersatz für `BRANCH-RECONCILIATION-MAP.md`, `REPO-BASELINE.md`, `QUALITY-GATES.md`,
 `RISK-REGISTER.md` oder `scope/MASTER-SCOPE.md`.
 
-**Ausführungsstand:** PT01.1–PT01.5 alle `PASS` · **AP01 Closure `NOT_RUN`** (eigener Abschlusslauf).
+**Ausführungsstand:** PT01.1–PT01.5 alle `PASS` · **AP01 Closure `PASS` (43/43)** · AP01 `COMPLETE`.
 
 ---
 
@@ -900,19 +900,142 @@ der dokumentierte Ist-Zustand, keine verlorene Härtung.
 
 ## 9. AP01 Closure Evidence
 
-**NOT_RUN.** Das Closure Gate (`C01-01`–`C01-15`) läuft erst nach PT01.5.
+**Gelaufen:** 2026-08-24 auf `d6ef83a` · **Ergebnis: `PASS`** · **43/43 Kriterien** (`C01-01`–`C01-43`).
+
+Der Closure Gate ist Validator, kein Primärtask. Er hat den **realen Repository-Zustand** geprüft, nicht
+die Reports: Git-Herkunft je Datei, Byte-Diff gegen die Quellcommits, Hotfile-Integrität, sowie einen
+frischen Build und SSR-Smoke auf dem Closure-HEAD.
+
+### 9.1 Kanonische Git-Grundlagen
+
+| Prüfung                     | Befund                                                                                                                                  |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Baseline                    | `feat/home-leadmagnet@961f65d456e2790e7063d1a6575651dff724e4ca` — existiert, **Ancestor von HEAD**                                      |
+| `main`-Quelle               | `d0fdf29cb1dbde78cc743b4d7a5077b79c6dafaf` — existiert, **kein Ancestor von HEAD**                                                      |
+| `redesign/preview`-Quelle   | `5673b611de5225c52fd304c874389c58dee85a14` — existiert, **kein Ancestor von HEAD**                                                      |
+| Merge-Commits seit Baseline | **1** — `4f70801`, Merge der AP00-Konsolenlinie in `feat/home-leadmagnet`, entstanden **vor** PT01.1. **Kein** Merge einer Quellbranch. |
+| AP00-History                | `f8692c0`, `bf125d2`, `cad9b6c`, `0c58d44`, `a0fac9c` alle weiterhin Ancestor von HEAD — **nichts umgeschrieben**                       |
+| Branch                      | `console/ap01-2026-08-24T10-46-05` — kein `main`/`master`                                                                               |
+| Working Tree                | sauber                                                                                                                                  |
+
+### 9.2 Import Traceability (`C01-40`)
+
+Seit `961f65d` sind **31 Nicht-Dokumentationsdateien** verändert. Jede ist genau **einem** AP01-Commit
+zuzuordnen:
+
+| Kategorie                   | Commit                                                          | Dateien   |
+| --------------------------- | --------------------------------------------------------------- | --------- |
+| A — AP00 Governance         | `f8692c0`…`a0fac9c`, `9ee8199`, `d98a6b7`, `5f6fc3b`, `4f70801` | nur `.md` |
+| B — PT01.2 `main`-Imports   | **`4e8a774`**                                                   | **20**    |
+| C — PT01.3 Preview-Patterns | **`1f1f236`**                                                   | **11**    |
+| D — PT01.4 Hygiene/Docs     | `f36a763`                                                       | nur `.md` |
+| E — PT01.5 Toolchain/Docs   | `d6ef83a`                                                       | nur `.md` |
+| **F — sonstige**            | —                                                               | **NONE**  |
+
+### 9.3 Herkunftsnachweis je importierter Datei
+
+**Byte-identisch zur Quelle (`git diff` = leer):** `epigenetics/tokens.ts`, `content/befunde/meta.ts`
+und alle **sechs** Musterbefund-Routenmodule gegen `d0fdf29`; `routing/ErrorBoundary.tsx` und
+`lib/monitoring/web-vitals.ts` gegen `5673b61`. **8 + 2 = 10 Dateien.**
+
+**Adaptiert, Umfang gemessen:** `EpiSubpage.tsx` 27 · `EpigeneticsBasicsPage` 8 ·
+`EpigeneticsEvidencePage` 14 · `EpigeneticsDocsPage` 35 geänderte Zeilen gegen `d0fdf29`;
+`RootErrorBoundary` 53 · `SegmentErrorBoundary` 46 · `routing/index.ts` 9 · `monitoring/report.ts` 123 ·
+`monitoring/index.ts` 22 · `a11y-audit.mjs` 26 · `baseline-screenshots.mjs` 36 gegen `5673b61`.
+Jede Abweichung ist in §3.2 (`AD-1`–`AD-4`) bzw. §4.2 (`PD-1`–`PD-7`) begründet.
+
+### 9.4 Geschützte Hotfiles (`C01-08`)
+
+| Datei                                                                                                                                                                                                                                                                     | AP01-Delta                                                        | Identisch zu `main`? |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | -------------------- |
+| `server.ts`                                                                                                                                                                                                                                                               | **+5 / −0** (drei `SITEMAP_ROUTES`-Zeilen + zwei Kommentarzeilen) | **nein**             |
+| `src/App.tsx`                                                                                                                                                                                                                                                             | **+89 / −0** (neun `lazy()`-Importe, neun Routen)                 | **nein**             |
+| `src/pages/MusterbefundPage.tsx`                                                                                                                                                                                                                                          | **+24 / −4** (optionale `slug`/`befunde`-Props)                   | **nein**             |
+| `src/components/seo/SEOHead.tsx` · `src/pages/EpigeneticsPage.tsx` · `tailwind.config.js` · `src/index.css` · `index.html` · `src/lib/tracking.ts` · `Header.tsx` · `Footer.tsx` · `structuredData.ts` · `useSearch.ts` · `entry-server.tsx` · `.github/workflows/ci.yml` | **unverändert**                                                   | —                    |
+
+**Whole-File-Replacements geschützter Hotspots: NONE.**
+
+Härtungen nachgezählt: `server.ts` führt weiterhin `isKnownPath` (3), `KNOWN_PATHS` (4),
+`EXTRA_KNOWN_PATHS` (2), `NOT_FOUND_MARKER` (2), `LEGACY_PATH_REDIRECTS` (2), `no-store` (2),
+`GERMAN_ONLY` (8). `App.tsx` führt weiterhin `GermanOnlyPage` (5), `ScrollToHash` (2),
+`NotFoundPage` (2) und den `musterbefund/:slug`-Auffangpfad (1).
+`MusterbefundPage.tsx` behält `LanguageFallbackNotice` (2), `befund.toTop` (1), `ArrowUp` (2) und
+den `notFound`-Zweig (7) — die in **N13** benannten `main`-Verluste sind vermieden.
+
+### 9.5 Verifikation auf dem Closure-HEAD
+
+Source und Config sind **identisch** zum PT01.5-Clean-Build-Stand `f36a763` (Delta `f36a763..HEAD` =
+drei `.md`-Dateien, **0** Nicht-Dokumentationsdateien). Die Closure hat dennoch unabhängig nachgemessen:
+
+| Prüfung                                    | Ergebnis                                                                                                  |
+| ------------------------------------------ | --------------------------------------------------------------------------------------------------------- |
+| Typecheck (`tsc -b`)                       | **PASS**                                                                                                  |
+| Unit Tests (`vitest run`)                  | **PASS — 7 Dateien, 18/18**                                                                               |
+| Design-/Token-Guard                        | **PASS**                                                                                                  |
+| Build (`npm run build`, aus leerem `dist`) | **PASS — 7,5 s** (Client 5,16 s + SSR 1,33 s), Node 22.23.2                                               |
+| SSR 200                                    | `/de/`, `/de/about` → **200**                                                                             |
+| SSR 301 Legacy                             | `/agb` → `/de/terms` · `/s3-leitlinie` → `/de/s3_leitlinie`                                               |
+| SSR 301 Locale                             | `/about` → `/de/about`                                                                                    |
+| Ein-Hop                                    | alle drei **genau 1 Hop**, Endstatus 200                                                                  |
+| SSR 404 statisch                           | **404**                                                                                                   |
+| SSR 404 dynamisch                          | Musterbefund- und Artikel-Slug → **404**                                                                  |
+| PT01.2-Routen                              | `/de/epigenetics/{grundlagen,studienlage,unterlagen}` und `…/musterbefund/metabolic-health` → **200**     |
+| `no-store`                                 | HTML 200 **und** 404: `no-store, no-cache, must-revalidate`                                               |
+| SEOHead/notFound                           | 404: Marker vorhanden, robots `noindex, follow`, **0** Canonical, **0** hreflang                          |
+| Canonical/hreflang                         | reale Seite: **1** Canonical + **11** `rel="alternate"`                                                   |
+| Sitemap                                    | **365 `<loc>`**                                                                                           |
+| Error Boundary vs. SSR                     | `RootErrorBoundary` in `entry-server.tsx`: **0 Treffer** — echte 500er bleiben 500, echte 404 bleiben 404 |
+| Externe Telemetrie im Client-Bundle        | **keine** (`api/monitoring`, `sendBeacon`: 0 Treffer)                                                     |
+
+### 9.6 Negativgates auf dem Closure-HEAD
+
+```text
+CtaSection / cta_section-Keys ........ 0 / 0
+DealPopup · DealHint · Voucher ....... 0
+src/data/products.ts ................. nicht vorhanden
+.bak* / .bak-nopopup ................. 0
+CV < 5 % ............................. 0        CV < 2 % in 30 Locale-Dateien
+darkMode · dark:-Klassen ............. 0 · 0
+Theme-Switcher ....................... 0
+src/design-system/** ................. nicht vorhanden
+RouteFallback · lib/metrics · CODEOWNERS · CHANGELOG.md · .madgerc · styleguide-visual · StyleguidePage
+                                        alle nicht vorhanden
+Chat-/Consent-Dateien seit Baseline ... unverändert (ChatWidget, server/server.js, index.html,
+                                        tracking.ts, CookieBanner) — AP01 hat nichts eingebracht
+hihuman/dataLayer/GTM im server.ts-Delta  0
+Decision Locks ....................... 18/18 LOCKED; DECISIONS.md und PROJECT-CONSTRAINTS.md
+                                        durch AP01 nicht verändert
+```
+
+### 9.7 Ergebnis
+
+**43/43 Closure-Kriterien `PASS`. Baseline Guards 12/12 ohne neue AP01-Regression** (`BG-10` steht
+unverändert auf `BASELINE_DEBT` — der Zustand ist pre-existing und mit PT-Granularität vergeben).
+**New regressions introduced by AP01: NONE. Unexplained AP01 changes: NONE.**
+
+**30 dokumentierte Schulden** (`D-01`–`D-30`), jede mit Evidenz und Owner-AP, **keine** AP01-blockierend.
+Die schwerste ist `D-25`: vier externe Hosts vor jeder Einwilligung — pre-existing, empirisch belegt,
+vergeben an **AP06 PT06.4.6**, **AP22 PT22.7**, **AP23 PT23.1**, **AP26 PT26.2**.
+
+**Bewusst nicht erledigt und korrekt weitergereicht:** Node-/Paketmanager-Pinning (`D-11` → AP28 PT28.7),
+Security-Advisory-Behandlung (`D-30` → AP26 PT26.5), Musterbefund-Bundle (`D-29` → AP25/AP16),
+Chat-Entfernung, Such-Index, Legacy-Deployment-Cleanup und CI-Härtung.
+
+**AP01 stellt damit einen sauberen, vollständig nachvollziehbaren technischen Ausgangspunkt für AP02
+bereit.** AP02 ist **nicht** gestartet.
 
 ---
 
 ## Änderungsprotokoll
 
-| PT     | Datum      | Ergebnis | Geänderte Dateien                                                                                                                                                                                                                                                                                                                                                     |
-| ------ | ---------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| PT01.1 | 2026-08-24 | **PASS** | `building-docs/AP01-RECONCILIATION-RESULT.md` (neu), `building-docs/state/AP-STATE.md`                                                                                                                                                                                                                                                                                |
-| PT01.5 | 2026-08-24 | **PASS** | **Doku:** `AP01-RECONCILIATION-RESULT.md` (§7 Toolchain/Dependency/Security/Quality/Bundle), `state/AP-STATE.md`, `RISK-REGISTER.md` · **Anwendungscode, Config, Dependencies, Lockfiles: unverändert**                                                                                                                                                               |
-| PT01.4 | 2026-08-24 | **PASS** | **Doku-Korrekturen:** `building-docs/AGENT-CONTRACT.md` (Tracking-Status `projektverzeichnis/`), Non-Canonical-Banner in `DOCS.md`, `README.md`, `README.de.md` · **Doku:** `AP01-RECONCILIATION-RESULT.md`, `state/AP-STATE.md` · **Entfernt: NONE** · **Anwendungscode/Config: unverändert**                                                                        |
-| PT01.3 | 2026-08-24 | **PASS** | **neu:** `src/routing/*` (4) · `src/lib/monitoring/*` (3) · `scripts/{a11y-audit,baseline-screenshots}.mjs` · **Hunks:** `src/entry-client.tsx`, `package.json`, `package-lock.json`, `public/locales/{de,en}/common.json`, `.gitignore` · **Doku:** `AP01-RECONCILIATION-RESULT.md`, `state/AP-STATE.md`                                                             |
-| PT01.2 | 2026-08-24 | **PASS** | **neu:** `src/components/epigenetics/{tokens.ts,EpiSubpage.tsx}`, `src/pages/Epigenetics{Basics,Evidence,Docs}Page.tsx`, `src/content/befunde/meta.ts`, `src/pages/musterbefund/*.tsx` (6) · **Hunks:** `src/App.tsx`, `server.ts`, `src/pages/MusterbefundPage.tsx`, `src/content/befunde/index.ts` · **Doku:** `AP01-RECONCILIATION-RESULT.md`, `state/AP-STATE.md` |
+| PT      | Datum      | Ergebnis         | Geänderte Dateien                                                                                                                                                                                                                                                                                                                                                     |
+| ------- | ---------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| PT01.1  | 2026-08-24 | **PASS**         | `building-docs/AP01-RECONCILIATION-RESULT.md` (neu), `building-docs/state/AP-STATE.md`                                                                                                                                                                                                                                                                                |
+| CLOSURE | 2026-08-24 | **PASS (43/43)** | **Doku:** `AP01-RECONCILIATION-RESULT.md` §9, `state/AP-STATE.md`, `RISK-REGISTER.md` · **Anwendungscode, Config, Dependencies, Lockfiles: unverändert**                                                                                                                                                                                                              |
+| PT01.5  | 2026-08-24 | **PASS**         | **Doku:** `AP01-RECONCILIATION-RESULT.md` (§7 Toolchain/Dependency/Security/Quality/Bundle), `state/AP-STATE.md`, `RISK-REGISTER.md` · **Anwendungscode, Config, Dependencies, Lockfiles: unverändert**                                                                                                                                                               |
+| PT01.4  | 2026-08-24 | **PASS**         | **Doku-Korrekturen:** `building-docs/AGENT-CONTRACT.md` (Tracking-Status `projektverzeichnis/`), Non-Canonical-Banner in `DOCS.md`, `README.md`, `README.de.md` · **Doku:** `AP01-RECONCILIATION-RESULT.md`, `state/AP-STATE.md` · **Entfernt: NONE** · **Anwendungscode/Config: unverändert**                                                                        |
+| PT01.3  | 2026-08-24 | **PASS**         | **neu:** `src/routing/*` (4) · `src/lib/monitoring/*` (3) · `scripts/{a11y-audit,baseline-screenshots}.mjs` · **Hunks:** `src/entry-client.tsx`, `package.json`, `package-lock.json`, `public/locales/{de,en}/common.json`, `.gitignore` · **Doku:** `AP01-RECONCILIATION-RESULT.md`, `state/AP-STATE.md`                                                             |
+| PT01.2  | 2026-08-24 | **PASS**         | **neu:** `src/components/epigenetics/{tokens.ts,EpiSubpage.tsx}`, `src/pages/Epigenetics{Basics,Evidence,Docs}Page.tsx`, `src/content/befunde/meta.ts`, `src/pages/musterbefund/*.tsx` (6) · **Hunks:** `src/App.tsx`, `server.ts`, `src/pages/MusterbefundPage.tsx`, `src/content/befunde/index.ts` · **Doku:** `AP01-RECONCILIATION-RESULT.md`, `state/AP-STATE.md` |
 
 **PT01.1** hat weder Anwendungscode noch Runtime-/Config-Dateien, Dependencies oder Lockfiles verändert.
 

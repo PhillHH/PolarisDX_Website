@@ -9,16 +9,17 @@ kein `work-packages/APxx-STATE.md`).
 ## Current
 
 - Work package: AP01 — Repository-Baseline, Branch-Reconciliation und Import-Hygiene
-- Primary task: PT01.5 abgeschlossen; **AP01-CLOSURE noch nicht gestartet**
-- Status: IN_PROGRESS <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
+- Primary task: — (AP01 abgeschlossen; AP02 noch nicht gestartet)
+- Status: COMPLETE <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
+- AP01 closure: PASS (43/43, `C01-01`–`C01-43`)
+- Next work package: AP02 — Zielarchitektur: SSR, Routing, Lead Platform und Betrieb
 - AP00: COMPLETE · AP00 closure: PASS (unverändert erhalten)
 - Baseline: `feat/home-leadmagnet@961f65d` — Ancestor des aktuellen HEAD, empirisch bestätigt
 - Baseline evidence: recorded · `main` Import Ledger: recorded · redesign patterns: recorded ·
-  legacy classification: recorded · **final clean build evidence: recorded**
-  (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§8)
-- AP01 ist **nicht** COMPLETE und AP01 closure ist **nicht** PASS — das Closure Gate ist ein eigener Lauf.
+  legacy classification: recorded · final clean build evidence: recorded · **closure evidence: recorded**
+  (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§9)
 - Current branch: `console/ap01-2026-08-24T10-46-05`
-- Current HEAD: `f36a763fc5a8c05a17c0548e1c5050ffb31d2e9b` (PT01.4-Commit; PT01.5 folgt)
+- Current HEAD: `d6ef83a43eba51a08c840d323183273a7939f844` (PT01.5-Commit; Closure-Commit folgt)
 - Started: 2026-08-24 (AP01)
 - Last updated: 2026-08-24
 
@@ -68,6 +69,11 @@ kein `work-packages/APxx-STATE.md`).
   auf Node 20.19.6 **und** 22.23.2, SSR-Smoke vollständig, 21+7 Security-Advisories klassifiziert
   (keine durch AP01), Build- und Bundle-Baseline dokumentiert. **Keine neue AP01-Regression.**
   Node-Vertrag bewusst **nicht** gepinnt — Begründung und Empfehlung in §7.2.
+- AP01-CLOSURE — Closure Gate `PASS`: `C01-01` bis `C01-43` geprüft. 31 Nicht-Doku-Dateien seit der
+  Baseline, alle genau einem AP01-Commit zuordenbar (Kategorie „sonstige" = NONE); 10 Importe
+  byte-identisch zur Quelle, alle übrigen mit begründeter Abweichung; **keine** Whole-File-Ersetzung
+  eines geschützten Hotspots; kein Quellbranch ist Ancestor. Build, Tests und SSR-Smoke auf dem
+  Closure-HEAD erneut grün. Baseline Guards **12/12** ohne neue Regression, Decision Locks **18/18**.
 
 ## Current Invariants
 
@@ -107,69 +113,36 @@ kein `work-packages/APxx-STATE.md`).
 
 ## Files Changed by Current AP
 
-<!-- AP01. Die AP00-Dateiliste wurde beim AP-Wechsel geleert (siehe `Benutzung`);
-     sie steht in `Completed Work` und in der Git-Historie. -->
+<!-- AP01, vollständig. Beim Start von AP02 leeren (siehe `Benutzung`). -->
 
-- `building-docs/AP01-RECONCILIATION-RESULT.md` (neu PT01.1, fortgeschrieben PT01.2)
-- `building-docs/state/AP-STATE.md` (fortgeschrieben, PT01.1 + PT01.2)
+**Anwendungscode / Config — ausschließlich aus PT01.2 (`4e8a774`) und PT01.3 (`1f1f236`):**
 
-PT01.2 — Anwendungscode (neu, aus `main@d0fdf29`):
+- neu aus `main@d0fdf29`: `src/components/epigenetics/{tokens.ts,EpiSubpage.tsx}` ·
+  `src/pages/Epigenetics{Basics,Evidence,Docs}Page.tsx` · `src/content/befunde/meta.ts` ·
+  `src/pages/musterbefund/*.tsx` (6)
+- neu aus `redesign/preview@5673b61`: `src/routing/*` (4) · `src/lib/monitoring/*` (3) ·
+  `scripts/{a11y-audit,baseline-screenshots}.mjs`
+- per Hunk angepasst: `src/App.tsx` · `server.ts` · `src/pages/MusterbefundPage.tsx` ·
+  `src/content/befunde/index.ts` · `src/entry-client.tsx` · `package.json` · `package-lock.json` ·
+  `public/locales/{de,en}/common.json` · `.gitignore`
 
-- `src/components/epigenetics/tokens.ts`, `src/components/epigenetics/EpiSubpage.tsx`
-- `src/pages/EpigeneticsBasicsPage.tsx`, `EpigeneticsEvidencePage.tsx`, `EpigeneticsDocsPage.tsx`
-- `src/content/befunde/meta.ts`
-- `src/pages/musterbefund/{metabolic-health,healthy-aging,biologische-altersuhr,telomer-analyse,stress-monitor,healthy-sport}.tsx`
+**Dokumentation:**
 
-PT01.2 — Anwendungscode (Hunks in bestehenden Dateien, kein Whole-File-Ersatz):
+- `building-docs/AP01-RECONCILIATION-RESULT.md` (neu in PT01.1, fortgeschrieben bis Closure)
+- `building-docs/state/AP-STATE.md` · `building-docs/RISK-REGISTER.md` ·
+  `building-docs/AGENT-CONTRACT.md` (Tracking-Status `projektverzeichnis/`) ·
+  `DOCS.md`, `README.md`, `README.de.md` (Non-Canonical-Banner, Originaltext erhalten)
 
-- `src/App.tsx` (2 additive Hunks: 9 `lazy()`-Importe, 9 Routen)
-- `server.ts` (1 Hunk: 3 `SITEMAP_ROUTES`-Einträge)
-- `src/pages/MusterbefundPage.tsx` (3 Hunks: optionale `slug`/`befunde`-Props)
-- `src/content/befunde/index.ts` (Typen/Metadaten als Re-Export aus `./meta`)
-
-PT01.3 — Anwendungscode/Werkzeuge (neu, aus `redesign/preview@5673b61`):
-
-- `src/routing/{ErrorBoundary,RootErrorBoundary,SegmentErrorBoundary,index}.tsx|ts`
-- `src/lib/monitoring/{report,web-vitals,index}.ts`
-- `scripts/a11y-audit.mjs`, `scripts/baseline-screenshots.mjs`
-
-PT01.3 — Hunks in bestehenden Dateien:
-
-- `src/entry-client.tsx` (2 Hunks: `RootErrorBoundary` **nur clientseitig** eingehängt)
-- `package.json` / `package-lock.json` (2 Scripts; `axe-core`/`playwright` als devDependencies
-  deklariert — Lockfile-Diff = 2 Zeilen, keine Versionsänderung)
-- `public/locales/{de,en}/common.json` (`errors`-Block)
-- `.gitignore` (`docs/baseline-screenshots/`)
-
-Unverändert durch PT01.2 **und** PT01.3: `server.ts` (außer dem PT01.2-Sitemap-Hunk), `src/App.tsx`
-(außer den PT01.2-Routen-Hunks), `src/entry-server.tsx`, `src/components/seo/**`, `src/lib/tracking.ts`,
+**Nicht verändert:** `src/components/seo/**`, `src/pages/EpigeneticsPage.tsx`,
+`src/components/layout/**`, `src/lib/tracking.ts`, `src/hooks/useSearch.ts`, `src/entry-server.tsx`,
 `index.html`, `tailwind.config.js`, `src/index.css`, `.github/workflows/ci.yml`, `tsconfig*`,
-`vite.config.ts`, Docker/nginx.
-
-PT01.4 — **ausschließlich Dokumentation**:
-
-- `building-docs/AGENT-CONTRACT.md` (§3 Regel 15: Tracking-Status `projektverzeichnis/` korrigiert)
-- `DOCS.md`, `README.md`, `README.de.md` (Non-Canonical-Banner + Zeiger, Originaltext erhalten)
-
-PT01.4 hat **keine** Datei entfernt oder verschoben und **keinen** Anwendungscode, keine Runtime-/
-Config-Datei, keine Dependency, kein Lockfile und kein CI-Artefakt verändert.
-
-PT01.5 — **ausschließlich Dokumentation**:
-
-- `building-docs/AP01-RECONCILIATION-RESULT.md` (§7 Toolchain, Dependency Audit, Security Advisory
-  Baseline, Integrated Quality Baseline, SSR-Smoke, Build-/Bundle-Baseline)
-- `building-docs/RISK-REGISTER.md` (`RISK-008`: eine Evidenzzeile aus PT01.5)
-- `building-docs/state/AP-STATE.md`
-
-PT01.5 hat **weder `package.json` noch ein Lockfile** angefasst — kein `engines`, kein
-`packageManager`, kein Security-Fix, kein Dependency-Upgrade. Kein Anwendungscode, keine Runtime-/
-Config-/CI-Datei.
+`vite.config.ts`, Docker/nginx, `server/**`. **Keine Datei entfernt oder verschoben.**
 
 ## Open Blockers
 
 <!-- Jeweils: ID/Kurztitel · was blockiert ist · was zur Auflösung gebraucht wird. -->
 
-- Keine AP01-Ausführungsblocker. **PT01.1 bis PT01.5 sind alle `PASS`.** AP01 ist bereit für das Closure Gate.
+- **Keine offenen Blocker.** PT01.1–PT01.5 und das Closure Gate sind `PASS`; AP01 ist `COMPLETE`.
 - **Hinweis, kein Blocker:** `RISK-007` ist `MITIGATING` — die AP00-Nachfolgerlinie ist über
   `origin/console/ap00-2026-08-24T09-32-23` gesichert (inhaltsgleich mit HEAD `4f70801`), aber weder
   `feat/home-leadmagnet` noch der aktive Arbeitsbranch hat ein Upstream. Auflösung liegt beim Owner.
@@ -237,7 +210,11 @@ Config-/CI-Datei.
   gefixt; `npm audit fix` wurde bewusst nicht ausgeführt (`D-30`, AP26 PT26.5).
 - **Keine Bundle-Optimierung.** Der 287-kB-`MusterbefundPage`-Chunk ist gemessen und unverändert;
   die Auflösung ist AP25 (`D-29`).
-- **AP01 ist nicht abgenommen.** Das Closure Gate `C01-01`–`C01-15` ist **nicht** gelaufen.
+- **AP02 ist nicht gestartet.** Kein `PT02.x` ist aktiv; das Zielarchitektur-Zielbild ist nicht begonnen.
+- **Kein Launch-Gate ist durch AP01 abgenommen.** AP01 hat einen technischen Ausgangspunkt hergestellt,
+  keine der 12 Launch-Gate-Abnahmen aus `RELEASE-ACCEPTANCE.md` berührt.
+- **Kein Risiko wurde geschlossen.** `RISK-002` und `RISK-003` haben Closure-Evidenz erhalten und
+  bleiben `OPEN` für ihre späteren Owner-APs.
 - **PT01.2 hat keine Messplan-Entscheidung getroffen.** Die `epigenetics_request`-Instrumentierung aus
   `main` wurde bewusst nicht übernommen; ob die Baseline-Ereignis-Union erweitert oder ein Shim
   gebaut wird, entscheidet AP23/AP15 (`D-18`).
@@ -253,84 +230,67 @@ Config-/CI-Datei.
 
 <!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste PT braucht. -->
 
-- Nächster Lauf ist **AP01-CLOSURE**, kein Primärtask. Er validiert PT01.1–PT01.5 gemeinsam gegen
-  `AP01.md` §7 (`C01-01` bis `C01-15`).
-- Keine Abweichung von `CONTEXT-INDEX.md`. Für die Closure zusätzlich zu `ALWAYS_READ` erforderlich:
-  `building-docs/AP01-RECONCILIATION-RESULT.md` (vollständig — es ist die Evidenzbasis der Closure),
-  `BRANCH-RECONCILIATION-MAP.md` (für `C01-03`–`C01-05`, `C01-07`),
-  `QUALITY-GATES.md`, `ROUTING-CONTRACT.md`, `RUNTIME-CONTRACT.md`, `SEO-CONTRACT.md`
-  (für `C01-06` Baseline-Härtungen).
-- Über PT01.1–PT01.5 zusätzlich geladen und weiterhin relevant: `SEO-CONTRACT.md` (in `AP01.md` §1.2
-  gelistet, in der Matrix nicht) und `NETWORK-ALLOWLIST.md` (PT01.4, Chat-/Consent-Befunde).
-- **Alle Closure-Nachweise liegen bereits vor** und müssen nicht neu erhoben werden:
-  `§1` Baseline Evidence · `§2` Baseline Guards · `§3`/`§5` `main` Import Ledger · `§4`/`§4a`
-  `redesign/preview` Import Ledger · `§6` Legacy Classification · `§7` Toolchain/Dependency/Security/
-  Quality/Bundle · `§8` Known Remaining Debt (`D-01`–`D-30`).
-- Reproduzierbare Verifikation, falls die Closure etwas nachmessen will: isolierter Worktree auf HEAD,
-  `npm ci` **im Root und in `server/`**, dann `tsc -b` (mit `--max-old-space-size=3072`), `vitest run`,
-  `npm run build`, danach SSR auf isoliertem freiem Port
-  (`NODE_ENV=production PORT=<frei> BACKEND_URL=http://127.0.0.1:39999 npx tsx server.ts`).
-  `NODE_ENV` muss für `npm ci` **ungesetzt** sein, sonst fehlen die devDependencies.
-- Achtung bei `npm ci`: das Root-`prepare`-Script (`lefthook install`) schreibt in die **geteilten**
-  Git-Hooks des Haupt-Checkouts — vorher sichern, danach zurückspielen (`D-13`).
+- Nächstes Arbeitspaket ist **AP02 — Zielarchitektur: SSR, Routing, Lead Platform und Betrieb**.
+  Es ist **nicht** gestartet.
+- Gemäß `CONTEXT-INDEX.md` liest AP02 zusätzlich zu `ALWAYS_READ`: `RUNTIME-CONTRACT.md` ·
+  `ROUTING-CONTRACT.md` · `BACKEND-API-CONTRACT.md` · `LEAD-DATA-CONTRACT.md` ·
+  `DEPLOYMENT-CONTRACT.md`; optional bei Anlass `SEO-CONTRACT.md` · `CRM-INTEGRATION.md` ·
+  `LEAD-DELIVERY-CONTRACT.md` · `REPO-BASELINE.md`.
+- **Zusätzlich Pflicht für AP02:** `building-docs/AP01-RECONCILIATION-RESULT.md` — es beschreibt den
+  technischen Ist-Zustand, den AP02 als Ausgangspunkt nimmt: §2 Baseline Guards (`BG-01`–`BG-12`, gelten
+  weiter), §6 Legacy Classification (aktiver vs. toter Deployment-Pfad), §7 Toolchain Contract,
+  §8 Known Remaining Debt (`D-01`–`D-30` mit Owner-APs).
+- Für AP02 besonders relevante offene Punkte aus AP01: `D-11` (Node-Vertrag ungepinnt, AP28 PT28.7) ·
+  `D-16` (vier manuelle Routenspiegel, AP07/AP10/AP27) · `D-25` (Pre-Consent-Netzaktivität,
+  AP06/AP22/AP23/AP26) · `D-27` (zweite Betriebswahrheit in `server/docker-compose.yml`, AP28 PT28.7) ·
+  `D-29` (Musterbefund-Bundle, AP25/AP16).
+- Reproduzierbare Verifikation: isolierter Worktree auf HEAD, `npm ci` **im Root und in `server/`**,
+  `tsc -b` (mit `--max-old-space-size=3072`), `vitest run`, `npm run build`, dann SSR auf isoliertem
+  freiem Port (`NODE_ENV=production PORT=<frei> BACKEND_URL=http://127.0.0.1:39999 npx tsx server.ts`).
+  `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-`prepare`-Script (`lefthook install`)
+  schreibt in die **geteilten** Git-Hooks — vorher sichern, danach zurückspielen (`D-13`).
 
 ## Handoff
 
-- Last completed PT: **PT01.5** — Toolchain-/Dependency-Audit und integrierte Build-Baseline · `PASS`
-- Next: **AP01-CLOSURE** (`AP01.md` §7, `C01-01`–`C01-15`) — **nicht gestartet**
-- Work package: AP01 · Status `IN_PROGRESS` — **nicht** `COMPLETE`
-- AP01 closure: **NOT_RUN** — **nicht** `PASS`
-- AP00: `COMPLETE`, Closure `PASS` (unverändert) · AP02: **nicht gestartet**
+- **AP01: `COMPLETE`** · **AP01 closure: `PASS` (43/43, `C01-01`–`C01-43`)**
+- Last completed PT: **PT01.5**
+- **Next work package: AP02 — Zielarchitektur: SSR, Routing, Lead Platform und Betrieb — NICHT gestartet**
+- AP00: `COMPLETE`, Closure `PASS` (unverändert erhalten)
 
-Alle fünf Primärtasks sind `PASS`. Evidenz vollständig in `building-docs/AP01-RECONCILIATION-RESULT.md`:
+Kanonische Ausführungsevidenz: **`building-docs/AP01-RECONCILIATION-RESULT.md`** (§1–§9).
+Der State dupliziert sie nicht.
 
-- **PT01.1** Baseline `feat/home-leadmagnet@961f65d` verifiziert; `BG-01`–`BG-12` festgeschrieben (§1–§2).
-- **PT01.2** `main@d0fdf29`: M1 3/3 · M2 2/2 · M3 IMPORTED · M4 6/6 · M5 4 Dateien/7 Hunks;
-  neun Routen aktiv, Sitemap 365 `<loc>` (§3, §5).
-- **PT01.3** `redesign/preview@5673b61`: P1–P5 entschieden; Fehlergrenzen, providerneutrales
-  Monitoring-Gerüst, zwei QA-Skripte; kein Design-System, kein Dark Theme (§4, §4a).
-- **PT01.4** 40 Artefakte klassifiziert, `LEGACY_LAUNCH_BLOCKING` 0, keine Datei entfernt (§6).
-- **PT01.5** Toolchain-, Dependency-, Security-, Quality-, Build- und Bundle-Baseline (§7).
+Was AP01 hergestellt hat:
 
-Ergebnis PT01.5 im Einzelnen:
+- **Baseline** `feat/home-leadmagnet@961f65d` empirisch verifiziert und weiterhin Ancestor der Linie;
+  12 Baseline Guards `BG-01`–`BG-12` festgeschrieben (§1–§2).
+- **`main@d0fdf29`** selektiv importiert: 3 Vertiefungsseiten, `EpiSubpage` + `tokens.ts`,
+  `content/befunde/meta.ts`, 6/6 Musterbefund-Routenmodule, 7 Kompatibilitäts-Hunks in 4 Dateien.
+  Neun Routen sind aktiv, Sitemap 365 `<loc>` (§3, §5).
+- **`redesign/preview@5673b61`** selektiv importiert: P1–P5 alle entschieden; Fehlergrenzen-Mechanismus,
+  providerneutrales Monitoring-Gerüst (Senke standardmäßig No-Op), a11y- und Screenshot-Skripte.
+  Kein Design-System, kein Dark Theme, keine externe Telemetrie (§4, §4a).
+- **40 Legacy-Artefakte klassifiziert**, `LEGACY_LAUNCH_BLOCKING` = 0, **keine Datei entfernt**;
+  kanonische Doku-Einstiegskette abgesichert (§6).
+- **Toolchain-, Dependency-, Security-, Quality-, Build- und Bundle-Baseline** aus einem isolierten
+  Clean Checkout (§7).
+- **Closure-Gate `PASS`**: Herkunft je Datei, Hotfile-Integrität, Build und SSR-Smoke unabhängig
+  nachgemessen (§9).
 
-- **Toolchain Contract (§7.1):** Package Manager **npm**, ein `package-lock.json` je Paket
-  (`lockfileVersion` 3), `.npmrc` `legacy-peer-deps=true`. Clean Install ist `npm ci` **im Root und
-  zusätzlich in `server/`** — nur so laufen die Tests 18/18 (`D-12`).
-- **Node-Vertrag (§7.2): dokumentiert, bewusst NICHT gepinnt.** CI und `Dockerfile` führen **22**,
-  `server/Dockerfile` führt **20**. Beide Stände sind vollständig grün verifiziert (20.19.6 und
-  22.23.2). AP01 **empfiehlt Node 22**; das Pinning setzt den Container-Angleich voraus und geht an
-  **AP28 PT28.7**, die Gate-Verankerung an **AP27 PT27.6** (`D-11`).
-- **Dependency Audit (§7.3):** Runtime 14 (Root) + 6 (`server/`), Dev 32 + 0. **Durch AP01 addiert:
-  genau 2 devDependencies** (`axe-core`, `playwright`, beide PT01.3, beide mit nachgewiesener
-  Verwendung). **Entfernt: NONE. Runtime-Dependencies unverändert. Unerklärte Änderungen: NONE.**
-  Lockfile-Delta seit Baseline: **+2/−0 Zeilen**, `server/package-lock.json` unverändert.
-- **Security Advisories (§7.4): VERIFIED** (Service erreichbar). Root **21** (15 high · 4 moderate ·
-  2 low · 0 critical): 3 production/direct, 6 production/transitive, 12 dev-only. `server/` **7**
-  (1 direct `express`, 6 transitiv). **Keine durch AP01 eingeführt** — die Root-Zahl ist identisch mit
-  der PT01.1-Messung. Kein Fix angewandt; `sharp` bräuchte ein Major-Upgrade (`D-30`, AP26 PT26.5).
-- **Clean Checkout (§7.5):** isolierter Worktree auf `f36a763`, `npm ci` rc 0 in beiden Paketen,
-  **keine Lockfile-Mutation** (SHA-256 vor/nach identisch), Worktree danach kontrolliert entfernt,
-  aktiver Branch unverändert.
-- **Quality:** Typecheck `PASS` · Tests **18/18** · `check:colors` `PASS` · Build `PASS` ·
-  ESLint **129** (`BASELINE_DEBT`, 0 in AP01-Dateien) · Prettier **38** (`BASELINE_DEBT`, 0 in
-  AP01-Quelldateien) · E2E `ENVIRONMENT_NOT_VERIFIED` (`D-09`).
-- **SSR-Smoke (§7.6): PASS** — 200, echte 301 (`/agb`, `/s3-leitlinie`, `/about`, je ein Hop),
-  echte 404 statisch und dynamisch, `no-store`, SEOHead-/notFound-Handshake, 1 Canonical + 11 hreflang,
-  `/api/*` außerhalb des Catch-all, Sitemap 365 `<loc>`, Musterbefund-Module **6/6**.
-- **Build-/Bundle-Baseline (§7.7):** Build **7,9 s** aus leerem `dist` (Node 22.23.2), 58 Client-JS-
-  Dateien / 1,1 MB. Neue AP01-Chunks zusammen **< 25 kB** roh für neun Routen.
-  **Musterbefund-Chunk 287,58 kB — gegenüber der Baseline unverändert**: die sechs Routenmodule sind
-  je 0,50 kB, weil `MusterbefundPage.tsx` weiterhin alle zwölf JSONs für den `:slug`-Auffangpfad hält
-  (trägt `BG-01`). Auflösung: **AP25** mit **AP16** (`D-29`).
-- **Baseline Guards: 11 × `PASS`, `BG-10` unverändert `BASELINE_DEBT`.**
-  **New regressions introduced by AP01: NONE.**
+Verbindlicher Rahmen für AP02:
 
-Rahmen für AP01-CLOSURE:
-
-- Baseline `feat/home-leadmagnet@961f65d` bleibt gesperrt; Decision Locks 18/18 `LOCKED`.
-- Die Closure prüft, sie implementiert nicht. `AP02` bleibt ungestartet.
-- 30 dokumentierte Schulden (`D-01`–`D-30`), jede mit Owner-AP; **keine** AP01-blockierend.
+- Baseline `feat/home-leadmagnet@961f65d` bleibt gesperrt. `main@d0fdf29` und
+  `redesign/preview@5673b61` bleiben **ausschließlich selektive Quellen**; keiner ist Ancestor der Linie.
+- **Decision Locks 18/18 `LOCKED`** — durch AP01 unverändert.
+- **`BG-01`–`BG-12` gelten weiter** und sind vor jedem Merge in die Relaunch-Linie erneut zu prüfen.
+  Nachweismethodik: §3.4, §4.5, §7.6, §9.5.
+- **Toolchain:** npm, ein `package-lock.json` je Paket; Clean Install ist `npm ci` **im Root und in
+  `server/`**. Der Node-Vertrag ist **dokumentiert, aber nicht gepinnt** — AP01 empfiehlt Node 22,
+  die Festlegung setzt den Container-Angleich voraus (`D-11`, AP28 PT28.7).
+- **30 dokumentierte Schulden** (`D-01`–`D-30`), jede mit Evidenz und Owner-AP, **keine**
+  launch-blockierend für AP01. Die schwerste ist `D-25`: vier externe Hosts vor jeder Einwilligung —
+  pre-existing, vergeben an AP06 PT06.4.6, AP22 PT22.7, AP23 PT23.1, AP26 PT26.2.
+- AP02 ist Zielbild-Arbeit: es beschreibt die Architektur, es implementiert sie nicht.
 
 ---
 
