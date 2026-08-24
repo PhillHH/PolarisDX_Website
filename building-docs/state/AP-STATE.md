@@ -9,9 +9,10 @@ kein `work-packages/APxx-STATE.md`).
 ## Current
 
 - Work package: AP03 — Informationsarchitektur und vollständiges Seiteninventar
-- Status: IN_PROGRESS <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
-- Last completed PT: PT03.4 — Navigation und interne Findability (PASS) — **letzter Primärtask von AP03**
-- Next task: **AP03-CLOSURE** (separater Lauf; nicht begonnen). Kein weiterer PT03.x offen.
+- Status: COMPLETE <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
+- AP03 closure: PASS (24/24, `C03-01`–`C03-24`)
+- Last completed PT: PT03.4 — Navigation und interne Findability (PASS); PT03.1–PT03.4 alle PASS
+- Next work package: AP04 — Content-Strategie, Content-Modell und Launch-Content-Readiness
 - IA inventory: recorded (`building-docs/IA-INVENTORY.md` §4–§7)
 - Page type taxonomy: recorded (`building-docs/IA-INVENTORY.md` §8)
 - Core journeys: recorded (`building-docs/IA-INVENTORY.md` §9)
@@ -25,13 +26,14 @@ kein `work-packages/APxx-STATE.md`).
 - Production/deployment contract: recorded (`building-docs/DEPLOYMENT-CONTRACT.md`)
 - AP01: COMPLETE · AP01 closure: PASS (43/43, `C01-01`–`C01-43`) — unverändert erhalten
 - AP00: COMPLETE · AP00 closure: PASS (unverändert erhalten)
-- AP04: NOT STARTED
+- AP04: NOT STARTED — kein `PT04.x` aktiv
 - Baseline: `feat/home-leadmagnet@961f65d` — Ancestor des aktuellen HEAD, empirisch bestätigt
 - Baseline evidence: recorded · `main` Import Ledger: recorded · redesign patterns: recorded ·
   legacy classification: recorded · final clean build evidence: recorded · **closure evidence: recorded**
   (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§9)
 - Current branch: `console/ap02-2026-08-24T12-30-23`
-- Current HEAD: `52dd14373eee7cb7f73109eddcf9e1ba84fedde5` — PT03.2-Commit; enthält den
+- Current HEAD: `186bc414cd449159b4df0213e72c648f6dc40b1e` — Merge der AP03-Linie in
+  `feat/home-leadmagnet`, remote gesichert als `origin/feat/home-leadmagnet`; enthält den
   AP01-Final-HEAD `3736d1a` als Ancestor. AP02-Delta `3736d1a..fffd712` = **0
   Nicht-Dokumentationsdateien**; AP03 setzt diese Linie fort und ändert ebenfalls nur `building-docs/`
 - Started: 2026-08-24 (AP02); AP01 gestartet und abgeschlossen 2026-08-24
@@ -128,6 +130,14 @@ kein `work-packages/APxx-STATE.md`).
   **M-09/M-10**, **D-T16–D-T22** und §9.2 mit der Zuordnung der geforderten Betriebssemantik auf die
   bestehende `DEP-`-Systematik, Owner-Grenzen §11.1. **Kein Deployment, kein Dienststart, kein
   Image-Build, keine Docker-/Compose-/nginx-/Environment-Änderung.**
+- AP03-CLOSURE — Closure Gate `PASS`: `C03-01` bis `C03-24` geprüft. Inventar 27/27 Seitenfamilien,
+  Diagnostik 9/9, Epigenetik Hub + 3 Vertiefungen + 6 Musterbefunde, Consumer 3 × 10, Spezial-/
+  Redirect-/404-Pfade getrennt, **0 unklassifizierte Seiten**, sieben Kernjourneys `J-01`–`J-07`,
+  gated Secondary Conversion vorhanden, Epigenetik eigenständig mit eigenem Navigationspunkt und
+  eigener Inquiry, Consumer indexierbar × 10, Navigation-/Findability-Modell vollständig, kein Chat,
+  Backlog nicht reaktiviert, Route- und Lead-Contract-Konsistenz belegt, genau **ein** kanonisches
+  IA-Artefakt, AP04 nicht gestartet. **AP03-Delta seit dem AP02-Closure-Commit: 3 Dateien, alle unter
+  `building-docs/` — 0 Nicht-Dokumentationsdateien.** Decision Locks **18/18**.
 - PT03.4 — Navigations- und Findability-Vertrag in `IA-INVENTORY.md` §10 festgeschrieben: Ist-Erhebung
   §10.2 (Header, Footer, Search, Breadcrumbs, ChapterNav, Consumer- und Legacy-Links, read-only),
   Header-IA §10.3, Diagnostik- und Mega-Menü-Rolle §10.4, **Epigenetik als eigener
@@ -423,8 +433,7 @@ referenzielle Korrektur war nicht erforderlich.
 <!-- Jeweils: ID/Kurztitel · was blockiert ist · was zur Auflösung gebraucht wird. -->
 
 - **Keine offenen Blocker.** PT01.1–PT01.5 und das AP01-Closure Gate sind `PASS`; AP01 ist `COMPLETE`.
-  **AP02 ist `COMPLETE` mit Closure `PASS`; PT03.1–PT03.4 sind alle `PASS`. AP03 ist inhaltlich
-  vollständig und wartet auf den Closure-Lauf.**
+  **AP02 und AP03 sind `COMPLETE` mit Closure `PASS`; PT03.1–PT03.4 sind alle `PASS`.**
 - **Hinweis, kein Blocker — neu aus PT03.4:** fünf Findability-Schulden. **`IAD-16`** (Footer ohne
   Epigenetik- und Support-Einstieg, **Gate 6**, AP06) und **`IAD-19`** (Consumer intern nirgends
   verlinkt, **Gate 1/4**, AP06/AP07/AP21) sind die gewichtigsten; dazu `IAD-15` (Search-Index deckt
@@ -563,33 +572,32 @@ referenzielle Korrektur war nicht erforderlich.
   sind Evidenz mit Owner-AP, keine AP01-Zusage und keine Freigabe.
 - **Keine Toolchain-Festlegung.** Node-/Paketmanager-Pinning ist offen und gehört zu PT01.5.3.
 
-## Required Context for Next Task
+## Required Context for Next Work Package
 
 <!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste Lauf braucht. -->
 
-- Nächster Lauf ist **AP03-CLOSURE** — ein **Validator**, kein Primärtask. Er prüft den realen
-  Repository-Zustand gegen die Zusagen von PT03.1–PT03.4 und setzt AP03 erst danach auf `COMPLETE`.
-  **PT03.x ist vollständig; AP04 ist nicht gestartet.**
-- Zu prüfendes Artefakt: **`building-docs/IA-INVENTORY.md`** — genau **ein** kanonisches IA-Hauptartefakt.
-  - PT03.1 → §4–§7: 27 Seitenfamilien `P-01`–`P-27`, Redirect Sources `X-01`–`X-06`, `N-01`, `T-01`–`T-06`
-  - PT03.2 → §8: zehn Seitentypen `T1`–`T10`, Rollenmatrix §8.4, Vokabulare §8.3
-  - PT03.3 → §9: sieben Kernjourneys `J-01`–`J-07`, Übersicht §9.3, Sackgassenanalyse §9.4
-  - PT03.4 → §10: Header-, Diagnostik-, Epigenetik-, IglooPro-, Footer-, Consumer-, Search-,
-    Breadcrumb-, ChapterNav-, Crosslink- und CTA-Policy, **finale Matrix §10.15**, Redirect/404 §10.16
-- **Erwartete Closure-Prüfpunkte:** Decision Locks 18/18 · **kein Quell-, Runtime-, Content-, Locale-,
-  Asset-, Config- oder Lockfile-Delta durch AP03** · genau ein IA-Hauptartefakt, keine konkurrierende
-  Navigation-, Search- oder Journey-Datei · Route Registry bleibt Routing-Wahrheit
-  (`IA-INVENTORY.md` §10.1) · alle **25** IA-Invarianten `IA-01`–`IA-25` adressiert · keine offene
-  `TBD`-Klassifikation · `IAD-01`–`IAD-19` mit Owner-AP und ohne Zielcharakter · keine vorgezogene
-  Implementierung aus AP04–AP33.
-- **Bekannte ID-Kollisionen:** `CD-` in `CONTENT-ASSET-CONTRACT.md` **und** `CRM-INTEGRATION.md`;
-  `RD-` in `RUNTIME-CONTRACT.md` **und** `ROUTING-CONTRACT.md`. Die IA-Serien sind `P-`, `X-`, `N-`,
-  `T-`, `J-`, `IAD-` und `IA-`.
+- Nächstes Arbeitspaket ist **AP04 — Content-Strategie, Content-Modell und Launch-Content-Readiness**.
+  Es ist **nicht** gestartet.
+- Gemäß `CONTEXT-INDEX.md` liest AP04 zusätzlich zu `ALWAYS_READ`: `I18N-CONTRACT.md` ·
+  `SEO-CONTRACT.md` · **`CONTENT-ASSET-CONTRACT.md`**; optional bei Anlass `QUALITY-GATES.md` ·
+  `ROUTING-CONTRACT.md` · **`IA-INVENTORY.md`**.
+- **AP03 liefert AP04 die Arbeitsgrundlage, nicht den Content.** Direkt relevant:
+  `IA-INVENTORY.md` §4 (27 Seitenfamilien mit Ziel-/Ist-Sprachumfang), §8.4 (Seitentyp, Zielgruppe,
+  Aufgabe, CTA-Rolle je Seite), §9 (sieben Kernjourneys mit CTA- und Conversion-Logik) und §10.13
+  (CTA-Findability). Dazu `CONTENT-ASSET-CONTRACT.md` §5 (Domänenmodelle) und CA-11/CA-14 (x10).
+- **Für AP04 unmittelbar relevante Schulden aus AP03:** `IAD-12` (Standard-CTA „Angebot anfragen" ist
+  heute die Minderheit — 15× „Beratung buchen" gegen 7×, **Gate 9**) · `IAD-13` (Einheits-CTA auf jedem
+  Artikel) · `IAD-01`/`IAD-03` (Consumer EN-only, Musterbefunde nur `de`/`en`, **Gate 1**) ·
+  `IAD-06`/`IAD-14` (Ressourcen ohne einheitliches Modell und ohne Zugangsklasse).
 - **Weiterhin gültig:** `AP01-RECONCILIATION-RESULT.md` §2 Baseline Guards (`BG-01`–`BG-12`), §6 Legacy
   Classification, §7 Toolchain Contract, §8 Known Remaining Debt (`D-01`–`D-30`); die AP02-Verträge
-  RT-38–RT-70, R-17–R-53, CA-01–CA-40, LD-27–LD-33 und DEP-37–DEP-57.
+  RT-38–RT-70, R-17–R-53, CA-01–CA-40, LD-27–LD-33, DEP-37–DEP-57; die AP03-IA-Wahrheit
+  `IA-INVENTORY.md` mit `IA-01`–`IA-25` und `IAD-01`–`IAD-19`.
 - **Nicht durch AP03 abgenommen:** kein Launch-Gate, kein Risiko geschlossen, keine Product Decision neu
   getroffen. Offene Fremdentscheidungen bleiben benannt (Legal-Indexierbarkeit `IAD-05`, AP20 PT20.4.8).
+- **ID-Kollisionen beachten:** `CD-` in `CONTENT-ASSET-CONTRACT.md` **und** `CRM-INTEGRATION.md`;
+  `RD-` in `RUNTIME-CONTRACT.md` **und** `ROUTING-CONTRACT.md`. IA-Serien: `P-`, `X-`, `N-`, `T-`,
+  `J-`, `IAD-`, `IA-`.
 - Reproduzierbare Verifikation (unverändert): isolierter Worktree auf HEAD, `npm ci` **im Root und in
   `server/`**, `tsc -b` (mit `--max-old-space-size=3072`), `vitest run`, `npm run build`, dann SSR auf
   isoliertem freiem Port (`NODE_ENV=production PORT=<frei> BACKEND_URL=http://127.0.0.1:39999
@@ -599,9 +607,10 @@ npx tsx server.ts`). `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-
 
 ## Handoff
 
-- **AP03: `IN_PROGRESS`** · Last completed PT: **PT03.4 (`PASS`)** · **Next task: `AP03-CLOSURE` —
-  nicht gestartet.** Alle vier Primärtasks PT03.1–PT03.4 sind `PASS`; **AP03 wird erst durch den
-  separaten Closure-Lauf `COMPLETE`.**
+- **AP03: `COMPLETE`** · **AP03 closure: `PASS` (24/24, `C03-01`–`C03-24`)** · Last completed PT:
+  **PT03.4**. Alle vier Primärtasks PT03.1–PT03.4 sind `PASS`.
+- **Next work package: AP04 — Content-Strategie, Content-Modell und Launch-Content-Readiness — NICHT
+  gestartet.**
 - **AP02: `COMPLETE`** · **AP02 closure: `PASS` (23/23, `C02-01`–`C02-23`)** — unverändert erhalten.
 - **AP04: NOT STARTED.**
 - **AP01: `COMPLETE`** · AP01 closure: `PASS` (43/43) · **AP00: `COMPLETE`**, Closure `PASS` — beide
@@ -725,12 +734,17 @@ Was PT03.4 hergestellt hat:
   Klassifikation; sie löst die vorläufigen Werte aus §8.6 ab.
 - **Locale-sichere Verlinkung** (§10.14) und Redirect-/404-Findability (§10.16).
 
-Verbindlicher Rahmen für `AP03-CLOSURE`:
+Was AP03 an AP04 und die späteren Owner übergibt (`AP03.md` §19):
 
-- Die Closure ist **Validator, kein Primärtask**: sie prüft den realen Repository-Zustand, nicht die
-  Reports — Vorbild ist der AP02-Closure-Lauf.
-- **AP03 darf erst durch die Closure `COMPLETE` werden.** Bis dahin bleibt der Status `IN_PROGRESS`.
-- **AP04 bleibt gesperrt**, bis die Closure `PASS` meldet.
+- vollständiges kanonisches IA-Inventar · Seitentyp-Taxonomie · Zielgruppen-/Aufgaben-/CTA-Matrix ·
+  Sprachumfang je Seitenfamilie · Navigations-/Findability-Matrix · sieben Kernjourneys · Epigenetik als
+  eigene Säule · Consumer als 10-sprachigen SEO-Bereich · gated Secondary-Conversion-Journey ·
+  allgemeines CTA-Naming · Breadcrumb-/ChapterNav-Regeln · Search-/Crosslink-Zielrollen ·
+  `IAD-01`–`IAD-19` mit Owner-AP.
+- **AP03 übergibt keine** implementierte Navigation, keine neuen Routen, keine Search-Änderung, keine
+  Übersetzung und keine umgebaute Seite.
+- Spätere Owner: AP04 (Content), AP06 (Navigation), AP07 (Search), AP08 (10 Sprachen), AP09 (SEO),
+  AP10 (Routing), AP11–AP21 (Seiten), AP22 (Lead), AP27 (Guards).
 
 Was PT03.2 hergestellt hat:
 
