@@ -10,10 +10,11 @@ kein `work-packages/APxx-STATE.md`).
 
 - Work package: AP02 — Zielarchitektur: SSR, Routing, Lead Platform und Betrieb
 - Status: IN_PROGRESS <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
-- Last completed PT: PT02.2 — Routing-Zielbild / Route Registry (PASS)
-- Next PT: PT02.3 — Content-/Asset-Architektur (nicht begonnen)
+- Last completed PT: PT02.3 — Content-/Asset-Architektur (PASS)
+- Next PT: PT02.4 — Lead-/Backend-Zielbild (nicht begonnen)
 - SSR/rendering contract: recorded (`building-docs/RUNTIME-CONTRACT.md`)
 - Routing/route-registry contract: recorded (`building-docs/ROUTING-CONTRACT.md`)
+- Content/asset contract: recorded (`building-docs/CONTENT-ASSET-CONTRACT.md`, neu)
 - AP01: COMPLETE · AP01 closure: PASS (43/43, `C01-01`–`C01-43`) — unverändert erhalten
 - AP00: COMPLETE · AP00 closure: PASS (unverändert erhalten)
 - AP03: NOT STARTED
@@ -22,7 +23,7 @@ kein `work-packages/APxx-STATE.md`).
   legacy classification: recorded · final clean build evidence: recorded · **closure evidence: recorded**
   (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§9)
 - Current branch: `console/ap02-2026-08-24T12-30-23`
-- Current HEAD: `f7a7ff0ff42b9750db00e548adf17acdde24319a` — PT02.1-Commit; enthält den
+- Current HEAD: `0aaa092a59fa009c688d3c2460062bc04aca1b72` — PT02.2-Commit; enthält den
   AP01-Final-HEAD `3736d1a` als Ancestor; Delta `3736d1a..HEAD` = **0 Nicht-Dokumentationsdateien**
 - Started: 2026-08-24 (AP02); AP01 gestartet und abgeschlossen 2026-08-24
 - Last updated: 2026-08-24
@@ -91,6 +92,14 @@ kein `work-packages/APxx-STATE.md`).
   Navigation als Konsumenten, Consumer × 10, Epigenetik als eigene Säule), Schulden **RD-8–RD-14**,
   Regeln **M-06–M-08**, Nachweise **T-11–T-20** mit RTG-Zuordnung §8.2, Owner-Grenzen §10.1.
   **Keine Route Registry implementiert**, kein Quell-/Runtime-/Config-/Dependency-Delta.
+- PT02.3 — Content-/Asset-Zielarchitektur im **neuen** kanonischen `CONTENT-ASSET-CONTRACT.md`
+  festgeschrieben (AP02.md §5.2: genau ein neuer Contract je fehlender Domäne): Ist-Erhebung §3.1
+  (Klassen A–H, read-only), Zielinvarianten **CA-01–CA-40** (Vier-Schichten-Modell, fachliche Daten,
+  i18n-Grenze, spezialisierte Content-Daten, Asset-Referenzen, sprachabhängige Assets, PUBLIC/GATED,
+  Security/Privacy, CMS-Grenze), Domänenmodelle §5 (Musterbefund, Artikel, Service, Event, Resource)
+  plus SEO-Grenze, Schulden **CD-1–CD-10**, Regeln **CM-01–CM-06**, Nachweise **CA-T1–CA-T14** mit
+  `CONTENT-xx`-Zuordnung, Owner-Grenzen §11. `CONTEXT-INDEX.md` entsprechend ergänzt.
+  **Kein Inhalt migriert, keine Übersetzung erzeugt, kein Asset geändert, kein Gating, kein CMS.**
 
 ## Current Invariants
 
@@ -145,6 +154,22 @@ kein `work-packages/APxx-STATE.md`).
   nicht dazu. Die Locale kommt ausschließlich aus der URL (R-18).
 - **`/services*` ist im Ziel eine echte serverseitige 301-Brücke** in einem Hop (R-38); Redirect-Quellen
   sind keine kanonischen Seiten (R-37).
+- **Kanonischer Content-/Asset-Vertrag: `building-docs/CONTENT-ASSET-CONTRACT.md`** (AP02 PT02.3).
+  Er ergänzt `I18N-CONTRACT.md` (Sprachmenge, Parität) und `ROUTING-CONTRACT.md` (Route-Existenz) und
+  ersetzt keinen von beiden.
+- **Vier Content-Schichten mit getrennter Verantwortung** (CA-01): fachliche Identität · lokalisierte
+  Texte · spezialisierte Content-Daten · statische Assets. Eine Information hat genau eine zuständige
+  Schicht (CA-02).
+- **Übersetzungsdateien führen keine fachliche Wahrheit** (CA-10): keine Slugs, Routen, Dateinamen, IDs
+  oder Datumslogik. Strukturierte Werte bleiben strukturiert, die Darstellung entsteht aus
+  Locale-Formatierung (CA-07).
+- **Sprachabhängige Assets sind explizit modelliert** (CA-25–CA-29): stabile Asset-Identität, je Sprache
+  eine deklarierte Datei oder ausdrückliche Sprachneutralität, Lücken maschinell erkennbar, **kein
+  stiller Fremdsprach-Fallback**.
+- **PUBLIC vs. GATED ist ein deklariertes Merkmal** (CA-30). **Eine unverlinkte Datei gilt nie als
+  geschützt** (CA-31); ein Gate prüft eine Berechtigung, keine Herkunft (CA-32).
+- **CMS ist keine Launch-Voraussetzung** (CA-39/CA-40, `DEC-RL-010`); die Architektur bleibt
+  anschlussfähig, ohne ein CMS zu verlangen.
 - **Eigentümer-AP (liefert) ≠ Accountable Owner Role (nimmt ab).** Wer liefert, nimmt nicht ab.
 - Technische Gate-Kriterien stehen in `MASTER-SCOPE.md` §8 und `QUALITY-GATES.md` §12 und werden in
   `RELEASE-ACCEPTANCE.md` nur referenziert, nicht dupliziert.
@@ -162,17 +187,22 @@ kein `work-packages/APxx-STATE.md`).
 - `building-docs/RUNTIME-CONTRACT.md` (§2 Stand, §3.1 Ist-Zustand, RT-38–RT-70, §5.4/§5.5,
   §6.1 RD-11–RD-16, M-08–M-11, §9.1 RT-T14–RT-T22, §10, §11/§11.1)
 
-**PT02.2 — ausschließlich Dokumentation:**
+**PT02.2 — ausschließlich Dokumentation** (committet als `0aaa092`):
 
 - `building-docs/ROUTING-CONTRACT.md` (§2 Stand, §3.1 Ist-Zustand, R-17–R-53, §5.1 RD-8–RD-14,
   M-06–M-08, §8.1/§8.2, §9, §10/§10.1)
+
+**PT02.3 — ausschließlich Dokumentation:**
+
+- `building-docs/CONTENT-ASSET-CONTRACT.md` — **neu**, der einzige neue Contract dieses AP
+- `building-docs/CONTEXT-INDEX.md` — Matrixzeilen AP02/AP04/AP19 (required) und
+  AP08/AP14/AP16/AP17/AP18/AP21 (optional) plus eine Regelzeile in §4.1
 - `building-docs/state/AP-STATE.md`
 
-**Anwendungscode / Runtime / Config / Dependencies / Lockfiles: NONE.** `SEO-CONTRACT.md`,
-`QUALITY-GATES.md`, `CONTEXT-INDEX.md`, `MASTER-SCOPE.md` und `DECISIONS.md` sind **unverändert** — eine
-referenzielle Korrektur war in beiden PTs nicht erforderlich. `CONTEXT-INDEX.md` weist
-`ROUTING-CONTRACT.md` bereits als AP02-Pflichtkontext aus; ein neuer Routing-Contract wurde **nicht**
-angelegt.
+**Anwendungscode / Locale-Dateien / Assets / Runtime / Config / Dependencies / Lockfiles: NONE.**
+`MASTER-SCOPE.md`, `DECISIONS.md`, `PROJECT-CONSTRAINTS.md`, `I18N-CONTRACT.md`, `SEO-CONTRACT.md`,
+`QUALITY-GATES.md`, `ROUTING-CONTRACT.md` und `RUNTIME-CONTRACT.md` sind **unverändert**. Es wurde genau
+**ein** neuer kanonischer Contract angelegt (AP02.md §5.2); kein konkurrierendes Dokument.
 
 <details>
 <summary>AP01 — Files Changed (abgeschlossen, zur Nachvollziehbarkeit)</summary>
@@ -207,7 +237,14 @@ angelegt.
 <!-- Jeweils: ID/Kurztitel · was blockiert ist · was zur Auflösung gebraucht wird. -->
 
 - **Keine offenen Blocker.** PT01.1–PT01.5 und das AP01-Closure Gate sind `PASS`; AP01 ist `COMPLETE`.
-  PT02.1 und PT02.2 sind `PASS`; AP02 ist `IN_PROGRESS`.
+  PT02.1, PT02.2 und PT02.3 sind `PASS`; AP02 ist `IN_PROGRESS`.
+- **Hinweis, kein Blocker — neu aus PT02.3:** zehn Content-/Asset-Schulden `CD-1`–`CD-10` in
+  `CONTENT-ASSET-CONTRACT.md` §6, jede mit Owner-AP, keine PT02.3-blockierend. Die schwerste ist
+  **`CD-2`**: die Sprachzuordnung der Epigenetik-Unterlagen steht als übersetzbarer String in den
+  Locale-Dateien — `pl`, `fr` und `cs` tragen dort die **englischen** Dateinamen, also ein **stiller
+  EN-Asset-Fallback**, der heute nicht als Lücke erkennbar ist (AP19 mit AP08). Dazu **`CD-8`**
+  (kein Gating-Mechanismus vorhanden, während `DEC-RL-014` mindestens einen gated Pfad verlangt —
+  AP19 PT19.3 mit AP22) und `CD-1` (zwei getrennte Download-Welten).
 - **Hinweis, kein Blocker — neu aus PT02.2:** sieben Routing-Schulden `RD-8`–`RD-14` in
   `ROUTING-CONTRACT.md` §5.1, jede mit Owner-AP, keine PT02.2-blockierend. Die schwerste ist **`RD-8`**:
   `KNOWN_PATHS` wird **aus der Sitemap abgeleitet**, „nicht in der Sitemap = unbekannte Route" ist damit
@@ -306,32 +343,29 @@ angelegt.
 
 <!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste PT braucht. -->
 
-- Nächster Primärtask ist **PT02.3 — Content-/Asset-Architektur** innerhalb von AP02. Er ist **nicht**
+- Nächster Primärtask ist **PT02.4 — Lead-/Backend-Zielbild** innerhalb von AP02. Er ist **nicht**
   gestartet.
 - Gemäß `CONTEXT-INDEX.md` liest AP02 zusätzlich zu `ALWAYS_READ`: `RUNTIME-CONTRACT.md` ·
   `ROUTING-CONTRACT.md` · `BACKEND-API-CONTRACT.md` · `LEAD-DATA-CONTRACT.md` ·
-  `DEPLOYMENT-CONTRACT.md`; optional bei Anlass `SEO-CONTRACT.md` · `CRM-INTEGRATION.md` ·
-  `LEAD-DELIVERY-CONTRACT.md` · `REPO-BASELINE.md`. `work-packages/AP02.md` §1.3 nennt für PT02.3
-  zusätzlich die content-/asset-relevanten kanonischen Contracts, die AP01-Evidenz zu Musterbefunden,
-  Epigenetik und Legacy-Assets sowie die Repository-Datenmodelle **read-only**.
-- **Offene Dokumententscheidung für PT02.3:** In `building-docs/` existiert **kein** Content-/Asset-
-  Contract. `I18N-CONTRACT.md` ist der nächstliegende bestehende Kanon und zuerst zu prüfen.
-  `work-packages/AP02.md` §5.2 erlaubt, genau **einen** neuen kanonischen Contract je fehlender Domäne
-  anzulegen (Namensvorschlag dort: `CONTENT-ASSET-CONTRACT.md`) — mit anschließender Aktualisierung von
-  `CONTEXT-INDEX.md`. PT02.2 hat diese Entscheidung **nicht** vorweggenommen.
+  `DEPLOYMENT-CONTRACT.md` · **`CONTENT-ASSET-CONTRACT.md`** (seit PT02.3); optional bei Anlass
+  `SEO-CONTRACT.md` · `CRM-INTEGRATION.md` · `LEAD-DELIVERY-CONTRACT.md` · `REPO-BASELINE.md`.
+  `work-packages/AP02.md` §1.3 nennt für PT02.4 zusätzlich verbindlich `CONSENT-CONTRACT.md`,
+  `RUNTIME-CONTRACT.md`, `DEPLOYMENT-CONTRACT.md` und — soweit Datenflüsse/Providergrenzen betroffen
+  sind — `NETWORK-ALLOWLIST.md`, dazu die AP01-Evidenz zu Chat-/Backend-/Lead-Resten.
 - **Weiterhin Pflicht für AP02:** `building-docs/AP01-RECONCILIATION-RESULT.md` — §2 Baseline Guards
-  (`BG-01`–`BG-12`, gelten weiter), §6 Legacy Classification, §7 Toolchain Contract, §8 Known Remaining
-  Debt (`D-01`–`D-30` mit Owner-APs).
-- **Neu aus PT02.2 für PT02.3 relevant:** `ROUTING-CONTRACT.md` **R-28** (Route Registry ist keine
-  Content-Datenbank) und **R-33** (genau eine Slug-Quelle je dynamischer Route) ziehen die Grenze, an
-  der PT02.3 ansetzt: die fachlichen Datenquellen `src/data/services.tsx` (9), `src/data/articles.ts`
-  (6/7) und `src/content/befunde/` (6 Panels, **JSON nur `de`/`en`**, `RD-14`) bleiben Eigentümer ihrer
-  Datensätze. Dazu **R-49** (Sitemap-Einträge dynamischer Routen entstehen aus realer Datenquelle) und
-  **`RD-9`** (Slugs heute doppelt geführt).
+  (`BG-01`–`BG-12`, gelten weiter, darunter **`BG-11`** `DRY_RUN` als Kill-Switch), §6 Legacy
+  Classification, §7 Toolchain Contract, §8 Known Remaining Debt (`D-01`–`D-30`).
+- **Neu aus PT02.3 für PT02.4 relevant:** `CONTENT-ASSET-CONTRACT.md` **CA-30–CA-34** definiert die
+  Content-Seite von PUBLIC/GATED und endet bewusst an der Lead-Grenze: die Ressource kennt ihre
+  Zugangsklasse und ihre stabile Resource-ID, **nicht** den Anforderer (CA-34). PT02.4 modelliert die
+  Gegenseite — Entitlement, Persistenz, Zustellung, CRM-Zuordnung — und referenziert die Resource-ID
+  (CA-33). **`CD-8`** hält fest, dass heute **kein** Gating existiert, während `DEC-RL-014` mindestens
+  einen gated Pfad verlangt.
 - Für AP02 weiterhin offene Punkte aus AP01: `D-11` (Node-Vertrag ungepinnt, AP28 PT28.7) ·
-  `D-16` (manuelle Routenspiegel, jetzt präzisiert als `RD-10`) · `D-25` (Pre-Consent-Netzaktivität,
-  AP06/AP22/AP23/AP26) · `D-27` (zweite Betriebswahrheit in `server/docker-compose.yml`, AP28 PT28.7) ·
-  `D-29` (Musterbefund-Bundle, AP25/AP16).
+  `D-25` (Pre-Consent-Netzaktivität inkl. Chat-Resten, AP06/AP22/AP23/AP26 — für PT02.4 unmittelbar
+  relevant, weil `DEC-RL-007` **kein Chat-Backend** im Zielbild erlaubt) · `D-27` (zweite
+  Betriebswahrheit in `server/docker-compose.yml`, AP28 PT28.7) · `D-29` (Musterbefund-Bundle,
+  entspricht `CD-3`).
 - Reproduzierbare Verifikation (unverändert): isolierter Worktree auf HEAD, `npm ci` **im Root und in
   `server/`**, `tsc -b` (mit `--max-old-space-size=3072`), `vitest run`, `npm run build`, dann SSR auf
   isoliertem freiem Port (`NODE_ENV=production PORT=<frei> BACKEND_URL=http://127.0.0.1:39999
@@ -344,17 +378,17 @@ npx tsx server.ts`). `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-
 
 ## Handoff
 
-- **AP02: `IN_PROGRESS`** · Last completed PT: **PT02.2 (`PASS`)** · **Next PT: PT02.3 — nicht gestartet**
+- **AP02: `IN_PROGRESS`** · Last completed PT: **PT02.3 (`PASS`)** · **Next PT: PT02.4 — nicht gestartet**
 - **AP01: `COMPLETE`** · AP01 closure: `PASS` (43/43) · **AP00: `COMPLETE`**, Closure `PASS` — beide
   unverändert erhalten
 - **AP03: NOT STARTED.** AP02 ist **nicht** `COMPLETE`; das AP02-Closure Gate ist nicht gelaufen.
-- Decision Locks: **18/18 `LOCKED`**, durch PT02.1 und PT02.2 unverändert. Baseline
+- Decision Locks: **18/18 `LOCKED`**, durch PT02.1–PT02.3 unverändert. Baseline
   `feat/home-leadmagnet@961f65d` bleibt gesperrt und ist Ancestor des HEAD.
 
 Kanonische Ausführungsevidenz AP01: **`building-docs/AP01-RECONCILIATION-RESULT.md`** (§1–§9).
 Kanonische Ausführungsevidenz PT02.1: **`building-docs/RUNTIME-CONTRACT.md`** · PT02.2:
-**`building-docs/ROUTING-CONTRACT.md`** — der jeweilige Vertrag ist das Artefakt; ein zweiter Report
-wird dafür nicht angelegt.
+**`building-docs/ROUTING-CONTRACT.md`** · PT02.3: **`building-docs/CONTENT-ASSET-CONTRACT.md`** — der
+jeweilige Vertrag ist das Artefakt; ein zweiter Report wird dafür nicht angelegt.
 
 Was PT02.1 hergestellt hat:
 
@@ -405,8 +439,35 @@ Weiterhin gültiger AP01-Rahmen (nicht dupliziert, nur gezeigt, wo er steht):
 - **30 dokumentierte Schulden `D-01`–`D-30`** mit Evidenz und Owner-AP, keine AP01-blockierend (§8);
   die schwerste bleibt `D-25` (vier externe Hosts vor jeder Einwilligung, AP06/AP22/AP23/AP26).
 
+Was PT02.3 hergestellt hat:
+
+- **Ist/Soll getrennt:** §3.1 klassifiziert den realen Content-/Asset-Bestand (A–H) samt fünf
+  strukturell entscheidenden Befunden — Asset-Identität in Übersetzungsdateien, kein Gating, zwei
+  Download-Kataloge, lokalisierte Datums-Strings, fehlende Consumer-OG-Bilder.
+- **Zielvertrag CA-01–CA-40:** vier Schichten mit getrennter Verantwortung, stabile fachliche Identität
+  getrennt vom Slug, strukturierte Werte statt vorformatierter Texte, i18n-Grenze, route-spezifisch
+  ladbare Spezialinhalte, prüfbare Asset-Referenzen, explizit modellierte Sprachvarianten,
+  PUBLIC/GATED, Security-/Privacy-Grenzen und eine klare CMS-Abgrenzung.
+- **Domänenmodelle §5:** Musterbefund, Artikel, Service, Event und Resource/Download, dazu die Grenze
+  Content ↔ Route Registry (§5.1) und Content ↔ SEO (§5.7). `events.ts` ist als Vorbild benannt.
+- **Testbarkeit:** `CA-T1`–`CA-T14`, Zuordnung der geforderten `CONTENT-01`–`CONTENT-16` auf die
+  `CA-`-Konvention (§9.1), Regeln `CM-01`–`CM-06`, Owner-Grenzen §11.
+- **Schulden statt Reparaturen:** `CD-1`–`CD-10`, jede mit Owner-AP. **Keine** wurde behoben; sprachliche
+  Lücken bleiben in `I18N-CONTRACT.md` §5 geführt statt dupliziert.
+
+Verbindlicher Rahmen für PT02.4:
+
+- **`CONTENT-ASSET-CONTRACT.md` endet an der Lead-Grenze.** Die Ressource kennt Zugangsklasse und
+  Resource-ID, nicht den Anforderer (CA-34). PT02.4 modelliert Entitlement, Persistenz, Zustellung und
+  CRM-Zuordnung und referenziert die Resource-ID (CA-33).
+- **Security by obscurity ist ausgeschlossen** (CA-31/CA-32): ein zugesagtes Gate braucht eine geprüfte
+  Berechtigung. `DEC-RL-014` verlangt mindestens einen gated Pfad; heute existiert keiner (`CD-8`).
+- **Keine Lead-, CRM- oder Kundendaten in Content oder Assets** (CA-34/CA-35) — und `DEC-RL-007`
+  schließt ein Chat-Backend im Zielbild aus.
+- AP02 bleibt Zielbild-Arbeit: es beschreibt die Architektur, es implementiert sie nicht.
+
 Durchgehend gültig: `BG-01`–`BG-12` gelten weiter; `REST-03`, `DEC-RL-005` und `DEC-RL-006` sind durch
-PT02.1 und PT02.2 bestätigt und nicht aufgeweicht. Der SSR-Vertrag verlangt eine **renderunabhängige**
+PT02.1–PT02.3 bestätigt und nicht aufgeweicht. Der SSR-Vertrag verlangt eine **renderunabhängige**
 Routenwahrheit (`RUNTIME-CONTRACT.md` RT-52/RT-56); PT02.2 weist sie der Route Registry zu (R-32, R-40).
 
 ---
