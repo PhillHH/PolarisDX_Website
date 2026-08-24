@@ -9,9 +9,10 @@ kein `work-packages/APxx-STATE.md`).
 ## Current
 
 - Work package: AP02 — Zielarchitektur: SSR, Routing, Lead Platform und Betrieb
-- Status: IN_PROGRESS <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
-- Last completed PT: PT02.5 — Produktionsbetriebs-Zielbild (PASS) — **letzter Primärtask von AP02**
-- Next task: **AP02-CLOSURE** (separater Lauf; nicht begonnen). Kein weiterer PT02.x offen.
+- Status: COMPLETE <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
+- AP02 closure: PASS (23/23, `C02-01`–`C02-23`)
+- Last completed PT: PT02.5 — Produktionsbetriebs-Zielbild (PASS); PT02.1–PT02.5 alle PASS
+- Next work package: AP03 — Informationsarchitektur und vollständiges Seiteninventar
 - SSR/rendering contract: recorded (`building-docs/RUNTIME-CONTRACT.md`)
 - Routing/route-registry contract: recorded (`building-docs/ROUTING-CONTRACT.md`)
 - Content/asset contract: recorded (`building-docs/CONTENT-ASSET-CONTRACT.md`)
@@ -20,14 +21,15 @@ kein `work-packages/APxx-STATE.md`).
 - Production/deployment contract: recorded (`building-docs/DEPLOYMENT-CONTRACT.md`)
 - AP01: COMPLETE · AP01 closure: PASS (43/43, `C01-01`–`C01-43`) — unverändert erhalten
 - AP00: COMPLETE · AP00 closure: PASS (unverändert erhalten)
-- AP03: NOT STARTED
+- AP03: NOT STARTED — kein `PT03.x` aktiv
 - Baseline: `feat/home-leadmagnet@961f65d` — Ancestor des aktuellen HEAD, empirisch bestätigt
 - Baseline evidence: recorded · `main` Import Ledger: recorded · redesign patterns: recorded ·
   legacy classification: recorded · final clean build evidence: recorded · **closure evidence: recorded**
   (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§9)
 - Current branch: `console/ap02-2026-08-24T12-30-23`
-- Current HEAD: `58f05044336fd7abf2af6f8557b0cf3bc659f5c0` — PT02.4-Commit; enthält den
+- Current HEAD: `fffd7129ae700b2ac747c23ffc3be846d06ee9e9` — PT02.5-Commit; enthält den
   AP01-Final-HEAD `3736d1a` als Ancestor; Delta `3736d1a..HEAD` = **0 Nicht-Dokumentationsdateien**
+  (12 geänderte Dateien, alle unter `building-docs/`) — im Closure-Lauf unabhängig nachgemessen
 - Started: 2026-08-24 (AP02); AP01 gestartet und abgeschlossen 2026-08-24
 - Last updated: 2026-08-24
 
@@ -122,6 +124,12 @@ kein `work-packages/APxx-STATE.md`).
   **M-09/M-10**, **D-T16–D-T22** und §9.2 mit der Zuordnung der geforderten Betriebssemantik auf die
   bestehende `DEP-`-Systematik, Owner-Grenzen §11.1. **Kein Deployment, kein Dienststart, kein
   Image-Build, keine Docker-/Compose-/nginx-/Environment-Änderung.**
+- AP02-CLOSURE — Closure Gate `PASS`: `C02-01` bis `C02-23` geprüft. PT02.1–PT02.5 vollständig gegen
+  Master-Scope, `AP02.md` und den realen Contract-Zustand verifiziert; Cross-Contract-Konsistenz in
+  13 Querbezügen belegt; Decision Locks **18/18**; **0 Nicht-Dokumentationsdateien** im AP02-Delta;
+  keine konkurrierende Contract-Datei, keine ID-Duplikate; keine Implementierung aus AP03–AP33
+  vorgezogen. Closure-Evidenz über Contract-Diffs + diesen State (`AP02.md` §5.3, Variante 2) —
+  **kein separater Report angelegt**.
 
 ## Current Invariants
 
@@ -221,6 +229,16 @@ kein `work-packages/APxx-STATE.md`).
   SSR-Laufzeit nie ersetzen (DEP-45). Bereinigung bleibt **AP28 PT28.7**.
 - **Docker/Compose bleibt der Produktionsstandard** (DEP-55) — keine Cluster-, Blue-Green- oder
   Multi-Region-Pflicht wird erfunden.
+- **Architecture baseline complete (AP02 Closure PASS).** Die fünf Zielarchitekturen sind kanonisch
+  dokumentiert, untereinander konsistent und owner-fähig:
+  SSR/rendering `RUNTIME-CONTRACT.md` (RT-38–RT-70) · routing/route-registry `ROUTING-CONTRACT.md`
+  (R-17–R-53) · content/assets `CONTENT-ASSET-CONTRACT.md` (CA-01–CA-40) · lead/backend
+  `LEAD-DATA-CONTRACT.md` §2.1 als Einstieg mit `BACKEND-API-CONTRACT.md` (API-21–API-23),
+  `LEAD-DELIVERY-CONTRACT.md`, `CRM-INTEGRATION.md` und LD-27–LD-33 · production/deployment
+  `DEPLOYMENT-CONTRACT.md` (DEP-37–DEP-57).
+- **`ARCHITECTURE BASELINE COMPLETE` heißt nicht launch-ready.** AP02 hat nichts implementiert: kein
+  Routing, keine Lead-Plattform, kein Docker-Zielstack, kein Consumer × 10, keine SEO-Umsetzung, keine
+  Consent-Reparatur. Alle 12 Launch-Gates stehen unverändert auf `NOT_RUN`.
 - **Eigentümer-AP (liefert) ≠ Accountable Owner Role (nimmt ab).** Wer liefert, nimmt nicht ab.
 - Technische Gate-Kriterien stehen in `MASTER-SCOPE.md` §8 und `QUALITY-GATES.md` §12 und werden in
   `RELEASE-ACCEPTANCE.md` nur referenziert, nicht dupliziert.
@@ -423,54 +441,49 @@ referenzielle Korrektur war nicht erforderlich.
   sind Evidenz mit Owner-AP, keine AP01-Zusage und keine Freigabe.
 - **Keine Toolchain-Festlegung.** Node-/Paketmanager-Pinning ist offen und gehört zu PT01.5.3.
 
-## Required Context for Next Task
+## Required Context for Next Work Package
 
 <!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste Lauf braucht. -->
 
-- Nächster Lauf ist **AP02-CLOSURE** — ein **Validator**, kein Primärtask. Er prüft den realen
-  Repository-Zustand gegen die Zusagen von PT02.1–PT02.5 und setzt AP02 erst danach auf `COMPLETE`.
-  **PT02.x ist vollständig; AP03 ist nicht gestartet.**
-- Zu prüfende Artefakte der fünf Primärtasks:
-  - PT02.1 → `RUNTIME-CONTRACT.md` §3.1, RT-38–RT-70, §5.4/§5.5, §6.1 RD-11–RD-16, §9.1 RT-T14–RT-T22
-  - PT02.2 → `ROUTING-CONTRACT.md` §3.1, R-17–R-53, §5.1 RD-8–RD-14, §8.1/§8.2
-  - PT02.3 → `CONTENT-ASSET-CONTRACT.md` (neu) vollständig, plus die `CONTEXT-INDEX.md`-Registrierung
-  - PT02.4 → `LEAD-DATA-CONTRACT.md` §2.1/§3.1, LD-27–LD-33, §9.1 · `BACKEND-API-CONTRACT.md`
-    API-21–API-23 · `CRM-INTEGRATION.md` CRM-09 · `LEAD-DELIVERY-CONTRACT.md` §2
-  - PT02.5 → `DEPLOYMENT-CONTRACT.md` §3.1, DEP-37–DEP-57, §5.6, §6 DD-15–DD-17, §9.1/§9.2, §11.1
-- **Erwartete Closure-Prüfpunkte:** Decision Locks 18/18 · **kein Quell-, Runtime-, Backend-, Asset-,
-  Locale-, Config- oder Lockfile-Delta durch AP02** (Delta `3736d1a..HEAD` muss 0 Nicht-Doku-Dateien
-  bleiben) · genau **ein** kanonischer Contract je Domäne, kein konkurrierendes Architekturdokument ·
-  `CONTEXT-INDEX.md` konsistent mit dem neuen `CONTENT-ASSET-CONTRACT.md` · keine vorgezogene
-  Implementierung aus AP03–AP33 · alle dokumentierten Schulden mit Owner-AP und ohne Zielcharakter.
-- **Bekannte ID-Kollisionen, die die Closure kennen muss:** `CD-` existiert in
+- Nächstes Arbeitspaket ist **AP03 — Informationsarchitektur und vollständiges Seiteninventar**.
+  Es ist **nicht** gestartet; Spezifikation: `building-docs/work-packages/AP03.md`.
+- Gemäß `CONTEXT-INDEX.md` liest AP03 zusätzlich zu `ALWAYS_READ`: `ROUTING-CONTRACT.md` ·
+  `SEO-CONTRACT.md` · `I18N-CONTRACT.md`; optional bei Anlass `REPO-BASELINE.md` · `QUALITY-GATES.md`.
+- **AP02 liefert AP03 die Routenwahrheit, nicht das Inventar.** Direkt relevant:
+  `ROUTING-CONTRACT.md` **R-23** (13 Route-Klassen), **R-40** (Existenz, Sitemap-, Search- und
+  Navigations-Teilnahme sind vier getrennte Eigenschaften), **R-51** (Navigation ist Konsument, nicht
+  Registry — Hierarchie und Platzierung entscheidet AP03/AP06) und **R-53** (Epigenetik ist eine
+  eigenständige Säule). Dazu `CONTENT-ASSET-CONTRACT.md` **§5.1** (Content ≠ Route Registry) und
+  **CA-14** (Consumer und Epigenetik × 10).
+- **Für AP03 bereits erhobene Ist-Evidenz, nicht neu messen:** `ROUTING-CONTRACT.md` §3.1 (acht
+  handgeführte Routenspiegel, 37 `<Route>`-Elemente, drei Sitemap-Tabellen) und `RD-11` (Epigenetik
+  hängt navigatorisch unter Diagnostik — **ein AP03-/AP06-Thema**), `RD-12` (toter Suchtreffer).
+- **Weiterhin gültig:** `AP01-RECONCILIATION-RESULT.md` §2 Baseline Guards (`BG-01`–`BG-12`), §6 Legacy
+  Classification, §7 Toolchain Contract, §8 Known Remaining Debt (`D-01`–`D-30`).
+- **Debt-IDs immer mit ihrem Vertrag nennen.** Gleichnamige Serien: `CD-` in
   `CONTENT-ASSET-CONTRACT.md` **und** `CRM-INTEGRATION.md`; `RD-` in `RUNTIME-CONTRACT.md` **und**
-  `ROUTING-CONTRACT.md`; `DD-` nur in `DEPLOYMENT-CONTRACT.md`. **Debt-IDs immer mit ihrem Vertrag
-  nennen.**
-- **Weiterhin gültig:** `building-docs/AP01-RECONCILIATION-RESULT.md` §2 Baseline Guards
-  (`BG-01`–`BG-12`), §6 Legacy Classification, §7 Toolchain Contract, §8 Known Remaining Debt
-  (`D-01`–`D-30`).
-- **Nicht durch AP02 abgenommen:** kein Launch-Gate, kein Risiko geschlossen, keine Anbieterentscheidung,
-  keine Legal-Freigabe. Aufbewahrungsfristen bleiben `TBD_OWNER_LEGAL`
-  (`LEAD-DATA-CONTRACT.md` LD-29).
+  `ROUTING-CONTRACT.md`.
 - Reproduzierbare Verifikation (unverändert): isolierter Worktree auf HEAD, `npm ci` **im Root und in
   `server/`**, `tsc -b` (mit `--max-old-space-size=3072`), `vitest run`, `npm run build`, dann SSR auf
   isoliertem freiem Port (`NODE_ENV=production PORT=<frei> BACKEND_URL=http://127.0.0.1:39999
 npx tsx server.ts`). `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-`prepare`-Script
   (`lefthook install`) schreibt in die **geteilten** Git-Hooks — vorher sichern, danach zurückspielen
   (`D-13`). **Cold-Render-Regel** (`RUNTIME-CONTRACT.md` M-08) beachten.
-- **AP03** liegt seit dem 2026-08-24 als untracked Spezifikation unter
-  `building-docs/work-packages/AP03.md` (Status dort: `BLOCKED UNTIL AP02 CLOSURE PASS`). Nicht von
-  einem PT02.x erzeugt, nicht angefasst — und **nicht** zu starten, bevor die Closure `PASS` ist.
 
 ## Handoff
 
-- **AP02: `IN_PROGRESS`** · Last completed PT: **PT02.5 (`PASS`)** · **Next task: `AP02-CLOSURE` —
-  nicht gestartet.** Alle fünf Primärtasks PT02.1–PT02.5 sind `PASS`; **AP02 wird erst durch den
-  separaten Closure-Lauf `COMPLETE`.**
+- **AP02: `COMPLETE`** · **AP02 closure: `PASS` (23/23, `C02-01`–`C02-23`)** · Last completed PT:
+  **PT02.5**. Alle fünf Primärtasks PT02.1–PT02.5 sind `PASS`.
+- **Next work package: AP03 — Informationsarchitektur und vollständiges Seiteninventar — NICHT
+  gestartet.** Die Spezifikation liegt seit `58f0504` unter `building-docs/work-packages/AP03.md`
+  (Status dort: `READY FOR EXECUTION`, Vorgänger `AP02 Closure PASS`) und wurde von AP02 weder
+  erzeugt noch verändert.
 - **AP01: `COMPLETE`** · AP01 closure: `PASS` (43/43) · **AP00: `COMPLETE`**, Closure `PASS` — beide
   unverändert erhalten
 - **AP03: NOT STARTED.** AP02 ist **nicht** `COMPLETE`; das AP02-Closure Gate ist nicht gelaufen.
-- Decision Locks: **18/18 `LOCKED`**, durch PT02.1–PT02.5 unverändert. Baseline
+- Decision Locks: **18/18 `LOCKED`**, durch PT02.1–PT02.5 und den Closure-Lauf unverändert;
+  `MASTER-SCOPE.md`, `DECISIONS.md`, `PROJECT-CONSTRAINTS.md` und `SCOPE-CHANGELOG.md` sind im gesamten
+  AP02-Delta **unberührt**. Baseline
   `feat/home-leadmagnet@961f65d` bleibt gesperrt und ist Ancestor des HEAD.
 
 Kanonische Ausführungsevidenz AP01: **`building-docs/AP01-RECONCILIATION-RESULT.md`** (§1–§9).
