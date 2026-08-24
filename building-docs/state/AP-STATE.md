@@ -9,14 +9,15 @@ kein `work-packages/APxx-STATE.md`).
 ## Current
 
 - Work package: AP01 — Repository-Baseline, Branch-Reconciliation und Import-Hygiene
-- Primary task: PT01.3 abgeschlossen; PT01.4 noch nicht gestartet
+- Primary task: PT01.4 abgeschlossen; PT01.5 noch nicht gestartet
 - Status: IN_PROGRESS <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
 - AP00: COMPLETE · AP00 closure: PASS (unverändert erhalten)
 - Baseline: `feat/home-leadmagnet@961f65d` — Ancestor des aktuellen HEAD, empirisch bestätigt
-- Baseline evidence: recorded · `main` Import Ledger: recorded · redesign patterns: recorded
-  (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§5)
+- Baseline evidence: recorded · `main` Import Ledger: recorded · redesign patterns: recorded ·
+  legacy classification: recorded
+  (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§6)
 - Current branch: `console/ap01-2026-08-24T10-46-05`
-- Current HEAD: `4e8a774bd06a494f6fe595913195deb21284cd27` (PT01.2-Commit; PT01.3 folgt)
+- Current HEAD: `1f1f236ce2b19c4778a38b7c30b53cd1381c239a` (PT01.3-Commit; PT01.4 folgt)
 - Started: 2026-08-24 (AP01)
 - Last updated: 2026-08-24
 
@@ -56,6 +57,11 @@ kein `work-packages/APxx-STATE.md`).
   (`src/lib/monitoring/`, Senke standardmäßig No-Op), a11y-Audit- und Baseline-Screenshot-Skripte
   (`npm run audit:a11y`, `npm run screenshots:baseline`). Changelog-/CI-Gate nur dokumentiert,
   nicht verdrahtet. Kein Design-System, kein Dark Theme, keine externe Telemetrie.
+- PT01.4 — 40 Artefakte klassifiziert (ACTIVE 7 · LEGACY_BACKLOG 11 · HISTORICAL_DOC 15 ·
+  NEEDS_OWNER_AP 6 · FORBIDDEN_IMPORT 3 als Negativ-Nachweis · LEGACY_LAUNCH_BLOCKING 0).
+  **Keine Datei entfernt.** Zwei dokumentarische Korrekturen: Tracking-Status von
+  `projektverzeichnis/` in `AGENT-CONTRACT.md` richtiggestellt, Non-Canonical-Banner mit Zeiger auf
+  `building-docs/README.md` in `DOCS.md`, `README.md`, `README.de.md`.
 
 ## Current Invariants
 
@@ -134,15 +140,23 @@ Unverändert durch PT01.2 **und** PT01.3: `server.ts` (außer dem PT01.2-Sitemap
 `index.html`, `tailwind.config.js`, `src/index.css`, `.github/workflows/ci.yml`, `tsconfig*`,
 `vite.config.ts`, Docker/nginx.
 
+PT01.4 — **ausschließlich Dokumentation**:
+
+- `building-docs/AGENT-CONTRACT.md` (§3 Regel 15: Tracking-Status `projektverzeichnis/` korrigiert)
+- `DOCS.md`, `README.md`, `README.de.md` (Non-Canonical-Banner + Zeiger, Originaltext erhalten)
+
+PT01.4 hat **keine** Datei entfernt oder verschoben und **keinen** Anwendungscode, keine Runtime-/
+Config-Datei, keine Dependency, kein Lockfile und kein CI-Artefakt verändert.
+
 ## Open Blockers
 
 <!-- Jeweils: ID/Kurztitel · was blockiert ist · was zur Auflösung gebraucht wird. -->
 
-- Keine AP01-Ausführungsblocker. PT01.1, PT01.2 und PT01.3 sind `PASS`.
+- Keine AP01-Ausführungsblocker. PT01.1 bis PT01.4 sind `PASS`.
 - **Hinweis, kein Blocker:** `RISK-007` ist `MITIGATING` — die AP00-Nachfolgerlinie ist über
   `origin/console/ap00-2026-08-24T09-32-23` gesichert (inhaltsgleich mit HEAD `4f70801`), aber weder
   `feat/home-leadmagnet` noch der aktive Arbeitsbranch hat ein Upstream. Auflösung liegt beim Owner.
-- **Hinweis, kein Blocker:** 24 dokumentierte Schulden (D-01 bis D-24 in
+- **Hinweis, kein Blocker:** 28 dokumentierte Schulden (D-01 bis D-28 in
   `AP01-RECONCILIATION-RESULT.md` §8), jeweils einem Owner-AP zugeordnet; keine davon ist
   AP01-blockierend. `BG-10` (Consent/Tracking) steht bereits an der Baseline auf `BASELINE_DEBT`.
   Neu aus PT01.2: `D-16` (Spiegel-Lücke Suche/E2E), `D-17` (kein Navigationseinstieg),
@@ -152,6 +166,13 @@ Unverändert durch PT01.2 **und** PT01.3: `server.ts` (außer dem PT01.2-Sitemap
   `D-23` (8 kritische/schwerwiegende axe-Befunde auf Baseline-Seiten, AP24).
   Dazu `D-21` (Monitoring-Senke bewusst nicht eingehängt), `D-22` (`errors.*` nur de/en),
   `D-24` (zwei auditierte Preview-Kandidaten außerhalb der PT01.3-Gruppen).
+  Neu aus PT01.4: **`D-25`** — Laufzeitmessung belegt **vier externe Hosts vor jeder Einwilligung**
+  (`widget.hihuman.co.uk`, `reception.hihuman.co.uk`, `www.googletagmanager.com`,
+  `region1.google-analytics.com`); verletzt `REST-02`/`DEC-RL-004`/`DEC-RL-007`, ist **pre-existing**
+  und bereits mit PT-Granularität an AP06 PT06.4.6 / AP22 PT22.7 / AP23 PT23.1 / AP26 PT26.2 vergeben.
+  Dazu `D-26` (totes Suchziel `sports` → 404, AP07 PT07.1.9), `D-27` (zweite Betriebswahrheit in
+  `server/docker-compose.yml` + tote Deploy-Config, AP28 PT28.7), `D-28` (`shop`-Namespace geladen,
+  nie gelesen, AP08/AP25).
 
 ## Explicit Non-Decisions
 
@@ -179,6 +200,14 @@ Unverändert durch PT01.2 **und** PT01.3: `server.ts` (außer dem PT01.2-Sitemap
   `.github/workflows/ci.yml` ist unverändert. Verdrahtung: AP27 PT27.6.
 - **Keine visuelle Soll-Baseline festgelegt.** Die Screenshots von `npm run screenshots:baseline` sind
   Ist-Stand dieser Linie und bewusst nicht eingecheckt; Art Direction bleibt Sales-Machine.
+- **Chat ist nicht entfernt.** PT01.4 hat ihn klassifiziert und als launch-relevant belegt, aber keine
+  Zeile Code angefasst — Widget, `/api/chat`, CSP-Origins und Copy stehen unverändert. Die Entfernung
+  gehört AP06 PT06.4.6, AP22 PT22.7, AP23 PT23.1 und AP26 PT26.2 (`D-25`).
+- **Keine Legacy-Datei entfernt.** `vercel.json`, `nginx.conf`, `Dockerfile.dev`,
+  `server/docker-compose.yml`, `scripts/prerender.mjs`, `email/**`, `FeaturedCaseStudy.tsx` und die
+  `casestudies`-/`shop`-Locales sind als tot **klassifiziert**, nicht gelöscht.
+- **Kein Lint-/Archiv-Ausschluss konfiguriert.** `_project-knowledge/**` bleibt als
+  `HISTORICAL_DOC` klassifiziert; die formale Ausschluss-Konfiguration ist AP27 PT27.6 (`D-07`).
 - **PT01.2 hat keine Messplan-Entscheidung getroffen.** Die `epigenetics_request`-Instrumentierung aus
   `main` wurde bewusst nicht übernommen; ob die Baseline-Ereignis-Union erweitert oder ein Shim
   gebaut wird, entscheidet AP23/AP15 (`D-18`).
@@ -196,18 +225,22 @@ Unverändert durch PT01.2 **und** PT01.3: `server.ts` (außer dem PT01.2-Sitemap
 
 - Keine Abweichung von `CONTEXT-INDEX.md`. AP01 verwendet die dort für AP01 definierte
   `Required context`-Menge; `Optional context` nur bei konkretem Anlass.
-- PT01.1–PT01.3 haben zusätzlich `SEO-CONTRACT.md` geladen — in `AP01.md` §1.2 für AP01 gelistet,
-  in der `CONTEXT-INDEX.md`-Matrix nicht.
-- **Für PT01.4 (Legacy-Klassifikation) relevant:** `AP01.md` §PT01.4 (Klassifikationsmodell
-  `ACTIVE` / `LEGACY_LAUNCH_BLOCKING` / `LEGACY_BACKLOG` / `HISTORICAL_DOC` / `FORBIDDEN_IMPORT` /
-  `NEEDS_OWNER_AP` und Pflichtinventar), `REPO-BASELINE.md` §7.6 (aktive vs. scheinbar veraltete
-  Deployment-Dateien) und §9 (Doku-Drift), `RUNTIME-CONTRACT.md` RD-2/RD-9,
-  `QUALITY-GATES.md` §6.3 (Archiv-Politik `_project-knowledge/**`).
-  Laut `CONTEXT-INDEX.md` bei PT01.4 ggf. `DEPLOYMENT-CONTRACT.md` und `NETWORK-ALLOWLIST.md`,
-  **nur** wenn tatsächlich betroffen.
-- Konkrete Dateien für PT01.4: `nginx.conf`, `vercel.json`, `Dockerfile.dev`, `scripts/prerender.mjs`,
-  `_project-knowledge/**`, `DOCS.md`, `wireframes/**`, Chat-/HiHuman-Reste (u. a. die CSP-Einträge
-  `widget.hihuman.co.uk` in `server.ts`, `chat.*` in `public/locales/*/common.json`).
+- PT01.1–PT01.4 haben zusätzlich `SEO-CONTRACT.md` geladen (in `AP01.md` §1.2 für AP01 gelistet, in der
+  Matrix nicht); PT01.4 zusätzlich `NETWORK-ALLOWLIST.md` für die Chat-/Consent-Befunde.
+- **Für PT01.5 (Toolchain-/Dependency-Audit) relevant:** `AP01.md` §PT01.5 (ST01.5.1–ST01.5.8),
+  `RUNTIME-CONTRACT.md` RT-10/RT-11/RD-4 (Node-/Paketmanager-Pinning ist **AP01 PT01.5.3**),
+  `QUALITY-GATES.md` QG-03 und QD-10, `REPO-BASELINE.md` §5 (gemessene Toolchain, Scripts,
+  Paketgrenzen). Laut `CONTEXT-INDEX.md` bei PT01.5 ggf. `DEPLOYMENT-CONTRACT.md`, **nur** wenn
+  tatsächlich betroffen.
+- Konkrete Dateien für PT01.5: `package.json` (kein `engines`, kein `packageManager`),
+  `package-lock.json`, `server/package.json`, `server/package-lock.json`, `.npmrc`
+  (`legacy-peer-deps=true`), `Dockerfile` (Node 22), `server/Dockerfile` (**Node 20**),
+  `.github/workflows/ci.yml` (Node 22), `tsconfig*.json`, `vite.config.ts`.
+- **Offene Toolchain-Befunde aus PT01.1, die PT01.5 gehören:** `D-11` (dreifacher Node-Drift),
+  `D-12` (Root-`npm ci` allein macht `npm test` rot — `server/**` steht im vitest-Include, dessen
+  Dependencies das Root-`npm ci` nicht installiert), `D-13` (Root-`prepare` = `lefthook install`
+  schreibt geteilte Git-Hooks und bricht ohne installiertes `lefthook` mit Exit 127 ab).
+  `npm audit` meldete beim Install 21 Verwundbarkeiten — in PT01.1 **nicht** bewertet (ST01.5.2).
 - **Baseline Guards `BG-01`–`BG-12`** in `AP01-RECONCILIATION-RESULT.md` §2 sind nach jedem Eingriff
   erneut auszuführen; Nachweismethodik in §3.4 (PT01.2) und §4.5 (PT01.3).
 - Reproduzierbare SSR-Regression: gebauten Stand auf isoliertem freien Port starten
@@ -221,66 +254,62 @@ Unverändert durch PT01.2 **und** PT01.3: `server.ts` (außer dem PT01.2-Sitemap
 
 ## Handoff
 
-- Last completed PT: **PT01.3** — Gezielte `redesign/preview`-Imports · `PASS`
-- Next PT: **PT01.4** — Legacy-Konfiguration und Repository-Hygiene klassifizieren (**nicht gestartet**)
+- Last completed PT: **PT01.4** — Legacy-Klassifikation · `PASS`
+- Next PT: **PT01.5** — Toolchain-/Dependency-Audit und integrierte Build-Baseline (**nicht gestartet**)
 - Work package: AP01 · Status `IN_PROGRESS`
 - AP00: `COMPLETE`, Closure `PASS` (unverändert) · AP02: **nicht gestartet**
 
-Ergebnis PT01.1 (`AP01-RECONCILIATION-RESULT.md` §1–§2):
+Ergebnis PT01.1–PT01.3 (`AP01-RECONCILIATION-RESULT.md` §1–§5):
 
-- Baseline `feat/home-leadmagnet@961f65d` empirisch verifiziert und Ancestor des HEAD;
-  `BG-01`–`BG-12` als *must survive imports* festgeschrieben.
+- Baseline `feat/home-leadmagnet@961f65d` verifiziert, `BG-01`–`BG-12` festgeschrieben.
+- `main@d0fdf29`: M1 3/3 · M2 2/2 · M3 IMPORTED · M4 6/6 · M5 4 Dateien/7 Hunks; neun Routen aktiv,
+  Sitemap 365 `<loc>`.
+- `redesign/preview@5673b61`: P1–P5 alle entschieden; Fehlergrenzen, providerneutrales
+  Monitoring-Gerüst und zwei QA-Skripte übernommen; kein Design-System, kein Dark Theme.
 
-Ergebnis PT01.2 (`§3`, `§5`):
+Ergebnis PT01.4 (`§6`):
 
-- Quelle `main@d0fdf29`. M1 3/3 · M2 2/2 · M3 IMPORTED · M4 6/6 · M5 4 Dateien/7 Hunks.
-  Whole-File-Ersetzungen NONE, Dependencies unverändert. Neun Routen aktiv
-  (`/[lang]/epigenetics/{grundlagen,studienlage,unterlagen}` + sechs Musterbefund-Pfade),
-  Sitemap 335 → 365 `<loc>`.
+- **40 Artefakte klassifiziert**, jedes mit genau einer Hauptklasse:
+  `ACTIVE` 7 · `LEGACY_BACKLOG` 11 · `HISTORICAL_DOC` 15 · `NEEDS_OWNER_AP` 6 ·
+  `FORBIDDEN_IMPORT` 3 (jeweils **Negativ-Nachweis**: nichts vorhanden) · **`LEGACY_LAUNCH_BLOCKING` 0**.
+- **Aktiver Deploy-Pfad eindeutig:** `Dockerfile` + `docker-compose.yml` + `server/Dockerfile` →
+  SSR über `npx tsx server.ts` hinter externem Reverse Proxy. **Tot und als tot ausgewiesen:**
+  `vercel.json` (null Referenzen), `nginx.conf` (null Referenzen, statisches SPA-Setup),
+  `Dockerfile.dev`, `server/docker-compose.yml` (zweite, offenere Exposition),
+  `scripts/prerender.mjs` (zweiter Build-Weg mit 29 veralteten Routen), `email/**`.
+- **Chat: `CLASSIFIED / LAUNCH-RELEVANT`, nicht entfernt.** Laufzeitmessung (frischer Browser,
+  `cookie-consent` = `null`) belegt **vier externe Hosts vor jeder Einwilligung**:
+  `widget.hihuman.co.uk`, `reception.hihuman.co.uk`, `www.googletagmanager.com`,
+  `region1.google-analytics.com`. Pre-existing, nicht von AP01 eingebracht; Owner mit PT-Granularität:
+  **AP06 PT06.4.6** (Widget), **AP22 PT22.7** (`/api/chat`), **AP23 PT23.1** (Ladeverzicht),
+  **AP26 PT26.2** (CSP-Origins). → `D-25`.
+- **Deal/Voucher/Case Studies/Shop: BACKLOG, nicht reaktiviert.** `DealPopup`, `DealHint`, Voucher,
+  `src/data/products.ts` und `.bak*`/`.bak-nopopup` sind repositoryweit **nicht vorhanden**.
+  Vorhanden und tot: `FeaturedCaseStudy.tsx` (nirgends importiert), `casestudies`-Locales
+  (Namespace nicht registriert), `shop`-Locales (registriert, nie gelesen → `D-28`).
+  `products`-Namespace ist trotz des Namens **ACTIVE** (IglooPro-Strecke).
+- **`projektverzeichnis/` ist getrackt** — 11 Dateien seit `f8692c0` (AP00 PT00.1). `AGENT-CONTRACT.md`
+  §3 Regel 15 behauptete „untracked" und wurde korrigiert. `REPO-BASELINE.md` und
+  `BRANCH-RECONCILIATION-MAP.md` bleiben unverändert: sie sind auf den 2026-08-21 datierte
+  Evidenzdokumente und waren zu diesem Zeitpunkt richtig.
+- **Kanonische Einstiegskette abgesichert:** `DOCS.md`, `README.md` und `README.de.md` beschrieben
+  einen nginx-SPA-Build und ein `backend/`-Payload-CMS, das es nicht gibt, und verwiesen auf
+  `building-docs/` gar nicht. Alle drei tragen jetzt einen Non-Canonical-Banner mit Zeiger auf
+  `building-docs/README.md`; der Originaltext bleibt vollständig erhalten.
+- **`FORBIDDEN_IMPORT` durch AP01: NONE.** Der Import-Hygiene-Nachtest über alle 31 von AP01
+  berührten Code-/Config-Dateien fand keinen der verbotenen Marker. Die zwei Treffer bei `hihuman`
+  (`server.ts`) und `trackEvent` (`EpiSubpage.tsx`) sind pre-existing CSP bzw. ein erklärender
+  Kommentar aus PT01.2 AD-2.
+- **Entfernt: NONE.** Kein Artefakt erreichte die Entfernungsschwelle; historische Evidenz ist
+  vollständig erhalten. Decision Locks 18/18, Baseline Guards unverändert.
+- **Kein Regressionslauf nötig:** PT01.4 hat ausschließlich Dokumentation geändert — kein
+  Anwendungscode, keine Config, keine Scripts, keine Runtime, keine CI.
 
-Ergebnis PT01.3 (`§4`, `§4a`):
-
-- **Quelle:** `redesign/preview@5673b61`, verifiziert (`git cat-file -t` → commit; enthalten in
-  `redesign/preview`/`origin/redesign/preview`). Kein Merge, kein Cherry-Pick, kein Tree-Checkout.
-- **P1 Visual Regression — `ADAPT`:** `scripts/baseline-screenshots.mjs` (deterministische Viewports
-  sm/md/lg/xl, Overflow-Zusicherung, Routen dieser Linie). `playwright.config.ts` `ALREADY_PRESENT`
-  (identisch). Pattern-Library-Suite `REJECT` (hängt am Design-System X1).
-- **P2 Error Boundary — `IMPORT` + `ADAPT`:** `ErrorBoundary.tsx` byte-identisch (reiner Mechanismus);
-  Root-/Segment-Grenzen auf Baseline-Tokens umgeschrieben; `RouteFallback` `REJECT`.
-  **`RootErrorBoundary` ist nur in `entry-client.tsx` eingehängt** — `entry-server.tsx` bleibt ohne
-  Grenze, damit ein SSR-Renderfehler weiter als echter HTTP 500 herauskommt.
-- **P3 Web Vitals / Metrics — `ADAPT`:** `web-vitals.ts` byte-identisch (nativ, dependency-frei);
-  `report.ts` mit providerneutraler Senke statt der `/api/monitoring/*`-Beacons der Quelle
-  (Endpunkte existieren nirgends). **Senke standardmäßig No-Op, nirgends registriert;
-  `initWebVitals()` nicht aufgerufen.** `src/lib/metrics/**` `REJECT` (→ AP25).
-- **P4 A11y / Screenshot — `ADAPT`:** `scripts/a11y-audit.mjs` (axe-core, Quelle aus `node_modules`
-  injiziert, kein Netzzugriff) + `npm run audit:a11y` / `npm run screenshots:baseline`.
-- **P5 Changelog / CI — `ADAPT` → `PATTERN_RECORDED_NOT_ACTIVATED`:** Mechanismus in §4.3 festgehalten,
-  `.github/workflows/ci.yml` **unverändert**. CODEOWNERS, `CHANGELOG.md`, `.madgerc` `REJECT`.
-- **Neue Dev Dependencies:** `axe-core@^4.11.3`, `playwright@^1.57.0` — beide waren bereits im
-  Lockfile (transitiv über `@playwright/test`) und wurden nur **deklariert**; Lockfile-Diff = 2 Zeilen,
-  **keine** Versionsänderung. Keine neue Runtime-Dependency.
-- **Design-Negativmatrix DN-01…DN-07: alle `NO`.** Kein Design-System, kein Dark Theme, keine
-  Dark-Tokens, kein Theme-Switcher, keine Preview-Layout-Komponente; `tailwind.config.js` und
-  `src/index.css` unverändert; `check:colors` grün.
-- **Netz-/Consent-Negativprüfung: `NONE`.** Kein `api/monitoring`, kein `sendBeacon`, keine
-  GA/GTM-Domain im gebauten Client-Bundle; `index.html`, `src/lib/tracking.ts`, `CookieBanner.tsx`
-  unverändert.
-- **Baseline Guards: 11 × `PASS`, `BG-10` unverändert `BASELINE_DEBT`.** SSR-Smoke bestätigt 200/301/404,
-  `no-store`, SEOHead-/notFound-Handshake und die PT01.2-Routen; Sitemap unverändert 365 `<loc>`.
-- **Typecheck `PASS`, Tests 18/18, `check:colors` `PASS`, Build `PASS`, ESLint unverändert 129,
-  Prettier getrackt unverändert 39.**
-- **Werkzeug-Befunde, nicht behoben (AP24/AP25):** horizontaler Überlauf bei 1024 px auf allen acht
-  geprüften Routen (`D-20`); 8 kritische/schwerwiegende axe-Befunde auf `contact`, `imprint`,
-  `epigenetics` (`D-23`). Die in PT01.2 importierten Seiten sind dabei befundfrei.
-
-Rahmen für PT01.4 (unverändert gültig, hier nur referenziert):
+Rahmen für PT01.5 (unverändert gültig, hier nur referenziert):
 
 - Baseline `feat/home-leadmagnet@961f65d` bleibt gesperrt; Decision Locks 18/18 `LOCKED`.
-- PT01.4 ist **Klassifikation**, keine breite Aufräumaktion: entfernt werden nur launch-störende
-  Artefakte im AP01-Eigentum; harmlose Altlasten werden dem Backlog zugeordnet
-  (`DEC-RL-010`, `DEC-RL-015`).
-- Die vollständige Chat-Entfernung bleibt AP06/AP22/AP26, das Legacy-Deployment-Cleanup AP28 PT28.7.
+- **AP01 PT01.5.3 besitzt die endgültige Node-/Paketmanager-Festlegung** (`RUNTIME-CONTRACT.md` RT-10/RT-11).
+- Keine Broad-Upgrades; Lockfile-Änderungen kontrolliert und im Ledger begründet.
 
 ---
 

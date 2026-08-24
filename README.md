@@ -1,5 +1,21 @@
 # PolarisDX / IglooPro – Gesamtdokumentation (DE)
 
+> **⚠ NICHT KANONISCH — historischer Stand.**
+> Dieses Dokument beschreibt eine Architektur, die das Repository **nicht mehr hat**: es nennt einen
+> Nginx-ausgelieferten Single-Page-Build und ein `backend/`-Payload-CMS. Gemessen (AP01 PT01.4):
+> `backend/` existiert nicht, `nginx.conf` wird von keiner aktiven Konfiguration referenziert, und
+> die Produktion serviert **SSR** aus `server.ts` (`Dockerfile` → `npx tsx server.ts`, dahinter ein
+> externer Reverse Proxy).
+>
+> **Kanonischer Einstieg für Menschen und Agenten:** [`building-docs/README.md`](building-docs/README.md)
+> → `CONTEXT-INDEX.md` → `AGENT-CONTRACT.md` → `PROJECT-CONSTRAINTS.md` → `scope/MASTER-SCOPE.md`
+> → aktuelles Arbeitspaket → `state/AP-STATE.md`.
+> Der Ist-Zustand der Laufzeit steht in `building-docs/RUNTIME-CONTRACT.md`.
+>
+> Der folgende Text bleibt als historische Evidenz unverändert stehen.
+
+---
+
 Dieses Repository enthält
 
 - das **React-Frontend** (SPA) für die PolarisDX / IglooPro Landingpage,

@@ -8,7 +8,7 @@
 Kein Ersatz für `BRANCH-RECONCILIATION-MAP.md`, `REPO-BASELINE.md`, `QUALITY-GATES.md`,
 `RISK-REGISTER.md` oder `scope/MASTER-SCOPE.md`.
 
-**Ausführungsstand:** PT01.1 `PASS` · PT01.2 `PASS` · PT01.3 `PASS` · PT01.4–PT01.5 `NOT_RUN` · AP01 Closure `NOT_RUN`.
+**Ausführungsstand:** PT01.1 `PASS` · PT01.2 `PASS` · PT01.3 `PASS` · PT01.4 `PASS` · PT01.5 `NOT_RUN` · AP01 Closure `NOT_RUN`.
 
 ---
 
@@ -494,8 +494,160 @@ das Laufzeitverhalten geprüft, nicht nur gegen Dateinamen.
 
 ## 6. Legacy Classification
 
-**NOT_RUN — PT01.4.** Beobachtungen aus PT01.1, die dort zu klassifizieren sind, stehen als Evidenz
-in §7 dieses Dokuments; sie sind **keine** Klassifikation.
+**Erhoben:** PT01.4, 2026-08-24, empirisch gegen Repository, Referenzen und Laufzeit.
+**Grundsatz:** Klassifizieren vor Löschen. Jeder Fund trägt **genau eine** Hauptklasse.
+Die `LEG-`-IDs sind AP01-lokale Klassifikations-IDs, keine Master-Scope-IDs.
+
+### 6.1 Klassifikationstabelle
+
+| ID | Path / Artifact | Evidence | Classification | Active impact | Owner AP | Action in AP01 | Follow-up |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **LEG-001** | `Dockerfile` + `docker-compose.yml` | `docker-compose.yml` baut `frontend` aus `Dockerfile`; Runner-Stage startet `npx tsx server.ts`, `HEALTHCHECK` auf `:3000`, Port-Bindung `127.0.0.1:2026:3000` hinter externem Proxy | **ACTIVE** | Ja — der reale Produktionspfad | AP28 | keine | AP28 vervollständigt `REST-01` (Persistenz, Secrets, Monitoring, Rollback) |
+| **LEG-002** | `server/Dockerfile` | von `docker-compose.yml` als `backend` gebaut, `env_file: ./server/.env` | **ACTIVE** | Ja | AP28 | keine | `FROM node:20` gegen Node 22 der Frontend-Kette → `D-11`, Pinning in **AP01 PT01.5.3** |
+| **LEG-003** | `server.ts` | Web-/SSR-Dienst: `KNOWN_PATHS`, `NOT_FOUND_MARKER`, `LEGACY_PATH_REDIRECTS`, `no-store`, Sitemap, `/api`-Proxy | **ACTIVE** | Ja | AP02/AP10 | keine | — |
+| **LEG-004** | `.github/workflows/ci.yml` | einziger Job `quality`, Node 22 | **ACTIVE** | Ja, aber **triggert nur auf `main`** | AP27 PT27.6 | keine | `QD-3`/`D-06`: Relaunch-Linie ist ungegatet |
+| **LEG-005** | `lefthook.yml` + `scripts/check-color-tokens.mjs` | pre-commit: prettier, eslint, `tsc -b`, Farb-Guard; `check:colors` in `package.json` | **ACTIVE** | Ja | AP27 | keine | Farb-Guard nicht in CI → `QD-6` |
+| **LEG-006** | `scripts/prerender.mjs` | von `package.json` referenziert (`build:prerender`, `prerender`), **aber nicht** von `build`, nicht von CI, nicht von `Dockerfile`. Routenkatalog: 29 Pfade, u. a. eine auskommentierte `casestudys`-Route; die aktive Sitemap führt 365 `<loc>` | **LEGACY_BACKLOG** | Nein — nicht im aktiven Build-/Runtime-Pfad | AP28 PT28.7 | keine Entfernung | Toter Zweitweg mit veraltetem Routenkatalog; `REPO-BASELINE.md` §9.4 |
+| **LEG-007** | `vercel.json` | **null Referenzen** im Repository (`package.json`, CI, Docs, Code). Inhalt: SPA-Rewrite `/((?!assets/).*) → /index.html` plus `/services*`-301 auf Vercel-Ebene | **LEGACY_BACKLOG** | Nein — kein Vercel-Deploy existiert | AP28 PT28.7 | keine Entfernung | Beschreibt ein Betriebsmodell, das es nicht gibt; die `/services`-Brücke gehört real zu **AP10 PT10.1.2** (`D-01`) |
+| **LEG-008** | `nginx.conf` | **null Referenzen** (kein `Dockerfile`, kein Compose, keine Doku). Inhalt: statisches SPA-Setup, `root /usr/share/nginx/html`, `try_files` | **LEGACY_BACKLOG** | Nein — die Produktion serviert SSR, nicht statisch | AP28 PT28.7 | keine Entfernung | Widerspricht dem SSR-Ist-Zustand; `RUNTIME-CONTRACT.md` RD-2. Der Reverse Proxy aus `REST-01` liegt **außerhalb** dieser Datei |
+| **LEG-009** | `Dockerfile.dev` | von `docker-compose.yml` **nicht** referenziert (dort `dockerfile: Dockerfile`); startet `npm run dev` | **LEGACY_BACKLOG** | Nein | AP28 PT28.7 | keine Entfernung | Toter Entwicklungscontainer |
+| **LEG-010** | `server/docker-compose.yml` | zweite Compose-Datei, `version: '3.9'` (obsolet), exponiert `5000:5000` **ohne** Interface-Bindung und ohne Netzwerk — die aktive Root-Compose bindet `127.0.0.1:5000` | **LEGACY_BACKLOG** | Nein — von nichts referenziert; wäre aber bei versehentlichem Start eine offenere Exposition als beabsichtigt | AP28 PT28.7 | keine Entfernung | Zweite, widersprüchliche Betriebswahrheit für den Backend-Dienst; AP28 löst sie auf (`RT-22`/`RT-23`) |
+| **LEG-011** | `email/**` (`Dockerfile`, `send.py`, `requirements.txt`, Assets) | eigenständiges Python-Mailwerkzeug, `ENTRYPOINT python send.py`; von keiner Compose-Datei, keinem Script und keiner CI referenziert | **LEGACY_BACKLOG** | Nein | AP28 PT28.7 | keine Entfernung | Werkzeug außerhalb der Anwendungskette |
+| **LEG-012** | `src/components/ui/ChatWidget.tsx` | **aktiv gemountet** in `src/App.tsx:225` (`MainLayout`); injiziert `https://widget.hihuman.co.uk/bundle.js` per `useEffect`, ohne jede Consent-Bedingung | **NEEDS_OWNER_AP** | **Ja — launch-relevant.** Laufzeitmessung PT01.4 (frischer Browser, `cookie-consent` = `null`): Chat-Script im DOM, externe Anfragen an `widget.hihuman.co.uk` **und** `reception.hihuman.co.uk` **vor jeder Einwilligung** | **AP06 PT06.4.6** (Widget), Consent-Ladeverzicht **AP23 PT23.1** | **keine Entfernung** — siehe §6.3 | `DEC-RL-007` und `REST-02`; `NETWORK-ALLOWLIST.md` N-05 (`FORBIDDEN`) |
+| **LEG-013** | `/api/chat` in `server/server.js:503` | Mock-Endpunkt mit `setTimeout`-Verzögerung und fest verdrahteten Antworten; `TODO: Connect to MS Teams Webhook or OpenAI API` | **NEEDS_OWNER_AP** | Ja — produktiver Rest eines verbotenen Features; heute nur erreichbar, wenn der Backend-Dienst läuft | **AP22 PT22.7** | keine Entfernung | `DEC-RL-007`; Voraussetzung für die CSP-Finalisierung |
+| **LEG-014** | Chat-CSP-Domains in `server.ts:442/443/447` | `https://widget.hihuman.co.uk` in `script-src`, `frame-src`; `https://widget.hihuman.co.uk` + `https://*.hihuman.co.uk` in `connect-src`. CSP ist **Report-Only** | **NEEDS_OWNER_AP** | Ja — erlaubt die verbotenen Origins | **AP26 PT26.2** | keine Entfernung | `NETWORK-ALLOWLIST.md` N-05/§130-131: beide Origins `FORBIDDEN`; Entfernung erst nach LEG-012/LEG-013 |
+| **LEG-015** | `chat.*`-Locale-Schlüssel in allen 10 `public/locales/*/common.json` | 8 Schlüssel je Sprache (`title`, `status`, `intro`, `welcome_prototype`, `placeholder`, `footer`, `error`, `unavailable`); `welcome_prototype` sagt selbst „Unser Chatbot ist noch nicht aktiv" | **NEEDS_OWNER_AP** | Nein — kein Konsument im aktiven Code | **AP06 PT06.4.6** (gemeinsam mit LEG-012) | keine Entfernung | Copy-Reste; erst nach Entfernung des Widgets abräumen |
+| **LEG-016** | `CHAT_INTEGRATION.md` | Root-Dokument zur Chat-Integration; beschreibt ein Feature, das `DEC-RL-007` verbietet | **HISTORICAL_DOC** | Nein | AP33 | keine Entfernung | In `AGENT-CONTRACT.md` §1 bereits als schwächste Quelle benannt |
+| **LEG-017** | `src/hooks/useSearch.ts` — Service `sports` (`:87`) | Der Such-Index bietet `sports` an; `src/data/services.tsx` kennt die ID nicht (9 IDs, kein `sports`). Laufzeitmessung PT01.4: `/de/diagnostics/sports` → **HTTP 404** | **NEEDS_OWNER_AP** | Ja — ein Suchtreffer führt in eine 404 | **AP07 PT07.1.9** | keine Änderung | `ROUTING-CONTRACT.md` RD-5; finale Such-Architektur ist AP07, Route-Registry AP02/AP10 |
+| **LEG-018** | `src/hooks/useSearch.ts` — Umfang | 6 statische Pfade gegen 365 Sitemap-URLs; `/epigenetics/*`, Musterbefunde und `/consumer/*` fehlen; die neun in PT01.2 aktivierten Routen sind nicht enthalten | **NEEDS_OWNER_AP** | Nein — kein Fehler, nur Lücke | **AP07 PT07.1.9** | keine Änderung | Deckt sich mit `D-16` |
+| **LEG-019** | `src/hooks/useSearch.ts:56-58` + `src/components/layout/Header.tsx:83` | auskommentierte Case-Study-Einträge (`'/casestudys/32reasons'`, `// temporarily disabled`) | **LEGACY_BACKLOG** | Nein — auskommentiert, kein Build-Effekt | AP07 / AP06 | keine Entfernung | `DEC-RL-015`: Case Studies bleiben Backlog |
+| **LEG-020** | `src/components/sections/FeaturedCaseStudy.tsx` | **von keiner Datei importiert** (`git grep FeaturedCaseStudy` → nur die Datei selbst); nutzt `useTranslation('casestudies')`, ein Namespace, der in `src/i18n.ts` **nicht registriert** ist | **LEGACY_BACKLOG** | Nein — verwaiste Komponente, landet in keinem Chunk | AP33 / AP16 | keine Entfernung | `DEC-RL-015`; nicht reaktivieren |
+| **LEG-021** | `public/locales/*/casestudies.json` (10 Dateien) | Namespace **nicht** in `NAMESPACES` (`src/i18n.ts:66-80`) → wird nie geladen | **LEGACY_BACKLOG** | Nein | AP08 | keine Entfernung | `DEC-RL-015` |
+| **LEG-022** | `public/locales/*/shop.json` (10 Dateien) | Namespace **ist** in `NAMESPACES` registriert (`src/i18n.ts:78`), aber `useTranslation('shop')` existiert nirgends → wird auf jeder Seite geladen und nie gelesen | **LEGACY_BACKLOG** | Nein für Korrektheit; kleine unnötige Ladelast | AP08 (Namespace-Registrierung) / AP25 (Ladelast) | keine Entfernung | `DEC-RL-015`: Shop bleibt Backlog, nicht reaktivieren |
+| **LEG-023** | `public/locales/*/products.json` (10 Dateien) | Namespace registriert **und** benutzt: `IglooFeaturesSection`, `IglooParametersSection`, `IglooProductFinalCta`, `IglooSpecsSection` | **ACTIVE** | Ja — IglooPro-Produktstrecke | AP14 | keine | Trotz des Namens **kein** Shop-Artefakt |
+| **LEG-024** | Deal-/Voucher-Artefakte | `DealPopup`, `DealHint`, Voucher-Komponenten: **repositoryweit nicht vorhanden** (`git ls-files`, `git grep`) | **FORBIDDEN_IMPORT** (Negativ-Nachweis) | Nein | AP01 (Wächter) | keine — nichts vorhanden | `N7`: bleiben auf `main`; `DEC-RL-015` |
+| **LEG-025** | `src/data/products.ts` (Shop-Katalog) | **nicht vorhanden** | **FORBIDDEN_IMPORT** (Negativ-Nachweis) | Nein | AP01 (Wächter) | keine | `N15`/`X6` |
+| **LEG-026** | `.bak*` / `.bak-nopopup` | `git ls-files` und `find` (ohne `node_modules`): **null Treffer** | **FORBIDDEN_IMPORT** (Negativ-Nachweis) | Nein | AP01 (Wächter) | keine | `N8`: `HomePage.tsx.bak-nopopup`, `ContactPage.tsx.bak-nopopup` bleiben auf `main` |
+| **LEG-027** | `DOCS.md` | Beschreibt Nginx-ausgelieferten SPA-Build (`try_files`) und ein `backend/`-Payload-CMS. Gemessen: `backend/` **existiert nicht** (0 Dateien), `nginx.conf` unreferenziert, Produktion serviert SSR | **HISTORICAL_DOC** | War ja — aktive falsche Startanweisung ohne Kennzeichnung | AP33 PT33.1.1 | **Non-Canonical-Banner + Zeiger auf `building-docs/README.md`** (§6.4) | `RUNTIME-CONTRACT.md` RD-9; Text unverändert erhalten |
+| **LEG-028** | `README.md` (Repository-Wurzel) | Nennt das Projekt „React-Frontend (SPA)" und ein „optionales Payload CMS"; **verwies auf `building-docs/` gar nicht** — die erste Datei, die ein Mensch oder Agent öffnet | **HISTORICAL_DOC** | War ja — kein Weg zur kanonischen Kette | AP33 PT33.1.1 | **Non-Canonical-Banner + Zeiger** (§6.4) | Text unverändert erhalten |
+| **LEG-029** | `README.de.md` | „Single-Page-Application (SPA) … mit Shop-Charakter", Client-Side-Routing | **HISTORICAL_DOC** | War ja | AP33 PT33.1.1 | **Non-Canonical-Banner + Zeiger** (§6.4) | Text unverändert erhalten |
+| **LEG-030** | `_project-knowledge/**` (u. a. `config/package.json`, `config/vite.config.ts`, `config/tailwind.config.js`, `deploy/{Dockerfile,docker-compose.yml,nginx.conf}`, `app-shell/App.tsx`, `components/ui/ChatWidget.tsx`, `AUDIT-REPORT.md`) | Archivierter Quellcode-Schnappschuss mit **Zweitkopien** aktiver Konfiguration; liefert 111 der 129 ESLint-Befunde | **HISTORICAL_DOC** | Nein für Runtime; ja für Gate-Rauschen | AP01 PT01.4 (Klassifikation) · Ausschluss-Konfiguration **AP27 PT27.6** | keine Entfernung, keine Config-Änderung | `AGENT-CONTRACT.md` §1 Regel 4 und `QUALITY-GATES.md` §6.3 benennen es bereits als Archiv; der formale Lint-Ausschluss ist ausdrücklich AP27 vorbehalten (`D-07`) |
+| **LEG-031** | `projektverzeichnis/**` (11 Dateien) | **Getrackt seit `f8692c0`** (AP00 PT00.1, 2026-08-24) — `git ls-files projektverzeichnis` → 11. Inhalt: Struktur-/IA-/Technik-Dokumentation vom 2026-08-20 | **HISTORICAL_DOC** | Nein | AP33 | **`AGENT-CONTRACT.md` §3 Regel 15 korrigiert** (§6.4) | Die Regel behauptete „untracked"; das war bis AP00 PT00.1 richtig. `REPO-BASELINE.md` und `BRANCH-RECONCILIATION-MAP.md` sagen weiterhin „untracked" — **korrekt für ihren Stichtag 2026-08-21**, deshalb unverändert |
+| **LEG-032** | Root-Audits: `REPO-BASELINE-2026-08-21.md`, `QUALITY-BASELINE-LIVE.md`, `IMPLEMENTATION-HOTSPOTS.md`, `BRANCH-RECONCILIATION-MAP.md`, `CONSENT-TRACKING-NETWORK-BASELINE.md`, `BACKEND-LEAD-CURRENT-STATE.md` | Analyse-Dokumente vom 2026-08-21; ihre kanonischen Fassungen liegen in `building-docs/` (`REPO-BASELINE.md`, `BRANCH-RECONCILIATION-MAP.md`), die übrigen werden von den Contracts als Messquelle **referenziert** | **HISTORICAL_DOC** | Nein — sie geben keine Startanweisung | AP33 | keine Änderung | Doppelung `BRANCH-RECONCILIATION-MAP.md` (Root) ↔ `building-docs/BRANCH-RECONCILIATION-MAP.md`: identischer Inhalt, kanonisch ist die Fassung in `building-docs/` |
+| **LEG-033** | `POLARISDX-RELAUNCH-MASTER-SCOPE(1).md` | Zweitkopie des Master-Scope in der Wurzel; `DECISIONS.md` §1 führt sie bereits **ausdrücklich als nicht kanonisch** | **HISTORICAL_DOC** | Nein — bereits gekennzeichnet | AP33 | keine Änderung | Kanonisch ist `building-docs/scope/MASTER-SCOPE.md` |
+| **LEG-034** | `AUDIT_I18N_ROUTING.md`, `SEO_STRATEGY.md`, `MISSING_TRANSLATIONS.md` | Ältere Fachanalysen; `AGENT-CONTRACT.md` §1 Regel 1 nennt `AUDIT_I18N_ROUTING.md` und `SEO_STRATEGY.md` bereits als schwächste Quelle | **HISTORICAL_DOC** | Nein | AP33 | keine Änderung | — |
+| **LEG-035** | `knowledge/**` (u. a. `PROJECT-DECISIONS.md`, `ARCHON-README.md`, Design-Referenzen) | `DECISIONS.md` §1 führt `knowledge/PROJECT-DECISIONS.md` **ausdrücklich als nicht kanonisch** | **HISTORICAL_DOC** | Nein — bereits gekennzeichnet | AP33 | keine Änderung | — |
+| **LEG-036** | `docs/**` (`backlog.md`, `ci.md`, `deploy-preview.md`, `design-system.md`, `global-fixes.md`, `migration-map.md`, `internal-linking-audit.md`, `seo*`, `content/*`) | Gemischt: `deploy-preview.md` ist laut `RUNTIME-CONTRACT.md` §3 das **einzige zutreffende Preview-Runbook**; `docs/backlog.md` ist laut `DECISIONS.md` §1 überholt (Eintrag `G5`) | **HISTORICAL_DOC** (mit einer aktiven Ausnahme) | `deploy-preview.md`: ja, als Runbook | AP28 / AP33 | keine Änderung | Kanonischer Delivery-Index bleibt `RELAUNCH-BACKLOG.md`; `docs/backlog.md` ist kein Ersatz |
+| **LEG-037** | `wireframes/**` (20 HTML-Dateien) | Statische Entwürfe; von keinem Build, keiner Route und keinem Script referenziert; liefern 20 der 36 Prettier-Befunde | **HISTORICAL_DOC** | Nein | AP33 | keine Entfernung | Teil von `D-08` |
+| **LEG-038** | `src/**/README.de.md` (6 Dateien) | Verzeichnisdokumentation innerhalb des Quellbaums; `src/pages/README.de.md` nennt u. a. `products.ts`, das hier nicht existiert | **HISTORICAL_DOC** | Nein | AP33 PT33.1 | keine Änderung | Beschreiben teils einen älteren Stand des Quellbaums |
+| **LEG-039** | `.archon/**` (`workflows/*.yaml`) | Orchestrierungs-Workflows einer früheren Redesign-Runde; nicht Teil von Build, CI oder Runtime | **HISTORICAL_DOC** | Nein | AP33 | keine Änderung | Analog zu `X9` auf `redesign/preview` |
+| **LEG-040** | `building-docs/**` | Kanonischer Kanon: `README.md` → `CONTEXT-INDEX.md` → `AGENT-CONTRACT.md` → `PROJECT-CONSTRAINTS.md` → `scope/MASTER-SCOPE.md` → `work-packages/APxx.md` → `state/AP-STATE.md` → Contracts | **ACTIVE** | Ja — verbindliche Autorität | AP00 (Governance) | nur die zwei dokumentierten Korrekturen (§6.4) | Einstiegskette unverändert erhalten |
+
+### 6.2 Summary
+
+```text
+Total classified:          40
+ACTIVE:                     7   (LEG-001..005, LEG-023, LEG-040)
+LEGACY_LAUNCH_BLOCKING:     0
+LEGACY_BACKLOG:            11   (LEG-006..011, LEG-019..022)
+HISTORICAL_DOC:            15   (LEG-016, LEG-027..039)
+FORBIDDEN_IMPORT:           3   (LEG-024, LEG-025, LEG-026 — jeweils Negativ-Nachweis, nichts vorhanden)
+NEEDS_OWNER_AP:             6   (LEG-012..015, LEG-017, LEG-018)
+```
+
+**`LEGACY_LAUNCH_BLOCKING` = 0** ist ein Befund, keine Nachlässigkeit. Kein inventarisiertes Artefakt
+erfüllt die Entfernungsschwelle: die toten Deployment-Dateien liegen nachweislich außerhalb des
+aktiven Pfads, und die real launch-relevanten Probleme (Chat/Consent, Suche) sind im Master-Scope
+bereits einem späteren Owner-AP zugewiesen — das ist per Modell `NEEDS_OWNER_AP`, nicht
+`LEGACY_LAUNCH_BLOCKING`.
+
+### 6.3 Chat — warum AP01 nichts entfernt
+
+Der Befund ist real und schwer: Laufzeitmessung PT01.4 gegen den gebauten PT01.3-Stand, frischer
+Browser-Kontext, `localStorage['cookie-consent']` = `null` (keine Entscheidung getroffen). Ergebnis —
+**vier externe Hosts vor jeder Einwilligung**:
+
+```text
+widget.hihuman.co.uk        Chat-Bundle        (LEG-012)
+reception.hihuman.co.uk     Chat-Rückkanal     (LEG-012)
+www.googletagmanager.com    GTM                (D-15, Owner AP23)
+region1.google-analytics.com GA4               (D-15, Owner AP23)
+```
+
+Das reproduziert `CONSENT-TRACKING-NETWORK-BASELINE.md` §15 und bestätigt die
+`NON_COMPLIANT`-Warnung in `NETWORK-ALLOWLIST.md`. Es verletzt `REST-02` und `DEC-RL-004`; der Chat
+verletzt zusätzlich `DEC-RL-007`.
+
+**Trotzdem entfernt PT01.4 nichts.** Gründe, in dieser Reihenfolge:
+
+1. **Der Zustand ist pre-existing, nicht von AP01 erzeugt.** `git diff 961f65d HEAD -- server.ts`
+   enthält keine CSP-Zeile; `App.tsx` hat AP01 nur um neun Routen erweitert; `ChatWidget.tsx` ist
+   unverändert. Damit greift die `FORBIDDEN_IMPORT`-Regel nicht.
+2. **Der Master-Scope hat die Entfernung bereits vergeben, mit PT-Granularität:**
+   `NETWORK-ALLOWLIST.md` §267-268 nennt **AP06 PT06.4.6** (Widget) und **AP22 PT22.7** (Endpunkt) als
+   Voraussetzung für die CSP-Finalisierung durch **AP26 PT26.2**; der Ladeverzicht ist **AP23 PT23.1**.
+3. **`AP01.md` §4.2 stellt die komplette Chat-Entfernung ausdrücklich außerhalb des AP01-Scopes** —
+   mit genau einer Ausnahme („außer AP01 muss einen Import-/Build-Konflikt verhindern"), die hier
+   nicht vorliegt.
+4. **Eine Teilentfernung wäre schlechter als keine.** Nur `<ChatWidget />` aus `App.tsx` zu nehmen
+   ließe Endpunkt, CSP-Origins und Copy stehen und würde die Gate-5-Kette in einen Zwischenzustand
+   versetzen, den kein Owner-AP als Ausgangslage erwartet.
+
+**Status: `CLASSIFIED / LAUNCH-RELEVANT`, nicht entfernt, vier `NEEDS_OWNER_AP`-Einträge mit
+benannten PTs.** → **D-25**.
+
+### 6.4 In PT01.4 geänderte Dateien (nur Dokumentation)
+
+| Datei | Änderung | Autorisierung | Inhalt erhalten? |
+| --- | --- | --- | --- |
+| `building-docs/AGENT-CONTRACT.md` §3 Regel 15 | „`projektverzeichnis/` ist untracked" → korrigiert; das Verzeichnis ist seit `f8692c0` getrackt (11 Dateien). Verbot von Löschen/Verschieben bleibt. | Prompt §15: „Wenn AGENT-CONTRACT oder aktive Doku einen objektiv falschen Tracking-Status behauptet: minimale dokumentarische Korrektur zulässig." | ja — nur die Tatsachenbehauptung korrigiert |
+| `DOCS.md` | Non-Canonical-Banner nach der ersten Überschrift, mit Messbefund und Zeiger auf `building-docs/README.md` | Prompt §17 Punkte 2 + 3 | ja — Originaltext unverändert darunter |
+| `README.md` | dito | dito | ja |
+| `README.de.md` | dito | dito | ja |
+
+**Keine Datei entfernt. Keine Datei verschoben. Keine historische Evidenz gelöscht.**
+`REPO-BASELINE.md` und `BRANCH-RECONCILIATION-MAP.md` behalten ihre Aussage „`projektverzeichnis/`
+untracked" — sie sind auf den 2026-08-21 datierte Evidenzdokumente und waren zu diesem Zeitpunkt
+richtig; sie rückwirkend umzuschreiben hieße, Evidenz zu verfälschen.
+
+### 6.5 Documentation Canonicality Matrix
+
+| Dokumentgruppe | Canonical | Rolle | Safe for agent bootstrap | Kanonischer Zeiger |
+| --- | --- | --- | --- | --- |
+| `building-docs/README.md` | **YES** | Einstieg und Landkarte | **YES** — hier beginnen | — |
+| `building-docs/CONTEXT-INDEX.md` | **YES** | Routing-Matrix AP00–AP33 | **YES** | — |
+| `building-docs/AGENT-CONTRACT.md` | **YES** | Sicherheits-/Ausführungsregeln, Bootstrap | **YES** | — |
+| `building-docs/PROJECT-CONSTRAINTS.md` · `DECISIONS.md` | **YES** | Decision Locks 18/18 | **YES** | — |
+| `building-docs/scope/MASTER-SCOPE.md` | **YES** | kanonischer Scope | **YES** | — |
+| `building-docs/work-packages/APxx.md` · `state/AP-STATE.md` | **YES** | AP-Spezifikation · serieller Zustand | **YES** | — |
+| `building-docs/*-CONTRACT.md` | **YES** | technische Invarianten (SOLL, nicht IST) | **YES** | — |
+| `building-docs/REPO-BASELINE.md` · `BRANCH-RECONCILIATION-MAP.md` | **YES als Evidenz** | Audit-Stand 2026-08-21 | **YES, mit Datumsbewusstsein** | Ist-Zustand: Repository selbst; `projektverzeichnis/` ist inzwischen getrackt |
+| `POLARISDX-RELAUNCH-MASTER-SCOPE(1).md` (Wurzel) | **NO** | Zweitkopie des Master-Scope | **NO** | `building-docs/scope/MASTER-SCOPE.md` |
+| `BRANCH-RECONCILIATION-MAP.md` (Wurzel) | **NO** | inhaltsgleiche Zweitkopie | **NO** | `building-docs/BRANCH-RECONCILIATION-MAP.md` |
+| `REPO-BASELINE-2026-08-21.md`, `QUALITY-BASELINE-LIVE.md`, `IMPLEMENTATION-HOTSPOTS.md`, `CONSENT-TRACKING-NETWORK-BASELINE.md`, `BACKEND-LEAD-CURRENT-STATE.md` | **NO** | Messquellen, von den Contracts referenziert | **NO** — nicht als Startpunkt | jeweiliger `*-CONTRACT.md` in `building-docs/` |
+| `DOCS.md` | **NO** | historische Architektur (nginx-SPA, `backend/`-CMS) | **NO** — Banner gesetzt | `building-docs/RUNTIME-CONTRACT.md` |
+| `README.md`, `README.de.md` (Wurzel) | **NO** | historische Projektübersicht (SPA, Payload CMS) | **NO** — Banner gesetzt | `building-docs/README.md` |
+| `CHAT_INTEGRATION.md`, `AUDIT_I18N_ROUTING.md`, `SEO_STRATEGY.md`, `MISSING_TRANSLATIONS.md` | **NO** | ältere Fachanalysen | **NO** | `AGENT-CONTRACT.md` §1 Regel 1/5 |
+| `_project-knowledge/**` | **NO** | archivierter Quellcode-Schnappschuss inkl. Config-Zweitkopien | **NO — nie als Live-Konfiguration** | `AGENT-CONTRACT.md` §1 Regel 4; `QUALITY-GATES.md` §6.3 |
+| `projektverzeichnis/**` | **NO** | Struktur-/IA-Dokumentation vom 2026-08-20, **getrackt seit `f8692c0`** | **NO** — Hintergrund, keine Autorität | `building-docs/scope/MASTER-SCOPE.md` |
+| `knowledge/**` | **NO** | Design-Referenzen, `PROJECT-DECISIONS.md` (überholt) | **NO** | `building-docs/DECISIONS.md` |
+| `docs/**` | **NO**, mit einer Ausnahme | gemischt; `deploy-preview.md` ist das einzige zutreffende Preview-Runbook | **NO** — außer `deploy-preview.md` als Runbook | `RELAUNCH-BACKLOG.md`, `DEPLOYMENT-CONTRACT.md` |
+| `wireframes/**`, `.archon/**` | **NO** | statische Entwürfe · frühere Orchestrierung | **NO** | — |
+| `src/**/README.de.md` | **NO** | Verzeichnisdoku, teils veraltet | **NO** | Quellcode selbst |
+
+### 6.6 Removed in PT01.4
+
+```text
+NONE
+```
+
+Kein Artefakt hat die Entfernungsschwelle des Prompts §18 erreicht. Konkret geprüft und **nicht**
+erfüllt: A (Build), B (Runtime/SSR), D (Routing), E (`FORBIDDEN_IMPORT` durch AP01), F (Import-Mechanik).
+Für C (Security/Consent) liegt mit LEG-012/LEG-014 ein realer Verstoß vor — er ist jedoch pre-existing
+und mit benannten PTs an AP06/AP22/AP23/AP26 vergeben (§6.3). Für G (Agent auf falschen Deploy-Pfad)
+gilt die Einschränkung der Regel selbst — „und nicht sinnvoller minimal markiert werden kann":
+`DOCS.md`, `README.md` und `README.de.md` sind genau so markiert worden, `vercel.json`, `nginx.conf`,
+`Dockerfile.dev` und `server/docker-compose.yml` sind über diese Matrix eindeutig als tot ausgewiesen.
 
 ## 7. Toolchain / Dependency Baseline
 
@@ -543,6 +695,11 @@ in PT01.1; keines setzt PT01.1 auf FAIL.
 | D-23 | **8 kritische/schwerwiegende axe-Befunde** auf Baseline-Seiten: `contact` `aria-progressbar-name`, `imprint` `color-contrast`, `epigenetics` `list` + `listitem` (6 Knoten) | PT01.3 §4.4, `npm run audit:a11y` | neu (durch das PT01.3-Werkzeug sichtbar gemacht) | **AP24** | NO |
 | D-24 | **`usePrefersReducedMotion` und `lib/i18n/format.ts` nicht übernommen** — beide auf `5673b61` als `IMPORT` auditiert, aber Produktcode außerhalb der fünf PT01.3-Pflichtgruppen | PT01.3 §4.1 | `BRANCH-RECONCILIATION-MAP.md` B5, B6 | **AP24** bzw. **AP08/AP09** | NO |
 
+| D-25 | **Vier externe Hosts vor jeder Einwilligung** — Laufzeitmessung mit frischem Browser (`cookie-consent` = `null`): `widget.hihuman.co.uk`, `reception.hihuman.co.uk`, `www.googletagmanager.com`, `region1.google-analytics.com`. Chat-Script im DOM. Verletzt `REST-02`, `DEC-RL-004`, `DEC-RL-007` | PT01.4 §6.3 | `CONSENT-TRACKING-NETWORK-BASELINE.md` §15, `NETWORK-ALLOWLIST.md` N-05 (reproduziert) | **AP06 PT06.4.6** (Widget) · **AP22 PT22.7** (Endpunkt) · **AP23 PT23.1** (Ladeverzicht) · **AP26 PT26.2** (CSP) | NO (pre-existing, mit PT-Granularität vergeben) |
+| D-26 | **Totes Suchziel** — der Such-Index bietet den Service `sports` an, `src/data/services.tsx` kennt ihn nicht; `/de/diagnostics/sports` antwortet **404** | PT01.4 §6.1 LEG-017, Laufzeitmessung | `ROUTING-CONTRACT.md` RD-5 (reproduziert) | **AP07 PT07.1.9** | NO |
+| D-27 | **Zweite, widersprüchliche Betriebswahrheit** — `server/docker-compose.yml` exponiert den Backend-Dienst als `5000:5000` ohne Interface-Bindung, die aktive Root-Compose bindet `127.0.0.1:5000`; dazu tote `vercel.json`, `nginx.conf`, `Dockerfile.dev` und ein zweiter Build-Weg `scripts/prerender.mjs` | PT01.4 §6.1 LEG-006..010 | `RUNTIME-CONTRACT.md` RD-2 | **AP28 PT28.7** | NO |
+| D-28 | **`shop`-Namespace wird geladen, aber nie gelesen** — in `NAMESPACES` registriert, kein `useTranslation('shop')` im Code; 10 Locale-Dateien unnötig im Ladepfad | PT01.4 §6.1 LEG-022 | `DEC-RL-015` | **AP08** (Registrierung) · **AP25** (Ladelast) | NO |
+
 **Nicht reproduzierbare Baseline-Härtung: KEINE.** Jede in `AP01.md` §0 als zu schützend benannte
 Eigenschaft (echte 404, Redirects, `no-store`, SEOHead/404, Canonical/hreflang, Sales-Machine,
 Light Theme, kein Garantie-Band, `CV < 2 %`, `DRY_RUN`, vorhandene Guards) wurde an `961f65d`
@@ -560,6 +717,7 @@ der dokumentierte Ist-Zustand, keine verlorene Härtung.
 | PT | Datum | Ergebnis | Geänderte Dateien |
 | --- | --- | --- | --- |
 | PT01.1 | 2026-08-24 | **PASS** | `building-docs/AP01-RECONCILIATION-RESULT.md` (neu), `building-docs/state/AP-STATE.md` |
+| PT01.4 | 2026-08-24 | **PASS** | **Doku-Korrekturen:** `building-docs/AGENT-CONTRACT.md` (Tracking-Status `projektverzeichnis/`), Non-Canonical-Banner in `DOCS.md`, `README.md`, `README.de.md` · **Doku:** `AP01-RECONCILIATION-RESULT.md`, `state/AP-STATE.md` · **Entfernt: NONE** · **Anwendungscode/Config: unverändert** |
 | PT01.3 | 2026-08-24 | **PASS** | **neu:** `src/routing/*` (4) · `src/lib/monitoring/*` (3) · `scripts/{a11y-audit,baseline-screenshots}.mjs` · **Hunks:** `src/entry-client.tsx`, `package.json`, `package-lock.json`, `public/locales/{de,en}/common.json`, `.gitignore` · **Doku:** `AP01-RECONCILIATION-RESULT.md`, `state/AP-STATE.md` |
 | PT01.2 | 2026-08-24 | **PASS** | **neu:** `src/components/epigenetics/{tokens.ts,EpiSubpage.tsx}`, `src/pages/Epigenetics{Basics,Evidence,Docs}Page.tsx`, `src/content/befunde/meta.ts`, `src/pages/musterbefund/*.tsx` (6) · **Hunks:** `src/App.tsx`, `server.ts`, `src/pages/MusterbefundPage.tsx`, `src/content/befunde/index.ts` · **Doku:** `AP01-RECONCILIATION-RESULT.md`, `state/AP-STATE.md` |
 
@@ -569,6 +727,10 @@ der dokumentierte Ist-Zustand, keine verlorene Härtung.
 blieben: `package.json`, beide Lockfiles, `tsconfig*`, `vite.config.ts`, `tailwind.config.js`,
 `index.html`, Docker-/nginx-/CI-Dateien, `public/**`, `src/lib/tracking.ts`,
 `src/components/seo/**`, `src/components/layout/**` und `src/hooks/useSearch.ts`.
+
+**PT01.4** hat **ausschließlich Dokumentation** verändert: eine Tatsachenkorrektur in
+`AGENT-CONTRACT.md` und drei Non-Canonical-Banner. Kein Anwendungscode, keine Runtime-/Config-Datei,
+keine Dependency, kein Lockfile, kein CI-Artefakt, keine Datei entfernt oder verschoben.
 
 **PT01.3** hat `package.json`/`package-lock.json` um zwei devDependency-Deklarationen und zwei
 Scripts ergänzt und `public/locales/{de,en}/common.json` um einen `errors`-Block. Unverändert blieben:
