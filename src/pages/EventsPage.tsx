@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Calendar, MapPin, Award, Wind } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Calendar, MapPin, Award, Wind, ArrowRight } from 'lucide-react'
 import { events } from '../data/events'
 import { SEOHead, createBreadcrumbSchema, createEventSchema } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
@@ -82,6 +83,7 @@ const EventsPage: React.FC = () => {
           'POC Diagnostik Messe',
           'DGI Kongress',
           'Kite Education Sylt',
+          'Future Forum Berlin',
         ]}
         structuredData={structuredData}
       />
@@ -225,6 +227,17 @@ const EventsPage: React.FC = () => {
                             <p className="text-gray-600 text-sm leading-relaxed">
                               {event.description}
                             </p>
+                          )}
+
+                          {/* Termine mit eigener Seite (und Anmeldung) verlinken dorthin. */}
+                          {event.link && (
+                            <Link
+                              to={event.link}
+                              className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary transition-colors hover:text-brand-deep"
+                            >
+                              {t('events:details_register', 'Details & registration')}
+                              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                            </Link>
                           )}
                         </div>
                       </div>

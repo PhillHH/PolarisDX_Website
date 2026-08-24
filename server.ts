@@ -183,6 +183,7 @@ const SITEMAP_ROUTES: SitemapRoute[] = [
 
   // Events & Resources
   { path: '/events', priority: 0.6, changefreq: 'weekly' },
+  { path: '/events/future-forum-berlin-2026', priority: 0.8, changefreq: 'weekly' },
   { path: '/downloads', priority: 0.6, changefreq: 'monthly' },
 
   // Legal Pages

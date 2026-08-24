@@ -16,6 +16,7 @@ import AboutSection from '../components/sections/AboutSection'
 import DoctorsSection from '../components/sections/DoctorsSection'
 import IglooWidgetSection from '../components/sections/IglooWidgetSection'
 import EpigeneticsTeaserSection from '../components/sections/EpigeneticsTeaserSection'
+import EventTeaserSection from '../components/sections/EventTeaserSection'
 // import FeaturedCaseStudy from '../components/sections/FeaturedCaseStudy' // temporarily disabled
 import TestimonialsSection from '../components/sections/TestimonialsSection'
 import BlogSection from '../components/sections/BlogSection'
@@ -79,6 +80,11 @@ const HomePage = () => {
       />
       <HeroSection />
       <div className="mx-auto flex max-w-container flex-col gap-16 px-4 pt-16 lg:px-0 lg:gap-16 lg:pt-8">
+        {/* Naechste Veranstaltung mit Anmeldung — steht bewusst ganz oben im
+            Inhaltsbereich, damit der Termin nicht unter den Widgets verschwindet. */}
+        <Reveal width="100%">
+          <EventTeaserSection />
+        </Reveal>
         <Reveal width="100%">
           <AboutSection />
         </Reveal>

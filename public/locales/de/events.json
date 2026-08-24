@@ -1,11 +1,190 @@
 {
   "title": "Events & Termine 2026",
   "subtitle": "Triff uns persönlich",
-  "intro": "Von Stuttgart bis Hamburg, von Fortbildung bis Kongress — Polaris Diagnostics ist 2026 dort, wo die Zukunft der Praxisdiagnostik diskutiert wird. Gemeinsam mit Nobel Biocare zeigen wir auf fünf Events, wie Point-of-Care-Diagnostik den Praxisalltag verändert.",
+  "intro": "Von Stuttgart bis Hamburg, von Fortbildung bis Kongress — Polaris Diagnostics ist 2026 dort, wo die Zukunft der Praxisdiagnostik diskutiert wird. Gemeinsam mit Nobel Biocare zeigen wir auf sechs Events, wie Point-of-Care-Diagnostik den Praxisalltag verändert.",
   "premium_partner": "Premium Partner: Nobel Biocare",
   "details": "Details ansehen",
+  "details_register": "Details & Anmeldung",
   "empty_title": "Aktuell keine Termine",
   "empty_text": "Derzeit stehen keine öffentlichen Termine an. Abonnieren Sie unseren Newsletter, um informiert zu bleiben, oder vereinbaren Sie einen persönlichen Termin.",
   "seo_title": "Events & Messen 2026: POC-Diagnostik live",
-  "seo_description": "PolarisDX auf 5 Events 2026 – von Stuttgart bis Hamburg. Erleben Sie Point-of-Care-Diagnostik live, gemeinsam mit Premium-Partner Nobel Biocare. Jetzt Termine entdecken."
+  "seo_description": "PolarisDX auf 6 Events 2026 – von Berlin bis Hamburg. Erleben Sie Point-of-Care-Diagnostik live, gemeinsam mit Premium-Partner Nobel Biocare. Jetzt Termine entdecken.",
+  "futureForum": {
+    "seo_title": "Future Forum Berlin 2026: The Future Patient – 02.10., NIO House Berlin",
+    "seo_description": "Diagnostics × AI × Implantology: Am 2. Oktober 2026 im NIO House Berlin. Systemische Risiken sichtbar machen, mit KI planen, früher handeln – mit Nobel Biocare. Jetzt anmelden.",
+    "breadcrumb": "Future Forum Berlin",
+    "hero": {
+      "eyebrow": "Future Forum · Berlin · 02.10.2026",
+      "title": "The Future Patient",
+      "subtitle": "Diagnostics × AI × Implantology",
+      "lead": "Risiken sichtbar machen. Entscheidungen präzisieren. Früher handeln. Ein Abend für Zahnmedizin und Implantologie – live im NIO House Berlin am Kurfürstendamm.",
+      "cta_register": "Jetzt anmelden",
+      "cta_programme": "Zum Programm",
+      "date_label": "Datum",
+      "date": "Freitag, 2. Oktober 2026",
+      "time_label": "Uhrzeit",
+      "time": "16:30 – 20:00 Uhr, anschließend After Hours",
+      "venue_label": "Ort",
+      "venue": "NIO House Berlin",
+      "address": "Kurfürstendamm 11, 10719 Berlin",
+      "partners_label": "In Partnerschaft mit",
+      "supported_label": "Unterstützt durch"
+    },
+    "claim": {
+      "eyebrow": "The Future Patient",
+      "title": "See more. Plan smarter. Act earlier.",
+      "text": "Der Future Patient wird nicht erst im OP zum Fall – er wird vorher erkannt, geplant und begleitet. Drei Perspektiven, ein Abend: Diagnostik, KI-gestützte Planung und digitales Handeln.",
+      "pillars": [
+        {
+          "num": "01",
+          "title": "Diagnostics",
+          "subtitle": "Risiko erkennen",
+          "text": "Systemische Risikofaktoren chairside sichtbar machen – bevor sie über den Behandlungserfolg entscheiden."
+        },
+        {
+          "num": "02",
+          "title": "AI Planning",
+          "subtitle": "Urteil stärken",
+          "text": "KI beschleunigt die Planung und macht sie präziser. Das klinische Urteil bleibt die Entscheidung."
+        },
+        {
+          "num": "03",
+          "title": "Digital Action",
+          "subtitle": "Früher handeln",
+          "text": "Vom Befund zur Maßnahme: navigiert, dokumentiert und im Workflow erlebbar."
+        }
+      ]
+    },
+    "programme": {
+      "eyebrow": "16:30 bis After Hours",
+      "title": "One Patient Journey.",
+      "text": "Ein Abend entlang der Patientenreise: vom systemischen Risiko über Biomarker und KI-Planung bis zur Entscheidung – und danach ins Gespräch.",
+      "items": [
+        { "time": "16:30", "title": "Ankommen", "text": "Welcome & Partner" },
+        { "time": "16:45", "title": "Risiko sehen", "text": "Dr. Bastian Wessing · SBIO" },
+        { "time": "17:30", "title": "Biomarker nutzen", "text": "Dr. Jens Nolte · Vitamin D3 & aMMP-8" },
+        { "time": "18:15", "title": "Mit AI planen", "text": "Nobel Biocare · AI in Implant Planning" },
+        { "time": "19:00", "title": "Live anwenden", "text": "Testen · Planen · Navigieren · Entscheiden" },
+        { "time": "19:45", "title": "Entscheiden", "text": "Future Patient Challenge" },
+        { "time": "20:00", "title": "After Hours", "text": "Food · Drinks · NIO Experience" }
+      ]
+    },
+    "sessions": {
+      "eyebrow": "Sessions",
+      "title": "Drei Perspektiven auf den Patienten von morgen.",
+      "items": [
+        {
+          "time": "16:45 – 17:30",
+          "speaker": "Dr. med. dent. Bastian Wessing",
+          "role": "Scientific Director",
+          "title": "Systemische Risiken. Vorher sichtbar.",
+          "claim": "See the risk before you place.",
+          "text": "Implantaterfolg beginnt vor der OP. Das SBIO – Systemic Risk Profile macht modifizierbare Faktoren wie Vitamin D und HbA1c sichtbar, bevor implantiert wird.",
+          "tags": ["SBIO", "Vitamin D & HbA1c", "Modifizierbare Faktoren"]
+        },
+        {
+          "time": "17:30 – 18:15",
+          "speaker": "Dr. Jens Nolte",
+          "role": "Chairside Biomarkers",
+          "title": "Biomarkers. Chairside. Actionable.",
+          "claim": "From signal to action.",
+          "text": "aMMP-8 zeigt aktive Entzündung, Vitamin D3 die regenerative Readiness. Befund → Gespräch → Maßnahme – direkt in der Praxis, ohne Umweg über das Labor.",
+          "tags": ["aMMP-8", "Vitamin D3", "Practice ready"]
+        },
+        {
+          "time": "18:15 – 19:00",
+          "speaker": "Nobel Biocare",
+          "role": "AI in Implant Planning",
+          "title": "AI plans. Clinicians decide.",
+          "claim": "Algorithmus beschleunigt. Klinisches Urteil entscheidet.",
+          "text": "Value: Planung schneller und präziser. Limits: Das klinische Urteil bleibt zentral. Navigation: KI wird im Workflow erlebbar – von der Planung bis zur navigierten Insertion.",
+          "tags": ["Value", "Limits", "Navigation"]
+        }
+      ]
+    },
+    "live": {
+      "eyebrow": "The Future Patient — Live · 19:00 – 19:45",
+      "title": "Test. Plan. Navigate. Decide.",
+      "text": "Vier Stationen, ein Fall: Sie testen chairside, planen mit KI, navigieren digital und entscheiden klinisch.",
+      "stations": [
+        { "num": "01", "title": "Test", "text": "Vitamin D & HbA1c", "tag": "Chairside" },
+        { "num": "02", "title": "Plan", "text": "AI-gestützte Fallplanung", "tag": "Ask AI" },
+        { "num": "03", "title": "Navigate", "text": "Digitale Implantologie", "tag": "Digital" },
+        { "num": "04", "title": "Decide", "text": "Vom Befund zur Maßnahme", "tag": "Clinical" }
+      ],
+      "challenge_time": "19:45",
+      "challenge_title": "Future Patient Challenge",
+      "challenge_text": "Zum Abschluss entscheiden Sie den Fall – Befund, Planung, Maßnahme – gemeinsam mit Speakern und Partnern."
+    },
+    "partners": {
+      "eyebrow": "Partner Ecosystem",
+      "title": "Three partners. One Future Patient.",
+      "items": [
+        { "name": "PolarisDX", "role": "Diagnostics", "text": "Biomarker. Risk profile. Clinical action." },
+        { "name": "Nobel Biocare", "role": "Implantology × AI", "text": "AI planning. Navigation. Clinical judgement." },
+        { "name": "NIO House Berlin", "role": "Experience", "text": "Technology. Mobility. A stage for science." }
+      ],
+      "supported_label": "Unterstützt durch",
+      "supporter": "Life Science Nord · Life-Science- und Innovationsnetzwerk"
+    },
+    "afterHours": {
+      "eyebrow": "Ab 20:00 · Future Forum After Hours",
+      "title": "After Hours. Future up close.",
+      "text": "Food. Drinks. Technology. Conversations. Der Abend geht im NIO House weiter – zwischen Fahrzeugen, Speakern und Partnern.",
+      "items": ["NIO Modelle live", "Speaker & Partner im Gespräch", "Hands-on vertiefen"]
+    },
+    "register": {
+      "eyebrow": "Anmeldung",
+      "title": "Jetzt Platz sichern",
+      "text": "Die Plätze im NIO House Berlin sind begrenzt. Nach dem Absenden erhalten Sie eine Eingangsbestätigung per E-Mail; Ihren Platz bestätigen wir anschließend persönlich.",
+      "cme_note": "Fortbildungspunkte: Registrierung bei der KZV Berlin vorgesehen; die finale Punktzahl wird bestätigt.",
+      "info_title": "Auf einen Blick",
+      "info_contact_label": "Fragen zur Anmeldung",
+      "info_organizer_label": "Veranstalter",
+      "info_organizer": "PolarisDX × Nobel Biocare × NIO House Berlin",
+      "form": {
+        "name": "Name",
+        "name_placeholder": "Vor- und Nachname",
+        "company": "Praxis / Unternehmen",
+        "company_placeholder": "Name der Praxis oder des Unternehmens",
+        "email": "E-Mail",
+        "email_placeholder": "name@praxis.de",
+        "phone": "Telefon",
+        "phone_placeholder": "+49 …",
+        "attendance": "Teilnahme",
+        "attendance_placeholder": "Bitte wählen",
+        "attendance_full": "Fachprogramm + After Hours (ab 16:30 Uhr)",
+        "attendance_programme": "Nur Fachprogramm (16:30 – 20:00 Uhr)",
+        "persons": "Anzahl Personen",
+        "persons_one": "1 Person",
+        "persons_other": "{{count}} Personen",
+        "cme": "Ich interessiere mich für Fortbildungspunkte (KZV Berlin).",
+        "message": "Nachricht (optional)",
+        "message_placeholder": "Begleitpersonen, Fragen, Hinweise …",
+        "consent": "Ich stimme zu, dass meine Angaben zur Bearbeitung meiner Anmeldung verarbeitet werden. Details in der",
+        "privacy_link": "Datenschutzerklärung",
+        "submit": "Anmeldung absenden",
+        "sending": "Wird gesendet …",
+        "success": "Vielen Dank! Ihre Anmeldung ist bei uns eingegangen. Sie erhalten in Kürze eine Bestätigung per E-Mail.",
+        "error": "Die Anmeldung konnte nicht gesendet werden. Bitte versuchen Sie es später erneut oder schreiben Sie an contact@polarisdx.net.",
+        "errors": {
+          "name": "Bitte geben Sie Ihren Namen an.",
+          "email": "Bitte geben Sie eine gültige E-Mail-Adresse an.",
+          "attendance": "Bitte wählen Sie eine Teilnahmeoption.",
+          "consent": "Bitte stimmen Sie der Datenverarbeitung zu."
+        }
+      }
+    },
+    "teaser": {
+      "badge": "Event",
+      "date_day": "02",
+      "date_month": "Okt",
+      "date_year": "2026",
+      "eyebrow": "Future Forum Berlin · NIO House · 02.10.2026",
+      "title": "The Future Patient – Diagnostics × AI × Implantology",
+      "text": "Systemische Risiken sichtbar machen, mit KI planen, früher handeln – ein Abend mit Nobel Biocare, live im NIO House Berlin.",
+      "cta": "Jetzt anmelden",
+      "cta_secondary": "Programm ansehen"
+    }
+  }
 }

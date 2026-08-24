@@ -52,6 +52,7 @@ const ROUTES = [
   '/imprint',
   '/terms',
   '/events',
+  '/events/future-forum-berlin-2026',
   '/igloo-pro',
   // '/casestudys/32reasons', // temporarily disabled
   '/downloads',

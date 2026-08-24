@@ -41,6 +41,8 @@ const AboutPage = lazy(() => import('./pages/AboutPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 const SupportPage = lazy(() => import('./pages/SupportPage'))
 const EventsPage = lazy(() => import('./pages/EventsPage'))
+// Veranstaltungsseite mit Anmeldung (Future Forum Berlin, 02.10.2026).
+const EventFutureForumBerlinPage = lazy(() => import('./pages/EventFutureForumBerlinPage'))
 
 // Artikel/Blog
 const ArticlesIndexPage = lazy(() => import('./pages/ArticlesIndexPage'))
@@ -350,6 +352,14 @@ function App() {
             element={
               <LazyRoute>
                 <EventsPage />
+              </LazyRoute>
+            }
+          />
+          <Route
+            path="/events/future-forum-berlin-2026"
+            element={
+              <LazyRoute>
+                <EventFutureForumBerlinPage />
               </LazyRoute>
             }
           />

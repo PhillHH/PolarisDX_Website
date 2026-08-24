@@ -506,6 +506,284 @@ ${
   }
 })
 
+// =============================================================================
+// EVENT REGISTRATION ENDPOINT
+// =============================================================================
+// Anmeldungen zu Veranstaltungen — aktuell das Future Forum Berlin (02.10.2026).
+//
+// - Empfaenger stehen fest im Backend (kein `to` aus dem Request). Ueber
+//   EVENT_REGISTRATION_RECIPIENTS (kommagetrennt) uebersteuerbar, damit sich
+//   der Endpunkt gegen ein eigenes Postfach testen laesst, ohne das Team zu
+//   belaestigen.
+// - DSGVO: explizite Einwilligung im Body, sonst 400.
+// - Spam: Honeypot `_hp` (200 ohne Versand) + derselbe Limiter wie Kontakt.
+// - Die Veranstaltung kommt als Slug; unbekannte Slugs werden abgewiesen,
+//   damit niemand ueber das Formular beliebige Betreffzeilen erzeugen kann.
+// - Der Teilnehmer bekommt eine Eingangsbestaetigung. Den Platz bestaetigt
+//   das Team persoenlich — die Kapazitaet im NIO House ist begrenzt.
+// =============================================================================
+
+const EVENT_REGISTRATION_RECIPIENTS = (
+  process.env.EVENT_REGISTRATION_RECIPIENTS || 'ulrikes@polarisdx.net,adrianoz@polarisdx.net'
+)
+  .split(',')
+  .map((s) => s.trim())
+  .filter(Boolean)
+
+const EVENTS = {
+  'future-forum-berlin-2026': {
+    title: 'Future Forum Berlin – The Future Patient',
+    subtitle: 'Diagnostics × AI × Implantology',
+    date: 'Freitag, 2. Oktober 2026',
+    time: '16:30 Uhr · Fachprogramm bis 20:00 Uhr, anschließend After Hours',
+    venue: 'NIO House Berlin',
+    address: 'Kurfürstendamm 11, 10719 Berlin',
+    url: 'https://polarisdx.net/de/events/future-forum-berlin-2026',
+    tag: 'Future Forum Berlin',
+  },
+}
+
+const ATTENDANCE_LABELS = {
+  full: 'Fachprogramm + After Hours',
+  programme: 'Nur Fachprogramm (16:30 – 20:00 Uhr)',
+}
+
+const MAX_EVENT_PERSONS = 5
+
+/**
+ * Prueft den Request-Body einer Anmeldung. Liefert genau eines von:
+ *   { honeypot: true }             — Bot, still verwerfen (200)
+ *   { error: { status, message } } — abweisen
+ *   { data }                       — bereinigte Anmeldung
+ * Reine Funktion: testbar ohne Express und ohne SendGrid.
+ */
+function parseEventRegistration(body) {
+  const b = body || {}
+  if (b._hp) return { honeypot: true }
+  if (b.consent !== true) return { error: { status: 400, message: 'Consent required.' } }
+
+  const event = typeof b.event === 'string' ? EVENTS[b.event] : undefined
+  if (!event) return { error: { status: 400, message: 'Unknown event.' } }
+
+  const name = String(b.name ?? '').trim()
+  const email = String(b.email ?? '').trim()
+  if (name.length < 2 || !email) {
+    return { error: { status: 400, message: 'Name and email are required.' } }
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return { error: { status: 400, message: 'Invalid email.' } }
+  }
+
+  const attendanceLabel =
+    typeof b.attendance === 'string' ? ATTENDANCE_LABELS[b.attendance] : undefined
+  if (!attendanceLabel) return { error: { status: 400, message: 'Invalid attendance option.' } }
+
+  const persons = Number.parseInt(b.persons, 10)
+  if (!Number.isInteger(persons) || persons < 1 || persons > MAX_EVENT_PERSONS) {
+    return { error: { status: 400, message: 'Invalid number of persons.' } }
+  }
+
+  const clip = (v, max) =>
+    String(v ?? '')
+      .trim()
+      .slice(0, max)
+
+  return {
+    data: {
+      eventSlug: b.event,
+      event,
+      name: clip(name, 200),
+      email: clip(email, 200),
+      company: clip(b.company, 200),
+      phone: clip(b.phone, 60),
+      attendance: b.attendance,
+      attendanceLabel,
+      persons,
+      cme: b.cme === true,
+      message: clip(b.message, 4000),
+    },
+  }
+}
+
+app.post('/api/event-registration', formLimiter, async (req, res) => {
+  try {
+    const parsed = parseEventRegistration(req.body)
+
+    if (parsed.honeypot) {
+      console.log('[event-registration] honeypot triggered, silently dropping')
+      return res.status(200).json({ success: true })
+    }
+    if (parsed.error) {
+      return res.status(parsed.error.status).json({ error: parsed.error.message })
+    }
+
+    const d = parsed.data
+    const ev = d.event
+    const ja = (v) => (v ? 'ja' : 'nein')
+
+    // ---- Interne Benachrichtigung an das Team --------------------------------
+    const teamSubject = `[${ev.tag}] Neue Anmeldung: ${d.name} (${d.persons} Pers.)`
+
+    const teamText = `Neue Anmeldung über die Website
+
+Veranstaltung: ${ev.title}
+Datum:         ${ev.date}, ${ev.time}
+Ort:           ${ev.venue}, ${ev.address}
+
+— Teilnehmer —
+Name:          ${d.name}
+Praxis/Firma:  ${d.company || '-'}
+E-Mail:        ${d.email}
+Telefon:       ${d.phone || '-'}
+
+— Anmeldung —
+Teilnahme:     ${d.attendanceLabel}
+Personen:      ${d.persons}
+Fortbildungspunkte gewünscht: ${ja(d.cme)}
+
+— Nachricht —
+${d.message || '-'}
+
+— Hinweis: Der Teilnehmer hat der Datenverarbeitung zur Bearbeitung der
+Anmeldung ausdrücklich zugestimmt (DSGVO Art. 6 Abs. 1 lit. b).
+Der Teilnehmer hat eine automatische Eingangsbestätigung erhalten;
+die Platzbestätigung erfolgt persönlich.
+`
+
+    const tr = (label, value) => `
+  <tr>
+    <td style="padding:8px 10px;border-bottom:1px solid #e2e8f0;font-weight:600;width:200px;color:#083358;font-family:system-ui,sans-serif;">${esc(label)}</td>
+    <td style="padding:8px 10px;border-bottom:1px solid #e2e8f0;color:#334155;font-family:system-ui,sans-serif;">${value}</td>
+  </tr>`
+    const trSection = (label) => `
+  <tr>
+    <td colspan="2" style="padding:14px 10px 6px;font-size:12px;font-weight:700;color:#0d9488;text-transform:uppercase;letter-spacing:1px;font-family:system-ui,sans-serif;">${esc(label)}</td>
+  </tr>`
+
+    const teamHtml = `
+<h2 style="margin:0 0 4px;font-family:system-ui,sans-serif;color:#083358;">Neue Anmeldung</h2>
+<p style="margin:0 0 16px;font-family:system-ui,sans-serif;color:#475569;">${esc(ev.title)}</p>
+<table style="border-collapse:collapse;width:100%;max-width:680px;">
+  ${trSection('Veranstaltung')}
+  ${tr('Datum', esc(`${ev.date}, ${ev.time}`))}
+  ${tr('Ort', esc(`${ev.venue}, ${ev.address}`))}
+
+  ${trSection('Teilnehmer')}
+  ${tr('Name', esc(d.name))}
+  ${tr('Praxis / Firma', esc(d.company || '-'))}
+  ${tr('E-Mail', `<a href="mailto:${esc(d.email)}">${esc(d.email)}</a>`)}
+  ${tr('Telefon', esc(d.phone || '-'))}
+
+  ${trSection('Anmeldung')}
+  ${tr('Teilnahme', esc(d.attendanceLabel))}
+  ${tr('Personen', esc(String(d.persons)))}
+  ${tr('Fortbildungspunkte gewünscht', esc(ja(d.cme)))}
+</table>
+${
+  d.message
+    ? `<p style="margin:18px 0 6px;font-family:system-ui,sans-serif;font-weight:600;color:#083358;">Nachricht</p>
+       <p style="margin:0;font-family:system-ui,sans-serif;color:#334155;white-space:pre-line;">${esc(d.message)}</p>`
+    : ''
+}
+<p style="margin:24px 0 0;font-family:system-ui,sans-serif;font-size:12px;color:#64748b;">
+  Der Teilnehmer hat der Datenverarbeitung zur Bearbeitung der Anmeldung ausdrücklich zugestimmt
+  (DSGVO Art. 6 Abs. 1 lit. b) und eine automatische Eingangsbestätigung erhalten.
+  Die Platzbestätigung erfolgt persönlich.
+</p>
+`
+
+    const teamMsg = {
+      to: EVENT_REGISTRATION_RECIPIENTS,
+      from: process.env.SENDER_EMAIL,
+      replyTo: d.email,
+      subject: teamSubject,
+      text: teamText,
+      html: teamHtml,
+    }
+
+    // ---- Eingangsbestaetigung an den Teilnehmer ------------------------------
+    const confirmSubject = `Ihre Anmeldung: ${ev.title} (${ev.date})`
+
+    const confirmText = `Hallo ${d.name},
+
+vielen Dank für Ihre Anmeldung zum ${ev.title}.
+Wir haben Ihre Anmeldung erhalten und bestätigen Ihren Platz in Kürze persönlich per E-Mail.
+
+Ihre Angaben:
+- Teilnahme: ${d.attendanceLabel}
+- Personen: ${d.persons}
+- Fortbildungspunkte gewünscht: ${ja(d.cme)}
+
+Veranstaltung:
+- ${ev.title} · ${ev.subtitle}
+- ${ev.date}, ${ev.time}
+- ${ev.venue}, ${ev.address}
+- ${ev.url}
+
+Fortbildungspunkte: Registrierung bei der KZV Berlin vorgesehen; die finale Punktzahl wird bestätigt.
+
+Fragen zur Anmeldung: contact@polarisdx.net · +49 151 75011699
+
+Mit freundlichen Grüßen
+Ihr PolarisDX-Team
+
+—
+Thank you for registering for ${ev.title}. We have received your registration and will confirm your seat personally by e-mail shortly.
+`
+
+    const confirmHtml = `
+<div style="font-family:Arial,system-ui,sans-serif;max-width:600px;margin:0 auto;color:#334155;">
+  <h2 style="color:#083358;margin:0 0 12px;">Ihre Anmeldung ist eingegangen</h2>
+  <p>Hallo ${esc(d.name)},</p>
+  <p>vielen Dank für Ihre Anmeldung zum <strong>${esc(ev.title)}</strong>.
+     Wir haben Ihre Anmeldung erhalten und bestätigen Ihren Platz in Kürze persönlich per E-Mail.</p>
+
+  <h3 style="color:#083358;margin:24px 0 8px;">Ihre Angaben</h3>
+  <table style="border-collapse:collapse;width:100%;max-width:520px;">
+    <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:bold;width:200px;">Teilnahme</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${esc(d.attendanceLabel)}</td></tr>
+    <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:bold;">Personen</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${esc(String(d.persons))}</td></tr>
+    <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:bold;">Fortbildungspunkte gewünscht</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${esc(ja(d.cme))}</td></tr>
+  </table>
+
+  <h3 style="color:#083358;margin:24px 0 8px;">Veranstaltung</h3>
+  <p style="margin:0 0 4px;"><strong>${esc(ev.title)}</strong> · ${esc(ev.subtitle)}</p>
+  <p style="margin:0 0 4px;">${esc(ev.date)}, ${esc(ev.time)}</p>
+  <p style="margin:0 0 4px;">${esc(ev.venue)}, ${esc(ev.address)}</p>
+  <p style="margin:0 0 16px;"><a href="${esc(ev.url)}" style="color:#0d527f;">${esc(ev.url)}</a></p>
+
+  <p style="font-size:13px;color:#64748b;">Fortbildungspunkte: Registrierung bei der KZV Berlin vorgesehen; die finale Punktzahl wird bestätigt.</p>
+
+  <p style="margin-top:24px;">Fragen zur Anmeldung: <a href="mailto:contact@polarisdx.net" style="color:#0d527f;">contact@polarisdx.net</a> · +49 151 75011699</p>
+  <p>Mit freundlichen Grüßen<br><strong>Ihr PolarisDX-Team</strong></p>
+
+  <p style="margin-top:24px;font-size:12px;color:#94a3b8;border-top:1px solid #eee;padding-top:12px;">
+    Thank you for registering for ${esc(ev.title)}. We have received your registration and will confirm your seat personally by e-mail shortly.
+  </p>
+</div>
+`
+
+    const confirmMsg = {
+      to: d.email,
+      from: process.env.SENDER_EMAIL,
+      subject: confirmSubject,
+      text: confirmText,
+      html: confirmHtml,
+    }
+
+    await Promise.all([sgMail.send(teamMsg), sgMail.send(confirmMsg)])
+    console.log(
+      `[event-registration] sent: event=${d.eventSlug} persons=${d.persons} attendance=${d.attendance} to=${EVENT_REGISTRATION_RECIPIENTS.join(',')}`,
+    )
+    res.status(200).json({ success: true })
+  } catch (error) {
+    console.error('Error sending event registration:', error)
+    if (error.response) {
+      console.error(error.response.body)
+    }
+    res.status(500).json({ success: false, error: 'Failed to send registration' })
+  }
+})
+
 /**
  * Chat Endpoint (Mock / Placeholder)
  *
@@ -586,4 +864,4 @@ if (require.main === module) {
 }
 
 // Exported for unit/endpoint tests (esc is the core HTML-escape XSS control).
-module.exports = { app, esc }
+module.exports = { app, esc, parseEventRegistration }
