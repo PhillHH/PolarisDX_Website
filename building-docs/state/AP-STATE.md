@@ -9,15 +9,16 @@ kein `work-packages/APxx-STATE.md`).
 ## Current
 
 - Work package: AP01 — Repository-Baseline, Branch-Reconciliation und Import-Hygiene
-- Primary task: PT01.4 abgeschlossen; PT01.5 noch nicht gestartet
+- Primary task: PT01.5 abgeschlossen; **AP01-CLOSURE noch nicht gestartet**
 - Status: IN_PROGRESS <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
 - AP00: COMPLETE · AP00 closure: PASS (unverändert erhalten)
 - Baseline: `feat/home-leadmagnet@961f65d` — Ancestor des aktuellen HEAD, empirisch bestätigt
 - Baseline evidence: recorded · `main` Import Ledger: recorded · redesign patterns: recorded ·
-  legacy classification: recorded
-  (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§6)
+  legacy classification: recorded · **final clean build evidence: recorded**
+  (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§8)
+- AP01 ist **nicht** COMPLETE und AP01 closure ist **nicht** PASS — das Closure Gate ist ein eigener Lauf.
 - Current branch: `console/ap01-2026-08-24T10-46-05`
-- Current HEAD: `1f1f236ce2b19c4778a38b7c30b53cd1381c239a` (PT01.3-Commit; PT01.4 folgt)
+- Current HEAD: `f36a763fc5a8c05a17c0548e1c5050ffb31d2e9b` (PT01.4-Commit; PT01.5 folgt)
 - Started: 2026-08-24 (AP01)
 - Last updated: 2026-08-24
 
@@ -62,6 +63,11 @@ kein `work-packages/APxx-STATE.md`).
   **Keine Datei entfernt.** Zwei dokumentarische Korrekturen: Tracking-Status von
   `projektverzeichnis/` in `AGENT-CONTRACT.md` richtiggestellt, Non-Canonical-Banner mit Zeiger auf
   `building-docs/README.md` in `DOCS.md`, `README.md`, `README.de.md`.
+- PT01.5 — Toolchain-/Dependency-Audit und integrierte Build-Baseline aus einem isolierten Clean
+  Checkout der AP01-Linie: `npm ci` ohne Lockfile-Mutation, Typecheck/Tests 18-18/Farb-Guard/Build grün
+  auf Node 20.19.6 **und** 22.23.2, SSR-Smoke vollständig, 21+7 Security-Advisories klassifiziert
+  (keine durch AP01), Build- und Bundle-Baseline dokumentiert. **Keine neue AP01-Regression.**
+  Node-Vertrag bewusst **nicht** gepinnt — Begründung und Empfehlung in §7.2.
 
 ## Current Invariants
 
@@ -148,15 +154,26 @@ PT01.4 — **ausschließlich Dokumentation**:
 PT01.4 hat **keine** Datei entfernt oder verschoben und **keinen** Anwendungscode, keine Runtime-/
 Config-Datei, keine Dependency, kein Lockfile und kein CI-Artefakt verändert.
 
+PT01.5 — **ausschließlich Dokumentation**:
+
+- `building-docs/AP01-RECONCILIATION-RESULT.md` (§7 Toolchain, Dependency Audit, Security Advisory
+  Baseline, Integrated Quality Baseline, SSR-Smoke, Build-/Bundle-Baseline)
+- `building-docs/RISK-REGISTER.md` (`RISK-008`: eine Evidenzzeile aus PT01.5)
+- `building-docs/state/AP-STATE.md`
+
+PT01.5 hat **weder `package.json` noch ein Lockfile** angefasst — kein `engines`, kein
+`packageManager`, kein Security-Fix, kein Dependency-Upgrade. Kein Anwendungscode, keine Runtime-/
+Config-/CI-Datei.
+
 ## Open Blockers
 
 <!-- Jeweils: ID/Kurztitel · was blockiert ist · was zur Auflösung gebraucht wird. -->
 
-- Keine AP01-Ausführungsblocker. PT01.1 bis PT01.4 sind `PASS`.
+- Keine AP01-Ausführungsblocker. **PT01.1 bis PT01.5 sind alle `PASS`.** AP01 ist bereit für das Closure Gate.
 - **Hinweis, kein Blocker:** `RISK-007` ist `MITIGATING` — die AP00-Nachfolgerlinie ist über
   `origin/console/ap00-2026-08-24T09-32-23` gesichert (inhaltsgleich mit HEAD `4f70801`), aber weder
   `feat/home-leadmagnet` noch der aktive Arbeitsbranch hat ein Upstream. Auflösung liegt beim Owner.
-- **Hinweis, kein Blocker:** 28 dokumentierte Schulden (D-01 bis D-28 in
+- **Hinweis, kein Blocker:** 30 dokumentierte Schulden (D-01 bis D-30 in
   `AP01-RECONCILIATION-RESULT.md` §8), jeweils einem Owner-AP zugeordnet; keine davon ist
   AP01-blockierend. `BG-10` (Consent/Tracking) steht bereits an der Baseline auf `BASELINE_DEBT`.
   Neu aus PT01.2: `D-16` (Spiegel-Lücke Suche/E2E), `D-17` (kein Navigationseinstieg),
@@ -173,6 +190,10 @@ Config-Datei, keine Dependency, kein Lockfile und kein CI-Artefakt verändert.
   Dazu `D-26` (totes Suchziel `sports` → 404, AP07 PT07.1.9), `D-27` (zweite Betriebswahrheit in
   `server/docker-compose.yml` + tote Deploy-Config, AP28 PT28.7), `D-28` (`shop`-Namespace geladen,
   nie gelesen, AP08/AP25).
+  Neu aus PT01.5: `D-29` (Musterbefund-Code-Splitting vorbereitet, aber nicht wirksam — 287,58 kB
+  gegenüber 287 kB an der Baseline, also **unverändert**, AP25 mit AP16) und `D-30`
+  (21 Root- + 7 `server/`-Security-Advisories, verifiziert, **keine durch AP01**, AP26 PT26.5).
+  `D-11` ist präzisiert: der Node-Vertrag bleibt offen und geht an **AP28 PT28.7**.
 
 ## Explicit Non-Decisions
 
@@ -208,6 +229,15 @@ Config-Datei, keine Dependency, kein Lockfile und kein CI-Artefakt verändert.
   `casestudies`-/`shop`-Locales sind als tot **klassifiziert**, nicht gelöscht.
 - **Kein Lint-/Archiv-Ausschluss konfiguriert.** `_project-knowledge/**` bleibt als
   `HISTORICAL_DOC` klassifiziert; die formale Ausschluss-Konfiguration ist AP27 PT27.6 (`D-07`).
+- **Node-/Paketmanager-Vertrag ist NICHT gepinnt.** PT01.5 hat ihn dokumentiert und Node 22 empfohlen,
+  aber `engines`/`packageManager` bewusst nicht gesetzt: `server/Dockerfile` (Node 20) widerspricht der
+  Frontend-Kette (Node 22), und der dafür nötige Container-Angleich ist in dieser Umgebung nicht
+  validierbar. Entscheidung und Umsetzung: **AP28 PT28.7** (`D-11`).
+- **Keine Security-Advisory ist behoben.** 21 Root- und 7 `server/`-Advisories sind klassifiziert, nicht
+  gefixt; `npm audit fix` wurde bewusst nicht ausgeführt (`D-30`, AP26 PT26.5).
+- **Keine Bundle-Optimierung.** Der 287-kB-`MusterbefundPage`-Chunk ist gemessen und unverändert;
+  die Auflösung ist AP25 (`D-29`).
+- **AP01 ist nicht abgenommen.** Das Closure Gate `C01-01`–`C01-15` ist **nicht** gelaufen.
 - **PT01.2 hat keine Messplan-Entscheidung getroffen.** Die `epigenetics_request`-Instrumentierung aus
   `main` wurde bewusst nicht übernommen; ob die Baseline-Ereignis-Union erweitert oder ein Shim
   gebaut wird, entscheidet AP23/AP15 (`D-18`).
@@ -223,93 +253,84 @@ Config-Datei, keine Dependency, kein Lockfile und kein CI-Artefakt verändert.
 
 <!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste PT braucht. -->
 
-- Keine Abweichung von `CONTEXT-INDEX.md`. AP01 verwendet die dort für AP01 definierte
-  `Required context`-Menge; `Optional context` nur bei konkretem Anlass.
-- PT01.1–PT01.4 haben zusätzlich `SEO-CONTRACT.md` geladen (in `AP01.md` §1.2 für AP01 gelistet, in der
-  Matrix nicht); PT01.4 zusätzlich `NETWORK-ALLOWLIST.md` für die Chat-/Consent-Befunde.
-- **Für PT01.5 (Toolchain-/Dependency-Audit) relevant:** `AP01.md` §PT01.5 (ST01.5.1–ST01.5.8),
-  `RUNTIME-CONTRACT.md` RT-10/RT-11/RD-4 (Node-/Paketmanager-Pinning ist **AP01 PT01.5.3**),
-  `QUALITY-GATES.md` QG-03 und QD-10, `REPO-BASELINE.md` §5 (gemessene Toolchain, Scripts,
-  Paketgrenzen). Laut `CONTEXT-INDEX.md` bei PT01.5 ggf. `DEPLOYMENT-CONTRACT.md`, **nur** wenn
-  tatsächlich betroffen.
-- Konkrete Dateien für PT01.5: `package.json` (kein `engines`, kein `packageManager`),
-  `package-lock.json`, `server/package.json`, `server/package-lock.json`, `.npmrc`
-  (`legacy-peer-deps=true`), `Dockerfile` (Node 22), `server/Dockerfile` (**Node 20**),
-  `.github/workflows/ci.yml` (Node 22), `tsconfig*.json`, `vite.config.ts`.
-- **Offene Toolchain-Befunde aus PT01.1, die PT01.5 gehören:** `D-11` (dreifacher Node-Drift),
-  `D-12` (Root-`npm ci` allein macht `npm test` rot — `server/**` steht im vitest-Include, dessen
-  Dependencies das Root-`npm ci` nicht installiert), `D-13` (Root-`prepare` = `lefthook install`
-  schreibt geteilte Git-Hooks und bricht ohne installiertes `lefthook` mit Exit 127 ab).
-  `npm audit` meldete beim Install 21 Verwundbarkeiten — in PT01.1 **nicht** bewertet (ST01.5.2).
-- **Baseline Guards `BG-01`–`BG-12`** in `AP01-RECONCILIATION-RESULT.md` §2 sind nach jedem Eingriff
-  erneut auszuführen; Nachweismethodik in §3.4 (PT01.2) und §4.5 (PT01.3).
-- Reproduzierbare SSR-Regression: gebauten Stand auf isoliertem freien Port starten
-  (`NODE_ENV=production PORT=<frei> BACKEND_URL=http://127.0.0.1:39999 npx tsx server.ts`),
-  **nicht** an einen vorhandenen Prozess auf Port 3000 hängen (`QD-4`).
-- QA-Werkzeuge aus PT01.3 gegen denselben Port: `URL=http://127.0.0.1:<port> npm run audit:a11y`
-  und `... npm run screenshots:baseline`.
-- Toolchain-Hinweis: `NODE_ENV` muss für `npm ci` **ungesetzt** sein, sonst werden devDependencies
-  ausgelassen; Node 20.19.6 über `nvm`; `tsc -b` braucht in diesem Worktree
-  `--max-old-space-size=3072`.
+- Nächster Lauf ist **AP01-CLOSURE**, kein Primärtask. Er validiert PT01.1–PT01.5 gemeinsam gegen
+  `AP01.md` §7 (`C01-01` bis `C01-15`).
+- Keine Abweichung von `CONTEXT-INDEX.md`. Für die Closure zusätzlich zu `ALWAYS_READ` erforderlich:
+  `building-docs/AP01-RECONCILIATION-RESULT.md` (vollständig — es ist die Evidenzbasis der Closure),
+  `BRANCH-RECONCILIATION-MAP.md` (für `C01-03`–`C01-05`, `C01-07`),
+  `QUALITY-GATES.md`, `ROUTING-CONTRACT.md`, `RUNTIME-CONTRACT.md`, `SEO-CONTRACT.md`
+  (für `C01-06` Baseline-Härtungen).
+- Über PT01.1–PT01.5 zusätzlich geladen und weiterhin relevant: `SEO-CONTRACT.md` (in `AP01.md` §1.2
+  gelistet, in der Matrix nicht) und `NETWORK-ALLOWLIST.md` (PT01.4, Chat-/Consent-Befunde).
+- **Alle Closure-Nachweise liegen bereits vor** und müssen nicht neu erhoben werden:
+  `§1` Baseline Evidence · `§2` Baseline Guards · `§3`/`§5` `main` Import Ledger · `§4`/`§4a`
+  `redesign/preview` Import Ledger · `§6` Legacy Classification · `§7` Toolchain/Dependency/Security/
+  Quality/Bundle · `§8` Known Remaining Debt (`D-01`–`D-30`).
+- Reproduzierbare Verifikation, falls die Closure etwas nachmessen will: isolierter Worktree auf HEAD,
+  `npm ci` **im Root und in `server/`**, dann `tsc -b` (mit `--max-old-space-size=3072`), `vitest run`,
+  `npm run build`, danach SSR auf isoliertem freiem Port
+  (`NODE_ENV=production PORT=<frei> BACKEND_URL=http://127.0.0.1:39999 npx tsx server.ts`).
+  `NODE_ENV` muss für `npm ci` **ungesetzt** sein, sonst fehlen die devDependencies.
+- Achtung bei `npm ci`: das Root-`prepare`-Script (`lefthook install`) schreibt in die **geteilten**
+  Git-Hooks des Haupt-Checkouts — vorher sichern, danach zurückspielen (`D-13`).
 
 ## Handoff
 
-- Last completed PT: **PT01.4** — Legacy-Klassifikation · `PASS`
-- Next PT: **PT01.5** — Toolchain-/Dependency-Audit und integrierte Build-Baseline (**nicht gestartet**)
-- Work package: AP01 · Status `IN_PROGRESS`
+- Last completed PT: **PT01.5** — Toolchain-/Dependency-Audit und integrierte Build-Baseline · `PASS`
+- Next: **AP01-CLOSURE** (`AP01.md` §7, `C01-01`–`C01-15`) — **nicht gestartet**
+- Work package: AP01 · Status `IN_PROGRESS` — **nicht** `COMPLETE`
+- AP01 closure: **NOT_RUN** — **nicht** `PASS`
 - AP00: `COMPLETE`, Closure `PASS` (unverändert) · AP02: **nicht gestartet**
 
-Ergebnis PT01.1–PT01.3 (`AP01-RECONCILIATION-RESULT.md` §1–§5):
+Alle fünf Primärtasks sind `PASS`. Evidenz vollständig in `building-docs/AP01-RECONCILIATION-RESULT.md`:
 
-- Baseline `feat/home-leadmagnet@961f65d` verifiziert, `BG-01`–`BG-12` festgeschrieben.
-- `main@d0fdf29`: M1 3/3 · M2 2/2 · M3 IMPORTED · M4 6/6 · M5 4 Dateien/7 Hunks; neun Routen aktiv,
-  Sitemap 365 `<loc>`.
-- `redesign/preview@5673b61`: P1–P5 alle entschieden; Fehlergrenzen, providerneutrales
-  Monitoring-Gerüst und zwei QA-Skripte übernommen; kein Design-System, kein Dark Theme.
+- **PT01.1** Baseline `feat/home-leadmagnet@961f65d` verifiziert; `BG-01`–`BG-12` festgeschrieben (§1–§2).
+- **PT01.2** `main@d0fdf29`: M1 3/3 · M2 2/2 · M3 IMPORTED · M4 6/6 · M5 4 Dateien/7 Hunks;
+  neun Routen aktiv, Sitemap 365 `<loc>` (§3, §5).
+- **PT01.3** `redesign/preview@5673b61`: P1–P5 entschieden; Fehlergrenzen, providerneutrales
+  Monitoring-Gerüst, zwei QA-Skripte; kein Design-System, kein Dark Theme (§4, §4a).
+- **PT01.4** 40 Artefakte klassifiziert, `LEGACY_LAUNCH_BLOCKING` 0, keine Datei entfernt (§6).
+- **PT01.5** Toolchain-, Dependency-, Security-, Quality-, Build- und Bundle-Baseline (§7).
 
-Ergebnis PT01.4 (`§6`):
+Ergebnis PT01.5 im Einzelnen:
 
-- **40 Artefakte klassifiziert**, jedes mit genau einer Hauptklasse:
-  `ACTIVE` 7 · `LEGACY_BACKLOG` 11 · `HISTORICAL_DOC` 15 · `NEEDS_OWNER_AP` 6 ·
-  `FORBIDDEN_IMPORT` 3 (jeweils **Negativ-Nachweis**: nichts vorhanden) · **`LEGACY_LAUNCH_BLOCKING` 0**.
-- **Aktiver Deploy-Pfad eindeutig:** `Dockerfile` + `docker-compose.yml` + `server/Dockerfile` →
-  SSR über `npx tsx server.ts` hinter externem Reverse Proxy. **Tot und als tot ausgewiesen:**
-  `vercel.json` (null Referenzen), `nginx.conf` (null Referenzen, statisches SPA-Setup),
-  `Dockerfile.dev`, `server/docker-compose.yml` (zweite, offenere Exposition),
-  `scripts/prerender.mjs` (zweiter Build-Weg mit 29 veralteten Routen), `email/**`.
-- **Chat: `CLASSIFIED / LAUNCH-RELEVANT`, nicht entfernt.** Laufzeitmessung (frischer Browser,
-  `cookie-consent` = `null`) belegt **vier externe Hosts vor jeder Einwilligung**:
-  `widget.hihuman.co.uk`, `reception.hihuman.co.uk`, `www.googletagmanager.com`,
-  `region1.google-analytics.com`. Pre-existing, nicht von AP01 eingebracht; Owner mit PT-Granularität:
-  **AP06 PT06.4.6** (Widget), **AP22 PT22.7** (`/api/chat`), **AP23 PT23.1** (Ladeverzicht),
-  **AP26 PT26.2** (CSP-Origins). → `D-25`.
-- **Deal/Voucher/Case Studies/Shop: BACKLOG, nicht reaktiviert.** `DealPopup`, `DealHint`, Voucher,
-  `src/data/products.ts` und `.bak*`/`.bak-nopopup` sind repositoryweit **nicht vorhanden**.
-  Vorhanden und tot: `FeaturedCaseStudy.tsx` (nirgends importiert), `casestudies`-Locales
-  (Namespace nicht registriert), `shop`-Locales (registriert, nie gelesen → `D-28`).
-  `products`-Namespace ist trotz des Namens **ACTIVE** (IglooPro-Strecke).
-- **`projektverzeichnis/` ist getrackt** — 11 Dateien seit `f8692c0` (AP00 PT00.1). `AGENT-CONTRACT.md`
-  §3 Regel 15 behauptete „untracked" und wurde korrigiert. `REPO-BASELINE.md` und
-  `BRANCH-RECONCILIATION-MAP.md` bleiben unverändert: sie sind auf den 2026-08-21 datierte
-  Evidenzdokumente und waren zu diesem Zeitpunkt richtig.
-- **Kanonische Einstiegskette abgesichert:** `DOCS.md`, `README.md` und `README.de.md` beschrieben
-  einen nginx-SPA-Build und ein `backend/`-Payload-CMS, das es nicht gibt, und verwiesen auf
-  `building-docs/` gar nicht. Alle drei tragen jetzt einen Non-Canonical-Banner mit Zeiger auf
-  `building-docs/README.md`; der Originaltext bleibt vollständig erhalten.
-- **`FORBIDDEN_IMPORT` durch AP01: NONE.** Der Import-Hygiene-Nachtest über alle 31 von AP01
-  berührten Code-/Config-Dateien fand keinen der verbotenen Marker. Die zwei Treffer bei `hihuman`
-  (`server.ts`) und `trackEvent` (`EpiSubpage.tsx`) sind pre-existing CSP bzw. ein erklärender
-  Kommentar aus PT01.2 AD-2.
-- **Entfernt: NONE.** Kein Artefakt erreichte die Entfernungsschwelle; historische Evidenz ist
-  vollständig erhalten. Decision Locks 18/18, Baseline Guards unverändert.
-- **Kein Regressionslauf nötig:** PT01.4 hat ausschließlich Dokumentation geändert — kein
-  Anwendungscode, keine Config, keine Scripts, keine Runtime, keine CI.
+- **Toolchain Contract (§7.1):** Package Manager **npm**, ein `package-lock.json` je Paket
+  (`lockfileVersion` 3), `.npmrc` `legacy-peer-deps=true`. Clean Install ist `npm ci` **im Root und
+  zusätzlich in `server/`** — nur so laufen die Tests 18/18 (`D-12`).
+- **Node-Vertrag (§7.2): dokumentiert, bewusst NICHT gepinnt.** CI und `Dockerfile` führen **22**,
+  `server/Dockerfile` führt **20**. Beide Stände sind vollständig grün verifiziert (20.19.6 und
+  22.23.2). AP01 **empfiehlt Node 22**; das Pinning setzt den Container-Angleich voraus und geht an
+  **AP28 PT28.7**, die Gate-Verankerung an **AP27 PT27.6** (`D-11`).
+- **Dependency Audit (§7.3):** Runtime 14 (Root) + 6 (`server/`), Dev 32 + 0. **Durch AP01 addiert:
+  genau 2 devDependencies** (`axe-core`, `playwright`, beide PT01.3, beide mit nachgewiesener
+  Verwendung). **Entfernt: NONE. Runtime-Dependencies unverändert. Unerklärte Änderungen: NONE.**
+  Lockfile-Delta seit Baseline: **+2/−0 Zeilen**, `server/package-lock.json` unverändert.
+- **Security Advisories (§7.4): VERIFIED** (Service erreichbar). Root **21** (15 high · 4 moderate ·
+  2 low · 0 critical): 3 production/direct, 6 production/transitive, 12 dev-only. `server/` **7**
+  (1 direct `express`, 6 transitiv). **Keine durch AP01 eingeführt** — die Root-Zahl ist identisch mit
+  der PT01.1-Messung. Kein Fix angewandt; `sharp` bräuchte ein Major-Upgrade (`D-30`, AP26 PT26.5).
+- **Clean Checkout (§7.5):** isolierter Worktree auf `f36a763`, `npm ci` rc 0 in beiden Paketen,
+  **keine Lockfile-Mutation** (SHA-256 vor/nach identisch), Worktree danach kontrolliert entfernt,
+  aktiver Branch unverändert.
+- **Quality:** Typecheck `PASS` · Tests **18/18** · `check:colors` `PASS` · Build `PASS` ·
+  ESLint **129** (`BASELINE_DEBT`, 0 in AP01-Dateien) · Prettier **38** (`BASELINE_DEBT`, 0 in
+  AP01-Quelldateien) · E2E `ENVIRONMENT_NOT_VERIFIED` (`D-09`).
+- **SSR-Smoke (§7.6): PASS** — 200, echte 301 (`/agb`, `/s3-leitlinie`, `/about`, je ein Hop),
+  echte 404 statisch und dynamisch, `no-store`, SEOHead-/notFound-Handshake, 1 Canonical + 11 hreflang,
+  `/api/*` außerhalb des Catch-all, Sitemap 365 `<loc>`, Musterbefund-Module **6/6**.
+- **Build-/Bundle-Baseline (§7.7):** Build **7,9 s** aus leerem `dist` (Node 22.23.2), 58 Client-JS-
+  Dateien / 1,1 MB. Neue AP01-Chunks zusammen **< 25 kB** roh für neun Routen.
+  **Musterbefund-Chunk 287,58 kB — gegenüber der Baseline unverändert**: die sechs Routenmodule sind
+  je 0,50 kB, weil `MusterbefundPage.tsx` weiterhin alle zwölf JSONs für den `:slug`-Auffangpfad hält
+  (trägt `BG-01`). Auflösung: **AP25** mit **AP16** (`D-29`).
+- **Baseline Guards: 11 × `PASS`, `BG-10` unverändert `BASELINE_DEBT`.**
+  **New regressions introduced by AP01: NONE.**
 
-Rahmen für PT01.5 (unverändert gültig, hier nur referenziert):
+Rahmen für AP01-CLOSURE:
 
 - Baseline `feat/home-leadmagnet@961f65d` bleibt gesperrt; Decision Locks 18/18 `LOCKED`.
-- **AP01 PT01.5.3 besitzt die endgültige Node-/Paketmanager-Festlegung** (`RUNTIME-CONTRACT.md` RT-10/RT-11).
-- Keine Broad-Upgrades; Lockfile-Änderungen kontrolliert und im Ledger begründet.
+- Die Closure prüft, sie implementiert nicht. `AP02` bleibt ungestartet.
+- 30 dokumentierte Schulden (`D-01`–`D-30`), jede mit Owner-AP; **keine** AP01-blockierend.
 
 ---
 
