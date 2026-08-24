@@ -10,10 +10,12 @@ kein `work-packages/APxx-STATE.md`).
 
 - Work package: AP03 — Informationsarchitektur und vollständiges Seiteninventar
 - Status: IN_PROGRESS <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
-- Last completed PT: PT03.2 — Seitentypen und Rollen (PASS)
-- Next PT: PT03.3 — Kernjourneys (nicht begonnen)
+- Last completed PT: PT03.4 — Navigation und interne Findability (PASS) — **letzter Primärtask von AP03**
+- Next task: **AP03-CLOSURE** (separater Lauf; nicht begonnen). Kein weiterer PT03.x offen.
 - IA inventory: recorded (`building-docs/IA-INVENTORY.md` §4–§7)
 - Page type taxonomy: recorded (`building-docs/IA-INVENTORY.md` §8)
+- Core journeys: recorded (`building-docs/IA-INVENTORY.md` §9)
+- Navigation/findability contract: recorded (`building-docs/IA-INVENTORY.md` §10)
 - AP02: COMPLETE · AP02 closure: PASS (23/23, `C02-01`–`C02-23`) — unverändert erhalten
 - SSR/rendering contract: recorded (`building-docs/RUNTIME-CONTRACT.md`)
 - Routing/route-registry contract: recorded (`building-docs/ROUTING-CONTRACT.md`)
@@ -29,7 +31,7 @@ kein `work-packages/APxx-STATE.md`).
   legacy classification: recorded · final clean build evidence: recorded · **closure evidence: recorded**
   (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§9)
 - Current branch: `console/ap02-2026-08-24T12-30-23`
-- Current HEAD: `06d9e55728ed094c282b56ee304f78d917122019` — PT03.1-Commit; enthält den
+- Current HEAD: `52dd14373eee7cb7f73109eddcf9e1ba84fedde5` — PT03.2-Commit; enthält den
   AP01-Final-HEAD `3736d1a` als Ancestor. AP02-Delta `3736d1a..fffd712` = **0
   Nicht-Dokumentationsdateien**; AP03 setzt diese Linie fort und ändert ebenfalls nur `building-docs/`
 - Started: 2026-08-24 (AP02); AP01 gestartet und abgeschlossen 2026-08-24
@@ -126,6 +128,24 @@ kein `work-packages/APxx-STATE.md`).
   **M-09/M-10**, **D-T16–D-T22** und §9.2 mit der Zuordnung der geforderten Betriebssemantik auf die
   bestehende `DEP-`-Systematik, Owner-Grenzen §11.1. **Kein Deployment, kein Dienststart, kein
   Image-Build, keine Docker-/Compose-/nginx-/Environment-Änderung.**
+- PT03.4 — Navigations- und Findability-Vertrag in `IA-INVENTORY.md` §10 festgeschrieben: Ist-Erhebung
+  §10.2 (Header, Footer, Search, Breadcrumbs, ChapterNav, Consumer- und Legacy-Links, read-only),
+  Header-IA §10.3, Diagnostik- und Mega-Menü-Rolle §10.4, **Epigenetik als eigener
+  Hauptnavigationspunkt** §10.5, IglooPro-Findability §10.6, Footer-IA §10.7, Consumer-Findability
+  §10.8 (Main Nav `INTENTIONALLY_NONE`, Footer `INDIRECT`, Search `SEARCHABLE`, organische Suche als
+  primärer Kanal), Search-Policy §10.9, Breadcrumb §10.10, ChapterNav §10.11, Crosslinks §10.12,
+  CTA-Findability §10.13, locale-sichere Verlinkung §10.14, **finale Klassifikationsmatrix §10.15 über
+  alle 27 Familien** und Redirect-/404-Policy §10.16. Neue Schulden `IAD-15`–`IAD-19`; Invarianten
+  `IA-09`, `IA-17`, `IA-18`, `IA-19`, `IA-20` abgedeckt — **alle 25 IA-Invarianten adressiert**.
+  **Keine Navigation, Search, Breadcrumb, ChapterNav, Route, SEO- oder Content-Implementierung.**
+- PT03.3 — Sieben Kernjourneys in `IA-INVENTORY.md` §9 modelliert: `J-01` Diagnostik → Service →
+  Angebot · `J-02` IglooPro → Anfrage/ROI/Download · `J-03` Epigenetik → Panel/Musterbefund → eigene
+  Inquiry · `J-04` Content → Lösung → CTA · `J-05` Resource → Gate → CRM → Asset · `J-06` Consumer →
+  Landingpage → Bestellung · `J-07` Bestandskunde → Support/Downloads. Je Journey Zielgruppe,
+  Startpunkte, Zwischenstationen, Seitenfamilien, primäre und sekundäre Conversion, AP02-Lead-Typ,
+  Success-/Failure-State, Crosslinks, Sprachumfang und Owner-APs (§9.5); gemeinsame Regeln §9.1
+  (Lead-Ziel Persistenz + CRM, Consent-Grenze, CTA-Naming), Übersicht §9.3, **Sackgassenanalyse §9.4**.
+  Invarianten `IA-16`, `IA-21`, `IA-22` abgedeckt. **Keine Journey implementiert.**
 - PT03.2 — Seitentyp-Taxonomie und Rollenmodell in `IA-INVENTORY.md` §8 festgeschrieben: 10 primäre
   Seitentypen (`T1`–`T10`) plus technische Klassifikation, Rollenmodell je Typ (§8.2), kontrollierte
   Vokabulare für Zielgruppen, Absichten, Aufgaben, CTA- und Conversion-Rollen (§8.3), **Rollenmatrix
@@ -270,7 +290,20 @@ kein `work-packages/APxx-STATE.md`).
   `NONE`.
 - **Public und gated Ressourcen sind getrennte Rollen** (`public-resource` vs. `gated-lead-magnet`,
   §8.1/§8.4); mindestens eine Secondary Conversion ist IA-seitig vorgesehen (`IA-15`, P-17).
-- **§8.4/§8.6 ist die Rollenquelle**, §4 bleibt die Inventarsicht; bei Abweichung gilt §8.
+- **Rollenquellen:** **§8.4** für Seitentyp, Zielgruppe, Aufgabe und CTA · **§10.15** für Main Nav,
+  Footer, Search, Breadcrumb, ChapterNav, Direct/SEO-Entry und Crosslink · §4 bleibt die Inventarsicht.
+- **Sieben Kernjourneys sind verbindlich** (`IA-INVENTORY.md` §9): jede Lead-Journey endet im
+  persistenten Lead-Modell mit CRM-Handoff (`DEC-RL-009`), kein Journey-Schritt setzt Tracking vor
+  Consent voraus, kein Chat ist Journey-Station.
+- **Navigation ≠ Route Registry ≠ Sitemap ≠ Search** (§10.1): vier getrennte Mengen mit eigenen
+  Wahrheitsquellen; aus einer folgt keine andere.
+- **Epigenetik erhält einen eigenen Hauptnavigationspunkt** (`IA-09`, §10.5); Diagnostik bleibt davon
+  getrennt und modelliert Epigenetik nicht als zehnten Service.
+- **Consumer ist bewusst nicht in der B2B-Hauptnavigation** (`IA-12`), aber über Footer, Search,
+  organische Suche und kontextuelle Crosslinks in **vier** benannten Kanälen auffindbar.
+- **Breadcrumbs sind fachlich, nicht URL-abgeleitet** (`IA-18`, §10.10); Consumer trägt bewusst
+  **keinen** sichtbaren Breadcrumb.
+- **Alle 25 IA-Invarianten aus `AP03.md` §10 sind adressiert**; keine offene Klassifikation.
 - **`ARCHITECTURE BASELINE COMPLETE` heißt nicht launch-ready.** AP02 hat nichts implementiert: kein
   Routing, keine Lead-Plattform, kein Docker-Zielstack, kein Consumer × 10, keine SEO-Umsetzung, keine
   Consent-Reparatur. Alle 12 Launch-Gates stehen unverändert auf `NOT_RUN`.
@@ -292,11 +325,22 @@ kein `work-packages/APxx-STATE.md`).
 - `building-docs/CONTEXT-INDEX.md` — Matrixzeile AP03 (required) und AP04/AP06/AP07/AP19/AP21
   (optional) plus eine Regelzeile in §4.1
 
-**PT03.2 — ausschließlich Dokumentation:**
+**PT03.2 — ausschließlich Dokumentation** (committet als `52dd143`):
 
-- `building-docs/IA-INVENTORY.md` (§1 Stand, §2.4 Marker aufgelöst, **§8 vollständig neu**,
-  §9 `IAD-12`–`IAD-14`, §11.1/§11.2, §14 Rollenquelle)
+- `building-docs/IA-INVENTORY.md` (§1 Stand, §2.4, §8 Seitentypen und Rollen, Debts, Invarianten)
+
+**PT03.3 + PT03.4 — ausschließlich Dokumentation:**
+
+- `building-docs/IA-INVENTORY.md` — **§9 Kernjourneys** (PT03.3) und **§10 Navigation und interne
+  Findability** (PT03.4) neu; §1 Stand, §2.4 Entscheidungsstand, §8.6 durch §10.15 abgelöst, §8.7
+  fortgeschrieben, §11 `IAD-15`–`IAD-19`, §12 Findability-Owner, §13.1/§13.2 Invarianten.
+  Folgeabschnitte von §9 auf §11–§16 umnummeriert, interne Querverweise mitgezogen.
 - `building-docs/state/AP-STATE.md`
+
+**Anwendungscode / Locale-Dateien / Assets / Runtime / Config / Dependencies / Lockfiles: NONE.**
+`MASTER-SCOPE.md`, `DECISIONS.md`, `PROJECT-CONSTRAINTS.md`, `CONTEXT-INDEX.md`, `ROUTING-CONTRACT.md`,
+`SEO-CONTRACT.md`, `I18N-CONTRACT.md`, `CONTENT-ASSET-CONTRACT.md` und `LEAD-DATA-CONTRACT.md` sind
+**unverändert**.
 
 **Anwendungscode / Locale-Dateien / Assets / Runtime / Config / Dependencies / Lockfiles: NONE.**
 `MASTER-SCOPE.md`, `DECISIONS.md`, `PROJECT-CONSTRAINTS.md`, `ROUTING-CONTRACT.md`,
@@ -379,7 +423,17 @@ referenzielle Korrektur war nicht erforderlich.
 <!-- Jeweils: ID/Kurztitel · was blockiert ist · was zur Auflösung gebraucht wird. -->
 
 - **Keine offenen Blocker.** PT01.1–PT01.5 und das AP01-Closure Gate sind `PASS`; AP01 ist `COMPLETE`.
-  **AP02 ist `COMPLETE` mit Closure `PASS`; PT03.1 und PT03.2 sind `PASS`.**
+  **AP02 ist `COMPLETE` mit Closure `PASS`; PT03.1–PT03.4 sind alle `PASS`. AP03 ist inhaltlich
+  vollständig und wartet auf den Closure-Lauf.**
+- **Hinweis, kein Blocker — neu aus PT03.4:** fünf Findability-Schulden. **`IAD-16`** (Footer ohne
+  Epigenetik- und Support-Einstieg, **Gate 6**, AP06) und **`IAD-19`** (Consumer intern nirgends
+  verlinkt, **Gate 1/4**, AP06/AP07/AP21) sind die gewichtigsten; dazu `IAD-15` (Search-Index deckt
+  Consumer, Epigenetik-Vertiefungen, Musterbefunde, Downloads, Events und Support nicht ab, AP07),
+  `IAD-17` (Footer führt 6 von 9 Services, AP06) und `IAD-18` (interner Link auf die Redirect-Quelle
+  `/services/dental`, **Gate 4**, AP10/AP20).
+- **Hinweis, kein Blocker — aus PT03.3:** die Sackgassenanalyse §9.4 weist `J-05` (gated Resource) als
+  **noch nicht existierende Journey** und `J-03` (Epigenetik-Inquiry) als unvollständig aus — beide
+  bereits über `IAD-07` und `IAD-11` mit Owner-AP geführt.
 - **Hinweis, kein Blocker — neu aus PT03.2:** drei Rollen-/Taxonomie-Schulden. **`IAD-12`** ist die
   gewichtigste: der gelockte Standard-CTA „Angebot anfragen" (`DEC-RL-013`) ist heute die Minderheit —
   „Beratung buchen" steht **15×** in sechs `de`-Namespaces gegen **7×** „Angebot anfragen" in dreien
@@ -509,34 +563,33 @@ referenzielle Korrektur war nicht erforderlich.
   sind Evidenz mit Owner-AP, keine AP01-Zusage und keine Freigabe.
 - **Keine Toolchain-Festlegung.** Node-/Paketmanager-Pinning ist offen und gehört zu PT01.5.3.
 
-## Required Context for Next PT
+## Required Context for Next Task
 
-<!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste PT braucht. -->
+<!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste Lauf braucht. -->
 
-- Nächster Primärtask ist **PT03.3 — Kernjourneys** innerhalb von AP03. Er ist **nicht** gestartet.
-- Gemäß `CONTEXT-INDEX.md` liest AP03 zusätzlich zu `ALWAYS_READ`: `ROUTING-CONTRACT.md` ·
-  `SEO-CONTRACT.md` · `I18N-CONTRACT.md` · **`IA-INVENTORY.md`**; optional bei Anlass
-  `REPO-BASELINE.md` · `QUALITY-GATES.md`. Für die Lead-/Conversion-Enden der Journeys zusätzlich
-  `LEAD-DATA-CONTRACT.md` §2.1/§5.1 (Journey-/Lead-Typen) — Abweichung hier vermerkt.
-- **PT03.3 erweitert dasselbe Dokument**: `IA-INVENTORY.md` §8.7 reserviert den Journey-Abschnitt.
-  Zu füllen sind **`IA-16`** (Lead-Journeys referenzieren das persistente Lead-/CRM-Zielmodell, kein
-  Mail-only), **`IA-21`** (alle **sieben** Master-Scope-Kernjourneys vollständig modelliert) und
-  **`IA-22`** (keine Sackgasse ohne Kennzeichnung).
-- **Vorarbeit, die PT03.3 nutzt statt neu herzuleiten:** §8.4 liefert je Seite Conversion-Rolle und
-  AP02-Lead-Typ (`general_inquiry`, `support`, `epigenetics_inquiry`, `consumer_order`,
-  `content_download`), §8.2 die typischen Einstiege und nächsten Schritte je Seitentyp.
-- **Nicht vorziehen:** die finale Navigations-/Findability-Strategie (PT03.4, `IA-09`, `IA-17`–`IA-19`);
-  die `FINALIZE_PT03.4`-Werte in §8.6 bleiben offen.
-- **Verbindlich für die Journey-Modellierung:** Support ist eine eigene Journey und **kein** Sales-Lead ·
-  Epigenetik hat eine **eigene** Inquiry (`DEC-RL-011`) · Consumer Order ist ein eigener Business-Vorgang ·
-  mindestens **eine** gated Secondary Conversion ist Pflicht (`DEC-RL-014`, P-17) · **kein Chat** als
-  Journey-Station (`DEC-RL-007`) · **kein Garantie-CTA-Band** (`DEC-RL-012`).
+- Nächster Lauf ist **AP03-CLOSURE** — ein **Validator**, kein Primärtask. Er prüft den realen
+  Repository-Zustand gegen die Zusagen von PT03.1–PT03.4 und setzt AP03 erst danach auf `COMPLETE`.
+  **PT03.x ist vollständig; AP04 ist nicht gestartet.**
+- Zu prüfendes Artefakt: **`building-docs/IA-INVENTORY.md`** — genau **ein** kanonisches IA-Hauptartefakt.
+  - PT03.1 → §4–§7: 27 Seitenfamilien `P-01`–`P-27`, Redirect Sources `X-01`–`X-06`, `N-01`, `T-01`–`T-06`
+  - PT03.2 → §8: zehn Seitentypen `T1`–`T10`, Rollenmatrix §8.4, Vokabulare §8.3
+  - PT03.3 → §9: sieben Kernjourneys `J-01`–`J-07`, Übersicht §9.3, Sackgassenanalyse §9.4
+  - PT03.4 → §10: Header-, Diagnostik-, Epigenetik-, IglooPro-, Footer-, Consumer-, Search-,
+    Breadcrumb-, ChapterNav-, Crosslink- und CTA-Policy, **finale Matrix §10.15**, Redirect/404 §10.16
+- **Erwartete Closure-Prüfpunkte:** Decision Locks 18/18 · **kein Quell-, Runtime-, Content-, Locale-,
+  Asset-, Config- oder Lockfile-Delta durch AP03** · genau ein IA-Hauptartefakt, keine konkurrierende
+  Navigation-, Search- oder Journey-Datei · Route Registry bleibt Routing-Wahrheit
+  (`IA-INVENTORY.md` §10.1) · alle **25** IA-Invarianten `IA-01`–`IA-25` adressiert · keine offene
+  `TBD`-Klassifikation · `IAD-01`–`IAD-19` mit Owner-AP und ohne Zielcharakter · keine vorgezogene
+  Implementierung aus AP04–AP33.
+- **Bekannte ID-Kollisionen:** `CD-` in `CONTENT-ASSET-CONTRACT.md` **und** `CRM-INTEGRATION.md`;
+  `RD-` in `RUNTIME-CONTRACT.md` **und** `ROUTING-CONTRACT.md`. Die IA-Serien sind `P-`, `X-`, `N-`,
+  `T-`, `J-`, `IAD-` und `IA-`.
 - **Weiterhin gültig:** `AP01-RECONCILIATION-RESULT.md` §2 Baseline Guards (`BG-01`–`BG-12`), §6 Legacy
   Classification, §7 Toolchain Contract, §8 Known Remaining Debt (`D-01`–`D-30`); die AP02-Verträge
   RT-38–RT-70, R-17–R-53, CA-01–CA-40, LD-27–LD-33 und DEP-37–DEP-57.
-- **Debt-IDs immer mit ihrem Vertrag nennen.** Gleichnamige Serien: `CD-` in
-  `CONTENT-ASSET-CONTRACT.md` **und** `CRM-INTEGRATION.md`; `RD-` in `RUNTIME-CONTRACT.md` **und**
-  `ROUTING-CONTRACT.md`. Die IA-Serie ist `IAD-`.
+- **Nicht durch AP03 abgenommen:** kein Launch-Gate, kein Risiko geschlossen, keine Product Decision neu
+  getroffen. Offene Fremdentscheidungen bleiben benannt (Legal-Indexierbarkeit `IAD-05`, AP20 PT20.4.8).
 - Reproduzierbare Verifikation (unverändert): isolierter Worktree auf HEAD, `npm ci` **im Root und in
   `server/`**, `tsc -b` (mit `--max-old-space-size=3072`), `vitest run`, `npm run build`, dann SSR auf
   isoliertem freiem Port (`NODE_ENV=production PORT=<frei> BACKEND_URL=http://127.0.0.1:39999
@@ -546,13 +599,14 @@ npx tsx server.ts`). `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-
 
 ## Handoff
 
-- **AP03: `IN_PROGRESS`** · Last completed PT: **PT03.2 (`PASS`)** · **Next PT: PT03.3 — nicht
-  gestartet.** AP03 ist **nicht** `COMPLETE`; das AP03-Closure Gate ist nicht gelaufen.
+- **AP03: `IN_PROGRESS`** · Last completed PT: **PT03.4 (`PASS`)** · **Next task: `AP03-CLOSURE` —
+  nicht gestartet.** Alle vier Primärtasks PT03.1–PT03.4 sind `PASS`; **AP03 wird erst durch den
+  separaten Closure-Lauf `COMPLETE`.**
 - **AP02: `COMPLETE`** · **AP02 closure: `PASS` (23/23, `C02-01`–`C02-23`)** — unverändert erhalten.
 - **AP04: NOT STARTED.**
 - **AP01: `COMPLETE`** · AP01 closure: `PASS` (43/43) · **AP00: `COMPLETE`**, Closure `PASS` — beide
   unverändert erhalten
-- Decision Locks: **18/18 `LOCKED`**, durch PT02.1–PT02.5, den AP02-Closure-Lauf, PT03.1 und PT03.2
+- Decision Locks: **18/18 `LOCKED`**, durch PT02.1–PT02.5, den AP02-Closure-Lauf und PT03.1–PT03.4
   unverändert;
   `MASTER-SCOPE.md`, `DECISIONS.md`, `PROJECT-CONSTRAINTS.md` und `SCOPE-CHANGELOG.md` sind im gesamten
   AP02-Delta **unberührt**. Baseline
@@ -562,7 +616,7 @@ Kanonische Ausführungsevidenz AP01: **`building-docs/AP01-RECONCILIATION-RESULT
 Kanonische Ausführungsevidenz PT02.1: **`building-docs/RUNTIME-CONTRACT.md`** · PT02.2:
 **`building-docs/ROUTING-CONTRACT.md`** · PT02.3: **`building-docs/CONTENT-ASSET-CONTRACT.md`** ·
 PT02.4: **`LEAD-DATA-CONTRACT.md`** (Hub, §2.1/§3.1) mit `BACKEND-API-CONTRACT.md`,
-`LEAD-DELIVERY-CONTRACT.md` und `CRM-INTEGRATION.md` · PT02.5: **`DEPLOYMENT-CONTRACT.md`** · PT03.1/PT03.2:
+`LEAD-DELIVERY-CONTRACT.md` und `CRM-INTEGRATION.md` · PT02.5: **`DEPLOYMENT-CONTRACT.md`** · PT03.1–PT03.4:
 **`building-docs/IA-INVENTORY.md`** — das jeweilige Artefakt ist der Nachweis; ein zweiter Report wird
 dafür nicht angelegt.
 
@@ -647,6 +701,37 @@ Was PT02.4 hergestellt hat:
 - **Testbarkeit:** §9.1 ordnet die geforderten `LEAD-01`–`LEAD-22` auf die vier bestehenden
   ID-Systematiken zu, ohne eine fünfte einzuführen.
 
+Was PT03.3 hergestellt hat:
+
+- **Sieben Kernjourneys `J-01`–`J-07`** (§9.2) mit Zielgruppe, Startpunkten, Zwischenstationen,
+  Seitenfamilien, primärer und sekundärer Conversion, AP02-Lead-Typ, Success-/Failure-State,
+  Crosslinks, Sprachumfang und Owner-APs.
+- **Gemeinsame Journey-Regeln** (§9.1): Lead-Ziel Persistenz + CRM statt Mail-only, Consent-Grenze ohne
+  Tracking-Vorgriff, zehn Locales, CTA-Naming, konzeptionelle Failure-Zustände.
+- **Sackgassenanalyse** (§9.4): `J-05` existiert heute gar nicht (kein Gate), `J-03` ist im Einstieg
+  verengt und ohne eigene Inquiry, `J-04` endet im Einheits-CTA, `J-06` ist sprachlich blockiert.
+  Jede Lücke mit Debt-ID und Owner-AP, keine behoben.
+
+Was PT03.4 hergestellt hat:
+
+- **Header-IA** (§10.3) mit sieben Slots plus Sales-CTA, Search und Language Switcher; **Epigenetik als
+  eigener Hauptnavigationspunkt** (§10.5), Diagnostik davon getrennt (§10.4).
+- **Footer-IA** (§10.7) mit verbindlichem Epigenetik- und Support-Einstieg.
+- **Consumer-Findability** (§10.8): bewusst kein B2B-Hauptmenüpunkt, dafür vier benannte Kanäle.
+- **Search-, Breadcrumb-, ChapterNav- und Crosslink-Policy** (§10.9–§10.12) inklusive
+  Ergebniskategorien, fachlicher Breadcrumb-Hierarchien, ChapterNav-Eignungskriterien und einer
+  ausdrücklichen Absage an SEO-Linkfarmen.
+- **Finale Klassifikationsmatrix §10.15** über alle 27 Seitenfamilien — sieben Spalten, keine offene
+  Klassifikation; sie löst die vorläufigen Werte aus §8.6 ab.
+- **Locale-sichere Verlinkung** (§10.14) und Redirect-/404-Findability (§10.16).
+
+Verbindlicher Rahmen für `AP03-CLOSURE`:
+
+- Die Closure ist **Validator, kein Primärtask**: sie prüft den realen Repository-Zustand, nicht die
+  Reports — Vorbild ist der AP02-Closure-Lauf.
+- **AP03 darf erst durch die Closure `COMPLETE` werden.** Bis dahin bleibt der Status `IN_PROGRESS`.
+- **AP04 bleibt gesperrt**, bis die Closure `PASS` meldet.
+
 Was PT03.2 hergestellt hat:
 
 - **Zehn primäre Seitentypen** `T1`–`T10` aus `MASTER-SCOPE.md` AP03 PT03.2, plus eine getrennte
@@ -663,13 +748,6 @@ Was PT03.2 hergestellt hat:
   die Consumer-Familie; Support trägt **keinen** Sales-CTA; Legal trägt bewusst `NONE`.
 - **Schulden statt Reparaturen:** `IAD-12`–`IAD-14`, jede mit Owner-AP und Gate-Bezug. **Keine**
   wurde behoben.
-
-Verbindlicher Rahmen für PT03.3:
-
-- **PT03.3 erweitert `IA-INVENTORY.md` §8.7**, es legt kein zweites IA-Dokument an.
-- Zu füllen sind `IA-16`, `IA-21`, `IA-22`; §8.4 liefert die Conversion-Rollen und Lead-Typen als
-  Ausgangspunkt.
-- Navigation und Findability (PT03.4) bleiben unberührt.
 
 Was PT03.1 hergestellt hat:
 
