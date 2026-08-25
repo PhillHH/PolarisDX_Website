@@ -10,7 +10,7 @@
         "attach": "Allega foto e file di log"
       },
       "breadcrumb": "Home / Supporto",
-      "cta_primary": "Invia una richiesta",
+      "cta_primary": "Invia una richiesta di supporto",
       "cta_secondary": "Chiama l'assistenza",
       "value": {
         "response_value": "< 24 h",
@@ -53,7 +53,7 @@
       "consent": "Acconsento alla conservazione dei miei dati per un massimo di 12 mesi ai fini dell'elaborazione della richiesta di supporto e di eventuali domande di chiarimento.",
       "submit": "Invia",
       "submitting": "Invio in corso...",
-      "success": "Grazie! La tua richiesta di supporto è stata inviata. Ti ricontatteremo nel più breve tempo possibile.",
+      "success": "Grazie! Abbiamo ricevuto e registrato la tua richiesta di supporto. Ti ricontatteremo nel più breve tempo possibile.",
       "error": "Si è verificato un errore. Riprova più tardi.",
       "microcopy": "Di solito rispondiamo entro un giorno lavorativo."
     },

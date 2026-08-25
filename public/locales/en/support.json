@@ -10,7 +10,7 @@
         "attach": "Attach photo & log file"
       },
       "breadcrumb": "Home / Support",
-      "cta_primary": "Send a request",
+      "cta_primary": "Send a support request",
       "cta_secondary": "Call the hotline",
       "value": {
         "response_value": "< 24 h",
@@ -53,7 +53,7 @@
       "consent": "I agree that my information will be stored for up to 12 months for processing the support request and follow-up inquiries.",
       "submit": "Submit",
       "submitting": "Sending...",
-      "success": "Thank you! Your support request has been sent. We will get back to you as soon as possible.",
+      "success": "Thank you! We have received and registered your support request. We will get back to you as soon as possible.",
       "error": "An error occurred. Please try again later.",
       "microcopy": "We usually reply within one business day."
     },

@@ -12,7 +12,7 @@
     "title": "Epigenetic and genetic analyses from one drop",
     "claim": "Six analyses from capillary blood, processed by our European cooperation partner — a measurable basis for your consultation.",
     "ctaDocs": "The six analyses",
-    "ctaQuote": "Request a quotation",
+    "ctaQuote": "Request a quote",
     "chips": [
       {
         "label": "Sample",
@@ -330,7 +330,7 @@
   ],
   "contact": {
     "caption": "Contact",
-    "title": "Request a quotation",
+    "title": "Request a quote",
     "sub": "The analyses are supplied to professional users only. B2B terms on request, tiered by volume.",
     "overview": "Overview as PDF",
     "overviewFile": "en/00_Portfolio_Overview_PolarisDX.pdf",
@@ -340,7 +340,7 @@
   "links": {
     "longevity": "Longevity diagnostics",
     "downloads": "All downloads",
-    "contact": "Request a quotation"
+    "contact": "Request a quote"
   },
   "samples": {
     "caption": "Sample reports",

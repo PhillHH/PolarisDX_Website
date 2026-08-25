@@ -94,7 +94,7 @@ const StepsSection = () => {
             size="sm"
             className="!bg-accent-strong !text-white hover:!brightness-110 focus-visible:!ring-accent"
           >
-            {t('steps.cta', 'Beratung buchen')}
+            {t('steps.cta', 'Angebot anfragen')}
           </Button>
         </div>
       </div>

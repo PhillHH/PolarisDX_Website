@@ -80,16 +80,6 @@
       "sports": "Diagnostic de Performance pour Athlètes"
     }
   },
-  "chat": {
-    "title": "Chat",
-    "status": "En ligne",
-    "intro": "Bienvenue chez PolarisDX. Comment pouvons-nous vous aider aujourd'hui ?",
-    "welcome_prototype": "Bienvenue ! Notre chatbot n'est pas encore actif. Veuillez utiliser notre <0>formulaire de contact</0> ou nous appeler au <1>+49 151 75011699</1>.",
-    "placeholder": "Tapez un message...",
-    "footer": "Propulsé par PolarisDX Assistant",
-    "error": "Désolé, quelque chose s'est mal passé.",
-    "unavailable": "Le chat est actuellement indisponible. Veuillez réessayer plus tard ou nous contacter par e-mail."
-  },
   "cookie": {
     "title": "Nous respectons votre vie privée",
     "description": "Nous utilisons des cookies.",
@@ -144,5 +134,18 @@
   },
   "languageFallback": {
     "notice": "Cette page n'est disponible qu'en anglais pour le moment."
+  },
+  "errors": {
+    "root": {
+      "title": "Une erreur est survenue",
+      "body": "Cette page n'a pas pu être chargée. Veuillez la recharger — vos données ne sont pas perdues. Si le problème persiste, réessayez dans quelques minutes.",
+      "retry": "Réessayer",
+      "home": "Aller à l'accueil"
+    },
+    "segment": {
+      "title": "Cette section n'a pas pu être chargée",
+      "body": "Le reste de la page fonctionne toujours. Veuillez réessayer.",
+      "retry": "Réessayer"
+    }
   }
 }

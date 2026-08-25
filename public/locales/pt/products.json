@@ -3,8 +3,8 @@
     "title": "Diagnóstico rápido POC",
     "caption": "Diagnóstico Next Gen",
     "description": "Seu centro de controle.",
-    "cta_order": "Pedir agora",
-    "cta_datasheet": "Ficha técnica (PDF)",
+    "cta_order": "Pedir orçamento",
+    "cta_datasheet": "Ficha técnica (PDF, DE)",
     "subline": "Gratuito e sem compromisso · Resposta em 24 h",
     "chip_ivdr": "IVDR/CE",
     "chip_lis": "Compatível com LIS/HIS",
@@ -41,7 +41,7 @@
     },
     "precision": {
       "title": "Precisão",
-      "description": "CV < 2%."
+      "description": "CV < 2 %."
     }
   },
   "specs": {
@@ -57,7 +57,7 @@
     "speed": "Velocidade",
     "speed_value": "Poucos segundos",
     "accuracy": "Precisão",
-    "accuracy_value": "CV < 2%",
+    "accuracy_value": "CV < 2 %",
     "storage": "Memória",
     "storage_value": "10.000 resultados",
     "battery": "Bateria",
@@ -76,7 +76,7 @@
       "records_label": "registos de pacientes no aparelho",
       "time_value": "3–15 min",
       "time_label": "da amostra ao resultado",
-      "datasheet": "Ficha técnica (PDF)"
+      "datasheet": "Ficha técnica (PDF, DE)"
     }
   },
   "parameters": {
@@ -109,8 +109,8 @@
   "cta_bottom": {
     "title": "Expanda as possibilidades",
     "description": "Para farmácias e consultórios.",
-    "button": "Agendar agora",
-    "datasheet": "Ficha técnica (PDF)",
+    "button": "Pedir orçamento",
+    "datasheet": "Ficha técnica (PDF, DE)",
     "chips": {
       "free": "Gratuito e sem compromisso",
       "reply": "Resposta < 24 h",
@@ -124,7 +124,7 @@
   "help": {
     "title": "Não sabe se o IglooPro se adequa ao seu fluxo de trabalho?",
     "text": "15 minutos com um especialista POC: uma recomendação concreta para a sua configuração, não uma apresentação de vendas.",
-    "cta": "Agendar consulta"
+    "cta": "Pedir orçamento"
   },
   "application": {
     "eyebrow": "ÁREAS DE APLICAÇÃO",

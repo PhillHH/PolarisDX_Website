@@ -1,13 +1,13 @@
 {
   "seo": {
     "title": "POC diagnostika pro vaši ordinaci: laboratorní výsledky během minut",
-    "description": "Laboratorně přesná point-of-care diagnostika přímo ve vaší ordinaci: IVDR/CE, CV < 2 % a výsledek během minut. Nový příjem od samoplátců – rezervujte si konzultaci."
+    "description": "Laboratorně přesná point-of-care diagnostika přímo ve vaší ordinaci: IVDR/CE, CV < 2 % a výsledek během minut. Nový příjem od samoplátců – vyžádejte si nabídku."
   },
   "hero": {
     "caption": "Výkon v místě péče",
     "title": "IglooPro:\nPoint-of-Care. Perfektní. Okamžitě.",
-    "description": "Zajistěte si výkonnostní balíček: váš IglooPro je připraven k použití za 3–5 pracovních dnů – zaručeno.",
-    "cta": "Rezervovat konzultaci",
+    "description": "Zajistěte si výkonnostní balíček: váš IglooPro je připraven k použití za 3–5 pracovních dnů.",
+    "cta": "Vyžádat nabídku",
     "cta_roi": "Spustit ROI kalkulačku",
     "cta_downloads": "Stáhnout informační materiály",
     "stat1": {
@@ -15,12 +15,12 @@
       "label": "Připraveno k použití po objednání"
     },
     "stat2": {
-      "value": "CV < 2%",
+      "value": "CV < 2 %",
       "label": "Přesnost v celém měřicím rozsahu"
     },
     "dental": {
       "title": "IglooPro: Point-of-care diagnostika. Nový standard pro vaši ordinaci.",
-      "description": "Zajistěte si výkonnostní balíček: váš IglooPro je připraven k použití za 3–5 pracovních dnů – zaručeno."
+      "description": "Zajistěte si výkonnostní balíček: váš IglooPro je připraven k použití za 3–5 pracovních dnů."
     },
     "beauty": {
       "title": "Vědecká estetika: měřitelné výsledky místo dohadů.",
@@ -111,7 +111,7 @@
     "eyebrow": "Váš obor",
     "help_title": "Nejste si jisti, který panel se hodí pro vaši ordinaci?",
     "help_text": "15 minut se specialistou na POC – konkrétní doporučení pro vaši odbornost, žádná prodejní show.",
-    "help_cta": "Rezervovat konzultaci"
+    "help_cta": "Vyžádat nabídku"
   },
   "services": {
     "caption": "ZAMĚŘENÍ NA DIAGNOSTIKU",
@@ -289,7 +289,7 @@
     "caption": "Připraveni začít",
     "title": "Připraveni na laboratorně přesnou diagnostiku ve vaší ordinaci?",
     "subtitle": "Promluvte si s naším týmem nebo si spočítejte svůj potenciál úspor – kompatibilní napříč výrobci, v souladu s IVDR/CE a připraveno k použití za 3–5 pracovních dnů.",
-    "cta_primary": "Rezervovat konzultaci",
+    "cta_primary": "Vyžádat nabídku",
     "cta_secondary": "ROI kalkulačka",
     "chips": {
       "free": "Zdarma a nezávazně",
@@ -318,9 +318,9 @@
       "payback": "Návratnost (měsíce)"
     },
     "warn_negative": "Při těchto hodnotách je krycí příspěvek záporný – zkontrolujte prosím ceny/náklady.",
-    "payback_hint": "Pro výpočet vaší individuální návratnosti: rezervujte konzultaci nebo si vyžádejte report.",
+    "payback_hint": "Pro vaši individuální návratnost: vyžádejte si nabídku nebo report.",
     "disclaimer": "Nezávazný příkladový výpočet na základě vašich zadání. Nejedná se o příslib obratu ani zisku.",
-    "cta_consult": "Rezervovat konzultaci",
+    "cta_consult": "Vyžádat nabídku",
     "cta_report": "Zaslat výsledek jako PDF",
     "form": {
       "email": "E-mailová adresa",
@@ -378,6 +378,6 @@
       "text": "Váš tým je proškolen, první pacient je změřen – laboratorně přesně, zdokumentováno, v souladu s IVDR/CE.",
       "badge": "Den 1"
     },
-    "cta": "Rezervovat konzultaci"
+    "cta": "Vyžádat nabídku"
   }
 }

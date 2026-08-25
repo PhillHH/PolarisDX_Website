@@ -3,8 +3,8 @@
     "title": "Szybka diagnostyka POC",
     "caption": "Diagnostyka Next Gen",
     "description": "Twoje centrum kontroli.",
-    "cta_order": "Zamów teraz",
-    "cta_datasheet": "Karta danych (PDF)",
+    "cta_order": "Poproś o ofertę",
+    "cta_datasheet": "Karta danych (PDF, DE)",
     "subline": "Bezpłatnie i bez zobowiązań · Odpowiedź w 24 h",
     "chip_ivdr": "IVDR/CE",
     "chip_lis": "LIS/HIS-ready",
@@ -57,7 +57,7 @@
     "speed": "Czas pomiaru",
     "speed_value": "3 - 15 minut (zależnie od testu)",
     "accuracy": "Dokładność",
-    "accuracy_value": "CV < 2%",
+    "accuracy_value": "CV < 2 %",
     "storage": "Pamięć",
     "storage_value": "Do 10 000 rekordów pacjentów",
     "battery": "Zasilanie",
@@ -76,7 +76,7 @@
       "records_label": "rekordów pacjentów w urządzeniu",
       "time_value": "3–15 Min.",
       "time_label": "od próbki do wyniku",
-      "datasheet": "Karta katalogowa (PDF)"
+      "datasheet": "Karta katalogowa (PDF, DE)"
     }
   },
   "parameters": {
@@ -109,8 +109,8 @@
   "cta_bottom": {
     "title": "Rozszerz możliwości",
     "description": "Dla aptek i gabinetów.",
-    "button": "Umów się teraz",
-    "datasheet": "Karta katalogowa (PDF)",
+    "button": "Poproś o ofertę",
+    "datasheet": "Karta katalogowa (PDF, DE)",
     "chips": {
       "free": "Bezpłatnie i bez zobowiązań",
       "reply": "Odpowiedź < 24 h",
@@ -124,7 +124,7 @@
   "help": {
     "title": "Nie wiesz, czy IglooPro pasuje do Twojego przepływu pracy?",
     "text": "15 minut ze specjalistą POC — konkretna rekomendacja dla Twojej konfiguracji, bez pokazu sprzedażowego.",
-    "cta": "Umów konsultację"
+    "cta": "Poproś o ofertę"
   },
   "application": {
     "eyebrow": "OBSZARY ZASTOSOWAŃ",

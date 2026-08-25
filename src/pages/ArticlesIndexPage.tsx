@@ -86,7 +86,7 @@ const ArticlesIndexPage = () => {
           'Insights, news, and expert knowledge on modern diagnostics and health.',
         )}
         primaryCta={{
-          label: t('articles:index.hero_primary_cta', 'Beratung buchen'),
+          label: t('articles:index.hero_primary_cta', 'Fachartikel lesen'),
           to: '/contact',
         }}
         secondaryCta={{

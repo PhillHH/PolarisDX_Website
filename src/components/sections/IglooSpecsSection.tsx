@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import Eyebrow from '../ui/Eyebrow'
-import IglooProFlyer from '../../assets/downloads/igloo-pro-flyer.pdf'
+const IglooProFlyer = '/downloads/igloo-pro-flyer.pdf'
 
 /**
  * IglooSpecsSection — technische Datentabelle (links) + Navy-Highlight-Karte

@@ -10,7 +10,7 @@
         "attach": "Anexe fotografia e ficheiro de registo"
       },
       "breadcrumb": "Início / Apoio",
-      "cta_primary": "Enviar um pedido",
+      "cta_primary": "Enviar um pedido de apoio",
       "cta_secondary": "Ligar para a linha de apoio",
       "value": {
         "response_value": "< 24 h",
@@ -53,7 +53,7 @@
       "consent": "Concordo que os meus dados sejam armazenados durante um período máximo de 12 meses para o tratamento do pedido de apoio e para eventuais questões de seguimento.",
       "submit": "Enviar",
       "submitting": "A enviar...",
-      "success": "Muito obrigado! O seu pedido de apoio foi enviado. Entraremos em contacto consigo com a maior brevidade possível.",
+      "success": "Muito obrigado! Recebemos e registámos o seu pedido de apoio. Entraremos em contacto consigo com a maior brevidade possível.",
       "error": "Ocorreu um erro. Tente novamente mais tarde, por favor.",
       "microcopy": "Normalmente respondemos no prazo de um dia útil."
     },

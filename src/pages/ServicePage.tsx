@@ -295,7 +295,7 @@ const ServicePage = () => {
         eyebrow={t('home:services.caption', 'Diagnostik-Fokus')}
         title={pageH1}
         subtitle={heroSubtitle}
-        primaryCta={{ label: t('home:hero.cta', 'Beratung buchen'), to: '/contact' }}
+        primaryCta={{ label: t('home:hero.cta', 'Angebot anfragen'), to: '/contact' }}
         chips={[
           t('services:overview.hero.chip_cv', 'CV < 2 %'),
           t('services:overview.hero.chip_results', 'Ergebnis in 3–15 Min'),
@@ -483,7 +483,7 @@ const ServicePage = () => {
                 to="/contact"
                 className="whitespace-nowrap rounded-md bg-white px-5 py-3 font-medium text-brand-deep transition hover:bg-white/90"
               >
-                {t('home:igloo_widget.help_cta', 'Beratung buchen')}
+                {t('home:igloo_widget.help_cta', 'Angebot anfragen')}
               </Link>
             </div>
 

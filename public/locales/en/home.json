@@ -1,13 +1,13 @@
 {
   "seo": {
     "title": "POC Diagnostics for Your Practice: Lab Results in Minutes",
-    "description": "Lab-accurate point-of-care diagnostics directly in your practice: IVDR/CE, CV < 2 % and results in minutes. New self-pay revenue – book a consultation now."
+    "description": "Lab-accurate point-of-care diagnostics directly in your practice: IVDR/CE, CV < 2 % and results in minutes. New self-pay revenue – request a quote now."
   },
   "hero": {
     "caption": "Point-of-Care Performance",
     "title": "IglooPro:\nPoint-of-Care. Perfect. Immediate.",
-    "description": "Secure the performance package: your IglooPro is ready for use in 3–5 business days – guaranteed.",
-    "cta": "Book a consultation",
+    "description": "Secure the performance package: your IglooPro is ready for use in 3–5 business days.",
+    "cta": "Request a quote",
     "cta_roi": "Launch ROI calculator",
     "cta_downloads": "Download information materials",
     "stat1": {
@@ -15,12 +15,12 @@
       "label": "Ready for use after ordering"
     },
     "stat2": {
-      "value": "CV < 2%",
+      "value": "CV < 2 %",
       "label": "Precision across the entire measurement range"
     },
     "dental": {
       "title": "IglooPro: Point-of-Care Diagnostics. The new benchmark for your practice.",
-      "description": "Secure the performance package: your IglooPro is ready for use in 3–5 business days – guaranteed."
+      "description": "Secure the performance package: your IglooPro is ready for use in 3–5 business days."
     },
     "beauty": {
       "title": "Scientific Aesthetics: Measured Results Instead of Guesswork.",
@@ -111,7 +111,7 @@
     "eyebrow": "Your specialty",
     "help_title": "Not sure which panel fits your practice?",
     "help_text": "15 minutes with a POC specialist — a concrete recommendation for your specialty, no sales show.",
-    "help_cta": "Book a consultation"
+    "help_cta": "Request a quote"
   },
   "services": {
     "caption": "DIAGNOSTICS FOCUS",
@@ -289,7 +289,7 @@
     "caption": "Ready to get started",
     "title": "Ready for lab-accurate diagnostics in your practice?",
     "subtitle": "Talk to our team or calculate your savings potential — cross-manufacturer, IVDR/CE-compliant and ready for use in 3–5 business days.",
-    "cta_primary": "Book a consultation",
+    "cta_primary": "Request a quote",
     "cta_secondary": "ROI calculator",
     "chips": {
       "free": "Free & non-binding",
@@ -318,9 +318,9 @@
       "payback": "Payback period (months)"
     },
     "warn_negative": "With these values the contribution margin is negative – please check your prices/costs.",
-    "payback_hint": "For your individual payback period: book a consultation or request a report.",
+    "payback_hint": "For your individual payback: request a quote or request the report.",
     "disclaimer": "Non-binding example calculation based on your inputs. No guarantee of revenue or profit.",
-    "cta_consult": "Book a consultation",
+    "cta_consult": "Request a quote",
     "cta_report": "Send result as a PDF",
     "form": {
       "email": "Email address",
@@ -378,6 +378,6 @@
       "text": "Your team is trained, the first patient is measured — lab-accurate, documented, IVDR/CE-compliant.",
       "badge": "day one"
     },
-    "cta": "Book a consultation"
+    "cta": "Request a quote"
   }
 }

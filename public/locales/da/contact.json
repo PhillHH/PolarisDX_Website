@@ -22,7 +22,6 @@
       }
     },
     "form": {
-      "_translationStatus": "English fallback — panel context, epigenetics field options and field errors",
       "progress": {
         "start": "Lad os starte — kun få felter",
         "going": "Ser godt ud — {{count}} tilbage",
@@ -57,7 +56,7 @@
           "longevity": "Longevity",
           "nutrition": "Nutritional counselling",
           "sports": "Sports medicine",
-          "bgm": "Corporate health management",
+          "bgm": "Virksomhedssundhed",
           "practice": "Practice and clinic",
           "pharmacy": "Apotek",
           "other": "Andet"
@@ -66,28 +65,28 @@
           "dental": "Stærkt valg — D-vitamin og CRP direkte ved stolen er implantologiens klassikere.",
           "beauty": "Godt — CRP og vitaminpaneler er æstetikkens basis for hud og restitution.",
           "longevity": "Perfekt — HbA1c, CRP og D-vitamin er longevity-basismarkørerne.",
-          "nutrition": "We will get back to you with the documents relevant to nutritional counselling.",
-          "sports": "We will get back to you with the documents relevant to sports medicine.",
-          "bgm": "We will get back to you with the documents relevant to corporate health management.",
-          "practice": "We will get back to you with the documents relevant to practice and clinic.",
+          "nutrition": "Vi vender tilbage med det materiale, der er relevant for ernæringsrådgivning.",
+          "sports": "Vi vender tilbage med det materiale, der er relevant for sportsmedicin.",
+          "bgm": "Vi vender tilbage med det materiale, der er relevant for virksomhedssundhed.",
+          "practice": "Vi vender tilbage med det materiale, der er relevant for klinik og hospital.",
           "pharmacy": "Smart — hurtige CRP- og D-vitamintests gør tilfældige kunder til faste kunder.",
           "other": "Fortæl os om dit setup — vi sammensætter det rette point-of-care-panel."
         }
       },
       "field_required": "Vælg dit område, så vi kan forberede det rette panel.",
-      "panel_context_one": "Your enquiry refers to the panel {{panels}}.",
-      "panel_context_other": "Your enquiry refers to the panels {{panels}}.",
+      "panel_context_one": "Din henvendelse vedrører panelet {{panels}}.",
+      "panel_context_other": "Din henvendelse vedrører panelerne {{panels}}.",
       "errors": {
-        "name": "Please enter your name — at least two characters.",
-        "email": "Please enter a valid email address, for example name@practice.com.",
-        "consent": "Please tick the consent box so we may reply to your enquiry."
+        "name": "Angiv venligst dit navn — mindst to tegn.",
+        "email": "Indtast en gyldig e-mailadresse, for eksempel navn@klinik.dk.",
+        "consent": "Sæt venligst flueben ved samtykket, så vi må besvare din henvendelse."
       },
       "prepare_label": "Skal vi forberede noget?",
       "prepare_placeholder": "Hvilke biomarkører interesserer dig — CRP, TSH, HbA1c?",
       "consent": "Jeg accepterer, at mine oplysninger opbevares til kontakt og eventuelle spørgsmål i op til 12 måneder. Se vores",
       "privacy_link": "privatlivspolitik",
       "submit": {
-        "consultation": "Book min rådgivning",
+        "consultation": "Anmod om tilbud",
         "quote": "Anmod om tilbud",
         "product": "Send mit spørgsmål",
         "support": "Få support",
@@ -95,7 +94,7 @@
       },
       "sending": "Sender…",
       "microcopy": "Under 2 minutter — lovet. Svar inden for 24 t og derefter et konkret næste skridt.",
-      "success": "Tak! Din besked er sendt — vi vender tilbage inden for 24 t.",
+      "success": "Tak! Vi har modtaget og registreret din henvendelse — vi vender tilbage inden for 24 t.",
       "error": "Noget gik galt. Tjek dine oplysninger, eller prøv igen om et øjeblik."
     },
     "trust": {

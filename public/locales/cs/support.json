@@ -10,7 +10,7 @@
         "attach": "Přiložte fotografii a soubor protokolu"
       },
       "breadcrumb": "Domů / Podpora",
-      "cta_primary": "Odeslat žádost",
+      "cta_primary": "Odeslat žádost o podporu",
       "cta_secondary": "Zavolat na linku podpory",
       "value": {
         "response_value": "< 24 h",
@@ -53,7 +53,7 @@
       "consent": "Souhlasím s tím, že mé údaje budou uchovány po dobu až 12 měsíců za účelem zpracování žádosti o podporu a případných dotazů.",
       "submit": "Odeslat",
       "submitting": "Odesílání...",
-      "success": "Děkujeme! Vaše žádost o podporu byla odeslána. Ozveme se vám co nejdříve.",
+      "success": "Děkujeme! Vaši žádost o podporu jsme přijali a zaevidovali. Ozveme se vám co nejdříve.",
       "error": "Došlo k chybě. Zkuste to prosím později znovu.",
       "microcopy": "Obvykle odpovídáme do jednoho pracovního dne."
     },

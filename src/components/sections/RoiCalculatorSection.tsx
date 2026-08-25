@@ -105,7 +105,6 @@ const RoiCalculatorSection = () => {
 
     setStatus('submitting')
 
-    // TODO Backend POST /api/roi-report (Double-Opt-in + PDF) – Folge-Task, Endpoint noch nicht live.
     try {
       const res = await fetch('/api/roi-report', {
         method: 'POST',
@@ -226,7 +225,7 @@ const RoiCalculatorSection = () => {
                   <div className="border-t border-white/10 pt-3 text-white/70">
                     {t(
                       'roi.payback_hint',
-                      'Für Ihre individuelle Amortisation: Beratung buchen oder Report anfordern.',
+                      'Für Ihre individuelle Amortisation: Angebot anfragen oder Report anfordern.',
                     )}
                   </div>
                 )}
@@ -265,7 +264,7 @@ const RoiCalculatorSection = () => {
             size="sm"
             className="!bg-accent-strong !text-white hover:!brightness-110 focus-visible:!ring-accent"
           >
-            {t('roi.cta_consult', 'Beratung buchen')}
+            {t('roi.cta_consult', 'Angebot anfragen')}
           </Button>
         </div>
 

@@ -10,7 +10,7 @@
         "attach": "Foto & Logfile anhängen"
       },
       "breadcrumb": "Home / Support",
-      "cta_primary": "Beratung buchen",
+      "cta_primary": "Support-Anfrage senden",
       "cta_secondary": "Hotline anrufen",
       "value": {
         "response_value": "< 24 h",
@@ -53,7 +53,7 @@
       "consent": "Ich stimme zu, dass meine Angaben zur Bearbeitung der Support-Anfrage und für Rückfragen bis zu 12 Monate gespeichert werden.",
       "submit": "Absenden",
       "submitting": "Sende...",
-      "success": "Vielen Dank! Ihre Support-Anfrage wurde gesendet. Wir melden uns schnellstmöglich bei Ihnen.",
+      "success": "Vielen Dank! Wir haben Ihre Support-Anfrage erhalten und registriert. Wir melden uns schnellstmöglich bei Ihnen.",
       "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.",
       "microcopy": "Wir antworten in der Regel innerhalb eines Arbeitstages."
     },

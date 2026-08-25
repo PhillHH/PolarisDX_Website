@@ -22,7 +22,6 @@
       }
     },
     "form": {
-      "_translationStatus": "English fallback — panel context, epigenetics field options and field errors",
       "progress": {
         "start": "Iniziamo — solo pochi campi",
         "going": "Ottimo — ancora {{count}}",
@@ -57,7 +56,7 @@
           "longevity": "Longevity",
           "nutrition": "Nutritional counselling",
           "sports": "Sports medicine",
-          "bgm": "Corporate health management",
+          "bgm": "Salute aziendale",
           "practice": "Practice and clinic",
           "pharmacy": "Farmacia",
           "other": "Altro"
@@ -66,36 +65,36 @@
           "dental": "Ottima scelta — vitamina D e CRP direttamente alla poltrona sono i classici dell'implantologia.",
           "beauty": "Perfetto — CRP e pannelli vitaminici sono i fondamentali dell'estetica per pelle e recupero.",
           "longevity": "Ideale — HbA1c, CRP e vitamina D sono i marcatori base della longevity.",
-          "nutrition": "We will get back to you with the documents relevant to nutritional counselling.",
-          "sports": "We will get back to you with the documents relevant to sports medicine.",
-          "bgm": "We will get back to you with the documents relevant to corporate health management.",
-          "practice": "We will get back to you with the documents relevant to practice and clinic.",
+          "nutrition": "Ti ricontatteremo con la documentazione rilevante per la consulenza nutrizionale.",
+          "sports": "Ti ricontatteremo con la documentazione rilevante per la medicina dello sport.",
+          "bgm": "Ti ricontatteremo con la documentazione rilevante per la salute aziendale.",
+          "practice": "Ti ricontatteremo con la documentazione rilevante per studio e clinica.",
           "pharmacy": "Intelligente — i test rapidi CRP e vitamina D trasformano i clienti di passaggio in clienti fissi.",
           "other": "Raccontaci il tuo setup — comporremo il pannello point-of-care più adatto."
         }
       },
       "field_required": "Seleziona il tuo ambito così prepariamo il pannello giusto.",
-      "panel_context_one": "Your enquiry refers to the panel {{panels}}.",
-      "panel_context_other": "Your enquiry refers to the panels {{panels}}.",
+      "panel_context_one": "La tua richiesta riguarda il pannello {{panels}}.",
+      "panel_context_other": "La tua richiesta riguarda i pannelli {{panels}}.",
       "errors": {
-        "name": "Please enter your name — at least two characters.",
-        "email": "Please enter a valid email address, for example name@practice.com.",
-        "consent": "Please tick the consent box so we may reply to your enquiry."
+        "name": "Inserisci il tuo nome — almeno due caratteri.",
+        "email": "Inserisci un indirizzo e-mail valido, ad esempio nome@studio.it.",
+        "consent": "Spunta la casella del consenso affinché possiamo rispondere alla tua richiesta."
       },
       "prepare_label": "Dobbiamo preparare qualcosa?",
       "prepare_placeholder": "Quali biomarcatori ti interessano — CRP, TSH, HbA1c?",
       "consent": "Acconsento alla conservazione dei miei dati per essere ricontattato e per eventuali domande, per un massimo di 12 mesi. Vedi la nostra",
       "privacy_link": "informativa sulla privacy",
       "submit": {
-        "consultation": "Prenota la consulenza",
-        "quote": "Richiedi il preventivo",
+        "consultation": "Richiedi un preventivo",
+        "quote": "Richiedi un preventivo",
         "product": "Invia la domanda",
         "support": "Ricevi supporto",
         "other": "Invia il messaggio"
       },
       "sending": "Invio…",
       "microcopy": "Meno di 2 minuti — promesso. Risposta entro 24 h, poi un passo successivo concreto.",
-      "success": "Grazie! Il tuo messaggio è stato inviato — ti rispondiamo entro 24 h.",
+      "success": "Grazie! Abbiamo ricevuto e registrato la tua richiesta — ti rispondiamo entro 24 h.",
       "error": "Qualcosa è andato storto. Controlla i dati o riprova tra un istante."
     },
     "trust": {

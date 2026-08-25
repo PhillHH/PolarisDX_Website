@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/Button'
-import IglooProFlyer from '../../assets/downloads/igloo-pro-flyer.pdf'
+const IglooProFlyer = '/downloads/igloo-pro-flyer.pdf'
 
 export default function IglooProductFinalCta() {
   const { t } = useTranslation('products')

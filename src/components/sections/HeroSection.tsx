@@ -9,7 +9,7 @@ import IglooProImage from '../../assets/Igloo-pro-frontal.webp'
  * SSR-safe HeroSection — NO framer-motion, pure CSS animations.
  * SEO/LCP: h1 + description sind immer sichtbar (kein initiales opacity:0); nur Slide 0 = h1.
  * B2B-Umbau (Phase 3.1): 4 Slides (speed/economics/compliance/segments), Teal-Primaer-CTA
- *"Beratung buchen", Sekundaer-CTA"ROI-Rechner" (<Link to="/#roi-rechner"> statt rohem
+ *"Angebot anfragen", Sekundaer-CTA"ROI-Rechner" (<Link to="/#roi-rechner"> statt rohem
  * Anchor: der Router setzt das Sprachpraefix, ScrollToHash den Header-Offset), Proof-Chip-Reihe,
  * Pause-on-hover/focus + prefers-reduced-motion (Autoplay UND Slide-Keyframes)
  * + Dot-ARIA (aria-current/-label) + Pause/Play mit echtem Zustand (isPlaying).
@@ -119,7 +119,7 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* CTAs: Primaer (Teal) Beratung buchen + Sekundaer (Magnet) ROI-Rechner */}
+            {/* CTAs: Primaer (Teal) Angebot anfragen + Sekundaer (Magnet) ROI-Rechner */}
             <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4">
               <Button
                 to="/contact"
@@ -127,7 +127,7 @@ const HeroSection = () => {
                 size="sm"
                 className="w-full text-center sm:w-auto sm:whitespace-nowrap !bg-accent-strong !text-white hover:!brightness-110 focus-visible:!ring-accent"
               >
-                {t('hero.cta', 'Beratung buchen')}
+                {t('hero.cta', 'Angebot anfragen')}
               </Button>
               <Button
                 to="/#roi-rechner"

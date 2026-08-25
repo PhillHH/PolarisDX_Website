@@ -11,7 +11,7 @@
     "title": "Vitamin D3+K2 sublinguale spray",
     "subtitle": "2.000 IE per sproeistoot – dubbele biologische beschikbaarheid dankzij Tiny-technologie. Exclusief via het medische distributiekanaal.",
     "cta": "Nu bestellen",
-    "download": "Productflyer downloaden"
+    "download": "Productflyer downloaden (EN)"
   },
   "intro": {
     "title": "Vitamine D-tekort vastgesteld – direct in de praktijk aanvullen",
@@ -111,7 +111,7 @@
     "quick_order_cta": "Nu bestellen",
     "download_caption": "Productflyer",
     "download_text": "Alle informatie over de Vitamin D3+K2 spray als PDF.",
-    "download_cta": "PDF downloaden",
+    "download_cta": "PDF downloaden (EN)",
     "trust": "Meer dan 100 praktijken in 15+ landen vertrouwen op PolarisDX"
   },
   "faq": {
@@ -137,22 +137,56 @@
     "bio": "2× biobeschikbaarheid"
   },
   "hero_stats": [
-    { "value": "2.000 IE", "label": "per sproeistoot" },
-    { "value": "71", "label": "toepassingen / flacon" },
-    { "value": "2×", "label": "biobeschikbaarheid" }
+    {
+      "value": "2.000 IE",
+      "label": "per sproeistoot"
+    },
+    {
+      "value": "71",
+      "label": "toepassingen / flacon"
+    },
+    {
+      "value": "2×",
+      "label": "biobeschikbaarheid"
+    }
   ],
   "visual_chips": [
-    { "value": "2.000 IE", "label": "Vitamine D3" },
-    { "value": "15 µg K2", "label": "MK-7" },
-    { "value": "71×", "label": "per flacon" }
+    {
+      "value": "2.000 IE",
+      "label": "Vitamine D3"
+    },
+    {
+      "value": "15 µg K2",
+      "label": "MK-7"
+    },
+    {
+      "value": "71×",
+      "label": "per flacon"
+    }
   ],
   "stats": [
-    { "value": "2.000 IE", "label": "Vitamine D3 per sproeistoot" },
-    { "value": "15 µg", "label": "Vitamine K2 (MK-7)" },
-    { "value": "71", "label": "toepassingen per flacon" },
-    { "value": "vanaf € 10,90", "label": "per eenheid (praktijkpakket)" }
+    {
+      "value": "2.000 IE",
+      "label": "Vitamine D3 per sproeistoot"
+    },
+    {
+      "value": "15 µg",
+      "label": "Vitamine K2 (MK-7)"
+    },
+    {
+      "value": "71",
+      "label": "toepassingen per flacon"
+    },
+    {
+      "value": "vanaf € 10,90",
+      "label": "per eenheid (praktijkpakket)"
+    }
   ],
-  "benefit_titles": ["Botten & calcium", "Osseo-integratie", "Parodontale preventie"],
+  "benefit_titles": [
+    "Botten & calcium",
+    "Osseo-integratie",
+    "Parodontale preventie"
+  ],
   "badges": {
     "vegan": "Veganistisch",
     "made_in": "Made in Germany"

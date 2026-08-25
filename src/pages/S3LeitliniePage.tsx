@@ -816,7 +816,7 @@ const S3LeitliniePage = () => {
                         to="/contact"
                         className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-6 py-3 text-sm font-semibold text-brand-deep transition-colors hover:bg-gray-50"
                       >
-                        Beratung buchen
+                        Angebot anfragen
                         <ArrowRight className="h-4 w-4" />
                       </Link>
                       <a
@@ -901,7 +901,7 @@ const S3LeitliniePage = () => {
                     to="/contact"
                     className="flex items-center justify-center gap-2 rounded-md bg-white px-4 py-2.5 text-sm font-semibold text-brand-deep transition-colors hover:bg-gray-50"
                   >
-                    Beratung buchen
+                    Angebot anfragen
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
@@ -995,7 +995,7 @@ const S3LeitliniePage = () => {
           to="/contact"
           className="flex w-full items-center justify-center gap-2 rounded-md bg-brand-primary px-6 py-3.5 text-sm font-semibold text-white"
         >
-          Beratung buchen
+          Angebot anfragen
           <ArrowRight className="h-4 w-4" />
         </Link>
       </div>

@@ -1,13 +1,13 @@
 {
   "seo": {
     "title": "POC-Diagnostik für Ihre Praxis: Laborwerte in Minuten",
-    "description": "Laborgenaue Point-of-Care-Diagnostik direkt in Ihrer Praxis: IVDR/CE, CV < 2 % und Ergebnis in Minuten. Neuer Selbstzahler-Umsatz – jetzt Beratung buchen."
+    "description": "Laborgenaue Point-of-Care-Diagnostik direkt in Ihrer Praxis: IVDR/CE, CV < 2 % und Ergebnis in Minuten. Neuer Selbstzahler-Umsatz – jetzt Angebot anfragen."
   },
   "hero": {
     "caption": "Point-of-care Performance",
     "title": "IglooPro:\nPoint-of-Care. Perfekt. Sofort.",
-    "description": "Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 3-5 Werktagen einsatzbereit – garantiert.",
-    "cta": "Beratung buchen",
+    "description": "Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 3–5 Werktagen einsatzbereit.",
+    "cta": "Angebot anfragen",
     "cta_roi": "ROI-Rechner starten",
     "cta_downloads": "Infomaterialien herunterladen",
     "stat1": {
@@ -15,12 +15,12 @@
       "label": "Einsatzbereit nach Bestellung"
     },
     "stat2": {
-      "value": "CV < 2%",
+      "value": "CV < 2 %",
       "label": "Präzision über den gesamten Messbereich"
     },
     "dental": {
       "title": "IglooPro: Point-of-Care Diagnostik. Der neue Maßstab für Ihre Praxis.",
-      "description": "Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 3–5 Werktagen einsatzbereit – garantiert."
+      "description": "Sichern Sie sich das Performance-Paket: Ihr IglooPro ist in 3–5 Werktagen einsatzbereit."
     },
     "beauty": {
       "title": "Wissenschaftliche Ästhetik: Messergebnisse statt Vermutungen.",
@@ -111,7 +111,7 @@
     "eyebrow": "Ihre Fachrichtung",
     "help_title": "Nicht sicher, welches Panel zu Ihrer Praxis passt?",
     "help_text": "15 Minuten mit einem POC-Spezialisten – eine konkrete Empfehlung für Ihre Fachrichtung, keine Verkaufsshow.",
-    "help_cta": "Beratung buchen"
+    "help_cta": "Angebot anfragen"
   },
   "services": {
     "caption": "DIAGNOSTIK-FOKUS",
@@ -289,7 +289,7 @@
     "caption": "Bereit loszulegen",
     "title": "Bereit für laborgenaue Diagnostik in Ihrer Praxis?",
     "subtitle": "Sprechen Sie mit unserem Team oder berechnen Sie Ihr Einsparpotenzial — herstellerübergreifend, IVDR/CE-konform und in 3–5 Werktagen einsatzbereit.",
-    "cta_primary": "Beratung buchen",
+    "cta_primary": "Angebot anfragen",
     "cta_secondary": "ROI-Rechner",
     "chips": {
       "free": "Kostenlos & unverbindlich",
@@ -318,9 +318,9 @@
       "payback": "Amortisation (Monate)"
     },
     "warn_negative": "Bei diesen Werten ist der Deckungsbeitrag negativ – bitte Preise/Kosten prüfen.",
-    "payback_hint": "Für Ihre individuelle Amortisation: Beratung buchen oder Report anfordern.",
+    "payback_hint": "Für Ihre individuelle Amortisation: Angebot anfragen oder Report anfordern.",
     "disclaimer": "Unverbindliche Beispielrechnung auf Basis Ihrer Eingaben. Keine Zusage von Umsatz oder Gewinn.",
-    "cta_consult": "Beratung buchen",
+    "cta_consult": "Angebot anfragen",
     "cta_report": "Vollständigen ROI-Report erhalten",
     "form": {
       "email": "E-Mail-Adresse",
@@ -378,6 +378,6 @@
       "text": "Ihr Team ist geschult, der erste Patient wird gemessen – laborgenau, dokumentiert, IVDR/CE-konform.",
       "badge": "Tag 1"
     },
-    "cta": "Beratung buchen"
+    "cta": "Angebot anfragen"
   }
 }

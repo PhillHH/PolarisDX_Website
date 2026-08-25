@@ -86,7 +86,7 @@
       "consent": "Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und für Rückfragen bis zu 12 Monate gespeichert werden. Siehe unsere",
       "privacy_link": "Datenschutzerklärung",
       "submit": {
-        "consultation": "Beratung buchen",
+        "consultation": "Angebot anfragen",
         "quote": "Angebot anfragen",
         "product": "Frage senden",
         "support": "Support erhalten",
@@ -94,7 +94,7 @@
       },
       "sending": "Senden…",
       "microcopy": "Unter 2 Minuten — versprochen. Antwort in 24 h, dann ein konkreter nächster Schritt.",
-      "success": "Vielen Dank! Ihre Nachricht wurde gesendet — wir melden uns innerhalb von 24 h.",
+      "success": "Vielen Dank! Wir haben Ihre Anfrage erhalten und registriert — wir melden uns innerhalb von 24 h.",
       "error": "Etwas ist schiefgelaufen. Bitte prüfen Sie Ihre Angaben oder versuchen Sie es gleich erneut."
     },
     "trust": {

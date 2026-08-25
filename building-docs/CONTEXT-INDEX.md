@@ -163,6 +163,21 @@ Zusätzlich zu `ALWAYS_READ`. Kurznamen ohne `.md`; alle Dateien liegen im Root 
 - `CONTENT-ASSET-CONTRACT.md` ist seit **AP02 PT02.3** der kanonische Content-/Asset-Vertrag
   (Schichten Code ↔ i18n ↔ Content-JSON ↔ Assets, sprachabhängige Assets, PUBLIC/GATED). Sprachmenge und
   Key-Parität bleiben in `I18N-CONTRACT.md`, Route-Existenz in `ROUTING-CONTRACT.md`.
+- `CONTENT-MATRIX.md` ist seit **AP04 PT04.1** das kanonische Launch-Content-Statusartefakt
+  (`building-docs/CONTENT-MATRIX.md`; Master-Scope §10 Projektartefakt 5). Es hält **Content-Status**:
+  Vollständigkeit, Sprach- und Asset-Parität, CTA-Konsistenz, Regulatory-Marker, Launch-Blocker und
+  Owner-AP-Zuordnung. Es ist **keine** zweite Routing-, IA-, Sprach- oder Asset-Wahrheit und
+  ausdrücklich **keine** Content-Governance (`DEC-RL-010`). Keine konkurrierende zweite Matrix anlegen.
+  Nur laden, wo Content-Status gebraucht wird — kein globaler Pflichtkontext.
+- **Deferred-Gate-Modell (seit AP04-RECOVERY 2026-08-25).** Findet ein Primärtask eine Lücke, deren
+  technischer oder fachlicher Owner laut `scope/MASTER-SCOPE.md` ein **späterer** AP ist, wird sie
+  **nicht** zum Closure-Blocker des aktuellen AP. Sie wird als **Deferred Gate** registriert — mit ID,
+  Gate-Typ, konkreter Lücke, eindeutigem Owner-AP, Required-before-Gate, sicherem Ist-Verhalten und
+  Evidenz. Kanonisches Modell: `work-packages/AP04.md` §11.0; kanonisches Register für AP04:
+  `CONTENT-MATRIX.md` §24. **Ein Deferred Gate ist nie `READY` und nie erledigt**; es bleibt
+  Launch-Blocker, bis sein Owner-AP es schließt. Ein AP darf sich nicht über einen späteren Owner-AP
+  selbst blockieren — das erzeugt einen seriellen Zyklus und verletzt §3 („Ein AP-Dokument darf den
+  Master-Scope nicht stillschweigend erweitern").
 - `REPO-BASELINE.md` und `BRANCH-RECONCILIATION-MAP.md` sind **Evidenz**, keine Entscheidung.
 - `BRANCH-RECONCILIATION-MAP.md` ist bei **jedem** branch-abgeleiteten Schritt Pflicht, auch wenn die
   AP-Zeile sie nur als optional führt (`AGENT-CONTRACT.md` §2).

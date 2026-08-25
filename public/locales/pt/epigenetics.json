@@ -13,7 +13,7 @@
     "title": "Epigenetic and genetic analyses from one drop",
     "claim": "Six analyses from capillary blood, processed by our European cooperation partner — a measurable basis for your consultation.",
     "ctaDocs": "The six analyses",
-    "ctaQuote": "Request a quotation",
+    "ctaQuote": "Request a quote",
     "chips": [
       {
         "label": "Sample",
@@ -331,7 +331,7 @@
   ],
   "contact": {
     "caption": "Contact",
-    "title": "Request a quotation",
+    "title": "Request a quote",
     "sub": "The analyses are supplied to professional users only. B2B terms on request, tiered by volume.",
     "overview": "Overview as PDF",
     "overviewFile": "en/00_Portfolio_Overview_PolarisDX.pdf",
@@ -341,7 +341,7 @@
   "links": {
     "longevity": "Longevity diagnostics",
     "downloads": "All downloads",
-    "contact": "Request a quotation"
+    "contact": "Request a quote"
   },
   "samples": {
     "caption": "Sample reports",
@@ -518,7 +518,7 @@
       }
     ],
     "gendg": "Two panels include genetic analyses: Metabolic Health and the Plus variant of Healthy Sport. For these, the person concerned must be informed and give written consent before the sample is taken (German Genetic Diagnostics Act, GenDG). Predictive genetic testing may only be conducted under the responsibility of appropriately qualified physicians; genetic counselling must be offered before and after the test (Sections 7 and 10 GenDG).",
-    "cta": "Parameter overview as PDF",
+    "cta": "Parameter overview as PDF (German)",
     "file": "de/16_Parameteruebersicht_PolarisDX.pdf",
     "scrollHint": "Table scrolls sideways",
     "groups": [
@@ -606,7 +606,7 @@
         "v": "A “biological age” calculated from measured values, against chronological age — a calculation, not a determination of age."
       }
     ],
-    "cta": "Understanding the values as PDF",
+    "cta": "Understanding the values as PDF (German)",
     "file": "de/17_Werte_verstehen_PolarisDX.pdf"
   },
   "teaser": {
@@ -695,7 +695,16 @@
     },
     "a11y": {
       "radar": "Radar chart with {{n}} factors"
-    }
+    },
+    "entryCount": "{{count}} values",
+    "entryCount_one": "{{count}} value",
+    "entryCount_other": "{{count}} values",
+    "overviewCaption": "At a glance",
+    "overviewLead": "Each value with its classification. One click jumps to the full explanation below.",
+    "overviewTitle": "Every value in this report",
+    "toneAmber": "borderline",
+    "toneGreen": "within range",
+    "toneRed": "outside the range"
   },
   "consult": {
     "caption": "How this becomes a consultation",

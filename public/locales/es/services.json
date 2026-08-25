@@ -294,7 +294,7 @@
         "content": "Trasladar el diagnóstico del laboratorio al Point-of-Care nunca debe hacerse a expensas de la calidad. Aquí es donde entran las soluciones premium:",
         "listItems": [
           "El uso de analizadores de alta precisión certificados por IVDR como el Igloo Pro es obligatorio.",
-          "La precisión analítica garantizada (por ejemplo, CV < 2%) asegura que los valores obtenidos en la consulta o farmacia sean comparables al estándar de laboratorio."
+          "La precisión analítica garantizada (por ejemplo, CV < 2 %) asegura que los valores obtenidos en la consulta o farmacia sean comparables al estándar de laboratorio."
         ]
       }
     ],
@@ -326,7 +326,8 @@
       ]
     },
     "seo": {
-      "description": "Chequeos preventivos en el Point-of-Care: determinar al instante los biomarcadores clave y asesorar con datos, en consulta, farmacia y clínica. Más información."
+      "description": "Chequeos preventivos en el Point-of-Care: determinar al instante los biomarcadores clave y asesorar con datos, en consulta, farmacia y clínica. Más información.",
+      "title": "Chequeos de salud preventivos en consulta"
     }
   },
   "infektion_entzuendung": {
@@ -365,7 +366,7 @@
     ],
     "conclusion": {
       "heading": "Conclusión: Sin compromisos en el diagnóstico",
-      "text": "Para infecciones e inflamaciones, el tiempo es el factor crítico. Solo un sistema POC que combine la validez a nivel de laboratorio con la máxima velocidad puede aumentar la seguridad diagnóstica mientras optimiza la gestión de antibióticos. PolarisDX.net ofrece este rendimiento garantizado, desde la puesta en marcha en 3-5 días hábiles hasta el soporte prioritario."
+      "text": "Para infecciones e inflamaciones, el tiempo es el factor crítico. Solo un sistema POC que combine la validez a nivel de laboratorio con la máxima velocidad puede aumentar la seguridad diagnóstica mientras optimiza la gestión de antibióticos. PolarisDX.net ofrece este rendimiento, desde la puesta en marcha en 3-5 días hábiles hasta el soporte prioritario."
     },
     "cta": "Reservar cita",
     "faq": {
@@ -391,7 +392,8 @@
       ]
     },
     "seo": {
-      "description": "Determinar in situ los marcadores de inflamación y los signos de infección: triaje más rápido y gestión responsable de los antibióticos. Solicite asesoramiento."
+      "description": "Determinar in situ los marcadores de inflamación y los signos de infección: triaje más rápido y gestión responsable de los antibióticos. Solicite asesoramiento.",
+      "title": "Marcadores de infección e inflamación in situ"
     }
   },
   "stoffwechsel_herz": {
@@ -423,7 +425,7 @@
         "heading": "3. La ventaja Premium: Velocidad y fiabilidad",
         "content": "Para monitorear enfermedades crónicas y triaje de emergencias cardíacas, la fiabilidad de la tecnología POC no es negociable.",
         "listItems": [
-          "Precisión de laboratorio: El Igloo Pro entrega resultados que corresponden a los del laboratorio central (CV < 2% Inter-Lector).",
+          "Precisión de laboratorio: El Igloo Pro entrega resultados que corresponden a los del laboratorio central (CV < 2 % Inter-Lector).",
           "Capacidad multiplex: El sistema puede determinar varios parámetros cardíacos simultáneamente o en rápida sucesión, maximizando la eficiencia en situaciones críticas."
         ]
       }
@@ -456,7 +458,8 @@
       ]
     },
     "seo": {
-      "description": "Medir marcadores metabólicos y cardíacos en pocos minutos: monitorización de la diabetes y ajuste terapéutico directamente en la consulta. Pida asesoramiento."
+      "description": "Medir marcadores metabólicos y cardíacos en pocos minutos: monitorización de la diabetes y ajuste terapéutico directamente en la consulta. Pida asesoramiento.",
+      "title": "Medir metabolismo y salud cardíaca"
     }
   },
   "hormon_tests": {
@@ -521,7 +524,8 @@
       ]
     },
     "seo": {
-      "description": "Diagnóstico hormonal en el Point-of-Care: determinar hormonas críticas directamente en el paciente, de la tiroides a la fertilidad. Concierte un asesoramiento."
+      "description": "Diagnóstico hormonal en el Point-of-Care: determinar hormonas críticas directamente en el paciente, de la tiroides a la fertilidad. Concierte un asesoramiento.",
+      "title": "Pruebas hormonales y de endocrinología en consulta"
     }
   },
   "kompatibilitaet_integration": {
@@ -585,7 +589,8 @@
       ]
     },
     "seo": {
-      "description": "Plataforma POC abierta y multifabricante: Igloo Pro garantiza flexibilidad, independencia tecnológica y seguridad de la inversión. Más información."
+      "description": "Plataforma POC abierta y multifabricante: Igloo Pro garantiza flexibilidad, independencia tecnológica y seguridad de la inversión. Más información.",
+      "title": "Compatibilidad entre fabricantes"
     }
   },
   "seo": {

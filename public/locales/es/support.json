@@ -10,7 +10,7 @@
         "attach": "Adjunte foto y archivo de registro"
       },
       "breadcrumb": "Inicio / Soporte",
-      "cta_primary": "Enviar una solicitud",
+      "cta_primary": "Enviar una solicitud de soporte",
       "cta_secondary": "Llamar a la línea de ayuda",
       "value": {
         "response_value": "< 24 h",
@@ -53,7 +53,7 @@
       "consent": "Acepto que mis datos se almacenen durante un máximo de 12 meses para tramitar la solicitud de soporte y posibles consultas posteriores.",
       "submit": "Enviar",
       "submitting": "Enviando...",
-      "success": "¡Muchas gracias! Su solicitud de soporte se ha enviado. Nos pondremos en contacto con usted lo antes posible.",
+      "success": "¡Muchas gracias! Hemos recibido y registrado su solicitud de soporte. Nos pondremos en contacto con usted lo antes posible.",
       "error": "Se ha producido un error. Inténtelo de nuevo más tarde.",
       "microcopy": "Normalmente respondemos en un día laborable."
     },

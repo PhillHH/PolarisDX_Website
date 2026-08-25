@@ -64,16 +64,6 @@
     "product_note": "IglooPro è un prodotto di DX365 GmbH"
   },
   "read_more": "Leggi di più",
-  "chat": {
-    "title": "Chat",
-    "status": "Online",
-    "intro": "Benvenuti in PolarisDX. Come possiamo aiutarvi oggi?",
-    "welcome_prototype": "Benvenuto! Il nostro chatbot non è ancora attivo. Utilizza il nostro <0>modulo di contatto</0> o chiamaci al <1>+49 151 75011699</1>.",
-    "placeholder": "Scrivi un messaggio...",
-    "footer": "Powered by PolarisDX Assistant",
-    "error": "Spiacenti, qualcosa è andato storto.",
-    "unavailable": "La chat non è attualmente disponibile. Riprova più tardi o contattaci via email."
-  },
   "cookie": {
     "title": "Rispettiamo la tua privacy",
     "description": "Utilizziamo i cookie per migliorare l'esperienza.",
@@ -144,5 +134,18 @@
   },
   "languageFallback": {
     "notice": "Questa pagina è al momento disponibile solo in inglese."
+  },
+  "errors": {
+    "root": {
+      "title": "Qualcosa è andato storto",
+      "body": "Non è stato possibile caricare questa pagina. Ricaricala — i tuoi dati non sono andati persi. Se il problema persiste, riprova tra qualche minuto.",
+      "retry": "Riprova",
+      "home": "Vai alla home page"
+    },
+    "segment": {
+      "title": "Non è stato possibile caricare questa sezione",
+      "body": "Il resto della pagina continua a funzionare. Riprova.",
+      "retry": "Riprova"
+    }
   }
 }

@@ -294,7 +294,7 @@
         "content": "Spostare la diagnostica dal laboratorio al Point-of-Care non deve mai avvenire a scapito della qualità. È qui che entrano in gioco le soluzioni premium:",
         "listItems": [
           "L'uso di analizzatori ad alta precisione certificati IVDR come l'Igloo Pro è obbligatorio.",
-          "La precisione analitica garantita (ad es. CV < 2%) assicura che i valori ottenuti nello studio o in farmacia siano comparabili allo standard di laboratorio."
+          "La precisione analitica garantita (ad es. CV < 2 %) assicura che i valori ottenuti nello studio o in farmacia siano comparabili allo standard di laboratorio."
         ]
       }
     ],
@@ -326,7 +326,8 @@
       ]
     },
     "seo": {
-      "description": "Check preventivi al Point-of-Care: determinare subito i biomarcatori chiave e consigliare su base dati – in studio, farmacia e clinica. Scopri di più."
+      "description": "Check preventivi al Point-of-Care: determinare subito i biomarcatori chiave e consigliare su base dati – in studio, farmacia e clinica. Scopri di più.",
+      "title": "Controlli sanitari preventivi in studio"
     }
   },
   "infektion_entzuendung": {
@@ -365,7 +366,7 @@
     ],
     "conclusion": {
       "heading": "Conclusione: Nessun compromesso nella diagnosi",
-      "text": "Per infezioni e infiammazioni, il tempo è il fattore critico. Solo un sistema POC che combina validità a livello di laboratorio con la massima velocità può aumentare la sicurezza diagnostica ottimizzando al contempo la gestione degli antibiotici. PolarisDX.net offre queste prestazioni garantite – dalla messa in servizio in 3-5 giorni lavorativi al supporto prioritario."
+      "text": "Per infezioni e infiammazioni, il tempo è il fattore critico. Solo un sistema POC che combina validità a livello di laboratorio con la massima velocità può aumentare la sicurezza diagnostica ottimizzando al contempo la gestione degli antibiotici. PolarisDX.net offre queste prestazioni – dalla messa in servizio in 3-5 giorni lavorativi al supporto prioritario."
     },
     "cta": "Prenota appuntamento",
     "faq": {
@@ -382,7 +383,7 @@
         },
         {
           "question": "Quanto sono affidabili i test POC dell'infiammazione rispetto al laboratorio?",
-          "answer": "I sistemi POC conformi alla normativa IVDR, come l'IglooPro, forniscono risultati quantitativi con una precisione analitica di CV < 2% e sono pertanto comparabili alle misurazioni dei laboratori centralizzati. La garanzia di qualità avviene tramite cassette di test validate e controlli interni. Nella pratica clinica, i test POC offrono il vantaggio aggiuntivo che il risultato è immediatamente disponibile e non viene influenzato da tempi di trasporto o conservazione dei campioni."
+          "answer": "I sistemi POC conformi alla normativa IVDR, come l'IglooPro, forniscono risultati quantitativi con una precisione analitica di CV < 2 % e sono pertanto comparabili alle misurazioni dei laboratori centralizzati. La garanzia di qualità avviene tramite cassette di test validate e controlli interni. Nella pratica clinica, i test POC offrono il vantaggio aggiuntivo che il risultato è immediatamente disponibile e non viene influenzato da tempi di trasporto o conservazione dei campioni."
         },
         {
           "question": "Quali marcatori di infiammazione può misurare l'IglooPro?",
@@ -391,7 +392,8 @@
       ]
     },
     "seo": {
-      "description": "Determinare in loco i marcatori infiammatori e i segni di infezione: triage più rapido, gestione responsabile degli antibiotici. Richiedi una consulenza."
+      "description": "Determinare in loco i marcatori infiammatori e i segni di infezione: triage più rapido, gestione responsabile degli antibiotici. Richiedi una consulenza.",
+      "title": "Marcatori di infezione e infiammazione in loco"
     }
   },
   "stoffwechsel_herz": {
@@ -423,7 +425,7 @@
         "heading": "3. Il vantaggio Premium: Velocità e Affidabilità",
         "content": "Per il monitoraggio delle malattie croniche e il triage delle emergenze cardiache, l'affidabilità della tecnologia POC non è negoziabile.",
         "listItems": [
-          "Precisione di laboratorio: L'Igloo Pro fornisce risultati che corrispondono a quelli del laboratorio centrale (CV < 2% Inter-Reader).",
+          "Precisione di laboratorio: L'Igloo Pro fornisce risultati che corrispondono a quelli del laboratorio centrale (CV < 2 % Inter-Reader).",
           "Capacità multiplex: Il sistema può determinare vari parametri cardiaci contemporaneamente o in rapida successione, massimizzando l'efficienza in situazioni critiche."
         ]
       }
@@ -439,7 +441,7 @@
       "items": [
         {
           "question": "Quali biomarcatori metabolici posso misurare chairside?",
-          "answer": "Con l'IglooPro è possibile determinare HbA1c (glicemia a lungo termine), colesterolo totale e ulteriori frazioni lipidiche direttamente da sangue capillare in pochi minuti. Questa diagnostica chairside fornisce risultati comparabili a quelli di laboratorio (CV < 2%) e consente l'adeguamento terapeutico immediato nello stesso contatto con il paziente — senza invio a un laboratorio centralizzato."
+          "answer": "Con l'IglooPro è possibile determinare HbA1c (glicemia a lungo termine), colesterolo totale e ulteriori frazioni lipidiche direttamente da sangue capillare in pochi minuti. Questa diagnostica chairside fornisce risultati comparabili a quelli di laboratorio (CV < 2 %) e consente l'adeguamento terapeutico immediato nello stesso contatto con il paziente — senza invio a un laboratorio centralizzato."
         },
         {
           "question": "In che modo il valore di HbA1c aiuta nella diagnosi precoce del diabete?",
@@ -456,7 +458,8 @@
       ]
     },
     "seo": {
-      "description": "Misurare i marcatori metabolici e cardiaci in pochi minuti: monitoraggio del diabete e adeguamento terapeutico direttamente nello studio. Richiedi una consulenza."
+      "description": "Misurare i marcatori metabolici e cardiaci in pochi minuti: monitoraggio del diabete e adeguamento terapeutico direttamente nello studio. Richiedi una consulenza.",
+      "title": "Misurare metabolismo e salute cardiaca"
     }
   },
   "hormon_tests": {
@@ -521,7 +524,8 @@
       ]
     },
     "seo": {
-      "description": "Diagnostica ormonale al Point-of-Care: determinare gli ormoni critici direttamente sul paziente – dalla tiroide alla fertilità. Fissa una consulenza."
+      "description": "Diagnostica ormonale al Point-of-Care: determinare gli ormoni critici direttamente sul paziente – dalla tiroide alla fertilità. Fissa una consulenza.",
+      "title": "Test ormonali ed endocrinologici in studio"
     }
   },
   "kompatibilitaet_integration": {
@@ -585,7 +589,8 @@
       ]
     },
     "seo": {
-      "description": "Piattaforma POC aperta e multi-produttore: Igloo Pro garantisce flessibilità, indipendenza tecnologica e sicurezza dell'investimento. Scopri di più."
+      "description": "Piattaforma POC aperta e multi-produttore: Igloo Pro garantisce flessibilità, indipendenza tecnologica e sicurezza dell'investimento. Scopri di più.",
+      "title": "Compatibilità multi-produttore"
     }
   },
   "seo": {

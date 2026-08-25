@@ -22,7 +22,6 @@
       }
     },
     "form": {
-      "_translationStatus": "English fallback — panel context, epigenetics field options and field errors",
       "progress": {
         "start": "Zaczynamy — tylko kilka pól",
         "going": "Wygląda dobrze — jeszcze {{count}}",
@@ -57,7 +56,7 @@
           "longevity": "Longevity",
           "nutrition": "Nutritional counselling",
           "sports": "Sports medicine",
-          "bgm": "Corporate health management",
+          "bgm": "Zarządzanie zdrowiem w firmie",
           "practice": "Practice and clinic",
           "pharmacy": "Apteka",
           "other": "Inne"
@@ -66,28 +65,28 @@
           "dental": "Dobry wybór — witamina D i CRP prosto przy fotelu to klasyka implantologii.",
           "beauty": "Świetnie — CRP i panele witaminowe to podstawa estetyki dla skóry i regeneracji.",
           "longevity": "Idealnie — HbA1c, CRP i witamina D to podstawowe markery longevity.",
-          "nutrition": "We will get back to you with the documents relevant to nutritional counselling.",
-          "sports": "We will get back to you with the documents relevant to sports medicine.",
-          "bgm": "We will get back to you with the documents relevant to corporate health management.",
-          "practice": "We will get back to you with the documents relevant to practice and clinic.",
+          "nutrition": "Odezwiemy się z materiałami istotnymi dla poradnictwa żywieniowego.",
+          "sports": "Odezwiemy się z materiałami istotnymi dla medycyny sportowej.",
+          "bgm": "Odezwiemy się z materiałami istotnymi dla zarządzania zdrowiem w firmie.",
+          "practice": "Odezwiemy się z materiałami istotnymi dla gabinetu i kliniki.",
           "pharmacy": "Sprytnie — szybkie testy CRP i witaminy D zamieniają klientów z ulicy w stałych.",
           "other": "Opowiedz nam o swoim setupie — dobierzemy odpowiedni panel point-of-care."
         }
       },
       "field_required": "Wybierz swój obszar, abyśmy przygotowali właściwy panel.",
-      "panel_context_one": "Your enquiry refers to the panel {{panels}}.",
-      "panel_context_other": "Your enquiry refers to the panels {{panels}}.",
+      "panel_context_one": "Twoje zapytanie dotyczy panelu {{panels}}.",
+      "panel_context_other": "Twoje zapytanie dotyczy paneli {{panels}}.",
       "errors": {
-        "name": "Please enter your name — at least two characters.",
-        "email": "Please enter a valid email address, for example name@practice.com.",
-        "consent": "Please tick the consent box so we may reply to your enquiry."
+        "name": "Podaj swoje imię i nazwisko — co najmniej dwa znaki.",
+        "email": "Podaj prawidłowy adres e-mail, na przykład imie@gabinet.pl.",
+        "consent": "Zaznacz zgodę, abyśmy mogli odpowiedzieć na Twoje zapytanie."
       },
       "prepare_label": "Czy mamy coś przygotować?",
       "prepare_placeholder": "Które biomarkery Cię interesują — CRP, TSH, HbA1c?",
       "consent": "Wyrażam zgodę na przechowywanie moich danych w celu kontaktu i ewentualnych pytań przez maksymalnie 12 miesięcy. Zobacz naszą",
       "privacy_link": "politykę prywatności",
       "submit": {
-        "consultation": "Umów doradztwo",
+        "consultation": "Poproś o ofertę",
         "quote": "Poproś o ofertę",
         "product": "Wyślij pytanie",
         "support": "Uzyskaj wsparcie",
@@ -95,8 +94,10 @@
       },
       "sending": "Wysyłanie…",
       "microcopy": "Poniżej 2 minut — obiecujemy. Odpowiedź w 24 h, a potem konkretny następny krok.",
-      "success": "Dziękujemy! Twoja wiadomość została wysłana — odezwiemy się w ciągu 24 h.",
-      "error": "Coś poszło nie tak. Sprawdź swoje dane lub spróbuj ponownie za chwilę."
+      "success": "Dziękujemy! Otrzymaliśmy i zarejestrowaliśmy Twoje zapytanie — odezwiemy się w ciągu 24 h.",
+      "error": "Coś poszło nie tak. Sprawdź swoje dane lub spróbuj ponownie za chwilę.",
+      "panel_context_few": "Twoje zapytanie dotyczy paneli {{panels}}.",
+      "panel_context_many": "Twoje zapytanie dotyczy paneli {{panels}}."
     },
     "trust": {
       "direct": "Wolisz kontakt bezpośredni?",

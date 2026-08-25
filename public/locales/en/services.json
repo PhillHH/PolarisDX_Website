@@ -298,7 +298,7 @@
         "content": "Shifting diagnostics from the lab to the Point-of-Care must never come at the expense of quality. This is where premium solutions come in:",
         "listItems": [
           "The use of high-precision, IVDR-certified analyzers like the Igloo Pro is mandatory.",
-          "Guaranteed analytical accuracy (e.g., CV < 2%) ensures that values obtained in the practice or pharmacy are comparable to the laboratory standard."
+          "Guaranteed analytical accuracy (e.g., CV < 2 %) ensures that values obtained in the practice or pharmacy are comparable to the laboratory standard."
         ]
       }
     ],
@@ -370,7 +370,7 @@
     ],
     "conclusion": {
       "heading": "Conclusion: No Compromises in Diagnosis",
-      "text": "For infections and inflammations, time is the critical factor. Only a POC system that combines lab-level validity with maximum speed can increase diagnostic safety while optimizing antibiotic management. PolarisDX.net delivers this guaranteed performance – from commissioning within 3-5 business days to priority support."
+      "text": "For infections and inflammations, time is the critical factor. Only a POC system that combines lab-level validity with maximum speed can increase diagnostic safety while optimizing antibiotic management. PolarisDX.net delivers this performance – from commissioning within 3-5 business days to priority support."
     },
     "cta": "Book appointment",
     "faq": {
@@ -387,7 +387,7 @@
         },
         {
           "question": "How reliable are POC inflammation tests compared to the laboratory?",
-          "answer": "IVDR-compliant POC systems like the IglooPro deliver quantitative results with an analytical precision of CV < 2% and are thus comparable to central laboratory measurements. Quality assurance is maintained through validated test cassettes and internal controls. In clinical practice, POC tests offer the additional advantage that results are immediately available and not influenced by transport times or sample storage."
+          "answer": "IVDR-compliant POC systems like the IglooPro deliver quantitative results with an analytical precision of CV < 2 % and are thus comparable to central laboratory measurements. Quality assurance is maintained through validated test cassettes and internal controls. In clinical practice, POC tests offer the additional advantage that results are immediately available and not influenced by transport times or sample storage."
         },
         {
           "question": "Which inflammation markers can the IglooPro measure?",
@@ -429,7 +429,7 @@
         "heading": "3. The Premium Advantage: Speed and Reliability",
         "content": "For monitoring chronic diseases and triaging cardiac emergencies, the reliability of POC technology is non-negotiable.",
         "listItems": [
-          "Lab Accuracy: The Igloo Pro delivers results that correspond to those of the central laboratory (CV < 2% Inter-Reader).",
+          "Lab Accuracy: The Igloo Pro delivers results that correspond to those of the central laboratory (CV < 2 % Inter-Reader).",
           "Multiplex Capability: The system can determine various cardiac parameters simultaneously or in rapid succession, maximizing efficiency in critical situations."
         ]
       }
@@ -445,7 +445,7 @@
       "items": [
         {
           "question": "Which metabolic biomarkers can I measure chairside?",
-          "answer": "With the IglooPro, you can determine HbA1c (long-term blood sugar), total cholesterol and additional lipid fractions directly from capillary blood in just a few minutes. This chairside diagnostics delivers laboratory-comparable results (CV < 2%) and enables immediate therapy adjustment in the same patient visit — without submission to a central laboratory."
+          "answer": "With the IglooPro, you can determine HbA1c (long-term blood sugar), total cholesterol and additional lipid fractions directly from capillary blood in just a few minutes. This chairside diagnostics delivers laboratory-comparable results (CV < 2 %) and enables immediate therapy adjustment in the same patient visit — without submission to a central laboratory."
         },
         {
           "question": "How does the HbA1c value help with early diabetes detection?",
@@ -601,7 +601,7 @@
     "hero": {
       "title": "Diagnostics",
       "subtitle": "Lab-grade panels for every practice type — validated, IVDR-compliant and ready from day one. Choose your specialty or explore the diagnostic areas below.",
-      "chip_cv": "CV < 2%",
+      "chip_cv": "CV < 2 %",
       "chip_results": "Results in 3 min.",
       "chip_lfa": "90% LFA compatibility",
       "visual": {

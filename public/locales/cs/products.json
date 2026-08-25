@@ -3,8 +3,8 @@
     "title": "Rychlá diagnostika POC",
     "caption": "Next Gen Diagnostics",
     "description": "Vaše řídicí centrum.",
-    "cta_order": "Objednat nyní",
-    "cta_datasheet": "Datový list (PDF)",
+    "cta_order": "Vyžádat nabídku",
+    "cta_datasheet": "Datový list (PDF, DE)",
     "subline": "Zdarma a nezávazně · Odpověď do 24 h",
     "chip_ivdr": "IVDR/CE",
     "chip_lis": "LIS/HIS-ready",
@@ -57,7 +57,7 @@
     "speed": "Doba měření",
     "speed_value": "3 - 15 minut (podle testu)",
     "accuracy": "Přesnost",
-    "accuracy_value": "CV < 2%",
+    "accuracy_value": "CV < 2 %",
     "storage": "Paměť",
     "storage_value": "Až 10 000 záznamů pacientů",
     "battery": "Napájení",
@@ -76,7 +76,7 @@
       "records_label": "záznamů pacientů v přístroji",
       "time_value": "3–15 Min.",
       "time_label": "od vzorku k výsledku",
-      "datasheet": "Datový list (PDF)"
+      "datasheet": "Datový list (PDF, DE)"
     }
   },
   "parameters": {
@@ -109,8 +109,8 @@
   "cta_bottom": {
     "title": "Rozšiřte možnosti",
     "description": "Pro lékárny a ordinace.",
-    "button": "Rezervovat nyní",
-    "datasheet": "Datový list (PDF)",
+    "button": "Vyžádat nabídku",
+    "datasheet": "Datový list (PDF, DE)",
     "chips": {
       "free": "Zdarma a nezávazně",
       "reply": "Odpověď < 24 h",
@@ -124,7 +124,7 @@
   "help": {
     "title": "Nejste si jisti, zda IglooPro zapadne do vašeho pracovního postupu?",
     "text": "15 minut se specialistou na POC — konkrétní doporučení pro vaše nastavení, žádná prodejní show.",
-    "cta": "Rezervovat konzultaci"
+    "cta": "Vyžádat nabídku"
   },
   "application": {
     "eyebrow": "OBLASTI POUŽITÍ",

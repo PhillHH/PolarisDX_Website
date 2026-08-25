@@ -326,7 +326,8 @@
       ]
     },
     "seo": {
-      "description": "Bilans préventifs au Point-of-Care : déterminer immédiatement les biomarqueurs clés et conseiller sur la base de données – au cabinet, en pharmacie et en clinique. En savoir plus."
+      "description": "Bilans préventifs au Point-of-Care : déterminer immédiatement les biomarqueurs clés et conseiller sur la base de données – au cabinet, en pharmacie et en clinique. En savoir plus.",
+      "title": "Bilans de santé préventifs au cabinet"
     }
   },
   "infektion_entzuendung": {
@@ -365,7 +366,7 @@
     ],
     "conclusion": {
       "heading": "Conclusion : Pas de compromis dans le diagnostic",
-      "text": "Pour les infections et les inflammations, le temps est le facteur critique. Seul un système POC qui combine validité de niveau laboratoire et vitesse maximale peut augmenter la sécurité diagnostique tout en optimisant la gestion des antibiotiques. PolarisDX.net offre cette performance garantie – de la mise en service en 3-5 jours ouvrés au support prioritaire."
+      "text": "Pour les infections et les inflammations, le temps est le facteur critique. Seul un système POC qui combine validité de niveau laboratoire et vitesse maximale peut augmenter la sécurité diagnostique tout en optimisant la gestion des antibiotiques. PolarisDX.net offre cette performance – de la mise en service en 3-5 jours ouvrés au support prioritaire."
     },
     "cta": "Prendre rendez-vous",
     "faq": {
@@ -391,7 +392,8 @@
       ]
     },
     "seo": {
-      "description": "Déterminer sur place les marqueurs inflammatoires et les signes d'infection : triage plus rapide, gestion responsable des antibiotiques. Demandez un conseil."
+      "description": "Déterminer sur place les marqueurs inflammatoires et les signes d'infection : triage plus rapide, gestion responsable des antibiotiques. Demandez un conseil.",
+      "title": "Marqueurs d'infection et d'inflammation sur place"
     }
   },
   "stoffwechsel_herz": {
@@ -456,7 +458,8 @@
       ]
     },
     "seo": {
-      "description": "Mesurer les marqueurs métaboliques et cardiaques en quelques minutes : suivi du diabète et ajustement thérapeutique directement au cabinet. Faites-vous conseiller."
+      "description": "Mesurer les marqueurs métaboliques et cardiaques en quelques minutes : suivi du diabète et ajustement thérapeutique directement au cabinet. Faites-vous conseiller.",
+      "title": "Mesurer le métabolisme et la santé cardiaque"
     }
   },
   "hormon_tests": {
@@ -521,7 +524,8 @@
       ]
     },
     "seo": {
-      "description": "Diagnostic hormonal au Point-of-Care : déterminer les hormones critiques directement auprès du patient – de la thyroïde à la fertilité. Prenez rendez-vous pour un conseil."
+      "description": "Diagnostic hormonal au Point-of-Care : déterminer les hormones critiques directement auprès du patient – de la thyroïde à la fertilité. Prenez rendez-vous pour un conseil.",
+      "title": "Tests hormonaux et d'endocrinologie au cabinet"
     }
   },
   "kompatibilitaet_integration": {
@@ -585,7 +589,8 @@
       ]
     },
     "seo": {
-      "description": "Plateforme POC ouverte et multi-fabricants : Igloo Pro garantit flexibilité, indépendance technologique et sécurité d'investissement. En savoir plus."
+      "description": "Plateforme POC ouverte et multi-fabricants : Igloo Pro garantit flexibilité, indépendance technologique et sécurité d'investissement. En savoir plus.",
+      "title": "Compatibilité multi-fabricants"
     }
   },
   "seo": {

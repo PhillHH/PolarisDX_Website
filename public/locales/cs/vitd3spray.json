@@ -11,7 +11,7 @@
     "title": "Sublingvální sprej Vitamin D3+K2",
     "subtitle": "2 000 IU na vstřik – dvojnásobná biologická dostupnost díky technologii Tiny. Výhradně prostřednictvím lékařského distribučního kanálu.",
     "cta": "Objednat nyní",
-    "download": "Stáhnout produktový leták"
+    "download": "Stáhnout produktový leták (EN)"
   },
   "intro": {
     "title": "Nedostatek vitaminu D rozpoznán – zajistěte léčbu přímo v ordinaci",
@@ -111,7 +111,7 @@
     "quick_order_cta": "Objednat nyní",
     "download_caption": "Produktový leták",
     "download_text": "Všechny informace o spreji Vitamin D3+K2 ve formátu PDF.",
-    "download_cta": "Stáhnout PDF",
+    "download_cta": "Stáhnout PDF (EN)",
     "trust": "Více než 100 ordinací ve více než 15 zemích důvěřuje PolarisDX"
   },
   "faq": {
@@ -137,22 +137,56 @@
     "bio": "2× biologická dostupnost"
   },
   "hero_stats": [
-    { "value": "2 000 IU", "label": "na vstřik" },
-    { "value": "71", "label": "aplikací / lahvičku" },
-    { "value": "2×", "label": "biologická dostupnost" }
+    {
+      "value": "2 000 IU",
+      "label": "na vstřik"
+    },
+    {
+      "value": "71",
+      "label": "aplikací / lahvičku"
+    },
+    {
+      "value": "2×",
+      "label": "biologická dostupnost"
+    }
   ],
   "visual_chips": [
-    { "value": "2 000 IU", "label": "Vitamin D3" },
-    { "value": "15 µg K2", "label": "MK-7" },
-    { "value": "71×", "label": "na lahvičku" }
+    {
+      "value": "2 000 IU",
+      "label": "Vitamin D3"
+    },
+    {
+      "value": "15 µg K2",
+      "label": "MK-7"
+    },
+    {
+      "value": "71×",
+      "label": "na lahvičku"
+    }
   ],
   "stats": [
-    { "value": "2 000 IU", "label": "Vitamin D3 na vstřik" },
-    { "value": "15 µg", "label": "Vitamin K2 (MK-7)" },
-    { "value": "71", "label": "aplikací na lahvičku" },
-    { "value": "od 10,90 €", "label": "za kus (ordinační balíček)" }
+    {
+      "value": "2 000 IU",
+      "label": "Vitamin D3 na vstřik"
+    },
+    {
+      "value": "15 µg",
+      "label": "Vitamin K2 (MK-7)"
+    },
+    {
+      "value": "71",
+      "label": "aplikací na lahvičku"
+    },
+    {
+      "value": "od 10,90 €",
+      "label": "za kus (ordinační balíček)"
+    }
   ],
-  "benefit_titles": ["Kosti a vápník", "Oseointegrace", "Parodontální prevence"],
+  "benefit_titles": [
+    "Kosti a vápník",
+    "Oseointegrace",
+    "Parodontální prevence"
+  ],
   "badges": {
     "vegan": "Veganský",
     "made_in": "Made in Germany"

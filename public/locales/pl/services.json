@@ -294,7 +294,7 @@
         "content": "Przeniesienie diagnostyki z laboratorium do Punktu Opieki nigdy nie może odbywać się kosztem jakości. Tutaj wkraczają rozwiązania premium:",
         "listItems": [
           "Użycie wysoce precyzyjnych analizatorów certyfikowanych zgodnie z IVDR, takich jak Igloo Pro, jest obowiązkowe.",
-          "Gwarantowana dokładność analityczna (np. CV < 2%) zapewnia, że wartości uzyskane w gabinecie lub aptece są porównywalne ze standardem laboratoryjnym."
+          "Gwarantowana dokładność analityczna (np. CV < 2 %) zapewnia, że wartości uzyskane w gabinecie lub aptece są porównywalne ze standardem laboratoryjnym."
         ]
       }
     ],
@@ -326,7 +326,8 @@
       ]
     },
     "seo": {
-      "description": "Badania profilaktyczne w Point-of-Care: natychmiastowe oznaczenie kluczowych biomarkerów i doradztwo oparte na danych – w gabinecie, aptece i klinice. Dowiedz się więcej."
+      "description": "Badania profilaktyczne w Point-of-Care: natychmiastowe oznaczenie kluczowych biomarkerów i doradztwo oparte na danych – w gabinecie, aptece i klinice. Dowiedz się więcej.",
+      "title": "Profilaktyczne badania kontrolne dla gabinetu"
     }
   },
   "infektion_entzuendung": {
@@ -365,7 +366,7 @@
     ],
     "conclusion": {
       "heading": "Wniosek: Brak kompromisów w diagnozie",
-      "text": "W przypadku infekcji i stanów zapalnych czas jest czynnikiem krytycznym. Tylko system POC, który łączy ważność na poziomie laboratoryjnym z maksymalną szybkością, może zwiększyć bezpieczeństwo diagnostyczne, jednocześnie optymalizując zarządzanie antybiotykami. PolarisDX.net dostarcza tę gwarantowaną wydajność – od uruchomienia w 3-5 dni roboczych po priorytetowe wsparcie."
+      "text": "W przypadku infekcji i stanów zapalnych czas jest czynnikiem krytycznym. Tylko system POC, który łączy ważność na poziomie laboratoryjnym z maksymalną szybkością, może zwiększyć bezpieczeństwo diagnostyczne, jednocześnie optymalizując zarządzanie antybiotykami. PolarisDX.net dostarcza tę wydajność – od uruchomienia w 3-5 dni roboczych po priorytetowe wsparcie."
     },
     "cta": "Zarezerwuj termin",
     "faq": {
@@ -382,7 +383,7 @@
         },
         {
           "question": "Jak wiarygodne są testy POC na stany zapalne w porównaniu z laboratorium?",
-          "answer": "Systemy POC zgodne z IVDR, takie jak IglooPro, dostarczają wyniki ilościowe z precyzją analityczną CV < 2% i są tym samym porównywalne z pomiarami laboratorium centralnego. Zapewnienie jakości realizowane jest poprzez zwalidowane kasety testowe i kontrole wewnętrzne. W praktyce klinicznej testy POC oferują dodatkową zaletę natychmiastowej dostępności wyniku, bez wpływu czasu transportu czy przechowywania próbek."
+          "answer": "Systemy POC zgodne z IVDR, takie jak IglooPro, dostarczają wyniki ilościowe z precyzją analityczną CV < 2 % i są tym samym porównywalne z pomiarami laboratorium centralnego. Zapewnienie jakości realizowane jest poprzez zwalidowane kasety testowe i kontrole wewnętrzne. W praktyce klinicznej testy POC oferują dodatkową zaletę natychmiastowej dostępności wyniku, bez wpływu czasu transportu czy przechowywania próbek."
         },
         {
           "question": "Jakie markery stanu zapalnego może mierzyć IglooPro?",
@@ -391,7 +392,8 @@
       ]
     },
     "seo": {
-      "description": "Oznaczanie markerów stanu zapalnego i objawów infekcji na miejscu: szybszy triage, odpowiedzialne zarządzanie antybiotykoterapią. Zapytaj o konsultację."
+      "description": "Oznaczanie markerów stanu zapalnego i objawów infekcji na miejscu: szybszy triage, odpowiedzialne zarządzanie antybiotykoterapią. Zapytaj o konsultację.",
+      "title": "Markery infekcji i stanu zapalnego na miejscu"
     }
   },
   "stoffwechsel_herz": {
@@ -423,7 +425,7 @@
         "heading": "3. Przewaga Premium: Szybkość i Niezawodność",
         "content": "W przypadku monitorowania chorób przewlekłych i triage'u nagłych przypadków kardiologicznych niezawodność technologii POC nie podlega negocjacjom.",
         "listItems": [
-          "Dokładność laboratoryjna: Igloo Pro dostarcza wyniki, które odpowiadają wynikom z laboratorium centralnego (CV < 2% Inter-Reader).",
+          "Dokładność laboratoryjna: Igloo Pro dostarcza wyniki, które odpowiadają wynikom z laboratorium centralnego (CV < 2 % Inter-Reader).",
           "Zdolność multipleksowania: System może określać różne parametry sercowe jednocześnie lub w szybkiej sekwencji, co maksymalizuje efektywność w sytuacjach krytycznych."
         ]
       }
@@ -439,7 +441,7 @@
       "items": [
         {
           "question": "Jakie biomarkery metaboliczne mogę oznaczać przy fotelu zabiegowym?",
-          "answer": "Za pomocą IglooPro można oznaczać HbA1c (długoterminowy poziom cukru we krwi), cholesterol całkowity oraz dalsze frakcje lipidowe bezpośrednio z krwi włośniczkowej w ciągu kilku minut. Diagnostyka ta dostarcza wyniki porównywalne z laboratorium (CV < 2%) i umożliwia natychmiastowe dostosowanie terapii w ramach tego samego kontaktu z pacjentem — bez wysyłania próbki do laboratorium centralnego."
+          "answer": "Za pomocą IglooPro można oznaczać HbA1c (długoterminowy poziom cukru we krwi), cholesterol całkowity oraz dalsze frakcje lipidowe bezpośrednio z krwi włośniczkowej w ciągu kilku minut. Diagnostyka ta dostarcza wyniki porównywalne z laboratorium (CV < 2 %) i umożliwia natychmiastowe dostosowanie terapii w ramach tego samego kontaktu z pacjentem — bez wysyłania próbki do laboratorium centralnego."
         },
         {
           "question": "W jaki sposób wartość HbA1c pomaga we wczesnym wykrywaniu cukrzycy?",
@@ -456,7 +458,8 @@
       ]
     },
     "seo": {
-      "description": "Pomiar markerów metabolicznych i kardiologicznych w kilka minut: monitorowanie cukrzycy i dostosowanie terapii bezpośrednio w gabinecie. Skorzystaj z doradztwa."
+      "description": "Pomiar markerów metabolicznych i kardiologicznych w kilka minut: monitorowanie cukrzycy i dostosowanie terapii bezpośrednio w gabinecie. Skorzystaj z doradztwa.",
+      "title": "Pomiar metabolizmu i zdrowia serca"
     }
   },
   "hormon_tests": {
@@ -521,7 +524,8 @@
       ]
     },
     "seo": {
-      "description": "Diagnostyka hormonalna w Point-of-Care: oznaczanie kluczowych hormonów bezpośrednio przy pacjencie – od tarczycy po płodność. Umów konsultację."
+      "description": "Diagnostyka hormonalna w Point-of-Care: oznaczanie kluczowych hormonów bezpośrednio przy pacjencie – od tarczycy po płodność. Umów konsultację.",
+      "title": "Testy hormonalne i endokrynologiczne w gabinecie"
     }
   },
   "kompatibilitaet_integration": {
@@ -585,7 +589,8 @@
       ]
     },
     "seo": {
-      "description": "Otwarta platforma POC niezależna od producenta: Igloo Pro zapewnia elastyczność, niezależność technologiczną i bezpieczeństwo inwestycji. Dowiedz się więcej."
+      "description": "Otwarta platforma POC niezależna od producenta: Igloo Pro zapewnia elastyczność, niezależność technologiczną i bezpieczeństwo inwestycji. Dowiedz się więcej.",
+      "title": "Kompatybilność między producentami"
     }
   },
   "seo": {

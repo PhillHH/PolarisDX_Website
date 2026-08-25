@@ -3,8 +3,8 @@
     "title": "Snelle diagnostiek POC",
     "caption": "Next Gen Diagnostics",
     "description": "Uw controlecentrum.",
-    "cta_order": "Nu bestellen",
-    "cta_datasheet": "Datasheet (PDF)",
+    "cta_order": "Offerte aanvragen",
+    "cta_datasheet": "Datasheet (PDF, DE)",
     "subline": "Gratis & vrijblijvend · Antwoord binnen 24 u",
     "chip_ivdr": "IVDR/CE",
     "chip_lis": "LIS/HIS-ready",
@@ -57,7 +57,7 @@
     "speed": "Meetduur",
     "speed_value": "3 - 15 minuten (testafhankelijk)",
     "accuracy": "Nauwkeurigheid",
-    "accuracy_value": "CV < 2%",
+    "accuracy_value": "CV < 2 %",
     "storage": "Opslag",
     "storage_value": "Tot 10.000 patiëntgegevens",
     "battery": "Voeding",
@@ -76,7 +76,7 @@
       "records_label": "patiëntgegevens op het apparaat",
       "time_value": "3–15 Min.",
       "time_label": "van monster tot resultaat",
-      "datasheet": "Datablad (PDF)"
+      "datasheet": "Datablad (PDF, DE)"
     }
   },
   "parameters": {
@@ -109,8 +109,8 @@
   "cta_bottom": {
     "title": "Breid mogelijkheden uit",
     "description": "Voor apotheken en praktijken.",
-    "button": "Nu afspraak maken",
-    "datasheet": "Datablad (PDF)",
+    "button": "Offerte aanvragen",
+    "datasheet": "Datablad (PDF, DE)",
     "chips": {
       "free": "Gratis & vrijblijvend",
       "reply": "Antwoord < 24 u",
@@ -124,7 +124,7 @@
   "help": {
     "title": "Niet zeker of de IglooPro bij uw workflow past?",
     "text": "15 minuten met een POC-specialist — een concreet advies voor uw setup, geen verkooppraatje.",
-    "cta": "Adviesgesprek boeken"
+    "cta": "Offerte aanvragen"
   },
   "application": {
     "eyebrow": "TOEPASSINGSGEBIEDEN",

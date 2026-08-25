@@ -1,13 +1,13 @@
 {
   "seo": {
     "title": "Diagnostica POC per il tuo studio: valori di laboratorio in pochi minuti",
-    "description": "Diagnostica point-of-care con precisione di laboratorio nel tuo studio: IVDR/CE, CV < 2 % e risultato in pochi minuti. Nuovi ricavi da prestazioni private – prenota una consulenza."
+    "description": "Diagnostica point-of-care con precisione di laboratorio nel tuo studio: IVDR/CE, CV < 2 % e risultato in pochi minuti. Nuovi ricavi da prestazioni private – richiedi un preventivo."
   },
   "hero": {
     "caption": "Prestazioni Point-of-Care",
     "title": "IglooPro:\nPoint-of-Care. Perfetto. Immediato.",
-    "description": "Assicurati il pacchetto prestazioni: il tuo IglooPro è pronto all'uso in 3-5 giorni lavorativi – garantito.",
-    "cta": "Prenota una consulenza",
+    "description": "Assicurati il pacchetto prestazioni: il tuo IglooPro è pronto all'uso in 3–5 giorni lavorativi.",
+    "cta": "Richiedi un preventivo",
     "cta_roi": "Avvia il calcolatore ROI",
     "cta_downloads": "Scarica il materiale informativo",
     "stat1": {
@@ -15,12 +15,12 @@
       "label": "Pronto all'uso dopo l'ordine"
     },
     "stat2": {
-      "value": "CV < 2%",
+      "value": "CV < 2 %",
       "label": "Precisione sull'intero intervallo di misurazione"
     },
     "dental": {
       "title": "IglooPro: diagnostica Point-of-Care. Il nuovo punto di riferimento per il tuo studio.",
-      "description": "Assicurati il pacchetto prestazioni: il tuo IglooPro è pronto all'uso in 3–5 giorni lavorativi – garantito."
+      "description": "Assicurati il pacchetto prestazioni: il tuo IglooPro è pronto all'uso in 3–5 giorni lavorativi."
     },
     "beauty": {
       "title": "Estetica scientifica: risultati misurabili invece di supposizioni.",
@@ -111,7 +111,7 @@
     "eyebrow": "La vostra specializzazione",
     "help_title": "Non sai quale pannello è adatto al tuo studio?",
     "help_text": "15 minuti con uno specialista POC: una raccomandazione concreta per la tua specialità, non una vendita.",
-    "help_cta": "Prenota una consulenza"
+    "help_cta": "Richiedi un preventivo"
   },
   "services": {
     "caption": "FOCUS DIAGNOSTICA",
@@ -289,7 +289,7 @@
     "caption": "Pronto a iniziare",
     "title": "Pronto per una diagnostica con precisione di laboratorio nel tuo studio?",
     "subtitle": "Parla con il nostro team o calcola il tuo potenziale di risparmio — compatibile multi-produttore, conforme a IVDR/CE e pronto all'uso in 3–5 giorni lavorativi.",
-    "cta_primary": "Prenota una consulenza",
+    "cta_primary": "Richiedi un preventivo",
     "cta_secondary": "Calcolatore ROI",
     "chips": {
       "free": "Gratuito e senza impegno",
@@ -318,9 +318,9 @@
       "payback": "Ammortamento (mesi)"
     },
     "warn_negative": "Con questi valori il margine di contribuzione è negativo – controlla prezzi e costi.",
-    "payback_hint": "Per il tuo ammortamento personalizzato: prenota una consulenza o richiedi il report.",
+    "payback_hint": "Per il tuo ammortamento individuale: richiedi un preventivo o il report.",
     "disclaimer": "Calcolo di esempio non vincolante basato sui tuoi dati. Nessuna garanzia di fatturato o profitto.",
-    "cta_consult": "Prenota una consulenza",
+    "cta_consult": "Richiedi un preventivo",
     "cta_report": "Inviami il risultato in PDF",
     "form": {
       "email": "Indirizzo e-mail",
@@ -378,6 +378,6 @@
       "text": "Il tuo team è formato, il primo paziente viene misurato: precisione di laboratorio, documentato, conforme a IVDR/CE.",
       "badge": "giorno 1"
     },
-    "cta": "Prenota una consulenza"
+    "cta": "Richiedi un preventivo"
   }
 }

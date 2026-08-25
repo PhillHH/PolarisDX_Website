@@ -333,7 +333,7 @@ const ArticlePage = () => {
                   to="/contact"
                   className="inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 text-sm font-medium text-white transition hover:brightness-110"
                 >
-                  {t('articles:detail.primary_cta', 'Beratung buchen')}
+                  {t('articles:detail.primary_cta', 'Passende Leistung ansehen')}
                 </Link>
                 {/* <Link> statt <a href="/#roi-rechner">: der rohe Anchor kannte
                     den Sprach-Prefix nicht und landete immer auf /de/. Der

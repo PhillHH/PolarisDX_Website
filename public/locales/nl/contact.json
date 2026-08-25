@@ -22,7 +22,6 @@
       }
     },
     "form": {
-      "_translationStatus": "English fallback — panel context, epigenetics field options and field errors",
       "progress": {
         "start": "We beginnen — slechts een paar velden",
         "going": "Ziet er goed uit — nog {{count}}",
@@ -57,7 +56,7 @@
           "longevity": "Longevity",
           "nutrition": "Nutritional counselling",
           "sports": "Sports medicine",
-          "bgm": "Corporate health management",
+          "bgm": "Bedrijfsgezondheidszorg",
           "practice": "Practice and clinic",
           "pharmacy": "Apotheek",
           "other": "Anders"
@@ -66,28 +65,28 @@
           "dental": "Sterke keuze — vitamine D en CRP direct aan de stoel zijn de klassiekers van de implantologie.",
           "beauty": "Prima — CRP en vitaminepanels zijn de esthetiek-basis voor huid en herstel.",
           "longevity": "Perfect — HbA1c, CRP en vitamine D zijn de basismarkers voor longevity.",
-          "nutrition": "We will get back to you with the documents relevant to nutritional counselling.",
-          "sports": "We will get back to you with the documents relevant to sports medicine.",
-          "bgm": "We will get back to you with the documents relevant to corporate health management.",
-          "practice": "We will get back to you with the documents relevant to practice and clinic.",
+          "nutrition": "Wij nemen contact op met de documentatie die relevant is voor voedingsadvies.",
+          "sports": "Wij nemen contact op met de documentatie die relevant is voor sportgeneeskunde.",
+          "bgm": "Wij nemen contact op met de documentatie die relevant is voor bedrijfsgezondheidszorg.",
+          "practice": "Wij nemen contact op met de documentatie die relevant is voor praktijk en kliniek.",
           "pharmacy": "Slim — snelle CRP- en vitamine D-tests maken van passanten vaste klanten.",
           "other": "Vertel ons uw setup — we stellen het juiste point-of-care-panel samen."
         }
       },
       "field_required": "Kies uw vakgebied zodat we het juiste panel voorbereiden.",
-      "panel_context_one": "Your enquiry refers to the panel {{panels}}.",
-      "panel_context_other": "Your enquiry refers to the panels {{panels}}.",
+      "panel_context_one": "Uw aanvraag heeft betrekking op het panel {{panels}}.",
+      "panel_context_other": "Uw aanvraag heeft betrekking op de panels {{panels}}.",
       "errors": {
-        "name": "Please enter your name — at least two characters.",
-        "email": "Please enter a valid email address, for example name@practice.com.",
-        "consent": "Please tick the consent box so we may reply to your enquiry."
+        "name": "Vul uw naam in — minimaal twee tekens.",
+        "email": "Vul een geldig e-mailadres in, bijvoorbeeld naam@praktijk.nl.",
+        "consent": "Vink de toestemming aan, zodat wij uw aanvraag mogen beantwoorden."
       },
       "prepare_label": "Moeten we iets voorbereiden?",
       "prepare_placeholder": "Welke biomarkers interesseren u — CRP, TSH, HbA1c?",
       "consent": "Ik ga ermee akkoord dat mijn gegevens voor contact en eventuele vragen tot 12 maanden worden bewaard. Zie ons",
       "privacy_link": "privacybeleid",
       "submit": {
-        "consultation": "Advies boeken",
+        "consultation": "Offerte aanvragen",
         "quote": "Offerte aanvragen",
         "product": "Vraag versturen",
         "support": "Support krijgen",
@@ -95,7 +94,7 @@
       },
       "sending": "Verzenden…",
       "microcopy": "Minder dan 2 minuten — beloofd. Antwoord binnen 24 u en dan een concrete volgende stap.",
-      "success": "Bedankt! Uw bericht is verzonden — we reageren binnen 24 u.",
+      "success": "Bedankt! We hebben uw aanvraag ontvangen en geregistreerd — we reageren binnen 24 u.",
       "error": "Er ging iets mis. Controleer uw gegevens of probeer het zo opnieuw."
     },
     "trust": {

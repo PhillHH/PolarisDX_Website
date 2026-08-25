@@ -1,13 +1,13 @@
 {
   "seo": {
     "title": "POC-diagnostiek voor uw praktijk: labwaarden in minuten",
-    "description": "Labnauwkeurige point-of-care-diagnostiek direct in uw praktijk: IVDR/CE, CV < 2 % en resultaat in minuten. Nieuwe omzet uit zelfbetalers – boek nu een adviesgesprek."
+    "description": "Labnauwkeurige point-of-care-diagnostiek direct in uw praktijk: IVDR/CE, CV < 2 % en resultaat in minuten. Nieuwe omzet uit zelfbetalers – vraag nu een offerte aan."
   },
   "hero": {
     "caption": "Point-of-care-prestaties",
     "title": "IglooPro:\nPoint-of-Care. Perfect. Direct.",
-    "description": "Verzeker u van het prestatiepakket: uw IglooPro is binnen 3–5 werkdagen klaar voor gebruik – gegarandeerd.",
-    "cta": "Adviesgesprek boeken",
+    "description": "Verzeker u van het prestatiepakket: uw IglooPro is binnen 3–5 werkdagen klaar voor gebruik.",
+    "cta": "Offerte aanvragen",
     "cta_roi": "ROI-calculator starten",
     "cta_downloads": "Informatiemateriaal downloaden",
     "stat1": {
@@ -15,12 +15,12 @@
       "label": "Klaar voor gebruik na bestelling"
     },
     "stat2": {
-      "value": "CV < 2%",
+      "value": "CV < 2 %",
       "label": "Precisie over het hele meetbereik"
     },
     "dental": {
       "title": "IglooPro: point-of-care-diagnostiek. De nieuwe maatstaf voor uw praktijk.",
-      "description": "Verzeker u van het prestatiepakket: uw IglooPro is binnen 3–5 werkdagen klaar voor gebruik – gegarandeerd."
+      "description": "Verzeker u van het prestatiepakket: uw IglooPro is binnen 3–5 werkdagen klaar voor gebruik."
     },
     "beauty": {
       "title": "Wetenschappelijke esthetiek: meetresultaten in plaats van aannames.",
@@ -111,7 +111,7 @@
     "eyebrow": "Uw vakgebied",
     "help_title": "Niet zeker welk panel bij uw praktijk past?",
     "help_text": "15 minuten met een POC-specialist – een concreet advies voor uw vakgebied, geen verkooppraatje.",
-    "help_cta": "Adviesgesprek boeken"
+    "help_cta": "Offerte aanvragen"
   },
   "services": {
     "caption": "DIAGNOSTIEKFOCUS",
@@ -289,7 +289,7 @@
     "caption": "Klaar om te beginnen",
     "title": "Klaar voor labnauwkeurige diagnostiek in uw praktijk?",
     "subtitle": "Praat met ons team of bereken uw besparingspotentieel — fabrikantonafhankelijk, IVDR/CE-conform en binnen 3–5 werkdagen klaar voor gebruik.",
-    "cta_primary": "Adviesgesprek boeken",
+    "cta_primary": "Offerte aanvragen",
     "cta_secondary": "ROI-calculator",
     "chips": {
       "free": "Gratis & vrijblijvend",
@@ -318,9 +318,9 @@
       "payback": "Terugverdientijd (maanden)"
     },
     "warn_negative": "Bij deze waarden is de dekkingsbijdrage negatief – controleer de prijzen/kosten.",
-    "payback_hint": "Voor uw individuele terugverdientijd: boek een adviesgesprek of vraag het rapport aan.",
+    "payback_hint": "Voor uw individuele terugverdientijd: vraag een offerte of het rapport aan.",
     "disclaimer": "Vrijblijvende voorbeeldberekening op basis van uw invoer. Geen toezegging van omzet of winst.",
-    "cta_consult": "Adviesgesprek boeken",
+    "cta_consult": "Offerte aanvragen",
     "cta_report": "Resultaat als pdf toesturen",
     "form": {
       "email": "E-mailadres",
@@ -378,6 +378,6 @@
       "text": "Uw team is opgeleid, de eerste patiënt wordt gemeten – labnauwkeurig, gedocumenteerd, IVDR/CE-conform.",
       "badge": "Dag 1"
     },
-    "cta": "Adviesgesprek boeken"
+    "cta": "Offerte aanvragen"
   }
 }

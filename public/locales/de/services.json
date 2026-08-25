@@ -298,7 +298,7 @@
         "content": "Die Verlagerung der Diagnostik aus dem Labor an den Point-of-Care darf niemals auf Kosten der Qualität gehen. Hier setzen Premium-Lösungen an:",
         "listItems": [
           "Der Einsatz von hochpräzisen, IVDR-zertifizierten Analysegeräten wie dem Igloo Pro ist zwingend erforderlich.",
-          "Die garantierte analytische Genauigkeit (z.B. CV < 2%) stellt sicher, dass die in der Praxis oder Apotheke erhobenen Werte mit dem Laborstandard vergleichbar sind."
+          "Die garantierte analytische Genauigkeit (z.B. CV < 2 %) stellt sicher, dass die in der Praxis oder Apotheke erhobenen Werte mit dem Laborstandard vergleichbar sind."
         ]
       }
     ],
@@ -370,7 +370,7 @@
     ],
     "conclusion": {
       "heading": "Fazit: Keine Kompromisse bei der Diagnose",
-      "text": "Bei Infektionen und Entzündungen ist die Zeit der kritische Faktor. Nur ein POC-System, das Validität auf Laborniveau mit maximaler Geschwindigkeit vereint, kann die Sicherheit in der Diagnostik erhöhen und gleichzeitig das Management von Antibiotika optimieren. PolarisDX.net liefert diese garantierte Performance – von der Inbetriebnahme innerhalb von 3-5 Werktagen bis zum Priority-Support."
+      "text": "Bei Infektionen und Entzündungen ist die Zeit der kritische Faktor. Nur ein POC-System, das Validität auf Laborniveau mit maximaler Geschwindigkeit vereint, kann die Sicherheit in der Diagnostik erhöhen und gleichzeitig das Management von Antibiotika optimieren. PolarisDX.net liefert diese Performance – von der Inbetriebnahme innerhalb von 3-5 Werktagen bis zum Priority-Support."
     },
     "cta": "Termin buchen",
     "faq": {
@@ -429,7 +429,7 @@
         "heading": "3. Der Premium-Vorsprung: Geschwindigkeit und Zuverlässigkeit",
         "content": "Für die Überwachung chronischer Erkrankungen und die Triage kardialer Notfälle ist die Zuverlässigkeit der POC-Technologie nicht verhandelbar.",
         "listItems": [
-          "Laborgenauigkeit: Der Igloo Pro liefert Resultate, die mit denen des Zentrallabors korrespondieren (CV < 2% Inter-Reader).",
+          "Laborgenauigkeit: Der Igloo Pro liefert Resultate, die mit denen des Zentrallabors korrespondieren (CV < 2 % Inter-Reader).",
           "Multiplex-Fähigkeit: Das System kann verschiedene kardiale Parameter gleichzeitig oder in schneller Abfolge bestimmen, was die Effizienz in kritischen Situationen maximiert."
         ]
       }
@@ -445,7 +445,7 @@
       "items": [
         {
           "question": "Welche Stoffwechsel-Biomarker kann ich chairside messen?",
-          "answer": "Mit dem IglooPro bestimmen Sie HbA1c (Langzeit-Blutzucker), Gesamtcholesterin sowie weitere Lipidfraktionen direkt aus Kapillarblut in wenigen Minuten. Diese Chairside-Diagnostik liefert laborvergleichbare Ergebnisse (CV < 2%) und ermöglicht die sofortige Therapieanpassung im selben Patientenkontakt — ohne Einsendung an ein Zentrallabor."
+          "answer": "Mit dem IglooPro bestimmen Sie HbA1c (Langzeit-Blutzucker), Gesamtcholesterin sowie weitere Lipidfraktionen direkt aus Kapillarblut in wenigen Minuten. Diese Chairside-Diagnostik liefert laborvergleichbare Ergebnisse (CV < 2 %) und ermöglicht die sofortige Therapieanpassung im selben Patientenkontakt — ohne Einsendung an ein Zentrallabor."
         },
         {
           "question": "Wie hilft der HbA1c-Wert bei der Diabetes-Früherkennung?",

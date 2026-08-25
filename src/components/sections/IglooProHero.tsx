@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Check } from 'lucide-react'
 import { Button } from '../ui/Button'
 import { Breadcrumbs } from '../ui/Breadcrumbs'
-import IglooProFlyer from '../../assets/downloads/igloo-pro-flyer.pdf'
+const IglooProFlyer = '/downloads/igloo-pro-flyer.pdf'
 import IglooProImage from '../../assets/Igloo-pro-frontal.webp'
 
 export default function IglooProHero() {

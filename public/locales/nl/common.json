@@ -80,16 +80,6 @@
       "sports": "Prestatiediagnostiek voor Sporters"
     }
   },
-  "chat": {
-    "title": "Chat",
-    "status": "Online",
-    "intro": "Welkom bij PolarisDX. Hoe kunnen we je vandaag helpen?",
-    "welcome_prototype": "Welkom! Onze chatbot is nog niet actief. Gebruik ons <0>contactformulier</0> of bel ons op <1>+49 151 75011699</1>.",
-    "placeholder": "Typ een bericht...",
-    "footer": "Aangedreven door PolarisDX Assistant",
-    "error": "Sorry, er is iets misgegaan.",
-    "unavailable": "De chat is momenteel niet beschikbaar. Probeer het later opnieuw of neem contact met ons op via e-mail."
-  },
   "cookie": {
     "title": "Wij respecteren uw privacy",
     "description": "Wij gebruiken cookies.",
@@ -144,5 +134,18 @@
   },
   "languageFallback": {
     "notice": "Deze pagina is momenteel alleen in het Engels beschikbaar."
+  },
+  "errors": {
+    "root": {
+      "title": "Er is iets misgegaan",
+      "body": "Deze pagina kon niet worden geladen. Laad de pagina opnieuw — uw gegevens zijn niet verloren. Blijft het probleem bestaan, probeer het dan over een paar minuten opnieuw.",
+      "retry": "Opnieuw proberen",
+      "home": "Naar de startpagina"
+    },
+    "segment": {
+      "title": "Dit onderdeel kon niet worden geladen",
+      "body": "De rest van de pagina werkt gewoon door. Probeer het opnieuw.",
+      "retry": "Opnieuw proberen"
+    }
   }
 }

@@ -300,7 +300,7 @@
     ],
     "conclusion": {
       "heading": "Závěr pro vaše rozhodnutí",
-      "text": "Investice do systémových řešení POC je investicí do budoucnosti péče zaměřené na pacienta a zvýšení provozní efektivity. PolarisDX.net dodává nejen technologii pro tuto transformaci, ale zaručuje prostřednictvím exkluzivního 3-5 pracovní dnyodinového servisu vzdáleného nastavení a záruky kompatibility LFT její hladkou a validovanou funkci. Tak využijete plný potenciál preventivních zdravotních prohlídek okamžitě."
+      "text": "Investice do systémových řešení POC je investicí do budoucnosti péče zaměřené na pacienta a zvýšení provozní efektivity. PolarisDX.net dodává nejen technologii pro tuto transformaci, ale zaručuje prostřednictvím exkluzivní služby vzdáleného nastavení během 3–5 pracovních dnů a záruky kompatibility LFT její hladkou a validovanou funkci. Tak využijete plný potenciál preventivních zdravotních prohlídek okamžitě."
     },
     "cta": "Rezervovat termín",
     "faq": {
@@ -326,7 +326,8 @@
       ]
     },
     "seo": {
-      "description": "Preventivní kontroly v Point-of-Care: okamžité stanovení klíčových biomarkerů a poradenství založené na datech – v ordinaci, lékárně i na klinice. Zjistěte více."
+      "description": "Preventivní kontroly v Point-of-Care: okamžité stanovení klíčových biomarkerů a poradenství založené na datech – v ordinaci, lékárně i na klinice. Zjistěte více.",
+      "title": "Preventivní zdravotní prohlídky v ordinaci"
     }
   },
   "infektion_entzuendung": {
@@ -365,7 +366,7 @@
     ],
     "conclusion": {
       "heading": "Závěr: Žádné kompromisy v diagnostice",
-      "text": "U infekcí a zánětů je čas kritickým faktorem. Pouze systém POC, který kombinuje validitu na laboratorní úrovni s maximální rychlostí, může zvýšit bezpečnost v diagnostice a zároveň optimalizovat řízení antibiotik. PolarisDX.net dodává tento zaručený výkon – od 3-5 pracovní dnyodinového uvedení do provozu až po prioritní podporu."
+      "text": "U infekcí a zánětů je čas kritickým faktorem. Pouze systém POC, který kombinuje validitu na laboratorní úrovni s maximální rychlostí, může zvýšit bezpečnost v diagnostice a zároveň optimalizovat řízení antibiotik. PolarisDX.net dodává tento výkon – od uvedení do provozu během 3–5 pracovních dnů až po prioritní podporu."
     },
     "cta": "Rezervovat termín",
     "faq": {
@@ -391,7 +392,8 @@
       ]
     },
     "seo": {
-      "description": "Stanovení zánětlivých markerů a známek infekce přímo na místě: rychlejší triáž, odpovědné řízení antibiotické léčby. Vyžádejte si konzultaci."
+      "description": "Stanovení zánětlivých markerů a známek infekce přímo na místě: rychlejší triáž, odpovědné řízení antibiotické léčby. Vyžádejte si konzultaci.",
+      "title": "Markery infekce a zánětu na místě"
     }
   },
   "stoffwechsel_herz": {
@@ -456,7 +458,8 @@
       ]
     },
     "seo": {
-      "description": "Měření metabolických a kardiálních markerů během několika minut: monitorování diabetu a úprava terapie přímo v ordinaci. Nechte si poradit."
+      "description": "Měření metabolických a kardiálních markerů během několika minut: monitorování diabetu a úprava terapie přímo v ordinaci. Nechte si poradit.",
+      "title": "Měření metabolismu a zdraví srdce"
     }
   },
   "hormon_tests": {
@@ -521,7 +524,8 @@
       ]
     },
     "seo": {
-      "description": "Hormonální diagnostika v Point-of-Care: stanovení klíčových hormonů přímo u pacienta – od štítné žlázy po fertilitu. Domluvte si konzultaci."
+      "description": "Hormonální diagnostika v Point-of-Care: stanovení klíčových hormonů přímo u pacienta – od štítné žlázy po fertilitu. Domluvte si konzultaci.",
+      "title": "Hormonální a endokrinologické testy v ordinaci"
     }
   },
   "kompatibilitaet_integration": {
@@ -585,7 +589,8 @@
       ]
     },
     "seo": {
-      "description": "Otevřená platforma POC nezávislá na výrobci: Igloo Pro zajišťuje flexibilitu, technologickou nezávislost a jistotu investice. Zjistěte více."
+      "description": "Otevřená platforma POC nezávislá na výrobci: Igloo Pro zajišťuje flexibilitu, technologickou nezávislost a jistotu investice. Zjistěte více.",
+      "title": "Kompatibilita napříč výrobci"
     }
   },
   "seo": {

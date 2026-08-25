@@ -8,11 +8,35 @@ kein `work-packages/APxx-STATE.md`).
 
 ## Current
 
-- Work package: AP03 — Informationsarchitektur und vollständiges Seiteninventar
+- Work package: AP04 — Content-Strategie, Content-Modell und Launch-Content-Readiness
 - Status: COMPLETE <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
-- AP03 closure: PASS (24/24, `C03-01`–`C03-24`)
-- Last completed PT: PT03.4 — Navigation und interne Findability (PASS); PT03.1–PT03.4 alle PASS
-- Next work package: AP04 — Content-Strategie, Content-Modell und Launch-Content-Readiness
+- **AP04 closure: PASS (32/32, `C04-01`–`C04-32`)**
+- Last completed PT: **PT04.4 — Asset-Readiness (PASS, 2026-08-25)**
+- **Next work package: AP05 — Sales-Machine Design-System und Light-Theme-Grundlage — NICHT gestartet**
+- **AP04 Closure PASS bedeutet ausdrücklich NICHT, dass die Website x10-launchfertig ist.**
+  Es bedeutet: die AP04-eigene Content- und Asset-Readiness ist abgeschlossen, und alle verbleibenden
+  Content-, Runtime-, Approval- und Asset-Gates sind explizit, ownergebunden und gehen nicht verloren
+  (`AP04.md` §16.3).
+- **AP04-RECOVERY (2026-08-25): PASS** — Deadlock aufgelöst, Deferred-Gate-Modell eingeführt
+- PT04.1: PASS · PT04.2: PASS · **PT04.3: PASS** · **PT04.4: PASS**
+- Asset readiness: recorded (`CONTENT-MATRIX.md` §26) — 0 broken references, CD-7 aufgelöst,
+  43 Sprachlabels ergänzt, 0 unsichere Löschungen
+- Deferred gates: **10 registriert** (`DG-01`–`DG-09`, `CONTENT-MATRIX.md` §24/§26.8) —
+  0 AP04-Closure-Blocker, 9 Launch-Blocker weitergetragen, `DG-06b` fachlich zu klären,
+  0 als READY markiert
+- Content audit: recorded (`building-docs/CONTENT-MATRIX.md` §4–§14)
+- Content types: standardized (`building-docs/CONTENT-MATRIX.md` §19–§21, `CT-01`–`CT-10`,
+  CTA-Taxonomie `CTA-01`–`CTA-10`)
+- Launch content: **AP04-eigener Anteil vollständig** (`CONTENT-MATRIX.md` §25) — Key-Parität 0 Lücken,
+  CTA-Standard 10/10, Chat-/Garantie-Copy 0 Treffer, Success-Semantik 10/10, `CV < 2 %` 184 × einheitlich,
+  0 Placeholder/Mocks. Epigenetik-Webcontent, Musterbefund-Inhalte, Consumer, Systemmail und Artikel sind
+  als **Deferred Gates mit späteren Owner-APs** registriert (§24) — offen, nicht erledigt, 0 False-Ready
+- CTA/system-copy readiness: CTA recorded und hergestellt · System-Copy **deferred an AP22/AP08 PT08.5** (`DG-04`)
+- Content matrix: updated (33 Content-Einheiten `C-01`–`C-33` mit Typ-, CTA-, Public/Gated-,
+  Sensitive- und Standardisierungsstatus)
+- AP05: NOT STARTED
+- AP03: COMPLETE · AP03 closure: PASS (24/24, `C03-01`–`C03-24`) — unverändert erhalten
+- Last completed PT of AP03: PT03.4 — Navigation und interne Findability (PASS); PT03.1–PT03.4 alle PASS
 - IA inventory: recorded (`building-docs/IA-INVENTORY.md` §4–§7)
 - Page type taxonomy: recorded (`building-docs/IA-INVENTORY.md` §8)
 - Core journeys: recorded (`building-docs/IA-INVENTORY.md` §9)
@@ -26,18 +50,17 @@ kein `work-packages/APxx-STATE.md`).
 - Production/deployment contract: recorded (`building-docs/DEPLOYMENT-CONTRACT.md`)
 - AP01: COMPLETE · AP01 closure: PASS (43/43, `C01-01`–`C01-43`) — unverändert erhalten
 - AP00: COMPLETE · AP00 closure: PASS (unverändert erhalten)
-- AP04: NOT STARTED — kein `PT04.x` aktiv
 - Baseline: `feat/home-leadmagnet@961f65d` — Ancestor des aktuellen HEAD, empirisch bestätigt
 - Baseline evidence: recorded · `main` Import Ledger: recorded · redesign patterns: recorded ·
   legacy classification: recorded · final clean build evidence: recorded · **closure evidence: recorded**
   (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§9)
-- Current branch: `console/ap02-2026-08-24T12-30-23`
+- Current branch: `console/4-2026-08-24T14-54-30`
 - Current HEAD: `186bc414cd449159b4df0213e72c648f6dc40b1e` — Merge der AP03-Linie in
   `feat/home-leadmagnet`, remote gesichert als `origin/feat/home-leadmagnet`; enthält den
   AP01-Final-HEAD `3736d1a` als Ancestor. AP02-Delta `3736d1a..fffd712` = **0
   Nicht-Dokumentationsdateien**; AP03 setzt diese Linie fort und ändert ebenfalls nur `building-docs/`
 - Started: 2026-08-24 (AP02); AP01 gestartet und abgeschlossen 2026-08-24
-- Last updated: 2026-08-24
+- Last updated: 2026-08-25 (AP04-CLOSURE, PASS)
 
 <!-- AP00-HEAD-Historie: f8692c0 = PT00.1, bf125d2 = PT00.2, cad9b6c = PT00.3, 0c58d44 = PT00.4,
      a0fac9c = Closure. Danach Pre-AP01-Hygiene: 9ee8199, d98a6b7, 5f6fc3b, Merge 4f70801.
@@ -178,6 +201,179 @@ kein `work-packages/APxx-STATE.md`).
   keine konkurrierende Contract-Datei, keine ID-Duplikate; keine Implementierung aus AP03–AP33
   vorgezogen. Closure-Evidenz über Contract-Diffs + diesen State (`AP02.md` §5.3, Variante 2) —
   **kein separater Report angelegt**.
+
+- PT04.1 — Content-Audit abgeschlossen: `building-docs/CONTENT-MATRIX.md` als kanonische
+  Launch-Content-Matrix angelegt (33 Content-Einheiten `C-01`–`C-33` über alle 27 IA-Seitenfamilien
+  plus Systemmail-, ROI-PDF-, Chat- und Backlog-Bestand). Gemessen: Key-Parität 10/10 bis auf **21
+  fehlende Keys in 8 Sprachen** (`common` 7 × `errors.*`, `epigenetics` 9 × `befund.*`, `services`
+  5 × `seo.title`); **196 englische Volltextsätze je Nicht-`de`/`en`-Sprache in `epigenetics.json`**
+  und 94 in `articles.json` für `fr`/`pt`/`da`/`nl`; Consumer 3 Familien × **1** Sprache, 2 884 Zeilen
+  mit **0 × `useTranslation`**; Musterbefund-Inhalte nur `de`/`en`. CTA-Audit: **15 ×** „Beratung
+  buchen" in 6 `de`-Namespaces gegen **7 ×** „Angebot anfragen" in 3, dazu 10 hartkodierte
+  `t()`-Defaults und 3 CTA-Buttons ohne `t()`; zusätzlich **CTA-Rollenbruch in 8 Sprachen** bei
+  `products.hero.cta_order`/`cta_bottom.button` (`QUOTE_REQUEST` → `ORDER`) und ein **Sales-CTA auf
+  der Support-Seite**. Assets: 32 Download-Dateien, **29/29 Locale-Referenzen auflösbar, 0 verwaist**,
+  aber stiller EN-Fallback in 8 Sprachen **und** stiller DE-Fallback der 6 Musterbefund-PDFs in allen
+  10 Sprachen; Consumer ohne produktspezifische OG-Bilder; 3 doppelte PDFs unter
+  `src/assets/downloads/`. 14 sensible/regulatorische Aussagen `S-01`–`S-14` registriert — davon
+  **fünf Pflichthinweise der Epigenetik-Säule nur in `de`/`en` verfügbar**. Chat-Copy, Chat-Mock und
+  Case-Study-Bestand als `LEGACY_REMOVE`/`BACKLOG_NOT_LAUNCH` markiert, nicht entfernt und nicht
+  reaktiviert. 19 AP04-eigene Launch-Blocker `LB-1`–`LB-19` plus Übergabe-Blocker anderer Owner
+  benannt. **Keine Datei außerhalb von `building-docs/` geändert; keine Übersetzung, kein Asset, keine
+  Copy-Korrektur, keine Content-Governance, keine spätere AP-Implementierung.**
+
+- PT04.2 — Content-Typen standardisiert, rein dokumentarisch in `building-docs/CONTENT-MATRIX.md`
+  §18–§21: zehn verbindliche Content-Typen **`CT-01`–`CT-10`** (Hero · Benefit/Proof · Feature ·
+  Prozess · FAQ · CTA · Download/Resource · Disclaimer/Regulatory · Lead-Magnet-Gate ·
+  Form/Success/Error) mit Pflichtslots, Schichtzuordnung nach `CA-01` und Ist-Abgleich je Typ; acht
+  übergreifende Regeln `CT-R1`–`CT-R8`. **CTA-Taxonomie §20**: die acht geforderten CTA-Content-Typen
+  sind ausdrücklich eine **Gruppierung der zwölf IA-Rollen** aus `IA-INVENTORY.md` §8.3 — kein zweites
+  Vokabular; Regeln `CTA-01`–`CTA-10` mit `GENERAL_SALES` = „Angebot anfragen", getrenntem
+  Consumer-`ORDER`, getrennter `EPIGENETICS_INQUIRY`, `SUPPORT` ohne Sales-CTA und Artikeln ohne
+  Einheits-CTA; §20.3 enthält die **verbindliche Sollzuordnung für alle 27 bestehenden CTA-Keys** als
+  Auftrag an PT04.3. **`PUBLIC`/`GATED` getrennt modelliert** (`CT-07`, 5 × PUBLIC, 1 × GATED geplant)
+  **ohne Gate-Implementierung**. **Regulatory als eigener Typ** `CT-08` mit acht registrierten
+  Pflichthinweisen `RN-01`–`RN-08`; `RN-05` (`vitd3spray.disclaimer`, 10/10 übersetzt) ist der
+  Referenzfall, `RN-01`–`RN-04`, `RN-07`, `RN-08` sind offen. Success-Semantik über `CT-10-K1` an
+  `DEC-RL-009`/`LD-01` gebunden (persistente Annahme statt „Mail gesendet"). §21 führt je Content-Einheit
+  Content-Typ, Standardisierungsstatus, CTA-Typ, Public/Gated, Sensitive-Flag, verbleibende Lücke und
+  Owner-AP: `STANDARDIZED` 7 · `MODEL_OK_CONTENT_GAP` 13 · `NOT_STANDARDIZED` 9 · `MISSING` 1 ·
+  außerhalb der Taxonomie 3. §21.1 begründet die **bewusst unterlassenen** Schema-Mutationen mit dem
+  jeweiligen Owner-AP (AP19, AP13/AP14, AP17, AP16, AP11, AP08). Verifikation: 163 JSON-Dateien
+  geparst, **0 Fehler, 0 Duplicate Keys**; `git diff` ausschließlich `building-docs/`.
+  **0 Änderungen an `src/**`, `public/**`, `server\*/**` und jeder Konfiguration; kein Design-System,
+  kein Routing, kein SEO, kein Lead-Backend, kein Gate, kein CTA-Wortlaut geändert.\*\*
+
+- PT04.3 — Launch-Content-Readiness **nicht abgeschlossen: `BLOCKED_CONTENT_APPROVAL`**. Der
+  freigabefreie Teil wurde vollständig umgesetzt und verifiziert (`CONTENT-MATRIX.md` §23.1/§23.2):
+  **Key-Parität auf 0 Lücken** (172 Keys in 8 Sprachen: `common.errors.*`, `epigenetics.befund.*`
+  inkl. slawischer Pluralformen, `services.*.seo.title`) · **Chat-Copy `common.chat.*` in allen 10
+  Sprachen entfernt** (`DEC-RL-007`; die Keys hatten **keinen** Konsumenten im Quelltext — Widget, CSP
+  und `/api/chat` bleiben AP06/AP22/AP23/AP26) · **Garantie-Zusage entfernt** aus `home.hero` ×10 und
+  der wörtlich gesperrte Begriff „garantierte Performance" aus `services.json` ×10 (`DEC-RL-012`) ·
+  **Success-Semantik** von „gesendet" auf „erhalten und registriert" umgestellt (`DEC-RL-009`, `LD-01`,
+  `R04-12`) · **GENERAL_SALES normalisiert**: 13 Locale-Keys × 10 Sprachen auf die lokalisierte
+  Entsprechung von „Angebot anfragen" plus 17 hartkodierte Quelltext-Vorkommen in 11 Dateien
+  (`DEC-RL-013`, `IAD-12` geschlossen) · **CTA-Rollenbruch behoben** (`products.hero.cta_order`,
+  `cta_bottom.button` trugen in 8 Sprachen einen Bestell-CTA) · **Support-CTA** zurück auf
+  `SUPPORT_REQUEST` · **Artikel-Einheits-CTA** auf `CONTENT_NEXT_STEP` (`IAD-13`) ·
+  **Epigenetik-Inquiry-CTA ×10 lokalisiert** · **contact.json ×8 übersetzt** (80 Werte,
+  `_translationStatus` entfernt) · **korrupte tschechische Copy repariert** („dnyodinového") ·
+  **`CV < 2 %` in 184 Vorkommen einheitlich** (`DEC-RL-008`, keine `< 5 %`-Regression). Verifikation:
+  JSON 151/151 ohne Duplicate Keys, Key-Parität 0, `tsc -b` grün, Unit-Tests 13/13 (5 jsdom-Fehler
+  **auf `cd2524e` reproduziert = vorbestehend**), Production Build grün, SSR-Smoke 12 Routen × 10
+  Sprachen 200 + echte 404, im SSR-HTML **0** alte CTA-Copy, **0** Garantie-Copy, **0** Chat-Copy,
+  **0** Roh-Keys. **Offen und blockierend:** `B-1` Epigenetik-Webcontent (222 Werte × 8 Sprachen,
+  ~240 000 Zeichen, enthält die Pflichthinweise `RN-01`–`RN-04`; die Eigentümer haben die Zurückstellung
+  selbst über `_translationStatus` dokumentiert) · `B-2` Musterbefund-Inhalte (6 × 8 Dateien; zusätzlich
+  strukturell durch `BefundSprachen{de,en}` = **AP16** gesperrt) · `B-3` Consumer ×10 (2 884 Zeilen,
+  0 × `useTranslation`; `I18N-CONTRACT.md` **M-03** verlangt zuerst **AP08 PT08.2**, und `NAMESPACES`
+  ist **M-01**-Einzeleigentum von AP08) · `B-4` Systemmail ×10 (kein Endpunkt empfängt `language`;
+  dessen Einführung ist **AP22**) · `B-5` Artikel-Volltexte in `fr`/`pt`/`da`/`nl` (388 Werte) ·
+  `B-6` Consumer-Pflichthinweis `RN-08`. **Keine medizinische oder regulatorische Aussage erzeugt,
+  übersetzt oder umformuliert; kein Asset, keine Route, kein Design, kein Lead-Backend berührt.**
+
+- **AP04-RECOVERY (2026-08-25) — reiner Dokument-/Vertrags-Recovery-Lauf, `PASS`.** Ursache des
+  PT04.3-Deadlocks behoben: `AP04.md` führte den Scope von **AP08** (`PT08.2.3–.7` Consumer
+  `t()`-fähig, `PT08.3.1/.2` Epigenetik und Befunde × 10, `PT08.5` Systemtexte × 10, `PT08.6`
+  sprachabhängige Assets) sowie **AP16 PT16.1.6** und **AP22** als eigene Closure-Voraussetzung. Da
+  diese APs in Welle 1/3/4 und damit **nach** AP04 (Welle 0) liegen, war die Kette zyklisch — AP05 und
+  AP06 waren mitblockiert. Eingeführt: **Gate-Modell** `AP04.md` §11.0 mit vier Gate-Typen und
+  `GM-01`–`GM-07`; **Deferred-Gate-Register** §11.1 und kanonisch `CONTENT-MATRIX.md` §24 mit
+  **`DG-01`–`DG-07`** (je ID, Typ, Lücke, Owner-AP, Required-before, sicheres Ist-Verhalten, Evidenz);
+  **Invarianten-Trennung** TARGET / AP04-OWN für `CNT-02`, `CNT-03`, `CNT-04`, `CNT-14`, `CNT-17` plus
+  neue `CNT-26`–`CNT-28`; **DoD** §16 in AP04-eigene Bedingungen, Deferred-Gate-Bedingungen und eine
+  ausdrückliche Bedeutungsklärung getrennt; **Closure-Matrix** `C04-13`/`C04-14`/`C04-15`/`C04-16`/`C04-21`
+  von „Zielzustand erreicht" auf „AP04-Anteil erledigt **und** Rest sauber deferred" überführt, neu
+  `C04-29`–`C04-32`; **Risiken** `R04-13`/`R04-14` ergänzt. In `ap04-prompts.md`: PT04.3 erhält die
+  Klassentrennung A/B/C (§3.1) mit Klassifikationsregel, korrigierte PASS-Kriterien und ein erweitertes
+  Reportformat; PT04.4 erhält `DEFERRED_ASSET_GATE` (§19.1); der Closure-Prompt erhält korrigierte
+  Gates, `C04-29`–`C04-32`, korrigierte FAIL-Bedingungen und die Klarstellung, dass AP04 Closure `PASS`
+  **keine** x10-Launch-Readiness behauptet. **`MASTER-SCOPE.md` unverändert** — §6, §7 und §8 stützen die
+  Korrektur ausdrücklich. **Kein Quellcode, keine Locale-Datei, kein Asset berührt; kein Commit; keine
+  bestehende PT04.3-Arbeit verworfen; kein PT-Ergebnis vorweggenommen.**
+
+- PT04.3 — Launch-Content-Readiness **abgeschlossen: `PASS`** (Retry 2026-08-25 unter dem durch
+  AP04-RECOVERY korrigierten Gate-Modell; **kein Neustart** — die 104 Dateien aus dem Lauf vom
+  2026-08-24 sind unverändert erhalten und wurden neu gegen die Gate-Semantik verifiziert, nicht
+  übernommen). **Bestandsverifikation:** JSON 163/163 ohne Duplicate Keys · Key-Parität gegen `de`
+  **0 Lücken** · Namespaces 14/15 registriert (`casestudies` dokumentierte Ausnahme) · Chat-Copy in
+  Locales **0** · Garantie-Copy **0**, keine Band-Komponente · GENERAL_SALES **einheitlich 10/10 über
+  13 Keys**, alter Wortlaut **0 ×** in Locales und Quelltext · spezialisierte CTA-Rollen (`SUPPORT`,
+  Artikel-`CONTENT_NEXT_STEP`, `EPIGENETICS_INQUIRY`) in 10/10 getrennt · `CV < 2 %` **184 × einheitlich**,
+  0 × `< 5 %` · Placeholder/Mock **0** · Success-Semantik **0** Mail-only-Formulierungen · hartkodierte
+  sichtbare Strings außerhalb der AP08-Flächen nur Firmennamen/Adressen. **Im Retry geschlossene
+  Klasse-A-Lücken:** (A-1) der erste Lauf hatte 12 Keys im Namespace `epigenetics` in 8 Sprachen
+  übersetzt, obwohl dessen `_translationStatus`-Marker **wurzel-skopiert** ist und die vier Konsumenten
+  daraufhin `lang="en"` auf den **gesamten** Inhaltscontainer setzen — Verstoß gegen `I-08`/WCAG 3.1.2/`N13`;
+  **100 Werte in 8 Sprachen** auf den englischen Namespace-Wert zurückgeführt, Keys bleiben vorhanden,
+  `I-06` bleibt behoben, Marker-Umhängung auf Teilbäume bewusst **nicht** vorgezogen (AP08 PT08.1.5/.6).
+  (A-2) `compare.cta`/`basics.cta` verlinken deutsche PDFs ohne Sprachhinweis in 8 Sprachen — **16 Werte**
+  auf die Fassung mit „(German)" angeglichen (`CA-28`). **Gates:** `tsc -b` grün · Build grün · SSR-Smoke
+  13 Routen × 10 Sprachen 200 + echte 404 · `/pl/epigenetics` liefert 1 `lang="en"`-Container, FallbackNotice
+  und **0** lokalisierte Rest-Strings darin · Musterbefund **0** Roh-Keys · Unit-Tests 13/13, die 5
+  jsdom-`ERR_REQUIRE_ESM`-Fehler erneut **auf `cd2524e` reproduziert** (vorbestehend, Owner AP27).
+  **Deferred: 8 Gates `DG-01`–`DG-07`, 0 AP04-Closure-Blocker, 7 Launch-Blocker weitergetragen,
+  0 False-Ready, 0 unklassifiziert. Keine spätere Owner-Arbeit vorgezogen, `NAMESPACES` unverändert,
+  keine medizinische oder regulatorische Aussage erzeugt.**
+
+- PT04.4 — Asset-Readiness **abgeschlossen: `PASS`** (2026-08-25). **Inventar:** 32 Downloads,
+  3 OG-Bilder (je 1200 × 630), 51 gebündelte Bilder, 21 `<img>`-Elemente; geprüfte Referenzquellen:
+  29 PDF/ZIP-Referenzen aus 150 Locale-Dateien, 3 Katalogeinträge, 3 `public/`-Pfade, 36 Bundler-Importe.
+  **Broken references: 0 vorher, 0 nachher**; Download-Smoke gegen laufendes SSR: **16/16 gerenderte
+  `href` liefern HTTP 200** mit realer Content-Length. **Zwei AP04-eigene Fixes:** (1) **`CD-7`
+  aufgelöst** — der Befund war schwerer als dokumentiert: die drei PDFs unter `src/assets/downloads/`
+  waren byte-identisch mit `public/downloads/`, aber **nicht verwaist**, sondern von fünf
+  Produktionskomponenten importiert und unter einer zweiten bundle-gehashten URL ausgeliefert
+  (Verstoß gegen `CA-19`/`CA-22`). Die vier Komponenten referenzieren jetzt die kanonische Katalog-URL
+  `/downloads/<file>`; danach war das Verzeichnis nachweislich unreferenziert (0 Code-Treffer) und wurde
+  entfernt — **3 bundle-gehashte PDF-Duplikate weniger im Artefakt, ~2,4 MB**; `LB-18`/`OR-8` geschlossen.
+  (2) **`CA-28` Sprachtransparenz** — `/igloo-pro` lieferte das laut Katalog **deutsche**
+  `igloo-pro-flyer.pdf` in **allen 10** Locales ohne Hinweis, `/vitamin-d3-spray` das **englische** PDF
+  in 8 Locales ohne Hinweis; **43 CTA-Labels** tragen jetzt „(PDF, DE)" bzw. „(EN)" nach der Konvention
+  des kanonischen Katalogs. **Verifiziert ohne Nacharbeit:** Musterbefund-PDFs sind über
+  `samples.badge` = „PDF in German" in `en` und allen 8 Fallback-Locales korrekt offengelegt — die
+  PT04.3-Aussage trifft zu. **Alt-Texte:** 0 fehlend; die 9 Literale sind kein Defekt (2 auf deklariert
+  einsprachigen `de`-Seiten, 4 auf der AP08-eigenen Consumer-Fläche, 1 Produktname sprachneutral,
+  2 in Komponenten mit **0 Render-Stellen**). **Orphans klassifiziert, nicht gelöscht:** 5 ungenutzte
+  Bildvarianten und 6 PNG-Quellmaster (6,9 MB, werden **nicht** ausgeliefert — `articleImages.ts`
+  importiert nur die `.webp`-Ableitungen; Owner AP25). **Public/Gated:** 0 Gating-Mechanismus im Repo,
+  alle Ressourcen faktisch `PUBLIC` und auch so beworben — keine falsche Schutzzusage; Zugangsklasse und
+  leere `tech`-Kategorie bleiben **AP19**. **Neue Deferred Asset Gates:** `DG-08` (Consumer-OG-Bilder,
+  AP21 PT21.6.5 mit AP09) und `DG-09` (ROI-Report-PDF nur deutsch, AP22 mit AP08 PT08.5.3).
+  **Gates:** JSON 163/163 ohne Duplicate Keys · Key-Parität 0 · Typecheck grün · Build grün ·
+  SSR-Smoke 13/13 Routen 200 + echte 404 · Unit-Tests 13/13 (5 jsdom-Fehler vorbestehend, auf `cd2524e`
+  reproduziert, Owner AP27). **0 unsichere Löschungen, 0 Backlog-Assets aktiviert, 0 False-Ready,
+  keine spätere Owner-Arbeit vorgezogen.**
+
+- AP04-CLOSURE — Closure Gate **`PASS`**: `C04-01` bis `C04-32` eigenständig und empirisch gegen den
+  aktuellen Repository-State geprüft, keine früheren Reports übernommen. **Vorgänger:** AP00–AP03
+  `COMPLETE`/Closure `PASS` unverändert; AP04-RECOVERY `PASS`; PT04.1–PT04.4 alle `PASS`.
+  **Content:** genau **eine** kanonische Content-Matrix (1 862 Zeilen, 26 Abschnitte), 33 Content-Einheiten,
+  10 Content-Typen `CT-01`–`CT-10`, 10 CTA-Regeln, 14 Sensitive-Claims `S-01`–`S-14`,
+  8 Pflichthinweise `RN-01`–`RN-08`. **Gemessen:** Placeholder/Mock **0**, TODO/FIXME in `src` **0**,
+  Chat-Copy in Locales **0**, Garantie-Band-Äquivalent **0** und **keine** Band-Komponente, alter
+  GENERAL_SALES-Wortlaut **0**, `CV < 2 %` durchgehend **eine** Schreibweise, `< 5 %`-Regression **0**,
+  Key-Parität **0** fehlende Keys, GENERAL_SALES einheitlich **10/10** über 13 Keys, `SUPPORT` und
+  Artikel-CTA **0×** mit GENERAL_SALES vermischt, Mail-only-Success-Copy **0**, JSON **163/163** ohne
+  Duplicate Keys, Namespaces 14/15 (`casestudies` dokumentierte Ausnahme `ID-5`). **Assets:**
+  Referenzen geprüft (29 Locale + 3 Katalog + 6 `public`-Pfade + 33 Importe) → **0 broken references**;
+  `src/assets/downloads/` existiert nicht mehr, **0** Code-Referenzen darauf, **0** Hash-Duplikate über
+  die Asset-Bäume, `public/downloads` **32/32** Dateien unverändert, 6/6 PNG-Quellmaster erhalten,
+  `<img>` ohne `alt` **0/21**, Sprachkennzeichnung **27/27** (`/igloo-pro`), **16/16**
+  (`/vitamin-d3-spray`), **9/9** Locales (Epigenetik). **Deferred-Register: 10/10 Gates** `DG-01`–`DG-09`
+  vollständig, ownergebunden, mit Required-before und Safe-current-behavior, **0 Closure-Blocker**,
+  **0 False-Ready**, **9 Launch-Blocker weitergetragen**. **Quality:** Typecheck grün · Build grün ·
+  SSR-Smoke **50/50** Routen (10 Sprachen × 5 Seiten) 200 plus 5 Sonderrouten 200 und **2× echte 404** ·
+  Download-Smoke **26/26** HTTP 200 · gerenderte Content-Gates in allen 10 Sprachen sauber (0 alte CTA,
+  0 Garantie, 0 Chat, 0 Roh-Keys). **Lint 129 Findings — Datei für Datei identisch zur Baseline
+  `cd2524e`, 111 davon im archivierten `_project-knowledge/`; 0 durch AP04 verursacht.**
+  **Tests 13/13 bestanden**, 5 jsdom-`ERR_REQUIRE_ESM`-Fehler auf `cd2524e` reproduziert →
+  vorbestehende Baseline-Lücke, Owner **AP27**. **Scope:** kein Vorgriff auf AP05–AP26 — `src/i18n.ts`,
+  `server.ts`, `server/**`, `src/App.tsx`, `src/routing/**`, `useSearch.ts`, `SEOHead.tsx`, Layout-,
+  Build- und CI-Dateien unberührt; Decision-Lock-Dokumente unberührt; **0 Commits**. Closure-eigene
+  Korrektur: **1** Feldbenennung im Deferred-Register vereinheitlicht (`Current safe behavior` →
+  `Safe current behavior` in `DG-08`/`DG-09`). Decision Locks **18/18**.
 
 ## Current Invariants
 
@@ -327,6 +523,78 @@ kein `work-packages/APxx-STATE.md`).
 
 ## Files Changed by Current AP
 
+<!-- AP04. Beim Start von AP05 leeren (siehe `Benutzung`). -->
+
+**PT04.1 — ausschließlich Dokumentation:**
+
+- `building-docs/CONTENT-MATRIX.md` — **neu**, das kanonische Launch-Content-Statusartefakt
+- `building-docs/CONTEXT-INDEX.md` — §4.1 Regelzeile: `CONTENT-MATRIX.md` als kanonisches Artefakt
+- `building-docs/state/AP-STATE.md` — Handoff auf AP04 `IN_PROGRESS` / `PT04.2`
+
+**PT04.2 — ausschließlich Dokumentation:**
+
+- `building-docs/CONTENT-MATRIX.md` — §18 Scope-Grenze, §19 Content-Typen-Standard `CT-01`–`CT-10`,
+  §20 CTA-Taxonomie, §21 Standardisierungsstatus je Content-Einheit
+- `building-docs/state/AP-STATE.md` — Handoff auf `PT04.3`
+
+**PT04.3 — Content-/i18n-Mutation (104 Dateien, nicht committet):**
+
+- `public/locales/**` — **89 Dateien** über alle 10 Sprachen: `common`, `home`, `contact`, `support`,
+  `services`, `products`, `downloads`, `articles`, `epigenetics`
+- Quelltext, **ausschließlich Copy** nach `AP04.md` §13.3 — `HeroSection`, `FinalCtaSection`,
+  `StepsSection`, `IglooWidgetSection`, `DiagnosticsFocusSection`, `RoiCalculatorSection`,
+  `ArticlePage`, `ArticlesIndexPage`, `ServicePage`, `S3LeitliniePage`, `HomePage`,
+  `consumer/DuoPage`, `seo/structuredData.ts`, `sections/README.de.md`
+- `building-docs/CONTENT-MATRIX.md` — §23 Ausführung, Verifikation und Blocker
+- `building-docs/state/AP-STATE.md`
+
+**PT04.4 (2026-08-25) — Asset-Readiness:**
+
+- `src/pages/VitaminD3SprayPage.tsx` · `src/components/sections/IglooProHero.tsx` ·
+  `IglooSpecsSection.tsx` · `IglooProductFinalCta.tsx` — 4 Dateien: PDF-Referenzen auf die kanonische
+  Katalog-URL umgestellt (CD-7)
+- **entfernt:** `src/assets/downloads/` (3 byte-identische, nach der Umstellung unreferenzierte PDFs)
+- `public/locales/{en,pl,fr,it,es,pt,da,nl,cs}/products.json` und
+  `public/locales/{pl,fr,it,es,pt,da,nl,cs}/vitd3spray.json` — 43 Sprachlabels (CA-28)
+- `building-docs/CONTENT-MATRIX.md` — §22 Status, **§26 Asset-Readiness inkl. `DG-08`/`DG-09`**
+- `building-docs/state/AP-STATE.md`
+
+**In PT04.4 NICHT verändert:** `public/downloads/**` (kein Asset erzeugt, umbenannt oder gelöscht),
+`src/i18n.ts`, `server*/**`, `src/content/**`, `src/data/**`, alle übrigen Locale-Namespaces,
+sämtliche Routen-, Layout- und Konfigurationsdateien.
+
+**PT04.3-RETRY (2026-08-25) — Locale-Korrekturen und Dokumentation:**
+
+- `public/locales/{pl,fr,it,es,pt,da,nl,cs}/epigenetics.json` — 8 Dateien: A-1 (100 Werte auf
+  EN-Fallback zurückgeführt) und A-2 (16 Werte mit Sprachhinweis)
+- `building-docs/CONTENT-MATRIX.md` — §22 Status, §24 Präzisierung `DG-01`/`DG-05`/`DG-07`,
+  **§25 Retry-Ergebnis**
+- `building-docs/state/AP-STATE.md`
+
+**Im Retry NICHT verändert:** `src/**`, `server*/**`, `src/i18n.ts`, `src/content/**`, `src/data/**`,
+`public/downloads/**`, `src/assets/**`, alle übrigen Locale-Namespaces.
+
+**AP04-RECOVERY (2026-08-25) — ausschließlich Dokumentation:**
+
+- `building-docs/work-packages/AP04.md` — §9 (PT04.3-Spezifikation), §11 (Gate-Modell, Deferred-Register,
+  Invarianten), §12 (Handoff nach PT04.3), §15 (`R04-02`, `R04-13`, `R04-14`), §16 (DoD), §17
+  (Closure-Matrix, `C04-29`–`C04-32`), §18 (PASS/FAIL/BLOCKED), §19 (Closure-Lauf und -Report), §21
+  (Übergabe), §22 (Abschlussaussage)
+- `building-docs/work-packages/ap04-prompts.md` — Prompt 3 (PT04.3), Prompt 4 (PT04.4), Prompt 5 (Closure)
+- `building-docs/CONTENT-MATRIX.md` — §22 Status, §23 Nachtrag, **§24 Deferred-Gate-Register**
+- `building-docs/CONTEXT-INDEX.md` — §4.1 Regelzeile zum Deferred-Gate-Modell
+- `building-docs/state/AP-STATE.md`
+
+**Von PT04.3 nicht verändert:** `src/i18n.ts` (`NAMESPACES` = AP08-Einzeleigentum), `server.ts`,
+`server/**`, `src/data/**`, `src/content/**`, `public/downloads/**`, `src/assets/**`, `public/*.jpg|png|svg`,
+alle Routen-, Layout-, Design- und Konfigurationsdateien. **Keine Datei entfernt oder verschoben.**
+
+**Nicht verändert:** `src/**`, `public/**`, `server.ts`, `server/**`, `scripts/**`, `index.html`,
+jede Konfigurationsdatei. **Keine Datei entfernt, umbenannt oder verschoben.** PT04.1 hat keinen
+Quellcode, keine Locale-Datei und kein Asset angefasst — verifiziert über `git status --porcelain`.
+
+<details><summary>AP01–AP03 — Dateiänderungen früherer Arbeitspakete (Archiv)</summary>
+
 <!-- AP03. Beim Start von AP04 leeren (siehe `Benutzung`). -->
 
 **PT03.1 — ausschließlich Dokumentation** (committet als `06d9e55`):
@@ -427,6 +695,7 @@ referenzielle Korrektur war nicht erforderlich.
 `vite.config.ts`, Docker/nginx, `server/**`. **Keine Datei entfernt oder verschoben.**
 
 </details>
+</details>
 
 ## Open Blockers
 
@@ -434,6 +703,30 @@ referenzielle Korrektur war nicht erforderlich.
 
 - **Keine offenen Blocker.** PT01.1–PT01.5 und das AP01-Closure Gate sind `PASS`; AP01 ist `COMPLETE`.
   **AP02 und AP03 sind `COMPLETE` mit Closure `PASS`; PT03.1–PT03.4 sind alle `PASS`.**
+  **PT04.1 und PT04.2 sind `PASS`** — keine task-eigenen Blocker.
+- **Launch-Blocker aus PT04.1 — Arbeitsvorrat, kein Ausführungsblocker.** `CONTENT-MATRIX.md` §15
+  führt **19 AP04-eigene Launch-Blocker `LB-1`–`LB-19`**. Sie sind der Auftrag von PT04.2–PT04.4 und
+  hindern PT04.2 nicht am Start.
+- **AP04-RECOVERY 2026-08-25 — Deadlock aufgelöst.** Der Lauf vom 2026-08-24 endete `BLOCKED`, weil
+  `AP04.md` den AP08-Scope (`PT08.2`, `PT08.3`, `PT08.5`, `PT08.6`) sowie AP16- und AP22-Arbeit als
+  eigene Closure-Voraussetzung führte — ein serieller Zyklus, da diese APs erst **nach** AP04 starten.
+  Korrigiert über das Gate-Modell `AP04.md` §11.0 (`GM-01`–`GM-07`), das Register §11.1, die
+  Invarianten-Trennung TARGET/AP04-OWN, die Closure-Gates `C04-29`–`C04-32` und `CONTENT-MATRIX.md` §24.
+  **Keine Zielanforderung wurde abgeschwächt** — `MASTER-SCOPE.md` blieb unverändert und stützt die
+  Korrektur (§6: AP-Nummerierung ist keine starre Reihenfolge; §7: erst i18n-Fundament, dann
+  Übersetzungswelle; §8: `x10` ist Launch-Gate 1/6, nicht AP04-Closure).
+- **Zwei Reihenfolge-Abhängigkeiten, die PT04.3 nicht selbst auflösen darf — seit der Recovery
+  als `DG-03` bzw. `DG-02` registriert und damit kein Blocker mehr** (`CONTENT-MATRIX.md`
+  §12/§13): (a) Consumer ist zu 100 % hartkodiert — `t()`-Fähigkeit ist **AP08 PT08.2** mit AP21
+  (`I18N-CONTRACT.md` M-03); PT04.3 kann `LB-13` daher nicht allein über Locale-Dateien schließen.
+  (b) `BefundSprachen` in `src/content/befunde/meta.ts` ist auf `de`/`en` typfixiert — die Erweiterung
+  auf zehn Sprachen ist **AP16**, nicht AP04.
+- **Externer Asset-Blocker für PT04.4** (`LB-15`): englische Musterbefund-PDFs existieren nicht und
+  lassen sich nicht durch Umhängen einer Referenz erzeugen. **Seit der Recovery ist das ein
+  `DEFERRED_ASSET_GATE` (`DG-07`)** mit Owner AP08 PT08.6 / AP19 / Fachfreigabe — kein
+  PT04.4-Blocker, solange es registriert ist und keine falsche Sprachvariante still ausgeliefert wird
+  (`ap04-prompts.md` PT04.4 §19.1). **Nicht** automatisch erzeugen und **nicht** fremdsprachig
+  unterschieben. Ein von AP04 selbst reparierbarer toter Asset-Link bleibt ein echter Blocker.
 - **Hinweis, kein Blocker — neu aus PT03.4:** fünf Findability-Schulden. **`IAD-16`** (Footer ohne
   Epigenetik- und Support-Einstieg, **Gate 6**, AP06) und **`IAD-19`** (Consumer intern nirgends
   verlinkt, **Gate 1/4**, AP06/AP07/AP21) sind die gewichtigsten; dazu `IAD-15` (Search-Index deckt
@@ -576,8 +869,28 @@ referenzielle Korrektur war nicht erforderlich.
 
 <!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste Lauf braucht. -->
 
-- Nächstes Arbeitspaket ist **AP04 — Content-Strategie, Content-Modell und Launch-Content-Readiness**.
-  Es ist **nicht** gestartet.
+- **Nächster Primärtask ist `PT04.3` — Launch-Content-Readiness.** AP04 ist `IN_PROGRESS`.
+  Nächstes **Arbeitspaket** bleibt AP05 und ist **nicht** gestartet.
+- **Nächster Lauf ist `AP04-CLOSURE`** (`ap04-prompts.md` Prompt 5, korrigierte Fassung mit
+  `C04-01`–`C04-32`). Er braucht zusätzlich: `CONTENT-MATRIX.md` §24 (Deferred-Gate-Register),
+  §25 (PT04.3) und §26 (PT04.4) · `AP04.md` §11.0/§11.1 (Gate-Modell), §16 (DoD), §17 (Closure-Matrix),
+  §19 (Closure-Lauf). Die Closure prüft **AP04-eigene Vollständigkeit und Deferred-Gate-Integrität** —
+  ausdrücklich **nicht**, ob AP08/AP15/AP16/AP17/AP19/AP21/AP22 bereits geliefert haben.
+- **Historisch — PT04.4 brauchte:** `CONTENT-MATRIX.md` §8 (Downloads),
+  §24 (`DG-07`), §25 · `CONTENT-ASSET-CONTRACT.md` §4.5/§4.6/§5.6 · `SEO-CONTRACT.md` für OG-Rollen ·
+  `ap04-prompts.md` Prompt 4 inklusive **§19.1 `DEFERRED_ASSET_GATE`**. Echte AP04-Blocker bleiben:
+  gebrochene aktive Asset-Referenz, auflösbares Duplikat (`CD-7`), verwaistes launch-störendes Asset,
+  falsche READY-Aussage.
+- **Historisch — PT04.3 brauchte zusätzlich zum AP04-Kontext:** `building-docs/CONTENT-MATRIX.md` — §15 Launch-Blocker
+  `LB-1`–`LB-19` (der Arbeitsvorrat), **§20.3 CTA-Sollzuordnung je Key** (verbindlich), §19.8 `CT-08`
+  mit `RN-01`–`RN-08`, §19.10 `CT-10-K1` (Success-Semantik), §10 Sensitive-Register, §12/§13
+  Consumer- und Epigenetik-Gaps · `I18N-CONTRACT.md` §6 M-01/M-02/M-03/M-06 (Namespace-Eigentum,
+  `de` als Quellsprache, erst lokalisierbar dann übersetzen, Build-Sichtbarkeit) ·
+  `LEAD-DATA-CONTRACT.md` §5.1 (Lead-Typen, Benennung entscheidet AP22) · alle zehn Locale-Verzeichnisse ·
+  `server/server.js` für Systemmail-Copy. **Kein Design-System-Vorgriff auf AP05.**
+- **Abweichung vom `CONTEXT-INDEX.md`-Normalfall in PT04.1:** `IA-INVENTORY.md` ist dort für AP04 nur
+  als _optional_ geführt, war aber Pflichtlektüre — ohne §4/§8.4 ist keine Seitenfamilien- und
+  CTA-Rollenabdeckung prüfbar. Gleiches gilt für PT04.2–PT04.4.
 - Gemäß `CONTEXT-INDEX.md` liest AP04 zusätzlich zu `ALWAYS_READ`: `I18N-CONTRACT.md` ·
   `SEO-CONTRACT.md` · **`CONTENT-ASSET-CONTRACT.md`**; optional bei Anlass `QUALITY-GATES.md` ·
   `ROUTING-CONTRACT.md` · **`IA-INVENTORY.md`**.
@@ -607,16 +920,27 @@ npx tsx server.ts`). `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-
 
 ## Handoff
 
-- **AP03: `COMPLETE`** · **AP03 closure: `PASS` (24/24, `C03-01`–`C03-24`)** · Last completed PT:
+- **AP04: `COMPLETE`** · **AP04 closure: `PASS` (32/32, `C04-01`–`C04-32`)**. PT04.1–PT04.4 alle `PASS`,
+  AP04-RECOVERY `PASS`. Content audit: recorded · Content types: standardized · Launch content: recorded ·
+  Asset readiness: recorded · Content matrix: final (`CONTENT-MATRIX.md`) · Deferred gates: carried forward.
+- **Next work package: AP05 — Sales-Machine Design-System und Light-Theme-Grundlage — NICHT gestartet.**
+- **AP05-Handoff — verbindlich:** AP05 darf starten. Die **10 offenen Deferred Gates** `DG-01`–`DG-09`
+  sind **nicht** AP05-Aufgaben und dürfen von AP05 weder übernommen noch geschlossen noch als erledigt
+  behandelt werden. Ihre Owner sind AP08, AP15, AP16, AP17, AP19, AP20, AP21, AP22 sowie externe
+  Fachfreigaben; sie werden vor den Launch-Gates 1, 3, 4 und 6 abgenommen. Das Design-System hängt an
+  keinem dieser Gates (`C04-32`, `MASTER-SCOPE.md` §7 führt keine Abhängigkeit „Content x10 →
+  Design-Fundament").
+- **AP04 darf weiterhin nicht auf `COMPLETE` gesetzt werden**, solange PT04.3, PT04.4 und die Closure
+  nicht gelaufen sind. Die Recovery hat **kein** PT-Ergebnis vorweggenommen.
+- **AP05: NOT STARTED.** AP04-Closure ist nicht gelaufen und AP04 ist nicht `COMPLETE`.
+- **AP06: NOT STARTED.** Vorgänger AP05 ist nicht gelaufen.
+- **AP03: `COMPLETE`** · **AP03 closure: `PASS` (24/24, `C03-01`–`C03-24`)** · Last completed PT of AP03:
   **PT03.4**. Alle vier Primärtasks PT03.1–PT03.4 sind `PASS`.
-- **Next work package: AP04 — Content-Strategie, Content-Modell und Launch-Content-Readiness — NICHT
-  gestartet.**
 - **AP02: `COMPLETE`** · **AP02 closure: `PASS` (23/23, `C02-01`–`C02-23`)** — unverändert erhalten.
-- **AP04: NOT STARTED.**
 - **AP01: `COMPLETE`** · AP01 closure: `PASS` (43/43) · **AP00: `COMPLETE`**, Closure `PASS` — beide
   unverändert erhalten
-- Decision Locks: **18/18 `LOCKED`**, durch PT02.1–PT02.5, den AP02-Closure-Lauf und PT03.1–PT03.4
-  unverändert;
+- Decision Locks: **18/18 `LOCKED`**, durch PT02.1–PT02.5, den AP02-Closure-Lauf, PT03.1–PT03.4 und
+  **PT04.1**, **PT04.2** und **PT04.3** unverändert;
   `MASTER-SCOPE.md`, `DECISIONS.md`, `PROJECT-CONSTRAINTS.md` und `SCOPE-CHANGELOG.md` sind im gesamten
   AP02-Delta **unberührt**. Baseline
   `feat/home-leadmagnet@961f65d` bleibt gesperrt und ist Ancestor des HEAD.
@@ -626,8 +950,8 @@ Kanonische Ausführungsevidenz PT02.1: **`building-docs/RUNTIME-CONTRACT.md`** �
 **`building-docs/ROUTING-CONTRACT.md`** · PT02.3: **`building-docs/CONTENT-ASSET-CONTRACT.md`** ·
 PT02.4: **`LEAD-DATA-CONTRACT.md`** (Hub, §2.1/§3.1) mit `BACKEND-API-CONTRACT.md`,
 `LEAD-DELIVERY-CONTRACT.md` und `CRM-INTEGRATION.md` · PT02.5: **`DEPLOYMENT-CONTRACT.md`** · PT03.1–PT03.4:
-**`building-docs/IA-INVENTORY.md`** — das jeweilige Artefakt ist der Nachweis; ein zweiter Report wird
-dafür nicht angelegt.
+**`building-docs/IA-INVENTORY.md`** · **PT04.1: `building-docs/CONTENT-MATRIX.md`** — das jeweilige
+Artefakt ist der Nachweis; ein zweiter Report wird dafür nicht angelegt.
 
 Was PT02.1 hergestellt hat:
 

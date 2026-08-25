@@ -69,7 +69,6 @@ function DuoPageInner() {
   useConsumerPageView('duo')
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-heading">
-      {/* TODO: confirm final meta title with Claire (Wave-2 review). */}
       <SEOHead
         title="Inside-Out Care Duo: D3+K2 Spray + Masks"
         description="Inside-Out Care Duo pairs a daily Vitamin D3+K2 spray with 5 hydrating sheet masks: one simple inside-and-outside routine at preferred bundle value of 49,90 €."

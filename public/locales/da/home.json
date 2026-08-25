@@ -1,13 +1,13 @@
 {
   "seo": {
     "title": "POC-diagnostik til din klinik: laboratoriesvar på minutter",
-    "description": "Laboratorienøjagtig point-of-care-diagnostik direkte i din klinik: IVDR/CE, CV < 2 % og svar på minutter. Ny selvbetaler-omsætning – book rådgivning nu."
+    "description": "Laboratorienøjagtig point-of-care-diagnostik direkte i din klinik: IVDR/CE, CV < 2 % og svar på minutter. Ny selvbetaler-omsætning – anmod om tilbud nu."
   },
   "hero": {
     "caption": "Point-of-care-ydelse",
     "title": "IglooPro:\nPoint-of-Care. Perfekt. Øjeblikkeligt.",
-    "description": "Sikr dig præstationspakken: Din IglooPro er klar til brug på 3-5 hverdage – garanteret.",
-    "cta": "Book rådgivning",
+    "description": "Sikr dig præstationspakken: Din IglooPro er klar til brug på 3–5 hverdage.",
+    "cta": "Anmod om tilbud",
     "cta_roi": "Start ROI-beregner",
     "cta_downloads": "Download infomateriale",
     "stat1": {
@@ -15,12 +15,12 @@
       "label": "Klar til brug efter bestilling"
     },
     "stat2": {
-      "value": "CV < 2%",
+      "value": "CV < 2 %",
       "label": "Præcision over hele måleområdet"
     },
     "dental": {
       "title": "IglooPro: Point-of-care-diagnostik. Den nye standard for din klinik.",
-      "description": "Sikr dig præstationspakken: Din IglooPro er klar til brug på 3–5 hverdage – garanteret."
+      "description": "Sikr dig præstationspakken: Din IglooPro er klar til brug på 3–5 hverdage."
     },
     "beauty": {
       "title": "Videnskabelig æstetik: Måleresultater i stedet for gætværk.",
@@ -111,7 +111,7 @@
     "eyebrow": "Jeres speciale",
     "help_title": "Er du i tvivl om, hvilket panel der passer til din klinik?",
     "help_text": "15 minutter med en POC-specialist – en konkret anbefaling til dit speciale, ikke et salgsshow.",
-    "help_cta": "Book rådgivning"
+    "help_cta": "Anmod om tilbud"
   },
   "services": {
     "caption": "DIAGNOSTIK-FOKUS",
@@ -289,7 +289,7 @@
     "caption": "Klar til at komme i gang",
     "title": "Klar til laboratorienøjagtig diagnostik i din klinik?",
     "subtitle": "Tal med vores team eller beregn dit besparelsespotentiale — på tværs af producenter, IVDR/CE-konform og klar til brug på 3–5 hverdage.",
-    "cta_primary": "Book rådgivning",
+    "cta_primary": "Anmod om tilbud",
     "cta_secondary": "ROI-beregner",
     "chips": {
       "free": "Gratis & uforpligtende",
@@ -318,9 +318,9 @@
       "payback": "Tilbagebetaling (måneder)"
     },
     "warn_negative": "Med disse værdier er dækningsbidraget negativt – tjek venligst priser/omkostninger.",
-    "payback_hint": "For din individuelle tilbagebetaling: book rådgivning eller anmod om en rapport.",
+    "payback_hint": "For din individuelle tilbagebetaling: anmod om tilbud eller rapporten.",
     "disclaimer": "Uforpligtende eksempelberegning på baggrund af dine indtastninger. Ingen garanti for omsætning eller gevinst.",
-    "cta_consult": "Book rådgivning",
+    "cta_consult": "Anmod om tilbud",
     "cta_report": "Send resultatet som PDF",
     "form": {
       "email": "E-mailadresse",
@@ -378,6 +378,6 @@
       "text": "Dit team er oplært, den første patient måles – laboratorienøjagtigt, dokumenteret, IVDR/CE-konformt.",
       "badge": "Dag 1"
     },
-    "cta": "Book rådgivning"
+    "cta": "Anmod om tilbud"
   }
 }

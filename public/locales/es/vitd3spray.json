@@ -11,7 +11,7 @@
     "title": "Espray sublingual de Vitamina D3+K2",
     "subtitle": "2.000 UI por pulverización: biodisponibilidad duplicada gracias a la tecnología Tiny. En exclusiva a través del canal de distribución médica.",
     "cta": "Pedir ahora",
-    "download": "Descargar el folleto del producto"
+    "download": "Descargar el folleto del producto (EN)"
   },
   "intro": {
     "title": "Déficit de vitamina D detectado: trátelo directamente en su consulta",
@@ -111,7 +111,7 @@
     "quick_order_cta": "Pedir ahora",
     "download_caption": "Folleto del producto",
     "download_text": "Toda la información sobre el espray de Vitamina D3+K2 en PDF.",
-    "download_cta": "Descargar PDF",
+    "download_cta": "Descargar PDF (EN)",
     "trust": "Más de 100 consultas en más de 15 países confían en PolarisDX"
   },
   "faq": {
@@ -137,22 +137,56 @@
     "bio": "2× biodisponibilidad"
   },
   "hero_stats": [
-    { "value": "2.000 UI", "label": "por pulverización" },
-    { "value": "71", "label": "aplicaciones / frasco" },
-    { "value": "2×", "label": "biodisponibilidad" }
+    {
+      "value": "2.000 UI",
+      "label": "por pulverización"
+    },
+    {
+      "value": "71",
+      "label": "aplicaciones / frasco"
+    },
+    {
+      "value": "2×",
+      "label": "biodisponibilidad"
+    }
   ],
   "visual_chips": [
-    { "value": "2.000 UI", "label": "Vitamina D3" },
-    { "value": "15 µg K2", "label": "MK-7" },
-    { "value": "71×", "label": "por frasco" }
+    {
+      "value": "2.000 UI",
+      "label": "Vitamina D3"
+    },
+    {
+      "value": "15 µg K2",
+      "label": "MK-7"
+    },
+    {
+      "value": "71×",
+      "label": "por frasco"
+    }
   ],
   "stats": [
-    { "value": "2.000 UI", "label": "Vitamina D3 por pulverización" },
-    { "value": "15 µg", "label": "Vitamina K2 (MK-7)" },
-    { "value": "71", "label": "aplicaciones por frasco" },
-    { "value": "desde 10,90 €", "label": "por unidad (pack consulta)" }
+    {
+      "value": "2.000 UI",
+      "label": "Vitamina D3 por pulverización"
+    },
+    {
+      "value": "15 µg",
+      "label": "Vitamina K2 (MK-7)"
+    },
+    {
+      "value": "71",
+      "label": "aplicaciones por frasco"
+    },
+    {
+      "value": "desde 10,90 €",
+      "label": "por unidad (pack consulta)"
+    }
   ],
-  "benefit_titles": ["Huesos y calcio", "Osteointegración", "Prevención periodontal"],
+  "benefit_titles": [
+    "Huesos y calcio",
+    "Osteointegración",
+    "Prevención periodontal"
+  ],
   "badges": {
     "vegan": "Vegano",
     "made_in": "Fabricado en Alemania"

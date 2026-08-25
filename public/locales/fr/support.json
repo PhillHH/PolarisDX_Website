@@ -10,7 +10,7 @@
         "attach": "Joindre une photo et un fichier journal"
       },
       "breadcrumb": "Accueil / Assistance",
-      "cta_primary": "Envoyer une demande",
+      "cta_primary": "Envoyer une demande d'assistance",
       "cta_secondary": "Appeler la hotline",
       "value": {
         "response_value": "< 24 h",
@@ -53,7 +53,7 @@
       "consent": "J'accepte que mes données soient conservées jusqu'à 12 mois aux fins du traitement de la demande d'assistance et d'éventuelles questions complémentaires.",
       "submit": "Envoyer",
       "submitting": "Envoi...",
-      "success": "Merci ! Votre demande d'assistance a bien été envoyée. Nous vous recontacterons dans les plus brefs délais.",
+      "success": "Merci ! Nous avons bien reçu et enregistré votre demande d'assistance. Nous vous recontacterons dans les plus brefs délais.",
       "error": "Une erreur s'est produite. Veuillez réessayer plus tard.",
       "microcopy": "Nous répondons généralement sous un jour ouvré."
     },

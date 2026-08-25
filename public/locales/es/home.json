@@ -1,13 +1,13 @@
 {
   "seo": {
     "title": "Diagnóstico POC para su consulta: valores de laboratorio en minutos",
-    "description": "Diagnóstico point-of-care con precisión de laboratorio en su consulta: IVDR/CE, CV < 2 % y resultado en minutos. Nuevos ingresos por pacientes privados: reserve ya su asesoramiento."
+    "description": "Diagnóstico point-of-care con precisión de laboratorio en su consulta: IVDR/CE, CV < 2 % y resultado en minutos. Nuevos ingresos por pacientes privados: solicite presupuesto."
   },
   "hero": {
     "caption": "Rendimiento en el punto de atención",
     "title": "IglooPro:\nPoint-of-Care. Perfecto. Inmediato.",
-    "description": "Asegúrese el paquete de rendimiento: su IglooPro está listo para usar en 3-5 días laborables, garantizado.",
-    "cta": "Reservar asesoramiento",
+    "description": "Asegúrese el paquete de rendimiento: su IglooPro está listo para usar en 3–5 días laborables.",
+    "cta": "Solicitar presupuesto",
     "cta_roi": "Iniciar la calculadora de ROI",
     "cta_downloads": "Descargar material informativo",
     "stat1": {
@@ -15,12 +15,12 @@
       "label": "Listo para usar tras el pedido"
     },
     "stat2": {
-      "value": "CV < 2%",
+      "value": "CV < 2 %",
       "label": "Precisión en todo el rango de medición"
     },
     "dental": {
       "title": "IglooPro: diagnóstico point-of-care. El nuevo estándar para su consulta.",
-      "description": "Asegúrese el paquete de rendimiento: su IglooPro está listo para usar en 3–5 días laborables, garantizado."
+      "description": "Asegúrese el paquete de rendimiento: su IglooPro está listo para usar en 3–5 días laborables."
     },
     "beauty": {
       "title": "Estética científica: resultados medibles en lugar de conjeturas.",
@@ -111,7 +111,7 @@
     "eyebrow": "Su especialidad",
     "help_title": "¿No está seguro de qué panel encaja en su consulta?",
     "help_text": "15 minutos con un especialista POC: una recomendación concreta para su especialidad, no un argumentario de ventas.",
-    "help_cta": "Reservar asesoramiento"
+    "help_cta": "Solicitar presupuesto"
   },
   "services": {
     "caption": "ENFOQUE DIAGNÓSTICO",
@@ -289,7 +289,7 @@
     "caption": "Listo para empezar",
     "title": "¿Listo para un diagnóstico con precisión de laboratorio en su consulta?",
     "subtitle": "Hable con nuestro equipo o calcule su potencial de ahorro: independiente del fabricante, conforme con IVDR/CE y listo para usar en 3–5 días laborables.",
-    "cta_primary": "Reservar asesoramiento",
+    "cta_primary": "Solicitar presupuesto",
     "cta_secondary": "Calculadora de ROI",
     "chips": {
       "free": "Gratuito y sin compromiso",
@@ -318,9 +318,9 @@
       "payback": "Amortización (meses)"
     },
     "warn_negative": "Con estos valores, el margen de contribución es negativo; revise los precios y los costes.",
-    "payback_hint": "Para su amortización individual: reserve un asesoramiento o solicite el informe.",
+    "payback_hint": "Para su amortización individual: solicite presupuesto o el informe.",
     "disclaimer": "Cálculo de ejemplo sin compromiso basado en sus datos. No constituye garantía de ingresos ni de beneficios.",
-    "cta_consult": "Reservar asesoramiento",
+    "cta_consult": "Solicitar presupuesto",
     "cta_report": "Enviar el resultado en PDF",
     "form": {
       "email": "Dirección de correo electrónico",
@@ -378,6 +378,6 @@
       "text": "Su equipo está formado, se mide al primer paciente: precisión de laboratorio, documentado y conforme con IVDR/CE.",
       "badge": "día 1"
     },
-    "cta": "Reservar asesoramiento"
+    "cta": "Solicitar presupuesto"
   }
 }

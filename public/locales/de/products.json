@@ -57,7 +57,7 @@
     "speed": "Messdauer",
     "speed_value": "3 - 15 Minuten (testabhängig)",
     "accuracy": "Genauigkeit",
-    "accuracy_value": "CV < 2%",
+    "accuracy_value": "CV < 2 %",
     "storage": "Speicher",
     "storage_value": "Bis zu 10.000 Patientendatensätze",
     "battery": "Stromversorgung",
@@ -124,7 +124,7 @@
   "help": {
     "title": "Nicht sicher, ob der IglooPro zu Ihrem Workflow passt?",
     "text": "15 Minuten mit einem POC-Spezialisten — eine konkrete Empfehlung für Ihr Setup, keine Verkaufsshow.",
-    "cta": "Beratung buchen"
+    "cta": "Angebot anfragen"
   },
   "application": {
     "eyebrow": "ANWENDUNGSBEREICHE",

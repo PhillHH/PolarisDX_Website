@@ -239,7 +239,7 @@ export const iglooProProductSchema = {
   '@id': `${BASE_URL}/igloo-pro#product`,
   name: 'IglooPro POC-Reader',
   description:
-    'Point-of-Care Analysegerät für die patientennahe Sofortdiagnostik. Misst Vitamin D3, CRP, HbA1c, TSH und weitere Biomarker in 3–15 Minuten mit einer Präzision von CV < 2%.',
+    'Point-of-Care Analysegerät für die patientennahe Sofortdiagnostik. Misst Vitamin D3, CRP, HbA1c, TSH und weitere Biomarker in 3–15 Minuten mit einer Präzision von CV < 2 %.',
   brand: {
     '@type': 'Brand',
     name: 'PolarisDX',

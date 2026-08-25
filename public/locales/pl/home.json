@@ -1,13 +1,13 @@
 {
   "seo": {
     "title": "Diagnostyka POC dla Twojego gabinetu: wyniki laboratoryjne w kilka minut",
-    "description": "Diagnostyka point-of-care o dokładności laboratoryjnej bezpośrednio w Twoim gabinecie: IVDR/CE, CV < 2 % i wynik w kilka minut. Nowy przychód z usług płatnych – umów konsultację."
+    "description": "Diagnostyka point-of-care o dokładności laboratoryjnej bezpośrednio w Twoim gabinecie: IVDR/CE, CV < 2 % i wynik w kilka minut. Nowy przychód z usług płatnych – poproś o ofertę."
   },
   "hero": {
     "caption": "Wydajność point-of-care",
     "title": "IglooPro:\nPoint-of-Care. Perfekcyjnie. Natychmiast.",
-    "description": "Zapewnij sobie pakiet wydajności: Twój IglooPro będzie gotowy do pracy w 3–5 dni roboczych – gwarantowane.",
-    "cta": "Umów konsultację",
+    "description": "Zapewnij sobie pakiet wydajności: Twój IglooPro będzie gotowy do pracy w 3–5 dni roboczych.",
+    "cta": "Poproś o ofertę",
     "cta_roi": "Uruchom kalkulator ROI",
     "cta_downloads": "Pobierz materiały informacyjne",
     "stat1": {
@@ -15,12 +15,12 @@
       "label": "Gotowy do pracy po złożeniu zamówienia"
     },
     "stat2": {
-      "value": "CV < 2%",
+      "value": "CV < 2 %",
       "label": "Precyzja w całym zakresie pomiarowym"
     },
     "dental": {
       "title": "IglooPro: diagnostyka point-of-care. Nowy standard dla Twojego gabinetu.",
-      "description": "Zapewnij sobie pakiet wydajności: Twój IglooPro będzie gotowy do pracy w 3–5 dni roboczych – gwarantowane."
+      "description": "Zapewnij sobie pakiet wydajności: Twój IglooPro będzie gotowy do pracy w 3–5 dni roboczych."
     },
     "beauty": {
       "title": "Estetyka oparta na nauce: wyniki pomiarów zamiast domysłów.",
@@ -111,7 +111,7 @@
     "eyebrow": "Państwa specjalizacja",
     "help_title": "Nie wiesz, który panel pasuje do Twojego gabinetu?",
     "help_text": "15 minut ze specjalistą POC – konkretna rekomendacja dla Twojej specjalizacji, bez pokazu sprzedażowego.",
-    "help_cta": "Umów konsultację"
+    "help_cta": "Poproś o ofertę"
   },
   "services": {
     "caption": "FOKUS NA DIAGNOSTYKĘ",
@@ -289,7 +289,7 @@
     "caption": "Gotów, by zacząć",
     "title": "Gotów na diagnostykę o dokładności laboratoryjnej w swoim gabinecie?",
     "subtitle": "Porozmawiaj z naszym zespołem lub oblicz swój potencjał oszczędności — niezależnie od producenta, zgodnie z IVDR/CE i z gotowością do pracy w 3–5 dni roboczych.",
-    "cta_primary": "Umów konsultację",
+    "cta_primary": "Poproś o ofertę",
     "cta_secondary": "Kalkulator ROI",
     "chips": {
       "free": "Bezpłatnie i bez zobowiązań",
@@ -318,9 +318,9 @@
       "payback": "Amortyzacja (miesiące)"
     },
     "warn_negative": "Przy tych wartościach marża pokrycia jest ujemna – sprawdź ceny/koszty.",
-    "payback_hint": "Aby poznać swoją indywidualną amortyzację: umów konsultację lub zamów raport.",
+    "payback_hint": "Dla indywidualnego zwrotu z inwestycji: poproś o ofertę lub zamów raport.",
     "disclaimer": "Niewiążące obliczenie przykładowe na podstawie podanych danych. Nie stanowi gwarancji przychodu ani zysku.",
-    "cta_consult": "Umów konsultację",
+    "cta_consult": "Poproś o ofertę",
     "cta_report": "Prześlij wynik w formacie PDF",
     "form": {
       "email": "Adres e-mail",
@@ -378,6 +378,6 @@
       "text": "Twój zespół jest przeszkolony, pierwszy pacjent zostaje zbadany – z dokładnością laboratoryjną, udokumentowane, zgodnie z IVDR/CE.",
       "badge": "Dzień 1"
     },
-    "cta": "Umów konsultację"
+    "cta": "Poproś o ofertę"
   }
 }

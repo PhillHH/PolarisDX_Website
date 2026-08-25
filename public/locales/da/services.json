@@ -326,7 +326,8 @@
       ]
     },
     "seo": {
-      "description": "Forebyggende tjek på Point-of-Care: bestem vigtige biomarkører med det samme, og rådgiv databaseret – i klinik, apotek og på hospital. Læs mere nu."
+      "description": "Forebyggende tjek på Point-of-Care: bestem vigtige biomarkører med det samme, og rådgiv databaseret – i klinik, apotek og på hospital. Læs mere nu.",
+      "title": "Forebyggende sundhedstjek i klinikken"
     }
   },
   "infektion_entzuendung": {
@@ -365,7 +366,7 @@
     ],
     "conclusion": {
       "heading": "Konklusion: Ingen kompromiser i diagnosen",
-      "text": "For infektioner og inflammationer er tid den kritiske faktor. Kun et POC-system, der kombinerer validitet på laboratorieniveau med maksimal hastighed, kan øge diagnostisk sikkerhed samtidig med at antibiotikastyring optimeres. PolarisDX.net leverer denne garanterede ydeevne – fra idriftsættelse inden for 3-5 arbejdsdage til prioriteret support."
+      "text": "For infektioner og inflammationer er tid den kritiske faktor. Kun et POC-system, der kombinerer validitet på laboratorieniveau med maksimal hastighed, kan øge diagnostisk sikkerhed samtidig med at antibiotikastyring optimeres. PolarisDX.net leverer denne ydeevne – fra idriftsættelse inden for 3-5 arbejdsdage til prioriteret support."
     },
     "cta": "Book tid",
     "faq": {
@@ -391,7 +392,8 @@
       ]
     },
     "seo": {
-      "description": "Bestem inflammationsmarkører og infektionstegn på stedet: hurtigere triage, ansvarlig antibiotikahåndtering. Anmod om rådgivning nu."
+      "description": "Bestem inflammationsmarkører og infektionstegn på stedet: hurtigere triage, ansvarlig antibiotikahåndtering. Anmod om rådgivning nu.",
+      "title": "Infektions- og inflammationsmarkører på stedet"
     }
   },
   "stoffwechsel_herz": {
@@ -456,7 +458,8 @@
       ]
     },
     "seo": {
-      "description": "Mål stofskifte- og hjertemarkører på få minutter: diabetesmonitorering og behandlingsjustering direkte i klinikken. Få rådgivning nu."
+      "description": "Mål stofskifte- og hjertemarkører på få minutter: diabetesmonitorering og behandlingsjustering direkte i klinikken. Få rådgivning nu.",
+      "title": "Mål stofskifte og hjertesundhed"
     }
   },
   "hormon_tests": {
@@ -521,7 +524,8 @@
       ]
     },
     "seo": {
-      "description": "Hormondiagnostik på Point-of-Care: bestem kritiske hormoner direkte hos patienten – fra skjoldbruskkirtel til fertilitet. Book rådgivning nu."
+      "description": "Hormondiagnostik på Point-of-Care: bestem kritiske hormoner direkte hos patienten – fra skjoldbruskkirtel til fertilitet. Book rådgivning nu.",
+      "title": "Hormon- og endokrinologitests i klinikken"
     }
   },
   "kompatibilitaet_integration": {
@@ -585,7 +589,8 @@
       ]
     },
     "seo": {
-      "description": "Åben, producentuafhængig POC-platform: Igloo Pro sikrer fleksibilitet, teknologisk uafhængighed og investeringssikkerhed. Læs mere nu."
+      "description": "Åben, producentuafhængig POC-platform: Igloo Pro sikrer fleksibilitet, teknologisk uafhængighed og investeringssikkerhed. Læs mere nu.",
+      "title": "Kompatibilitet på tværs af producenter"
     }
   },
   "seo": {

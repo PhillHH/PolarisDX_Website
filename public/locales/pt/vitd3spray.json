@@ -11,7 +11,7 @@
     "title": "Spray sublingual de Vitamina D3+K2",
     "subtitle": "2.000 UI por aplicação — dupla biodisponibilidade graças à tecnologia Tiny. Em exclusivo através do canal de distribuição médica.",
     "cta": "Encomendar agora",
-    "download": "Transferir o folheto do produto"
+    "download": "Transferir o folheto do produto (EN)"
   },
   "intro": {
     "title": "Deficiência de vitamina D detetada — trate diretamente no consultório",
@@ -111,7 +111,7 @@
     "quick_order_cta": "Encomendar agora",
     "download_caption": "Folheto do produto",
     "download_text": "Todas as informações sobre o spray de Vitamina D3+K2 em PDF.",
-    "download_cta": "Transferir PDF",
+    "download_cta": "Transferir PDF (EN)",
     "trust": "Mais de 100 consultórios em mais de 15 países confiam na PolarisDX"
   },
   "faq": {
@@ -137,22 +137,56 @@
     "bio": "2× biodisponibilidade"
   },
   "hero_stats": [
-    { "value": "2.000 UI", "label": "por aplicação" },
-    { "value": "71", "label": "aplicações / frasco" },
-    { "value": "2×", "label": "biodisponibilidade" }
+    {
+      "value": "2.000 UI",
+      "label": "por aplicação"
+    },
+    {
+      "value": "71",
+      "label": "aplicações / frasco"
+    },
+    {
+      "value": "2×",
+      "label": "biodisponibilidade"
+    }
   ],
   "visual_chips": [
-    { "value": "2.000 UI", "label": "Vitamina D3" },
-    { "value": "15 µg K2", "label": "MK-7" },
-    { "value": "71×", "label": "por frasco" }
+    {
+      "value": "2.000 UI",
+      "label": "Vitamina D3"
+    },
+    {
+      "value": "15 µg K2",
+      "label": "MK-7"
+    },
+    {
+      "value": "71×",
+      "label": "por frasco"
+    }
   ],
   "stats": [
-    { "value": "2.000 UI", "label": "Vitamina D3 por aplicação" },
-    { "value": "15 µg", "label": "Vitamina K2 (MK-7)" },
-    { "value": "71", "label": "aplicações por frasco" },
-    { "value": "desde 10,90 €", "label": "por unidade (pacote consultório)" }
+    {
+      "value": "2.000 UI",
+      "label": "Vitamina D3 por aplicação"
+    },
+    {
+      "value": "15 µg",
+      "label": "Vitamina K2 (MK-7)"
+    },
+    {
+      "value": "71",
+      "label": "aplicações por frasco"
+    },
+    {
+      "value": "desde 10,90 €",
+      "label": "por unidade (pacote consultório)"
+    }
   ],
-  "benefit_titles": ["Ossos e cálcio", "Osteointegração", "Prevenção periodontal"],
+  "benefit_titles": [
+    "Ossos e cálcio",
+    "Osteointegração",
+    "Prevenção periodontal"
+  ],
   "badges": {
     "vegan": "Vegano",
     "made_in": "Fabricado na Alemanha"

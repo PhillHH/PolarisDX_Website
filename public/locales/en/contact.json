@@ -86,15 +86,15 @@
       "consent": "I agree that my details may be stored for contacting me and for follow-up questions for up to 12 months. See our",
       "privacy_link": "privacy policy",
       "submit": {
-        "consultation": "Book my consultation",
-        "quote": "Request a quotation",
+        "consultation": "Request a quote",
+        "quote": "Request a quote",
         "product": "Send my question",
         "support": "Get support",
         "other": "Send my message"
       },
       "sending": "Sending…",
       "microcopy": "Less than 2 minutes — promised. Reply within 24 h, then a concrete next step.",
-      "success": "Thank you! Your message has been sent — we’ll get back to you within 24 h.",
+      "success": "Thank you! We have received and registered your enquiry — we’ll get back to you within 24 h.",
       "error": "Something went wrong. Please check your details or try again in a moment."
     },
     "trust": {

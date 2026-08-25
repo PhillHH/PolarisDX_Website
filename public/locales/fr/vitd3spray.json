@@ -11,7 +11,7 @@
     "title": "Spray sublingual Vitamine D3+K2",
     "subtitle": "2 000 UI par pulvérisation – biodisponibilité doublée grâce à la technologie Tiny. En exclusivité via le circuit médical.",
     "cta": "Commander maintenant",
-    "download": "Télécharger le dépliant produit"
+    "download": "Télécharger le dépliant produit (EN)"
   },
   "intro": {
     "title": "Carence en vitamine D détectée – assurez l'apport directement au cabinet",
@@ -111,7 +111,7 @@
     "quick_order_cta": "Commander maintenant",
     "download_caption": "Dépliant produit",
     "download_text": "Toutes les informations sur le spray Vitamine D3+K2 au format PDF.",
-    "download_cta": "Télécharger le PDF",
+    "download_cta": "Télécharger le PDF (EN)",
     "trust": "Plus de 100 cabinets dans plus de 15 pays font confiance à PolarisDX"
   },
   "faq": {
@@ -137,22 +137,56 @@
     "bio": "2× biodisponibilité"
   },
   "hero_stats": [
-    { "value": "2 000 UI", "label": "par pulvérisation" },
-    { "value": "71", "label": "applications / flacon" },
-    { "value": "2×", "label": "biodisponibilité" }
+    {
+      "value": "2 000 UI",
+      "label": "par pulvérisation"
+    },
+    {
+      "value": "71",
+      "label": "applications / flacon"
+    },
+    {
+      "value": "2×",
+      "label": "biodisponibilité"
+    }
   ],
   "visual_chips": [
-    { "value": "2 000 UI", "label": "Vitamine D3" },
-    { "value": "15 µg K2", "label": "MK-7" },
-    { "value": "71×", "label": "par flacon" }
+    {
+      "value": "2 000 UI",
+      "label": "Vitamine D3"
+    },
+    {
+      "value": "15 µg K2",
+      "label": "MK-7"
+    },
+    {
+      "value": "71×",
+      "label": "par flacon"
+    }
   ],
   "stats": [
-    { "value": "2 000 UI", "label": "Vitamine D3 par pulvérisation" },
-    { "value": "15 µg", "label": "Vitamine K2 (MK-7)" },
-    { "value": "71", "label": "applications par flacon" },
-    { "value": "dès 10,90 €", "label": "par unité (pack cabinet)" }
+    {
+      "value": "2 000 UI",
+      "label": "Vitamine D3 par pulvérisation"
+    },
+    {
+      "value": "15 µg",
+      "label": "Vitamine K2 (MK-7)"
+    },
+    {
+      "value": "71",
+      "label": "applications par flacon"
+    },
+    {
+      "value": "dès 10,90 €",
+      "label": "par unité (pack cabinet)"
+    }
   ],
-  "benefit_titles": ["Os & calcium", "Ostéo-intégration", "Prévention parodontale"],
+  "benefit_titles": [
+    "Os & calcium",
+    "Ostéo-intégration",
+    "Prévention parodontale"
+  ],
   "badges": {
     "vegan": "Vegan",
     "made_in": "Made in Germany"

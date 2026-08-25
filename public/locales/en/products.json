@@ -4,7 +4,7 @@
     "title": "Precise diagnostics.\nEverywhere.",
     "description": "The IglooPro POC reader brings lab-grade results to the point of treatment — 600 g portable, validated, and connected to your practice systems.",
     "cta_order": "Request a quote",
-    "cta_datasheet": "Download datasheet (PDF)",
+    "cta_datasheet": "Download datasheet (PDF, DE)",
     "subline": "Free & non-binding · Reply within 24 h",
     "chip_ivdr": "IVDR/CE",
     "chip_lis": "LIS/HIS ready",
@@ -13,7 +13,7 @@
       "device_alt": "IglooPro POC reader, front view",
       "portable_val": "600 g",
       "portable_label": "portable",
-      "cv_val": "CV < 2%",
+      "cv_val": "CV < 2 %",
       "cv_label": "inter-reader",
       "time_val": "3–15 min",
       "time_label": "per test"
@@ -57,7 +57,7 @@
     "speed": "Measurement Time",
     "speed_value": "3 - 15 Minutes (test dependent)",
     "accuracy": "Accuracy",
-    "accuracy_value": "CV < 2%",
+    "accuracy_value": "CV < 2 %",
     "storage": "Memory",
     "storage_value": "Up to 10,000 patient records",
     "battery": "Power Supply",
@@ -70,13 +70,13 @@
     "manufacturer_note": "Manufactured by DX365 GmbH, Berlin · European distribution: PolarisDX",
     "highlights": {
       "label": "Highlights",
-      "cv_value": "CV < 2%",
+      "cv_value": "CV < 2 %",
       "cv_label": "Inter-reader precision, documented",
       "records_value": "10,000",
       "records_label": "patient records stored on device",
       "time_value": "3–15 min",
       "time_label": "from sample to result",
-      "datasheet": "Download datasheet (PDF)"
+      "datasheet": "Download datasheet (PDF, DE)"
     }
   },
   "parameters": {
@@ -110,7 +110,7 @@
     "title": "Ready to bring the IglooPro into your practice?",
     "description": "Request a quote or grab the datasheet — cross-manufacturer, IVDR/CE-compliant and ready for use in 3–5 business days.",
     "button": "Request a quote",
-    "datasheet": "Download datasheet (PDF)",
+    "datasheet": "Download datasheet (PDF, DE)",
     "chips": {
       "free": "Free & non-binding",
       "reply": "Reply < 24h",
@@ -124,7 +124,7 @@
   "help": {
     "title": "Not sure if the IglooPro fits your workflow?",
     "text": "15 minutes with a POC specialist — a concrete recommendation for your setup, no sales show.",
-    "cta": "Book a consultation"
+    "cta": "Request a quote"
   },
   "application": {
     "eyebrow": "APPLICATION AREAS",

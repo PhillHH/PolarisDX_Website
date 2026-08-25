@@ -22,8 +22,12 @@ import Reveal from '../components/ui/Reveal'
 import SubpageHero from '../components/sections/SubpageHero'
 import PraxisOrderForm from '../components/sections/PraxisOrderForm'
 import sprayImage from '../assets/VITAMIND_D3_SPRAY.jpg'
-import sprayPdfDE from '../assets/downloads/Polaris Vitamin D Spray  A4zuA5_DE_2025-01-20.pdf'
-import sprayPdfEN from '../assets/downloads/Polaris Vitamin D Spray  A4zuA5_EN(8).pdf'
+// Kanonische Auslieferung ueber den Download-Katalog (src/content/downloads.json):
+// dieselbe Datei, dieselbe URL wie auf /downloads. Vorher lagen dieselben PDFs
+// zusaetzlich unter src/assets/downloads/ und wurden bundle-gehasht ein zweites Mal
+// ausgeliefert (CD-7, CA-19/CA-22).
+const sprayPdfDE = '/downloads/vitamin-d3-spray-de.pdf'
+const sprayPdfEN = '/downloads/vitamin-d3-spray-en.pdf'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
 
 const VitaminD3SprayPage = () => {

@@ -22,7 +22,6 @@
       }
     },
     "form": {
-      "_translationStatus": "English fallback — panel context, epigenetics field options and field errors",
       "progress": {
         "start": "Empecemos — solo unos campos",
         "going": "Buena pinta — quedan {{count}}",
@@ -57,7 +56,7 @@
           "longevity": "Longevity",
           "nutrition": "Nutritional counselling",
           "sports": "Sports medicine",
-          "bgm": "Corporate health management",
+          "bgm": "Salud laboral",
           "practice": "Practice and clinic",
           "pharmacy": "Farmacia",
           "other": "Otro"
@@ -66,36 +65,36 @@
           "dental": "Buena elección — vitamina D y PCR directamente en el sillón son los clásicos de la implantología.",
           "beauty": "Genial — PCR y paneles vitamínicos son la base de la estética para piel y recuperación.",
           "longevity": "Perfecto — HbA1c, PCR y vitamina D son los marcadores base de la longevity.",
-          "nutrition": "We will get back to you with the documents relevant to nutritional counselling.",
-          "sports": "We will get back to you with the documents relevant to sports medicine.",
-          "bgm": "We will get back to you with the documents relevant to corporate health management.",
-          "practice": "We will get back to you with the documents relevant to practice and clinic.",
+          "nutrition": "Nos pondremos en contacto con la documentación relevante para el asesoramiento nutricional.",
+          "sports": "Nos pondremos en contacto con la documentación relevante para la medicina deportiva.",
+          "bgm": "Nos pondremos en contacto con la documentación relevante para la salud laboral.",
+          "practice": "Nos pondremos en contacto con la documentación relevante para consulta y clínica.",
           "pharmacy": "Inteligente — los test rápidos de PCR y vitamina D convierten el paso ocasional en clientes fieles.",
           "other": "Cuéntanos tu setup — prepararemos el panel point-of-care adecuado."
         }
       },
       "field_required": "Elige tu área para que preparemos el panel correcto.",
-      "panel_context_one": "Your enquiry refers to the panel {{panels}}.",
-      "panel_context_other": "Your enquiry refers to the panels {{panels}}.",
+      "panel_context_one": "Su solicitud se refiere al panel {{panels}}.",
+      "panel_context_other": "Su solicitud se refiere a los paneles {{panels}}.",
       "errors": {
-        "name": "Please enter your name — at least two characters.",
-        "email": "Please enter a valid email address, for example name@practice.com.",
-        "consent": "Please tick the consent box so we may reply to your enquiry."
+        "name": "Indique su nombre — al menos dos caracteres.",
+        "email": "Introduzca una dirección de correo válida, por ejemplo nombre@consulta.es.",
+        "consent": "Marque la casilla de consentimiento para que podamos responder a su solicitud."
       },
       "prepare_label": "¿Debemos preparar algo?",
       "prepare_placeholder": "¿Qué biomarcadores te interesan — PCR, TSH, HbA1c?",
       "consent": "Acepto que mis datos se conserven para contactarme y para posibles consultas durante un máximo de 12 meses. Consulta nuestra",
       "privacy_link": "política de privacidad",
       "submit": {
-        "consultation": "Reservar mi asesoramiento",
-        "quote": "Solicitar mi presupuesto",
+        "consultation": "Solicitar presupuesto",
+        "quote": "Solicitar presupuesto",
         "product": "Enviar mi pregunta",
         "support": "Obtener soporte",
         "other": "Enviar mi mensaje"
       },
       "sending": "Enviando…",
       "microcopy": "Menos de 2 minutos — prometido. Respuesta en 24 h y luego un siguiente paso concreto.",
-      "success": "¡Gracias! Tu mensaje se ha enviado — te respondemos en 24 h.",
+      "success": "¡Gracias! Hemos recibido y registrado su solicitud — le respondemos en 24 h.",
       "error": "Algo salió mal. Revisa tus datos o inténtalo de nuevo en un momento."
     },
     "trust": {

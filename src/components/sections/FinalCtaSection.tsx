@@ -6,7 +6,7 @@ import { SUPPORTED_LANGUAGES } from '../../i18n'
 /**
  * FinalCtaSection — Full-width dunkle Schluss-CTA (B2B-Abschluss der HomePage).
  * Eyebrow (Teal) + grosse H2 + Untertitel, dann zwei CTAs nebeneinander:
- * Primaer (Teal)"Beratung buchen" -> /contact, Sekundaer (Outline)"ROI-Rechner" -> /#roi-rechner.
+ * Primaer (Teal)"Angebot anfragen" -> /contact, Sekundaer (Outline)"ROI-Rechner" -> /#roi-rechner.
  * SSR-sicher (kein window/localStorage). i18n-NS 'home', alle Texte via t().
  */
 
@@ -51,7 +51,10 @@ const FinalCtaSection = ({ roiHref = '/#roi-rechner' }: { roiHref?: string }) =>
   const roiTo = normalizeRoiTo(roiHref)
 
   return (
-    <section id="los-gehts" className="scroll-mt-[124px] lg:scroll-mt-[148px] bg-brand-deep text-white">
+    <section
+      id="los-gehts"
+      className="scroll-mt-[124px] lg:scroll-mt-[148px] bg-brand-deep text-white"
+    >
       <div className="mx-auto max-w-container px-4 py-24 lg:py-24 lg:px-0 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
           {t('final_cta.caption', 'Bereit loszulegen')}
@@ -71,7 +74,7 @@ const FinalCtaSection = ({ roiHref = '/#roi-rechner' }: { roiHref?: string }) =>
             variant="secondary"
             className="!bg-accent-strong hover:!brightness-110 focus-visible:!ring-accent"
           >
-            {t('final_cta.cta_primary', 'Beratung buchen')}
+            {t('final_cta.cta_primary', 'Angebot anfragen')}
           </Button>
           <Button to={roiTo} variant="outline">
             {t('final_cta.cta_secondary', 'ROI-Rechner')}

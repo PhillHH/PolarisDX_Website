@@ -294,7 +294,7 @@
         "content": "Het verplaatsen van diagnostiek van het laboratorium naar het Point-of-Care mag nooit ten koste gaan van de kwaliteit. Dit is waar premiumoplossingen binnenkomen:",
         "listItems": [
           "Het gebruik van uiterst nauwkeurige, IVDR-gecertificeerde analyzers zoals de Igloo Pro is verplicht.",
-          "Gegarandeerde analytische nauwkeurigheid (bijv. CV < 2%) zorgt ervoor dat waarden verkregen in de praktijk of apotheek vergelijkbaar zijn met de laboratoriumstandaard."
+          "Gegarandeerde analytische nauwkeurigheid (bijv. CV < 2 %) zorgt ervoor dat waarden verkregen in de praktijk of apotheek vergelijkbaar zijn met de laboratoriumstandaard."
         ]
       }
     ],
@@ -326,7 +326,8 @@
       ]
     },
     "seo": {
-      "description": "Preventieve checks op het Point-of-Care: belangrijke biomarkers direct bepalen en datagestuurd adviseren – in praktijk, apotheek en kliniek. Informeer nu."
+      "description": "Preventieve checks op het Point-of-Care: belangrijke biomarkers direct bepalen en datagestuurd adviseren – in praktijk, apotheek en kliniek. Informeer nu.",
+      "title": "Preventieve gezondheidschecks in de praktijk"
     }
   },
   "infektion_entzuendung": {
@@ -365,7 +366,7 @@
     ],
     "conclusion": {
       "heading": "Conclusie: Geen compromissen bij de diagnose",
-      "text": "Voor infecties en ontstekingen is tijd de kritieke factor. Alleen een POC-systeem dat validiteit op laboratoriumniveau combineert met maximale snelheid kan diagnostische veiligheid verhogen en tegelijkertijd antibioticabeheer optimaliseren. PolarisDX.net levert deze gegarandeerde prestaties – van inbedrijfstelling binnen 3-5 werkdagen tot prioriteitsondersteuning."
+      "text": "Voor infecties en ontstekingen is tijd de kritieke factor. Alleen een POC-systeem dat validiteit op laboratoriumniveau combineert met maximale snelheid kan diagnostische veiligheid verhogen en tegelijkertijd antibioticabeheer optimaliseren. PolarisDX.net levert deze prestaties – van inbedrijfstelling binnen 3-5 werkdagen tot prioriteitsondersteuning."
     },
     "cta": "Afspraak boeken",
     "faq": {
@@ -382,7 +383,7 @@
         },
         {
           "question": "Hoe betrouwbaar zijn POC-ontstekingstests in vergelijking met het laboratorium?",
-          "answer": "IVDR-conforme POC-systemen zoals de IglooPro leveren kwantitatieve resultaten met een analytische precisie van CV < 2% en zijn daarmee vergelijkbaar met metingen van een centraal laboratorium. De kwaliteitsborging geschiedt via gevalideerde testcassettes en interne controles. In de klinische praktijk bieden POC-tests het bijkomende voordeel dat het resultaat onmiddellijk beschikbaar is en niet wordt beïnvloed door transporttijden of monsteropslag."
+          "answer": "IVDR-conforme POC-systemen zoals de IglooPro leveren kwantitatieve resultaten met een analytische precisie van CV < 2 % en zijn daarmee vergelijkbaar met metingen van een centraal laboratorium. De kwaliteitsborging geschiedt via gevalideerde testcassettes en interne controles. In de klinische praktijk bieden POC-tests het bijkomende voordeel dat het resultaat onmiddellijk beschikbaar is en niet wordt beïnvloed door transporttijden of monsteropslag."
         },
         {
           "question": "Welke ontstekingsmarkers kan de IglooPro meten?",
@@ -391,7 +392,8 @@
       ]
     },
     "seo": {
-      "description": "Ontstekingsmarkers en infectiesignalen ter plaatse bepalen: snellere triage, verantwoord antibioticabeleid. Vraag nu advies aan."
+      "description": "Ontstekingsmarkers en infectiesignalen ter plaatse bepalen: snellere triage, verantwoord antibioticabeleid. Vraag nu advies aan.",
+      "title": "Infectie- en ontstekingsmarkers ter plaatse"
     }
   },
   "stoffwechsel_herz": {
@@ -423,7 +425,7 @@
         "heading": "3. Het Premium-voordeel: Snelheid en Betrouwbaarheid",
         "content": "Voor het monitoren van chronische ziekten en triage van cardiale noodgevallen is de betrouwbaarheid van POC-technologie niet onderhandelbaar.",
         "listItems": [
-          "Laboratoriumnauwkeurigheid: De Igloo Pro levert resultaten die overeenkomen met die van het centrale laboratorium (CV < 2% Inter-Reader).",
+          "Laboratoriumnauwkeurigheid: De Igloo Pro levert resultaten die overeenkomen met die van het centrale laboratorium (CV < 2 % Inter-Reader).",
           "Multiplex-capaciteit: Het systeem kan verschillende cardiale parameters gelijktijdig of snel achter elkaar bepalen, wat de efficiëntie in kritieke situaties maximaliseert."
         ]
       }
@@ -439,7 +441,7 @@
       "items": [
         {
           "question": "Welke stofwisselingsbiomarkers kan ik chairside meten?",
-          "answer": "Met de IglooPro bepaalt u HbA1c (langetermijn bloedsuiker), totaal cholesterol en overige lipidefracties direct uit capillair bloed, binnen enkele minuten. Deze chairside diagnostiek levert laboratoriumvergelijkbare resultaten (CV < 2%) en maakt directe therapieaanpassing mogelijk in hetzelfde patiëntcontact — zonder inzending naar een centraal laboratorium."
+          "answer": "Met de IglooPro bepaalt u HbA1c (langetermijn bloedsuiker), totaal cholesterol en overige lipidefracties direct uit capillair bloed, binnen enkele minuten. Deze chairside diagnostiek levert laboratoriumvergelijkbare resultaten (CV < 2 %) en maakt directe therapieaanpassing mogelijk in hetzelfde patiëntcontact — zonder inzending naar een centraal laboratorium."
         },
         {
           "question": "Hoe helpt de HbA1c-waarde bij vroegtijdige opsporing van diabetes?",
@@ -456,7 +458,8 @@
       ]
     },
     "seo": {
-      "description": "Metabole en cardiale markers in enkele minuten meten: diabetesmonitoring en therapieaanpassing direct in de praktijk. Laat u nu adviseren."
+      "description": "Metabole en cardiale markers in enkele minuten meten: diabetesmonitoring en therapieaanpassing direct in de praktijk. Laat u nu adviseren.",
+      "title": "Stofwisseling en hartgezondheid meten"
     }
   },
   "hormon_tests": {
@@ -521,7 +524,8 @@
       ]
     },
     "seo": {
-      "description": "Hormoondiagnostiek op het Point-of-Care: kritische hormonen direct bij de patiënt bepalen – van schildklier tot fertiliteit. Maak nu een adviesafspraak."
+      "description": "Hormoondiagnostiek op het Point-of-Care: kritische hormonen direct bij de patiënt bepalen – van schildklier tot fertiliteit. Maak nu een adviesafspraak.",
+      "title": "Hormoon- en endocrinologietests in de praktijk"
     }
   },
   "kompatibilitaet_integration": {
@@ -585,7 +589,8 @@
       ]
     },
     "seo": {
-      "description": "Open, fabrikantonafhankelijk POC-platform: Igloo Pro waarborgt flexibiliteit, technologische onafhankelijkheid en investeringszekerheid. Informeer nu."
+      "description": "Open, fabrikantonafhankelijk POC-platform: Igloo Pro waarborgt flexibiliteit, technologische onafhankelijkheid en investeringszekerheid. Informeer nu.",
+      "title": "Compatibiliteit tussen fabrikanten"
     }
   },
   "seo": {

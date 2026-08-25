@@ -10,7 +10,7 @@
         "attach": "Dołącz zdjęcie i plik dziennika"
       },
       "breadcrumb": "Strona główna / Wsparcie",
-      "cta_primary": "Wyślij zapytanie",
+      "cta_primary": "Wyślij zgłoszenie do wsparcia",
       "cta_secondary": "Zadzwoń na infolinię",
       "value": {
         "response_value": "< 24 h",
@@ -53,7 +53,7 @@
       "consent": "Wyrażam zgodę na przechowywanie moich danych przez okres do 12 miesięcy w celu obsługi zapytania do działu wsparcia oraz ewentualnych pytań uzupełniających.",
       "submit": "Wyślij",
       "submitting": "Wysyłanie...",
-      "success": "Dziękujemy! Twoje zapytanie do działu wsparcia zostało wysłane. Skontaktujemy się z Tobą najszybciej, jak to możliwe.",
+      "success": "Dziękujemy! Otrzymaliśmy i zarejestrowaliśmy Twoje zgłoszenie do działu wsparcia. Skontaktujemy się z Tobą najszybciej, jak to możliwe.",
       "error": "Wystąpił błąd. Spróbuj ponownie później.",
       "microcopy": "Zwykle odpowiadamy w ciągu jednego dnia roboczego."
     },
