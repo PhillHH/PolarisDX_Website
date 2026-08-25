@@ -435,6 +435,61 @@ Ist-Zustand, **kein zulässiges Zielverhalten**.
 | **DD-16** | **`depends_on` ohne Bedingung** — reine Startreihenfolge; es gibt keine Bereitschaftsprüfung zwischen `frontend` und `backend`                                                                                                                                        | DEP-49         | **AP28 PT28.2**   |
 | **DD-17** | **Kein Deployment- oder Image-Schritt in CI** — `.github/workflows/ci.yml` ist der einzige Workflow und kennt weder Build-Artefakt, Image-Tag, Scan noch Deploy; damit existiert keine Stelle, an der Release-Identität entstünde                                     | DEP-04, DEP-33 | **AP27**/**AP28** |
 
+**Neu aus einem realen Deployment-Versuch (gemessen 2026-08-25, nach AP04-Closure):**
+
+| ID        | Schuld                                                                                                                                                                                                                                                                                                                                                                                                                     | Verletzt                | Owner           |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | --------------- |
+| **DD-18** | **Der SSR-Dienst der Relaunch-Linie ist nicht containerfähig** — `server.ts:775` bindet hart auf `app.listen(PORT, '127.0.0.1', …)`. In einem Compose-Bridge-Netz ist der Prozess damit hinter dem Portmapping **unerreichbar**; der Container wird `healthy` gemeldet und liefert trotzdem `502`. Der Backend-Dienst macht es bereits richtig (`server/server.js:727` → `process.env.LISTEN_HOST \|\| '0.0.0.0'`). | DEP-08, DEP-38, DEP-42 | **AP28 PT28.2** |
+| **DD-19** | **Der Preview-Port der Compose-Datei kollidiert mit der Produktion** — `docker-compose.yml` bindet `frontend` fest auf `127.0.0.1:2026`, und genau dorthin proxyt der produktive `polarisdx.net`-vhost. Ein `docker compose up` aus einem zweiten Arbeitsbaum trifft damit den Live-Port. Der Port ist nicht über eine Umgebungsvariable parametrisiert.                                                                    | DEP-27, DEP-29, DEP-38 | **AP28 PT28.4** |
+
+### 6.1 Belege zu DD-18 / DD-19
+
+**DD-18 — Messung.** Ein Container aus `Dockerfile` (Node 22-alpine, `CMD npx tsx server.ts`) startet,
+gibt das SSR-Banner aus und meldet `healthy`. Im Container:
+
+```
+tcp  0  0  127.0.0.1:3000  0.0.0.0:*  LISTEN
+```
+
+Von außen: `curl http://127.0.0.1:9100/de` → `000` (kein Verbindungsaufbau), über den Reverse Proxy
+`502`. **Der Healthcheck verdeckt den Fehler**, weil er im Container gegen `127.0.0.1` läuft — das ist
+zugleich ein konkreter Beleg für `DEP-08` („Ein Deployment ist nicht erfolgreich, weil Container
+gestartet sind").
+
+**Linienvergleich.** Der Bind-Host unterscheidet die beiden Produktlinien:
+
+| Linie                                                   | `server.ts`                              | containerfähig |
+| ------------------------------------------------------- | ---------------------------------------- | -------------- |
+| Relaunch (`feat/home-leadmagnet`, Baseline `961f65d`)   | `app.listen(PORT, '127.0.0.1', …)`       | **nein**       |
+| `main`                                                   | `app.listen(PORT, …)` → bindet `0.0.0.0` | ja             |
+| Backend `server/server.js` (beide Linien)               | `process.env.LISTEN_HOST \|\| '0.0.0.0'` | ja             |
+
+Eingeführt mit `dbe992b` (*feat(contact): Multi-Intent-Kontaktformular*) — die Bindung an `127.0.0.1`
+ist dort ein Nebeneffekt, keine Betriebsentscheidung. Dass die produktive Seite heute läuft, liegt
+allein daran, dass das aktive Image aus der `main`-Linie stammt.
+
+**Erwartetes Zielverhalten (AP28).** Der Bind-Host wird parametrisiert, mit demselben Muster, das das
+Backend bereits verwendet — Vorschlag, nicht Vorwegnahme:
+
+```ts
+app.listen(PORT, process.env.LISTEN_HOST || '0.0.0.0', () => { … })
+```
+
+Damit bleibt die lokale Entwicklung auf Wunsch loopback-gebunden, und der Container ist hinter dem
+Reverse Proxy erreichbar, ohne `network_mode: host` zu benötigen. **`server.ts` ist ein G3-Hotspot** —
+die Änderung folgt der Kontextpflicht aus `RUNTIME-CONTRACT.md` und wird nicht nebenbei vorgenommen.
+
+**Zwischenlösung, die den Befund nicht auflöst.** Der Preview auf `preview.polarisdx.net` läuft
+derzeit mit `network_mode: host` und `PORT=9100` über einen Override **außerhalb** des Repositories.
+Das ist eine Umgehung, kein Zielzustand: es verletzt `DEP-37` (privates Dienstnetz) und ist
+ausdrücklich **nicht** als Vorlage für den Produktionsbetrieb zu verwenden.
+
+**DD-19 — Messung.** `docker-compose.yml` → `ports: ['127.0.0.1:2026:3000']`;
+`/etc/nginx/sites-enabled/polarisdx.net` → `proxy_pass http://127.0.0.1:2026`. Der produktive
+Container `01polaris-frontend-1` hält diesen Port. Ein zweiter Arbeitsbaum, der dieselbe Compose-Datei
+verwendet, konkurriert unmittelbar um die Live-Fläche. Zielzustand nach `DEP-27`/`DEP-29`: Umgebungen
+unterscheiden sich über Konfiguration, nicht über eine geteilte, fest verdrahtete Portnummer.
+
 **Positiv zu erhalten:** `restart: unless-stopped` für beide Dienste · Secrets über `env_file` außerhalb
 des Images · `npm pkg delete scripts.prepare` in beiden Build-Stufen (ohne das bricht der Docker-Build) ·
 der bestehende `HEALTHCHECK` im Frontend-Image · das Preview-Runbook `docs/deploy-preview.md` als einzige
@@ -528,6 +583,9 @@ _(Verankerung: `QUALITY-GATES.md` §9 und §12 Gate 12)_
 | **D-T20** | **Readiness ≠ Startreihenfolge**  | ein noch nicht bereiter Nachbardienst führt nicht zu einem als „gesund" geltenden Deployment                  | AP28 PT28.2 |
 | **D-T21** | **Healthcheck ohne Nebenwirkung** | eine Gesundheitsprüfung erzeugt keinen Lead, keine Mail, keinen CRM-Datensatz und gibt keine Secrets aus      | AP28 · AP27 |
 | **D-T22** | **Logdatensparsamkeit**           | Betriebsdiagnose ist ohne vollständige Lead-/Bestellnutzlast und ohne Secrets möglich                         | AP26 PT26.5 |
+| **D-T23** | **Container-Erreichbarkeit**      | jeder Dienst ist aus seinem Netz heraus tatsächlich erreichbar — nicht nur gestartet. Der Bind-Host ist konfigurierbar und nicht auf Loopback festverdrahtet (`DD-18`)                     | **AP28 PT28.2** |
+| **D-T24** | **Healthcheck prüft von außen**   | die Gesundheitsprüfung erreicht den Dienst auf demselben Weg wie der Reverse Proxy. Ein Container, der nur intern gegen `127.0.0.1` antwortet, gilt **nicht** als gesund (`DD-18`, DEP-08) | **AP28 PT28.2** |
+| **D-T25** | **Umgebungsportfreiheit**         | keine zwei Umgebungen konkurrieren um denselben Host-Port; der veröffentlichte Port stammt aus der Umgebungskonfiguration, nicht aus einer festverdrahteten Compose-Zeile (`DD-19`)        | **AP28 PT28.4** |
 
 ### 9.2 Zuordnung der PT02.5-Betriebsanforderungen
 

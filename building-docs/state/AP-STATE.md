@@ -924,6 +924,16 @@ npx tsx server.ts`). `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-
   AP04-RECOVERY `PASS`. Content audit: recorded · Content types: standardized · Launch content: recorded ·
   Asset readiness: recorded · Content matrix: final (`CONTENT-MATRIX.md`) · Deferred gates: carried forward.
 - **Next work package: AP05 — Sales-Machine Design-System und Light-Theme-Grundlage — NICHT gestartet.**
+- **Betriebsbefund aus dem Preview-Deployment (2026-08-25) — gehört AP28, nicht AP05:**
+  `server.ts:775` bindet hart auf `127.0.0.1`. Die Relaunch-Linie ist damit **nicht containerfähig** —
+  der Container meldet `healthy` und liefert trotzdem `502`, weil der Prozess hinter dem Docker-Portmapping
+  unerreichbar ist. `main` bindet `0.0.0.0`, das Backend nutzt bereits `LISTEN_HOST || '0.0.0.0'`.
+  Zusätzlich kollidiert der fest verdrahtete Compose-Port `127.0.0.1:2026` mit dem produktiven
+  `polarisdx.net`-vhost. Festgehalten als **`DD-18`/`DD-19`** mit Belegen in
+  `DEPLOYMENT-CONTRACT.md` §6.1 und den Nachweisen **`D-T23`–`D-T25`**. Owner **AP28 PT28.2/PT28.4**.
+  **`server.ts` ist G3** — nicht nebenbei ändern.
+  Der Preview auf `preview.polarisdx.net` läuft als Zwischenlösung mit `network_mode: host` über einen
+  Override außerhalb des Repositories; das ist ausdrücklich **kein** Zielzustand (verletzt `DEP-37`).
 - **AP05-Handoff — verbindlich:** AP05 darf starten. Die **10 offenen Deferred Gates** `DG-01`–`DG-09`
   sind **nicht** AP05-Aufgaben und dürfen von AP05 weder übernommen noch geschlossen noch als erledigt
   behandelt werden. Ihre Owner sind AP08, AP15, AP16, AP17, AP19, AP20, AP21, AP22 sowie externe
