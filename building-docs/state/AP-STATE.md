@@ -924,6 +924,13 @@ npx tsx server.ts`). `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-
   AP04-RECOVERY `PASS`. Content audit: recorded · Content types: standardized · Launch content: recorded ·
   Asset readiness: recorded · Content matrix: final (`CONTENT-MATRIX.md`) · Deferred gates: carried forward.
 - **Next work package: AP05 — Sales-Machine Design-System und Light-Theme-Grundlage — NICHT gestartet.**
+- **Branch-Zusammenführung 2026-08-25 — `main` trägt jetzt die Relaunch-Linie.** Merge `e9e32be`
+  (`-s ours`, Baum unverändert = AP04-Stand) nimmt `main` als zweiten Elternteil auf; die vollständige
+  `main`-Historie bleibt erreichbar und ist zusätzlich als Branch **`archive/main-pre-relaunch`**
+  (auf `origin`) und Tag `backup/main-f2d5da4` gesichert. **Offener selektiver Import:** `f2d5da4`
+  („Future Forum Berlin 2026") ist der einzige `main`-Commit nach `d0fdf29` und wurde **nicht**
+  übernommen — Cherry-Pick konfliktiert auf 13 Dateien, weil die Event-Datenmodelle divergiert sind.
+  Geführt als **`A26`** in `BRANCH-RECONCILIATION-MAP.md` §19, Owner **AP18**.
 - **Betriebsbefund aus dem Preview-Deployment (2026-08-25) — gehört AP28, nicht AP05:**
   `server.ts:775` bindet hart auf `127.0.0.1`. Die Relaunch-Linie ist damit **nicht containerfähig** —
   der Container meldet `healthy` und liefert trotzdem `502`, weil der Prozess hinter dem Docker-Portmapping

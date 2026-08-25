@@ -600,3 +600,28 @@ None of these blocks the work. All of them change how it must be executed.
 ---
 
 _Produced by read-only inspection on 2026-08-21. HEAD unchanged, no branch checked out, no file staged, committed, merged, rebased, cherry-picked or modified. No secrets or environment-variable values are reproduced._
+
+## 19. Nachtrag — `main`-Commits nach `d0fdf29` (2026-08-25)
+
+Diese Map wurde gegen **`main@d0fdf29`** erstellt. Danach ist auf `main` genau ein weiterer Commit
+entstanden. Er ist damit der einzige `main`-Inhalt, der **nie** durch die Reconciliation gelaufen ist,
+und wird hier geführt, damit er nicht verlorengeht.
+
+### A26 — `f2d5da4` „Future Forum Berlin 2026: Event-Seite mit Anmeldung"
+
+| Feld | Inhalt |
+|---|---|
+| **Quelle** | `archive/main-pre-relaunch @ f2d5da4` (auf `origin` gesichert, zusätzlich Tag `backup/main-f2d5da4`) |
+| **Autor/Datum** | PhillHH, 2026-08-24 |
+| **Umfang** | 10 × `public/locales/*/events.json` · `public/og-future-forum-berlin.jpg` (neu, 105 627 Bytes) · `scripts/prerender.mjs` (+1) · `server.ts` (+1) |
+| **Klassifikation** | **`PARTIAL_ONLY`** — wie alle 17 in §12 bewerteten Commits. Kein git-seitiger Transfer. |
+| **Gemessen (2026-08-25)** | `git cherry-pick -n f2d5da4` gegen den Relaunch-Stand `1e40573` → **Konflikt in 13 Dateien**: die zehn `events.json`, dazu `src/data/events.ts`, `src/pages/EventsPage.tsx`, `src/pages/HomePage.tsx`. Ursache: die Event-Datenmodelle beider Linien sind unabhängig divergiert — der Relaunch führt ISO-Datumsfelder mit `splitEventsByDate` (`CONTENT-ASSET-CONTRACT.md` §5.5 nennt `events.ts` das „sauberste Modell im Repo"), `main` nicht. |
+| **Status** | **OFFEN — nicht übernommen.** Der Inhalt ist auf `main` entstanden und beim Zusammenführen der Linien bewusst **nicht** mitgewandert (Merge `e9e32be`, Strategie `ours`). |
+| **Owner** | **AP18** (Events) — Datenmodell, Zeitlogik, Archiv |
+| **Vorgehen** | Handgeschriebene Übernahme gegen das Relaunch-Event-Modell, **kein** `cherry-pick` und **kein** `git checkout f2d5da4 -- <pfad>`: `server.ts`, `HomePage.tsx` und `prerender.mjs` fallen unter §12 („`main` ist auf diesen Dateien älter als die Baseline"). Übernehmbar sind die fachlichen Event-Daten und das OG-Bild; die Trägerdateien werden neu geschrieben. |
+| **Risiko beim Nichtstun** | Eine real gepflegte Veranstaltungsseite fehlt im Relaunch. Kein Launch-Gate ist davon betroffen, aber es ist echte, verlorene Redaktionsarbeit, wenn sie niemand nachzieht. |
+
+**Warum das hier steht und nicht in §15/§16:** Jene Listen sind gegen `d0fdf29` geschlossen und werden
+nicht rückwirkend umgeschrieben (§18 hält den Stand dieser Erhebung fest). `A26` ist ein Nachtrag mit
+eigenem Erhebungsdatum.
+
