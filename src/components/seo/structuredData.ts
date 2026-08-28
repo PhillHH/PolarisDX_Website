@@ -259,6 +259,53 @@ export const iglooProProductSchema = {
 }
 
 // =============================================================================
+// PRODUCT GENERATOR (visible product-page truth only)
+// =============================================================================
+
+export interface ProductSchemaOptions {
+  name: string
+  description: string
+  image: string
+  url: string
+  language?: string
+  brand?: string
+}
+
+/**
+ * Minimal Product markup for a real product landing page.
+ *
+ * Commercial fields are deliberately absent: callers must not infer offers,
+ * availability, identifiers, ratings or reviews merely because a product page
+ * exists. Those fields can be added only when a later contract has a stable,
+ * visible source of truth for them.
+ */
+export function createProductSchema(options: ProductSchemaOptions) {
+  const url = canonicalUrlFor(options.url, options.language)
+  const image = options.image.startsWith('http') ? options.image : `${BASE_URL}${options.image}`
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    '@id': `${url}#product`,
+    name: options.name,
+    description: options.description,
+    image,
+    url,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url,
+    },
+    ...(options.language && { inLanguage: options.language }),
+    ...(options.brand && {
+      brand: {
+        '@type': 'Brand',
+        name: options.brand,
+      },
+    }),
+  }
+}
+
+// =============================================================================
 // BREADCRUMB GENERATOR
 // =============================================================================
 

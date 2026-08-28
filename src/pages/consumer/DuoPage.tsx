@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next'
 import type { TFunction } from 'i18next'
 import { Droplets, Sun } from 'lucide-react'
 
-import { SEOHead } from '../../components/seo'
+import { SEOHead, createProductSchema } from '../../components/seo'
 import Footer from '../../components/layout/Footer'
 import duoHero from '../../assets/landingpages-consumer/duo-hero-products-together.jpeg'
 import sprayStill from '../../assets/landingpages-consumer/spray-still-life.jpeg'
@@ -72,14 +72,29 @@ function DuoPageInner() {
   const { t, i18n } = useTranslation('consumer')
   const duoPrice = formatCurrency(49.9, i18n.resolvedLanguage)
   const monthlyAddOn = formatCurrency(2, i18n.resolvedLanguage)
+  const seoTitle = t('duo.copy_015')
+  const seoDescription = t('duo.seo_description', { price: duoPrice })
+  const socialImageAlt = t('duo.copy_023')
   const NAV = getNAV(t)
   const FAQ_ITEMS = getFAQ_ITEMS(t)
   useConsumerPageView('duo')
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-heading">
       <SEOHead
-        title={t('duo.copy_015')}
-        description={t('duo.seo_description', { price: duoPrice })}
+        title={seoTitle}
+        description={seoDescription}
+        ogType="product"
+        ogImage={duoHero}
+        ogImageAlt={socialImageAlt}
+        ogImageWidth={1122}
+        ogImageHeight={1402}
+        structuredData={createProductSchema({
+          name: t('duo.copy_019'),
+          description: seoDescription,
+          image: duoHero,
+          url: '/consumer/inside-out-duo',
+          language: i18n.resolvedLanguage,
+        })}
       />
 
       <ConsumerHeader nav={NAV} cta={{ label: t('duo.copy_017'), href: '#order' }} page="duo" />

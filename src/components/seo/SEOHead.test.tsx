@@ -127,6 +127,33 @@ describe('PT09.1 SEOHead contract', () => {
     expect(document.querySelector('meta[name="twitter:image:alt"]')).toBeTruthy()
   })
 
+  it('uses explicit localized social-image alt and truthful intrinsic dimensions', () => {
+    localeState.current = 'fr'
+    const document = renderHead('/consumer/hydrating-masks', {
+      ogType: 'product',
+      ogImage: '/assets/mask.jpeg',
+      ogImageAlt: 'Masques hydratants avec leur emballage',
+      ogImageWidth: 1122,
+      ogImageHeight: 1402,
+    })
+
+    expect(document.querySelector('meta[property="og:type"]')?.getAttribute('content')).toBe(
+      'product',
+    )
+    expect(document.querySelector('meta[property="og:image:alt"]')?.getAttribute('content')).toBe(
+      'Masques hydratants avec leur emballage',
+    )
+    expect(document.querySelector('meta[name="twitter:image:alt"]')?.getAttribute('content')).toBe(
+      'Masques hydratants avec leur emballage',
+    )
+    expect(document.querySelector('meta[property="og:image:width"]')?.getAttribute('content')).toBe(
+      '1122',
+    )
+    expect(
+      document.querySelector('meta[property="og:image:height"]')?.getAttribute('content'),
+    ).toBe('1402')
+  })
+
   it('makes a 404 noindex, follow without canonical, hreflang or valid-page URL claims', () => {
     localeState.current = 'de'
     const document = renderHead('/does-not-exist', { notFound: true })

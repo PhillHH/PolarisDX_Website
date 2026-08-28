@@ -28,12 +28,14 @@ export {
   createServiceSchema,
   createEventSchema,
   createReviewSchema,
+  createProductSchema,
   type BreadcrumbItem,
   type FAQItem,
   type ArticleSchemaOptions,
   type ServiceSchemaOptions,
   type EventSchemaOptions,
   type ReviewSchemaOptions,
+  type ProductSchemaOptions,
 } from './structuredData'
 
 // Re-export HelmetProvider for convenience

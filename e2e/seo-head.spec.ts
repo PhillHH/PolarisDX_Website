@@ -68,3 +68,101 @@ for (const locale of ['de', 'en', 'pl', 'fr', 'cs'] as const) {
     }
   })
 }
+
+const CONSUMER_PATHS = [
+  '/consumer/vitamin-d3-spray',
+  '/consumer/hydrating-masks',
+  '/consumer/inside-out-duo',
+] as const
+
+test('PT09.3 Consumer 3x10 pages are indexable, self-canonical and product-specific', async ({
+  request,
+}) => {
+  test.setTimeout(180_000)
+  const sitemapResponse = await request.get('/sitemap.xml')
+  expect(sitemapResponse.status()).toBe(200)
+  const sitemap = await sitemapResponse.text()
+
+  const robotsResponse = await request.get('/robots.txt')
+  expect(robotsResponse.status()).toBe(200)
+  expect(await robotsResponse.text()).not.toMatch(/^\s*Disallow:\s*\/consumer(?:\/|\s|$)/im)
+
+  for (const locale of SUPPORTED_LANGUAGES) {
+    const localeTitles = new Set<string>()
+    const localeDescriptions = new Set<string>()
+    const consumerInlinkTargets = new Set<string>()
+
+    for (const route of CONSUMER_PATHS) {
+      const response = await request.get(`/${locale}${route}`, { maxRedirects: 0 })
+      expect(response.status(), `${locale}${route}`).toBe(200)
+      const html = await response.text()
+      const canonical = `${PUBLIC_ORIGIN}/${locale}${route}`
+
+      expect(attribute(html, /<meta[^>]+name="robots"[^>]*>/i, 'content')).toMatch(/^index, follow/)
+      expect(tagCount(html, /<link[^>]+rel="canonical"[^>]*>/gi)).toBe(1)
+      expect(attribute(html, /<link[^>]+rel="canonical"[^>]*>/i, 'href')).toBe(canonical)
+      expect(tagCount(html, /<link[^>]+rel="alternate"[^>]*>/gi)).toBe(11)
+      for (const alternate of SUPPORTED_LANGUAGES) {
+        const tag = new RegExp(`<link[^>]+rel="alternate"[^>]+hreflang="${alternate}"[^>]*>`, 'i')
+        expect(attribute(html, tag, 'href')).toBe(`${PUBLIC_ORIGIN}/${alternate}${route}`)
+      }
+      expect(
+        attribute(html, /<link[^>]+rel="alternate"[^>]+hreflang="x-default"[^>]*>/i, 'href'),
+      ).toBe(`${PUBLIC_ORIGIN}/de${route}`)
+      expect(sitemap).toContain(`<loc>${canonical}</loc>`)
+
+      const title = attribute(html, /<meta[^>]+property="og:title"[^>]*>/i, 'content')
+      const description = attribute(html, /<meta[^>]+property="og:description"[^>]*>/i, 'content')
+      const image = attribute(html, /<meta[^>]+property="og:image"[^>]*>/i, 'content')
+      const imageAlt = attribute(html, /<meta[^>]+property="og:image:alt"[^>]*>/i, 'content')
+      expect(attribute(html, /<meta[^>]+property="og:type"[^>]*>/i, 'content')).toBe('product')
+      expect(attribute(html, /<meta[^>]+property="og:url"[^>]*>/i, 'content')).toBe(canonical)
+      expect(title).toBeTruthy()
+      expect(description).toBeTruthy()
+      expect(image).toMatch(/^https:\/\/polarisdx\.net\/assets\//)
+      expect(imageAlt).toBeTruthy()
+      expect(attribute(html, /<meta[^>]+property="og:image:width"[^>]*>/i, 'content')).toBe('1122')
+      expect(attribute(html, /<meta[^>]+property="og:image:height"[^>]*>/i, 'content')).toBe('1402')
+      expect(attribute(html, /<meta[^>]+name="twitter:title"[^>]*>/i, 'content')).toBe(title)
+      expect(attribute(html, /<meta[^>]+name="twitter:description"[^>]*>/i, 'content')).toBe(
+        description,
+      )
+      expect(attribute(html, /<meta[^>]+name="twitter:image"[^>]*>/i, 'content')).toBe(image)
+      expect(attribute(html, /<meta[^>]+name="twitter:image:alt"[^>]*>/i, 'content')).toBe(imageAlt)
+
+      const imagePath = new URL(image!).pathname
+      expect((await request.get(imagePath)).status(), imagePath).toBe(200)
+      const jsonLd = html.match(
+        /<script[^>]+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i,
+      )?.[1]
+      expect(jsonLd, `${locale}${route} Product JSON-LD`).toBeTruthy()
+      const product = JSON.parse(jsonLd!) as Record<string, unknown>
+      expect(product['@type']).toBe('Product')
+      expect(product.url).toBe(canonical)
+      expect(product.image).toBe(image)
+      expect(product.name).toBeTruthy()
+      expect(product.description).toBeTruthy()
+      for (const forbidden of ['offers', 'sku', 'gtin', 'aggregateRating', 'review']) {
+        expect(product).not.toHaveProperty(forbidden)
+      }
+      expect(html).not.toMatch(/preview\.polarisdx\.net|localhost|127\.0\.0\.1/)
+      expect(html).not.toMatch(new RegExp(`href="/${locale}/services(?:/|"|#)`))
+      for (const match of html.matchAll(new RegExp(`href="(/${locale}/consumer/[^"#?]+)`, 'g'))) {
+        consumerInlinkTargets.add(match[1])
+      }
+      localeTitles.add(title!)
+      localeDescriptions.add(description!)
+    }
+
+    expect(localeTitles.size, `${locale} product-specific titles`).toBe(CONSUMER_PATHS.length)
+    expect(localeDescriptions.size, `${locale} product-specific descriptions`).toBe(
+      CONSUMER_PATHS.length,
+    )
+    for (const route of CONSUMER_PATHS) {
+      expect(
+        consumerInlinkTargets,
+        `${locale}${route} has an intentional Consumer inlink`,
+      ).toContain(`/${locale}${route}`)
+    }
+  }
+})

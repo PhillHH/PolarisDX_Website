@@ -11,10 +11,10 @@ kein `work-packages/APxx-STATE.md`).
 - Work package: **AP09 — SEO-Plattformgrundlagen**
 - Status: **IN_PROGRESS** <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
 - Predecessor: **AP08 COMPLETE / Closure PASS (50/50, 2026-08-26)**
-- Last completed PT: **PT09.2 — Sitemap (PASS, 2026-08-27)**
-- PT09.1: **PASS** · PT09.2: **PASS** · PT09.3: **NOT STARTED** · PT09.4: **NOT STARTED** ·
+- Last completed PT: **PT09.3 — Consumer SEO (PASS, 2026-08-28)**
+- PT09.1: **PASS** · PT09.2: **PASS** · PT09.3: **PASS** · PT09.4: **NOT STARTED** ·
   PT09.5: **NOT STARTED** · AP09 Closure: **NOT STARTED**
-- Next primary task: **PT09.3 — Consumer SEO**
+- Next primary task: **PT09.4 — Structured Data**
 - SEOHead: **consolidated** — eindeutige Meta-Ausgabeschicht; Title/Description/Robots/Canonical,
   x10-hreflang, `x-default=de`, Open Graph und Twitter folgen dem aktuellen URL-/Locale-Vertrag
 - Canonical host: **`https://polarisdx.net`** · Canonical Contract: **PASS** · hreflang Contract:
@@ -26,19 +26,28 @@ kein `work-packages/APxx-STATE.md`).
 - Sitemap: **x10 / validated** — 39 indexierbare Route Families · 390/390 eindeutige öffentliche URLs ·
   Consumer 3×10 · Epigenetics/Befunde x10 · Services/Articles aus realen Datenquellen · XML PASS ·
   noindex/404/Redirect-Widersprüche 0 · ehrliches `lastmod` PASS
+- Consumer SEO: **x10 / 3 Families / 30/30 PASS** — reale Slugs `vitamin-d3-spray`,
+  `hydrating-masks`, `inside-out-duo`; HTTP 200, index/follow, Self-Canonical, hreflang x10,
+  `x-default=de`, Sitemap 30/30, EN-only/noindex/Basic-Auth-Produktionsregressionen 0
+- Consumer Social Meta: **PASS** — produktspezifische reale Hero-Assets, locale-aware Alt 30/30,
+  Preview-Hosts 0; vorhandene eingebettete englische Asset-Copy ist als nicht locale-spezifischer
+  Bestands-Safe-State dokumentiert, locale-neutrale/x10 Social-Crops ownergebunden an AP21
+- Consumer Product Schema: **claim-safe / 3×10** — sichtbarer Name, Beschreibung, Bild und Canonical;
+  keine Preise, Offers, Availability, SKU/GTIN, Ratings oder Reviews erfunden
+- Consumer Internal Findability: **PASS** über reale locale-aware gegenseitige Inlinks;
+  `CONSUMER_HUB = NOT_REQUIRED`; AP07 `DSI-04` bleibt OPEN / Owner AP21 ohne False Ready
 - SEO route-source: **registry-ready** — pfadlistenfreier SEOHead-Adapter plus der bestehende, aus
   `server.ts` herausgelöste Sitemap-Spiegel; dynamische Slugs werden aus Content-Daten abgeleitet;
   keine zentrale oder fünfte Route Registry gebaut
 - DG09-01 `ROUTE_REGISTRY_INTEGRATION`: **READY_FOR_OWNER** · Owner **AP10 PT10.3** · AP09 Closure
   blocker **NO** bei grünen AP09-Gates · Launch blocker **YES**
-- SEO-CONTRACT: **current for PT09.2** · G3: **PASS / CI ACTIVE** · Decision Locks: **18/18 LOCKED** ·
+- SEO-CONTRACT: **current for PT09.3** · G3: **PASS / CI ACTIVE** · Decision Locks: **18/18 LOCKED** ·
   AP10: **NOT STARTED**
-- Quality PT09.2: Typecheck PASS · taskbezogener Lint/Prettier PASS · Sitemap Unit **13/13** ·
-  SEOHead/Sitemap kombiniert **20/20** · gesamte Unit-Suite unter `NODE_ENV=test`/Node 22 **277/277** ·
-  G3 + Hard-Failure-Self-Test PASS · Production-SSR SEO/Sitemap **7/7** mit 390/390 Sitemap-Zielen HTTP
-  200/self-canonical/indexierbar · Client/SSR Build PASS · CI-Konfiguration auf aktuellem
-  `console/**`-Relaunch-Pfad aktiv · globale, taskfremde Baseline ESLint 120 Errors/4 Warnings und
-  Prettier 35 Dateien; PT09.2-Dateisatz ohne Befund
+- Quality PT09.3: Typecheck PASS · taskbezogener Lint/Prettier PASS · gesamte Unit-Suite unter
+  `NODE_ENV=test`/Node 22 **279/279** · G3 inklusive Consumer-Source-/Locale-/Asset-/Schema-Evidenz und
+  Hard-Failure-Self-Test PASS · Production-SSR SEO/Sitemap **8/8**, Consumer-Matrix **30/30** und
+  weiterhin 390/390 Sitemap-Ziele HTTP 200/self-canonical/indexierbar · Client/SSR Build PASS ·
+  Internal-Findability-Guard PASS · CI-Pfad aktiv
 
 ### AP08 (abgeschlossen, unverändert als Vorgänger-Handoff erhalten)
 
@@ -371,11 +380,12 @@ kein `work-packages/APxx-STATE.md`).
 - Baseline evidence: recorded · `main` Import Ledger: recorded · redesign patterns: recorded ·
   legacy classification: recorded · final clean build evidence: recorded · **closure evidence: recorded**
   (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§9)
-- Current branch: `console/ap09-2026-08-27T08-46-17`
-- Current HEAD: `6b0ed1363f08fa241a7b21d226c3a7dd4a6493bb` — empirischer PT09.1-Start-/
-  Verifikations-HEAD; bestehender umfangreicher gestagter AP05–AP08-Working-Tree als geschützte Basis
+- Current branch: `console/10-15-2026-08-28T08-18-27`
+- Current HEAD: `6596a90d6bc9da481c8c6acce38dd3ca6ab71a6c` — empirischer PT09.3-Start-HEAD;
+  Working Tree war am Start vollständig clean und enthält ausschließlich die ungestagten PT09.3-
+  Änderungen
 - Started: 2026-08-24 (AP02); AP01 gestartet und abgeschlossen 2026-08-24
-- Last updated: 2026-08-27 (PT09.2 PASS; next PT09.3)
+- Last updated: 2026-08-28 (PT09.3 PASS; next PT09.4)
 
 <!-- AP00-HEAD-Historie: f8692c0 = PT00.1, bf125d2 = PT00.2, cad9b6c = PT00.3, 0c58d44 = PT00.4,
      a0fac9c = Closure. Danach Pre-AP01-Hygiene: 9ee8199, d98a6b7, 5f6fc3b, Merge 4f70801.
@@ -386,6 +396,11 @@ kein `work-packages/APxx-STATE.md`).
 ## Completed Work
 
 <!-- Eine Zeile pro abgeschlossenem Primärtask: `PTxx.y — Ergebnis in einem Satz`. Keine Reports. -->
+
+- PT09.3 — Consumer SEO für drei reale Produktfamilien x10 hergestellt: 30/30 indexierbare
+  Self-Canonical-/hreflang-/Sitemap-Routen, produktspezifisches Social Meta mit realen Assets,
+  sichtbarem Product-Schema ohne erfundene Commercial Claims, gegenseitige Inlinks und bewusstes
+  `CONSUMER_HUB = NOT_REQUIRED`; G3 und CI-Runtime-Matrix erweitert, AP10/AP21 nicht vorgezogen.
 
 - PT00.1 — Kanonische Decision-/Scope-Baseline hergestellt: `DECISIONS.md` (18/18 Locks `LOCKED`) und
   `SCOPE-CHANGELOG.md` (Change Control) erzeugt, Baseline und Branch-Rollen festgeschrieben.
@@ -1289,6 +1304,18 @@ tabIndex={-1}>` — ohne `tabIndex` scrollt der Browser nur, statt den Fokus zu 
 
 <!-- AP04. Beim Start von AP05 leeren (siehe `Benutzung`). -->
 
+**PT09.3 — Consumer SEO / 3×10 Indexability und Social Meta:**
+
+- `src/pages/consumer/{SprayPage,MaskPage,DuoPage}.tsx` — locale-aware produktspezifisches OG/Twitter,
+  reale Hero-Assets, lokale Alt-Texte und sichtbare-truth-konformes Product JSON-LD
+- `src/components/seo/{SEOHead.tsx,structuredData.ts,index.ts}` — expliziter Social-Alt und reale
+  Bildmaße; minimaler Product-Builder ohne erfundene Commercial-/Review-Felder
+- `src/components/seo/{SEOHead.test.tsx,structuredData.test.ts}`, `scripts/check-seo.ts`,
+  `e2e/seo-head.spec.ts` — Unit, erweiterter bestehender G3 und CI-aktive 30-Fälle-SSR-Matrix inklusive
+  Canonical/hreflang/Sitemap/robots/Social/Schema/Asset/Inlink-Nachweis
+- `building-docs/SEO-CONTRACT.md`, `building-docs/state/AP-STATE.md` — Consumer-Matrix, Hub-Entscheid,
+  Asset-/Owner-Safe-State und serieller Handoff auf PT09.4
+
 **PT09.2 — Sitemap / G3 SEO Artifact Coverage:**
 
 - `src/components/seo/sitemap.ts`, `server.ts` — bestehenden Sitemap-Spiegel in testbare AP09-
@@ -1627,12 +1654,15 @@ referenzielle Korrektur war nicht erforderlich.
 
 <!-- Jeweils: ID/Kurztitel · was blockiert ist · was zur Auflösung gebraucht wird. -->
 
-- **Keine offenen PT09.2-Blocker.** `DG09-01 — ROUTE_REGISTRY_INTEGRATION` ist bewusst
+- **Keine offenen PT09.3-Blocker.** `DG09-01 — ROUTE_REGISTRY_INTEGRATION` ist bewusst
   `READY_FOR_OWNER`, Owner AP10 PT10.3, kein AP09-Closure-Blocker bei grünen AP09-eigenen Gates, aber
-  Launch-Blocker. PT09.3–PT09.5 und AP09-CLOSURE sind nicht gestartet und keine PT09.2-Blocker.
-- **Umgebungshinweis, keine PT09.2-Regression:** lokales Default-Node 18.20.8 startet Vitest/jsdom
+  Launch-Blocker. PT09.4, PT09.5 und AP09-CLOSURE sind nicht gestartet und keine PT09.3-Blocker.
+- **Ownergebunden, kein PT09.3-Blocker:** neue sprachneutrale oder x10 freigegebene Consumer-Social-
+  Crops bleiben AP21. Die aktuellen drei produktspezifischen sichtbaren Hero-Assets sind technisch
+  korrekt, enthalten jedoch eingebettete englische Copy und werden nicht als locale-spezifisch behauptet.
+- **Umgebungshinweis, keine PT09.3-Regression:** lokales Default-Node 18.20.8 startet Vitest/jsdom
   wegen der dokumentierten ESM/CJS-Toolchain-Asymmetrie nicht. Unter dem CI-/State-Vertrag Node 22
-  sind die fokussierten SEOHead-/Sitemap-Tests 20/20 und Production-SSR-E2E 7/7 grün.
+  sind die Unit-Suite 279/279 und Production-SSR-E2E 8/8 grün.
 
 - **Keine offenen AP07-Closure-Blocker.** Der Dead-Link-Befund ist in allen zehn Locale-Daten behoben
   und im `check:internal-findability`-Guard regressionsgesichert. Vier Deferred Search Integrations
@@ -1812,10 +1842,10 @@ referenzielle Korrektur war nicht erforderlich.
 
 <!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste Lauf braucht. -->
 
-- **Nächster Primärtask ist PT09.3 — Consumer SEO.** AP09 bleibt `IN_PROGRESS`; PT09.1 und PT09.2
+- **Nächster Primärtask ist PT09.4 — Structured Data.** AP09 bleibt `IN_PROGRESS`; PT09.1–PT09.3
   sind `PASS`. Zusätzlich zum normalen AP09-Kontext sind unmittelbar relevant: `SEO-CONTRACT.md`
-  §11–§12, die drei Consumer-Seiten, `SEOHead`, Sitemap/G3 und `DG09-01`. PT09.3 darf die zentrale
-  AP10-Route-Registry nicht vorziehen. PT09.4, PT09.5,
+  §11–§13, `structuredData.ts`, die Consumer-Schema-Safe-State-Regel und `DG09-01`. PT09.4 darf die
+  zentrale AP10-Route-Registry oder AP21-Consumer-Produktarbeit nicht vorziehen. PT09.5,
   AP09-CLOSURE und AP10 bleiben bis zu ihrem jeweiligen seriellen Start unberührt.
 
 - **Nächstes Arbeitspaket ist AP08.** AP07 ist `COMPLETE`, Closure `PASS (43/43)`; AP08 bleibt bis zu
@@ -1873,14 +1903,16 @@ npx tsx server.ts`). `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-
 
 ## Handoff
 
-- **AP09: `IN_PROGRESS` · PT09.1 und PT09.2 `PASS` (2026-08-27).** SEOHead ist konsolidiert;
+- **AP09: `IN_PROGRESS` · PT09.1–PT09.3 `PASS` (2026-08-28).** SEOHead ist konsolidiert;
   Canonical Host
   `https://polarisdx.net`; x10-hreflang und `x-default=de`; OG/Twitter und 404-SEO-Vertrag PASS;
   Sitemap 39 Families/390 eindeutige x10-URLs, Consumer 3×10, Epigenetics/Befunde x10, dynamische
   Slugs source-derived, honest `lastmod`, XML/G3/CI PASS und Sitemap/noindex-Widersprüche 0.
-  Preview-/Dev-Host-Leakage 0. `SEO-CONTRACT.md` ist aktuell. `DG09-01` ist `READY_FOR_OWNER` für AP10
-  PT10.3 (kein AP09-Closure-Blocker, Launch-Blocker). Keine zentrale Route Registry gebaut.
-  **Next: PT09.3. AP10 bleibt NOT STARTED.**
+  Consumer SEO 3×10/30 von 30 mit Self-Canonical, hreflang, Sitemap, index/follow, produktbezogenem
+  Social Meta, lokalem Alt, claim-safe Product-Schema und realen Inlinks PASS; Consumer-Hub bewusst
+  NOT_REQUIRED. Preview-/Dev-Host-Leakage 0. `SEO-CONTRACT.md` ist aktuell. `DG09-01` ist
+  `READY_FOR_OWNER` für AP10 PT10.3 (kein AP09-Closure-Blocker, Launch-Blocker). Keine zentrale Route
+  Registry gebaut. **Next: PT09.4. AP10 bleibt NOT STARTED.**
 - **AP07: `COMPLETE` · AP07 Closure: `PASS` (43/43, `C07-01`–`C07-43`)**. PT07.1–PT07.3 alle
   `PASS`; Search Index, SearchModal und Internal Findability sind ready. Die sieben offenen
   `DSI-01`–`DSI-04`/`DLI-01`–`DLI-03` bleiben ownergebunden und ohne False Ready erhalten.

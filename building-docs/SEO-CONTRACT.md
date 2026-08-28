@@ -38,18 +38,18 @@ AP27 PT27.5 (Regression), AP29 (Migration), AP30/AP31 (Abnahme, Live-Check).
 
 ## 3. Current Participating Files
 
-| Datei                                  | Rolle                                                                                                                                                                                                                                                                                                            | Guard  |
-| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| `src/components/seo/SEOHead.tsx`       | Eindeutige Meta-Ausgabeschicht: Title/Description, Canonical, hreflang + x-default, robots, OG/Twitter, `og:locale:alternate`, `notFound` → `prerender-status-code`                                                                                                                                              | **G3** |
-| `src/components/seo/seoRouteSource.ts` | Pfadlistenfreie AP09-Adaptergrenze: öffentlicher Host, gemeinsamer AP08-Sprachsatz, URL-/hreflang-Builder, Override-Host-Guard, Indexability-Vokabular; **keine Route Registry**                                                                                                                                 | **G3** |
-| `src/components/seo/sitemap.ts`        | Sitemap-spezifischer AP09-Übergangsadapter: ersetzt die bisherige Server-Tabelle, leitet dynamische Slugs aus Services, Articles und Befund-Metadaten ab und expandiert x10; **keine zentrale Route Registry**                                                                                                   | **G3** |
-| `src/components/seo/sitemapGuard.ts`   | Kanonische G3-Validierung für XML, Host, Unique URLs, x10-/Content-Coverage, Indexability, Redirect-/404-Ausschluss, hreflang und ehrliches `lastmod`                                                                                                                                                            | **G3** |
-| `server.ts`                            | Bestehender `NOT_FOUND_MARKER`-/HTTP-Status-Handshake; eng begrenzter Head-Render-Retry; liefert die von `sitemap.ts` erzeugte Sitemap und nutzt deren Familien für den bestehenden Known-Path-Spiegel bis AP10                                                                                                  | **G3** |
-| `src/components/seo/structuredData.ts` | 18 Exporte: `organizationSchema`, `websiteSchema`, `medicalBusinessSchema`, `localBusinessSchema`, `iglooProProductSchema` + 6 Builder (`createBreadcrumbSchema`, `createFAQSchema`, `createArticleSchema`, `createServiceSchema`, `createEventSchema`, `createReviewSchema`) sowie Datumsnormalisierung und NAP | G2     |
-| `src/components/seo/index.ts`          | Barrel — jeder neue Builder muss hier exportiert werden                                                                                                                                                                                                                                                          | G1     |
-| `index.html`                           | statische Meta-Fallbacks, die `server.ts` bei echtem Helmet-Titel entfernt                                                                                                                                                                                                                                       | **G3** |
-| `public/robots.txt`                    | Crawler-Policy, Sitemap-Zeiger, Consumer-Indexierbarkeit                                                                                                                                                                                                                                                         | G1     |
-| `src/data/*`, `src/content/befunde/*`  | Slug-Quellen für dynamische SEO-Ziele                                                                                                                                                                                                                                                                            | G2     |
+| Datei                                  | Rolle                                                                                                                                                                                                           | Guard  |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| `src/components/seo/SEOHead.tsx`       | Eindeutige Meta-Ausgabeschicht: Title/Description, Canonical, hreflang + x-default, robots, OG/Twitter, `og:locale:alternate`, `notFound` → `prerender-status-code`                                             | **G3** |
+| `src/components/seo/seoRouteSource.ts` | Pfadlistenfreie AP09-Adaptergrenze: öffentlicher Host, gemeinsamer AP08-Sprachsatz, URL-/hreflang-Builder, Override-Host-Guard, Indexability-Vokabular; **keine Route Registry**                                | **G3** |
+| `src/components/seo/sitemap.ts`        | Sitemap-spezifischer AP09-Übergangsadapter: ersetzt die bisherige Server-Tabelle, leitet dynamische Slugs aus Services, Articles und Befund-Metadaten ab und expandiert x10; **keine zentrale Route Registry**  | **G3** |
+| `src/components/seo/sitemapGuard.ts`   | Kanonische G3-Validierung für XML, Host, Unique URLs, x10-/Content-Coverage, Indexability, Redirect-/404-Ausschluss, hreflang und ehrliches `lastmod`                                                           | **G3** |
+| `server.ts`                            | Bestehender `NOT_FOUND_MARKER`-/HTTP-Status-Handshake; eng begrenzter Head-Render-Retry; liefert die von `sitemap.ts` erzeugte Sitemap und nutzt deren Familien für den bestehenden Known-Path-Spiegel bis AP10 | **G3** |
+| `src/components/seo/structuredData.ts` | Bestehende globale Schemata und Builder plus der PT09.3-eigene minimale `createProductSchema`-Builder; Consumer-Markup übernimmt nur sichtbare Produktwahrheit und erfindet keine kommerziellen Felder          | G2     |
+| `src/components/seo/index.ts`          | Barrel — jeder neue Builder muss hier exportiert werden                                                                                                                                                         | G1     |
+| `index.html`                           | statische Meta-Fallbacks, die `server.ts` bei echtem Helmet-Titel entfernt                                                                                                                                      | **G3** |
+| `public/robots.txt`                    | Crawler-Policy, Sitemap-Zeiger, Consumer-Indexierbarkeit                                                                                                                                                        | G1     |
+| `src/data/*`, `src/content/befunde/*`  | Slug-Quellen für dynamische SEO-Ziele                                                                                                                                                                           | G2     |
 
 Produktive Seiten importieren ausschließlich `SEOHead`; eine zweite React-/Helmet-Meta-Komponente
 existiert nicht. Die statischen `index.html`-Werte sind ausschließlich SSR-Fallback und werden durch
@@ -368,7 +368,8 @@ anschließen, ohne SEOHead neu zu schreiben.
 ### 11.11 Bekannte spätere Owner-Handoffs
 
 - PT09.2: abgeschlossen; aktueller Evidence-Stand in §12
-- PT09.3/AP21: produktspezifische Consumer-OG-Assets und breiter Consumer-SEO-Ausbau; nicht vorgezogen
+- PT09.3: Consumer-SEO abgeschlossen (aktueller Stand §13); sprachneutrale/x10 Social-Crops und die
+  finale Produktstrecke bleiben AP21
 - PT09.4: Structured-Data-Plattform/Coverage; `structuredData.ts` in PT09.1 unverändert
 - PT09.5: robots.txt, Bot-Policy und breiter Meta-/OG-Alt-Audit; nicht vorgezogen
 - AP10 PT10.3: zentrale Route Registry und Auflösung von DG09-01
@@ -455,5 +456,85 @@ anschließen, ohne SEOHead neu zu schreiben.
 - Owner: **AP10 PT10.3**; AP09 Closure blocker: **NO** bei grünen AP09-Gates; Launch blocker: **YES**.
 - Target bleibt unverändert: Sitemap, Search, SEOHead, Known Paths, App Routes und Tests konsumieren
   nach AP10 die zentrale Route Registry. PT09.2 schließt dieses Gate nicht.
-- PT09.3 Consumer-Detail-SEO, PT09.4 Structured Data und PT09.5 Robots-/Meta-Gesamtaudit wurden nicht
-  vorgezogen. Nächster Task: **PT09.3**.
+- PT09.3 Consumer-Detail-SEO ist inzwischen in §13 abgeschlossen; PT09.4 Structured Data und PT09.5
+  Robots-/Meta-Gesamtaudit wurden nicht vorgezogen. Nächster Task: **PT09.4**.
+
+---
+
+## 13. PT09.3 — Consumer SEO / aktueller 3×10-Evidence-Stand
+
+### 13.1 Produkt- und Locale-Matrix
+
+| Product Family   | Kanonischer Pfad             | Locale Coverage | HTTP / Indexability | Canonical / hreflang     | Sitemap | Social / Alt                  | Product Schema      | Interne Findability        |
+| ---------------- | ---------------------------- | --------------- | ------------------- | ------------------------ | ------- | ----------------------------- | ------------------- | -------------------------- |
+| Vitamin-D3 Spray | `/consumer/vitamin-d3-spray` | 10/10           | 10/10 200, index    | self / 10 + de-x-default | 10/10   | eigenes reales Hero / x10 Alt | minimal, claim-safe | Inlink aus Masks und Duo   |
+| Hydrating Masks  | `/consumer/hydrating-masks`  | 10/10           | 10/10 200, index    | self / 10 + de-x-default | 10/10   | eigenes reales Hero / x10 Alt | minimal, claim-safe | Inlink aus Duo             |
+| Inside-Out Duo   | `/consumer/inside-out-duo`   | 10/10           | 10/10 200, index    | self / 10 + de-x-default | 10/10   | eigenes reales Hero / x10 Alt | minimal, claim-safe | Inlink aus Spray und Masks |
+
+- Locale-Set: exakt `de`, `en`, `pl`, `fr`, `it`, `es`, `pt`, `da`, `nl`, `cs`; Matrix:
+  **30/30 PASS**. Jede Antwort bleibt auf ihrer angeforderten Locale, liefert HTTP 200 und besitzt
+  genau ein absolutes Self-Canonical auf `https://polarisdx.net`.
+- Pro Seite: robots `index, follow`; zehn reale Locale-Alternates, Self-Reference und genau ein
+  `x-default` auf `de`; ungültige Alternate Targets **0**, EN-only Canonical-/Redirect-Regressions
+  **0**, noindex-Regressions **0**.
+- Sitemap: 3 Families × 10 = **30/30** kanonische Consumer-URLs; Duplikate, Redirect Sources, 404 und
+  Sitemap/noindex-Widersprüche jeweils **0**. `public/robots.txt` blockiert `/consumer` nicht.
+- `server.ts` enthält keine Consumer-spezifische Basic-Auth- oder EN-Zwangslogik. Preview-/Staging-
+  Zugangsschutz bleibt davon getrennte Deployment-Verantwortung; produktive Consumer-Routen werden
+  technisch öffentlich und indexierbar behandelt.
+
+### 13.2 Title, Description und Social Metadata
+
+- Alle drei Families beziehen Title und Description aus ihren produktspezifischen `consumer`-Keys;
+  alle zehn Locale-Dateien besitzen aufgelöste, locale-aware Werte. Der erweiterte G3 schlägt bei
+  fehlenden Keys, EN-Rückfall oder identischen Metadaten der drei Produkte hart fehl.
+- `SEOHead` ist weiterhin die einzige Meta-Ausgabeschicht. Consumer setzt `og:type=product`, eigene
+  URL/Title/Description, `og:locale` plus neun Alternates sowie äquivalente Twitter-Metadaten.
+- Reale produktbezogene Assets: `spray-hero-12pack-office.jpeg`, `mask-hero-botanical.jpeg` und
+  `duo-hero-products-together.jpeg`, jeweils **1122×1402**, Build-/SSR-erreichbar und zugleich sichtbar
+  auf der jeweiligen Produktseite. Die alte öffentliche Spray-OG-Datei mit abweichender Dosierung
+  und das IglooPro-Fallback sind bewusst **nicht** verwendet; Fake-Assets: **0**, Fallbacks: **0**.
+- OG-/Twitter-Alt verwendet je Produkt den lokalisierten sichtbaren Hero-Alt: **30/30 nicht leer**.
+  Die drei vorhandenen Hero-Dateien enthalten englische eingebettete Copy und sind deshalb als
+  produktbezogene, aber **nicht locale-spezifische** Bestandsassets klassifiziert. Sprache-neutrale
+  oder zehn freigegebene Social-Crops bleiben ein ownergebundenes Asset-Upgrade für **AP21**; PT09.3
+  behauptet keine französische/polnische/etc. Bildvariante.
+
+### 13.3 Consumer Product Schema
+
+- `createProductSchema` bildet ausschließlich sichtbaren Namen, locale-aware Beschreibung, reales
+  sichtbares Produktbild, self-canonical URL, `inLanguage`, `mainEntityOfPage` und – nur wo eindeutig –
+  die reale Marke ab. Spray: PolarisDX; Masks: De Legende Kosmetik; beim markenübergreifenden Duo wird
+  bewusst keine einzelne Brand behauptet.
+- Product-Markup: **3/3 Families × 10**. Price/priceCurrency, Offer, Availability, SKU, GTIN, Rating,
+  Review und Review Count: **nicht ausgegeben**. Damit entstehen weder stale Preise noch erfundene
+  Verfügbarkeit/Angebote/Identifikatoren/Testimonials. Medizinische Claim-Verstärkung: **0**.
+- Dies ist ausschließlich die Consumer-spezifische PT09.3-Integration in den bestehenden Helper.
+  Organization/WebSite/Breadcrumb/FAQ/Article/Event/Medical-Coverage und die globale Structured-Data-
+  Plattform bleiben PT09.4.
+
+### 13.4 Findability und Consumer-Hub
+
+- Jede der drei Produktseiten besitzt mindestens einen realen locale-aware Inlink aus der bestehenden
+  Consumer-Familie; zusammen bilden Spray, Masks und Duo in allen zehn Locales einen geschlossenen,
+  toten-link-freien Produktkontext. Legacy-`/services*`-Consumer-Links: **0**. Sitemap-Coverage bleibt
+  30/30; unbeabsichtigte Direct-URL-only-Seiten: **0**.
+- Die AP07-Search-Integration `DSI-04` bleibt unverändert **OPEN / Owner AP21**; PT09.3 erfindet keine
+  Search-Content-Quelle und meldet sie nicht false-ready. Aktueller Safe State sind die realen
+  gegenseitigen Inlinks plus Sitemap-Coverage.
+- **`CONSUMER_HUB = NOT_REQUIRED`.** Es existiert kein `/consumer`-Hub. Bei drei bestehenden, bereits
+  gegenseitig erschlossenen Landingpages würde ein neuer x10-Hub neue IA-/Content-Pflege und damit
+  AP21-Scope vorziehen, ohne einen belegten zusätzlichen Nutzen. AP21 darf diese Entscheidung mit der
+  finalen Produktstrecke neu bewerten; PT09.3 erzeugt keine Thin-/Dummy-Seite.
+
+### 13.5 Guard, CI und Owner-Grenzen
+
+- Der bestehende G3 (`npm run check:seo`) prüft zusätzlich drei reale Families, alle zehn Locale-
+  Metadatensätze, produktspezifische Titles/Descriptions, reale Social-Assets, Product-Schema-
+  Integration, robots und das Fehlen von EN-only-Serverlogik. Ergebnis: **PASS**.
+- Die bereits von der Relaunch-CI ausgeführte `e2e/seo-head.spec.ts` enthält die parametrische
+  30-Fälle-Runtime-Matrix: HTTP/robots, Canonical, hreflang/x-default, Sitemap, OG/Twitter, Asset 200,
+  Product JSON-LD, verbotene kommerzielle Felder, Preview-Host und locale-aware Inlinks. Zusammen mit
+  `e2e/sitemap.spec.ts`: **8/8 PASS**, alle 390 Sitemap-Ziele weiter 200/self-canonical/indexierbar.
+- `DG09-01 — ROUTE_REGISTRY_INTEGRATION` bleibt **READY_FOR_OWNER**, Owner **AP10 PT10.3**. Es wurde
+  keine Route Registry gebaut. PT09.4, PT09.5, AP10 und AP21 wurden nicht vorgezogen.

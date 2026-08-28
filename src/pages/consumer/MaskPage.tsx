@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next'
 import type { TFunction } from 'i18next'
 import { Droplets, Feather, Heart, Sparkles } from 'lucide-react'
 
-import { SEOHead } from '../../components/seo'
+import { SEOHead, createProductSchema } from '../../components/seo'
 import Footer from '../../components/layout/Footer'
 import maskHero from '../../assets/landingpages-consumer/mask-hero-botanical.jpeg'
 import {
@@ -143,11 +143,30 @@ function MaskPageInner() {
   const BENEFITS = getBENEFITS(t)
   const INGREDIENTS = getINGREDIENTS(t)
   const FAQ_ITEMS = getFAQ_ITEMS(t)
+  const seoTitle = t('mask.copy_031')
+  const seoDescription = t('mask.copy_032')
+  const socialImageAlt = t('mask.copy_037')
   useConsumerPageView('masks')
   const orderModal = useOrderModal()
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-heading">
-      <SEOHead title={t('mask.copy_031')} description={t('mask.copy_032')} />
+      <SEOHead
+        title={seoTitle}
+        description={seoDescription}
+        ogType="product"
+        ogImage={maskHero}
+        ogImageAlt={socialImageAlt}
+        ogImageWidth={1122}
+        ogImageHeight={1402}
+        structuredData={createProductSchema({
+          name: t('mask.copy_035'),
+          description: seoDescription,
+          image: maskHero,
+          url: '/consumer/hydrating-masks',
+          language: i18n.resolvedLanguage,
+          brand: 'De Legende Kosmetik',
+        })}
+      />
 
       <ConsumerHeader nav={NAV} cta={{ label: t('mask.copy_033'), href: '#order' }} page="masks" />
 

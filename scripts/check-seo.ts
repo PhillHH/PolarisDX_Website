@@ -5,10 +5,104 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { validateSitemapArtifact } from '../src/components/seo/sitemapGuard'
 import { generateSitemapXml, getSitemapRouteFamilies } from '../src/components/seo/sitemap'
+import { SUPPORTED_LANGUAGES } from '../src/i18n'
 
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const families = getSitemapRouteFamilies()
 const xml = generateSitemapXml()
+
+const CONSUMER_PAGES = [
+  {
+    path: '/consumer/vitamin-d3-spray',
+    file: 'SprayPage.tsx',
+    titleKey: 'spray.copy_046',
+    descriptionKey: 'spray.copy_047',
+    altKey: 'spray.copy_053',
+    asset: 'spray-hero-12pack-office.jpeg',
+  },
+  {
+    path: '/consumer/hydrating-masks',
+    file: 'MaskPage.tsx',
+    titleKey: 'mask.copy_031',
+    descriptionKey: 'mask.copy_032',
+    altKey: 'mask.copy_037',
+    asset: 'mask-hero-botanical.jpeg',
+  },
+  {
+    path: '/consumer/inside-out-duo',
+    file: 'DuoPage.tsx',
+    titleKey: 'duo.copy_015',
+    descriptionKey: 'duo.seo_description',
+    altKey: 'duo.copy_023',
+    asset: 'duo-hero-products-together.jpeg',
+  },
+] as const
+
+function assertConsumerSeoEvidence(): void {
+  const english = JSON.parse(
+    fs.readFileSync(path.join(repositoryRoot, 'public/locales/en/consumer.json'), 'utf8'),
+  ) as Record<string, string>
+
+  for (const locale of SUPPORTED_LANGUAGES) {
+    const messages = JSON.parse(
+      fs.readFileSync(path.join(repositoryRoot, `public/locales/${locale}/consumer.json`), 'utf8'),
+    ) as Record<string, string>
+    const titles = new Set<string>()
+    const descriptions = new Set<string>()
+
+    for (const page of CONSUMER_PAGES) {
+      const source = fs.readFileSync(
+        path.join(repositoryRoot, 'src/pages/consumer', page.file),
+        'utf8',
+      )
+      for (const marker of [
+        'ogType="product"',
+        'ogImageAlt={socialImageAlt}',
+        'ogImageWidth={1122}',
+        'ogImageHeight={1402}',
+        'createProductSchema({',
+        `url: '${page.path}'`,
+      ]) {
+        if (!source.includes(marker)) {
+          throw new Error(`Consumer SEO source evidence missing in ${page.file}: ${marker}`)
+        }
+      }
+      if (!source.includes(page.asset)) {
+        throw new Error(`Consumer social asset evidence missing in ${page.file}: ${page.asset}`)
+      }
+      if (
+        !fs.existsSync(path.join(repositoryRoot, 'src/assets/landingpages-consumer', page.asset))
+      ) {
+        throw new Error(`Consumer social asset does not exist: ${page.asset}`)
+      }
+
+      for (const key of [page.titleKey, page.descriptionKey, page.altKey]) {
+        const value = messages[key]?.trim()
+        if (!value || value === key) {
+          throw new Error(`Consumer ${locale} metadata is missing or unresolved: ${key}`)
+        }
+        if (locale !== 'en' && value === english[key]) {
+          throw new Error(`Consumer ${locale} metadata regressed to English: ${key}`)
+        }
+      }
+      titles.add(messages[page.titleKey].trim())
+      descriptions.add(messages[page.descriptionKey].trim())
+    }
+
+    if (titles.size !== CONSUMER_PAGES.length || descriptions.size !== CONSUMER_PAGES.length) {
+      throw new Error(`Consumer ${locale} product metadata is not product-specific`)
+    }
+  }
+
+  const robots = fs.readFileSync(path.join(repositoryRoot, 'public/robots.txt'), 'utf8')
+  if (/^\s*Disallow:\s*\/consumer(?:\/|\s|$)/im.test(robots)) {
+    throw new Error('robots.txt blocks Consumer routes')
+  }
+  const server = fs.readFileSync(path.join(repositoryRoot, 'server.ts'), 'utf8')
+  if (/\/en\/consumer/.test(server)) {
+    throw new Error('Consumer EN-only server handling detected')
+  }
+}
 
 function assertSourceEvidence(): void {
   const appSource = fs.readFileSync(path.join(repositoryRoot, 'src/App.tsx'), 'utf8')
@@ -79,9 +173,10 @@ function runHardFailureSelfTests(): void {
 const PUBLIC_ORIGIN = 'https://polarisdx.net'
 
 assertSourceEvidence()
+assertConsumerSeoEvidence()
 const result = validateSitemapArtifact(xml, families)
 runHardFailureSelfTests()
 
 console.log(
-  `G3 SEO artifact coverage PASS: ${result.routeFamilyCount} families, ${result.urlCount} URLs, ${result.uniqueUrlCount} unique, ${result.lastmodCount} truthful lastmod entries; hard-failure self-tests PASS`,
+  `G3 SEO artifact coverage PASS: ${result.routeFamilyCount} families, ${result.urlCount} URLs, ${result.uniqueUrlCount} unique, ${result.lastmodCount} truthful lastmod entries; Consumer 3x10 source/meta/social/schema evidence PASS; hard-failure self-tests PASS`,
 )

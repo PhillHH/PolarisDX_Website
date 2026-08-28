@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next'
 import type { TFunction } from 'i18next'
 import { Building2, Dumbbell, Home, Package, Repeat, Share2, Users, Zap } from 'lucide-react'
 
-import { SEOHead } from '../../components/seo'
+import { SEOHead, createProductSchema } from '../../components/seo'
 import Footer from '../../components/layout/Footer'
 import sprayHero from '../../assets/landingpages-consumer/spray-hero-12pack-office.jpeg'
 import sprayStill from '../../assets/landingpages-consumer/spray-still-life.jpeg'
@@ -172,11 +172,30 @@ function SprayPageInner() {
   const SUBLINGUAL = getSUBLINGUAL(t)
   const FACTS = getFACTS(t)
   const FAQ_ITEMS = getFAQ_ITEMS(t)
+  const seoTitle = t('spray.copy_046')
+  const seoDescription = t('spray.copy_047')
+  const socialImageAlt = t('spray.copy_053')
   useConsumerPageView('spray')
   const orderModal = useOrderModal()
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-heading">
-      <SEOHead title={t('spray.copy_046')} description={t('spray.copy_047')} />
+      <SEOHead
+        title={seoTitle}
+        description={seoDescription}
+        ogType="product"
+        ogImage={sprayHero}
+        ogImageAlt={socialImageAlt}
+        ogImageWidth={1122}
+        ogImageHeight={1402}
+        structuredData={createProductSchema({
+          name: t('spray.copy_050'),
+          description: seoDescription,
+          image: sprayHero,
+          url: '/consumer/vitamin-d3-spray',
+          language: i18n.resolvedLanguage,
+          brand: 'PolarisDX',
+        })}
+      />
 
       <ConsumerHeader nav={NAV} cta={{ label: t('spray.copy_048'), href: '#order' }} page="spray" />
 

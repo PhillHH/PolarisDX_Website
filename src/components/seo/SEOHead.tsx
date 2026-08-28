@@ -39,6 +39,12 @@ export interface SEOHeadProps {
   alternateLocales?: readonly SupportedLanguage[]
   /** Open Graph image URL (defaults to /og-image.jpg) */
   ogImage?: string
+  /** Localized, content-accurate alternative text for the social image */
+  ogImageAlt?: string
+  /** Intrinsic social-image width; defaults to the site fallback dimensions */
+  ogImageWidth?: number
+  /** Intrinsic social-image height; defaults to the site fallback dimensions */
+  ogImageHeight?: number
   /** Open Graph type */
   ogType?: 'website' | 'article' | 'product'
   /** Set to true for pages that should not be indexed (e.g., legal pages) */
@@ -110,6 +116,9 @@ export function SEOHead({
   canonical,
   alternateLocales = SEO_ROUTE_SOURCE.locales,
   ogImage,
+  ogImageAlt,
+  ogImageWidth = 1200,
+  ogImageHeight = 630,
   ogType = 'website',
   noindex = false,
   notFound = false,
@@ -131,6 +140,13 @@ export function SEOHead({
   }
   if (translationKeyPattern.test(cleanTitle) || translationKeyPattern.test(cleanDescription)) {
     throw new Error('SEOHead received a visible translation key')
+  }
+  const cleanOgImageAlt = (ogImageAlt || cleanTitle).trim()
+  if (!cleanOgImageAlt || translationKeyPattern.test(cleanOgImageAlt)) {
+    throw new Error('SEOHead requires visible social-image alternative text')
+  }
+  if (ogImageWidth <= 0 || ogImageHeight <= 0) {
+    throw new Error('SEOHead social-image dimensions must be positive')
   }
 
   const fullTitle = cleanTitle.endsWith(`| ${SITE_NAME}`)
@@ -207,9 +223,9 @@ export function SEOHead({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={cleanDescription} />
       <meta property="og:image" content={ogImageUrl.toString()} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content={cleanTitle} />
+      <meta property="og:image:width" content={String(ogImageWidth)} />
+      <meta property="og:image:height" content={String(ogImageHeight)} />
+      <meta property="og:image:alt" content={cleanOgImageAlt} />
       <meta property="og:locale" content={locale} />
       <meta property="og:site_name" content={SITE_NAME} />
 
@@ -228,7 +244,7 @@ export function SEOHead({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={cleanDescription} />
       <meta name="twitter:image" content={ogImageUrl.toString()} />
-      <meta name="twitter:image:alt" content={cleanTitle} />
+      <meta name="twitter:image:alt" content={cleanOgImageAlt} />
 
       {/* Article-specific meta tags */}
       {article && ogType === 'article' && (
