@@ -11,10 +11,10 @@ kein `work-packages/APxx-STATE.md`).
 - Work package: **AP09 — SEO-Plattformgrundlagen**
 - Status: **IN_PROGRESS** <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
 - Predecessor: **AP08 COMPLETE / Closure PASS (50/50, 2026-08-26)**
-- Last completed PT: **PT09.3 — Consumer SEO (PASS, 2026-08-28)**
-- PT09.1: **PASS** · PT09.2: **PASS** · PT09.3: **PASS** · PT09.4: **NOT STARTED** ·
+- Last completed PT: **PT09.4 — Structured Data (PASS, 2026-08-28)**
+- PT09.1: **PASS** · PT09.2: **PASS** · PT09.3: **PASS** · PT09.4: **PASS** ·
   PT09.5: **NOT STARTED** · AP09 Closure: **NOT STARTED**
-- Next primary task: **PT09.4 — Structured Data**
+- Next primary task: **PT09.5 — Robots, Bot-Policy, Meta-/Social-Audit**
 - SEOHead: **consolidated** — eindeutige Meta-Ausgabeschicht; Title/Description/Robots/Canonical,
   x10-hreflang, `x-default=de`, Open Graph und Twitter folgen dem aktuellen URL-/Locale-Vertrag
 - Canonical host: **`https://polarisdx.net`** · Canonical Contract: **PASS** · hreflang Contract:
@@ -34,6 +34,10 @@ kein `work-packages/APxx-STATE.md`).
   Bestands-Safe-State dokumentiert, locale-neutrale/x10 Social-Crops ownergebunden an AP21
 - Consumer Product Schema: **claim-safe / 3×10** — sichtbarer Name, Beschreibung, Bild und Canonical;
   keine Preise, Offers, Availability, SKU/GTIN, Ratings oder Reviews erfunden
+- Structured Data: **covered / claim-safe** — eine kanonische Helper-/Renderer-Schicht;
+  Organization/WebSite, Breadcrumb, selektives Product, visible-only FAQ, Article und Event PASS;
+  Medical-Schema defensiv · Claim Amplification 0 · Preview-/Dev-Host-Leakage 0 · widersprüchliche
+  Duplikate 0 · Schema Coverage Matrix aktuell
 - Consumer Internal Findability: **PASS** über reale locale-aware gegenseitige Inlinks;
   `CONSUMER_HUB = NOT_REQUIRED`; AP07 `DSI-04` bleibt OPEN / Owner AP21 ohne False Ready
 - SEO route-source: **registry-ready** — pfadlistenfreier SEOHead-Adapter plus der bestehende, aus
@@ -41,13 +45,12 @@ kein `work-packages/APxx-STATE.md`).
   keine zentrale oder fünfte Route Registry gebaut
 - DG09-01 `ROUTE_REGISTRY_INTEGRATION`: **READY_FOR_OWNER** · Owner **AP10 PT10.3** · AP09 Closure
   blocker **NO** bei grünen AP09-Gates · Launch blocker **YES**
-- SEO-CONTRACT: **current for PT09.3** · G3: **PASS / CI ACTIVE** · Decision Locks: **18/18 LOCKED** ·
+- SEO-CONTRACT: **current for PT09.4** · G3: **PASS / CI ACTIVE** · Decision Locks: **18/18 LOCKED** ·
   AP10: **NOT STARTED**
-- Quality PT09.3: Typecheck PASS · taskbezogener Lint/Prettier PASS · gesamte Unit-Suite unter
-  `NODE_ENV=test`/Node 22 **279/279** · G3 inklusive Consumer-Source-/Locale-/Asset-/Schema-Evidenz und
-  Hard-Failure-Self-Test PASS · Production-SSR SEO/Sitemap **8/8**, Consumer-Matrix **30/30** und
-  weiterhin 390/390 Sitemap-Ziele HTTP 200/self-canonical/indexierbar · Client/SSR Build PASS ·
-  Internal-Findability-Guard PASS · CI-Pfad aktiv
+- Quality PT09.4: Typecheck PASS · taskbezogener Lint/Prettier PASS · gesamte Unit-Suite unter
+  `NODE_ENV=test`/Node 22 **285/285** · Structured-Data-Unit **7/7** · G3 inklusive Schema-
+  Source-/Coverage-/Claim-Safety-Evidenz und Hard-Failure-Self-Test PASS · Production-SSR SEO/
+  Structured Data **8/8** inklusive Consumer-Matrix **30/30** · Client/SSR Build PASS · CI-Pfad aktiv
 
 ### AP08 (abgeschlossen, unverändert als Vorgänger-Handoff erhalten)
 
@@ -381,11 +384,11 @@ kein `work-packages/APxx-STATE.md`).
   legacy classification: recorded · final clean build evidence: recorded · **closure evidence: recorded**
   (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§9)
 - Current branch: `console/10-15-2026-08-28T08-18-27`
-- Current HEAD: `6596a90d6bc9da481c8c6acce38dd3ca6ab71a6c` — empirischer PT09.3-Start-HEAD;
-  Working Tree war am Start vollständig clean und enthält ausschließlich die ungestagten PT09.3-
+- Current HEAD: `6493bcd18de89efb7887876042be869d143037fb` — empirischer PT09.4-Start-HEAD;
+  Working Tree war am Start vollständig clean und enthält ausschließlich die ungestagten PT09.4-
   Änderungen
 - Started: 2026-08-24 (AP02); AP01 gestartet und abgeschlossen 2026-08-24
-- Last updated: 2026-08-28 (PT09.3 PASS; next PT09.4)
+- Last updated: 2026-08-28 (PT09.4 PASS; next PT09.5)
 
 <!-- AP00-HEAD-Historie: f8692c0 = PT00.1, bf125d2 = PT00.2, cad9b6c = PT00.3, 0c58d44 = PT00.4,
      a0fac9c = Closure. Danach Pre-AP01-Hygiene: 9ee8199, d98a6b7, 5f6fc3b, Merge 4f70801.
@@ -396,6 +399,11 @@ kein `work-packages/APxx-STATE.md`).
 ## Completed Work
 
 <!-- Eine Zeile pro abgeschlossenem Primärtask: `PTxx.y — Ergebnis in einem Satz`. Keine Reports. -->
+
+- PT09.4 — Structured Data in einer kanonischen Helper-/Renderer-Schicht konsolidiert:
+  Organization/WebSite, reale Breadcrumbs, selektives Product, visible-only FAQ, Article/Event-
+  Datenintegrität, Medical-/Claim-Safety, öffentliche locale-aware URLs und vollständige
+  Seitentyp-Coverage-Matrix durch Unit, G3 und CI-aktive SSR-Matrix regressionsgesichert.
 
 - PT09.3 — Consumer SEO für drei reale Produktfamilien x10 hergestellt: 30/30 indexierbare
   Self-Canonical-/hreflang-/Sitemap-Routen, produktspezifisches Social Meta mit realen Assets,
@@ -1304,6 +1312,22 @@ tabIndex={-1}>` — ohne `tabIndex` scrollt der Browser nur, statt den Fokus zu 
 
 <!-- AP04. Beim Start von AP05 leeren (siehe `Benutzung`). -->
 
+**PT09.4 — Structured Data / JSON-LD Coverage und Claim Safety:**
+
+- `src/components/seo/{structuredData.ts,SEOHead.tsx,index.ts}` — eine kanonische Builder-,
+  Validierungs- und Serialisierungsschicht; konsistente Organization/WebSite-Entity, locale-aware
+  Breadcrumb/Product/FAQ/Article/Service/Event-Schemas; keine Review-/LocalBusiness-/SearchAction-
+  oder erfundenen Commercial-Felder
+- `src/pages/{HomePage,ContactPage,SupportPage,IglooProPage,ServicePage,EventsPage,
+ArticlePage,S3LeitliniePage,VitaminD3ImplantologyPage,VitaminD3SprayPage,EpigeneticsPage}.tsx`,
+  `src/components/epigenetics/EpiSubpage.tsx`, `src/pages/consumer/{SprayPage,MaskPage,DuoPage}.tsx` —
+  bestehende Call-Sites auf reale Locale-/Content-/Asset-Wahrheit umgestellt; sichtbare FAQs und
+  reale Hierarchien wiederverwendet; unbelegtes HowTo/Testimonial-Review entfernt
+- `src/components/seo/structuredData.test.ts`, `scripts/check-seo.ts`, `e2e/seo-head.spec.ts` —
+  Structured-Data-Unit-Vertrag, bestehender G3 erweitert und CI-aktive repräsentative SSR-Coverage
+- `building-docs/SEO-CONTRACT.md`, `building-docs/state/AP-STATE.md` — Schema Coverage Matrix,
+  Claim-Safety-Evidence und serieller Handoff auf PT09.5
+
 **PT09.3 — Consumer SEO / 3×10 Indexability und Social Meta:**
 
 - `src/pages/consumer/{SprayPage,MaskPage,DuoPage}.tsx` — locale-aware produktspezifisches OG/Twitter,
@@ -1654,15 +1678,15 @@ referenzielle Korrektur war nicht erforderlich.
 
 <!-- Jeweils: ID/Kurztitel · was blockiert ist · was zur Auflösung gebraucht wird. -->
 
-- **Keine offenen PT09.3-Blocker.** `DG09-01 — ROUTE_REGISTRY_INTEGRATION` ist bewusst
+- **Keine offenen PT09.4-Blocker.** `DG09-01 — ROUTE_REGISTRY_INTEGRATION` ist bewusst
   `READY_FOR_OWNER`, Owner AP10 PT10.3, kein AP09-Closure-Blocker bei grünen AP09-eigenen Gates, aber
-  Launch-Blocker. PT09.4, PT09.5 und AP09-CLOSURE sind nicht gestartet und keine PT09.3-Blocker.
+  Launch-Blocker. PT09.5 und AP09-CLOSURE sind nicht gestartet und keine PT09.4-Blocker.
 - **Ownergebunden, kein PT09.3-Blocker:** neue sprachneutrale oder x10 freigegebene Consumer-Social-
   Crops bleiben AP21. Die aktuellen drei produktspezifischen sichtbaren Hero-Assets sind technisch
   korrekt, enthalten jedoch eingebettete englische Copy und werden nicht als locale-spezifisch behauptet.
-- **Umgebungshinweis, keine PT09.3-Regression:** lokales Default-Node 18.20.8 startet Vitest/jsdom
+- **Umgebungshinweis, keine PT09.4-Regression:** lokales Default-Node 18.20.8 startet Vitest/jsdom
   wegen der dokumentierten ESM/CJS-Toolchain-Asymmetrie nicht. Unter dem CI-/State-Vertrag Node 22
-  sind die Unit-Suite 279/279 und Production-SSR-E2E 8/8 grün.
+  sind die Unit-Suite 285/285 und Production-SSR-E2E 8/8 grün.
 
 - **Keine offenen AP07-Closure-Blocker.** Der Dead-Link-Befund ist in allen zehn Locale-Daten behoben
   und im `check:internal-findability`-Guard regressionsgesichert. Vier Deferred Search Integrations
@@ -1842,10 +1866,10 @@ referenzielle Korrektur war nicht erforderlich.
 
 <!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste Lauf braucht. -->
 
-- **Nächster Primärtask ist PT09.4 — Structured Data.** AP09 bleibt `IN_PROGRESS`; PT09.1–PT09.3
-  sind `PASS`. Zusätzlich zum normalen AP09-Kontext sind unmittelbar relevant: `SEO-CONTRACT.md`
-  §11–§13, `structuredData.ts`, die Consumer-Schema-Safe-State-Regel und `DG09-01`. PT09.4 darf die
-  zentrale AP10-Route-Registry oder AP21-Consumer-Produktarbeit nicht vorziehen. PT09.5,
+- **Nächster Primärtask ist PT09.5 — Robots, Bot-Policy, Meta-/Social-Audit.** AP09 bleibt
+  `IN_PROGRESS`; PT09.1–PT09.4 sind `PASS`. Zusätzlich zum normalen AP09-Kontext sind unmittelbar
+  relevant: `SEO-CONTRACT.md` §11–§14, die zentrale Structured-Data-Safe-State-Regel und `DG09-01`.
+  PT09.5 darf die zentrale AP10-Route-Registry oder spätere Page-/Content-Arbeit nicht vorziehen;
   AP09-CLOSURE und AP10 bleiben bis zu ihrem jeweiligen seriellen Start unberührt.
 
 - **Nächstes Arbeitspaket ist AP08.** AP07 ist `COMPLETE`, Closure `PASS (43/43)`; AP08 bleibt bis zu
@@ -1903,16 +1927,18 @@ npx tsx server.ts`). `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-
 
 ## Handoff
 
-- **AP09: `IN_PROGRESS` · PT09.1–PT09.3 `PASS` (2026-08-28).** SEOHead ist konsolidiert;
+- **AP09: `IN_PROGRESS` · PT09.1–PT09.4 `PASS` (2026-08-28).** SEOHead ist konsolidiert;
   Canonical Host
   `https://polarisdx.net`; x10-hreflang und `x-default=de`; OG/Twitter und 404-SEO-Vertrag PASS;
   Sitemap 39 Families/390 eindeutige x10-URLs, Consumer 3×10, Epigenetics/Befunde x10, dynamische
   Slugs source-derived, honest `lastmod`, XML/G3/CI PASS und Sitemap/noindex-Widersprüche 0.
   Consumer SEO 3×10/30 von 30 mit Self-Canonical, hreflang, Sitemap, index/follow, produktbezogenem
   Social Meta, lokalem Alt, claim-safe Product-Schema und realen Inlinks PASS; Consumer-Hub bewusst
-  NOT_REQUIRED. Preview-/Dev-Host-Leakage 0. `SEO-CONTRACT.md` ist aktuell. `DG09-01` ist
+  NOT_REQUIRED. Structured Data ist zentral konsistent: Organization/WebSite, reale Breadcrumbs,
+  selektives Product, visible-only FAQ, Article/Event-Datenintegrität und Medical-/Claim-Safety PASS;
+  Claim Amplification und Preview-/Dev-Host-Leakage jeweils 0, Coverage Matrix aktuell. `DG09-01` ist
   `READY_FOR_OWNER` für AP10 PT10.3 (kein AP09-Closure-Blocker, Launch-Blocker). Keine zentrale Route
-  Registry gebaut. **Next: PT09.4. AP10 bleibt NOT STARTED.**
+  Registry gebaut. **Next: PT09.5. AP10 bleibt NOT STARTED.**
 - **AP07: `COMPLETE` · AP07 Closure: `PASS` (43/43, `C07-01`–`C07-43`)**. PT07.1–PT07.3 alle
   `PASS`; Search Index, SearchModal und Internal Findability sind ready. Die sieben offenen
   `DSI-01`–`DSI-04`/`DLI-01`–`DLI-03` bleiben ownergebunden und ohne False Ready erhalten.

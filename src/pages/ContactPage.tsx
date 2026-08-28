@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { Mail, Phone, MapPin, Calendar, Check, MessageSquare } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { SEOHead, localBusinessSchema, createBreadcrumbSchema } from '../components/seo'
+import { SEOHead, organizationSchema, createBreadcrumbSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal, { REVEAL_STAGGER } from '../components/ui/Reveal'
 import SubpageHero from '../components/sections/SubpageHero'
@@ -59,7 +59,7 @@ const ContactPage = () => {
         )}
         keywords={['PolarisDX Kontakt', 'IglooPro Demo', 'POC Beratung', 'Medizintechnik Anfrage']}
         structuredData={[
-          localBusinessSchema,
+          organizationSchema,
           createBreadcrumbSchema(
             [
               { name: crumbHome, url: '/' },

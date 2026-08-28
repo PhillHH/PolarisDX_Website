@@ -11,7 +11,12 @@ import { useTranslation } from 'react-i18next'
 import type { TFunction } from 'i18next'
 import { Droplets, Feather, Heart, Sparkles } from 'lucide-react'
 
-import { SEOHead, createProductSchema } from '../../components/seo'
+import {
+  SEOHead,
+  createBreadcrumbSchema,
+  createFAQSchema,
+  createProductSchema,
+} from '../../components/seo'
 import Footer from '../../components/layout/Footer'
 import maskHero from '../../assets/landingpages-consumer/mask-hero-botanical.jpeg'
 import {
@@ -158,14 +163,27 @@ function MaskPageInner() {
         ogImageAlt={socialImageAlt}
         ogImageWidth={1122}
         ogImageHeight={1402}
-        structuredData={createProductSchema({
-          name: t('mask.copy_035'),
-          description: seoDescription,
-          image: maskHero,
-          url: '/consumer/hydrating-masks',
-          language: i18n.resolvedLanguage,
-          brand: 'De Legende Kosmetik',
-        })}
+        structuredData={[
+          createProductSchema({
+            name: t('mask.copy_035'),
+            description: seoDescription,
+            image: maskHero,
+            url: '/consumer/hydrating-masks',
+            language: i18n.resolvedLanguage,
+            brand: 'De Legende Kosmetik',
+          }),
+          createBreadcrumbSchema(
+            [
+              { name: t('common:nav.home'), url: '/' },
+              { name: t('mask.copy_035'), url: '/consumer/hydrating-masks' },
+            ],
+            i18n.resolvedLanguage,
+          ),
+          createFAQSchema(
+            FAQ_ITEMS.map(({ q, a }) => ({ question: q, answer: a })),
+            i18n.resolvedLanguage,
+          ),
+        ]}
       />
 
       <ConsumerHeader nav={NAV} cta={{ label: t('mask.copy_033'), href: '#order' }} page="masks" />

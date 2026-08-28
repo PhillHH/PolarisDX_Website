@@ -10,6 +10,7 @@ import { articleDateIso, formatArticleDate, parseReadMinutes } from '../lib/arti
 import { LoadingSpinner } from '../components/ui/LoadingSpinner'
 import { Alert } from '../components/ui/Alert'
 import { services } from '../data/services'
+import { getArticleImageUrl } from '../assets/articleImages'
 
 // Local UI types for the discriminated-union section rendering.
 type BaseSection = { heading?: string; image?: string }
@@ -248,7 +249,7 @@ const ArticlePage = () => {
           createArticleSchema({
             headline: title,
             description: excerpt,
-            image: '/og-image.jpg',
+            image: getArticleImageUrl(article.sections[0]?.image),
             url: `/articles/${slug}`,
             datePublished: publishedIso,
             authorName: article.author,

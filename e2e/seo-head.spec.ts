@@ -13,6 +13,15 @@ function attribute(html: string, tagPattern: RegExp, name: string): string | und
   return tag?.match(new RegExp(`${name}="([^"]*)"`, 'i'))?.[1]
 }
 
+function jsonLdSchemas(html: string): Array<Record<string, unknown>> {
+  const value = html.match(
+    /<script[^>]+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i,
+  )?.[1]
+  if (!value) return []
+  const parsed = JSON.parse(value) as Record<string, unknown> | Array<Record<string, unknown>>
+  return Array.isArray(parsed) ? parsed : [parsed]
+}
+
 test('PT09.1 unknown route keeps the SSR 404 and emits no valid-page SEO claims', async ({
   request,
 }) => {
@@ -136,7 +145,7 @@ test('PT09.3 Consumer 3x10 pages are indexable, self-canonical and product-speci
         /<script[^>]+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i,
       )?.[1]
       expect(jsonLd, `${locale}${route} Product JSON-LD`).toBeTruthy()
-      const product = JSON.parse(jsonLd!) as Record<string, unknown>
+      const product = jsonLdSchemas(html).find((schema) => schema['@type'] === 'Product')!
       expect(product['@type']).toBe('Product')
       expect(product.url).toBe(canonical)
       expect(product.image).toBe(image)
@@ -165,4 +174,76 @@ test('PT09.3 Consumer 3x10 pages are indexable, self-canonical and product-speci
       ).toContain(`/${locale}${route}`)
     }
   }
+})
+
+test('PT09.4 representative page types emit public, locale-correct and claim-safe JSON-LD', async ({
+  request,
+}) => {
+  test.setTimeout(180_000)
+  const cases = [
+    ['/pl/', ['Organization', 'WebSite', 'FAQPage']],
+    ['/fr/about', ['Organization', 'BreadcrumbList']],
+    ['/it/diagnostics/dental', ['Service', 'BreadcrumbList']],
+    ['/es/igloo-pro', ['Product', 'BreadcrumbList']],
+    ['/pt/epigenetics/grundlagen', ['BreadcrumbList']],
+    ['/nl/epigenetics/musterbefund/metabolic-health', ['Article', 'BreadcrumbList']],
+    ['/cs/articles/die-gruene-praxis', ['Article', 'BreadcrumbList']],
+    ['/da/events', ['BreadcrumbList', 'BusinessEvent']],
+    ['/en/consumer/inside-out-duo', ['Product', 'BreadcrumbList', 'FAQPage']],
+    ['/de/downloads', ['BreadcrumbList']],
+    ['/de/contact', ['Organization', 'BreadcrumbList']],
+    ['/de/support', ['BreadcrumbList', 'FAQPage']],
+  ] as const
+
+  for (const [path, expectedTypes] of cases) {
+    const response = await request.get(path, { maxRedirects: 0 })
+    expect(response.status(), path).toBe(200)
+    const html = await response.text()
+    const schemas = jsonLdSchemas(html)
+    const types = schemas.map((schema) => String(schema['@type']))
+    for (const type of expectedTypes) expect(types, `${path}: ${type}`).toContain(type)
+    expect(html, path).not.toMatch(/preview\.polarisdx\.net|localhost|127\.0\.0\.1/)
+
+    const serialized = JSON.stringify(schemas)
+    expect(serialized, path).not.toMatch(
+      /"(?:offers|aggregateRating|review|reviewCount|price|priceCurrency|availability)"\s*:/,
+    )
+    for (const schema of schemas) expect(schema['@context']).toBe('https://schema.org')
+
+    const breadcrumb = schemas.find((schema) => schema['@type'] === 'BreadcrumbList')
+    if (breadcrumb) {
+      const items = breadcrumb.itemListElement as Array<Record<string, unknown>>
+      expect(items.map((item) => item.position)).toEqual(items.map((_, index) => index + 1))
+      expect(
+        items.every((item) =>
+          String(item.item).startsWith(`${PUBLIC_ORIGIN}/${path.slice(1, 3)}/`),
+        ),
+      ).toBe(true)
+      expect(items.map((item) => item.item)).not.toContain(
+        `${PUBLIC_ORIGIN}/${path.slice(1, 3)}/services`,
+      )
+      expect(items.map((item) => item.item)).not.toContain(
+        `${PUBLIC_ORIGIN}/${path.slice(1, 3)}/consumer`,
+      )
+    }
+  }
+
+  const articleHtml = await (await request.get('/cs/articles/die-gruene-praxis')).text()
+  const article = jsonLdSchemas(articleHtml).find((schema) => schema['@type'] === 'Article')!
+  expect(article.url).toBe(`${PUBLIC_ORIGIN}/cs/articles/die-gruene-praxis`)
+  expect(article.datePublished).toBe('2025-11-28')
+  expect(article).not.toHaveProperty('dateModified')
+  expect(article).not.toHaveProperty('reviewedBy')
+
+  const eventsHtml = await (await request.get('/da/events')).text()
+  const events = jsonLdSchemas(eventsHtml).filter((schema) => schema['@type'] === 'BusinessEvent')
+  expect(events.length).toBeGreaterThan(0)
+  for (const event of events) {
+    expect(event.url).toBe(`${PUBLIC_ORIGIN}/da/events`)
+    expect(event).not.toHaveProperty('eventStatus')
+    expect(event).not.toHaveProperty('eventAttendanceMode')
+  }
+
+  const notFoundHtml = await (await request.get('/de/not-a-real-structured-data-page')).text()
+  expect(jsonLdSchemas(notFoundHtml)).toEqual([])
 })

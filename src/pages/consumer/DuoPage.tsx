@@ -11,7 +11,12 @@ import { useTranslation } from 'react-i18next'
 import type { TFunction } from 'i18next'
 import { Droplets, Sun } from 'lucide-react'
 
-import { SEOHead, createProductSchema } from '../../components/seo'
+import {
+  SEOHead,
+  createBreadcrumbSchema,
+  createFAQSchema,
+  createProductSchema,
+} from '../../components/seo'
 import Footer from '../../components/layout/Footer'
 import duoHero from '../../assets/landingpages-consumer/duo-hero-products-together.jpeg'
 import sprayStill from '../../assets/landingpages-consumer/spray-still-life.jpeg'
@@ -88,13 +93,26 @@ function DuoPageInner() {
         ogImageAlt={socialImageAlt}
         ogImageWidth={1122}
         ogImageHeight={1402}
-        structuredData={createProductSchema({
-          name: t('duo.copy_019'),
-          description: seoDescription,
-          image: duoHero,
-          url: '/consumer/inside-out-duo',
-          language: i18n.resolvedLanguage,
-        })}
+        structuredData={[
+          createProductSchema({
+            name: t('duo.copy_019'),
+            description: seoDescription,
+            image: duoHero,
+            url: '/consumer/inside-out-duo',
+            language: i18n.resolvedLanguage,
+          }),
+          createBreadcrumbSchema(
+            [
+              { name: t('common:nav.home'), url: '/' },
+              { name: t('duo.copy_019'), url: '/consumer/inside-out-duo' },
+            ],
+            i18n.resolvedLanguage,
+          ),
+          createFAQSchema(
+            FAQ_ITEMS.map(({ q, a }) => ({ question: q, answer: a })),
+            i18n.resolvedLanguage,
+          ),
+        ]}
       />
 
       <ConsumerHeader nav={NAV} cta={{ label: t('duo.copy_017'), href: '#order' }} page="duo" />

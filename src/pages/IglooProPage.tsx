@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { SEOHead, iglooProProductSchema, createBreadcrumbSchema } from '../components/seo'
+import { SEOHead, createProductSchema, createBreadcrumbSchema } from '../components/seo'
+import iglooProImage from '../assets/Igloo-pro-frontal.webp'
 import IglooProHero from '../components/sections/IglooProHero'
 import IglooFeaturesSection from '../components/sections/IglooFeaturesSection'
 import IglooSpecsSection from '../components/sections/IglooSpecsSection'
@@ -26,7 +27,14 @@ const IglooProPage: React.FC = () => {
           'Vitamin D Schnelltest Gerät',
         ]}
         structuredData={[
-          iglooProProductSchema,
+          createProductSchema({
+            name: 'IglooPro',
+            description: t('products:hero.description'),
+            image: iglooProImage,
+            url: '/igloo-pro',
+            language: i18n.language,
+            brand: 'PolarisDX',
+          }),
           createBreadcrumbSchema(
             [
               { name: 'Home', url: '/' },

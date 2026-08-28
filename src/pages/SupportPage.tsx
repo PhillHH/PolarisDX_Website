@@ -12,7 +12,7 @@ import {
   Check,
   HelpCircle,
 } from 'lucide-react'
-import { SEOHead, localBusinessSchema, createBreadcrumbSchema } from '../components/seo'
+import { SEOHead, createBreadcrumbSchema, createFAQSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal, { REVEAL_STAGGER } from '../components/ui/Reveal'
 import SubpageHero from '../components/sections/SubpageHero'
@@ -108,7 +108,6 @@ const SupportPage = () => {
           'POC Diagnostik Hilfe',
         ]}
         structuredData={[
-          localBusinessSchema,
           createBreadcrumbSchema(
             [
               { name: 'Home', url: '/' },
@@ -116,6 +115,14 @@ const SupportPage = () => {
             ],
             i18n.language,
           ),
+          ...(faqItems.length
+            ? [
+                createFAQSchema(
+                  faqItems.map(({ q, a }) => ({ question: q, answer: a })),
+                  i18n.language,
+                ),
+              ]
+            : []),
         ]}
       />
 

@@ -136,6 +136,86 @@ function assertSourceEvidence(): void {
   }
 }
 
+function assertStructuredDataEvidence(): void {
+  const helper = fs.readFileSync(
+    path.join(repositoryRoot, 'src/components/seo/structuredData.ts'),
+    'utf8',
+  )
+  const seoHead = fs.readFileSync(
+    path.join(repositoryRoot, 'src/components/seo/SEOHead.tsx'),
+    'utf8',
+  )
+  for (const marker of [
+    'export const organizationSchema',
+    'export function createWebsiteSchema',
+    'export function createBreadcrumbSchema',
+    'export function createProductSchema',
+    'export function createFAQSchema',
+    'export function createArticleSchema',
+    'export function createEventSchema',
+    'export function validateStructuredData',
+  ]) {
+    if (!helper.includes(marker))
+      throw new Error(`Structured Data helper evidence missing: ${marker}`)
+  }
+  for (const forbidden of [
+    'export const medicalBusinessSchema',
+    'export const localBusinessSchema',
+    'export function createReviewSchema',
+    'potentialAction:',
+    'priceRange:',
+    'openingHoursSpecification:',
+  ]) {
+    if (helper.includes(forbidden))
+      throw new Error(`Unsafe Structured Data evidence found: ${forbidden}`)
+  }
+  if (!seoHead.includes('serializeStructuredData(structuredData)')) {
+    throw new Error('SEOHead is not using the canonical Structured Data validation layer')
+  }
+
+  const productiveSources = [
+    path.join(repositoryRoot, 'src/components/seo/structuredData.ts'),
+    ...fs
+      .readdirSync(path.join(repositoryRoot, 'src/pages'), { recursive: true })
+      .filter((entry): entry is string => typeof entry === 'string' && entry.endsWith('.tsx'))
+      .map((entry) => path.join(repositoryRoot, 'src/pages', entry)),
+  ]
+  for (const filename of productiveSources) {
+    const source = fs.readFileSync(filename, 'utf8')
+    if (/preview\.polarisdx\.net|https?:\/\/(?:localhost|127\.0\.0\.1)/i.test(source)) {
+      throw new Error(
+        `Preview/dev Structured Data source found in ${path.relative(repositoryRoot, filename)}`,
+      )
+    }
+  }
+
+  const s3 = fs.readFileSync(path.join(repositoryRoot, 'src/pages/S3LeitliniePage.tsx'), 'utf8')
+  if (s3.includes("'@type': 'HowTo'")) {
+    throw new Error('Unverified page-local HowTo schema is active')
+  }
+  const home = fs.readFileSync(path.join(repositoryRoot, 'src/pages/HomePage.tsx'), 'utf8')
+  if (/createReviewSchema|iglooProProductSchema|medicalBusinessSchema/.test(home)) {
+    throw new Error('Homepage contains testimonial/product/medical schema amplification')
+  }
+
+  const contract = fs.readFileSync(
+    path.join(repositoryRoot, 'building-docs/SEO-CONTRACT.md'),
+    'utf8',
+  )
+  for (const marker of [
+    'SCHEMA-COVERAGE-MATRIX',
+    'Diagnostics Hub',
+    'Musterbefund',
+    'Consumer Product',
+    'Downloads/Resource',
+    '404',
+    'DG09-01',
+  ]) {
+    if (!contract.includes(marker))
+      throw new Error(`Schema Coverage Matrix evidence missing: ${marker}`)
+  }
+}
+
 function expectHardFailure(name: string, mutatedXml: string): void {
   try {
     validateSitemapArtifact(mutatedXml, families)
@@ -174,9 +254,10 @@ const PUBLIC_ORIGIN = 'https://polarisdx.net'
 
 assertSourceEvidence()
 assertConsumerSeoEvidence()
+assertStructuredDataEvidence()
 const result = validateSitemapArtifact(xml, families)
 runHardFailureSelfTests()
 
 console.log(
-  `G3 SEO artifact coverage PASS: ${result.routeFamilyCount} families, ${result.urlCount} URLs, ${result.uniqueUrlCount} unique, ${result.lastmodCount} truthful lastmod entries; Consumer 3x10 source/meta/social/schema evidence PASS; hard-failure self-tests PASS`,
+  `G3 SEO artifact coverage PASS: ${result.routeFamilyCount} families, ${result.urlCount} URLs, ${result.uniqueUrlCount} unique, ${result.lastmodCount} truthful lastmod entries; Consumer 3x10 and PT09.4 Structured Data source/coverage/claim-safety evidence PASS; hard-failure self-tests PASS`,
 )

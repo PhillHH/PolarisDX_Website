@@ -1,15 +1,6 @@
-/**
- * Structured Data Helpers
- *
- * Pre-built JSON-LD schemas for common use cases.
- * These can be passed to SEOHead's structuredData prop.
- */
+/** Canonical, claim-safe JSON-LD builders. */
 
 import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES, isValidLanguage } from '../../i18n'
-
-// =============================================================================
-// TYPES
-// =============================================================================
 
 export interface BreadcrumbItem {
   name: string
@@ -21,21 +12,11 @@ export interface FAQItem {
   answer: string
 }
 
-// =============================================================================
-// CONSTANTS
-// =============================================================================
-
 const BASE_URL = 'https://polarisdx.net'
+const ORGANIZATION_ID = `${BASE_URL}/de/#organization`
+const TRANSLATION_KEY_RE = /^[a-z][\w-]*(?::[\w-]+)?(?:\.[\w-]+)+$/i
+const LANG_PREFIX_RE = new RegExp(`^/(?:${SUPPORTED_LANGUAGES.join('|')})(?=/|$)`, 'i')
 
-// =============================================================================
-// NORMALISIERUNG (Datum + kanonische URL)
-// =============================================================================
-
-/**
- * Monatsnamen -> Monatszahl. Deutsche und englische Kurz- wie Langformen,
- * weil die Artikeldaten in src/data/articles.ts als "28 Nov 2025" gepflegt
- * sind und Redaktionstexte auch deutsche Schreibweisen liefern koennen.
- */
 const MONTH_NUMBERS: Record<string, string> = {
   jan: '01',
   januar: '01',
@@ -74,193 +55,103 @@ const MONTH_NUMBERS: Record<string, string> = {
   dezember: '12',
 }
 
-/**
- * Bringt ein Datum auf ISO-8601 (YYYY-MM-DD).
- *
- * Google verwirft eine Datumsangabe im Rich Result, wenn sie nicht
- * ISO-8601 ist - "28 Nov 2025" wurde genau so verworfen.
- *
- * Laesst sich ein Wert nicht eindeutig zerlegen, bleibt er unveraendert:
- * lieber ein Rohwert im Markup als ein erfundenes Datum.
- */
-function toIsoDate(value: string): string {
-  const raw = (value || '').trim()
-  if (!raw) return raw
-  // Bereits ISO (reines Datum oder Datum + Zeit).
-  if (/^\d{4}-\d{2}-\d{2}(?:[T ].*)?$/.test(raw)) return raw
-  // "28 Nov 2025", "2 Dec 2025", "28. November 2025"
-  const match = raw.match(/^(\d{1,2})\.?\s+([^\s\d.]+)\.?\s+(\d{4})$/)
-  if (match) {
-    const month = MONTH_NUMBERS[match[2].toLowerCase()]
-    if (month) return `${match[3]}-${month}-${match[1].padStart(2, '0')}`
+function requiredText(value: string, field: string): string {
+  const clean = value.trim()
+  if (!clean || TRANSLATION_KEY_RE.test(clean)) {
+    throw new Error(`Structured Data requires visible ${field}`)
   }
-  return raw
+  return clean
 }
 
-/** Sprachpraefix am Pfadanfang - damit es nicht verdoppelt wird. */
-const LANG_PREFIX_RE = new RegExp(`^/(?:${SUPPORTED_LANGUAGES.join('|')})(?=/|$)`, 'i')
-
-/**
- * Baut die kanonische, sprachpraefigierte Absolut-URL zu einem Seitenpfad.
- *
- * SEOHead setzt canonical auf `${BASE_URL}/${lang}${path}`. url und
- * mainEntityOfPage.@id im Article-JSON-LD muessen exakt dasselbe sagen -
- * ein prefixloses https://polarisdx.net/articles/<slug> neben einem
- * canonical https://polarisdx.net/de/articles/<slug> ist ein Widerspruch.
- */
-function canonicalUrlFor(url: string, language?: string): string {
-  const raw = (url || '').trim()
-  if (/^https?:\/\//i.test(raw)) return raw
-
+function normalizedLanguage(language?: string): string {
   const base = (language || DEFAULT_LANGUAGE).split('-')[0].toLowerCase()
-  const lang = isValidLanguage(base) ? base : DEFAULT_LANGUAGE
-
-  let path = raw.startsWith('/') ? raw : `/${raw}`
-  path = path.replace(LANG_PREFIX_RE, '')
-  if (path === '') path = '/'
-
-  return `${BASE_URL}/${lang}${path}`
+  return isValidLanguage(base) ? base : DEFAULT_LANGUAGE
 }
 
-// =============================================================================
-// MEDICAL BUSINESS (singleton - use on homepage)
-// =============================================================================
+export function toIsoDate(value: string): string {
+  const raw = value.trim()
+  let result = raw
+  const isoMatch = raw.match(/^(\d{4})-(\d{2})-(\d{2})(T.*)?$/)
+  if (!isoMatch) {
+    const displayMatch = raw.match(/^(\d{1,2})\.?\s+([^\s\d.]+)\.?\s+(\d{4})$/)
+    const month = displayMatch && MONTH_NUMBERS[displayMatch[2].toLowerCase()]
+    if (!displayMatch || !month) throw new Error(`Invalid Structured Data date: ${value}`)
+    result = `${displayMatch[3]}-${month}-${displayMatch[1].padStart(2, '0')}`
+  }
 
-export const medicalBusinessSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'MedicalBusiness',
-  '@id': `${BASE_URL}/#organization`,
-  name: 'Polaris Diagnostics Europe GmbH',
-  alternateName: 'PolarisDX',
-  url: BASE_URL,
-  logo: `${BASE_URL}/favicon.png`,
-  description:
-    'Partner für Point-of-Care Diagnostik in Europa. Geräte, Schnelltests, Beratung und Begleitung für Dental, Longevity und Beauty.',
-  address: [
-    {
-      '@type': 'PostalAddress',
-      streetAddress: 'Große Bleichen 1-3',
-      addressLocality: 'Hamburg',
-      postalCode: '20354',
-      addressCountry: 'DE',
-    },
-    {
-      '@type': 'PostalAddress',
-      streetAddress: '262A Fulham Road',
-      addressLocality: 'London',
-      postalCode: 'SW10 9EL',
-      addressCountry: 'GB',
-    },
-  ],
-  email: 'contact@polarisdx.net',
-  telephone: '+49 151 75011699',
-  foundingLocation: 'Hamburg, Germany',
-  areaServed: {
-    '@type': 'GeoCircle',
-    geoMidpoint: {
-      '@type': 'GeoCoordinates',
-      latitude: 48.5,
-      longitude: 10.5,
-    },
-    geoRadius: '1000 km',
-    description: 'DACH-Region (Deutschland, Österreich, Schweiz)',
-  },
-  sameAs: ['https://www.linkedin.com/company/polarisdx'],
+  const datePart = result.slice(0, 10)
+  const date = new Date(`${datePart}T00:00:00Z`)
+  if (Number.isNaN(date.valueOf()) || date.toISOString().slice(0, 10) !== datePart) {
+    throw new Error(`Invalid Structured Data date: ${value}`)
+  }
+  return result
 }
 
-// =============================================================================
-// ORGANIZATION (legacy - kept for backwards compatibility)
-// =============================================================================
+export function canonicalUrlFor(url: string, language?: string): string {
+  const raw = requiredText(url, 'URL')
+  let path = raw
+  if (/^https?:\/\//i.test(raw)) {
+    const parsed = new URL(raw)
+    if (parsed.origin !== BASE_URL) throw new Error(`Structured Data URL must use ${BASE_URL}`)
+    path = `${parsed.pathname}${parsed.hash}`
+  }
+  if (!path.startsWith('/')) path = `/${path}`
+  path = path.replace(LANG_PREFIX_RE, '') || '/'
+  return `${BASE_URL}/${normalizedLanguage(language)}${path}`
+}
 
+function publicAssetUrl(value: string): string {
+  const raw = requiredText(value, 'image URL')
+  const parsed = new URL(raw, BASE_URL)
+  if (parsed.origin !== BASE_URL) throw new Error(`Structured Data image must use ${BASE_URL}`)
+  return parsed.toString()
+}
+
+const organizationReference = {
+  '@type': 'Organization',
+  '@id': ORGANIZATION_ID,
+  name: 'PolarisDX',
+  url: `${BASE_URL}/de/`,
+}
+
+/** One verified global entity; no inferred medical subtype, opening hours or geo claims. */
 export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  '@id': `${BASE_URL}/#organization`,
+  '@id': ORGANIZATION_ID,
   name: 'Polaris Diagnostics Europe GmbH',
   legalName: 'Polaris Diagnostics Europe GmbH',
-  url: BASE_URL,
+  alternateName: 'PolarisDX',
+  url: `${BASE_URL}/de/`,
   logo: {
     '@type': 'ImageObject',
     url: `${BASE_URL}/favicon.png`,
     width: 512,
     height: 512,
   },
-  description:
-    'PolarisDX ist Ihr Partner für Point-of-Care Diagnostik. Wir liefern den IglooPro POC-Reader für laborpräzise Sofortdiagnostik.',
+  email: 'contact@polarisdx.net',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Große Bleichen 1-3',
+    streetAddress: 'Große Bleichen 1–3',
     addressLocality: 'Hamburg',
     postalCode: '20354',
     addressCountry: 'DE',
   },
-  contactPoint: {
-    '@type': 'ContactPoint',
-    telephone: '+44-7879-433019',
-    contactType: 'sales',
-    availableLanguage: ['German', 'English'],
-    areaServed: ['DE', 'AT', 'CH', 'GB'],
-  },
   sameAs: ['https://www.linkedin.com/company/polarisdx'],
 }
 
-// =============================================================================
-// WEBSITE (singleton - use on homepage)
-// =============================================================================
-
-export const websiteSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  '@id': `${BASE_URL}/#website`,
-  name: 'PolarisDX',
-  url: BASE_URL,
-  description: 'Point-of-Care Diagnostik für Zahnarztpraxen, Beauty-Center und Longevity-Kliniken',
-  publisher: {
-    '@id': `${BASE_URL}/#organization`,
-  },
-  inLanguage: 'de-DE',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: `${BASE_URL}/articles?q={search_term_string}`,
-    },
-    'query-input': 'required name=search_term_string',
-  },
-}
-
-// =============================================================================
-// PRODUCT (IglooPro)
-// =============================================================================
-
-export const iglooProProductSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Product',
-  '@id': `${BASE_URL}/igloo-pro#product`,
-  name: 'IglooPro POC-Reader',
-  description:
-    'Point-of-Care Analysegerät für die patientennahe Sofortdiagnostik. Misst Vitamin D3, CRP, HbA1c, TSH und weitere Biomarker in 3–15 Minuten mit einer Präzision von CV < 2 %.',
-  brand: {
-    '@type': 'Brand',
+export function createWebsiteSchema(language?: string) {
+  const lang = normalizedLanguage(language)
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${BASE_URL}/${lang}/#website`,
     name: 'PolarisDX',
-  },
-  manufacturer: {
-    '@type': 'Organization',
-    name: 'DX365 GmbH',
-  },
-  category: 'Point-of-Care Diagnostik',
-  url: `${BASE_URL}/igloo-pro`,
-  image: `${BASE_URL}/og-image.jpg`,
-  weight: {
-    '@type': 'QuantitativeValue',
-    value: '600',
-    unitCode: 'GRM',
-  },
+    url: `${BASE_URL}/${lang}/`,
+    publisher: organizationReference,
+    inLanguage: lang,
+  }
 }
-
-// =============================================================================
-// PRODUCT GENERATOR (visible product-page truth only)
-// =============================================================================
 
 export interface ProductSchemaOptions {
   name: string
@@ -269,93 +160,61 @@ export interface ProductSchemaOptions {
   url: string
   language?: string
   brand?: string
+  manufacturer?: string
 }
 
-/**
- * Minimal Product markup for a real product landing page.
- *
- * Commercial fields are deliberately absent: callers must not infer offers,
- * availability, identifiers, ratings or reviews merely because a product page
- * exists. Those fields can be added only when a later contract has a stable,
- * visible source of truth for them.
- */
 export function createProductSchema(options: ProductSchemaOptions) {
   const url = canonicalUrlFor(options.url, options.language)
-  const image = options.image.startsWith('http') ? options.image : `${BASE_URL}${options.image}`
-
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
     '@id': `${url}#product`,
-    name: options.name,
-    description: options.description,
-    image,
+    name: requiredText(options.name, 'product name'),
+    description: requiredText(options.description, 'product description'),
+    image: publicAssetUrl(options.image),
     url,
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': url,
-    },
-    ...(options.language && { inLanguage: options.language }),
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    inLanguage: normalizedLanguage(options.language),
     ...(options.brand && {
-      brand: {
-        '@type': 'Brand',
-        name: options.brand,
+      brand: { '@type': 'Brand', name: requiredText(options.brand, 'brand') },
+    }),
+    ...(options.manufacturer && {
+      manufacturer: {
+        '@type': 'Organization',
+        name: requiredText(options.manufacturer, 'manufacturer'),
       },
     }),
   }
 }
 
-// =============================================================================
-// BREADCRUMB GENERATOR
-// =============================================================================
-
-/**
- * BreadcrumbList aus Seitenpfaden OHNE Sprachpraefix.
- *
- * `language` steuert das Praefix der item-URLs, damit sie exakt auf die Seiten
- * zeigen, auf denen der Breadcrumb steht: auf /en/articles/<slug> muss die
- * Stufe "Articles" auf /en/articles verweisen und nicht auf das prefixlose
- * /articles, das per 301 auf die DEUTSCHE Fassung laeuft.
- *
- * Ohne Angabe wird DEFAULT_LANGUAGE ('de') verwendet - dasselbe Muster wie in
- * createArticleSchema. Fuer deutschsprachige Aufrufer bleibt das Ergebnis
- * inhaltlich gleich, nur ohne den Redirect-Zwischenschritt.
- */
 export function createBreadcrumbSchema(items: BreadcrumbItem[], language?: string) {
+  if (items.length < 2) throw new Error('BreadcrumbList requires a real hierarchy')
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
+    inLanguage: normalizedLanguage(language),
     itemListElement: items.map((item, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      name: item.name,
+      name: requiredText(item.name, 'breadcrumb name'),
       item: canonicalUrlFor(item.url, language),
     })),
   }
 }
 
-// =============================================================================
-// FAQ SCHEMA GENERATOR
-// =============================================================================
-
-export function createFAQSchema(items: FAQItem[]) {
+export function createFAQSchema(items: FAQItem[], language?: string) {
+  if (!items.length) throw new Error('FAQPage requires visible questions')
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    inLanguage: normalizedLanguage(language),
     mainEntity: items.map((item) => ({
       '@type': 'Question',
-      name: item.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.answer,
-      },
+      name: requiredText(item.question, 'FAQ question'),
+      acceptedAnswer: { '@type': 'Answer', text: requiredText(item.answer, 'FAQ answer') },
     })),
   }
 }
-
-// =============================================================================
-// ARTICLE SCHEMA GENERATOR
-// =============================================================================
 
 export interface ArticleAuthor {
   name: string
@@ -367,15 +226,8 @@ export interface ArticleAuthor {
 export interface ArticleSchemaOptions {
   headline: string
   description: string
-  image: string
-  /** Seitenpfad ohne Sprachpraefix, z. B. '/articles/die-gruene-praxis'. */
+  image?: string
   url: string
-  /**
-   * Aktive Sprache der Seite (z. B. 'en'). Steuert das Sprachpraefix in url
-   * und mainEntityOfPage.@id, damit beide exakt dem canonical entsprechen.
-   * Ohne Angabe wird DEFAULT_LANGUAGE ('de') verwendet - richtig fuer die
-   * deutschsprachigen und die deutsch-only Seiten.
-   */
   language?: string
   datePublished: string
   dateModified?: string
@@ -385,78 +237,39 @@ export interface ArticleSchemaOptions {
   articleType?: 'Article' | 'MedicalWebPage'
 }
 
-export function createArticleSchema(options: ArticleSchemaOptions) {
-  const authorData = options.author
-    ? {
-        '@type': options.author.type || 'Organization',
-        name: options.author.name,
-        ...(options.author.jobTitle && { jobTitle: options.author.jobTitle }),
-        ...(options.author.url && { url: options.author.url }),
-      }
-    : {
-        '@type': 'Organization',
-        name: options.authorName || 'PolarisDX',
-        url: BASE_URL,
-      }
-
-  // url und mainEntityOfPage.@id sind derselbe Wert und muessen dem canonical
-  // aus SEOHead entsprechen.
-  const canonicalUrl = canonicalUrlFor(options.url, options.language)
-
+function schemaPerson(value: ArticleAuthor, language?: string) {
   return {
-    '@context': 'https://schema.org',
-    '@type': options.articleType || 'Article',
-    headline: options.headline,
-    description: options.description,
-    image: options.image.startsWith('http') ? options.image : `${BASE_URL}${options.image}`,
-    url: canonicalUrl,
-    datePublished: toIsoDate(options.datePublished),
-    dateModified: toIsoDate(options.dateModified || options.datePublished),
-    author: authorData,
-    ...(options.reviewedBy && {
-      reviewedBy: {
-        '@type': options.reviewedBy.type || 'Person',
-        name: options.reviewedBy.name,
-        ...(options.reviewedBy.jobTitle && { jobTitle: options.reviewedBy.jobTitle }),
-      },
-    }),
-    /*
-     * Der Verlagsknoten stand hier als blosse Referenz auf
-     * <BASE_URL>/#organization. Dieser Knoten wird aber nur auf der Startseite
-     * und auf /about ausgegeben — auf jeder Artikel- und Musterbefundseite
-     * zeigte die Referenz damit ins Leere, und die Rich-Results-Pruefung
-     * meldete einen Publisher ohne Namen. Die @id bleibt stehen, damit die
-     * Verknuepfung dort greift, wo der Knoten existiert; Typ, Name und URL
-     * stehen jetzt daneben, damit das Schema auch allein vollstaendig ist.
-     */
-    publisher: {
-      '@type': 'Organization',
-      '@id': `${BASE_URL}/#organization`,
-      name: 'PolarisDX',
-      url: BASE_URL,
-    },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': canonicalUrl,
-    },
+    '@type': value.type || 'Organization',
+    name: requiredText(value.name, 'author/reviewer name'),
+    ...(value.jobTitle && { jobTitle: requiredText(value.jobTitle, 'job title') }),
+    ...(value.url && { url: canonicalUrlFor(value.url, language) }),
   }
 }
 
-// =============================================================================
-// SERVICE SCHEMA GENERATOR
-// =============================================================================
+export function createArticleSchema(options: ArticleSchemaOptions) {
+  const url = canonicalUrlFor(options.url, options.language)
+  const author = options.author || (options.authorName ? { name: options.authorName } : undefined)
+  return {
+    '@context': 'https://schema.org',
+    '@type': options.articleType || 'Article',
+    headline: requiredText(options.headline, 'article headline'),
+    description: requiredText(options.description, 'article description'),
+    url,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    inLanguage: normalizedLanguage(options.language),
+    datePublished: toIsoDate(options.datePublished),
+    ...(options.dateModified && { dateModified: toIsoDate(options.dateModified) }),
+    ...(options.image && { image: publicAssetUrl(options.image) }),
+    ...(author && { author: schemaPerson(author, options.language) }),
+    ...(options.reviewedBy && { reviewedBy: schemaPerson(options.reviewedBy, options.language) }),
+    publisher: organizationReference,
+  }
+}
 
 export interface ServiceSchemaOptions {
   name: string
   description: string
-  /** Seitenpfad ohne Sprachpraefix, z. B. '/diagnostics/hormon-tests'. */
   url: string
-  /**
-   * Aktive Sprache der Seite. Steuert das Sprachpraefix in url, damit sie dem
-   * canonical aus SEOHead entspricht - ohne sie zeigte die Service-URL auf
-   * /en/diagnostics/<slug> auf das prefixlose /diagnostics/<slug>.
-   * Ohne Angabe wird DEFAULT_LANGUAGE ('de') verwendet.
-   */
   language?: string
   image?: string
   areaServed?: string[]
@@ -466,22 +279,15 @@ export function createServiceSchema(options: ServiceSchemaOptions) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: options.name,
-    description: options.description,
+    name: requiredText(options.name, 'service name'),
+    description: requiredText(options.description, 'service description'),
     url: canonicalUrlFor(options.url, options.language),
-    provider: {
-      '@id': `${BASE_URL}/#organization`,
-    },
-    areaServed: options.areaServed || ['DE', 'AT', 'CH'],
-    ...(options.image && {
-      image: options.image.startsWith('http') ? options.image : `${BASE_URL}${options.image}`,
-    }),
+    inLanguage: normalizedLanguage(options.language),
+    provider: organizationReference,
+    ...(options.areaServed?.length && { areaServed: options.areaServed }),
+    ...(options.image && { image: publicAssetUrl(options.image) }),
   }
 }
-
-// =============================================================================
-// EVENT SCHEMA GENERATOR
-// =============================================================================
 
 export interface EventSchemaOptions {
   name: string
@@ -489,109 +295,71 @@ export interface EventSchemaOptions {
   startDate: string
   endDate?: string
   location: string
-  /**
-   * EXTERNE Detailseite des Veranstalters (src/data/events.ts, `link`) - kein
-   * Pfad auf polarisdx.net. Sie wird deshalb bewusst unveraendert uebernommen
-   * und bekommt KEIN Sprachpraefix: das Praefix waere auf einer fremden Domain
-   * schlicht falsch.
-   */
-  url?: string
+  url: string
+  language?: string
   image?: string
+  eventStatus?: string
+  eventAttendanceMode?: string
 }
 
 export function createEventSchema(options: EventSchemaOptions) {
+  const url = canonicalUrlFor(options.url, options.language)
   return {
     '@context': 'https://schema.org',
     '@type': 'BusinessEvent',
-    name: options.name,
-    description: options.description,
-    startDate: options.startDate,
-    ...(options.endDate && { endDate: options.endDate }),
+    name: requiredText(options.name, 'event name'),
+    description: requiredText(options.description, 'event description'),
+    startDate: toIsoDate(options.startDate),
+    ...(options.endDate && { endDate: toIsoDate(options.endDate) }),
     location: {
       '@type': 'Place',
-      name: options.location,
-      address: options.location,
+      name: requiredText(options.location, 'event location'),
+      address: requiredText(options.location, 'event location'),
     },
-    organizer: {
-      '@id': `${BASE_URL}/#organization`,
-    },
-    ...(options.url && { url: options.url }),
-    ...(options.image && {
-      image: options.image.startsWith('http') ? options.image : `${BASE_URL}${options.image}`,
-    }),
-    eventStatus: 'https://schema.org/EventScheduled',
-    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    organizer: organizationReference,
+    url,
+    inLanguage: normalizedLanguage(options.language),
+    ...(options.image && { image: publicAssetUrl(options.image) }),
+    ...(options.eventStatus && { eventStatus: options.eventStatus }),
+    ...(options.eventAttendanceMode && { eventAttendanceMode: options.eventAttendanceMode }),
   }
 }
 
-// =============================================================================
-// REVIEW/TESTIMONIAL SCHEMA GENERATOR
-// =============================================================================
+const FORBIDDEN_HOSTS = /(?:preview\.polarisdx\.net|localhost|127\.0\.0\.1)(?=[:/]|$)/i
+const ALLOWED_EXTERNAL_IDENTITY_URLS = new Set(['https://www.linkedin.com/company/polarisdx'])
 
-export interface ReviewSchemaOptions {
-  author: string
-  reviewBody: string
-  ratingValue?: number
-  datePublished?: string
-  jobTitle?: string
+/** Runtime guard for the single SEOHead renderer. */
+export function validateStructuredData(value: object | object[]): void {
+  const schemas = Array.isArray(value) ? value : [value]
+  const identities = new Set<string>()
+  JSON.stringify(schemas, (key, item) => {
+    if (typeof item === 'string' && FORBIDDEN_HOSTS.test(item)) {
+      throw new Error(`Structured Data contains a non-public host in ${key}`)
+    }
+    if (
+      typeof item === 'string' &&
+      /^https?:\/\//i.test(item) &&
+      !item.startsWith(`${BASE_URL}/`) &&
+      !item.startsWith('https://schema.org') &&
+      !ALLOWED_EXTERNAL_IDENTITY_URLS.has(item)
+    ) {
+      throw new Error(`Structured Data contains a non-canonical URL in ${key}`)
+    }
+    return item
+  })
+  for (const schema of schemas as Array<Record<string, unknown>>) {
+    if (schema['@context'] !== 'https://schema.org' || typeof schema['@type'] !== 'string') {
+      throw new Error('Structured Data requires schema.org context and type')
+    }
+    const identity = `${schema['@type']}:${String(schema['@id'] || '')}`
+    if (schema['@id'] && identities.has(identity)) {
+      throw new Error(`Duplicate Structured Data entity: ${identity}`)
+    }
+    identities.add(identity)
+  }
 }
 
-export function createReviewSchema(reviews: ReviewSchemaOptions[]) {
-  return reviews.map((review) => ({
-    '@context': 'https://schema.org',
-    '@type': 'Review',
-    author: {
-      '@type': 'Person',
-      name: review.author,
-      ...(review.jobTitle && { jobTitle: review.jobTitle }),
-    },
-    reviewBody: review.reviewBody,
-    reviewRating: {
-      '@type': 'Rating',
-      ratingValue: review.ratingValue || 5,
-      bestRating: 5,
-    },
-    ...(review.datePublished && { datePublished: review.datePublished }),
-    // Knoten-Referenz auf iglooProProductSchema, KEINE Seiten-URL. Der Wert
-    // muss zeichengleich zu dessen '@id' bleiben - ein Sprachpraefix wuerde die
-    // Verknuepfung Review -> Product zerreissen.
-    itemReviewed: {
-      '@id': `${BASE_URL}/igloo-pro#product`,
-    },
-  }))
-}
-
-// =============================================================================
-// LOCAL BUSINESS (for contact page)
-// =============================================================================
-
-export const localBusinessSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'MedicalBusiness',
-  '@id': `${BASE_URL}/#localbusiness`,
-  name: 'Polaris Diagnostics Europe GmbH',
-  image: `${BASE_URL}/favicon.png`,
-  url: BASE_URL,
-  telephone: '+44-7879-433019',
-  email: 'contact@polarisdx.net',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Große Bleichen 1-3',
-    addressLocality: 'Hamburg',
-    postalCode: '20354',
-    addressCountry: 'DE',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 53.5534,
-    longitude: 9.9891,
-  },
-  openingHoursSpecification: {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-    opens: '09:00',
-    closes: '17:00',
-  },
-  priceRange: '€€€',
-  areaServed: ['DE', 'AT', 'CH'],
+export function serializeStructuredData(value: object | object[]): string {
+  validateStructuredData(value)
+  return JSON.stringify(value).replace(/</g, '\\u003c')
 }

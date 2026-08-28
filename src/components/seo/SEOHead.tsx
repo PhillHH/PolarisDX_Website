@@ -23,6 +23,7 @@ import {
   resolveCanonicalUrl,
   type SEOIndexabilityState,
 } from './seoRouteSource'
+import { serializeStructuredData } from './structuredData'
 
 // =============================================================================
 // TYPES
@@ -289,9 +290,7 @@ export function SEOHead({
 
       {/* JSON-LD Structured Data */}
       {structuredData && (
-        <script type="application/ld+json">
-          {JSON.stringify(Array.isArray(structuredData) ? structuredData : structuredData)}
-        </script>
+        <script type="application/ld+json">{serializeStructuredData(structuredData)}</script>
       )}
 
       {/* Note: preloadImages are NOT rendered inside <Helmet> because

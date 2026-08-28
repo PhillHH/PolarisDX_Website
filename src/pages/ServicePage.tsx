@@ -276,6 +276,7 @@ const ServicePage = () => {
             name: title,
             description: seoDescription,
             url: `/diagnostics/${slug}`,
+            language: i18n.language,
           }),
           createBreadcrumbSchema(
             [
@@ -285,7 +286,7 @@ const ServicePage = () => {
             ],
             i18n.language,
           ),
-          ...(hasFaq ? [createFAQSchema(faqItems)] : []),
+          ...(hasFaq ? [createFAQSchema(faqItems, i18n.language)] : []),
         ]}
       />
       <SubpageHero

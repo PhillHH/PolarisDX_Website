@@ -77,7 +77,7 @@ const EpiSubpage = ({
   source,
   children,
 }: EpiSubpageProps) => {
-  const { t } = useTranslation('epigenetics')
+  const { t, i18n } = useTranslation('epigenetics')
   // Der Weiterlesen-Titel ist Bedienoberflaeche und liegt im Namensraum
   // `common` — dort ist er in allen zehn Sprachen echt uebersetzt, waehrend
   // `epigenetics` in acht davon auf Englisch laeuft.
@@ -102,11 +102,14 @@ const EpiSubpage = ({
         description={seoDescription}
         ogImage="/og-epigenetics.jpg"
         structuredData={[
-          createBreadcrumbSchema([
-            { name: t('breadcrumb.home'), url: '/' },
-            { name: t('breadcrumb.current'), url: '/epigenetics' },
-            { name: seoTitle, url: path },
-          ]),
+          createBreadcrumbSchema(
+            [
+              { name: t('breadcrumb.home'), url: '/' },
+              { name: t('breadcrumb.current'), url: '/epigenetics' },
+              { name: seoTitle, url: path },
+            ],
+            i18n.language,
+          ),
         ]}
       />
 

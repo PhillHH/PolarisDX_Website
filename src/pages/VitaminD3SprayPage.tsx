@@ -16,7 +16,12 @@ import {
   Activity,
   ShieldCheck,
 } from 'lucide-react'
-import { SEOHead, createBreadcrumbSchema, createFAQSchema } from '../components/seo'
+import {
+  SEOHead,
+  createBreadcrumbSchema,
+  createFAQSchema,
+  createProductSchema,
+} from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import SubpageHero from '../components/sections/SubpageHero'
@@ -93,15 +98,22 @@ const VitaminD3SprayPage = () => {
           'PolarisDX Vitamin D',
         ]}
         structuredData={[
+          createProductSchema({
+            name: 'Vitamin D3+K2 Spray',
+            description: t('vitd3spray:seo.description'),
+            image: '/og-vitd3-spray.jpg',
+            url: '/vitamin-d3-spray',
+            language: i18n.language,
+            brand: 'PolarisDX',
+          }),
           createBreadcrumbSchema(
             [
-              { name: 'PolarisDX', url: '/' },
-              { name: t('vitd3spray:hero.breadcrumb_products'), url: '/downloads' },
+              { name: t('vitd3spray:hero.breadcrumb_home'), url: '/' },
               { name: 'Vitamin D3+K2 Spray', url: '/vitamin-d3-spray' },
             ],
             i18n.language,
           ),
-          ...(faqItems.length > 0 ? [createFAQSchema(faqItems)] : []),
+          ...(faqItems.length > 0 ? [createFAQSchema(faqItems, i18n.language)] : []),
         ]}
       />
 

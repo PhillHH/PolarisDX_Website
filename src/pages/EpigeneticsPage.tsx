@@ -209,7 +209,7 @@ const EpigeneticsPage = () => {
             ],
             i18n.language,
           ),
-          ...(faqSchemaItems.length > 0 ? [createFAQSchema(faqSchemaItems)] : []),
+          ...(faqSchemaItems.length > 0 ? [createFAQSchema(faqSchemaItems, i18n.language)] : []),
         ]}
       />
 

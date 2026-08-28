@@ -538,3 +538,92 @@ anschließen, ohne SEOHead neu zu schreiben.
   `e2e/sitemap.spec.ts`: **8/8 PASS**, alle 390 Sitemap-Ziele weiter 200/self-canonical/indexierbar.
 - `DG09-01 — ROUTE_REGISTRY_INTEGRATION` bleibt **READY_FOR_OWNER**, Owner **AP10 PT10.3**. Es wurde
   keine Route Registry gebaut. PT09.4, PT09.5, AP10 und AP21 wurden nicht vorgezogen.
+
+---
+
+## 14. PT09.4 — Structured Data / aktueller Claim-Safety-Evidence-Stand
+
+### 14.1 Kanonische Helper- und Entity-Wahrheit
+
+- Einzige produktive Helper-Schicht: `src/components/seo/structuredData.ts`; einziger Renderer:
+  `SEOHead`, der jeden Block vor dem serialisierten JSON-LD zentral validiert und `<` sicher escaped.
+  Seitenlokale parallele Product-, Review-, Breadcrumb- oder FAQ-Plattformen existieren nicht.
+- Die globale Entity ist genau eine konservative `Organization` mit stabiler `@id`, verifiziertem
+  Namen, öffentlicher DE-URL, Logo, E-Mail, dem sichtbaren Sitz der Europe GmbH und realem LinkedIn-
+  Profil. Die getrennte Londoner Ltd wird nicht fälschlich als Adresse der Europe GmbH angehängt.
+  Widersprüchliche `MedicalBusiness`-/`LocalBusiness`-Blöcke, unbelegte
+  Öffnungszeiten, Geo-Radien, Preisbereiche und inkonsistente Telefon-/Adresskombinationen wurden
+  entfernt. `MedicalBusiness` ist bewusst **NOT USED** bis eine fachlich belastbare Typisierung und
+  Local-Business-Wahrheit ownerseitig vorliegt.
+- `WebSite` ist pro aktueller Locale an deren öffentliche Startseiten-URL gebunden und referenziert
+  dieselbe Organization. `SearchAction = NOT USED`: die reale Suche ist ein Modal ohne öffentlich
+  adressierbare Suchergebnis-URL; `/articles?q=…` wäre eine fiktive Funktion.
+- Erlaubte produktive URL-Hosts: `https://polarisdx.net` sowie `https://schema.org` für Kontext und
+  kontrollierte Schema-Enums; reales `sameAs` bleibt als externer Identitätslink zulässig.
+  Preview-, localhost- und 127.0.0.1-Leakage im produktiven JSON-LD: **0**.
+
+### 14.2 Seitentyp-Verträge
+
+- `BreadcrumbList` bildet nur reale Route-/Inhaltshierarchien ab. Diagnostics nutzt
+  `/diagnostics`, nie die Redirect-Quelle `/services`; Consumer Product nutzt Home → Produkt ohne
+  erfundenen `/consumer`-Hub; alle Item-URLs sind locale-aware. Sichtbare Breadcrumbs bleiben die
+  semantische Quelle, eine neue globale Breadcrumb-UI wurde nicht gebaut.
+- `Product` ist selektiv auf IglooPro, der sichtbaren B2B-Spray-Produktseite und den drei Consumer-
+  Produkten aktiv. Es spiegelt Name, sichtbare locale-aware Description, reales Bild, URL und nur
+  eindeutig belegte Marke. Offers, Preise, Währung, Availability, SKU/GTIN, Rating und Review werden
+  nicht erzeugt. Der sichtbare IglooPro-Claim `CV < 2 %` wird nicht erweitert, garantiert oder in
+  zusätzliche Schemafelder übertragen.
+- `FAQPage` wird ausschließlich aus denselben Arrays erzeugt, die der sichtbare FAQ-Block rendert:
+  Home, Support, Service, Epigenetics, S3, Implantology, B2B Spray und die drei Consumer-Produkte.
+  Seiten ohne sichtbares FAQ erhalten keinen FAQ-Block; globale FAQ-Injection gibt es nicht.
+- `Article` wird für die sechs real veröffentlichten Article-Datensätze und die erklärenden
+  Musterbefunde genutzt. `MedicalWebPage` bleibt nur auf den sichtbaren fachlichen S3-/Implantology-
+  Seiten aktiv. Publikationsdaten werden streng ISO-validiert; `dateModified`, Autor und Reviewer
+  werden nur mit realer Quelle ausgegeben. Artikelbilder stammen, soweit vorhanden, aus der realen
+  Article-Asset-Map; ein fehlendes Bild wird nicht erfunden.
+- `BusinessEvent` wird nur aus den zum Request-Zeitpunkt aktuellen Event-Stammdaten erzeugt. Name,
+  Beschreibung, Start/Ende und Ort stammen aus sichtbarer Locale-UI bzw. `events.ts`; URL ist die
+  reale locale-aware Eventseite. EventStatus, AttendanceMode, Offer, Preis und Availability werden
+  mangels belastbarer Quelle nicht behauptet. Abgelaufene Events erhalten kein Event-Markup.
+- Medical-/Health-Typen bleiben defensiv. Keine Diagnostics-Seite wird als Product und kein
+  Download als Product/Article markiert. Das frühere seitenlokale HowTo mit unbelegter Dauer wurde
+  entfernt. Testimonials sind keine Product Reviews. Claim Amplification: **0**.
+
+### 14.3 SCHEMA-COVERAGE-MATRIX
+
+Diese Matrix klassifiziert Seitentypen; sie ist ausdrücklich keine Route Registry.
+
+| Seitentyp          | Allowed Schema Types             | Required                     | Optional                                  | Explicitly Not Used                                                | Aktuelle Implementation / Evidenz          | Claim-Safety / spätere Owner                                                |
+| ------------------ | -------------------------------- | ---------------------------- | ----------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------ | --------------------------------------------------------------------------- |
+| Home               | Organization, WebSite, FAQPage   | Organization, WebSite        | FAQPage bei sichtbarem Block              | Product, Review, MedicalBusiness, SearchAction                     | `HomePage`, zentrale Helper                | Kein Testimonial-Rating; SearchAction erst bei realer öffentlicher Such-URL |
+| About/Company      | Organization, BreadcrumbList     | Organization, BreadcrumbList | –                                         | MedicalBusiness                                                    | `AboutPage`, verifizierte Entity           | Branchen-Spezialtyp nicht inferiert                                         |
+| Diagnostics Hub    | BreadcrumbList                   | BreadcrumbList               | –                                         | Product, MedicalEntity                                             | `ServicesOverviewPage`                     | Keine Service→Product-Umdeutung                                             |
+| Service            | Service, BreadcrumbList, FAQPage | Service, BreadcrumbList      | FAQPage sichtbar-only                     | Product, Review                                                    | `ServicePage`, `services.tsx`              | Locale-aware; `areaServed` nicht pauschal erfunden                          |
+| IglooPro           | Product, BreadcrumbList          | Product, BreadcrumbList      | –                                         | Offer, Rating, Review                                              | `IglooProPage`, reales Produktbild/Copy    | `CV < 2 %` nicht verstärkt; finale Produktarbeit AP14                       |
+| Epigenetics        | BreadcrumbList, FAQPage          | BreadcrumbList               | FAQPage sichtbar-only                     | Product, MedicalEntity                                             | Hub und Deepening Pages                    | Kein Diagnose-/Therapieversprechen; Fachcontent AP15                        |
+| Musterbefund       | Article, BreadcrumbList          | Article, BreadcrumbList      | –                                         | MedicalWebPage, Product                                            | `MusterbefundPage`, reale Befund-Metadaten | Beispielwerte nicht als medizinische Auskunft typisiert; AP16               |
+| Article            | Article, BreadcrumbList          | Article, BreadcrumbList      | Image bei realem Asset                    | Reviewer, Rating                                                   | `ArticlePage`, `articles.ts`, Asset-Map    | Kein erfundener Reviewer/modified-Wert; Plattform AP17                      |
+| Event              | BusinessEvent, BreadcrumbList    | BreadcrumbList               | BusinessEvent nur für aktuelle Stammdaten | Offer, Price, erfundener Status/Mode                               | `EventsPage`, `events.ts`                  | Keine Upcoming-Manipulation; Plattform AP18                                 |
+| Consumer Product   | Product, BreadcrumbList, FAQPage | Product, BreadcrumbList      | FAQPage sichtbar-only                     | Offer, Price, Availability, Rating, Review                         | drei PT09.3-Pages ×10                      | PT09.3 visible truth erhalten; finale Strecke/Assets AP21                   |
+| Downloads/Resource | BreadcrumbList                   | BreadcrumbList               | –                                         | Product, Article                                                   | `DownloadsPage`                            | Keine Lead-Magnet- oder Produktbehauptung; AP19                             |
+| Contact            | Organization, BreadcrumbList     | BreadcrumbList               | Organization                              | MedicalBusiness, LocalBusiness hours/geo                           | `ContactPage`, reale Standorte             | Fachliche Local-Business-Typisierung später ownerseitig                     |
+| Support            | BreadcrumbList, FAQPage          | BreadcrumbList               | FAQPage sichtbar-only                     | LocalBusiness, MedicalBusiness                                     | `SupportPage`, sichtbarer FAQ-Block        | Keine aggressive Entity-Anreicherung                                        |
+| Legal              | BreadcrumbList                   | BreadcrumbList               | –                                         | Product, Service, MedicalEntity                                    | Legal Pages, noindex                       | Fachliche Endarbeit AP20                                                    |
+| 404                | keine page-level Content-Entity  | keine                        | –                                         | Product, Article, Event, FAQPage, BreadcrumbList, Canonical-Entity | `NotFoundPage`, kein JSON-LD               | Keine gültige Content-Wahrheit für Fehler-URL                               |
+
+### 14.4 Qualität, Guard und Owner-Grenzen
+
+- JSON-LD-Unit-Vertrag prüft Organization/WebSite, fehlende SearchAction, locale-aware Breadcrumbs,
+  selektives Product, sichtbares FAQ, strikt valide Article-Daten, optionale Author/Modified-Felder,
+  reale Eventdaten, fehlende kommerzielle Felder, Preview-Host-Hard-Failure, Entity-Duplikate und
+  sichere Serialisierung.
+- Der bestehende G3 (`npm run check:seo`) wurde erweitert: zentrale Helper-/Renderer-Evidenz,
+  verbotene alte Medical/Local/Review/SearchAction-Quellen, keine seitenlokale HowTo-Annahme,
+  Preview-/Dev-Host-Scan und Vorhandensein dieser Coverage Matrix. Die bestehende Relaunch-CI führt
+  G3 und die SEO/SSR-E2E-Dateien weiterhin auf PRs und `console/**`-Pushes aus; keine neue Guard- oder
+  CI-Plattform entstand.
+- Organization/WebSite-Konflikte: **0**; offensichtliche widersprüchliche Schema-Duplikate: **0**;
+  unbelegte Offers/Prices/Ratings/Reviews: **0**; Claim Amplification: **0**.
+- `DG09-01 — ROUTE_REGISTRY_INTEGRATION` bleibt unverändert **READY_FOR_OWNER**, Owner **AP10
+  PT10.3**. Diese Matrix und die Helper sind keine Route Registry. PT09.5, AP10 und spätere
+  Page-/Content-APs wurden nicht vorgezogen.

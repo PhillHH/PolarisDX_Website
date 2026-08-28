@@ -11,7 +11,12 @@ import { useTranslation } from 'react-i18next'
 import type { TFunction } from 'i18next'
 import { Building2, Dumbbell, Home, Package, Repeat, Share2, Users, Zap } from 'lucide-react'
 
-import { SEOHead, createProductSchema } from '../../components/seo'
+import {
+  SEOHead,
+  createBreadcrumbSchema,
+  createFAQSchema,
+  createProductSchema,
+} from '../../components/seo'
 import Footer from '../../components/layout/Footer'
 import sprayHero from '../../assets/landingpages-consumer/spray-hero-12pack-office.jpeg'
 import sprayStill from '../../assets/landingpages-consumer/spray-still-life.jpeg'
@@ -187,14 +192,27 @@ function SprayPageInner() {
         ogImageAlt={socialImageAlt}
         ogImageWidth={1122}
         ogImageHeight={1402}
-        structuredData={createProductSchema({
-          name: t('spray.copy_050'),
-          description: seoDescription,
-          image: sprayHero,
-          url: '/consumer/vitamin-d3-spray',
-          language: i18n.resolvedLanguage,
-          brand: 'PolarisDX',
-        })}
+        structuredData={[
+          createProductSchema({
+            name: t('spray.copy_050'),
+            description: seoDescription,
+            image: sprayHero,
+            url: '/consumer/vitamin-d3-spray',
+            language: i18n.resolvedLanguage,
+            brand: 'PolarisDX',
+          }),
+          createBreadcrumbSchema(
+            [
+              { name: t('common:nav.home'), url: '/' },
+              { name: t('spray.copy_050'), url: '/consumer/vitamin-d3-spray' },
+            ],
+            i18n.resolvedLanguage,
+          ),
+          createFAQSchema(
+            FAQ_ITEMS.map(({ q, a }) => ({ question: q, answer: a })),
+            i18n.resolvedLanguage,
+          ),
+        ]}
       />
 
       <ConsumerHeader nav={NAV} cta={{ label: t('spray.copy_048'), href: '#order' }} page="spray" />

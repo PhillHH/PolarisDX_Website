@@ -23,12 +23,12 @@ import iglooProImage from '../assets/Igloo-pro-frontal.webp'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
 
 const S3LeitliniePage = () => {
-  const { t } = useTranslation('specialty')
+  const { t, i18n } = useTranslation('specialty')
   // Author data for E-E-A-T
   const author = {
     name: t('s3_leitlinie.copy_001'),
     type: 'Organization' as const,
-    url: 'https://polarisdx.net/about',
+    url: '/about',
   }
 
   // FAQ data
@@ -54,58 +54,6 @@ const S3LeitliniePage = () => {
       answer: t('s3_leitlinie.copy_011'),
     },
   ]
-
-  // HowTo schema
-  const howToSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'HowTo',
-    name: t('s3_leitlinie.copy_012'),
-    description: t('s3_leitlinie.copy_013'),
-    totalTime: 'PT5M',
-    supply: [
-      { '@type': 'HowToSupply', name: t('s3_leitlinie.copy_014') },
-      { '@type': 'HowToSupply', name: t('s3_leitlinie.copy_015') },
-      { '@type': 'HowToSupply', name: t('s3_leitlinie.copy_016') },
-    ],
-    tool: [{ '@type': 'HowToTool', name: t('s3_leitlinie.copy_017') }],
-    step: [
-      {
-        '@type': 'HowToStep',
-        position: 1,
-        name: t('s3_leitlinie.copy_018'),
-        text: t('s3_leitlinie.copy_019'),
-        url: 'https://polarisdx.net/s3_leitlinie#workflow',
-      },
-      {
-        '@type': 'HowToStep',
-        position: 2,
-        name: t('s3_leitlinie.copy_020'),
-        text: t('s3_leitlinie.copy_021'),
-        url: 'https://polarisdx.net/s3_leitlinie#workflow',
-      },
-      {
-        '@type': 'HowToStep',
-        position: 3,
-        name: t('s3_leitlinie.copy_022'),
-        text: t('s3_leitlinie.copy_023'),
-        url: 'https://polarisdx.net/s3_leitlinie#workflow',
-      },
-      {
-        '@type': 'HowToStep',
-        position: 4,
-        name: t('s3_leitlinie.copy_024'),
-        text: t('s3_leitlinie.copy_025'),
-        url: 'https://polarisdx.net/s3_leitlinie#workflow',
-      },
-      {
-        '@type': 'HowToStep',
-        position: 5,
-        name: t('s3_leitlinie.copy_026'),
-        text: t('s3_leitlinie.copy_027'),
-        url: 'https://polarisdx.net/s3_leitlinie#workflow',
-      },
-    ],
-  }
 
   return (
     <PageTransition>
@@ -140,14 +88,17 @@ const S3LeitliniePage = () => {
             dateModified: '2026-02-26',
             articleType: 'MedicalWebPage',
             author: author,
+            language: i18n.language,
           }),
-          createBreadcrumbSchema([
-            { name: t('s3_leitlinie.copy_042'), url: '/' },
-            { name: t('s3_leitlinie.copy_043'), url: '/articles' },
-            { name: t('s3_leitlinie.copy_044'), url: '/s3_leitlinie' },
-          ]),
-          createFAQSchema(faqItems),
-          howToSchema,
+          createBreadcrumbSchema(
+            [
+              { name: t('s3_leitlinie.copy_042'), url: '/' },
+              { name: t('s3_leitlinie.copy_043'), url: '/articles' },
+              { name: t('s3_leitlinie.copy_044'), url: '/s3_leitlinie' },
+            ],
+            i18n.language,
+          ),
+          createFAQSchema(faqItems, i18n.language),
         ]}
       />
 

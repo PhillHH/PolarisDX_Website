@@ -161,11 +161,12 @@ function EventsPage() {
           startDate: event.date,
           endDate: event.endDate,
           location: event.location,
-          url: event.link,
+          url: '/events',
+          language: i18n.language,
         }),
       ),
     ],
-    [upcoming, t],
+    [i18n.language, upcoming, t],
   )
 
   return (

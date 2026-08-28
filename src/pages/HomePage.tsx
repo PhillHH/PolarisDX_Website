@@ -2,15 +2,11 @@ import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
   SEOHead,
-  websiteSchema,
-  medicalBusinessSchema,
-  iglooProProductSchema,
+  organizationSchema,
+  createWebsiteSchema,
   createFAQSchema,
-  createReviewSchema,
   type FAQItem,
-  type ReviewSchemaOptions,
 } from '../components/seo'
-import { testimonials } from '../data/testimonials'
 import HeroSection from '../components/sections/HeroSection'
 import TrustBar from '../components/sections/TrustBar'
 import WhyPocSection from '../components/sections/WhyPocSection'
@@ -28,36 +24,25 @@ import Reveal from '../components/ui/Reveal'
 import heroDoctor from '../assets/hero_doctor.webp'
 
 const HomePage = () => {
-  const { t } = useTranslation('home')
+  const { t, i18n } = useTranslation('home')
 
   // Generate FAQ schema from locale keys (keeps FAQ text in sync)
   const faqSchema = useMemo(() => {
     const faqItems: FAQItem[] = t('faq.items', { returnObjects: true }) as FAQItem[]
     if (Array.isArray(faqItems) && faqItems.length > 0) {
-      return createFAQSchema(faqItems)
+      return createFAQSchema(faqItems, i18n.language)
     }
     return null
-  }, [t])
-
-  // Generate Review schemas from testimonials
-  const reviewSchemas = useMemo(() => {
-    const reviews: ReviewSchemaOptions[] = testimonials.map((testimonial) => ({
-      author: testimonial.name,
-      reviewBody: t(`testimonials.${testimonial.id}.text`),
-      jobTitle: t(`testimonials.${testimonial.id}.title`),
-    }))
-    return createReviewSchema(reviews)
-  }, [t])
+  }, [i18n.language, t])
 
   // Combine all structured data schemas
   const structuredData = useMemo(() => {
-    const schemas: object[] = [websiteSchema, medicalBusinessSchema, iglooProProductSchema]
+    const schemas: object[] = [organizationSchema, createWebsiteSchema(i18n.language)]
     if (faqSchema) {
       schemas.push(faqSchema)
     }
-    schemas.push(...reviewSchemas)
     return schemas
-  }, [faqSchema, reviewSchemas])
+  }, [faqSchema, i18n.language])
 
   return (
     <>

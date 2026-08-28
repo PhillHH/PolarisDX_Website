@@ -25,12 +25,12 @@ import iglooProImage from '../assets/Igloo-pro-frontal.webp'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
 
 const VitaminD3ImplantologyPage = () => {
-  const { t } = useTranslation('specialty')
+  const { t, i18n } = useTranslation('specialty')
   // Author data for E-E-A-T
   const author = {
     name: t('vitamin_d3_implantology.copy_001'),
     type: 'Organization' as const,
-    url: 'https://polarisdx.net/about',
+    url: '/about',
   }
 
   // FAQ data - rewritten to complement (not repeat) main text
@@ -85,13 +85,17 @@ const VitaminD3ImplantologyPage = () => {
             dateModified: '2026-02-04',
             articleType: 'MedicalWebPage',
             author: author,
+            language: i18n.language,
           }),
-          createBreadcrumbSchema([
-            { name: t('s3_leitlinie.copy_042'), url: '/' },
-            { name: t('vitamin_d3_implantology.copy_022'), url: '/articles' },
-            { name: t('s3_leitlinie.copy_180'), url: '/vitamin-d3-implantologie' },
-          ]),
-          createFAQSchema(faqItems),
+          createBreadcrumbSchema(
+            [
+              { name: t('s3_leitlinie.copy_042'), url: '/' },
+              { name: t('vitamin_d3_implantology.copy_022'), url: '/articles' },
+              { name: t('s3_leitlinie.copy_180'), url: '/vitamin-d3-implantologie' },
+            ],
+            i18n.language,
+          ),
+          createFAQSchema(faqItems, i18n.language),
         ]}
       />
 
