@@ -21,7 +21,19 @@
     "badge_new": "Neu",
     "epigenetics_desc": "Sechs Analysen aus einem Tropfen Blut",
     "musterbefunde": "Musterbefunde",
-    "musterbefunde_desc": "Sechs Beispielbefunde zum Lesen"
+    "musterbefunde_desc": "Sechs Beispielbefunde zum Lesen",
+    "cta_quote": "Angebot anfragen",
+    "iglooPro": "IglooPro",
+    "praeventionsChecks": "Präventive Gesundheits-Checks",
+    "infektionEntzuendung": "Infektion & Entzündungsmarker",
+    "stoffwechselHerz": "Stoffwechsel & Herzgesundheit",
+    "hormonTests": "Hormon- & Endokrinologie-Tests",
+    "kompatibilitaetIntegration": "Herstellerübergreifende Kompatibilität",
+    "group_fields": "Praxisfelder",
+    "group_analysis": "Analysebereiche",
+    "group_system": "System & Integration",
+    "diagnostics_all": "Alle Diagnostik-Leistungen",
+    "group_crosslink": "Auch relevant"
   },
   "badge": {
     "New": "Neu",
@@ -61,7 +73,17 @@
     "testimonials": "Referenzen",
     "faq": "FAQ",
     "appointment": "Termin vereinbaren",
-    "product_note": "IglooPro ist ein Produkt der DX365 GmbH"
+    "product_note": "IglooPro ist ein Produkt der DX365 GmbH",
+    "col_company": "Unternehmen",
+    "col_product": "Produkt & Wissen",
+    "col_consumer": "Für Endkunden",
+    "locations": "Standorte",
+    "legal": "Rechtliches",
+    "nav_label": "Fußzeilen-Navigation",
+    "epi_basics": "Grundlagen",
+    "epi_evidence": "Studienlage",
+    "epi_docs": "Unterlagen",
+    "epi_samples": "Musterbefunde"
   },
   "read_more": "Weiterlesen",
   "search": {
@@ -78,6 +100,109 @@
       "beauty": "Dermatologische Analysen",
       "longevity": "Gesundheit und Langlebigkeit",
       "sports": "Leistungsdiagnostik für Sportler"
+    },
+    "resultTypes": {
+      "page": "Seite",
+      "service": "Service",
+      "article": "Artikel",
+      "epigenetics": "Epigenetik",
+      "befund": "Musterbefund",
+      "resource": "Ressource",
+      "event": "Event",
+      "consumer": "Consumer-Produkt"
+    },
+    "modal": {
+      "title": "Website durchsuchen",
+      "label": "Suchbegriff",
+      "placeholder": "Wonach suchen Sie?",
+      "close": "Suche schließen",
+      "escapeHint": "Mit Escape schließen",
+      "initialTitle": "Was möchten Sie finden?",
+      "initialDescription": "Suchen Sie nach Seiten, Diagnostik, Artikeln und Ressourcen.",
+      "loading": "Suchergebnisse werden geladen",
+      "emptyTitle": "Keine Ergebnisse",
+      "emptyDescription": "Für „{{query}}“ wurden keine passenden Inhalte gefunden. Prüfen Sie die Schreibweise oder verwenden Sie einen allgemeineren Begriff.",
+      "errorTitle": "Suche nicht verfügbar",
+      "errorDescription": "Die Suche konnte nicht ausgeführt werden. Bitte versuchen Sie es erneut.",
+      "results_zero": "Keine Ergebnisse",
+      "results_one": "{{count}} Ergebnis",
+      "results_other": "{{count}} Ergebnisse",
+      "groups": {
+        "page": "Seiten",
+        "service": "Diagnostik",
+        "article": "Artikel",
+        "epigenetics": "Epigenetik",
+        "befund": "Musterbefunde",
+        "resource": "Ressourcen",
+        "event": "Events",
+        "consumer": "Consumer-Produkte"
+      }
+    },
+    "index": {
+      "epigenetics": {
+        "title": "Epigenetik- und Genetik-Analysen",
+        "description": "Sechs Analysen aus einem Tropfen Kapillarblut für den Einsatz in der Praxis."
+      },
+      "epigenetics-grundlagen": {
+        "title": "Grundlagen der Epigenetik",
+        "description": "Erfahren Sie, was die Analysen messen und wie die Ergebnisse eingeordnet werden."
+      },
+      "epigenetics-studienlage": {
+        "title": "Studienlage zur Epigenetik",
+        "description": "Überblick über wissenschaftliche Belege, Aussagegrenzen und verantwortungsvolle Anwendung."
+      },
+      "epigenetics-unterlagen": {
+        "title": "Unterlagen zur Epigenetik",
+        "description": "Informationsblätter und Unterlagen zu den sechs Analysen herunterladen."
+      },
+      "befund-metabolic-health": {
+        "title": "Musterbefund Metabolic Health",
+        "description": "Beispielbefund mit Beispieldaten und verständlichen Erläuterungen. Metabolic Health."
+      },
+      "befund-healthy-aging": {
+        "title": "Musterbefund Healthy Aging",
+        "description": "Beispielbefund mit Beispieldaten und verständlichen Erläuterungen. Healthy Aging."
+      },
+      "befund-biologische-altersuhr": {
+        "title": "Musterbefund Biologische Altersuhr",
+        "description": "Beispielbefund mit Beispieldaten und verständlichen Erläuterungen. Biologische Altersuhr."
+      },
+      "befund-telomer-analyse": {
+        "title": "Musterbefund Telomer-Analyse",
+        "description": "Beispielbefund mit Beispieldaten und verständlichen Erläuterungen. Telomer-Analyse."
+      },
+      "befund-stress-monitor": {
+        "title": "Musterbefund Stress Monitor",
+        "description": "Beispielbefund mit Beispieldaten und verständlichen Erläuterungen. Stress Monitor."
+      },
+      "befund-healthy-sport": {
+        "title": "Musterbefund Healthy Sport",
+        "description": "Beispielbefund mit Beispieldaten und verständlichen Erläuterungen. Healthy Sport."
+      },
+      "article-green_practice": {
+        "title": "Die \"Grüne Praxis\": Warum der Weg zur Nachhaltigkeit im Wartezimmer beginnt",
+        "description": "Nachhaltigkeit im Gesundheitswesen beginnt nicht bei Solarzellen, sondern bei der Diagnostik-Logistik. Ein Plädoyer für Point-of-Care."
+      },
+      "article-invisible_patient": {
+        "title": "Der unsichtbare Patient: Wie Remote-Monitoring die Medizin aus der Praxis befreit",
+        "description": "Der Patient muss nicht mehr zum Arzt kommen, damit die Diagnose gestellt wird. Wie IGLO-PRO und DX365 das \"Hospital-at-Home\" ermöglichen."
+      },
+      "article-five_minute_diagnosis": {
+        "title": "Die 5-Minuten-Diagnose: Warum Point-of-Care nicht nur medizinisch, sondern wirtschaftlich ein Gamechanger ist",
+        "description": "Zeit ist Geld – besonders in der Praxis. Eine betriebswirtschaftliche Analyse, warum das IGLO-PRO profitabler ist als das Zentrallabor."
+      },
+      "article-ecosystem_of_rapid_tests": {
+        "title": "Das Ökosystem der Schnelltests: Warum Kompatibilität Sicherheit schafft",
+        "description": "Von CRP bis TSH: Die Komplexität kompatibler Lateral Flow Tests meistern."
+      },
+      "article-rapid_setup_formula": {
+        "title": "Die Performance-Formel: Effizienz in der POC-Diagnostik",
+        "description": "Effizienz statt Einarbeitung: Der Weg zur schnellen Einsatzbereitschaft in der Praxis."
+      },
+      "article-precision_point_of_care": {
+        "title": "Präzision im Point-of-Care: Der Schlüssel zur Patientensicherheit",
+        "description": "Warum die Validierung von Lateral Flow Tests (LFT) über die Herstellerangabe hinausgeht."
+      }
     }
   },
   "cookie": {
@@ -130,7 +255,11 @@
   "a11y": {
     "search": "Suche öffnen",
     "toggle_nav": "Navigation umschalten",
-    "honeypot": "Dieses Feld bitte leer lassen"
+    "honeypot": "Dieses Feld bitte leer lassen",
+    "select_language": "Sprache wählen",
+    "main_nav": "Hauptnavigation",
+    "toggle_submenu": "{{name}} — Untermenü",
+    "skip_to_content": "Zum Inhalt springen"
   },
   "languageFallback": {
     "notice": "Diese Seite liegt bislang nur auf Englisch vor."

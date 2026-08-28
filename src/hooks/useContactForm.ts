@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { sendContactEmail, type ContactFormData } from '../api/contact'
+import type { SupportedLanguage } from '../i18n'
 
 export interface ContactSubmission {
   intent: string
@@ -16,6 +17,7 @@ export interface ContactSubmission {
    *  den der Absender selbst gewaehlt hat. */
   source?: string
   consent: boolean
+  locale: SupportedLanguage
   /** Honeypot — forwarded raw so the server can drop bot submissions. */
   _hp: string
 }
@@ -43,18 +45,6 @@ export const useContactForm = (): UseContactFormReturn => {
       return false
     }
 
-    // Compose a single rich message so the recipient sees intent + field even
-    // though the server only renders the `message` body. `message` is always
-    // non-empty (intent + field), which also satisfies the server's required
-    // `message` check when the optional details are left blank.
-    const message = [
-      `Anliegen: ${s.intentLabel}`,
-      `Bereich: ${s.fieldLabel || '-'}`,
-      ...(s.source ? [`Herkunft: ${s.source}`] : []),
-      '',
-      s.requirements || '(keine weiteren Angaben)',
-    ].join('\n')
-
     const data: ContactFormData = {
       name: s.name,
       email: s.email,
@@ -62,13 +52,14 @@ export const useContactForm = (): UseContactFormReturn => {
       phone: s.phone,
       area: s.fieldLabel || s.field || '-',
       requirements: s.requirements,
-      message,
+      message: s.requirements || `${s.intentLabel} — ${s.fieldLabel}`,
       // Consent is required + validated above, so it is always true when sent.
       consent: true,
       _hp: s._hp,
       // Extra structured context — the server safely ignores unknown fields.
       intent: s.intent,
       field: s.field,
+      locale: s.locale,
     }
 
     try {

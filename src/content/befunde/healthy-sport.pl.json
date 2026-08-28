@@ -1,0 +1,689 @@
+{
+  "slug": "healthy-sport",
+  "panel": "Healthy Sport",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Raport próbki · Przykładowe dane",
+      "panel": "Healthy Sport",
+      "subtitle": "Twój trening komórkowy",
+      "claim": "Osiem mikroRNA istotnych dla sportu z jednej kropli krwi kapilarnej, przetłumaczonych na siedem ocen obejmujących odżywianie, regenerację i wydajność — uzupełnionych o cztery warianty genetyczne.",
+      "meta": [
+        {
+          "k": "Raport dla",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Pobranie próbki",
+          "v": "18.02.2026"
+        },
+        {
+          "k": "Materiał",
+          "v": "Karta z wysuszonym plamką krwi"
+        },
+        {
+          "k": "Zakres",
+          "v": "8 miRNA + 4 SNP"
+        }
+      ],
+      "id": "deckblatt",
+      "benefit": "Odżywianie, regeneracja, obciążenie treningowe: od czego może zacząć Twój klient."
+    },
+    {
+      "type": "principle",
+      "caption": "Zasada",
+      "title": "Jak czytać ten raport.",
+      "lead": "Regularny trening zmienia ciało aż do poziomu komórkowego. Procesy te pozostawiają ślady w postaci krążących mikroRNA — małych cząsteczek RNA regulujących, jak silnie są faktycznie wyrażane poszczególne geny. W przeciwieństwie do genetyki, wartości te mogą się zmieniać, co czyni je komponentem trendowym analizy.",
+      "cards": [
+        {
+          "title": "Stan odżywienia",
+          "text": "Zapotrzebowanie na witaminy i mikroelementy oraz bilans płynów. Oceny: stan odżywienia, stan nawodnienia."
+        },
+        {
+          "title": "Regeneracja",
+          "text": "Zdolność do regeneracji, obciążenie treningowe i aktywność zapalna. Oceny: ryzyko urazu, poziom obciążenia, stan zapalny."
+        },
+        {
+          "title": "Wydajność",
+          "text": "Wytrzymałość i kondycja mięśni. Oceny: sprawność układu sercowo-naczyniowego, stan mięśni."
+        }
+      ],
+      "flowTitle": "Proces",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Pomiar",
+          "text": "Karta z suchą kroplą krwi z opuszka palca. Osiem mikroRNA i cztery warianty genetyczne. Nie wymaga bycia na czczo."
+        },
+        {
+          "num": "02",
+          "title": "Oceń",
+          "text": "MikroRNA są podstawą siedmiu ocen na skali sygnalizacji świetlnej 1–9. Każda ocena łączy kilka markerów."
+        },
+        {
+          "num": "03",
+          "title": "Dostosuj",
+          "text": "Ukierunkowane zalecenia dotyczące treningu, regeneracji i fitoskładników — oraz monitorowanie postępów."
+        }
+      ],
+      "scaleTitle": "Jak czytać skalę?",
+      "scaleLead": "Wszystkie oceny i wszystkie pojedyncze markery używają tej samej skali sygnalizacji świetlnej 1–9. Czerwony po lewej, zielony po prawej — wyższa wartość zawsze oznacza lepszy wynik: 1–3 czerwony, 4–6 pomarańczowy, 7–9 zielony.",
+      "scaleKind": "traffic",
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "1–3 · Czerwone",
+          "text": "Poza optymalnym zakresem. Tu leży największy potencjał do zmiany."
+        },
+        {
+          "tone": "amber",
+          "label": "4–6 · Pomarańczowe",
+          "text": "Średni zakres z możliwością poprawy."
+        },
+        {
+          "tone": "green",
+          "label": "7–9 · Zielone",
+          "text": "W zakresie optymalnym. Utrzymuj dotychczasowe nawyki."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Ważne",
+      "text": "Niniejszy raport nie zastępuje badania lekarskiego w medycynie sportowej ani diagnostyki wydolnościowej.",
+      "items": [
+        "Cztery warianty genetyczne są wrodzone i ustalane tylko raz. Przed analizą genetyczną wymagane są informacje i pisemna zgoda (Niemiecka Ustawa o Diagnostyce Genetycznej, GenDG). Testy genetyczne o charakterze predykcyjnym mogą być przeprowadzane wyłącznie pod nadzorem odpowiednio wykwalifikowanych lekarzy; przed i po badaniu musi być zapewnione doradztwo genetyczne (art. 7 i 10 GenDG).",
+        "Zmieniać się mogą tylko osiem wartości mikroRNA — to one nadają się do monitorowania postępów."
+      ],
+      "tone": "neutral",
+      "id": "hinweis"
+    },
+    {
+      "type": "evaluations",
+      "caption": "Wyniki w skrócie",
+      "title": "Twoje siedem ocen.",
+      "lead": "Każda ocena jest wyliczana na podstawie kilku mikroRNA razem. Posortowane według wartości — obszary wymagające największej uwagi znajdują się na dole.",
+      "items": [
+        {
+          "label": "Stan nawodnienia",
+          "sub": "W zakresie optymalnym",
+          "value": 8,
+          "display": "8 / 9",
+          "tone": "green"
+        },
+        {
+          "label": "Ryzyko urazu i regeneracja",
+          "sub": "Średni",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Sprawność układu sercowo-naczyniowego",
+          "sub": "Średni",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Stan mięśni",
+          "sub": "Średni",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Stan odżywienia",
+          "sub": "Poza zakresem",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red"
+        },
+        {
+          "label": "Stan zapalny",
+          "sub": "Poza zakresem",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red"
+        },
+        {
+          "label": "Poziom obciążenia / stresu",
+          "sub": "Poza zakresem",
+          "value": 2,
+          "display": "2 / 9",
+          "tone": "red"
+        }
+      ],
+      "id": "auswertungen"
+    },
+    {
+      "type": "callout",
+      "title": "Co to oznacza",
+      "text": "Trzy wartości w zakresie czerwonym — poziom obciążenia/stresu (2), stan odżywienia (3) oraz stan zapalny (3). Dwie z nich — obciążenie i stan zapalny — zależą od miR-146a-5p (mikroRNA przeciążenia, 2/9), najsłabszego pojedynczego markera w profilu; łącznie wpływa on na cztery z siedmiu ocen. Stan odżywienia natomiast zależy od drugiego najsłabszego markera, miR-22-5p (3/9).",
+      "items": [
+        "Trzy wartości w zakresie średnim — ryzyko urazu, sprawność układu sercowo-naczyniowego i stan mięśni wynoszą po 5/9 i można na nie bezpośrednio wpływać przez trening.",
+        "Jedna wartość w zakresie zielonym — stan nawodnienia (8) jest stabilny i powinien pozostać taki sam.",
+        "Interwał do kolejnego pomiaru kontrolnego ustala placówka opiekująca się Tobą; Twoje dwa poprzednie pomiary były wykonywane w odstępach około trzech miesięcy."
+      ],
+      "tone": "accent",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "table",
+      "caption": "Podstawa ocen",
+      "title": "Osiem mikroRNA.",
+      "lead": "Pojedyncze wartości, na podstawie których wyliczane jest siedem ocen. One również używają skali sygnalizacji świetlnej 1–9; wyższa wartość oznacza lepszy wynik.",
+      "cols": ["Marker", "Nazwa", "Poziom regulacji", "Wartość", "Funkcja"],
+      "rows": [
+        [
+          "miR-378a-3p",
+          "MikroRNA przyrostu mięśni",
+          "Budowa mięśni i adaptacja do wysiłku",
+          "7 / 9",
+          "Reguluje budowę mięśni i adaptację do bodźców treningowych."
+        ],
+        [
+          "miR-101-3p",
+          "MikroRNA witalności mięśni",
+          "Ochrona komórkowa mięśni",
+          "7 / 9",
+          "Reguluje witalność mięśni i ochronę komórkową."
+        ],
+        [
+          "miR-505-3p",
+          "MikroRNA sportu i stylu życia",
+          "Równowaga stylu życia",
+          "5 / 9",
+          "Odzwierciedla współdziałanie ćwiczeń, odżywiania i stylu życia."
+        ],
+        [
+          "miR-19b-3p",
+          "MikroRNA umysłu",
+          "Regulacja neuronalna i poznawcza",
+          "4 / 9",
+          "Reguluje szlaki sygnalizacji neuronalnej, wspiera odporność poznawczą i wydolność wytrzymałościową."
+        ],
+        [
+          "miR-20a-5p",
+          "MikroRNA odnowy komórkowej",
+          "Regeneracja komórkowa",
+          "4 / 9",
+          "Reguluje odnowę komórek i procesy naprawcze po wysiłku."
+        ],
+        [
+          "miR-30e-3p",
+          "miRNA sprawności fizycznej",
+          "Regulacja wytrzymałości mięśniowej",
+          "4 / 9",
+          "Reguluje wytrzymałość mięśniową i adaptację do sprawności fizycznej."
+        ],
+        [
+          "miR-22-5p",
+          "miRNA spalania tłuszczu",
+          "Regulacja metaboliczna",
+          "3 / 9",
+          "Reguluje metabolizm tłuszczów i dostarczanie energii."
+        ],
+        [
+          "miR-146a-5p",
+          "miRNA przeciążenia",
+          "Regulacja stanu zapalnego podczas wysiłku",
+          "2 / 9",
+          "Reguluje szlaki sygnałowe zapalenia podczas obciążenia treningowego."
+        ]
+      ],
+      "id": "uebersicht"
+    },
+    {
+      "type": "callout",
+      "title": "Kluczowy marker",
+      "text": "Przy wyniku 2/9 miR-146a-5p jest najsłabszą wartością indywidualną i wpływa na cztery z siedmiu ocen: poziom obciążenia/stresu, stan zapalny, ryzyko kontuzji oraz wydolność układu sercowo-naczyniowego. Jeden marker kształtuje więc dużą część całościowego obrazu.",
+      "items": [
+        "Dwa markery mięśniowe miR-378a-3p i miR-101-3p mieszczą się w zakresie zielonym z wynikiem 7/9. Sama muskulatura nie stanowi problemu — problemem jest regeneracja."
+      ],
+      "tone": "accent",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "markers",
+      "caption": "Twoje oceny",
+      "title": "Co jest priorytetem.",
+      "items": [
+        {
+          "name": "Poziom obciążenia / stresu",
+          "intro": "Na podstawie miR-146a-5p (2/9) i miR-20a-5p (4/9). Stres zaburza homeostazę spoczynkową i zwiększa obrót energetyczny — istotne jest, czy regeneracja równoważy obciążenie.",
+          "kind": "sygnalizacja świetlna",
+          "value": 2,
+          "display": "2 / 9",
+          "sub": "Poza zakresem",
+          "tone": "red",
+          "text": "Twoja wartość jest poza optymalnym zakresem — najsłabsza spośród siedmiu ocen. Ogranicz codzienne stresory, unikaj presji czasu, okresuj trening (1–2 dni bez treningu w tygodniu, tydzień regeneracyjny co 2–4 tygodnie) oraz stosuj techniki relaksacyjne, takie jak trening autogeniczny lub biofeedback."
+        },
+        {
+          "name": "Stan odżywienia",
+          "intro": "Na podstawie miR-30e-3p (4/9), miR-22-5p (3/9) i miR-19b-3p (4/9). Wskazuje zapotrzebowanie na witaminy i mikroelementy, w tym witaminy z grupy B, żelazo i magnez.",
+          "kind": "sygnalizacja świetlna",
+          "value": 3,
+          "display": "3 / 9",
+          "sub": "Poza zakresem",
+          "tone": "red",
+          "text": "Twoja wartość jest poza optymalnym zakresem. Zwróć szczególną uwagę na owoce, warzywa i produkty pełnoziarniste — bogate w witaminy z grupy B, magnez, żelazo i cynk. Magnez z orzechów i nasion słonecznika, cynk z produktów mlecznych, sera i roślin strączkowych."
+        },
+        {
+          "name": "Stan zapalny",
+          "intro": "Na podstawie pięciu mikroRNA: miR-505-3p, miR-30e-3p, miR-22-5p, miR-20a-5p i miR-146a-5p. Markery te obrazują regulację zapalenia podczas obciążenia treningowego; jednocześnie wysiłek fizyczny uwalnia hormony stresu.",
+          "kind": "sygnalizacja świetlna",
+          "value": 3,
+          "display": "3 / 9",
+          "sub": "Poza zakresem",
+          "tone": "red",
+          "text": "Twoja wartość jest poza optymalnym zakresem. Zadbaj o regenerację i odpowiednią ilość snu, witaminę C i cynk z owoców, warzyw, brokułów i cytrusów oraz o relaksację, umiarkowaną aktywność fizyczną i dietę bogatą w błonnik dla flory jelitowej."
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "callout",
+      "title": "Wspólny mianownik",
+      "text": "Wszystkie trzy oceny obejmują miR-146a-5p lub miR-22-5p — dwa najsłabsze markery indywidualne. Zarządzanie obciążeniem treningowym i regeneracją działa więc jednocześnie na wszystkie trzy wartości, a nie tylko na jedną.",
+      "tone": "accent",
+      "id": "hinweis-4"
+    },
+    {
+      "type": "markers",
+      "caption": "Twoje oceny",
+      "title": "Wydolność i regeneracja.",
+      "items": [
+        {
+          "name": "Ryzyko urazu i regeneracja",
+          "intro": "Na podstawie pięciu mikroRNA: miR-30e-3p, miR-22-5p, miR-146a-5p, miR-20a-5p i miR-505-3p. Niewystarczająca regeneracja zwiększa ryzyko kontuzji.",
+          "kind": "sygnalizacja świetlna",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Średni",
+          "tone": "amber",
+          "text": "Twoja wartość mieści się w zakresie średnim. Zapewnij wystarczające fazy regeneracji między sesjami treningowymi i zwracaj uwagę na rozgrzewkę, rozciąganie i schładzanie. Twoja genetyczna ocena ryzyka uszkodzenia mięśni w rozdziale „Trzy dalsze oceny genetyczne” uzupełnia tę wartość."
+        },
+        {
+          "name": "Sprawność układu sercowo-naczyniowego",
+          "intro": "Na podstawie miR-20a-5p (4/9), miR-146a-5p (2/9) i miR-505-3p (5/9). Opisuje, jak efektywnie serce pompuje krew i tlen po organizmie.",
+          "kind": "sygnalizacja świetlna",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Średni",
+          "tone": "amber",
+          "text": "Twoja wartość mieści się w zakresie średnim. Włącz trening wytrzymałościowy co najmniej dwa razy w tygodniu — bieganie, szybki marsz, jazda na rowerze, pływanie lub aqua aerobik, w zależności od poziomu sprawności."
+        },
+        {
+          "name": "Stan mięśni",
+          "intro": "Na podstawie miR-101-3p (7/9), miR-378a-3p (7/9), miR-19b-3p (4/9) i miR-30e-3p (4/9). Siła, moc eksplozywna i wytrzymałość zależą od stanu zmęczenia i regeneracji mięśni.",
+          "kind": "sygnalizacja świetlna",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Średni",
+          "tone": "amber",
+          "text": "Twoja wartość mieści się w zakresie średnim. Włącz trening siłowy co najmniej dwa razy w tygodniu jako trening całego ciała z obciążeniem lub masą własnego ciała, za każdym razem z rozgrzewką, schładzaniem i fazą rozciągania."
+        },
+        {
+          "name": "Stan nawodnienia",
+          "intro": "Na podstawie miR-101-3p (7/9) i miR-378a-3p (7/9). Utrata płynów przez pot i oddychanie upośledza funkcje organizmu i wydolność.",
+          "kind": "sygnalizacja świetlna",
+          "value": 8,
+          "display": "8 / 9",
+          "sub": "Optymalna",
+          "tone": "green",
+          "text": "Twoja wartość mieści się w optymalnym zakresie. Kontynuuj zapewnianie co najmniej dwóch litrów płynów dziennie, także podczas treningów."
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "table",
+      "caption": "Genetyka · wrodzona, ustalana jednokrotnie",
+      "title": "Twoje markery sportowe.",
+      "lead": "Cztery warianty genetyczne uzupełniające zmienne wartości mikroRNA. Opisują predyspozycje — nie są oceną ani prognozą wyników — i ustalane są tylko raz. Typ sportu · ACE i ACTN3: kombinacja obu wariantów określa predyspozycję między wytrzymałością a siłą.",
+      "cols": ["Gen", "Genotyp", "Predyspozycja", "Znaczenie"],
+      "rows": [
+        [
+          "ACE",
+          "GG (homozygota)",
+          "Typ siłowy",
+          "Wpływa na układ bradykinina–aldosteron i tym samym na wykorzystanie tlenu."
+        ],
+        [
+          "ACTN3",
+          "CT (heterozygotyczny)",
+          "Typ mieszany",
+          "Określa skład włókien mięśniowych; forma mieszana łączy włókna szybkie i wolne."
+        ]
+      ],
+      "note": "Twój typ sportowy na skali typ wytrzymałościowy — typ mieszany — typ siłowy: przeważnie typ siłowy. Jesteś przeważnie typem sportów siłowych. Odpowiednie są dyscypliny siłowe, takie jak podnoszenie ciężarów, trójbój siłowy lub kulturystyka.",
+      "id": "uebersicht-2"
+    },
+    {
+      "type": "table",
+      "caption": "Genetyka · wrodzona, ustalana jednokrotnie",
+      "title": "Trzy dalsze oceny genetyczne.",
+      "cols": ["Gen", "Cechy", "Skala", "Twój wynik"],
+      "rows": [
+        [
+          "Gen FTO",
+          "Wpływ ćwiczeń na masę ciała",
+          "Niski · Umiarkowany · Bardzo dobry",
+          "Bardzo dobry. Możesz bardzo skutecznie schudnąć dzięki ćwiczeniom — aktywność fizyczna jest dla Ciebie szczególnie efektywnym narzędziem."
+        ],
+        [
+          "Gen BDNF",
+          "Motywacja do ćwiczeń",
+          "Niska · Umiarkowana · Wysoka",
+          "Brak zwiększonej motywacji. Stałe terminy, partnerzy treningowi lub zajęcia grupowe pomagają bardziej niż dobre chęci."
+        ],
+        [
+          "Gen ACTN3",
+          "Ryzyko uszkodzenia mięśni",
+          "Niska · Umiarkowana · Wysoka",
+          "Nieznacznie podwyższone. Zwracaj szczególną uwagę na rozgrzewkę oraz na schładzanie lub rozciąganie po treningu."
+        ]
+      ],
+      "note": "Skale tych czterech ocen wskazują pozycję pomiędzy dwoma biegunami, a nie sygnalizację świetlną: typ sportowy nie jest ani dobry, ani zły. Warianty genetyczne ustalane są tylko raz i pozostają niezmienne przez całe życie.",
+      "id": "uebersicht-3"
+    },
+    {
+      "type": "radar",
+      "caption": "Gdzie jesteś",
+      "title": "Nawyki żywieniowe i styl życia.",
+      "lead": "Radar pokazuje, jak bliskie są Twoje obecne nawyki wartościom referencyjnym opartym na badaniach naukowych. Im dalej czynnik znajduje się na zewnątrz, tym korzystniej — 10 to wartość optymalna.",
+      "axes": [
+        "Codzienna aktywność",
+        "Aktywność fizyczna",
+        "Stres",
+        "Tytoń",
+        "Alkohol",
+        "Przekąski",
+        "Mięso",
+        "Omega-3",
+        "Błonnik",
+        "Owoce/warzywa",
+        "Płyny"
+      ],
+      "scores": [
+        {
+          "value": "4 na 10",
+          "label": "Stres",
+          "text": "Najsłabszy czynnik w Twojej samoocenie. Pokrywa się z najsłabszą wartością laboratoryjną (poziom obciążenia/stresu 2/9) — oba wskazują w tym samym kierunku."
+        },
+        {
+          "value": "po 5",
+          "label": "Przekąski i mięso",
+          "text": "Oba w średnim zakresie — dwa czynniki dietetyczne z największym polem do poprawy, zgodnie ze stanem odżywienia 3/9."
+        },
+        {
+          "value": "9 · 8 · 8",
+          "label": "Tytoń · Owoce/warzywa · Płyny",
+          "text": "Wyraźnie powyżej średniej. Wartość płynów jest zgodna z Twoim dobrym stanem nawodnienia (8/9)."
+        }
+      ],
+      "note": "Ocena Twojej sytuacji na podstawie samooceny, a nie indywidualna diagnoza. W przypadku choroby lub w szczególnych etapach życia wszelkie istotne zmiany w diecie prosimy konsultować z lekarzem.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Wszystkie zalecenia w skrócie",
+      "title": "Twoje interwencje.",
+      "lead": "Każdej rekomendacji przypisany jest marker microRNA, z którego pochodzi, wraz z jego aktualną wartością. Posortowane według pilności — najsłabsze markery na początku.",
+      "cols": ["Substancja czynna", "Od markera", "Źródło", "Ilość", "Uwaga"],
+      "rows": [
+        [
+          "Kaempferol",
+          "miR-146a-5p · 2",
+          "Czerwone winogrona, grejpfrut, brokuły, brukselka, ziemniaki, cebula, dynia",
+          "200–600 mg ekstraktu/dzień",
+          "Jako ekstrakt — trudno osiągalne w takiej ilości wyłącznie z diety"
+        ],
+        [
+          "Witamina D3",
+          "miR-146a-5p · 2",
+          "Tran, śledź, łosoś, sardynka, tuńczyk, makrela, jajko kurze",
+          "po ocenie lekarskiej poziomu witaminy D",
+          "Rozpuszczalna w tłuszczach — najlepiej przyjmować z olejem i posiłkiem"
+        ],
+        [
+          "Resweratrol",
+          "miR-146a-5p · 2, miR-19b-3p · 4, miR-378a-3p · 7",
+          "Skórka winogron, malin, borówek brusznic, porzeczek, truskawek",
+          "150 mg trans-resweratrolu/dzień",
+          "Trudno osiągalne w takiej ilości wyłącznie z diety"
+        ],
+        [
+          "Kapsaicyna",
+          "miR-22-5p · 3",
+          "Papryki i chili",
+          "0,8–1,5 mg/dzień (lub 1 g proszku chili)",
+          "Rozpuszczalna w tłuszczach — najlepiej przyjmować razem z olejem"
+        ],
+        [
+          "Proantocyjanidyna",
+          "miR-30e-3p · 4",
+          "Bez czarny, żurawina, dzikie jeżyny, dzikie róże, pestki winogron",
+          "36 mg/dzień",
+          "Skórka, rdzeń i pestki zawierają szczególnie dużo"
+        ],
+        [
+          "Selen",
+          "miR-30e-3p · 4",
+          "Mięso, ryby, jaja, nabiał i produkty zbożowe",
+          "60–75 µg/dzień",
+          "Przyczynia się do ochrony komórek przed stresem oksydacyjnym"
+        ],
+        [
+          "Genisteina",
+          "miR-20a-5p · 4",
+          "Soja, fasola nerkowata, ciecierzyca, ciemna czekolada",
+          "40–80 mg ekstraktu z czerwonej koniczyny/dzień",
+          "Bardziej skoncentrowany jako ekstrakt niż w formie proszku"
+        ],
+        [
+          "Kurkumina",
+          "miR-19b-3p · 4",
+          "Kurkuma",
+          "maks. 300 mg/dzień (5–10 g proszku)",
+          "Z czarnym pieprzem i olejem; nie w ciąży ani przy kamieniach żółciowych"
+        ],
+        [
+          "Kwercetyna",
+          "miR-505-3p · 5, miR-19b-3p · 4",
+          "Cebula, kapary, lubczyk, szczypiorek",
+          "min. 200 mg/dzień",
+          "Wrażliwy na ciepło — nie podgrzewać silnie"
+        ],
+        [
+          "EGCG (zielona herbata)",
+          "miR-505-3p · 5",
+          "Herbata niefermentowana (biała i zielona)",
+          "maks. 800 mg/dzień (1 filiżanka ≈ 165 mg)",
+          "Piperyna, witamina C i olej rybi poprawiają biodostępność"
+        ],
+        [
+          "Sulforafan",
+          "miR-505-3p · 5",
+          "Warzywa kapustne, kapusta, brokuły (kiełki)",
+          "25 mg/dzień (250 g brokułów)",
+          "Gotuj na parze tylko krótko lub jedz na surowo — w przeciwnym razie substancja czynna ulega zniszczeniu"
+        ],
+        [
+          "Betaína",
+          "miR-378a-3p · 7",
+          "Komosa ryżowa, lebiodka biała, brokuły, szpinak, buraki",
+          "500–2 000 mg/dzień",
+          "Częściowo syntetyzowana przez organizm"
+        ],
+        [
+          "Cynk",
+          "miR-101-3p · 7",
+          "Mięso, produkty mleczne, produkty pełnoziarniste",
+          "7–16 mg/dzień",
+          "Wysokie spożycie fitynianów hamuje wchłanianie"
+        ]
+      ],
+      "note": "Prosimy o indywidualną ocenę suplementów diety i konsultację z wykwalifikowanym specjalistą — szczególnie w ciąży, przy chorobach przewlekłych lub jednoczesnym stosowaniu leków. Niniejszy przegląd nie zastępuje porady lekarskiej.",
+      "id": "uebersicht-4"
+    },
+    {
+      "type": "trend",
+      "caption": "Trend",
+      "title": "Porównanie dwóch pomiarów.",
+      "lead": "Porównanie Twoich dwóch dotychczasowych pomiarów. Pokazane są tylko wartości zmierzone — nie prognoza.",
+      "firstLabel": "20.11.2025",
+      "secondLabel": "18.02.2026",
+      "kind": "sygnalizacja świetlna",
+      "items": [
+        {
+          "label": "Stan odżywienia",
+          "first": 2,
+          "second": 3,
+          "firstDisplay": "2 / 9",
+          "secondDisplay": "3 / 9",
+          "delta": "+1",
+          "tone": "red",
+          "status": "Poza zakresem"
+        },
+        {
+          "label": "Stan nawodnienia",
+          "first": 8,
+          "second": 8,
+          "firstDisplay": "8 / 9",
+          "secondDisplay": "8 / 9",
+          "delta": "±0",
+          "tone": "green",
+          "status": "Optymalna"
+        },
+        {
+          "label": "Ryzyko urazu i regeneracja",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Średni"
+        },
+        {
+          "label": "Poziom obciążenia / stresu",
+          "first": 3,
+          "second": 2,
+          "firstDisplay": "3 / 9",
+          "secondDisplay": "2 / 9",
+          "delta": "−1",
+          "tone": "red",
+          "status": "Poza zakresem"
+        },
+        {
+          "label": "Sprawność układu sercowo-naczyniowego",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Średni"
+        },
+        {
+          "label": "Stan zapalny",
+          "first": 4,
+          "second": 3,
+          "firstDisplay": "4 / 9",
+          "secondDisplay": "3 / 9",
+          "delta": "−1",
+          "tone": "red",
+          "status": "Poza zakresem"
+        },
+        {
+          "label": "Stan mięśni",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Średni"
+        }
+      ],
+      "note": "Przerwa między dwoma pomiarami wynosiła około trzech miesięcy. To, czy taki odstęp jest odpowiedni również przy kolejnej kontroli, decyduje placówka opiekująca się Tobą.",
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "Co pokazuje trend",
+      "text": "Jedna poprawa: stan odżywienia z 2 do 3 — kierunek jest właściwy, ale wartość nadal poza optymalnym zakresem.",
+      "items": [
+        "Dwa pogorszenia: poziom obciążenia/stresu (3 → 2) oraz stan zapalny (4 → 3). Oba obejmują miR-146a-5p. Między pomiarami pogorszyła się więc strona obciążenia, a nie wydolności.",
+        "Cztery wartości bez zmian: nawodnienie, ryzyko urazu, wydolność układu krążenia i stan mięśni pozostały stabilne."
+      ],
+      "tone": "accent",
+      "id": "hinweis-5"
+    },
+    {
+      "type": "summary",
+      "caption": "Podsumowanie",
+      "title": "Twoje priorytety: regeneracja.",
+      "lead": "Profil jest wyjątkowo wyraźny. Markery mięśni są w zielonym zakresie, markery obciążenia i stanu zapalnego w czerwonym — a oba pogorszenia od pierwszego pomiaru dotyczą tej samej strony.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Kontroluj obciążenie, zanim zaczniesz trenować więcej",
+          "text": "Najsłabszy pojedynczy marker, miR-146a-5p (2/9), wpływa na cztery z siedmiu ocen. Dokładnie dwie z nich — poziom obciążenia/stresu oraz stan zapalny — pogorszyły się od listopada. Dopóki ta wartość pozostaje niska, dodatkowy trening działa na Twoją niekorzyść, a nie na korzyść. Konkretnie: jeden do dwóch dni bez treningu w tygodniu, tydzień regeneracji co dwa do czterech tygodni, techniki relaksacyjne w codziennym życiu. Dodatkowo kempferol i witamina D3 z listy interwencyjnej."
+        },
+        {
+          "num": "02",
+          "title": "Mikroskładniki odżywcze z pożywienia, nie z suplementów",
+          "text": "Stan odżywienia (3/9) poprawił się z 2 do 3 — kierunek jest właściwy. Z radaru stylu życia przekąski i mięso (po 5 na 10 każde) to dwa obszary z największym potencjałem poprawy. Skoncentruj się na owocach, warzywach i pełnych ziarnach dla witamin z grupy B, magnezu, żelaza i cynku."
+        }
+      ],
+      "keepTitle": "Utrzymuj",
+      "keepText": "Stan nawodnienia (8/9) pozostaje stabilny od pierwszego pomiaru i odpowiada Twojej wartości z radaru płynów (8/10). Dwa markery mięśniowe również mieszczą się w zielonym zakresie po 7/9 każdy — to nie mięśnie są problemem. Genetycznie Twój gen FTO sugeruje, że aktywność fizyczna ma szczególnie silny wpływ na masę ciała.",
+      "controlTitle": "Pomiar kontrolny i kolejny krok",
+      "controlItems": [
+        "Interwał do kolejnego pomiaru kontrolnego ustala placówka, która się Tobą opiekuje. Twoje dwa poprzednie pomiary były wykonywane w odstępach około trzech miesięcy.",
+        "Cztery warianty genetyczne pozostają bez zmian i nie są powtarzane.",
+        "Dla porównywalności pobieranie próbki, pora dnia oraz odstęp od ostatniej sesji treningowej powinny pozostać podobne."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Masz pytania dotyczące swojego raportu?",
+      "text": "Omów wyniki z placówką, która przeprowadziła pobranie próbki. To tam znajduje się kontekst treningowy i zdrowotny niezbędny do ich interpretacji.",
+      "columns": [
+        {
+          "k": "Kontakt",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Dystrybucja",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Raport próbki",
+          "text": "Wszystkie wartości, genotypy i dane osobowe w tym dokumencie są fikcyjne i służą wyłącznie do zilustrowania formatu raportu. To nie jest prawdziwy raport."
+        },
+        {
+          "title": "Interpretacja",
+          "text": "Niniejszy raport nie stanowi diagnozy i nie zastępuje porady lekarskiej, badania medycyny sportowej ani diagnostyki wydolnościowej. Wartości mikroRNA opisują stan w określonym momencie; warianty genetyczne opisują predyspozycje, nie choroby ani prognozę wydolności."
+        },
+        {
+          "title": "Status analiz",
+          "text": "Analizy są usługami laboratoryjnymi świadczonymi przez naszego partnera współpracującego i nie są oznakowanymi znakiem CE wyrobami do diagnostyki in vitro. Służą konsultacji i monitorowaniu i nie zastępują diagnostyki klinicznej. Analizy są dostarczane wyłącznie użytkownikom profesjonalnym."
+        },
+        {
+          "title": "Podstawa prawna",
+          "text": "Badania genetyczne podlegają niemieckiej Ustawie o Diagnostyce Genetycznej (GenDG); przed pobraniem próbki wymagane są informacje i pisemna zgoda. Badania genetyczne predykcyjne mogą być przeprowadzane wyłącznie pod odpowiedzialnością wykwalifikowanych lekarzy; przed i po badaniu musi być zapewnione doradztwo genetyczne (paragrafy 7 i 10 GenDG). Analiza laboratoryjna jest wykonywana przez naszego partnera współpracującego. Polaris Diagnostics Europe GmbH odpowiada za dystrybucję i wsparcie. Prosimy o indywidualne i konsultowane z wykwalifikowanym specjalistą rozpatrywanie suplementów diety."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stan na: sierpień 2026",
+      "id": "kontakt"
+    }
+  ]
+}

@@ -1,0 +1,578 @@
+{
+  "slug": "stress-monitor",
+  "panel": "Stress Monitor",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Ukázková zpráva · Ukázková data",
+      "panel": "Stress Monitor",
+      "subtitle": "Vaše regulace stresu",
+      "claim": "Neměří se samotný stres, ale jak dobře jej vaše tělo reguluje. Šest mikroRNA z jediné kapky kapilární krve poskytuje přehled o buněčné kontrole vaší stresové reakce.",
+      "meta": [
+        {
+          "k": "Zpráva pro",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Odběr vzorku",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Materiál",
+          "v": "Karta se sušenou kapkou krve"
+        },
+        {
+          "k": "Rozsah",
+          "v": "6 mikroRNA"
+        }
+      ],
+      "id": "deckblatt",
+      "benefit": "Jak vaše tělo zvládá stres — a co můžete změnit."
+    },
+    {
+      "type": "principle",
+      "caption": "Princip",
+      "title": "Vaše regulace stresu. Ne vaše úroveň stresu.",
+      "lead": "Stres není jednorozměrná veličina, ale síť neuroendokrinních, imunitních a metabolických procesů — řízených mimo jiné osou HPA, zánětlivými signálními cestami a mitochondriálními adaptacemi. Analyzuje se šest mikroRNA: malé nekódující RNA molekuly, které pomáhají určovat, které geny jsou za stresových podmínek skutečně exprimovány.",
+      "cards": [
+        {
+          "title": "Akutní a chronický",
+          "text": "Jak právě probíhá vaše stresová reakce a zda se objevuje trvalé zatížení."
+        },
+        {
+          "title": "Buněčná regulace",
+          "text": "Jak dobře vaše tělo vyvažuje stresové signály na buněčné úrovni."
+        },
+        {
+          "title": "Dlouhodobá regulace",
+          "text": "Jak regulace vypadá na dlouhodobé úrovni — samotná dobrá aktuální úroveň stresu o tom nic neříká."
+        }
+      ],
+      "flowTitle": "Proces",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Měření",
+          "text": "Karta se sušenou kapkou krve z konečku prstu. Šest mikroRNA normalizovaných na referenční gen miR-24-3p. Není potřeba lačnění."
+        },
+        {
+          "num": "02",
+          "title": "Vyhodnotit",
+          "text": "Dvě hodnocení na semaforu 1–9: fyziologická úroveň stresu a dlouhodobá regulace."
+        },
+        {
+          "num": "03",
+          "title": "Regulovat",
+          "text": "Cílená doporučení na rostlinné bioaktivní látky a následné sledování v čase."
+        }
+      ],
+      "scaleTitle": "Jak číst škálu?",
+      "scaleLead": "Obě hodnocení i všech šest jednotlivých markerů jsou na semaforu 1–9. Vyšší je vždy lepší: 1–3 červená, 4–6 oranžová, 7–9 zelená. Každé z dvou hodnocení má navíc vlastní označení zóny.",
+      "scaleKind": "traffic",
+      "scaleTicks": ["1", "3", "5", "7", "9"],
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "1–3 · Červená",
+          "text": "Nejvyšší priorita."
+        },
+        {
+          "tone": "amber",
+          "label": "4–6 · Oranžová",
+          "text": "Přijmout cílená opatření."
+        },
+        {
+          "tone": "green",
+          "label": "7–9 · Zelená",
+          "text": "Udržet výsledek."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Důležité",
+      "text": "Tato zpráva není diagnózou a nenahrazuje lékařské či psychoterapeutické poradenství. Pokud přetrvávají zatížení, vyčerpání nebo problémy se spánkem, vyhledejte lékařskou pomoc.",
+      "items": [
+        "Šest hodnot microRNA představuje okamžitý snímek v čase a mohou být ovlivněny životním stylem — což je činí vhodnými pro sledování v průběhu času."
+      ],
+      "tone": "neutral",
+      "id": "hinweis"
+    },
+    {
+      "type": "markers",
+      "caption": "Výsledky na první pohled",
+      "title": "Vaše dvě hodnocení.",
+      "items": [
+        {
+          "name": "Fyziologická úroveň stresu",
+          "category": "Akutní a chronická zátěž",
+          "kind": "semafor",
+          "value": 7,
+          "display": "7 / 9",
+          "sub": "Příznivé",
+          "tone": "green",
+          "text": "Vaše tělo si s aktuálním stresem dobře poradí.",
+          "zoneLabels": ["chronický stres", "akutní stres", "žádný stres"]
+        },
+        {
+          "name": "Dlouhodobá regulace",
+          "category": "Čtyři microRNA ze čtyř regulačních úrovní",
+          "kind": "semafor",
+          "value": 4,
+          "display": "4 / 9",
+          "sub": "Omezené",
+          "tone": "amber",
+          "text": "Omezená regulace na pomalejší úrovni.",
+          "zoneLabels": ["slabá regulace", "střední regulace", "stabilní regulace"]
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "resultTable",
+      "caption": "Šest jednotlivých markerů",
+      "title": "Všechny microRNA přehledně.",
+      "cols": ["microRNA", "Označení", "Úroveň regulace", "Hodnota", "Ovlivňuje"],
+      "rows": [
+        {
+          "cells": [
+            "miR-21-5p",
+            "Indikátor ochrany buněk",
+            "Buněčné ochranné a adaptační mechanismy",
+            "8 / 9",
+            "Dlouhodobá regulace"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "let-7a-5p",
+            "Indikátor akutního stresu",
+            "Základní zánětlivá regulace",
+            "7 / 9",
+            "Úroveň stresu"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "miR-16-5p",
+            "Indikátor regulace serotoninu",
+            "Serotonergní regulace",
+            "6 / 9",
+            "Dlouhodobá regulace"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "miR-15a-5p",
+            "Neurální indikátor",
+            "Neurální stabilita a adaptace",
+            "5 / 9",
+            "Dlouhodobá regulace"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "let-7g-5p",
+            "Indikátor chronického stresu",
+            "Zánětlivá a metabolická regulace",
+            "4 / 9",
+            "Úroveň stresu"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "miR-106b-5p",
+            "Indikátor aktivace imunitního signálu",
+            "Imunologická aktivace",
+            "3 / 9",
+            "Dlouhodobá regulace"
+          ],
+          "tone": "red"
+        }
+      ],
+      "note": "Obě hodnocení jsou v laboratoři vypočítána z přiřazených microRNA; nejsou průměrem těchto jednotlivých hodnot.",
+      "id": "ergebnis"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Hodnocení 01",
+      "title": "Fyziologická úroveň stresu.",
+      "lead": "Skládá se z indikátoru akutního a chronického stresu (let-7a-5p, let-7g-5p).",
+      "display": "7 / 9",
+      "sub": "Příznivé",
+      "kind": "semafor",
+      "value": 7,
+      "tone": "green",
+      "zoneLabels": ["chronický stres", "akutní stres", "žádný stres"],
+      "text": "Hodnocení ukazuje, kde se vaše aktuální reakce na stres nachází mezi „žádným stresem“ a „chronickým stresem“. Vaše hodnota je v příznivém rozmezí — vaše tělo si s aktuálním stresem dobře poradí. Posouzení je vždy provedeno v kontextu ostatních markerů.",
+      "id": "ergebnis-2"
+    },
+    {
+      "type": "markers",
+      "caption": "Hodnocení 01",
+      "title": "Dva jednotlivé indikátory.",
+      "items": [
+        {
+          "name": "let-7a-5p",
+          "category": "Indikátor akutního stresu",
+          "kind": "semafor",
+          "value": 7,
+          "display": "7 / 9",
+          "tone": "green",
+          "text": "Patří do rodiny let-7; reguluje zánětlivé signální dráhy a podílí se na stresových a imunitních procesech. Z těchto dvou hodnot je příznivější."
+        },
+        {
+          "name": "let-7g-5p",
+          "category": "Indikátor chronického stresu",
+          "kind": "semafor",
+          "value": 4,
+          "display": "4 / 9",
+          "tone": "amber",
+          "text": "Reguluje zánětlivé a metabolické procesy ovlivňující systémovou homeostázu. Výrazně slabší než akutní indikátor."
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "callout",
+      "title": "Co je zde důležité",
+      "text": "Dva jednotlivé indikátory se výrazně liší: akutní 7/9, chronický 4/9. Akutní reakce na stres funguje; chronická úroveň je slabší z obou.",
+      "items": [
+        "Čtyři z jedenácti doporučení — kvercetin, EGCG, oleuropein a resveratrol — cílí právě na chronický indikátor let-7g-5p."
+      ],
+      "tone": "accent",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "table",
+      "caption": "Doporučení",
+      "title": "Látky pro hodnocení 01.",
+      "cols": ["Látka", "Z markeru", "Zdroj", "Množství", "Poznámka"],
+      "rows": [
+        [
+          "Butyrát",
+          "let-7a-5p · 7",
+          "Pektin (jablko, šípek), inulin (čekanka, artyčok)",
+          "alespoň 30 g/den",
+          "Vzniká během fermentace prebiotické vlákniny ve střevě"
+        ],
+        [
+          "Kvercetin",
+          "let-7g-5p · 4",
+          "Cibule, kapary, libeček, pažitka",
+          "alespoň 200 mg/den",
+          "Citlivé na teplo — konzumujte syrové nebo připravujte šetrně"
+        ],
+        [
+          "EGCG",
+          "let-7g-5p · 4",
+          "Bílý nebo zelený čaj (nefermentovaný)",
+          "max. 800 mg/den",
+          "Piperin, vitamín C a rybí olej zlepšují biologickou dostupnost"
+        ],
+        [
+          "Oleuropein",
+          "let-7g-5p · 4",
+          "Olivy, olivové listy, arganový olej",
+          "100 mg/den",
+          "Listy jsou 3 000× koncentrovanější, ale velmi hořké"
+        ]
+      ],
+      "id": "uebersicht"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Hodnocení 02",
+      "title": "Dlouhodobá regulace.",
+      "lead": "Vypočítáno ze čtyř microRNA: miR-16-5p, miR-15a-5p, miR-106b-5p a miR-21-5p.",
+      "display": "4 / 9",
+      "sub": "Omezené",
+      "kind": "semafor",
+      "value": 4,
+      "tone": "amber",
+      "zoneLabels": ["slabá regulace", "střední regulace", "stabilní regulace"],
+      "text": "Na akutní úrovni hodnocení neukazuje žádné přetížení související se stresem. Pomalejší regulační úroveň je na hodnotě 4/9 v oranžové zóně — je to středobod této zprávy a výchozí bod pro další diskusi.",
+      "id": "ergebnis-3"
+    },
+    {
+      "type": "markers",
+      "caption": "Hodnocení 02",
+      "title": "Čtyři microRNA.",
+      "items": [
+        {
+          "name": "miR-106b-5p",
+          "category": "Imunitní signál",
+          "kind": "semafor",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red",
+          "text": "Reguluje imunitní odpovědi a signalizační dráhy zánětu. Jediná červená individuální hodnota v této zprávě; čtyři z jedenácti doporučení se na ni zaměřují."
+        },
+        {
+          "name": "miR-15a-5p",
+          "category": "Neuronální",
+          "kind": "semafor",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber",
+          "text": "Reguluje neuronální procesy, apoptózu a buněčný cyklus; ovlivňuje neuronální homeostázu."
+        },
+        {
+          "name": "miR-16-5p",
+          "category": "Serotonergní",
+          "kind": "semafor",
+          "value": 6,
+          "display": "6 / 9",
+          "tone": "amber",
+          "text": "Reguluje serotoninergní signalizační dráhy a serotoninový transportér; podílí se na neuronální plasticitě."
+        },
+        {
+          "name": "miR-21-5p",
+          "category": "Ochrana buněk",
+          "kind": "semafor",
+          "value": 8,
+          "display": "8 / 9",
+          "tone": "green",
+          "text": "Reguluje přežití buněk a apoptózu; podílí se na stresových a regeneračních procesech. Nejlepší individuální hodnota v celé zprávě."
+        }
+      ],
+      "id": "marker-3"
+    },
+    {
+      "type": "table",
+      "caption": "Doporučení",
+      "title": "Sloučeniny k hodnocení 02.",
+      "cols": ["Látka", "Z markeru", "Zdroj", "Množství", "Poznámka"],
+      "rows": [
+        [
+          "Resveratrol",
+          "miR-106b-5p · 3",
+          "Slupky hroznů, maliny, brusinky, jahody",
+          "150 mg/den",
+          "Obtížně dosažitelné pouze stravou"
+        ],
+        [
+          "Omega-3 (PUFA)",
+          "miR-106b-5p · 3",
+          "Tučné ryby, vlašské ořechy, řasy, řepkový a lněný olej",
+          "250–500 mg/den",
+          "Udržujte rovnováhu omega-3 a omega-6"
+        ],
+        [
+          "Berberin",
+          "miR-106b-5p · 3",
+          "Kůra kořene dřišťálu, kořen pomeranče",
+          "pouze po odborné konzultaci",
+          "Známý jako čaj z ájurvédské medicíny"
+        ],
+        [
+          "Kyselina listová",
+          "miR-16-5p · 6",
+          "Zelená listová zelenina, špenát, kapusta, brokolice",
+          "300 µg/den",
+          "Kouření snižuje vstřebávání"
+        ]
+      ],
+      "id": "uebersicht-2"
+    },
+    {
+      "type": "table",
+      "caption": "Všechna doporučení přehledně",
+      "title": "Vaše intervence.",
+      "lead": "Jedenáct sloučenin, každá přiřazená k mikroRNA markeru, na který působí, spolu s aktuální hodnotou tohoto markeru. Seřazeno podle naléhavosti — nejslabší markery nejdříve.",
+      "cols": ["Látka", "Z markeru", "Zdroj", "Množství", "Poznámka"],
+      "rows": [
+        [
+          "Resveratrol",
+          "miR-106b-5p · 3, let-7g-5p · 4, miR-15a-5p · 5",
+          "Slupky hroznů, maliny, brusinky, jahody",
+          "150 mg/den",
+          "Obtížně dosažitelné v tomto množství pouze stravou"
+        ],
+        [
+          "Berberin",
+          "miR-106b-5p · 3",
+          "Kůra kořene dřišťálu, kořen pomeranče",
+          "pouze po odborné konzultaci",
+          "Známý jako čaj z ájurvédské medicíny"
+        ],
+        [
+          "Butyrát",
+          "miR-106b-5p · 3, let-7a-5p · 7, miR-21-5p · 8",
+          "Pektin (jablko, šípek), inulin (čekanka, artyčok)",
+          "alespoň 30 g/den",
+          "Vzniká během fermentace prebiotické vlákniny ve střevě"
+        ],
+        [
+          "Omega-3 (PUFA)",
+          "miR-106b-5p · 3, miR-21-5p · 8",
+          "Tučné ryby, vlašské ořechy, řasy, řepkový a lněný olej",
+          "250–500 mg/den",
+          "Udržujte rovnováhu omega-3 a omega-6"
+        ],
+        [
+          "Kvercetin",
+          "let-7g-5p · 4",
+          "Cibule, kapary, libeček, pažitka",
+          "alespoň 200 mg/den",
+          "Citlivé na teplo — konzumujte syrové nebo připravujte šetrně"
+        ],
+        [
+          "Oleuropein",
+          "let-7g-5p · 4",
+          "Olivy, olivové listy, arganový olej",
+          "100 mg/den",
+          "Listy jsou 3 000× koncentrovanější, ale velmi hořké"
+        ],
+        [
+          "EGCG (zelený čaj)",
+          "let-7g-5p · 4, miR-15a-5p · 5",
+          "Bílý nebo zelený čaj (nefermentovaný)",
+          "max. 800 mg/den",
+          "Piperin, vitamín C a rybí olej zlepšují biologickou dostupnost"
+        ],
+        [
+          "Kyselina listová",
+          "miR-16-5p · 6",
+          "Zelená listová zelenina, špenát, kapusta, brokolice",
+          "300 µg/den",
+          "Kouření snižuje vstřebávání"
+        ],
+        [
+          "Kurkumín",
+          "miR-21-5p · 8",
+          "Kurkuma",
+          "max. 300 mg/den",
+          "V případě těhotenství nebo žlučových kamenů konzultujte s lékařem"
+        ],
+        [
+          "Gingerol",
+          "miR-21-5p · 8",
+          "Kořen zázvoru",
+          "max. 5 g/den",
+          "Během těhotenství pouze po konzultaci"
+        ],
+        [
+          "Sulforafan",
+          "miR-21-5p · 8",
+          "Křížatá zelenina, zelí, brokolice (klíčky)",
+          "25 mg/den",
+          "Nejlépe syrové nebo krátce napařované"
+        ]
+      ],
+      "note": "Doplňky stravy prosím posuzujte individuálně a v konzultaci s kvalifikovaným odborníkem — zejména v případě těhotenství, předchozích onemocnění nebo současné medikace. Tento přehled nenahrazuje lékařskou radu.",
+      "id": "uebersicht-3"
+    },
+    {
+      "type": "trend",
+      "caption": "Trend",
+      "title": "Porovnání dvou měření.",
+      "lead": "Porovnání vašich dosavadních dvou měření. Zobrazují se pouze naměřené hodnoty — žádná prognóza.",
+      "firstLabel": "15.03.2026",
+      "secondLabel": "15.06.2026",
+      "kind": "semafor",
+      "items": [
+        {
+          "label": "Fyziologická úroveň stresu",
+          "first": 6,
+          "second": 7,
+          "firstDisplay": "6 / 9",
+          "secondDisplay": "7 / 9",
+          "delta": "+1",
+          "status": "Příznivé",
+          "tone": "green"
+        },
+        {
+          "label": "Dlouhodobá regulace",
+          "first": 5,
+          "second": 4,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "4 / 9",
+          "delta": "−1",
+          "status": "Omezené",
+          "tone": "amber"
+        }
+      ],
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "Co trend ukazuje",
+      "text": "Obě hodnocení se vyvíjejí opačným směrem: aktuální úroveň stresu se zlepšila z 6 na 7 a nyní je v zeleném pásmu. Hodnota dlouhodobé regulace za stejné období klesla z 5 na 4 — a protože i zde vyšší hodnota znamená stabilnější regulaci, znamená to zhoršení této úrovně.",
+      "items": [
+        "To je skutečný závěr tohoto měření: akutní zátěž je lépe zvládána, zatímco dlouhodobá regulační úroveň se zhoršila. Samotná dobrá úroveň stresu nic nevypovídá o úrovni dlouhodobé.",
+        "Obě měření byla přibližně ve tříměsíčním odstupu. Interval do dalšího kontrolního měření stanovuje dohlížející instituce."
+      ],
+      "tone": "accent",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "summary",
+      "caption": "Shrnutí",
+      "title": "Váš fokus: dlouhodobý pohled.",
+      "lead": "Vaše aktuální úroveň stresu je dobrá — a právě zde tento protokol upozorňuje: zhoršila se úroveň, kterou necítíte.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "miR-106b-5p — jediná červená individuální hodnota",
+          "text": "S hodnotou 3/9 je indikátor aktivace imunitního signálu nejslabší hodnotou ve zprávě a ovlivňuje dlouhodobou regulaci. Čtyři z jedenácti doporučení se na něj zaměřují: resveratrol, berberin, butyrát a omega-3. Konkrétně: alespoň 30 g vlákniny denně pro tvorbu butyrátu ve střevě, 250–500 mg omega-3 z tučných ryb, vlašských ořechů nebo řasového oleje a bobule pro resveratrol."
+        },
+        {
+          "num": "02",
+          "title": "let-7g-5p — chronická úroveň",
+          "text": "S hodnotou 4/9 je indikátor chronického stresu výrazně nižší než akutní (7/9) — i když je celkové hodnocení v zeleném pásmu. Protokol nezobrazuje, který z těchto dvou indikátorů přispěl ke zlepšení z 6 na 7. Na chronickou úroveň působí kvercetin, EGCG, oleuropein a resveratrol. Poznámky k přípravkům se liší podle sloučeniny — podrobnosti v tabulce „Vaše intervence“."
+        }
+      ],
+      "keepTitle": "Udržovat",
+      "keepText": "miR-21-5p (8/9) a let-7a-5p (7/9) jsou dvě nejsilnější hodnoty — buněčné ochranné mechanismy a akutní stresová reakce fungují dobře. Kurkumin, gingerol a sulforafan slouží k udržení, nikoli ke korekci.",
+      "controlTitle": "Následná péče a další krok",
+      "controlItems": [
+        "Vaše dosavadní dvě měření byla přibližně ve tříměsíčním odstupu. Interval do další kontroly stanovuje dohlížející instituce.",
+        "Pro srovnatelnost by měl být odběr vzorku a čas dne podobný.",
+        "V případě přetrvávající únavy, problémů se spánkem nebo nízké nálady tento protokol nenahrazuje lékařské vyšetření."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Máte otázky k vašemu výsledku?",
+      "text": "Výsledky konzultujte s institucí, která provedla odběr vzorku. Právě tam je kontext potřebný k jejich interpretaci.",
+      "columns": [
+        {
+          "k": "Kontakt",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribuce",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Ukázková zpráva",
+          "text": "Všechny hodnoty a osobní údaje v tomto dokumentu jsou fiktivní a slouží pouze k ilustraci formátu zprávy. Toto není skutečná zpráva."
+        },
+        {
+          "title": "Interpretace",
+          "text": "Tato zpráva není diagnózou a nenahrazuje lékařskou ani psychoterapeutickou konzultaci. Hodnoty microRNA popisují momentální stav buněčné regulace; nejsou měřením vnímaného stresu a nevypovídají o přítomnosti či vývoji nemoci. Pokud přetrvávají zátěž, vyčerpání, problémy se spánkem nebo nízká nálada, vyhledejte lékařskou pomoc."
+        },
+        {
+          "title": "Stav analýz",
+          "text": "Analýzy jsou laboratorní služby poskytované naším partnerským pracovištěm a nejsou označeny značkou CE jako in vitro diagnostické zdravotnické prostředky. Slouží k poradenství a monitoringu a nenahrazují klinickou diagnostiku. Analýzy jsou určeny pouze pro profesionální uživatele."
+        },
+        {
+          "title": "Právní rámec",
+          "text": "Tento panel nevyhodnocuje genotypy; měří epigenetické markery. Pokud analýza v portfoliu zahrnuje genetické testování, je před odběrem vzorku vyžadována informace a písemný souhlas a může být provedena pouze pod lékařskou odpovědností (německý zákon o genetické diagnostice – GenDG). Laboratorní analýzu provádí náš partnerský subjekt. Polaris Diagnostics Europe GmbH je odpovědná za distribuci a podporu. Doporučujeme individuálně konzultovat doplňky stravy s kvalifikovaným odborníkem."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stav k: srpen 2026",
+      "id": "kontakt"
+    }
+  ]
+}

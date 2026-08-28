@@ -51,7 +51,7 @@ const NotFoundPage = () => {
             </h1>
 
             {/* Description */}
-            <p className="mx-auto mt-5 max-w-lg text-lg leading-relaxed text-white/80">
+            <p className="mx-auto mt-5 max-w-lg t-lead-on-dark">
               {t(
                 'notFound.description',
                 'Die von Ihnen gesuchte Seite wurde möglicherweise verschoben, gelöscht oder existiert nicht mehr.',

@@ -21,7 +21,19 @@
     "badge_new": "New",
     "epigenetics_desc": "Six analyses from one drop of blood",
     "musterbefunde": "Sample reports",
-    "musterbefunde_desc": "Six example reports to read"
+    "musterbefunde_desc": "Six example reports to read",
+    "cta_quote": "Request a quote",
+    "iglooPro": "IglooPro",
+    "praeventionsChecks": "Preventive Health Checks",
+    "infektionEntzuendung": "Infection & Inflammation Markers",
+    "stoffwechselHerz": "Metabolism & Heart Health",
+    "hormonTests": "Hormone & Endocrinology Tests",
+    "kompatibilitaetIntegration": "Cross-Manufacturer Compatibility",
+    "group_fields": "Practice areas",
+    "group_analysis": "Analysis areas",
+    "group_system": "System & integration",
+    "diagnostics_all": "All diagnostics services",
+    "group_crosslink": "Also relevant"
   },
   "badge": {
     "New": "New",
@@ -61,7 +73,17 @@
     "testimonials": "Testimonials",
     "faq": "FAQ",
     "appointment": "Book Appointment",
-    "product_note": "IglooPro is a product of DX365 GmbH"
+    "product_note": "IglooPro is a product of DX365 GmbH",
+    "col_company": "Company",
+    "col_product": "Product & knowledge",
+    "col_consumer": "For consumers",
+    "locations": "Locations",
+    "legal": "Legal",
+    "nav_label": "Footer navigation",
+    "epi_basics": "Basics",
+    "epi_evidence": "Evidence",
+    "epi_docs": "Documents",
+    "epi_samples": "Sample reports"
   },
   "read_more": "Read More",
   "search": {
@@ -78,6 +100,109 @@
       "beauty": "Dermatological Analysis",
       "longevity": "Health and Longevity",
       "sports": "Performance Diagnostics for Athletes"
+    },
+    "resultTypes": {
+      "page": "Page",
+      "service": "Service",
+      "article": "Article",
+      "epigenetics": "Epigenetics",
+      "befund": "Sample report",
+      "resource": "Resource",
+      "event": "Event",
+      "consumer": "Consumer product"
+    },
+    "modal": {
+      "title": "Search the website",
+      "label": "Search term",
+      "placeholder": "What are you looking for?",
+      "close": "Close search",
+      "escapeHint": "Press Escape to close",
+      "initialTitle": "What would you like to find?",
+      "initialDescription": "Search pages, diagnostics, articles and resources.",
+      "loading": "Loading search results",
+      "emptyTitle": "No results",
+      "emptyDescription": "No matching content was found for “{{query}}”. Check the spelling or use a broader term.",
+      "errorTitle": "Search unavailable",
+      "errorDescription": "The search could not be completed. Please try again.",
+      "results_zero": "No results",
+      "results_one": "{{count}} result",
+      "results_other": "{{count}} results",
+      "groups": {
+        "page": "Pages",
+        "service": "Diagnostics",
+        "article": "Articles",
+        "epigenetics": "Epigenetics",
+        "befund": "Sample reports",
+        "resource": "Resources",
+        "event": "Events",
+        "consumer": "Consumer products"
+      }
+    },
+    "index": {
+      "epigenetics": {
+        "title": "Epigenetic and genetic analyses",
+        "description": "Six analyses from one drop of capillary blood for use in clinical practice."
+      },
+      "epigenetics-grundlagen": {
+        "title": "Epigenetics fundamentals",
+        "description": "Learn what the analyses measure and how to interpret their results."
+      },
+      "epigenetics-studienlage": {
+        "title": "Evidence for epigenetics",
+        "description": "An overview of scientific evidence, limitations and responsible use."
+      },
+      "epigenetics-unterlagen": {
+        "title": "Epigenetics resources",
+        "description": "Download information sheets and documents for the six analyses."
+      },
+      "befund-metabolic-health": {
+        "title": "Sample report Metabolic Health",
+        "description": "Sample report with example data and clear explanations. Metabolic Health."
+      },
+      "befund-healthy-aging": {
+        "title": "Sample report Healthy Aging",
+        "description": "Sample report with example data and clear explanations. Healthy Aging."
+      },
+      "befund-biologische-altersuhr": {
+        "title": "Sample report Biologische Altersuhr",
+        "description": "Sample report with example data and clear explanations. Biologische Altersuhr."
+      },
+      "befund-telomer-analyse": {
+        "title": "Sample report Telomer-Analyse",
+        "description": "Sample report with example data and clear explanations. Telomer-Analyse."
+      },
+      "befund-stress-monitor": {
+        "title": "Sample report Stress Monitor",
+        "description": "Sample report with example data and clear explanations. Stress Monitor."
+      },
+      "befund-healthy-sport": {
+        "title": "Sample report Healthy Sport",
+        "description": "Sample report with example data and clear explanations. Healthy Sport."
+      },
+      "article-green_practice": {
+        "title": "The 'Green Practice': Why Sustainability Starts in the Waiting Room",
+        "description": "Sustainability in healthcare doesn't start with solar panels, but with diagnostic logistics. A plea for Point-of-Care."
+      },
+      "article-invisible_patient": {
+        "title": "The Invisible Patient: How Remote Monitoring Frees Medicine from the Practice",
+        "description": "The patient no longer has to come to the doctor for the diagnosis to be made. How IGLO-PRO and DX365 enable the 'Hospital-at-Home'."
+      },
+      "article-five_minute_diagnosis": {
+        "title": "The 5-Minute Diagnosis: Why Point-of-Care is a Gamechanger Economically Too",
+        "description": "Time is money – especially in practice. An economic analysis of why the IGLO-PRO is more profitable than the central lab."
+      },
+      "article-ecosystem_of_rapid_tests": {
+        "title": "The Ecosystem of Rapid Tests: Why Compatibility Creates Safety",
+        "description": "From CRP to TSH: Mastering the complexity of compatible Lateral Flow Tests."
+      },
+      "article-rapid_setup_formula": {
+        "title": "The Performance Formula: Efficiency in POC Diagnostics",
+        "description": "Efficiency over onboarding: the path to rapid operational readiness in the practice."
+      },
+      "article-precision_point_of_care": {
+        "title": "Precision in Point-of-Care: The Key to Patient Safety",
+        "description": "Why the validation of Lateral Flow Tests (LFT) goes beyond manufacturer specifications."
+      }
     }
   },
   "cookie": {
@@ -130,7 +255,11 @@
   "a11y": {
     "search": "Open search",
     "toggle_nav": "Toggle navigation",
-    "honeypot": "Leave this field blank"
+    "honeypot": "Leave this field blank",
+    "select_language": "Select language",
+    "main_nav": "Main navigation",
+    "toggle_submenu": "{{name}} — submenu",
+    "skip_to_content": "Skip to content"
   },
   "languageFallback": {
     "notice": "This page is currently available in English only."

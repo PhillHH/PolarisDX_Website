@@ -21,7 +21,19 @@
     "badge_new": "Novinka",
     "epigenetics_desc": "Šest analýz z jedné kapky krve",
     "musterbefunde": "Vzorové nálezy",
-    "musterbefunde_desc": "Šest vzorových nálezů ke čtení"
+    "musterbefunde_desc": "Šest vzorových nálezů ke čtení",
+    "cta_quote": "Vyžádat nabídku",
+    "iglooPro": "IglooPro",
+    "praeventionsChecks": "Preventivní zdravotní prohlídky",
+    "infektionEntzuendung": "Markery infekce a zánětu",
+    "stoffwechselHerz": "Metabolismus a zdraví srdce",
+    "hormonTests": "Hormonální a endokrinologické testy",
+    "kompatibilitaetIntegration": "Kompatibilita napříč výrobci",
+    "group_fields": "Oblasti praxe",
+    "group_analysis": "Oblasti analýz",
+    "group_system": "Systém a integrace",
+    "diagnostics_all": "Všechny diagnostické služby",
+    "group_crosslink": "Také relevantní"
   },
   "badge": {
     "New": "Nové",
@@ -61,7 +73,17 @@
     "pocSystems": "POC systémy",
     "preventionChecks": "Preventivní vyšetření",
     "hormonTests": "Hormonální testy",
-    "product_note": "IglooPro je produkt společnosti DX365 GmbH"
+    "product_note": "IglooPro je produkt společnosti DX365 GmbH",
+    "col_company": "Společnost",
+    "col_product": "Produkt a znalosti",
+    "col_consumer": "Pro spotřebitele",
+    "locations": "Pobočky",
+    "legal": "Právní informace",
+    "nav_label": "Navigace v zápatí",
+    "epi_basics": "Základy",
+    "epi_evidence": "Studie",
+    "epi_docs": "Dokumenty",
+    "epi_samples": "Vzorové zprávy"
   },
   "read_more": "Číst více",
   "cookie": {
@@ -104,6 +126,111 @@
       "beauty": "Dermatologické Analýzy",
       "longevity": "Zdraví a Dlouhověkost",
       "sports": "Výkonnostní Diagnostika pro Sportovce"
+    },
+    "resultTypes": {
+      "page": "Stránka",
+      "service": "Služba",
+      "article": "Článek",
+      "epigenetics": "Epigenetika",
+      "befund": "Vzorová zpráva",
+      "resource": "Zdroj",
+      "event": "Událost",
+      "consumer": "Spotřebitelský produkt"
+    },
+    "modal": {
+      "title": "Prohledat web",
+      "label": "Hledaný výraz",
+      "placeholder": "Co hledáte?",
+      "close": "Zavřít vyhledávání",
+      "escapeHint": "Stisknutím klávesy Escape zavřete",
+      "initialTitle": "Co chcete najít?",
+      "initialDescription": "Vyhledávejte stránky, diagnostiku, články a zdroje.",
+      "loading": "Načítání výsledků vyhledávání",
+      "emptyTitle": "Žádné výsledky",
+      "emptyDescription": "Pro výraz „{{query}}“ nebyl nalezen odpovídající obsah. Zkontrolujte pravopis nebo použijte obecnější výraz.",
+      "errorTitle": "Vyhledávání není k dispozici",
+      "errorDescription": "Vyhledávání se nepodařilo dokončit. Zkuste to znovu.",
+      "results_zero": "Žádné výsledky",
+      "results_one": "{{count}} výsledek",
+      "results_few": "{{count}} výsledky",
+      "results_many": "{{count}} výsledků",
+      "results_other": "{{count}} výsledku",
+      "groups": {
+        "page": "Stránky",
+        "service": "Diagnostika",
+        "article": "Články",
+        "epigenetics": "Epigenetika",
+        "befund": "Vzorové zprávy",
+        "resource": "Zdroje",
+        "event": "Události",
+        "consumer": "Spotřebitelské produkty"
+      }
+    },
+    "index": {
+      "epigenetics": {
+        "title": "Epigenetické a genetické analýzy",
+        "description": "Šest analýz z jedné kapky kapilární krve pro použití v praxi."
+      },
+      "epigenetics-grundlagen": {
+        "title": "Základy epigenetiky",
+        "description": "Zjistěte, co analýzy měří a jak interpretovat jejich výsledky."
+      },
+      "epigenetics-studienlage": {
+        "title": "Důkazy v epigenetice",
+        "description": "Přehled vědeckých důkazů, omezení a odpovědného použití."
+      },
+      "epigenetics-unterlagen": {
+        "title": "Materiály k epigenetice",
+        "description": "Stáhněte si informační listy a dokumenty k šesti analýzám."
+      },
+      "befund-metabolic-health": {
+        "title": "Vzorová zpráva Metabolic Health",
+        "description": "Vzorová zpráva s ukázkovými daty a srozumitelným vysvětlením. Metabolic Health."
+      },
+      "befund-healthy-aging": {
+        "title": "Vzorová zpráva Healthy Aging",
+        "description": "Vzorová zpráva s ukázkovými daty a srozumitelným vysvětlením. Healthy Aging."
+      },
+      "befund-biologische-altersuhr": {
+        "title": "Vzorová zpráva Biologische Altersuhr",
+        "description": "Vzorová zpráva s ukázkovými daty a srozumitelným vysvětlením. Biologische Altersuhr."
+      },
+      "befund-telomer-analyse": {
+        "title": "Vzorová zpráva Telomer-Analyse",
+        "description": "Vzorová zpráva s ukázkovými daty a srozumitelným vysvětlením. Telomer-Analyse."
+      },
+      "befund-stress-monitor": {
+        "title": "Vzorová zpráva Stress Monitor",
+        "description": "Vzorová zpráva s ukázkovými daty a srozumitelným vysvětlením. Stress Monitor."
+      },
+      "befund-healthy-sport": {
+        "title": "Vzorová zpráva Healthy Sport",
+        "description": "Vzorová zpráva s ukázkovými daty a srozumitelným vysvětlením. Healthy Sport."
+      },
+      "article-green_practice": {
+        "title": "„Zelená praxe“: Proč cesta k udržitelnosti začíná v čekárně",
+        "description": "Udržitelnost ve zdravotnictví nezačíná solárními panely, ale logistikou diagnostiky. Obhajoba Point-of-Care."
+      },
+      "article-invisible_patient": {
+        "title": "Neviditelný pacient: Jak dálkové monitorování osvobozuje medicínu z ordinace",
+        "description": "Pacient už nemusí chodit k lékaři, aby byla stanovena diagnóza. Jak IGLO-PRO a DX365 umožňují „nemocnici doma“."
+      },
+      "article-five_minute_diagnosis": {
+        "title": "5minutová diagnóza: Proč je Point-of-Care nejen medicínsky, ale i ekonomicky gamechanger",
+        "description": "Čas jsou peníze – zejména v ordinaci. Ekonomická analýza, proč je IGLO-PRO ziskovější než centrální laboratoř."
+      },
+      "article-ecosystem_of_rapid_tests": {
+        "title": "Ekosystém rychlotestů: Proč kompatibilita vytváří bezpečnost",
+        "description": "Od CRP po TSH: Zvládnutí složitosti kompatibilních testů Lateral Flow."
+      },
+      "article-rapid_setup_formula": {
+        "title": "Formule výkonu: efektivita v POC diagnostice",
+        "description": "Efektivita místo zdlouhavého zaškolování: cesta k rychlé provozní připravenosti v ordinaci."
+      },
+      "article-precision_point_of_care": {
+        "title": "Přesnost v Point-of-Care: Klíč k bezpečnosti pacientů",
+        "description": "Proč validace testů Lateral Flow (LFT) přesahuje údaje výrobce."
+      }
     }
   },
   "notFound": {
@@ -130,7 +257,11 @@
   "a11y": {
     "search": "Otevřít vyhledávání",
     "toggle_nav": "Přepnout navigaci",
-    "honeypot": "Toto pole prosím nechte prázdné"
+    "honeypot": "Toto pole prosím nechte prázdné",
+    "select_language": "Vybrat jazyk",
+    "main_nav": "Hlavní navigace",
+    "toggle_submenu": "{{name}} — podnabídka",
+    "skip_to_content": "Přejít k obsahu"
   },
   "languageFallback": {
     "notice": "Tato stránka je zatím k dispozici pouze v angličtině."

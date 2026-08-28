@@ -2,14 +2,24 @@ pre-commit:
   parallel: true
   commands:
     format:
-      glob: "*.{ts,tsx,js,jsx,json,md,css}"
+      glob: '*.{ts,tsx,js,jsx,json,md,css}'
       run: npx prettier --write {staged_files}
       stage_fixed: true
     lint:
-      glob: "*.{ts,tsx}"
+      glob: '*.{ts,tsx}'
       run: npx eslint --fix {staged_files}
       stage_fixed: true
     typecheck:
       run: npx tsc -b --noEmit
     colors:
       run: node scripts/check-color-tokens.mjs
+    design-system-changelog:
+      run: node scripts/check-design-system-changelog.mjs
+    shell-i18n:
+      run: node scripts/check-shell-i18n.mjs
+    nav-targets:
+      run: node scripts/check-nav-targets.mjs
+    search-index:
+      run: npm run check:search-index
+    internal-findability:
+      run: npm run check:internal-findability

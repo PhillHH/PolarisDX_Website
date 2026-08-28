@@ -1,0 +1,578 @@
+{
+  "slug": "stress-monitor",
+  "panel": "Stress Monitor",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Voorbeeldrapport · Voorbeeldgegevens",
+      "panel": "Stress Monitor",
+      "subtitle": "Uw stressregulatie",
+      "claim": "Wat gemeten wordt is niet stress zelf, maar hoe goed uw lichaam dit reguleert. Zes microRNA’s uit een enkele druppel capillair bloed geven inzicht in de cellulaire controle van uw stressrespons.",
+      "meta": [
+        {
+          "k": "Rapport voor",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Monsterafname",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Materiaal",
+          "v": "Gedroogde bloedvlekkaart"
+        },
+        {
+          "k": "Reikwijdte",
+          "v": "6 microRNA’s"
+        }
+      ],
+      "id": "deckblatt",
+      "benefit": "Hoe het lichaam van uw cliënt met stress omgaat — en wat zij kunnen veranderen."
+    },
+    {
+      "type": "principle",
+      "caption": "Het principe",
+      "title": "Uw stressregulatie. Niet uw stressniveau.",
+      "lead": "Stress is geen enkele grootheid maar een netwerk van neuro-endocriene, immunologische en metabole processen — onder andere geregeld via de HPA-as, inflammatoire signaalroutes en mitochondriale aanpassingen. Zes microRNA’s worden geanalyseerd: kleine, niet-coderende RNA-moleculen die mede bepalen welke genen onder stresscondities daadwerkelijk worden afgelezen.",
+      "cards": [
+        {
+          "title": "Acute & chronische stress",
+          "text": "Hoe uw stressrespons momenteel verloopt en of er een blijvende belasting ontstaat."
+        },
+        {
+          "title": "Cellulaire regulatie",
+          "text": "Hoe goed uw lichaam stresssignalen op cellulair niveau in balans houdt."
+        },
+        {
+          "title": "Langetermijnregulatie",
+          "text": "Hoe de regulatie op lange termijn uitpakt — een goed huidig stressniveau zegt daar op zichzelf niets over."
+        }
+      ],
+      "flowTitle": "Het proces",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Meting",
+          "text": "Dried blood spot-kaart, vingertop. Zes microRNA’s, genormaliseerd naar het referentiegen miR-24-3p. Nuchter zijn is niet vereist."
+        },
+        {
+          "num": "02",
+          "title": "Evalueren",
+          "text": "Twee evaluaties op het stoplicht 1–9: fysiologisch stressniveau en langetermijnregulatie."
+        },
+        {
+          "num": "03",
+          "title": "Reguleren",
+          "text": "Gerichte aanbevelingen over plantaardige bioactieve stoffen en opvolging in de tijd."
+        }
+      ],
+      "scaleTitle": "Hoe lees ik de schaal?",
+      "scaleLead": "Beide evaluaties en alle zes individuele markers lopen op het stoplicht 1–9. Hoger is altijd beter: 1–3 rood, 4–6 oranje, 7–9 groen. Elk van de twee evaluaties draagt daarnaast een eigen zone-aanduiding.",
+      "scaleKind": "traffic",
+      "scaleTicks": ["1", "3", "5", "7", "9"],
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "1–3 · Rood",
+          "text": "Hoogste prioriteit."
+        },
+        {
+          "tone": "amber",
+          "label": "4–6 · Oranje",
+          "text": "Neem gerichte tegenmaatregelen."
+        },
+        {
+          "tone": "green",
+          "label": "7–9 · Groen",
+          "text": "Behoud het resultaat."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Belangrijk",
+      "text": "Dit rapport is geen diagnose en vervangt geen medisch of psychotherapeutisch advies. Bij aanhoudende belasting, uitputting of slaapproblemen wordt medisch advies aanbevolen.",
+      "items": [
+        "De zes microRNA-waarden geven een momentopname weer en kunnen worden beïnvloed door de leefstijl — wat ze geschikt maakt voor monitoring in de tijd."
+      ],
+      "tone": "neutral",
+      "id": "hinweis"
+    },
+    {
+      "type": "markers",
+      "caption": "Resultaten in één oogopslag",
+      "title": "Uw twee evaluaties.",
+      "items": [
+        {
+          "name": "Fysiologisch stressniveau",
+          "category": "Acute en chronische belasting",
+          "kind": "stoplicht",
+          "value": 7,
+          "display": "7 / 9",
+          "sub": "Voordelig",
+          "tone": "green",
+          "text": "Uw lichaam gaat goed om met de huidige stress.",
+          "zoneLabels": ["chronische stress", "acute stress", "geen stress"]
+        },
+        {
+          "name": "Langetermijnregulatie",
+          "category": "Vier microRNA's van vier regulatieniveaus",
+          "kind": "stoplicht",
+          "value": 4,
+          "display": "4 / 9",
+          "sub": "Beperkt",
+          "tone": "amber",
+          "text": "Beperkte regulatie op het langzamere niveau.",
+          "zoneLabels": ["zwakke regulatie", "matige regulatie", "stabiele regulatie"]
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "resultTable",
+      "caption": "De zes individuele markers",
+      "title": "Alle microRNA's in één oogopslag.",
+      "cols": ["microRNA", "Benaming", "Regulatieniveau", "Waarde", "Beïnvloedt"],
+      "rows": [
+        {
+          "cells": [
+            "miR-21-5p",
+            "Indicator voor celbescherming",
+            "Cellulaire beschermings- en adaptatiemechanismen",
+            "8 / 9",
+            "Langetermijnregulatie"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "let-7a-5p",
+            "Indicator voor acute stress",
+            "Basale inflammatoire regulatie",
+            "7 / 9",
+            "Stressniveau"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "miR-16-5p",
+            "Indicator voor serotonine-regulatie",
+            "Serotonerge regulatie",
+            "6 / 9",
+            "Langetermijnregulatie"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "miR-15a-5p",
+            "Neuronale indicator",
+            "Neuronale stabiliteit en adaptatie",
+            "5 / 9",
+            "Langetermijnregulatie"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "let-7g-5p",
+            "Indicator voor chronische stress",
+            "Inflammatoire en metabole regulatie",
+            "4 / 9",
+            "Stressniveau"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "miR-106b-5p",
+            "Indicator voor activering van immuunsignalen",
+            "Immunologische activatie",
+            "3 / 9",
+            "Langetermijnregulatie"
+          ],
+          "tone": "red"
+        }
+      ],
+      "note": "De twee evaluaties worden door het laboratorium berekend op basis van de eraan toegewezen microRNA's; het zijn niet de gemiddelden van deze individuele waarden.",
+      "id": "ergebnis"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Evaluatie 01",
+      "title": "Fysiologisch stressniveau.",
+      "lead": "Bestaat uit de acute en de chronische stressindicator (let-7a-5p, let-7g-5p).",
+      "display": "7 / 9",
+      "sub": "Voordelig",
+      "kind": "stoplicht",
+      "value": 7,
+      "tone": "green",
+      "zoneLabels": ["chronische stress", "acute stress", "geen stress"],
+      "text": "De evaluatie toont waar uw huidige stressrespons zich bevindt tussen ‘geen stress’ en ‘chronische stress’. Uw waarde ligt in het gunstige bereik — uw lichaam gaat goed om met de huidige stress. De beoordeling wordt altijd gemaakt in de context van de andere markers.",
+      "id": "ergebnis-2"
+    },
+    {
+      "type": "markers",
+      "caption": "Evaluatie 01",
+      "title": "De twee individuele indicatoren.",
+      "items": [
+        {
+          "name": "let-7a-5p",
+          "category": "Indicator voor acute stress",
+          "kind": "stoplicht",
+          "value": 7,
+          "display": "7 / 9",
+          "tone": "green",
+          "text": "Lid van de let-7-familie; reguleert inflammatoire signaalroutes en is betrokken bij stress- en immuunprocessen. De gunstigere van de twee waarden."
+        },
+        {
+          "name": "let-7g-5p",
+          "category": "Indicator voor chronische stress",
+          "kind": "stoplicht",
+          "value": 4,
+          "display": "4 / 9",
+          "tone": "amber",
+          "text": "Reguleert inflammatoire en metabole processen die de systemische homeostase beïnvloeden. Aanzienlijk zwakker dan de acute indicator."
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "callout",
+      "title": "Wat hier telt",
+      "text": "De twee individuele indicatoren wijken sterk af: acuut 7/9, chronisch 4/9. De acute stressrespons functioneert; het chronische niveau is de zwakkere van de twee.",
+      "items": [
+        "Vier van de elf aanbevelingen — quercetine, EGCG, oleuropeïne en resveratrol — richten zich precies op de chronische indicator let-7g-5p."
+      ],
+      "tone": "accent",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "table",
+      "caption": "Aanbevelingen",
+      "title": "Stoffen voor evaluatie 01.",
+      "cols": ["Stof", "Van marker", "Bron", "Hoeveelheid", "Opmerking"],
+      "rows": [
+        [
+          "Butyraat",
+          "let-7a-5p · 7",
+          "Pectine (appel, rozenbottel), inuline (cichorei, artisjok)",
+          "minimaal 30 g/dag",
+          "Vormt zich tijdens de fermentatie van prebiotische vezels in de darm"
+        ],
+        [
+          "Quercetine",
+          "let-7g-5p · 4",
+          "Ui, kappertjes, lavas, bieslook",
+          "minimaal 200 mg/dag",
+          "Hittestabiel — rauw eten of voorzichtig bereiden"
+        ],
+        [
+          "EGCG",
+          "let-7g-5p · 4",
+          "Witte of groene thee (onvergist)",
+          "max. 800 mg/dag",
+          "Piperine, vitamine C en visolie verbeteren de biologische beschikbaarheid"
+        ],
+        [
+          "Oleuropeïne",
+          "let-7g-5p · 4",
+          "Olijven, olijfblad, arganolie",
+          "100 mg/dag",
+          "Bladeren zijn 3.000 keer geconcentreerder, maar zeer bitter"
+        ]
+      ],
+      "id": "uebersicht"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Evaluatie 02",
+      "title": "Langdurige regulatie.",
+      "lead": "Berekend uit vier microRNA's: miR-16-5p, miR-15a-5p, miR-106b-5p en miR-21-5p.",
+      "display": "4 / 9",
+      "sub": "Beperkt",
+      "kind": "stoplicht",
+      "value": 4,
+      "tone": "amber",
+      "zoneLabels": ["zwakke regulatie", "matige regulatie", "stabiele regulatie"],
+      "text": "Op acuut niveau toont de evaluatie geen stressgerelateerde overbelasting. Het langzamere regulatieniveau bevindt zich daarentegen op 4/9 in het oranje bereik — dit is het focuspunt van dit rapport en het startpunt voor het gesprek.",
+      "id": "ergebnis-3"
+    },
+    {
+      "type": "markers",
+      "caption": "Evaluatie 02",
+      "title": "De vier microRNA's.",
+      "items": [
+        {
+          "name": "miR-106b-5p",
+          "category": "Immuunsignaal",
+          "kind": "stoplicht",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red",
+          "text": "Reguleert immuunreacties en ontstekingssignaleringsroutes. De enige rode individuele waarde in dit rapport; vier van de elf aanbevelingen richten zich hierop."
+        },
+        {
+          "name": "miR-15a-5p",
+          "category": "Neuronaal",
+          "kind": "stoplicht",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber",
+          "text": "Reguleert neuronale processen, apoptose en de celcyclus; beïnvloedt neuronale homeostase."
+        },
+        {
+          "name": "miR-16-5p",
+          "category": "Serotonerg",
+          "kind": "stoplicht",
+          "value": 6,
+          "display": "6 / 9",
+          "tone": "amber",
+          "text": "Reguleert serotonerge signaalroutes en de serotonine-transporter; betrokken bij neuronale plasticiteit."
+        },
+        {
+          "name": "miR-21-5p",
+          "category": "Celbescherming",
+          "kind": "stoplicht",
+          "value": 8,
+          "display": "8 / 9",
+          "tone": "green",
+          "text": "Reguleert celoverleving en apoptose; betrokken bij stress- en herstelprocessen. De beste individuele waarde in het gehele rapport."
+        }
+      ],
+      "id": "marker-3"
+    },
+    {
+      "type": "table",
+      "caption": "Aanbevelingen",
+      "title": "Stoffen voor evaluatie 02.",
+      "cols": ["Stof", "Van marker", "Bron", "Hoeveelheid", "Opmerking"],
+      "rows": [
+        [
+          "Resveratrol",
+          "miR-106b-5p · 3",
+          "Druivenhuid, frambozen, veenbessen, aardbeien",
+          "150 mg/dag",
+          "Moeilijk alleen via voeding te bereiken"
+        ],
+        [
+          "Omega-3 (PUFA’s)",
+          "miR-106b-5p · 3",
+          "Vette vis, walnoten, algen, raapzaad- en lijnzaadolie",
+          "250–500 mg/dag",
+          "Houd omega-3 en omega-6 in balans"
+        ],
+        [
+          "Berberine",
+          "miR-106b-5p · 3",
+          "Berberiswortelschors, sinaaswortel",
+          "alleen na professioneel overleg",
+          "Bekend als thee uit de Ayurvedische geneeskunde"
+        ],
+        [
+          "Folaat",
+          "miR-16-5p · 6",
+          "Groene bladgroenten, spinazie, boerenkool, broccoli",
+          "300 µg/dag",
+          "Roken vermindert opname"
+        ]
+      ],
+      "id": "uebersicht-2"
+    },
+    {
+      "type": "table",
+      "caption": "Alle aanbevelingen in één overzicht",
+      "title": "Uw interventies.",
+      "lead": "Elf stoffen, elk toegewezen aan de microRNA-marker waarop ze inwerken, samen met de huidige waarde van die marker. Gesorteerd op urgentie — de zwakste markers eerst.",
+      "cols": ["Stof", "Van marker", "Bron", "Hoeveelheid", "Opmerking"],
+      "rows": [
+        [
+          "Resveratrol",
+          "miR-106b-5p · 3, let-7g-5p · 4, miR-15a-5p · 5",
+          "Druivenhuid, frambozen, veenbessen, aardbeien",
+          "150 mg/dag",
+          "Moeilijk in deze hoeveelheid alleen via voeding te bereiken"
+        ],
+        [
+          "Berberine",
+          "miR-106b-5p · 3",
+          "Berberiswortelschors, sinaaswortel",
+          "alleen na professioneel overleg",
+          "Bekend als thee uit de Ayurvedische geneeskunde"
+        ],
+        [
+          "Butyraat",
+          "miR-106b-5p · 3, let-7a-5p · 7, miR-21-5p · 8",
+          "Pectine (appel, rozenbottel), inuline (cichorei, artisjok)",
+          "minimaal 30 g/dag",
+          "Vormt zich tijdens de fermentatie van prebiotische vezels in de darm"
+        ],
+        [
+          "Omega-3 (PUFA’s)",
+          "miR-106b-5p · 3, miR-21-5p · 8",
+          "Vette vis, walnoten, algen, raapzaad- en lijnzaadolie",
+          "250–500 mg/dag",
+          "Houd omega-3 en omega-6 in balans"
+        ],
+        [
+          "Quercetine",
+          "let-7g-5p · 4",
+          "Ui, kappertjes, lavas, bieslook",
+          "minimaal 200 mg/dag",
+          "Hittestabiel — rauw eten of voorzichtig bereiden"
+        ],
+        [
+          "Oleuropeïne",
+          "let-7g-5p · 4",
+          "Olijven, olijfblad, arganolie",
+          "100 mg/dag",
+          "Bladeren zijn 3.000 keer geconcentreerder, maar zeer bitter"
+        ],
+        [
+          "EGCG (groene thee)",
+          "let-7g-5p · 4, miR-15a-5p · 5",
+          "Witte of groene thee (onvergist)",
+          "max. 800 mg/dag",
+          "Piperine, vitamine C en visolie verbeteren de biologische beschikbaarheid"
+        ],
+        [
+          "Folaat",
+          "miR-16-5p · 6",
+          "Groene bladgroenten, spinazie, boerenkool, broccoli",
+          "300 µg/dag",
+          "Roken vermindert opname"
+        ],
+        [
+          "Curcumine",
+          "miR-21-5p · 8",
+          "Kurkuma",
+          "max. 300 mg/dag",
+          "Overleg met arts bij zwangerschap of galstenen"
+        ],
+        [
+          "Gingerol",
+          "miR-21-5p · 8",
+          "Gemberwortel",
+          "max. 5 g/dag",
+          "Tijdens zwangerschap alleen na overleg"
+        ],
+        [
+          "Sulforafaan",
+          "miR-21-5p · 8",
+          "Kruisbloemige groenten, kool, broccoli (kiemen)",
+          "25 mg/dag",
+          "Bij voorkeur rauw of kort gestoomd"
+        ]
+      ],
+      "note": "Beoordeel voedingssupplementen individueel en in overleg met een gekwalificeerde professional — vooral bij zwangerschap, bestaande aandoeningen of gelijktijdig gebruik van medicatie. Dit overzicht vervangt geen medisch advies.",
+      "id": "uebersicht-3"
+    },
+    {
+      "type": "trend",
+      "caption": "Trend",
+      "title": "Twee metingen vergeleken.",
+      "lead": "Een vergelijking van uw twee metingen tot nu toe. Alleen gemeten waarden worden getoond — geen prognose.",
+      "firstLabel": "15.03.2026",
+      "secondLabel": "15.06.2026",
+      "kind": "stoplicht",
+      "items": [
+        {
+          "label": "Fysiologisch stressniveau",
+          "first": 6,
+          "second": 7,
+          "firstDisplay": "6 / 9",
+          "secondDisplay": "7 / 9",
+          "delta": "+1",
+          "status": "Voordelig",
+          "tone": "green"
+        },
+        {
+          "label": "Langetermijnregulatie",
+          "first": 5,
+          "second": 4,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "4 / 9",
+          "delta": "−1",
+          "status": "Beperkt",
+          "tone": "amber"
+        }
+      ],
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "Wat de trend laat zien",
+      "text": "De twee evaluaties bewegen in tegengestelde richtingen: het huidige stressniveau is verbeterd van 6 naar 7 en bevindt zich nu in het groene bereik. De waarde voor langetermijnregulatie is in dezelfde periode gedaald van 5 naar 4 — en omdat hier ook een hogere waarde een stabielere regulatie betekent, is dit een verslechtering.",
+      "items": [
+        "Dit is de echte bevinding van deze meting: acute belasting wordt beter opgevangen, terwijl het langetermijnregulatieniveau is verslechterd. Een goed stressniveau alleen zegt niets over het langetermijnniveau.",
+        "De twee metingen lagen ongeveer drie maanden uit elkaar. Het interval tot de volgende vervolgmeting wordt vastgesteld door de begeleidende instelling."
+      ],
+      "tone": "accent",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "summary",
+      "caption": "Samenvatting",
+      "title": "Uw focus: het lange termijnperspectief.",
+      "lead": "Uw huidige stressniveau is goed — en juist daar zet dit rapport een kanttekening bij: het niveau dat is verslechterd, is het niveau dat u niet kunt voelen.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "miR-106b-5p — de enige rode individuele waarde",
+          "text": "Met 3/9 is de indicator voor immuunsignaalactivatie de zwakste waarde in het rapport en draagt bij aan de langetermijnregulatie. Vier van de elf aanbevelingen richten zich hierop: resveratrol, berberine, butyraat en omega-3. Concreet: minimaal 30 g vezels per dag voor butyraatvorming in de darm, 250–500 mg omega-3 uit vette vis, walnoten of algenolie, plus bessen voor resveratrol."
+        },
+        {
+          "num": "02",
+          "title": "let-7g-5p — het chronische niveau",
+          "text": "Met 4/9 ligt de indicator voor chronische stress duidelijk lager dan de acute (7/9) — hoewel de evaluatie als geheel in het groene bereik is. Het rapport toont niet welke van de twee indicatoren de verbetering van 6 naar 7 heeft veroorzaakt. Quercetine, EGCG, oleuropeïne en resveratrol werken op het chronische niveau. De gebruiksaanwijzingen verschillen per stof — details in de tabel “Uw interventies”."
+        }
+      ],
+      "keepTitle": "Behouden",
+      "keepText": "miR-21-5p (8/9) en let-7a-5p (7/9) zijn de twee sterkste waarden — cellulaire beschermingsmechanismen en de acute stressrespons functioneren goed. Kurkuma, gingerol en sulforafaan dienen hier ter instandhouding, niet ter correctie.",
+      "controlTitle": "Vervolg en volgende stap",
+      "controlItems": [
+        "Uw twee metingen tot nu toe lagen ongeveer drie maanden uit elkaar. Het interval tot de volgende vervolgmeting wordt vastgesteld door de begeleidende instelling.",
+        "Voor vergelijkbaarheid dienen monstername en tijdstip van de dag vergelijkbaar te blijven.",
+        "Bij aanhoudende vermoeidheid, slaapproblemen of somberheid vervangt dit rapport geen medische beoordeling."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Vragen over uw rapport?",
+      "text": "Bespreek de resultaten met de instelling die de monstername heeft uitgevoerd. Daar is de context aanwezig die nodig is voor interpretatie.",
+      "columns": [
+        {
+          "k": "Contact",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distributie",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Voorbeeldrapport",
+          "text": "Alle waarden en persoonsgegevens in dit document zijn fictief en dienen uitsluitend ter illustratie van het rapportformaat. Dit is geen echt rapport."
+        },
+        {
+          "title": "Interpretatie",
+          "text": "Dit rapport is geen diagnose en vervangt geen medisch of psychotherapeutisch advies. De microRNA-waarden beschrijven een momentopname van cellulaire regulatie; ze zijn geen meting van ervaren stress en doen geen uitspraak over de aanwezigheid of ontwikkeling van een ziekte. Als spanning, uitputting, slaapproblemen of somberheid aanhouden, raadpleeg dan een arts."
+        },
+        {
+          "title": "Status van de analyses",
+          "text": "De analyses zijn laboratoriumdiensten die door onze samenwerkingspartner worden geleverd en zijn geen CE-gemarkeerde in-vitro diagnostische hulpmiddelen. Ze dienen ter consultatie en monitoring en vervangen geen klinische diagnostiek. De analyses worden uitsluitend aan professionele gebruikers geleverd."
+        },
+        {
+          "title": "Juridisch kader",
+          "text": "Dit panel evalueert geen genotypen; het meet epigenetische markers. Waar een analyse in het portfolio wel genetische testen omvat, zijn informatie en schriftelijke toestemming vereist vóór monsterafname, en mag dit alleen onder medische verantwoordelijkheid worden geregeld (Duitse Genetische Diagnostiekwet). De laboratoriumanalyse wordt uitgevoerd door onze samenwerkingspartner. Polaris Diagnostics Europe GmbH is verantwoordelijk voor distributie en ondersteuning. Beoordeel voedingssupplementen individueel en in overleg met een gekwalificeerde professional."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand per: augustus 2026",
+      "id": "kontakt"
+    }
+  ]
+}

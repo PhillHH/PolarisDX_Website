@@ -14,6 +14,15 @@
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
+import { DEFAULT_LANGUAGE, normalizeLanguage, type SupportedLanguage } from '../../i18n'
+import {
+  PUBLIC_SEO_ORIGIN,
+  SEO_ROUTE_SOURCE,
+  hreflangUrls,
+  publicSeoUrl,
+  resolveCanonicalUrl,
+  type SEOIndexabilityState,
+} from './seoRouteSource'
 
 // =============================================================================
 // TYPES
@@ -26,12 +35,16 @@ export interface SEOHeadProps {
   description: string
   /** Canonical URL override (auto-generated with lang prefix by default) */
   canonical?: string
+  /** Real published locale set; defaults to the complete AP08 x10 contract. */
+  alternateLocales?: readonly SupportedLanguage[]
   /** Open Graph image URL (defaults to /og-image.jpg) */
   ogImage?: string
   /** Open Graph type */
   ogType?: 'website' | 'article' | 'product'
   /** Set to true for pages that should not be indexed (e.g., legal pages) */
   noindex?: boolean
+  /** Explicit SEO state; legacy noindex/notFound props remain supported. */
+  indexability?: SEOIndexabilityState
   /**
    * Set to true when this render IS an error page (catch-all route, unknown
    * article slug). It does three things at once, because they only ever make
@@ -70,12 +83,11 @@ export interface SEOHeadProps {
 // =============================================================================
 
 const SITE_NAME = 'PolarisDX'
-const BASE_URL = 'https://polarisdx.net'
 const DEFAULT_OG_IMAGE = '/og-image.jpg'
 const DEFAULT_LOCALE = 'de_DE'
 
 // Supported languages with their locale codes
-const LOCALE_MAP: Record<string, string> = {
+const LOCALE_MAP: Record<SupportedLanguage, string> = {
   de: 'de_DE',
   en: 'en_GB',
   pl: 'pl_PL',
@@ -88,20 +100,6 @@ const LOCALE_MAP: Record<string, string> = {
   cs: 'cs_CZ',
 }
 
-// All supported language codes for hreflang generation
-const SUPPORTED_LANGUAGES = Object.keys(LOCALE_MAP)
-const DEFAULT_LANGUAGE = 'de'
-
-/**
- * Landing pages that exist in German only (mirrors GERMAN_ONLY_PATHS in
- * server.ts, which 301s every non-German prefix to /de).
- *
- * For these, hreflang must NOT advertise all ten languages and the canonical
- * must not follow the current language: exactly one URL exists, the German
- * one. Otherwise the page announces alternates that all redirect to /de.
- */
-const GERMAN_ONLY_PATHS: string[] = ['/s3_leitlinie', '/vitamin-d3-implantologie']
-
 // =============================================================================
 // COMPONENT
 // =============================================================================
@@ -110,10 +108,12 @@ export function SEOHead({
   title,
   description,
   canonical,
+  alternateLocales = SEO_ROUTE_SOURCE.locales,
   ogImage,
   ogType = 'website',
   noindex = false,
   notFound = false,
+  indexability,
   structuredData,
   article,
   product,
@@ -123,38 +123,68 @@ export function SEOHead({
   const location = useLocation()
 
   // Derived values
-  const fullTitle = `${title} | ${SITE_NAME}`
-  const currentLang = i18n.language?.split('-')[0] || 'de'
+  const cleanTitle = title.trim()
+  const cleanDescription = description.trim()
+  const translationKeyPattern = /^[a-z][\w-]*(?::[\w-]+)?(?:\.[\w-]+)+$/i
+  if (!cleanTitle || !cleanDescription) {
+    throw new Error('SEOHead requires a non-empty title and description')
+  }
+  if (translationKeyPattern.test(cleanTitle) || translationKeyPattern.test(cleanDescription)) {
+    throw new Error('SEOHead received a visible translation key')
+  }
+
+  const fullTitle = cleanTitle.endsWith(`| ${SITE_NAME}`)
+    ? cleanTitle
+    : `${cleanTitle} | ${SITE_NAME}`
+  const currentLang = normalizeLanguage(i18n.resolvedLanguage || i18n.language)
   const locale = LOCALE_MAP[currentLang] || DEFAULT_LOCALE
 
   // location.pathname returns path WITHOUT lang prefix (BrowserRouter basename strips it)
   // Build canonical with lang prefix: https://polarisdx.net/de/about
   const path = location.pathname
 
-  // German-only pages have exactly ONE URL: the German one. Canonical and
-  // hreflang point there no matter which prefix this component renders under.
-  const isGermanOnly = GERMAN_ONLY_PATHS.includes(path.replace(/\/$/, ''))
-  const urlLang = isGermanOnly ? DEFAULT_LANGUAGE : currentLang
   // An error page has no valid alternates in any language, so the list stays
   // empty for it — see the notFound prop.
-  const hreflangLanguages = notFound ? [] : isGermanOnly ? [DEFAULT_LANGUAGE] : SUPPORTED_LANGUAGES
+  const legacyState: SEOIndexabilityState = notFound
+    ? 'NOT_FOUND'
+    : noindex
+      ? 'NOINDEX_NOFOLLOW'
+      : 'INDEX_FOLLOW'
+  if (indexability && (notFound || noindex) && indexability !== legacyState) {
+    throw new Error('SEOHead received contradictory indexability props')
+  }
+  const state = indexability || legacyState
+  const isNotFound = state === 'NOT_FOUND'
+  const hasCanonical = !['NOT_FOUND', 'REDIRECT_SOURCE', 'NON_PUBLIC'].includes(state)
+  const hasAlternates = state === 'INDEX_FOLLOW'
+  const publishedLocales = [...new Set(alternateLocales)]
+  if (hasAlternates && publishedLocales.length !== alternateLocales.length) {
+    throw new Error('SEOHead alternate locales must be unique')
+  }
+  if (
+    hasAlternates &&
+    (!publishedLocales.includes(currentLang) || !publishedLocales.includes(DEFAULT_LANGUAGE))
+  ) {
+    throw new Error('SEOHead alternates must include the current locale and German x-default')
+  }
+  const canonicalUrl = hasCanonical ? resolveCanonicalUrl(canonical, currentLang, path) : undefined
 
-  const canonicalUrl = canonical ? canonical : `${BASE_URL}/${urlLang}${path === '/' ? '/' : path}`
-
-  const ogImageUrl = ogImage?.startsWith('http')
-    ? ogImage
-    : `${BASE_URL}${ogImage || DEFAULT_OG_IMAGE}`
+  const ogImageUrl = new URL(ogImage || DEFAULT_OG_IMAGE, PUBLIC_SEO_ORIGIN)
+  if (ogImageUrl.origin !== PUBLIC_SEO_ORIGIN) {
+    throw new Error(`SEO image must use ${PUBLIC_SEO_ORIGIN}`)
+  }
 
   // Robots directive.
   //
   // An error page must never be indexed, but crawlers should still follow the
   // links leading out of it (home, popular pages, article index) — hence
   // 'noindex, follow' rather than the 'noindex, nofollow' the legal pages use.
-  const robotsContent = notFound
-    ? 'noindex, follow'
-    : noindex
-      ? 'noindex, nofollow'
-      : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+  const robotsContent =
+    state === 'INDEX_FOLLOW'
+      ? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+      : state === 'NOINDEX_FOLLOW' || state === 'NOT_FOUND'
+        ? 'noindex, follow'
+        : 'noindex, nofollow'
 
   return (
     <Helmet>
@@ -168,37 +198,37 @@ export function SEOHead({
       <meta name="googlebot" content={robotsContent} />
       {/* Read by server.ts to turn a rendered error page into a real 404
           response instead of a 200 that crawlers treat as a valid page. */}
-      {notFound && <meta name="prerender-status-code" content="404" />}
-      {!notFound && <link rel="canonical" href={canonicalUrl} />}
+      {isNotFound && <meta name="prerender-status-code" content="404" />}
+      {hasCanonical && <link rel="canonical" href={canonicalUrl} />}
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={ogType} />
-      <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={ogImageUrl} />
+      {hasCanonical && <meta property="og:url" content={canonicalUrl} />}
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:description" content={cleanDescription} />
+      <meta property="og:image" content={ogImageUrl.toString()} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content={title} />
+      <meta property="og:image:alt" content={cleanTitle} />
       <meta property="og:locale" content={locale} />
       <meta property="og:site_name" content={SITE_NAME} />
 
-      {/* Alternate locales for OG (none on German-only pages / error pages) */}
-      {!isGermanOnly &&
-        !notFound &&
-        Object.entries(LOCALE_MAP)
-          .filter(([lang]) => lang !== currentLang)
+      {/* Alternate locales for OG (none on error pages) */}
+      {hasAlternates &&
+        publishedLocales
+          .filter((lang) => lang !== currentLang)
+          .map((lang) => [lang, LOCALE_MAP[lang]] as const)
           .map(([, localeCode]) => (
             <meta key={localeCode} property="og:locale:alternate" content={localeCode} />
           ))}
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:url" content={canonicalUrl} />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImageUrl} />
-      <meta name="twitter:image:alt" content={title} />
+      {hasCanonical && <meta name="twitter:url" content={canonicalUrl} />}
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={cleanDescription} />
+      <meta name="twitter:image" content={ogImageUrl.toString()} />
+      <meta name="twitter:image:alt" content={cleanTitle} />
 
       {/* Article-specific meta tags */}
       {article && ogType === 'article' && (
@@ -230,23 +260,15 @@ export function SEOHead({
         </>
       )}
 
-      {/* Hreflang tags (auto-generated; German-only pages announce 'de' alone) */}
-      {hreflangLanguages.map((lang) => (
-        <link
-          key={lang}
-          rel="alternate"
-          hrefLang={lang}
-          href={`${BASE_URL}/${lang}${path === '/' ? '/' : path}`}
-        />
-      ))}
+      {/* Hreflang tags for the existing ten-language route contract. */}
+      {hasAlternates &&
+        hreflangUrls(path, publishedLocales).map(({ locale: lang, url }) => (
+          <link key={lang} rel="alternate" hrefLang={lang} href={url} />
+        ))}
 
       {/* x-default hreflang (points to German as primary market) */}
-      {!notFound && (
-        <link
-          rel="alternate"
-          hrefLang="x-default"
-          href={`${BASE_URL}/${DEFAULT_LANGUAGE}${path === '/' ? '/' : path}`}
-        />
+      {hasAlternates && (
+        <link rel="alternate" hrefLang="x-default" href={publicSeoUrl(DEFAULT_LANGUAGE, path)} />
       )}
 
       {/* JSON-LD Structured Data */}

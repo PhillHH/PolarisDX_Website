@@ -1,0 +1,367 @@
+{
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Rapport d'échantillon · Données d'exemple",
+      "panel": "Telomere Analysis",
+      "subtitle": "Votre réserve cellulaire",
+      "claim": "Les télomères sont les capuchons protecteurs aux extrémités de vos chromosomes. Leur longueur est considérée comme un marqueur de la charge cellulaire cumulative et de la capacité régénérative — mesurée à partir d’une goutte de sang capillaire.",
+      "meta": [
+        {
+          "k": "Rapport pour",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Prélèvement de l'échantillon",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Matériel",
+          "v": "Carte de gouttelette de sang séché"
+        },
+        {
+          "k": "Méthode",
+          "v": "qPCR, relative"
+        }
+      ],
+      "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+      "id": "deckblatt",
+      "benefit": "Où en est la réserve cellulaire de votre client — et ce qui agit dessus dans la vie quotidienne."
+    },
+    {
+      "type": "principle",
+      "caption": "Le principe",
+      "title": "Vos télomères. Votre réserve cellulaire.",
+      "lead": "Les télomères stabilisent l’ADN à chaque division cellulaire et empêchent la perte d’informations génétiques. À chaque division, ils raccourcissent un peu. S’ils tombent en dessous d’une longueur critique, les cellules perdent leur capacité à se diviser ou entrent en sénescence — un moteur central du vieillissement biologique.",
+      "cards": [
+        {
+          "title": "Protection",
+          "text": "À quel point votre ADN est protégé de manière stable et à quel point les mécanismes de réparation fonctionnent efficacement."
+        },
+        {
+          "title": "Régénération",
+          "text": "Quelle réserve de division vos cellules conservent et à quel point vos tissus restent résilients."
+        },
+        {
+          "title": "Contexte",
+          "text": "Comment la longueur de vos télomères se compare à un groupe de référence apparié selon l’âge et le sexe."
+        }
+      ],
+      "flowTitle": "Le processus",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Mesure",
+          "text": "Carte de goutte de sang séché, bout du doigt. Longueur des télomères quantifiée de manière relative par qPCR. Pas de jeûne requis."
+        },
+        {
+          "num": "02",
+          "title": "Contextualiser",
+          "text": "Comparaison avec un groupe de référence apparié selon l’âge et le sexe. 112 kpb correspond à la valeur de référence (100 %)."
+        },
+        {
+          "num": "03",
+          "title": "Changer",
+          "text": "Les télomères ne peuvent pas être allongés isolément. Ce qui compte, c'est de ralentir les processus qui accélèrent leur raccourcissement."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Quelle est la robustesse de cette valeur ?",
+      "text": "La mesure de la longueur des télomères par qPCR varie considérablement — entre les séries individuelles et entre les laboratoires. L'extraction de l'ADN, le stockage et la composition des cellules sanguines influencent systématiquement le résultat. Cette variation est plus importante à partir de sang séché que de sang veineux. Pour les questions diagnostiques, la méthode flow-FISH est considérée comme supérieure.",
+      "items": [
+        "Ce que cela signifie en pratique : un écart de quelques pour cent par rapport à la valeur de référence est du même ordre de grandeur que la variation de mesure et n'a pas de signification en soi. L'analyse ne devient robuste qu'à travers plusieurs mesures prises dans les mêmes conditions — même laboratoire, même matériel, collecte d'échantillons comparable.",
+        "La longueur des télomères est un marqueur de la charge cellulaire cumulative. Ce n'est ni un diagnostic, ni une indication de l'espérance de vie, ni une mesure du risque individuel de maladie."
+      ],
+      "tone": "accent",
+      "id": "hinweis"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Votre résultat",
+      "title": "Votre longueur de télomères.",
+      "lead": "Longueur des télomères · stabilité cellulaire. Quantification relative par rapport à la valeur de référence de 112 kpb (= 100 %).",
+      "display": "108 kbp",
+      "sub": "96 % de la référence",
+      "kind": "pourcentage",
+      "value": 96,
+      "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+      "tone": "amber",
+      "text": "Votre longueur de télomères est inférieure de 4 % à la valeur attendue pour votre âge. Cela correspond à un âge biologique basé sur les télomères de 53 ans, soit cinq ans de plus que votre âge chronologique. Pour contexte : un écart de 4 % est du même ordre de grandeur que la variation que montrent les mesures qPCR à partir de sang séché entre les séries. La valeur doit donc être lue comme un point de départ pour la tendance, et non comme une détermination précise unique.",
+      "id": "ergebnis"
+    },
+    {
+      "type": "ageDots",
+      "caption": "Biologique versus chronologique",
+      "title": "Âge des télomères",
+      "chronological": 48,
+      "min": 35,
+      "max": 60,
+      "unit": "ans",
+      "ticks": ["35", "40", "45", "50", "55", "60"],
+      "note": "48 ans (âge chronologique)",
+      "items": [
+        {
+          "label": "Âge des télomères",
+          "age": 53,
+          "delta": "+5",
+          "display": "53 yrs · +5 years",
+          "tone": "red"
+        }
+      ],
+      "id": "biologisches-alter"
+    },
+    {
+      "type": "radar",
+      "caption": "Votre position",
+      "title": "Habitudes alimentaires et de mode de vie.",
+      "lead": "Le radar montre à quel point vos habitudes actuelles sont proches des valeurs de référence. Plus un facteur est éloigné vers l’extérieur, plus il est favorable — 10 est optimal.",
+      "axes": [
+        "Activité quotidienne",
+        "Exercice",
+        "Stress",
+        "Tabac",
+        "Alcool",
+        "Collations",
+        "Viande",
+        "Oméga-3",
+        "Fibres",
+        "Fruits/légumes",
+        "Apport hydrique"
+      ],
+      "seriesLabels": {
+        "profile": "Votre profil",
+        "reference": "Groupe de référence"
+      },
+      "scores": [
+        {
+          "value": "72 / 100",
+          "label": "Alimentation",
+          "text": "Bonne combinaison de nutriments, marge d’amélioration dans les détails.",
+          "ref": "Référence : ≥ 60"
+        },
+        {
+          "value": "65 / 100",
+          "label": "Mode de vie",
+          "text": "Équilibré, avec une marge pour plus d’exercice et une réduction du stress.",
+          "ref": "Référence : ≥ 60"
+        }
+      ],
+      "noticeTitle": "Relation avec la longueur des télomères",
+      "notices": [
+        "Le fait de ne pas fumer (tabac 9 sur 10) est le facteur ayant la relation la plus documentée avec la longueur des télomères — et dans votre cas déjà bien au-dessus de la moyenne.",
+        "Le stress (4 sur 10) est votre facteur de mode de vie le plus faible et le domaine offrant le plus grand potentiel d'amélioration.",
+        "L'exercice (7) et l'activité quotidienne (6) ont une marge de progression ; une activité physique régulière fait partie des mesures ayant une relation documentée avec la biologie des télomères."
+      ],
+      "note": "Évaluation basée sur vos propres informations auto-déclarées, non un diagnostic individuel. Les relations mentionnées sont des résultats de groupe issus de la littérature, non une prédiction pour le cas individuel.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Toutes les recommandations en un coup d’œil",
+      "title": "Vos interventions.",
+      "lead": "Les télomères ne peuvent pas être allongés délibérément. Toutes les mesures visent à ralentir les processus qui accélèrent leur raccourcissement — stress oxydatif et méthylation altérée.",
+      "cols": ["Mesure", "Source", "Quantité", "Remarque"],
+      "rows": [
+        [
+          "Mode de vie",
+          "Ne pas fumer, consommation modérée d'alcool, exercice régulier",
+          "150 min/semaine",
+          "Facteur d'influence démontré le plus important sur la longueur des télomères"
+        ],
+        [
+          "Folates",
+          "Légumes verts à feuilles, épinards, chou frisé, tomate, légumineuses, germes",
+          "2 portions/jour",
+          "Cru ou légèrement cuit à la vapeur — sensible à la chaleur. Si nécessaire, 2 mois sous forme de méthylfolate (5-MTHF)"
+        ],
+        [
+          "Riboflavine (B2)",
+          "Pousses, germes, fromage",
+          "quotidien",
+          "Cofacteur de la méthylation"
+        ],
+        [
+          "Cobalamine (B12)",
+          "Œuf, fromage, aliments fermentés",
+          "4 µg/jour",
+          "Complémenter spécifiquement en cas de régime végan"
+        ],
+        [
+          "Pyridoxine (B6)",
+          "Chou, haricots verts, lentilles, bananes, germe de blé",
+          "1,5–2,0 mg/jour",
+          "Important pour le métabolisme des acides aminés"
+        ],
+        [
+          "Méthionine",
+          "Noix du Brésil, sésame, soja, pois, légumes verts à feuilles",
+          "2–3 noix du Brésil par jour",
+          "En raison de la teneur en sélénium, pas plus de 3–4 noix par jour"
+        ],
+        [
+          "EGCG (thé vert)",
+          "Thé vert, matcha, sencha",
+          "300–400 mg/jour (3–4 tasses)",
+          "Antioxydant ; ne pas boire directement avec des repas riches en fer"
+        ],
+        [
+          "Fibres",
+          "Céréales complètes, légumes, légumineuses, graines (et enveloppes de graines)",
+          "au moins 30 g/jour",
+          "Stabilise la glycémie, réduit le stress oxydatif"
+        ]
+      ],
+      "note": "Cinq de ces huit mesures — folate, B2, B12, B6 et méthionine — agissent via la même voie métabolique : la méthylation. Veuillez examiner les compléments alimentaires individuellement et en consultation avec un spécialiste ; cet aperçu ne remplace pas un conseil médical.",
+      "id": "uebersicht"
+    },
+    {
+      "type": "trend",
+      "caption": "Tendance",
+      "title": "Le résultat réel.",
+      "lead": "Parce qu'une valeur unique ne surmonte pas de manière fiable la variation de la méthode, la valeur informative réside dans la tendance. Seules les valeurs mesurées sont affichées — pas de pronostic.",
+      "firstLabel": "15.03.2026",
+      "secondLabel": "15.06.2026",
+      "cols": ["Analyse", "15.03.2026", "15.06.2026", "Changer", "Écart aujourd'hui"],
+      "items": [
+        {
+          "label": "Âge des télomères",
+          "first": 55,
+          "second": 53,
+          "firstDisplay": "55 ans",
+          "secondDisplay": "53 ans",
+          "delta": "−2 ans",
+          "deviation": "+5 par rapport à l'âge chronologique",
+          "tone": "green"
+        }
+      ],
+      "kind": "ans",
+      "unit": "ans",
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "Ce que montre la tendance",
+      "text": "L'âge basé sur les télomères a diminué de deux ans entre les deux mesures, passant de 55 à 53 — tandis que l'âge chronologique a augmenté de trois mois en même temps. La direction est correcte.",
+      "items": [
+        "En même temps : les télomères ne s'allongent pas de manière appréciable. Une amélioration de cette ampleur est donc plus probablement attribuable à une variation de mesure qu'à un allongement réel. Seule une direction qui se maintient sur plusieurs mesures permet une conclusion.",
+        "Environ trois mois se sont écoulés entre les deux mesures. L'intervalle jusqu'au prochain contrôle est fixé par l'institution supervisante. Pour la comparabilité, le laboratoire, le matériel d'échantillonnage et la collecte doivent rester les mêmes."
+      ],
+      "tone": "accent",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "summary",
+      "caption": "Résumé",
+      "title": "Deux leviers, et un est plus important.",
+      "lead": "Huit mesures apparaissent dans ce rapport. Elles diffèrent considérablement par la force des preuves qui les sous-tendent — cela doit déterminer l'ordre dans lequel vous les abordez.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Mode de vie — le facteur avec les preuves les plus solides",
+          "text": "Selon votre rapport, ne pas fumer, une consommation modérée d'alcool et un exercice régulier sont les facteurs d'influence démontrables les plus importants sur la longueur des télomères. Deux d'entre eux sont déjà bien établis dans votre cas : le tabac est à 9 sur 10, l'alcool à 6. Plus précisément : le levier se situe dans l'activité physique — exercice 7 sur 10, activité quotidienne 6 sur 10. Au moins 150 minutes par semaine."
+        },
+        {
+          "num": "02",
+          "title": "Nutriments de la méthylation",
+          "text": "Cinq des huit mesures — folate, B2, B12, B6 et méthionine — agissent via la même voie métabolique. En pratique, cela signifie : deux portions de légumes verts à feuilles par jour (crus ou légèrement cuits à la vapeur, car le folate est sensible à la chaleur), œufs ou fromage pour la B12, 2–3 noix du Brésil. Plus 3–4 tasses de thé vert et au moins 30 g de fibres."
+        }
+      ],
+      "keepTitle": "Ce qui fonctionne déjà",
+      "keepText": "Ne pas fumer (9/10), fruits et légumes (8/10) et apport hydrique (8/10) sont bien au-dessus du groupe de référence, et le score alimentaire de 72/100 est solide. Et la tendance va dans la bonne direction.",
+      "controlTitle": "Rester réaliste",
+      "controlItems": [
+        "Les télomères ne peuvent pas être allongés délibérément par l'alimentation ou le mode de vie. Toutes les mesures visent à ralentir le raccourcissement. Que cela se reflète dans votre valeur personnelle ne peut, compte tenu de la variation de mesure, être jugé qu'à travers plusieurs mesures — pas à partir de la prochaine valeur unique."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "science",
+      "caption": "Ce qui est établi — et ce qui ne l’est pas",
+      "title": "Contexte scientifique.",
+      "lead": "Nous exposons ouvertement les limites de cette analyse, car une interprétation honnête vaut mieux qu’un chiffre impressionnant.",
+      "cols": ["Point", "Contexte"],
+      "items": [
+        {
+          "title": "Méthode de mesure",
+          "text": "Quantification relative par qPCR"
+        },
+        {
+          "title": "Variation",
+          "text": "Considérable — entre les séries et entre les laboratoires"
+        },
+        {
+          "title": "Facteurs d'influence",
+          "text": "L'extraction de l'ADN, le stockage et la composition cellulaire ont un effet systématique"
+        },
+        {
+          "title": "Matériel d’échantillonnage",
+          "text": "Variation plus élevée à partir de sang séché que de sang veineux"
+        },
+        {
+          "title": "Pour les questions diagnostiques",
+          "text": "La méthode flow-FISH est considérée comme supérieure"
+        },
+        {
+          "title": "À quoi sert l'analyse",
+          "text": "En tant qu'outil de conseil et de tendance : elle met la contrainte cellulaire à l'ordre du jour, crée une occasion concrète d'agir et, par des mesures répétées dans les mêmes conditions, fournit une courbe de tendance."
+        },
+        {
+          "title": "À quoi elle ne sert pas",
+          "text": "En tant que diagnostic, comme indication sur l'espérance de vie ou le risque individuel de maladie — et comme détermination précise unique, tant que l'écart est du même ordre de grandeur que la variation de mesure."
+        }
+      ],
+      "note": "Sources sur la méthodologie : Lin et al., PMC6363640 (mesure qPCR des télomères, facteurs critiques) ; Olivieri et al., Mech Ageing Dev 2012. Ce document ne remplace pas une évaluation médicale et ne constitue aucune promesse de guérison au sens de la loi allemande sur la publicité des produits thérapeutiques (Heilmittelwerbegesetz).",
+      "id": "einordnung"
+    },
+    {
+      "type": "callout",
+      "title": "Le principe sous-jacent",
+      "text": "La tendance a du poids, la valeur unique non. Une mesure initiale et une mesure de suivi dans les mêmes conditions sont le véritable avantage de cette analyse.",
+      "items": [
+        "Pour la comparabilité, le laboratoire, le matériel d'échantillonnage et la collecte doivent rester les mêmes — changer de laboratoire signifie que deux valeurs ne sont plus comparables."
+      ],
+      "tone": "neutral",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "contact",
+      "title": "Des questions sur votre rapport ?",
+      "text": "Discutez des résultats avec l’institution qui a réalisé la collecte d’échantillons. C’est là que le contexte nécessaire à l’interprétation est disponible.",
+      "columns": [
+        {
+          "k": "Contact",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribution",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hambourg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Rapport d’échantillon",
+          "text": "Toutes les valeurs et données personnelles dans ce document sont fictives et servent uniquement à illustrer le format du rapport. Ceci n’est pas un rapport réel."
+        },
+        {
+          "title": "Interprétation",
+          "text": "La longueur des télomères est déterminée par qPCR en tant que valeur relative. Cette méthode varie considérablement entre les séries et entre les laboratoires ; la variation est plus élevée à partir de sang séché que de sang veineux. Le rapport n'est pas un diagnostic, ni une indication sur l'espérance de vie, ni une mesure du risque individuel de maladie. La valeur informative n'émerge qu'à travers plusieurs mesures dans les mêmes conditions."
+        },
+        {
+          "title": "Statut des analyses",
+          "text": "Les analyses sont des prestations de laboratoire fournies par notre partenaire de coopération et ne sont pas des dispositifs médicaux de diagnostic in vitro marqués CE. Elles servent à la consultation et au suivi et ne remplacent pas le diagnostic clinique. Les analyses sont fournies uniquement aux utilisateurs professionnels."
+        },
+        {
+          "title": "Cadre légal",
+          "text": "Ce panel n'évalue aucun génotype ; il mesure des marqueurs épigénétiques. Lorsqu'une analyse du portefeuille inclut un test génétique, une information et un consentement écrit sont requis avant la collecte de l'échantillon, et elle ne peut être réalisée que sous responsabilité médicale (loi allemande sur le diagnostic génétique). L'analyse en laboratoire est effectuée par notre partenaire de coopération. Polaris Diagnostics Europe GmbH est responsable de la distribution et du support. Veuillez examiner les compléments alimentaires individuellement et en consultation avec un spécialiste. Ce document ne constitue aucune promesse de guérison au sens de la loi allemande sur la publicité des produits thérapeutiques (Heilmittelwerbegesetz)."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · En date de : août 2026",
+      "id": "kontakt"
+    }
+  ],
+  "panel": "Telomere Analysis",
+  "slug": "telomer-analyse"
+}

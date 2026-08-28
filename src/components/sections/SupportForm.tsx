@@ -4,9 +4,10 @@ import { Input } from '../ui/Input'
 import { Textarea } from '../ui/Textarea'
 import { Alert } from '../ui/Alert'
 import { useSupportForm } from '../../hooks/useSupportForm'
+import { normalizeLanguage } from '../../i18n'
 
 export const SupportForm = () => {
-  const { t } = useTranslation(['support', 'common'])
+  const { t, i18n } = useTranslation(['support', 'common'])
   const { isSubmitting, submitStatus, submit } = useSupportForm()
   const [fileName, setFileName] = useState<string>('')
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -14,7 +15,9 @@ export const SupportForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
-    const success = await submit(formData)
+    const issueType = String(formData.get('issueType') || '')
+    const issueTypeLabel = issueType ? t(`support.form.issue_types.${issueType}`) : ''
+    const success = await submit(formData, normalizeLanguage(i18n.resolvedLanguage), issueTypeLabel)
     if (success) {
       e.currentTarget.reset()
       setFileName('')
@@ -27,7 +30,7 @@ export const SupportForm = () => {
   }
 
   return (
-    <form className="mt-4 space-y-5" onSubmit={handleSubmit}>
+    <form className="mt-4 space-y-5" onSubmit={handleSubmit} noValidate>
       {/* Honeypot — visually & semantically hidden; bots tend to fill it */}
       <div
         aria-hidden
@@ -40,9 +43,7 @@ export const SupportForm = () => {
           overflow: 'hidden',
         }}
       >
-        <label htmlFor="support-hp">
-          {t('common:a11y.honeypot', 'Dieses Feld bitte leer lassen')}
-        </label>
+        <label htmlFor="support-hp">{t('common:a11y.honeypot')}</label>
         <input id="support-hp" name="_hp" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
@@ -102,7 +103,7 @@ export const SupportForm = () => {
           id="issueType"
           name="issueType"
           required
-          className="flex w-full rounded-md border border-ui-border bg-white px-3 py-2 text-sm text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+          className="flex w-full rounded-md border border-ui-field bg-white px-3 py-2 text-sm text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
           defaultValue=""
         >
           <option value="" disabled>
@@ -143,7 +144,7 @@ export const SupportForm = () => {
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="inline-flex items-center rounded-md border border-ui-border bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+            className="inline-flex items-center rounded-md border border-ui-field bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
           >
             {t('support.form.attachment_button')}
           </button>

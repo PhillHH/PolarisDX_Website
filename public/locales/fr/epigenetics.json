@@ -1,365 +1,364 @@
 {
-  "_translationStatus": "English fallback — translation pending",
   "seo": {
-    "title": "Epigenetic and genetic analyses for your practice",
-    "description": "Six epigenetic and genetic analyses from one drop of capillary blood: what is measured, who it is for and what the evidence says. All sheets as PDF."
+    "title": "Analyses épigénétiques et génétiques pour votre pratique",
+    "description": "Six analyses épigénétiques et génétiques à partir d’une goutte de sang capillaire : ce qui est mesuré, à qui cela s’adresse et ce que disent les preuves. Toutes les fiches au format PDF."
   },
   "breadcrumb": {
-    "home": "Home",
-    "current": "Epigenetics and genetics"
+    "home": "Accueil",
+    "current": "Épigénétique et génétique"
   },
   "hero": {
-    "eyebrow": "Partner programme · Epigenetics and genetics",
-    "title": "Epigenetic and genetic analyses from one drop",
-    "claim": "Six analyses from capillary blood, processed by our European cooperation partner — a measurable basis for your consultation.",
-    "ctaDocs": "The six analyses",
-    "ctaQuote": "Request a quote",
+    "eyebrow": "Programme partenaire · Épigénétique et génétique",
+    "title": "Analyses épigénétiques et génétiques à partir d’une goutte",
+    "claim": "Six analyses à partir de sang capillaire, traitées par notre partenaire européen de coopération — une base mesurable pour votre consultation.",
+    "ctaDocs": "Les six analyses",
+    "ctaQuote": "Demander un devis",
     "chips": [
       {
-        "label": "Sample",
-        "value": "Dried blood card, fingertip"
+        "label": "Échantillon",
+        "value": "Carte de sang séché, bout du doigt"
       },
       {
-        "label": "Laboratory",
-        "value": "Cooperation partner, EU"
+        "label": "Laboratoire",
+        "value": "Partenaire de coopération, UE"
       },
       {
-        "label": "Portfolio",
-        "value": "6 analyses, one route"
+        "label": "Portefeuille",
+        "value": "6 analyses, une seule voie"
       },
       {
-        "label": "Pricing",
-        "value": "B2B on request"
+        "label": "Tarification",
+        "value": "B2B sur demande"
       }
     ],
-    "ctaSheets": "All 18 documents",
-    "chooseTitle": "Six analyses. Which one fits your institution?",
-    "consultLine": "Only the epigenetic level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress.",
-    "trustEvidence": "Evidence disclosed: {{established}} well-established and {{preliminary}} preliminary points."
+    "ctaSheets": "Tous les 18 documents",
+    "chooseTitle": "Six analyses. Laquelle convient à votre institution ?",
+    "consultLine": "Seul le niveau épigénétique répond à la nutrition, à l’exercice, au sommeil et à la charge — lui seul convient au suivi des progrès.",
+    "trustEvidence": "Preuves divulguées : {{established}} points bien établis et {{preliminary}} points préliminaires."
   },
   "principle": {
-    "caption": "The principle",
-    "title": "The layer a rapid test does not cover",
-    "lead": "The six analyses complement point-of-care testing on the Igloo reader with what it does not show: individual predisposition and regulatory processes that change over time.",
+    "caption": "Le principe",
+    "title": "La couche qu’un test rapide ne couvre pas",
+    "lead": "Les six analyses complètent le test au point de service sur le lecteur Igloo avec ce qu’il ne montre pas : la prédisposition individuelle et les processus régulateurs qui évoluent dans le temps.",
     "cards": [
       {
-        "title": "Two layers: genetics and epigenetics",
-        "text": "Genetic variants describe unchangeable predisposition. Epigenetic markers show the regulatory state: messenger molecules in the blood (microRNA) and chemical marks on the DNA (DNA methylation). They follow lifestyle and can be measured over time. Only two of the six panels include a genetic analysis — Metabolic Health and the Plus variant of Healthy Sport; the other four are run without one."
+        "title": "Deux couches : génétique et épigénétique",
+        "text": "Les variantes génétiques décrivent une prédisposition immuable. Les marqueurs épigénétiques montrent l’état régulateur : molécules messagères dans le sang (microARN) et marques chimiques sur l’ADN (méthylation de l’ADN). Ils suivent le mode de vie et peuvent être mesurés dans le temps. Deux seuls des six panels incluent une analyse génétique — Metabolic Health et la variante Plus de Healthy Sport ; les quatre autres sont réalisés sans."
       },
       {
-        "title": "Sample material: dried blood card",
-        "text": "A few drops of capillary blood from the fingertip go onto a dried blood card. No venipuncture, no centrifuge, no cold chain — sampling in the practice or at home."
+        "title": "Matériel d’échantillonnage : carte de sang séché",
+        "text": "Quelques gouttes de sang capillaire du bout du doigt sont déposées sur une carte de sang séché. Pas de ponction veineuse, pas de centrifugeuse, pas de chaîne du froid — prélèvement en cabinet ou à domicile."
       },
       {
-        "title": "Laboratory and reference data",
-        "text": "Analysis is carried out by our European cooperation partner: more than 15 years of research, more than 60,000 validated reference values, ISO 9001:2015. Those reference values are the yardstick against which a single result is placed — without them a figure from the laboratory cannot be read. ISO 9001:2015 certifies the quality management of the laboratory; it is not a CE marking and says nothing about the individual analysis."
+        "title": "Laboratoire et données de référence",
+        "text": "L’analyse est réalisée par notre partenaire européen de coopération : plus de 15 ans de recherche, plus de 60 000 valeurs de référence validées, ISO 9001:2015. Ces valeurs de référence sont la référence à laquelle un résultat unique est comparé — sans elles, un chiffre du laboratoire ne peut être interprété. La certification ISO 9001:2015 atteste de la gestion de la qualité du laboratoire ; ce n’est pas un marquage CE et cela ne concerne pas l’analyse individuelle."
       }
     ],
     "practice": {
-      "title": "Key points for your practice",
+      "title": "Points clés pour votre pratique",
       "items": [
-        "A consultation tool, not a diagnosis — these analyses do not replace clinical assessment.",
-        "An initial and a follow-up measurement form a plannable programme; the interval is set by the supervising institution — for Metabolic Health and Healthy Aging after 4 to 6 months at the earliest.",
-        "One sampling route, one card type, one cooperation partner for all six analyses."
+        "Un outil de consultation, pas un diagnostic — ces analyses ne remplacent pas l’évaluation clinique.",
+        "Une mesure initiale et une mesure de suivi forment un programme planifiable ; l’intervalle est fixé par l’institution supervisante — pour Metabolic Health et Healthy Aging au plus tôt après 4 à 6 mois.",
+        "Une seule voie d’échantillonnage, un seul type de carte, un seul partenaire de coopération pour les six analyses."
       ]
     },
-    "pdfHint": "Prefer to read the programme first? The portfolio overview covers all six analyses, the workflow and the commercial terms on three pages."
+    "pdfHint": "Vous préférez lire d’abord le programme ? La vue d’ensemble du portefeuille couvre les six analyses, le déroulement et les conditions commerciales en trois pages."
   },
   "analyses": {
-    "caption": "Portfolio",
-    "title": "The six analyses",
-    "lead": "Every analysis runs through the same sampling route. What differs is scope, method and the question it answers. Every card carries the same five axes as the comparison table, plus who the panel is suitable for. From every card a route leads to the full sample report: the same structure as the later report, only with invented values.",
-    "whatLabel": "What is analysed",
-    "whoLabel": "Who it is for",
-    "pdfBtn": "Information sheet as PDF",
+    "caption": "Portefeuille",
+    "title": "Les six analyses",
+    "lead": "Chaque analyse suit la même voie d’échantillonnage. Ce qui diffère, c’est le périmètre, la méthode et la question à laquelle elle répond. Chaque carte porte les mêmes cinq axes que le tableau comparatif, plus à qui le panel convient. De chaque carte, un chemin mène au rapport complet d’échantillon : la même structure que le rapport final, mais avec des valeurs fictives.",
+    "whatLabel": "Ce qui est analysé",
+    "whoLabel": "À qui cela s’adresse",
+    "pdfBtn": "Fiche d’information au format PDF",
     "items": [
       {
         "num": "01",
         "name": "Metabolic Health",
-        "subtitle": "Diet by predisposition — epigenetically verifiable.",
-        "what": "The analysis evaluates which distribution of macronutrients suits the individual predisposition, supported by specific portion and recipe suggestions. Because genetic variants do not explain weight behaviour on their own, epigenetic markers of DNA stability and inflammation are assessed in addition: only those respond to lifestyle and are suitable for tracking progress.",
+        "subtitle": "Régime selon la prédisposition — vérifiable épigénétiquement.",
+        "what": "L’analyse évalue quelle répartition des macronutriments convient à la prédisposition individuelle, soutenue par des suggestions spécifiques de portions et de recettes. Parce que les variantes génétiques n’expliquent pas à elles seules le comportement pondéral, des marqueurs épigénétiques de stabilité de l’ADN et d’inflammation sont également évalués : seuls ceux-ci répondent au mode de vie et conviennent au suivi des progrès.",
         "who": [
-          "Nutritional counselling beyond standard plans",
-          "Prevention practices with weight programmes",
-          "Where previous dietary changes have not worked"
+          "Conseil nutritionnel au-delà des plans standards",
+          "Pratiques de prévention avec programmes de poids",
+          "Lorsque les changements alimentaires précédents n’ont pas fonctionné"
         ],
         "file": "en/01_Metabolic_Health_PolarisDX.pdf"
       },
       {
         "num": "02",
         "name": "Healthy Aging",
-        "subtitle": "Biological age across four layers — traffic light, not one number.",
-        "what": "Telomere length, epigenetic ageing markers, inflammation and DNA stability are placed against age- and sex-related reference values and each rated green, amber or red. This shows which layer is driving the result — and where an intervention should start. Lifestyle data is recorded alongside and contrasted with the molecular findings.",
+        "subtitle": "Âge biologique sur quatre couches — feu tricolore, pas un seul chiffre.",
+        "what": "La longueur des télomères, les marqueurs épigénétiques du vieillissement, l’inflammation et la stabilité de l’ADN sont comparés à des valeurs de référence selon l’âge et le sexe et évalués en vert, orange ou rouge. Cela montre quelle couche influence le résultat — et où une intervention doit commencer. Les données sur le mode de vie sont enregistrées parallèlement et mises en contraste avec les résultats moléculaires.",
         "who": [
-          "Longevity centres and prevention practices",
-          "Nutritional counselling and preventive medicine",
-          "People aged roughly 40 and over tracking the trend"
+          "Centres de longévité et pratiques de prévention",
+          "Conseil nutritionnel et médecine préventive",
+          "Personnes d’environ 40 ans et plus suivant la tendance"
         ],
         "file": "en/02_Healthy_Aging_PolarisDX.pdf"
       },
       {
         "num": "03",
-        "name": "Biological age clock",
-        "subtitle": "An exploratory lifestyle signal — not an age determination.",
-        "what": "Three microRNAs are determined by quantitative PCR, normalised against miR-93 and combined into a single value: the percentage deviation of biological from chronological age. The underlying model is published but declared a pilot study — the output is an exploratory signal, not a robust biological age.",
+        "name": "Horloge d’âge biologique",
+        "subtitle": "Un signal exploratoire du mode de vie — pas une détermination d’âge.",
+        "what": "Trois microARN sont déterminés par PCR quantitative, normalisés par rapport à miR-93 et combinés en une seule valeur : le pourcentage d’écart entre âge biologique et âge chronologique. Le modèle sous-jacent est publié mais déclaré étude pilote — le résultat est un signal exploratoire, pas un âge biologique robuste.",
         "who": [
-          "Longevity and functional medicine practices",
-          "Health centres, coaching and workplace health",
-          "Where a full ageing panel would be too extensive"
+          "Pratiques de longévité et de médecine fonctionnelle",
+          "Centres de santé, coaching et santé au travail",
+          "Lorsque un panel complet de vieillissement serait trop étendu"
         ],
         "file": "en/03_Biological_Age_PolarisDX.pdf"
       },
       {
         "num": "04",
-        "name": "Telomere Analysis",
-        "subtitle": "The protective caps of the chromosomes — measured in kilobase pairs.",
-        "what": "Telomeres shorten with each cell division and are regarded as a marker of cellular ageing. Measurement is performed from dried capillary blood, reported in kilobase pairs and placed against an age- and sex-matched reference population. qPCR values vary considerably between runs and laboratories — the trend carries the message, not the single value.",
+        "name": "Analyse des télomères",
+        "subtitle": "Les capuchons protecteurs des chromosomes — mesurés en kilobases paires.",
+        "what": "Les télomères raccourcissent à chaque division cellulaire et sont considérés comme un marqueur du vieillissement cellulaire. La mesure est effectuée à partir de sang capillaire séché, rapportée en kilobases paires et comparée à une population de référence selon l’âge et le sexe. Les valeurs qPCR varient considérablement entre les séries et les laboratoires — c’est la tendance qui porte le message, pas la valeur unique.",
         "who": [
-          "Longevity programmes and preventive medicine",
-          "Nutritional counselling needing a baseline",
-          "Workplace programmes with a longevity focus"
+          "Programmes de longévité et médecine préventive",
+          "Conseil nutritionnel nécessitant une base",
+          "Programmes en milieu professionnel axés sur la longévité"
         ],
         "file": "en/04_Telomere_Analysis_PolarisDX.pdf"
       },
       {
         "num": "05",
-        "name": "Stress Monitor",
-        "subtitle": "Measured alongside perceived strain — four areas.",
-        "what": "Physiological strain, cell protection, serotonin regulation and immune signals are each reported as a traffic light and contrasted with the subjective stress experience recorded in a questionnaire. The discrepancy is what makes the conversation useful: people with high tolerance for strain frequently underestimate their own load.",
+        "name": "Moniteur de stress",
+        "subtitle": "Mesuré parallèlement à la charge perçue — quatre domaines.",
+        "what": "La charge physiologique, la protection cellulaire, la régulation de la sérotonine et les signaux immunitaires sont chacun rapportés sous forme de feu tricolore et mis en contraste avec l’expérience subjective du stress enregistrée dans un questionnaire. La discordance rend la conversation utile : les personnes à haute tolérance à la charge sous-estiment fréquemment leur propre charge.",
         "who": [
-          "Workplace health management and resilience",
-          "Practices focused on stress prevention",
-          "People under sustained strain"
+          "Gestion de la santé au travail et résilience",
+          "Pratiques axées sur la prévention du stress",
+          "Personnes sous charge prolongée"
         ],
         "file": "en/05_Stress_Monitor_PolarisDX.pdf"
       },
       {
         "num": "06",
         "name": "Healthy Sport",
-        "subtitle": "Eight microRNAs in seven assessments; Plus variant adds four variants.",
-        "what": "Nutrient status, hydration status, load and stress level, injury risk and recovery, cardiovascular fitness, inflammation and muscle status — seven assessments from eight microRNAs — form the variable monitoring part. The Plus variant adds four unchangeable genetic variants on sport type, training motivation, muscle damage risk and weight regulation — recorded once.",
+        "subtitle": "Huit microARN en sept évaluations ; la variante Plus ajoute quatre variantes.",
+        "what": "Statut nutritionnel, statut d’hydratation, charge et niveau de stress, risque de blessure et récupération, forme cardiovasculaire, inflammation et statut musculaire — sept évaluations à partir de huit microARN — constituent la partie variable du suivi. La variante Plus ajoute quatre variantes génétiques immuables sur le type de sport, la motivation à l’entraînement, le risque de dommage musculaire et la régulation du poids — enregistrées une fois.",
         "who": [
-          "Sports medicine and performance diagnostics",
-          "Sports science and performance coaching",
-          "Recreational and competitive athletes"
+          "Médecine du sport et diagnostics de performance",
+          "Sciences du sport et coaching de performance",
+          "Athlètes amateurs et compétitifs"
         ],
         "file": "en/06_Healthy_Sport_PolarisDX.pdf"
       }
     ],
-    "sampleBtn": "Sample report"
+    "sampleBtn": "Rapport d’échantillon"
   },
   "docsBand": {
-    "title": "Every document in one place",
-    "text": "Nine information sheets per language: portfolio overview, the six analyses in detail, commercial terms and the full evidence base. Individually as PDF or bundled as an archive.",
-    "ctaZip": "All sheets as ZIP",
-    "ctaAll": "Browse the sheets"
+    "title": "Tous les documents en un seul endroit",
+    "text": "Neuf fiches d’information par langue : vue d’ensemble du portefeuille, les six analyses en détail, conditions commerciales et base complète des preuves. Individuellement en PDF ou regroupées en archive.",
+    "ctaZip": "Toutes les fiches en ZIP",
+    "ctaAll": "Parcourir les fiches"
   },
   "workflow": {
-    "caption": "Workflow",
-    "title": "How it works in your practice",
-    "lead": "Six steps, one sampling route — identical for all six analyses. Four of them take place in your organisation: information and consent before sampling, the sampling itself, sending the card, and the conversation about the report. In between come the laboratory analysis and the digital report. No cold chain, no fasting requirement and no laboratory appointment for your client.",
+    "caption": "Déroulement",
+    "title": "Comment cela fonctionne dans votre pratique",
+    "lead": "Six étapes, une seule voie d’échantillonnage — identique pour les six analyses. Quatre d’entre elles ont lieu dans votre organisation : information et consentement avant le prélèvement, prélèvement lui-même, envoi de la carte, et la conversation autour du rapport. Entre-temps, l’analyse en laboratoire et le rapport numérique. Pas de chaîne du froid, pas de jeûne et pas de rendez-vous en laboratoire pour votre client.",
     "steps": [
-      "Hold the consultation; document the information given and the consent obtained.",
-      "Sampling: prick the fingertip, apply blood to the card.",
-      "Send the card to the cooperation partner in the prepared envelope.",
-      "Laboratory analysis of the genetic or epigenetic markers.",
-      "Digital report with traffic-light rating and specific recommendations.",
-      "Review and action plan; the interval to the follow-up measurement is set by the supervising institution."
+      "Tenir la consultation ; documenter les informations données et le consentement obtenu.",
+      "Prélèvement : piquer le bout du doigt, appliquer le sang sur la carte.",
+      "Envoyer la carte au partenaire de coopération dans l’enveloppe préparée.",
+      "Analyse en laboratoire des marqueurs génétiques ou épigénétiques.",
+      "Rapport numérique avec évaluation par feu tricolore et recommandations spécifiques.",
+      "Revue et plan d’action ; l’intervalle jusqu’à la mesure de suivi est fixé par l’institution supervisante."
     ]
   },
   "evidence": {
-    "caption": "Evidence base",
-    "title": "What is established — and what is not",
-    "lead": "This field is heavily over-promised. Anyone presenting these analyses should know the limits — with professionals, candour is an advantage, not a risk.",
-    "establishedTitle": "Well established",
+    "caption": "Base de preuves",
+    "title": "Ce qui est établi — et ce qui ne l’est pas",
+    "lead": "Ce domaine est largement surestimé. Toute personne présentant ces analyses doit connaître les limites — avec les professionnels, la franchise est un avantage, pas un risque.",
+    "establishedTitle": "Bien établi",
     "established": [
       {
-        "title": "Lifestyle changes epigenetic markers",
-        "text": "Randomised pilot trial over 8 weeks: epigenetic age on average 3.2 years lower than in the control group (Fitzgerald et al., Aging 2021) — DNA methylation, not microRNA."
+        "title": "Le mode de vie modifie les marqueurs épigénétiques",
+        "text": "Essai pilote randomisé sur 8 semaines : âge épigénétique en moyenne 3,2 ans inférieur au groupe contrôle (Fitzgerald et al., Aging 2021) — méthylation de l’ADN, pas microARN."
       },
       {
-        "title": "Inflammation as an ageing axis",
-        "text": "\"Inflammaging\" is an established concept; miR-21 is described as a circulating inflammation marker (Olivieri et al. 2012)."
+        "title": "L’inflammation comme axe du vieillissement",
+        "text": "« Inflammaging » est un concept établi ; miR-21 est décrit comme un marqueur circulant d’inflammation (Olivieri et al. 2012)."
       },
       {
-        "title": "microRNAs are stable in dried blood",
-        "text": "microRNAs are considered more robust than mRNA and remain comparatively stable in dried samples — the sampling route itself is sound."
+        "title": "Les microARN sont stables dans le sang séché",
+        "text": "Les microARN sont considérés comme plus robustes que l’ARNm et restent relativement stables dans les échantillons séchés — la voie d’échantillonnage elle-même est fiable."
       },
       {
-        "title": "The established standard for biological age",
-        "text": "That is methylation clocks: Horvath, PhenoAge, GrimAge and DunedinPACE. DunedinPACE shows high test-retest reliability and associations with morbidity and mortality."
+        "title": "La norme établie pour l’âge biologique",
+        "text": "Ce sont les horloges de méthylation : Horvath, PhenoAge, GrimAge et DunedinPACE. DunedinPACE montre une grande fiabilité test-retest et des associations avec la morbidité et la mortalité."
       }
     ],
-    "preliminaryTitle": "Preliminary",
+    "preliminaryTitle": "Préliminaire",
     "preliminary": [
       {
-        "title": "microRNA age clock",
-        "text": "The published model (n = 539) explains about 5 % of the variance in age, mean absolute error 10.4 years; two of the three markers did not correlate significantly with chronological age."
+        "title": "Horloge d’âge microARN",
+        "text": "Le modèle publié (n = 539) explique environ 5 % de la variance de l’âge, erreur absolue moyenne de 10,4 ans ; deux des trois marqueurs ne corrélaient pas significativement avec l’âge chronologique."
       },
       {
-        "title": "Telomere length by qPCR",
-        "text": "The method varies between runs and laboratories; DNA extraction, storage and cell composition all contribute. From dried blood more than from venous blood."
+        "title": "Longueur des télomères par qPCR",
+        "text": "La méthode varie entre les séries et les laboratoires ; l’extraction d’ADN, le stockage et la composition cellulaire contribuent tous. Plus à partir de sang séché que de sang veineux."
       },
       {
-        "title": "Gene-based dietary advice",
-        "text": "The Food4Me study found no difference in weight loss between levels of personalisation including genetics. The benefit lies in structure, conversation and adherence."
+        "title": "Conseils alimentaires basés sur les gènes",
+        "text": "L’étude Food4Me n’a trouvé aucune différence de perte de poids entre les niveaux de personnalisation incluant la génétique. Le bénéfice réside dans la structure, la conversation et l’adhésion."
       },
       {
-        "title": "microRNA as stress markers",
-        "text": "There is work on individual microRNAs and acute as well as chronic stress, but no established cut-offs and no diagnostic validation."
+        "title": "microARN comme marqueurs de stress",
+        "text": "Il existe des travaux sur des microARN individuels et le stress aigu ainsi que chronique, mais pas de seuils établis ni de validation diagnostique."
       }
     ],
-    "cta": "Full evidence base as PDF",
+    "cta": "Base complète des preuves au format PDF",
     "file": "en/08_Evidence_Base_PolarisDX.pdf"
   },
   "faq": {
-    "caption": "Frequent questions",
-    "title": "What professional users ask",
-    "lead": "Eight answers from conversations with organisations. They also name the limits: which analysis is exploratory, where measured values vary considerably, where the line to clinical diagnostics runs, and what the Genetic Diagnostics Act requires before sampling.",
+    "caption": "Questions fréquentes",
+    "title": "Ce que demandent les utilisateurs professionnels",
+    "lead": "Huit réponses issues de conversations avec des organisations. Elles nomment également les limites : quelle analyse est exploratoire, où les valeurs mesurées varient considérablement, où se situe la frontière avec le diagnostic clinique, et ce que la loi allemande sur le diagnostic génétique exige avant le prélèvement.",
     "items": [
       {
-        "q": "What is the difference between genetics and epigenetics?",
-        "a": "Genetic variants are unchangeable for life and are recorded once; epigenetic markers describe the current regulatory state and can be measured over time. Only the epigenetic level is suitable for tracking progress — set out in full under “Understanding the values”."
+        "q": "Quelle est la différence entre la génétique et l’épigénétique ?",
+        "a": "Les variantes génétiques sont immuables à vie et enregistrées une fois pour toutes ; les marqueurs épigénétiques décrivent l’état régulateur actuel et peuvent être mesurés dans le temps. Seul le niveau épigénétique convient au suivi de l’évolution — expliqué en détail dans « Comprendre les valeurs »."
       },
       {
-        "q": "How is the sample taken?",
-        "a": "A few drops of capillary blood from the fingertip go onto a dried blood card and dry there. No venipuncture, no centrifuge, no cold chain — sampling is possible in the practice or at home. The card is sent to the cooperation partner in the prepared envelope."
+        "q": "Comment le prélèvement est-il effectué ?",
+        "a": "Quelques gouttes de sang capillaire prélevées au bout du doigt sont déposées sur une carte de sang séché et y sèchent. Pas de ponction veineuse, pas de centrifugeuse, pas de chaîne du froid — le prélèvement est possible en cabinet ou à domicile. La carte est envoyée au partenaire de coopération dans l’enveloppe préparée."
       },
       {
-        "q": "When does a follow-up measurement make sense?",
-        "a": "After 4 to 6 months at the earliest and under conditions as similar as possible. The trend carries the message, not the single value — an initial and a follow-up measurement together form a plannable programme. Acute infections shift inflammation markers, so the timing should be chosen deliberately."
+        "q": "Quand un contrôle de suivi a-t-il un sens ?",
+        "a": "Au plus tôt après 4 à 6 mois et dans des conditions aussi similaires que possible. C’est la tendance qui porte le message, pas la valeur unique — une mesure initiale et une mesure de suivi forment ensemble un programme planifiable. Les infections aiguës modifient les marqueurs inflammatoires, le moment doit donc être choisi avec soin."
       },
       {
-        "q": "Do these analyses replace clinical diagnostics?",
-        "a": "No. They are consultation and monitoring tools, not a medical diagnosis and not a substitute for clinical assessment. Where findings suggest a condition requiring treatment, the person belongs in medical or psychotherapeutic assessment."
+        "q": "Ces analyses remplacent-elles le diagnostic clinique ?",
+        "a": "Non. Ce sont des outils de consultation et de suivi, pas un diagnostic médical et pas un substitut à l’évaluation clinique. Lorsque les résultats suggèrent un état nécessitant un traitement, la personne doit être orientée vers une évaluation médicale ou psychothérapeutique."
       },
       {
-        "q": "What are the legal requirements?",
-        "a": "In Germany, genetic analyses are subject to the Genetic Diagnostics Act: the person examined must be informed and give written consent before sampling, and this must be documented. Predictive genetic testing may furthermore only be conducted under the responsibility of appropriately qualified physicians; genetic counselling must be offered before and after the test (Sections 7 and 10 GenDG). It applies to Metabolic Health and to the Plus variant of Healthy Sport."
+        "q": "Quelles sont les exigences légales ?",
+        "a": "En Allemagne, les analyses génétiques sont soumises à la loi sur le diagnostic génétique : la personne examinée doit être informée et donner son consentement écrit avant le prélèvement, ce qui doit être documenté. Les tests génétiques prédictifs ne peuvent en outre être réalisés que sous la responsabilité de médecins qualifiés ; un conseil génétique doit être proposé avant et après le test (articles 7 et 10 GenDG). Cela s’applique à Metabolic Health et à la variante Plus de Healthy Sport."
       },
       {
-        "q": "How robust are the results?",
-        "a": "That differs by analysis, and we state it openly. The sampling route itself is sound, as is the monitoring approach. The microRNA age clock, by contrast, is exploratory, and qPCR telomere values vary considerably. The evidence sheet separates established from preliminary evidence and names the sources."
+        "q": "Quelle est la robustesse des résultats ?",
+        "a": "Cela dépend de l’analyse, et nous le déclarons ouvertement. La méthode de prélèvement elle-même est fiable, tout comme l’approche de suivi. En revanche, l’horloge d’âge microARN est exploratoire, et les valeurs de télomères par qPCR varient considérablement. La fiche d’évidence distingue les preuves établies des preuves préliminaires et cite les sources."
       },
       {
-        "q": "What do the analyses cost?",
-        "a": "B2B terms on request, tiered by volume and contract model. There is no public consumer price list. Test cards, shipping material and report delivery are part of the offer."
+        "q": "Quel est le coût des analyses ?",
+        "a": "Conditions B2B sur demande, modulées selon le volume et le modèle contractuel. Il n’existe pas de tarif public pour les consommateurs. Les cartes de test, le matériel d’expédition et la remise des rapports font partie de l’offre."
       },
       {
-        "q": "Which organisations is the programme suitable for?",
-        "a": "The analyses are supplied to professional users only: prevention and longevity practices, nutritional counselling, sports medicine and coaching, and workplace health management."
+        "q": "À quelles organisations le programme convient-il ?",
+        "a": "Les analyses sont fournies uniquement aux utilisateurs professionnels : cabinets de prévention et longévité, conseils nutritionnels, médecine du sport et coaching, et gestion de la santé en entreprise."
       }
     ]
   },
   "downloads": {
     "caption": "Documents",
-    "title": "All sheets to take away",
-    "sub": "18 information sheets as PDF, nine each in German and English. As of August 2026.",
-    "zipLabel": "The nine info sheets as ZIP · 0.6 MB",
+    "title": "Toutes les fiches à emporter",
+    "sub": "18 fiches d’information au format PDF, neuf en allemand et neuf en anglais. À partir d’août 2026.",
+    "zipLabel": "Les neuf fiches d’information en ZIP · 0,6 Mo",
     "zipFile": "PolarisDX_Unterlagen_EN.zip",
-    "btn": "Get PDF",
-    "samplesTitle": "Plus the six sample reports",
-    "samplesText": "A complete sample report for each analysis, along with the parameter overview and “Understanding the values” — in German.",
-    "samplesCta": "Go to the sample reports"
+    "btn": "Obtenir le PDF",
+    "samplesTitle": "Plus les six rapports d’échantillons",
+    "samplesText": "Un rapport d’échantillon complet pour chaque analyse, avec l’aperçu des paramètres et « Comprendre les valeurs » — en allemand.",
+    "samplesCta": "Accéder aux rapports d’échantillons"
   },
   "sheets": [
     {
       "num": "00",
-      "title": "Portfolio overview",
-      "desc": "Programme, principle, analyses, workflow, terms.",
+      "title": "Aperçu du portefeuille",
+      "desc": "Programme, principe, analyses, déroulement, conditions.",
       "file": "en/00_Portfolio_Overview_PolarisDX.pdf",
-      "meta": "PDF · 3 pages · 78 KB",
+      "meta": "PDF · 3 pages · 78 Ko",
       "featured": true
     },
     {
       "num": "01",
       "title": "Metabolic Health",
-      "desc": "Metabolic type, eating behaviour, weight regulation.",
+      "desc": "Type métabolique, comportement alimentaire, régulation du poids.",
       "file": "en/01_Metabolic_Health_PolarisDX.pdf",
-      "meta": "PDF · 3 pages · 80 KB"
+      "meta": "PDF · 3 pages · 80 Ko"
     },
     {
       "num": "02",
       "title": "Healthy Aging",
-      "desc": "Biological ageing across four layers, rating per layer.",
+      "desc": "Vieillissement biologique sur quatre couches, évaluation par couche.",
       "file": "en/02_Healthy_Aging_PolarisDX.pdf",
-      "meta": "PDF · 2 pages · 73 KB"
+      "meta": "PDF · 2 pages · 73 Ko"
     },
     {
       "num": "03",
-      "title": "Biological age clock",
-      "desc": "Three microRNAs as an exploratory lifestyle signal.",
+      "title": "Horloge d’âge biologique",
+      "desc": "Trois microARN comme signal exploratoire du mode de vie.",
       "file": "en/03_Biological_Age_PolarisDX.pdf",
-      "meta": "PDF · 3 pages · 79 KB"
+      "meta": "PDF · 3 pages · 79 Ko"
     },
     {
       "num": "04",
-      "title": "Telomere Analysis",
-      "desc": "Telomere length in kilobase pairs as a baseline.",
+      "title": "Analyse des télomères",
+      "desc": "Longueur des télomères en kilobases comme référence.",
       "file": "en/04_Telomere_Analysis_PolarisDX.pdf",
-      "meta": "PDF · 2 pages · 72 KB"
+      "meta": "PDF · 2 pages · 72 Ko"
     },
     {
       "num": "05",
-      "title": "Stress Monitor",
-      "desc": "Six microRNAs: measured alongside perceived strain.",
+      "title": "Moniteur de stress",
+      "desc": "Six microARN : mesurés avec la charge perçue.",
       "file": "en/05_Stress_Monitor_PolarisDX.pdf",
-      "meta": "PDF · 3 pages · 78 KB"
+      "meta": "PDF · 3 pages · 78 Ko"
     },
     {
       "num": "06",
       "title": "Healthy Sport",
-      "desc": "Eight microRNAs in seven assessments; Plus adds four variants.",
+      "desc": "Huit microARN dans sept évaluations ; Plus ajoute quatre variantes.",
       "file": "en/06_Healthy_Sport_PolarisDX.pdf",
-      "meta": "PDF · 3 pages · 80 KB"
+      "meta": "PDF · 3 pages · 80 Ko"
     },
     {
       "num": "07",
-      "title": "Commercial terms and enquiry",
-      "desc": "Pricing logic and enquiry form, B2B terms on request.",
+      "title": "Conditions commerciales et demande",
+      "desc": "Logique tarifaire et formulaire de demande, conditions B2B sur demande.",
       "file": "en/07_Terms_Enquiry_PolarisDX.pdf",
-      "meta": "PDF · 2 pages · 70 KB"
+      "meta": "PDF · 2 pages · 70 Ko"
     },
     {
       "num": "08",
-      "title": "Evidence base and limits",
-      "desc": "What is established and what is not — with sources.",
+      "title": "Base de preuves et limites",
+      "desc": "Ce qui est établi et ce qui ne l’est pas — avec sources.",
       "file": "en/08_Evidence_Base_PolarisDX.pdf",
-      "meta": "PDF · 3 pages · 78 KB",
+      "meta": "PDF · 3 pages · 78 Ko",
       "featured": true
     }
   ],
   "contact": {
     "caption": "Contact",
-    "title": "Request a quote",
-    "sub": "The analyses are supplied to professional users only. B2B terms on request, tiered by volume.",
-    "overview": "Overview as PDF",
+    "title": "Demander un devis",
+    "sub": "Les analyses sont fournies uniquement aux utilisateurs professionnels. Conditions B2B sur demande, modulées selon le volume.",
+    "overview": "Aperçu au format PDF",
     "overviewFile": "en/00_Portfolio_Overview_PolarisDX.pdf",
-    "note": "The analyses are laboratory services provided by our cooperation partner and are not CE-marked in vitro diagnostic devices. They serve consultation and monitoring and do not replace clinical diagnostics. Genetic analyses are subject to national genetic testing legislation. In Germany, predictive genetic testing may only be conducted under the responsibility of appropriately qualified physicians; genetic counselling must be offered before and after the test.",
-    "lab": "Laboratory analysis by our cooperation partner · ISO 9001:2015"
+    "note": "Les analyses sont des prestations de laboratoire fournies par notre partenaire de coopération et ne sont pas des dispositifs médicaux de diagnostic in vitro marqués CE. Elles servent à la consultation et au suivi et ne remplacent pas le diagnostic clinique. Les analyses génétiques sont soumises à la législation nationale sur les tests génétiques. En Allemagne, les tests génétiques prédictifs ne peuvent être réalisés que sous la responsabilité de médecins qualifiés ; un conseil génétique doit être proposé avant et après le test.",
+    "lab": "Analyse de laboratoire par notre partenaire de coopération · ISO 9001:2015"
   },
   "links": {
-    "longevity": "Longevity diagnostics",
-    "downloads": "All downloads",
-    "contact": "Request a quote"
+    "longevity": "Diagnostic de longévité",
+    "downloads": "Tous les téléchargements",
+    "contact": "Demander un devis"
   },
   "samples": {
-    "caption": "Sample reports",
-    "title": "What ends up on the table",
-    "lead": "Six complete sample reports, one for each analysis. Before you enquire, they show how the document is built that your clients finally receive.",
-    "note": "All six documents are sample reports: every value, genotype and personal detail is fictitious and serves solely to illustrate the report format. These are not real results.",
-    "badge": "PDF in German",
-    "btn": "View report",
+    "caption": "Rapports d’échantillons",
+    "title": "Ce qui est remis",
+    "lead": "Six rapports d’échantillons complets, un pour chaque analyse. Avant de faire une demande, ils montrent comment est construit le document que vos clients reçoivent finalement.",
+    "note": "Les six documents sont des rapports d’échantillons : chaque valeur, génotype et détail personnel est fictif et sert uniquement à illustrer le format du rapport. Ce ne sont pas de vrais résultats.",
+    "badge": "PDF en allemand",
+    "btn": "Voir le rapport",
     "items": [
       {
         "slug": "metabolic-health",
         "panel": "Metabolic Health",
         "pages": "15",
-        "what": "How one report brings both levels together — 17 genetic evaluations and four epigenetic markers on the same traffic light 1–9, including the reference to information and written consent under the German Genetic Diagnostics Act (GenDG).",
+        "what": "Comment un rapport rassemble les deux niveaux — 17 évaluations génétiques et quatre marqueurs épigénétiques sur le même feu tricolore 1–9, incluant la référence à l’information et au consentement écrit selon la loi allemande sur le diagnostic génétique (GenDG).",
         "bullets": [
-          "Four modifiable values, traffic light 1–9",
-          "17 genetic evaluations, 21 variants",
-          "Action plan with three focus areas"
+          "Quatre valeurs modifiables, feu tricolore 1–9",
+          "17 évaluations génétiques, 21 variantes",
+          "Plan d’action avec trois axes prioritaires"
         ],
         "file": "de/10_Musterbefund_Metabolic_Health_PolarisDX.pdf"
       },
@@ -367,11 +366,11 @@
         "slug": "healthy-aging",
         "panel": "Healthy Aging",
         "pages": "9",
-        "what": "How four markers are reported separately — telomeres, LINE-1, epigenetic ageing markers and IL-6, each as a percentage of the reference and each with its own biological age, deliberately without a combined score.",
+        "what": "Comment quatre marqueurs sont rapportés séparément — télomères, LINE-1, marqueurs de vieillissement épigénétique et IL-6, chacun en pourcentage de la référence et avec son propre âge biologique, délibérément sans score combiné.",
         "bullets": [
-          "Biological age for each marker",
-          "Lifestyle radar with eleven factors",
-          "13 recommendations, each assigned to a marker"
+          "Âge biologique pour chaque marqueur",
+          "Radar du mode de vie avec onze facteurs",
+          "13 recommandations, chacune assignée à un marqueur"
         ],
         "file": "de/11_Musterbefund_Healthy_Aging_PolarisDX.pdf"
       },
@@ -379,11 +378,11 @@
         "slug": "biologische-altersuhr",
         "panel": "Biological Age Clock",
         "pages": "10",
-        "what": "How an exploratory result is presented: biological age 52 years against a chronological age of 48 — and the limits of the model set out on a page of its own.",
+        "what": "Comment un résultat exploratoire est présenté : âge biologique 52 ans contre un âge chronologique de 48 — et les limites du modèle exposées sur une page dédiée.",
         "bullets": [
-          "The three microRNAs reported individually",
-          "Eight recommendations, mapped to the signals",
-          "Trend from two measured values"
+          "Les trois microARN rapportés individuellement",
+          "Huit recommandations, associées aux signaux",
+          "Tendance à partir de deux valeurs mesurées"
         ],
         "file": "de/12_Musterbefund_Biologische_Altersuhr_PolarisDX.pdf"
       },
@@ -391,11 +390,11 @@
         "slug": "telomer-analyse",
         "panel": "Telomere Analysis",
         "pages": "9",
-        "what": "How a single value is put into context: 108 kbp against a reference value of 112 kbp, with the measurement variability of the qPCR stated explicitly as part of the report.",
+        "what": "Comment une valeur unique est mise en contexte : 108 kpb contre une valeur de référence de 112 kpb, avec la variabilité de mesure par qPCR explicitement indiquée dans le rapport.",
         "bullets": [
-          "Eight recommendations with source and amount",
-          "Trend from two measured values",
-          "Scientific context for the method"
+          "Huit recommandations avec source et quantité",
+          "Tendance à partir de deux valeurs mesurées",
+          "Contexte scientifique de la méthode"
         ],
         "file": "de/13_Musterbefund_Telomer_Analyse_PolarisDX.pdf"
       },
@@ -403,11 +402,11 @@
         "slug": "stress-monitor",
         "panel": "Stress Monitor",
         "pages": "9",
-        "what": "How six microRNAs yield two separate evaluations — each from the markers assigned to it, with different results in the sample report.",
+        "what": "Comment six microARN donnent deux évaluations distinctes — chacune à partir des marqueurs qui lui sont assignés, avec des résultats différents dans le rapport d’échantillon.",
         "bullets": [
-          "The six individual markers as a table",
-          "Eleven recommendations with source and amount",
-          "Two measurements compared over time"
+          "Les six marqueurs individuels sous forme de tableau",
+          "Onze recommandations avec source et quantité",
+          "Comparaison de deux mesures dans le temps"
         ],
         "file": "de/14_Musterbefund_Stress_Monitor_PolarisDX.pdf"
       },
@@ -415,112 +414,112 @@
         "slug": "healthy-sport",
         "panel": "Healthy Sport",
         "pages": "12",
-        "what": "How eight microRNAs feed into seven evaluations. The sample report shows the Plus variant, which adds four genetic variants once — including the reference to information and written consent under the German Genetic Diagnostics Act (GenDG).",
+        "what": "Comment huit microARN alimentent sept évaluations. Le rapport d’échantillon montre la variante Plus, qui ajoute quatre variantes génétiques une fois — incluant la référence à l’information et au consentement écrit selon la loi allemande sur le diagnostic génétique (GenDG).",
         "bullets": [
-          "Seven evaluations, sorted by value",
-          "The eight microRNAs reported individually",
-          "14 recommendations, plus the measurement trend"
+          "Sept évaluations, triées par valeur",
+          "Les huit microARN rapportés individuellement",
+          "14 recommandations, plus la tendance de mesure"
         ],
         "file": "de/15_Musterbefund_Healthy_Sport_PolarisDX.pdf"
       }
     ],
     "pagesLabel": "{{pages}} pages",
-    "imgAlt": "Cover of the {{panel}} sample report",
-    "zipLabel": "All six as ZIP · 4.2 MB",
+    "imgAlt": "Couverture du rapport d’échantillon {{panel}}",
+    "zipLabel": "Tous les six en ZIP · 4,2 Mo",
     "zipFile": "PolarisDX_Musterbefunde_DE.zip",
-    "pdfBtn": "Download PDF"
+    "pdfBtn": "Télécharger le PDF"
   },
   "compare": {
-    "caption": "At a glance",
-    "title": "The six panels compared",
-    "lead": "All six panels run from the same dried blood spot card, collected from a fingertip. What differs is scope, molecular level and result format. The “Molecular level” column names what a value is made of: microRNAs are messenger molecules in the blood, telomere length is the length of the protective caps at the ends of the chromosomes. The “For tracking over time” column names which values can change at all in a follow-up measurement.",
+    "caption": "En un coup d’œil",
+    "title": "Comparaison des six panels",
+    "lead": "Les six panels utilisent la même carte de sang séché, prélevée au bout du doigt. Ce qui diffère, c’est l’étendue, le niveau moléculaire et le format du résultat. La colonne « Niveau moléculaire » indique ce que représente une valeur : les microARN sont des molécules messagères dans le sang, la longueur des télomères correspond à la taille des capuchons protecteurs aux extrémités des chromosomes. La colonne « Pour le suivi dans le temps » indique quelles valeurs peuvent évoluer lors d’une mesure de suivi.",
     "cols": [
       "Panel",
-      "Parameters",
-      "Molecular level",
-      "For tracking over time",
-      "Genetic analysis",
-      "Result format"
+      "Paramètres",
+      "Niveau moléculaire",
+      "Pour le suivi dans le temps",
+      "Analyse génétique",
+      "Format du résultat"
     ],
     "rows": [
       [
         "Metabolic Health",
-        "4 epigenetic + 17 genetic",
-        "Epigenetics and genetics",
-        "the 4 epigenetic markers only",
-        "yes",
-        "Traffic light 1–9"
+        "4 épigénétiques + 17 génétiques",
+        "Épigénétique et génétique",
+        "les 4 marqueurs épigénétiques uniquement",
+        "oui",
+        "Feu tricolore 1–9"
       ],
       [
         "Healthy Aging",
         "4",
-        "Epigenetics",
-        "all 4",
-        "no",
-        "% of reference, biological age"
+        "Épigénétique",
+        "tous les 4",
+        "non",
+        "% de la référence, âge biologique"
       ],
       [
-        "Biological Age Clock",
+        "Horloge d’âge biologique",
         "3",
-        "microRNA",
-        "all 3",
-        "no",
-        "Deviation in years"
+        "microARN",
+        "tous les 3",
+        "non",
+        "Écart en années"
       ],
       [
-        "Telomere Analysis",
+        "Analyse des télomères",
         "1",
-        "Telomere length",
-        "yes",
-        "no",
-        "% of reference, biological age"
+        "Longueur des télomères",
+        "oui",
+        "non",
+        "% de la référence, âge biologique"
       ],
       [
-        "Stress Monitor",
+        "Moniteur de stress",
         "6",
-        "microRNA",
-        "all 6",
-        "no",
-        "Traffic light 1–9"
+        "microARN",
+        "tous les 6",
+        "non",
+        "Feu tricolore 1–9"
       ],
       [
         "Healthy Sport",
-        "8 (Plus: + 4)",
-        "microRNA (Plus: + genetics)",
-        "the 8 microRNAs only",
-        "Plus variant only",
-        "Traffic light 1–9"
+        "8 (Plus : + 4)",
+        "microARN (Plus : + génétique)",
+        "les 8 microARN uniquement",
+        "Uniquement variante Plus",
+        "Feu tricolore 1–9"
       ]
     ],
     "shared": [
       {
-        "title": "Sample material",
-        "text": "Dried blood spot card from a fingertip — no refrigerated shipping, no fasting."
+        "title": "Matériel d’échantillonnage",
+        "text": "Carte de sang séché prélevée au bout du doigt — pas d’expédition réfrigérée, pas de jeûne."
       },
       {
-        "title": "Lifestyle radar",
-        "text": "11 self-reported factors: Healthy Aging, Healthy Sport, Age Clock, Telomere Analysis."
+        "title": "Radar du mode de vie",
+        "text": "11 facteurs auto-déclarés : Healthy Aging, Healthy Sport, Age Clock, Telomere Analysis."
       },
       {
         "title": "Interventions",
-        "text": "Recommendations for every marker, with source and amount: 8 to 14 per panel in one summary table, 50 listed at the individual markers for Metabolic Health."
+        "text": "Recommandations pour chaque marqueur, avec source et quantité : de 8 à 14 par panel dans un tableau récapitulatif, 50 listées aux marqueurs individuels pour Metabolic Health."
       }
     ],
-    "caveatTitle": "Two panels where the methodology belongs in the conversation",
+    "caveatTitle": "Deux panels dont la méthodologie doit être prise en compte",
     "caveats": [
       {
-        "title": "Biological Age Clock",
-        "text": "The underlying model is published as a pilot study (n = 539), with a mean absolute error of around 10 years. A single reading is not a determination of age; what holds up is the trend."
+        "title": "Horloge d’âge biologique",
+        "text": "Le modèle sous-jacent est publié comme étude pilote (n = 539), avec une erreur absolue moyenne d’environ 10 ans. Une seule lecture ne détermine pas l’âge ; c’est la tendance qui est fiable."
       },
       {
-        "title": "Telomere Analysis",
-        "text": "qPCR measurement varies considerably between runs and laboratories, more so from dried blood than from venous blood. Here too it is the trend that carries the interpretation."
+        "title": "Analyse des télomères",
+        "text": "La mesure par qPCR varie considérablement entre les séries et les laboratoires, davantage à partir de sang séché que de sang veineux. Là aussi, c’est la tendance qui porte l’interprétation."
       }
     ],
-    "gendg": "Two panels include genetic analyses: Metabolic Health and the Plus variant of Healthy Sport. For these, the person concerned must be informed and give written consent before the sample is taken (German Genetic Diagnostics Act, GenDG). Predictive genetic testing may only be conducted under the responsibility of appropriately qualified physicians; genetic counselling must be offered before and after the test (Sections 7 and 10 GenDG).",
-    "cta": "Parameter overview as PDF (German)",
+    "gendg": "Deux panels incluent des analyses génétiques : Metabolic Health et la variante Plus de Healthy Sport. Pour ceux-ci, la personne concernée doit être informée et donner son consentement écrit avant le prélèvement (loi allemande sur le diagnostic génétique, GenDG). Les tests génétiques prédictifs ne peuvent être réalisés que sous la responsabilité de médecins qualifiés ; un conseil génétique doit être proposé avant et après le test (articles 7 et 10 GenDG).",
+    "cta": "Aperçu des paramètres au format PDF (allemand)",
     "file": "de/16_Parameteruebersicht_PolarisDX.pdf",
-    "scrollHint": "Table scrolls sideways",
+    "scrollHint": "Le tableau défile horizontalement",
     "groups": [
       [
         "nutrition",
@@ -549,200 +548,201 @@
       ]
     ],
     "filter": {
-      "label": "What are you looking for?",
-      "all": "All six",
+      "label": "Que recherchez-vous ?",
+      "all": "Tous les six",
       "options": {
-        "longevity": "Longevity and prevention",
-        "nutrition": "Nutritional counselling",
-        "sports": "Sports medicine",
-        "bgm": "Corporate health management",
-        "practice": "Practice and clinic"
+        "longevity": "Longévité et prévention",
+        "nutrition": "Conseil nutritionnel",
+        "sports": "Médecine du sport",
+        "bgm": "Gestion de la santé en entreprise",
+        "practice": "Cabinet et clinique"
       },
-      "empty": "No panel is listed for this selection."
+      "empty": "Aucun panel n’est listé pour cette sélection."
     }
   },
   "basics": {
-    "caption": "Understanding the values",
-    "title": "What the reports actually measure",
-    "lead": "The reports contain values from four levels. Once the distinction is clear, it is obvious which figures can change and which cannot — and predisposition can be separated from snapshot in the consultation. No value is a diagnosis.",
+    "caption": "Comprendre les valeurs",
+    "title": "Ce que les rapports mesurent réellement",
+    "lead": "Les rapports contiennent des valeurs issues de quatre niveaux. Une fois la distinction claire, il est évident quelles données peuvent changer et lesquelles ne peuvent pas — et la prédisposition peut être séparée du cliché instantané lors de la consultation. Aucune valeur n’est un diagnostic.",
     "concepts": [
       {
         "num": "01",
-        "title": "The genes — the blueprint",
-        "text": "The genes are the body’s blueprint: they set out how it uses fat and how it transports vitamin D. Small deviations in it are called gene variants, or SNPs — every person carries thousands of them, neither good nor bad. In Germany, genetic analyses fall under the Genetic Diagnostics Act (Gendiagnostikgesetz, GenDG) — information and written consent must be in place before the sample is taken.",
-        "key": "The blueprint never changes. A genetic analysis is carried out once in a lifetime; a second measurement would return exactly the same result."
+        "title": "Les gènes — le plan directeur",
+        "text": "Les gènes sont le plan directeur du corps : ils définissent comment il utilise les graisses et comment il transporte la vitamine D. De petites variations sont appelées variants génétiques, ou SNPs — chaque personne en porte des milliers, ni bons ni mauvais. En Allemagne, les analyses génétiques relèvent de la loi sur le diagnostic génétique (Gendiagnostikgesetz, GenDG) — les informations et le consentement écrit doivent être obtenus avant le prélèvement.",
+        "key": "Le plan directeur ne change jamais. Une analyse génétique est réalisée une fois dans la vie ; une seconde mesure donnerait exactement le même résultat."
       },
       {
         "num": "02",
-        "title": "Methylation — the volume controls",
-        "text": "The blueprint says nothing about what is being built right now. That is governed by chemical markers sitting on the DNA, which turn individual genes up or down; this system is known as methylation. It responds to diet, exercise, sleep and stress.",
-        "key": "These values change. They do not show which genes someone has, but how active those genes currently are — which is what makes them suitable for tracking progress."
+        "title": "La méthylation — les commandes de volume",
+        "text": "Le plan directeur ne dit rien sur ce qui est construit actuellement. Cela est régulé par des marqueurs chimiques sur l’ADN, qui augmentent ou diminuent l’activité de certains gènes ; ce système s’appelle la méthylation. Il réagit à l’alimentation, à l’exercice, au sommeil et au stress.",
+        "key": "Ces valeurs changent. Elles ne montrent pas quels gènes une personne possède, mais à quel point ces gènes sont actifs actuellement — ce qui les rend adaptées au suivi des progrès."
       },
       {
         "num": "03",
-        "title": "MicroRNAs — the messengers in the blood",
-        "text": "MicroRNAs are tiny molecules that circulate in the blood and fine-tune gene activity — short messages the body sends out continuously. Their quantity shifts faster than methylation, often within weeks.",
-        "key": "Their names always follow the same pattern: \"miR\" plus a number. The number is simply a catalogue number and says nothing about importance."
+        "title": "Les microARN — les messagers dans le sang",
+        "text": "Les microARN sont de minuscules molécules circulant dans le sang et ajustant finement l’activité des gènes — de courts messages que le corps envoie en continu. Leur quantité varie plus rapidement que la méthylation, souvent en quelques semaines.",
+        "key": "Leurs noms suivent toujours le même schéma : « miR » suivi d’un numéro. Ce numéro est simplement un numéro de catalogue et n’indique rien sur l’importance."
       },
       {
         "num": "04",
-        "title": "Telomeres — the protective caps",
-        "text": "At the ends of the chromosomes sit protective caps, much like the plastic tips on shoelaces. These telomeres keep genetic information from being lost when a cell divides — and grow a little shorter with every division.",
-        "key": "Telomeres cannot be deliberately lengthened. The only thing open to influence is how quickly they shorten."
+        "title": "Les télomères — les capuchons protecteurs",
+        "text": "Aux extrémités des chromosomes se trouvent des capuchons protecteurs, semblables aux embouts plastiques des lacets. Ces télomères empêchent la perte d’informations génétiques lors de la division cellulaire — et raccourcissent un peu à chaque division.",
+        "key": "Les télomères ne peuvent pas être allongés délibérément. La seule chose influençable est la vitesse à laquelle ils se raccourcissent."
       }
     ],
-    "scaleTitle": "And the numbers?",
+    "scaleTitle": "Et les chiffres ?",
     "scales": [
       {
-        "k": "Traffic light 1–9",
-        "v": "The most common format. Red on the left, green on the right; higher is always better: 1–3 red, 4–6 yellow, 7–9 green."
+        "k": "Feu tricolore 1–9",
+        "v": "Le format le plus courant. Rouge à gauche, vert à droite ; plus c’est élevé, mieux c’est : 1–3 rouge, 4–6 jaune, 7–9 vert."
       },
       {
-        "k": "Percentages",
-        "v": "The value in comparison with a reference group. 100 % means: precisely within the expected range."
+        "k": "Pourcentages",
+        "v": "La valeur en comparaison avec un groupe de référence. 100 % signifie : précisément dans la plage attendue."
       },
       {
-        "k": "Years",
-        "v": "A “biological age” calculated from measured values, against chronological age — a calculation, not a determination of age."
+        "k": "Années",
+        "v": "Un « âge biologique » calculé à partir des valeurs mesurées, par rapport à l’âge chronologique — un calcul, pas une détermination de l’âge."
       }
     ],
-    "cta": "Understanding the values as PDF (German)",
+    "cta": "Comprendre les valeurs en PDF (allemand)",
     "file": "de/17_Werte_verstehen_PolarisDX.pdf"
   },
   "teaser": {
-    "eyebrow": "New in the portfolio · Sample reports",
-    "title": "Epigenetics and genetics from a drop of blood",
-    "text": "Alongside point-of-care testing on the Igloo reader, we offer six analyses from capillary blood, evaluated by our cooperation partner. A complete sample report is now available as a PDF for each of the six analyses — the values are invented example data, but the structure is identical to the report your clients ultimately receive. That way you see the full scope of the evaluation before you enquire.",
-    "cta": "View the six analyses",
-    "ctaSamples": "The six sample reports",
+    "eyebrow": "Nouveautés dans le portefeuille · Rapports d’exemple",
+    "title": "Épigénétique et génétique à partir d’une goutte de sang",
+    "text": "En plus des tests au point de service sur le lecteur Igloo, nous proposons six analyses à partir de sang capillaire, évaluées par notre partenaire de coopération. Un rapport d’échantillon complet est désormais disponible en PDF pour chacune des six analyses — les valeurs sont des exemples inventés, mais la structure est identique au rapport que vos clients recevront finalement. Ainsi, vous voyez l’étendue complète de l’évaluation avant de faire une demande.",
+    "cta": "Voir les six analyses",
+    "ctaSamples": "Les six rapports d’exemple",
     "facts": [
       {
-        "label": "Portfolio",
-        "value": "6 analyses, one sample path"
+        "label": "Portefeuille",
+        "value": "6 analyses, un seul chemin d’échantillonnage"
       },
       {
-        "label": "Sample",
-        "value": "Dried blood card, fingertip"
+        "label": "Échantillon",
+        "value": "Carte de sang séché, bout du doigt"
       },
       {
-        "label": "Sample reports",
-        "value": "6 PDFs with example data"
+        "label": "Rapports d’échantillons",
+        "value": "6 PDF avec données d’exemple"
       }
     ]
   },
   "befund": {
-    "seoTitle": "{{panel}} sample report",
-    "seoDescription": "The complete {{panel}} sample report to read online — every marker, scale and recommendation. Example data, not real patient data.",
+    "seoTitle": "Rapport d’échantillon {{panel}}",
+    "seoDescription": "Le rapport d’échantillon complet {{panel}} à lire en ligne — chaque marqueur, échelle et recommandation. Données d’exemple, pas de données réelles de patients.",
     "seo": {
       "metabolic-health": {
-        "title": "Metabolic Health sample report: nutrition type",
-        "description": "Metabolic Health example report: metabotype, sport type and four modifiable values on nutrition and metabolism, explained page by page. Example data."
+        "title": "Rapport d’échantillon Santé Métabolique : type de nutrition",
+        "description": "Rapport d’exemple Santé Métabolique : métabotype, type de sport et quatre valeurs modifiables sur la nutrition et le métabolisme, expliquées page par page. Données d’exemple."
       },
       "healthy-aging": {
-        "title": "Healthy Aging sample report: biological age",
-        "description": "Healthy Aging example report: four epigenetic values on biological age, each with the traffic light 1–9 and an explanation. Example data, not patient data."
+        "title": "Rapport d’échantillon Vieillissement Sain : âge biologique",
+        "description": "Rapport d’exemple Vieillissement Sain : quatre valeurs épigénétiques sur l’âge biologique, chacune avec le feu tricolore 1–9 et une explication. Données d’exemple, pas de données patient."
       },
       "biologische-altersuhr": {
-        "title": "Biological Age Clock sample report: microRNA",
-        "description": "Biological Age Clock example report: three microRNA as an exploratory lifestyle signal, explicitly not an age determination. Example data, each value explained."
+        "title": "Rapport d’échantillon Horloge d’Âge Biologique : microARN",
+        "description": "Rapport d’exemple Horloge d’Âge Biologique : trois microARN comme signal exploratoire du mode de vie, explicitement pas une détermination d’âge. Données d’exemple, chaque valeur expliquée."
       },
       "telomer-analyse": {
-        "title": "Telomere Analysis sample report: telomere length",
-        "description": "Telomere Analysis example report: telomere length in kilobase pairs as a baseline value, with context and explanation. Example data, not patient data."
+        "title": "Rapport d’échantillon Analyse des Télomères : longueur des télomères",
+        "description": "Rapport d’exemple Analyse des Télomères : longueur des télomères en kilobases comme valeur de référence, avec contexte et explication. Données d’exemple, pas de données patient."
       },
       "stress-monitor": {
-        "title": "Stress Monitor sample report: six microRNA",
-        "description": "Stress Monitor example report: six microRNA across four areas put measured strain next to perceived strain. Example data, every value explained."
+        "title": "Rapport d’échantillon Moniteur de Stress : six microARN",
+        "description": "Rapport d’exemple Moniteur de Stress : six microARN répartis sur quatre domaines mettant la charge mesurée à côté de la charge perçue. Données d’exemple, chaque valeur expliquée."
       },
       "healthy-sport": {
-        "title": "Healthy Sport sample report: training values",
-        "description": "Healthy Sport example report: eight microRNAs in seven assessments on current condition, plus four unchangeable genetic variants. Example data, everything explained."
+        "title": "Rapport d’échantillon Sport Sain : valeurs d’entraînement",
+        "description": "Rapport d’exemple Sport Sain : huit microARN dans sept évaluations sur l’état actuel, plus quatre variants génétiques immuables. Données d’exemple, tout expliqué."
       }
     },
-    "notFoundTitle": "This sample report does not exist",
-    "notFoundText": "The report you requested is not available. Six sample reports are ready — one for each analysis.",
-    "backToAll": "All six sample reports",
-    "pdfCta": "This report as a PDF",
-    "othersTitle": "The other sample reports",
-    "navBack": "Overview",
-    "navChapters": "Chapters",
-    "noticeTitle": "Important notices",
-    "toTop": "Back to top",
-    "ctaPdf": "This report as PDF",
+    "notFoundTitle": "Ce rapport d’exemple n’existe pas",
+    "notFoundText": "Le rapport que vous avez demandé n’est pas disponible. Six rapports d’exemple sont prêts — un pour chaque analyse.",
+    "backToAll": "Tous les six rapports d’exemple",
+    "pdfCta": "Ce rapport en PDF",
+    "othersTitle": "Les autres rapports d’exemple",
+    "navBack": "Aperçu",
+    "navChapters": "Chapitres",
+    "noticeTitle": "Avis importants",
+    "toTop": "Retour en haut",
+    "ctaPdf": "Ce rapport en PDF",
+    "overviewCaption": "En un coup d’œil",
+    "overviewTitle": "Chaque valeur dans ce rapport",
+    "overviewLead": "Chaque valeur avec sa classification. Un clic mène à l’explication complète ci-dessous.",
+    "toneRed": "hors plage",
+    "toneAmber": "limite",
+    "toneGreen": "dans la plage",
+    "entryCount": "{{count}} valeurs",
+    "entryCount_one": "{{count}} valeur",
+    "entryCount_other": "{{count}} valeurs",
     "mini": {
-      "caption": "The miniature",
-      "title": "The report in miniature.",
-      "lead": "This miniature shows in advance which result formats this report uses. It is calculated from the sample values on this page and is not a picture. Each mark stands for a format that reappears at full size further down — and whatever this panel does not use is missing here as well.",
-      "alt": "Schematic miniature of the report with numbered marks for the result formats of this panel.",
+      "caption": "La miniature",
+      "title": "Le rapport en miniature.",
+      "lead": "Cette miniature montre à l’avance quels formats de résultats ce rapport utilise. Elle est calculée à partir des valeurs d’échantillon sur cette page et n’est pas une image. Chaque marque représente un format qui réapparaît en taille réelle plus bas — et tout ce que ce panel n’utilise pas est également absent ici.",
+      "alt": "Miniature schématique du rapport avec des marques numérotées pour les formats de résultats de ce panel.",
       "marks": {
         "traffic": {
-          "title": "The traffic light 1–9",
-          "text": "Every evaluation sits as a mark on the same traffic light 1–9. Red on the left, green on the right, higher is more favourable. How the marks spread across the band shows directly whether this panel sits more towards the red, amber or green range."
+          "title": "Le feu tricolore 1–9",
+          "text": "Chaque évaluation est représentée par une marque sur le même feu tricolore 1–9. Rouge à gauche, vert à droite, plus c’est élevé, plus c’est favorable. La répartition des marques sur la bande montre directement si ce panel se situe plutôt dans la zone rouge, jaune ou verte."
         },
         "percent": {
-          "title": "Per cent of the reference",
-          "text": "The markers are given as a percentage of a matched reference group. 100 % is the normal range, higher is more favourable. The marks on the band show where the values of this sample report sit against the reference."
+          "title": "Pourcentage par rapport à la référence",
+          "text": "Les marqueurs sont donnés en pourcentage d’un groupe de référence apparié. 100 % est la plage normale, plus c’est élevé, plus c’est favorable. Les marques sur la bande montrent où se situent les valeurs de ce rapport d’échantillon par rapport à la référence."
         },
         "age": {
-          "title": "Biological against chronological",
-          "text": "The dashed line is the calendar age, the dot the biological age for each marker. The distance between the two is what the report states — not the single figure in years."
+          "title": "Biologique contre chronologique",
+          "text": "La ligne pointillée est l’âge calendaire, le point est l’âge biologique pour chaque marqueur. La distance entre les deux est ce que le rapport indique — pas la valeur unique en années."
         },
         "trend": {
-          "title": "Two measurements compared",
-          "text": "Two measurements of the same value side by side: the open dot is the first, the filled one the second. Only what can actually change is compared — genetic variants stay the same. The interval between two measurements is set by the supervising institution."
+          "title": "Deux mesures comparées",
+          "text": "Deux mesures de la même valeur côte à côte : le point ouvert est la première, le point rempli la seconde. Seul ce qui peut réellement changer est comparé — les variants génétiques restent les mêmes. L’intervalle entre deux mesures est fixé par l’institution supervisante."
         }
       }
     },
     "a11y": {
-      "radar": "Radar chart with {{n}} factors"
+      "radar": "Graphique radar avec {{n}} facteurs"
     },
-    "entryCount": "{{count}} values",
-    "entryCount_one": "{{count}} value",
-    "entryCount_other": "{{count}} values",
-    "overviewCaption": "At a glance",
-    "overviewLead": "Each value with its classification. One click jumps to the full explanation below.",
-    "overviewTitle": "Every value in this report",
-    "toneAmber": "borderline",
-    "toneGreen": "within range",
-    "toneRed": "outside the range"
+    "markersChapter": "Marqueurs"
   },
   "consult": {
-    "caption": "How this becomes a consultation",
-    "title": "A report is a programme, not a single value.",
+    "caption": "Comment cela devient une consultation",
+    "title": "Un rapport est un programme, pas une seule valeur.",
     "before": {
-      "title": "Before the consultation",
-      "text": "The full report is available ahead of the appointment. Read it through and mark what stands out: the traffic-light ratings, their distribution across the evaluations, the starting points named. That way it is clear from the outset what to discuss."
+      "title": "Avant la consultation",
+      "text": "Le rapport complet est disponible avant le rendez-vous. Lisez-le et notez ce qui ressort : les évaluations au feu tricolore, leur répartition dans les évaluations, les points de départ nommés. Ainsi, il est clair dès le départ ce qu’il faut discuter."
     },
     "during": {
-      "title": "During the consultation",
-      "general": "Genetic variants are determined once in a lifetime and describe the starting position. Only the epigenetic level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress.",
-      "metabolic-health": "Four values in this panel sit on the epigenetic level and can therefore be influenced. The genetic variants alongside them are determined once in a lifetime and remain unchanged; they describe the starting position. Only the epigenetic level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress.",
-      "healthy-aging": "All four values in this panel sit on the epigenetic level. Unlike genetic variants, which are determined once in a lifetime and remain unchanged, this level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress. The conversation therefore separates what is fixed from what can be worked on.",
-      "biologische-altersuhr": "All three values in this panel sit on the epigenetic level. Unlike genetic variants, which are determined once in a lifetime and remain unchanged, this level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress. The conversation therefore separates what is fixed from what can be worked on.",
-      "telomer-analyse": "This panel carries exactly one value on the epigenetic level. Unlike genetic variants, which are determined once in a lifetime and remain unchanged, it responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress. The conversation therefore separates what is fixed from what can be worked on.",
-      "stress-monitor": "All six values in this panel sit on the epigenetic level. Unlike genetic variants, which are determined once in a lifetime and remain unchanged, this level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress. The conversation therefore separates what is fixed from what can be worked on.",
-      "healthy-sport": "Eight values in this panel sit on the epigenetic level and can therefore be influenced. The genetic variants alongside them are determined once in a lifetime and remain unchanged — they describe the starting position, not a goal. Only the epigenetic level responds to nutrition, exercise, sleep and strain; it alone is suitable for tracking progress."
+      "title": "Pendant la consultation",
+      "general": "Les variants génétiques sont déterminés une fois dans la vie et décrivent la position de départ. Seul le niveau épigénétique répond à la nutrition, à l’exercice, au sommeil et à la charge — c’est lui seul qui convient pour suivre les progrès.",
+      "metabolic-health": "Quatre valeurs de ce panel se situent au niveau épigénétique et peuvent donc être influencées. Les variants génétiques à côté sont déterminés une fois dans la vie et restent inchangés ; ils décrivent la position de départ. Seul le niveau épigénétique répond à la nutrition, à l’exercice, au sommeil et à la charge — c’est lui seul qui convient pour suivre les progrès.",
+      "healthy-aging": "Les quatre valeurs de ce panel se situent au niveau épigénétique. Contrairement aux variants génétiques, qui sont déterminés une fois dans la vie et restent inchangés, ce niveau répond à la nutrition, à l’exercice, au sommeil et à la charge — c’est lui seul qui convient pour suivre les progrès. La conversation sépare donc ce qui est fixe de ce qui peut être travaillé.",
+      "biologische-altersuhr": "Les trois valeurs de ce panel se situent au niveau épigénétique. Contrairement aux variants génétiques, qui sont déterminés une fois dans la vie et restent inchangés, ce niveau répond à la nutrition, à l’exercice, au sommeil et à la charge — c’est lui seul qui convient pour suivre les progrès. La conversation sépare donc ce qui est fixe de ce qui peut être travaillé.",
+      "telomer-analyse": "Ce panel comporte exactement une valeur au niveau épigénétique. Contrairement aux variants génétiques, qui sont déterminés une fois dans la vie et restent inchangés, il répond à la nutrition, à l’exercice, au sommeil et à la charge — c’est lui seul qui convient pour suivre les progrès. La conversation sépare donc ce qui est fixe de ce qui peut être travaillé.",
+      "stress-monitor": "Les six valeurs de ce panel se situent au niveau épigénétique. Contrairement aux variants génétiques, qui sont déterminés une fois dans la vie et restent inchangés, ce niveau répond à la nutrition, à l’exercice, au sommeil et à la charge — c’est lui seul qui convient pour suivre les progrès. La conversation sépare donc ce qui est fixe de ce qui peut être travaillé.",
+      "healthy-sport": "Huit valeurs de ce panel se situent au niveau épigénétique et peuvent donc être influencées. Les variants génétiques à côté sont déterminés une fois dans la vie et restent inchangés — ils décrivent la position de départ, pas un objectif. Seul le niveau épigénétique répond à la nutrition, à l’exercice, au sommeil et à la charge ; c’est lui seul qui convient pour suivre les progrès."
     },
     "after": {
-      "title": "Afterwards",
-      "general": "The interval to a follow-up measurement is set by the supervising institution. Laboratory, sample material and sampling should stay the same — and whatever happens in between belongs in the same documentation as the values.",
-      "methylation": "A follow-up measurement is meaningful at the earliest after four to six months; before that, changes cannot be measured reliably. The interval is set by the supervising institution. For comparability, the laboratory, sample material and sampling should stay the same — and whatever happens between the measurements belongs in the same documentation as the values."
+      "title": "Après",
+      "general": "L’intervalle avant une mesure de suivi est fixé par l’institution supervisante. Le laboratoire, le matériel d’échantillonnage et le prélèvement doivent rester les mêmes — et tout ce qui se passe entre les deux appartient à la même documentation que les valeurs.",
+      "methylation": "Une mesure de suivi est pertinente au plus tôt après quatre à six mois ; avant cela, les changements ne peuvent pas être mesurés de manière fiable. L’intervalle est fixé par l’institution supervisante. Pour la comparabilité, le laboratoire, le matériel d’échantillonnage et le prélèvement doivent rester les mêmes — et tout ce qui se passe entre les mesures appartient à la même documentation que les valeurs."
     }
   },
   "sidebar": {
-    "title": "Epigenetics and genetics",
-    "text": "Six laboratory analyses from a drop of capillary blood — complementing instant diagnostics at the reader.",
-    "cta": "View the portfolio"
+    "title": "Épigénétique et génétique",
+    "text": "Six analyses de laboratoire à partir d’une goutte de sang capillaire — en complément du diagnostic instantané sur le lecteur.",
+    "cta": "Voir le portefeuille"
   },
   "merk": {
-    "add": "Save this panel",
-    "added": "Saved",
-    "addAria": "Save {{panel}} to your shortlist",
-    "removeAria": "Remove {{panel}} from your shortlist",
-    "caption": "Your shortlist",
-    "title": "Saved for your enquiry",
-    "lead": "These are the panels you have saved. The list stays in this browser only: nothing is transmitted or evaluated as long as you do not submit anything here. Only “Request a quotation” carries the names into the contact form — where they appear in the free-text field and can be changed or deleted before you send it.",
-    "clear": "Clear the list",
-    "note": "Stored in this browser's storage (localStorage) only, and only the name of the panel. No account, no server record, nothing passed on to third parties. “Clear the list” removes the entry completely."
+    "add": "Enregistrer ce panel",
+    "added": "Enregistré",
+    "addAria": "Enregistrer {{panel}} dans votre sélection",
+    "removeAria": "Retirer {{panel}} de votre sélection",
+    "caption": "Votre sélection",
+    "title": "Enregistré pour votre demande",
+    "lead": "Voici les panels que vous avez enregistrés. La liste reste uniquement dans ce navigateur : rien n’est transmis ni évalué tant que vous ne soumettez rien ici. Seule la fonction « Demander un devis » transmet les noms dans le formulaire de contact — où ils apparaissent dans le champ de texte libre et peuvent être modifiés ou supprimés avant envoi.",
+    "clear": "Effacer la liste",
+    "note": "Stocké uniquement dans le stockage local de ce navigateur (localStorage), et uniquement le nom du panel. Pas de compte, pas d’enregistrement serveur, rien transmis à des tiers. « Effacer la liste » supprime complètement l’entrée."
   }
 }

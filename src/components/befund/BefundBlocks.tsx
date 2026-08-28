@@ -457,7 +457,7 @@ const Principle = ({ b, blocks }: { b: Block; blocks?: Block[] }) => {
         >
           {cards.map((c) => (
             <div key={c.title} className="rounded-3xl border border-slate-200 bg-white p-6">
-              <h3 className="text-lg font-semibold text-heading">{c.title}</h3>
+              <h3 className="t-h3">{c.title}</h3>
               <p className={`mt-2 text-gray-700 ${BODY}`}>{c.text}</p>
               {/* Die Aufzaehlung stand seit jeher im Inhalts-JSON, wurde aber
                   nie ausgegeben — bei Metabolic Health sind das die sechs
@@ -502,9 +502,7 @@ const Principle = ({ b, blocks }: { b: Block; blocks?: Block[] }) => {
           {str(b.scaleCaption) ? (
             <p className="text-xs font-medium text-gray-600">{str(b.scaleCaption)}</p>
           ) : null}
-          {str(b.scaleTitle) ? (
-            <h3 className="mt-1 text-lg font-semibold text-heading">{str(b.scaleTitle)}</h3>
-          ) : null}
+          {str(b.scaleTitle) ? <h3 className="mt-1 t-h3">{str(b.scaleTitle)}</h3> : null}
           {str(b.scaleLead) ? (
             <p className={`mt-2 max-w-[68ch] text-gray-700 ${BODY}`}>{str(b.scaleLead)}</p>
           ) : null}
@@ -896,7 +894,7 @@ const Summary = ({ b }: { b: Block }) => {
                 {f.num}
               </span>
               <div>
-                <h3 className="text-lg font-semibold text-heading">{f.title}</h3>
+                <h3 className="t-h3">{f.title}</h3>
                 <p className={`mt-2 max-w-[72ch] text-gray-700 ${BODY}`}>{f.text}</p>
               </div>
             </div>
@@ -938,7 +936,7 @@ const Science = ({ b }: { b: Block }) => (
     <div className="mt-8 grid gap-5 lg:grid-cols-2">
       {arr<{ title: string; text: string; source?: string }>(b.items).map((i) => (
         <div key={i.title} className="rounded-3xl border border-slate-200 bg-slate-50 p-6 lg:p-7">
-          <h3 className="text-lg font-semibold text-heading">{i.title}</h3>
+          <h3 className="t-h3">{i.title}</h3>
           <p className={`mt-2 text-gray-700 ${BODY}`}>{i.text}</p>
           {i.source ? <p className="mt-3 text-sm text-gray-600">{i.source}</p> : null}
         </div>

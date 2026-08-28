@@ -68,7 +68,7 @@
   "order": {
     "caption": "Spray Vitamina D3+K2",
     "title": "Ordina ora",
-    "description": "Compila il modulo e ti invieremo una conferma d'ordine con fattura via e-mail.",
+    "description": "Compila il modulo. Il nostro team esaminerà la richiesta e ti contatterà per prezzo, consegna e pagamento.",
     "quantity_label": "Quantità da ordinare",
     "quantity_options": {
       "12": "12 spray",
@@ -90,10 +90,10 @@
     "message_placeholder": "Facoltativo: istruzioni di consegna, indirizzo diverso, ecc.",
     "submit": "Effettua l'ordine vincolante",
     "submitting": "Invio dell'ordine in corso...",
-    "submit_note": "Inviando l'ordine riceverai una conferma via e-mail. Pagamento su fattura.",
+    "submit_note": "In questo modulo non viene effettuato alcun pagamento. Il nostro team conferma personalmente prezzo e consegna.",
     "reassurance": "Gratuito e senza impegno · Risposta < 24 h",
     "success_title": "Grazie per il tuo ordine!",
-    "success_text": "Abbiamo ricevuto il tuo ordine e a breve ti invieremo una conferma via e-mail.",
+    "success_text": "Abbiamo ricevuto la tua richiesta d’ordine. Il nostro team ti contatterà a breve per i prossimi passi.",
     "error_text": "Si è verificato un errore. Riprova oppure chiamaci."
   },
   "contact": {

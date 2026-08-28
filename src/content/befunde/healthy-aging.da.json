@@ -1,0 +1,579 @@
+{
+  "slug": "healthy-aging",
+  "panel": "Healthy Aging",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Prøverapport · Eksempeldata",
+      "panel": "Healthy Aging",
+      "subtitle": "Dit epigenetiske ur",
+      "claim": "Et par dråber blod viser den tilstand, hvor din cellulære regulering fungerer — og hvilke greb der kan bruges til at påvirke den biologiske alder.",
+      "meta": [
+        {
+          "k": "Rapport for",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Prøvetagning",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Materiale",
+          "v": "Tørret bloddråbe-kort"
+        },
+        {
+          "k": "Markører",
+          "v": "4 + livsstil"
+        }
+      ],
+      "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+      "id": "deckblatt",
+      "benefit": "Hvordan din klient ældes — i fire separate værdier, og hvad de kan ændre."
+    },
+    {
+      "type": "principle",
+      "caption": "Princippet",
+      "title": "Sådan læses denne rapport.",
+      "lead": "Din krop fornyer sig selv hver dag: celler deler sig, reparerer DNA-skader og reagerer på stress, ernæring, søvn og miljø. Disse processer efterlader spor i DNA-methylering. Ud fra disse mønstre aflæser rapporten din biologiske alder — ikke i kalenderår, men i tilstanden af din cellulære regulering.",
+      "cards": [
+        {
+          "title": "Beskyttelse",
+          "text": "Hvor stabilt dit DNA er beskyttet, og hvor effektivt reparationsmekanismerne fungerer. Markører: telomerer, LINE-1."
+        },
+        {
+          "title": "Regulering",
+          "text": "Hvor kontrollerede inflammatoriske processer forbliver, og hvor robust den cellulære balance er. Markør: IL-6."
+        },
+        {
+          "title": "Fortolkning",
+          "text": "Hvordan dine værdier sammenlignes med en referencegruppe matchet for alder, køn og etnicitet."
+        }
+      ],
+      "flowTitle": "Processen",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Måling",
+          "text": "Tørret bloddråbe-kort, fingerspids. Telomerlængde og methyleringsmarkører (LINE-1, IL-6, aldringsmarkører). Ingen faste nødvendig."
+        },
+        {
+          "num": "02",
+          "title": "Fortolk",
+          "text": "Sammenligning med referencegruppen. 100 % svarer til methyleringsværdien for den sunde kontrolgruppe."
+        },
+        {
+          "num": "03",
+          "title": "Ændring",
+          "text": "For hver markør den tilsvarende intervention — hvad der specifikt skal spises, undgås eller ændres — plus opfølgende overvågning."
+        }
+      ],
+      "scaleCaption": "Orientering",
+      "scaleTitle": "Hvordan læser jeg skalaen?",
+      "scaleLead": "Alle markører angives som procentdel af referencen. 100 % er normalområdet, og højere er bedre. Telomerlængde rapporteres desuden i kilobasepar (kbp).",
+      "scaleKind": "percent",
+      "scaleTicks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "Under 90 % · Rød",
+          "text": "Haster med handling."
+        },
+        {
+          "tone": "amber",
+          "label": "90–100 % · Gul",
+          "text": "Handling nødvendig, modvirk målrettet."
+        },
+        {
+          "tone": "green",
+          "label": "Fra 100 % · Grøn",
+          "text": "Ingen handling nødvendig, oprethold resultatet."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Hvor robust er telomerværdien?",
+      "text": "Måling af telomerlængde varierer betydeligt — mellem individuelle målinger og mellem laboratorier. DNA-ekstraktion, opbevaring og sammensætningen af blodceller påvirker systematisk resultatet. Fra tørret blod er denne variation større end fra venøst blod.",
+      "items": [
+        "Hvad det betyder i praksis: en afvigelse på få procent fra referenceværdien er af samme størrelsesorden som målevariationen og er ikke meningsfuld i sig selv. Telomerlængde bliver først robust ved flere målinger foretaget under samme betingelser — samme laboratorium, samme materiale, sammenlignelig prøveudtagning.",
+        "Telomerlængde er en markør for kumulativ cellulær belastning. Det er ikke en diagnose, ikke en udtalelse om forventet levetid og ikke et mål for individuel sygdomsrisiko."
+      ],
+      "tone": "accent",
+      "id": "hinweis"
+    },
+    {
+      "type": "resultTable",
+      "caption": "Resultater i oversigt",
+      "title": "Alle markører i oversigt.",
+      "cols": ["Markør", "Din værdi", "Reference", "Fortolkning"],
+      "rows": [
+        {
+          "cells": [
+            "Telomerer · Cellulær stabilitet",
+            "108 kbp (96 %)",
+            "112 kbp = 100 %",
+            "Handling påkrævet"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": ["LINE-1 · DNA-stabilitet", "96 %", "≥ 100 %", "Handling påkrævet"],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "Epigenetiske aldringsmarkører · Biologisk alder",
+            "103 %",
+            "≥ 100 %",
+            "Inden for normalområdet"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "IL-6 · Inflammationsregulering",
+            "108 %",
+            "≥ 100 %",
+            "Inden for normalområdet"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": ["Ernæring · Baselinevurdering", "72 / 100", "≥ 60", "Inden for normalområdet"],
+          "tone": "green"
+        },
+        {
+          "cells": ["Livsstil · Baselinevurdering", "65 / 100", "≥ 60", "Inden for normalområdet"],
+          "tone": "green"
+        }
+      ],
+      "id": "ergebnis"
+    },
+    {
+      "type": "ageDots",
+      "caption": "Biologisk alder",
+      "title": "Markørspecifik alder i sammenligning",
+      "lead": "Kronologisk alder: 48 år. Hver markør giver sin egen biologiske alder — en samlet kombineret værdi beregnes bevidst ikke.",
+      "chronological": 48,
+      "min": 35,
+      "max": 60,
+      "unit": "år",
+      "ticks": ["35", "40", "45", "50", "55", "60"],
+      "chronologicalLabel": "48 år",
+      "note": "Den stiplede linje markerer den kronologiske alder på 48 år. Til venstre for den: yngre end kronologisk. Til højre for den: ældre.",
+      "items": [
+        {
+          "label": "Telomerer",
+          "age": 53,
+          "delta": "+5",
+          "display": "53 yrs · +5",
+          "tone": "red"
+        },
+        {
+          "label": "LINE-1",
+          "age": 50,
+          "delta": "+2",
+          "display": "50 yrs · +2",
+          "tone": "amber"
+        },
+        {
+          "label": "IL-6",
+          "age": 46,
+          "delta": "−2",
+          "display": "46 yrs · −2",
+          "tone": "green"
+        },
+        {
+          "label": "Epigenetiske aldringsmarkører",
+          "age": 45,
+          "delta": "−3",
+          "display": "45 yrs · −3",
+          "tone": "green"
+        }
+      ],
+      "id": "biologisches-alter"
+    },
+    {
+      "type": "markers",
+      "caption": "Dine markører",
+      "title": "Telomerer og aldringsmarkører.",
+      "items": [
+        {
+          "name": "Telomerer",
+          "category": "Cellulær stabilitet",
+          "intro": "Beskyttende strukturer i enderne af kromosomerne. Hvis de forkortes for meget, mister cellerne evnen til at dele sig — en central drivkraft for biologisk aldring.",
+          "kind": "procent",
+          "value": 96,
+          "display": "96 %",
+          "sub": "108 kbp",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "amber",
+          "text": "Din telomerlængde er 4 % under den forventede værdi for din alder (108 i stedet for 112 kbp). Dette giver en biologisk telomeralder på 53 år, fem år over den kronologiske alder. En afvigelse af denne størrelse ligger inden for måleusikkerhedens område og er ikke meningsfuld i sig selv — værdien skal læses som et udgangspunkt for udviklingen. Anbefalingerne i dette afsnit baseres på LINE-1; de virker via samme metaboliske vej.",
+          "table": {
+            "cols": ["Aktiv substans", "Kilde", "Mængde", "Bemærkning"],
+            "rows": [
+              [
+                "Folsyre",
+                "Spinat, grønkål, bælgfrugter, tomater, spirer",
+                "2 håndfulde grønne grøntsager dagligt",
+                "Rå eller let dampede — varmesensitive"
+              ],
+              [
+                "Vitamin B2 og B12",
+                "Æg, ost, fermenterede fødevarer",
+                "1 portion dagligt",
+                "Veganer: suppler specifikt med B12"
+              ],
+              [
+                "Methionin",
+                "Sesam, soja, ærter, paranødder",
+                "2–3 paranødder/dag",
+                "På grund af selen, ikke mere end 3–4 nødder"
+              ],
+              ["EGCG", "Grøn te, matcha", "3–4 kopper/dag", "Ikke sammen med jernrige måltider"]
+            ]
+          }
+        },
+        {
+          "name": "Epigenetiske aldringsmarkører",
+          "category": "Biologisk alder",
+          "intro": "Methylation af stærkt aldersrelaterede gener, sammenlignet med en kontrolgruppe matchet for alder, køn og etnicitet.",
+          "kind": "procent",
+          "value": 103,
+          "display": "103 %",
+          "sub": "45 år",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "green",
+          "text": "Lidt over det forventede område — en gunstig epigenetisk profil. Den biologiske alder udledt herfra er 45 år, tre år under den kronologiske alder.",
+          "table": {
+            "cols": ["Aktiv substans", "Kilde", "Mængde", "Bemærkning"],
+            "rows": [
+              [
+                "Kaffe",
+                "Filterkaffe, espresso",
+                "2–3 kopper/dag",
+                "Ikke efter kl. 14 — kan forstyrre søvnen"
+              ],
+              [
+                "Grønne bladgrøntsager",
+                "Spinat, grønkål, bladbede",
+                "1 portion dagligt",
+                "Giver folat, understøtter methylation"
+              ],
+              [
+                "Ost og mejeriprodukter",
+                "Hård og blød ost, yoghurt",
+                "med måde",
+                "Overdrevent forbrug kan reducere reguleringen"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "markers",
+      "caption": "Dine markører",
+      "title": "LINE-1 og IL-6.",
+      "items": [
+        {
+          "name": "LINE-1",
+          "category": "DNA-stabilitet",
+          "intro": "LINE-1-elementer udgør omkring 17 % af genomet. Deres methylation betragtes som en markør for global DNA-regulering og dermed for overordnet genomisk stabilitet.",
+          "kind": "procent",
+          "value": 96,
+          "display": "96 %",
+          "sub": "50 år",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "amber",
+          "text": "Let nedsat global DNA-regulering, som skal vurderes i den samlede profil. Den udledte biologiske alder er 50 år. Denne markør afhænger af samme metaboliske vej som telomererne — begge reagerer på de samme methyl-donorer.",
+          "table": {
+            "cols": ["Aktiv substans", "Kilde", "Mængde", "Bemærkning"],
+            "rows": [
+              [
+                "Methyl-donorer",
+                "Bladgrøntsager, bælgfrugter, æg, nødder, sesam, soja",
+                "dagligt i mindst 2 måltider",
+                "Tag folat, B2, B6 og B12 sammen"
+              ],
+              [
+                "Fibre",
+                "Fuldkornsprodukter, grøntsager, bælgfrugter",
+                "mindst 30 g/dag",
+                "Stabiliserer blodsukker, sænker oxidativ belastning"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "IL-6",
+          "category": "Inflammationsregulering",
+          "intro": "Interleukin-6 er et centralt budbringerstof i inflammationsreguleringen. Det, der vurderes, er DNA-methylering af IL-6-associerede genregioner — ikke det akutte blodniveau.",
+          "kind": "procent",
+          "value": 108,
+          "display": "108 %",
+          "sub": "46 år",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "green",
+          "text": "Indikerer stabil regulering af IL-6-aktivitet — den bedste værdi i din profil. Her tjener anbefalingerne vedligeholdelse, ikke korrektion.",
+          "table": {
+            "cols": ["Aktiv substans", "Kilde", "Mængde", "Bemærkning"],
+            "rows": [
+              [
+                "Motion og vægt",
+                "moderat daglig aktivitet, vægtregulering",
+                "30 min. dagligt",
+                "Fedtvæv er en central kilde til pro-inflammatoriske budbringerstoffer"
+              ],
+              [
+                "Resveratrol",
+                "Drueskaller, hindbærkerner, blåbær, peanuts",
+                "1 portion bær/dag",
+                "Hæmmer NF-κB-signalvejen"
+              ],
+              [
+                "Sulforafan",
+                "Broccoli, blomkål, rosenkål, karse",
+                "250 g, 3–4×/uge",
+                "Kort opvarmning (3–4 min., 80 °C) øger biotilgængeligheden"
+              ],
+              [
+                "Curcumin",
+                "Gurkemeje med sort peber",
+                "1 tsk dagligt",
+                "Piperin øger markant optagelsen"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "radar",
+      "caption": "Baseline-vurdering",
+      "title": "Ernæring og livsstilsvaner.",
+      "lead": "Radarens visning viser, hvor tæt dine nuværende vaner er på de videnskabelige referenceværdier. Jo længere ude en faktor ligger, desto mere gunstig — 10 er optimalt.",
+      "axes": [
+        "Daglig aktivitet",
+        "Motion",
+        "Stress",
+        "Tobak",
+        "Alkohol",
+        "Snacks",
+        "Kød",
+        "Omega-3",
+        "Fibre",
+        "Frugt/grønt",
+        "Væskeindtag"
+      ],
+      "seriesLabels": {
+        "profile": "Din profil",
+        "reference": "Referencegruppe"
+      },
+      "scores": [
+        {
+          "value": "72 / 100",
+          "label": "Ernæring",
+          "text": "God næringskombination, plads til forbedring i detaljerne.",
+          "ref": "Reference: ≥ 60."
+        },
+        {
+          "value": "65 / 100",
+          "label": "Livsstil",
+          "text": "Balanceret, med plads til mere motion og stressreduktion.",
+          "ref": "Reference: ≥ 60."
+        }
+      ],
+      "noticeTitle": "Det, der skiller sig ud",
+      "notices": [
+        "Stress (4 ud af 10) er den svageste faktor og ligger under referencegruppen. Kronisk stress virker via kortisolaksen direkte på inflammation og methyleringsmarkører.",
+        "Snacks og kød (5 hver) ligger på niveau med referencegruppen — her findes det største uudnyttede potentiale for telomer- og LINE-1-værdierne.",
+        "Tobak (9), frugt og grøntsager (8) samt væskeindtag (8) ligger klart over gennemsnittet og understøtter de gode værdier for IL-6 og aldringsmarkørerne."
+      ],
+      "note": "En baseline-vurdering, ikke en individuel diagnose. Ved sygdom eller i særlige livsfaser bedes større kostændringer ske under lægelig vejledning.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Alle anbefalinger samlet",
+      "title": "Dine tiltag.",
+      "lead": "Hver anbefaling er knyttet til den markør, den stammer fra, og markeret med farven på det aktuelle resultat. Sorteret efter prioritet — de markører, der kræver handling først.",
+      "cols": ["Aktiv substans", "Fra markør", "Fødevarer", "Mængde", "Bemærkning"],
+      "rows": [
+        [
+          "Folsyre",
+          "Telomerer · 96 %",
+          "Spinat, grønkål, bælgfrugter, tomater, spirer",
+          "2 håndfulde grønne grøntsager dagligt",
+          "Rå eller let dampede — varmesensitive"
+        ],
+        [
+          "Vitamin B2 og B12",
+          "Telomerer · 96 %",
+          "Æg, ost, fermenterede fødevarer (surkål, ayran)",
+          "1 portion dagligt",
+          "Ved vegansk kost bør B12 suppleres specifikt"
+        ],
+        [
+          "Methionin",
+          "Telomerer · 96 %",
+          "Sesam, soja, ærter, paranødder",
+          "2–3 paranødder/dag",
+          "På grund af selenindholdet højst 3–4 nødder dagligt"
+        ],
+        [
+          "EGCG (grøn te)",
+          "Telomerer · 96 %",
+          "Grøn te, matcha",
+          "3–4 kopper/dag",
+          "Drik ikke direkte sammen med jernrige måltider"
+        ],
+        [
+          "Methyl-donorer",
+          "LINE-1 · 96 %",
+          "Bladgrøntsager, bælgfrugter, æg, nødder, sesam, soja",
+          "dagligt i mindst 2 måltider",
+          "Indtag tilstrækkeligt folat, B2, B6 og B12 samlet"
+        ],
+        [
+          "Fibre",
+          "LINE-1 · 96 %",
+          "Fuldkornsprodukter, grøntsager, bælgfrugter",
+          "mindst 30 g/dag",
+          "Stabiliserer blodsukker, sænker oxidativ belastning"
+        ],
+        [
+          "Grønne bladgrøntsager",
+          "Aldringsmarkør · 103 %",
+          "Spinat, grønkål, bladbede",
+          "1 portion dagligt",
+          "Giver folat, understøtter methylation"
+        ],
+        [
+          "Kaffe",
+          "Aldringsmarkør · 103 %",
+          "Filterkaffe, espresso",
+          "2–3 kopper/dag",
+          "Ikke efter kl. 14 — kan forstyrre søvnen"
+        ],
+        [
+          "Ost og mejeriprodukter",
+          "Aldringsmarkør · 103 %",
+          "Hård og blød ost, yoghurt",
+          "med måde",
+          "Overdrevent forbrug kan reducere reguleringen"
+        ],
+        [
+          "Motion og vægt",
+          "IL-6 · 108 %",
+          "moderat daglig aktivitet, vægtregulering",
+          "30 min. dagligt",
+          "Fedtvæv er en kilde til pro-inflammatoriske budbringerstoffer"
+        ],
+        [
+          "Resveratrol",
+          "IL-6 · 108 %",
+          "Drueskaller, hindbærkerner, blåbær, peanuts",
+          "1 portion bær/dag",
+          "Hæmmer NF-κB-signalvejen"
+        ],
+        [
+          "Sulforafan",
+          "IL-6 · 108 %",
+          "Broccoli, blomkål, rosenkål, karse",
+          "250 g, 3–4×/uge",
+          "Kort opvarmning (3–4 min., 80 °C) øger biotilgængeligheden"
+        ],
+        [
+          "Curcumin",
+          "IL-6 · 108 %",
+          "Gurkemeje, helst med sort peber",
+          "1 tsk dagligt",
+          "Piperin fra peber øger markant optagelsen"
+        ]
+      ],
+      "rowTones": [
+        "amber",
+        "amber",
+        "amber",
+        "amber",
+        "amber",
+        "amber",
+        "grøn",
+        "grøn",
+        "grøn",
+        "grøn",
+        "grøn",
+        "grøn",
+        "grøn"
+      ],
+      "note": "Gennemgå kosttilskud individuelt og i samråd med en kvalificeret fagperson. Dette overblik erstatter ikke medicinsk rådgivning.",
+      "id": "uebersicht"
+    },
+    {
+      "type": "summary",
+      "caption": "Resumé",
+      "title": "Dine to fokusområder.",
+      "lead": "To af dine fire markører er i det grønne område og bør forblive der. To er på 96 % og afhænger af den samme metaboliske vej. LINE-1 er den bærende her: på grund af målevariation overvåges telomerlængden kun over tid. Dette resulterer i en bemærkelsesværdigt enkel plan.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Methyl-donorer — udgangspunktet ved LINE-1",
+          "text": "LINE-1 på 96 % (biologisk 50 år) er den bærende værdi — markøren, hvor ændring kan vises pålideligt. Telomerlængden er også på 96 %, men den ligger inden for størrelsesordenen af målevariationen og giver ikke i sig selv nogen anbefaling; den overvåges over tid. Begge afhænger af de samme næringsstoffer: folat, vitamin B2, B6, B12 og methionin. Seks af de tretten anbefalinger retter sig netop mod dette. Specifikt: to håndfulde grønne bladgrøntsager dagligt, rå eller let dampede. Æg, ost eller fermenterede fødevarer dagligt. 2–3 paranødder. Plus mindst 30 g fibre og 3–4 kopper grøn te, ikke sammen med jernrige måltider."
+        },
+        {
+          "num": "02",
+          "title": "Stress — den svageste livsstilsfaktor",
+          "text": "Med 4 ud af 10 er stress den eneste faktor, der ligger klart under referencegruppen. Via kortisolaksen påvirker den de methylationsmarkører, der kræver handling i dit tilfælde. Ernæringsdelen er allerede solid med 72/100 — den større effekt ligger her. Derudover har hverdagsaktivitet (6) og motion (7) plads til forbedring; 30 minutter dagligt understøtter også IL-6-værdien."
+        }
+      ],
+      "keepTitle": "Vedligehold, ændr ikke",
+      "keepText": "IL-6 på 108 % og de epigenetiske aldringsmarkører på 103 % ligger inden for normalområdet. Anbefalingerne for disse to markører tjener til vedligeholdelse. Tobak (9/10), frugt og grøntsager (8/10) og væskeindtag (8/10) understøtter dette resultat — der er ikke behov for ændringer her.",
+      "controlTitle": "Opfølgning og næste skridt",
+      "controlItems": [
+        "En opfølgningsmåling er nyttig tidligst efter 4 til 6 måneder — før det kan ændringer i methylationsmarkørerne ikke måles pålideligt.",
+        "Fra og med anden måling rapporteres den målte tendens for hver markør.",
+        "Til opfølgningsmonitorering bør prøveudtagning og tidspunkt på dagen forblive sammenlignelige."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Spørgsmål om din rapport?",
+      "text": "Drøft resultaterne med den facilitet, der har foretaget prøveudtagningen. Det er dér, den kliniske kontekst, som er nødvendig for fortolkning, er tilgængelig.",
+      "columns": [
+        {
+          "k": "Kontakt",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribution",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Prøverapport",
+          "text": "Alle værdier og personlige oplysninger i dette dokument er fiktive og tjener udelukkende til at illustrere rapportformatet. Dette er ikke en ægte rapport."
+        },
+        {
+          "title": "Fortolkning",
+          "text": "Denne rapport er ikke en diagnose og erstatter ikke medicinsk rådgivning. Den rapporterede biologiske alder er en modelværdi afledt af epigenetiske markører og udgør ikke en udtalelse om forventet levetid eller sygdomsrisiko. Markørerne beskriver en øjeblikkelig tilstand og skal vurderes i den individuelle kliniske kontekst af kvalificerede specialister."
+        },
+        {
+          "title": "Status for analyserne",
+          "text": "Analyserne er laboratorietjenester leveret af vores samarbejdspartner og er ikke CE-mærkede in vitro-diagnostiske medicinsk udstyr. De tjener til rådgivning og overvågning og erstatter ikke klinisk diagnostik. Analyserne leveres kun til professionelle brugere."
+        },
+        {
+          "title": "Lovgivningsmæssigt grundlag",
+          "text": "Dette panel vurderer ingen genotyper; det måler epigenetiske markører. Hvor en analyse i porteføljen inkluderer genetisk testning, kræves information og skriftligt samtykke før prøveudtagning, og det må kun arrangeres under medicinsk ansvar (tysk lov om genetisk diagnostik). Laboratorieanalysen udføres af vores samarbejdspartner. Polaris Diagnostics Europe GmbH er ansvarlig for distribution og support. Venligst gennemgå kosttilskud individuelt og i samråd med en kvalificeret fagperson."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Senest opdateret: august 2026",
+      "id": "kontakt"
+    }
+  ]
+}

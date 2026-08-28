@@ -93,7 +93,8 @@
     "pillar3": {
       "title": "Wsparcie na starcie",
       "text": "Przeszkolenie Państwa zespołu oraz bezpośredni opiekun sprawiają, że diagnostyczna doskonałość jest dostępna od razu."
-    }
+    },
+    "device_alt": "Czytnik POC IglooPro"
   },
   "doctors": {
     "caption": "FOKUS NA DIAGNOSTYKĘ",
@@ -283,7 +284,8 @@
     },
     "card_cta": "Dowiedz się więcej",
     "video_label": "FILM INSTRUKTAŻOWY",
-    "video_caption": "Tak przebiega test w Twoim gabinecie – w 3 minuty"
+    "video_caption": "Tak przebiega test w Twoim gabinecie – w 3 minuty",
+    "device_alt": "Czytnik POC IglooPro"
   },
   "final_cta": {
     "caption": "Gotów, by zacząć",

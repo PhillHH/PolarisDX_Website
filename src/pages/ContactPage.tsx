@@ -203,9 +203,7 @@ const ContactPage = () => {
                   <h3 className="mt-5 text-lg font-medium text-heading">
                     {t(`contact.process.steps.${step}.title`)}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-700">
-                    {t(`contact.process.steps.${step}.desc`)}
-                  </p>
+                  <p className="mt-2 t-small">{t(`contact.process.steps.${step}.desc`)}</p>
                 </div>
               </Reveal>
             ))}

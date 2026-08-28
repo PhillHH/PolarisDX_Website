@@ -28,7 +28,7 @@ const IglooParametersSection = () => {
       <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-24">
         <div className="mb-14 text-center">
           <Eyebrow>{t('parameters.eyebrow', 'VERFÜGBARE PARAMETER')}</Eyebrow>
-          <h2 className="mt-3 text-3xl lg:text-[42px] font-medium tracking-tight text-heading">
+          <h2 className="mt-3 t-h2">
             {t('parameters.headline', 'Ein Reader, ein wachsendes Testmenü')}
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-gray-700">{t('parameters.subtitle')}</p>

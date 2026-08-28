@@ -30,9 +30,7 @@ const IglooFeaturesSection = () => {
         {/* Zentrierter Kopf */}
         <div className="mb-14 text-center">
           <Eyebrow>{t('intro.eyebrow', 'WARUM DER IGLOOPRO')}</Eyebrow>
-          <h2 className="mt-3 text-3xl lg:text-[42px] font-medium tracking-tight text-heading">
-            {t('intro.title', 'Laborqualität im Handformat')}
-          </h2>
+          <h2 className="mt-3 t-h2">{t('intro.title', 'Laborqualität im Handformat')}</h2>
           <p className="mt-4 max-w-2xl mx-auto text-gray-700">{t('intro.subtitle')}</p>
         </div>
 
@@ -46,9 +44,7 @@ const IglooFeaturesSection = () => {
               <h3 className="mt-5 text-lg font-medium text-heading">
                 {t('features.' + k + '.title')}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-gray-700">
-                {t('features.' + k + '.description')}
-              </p>
+              <p className="mt-2 t-small">{t('features.' + k + '.description')}</p>
             </div>
           ))}
         </div>

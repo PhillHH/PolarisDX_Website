@@ -1,5 +1,6 @@
 import type { LucideIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { Card } from '../components/ui/Card'
 import { useTranslation } from 'react-i18next'
 import {
   Newspaper,
@@ -30,15 +31,15 @@ const categoryIcon: Record<string, LucideIcon> = {
 }
 
 const ArticlesIndexPage = () => {
-  const { t, i18n } = useTranslation(['articles', 'shop', 'common'])
+  const { t, i18n } = useTranslation(['articles', 'common'])
 
   // Derive live values for the hero + topics row from the real article set.
   const categories = Array.from(new Set(articles.map((a) => a.category)))
   const articleCount = articles.length
 
   // (b) Sichtbare Breadcrumb und BreadcrumbList aus derselben Quelle speisen.
-  const crumbHome = t('shop:shop.home', 'Startseite')
-  const crumbArticles = t('shop:shop.articles', 'Artikel')
+  const crumbHome = t('articles:ui.home')
+  const crumbArticles = t('articles:ui.articles')
 
   // (d) Lesezeit steht englisch in den Rohdaten ('6 min read').
   const readTimeLabel = (raw: string) => {
@@ -199,11 +200,7 @@ const ArticlesIndexPage = () => {
               {articles.map((post) => {
                 const Icon = categoryIcon[post.category] ?? FileText
                 return (
-                  <Link
-                    key={post.id}
-                    to={`/articles/${post.slug}`}
-                    className="group flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1"
-                  >
+                  <Card key={post.id} to={`/articles/${post.slug}`}>
                     <div className="flex items-center justify-between gap-3">
                       <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent">
                         <Icon className="h-5 w-5" aria-hidden="true" />
@@ -215,19 +212,17 @@ const ArticlesIndexPage = () => {
                     <h3 className="mt-5 text-lg font-medium text-heading transition-colors group-hover:text-accent">
                       {t(`articles:${post.id}.title`)}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-gray-700">
-                      {t(`articles:${post.id}.excerpt`)}
-                    </p>
+                    <p className="mt-2 t-small">{t(`articles:${post.id}.excerpt`)}</p>
                     <div className="mt-4 flex items-center gap-2 text-xs text-gray-500">
                       <span>{readTimeLabel(post.readTime)}</span>
                       <span aria-hidden="true">·</span>
                       <span>{formatArticleDate(post.date, i18n.language)}</span>
                     </div>
                     <span className="mt-auto inline-flex items-center gap-1 pt-6 text-sm font-semibold text-accent transition-all group-hover:gap-2 group-hover:text-accent-strong">
-                      {t('shop:shop.readMore', 'Weiterlesen')}
+                      {t('articles:ui.readMore')}
                       <ArrowRight className="h-4 w-4" aria-hidden="true" />
                     </span>
-                  </Link>
+                  </Card>
                 )
               })}
             </div>

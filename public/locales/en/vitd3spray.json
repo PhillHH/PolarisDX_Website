@@ -68,7 +68,7 @@
   "order": {
     "caption": "Vitamin D3+K2 Spray",
     "title": "Order Now",
-    "description": "Fill out the form and we will send you an order confirmation with invoice by email.",
+    "description": "Complete the form. Our team will review your order request and contact you with price, delivery and payment details.",
     "quantity_label": "Order Quantity",
     "quantity_options": {
       "12": "12 Sprays",
@@ -90,10 +90,10 @@
     "message_placeholder": "Optional: delivery instructions, alternative address, etc.",
     "submit": "Place Binding Order",
     "submitting": "Sending order...",
-    "submit_note": "By submitting, you will receive an order confirmation by email. Payment by invoice.",
+    "submit_note": "No payment is taken in this form. Our team confirms price and delivery personally.",
     "reassurance": "Free & non-binding · Reply within 24 h",
     "success_title": "Thank You for Your Order!",
-    "success_text": "We have received your order and will send you a confirmation by email shortly.",
+    "success_text": "We have received your order request. Our team will contact you shortly with the next steps.",
     "error_text": "An error occurred. Please try again or call us."
   },
   "contact": {

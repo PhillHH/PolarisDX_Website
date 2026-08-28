@@ -1,3 +1,5 @@
+import type { SupportedLanguage } from '../i18n'
+
 export interface ContactFormData {
   name: string
   email: string
@@ -10,6 +12,8 @@ export interface ContactFormData {
   intent?: string
   /** Field pill — e.g. dental / beauty / longevity. */
   field?: string
+  /** Validated URL/journey locale used by current mail flows. */
+  locale: SupportedLanguage
   /** Explicit DSGVO consent — must be true. */
   consent?: boolean
   /** Honeypot — must stay empty (humans don't see it). */

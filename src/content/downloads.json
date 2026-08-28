@@ -2,7 +2,9 @@
   "items": [
     {
       "id": "im-de-igloo-pro",
-      "title": "Igloo Pro System Flyer (DE)",
+      "titleKey": "assets.igloo.title",
+      "descriptionKey": "assets.igloo.description",
+      "language": "de",
       "category": "info",
       "file": "igloo-pro-flyer.pdf",
       "format": "PDF",
@@ -11,7 +13,9 @@
     },
     {
       "id": "im-vitd3-spray-de",
-      "title": "Vitamin D3+K2 Spray – Produktflyer (DE)",
+      "titleKey": "assets.vitd3De.title",
+      "descriptionKey": "assets.vitd3De.description",
+      "language": "de",
       "category": "info",
       "file": "vitamin-d3-spray-de.pdf",
       "format": "PDF",
@@ -20,7 +24,9 @@
     },
     {
       "id": "im-vitd3-spray-en",
-      "title": "Vitamin D3+K2 Spray – Product Flyer (EN)",
+      "titleKey": "assets.vitd3En.title",
+      "descriptionKey": "assets.vitd3En.description",
+      "language": "en",
       "category": "info",
       "file": "vitamin-d3-spray-en.pdf",
       "format": "PDF",

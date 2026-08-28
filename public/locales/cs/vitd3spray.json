@@ -68,7 +68,7 @@
   "order": {
     "caption": "Sprej Vitamin D3+K2",
     "title": "Objednat nyní",
-    "description": "Vyplňte formulář a my vám zašleme potvrzení objednávky s fakturou e-mailem.",
+    "description": "Vyplňte formulář. Náš tým žádost zkontroluje a ozve se vám s cenou, dodáním a platebními údaji.",
     "quantity_label": "Objednávané množství",
     "quantity_options": {
       "12": "12 sprejů",
@@ -90,10 +90,10 @@
     "message_placeholder": "Volitelné: pokyny k doručení, odlišná adresa atd.",
     "submit": "Závazně objednat nyní",
     "submitting": "Objednávka se odesílá...",
-    "submit_note": "Po odeslání obdržíte potvrzení objednávky e-mailem. Platba na fakturu.",
+    "submit_note": "V tomto formuláři neprobíhá žádná platba. Náš tým osobně potvrdí cenu a dodání.",
     "reassurance": "Zdarma a nezávazně · Odpověď < 24 h",
     "success_title": "Děkujeme za vaši objednávku!",
-    "success_text": "Vaši objednávku jsme obdrželi a v krátké době vám zašleme potvrzení e-mailem.",
+    "success_text": "Obdrželi jsme vaši žádost o objednávku. Náš tým se vám brzy ozve s dalšími kroky.",
     "error_text": "Došlo k chybě. Zkuste to prosím znovu nebo nám zavolejte."
   },
   "contact": {

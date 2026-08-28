@@ -93,7 +93,8 @@
     "pillar3": {
       "title": "Avvio assistito",
       "text": "La formazione del vostro team e un referente diretto garantiscono che l'eccellenza diagnostica sia immediatamente utilizzabile."
-    }
+    },
+    "device_alt": "Lettore POC IglooPro"
   },
   "doctors": {
     "caption": "FOCUS DIAGNOSTICA",
@@ -283,7 +284,8 @@
     },
     "card_cta": "Scopri di più",
     "video_label": "VIDEO APPLICATIVO",
-    "video_caption": "Come si svolge il test nel tuo studio – in 3 minuti"
+    "video_caption": "Come si svolge il test nel tuo studio – in 3 minuti",
+    "device_alt": "Lettore POC IglooPro"
   },
   "final_cta": {
     "caption": "Pronto a iniziare",

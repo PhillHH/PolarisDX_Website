@@ -93,7 +93,8 @@
     "pillar3": {
       "title": "Arranque acompanhado",
       "text": "A formação da sua equipa e um interlocutor direto garantem que a excelência diagnóstica fica imediatamente disponível."
-    }
+    },
+    "device_alt": "Leitor POC IglooPro"
   },
   "doctors": {
     "caption": "FOCO NO DIAGNÓSTICO",
@@ -283,7 +284,8 @@
     },
     "card_cta": "Saber mais",
     "video_label": "VÍDEO DE APLICAÇÃO",
-    "video_caption": "Como decorre o teste no seu consultório – em 3 minutos"
+    "video_caption": "Como decorre o teste no seu consultório – em 3 minutos",
+    "device_alt": "Leitor POC IglooPro"
   },
   "final_cta": {
     "caption": "Pronto para começar",

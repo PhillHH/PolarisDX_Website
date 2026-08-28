@@ -93,7 +93,8 @@
     "pillar3": {
       "title": "Begeleide start",
       "text": "Een instructie voor uw team en een vast aanspreekpunt zorgen ervoor dat de diagnostische excellentie direct inzetbaar is."
-    }
+    },
+    "device_alt": "IglooPro POC-reader"
   },
   "doctors": {
     "caption": "DIAGNOSTIEKFOCUS",
@@ -283,7 +284,8 @@
     },
     "card_cta": "Meer informatie",
     "video_label": "TOEPASSINGSVIDEO",
-    "video_caption": "Zo verloopt de test in uw praktijk – in 3 minuten"
+    "video_caption": "Zo verloopt de test in uw praktijk – in 3 minuten",
+    "device_alt": "IglooPro POC-reader"
   },
   "final_cta": {
     "caption": "Klaar om te beginnen",

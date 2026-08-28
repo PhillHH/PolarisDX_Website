@@ -19,9 +19,11 @@
 import { type ReactNode, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Check, Menu, X } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 import Reveal from '../../components/ui/Reveal'
 import ImagePlaceholder from '../../components/ui/ImagePlaceholder'
+import LanguageSwitcher from '../../components/ui/LanguageSwitcher'
 import { cn } from '../../lib/utils'
 import { trackConsumerCtaClick, type ConsumerPage } from './tracking'
 import { useOrderModal } from './OrderModal'
@@ -131,8 +133,15 @@ export function CTA({
 // =============================================================================
 
 function Wordmark() {
+  const { t } = useTranslation('consumer')
   return (
-    <img src={logoWhite} alt="PolarisDX" width={136} height={40} className="h-9 w-auto sm:h-10" />
+    <img
+      src={logoWhite}
+      alt={t('shell.copy_001')}
+      width={136}
+      height={40}
+      className="h-9 w-auto sm:h-10"
+    />
   )
 }
 
@@ -150,6 +159,7 @@ export function ConsumerHeader({
   /** Which consumer page (for tracking the header CTA). */
   page: ConsumerPage
 }) {
+  const { t } = useTranslation('consumer')
   const [open, setOpen] = useState(false)
   const orderModal = useOrderModal()
   // If we're inside an OrderModalProvider, the header CTA opens the modal.
@@ -164,7 +174,7 @@ export function ConsumerHeader({
   return (
     <header className="sticky top-0 z-30 bg-brand-deep shadow-[0_2px_12px_rgba(8,51,88,0.18)]">
       <div className="mx-auto flex max-w-container items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-0 lg:py-4">
-        <a href="#top" aria-label="PolarisDX" className="flex shrink-0 items-center">
+        <a href="#top" aria-label={t('shell.copy_001')} className="flex shrink-0 items-center">
           <Wordmark />
         </a>
 
@@ -177,29 +187,33 @@ export function ConsumerHeader({
           ))}
         </nav>
 
-        {/* Desktop CTA */}
-        <div className="hidden md:block">
-          <CTA
-            href={cta.href}
-            onClick={desktopClick}
-            variant="teal"
-            size="sm"
-            track={{ label: cta.label, page, location: 'header' }}
-          >
-            {cta.label}
-          </CTA>
-        </div>
+        <div className="flex items-center gap-2 text-white">
+          <LanguageSwitcher isMobile />
 
-        {/* Mobile: hamburger toggle */}
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-          className="flex h-10 w-10 items-center justify-center rounded-md border border-white/15 text-white transition-colors hover:bg-white/10 md:hidden"
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+          {/* Desktop CTA */}
+          <div className="hidden md:block">
+            <CTA
+              href={cta.href}
+              onClick={desktopClick}
+              variant="teal"
+              size="sm"
+              track={{ label: cta.label, page, location: 'header' }}
+            >
+              {cta.label}
+            </CTA>
+          </div>
+
+          {/* Mobile: hamburger toggle */}
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? t('shell.close_menu') : t('shell.open_menu')}
+            aria-expanded={open}
+            className="flex h-10 w-10 items-center justify-center rounded-md border border-white/15 text-white transition-colors hover:bg-white/10 md:hidden"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile dropdown panel */}
@@ -272,6 +286,7 @@ export function Hero({
   /** Floating stat card overlapping the product image (e.g."71 · doses / bottle"). */
   floatingStat?: { value: string; label: string }
 }) {
+  const { t } = useTranslation('consumer')
   const orderModal = useOrderModal()
   // Hero primary CTA opens the order modal when available; falls back to
   // the anchor `primary.href` if no provider is wired up.
@@ -372,7 +387,7 @@ export function Hero({
                 </div>
               ) : (
                 <ImagePlaceholder
-                  label={image?.placeholder ?? 'Produktbild'}
+                  label={image?.placeholder ?? t('shell.image_placeholder')}
                   className="mx-auto aspect-[4/5] w-full max-w-md rounded-2xl border-accent-on-dark/60 bg-accent-soft/40 p-7 text-accent-strong lg:max-w-none"
                 />
               )}

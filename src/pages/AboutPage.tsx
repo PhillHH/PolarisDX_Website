@@ -121,13 +121,13 @@ const AboutPage = () => {
               <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                 {t('about:mission.caption', 'Unsere Mission')}
               </span>
-              <h2 className="mt-4 text-3xl font-medium tracking-tight text-heading lg:text-[42px]">
+              <h2 className="mt-4 t-h2">
                 {t(
                   'about:mission.title',
                   'Labordiagnostik dorthin bringen, wo Patienten behandelt werden',
                 )}
               </h2>
-              <p className="mt-5 text-lg leading-relaxed text-gray-700">
+              <p className="mt-5 t-lead">
                 {t(
                   'about:mission.lead',
                   'PolarisDX macht laborgenaue Point-of-Care-Diagnostik für Praxen und Kliniken in ganz Europa zugänglich — herstellerübergreifend, IVDR/CE-konform und einsatzbereit in wenigen Werktagen.',
@@ -199,7 +199,7 @@ const AboutPage = () => {
             <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
               {t('about:values.caption', 'Wofür wir stehen')}
             </span>
-            <h2 className="mt-4 text-3xl font-medium tracking-tight text-heading lg:text-[42px]">
+            <h2 className="mt-4 t-h2">
               {t('about:values.title', 'Werte, die unsere Arbeit prägen')}
             </h2>
           </div>
@@ -213,9 +213,7 @@ const AboutPage = () => {
                   <h3 className="mt-5 text-lg font-medium text-heading">
                     {t(`about:values.items.${v.key}.title`)}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-700">
-                    {t(`about:values.items.${v.key}.text`)}
-                  </p>
+                  <p className="mt-2 t-small">{t(`about:values.items.${v.key}.text`)}</p>
                 </div>
               </Reveal>
             ))}
@@ -236,7 +234,7 @@ const AboutPage = () => {
               <h2 className="mt-4 text-2xl font-medium tracking-tight text-heading lg:text-3xl">
                 {t('about:dx365_partner.title', 'Europäischer Distributionspartner von DX365')}
               </h2>
-              <p className="mx-auto mt-4 max-w-[61ch] text-lg leading-relaxed text-gray-700">
+              <p className="mx-auto mt-4 max-w-[61ch] t-lead">
                 <Trans
                   i18nKey="about:dx365_partner.body"
                   components={{

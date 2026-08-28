@@ -1,0 +1,1141 @@
+{
+  "slug": "metabolic-health",
+  "panel": "Metabolic Health",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Prøverapport · Eksempeldata",
+      "panel": "Metabolic Health",
+      "subtitle": "Genetik og epigenetik",
+      "claim": "Din metaboliske profil på to niveauer: den arvelige genetiske disposition og de epigenetiske markører, som kan ændres gennem kost, motion, søvn og stress.",
+      "meta": [
+        {
+          "k": "Rapport for",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Prøvetagning",
+          "v": "08.04.2026"
+        },
+        {
+          "k": "Materiale",
+          "v": "Tørret bloddråbe-kort"
+        },
+        {
+          "k": "Evalueringer",
+          "v": "17 + 4 epigenetiske"
+        }
+      ],
+      "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+      "id": "deckblatt",
+      "benefit": "Hvad din klient spiser, hvordan de omsætter det — og hvad de kan ændre."
+    },
+    {
+      "type": "principle",
+      "caption": "Princippet",
+      "title": "Sådan læses denne rapport.",
+      "lead": "Denne rapport kombinerer to niveauer: din genetik — arvet og uforanderlig — og din epigenetik, som kan påvirkes af livsstil.",
+      "cards": [
+        {
+          "title": "Niveau 1 · Genetik",
+          "text": "Dine gener er blueprintet for din metabolisme: hvordan du omsætter kulhydrater, fedt og proteiner, hvordan appetit og mæthed fungerer, hvordan din krop håndterer vitaminer og salt. Disse dispositioner ændrer sig ikke.",
+          "items": [
+            "SNP — en velundersøgt variant i dit DNA.",
+            "Tre former — vildtype, heterozygot eller homozygot; uden nogen værdidømmelse.",
+            "Din profil — flere SNP’er samlet danner din metaboliske type og evalueringer."
+          ]
+        },
+        {
+          "title": "Niveau 2 · Epigenetik",
+          "text": "Epigenetik viser ikke, hvilke gener du har, men hvor aktive de aktuelt er. Disse fire værdier kan ændres — og er derfor de eneste, hvor effekten af en intervention kan dokumenteres over tid.",
+          "items": [
+            "LINE-1 — global DNA-regulering og stabilitet.",
+            "Inflammationsregulering — samlet score fra IL-6 og TNF-α.",
+            "miR-21 · miR-155 — mikroRNA’er for metabolisk aktivitet."
+          ]
+        }
+      ],
+      "scaleTitle": "Hvordan læser jeg skalaen?",
+      "scaleCaption": "Orientering",
+      "scaleLead": "Alle evalueringer — både genetiske og epigenetiske — bruger samme trafiklys 1–9. Rødt til venstre, grønt til højre: 1–3 rød, 4–6 gul, 7–9 grøn. Højere er altid mere fordelagtigt.",
+      "scaleKind": "traffic",
+      "scaleTicks": ["1", "3", "5", "7", "9"],
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "1–3 · Rød",
+          "text": "Uden for det optimale område. Her ligger det største potentiale for forbedring."
+        },
+        {
+          "tone": "amber",
+          "label": "4–6 · Gul",
+          "text": "Moderat behov for støtte. Følg særligt med."
+        },
+        {
+          "tone": "green",
+          "label": "7–9 · Grøn",
+          "text": "Inden for det fordelagtige område. Oprethold eksisterende rutiner."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Vigtigt",
+      "tone": "neutral",
+      "items": [
+        "Denne rapport er ikke en diagnose. Fortolkning sker i samråd med kvalificerede fagpersoner og altid i den individuelle kontekst.",
+        "Information og skriftligt samtykke kræves før en genetisk analyse (tysk lov om genetisk diagnostik, GenDG). Prædiktiv genetisk testning må kun udføres under ansvar af kvalificerede læger; genetisk rådgivning skal tilbydes før og efter testen (afsnit 7 og 10 GenDG).",
+        "De genetiske værdier ændrer sig aldrig. Kun de fire epigenetiske værdier egner sig til monitorering over tid."
+      ],
+      "id": "hinweis"
+    },
+    {
+      "type": "resultTable",
+      "caption": "Resultater i oversigt",
+      "title": "Dine fire modificerbare værdier.",
+      "lead": "Disse fire markører ændres gennem kost, motion, søvn og stress — årsagen til en opfølgningsmåling.",
+      "cols": ["Markør", "Niveau", "Din værdi", "Optimal", "Fortolkning"],
+      "rows": [
+        {
+          "cells": ["LINE-1 · DNA-stabilitet", "Methylation", "2 / 9", "7–9", "Uden for interval"],
+          "tone": "red"
+        },
+        {
+          "cells": [
+            "Inflammationsregulering (IL-6 & TNF-α)",
+            "Methylation",
+            "7 / 9",
+            "7–9",
+            "Optimal"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "miR-21 · Inflammation & mikronæringsstoffer",
+            "mikroRNA",
+            "3 / 9",
+            "7–9",
+            "Uden for interval"
+          ],
+          "tone": "red"
+        },
+        {
+          "cells": ["miR-155 · FTO-regulering, fedtvæv", "mikroRNA", "8 / 9", "7–9", "Optimal"],
+          "tone": "green"
+        }
+      ],
+      "id": "ergebnis"
+    },
+    {
+      "type": "callout",
+      "caption": "Genetisk fortolkning",
+      "title": "Din metaboliske type: balanceret type",
+      "text": "Din metabolisme favoriserer ikke nogen af de tre makronæringsstoffer. Fordelingen og det beregnede energibehov følger i kapitlet “Metabolisk type”.",
+      "tone": "neutral",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "callout",
+      "caption": "Genetisk fortolkning",
+      "title": "Din træningstype: udholdenhedstype",
+      "text": "Længerevarende, jævn belastning passer dig bedre end korte styrkeudbrud — en styrkekomponent er dog stadig vigtig.",
+      "tone": "neutral",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "callout",
+      "title": "Hvad følger heraf",
+      "tone": "accent",
+      "items": [
+        "To røde epigenetiske værdier — LINE-1 (2/9) og miR-21 (3/9); den genetiske MTHFR-variant (2/9) afhænger af samme metaboliske vej. Dette er det centrale udgangspunkt i denne rapport.",
+        "To grønne værdier — inflammationsregulering (7/9) og miR-155 (8/9) er inden for det optimale område og bør holdes der.",
+        "En opfølgningsmåling er meningsfuld tidligst efter 4 til 6 måneder."
+      ],
+      "id": "hinweis-4"
+    },
+    {
+      "type": "evaluations",
+      "caption": "Resultater i oversigt",
+      "title": "Alle genetiske vurderinger.",
+      "lead": "Sytten vurderinger på trafiklyset 1–9. Disse værdier er arvelige og ændrer sig ikke — de beskriver, hvor din metabolisme har brug for mere støtte end gennemsnittet.",
+      "items": [
+        {
+          "label": "Hudhydrering",
+          "sub": "AQPR",
+          "value": 9,
+          "display": "9 / 9",
+          "status": "Favorabel",
+          "tone": "green"
+        },
+        {
+          "label": "Vanskeligheder med at opretholde vægt",
+          "value": 8,
+          "display": "8 / 9",
+          "status": "Favorabel",
+          "tone": "green"
+        },
+        {
+          "label": "Saltfølsomhed",
+          "value": 8,
+          "display": "8 / 9",
+          "status": "Favorabel",
+          "tone": "green"
+        },
+        {
+          "label": "Kropsvægtregulering",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Favorabel",
+          "tone": "green"
+        },
+        {
+          "label": "Vitamin D",
+          "sub": "Transport, GC",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Favorabel",
+          "tone": "green"
+        },
+        {
+          "label": "Oxidativ cellebeskyttelse",
+          "sub": "SOD2",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Favorabel",
+          "tone": "green"
+        },
+        {
+          "label": "Madtrang",
+          "value": 6,
+          "display": "6 / 9",
+          "status": "Moderat",
+          "tone": "amber"
+        },
+        {
+          "label": "Hudens elasticitet og inflammation",
+          "sub": "IL-6",
+          "value": 6,
+          "display": "6 / 9",
+          "status": "Moderat",
+          "tone": "amber"
+        },
+        {
+          "label": "Vanskeligheder med at tabe sig",
+          "value": 5,
+          "display": "5 / 9",
+          "status": "Moderat",
+          "tone": "amber"
+        },
+        {
+          "label": "B-vitaminer",
+          "sub": "Behov",
+          "value": 5,
+          "display": "5 / 9",
+          "status": "Moderat",
+          "tone": "amber"
+        },
+        {
+          "label": "Sult/mæthedsregulering",
+          "value": 4,
+          "display": "4 / 9",
+          "status": "Moderat",
+          "tone": "amber"
+        },
+        {
+          "label": "Antioxidantkapacitet",
+          "sub": "NADPH",
+          "value": 4,
+          "display": "4 / 9",
+          "status": "Moderat",
+          "tone": "amber"
+        },
+        {
+          "label": "Blodsukker- og insulinstofskifte",
+          "value": 3,
+          "display": "3 / 9",
+          "status": "Øget behov",
+          "tone": "red"
+        },
+        {
+          "label": "Blodlipider og fedtsyrestofskifte",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Øget behov",
+          "tone": "red"
+        },
+        {
+          "label": "Omega-3-tilførsel",
+          "sub": "ALA → EPA/DHA",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Øget behov",
+          "tone": "red"
+        },
+        {
+          "label": "Folsyre",
+          "sub": "MTHFR",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Øget behov",
+          "tone": "red"
+        },
+        {
+          "label": "Vægttab gennem motion",
+          "sub": "FTO",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Øget behov",
+          "tone": "red"
+        }
+      ],
+      "note": "Sorteret efter værdi, ikke efter emne. Den detaljerede fortolkning med genotyper og interventioner følger i kapitlerne nedenfor.",
+      "id": "auswertungen"
+    },
+    {
+      "type": "markers",
+      "caption": "Epigenetisk status",
+      "title": "Methylation.",
+      "lead": "DNA-methylation viser, hvor aktive dine gener aktuelt er. I modsætning til generne selv kan disse værdier ændres.",
+      "items": [
+        {
+          "name": "LINE-1",
+          "category": "DNA-stabilitet",
+          "intro": "LINE-1-elementer udgør omkring 17 % af genomet. Deres methylation betragtes som en markør for global DNA-regulering.",
+          "kind": "trafik",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Uden for interval",
+          "tone": "red",
+          "text": "Denne markør understøttes mest effektivt gennem næringsstofferne involveret i folatmetabolismen — hvilket får yderligere betydning i lyset af din MTHFR-variant (genetisk 2/9).",
+          "table": {
+            "cols": ["Måling", "Kilde", "Mængde / hyppighed", "Effekt"],
+            "rows": [
+              [
+                "Folsyre",
+                "grønne bladgrøntsager, tomat, bælgfrugter, nødder, spirer",
+                "dagligt",
+                "Om nødvendigt 2 måneder som methylfolat (5-MTHF)"
+              ],
+              [
+                "Riboflavin (B2)",
+                "spirede frø, spirer, ost",
+                "dagligt",
+                "Kofaktor for methylation"
+              ],
+              [
+                "Cobalamin (B12)",
+                "æg, ost, fermenterede fødevarer",
+                "dagligt",
+                "Regenerering af aktivt folat"
+              ],
+              [
+                "Methionin",
+                "Brasilianske nødder, sesam, soja, ærter, bladgrøntsager",
+                "dagligt",
+                "Direkte methylgruppedonor"
+              ],
+              [
+                "Pyridoxin (B6)",
+                "kål, grønne bønner, linser, bananer",
+                "dagligt",
+                "Kofaktor for methylation"
+              ],
+              [
+                "Fibre",
+                "fuldkorn, grøntsager, bælgfrugter",
+                "mindst 30 g/dag",
+                "Biotilgængelighed af phytokemikalier"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Inflammationsregulering (IL-6 & TNF-α)",
+          "intro": "Kombineret score fra methylationen af begge genregioner — ikke det akutte blodniveau. Individuelle værdier: IL-6 8/9 · TNF-α 6/9.",
+          "kind": "trafik",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Optimal",
+          "tone": "green",
+          "text": "En plantefokuseret, lavinflammatorisk kost understøtter fortsat dette område.",
+          "table": {
+            "cols": ["Måling", "Kilde", "Mængde / hyppighed", "Effekt"],
+            "rows": [
+              [
+                "Resveratrol",
+                "drueskaller, hindbærkerner, blåbær, jordnødder",
+                "1 portion bær/dag",
+                "Findes hovedsageligt i skaller og kerner"
+              ],
+              [
+                "Sulforafan",
+                "broccoli, blomkål, rosenkål, karse",
+                "3–4×/uge",
+                "Damp kun kortvarigt eller spis rå — ellers går det aktive stof tabt"
+              ],
+              [
+                "Quercetin",
+                "løg, hvidløg, kapers, purløg",
+                "dagligt",
+                "Lad løg stå i 10 min efter hakning"
+              ],
+              [
+                "Curcumin",
+                "gurkemeje med sort peber",
+                "1 tsk dagligt",
+                "Olie forbedrer optagelsen; ikke under graviditet eller ved galdesten"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "markers",
+      "caption": "Epigenetisk status",
+      "title": "microRNA.",
+      "lead": "microRNA finjusterer aktiviteten af dine gener og afspejler aktuel metabolisk og inflammatorisk aktivitet. Ligesom metylering kan de påvirkes gennem livsstil.",
+      "items": [
+        {
+          "name": "miR-21",
+          "category": "Inflammation og mikronæringsstoffer",
+          "intro": "Forværres ved mere udtalt inflammatorisk aktivitet samt ved dårlig zink- og folatforsyning.",
+          "kind": "trafik",
+          "value": 3,
+          "display": "3 / 9",
+          "status": "Uden for interval",
+          "tone": "red",
+          "text": "Ved rød eller gul værdi bør et normalt BMI tilstræbes; derudover er målrettet indtag af zink og folat værdifuldt. Antioxidante mikronæringsstoffer som vitamin D, vitamin E og lycopen samt resveratrol understøtter immunreguleringen.",
+          "table": {
+            "cols": ["Måling", "Kilde", "Mængde / hyppighed", "Effekt"],
+            "rows": [
+              [
+                "Zink",
+                "græskarkerner, havre, linser, ost, oksekød",
+                "dagligt",
+                "Dårlig zinkforsyning forværrer denne værdi"
+              ],
+              [
+                "Folsyre",
+                "bladgrønt, bælgfrugter, tomat, spirer",
+                "dagligt",
+                "Dårlig folatforsyning forværrer denne værdi"
+              ],
+              [
+                "Resveratrol",
+                "drueskind, blåbær, peanuts",
+                "1 portion bær/dag",
+                "Hæmmer NF-κB-signalvejen"
+              ],
+              [
+                "Vitamin D",
+                "laks, smør, æg, avocado, svampe",
+                "regelmæssigt",
+                "Vigtigt for immunregulering"
+              ],
+              [
+                "Vitamin E",
+                "hvedekimolie, nødder, spinat, broccoli",
+                "dagligt",
+                "Antioxidant, beskytter cellemembraner"
+              ],
+              [
+                "Lycopen",
+                "tomater, melon, gulerødder, papaya",
+                "dagligt",
+                "Carotenoid med antioxidant effekt"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "miR-155",
+          "category": "FTO-regulering og fedtvævsdannelse",
+          "intro": "Central regulator af immun- og inflammatoriske reaktioner; påvirker dannelsen af brunt og beige fedtvæv.",
+          "kind": "trafik",
+          "value": 8,
+          "display": "8 / 9",
+          "status": "Optimal",
+          "tone": "green",
+          "text": "Motion, faste og kuldepåvirkninger har en gavnlig effekt her og påvirker FTO-effekten positivt — særligt relevant, da din genetiske FTO-vurdering er 2/9.",
+          "table": {
+            "cols": ["Måling", "Kilde", "Mængde / hyppighed", "Effekt"],
+            "rows": [
+              [
+                "Regelmæssig motion",
+                "udholdenhed og styrke kombineret",
+                "150 min/uge",
+                "Har en gavnlig effekt på denne værdi"
+              ],
+              [
+                "Kuldepåvirkninger",
+                "kolde brusere, isbadning, kølige rum",
+                "regelmæssigt, kortvarigt",
+                "Aktiverer brunt/beige fedtvæv"
+              ],
+              [
+                "Fasteperioder",
+                "udvidet natlig spisepause",
+                "efter aftale",
+                "Understøtter aktivering af brunt fedtvæv"
+              ],
+              [
+                "Quercetin",
+                "løg, hvidløg, kapers, purløg",
+                "mindst 200 mg/dag",
+                "Påvirker mitokondriel biogenese"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "table",
+      "caption": "Genetik · Makronæringsstoffer",
+      "title": "Metabolisk type: balanceret type.",
+      "lead": "Din metabolisme favoriserer ikke specielt nogen af de tre makronæringsstoffer. Den generelle anbefaling fra DACH-referenceværdierne gælder derfor for dig. Vigtigere i dit tilfælde er kvaliteten af fødevarerne.",
+      "cols": ["Andel", "Makronæringsstof", "Bemærkning"],
+      "rows": [
+        ["55 %", "Kulhydrater", "Fuldkorn, bælgfrugter og grøntsager som basis"],
+        ["20 %", "Protein", "20–30 g pr. hovedmåltid"],
+        ["25 %", "Fedt", "Fokus på umættede fedtstoffer"]
+      ],
+      "note": "Individuelt beregnet dagligt energibehov: 1.900 kcal.",
+      "id": "uebersicht"
+    },
+    {
+      "type": "table",
+      "caption": "Genetik · Motion",
+      "title": "Motionstype: udholdenhedstype.",
+      "lead": "Både ACE og ACTN3 peger på en disposition for udholdenhedspræstation. Til sammenligning forklarer genetik kun op til ca. 20 % af forskellen mellem styrke- og udholdenhedspræstation — træning, kost og konsistens har langt større betydning.",
+      "cols": ["Gen", "Din genotype", "Disposition"],
+      "rows": [
+        [
+          "ACE",
+          "GG (homozygot)",
+          "Mere udholdenhed — variant forbundet med bedre iltudnyttelse og effektivitet."
+        ],
+        [
+          "ACTN3",
+          "TT (vildtype)",
+          "Mere udholdenhed — XX-type uden α-actinin-3, flere langsomme, udholdenhedsorienterede muskelfibre."
+        ]
+      ],
+      "id": "uebersicht-2"
+    },
+    {
+      "type": "markers",
+      "caption": "Genetik · Motion",
+      "title": "Vægttab gennem motion.",
+      "items": [
+        {
+          "name": "Vægttab gennem motion",
+          "category": "FTO rs1121980",
+          "intro": "Genotype AT (heterozygot). Hvor meget motion alene bidrager til vægttab.",
+          "kind": "trafik",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Øget behov",
+          "tone": "red",
+          "text": "I dit tilfælde fører motion alene til vægttab en smule langsommere end ved andre genotyper. Effekten på kondition og metabolisk sundhed forbliver uændret — til vægtreduktion er kombinationen af motion og kostjustering særligt værdifuld.",
+          "table": {
+            "cols": ["Måling", "Kilde", "Mængde / hyppighed", "Effekt"],
+            "rows": [
+              [
+                "Udholdenhedskomponent",
+                "cykling, løb, svømning",
+                "2–3×/uge",
+                "Iltforsyning, basal udholdenhed"
+              ],
+              [
+                "Styrkekomponent",
+                "helkrop styrketræning",
+                "2×/uge",
+                "Vedligeholder muskelmasse og metabolisk aktivitet"
+              ],
+              [
+                "Kombiner med kost",
+                "se anbefaling for metabolisk type",
+                "individuelt",
+                "Med FTO den mest effektive ekstra indsats"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-3"
+    },
+    {
+      "type": "markers",
+      "caption": "Genetik · Metabolisme",
+      "title": "Disposition: kropsvægtregulering og blodsukkerstofskifte.",
+      "lead": "Genetisk disposition for regulering af kropsvægt og blodsukkerstofskifte — som udgangspunkt for målrettet ernæring, ikke som forudsigelse.",
+      "items": [
+        {
+          "name": "Kropsvægtregulering",
+          "intro": "Oversigt over varianter, der er forbundet med regulering af kropsvægt.",
+          "kind": "trafik",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Favorabel",
+          "tone": "green",
+          "text": "Din genetiske baggrund viser her intet ugunstigt mønster. Måltidsstruktur, fibre og regelmæssig motion opretholder denne udgangsposition.",
+          "sub": "Genotyper: FTO rs9939609 TT · PPARG2 CC (vildtype) · MC4R CT · TCF7L2 CT · SLC6A14 CA · TFAP2B GG",
+          "table": {
+            "cols": ["Måling", "Kilde", "Mængde / hyppighed", "Effekt"],
+            "rows": [
+              [
+                "Fibre",
+                "fuldkorn, bælgfrugter, grøntsager",
+                "mindst 30 g/dag",
+                "Forlænger mæthedsfølelse, stabiliserer blodsukker"
+              ],
+              [
+                "Protein pr. måltid",
+                "æg, bælgfrugter, fisk, kød",
+                "20–30 g/måltid",
+                "Understøtter mæthedssignaler"
+              ],
+              ["Motion", "—", "150 min/uge", "Dæmper genetisk betingede effekter"]
+            ]
+          }
+        },
+        {
+          "name": "Blodsukker- og insulinstofskifte",
+          "intro": "Gener, der påvirker insulinsekretion, insulinfølsomhed og blodsukkerstofskifte.",
+          "kind": "trafik",
+          "value": 3,
+          "display": "3 / 9",
+          "status": "Øget behov",
+          "tone": "red",
+          "text": "Din værdi ligger uden for det gunstige område. Kulhydratkvalitet og regelmæssig motion er de mest effektive indsatsområder i dit tilfælde — og sammen med den røde miR-21-værdi det andet fokus i denne rapport.",
+          "sub": "Genotyper: TCF7L2 CT · IL-6 CG · ADRB3 GG (vildtype) · PPARG2 CC",
+          "table": {
+            "cols": ["Måling", "Kilde", "Mængde / hyppighed", "Effekt"],
+            "rows": [
+              [
+                "Lavt glykæmisk indeks",
+                "fuldkorn, bælgfrugter, grøntsager",
+                "ved hvert hovedmåltid",
+                "Undgår skarpe blodsukkerstigninger"
+              ],
+              ["Bevægelse efter spisning", "kort gåtur", "10–15 min", "Forbedrer insulinfølsomhed"]
+            ]
+          }
+        }
+      ],
+      "id": "marker-4"
+    },
+    {
+      "type": "markers",
+      "caption": "Genetik · Spisemønster",
+      "title": "Ernæringstype.",
+      "lead": "Mæthed, madtrang og tendens til vægttab eller -vedligeholdelse — dine genetiske indsatsområder omkring spisemønster.",
+      "items": [
+        {
+          "name": "Madtrang",
+          "sub": "MC4R CT · FTO rs9939609 TT · LEPR AA · SLC6A14 CA · PPARG2 CC",
+          "kind": "trafik",
+          "value": 6,
+          "display": "6 / 9",
+          "status": "Moderat",
+          "tone": "amber",
+          "text": "En let øget tendens til spontane spiseimpulser. Måltidsstruktur og proteinindtag er dine mest effektive indsatsområder her.",
+          "table": {
+            "cols": ["Måling", "Kilde", "Mængde / hyppighed", "Effekt"],
+            "rows": [
+              [
+                "Protein ved hvert måltid",
+                "æg, bælgfrugter, fisk, kød, tofu",
+                "20–30 g/måltid",
+                "Stærkeste kendte mæthedssignal"
+              ],
+              [
+                "Regelmæssige måltider",
+                "—",
+                "3 faste tidspunkter/dag",
+                "Reducerer blodsukkerudsving"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Sult- og mæthedsregulering",
+          "sub": "MC4R, LEPR og FTO rs1121980 (AT) samlet",
+          "kind": "trafik",
+          "value": 4,
+          "display": "4 / 9",
+          "status": "Moderat",
+          "tone": "amber",
+          "text": "Et noget forsinket mæthedssignal — langsom, opmærksom spisning giver signalet den tid, det behøver.",
+          "table": {
+            "cols": ["Måling", "Kilde", "Mængde / hyppighed", "Effekt"],
+            "rows": [
+              [
+                "Langsom, opmærksom spisning",
+                "—",
+                "mindst 20 min/måltid",
+                "Giver det forsinkede signal tid"
+              ],
+              [
+                "Fiberrig kost",
+                "grøntsager, fuldkorn",
+                "mindst 30 g/dag",
+                "Forlænger mæthedsfølelsen"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Vægttab",
+          "sub": "ADRB3 GG · PLIN CT",
+          "kind": "trafik",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber",
+          "text": "Øget behov for støtte med søvn og leptinfølsomhed. 7–9 timers søvn og kombineret træning 2–3×/uge."
+        },
+        {
+          "name": "Vægtvedligeholdelse",
+          "sub": "TCF7L2 CT",
+          "kind": "trafik",
+          "value": 8,
+          "display": "8 / 9",
+          "tone": "green",
+          "text": "Gunstig udgangsposition mod jojo-effekt. Stabile måltidstider og 150 min motion/uge opretholder den."
+        }
+      ],
+      "id": "marker-5"
+    },
+    {
+      "type": "markers",
+      "caption": "Genetik · Mikronæringsstoffer",
+      "title": "Optagelse af vitaminer.",
+      "lead": "Hvor godt din krop udnytter D-vitamin og omdanner folat til dets aktive form — inklusive det deraf følgende behov for B-vitaminer.",
+      "items": [
+        {
+          "name": "Folsyre",
+          "category": "MTHFR",
+          "intro": "Genotype homozygot variant. Nøgleenzym i folatstofskiftet.",
+          "kind": "trafik",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Øget behov",
+          "tone": "red",
+          "text": "Din MTHFR-variant indikerer en markant begrænset omdannelse af folat til dets aktive form (5-MTHF). Dit behov for folat fra kosten er højere end ved andre genotyper. Denne værdi forklarer også den røde LINE-1-markør på det epigenetiske niveau — begge afhænger af den samme metaboliske vej.",
+          "table": {
+            "cols": ["Måling", "Kilde", "Mængde / hyppighed", "Effekt"],
+            "rows": [
+              [
+                "Folat fra kosten",
+                "grønne bladgrøntsager, bælgfrugter, asparges",
+                "2–3 portioner/dag",
+                "MTHFR-varianter har gavn af et konsekvent højt indtag"
+              ],
+              [
+                "Aktivt folat (5-MTHF)",
+                "om nødvendigt som kosttilskud",
+                "efter konsultation med læge",
+                "Omgår den begrænsede omdannelse direkte"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Vitamin D",
+          "category": "Transport",
+          "intro": "GC (vitamin D-bindende protein), genotype GT (heterozygot)",
+          "kind": "trafik",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Favorabel",
+          "tone": "green",
+          "text": "Vitamin D-transport i dit blod er kun let begrænset. Det betyder ikke mangel, men det gør en blodprøvekontrol værd at overveje i måneder med lidt sollys.",
+          "table": {
+            "cols": ["Måling", "Kilde", "Mængde / hyppighed", "Effekt"],
+            "rows": [
+              [
+                "Vitamin D",
+                "fed fisk, æg; sollys",
+                "15–20 min/dag regelmæssigt, kontroller niveauer",
+                "Kontrol er især værdifuld om vinteren"
+              ],
+              [
+                "Vitamin K2",
+                "fermenterede fødevarer, æggeblomme, hård ost",
+                "dagligt",
+                "Understøtter vitamin D i knogle- og karstofskiftet"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "B-vitaminer",
+          "category": "Behov",
+          "intro": "Følger af MTHFR-varianten via methylationscyklussen.",
+          "kind": "trafik",
+          "value": 5,
+          "display": "5 / 9",
+          "status": "Moderat",
+          "tone": "amber",
+          "table": {
+            "cols": ["Måling", "Kilde", "Mængde / hyppighed", "Effekt"],
+            "rows": [
+              [
+                "Vitamin B2",
+                "æg, mejeriprodukter, fuldkorn",
+                "dagligt",
+                "Direkte cofaktor for MTHFR-enzymet"
+              ],
+              [
+                "Vitamin B6",
+                "kartofler, bælgfrugter, bananer",
+                "dagligt",
+                "Homocysteinmetabolisme"
+              ],
+              [
+                "Vitamin B12",
+                "æg, fisk, mejeriprodukter",
+                "dagligt",
+                "Regenerering af aktivt folat"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-6"
+    },
+    {
+      "type": "markers",
+      "caption": "Genetik · Lipidmetabolisme",
+      "title": "Omega 3 og blodlipider.",
+      "lead": "Hvor godt du udnytter plantebaserede omega-3-forstadier, og hvordan dine blodlipidniveauer er genetisk disponeret.",
+      "items": [
+        {
+          "name": "Blodlipider og fedtsyremetabolisme",
+          "sub": "FADS1 TT · APOA5 AG · LPL AA (vildtype) · PPARG2 CC",
+          "kind": "trafik",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Øget behov",
+          "tone": "red",
+          "text": "Din FADS1-variant indikerer, at kroppen kun i begrænset omfang omdanner plantebaserede omega-3-forstadier (ALA) til de aktive former EPA og DHA. Den separate vurdering “Omega-3-forsyning” ser udelukkende på dette omdannelsestrin og er ligeledes 2 / 9.",
+          "table": {
+            "cols": ["Måling", "Kilde", "Mængde / hyppighed", "Effekt"],
+            "rows": [
+              [
+                "EPA og DHA direkte",
+                "fed havfisk (laks, makrel, sild); alternativt algeolie",
+                "fisk 2×/uge eller algeolie dagligt",
+                "Omgår den begrænsede FADS1-omdannelse"
+              ],
+              [
+                "Plantebaserede omega-3-kilder",
+                "hørfrøolie, valnødder, chiafrø",
+                "derudover, ikke som eneste kilde",
+                "Hos dig kun delvist omdannet"
+              ],
+              [
+                "Begræns omega-6",
+                "brug sparsomt solsikke-, saflor- og majsolie",
+                "i hverdagen",
+                "Gunstigt omega-6 til omega-3-forhold"
+              ],
+              [
+                "Reducer sukker og hvidt mel",
+                "til fordel for fuldkorn",
+                "i hverdagen",
+                "Relateret til triglyceridmetabolisme (APOA5)"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-7"
+    },
+    {
+      "type": "markers",
+      "caption": "Genetik · Blodtryk",
+      "title": "Saltfølsomhed.",
+      "items": [
+        {
+          "name": "Saltfølsomhed",
+          "sub": "ACE, genotype GG (homozygot)",
+          "kind": "trafik",
+          "value": 8,
+          "display": "8 / 9",
+          "status": "Favorabel",
+          "tone": "green",
+          "text": "Din ACE-variant viser ingen øget saltfølsomhed. Som hovedregel: alle, der spiser en saltet kost, bør bevidst drikke mere.",
+          "table": {
+            "cols": ["Måling", "Kilde", "Mængde / hyppighed", "Effekt"],
+            "rows": [
+              [
+                "Hold øje med saltindtaget",
+                "forarbejdede fødevarer, færdigretter",
+                "max. 6 g salt/dag",
+                "Reducerer væskeretention"
+              ],
+              [
+                "Drik nok",
+                "vand, usødet te",
+                "mindst 1,5–2 l/dag",
+                "Understøtter natriumudskillelse"
+              ],
+              [
+                "Kalium fra grøntsager og frugt",
+                "bananer, kartofler, grønne grøntsager",
+                "dagligt",
+                "Modvirker saltrelateret væskeretention"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-8"
+    },
+    {
+      "type": "markers",
+      "caption": "Genetik · Hud og antioxidanter",
+      "title": "Nutrikosmetik.",
+      "lead": "Hudens elasticitet, hydrering og antioxidantbeskyttelse — hvordan kosten understøtter din hud indefra.",
+      "items": [
+        {
+          "name": "Hudhydrering",
+          "sub": "AQPR CC (vildtype)",
+          "kind": "trafik",
+          "value": 9,
+          "display": "9 / 9",
+          "tone": "green",
+          "text": "Din hud bevarer fugt godt — en normal plejerutine er som regel tilstrækkelig. Understøttende: mindst 1,5–2 l vand dagligt."
+        },
+        {
+          "name": "Oxidativ cellebeskyttelse",
+          "sub": "SOD2 AG (heterozygot)",
+          "kind": "trafik",
+          "value": 7,
+          "display": "7 / 9",
+          "tone": "green",
+          "text": "Solid beskyttelse mod oxidativt stress. Daglige antioxidanter og konsekvent UV-beskyttelse opretholder denne udgangsposition."
+        },
+        {
+          "name": "Hudelasticitet og inflammation",
+          "intro": "IL-6 CG (heterozygot). Øget aktivitet kan fremskynde kollagennedbrydning.",
+          "kind": "trafik",
+          "value": 6,
+          "display": "6 / 9",
+          "status": "Moderat",
+          "tone": "amber",
+          "text": "En moderat tendens til inflammation i huden — en antiinflammatorisk kost har en synlig effekt på din hud.",
+          "table": {
+            "cols": ["Måling", "Kilde", "Mængde / hyppighed", "Effekt"],
+            "rows": [
+              [
+                "Omega-3-fedtsyrer",
+                "laks, hørfrø, valnødder",
+                "fisk 2×/uge",
+                "Støtter hudens barriere"
+              ],
+              [
+                "Antioxidanter",
+                "bær, farverige grøntsager, grøn te",
+                "dagligt",
+                "Modvirker oxidativt stress"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Antioxidantkapacitet",
+          "intro": "NADPH AG (heterozygot). Leverer den reducerende kraft til cellernes antioxidationssystemer.",
+          "kind": "trafik",
+          "value": 4,
+          "display": "4 / 9",
+          "status": "Moderat",
+          "tone": "amber",
+          "text": "En moderat nedsat antioxidantkapacitet — antioxidanter gennem kosten giver yderligere støtte her.",
+          "table": {
+            "cols": ["Måling", "Kilde", "Mængde / hyppighed", "Effekt"],
+            "rows": [
+              [
+                "Antioxidanter",
+                "bær, farverige grøntsager, grøn te",
+                "dagligt",
+                "Støtter cellernes forsvar mod frie radikaler"
+              ],
+              [
+                "UV-beskyttelse",
+                "solcreme, hovedbeklædning",
+                "ved soleksponering",
+                "Begrænser UV-eksponering af huden"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-9"
+    },
+    {
+      "type": "table",
+      "caption": "Genetisk grundlag",
+      "title": "Alle analyserede gener.",
+      "lead": "Den komplette liste over undersøgte varianter sammen med din genotype. Disse værdier er arvelige og forbliver uændrede gennem livet — gentagelse af den genetiske analyse tjener intet formål.",
+      "cols": ["Gen", "Din genotype", "Funktion"],
+      "rows": [
+        [
+          "FTO rs9939609",
+          "TT (homozygot)",
+          "Risikoallelen A. Forbundet med BMI, kropsfedtmasse og taljemål ved højt indtag af mættede fedtsyrer."
+        ],
+        [
+          "FTO rs1121980",
+          "AT (heterozygot)",
+          "Risikoallelen A. Reagerer mindre effektivt på vægttab gennem fysisk aktivitet."
+        ],
+        [
+          "MTHFR",
+          "homozygot variant",
+          "Nøgleenzym i folat- og methylationsmetabolisme; påvirker homocysteinniveauet."
+        ],
+        [
+          "FADS1",
+          "TT (homozygot)",
+          "Kontrollerer omdannelsen af plantebaserede omega-3/-6-forstadier til de aktive, langkædede fedtsyrer."
+        ],
+        [
+          "APOA5",
+          "AG (heterozygot)",
+          "Regulerer nedbrydning af triglycerider i blodet og påvirker blodlipidniveauer."
+        ],
+        [
+          "LPL",
+          "AA (vildtype)",
+          "Nedbryder fedtstoffer fra blodet; påvirker HDL-kolesterol og blodlipidniveauer."
+        ],
+        [
+          "PPARG2",
+          "CC (vildtype)",
+          "Regulerer fedtdannelse, fedtlagring og insulinfølsomhed; påvirker appetit og mæthed."
+        ],
+        [
+          "PLIN",
+          "CT (heterozygot)",
+          "Beklæder fedtdråber i fedtceller og regulerer deres opbygning og nedbrydning."
+        ],
+        [
+          "ADRB3",
+          "GG (vildtype)",
+          "Regulerer fedtforbrænding i fedtceller og udnyttelse af lagret fedt."
+        ],
+        [
+          "MC4R",
+          "CT (heterozygot)",
+          "Centralt involveret i kontrol af appetit, sult- og mæthedssignaler i hjernen."
+        ],
+        ["LEPR", "AA (homozygot)", "Videregiver mæthedssignalet fra hormonet leptin."],
+        [
+          "SLC6A14",
+          "CA (heterozygot)",
+          "Transporterer aminosyrer; påvirker appetit, mæthed og stressspisning."
+        ],
+        ["TCF7L2", "CT (heterozygot)", "Påvirker insulinsekretion efter kulhydratrige måltider."],
+        ["TFAP2B", "GG (vildtype)", "Indgår i regulering af kropsvægt og fedtfordeling."],
+        [
+          "IL-6",
+          "CG (heterozygot)",
+          "Central budbringer i inflammationsregulering; påvirker blodlipider, appetit og stressspisning."
+        ],
+        ["GC", "GT (heterozygot)", "Påvirker transport af vitamin D i blodet."],
+        [
+          "ACE",
+          "GG (homozygot)",
+          "Del af bradykinin-aldosteronsystemet; påvirker udholdenheds-/styrkeforudsætning og saltsensitivitet."
+        ],
+        [
+          "ACTN3",
+          "TT (vildtype)",
+          "Påvirker sammensætning af muskelfibre (hurtige vs. langsomme fibre)."
+        ],
+        ["AQPR", "CC (vildtype)", "Påvirker vandretention i huden."],
+        ["NADPH", "AG (heterozygot)", "Bidrager til cellernes antioxidantkapacitet."],
+        [
+          "SOD2",
+          "AG (heterozygot)",
+          "Vigtigt antioxidantenzym, beskytter celler mod oxidativt stress."
+        ]
+      ],
+      "note": "21 varianter. Hver evaluering i kapitlet ”Alle genetiske evalueringer” er afledt af flere af disse gener samlet; en enkelt genotype alene tillader ingen konklusion.",
+      "id": "uebersicht-3"
+    },
+    {
+      "type": "summary",
+      "caption": "Resumé",
+      "title": "Dine tre fokusområder.",
+      "lead": "Ud fra 21 gener og fire epigenetiske markører fremhæves tre områder, hvor indsats og effekt mødes tydeligst i dit tilfælde.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Methylationsmetabolisme — folat, B-vitaminer, zink",
+          "text": "Tre værdier peger i samme retning: LINE-1 2/9 (epigenetisk), miR-21 3/9 (epigenetisk) og folat/MTHFR 2/9 (genetisk) — alle tre afhænger af samme metaboliske vej. Dette område er samtidig det eneste, hvis effekt kan påvises ved opfølgende måling. Konkret: grønne bladgrøntsager og bælgfrugter dagligt, B2/B6/B12 via æg, ost og fermenterede fødevarer, zink via græskarkerner, havre og linser. Aktivt folat (5-MTHF) i to måneder efter lægekonsultation."
+        },
+        {
+          "num": "02",
+          "title": "Fedt kvalitet — EPA og DHA direkte",
+          "text": "Blodlipider 2/9 og omega-3-forsyning 2/9. Din FADS1-variant gør plantebaserede omega-3-kilder som hørfrøolie og valnødder utilstrækkelige alene. Fed fisk to gange om ugen eller algeolie dagligt omgår denne flaskehals direkte; brug omega-6-rige olier sparsomt."
+        },
+        {
+          "num": "03",
+          "title": "Blodsukkerkvalitet frem for kaloriemængde",
+          "text": "Blodsukker- og insulinmetabolisme 3/9 sammen med gunstig kropsvægtsregulering (7/9). For dig tæller kulhydratkvaliteten mere end mængden: lavt glykæmisk indeks ved hvert hovedmåltid, 20–30 g protein per måltid og en kort gåtur efter spisning. Da motion alene virker langsommere i dit tilfælde (FTO 2/9), er denne kombination den mere effektive vej."
+        }
+      ],
+      "controlTitle": "Opfølgning og næste skridt",
+      "controlItems": [
+        "En opfølgningsmåling af de fire epigenetiske markører er meningsfuld tidligst efter 4 til 6 måneder — før da kan ændringer ikke måles pålideligt.",
+        "De genetiske vurderinger forbliver uændrede og behøver aldrig at blive gentaget.",
+        "En sammenligning af målepunkterne over tid rapporteres fra og med anden måling."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Spørgsmål om din rapport?",
+      "text": "Drøft resultaterne med den facilitet, der har foretaget prøveudtagningen. Det er dér, den kliniske kontekst, som er nødvendig for fortolkning, er tilgængelig.",
+      "columns": [
+        {
+          "k": "Kontakt",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribution",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Prøverapport",
+          "text": "Alle værdier, genotyper og personlige oplysninger i dette dokument er fiktive og tjener udelukkende til at illustrere rapportformatet. Dette er ikke en ægte rapport."
+        },
+        {
+          "title": "Fortolkning",
+          "text": "Denne rapport er ikke en diagnose og erstatter ikke medicinsk rådgivning. Genetiske vurderinger beskriver dispositioner, ikke sygdomme; epigenetiske markører beskriver en øjeblikkelig tilstand. Begge skal vurderes i den individuelle kliniske kontekst af kvalificerede fagpersoner."
+        },
+        {
+          "title": "Status for analyserne",
+          "text": "Analyserne er laboratorietjenester leveret af vores samarbejdspartner og er ikke CE-mærkede in vitro-diagnostiske medicinsk udstyr. De tjener til rådgivning og overvågning og erstatter ikke klinisk diagnostik. Analyserne leveres kun til professionelle brugere."
+        },
+        {
+          "title": "Lovgivningsmæssigt grundlag",
+          "text": "Genetisk testning er underlagt den tyske lov om genetisk diagnostik (GenDG); information og skriftligt samtykke kræves før prøveudtagning. Laboratorieanalysen udføres af vores samarbejdspartner. Polaris Diagnostics Europe GmbH er ansvarlig for distribution og support. Dette dokument udgør ikke noget helbredelsesløfte i henhold til den tyske lov om reklame for terapeutiske midler (Heilmittelwerbegesetz)."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Pr. august 2026",
+      "id": "kontakt"
+    }
+  ]
+}

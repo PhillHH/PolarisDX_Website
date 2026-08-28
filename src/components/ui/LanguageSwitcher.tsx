@@ -1,20 +1,24 @@
 import { useTranslation } from 'react-i18next'
 import { useState, useRef, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { SUPPORTED_LANGUAGES, normalizeLanguage, type SupportedLanguage } from '../../i18n'
+import { buildLanguageSwitchUrl } from '../../lib/localeRoute'
 import FlagIcon from './FlagIcon'
 
-const languages = [
-  { code: 'de', name: 'Deutsch', country_code: 'de' },
-  { code: 'en', name: 'English', country_code: 'gb' },
-  { code: 'pl', name: 'Polski', country_code: 'pl' },
-  { code: 'fr', name: 'Français', country_code: 'fr' },
-  { code: 'it', name: 'Italiano', country_code: 'it' },
-  { code: 'es', name: 'Español', country_code: 'es' },
-  { code: 'pt', name: 'Português', country_code: 'pt' },
-  { code: 'da', name: 'Dansk', country_code: 'dk' },
-  { code: 'nl', name: 'Nederlands', country_code: 'nl' },
-  { code: 'cs', name: 'Čeština', country_code: 'cz' },
-]
+const languageMetadata: Record<SupportedLanguage, { name: string; country_code: string }> = {
+  de: { name: 'Deutsch', country_code: 'de' },
+  en: { name: 'English', country_code: 'gb' },
+  pl: { name: 'Polski', country_code: 'pl' },
+  fr: { name: 'Français', country_code: 'fr' },
+  it: { name: 'Italiano', country_code: 'it' },
+  es: { name: 'Español', country_code: 'es' },
+  pt: { name: 'Português', country_code: 'pt' },
+  da: { name: 'Dansk', country_code: 'dk' },
+  nl: { name: 'Nederlands', country_code: 'nl' },
+  cs: { name: 'Čeština', country_code: 'cz' },
+}
+
+const languages = SUPPORTED_LANGUAGES.map((code) => ({ code, ...languageMetadata[code] }))
 
 interface LanguageSwitcherProps {
   className?: string
@@ -22,17 +26,14 @@ interface LanguageSwitcherProps {
 }
 
 const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcherProps) => {
-  const { i18n } = useTranslation()
+  const { t, i18n } = useTranslation('common')
   const location = useLocation()
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   // Stelle sicher, dass auch Codes mit Regionssuffix (z. B. en-US) korrekt aufgelöst werden
-  const normalizedCode = (i18n.language || '').split('-')[0]
-  const currentLanguage =
-    languages.find((l) => l.code === normalizedCode) ||
-    languages.find((l) => l.code === i18n.language) ||
-    languages[0]
+  const normalizedCode = normalizeLanguage(i18n.language)
+  const currentLanguage = languages.find((language) => language.code === normalizedCode)!
 
   /**
    * Sprachwechsel = Navigation zu neuer URL.
@@ -44,18 +45,11 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
    * - SSR liefert sofort die korrekte Sprache
    * - Kein Hydration Mismatch
    */
-  const changeLanguage = (lng: string) => {
+  const changeLanguage = (lng: SupportedLanguage) => {
     setIsOpen(false)
 
-    // Aktuelle Route (ohne Sprach-Prefix, dank basename)
-    // location.pathname = '/about' (nicht '/de/about')
-    const currentPath = location.pathname
-    const search = location.search
-    const hash = location.hash
-
-    // Neue URL mit neuem Sprach-Prefix
-    const newUrl = `/${lng}${currentPath}${search}${hash}`
-    window.location.href = newUrl
+    const newUrl = buildLanguageSwitchUrl(location, lng)
+    window.location.assign(newUrl)
   }
 
   useEffect(() => {
@@ -76,7 +70,10 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`inline-flex items-center justify-center gap-2 rounded-full ${isMobile ? 'h-11 px-3 py-2' : 'min-h-[44px] px-3 py-2'} leading-none transition-colors hover:bg-white/10 text-current`}
-        aria-label="Select language"
+        // War hartkodiertes Englisch und damit in neun von zehn Sprachen
+        // sprachfremd. Der Sprachumschalter ist genau das Element, das ein
+        // Nutzer sucht, der die Seitensprache NICHT versteht.
+        aria-label={t('a11y.select_language', 'Sprache wählen')}
       >
         <FlagIcon
           countryCode={currentLanguage.country_code}
@@ -102,7 +99,7 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
               key={language.code}
               onClick={() => changeLanguage(language.code)}
               className={`flex min-h-[44px] w-full items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${
-                i18n.language === language.code ? 'bg-gray-50 font-medium text-brand-primary' : ''
+                normalizedCode === language.code ? 'bg-gray-50 font-medium text-brand-primary' : ''
               }`}
             >
               <FlagIcon

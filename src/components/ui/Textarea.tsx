@@ -2,12 +2,16 @@ import * as React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
 
+// Rahmen, Placeholder und Hilfstext laufen ueber `ui.field` (#6b7280, 4,83:1 auf
+// Weiss) — nicht ueber `ui.border`/`ui.text-muted` (1,23:1 / 2,56:1). WCAG 1.4.11
+// verlangt 3:1 fuer die Begrenzung eines Bedienelements, Platzhalter- und
+// Hilfstext als Text 4,5:1. Input.tsx nutzt dieselbe Rollenzuordnung.
 const textareaVariants = cva(
-  'flex min-h-[80px] w-full rounded-md border border-ui-border bg-white px-3 py-2 text-sm ring-offset-white placeholder:text-ui-text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+  'flex min-h-[80px] w-full rounded-md border border-ui-field bg-white px-3 py-2 text-sm ring-offset-white placeholder:text-ui-field focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       state: {
-        default: 'border-ui-border text-heading',
+        default: 'border-ui-field text-heading',
         error: 'border-red-500 text-red-900 focus-visible:ring-red-500',
       },
     },
@@ -38,10 +42,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         {label && (
           <label
             htmlFor={textareaId}
-            className={cn(
-              'text-sm font-medium leading-none text-heading',
-              disabled && 'cursor-not-allowed opacity-70',
-            )}
+            className={cn('t-label', disabled && 'cursor-not-allowed opacity-70')}
           >
             {label}
           </label>
@@ -58,13 +59,13 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         />
 
         {error && typeof error === 'string' && (
-          <p id={errorId} className="text-sm font-medium text-red-500">
+          <p id={errorId} className="t-error">
             {error}
           </p>
         )}
 
         {!error && helperText && (
-          <p id={helperId} className="text-sm text-ui-text-muted">
+          <p id={helperId} className="t-helper">
             {helperText}
           </p>
         )}

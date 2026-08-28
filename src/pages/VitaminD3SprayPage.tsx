@@ -33,6 +33,7 @@ import FinalCtaSection from '../components/sections/FinalCtaSection'
 const VitaminD3SprayPage = () => {
   const { t, i18n } = useTranslation(['vitd3spray', 'common'])
   const sprayPdf = i18n.language === 'de' ? sprayPdfDE : sprayPdfEN
+  const sprayPdfLanguage = i18n.language === 'de' ? 'de' : 'en'
 
   const pricingRowsRaw = t('vitd3spray:pricing.rows', { returnObjects: true })
   const pricingRows = Array.isArray(pricingRowsRaw)
@@ -113,7 +114,11 @@ const VitaminD3SprayPage = () => {
         title={t('vitd3spray:hero.title')}
         subtitle={t('vitd3spray:hero.subtitle')}
         primaryCta={{ label: t('vitd3spray:hero.cta'), href: '#bestellformular' }}
-        secondaryCta={{ label: t('vitd3spray:hero.download'), href: sprayPdf }}
+        secondaryCta={{
+          label: t('vitd3spray:hero.download'),
+          href: sprayPdf,
+          hrefLang: sprayPdfLanguage,
+        }}
         chips={[
           t('vitd3spray:badges.vegan'),
           t('vitd3spray:badges.made_in'),
@@ -288,7 +293,7 @@ const VitaminD3SprayPage = () => {
                               {benefitTitles[i]}
                             </h3>
                           )}
-                          <p className="mt-2 text-sm leading-relaxed text-gray-700">{item}</p>
+                          <p className="mt-2 t-small">{item}</p>
                         </div>
                       )
                     })}
@@ -342,6 +347,7 @@ const VitaminD3SprayPage = () => {
                       href={sprayPdf}
                       target="_blank"
                       rel="noopener noreferrer"
+                      hrefLang={sprayPdfLanguage}
                       className="inline-flex items-center gap-2 rounded-md bg-accent-strong px-5 py-3 text-sm font-medium text-white transition-colors hover:brightness-110"
                     >
                       <Download className="h-4 w-4" />
@@ -355,7 +361,6 @@ const VitaminD3SprayPage = () => {
                   <PraxisOrderForm
                     area="Vitamin D3+K2 Spray BESTELLUNG"
                     orderName="Vitamin D3+K2 Spray"
-                    quantityUnit="Sprays"
                     messageNoneLabel={t('vitd3spray:order_message_none')}
                     defaultQuantity="12"
                     quantityOptions={quantityOptions}
@@ -476,6 +481,7 @@ const VitaminD3SprayPage = () => {
                     href={sprayPdf}
                     target="_blank"
                     rel="noopener noreferrer"
+                    hrefLang={sprayPdfLanguage}
                     className="flex items-center justify-center gap-2 rounded-md border border-gray-200 px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:border-accent hover:text-accent"
                   >
                     <Download className="h-4 w-4" />

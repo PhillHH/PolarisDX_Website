@@ -20,6 +20,8 @@ import EpiSubpage from '../components/epigenetics/EpiSubpage'
 import type { Chapter } from '../components/ui/ChapterNav'
 import { ASSET_BASE, asArray, BODY } from '../components/epigenetics/tokens'
 import Reveal from '../components/ui/Reveal'
+import ResourceLanguageBadge from '../components/ui/ResourceLanguageBadge'
+import { resourceLanguageFromPath } from '../lib/resourceLanguage'
 
 interface Sheet {
   num: string
@@ -31,7 +33,7 @@ interface Sheet {
 }
 
 const EpigeneticsDocsPage = () => {
-  const { t } = useTranslation('epigenetics')
+  const { t } = useTranslation(['epigenetics', 'downloads'])
   const sheets = asArray<Sheet>(t('sheets', { returnObjects: true }))
 
   /** Die beiden Blaetter ausserhalb der Neuner-Reihe. */
@@ -73,18 +75,26 @@ const EpigeneticsDocsPage = () => {
             <a
               href={`${ASSET_BASE}${t('downloads.zipFile')}`}
               download
+              hrefLang={resourceLanguageFromPath(t('downloads.zipFile'))}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
             >
               <Download className="h-4 w-4" aria-hidden="true" />
               {t('downloads.zipLabel')}
+              <ResourceLanguageBadge
+                language={resourceLanguageFromPath(t('downloads.zipFile'))}
+                format="zip"
+                className="text-white/80"
+              />
             </a>
             <a
               href={`${ASSET_BASE}${t('samples.zipFile')}`}
               download
+              hrefLang="de"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
             >
               <Download className="h-4 w-4" aria-hidden="true" />
               {t('samples.zipLabel')}
+              <ResourceLanguageBadge language="de" format="zip" className="text-gray-600" />
             </a>
           </div>
         </Reveal>
@@ -123,10 +133,14 @@ const EpigeneticsDocsPage = () => {
                 </div>
 
                 <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-4">
-                  <span className="text-sm text-gray-500">{sheet.meta}</span>
+                  <span className="text-sm text-gray-500">
+                    {sheet.meta} ·{' '}
+                    <ResourceLanguageBadge language={resourceLanguageFromPath(sheet.file)} />
+                  </span>
                   <a
                     href={`${ASSET_BASE}${sheet.file}`}
                     download
+                    hrefLang={resourceLanguageFromPath(sheet.file)}
                     // Ohne dies tragen alle neun Knoepfe denselben
                     // zugaenglichen Namen ("PDF laden"). Wer sich die
                     // Linkliste vorlesen laesst oder per Sprachsteuerung
@@ -153,10 +167,12 @@ const EpigeneticsDocsPage = () => {
                 key={extra.doc}
                 href={`${ASSET_BASE}${extra.file}`}
                 download
+                hrefLang="de"
                 className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
               >
                 <Download className="h-4 w-4" aria-hidden="true" />
                 {extra.label}
+                <ResourceLanguageBadge language="de" className="font-normal text-gray-600" />
               </a>
             ))}
           </div>
@@ -170,7 +186,7 @@ const EpigeneticsDocsPage = () => {
             className="mt-8 flex scroll-mt-[var(--chapterbar-offset,148px)] flex-col gap-5 rounded-3xl border border-slate-200 bg-white p-7 sm:flex-row sm:items-center sm:justify-between"
           >
             <div className="max-w-[62ch]">
-              <h2 className="text-lg font-semibold text-heading">{t('downloads.samplesTitle')}</h2>
+              <h2 className="t-h3">{t('downloads.samplesTitle')}</h2>
               <p className={`mt-1.5 text-gray-700 ${BODY}`}>{t('downloads.samplesText')}</p>
             </div>
             <Link

@@ -24,6 +24,12 @@
   "cta_title": "Nenašli jste dokument?",
   "cta_text": "Náš tým vám poskytne další datové listy, certifikáty nebo individuální poradenství k produktům.",
   "cta_button": "Vyžádat nabídku",
+  "assetLanguage": { "pdf": "PDF v {{language}}", "zip": "ZIP s dokumenty v {{language}}", "languages": { "de": "němčině", "en": "angličtině" } },
+  "assets": {
+    "igloo": { "title": "Leták k systému IglooPro", "description": "Německý produktový leták ke čtečce point-of-care IglooPro." },
+    "vitd3De": { "title": "Produktový leták ke spreji Vitamin D3+K2", "description": "Německý produktový leták s použitím a vlastnostmi produktu." },
+    "vitd3En": { "title": "Produktový leták ke spreji Vitamin D3+K2", "description": "Anglický produktový leták s použitím a vlastnostmi produktu." }
+  },
   "seo": {
     "title": "Ke stažení: letáky IglooPro a Vitamin D3+K2",
     "description": "Stáhněte si zdarma v PDF produktové letáky k IglooPro POC readeru a spreji Vitamin D3+K2 – bez registrace. Technické listy na vyžádání."

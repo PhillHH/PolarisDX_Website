@@ -541,10 +541,20 @@
     "vc_category_label": "Kategoria",
     "vc_date_label": "Opublikowano",
     "primary_cta": "Zobacz odpowiednią usługę",
+    "related_services": "Powiązana diagnostyka",
     "longread": "Long-read",
     "cta_title": "Oblicz swój potencjał oszczędności.",
     "cta_subtitle": "Kalkulator ROI lub konsultacja — w niecałą minutę.",
     "cta_secondary": "Kalkulator ROI",
     "read_time": "{{minutes}} min czytania"
+  },
+  "ui": {
+    "home": "Strona główna",
+    "articles": "Artykuły",
+    "articleNotFound": "Nie znaleziono artykułu",
+    "backToArticles": "Powrót do przeglądu",
+    "readMore": "Czytaj więcej",
+    "needHelp": "Potrzebujesz pomocy w wyborze produktu?",
+    "contactText": "Nasz zespół medyczny jest dostępny 24/7, aby odpowiedzieć na pilne pytania i pomóc Ci zdecydować, co robić dalej."
   }
 }

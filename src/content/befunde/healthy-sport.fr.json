@@ -1,0 +1,689 @@
+{
+  "slug": "healthy-sport",
+  "panel": "Healthy Sport",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Rapport d'échantillon · Données d'exemple",
+      "panel": "Healthy Sport",
+      "subtitle": "Votre entraînement cellulaire",
+      "claim": "Huit microARN pertinents pour le sport à partir d’une seule goutte de sang capillaire, traduits en sept évaluations couvrant la nutrition, la récupération et la performance — complétés par quatre variantes génétiques.",
+      "meta": [
+        {
+          "k": "Rapport pour",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Prélèvement de l'échantillon",
+          "v": "18.02.2026"
+        },
+        {
+          "k": "Matériel",
+          "v": "Carte de gouttelette de sang séché"
+        },
+        {
+          "k": "Portée",
+          "v": "8 miARN + 4 SNP"
+        }
+      ],
+      "id": "deckblatt",
+      "benefit": "Nutrition, récupération, charge d’entraînement : par où votre client peut commencer."
+    },
+    {
+      "type": "principle",
+      "caption": "Le principe",
+      "title": "Comment lire ce rapport.",
+      "lead": "L’entraînement régulier modifie le corps jusqu’au niveau cellulaire. Ces processus laissent des traces sous forme de microARN circulants — de petites molécules d’ARN qui régulent l’expression effective de certains gènes. Contrairement à la génétique, ces valeurs peuvent changer, ce qui en fait la composante tendance de l’analyse.",
+      "cards": [
+        {
+          "title": "Statut nutritionnel",
+          "text": "Besoins en vitamines et micronutriments ainsi qu’équilibre hydrique. Évaluations : statut nutritionnel, état d’hydratation."
+        },
+        {
+          "title": "Récupération",
+          "text": "Capacité de récupération, charge d'entraînement et activité inflammatoire. Évaluations : risque de blessure, niveau de charge, inflammation."
+        },
+        {
+          "title": "Performance",
+          "text": "Capacité d'endurance et état de la musculature. Évaluations : forme cardiovasculaire, état musculaire."
+        }
+      ],
+      "flowTitle": "Le processus",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Mesure",
+          "text": "Carte de goutte de sang séché, bout du doigt. Huit microARN et quatre variants génétiques. Aucun jeûne requis."
+        },
+        {
+          "num": "02",
+          "title": "Évaluer",
+          "text": "Les microARN alimentent sept évaluations sur l'échelle tricolore 1–9. Chaque évaluation combine plusieurs marqueurs."
+        },
+        {
+          "num": "03",
+          "title": "Ajuster",
+          "text": "Recommandations ciblées sur l'entraînement, la récupération et les phytonutriments — plus un suivi."
+        }
+      ],
+      "scaleTitle": "Comment lire l’échelle ?",
+      "scaleLead": "Toutes les évaluations et tous les marqueurs individuels utilisent la même échelle tricolore 1–9. Rouge à gauche, vert à droite — plus c'est élevé, mieux c'est : 1–3 rouge, 4–6 orange, 7–9 vert.",
+      "scaleKind": "traffic",
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "1–3 · Rouge",
+          "text": "Hors de la plage optimale. C’est là que se trouve le levier principal."
+        },
+        {
+          "tone": "amber",
+          "label": "4–6 · Orange",
+          "text": "Plage moyenne avec marge d'amélioration."
+        },
+        {
+          "tone": "green",
+          "label": "7–9 · Vert",
+          "text": "Dans la plage optimale. Maintenir les routines existantes."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Important",
+      "text": "Ce rapport ne remplace pas un examen en médecine du sport ni un diagnostic de performance.",
+      "items": [
+        "Les quatre variants génétiques sont innés et déterminés une seule fois. Informations et consentement écrit requis avant l'analyse génétique (Loi allemande sur le diagnostic génétique, GenDG). Les tests génétiques prédictifs ne peuvent être réalisés que sous la responsabilité de médecins qualifiés ; un conseil génétique doit être proposé avant et après le test (articles 7 et 10 GenDG).",
+        "Seules les valeurs des huit microARN peuvent évoluer — ce sont elles seules qui conviennent pour le suivi des progrès."
+      ],
+      "tone": "neutral",
+      "id": "hinweis"
+    },
+    {
+      "type": "evaluations",
+      "caption": "Résultats en un coup d'œil",
+      "title": "Vos sept évaluations.",
+      "lead": "Chaque évaluation est dérivée de plusieurs microARN combinés. Triées par valeur — les domaines nécessitant le plus d'action apparaissent en bas.",
+      "items": [
+        {
+          "label": "État d'hydratation",
+          "sub": "Dans la plage optimale",
+          "value": 8,
+          "display": "8 / 9",
+          "tone": "green"
+        },
+        {
+          "label": "Risque de blessure & récupération",
+          "sub": "Moyen",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Forme cardiovasculaire",
+          "sub": "Moyen",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "État musculaire",
+          "sub": "Moyen",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Statut nutritionnel",
+          "sub": "Hors plage",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red"
+        },
+        {
+          "label": "Inflammation",
+          "sub": "Hors plage",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red"
+        },
+        {
+          "label": "Niveau de charge / stress",
+          "sub": "Hors plage",
+          "value": 2,
+          "display": "2 / 9",
+          "tone": "red"
+        }
+      ],
+      "id": "auswertungen"
+    },
+    {
+      "type": "callout",
+      "title": "Ce que cela signifie",
+      "text": "Trois valeurs dans la zone rouge — niveau de charge/stress (2), état nutritionnel (3) et inflammation (3). Deux d'entre elles — charge et inflammation — dépendent de miR-146a-5p (microARN de surcharge, 2/9), le marqueur individuel le plus faible du profil ; au total, il intervient dans quatre des sept évaluations. L'état nutritionnel, en revanche, dépend du deuxième marqueur le plus faible, miR-22-5p (3/9).",
+      "items": [
+        "Trois valeurs dans la zone moyenne — risque de blessure, forme cardiovasculaire et état musculaire sont chacune à 5/9 et peuvent être influencées directement par l'entraînement.",
+        "Une valeur dans la zone verte — l'état d'hydratation (8) est stable et doit le rester.",
+        "L'intervalle jusqu'à la prochaine mesure de suivi est déterminé par l'établissement qui vous suit ; vos deux mesures précédentes étaient espacées d'environ trois mois."
+      ],
+      "tone": "accent",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "table",
+      "caption": "Base des évaluations",
+      "title": "Les huit microARN.",
+      "lead": "Les valeurs individuelles à partir desquelles les sept évaluations sont calculées. Elles utilisent aussi l'échelle tricolore 1–9 ; plus c'est élevé, mieux c'est.",
+      "cols": ["Marqueur", "Nom", "Niveau de régulation", "Valeur", "Fonction"],
+      "rows": [
+        [
+          "miR-378a-3p",
+          "MicroARN de gain musculaire",
+          "Construction musculaire & adaptation à la performance",
+          "7 / 9",
+          "Régule la construction musculaire et l'adaptation aux stimuli d'entraînement."
+        ],
+        [
+          "miR-101-3p",
+          "MicroARN de vitalité musculaire",
+          "Protection cellulaire de la musculature",
+          "7 / 9",
+          "Régule la vitalité musculaire et la protection cellulaire."
+        ],
+        [
+          "miR-505-3p",
+          "MicroARN Sport & Style de vie",
+          "Équilibre du mode de vie",
+          "5 / 9",
+          "Reflète l'interaction entre exercice, nutrition et mode de vie."
+        ],
+        [
+          "miR-19b-3p",
+          "MicroARN mental",
+          "Régulation neuronale & cognitive",
+          "4 / 9",
+          "Régule les voies de signalisation neuronale, soutient la résilience cognitive et la performance d'endurance."
+        ],
+        [
+          "miR-20a-5p",
+          "MicroARN de renouvellement cellulaire",
+          "Régénération cellulaire",
+          "4 / 9",
+          "Régule le renouvellement cellulaire et les processus de réparation après l'effort."
+        ],
+        [
+          "miR-30e-3p",
+          "MicroARN de forme physique",
+          "Régulation de l'endurance musculaire",
+          "4 / 9",
+          "Régule l'endurance musculaire et l'adaptation à la forme physique."
+        ],
+        [
+          "miR-22-5p",
+          "MicroARN de combustion des graisses",
+          "Régulation métabolique",
+          "3 / 9",
+          "Régule le métabolisme des graisses et l'apport énergétique."
+        ],
+        [
+          "miR-146a-5p",
+          "MicroARN de surcharge",
+          "Régulation de l'inflammation sous effort",
+          "2 / 9",
+          "Régule les voies de signalisation inflammatoires sous charge d'entraînement."
+        ]
+      ],
+      "id": "uebersicht"
+    },
+    {
+      "type": "callout",
+      "title": "Le marqueur clé",
+      "text": "À 2/9, miR-146a-5p est la valeur individuelle la plus faible et intervient dans quatre des sept évaluations : niveau de charge/stress, inflammation, risque de blessure et forme cardiovasculaire. Un seul marqueur façonne donc une grande partie du tableau global.",
+      "items": [
+        "Les deux marqueurs musculaires miR-378a-3p et miR-101-3p sont tous deux dans la zone verte à 7/9. La musculature elle-même n'est pas le problème — c'est la récupération qui l'est."
+      ],
+      "tone": "accent",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "markers",
+      "caption": "Vos évaluations",
+      "title": "Ce qui est prioritaire.",
+      "items": [
+        {
+          "name": "Niveau de charge / stress",
+          "intro": "À partir de miR-146a-5p (2/9) et miR-20a-5p (4/9). Le stress perturbe l'homéostasie au repos et augmente le turnover énergétique — ce qui compte, c'est si la récupération compense la charge.",
+          "kind": "feu tricolore",
+          "value": 2,
+          "display": "2 / 9",
+          "sub": "Hors plage",
+          "tone": "red",
+          "text": "Votre valeur est hors de la plage optimale — la plus faible des sept évaluations. Réduisez les facteurs de stress quotidiens, évitez la pression temporelle, périodisez votre entraînement (1–2 jours sans entraînement par semaine, une semaine de récupération toutes les 2–4 semaines) et utilisez des techniques de relaxation telles que l'entraînement autogène ou le biofeedback."
+        },
+        {
+          "name": "Statut nutritionnel",
+          "intro": "À partir de miR-30e-3p (4/9), miR-22-5p (3/9) et miR-19b-3p (4/9). Indique les besoins en vitamines et micronutriments, notamment vitamines B, fer et magnésium.",
+          "kind": "feu tricolore",
+          "value": 3,
+          "display": "3 / 9",
+          "sub": "Hors plage",
+          "tone": "red",
+          "text": "Votre valeur est hors de la plage optimale. Accordez une attention particulière aux fruits, légumes et produits complets — riches en vitamines B, magnésium, fer et zinc. Magnésium provenant des noix et graines de tournesol, zinc provenant des produits laitiers, fromages et légumineuses."
+        },
+        {
+          "name": "Inflammation",
+          "intro": "À partir de cinq microARN : miR-505-3p, miR-30e-3p, miR-22-5p, miR-20a-5p et miR-146a-5p. Ces marqueurs cartographient la régulation inflammatoire sous charge d'entraînement ; en même temps, l'effort physique libère des hormones de stress.",
+          "kind": "feu tricolore",
+          "value": 3,
+          "display": "3 / 9",
+          "sub": "Hors plage",
+          "tone": "red",
+          "text": "Votre valeur est hors de la plage optimale. Veillez à la récupération et à un sommeil suffisant, à la vitamine C et au zinc provenant des fruits, légumes, brocolis et agrumes, ainsi qu'à la relaxation, à l'exercice modéré et à une alimentation riche en fibres pour la flore intestinale."
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "callout",
+      "title": "Le dénominateur commun",
+      "text": "Les trois évaluations incluent miR-146a-5p ou miR-22-5p — les deux marqueurs individuels les plus faibles. La gestion de la charge d'entraînement et de la récupération agit donc sur ces trois valeurs à la fois, pas seulement sur une.",
+      "tone": "accent",
+      "id": "hinweis-4"
+    },
+    {
+      "type": "markers",
+      "caption": "Vos évaluations",
+      "title": "Performance et récupération.",
+      "items": [
+        {
+          "name": "Risque de blessure & récupération",
+          "intro": "À partir de cinq microARN : miR-30e-3p, miR-22-5p, miR-146a-5p, miR-20a-5p et miR-505-3p. Une récupération insuffisante augmente le risque de blessure.",
+          "kind": "feu tricolore",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Moyen",
+          "tone": "amber",
+          "text": "Votre valeur est dans la plage moyenne. Assurez-vous de phases de récupération suffisantes entre les séances d'entraînement et veillez à l'échauffement, aux étirements et au retour au calme. Votre évaluation génétique du risque de lésions musculaires dans le chapitre « Trois autres évaluations génétiques » complète cette valeur."
+        },
+        {
+          "name": "Forme cardiovasculaire",
+          "intro": "À partir de miR-20a-5p (4/9), miR-146a-5p (2/9) et miR-505-3p (5/9). Décrit l'efficacité avec laquelle le cœur pompe le sang et l'oxygène dans le corps.",
+          "kind": "feu tricolore",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Moyen",
+          "tone": "amber",
+          "text": "Votre valeur est dans la plage moyenne. Intégrez un entraînement d'endurance au moins deux fois par semaine — course, marche rapide, vélo, natation ou aquagym, selon votre niveau de forme."
+        },
+        {
+          "name": "État musculaire",
+          "intro": "À partir de miR-101-3p (7/9), miR-378a-3p (7/9), miR-19b-3p (4/9) et miR-30e-3p (4/9). La force, la puissance explosive et l'endurance dépendent de l'état de fatigue et de récupération musculaire.",
+          "kind": "feu tricolore",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Moyen",
+          "tone": "amber",
+          "text": "Votre valeur est dans la plage moyenne. Intégrez un entraînement de force au moins deux fois par semaine sous forme d'entraînement complet avec poids ou poids du corps, chaque fois avec échauffement, retour au calme et étirements."
+        },
+        {
+          "name": "État d'hydratation",
+          "intro": "À partir de miR-101-3p (7/9) et miR-378a-3p (7/9). Les pertes de liquide par la transpiration et la respiration altèrent les fonctions corporelles et la performance.",
+          "kind": "feu tricolore",
+          "value": 8,
+          "display": "8 / 9",
+          "sub": "Optimal",
+          "tone": "green",
+          "text": "Votre valeur est dans la plage optimale. Continuez à assurer au moins deux litres de liquide par jour, y compris pendant les séances d'entraînement."
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "table",
+      "caption": "Génétique · innée, déterminée une fois",
+      "title": "Vos marqueurs sportifs.",
+      "lead": "Quatre variants génétiques complétant les valeurs changeantes des microARN. Ils décrivent des prédispositions — pas une évaluation ni une prévision de performance — et sont déterminés une seule fois. Type de sport · ACE et ACTN3 : la combinaison des deux variants détermine la prédisposition entre endurance et force.",
+      "cols": ["Gène", "Génotype", "Prédisposition", "Signification"],
+      "rows": [
+        [
+          "ACE",
+          "GG (homozygote)",
+          "Type force",
+          "Influe sur le système bradykinine-aldostérone et donc sur l'utilisation de l'oxygène."
+        ],
+        [
+          "ACTN3",
+          "CT (hétérozygote)",
+          "Type mixte",
+          "Détermine la composition des fibres musculaires ; la forme mixte combine fibres rapides et lentes."
+        ]
+      ],
+      "note": "Votre type de sport sur l'échelle type endurance — type mixte — type force : principalement type force. Vous êtes principalement du type sport de force. Les activités adaptées sont les sports de force tels que l'haltérophilie, le powerlifting ou le bodybuilding.",
+      "id": "uebersicht-2"
+    },
+    {
+      "type": "table",
+      "caption": "Génétique · innée, déterminée une fois",
+      "title": "Trois autres évaluations génétiques.",
+      "cols": ["Gène", "Caractéristique", "Échelle", "Votre résultat"],
+      "rows": [
+        [
+          "Gène FTO",
+          "Effet de l'exercice sur le poids corporel",
+          "Faible · Modéré · Très bon",
+          "Très bon. Vous pouvez perdre du poids très efficacement grâce à l'exercice — l'activité physique est un levier particulièrement efficace pour vous."
+        ],
+        [
+          "Gène BDNF",
+          "Motivation à l'exercice",
+          "Faible · Modéré · Élevé",
+          "Pas de motivation accrue. Des rendez-vous fixes, des partenaires d'entraînement ou des formats de cours aident plus que les bonnes intentions."
+        ],
+        [
+          "Gène ACTN3",
+          "Risque de lésions musculaires",
+          "Faible · Modéré · Élevé",
+          "Légèrement élevé. Accordez une attention particulière à l'échauffement et au retour au calme ou aux étirements après."
+        ]
+      ],
+      "note": "Les échelles de ces quatre évaluations indiquent une position entre deux pôles, pas un feu tricolore : un type de sport n'est ni bon ni mauvais. Les variants génétiques sont déterminés une seule fois et restent inchangés à vie.",
+      "id": "uebersicht-3"
+    },
+    {
+      "type": "radar",
+      "caption": "Votre position",
+      "title": "Habitudes alimentaires et de mode de vie.",
+      "lead": "Le radar montre à quel point vos habitudes actuelles se rapprochent des valeurs de référence scientifiques. Plus un facteur est éloigné vers l’extérieur, plus il est favorable — 10 est optimal.",
+      "axes": [
+        "Activité quotidienne",
+        "Exercice",
+        "Stress",
+        "Tabac",
+        "Alcool",
+        "Collations",
+        "Viande",
+        "Oméga-3",
+        "Fibres",
+        "Fruits/légumes",
+        "Liquides"
+      ],
+      "scores": [
+        {
+          "value": "4 sur 10",
+          "label": "Stress",
+          "text": "Le facteur le plus faible dans votre auto-évaluation. Il coïncide avec votre valeur de laboratoire la plus faible (niveau de charge/stress 2/9) — les deux pointent dans la même direction."
+        },
+        {
+          "value": "5 chacun",
+          "label": "Collations & viande",
+          "text": "Tous deux dans la zone moyenne — les deux facteurs alimentaires avec le plus de marge d'amélioration, en accord avec l'état nutritionnel de 3/9."
+        },
+        {
+          "value": "9 · 8 · 8",
+          "label": "Tabac · Fruits/légumes · Liquides",
+          "text": "Clairement au-dessus de la moyenne. La valeur des liquides est cohérente avec votre bon état d'hydratation (8/9)."
+        }
+      ],
+      "note": "Une évaluation de votre situation basée sur votre auto-évaluation, pas un diagnostic individuel. En cas de maladie ou lors de phases de vie particulières, veuillez faire superviser tout changement alimentaire majeur par un médecin.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Toutes les recommandations en un coup d’œil",
+      "title": "Vos interventions.",
+      "lead": "Chaque recommandation est attribuée au marqueur microARN dont elle découle, avec la valeur actuelle de ce marqueur. Triées par urgence — les marqueurs les plus faibles en premier.",
+      "cols": ["Substance active", "À partir du marqueur", "Source", "Quantité", "Remarque"],
+      "rows": [
+        [
+          "Kaempférol",
+          "miR-146a-5p · 2",
+          "Raisins rouges, pamplemousse, brocoli, choux de Bruxelles, pommes de terre, oignons, citrouille",
+          "200–600 mg d'extrait/jour",
+          "Sous forme d'extrait — difficile à atteindre en cette quantité uniquement par l'alimentation"
+        ],
+        [
+          "Vitamine D3",
+          "miR-146a-5p · 2",
+          "Huile de foie de morue, hareng, saumon, sardine, thon, maquereau, œuf de poule",
+          "après évaluation médicale des taux de vitamine D",
+          "Liposoluble — à prendre de préférence avec de l'huile et un repas"
+        ],
+        [
+          "Resvératrol",
+          "miR-146a-5p · 2, miR-19b-3p · 4, miR-378a-3p · 7",
+          "Peau de raisin, framboises, airelles, groseilles, fraises",
+          "150 mg de trans-résvératrol/jour",
+          "Difficile à atteindre en cette quantité uniquement par l'alimentation"
+        ],
+        [
+          "Capsaïcine",
+          "miR-22-5p · 3",
+          "Poivrons et piments",
+          "0,8–1,5 mg/jour (ou 1 g de poudre de piment)",
+          "Liposoluble — à prendre de préférence avec de l'huile"
+        ],
+        [
+          "Proanthocyanidine",
+          "miR-30e-3p · 4",
+          "Sureau, canneberge, mûres sauvages, cynorrhodons, pépins de raisin",
+          "36 mg/jour",
+          "La peau, le cœur et les pépins contiennent particulièrement de fortes quantités"
+        ],
+        [
+          "Sélénium",
+          "miR-30e-3p · 4",
+          "Viande, poisson, œufs, produits laitiers et céréales",
+          "60–75 µg/jour",
+          "Contribue à la protection des cellules contre le stress oxydatif"
+        ],
+        [
+          "Génistéine",
+          "miR-20a-5p · 4",
+          "Soja, haricots rouges, pois chiches, chocolat noir",
+          "40–80 mg d'extrait de trèfle rouge/jour",
+          "Plus concentré sous forme d'extrait que sous forme de poudre"
+        ],
+        [
+          "Curcumine",
+          "miR-19b-3p · 4",
+          "Curcuma",
+          "max. 300 mg/jour (5–10 g de poudre)",
+          "Avec poivre noir et huile ; à éviter pendant la grossesse ou en cas de calculs biliaires"
+        ],
+        [
+          "Quercétine",
+          "miR-505-3p · 5, miR-19b-3p · 4",
+          "Oignon, câpres, livèche, ciboulette",
+          "min. 200 mg/jour",
+          "Sensibles à la chaleur — ne pas chauffer fortement"
+        ],
+        [
+          "EGCG (thé vert)",
+          "miR-505-3p · 5",
+          "Thé non fermenté (thé blanc et vert)",
+          "max. 800 mg/jour (1 tasse ≈ 165 mg)",
+          "La pipérine, la vitamine C et l’huile de poisson améliorent la biodisponibilité"
+        ],
+        [
+          "Sulforaphane",
+          "miR-505-3p · 5",
+          "Légumes crucifères, chou, brocoli (germes)",
+          "25 mg/jour (250 g de brocoli)",
+          "Cuire à la vapeur brièvement ou consommer cru — sinon la substance active est perdue"
+        ],
+        [
+          "Bétaïne",
+          "miR-378a-3p · 7",
+          "Quinoa, chénopode blanc, brocoli, épinards, betterave",
+          "500–2 000 mg/jour",
+          "Partiellement synthétisée par l'organisme lui-même"
+        ],
+        [
+          "Zinc",
+          "miR-101-3p · 7",
+          "Viande, produits laitiers, produits complets",
+          "7–16 mg/jour",
+          "Un apport élevé en phytates inhibe l'absorption"
+        ]
+      ],
+      "note": "Veuillez examiner les compléments alimentaires individuellement et en consultation avec un professionnel qualifié — en particulier pendant la grossesse, en cas de pathologies préexistantes ou lors de la prise simultanée de médicaments. Ce résumé ne remplace pas un avis médical.",
+      "id": "uebersicht-4"
+    },
+    {
+      "type": "trend",
+      "caption": "Tendance",
+      "title": "Comparaison de deux mesures.",
+      "lead": "Une comparaison de vos deux mesures à ce jour. Seules les valeurs mesurées sont affichées — pas de prévision.",
+      "firstLabel": "20.11.2025",
+      "secondLabel": "18.02.2026",
+      "kind": "feu tricolore",
+      "items": [
+        {
+          "label": "Statut nutritionnel",
+          "first": 2,
+          "second": 3,
+          "firstDisplay": "2 / 9",
+          "secondDisplay": "3 / 9",
+          "delta": "+1",
+          "tone": "red",
+          "status": "Hors norme"
+        },
+        {
+          "label": "État d'hydratation",
+          "first": 8,
+          "second": 8,
+          "firstDisplay": "8 / 9",
+          "secondDisplay": "8 / 9",
+          "delta": "±0",
+          "tone": "green",
+          "status": "Optimal"
+        },
+        {
+          "label": "Risque de blessure & récupération",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Moyen"
+        },
+        {
+          "label": "Niveau de charge / stress",
+          "first": 3,
+          "second": 2,
+          "firstDisplay": "3 / 9",
+          "secondDisplay": "2 / 9",
+          "delta": "−1",
+          "tone": "red",
+          "status": "Hors norme"
+        },
+        {
+          "label": "Forme cardiovasculaire",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Moyen"
+        },
+        {
+          "label": "Inflammation",
+          "first": 4,
+          "second": 3,
+          "firstDisplay": "4 / 9",
+          "secondDisplay": "3 / 9",
+          "delta": "−1",
+          "tone": "red",
+          "status": "Hors norme"
+        },
+        {
+          "label": "État musculaire",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Moyen"
+        }
+      ],
+      "note": "L'intervalle entre les deux mesures était d'environ trois mois. Que cet intervalle soit également approprié pour le prochain suivi est déterminé par l'établissement qui vous suit.",
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "Ce que montre la tendance",
+      "text": "Une amélioration : état nutritionnel de 2 à 3 — la tendance est bonne, mais la valeur reste hors de la plage optimale.",
+      "items": [
+        "Deux détériorations : niveau de charge/stress (3 → 2) et inflammation (4 → 3). Les deux incluent miR-146a-5p. Entre les deux mesures, c'est donc le côté charge qui s'est aggravé, pas le côté performance.",
+        "Quatre valeurs inchangées : hydratation, risque de blessure, forme cardiovasculaire et état musculaire sont restés stables."
+      ],
+      "tone": "accent",
+      "id": "hinweis-5"
+    },
+    {
+      "type": "summary",
+      "caption": "Résumé",
+      "title": "Votre priorité : récupération.",
+      "lead": "Le profil est exceptionnellement net. Les marqueurs musculaires sont dans la zone verte, les marqueurs de charge et d'inflammation dans la zone rouge — et les deux détériorations depuis la première mesure concernent le même aspect.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Gérez votre charge avant d'augmenter l'entraînement",
+          "text": "Le marqueur individuel le plus faible, miR-146a-5p (2/9), intervient dans quatre des sept évaluations. Exactement deux d’entre elles — le niveau de charge/stress et l’inflammation — se sont détériorées depuis novembre. Tant que cette valeur reste basse, un entraînement supplémentaire joue contre vous plutôt qu’en votre faveur. Plus précisément : un à deux jours sans entraînement par semaine, une semaine de récupération toutes les deux à quatre semaines, des techniques de relaxation au quotidien. En complément, kaempférol et vitamine D3 figurant sur la liste d’intervention."
+        },
+        {
+          "num": "02",
+          "title": "Micronutriments issus de l’alimentation, non des compléments",
+          "text": "L’état nutritionnel (3/9) s’est amélioré de 2 à 3 — la tendance est bonne. Selon le radar du mode de vie, les encas et la viande (5 sur 10 chacun) sont les deux leviers offrant le plus de marge de progression. Concentrez-vous sur les fruits, légumes et céréales complètes pour les vitamines B, magnésium, fer et zinc."
+        }
+      ],
+      "keepTitle": "Maintenir",
+      "keepText": "L’état d’hydratation (8/9) est stable depuis la première mesure et correspond à votre valeur radar pour les liquides (8/10). Les deux marqueurs musculaires sont également dans la zone verte à 7/9 chacun — la musculature n’est pas le problème. Sur le plan génétique, votre gène FTO suggère que l’activité physique a un effet particulièrement marqué sur votre poids corporel.",
+      "controlTitle": "Suivi et prochaine étape",
+      "controlItems": [
+        "L’intervalle avant la prochaine mesure de suivi est déterminé par l’établissement qui vous suit. Vos deux mesures précédentes étaient espacées d’environ trois mois.",
+        "Les quatre variantes génétiques restent inchangées et ne sont pas répétées.",
+        "Pour des raisons de comparabilité, la collecte des échantillons, l’heure de la journée et l’intervalle depuis la dernière séance d’entraînement doivent rester similaires."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Des questions sur votre rapport ?",
+      "text": "Discutez des résultats avec l’établissement qui a réalisé la collecte des échantillons. C’est là que se trouve le contexte d’entraînement et de santé nécessaire à leur interprétation.",
+      "columns": [
+        {
+          "k": "Contact",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribution",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hambourg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Rapport d’échantillon",
+          "text": "Toutes les valeurs, génotypes et données personnelles figurant dans ce document sont fictifs et servent uniquement à illustrer le format du rapport. Ceci n'est pas un rapport réel."
+        },
+        {
+          "title": "Interprétation",
+          "text": "Ce rapport ne constitue pas un diagnostic et ne remplace pas un avis médical, un examen en médecine du sport ou un diagnostic de performance. Les valeurs de microARN décrivent un instantané ; les variantes génétiques décrivent des prédispositions, non des maladies ni une prévision de performance."
+        },
+        {
+          "title": "Statut des analyses",
+          "text": "Les analyses sont des prestations de laboratoire fournies par notre partenaire de coopération et ne sont pas des dispositifs médicaux de diagnostic in vitro marqués CE. Elles servent à la consultation et au suivi et ne remplacent pas le diagnostic clinique. Les analyses sont fournies uniquement aux utilisateurs professionnels."
+        },
+        {
+          "title": "Cadre légal",
+          "text": "Le test génétique est soumis à la loi allemande sur le diagnostic génétique (GenDG) ; des informations et un consentement écrit sont requis avant la collecte d’échantillons. Les tests génétiques prédictifs ne peuvent être réalisés que sous la responsabilité de médecins dûment qualifiés ; un conseil génétique doit être proposé avant et après le test (articles 7 et 10 GenDG). L’analyse en laboratoire est effectuée par notre partenaire de coopération. Polaris Diagnostics Europe GmbH est responsable de la distribution et du support. Veuillez examiner les compléments alimentaires individuellement et en consultation avec un professionnel qualifié."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · En date de : août 2026",
+      "id": "kontakt"
+    }
+  ]
+}

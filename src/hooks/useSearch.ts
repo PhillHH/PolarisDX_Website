@@ -1,169 +1,229 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useArticles } from './useArticles'
+import type { TFunction } from 'i18next'
+import { articles } from '../data/articles'
+import { services } from '../data/services'
+import { BEFUND_ORDER } from '../content/befunde/meta'
 
-interface SearchResult {
+export type SearchResultType =
+  | 'page'
+  | 'service'
+  | 'article'
+  | 'epigenetics'
+  | 'befund'
+  | 'resource'
+  | 'event'
+  | 'consumer'
+
+export interface SearchResult {
+  id: string
   title: string
   description: string
   path: string
-  type: 'page' | 'article' | 'service'
+  type: SearchResultType
+  typeLabel: string
+  priority: number
+}
+
+interface SearchDefinition {
+  id: string
+  path: string
+  type: SearchResultType
+  titleKey: string
+  descriptionKey: string
+  priority: number
+}
+
+/**
+ * Temporary, controlled route mirror for search. AP10 owns the future central
+ * route registry; until then every target here is checked by check:search-index.
+ */
+export const SEARCH_PAGE_DEFINITIONS: readonly SearchDefinition[] = [
+  {
+    id: 'home',
+    path: '/',
+    type: 'page',
+    titleKey: 'home:seo.title',
+    descriptionKey: 'home:seo.description',
+    priority: 100,
+  },
+  {
+    id: 'diagnostics',
+    path: '/diagnostics',
+    type: 'page',
+    titleKey: 'services:overview.hero.title',
+    descriptionKey: 'services:seo.overview_description',
+    priority: 95,
+  },
+  {
+    id: 'igloo-pro',
+    path: '/igloo-pro',
+    type: 'resource',
+    titleKey: 'products:seo.title',
+    descriptionKey: 'products:seo.description',
+    priority: 94,
+  },
+  {
+    id: 'epigenetics',
+    path: '/epigenetics',
+    type: 'epigenetics',
+    titleKey: 'common:search.index.epigenetics.title',
+    descriptionKey: 'common:search.index.epigenetics.description',
+    priority: 93,
+  },
+  {
+    id: 'about',
+    path: '/about',
+    type: 'page',
+    titleKey: 'about:seo.title',
+    descriptionKey: 'about:seo.description',
+    priority: 80,
+  },
+  {
+    id: 'articles',
+    path: '/articles',
+    type: 'page',
+    titleKey: 'articles:index.title',
+    descriptionKey: 'articles:seo.index_description',
+    priority: 79,
+  },
+  {
+    id: 'events',
+    path: '/events',
+    type: 'event',
+    titleKey: 'events:title',
+    descriptionKey: 'events:seo_description',
+    priority: 78,
+  },
+  {
+    id: 'downloads',
+    path: '/downloads',
+    type: 'resource',
+    titleKey: 'downloads:seo.title',
+    descriptionKey: 'downloads:seo.description',
+    priority: 77,
+  },
+  {
+    id: 'support',
+    path: '/support',
+    type: 'page',
+    titleKey: 'support:seo.title',
+    descriptionKey: 'support:seo.description',
+    priority: 76,
+  },
+  {
+    id: 'contact',
+    path: '/contact',
+    type: 'page',
+    titleKey: 'contact:seo.title',
+    descriptionKey: 'contact:seo.description',
+    priority: 75,
+  },
+  {
+    id: 'vitamin-d3-spray',
+    path: '/vitamin-d3-spray',
+    type: 'resource',
+    titleKey: 'vitd3spray:seo.title',
+    descriptionKey: 'vitd3spray:seo.description',
+    priority: 70,
+  },
+  ...(['grundlagen', 'studienlage', 'unterlagen'] as const).map((slug, index) => ({
+    id: `epigenetics-${slug}`,
+    path: `/epigenetics/${slug}`,
+    type: 'epigenetics' as const,
+    titleKey: `common:search.index.epigenetics-${slug}.title`,
+    descriptionKey: `common:search.index.epigenetics-${slug}.description`,
+    priority: 72 - index,
+  })),
+  ...BEFUND_ORDER.map((slug, index) => ({
+    id: `befund-${slug}`,
+    path: `/epigenetics/musterbefund/${slug}`,
+    type: 'befund' as const,
+    titleKey: `common:search.index.befund-${slug}.title`,
+    descriptionKey: `common:search.index.befund-${slug}.description`,
+    priority: 68 - index,
+  })),
+]
+
+const TYPE_LABEL_KEYS: Record<SearchResultType, string> = {
+  page: 'common:search.resultTypes.page',
+  service: 'common:search.resultTypes.service',
+  article: 'common:search.resultTypes.article',
+  epigenetics: 'common:search.resultTypes.epigenetics',
+  befund: 'common:search.resultTypes.befund',
+  resource: 'common:search.resultTypes.resource',
+  event: 'common:search.resultTypes.event',
+  consumer: 'common:search.resultTypes.consumer',
+}
+
+export function createSearchIndex(t: TFunction): SearchResult[] {
+  const pages = SEARCH_PAGE_DEFINITIONS.map((item) => ({
+    ...item,
+    title: t(item.titleKey),
+    description: t(item.descriptionKey),
+    typeLabel: t(TYPE_LABEL_KEYS[item.type]),
+  }))
+
+  const serviceResults = services.map((service, index) => ({
+    id: `service-${service.id}`,
+    title: t(`services:${service.translationKey}.seo.title`),
+    description: t(`services:${service.translationKey}.seo.description`),
+    path: `/diagnostics/${service.id}`,
+    type: 'service' as const,
+    typeLabel: t(TYPE_LABEL_KEYS.service),
+    priority: 90 - index,
+  }))
+
+  const articleResults = articles.map((article, index) => ({
+    id: `article-${article.id}`,
+    title: t(`common:search.index.article-${article.id}.title`),
+    description: t(`common:search.index.article-${article.id}.description`),
+    path: `/articles/${article.slug}`,
+    type: 'article' as const,
+    typeLabel: t(TYPE_LABEL_KEYS.article),
+    priority: 60 - index,
+  }))
+
+  return [...pages, ...serviceResults, ...articleResults].sort(
+    (a, b) => b.priority - a.priority || a.path.localeCompare(b.path),
+  )
+}
+
+export function normalizeSearchText(value: string): string {
+  return value
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLocaleLowerCase()
+    .trim()
+    .replace(/\s+/g, ' ')
+}
+
+export function filterSearchIndex(index: readonly SearchResult[], query: string): SearchResult[] {
+  const term = normalizeSearchText(query)
+  if (!term) return []
+
+  return index.filter((item) =>
+    normalizeSearchText(`${item.title} ${item.description}`).includes(term),
+  )
 }
 
 export const useSearch = (query: string) => {
-  const { t } = useTranslation(['common', 'home', 'services', 'about', 'articles'])
-  const { articles } = useArticles() // Fetch articles for searching
-  const [results, setResults] = useState<SearchResult[]>([])
-  const [isSearching, setIsSearching] = useState(false)
-  const [error, setError] = useState<Error | null>(null)
+  const { t } = useTranslation([
+    'common',
+    'home',
+    'services',
+    'about',
+    'articles',
+    'contact',
+    'support',
+    'events',
+    'downloads',
+    'products',
+    'vitd3spray',
+  ])
 
-  // UseMemo for static pages and services to avoid re-creating arrays on every render
-  // though they depend on 't' which changes on language switch
-  const staticPages = useMemo(
-    () => [
-      {
-        title: t('nav.home', 'Startseite'),
-        path: '/',
-        keywords: t('common:search.keywords.home', 'home startseite igloo widget diagnostic'),
-      },
-      {
-        title: t('nav.about', 'Über uns'),
-        path: '/about',
-        keywords: t('common:search.keywords.about', 'team doctors polarisdx'),
-      },
-      {
-        title: t('nav.service', 'Leistungen'),
-        path: '/diagnostics',
-        keywords: t(
-          'common:search.keywords.services',
-          'services leistungen dental beauty longevity',
-        ),
-      },
-      {
-        title: t('nav.epigenetics', 'Epigenetik'),
-        path: '/epigenetics',
-        keywords: t(
-          'common:search.keywords.epigenetics',
-          'epigenetik genetik epigenetics telomere biologisches alter microrna trockenblut longevity',
-        ),
-      },
-      {
-        title: t('nav.contact', 'Kontakt'),
-        path: '/contact',
-        keywords: t('common:search.keywords.contact', 'contact kontakt email phone address'),
-      },
-      // Case study temporarily disabled
-      // {
-      //   title: t('nav.casestudies', 'Case Study'),
-      //   path: '/casestudys/32reasons',
-      //   keywords: t('common:search.keywords.casestudies', 'case study 32reasons polaris dx dentistry')
-      // },
-      {
-        title: t('nav.terms', 'AGB'),
-        path: '/terms',
-        keywords: t('common:search.keywords.terms', 'legal terms agb recht'),
-      },
-    ],
-    [t],
-  )
+  const index = useMemo(() => createSearchIndex(t), [t])
+  const results = useMemo(() => filterSearchIndex(index, query), [index, query])
 
-  const services = useMemo(
-    () => [
-      {
-        id: 'dental',
-        title: 'Dental',
-        desc: t('common:search.services.dental', 'Zahnmedizinische Diagnostik'),
-      },
-      {
-        id: 'beauty',
-        title: 'Beauty',
-        desc: t('common:search.services.beauty', 'Dermatologische Analysen'),
-      },
-      {
-        id: 'longevity',
-        title: 'Longevity',
-        desc: t('common:search.services.longevity', 'Gesundheit und Langlebigkeit'),
-      },
-      {
-        id: 'sports',
-        title: 'Sports',
-        desc: t('common:search.services.sports', 'Leistungsdiagnostik für Sportler'),
-      },
-    ],
-    [t],
-  )
-
-  useEffect(() => {
-    if (!query.trim()) {
-      setResults([])
-      setIsSearching(false)
-      return
-    }
-
-    setIsSearching(true)
-    const searchTerm = query.toLowerCase()
-    const found: SearchResult[] = []
-
-    // 1. Search Static Pages
-    staticPages.forEach((page) => {
-      if (
-        page.title.toLowerCase().includes(searchTerm) ||
-        page.keywords.toLowerCase().includes(searchTerm)
-      ) {
-        found.push({
-          title: page.title,
-          description: t('common:readMore', 'Mehr erfahren'),
-          path: page.path,
-          type: 'page',
-        })
-      }
-    })
-
-    // 2. Search Services
-    services.forEach((service) => {
-      if (
-        service.title.toLowerCase().includes(searchTerm) ||
-        service.desc.toLowerCase().includes(searchTerm)
-      ) {
-        found.push({
-          title: service.title,
-          description: service.desc,
-          path: `/diagnostics/${service.id}`,
-          type: 'service',
-        })
-      }
-    })
-
-    // 3. Search Articles
-    articles.forEach((article) => {
-      const titleKey = `articles:${article.id}.title`
-      const excerptKey = `articles:${article.id}.excerpt`
-
-      const title = t(titleKey)
-      const excerpt = t(excerptKey)
-
-      // If translation missing (returns key), fallback to slug or empty
-      const actualTitle = title !== titleKey ? title : article.slug
-
-      const titleMatch = actualTitle.toLowerCase().includes(searchTerm)
-      const excerptMatch =
-        excerpt && excerpt !== excerptKey && excerpt.toLowerCase().includes(searchTerm)
-
-      if (titleMatch || excerptMatch) {
-        found.push({
-          title: actualTitle,
-          description: excerpt && excerpt !== excerptKey ? excerpt : '',
-          path: `/articles/${article.slug}`,
-          type: 'article',
-        })
-      }
-    })
-
-    setResults(found)
-    setIsSearching(false)
-    // No actual error handling logic here as it's client-side,
-    // but structure is ready for future API integration
-    setError(null)
-  }, [query, t, articles, staticPages, services])
-
-  return { results, isSearching, error }
+  return { results, isSearching: false, error: null as Error | null }
 }

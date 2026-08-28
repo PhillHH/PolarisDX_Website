@@ -541,10 +541,20 @@
     "vc_category_label": "Kategorie",
     "vc_date_label": "Publikováno",
     "primary_cta": "Zobrazit odpovídající službu",
+    "related_services": "Související diagnostika",
     "longread": "Long-read",
     "cta_title": "Spočítejte si svůj potenciál úspor.",
     "cta_subtitle": "Kalkulačka ROI nebo konzultace — za necelou minutu.",
     "cta_secondary": "Kalkulačka ROI",
     "read_time": "{{minutes}} min čtení"
+  },
+  "ui": {
+    "home": "Domů",
+    "articles": "Články",
+    "articleNotFound": "Článek nebyl nalezen",
+    "backToArticles": "Zpět na přehled",
+    "readMore": "Číst více",
+    "needHelp": "Potřebujete pomoci s výběrem produktu?",
+    "contactText": "Náš lékařský tým je k dispozici 24/7, aby odpověděl na naléhavé otázky a pomohl vám rozhodnout, co dělat dál."
   }
 }

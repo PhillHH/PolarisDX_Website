@@ -93,7 +93,8 @@
     "pillar3": {
       "title": "Inicio acompañado",
       "text": "La formación de su equipo y un interlocutor directo garantizan que la excelencia diagnóstica esté disponible de inmediato."
-    }
+    },
+    "device_alt": "Lector POC IglooPro"
   },
   "doctors": {
     "caption": "ENFOQUE DIAGNÓSTICO",
@@ -283,7 +284,8 @@
     },
     "card_cta": "Más información",
     "video_label": "VÍDEO DE APLICACIÓN",
-    "video_caption": "Así se realiza el test en su consulta: en 3 minutos"
+    "video_caption": "Así se realiza el test en su consulta: en 3 minutos",
+    "device_alt": "Lector POC IglooPro"
   },
   "final_cta": {
     "caption": "Listo para empezar",

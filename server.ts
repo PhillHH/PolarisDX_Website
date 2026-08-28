@@ -14,6 +14,8 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import express from 'express'
 import { createProxyMiddleware } from 'http-proxy-middleware'
+import { DEFAULT_LANGUAGE, getLanguageFromPathname, type SupportedLanguage } from './src/i18n'
+import { generateSitemapXml, getSitemapRouteFamilies } from './src/components/seo/sitemap'
 
 import type { Request, Response, NextFunction } from 'express'
 import type { ViteDevServer } from 'vite'
@@ -53,10 +55,6 @@ function getFontPreloadTag(): string {
   return fontPreloadTag
 }
 
-// Unterstützte Sprachen (muss mit i18n.ts übereinstimmen)
-const SUPPORTED_LANGUAGES = ['de', 'en', 'pl', 'fr', 'it', 'es', 'pt', 'da', 'nl', 'cs'] as const
-const DEFAULT_LANGUAGE = 'de'
-
 // =============================================================================
 // TYPES
 // =============================================================================
@@ -81,15 +79,6 @@ interface RenderModule {
 // LANGUAGE URL HELPERS
 // =============================================================================
 
-type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number]
-
-/**
- * Prüft ob ein Sprachcode unterstützt wird
- */
-function isSupportedLanguage(code: string): code is SupportedLanguage {
-  return SUPPORTED_LANGUAGES.includes(code as SupportedLanguage)
-}
-
 /**
  * Extrahiert die Sprache aus dem URL-Prefix.
  *
@@ -102,11 +91,7 @@ function isSupportedLanguage(code: string): code is SupportedLanguage {
  *   /xx/about  → null  (ungültiger Code)
  */
 function extractLanguageFromUrl(pathname: string): SupportedLanguage | null {
-  const match = pathname.match(/^\/([a-z]{2})(\/|$)/)
-  if (match && isSupportedLanguage(match[1])) {
-    return match[1]
-  }
-  return null
+  return getLanguageFromPathname(pathname)
 }
 
 /**
@@ -128,144 +113,14 @@ function isStaticAsset(pathname: string): boolean {
   )
 }
 
-/**
- * Landing pages that exist in German only.
- *
- * S3LeitliniePage and VitaminD3ImplantologyPage are hand-written German copy
- * without a single t() call. Served under /en/ or /fr/ they deliver German
- * body text with a foreign lang attribute: broken for the reader and ten URLs
- * with identical content for Google. So every non-German prefix 301s to /de,
- * and sitemap plus hreflang know the German URL only.
- * Mirrored in src/components/seo/SEOHead.tsx (GERMAN_ONLY_PATHS).
- */
-const GERMAN_ONLY_PATHS: string[] = ['/s3_leitlinie', '/vitamin-d3-implantologie']
-
-/**
- * True when a path WITHOUT language prefix is one of the German-only pages.
- * A single trailing slash is ignored, so /s3_leitlinie/ counts as well.
- */
-function isGermanOnlyPath(pathWithoutLangPrefix: string): boolean {
-  return GERMAN_ONLY_PATHS.includes(pathWithoutLangPrefix.replace(/\/$/, ''))
-}
-
-// =============================================================================
-// SITEMAP CONFIGURATION
-// =============================================================================
-
-/**
- * All routes with SEO metadata for dynamic sitemap generation.
- * 27 routes × 10 languages = 270 URLs with full hreflang support.
- */
-interface SitemapRoute {
-  path: string
-  priority: number
-  changefreq: 'daily' | 'weekly' | 'monthly' | 'yearly'
-}
-
-const BASE_URL = 'https://polarisdx.net'
-
-const SITEMAP_ROUTES: SitemapRoute[] = [
-  // Core Pages
-  { path: '/', priority: 1.0, changefreq: 'weekly' },
-  { path: '/igloo-pro', priority: 1.0, changefreq: 'monthly' },
-
-  // Services Overview
-  { path: '/diagnostics', priority: 0.9, changefreq: 'monthly' },
-
-  // Service Pages (9 services from services.tsx)
-  { path: '/diagnostics/dental', priority: 0.8, changefreq: 'monthly' },
-  { path: '/diagnostics/beauty', priority: 0.8, changefreq: 'monthly' },
-  { path: '/diagnostics/longevity', priority: 0.8, changefreq: 'monthly' },
-  { path: '/diagnostics/poc-systemloesungen', priority: 0.8, changefreq: 'monthly' },
-  { path: '/diagnostics/praeventions-checks', priority: 0.8, changefreq: 'monthly' },
-  { path: '/diagnostics/infektion-entzuendung', priority: 0.8, changefreq: 'monthly' },
-  { path: '/diagnostics/stoffwechsel-herz', priority: 0.8, changefreq: 'monthly' },
-  { path: '/diagnostics/hormon-tests', priority: 0.8, changefreq: 'monthly' },
-  { path: '/diagnostics/kompatibilitaet-integration', priority: 0.8, changefreq: 'monthly' },
-
-  // Company & Contact
-  { path: '/about', priority: 0.8, changefreq: 'monthly' },
-  { path: '/contact', priority: 0.8, changefreq: 'monthly' },
-
-  // Content Hub
-  { path: '/articles', priority: 0.7, changefreq: 'weekly' },
-  // /vitamin-d3-implantologie and /s3_leitlinie are deliberately absent here:
-  // they are German-only and listed once in GERMAN_ONLY_SITEMAP_ROUTES below.
-
-  // Article Pages (6 articles from articles.ts slugs)
-  { path: '/articles/die-gruene-praxis', priority: 0.6, changefreq: 'yearly' },
-  { path: '/articles/der-unsichtbare-patient', priority: 0.6, changefreq: 'yearly' },
-  { path: '/articles/die-5-minuten-diagnose', priority: 0.6, changefreq: 'yearly' },
-  {
-    path: '/articles/the-ecosystem-of-rapid-tests-why-compatibility-creates-safety',
-    priority: 0.6,
-    changefreq: 'yearly',
-  },
-  {
-    path: '/articles/die-performance-formel-effizienz-in-der-poc-diagnostik',
-    priority: 0.6,
-    changefreq: 'yearly',
-  },
-  {
-    path: '/articles/precision-in-point-of-care-the-key-to-patient-safety',
-    priority: 0.6,
-    changefreq: 'yearly',
-  },
-
-  // Partnerprogramm Epigenetik/Genetik
-  { path: '/epigenetics', priority: 0.8, changefreq: 'monthly' },
-  // AP01 PT01.2: Die drei Vertiefungsseiten. KNOWN_PATHS wird aus SITEMAP_ROUTES
-  // gebaut — ohne diese drei Zeilen antworten die neuen URLs echt 404.
-  { path: '/epigenetics/grundlagen', priority: 0.6, changefreq: 'monthly' },
-  { path: '/epigenetics/studienlage', priority: 0.6, changefreq: 'monthly' },
-  { path: '/epigenetics/unterlagen', priority: 0.6, changefreq: 'monthly' },
-  { path: '/epigenetics/musterbefund/metabolic-health', priority: 0.6, changefreq: 'yearly' },
-  { path: '/epigenetics/musterbefund/healthy-aging', priority: 0.6, changefreq: 'yearly' },
-  { path: '/epigenetics/musterbefund/biologische-altersuhr', priority: 0.6, changefreq: 'yearly' },
-  { path: '/epigenetics/musterbefund/telomer-analyse', priority: 0.6, changefreq: 'yearly' },
-  { path: '/epigenetics/musterbefund/stress-monitor', priority: 0.6, changefreq: 'yearly' },
-  { path: '/epigenetics/musterbefund/healthy-sport', priority: 0.6, changefreq: 'yearly' },
-
-  // Events & Resources
-  { path: '/events', priority: 0.6, changefreq: 'weekly' },
-  { path: '/downloads', priority: 0.6, changefreq: 'monthly' },
-
-  // Legal Pages
-  { path: '/privacy', priority: 0.4, changefreq: 'yearly' },
-  { path: '/imprint', priority: 0.4, changefreq: 'yearly' },
-  { path: '/terms', priority: 0.4, changefreq: 'yearly' },
-]
-
-// Consumer landing pages — English-only (the language-redirect middleware
-// 301s `/de/consumer/*` and bare `/consumer/*` to `/en/consumer/*`), so they
-// must be emitted as single-language URLs without hreflang alternates.
-interface SingleLangSitemapRoute {
-  path: string // includes the /en/ prefix
-  priority: number
-  changefreq: SitemapRoute['changefreq']
-}
-const CONSUMER_SITEMAP_ROUTES: SingleLangSitemapRoute[] = [
-  { path: '/en/consumer/vitamin-d3-spray', priority: 0.8, changefreq: 'weekly' },
-  { path: '/en/consumer/hydrating-masks', priority: 0.8, changefreq: 'weekly' },
-  { path: '/en/consumer/inside-out-duo', priority: 0.8, changefreq: 'weekly' },
-]
-
-// German-only landing pages (see GERMAN_ONLY_PATHS) - the language-redirect
-// middleware 301s every non-German prefix to /de, so they belong in the
-// sitemap exactly once and without hreflang alternates.
-const GERMAN_ONLY_SITEMAP_ROUTES: SingleLangSitemapRoute[] = [
-  { path: '/de/vitamin-d3-implantologie', priority: 0.7, changefreq: 'monthly' },
-  { path: '/de/s3_leitlinie', priority: 0.7, changefreq: 'monthly' },
-]
-
 // =============================================================================
 // LEGACY PATHS AND ROUTE KNOWLEDGE
 // =============================================================================
 
 /**
  * Old / mistyped URLs that must 301 onto their canonical counterpart.
- * Keys and values are written WITHOUT language prefix; the prefix of the
- * request is reused (or forced to /de for the German-only pages).
+ * Keys and values are written WITHOUT language prefix; the supported prefix
+ * of the request is reused.
  *
  *   /agb           the German terms page used to live here and is still linked
  *   /s3-leitlinie  hyphen spelling; the route is /s3_leitlinie (underscore)
@@ -279,22 +134,23 @@ const LEGACY_PATH_REDIRECTS: Record<string, string> = {
 }
 
 /**
- * Routes that exist but are deliberately not in SITEMAP_ROUTES.
+ * Routes that exist but are deliberately not in the sitemap source.
  * Everything else is derived from the sitemap, so a new sitemap entry is known
  * automatically. MIRRORS src/App.tsx: a <Route> added there without an entry
  * here renders fine but answers 404.
  */
 const EXTRA_KNOWN_PATHS: string[] = [
   '/support', // reachable from the header, intentionally unlisted
-  '/vitamin-d3-spray', // B2B twin of the consumer landing page
   '/services', // client-side redirect to /diagnostics
-  '/consumer/vitamin-d3-spray',
-  '/consumer/hydrating-masks',
-  '/consumer/inside-out-duo',
-  ...GERMAN_ONLY_PATHS,
+  '/privacy', // noindex legal route; excluded from sitemap
+  '/imprint', // noindex legal route; excluded from sitemap
+  '/terms', // noindex legal route; excluded from sitemap
 ]
 
-const KNOWN_PATHS = new Set<string>([...SITEMAP_ROUTES.map((r) => r.path), ...EXTRA_KNOWN_PATHS])
+const KNOWN_PATHS = new Set<string>([
+  ...getSitemapRouteFamilies().map((route) => route.path),
+  ...EXTRA_KNOWN_PATHS,
+])
 
 /**
  * True when the path (WITHOUT language prefix) matches a route of the React
@@ -317,57 +173,6 @@ function isKnownPath(pathWithoutLangPrefix: string): boolean {
  * That covers the dynamic cases the path table above cannot know.
  */
 const NOT_FOUND_MARKER = /name="prerender-status-code"[^>]*content="404"/i
-
-/**
- * Generates a complete XML sitemap with all routes in all languages.
- * Each URL includes hreflang alternates for all 10 supported languages
- * plus x-default pointing to German (primary market).
- */
-function generateSitemap(): string {
-  const today = new Date().toISOString().split('T')[0] // YYYY-MM-DD
-
-  let xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
-  xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
-  xml += '        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
-
-  for (const route of SITEMAP_ROUTES) {
-    for (const lang of SUPPORTED_LANGUAGES) {
-      const loc = `${BASE_URL}/${lang}${route.path}`
-
-      xml += '  <url>\n'
-      xml += `    <loc>${loc}</loc>\n`
-      xml += `    <lastmod>${today}</lastmod>\n`
-      xml += `    <changefreq>${route.changefreq}</changefreq>\n`
-      xml += `    <priority>${route.priority.toFixed(1)}</priority>\n`
-
-      // hreflang alternates for all languages
-      for (const altLang of SUPPORTED_LANGUAGES) {
-        const altHref = `${BASE_URL}/${altLang}${route.path}`
-        xml += `    <xhtml:link rel="alternate" hreflang="${altLang}" href="${altHref}"/>\n`
-      }
-
-      // x-default points to German (primary market)
-      const defaultHref = `${BASE_URL}/${DEFAULT_LANGUAGE}${route.path}`
-      xml += `    <xhtml:link rel="alternate" hreflang="x-default" href="${defaultHref}"/>\n`
-
-      xml += '  </url>\n'
-    }
-  }
-
-  // Single-language entries, no hreflang: the English consumer landing pages
-  // and the two German-only content pages.
-  for (const route of [...CONSUMER_SITEMAP_ROUTES, ...GERMAN_ONLY_SITEMAP_ROUTES]) {
-    xml += '  <url>\n'
-    xml += `    <loc>${BASE_URL}${route.path}</loc>\n`
-    xml += `    <lastmod>${today}</lastmod>\n`
-    xml += `    <changefreq>${route.changefreq}</changefreq>\n`
-    xml += `    <priority>${route.priority.toFixed(1)}</priority>\n`
-    xml += '  </url>\n'
-  }
-
-  xml += '</urlset>\n'
-  return xml
-}
 
 // =============================================================================
 // SERVER SETUP
@@ -455,10 +260,10 @@ async function createServer() {
   // DYNAMIC SITEMAP ENDPOINT
   // ---------------------------------------------------------------------------
   // Serves before static assets and language redirects.
-  // 27 routes × 10 languages = 270 URLs with full hreflang support.
+  // 39 real indexable route families × 10 locales, validated by Guard G3.
   // ---------------------------------------------------------------------------
   app.get('/sitemap.xml', (_req: Request, res: Response) => {
-    const xml = generateSitemap()
+    const xml = generateSitemapXml()
     res
       .set({
         'Content-Type': 'application/xml; charset=utf-8',
@@ -515,56 +320,18 @@ async function createServer() {
       ? req.originalUrl.substring(req.originalUrl.indexOf('?'))
       : ''
 
-    // -------------------------------------------------------------------------
-    // Consumer landing pages are English-only (Claire's content is in English).
-    // Force the /en/ language prefix so i18n loads English translations and the
-    // footer / lang attribute match the on-page copy.
-    //   /consumer/x        → /en/consumer/x
-    //   /de/consumer/x     → /en/consumer/x
-    //   /<otherlang>/consumer/x  → /en/consumer/x
-    // -------------------------------------------------------------------------
-    if (pathname === '/consumer' || pathname.startsWith('/consumer/')) {
-      res.redirect(301, `/en${pathname}${query}`)
-      return
-    }
     const langPrefix = extractLanguageFromUrl(pathname)
-    if (
-      langPrefix &&
-      langPrefix !== 'en' &&
-      (pathname.slice(3) === '/consumer' || pathname.slice(3).startsWith('/consumer/'))
-    ) {
-      res.redirect(301, `/en${pathname.slice(3)}${query}`)
-      return
-    }
 
     // -------------------------------------------------------------------------
     // Legacy paths (/agb, /s3-leitlinie) for every language prefix, resolved in
-    // ONE hop: the German-only correction is applied here instead of chaining a
-    // second redirect. /en/s3-leitlinie -> /de/s3_leitlinie, /agb -> /de/terms.
+    // one hop while preserving the requested supported locale.
+    // /en/s3-leitlinie -> /en/s3_leitlinie, /agb -> /de/terms.
     // -------------------------------------------------------------------------
     const pathWithoutLang = langPrefix ? pathname.slice(3) || '/' : pathname
     const legacyTarget = LEGACY_PATH_REDIRECTS[pathWithoutLang.replace(/\/$/, '')]
     if (legacyTarget) {
-      const targetLang = isGermanOnlyPath(legacyTarget)
-        ? DEFAULT_LANGUAGE
-        : langPrefix || DEFAULT_LANGUAGE
+      const targetLang = langPrefix || DEFAULT_LANGUAGE
       res.redirect(301, `/${targetLang}${legacyTarget}${query}`)
-      return
-    }
-
-    // -------------------------------------------------------------------------
-    // German-only landing pages. Under a foreign prefix they would serve German
-    // body text with a foreign lang attribute, so collapse all nine non-German
-    // prefixes onto /de.
-    //   /en/s3_leitlinie   -> /de/s3_leitlinie
-    //   /s3_leitlinie      -> /de/s3_leitlinie   (via the default rule below)
-    // -------------------------------------------------------------------------
-    if (
-      langPrefix !== null &&
-      langPrefix !== DEFAULT_LANGUAGE &&
-      isGermanOnlyPath(pathname.slice(3))
-    ) {
-      res.redirect(301, `/${DEFAULT_LANGUAGE}${pathname.slice(3)}${query}`)
       return
     }
 
@@ -639,7 +406,28 @@ async function createServer() {
       }
 
       // App rendern mit voller URL (inkl. Sprach-Prefix) und erkannter Sprache
-      const { html: appHtml, helmet } = await render(routerUrl, lang)
+      let { html: appHtml, helmet } = await render(routerUrl, lang)
+
+      // React 19 renderToString returns the Suspense fallback while the first
+      // lazy route import is still resolving. A response must not leave with
+      // the static root SEO defaults in that state: it would create two title
+      // elements and, on a real 404, leak index/follow plus a root canonical.
+      // Yield briefly so the already-started route import can settle, then
+      // render the same request again. The bounded loop is deliberately
+      // head-gated and does not introduce route knowledge or a second
+      // meta-output implementation.
+      const hasRealHelmetTitle = (titleHtml: string) => {
+        const titleInner = titleHtml.match(/<title[^>]*>([\s\S]*?)<\/title>/i)
+        return !!titleInner && titleInner[1].trim().length > 0
+      }
+      for (
+        let headRenderAttempt = 0;
+        headRenderAttempt < 5 && !hasRealHelmetTitle(helmet.title.toString());
+        headRenderAttempt += 1
+      ) {
+        await new Promise<void>((resolve) => setTimeout(resolve, 10))
+        ;({ html: appHtml, helmet } = await render(routerUrl, lang))
+      }
 
       // -----------------------------------------------------------------------
       // STATUS CODE
@@ -689,8 +477,7 @@ async function createServer() {
       // <title data-rh="true"></title>; in that case we keep the static
       // tags so the page is not left title-less.
       const helmetTitleHtml = helmet.title.toString()
-      const helmetTitleInner = helmetTitleHtml.match(/<title[^>]*>([\s\S]*?)<\/title>/i)
-      const helmetHasRealTitle = !!helmetTitleInner && helmetTitleInner[1].trim().length > 0
+      const helmetHasRealTitle = hasRealHelmetTitle(helmetTitleHtml)
       let prepared = template
       if (helmetHasRealTitle) {
         prepared = prepared
@@ -752,6 +539,9 @@ async function createServer() {
   // ERROR HANDLER
   // ---------------------------------------------------------------------------
   app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
+    // Express erkennt Error-Middleware an vier Parametern; `_next` muss daher
+    // trotz des terminalen Response-Zweigs Teil der Signatur bleiben.
+    void _next
     console.error('Server Error:', err.stack)
 
     if (isProduction) {

@@ -21,7 +21,19 @@
     "badge_new": "Ny",
     "epigenetics_desc": "Seks analyser fra en dråbe blod",
     "musterbefunde": "Eksempelrapporter",
-    "musterbefunde_desc": "Seks eksempelrapporter at læse"
+    "musterbefunde_desc": "Seks eksempelrapporter at læse",
+    "cta_quote": "Anmod om tilbud",
+    "iglooPro": "IglooPro",
+    "praeventionsChecks": "Forebyggende sundhedstjek",
+    "infektionEntzuendung": "Infektion & Inflammationsmarkører",
+    "stoffwechselHerz": "Stofskifte & Hjertesundhed",
+    "hormonTests": "Hormon- & Endokrinologitests",
+    "kompatibilitaetIntegration": "Kompatibilitet på tværs af producenter",
+    "group_fields": "Praksisområder",
+    "group_analysis": "Analyseområder",
+    "group_system": "System & integration",
+    "diagnostics_all": "Alle diagnostikydelser",
+    "group_crosslink": "Også relevant"
   },
   "badge": {
     "New": "Ny",
@@ -61,7 +73,17 @@
     "pocSystems": "POC-systemer",
     "preventionChecks": "Forebyggelseschecks",
     "hormonTests": "Hormontests",
-    "product_note": "IglooPro er et produkt fra DX365 GmbH"
+    "product_note": "IglooPro er et produkt fra DX365 GmbH",
+    "col_company": "Virksomhed",
+    "col_product": "Produkt & viden",
+    "col_consumer": "Til forbrugere",
+    "locations": "Lokationer",
+    "legal": "Juridisk",
+    "nav_label": "Footer-navigation",
+    "epi_basics": "Grundlag",
+    "epi_evidence": "Studier",
+    "epi_docs": "Dokumenter",
+    "epi_samples": "Eksempelrapporter"
   },
   "read_more": "Læs mere",
   "cookie": {
@@ -104,6 +126,110 @@
       "beauty": "Dermatologiske Analyser",
       "longevity": "Sundhed og Lang Levetid",
       "sports": "Præstationsdiagnostik for Atleter"
+    },
+    "resultTypes": {
+      "page": "Side",
+      "service": "Service",
+      "article": "Artikel",
+      "epigenetics": "Epigenetik",
+      "befund": "Eksempelrapport",
+      "resource": "Ressource",
+      "event": "Begivenhed",
+      "consumer": "Forbrugerprodukt"
+    },
+    "modal": {
+      "title": "Søg på hjemmesiden",
+      "label": "Søgeord",
+      "placeholder": "Hvad leder du efter?",
+      "close": "Luk søgning",
+      "escapeHint": "Tryk på Escape for at lukke",
+      "initialTitle": "Hvad vil du finde?",
+      "initialDescription": "Søg efter sider, diagnostik, artikler og ressourcer.",
+      "loading": "Indlæser søgeresultater",
+      "emptyTitle": "Ingen resultater",
+      "emptyDescription": "Der blev ikke fundet indhold, som matcher »{{query}}«. Kontrollér stavningen, eller brug et bredere søgeord.",
+      "errorTitle": "Søgning er ikke tilgængelig",
+      "errorDescription": "Søgningen kunne ikke gennemføres. Prøv igen.",
+      "results_zero": "Ingen resultater",
+      "results_one": "{{count}} resultat",
+      "results_many": "{{count}} resultater",
+      "results_other": "{{count}} resultater",
+      "groups": {
+        "page": "Sider",
+        "service": "Diagnostik",
+        "article": "Artikler",
+        "epigenetics": "Epigenetik",
+        "befund": "Eksempelrapporter",
+        "resource": "Ressourcer",
+        "event": "Begivenheder",
+        "consumer": "Forbrugerprodukter"
+      }
+    },
+    "index": {
+      "epigenetics": {
+        "title": "Epigenetiske og genetiske analyser",
+        "description": "Seks analyser fra en dråbe kapillærblod til brug i klinisk praksis."
+      },
+      "epigenetics-grundlagen": {
+        "title": "Grundlæggende epigenetik",
+        "description": "Læs, hvad analyserne måler, og hvordan resultaterne fortolkes."
+      },
+      "epigenetics-studienlage": {
+        "title": "Evidens for epigenetik",
+        "description": "Overblik over videnskabelig evidens, begrænsninger og ansvarlig anvendelse."
+      },
+      "epigenetics-unterlagen": {
+        "title": "Materiale om epigenetik",
+        "description": "Download informationsark og dokumenter om de seks analyser."
+      },
+      "befund-metabolic-health": {
+        "title": "Eksempelrapport Metabolic Health",
+        "description": "Eksempelrapport med demonstrationsdata og klare forklaringer. Metabolic Health."
+      },
+      "befund-healthy-aging": {
+        "title": "Eksempelrapport Healthy Aging",
+        "description": "Eksempelrapport med demonstrationsdata og klare forklaringer. Healthy Aging."
+      },
+      "befund-biologische-altersuhr": {
+        "title": "Eksempelrapport Biologische Altersuhr",
+        "description": "Eksempelrapport med demonstrationsdata og klare forklaringer. Biologische Altersuhr."
+      },
+      "befund-telomer-analyse": {
+        "title": "Eksempelrapport Telomer-Analyse",
+        "description": "Eksempelrapport med demonstrationsdata og klare forklaringer. Telomer-Analyse."
+      },
+      "befund-stress-monitor": {
+        "title": "Eksempelrapport Stress Monitor",
+        "description": "Eksempelrapport med demonstrationsdata og klare forklaringer. Stress Monitor."
+      },
+      "befund-healthy-sport": {
+        "title": "Eksempelrapport Healthy Sport",
+        "description": "Eksempelrapport med demonstrationsdata og klare forklaringer. Healthy Sport."
+      },
+      "article-green_practice": {
+        "title": "Den grønne klinik: bæredygtighed begynder i venteværelset",
+        "description": "Bæredygtighed i sundhedsvæsenet begynder med logistikken omkring point-of-care-diagnostik."
+      },
+      "article-invisible_patient": {
+        "title": "Den usynlige patient: fjernmonitorering",
+        "description": "Sådan understøtter point-of-care-diagnostik behandling og monitorering uden for klinikken."
+      },
+      "article-five_minute_diagnosis": {
+        "title": "Fem-minutters-diagnosen",
+        "description": "Hvorfor point-of-care-diagnostik giver mening både medicinsk og økonomisk."
+      },
+      "article-ecosystem_of_rapid_tests": {
+        "title": "Økosystemet af hurtigtests",
+        "description": "Derfor forbedrer kompatibilitet mellem hurtigtests sikkerhed og arbejdsgange."
+      },
+      "article-rapid_setup_formula": {
+        "title": "Performanceformlen for POC-diagnostik",
+        "description": "Sådan implementeres point-of-care-diagnostik hurtigt og effektivt."
+      },
+      "article-precision_point_of_care": {
+        "title": "Præcision ved point-of-care",
+        "description": "Derfor er validering af hurtigtests afgørende for patientsikkerheden."
+      }
     }
   },
   "notFound": {
@@ -130,7 +256,11 @@
   "a11y": {
     "search": "Åbn søgning",
     "toggle_nav": "Slå navigation til/fra",
-    "honeypot": "Lad venligst dette felt stå tomt"
+    "honeypot": "Lad venligst dette felt stå tomt",
+    "select_language": "Vælg sprog",
+    "main_nav": "Hovednavigation",
+    "toggle_submenu": "{{name}} — undermenu",
+    "skip_to_content": "Gå til indhold"
   },
   "languageFallback": {
     "notice": "Denne side er indtil videre kun tilgængelig på engelsk."

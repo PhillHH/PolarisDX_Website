@@ -1,16 +1,11 @@
 /**
  * LanguageFallbackNotice
  *
- * Acht der zehn Sprachen zeigen die Epigenetik-Strecke bislang auf Englisch
- * (Marker `_translationStatus` im Namensraum `epigenetics`). Bisher war das
- * nirgends sichtbar und — schlimmer — der englische Text lief unter dem
- * lang-Attribut der jeweiligen Sprache. Ein Screenreader hat ihn dann mit
- * franzoesischer oder polnischer Aussprache vorgelesen, und Suchmaschinen
- * bekamen eine falsche Sprachauszeichnung gemeldet.
- *
- * Die Seiten setzen deshalb lang="en" auf ihren Inhaltscontainer. Dieser
- * Hinweis steht darin, traegt aber wieder die Seitensprache — deshalb das
- * eigene lang-Attribut.
+ * Defensiver Hinweis fuer einen technisch erkannten englischen Fallback.
+ * Produktive Namespaces sind seit PT08.3 x10 vollstaendig und verwenden ihn
+ * nicht als regulaere Content-Strategie. Falls ein spaeterer Ladefehler einen
+ * Marker liefert, zeichnet der Consumer den betroffenen Bereich als Englisch
+ * aus; der Hinweis selbst traegt wieder die Seitensprache.
  */
 
 import { useTranslation } from 'react-i18next'

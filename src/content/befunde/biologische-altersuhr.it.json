@@ -1,0 +1,427 @@
+{
+  "slug": "biologische-altersuhr",
+  "panel": "Biological Age Clock",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Referto campione · Dati di esempio",
+      "panel": "Biological Age Clock",
+      "subtitle": "Basato su microRNA",
+      "claim": "Tre microRNA circolanti — miR-21, miR-24 e miR-155 — riflettono infiammazione, invecchiamento cellulare e metabolismo. La loro interazione viene utilizzata per calcolare un'età biologica, che viene poi confrontata con quella cronologica.",
+      "meta": [
+        {
+          "k": "Referto per",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Prelievo del campione",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Materiale",
+          "v": "Carta con goccia di sangue essiccato"
+        },
+        {
+          "k": "Ambito",
+          "v": "3 microRNA"
+        }
+      ],
+      "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+      "id": "deckblatt",
+      "benefit": "Un unico valore che rende concreta la tua conversazione su esercizio, stress e dieta."
+    },
+    {
+      "type": "principle",
+      "caption": "Il principio",
+      "title": "Non solo quanti anni hai. Ma quanto velocemente stai invecchiando.",
+      "lead": "I microRNA sono piccole molecole di RNA che regolano l'intensità con cui vengono letti singoli geni. Tre di essi — miR-21, miR-24 e miR-155 — rappresentano infiammazione, invecchiamento cellulare e metabolismo. Un modello di regressione usa la loro interazione per calcolare un'età biologica e confrontarla con l'età cronologica. Poiché i microRNA rispondono in modo dinamico, i cambiamenti possono manifestarsi relativamente rapidamente.",
+      "cards": [
+        {
+          "title": "Tre segnali",
+          "text": "miR-21 (infiammazione), miR-24 (senescenza e riparazione) e miR-155 (equilibrio immunitario e metabolismo)."
+        },
+        {
+          "title": "Dinamico",
+          "text": "I livelli di microRNA cambiano con dieta, esercizio, sonno, stress e fumo."
+        },
+        {
+          "title": "Orientato al trend",
+          "text": "Ciò che ha significato è lo sviluppo tra due misurazioni nelle stesse condizioni — non il singolo valore."
+        }
+      ],
+      "flowTitle": "Il processo",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Misura",
+          "text": "Carta per prelievo a secco dal dito. Espressione di microRNA tramite qPCR, normalizzata rispetto a miR-93. Non è necessario il digiuno."
+        },
+        {
+          "num": "02",
+          "title": "Interpretare",
+          "text": "Un modello di regressione multivariata usa i tre segnali per calcolare l'età biologica e la sua deviazione dall'età cronologica."
+        },
+        {
+          "num": "03",
+          "title": "Cambiare",
+          "text": "Leve specifiche di nutrizione e stile di vita per ogni segnale, più monitoraggio di follow-up alla misurazione successiva."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Quanto è affidabile questo valore?",
+      "text": "Il modello sottostante è stato pubblicato come studio pilota (n = 539). Spiega circa il 5% della varianza dell'età, l'errore assoluto medio è di 10,4 anni, e due dei tre microRNA non hanno mostrato correlazione significativa con l'età cronologica in quel lavoro. Gli autori stessi richiedono una validazione prima dell'uso clinico.",
+      "items": [
+        "Cosa significa in pratica: l'età biologica riportata qui non è una determinazione dell'età e non dice nulla sulla speranza di vita o sul rischio di malattia. Ciò che ha significato è il cambiamento tra due misurazioni nelle stesse condizioni — per questo motivo questo rapporto si concentra sul trend e non sul singolo valore.",
+        "Un confronto con gli orologi dell'età basati sulla metilazione non è consentito: metodologia diversa, base di evidenza diversa. Fonte: Schneider J. et al., miRNA-3Age, Frontiers in Nutrition 2025, doi:10.3389/fnut.2025.1659730."
+      ],
+      "tone": "neutral",
+      "id": "hinweis"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Il tuo risultato",
+      "title": "Il tuo orologio dell'età biologica.",
+      "display": "+4 years",
+      "sub": "Deviazione dall'età cronologica",
+      "kind": "deviazione",
+      "value": 4,
+      "unit": "anni",
+      "ticks": ["+20 anni", "+10", "0", "−10", "−20 anni"],
+      "tone": "green",
+      "text": "Dalla valutazione combinata di miR-21, miR-24 e miR-155. Età cronologica 48 anni. La tua età biologica è 52 anni, quattro anni sopra l'età cronologica. L'intervallo da −5 a +5 anni è considerato adeguato all'età — il tuo valore rientra quindi in questo intervallo. Per contesto: la banda di riferimento di ±5 anni è più stretta dell'errore medio del modello di 10,4 anni. Una deviazione di questa entità non può quindi essere distinta dalla dispersione del modello.",
+      "id": "ergebnis"
+    },
+    {
+      "type": "ageDots",
+      "caption": "Biologica vs cronologica",
+      "title": "Età biologica",
+      "lead": "Età cronologica 48 anni.",
+      "chronological": 48,
+      "min": 35,
+      "max": 60,
+      "unit": "anni",
+      "items": [
+        {
+          "label": "Età biologica",
+          "age": 52,
+          "delta": "+4",
+          "tone": "green"
+        }
+      ],
+      "id": "biologisches-alter"
+    },
+    {
+      "type": "callout",
+      "title": "Dove ti trovi",
+      "text": "Due punteggi dalle tue informazioni auto-riferite, ciascuno confrontato con il riferimento.",
+      "items": [
+        "72 / 100 · Nutrizione — Buona combinazione di nutrienti con margini di miglioramento nei dettagli. Riferimento: ≥ 60.",
+        "65 / 100 · Stile di vita — Equilibrato, con margini per più attività fisica e riduzione dello stress. Riferimento: ≥ 60."
+      ],
+      "tone": "neutral",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "markers",
+      "caption": "Base del calcolo",
+      "title": "I tre microRNA.",
+      "lead": "I singoli segnali sul semaforo 1–9; più alto è meglio. Solo la loro interazione produce l'orologio dell'età — un singolo segnale da solo non consente alcuna conclusione.",
+      "items": [
+        {
+          "name": "miR-21",
+          "category": "Infiammazione e rimodellamento tissutale",
+          "intro": "MicroRNA principale dell’‘inflammaging’. Aumenta con l’infiammazione cronica di basso grado ed è strettamente legato alla senescenza e alla fibrosi.",
+          "kind": "semaforo",
+          "value": 3,
+          "display": "3 / 9",
+          "sub": "Fuori intervallo",
+          "tone": "red",
+          "text": "Il più debole dei tuoi tre segnali. Tutte e otto le raccomandazioni in questo rapporto riguardano la via del miR-21."
+        },
+        {
+          "name": "miR-155",
+          "category": "Equilibrio immunitario e metabolismo",
+          "intro": "Interruttore centrale della risposta immunitaria. Livelli elevati accompagnano lo stress metabolico e una regolazione infiammatoria iperattiva.",
+          "kind": "semaforo",
+          "value": 4,
+          "display": "4 / 9",
+          "sub": "Intervallo medio",
+          "tone": "amber",
+          "text": "Nella fascia medio-bassa. Insieme al miR-21, questo segnale indica la stessa direzione: infiammazione e regolazione immunitaria sono l’asse di questo rapporto."
+        },
+        {
+          "name": "miR-24",
+          "category": "Ciclo cellulare e senescenza",
+          "intro": "Regola la divisione cellulare, la riparazione del DNA e l’apoptosi. Riflette la capacità di riparazione e il livello di senescenza delle cellule.",
+          "kind": "semaforo",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Intervallo medio",
+          "tone": "amber",
+          "text": "Il più forte dei tuoi tre segnali — esattamente a metà scala. La capacità di riparazione e il livello di senescenza sono nella norma."
+        }
+      ],
+      "note": "Nella pubblicazione che descrive il modello, due dei tre microRNA non hanno mostrato una correlazione significativa con l’età cronologica. I singoli segnali devono quindi essere interpretati come punti di partenza per interventi, non come marcatori di età in senso stretto.",
+      "id": "marker"
+    },
+    {
+      "type": "radar",
+      "caption": "Dove ti trovi",
+      "title": "Abitudini alimentari e di stile di vita.",
+      "lead": "Il grafico radar mostra quanto le tue abitudini attuali si avvicinano ai valori di riferimento. Più un fattore si trova verso l’esterno, più è favorevole — 10 è il valore ottimale.",
+      "axes": [
+        "Attività quotidiana",
+        "Esercizio",
+        "Stress",
+        "Tabacco",
+        "Alcol",
+        "Snack",
+        "Carne",
+        "Omega-3",
+        "Fibre",
+        "Frutta/verdura",
+        "Assunzione di liquidi"
+      ],
+      "seriesLabels": {
+        "profile": "Il tuo profilo",
+        "reference": "Gruppo di riferimento"
+      },
+      "scores": [
+        {
+          "value": "72 / 100",
+          "label": "Nutrizione",
+          "text": "Buona combinazione di nutrienti, con margini di miglioramento nei dettagli.",
+          "ref": "Riferimento: ≥ 60"
+        },
+        {
+          "value": "65 / 100",
+          "label": "Stile di vita",
+          "text": "Equilibrato, con margine per aumentare l’attività fisica e ridurre lo stress.",
+          "ref": "Riferimento: ≥ 60"
+        }
+      ],
+      "noticeTitle": "Collegamento all’orologio dell’età",
+      "notices": [
+        "Lo stress (4 su 10) è il tuo fattore di stile di vita più debole. Nello studio modello, stress e fumo erano tra i fattori associati a un’età miRNA più elevata.",
+        "Il tabacco (9 su 10), al contrario, è ben al di sopra della media — quindi il secondo dei due fattori sfavorevoli nel modello non si applica a te.",
+        "Omega-3 (6) e esercizio fisico (7) hanno margini di miglioramento; entrambi sono leve associate a un’età miRNA inferiore nello studio."
+      ],
+      "note": "Valutazione basata sulle informazioni auto-riferite, non una diagnosi individuale. Le associazioni descritte derivano dallo studio modello e sono risultati di gruppo, non una previsione per il singolo caso.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Tutte le raccomandazioni a colpo d'occhio",
+      "title": "I tuoi interventi.",
+      "lead": "Otto leve, ciascuna assegnata ai segnali microRNA su cui agisce, insieme ai loro valori attuali. Ordinati per urgenza — il segnale più debole per primo.",
+      "cols": ["Leva", "Agisce su", "Fonte", "Quantità", "Nota"],
+      "rows": [
+        [
+          "Resveratrolo",
+          "miR-21 · 3",
+          "Buccia d’uva, mirtilli, arachidi",
+          "150–500 mg/giorno",
+          "Attiva le sirtuine, inibisce NF-κB"
+        ],
+        [
+          "Acidi grassi omega-3",
+          "miR-21 · 3, miR-155 · 4",
+          "Salmone, sgombro, aringa, semi di lino; in alternativa olio di alghe",
+          "2 volte/settimana, 150–200 g",
+          "Antinfiammatorio; associato a un’età miRNA più giovane nel modello"
+        ],
+        [
+          "EGCG (tè verde)",
+          "miR-21 · 3, miR-155 · 4",
+          "Tè verde, matcha, sencha",
+          "300–400 mg/giorno (3–4 tazze)",
+          "Antiossidante; fattore di stile di vita favorevole nel modello"
+        ],
+        [
+          "Curcumina",
+          "miR-21 · 3, miR-155 · 4",
+          "Curcuma, con pepe nero",
+          "1 cucchiaino al giorno",
+          "La piperina aumenta notevolmente l'assorbimento"
+        ],
+        [
+          "Sulforafano",
+          "miR-21 · 3, miR-155 · 4",
+          "Broccoli (e germogli di broccoli), cavolfiore, cavoletti di Bruxelles, crescione",
+          "25 mg/giorno (circa 250 g)",
+          "La cottura per 3–4 minuti a 80 °C aumenta la biodisponibilità"
+        ],
+        [
+          "Sonno e stress",
+          "miR-21 · 3, miR-155 · 4",
+          "Sonno rigenerante, regolazione dello stress, non fumare",
+          "quotidiano",
+          "Stress e fumo erano associati a un’età miRNA più elevata nel modello"
+        ],
+        [
+          "Attività fisica",
+          "miR-21 · 3, miR-155 · 4, miR-24 · 5",
+          "Endurance e forza combinati",
+          "≥ 150 min/settimana",
+          "L’attività regolare era associata a un’età miRNA inferiore nel modello"
+        ],
+        [
+          "Quercetina",
+          "miR-21 · 3, miR-24 · 5",
+          "Cipolla, aglio, capperi, cavolo riccio",
+          "500–1.000 mg/giorno",
+          "Senolitico; migliore biodisponibilità con vitamina C"
+        ]
+      ],
+      "note": "L’assegnazione “agisce su” indica la via su cui la rispettiva leva interviene. Non è una promessa di un cambiamento misurabile nel singolo caso. Si raccomanda di valutare gli integratori alimentari individualmente e in consultazione con un professionista qualificato; questa panoramica non sostituisce il parere medico.",
+      "id": "uebersicht"
+    },
+    {
+      "type": "trend",
+      "caption": "Tendenza",
+      "title": "Il riscontro effettivo.",
+      "lead": "Poiché il singolo valore non supera la dispersione del modello, il valore informativo di questa analisi risiede nella tendenza. Sono mostrati solo valori misurati — nessuna previsione.",
+      "firstLabel": "15.03.2026",
+      "secondLabel": "15.06.2026",
+      "kind": "età",
+      "items": [
+        {
+          "label": "Età biologica",
+          "first": 54,
+          "second": 52,
+          "firstDisplay": "54 anni",
+          "secondDisplay": "52 anni",
+          "delta": "−2 anni",
+          "sub": "+4 rispetto all’età cronologica",
+          "tone": "green"
+        }
+      ],
+      "note": "Valutazione: misurazione iniziale 15.03.2026, follow-up 15.06.2026, variazione −2 anni, scostamento oggi +4 rispetto all’età cronologica.",
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "Cosa mostra la tendenza",
+      "text": "L’età biologica è diminuita di due anni tra le due misurazioni, da 54 a 52 — mentre l’età cronologica è aumentata di tre mesi nello stesso periodo. La direzione è corretta.",
+      "items": [
+        "Contemporaneamente: una differenza di due anni rientra ampiamente nella dispersione del modello di circa dieci anni. Un singolo passo di questa entità non dimostra ancora un effetto — solo una direzione coerente su più misurazioni lo fa.",
+        "Le due misurazioni sono distanti circa tre mesi. L’intervallo per il prossimo controllo è stabilito dall’istituzione che fornisce la tua assistenza; il prelievo e l’orario devono rimanere comparabili."
+      ],
+      "tone": "accent",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "summary",
+      "caption": "Sintesi",
+      "title": "Il tuo focus: l’asse dell’infiammazione.",
+      "lead": "Due dei tuoi tre segnali — miR-21 (3/9) e miR-155 (4/9) — descrivono infiammazione e regolazione immunitaria, entrambi nella fascia bassa. Il miR-24, che riflette riparazione e senescenza, si trova a metà scala con 5/9. Questo produce un quadro chiaro su dove concentrare l’attenzione.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Segui una dieta antinfiammatoria",
+          "text": "Tutte e otto le leve in questo rapporto agiscono su miR-21, sei di esse anche su miR-155. La sovrapposizione è gestibile e pratica nella vita quotidiana. In particolare: pesce azzurro due volte a settimana o olio di alghe quotidiano, 3–4 tazze di tè verde, curcuma con pepe nero, broccoli cotti per 3–4 minuti a 80 °C, bacche per il resveratrolo."
+        },
+        {
+          "num": "02",
+          "title": "Stress e attività fisica",
+          "text": "Il tuo radar dello stile di vita mostra lo stress a 4 su 10 come fattore più debole, con esercizio a 7 e omega-3 a 6 che lasciano margini di miglioramento. Nello studio modello, stress e fumo erano associati a un’età miRNA più elevata, mentre attività fisica regolare e pesce erano associati a una più bassa. L’attività fisica è l’unica leva che agisce su tutti e tre i segnali contemporaneamente: almeno 150 minuti a settimana, combinando endurance e forza."
+        }
+      ],
+      "keepTitle": "Cosa funziona già",
+      "keepText": "Non fumare (tabacco 9/10), frutta e verdura (8/10) e assunzione di liquidi (8/10) sono ben al di sopra del gruppo di riferimento. Anche il punteggio nutrizionale di 72/100 è solido. E la tendenza è nella giusta direzione.",
+      "controlTitle": "Ti preghiamo di tenere presente",
+      "controlItems": [
+        "Tutte le associazioni descritte tra stile di vita ed età miRNA derivano dallo studio modello e sono risultati di gruppo. Se il tuo valore personale cambierà a seguito di queste misure potrà essere dimostrato solo dalla tua prossima misurazione.",
+        "Questo rapporto non è una diagnosi e non sostituisce il parere medico."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "science",
+      "caption": "Cosa è consolidato — e cosa no",
+      "title": "Contesto scientifico.",
+      "lead": "Abbiamo esposto apertamente i limiti di questa analisi, perché un’interpretazione onesta vale più di un numero impressionante.",
+      "items": [
+        {
+          "title": "Tipo di studio",
+          "text": "Studio pilota; convalida richiesta dagli stessi autori"
+        },
+        {
+          "title": "Campione",
+          "text": "n = 539"
+        },
+        {
+          "title": "Varianza spiegata nell’età",
+          "text": "circa 5%"
+        },
+        {
+          "title": "Errore assoluto medio",
+          "text": "10,4 anni"
+        },
+        {
+          "title": "Marcatori con correlazione significativa con l’età",
+          "text": "1 su 3"
+        },
+        {
+          "title": "A cosa serve l’analisi",
+          "text": "Come strumento di consulenza e monitoraggio: crea un’occasione concreta, rende tangibili i temi dello stile di vita e, attraverso misurazioni ripetute nelle stesse condizioni, fornisce una linea di tendenza."
+        },
+        {
+          "title": "A cosa non serve",
+          "text": "Come determinazione dell’età, come indicazione di aspettativa di vita o rischio di malattia, come diagnostica — e come base di confronto con orologi dell’età basati sulla metilazione, che si fondano su una metodologia e una base di evidenze differenti.",
+          "source": "Schneider J. et al., miRNA-3Age: un modello di età biologica basato su microRNA e la sua modulazione da parte dello stile di vita e della nutrizione. Frontiers in Nutrition (2025), doi:10.3389/fnut.2025.1659730"
+        }
+      ],
+      "note": "Questo documento non sostituisce la valutazione medica e non costituisce alcuna promessa di guarigione ai sensi della legge tedesca sulla pubblicità dei prodotti terapeutici (HWG).",
+      "id": "einordnung"
+    },
+    {
+      "type": "callout",
+      "title": "Il principio guida",
+      "text": "La tendenza ha significato, il singolo valore no. Una misurazione iniziale e un follow-up nelle stesse condizioni sono il vero valore di questa analisi.",
+      "items": [
+        "Un singolo valore entro ±10 anni dall’età cronologica non può essere distinto dalla dispersione del modello."
+      ],
+      "tone": "accent",
+      "id": "hinweis-4"
+    },
+    {
+      "type": "contact",
+      "title": "Domande sul tuo referto?",
+      "text": "Discuta i risultati con l’istituzione che ha effettuato il prelievo. È lì che si trova il contesto necessario per l’interpretazione.",
+      "columns": [
+        {
+          "k": "Contatto",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribuzione",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Amburgo"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Rapporto campione",
+          "text": "Tutti i valori e i dati personali in questo documento sono fittizi e servono esclusivamente a illustrare il formato del rapporto. Questo non è un rapporto reale."
+        },
+        {
+          "title": "Interpretazione",
+          "text": "L’età biologica riportata qui è un valore di modello derivato da tre segnali microRNA. Il modello sottostante è stato pubblicato come studio pilota; il suo errore assoluto medio è di circa dieci anni. Il valore non è una determinazione dell’età, non è una diagnosi e non è un’indicazione di aspettativa di vita o rischio di malattia. Il valore informativo emerge solo attraverso più misurazioni nelle stesse condizioni. Un confronto con orologi dell’età basati sulla metilazione non è consentito."
+        },
+        {
+          "title": "Stato delle analisi",
+          "text": "Le analisi sono servizi di laboratorio forniti dal nostro partner di cooperazione e non sono dispositivi diagnostici in vitro marcati CE. Servono per consultazione e monitoraggio e non sostituiscono la diagnostica clinica. Le analisi sono fornite esclusivamente a utenti professionali."
+        },
+        {
+          "title": "Quadro normativo",
+          "text": "Questo pannello non valuta genotipi; misura marcatori epigenetici. Dove un’analisi del portfolio include test genetici, sono richiesti informazioni e consenso scritto prima del prelievo, e può essere effettuata solo sotto responsabilità medica (Legge tedesca sulla diagnostica genetica). L’analisi di laboratorio è eseguita dal nostro partner di cooperazione. Polaris Diagnostics Europe GmbH è responsabile della distribuzione e del supporto. Si raccomanda di valutare gli integratori alimentari individualmente e in consultazione con un professionista qualificato. Questo documento non costituisce alcuna promessa di guarigione ai sensi della legge tedesca sulla pubblicità dei prodotti terapeutici (HWG)."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Aggiornato ad agosto 2026",
+      "id": "kontakt"
+    }
+  ]
+}

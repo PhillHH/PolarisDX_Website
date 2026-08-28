@@ -1,10 +1,10 @@
 /**
  * Inhalte der sechs Musterbefunde.
  *
- * Je Panel eine deutsche und eine englische JSON-Datei, aus den Quell-PDFs
- * abgeleitet. Sie liegen bewusst NICHT im i18n-Namensraum: der laedt auf jeder
- * Seite mit, und diese Daten werden nur auf den Musterbefund-Seiten gebraucht.
- * Ueber den lazy geladenen Routen-Chunk landen sie nur dort im Netz.
+ * Dieser historische Index fuehrt nur DE/EN fuer den Test der extern
+ * akzeptierten Panelnamen. Die zehn produktiven Inhaltsfassungen liegen
+ * bewusst NICHT im global geladenen i18n-Namensraum und werden direkt in den
+ * slugweisen Routenmodulen importiert.
  *
  * Die Werte der Netzdiagramme stehen in keinem PDF-Text — sie sind aus der
  * Vektorgrafik zurueckgerechnet (fuenf Gitterringe geben Mittelpunkt und
@@ -29,14 +29,19 @@ import sportEn from './healthy-sport.en.json'
  * Typen und JSON-freie Metadaten liegen seit AP01 PT01.2 in ./meta — sie
  * werden hier nur weiterexportiert, damit bestehende Importe unveraendert
  * funktionieren. Wer NUR den Typ oder die Reihenfolge braucht, importiert
- * direkt aus ./meta und zieht die zwoelf JSON-Dateien nicht mit.
+ * direkt aus ./meta und zieht selbst diese Testdaten nicht mit.
  */
 export type { Befund, BefundSprachen } from './meta'
 export { BEFUND_ORDER, RADAR_VALUES } from './meta'
 
 import type { Befund, BefundSprachen } from './meta'
 
-export const BEFUNDE: Record<string, BefundSprachen> = {
+/**
+ * Schlanker DE/EN-Abgleich fuer die bestehende Panelnamen-Sicherheitsliste.
+ * Die produktiven zehn Sprachfassungen werden weiterhin slugweise aus den
+ * Routenmodulen geladen; diese Testquelle darf deren Lazy-Grenze nicht ersetzen.
+ */
+export const BEFUNDE: Record<string, Pick<BefundSprachen, 'de' | 'en'>> = {
   'metabolic-health': { de: metabolicDe as Befund, en: metabolicEn as Befund },
   'healthy-aging': { de: agingDe as Befund, en: agingEn as Befund },
   'biologische-altersuhr': { de: clockDe as Befund, en: clockEn as Befund },

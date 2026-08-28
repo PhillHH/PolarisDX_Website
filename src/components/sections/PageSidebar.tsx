@@ -51,7 +51,7 @@ export type SidebarWidget =
 const sectionBase = 'rounded-2xl border border-gray-100 bg-white p-5 '
 
 export function PageSidebar({ widgets }: { widgets: SidebarWidget[] }) {
-  const { t } = useTranslation(['home', 'articles', 'shop', 'common', 'epigenetics'])
+  const { t } = useTranslation(['home', 'articles', 'common', 'epigenetics'])
 
   return (
     <aside className="space-y-8 lg:sticky lg:top-32">
@@ -165,13 +165,10 @@ export function PageSidebar({ widgets }: { widgets: SidebarWidget[] }) {
           return (
             <section key={`contact-${i}`} className={sectionBase + spacing}>
               <h3 className="mb-2 text-sm font-semibold tracking-tight text-heading">
-                {t('shop:shop.needHelp', 'Need help right now?')}
+                {t('articles:ui.needHelp')}
               </h3>
               <p className="mb-3 text-xs leading-relaxed text-gray-500">
-                {t(
-                  'shop:shop.contactText',
-                  'Our medical team is available 24/7 to answer urgent questions and help you decide what to do next.',
-                )}
+                {t('articles:ui.contactText')}
               </p>
               <Button to="/contact" variant="secondary" className="w-full justify-center">
                 {t('common:nav.contact', 'Kontakt aufnehmen')}

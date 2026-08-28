@@ -24,6 +24,12 @@
   "cta_title": "Kan du ikke finde et dokument?",
   "cta_text": "Vores team kan levere yderligere datablade, certifikater eller individuel produktrådgivning.",
   "cta_button": "Anmod om tilbud",
+  "assetLanguage": { "pdf": "PDF på {{language}}", "zip": "ZIP med dokumenter på {{language}}", "languages": { "de": "tysk", "en": "engelsk" } },
+  "assets": {
+    "igloo": { "title": "IglooPro-systemfolder", "description": "Tysk produktfolder om IglooPro point-of-care-læseren." },
+    "vitd3De": { "title": "Produktfolder til Vitamin D3+K2-spray", "description": "Tysk produktfolder med anvendelse og produktegenskaber." },
+    "vitd3En": { "title": "Produktfolder til Vitamin D3+K2-spray", "description": "Engelsk produktfolder med anvendelse og produktegenskaber." }
+  },
   "seo": {
     "title": "Downloads: IglooPro & Vitamin D3+K2 produktflyers",
     "description": "Download produktflyers til IglooPro POC-reader og Vitamin D3+K2-spray gratis som PDF, uden tilmelding. Tekniske datablade på anmodning."

@@ -28,6 +28,7 @@
 
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import ResourceLanguageBadge from '../ui/ResourceLanguageBadge'
 import { ArrowRight, Download } from 'lucide-react'
 import Reveal, { REVEAL_STAGGER } from '../ui/Reveal'
 import SectionHeader from '../ui/SectionHeader'
@@ -193,10 +194,12 @@ const EpigeneticsPanels = () => {
           <a
             href={`${ASSET_BASE}${t('samples.zipFile')}`}
             download
+            hrefLang="de"
             className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
           >
             <Download className="h-4 w-4" aria-hidden="true" />
             {t('samples.zipLabel')}
+            <ResourceLanguageBadge language="de" format="zip" className="text-white/80" />
           </a>
         </div>
       </Reveal>

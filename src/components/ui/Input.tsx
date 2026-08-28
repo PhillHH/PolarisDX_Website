@@ -65,10 +65,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className={cn(
-              'text-sm font-medium leading-none text-heading',
-              disabled && 'cursor-not-allowed opacity-70',
-            )}
+            className={cn('t-label', disabled && 'cursor-not-allowed opacity-70')}
           >
             {label}
           </label>
@@ -101,13 +98,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         </div>
 
         {error && typeof error === 'string' && (
-          <p id={errorId} className="text-sm font-medium text-red-600">
+          <p id={errorId} className="t-error">
             {error}
           </p>
         )}
 
         {!error && helperText && (
-          <p id={helperId} className="text-sm text-ui-field">
+          <p id={helperId} className="t-helper">
             {helperText}
           </p>
         )}

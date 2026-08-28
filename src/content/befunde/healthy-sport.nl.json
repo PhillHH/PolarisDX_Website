@@ -1,0 +1,689 @@
+{
+  "slug": "healthy-sport",
+  "panel": "Healthy Sport",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Voorbeeldrapport · Voorbeeldgegevens",
+      "panel": "Healthy Sport",
+      "subtitle": "Uw cellulaire training",
+      "claim": "Acht sportrelevante microRNAs uit een enkele druppel capillair bloed, vertaald naar zeven beoordelingen over voeding, herstel en prestatie — aangevuld met vier genetische varianten.",
+      "meta": [
+        {
+          "k": "Rapport voor",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Monsterafname",
+          "v": "18.02.2026"
+        },
+        {
+          "k": "Materiaal",
+          "v": "Gedroogde bloedvlekkaart"
+        },
+        {
+          "k": "Reikwijdte",
+          "v": "8 miRNA + 4 SNP"
+        }
+      ],
+      "id": "deckblatt",
+      "benefit": "Voeding, herstel, trainingsbelasting: waar uw cliënt kan beginnen."
+    },
+    {
+      "type": "principle",
+      "caption": "Het principe",
+      "title": "Hoe leest u dit rapport.",
+      "lead": "Regelmatige training verandert het lichaam tot op cellulair niveau. Deze processen laten sporen achter in de vorm van circulerende microRNAs — kleine RNA-moleculen die reguleren hoe sterk bepaalde genen daadwerkelijk tot expressie komen. In tegenstelling tot genetica kunnen deze waarden veranderen, wat ze het trendcomponent van de analyse maakt.",
+      "cards": [
+        {
+          "title": "Voedingsstatus",
+          "text": "Behoefte aan vitaminen en micronutriënten evenals vochtbalans. Beoordelingen: voedingsstatus, hydratatiestatus."
+        },
+        {
+          "title": "Herstel",
+          "text": "Herstelcapaciteit, trainingsbelasting en ontstekingsactiviteit. Beoordelingen: blessurerisico, belastingsniveau, ontsteking."
+        },
+        {
+          "title": "Prestatie",
+          "text": "Uithoudingsvermogen en conditie van de musculatuur. Beoordelingen: cardiovasculaire fitheid, spierstatuut."
+        }
+      ],
+      "flowTitle": "Het proces",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Meting",
+          "text": "Dried blood spot-kaart, vingertop. Acht microRNAs en vier genetische varianten. Nuchter zijn is niet vereist."
+        },
+        {
+          "num": "02",
+          "title": "Beoordelen",
+          "text": "De microRNAs voeren zeven beoordelingen in op het verkeerslicht 1–9. Elke beoordeling combineert meerdere markers."
+        },
+        {
+          "num": "03",
+          "title": "Aanpassen",
+          "text": "Gerichte aanbevelingen voor training, herstel en fytonutriënten — plus vervolgmonitoring."
+        }
+      ],
+      "scaleTitle": "Hoe lees ik de schaal?",
+      "scaleLead": "Alle beoordelingen en alle individuele markers gebruiken hetzelfde verkeerslicht 1–9. Rood links, groen rechts — hoger is altijd beter: 1–3 rood, 4–6 oranje, 7–9 groen.",
+      "scaleKind": "traffic",
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "1–3 · Rood",
+          "text": "Buiten het optimale bereik. Hier ligt de grootste hefboom."
+        },
+        {
+          "tone": "amber",
+          "label": "4–6 · Oranje",
+          "text": "Gemiddeld bereik met ruimte voor verbetering."
+        },
+        {
+          "tone": "green",
+          "label": "7–9 · Groen",
+          "text": "Binnen het optimale bereik. Behoud bestaande routines."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Belangrijk",
+      "text": "Dit rapport is geen vervanging voor een sportmedisch onderzoek of prestatie-diagnostiek.",
+      "items": [
+        "De vier genetische varianten zijn aangeboren en worden slechts één keer bepaald. Informatie en schriftelijke toestemming zijn vereist vóór de genetische analyse (Duitse Wet op Genetische Diagnostiek, GenDG). Voorspellende genetische tests mogen alleen worden uitgevoerd onder verantwoordelijkheid van daartoe bevoegde artsen; genetische counseling moet vóór en na de test worden aangeboden (artikelen 7 en 10 GenDG).",
+        "Alleen de acht microRNA-waarden kunnen veranderen — zij zijn alleen geschikt voor het monitoren van voortgang."
+      ],
+      "tone": "neutral",
+      "id": "hinweis"
+    },
+    {
+      "type": "evaluations",
+      "caption": "Resultaten in één oogopslag",
+      "title": "Uw zeven beoordelingen.",
+      "lead": "Elke beoordeling is afgeleid van meerdere microRNAs samen. Gesorteerd op waarde — de gebieden die de meeste actie vereisen staan onderaan.",
+      "items": [
+        {
+          "label": "Hydratatiestatus",
+          "sub": "Binnen het optimale bereik",
+          "value": 8,
+          "display": "8 / 9",
+          "tone": "green"
+        },
+        {
+          "label": "Blessurerisico & herstel",
+          "sub": "Gemiddeld",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Cardiovasculaire fitheid",
+          "sub": "Gemiddeld",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Spierstatuut",
+          "sub": "Gemiddeld",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Voedingsstatus",
+          "sub": "Buiten bereik",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red"
+        },
+        {
+          "label": "Ontsteking",
+          "sub": "Buiten bereik",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red"
+        },
+        {
+          "label": "Belastings-/stressniveau",
+          "sub": "Buiten bereik",
+          "value": 2,
+          "display": "2 / 9",
+          "tone": "red"
+        }
+      ],
+      "id": "auswertungen"
+    },
+    {
+      "type": "callout",
+      "title": "Wat dit betekent",
+      "text": "Drie waarden in het rode bereik — belastings-/stressniveau (2), voedingsstatus (3) en ontsteking (3). Twee daarvan — belasting en ontsteking — zijn afhankelijk van miR-146a-5p (overbelastings-miRNA, 2/9), de zwakste individuele marker in het profiel; in totaal draagt deze bij aan vier van de zeven beoordelingen. Voedingsstatus daarentegen is afhankelijk van de op één na zwakste marker, miR-22-5p (3/9).",
+      "items": [
+        "Drie waarden in het middenbereik — blessurerisico, cardiovasculaire fitheid en spierstatuut staan elk op 5/9 en kunnen direct worden beïnvloed door training.",
+        "Één waarde in het groene bereik — hydratatiestatus (8) is stabiel en moet zo blijven.",
+        "Het interval tot de volgende vervolgmeting wordt bepaald door de instelling die u begeleidt; uw twee vorige metingen lagen ongeveer drie maanden uit elkaar."
+      ],
+      "tone": "accent",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "table",
+      "caption": "Basis van de beoordelingen",
+      "title": "De acht microRNAs.",
+      "lead": "De individuele waarden waaruit de zeven beoordelingen worden berekend. Ook zij gebruiken het verkeerslicht 1–9; hoger is beter.",
+      "cols": ["Marker", "Naam", "Regulatieniveau", "Waarde", "Functie"],
+      "rows": [
+        [
+          "miR-378a-3p",
+          "Spiergroei-miRNA",
+          "Spieropbouw & prestatie-adaptatie",
+          "7 / 9",
+          "Reguleert spieropbouw en aanpassing aan trainingsprikkels."
+        ],
+        [
+          "miR-101-3p",
+          "Spier vitaliteit miRNA",
+          "Cellulaire bescherming van de musculatuur",
+          "7 / 9",
+          "Reguleert spier vitaliteit en cellulaire bescherming."
+        ],
+        [
+          "miR-505-3p",
+          "Sport & Lifestyle miRNA",
+          "Levensstijlbalans",
+          "5 / 9",
+          "Reflecteert de wisselwerking van beweging, voeding en levensstijl."
+        ],
+        [
+          "miR-19b-3p",
+          "Mind miRNA",
+          "Neuronale & cognitieve regulatie",
+          "4 / 9",
+          "Reguleert neuronale signaalroutes, ondersteunt cognitieve veerkracht en uithoudingsvermogen."
+        ],
+        [
+          "miR-20a-5p",
+          "Celvernieuwings-miRNA",
+          "Cellulaire regeneratie",
+          "4 / 9",
+          "Reguleert celvernieuwing en herstelprocessen na inspanning."
+        ],
+        [
+          "miR-30e-3p",
+          "Fitness miRNA",
+          "Regulatie van spieruithoudingsvermogen",
+          "4 / 9",
+          "Reguleert spieruithoudingsvermogen en fitnessaanpassing."
+        ],
+        [
+          "miR-22-5p",
+          "Vetverbrandings-miRNA",
+          "Metabole regulatie",
+          "3 / 9",
+          "Reguleert vetmetabolisme en energievoorziening."
+        ],
+        [
+          "miR-146a-5p",
+          "Overbelastings-miRNA",
+          "Regulatie van ontsteking bij inspanning",
+          "2 / 9",
+          "Reguleert ontstekingssignaleringsroutes onder trainingsbelasting."
+        ]
+      ],
+      "id": "uebersicht"
+    },
+    {
+      "type": "callout",
+      "title": "De belangrijkste marker",
+      "text": "Met 2/9 is miR-146a-5p de zwakste individuele waarde en speelt een rol in vier van de zeven beoordelingen: belasting/stressniveau, ontsteking, blessurerisico en cardiovasculaire fitheid. Eén enkele marker bepaalt dus een groot deel van het totaalbeeld.",
+      "items": [
+        "De twee spiermarkers miR-378a-3p en miR-101-3p bevinden zich beide in het groene bereik met 7/9. De musculatuur zelf is niet het probleem — herstel is dat wel."
+      ],
+      "tone": "accent",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "markers",
+      "caption": "Uw beoordelingen",
+      "title": "Wat prioriteit heeft.",
+      "items": [
+        {
+          "name": "Belastings-/stressniveau",
+          "intro": "Van miR-146a-5p (2/9) en miR-20a-5p (4/9). Stress verstoort de rusthomeostase en verhoogt de energiedoorstroming — belangrijk is of herstel de belasting compenseert.",
+          "kind": "stoplicht",
+          "value": 2,
+          "display": "2 / 9",
+          "sub": "Buiten bereik",
+          "tone": "red",
+          "text": "Uw waarde ligt buiten het optimale bereik — de zwakste van de zeven beoordelingen. Verminder dagelijkse stressfactoren, vermijd tijdsdruk, periodiseer uw training (1–2 trainingsvrije dagen per week, een herstelveek elke 2–4 weken) en gebruik ontspanningstechnieken zoals autogene training of biofeedback."
+        },
+        {
+          "name": "Voedingsstatus",
+          "intro": "Van miR-30e-3p (4/9), miR-22-5p (3/9) en miR-19b-3p (4/9). Geeft vitamine- en micronutriëntenbehoeften aan, waaronder B-vitamines, ijzer en magnesium.",
+          "kind": "stoplicht",
+          "value": 3,
+          "display": "3 / 9",
+          "sub": "Buiten bereik",
+          "tone": "red",
+          "text": "Uw waarde ligt buiten het optimale bereik. Let extra op fruit, groenten en volkorenproducten — rijk aan B-vitamines, magnesium, ijzer en zink. Magnesium uit noten en zonnebloempitten, zink uit zuivelproducten, kaas en peulvruchten."
+        },
+        {
+          "name": "Ontsteking",
+          "intro": "Van vijf microRNA’s: miR-505-3p, miR-30e-3p, miR-22-5p, miR-20a-5p en miR-146a-5p. Deze markers brengen ontstekingsregulatie onder trainingsbelasting in kaart; tegelijkertijd geeft lichamelijke inspanning stresshormonen af.",
+          "kind": "stoplicht",
+          "value": 3,
+          "display": "3 / 9",
+          "sub": "Buiten bereik",
+          "tone": "red",
+          "text": "Uw waarde ligt buiten het optimale bereik. Let op herstel en voldoende slaap, op vitamine C en zink uit fruit, groenten, broccoli en citrusvruchten, en op ontspanning, matige lichaamsbeweging en een vezelrijk dieet voor de darmflora."
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "callout",
+      "title": "De gemeenschappelijke deler",
+      "text": "Alle drie de beoordelingen bevatten miR-146a-5p of miR-22-5p — de twee zwakste individuele markers. Het managen van trainingsbelasting en herstel werkt dus op alle drie de waarden tegelijk, niet slechts op één.",
+      "tone": "accent",
+      "id": "hinweis-4"
+    },
+    {
+      "type": "markers",
+      "caption": "Uw beoordelingen",
+      "title": "Prestaties en herstel.",
+      "items": [
+        {
+          "name": "Blessurerisico & herstel",
+          "intro": "Van vijf microRNA’s: miR-30e-3p, miR-22-5p, miR-146a-5p, miR-20a-5p en miR-505-3p. Onvoldoende herstel verhoogt het blessurerisico.",
+          "kind": "stoplicht",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Gemiddeld",
+          "tone": "amber",
+          "text": "Uw waarde ligt in het gemiddelde bereik. Zorg voor voldoende herstelperiodes tussen trainingssessies en let op warming-up, stretchen en cooling-down. Uw genetische beoordeling van blessurerisico in het hoofdstuk “Drie verdere genetische beoordelingen” vult deze waarde aan."
+        },
+        {
+          "name": "Cardiovasculaire fitheid",
+          "intro": "Van miR-20a-5p (4/9), miR-146a-5p (2/9) en miR-505-3p (5/9). Beschrijft hoe efficiënt het hart bloed en zuurstof door het lichaam pompt.",
+          "kind": "stoplicht",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Gemiddeld",
+          "tone": "amber",
+          "text": "Uw waarde ligt in het gemiddelde bereik. Neem minstens twee keer per week duurtraining op — hardlopen, stevig wandelen, fietsen, zwemmen of aquarobics, afhankelijk van uw fitheidsniveau."
+        },
+        {
+          "name": "Spierstatuut",
+          "intro": "Van miR-101-3p (7/9), miR-378a-3p (7/9), miR-19b-3p (4/9) en miR-30e-3p (4/9). Kracht, explosiviteit en uithoudingsvermogen hangen af van de vermoeidheidstoestand en het herstel van de spier.",
+          "kind": "stoplicht",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Gemiddeld",
+          "tone": "amber",
+          "text": "Uw waarde ligt in het gemiddelde bereik. Neem minstens twee keer per week krachttraining op als full-body workout met gewichten of lichaamsgewicht, telkens met warming-up, cooling-down en stretchen."
+        },
+        {
+          "name": "Hydratatiestatus",
+          "intro": "Van miR-101-3p (7/9) en miR-378a-3p (7/9). Vochtverlies via zweet en ademhaling schaadt lichaamsfuncties en prestaties.",
+          "kind": "stoplicht",
+          "value": 8,
+          "display": "8 / 9",
+          "sub": "Optimaal",
+          "tone": "green",
+          "text": "Uw waarde ligt binnen het optimale bereik. Blijf zorgen voor minstens twee liter vocht per dag, ook tijdens trainingssessies."
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "table",
+      "caption": "Genetica · aangeboren, eenmaal bepaald",
+      "title": "Uw sportmarkers.",
+      "lead": "Vier genetische varianten die de veranderlijke microRNA-waarden aanvullen. Ze beschrijven aanleg — geen beoordeling en geen prestatievoorspelling — en worden slechts eenmaal bepaald. Sporttype · ACE en ACTN3: de combinatie van beide varianten bepaalt de aanleg tussen uithoudingsvermogen en kracht.",
+      "cols": ["Gen", "Genotype", "Aanleg", "Betekenis"],
+      "rows": [
+        [
+          "ACE",
+          "GG (homozygoot)",
+          "Kracht-type",
+          "Beïnvloedt het bradykinine–aldosteronsysteem en daarmee het zuurstofgebruik."
+        ],
+        [
+          "ACTN3",
+          "CT (heterozygoot)",
+          "Gemengd type",
+          "Bepaalt de spiervezelsamenstelling; de gemengde vorm combineert snelle en langzame vezels."
+        ]
+      ],
+      "note": "Uw sporttype op de schaal uithoudingstype — gemengd type — kracht-type: overwegend kracht-type. U bent voornamelijk het kracht-sporttype. Geschikte activiteiten zijn krachtsporten zoals gewichtheffen, powerliften of bodybuilding.",
+      "id": "uebersicht-2"
+    },
+    {
+      "type": "table",
+      "caption": "Genetica · aangeboren, eenmaal bepaald",
+      "title": "Drie verdere genetische beoordelingen.",
+      "cols": ["Gen", "Kenmerk", "Schaal", "Uw resultaat"],
+      "rows": [
+        [
+          "FTO-gen",
+          "Effect van lichaamsbeweging op lichaamsgewicht",
+          "Laag · Gemiddeld · Zeer goed",
+          "Zeer goed. U kunt zeer effectief afvallen door lichaamsbeweging — fysieke activiteit is voor u een bijzonder effectieve hefboom."
+        ],
+        [
+          "BDNF-gen",
+          "Motivatie om te bewegen",
+          "Laag · Gemiddeld · Hoog",
+          "Geen verhoogde motivatie. Vaste afspraken, trainingspartners of groepslessen helpen meer dan goede voornemens."
+        ],
+        [
+          "ACTN3-gen",
+          "Risico op spierschade",
+          "Laag · Gemiddeld · Hoog",
+          "Iets verhoogd. Let extra op warming-up en op cooling-down of stretchen achteraf."
+        ]
+      ],
+      "note": "De schalen van deze vier beoordelingen geven een positie aan tussen twee polen, geen stoplicht: een sporttype is noch goed, noch slecht. Genetische varianten worden slechts één keer bepaald en blijven levenslang onveranderd.",
+      "id": "uebersicht-3"
+    },
+    {
+      "type": "radar",
+      "caption": "Waar u staat",
+      "title": "Voeding en leefgewoonten.",
+      "lead": "De radar toont hoe dicht uw huidige gewoonten bij de wetenschappelijke referentiewaarden liggen. Hoe verder een factor naar buiten ligt, hoe gunstiger — 10 is optimaal.",
+      "axes": [
+        "Dagelijkse activiteit",
+        "Lichaamsbeweging",
+        "Stress",
+        "Tabak",
+        "Alcohol",
+        "Tussendoortjes",
+        "Vlees",
+        "Omega-3",
+        "Vezels",
+        "Fruit/groenten",
+        "Vloeistoffen"
+      ],
+      "scores": [
+        {
+          "value": "4 van de 10",
+          "label": "Stress",
+          "text": "De zwakste factor in uw zelfrapportage. Dit valt samen met uw zwakste laboratoriumwaarde (belasting/stressniveau 2/9) — beide wijzen in dezelfde richting."
+        },
+        {
+          "value": "5 elk",
+          "label": "Snacks & vlees",
+          "text": "Beide middensegment — de twee voedingsfactoren met de meeste ruimte voor verbetering, in lijn met de voedingsstatus van 3/9."
+        },
+        {
+          "value": "9 · 8 · 8",
+          "label": "Tabak · Fruit/groenten · Vloeistoffen",
+          "text": "Duidelijk boven gemiddeld. De vloeistofwaarde komt overeen met uw goede hydratatiestatus (8/9)."
+        }
+      ],
+      "note": "Een beoordeling van uw standpunt op basis van uw zelfrapportage, geen individuele diagnose. Bij ziekte of tijdens bijzondere levensfasen laat eventuele grote dieetveranderingen alstublieft begeleiden door een arts.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Alle aanbevelingen in één overzicht",
+      "title": "Uw interventies.",
+      "lead": "Elke aanbeveling is toegewezen aan de microRNA-marker waarvan deze is afgeleid, samen met de huidige waarde van die marker. Gesorteerd op urgentie — de zwakste markers eerst.",
+      "cols": ["Werkzame stof", "Van marker", "Bron", "Hoeveelheid", "Opmerking"],
+      "rows": [
+        [
+          "Kaempferol",
+          "miR-146a-5p · 2",
+          "Rode druiven, grapefruit, broccoli, spruitjes, aardappelen, uien, pompoen",
+          "200–600 mg extract/dag",
+          "Als extract — moeilijk in deze hoeveelheid alleen via voeding te bereiken"
+        ],
+        [
+          "Vitamine D3",
+          "miR-146a-5p · 2",
+          "Levertraan, haring, zalm, sardine, tonijn, makreel, kippenei",
+          "na medische beoordeling van vitamine D-spiegels",
+          "Vetoplosbaar — het beste in te nemen met olie en een maaltijd"
+        ],
+        [
+          "Resveratrol",
+          "miR-146a-5p · 2, miR-19b-3p · 4, miR-378a-3p · 7",
+          "Schil van druiven, frambozen, veenbessen, aalbessen, aardbeien",
+          "150 mg trans-resveratrol/dag",
+          "Moeilijk in deze hoeveelheid alleen via voeding te bereiken"
+        ],
+        [
+          "Capsaïcine",
+          "miR-22-5p · 3",
+          "Paprika’s en chilipepers",
+          "0,8–1,5 mg/dag (of 1 g chilipoeder)",
+          "Vetoplosbaar — het beste samen met olie in te nemen"
+        ],
+        [
+          "Proanthocyanidine",
+          "miR-30e-3p · 4",
+          "Vlierbessen, cranberry, wilde bramen, rozenbottels, druivenpitten",
+          "36 mg/dag",
+          "Schil, kern en zaden bevatten met name hoge hoeveelheden"
+        ],
+        [
+          "Seleen",
+          "miR-30e-3p · 4",
+          "Vlees, vis, eieren, zuivel en graanproducten",
+          "60–75 µg/dag",
+          "Draagt bij aan de bescherming van cellen tegen oxidatieve stress"
+        ],
+        [
+          "Genisteïne",
+          "miR-20a-5p · 4",
+          "Sojabonen, kidneybonen, kikkererwten, pure chocolade",
+          "40–80 mg rode klaverextract/dag",
+          "Meer geconcentreerd als extract dan in poedervorm"
+        ],
+        [
+          "Curcumine",
+          "miR-19b-3p · 4",
+          "Kurkuma",
+          "max. 300 mg/dag (5–10 g poeder)",
+          "Met zwarte peper en olie; niet tijdens zwangerschap of bij galstenen"
+        ],
+        [
+          "Quercetine",
+          "miR-505-3p · 5, miR-19b-3p · 4",
+          "Ui, kappertjes, lavas, bieslook",
+          "min. 200 mg/dag",
+          "Hittestabiel — niet sterk verhitten"
+        ],
+        [
+          "EGCG (groene thee)",
+          "miR-505-3p · 5",
+          "Ongefermenteerde thee (witte en groene thee)",
+          "max. 800 mg/dag (1 kop ≈ 165 mg)",
+          "Piperine, vitamine C en visolie verbeteren de biologische beschikbaarheid"
+        ],
+        [
+          "Sulforafaan",
+          "miR-505-3p · 5",
+          "Kruisbloemige groenten, kool, broccoli (kiemen)",
+          "25 mg/dag (250 g broccoli)",
+          "Kort stomen of rauw eten — anders gaat de werkzame stof verloren"
+        ],
+        [
+          "Betaïne",
+          "miR-378a-3p · 7",
+          "Quinoa, witte ganzenvoet, broccoli, spinazie, biet",
+          "500–2.000 mg/dag",
+          "Deels door het lichaam zelf gesynthetiseerd"
+        ],
+        [
+          "Zink",
+          "miR-101-3p · 7",
+          "Vlees, zuivelproducten, volkorenproducten",
+          "7–16 mg/dag",
+          "Een hoge inname van fytaten remt de opname"
+        ]
+      ],
+      "note": "Beoordeel voedingssupplementen individueel en in overleg met een gekwalificeerde professional — vooral tijdens zwangerschap, bij bestaande aandoeningen of bij gelijktijdig medicijngebruik. Dit overzicht vervangt geen medisch advies.",
+      "id": "uebersicht-4"
+    },
+    {
+      "type": "trend",
+      "caption": "Trend",
+      "title": "Twee metingen vergeleken.",
+      "lead": "Een vergelijking van uw twee metingen tot nu toe. Alleen gemeten waarden worden getoond — geen prognose.",
+      "firstLabel": "20.11.2025",
+      "secondLabel": "18.02.2026",
+      "kind": "stoplicht",
+      "items": [
+        {
+          "label": "Voedingsstatus",
+          "first": 2,
+          "second": 3,
+          "firstDisplay": "2 / 9",
+          "secondDisplay": "3 / 9",
+          "delta": "+1",
+          "tone": "red",
+          "status": "Buiten"
+        },
+        {
+          "label": "Hydratatiestatus",
+          "first": 8,
+          "second": 8,
+          "firstDisplay": "8 / 9",
+          "secondDisplay": "8 / 9",
+          "delta": "±0",
+          "tone": "green",
+          "status": "Optimaal"
+        },
+        {
+          "label": "Blessurerisico & herstel",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Gemiddeld"
+        },
+        {
+          "label": "Belastings-/stressniveau",
+          "first": 3,
+          "second": 2,
+          "firstDisplay": "3 / 9",
+          "secondDisplay": "2 / 9",
+          "delta": "−1",
+          "tone": "red",
+          "status": "Buiten"
+        },
+        {
+          "label": "Cardiovasculaire fitheid",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Gemiddeld"
+        },
+        {
+          "label": "Ontsteking",
+          "first": 4,
+          "second": 3,
+          "firstDisplay": "4 / 9",
+          "secondDisplay": "3 / 9",
+          "delta": "−1",
+          "tone": "red",
+          "status": "Buiten"
+        },
+        {
+          "label": "Spierstatuut",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Gemiddeld"
+        }
+      ],
+      "note": "Het interval tussen de twee metingen was ongeveer drie maanden. Of dit interval ook geschikt is voor de volgende controle, wordt bepaald door de instelling die u begeleidt.",
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "Wat de trend laat zien",
+      "text": "Één verbetering: voedingsstatus van 2 naar 3 — de richting is goed, maar de waarde ligt nog buiten het optimale bereik.",
+      "items": [
+        "Twee verslechteringen: belasting/stressniveau (3 → 2) en ontsteking (4 → 3). Beide omvatten miR-146a-5p. Tussen de twee metingen verslechterde dus de belastingszijde, niet de prestatiezijde.",
+        "Vier onveranderde waarden: hydratatie, blessurerisico, cardiovasculaire fitheid en spierstatuut zijn stabiel gebleven."
+      ],
+      "tone": "accent",
+      "id": "hinweis-5"
+    },
+    {
+      "type": "summary",
+      "caption": "Samenvatting",
+      "title": "Uw focus: herstel.",
+      "lead": "Het profiel is ongewoon duidelijk. De spiermarkers bevinden zich in het groene bereik, de belasting- en ontstekingsmarkers in het rode — en beide verslechteringen sinds de eerste meting liggen aan dezelfde kant.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Beheer uw belasting voordat u meer gaat trainen",
+          "text": "De zwakste individuele marker, miR-146a-5p (2/9), draagt bij aan vier van de zeven beoordelingen. Precies twee daarvan — belasting/stressniveau en ontsteking — zijn sinds november verslechterd. Zolang deze waarde laag blijft, werkt extra training tegen je in plaats van voor je. Concreet: één tot twee trainingsvrije dagen per week, een herstelweek om de twee tot vier weken, ontspanningstechnieken in het dagelijks leven. Daarnaast kaempferol en vitamine D3 van de interventielijst."
+        },
+        {
+          "num": "02",
+          "title": "Micronutriënten uit voeding, niet uit supplementen",
+          "text": "Voedingsstatus (3/9) is verbeterd van 2 naar 3 — de richting is goed. Vanuit de leefstijlradar zijn snacks en vlees (beide 5 van 10) de twee hefbomen met de meeste ruimte voor verbetering. Focus op fruit, groenten en volkorenproducten voor B-vitamines, magnesium, ijzer en zink."
+        }
+      ],
+      "keepTitle": "Behouden",
+      "keepText": "Hydratatiestatus (8/9) is sinds de eerste meting stabiel en komt overeen met je radarwaarde voor vocht (8/10). De twee spiermarkers bevinden zich ook in het groene bereik met elk 7/9 — de musculatuur is niet het probleem. Genetisch suggereert je FTO-gen dat lichamelijke activiteit een bijzonder sterk effect heeft op je lichaamsgewicht.",
+      "controlTitle": "Vervolg en volgende stap",
+      "controlItems": [
+        "Het interval tot de volgende vervolgmeting wordt bepaald door de instelling die je begeleidt. Je twee vorige metingen lagen ongeveer drie maanden uit elkaar.",
+        "De vier genetische varianten blijven ongewijzigd en worden niet herhaald.",
+        "Voor vergelijkbaarheid dienen monsterafname, tijdstip van de dag en het interval sinds de laatste trainingssessie vergelijkbaar te blijven."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Vragen over uw rapport?",
+      "text": "Bespreek de resultaten met de instelling die de monsterafname heeft uitgevoerd. Daar is de trainings- en gezondheidscontext aanwezig die nodig is voor interpretatie.",
+      "columns": [
+        {
+          "k": "Contact",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distributie",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Voorbeeldrapport",
+          "text": "Alle waarden, genotypen en persoonlijke gegevens in dit document zijn fictief en dienen uitsluitend ter illustratie van het rapportformaat. Dit is geen echt rapport."
+        },
+        {
+          "title": "Interpretatie",
+          "text": "Dit rapport is geen diagnose en vervangt geen medisch advies, sportmedisch onderzoek of prestatie-diagnostiek. De microRNA-waarden beschrijven een momentopname; de genetische varianten beschrijven aanleg, geen ziekten en geen prestatievoorspelling."
+        },
+        {
+          "title": "Status van de analyses",
+          "text": "De analyses zijn laboratoriumdiensten die door onze samenwerkingspartner worden geleverd en zijn geen CE-gemarkeerde in-vitro diagnostische hulpmiddelen. Ze dienen ter consultatie en monitoring en vervangen geen klinische diagnostiek. De analyses worden uitsluitend aan professionele gebruikers geleverd."
+        },
+        {
+          "title": "Juridisch kader",
+          "text": "Genetisch onderzoek valt onder de Duitse Wet op Genetische Diagnostiek (GenDG); informatie en schriftelijke toestemming zijn vereist vóór monsterafname. Predictief genetisch onderzoek mag alleen worden uitgevoerd onder verantwoordelijkheid van daartoe bevoegde artsen; genetische counseling moet vóór en na de test worden aangeboden (artikelen 7 en 10 GenDG). De laboratoriumanalyse wordt uitgevoerd door onze samenwerkingspartner. Polaris Diagnostics Europe GmbH is verantwoordelijk voor distributie en ondersteuning. Beoordeel voedingssupplementen individueel en in overleg met een gekwalificeerde professional."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand per: augustus 2026",
+      "id": "kontakt"
+    }
+  ]
+}

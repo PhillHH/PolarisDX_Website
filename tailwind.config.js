@@ -1,11 +1,49 @@
 /** @type {import('tailwindcss').Config} */
+
+/* ---------------------------------------------------------------------------
+ * MOTION-TOKENS (AP05 / PT05.1)
+ *
+ * Namen fuer die Werte, die im Repo BEREITS laufen. Keine neue Bewegung,
+ * keine geaenderte Dauer, keine geaenderte Kurve — nur eine benannte,
+ * wiederverwendbare Quelle statt Literale in Keyframes und Call-Sites.
+ * Die vollstaendige Motion-Implementierung ist PT05.5, nicht PT05.1.
+ *
+ * Bewegungsreduktion: `src/index.css` faengt am Dateiende jede Animation und
+ * Transition hinter `prefers-reduced-motion: reduce` ab. Ein Token hier kann
+ * diesen Schutz nicht umgehen.
+ * ------------------------------------------------------------------------- */
+const EASING = {
+  entrance: 'cubic-bezier(0.16, 1, 0.3, 1)', // Modal-/Popover-Eintritt
+  emphasis: 'cubic-bezier(0.22, 1, 0.36, 1)', // Hero-Slides
+  'back-out': 'cubic-bezier(0.34, 1.56, 0.64, 1)', // Icon-Wechsel, leichter Ueberschwung
+  exit: 'ease-in', // alle Austritte
+  reveal: 'ease-out', // Scroll-Reveal (Reveal.tsx)
+}
+
+/* Ruheschatten von Modal/Drawer/Dialog — EINE Quelle fuer den `dialog`-Token
+ * und den Endzustand des `modal-card-in`-Keyframes. */
+const SHADOW_DIALOG = '0 20px 60px rgba(8,51,88,0.35)'
+
+const DURATION = {
+  hover: '200ms', // Hover-/Focus-Zustaende
+  menu: '300ms', // Navigations-/Menue-Uebergaenge
+  popover: '180ms', // Popover
+  modal: '280ms', // Modal-/Drawer-Backdrop
+  'modal-card': '520ms', // Modal-Karte (Eintritt)
+  reveal: '500ms', // Scroll-Reveal — deckungsgleich mit Reveal.tsx `duration = 0.5`
+}
+
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
-        // accentBlue: alias for brand.blue (#0d527f). Fixes 11 previously-undefined
-        // text-accentBlue/border-accentBlue call-sites that rendered colorless.
+        // DEPRECATED (AP05 / PT05.1) — LEGACY_ALIAS auf brand.blue (#0d527f).
+        // Die 11 `text-accentBlue`/`border-accentBlue`-Call-Sites, fuer die dieser
+        // Alias einst angelegt wurde, existieren nicht mehr: Stand PT05.1 sind es
+        // repo-weit 0 (nur noch Erwaehnungen in Doku). Bleibt als Uebergangsalias
+        // stehen, damit kein stiller Farbausfall entsteht; neue Call-Sites nutzen
+        // `brand-blue` / `brand-primary`. Entfernung ist Aufraeumarbeit, nicht PT05.1.
         accentBlue: '#0d527f',
         brand: {
           // -------------------------------------------------------------------
@@ -25,6 +63,17 @@ export default {
           // navy-mid    = mid-tone navy used for theme-color + OG image;
           // blue        = current brand.primary, semantically clearer name;
           // blue-bright = current brand.secondary, semantically clearer name.
+          //
+          // AP05 / PT05.1 — Klassifikation nach gemessenen Call-Sites in `src/`:
+          //   CANONICAL    navy (#083358), navy-hover (#0a3f63), blue (#0d527f)
+          //   LEGACY_ALIAS deep == navy, primary == blue, secondary == blue-bright
+          //                — bewusst BEHALTEN (deep 149x, primary 119x,
+          //                secondary 12x). Eine Umbenennung waere eine reine
+          //                Namensmigration ohne visuelle Wirkung und ist durch
+          //                AP05.md ST05.1.4 ausdruecklich ausgeschlossen.
+          //   DUPLICATE/unbenutzt  navy-mid (== navy-hover, 0 Call-Sites),
+          //                blue-bright (== secondary, 0 Call-Sites)
+          // Keine Migration in PT05.1; die Werte bleiben unveraendert.
           // -------------------------------------------------------------------
           navy: '#083358',
           'navy-hover': '#0a3f63',
@@ -36,15 +85,25 @@ export default {
           linkedin: '#0077b5',
         },
         ui: {
-          border: '#e2e8f0', // slate-200
-          'border-hover': '#cbd5e1', // slate-300
-          'text-muted': '#94a3b8', // slate-400
+          // Gemessene Kontraste auf Weiss (PT05.1): border 1,23:1 ·
+          // border-hover 1,48:1 · text-muted 2,56:1. Das reicht fuer DEKOR
+          // (Trennlinien, Beiwerk) und NICHT fuer Bedienelement-Begrenzungen
+          // (WCAG 1.4.11, 3:1) oder Text (WCAG 1.4.3, 4,5:1) — dafuer ist
+          // ausschliesslich `field` da.
+          // Stand PT05.1 haben alle drei 0 Call-Sites in `src/`: die letzten
+          // Verwendungen an Bedienelementen (Textarea, SupportForm-Select und
+          // -Upload-Button) sind auf `field` umgestellt. Sie bleiben als
+          // Dekor-Tokens verfuegbar, duerfen aber nie eine Begrenzung eines
+          // Bedienelements oder Text tragen.
+          border: '#e2e8f0', // slate-200 — Dekor/Trennlinien, 0 Call-Sites
+          'border-hover': '#cbd5e1', // slate-300 — Dekor, 0 Call-Sites
+          'text-muted': '#94a3b8', // slate-400 — Dekor, 0 Call-Sites
           // Formularsteuerelemente. WCAG 1.4.11 verlangt 3:1 fuer die
           // Begrenzung eines Bedienelements, Platzhalter- und Hilfstext
           // brauchen als Text 4,5:1. `border` und `text-muted` darueber
           // bleiben, wo sie sind: sie tragen Trennlinien und Beiwerk, nichts,
           // das man bedient.
-          field: '#6b7280',
+          field: '#6b7280', // 4,83:1 auf Weiss — Rahmen, Placeholder und Hilfstext
         },
         // Kanonische Headline-/Body-Ink. `text-heading` ist die EINE Navy.
         // Der frühere Alias "gray-900" (#203864) wurde entfernt — es gibt
@@ -82,12 +141,32 @@ export default {
           soft: '#ecfdf5', // emerald-50
           strong: '#047857', // emerald-700 — AA-sicher auf Weiß (5,5:1)
         },
+        // Warnung — eigene semantische Familie (AP05 / PT05.3, fuer die
+        // Alert-Variante `warning`). Bewusst NICHT die Befund-Ampel: deren
+        // Amber traegt eine fachliche Befundaussage und gilt nur auf den
+        // Musterbefund-Seiten. Rohe `amber-*`-Skalen verbietet der Farb-Guard.
+        // Rollen wie ueberall: `strong` traegt Text (4,84:1 auf `soft`),
+        // `soft` die Flaeche, `DEFAULT` nur Dekor/Icon (2,15:1 auf Weiss).
+        warning: {
+          DEFAULT: '#f59e0b', // amber-500 — nur Dekor
+          soft: '#fffbeb', // amber-50
+          strong: '#b45309', // amber-700 — AA auf `soft` und auf Weiss
+        },
         // -------------------------------------------------------------------
         // Neutrale Legacy-Aliase. KEIN Navy mehr hier drin: 'gray-900'
         // (#203864) ist entfernt — Headline-/Body-Ink ist `text-heading`.
         // -------------------------------------------------------------------
         'gray-100': '#F5F5F5',
         'gray-500': '#868C98',
+      },
+      transitionDuration: DURATION,
+      transitionTimingFunction: EASING,
+      // Sektionsrhythmus der Sales-Machine, benannt. `py-section` == py-24 (6rem),
+      // `py-section-lg` == py-28 (7rem) — exakt die heute dominierenden Werte
+      // (py-24 55x, lg:py-24 35x). Additiv: bestehende Call-Sites bleiben gueltig.
+      spacing: {
+        section: '6rem',
+        'section-lg': '7rem',
       },
       fontFamily: {
         sans: ['Inter Variable', 'Inter', 'Inter Fallback', 'system-ui', 'sans-serif'],
@@ -113,6 +192,9 @@ export default {
         card: '0 24px 60px rgba(8, 51, 88, 0.12)', // Tinted with brand-deep (hardcoded here because tokens in string might not work directly without interpolation, but this is JS)
         'glow-secondary': '0 0 15px rgba(47, 111, 160, 0.5)', // Softer glow — brand.secondary
         glass: '0 8px 32px 0 rgba(8, 51, 88, 0.15)', // Glassmorphism shadow
+        // Ruheschatten von Modal/Drawer/Dialog. Bisher nur als Literal im
+        // Endzustand von `modal-card-in` — jetzt benannt und dort referenziert.
+        dialog: SHADOW_DIALOG,
       },
       borderRadius: {
         section: '24px',
@@ -174,23 +256,22 @@ export default {
           '100%': {
             opacity: '1',
             transform: 'translateY(0) scale(1)',
-            'box-shadow':
-              '0 0 0 0 rgba(45,212,191,0), 0 0 0 0 rgba(13,148,136,0), 0 20px 60px rgba(8,51,88,0.35)',
+            'box-shadow': `0 0 0 0 rgba(45,212,191,0), 0 0 0 0 rgba(13,148,136,0), ${SHADOW_DIALOG}`,
           },
         },
       },
       animation: {
-        'fade-in-scale': 'fade-in-scale 0.8s ease-out forwards',
-        'slide-in-up': 'slide-in-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards',
-        'slide-out-up': 'slide-out-up 0.4s ease-in forwards',
-        'slide-in-right': 'slide-in-right 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards',
-        'slide-out-left': 'slide-out-left 0.4s ease-in forwards',
-        'icon-in': 'icon-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
-        'icon-out': 'icon-out 0.4s ease-in forwards',
+        'fade-in-scale': `fade-in-scale 0.8s ${EASING.reveal} forwards`,
+        'slide-in-up': `slide-in-up 0.6s ${EASING.emphasis} forwards`,
+        'slide-out-up': `slide-out-up 0.4s ${EASING.exit} forwards`,
+        'slide-in-right': `slide-in-right 0.6s ${EASING.emphasis} forwards`,
+        'slide-out-left': `slide-out-left 0.4s ${EASING.exit} forwards`,
+        'icon-in': `icon-in 0.6s ${EASING['back-out']} forwards`,
+        'icon-out': `icon-out 0.4s ${EASING.exit} forwards`,
         // Modal entrance — see keyframes above.
-        'modal-backdrop-in': 'modal-backdrop-in 280ms ease-out forwards',
-        'modal-card-in': 'modal-card-in 520ms cubic-bezier(0.16, 1, 0.3, 1) forwards',
-        'popover-in': 'popover-in 180ms cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'modal-backdrop-in': `modal-backdrop-in ${DURATION.modal} ${EASING.reveal} forwards`,
+        'modal-card-in': `modal-card-in ${DURATION['modal-card']} ${EASING.entrance} forwards`,
+        'popover-in': `popover-in ${DURATION.popover} ${EASING.entrance} forwards`,
       },
     },
   },

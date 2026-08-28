@@ -78,7 +78,7 @@ const AboutSection = () => {
           {t('about.title', 'Das IglooPro Performance-Setup: Validierte POC-Diagnostik ab Tag 1.')}
         </h2>
 
-        <p className="mt-4 text-base leading-relaxed text-gray-700">
+        <p className="mt-4 t-body">
           {t(
             'about.lede',
             'Das IglooPro ist ein Premium-Gerät — doch wahre Premium-Leistung entsteht erst durch eine perfektionierte, risikofreie Inbetriebnahme. Wir übernehmen die Verantwortung für das Ergebnis, damit Ihr POC-Workflow vom ersten Tag an sitzt.',
@@ -95,8 +95,8 @@ const AboutSection = () => {
                   <Icon size={22} aria-hidden="true" />
                 </span>
                 <div>
-                  <h3 className="text-lg font-semibold text-heading">{pillar.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-gray-700">{pillar.text}</p>
+                  <h3 className="t-h3">{pillar.title}</h3>
+                  <p className="mt-1 t-small">{pillar.text}</p>
                 </div>
               </li>
             )

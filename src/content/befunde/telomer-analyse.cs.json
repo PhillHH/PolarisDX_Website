@@ -1,0 +1,362 @@
+{
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Ukázková zpráva · Ukázková data",
+      "panel": "Telomere Analysis",
+      "subtitle": "Vaše buněčná rezerva",
+      "claim": "Telomery jsou ochranné čepičky na koncích vašich chromozomů. Jejich délka je považována za marker kumulativního buněčného zatížení a regenerační kapacity — měřeno z kapky kapilární krve.",
+      "meta": [
+        {
+          "k": "Zpráva pro",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Odběr vzorku",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Materiál",
+          "v": "Karta se sušenou kapkou krve"
+        },
+        {
+          "k": "Metoda",
+          "v": "qPCR, relativní"
+        }
+      ],
+      "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+      "id": "deckblatt",
+      "benefit": "Kde stojí buněčná rezerva vašeho klienta — a co na ni v každodenním životě působí."
+    },
+    {
+      "type": "principle",
+      "caption": "Princip",
+      "title": "Vaše telomery. Vaše buněčná rezerva.",
+      "lead": "Telomery stabilizují DNA při každém dělení buňky a zabraňují ztrátě genetické informace. Při každém dělení se o něco zkracují. Pokud klesnou pod kritickou délku, buňky ztrácejí schopnost dělení nebo vstupují do senescence — což je klíčový hnací faktor biologického stárnutí.",
+      "cards": [
+        {
+          "title": "Ochrana",
+          "text": "Jak stabilně je vaše DNA chráněna a jak efektivně fungují opravné mechanismy."
+        },
+        {
+          "title": "Regenerace",
+          "text": "Kolik dělicí rezervy si vaše buňky uchovávají a jak odolná zůstává vaše tkáň."
+        },
+        {
+          "title": "Kontext",
+          "text": "Jak vaše délka telomer odpovídá věkově a pohlavně srovnatelné referenční skupině."
+        }
+      ],
+      "flowTitle": "Proces",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Měření",
+          "text": "Suchý krevní vzorek na kartě, koneček prstu. Délka telomer jako relativní kvantifikace pomocí qPCR. Není vyžadováno lačnění."
+        },
+        {
+          "num": "02",
+          "title": "Kontextualizovat",
+          "text": "Srovnání s věkově a pohlavně srovnatelnou referenční skupinou. 112 kbp odpovídá referenční hodnotě (100 %)."
+        },
+        {
+          "num": "03",
+          "title": "Změna",
+          "text": "Telomery nelze izolovaně prodloužit. Důležité je zpomalit procesy, které urychlují jejich zkracování."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Jak spolehlivá je tato hodnota?",
+      "text": "Měření délky telomer pomocí qPCR se značně liší — mezi jednotlivými běhy i mezi laboratořemi. Izolace DNA, skladování a složení krevních buněk systematicky ovlivňují výsledek. U suché krve je tato variabilita vyšší než u žilní krve. Pro diagnostické účely je metoda flow-FISH považována za lepší.",
+      "items": [
+        "Co to znamená v praxi: odchylka o několik procent od referenční hodnoty je stejného řádu jako variabilita měření a sama o sobě není významná. Analýza je spolehlivá až při opakovaných měřeních za stejných podmínek — stejná laboratoř, stejný materiál, srovnatelné odběry vzorků.",
+        "Délka telomer je marker kumulativního buněčného zatížení. Není to diagnóza, není to výrok o délce života a není to míra individuálního rizika onemocnění."
+      ],
+      "tone": "accent",
+      "id": "hinweis"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Váš výsledek",
+      "title": "Vaše délka telomer.",
+      "lead": "Délka telomer · buněčná stabilita. Relativní kvantifikace vůči referenční hodnotě 112 kbp (= 100 %).",
+      "display": "108 kbp",
+      "sub": "96 % referenční hodnoty",
+      "kind": "procento",
+      "value": 96,
+      "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+      "tone": "amber",
+      "text": "Vaše délka telomer je o 4 % nižší než hodnota očekávaná pro váš věk. To odpovídá biologickému věku založenému na telomerách 53 let, tedy o pět let více než váš chronologický věk. Pro kontext: odchylka 4 % je stejného řádu jako variabilita měření qPCR ze suché krve mezi jednotlivými běhy. Hodnotu je proto třeba číst jako výchozí bod trendu, nikoli jako přesné jednorázové určení.",
+      "id": "ergebnis"
+    },
+    {
+      "type": "ageDots",
+      "caption": "Biologický versus chronologický",
+      "title": "Věk telomer",
+      "chronological": 48,
+      "min": 35,
+      "max": 60,
+      "unit": "let",
+      "ticks": ["35", "40", "45", "50", "55", "60"],
+      "note": "48 let (chronologický věk)",
+      "items": [
+        {
+          "label": "Věk telomer",
+          "age": 53,
+          "delta": "+5",
+          "display": "53 yrs · +5 years",
+          "tone": "red"
+        }
+      ],
+      "id": "biologisches-alter"
+    },
+    {
+      "type": "radar",
+      "caption": "Vaše aktuální pozice",
+      "title": "Stravovací a životní návyky.",
+      "lead": "Radar ukazuje, jak blízko jsou vaše současné návyky k referenčním hodnotám. Čím dále je faktor od středu, tím příznivější — 10 je optimální.",
+      "axes": [
+        "Každodenní aktivita",
+        "Cvičení",
+        "Stres",
+        "Tabák",
+        "Alkohol",
+        "Svačiny",
+        "Maso",
+        "Omega-3",
+        "Vláknina",
+        "Ovoce/zelenina",
+        "Příjem tekutin"
+      ],
+      "seriesLabels": {
+        "profile": "Váš profil",
+        "reference": "Referenční skupina"
+      },
+      "scores": [
+        {
+          "value": "72 / 100",
+          "label": "Strava",
+          "text": "Dobrá kombinace živin, prostor pro zlepšení v detailech.",
+          "ref": "Referenční hodnota: ≥ 60"
+        },
+        {
+          "value": "65 / 100",
+          "label": "Životní styl",
+          "text": "Vyvážený, s prostorem pro více pohybu a snížení stresu.",
+          "ref": "Referenční hodnota: ≥ 60"
+        }
+      ],
+      "noticeTitle": "Vztah k délce telomer",
+      "notices": [
+        "Nekuřáctví (9 z 10) je faktor s nejsilnější dokumentovanou souvislostí s délkou telomer — a ve vašem případě již výrazně nad průměrem.",
+        "Stres (4 z 10) je váš nejslabší životní faktor a oblast s největším potenciálem ke zlepšení.",
+        "Pohyb (7) a každodenní aktivita (6) mají prostor pro zlepšení; pravidelná fyzická aktivita patří mezi opatření s dokumentovaným vztahem k biologii telomer."
+      ],
+      "note": "Hodnocení vychází z vašich vlastních údajů, nejde o individuální diagnózu. Uvedené vztahy jsou zjištění z literatury na úrovni skupin, nikoli predikce pro jednotlivce.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Všechna doporučení přehledně",
+      "title": "Vaše intervence.",
+      "lead": "Telomery nelze cíleně prodloužit. Všechna opatření směřují ke zpomalení procesů, které urychlují jejich zkracování — oxidační zátěž a narušená methylace.",
+      "cols": ["Měření", "Zdroj", "Množství", "Poznámka"],
+      "rows": [
+        [
+          "Životní styl",
+          "Nekuřte, mírná konzumace alkoholu, pravidelný pohyb",
+          "150 min/týden",
+          "Nejvýraznější prokazatelný vliv na délku telomer"
+        ],
+        [
+          "Kyselina listová",
+          "Zelená listová zelenina, špenát, kapusta, rajče, luštěniny, klíčky",
+          "2 porce/den",
+          "Syrové nebo krátce napařené — citlivé na teplo. V případě potřeby 2 měsíce jako methylfolát (5-MTHF)"
+        ],
+        ["Riboflavin (B2)", "Klíčky, výhonky, sýr", "denně", "Kofaktor metylace"],
+        [
+          "Kobalamin (B12)",
+          "Vejce, sýr, fermentované potraviny",
+          "4 µg/den",
+          "Doplňovat zejména při veganské stravě"
+        ],
+        [
+          "Pyridoxin (B6)",
+          "Zelí, zelené fazolky, čočka, banány, pšeničné klíčky",
+          "1,5–2,0 mg/den",
+          "Důležité pro metabolismus aminokyselin"
+        ],
+        [
+          "Methionin",
+          "Para ořechy, sezam, sója, hrách, zelená listová zelenina",
+          "2–3 para ořechy denně",
+          "Kvůli obsahu selenu maximálně 3–4 ořechy denně"
+        ],
+        [
+          "EGCG (zelený čaj)",
+          "Zelený čaj, matcha, sencha",
+          "300–400 mg/den (3–4 šálky)",
+          "Antioxidant; nepít přímo s jídly bohatými na železo"
+        ],
+        [
+          "Vláknina",
+          "Celozrnné produkty, zelenina, luštěniny, semena (a jejich slupky)",
+          "alespoň 30 g/den",
+          "Stabilizuje hladinu cukru v krvi, snižuje oxidační zátěž"
+        ]
+      ],
+      "note": "Pět z těchto osmi opatření — folát, B2, B12, B6 a methionin — působí přes stejnou metabolickou cestu: methylaci. Doporučujeme konzultovat doplňky stravy individuálně s odborníkem; tento přehled nenahrazuje lékařskou radu.",
+      "id": "uebersicht"
+    },
+    {
+      "type": "trend",
+      "caption": "Trend",
+      "title": "Aktuální nález.",
+      "lead": "Protože jediná hodnota spolehlivě nepřekoná variabilitu metody, informační hodnota spočívá v trendu. Zobrazují se pouze naměřené hodnoty — žádná prognóza.",
+      "firstLabel": "15.03.2026",
+      "secondLabel": "15.06.2026",
+      "cols": ["Analýza", "15.03.2026", "15.06.2026", "Změna", "Odchylka dnes"],
+      "items": [
+        {
+          "label": "Věk telomer",
+          "first": 55,
+          "second": 53,
+          "firstDisplay": "55 let",
+          "secondDisplay": "53 let",
+          "delta": "−2 roky",
+          "deviation": "+5 oproti chronologickému věku",
+          "tone": "green"
+        }
+      ],
+      "kind": "let",
+      "unit": "let",
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "Co trend ukazuje",
+      "text": "Věk založený na telomerách klesl mezi dvěma měřeními o dva roky, z 55 na 53 — zatímco chronologický věk mezitím vzrostl o tři měsíce. Směr je správný.",
+      "items": [
+        "Současně: telomery se výrazně neprodlužují. Zlepšení tohoto rozsahu je proto pravděpodobně spíše důsledkem variability měření než skutečného prodloužení. Pouze stejný směr v několika měřeních umožňuje závěr.",
+        "Mezi dvěma měřeními uplynuly přibližně tři měsíce. Interval k dalšímu kontrolnímu měření stanovuje dohlížející instituce. Pro srovnatelnost by měla zůstat stejná laboratoř, materiál a způsob odběru vzorku."
+      ],
+      "tone": "accent",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "summary",
+      "caption": "Shrnutí",
+      "title": "Dva páky, a jedna je větší.",
+      "lead": "V této zprávě se objevuje osm opatření. Významně se liší v síle důkazů — to by mělo určovat pořadí, v jakém je řešit.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Životní styl — faktor s nejsilnějšími důkazy",
+          "text": "Podle vaší zprávy jsou nejvýznamnějšími prokazatelnými faktory ovlivňujícími délku telomer nekuřáctví, mírná konzumace alkoholu a pravidelný pohyb. Dva z nich jsou ve vašem případě již dobře etablované: tabák je na stupnici 9 z 10, alkohol na 6. Konkrétně: klíč spočívá v pohybové aktivitě — cvičení 7 z 10, každodenní aktivita 6 z 10. Minimálně 150 minut týdně."
+        },
+        {
+          "num": "02",
+          "title": "Methylace a živiny",
+          "text": "Pět z osmi ukazatelů — folát, B2, B12, B6 a methionin — působí stejnou metabolickou cestou. V praxi to znamená: dvě porce zelené listové zeleniny denně (syrové nebo krátce napařené, protože folát je citlivý na teplo), vejce nebo sýr pro B12, 2–3 para ořechy. Plus 3–4 šálky zeleného čaje a alespoň 30 g vlákniny."
+        }
+      ],
+      "keepTitle": "Co již funguje",
+      "keepText": "Nekuřáctví (9/10), ovoce a zelenina (8/10) a příjem tekutin (8/10) jsou výrazně nad referenční skupinou a skóre stravy 72/100 je solidní. A trend směřuje správným směrem.",
+      "controlTitle": "Zůstat realistický",
+      "controlItems": [
+        "Telomery nelze cíleně prodloužit pomocí stravy nebo životního stylu. Všechna opatření směřují ke zpomalení zkracování. Zda se to odrazí ve vaší osobní hodnotě, lze vzhledem k variabilitě měření posoudit pouze na základě několika měření — nikoli z jednoho dalšího údaje."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "science",
+      "caption": "Co je ověřené — a co není",
+      "title": "Vědecký kontext.",
+      "lead": "Omezení této analýzy uvádíme otevřeně, protože poctivá interpretace má větší hodnotu než působivé číslo.",
+      "cols": ["Ukazatel", "Kontext"],
+      "items": [
+        {
+          "title": "Metoda měření",
+          "text": "Relativní kvantifikace pomocí qPCR"
+        },
+        {
+          "title": "Variabilita",
+          "text": "Výrazná — mezi běhy a mezi laboratořemi"
+        },
+        {
+          "title": "Faktory ovlivňující",
+          "text": "Izolace DNA, skladování a složení buněk mají systematický vliv"
+        },
+        {
+          "title": "Vzorek materiálu",
+          "text": "Vyšší variabilita u sušené krve než u žilní krve"
+        },
+        {
+          "title": "Pro diagnostické otázky",
+          "text": "Flow-FISH je považována za lepší metodu"
+        },
+        {
+          "title": "K čemu je analýza vhodná",
+          "text": "Jako poradenský a trendový nástroj: uvádí do popředí buněčné zatížení, vytváří konkrétní příležitost k zásahu a opakovanými měřeními za stejných podmínek poskytuje trendovou linii."
+        },
+        {
+          "title": "K čemu analýza není vhodná",
+          "text": "Jako diagnostika, jako výrok o délce života nebo individuálním riziku onemocnění — a jako přesné jednorázové stanovení, pokud je odchylka ve stejné řádové velikosti jako variabilita měření."
+        }
+      ],
+      "note": "Zdroje metodiky: Lin et al., PMC6363640 (měření telomer qPCR, kritické faktory); Olivieri et al., Mech Ageing Dev 2012. Tento dokument nenahrazuje lékařské posouzení a nepředstavuje žádný slib vyléčení ve smyslu německého zákona o reklamě léčiv (Heilmittelwerbegesetz).",
+      "id": "einordnung"
+    },
+    {
+      "type": "callout",
+      "title": "Základní princip",
+      "text": "Trend má váhu, jednotlivá hodnota nikoli. Skutečný přínos této analýzy spočívá v počátečním a následném měření za stejných podmínek.",
+      "items": [
+        "Pro srovnatelnost musí zůstat stejná laboratoř, materiál a odběr vzorku — změna laboratoře znamená, že dvě hodnoty již nejsou srovnatelné."
+      ],
+      "tone": "neutral",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "contact",
+      "title": "Máte otázky k vašemu výsledku?",
+      "text": "Výsledky konzultujte s institucí, která provedla odběr vzorku. Právě tam jsou k dispozici kontexty potřebné k interpretaci.",
+      "columns": [
+        {
+          "k": "Kontakt",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribuce",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Ukázková zpráva",
+          "text": "Všechny hodnoty a osobní údaje v tomto dokumentu jsou fiktivní a slouží pouze k ilustraci formátu zprávy. Toto není skutečná zpráva."
+        },
+        {
+          "title": "Interpretace",
+          "text": "Délka telomer je určována metodou qPCR jako relativní hodnota. Tato metoda vykazuje značnou variabilitu mezi běhy i mezi laboratořemi; u sušené krve je variabilita vyšší než u žilní krve. Zpráva není diagnózou, není výrokem o délce života ani měřítkem individuálního rizika onemocnění. Významná informace vzniká pouze na základě několika měření za stejných podmínek."
+        },
+        {
+          "title": "Stav analýz",
+          "text": "Analýzy jsou laboratorní služby poskytované naším partnerským pracovištěm a nejsou označeny značkou CE jako in vitro diagnostické zdravotnické prostředky. Slouží k poradenství a monitoringu a nenahrazují klinickou diagnostiku. Analýzy jsou určeny pouze pro profesionální uživatele."
+        },
+        {
+          "title": "Právní rámec",
+          "text": "Tento panel nevyhodnocuje genotypy; měří epigenetické markery. Pokud analýza v portfoliu zahrnuje genetické testování, je před odběrem vzorku vyžadována informace a písemný souhlas a může být provedena pouze pod lékařskou odpovědností (německý zákon o genetické diagnostice). Laboratorní analýzu provádí náš partnerský subjekt. Polaris Diagnostics Europe GmbH je odpovědná za distribuci a podporu. Doporučujeme individuální konzultaci doplňků stravy se specialistou. Tento dokument nepředstavuje žádný slib vyléčení ve smyslu německého zákona o reklamě léčiv (Heilmittelwerbegesetz)."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stav k: srpen 2026",
+      "id": "kontakt"
+    }
+  ],
+  "panel": "Telomere Analysis",
+  "slug": "telomer-analyse"
+}

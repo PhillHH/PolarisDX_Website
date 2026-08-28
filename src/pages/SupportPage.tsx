@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
+import { Card } from '../components/ui/Card'
 import { useTranslation } from 'react-i18next'
 import {
   LifeBuoy,
@@ -163,9 +164,7 @@ const SupportPage = () => {
               <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading lg:text-[38px]">
                 {t('support.channels.title')}
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-gray-700">
-                {t('support.channels.subtitle')}
-              </p>
+              <p className="mt-4 t-body">{t('support.channels.subtitle')}</p>
             </div>
           </Reveal>
 
@@ -180,7 +179,7 @@ const SupportPage = () => {
                     {c.icon}
                   </span>
                   <h3 className="mt-5 text-lg font-medium text-heading">{c.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-700">{c.desc}</p>
+                  <p className="mt-2 t-small">{c.desc}</p>
                   {c.value && (
                     <span className="mt-4 block text-sm font-medium text-heading">{c.value}</span>
                   )}
@@ -193,19 +192,12 @@ const SupportPage = () => {
                   </span>
                 </>
               )
-              const cls =
-                'group flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 '
               return (
                 <Reveal key={c.title} width="100%" delay={i * REVEAL_STAGGER}>
-                  {c.to ? (
-                    <Link to={c.to} className={cls}>
-                      {body}
-                    </Link>
-                  ) : (
-                    <a href={c.href} className={cls}>
-                      {body}
-                    </a>
-                  )}
+                  {/* `Card` waehlt selbst zwischen <Link> und <a>. */}
+                  <Card to={c.to} href={c.href}>
+                    {body}
+                  </Card>
                 </Reveal>
               )
             })}
@@ -228,7 +220,7 @@ const SupportPage = () => {
                 <h2 className="mt-3 text-2xl font-medium tracking-tight text-heading">
                   {t('support.form_panel.title')}
                 </h2>
-                <p className="mt-3 text-base leading-relaxed text-gray-700">{t('support.intro')}</p>
+                <p className="mt-3 t-body">{t('support.intro')}</p>
 
                 <SupportForm />
               </section>
@@ -242,9 +234,7 @@ const SupportPage = () => {
                   <h2 className="text-lg font-medium tracking-tight text-heading">
                     {t('support.prepare.title')}
                   </h2>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-700">
-                    {t('support.prepare.subtitle')}
-                  </p>
+                  <p className="mt-2 t-small">{t('support.prepare.subtitle')}</p>
                   <ul className="mt-4 space-y-2.5">
                     {prepareItems.map((item) => (
                       <li key={item} className="flex gap-3 text-sm leading-relaxed text-gray-700">
@@ -290,9 +280,7 @@ const SupportPage = () => {
                   <h3 className="text-lg font-medium tracking-tight text-heading">
                     {t('support.info.title')}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-700">
-                    {t('support.info.text')}
-                  </p>
+                  <p className="mt-2 t-small">{t('support.info.text')}</p>
                   <div className="mt-4 space-y-3">
                     <a
                       href={`mailto:${EMAIL}`}
@@ -353,7 +341,7 @@ const SupportPage = () => {
                     </span>
                     <div>
                       <h3 className="text-lg font-medium text-heading">{item.q}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-gray-700">{item.a}</p>
+                      <p className="mt-2 t-small">{item.a}</p>
                     </div>
                   </div>
                 </Reveal>

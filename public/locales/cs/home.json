@@ -93,7 +93,8 @@
     "pillar3": {
       "title": "Doprovázený start",
       "text": "Zaškolení vašeho týmu a přímý kontaktní partner zajistí, že diagnostickou špičkovost využijete okamžitě."
-    }
+    },
+    "device_alt": "POC analyzátor IglooPro"
   },
   "doctors": {
     "caption": "ZAMĚŘENÍ NA DIAGNOSTIKU",
@@ -283,7 +284,8 @@
     },
     "card_cta": "Zjistit více",
     "video_label": "INSTRUKTÁŽNÍ VIDEO",
-    "video_caption": "Takto probíhá test ve vaší ordinaci – za 3 minuty"
+    "video_caption": "Takto probíhá test ve vaší ordinaci – za 3 minuty",
+    "device_alt": "POC analyzátor IglooPro"
   },
   "final_cta": {
     "caption": "Připraveni začít",

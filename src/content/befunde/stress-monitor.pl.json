@@ -1,0 +1,578 @@
+{
+  "slug": "stress-monitor",
+  "panel": "Stress Monitor",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Raport próbki · Przykładowe dane",
+      "panel": "Stress Monitor",
+      "subtitle": "Twoja regulacja stresu",
+      "claim": "Mierzone jest nie sam stres, lecz to, jak dobrze Twój organizm go reguluje. Sześć mikroRNA z jednej kropli krwi kapilarnej daje wgląd w komórkową kontrolę odpowiedzi na stres.",
+      "meta": [
+        {
+          "k": "Raport dla",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Pobranie próbki",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Materiał",
+          "v": "Karta z wysuszonym plamką krwi"
+        },
+        {
+          "k": "Zakres",
+          "v": "6 mikroRNA"
+        }
+      ],
+      "id": "deckblatt",
+      "benefit": "Jak Twój organizm radzi sobie ze stresem — i co możesz zmienić."
+    },
+    {
+      "type": "principle",
+      "caption": "Zasada",
+      "title": "Twoja regulacja stresu. Nie poziom stresu.",
+      "lead": "Stres to nie pojedyncza wielkość, lecz sieć procesów neuroendokrynnych, immunologicznych i metabolicznych — kontrolowanych między innymi przez oś HPA, szlaki sygnalizacji zapalnej i adaptacje mitochondrialne. Analizowanych jest sześć mikroRNA: małych, niekodujących cząsteczek RNA, które pomagają określić, które geny są faktycznie odczytywane w warunkach stresu.",
+      "cards": [
+        {
+          "title": "Ostry i przewlekły",
+          "text": "Jak obecnie przebiega Twoja odpowiedź na stres i czy pojawia się trwałe obciążenie."
+        },
+        {
+          "title": "Regulacja komórkowa",
+          "text": "Jak dobrze Twój organizm równoważy sygnały stresowe na poziomie komórkowym."
+        },
+        {
+          "title": "Regulacja długoterminowa",
+          "text": "Jak wygląda regulacja na poziomie długoterminowym — sam dobry aktualny poziom stresu nic o tym nie mówi."
+        }
+      ],
+      "flowTitle": "Proces",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Pomiar",
+          "text": "Karta z suszoną kroplą krwi z opuszka palca. Sześć mikroRNA, znormalizowanych względem genu referencyjnego miR-24-3p. Nie wymaga bycia na czczo."
+        },
+        {
+          "num": "02",
+          "title": "Oceń",
+          "text": "Dwie oceny na skali sygnalizacji świetlnej 1–9: fizjologiczny poziom stresu i regulacja długoterminowa."
+        },
+        {
+          "num": "03",
+          "title": "Reguluj",
+          "text": "Ukierunkowane zalecenia dotyczące bioaktywnych związków roślinnych oraz monitorowanie w czasie."
+        }
+      ],
+      "scaleTitle": "Jak czytać skalę?",
+      "scaleLead": "Obie oceny i wszystkie sześć indywidualnych markerów są przedstawione na skali sygnalizacji świetlnej 1–9. Wyższa wartość zawsze oznacza lepiej: 1–3 czerwony, 4–6 pomarańczowy, 7–9 zielony. Każda z dwóch ocen ma dodatkowo własne oznaczenia stref.",
+      "scaleKind": "traffic",
+      "scaleTicks": ["1", "3", "5", "7", "9"],
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "1–3 · Czerwone",
+          "text": "Najwyższy priorytet."
+        },
+        {
+          "tone": "amber",
+          "label": "4–6 · Pomarańczowe",
+          "text": "Podejmij ukierunkowane działania zaradcze."
+        },
+        {
+          "tone": "green",
+          "label": "7–9 · Zielone",
+          "text": "Utrzymaj wynik."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Ważne",
+      "text": "Ten raport nie jest diagnozą i nie zastępuje porady medycznej ani psychoterapeutycznej. Jeśli obciążenie, wyczerpanie lub problemy ze snem utrzymują się, prosimy o konsultację lekarską.",
+      "items": [
+        "Wartości sześciu mikroRNA opisują stan w danym momencie i mogą być modyfikowane przez styl życia — co czyni je odpowiednimi do monitorowania w czasie."
+      ],
+      "tone": "neutral",
+      "id": "hinweis"
+    },
+    {
+      "type": "markers",
+      "caption": "Wyniki w skrócie",
+      "title": "Twoje dwie oceny.",
+      "items": [
+        {
+          "name": "Fizjologiczny poziom stresu",
+          "category": "Obciążenie ostre i przewlekłe",
+          "kind": "sygnalizacja świetlna",
+          "value": 7,
+          "display": "7 / 9",
+          "sub": "Korzystne",
+          "tone": "green",
+          "text": "Twój organizm dobrze radzi sobie z aktualnym stresem.",
+          "zoneLabels": ["stres przewlekły", "stres ostry", "brak stresu"]
+        },
+        {
+          "name": "Regulacja długoterminowa",
+          "category": "Cztery mikroRNA z czterech poziomów regulacji",
+          "kind": "sygnalizacja świetlna",
+          "value": 4,
+          "display": "4 / 9",
+          "sub": "Ograniczona",
+          "tone": "amber",
+          "text": "Ograniczona regulacja na wolniejszym poziomie.",
+          "zoneLabels": ["słaba regulacja", "umiarkowana regulacja", "stabilna regulacja"]
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "resultTable",
+      "caption": "Sześć indywidualnych markerów",
+      "title": "Wszystkie mikroRNA na pierwszy rzut oka.",
+      "cols": ["microRNA", "Oznaczenie", "Poziom regulacji", "Wartość", "Wskazuje na"],
+      "rows": [
+        {
+          "cells": [
+            "miR-21-5p",
+            "Wskaźnik ochrony komórek",
+            "Komórkowe mechanizmy ochronne i adaptacyjne",
+            "8 / 9",
+            "Regulacja długoterminowa"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "let-7a-5p",
+            "Wskaźnik stresu ostrego",
+            "Podstawowa regulacja zapalna",
+            "7 / 9",
+            "Poziom stresu"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "miR-16-5p",
+            "Wskaźnik regulacji serotoniny",
+            "Regulacja serotoninergiczna",
+            "6 / 9",
+            "Regulacja długoterminowa"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "miR-15a-5p",
+            "Wskaźnik neuronalny",
+            "Stabilność i adaptacja neuronalna",
+            "5 / 9",
+            "Regulacja długoterminowa"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "let-7g-5p",
+            "Wskaźnik stresu przewlekłego",
+            "Regulacja zapalna i metaboliczna",
+            "4 / 9",
+            "Poziom stresu"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "miR-106b-5p",
+            "Wskaźnik aktywacji sygnału immunologicznego",
+            "Aktywacja immunologiczna",
+            "3 / 9",
+            "Regulacja długoterminowa"
+          ],
+          "tone": "red"
+        }
+      ],
+      "note": "Dwie oceny są obliczane przez laboratorium na podstawie przypisanych do nich mikroRNA; nie są to średnie wartości poszczególnych markerów.",
+      "id": "ergebnis"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Ocena 01",
+      "title": "Fizjologiczny poziom stresu.",
+      "lead": "Składa się ze wskaźnika stresu ostrego i przewlekłego (let-7a-5p, let-7g-5p).",
+      "display": "7 / 9",
+      "sub": "Korzystne",
+      "kind": "sygnalizacja świetlna",
+      "value": 7,
+      "tone": "green",
+      "zoneLabels": ["stres przewlekły", "stres ostry", "brak stresu"],
+      "text": "Ocena pokazuje, gdzie znajduje się Twoja aktualna reakcja na stres pomiędzy „brakiem stresu” a „stressem przewlekłym”. Twoja wartość mieści się w korzystnym zakresie — organizm dobrze radzi sobie z obecnym stresem. Ocena jest zawsze dokonywana w kontekście pozostałych markerów.",
+      "id": "ergebnis-2"
+    },
+    {
+      "type": "markers",
+      "caption": "Ocena 01",
+      "title": "Dwa indywidualne wskaźniki.",
+      "items": [
+        {
+          "name": "let-7a-5p",
+          "category": "Wskaźnik stresu ostrego",
+          "kind": "sygnalizacja świetlna",
+          "value": 7,
+          "display": "7 / 9",
+          "tone": "green",
+          "text": "Należy do rodziny let-7; reguluje szlaki sygnalizacji zapalnej i uczestniczy w procesach stresu oraz odporności. Korzystniejsza z dwóch wartości."
+        },
+        {
+          "name": "let-7g-5p",
+          "category": "Wskaźnik stresu przewlekłego",
+          "kind": "sygnalizacja świetlna",
+          "value": 4,
+          "display": "4 / 9",
+          "tone": "amber",
+          "text": "Reguluje procesy zapalne i metaboliczne wpływające na homeostazę systemową. Znacznie słabszy niż wskaźnik stresu ostrego."
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "callout",
+      "title": "Co jest ważne",
+      "text": "Dwa indywidualne wskaźniki znacznie się różnią: ostry 7/9, przewlekły 4/9. Reakcja na stres ostry działa; poziom przewlekły jest słabszy z obu.",
+      "items": [
+        "Cztery z jedenastu zaleceń — kwercetyna, EGCG, oleuropeina i resweratrol — celują dokładnie w przewlekły wskaźnik let-7g-5p."
+      ],
+      "tone": "accent",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "table",
+      "caption": "Zalecenia",
+      "title": "Związki dla oceny 01.",
+      "cols": ["Związek", "Od markera", "Źródło", "Ilość", "Uwaga"],
+      "rows": [
+        [
+          "Butyrat",
+          "let-7a-5p · 7",
+          "Pektyna (jabłko, dzika róża), inulina (cykoria, karczoch)",
+          "co najmniej 30 g/dzień",
+          "Powstaje podczas fermentacji błonnika prebiotycznego w jelitach"
+        ],
+        [
+          "Kwercetyna",
+          "let-7g-5p · 4",
+          "Cebula, kapary, lubczyk, szczypiorek",
+          "co najmniej 200 mg/dzień",
+          "Wrażliwe na ciepło — spożywać na surowo lub przygotowywać delikatnie"
+        ],
+        [
+          "EGCG",
+          "let-7g-5p · 4",
+          "Biała lub zielona herbata (niefermentowana)",
+          "maks. 800 mg/dzień",
+          "Piperyna, witamina C i olej rybi poprawiają biodostępność"
+        ],
+        [
+          "Oleuropeina",
+          "let-7g-5p · 4",
+          "Oliwki, liść oliwny, olej arganowy",
+          "100 mg/dzień",
+          "Liście są 3000 razy bardziej skoncentrowane, ale bardzo gorzkie"
+        ]
+      ],
+      "id": "uebersicht"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Ocena 02",
+      "title": "Regulacja długoterminowa.",
+      "lead": "Obliczana na podstawie czterech mikroRNA: miR-16-5p, miR-15a-5p, miR-106b-5p i miR-21-5p.",
+      "display": "4 / 9",
+      "sub": "Ograniczona",
+      "kind": "sygnalizacja świetlna",
+      "value": 4,
+      "tone": "amber",
+      "zoneLabels": ["słaba regulacja", "umiarkowana regulacja", "stabilna regulacja"],
+      "text": "Na poziomie ostrym ocena nie wykazuje przeciążenia związanego ze stresem. Poziom regulacji wolniejszej wynosi natomiast 4/9 w zakresie pomarańczowym — jest to punkt centralny tego raportu i punkt wyjścia do dalszej rozmowy.",
+      "id": "ergebnis-3"
+    },
+    {
+      "type": "markers",
+      "caption": "Ocena 02",
+      "title": "Cztery mikroRNA.",
+      "items": [
+        {
+          "name": "miR-106b-5p",
+          "category": "Sygnał immunologiczny",
+          "kind": "sygnalizacja świetlna",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red",
+          "text": "Reguluje odpowiedzi immunologiczne i szlaki sygnalizacji zapalnej. Jedyna czerwona indywidualna wartość w tym raporcie; cztery z jedenastu zaleceń ją dotyczą."
+        },
+        {
+          "name": "miR-15a-5p",
+          "category": "Neuronalny",
+          "kind": "sygnalizacja świetlna",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber",
+          "text": "Reguluje procesy neuronalne, apoptozę i cykl komórkowy; wpływa na homeostazę neuronalną."
+        },
+        {
+          "name": "miR-16-5p",
+          "category": "Serotoninergiczny",
+          "kind": "sygnalizacja świetlna",
+          "value": 6,
+          "display": "6 / 9",
+          "tone": "amber",
+          "text": "Reguluje szlaki sygnalizacji serotoninergicznej i transporter serotoniny; uczestniczy w plastyczności neuronalnej."
+        },
+        {
+          "name": "miR-21-5p",
+          "category": "Ochrona komórek",
+          "kind": "sygnalizacja świetlna",
+          "value": 8,
+          "display": "8 / 9",
+          "tone": "green",
+          "text": "Reguluje przeżycie komórek i apoptozę; uczestniczy w procesach stresu i naprawy. Najlepsza indywidualna wartość w całym raporcie."
+        }
+      ],
+      "id": "marker-3"
+    },
+    {
+      "type": "table",
+      "caption": "Zalecenia",
+      "title": "Związki dla oceny 02.",
+      "cols": ["Związek", "Od markera", "Źródło", "Ilość", "Uwaga"],
+      "rows": [
+        [
+          "Resweratrol",
+          "miR-106b-5p · 3",
+          "Skórki winogron, maliny, borówki brusznice, truskawki",
+          "150 mg/dzień",
+          "Trudne do osiągnięcia wyłącznie dietą"
+        ],
+        [
+          "Omega-3 (NNKT)",
+          "miR-106b-5p · 3",
+          "Tłuste ryby, orzechy włoskie, algi, olej rzepakowy i lniany",
+          "250–500 mg/dzień",
+          "Utrzymuj równowagę omega-3 i omega-6"
+        ],
+        [
+          "Berberyna",
+          "miR-106b-5p · 3",
+          "Kora korzenia berberysu, korzeń pomarańczy",
+          "tylko po konsultacji ze specjalistą",
+          "Znana jako herbata z medycyny ajurwedyjskiej"
+        ],
+        [
+          "Kwas foliowy",
+          "miR-16-5p · 6",
+          "Zielone warzywa liściaste, szpinak, jarmuż, brokuły",
+          "300 µg/dzień",
+          "Palenie zmniejsza wchłanianie"
+        ]
+      ],
+      "id": "uebersicht-2"
+    },
+    {
+      "type": "table",
+      "caption": "Wszystkie zalecenia w skrócie",
+      "title": "Twoje interwencje.",
+      "lead": "Jedenaście związków, z przypisaniem do markerów mikroRNA, na które działają, wraz z aktualną wartością tych markerów. Posortowane według pilności — najsłabsze markery na początku.",
+      "cols": ["Związek", "Od markera", "Źródło", "Ilość", "Uwaga"],
+      "rows": [
+        [
+          "Resweratrol",
+          "miR-106b-5p · 3, let-7g-5p · 4, miR-15a-5p · 5",
+          "Skórki winogron, maliny, borówki brusznice, truskawki",
+          "150 mg/dzień",
+          "Trudne do osiągnięcia w takiej ilości wyłącznie dietą"
+        ],
+        [
+          "Berberyna",
+          "miR-106b-5p · 3",
+          "Kora korzenia berberysu, korzeń pomarańczy",
+          "tylko po konsultacji ze specjalistą",
+          "Znana jako herbata z medycyny ajurwedyjskiej"
+        ],
+        [
+          "Butyrat",
+          "miR-106b-5p · 3, let-7a-5p · 7, miR-21-5p · 8",
+          "Pektyna (jabłko, dzika róża), inulina (cykoria, karczoch)",
+          "co najmniej 30 g/dzień",
+          "Powstaje podczas fermentacji błonnika prebiotycznego w jelitach"
+        ],
+        [
+          "Omega-3 (NNKT)",
+          "miR-106b-5p · 3, miR-21-5p · 8",
+          "Tłuste ryby, orzechy włoskie, algi, olej rzepakowy i lniany",
+          "250–500 mg/dzień",
+          "Utrzymuj równowagę omega-3 i omega-6"
+        ],
+        [
+          "Kwercetyna",
+          "let-7g-5p · 4",
+          "Cebula, kapary, lubczyk, szczypiorek",
+          "co najmniej 200 mg/dzień",
+          "Wrażliwe na ciepło — spożywać na surowo lub przygotowywać delikatnie"
+        ],
+        [
+          "Oleuropeina",
+          "let-7g-5p · 4",
+          "Oliwki, liść oliwny, olej arganowy",
+          "100 mg/dzień",
+          "Liście są 3000 razy bardziej skoncentrowane, ale bardzo gorzkie"
+        ],
+        [
+          "EGCG (zielona herbata)",
+          "let-7g-5p · 4, miR-15a-5p · 5",
+          "Biała lub zielona herbata (niefermentowana)",
+          "maks. 800 mg/dzień",
+          "Piperyna, witamina C i olej rybi poprawiają biodostępność"
+        ],
+        [
+          "Kwas foliowy",
+          "miR-16-5p · 6",
+          "Zielone warzywa liściaste, szpinak, jarmuż, brokuły",
+          "300 µg/dzień",
+          "Palenie zmniejsza wchłanianie"
+        ],
+        [
+          "Kurkumina",
+          "miR-21-5p · 8",
+          "Kurkuma",
+          "maks. 300 mg/dzień",
+          "Skonsultuj się z lekarzem w przypadku ciąży lub kamieni żółciowych"
+        ],
+        [
+          "Gingerol",
+          "miR-21-5p · 8",
+          "Korzeń imbiru",
+          "maks. 5 g/dzień",
+          "W ciąży tylko po konsultacji"
+        ],
+        [
+          "Sulforafan",
+          "miR-21-5p · 8",
+          "Warzywa kapustne, kapusta, brokuły (kiełki)",
+          "25 mg/dzień",
+          "Najlepiej na surowo lub krótko gotowane na parze"
+        ]
+      ],
+      "note": "Prosimy o indywidualne i skonsultowane z wykwalifikowanym specjalistą rozpatrzenie suplementów diety — szczególnie w przypadku ciąży, chorób współistniejących lub przyjmowania leków. Ten przegląd nie zastępuje porady medycznej.",
+      "id": "uebersicht-3"
+    },
+    {
+      "type": "trend",
+      "caption": "Trend",
+      "title": "Porównanie dwóch pomiarów.",
+      "lead": "Porównanie Twoich dotychczasowych dwóch pomiarów. Pokazane są tylko zmierzone wartości — brak prognozy.",
+      "firstLabel": "15.03.2026",
+      "secondLabel": "15.06.2026",
+      "kind": "sygnalizacja świetlna",
+      "items": [
+        {
+          "label": "Fizjologiczny poziom stresu",
+          "first": 6,
+          "second": 7,
+          "firstDisplay": "6 / 9",
+          "secondDisplay": "7 / 9",
+          "delta": "+1",
+          "status": "Korzystne",
+          "tone": "green"
+        },
+        {
+          "label": "Regulacja długoterminowa",
+          "first": 5,
+          "second": 4,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "4 / 9",
+          "delta": "−1",
+          "status": "Ograniczona",
+          "tone": "amber"
+        }
+      ],
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "Co pokazuje trend",
+      "text": "Dwie oceny zmierzają w przeciwnych kierunkach: aktualny poziom stresu poprawił się z 6 do 7 i jest teraz w zakresie zielonym. Wartość regulacji długoterminowej spadła w tym samym okresie z 5 do 4 — a ponieważ wyższa wartość oznacza bardziej stabilną regulację, oznacza to pogorszenie tego poziomu.",
+      "items": [
+        "To jest rzeczywisty wynik tego pomiaru: lepiej radzi się z obciążeniem ostrym, podczas gdy poziom regulacji długoterminowej się pogorszył. Sam dobry poziom stresu nic nie mówi o poziomie długoterminowym.",
+        "Dwa pomiary były wykonane w odstępie około trzech miesięcy. Termin kolejnego pomiaru kontrolnego ustala instytucja nadzorująca."
+      ],
+      "tone": "accent",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "summary",
+      "caption": "Podsumowanie",
+      "title": "Twoje skupienie: długoterminowa perspektywa.",
+      "lead": "Twój aktualny poziom stresu jest dobry — i właśnie na tym punkcie ten raport się zatrzymuje: pogorszył się poziom, którego nie możesz odczuć.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "miR-106b-5p — jedyna czerwona indywidualna wartość",
+          "text": "Na poziomie 3/9 wskaźnik aktywacji sygnału immunologicznego jest najsłabszą wartością w raporcie i wpływa na regulację długoterminową. Cztery z jedenastu zaleceń dotyczą go: resweratrol, berberyna, butyrat i omega-3. Konkretnie: co najmniej 30 g błonnika dziennie dla powstawania butyratu w jelitach, 250–500 mg omega-3 z tłustych ryb, orzechów włoskich lub oleju z alg oraz owoce jagodowe dla resweratrolu."
+        },
+        {
+          "num": "02",
+          "title": "let-7g-5p — poziom przewlekły",
+          "text": "Na poziomie 4/9 wskaźnik stresu przewlekłego jest znacznie niższy niż ostry (7/9) — mimo że ocena całościowa jest w zakresie zielonym. Raport nie pokazuje, który z dwóch wskaźników odpowiada za poprawę z 6 do 7. Kwercetyna, EGCG, oleuropeina i resweratrol działają na poziom przewlekły. Uwagi dotyczące preparatów różnią się w zależności od związku — szczegóły w tabeli „Twoje interwencje”."
+        }
+      ],
+      "keepTitle": "Utrzymuj",
+      "keepText": "miR-21-5p (8/9) i let-7a-5p (7/9) to dwie najsilniejsze wartości — mechanizmy ochrony komórek i reakcja na stres ostry działają dobrze. Kurkumina, gingerol i sulforafan służą tu do utrzymania, a nie korekty.",
+      "controlTitle": "Pomiar kontrolny i kolejny krok",
+      "controlItems": [
+        "Twoje dotychczasowe dwa pomiary były wykonane w odstępie około trzech miesięcy. Termin kolejnej kontroli ustala instytucja nadzorująca.",
+        "Dla porównywalności pobieranie próbek i pora dnia powinny pozostać podobne.",
+        "W przypadku utrzymującego się zmęczenia, problemów ze snem lub obniżonego nastroju ten raport nie zastępuje oceny lekarskiej."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Masz pytania dotyczące swojego raportu?",
+      "text": "Omów wyniki z instytucją, która przeprowadziła pobranie próbki. To tam znajduje się kontekst potrzebny do ich interpretacji.",
+      "columns": [
+        {
+          "k": "Kontakt",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Dystrybucja",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Raport próbki",
+          "text": "Wszystkie wartości i dane osobowe w tym dokumencie są fikcyjne i służą wyłącznie do zilustrowania formatu raportu. To nie jest rzeczywisty raport."
+        },
+        {
+          "title": "Interpretacja",
+          "text": "Niniejszy raport nie stanowi diagnozy i nie zastępuje porady lekarskiej ani psychoterapeutycznej. Wartości mikroRNA opisują chwilowy obraz regulacji komórkowej; nie są miarą odczuwanego stresu i nie stanowią informacji o obecności ani rozwoju choroby. Jeśli utrzymują się napięcie, wyczerpanie, problemy ze snem lub obniżony nastrój, prosimy o konsultację lekarską."
+        },
+        {
+          "title": "Status analiz",
+          "text": "Analizy są usługami laboratoryjnymi świadczonymi przez naszego partnera współpracującego i nie są oznakowanymi znakiem CE wyrobami do diagnostyki in vitro. Służą konsultacji i monitorowaniu i nie zastępują diagnostyki klinicznej. Analizy są dostarczane wyłącznie użytkownikom profesjonalnym."
+        },
+        {
+          "title": "Podstawa prawna",
+          "text": "Panel ten nie ocenia genotypów; mierzy markery epigenetyczne. Tam, gdzie analiza w portfolio obejmuje badania genetyczne, przed pobraniem próbki wymagane są informacje i pisemna zgoda, a badanie może być wykonane wyłącznie pod nadzorem medycznym (niemiecka ustawa o diagnostyce genetycznej – GenDG). Analiza laboratoryjna jest wykonywana przez naszego partnera współpracującego. Polaris Diagnostics Europe GmbH odpowiada za dystrybucję i wsparcie. Prosimy o indywidualną ocenę suplementów diety i konsultację z wykwalifikowanym specjalistą."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stan na: sierpień 2026",
+      "id": "kontakt"
+    }
+  ]
+}

@@ -7,6 +7,8 @@
  */
 
 import type { ReactNode } from 'react'
+import { useTranslation } from 'react-i18next'
+import type { TFunction } from 'i18next'
 import { Building2, Dumbbell, Home, Package, Repeat, Share2, Users, Zap } from 'lucide-react'
 
 import { SEOHead } from '../../components/seo'
@@ -32,122 +34,125 @@ import {
 import { OrderModalProvider, useOrderModal } from './OrderModal'
 import { PriceBadge } from './PriceBadge'
 import { useConsumerPageView } from './tracking'
+import { formatCurrency } from '../../lib/localeFormat'
 
-const NAV = [
-  { label: 'Daily wellbeing', href: '#why' },
-  { label: 'Shared orders', href: '#audiences' },
-  { label: 'How it works', href: '#how' },
-  { label: 'FAQ', href: '#faq' },
+const getNAV = (t: TFunction) => [
+  { label: t('spray.copy_001'), href: '#why' },
+  { label: t('spray.copy_002'), href: '#audiences' },
+  { label: t('spray.copy_003'), href: '#how' },
+  { label: t('spray.copy_004'), href: '#faq' },
 ]
 
 const ICON_CLASS = 'h-6 w-6'
 
-const BENEFITS: { title: string; body: string; icon: ReactNode }[] = [
+const getBENEFITS = (t: TFunction): { title: string; body: string; icon: ReactNode }[] => [
   {
-    title: 'Easy to use',
-    body: 'One spray under the tongue. No water, no tablets — a simple step in any morning routine.',
+    title: t('spray.copy_005'),
+    body: t('spray.copy_006'),
     icon: <Zap className={ICON_CLASS} strokeWidth={1.75} />,
   },
   {
-    title: 'Easy to share',
-    body: 'A 12-pack splits cleanly across a team, a family or a group of friends.',
+    title: t('spray.copy_007'),
+    body: t('spray.copy_008'),
     icon: <Share2 className={ICON_CLASS} strokeWidth={1.75} />,
   },
   {
-    title: 'Easy to stock',
-    body: 'Keep one practical box on hand so daily support never runs out.',
+    title: t('spray.copy_009'),
+    body: t('spray.copy_010'),
     icon: <Package className={ICON_CLASS} strokeWidth={1.75} />,
   },
   {
-    title: 'Fits everyday routines',
-    body: 'Compact bottles for the kitchen, bathroom, a bag or an office wellbeing area.',
+    title: t('spray.copy_011'),
+    body: t('spray.copy_012'),
     icon: <Repeat className={ICON_CLASS} strokeWidth={1.75} />,
   },
 ]
 
-const AUDIENCES: { title: string; body: string; cta: string; icon: ReactNode }[] = [
+const getAUDIENCES = (
+  t: TFunction,
+): { title: string; body: string; cta: string; icon: ReactNode }[] => [
   {
-    title: 'Workplaces',
-    body: 'For staff kitchens, HR wellbeing orders, office care packs and everyday employee support.',
-    cta: 'Order for your team',
+    title: t('spray.copy_013'),
+    body: t('spray.copy_014'),
+    cta: t('spray.copy_015'),
     icon: <Building2 className={ICON_CLASS} strokeWidth={1.75} />,
   },
   {
-    title: 'Homes & families',
-    body: 'For households, families or relatives who want to order together and stay stocked.',
-    cta: 'Order the 12-pack',
+    title: t('spray.copy_016'),
+    body: t('spray.copy_017'),
+    cta: t('spray.copy_018'),
     icon: <Home className={ICON_CLASS} strokeWidth={1.75} />,
   },
   {
-    title: 'Shared orders',
-    body: 'For friends, colleagues or small groups who want to split one practical wellbeing box.',
-    cta: 'Start a shared order',
+    title: t('spray.copy_002'),
+    body: t('spray.copy_019'),
+    cta: t('spray.copy_020'),
     icon: <Users className={ICON_CLASS} strokeWidth={1.75} />,
   },
   {
-    title: 'Lifestyle spaces',
-    body: 'For gyms, studios, retreats and wellness communities that want simple daily care products.',
-    cta: 'Ask about group orders',
+    title: t('spray.copy_021'),
+    body: t('spray.copy_022'),
+    cta: t('spray.copy_023'),
     icon: <Dumbbell className={ICON_CLASS} strokeWidth={1.75} />,
   },
 ]
 
-const SUBLINGUAL = [
+const getSUBLINGUAL = (t: TFunction) => [
   {
-    title: 'What it means',
-    body: 'Sublingual means under the tongue. The spray is applied under the tongue, where it can stay in contact with the oral mucosa before being swallowed. Spray. Hold. Swallow. Done.',
+    title: t('spray.copy_024'),
+    body: t('spray.copy_025'),
   },
   {
-    title: 'Why it matters',
-    body: 'No tablet or capsule and no water needed — an easy daily routine in a kitchen, bathroom, bag or office wellbeing area.',
+    title: t('spray.copy_026'),
+    body: t('spray.copy_027'),
   },
   {
-    title: 'How to use',
-    body: 'Shake gently, spray once under the tongue, hold briefly, then swallow. Do not spray onto lips, teeth or the back of the throat, and do not rinse immediately after use.',
+    title: t('spray.copy_028'),
+    body: t('spray.copy_029'),
   },
 ]
 
-const FACTS: [string, string][] = [
-  ['Pack size', '12 bottles in one pack'],
-  ['Applications', '71 applications per bottle'],
-  ['Format', 'Orange-flavoured sublingual spray'],
-  ['Dosage', '1000 IU Vitamin D3 + 25 µg Vitamin K2'],
-  ['Suitable for', 'Vegan · GMO-free · gluten-free · alcohol-free'],
-  ['Origin', 'Made in Germany'],
+const getFACTS = (t: TFunction): [string, string][] => [
+  [t('spray.facts.pack_size'), t('spray.facts.pack_value')],
+  [t('spray.facts.applications'), t('spray.copy_059')],
+  [t('spray.facts.format'), t('spray.facts.format_value')],
+  [t('spray.facts.dosage'), '1000 IU Vitamin D3 + 25 µg Vitamin K2'],
+  [t('spray.facts.suitable_for'), t('spray.copy_060')],
+  [t('spray.facts.origin'), t('spray.copy_055')],
 ]
 
-const FAQ_ITEMS = [
+const getFAQ_ITEMS = (t: TFunction) => [
   {
-    q: 'What is Vitamin D3+K2 Spray?',
-    a: 'A daily food supplement designed to make Vitamin D3 and K2 easy to include in a regular wellbeing routine. It is taken as an oral spray instead of a tablet or capsule.',
+    q: t('spray.copy_030'),
+    a: t('spray.copy_031'),
   },
   {
-    q: 'What does sublingual spray mean?',
-    a: 'Sublingual means “under the tongue”. The spray is applied under the tongue, where it can stay in contact with the oral mucosa before being swallowed.',
+    q: t('spray.copy_032'),
+    a: t('spray.copy_033'),
   },
   {
-    q: 'Why is sublingual spray useful?',
-    a: 'It is simple and convenient for people who prefer not to take tablets or capsules.',
+    q: t('spray.copy_034'),
+    a: t('spray.copy_035'),
   },
   {
-    q: 'How do I use it correctly?',
-    a: 'Shake gently, spray once under the tongue, hold briefly, then swallow. Use once daily unless advised otherwise. Do not exceed the recommended daily intake.',
+    q: t('spray.copy_036'),
+    a: t('spray.copy_037'),
   },
   {
-    q: 'Why is it sold as a 12-pack?',
-    a: 'The 12-pack is designed for shared wellbeing orders: workplaces, staff kitchens, families, group orders and lifestyle spaces.',
+    q: t('spray.copy_038'),
+    a: t('spray.copy_039'),
   },
   {
-    q: 'How long does one bottle last?',
-    a: 'Each bottle contains 71 applications. At one spray per day, one bottle lasts 71 days. At office use Monday–Friday, one bottle lasts over 14 weeks per person.',
+    q: t('spray.copy_040'),
+    a: t('spray.copy_041'),
   },
   {
-    q: 'What does D3+K2 support?',
-    a: 'Vitamin D and Vitamin K contribute to the maintenance of normal bones. Vitamin D contributes to normal immune system function. Vitamin K contributes to normal blood clotting.',
+    q: t('spray.copy_042'),
+    a: t('spray.copy_043'),
   },
   {
-    q: 'Is it vegan, is it a medicine, and how do I store it?',
-    a: 'It is listed as vegan, GMO-free, gluten-free and alcohol-free. It is a food supplement, not a medicine. Store cool and dry, away from sunlight.',
+    q: t('spray.copy_044'),
+    a: t('spray.copy_045'),
   },
 ]
 
@@ -160,41 +165,45 @@ export default function SprayPage() {
 }
 
 function SprayPageInner() {
+  const { t, i18n } = useTranslation('consumer')
+  const NAV = getNAV(t)
+  const BENEFITS = getBENEFITS(t)
+  const AUDIENCES = getAUDIENCES(t)
+  const SUBLINGUAL = getSUBLINGUAL(t)
+  const FACTS = getFACTS(t)
+  const FAQ_ITEMS = getFAQ_ITEMS(t)
   useConsumerPageView('spray')
   const orderModal = useOrderModal()
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-heading">
-      <SEOHead
-        title="Vitamin D3+K2 Sublingual Spray 12-Pack"
-        description="Daily Vitamin D3+K2 made simple: an orange-flavoured sublingual spray, 1000 IU and 71 doses per bottle. 12-pack for teams, homes and shared wellbeing orders."
-      />
+      <SEOHead title={t('spray.copy_046')} description={t('spray.copy_047')} />
 
-      <ConsumerHeader nav={NAV} cta={{ label: 'Order 12-pack', href: '#order' }} page="spray" />
+      <ConsumerHeader nav={NAV} cta={{ label: t('spray.copy_048'), href: '#order' }} page="spray" />
 
       {/* 2 · HERO */}
       <Hero
         page="spray"
-        eyebrow="Vitamin D3+K2 Spray"
-        title="Daily Vitamin D3+K2 support made simple."
-        sub="A convenient vibrant orange-flavoured sublingual spray for an easy daily wellbeing routine at home, at work or in shared spaces."
-        primary={{ label: 'Buy 12-pack', href: '#order' }}
-        secondary={{ label: 'How it works', href: '#how' }}
+        eyebrow={t('spray.copy_049')}
+        title={t('spray.copy_050')}
+        sub={t('spray.copy_051')}
+        primary={{ label: t('spray.copy_052'), href: '#order' }}
+        secondary={{ label: t('spray.copy_003'), href: '#how' }}
         image={{
           src: sprayHero,
-          alt: 'PolarisDX Vitamin D3+K2 Sublingual Spray — 12-pack in an office wellbeing setting',
+          alt: t('spray.copy_053'),
         }}
-        price={{ amount: '169 €', unit: '12-pack' }}
+        price={{ amount: formatCurrency(169, i18n.resolvedLanguage), unit: t('spray.copy_054') }}
         priceBadge={<PriceBadge product="spray" />}
-        highlights={['Made in Germany', 'Vegan & alcohol-free', 'No payment on this page']}
-        floatingStat={{ value: '71', label: 'applications per bottle' }}
+        highlights={[t('spray.copy_055'), t('spray.copy_056'), t('spray.copy_057')]}
+        floatingStat={{ value: '71', label: t('spray.copy_058') }}
       />
       <FactStrip
         items={[
-          '12-pack',
-          '71 applications per bottle',
-          'Vegan · GMO-free · gluten-free · alcohol-free',
-          'Made in Germany',
-          'Dosage 1000 IU',
+          t('spray.copy_054'),
+          t('spray.copy_059'),
+          t('spray.copy_060'),
+          t('spray.copy_055'),
+          t('spray.copy_061'),
         ]}
       />
 
@@ -202,13 +211,13 @@ function SprayPageInner() {
       <Section
         id="why"
         tone="tint"
-        eyebrow="Why it matters"
-        title="Wellbeing works best when it is easy to repeat."
-        lead="Busy routines make wellbeing inconsistent. The simplest way to keep daily support going is to make it easy where people already gather — the kitchen at home, the staff kitchen at work, the shared space everyone passes through."
+        eyebrow={t('spray.copy_026')}
+        title={t('spray.copy_062')}
+        lead={t('spray.copy_063')}
       />
 
       {/* 4 · BENEFITS */}
-      <Section eyebrow="Benefits" title="Built to fit everyday life">
+      <Section eyebrow={t('spray.copy_064')} title={t('spray.copy_065')}>
         <Grid cols={4}>
           {BENEFITS.map((b) => (
             <Card key={b.title} hover className="flex h-full flex-col">
@@ -224,9 +233,9 @@ function SprayPageInner() {
       <Section
         id="audiences"
         tone="tint"
-        eyebrow="Who it is for"
-        title="One pack, shared where it makes sense"
-        lead="The 12-pack is built as a shared wellbeing order — practical to split across the places people already are."
+        eyebrow={t('spray.copy_066')}
+        title={t('spray.copy_067')}
+        lead={t('spray.copy_068')}
       >
         <Grid cols={4}>
           {AUDIENCES.map((a) => (
@@ -256,14 +265,14 @@ function SprayPageInner() {
       </Section>
 
       {/* 6 · WHAT IS INSIDE */}
-      <Section eyebrow="What is inside" title="What you get in one pack">
+      <Section eyebrow={t('spray.copy_069')} title={t('spray.copy_070')}>
         <div className="mb-12 lg:mb-16">
           <Stats
             items={[
-              { value: '12', label: 'bottles per pack' },
-              { value: '71', label: 'applications per bottle' },
-              { value: '1000 IU', label: 'Vitamin D3 per spray' },
-              { value: '25 µg', label: 'Vitamin K2 per spray' },
+              { value: '12', label: t('spray.copy_071') },
+              { value: '71', label: t('spray.copy_058') },
+              { value: '1000 IU', label: t('spray.copy_072') },
+              { value: '25 µg', label: t('spray.copy_073') },
             ]}
           />
         </div>
@@ -281,7 +290,7 @@ function SprayPageInner() {
           <div className="group mx-auto w-full max-w-sm overflow-hidden rounded-2xl lg:max-w-md">
             <img
               src={sprayStill}
-              alt="PolarisDX Vitamin D3+K2 Sublingual Spray — bottle + box detail"
+              alt={t('spray.copy_074')}
               loading="lazy"
               decoding="async"
               className="w-full transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
@@ -291,46 +300,40 @@ function SprayPageInner() {
       </Section>
 
       {/* 7 · HOW TO USE */}
-      <Section id="how" tone="tint" eyebrow="How to use" title="Spray. Hold. Swallow. Done.">
+      <Section id="how" tone="tint" eyebrow={t('spray.copy_028')} title={t('spray.copy_075')}>
         <Steps
           items={[
-            { title: 'Shake gently', body: 'Give the bottle a gentle shake before use.' },
+            { title: t('spray.copy_076'), body: t('spray.copy_077') },
             {
-              title: 'Spray once under the tongue',
-              body: 'One spray under the tongue — not onto lips, teeth or the back of the throat.',
+              title: t('spray.copy_078'),
+              body: t('spray.copy_079'),
             },
             {
-              title: 'Hold briefly, then swallow',
-              body: 'Hold briefly, then swallow. Do not rinse immediately after use.',
+              title: t('spray.copy_080'),
+              body: t('spray.copy_081'),
             },
           ]}
         />
-        <p className="mt-8 text-center text-sm text-gray-500">
-          Use once daily unless advised otherwise. Do not exceed the recommended daily intake.
-        </p>
+        <p className="mt-8 text-center text-sm text-gray-500">{t('spray.copy_082')}</p>
       </Section>
 
       {/* 8 · WHY SPRAY */}
-      <Section eyebrow="Why spray" title="A format that fits anywhere">
+      <Section eyebrow={t('spray.copy_083')} title={t('spray.copy_084')}>
         <div className="flex justify-center">
           <Pills
             items={[
-              'No water',
-              'No tablets',
-              'Portable',
-              'A visible daily routine',
-              'Convenient sublingual format',
+              t('spray.copy_085'),
+              t('spray.copy_086'),
+              t('spray.copy_087'),
+              t('spray.copy_088'),
+              t('spray.copy_089'),
             ]}
           />
         </div>
       </Section>
 
       {/* 9 · SUBLINGUAL BENEFITS */}
-      <Section
-        tone="tint"
-        eyebrow="Sublingual spray"
-        title="The under-the-tongue format, explained"
-      >
+      <Section tone="tint" eyebrow={t('spray.copy_090')} title={t('spray.copy_091')}>
         <Grid cols={3}>
           {SUBLINGUAL.map((s) => (
             <Card key={s.title} hover className="flex h-full flex-col">
@@ -344,26 +347,26 @@ function SprayPageInner() {
       {/* 10 · BRIDGE TO DUO */}
       <Section
         tone="dark"
-        eyebrow="The next step"
-        title="Support from within, hydration from outside."
+        eyebrow={t('spray.copy_092')}
+        title={t('spray.copy_093')}
         align="left"
-        lead="First step: daily support from within with the spray. Next step: outside-in hydration with the Hydrating Mask bundle — both together in the Inside-Out Care Duo."
+        lead={t('spray.copy_094')}
       >
         <CTA
           to="/consumer/inside-out-duo"
           variant="teal"
           track={{
-            label: 'Explore the Inside-Out Care Duo',
+            label: t('spray.copy_095'),
             page: 'spray',
             location: 'bridge-to-duo',
           }}
         >
-          Explore the Inside-Out Care Duo
+          {t('spray.copy_095')}
         </CTA>
       </Section>
 
       {/* 11 · FAQ */}
-      <Section id="faq" eyebrow="FAQ" title="Practical questions, answered">
+      <Section id="faq" eyebrow={t('spray.copy_004')} title={t('spray.copy_096')}>
         <FAQ items={FAQ_ITEMS} />
       </Section>
 
@@ -371,26 +374,18 @@ function SprayPageInner() {
       <FinalCTA
         page="spray"
         id="order"
-        title="Order the 12-pack"
-        body="Simple daily Vitamin D3+K2 support for teams, homes and shared wellbeing orders."
-        primary={{ label: 'Buy 12-pack', href: '#' }}
+        title={t('spray.copy_018')}
+        body={t('spray.copy_097')}
+        primary={{ label: t('spray.copy_052'), href: '#' }}
         secondary={{
-          label: 'Ask about shared / workplace orders',
+          label: t('spray.copy_098'),
           href: 'mailto:contact@polarisdx.net',
         }}
-        assurances={[
-          'Made in Germany',
-          'Vegan · GMO-free · gluten-free',
-          'No payment on this page',
-        ]}
-        note="No payment is taken on this page — sales confirms price and shipping."
+        assurances={[t('spray.copy_055'), t('spray.copy_099'), t('spray.copy_057')]}
+        note={t('spray.copy_100')}
       />
 
-      <Disclaimer>
-        Vitamin D3+K2 Spray is a food supplement and is not a medicine. Food supplements should not
-        be used as a substitute for a varied, balanced diet and a healthy lifestyle. Do not exceed
-        the recommended daily intake. Keep out of reach of young children.
-      </Disclaimer>
+      <Disclaimer>{t('spray.copy_101')}</Disclaimer>
 
       <Footer />
     </div>

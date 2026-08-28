@@ -21,7 +21,19 @@
     "badge_new": "Nouveau",
     "epigenetics_desc": "Six analyses à partir d'une goutte de sang",
     "musterbefunde": "Rapports types",
-    "musterbefunde_desc": "Six rapports d'exemple à lire"
+    "musterbefunde_desc": "Six rapports d'exemple à lire",
+    "cta_quote": "Demander un devis",
+    "iglooPro": "IglooPro",
+    "praeventionsChecks": "Bilans de santé préventifs",
+    "infektionEntzuendung": "Marqueurs d'infection et d'inflammation",
+    "stoffwechselHerz": "Métabolisme & Santé cardiaque",
+    "hormonTests": "Tests hormonaux et d'endocrinologie",
+    "kompatibilitaetIntegration": "Compatibilité multi-fabricants",
+    "group_fields": "Domaines de pratique",
+    "group_analysis": "Domaines d’analyse",
+    "group_system": "Système & intégration",
+    "diagnostics_all": "Tous les services de diagnostic",
+    "group_crosslink": "Également pertinent"
   },
   "badge": {
     "New": "Nouveau",
@@ -61,7 +73,17 @@
     "pocSystems": "Systèmes POC",
     "preventionChecks": "Bilans de prévention",
     "hormonTests": "Tests hormonaux",
-    "product_note": "IglooPro est un produit de DX365 GmbH"
+    "product_note": "IglooPro est un produit de DX365 GmbH",
+    "col_company": "Entreprise",
+    "col_product": "Produit & savoir",
+    "col_consumer": "Pour les particuliers",
+    "locations": "Sites",
+    "legal": "Mentions légales",
+    "nav_label": "Navigation du pied de page",
+    "epi_basics": "Notions de base",
+    "epi_evidence": "Études",
+    "epi_docs": "Documents",
+    "epi_samples": "Exemples de rapports"
   },
   "read_more": "Lire la suite",
   "search": {
@@ -78,6 +100,110 @@
       "beauty": "Analyses Dermatologiques",
       "longevity": "Santé et Longévité",
       "sports": "Diagnostic de Performance pour Athlètes"
+    },
+    "resultTypes": {
+      "page": "Page",
+      "service": "Service",
+      "article": "Article",
+      "epigenetics": "Épigénétique",
+      "befund": "Rapport type",
+      "resource": "Ressource",
+      "event": "Événement",
+      "consumer": "Produit grand public"
+    },
+    "modal": {
+      "title": "Rechercher sur le site",
+      "label": "Terme de recherche",
+      "placeholder": "Que recherchez-vous ?",
+      "close": "Fermer la recherche",
+      "escapeHint": "Appuyez sur Échap pour fermer",
+      "initialTitle": "Que souhaitez-vous trouver ?",
+      "initialDescription": "Recherchez des pages, des diagnostics, des articles et des ressources.",
+      "loading": "Chargement des résultats de recherche",
+      "emptyTitle": "Aucun résultat",
+      "emptyDescription": "Aucun contenu correspondant à « {{query}} » n’a été trouvé. Vérifiez l’orthographe ou utilisez un terme plus général.",
+      "errorTitle": "Recherche indisponible",
+      "errorDescription": "La recherche n’a pas pu aboutir. Veuillez réessayer.",
+      "results_zero": "Aucun résultat",
+      "results_one": "{{count}} résultat",
+      "results_many": "{{count}} résultats",
+      "results_other": "{{count}} résultats",
+      "groups": {
+        "page": "Pages",
+        "service": "Diagnostics",
+        "article": "Articles",
+        "epigenetics": "Épigénétique",
+        "befund": "Rapports types",
+        "resource": "Ressources",
+        "event": "Événements",
+        "consumer": "Produits grand public"
+      }
+    },
+    "index": {
+      "epigenetics": {
+        "title": "Analyses épigénétiques et génétiques",
+        "description": "Six analyses à partir d’une goutte de sang capillaire pour la pratique."
+      },
+      "epigenetics-grundlagen": {
+        "title": "Principes de l’épigénétique",
+        "description": "Découvrez ce que mesurent les analyses et comment interpréter leurs résultats."
+      },
+      "epigenetics-studienlage": {
+        "title": "Données scientifiques sur l’épigénétique",
+        "description": "Aperçu des preuves scientifiques, des limites et de l’utilisation responsable."
+      },
+      "epigenetics-unterlagen": {
+        "title": "Documents sur l’épigénétique",
+        "description": "Téléchargez les fiches d’information et les documents des six analyses."
+      },
+      "befund-metabolic-health": {
+        "title": "Rapport type Metabolic Health",
+        "description": "Rapport type avec données d’exemple et explications claires. Metabolic Health."
+      },
+      "befund-healthy-aging": {
+        "title": "Rapport type Healthy Aging",
+        "description": "Rapport type avec données d’exemple et explications claires. Healthy Aging."
+      },
+      "befund-biologische-altersuhr": {
+        "title": "Rapport type Biologische Altersuhr",
+        "description": "Rapport type avec données d’exemple et explications claires. Biologische Altersuhr."
+      },
+      "befund-telomer-analyse": {
+        "title": "Rapport type Telomer-Analyse",
+        "description": "Rapport type avec données d’exemple et explications claires. Telomer-Analyse."
+      },
+      "befund-stress-monitor": {
+        "title": "Rapport type Stress Monitor",
+        "description": "Rapport type avec données d’exemple et explications claires. Stress Monitor."
+      },
+      "befund-healthy-sport": {
+        "title": "Rapport type Healthy Sport",
+        "description": "Rapport type avec données d’exemple et explications claires. Healthy Sport."
+      },
+      "article-green_practice": {
+        "title": "Cabinet vert : la durabilité commence dans la salle d’attente",
+        "description": "La durabilité dans la santé commence par la logistique du diagnostic au point d’intervention."
+      },
+      "article-invisible_patient": {
+        "title": "Le patient invisible : suivi à distance",
+        "description": "Comment le diagnostic au point d’intervention soutient les soins et le suivi hors du cabinet."
+      },
+      "article-five_minute_diagnosis": {
+        "title": "Le diagnostic en cinq minutes",
+        "description": "Pourquoi le diagnostic au point d’intervention est pertinent sur les plans médical et économique."
+      },
+      "article-ecosystem_of_rapid_tests": {
+        "title": "L’écosystème des tests rapides",
+        "description": "Pourquoi la compatibilité entre tests rapides améliore la sécurité et les processus."
+      },
+      "article-rapid_setup_formula": {
+        "title": "La formule de performance du diagnostic POC",
+        "description": "Comment mettre en place rapidement et efficacement le diagnostic au point d’intervention."
+      },
+      "article-precision_point_of_care": {
+        "title": "Précision au point d’intervention",
+        "description": "Pourquoi la validation des tests rapides est essentielle à la sécurité des patients."
+      }
     }
   },
   "cookie": {
@@ -130,7 +256,11 @@
   "a11y": {
     "search": "Ouvrir la recherche",
     "toggle_nav": "Basculer la navigation",
-    "honeypot": "Veuillez laisser ce champ vide"
+    "honeypot": "Veuillez laisser ce champ vide",
+    "select_language": "Choisir la langue",
+    "main_nav": "Navigation principale",
+    "toggle_submenu": "{{name}} — sous-menu",
+    "skip_to_content": "Aller au contenu"
   },
   "languageFallback": {
     "notice": "Cette page n'est disponible qu'en anglais pour le moment."

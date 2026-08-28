@@ -81,7 +81,7 @@ const StepsSection = () => {
                 </span>
               </div>
               <h3 className="mt-4 font-medium text-heading">{step.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-gray-700">{step.text}</p>
+              <p className="mt-2 t-small">{step.text}</p>
             </div>
           ))}
         </div>

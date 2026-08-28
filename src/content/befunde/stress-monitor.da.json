@@ -1,0 +1,578 @@
+{
+  "slug": "stress-monitor",
+  "panel": "Stress Monitor",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Prøverapport · Eksempeldata",
+      "panel": "Stress Monitor",
+      "subtitle": "Din stressregulering",
+      "claim": "Det, der måles, er ikke stress i sig selv, men hvor godt din krop regulerer den. Seks microRNA’er fra en enkelt dråbe kapillært blod giver indsigt i den cellulære kontrol af din stressrespons.",
+      "meta": [
+        {
+          "k": "Rapport for",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Prøvetagning",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Materiale",
+          "v": "Tørret bloddråbe-kort"
+        },
+        {
+          "k": "Omfang",
+          "v": "6 microRNA’er"
+        }
+      ],
+      "id": "deckblatt",
+      "benefit": "Hvordan din klients krop håndterer stress — og hvad de kan ændre."
+    },
+    {
+      "type": "principle",
+      "caption": "Princippet",
+      "title": "Din stressregulering. Ikke dit stressniveau.",
+      "lead": "Stress er ikke en enkelt størrelse, men et netværk af neuroendokrine, immunologiske og metaboliske processer — styret blandt andet via HPA-aksen, inflammatoriske signalveje og mitokondrie-tilpasninger. Seks microRNA’er analyseres: små, ikke-kodende RNA-molekyler, der hjælper med at bestemme, hvilke gener der faktisk aflæses under stressbetingelser.",
+      "cards": [
+        {
+          "title": "Akut & kronisk",
+          "text": "Hvordan din stressrespons aktuelt forløber, og om der opstår en vedvarende belastning."
+        },
+        {
+          "title": "Cellulær regulering",
+          "text": "Hvor godt din krop balancerer stresssignaler på celleniveau."
+        },
+        {
+          "title": "Langtidsregulering",
+          "text": "Hvordan reguleringen viser sig på langt sigt — et godt aktuelt stressniveau siger intet alene om dette."
+        }
+      ],
+      "flowTitle": "Processen",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Måling",
+          "text": "Tørret blodprøvekort, fingerspids. Seks microRNA’er, normaliseret til referencegenet miR-24-3p. Ingen faste nødvendig."
+        },
+        {
+          "num": "02",
+          "title": "Vurdér",
+          "text": "To vurderinger på trafiklysskalaen 1–9: fysiologisk stressniveau og langtidsregulering."
+        },
+        {
+          "num": "03",
+          "title": "Regulér",
+          "text": "Målrettede anbefalinger om plantebaserede bioaktive forbindelser og opfølgende monitorering over tid."
+        }
+      ],
+      "scaleTitle": "Hvordan læser jeg skalaen?",
+      "scaleLead": "Både vurderingerne og alle seks individuelle markører afvikles på trafiklysskalaen 1–9. Højere er altid bedre: 1–3 rød, 4–6 gul, 7–9 grøn. Hver af de to vurderinger har desuden sin egen zonespecifikke mærkning.",
+      "scaleKind": "traffic",
+      "scaleTicks": ["1", "3", "5", "7", "9"],
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "1–3 · Rød",
+          "text": "Højeste prioritet."
+        },
+        {
+          "tone": "amber",
+          "label": "4–6 · Gul",
+          "text": "Tag målrettede modforanstaltninger."
+        },
+        {
+          "tone": "green",
+          "label": "7–9 · Grøn",
+          "text": "Bevar resultatet."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Vigtigt",
+      "text": "Denne rapport er ikke en diagnose og erstatter ikke medicinsk eller psykoterapeutisk rådgivning. Hvis belastning, udmattelse eller søvnproblemer fortsætter, bedes du søge lægelig rådgivning.",
+      "items": [
+        "De seks mikroRNA-værdier beskriver et øjebliksbillede og kan påvirkes af livsstil – hvilket gør dem velegnede til overvågning over tid."
+      ],
+      "tone": "neutral",
+      "id": "hinweis"
+    },
+    {
+      "type": "markers",
+      "caption": "Resultater i oversigt",
+      "title": "Dine to vurderinger.",
+      "items": [
+        {
+          "name": "Fysiologisk stressniveau",
+          "category": "Akut og kronisk belastning",
+          "kind": "trafik",
+          "value": 7,
+          "display": "7 / 9",
+          "sub": "Favorabel",
+          "tone": "green",
+          "text": "Din krop håndterer den aktuelle stress godt.",
+          "zoneLabels": ["kronisk stress", "akut stress", "ingen stress"]
+        },
+        {
+          "name": "Langtidsregulering",
+          "category": "Fire mikroRNA’er fra fire reguleringsniveauer",
+          "kind": "trafik",
+          "value": 4,
+          "display": "4 / 9",
+          "sub": "Begrænset",
+          "tone": "amber",
+          "text": "Begrænset regulering på det langsommere niveau.",
+          "zoneLabels": ["svag regulering", "moderat regulering", "stabil regulering"]
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "resultTable",
+      "caption": "De seks individuelle markører",
+      "title": "Alle mikroRNA’er samlet.",
+      "cols": ["mikroRNA", "Betegnelse", "Reguleringsniveau", "Værdi", "Indgår i"],
+      "rows": [
+        {
+          "cells": [
+            "miR-21-5p",
+            "Indikator for cellebeskyttelse",
+            "Cellulære beskyttelses- og tilpasningsmekanismer",
+            "8 / 9",
+            "Langtidsregulering"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "let-7a-5p",
+            "Indikator for akut stress",
+            "Basal inflammatorisk regulering",
+            "7 / 9",
+            "Stressniveau"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "miR-16-5p",
+            "Indikator for serotoninregulering",
+            "Serotonerg regulering",
+            "6 / 9",
+            "Langtidsregulering"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "miR-15a-5p",
+            "Neuronal indikator",
+            "Neuronal stabilitet og tilpasning",
+            "5 / 9",
+            "Langtidsregulering"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "let-7g-5p",
+            "Indikator for kronisk stress",
+            "Inflammatorisk og metabolisk regulering",
+            "4 / 9",
+            "Stressniveau"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "miR-106b-5p",
+            "Indikator for aktivering af immunsignal",
+            "Immunologisk aktivering",
+            "3 / 9",
+            "Langtidsregulering"
+          ],
+          "tone": "red"
+        }
+      ],
+      "note": "De to vurderinger beregnes af laboratoriet ud fra de mikroRNA’er, der er tildelt dem; de er ikke gennemsnittet af disse individuelle værdier.",
+      "id": "ergebnis"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Vurdering 01",
+      "title": "Fysiologisk stressniveau.",
+      "lead": "Består af den akutte og den kroniske stressindikator (let-7a-5p, let-7g-5p).",
+      "display": "7 / 9",
+      "sub": "Favorabel",
+      "kind": "trafik",
+      "value": 7,
+      "tone": "green",
+      "zoneLabels": ["kronisk stress", "akut stress", "ingen stress"],
+      "text": "Vurderingen viser, hvor din aktuelle stressrespons ligger mellem ’ingen stress’ og ’kronisk stress’. Din værdi er i det gunstige område – din krop håndterer den aktuelle stress godt. Vurderingen foretages altid i sammenhæng med de øvrige markører.",
+      "id": "ergebnis-2"
+    },
+    {
+      "type": "markers",
+      "caption": "Vurdering 01",
+      "title": "De to individuelle indikatorer.",
+      "items": [
+        {
+          "name": "let-7a-5p",
+          "category": "Indikator for akut stress",
+          "kind": "trafik",
+          "value": 7,
+          "display": "7 / 9",
+          "tone": "green",
+          "text": "Del af let-7-familien; regulerer inflammatoriske signalveje og indgår i stress- og immunprocesser. Den mest gunstige af de to værdier."
+        },
+        {
+          "name": "let-7g-5p",
+          "category": "Indikator for kronisk stress",
+          "kind": "trafik",
+          "value": 4,
+          "display": "4 / 9",
+          "tone": "amber",
+          "text": "Regulerer inflammatoriske og metaboliske processer, der påvirker systemisk homeostase. Markant svagere end den akutte indikator."
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "callout",
+      "title": "Det væsentlige her",
+      "text": "De to individuelle indikatorer afviger betydeligt: akut 7/9, kronisk 4/9. Den akutte stressrespons fungerer; det kroniske niveau er den svagere af de to.",
+      "items": [
+        "Fire af de elleve anbefalinger – quercetin, EGCG, oleuropein og resveratrol – retter sig netop mod den kroniske indikator let-7g-5p."
+      ],
+      "tone": "accent",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "table",
+      "caption": "Anbefalinger",
+      "title": "Stoffer til vurdering 01.",
+      "cols": ["Stof", "Fra markør", "Kilde", "Mængde", "Bemærkning"],
+      "rows": [
+        [
+          "Butyrat",
+          "let-7a-5p · 7",
+          "Pektin (æble, hyben), inulin (cikorie, artiskok)",
+          "mindst 30 g/dag",
+          "Dannes under fermentering af præbiotisk fiber i tarmen"
+        ],
+        [
+          "Quercetin",
+          "let-7g-5p · 4",
+          "Løg, kapers, løvstikke, purløg",
+          "mindst 200 mg/dag",
+          "Varmefølsomt – spis råt eller tilbered skånsomt"
+        ],
+        [
+          "EGCG",
+          "let-7g-5p · 4",
+          "Hvid eller grøn te (ufermenteret)",
+          "max. 800 mg/dag",
+          "Piperin, C-vitamin og fiskeolie forbedrer biotilgængeligheden"
+        ],
+        [
+          "Oleuropein",
+          "let-7g-5p · 4",
+          "Oliven, olivenblad, arganolie",
+          "100 mg/dag",
+          "Blade er 3.000 gange mere koncentrerede, men meget bitre"
+        ]
+      ],
+      "id": "uebersicht"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Vurdering 02",
+      "title": "Langsigtet regulering.",
+      "lead": "Beregnet ud fra fire mikroRNA’er: miR-16-5p, miR-15a-5p, miR-106b-5p og miR-21-5p.",
+      "display": "4 / 9",
+      "sub": "Begrænset",
+      "kind": "trafik",
+      "value": 4,
+      "tone": "amber",
+      "zoneLabels": ["svag regulering", "moderat regulering", "stabil regulering"],
+      "text": "På det akutte niveau viser vurderingen ingen stressrelateret overbelastning. Det langsommere reguleringsniveau ligger derimod på 4/9 i det gule område – det er fokus for denne rapport og udgangspunktet for samtalen.",
+      "id": "ergebnis-3"
+    },
+    {
+      "type": "markers",
+      "caption": "Vurdering 02",
+      "title": "De fire mikroRNA’er.",
+      "items": [
+        {
+          "name": "miR-106b-5p",
+          "category": "Immunsignal",
+          "kind": "trafik",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red",
+          "text": "Regulerer immunresponser og inflammatoriske signalveje. Den eneste røde individuelle værdi i denne rapport; fire af de elleve anbefalinger retter sig mod den."
+        },
+        {
+          "name": "miR-15a-5p",
+          "category": "Neuronal",
+          "kind": "trafik",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber",
+          "text": "Regulerer neuronale processer, apoptose og cellecyklus; påvirker neuronal homeostase."
+        },
+        {
+          "name": "miR-16-5p",
+          "category": "Serotonerg",
+          "kind": "trafik",
+          "value": 6,
+          "display": "6 / 9",
+          "tone": "amber",
+          "text": "Regulerer serotonerge signalveje og serotonintransportøren; involveret i neuronal plasticitet."
+        },
+        {
+          "name": "miR-21-5p",
+          "category": "Cellebeskyttelse",
+          "kind": "trafik",
+          "value": 8,
+          "display": "8 / 9",
+          "tone": "green",
+          "text": "Regulerer cellesurvival og apoptose; involveret i stress- og reparationsprocesser. Den bedste individuelle værdi i hele rapporten."
+        }
+      ],
+      "id": "marker-3"
+    },
+    {
+      "type": "table",
+      "caption": "Anbefalinger",
+      "title": "Stoffer til vurdering 02.",
+      "cols": ["Stof", "Fra markør", "Kilde", "Mængde", "Bemærkning"],
+      "rows": [
+        [
+          "Resveratrol",
+          "miR-106b-5p · 3",
+          "Vindrueskaller, hindbær, tyttebær, jordbær",
+          "150 mg/dag",
+          "Svært at opnå gennem kosten alene"
+        ],
+        [
+          "Omega-3 (PUFA’er)",
+          "miR-106b-5p · 3",
+          "Fed fisk, valnødder, alger, raps- og hørfrøolie",
+          "250–500 mg/dag",
+          "Hold omega-3 og omega-6 i balance"
+        ],
+        [
+          "Berberin",
+          "miR-106b-5p · 3",
+          "Berberisbark, appelsinrod",
+          "kun efter professionel konsultation",
+          "Kendt som te fra ayurvedisk medicin"
+        ],
+        [
+          "Folsyre",
+          "miR-16-5p · 6",
+          "Grønne bladgrøntsager, spinat, grønkål, broccoli",
+          "300 µg/dag",
+          "Rygning reducerer optagelsen"
+        ]
+      ],
+      "id": "uebersicht-2"
+    },
+    {
+      "type": "table",
+      "caption": "Alle anbefalinger samlet",
+      "title": "Dine tiltag.",
+      "lead": "Elleve stoffer, hver tilknyttet den microRNA-markør, de påvirker, sammen med markørens aktuelle værdi. Sorteret efter hastende behov — de svageste markører først.",
+      "cols": ["Stof", "Fra markør", "Kilde", "Mængde", "Bemærkning"],
+      "rows": [
+        [
+          "Resveratrol",
+          "miR-106b-5p · 3, let-7g-5p · 4, miR-15a-5p · 5",
+          "Vindrueskaller, hindbær, tyttebær, jordbær",
+          "150 mg/dag",
+          "Svært at opnå i denne mængde gennem kosten alene"
+        ],
+        [
+          "Berberin",
+          "miR-106b-5p · 3",
+          "Berberisbark, appelsinrod",
+          "kun efter professionel konsultation",
+          "Kendt som te fra ayurvedisk medicin"
+        ],
+        [
+          "Butyrat",
+          "miR-106b-5p · 3, let-7a-5p · 7, miR-21-5p · 8",
+          "Pektin (æble, hyben), inulin (cikorie, artiskok)",
+          "mindst 30 g/dag",
+          "Dannes under fermentering af præbiotisk fiber i tarmen"
+        ],
+        [
+          "Omega-3 (PUFA’er)",
+          "miR-106b-5p · 3, miR-21-5p · 8",
+          "Fed fisk, valnødder, alger, raps- og hørfrøolie",
+          "250–500 mg/dag",
+          "Hold omega-3 og omega-6 i balance"
+        ],
+        [
+          "Quercetin",
+          "let-7g-5p · 4",
+          "Løg, kapers, løvstikke, purløg",
+          "mindst 200 mg/dag",
+          "Varmefølsomt – spis råt eller tilbered skånsomt"
+        ],
+        [
+          "Oleuropein",
+          "let-7g-5p · 4",
+          "Oliven, olivenblad, arganolie",
+          "100 mg/dag",
+          "Blade er 3.000 gange mere koncentrerede, men meget bitre"
+        ],
+        [
+          "EGCG (grøn te)",
+          "let-7g-5p · 4, miR-15a-5p · 5",
+          "Hvid eller grøn te (ufermenteret)",
+          "max. 800 mg/dag",
+          "Piperin, C-vitamin og fiskeolie forbedrer biotilgængeligheden"
+        ],
+        [
+          "Folsyre",
+          "miR-16-5p · 6",
+          "Grønne bladgrøntsager, spinat, grønkål, broccoli",
+          "300 µg/dag",
+          "Rygning reducerer optagelsen"
+        ],
+        [
+          "Curcumin",
+          "miR-21-5p · 8",
+          "Gurkemeje",
+          "max. 300 mg/dag",
+          "Tjek med læge ved graviditet eller galdesten"
+        ],
+        [
+          "Gingerol",
+          "miR-21-5p · 8",
+          "Ingefærrod",
+          "max. 5 g/dag",
+          "Under graviditet kun efter konsultation"
+        ],
+        [
+          "Sulforafan",
+          "miR-21-5p · 8",
+          "Korsblomstrede grøntsager, kål, broccoli (spirer)",
+          "25 mg/dag",
+          "Bedst rå eller let dampet"
+        ]
+      ],
+      "note": "Gennemgå kosttilskud individuelt og i samråd med kvalificeret fagperson — især ved graviditet, eksisterende sygdomme eller samtidig medicinering. Dette overblik erstatter ikke medicinsk rådgivning.",
+      "id": "uebersicht-3"
+    },
+    {
+      "type": "trend",
+      "caption": "Udvikling",
+      "title": "To målinger sammenlignet.",
+      "lead": "En sammenligning af dine to målinger til dato. Kun målte værdier vises — ingen prognose.",
+      "firstLabel": "15.03.2026",
+      "secondLabel": "15.06.2026",
+      "kind": "trafik",
+      "items": [
+        {
+          "label": "Fysiologisk stressniveau",
+          "first": 6,
+          "second": 7,
+          "firstDisplay": "6 / 9",
+          "secondDisplay": "7 / 9",
+          "delta": "+1",
+          "status": "Favorabel",
+          "tone": "green"
+        },
+        {
+          "label": "Langtidsregulering",
+          "first": 5,
+          "second": 4,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "4 / 9",
+          "delta": "−1",
+          "status": "Begrænset",
+          "tone": "amber"
+        }
+      ],
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "Hvad tendensen viser",
+      "text": "De to vurderinger bevæger sig i modsat retning: det aktuelle stressniveau er forbedret fra 6 til 7 og er nu i det grønne område. Værdien for langtidsregulering er faldet fra 5 til 4 i samme periode — og fordi en højere værdi også her betyder mere stabil regulering, betyder det, at dette niveau er forværret.",
+      "items": [
+        "Dette er den egentlige konklusion af denne måling: akut belastning håndteres bedre, mens det langsigtede reguleringsniveau er forværret. Et godt stressniveau alene siger intet om det langsigtede niveau.",
+        "De to målinger var cirka tre måneder fra hinanden. Intervallet til næste opfølgningsmåling fastsættes af den ansvarlige institution."
+      ],
+      "tone": "accent",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "summary",
+      "caption": "Resumé",
+      "title": "Dit fokus: det lange perspektiv.",
+      "lead": "Dit nuværende stressniveau er godt — og netop her sætter denne rapport ind: det niveau, der er forværret, er det, du ikke kan mærke.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "miR-106b-5p — den eneste røde individuelle værdi",
+          "text": "Ved 3/9 er indikatoren for immunaktivering den svageste værdi i rapporten og indgår i langtidsreguleringen. Fire af de elleve anbefalinger retter sig mod den: resveratrol, berberin, butyrat og omega-3. Konkret: mindst 30 g fibre dagligt til butyratdannelse i tarmen, 250–500 mg omega-3 fra fed fisk, valnødder eller algeolie samt bær til resveratrol."
+        },
+        {
+          "num": "02",
+          "title": "let-7g-5p — det kroniske niveau",
+          "text": "Ved 4/9 ligger indikatoren for kronisk stress betydeligt under den akutte (7/9) — selvom den samlede vurdering er i det grønne område. Rapporten viser ikke, hvilken af de to indikatorer der stod for forbedringen fra 6 til 7. Quercetin, EGCG, oleuropein og resveratrol påvirker det kroniske niveau. Anvisningerne for præparaterne varierer — detaljer i tabellen “Dine indgreb”."
+        }
+      ],
+      "keepTitle": "Vedligehold",
+      "keepText": "miR-21-5p (8/9) og let-7a-5p (7/9) er de to stærkeste værdier — cellulære beskyttelsesmekanismer og den akutte stressrespons fungerer godt. Curcumin, gingerol og sulforafan tjener til vedligeholdelse her, ikke til korrektion.",
+      "controlTitle": "Opfølgning og næste skridt",
+      "controlItems": [
+        "Dine to målinger til dato var cirka tre måneder fra hinanden. Intervallet til næste opfølgning fastsættes af den ansvarlige institution.",
+        "For sammenlignelighed bør prøveudtagning og tidspunkt på dagen være ensartede.",
+        "Ved vedvarende udmattelse, søvnproblemer eller nedtrykthed erstatter denne rapport ikke medicinsk vurdering."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Spørgsmål om din rapport?",
+      "text": "Drøft resultaterne med den institution, der har foretaget prøveudtagningen. Det er dér, den nødvendige kontekst til fortolkning findes.",
+      "columns": [
+        {
+          "k": "Kontakt",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribution",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Prøverapport",
+          "text": "Alle værdier og personlige oplysninger i dette dokument er fiktive og tjener udelukkende til at illustrere rapportformatet. Dette er ikke en ægte rapport."
+        },
+        {
+          "title": "Fortolkning",
+          "text": "Denne rapport er ikke en diagnose og erstatter ikke medicinsk eller psykoterapeutisk rådgivning. MicroRNA-værdierne beskriver et øjebliksbillede af cellulær regulering; de er ikke en måling af oplevet stress og udtaler sig ikke om tilstedeværelsen eller udviklingen af en sygdom. Hvis belastning, udmattelse, søvnproblemer eller nedtrykthed fortsætter, bedes du søge lægefaglig rådgivning."
+        },
+        {
+          "title": "Status for analyserne",
+          "text": "Analyserne er laboratorietjenester leveret af vores samarbejdspartner og er ikke CE-mærkede in vitro-diagnostiske medicinsk udstyr. De tjener til rådgivning og overvågning og erstatter ikke klinisk diagnostik. Analyserne leveres kun til professionelle brugere."
+        },
+        {
+          "title": "Lovgivningsmæssigt grundlag",
+          "text": "Dette panel vurderer ingen genotyper; det måler epigenetiske markører. Hvor en analyse i porteføljen inkluderer genetisk testning, kræves information og skriftligt samtykke før prøveudtagning, og det må kun arrangeres under medicinsk ansvar (tysk lov om genetisk diagnostik). Laboratorieanalysen udføres af vores samarbejdspartner. Polaris Diagnostics Europe GmbH er ansvarlig for distribution og support. Venligst gennemgå kosttilskud individuelt og i samråd med en kvalificeret fagperson."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Pr. august 2026",
+      "id": "kontakt"
+    }
+  ]
+}

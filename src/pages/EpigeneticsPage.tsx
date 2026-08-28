@@ -32,6 +32,8 @@ import EpigeneticsPanels from '../components/sections/EpigeneticsPanels'
 import PageTransition from '../components/ui/PageTransition'
 import ChapterNav, { type Chapter, type NavAction } from '../components/ui/ChapterNav'
 import Reveal, { REVEAL_STAGGER } from '../components/ui/Reveal'
+import ResourceLanguageBadge from '../components/ui/ResourceLanguageBadge'
+import { resourceLanguageFromPath } from '../lib/resourceLanguage'
 import ConsultSteps, { CONSULT_ID } from '../components/befund/ConsultSteps'
 import { ScaleRamp } from '../components/befund/BefundCharts'
 import { useScrollDepth } from '../lib/useScrollDepth'
@@ -40,6 +42,7 @@ import { useScrollDepth } from '../lib/useScrollDepth'
 // sich nicht sagen, ob der umgebaute Anfrageweg traegt.
 import { track } from '../lib/tracking'
 import { useMerkliste } from '../lib/merkliste'
+import { VERTIEFUNGEN } from '../components/epigenetics/tokens'
 
 // public/ wird nach dist/client kopiert — die oeffentliche URL ist /downloads/...
 const ASSET_BASE = '/downloads/epigenetics/'
@@ -112,7 +115,7 @@ const Sparkle = ({ className = '' }: { className?: string }) => (
 )
 
 const EpigeneticsPage = () => {
-  const { t, i18n } = useTranslation('epigenetics')
+  const { t, i18n } = useTranslation(['epigenetics', 'common', 'downloads'])
   useScrollDepth('epigenetics')
   // Die vorgemerkten Panels reisen im Ereignis mit: eine Anfrage nach drei
   // vorgemerkten Panels ist etwas anderes als eine aus dem Vorbeigehen.
@@ -777,10 +780,16 @@ const EpigeneticsPage = () => {
                 <a
                   href={zipHref}
                   download
+                  hrefLang={resourceLanguageFromPath(t('downloads.zipFile'))}
                   className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
                 >
                   <Download className="h-4 w-4" />
                   {t('downloads.zipLabel')}
+                  <ResourceLanguageBadge
+                    language={resourceLanguageFromPath(t('downloads.zipFile'))}
+                    format="zip"
+                    className="text-white/80"
+                  />
                 </a>
               </div>
             </Reveal>
@@ -820,10 +829,14 @@ const EpigeneticsPage = () => {
                     </div>
 
                     <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-4">
-                      <span className="text-sm text-gray-500">{sheet.meta}</span>
+                      <span className="text-sm text-gray-500">
+                        {sheet.meta} ·{' '}
+                        <ResourceLanguageBadge language={resourceLanguageFromPath(sheet.file)} />
+                      </span>
                       <a
                         href={`${ASSET_BASE}${sheet.file}`}
                         download
+                        hrefLang={resourceLanguageFromPath(sheet.file)}
                         className="inline-flex items-center gap-2 rounded-full bg-brand-primary px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-navy-hover"
                       >
                         <Download className="h-4 w-4" />
@@ -846,18 +859,22 @@ const EpigeneticsPage = () => {
                 <a
                   href={`${ASSET_BASE}${t('compare.file')}`}
                   download
+                  hrefLang="de"
                   className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
                 >
                   <Download className="h-4 w-4" />
                   {t('compare.cta')}
+                  <ResourceLanguageBadge language="de" className="font-normal text-gray-600" />
                 </a>
                 <a
                   href={`${ASSET_BASE}${t('basics.file')}`}
                   download
+                  hrefLang="de"
                   className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
                 >
                   <Download className="h-4 w-4" />
                   {t('basics.cta')}
+                  <ResourceLanguageBadge language="de" className="font-normal text-gray-600" />
                 </a>
               </div>
             </Reveal>
@@ -879,6 +896,30 @@ const EpigeneticsPage = () => {
                 </a>
               </div>
             </Reveal>
+          </div>
+        </section>
+
+        <section className="border-y border-slate-200 bg-white">
+          <div className="mx-auto max-w-container px-4 py-14 lg:px-0 lg:py-16">
+            <h2 className={LABEL}>{t('common:read_more', 'Weiterlesen')}</h2>
+            <div className="mt-4 grid gap-4 md:grid-cols-3">
+              {VERTIEFUNGEN.map((vertiefung) => (
+                <Link
+                  key={vertiefung.key}
+                  to={vertiefung.to}
+                  className="group flex flex-col rounded-3xl border border-slate-200 bg-slate-50 p-6 transition-all hover:-translate-y-0.5 hover:border-brand-primary hover:bg-white hover:shadow-card"
+                >
+                  <span className={LABEL}>{t(vertiefung.captionKey)}</span>
+                  <span className="mt-2 inline-flex items-start gap-1.5 text-lg font-semibold tracking-tight text-heading">
+                    {t(vertiefung.titleKey)}
+                    <ArrowRight
+                      className="mt-1.5 h-4 w-4 shrink-0 text-brand-primary transition-transform group-hover:translate-x-0.5"
+                      aria-hidden="true"
+                    />
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -928,9 +969,7 @@ const EpigeneticsPage = () => {
             {/* CE- und Laborhinweis standen hier bei 3,2:1 bzw. 2,4:1 - unter
                 der Lesbarkeitsschwelle. Ein Pflichthinweis, den man nicht lesen
                 kann, ist keiner. */}
-            <p className="mx-auto mt-10 max-w-[68ch] text-sm leading-relaxed text-gray-700">
-              {t('contact.note')}
-            </p>
+            <p className="mx-auto mt-10 max-w-[68ch] t-small">{t('contact.note')}</p>
             <p className="mt-3 text-sm text-gray-600">{t('contact.lab')}</p>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-base">

@@ -24,6 +24,12 @@
   "cta_title": "Unterlage nicht gefunden?",
   "cta_text": "Unser Team stellt Ihnen weitere Datenblätter, Zertifikate oder eine individuelle Produktberatung bereit.",
   "cta_button": "Angebot anfragen",
+  "assetLanguage": { "pdf": "PDF auf {{language}}", "zip": "ZIP mit Dokumenten auf {{language}}", "languages": { "de": "Deutsch", "en": "Englisch" } },
+  "assets": {
+    "igloo": { "title": "IglooPro Systemflyer", "description": "Deutscher Produktflyer zum IglooPro Point-of-Care-Reader." },
+    "vitd3De": { "title": "Vitamin D3+K2 Spray – Produktflyer", "description": "Deutscher Produktflyer mit Anwendung und Produkteigenschaften." },
+    "vitd3En": { "title": "Vitamin D3+K2 Spray – Produktflyer", "description": "Englischer Produktflyer mit Anwendung und Produkteigenschaften." }
+  },
   "seo": {
     "title": "Downloads: IglooPro & Vitamin D3+K2 Produktflyer",
     "description": "Produktflyer zum IglooPro POC-Reader und zum Vitamin D3+K2 Spray kostenlos als PDF herunterladen – ohne Anmeldung. Technische Datenblätter auf Anfrage."

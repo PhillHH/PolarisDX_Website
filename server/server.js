@@ -3,9 +3,30 @@ const sgMail = require('@sendgrid/mail')
 const cors = require('cors')
 const rateLimit = require('express-rate-limit')
 const PDFDocument = require('pdfkit')
+const { resolveMailLocale, getMailCopy, formatMailCurrency } = require('./system-i18n')
 require('dotenv').config()
 
 const app = express()
+
+const ERROR_CODES = Object.freeze({
+  consentRequired: 'CONSENT_REQUIRED',
+  requiredFields: 'REQUIRED_FIELDS',
+  invalidEmail: 'INVALID_EMAIL',
+  invalidAttachment: 'INVALID_ATTACHMENT',
+  unknownProduct: 'UNKNOWN_PRODUCT',
+  deliveryFailed: 'DELIVERY_FAILED',
+  rateLimited: 'RATE_LIMITED',
+})
+
+const sendError = (res, status, code) => res.status(status).json({ success: false, code })
+
+function requestMailLocale(value, flow) {
+  const resolved = resolveMailLocale(value)
+  if (resolved.didFallback) {
+    console.warn(`[${flow}] unsupported locale "${resolved.requested || '(missing)'}"; using en`)
+  }
+  return resolved.locale
+}
 
 // Behind exactly one proxy hop (nginx/SSR) so req.ip reflects the real client.
 // IMPORTANT: this is what makes the per-IP rate limiter (formLimiter) trustworthy.
@@ -30,7 +51,7 @@ const formLimiter = rateLimit({
   max: 5, // per IP per window (tune to taste)
   standardHeaders: true,
   legacyHeaders: false,
-  message: { success: false, error: 'Too many requests, please try later.' },
+  message: { success: false, code: ERROR_CODES.rateLimited },
 })
 
 // Validation of required environment variables
@@ -65,8 +86,9 @@ if (DRY_RUN) {
 // API Endpoint
 app.post('/api/contact', formLimiter, async (req, res) => {
   try {
-    const { name, email, message, company, phone, area, requirements, consent, _hp } =
+    const { name, email, message, company, phone, area, requirements, consent, _hp, locale } =
       req.body || {}
+    const mailLocale = requestMailLocale(locale, 'contact')
 
     // Honeypot — bots almost always fill it; drop silently without sending.
     if (_hp) {
@@ -76,17 +98,17 @@ app.post('/api/contact', formLimiter, async (req, res) => {
 
     // DSGVO: explicit consent is required
     if (consent !== true) {
-      return res.status(400).json({ error: 'Consent required.' })
+      return sendError(res, 400, ERROR_CODES.consentRequired)
     }
 
     // Basic validation
     if (!name || !email || !message) {
-      return res.status(400).json({ error: 'Name, email, and message are required.' })
+      return sendError(res, 400, ERROR_CODES.requiredFields)
     }
 
     // Cheap email shape check (server-side; UI also validates)
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email))) {
-      return res.status(400).json({ error: 'Invalid email.' })
+      return sendError(res, 400, ERROR_CODES.invalidEmail)
     }
 
     // Route Vitamin D3+K2 Spray orders to dedicated address
@@ -99,7 +121,7 @@ app.post('/api/contact', formLimiter, async (req, res) => {
       to: recipient,
       from: process.env.SENDER_EMAIL, // Must be a verified sender in SendGrid
       replyTo: email,
-      subject: `Neue Kontaktanfrage von ${name}`,
+      subject: `[${mailLocale.toUpperCase()}] Neue Kontaktanfrage von ${name}`,
       text: `
         Neue Kontaktanfrage über das Webseiten-Formular:
 
@@ -135,7 +157,7 @@ app.post('/api/contact', formLimiter, async (req, res) => {
     if (error.response) {
       console.error(error.response.body)
     }
-    res.status(500).json({ success: false, error: 'Failed to send email' })
+    sendError(res, 500, ERROR_CODES.deliveryFailed)
   }
 })
 
@@ -153,7 +175,11 @@ app.post('/api/support', formLimiter, async (req, res) => {
       attachment,
       consent,
       _hp,
+      locale,
+      issueTypeLabel,
     } = req.body || {}
+    const mailLocale = requestMailLocale(locale, 'support')
+    const supportCopy = getMailCopy(mailLocale).support
 
     // Honeypot — bots almost always fill it; drop silently without sending.
     if (_hp) {
@@ -163,17 +189,17 @@ app.post('/api/support', formLimiter, async (req, res) => {
 
     // DSGVO: explicit consent is required
     if (consent !== true) {
-      return res.status(400).json({ error: 'Consent required.' })
+      return sendError(res, 400, ERROR_CODES.consentRequired)
     }
 
     // Basic validation
     if (!name || !email || !udi || !swVersion || !issueType || !subject) {
-      return res.status(400).json({ error: 'Required fields are missing.' })
+      return sendError(res, 400, ERROR_CODES.requiredFields)
     }
 
     // Cheap email shape check (server-side; UI also validates)
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email))) {
-      return res.status(400).json({ error: 'Invalid email.' })
+      return sendError(res, 400, ERROR_CODES.invalidEmail)
     }
 
     const supportText = `
@@ -183,7 +209,7 @@ Name: ${name}
 Email: ${email}
 Igloo Reader UDI: ${udi}
 SW-Version: ${swVersion}
-Problemtyp: ${issueType}
+Problemtyp: ${issueTypeLabel || issueType}
 Betreff: ${subject}
 
 Beschreibung:
@@ -197,7 +223,7 @@ ${description || '-'}
   <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Email:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${esc(email)}</td></tr>
   <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Igloo Reader UDI:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${esc(udi)}</td></tr>
   <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">SW-Version:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${esc(swVersion)}</td></tr>
-  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Problemtyp:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${esc(issueType)}</td></tr>
+  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Problemtyp:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${esc(issueTypeLabel || issueType)}</td></tr>
   <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Betreff:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${esc(subject)}</td></tr>
 </table>
 <br>
@@ -243,13 +269,13 @@ ${description || '-'}
         !attachment.filename ||
         !ALLOWED_ATTACHMENT_TYPES.includes(attachment.type)
       ) {
-        return res.status(400).json({ error: 'Invalid attachment.' })
+        return sendError(res, 400, ERROR_CODES.invalidAttachment)
       }
 
       // Estimate decoded size from base64 length (slight over-estimate; never under-counts).
       const decodedBytes = Math.floor((attachment.content.length * 3) / 4)
       if (decodedBytes > MAX_ATTACHMENT_BYTES) {
-        return res.status(400).json({ error: 'Invalid attachment.' })
+        return sendError(res, 400, ERROR_CODES.invalidAttachment)
       }
 
       msg.attachments = [
@@ -266,21 +292,21 @@ ${description || '-'}
     const confirmationMsg = {
       to: email,
       from: process.env.SENDER_EMAIL,
-      subject: `Ihre Support-Anfrage wurde empfangen: ${subject}`,
-      text: `Hallo ${name},\n\nvielen Dank für Ihre Support-Anfrage. Wir haben Ihre Nachricht erhalten und werden uns schnellstmöglich bei Ihnen melden.\n\nIhre Angaben:\n- Igloo Reader UDI: ${udi}\n- SW-Version: ${swVersion}\n- Problemtyp: ${issueType}\n- Betreff: ${subject}\n\nMit freundlichen Grüßen,\nDas PolarisDX Support-Team\ncontact@polarisdx.net\n+49 151 75011699`,
+      subject: `${supportCopy.subject}: ${subject}`,
+      text: `${supportCopy.greeting} ${name},\n\n${supportCopy.received}\n\n${supportCopy.details}:\n- Igloo Reader UDI: ${udi}\n- SW-Version: ${swVersion}\n- ${supportCopy.issueType}: ${issueTypeLabel || issueType}\n- ${supportCopy.subjectLabel}: ${subject}\n\n${supportCopy.regards},\n${supportCopy.team}\ncontact@polarisdx.net\n+49 151 75011699`,
       html: `
-<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-  <h2 style="color: #083358;">Ihre Support-Anfrage wurde empfangen</h2>
-  <p>Hallo ${esc(name)},</p>
-  <p>vielen Dank für Ihre Support-Anfrage. Wir haben Ihre Nachricht erhalten und werden uns schnellstmöglich bei Ihnen melden.</p>
-  <h3 style="color: #083358; margin-top: 24px;">Ihre Angaben:</h3>
+<div lang="${mailLocale}" style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+  <h2 style="color: #083358;">${esc(supportCopy.title)}</h2>
+  <p>${esc(supportCopy.greeting)} ${esc(name)},</p>
+  <p>${esc(supportCopy.received)}</p>
+  <h3 style="color: #083358; margin-top: 24px;">${esc(supportCopy.details)}:</h3>
   <table style="border-collapse: collapse; width: 100%; max-width: 500px;">
     <tr><td style="padding: 6px 8px; border-bottom: 1px solid #eee; font-weight: bold;">Igloo Reader UDI:</td><td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${esc(udi)}</td></tr>
     <tr><td style="padding: 6px 8px; border-bottom: 1px solid #eee; font-weight: bold;">SW-Version:</td><td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${esc(swVersion)}</td></tr>
-    <tr><td style="padding: 6px 8px; border-bottom: 1px solid #eee; font-weight: bold;">Problemtyp:</td><td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${esc(issueType)}</td></tr>
-    <tr><td style="padding: 6px 8px; border-bottom: 1px solid #eee; font-weight: bold;">Betreff:</td><td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${esc(subject)}</td></tr>
+    <tr><td style="padding: 6px 8px; border-bottom: 1px solid #eee; font-weight: bold;">${esc(supportCopy.issueType)}:</td><td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${esc(issueTypeLabel || issueType)}</td></tr>
+    <tr><td style="padding: 6px 8px; border-bottom: 1px solid #eee; font-weight: bold;">${esc(supportCopy.subjectLabel)}:</td><td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${esc(subject)}</td></tr>
   </table>
-  <p style="margin-top: 24px;">Mit freundlichen Grüßen,<br><strong>Das PolarisDX Support-Team</strong></p>
+  <p style="margin-top: 24px;">${esc(supportCopy.regards)},<br><strong>${esc(supportCopy.team)}</strong></p>
   <p style="color: #666; font-size: 13px;">contact@polarisdx.net | +49 151 75011699</p>
 </div>
       `,
@@ -296,7 +322,7 @@ ${description || '-'}
     if (error.response) {
       console.error(error.response.body)
     }
-    res.status(500).json({ success: false, error: 'Failed to send support email' })
+    sendError(res, 500, ERROR_CODES.deliveryFailed)
   }
 })
 
@@ -353,10 +379,13 @@ app.post('/api/consumer-order', async (req, res) => {
       country,
       // free-form context
       message,
+      quantityLabel,
       // GDPR / spam
       consent,
       _hp,
+      locale,
     } = req.body || {}
+    const mailLocale = requestMailLocale(locale, 'consumer-order')
 
     // Honeypot — bots almost always fill all visible/hidden fields
     if (_hp) {
@@ -366,18 +395,18 @@ app.post('/api/consumer-order', async (req, res) => {
 
     // DSGVO: explicit consent is required
     if (consent !== true) {
-      return res.status(400).json({ error: 'Consent required.' })
+      return sendError(res, 400, ERROR_CODES.consentRequired)
     }
 
     if (!product || !CONSUMER_PRODUCT_LABELS[product]) {
-      return res.status(400).json({ error: 'Unknown product.' })
+      return sendError(res, 400, ERROR_CODES.unknownProduct)
     }
     if (!name || !email || !quantity) {
-      return res.status(400).json({ error: 'Required fields are missing.' })
+      return sendError(res, 400, ERROR_CODES.requiredFields)
     }
     // Cheap email shape check (server-side; UI also validates)
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email))) {
-      return res.status(400).json({ error: 'Invalid email.' })
+      return sendError(res, 400, ERROR_CODES.invalidEmail)
     }
 
     const productLabel = CONSUMER_PRODUCT_LABELS[product]
@@ -391,7 +420,7 @@ app.post('/api/consumer-order', async (req, res) => {
     const orderText = `Neue Bestellanfrage über die Consumer-Landingpage
 
 Produkt:     ${productLabel}
-Stückzahl:   ${quantity}
+Stückzahl:   ${quantityLabel || quantity}
 
 — Ansprechpartner —
 Name:        ${name}
@@ -433,7 +462,7 @@ ausdrücklich zugestimmt (DSGVO Art. 6 Abs. 1 lit. b).
 <table style="border-collapse:collapse;width:100%;max-width:680px;">
   ${sectionRow('Bestellung')}
   ${row('Produkt', esc(productLabel))}
-  ${row('Stückzahl', esc(quantity))}
+  ${row('Stückzahl', esc(quantityLabel || quantity))}
 
   ${sectionRow('Ansprechpartner')}
   ${row('Name', esc(name))}
@@ -471,7 +500,7 @@ ${
       to: CONSUMER_ORDER_RECIPIENTS,
       from: process.env.SENDER_EMAIL,
       replyTo: email,
-      subject: `Neue Bestellung — ${productLabel} (${quantity}x)`,
+      subject: `[${mailLocale.toUpperCase()}] Neue Bestellung — ${productLabel} (${quantityLabel || quantity})`,
       text: orderText,
       html: orderHtml,
     }
@@ -484,7 +513,7 @@ ${
     if (error.response) {
       console.error(error.response.body)
     }
-    res.status(500).json({ success: false, error: 'Failed to send order' })
+    sendError(res, 500, ERROR_CODES.deliveryFailed)
   }
 })
 
@@ -578,54 +607,44 @@ const ROI_REPORT_RECIPIENTS = [
   'contact@polarisdx.net',
 ]
 
-const eur = (n) =>
-  new Intl.NumberFormat('de-DE', {
-    style: 'currency',
-    currency: 'EUR',
-    maximumFractionDigits: 0,
-  }).format(Number.isFinite(+n) ? +n : 0)
-
-function buildRoiPdf({ practice, area, inputs = {}, outputs = {} }) {
+function buildRoiPdf({ practice, area, inputs = {}, outputs = {}, locale }) {
   return new Promise((resolve, reject) => {
     try {
+      const c = getMailCopy(locale).roi
+      const eur = (value) => formatMailCurrency(value, locale)
       const doc = new PDFDocument({ size: 'A4', margin: 50 })
       const chunks = []
       doc.on('data', (c) => chunks.push(c))
       doc.on('end', () => resolve(Buffer.concat(chunks)))
       doc.on('error', reject)
 
-      doc.fillColor('#083358').fontSize(22).text('IglooPro — ROI-Report')
-      doc.moveDown(0.3).fillColor('#0d9488').fontSize(11).text('Point-of-Care-Diagnostik · PolarisDX')
+      doc.fillColor('#083358').fontSize(22).text(c.title)
+      doc.moveDown(0.3).fillColor('#0d9488').fontSize(11).text(c.subtitle)
       doc.moveDown(1).fillColor('#334155').fontSize(11)
-      if (practice) doc.text(`Praxis: ${practice}`)
-      if (area) doc.text(`Fachrichtung: ${area}`)
+      if (practice) doc.text(`${c.practice}: ${practice}`)
+      if (area) doc.text(`${c.area}: ${area}`)
       doc.moveDown(1)
 
-      doc.fillColor('#083358').fontSize(14).text('Ihre Eingaben')
+      doc.fillColor('#083358').fontSize(14).text(c.inputs)
       doc.moveDown(0.3).fillColor('#334155').fontSize(11)
-      doc.text(`• Tests pro Monat: ${inputs.testsPerMonth ?? '-'}`)
-      doc.text(`• Preis pro Test: ${eur(inputs.pricePerTest)}`)
-      doc.text(`• Materialkosten pro Test: ${eur(inputs.materialCostPerTest)}`)
-      doc.text(`• Minuten pro Test: ${inputs.minutesPerTest ?? '-'}`)
-      doc.text(`• Personalkosten pro Stunde: ${eur(inputs.staffCostPerHour)}`)
-      if (inputs.deviceInvestment) doc.text(`• Geräteinvestition: ${eur(inputs.deviceInvestment)}`)
+      doc.text(`• ${c.tests}: ${inputs.testsPerMonth ?? '-'}`)
+      doc.text(`• ${c.price}: ${eur(inputs.pricePerTest)}`)
+      doc.text(`• ${c.material}: ${eur(inputs.materialCostPerTest)}`)
+      doc.text(`• ${c.minutes}: ${inputs.minutesPerTest ?? '-'}`)
+      doc.text(`• ${c.staff}: ${eur(inputs.staffCostPerHour)}`)
+      if (inputs.deviceInvestment) doc.text(`• ${c.investment}: ${eur(inputs.deviceInvestment)}`)
       doc.moveDown(1)
 
-      doc.fillColor('#083358').fontSize(14).text('Ihr Ergebnis (Beispielrechnung)')
+      doc.fillColor('#083358').fontSize(14).text(c.results)
       doc.moveDown(0.3).fillColor('#334155').fontSize(11)
-      doc.text(`• Deckungsbeitrag / Monat: ${eur(outputs.dbPerMonth)}`)
-      doc.text(`• Selbstzahler-Umsatz / Monat: ${eur(outputs.revenuePerMonth)}`)
-      doc.text(`• Deckungsbeitrag / Jahr: ${eur(outputs.dbPerYear)}`)
-      doc.text(`• Deckungsbeitrag je Test: ${eur(outputs.dbPerTest)}`)
-      if (outputs.payback != null) doc.text(`• Amortisation: ${outputs.payback} Monate`)
+      doc.text(`• ${c.month}: ${eur(outputs.dbPerMonth)}`)
+      doc.text(`• ${c.revenue}: ${eur(outputs.revenuePerMonth)}`)
+      doc.text(`• ${c.year}: ${eur(outputs.dbPerYear)}`)
+      doc.text(`• ${c.perTest}: ${eur(outputs.dbPerTest)}`)
+      if (outputs.payback != null) doc.text(`• ${c.payback}: ${outputs.payback} ${c.months}`)
       doc.moveDown(1.2)
 
-      doc
-        .fillColor('#64748b')
-        .fontSize(9)
-        .text(
-          'Unverbindliche Beispielrechnung auf Basis Ihrer Eingaben. Keine Zusage von Umsatz oder Gewinn — Ergebnisse hängen von Ihren individuellen Praxiswerten ab. IVDR/CE-konform · CV < 2 %.',
-        )
+      doc.fillColor('#64748b').fontSize(9).text(`${c.disclaimer} IVDR/CE · CV < 2 %.`)
       doc.end()
     } catch (e) {
       reject(e)
@@ -635,38 +654,58 @@ function buildRoiPdf({ practice, area, inputs = {}, outputs = {} }) {
 
 app.post('/api/roi-report', formLimiter, async (req, res) => {
   try {
-    const { email, area, practice, consent, _hp, inputs = {}, outputs = {} } = req.body || {}
+    const {
+      email,
+      area,
+      areaLabel,
+      practice,
+      consent,
+      _hp,
+      locale,
+      inputs = {},
+      outputs = {},
+    } = req.body || {}
+    const mailLocale = requestMailLocale(locale, 'roi-report')
+    const c = getMailCopy(mailLocale).roi
+    const eur = (value) => formatMailCurrency(value, mailLocale)
 
     if (_hp) {
       console.log('[roi-report] honeypot triggered, silently dropping')
       return res.status(200).json({ success: true })
     }
     if (consent !== true) {
-      return res.status(400).json({ error: 'Consent required.' })
+      return sendError(res, 400, ERROR_CODES.consentRequired)
     }
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email))) {
-      return res.status(400).json({ error: 'Invalid email.' })
+      return sendError(res, 400, ERROR_CODES.invalidEmail)
     }
 
-    const sanArea = esc(area || '-')
+    const resolvedArea = areaLabel || area || '-'
+    const sanArea = esc(resolvedArea)
     const sanPractice = esc(practice || '-')
     const rowsIn = `
-      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">Tests / Monat</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${esc(inputs.testsPerMonth ?? '-')}</td></tr>
-      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">Preis / Test</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(inputs.pricePerTest)}</td></tr>
-      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">Materialkosten / Test</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(inputs.materialCostPerTest)}</td></tr>
-      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">Minuten / Test</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${esc(inputs.minutesPerTest ?? '-')}</td></tr>
-      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">Personalkosten / Std.</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(inputs.staffCostPerHour)}</td></tr>
-      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">Geräteinvestition</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${inputs.deviceInvestment ? eur(inputs.deviceInvestment) : '-'}</td></tr>`
+      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">${esc(c.tests)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${esc(inputs.testsPerMonth ?? '-')}</td></tr>
+      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">${esc(c.price)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(inputs.pricePerTest)}</td></tr>
+      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">${esc(c.material)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(inputs.materialCostPerTest)}</td></tr>
+      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">${esc(c.minutes)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${esc(inputs.minutesPerTest ?? '-')}</td></tr>
+      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">${esc(c.staff)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(inputs.staffCostPerHour)}</td></tr>
+      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">${esc(c.investment)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${inputs.deviceInvestment ? eur(inputs.deviceInvestment) : '-'}</td></tr>`
     const rowsOut = `
-      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">Deckungsbeitrag / Monat</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(outputs.dbPerMonth)}</td></tr>
-      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">Selbstzahler-Umsatz / Monat</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(outputs.revenuePerMonth)}</td></tr>
-      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">Deckungsbeitrag / Jahr</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(outputs.dbPerYear)}</td></tr>
-      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">Deckungsbeitrag je Test</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(outputs.dbPerTest)}</td></tr>
-      ${outputs.payback != null ? `<tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">Amortisation</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${esc(outputs.payback)} Monate</td></tr>` : ''}`
+      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">${esc(c.month)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(outputs.dbPerMonth)}</td></tr>
+      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">${esc(c.revenue)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(outputs.revenuePerMonth)}</td></tr>
+      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">${esc(c.year)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(outputs.dbPerYear)}</td></tr>
+      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">${esc(c.perTest)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(outputs.dbPerTest)}</td></tr>
+      ${outputs.payback != null ? `<tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">${esc(c.payback)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${esc(outputs.payback)} ${esc(c.months)}</td></tr>` : ''}`
 
     let attachments
     try {
-      const pdf = await buildRoiPdf({ practice, area, inputs, outputs })
+      const pdf = await buildRoiPdf({
+        practice,
+        area: resolvedArea,
+        inputs,
+        outputs,
+        locale: mailLocale,
+      })
       attachments = [
         {
           content: pdf.toString('base64'),
@@ -696,15 +735,15 @@ app.post('/api/roi-report', formLimiter, async (req, res) => {
     const reportMsg = {
       to: email,
       from: process.env.SENDER_EMAIL,
-      subject: 'Ihr IglooPro ROI-Report',
-      text: `Vielen Dank für Ihr Interesse an IglooPro.\n\nIm Anhang finden Sie Ihren persönlichen ROI-Report (unverbindliche Beispielrechnung auf Basis Ihrer Eingaben).\n\nGerne besprechen wir die Zahlen für Ihre Praxis: https://polarisdx.net/contact\n\nMit freundlichen Grüßen\nPolarisDX`,
-      html: `<div style="font-family:system-ui,sans-serif;max-width:600px;">
-        <h2 style="color:#083358;">Ihr IglooPro ROI-Report</h2>
-        <p>vielen Dank für Ihr Interesse. Auf Basis Ihrer Eingaben haben wir Ihre persönliche Beispielrechnung erstellt${attachments ? ' (auch als PDF im Anhang)' : ''}:</p>
-        <h3 style="color:#083358;">Ergebnis</h3>
+      subject: c.subject,
+      text: `${attachments ? c.introAttachment : c.introNoAttachment}\n\n${c.results}:\n${c.month}: ${eur(outputs.dbPerMonth)}\n${c.revenue}: ${eur(outputs.revenuePerMonth)}\n${c.year}: ${eur(outputs.dbPerYear)}\n${c.perTest}: ${eur(outputs.dbPerTest)}\n\n${c.cta}: https://polarisdx.net/${mailLocale}/contact\n\n${c.disclaimer}\n\nPolarisDX`,
+      html: `<div lang="${mailLocale}" style="font-family:system-ui,sans-serif;max-width:600px;">
+        <h2 style="color:#083358;">${esc(c.title)}</h2>
+        <p>${esc(attachments ? c.introAttachment : c.introNoAttachment)}</p>
+        <h3 style="color:#083358;">${esc(c.results)}</h3>
         <table style="border-collapse:collapse;width:100%;max-width:520px;">${rowsOut}</table>
-        <p style="margin-top:18px;"><a href="https://polarisdx.net/contact" style="background:#0d9488;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;display:inline-block;">Beratung buchen</a></p>
-        <p style="color:#64748b;font-size:12px;margin-top:18px;">Unverbindliche Beispielrechnung auf Basis Ihrer Eingaben. Keine Zusage von Umsatz oder Gewinn.</p>
+        <p style="margin-top:18px;"><a href="https://polarisdx.net/${mailLocale}/contact" style="background:#0d9488;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;display:inline-block;">${esc(c.cta)}</a></p>
+        <p style="color:#64748b;font-size:12px;margin-top:18px;">${esc(c.disclaimer)}</p>
       </div>`,
       ...(attachments ? { attachments } : {}),
     }
@@ -715,7 +754,7 @@ app.post('/api/roi-report', formLimiter, async (req, res) => {
   } catch (error) {
     console.error('Error processing ROI report:', error)
     if (error.response) console.error(error.response.body)
-    res.status(500).json({ success: false, error: 'Failed to process ROI report' })
+    sendError(res, 500, ERROR_CODES.deliveryFailed)
   }
 })
 
@@ -730,4 +769,4 @@ if (require.main === module) {
 }
 
 // Exported for unit/endpoint tests (esc is the core HTML-escape XSS control).
-module.exports = { app, esc }
+module.exports = { app, esc, ERROR_CODES, buildRoiPdf }

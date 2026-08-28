@@ -19,24 +19,19 @@
 import type { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ErrorBoundary } from './ErrorBoundary'
+import { ErrorState } from '../components/ui/StateBlock'
 
 function SegmentFallback({ reset }: { reset: () => void }) {
   const { t } = useTranslation('common')
 
   return (
-    <div role="alert" className="mx-auto w-full max-w-[60ch] px-4 py-16 text-center">
-      <h2 className="text-xl font-semibold tracking-tight text-heading">
-        {t('errors.segment.title')}
-      </h2>
-      <p className="mt-3 text-base leading-7 text-gray-600">{t('errors.segment.body')}</p>
-      <button
-        type="button"
-        onClick={reset}
-        className="mt-6 inline-flex min-h-[44px] items-center rounded-full bg-brand-primary px-6 py-3 font-semibold text-white transition-colors hover:bg-brand-navy-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
-      >
-        {t('errors.segment.retry')}
-      </button>
-    </div>
+    <ErrorState
+      className="mx-auto w-full max-w-[60ch]"
+      title={t('errors.segment.title')}
+      description={t('errors.segment.body')}
+      onRetry={reset}
+      retryLabel={t('errors.segment.retry')}
+    />
   )
 }
 

@@ -1,5 +1,26 @@
 # PolarisDX Preview — Design-System (Ist-Zustand)
 
+> ## ⛔ NICHT KANONISCH — historischer Phase-1-Schnappschuss
+>
+> **Kanonisch ist `building-docs/DESIGN-SYSTEM-CONTRACT.md` (Vertrag) und
+> `tailwind.config.js` (Token-Werte).** Dieses Dokument ist ein Ist-Aufnahme-Artefakt
+> aus Phase 1 und wird **nicht** gepflegt. Die unten stehende Behauptung, es sei die
+> „autoritative Bau-Referenz", galt vor AP05 und gilt seit **PT05.1 nicht mehr**.
+>
+> **Nachweislich veraltet (Stand PT05.1, gegen `tailwind.config.js` geprüft):**
+>
+> - `accent-on-dark` ist **`#2dd4bf`**, nicht `#5eead4`.
+> - `success-strong` ist **`#047857`**, nicht `#059669`.
+> - `gray-900` / `#203864` ist **entfernt** und wird vom Farb-Guard aktiv blockiert —
+>   der Abschnitt unten führt es noch als aktives Token samt Divergenz `D1`.
+> - `fontFamily.sans` enthält zusätzlich **`Inter Fallback`**.
+> - Divergenz **`D5`** („`Reveal` ohne `prefers-reduced-motion`") ist **erledigt**:
+>   `Reveal.tsx` prüft die Präferenz, und `src/index.css` hat ein globales
+>   Reduced-Motion-Sicherheitsnetz.
+>
+> Für Tokenwerte, Alias-Politik, Kontrastrollen, Motion-Tokens und Guard-Regeln gilt
+> ausschließlich der kanonische Vertrag. Dieses Dokument bleibt als Historie erhalten.
+
 > **Zweck:** Das ECHTE, bereits im Preview-Repo implementierte „Sales-Machine"-Design-System —
 > extrahiert aus den migrierten Seiten (Home `/`, IglooPro `/igloo-pro`, Diagnostik-Übersicht
 > `/diagnostics`, Kontakt `/contact` [in Arbeit], Events `/events`). Dies ist die **autoritative
@@ -7,6 +28,7 @@
 > **gewinnt das Repo** (siehe Abschnitt „Divergenzen").
 >
 > **Repo / Umgebung (verifiziert):**
+>
 > - Verzeichnis: `/home/phillip/01polaris-preview` (phillip-server) — **NICHT** `/home/phillip/01polaris`.
 > - Branch: **`feat/home-leadmagnet`** (= der `<PREVIEW-BRANCH>` aus den Guardrails).
 > - Stack: **Vite + React 19 + react-router-dom, SSR via `tsx server.ts`**. Kein Next.js.
@@ -22,30 +44,31 @@
 
 Tailwind-`theme.extend.colors`. **Exakte Klassennamen** in der linken Spalte.
 
-| Token / Klasse | Hex | Verwendung im Repo |
-|---|---|---|
-| `brand-deep` / `brand-navy` | `#083358` | **Kanonisches Navy.** Hero-Flächen, Final-CTA, dunkle Bänder (`bg-brand-deep`). Beide Klassen identischer Hex. |
-| `brand-primary` / `blue` / `accentBlue` | `#0d527f` | Mittelblau. **Footer-Fläche** (`bg-brand-primary`), Links in `rich-content`, Header-Submenu-Hover. |
-| `brand-secondary` / `blue-bright` | `#2f6fa0` | Helles Blau. Gradient-Start (Button-Primary, Eyebrow-Rand), Footer-Link-Hover (`hover:text-brand-secondary`). |
-| `brand-navy-hover` / `brand-navy-mid` | `#0a3f63` | CTA-Hover-Navy / theme-color + OG. |
-| `text-heading` | `#083358` | **Überschriften-Ink.** Klasse `text-heading` = brand-deep (siehe Divergenz D1). |
-| `gray-900` (Legacy) | `#203864` | Legacy-„Navy". `:root`-Textfarbe, `Eyebrow`-Caption, `SectionHeader`-H2, globaler `a`. **NICHT** identisch mit `text-heading`. |
-| `accent` (DEFAULT) | `#0d9488` (teal-600) | **Akzent / Primär-CTA / Icon-Tiles / Links auf hell.** `bg-accent`, `text-accent`. |
-| `accent-strong` | `#0f766e` (teal-700) | Eyebrow-Text-Emphasis, CTA-Hover (`hover:bg-accent-strong`, `hover:text-accent-strong`). |
-| `accent-line` | `#14b8a6` (teal-500) | Deko-Linien, Check-Icons in Chips (`text-accent-line`). |
-| `accent-soft` | `#f0fdfa` (teal-50) | weiche Tints / Pill-BG. |
-| `accent-border` | `#99f6e4` (teal-200) | Pill-Ränder. |
-| `accent-on-dark` | `#5eead4` (teal-300) | Akzent-Hover auf dem dunklen Header. |
-| `success` / `success-soft` / `success-strong` | `#10b981` / `#ecfdf5` / `#059669` | **Separater** Health/Erfolg-Scale (S3-Leitlinie, D3-Implantologie) — bewusst getrennt vom Akzent. |
-| `ui-border` / `ui-border-hover` / `ui-text-muted` | `#e2e8f0` / `#cbd5e1` / `#94a3b8` | slate-200/300/400 als UI-Grau. |
-| `gray-100` / `gray-500` | `#F5F5F5` / `#868C98` | Legacy-Flat-Grau; `gray-500`/`#868c98` ist `rich-content`-Body. |
-| `social-linkedin` | `#0077b5` | Social-Icon. |
+| Token / Klasse                                    | Hex                               | Verwendung im Repo                                                                                                             |
+| ------------------------------------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `brand-deep` / `brand-navy`                       | `#083358`                         | **Kanonisches Navy.** Hero-Flächen, Final-CTA, dunkle Bänder (`bg-brand-deep`). Beide Klassen identischer Hex.                 |
+| `brand-primary` / `blue` / `accentBlue`           | `#0d527f`                         | Mittelblau. **Footer-Fläche** (`bg-brand-primary`), Links in `rich-content`, Header-Submenu-Hover.                             |
+| `brand-secondary` / `blue-bright`                 | `#2f6fa0`                         | Helles Blau. Gradient-Start (Button-Primary, Eyebrow-Rand), Footer-Link-Hover (`hover:text-brand-secondary`).                  |
+| `brand-navy-hover` / `brand-navy-mid`             | `#0a3f63`                         | CTA-Hover-Navy / theme-color + OG.                                                                                             |
+| `text-heading`                                    | `#083358`                         | **Überschriften-Ink.** Klasse `text-heading` = brand-deep (siehe Divergenz D1).                                                |
+| `gray-900` (Legacy)                               | `#203864`                         | Legacy-„Navy". `:root`-Textfarbe, `Eyebrow`-Caption, `SectionHeader`-H2, globaler `a`. **NICHT** identisch mit `text-heading`. |
+| `accent` (DEFAULT)                                | `#0d9488` (teal-600)              | **Akzent / Primär-CTA / Icon-Tiles / Links auf hell.** `bg-accent`, `text-accent`.                                             |
+| `accent-strong`                                   | `#0f766e` (teal-700)              | Eyebrow-Text-Emphasis, CTA-Hover (`hover:bg-accent-strong`, `hover:text-accent-strong`).                                       |
+| `accent-line`                                     | `#14b8a6` (teal-500)              | Deko-Linien, Check-Icons in Chips (`text-accent-line`).                                                                        |
+| `accent-soft`                                     | `#f0fdfa` (teal-50)               | weiche Tints / Pill-BG.                                                                                                        |
+| `accent-border`                                   | `#99f6e4` (teal-200)              | Pill-Ränder.                                                                                                                   |
+| `accent-on-dark`                                  | `#5eead4` (teal-300)              | Akzent-Hover auf dem dunklen Header.                                                                                           |
+| `success` / `success-soft` / `success-strong`     | `#10b981` / `#ecfdf5` / `#059669` | **Separater** Health/Erfolg-Scale (S3-Leitlinie, D3-Implantologie) — bewusst getrennt vom Akzent.                              |
+| `ui-border` / `ui-border-hover` / `ui-text-muted` | `#e2e8f0` / `#cbd5e1` / `#94a3b8` | slate-200/300/400 als UI-Grau.                                                                                                 |
+| `gray-100` / `gray-500`                           | `#F5F5F5` / `#868C98`             | Legacy-Flat-Grau; `gray-500`/`#868c98` ist `rich-content`-Body.                                                                |
+| `social-linkedin`                                 | `#0077b5`                         | Social-Icon.                                                                                                                   |
 
 **Nicht-Token-Grautöne, die in migrierten Seiten real genutzt werden:** Body-Text läuft überwiegend
 über **Tailwind-Default `text-gray-700` (#374151)** und `text-white/80` auf Navy — **nicht** über einen
 Brand-Body-Token. Section-Hintergründe: `bg-slate-50` (section-soft), `bg-white`, `bg-brand-deep`.
 
 ### Weitere Design-Tokens (`tailwind.config.js`)
+
 - `fontFamily.sans`: `Inter Variable, Inter, system-ui, sans-serif`.
 - `maxWidth.container = 1200px` (Haupt-Containerbreite: `max-w-container`), `maxWidth.page = 1440px`.
 - `fontSize`: `xxs 10px`, `hero-sm 40px`, `hero-md 48px`, `hero-lg 58px`.
@@ -60,6 +83,7 @@ Brand-Body-Token. Section-Hintergründe: `bg-slate-50` (section-soft), `bg-white
 ---
 
 ## 2. Typografie (real)
+
 - **Font:** Inter (Variable), gewichte 400/500/600 (`font-medium`/`font-semibold`).
 - **H1** (Navy-Heroes): `text-4xl lg:text-5xl font-medium tracking-tight` (~36–48px).
 - **H2** (Sektionen): `SectionHeader` → `text-hero-sm (40px) leading-[47px] lg:text-[44px] lg:leading-[52px]`;
@@ -74,6 +98,7 @@ Brand-Body-Token. Section-Hintergründe: `bg-slate-50` (section-soft), `bg-white
 ## 3. Wiederverwendbare Komponenten (mit Dateipfaden)
 
 ### Layout / Shell — `src/components/layout/`
+
 - **`Header.tsx`** — Navy sticky Header, `fixed inset-x-0 top-0 z-30`; transparent oben →
   `bg-brand-navy/85 backdrop-blur-xl` beim Scrollen. Weißes Logo, weiße Nav, Desktop-Dropdown
   (`service` → 4 von 9 Diagnostik-Slugs), Mobile-Menü, `LanguageSwitcher`, `SearchModal`-Trigger.
@@ -86,19 +111,20 @@ Brand-Body-Token. Section-Hintergründe: `bg-slate-50` (section-soft), `bg-white
 - **`ScrollToTop.tsx`**, **`analytics/GtmPageview.tsx`** (GA4 SPA page_view).
 
 ### UI-Primitive — `src/components/ui/`
+
 - **`Button.tsx`** — CVA, Varianten: `primary` (Gradient brand-secondary→primary→deep, weißer Innen-Layer),
   `secondary` (`bg-brand-deep text-white`), `outline` (weißer Rand, transparent). Größen `default/sm/lg/icon`.
   **Es gibt KEINE gefüllt-Teal-Variante** — migrierte Primär-CTAs entstehen durch
   `variant="secondary"` **+ `!bg-accent !shadow-accent/20 hover:!bg-accent-strong focus-visible:!ring-accent`**
   (siehe D2 — Kandidat für neue `accent`-Variante).
 - **`Eyebrow.tsx`** — kanonische Pill: **Gradient-Rand** (`from-brand-secondary via-brand-primary to-brand-deep`)
-  + `bg-slate-50` + **`text-gray-900`** (navy) uppercase. Größen `default`/`sm`. **Keine on-dark/weiße Variante**
-  (Kommentar im Code bestätigt das) → auf Navy wird Eyebrow als reiner Teal-Text nachgebaut (siehe D4).
+  - `bg-slate-50` + **`text-gray-900`** (navy) uppercase. Größen `default`/`sm`. **Keine on-dark/weiße Variante**
+    (Kommentar im Code bestätigt das) → auf Navy wird Eyebrow als reiner Teal-Text nachgebaut (siehe D4).
 - **`SectionHeader.tsx`** — `Eyebrow` + `<h2>` (default `text-gray-900`), `align left|center`.
 - **`Breadcrumbs.tsx`** — ✅ existiert, `variant 'light'|'dark'`, `ChevronRight`, klickbare `<Link>`. In
   `DiagnosticsHero` bereits (`variant="dark"`) genutzt. **Wiederverwenden, nicht neu bauen.**
 - **`ImagePlaceholder.tsx`** — ✅ intentionaler, sprach-neutraler Platzhalter (`border-dashed bg-slate-100
-  border-slate-300 text-slate-400`, `role="img"`, optionales `label`). Für „Anwendungsbild"/„Kundenbild".
+border-slate-300 text-slate-400`, `role="img"`, optionales `label`). Für „Anwendungsbild"/„Kundenbild".
 - **`Reveal.tsx`** — SSR-sichere Scroll-Reveal (Content immer im DOM, animiert erst nach Hydration via
   IntersectionObserver, Opacity+translateY). ⚠️ **prüft KEIN `prefers-reduced-motion`** (siehe D5).
 - **`CookieBanner.tsx`** — `fixed bottom-0 left-0 right-0 z-[70]` (korrekt über Header z-30), GTM-Consent-Mode.
@@ -108,6 +134,7 @@ Brand-Body-Token. Section-Hintergründe: `bg-slate-50` (section-soft), `bg-white
   `LoadingSpinner.tsx`, `PageTransition.tsx`, `icons/Tooth.tsx`.
 
 ### Sektions-Bausteine — `src/components/sections/`
+
 Migriert / Sales-Machine (Referenzmuster): `HeroSection`, `DiagnosticsHero`, `DiagnosticsFocusSection`,
 `DiagnosticsSpecialtySection`, `FinalCtaSection`, `IglooProHero`, `IglooFeaturesSection`,
 `IglooSpecsSection`, `IglooParametersSection`, `IglooProductFinalCta`, `IglooWidgetSection`, `TrustBar`,
@@ -120,6 +147,7 @@ Migriert / Sales-Machine (Referenzmuster): `HeroSection`, `DiagnosticsHero`, `Di
 ## 4. Reale Sales-Machine-Muster (Copy-Paste-Referenz)
 
 **Navy-Hero** (`DiagnosticsHero.tsx`, `IglooProHero.tsx`):
+
 ```
 <section class="relative overflow-hidden bg-brand-deep text-white">
   <div class="mx-auto max-w-container px-4 lg:px-0 pt-24 pb-16 lg:pt-28 grid lg:grid-cols-2 gap-10 items-center">
@@ -131,6 +159,7 @@ Migriert / Sales-Machine (Referenzmuster): `HeroSection`, `DiagnosticsHero`, `Di
 ```
 
 **Content-Karten-Grid** (`DiagnosticsFocusSection.tsx`):
+
 ```
 <Link class="group flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:shadow-card">
   <span class="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent">…icon…</span>
@@ -141,12 +170,14 @@ Migriert / Sales-Machine (Referenzmuster): `HeroSection`, `DiagnosticsHero`, `Di
 ```
 
 **Mid-Page-Teal-Band** (`DiagnosticsFocusSection.tsx`):
+
 ```
 <div class="rounded-2xl bg-accent p-6 lg:p-8 text-white flex ... justify-between">
   … <Link class="rounded-md bg-white px-5 py-3 font-medium text-brand-deep">CTA</Link>
 ```
 
 **Final-CTA (Navy, einzeln)** (`FinalCtaSection.tsx`):
+
 ```
 <section class="bg-brand-deep text-white"><div class="… px-4 py-24 lg:py-28 text-center">
   <p class="text-sm font-semibold uppercase tracking-[0.18em] text-accent">EYEBROW</p>
@@ -155,33 +186,34 @@ Migriert / Sales-Machine (Referenzmuster): `HeroSection`, `DiagnosticsHero`, `Di
   <Button href="#roi-rechner" variant="outline">ROI-Rechner</Button>
   <!-- Friction-Killer-Chips --> <span class="… bg-white/10 … ring-1 ring-white/15"><Check text-accent-line/> Kostenlos & unverbindlich</span>
 ```
+
 Sektions-Rhythmus: `py-24 lg:py-28`, Container `max-w-container px-4 lg:px-0`, section-soft `bg-slate-50`.
 
 ---
 
 ## 5. Designkeys — real vorhanden vs. fehlend
 
-| Designkey | Status im Repo |
-|---|---|
-| EIN Navy (`brand-deep`) für Hero/CTA/dunkle Bänder | ✅ vorhanden (aber Footer nutzt brand-primary → D3) |
-| EIN Akzent Teal (`accent`) | ✅ vorhanden, konsistent |
-| Eyebrow-Pill | ✅ `Eyebrow.tsx` — aber gradient/slate, nicht teal-tint (D1/D4) |
-| Buttons `btn--teal / btn--outline / btn--white` als Klassen | ❌ existieren nicht als CSS-Klassen; via `Button`-Varianten + `!bg-accent`-Override (D2) |
-| Navy-Hero + Stat-/Proof-Chips + Geräte-Visual + Live-Wert-Chips | ✅ `DiagnosticsHero`/`IglooProHero` (Puls-Ring nur teilweise) |
-| Trust-Bar | ✅ `TrustBar.tsx` |
-| Bold-Kacheln (Navy/Teal alternierend) | ✅ teilweise (`DiagnosticsSpecialtySection`) |
-| Content-Karten mit Teal-Tint-Icon-Tiles + Chips + „… → " | ✅ `DiagnosticsFocusSection` |
-| Performance-Panel (Navy + Geräte-Puck + CV-Chip + 3 Säulen) | ✅ (IglooPro) — CV-Wert prüfen (global-fixes G5) |
-| Testimonial (kompakte Navy-Karte, Kundenfoto, Pfeil-/Punkt-Nav) | ✅ `TestimonialsSection.tsx` (Inhalt prüfen — i18n-Leck G4) |
-| ROI-Rechner (Eingaben links / Navy-Ergebnis-Karte / Report-Capture) | ✅ `RoiCalculatorSection.tsx` |
-| Mid-Page-Teal-CTA-Band | ✅ |
-| 3-Schritte-Prozess | ✅ `StepsSection.tsx` |
-| Final-CTA (Navy, einzeln, Reassurance-Chips) | ✅ `FinalCtaSection.tsx` |
-| Breadcrumbs (klickbar) | ✅ `Breadcrumbs.tsx` |
-| Sticky-Buchungskarte/-leiste | ⚠️ nicht als shared Component gefunden (T3-Kandidat) |
-| Multi-Intent-Kontakt-Form (Intent-Selektor, Fortschritt, Feld-Häkchen, adaptiver Submit) | ⏳ in Arbeit (`ContactForm.tsx` uncommitted) |
-| Motion-Layer (gestaffelte Reveals, Float-Chips, Puls-Ring, Count-up, Hover-Lift) | ⚠️ `Reveal` + Hover-Lift ✅; **kein `prefers-reduced-motion`-Guard** (D5) |
-| Farb-Tokens `navy-lift #0f3a61`, `teal-tint #e1f5ee`, `teal-ink #0f6e56`, `on-navy(-muted)`, `body`, `muted`, `placeholder` als benannte Tokens | ❌ existieren nicht (D1) |
+| Designkey                                                                                                                                       | Status im Repo                                                                           |
+| ----------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| EIN Navy (`brand-deep`) für Hero/CTA/dunkle Bänder                                                                                              | ✅ vorhanden (aber Footer nutzt brand-primary → D3)                                      |
+| EIN Akzent Teal (`accent`)                                                                                                                      | ✅ vorhanden, konsistent                                                                 |
+| Eyebrow-Pill                                                                                                                                    | ✅ `Eyebrow.tsx` — aber gradient/slate, nicht teal-tint (D1/D4)                          |
+| Buttons `btn--teal / btn--outline / btn--white` als Klassen                                                                                     | ❌ existieren nicht als CSS-Klassen; via `Button`-Varianten + `!bg-accent`-Override (D2) |
+| Navy-Hero + Stat-/Proof-Chips + Geräte-Visual + Live-Wert-Chips                                                                                 | ✅ `DiagnosticsHero`/`IglooProHero` (Puls-Ring nur teilweise)                            |
+| Trust-Bar                                                                                                                                       | ✅ `TrustBar.tsx`                                                                        |
+| Bold-Kacheln (Navy/Teal alternierend)                                                                                                           | ✅ teilweise (`DiagnosticsSpecialtySection`)                                             |
+| Content-Karten mit Teal-Tint-Icon-Tiles + Chips + „… → "                                                                                        | ✅ `DiagnosticsFocusSection`                                                             |
+| Performance-Panel (Navy + Geräte-Puck + CV-Chip + 3 Säulen)                                                                                     | ✅ (IglooPro) — CV-Wert prüfen (global-fixes G5)                                         |
+| Testimonial (kompakte Navy-Karte, Kundenfoto, Pfeil-/Punkt-Nav)                                                                                 | ✅ `TestimonialsSection.tsx` (Inhalt prüfen — i18n-Leck G4)                              |
+| ROI-Rechner (Eingaben links / Navy-Ergebnis-Karte / Report-Capture)                                                                             | ✅ `RoiCalculatorSection.tsx`                                                            |
+| Mid-Page-Teal-CTA-Band                                                                                                                          | ✅                                                                                       |
+| 3-Schritte-Prozess                                                                                                                              | ✅ `StepsSection.tsx`                                                                    |
+| Final-CTA (Navy, einzeln, Reassurance-Chips)                                                                                                    | ✅ `FinalCtaSection.tsx`                                                                 |
+| Breadcrumbs (klickbar)                                                                                                                          | ✅ `Breadcrumbs.tsx`                                                                     |
+| Sticky-Buchungskarte/-leiste                                                                                                                    | ⚠️ nicht als shared Component gefunden (T3-Kandidat)                                     |
+| Multi-Intent-Kontakt-Form (Intent-Selektor, Fortschritt, Feld-Häkchen, adaptiver Submit)                                                        | ⏳ in Arbeit (`ContactForm.tsx` uncommitted)                                             |
+| Motion-Layer (gestaffelte Reveals, Float-Chips, Puls-Ring, Count-up, Hover-Lift)                                                                | ⚠️ `Reveal` + Hover-Lift ✅; **kein `prefers-reduced-motion`-Guard** (D5)                |
+| Farb-Tokens `navy-lift #0f3a61`, `teal-tint #e1f5ee`, `teal-ink #0f6e56`, `on-navy(-muted)`, `body`, `muted`, `placeholder` als benannte Tokens | ❌ existieren nicht (D1)                                                                 |
 
 ---
 

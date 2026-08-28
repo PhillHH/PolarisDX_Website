@@ -196,9 +196,7 @@ function EventsPage() {
                 ]}
               />
             </div>
-            <h1 className="mx-auto max-w-3xl text-4xl font-medium tracking-tight lg:text-5xl">
-              {t('events:hero.title', 'Meet us in 2026')}
-            </h1>
+            <h1 className="mx-auto max-w-3xl t-h1">{t('events:hero.title', 'Meet us in 2026')}</h1>
             <p className="mx-auto mt-5 max-w-2xl leading-relaxed text-white/80">
               {t('events:hero.subtitle')}
             </p>

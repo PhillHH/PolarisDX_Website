@@ -16,7 +16,139 @@
   line-gap-override: 0%;
 }
 
+/* ---------------------------------------------------------------------------
+ * TYPOGRAFIE-SYSTEM (AP05 / PT05.2)
+ *
+ * Die kanonischen Textrollen der Sales-Machine. Jeder Wert ist aus dem
+ * bestehenden Bestand GEMESSEN (jeweils das dominante Rezept) und mit den
+ * Aufrufstellen, die er ersetzt, deckungsgleich — AP05 konsolidiert die Art
+ * Direction, es ersetzt sie nicht. Die Adoption in PT05.2 ist daher
+ * visuell neutral.
+ *
+ * HIERARCHIE IST SEMANTISCH, NICHT OPTISCH.
+ * Die Ueberschriftsebene (h1..h6) folgt der Dokumentstruktur; die Klasse
+ * waehlt nur die visuelle Rolle. Deshalb gibt es `.t-h2-sub` und
+ * `.t-h2-section`: strukturell korrekte <h2> in zwei visuellen Rollen.
+ * Nie die Ebene wechseln, um eine Groesse zu bekommen.
+ *
+ * Schriftschnitte: 400 (Fliesstext) · 500 `font-medium` (Ueberschriften) ·
+ * 600 `font-semibold` (Labels, Kartentitel, Links). Mehr gibt es nicht.
+ *
+ * Farbe steht bewusst NICHT in `.t-h1`: Hero-Ueberschriften stehen sowohl auf
+ * Weiss als auch auf Navy. Die uebrigen Ueberschriftsrollen sind auf hellem
+ * Grund zuhause und tragen `text-heading`.
+ *
+ * Ueberlaufschutz (`min-w-0 max-w-full hyphens-auto break-words`) traegt
+ * `.t-h2-section`, weil eine zentrierte H2 im Flex-Container sonst ihre
+ * min-content-Breite annimmt. Gemessen in PT05.2: 0 horizontaler Ueberlauf
+ * ueber 10 Sprachen x 4 Seiten x 3 Viewports — die uebrigen Rollen brauchen
+ * den Schutz heute nicht und bekommen ihn daher nicht vorsorglich
+ * (er veraendert Zeilenumbrueche).
+ *
+ * Tailwind gibt `@layer components` nur aus, wenn die Klasse benutzt wird.
+ * Die Definition hier ist die Regel; das CSS entsteht bei der ersten
+ * Verwendung. `.t-h4`/`.t-h5`/`.t-h6` sind deshalb heute bewusst definiert,
+ * aber noch nicht im Build — es gibt im Bestand 1x h4, 1x h5, 0x h6.
+ * ------------------------------------------------------------------------- */
 @layer components {
+  /* --- Ueberschriften --- */
+
+  /* Hero-/Seitentitel. Ohne Farbe: steht auf Weiss UND auf Navy. */
+  .t-h1 {
+    @apply text-4xl font-medium tracking-tight lg:text-5xl;
+  }
+
+  /* Sektionstitel, inline gesetzt. */
+  .t-h2 {
+    @apply text-3xl font-medium tracking-tight text-heading lg:text-[42px];
+  }
+
+  /* Sektionstitel der `SectionHeader`-Komponente (mit Ueberlaufschutz). */
+  .t-h2-section {
+    @apply min-w-0 max-w-full hyphens-auto break-words text-hero-sm font-medium leading-[47px] tracking-tight text-heading lg:text-[44px] lg:leading-[52px];
+  }
+
+  /* Strukturell h2, visuell Unterueberschrift. */
+  .t-h2-sub {
+    @apply text-xl font-semibold tracking-tight text-heading sm:text-2xl;
+  }
+
+  /* Kartentitel. */
+  .t-h3 {
+    @apply text-lg font-semibold text-heading;
+  }
+
+  .t-h4 {
+    @apply text-base font-semibold text-heading;
+  }
+
+  .t-h5 {
+    @apply text-sm font-semibold text-heading;
+  }
+
+  .t-h6 {
+    @apply text-xs font-semibold uppercase tracking-wide text-heading;
+  }
+
+  /* --- Fliesstext auf hellem Grund ---
+     Ink ist `gray-700` (#374151, 10,3:1). Die im Bestand ebenfalls
+     vorkommende `gray-600`-Variante ist Drift und wird nicht kanonisch. */
+  .t-lead {
+    @apply text-lg leading-relaxed text-gray-700;
+  }
+
+  .t-body {
+    @apply text-base leading-relaxed text-gray-700;
+  }
+
+  .t-small {
+    @apply text-sm leading-relaxed text-gray-700;
+  }
+
+  /* --- Fliesstext auf Navy --- Weiss/80 auf #083358 = 10,4:1. */
+  .t-lead-on-dark {
+    @apply text-lg leading-relaxed text-white/80;
+  }
+
+  .t-body-on-dark {
+    @apply text-base leading-relaxed text-white/80;
+  }
+
+  /* --- Kleintext und Formularrollen ---
+     `ui-field` (#6b7280, 4,83:1) ist die EINE Farbe fuer Hilfs-, Platzhalter-
+     und Bildunterschrifttext (DESIGN-SYSTEM-CONTRACT §3.4).
+     Fehlertext ist `red-600` (4,83:1) — `red-500` erreicht auf Weiss nur
+     3,76:1 und ist als Textfarbe nicht AA-tauglich. */
+  .t-caption {
+    @apply text-xs leading-normal text-ui-field;
+  }
+
+  .t-label {
+    @apply text-sm font-medium leading-none text-heading;
+  }
+
+  .t-helper {
+    @apply text-sm text-ui-field;
+  }
+
+  .t-error {
+    @apply text-sm font-medium text-red-600;
+  }
+
+  /* --- Links ---
+     Inline-Links im Fliesstext tragen ZWEI Signale: Farbe UND Unterstreichung
+     (WCAG 1.4.1). Der Fokusring ist derselbe wie an Bedienelementen.
+     Nav-Links sind bewusst NICHT hier definiert — globale Navigation ist AP06. */
+  .t-link {
+    @apply rounded-sm font-semibold text-brand-primary underline decoration-from-font underline-offset-2 hover:text-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2;
+  }
+
+  /* Handlungslink ohne Unterstreichung: sein zweites Signal sind Position,
+     Gewicht und das nachgestellte Pfeil-Glyph. */
+  .t-link-cta {
+    @apply rounded-sm text-sm font-semibold text-accent-strong hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2;
+  }
+
   .glass-panel {
     @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-glass;
   }
@@ -69,8 +201,12 @@
 
 /* Rich HTML content styling for pillar pages (e.g. dental) */
 @layer components {
+  /* Longform-Fliesstext. Ink war `gray-500` (#868c98) — auf Weiss 3,38:1 und
+     auf der slate-50-Flaeche der ServicePage 3,23:1, beides unter den 4,5:1,
+     die WCAG 1.4.3 fuer Fliesstext verlangt. Jetzt die kanonische Body-Ink
+     `gray-700` (10,3:1), identisch mit `.t-body`. */
   .rich-content {
-    color: theme('colors.gray-500');
+    color: theme('colors.gray.700');
     font-size: 1rem;
     line-height: 2rem;
   }
@@ -123,14 +259,19 @@
     font-style: italic;
   }
 
+  /* Inline-Links im Fliesstext tragen zwei Signale, Farbe UND Unterstreichung
+     (WCAG 1.4.1). Vorher war die Unterstreichung erst beim Hover da — im
+     ruhenden Zustand blieb allein die Farbe als Unterscheidung. */
   .rich-content a {
     color: theme('colors.brand.primary');
     font-weight: 600;
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-thickness: from-font;
+    text-underline-offset: 2px;
   }
 
   .rich-content a:hover {
-    text-decoration: underline;
+    color: theme('colors.brand.deep');
   }
 
   /* Tabellen scrollen in sich selbst, statt die Seite zu verbreitern.

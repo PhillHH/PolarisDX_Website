@@ -9,6 +9,11 @@
  * (neu versuchen / zur Startseite) statt eines weissen Bildschirms. Ein
  * Stacktrace erreicht die Oberflaeche nie.
  *
+ * AP05 PT05.5: die Darstellung liegt jetzt im Design-System-Baustein
+ * `ErrorState` (`components/ui/StateBlock.tsx`) statt in eigenem Markup — eine
+ * Fehleroberflaeche, nicht zwei. `role="alert"` und der Wiederholen-Knopf
+ * kommen von dort; der Weg zur Startseite bleibt die zusaetzliche Aktion.
+ *
  * ABWEICHUNG VON DER QUELLE, bewusst: Die Quellfassung ist ueber ihre Klassen
  * (`bg-bg`, `text-fg`, `text-fg-heading`, `bg-action-primary`,
  * `border-border-strong`, `max-w-reading`, `var(--tap-target-min)`) an die
@@ -28,36 +33,27 @@
 import type { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ErrorBoundary } from './ErrorBoundary'
+import { ErrorState } from '../components/ui/StateBlock'
 
 function RootFallback({ reset }: { reset: () => void }) {
   const { t } = useTranslation('common')
 
   return (
-    <div
-      role="alert"
-      className="flex min-h-screen flex-col items-center justify-center gap-6 bg-slate-50 px-4 text-center"
-    >
-      <div className="max-w-[60ch] space-y-4">
-        <h1 className="text-2xl font-semibold tracking-tight text-heading">
-          {t('errors.root.title')}
-        </h1>
-        <p className="text-base leading-7 text-gray-600">{t('errors.root.body')}</p>
-      </div>
-      <div className="flex flex-wrap items-center justify-center gap-3">
-        <button
-          type="button"
-          onClick={reset}
-          className="inline-flex min-h-[44px] items-center rounded-full bg-brand-primary px-6 py-3 font-semibold text-white transition-colors hover:bg-brand-navy-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
-        >
-          {t('errors.root.retry')}
-        </button>
-        <a
-          href="/"
-          className="inline-flex min-h-[44px] items-center rounded-full border border-slate-300 bg-white px-6 py-3 font-semibold text-brand-deep transition-colors hover:border-brand-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
-        >
-          {t('errors.root.home')}
-        </a>
-      </div>
+    <div className="flex min-h-screen flex-col items-center justify-center bg-slate-50 px-4">
+      <ErrorState
+        title={t('errors.root.title')}
+        description={t('errors.root.body')}
+        onRetry={reset}
+        retryLabel={t('errors.root.retry')}
+        action={
+          <a
+            href="/"
+            className="inline-flex min-h-[44px] items-center rounded-md border border-ui-field bg-white px-5 py-3 text-sm font-medium text-brand-deep transition hover:border-brand-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+          >
+            {t('errors.root.home')}
+          </a>
+        }
+      />
     </div>
   )
 }

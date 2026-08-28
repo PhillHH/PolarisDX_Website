@@ -1,0 +1,589 @@
+{
+  "slug": "healthy-aging",
+  "panel": "Healthy Aging",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Voorbeeldrapport · Voorbeeldgegevens",
+      "panel": "Healthy Aging",
+      "subtitle": "Uw epigenetische klok",
+      "claim": "Een paar druppels bloed tonen de staat waarin uw cellulaire regulatie functioneert — en welke hefbomen kunnen worden gebruikt om de biologische leeftijd te beïnvloeden.",
+      "meta": [
+        {
+          "k": "Rapport voor",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Monsterafname",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Materiaal",
+          "v": "Gedroogde bloedvlekkaart"
+        },
+        {
+          "k": "Markers",
+          "v": "4 + leefstijl"
+        }
+      ],
+      "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+      "id": "deckblatt",
+      "benefit": "Hoe uw cliënt veroudert — in vier afzonderlijke waarden, en wat hij kan veranderen."
+    },
+    {
+      "type": "principle",
+      "caption": "Het principe",
+      "title": "Hoe leest u dit rapport.",
+      "lead": "Uw lichaam vernieuwt zich elke dag: cellen delen zich, repareren DNA-schade en reageren op stress, voeding, slaap en omgeving. Deze processen laten sporen achter in DNA-methylering. Uit deze patronen leest het rapport uw biologische leeftijd af — niet in kalenderjaren, maar in de staat van uw cellulaire regulatie.",
+      "cards": [
+        {
+          "title": "Bescherming",
+          "text": "Hoe stabiel uw DNA wordt beschermd en hoe efficiënt de reparatiemechanismen werken. Markers: telomeren, LINE-1."
+        },
+        {
+          "title": "Regulatie",
+          "text": "Hoe gecontroleerd ontstekingsprocessen blijven en hoe veerkrachtig het cellulaire evenwicht is. Marker: IL-6."
+        },
+        {
+          "title": "Interpretatie",
+          "text": "Hoe uw waarden zich verhouden tot een referentiegroep die is afgestemd op leeftijd, geslacht en etniciteit."
+        }
+      ],
+      "flowTitle": "Het proces",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Meting",
+          "text": "Gedroogde bloedplaat, vingertop. Telomeerlengte en methyleringsmarkers (LINE-1, IL-6, verouderingsmarkers). Nuchter zijn is niet nodig."
+        },
+        {
+          "num": "02",
+          "title": "Interpretatie",
+          "text": "Vergelijking met de referentiegroep. 100 % komt overeen met de methyleringswaarde van de gezonde controlegroep."
+        },
+        {
+          "num": "03",
+          "title": "Verandering",
+          "text": "Voor elke marker de bijpassende interventie — wat specifiek te eten, te vermijden of te veranderen is — plus vervolgmonitoring."
+        }
+      ],
+      "scaleCaption": "Oriëntatie",
+      "scaleTitle": "Hoe lees ik de schaal?",
+      "scaleLead": "Alle markers worden weergegeven als een percentage van de referentie. 100 % is het normale bereik, en hoger is beter. Telomeerlengte wordt daarnaast gerapporteerd in kilobaseparen (kbp).",
+      "scaleKind": "percent",
+      "scaleTicks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "Onder 90 % · Rood",
+          "text": "Dringende actie vereist."
+        },
+        {
+          "tone": "amber",
+          "label": "90–100 % · Oranje",
+          "text": "Actie vereist, doelgericht tegensturen."
+        },
+        {
+          "tone": "green",
+          "label": "Vanaf 100 % · Groen",
+          "text": "Geen actie nodig, resultaat behouden."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Hoe robuust is de telomeerwaarde?",
+      "text": "De meting van telomeerlengte varieert aanzienlijk — tussen individuele runs en tussen laboratoria. DNA-extractie, opslag en de samenstelling van de bloedcellen beïnvloeden het resultaat systematisch. Bij gedroogd bloed is deze variatie groter dan bij veneus bloed.",
+      "items": [
+        "Wat dit in de praktijk betekent: een afwijking van enkele procenten ten opzichte van de referentiewaarde is van dezelfde orde van grootte als de meetvariatie en op zichzelf niet betekenisvol. Telomeerlengte wordt pas robuust bij meerdere metingen onder dezelfde omstandigheden — hetzelfde laboratorium, hetzelfde materiaal, vergelijkbare monsterafname.",
+        "Telomeerlengte is een marker van cumulatieve cellulaire belasting. Het is geen diagnose, geen uitspraak over levensverwachting en geen maat voor individueel ziekterisico."
+      ],
+      "tone": "accent",
+      "id": "hinweis"
+    },
+    {
+      "type": "resultTable",
+      "caption": "Resultaten in één oogopslag",
+      "title": "Overzicht van alle markers.",
+      "cols": ["Marker", "Uw waarde", "Referentie", "Interpretatie"],
+      "rows": [
+        {
+          "cells": [
+            "Telomeren · Cellulaire stabiliteit",
+            "108 kbp (96 %)",
+            "112 kbp = 100 %",
+            "Actie vereist"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": ["LINE-1 · DNA-stabiliteit", "96 %", "≥ 100 %", "Actie vereist"],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "Epigenetische verouderingsmarkers · Biologische leeftijd",
+            "103 %",
+            "≥ 100 %",
+            "Binnen het normale bereik"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "IL-6 · Regulatie van ontstekingen",
+            "108 %",
+            "≥ 100 %",
+            "Binnen het normale bereik"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": ["Voeding · Basisbeoordeling", "72 / 100", "≥ 60", "Binnen het normale bereik"],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "Levensstijl · Basisbeoordeling",
+            "65 / 100",
+            "≥ 60",
+            "Binnen het normale bereik"
+          ],
+          "tone": "green"
+        }
+      ],
+      "id": "ergebnis"
+    },
+    {
+      "type": "ageDots",
+      "caption": "Biologische leeftijd",
+      "title": "Leeftijd per marker in vergelijking",
+      "lead": "Chronologische leeftijd: 48 jaar. Elke marker geeft zijn eigen biologische leeftijd aan — er wordt bewust geen gecombineerde totaalscore berekend.",
+      "chronological": 48,
+      "min": 35,
+      "max": 60,
+      "unit": "jaar",
+      "ticks": ["35", "40", "45", "50", "55", "60"],
+      "chronologicalLabel": "48 jr",
+      "note": "De stippellijn geeft de chronologische leeftijd van 48 jaar aan. Links daarvan: jonger dan chronologisch. Rechts daarvan: ouder.",
+      "items": [
+        {
+          "label": "Telomeren",
+          "age": 53,
+          "delta": "+5",
+          "display": "53 yrs · +5",
+          "tone": "red"
+        },
+        {
+          "label": "LINE-1",
+          "age": 50,
+          "delta": "+2",
+          "display": "50 yrs · +2",
+          "tone": "amber"
+        },
+        {
+          "label": "IL-6",
+          "age": 46,
+          "delta": "−2",
+          "display": "46 yrs · −2",
+          "tone": "green"
+        },
+        {
+          "label": "Epigenetische verouderingsmarkers",
+          "age": 45,
+          "delta": "−3",
+          "display": "45 yrs · −3",
+          "tone": "green"
+        }
+      ],
+      "id": "biologisches-alter"
+    },
+    {
+      "type": "markers",
+      "caption": "Uw markers",
+      "title": "Telomeren en verouderingsmarkers.",
+      "items": [
+        {
+          "name": "Telomeren",
+          "category": "Cellulaire stabiliteit",
+          "intro": "Beschermende structuren aan de uiteinden van de chromosomen. Bij te sterke verkorting verliezen cellen hun vermogen tot deling — een centrale factor bij biologische veroudering.",
+          "kind": "procent",
+          "value": 96,
+          "display": "96 %",
+          "sub": "108 kbp",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "amber",
+          "text": "Uw telomeerlengte is 4 % lager dan de verwachte waarde voor uw leeftijd (108 in plaats van 112 kbp). Dit resulteert in een biologische telomeerleeftijd van 53 jaar, vijf jaar ouder dan de chronologische leeftijd. Een afwijking van deze omvang valt binnen de meetvariatie en is op zichzelf niet betekenisvol — de waarde dient als uitgangspunt voor de trend. De aanbevelingen in deze sectie zijn gebaseerd op LINE-1; ze werken via hetzelfde metabole pad.",
+          "table": {
+            "cols": ["Werkzame stof", "Bron", "Hoeveelheid", "Opmerking"],
+            "rows": [
+              [
+                "Folaat",
+                "Spinazie, boerenkool, peulvruchten, tomaten, kiemen",
+                "2 handenvol groene groenten per dag",
+                "Rauw of kort gestoomd — hittegevoelig"
+              ],
+              [
+                "Vitamine B2 en B12",
+                "Eieren, kaas, gefermenteerde voedingsmiddelen",
+                "1 portie per dag",
+                "Veganistisch: specifiek B12 supplementeren"
+              ],
+              [
+                "Methionine",
+                "Sesam, soja, erwten, paranoten",
+                "2–3 paranoten per dag",
+                "Vanwege het selenium niet meer dan 3–4 noten"
+              ],
+              [
+                "EGCG",
+                "Groene thee, matcha",
+                "3–4 koppen per dag",
+                "Niet bij ijzerrijke maaltijden"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Epigenetische verouderingsmarkers",
+          "category": "Biologische leeftijd",
+          "intro": "De methylering van sterk leeftijdsgebonden genen, vergeleken met een controlegroep die is afgestemd op leeftijd, geslacht en etniciteit.",
+          "kind": "procent",
+          "value": 103,
+          "display": "103 %",
+          "sub": "45 jaar",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "green",
+          "text": "Iets boven het verwachte bereik — een gunstig epigenetisch profiel. De hieruit afgeleide biologische leeftijd is 45 jaar, drie jaar jonger dan de chronologische leeftijd.",
+          "table": {
+            "cols": ["Werkzame stof", "Bron", "Hoeveelheid", "Opmerking"],
+            "rows": [
+              [
+                "Koffie",
+                "Filterkoffie, espresso",
+                "2–3 koppen per dag",
+                "Niet na 14.00 uur — kan de slaap verstoren"
+              ],
+              [
+                "Groene bladgroenten",
+                "Spinazie, boerenkool, snijbiet",
+                "1 portie per dag",
+                "Levert folaat, ondersteunt methylering"
+              ],
+              [
+                "Kaas en zuivelproducten",
+                "Harde en zachte kaas, yoghurt",
+                "met mate",
+                "Overmatige consumptie kan regulatie verminderen"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "markers",
+      "caption": "Uw markers",
+      "title": "LINE-1 en IL-6.",
+      "items": [
+        {
+          "name": "LINE-1",
+          "category": "DNA-stabiliteit",
+          "intro": "LINE-1-elementen vormen ongeveer 17 % van het genoom. Hun methylering wordt gezien als een marker voor globale DNA-regulatie en daarmee voor de algehele genomische stabiliteit.",
+          "kind": "procent",
+          "value": 96,
+          "display": "96 %",
+          "sub": "50 jaar",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "amber",
+          "text": "Iets verminderde globale DNA-regulatie, te beoordelen binnen het totale profiel. De afgeleide biologische leeftijd is 50 jaar. Deze marker is afhankelijk van hetzelfde metabole pad als de telomeren — beide reageren op dezelfde methyl-donoren.",
+          "table": {
+            "cols": ["Werkzame stof", "Bron", "Hoeveelheid", "Opmerking"],
+            "rows": [
+              [
+                "Methyl-donoren",
+                "Bladgroenten, peulvruchten, eieren, noten, sesam, soja",
+                "dagelijks in ten minste 2 maaltijden",
+                "Neem folaat, B2, B6 en B12 samen"
+              ],
+              [
+                "Vezels",
+                "Volkorenproducten, groenten, peulvruchten",
+                "minimaal 30 g/dag",
+                "Stabiliseert bloedsuiker, verlaagt oxidatieve belasting"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "IL-6",
+          "category": "Regulatie van ontstekingen",
+          "intro": "Interleukine-6 is een centrale boodschapperstof in de regulatie van ontstekingen. Wat wordt beoordeeld, is de DNA-methylering van IL-6-geassocieerde genregio's — niet het acute bloedniveau.",
+          "kind": "procent",
+          "value": 108,
+          "display": "108 %",
+          "sub": "46 jaar",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "green",
+          "text": "Geeft een stabiele regulatie van IL-6-activiteit aan — de beste waarde in uw profiel. Hier dienen de aanbevelingen voor onderhoud, niet voor correctie.",
+          "table": {
+            "cols": ["Werkzame stof", "Bron", "Hoeveelheid", "Opmerking"],
+            "rows": [
+              [
+                "Beweging en gewicht",
+                "matige dagelijkse activiteit, gewichtsregulatie",
+                "30 min. per dag",
+                "Vetweefsel is een centrale bron van pro-inflammatoire boodschapperstoffen"
+              ],
+              [
+                "Resveratrol",
+                "Druivenhuid, frambozenzaden, bosbessen, pinda's",
+                "1 portie bessen/dag",
+                "Remt het NF-κB-signaleringspad"
+              ],
+              [
+                "Sulforafaan",
+                "Broccoli, bloemkool, spruitjes, tuinkers",
+                "250 g, 3–4× per week",
+                "Korte verhitting (3–4 min., 80 °C) verhoogt de biologische beschikbaarheid"
+              ],
+              [
+                "Curcumine",
+                "Kurkuma met zwarte peper",
+                "1 theelepel per dag",
+                "Piperine verhoogt de opname aanzienlijk"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "radar",
+      "caption": "Basisbeoordeling",
+      "title": "Voeding en leefgewoonten.",
+      "lead": "De radar toont hoe dicht uw huidige gewoonten bij de wetenschappelijke referentiewaarden liggen. Hoe verder een factor naar buiten ligt, hoe gunstiger — 10 is optimaal.",
+      "axes": [
+        "Dagelijkse activiteit",
+        "Lichaamsbeweging",
+        "Stress",
+        "Tabak",
+        "Alcohol",
+        "Tussendoortjes",
+        "Vlees",
+        "Omega-3",
+        "Vezels",
+        "Fruit/groenten",
+        "Vochtinname"
+      ],
+      "seriesLabels": {
+        "profile": "Uw profiel",
+        "reference": "Referentiegroep"
+      },
+      "scores": [
+        {
+          "value": "72 / 100",
+          "label": "Voeding",
+          "text": "Goede voedingscombinatie, ruimte voor verbetering in de details.",
+          "ref": "Referentie: ≥ 60."
+        },
+        {
+          "value": "65 / 100",
+          "label": "Leefstijl",
+          "text": "Gebalanceerd, met ruimte voor meer beweging en stressvermindering.",
+          "ref": "Referentie: ≥ 60."
+        }
+      ],
+      "noticeTitle": "Wat opvalt",
+      "notices": [
+        "Stress (4 van de 10) is de zwakste factor en ligt onder de referentiegroep. Chronische stress werkt via de cortisolas direct in op ontsteking en methyleringsmarkers.",
+        "Tussendoortjes en vlees (beiden 5) liggen op het niveau van de referentiegroep — hier ligt het grootste onbenutte potentieel voor de telomeer- en LINE-1-waarden.",
+        "Tabak (9), fruit en groenten (8) en vochtinname (8) liggen duidelijk boven gemiddeld en ondersteunen de goede waarden voor IL-6 en de verouderingsmarkers."
+      ],
+      "note": "Een basisbeoordeling, geen individuele diagnose. Bij ziekte of tijdens bijzondere levensfasen laat grotere voedingswijzigingen alstublieft begeleiden door een arts.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Alle aanbevelingen in één overzicht",
+      "title": "Uw interventies.",
+      "lead": "Elke aanbeveling is toegewezen aan de marker waarvan deze afgeleid is en gemarkeerd in de kleur van het actuele resultaat. Gesorteerd op urgentie — eerst de markers die actie vereisen.",
+      "cols": ["Werkzame stof", "Van marker", "Voedingsbron", "Hoeveelheid", "Opmerking"],
+      "rows": [
+        [
+          "Folaat",
+          "Telomeren · 96 %",
+          "Spinazie, boerenkool, peulvruchten, tomaten, kiemen",
+          "2 handenvol groene groenten per dag",
+          "Rauw of kort gestoomd — hittegevoelig"
+        ],
+        [
+          "Vitamine B2 en B12",
+          "Telomeren · 96 %",
+          "Eieren, kaas, gefermenteerde voedingsmiddelen (zuurkool, ayran)",
+          "1 portie per dag",
+          "Bij een veganistisch dieet specifiek B12 aanvullen"
+        ],
+        [
+          "Methionine",
+          "Telomeren · 96 %",
+          "Sesam, soja, erwten, paranoten",
+          "2–3 paranoten per dag",
+          "Vanwege het seleniumgehalte niet meer dan 3–4 noten per dag"
+        ],
+        [
+          "EGCG (groene thee)",
+          "Telomeren · 96 %",
+          "Groene thee, matcha",
+          "3–4 koppen per dag",
+          "Niet direct bij ijzerrijke maaltijden drinken"
+        ],
+        [
+          "Methyl-donoren",
+          "LINE-1 · 96 %",
+          "Bladgroenten, peulvruchten, eieren, noten, sesam, soja",
+          "dagelijks in ten minste 2 maaltijden",
+          "Voldoende folaat, B2, B6 en B12 samen innemen"
+        ],
+        [
+          "Vezels",
+          "LINE-1 · 96 %",
+          "Volkorenproducten, groenten, peulvruchten",
+          "minimaal 30 g/dag",
+          "Stabiliseert bloedsuiker, verlaagt oxidatieve belasting"
+        ],
+        [
+          "Groene bladgroenten",
+          "Verouderingsm. · 103 %",
+          "Spinazie, boerenkool, snijbiet",
+          "1 portie per dag",
+          "Levert folaat, ondersteunt methylering"
+        ],
+        [
+          "Koffie",
+          "Verouderingsm. · 103 %",
+          "Filterkoffie, espresso",
+          "2–3 koppen per dag",
+          "Niet na 14.00 uur — kan de slaap verstoren"
+        ],
+        [
+          "Kaas en zuivelproducten",
+          "Verouderingsm. · 103 %",
+          "Harde en zachte kaas, yoghurt",
+          "met mate",
+          "Overmatige consumptie kan regulatie verminderen"
+        ],
+        [
+          "Beweging en gewicht",
+          "IL-6 · 108 %",
+          "matige dagelijkse activiteit, gewichtsregulatie",
+          "30 min. per dag",
+          "Vetweefsel is een bron van pro-inflammatoire boodschapperstoffen"
+        ],
+        [
+          "Resveratrol",
+          "IL-6 · 108 %",
+          "Druivenhuid, frambozenzaden, bosbessen, pinda's",
+          "1 portie bessen/dag",
+          "Remt het NF-κB-signaleringspad"
+        ],
+        [
+          "Sulforafaan",
+          "IL-6 · 108 %",
+          "Broccoli, bloemkool, spruitjes, tuinkers",
+          "250 g, 3–4× per week",
+          "Korte verhitting (3–4 min., 80 °C) verhoogt de biologische beschikbaarheid"
+        ],
+        [
+          "Curcumine",
+          "IL-6 · 108 %",
+          "Kurkuma, bij voorkeur met zwarte peper",
+          "1 theelepel per dag",
+          "Piperine uit peper verhoogt de opname aanzienlijk"
+        ]
+      ],
+      "rowTones": [
+        "amber",
+        "amber",
+        "amber",
+        "amber",
+        "amber",
+        "amber",
+        "groen",
+        "groen",
+        "groen",
+        "groen",
+        "groen",
+        "groen",
+        "groen"
+      ],
+      "note": "Beoordeel voedingssupplementen alstublieft individueel en in overleg met een gekwalificeerde professional. Dit overzicht vervangt geen medisch advies.",
+      "id": "uebersicht"
+    },
+    {
+      "type": "summary",
+      "caption": "Samenvatting",
+      "title": "Uw twee aandachtsgebieden.",
+      "lead": "Twee van uw vier markers bevinden zich in het groene bereik en zouden daar moeten blijven. Twee staan op 96% en zijn afhankelijk van hetzelfde metabole pad. LINE-1 is hier de dragende waarde: vanwege de meetvariatie wordt de telomerlengte alleen in de tijd gevolgd. Dit resulteert in een opmerkelijk eenvoudig plan.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Methyl-donoren — het startpunt bij LINE-1",
+          "text": "LINE-1 op 96% (biologisch 50 jaar) is de dragende waarde — de marker waarop verandering betrouwbaar kan worden aangetoond. De telomerlengte is ook 96%, maar valt binnen de orde van grootte van de meetvariatie en geeft op zichzelf geen aanbeveling; deze wordt in de tijd gevolgd. Beide zijn afhankelijk van dezelfde voedingsstoffen: folaat, vitamine B2, B6, B12 en methionine. Zes van de dertien aanbevelingen richten zich precies daarop. Concreet: dagelijks twee handjes groene bladgroenten, rauw of kort gestoomd. Dagelijks eieren, kaas of gefermenteerde producten. 2–3 paranoten. Plus minstens 30 g vezels en 3–4 koppen groene thee, niet bij ijzerrijke maaltijden."
+        },
+        {
+          "num": "02",
+          "title": "Stress — de zwakste leefstijlfactor",
+          "text": "Met een score van 4 op 10 is stress de enige factor die duidelijk onder de referentiegroep ligt. Via de cortisolas beïnvloedt het de methylatiemarkers die in uw geval actie vereisen. Het voedingsgedeelte is al solide met 72/100 — het grotere effect ligt hier. Daarnaast is er ruimte voor verbetering in dagelijkse activiteit (6) en beweging (7); 30 minuten per dag ondersteunt ook de IL-6-waarde."
+        }
+      ],
+      "keepTitle": "Behouden, niet veranderen",
+      "keepText": "IL-6 op 108% en de epigenetische verouderingsmarkers op 103% liggen binnen het normale bereik. De aanbevelingen voor deze twee markers zijn gericht op behoud. Tabak (9/10), fruit en groenten (8/10) en vochtinname (8/10) ondersteunen dit resultaat — hier hoeft niets te veranderen.",
+      "controlTitle": "Vervolg en volgende stap",
+      "controlItems": [
+        "Een vervolgmeting is pas zinvol na 4 tot 6 maanden — eerder kunnen veranderingen in de methylatiemarkers niet betrouwbaar worden gemeten.",
+        "Vanaf de tweede meting wordt voor elke marker de gemeten trend gerapporteerd.",
+        "Voor vervolgmonitoring dienen de monsterafname en het tijdstip van de dag vergelijkbaar te blijven."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Vragen over uw rapport?",
+      "text": "Bespreek de resultaten met de instelling die de monsterafname heeft uitgevoerd. Daar is de klinische context beschikbaar die nodig is voor interpretatie.",
+      "columns": [
+        {
+          "k": "Contact",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distributie",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Voorbeeldrapport",
+          "text": "Alle waarden en persoonsgegevens in dit document zijn fictief en dienen uitsluitend ter illustratie van het rapportformaat. Dit is geen echt rapport."
+        },
+        {
+          "title": "Interpretatie",
+          "text": "Dit rapport is geen diagnose en vervangt geen medisch advies. De gerapporteerde biologische leeftijd is een modelwaarde afgeleid van epigenetische markers en zegt niets over levensverwachting of ziekte-risico. Markers beschrijven een momentopname en dienen door gekwalificeerde specialisten in de individuele klinische context te worden beoordeeld."
+        },
+        {
+          "title": "Status van de analyses",
+          "text": "De analyses zijn laboratoriumdiensten die door onze samenwerkingspartner worden geleverd en zijn geen CE-gemarkeerde in-vitro diagnostische hulpmiddelen. Ze dienen ter consultatie en monitoring en vervangen geen klinische diagnostiek. De analyses worden uitsluitend aan professionele gebruikers geleverd."
+        },
+        {
+          "title": "Juridisch kader",
+          "text": "Dit panel evalueert geen genotypen; het meet epigenetische markers. Waar een analyse in het portfolio wel genetische testen omvat, zijn informatie en schriftelijke toestemming vereist vóór monsterafname, en mag dit alleen onder medische verantwoordelijkheid worden geregeld (Duitse Genetische Diagnostiekwet). De laboratoriumanalyse wordt uitgevoerd door onze samenwerkingspartner. Polaris Diagnostics Europe GmbH is verantwoordelijk voor distributie en ondersteuning. Beoordeel voedingssupplementen individueel en in overleg met een gekwalificeerde professional."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Laatst bijgewerkt: augustus 2026",
+      "id": "kontakt"
+    }
+  ]
+}

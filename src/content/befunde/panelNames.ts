@@ -10,9 +10,9 @@
  * still weg.
  *
  * WARUM EINE EIGENE LISTE UND NICHT `BEFUNDE` AUS ./index.ts: an jedem Befund
- * dort haengen zwei JSON-Inhalte, zusammen rund 350 KB. Sie gehoeren in den
- * lazy geladenen Musterbefund-Chunk; das Kontaktformular liegt auf einer
- * anderen Route und wuerde sie sonst komplett mitziehen. Die Liste bleibt
+ * dort haengen Inhaltsdateien. Sie gehoeren in die slugweise lazy geladenen
+ * Musterbefund-Chunks; das Kontaktformular liegt auf einer anderen Route und
+ * wuerde sie sonst komplett mitziehen. Die Liste bleibt
  * trotzdem an der Quelle: panelNames.test.ts prueft sie Zeile fuer Zeile gegen
  * BEFUNDE und BEFUND_ORDER. Kommt ein Panel dazu oder aendert sich ein Name,
  * faellt der Test — nicht erst der Hinweis auf der Seite.

@@ -2,6 +2,10 @@ import { useState } from 'react'
 import { Send, CheckCircle, Check, ShoppingBag } from 'lucide-react'
 import { Button } from '../ui/Button'
 import { sendContactEmail } from '../../api/contact'
+import { useTranslation } from 'react-i18next'
+import { normalizeLanguage } from '../../i18n'
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 /**
  * PraxisOrderForm — EINE geteilte Bestell-Sektion für die Produkt-Seiten
@@ -52,7 +56,6 @@ export type PraxisOrderFormProps = {
   /** E-Mail-Payload-Konfiguration (identisch zum bisherigen Verhalten). */
   area: string
   orderName: string
-  quantityUnit: string
   messageNoneLabel: string
 }
 
@@ -63,9 +66,9 @@ export function PraxisOrderForm({
   defaultQuantity,
   area,
   orderName,
-  quantityUnit,
   messageNoneLabel,
 }: PraxisOrderFormProps) {
+  const { i18n } = useTranslation()
   const [formData, setFormData] = useState({
     praxisName: '',
     ansprechpartner: '',
@@ -104,6 +107,14 @@ export function PraxisOrderForm({
           <form
             onSubmit={async (e) => {
               e.preventDefault()
+              if (
+                !formData.praxisName.trim() ||
+                !formData.ansprechpartner.trim() ||
+                !EMAIL_RE.test(formData.email.trim())
+              ) {
+                setSubmitStatus('error')
+                return
+              }
               setIsSubmitting(true)
               setSubmitStatus('idle')
 
@@ -113,16 +124,18 @@ export function PraxisOrderForm({
                 phone: formData.phone,
                 company: formData.praxisName,
                 area,
-                message: `BESTELLUNG ${orderName}\n\nMenge: ${formData.quantity} ${quantityUnit}\n\nLieferadresse:\n${formData.praxisName}\n${formData.ansprechpartner}\n\nAnmerkungen:\n${formData.message || messageNoneLabel}`,
+                message: `${orderName}\n\n${texts.quantityLabel}: ${quantityOptions.find((option) => option.value === formData.quantity)?.label || formData.quantity}\n\n${texts.addressHeading}:\n${formData.praxisName}\n${formData.ansprechpartner}\n\n${texts.messageLabel}:\n${formData.message || messageNoneLabel}`,
                 // Server now hard-requires consent === true (400 otherwise).
                 // Submitting this order constitutes the agreement to be contacted.
                 consent: true,
+                locale: normalizeLanguage(i18n.resolvedLanguage),
               })
 
               setIsSubmitting(false)
               setSubmitStatus(success ? 'success' : 'error')
             }}
             className="space-y-4"
+            noValidate
           >
             <div>
               <label htmlFor="quantity" className="mb-1 block text-sm font-medium text-gray-700">

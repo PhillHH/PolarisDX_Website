@@ -21,7 +21,19 @@
     "badge_new": "Nieuw",
     "epigenetics_desc": "Zes analyses uit één druppel bloed",
     "musterbefunde": "Voorbeeldrapporten",
-    "musterbefunde_desc": "Zes voorbeeldrapporten om te lezen"
+    "musterbefunde_desc": "Zes voorbeeldrapporten om te lezen",
+    "cta_quote": "Offerte aanvragen",
+    "iglooPro": "IglooPro",
+    "praeventionsChecks": "Preventieve gezondheidschecks",
+    "infektionEntzuendung": "Infectie & Ontstekingsmarkers",
+    "stoffwechselHerz": "Stofwisseling & Hartgezondheid",
+    "hormonTests": "Hormoon- & Endocrinologietests",
+    "kompatibilitaetIntegration": "Compatibiliteit tussen fabrikanten",
+    "group_fields": "Praktijkgebieden",
+    "group_analysis": "Analysegebieden",
+    "group_system": "Systeem & integratie",
+    "diagnostics_all": "Alle diagnostiekdiensten",
+    "group_crosslink": "Ook relevant"
   },
   "badge": {
     "New": "Nieuw",
@@ -61,7 +73,17 @@
     "pocSystems": "POC-systemen",
     "preventionChecks": "Preventiechecks",
     "hormonTests": "Hormoontests",
-    "product_note": "IglooPro is een product van DX365 GmbH"
+    "product_note": "IglooPro is een product van DX365 GmbH",
+    "col_company": "Bedrijf",
+    "col_product": "Product & kennis",
+    "col_consumer": "Voor consumenten",
+    "locations": "Locaties",
+    "legal": "Juridisch",
+    "nav_label": "Voettekstnavigatie",
+    "epi_basics": "Basis",
+    "epi_evidence": "Onderzoek",
+    "epi_docs": "Documenten",
+    "epi_samples": "Voorbeeldrapporten"
   },
   "read_more": "Lees meer",
   "search": {
@@ -78,6 +100,110 @@
       "beauty": "Dermatologische Analyses",
       "longevity": "Gezondheid en Levensduur",
       "sports": "Prestatiediagnostiek voor Sporters"
+    },
+    "resultTypes": {
+      "page": "Pagina",
+      "service": "Dienst",
+      "article": "Artikel",
+      "epigenetics": "Epigenetica",
+      "befund": "Voorbeeldrapport",
+      "resource": "Bron",
+      "event": "Evenement",
+      "consumer": "Consumentenproduct"
+    },
+    "modal": {
+      "title": "Website doorzoeken",
+      "label": "Zoekterm",
+      "placeholder": "Waar bent u naar op zoek?",
+      "close": "Zoeken sluiten",
+      "escapeHint": "Druk op Escape om te sluiten",
+      "initialTitle": "Wat wilt u vinden?",
+      "initialDescription": "Zoek naar pagina’s, diagnostiek, artikelen en bronnen.",
+      "loading": "Zoekresultaten laden",
+      "emptyTitle": "Geen resultaten",
+      "emptyDescription": "Er is geen passende inhoud gevonden voor ‘{{query}}’. Controleer de spelling of gebruik een algemenere term.",
+      "errorTitle": "Zoeken niet beschikbaar",
+      "errorDescription": "De zoekopdracht kon niet worden uitgevoerd. Probeer het opnieuw.",
+      "results_zero": "Geen resultaten",
+      "results_one": "{{count}} resultaat",
+      "results_many": "{{count}} resultaten",
+      "results_other": "{{count}} resultaten",
+      "groups": {
+        "page": "Pagina’s",
+        "service": "Diagnostiek",
+        "article": "Artikelen",
+        "epigenetics": "Epigenetica",
+        "befund": "Voorbeeldrapporten",
+        "resource": "Bronnen",
+        "event": "Evenementen",
+        "consumer": "Consumentenproducten"
+      }
+    },
+    "index": {
+      "epigenetics": {
+        "title": "Epigenetische en genetische analyses",
+        "description": "Zes analyses uit één druppel capillair bloed voor gebruik in de praktijk."
+      },
+      "epigenetics-grundlagen": {
+        "title": "Basisprincipes van epigenetica",
+        "description": "Lees wat de analyses meten en hoe de resultaten worden geïnterpreteerd."
+      },
+      "epigenetics-studienlage": {
+        "title": "Onderbouwing van epigenetica",
+        "description": "Overzicht van wetenschappelijk bewijs, beperkingen en verantwoord gebruik."
+      },
+      "epigenetics-unterlagen": {
+        "title": "Documenten over epigenetica",
+        "description": "Download informatiebladen en documenten over de zes analyses."
+      },
+      "befund-metabolic-health": {
+        "title": "Voorbeeldrapport Metabolic Health",
+        "description": "Voorbeeldrapport met voorbeeldgegevens en duidelijke uitleg. Metabolic Health."
+      },
+      "befund-healthy-aging": {
+        "title": "Voorbeeldrapport Healthy Aging",
+        "description": "Voorbeeldrapport met voorbeeldgegevens en duidelijke uitleg. Healthy Aging."
+      },
+      "befund-biologische-altersuhr": {
+        "title": "Voorbeeldrapport Biologische Altersuhr",
+        "description": "Voorbeeldrapport met voorbeeldgegevens en duidelijke uitleg. Biologische Altersuhr."
+      },
+      "befund-telomer-analyse": {
+        "title": "Voorbeeldrapport Telomer-Analyse",
+        "description": "Voorbeeldrapport met voorbeeldgegevens en duidelijke uitleg. Telomer-Analyse."
+      },
+      "befund-stress-monitor": {
+        "title": "Voorbeeldrapport Stress Monitor",
+        "description": "Voorbeeldrapport met voorbeeldgegevens en duidelijke uitleg. Stress Monitor."
+      },
+      "befund-healthy-sport": {
+        "title": "Voorbeeldrapport Healthy Sport",
+        "description": "Voorbeeldrapport met voorbeeldgegevens en duidelijke uitleg. Healthy Sport."
+      },
+      "article-green_practice": {
+        "title": "De groene praktijk: duurzaamheid begint in de wachtkamer",
+        "description": "Duurzaamheid in de zorg begint bij de logistiek van point-of-care-diagnostiek."
+      },
+      "article-invisible_patient": {
+        "title": "De onzichtbare patiënt: monitoring op afstand",
+        "description": "Hoe point-of-care-diagnostiek zorg en monitoring buiten de praktijk ondersteunt."
+      },
+      "article-five_minute_diagnosis": {
+        "title": "De vijfminutendiagnose",
+        "description": "Waarom point-of-care-diagnostiek medisch én economisch relevant is."
+      },
+      "article-ecosystem_of_rapid_tests": {
+        "title": "Het ecosysteem van sneltests",
+        "description": "Waarom compatibiliteit tussen sneltests de veiligheid en processen verbetert."
+      },
+      "article-rapid_setup_formula": {
+        "title": "De prestatieformule voor POC-diagnostiek",
+        "description": "Hoe point-of-care-diagnostiek snel en efficiënt wordt ingevoerd."
+      },
+      "article-precision_point_of_care": {
+        "title": "Precisie bij point-of-care",
+        "description": "Waarom validatie van sneltests essentieel is voor patiëntveiligheid."
+      }
     }
   },
   "cookie": {
@@ -130,7 +256,11 @@
   "a11y": {
     "search": "Zoeken openen",
     "toggle_nav": "Navigatie in-/uitklappen",
-    "honeypot": "Laat dit veld leeg"
+    "honeypot": "Laat dit veld leeg",
+    "select_language": "Taal kiezen",
+    "main_nav": "Hoofdnavigatie",
+    "toggle_submenu": "{{name}} — submenu",
+    "skip_to_content": "Naar de inhoud"
   },
   "languageFallback": {
     "notice": "Deze pagina is momenteel alleen in het Engels beschikbaar."

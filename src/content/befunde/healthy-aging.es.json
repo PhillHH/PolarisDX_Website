@@ -1,0 +1,589 @@
+{
+  "slug": "healthy-aging",
+  "panel": "Healthy Aging",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Informe de muestra · Datos de ejemplo",
+      "panel": "Healthy Aging",
+      "subtitle": "Su reloj epigenético",
+      "claim": "Unas gotas de sangre muestran el estado en que funciona su regulación celular — y qué palancas se pueden usar para influir en la edad biológica.",
+      "meta": [
+        {
+          "k": "Informe para",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Toma de muestra",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Material",
+          "v": "Tarjeta de gota de sangre seca"
+        },
+        {
+          "k": "Marcadores",
+          "v": "4 + estilo de vida"
+        }
+      ],
+      "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+      "id": "deckblatt",
+      "benefit": "Cómo envejece su cliente — en cuatro valores separados, y qué puede cambiar."
+    },
+    {
+      "type": "principle",
+      "caption": "El principio",
+      "title": "Cómo leer este informe.",
+      "lead": "Su cuerpo se renueva cada día: las células se dividen, reparan daños en el ADN y responden al estrés, la nutrición, el sueño y el entorno. Estos procesos dejan huellas en la metilación del ADN. A partir de estos patrones, el informe lee su edad biológica — no en años calendario, sino en el estado de su regulación celular.",
+      "cards": [
+        {
+          "title": "Protección",
+          "text": "Qué tan estable está protegido su ADN y qué tan eficientes son los mecanismos de reparación. Marcadores: telómeros, LINE-1."
+        },
+        {
+          "title": "Regulación",
+          "text": "Qué tan controlados permanecen los procesos inflamatorios y qué tan resistente es el equilibrio celular. Marcador: IL-6."
+        },
+        {
+          "title": "Interpretación",
+          "text": "Cómo se comparan sus valores con un grupo de referencia emparejado por edad, sexo y etnia."
+        }
+      ],
+      "flowTitle": "El proceso",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Medida",
+          "text": "Tarjeta de gota de sangre seca, punta del dedo. Longitud de telómeros y marcadores de metilación (LINE-1, IL-6, marcadores de envejecimiento). No se requiere ayuno."
+        },
+        {
+          "num": "02",
+          "title": "Interpretar",
+          "text": "Comparación con el grupo de referencia. El 100 % corresponde al valor de metilación del grupo control sano."
+        },
+        {
+          "num": "03",
+          "title": "Cambiar",
+          "text": "Para cada marcador, la intervención correspondiente — qué comer, evitar o cambiar específicamente — además del seguimiento."
+        }
+      ],
+      "scaleCaption": "Orientación",
+      "scaleTitle": "¿Cómo leer la escala?",
+      "scaleLead": "Todos los marcadores se expresan como porcentaje del referente. El 100 % es el rango normal, y más alto es mejor. La longitud de los telómeros se informa además en kilobases pares (kbp).",
+      "scaleKind": "percent",
+      "scaleTicks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "Por debajo del 90 % · Rojo",
+          "text": "Se requiere acción urgente."
+        },
+        {
+          "tone": "amber",
+          "label": "90–100 % · Ámbar",
+          "text": "Se requiere acción, contrarrestar de forma dirigida."
+        },
+        {
+          "tone": "green",
+          "label": "Desde 100 % · Verde",
+          "text": "No se requiere acción, mantener el resultado."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "¿Qué tan robusto es el valor del telómero?",
+      "text": "La medición de la longitud de los telómeros varía considerablemente — entre corridas individuales y entre laboratorios. La extracción de ADN, el almacenamiento y la composición de las células sanguíneas influyen sistemáticamente en el resultado. Esta variación es mayor en sangre seca que en sangre venosa.",
+      "items": [
+        "Lo que esto significa en la práctica: una desviación de unos pocos por ciento respecto al valor de referencia está en el mismo orden de magnitud que la variación de la medición y no es significativa por sí misma. La longitud de los telómeros solo se vuelve robusta tras varias mediciones realizadas bajo las mismas condiciones — mismo laboratorio, mismo material, recogida de muestra comparable.",
+        "La longitud de los telómeros es un marcador de la tensión celular acumulada. No es un diagnóstico, ni una declaración sobre la esperanza de vida ni una medida del riesgo individual de enfermedad."
+      ],
+      "tone": "accent",
+      "id": "hinweis"
+    },
+    {
+      "type": "resultTable",
+      "caption": "Resultados de un vistazo",
+      "title": "Todos los marcadores en resumen.",
+      "cols": ["Marcador", "Su valor", "Referencia", "Interpretación"],
+      "rows": [
+        {
+          "cells": [
+            "Telómeros · Estabilidad celular",
+            "108 kbp (96 %)",
+            "112 kbp = 100 %",
+            "Se requiere acción"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": ["LINE-1 · Estabilidad del ADN", "96 %", "≥ 100 %", "Se requiere acción"],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "Marcadores epigenéticos de envejecimiento · Edad biológica",
+            "103 %",
+            "≥ 100 %",
+            "Dentro del rango normal"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "IL-6 · Regulación de la inflamación",
+            "108 %",
+            "≥ 100 %",
+            "Dentro del rango normal"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "Nutrición · Evaluación inicial",
+            "72 / 100",
+            "≥ 60",
+            "Dentro del rango normal"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "Estilo de vida · Evaluación inicial",
+            "65 / 100",
+            "≥ 60",
+            "Dentro del rango normal"
+          ],
+          "tone": "green"
+        }
+      ],
+      "id": "ergebnis"
+    },
+    {
+      "type": "ageDots",
+      "caption": "Edad biológica",
+      "title": "Edad específica del marcador en comparación",
+      "lead": "Edad cronológica: 48 años. Cada marcador proporciona su propia edad biológica — deliberadamente no se calcula un valor combinado general.",
+      "chronological": 48,
+      "min": 35,
+      "max": 60,
+      "unit": "años",
+      "ticks": ["35", "40", "45", "50", "55", "60"],
+      "chronologicalLabel": "48 años",
+      "note": "La línea discontinua marca la edad cronológica de 48 años. A la izquierda: más joven que la edad cronológica. A la derecha: mayor.",
+      "items": [
+        {
+          "label": "Telómeros",
+          "age": 53,
+          "delta": "+5",
+          "display": "53 yrs · +5",
+          "tone": "red"
+        },
+        {
+          "label": "LINE-1",
+          "age": 50,
+          "delta": "+2",
+          "display": "50 yrs · +2",
+          "tone": "amber"
+        },
+        {
+          "label": "IL-6",
+          "age": 46,
+          "delta": "−2",
+          "display": "46 yrs · −2",
+          "tone": "green"
+        },
+        {
+          "label": "Marcadores epigenéticos de envejecimiento",
+          "age": 45,
+          "delta": "−3",
+          "display": "45 yrs · −3",
+          "tone": "green"
+        }
+      ],
+      "id": "biologisches-alter"
+    },
+    {
+      "type": "markers",
+      "caption": "Sus marcadores",
+      "title": "Telómeros y marcadores de envejecimiento.",
+      "items": [
+        {
+          "name": "Telómeros",
+          "category": "Estabilidad celular",
+          "intro": "Estructuras protectoras en los extremos de los cromosomas. Si se acortan demasiado, las células pierden su capacidad de dividirse — un motor central del envejecimiento biológico.",
+          "kind": "porcentaje",
+          "value": 96,
+          "display": "96 %",
+          "sub": "108 kbp",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "amber",
+          "text": "Su longitud de telómeros está un 4 % por debajo del valor esperado para su edad (108 en lugar de 112 kbp). Esto da una edad biológica de telómeros de 53 años, cinco años por encima de la edad cronológica. Una desviación de esta magnitud está dentro del rango de variación de la medición y no es significativa por sí misma — el valor debe interpretarse como un punto de partida para la tendencia. Las recomendaciones en esta sección se basan en LINE-1; actúan a través de la misma vía metabólica.",
+          "table": {
+            "cols": ["Sustancia activa", "Fuente", "Cantidad", "Nota"],
+            "rows": [
+              [
+                "Folato",
+                "Espinacas, col rizada, legumbres, tomates, brotes",
+                "2 puñados de verduras verdes al día",
+                "Crudas o al vapor brevemente — sensibles al calor"
+              ],
+              [
+                "Vitaminas B2 y B12",
+                "Huevos, queso, alimentos fermentados",
+                "1 porción diaria",
+                "Vegano: suplementar específicamente B12"
+              ],
+              [
+                "Metionina",
+                "Sésamo, soja, guisantes, nueces de Brasil",
+                "2–3 nueces de Brasil/día",
+                "Por el selenio, no más de 3–4 nueces"
+              ],
+              ["EGCG", "Té verde, matcha", "3–4 tazas/día", "No con comidas ricas en hierro"]
+            ]
+          }
+        },
+        {
+          "name": "Marcadores epigenéticos de envejecimiento",
+          "category": "Edad biológica",
+          "intro": "La metilación de genes fuertemente relacionados con la edad, comparada con un grupo control emparejado por edad, sexo y etnia.",
+          "kind": "porcentaje",
+          "value": 103,
+          "display": "103 %",
+          "sub": "45 años",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "green",
+          "text": "Ligeramente por encima del rango esperado — un perfil epigenético favorable. La edad biológica derivada es de 45 años, tres años por debajo de la edad cronológica.",
+          "table": {
+            "cols": ["Sustancia activa", "Fuente", "Cantidad", "Nota"],
+            "rows": [
+              [
+                "Café",
+                "Café filtrado, espresso",
+                "2–3 tazas/día",
+                "No después de las 2 p. m. — puede alterar el sueño"
+              ],
+              [
+                "Verduras de hoja verde",
+                "Espinacas, col rizada, acelgas",
+                "1 porción diaria",
+                "Aporta folato, apoya la metilación"
+              ],
+              [
+                "Quesos y productos lácteos",
+                "Quesos duros y blandos, yogur",
+                "con moderación",
+                "El consumo excesivo puede reducir la regulación"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "markers",
+      "caption": "Sus marcadores",
+      "title": "LINE-1 e IL-6.",
+      "items": [
+        {
+          "name": "LINE-1",
+          "category": "Estabilidad del ADN",
+          "intro": "Los elementos LINE-1 constituyen alrededor del 17 % del genoma. Su metilación se considera un marcador de la regulación global del ADN y, por tanto, de la estabilidad genómica general.",
+          "kind": "porcentaje",
+          "value": 96,
+          "display": "96 %",
+          "sub": "50 años",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "amber",
+          "text": "Regulación global del ADN ligeramente reducida, a evaluar dentro del perfil general. La edad biológica derivada es de 50 años. Este marcador depende de la misma vía metabólica que los telómeros — ambos responden a los mismos donadores de metilo.",
+          "table": {
+            "cols": ["Sustancia activa", "Fuente", "Cantidad", "Nota"],
+            "rows": [
+              [
+                "Donadores de metilo",
+                "Verduras de hoja, legumbres, huevos, nueces, sésamo, soja",
+                "diariamente en al menos 2 comidas",
+                "Tomar folato, B2, B6 y B12 juntos"
+              ],
+              [
+                "Fibra",
+                "Productos integrales, verduras, legumbres",
+                "al menos 30 g/día",
+                "Estabiliza el azúcar en sangre, reduce la carga oxidativa"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "IL-6",
+          "category": "Regulación de la inflamación",
+          "intro": "La interleucina-6 es una sustancia mensajera central en la regulación de la inflamación. Lo que se evalúa es la metilación del ADN de regiones génicas asociadas a IL-6 — no el nivel sanguíneo agudo.",
+          "kind": "porcentaje",
+          "value": 108,
+          "display": "108 %",
+          "sub": "46 años",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "green",
+          "text": "Indica una regulación estable de la actividad de IL-6 — el mejor valor en su perfil. Aquí las recomendaciones sirven para mantenimiento, no para corrección.",
+          "table": {
+            "cols": ["Sustancia activa", "Fuente", "Cantidad", "Nota"],
+            "rows": [
+              [
+                "Ejercicio y peso",
+                "actividad moderada diaria, regulación del peso",
+                "30 min. diarios",
+                "El tejido adiposo es una fuente central de sustancias mensajeras proinflamatorias"
+              ],
+              [
+                "Resveratrol",
+                "Piel de uva, semillas de frambuesa, arándanos, cacahuetes",
+                "1 porción de bayas/día",
+                "Inhibe la vía de señalización NF-κB"
+              ],
+              [
+                "Sulforafano",
+                "Brócoli, coliflor, coles de Bruselas, berros",
+                "250 g, 3–4 veces/semana",
+                "Un calentamiento breve (3–4 min., 80 °C) aumenta la biodisponibilidad"
+              ],
+              [
+                "Cúrcuma",
+                "Cúrcuma con pimienta negra",
+                "1 cucharadita diaria",
+                "La piperina aumenta notablemente la absorción"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "radar",
+      "caption": "Evaluación inicial",
+      "title": "Hábitos nutricionales y de estilo de vida.",
+      "lead": "El gráfico radar muestra qué tan cercanos están sus hábitos actuales a los valores de referencia científicos. Cuanto más alejado esté un factor, más favorable — 10 es óptimo.",
+      "axes": [
+        "Actividad diaria",
+        "Ejercicio",
+        "Estrés",
+        "Tabaco",
+        "Alcohol",
+        "Aperitivos",
+        "Carne",
+        "Omega-3",
+        "Fibra",
+        "Frutas/verduras",
+        "Ingesta de líquidos"
+      ],
+      "seriesLabels": {
+        "profile": "Su perfil",
+        "reference": "Grupo de referencia"
+      },
+      "scores": [
+        {
+          "value": "72 / 100",
+          "label": "Nutrición",
+          "text": "Buena combinación de nutrientes, con margen de mejora en los detalles.",
+          "ref": "Referencia: ≥ 60."
+        },
+        {
+          "value": "65 / 100",
+          "label": "Estilo de vida",
+          "text": "Equilibrado, con margen para más ejercicio y reducción del estrés.",
+          "ref": "Referencia: ≥ 60."
+        }
+      ],
+      "noticeTitle": "Lo que destaca",
+      "notices": [
+        "El estrés (4 de 10) es el factor más débil y está por debajo del grupo de referencia. El estrés crónico actúa a través del eje del cortisol directamente sobre la inflamación y los marcadores de metilación.",
+        "Los aperitivos y la carne (5 cada uno) están al nivel del grupo de referencia — aquí reside el mayor potencial no aprovechado para los valores de telómeros y LINE-1.",
+        "El tabaco (9), las frutas y verduras (8) y la ingesta de líquidos (8) están claramente por encima del promedio y apoyan los buenos valores de IL-6 y los marcadores de envejecimiento."
+      ],
+      "note": "Una evaluación inicial, no un diagnóstico individual. En caso de enfermedad o durante fases especiales de la vida, por favor supervise los cambios dietéticos mayores con un médico.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Todas las recomendaciones de un vistazo",
+      "title": "Sus intervenciones.",
+      "lead": "Cada recomendación se asigna al marcador del que deriva y se marca con el color del resultado real. Ordenadas por urgencia — primero los marcadores que requieren acción.",
+      "cols": ["Sustancia activa", "Del marcador", "Fuente alimentaria", "Cantidad", "Nota"],
+      "rows": [
+        [
+          "Folato",
+          "Telómeros · 96 %",
+          "Espinacas, col rizada, legumbres, tomates, brotes",
+          "2 puñados de verduras verdes al día",
+          "Crudas o al vapor brevemente — sensibles al calor"
+        ],
+        [
+          "Vitaminas B2 y B12",
+          "Telómeros · 96 %",
+          "Huevos, queso, alimentos fermentados (chucrut, ayran)",
+          "1 porción diaria",
+          "Con una dieta vegana, suplementar específicamente B12"
+        ],
+        [
+          "Metionina",
+          "Telómeros · 96 %",
+          "Sésamo, soja, guisantes, nueces de Brasil",
+          "2–3 nueces de Brasil/día",
+          "Por el contenido de selenio, no más de 3–4 nueces diarias"
+        ],
+        [
+          "EGCG (té verde)",
+          "Telómeros · 96 %",
+          "Té verde, matcha",
+          "3–4 tazas/día",
+          "No beber directamente con comidas ricas en hierro"
+        ],
+        [
+          "Donadores de metilo",
+          "LINE-1 · 96 %",
+          "Verduras de hoja, legumbres, huevos, nueces, sésamo, soja",
+          "diariamente en al menos 2 comidas",
+          "Ingerir suficiente folato, B2, B6 y B12 juntos"
+        ],
+        [
+          "Fibra",
+          "LINE-1 · 96 %",
+          "Productos integrales, verduras, legumbres",
+          "al menos 30 g/día",
+          "Estabiliza el azúcar en sangre, reduce la carga oxidativa"
+        ],
+        [
+          "Verduras de hoja verde",
+          "Marcadores de envejecimiento · 103 %",
+          "Espinacas, col rizada, acelgas",
+          "1 porción diaria",
+          "Aporta folato, apoya la metilación"
+        ],
+        [
+          "Café",
+          "Marcadores de envejecimiento · 103 %",
+          "Café filtrado, espresso",
+          "2–3 tazas/día",
+          "No después de las 2 p. m. — puede alterar el sueño"
+        ],
+        [
+          "Quesos y productos lácteos",
+          "Marcadores de envejecimiento · 103 %",
+          "Quesos duros y blandos, yogur",
+          "con moderación",
+          "El consumo excesivo puede reducir la regulación"
+        ],
+        [
+          "Ejercicio y peso",
+          "IL-6 · 108 %",
+          "actividad moderada diaria, regulación del peso",
+          "30 min. diarios",
+          "El tejido adiposo es una fuente de sustancias mensajeras proinflamatorias"
+        ],
+        [
+          "Resveratrol",
+          "IL-6 · 108 %",
+          "Piel de uva, semillas de frambuesa, arándanos, cacahuetes",
+          "1 porción de bayas/día",
+          "Inhibe la vía de señalización NF-κB"
+        ],
+        [
+          "Sulforafano",
+          "IL-6 · 108 %",
+          "Brócoli, coliflor, coles de Bruselas, berros",
+          "250 g, 3–4 veces/semana",
+          "Un calentamiento breve (3–4 min., 80 °C) aumenta la biodisponibilidad"
+        ],
+        [
+          "Cúrcuma",
+          "IL-6 · 108 %",
+          "Cúrcuma, idealmente con pimienta negra",
+          "1 cucharadita diaria",
+          "La piperina de la pimienta aumenta notablemente la absorción"
+        ]
+      ],
+      "rowTones": [
+        "ámbar",
+        "ámbar",
+        "ámbar",
+        "ámbar",
+        "ámbar",
+        "ámbar",
+        "verde",
+        "verde",
+        "verde",
+        "verde",
+        "verde",
+        "verde",
+        "verde"
+      ],
+      "note": "Por favor, revise los suplementos alimenticios individualmente y en consulta con un profesional cualificado. Esta visión general no reemplaza el consejo médico.",
+      "id": "uebersicht"
+    },
+    {
+      "type": "summary",
+      "caption": "Resumen",
+      "title": "Sus dos áreas de enfoque.",
+      "lead": "Dos de sus cuatro marcadores están en el rango verde y deben mantenerse allí. Dos están al 96 % y dependen de la misma vía metabólica. LINE-1 es el marcador principal aquí: debido a su variación de medición, la longitud del telómero solo se monitorea a lo largo del tiempo. Esto da lugar a un plan notablemente simple.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Donantes de metilo — el punto de partida en LINE-1",
+          "text": "LINE-1 al 96 % (biológicamente 50 años) es el valor principal — el marcador en el que se puede mostrar un cambio de forma fiable. La longitud del telómero también está al 96 %, pero eso está dentro del orden de magnitud de la variación de medición y no conlleva una recomendación por sí sola; se monitorea a lo largo del tiempo. Ambos dependen de los mismos nutrientes: folato, vitaminas B2, B6, B12 y metionina. Seis de las trece recomendaciones apuntan exactamente a eso. Específicamente: dos puñados de verduras de hoja verde al día, crudas o al vapor brevemente. Huevos, queso o alimentos fermentados diariamente. 2–3 nueces de Brasil. Además, al menos 30 g de fibra y 3–4 tazas de té verde, no con comidas ricas en hierro."
+        },
+        {
+          "num": "02",
+          "title": "Estrés — el factor de estilo de vida más débil",
+          "text": "Con 4 de 10, el estrés es el único factor que está claramente por debajo del grupo de referencia. A través del eje del cortisol actúa sobre los marcadores de metilación que requieren acción en su caso. La parte nutricional ya es sólida con 72/100 — el mayor efecto está aquí. Además: la actividad diaria (6) y el ejercicio (7) tienen margen para crecer; 30 minutos diarios también apoyan el valor de IL-6."
+        }
+      ],
+      "keepTitle": "Mantener, no cambiar",
+      "keepText": "IL-6 al 108 % y los marcadores epigenéticos de envejecimiento al 103 % están dentro del rango normal. Las recomendaciones para estos dos marcadores sirven para el mantenimiento. El tabaco (9/10), las frutas y verduras (8/10) y la ingesta de líquidos (8/10) apoyan este resultado — no es necesario cambiar nada aquí.",
+      "controlTitle": "Seguimiento y próximo paso",
+      "controlItems": [
+        "Una medición de seguimiento es útil después de 4 a 6 meses como mínimo — antes de eso, los cambios en los marcadores de metilación no pueden medirse de forma fiable.",
+        "A partir de la segunda medición, se informa la tendencia medida para cada marcador.",
+        "Para el seguimiento, la recogida de muestras y la hora del día deben mantenerse comparables."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "¿Preguntas sobre su informe?",
+      "text": "Comente los resultados con el centro que realizó la recogida de la muestra. Allí es donde se dispone del contexto clínico necesario para la interpretación.",
+      "columns": [
+        {
+          "k": "Contacto",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribución",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburgo"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Informe de muestra",
+          "text": "Todos los valores y datos personales en este documento son ficticios y sirven únicamente para ilustrar el formato del informe. Este no es un informe real."
+        },
+        {
+          "title": "Interpretación",
+          "text": "Este informe no es un diagnóstico y no reemplaza el consejo médico. La edad biológica reportada es un valor modelo derivado de marcadores epigenéticos, no una declaración sobre la esperanza de vida o el riesgo de enfermedad. Los marcadores describen un estado momentáneo y deben evaluarse en el contexto clínico individual por especialistas cualificados."
+        },
+        {
+          "title": "Estado de los análisis",
+          "text": "Los análisis son servicios de laboratorio proporcionados por nuestro socio colaborador y no son dispositivos de diagnóstico in vitro con marcado CE. Sirven para consulta y seguimiento y no sustituyen el diagnóstico clínico. Los análisis se suministran únicamente a usuarios profesionales."
+        },
+        {
+          "title": "Marco legal",
+          "text": "Este panel no evalúa genotipos; mide marcadores epigenéticos. Cuando un análisis del portafolio incluye pruebas genéticas, se requiere información y consentimiento escrito antes de la recogida de muestras, y solo puede realizarse bajo responsabilidad médica (Ley alemana de Diagnóstico Genético). El análisis de laboratorio lo realiza nuestro socio colaborador. Polaris Diagnostics Europe GmbH es responsable de la distribución y soporte. Por favor, revise los suplementos alimenticios individualmente y en consulta con un profesional cualificado."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Última actualización: agosto de 2026",
+      "id": "kontakt"
+    }
+  ]
+}

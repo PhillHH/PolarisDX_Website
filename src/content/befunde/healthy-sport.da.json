@@ -1,0 +1,689 @@
+{
+  "slug": "healthy-sport",
+  "panel": "Healthy Sport",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Prøverapport · Eksempeldata",
+      "panel": "Healthy Sport",
+      "subtitle": "Din cellulære træning",
+      "claim": "Otte sportsrelevante microRNAs fra en enkelt dråbe kapillærblod, oversat til syv vurderinger, der dækker ernæring, restitution og præstation — suppleret med fire genetiske varianter.",
+      "meta": [
+        {
+          "k": "Rapport for",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Prøvetagning",
+          "v": "18.02.2026"
+        },
+        {
+          "k": "Materiale",
+          "v": "Tørret bloddråbe-kort"
+        },
+        {
+          "k": "Omfang",
+          "v": "8 miRNA + 4 SNP"
+        }
+      ],
+      "id": "deckblatt",
+      "benefit": "Ernæring, restitution, træningsbelastning: hvor din klient kan starte."
+    },
+    {
+      "type": "principle",
+      "caption": "Princippet",
+      "title": "Sådan læses denne rapport.",
+      "lead": "Regelmæssig træning ændrer kroppen helt ned på celleniveau. Disse processer efterlader spor i form af cirkulerende microRNAs — små RNA-molekyler, der regulerer, hvor stærkt bestemte gener faktisk udtrykkes. I modsætning til genetik kan disse værdier ændre sig, hvilket gør dem til trendkomponenten i analysen.",
+      "cards": [
+        {
+          "title": "Ernæringstilstand",
+          "text": "Vitamin- og mikronæringsstofbehov samt væskebalance. Vurderinger: ernæringstilstand, hydreringstilstand."
+        },
+        {
+          "title": "Restitution",
+          "text": "Evne til at restituere, træningsbelastning og inflammatorisk aktivitet. Vurderinger: skadesrisiko, belastningsniveau, inflammation."
+        },
+        {
+          "title": "Præstation",
+          "text": "Udholdenhedskapacitet og muskulaturens tilstand. Vurderinger: kondition, muskelstatus."
+        }
+      ],
+      "flowTitle": "Processen",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Måling",
+          "text": "Tørblodsprøvekort, fingerspids. Otte microRNAs og fire genetiske varianter. Ingen faste nødvendig."
+        },
+        {
+          "num": "02",
+          "title": "Vurdér",
+          "text": "MicroRNAs indgår i syv vurderinger på trafiklys-skalaen 1–9. Hver vurdering kombinerer flere markører."
+        },
+        {
+          "num": "03",
+          "title": "Justér",
+          "text": "Målrettede anbefalinger om træning, restitution og phytonæringsstoffer — plus opfølgende monitorering."
+        }
+      ],
+      "scaleTitle": "Hvordan læser jeg skalaen?",
+      "scaleLead": "Alle vurderinger og alle individuelle markører bruger samme trafiklys 1–9. Rødt til venstre, grønt til højre — højere er altid bedre: 1–3 rød, 4–6 gul, 7–9 grøn.",
+      "scaleKind": "traffic",
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "1–3 · Rød",
+          "text": "Uden for det optimale område. Her ligger det største potentiale for forbedring."
+        },
+        {
+          "tone": "amber",
+          "label": "4–6 · Gul",
+          "text": "Gennemsnitligt område med plads til forbedring."
+        },
+        {
+          "tone": "green",
+          "label": "7–9 · Grøn",
+          "text": "Inden for det optimale område. Oprethold eksisterende rutiner."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Vigtigt",
+      "text": "Denne rapport erstatter ikke en sportsmedicinsk undersøgelse eller præstationsdiagnostik.",
+      "items": [
+        "De fire genetiske varianter er medfødte og bestemmes kun én gang. Information og skriftligt samtykke er påkrævet før den genetiske analyse (tysk lov om genetisk diagnostik, GenDG). Prædiktiv genetisk testning må kun udføres under ansvar af kvalificerede læger; genetisk rådgivning skal tilbydes før og efter testen (afsnit 7 og 10 i GenDG).",
+        "Kun de otte microRNA-værdier kan ændre sig — de er alene egnede til at overvåge fremskridt."
+      ],
+      "tone": "neutral",
+      "id": "hinweis"
+    },
+    {
+      "type": "evaluations",
+      "caption": "Resultater i oversigt",
+      "title": "Dine syv vurderinger.",
+      "lead": "Hver vurdering er afledt af flere microRNAs samlet. Sorteret efter værdi — de områder, der kræver mest indsats, vises nederst.",
+      "items": [
+        {
+          "label": "Hydreringstilstand",
+          "sub": "Inden for det optimale område",
+          "value": 8,
+          "display": "8 / 9",
+          "tone": "green"
+        },
+        {
+          "label": "Skadesrisiko & restitution",
+          "sub": "Gennemsnitlig",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Kondition",
+          "sub": "Gennemsnitlig",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Muskelstatus",
+          "sub": "Gennemsnitlig",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Ernæringstilstand",
+          "sub": "Uden for interval",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red"
+        },
+        {
+          "label": "Inflammation",
+          "sub": "Uden for interval",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red"
+        },
+        {
+          "label": "Belastnings-/stressniveau",
+          "sub": "Uden for interval",
+          "value": 2,
+          "display": "2 / 9",
+          "tone": "red"
+        }
+      ],
+      "id": "auswertungen"
+    },
+    {
+      "type": "callout",
+      "title": "Hvad det betyder",
+      "text": "Tre værdier i det røde område — belastnings-/stressniveau (2), ernæringstilstand (3) og inflammation (3). To af dem — belastning og inflammation — afhænger af miR-146a-5p (overbelastnings-miRNA, 2/9), den svageste individuelle markør i profilen; i alt indgår den i fire af de syv vurderinger. Ernæringstilstand afhænger derimod af den næstsvageste markør, miR-22-5p (3/9).",
+      "items": [
+        "Tre værdier i midterområdet — skadesrisiko, kondition og muskelstatus ligger hver på 5/9 og kan påvirkes direkte gennem træning.",
+        "En værdi i det grønne område — hydreringstilstand (8) er stabil og bør forblive sådan.",
+        "Intervallet til næste opfølgningsmåling fastsættes af den institution, der varetager dig; dine to tidligere målinger var cirka tre måneder fra hinanden."
+      ],
+      "tone": "accent",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "table",
+      "caption": "Grundlag for vurderingerne",
+      "title": "De otte microRNAs.",
+      "lead": "De individuelle værdier, som de syv vurderinger beregnes ud fra. De bruger også trafiklys 1–9; højere er bedre.",
+      "cols": ["Markør", "Navn", "Reguleringsniveau", "Værdi", "Funktion"],
+      "rows": [
+        [
+          "miR-378a-3p",
+          "Muskelopbygnings-miRNA",
+          "Muskelopbygning & præstationsadaptation",
+          "7 / 9",
+          "Regulerer muskelopbygning og tilpasning til træningsstimuli."
+        ],
+        [
+          "miR-101-3p",
+          "Muskelvitalitets-miRNA",
+          "Cellulær beskyttelse af muskulaturen",
+          "7 / 9",
+          "Regulerer muskelvitalitet og cellulær beskyttelse."
+        ],
+        [
+          "miR-505-3p",
+          "Sport & livsstils-miRNA",
+          "Livsstilsbalance",
+          "5 / 9",
+          "Afspejler samspillet mellem motion, ernæring og livsstil."
+        ],
+        [
+          "miR-19b-3p",
+          "Hjerne-miRNA",
+          "Neuronal & kognitiv regulering",
+          "4 / 9",
+          "Regulerer neuronale signalveje, understøtter kognitiv robusthed og udholdenhedspræstation."
+        ],
+        [
+          "miR-20a-5p",
+          "Cellernes fornyelses-miRNA",
+          "Cellulær regenerering",
+          "4 / 9",
+          "Regulerer cellefornyelse og reparationsprocesser efter belastning."
+        ],
+        [
+          "miR-30e-3p",
+          "Fitness-miRNA",
+          "Regulering af muskulær udholdenhed",
+          "4 / 9",
+          "Regulerer muskulær udholdenhed og fitness-tilpasning."
+        ],
+        [
+          "miR-22-5p",
+          "Fedttændende miRNA",
+          "Metabolisk regulering",
+          "3 / 9",
+          "Regulerer fedtstofskifte og energiforsyning."
+        ],
+        [
+          "miR-146a-5p",
+          "Overbelastnings-miRNA",
+          "Regulering af inflammation ved belastning",
+          "2 / 9",
+          "Regulerer inflammatoriske signalveje under træningsbelastning."
+        ]
+      ],
+      "id": "uebersicht"
+    },
+    {
+      "type": "callout",
+      "title": "Nøglemarkøren",
+      "text": "Ved 2/9 er miR-146a-5p den svageste individuelle værdi og indgår i fire af de syv vurderinger: belastnings-/stressniveau, inflammation, skadesrisiko og kredsløbsfitness. Ét enkelt markør former derfor en stor del af det samlede billede.",
+      "items": [
+        "De to muskelmarkører miR-378a-3p og miR-101-3p ligger begge i det grønne område med 7/9. Selve muskulaturen er ikke problemet — det er restitutionen."
+      ],
+      "tone": "accent",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "markers",
+      "caption": "Dine vurderinger",
+      "title": "Hvad der prioriteres.",
+      "items": [
+        {
+          "name": "Belastnings-/stressniveau",
+          "intro": "Fra miR-146a-5p (2/9) og miR-20a-5p (4/9). Stress forstyrrer hvilehomeostasen og øger energiforbruget — det afgørende er, om restitutionen opvejer belastningen.",
+          "kind": "trafik",
+          "value": 2,
+          "display": "2 / 9",
+          "sub": "Uden for interval",
+          "tone": "red",
+          "text": "Din værdi ligger uden for det optimale område — den svageste af de syv vurderinger. Reducer daglige stressfaktorer, undgå tidspres, periodiser din træning (1–2 træningsfri dage om ugen, en restitutionsuge hver 2.–4. uge) og brug afslapningsteknikker som autogen træning eller biofeedback."
+        },
+        {
+          "name": "Ernæringstilstand",
+          "intro": "Fra miR-30e-3p (4/9), miR-22-5p (3/9) og miR-19b-3p (4/9). Indikerer behov for vitaminer og mikronæringsstoffer, herunder B-vitaminer, jern og magnesium.",
+          "kind": "trafik",
+          "value": 3,
+          "display": "3 / 9",
+          "sub": "Uden for interval",
+          "tone": "red",
+          "text": "Din værdi ligger uden for det optimale område. Vær særlig opmærksom på frugt, grøntsager og fuldkornsprodukter — rige på B-vitaminer, magnesium, jern og zink. Magnesium fra nødder og solsikkefrø, zink fra mejeriprodukter, ost og bælgfrugter."
+        },
+        {
+          "name": "Inflammation",
+          "intro": "Fra fem microRNA’er: miR-505-3p, miR-30e-3p, miR-22-5p, miR-20a-5p og miR-146a-5p. Disse markører kortlægger inflammationsregulering under træningsbelastning; samtidig frigiver fysisk anstrengelse stresshormoner.",
+          "kind": "trafik",
+          "value": 3,
+          "display": "3 / 9",
+          "sub": "Uden for interval",
+          "tone": "red",
+          "text": "Din værdi ligger uden for det optimale område. Vær opmærksom på restitution og tilstrækkelig søvn, på C-vitamin og zink fra frugt, grøntsager, broccoli og citrusfrugter samt på afslapning, moderat motion og en fiberrig kost for tarmfloraen."
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "callout",
+      "title": "Det fællesnævneren",
+      "text": "Alle tre vurderinger inkluderer miR-146a-5p eller miR-22-5p — de to svageste individuelle markører. Håndtering af træningsbelastning og restitution påvirker derfor alle tre værdier på én gang, ikke kun én enkelt.",
+      "tone": "accent",
+      "id": "hinweis-4"
+    },
+    {
+      "type": "markers",
+      "caption": "Dine vurderinger",
+      "title": "Præstation og restitution.",
+      "items": [
+        {
+          "name": "Skadesrisiko & restitution",
+          "intro": "Fra fem microRNA’er: miR-30e-3p, miR-22-5p, miR-146a-5p, miR-20a-5p og miR-505-3p. Utilstrækkelig restitution øger risikoen for skader.",
+          "kind": "trafik",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Gennemsnitlig",
+          "tone": "amber",
+          "text": "Din værdi ligger i det gennemsnitlige område. Sørg for tilstrækkelige restitutionsfaser mellem træningspas og vær opmærksom på opvarmning, udstrækning og nedkøling. Din genetiske vurdering af muskelskadesrisiko i kapitlet “Tre yderligere genetiske vurderinger” supplerer denne værdi."
+        },
+        {
+          "name": "Kondition",
+          "intro": "Fra miR-20a-5p (4/9), miR-146a-5p (2/9) og miR-505-3p (5/9). Beskriver hvor effektivt hjertet pumper blod og ilt rundt i kroppen.",
+          "kind": "trafik",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Gennemsnitlig",
+          "tone": "amber",
+          "text": "Din værdi ligger i det gennemsnitlige område. Inkluder udholdenhedstræning mindst to gange om ugen — løb, rask gang, cykling, svømning eller aqua-aerobic, afhængigt af dit fitnessniveau."
+        },
+        {
+          "name": "Muskelstatus",
+          "intro": "Fra miR-101-3p (7/9), miR-378a-3p (7/9), miR-19b-3p (4/9) og miR-30e-3p (4/9). Styrke, eksplosiv kraft og udholdenhed afhænger af musklens trætheds- og restitutionsstatus.",
+          "kind": "trafik",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Gennemsnitlig",
+          "tone": "amber",
+          "text": "Din værdi ligger i det gennemsnitlige område. Inkluder styrketræning mindst to gange om ugen som helkropstræning med vægte eller kropsvægt, hver gang med opvarmning, nedkøling og udstrækning."
+        },
+        {
+          "name": "Hydreringstilstand",
+          "intro": "Fra miR-101-3p (7/9) og miR-378a-3p (7/9). Væsketab gennem sved og respiration forringer kropsfunktioner og præstation.",
+          "kind": "trafik",
+          "value": 8,
+          "display": "8 / 9",
+          "sub": "Optimal",
+          "tone": "green",
+          "text": "Din værdi ligger inden for det optimale område. Fortsæt med at sikre mindst to liter væske dagligt, også under træning."
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "table",
+      "caption": "Genetik · medfødt, fastlagt én gang",
+      "title": "Dine sportsmarkører.",
+      "lead": "Fire genetiske varianter, der supplerer de foranderlige microRNA-værdier. De beskriver dispositioner — ikke en vurdering og ikke en præstationsprognose — og fastlægges kun én gang. Sportstype · ACE og ACTN3: kombinationen af begge varianter bestemmer dispositionen mellem udholdenhed og styrke.",
+      "cols": ["Gen", "Genotype", "Disposition", "Betydning"],
+      "rows": [
+        [
+          "ACE",
+          "GG (homozygot)",
+          "Styrketype",
+          "Påvirker bradykinin–aldosteronsystemet og dermed iltudnyttelsen."
+        ],
+        [
+          "ACTN3",
+          "CT (heterozygot)",
+          "Blandet type",
+          "Bestemmer muskelfibersammensætning; den blandede form kombinerer hurtige og langsomme fibre."
+        ]
+      ],
+      "note": "Din sportstype på skalaen udholdenhedstype — blandet type — styrketype: overvejende styrketype. Du er overvejende styrkesportstypen. Egnede aktiviteter er styrkesportsgrene som vægtløftning, styrkeløft eller bodybuilding.",
+      "id": "uebersicht-2"
+    },
+    {
+      "type": "table",
+      "caption": "Genetik · medfødt, fastlagt én gang",
+      "title": "Tre yderligere genetiske vurderinger.",
+      "cols": ["Gen", "Egenskab", "Skala", "Dit resultat"],
+      "rows": [
+        [
+          "FTO-gen",
+          "Effekt af motion på kropsvægt",
+          "Lav · Moderat · Meget god",
+          "Meget god. Du kan tabe dig meget effektivt gennem motion — fysisk aktivitet er en særlig effektiv faktor for dig."
+        ],
+        [
+          "BDNF-gen",
+          "Motivation til motion",
+          "Lav · Moderat · Høj",
+          "Ingen øget motivation. Faste aftaler, træningspartnere eller holdtræning hjælper mere end gode intentioner."
+        ],
+        [
+          "ACTN3-gen",
+          "Risiko for muskelskade",
+          "Lav · Moderat · Høj",
+          "Let forhøjet. Vær særlig opmærksom på opvarmning samt nedkøling eller udstrækning bagefter."
+        ]
+      ],
+      "note": "Skalaerne for disse fire vurderinger angiver en position mellem to poler, ikke et trafiklys: en sportstype er hverken god eller dårlig. Genetiske varianter bestemmes kun én gang og forbliver uændrede hele livet.",
+      "id": "uebersicht-3"
+    },
+    {
+      "type": "radar",
+      "caption": "Hvor du står",
+      "title": "Ernæring og livsstilsvaner.",
+      "lead": "Radarens visning viser, hvor tæt dine nuværende vaner er på de videnskabelige referenceværdier. Jo længere ude en faktor ligger, desto mere gunstig — 10 er optimalt.",
+      "axes": [
+        "Daglig aktivitet",
+        "Motion",
+        "Stress",
+        "Tobak",
+        "Alkohol",
+        "Snacks",
+        "Kød",
+        "Omega-3",
+        "Fibre",
+        "Frugt/grønt",
+        "Væsker"
+      ],
+      "scores": [
+        {
+          "value": "4 ud af 10",
+          "label": "Stress",
+          "text": "Den svageste faktor i din selvrapportering. Den stemmer overens med din svageste laboratorieværdi (belastnings-/stressniveau 2/9) — begge peger i samme retning."
+        },
+        {
+          "value": "5 hver",
+          "label": "Snacks & kød",
+          "text": "Begge midt i skalaen — de to kostfaktorer med størst forbedringspotentiale, i overensstemmelse med ernæringstilstanden på 3/9."
+        },
+        {
+          "value": "9 · 8 · 8",
+          "label": "Tobak · Frugt/grøntsager · Væsker",
+          "text": "Klar over middel. Væskeværdien stemmer overens med din gode hydreringstilstand (8/9)."
+        }
+      ],
+      "note": "En vurdering af, hvor du står baseret på din selvrapportering, ikke en individuel diagnose. Ved sygdom eller særlige livsfaser bedes du få eventuelle større kostændringer overvåget af en læge.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Alle anbefalinger samlet",
+      "title": "Dine tiltag.",
+      "lead": "Hver anbefaling knyttes til den microRNA-markør, den stammer fra, sammen med markørens aktuelle værdi. Sorteret efter hastende karakter — de svageste markører først.",
+      "cols": ["Aktiv substans", "Fra markør", "Kilde", "Mængde", "Bemærkning"],
+      "rows": [
+        [
+          "Kaempferol",
+          "miR-146a-5p · 2",
+          "Røde druer, grapefrugt, broccoli, rosenkål, kartofler, løg, græskar",
+          "200–600 mg ekstrakt/dag",
+          "Som ekstrakt — vanskeligt at opnå i denne mængde gennem kosten alene"
+        ],
+        [
+          "Vitamin D3",
+          "miR-146a-5p · 2",
+          "Torskeleverolie, sild, laks, sardiner, tun, makrel, hønseæg",
+          "efter medicinsk vurdering af D-vitamin-niveauer",
+          "Fedtopløseligt — bedst at tage sammen med olie og et måltid"
+        ],
+        [
+          "Resveratrol",
+          "miR-146a-5p · 2, miR-19b-3p · 4, miR-378a-3p · 7",
+          "Skal på druer, hindbær, tyttebær, ribs, jordbær",
+          "150 mg trans-resveratrol/dag",
+          "Vanskeligt at opnå i denne mængde gennem kosten alene"
+        ],
+        [
+          "Capsaicin",
+          "miR-22-5p · 3",
+          "Peberfrugter og chili",
+          "0,8–1,5 mg/dag (eller 1 g chilipulver)",
+          "Fedtopløseligt — bedst at tage sammen med olie"
+        ],
+        [
+          "Proanthocyanidin",
+          "miR-30e-3p · 4",
+          "Hyldebær, tranebær, vilde brombær, hyben, druekerner",
+          "36 mg/dag",
+          "Skal, kerne og frø indeholder særligt store mængder"
+        ],
+        [
+          "Selen",
+          "miR-30e-3p · 4",
+          "Kød, fisk, æg, mejeriprodukter og kornprodukter",
+          "60–75 µg/dag",
+          "Bidrager til beskyttelse af celler mod oxidativt stress"
+        ],
+        [
+          "Genistein",
+          "miR-20a-5p · 4",
+          "Sojabønner, kidneybønner, kikærter, mørk chokolade",
+          "40–80 mg rødkløverekstrakt/dag",
+          "Mere koncentreret som ekstrakt end i pulverform"
+        ],
+        [
+          "Curcumin",
+          "miR-19b-3p · 4",
+          "Gurkemeje",
+          "max. 300 mg/dag (5–10 g pulver)",
+          "Med sort peber og olie; ikke under graviditet eller ved galdesten"
+        ],
+        [
+          "Quercetin",
+          "miR-505-3p · 5, miR-19b-3p · 4",
+          "Løg, kapers, løvstikke, purløg",
+          "min. 200 mg/dag",
+          "Varmefølsomt — må ikke opvarmes kraftigt"
+        ],
+        [
+          "EGCG (grøn te)",
+          "miR-505-3p · 5",
+          "Ufermenteret te (hvid og grøn te)",
+          "max. 800 mg/dag (1 kop ≈ 165 mg)",
+          "Piperin, C-vitamin og fiskeolie forbedrer biotilgængeligheden"
+        ],
+        [
+          "Sulforafan",
+          "miR-505-3p · 5",
+          "Korsblomstrede grøntsager, kål, broccoli (spirer)",
+          "25 mg/dag (250 g broccoli)",
+          "Damp kun kortvarigt eller spis rå — ellers går det aktive stof tabt"
+        ],
+        [
+          "Betaine",
+          "miR-378a-3p · 7",
+          "Quinoa, hvid gåsefod, broccoli, spinat, rødbede",
+          "500–2.000 mg/dag",
+          "Delvist syntetiseret af kroppen selv"
+        ],
+        [
+          "Zink",
+          "miR-101-3p · 7",
+          "Kød, mejeriprodukter, fuldkornsprodukter",
+          "7–16 mg/dag",
+          "Et højt indtag af fytat hæmmer optagelsen"
+        ]
+      ],
+      "note": "Gennemgå kosttilskud individuelt og i samråd med en kvalificeret fagperson — især under graviditet, ved eksisterende sygdomme eller samtidig medicinindtagelse. Dette overblik erstatter ikke medicinsk rådgivning.",
+      "id": "uebersicht-4"
+    },
+    {
+      "type": "trend",
+      "caption": "Udvikling",
+      "title": "To målinger sammenlignet.",
+      "lead": "En sammenligning af dine to målinger til dato. Kun målte værdier vises — ikke en prognose.",
+      "firstLabel": "20.11.2025",
+      "secondLabel": "18.02.2026",
+      "kind": "trafik",
+      "items": [
+        {
+          "label": "Ernæringstilstand",
+          "first": 2,
+          "second": 3,
+          "firstDisplay": "2 / 9",
+          "secondDisplay": "3 / 9",
+          "delta": "+1",
+          "tone": "red",
+          "status": "Udenfor"
+        },
+        {
+          "label": "Hydreringstilstand",
+          "first": 8,
+          "second": 8,
+          "firstDisplay": "8 / 9",
+          "secondDisplay": "8 / 9",
+          "delta": "±0",
+          "tone": "green",
+          "status": "Optimal"
+        },
+        {
+          "label": "Skadesrisiko & restitution",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Gennemsnitlig"
+        },
+        {
+          "label": "Belastnings-/stressniveau",
+          "first": 3,
+          "second": 2,
+          "firstDisplay": "3 / 9",
+          "secondDisplay": "2 / 9",
+          "delta": "−1",
+          "tone": "red",
+          "status": "Udenfor"
+        },
+        {
+          "label": "Kondition",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Gennemsnitlig"
+        },
+        {
+          "label": "Inflammation",
+          "first": 4,
+          "second": 3,
+          "firstDisplay": "4 / 9",
+          "secondDisplay": "3 / 9",
+          "delta": "−1",
+          "tone": "red",
+          "status": "Udenfor"
+        },
+        {
+          "label": "Muskelstatus",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Gennemsnitlig"
+        }
+      ],
+      "note": "Intervallet mellem de to målinger var omkring tre måneder. Om dette interval også er passende for næste opfølgning afgøres af den institution, der varetager din behandling.",
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "Hvad tendensen viser",
+      "text": "Én forbedring: ernæringstilstand fra 2 til 3 — retningen er rigtig, men værdien er stadig uden for det optimale område.",
+      "items": [
+        "To forværringer: belastnings-/stressniveau (3 → 2) og inflammation (4 → 3). Begge inkluderer miR-146a-5p. Mellem de to målinger var det altså belastningssiden, der forværredes, ikke præstationssiden.",
+        "Fire uændrede værdier: hydrering, skadesrisiko, kondition og muskelstatus har været stabile."
+      ],
+      "tone": "accent",
+      "id": "hinweis-5"
+    },
+    {
+      "type": "summary",
+      "caption": "Resumé",
+      "title": "Dit fokus: restitution.",
+      "lead": "Profilen er usædvanligt tydelig. Muskelmarkørerne er i det grønne område, belastnings- og inflammationsmarkørerne i det røde — og begge forværringer siden første måling er på samme side.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Håndter din belastning, før du træner mere",
+          "text": "Den svageste individuelle markør, miR-146a-5p (2/9), indgår i fire af de syv vurderinger. Præcis to af dem — belastnings-/stressniveau og inflammation — er forværret siden november. Så længe denne værdi forbliver lav, arbejder yderligere træning imod dig frem for for dig. Konkret: en til to træningsfri dage om ugen, en restitutionsuge hver anden til fjerde uge, afslapningsteknikker i hverdagen. Derudover kaempferol og D3-vitamin fra interventionslisten."
+        },
+        {
+          "num": "02",
+          "title": "Mikronæringsstoffer fra mad, ikke fra kosttilskud",
+          "text": "Næringsstatus (3/9) er forbedret fra 2 til 3 — retningen er rigtig. Fra livsstilsradaren er snacks og kød (5 ud af 10 hver) de to faktorer med størst forbedringspotentiale. Fokus på frugt, grøntsager og fuldkorn for B-vitaminer, magnesium, jern og zink."
+        }
+      ],
+      "keepTitle": "Vedligehold",
+      "keepText": "Hydreringsstatus (8/9) har været stabil siden første måling og matcher din radarværdi for væskeindtag (8/10). De to muskelmarkører er også i det grønne område med 7/9 hver — muskulaturen er ikke problemet. Genetisk antyder dit FTO-gen, at fysisk aktivitet har en særlig stærk effekt på din kropsvægt.",
+      "controlTitle": "Opfølgning og næste skridt",
+      "controlItems": [
+        "Intervallet til næste opfølgningsmåling fastsættes af den facilitet, der varetager dig. Dine to tidligere målinger lå med cirka tre måneders mellemrum.",
+        "De fire genetiske varianter forbliver uændrede og gentages ikke.",
+        "For sammenlignelighed bør prøveudtagning, tidspunkt på dagen og interval siden sidste træningspas forblive ensartede."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Spørgsmål om din rapport?",
+      "text": "Drøft resultaterne med den facilitet, der har foretaget prøveudtagningen. Det er her, trænings- og sundhedskonteksten, som er nødvendig for at fortolke dem, findes.",
+      "columns": [
+        {
+          "k": "Kontakt",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribution",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Prøverapport",
+          "text": "Alle værdier, genotyper og personlige oplysninger i dette dokument er fiktive og tjener udelukkende til at illustrere rapportformatet. Dette er ikke en ægte rapport."
+        },
+        {
+          "title": "Fortolkning",
+          "text": "Denne rapport er ikke en diagnose og kan ikke erstatte medicinsk rådgivning, en sportsmedicinsk undersøgelse eller præstationsdiagnostik. MicroRNA-værdierne beskriver et øjebliksbillede; de genetiske varianter beskriver dispositioner, ikke sygdomme og ikke en præstationsprognose."
+        },
+        {
+          "title": "Status for analyserne",
+          "text": "Analyserne er laboratorietjenester leveret af vores samarbejdspartner og er ikke CE-mærkede in vitro-diagnostiske medicinsk udstyr. De tjener til rådgivning og overvågning og erstatter ikke klinisk diagnostik. Analyserne leveres kun til professionelle brugere."
+        },
+        {
+          "title": "Lovgivningsmæssigt grundlag",
+          "text": "Genetisk testning er underlagt den tyske lov om genetisk diagnostik (GenDG); information og skriftligt samtykke kræves før prøveudtagning. Prædiktiv genetisk testning må kun udføres under ansvar af kvalificerede læger; genetisk rådgivning skal tilbydes før og efter testen (afsnit 7 og 10 GenDG). Laboratorieanalysen udføres af vores samarbejdspartner. Polaris Diagnostics Europe GmbH er ansvarlig for distribution og support. Vurder venligst kosttilskud individuelt og i samråd med en kvalificeret fagperson."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Pr. august 2026",
+      "id": "kontakt"
+    }
+  ]
+}

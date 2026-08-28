@@ -1,0 +1,427 @@
+{
+  "slug": "biologische-altersuhr",
+  "panel": "Biological Age Clock",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Voorbeeldrapport · Voorbeeldgegevens",
+      "panel": "Biological Age Clock",
+      "subtitle": "microRNA-gebaseerd",
+      "claim": "Drie circulerende microRNA’s — miR-21, miR-24 en miR-155 — weerspiegelen ontsteking, cellulaire veroudering en metabolisme. Hun wisselwerking wordt gebruikt om een biologische leeftijd te berekenen, die vervolgens wordt afgezet tegen de chronologische leeftijd.",
+      "meta": [
+        {
+          "k": "Rapport voor",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Monsterafname",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Materiaal",
+          "v": "Gedroogde bloedvlekkaart"
+        },
+        {
+          "k": "Reikwijdte",
+          "v": "3 microRNA’s"
+        }
+      ],
+      "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+      "id": "deckblatt",
+      "benefit": "Één cijfer dat uw gesprek over beweging, stress en voeding concreet maakt."
+    },
+    {
+      "type": "principle",
+      "caption": "Het principe",
+      "title": "Niet alleen hoe oud u bent. Maar hoe snel u veroudert.",
+      "lead": "microRNA’s zijn kleine RNA-moleculen die reguleren hoe sterk individuele genen worden afgelezen. Drie daarvan — miR-21, miR-24 en miR-155 — staan voor ontsteking, cellulaire veroudering en metabolisme. Een regressiemodel gebruikt hun wisselwerking om een biologische leeftijd te berekenen en zet die af tegen de chronologische leeftijd. Omdat microRNA’s dynamisch reageren, kunnen veranderingen relatief snel zichtbaar worden.",
+      "cards": [
+        {
+          "title": "Drie signalen",
+          "text": "miR-21 (ontsteking), miR-24 (veroudering en herstel) en miR-155 (immuunevenwicht en metabolisme)."
+        },
+        {
+          "title": "Dynamisch",
+          "text": "microRNA-niveaus veranderen door voeding, beweging, slaap, stress en roken."
+        },
+        {
+          "title": "Trendgericht",
+          "text": "Wat betekenis heeft, is de ontwikkeling tussen twee metingen onder dezelfde omstandigheden — niet de enkele waarde."
+        }
+      ],
+      "flowTitle": "Het proces",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Meting",
+          "text": "Droge bloedplaatjeskaart, van de vingertop. microRNA-expressie via qPCR, genormaliseerd tegen miR-93. Nuchter zijn is niet vereist."
+        },
+        {
+          "num": "02",
+          "title": "Interpretatie",
+          "text": "Een multivariate regressiemodel gebruikt de drie signalen om de biologische leeftijd en de afwijking daarvan van de chronologische leeftijd te berekenen."
+        },
+        {
+          "num": "03",
+          "title": "Verandering",
+          "text": "Specifieke voeding- en leefstijlhefbomen voor elk signaal, plus vervolgmonitoring bij de volgende meting."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Hoe betrouwbaar is dit cijfer?",
+      "text": "Het onderliggende model is gepubliceerd als pilotstudie (n = 539). Het verklaart ongeveer 5% van de variantie in leeftijd, de gemiddelde absolute fout is 10,4 jaar, en twee van de drie microRNA’s correleerden in dat onderzoek niet significant met de chronologische leeftijd. De auteurs roepen zelf op tot validatie vóór klinisch gebruik.",
+      "items": [
+        "Wat dit in de praktijk betekent: de hier gerapporteerde biologische leeftijd is geen leeftijdsbepaling en zegt niets over levensverwachting of ziekte-risico. Wat betekenis heeft, is de verandering tussen twee metingen onder dezelfde omstandigheden — daarom richt dit rapport zich op de trend en niet op de enkele waarde.",
+        "Een vergelijking met op methylatie gebaseerde leeftijdsklokken is niet toegestaan: andere methodologie, andere bewijslast. Bron: Schneider J. et al., miRNA-3Age, Frontiers in Nutrition 2025, doi:10.3389/fnut.2025.1659730."
+      ],
+      "tone": "neutral",
+      "id": "hinweis"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Uw resultaat",
+      "title": "Uw biologische leeftijdsklok.",
+      "display": "+4 years",
+      "sub": "Afwijking van chronologische leeftijd",
+      "kind": "afwijking",
+      "value": 4,
+      "unit": "jaar",
+      "ticks": ["+20 jaar", "+10", "0", "−10", "−20 jaar"],
+      "tone": "green",
+      "text": "Uit de gecombineerde evaluatie van miR-21, miR-24 en miR-155. Chronologische leeftijd 48 jaar. Uw biologische leeftijd is 52 jaar, vier jaar boven uw chronologische leeftijd. Het bereik van −5 tot +5 jaar wordt als leeftijdsadequaat beschouwd — uw waarde ligt dus binnen dit bereik. Ter context: de referentieband van ±5 jaar is smaller dan de gemiddelde fout van het model van 10,4 jaar. Een afwijking van deze omvang is dus niet te onderscheiden van de spreiding van het model.",
+      "id": "ergebnis"
+    },
+    {
+      "type": "ageDots",
+      "caption": "Biologisch versus chronologisch",
+      "title": "Biologische leeftijd",
+      "lead": "Chronologische leeftijd 48 jaar.",
+      "chronological": 48,
+      "min": 35,
+      "max": 60,
+      "unit": "jaar",
+      "items": [
+        {
+          "label": "Biologische leeftijd",
+          "age": 52,
+          "delta": "+4",
+          "tone": "green"
+        }
+      ],
+      "id": "biologisches-alter"
+    },
+    {
+      "type": "callout",
+      "title": "Waar u staat",
+      "text": "Twee scores op basis van uw zelfgerapporteerde informatie, elk vergeleken met de referentie.",
+      "items": [
+        "72 / 100 · Voeding — Goede voedingscombinatie met ruimte voor verbetering in de details. Referentie: ≥ 60.",
+        "65 / 100 · Levensstijl — Gebalanceerd, met ruimte voor meer lichaamsbeweging en stressvermindering. Referentie: ≥ 60."
+      ],
+      "tone": "neutral",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "markers",
+      "caption": "Basis van de berekening",
+      "title": "De drie microRNA's.",
+      "lead": "De individuele signalen op het stoplicht 1–9; hoe hoger, hoe beter. Alleen hun onderlinge wisselwerking produceert de leeftijdsklok — een enkel signaal op zichzelf laat geen conclusie toe.",
+      "items": [
+        {
+          "name": "miR-21",
+          "category": "Ontsteking en weefselherstel",
+          "intro": "Leidend microRNA van ‘inflammaging’. Neemt toe bij chronische, laaggradige ontsteking en is nauw verbonden met senescentie en fibrose.",
+          "kind": "stoplicht",
+          "value": 3,
+          "display": "3 / 9",
+          "sub": "Buiten bereik",
+          "tone": "red",
+          "text": "Het zwakste van uw drie signalen. Alle acht aanbevelingen in dit rapport richten zich op het miR-21-pad."
+        },
+        {
+          "name": "miR-155",
+          "category": "Immuunbalans en metabolisme",
+          "intro": "Centrale schakel van de immuunrespons. Verhoogde niveaus gaan gepaard met metabole stress en overactieve ontstekingsregulatie.",
+          "kind": "stoplicht",
+          "value": 4,
+          "display": "4 / 9",
+          "sub": "Middenbereik",
+          "tone": "amber",
+          "text": "In het lagere middenbereik. Samen met miR-21 wijst dit signaal in dezelfde richting: ontsteking en immuunregulatie vormen de kern van dit rapport."
+        },
+        {
+          "name": "miR-24",
+          "category": "Celcyclus en senescentie",
+          "intro": "Reguleert celdeling, DNA-herstel en apoptose. Reflecteert het herstelvermogen en het senescentieniveau van cellen.",
+          "kind": "stoplicht",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Middenbereik",
+          "tone": "amber",
+          "text": "Het sterkste van uw drie signalen — precies in het midden van de schaal. Herstelvermogen en senescentieniveau zijn onopvallend."
+        }
+      ],
+      "note": "In de publicatie waarin het model wordt beschreven, correleerden twee van de drie microRNA's niet significant met de chronologische leeftijd. De individuele signalen moeten daarom worden gelezen als uitgangspunten voor interventies, niet als leeftijdsmarkers op zich.",
+      "id": "marker"
+    },
+    {
+      "type": "radar",
+      "caption": "Waar u staat",
+      "title": "Voeding en leefgewoonten.",
+      "lead": "De radar toont hoe dicht uw huidige gewoonten bij de referentiewaarden liggen. Hoe verder een factor naar buiten ligt, hoe gunstiger — 10 is optimaal.",
+      "axes": [
+        "Dagelijkse activiteit",
+        "Lichaamsbeweging",
+        "Stress",
+        "Tabak",
+        "Alcohol",
+        "Tussendoortjes",
+        "Vlees",
+        "Omega-3",
+        "Vezels",
+        "Fruit/groenten",
+        "Vochtinname"
+      ],
+      "seriesLabels": {
+        "profile": "Uw profiel",
+        "reference": "Referentiegroep"
+      },
+      "scores": [
+        {
+          "value": "72 / 100",
+          "label": "Voeding",
+          "text": "Goede voedingscombinatie, ruimte voor verbetering in de details.",
+          "ref": "Referentie: ≥ 60"
+        },
+        {
+          "value": "65 / 100",
+          "label": "Leefstijl",
+          "text": "Gebalanceerd, met ruimte voor meer lichaamsbeweging en stressvermindering.",
+          "ref": "Referentie: ≥ 60"
+        }
+      ],
+      "noticeTitle": "Verbinding met de leeftijdsklok",
+      "notices": [
+        "Stress (4 van de 10) is uw zwakste levensstijlfactor. In de modelstudie behoorden stress en roken tot de factoren die geassocieerd waren met een hogere miRNA-leeftijd.",
+        "Tabak (9 van de 10) ligt daarentegen ruim boven het gemiddelde — dus de tweede van de twee ongunstige factoren uit het model geldt niet voor u.",
+        "Omega-3 (6) en beweging (7) kunnen beter; beide behoren tot de hefbomen die in de studie geassocieerd waren met een lagere miRNA-leeftijd."
+      ],
+      "note": "Beoordeling gebaseerd op uw zelfgerapporteerde informatie, geen individuele diagnose. De beschreven verbanden komen uit de modelstudie en zijn groepsbevindingen, geen voorspelling voor het individuele geval.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Alle aanbevelingen in één overzicht",
+      "title": "Uw interventies.",
+      "lead": "Acht hefbomen, elk toegewezen aan de microRNA-signalen waarop ze inwerken, samen met hun huidige waarden. Gesorteerd op urgentie — het zwakste signaal eerst.",
+      "cols": ["Hefboom", "Werkt in op", "Bron", "Hoeveelheid", "Opmerking"],
+      "rows": [
+        [
+          "Resveratrol",
+          "miR-21 · 3",
+          "Druivenhuid, bosbessen, pinda's",
+          "150–500 mg/dag",
+          "Activeert sirtuïnen, remt NF-κB"
+        ],
+        [
+          "Omega-3 vetzuren",
+          "miR-21 · 3, miR-155 · 4",
+          "Zalm, makreel, haring, lijnzaad; alternatief algenolie",
+          "2×/week, 150–200 g",
+          "Ontstekingsremmend; geassocieerd met een jongere miRNA-leeftijd in het model"
+        ],
+        [
+          "EGCG (groene thee)",
+          "miR-21 · 3, miR-155 · 4",
+          "Groene thee, matcha, sencha",
+          "300–400 mg/dag (3–4 koppen)",
+          "Antioxidant; gunstige levensstijlfactor in het model"
+        ],
+        [
+          "Curcumine",
+          "miR-21 · 3, miR-155 · 4",
+          "Kurkuma, met zwarte peper",
+          "1 theelepel per dag",
+          "Piperine verhoogt de opname aanzienlijk"
+        ],
+        [
+          "Sulforafaan",
+          "miR-21 · 3, miR-155 · 4",
+          "Broccoli (en broccolikiemen), bloemkool, spruitjes, tuinkers",
+          "25 mg/dag (ongeveer 250 g)",
+          "Verhitting gedurende 3–4 min op 80 °C verhoogt de biologische beschikbaarheid"
+        ],
+        [
+          "Slaap en stress",
+          "miR-21 · 3, miR-155 · 4",
+          "Herstellende slaap, stressregulatie, niet roken",
+          "dagelijks",
+          "Stress en roken waren geassocieerd met een hogere miRNA-leeftijd in het model"
+        ],
+        [
+          "Lichaamsbeweging",
+          "miR-21 · 3, miR-155 · 4, miR-24 · 5",
+          "Combinatie van uithoudingsvermogen en kracht",
+          "≥ 150 min/week",
+          "Regelmatige activiteit was geassocieerd met een lagere miRNA-leeftijd in het model"
+        ],
+        [
+          "Quercetine",
+          "miR-21 · 3, miR-24 · 5",
+          "Ui, knoflook, kappertjes, boerenkool",
+          "500–1.000 mg/dag",
+          "Senolytisch; betere biologische beschikbaarheid met vitamine C"
+        ]
+      ],
+      "note": "De toewijzing ‘werkt in op’ duidt het pad aan waarop de betreffende hefboom inwerkt. Het is geen belofte van een meetbare verandering in het individuele geval. Beoordeel voedingssupplementen individueel en in overleg met een gekwalificeerde professional; dit overzicht vervangt geen medisch advies.",
+      "id": "uebersicht"
+    },
+    {
+      "type": "trend",
+      "caption": "Trend",
+      "title": "De feitelijke bevinding.",
+      "lead": "Omdat de enkele waarde de spreiding van het model niet overstijgt, ligt de informatieve waarde van deze analyse in de trend. Alleen gemeten waarden worden getoond — geen voorspelling.",
+      "firstLabel": "15.03.2026",
+      "secondLabel": "15.06.2026",
+      "kind": "leeftijd",
+      "items": [
+        {
+          "label": "Biologische leeftijd",
+          "first": 54,
+          "second": 52,
+          "firstDisplay": "54 jaar",
+          "secondDisplay": "52 jaar",
+          "delta": "−2 jaar",
+          "sub": "+4 versus chronologische leeftijd",
+          "tone": "green"
+        }
+      ],
+      "note": "Evaluatie: eerste meting 15-03-2026, vervolgmeting 15-06-2026, verandering −2 jaar, afwijking vandaag +4 ten opzichte van de kalenderleeftijd.",
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "Wat de trend laat zien",
+      "text": "De biologische leeftijd is tussen de twee metingen met twee jaar gedaald, van 54 naar 52 — terwijl de kalenderleeftijd in dezelfde periode met drie maanden toenam. De richting is correct.",
+      "items": [
+        "Tegelijkertijd ligt een verschil van twee jaar ruim binnen de spreiding van het model van ongeveer tien jaar. Een enkele stap van deze omvang toont nog geen effect aan — alleen een richting die consistent blijft over meerdere metingen doet dat.",
+        "De twee metingen lagen ongeveer drie maanden uit elkaar. Het interval tot de volgende controle wordt bepaald door de instelling die uw zorg verleent; de monsterafname en het tijdstip van de dag dienen vergelijkbaar te blijven."
+      ],
+      "tone": "accent",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "summary",
+      "caption": "Samenvatting",
+      "title": "Uw focus: de ontstekingsas.",
+      "lead": "Twee van uw drie signalen — miR-21 (3/9) en miR-155 (4/9) — beschrijven ontsteking en immuunregulatie, en beide liggen in het lagere bereik. miR-24, dat herstel en veroudering weerspiegelt, bevindt zich in het midden op 5/9. Dit geeft een duidelijk beeld van waar de focus ligt.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Volg een ontstekingsremmend dieet",
+          "text": "Alle acht aangrijpingspunten in dit rapport werken in op miR-21, zes daarvan ook op miR-155. De overlap is beheersbaar en praktisch voor het dagelijks leven. Concreet: vette zeevis twee keer per week of algenolie dagelijks, 3–4 koppen groene thee, kurkuma met zwarte peper, broccoli 3–4 minuten gekookt op 80 °C, bessen voor resveratrol."
+        },
+        {
+          "num": "02",
+          "title": "Stress en lichamelijke activiteit",
+          "text": "Uw leefstijlradar toont stress op 4 van de 10 als zwakste factor, met beweging op 7 en omega-3 op 6, wat ruimte voor verbetering laat. In de modelstudie waren stress en roken geassocieerd met een hogere miRNA-leeftijd, terwijl regelmatige lichaamsbeweging en vis geassocieerd waren met een lagere. Lichaamsbeweging is het enige aangrijpingspunt dat alle drie signalen tegelijk beïnvloedt: minstens 150 minuten per week, een combinatie van duur- en krachttraining."
+        }
+      ],
+      "keepTitle": "Wat al werkt",
+      "keepText": "Niet roken (tabak 9/10), fruit en groenten (8/10) en vochtinname (8/10) liggen ruim boven de referentiegroep. De voedingsscore van 72/100 is eveneens solide. En de trend wijst in de juiste richting.",
+      "controlTitle": "Houd rekening met het volgende",
+      "controlItems": [
+        "Alle beschreven verbanden tussen leefstijl en miRNA-leeftijd komen uit de modelstudie en zijn groepsbevindingen. Of uw persoonlijke waarde verandert als gevolg van deze maatregelen, kan alleen blijken uit uw volgende meting.",
+        "Dit rapport is geen diagnose en vervangt geen medisch advies."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "science",
+      "caption": "Wat is vastgesteld — en wat niet",
+      "title": "Wetenschappelijke context.",
+      "lead": "We hebben de grenzen van deze analyse openlijk aangegeven, omdat een eerlijke interpretatie meer waard is dan een indrukwekkend getal.",
+      "items": [
+        {
+          "title": "Type studie",
+          "text": "Pilotstudie; validatie wordt door de auteurs zelf aanbevolen"
+        },
+        {
+          "title": "Monster",
+          "text": "n = 539"
+        },
+        {
+          "title": "Verklaarde variantie in leeftijd",
+          "text": "ongeveer 5%"
+        },
+        {
+          "title": "Gemiddelde absolute fout",
+          "text": "10,4 jaar"
+        },
+        {
+          "title": "Markers met significante leeftijds-correlatie",
+          "text": "1 van de 3"
+        },
+        {
+          "title": "Waar de analyse geschikt voor is",
+          "text": "Als consultatie- en monitoringsinstrument: het creëert een concreet moment, maakt leefstijlaspecten tastbaar en levert via herhaalde metingen onder dezelfde condities een trendlijn op."
+        },
+        {
+          "title": "Waar het niet geschikt voor is",
+          "text": "Als leeftijdsbepaling, als uitspraak over levensverwachting of ziekterisico, als diagnostiek — en als basis voor vergelijking met op methylering gebaseerde leeftijdsklokken, die op een andere methodologie en een andere bewijslast berusten.",
+          "source": "Schneider J. et al., miRNA-3Age: a microRNA-based biological age model and its modulation by lifestyle and nutrition. Frontiers in Nutrition (2025), doi:10.3389/fnut.2025.1659730"
+        }
+      ],
+      "note": "Dit document vervangt geen medische beoordeling en vormt geen genezingsbelofte in de zin van het Duitse Wet op Reclame voor Therapeutische Producten (HWG).",
+      "id": "einordnung"
+    },
+    {
+      "type": "callout",
+      "title": "De leidraad",
+      "text": "De trend draagt de betekenis, de enkele waarde niet. Een eerste en een vervolgmeting onder dezelfde condities zijn het echte voordeel van deze analyse.",
+      "items": [
+        "Een enkele waarde binnen ±10 jaar van de kalenderleeftijd is niet te onderscheiden van de spreiding van het model."
+      ],
+      "tone": "accent",
+      "id": "hinweis-4"
+    },
+    {
+      "type": "contact",
+      "title": "Vragen over uw rapport?",
+      "text": "Bespreek de resultaten met de instelling die de monsterafname heeft uitgevoerd. Daar is de context beschikbaar die nodig is voor interpretatie.",
+      "columns": [
+        {
+          "k": "Contact",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distributie",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Voorbeeldrapport",
+          "text": "Alle waarden en persoonsgegevens in dit document zijn fictief en dienen uitsluitend ter illustratie van het rapportformaat. Dit is geen echt rapport."
+        },
+        {
+          "title": "Interpretatie",
+          "text": "De hier gerapporteerde biologische leeftijd is een modelwaarde afgeleid van drie microRNA-signalen. Het onderliggende model is gepubliceerd als pilotstudie; de gemiddelde absolute fout bedraagt ongeveer tien jaar. De waarde is geen leeftijdsbepaling, geen diagnose en geen uitspraak over levensverwachting of ziekterisico. Informatiewaarde ontstaat alleen over meerdere metingen onder dezelfde condities. Een vergelijking met op methylering gebaseerde leeftijdsklokken is niet toegestaan."
+        },
+        {
+          "title": "Status van de analyses",
+          "text": "De analyses zijn laboratoriumdiensten die door onze samenwerkingspartner worden geleverd en zijn geen CE-gemarkeerde in-vitro diagnostische hulpmiddelen. Ze dienen ter consultatie en monitoring en vervangen geen klinische diagnostiek. De analyses worden uitsluitend aan professionele gebruikers geleverd."
+        },
+        {
+          "title": "Juridisch kader",
+          "text": "Dit panel evalueert geen genotypen; het meet epigenetische markers. Waar een analyse in het portfolio wel genetisch onderzoek omvat, zijn informatie en schriftelijke toestemming vereist vóór monsterafname, en mag dit alleen onder medische verantwoordelijkheid worden geregeld (Duitse Wet op Genetische Diagnostiek). De laboratoriumanalyse wordt uitgevoerd door onze samenwerkingspartner. Polaris Diagnostics Europe GmbH is verantwoordelijk voor distributie en ondersteuning. Beoordeel voedingssupplementen individueel en in overleg met een gekwalificeerde professional. Dit document vormt geen genezingsbelofte in de zin van het Duitse Wet op Reclame voor Therapeutische Producten (HWG)."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand per: augustus 2026",
+      "id": "kontakt"
+    }
+  ]
+}

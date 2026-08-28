@@ -64,21 +64,22 @@ Jeder Primärtask muss in einer **frischen** Agent-Session ausführbar sein — 
 
 ### Fachliche Contracts (technische Invarianten)
 
-| Datei                       | Rolle                                                                              |
-| --------------------------- | ---------------------------------------------------------------------------------- |
-| `BACKEND-API-CONTRACT.md`   | API-Oberfläche, Request-/Response-Verträge, Fehlersemantik.                        |
-| `CONSENT-CONTRACT.md`       | Consent-Modell (Basic Consent Mode v2), was vor Einwilligung nicht passieren darf. |
-| `CRM-INTEGRATION.md`        | CRM-Handoff, Feldabbildung, `DRY_RUN`-Verhalten.                                   |
-| `DEPLOYMENT-CONTRACT.md`    | Docker/Compose, Environments, Secrets, Rollback, Persistenz.                       |
-| `I18N-CONTRACT.md`          | 10 Sprachen, Namespaces, Key-Parität, Sprachrouten.                                |
-| `LEAD-DATA-CONTRACT.md`     | Lead-Datenmodell und Persistenzvertrag.                                            |
-| `LEAD-DELIVERY-CONTRACT.md` | Zustellung, Queue/Retry/Dead-Letter, gated Asset-Auslieferung.                     |
-| `NETWORK-ALLOWLIST.md`      | Erlaubte Drittanbieter-Domains; Grundlage für CSP und Pre-Consent-Prüfung.         |
-| `QUALITY-GATES.md`          | Test-, A11y-, Performance- und CI-Gates.                                           |
-| `ROUTING-CONTRACT.md`       | Route Registry, `KNOWN_PATHS`, Redirects, HTTP-Status-Semantik.                    |
-| `RUNTIME-CONTRACT.md`       | SSR-/Server-Verhalten, Rendering- und Laufzeitinvarianten.                         |
-| `SEO-CONTRACT.md`           | Canonical/hreflang, Sitemap, Robots, Structured Data.                              |
-| `TRACKING-CONTRACT.md`      | Tracking-Fassade, Event-/Conversion-Taxonomie.                                     |
+| Datei                       | Rolle                                                                                                         |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `BACKEND-API-CONTRACT.md`   | API-Oberfläche, Request-/Response-Verträge, Fehlersemantik.                                                   |
+| `CONSENT-CONTRACT.md`       | Consent-Modell (Basic Consent Mode v2), was vor Einwilligung nicht passieren darf.                            |
+| `CRM-INTEGRATION.md`        | CRM-Handoff, Feldabbildung, `DRY_RUN`-Verhalten.                                                              |
+| `DEPLOYMENT-CONTRACT.md`    | Docker/Compose, Environments, Secrets, Rollback, Persistenz.                                                  |
+| `DESIGN-SYSTEM-CONTRACT.md` | Sales-Machine-Art-Direction, Light-Theme-Regel, Tokenrollen, Alias-Politik, Motion-Tokens, Guard-Verankerung. |
+| `I18N-CONTRACT.md`          | 10 Sprachen, Namespaces, Key-Parität, Sprachrouten.                                                           |
+| `LEAD-DATA-CONTRACT.md`     | Lead-Datenmodell und Persistenzvertrag.                                                                       |
+| `LEAD-DELIVERY-CONTRACT.md` | Zustellung, Queue/Retry/Dead-Letter, gated Asset-Auslieferung.                                                |
+| `NETWORK-ALLOWLIST.md`      | Erlaubte Drittanbieter-Domains; Grundlage für CSP und Pre-Consent-Prüfung.                                    |
+| `QUALITY-GATES.md`          | Test-, A11y-, Performance- und CI-Gates.                                                                      |
+| `ROUTING-CONTRACT.md`       | Route Registry, `KNOWN_PATHS`, Redirects, HTTP-Status-Semantik.                                               |
+| `RUNTIME-CONTRACT.md`       | SSR-/Server-Verhalten, Rendering- und Laufzeitinvarianten.                                                    |
+| `SEO-CONTRACT.md`           | Canonical/hreflang, Sitemap, Robots, Structured Data.                                                         |
+| `TRACKING-CONTRACT.md`      | Tracking-Fassade, Event-/Conversion-Taxonomie.                                                                |
 
 ### Evidenz (kein Entscheidungsdokument)
 

@@ -1,0 +1,578 @@
+{
+  "slug": "stress-monitor",
+  "panel": "Stress Monitor",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Rapport d'échantillon · Données d'exemple",
+      "panel": "Stress Monitor",
+      "subtitle": "Votre régulation du stress",
+      "claim": "Ce qui est mesuré n'est pas le stress lui-même, mais la manière dont votre corps le régule. Six microARN à partir d'une seule goutte de sang capillaire donnent un aperçu du contrôle cellulaire de votre réponse au stress.",
+      "meta": [
+        {
+          "k": "Rapport pour",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Prélèvement de l'échantillon",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Matériel",
+          "v": "Carte de gouttelette de sang séché"
+        },
+        {
+          "k": "Portée",
+          "v": "6 microARN"
+        }
+      ],
+      "id": "deckblatt",
+      "benefit": "Comment le corps de votre client gère le stress — et ce qu'il peut changer."
+    },
+    {
+      "type": "principle",
+      "caption": "Le principe",
+      "title": "Votre régulation du stress. Pas votre niveau de stress.",
+      "lead": "Le stress n'est pas une quantité unique mais un réseau de processus neuroendocriniens, immunologiques et métaboliques — contrôlés, entre autres, via l'axe HHS, les voies de signalisation inflammatoires et les adaptations mitochondriales. Six microARN sont analysés : de petites molécules d'ARN non codantes qui aident à déterminer quels gènes sont effectivement lus en conditions de stress.",
+      "cards": [
+        {
+          "title": "Aigu et chronique",
+          "text": "Comment votre réponse au stress fonctionne actuellement et si une charge durable émerge."
+        },
+        {
+          "title": "Régulation cellulaire",
+          "text": "À quel point votre corps équilibre les signaux de stress au niveau cellulaire."
+        },
+        {
+          "title": "Régulation à long terme",
+          "text": "Comment la régulation se manifeste à long terme — un bon niveau de stress actuel seul ne dit rien à ce sujet."
+        }
+      ],
+      "flowTitle": "Le processus",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Mesure",
+          "text": "Carte de goutte de sang séché, bout du doigt. Six microARN, normalisés au gène de référence miR-24-3p. Pas de jeûne requis."
+        },
+        {
+          "num": "02",
+          "title": "Évaluer",
+          "text": "Deux évaluations sur le feu tricolore 1–9 : niveau de stress physiologique et régulation à long terme."
+        },
+        {
+          "num": "03",
+          "title": "Réguler",
+          "text": "Recommandations ciblées sur les composés bioactifs d'origine végétale et suivi dans le temps."
+        }
+      ],
+      "scaleTitle": "Comment lire l’échelle ?",
+      "scaleLead": "Les deux évaluations et les six marqueurs individuels sont notés sur le feu tricolore 1–9. Plus c'est élevé, mieux c'est : 1–3 rouge, 4–6 orange, 7–9 vert. Chacune des deux évaluations porte en plus son propre étiquetage de zone.",
+      "scaleKind": "traffic",
+      "scaleTicks": ["1", "3", "5", "7", "9"],
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "1–3 · Rouge",
+          "text": "Priorité maximale."
+        },
+        {
+          "tone": "amber",
+          "label": "4–6 · Orange",
+          "text": "Prendre des contre-mesures ciblées."
+        },
+        {
+          "tone": "green",
+          "label": "7–9 · Vert",
+          "text": "Maintenir le résultat."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Important",
+      "text": "Ce rapport n'est pas un diagnostic et ne remplace pas un conseil médical ou psychothérapeutique. En cas de persistance de la charge, de l'épuisement ou de troubles du sommeil, veuillez consulter un médecin.",
+      "items": [
+        "Les six valeurs de microARN décrivent un instantané dans le temps et peuvent être influencées par le mode de vie — ce qui les rend adaptées au suivi dans le temps."
+      ],
+      "tone": "neutral",
+      "id": "hinweis"
+    },
+    {
+      "type": "markers",
+      "caption": "Résultats en un coup d'œil",
+      "title": "Vos deux évaluations.",
+      "items": [
+        {
+          "name": "Niveau de stress physiologique",
+          "category": "Charge aiguë et chronique",
+          "kind": "feu tricolore",
+          "value": 7,
+          "display": "7 / 9",
+          "sub": "Favorable",
+          "tone": "green",
+          "text": "Votre corps gère bien le stress actuel.",
+          "zoneLabels": ["stress chronique", "stress aigu", "pas de stress"]
+        },
+        {
+          "name": "Régulation à long terme",
+          "category": "Quatre microARN issus de quatre niveaux de régulation",
+          "kind": "feu tricolore",
+          "value": 4,
+          "display": "4 / 9",
+          "sub": "Limitée",
+          "tone": "amber",
+          "text": "Régulation limitée au niveau le plus lent.",
+          "zoneLabels": ["régulation faible", "régulation modérée", "régulation stable"]
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "resultTable",
+      "caption": "Les six marqueurs individuels",
+      "title": "Tous les microARN en un coup d'œil.",
+      "cols": ["microARN", "Désignation", "Niveau de régulation", "Valeur", "Contribue à"],
+      "rows": [
+        {
+          "cells": [
+            "miR-21-5p",
+            "Indicateur de protection cellulaire",
+            "Mécanismes cellulaires de protection et d'adaptation",
+            "8 / 9",
+            "Régulation à long terme"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "let-7a-5p",
+            "Indicateur de stress aigu",
+            "Régulation inflammatoire de base",
+            "7 / 9",
+            "Niveau de stress"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "miR-16-5p",
+            "Indicateur de régulation de la sérotonine",
+            "Régulation sérotoninergique",
+            "6 / 9",
+            "Régulation à long terme"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "miR-15a-5p",
+            "Indicateur neuronal",
+            "Stabilité et adaptation neuronales",
+            "5 / 9",
+            "Régulation à long terme"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "let-7g-5p",
+            "Indicateur de stress chronique",
+            "Régulation inflammatoire et métabolique",
+            "4 / 9",
+            "Niveau de stress"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "miR-106b-5p",
+            "Indicateur d’activation du signal immunitaire",
+            "Activation immunologique",
+            "3 / 9",
+            "Régulation à long terme"
+          ],
+          "tone": "red"
+        }
+      ],
+      "note": "Les deux évaluations sont calculées par le laboratoire à partir des microARN qui leur sont assignés ; elles ne correspondent pas à la moyenne de ces valeurs individuelles.",
+      "id": "ergebnis"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Évaluation 01",
+      "title": "Niveau de stress physiologique.",
+      "lead": "Composée de l’indicateur de stress aigu et de l’indicateur de stress chronique (let-7a-5p, let-7g-5p).",
+      "display": "7 / 9",
+      "sub": "Favorable",
+      "kind": "feu tricolore",
+      "value": 7,
+      "tone": "green",
+      "zoneLabels": ["stress chronique", "stress aigu", "pas de stress"],
+      "text": "L’évaluation montre où se situe votre réponse actuelle au stress entre « pas de stress » et « stress chronique ». Votre valeur est dans la plage favorable — votre corps gère bien le stress actuel. L’évaluation est toujours faite dans le contexte des autres marqueurs.",
+      "id": "ergebnis-2"
+    },
+    {
+      "type": "markers",
+      "caption": "Évaluation 01",
+      "title": "Les deux indicateurs individuels.",
+      "items": [
+        {
+          "name": "let-7a-5p",
+          "category": "Indicateur de stress aigu",
+          "kind": "feu tricolore",
+          "value": 7,
+          "display": "7 / 9",
+          "tone": "green",
+          "text": "Faisant partie de la famille let-7 ; régule les voies de signalisation inflammatoires et intervient dans les processus de stress et immunitaires. La valeur la plus favorable des deux."
+        },
+        {
+          "name": "let-7g-5p",
+          "category": "Indicateur de stress chronique",
+          "kind": "feu tricolore",
+          "value": 4,
+          "display": "4 / 9",
+          "tone": "amber",
+          "text": "Régule les processus inflammatoires et métaboliques qui influencent l’homéostasie systémique. Nettement plus faible que l’indicateur aigu."
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "callout",
+      "title": "Ce qui compte ici",
+      "text": "Les deux indicateurs individuels divergent largement : aigu 7/9, chronique 4/9. La réponse au stress aigu fonctionne ; le niveau chronique est le plus faible des deux.",
+      "items": [
+        "Quatre des onze recommandations — quercétine, EGCG, oléuropéine et resvératrol — ciblent précisément l’indicateur chronique let-7g-5p."
+      ],
+      "tone": "accent",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "table",
+      "caption": "Recommandations",
+      "title": "Composés pour l’évaluation 01.",
+      "cols": ["Composé", "À partir du marqueur", "Source", "Quantité", "Remarque"],
+      "rows": [
+        [
+          "Butyrate",
+          "let-7a-5p · 7",
+          "Pectine (pomme, cynorrhodon), inuline (chicorée, artichaut)",
+          "au moins 30 g/jour",
+          "Formé lors de la fermentation des fibres prébiotiques dans l’intestin"
+        ],
+        [
+          "Quercétine",
+          "let-7g-5p · 4",
+          "Oignon, câpres, livèche, ciboulette",
+          "au moins 200 mg/jour",
+          "Sensibles à la chaleur — consommer cru ou préparer doucement"
+        ],
+        [
+          "EGCG",
+          "let-7g-5p · 4",
+          "Thé blanc ou vert (non fermenté)",
+          "max. 800 mg/jour",
+          "La pipérine, la vitamine C et l’huile de poisson améliorent la biodisponibilité"
+        ],
+        [
+          "Oléuropéine",
+          "let-7g-5p · 4",
+          "Olives, feuille d’olivier, huile d’argan",
+          "100 mg/jour",
+          "Les feuilles sont 3 000 fois plus concentrées, mais très amères"
+        ]
+      ],
+      "id": "uebersicht"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Évaluation 02",
+      "title": "Régulation à long terme.",
+      "lead": "Calculée à partir de quatre microARN : miR-16-5p, miR-15a-5p, miR-106b-5p et miR-21-5p.",
+      "display": "4 / 9",
+      "sub": "Limitée",
+      "kind": "feu tricolore",
+      "value": 4,
+      "tone": "amber",
+      "zoneLabels": ["régulation faible", "régulation modérée", "régulation stable"],
+      "text": "Au niveau aigu, l’évaluation ne montre pas de surcharge liée au stress. En revanche, le niveau de régulation plus lent est à 4/9 dans la zone orange — c’est le point central de ce rapport et le point de départ de la discussion.",
+      "id": "ergebnis-3"
+    },
+    {
+      "type": "markers",
+      "caption": "Évaluation 02",
+      "title": "Les quatre microARN.",
+      "items": [
+        {
+          "name": "miR-106b-5p",
+          "category": "Signal immunitaire",
+          "kind": "feu tricolore",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red",
+          "text": "Régule les réponses immunitaires et les voies de signalisation inflammatoires. La seule valeur individuelle rouge dans ce rapport ; quatre des onze recommandations le ciblent."
+        },
+        {
+          "name": "miR-15a-5p",
+          "category": "Neuronal",
+          "kind": "feu tricolore",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber",
+          "text": "Régule les processus neuronaux, l’apoptose et le cycle cellulaire ; influence l’homéostasie neuronale."
+        },
+        {
+          "name": "miR-16-5p",
+          "category": "Sérotoninergique",
+          "kind": "feu tricolore",
+          "value": 6,
+          "display": "6 / 9",
+          "tone": "amber",
+          "text": "Régule les voies de signalisation sérotoninergiques et le transporteur de la sérotonine ; impliqué dans la plasticité neuronale."
+        },
+        {
+          "name": "miR-21-5p",
+          "category": "Protection cellulaire",
+          "kind": "feu tricolore",
+          "value": 8,
+          "display": "8 / 9",
+          "tone": "green",
+          "text": "Régule la survie cellulaire et l’apoptose ; impliqué dans les processus de stress et de réparation. La meilleure valeur individuelle de tout le rapport."
+        }
+      ],
+      "id": "marker-3"
+    },
+    {
+      "type": "table",
+      "caption": "Recommandations",
+      "title": "Composés pour l’évaluation 02.",
+      "cols": ["Composé", "À partir du marqueur", "Source", "Quantité", "Remarque"],
+      "rows": [
+        [
+          "Resvératrol",
+          "miR-106b-5p · 3",
+          "Peaux de raisin, framboises, airelles, fraises",
+          "150 mg/jour",
+          "Difficile à atteindre uniquement par l’alimentation"
+        ],
+        [
+          "Oméga-3 (AGPI)",
+          "miR-106b-5p · 3",
+          "Poissons gras, noix, algues, huiles de colza et de lin",
+          "250–500 mg/jour",
+          "Maintenir un équilibre entre oméga-3 et oméga-6"
+        ],
+        [
+          "Berbérine",
+          "miR-106b-5p · 3",
+          "Écorce de racine d’épine-vinette, racine d’orange",
+          "uniquement après consultation professionnelle",
+          "Connu comme un thé de la médecine ayurvédique"
+        ],
+        [
+          "Folates",
+          "miR-16-5p · 6",
+          "Légumes à feuilles vertes, épinards, chou frisé, brocoli",
+          "300 µg/jour",
+          "Le tabagisme réduit l’absorption"
+        ]
+      ],
+      "id": "uebersicht-2"
+    },
+    {
+      "type": "table",
+      "caption": "Toutes les recommandations en un coup d’œil",
+      "title": "Vos interventions.",
+      "lead": "Onze composés, chacun assigné au marqueur microARN sur lequel il agit, avec la valeur actuelle de ce marqueur. Triés par urgence — les marqueurs les plus faibles en premier.",
+      "cols": ["Composé", "À partir du marqueur", "Source", "Quantité", "Remarque"],
+      "rows": [
+        [
+          "Resvératrol",
+          "miR-106b-5p · 3, let-7g-5p · 4, miR-15a-5p · 5",
+          "Peaux de raisin, framboises, airelles, fraises",
+          "150 mg/jour",
+          "Difficile à atteindre en cette quantité uniquement par l’alimentation"
+        ],
+        [
+          "Berbérine",
+          "miR-106b-5p · 3",
+          "Écorce de racine d’épine-vinette, racine d’orange",
+          "uniquement après consultation professionnelle",
+          "Connu comme un thé de la médecine ayurvédique"
+        ],
+        [
+          "Butyrate",
+          "miR-106b-5p · 3, let-7a-5p · 7, miR-21-5p · 8",
+          "Pectine (pomme, cynorrhodon), inuline (chicorée, artichaut)",
+          "au moins 30 g/jour",
+          "Formé lors de la fermentation des fibres prébiotiques dans l’intestin"
+        ],
+        [
+          "Oméga-3 (AGPI)",
+          "miR-106b-5p · 3, miR-21-5p · 8",
+          "Poissons gras, noix, algues, huiles de colza et de lin",
+          "250–500 mg/jour",
+          "Maintenir un équilibre entre oméga-3 et oméga-6"
+        ],
+        [
+          "Quercétine",
+          "let-7g-5p · 4",
+          "Oignon, câpres, livèche, ciboulette",
+          "au moins 200 mg/jour",
+          "Sensibles à la chaleur — consommer cru ou préparer doucement"
+        ],
+        [
+          "Oléuropéine",
+          "let-7g-5p · 4",
+          "Olives, feuille d’olivier, huile d’argan",
+          "100 mg/jour",
+          "Les feuilles sont 3 000 fois plus concentrées, mais très amères"
+        ],
+        [
+          "EGCG (thé vert)",
+          "let-7g-5p · 4, miR-15a-5p · 5",
+          "Thé blanc ou vert (non fermenté)",
+          "max. 800 mg/jour",
+          "La pipérine, la vitamine C et l’huile de poisson améliorent la biodisponibilité"
+        ],
+        [
+          "Folates",
+          "miR-16-5p · 6",
+          "Légumes à feuilles vertes, épinards, chou frisé, brocoli",
+          "300 µg/jour",
+          "Le tabagisme réduit l’absorption"
+        ],
+        [
+          "Curcumine",
+          "miR-21-5p · 8",
+          "Curcuma",
+          "max. 300 mg/jour",
+          "Consulter un médecin en cas de grossesse ou de calculs biliaires"
+        ],
+        [
+          "Gingérol",
+          "miR-21-5p · 8",
+          "Racine de gingembre",
+          "max. 5 g/jour",
+          "Pendant la grossesse, uniquement après consultation"
+        ],
+        [
+          "Sulforaphane",
+          "miR-21-5p · 8",
+          "Légumes crucifères, chou, brocoli (germes)",
+          "25 mg/jour",
+          "De préférence crus ou légèrement cuits à la vapeur"
+        ]
+      ],
+      "note": "Veuillez examiner les compléments alimentaires individuellement et en consultation avec un professionnel qualifié — en particulier en cas de grossesse, de pathologies préexistantes ou de traitements médicamenteux concomitants. Ce résumé ne remplace pas un avis médical.",
+      "id": "uebersicht-3"
+    },
+    {
+      "type": "trend",
+      "caption": "Tendance",
+      "title": "Comparaison de deux mesures.",
+      "lead": "Une comparaison de vos deux mesures à ce jour. Seules les valeurs mesurées sont affichées — pas de pronostic.",
+      "firstLabel": "15.03.2026",
+      "secondLabel": "15.06.2026",
+      "kind": "feu tricolore",
+      "items": [
+        {
+          "label": "Niveau de stress physiologique",
+          "first": 6,
+          "second": 7,
+          "firstDisplay": "6 / 9",
+          "secondDisplay": "7 / 9",
+          "delta": "+1",
+          "status": "Favorable",
+          "tone": "green"
+        },
+        {
+          "label": "Régulation à long terme",
+          "first": 5,
+          "second": 4,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "4 / 9",
+          "delta": "−1",
+          "status": "Limitée",
+          "tone": "amber"
+        }
+      ],
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "Ce que montre la tendance",
+      "text": "Les deux évaluations évoluent en sens inverse : le niveau de stress actuel s’est amélioré de 6 à 7 et se situe désormais dans la zone verte. La valeur de la régulation à long terme est passée de 5 à 4 sur la même période — et comme ici aussi une valeur plus élevée signifie une régulation plus stable, cela signifie que ce niveau s’est détérioré.",
+      "items": [
+        "C’est la véritable conclusion de cette mesure : la charge aiguë est mieux gérée, tandis que le niveau de régulation à long terme s’est détérioré. Un bon niveau de stress seul ne renseigne pas sur le niveau à long terme.",
+        "Les deux mesures ont été prises à environ trois mois d’intervalle. L’intervalle jusqu’à la prochaine mesure de suivi est fixé par l’institution supervisante."
+      ],
+      "tone": "accent",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "summary",
+      "caption": "Résumé",
+      "title": "Votre priorité : la vision à long terme.",
+      "lead": "Votre niveau de stress actuel est bon — et c’est précisément là que ce rapport insiste : le niveau qui s’est détérioré est celui que vous ne pouvez pas ressentir.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "miR-106b-5p — la seule valeur individuelle rouge",
+          "text": "À 3/9, l’indicateur d’activation du signal immunitaire est la valeur la plus faible du rapport et contribue à la régulation à long terme. Quatre des onze recommandations le ciblent : resvératrol, berbérine, butyrate et oméga-3. Concrètement : au moins 30 g de fibres par jour pour la formation de butyrate dans l’intestin, 250–500 mg d’oméga-3 issus de poissons gras, noix ou huile d’algues, plus des baies pour le resvératrol."
+        },
+        {
+          "num": "02",
+          "title": "let-7g-5p — le niveau chronique",
+          "text": "À 4/9, l’indicateur de stress chronique est bien en dessous de l’aigu (7/9) — même si l’évaluation globale est dans la zone verte. Le rapport ne montre pas lequel des deux indicateurs a porté l’amélioration de 6 à 7. La quercétine, l’EGCG, l’oléuropéine et le resvératrol agissent sur le niveau chronique. Les notes de préparation diffèrent selon les composés — détails dans le tableau « Vos interventions »."
+        }
+      ],
+      "keepTitle": "Maintenir",
+      "keepText": "miR-21-5p (8/9) et let-7a-5p (7/9) sont les deux valeurs les plus fortes — les mécanismes de protection cellulaire et la réponse au stress aigu fonctionnent bien. Curcumine, gingérol et sulforaphane servent ici à maintenir, non à corriger.",
+      "controlTitle": "Suivi et prochaine étape",
+      "controlItems": [
+        "Vos deux mesures à ce jour ont été prises à environ trois mois d’intervalle. L’intervalle jusqu’au prochain suivi est fixé par l’institution supervisante.",
+        "Pour la comparabilité, la collecte des échantillons et l’heure de la journée doivent rester similaires.",
+        "En cas de fatigue persistante, de troubles du sommeil ou de baisse de moral, ce rapport ne remplace pas une évaluation médicale."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Des questions sur votre rapport ?",
+      "text": "Discutez des résultats avec l’institution qui a réalisé la collecte des échantillons. C’est là que se trouve le contexte nécessaire à leur interprétation.",
+      "columns": [
+        {
+          "k": "Contact",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribution",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hambourg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Rapport d’échantillon",
+          "text": "Toutes les valeurs et données personnelles dans ce document sont fictives et servent uniquement à illustrer le format du rapport. Ceci n’est pas un rapport réel."
+        },
+        {
+          "title": "Interprétation",
+          "text": "Ce rapport n’est pas un diagnostic et ne remplace pas un avis médical ou psychothérapeutique. Les valeurs des microARN décrivent un instantané de la régulation cellulaire ; elles ne mesurent pas le stress perçu et ne donnent aucune indication sur la présence ou l’évolution d’une maladie. En cas de persistance de la charge, de fatigue, de troubles du sommeil ou de baisse de moral, veuillez consulter un médecin."
+        },
+        {
+          "title": "Statut des analyses",
+          "text": "Les analyses sont des prestations de laboratoire fournies par notre partenaire de coopération et ne sont pas des dispositifs médicaux de diagnostic in vitro marqués CE. Elles servent à la consultation et au suivi et ne remplacent pas le diagnostic clinique. Les analyses sont fournies uniquement aux utilisateurs professionnels."
+        },
+        {
+          "title": "Cadre légal",
+          "text": "Ce panel n’évalue aucun génotype ; il mesure des marqueurs épigénétiques. Lorsqu’une analyse du portefeuille inclut un test génétique, des informations et un consentement écrit sont requis avant la collecte d’échantillons, et cela ne peut être organisé que sous responsabilité médicale (loi allemande sur le diagnostic génétique). L’analyse en laboratoire est réalisée par notre partenaire de coopération. Polaris Diagnostics Europe GmbH est responsable de la distribution et du support. Veuillez examiner les compléments alimentaires individuellement et en consultation avec un professionnel qualifié."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · En date de : août 2026",
+      "id": "kontakt"
+    }
+  ]
+}

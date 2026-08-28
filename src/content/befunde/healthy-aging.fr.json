@@ -1,0 +1,595 @@
+{
+  "slug": "healthy-aging",
+  "panel": "Healthy Aging",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Rapport d'échantillon · Données d'exemple",
+      "panel": "Healthy Aging",
+      "subtitle": "Votre horloge épigénétique",
+      "claim": "Quelques gouttes de sang révèlent l'état de votre régulation cellulaire — et les leviers pouvant influencer l'âge biologique.",
+      "meta": [
+        {
+          "k": "Rapport pour",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Prélèvement de l'échantillon",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Matériel",
+          "v": "Carte de gouttelette de sang séché"
+        },
+        {
+          "k": "Marqueurs",
+          "v": "4 + mode de vie"
+        }
+      ],
+      "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+      "id": "deckblatt",
+      "benefit": "Comment votre client vieillit — en quatre valeurs distinctes, et ce qu'il peut changer."
+    },
+    {
+      "type": "principle",
+      "caption": "Le principe",
+      "title": "Comment lire ce rapport.",
+      "lead": "Votre corps se renouvelle chaque jour : les cellules se divisent, réparent les dommages de l'ADN et réagissent au stress, à la nutrition, au sommeil et à l'environnement. Ces processus laissent des traces dans la méthylation de l'ADN. À partir de ces motifs, le rapport détermine votre âge biologique — non en années civiles, mais selon l'état de votre régulation cellulaire.",
+      "cards": [
+        {
+          "title": "Protection",
+          "text": "La stabilité de la protection de votre ADN et l'efficacité des mécanismes de réparation. Marqueurs : télomères, LINE-1."
+        },
+        {
+          "title": "Régulation",
+          "text": "Le contrôle des processus inflammatoires et la résilience de l'équilibre cellulaire. Marqueur : IL-6."
+        },
+        {
+          "title": "Interprétation",
+          "text": "Comment vos valeurs se comparent à un groupe de référence apparié selon l'âge, le sexe et l'ethnie."
+        }
+      ],
+      "flowTitle": "Le processus",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Mesure",
+          "text": "Carte de gouttes de sang séché, bout du doigt. Longueur des télomères et marqueurs de méthylation (LINE-1, IL-6, marqueurs du vieillissement). Aucun jeûne requis."
+        },
+        {
+          "num": "02",
+          "title": "Interpréter",
+          "text": "Comparaison avec le groupe de référence. 100 % correspond à la valeur de méthylation du groupe témoin sain."
+        },
+        {
+          "num": "03",
+          "title": "Changer",
+          "text": "Pour chaque marqueur, l'intervention adaptée — quoi manger, éviter ou modifier spécifiquement — plus le suivi."
+        }
+      ],
+      "scaleCaption": "Orientation",
+      "scaleTitle": "Comment lire l’échelle ?",
+      "scaleLead": "Tous les marqueurs sont exprimés en pourcentage de la référence. 100 % correspond à la plage normale, et plus c'est élevé, mieux c'est. La longueur des télomères est également rapportée en kilobases (kbp).",
+      "scaleKind": "percent",
+      "scaleTicks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "En dessous de 90 % · Rouge",
+          "text": "Action urgente nécessaire."
+        },
+        {
+          "tone": "amber",
+          "label": "90–100 % · Orange",
+          "text": "Action nécessaire, contrebalancer de manière ciblée."
+        },
+        {
+          "tone": "green",
+          "label": "À partir de 100 % · Vert",
+          "text": "Aucune action nécessaire, maintenir le résultat."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Quelle robustesse pour la valeur des télomères ?",
+      "text": "La mesure de la longueur des télomères varie considérablement — entre les analyses individuelles et entre les laboratoires. L'extraction de l'ADN, le stockage et la composition des cellules sanguines influencent systématiquement le résultat. Cette variation est plus élevée à partir de sang séché que de sang veineux.",
+      "items": [
+        "Ce que cela signifie en pratique : un écart de quelques pourcents par rapport à la valeur de référence est de l'ordre de grandeur de la variation de mesure et n'a pas de signification en soi. La longueur des télomères ne devient robuste qu'après plusieurs mesures réalisées dans les mêmes conditions — même laboratoire, même matériel, prélèvements comparables.",
+        "La longueur des télomères est un marqueur de la charge cellulaire cumulative. Ce n'est ni un diagnostic, ni une indication de l'espérance de vie, ni une mesure du risque individuel de maladie."
+      ],
+      "tone": "accent",
+      "id": "hinweis"
+    },
+    {
+      "type": "resultTable",
+      "caption": "Résultats en un coup d'œil",
+      "title": "Tous les marqueurs en aperçu.",
+      "cols": ["Marqueur", "Votre valeur", "Référence", "Interprétation"],
+      "rows": [
+        {
+          "cells": [
+            "Télomères · Stabilité cellulaire",
+            "108 kbp (96 %)",
+            "112 kbp = 100 %",
+            "Action nécessaire"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": ["LINE-1 · Stabilité de l’ADN", "96 %", "≥ 100 %", "Action nécessaire"],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "Marqueurs épigénétiques du vieillissement · Âge biologique",
+            "103 %",
+            "≥ 100 %",
+            "Dans la plage normale"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "IL-6 · Régulation de l'inflammation",
+            "108 %",
+            "≥ 100 %",
+            "Dans la plage normale"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": ["Nutrition · Évaluation de base", "72 / 100", "≥ 60", "Dans la plage normale"],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "Mode de vie · Évaluation de base",
+            "65 / 100",
+            "≥ 60",
+            "Dans la plage normale"
+          ],
+          "tone": "green"
+        }
+      ],
+      "id": "ergebnis"
+    },
+    {
+      "type": "ageDots",
+      "caption": "Âge biologique",
+      "title": "Âge spécifique au marqueur en comparaison",
+      "lead": "Âge chronologique : 48 ans. Chaque marqueur donne son propre âge biologique — une valeur combinée globale n'est délibérément pas calculée.",
+      "chronological": 48,
+      "min": 35,
+      "max": 60,
+      "unit": "ans",
+      "ticks": ["35", "40", "45", "50", "55", "60"],
+      "chronologicalLabel": "48 ans",
+      "note": "La ligne en pointillés marque l'âge chronologique de 48 ans. À gauche : plus jeune que l'âge chronologique. À droite : plus âgé.",
+      "items": [
+        {
+          "label": "Télomères",
+          "age": 53,
+          "delta": "+5",
+          "display": "53 yrs · +5",
+          "tone": "red"
+        },
+        {
+          "label": "LINE-1",
+          "age": 50,
+          "delta": "+2",
+          "display": "50 yrs · +2",
+          "tone": "amber"
+        },
+        {
+          "label": "IL-6",
+          "age": 46,
+          "delta": "−2",
+          "display": "46 yrs · −2",
+          "tone": "green"
+        },
+        {
+          "label": "Marqueurs épig. du vieillissement",
+          "age": 45,
+          "delta": "−3",
+          "display": "45 yrs · −3",
+          "tone": "green"
+        }
+      ],
+      "id": "biologisches-alter"
+    },
+    {
+      "type": "markers",
+      "caption": "Vos marqueurs",
+      "title": "Télomères et marqueurs du vieillissement.",
+      "items": [
+        {
+          "name": "Télomères",
+          "category": "Stabilité cellulaire",
+          "intro": "Structures protectrices aux extrémités des chromosomes. Si elles raccourcissent trop, les cellules perdent leur capacité à se diviser — un moteur central du vieillissement biologique.",
+          "kind": "pourcentage",
+          "value": 96,
+          "display": "96 %",
+          "sub": "108 kbp",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "amber",
+          "text": "Votre longueur de télomères est inférieure de 4 % à la valeur attendue pour votre âge (108 au lieu de 112 kbp). Cela correspond à un âge biologique des télomères de 53 ans, soit cinq ans de plus que l'âge chronologique. Un écart de cette ampleur se situe dans la plage de variation de mesure et n'a pas de signification en soi — la valeur doit être considérée comme un point de départ pour la tendance. Les recommandations de cette section reposent sur LINE-1 ; elles agissent via la même voie métabolique.",
+          "table": {
+            "cols": ["Substance active", "Source", "Quantité", "Remarque"],
+            "rows": [
+              [
+                "Folates",
+                "Épinards, chou frisé, légumineuses, tomates, pousses",
+                "2 poignées de légumes verts par jour",
+                "Cru ou légèrement cuit à la vapeur — sensible à la chaleur"
+              ],
+              [
+                "Vitamine B2 et B12",
+                "Œufs, fromage, aliments fermentés",
+                "1 portion par jour",
+                "Végétalien : supplémenter spécifiquement en B12"
+              ],
+              [
+                "Méthionine",
+                "Sésame, soja, pois, noix du Brésil",
+                "2–3 noix du Brésil par jour",
+                "À cause du sélénium, pas plus de 3–4 noix"
+              ],
+              [
+                "EGCG",
+                "Thé vert, matcha",
+                "3–4 tasses par jour",
+                "Pas avec des repas riches en fer"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Marqueurs épigénétiques du vieillissement",
+          "category": "Âge biologique",
+          "intro": "La méthylation de gènes fortement liés à l'âge, comparée à un groupe témoin apparié selon l'âge, le sexe et l'ethnie.",
+          "kind": "pourcentage",
+          "value": 103,
+          "display": "103 %",
+          "sub": "45 ans",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "green",
+          "text": "Légèrement au-dessus de la plage attendue — un profil épigénétique favorable. L'âge biologique dérivé est de 45 ans, soit trois ans de moins que l'âge chronologique.",
+          "table": {
+            "cols": ["Substance active", "Source", "Quantité", "Remarque"],
+            "rows": [
+              [
+                "Café",
+                "Café filtre, espresso",
+                "2–3 tasses par jour",
+                "Pas après 14 h — peut perturber le sommeil"
+              ],
+              [
+                "Légumes à feuilles vertes",
+                "Épinards, chou frisé, bette à carde",
+                "1 portion par jour",
+                "Apporte de l'acide folique, soutient la méthylation"
+              ],
+              [
+                "Fromage et produits laitiers",
+                "Fromages à pâte dure et molle, yaourt",
+                "avec modération",
+                "Une consommation excessive peut réduire la régulation"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "markers",
+      "caption": "Vos marqueurs",
+      "title": "LINE-1 et IL-6.",
+      "items": [
+        {
+          "name": "LINE-1",
+          "category": "Stabilité de l’ADN",
+          "intro": "Les éléments LINE-1 représentent environ 17 % du génome. Leur méthylation est considérée comme un marqueur de la régulation globale de l'ADN et donc de la stabilité génomique générale.",
+          "kind": "pourcentage",
+          "value": 96,
+          "display": "96 %",
+          "sub": "50 ans",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "amber",
+          "text": "Régulation globale de l'ADN légèrement réduite, à évaluer dans le profil global. L'âge biologique dérivé est de 50 ans. Ce marqueur dépend de la même voie métabolique que les télomères — les deux répondent aux mêmes donneurs de méthyle.",
+          "table": {
+            "cols": ["Substance active", "Source", "Quantité", "Remarque"],
+            "rows": [
+              [
+                "Donneurs de méthyle",
+                "Légumes à feuilles, légumineuses, œufs, noix, sésame, soja",
+                "quotidiennement dans au moins 2 repas",
+                "Prendre folate, B2, B6 et B12 ensemble"
+              ],
+              [
+                "Fibres",
+                "Produits complets, légumes, légumineuses",
+                "au moins 30 g/jour",
+                "Stabilise la glycémie, réduit la charge oxydative"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "IL-6",
+          "category": "Régulation de l'inflammation",
+          "intro": "L'interleukine-6 est une substance messagère centrale de la régulation de l'inflammation. Ce qui est évalué est la méthylation de l'ADN des régions géniques associées à IL-6 — pas le taux sanguin aigu.",
+          "kind": "pourcentage",
+          "value": 108,
+          "display": "108 %",
+          "sub": "46 ans",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "green",
+          "text": "Indique une régulation stable de l'activité IL-6 — la meilleure valeur de votre profil. Ici, les recommandations visent le maintien, non la correction.",
+          "table": {
+            "cols": ["Substance active", "Source", "Quantité", "Remarque"],
+            "rows": [
+              [
+                "Exercice et poids",
+                "activité modérée quotidienne, régulation du poids",
+                "30 min. par jour",
+                "Le tissu adipeux est une source centrale de substances messagères pro-inflammatoires"
+              ],
+              [
+                "Resvératrol",
+                "Peaux de raisin, graines de framboise, myrtilles, cacahuètes",
+                "1 portion de baies/jour",
+                "Inhibe la voie de signalisation NF-κB"
+              ],
+              [
+                "Sulforaphane",
+                "Brocoli, chou-fleur, choux de Bruxelles, cresson",
+                "250 g, 3–4×/semaine",
+                "Un chauffage bref (3–4 min, 80 °C) augmente la biodisponibilité"
+              ],
+              [
+                "Curcumine",
+                "Curcuma avec poivre noir",
+                "1 c. à café par jour",
+                "La pipérine augmente nettement l’absorption"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "radar",
+      "caption": "Évaluation initiale",
+      "title": "Habitudes alimentaires et de mode de vie.",
+      "lead": "Le radar montre à quel point vos habitudes actuelles se rapprochent des valeurs de référence scientifiques. Plus un facteur est éloigné vers l’extérieur, plus il est favorable — 10 est optimal.",
+      "axes": [
+        "Activité quotidienne",
+        "Exercice",
+        "Stress",
+        "Tabac",
+        "Alcool",
+        "Collations",
+        "Viande",
+        "Oméga-3",
+        "Fibres",
+        "Fruits/légumes",
+        "Apport hydrique"
+      ],
+      "seriesLabels": {
+        "profile": "Votre profil",
+        "reference": "Groupe de référence"
+      },
+      "scores": [
+        {
+          "value": "72 / 100",
+          "label": "Nutrition",
+          "text": "Bonne combinaison de nutriments, marge d’amélioration dans les détails.",
+          "ref": "Référence : ≥ 60."
+        },
+        {
+          "value": "65 / 100",
+          "label": "Mode de vie",
+          "text": "Équilibré, avec une marge pour plus d’exercice et une réduction du stress.",
+          "ref": "Référence : ≥ 60."
+        }
+      ],
+      "noticeTitle": "Points saillants",
+      "notices": [
+        "Le stress (4 sur 10) est le facteur le plus faible et se situe en dessous du groupe de référence. Le stress chronique agit via l’axe du cortisol directement sur les marqueurs d’inflammation et de méthylation.",
+        "Les collations et la viande (5 chacun) sont au niveau du groupe de référence — c’est là que réside le plus grand potentiel inexploité pour les valeurs des télomères et LINE-1.",
+        "Le tabac (9), les fruits et légumes (8) et l’apport hydrique (8) sont clairement au-dessus de la moyenne et soutiennent les bonnes valeurs d’IL-6 et des marqueurs du vieillissement."
+      ],
+      "note": "Une évaluation initiale, pas un diagnostic individuel. En cas de maladie ou durant des phases particulières de la vie, veuillez faire superviser les changements alimentaires importants par un médecin.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Toutes les recommandations en un coup d’œil",
+      "title": "Vos interventions.",
+      "lead": "Chaque recommandation est attribuée au marqueur dont elle découle et marquée de la couleur du résultat réel. Triées par urgence — les marqueurs nécessitant une action en premier.",
+      "cols": [
+        "Substance active",
+        "À partir du marqueur",
+        "Source alimentaire",
+        "Quantité",
+        "Remarque"
+      ],
+      "rows": [
+        [
+          "Folates",
+          "Télomères · 96 %",
+          "Épinards, chou frisé, légumineuses, tomates, pousses",
+          "2 poignées de légumes verts par jour",
+          "Cru ou légèrement cuit à la vapeur — sensible à la chaleur"
+        ],
+        [
+          "Vitamine B2 et B12",
+          "Télomères · 96 %",
+          "Œufs, fromage, aliments fermentés (choucroute, ayran)",
+          "1 portion par jour",
+          "En cas de régime végétalien, supplémenter spécifiquement en B12"
+        ],
+        [
+          "Méthionine",
+          "Télomères · 96 %",
+          "Sésame, soja, pois, noix du Brésil",
+          "2–3 noix du Brésil par jour",
+          "En raison de la teneur en sélénium, pas plus de 3–4 noix par jour"
+        ],
+        [
+          "EGCG (thé vert)",
+          "Télomères · 96 %",
+          "Thé vert, matcha",
+          "3–4 tasses par jour",
+          "Ne pas boire directement avec des repas riches en fer"
+        ],
+        [
+          "Donneurs de méthyle",
+          "LINE-1 · 96 %",
+          "Légumes à feuilles, légumineuses, œufs, noix, sésame, soja",
+          "quotidiennement dans au moins 2 repas",
+          "Apporter suffisamment de folate, B2, B6 et B12 ensemble"
+        ],
+        [
+          "Fibres",
+          "LINE-1 · 96 %",
+          "Produits complets, légumes, légumineuses",
+          "au moins 30 g/jour",
+          "Stabilise la glycémie, réduit la charge oxydative"
+        ],
+        [
+          "Légumes à feuilles vertes",
+          "Marqueurs du vieillissement · 103 %",
+          "Épinards, chou frisé, bette à carde",
+          "1 portion par jour",
+          "Apporte de l'acide folique, soutient la méthylation"
+        ],
+        [
+          "Café",
+          "Marqueurs du vieillissement · 103 %",
+          "Café filtre, espresso",
+          "2–3 tasses par jour",
+          "Pas après 14 h — peut perturber le sommeil"
+        ],
+        [
+          "Fromage et produits laitiers",
+          "Marqueurs du vieillissement · 103 %",
+          "Fromages à pâte dure et molle, yaourt",
+          "avec modération",
+          "Une consommation excessive peut réduire la régulation"
+        ],
+        [
+          "Exercice et poids",
+          "IL-6 · 108 %",
+          "activité modérée quotidienne, régulation du poids",
+          "30 min. par jour",
+          "Le tissu adipeux est une source de substances messagères pro-inflammatoires"
+        ],
+        [
+          "Resvératrol",
+          "IL-6 · 108 %",
+          "Peaux de raisin, graines de framboise, myrtilles, cacahuètes",
+          "1 portion de baies/jour",
+          "Inhibe la voie de signalisation NF-κB"
+        ],
+        [
+          "Sulforaphane",
+          "IL-6 · 108 %",
+          "Brocoli, chou-fleur, choux de Bruxelles, cresson",
+          "250 g, 3–4×/semaine",
+          "Un chauffage bref (3–4 min, 80 °C) augmente la biodisponibilité"
+        ],
+        [
+          "Curcumine",
+          "IL-6 · 108 %",
+          "Curcuma, idéalement avec poivre noir",
+          "1 c. à café par jour",
+          "La pipérine du poivre augmente nettement l’absorption"
+        ]
+      ],
+      "rowTones": [
+        "ambre",
+        "ambre",
+        "ambre",
+        "ambre",
+        "ambre",
+        "ambre",
+        "vert",
+        "vert",
+        "vert",
+        "vert",
+        "vert",
+        "vert",
+        "vert"
+      ],
+      "note": "Veuillez examiner les compléments alimentaires individuellement et en consultation avec un professionnel qualifié. Ce résumé ne remplace pas un avis médical.",
+      "id": "uebersicht"
+    },
+    {
+      "type": "summary",
+      "caption": "Résumé",
+      "title": "Vos deux axes prioritaires.",
+      "lead": "Deux de vos quatre marqueurs sont dans la zone verte et doivent y rester. Deux sont à 96 % et dépendent du même chemin métabolique. LINE-1 est le marqueur principal ici : en raison de sa variation de mesure, la longueur des télomères est seulement suivie dans le temps. Cela donne un plan remarquablement simple.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Donneurs de méthyle — point de départ sur LINE-1",
+          "text": "LINE-1 à 96 % (biologiquement 50 ans) est la valeur principale — le marqueur sur lequel un changement peut être montré de manière fiable. La longueur des télomères est aussi à 96 %, mais cela se situe dans l’ordre de grandeur de la variation de mesure et ne porte pas de recommandation en soi ; elle est suivie dans le temps. Les deux dépendent des mêmes nutriments : folate, vitamines B2, B6, B12 et méthionine. Six des treize recommandations ciblent précisément cela. Plus précisément : deux poignées de légumes verts à feuilles par jour, crus ou brièvement cuits à la vapeur. Œufs, fromage ou aliments fermentés quotidiennement. 2–3 noix du Brésil. Plus au moins 30 g de fibres et 3–4 tasses de thé vert, pas avec des repas riches en fer."
+        },
+        {
+          "num": "02",
+          "title": "Stress — le facteur de mode de vie le plus faible",
+          "text": "À 4 sur 10, le stress est le seul facteur qui se situe clairement en dessous du groupe de référence. Via l’axe du cortisol, il agit sur les marqueurs de méthylation qui nécessitent une action dans votre cas. La partie nutrition est déjà solide à 72/100 — l’effet plus important se situe ici. De plus : l’activité quotidienne (6) et l’exercice (7) ont une marge de progression ; 30 minutes par jour soutiennent aussi la valeur d’IL-6."
+        }
+      ],
+      "keepTitle": "Maintenir, ne pas changer",
+      "keepText": "IL-6 à 108 % et les marqueurs épigénétiques du vieillissement à 103 % sont dans la plage normale. Les recommandations pour ces deux marqueurs servent à l’entretien. Le tabac (9/10), les fruits et légumes (8/10) et l’apport hydrique (8/10) soutiennent ce résultat — rien ne doit changer ici.",
+      "controlTitle": "Suivi et prochaine étape",
+      "controlItems": [
+        "Une mesure de suivi est utile au plus tôt après 4 à 6 mois — avant cela, les changements des marqueurs de méthylation ne peuvent pas être mesurés de manière fiable.",
+        "À partir de la deuxième mesure, la tendance mesurée est rapportée pour chaque marqueur.",
+        "Pour le suivi, la collecte des échantillons et l’heure de la journée doivent rester comparables."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Des questions sur votre rapport ?",
+      "text": "Discutez des résultats avec l'établissement qui a réalisé le prélèvement de l'échantillon. C'est là que le contexte clinique nécessaire à l'interprétation est disponible.",
+      "columns": [
+        {
+          "k": "Contact",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribution",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hambourg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Rapport d’échantillon",
+          "text": "Toutes les valeurs et données personnelles dans ce document sont fictives et servent uniquement à illustrer le format du rapport. Ceci n’est pas un rapport réel."
+        },
+        {
+          "title": "Interprétation",
+          "text": "Ce rapport n’est pas un diagnostic et ne remplace pas un avis médical. L’âge biologique rapporté est une valeur modélisée dérivée de marqueurs épigénétiques, ce n’est pas une indication sur l’espérance de vie ou le risque de maladie. Les marqueurs décrivent un état momentané et doivent être évalués dans le contexte clinique individuel par des spécialistes qualifiés."
+        },
+        {
+          "title": "Statut des analyses",
+          "text": "Les analyses sont des prestations de laboratoire fournies par notre partenaire de coopération et ne sont pas des dispositifs médicaux de diagnostic in vitro marqués CE. Elles servent à la consultation et au suivi et ne remplacent pas le diagnostic clinique. Les analyses sont fournies uniquement aux utilisateurs professionnels."
+        },
+        {
+          "title": "Cadre légal",
+          "text": "Ce panel n’évalue aucun génotype ; il mesure des marqueurs épigénétiques. Lorsqu’une analyse du portefeuille inclut un test génétique, des informations et un consentement écrit sont requis avant la collecte d’échantillons, et cela ne peut être organisé que sous responsabilité médicale (loi allemande sur le diagnostic génétique). L’analyse en laboratoire est réalisée par notre partenaire de coopération. Polaris Diagnostics Europe GmbH est responsable de la distribution et du support. Veuillez examiner les compléments alimentaires individuellement et en consultation avec un professionnel qualifié."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Dernière mise à jour : août 2026",
+      "id": "kontakt"
+    }
+  ]
+}

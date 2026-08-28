@@ -145,11 +145,17 @@ const TestimonialsSection = () => {
                 type="button"
                 onClick={() => setActiveIndex(index)}
                 aria-current={activeIndex === index ? 'true' : undefined}
-                className={`h-2.5 w-2.5 rounded-full transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 ${
-                  activeIndex === index ? 'bg-accent' : 'bg-white/30 hover:bg-white/50'
-                }`}
+                // Trefferflaeche = Knopf (24px hoch), sichtbarer Punkt = innerer
+                // <span> (unveraendert 10px). Siehe DESIGN-SYSTEM-CONTRACT §6.8.
+                className="group/dot flex items-center justify-center py-[7px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
                 aria-label={t('testimonials.goTo', 'Bewertung {{n}} anzeigen', { n: index + 1 })}
-              />
+              >
+                <span
+                  className={`block h-2.5 w-2.5 rounded-full transition-colors duration-300 ${
+                    activeIndex === index ? 'bg-accent' : 'bg-white/30 group-hover/dot:bg-white/50'
+                  }`}
+                />
+              </button>
             ))}
           </div>
           <button
@@ -160,7 +166,7 @@ const TestimonialsSection = () => {
                 ? t('testimonials.aria.pause', 'Automatischen Wechsel pausieren')
                 : t('testimonials.aria.play', 'Automatischen Wechsel fortsetzen')
             }
-            className="rounded text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+            className="inline-flex h-11 w-11 items-center justify-center rounded text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
           >
             {isPlaying ? (
               <Pause size={16} aria-hidden="true" />

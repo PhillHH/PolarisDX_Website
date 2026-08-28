@@ -16,40 +16,41 @@
 
 import { useState, type FormEvent, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import type { TFunction } from 'i18next'
 
 import { sendConsumerOrder, type ConsumerOrderProduct } from '../../api/consumerOrder'
 import type { ConsumerPage } from './tracking'
+import { normalizeLanguage } from '../../i18n'
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 // =============================================================================
 // PRODUCT METADATA
 // =============================================================================
 
-const QUANTITY_OPTIONS: Record<ConsumerOrderProduct, { value: string; label: string }[]> = {
+const getQuantityOptions = (
+  t: TFunction,
+): Record<ConsumerOrderProduct, { value: string; label: string }[]> => ({
   spray: [
-    { value: '1 pack (12 bottles)', label: '1 pack (12 bottles)' },
-    { value: '2 packs (24 bottles)', label: '2 packs (24 bottles)' },
-    { value: '3 packs (36 bottles)', label: '3 packs (36 bottles)' },
-    { value: 'More — please advise', label: 'More — please advise' },
+    { value: '1 pack (12 bottles)', label: t('order_form.copy_001') },
+    { value: '2 packs (24 bottles)', label: t('order_form.copy_002') },
+    { value: '3 packs (36 bottles)', label: t('order_form.copy_003') },
+    { value: 'More — please advise', label: t('order_form.copy_004') },
   ],
   masks: [
-    { value: '1 box (5 masks)', label: '1 box (5 masks)' },
-    { value: '2 boxes (10 masks)', label: '2 boxes (10 masks)' },
-    { value: '3 boxes (15 masks)', label: '3 boxes (15 masks)' },
-    { value: 'More — please advise', label: 'More — please advise' },
+    { value: '1 box (5 masks)', label: t('order_form.copy_005') },
+    { value: '2 boxes (10 masks)', label: t('order_form.copy_006') },
+    { value: '3 boxes (15 masks)', label: t('order_form.copy_007') },
+    { value: 'More — please advise', label: t('order_form.copy_004') },
   ],
   duo: [
-    { value: '1 Duo set', label: '1 Duo set' },
-    { value: '2 Duo sets', label: '2 Duo sets' },
-    { value: '3 Duo sets', label: '3 Duo sets' },
-    { value: 'More — please advise', label: 'More — please advise' },
+    { value: '1 Duo set', label: t('order_form.copy_008') },
+    { value: '2 Duo sets', label: t('order_form.copy_009') },
+    { value: '3 Duo sets', label: t('order_form.copy_010') },
+    { value: 'More — please advise', label: t('order_form.copy_004') },
   ],
-}
-
-const DEFAULT_SUBMIT_LABEL: Record<ConsumerOrderProduct, string> = {
-  spray: 'Send order request',
-  masks: 'Send order request',
-  duo: 'Send order request',
-}
+})
 
 // =============================================================================
 // INPUT PRIMITIVES (light styling, brand-aligned focus ring)
@@ -109,6 +110,8 @@ interface OrderFormProps {
 }
 
 export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderFormProps) {
+  const { t, i18n } = useTranslation('consumer')
+  const QUANTITY_OPTIONS = getQuantityOptions(t)
   // Contact
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -133,8 +136,18 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     if (status === 'submitting') return
+    if (!name.trim()) {
+      setErrorMsg(t('order_form.name_required'))
+      setStatus('error')
+      return
+    }
+    if (!EMAIL_RE.test(email.trim())) {
+      setErrorMsg(t('order_form.email_invalid'))
+      setStatus('error')
+      return
+    }
     if (!consent) {
-      setErrorMsg('Please confirm consent to data processing before sending your order.')
+      setErrorMsg(t('order_form.consent_required'))
       setStatus('error')
       return
     }
@@ -144,6 +157,8 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
     const res = await sendConsumerOrder({
       product,
       quantity,
+      quantityLabel:
+        QUANTITY_OPTIONS[product].find((option) => option.value === quantity)?.label || quantity,
       name: name.trim(),
       email: email.trim(),
       phone: phone.trim() || undefined,
@@ -155,12 +170,16 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
       message: message.trim() || undefined,
       consent,
       _hp: hp,
+      locale: normalizeLanguage(i18n.resolvedLanguage),
     })
 
     if (res.ok) {
       setStatus('success')
       // GTM dataLayer — conversion event for the team to wire up
       if (typeof window !== 'undefined') {
+        // Existing AP23-owned tracking path; PT08 only adds locale propagation
+        // and must not change its consent/event semantics.
+        // eslint-disable-next-line react-hooks/immutability
         window.dataLayer = window.dataLayer || []
         window.dataLayer.push({
           event: 'consumer_order_submit',
@@ -172,7 +191,15 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
       onSubmitted?.()
     } else {
       setStatus('error')
-      setErrorMsg(res.error || 'Something went wrong — please try again.')
+      const errorKey =
+        res.code === 'CONSENT_REQUIRED'
+          ? 'order_form.consent_required'
+          : res.code === 'INVALID_EMAIL'
+            ? 'order_form.email_invalid'
+            : res.code === 'REQUIRED_FIELDS'
+              ? 'order_form.required_fields'
+              : 'order_form.error_default'
+      setErrorMsg(t(errorKey))
     }
   }
 
@@ -194,13 +221,8 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
             <polyline points="20 6 9 17 4 12" />
           </svg>
         </div>
-        <h3 className="mt-5 text-2xl font-semibold text-heading">
-          Thank you — your order request is in.
-        </h3>
-        <p className="mx-auto mt-3 max-w-md text-gray-600">
-          We'll be in touch within two working days with pricing, shipping and payment details. No
-          spam, no newsletters — only the follow-up on this order.
-        </p>
+        <h3 className="mt-5 text-2xl font-semibold text-heading">{t('order_form.copy_011')}</h3>
+        <p className="mx-auto mt-3 max-w-md text-gray-600">{t('order_form.copy_012')}</p>
       </div>
     )
   }
@@ -226,7 +248,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
           overflow: 'hidden',
         }}
       >
-        <label htmlFor="consumer-hp">Leave this field blank</label>
+        <label htmlFor="consumer-hp">{t('order_form.copy_013')}</label>
         <input
           id="consumer-hp"
           type="text"
@@ -237,9 +259,9 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
         />
       </div>
 
-      <SectionLabel>Contact person</SectionLabel>
+      <SectionLabel>{t('order_form.copy_014')}</SectionLabel>
       <div className="grid gap-6 sm:grid-cols-2">
-        <Field id="order-name" label="Contact name" required>
+        <Field id="order-name" label={t('order_form.copy_015')} required>
           <input
             id="order-name"
             type="text"
@@ -250,7 +272,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
             className={inputClass}
           />
         </Field>
-        <Field id="order-email" label="Email" required>
+        <Field id="order-email" label={t('order_form.copy_016')} required>
           <input
             id="order-email"
             type="email"
@@ -261,7 +283,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
             className={inputClass}
           />
         </Field>
-        <Field id="order-phone" label="Phone (optional)">
+        <Field id="order-phone" label={t('order_form.copy_017')}>
           <input
             id="order-phone"
             type="tel"
@@ -273,8 +295,8 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
         </Field>
       </div>
 
-      <SectionLabel>Company (optional)</SectionLabel>
-      <Field id="order-company" label="Company / team">
+      <SectionLabel>{t('order_form.copy_018')}</SectionLabel>
+      <Field id="order-company" label={t('order_form.copy_019')}>
         <input
           id="order-company"
           type="text"
@@ -282,17 +304,14 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
           value={company}
           onChange={(e) => setCompany(e.target.value)}
           className={inputClass}
-          placeholder="If this is a business order — staff kitchen, gym, studio…"
+          placeholder={t('order_form.copy_020')}
         />
       </Field>
 
-      <SectionLabel>Shipping address (optional)</SectionLabel>
-      <p className="-mt-2 mb-4 text-xs text-gray-500">
-        Leave blank if you'd rather discuss shipping with us first — we'll ask when we confirm price
-        and delivery.
-      </p>
+      <SectionLabel>{t('order_form.copy_021')}</SectionLabel>
+      <p className="-mt-2 mb-4 text-xs text-gray-500">{t('order_form.copy_022')}</p>
       <div className="grid gap-6">
-        <Field id="order-street" label="Street + house number">
+        <Field id="order-street" label={t('order_form.copy_023')}>
           <input
             id="order-street"
             type="text"
@@ -303,7 +322,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
           />
         </Field>
         <div className="grid gap-6 sm:grid-cols-[1fr_2fr_1.4fr]">
-          <Field id="order-postcode" label="Postcode">
+          <Field id="order-postcode" label={t('order_form.copy_024')}>
             <input
               id="order-postcode"
               type="text"
@@ -314,7 +333,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
               className={inputClass}
             />
           </Field>
-          <Field id="order-city" label="City">
+          <Field id="order-city" label={t('order_form.copy_025')}>
             <input
               id="order-city"
               type="text"
@@ -324,7 +343,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
               className={inputClass}
             />
           </Field>
-          <Field id="order-country" label="Country">
+          <Field id="order-country" label={t('order_form.copy_026')}>
             <input
               id="order-country"
               type="text"
@@ -337,9 +356,9 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
         </div>
       </div>
 
-      <SectionLabel>Order</SectionLabel>
+      <SectionLabel>{t('order_form.copy_027')}</SectionLabel>
       <div className="grid gap-6">
-        <Field id="order-quantity" label="Quantity" required>
+        <Field id="order-quantity" label={t('order_form.copy_028')} required>
           <select
             id="order-quantity"
             required
@@ -354,17 +373,17 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
             ))}
           </select>
         </Field>
-        <Field id="order-message" label="Notes / context (optional)">
+        <Field id="order-message" label={t('order_form.copy_029')}>
           <textarea
             id="order-message"
             rows={3}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder={
+            placeholder={t(
               product === 'spray'
-                ? 'e.g. shared workplace order, delivery preferences…'
-                : 'Anything we should know before getting back to you?'
-            }
+                ? 'order_form.message_placeholder_spray'
+                : 'order_form.message_placeholder_default',
+            )}
             className={inputClass}
           />
         </Field>
@@ -378,20 +397,17 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
           className="mt-1 h-4 w-4 flex-none rounded border-slate-300 text-accent focus:ring-accent-line"
         />
         <span className="text-sm leading-relaxed text-gray-600">
-          I consent to PolarisDX processing the data above for the sole purpose of handling this
-          order request. Details on storage, retention and your rights are in our{' '}
+          {t('order_form.copy_030')}{' '}
           <Link
             to="/privacy"
             className="font-medium text-accent-strong underline hover:text-brand-deep"
           >
-            privacy policy
+            {t('order_form.copy_031')}
           </Link>
           .
         </span>
       </label>
-      <p className="mt-2 pl-7 text-xs text-gray-500">
-        Legal basis: Art. 6 (1) (b) GDPR — performance of a contract / pre-contractual measures.
-      </p>
+      <p className="mt-2 pl-7 text-xs text-gray-500">{t('order_form.copy_032')}</p>
 
       {status === 'error' && errorMsg && (
         <div
@@ -411,13 +427,13 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
           data-gtm-product={product}
           className="inline-flex items-center justify-center gap-2 rounded-md bg-brand-deep px-7 py-3.5 text-base font-semibold tracking-tight text-white transition-colors hover:bg-brand-navy-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {status === 'submitting' ? 'Sending…' : submitLabel || DEFAULT_SUBMIT_LABEL[product]}
+          {status === 'submitting'
+            ? t('order_form.sending')
+            : submitLabel || t('order_form.submit')}
         </button>
       </div>
 
-      <p className="mt-4 text-xs text-gray-500">
-        Pricing and shipping confirmed by our team — no payment is taken on this form.
-      </p>
+      <p className="mt-4 text-xs text-gray-500">{t('order_form.copy_033')}</p>
     </form>
   )
 }

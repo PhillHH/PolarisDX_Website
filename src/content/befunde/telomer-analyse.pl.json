@@ -1,0 +1,362 @@
+{
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Raport próbki · Przykładowe dane",
+      "panel": "Telomere Analysis",
+      "subtitle": "Twoja rezerwa komórkowa",
+      "claim": "Telomery to ochronne czapeczki na końcach chromosomów. Ich długość jest uważana za marker kumulatywnego obciążenia komórek i zdolności regeneracyjnej — mierzona z kropli krwi kapilarnej.",
+      "meta": [
+        {
+          "k": "Raport dla",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Pobranie próbki",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Materiał",
+          "v": "Karta z wysuszonym plamką krwi"
+        },
+        {
+          "k": "Metoda",
+          "v": "qPCR, względna"
+        }
+      ],
+      "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+      "id": "deckblatt",
+      "benefit": "Gdzie znajduje się rezerwa komórkowa Twojego klienta — i co na nią wpływa w codziennym życiu."
+    },
+    {
+      "type": "principle",
+      "caption": "Zasada",
+      "title": "Twoje telomery. Twoja rezerwa komórkowa.",
+      "lead": "Telomery stabilizują DNA przy każdym podziale komórki i zapobiegają utracie informacji genetycznej. Z każdym podziałem stają się nieco krótsze. Gdy spadną poniżej krytycznej długości, komórki tracą zdolność do podziału lub wchodzą w senescencję — kluczowy czynnik biologicznego starzenia.",
+      "cards": [
+        {
+          "title": "Ochrona",
+          "text": "Jak stabilnie chronione jest Twoje DNA i jak skuteczne są mechanizmy naprawcze."
+        },
+        {
+          "title": "Regeneracja",
+          "text": "Ile rezerwy podziałowej zachowują Twoje komórki i jak odporna pozostaje Twoja tkanka."
+        },
+        {
+          "title": "Kontekst",
+          "text": "Jak długość Twoich telomerów wypada na tle grupy referencyjnej dopasowanej wiekiem i płcią."
+        }
+      ],
+      "flowTitle": "Proces",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Pomiar",
+          "text": "Karta z suchą kroplą krwi, opuszka palca. Długość telomerów jako względna ilościowa ocena metodą qPCR. Nie wymaga bycia na czczo."
+        },
+        {
+          "num": "02",
+          "title": "Umiejscowienie w kontekście",
+          "text": "Porównanie z grupą referencyjną dopasowaną wiekiem i płcią. 112 kbp odpowiada wartości referencyjnej (100%)."
+        },
+        {
+          "num": "03",
+          "title": "Zmiana",
+          "text": "Telomery nie mogą być wydłużane w izolacji. Istotne jest spowolnienie procesów przyspieszających ich skracanie."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Jak wiarygodna jest ta wartość?",
+      "text": "Pomiar długości telomerów metodą qPCR wykazuje znaczne zróżnicowanie — zarówno między poszczególnymi pomiarami, jak i między laboratoriami. Ekstrakcja DNA, sposób przechowywania oraz skład komórek krwi mają systematyczny wpływ na wynik. Z krwi suszonej ta zmienność jest większa niż z krwi żylnej. W diagnostyce metodą uznawaną za lepszą jest flow-FISH.",
+      "items": [
+        "Co to oznacza w praktyce: odchylenie o kilka procent od wartości referencyjnej jest rzędu wielkości zmienności pomiaru i samo w sobie nie ma znaczenia. Analiza staje się wiarygodna dopiero przy kilku pomiarach wykonanych w tych samych warunkach — w tym samym laboratorium, na tym samym materiale, przy porównywalnym pobraniu próbki.",
+        "Długość telomerów jest markerem kumulacyjnego obciążenia komórkowego. Nie jest diagnozą, nie stanowi informacji o oczekiwanej długości życia ani o indywidualnym ryzyku choroby."
+      ],
+      "tone": "accent",
+      "id": "hinweis"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Twój wynik",
+      "title": "Twoja długość telomerów.",
+      "lead": "Długość telomerów · stabilność komórkowa. Ilościowe oznaczenie względne względem wartości referencyjnej 112 kbp (= 100%).",
+      "display": "108 kbp",
+      "sub": "96% wartości referencyjnej",
+      "kind": "procent",
+      "value": 96,
+      "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+      "tone": "amber",
+      "text": "Twoja długość telomerów jest o 4% niższa niż wartość oczekiwana dla Twojego wieku. Odpowiada to biologicznemu wiekowi telomerowemu 53 lat, czyli o pięć lat więcej niż Twój wiek chronologiczny. Dla porównania: odchylenie 4% jest rzędu wielkości zmienności pomiarów qPCR z krwi suszonej między kolejnymi pomiarami. Wartość tę należy więc traktować jako punkt wyjścia do obserwacji trendu, a nie jako precyzyjne pojedyncze oznaczenie.",
+      "id": "ergebnis"
+    },
+    {
+      "type": "ageDots",
+      "caption": "Biologiczny a chronologiczny",
+      "title": "Wiek telomerowy",
+      "chronological": 48,
+      "min": 35,
+      "max": 60,
+      "unit": "lata",
+      "ticks": ["35", "40", "45", "50", "55", "60"],
+      "note": "48 lat (wiek chronologiczny)",
+      "items": [
+        {
+          "label": "Wiek telomerowy",
+          "age": 53,
+          "delta": "+5",
+          "display": "53 yrs · +5 years",
+          "tone": "red"
+        }
+      ],
+      "id": "biologisches-alter"
+    },
+    {
+      "type": "radar",
+      "caption": "Gdzie jesteś",
+      "title": "Dieta i nawyki życiowe.",
+      "lead": "Radar pokazuje, jak bliskie są Twoje obecne nawyki wartościom referencyjnym. Im dalej na zewnątrz znajduje się czynnik, tym korzystniejszy — 10 to wartość optymalna.",
+      "axes": [
+        "Codzienna aktywność",
+        "Aktywność fizyczna",
+        "Stres",
+        "Tytoń",
+        "Alkohol",
+        "Przekąski",
+        "Mięso",
+        "Omega-3",
+        "Błonnik",
+        "Owoce/warzywa",
+        "Spożycie płynów"
+      ],
+      "seriesLabels": {
+        "profile": "Twój profil",
+        "reference": "Grupa odniesienia"
+      },
+      "scores": [
+        {
+          "value": "72 / 100",
+          "label": "Dieta",
+          "text": "Dobre połączenie składników odżywczych, z możliwością poprawy w szczegółach.",
+          "ref": "Wartość referencyjna: ≥ 60"
+        },
+        {
+          "value": "65 / 100",
+          "label": "Styl życia",
+          "text": "Zrównoważony, z możliwością zwiększenia aktywności fizycznej i redukcji stresu.",
+          "ref": "Wartość referencyjna: ≥ 60"
+        }
+      ],
+      "noticeTitle": "Związek z długością telomerów",
+      "notices": [
+        "Niepalenie (9 na 10) jest czynnikiem o najsilniej udokumentowanym związku z długością telomerów — w Twoim przypadku jest to już wartość znacznie powyżej średniej.",
+        "Stres (4 na 10) jest najsłabszym czynnikiem stylu życia i obszarem o największym potencjale poprawy.",
+        "Aktywność fizyczna (7) i codzienna aktywność (6) mają jeszcze pole do rozwoju; regularna aktywność fizyczna jest jednym z działań o udokumentowanym związku z biologią telomerów."
+      ],
+      "note": "Ocena oparta na Twoich własnych, samodzielnie zgłoszonych informacjach, nie jest diagnozą indywidualną. Wspomniane zależności to wyniki badań grupowych z literatury, a nie prognoza dla przypadku indywidualnego.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Wszystkie zalecenia w skrócie",
+      "title": "Twoje interwencje.",
+      "lead": "Telomerów nie da się celowo wydłużyć. Wszystkie działania mają na celu spowolnienie procesów przyspieszających ich skracanie — stres oksydacyjny i zaburzenia metylacji.",
+      "cols": ["Pomiar", "Źródło", "Ilość", "Uwaga"],
+      "rows": [
+        [
+          "Styl życia",
+          "Nie pal, umiarkowanie spożywaj alkohol, regularnie ćwicz",
+          "150 min/tydzień",
+          "Najsilniejszy wykazany czynnik wpływający na długość telomerów"
+        ],
+        [
+          "Kwas foliowy",
+          "Zielone warzywa liściaste, szpinak, jarmuż, pomidor, rośliny strączkowe, kiełki",
+          "2 porcje/dzień",
+          "Surowe lub krótko gotowane na parze — wrażliwe na ciepło. W razie potrzeby 2 miesiące jako metylofolan (5-MTHF)"
+        ],
+        ["Ryboflawina (B2)", "Kiełki, sadzonki, ser", "codziennie", "Kofaktor metylacji"],
+        [
+          "Kobalamina (B12)",
+          "Jajko, ser, produkty fermentowane",
+          "4 µg/dzień",
+          "Suplementacja szczególnie w przypadku diety wegańskiej"
+        ],
+        [
+          "Pirydoksyna (B6)",
+          "Kapusta, zielona fasolka, soczewica, banany, zarodki pszenne",
+          "1,5–2,0 mg/dzień",
+          "Ważne dla metabolizmu aminokwasów"
+        ],
+        [
+          "Metionina",
+          "Orzechy brazylijskie, sezam, soja, groch, zielone warzywa liściaste",
+          "2–3 orzechy brazylijskie dziennie",
+          "Ze względu na zawartość selenu nie więcej niż 3–4 orzechy dziennie"
+        ],
+        [
+          "EGCG (zielona herbata)",
+          "Zielona herbata, matcha, sencha",
+          "300–400 mg/dzień (3–4 filiżanki)",
+          "Przeciwutleniacz; nie spożywać bezpośrednio z posiłkami bogatymi w żelazo"
+        ],
+        [
+          "Błonnik",
+          "Produkty pełnoziarniste, warzywa, rośliny strączkowe, nasiona (i łuski nasion)",
+          "co najmniej 30 g/dzień",
+          "Stabilizuje poziom cukru we krwi, obniża stres oksydacyjny"
+        ]
+      ],
+      "note": "Pięć z tych ośmiu działań — folian, B2, B12, B6 i metionina — działa przez ten sam szlak metaboliczny: metylację. Prosimy o indywidualne i konsultowane z lekarzem rozpatrzenie suplementów diety; ten przegląd nie zastępuje porady medycznej.",
+      "id": "uebersicht"
+    },
+    {
+      "type": "trend",
+      "caption": "Trend",
+      "title": "Aktualny wynik.",
+      "lead": "Ponieważ pojedyncza wartość nie pokonuje wiarygodnie zmienności metody, wartość informacyjną ma trend. Pokazywane są tylko wartości zmierzone — bez prognozy.",
+      "firstLabel": "15.03.2026",
+      "secondLabel": "15.06.2026",
+      "cols": ["Analiza", "15.03.2026", "15.06.2026", "Zmiana", "Odchylenie dzisiaj"],
+      "items": [
+        {
+          "label": "Wiek telomerowy",
+          "first": 55,
+          "second": 53,
+          "firstDisplay": "55 lat",
+          "secondDisplay": "53 lata",
+          "delta": "−2 lata",
+          "deviation": "+5 względem wieku chronologicznego",
+          "tone": "green"
+        }
+      ],
+      "kind": "lata",
+      "unit": "lata",
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "Co pokazuje trend",
+      "text": "Wiek telomerowy zmniejszył się o dwa lata między dwoma pomiarami, z 55 do 53 — podczas gdy wiek chronologiczny wzrósł w tym samym czasie o trzy miesiące. Kierunek jest właściwy.",
+      "items": [
+        "Jednocześnie: telomery nie wydłużają się zauważalnie. Poprawa tej wielkości jest więc bardziej prawdopodobna jako efekt zmienności pomiaru niż faktycznego wydłużenia. Wniosek można wyciągnąć tylko z utrzymującego się trendu w kolejnych pomiarach.",
+        "Między dwoma pomiarami upłynęły około trzy miesiące. Termin kolejnej kontroli ustala instytucja nadzorująca. Dla porównywalności laboratorium, materiał i sposób pobrania próbki powinny pozostać takie same."
+      ],
+      "tone": "accent",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "summary",
+      "caption": "Podsumowanie",
+      "title": "Dwa dźwignie, a jedna jest większa.",
+      "lead": "W tym raporcie pojawia się osiem działań. Różnią się one znacznie siłą dowodów — to powinno decydować o kolejności ich realizacji.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Styl życia — czynnik o najsilniejszych dowodach",
+          "text": "Według Twojego raportu niepalenie, umiarkowane spożycie alkoholu i regularne ćwiczenia są najsilniejszym wykazanym czynnikiem wpływającym na długość telomerów. Dwa z nich są już u Ciebie dobrze ugruntowane: palenie na poziomie 9 na 10, alkohol na 6. Konkretnie: dźwignią jest aktywność fizyczna — ćwiczenia 7 na 10, codzienna aktywność 6 na 10. Co najmniej 150 minut tygodniowo."
+        },
+        {
+          "num": "02",
+          "title": "Składniki odżywcze wspierające metylację",
+          "text": "Pięć z ośmiu działań — folian, B2, B12, B6 i metionina — działa przez ten sam szlak metaboliczny. W praktyce oznacza to: dwie porcje zielonych warzyw liściastych dziennie (surowe lub krótko gotowane na parze, ponieważ folian jest wrażliwy na ciepło), jajka lub ser dla B12, 2–3 orzechy brazylijskie. Plus 3–4 filiżanki zielonej herbaty i co najmniej 30 g błonnika."
+        }
+      ],
+      "keepTitle": "Co już działa",
+      "keepText": "Niepalenie (9/10), owoce i warzywa (8/10) oraz spożycie płynów (8/10) są znacznie powyżej grupy referencyjnej, a wynik diety 72/100 jest solidny. Trend wskazuje na właściwy kierunek.",
+      "controlTitle": "Pozostań realistą",
+      "controlItems": [
+        "Telomerów nie da się celowo wydłużyć przez dietę lub styl życia. Wszystkie działania mają na celu spowolnienie skracania. Czy to znajduje odzwierciedlenie w Twojej wartości, można ocenić, biorąc pod uwagę zmienność pomiaru, tylko na podstawie kilku pomiarów — nie pojedynczej kolejnej wartości."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "science",
+      "caption": "Co jest ugruntowane — a co nie",
+      "title": "Kontekst naukowy.",
+      "lead": "Otwarcie przedstawiamy ograniczenia tej analizy, ponieważ uczciwa interpretacja jest cenniejsza niż imponująca liczba.",
+      "cols": ["Punkt", "Kontekst"],
+      "items": [
+        {
+          "title": "Metoda pomiaru",
+          "text": "Ilościowe oznaczenie względne metodą qPCR"
+        },
+        {
+          "title": "Zmienność",
+          "text": "Znaczna — między pomiarami i między laboratoriami"
+        },
+        {
+          "title": "Czynniki wpływające",
+          "text": "Ekstrakcja DNA, przechowywanie i skład komórek mają systematyczny wpływ"
+        },
+        {
+          "title": "Materiał do badania",
+          "text": "Większa zmienność z krwi suszonej niż z krwi żylnej"
+        },
+        {
+          "title": "W pytaniach diagnostycznych",
+          "text": "Metoda flow-FISH jest uznawana za lepszą"
+        },
+        {
+          "title": "Do czego służy analiza",
+          "text": "Jako narzędzie doradcze i do obserwacji trendu: stawia na agendzie obciążenie komórkowe, tworzy konkretną okazję do działania i dzięki powtarzanym pomiarom w tych samych warunkach dostarcza linię trendu."
+        },
+        {
+          "title": "Do czego nie służy",
+          "text": "Jako diagnostyka, jako ocena długości życia lub indywidualnego ryzyka choroby — oraz jako precyzyjne pojedyncze oznaczenie, jeśli odchylenie jest rzędu wielkości zmienności pomiaru."
+        }
+      ],
+      "note": "Źródła metodologii: Lin i in., PMC6363640 (pomiar telomerów qPCR, czynniki krytyczne); Olivieri i in., Mech Ageing Dev 2012. Dokument ten nie zastępuje oceny medycznej i nie stanowi obietnicy leczenia w rozumieniu niemieckiej ustawy o reklamie produktów leczniczych (Heilmittelwerbegesetz).",
+      "id": "einordnung"
+    },
+    {
+      "type": "callout",
+      "title": "Podstawowa zasada",
+      "text": "Trend ma znaczenie, pojedyncza wartość nie. Rzeczywistą korzyścią tej analizy jest pomiar początkowy i kontrolny wykonane w tych samych warunkach.",
+      "items": [
+        "Dla porównywalności laboratorium, materiał i sposób pobrania próbki muszą pozostać takie same — zmiana laboratorium oznacza, że dwie wartości nie są już porównywalne."
+      ],
+      "tone": "neutral",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "contact",
+      "title": "Masz pytania dotyczące swojego raportu?",
+      "text": "Omów wyniki z placówką, która przeprowadziła pobranie próbki. To tam dostępny jest kontekst potrzebny do interpretacji.",
+      "columns": [
+        {
+          "k": "Kontakt",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Dystrybucja",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Raport próbki",
+          "text": "Wszystkie wartości i dane osobowe w tym dokumencie są fikcyjne i służą wyłącznie do zilustrowania formatu raportu. To nie jest rzeczywisty raport."
+        },
+        {
+          "title": "Interpretacja",
+          "text": "Długość telomerów jest oznaczana metodą qPCR jako wartość względna. Metoda ta wykazuje znaczne zróżnicowanie między pomiarami i między laboratoriami; z krwi suszonej zmienność jest większa niż z krwi żylnej. Raport nie jest diagnozą, nie stanowi oceny długości życia ani miary indywidualnego ryzyka choroby. Wartość informacyjna pojawia się dopiero przy kilku pomiarach wykonanych w tych samych warunkach."
+        },
+        {
+          "title": "Status analiz",
+          "text": "Analizy są usługami laboratoryjnymi świadczonymi przez naszego partnera współpracującego i nie są oznakowanymi znakiem CE wyrobami do diagnostyki in vitro. Służą konsultacji i monitorowaniu i nie zastępują diagnostyki klinicznej. Analizy są dostarczane wyłącznie użytkownikom profesjonalnym."
+        },
+        {
+          "title": "Podstawa prawna",
+          "text": "Ten panel nie ocenia genotypów; mierzy markery epigenetyczne. Tam, gdzie analiza w portfolio obejmuje badania genetyczne, wymagane są informacje i pisemna zgoda przed pobraniem próbki, a badanie może być wykonane wyłącznie pod nadzorem lekarza (niemiecka ustawa o diagnostyce genetycznej). Analiza laboratoryjna jest wykonywana przez naszego partnera współpracującego. Polaris Diagnostics Europe GmbH odpowiada za dystrybucję i wsparcie. Prosimy o indywidualne i konsultowane z lekarzem rozpatrzenie suplementów diety. Dokument ten nie stanowi obietnicy leczenia w rozumieniu niemieckiej ustawy o reklamie produktów leczniczych (Heilmittelwerbegesetz)."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stan na: sierpień 2026",
+      "id": "kontakt"
+    }
+  ],
+  "panel": "Telomere Analysis",
+  "slug": "telomer-analyse"
+}

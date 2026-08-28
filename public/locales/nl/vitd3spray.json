@@ -68,7 +68,7 @@
   "order": {
     "caption": "Vitamin D3+K2 spray",
     "title": "Nu bestellen",
-    "description": "Vul het formulier in en wij sturen u per e-mail een orderbevestiging met factuur.",
+    "description": "Vul het formulier in. Ons team beoordeelt uw bestelaanvraag en neemt contact op over prijs, levering en betaling.",
     "quantity_label": "Bestelhoeveelheid",
     "quantity_options": {
       "12": "12 sprays",
@@ -90,10 +90,10 @@
     "message_placeholder": "Optioneel: leveringsinstructies, afwijkend adres, enz.",
     "submit": "Nu bindend bestellen",
     "submitting": "Bestelling wordt verzonden...",
-    "submit_note": "Na verzending ontvangt u een orderbevestiging per e-mail. Betaling op rekening.",
+    "submit_note": "In dit formulier vindt geen betaling plaats. Ons team bevestigt prijs en levering persoonlijk.",
     "reassurance": "Gratis & vrijblijvend · Antwoord < 24 u",
     "success_title": "Hartelijk dank voor uw bestelling!",
-    "success_text": "Wij hebben uw bestelling ontvangen en sturen u binnenkort een bevestiging per e-mail.",
+    "success_text": "Wij hebben uw bestelaanvraag ontvangen. Ons team neemt binnenkort contact op over de volgende stappen.",
     "error_text": "Er is een fout opgetreden. Probeer het opnieuw of bel ons."
   },
   "contact": {

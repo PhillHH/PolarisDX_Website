@@ -1,0 +1,362 @@
+{
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Relatório de amostra · Dados de exemplo",
+      "panel": "Telomere Analysis",
+      "subtitle": "A sua reserva celular",
+      "claim": "Os telómeros são as tampas protetoras nas extremidades dos seus cromossomas. O seu comprimento é considerado um marcador da tensão celular acumulada e da capacidade regenerativa — medido a partir de uma gota de sangue capilar.",
+      "meta": [
+        {
+          "k": "Relatório para",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Colheita da amostra",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Material",
+          "v": "Cartão de gota de sangue seco"
+        },
+        {
+          "k": "Método",
+          "v": "qPCR, relativo"
+        }
+      ],
+      "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+      "id": "deckblatt",
+      "benefit": "Onde se encontra a reserva celular do seu cliente — e o que na vida quotidiana atua sobre ela."
+    },
+    {
+      "type": "principle",
+      "caption": "O princípio",
+      "title": "Os seus telómeros. A sua reserva celular.",
+      "lead": "Os telómeros estabilizam o ADN em cada divisão celular e previnem a perda de informação genética. A cada divisão tornam-se um pouco mais curtos. Se ficarem abaixo de um comprimento crítico, as células perdem a capacidade de se dividir ou entram em senescência — um fator central do envelhecimento biológico.",
+      "cards": [
+        {
+          "title": "Proteção",
+          "text": "Quão estável é a proteção do seu DNA e quão eficazes são os mecanismos de reparação."
+        },
+        {
+          "title": "Regeneração",
+          "text": "Quanto de reserva de divisão as suas células mantêm e quão resiliente permanece o seu tecido."
+        },
+        {
+          "title": "Contexto",
+          "text": "Como o comprimento dos seus telómeros se compara com um grupo de referência ajustado por idade e sexo."
+        }
+      ],
+      "flowTitle": "O processo",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Medida",
+          "text": "Cartão de gota de sangue seco, ponta do dedo. Comprimento do telómero quantificado relativamente por qPCR. Não é necessário jejum."
+        },
+        {
+          "num": "02",
+          "title": "Contextualizar",
+          "text": "Comparação com um grupo de referência ajustado por idade e sexo. 112 kbp corresponde ao valor de referência (100 %)."
+        },
+        {
+          "num": "03",
+          "title": "Alteração",
+          "text": "Os telómeros não podem ser alongados isoladamente. O que importa é desacelerar os processos que aceleram o seu encurtamento."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Quão robusto é este valor?",
+      "text": "A medição do comprimento do telómero por qPCR varia consideravelmente — entre execuções individuais e entre laboratórios. A extração do DNA, o armazenamento e a composição das células sanguíneas influenciam sistematicamente o resultado. A partir de sangue seco, esta variação é maior do que a partir de sangue venoso. Para questões diagnósticas, o método flow-FISH é considerado superior.",
+      "items": [
+        "O que isto significa na prática: uma variação de alguns por cento em relação ao valor de referência está na mesma ordem de grandeza da variação da medição e não é significativa por si só. A análise só se torna robusta após várias medições feitas nas mesmas condições — mesmo laboratório, mesmo material, recolha de amostras comparável.",
+        "O comprimento dos telómeros é um marcador de tensão celular acumulada. Não é um diagnóstico, não é uma indicação de esperança média de vida nem uma medida do risco individual de doença."
+      ],
+      "tone": "accent",
+      "id": "hinweis"
+    },
+    {
+      "type": "bigResult",
+      "caption": "O seu resultado",
+      "title": "O comprimento dos seus telómeros.",
+      "lead": "Comprimento do telómero · estabilidade celular. Quantificação relativa em relação ao valor de referência de 112 kbp (= 100 %).",
+      "display": "108 kbp",
+      "sub": "96 % do valor de referência",
+      "kind": "por cento",
+      "value": 96,
+      "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+      "tone": "amber",
+      "text": "O comprimento dos seus telómeros está 4 % abaixo do valor esperado para a sua idade. Isto corresponde a uma idade biológica baseada no telómero de 53 anos, cinco anos acima da sua idade cronológica. Para contextualizar: uma variação de 4 % está na mesma ordem de grandeza da variação que as medições por qPCR a partir de sangue seco apresentam entre execuções. O valor deve, portanto, ser interpretado como um ponto de partida para a tendência, não como uma determinação precisa única.",
+      "id": "ergebnis"
+    },
+    {
+      "type": "ageDots",
+      "caption": "Biológica versus cronológica",
+      "title": "Idade do telómero",
+      "chronological": 48,
+      "min": 35,
+      "max": 60,
+      "unit": "anos",
+      "ticks": ["35", "40", "45", "50", "55", "60"],
+      "note": "48 anos (idade cronológica)",
+      "items": [
+        {
+          "label": "Idade do telómero",
+          "age": 53,
+          "delta": "+5",
+          "display": "53 yrs · +5 years",
+          "tone": "red"
+        }
+      ],
+      "id": "biologisches-alter"
+    },
+    {
+      "type": "radar",
+      "caption": "Onde se encontra",
+      "title": "Hábitos alimentares e estilo de vida.",
+      "lead": "O gráfico radar mostra quão próximos estão os seus hábitos atuais dos valores de referência. Quanto mais afastado estiver um fator, mais favorável — 10 é o ideal.",
+      "axes": [
+        "Atividade diária",
+        "Exercício",
+        "Stress",
+        "Tabaco",
+        "Álcool",
+        "Snacks",
+        "Carne",
+        "Ómega-3",
+        "Fibra",
+        "Frutas/legumes",
+        "Ingestão de líquidos"
+      ],
+      "seriesLabels": {
+        "profile": "O seu perfil",
+        "reference": "Grupo de referência"
+      },
+      "scores": [
+        {
+          "value": "72 / 100",
+          "label": "Dieta",
+          "text": "Boa combinação de nutrientes, com margem para melhorias nos detalhes.",
+          "ref": "Referência: ≥ 60"
+        },
+        {
+          "value": "65 / 100",
+          "label": "Estilo de vida",
+          "text": "Equilibrado, com espaço para mais exercício e redução do stress.",
+          "ref": "Referência: ≥ 60"
+        }
+      ],
+      "noticeTitle": "Relação com o comprimento do telómero",
+      "notices": [
+        "Não fumar (tabaco 9 em 10) é o fator com a relação mais forte documentada com o comprimento do telómero — e no seu caso já está bem acima da média.",
+        "O stress (4 em 10) é o seu fator de estilo de vida mais fraco e a área com maior margem para melhoria.",
+        "Exercício (7) e atividade diária (6) têm espaço para crescer; a atividade física regular está entre as medidas com relação documentada à biologia dos telómeros."
+      ],
+      "note": "Avaliação baseada nas suas próprias informações auto-relatadas, não um diagnóstico individual. As relações mencionadas são resultados de grupos na literatura, não uma previsão para o caso individual.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Todas as recomendações de um olhar",
+      "title": "As suas intervenções.",
+      "lead": "Os telómeros não podem ser alongados deliberadamente. Todas as medidas visam desacelerar os processos que aceleram o seu encurtamento — tensão oxidativa e metilação comprometida.",
+      "cols": ["Medida", "Fonte", "Quantidade", "Nota"],
+      "rows": [
+        [
+          "Estilo de vida",
+          "Não fumar, consumo moderado de álcool, exercício regular",
+          "150 min/semana",
+          "Maior fator demonstrável de influência no comprimento do telómero"
+        ],
+        [
+          "Ácido fólico",
+          "Vegetais de folhas verdes, espinafre, couve, tomate, leguminosas, brotos",
+          "2 porções/dia",
+          "Cru ou ligeiramente cozido a vapor — sensível ao calor. Se necessário, 2 meses como metilfolato (5-MTHF)"
+        ],
+        ["Riboflavina (B2)", "Mudas, brotos, queijo", "diariamente", "Cofator da metilação"],
+        [
+          "Cobalamina (B12)",
+          "Ovo, queijo, alimentos fermentados",
+          "4 µg/dia",
+          "Suplementar especificamente em caso de dieta vegan"
+        ],
+        [
+          "Piridoxina (B6)",
+          "Couve, feijão verde, lentilhas, bananas, gérmen de trigo",
+          "1,5–2,0 mg/dia",
+          "Importante para o metabolismo dos aminoácidos"
+        ],
+        [
+          "Metionina",
+          "Castanhas-do-brasil, sésamo, soja, ervilhas, vegetais de folhas verdes",
+          "2–3 castanhas-do-brasil por dia",
+          "Devido ao teor de selénio, não mais do que 3–4 castanhas por dia"
+        ],
+        [
+          "EGCG (chá verde)",
+          "Chá verde, matcha, sencha",
+          "300–400 mg/dia (3–4 chávenas)",
+          "Antioxidante; não beber diretamente com refeições ricas em ferro"
+        ],
+        [
+          "Fibra",
+          "Cereais integrais, vegetais, leguminosas, sementes (e cascas de sementes)",
+          "pelo menos 30 g/dia",
+          "Estabiliza o açúcar no sangue, reduz a tensão oxidativa"
+        ]
+      ],
+      "note": "Cinco destas oito medidas — folato, B2, B12, B6 e metionina — atuam através da mesma via metabólica: metilação. Por favor, reveja suplementos alimentares individualmente e em consulta com um especialista; esta visão geral não substitui aconselhamento médico.",
+      "id": "uebersicht"
+    },
+    {
+      "type": "trend",
+      "caption": "Tendência",
+      "title": "O resultado real.",
+      "lead": "Como um único valor não supera de forma fiável a variação do método, o valor informativo reside na tendência. São mostrados apenas valores medidos — sem prognóstico.",
+      "firstLabel": "15.03.2026",
+      "secondLabel": "15.06.2026",
+      "cols": ["Análise", "15.03.2026", "15.06.2026", "Alteração", "Desvio hoje"],
+      "items": [
+        {
+          "label": "Idade do telómero",
+          "first": 55,
+          "second": 53,
+          "firstDisplay": "55 anos",
+          "secondDisplay": "53 anos",
+          "delta": "−2 anos",
+          "deviation": "+5 em relação à idade cronológica",
+          "tone": "green"
+        }
+      ],
+      "kind": "anos",
+      "unit": "anos",
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "O que a tendência mostra",
+      "text": "A idade baseada no telómero diminuiu dois anos entre as duas medições, de 55 para 53 — enquanto a idade cronológica aumentou três meses ao mesmo tempo. A direção está correta.",
+      "items": [
+        "Ao mesmo tempo: os telómeros não se alongam significativamente. Uma melhoria desta magnitude é, portanto, mais provavelmente atribuível à variação da medição do que a um verdadeiro alongamento. Apenas uma direção que se mantenha constante em várias medições permite uma conclusão.",
+        "Passaram aproximadamente três meses entre as duas medições. O intervalo para a próxima verificação é definido pela instituição supervisora. Para comparabilidade, o laboratório, o material da amostra e a recolha da amostra devem permanecer os mesmos."
+      ],
+      "tone": "accent",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "summary",
+      "caption": "Resumo",
+      "title": "Duas alavancas, e uma é maior.",
+      "lead": "Oito medidas aparecem neste relatório. Elas diferem consideravelmente na força da evidência que as suporta — isso deve determinar a ordem em que as aborda.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Estilo de vida — o fator com a evidência mais forte",
+          "text": "De acordo com o seu relatório, não fumar, consumo moderado de álcool e exercício regular são os maiores fatores demonstráveis que influenciam o comprimento dos telómeros. Dois destes já estão bem estabelecidos no seu caso: o tabaco está em 9 de 10 no radar, o álcool em 6. Especificamente: a alavanca está na atividade física — exercício 7 de 10, atividade diária 6 de 10. Pelo menos 150 minutos por semana."
+        },
+        {
+          "num": "02",
+          "title": "Nutrientes para metilação",
+          "text": "Cinco das oito medidas — folato, B2, B12, B6 e metionina — atuam através da mesma via metabólica. Na prática, isto significa: duas porções diárias de vegetais verdes folhosos (crus ou ligeiramente cozidos a vapor, pois o folato é sensível ao calor), ovos ou queijo para B12, 2–3 castanhas-do-pará. Além disso, 3–4 chávenas de chá verde e pelo menos 30 g de fibra."
+        }
+      ],
+      "keepTitle": "O que já está a funcionar",
+      "keepText": "Não fumar (9/10), frutas e vegetais (8/10) e ingestão de líquidos (8/10) estão bem acima do grupo de referência, e a pontuação da dieta de 72/100 é sólida. E a tendência aponta na direção certa.",
+      "controlTitle": "Manter o realismo",
+      "controlItems": [
+        "Os telómeros não podem ser deliberadamente alongados através da dieta ou estilo de vida. Todas as medidas visam desacelerar o encurtamento. Se isso se reflete no seu valor pessoal, dada a variação da medição, só pode ser avaliado através de várias medições — não a partir do próximo valor isolado."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "science",
+      "caption": "O que está estabelecido — e o que não está",
+      "title": "Contexto científico.",
+      "lead": "Apresentamos os limites desta análise de forma transparente, porque uma interpretação honesta vale mais do que um número impressionante.",
+      "cols": ["Ponto", "Contexto"],
+      "items": [
+        {
+          "title": "Método de medição",
+          "text": "Quantificação relativa por qPCR"
+        },
+        {
+          "title": "Variação",
+          "text": "Considerável — entre execuções e entre laboratórios"
+        },
+        {
+          "title": "Fatores influenciadores",
+          "text": "Extração de DNA, armazenamento e composição celular têm um efeito sistemático"
+        },
+        {
+          "title": "Material da amostra",
+          "text": "Maior variação a partir de sangue seco do que de sangue venoso"
+        },
+        {
+          "title": "Para questões diagnósticas",
+          "text": "Flow-FISH é considerado o método superior"
+        },
+        {
+          "title": "Para que serve a análise",
+          "text": "Como ferramenta de aconselhamento e tendência: coloca a tensão celular na agenda, cria uma ocasião concreta para agir e, através de medições repetidas nas mesmas condições, fornece uma linha de tendência."
+        },
+        {
+          "title": "Para que não serve",
+          "text": "Como diagnóstico, como declaração sobre a esperança de vida ou risco individual de doença — e como determinação única precisa, enquanto a variação for da mesma ordem de grandeza que a variação da medição."
+        }
+      ],
+      "note": "Fontes sobre metodologia: Lin et al., PMC6363640 (medição de telómeros por qPCR, fatores críticos); Olivieri et al., Mech Ageing Dev 2012. Este documento não substitui uma avaliação médica e não constitui qualquer promessa de cura nos termos da Lei Alemã de Publicidade de Produtos Terapêuticos (Heilmittelwerbegesetz).",
+      "id": "einordnung"
+    },
+    {
+      "type": "callout",
+      "title": "O princípio subjacente",
+      "text": "A tendência tem peso, o valor isolado não. Uma medição inicial e uma de acompanhamento nas mesmas condições são o verdadeiro benefício desta análise.",
+      "items": [
+        "Para comparabilidade, o laboratório, o material da amostra e a recolha da amostra devem permanecer os mesmos — mudar de laboratório significa que dois valores deixam de ser comparáveis."
+      ],
+      "tone": "neutral",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "contact",
+      "title": "Dúvidas sobre o seu relatório?",
+      "text": "Discuta os resultados com a instituição que realizou a recolha da amostra. É aí que está disponível o contexto necessário para a interpretação.",
+      "columns": [
+        {
+          "k": "Contacto",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribuição",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburgo"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Relatório de amostra",
+          "text": "Todos os valores e dados pessoais neste documento são fictícios e servem apenas para ilustrar o formato do relatório. Este não é um relatório real."
+        },
+        {
+          "title": "Interpretação",
+          "text": "O comprimento dos telómeros é determinado por qPCR como um valor relativo. Este método varia consideravelmente entre execuções e entre laboratórios; a variação é maior a partir de sangue seco do que de sangue venoso. O relatório não é um diagnóstico, não é uma declaração sobre esperança de vida e não é uma medida de risco individual de doença. O valor informativo só surge através de várias medições nas mesmas condições."
+        },
+        {
+          "title": "Estado das análises",
+          "text": "As análises são serviços laboratoriais prestados pelo nosso parceiro de cooperação e não são dispositivos médicos de diagnóstico in vitro com marcação CE. Servem para consulta e monitorização e não substituem o diagnóstico clínico. As análises são fornecidas apenas a utilizadores profissionais."
+        },
+        {
+          "title": "Enquadramento legal",
+          "text": "Este painel não avalia genótipos; mede marcadores epigenéticos. Quando uma análise do portfólio inclui testes genéticos, são necessárias informações e consentimento escrito antes da recolha da amostra, e só pode ser realizada sob responsabilidade médica (Lei Alemã de Diagnóstico Genético). A análise laboratorial é realizada pelo nosso parceiro de cooperação. A Polaris Diagnostics Europe GmbH é responsável pela distribuição e suporte. Por favor, reveja suplementos alimentares individualmente e em consulta com um especialista. Este documento não constitui qualquer promessa de cura nos termos da Lei Alemã de Publicidade de Produtos Terapêuticos (Heilmittelwerbegesetz)."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Atualizado em: agosto de 2026",
+      "id": "kontakt"
+    }
+  ],
+  "panel": "Telomere Analysis",
+  "slug": "telomer-analyse"
+}

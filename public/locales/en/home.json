@@ -93,7 +93,8 @@
     "pillar3": {
       "title": "Guided start",
       "text": "Training for your team and a dedicated point of contact ensure that diagnostic excellence is ready to use straight away."
-    }
+    },
+    "device_alt": "IglooPro point-of-care reader"
   },
   "doctors": {
     "caption": "DIAGNOSTICS FOCUS",
@@ -283,7 +284,8 @@
     },
     "card_cta": "Learn more",
     "video_label": "APPLICATION VIDEO",
-    "video_caption": "How the test runs in your practice — in 3 minutes"
+    "video_caption": "How the test runs in your practice — in 3 minutes",
+    "device_alt": "IglooPro point-of-care reader"
   },
   "final_cta": {
     "caption": "Ready to get started",

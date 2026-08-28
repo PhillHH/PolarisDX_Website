@@ -8,8 +8,325 @@ kein `work-packages/APxx-STATE.md`).
 
 ## Current
 
+- Work package: **AP09 — SEO-Plattformgrundlagen**
+- Status: **IN_PROGRESS** <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
+- Predecessor: **AP08 COMPLETE / Closure PASS (50/50, 2026-08-26)**
+- Last completed PT: **PT09.2 — Sitemap (PASS, 2026-08-27)**
+- PT09.1: **PASS** · PT09.2: **PASS** · PT09.3: **NOT STARTED** · PT09.4: **NOT STARTED** ·
+  PT09.5: **NOT STARTED** · AP09 Closure: **NOT STARTED**
+- Next primary task: **PT09.3 — Consumer SEO**
+- SEOHead: **consolidated** — eindeutige Meta-Ausgabeschicht; Title/Description/Robots/Canonical,
+  x10-hreflang, `x-default=de`, Open Graph und Twitter folgen dem aktuellen URL-/Locale-Vertrag
+- Canonical host: **`https://polarisdx.net`** · Canonical Contract: **PASS** · hreflang Contract:
+  **PASS** · OG/Twitter Contract: **PASS** · Preview Domain Leakage: **0**
+- 404 SEO Contract: **PASS** — HTTP 404 und `prerender-status-code` synchron; robots
+  `noindex, follow`; Canonical 0; hreflang/x-default 0; OG-Locale-Alternates/`og:url` 0
+- Canonical overrides: **audited** — REQUIRED 0 · REDUNDANT 0 · STALE 0 · INVALID 0 · remaining 0;
+  Override-API ist Public-Host-/Query-/Fragment-guarded und regressionsgetestet
+- Sitemap: **x10 / validated** — 39 indexierbare Route Families · 390/390 eindeutige öffentliche URLs ·
+  Consumer 3×10 · Epigenetics/Befunde x10 · Services/Articles aus realen Datenquellen · XML PASS ·
+  noindex/404/Redirect-Widersprüche 0 · ehrliches `lastmod` PASS
+- SEO route-source: **registry-ready** — pfadlistenfreier SEOHead-Adapter plus der bestehende, aus
+  `server.ts` herausgelöste Sitemap-Spiegel; dynamische Slugs werden aus Content-Daten abgeleitet;
+  keine zentrale oder fünfte Route Registry gebaut
+- DG09-01 `ROUTE_REGISTRY_INTEGRATION`: **READY_FOR_OWNER** · Owner **AP10 PT10.3** · AP09 Closure
+  blocker **NO** bei grünen AP09-Gates · Launch blocker **YES**
+- SEO-CONTRACT: **current for PT09.2** · G3: **PASS / CI ACTIVE** · Decision Locks: **18/18 LOCKED** ·
+  AP10: **NOT STARTED**
+- Quality PT09.2: Typecheck PASS · taskbezogener Lint/Prettier PASS · Sitemap Unit **13/13** ·
+  SEOHead/Sitemap kombiniert **20/20** · gesamte Unit-Suite unter `NODE_ENV=test`/Node 22 **277/277** ·
+  G3 + Hard-Failure-Self-Test PASS · Production-SSR SEO/Sitemap **7/7** mit 390/390 Sitemap-Zielen HTTP
+  200/self-canonical/indexierbar · Client/SSR Build PASS · CI-Konfiguration auf aktuellem
+  `console/**`-Relaunch-Pfad aktiv · globale, taskfremde Baseline ESLint 120 Errors/4 Warnings und
+  Prettier 35 Dateien; PT09.2-Dateisatz ohne Befund
+
+### AP08 (abgeschlossen, unverändert als Vorgänger-Handoff erhalten)
+
+- PT08.1: **PASS** · PT08.2: **PASS** · PT08.3: **PASS** · PT08.4: **PASS** · PT08.5: **PASS** ·
+  PT08.6: **PASS** · AP08 Closure: **PASS (50/50, 2026-08-26)**
+- i18n Core: **consolidated** — `src/i18n.ts` ist die browser-/node-neutrale gemeinsame Wahrheit für
+  exakt `de`, `en`, `pl`, `fr`, `it`, `es`, `pt`, `da`, `nl`, `cs`, Default `de`, defensiven
+  Fallback `en`, 15 produktive Namespaces, Default-/Fallback-Namespace, Interpolation und React-Regeln
+- Locale source: **URL primary / verified** — Express, SSR-Entry, Client-Hydration und LanguageSwitcher
+  verwenden dieselbe gemeinsame Locale-Normalisierung; kein LanguageDetector, Locale-Cookie,
+  Locale-localStorage oder `navigator.language` als konkurrierende Quelle
+- SSR/client parity: **verified** — 10/10 Production-SSR-Antworten HTTP 200 mit passendem `<html lang>`;
+  10/10 Playwright-Hydrationen ohne Locale-Mismatch; persistierte Fremdwerte überschreiben `/pl/...` nicht
+- Namespace loading: **deterministic / G4 verified** — Request-Locale plus defensiver EN-Fallback vor
+  SSR geladen; 15/15 produktive Namespaces × 10/10 Locales vorhanden, parsebar und key-paritätisch;
+  `casestudies` und `shop` explizit Backlog und nicht registriert
+- Fallback semantics: **defensive / honest** — `_translationStatus` wird nur beim kanonischen
+  EN-Fallback-Marker anerkannt; produktiver Epigenetik-Webcontent und Befunde sind x10 lokalisiert und
+  tragen keinen regulären Marker; der Asset-Gate bleibt ausdrücklich PT08.6-owned
+- Quality PT08.1: Typecheck PASS · taskbezogener Lint/Prettier PASS · Unit/Component **204/204** ·
+  i18n-Core **20/20** · i18n SSR/Hydration E2E **12/12** · Production Build PASS · SSR Smoke
+  **10/10 HTTP 200**, `<html lang>` 10/10 · unbekannte Locale sicherer bestehender 301-Pfad
+- PT08.2 content migration: **ready x10** — S3-Leitlinie, Vitamin-D3-Implantologie, Consumer Spray,
+  Masks, Duo, gemeinsame Shell sowie bestehende Order-/Modal-/Price-UI konsumieren `specialty` bzw.
+  `consumer`; beide produktiven Namespaces enthalten ihre PT08.2-Keys vollständig für 10/10 Locales
+- Locale formatting: **locale-aware** — Preis, Zahl, Datum und Währung beziehen die kanonische
+  Runtime-Locale; keine feste `de-DE`-/`en-US`-Darstellung bleibt in den PT08.2-Flächen
+- Quality PT08.2: Typecheck PASS · PT08.2-Tests **15/15** · Unit/Component **219/219** · x10-Render
+  **50/50** · SSR/Hydration E2E **12/12** · Production Build PASS · AP07-Regressionsguards PASS;
+  zwei unveränderte Lint-Baselinebefunde in `OrderModal.tsx` und `PriceBadge.tsx`, keine neue Regression
+- PT08.3 parity: **PASS** — 15 produktive Namespaces × 10/10, JSON-/Key-/Nested-Key-Parität PASS,
+  0 Missing/Extra/Empty, `epigenetics` 10/10 echte Zielsprachen, sechs Befunde × 10/10,
+  `befund.*` und 18 `services.*.seo.*`-Pflichtwerte x10; slug-lokale Lazy-Grenze erhalten
+- Guard/CI: **G4 PASS / ACTIVE** — `npm run check:i18n` mit hartem Missing-Key-Self-Test,
+  Duplikat-/Restsprachenprüfung und generierter `I18N-CONTRACT`-Evidenz; CI erfasst `main`,
+  `feat/home-leadmagnet` und `console/**`
+- Quality PT08.3: Typecheck PASS · taskbezogener Lint PASS · Unit/Component **219/219** · gezielte
+  Namespace/Core/Befund/Search-Tests **32/32** · SSR-Locale/Hydration E2E **12/12** · Production Build
+  PASS mit sechs getrennten Befund-Chunks · SSR Content Smoke **80/80** · AP07-Regressionsguards PASS
+- PT08.4 locale routing: **PASS** — Sprachwechsel erhält dieselbe logische Seite sowie Query/Hash;
+  Consumer-EN- und Spezialseiten-DE-Zwangsredirects entfernt; URL, SSR-/Client-Locale und
+  `<html lang>` synchron; Canonical/hreflang minimal an reale x10-Routen angepasst; `x-default=de`
+- Quality PT08.4: Typecheck PASS · taskbezogener Lint/Prettier PASS · gezielte Unit-/Guard-Tests
+  **31/31** · Routing/Language-Switch E2E **35/35** mit **160** parametrischen SSR-Routenfällen ·
+  Consumer **3 × 10** und Spezialseiten **2 × 10** · Redirect-Loops **0** · Production Build PASS ·
+  AP07 Search-/Internal-Link-Regressionsguards PASS
+- PT08.5 system i18n: **PASS** — Contact, Support, Consumer Order, Praxis-Bestellanfrage und ROI
+  transportieren eine validierte x10-Journey-Locale; Form-Validation, Loading, Success, Error und
+  Privacy-/Consent-Copy sind x10; Consent-/Tracking-Semantik blieb unverändert
+- Current user mail propagation: **PASS where runtime exists** — Support-Autoresponder sowie
+  ROI-Nutzermail und Runtime-PDF folgen Subject/Body/Formatting-seitig der Journey-Locale; interne
+  Team-Mails bleiben gemäß LDV-19 zulässig mono-sprachig
+- Consumer Order system copy: **PASS x10**; es existiert keine Nutzer-Bestätigungsmail und die UI
+  verspricht weder automatische Rechnung noch Mailbestätigung
+- GENERAL_SALES: **PASS x10** — `common.nav.cta_quote` erhält in allen zehn Sprachen den
+  Angebots-/Sales-Intent
+- Future mail contracts: **owner-bound / false-ready 0** — Lead-Magnet-Gating AP19/AP22,
+  dedizierte Epigenetics Inquiry AP15/AP22 und persistente Consumer-Mailplattform AP21/AP22 sind nur
+  `READY_FOR_OWNER`, nicht als Runtime gebaut oder behauptet
+- Quality PT08.5: Typecheck PASS · Prettier PASS · taskbezogener Lint PASS mit einem gegen `HEAD`
+  reproduzierten unveränderten Tracking-Baselinebefund in `OrderForm.tsx` · fokussierte Form-/Mail-/
+  Locale-/PDF-Tests **49/49** · G4 PASS · SSR/Hydration E2E **12/12** · SSR Locale Smoke **10/10** ·
+  Production Build PASS · AP07 Search-/Internal-Link-/Navigation-Regressionsguards PASS
+- PT08.6 asset truth: **PASS** — 32/32 produktive PDF-/ZIP-Dateien inventarisiert und referenziert,
+  tatsächliche DE-/EN-Sprache explizit; vorhandene Varianten deterministisch gewählt; Single-Language-
+  Assets tragen x10 lokalisierten sichtbaren Hinweis plus `hrefLang`; Broken References **0** und
+  stiller Asset-Sprachfallback **0**
+- Resource UI metadata: **PASS x10** — `/downloads` bezieht Titel/Beschreibung aus dem produktiven
+  `downloads`-Namespace, zeigt Typ, Größe, locale-aware Datum und reale Dokumentsprache; Musterbefund-
+  Webcontent x10 bleibt ehrlich von den sechs nur deutschen PDFs getrennt
+- Asset owners: **owner-bound / false-ready 0** — neue Epigenetics-/Befund-Fachvarianten bleiben
+  AP15/AP16/AP19, Consumer-OG AP21/AP09 und finale locale-aware OG-Auswahl AP09; keine PDF-/Bilddatei
+  erzeugt, blind übersetzt oder verändert; keine AP19-/AP09-Plattform vorgezogen
+- Quality PT08.6: Typecheck PASS · taskbezogener Lint/Prettier PASS · Asset-Guard **32/32 / 0 broken** ·
+  G4 PASS · gezielte Node-Tests **76/76** plus Resource-Mapping **5/5** · Search-/Findability-/Navigation-
+  Guards PASS · Production Build PASS · repräsentative SSR Resource-Smokes **25/25** und Asset-HTTP
+  **32/32**
+- AP08 Closure: **PASS (50/50)** — `I18N-01`–`I18N-40` **40/40**, Risiken `R08-01`–`R08-12`
+  mitigiert bzw. ownergebunden; G4 inklusive Hard-Failure-Self-Test PASS; Typecheck PASS; AP08-Prettier
+  PASS; Unit/Component/Integration **257/257**; Production-E2E **143/143**; direkte PT08-Render-Smokes
+  **50/50**; Production Build/SSR PASS; False-ready Claims **0**
+- Closure-Baseline: repositoryweit **124** ESLint-Befunde und **35** Prettier-Dateien gegenüber der
+  dokumentierten QD-1/QD-2-Baseline **129/58**; AP08-Dateisatz ohne neue Befunde, zwei direkt gegen
+  `HEAD` reproduzierte Consumer-Lint-Baselines bleiben ownergebunden
+- AP07 regression: Search-Index, SearchModal, Shell-i18n, Navigation und interne Findability Guards PASS
+- Decision Locks: **18/18 LOCKED**
+- AP09 handoff after AP08: **STARTED; PT09.1 PASS, AP09 remains IN_PROGRESS**
+
+### AP07 (abgeschlossen, unverändert erhalten)
+
+- Work package: **AP07 — Suche und interne Findability**
+- Status: **COMPLETE** <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
+- Predecessor: **AP06 COMPLETE / Closure PASS (40/40)**
+- Last completed PT: **PT07.3 — interne Findability / Crosslinks (PASS, 2026-08-26)**
+- PT07.1: **PASS** · PT07.2: **PASS** · PT07.3: **PASS** · AP07 Closure: **PASS (43/43, 2026-08-26)**
+- Next work package: **AP08 — Internationalisierung / 10 Sprachen**
+- Search index: **ready — expanded and route-validated** — 35 aktive Ziele, 9/9 Services, 6/6 veröffentlichte
+  Artikel (slug-basiert), Epigenetik 1+3+6, Downloads, Events und strategische Seiten
+- Search metadata x10: **verified** — Title, Description und Result-Type-Label für 35/35 aktive
+  Einträge in `de`, `en`, `pl`, `fr`, `it`, `es`, `pt`, `da`, `nl`, `cs`
+- Search route validation: **350/350 HTTP 200** (35 aktive Ziele × 10 Locales);
+  `/diagnostics/sports` = **ABSENT / HTTP 404**; 0 aktive `/services*`, Future-, Backlog- oder Chat-Ziele
+- Deferred Search Integrations: **4 OPEN, ownergebunden** (`DSI-01` Epigenetik-Body → AP15,
+  `DSI-02` Befund-Body → AP16, `DSI-03` Artikel-Body → AP17, `DSI-04` Consumer-x10-Routing → AP21);
+  **0 false READY**, keine AP04-Deferred-Gates geschlossen
+- Search matching: case-insensitive · Whitespace normalisiert · Diakritika normalisiert ·
+  Titel/Beschreibung · deterministische Priorität/Pfad-Reihenfolge
+- SearchModal: **ready / accessible** — AP05-Dialog wiederverwendet; benannte Dialogsemantik, gelabeltes
+  Search-Input, deterministischer Initialfokus, Fokusfalle/-rückgabe, Escape/Backdrop/Close,
+  Scroll-Lock, acht lokalisierte Ergebnisgruppen, Initial-/Loading-/Empty-/Error-State und polite
+  Ergebnisansage; Desktop und 390-px-Mobile keyboard-operable, Reduced Motion verifiziert
+- Keyboard/Focus: **verified** · Result Groups / Empty State: **ready** · Mobile: **verified**
+- SearchModal UI copy x10: **verified** — Dialogtitel, Input, Close, Zustände, pluralisierte Ansage,
+  Gruppen und Escape-Hinweis in `de`, `en`, `pl`, `fr`, `it`, `es`, `pt`, `da`, `nl`, `cs`
+- Internal Findability: **ready / verified** — 43/43 strategische aktuelle Routen klassifiziert,
+  40 `FINDABLE`, 3 Consumer `INTENTIONAL_LIMITED_FINDABILITY`, **0 `UNINTENDED_DIRECT_URL_ONLY`**
+- Internal links: Diagnostics-Hub 9/9 · Artikel 6/6 mit reziproker Service-Zuordnung · Epigenetik-Hub
+  → 3 Vertiefungen + 6 Befunde · Befunde/Vertiefungen → Hub · Downloads → vier reale Kontexte ·
+  Events → Contact · 0 produktive `/services*` · reale Hashes `#vergleich`, `#musterbefunde`,
+  `#roi-rechner`; Dental-Rich-Content x10 auf kanonisches `/<locale>/vitamin-d3-implantologie`
+  korrigiert und nicht verfügbaren Backlog-Case-Study-Link entfernt
+- Deferred Internal Link Integrations: **3 OPEN, ownergebunden** (`DLI-01` Consumer-B2B-Einstieg →
+  AP21, `DLI-02` finale Epigenetik-Inquiry → AP15, `DLI-03` finaler Lead-Magnet-Gate → AP19);
+  alle mit Owner, Required-before, Current Safe State und **0 false READY**
+- Guard: `check:search-index` und `check:internal-findability` in pre-commit und CI; Matrix-, Ziel-,
+  Relationship-, Hash-, x10- und Negativkontrollen grün
+- Quality: Typecheck PASS · Unit/Component **184/184** unter Node 22 / `NODE_ENV=test` · PT07.3 +
+  SearchModal E2E **9/9** · Production Build PASS · Search-SSR **350/350** aktive Ziele HTTP 200,
+  `/de/diagnostics/sports` HTTP 404 · Internal-Link-Crawl **PASS** (43 Quellen, 2.538 Links,
+  115 eindeutige Ziele, 112 Hash-Links, 0 Fehler) · voller Lint 126 Findings (Baseline vor PT07.2:
+  127, 0 neue) · voller Prettier-Check 38 Dateien (identische Baseline)
+- Decision Locks: **18/18 LOCKED**
+- AP08 handoff at AP07 Closure: **NOT STARTED**
+
+### AP06 (abgeschlossen, unverändert erhalten)
+
+- Work package: AP06 — App Shell, Header, Footer und globale Navigation
+- Status: COMPLETE
+- **AP06 closure: PASS (40/40, `C06-01`-`C06-40`; Navigations-Invarianten `NAV-01`-`NAV-28`)**
+- Last completed PT: **PT06.5 — Navigationstests (PASS, 2026-08-25)**
+- PT06.1: PASS · PT06.2: PASS · PT06.3: PASS · PT06.4: PASS · **PT06.5: PASS**
+- **Next work package: AP07 — Suche und interne Findability — NICHT gestartet**
+- Header: **ready** · Diagnostics mega menu: **ready** · Footer: **ready** ·
+  Global helpers: **ready**
+- **Productive ChatWidget/HiHuman: absent** — 0 Treffer im ausgelieferten Client-Bundle,
+  0 Treffer im SSR-HTML, 0 Netzwerk-Requests. `/api/chat` (AP22 PT22.7) und die
+  HiHuman-CSP-Domains (AP26 PT26.2) bewusst **unveraendert** — beides in der Closure
+  laufzeitgeprueft, nicht vorgezogen
+- Navigation tests: **green** — 32 E2E-Navigationstests, 87/87 Playwright gesamt
+- Shell x10: **verified** — 100/100 SSR-Antworten (10 Sprachen x 10 Shell-Routen) HTTP 200,
+  50 Beschriftungen in 10 Sprachen maschinell gegated
+- Route targets: **validated** — 26 Ziele gegen 33 definierte Routen, 9/9 Service-Routen
+  HTTP 200, `/diagnostics/sports` und `/diagnostics/epigenetics` 404, 0 `/services*`-Ziele
+- Epigenetics: **eigenstaendig** — eigener Hauptnavigationspunkt (Desktop + Mobil),
+  eigene Footer-Spalte, nie unter `/diagnostics/`
+- General CTA: **normalized** (`GENERAL_SALES`, `nav.cta_quote`, x10 uebersetzt)
+- Guarantee band: **absent** · Light theme: **locked** (0 `dark:` in der Shell)
+- **Closure-Befund 1 (offen, nicht behoben):** `e2e/navigation.spec.ts` -> "das Mega-Menue
+  oeffnet mit der Tastatur" ist **flaky**. Im vollen Parallellauf einmal rot, im Retry
+  gruen; isoliert mit `--repeat-each=3 --retries=0` **96/96 gruen**. Ursache ist ein
+  Hydrations-Rennen des Tests, kein Produktdefekt: `entry-client.tsx` hydriert erst nach
+  `i18nReady`, und unter Worker-Last kann der Tastendruck vor dem Anhaengen der
+  React-Handler landen. Nicht in der Closure korrigiert (`AP06.md` §44 erlaubt keine
+  Testarbeit) — Korrektur ist ein Einzeiler (Hydrations-Wartepunkt) und liegt beim
+  naechsten Owner der Datei
+- **Closure-Befund 2 (offen, Owner AP09/AP21):** der Kommentar ueber den Consumer-Routen
+  in `src/App.tsx` behauptet "Nicht in Navigation/Sitemap, noindex, server-seitig
+  passwortgeschuetzt". Laufzeitgemessen gilt: **3 Consumer-URLs stehen in der Sitemap,
+  es gibt kein `noindex`, und `/en/consumer/vitamin-d3-spray` antwortet ohne Passwort mit 200.** Nur "nicht in der Navigation" stimmt. Reiner Kommentar, keine Laufzeitwirkung —
+  in der Closure bewusst nicht editiert
+- **Korrektur zum PT06.5-Report:** dort stand "echter 301 fuer `/services`". Praezise gilt:
+  **`/services` (ohne Locale-Praefix) ist ein echter 301**; **`/de/services` antwortet
+  dagegen mit 200** und leitet erst clientseitig ueber `<Navigate>` um (`App.tsx` §585).
+  Fuer AP06 ist das folgenlos — 0 produktive Navigationsziele zeigen dorthin (`IAD-18`) —,
+  die Server-301-Weiche gehoert **AP10**
+- Lint/Format: rot, aber **vollstaendig vorbestehend** und bereits als `QD-1`/`QD-2`
+  (BASELINE_DEBT, Owner AP27 PT27.6.7) in `QUALITY-GATES.md` registriert. 128 Lint-Findings
+  (Baseline 129), 38 Prettier-Dateien — **0 davon in `src/`, 0 in einer von AP05/AP06
+  angefassten Datei**. Die CI-Steps `Lint` und `Format check` sind vorbestehend, nicht von
+  AP05/AP06 hinzugefuegt
+- AP07: **NOT STARTED**
+- **AP07-PLANNING-FIX (2026-08-26, Teilergebnis — reiner Dokumentfix, keine Implementierung):**
+  `building-docs/AP07-FINDABILITY-MATRIX.md` **neu angelegt** und in `CONTEXT-INDEX.md` als
+  **das eine** kanonische operative AP07-Artefakt registriert (Section A Search Coverage,
+  Section B Internal Findability, Section C gemeinsames Deferred-Register `DSI-xx`/`DLI-xx`,
+  Section D Closure Evidence). Sections A/B/C/D sind **schemadefiniert und bewusst leer** —
+  befuellt werden sie erst von `PT07.1`/`PT07.3`/`AP07-CLOSURE`. Enthalten sind bereits
+  verbindlich: die praezisierte x10-Linklabel-Regel, die AP08/AP21-Forward-Dependency-Ausnahme
+  gegen einen AP07→AP08-Deadlock, die sieben PASS-Bedingungen fuer ein Consumer-`DLI`, die
+  `C07-38`/`C07-39`-Haertung und die Owner-Grenzen AP08/AP10/AP15/AP21.
+- **AP07-PACKAGE-CREATION (2026-08-26 — reiner Dokumentfix, keine Implementierung):** der im
+  Planning-Fix als BLOCKED gemeldete Rest ist **aufgeloest**.
+  `building-docs/work-packages/AP07.md` und `building-docs/work-packages/ap07-prompts.md` sind
+  **neu angelegt**. AP07.md fuehrt 21 Abschnitte in der Tiefe von AP05/AP06: Master-Scope-Vertrag,
+  Start-Gate, Ownership-Tabelle, gemessene Repository-Ausgangslage, Matrix- und Such-Vertrag,
+  vollstaendige Spezifikationen `PT07.1`/`PT07.2`/`PT07.3`, die x10-/Forward-Dependency-Regel,
+  **30 Findability-Invarianten `FIND-01`–`FIND-30`**, Hotspots, Qualitaetsstrategie, DoD,
+  **43 Closure-Gates `C07-01`–`C07-43`**, 10 Risiken `R07-01`–`R07-10` und die Handoffs an
+  AP08/AP10/AP15/AP16/AP19/AP22. `ap07-prompts.md` enthaelt **vier** eigenstaendige Prompt-Bloecke
+  (`PT07.1`, `PT07.2`, `PT07.3`, `AP07-CLOSURE`), jeder mit Context Bootstrap, Start-Gate, Scope,
+  Implementierung, Owner-Grenzen, Tests, PASS-Kriterien, State-Handoff und exaktem Reportformat.
+  `CONTEXT-INDEX.md` **nicht geaendert**: `AP07.md` ist ueber `ALWAYS_READ` gedeckt,
+  `AP07-FINDABILITY-MATRIX.md` seit dem Planning-Fix in der AP07-Zeile registriert, und
+  Prompt-Ketten sind dort fuer **kein** Arbeitspaket gelistet.
+- **Gemessene AP07-Ausgangslage (Evidenz in `AP07.md` §4, erhoben 2026-08-26):** der Suchindex
+  `src/hooks/useSearch.ts` fuehrt 6 statische Seiten und **4** Services — davon ist einer,
+  `id: 'sports'` → `/diagnostics/sports`, ein **toter Treffer** (HTTP 404); **5 von 9** Services
+  fehlen; Service-Titel sind hartkodierte Literale und damit nicht x10; Epigenetik-Vertiefungen,
+  Musterbefunde, Downloads, Events und weitere statische Seiten fehlen vollstaendig.
+  `SearchModal.tsx` hat **keine** Dialogrolle, **keine** Fokusfalle, **keine** Fokusrueckgabe und
+  **keinen** Escape-Handler — obwohl die Fusszeile hartkodiert „Esc to close" verspricht.
+  Der AP05-`Dialog` deckt all das bereits ab; `PT07.2` ist Wiederverwendung, kein Neubau.
+- **Gemessene Epigenetik-Inhaltsschuld:** `public/locales/*/epigenetics.json` existiert in allen
+  zehn Sprachen, aber **172 von 172 Strings (100 %)** sind in den acht Nicht-DE/EN-Locales
+  woertlich englisch; die Musterbefunde liegen als `*.de.json`/`*.en.json` vor, acht Sprachen
+  fehlen. Das ist die reale **AP15/AP08**-Schuld und gehoert als `SEARCH_DEFERRED_CONTENT` ins
+  Register — die **Routen** sind davon unberuehrt.
+- **Sachliche Korrektur einer Planungsannahme:** `/epigenetics/grundlagen`, `/epigenetics/studienlage`
+  und `/epigenetics/unterlagen` sind **nicht** „nicht existent". Sie sind in `src/App.tsx:496/504/512`
+  definiert, antworten mit **HTTP 200** und sind seit `PT06.3` aus dem Footer verlinkt
+  (`Footer.tsx:68–70`). Der reale AP15-Anteil ist ein **Inhalts-**, kein Routenthema
+  (Epigenetik-Content nur DE+EN vollstaendig) und gehoert als `SEARCH_DEFERRED_CONTENT` ins
+  Register — nicht als `SEARCH_DEFERRED_ROUTE_OWNER`. Details:
+  `AP07-FINDABILITY-MATRIX.md` §6.1.
+
+### AP05 (abgeschlossen, unveraendert erhalten)
+
+- Work package: AP05 — Sales-Machine Design-System und Light-Theme-Grundlage
+- Status: COMPLETE
+- **AP05 closure: PASS (32/32, `C05-01`–`C05-32`)**
+- Last completed PT: **PT05.5 — Motion, Visual Regression und Error States (PASS, 2026-08-25)**
+- **Next work package: AP06 — App Shell, Header, Footer und globale Navigation — NICHT gestartet**
+- PT05.1: PASS · PT05.2: PASS · PT05.3: PASS · PT05.4: PASS · **PT05.5: PASS**
+- Sales-Machine design system: **ready** · Light theme: **locked** ·
+  Core UI patterns: **tested** · Visual regression baseline: **recorded**
+- **KORREKTUR zu PT05.3/PT05.4 (in der Closure gemessen):** die dort berichtete Aussage
+  „Fokusring bei 14/14 per Tastatur angesteuerten Elementen sichtbar" beruhte auf einem zu
+  weiten Pruefpraedikat — es zaehlte auch `outline: 2px solid transparent` (Tailwinds
+  `outline-none`-Reset) und den UA-Standardring als Treffer. Mit korrektem Praedikat
+  (Outline mit Breite > 0 UND nicht transparenter Farbe, oder ein nicht vollstaendig
+  transparenter Box-Shadow) gilt: **AP05-eigene Komponenten 27/27 mit sichtbarem Fokus,
+  0 ohne** (gemessen in der Galerie). Auf `/de/contact` haben dagegen **7 von 16**
+  Tab-Zielen keinen sichtbaren Fokusring — ausschliesslich Header-Navigationslinks und der
+  Suchknopf aus `src/components/layout/Header.tsx` sowie Seiten-CTAs. Diese Flaechen sind
+  **vorbestehend** (AP05 hat `Header.tsx` nicht angefasst — 0 Aenderungen; die einzige
+  AP05-Aenderung an `ContactPage.tsx` ist ein tokengleicher Typo-Rollen-Tausch) und gehoeren
+  **AP06** (App Shell/Navigation) bzw. **AP24** (A11y-Abnahme). Als Later-Owner-Item
+  registriert, nicht in der Closure nachgeholt.
+- Motion/reduced motion: **standardized** (`DESIGN-SYSTEM-CONTRACT.md` §8/§9.1–9.2)
+- Visual regression: **recorded** — `e2e/design-system.spec.ts`, 28 Baselines
+  (22 Oberflaechen + 6 Seiten), 35/35 Tests gruen, zweimal in Folge deterministisch
+- Error-state pattern: **recorded** (§9.5) — Renderfehler != 404, kein Stacktrace
+- Design-system changelog: **recorded** (`building-docs/DESIGN-SYSTEM-CHANGELOG.md`),
+  Gate `npm run check:ds-changelog` pre-commit **und** in CI
+- Sales-Machine layout patterns: **standardized**
+  (`src/components/layout/Section.tsx`; Sektionskatalog `DESIGN-SYSTEM-CONTRACT.md` §6)
+- Core UI components: **standardized** (`src/components/ui/**`;
+  `DESIGN-SYSTEM-CONTRACT.md` §5)
+- Component tests: **recorded** — 11 Testdateien, **80 Tests, alle gruen**
+  (vorher 7 Dateien / 18 Tests)
+- **KORREKTUR zu PT05.1/PT05.2:** Die dort berichteten „5 jsdom-`ERR_REQUIRE_ESM`-Fehler,
+  vorbestehende Baseline-Luecke, Owner AP27" waren **keine** Repo-Luecke, sondern zwei
+  Artefakte der lokalen Shell: das Default-`node` ist hier **v18** (kein `require(ESM)`,
+  daher `ERR_REQUIRE_ESM` in jsdom), und **`NODE_ENV=production`** ist gesetzt, wodurch
+  React seinen Production-Build laedt, in dem `React.act` fehlt. Unter Node 22 mit
+  `NODE_ENV=test` — also unter den CI-Bedingungen — lief die Suite **schon vor PT05.3
+  vollstaendig gruen (7/7 Dateien, 18/18 Tests)**. Es gibt hier keinen Test-Blocker und
+  keine offene AP27-Testschuld aus AP05.
+- Typography: **standardized** (`src/index.css` `@layer components`, Praefix `.t-*`;
+  `DESIGN-SYSTEM-CONTRACT.md` §4)
+- Font pipeline: **self-hosted** — `@fontsource-variable/inter`, ein Import in
+  `entry-client.tsx`, Fallback-Metriken + SSR-Preload; **0 externe Font-CDN-Abhaengigkeit**
+  zur Laufzeit und zur Bauzeit
+- Visual baseline/tokens: **recorded** (`building-docs/DESIGN-SYSTEM-CONTRACT.md`, `tailwind.config.js`)
+- Light theme: **locked** — 0 `dark:`-Klassen, kein `darkMode`, kein `prefers-color-scheme`,
+  kein Theme-Switcher, keine parallele Dark-Token-Familie (empirisch gemessen)
+- Token guard: **active** — pre-commit (`lefthook.yml`) **und** CI
+  (`.github/workflows/ci.yml`, Step „Color/token guard")
+- Design-system contract: **recorded** (`building-docs/DESIGN-SYSTEM-CONTRACT.md`, neu angelegt;
+  in `CONTEXT-INDEX.md` als AP05-Required-Context registriert). `docs/design-system.md` ist als
+  **nicht kanonisch** gekennzeichnet — keine zweite Token-Wahrheit.
+- AP06: IN_PROGRESS (PT06.1 PASS) — siehe oben
+- **AP05 bleibt bis AP05-CLOSURE `IN_PROGRESS`.**
+
+### AP04 (abgeschlossen, unverändert erhalten)
+
 - Work package: AP04 — Content-Strategie, Content-Modell und Launch-Content-Readiness
-- Status: COMPLETE <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
+- Status: COMPLETE
 - **AP04 closure: PASS (32/32, `C04-01`–`C04-32`)**
 - Last completed PT: **PT04.4 — Asset-Readiness (PASS, 2026-08-25)**
 - **Next work package: AP05 — Sales-Machine Design-System und Light-Theme-Grundlage — NICHT gestartet**
@@ -34,7 +351,7 @@ kein `work-packages/APxx-STATE.md`).
 - CTA/system-copy readiness: CTA recorded und hergestellt · System-Copy **deferred an AP22/AP08 PT08.5** (`DG-04`)
 - Content matrix: updated (33 Content-Einheiten `C-01`–`C-33` mit Typ-, CTA-, Public/Gated-,
   Sensitive- und Standardisierungsstatus)
-- AP05: NOT STARTED
+- AP05: IN_PROGRESS (PT05.1 PASS) — siehe oben
 - AP03: COMPLETE · AP03 closure: PASS (24/24, `C03-01`–`C03-24`) — unverändert erhalten
 - Last completed PT of AP03: PT03.4 — Navigation und interne Findability (PASS); PT03.1–PT03.4 alle PASS
 - IA inventory: recorded (`building-docs/IA-INVENTORY.md` §4–§7)
@@ -54,13 +371,11 @@ kein `work-packages/APxx-STATE.md`).
 - Baseline evidence: recorded · `main` Import Ledger: recorded · redesign patterns: recorded ·
   legacy classification: recorded · final clean build evidence: recorded · **closure evidence: recorded**
   (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§9)
-- Current branch: `console/4-2026-08-24T14-54-30`
-- Current HEAD: `186bc414cd449159b4df0213e72c648f6dc40b1e` — Merge der AP03-Linie in
-  `feat/home-leadmagnet`, remote gesichert als `origin/feat/home-leadmagnet`; enthält den
-  AP01-Final-HEAD `3736d1a` als Ancestor. AP02-Delta `3736d1a..fffd712` = **0
-  Nicht-Dokumentationsdateien**; AP03 setzt diese Linie fort und ändert ebenfalls nur `building-docs/`
+- Current branch: `console/ap09-2026-08-27T08-46-17`
+- Current HEAD: `6b0ed1363f08fa241a7b21d226c3a7dd4a6493bb` — empirischer PT09.1-Start-/
+  Verifikations-HEAD; bestehender umfangreicher gestagter AP05–AP08-Working-Tree als geschützte Basis
 - Started: 2026-08-24 (AP02); AP01 gestartet und abgeschlossen 2026-08-24
-- Last updated: 2026-08-25 (AP04-CLOSURE, PASS)
+- Last updated: 2026-08-27 (PT09.2 PASS; next PT09.3)
 
 <!-- AP00-HEAD-Historie: f8692c0 = PT00.1, bf125d2 = PT00.2, cad9b6c = PT00.3, 0c58d44 = PT00.4,
      a0fac9c = Closure. Danach Pre-AP01-Hygiene: 9ee8199, d98a6b7, 5f6fc3b, Merge 4f70801.
@@ -375,6 +690,455 @@ kein `work-packages/APxx-STATE.md`).
   Korrektur: **1** Feldbenennung im Deferred-Register vereinheitlicht (`Current safe behavior` →
   `Safe current behavior` in `DG-08`/`DG-09`). Decision Locks **18/18**.
 
+- PT05.1 — Sales-Machine-Token-/Light-Theme-Basis konsolidiert und kanonisch verankert.
+  **Inventar:** Farb-, Alias-, Neutral-, Status-/Befund-, Spacing-, Radius-, Shadow- und
+  Motion-Tokens klassifiziert (CANONICAL/SEMANTIC/LEGACY_ALIAS/DUPLICATE/DEPRECATED).
+  **Light Theme empirisch bestätigt:** 0 `dark:`-Klassen, kein `darkMode`, kein
+  `prefers-color-scheme`, kein Theme-Switcher, keine parallele Dark-Tokenfamilie — keine
+  Archon-/Dark-Art-Direction vorhanden oder übernommen. **Legacy-Aliase klassifiziert, nicht
+  migriert** (`brand.deep` 149 · `brand.primary` 119 · `brand.secondary` 12 Call-Sites bleiben;
+  `accentBlue`, `brand.navy-mid`, `brand.blue-bright`, `ui.border-hover` haben 0 Call-Sites und
+  sind als DEPRECATED/DUPLICATE markiert, aber bewusst nicht entfernt).
+  **Motion-Token-Grundlage** neu: `transitionDuration` (hover/menu/popover/modal/modal-card/reveal)
+  und `transitionTimingFunction` (entrance/emphasis/back-out/exit/reveal) benennen ausschließlich
+  bereits laufende Werte; Keyframe-/Animation-Strings referenzieren sie jetzt, Ergebniswerte
+  **byte-identisch** verifiziert. Ergänzt: `spacing.section`/`section-lg` (== py-24/py-28) und
+  `boxShadow.dialog` als einzige Quelle des Modal-Ruheschattens (vom `modal-card-in`-Keyframe
+  referenziert). **Kontrastkorrektur (WCAG 1.4.11/1.4.3):** die letzten Bedienelement-Begrenzungen
+  auf `ui.border` (1,23:1) bzw. Placeholder-/Hilfstext auf `ui.text-muted` (2,56:1) sind auf
+  `ui.field` (4,83:1) umgestellt — `Textarea.tsx` sowie `SupportForm.tsx` (Pflicht-`<select>`,
+  Upload-Button); `Input.tsx` folgte bereits. `ui.border`/`ui.border-hover`/`ui.text-muted` haben
+  danach 0 Call-Sites und bleiben reine Dekor-Tokens. **Guard:** bestehender
+  `scripts/check-color-tokens.mjs` unverändert erhalten, pre-commit weiter wirksam und **zusätzlich
+  explizit in CI verankert** (`.github/workflows/ci.yml`, Step „Color/token guard"); keine zweite
+  Color-Lint-Implementierung. **Contract:** `building-docs/DESIGN-SYSTEM-CONTRACT.md` neu angelegt
+  (kein kanonisches Design-Artefakt existierte) und in `CONTEXT-INDEX.md`/`README.md` registriert;
+  `docs/design-system.md` als **nicht kanonisch** gebannert samt Liste seiner nachweislich veralteten
+  Werte → **keine zweite Token-Wahrheit**. **Verifikation:** Farb-Guard grün · Typecheck grün · Build
+  grün · Prettier auf allen berührten Dateien grün (repo-weite Vorlast 40 Dateien unverändert) ·
+  **Lint 129 Findings identisch zur Baseline, 0 neue** · **Tests 13/13, 5 jsdom-`ERR_REQUIRE_ESM`
+  reproduziert (vorbestehend, Owner AP27)** · CI-YAML geparst, 11 Steps, Guard-Step vorhanden.
+  **Emittiertes CSS gegen den Baseline-Build diffed: einzige Änderung ist der Wegfall der drei
+  `ui-text-muted`-Regeln; 0 Regeln hinzugefügt** → Token-Layer nachweislich visuell neutral.
+  **Kein Vorgriff** auf PT05.2–PT05.5 oder AP06; **0 Commits**. Decision Locks **18/18**.
+
+- PT05.2 — Typografie der Sales-Machine als kanonisches Rollensystem verankert.
+  **Font-Pipeline:** Inter bleibt selbstgehostet (`@fontsource-variable/inter`, genau ein
+  Side-Effect-Import in `entry-client.tsx`); Kette `Inter Variable → Inter → Inter Fallback →
+system-ui → sans-serif` vollstaendig, `font-display: swap` (7 Faces), SSR-Preload-Tag zeigt auf
+  den tatsaechlich gebauten gehashten Latin-Subset. **Fallback-Metriken empirisch validiert:**
+  H1- und Absatzhoehe mit und ohne Webfont **identisch (0 px)**; Restdelta der Gesamtseitenhoehe
+  143 px von 8.907 px unterhalb des Viewports. **Externe Font-Abhaengigkeit beseitigt:**
+  `scripts/og-image-template.html` bezog Inter von `fonts.googleapis.com` und laedt es jetzt lokal
+  — gemessen **0 externe Requests** beim Rendern der Share-Karte. Verbleibend und
+  **nicht** AP05: `server.ts` erlaubt `fonts.googleapis.com`/`fonts.gstatic.com` weiterhin in der
+  CSP — Erlaubnis ohne Verwender, in `NETWORK-ALLOWLIST.md` als `ND-5`/`STALE_REMOVE` registriert,
+  Owner **AP26**. **Rollensystem** in `src/index.css` (`@layer components`, Praefix `.t-*`):
+  `.t-h1`, `.t-h2`, `.t-h2-section`, `.t-h2-sub`, `.t-h3`–`.t-h6`, `.t-lead`, `.t-body`, `.t-small`,
+  `.t-lead-on-dark`, `.t-body-on-dark`, `.t-caption`, `.t-label`, `.t-helper`, `.t-error`, `.t-link`,
+  `.t-link-cta`. Jeder Wert ist aus dem Bestand **gemessen**; die Ueberschriftsebene folgt der
+  Dokumentstruktur, die Klasse waehlt nur die visuelle Rolle (`.t-h2-sub`/`.t-h2-section`).
+  **52 Aufrufstellen konsolidiert** — 29 Ueberschriften, 23 Textstellen — jeweils
+  **tokengleich**, plus `SectionHeader`, `Input` und `Textarea` auf die Rollen umgestellt.
+  **Drei bewusste, dokumentierte Aenderungen (alle WCAG-Korrekturen):** Longform-Ink
+  `.rich-content` `gray-500` → `gray-700` (3,38:1 → 10,3:1; betraf den gesamten Fliesstext der
+  Service-Detailseiten), Prosa-Links im Ruhezustand unterstrichen statt nur bei Hover
+  (WCAG 1.4.1 — vorher allein Farbe), Fehlertext `Textarea` `red-500` → `red-600`
+  (3,76:1 → 4,83:1; `Input` war bereits korrekt). **Longform** live nachgemessen: Body
+  `#374151`, Lesebreite 610 px (61ch), Link unterstrichen + Gewicht 600. **Responsive/x10:**
+  10 Sprachen × 4 Seiten × 3 Viewports = **120 Kombinationen, 0 horizontaler Ueberlauf**,
+  H1 mobil 30–36 px, 1–5 Zeilen, kein H1-Eigenueberlauf — **keine** sprachabhaengige
+  font-size-Ausnahme noetig oder eingefuehrt. **Verifikation:** Typecheck gruen · Build gruen ·
+  Farb-Guard gruen · Prettier auf allen beruehrten Dateien gruen · **Lint 129 Findings identisch
+  zur Baseline, 0 neue** · **Tests 13/13**, 5 jsdom-`ERR_REQUIRE_ESM` vorbestehend (Owner AP27) ·
+  **SSR-Smoke 60/60 HTTP 200** (10 Sprachen × 6 Routen) plus echte 404 und echter 301.
+  CSS-Delta gegen den PT05.1-Build geprueft: nur die neuen Rollenklassen (regelweise als
+  deckungsgleich nachgewiesen), der Wegfall dadurch ungenutzter Utilities und genau die drei
+  genannten Korrekturen. **Kein Vorgriff** auf PT05.3–PT05.5 oder AP06; `server.ts`, `App.tsx`,
+  `SEOHead.tsx`, i18n und Routing unberuehrt; **0 Commits**. Decision Locks **18/18**.
+
+- PT05.3 — Core-UI-Komponenten konsolidiert und verhaltensgetestet.
+  **Neu:** `Card.tsx` (interaktiv vs. statisch), `FormField.tsx` (Label/Control/Hilfstext/
+  Fehler/Pflicht mit vollstaendiger ARIA-Verdrahtung, Feld **und** Gruppe), `Choice.tsx`
+  (`Checkbox`/`Radio`/`Select`), `Dialog.tsx` (Modal **und** Drawer auf einer Mechanik),
+  `StateBlock.tsx` (`LoadingState`/`EmptyState`/`ErrorState`/`Skeleton`).
+  **Erweitert:** `Button.tsx` um `ghost`, `loading` (`aria-busy`, Beschriftung bleibt),
+  externe-Link-Semantik (`target`/`rel` nur bei echten externen Zielen), echte
+  Deaktivierung fuer Link-Buttons (`aria-disabled` + `tabIndex=-1` + Klicksperre) und
+  Touch-Targets ≥ 44px (`icon` 40→44px, 0 Bestands-Call-Sites betroffen);
+  `Alert.tsx` um `info`/`warning`/`error` mit **je eigenem Icon** (Bestandsvarianten
+  `default`/`destructive` erhalten); `LoadingSpinner` prop-durchlaessig und
+  bewegungsreduktions-fest. **Neues Token:** `warning` (`#f59e0b`/`#fffbeb`/`#b45309`) in
+  `tailwind.config.js` **und** `PALETTE_HEX` im selben Schritt — bewusst NICHT die
+  Befund-Ampel, deren Amber fachliche Befundsemantik traegt. Textrolle `warning.strong`
+  4,84:1 auf `warning.soft`.
+  **Zwei echte Defekte im neuen Dialog per Test gefunden und behoben:** der Fokus wanderte
+  wegen des `mounted`-Gates nie in den Dialog (Effekt lief auf einem noch nicht
+  existierenden Panel), und die Fokusfalle filterte ueber `offsetParent` — in jeder
+  layoutlosen Umgebung `null`, wodurch die Falle auf ein einziges Element zusammenfiel.
+  **Tests:** 11 Dateien / **80 Tests gruen** (Button 9 · FormField+Choice 13 · Dialog 14 ·
+  Card 6 · Alert+States 12 · Input/Textarea 11 · Bestand 15). Geprueft wird Verhalten —
+  Rolle, zugaenglicher Name, Fokusfuehrung, Escape, Scroll-Lock, Fokusrueckgabe,
+  ARIA-Verdrahtung — **nicht** Tailwind-Klassen.
+  **Live gemessen:** Fokusring bei **14/14** per Tastatur angesteuerten Elementen sichtbar;
+  Touch-Target-Klassen im Build bestaetigt (`h-11` = 2,75rem = 44px, `min-h-[44px]`).
+  **Keine breite Seitenmigration:** das emittierte CSS ist gegenueber PT05.2 rein additiv
+  (**0 Regeln entfernt**, 34 hinzugefuegt) — kein Bestandsrendering veraendert; 0
+  Call-Sites migriert. **Verifikation:** Typecheck gruen · Build gruen · Farb-Guard gruen ·
+  Prettier gruen · **Lint 128 Findings (124 errors) — 1 unter der 129er-Baseline**, weil
+  der `ref as any`-Cast im Button entfallen ist; 0 neue Findings.
+  **Weitergetragen (nicht PT05.3):** ausserhalb der Core-Komponenten liegen Bedienelemente
+  unter 44px — Karussell-Punkte (10px), kleine Icon-Schalter (16px), Sektions-Pfeil-Links
+  (20px hoch). Owner: **PT05.4** (Sektionsmuster) bzw. **AP24** (Abnahme);
+  siehe `DESIGN-SYSTEM-CONTRACT.md` §5.7. **Kein Vorgriff** auf PT05.4/PT05.5 oder AP06;
+  `server.ts`, Routing, i18n, Header/Footer unberuehrt; **0 Commits**. Decision Locks **18/18**.
+
+- PT05.4 — Layout- und Sektionsmuster der Sales-Machine katalogisiert und konsolidiert.
+  **Neu:** `src/components/layout/Section.tsx` mit `Section` (Flaeche, full-bleed),
+  `Container` (Inhalt, `max-w-container` 1200px, `px-4 lg:px-0`) und `CardGrid`
+  (2/3/4 Spalten, mobil immer einspaltig). Der vertikale Rhythmus ist auf die drei im
+  Bestand **gemessenen** Stufen festgeschrieben: `py-16 lg:py-24` (12x), `py-24` (7x),
+  `py-12 lg:py-16` (3x) — eine vierte kommt nicht dazu. Kernregel: Hintergrund gehoert an
+  die `Section`, Breitenbegrenzung an den `Container`.
+  **Sektionskatalog** (`DESIGN-SYSTEM-CONTRACT.md` §6.9): 17 bevorzugte Muster mit Zweck,
+  Komponente, geeigneten Seitentypen, Responsive-Verhalten und A11y-Notiz plus Do/Don't —
+  Grundlage fuer AP11–AP21. Ergaenzt: Hero-/Split-Muster (§6.3), Content+Sidebar ueber das
+  bestehende `PageSidebar` (§6.4), **ChapterNav-Layoutvertrag dokumentiert statt neu
+  erfunden** (§6.5: `top-[68px] lg:top-[88px]`, `--chapterbar-offset`, `--nav-progress`,
+  `scroll-mt-28`, Cleanup beim Unmount), Longform-Verweis auf §4.5, Final-CTA-Muster (§6.7).
+  **Kartenrezepte:** 18 Aufrufstellen von `rounded-xl border border-slate-200 bg-white p-7`
+  gefunden; die **3 interaktiven** (`DiagnosticsFocusSection`, `ArticlesIndexPage`,
+  `SupportPage`) auf `Card` umgestellt und dadurch mit dem Fokusring des Design-Systems
+  statt des UA-Standardrings versehen. Die 15 statischen bleiben bewusst unveraendert —
+  eine reine Namensmigration ueber 12 Seitendateien waere die von AP05 §13.2
+  ausgeschlossene Seitenmigrationswelle. Das 4er-Rezept mit `gray-200`/`rounded-lg`/`p-4`
+  (8x) ist bewusst **nicht** konsolidiert: andere Rolle.
+  **Korrektur an der eigenen Komponente:** `Card` trug `hover:shadow-card`; im Bestand
+  kommt der reine Lift **16x** vor, die Schatten-Variante nur **2x**. `Card` folgt jetzt
+  der gemessenen Mehrheit — die Adoption ist damit visuell neutral bis auf den Fokusring.
+  **Touch Targets in Sektionen** (Uebergabe aus PT05.3): Pause/Play der Karussells
+  16×16 → **44×44**; Slider-Punkte 10×10 → **24px hoch** (transparenter Knopf, sichtbarer
+  Punkt als innerer `<span>`, Optik unveraendert). **Bewusst offen:** die Punkt*breite*
+  bleibt 10px — 24px breite Ziele sind bei Rasterweite 20–22px geometrisch unvereinbar,
+  ohne die Punkte auseinanderzuziehen, und das waere eine Art-Direction-Entscheidung.
+  Owner **AP24** plus Produktentscheidung (§6.8).
+  **Geprueft:** **0 Treffer** fuer ein „garantierte Performance"-Band in Code und Locales
+  (`DEC-RL-012` gehalten); keine alternative Art Direction; Light Theme unveraendert.
+  **Bestaetigt und weitergetragen:** der HiHuman-Chat-Loader laedt weiterhin unbedingt zur
+  Laufzeit (gemessen: 2 Requests an `widget.hihuman.co.uk` bzw. `reception.hihuman.co.uk`
+  auf `/de/`) — bereits registriert als `CONSENT-CONTRACT.md` `CD-3` / Gate `G-10`,
+  Owner **AP06 PT06.4**. PT05.4 fasst ihn nicht an.
+  **Verifikation:** Typecheck gruen · Build gruen · Farb-Guard gruen · Prettier gruen ·
+  Lint ohne neue Findings · **Tests 91/91 gruen** (12 Dateien; +11 fuer die
+  Layout-Primitive) · **Responsive Smoke 150 Kombinationen** (10 Sprachen × 5 Seiten ×
+  3 Viewports): **0 horizontaler Ueberlauf, 0 non-200**.
+  **Kein Vorgriff** auf PT05.5 oder AP06; Header/Footer, Routing, i18n und `server.ts`
+  unberuehrt; **0 Commits**. Decision Locks **18/18**.
+
+- PT05.5 — Motion, Visual Regression und Error States abgeschlossen; letzter Primaertask von AP05.
+  **Reduced Motion** auf drei Ebenen nachgewiesen (globales Netz in `src/index.css`,
+  `motion-reduce:`-Klassen, JS-Guards in `Reveal`/`PageTransition`): unter Emulation hat auf
+  `/de/` **kein Element** eine Dauer > 1 ms — und die Funktion bleibt vollstaendig
+  (Inhalte sichtbar, Karussell bedienbar). **Transitions** auf die PT05.1-Token-Namen
+  festgeschrieben: nichts ueber 520 ms, einziger Stagger `REVEAL_STAGGER` 60 ms, keine
+  Information nur durch Bewegung.
+  **Visual Regression:** `scripts/build-visual-gallery.tsx` rendert die **echten** Komponenten
+  per `react-dom/server` nach `dist/visual-gallery.html` — bewusst **keine
+  `/styleguide`-Produktionsroute** und keine nachgebaute HTML-Attrappe (waere eine zweite
+  Wahrheit). Geladen per `file://`. Die Datei liegt **neben** `dist/client/`, weil
+  `server.ts` dieses Verzeichnis per `express.static` ausliefert: in einem Zwischenstand lag
+  die Galerie darin und war mit HTTP 200 oeffentlich erreichbar — gemessen und korrigiert;
+  jetzt endet `/visual-gallery.html` ueber den Server in einer 404.
+  **28 Baselines**: 11 Oberflaechen × 2 Viewports plus Hero/Longform/Final-CTA aus echten
+  Routen. Determinismus ueber feste Viewports, Reduced Motion, `document.fonts.ready` und
+  transparenten Caret; **35/35 Tests zweimal in Folge gruen**.
+  **Drei echte Fehler von den eigenen Tests gefunden:** (1) Playwright lief gegen Port 3000,
+  auf dem in dieser Umgebung eine **fremde Anwendung** laeuft — die ersten Seiten-Screenshots
+  stammten von ihr; behoben durch eigenen Port (`E2E_PORT`, Default 3311) und
+  `reuseExistingServer: false`, die falschen Baselines wurden geloescht und neu erzeugt.
+  (2) `use: { reducedMotion }` aus der Playwright-Config griff nicht (`matchMedia` meldete
+  `false`); jetzt explizit per `page.emulateMedia` plus Zusicherung im Test, damit es nicht
+  still zurueckfallen kann. (3) Eine eigene Testzusicherung parste `0.01ms` als 0,01 Sekunden —
+  Einheiten werden jetzt normalisiert. Punkt 2 und 3 waren Testfehler, nicht Produktfehler;
+  das Reduced-Motion-Netz selbst war die ganze Zeit korrekt.
+  **Error States:** `RootErrorBoundary` und `SegmentErrorBoundary` rendern jetzt ueber
+  `ErrorState` — **eine** Fehleroberflaeche statt drei Markup-Varianten; Signatur und
+  Verhalten unveraendert. **8 neue Tests** sichern: Fallback statt weissem Bildschirm,
+  Meldung ans Monitoring **statt** in die UI, **nie ein Stacktrace**, Erholung ueber `reset`,
+  Segment degradiert isoliert. E2E belegt die Trennung: unbekannte Route = echte **404 ohne**
+  `role="alert"`, Fehlergrenze = `role="alert"` **ohne** 404. Routing-Statussemantik bleibt AP10.
+  **Changelog-Gate neu:** `building-docs/DESIGN-SYSTEM-CHANGELOG.md` plus
+  `scripts/check-design-system-changelog.mjs` vergleichen die **tatsaechliche** Oberflaeche
+  (38 Farb-Token, 19 Typo-Rollen, 24 Komponenten/Konstanten) mit der dokumentierten — bewusst
+  kein Diff-Gate gegen einen Basis-Ref. Verankert pre-commit **und** in CI; Negativtest:
+  ein undokumentiertes Token liefert Exit 1. CI hat jetzt **14 Steps** inkl. Visual-Regression
+  und Artefakt-Upload bei Fehlschlag.
+  **Preview-Neutralitaet nachgewiesen:** aus `redesign/preview` stammen ausschliesslich
+  Mechaniken (Error Boundary, Monitoring, A11y-/Screenshot-Skripte), in 9 Dateien deklariert;
+  **0 Treffer** fuer deren Token-Klassen ausserhalb eines erklaerenden Kommentars, **0**
+  `dark:`-Klassen, keine Farbe/Typografie/Art-Direction uebernommen.
+  **Verifikation:** Typecheck gruen · Build gruen · Farb-Guard gruen · Changelog-Gate gruen ·
+  Prettier gruen · Lint ohne neue Findings · **Unit/Component 99/99 gruen** (13 Dateien) ·
+  **Playwright 35/35 gruen** · SSR-Smoke gruen. **0 Commits.** Decision Locks **18/18**.
+  **AP05-CLOSURE und AP06 wurden NICHT gestartet.**
+
+- AP05-CLOSURE — Closure Gate `PASS`: `C05-01` bis `C05-32` geprueft, alle in dieser Closure
+  **neu gemessen** statt aus den PT-Berichten uebernommen.
+  **Vorgaenger** AP00–AP04 unveraendert `COMPLETE`/Closure `PASS`; Decision Locks **18/18**.
+  **Art Direction/Theme:** Sales-Machine eindeutig, **0** `dark:`-Klassen, **0** Theme-Switcher/
+  `darkMode`/`prefers-color-scheme`, **0** Archon-Token-Klassen ausserhalb erklaerender
+  Kommentare. **Kanonizitaet:** genau **eine** `tailwind.config.js`, ein
+  `DESIGN-SYSTEM-CONTRACT.md`, `docs/design-system.md` als nicht kanonisch gebannert.
+  **Guards:** Farb-Guard und Changelog-Gate je pre-commit **und** in CI, beide gruen.
+  **Fonts:** **0** externe Font-Referenzen in ausgeliefertem Code und in Build-Skripten; die
+  zwei verbleibenden Nennungen in `server.ts` sind CSP-_Erlaubnisse_ ohne Verwender
+  (`NETWORK-ALLOWLIST` `ND-5`, Owner AP26).
+  **Substanz vorhanden:** 10 Komponenten-/Layout-Bausteine, 11 Testdateien, Motion-Tokens
+  (6 Dauern, 5 Kurven), 19 Typo-Rollen, Spacing/Radius/Shadow-Skalen, 28 Visual-Baselines.
+  **Qualitaet:** Typecheck gruen · Build gruen · Farb-Guard gruen · Changelog-Gate gruen ·
+  **Unit/Component 99/99** · **Playwright 55/55** · **SSR-Smoke 50/50 HTTP 200** plus echte 404
+  und echter 301 · **Responsive 60/60 Kombinationen ohne Ueberlauf** ·
+  Lint **128 Findings, unveraendert zur Baseline, 0 durch AP05**.
+  **Guarantee Band 0 Treffer** (`DEC-RL-012`), CTA-Lock in allen 10 Sprachen belegt,
+  10 Locales unveraendert.
+  **Scope:** 94 Dateien im AP05-Delta, **0** davon AP06+-eigen — `Header.tsx`, `Footer.tsx`,
+  `App.tsx`, `server.ts`, `src/i18n*`, `SEOHead`, `structuredData`, `lib/tracking` und
+  `public/locales/**` **unberuehrt**. **0 Commits.**
+  **Closure-eigene Korrekturen (nur Doku):** die Fokus-Messaussage aus PT05.3/PT05.4
+  richtiggestellt (siehe `## Current`) und die veraltete AP06-Zeile
+  („Vorgaenger AP05 ist nicht gelaufen") nachgezogen. **Keine Fachsubstanz nachgeholt.**
+
+- PT06.1 — Header auf die AP03-IA umgestellt und zehnsprachig verankert.
+  **Epigenetik ist jetzt eine eigene Saeule** (`IA-09`, `DEC-RL-005`): vorher erschien sie
+  ausschliesslich als Kind des Diagnostik-Menuepunkts in der Gruppe `group_lab` — eine
+  eigenstaendige Geschaeftssaeule, die man nur ueber ein fremdes Aufklappmenue erreicht.
+  Sie steht als eigener Hauptnavigationspunkt (`/epigenetics`), ist aus dem
+  Diagnostik-Menue entfernt (`AP06.md` §6.5) und mobil ebenfalls eigenstaendig.
+  **IglooPro sichtbar** (`/igloo-pro`) — vorher fuehrte kein Header-Weg zum Produkt
+  (IA §10.3 „Produktstrecke sichtbar, nicht in Diagnostik versteckt").
+  IA-konform entfernt: `home` (das Logo ist der Heimweg) und der `terms`-Unterpunkt unter
+  About (Legal gehoert in den Footer). Header-Saeulen jetzt: Diagnostik · Epigenetik ·
+  IglooPro · Artikel · Events · Ueber uns · Support.
+  **GENERAL_SALES-CTA:** `nav.contact` („Kontakt") → `nav.cta_quote` („Angebot anfragen",
+  `DEC-RL-013`), Ziel `/contact`, mit `data-cta-role="GENERAL_SALES"` ausgezeichnet. Die
+  zehn Formulierungen sind aus der AP04-standardisierten `downloads.json:hero_cta`
+  uebernommen, nicht neu erfunden. Support, Consumer-Bestellung und Epigenetik-Anfrage
+  bleiben getrennt.
+  **Fokusringe — Uebernahme aus der AP05-Closure erledigt:** die Header-Navigationslinks,
+  der Such-Trigger, der Burger und der Logo-Link hatten **keinen** sichtbaren
+  Fokusindikator (in der AP05-Closure mit 7/16 fehlenden Ringen auf `/de/contact` gemessen
+  und als AP06-Item registriert). Jetzt live nachgemessen: **14/14 Tab-Ziele mit sichtbarem
+  Ring, 0 ohne.**
+  **Untermenue nicht mehr hover-only:** das Diagnostik-Aufklappmenue oeffnete
+  ausschliesslich per `group-hover` — mit der Tastatur waren die Unterseiten aus dem Header
+  nicht erreichbar. Es hat jetzt einen eigenen Knopf mit `aria-expanded`; Hover
+  funktioniert weiter, ist aber nicht mehr der einzige Weg. Mobil ist der Elternpunkt
+  zusaetzlich selbst ein Link (vorher nur Aufklapper).
+  **x10:** neue `common.json`-Keys `nav.cta_quote`, `nav.iglooPro`, `a11y.select_language`,
+  `a11y.main_nav`, `a11y.toggle_submenu` in **allen zehn** Locales. Der Sprachumschalter
+  trug ein hartkodiertes englisches `aria-label` — genau das Element, das jemand sucht, der
+  die Seitensprache nicht versteht; jetzt lokalisiert.
+  **Unveraendert gelassen:** `useSearch.ts` (AP07), Search-Index, SearchModal-Semantik
+  (AP07), keine Route Registry gebaut (AP10), `ChatWidget` in `App.tsx` (Entfernung ist
+  PT06.4 — der **Header** enthaelt nachweislich keinen Chat-Trigger).
+  **Verifikation:** Typecheck gruen · Build gruen · Farb-Guard gruen · DS-Changelog-Gate
+  gruen · Lint **128 Findings, unveraendert, 0 neue** · **Tests 121/121** (Header 23 neu) ·
+  **Playwright 55/55** · **SSR-Smoke 60/60** (10 Sprachen × 6 Routen) · aktive Zustaende
+  live geprueft (`/epigenetics#musterbefunde` → `aria-current="page"`) ·
+  `--chapterbar-offset` vor/nach Scroll stabil (151px) · Headerhoehe 88→89px, `fixed` ·
+  mobil **0** Bedienelemente unter 44px · **0** `/services*`-Ziele im Header.
+  **Visual-Baselines:** die 6 Seiten-Screenshots enthalten den Header und wurden neu
+  aufgenommen. Sie waren zuvor trotz geaenderten Headers gruen — die
+  `maxDiffPixelRatio: 0.01`-Toleranz aus PT05.5 hat die Aenderung verdeckt; als
+  Later-Owner-Item notiert.
+  **0 Commits.** Decision Locks **18/18**.
+
+- PT06.2 — Diagnostik-Mega-Menue implementiert; alle neun kanonischen Services erreichbar.
+  **Gruppierung fachlich begruendet** (IA §10.4 verlangt eine Begruendung, ueberlaesst die
+  Spaltenform AP06). Trennlinie ist die Frage, die ein Interessent stellt:
+  **Praxisfelder** (dental · beauty · longevity — "ich bin Zahnarzt/Aesthetik/Longevity"),
+  **Analysebereiche** (praeventions-checks · infektion-entzuendung · stoffwechsel-herz ·
+  hormon-tests — "ich will Marker X messen"), **System & Integration**
+  (poc-systemloesungen · kompatibilitaet-integration — "passt das zu meinem Bestand?").
+  3+4+2 = **9/9**, gegen `src/data/services.tsx` geprueft.
+  **Die historische POC/Labor-Zweiteilung wurde bewusst NICHT uebernommen:** sie existierte
+  nur, um Epigenetik als "Laborteil" der Diagnostik unterzubringen — genau die
+  Fehlklassifikation, die IA §10.4 untersagt.
+  **Epigenetik-Grenze:** kein `group_lab` mehr, kein `/diagnostics/epigenetics`. Epigenetik
+  erscheint ausschliesslich als **abgesetzter Querverweis** unterhalb der Spalten, mit
+  eigener Ueberschrift („Auch relevant"), ausserhalb jeder Servicegruppe — IA §10.5 erlaubt
+  den Crosslink ausdruecklich. Zusaetzlich zaehlen Crosslinks bewusst **nicht** in
+  `isItemActive`: sonst faerbte `/epigenetics` die Diagnostik aktiv und die eigene Saeule
+  verloere ihre Kennzeichnung (per Test abgesichert).
+  **Hub:** eigener Einstieg „Alle Diagnostik-Leistungen" → `/diagnostics`, im Fussbereich des
+  Menues neben dem Querverweis.
+  **Tastatur/Fokus live gemessen:** Enter am Trigger oeffnet (9 Services erreichbar),
+  **12 Menuelinks per Tab erreicht, 0 ohne Fokusring**, Escape schliesst **und gibt den
+  Fokus an den Trigger zurueck**; geschlossene Eintraege sind nicht im DOM und damit nicht
+  fokussierbar.
+  **Mobil:** dasselbe Gruppenmodell als Akkordeon statt Spalten — 9 eindeutige Service-Links,
+  **0 Ziele unter 44px, 0px horizontaler Ueberlauf** bei 360px.
+  **Routen live validiert:** 9/9 Service-Routen HTTP 200, `/diagnostics/sports` **404**
+  (nicht verlinkt), Hub in 10/10 Sprachen 200, **0** `/services*`-Ziele.
+  **x10:** 5 neue Service-Kurzlabels aus den freigegebenen `services.json`-Titeln abgeleitet
+  (Teil vor dem Doppelpunkt), nicht neu uebersetzt; dazu 3 Gruppenueberschriften,
+  Hub- und Querverweis-Label — alles in **allen zehn** Locales.
+  **Nebenwirkung dokumentiert:** `t-h6`, `t-caption` und `t-link-cta` waren bis hierher
+  definiert, aber nicht im Build (Tailwind emittiert `@layer components` nur bei
+  Verwendung). Das Mega-Menue ist ihre erste Aufrufstelle — dadurch aenderte sich die
+  Darstellung der Galerie-Ueberschriften und **alle 22 Oberflaechen-Baselines wurden neu
+  aufgenommen**. Erwarteter Adoptionseffekt, kein Regressionsfund; im
+  `DESIGN-SYSTEM-CHANGELOG.md` vermerkt.
+  **Verifikation:** Typecheck gruen · Build gruen · Farb-Guard gruen · DS-Changelog-Gate
+  gruen · Lint **128 Findings, unveraendert, 0 neue** · **Tests 131/131** (Header 33) ·
+  **Playwright 55/55, zweimal in Folge** · `useSearch.ts` und Search-Index unberuehrt ·
+  keine Route Registry gebaut. **0 Commits.** Decision Locks **18/18**.
+
+- PT06.3 — Footer nach IA §10.7 neu aufgebaut; drei AP03-Findability-Schulden geschlossen.
+  **`IAD-16` (Epigenetik + Support fehlten vollstaendig):** Epigenetik hat jetzt eine
+  **eigene Spalte** mit Hub, den drei Vertiefungen (`/grundlagen`, `/studienlage`,
+  `/unterlagen`) und den Musterbefunden — nicht als Zeile unter Diagnostik. Support steht
+  bei den Unternehmenslinks und ist damit nicht mehr hinter Sales versteckt.
+  **`IAD-17` (6 von 9 Services):** der Footer fuehrt jetzt **alle neun**. Eine
+  unvollstaendige Liste, die wie eine vollstaendige aussieht, ist schlechter als beides;
+  IA §10.7 ueberlaesst diese Umfangsentscheidung ausdruecklich AP06.
+  **Spalten:** Unternehmen · Diagnostik · Epigenetik · Produkt & Wissen · Standorte, dazu
+  Social, Legal und Copyright in der Fussleiste.
+  **Consumer bewusst NICHT verlinkt — mit Grund:** IA §10.8 sieht `INDIRECT` vor, aber der
+  Server beantwortet `/de/consumer/...` mit **301 auf `/en/consumer/...`** (in PT06.3
+  gemessen, alle drei Seiten, alle Nicht-EN-Locales). Ein Footer-Link wuerde
+  nicht-englische Nutzer nach Englisch zwingen — genau der von `IAD-01` ausgeschlossene und
+  von `DEC-RL-006`/`REST-03` verbotene Fall — und waere zudem ein Link auf eine
+  Redirect-Quelle. Die Auslassung ist im Code begruendet und **per Test festgehalten**,
+  damit sie nicht versehentlich zurueckkommt. **Owner: AP10** (Locale-Weiche/Redirects)
+  gemeinsam mit **AP21** (Consumer-Strecke). Damit bleibt `IAD-16` fuer den Consumer-Anteil
+  offen; Epigenetik und Support sind geschlossen.
+  **Social:** LinkedIn und Instagram als reine `<a>`-Links mit `target="_blank"` und
+  `rel="noopener noreferrer"`, benannt — **kein** eingebettetes Widget, **kein**
+  Drittanbieter-Skript, **kein** iframe (per Test abgesichert), also auch kein Tracker vor
+  dem Consent.
+  **x10:** neue `footer.*`-Keys (Spaltenueberschriften, Standorte, Legal, Nav-Label,
+  vier Epigenetik-Labels) in **allen zehn** Locales; die neun Service-Labels stammen aus
+  den in PT06.2 angelegten `nav.*`-Keys. Die vier Epigenetik-Labels wurden **nicht** aus
+  `epigenetics.json` uebernommen: die Datei ist nur DE+EN gepflegt und traegt in acht
+  Locales englischen Fallback (**vorbestehende Content-Schuld, Owner AP15/AP08**) — ein
+  Uebernehmen haette Englisch in acht Footer geschrieben.
+  **Live geprueft:** **240/240** Footer-Ziele HTTP 200 (24 Ziele × 10 Sprachen) · mobil und
+  desktop **0 Links unter 44px**, **0px horizontaler Ueberlauf** · **14/14** Footer-Elemente
+  per Tab mit sichtbarem Fokusring · Labels in de/cs/nl/pl stichprobenartig lokalisiert
+  bestaetigt · **0** `/services*`-Ziele, **0** Chat-, **0** Garantie-, **0** Backlog-Ziele.
+  **Verifikation:** Typecheck gruen · Build gruen · Farb-Guard gruen · DS-Changelog-Gate
+  gruen · Lint **128 Findings, unveraendert, 0 neue** · **Tests 148/148** (Footer 18 neu) ·
+  **Playwright 55/55, zweimal in Folge**; die 6 Seiten-Baselines enthalten den Footer und
+  wurden neu aufgenommen. **0 Commits.** Decision Locks **18/18**.
+
+- PT06.4 — Globale Hilfselemente geprueft, Chat-Frontend entfernt, zwei echte Defekte behoben.
+  **Chat produktiv entfernt (`DEC-RL-007`, closure-kritisch):** `<ChatWidget />` und sein
+  Import sind aus `App.tsx` raus, `src/components/ui/ChatWidget.tsx` **geloescht**. Das
+  Widget lud auf **jeder** B2B-Seite unbedingt `https://widget.hihuman.co.uk/bundle.js` —
+  ohne Bedingung, ohne Consent. **Live nachgemessen ueber drei Seiten: 0 HiHuman-Requests**;
+  der einzige verbleibende externe Host ist `googletagmanager.com` (AP23). Damit ist
+  `CONSENT-CONTRACT.md` `CD-3` / Gate `G-10` fuer den **Frontend**-Anteil geschlossen.
+  **Ownership-Grenzen eingehalten und per Test festgehalten:** `POST /api/chat` im Backend
+  **unveraendert** (Owner **AP22 PT22.7**), HiHuman-Domains in der CSP **unveraendert**
+  (Owner **AP26 PT26.2**), Consent-Logik nicht angefasst (Owner **AP23**).
+  **Skip Link neu** (`SkipLink.tsx`, WCAG 2.4.1): vorher gab es keinen. Wer mit der Tastatur
+  arbeitet, musste sich auf jeder Seite durch Logo, sieben Navigationspunkte,
+  Untermenue-Trigger, Suche, Sprachumschalter und CTA tabben. Jetzt **erstes fokussierbares
+  Element**, sichtbar bei Fokus, 44px, x10 lokalisiert; Ziel ist `<main id="main-content"
+tabIndex={-1}>` — ohne `tabIndex` scrollt der Browser nur, statt den Fokus zu setzen.
+  Live: erstes Tab-Ziel, Enter fokussiert `MAIN`.
+  **ScrollToHash-Defekt gefunden und behoben:** beim Direktaufruf von
+  `/de/epigenetics#analysen` landete die Zielueberschrift **39px hinter der Kapitelleiste**.
+  Ursache: im Moment des Scrollens ist die Leiste noch nicht montiert,
+  `--chapterbar-offset` also nicht gesetzt — der Sprung nutzte den Header-Rueckfall
+  (88+16=104px), und sobald die Leiste erschien, lag das Ziel darunter. Der Sprung fuehrt
+  jetzt **nach**: sobald die Seite zur Ruhe gekommen ist, wird gegen den inzwischen
+  gueltigen Offset geprueft und ohne Animation nachkorrigiert. Nachher gemessen:
+  `#analysen` 151 vs. Leiste 143, `#ablauf` 151 vs. 143, `/#roi-rechner` 104 vs. Header 89 —
+  **alle drei sichtbar**.
+  **Geprueft, nicht umgebaut:** CookieBanner genau **einmal** global unter `<Routes>`
+  (nicht im Layout), z-[70], setzt `--cookie-banner-height`; MobileCallButton nur in der
+  B2B-Shell (Consumer-Ausnahme haelt), 44px, lokalisiert, hebt sich ueber den Banner;
+  LanguageFallbackNotice bleibt defensiv (nur bei echtem `englishFallback` auf zwei Seiten);
+  ScrollToTop setzt bei Navigation auf 0 (live bestaetigt).
+  **Verifikation:** Typecheck gruen · Build gruen · Farb-Guard gruen · DS-Changelog-Gate
+  gruen · Lint **128 Findings, unveraendert, 0 neue** · **Tests 165/165** (Shell 17 neu) ·
+  **Playwright 55/55** — die Visual-Baselines blieben unveraendert, was bestaetigt, dass die
+  Chat-Entfernung nichts Sichtbares beruehrt · **SSR-Smoke 40/40**. **0 Commits.**
+  Decision Locks **18/18**.
+
+- PT06.5 — Navigationstests: die AP06-Zusagen sind jetzt maschinell abgesichert statt
+  einmalig gemessen. **Zwei neue Guards**, beide pre-commit **und** in CI verankert:
+  `check:shell-i18n` liest die Beschriftungs-Keys aus den Shell-Quellen (keine gepflegte
+  Liste, die driften koennte) und prueft **50 Beschriftungen x 10 Sprachen** auf
+  Vollstaendigkeit und auf durchgereichten englischen Fallback; `check:nav-targets`
+  validiert **26 Header-/Footer-/Mega-Menue-Ziele gegen die 33 real definierten Routen**
+  aus `App.tsx` — kein `/services*`, kein Backlog, kein Chat, kein totes Ziel. Beides
+  bewusst **keine zweite Route Registry**: die Guards lesen ab, was die Anwendung ohnehin
+  definiert (AP10 bleibt Owner). Beide Guards negativ getestet (fehlender Key,
+  Redirect-Quelle, erfundene Route -> Exit 1).
+  **Fallback-Heuristik geschaerft:** der erste Entwurf meldete `nav.blog` als fehlende
+  Uebersetzung. "Blog" heisst aber in allen zehn Sprachen "Blog" — ein Lehnwort, kein
+  Fallback. Die Signatur eines echten Fallbacks ist eine andere: **Deutsch uebersetzt,
+  die uebrigen tragen woertlich Englisch**. Genau darauf prueft der Guard jetzt; sonst
+  waere er nach kurzer Zeit als Fehlalarm abgeschaltet worden.
+  **Neu: `e2e/navigation.spec.ts` mit 32 Tests** — Desktop-Tastatur (Sprunglink zuerst,
+  jedes Header-Ziel per Tab mit sichtbarem Ring, Mega-Menue per Enter, Escape mit
+  Fokusrueckgabe), Mobil (Burger, 9 Services, 0 Ziele <44px, 0px Ueberlauf, eigener
+  Epigenetik-Eintrag), Screenreader-Beschriftungen (**0 Bedienelemente ohne
+  zugaenglichen Namen** in Kopf- und Fusszeile), aktive Zustaende auf fuenf Routen plus
+  Parent- und Anker-Fall, Ankernavigation mit Offset-Messung, **Sprachwechsel in allen
+  zehn Locales** (kein erzwungenes `/en/`, **0 fremdsprachige Links** in der Shell),
+  sowie die beiden Regressionssperren (kein Chat/HiHuman-Request, kein Garantie-Band).
+  **Garantie-Guard bewusst praezise:** geprueft wird auf die CTA-Band-Formulierung
+  (`garantierte Performance/Leistung`, `guaranteed performance`) in Kopf- und Fusszeile —
+  **nicht** auf jedes Vorkommen von "Garantie", das im Fliesstext einer Serviceseite
+  fachlich legitim ist.
+  **Zweiter Anlauf beim ScrollToHash-Defekt.** Die PT06.4-Korrektur war unvollstaendig:
+  sie hoerte auf, sobald der AKTUELLE Offset erfuellt war. Montierte die Kapitelleiste
+  erst danach, blieb das Ziel beim Header-Rueckfall stehen. Aufgefallen ist das erst
+  durch einen **zweiten Viewport** — bei 1280x720 lief es, bei 1440x900 nicht; ein
+  Timing-Fehler, der sich als "funktioniert" tarnt. Der Sprung laesst jetzt erst los,
+  wenn der Offset ueber mehrere Frames konstant ist, bricht bei jeder Nutzereingabe ab
+  und hat 3s statt 1s Budget. Nachgemessen ueber **3 Viewports x 3 Anker: 9/9 sichtbar**.
+  **Verifikation:** Typecheck gruen · Build gruen · Farb-Guard, DS-Changelog-Gate,
+  Shell-i18n-Gate und Nav-Target-Gate gruen · Lint **128 Findings, unveraendert, 0 neue** ·
+  **Unit/Component 165/165** · **Playwright 87/87** (55 + 32 neu) ·
+  **SSR-Smoke 70/70** (10 Sprachen x 7 Shell-Routen) plus echte 404 und echter 301.
+  CI hat jetzt **17 Steps**. `useSearch.ts`, `/api/chat` und die CSP **unveraendert**.
+  **0 Commits.** Decision Locks **18/18**. **AP06-CLOSURE und AP07 nicht gestartet.**
+- AP06-CLOSURE — Closure Gate `PASS`: `C06-01` bis `C06-40` geprueft, dazu die
+  Navigations-Invarianten `NAV-01` bis `NAV-28`. Auf dem Closure-HEAD neu gemessen statt
+  aus den PT-Reports uebernommen: Typecheck gruen · Build gruen · Unit/Component
+  **165/165** (14 Dateien) · Playwright **87/87** · vier Guards gruen (`check:colors`,
+  `check:ds-changelog`, `check:shell-i18n` 50x10, `check:nav-targets` 26 Ziele/33 Routen) ·
+  **SSR-Smoke 100/100** (10 Sprachen x 10 Shell-Routen) plus 9/9 Diagnostik-Services,
+  3/3 Epigenetik-Vertiefungen, 3/3 Legal und den Negativkontrollen `404` fuer
+  `/de/diagnostics/sports` und `/de/diagnostics/epigenetics`. Laufzeitgeprueft am
+  ausgelieferten HTML: **0** HiHuman/ChatWidget-Treffer (auch im gesamten Client-Bundle),
+  **0** Garantie-/Performance-Band, **0** `/services*`-Links, **0** Consumer-Links in der
+  Shell, 3 Epigenetik-Links und 0 `/diagnostics/epigenetics`, beide Social-Links extern
+  mit `rel="noopener noreferrer"`, Suche und Sprachwahl gelabelt. Grenzen unveraendert
+  bestaetigt: `useSearch.ts`, `server.ts` und `server/server.js` **0 Aenderungen**,
+  `POST /api/chat` weiterhin vorhanden, HiHuman-Domains weiterhin in der CSP.
+  **Keine neue konkurrierende Registry, kein zweiter Suchindex, keine zweite
+  Consent-/IA-/Design-System-Wahrheit.** Drei Befunde offen dokumentiert und bewusst
+  **nicht** in der Closure repariert (`AP06.md` §44): ein flaky Tastatur-Test
+  (Hydrations-Rennen, isoliert 96/96 gruen), ein sachlich falscher Consumer-Kommentar in
+  `App.tsx`, und die Praezisierung, dass `/de/services` clientseitig statt per 301
+  umleitet. **0 Commits.** Decision Locks **18/18**. **AP07 nicht gestartet.**
+- PT07.1 — Suchindex auf 35 aktive, route-validierte Ziele erweitert: 9/9 Services aus der
+  kanonischen Datenquelle, 6/6 veröffentlichte Artikel über reale Slugs, Epigenetik-Hub plus drei
+  Vertiefungsrouten und sechs Musterbefunde, Downloads/Events/strategische Seiten; `sports`,
+  `/services*` und Future-Ziele absent. Search-Metadata und Result-Type-Labels 10/10, Guard in
+  pre-commit/CI, Matrix Section A vollständig und vier ownergebundene DSI unverändert OPEN.
+- PT07.2 — SearchModal auf den AP05-Dialog umgestellt und als benannter, fokussicherer,
+  keyboard-operabler und mobiler Suchdialog umgesetzt. Acht lokalisierte Ergebnisgruppen, vier
+  AP05-Zustände, polite Ergebnisansage, x10 UI-Copy und locale-aware Ergebnisnavigation sind durch
+  12 SearchModal-Komponententests, den erweiterten Dialogtest und 5 Browsertests abgesichert;
+  PT07.1-Index und Findability-Matrix unverändert erhalten.
+
 ## Current Invariants
 
 <!-- Nur technische Invarianten, die dieser AP verbindlich gemacht hat und an denen spätere APs hängen.
@@ -524,6 +1288,168 @@ kein `work-packages/APxx-STATE.md`).
 ## Files Changed by Current AP
 
 <!-- AP04. Beim Start von AP05 leeren (siehe `Benutzung`). -->
+
+**PT09.2 — Sitemap / G3 SEO Artifact Coverage:**
+
+- `src/components/seo/sitemap.ts`, `server.ts` — bestehenden Sitemap-Spiegel in testbare AP09-
+  Adaptergrenze überführt; 39 Families/390 x10-URLs; dynamische Services, Articles und Befunde aus
+  ihren realen Datenquellen; Legal/noindex und Redirect Sources ausgeschlossen; Article-`lastmod`
+  aus Publikationsdatum, sonst bewusst weggelassen
+- `src/components/seo/sitemapGuard.ts`, `scripts/check-seo.ts`,
+  `src/components/seo/sitemap.test.ts`, `e2e/sitemap.spec.ts` — kanonischer G3, Hard-Failure-
+  Self-Test, XML-/Coverage-/Indexability-Unit-Regression und 390-Ziele-Production-SSR-Test
+- `package.json`, `package-lock.json`, `.github/workflows/ci.yml` — `saxes` als direkter XML-Parser,
+  stabiler `check:seo`-Befehl, TSX-Start mit Projekt-TSConfig und G3-Struktur-/Runtime-CI-Schritte
+- `building-docs/SEO-CONTRACT.md`, `building-docs/state/AP-STATE.md` — PT09.2-Evidence, DG09-01
+  unverändert ownergebunden, Next PT09.3
+
+**PT09.1 — SEOHead-Konsolidierung / 404-Safety:**
+
+- `src/components/seo/SEOHead.tsx` — explizite Indexability-Semantik, eindeutiger Brand-Suffix,
+  Public-Host-guarded Canonical-/Image-Ausgabe, x10-/x-default-Ableitung, keine Alternate-Claims für
+  nicht indexierbare States, keine valid-page URL-Claims auf 404
+- `src/components/seo/seoRouteSource.ts`, `src/components/seo/index.ts` — pfadlistenfreie AP09-
+  URL-/Locale-Adaptergrenze und Exporte; keine Route Registry
+- `server.ts` — minimaler begrenzter Head-Render-Retry bei leerem erstem Lazy-Helmet-Title; bestehender
+  `NOT_FOUND_MARKER`, Known-Path- und HTTP-Status-Vertrag unverändert
+- `src/components/seo/SEOHead.test.tsx`, `e2e/seo-head.spec.ts` — Unit-/Production-SSR-Regression für
+  Title/Description/Robots/Canonical, x10-hreflang, x-default, Self-Reference, OG/Twitter, Overrides,
+  Consumer/S3/Implantology und echte 404
+- `building-docs/SEO-CONTRACT.md` — kanonischer AP09-Regel-/Evidence-Stand inklusive DG09-01
+- `building-docs/state/AP-STATE.md` — AP09 IN_PROGRESS, PT09.1 PASS, Next PT09.2
+
+**PT07.1 — produktiver Suchindex, Route- und Metadaten-Guard:**
+
+- `src/hooks/useSearch.ts` — manuellen Search-Spiegel auf 35 route-validierte Ziele erweitert;
+  Services/Artikel aus ihren kanonischen Datenquellen; `sports` entfernt; Matching und Priorität
+  konsolidiert; acht semantische Result Types vorbereitet
+- `src/hooks/useSearch.test.ts` — 5 Unit-Tests für Service-/Artikel-/Epigenetik-Coverage,
+  Slug-Integrität, No-Legacy/No-Sports und Matching
+- `src/components/ui/SearchModal.tsx` — bestehende Rohtyp-Ausgabe auf das x10 `typeLabel` des Index
+  umgestellt; keine PT07.2-Dialog-/UX-Arbeit
+- `scripts/check-search-index.ts` — Ziel-, Source-, Matrix-, x10- und Negativkontroll-Guard
+- `public/locales/{de,en,pl,fr,it,es,pt,da,nl,cs}/common.json` — ausschließlich AP07-eigene
+  Search-Metadaten und Result-Type-Labels; keine Body-Lokalisierung
+- `package.json`, `lefthook.yml`, `.github/workflows/ci.yml` — Search-Guard verankert
+- `building-docs/AP07-FINDABILITY-MATRIX.md` — Section A vollständig; Section C `DSI-01`–`DSI-04`
+- `building-docs/state/AP-STATE.md` — Handoff auf PT07.2
+
+**PT07.2 — zugänglicher SearchModal:**
+
+- `src/components/ui/SearchModal.tsx` — auf den AP05-Dialog umgestellt; zugängliches Suchfeld,
+  gruppierte Treffer, vier Zustände, Live-Ansage, robuste Keyboard-/Mobile-Navigation
+- `src/components/ui/SearchModal.test.tsx`, `e2e/search-modal.spec.ts` — Component- und Browser-
+  Regressionen für Semantik, Fokus, Tastatur, Zustände, Navigation, 390 px und Reduced Motion
+- `src/components/ui/Dialog.tsx`, `src/components/ui/Dialog.test.tsx` — kleine generische
+  `initialFocusRef`-Erweiterung des bestehenden AP05-Patterns; keine zweite Dialog-SSOT
+- `public/locales/{de,en,pl,fr,it,es,pt,da,nl,cs}/common.json` — ausschließlich SearchModal-eigene
+  UI-Copy x10; keine Body-Lokalisierung und kein i18n-Core-Umbau
+- `scripts/check-search-index.ts` — x10-Guard um SearchModal-UI-Keys erweitert
+- `.github/workflows/ci.yml` — SearchModal-Browsertest als eigener CI-Schritt
+- `building-docs/state/AP-STATE.md` — Handoff auf PT07.3; Findability-Matrix unverändert
+
+**PT07.3 — interne Findability / Crosslinks:**
+
+- `src/pages/ArticlePage.tsx`, `src/pages/ServicePage.tsx` — vorhandene reziproke
+  Artikel-/Service-Zuordnung sichtbar gemacht; keine generischen irrelevanten Artikel mehr
+- `src/pages/EpigeneticsPage.tsx` — Hub verlinkt die drei realen Vertiefungsrouten aus dem bestehenden
+  `VERTIEFUNGEN`-Datensatz; sechs Befunde und reale Hash-Anker bleiben erhalten
+- `src/pages/DownloadsPage.tsx`, `src/pages/VitaminD3ImplantologyPage.tsx` — Produkt-/Resource-Kontext
+  ergänzt, `/services/dental` auf das kanonische `/diagnostics/dental` korrigiert
+- `public/locales/{de,en,pl,fr,it,es,pt,da,nl,cs}/articles.json` — ausschließlich das neue
+  AP07-Linkgruppenlabel `detail.related_services` x10; keine Body-Lokalisierung
+- `src/pages/findability.test.ts`, `e2e/findability.spec.ts`,
+  `scripts/check-internal-findability.ts` — Relationship-, Hub-, Hash-, DLI-, x10- und
+  No-Legacy-Regressionsschutz; in Package, pre-commit und CI verankert
+- `building-docs/AP07-FINDABILITY-MATRIX.md` — Section B mit 43/43 Routen; Section C um
+  `DLI-01`–`DLI-03` ergänzt und `DSI-04` ohne False-Ready auf den realen Consumer-Safe-State präzisiert
+- `building-docs/state/AP-STATE.md` — Handoff auf AP07-CLOSURE; AP07 bleibt `IN_PROGRESS`
+
+**AP07-CLOSURE — Verifikation und Dead-Link-Remediation:**
+
+- `public/locales/{de,en,pl,fr,it,es,pt,da,nl,cs}/services.json` — tote
+  `/<locale>/blog/vitamin-d3-implantologie`-Ziele auf die reale kanonische Route korrigiert;
+  nicht verfügbaren Backlog-Case-Study-Link entfernt, lokalisierten Text erhalten
+- `scripts/check-internal-findability.ts` — x10-Regression für beide Altziele und das kanonische
+  Implantologie-Ziel ergänzt
+- `building-docs/AP07-FINDABILITY-MATRIX.md` — Section D mit Closure-Evidenz und 43/43 C07-Gates
+- `building-docs/state/AP-STATE.md` — AP07 `COMPLETE / Closure PASS`, Handoff auf AP08
+
+**PT08.1 — gemeinsamer i18n-Core:**
+
+- `src/i18n.ts`, `src/i18n.client.ts`, `src/i18n.server.ts`, `src/entry-server.tsx`, `server.ts` —
+  gemeinsame browser-/node-neutrale x10-Konfiguration, URL-primaere Locale und deterministisches SSR-Laden
+- `src/lib/translationStatus.ts`, `src/components/ui/LanguageSwitcher.tsx` — defensiver
+  Fallback-Vertrag und kanonische x10-Sprachliste
+- `src/i18n.test.ts`, `server/i18n-core.test.ts`, `e2e/i18n-core.spec.ts` — Core-, SSR-,
+  Hydration- und LanguageSwitcher-Evidenz
+- `building-docs/I18N-CONTRACT.md`, `building-docs/state/AP-STATE.md` — technischer Vertrag und Handoff
+
+**PT08.2 — hartcodierten Content i18n-faehig gemacht:**
+
+- `src/pages/S3LeitliniePage.tsx`, `src/pages/VitaminD3ImplantologyPage.tsx` — sichtbare Fachcopy
+  ohne Struktur-/Routingumbau auf den neuen Namespace `specialty` migriert
+- `src/pages/consumer/{SprayPage,MaskPage,DuoPage,OrderForm,OrderModal,PriceBadge,shell}.tsx` —
+  bestehende Consumer-, Shell-, Order-, Modal- und Price-Copy auf den Namespace `consumer` migriert;
+  Tracking, Backend- und Routing-Semantik unveraendert
+- `src/lib/localeFormat.ts` — kleiner Runtime-Locale-Helper fuer Zahl, Preis, Waehrung und Datum
+- `public/locales/{de,en,pl,fr,it,es,pt,da,nl,cs}/{specialty,consumer}.json` — alle von PT08.2
+  eingefuehrten produktiven Keys in zehn echten Zielsprachen
+- `server/pt08-2-i18n.test.ts`, `src/lib/localeFormat.test.ts`,
+  `scripts/check-pt08-2-render.ts`, `src/i18n.test.ts` — Hardcode-, x10-Key-, Formatting- und
+  5-Routen-mal-10-Locales-Regressionsevidenz
+- `building-docs/I18N-CONTRACT.md`, `building-docs/CONTENT-MATRIX.md`,
+  `building-docs/state/AP-STATE.md` — Namespace-/Deferred-Gate-Evidenz und Handoff auf PT08.3
+
+**PT08.3 — Namespace- und Key-Paritaet:**
+
+- `src/i18n.ts` — 15 produktive Namespaces sowie explizite Backlog-Klassifikation fuer
+  `casestudies`/`shop`; keine Backlog-Reaktivierung
+- `public/locales/*/{epigenetics,articles,home}.json` — Epigenetik x10 ohne regulaeren Fallback,
+  vier historische Artikel-Fallbacks geschlossen und drei zuvor fehlende sichtbare UI-/Alt-Keys x10
+- `src/content/befunde/` und `src/pages/musterbefund/` — sechs Befunde mit 60 Sprachdateien;
+  `BefundSprachen` x10, slug-lokale Lazy-Routen und unbekannter-Slug-404 erhalten
+- `scripts/check-i18n.ts`, `package.json`, `.github/workflows/ci.yml` — ein kanonischer G4-Guard,
+  stabiler Repository-Befehl, harter Self-Test, Duplikat-/Key-Referenzprüfung, Relaunch-CI aktiv
+- `building-docs/I18N-CONTRACT.md`, `building-docs/CONTENT-MATRIX.md`,
+  `building-docs/state/AP-STATE.md` — reproduzierbare Evidenz, aufgelöste `DG-01`/`DG-02`/`DG-05`
+  und ehrlicher damaliger Handoff auf PT08.4; Systemmail-/Asset-Gates bleiben offen, das Routing-Gate
+  wurde anschließend durch PT08.4 geschlossen
+
+**PT08.4 — Sprachwechsel und Routen:**
+
+- `src/lib/localeRoute.ts`, `src/components/ui/LanguageSwitcher.tsx` — kanonische x10-URL-Navigation
+  auf derselben logischen Route unter Erhalt von Query und Hash; keine persistente zweite Locale-Wahrheit
+- `server.ts`, `src/App.tsx` — historische Consumer-EN- und Spezialseiten-DE-Zwangsredirects entfernt;
+  direkte SSR-/Client-Routen liefern die angeforderte unterstützte Locale
+- `src/components/seo/SEOHead.tsx` — ausschließlich minimaler Compatibility-Fix für reale x10-Routen,
+  bestehende Canonical-/hreflang-Ausgabe und `x-default=de`; keine AP09-Plattform
+- `src/pages/consumer/shell.tsx`, `src/pages/VitaminD3ImplantologyPage.tsx` — Switcher-Anbindung und
+  zwei verbliebene sichtbare Spezialseiten-Hardcodes auf bereits vorhandene x10-Keys umgestellt
+- `src/lib/localeRoute.test.ts`, `e2e/pt08-4-routing.spec.ts` — Same-Page-, Query-/Hash-, dynamische
+  Slug-, 10-Locale-SSR-, Consumer-/Spezialseiten-, Redirect- und SEO-Compatibility-Evidenz
+- `building-docs/I18N-CONTRACT.md`, `building-docs/state/AP-STATE.md` — reproduzierbarer Handoff auf
+  PT08.5; Systemmail-/Asset-, finale SEO- und umfassende Redirect-/Registry-Arbeit bleiben offen
+
+**PT08.5 — Systemtexte, Formulare und Mails:**
+
+- `server/system-i18n.js`, `server/server.js` — x10 Support-/ROI-Nutzer-Mailcopy, locale-aware
+  Runtime-PDF, validierte Journey-Locale, strukturierte Fehlercodes und defensiver `en`-Fallback;
+  keine neue Delivery-, Queue-, CRM- oder Persistenzplattform
+- `src/api/{contact,support,consumerOrder}.ts`, `src/hooks/{useContactForm,useSupportForm}.ts` und
+  produktive Contact-/Support-/Consumer-/Praxis-/ROI-Formflächen — Locale-Propagation, x10
+  Validation-/Loading-/Success-/Error-Semantik und keine rohe Backend-Fehlerausgabe
+- `public/locales/*/{consumer,specialty,vitd3spray}.json` — ausschließlich PT08.5-eigene
+  System-/Validation-Copy und ehrliche Bestellanfrage-Texte x10; kein Nutzer-Mailversprechen ohne Runtime
+- `server/system-i18n.test.ts`, `server/system-ui-i18n.test.ts` — x10 Mail-/Form-/GENERAL_SALES- und
+  Locale-Propagation-Evidenz
+- `building-docs/I18N-CONTRACT.md`, `building-docs/CONTENT-MATRIX.md`,
+  `building-docs/state/AP-STATE.md` — aktuelle Runtime-Inventur, aufgelöste `DG-04`/`DG-09` und
+  ownergebundene Future-Flows; Handoff ausschließlich auf PT08.6
+
+**Von PT07.1 nicht verändert:** `src/App.tsx`, `server.ts`, Route-/Redirect-Logik, `src/i18n.ts`,
+SEOHead/Sitemap/robots/Structured Data, Epigenetik-/Befund-/Artikel-Body, Consumer-Komponenten,
+globale Shell sowie PT07.2-/PT07.3-Flächen (bis auf die notwendige Result-Type-Label-Ausgabe).
 
 **PT04.1 — ausschließlich Dokumentation:**
 
@@ -701,6 +1627,22 @@ referenzielle Korrektur war nicht erforderlich.
 
 <!-- Jeweils: ID/Kurztitel · was blockiert ist · was zur Auflösung gebraucht wird. -->
 
+- **Keine offenen PT09.2-Blocker.** `DG09-01 — ROUTE_REGISTRY_INTEGRATION` ist bewusst
+  `READY_FOR_OWNER`, Owner AP10 PT10.3, kein AP09-Closure-Blocker bei grünen AP09-eigenen Gates, aber
+  Launch-Blocker. PT09.3–PT09.5 und AP09-CLOSURE sind nicht gestartet und keine PT09.2-Blocker.
+- **Umgebungshinweis, keine PT09.2-Regression:** lokales Default-Node 18.20.8 startet Vitest/jsdom
+  wegen der dokumentierten ESM/CJS-Toolchain-Asymmetrie nicht. Unter dem CI-/State-Vertrag Node 22
+  sind die fokussierten SEOHead-/Sitemap-Tests 20/20 und Production-SSR-E2E 7/7 grün.
+
+- **Keine offenen AP07-Closure-Blocker.** Der Dead-Link-Befund ist in allen zehn Locale-Daten behoben
+  und im `check:internal-findability`-Guard regressionsgesichert. Vier Deferred Search Integrations
+  und drei Deferred
+  Internal Link Integrations bleiben `OPEN` und ownergebunden in Section C; sie sind spätere
+  Content-/Runtime-/Journey-Gates und wurden weder als READY noch als AP07-eigene Blocker umgedeutet.
+- **Umgebungshinweis, keine PT07.2-Regression:** lokales Default-Node 18.20.8 liegt unter Vites
+  dokumentierter Mindestversion und startet jsdom wegen ESM/CJS-Interop nicht. Unter der in CI
+  festgelegten Node-22-Laufzeit mit `NODE_ENV=test` sind alle 184 Unit-/Component-Tests grün.
+
 - **Keine offenen Blocker.** PT01.1–PT01.5 und das AP01-Closure Gate sind `PASS`; AP01 ist `COMPLETE`.
   **AP02 und AP03 sind `COMPLETE` mit Closure `PASS`; PT03.1–PT03.4 sind alle `PASS`.**
   **PT04.1 und PT04.2 sind `PASS`** — keine task-eigenen Blocker.
@@ -859,8 +1801,9 @@ referenzielle Korrektur war nicht erforderlich.
   gebaut wird, entscheidet AP23/AP15 (`D-18`).
 - **PT01.2 hat keine Route Registry gebaut.** Die neun Routen sind Hand-Einträge in den bestehenden
   Spiegeln; die Registry als Single Source of Truth bleibt AP10 PT10.3.
-- **Die drei Vertiefungsseiten sind nicht in Navigation, Footer oder Suchindex eingebunden**
-  (`D-16`, `D-17`) — das ist AP03/AP06/AP07/AP15.
+- **Historischer PT01.2-Befund `D-16`/`D-17`, inzwischen aufgelöst:** Die drei Vertiefungsseiten sind
+  seit AP06 im Footer und seit AP07 im Search sowie vom Epigenetik-Hub verlinkt. Ihre Body-Lokalisierung
+  bleibt als `DSI-01`/AP04 `DG-01` bei AP15/AP08 offen.
 - **PT01.1 hat keine Baseline-Schuld repariert.** Die 15 Befunde in `AP01-RECONCILIATION-RESULT.md` §8
   sind Evidenz mit Owner-AP, keine AP01-Zusage und keine Freigabe.
 - **Keine Toolchain-Festlegung.** Node-/Paketmanager-Pinning ist offen und gehört zu PT01.5.3.
@@ -868,6 +1811,16 @@ referenzielle Korrektur war nicht erforderlich.
 ## Required Context for Next Work Package
 
 <!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste Lauf braucht. -->
+
+- **Nächster Primärtask ist PT09.3 — Consumer SEO.** AP09 bleibt `IN_PROGRESS`; PT09.1 und PT09.2
+  sind `PASS`. Zusätzlich zum normalen AP09-Kontext sind unmittelbar relevant: `SEO-CONTRACT.md`
+  §11–§12, die drei Consumer-Seiten, `SEOHead`, Sitemap/G3 und `DG09-01`. PT09.3 darf die zentrale
+  AP10-Route-Registry nicht vorziehen. PT09.4, PT09.5,
+  AP09-CLOSURE und AP10 bleiben bis zu ihrem jeweiligen seriellen Start unberührt.
+
+- **Nächstes Arbeitspaket ist AP08.** AP07 ist `COMPLETE`, Closure `PASS (43/43)`; AP08 bleibt bis zu
+  seinem eigenen Start `NOT STARTED`. PT07.1-Index, PT07.2-SearchModal, PT07.3-Findability sowie
+  Section A–D und die offenen `DSI-01`–`DSI-04`/`DLI-01`–`DLI-03` sind der verbindliche Handoff.
 
 - **Nächster Primärtask ist `PT04.3` — Launch-Content-Readiness.** AP04 ist `IN_PROGRESS`.
   Nächstes **Arbeitspaket** bleibt AP05 und ist **nicht** gestartet.
@@ -920,6 +1873,18 @@ npx tsx server.ts`). `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-
 
 ## Handoff
 
+- **AP09: `IN_PROGRESS` · PT09.1 und PT09.2 `PASS` (2026-08-27).** SEOHead ist konsolidiert;
+  Canonical Host
+  `https://polarisdx.net`; x10-hreflang und `x-default=de`; OG/Twitter und 404-SEO-Vertrag PASS;
+  Sitemap 39 Families/390 eindeutige x10-URLs, Consumer 3×10, Epigenetics/Befunde x10, dynamische
+  Slugs source-derived, honest `lastmod`, XML/G3/CI PASS und Sitemap/noindex-Widersprüche 0.
+  Preview-/Dev-Host-Leakage 0. `SEO-CONTRACT.md` ist aktuell. `DG09-01` ist `READY_FOR_OWNER` für AP10
+  PT10.3 (kein AP09-Closure-Blocker, Launch-Blocker). Keine zentrale Route Registry gebaut.
+  **Next: PT09.3. AP10 bleibt NOT STARTED.**
+- **AP07: `COMPLETE` · AP07 Closure: `PASS` (43/43, `C07-01`–`C07-43`)**. PT07.1–PT07.3 alle
+  `PASS`; Search Index, SearchModal und Internal Findability sind ready. Die sieben offenen
+  `DSI-01`–`DSI-04`/`DLI-01`–`DLI-03` bleiben ownergebunden und ohne False Ready erhalten.
+- **Next work package: AP08 — Internationalisierung / 10 Sprachen — NOT STARTED.**
 - **AP04: `COMPLETE`** · **AP04 closure: `PASS` (32/32, `C04-01`–`C04-32`)**. PT04.1–PT04.4 alle `PASS`,
   AP04-RECOVERY `PASS`. Content audit: recorded · Content types: standardized · Launch content: recorded ·
   Asset readiness: recorded · Content matrix: final (`CONTENT-MATRIX.md`) · Deferred gates: carried forward.
@@ -950,7 +1915,7 @@ npx tsx server.ts`). `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-
 - **AP04 darf weiterhin nicht auf `COMPLETE` gesetzt werden**, solange PT04.3, PT04.4 und die Closure
   nicht gelaufen sind. Die Recovery hat **kein** PT-Ergebnis vorweggenommen.
 - **AP05: NOT STARTED.** AP04-Closure ist nicht gelaufen und AP04 ist nicht `COMPLETE`.
-- **AP06: NOT STARTED.** Vorgänger AP05 ist nicht gelaufen.
+- **AP06: NOT STARTED.** Vorgänger AP05 ist `COMPLETE`, Closure `PASS` — AP06 ist freigegeben, aber nicht begonnen.
 - **AP03: `COMPLETE`** · **AP03 closure: `PASS` (24/24, `C03-01`–`C03-24`)** · Last completed PT of AP03:
   **PT03.4**. Alle vier Primärtasks PT03.1–PT03.4 sind `PASS`.
 - **AP02: `COMPLETE`** · **AP02 closure: `PASS` (23/23, `C02-01`–`C02-23`)** — unverändert erhalten.

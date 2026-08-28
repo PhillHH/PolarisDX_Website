@@ -13,11 +13,11 @@
 // =============================================================================
 
 export interface I18nConfig {
-  fallbackLng: string
-  supportedLngs: readonly string[]
-  defaultNS: string
-  fallbackNS: string
-  ns: readonly string[]
+  fallbackLng: SupportedLanguage
+  supportedLngs: readonly SupportedLanguage[]
+  defaultNS: Namespace
+  fallbackNS: Namespace
+  ns: readonly Namespace[]
   load: 'languageOnly' | 'currentOnly' | 'all'
   nonExplicitSupportedLngs: boolean
   interpolation: {
@@ -51,19 +51,24 @@ export const SUPPORTED_LANGUAGES = [
 export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number]
 
 /**
- * Standard-Sprache (Fallback)
+ * Reguläre Default-/x-default-Sprache.
  */
 export const DEFAULT_LANGUAGE: SupportedLanguage = 'de'
 
 /**
- * Fallback-Sprache wenn die gewünschte Sprache nicht verfügbar ist
+ * Defensive Fallback-Sprache bei einem technischen Übersetzungsfehler.
+ * Sie ist ausdrücklich kein Ersatz für die geplante x10-Lokalisierung.
  */
 export const FALLBACK_LANGUAGE: SupportedLanguage = 'en'
 
 /**
- * Alle verfügbaren Namespaces
+ * Produktiv geladene Namespaces.
+ *
+ * Die Liste bildet ausschließlich aktuell produktiv gerenderte Bereiche ab.
+ * Historische Shop-/Case-Study-Dateien bleiben bewusst außerhalb dieses
+ * Ladevertrags, damit Backlog-Features nicht versehentlich reaktiviert werden.
  */
-export const NAMESPACES = [
+export const PRODUCTIVE_NAMESPACES = [
   'common',
   'home',
   'about',
@@ -75,12 +80,24 @@ export const NAMESPACES = [
   'epigenetics',
   'legal',
   'products',
-  'shop',
   'support',
   'vitd3spray',
+  'specialty',
+  'consumer',
 ] as const
 
-export type Namespace = (typeof NAMESPACES)[number]
+export type Namespace = (typeof PRODUCTIVE_NAMESPACES)[number]
+
+/**
+ * Nicht produktiv geladene Namespace-Klassifikation. Shop und Case Studies
+ * bleiben gemäß DEC-RL-015 Backlog; sie sind keine Fallback-Quelle.
+ */
+export const LEGACY_NAMESPACES = [] as const
+export const BACKLOG_NAMESPACES = ['casestudies', 'shop'] as const
+export const DEFERRED_OWNER_NAMESPACES = [] as const
+
+/** Rückwärtskompatibler Name für bestehende produktive Konsumenten. */
+export const NAMESPACES = PRODUCTIVE_NAMESPACES
 
 /**
  * Standard-Namespace
@@ -134,7 +151,8 @@ export function isValidLanguage(lang: string): lang is SupportedLanguage {
 /**
  * Normalisiert einen Sprachcode (z.B. 'de-DE' -> 'de')
  */
-export function normalizeLanguage(lang: string): SupportedLanguage {
+export function normalizeLanguage(lang: string | null | undefined): SupportedLanguage {
+  if (!lang) return DEFAULT_LANGUAGE
   const baseLang = lang.split('-')[0].toLowerCase()
   return isValidLanguage(baseLang) ? baseLang : DEFAULT_LANGUAGE
 }
@@ -155,9 +173,19 @@ export function getLocaleFilePath(lng: string, ns: string): string {
  * @returns Die erkannte Sprache oder DEFAULT_LANGUAGE als Fallback.
  */
 export function extractLanguageFromPathname(pathname: string): SupportedLanguage {
+  return getLanguageFromPathname(pathname) ?? DEFAULT_LANGUAGE
+}
+
+/**
+ * Liest ausschließlich ein kanonisches Locale-Präfix aus einem URL-Pfad.
+ * Anders als `extractLanguageFromPathname` unterscheidet diese Variante einen
+ * fehlenden/ungültigen Präfix vom regulären Default `de`; der Express-Server
+ * benötigt diese Unterscheidung für seinen bestehenden Redirect-Vertrag.
+ */
+export function getLanguageFromPathname(pathname: string): SupportedLanguage | null {
   const match = pathname.match(/^\/([a-z]{2})(\/|$)/)
   if (match && isValidLanguage(match[1])) {
     return match[1]
   }
-  return DEFAULT_LANGUAGE
+  return null
 }

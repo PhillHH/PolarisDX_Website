@@ -541,10 +541,20 @@
     "vc_category_label": "Kategorie",
     "vc_date_label": "Veröffentlicht",
     "primary_cta": "Passende Leistung ansehen",
+    "related_services": "Passende Diagnostik",
     "longread": "Long-Read",
     "cta_title": "Rechnen Sie Ihr Einsparpotenzial durch.",
     "cta_subtitle": "ROI-Rechner oder Beratung — in unter einer Minute.",
     "cta_secondary": "ROI-Rechner",
     "read_time": "{{minutes}} Min. Lesezeit"
+  },
+  "ui": {
+    "home": "Startseite",
+    "articles": "Artikel",
+    "articleNotFound": "Artikel nicht gefunden",
+    "backToArticles": "Zurück zur Übersicht",
+    "readMore": "Weiterlesen",
+    "needHelp": "Brauchen Sie Hilfe bei der Auswahl?",
+    "contactText": "Unser medizinisches Team steht Ihnen rund um die Uhr zur Verfügung, um dringende Fragen zu beantworten und Ihnen bei der Entscheidung über das weitere Vorgehen zu helfen."
   }
 }

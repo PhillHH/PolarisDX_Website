@@ -1,3 +1,5 @@
+import type { SupportedLanguage } from '../i18n'
+
 export interface SupportFormData {
   name: string
   email: string
@@ -6,6 +8,8 @@ export interface SupportFormData {
   issueType: string
   subject: string
   description: string
+  issueTypeLabel: string
+  locale: SupportedLanguage
   attachment?: {
     filename: string
     content: string // base64

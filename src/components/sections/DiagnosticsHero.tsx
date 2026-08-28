@@ -26,9 +26,7 @@ const DiagnosticsHero = () => {
             ]}
           />
 
-          <h1 className="text-4xl lg:text-5xl font-medium tracking-tight">
-            {t('services:overview.hero.title', 'Diagnostik')}
-          </h1>
+          <h1 className="t-h1">{t('services:overview.hero.title', 'Diagnostik')}</h1>
 
           <p className="mt-4 max-w-xl text-white/80 leading-relaxed">
             {t('services:overview.hero.subtitle')}

@@ -1,17 +1,24 @@
 import { useState } from 'react'
 import { sendSupportEmail, type SupportFormData } from '../api/support'
+import type { SupportedLanguage } from '../i18n'
 
 interface UseSupportFormReturn {
   isSubmitting: boolean
   submitStatus: 'idle' | 'success' | 'error'
-  submit: (formData: FormData) => Promise<boolean>
+  submit: (
+    formData: FormData,
+    locale: SupportedLanguage,
+    issueTypeLabel: string,
+  ) => Promise<boolean>
 }
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export const useSupportForm = (): UseSupportFormReturn => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
-  const submit = async (formData: FormData) => {
+  const submit = async (formData: FormData, locale: SupportedLanguage, issueTypeLabel: string) => {
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
@@ -34,6 +41,7 @@ export const useSupportForm = (): UseSupportFormReturn => {
       typeof issueType !== 'string' ||
       typeof subject !== 'string' ||
       typeof description !== 'string' ||
+      !EMAIL_RE.test(email) ||
       !consent
     ) {
       console.error('Invalid form data types')
@@ -50,6 +58,8 @@ export const useSupportForm = (): UseSupportFormReturn => {
       issueType,
       subject,
       description,
+      issueTypeLabel,
+      locale,
       // Consent is required + validated above, so it is always true when sent.
       consent: true,
       // Honeypot — forwarded raw so the server can drop bot submissions.

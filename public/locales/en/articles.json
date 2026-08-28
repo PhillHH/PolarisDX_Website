@@ -541,10 +541,20 @@
     "vc_category_label": "Category",
     "vc_date_label": "Published",
     "primary_cta": "See the matching service",
+    "related_services": "Related diagnostics",
     "longread": "Long-Read",
     "cta_title": "Calculate your savings potential.",
     "cta_subtitle": "ROI calculator or a consultation — in under a minute.",
     "cta_secondary": "ROI calculator",
     "read_time": "{{minutes}} min read"
+  },
+  "ui": {
+    "home": "Home",
+    "articles": "Articles",
+    "articleNotFound": "Article not found",
+    "backToArticles": "Back to overview",
+    "readMore": "Read More",
+    "needHelp": "Need help choosing a product?",
+    "contactText": "Our medical team is available 24/7 to answer urgent questions and help you decide what to do next."
   }
 }

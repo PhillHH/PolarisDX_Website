@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import { Card } from '../ui/Card'
 import { MonitorSmartphone, ShieldCheck, Flame, HeartPulse, Dna, Puzzle } from 'lucide-react'
 import type { ReactNode } from 'react'
 import Eyebrow from '../ui/Eyebrow'
@@ -44,7 +45,7 @@ const DiagnosticsFocusSection = () => {
         <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-24">
           <div className="mb-14 text-center">
             <Eyebrow>{t('home:services.caption', 'DIAGNOSTIK-FOKUS')}</Eyebrow>
-            <h2 className="mt-3 text-3xl lg:text-[42px] font-medium tracking-tight text-heading">
+            <h2 className="mt-3 t-h2">
               {t('home:services.title', 'Schlüsselbereiche der Präventivdiagnostik')}
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-gray-700">
@@ -58,20 +59,14 @@ const DiagnosticsFocusSection = () => {
               const tags = Array.isArray(raw) ? raw : []
 
               return (
-                <Link
-                  key={id}
-                  to={`/diagnostics/${id}`}
-                  className="group flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1"
-                >
+                <Card key={id} to={`/diagnostics/${id}`}>
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent">
                     <span className="[&>svg]:h-5 [&>svg]:w-5">{icon}</span>
                   </span>
                   <h3 className="mt-5 text-lg font-medium text-heading">
                     {t(`home:services.${tkey}.title`)}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-700">
-                    {t(`home:services.${tkey}.description`)}
-                  </p>
+                  <p className="mt-2 t-small">{t(`home:services.${tkey}.description`)}</p>
                   {tags.length > 0 && (
                     <div className="mt-4 flex flex-wrap gap-2">
                       {tags.map((tag: string) => (
@@ -87,7 +82,7 @@ const DiagnosticsFocusSection = () => {
                   <span className="mt-auto pt-6 inline-flex items-center gap-1 text-sm font-semibold text-accent group-hover:text-accent-strong">
                     {t(`services:overview.focus.${fkey}.cta`) + ' →'}
                   </span>
-                </Link>
+                </Card>
               )
             })}
           </div>

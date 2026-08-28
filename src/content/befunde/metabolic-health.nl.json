@@ -1,0 +1,1158 @@
+{
+  "slug": "metabolic-health",
+  "panel": "Metabolic Health",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Voorbeeldrapport · Voorbeeldgegevens",
+      "panel": "Metabolic Health",
+      "subtitle": "Genetica en epigenetica",
+      "claim": "Uw metabool profiel op twee niveaus: de erfelijke genetische aanleg en de epigenetische markers die kunnen worden beïnvloed door voeding, beweging, slaap en stress.",
+      "meta": [
+        {
+          "k": "Rapport voor",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Monsterafname",
+          "v": "08.04.2026"
+        },
+        {
+          "k": "Materiaal",
+          "v": "Gedroogde bloedvlekkaart"
+        },
+        {
+          "k": "Beoordelingen",
+          "v": "17 + 4 epigenetisch"
+        }
+      ],
+      "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+      "id": "deckblatt",
+      "benefit": "Wat uw cliënt eet, hoe hij het verwerkt — en wat hij kan veranderen."
+    },
+    {
+      "type": "principle",
+      "caption": "Het principe",
+      "title": "Hoe leest u dit rapport.",
+      "lead": "Dit rapport combineert twee niveaus: uw genetica — erfelijk en onveranderlijk — en uw epigenetica, die beïnvloed kan worden door leefstijl.",
+      "cards": [
+        {
+          "title": "Niveau 1 · Genetica",
+          "text": "Uw genen zijn het blauwdruk van uw metabolisme: hoe u koolhydraten, vetten en eiwitten verwerkt, hoe honger en verzadiging werken, hoe uw lichaam omgaat met vitaminen en zout. Deze aanleg verandert niet.",
+          "items": [
+            "SNP — een goed onderzochte variant in uw DNA.",
+            "Drie vormen — wildtype, heterozygoot of homozygoot; zonder waardeoordeel.",
+            "Uw profiel — meerdere SNP’s samen vormen uw metabool type en beoordelingen."
+          ]
+        },
+        {
+          "title": "Niveau 2 · Epigenetica",
+          "text": "Epigenetica toont niet welke genen u heeft, maar hoe actief ze momenteel zijn. Deze vier waarden kunnen worden veranderd — en zijn daarom de enige waarbij het effect van een interventie in de tijd kan worden aangetoond.",
+          "items": [
+            "LINE-1 — globale DNA-regulatie en stabiliteit.",
+            "Ontstekingsregulatie — gecombineerde score van IL-6 en TNF-α.",
+            "miR-21 · miR-155 — microRNA’s van metabole activiteit."
+          ]
+        }
+      ],
+      "scaleTitle": "Hoe lees ik de schaal?",
+      "scaleCaption": "Oriëntatie",
+      "scaleLead": "Alle beoordelingen — genetisch en epigenetisch — gebruiken dezelfde verkeerslichtschaal 1–9. Rood links, groen rechts: 1–3 rood, 4–6 oranje, 7–9 groen. Hoger is altijd gunstiger.",
+      "scaleKind": "traffic",
+      "scaleTicks": ["1", "3", "5", "7", "9"],
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "1–3 · Rood",
+          "text": "Buiten het optimale bereik. Hier ligt de grootste hefboom."
+        },
+        {
+          "tone": "amber",
+          "label": "4–6 · Oranje",
+          "text": "Matige ondersteuningsbehoefte. Specifiek monitoren."
+        },
+        {
+          "tone": "green",
+          "label": "7–9 · Groen",
+          "text": "Binnen het gunstige bereik. Behoud bestaande routines."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Belangrijk",
+      "tone": "neutral",
+      "items": [
+        "Dit rapport is geen diagnose. Interpretatie vindt plaats in overleg met gekwalificeerde professionals en altijd in de individuele context.",
+        "Informatie en schriftelijke toestemming zijn vereist vóór een genetische analyse (Duitse Wet genetische diagnostiek, GenDG). Predictieve genetische testen mogen alleen worden uitgevoerd onder verantwoordelijkheid van daartoe bevoegde artsen; genetische counseling moet vóór en na de test worden aangeboden (artikelen 7 en 10 GenDG).",
+        "De genetische waarden veranderen nooit. Alleen de vier epigenetische waarden zijn geschikt voor monitoring in de tijd."
+      ],
+      "id": "hinweis"
+    },
+    {
+      "type": "resultTable",
+      "caption": "Resultaten in één oogopslag",
+      "title": "Uw vier aanpasbare waarden.",
+      "lead": "Deze vier markers veranderen door voeding, beweging, slaap en stress — reden voor een vervolgmeting.",
+      "cols": ["Marker", "Niveau", "Uw waarde", "Optimaal", "Interpretatie"],
+      "rows": [
+        {
+          "cells": ["LINE-1 · DNA-stabiliteit", "Methylatie", "2 / 9", "7–9", "Buiten bereik"],
+          "tone": "red"
+        },
+        {
+          "cells": [
+            "Ontstekingsregulatie (IL-6 & TNF-α)",
+            "Methylatie",
+            "7 / 9",
+            "7–9",
+            "Optimaal"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "miR-21 · Ontsteking & micronutriënten",
+            "microRNA",
+            "3 / 9",
+            "7–9",
+            "Buiten bereik"
+          ],
+          "tone": "red"
+        },
+        {
+          "cells": ["miR-155 · FTO-regulatie, vetweefsel", "microRNA", "8 / 9", "7–9", "Optimaal"],
+          "tone": "green"
+        }
+      ],
+      "id": "ergebnis"
+    },
+    {
+      "type": "callout",
+      "caption": "Genetische interpretatie",
+      "title": "Uw metabool type: gebalanceerd type",
+      "text": "Uw metabolisme geeft geen voorkeur aan een van de drie macronutriënten. De verdeling en berekende energiebehoefte volgen in het hoofdstuk “Metabool type”.",
+      "tone": "neutral",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "callout",
+      "caption": "Genetische interpretatie",
+      "title": "Uw bewegingsprofiel: uithoudingstype",
+      "text": "Langdurige, constante inspanning past beter bij u dan korte krachtinspanningen — een krachtcomponent blijft echter belangrijk.",
+      "tone": "neutral",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "callout",
+      "title": "Wat hieruit volgt",
+      "tone": "accent",
+      "items": [
+        "Twee rode epigenetische waarden — LINE-1 (2/9) en miR-21 (3/9); de genetische MTHFR-variant (2/9) hangt samen met dezelfde metabole route. Dit is het centrale uitgangspunt van dit rapport.",
+        "Twee groene waarden — ontstekingsregulatie (7/9) en miR-155 (8/9) bevinden zich in het optimale bereik en moeten daar worden gehouden.",
+        "Een vervolgmeting is pas zinvol na minimaal 4 tot 6 maanden."
+      ],
+      "id": "hinweis-4"
+    },
+    {
+      "type": "evaluations",
+      "caption": "Resultaten in één oogopslag",
+      "title": "Alle genetische evaluaties.",
+      "lead": "Zeventien evaluaties op het stoplicht 1–9. Deze waarden zijn erfelijk en veranderen niet — ze beschrijven waar uw metabolisme meer ondersteuning nodig heeft dan gemiddeld.",
+      "items": [
+        {
+          "label": "Huidhydratatie",
+          "sub": "AQPR",
+          "value": 9,
+          "display": "9 / 9",
+          "status": "Voordelig",
+          "tone": "green"
+        },
+        {
+          "label": "Moeite met het behouden van gewicht",
+          "value": 8,
+          "display": "8 / 9",
+          "status": "Voordelig",
+          "tone": "green"
+        },
+        {
+          "label": "Zoutgevoeligheid",
+          "value": 8,
+          "display": "8 / 9",
+          "status": "Voordelig",
+          "tone": "green"
+        },
+        {
+          "label": "Lichaamsgewichtregulatie",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Voordelig",
+          "tone": "green"
+        },
+        {
+          "label": "Vitamine D",
+          "sub": "Transport, GC",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Voordelig",
+          "tone": "green"
+        },
+        {
+          "label": "Oxidatieve celbescherming",
+          "sub": "SOD2",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Voordelig",
+          "tone": "green"
+        },
+        {
+          "label": "Voedselverlangens",
+          "value": 6,
+          "display": "6 / 9",
+          "status": "Matig",
+          "tone": "amber"
+        },
+        {
+          "label": "Huidelasticiteit & ontsteking",
+          "sub": "IL-6",
+          "value": 6,
+          "display": "6 / 9",
+          "status": "Matig",
+          "tone": "amber"
+        },
+        {
+          "label": "Moeite met afvallen",
+          "value": 5,
+          "display": "5 / 9",
+          "status": "Matig",
+          "tone": "amber"
+        },
+        {
+          "label": "B-vitamines",
+          "sub": "Behoefte",
+          "value": 5,
+          "display": "5 / 9",
+          "status": "Matig",
+          "tone": "amber"
+        },
+        {
+          "label": "Honger-/verzadigingsregulatie",
+          "value": 4,
+          "display": "4 / 9",
+          "status": "Matig",
+          "tone": "amber"
+        },
+        {
+          "label": "Antioxidantcapaciteit",
+          "sub": "NADPH",
+          "value": 4,
+          "display": "4 / 9",
+          "status": "Matig",
+          "tone": "amber"
+        },
+        {
+          "label": "Bloedglucose- en insulinemetabolisme",
+          "value": 3,
+          "display": "3 / 9",
+          "status": "Verhoogde behoefte",
+          "tone": "red"
+        },
+        {
+          "label": "Bloedlipiden- & vetzuurmetabolisme",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Verhoogde behoefte",
+          "tone": "red"
+        },
+        {
+          "label": "Omega-3-aanvoer",
+          "sub": "ALA → EPA/DHA",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Verhoogde behoefte",
+          "tone": "red"
+        },
+        {
+          "label": "Folaat",
+          "sub": "MTHFR",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Verhoogde behoefte",
+          "tone": "red"
+        },
+        {
+          "label": "Gewichtsverlies door beweging",
+          "sub": "FTO",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Verhoogde behoefte",
+          "tone": "red"
+        }
+      ],
+      "note": "Gesorteerd op waarde, niet op onderwerp. De gedetailleerde interpretatie met genotypen en interventies volgt in de onderstaande hoofdstukken.",
+      "id": "auswertungen"
+    },
+    {
+      "type": "markers",
+      "caption": "Epigenetische status",
+      "title": "Methylatie.",
+      "lead": "DNA-methylatie toont hoe actief uw genen momenteel zijn. In tegenstelling tot de genen zelf, kunnen deze waarden worden beïnvloed.",
+      "items": [
+        {
+          "name": "LINE-1",
+          "category": "DNA-stabiliteit",
+          "intro": "LINE-1-elementen vormen ongeveer 17% van het genoom. Hun methylatie wordt beschouwd als een marker van globale DNA-regulatie.",
+          "kind": "stoplicht",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Buiten bereik",
+          "tone": "red",
+          "text": "Deze marker wordt het meest effectief ondersteund door de nutriënten die betrokken zijn bij het folaatmetabolisme — wat extra belangrijk is gezien uw MTHFR-variant (genetisch 2/9).",
+          "table": {
+            "cols": ["Meting", "Bron", "Hoeveelheid / frequentie", "Effect"],
+            "rows": [
+              [
+                "Foliumzuur",
+                "groene bladgroenten, tomaat, peulvruchten, noten, kiemen",
+                "dagelijks",
+                "Indien nodig, 2 maanden als methylfolaat (5-MTHF)"
+              ],
+              [
+                "Riboflavine (B2)",
+                "ontkiemde zaden, kiemen, kaas",
+                "dagelijks",
+                "Cofactor van methylatie"
+              ],
+              [
+                "Cobalamine (B12)",
+                "ei, kaas, gefermenteerde voedingsmiddelen",
+                "dagelijks",
+                "Regeneratie van actief folaat"
+              ],
+              [
+                "Methionine",
+                "Braziliaanse noten, sesam, soja, erwten, bladgroenten",
+                "dagelijks",
+                "Directe methylgroepdonor"
+              ],
+              [
+                "Pyridoxine (B6)",
+                "kool, sperziebonen, linzen, bananen",
+                "dagelijks",
+                "Cofactor van methylatie"
+              ],
+              [
+                "Vezels",
+                "volkoren, groenten, peulvruchten",
+                "minimaal 30 g/dag",
+                "Biobeschikbaarheid van fytochemicaliën"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Ontstekingsregulatie (IL-6 & TNF-α)",
+          "intro": "Gecombineerde score van de methylatie van beide genregio’s — niet het acute bloedniveau. Individuele waarden: IL-6 8/9 · TNF-α 6/9.",
+          "kind": "stoplicht",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Optimaal",
+          "tone": "green",
+          "text": "Een plantaardig georiënteerd, ontstekingsarm dieet blijft dit gebied ondersteunen.",
+          "table": {
+            "cols": ["Meting", "Bron", "Hoeveelheid / frequentie", "Effect"],
+            "rows": [
+              [
+                "Resveratrol",
+                "druivenschillen, frambozenzaden, bosbessen, pinda’s",
+                "1 portie bessen/dag",
+                "Voornamelijk gevonden in schillen en zaden"
+              ],
+              [
+                "Sulforafaan",
+                "broccoli, bloemkool, spruitjes, waterkers",
+                "3–4× per week",
+                "Kort stomen of rauw eten — anders gaat de werkzame stof verloren"
+              ],
+              [
+                "Quercetine",
+                "uien, knoflook, kappertjes, bieslook",
+                "dagelijks",
+                "Laat uien 10 minuten staan na het snijden"
+              ],
+              [
+                "Curcumine",
+                "kurkuma met zwarte peper",
+                "1 theelepel per dag",
+                "Olie verbetert de opname; niet tijdens zwangerschap of bij galstenen"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "markers",
+      "caption": "Epigenetische status",
+      "title": "microRNA.",
+      "lead": "microRNA’s verfijnen de activiteit van uw genen en weerspiegelen de huidige metabole en inflammatoire activiteit. Net als methylering kunnen ze worden beïnvloed door leefstijl.",
+      "items": [
+        {
+          "name": "miR-21",
+          "category": "Ontsteking en micronutriënten",
+          "intro": "Verslechtert bij sterkere ontstekingsactiviteit en bij een slechte zink- en folaatvoorziening.",
+          "kind": "stoplicht",
+          "value": 3,
+          "display": "3 / 9",
+          "status": "Buiten bereik",
+          "tone": "red",
+          "text": "Bij een rode of amberkleurige waarde moet een normaal BMI worden nagestreefd; daarnaast is gerichte inname van zink en folaat zinvol. Antioxidatieve micronutriënten zoals vitamine D, vitamine E en lycopeen evenals resveratrol ondersteunen de immuunregulatie.",
+          "table": {
+            "cols": ["Meting", "Bron", "Hoeveelheid / frequentie", "Effect"],
+            "rows": [
+              [
+                "Zink",
+                "pompoenpitten, haver, linzen, kaas, rundvlees",
+                "dagelijks",
+                "Een slechte zinkvoorziening verslechtert deze waarde"
+              ],
+              [
+                "Folaat",
+                "bladgroenten, peulvruchten, tomaat, kiemen",
+                "dagelijks",
+                "Een slechte folaatvoorziening verslechtert deze waarde"
+              ],
+              [
+                "Resveratrol",
+                "druivenschillen, bosbessen, pinda’s",
+                "1 portie bessen/dag",
+                "Remt het NF-κB-signaleringspad"
+              ],
+              [
+                "Vitamine D",
+                "zalm, boter, ei, avocado, paddenstoelen",
+                "regelmatig",
+                "Belangrijk voor immuunregulatie"
+              ],
+              [
+                "Vitamine E",
+                "tarwekiemolie, noten, spinazie, broccoli",
+                "dagelijks",
+                "Antioxidant, beschermt celmembranen"
+              ],
+              [
+                "Lycopeen",
+                "tomaten, meloen, wortelen, papaja",
+                "dagelijks",
+                "Carotenoïde met een antioxidantwerking"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "miR-155",
+          "category": "FTO-regulatie en vetweefselvorming",
+          "intro": "Centrale regulator van immuun- en ontstekingsreacties; beïnvloedt de vorming van bruin en beige vetweefsel.",
+          "kind": "stoplicht",
+          "value": 8,
+          "display": "8 / 9",
+          "status": "Optimaal",
+          "tone": "green",
+          "text": "Beweging, vasten en koudeprikkels hebben hier een gunstig effect en beïnvloeden het FTO-effect positief — vooral relevant omdat uw genetische FTO-evaluatie 2/9 is.",
+          "table": {
+            "cols": ["Meting", "Bron", "Hoeveelheid / frequentie", "Effect"],
+            "rows": [
+              [
+                "Regelmatige lichaamsbeweging",
+                "duur- en krachttraining gecombineerd",
+                "150 min/week",
+                "Heeft een gunstig effect op deze waarde"
+              ],
+              [
+                "Koudeprikkels",
+                "koude douches, ijsbaden, koele ruimtes",
+                "regelmatig, kortdurend",
+                "Activeert bruin/beige vetweefsel"
+              ],
+              [
+                "Vastfasen",
+                "uitgebreide nachtelijke eetpauze",
+                "na overleg",
+                "Ondersteunt de activatie van bruin vetweefsel"
+              ],
+              [
+                "Quercetine",
+                "uien, knoflook, kappertjes, bieslook",
+                "minimaal 200 mg/dag",
+                "Beïnvloedt mitochondriale biogenese"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "table",
+      "caption": "Genetica · Macronutriënten",
+      "title": "Metabolisch type: gebalanceerd type.",
+      "lead": "Uw metabolisme geeft geen duidelijke voorkeur aan één van de drie macronutriënten. De algemene aanbeveling van de DACH-referentiewaarden geldt daarom voor u. Belangrijker is in uw geval de kwaliteit van de voedingsmiddelen.",
+      "cols": ["Delen", "Macronutriënt", "Opmerking"],
+      "rows": [
+        ["55 %", "Koolhydraten", "Volkoren, peulvruchten en groenten als basis"],
+        ["20 %", "Eiwit", "20–30 g per hoofdmaaltijd"],
+        ["25 %", "Vet", "Focus op onverzadigde vetten"]
+      ],
+      "note": "Individueel berekende dagelijkse energiebehoefte: 1.900 kcal.",
+      "id": "uebersicht"
+    },
+    {
+      "type": "table",
+      "caption": "Genetica · Beweging",
+      "title": "Bewegingstype: uithoudingstype.",
+      "lead": "Zowel ACE als ACTN3 wijzen op een aanleg voor uithoudingsvermogen. Ter context: genetica verklaart slechts tot circa 20% van het verschil tussen kracht- en uithoudingsvermogen — training, voeding en consistentie hebben verreweg de grootste invloed.",
+      "cols": ["Gen", "Uw genotype", "Aanleg"],
+      "rows": [
+        [
+          "ACE",
+          "GG (homozygoot)",
+          "Meer gericht op uithoudingsvermogen — variant geassocieerd met betere zuurstofbenutting en efficiëntie."
+        ],
+        [
+          "ACTN3",
+          "TT (wildtype)",
+          "Meer gericht op uithoudingsvermogen — XX-type zonder α-actinine-3, met meer langzame, op uithoudingsvermogen gerichte spiervezels."
+        ]
+      ],
+      "id": "uebersicht-2"
+    },
+    {
+      "type": "markers",
+      "caption": "Genetica · Beweging",
+      "title": "Gewichtsverlies door lichaamsbeweging.",
+      "items": [
+        {
+          "name": "Gewichtsverlies door beweging",
+          "category": "FTO rs1121980",
+          "intro": "Genotype AT (heterozygoot). Hoeveel lichaamsbeweging alleen bijdraagt aan gewichtsverlies.",
+          "kind": "stoplicht",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Verhoogde behoefte",
+          "tone": "red",
+          "text": "In uw geval leidt lichaamsbeweging alleen tot gewichtsverlies iets langzamer dan bij andere genotypen. Het effect op fitheid en metabole gezondheid blijft ongewijzigd — voor gewichtsreductie is de combinatie van lichaamsbeweging en aanpassing van het dieet bijzonder zinvol.",
+          "table": {
+            "cols": ["Meting", "Bron", "Hoeveelheid / frequentie", "Effect"],
+            "rows": [
+              [
+                "Uithoudingsvermogencomponent",
+                "fietsen, hardlopen, zwemmen",
+                "2–3× per week",
+                "Zuurstoftoevoer, basaal uithoudingsvermogen"
+              ],
+              [
+                "Krachtcomponent",
+                "full-body krachttraining",
+                "2× per week",
+                "Behoudt spiermassa en metabole activiteit"
+              ],
+              [
+                "Combineren met dieet",
+                "zie aanbeveling metabool type",
+                "individueel",
+                "Bij FTO de meest effectieve extra hefboom"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-3"
+    },
+    {
+      "type": "markers",
+      "caption": "Genetica · Metabolisme",
+      "title": "Aangeboren aanleg: lichaamsgewichtregulatie en bloedsuikerstofwisseling.",
+      "lead": "Genetische aanleg voor de regulatie van lichaamsgewicht en bloedsuikerstofwisseling — als uitgangspunt voor gerichte voeding, niet als voorspelling.",
+      "items": [
+        {
+          "name": "Lichaamsgewichtregulatie",
+          "intro": "Samenvatting van varianten die geassocieerd zijn met de regulatie van lichaamsgewicht.",
+          "kind": "stoplicht",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Voordelig",
+          "tone": "green",
+          "text": "Uw genetische achtergrond vertoont hier geen ongunstig patroon. Maaltijdstructuur, vezels en regelmatige lichaamsbeweging behouden deze uitgangspositie.",
+          "sub": "Genotypen: FTO rs9939609 TT · PPARG2 CC (wildtype) · MC4R CT · TCF7L2 CT · SLC6A14 CA · TFAP2B GG",
+          "table": {
+            "cols": ["Meting", "Bron", "Hoeveelheid / frequentie", "Effect"],
+            "rows": [
+              [
+                "Vezels",
+                "volkoren, peulvruchten, groenten",
+                "minimaal 30 g/dag",
+                "Verlengert het verzadigingsgevoel, stabiliseert de bloedsuiker"
+              ],
+              [
+                "Eiwit per maaltijd",
+                "eieren, peulvruchten, vis, vlees",
+                "20–30 g/maaltijd",
+                "Ondersteunt verzadigingssignalen"
+              ],
+              ["Lichaamsbeweging", "—", "150 min/week", "Vermindert genetisch gedreven effecten"]
+            ]
+          }
+        },
+        {
+          "name": "Bloedglucose- en insulinemetabolisme",
+          "intro": "Genen die insulineafgifte, insulinegevoeligheid en bloedsuikerstofwisseling beïnvloeden.",
+          "kind": "stoplicht",
+          "value": 3,
+          "display": "3 / 9",
+          "status": "Verhoogde behoefte",
+          "tone": "red",
+          "text": "Uw waarde ligt buiten het gunstige bereik. Koolhydraatkwaliteit en regelmatige lichaamsbeweging zijn in uw geval de meest effectieve hefbomen — en vormen samen met de rode miR-21-waarde het tweede aandachtspunt van dit rapport.",
+          "sub": "Genotypen: TCF7L2 CT · IL-6 CG · ADRB3 GG (wildtype) · PPARG2 CC",
+          "table": {
+            "cols": ["Meting", "Bron", "Hoeveelheid / frequentie", "Effect"],
+            "rows": [
+              [
+                "Lage glycemische index",
+                "volkoren, peulvruchten, groenten",
+                "bij elke hoofdmaaltijd",
+                "Voorkomt scherpe bloedsuikerpieken"
+              ],
+              [
+                "Beweging na het eten",
+                "korte wandeling",
+                "10–15 min",
+                "Verbetert insulinegevoeligheid"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-4"
+    },
+    {
+      "type": "markers",
+      "caption": "Genetica · Eetgedrag",
+      "title": "Voedingstype.",
+      "lead": "Verzadiging, voedselverlangens en de neiging om gewicht te verliezen of te behouden — uw genetische hefbomen rond eetgedrag.",
+      "items": [
+        {
+          "name": "Voedselverlangens",
+          "sub": "MC4R CT · FTO rs9939609 TT · LEPR AA · SLC6A14 CA · PPARG2 CC",
+          "kind": "stoplicht",
+          "value": 6,
+          "display": "6 / 9",
+          "status": "Matig",
+          "tone": "amber",
+          "text": "Een iets verhoogde neiging tot spontane eetimpulsen. Maaltijdstructuur en eiwitinname zijn hier uw meest effectieve hefbomen.",
+          "table": {
+            "cols": ["Meting", "Bron", "Hoeveelheid / frequentie", "Effect"],
+            "rows": [
+              [
+                "Eiwit bij elke maaltijd",
+                "eieren, peulvruchten, vis, vlees, tofu",
+                "20–30 g/maaltijd",
+                "Sterkste bekende verzadigingssignaal"
+              ],
+              [
+                "Regelmatige maaltijden",
+                "—",
+                "3 vaste momenten per dag",
+                "Vermindert bloedsuikerschommelingen"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Honger- en verzadigingsregulatie",
+          "sub": "MC4R, LEPR en FTO rs1121980 (AT) samen",
+          "kind": "stoplicht",
+          "value": 4,
+          "display": "4 / 9",
+          "status": "Matig",
+          "tone": "amber",
+          "text": "Een iets vertraagd verzadigingssignaal — langzaam, bewust eten geeft dit signaal de tijd die het nodig heeft.",
+          "table": {
+            "cols": ["Meting", "Bron", "Hoeveelheid / frequentie", "Effect"],
+            "rows": [
+              [
+                "Langzaam, bewust eten",
+                "—",
+                "minimaal 20 min/maaltijd",
+                "Geeft het vertraagde signaal tijd"
+              ],
+              [
+                "Vezelrijk dieet",
+                "groenten, volkoren",
+                "minimaal 30 g/dag",
+                "Verlengert het verzadigingsgevoel"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Afvallen",
+          "sub": "ADRB3 GG · PLIN CT",
+          "kind": "stoplicht",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber",
+          "text": "Verhoogde behoefte aan ondersteuning van slaap en leptinegevoeligheid. 7–9 uur slaap en gecombineerde training 2–3× per week."
+        },
+        {
+          "name": "Gewicht behouden",
+          "sub": "TCF7L2 CT",
+          "kind": "stoplicht",
+          "value": 8,
+          "display": "8 / 9",
+          "tone": "green",
+          "text": "Gunstige uitgangspositie tegen het jojo-effect. Stabiele maaltijdtijden en 150 min lichaamsbeweging per week behouden dit."
+        }
+      ],
+      "id": "marker-5"
+    },
+    {
+      "type": "markers",
+      "caption": "Genetica · Micronutriënten",
+      "title": "Vitamineopname.",
+      "lead": "Hoe goed uw lichaam vitamine D benut en folaat omzet in de actieve vorm — inclusief de daaruit voortvloeiende behoefte aan B-vitamines.",
+      "items": [
+        {
+          "name": "Folaat",
+          "category": "MTHFR",
+          "intro": "Genotype homozygote variant. Sleutelenzym in folaatmetabolisme.",
+          "kind": "stoplicht",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Verhoogde behoefte",
+          "tone": "red",
+          "text": "Uw MTHFR-variant duidt op een sterk beperkte omzetting van folaat in de actieve vorm (5-MTHF). Uw behoefte aan folaat uit voeding is hoger dan bij andere genotypen. Deze waarde verklaart ook de rode LINE-1-markering op epigenetisch niveau — beide zijn afhankelijk van dezelfde stofwisselingsweg.",
+          "table": {
+            "cols": ["Meting", "Bron", "Hoeveelheid / frequentie", "Effect"],
+            "rows": [
+              [
+                "Folaat uit voeding",
+                "groene bladgroenten, peulvruchten, asperges",
+                "2–3 porties/dag",
+                "MTHFR-varianten profiteren van een consequent hoge inname"
+              ],
+              [
+                "Actief folaat (5-MTHF)",
+                "indien nodig, als voedingssupplement",
+                "na overleg met een arts",
+                "Omzeilt direct de beperkte omzetting"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Vitamine D",
+          "category": "Transport",
+          "intro": "GC (vitamine D-bindend eiwit), genotype GT (heterozygoot)",
+          "kind": "stoplicht",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Voordelig",
+          "tone": "green",
+          "text": "Het transport van vitamine D in uw bloed is slechts licht beperkt. Dit betekent geen tekort, maar het is wel zinvol om in de maanden met weinig zonlicht de bloedspiegel te controleren.",
+          "table": {
+            "cols": ["Meting", "Bron", "Hoeveelheid / frequentie", "Effect"],
+            "rows": [
+              [
+                "Vitamine D",
+                "vette vis, eieren; zonlicht",
+                "regelmatig 15–20 min/dag, controleer niveaus",
+                "Controle is vooral zinvol in de winter"
+              ],
+              [
+                "Vitamine K2",
+                "gefermenteerde voedingsmiddelen, eigeel, harde kaas",
+                "dagelijks",
+                "Ondersteunt vitamine D in bot- en vaatmetabolisme"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "B-vitamines",
+          "category": "Behoefte",
+          "intro": "Volgt uit de MTHFR-variant via de methylatiecyclus.",
+          "kind": "stoplicht",
+          "value": 5,
+          "display": "5 / 9",
+          "status": "Matig",
+          "tone": "amber",
+          "table": {
+            "cols": ["Meting", "Bron", "Hoeveelheid / frequentie", "Effect"],
+            "rows": [
+              [
+                "Vitamine B2",
+                "eieren, zuivelproducten, volkorenproducten",
+                "dagelijks",
+                "Directe cofactor van het MTHFR-enzym"
+              ],
+              [
+                "Vitamine B6",
+                "aardappelen, peulvruchten, bananen",
+                "dagelijks",
+                "Homocysteïnemetabolisme"
+              ],
+              [
+                "Vitamine B12",
+                "eieren, vis, zuivelproducten",
+                "dagelijks",
+                "Regeneratie van actief folaat"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-6"
+    },
+    {
+      "type": "markers",
+      "caption": "Genetica · Lipidenmetabolisme",
+      "title": "Omega 3 en bloedlipiden.",
+      "lead": "Hoe goed u plantaardige omega-3-voorlopers benut en hoe uw bloedlipiden genetisch zijn bepaald.",
+      "items": [
+        {
+          "name": "Bloedlipiden en vetzuurstofwisseling",
+          "sub": "FADS1 TT · APOA5 AG · LPL AA (wildtype) · PPARG2 CC",
+          "kind": "stoplicht",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Verhoogde behoefte",
+          "tone": "red",
+          "text": "Uw FADS1-variant geeft aan dat het lichaam plantaardige omega-3-voorlopers (ALA) slechts beperkt omzet in de actieve vormen EPA en DHA. De afzonderlijke beoordeling “Omega-3-aanbod” kijkt uitsluitend naar deze omzettingsstap en is eveneens 2 / 9.",
+          "table": {
+            "cols": ["Meting", "Bron", "Hoeveelheid / frequentie", "Effect"],
+            "rows": [
+              [
+                "EPA en DHA direct",
+                "vette zeevis (zalm, makreel, haring); eventueel algenolie",
+                "vis 2×/week of algenolie dagelijks",
+                "Omzeilt de beperkte FADS1-omzetting"
+              ],
+              [
+                "Plantaardige omega-3-bronnen",
+                "lijnzaadolie, walnoten, chiazaad",
+                "als aanvulling, niet als enige bron",
+                "Bij u slechts gedeeltelijk omgezet"
+              ],
+              [
+                "Beperk omega-6",
+                "spaarzaam zonnebloem-, saffloer- en maïsolie gebruiken",
+                "in het dagelijks leven",
+                "Voordelige omega-6- tot omega-3-verhouding"
+              ],
+              [
+                "Verminder suiker en witte bloem",
+                "ten gunste van volkorenproducten",
+                "in het dagelijks leven",
+                "Heeft betrekking op triglyceridenmetabolisme (APOA5)"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-7"
+    },
+    {
+      "type": "markers",
+      "caption": "Genetica · Bloeddruk",
+      "title": "Zoutgevoeligheid.",
+      "items": [
+        {
+          "name": "Zoutgevoeligheid",
+          "sub": "ACE, genotype GG (homozygoot)",
+          "kind": "stoplicht",
+          "value": 8,
+          "display": "8 / 9",
+          "status": "Voordelig",
+          "tone": "green",
+          "text": "Uw ACE-variant toont geen verhoogde zoutgevoeligheid. Algemeen geldt: wie zouter eet, moet bewust meer drinken.",
+          "table": {
+            "cols": ["Meting", "Bron", "Hoeveelheid / frequentie", "Effect"],
+            "rows": [
+              [
+                "Let op zoutinname",
+                "bewerkte voedingsmiddelen, kant-en-klaarmaaltijden",
+                "max. 6 g zout/dag",
+                "Vermindert vochtretentie"
+              ],
+              [
+                "Drink voldoende",
+                "water, ongezoete thee",
+                "minimaal 1,5–2 l/dag",
+                "Ondersteunt natriumuitscheiding"
+              ],
+              [
+                "Kalium uit groenten en fruit",
+                "bananen, aardappelen, groene groenten",
+                "dagelijks",
+                "Tegenwerkt zoutgerelateerde vochtretentie"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-8"
+    },
+    {
+      "type": "markers",
+      "caption": "Genetica · Huid en antioxidanten",
+      "title": "Nutricosmetica.",
+      "lead": "Huidelasticiteit, hydratatie en antioxidatieve bescherming — hoe voeding uw huid van binnenuit ondersteunt.",
+      "items": [
+        {
+          "name": "Huidhydratatie",
+          "sub": "AQPR CC (wildtype)",
+          "kind": "stoplicht",
+          "value": 9,
+          "display": "9 / 9",
+          "tone": "green",
+          "text": "Uw huid houdt vocht goed vast — een normale verzorgingsroutine is meestal voldoende. Ondersteunend: dagelijks minstens 1,5–2 l water."
+        },
+        {
+          "name": "Oxidatieve celbescherming",
+          "sub": "SOD2 AG (heterozygoot)",
+          "kind": "stoplicht",
+          "value": 7,
+          "display": "7 / 9",
+          "tone": "green",
+          "text": "Goede bescherming tegen oxidatieve stress. Dagelijkse antioxidanten en consequente UV-bescherming behouden deze uitgangspositie."
+        },
+        {
+          "name": "Huidelasticiteit en ontsteking",
+          "intro": "IL-6 CG (heterozygoot). Verhoogde activiteit kan afbraak van collageen versnellen.",
+          "kind": "stoplicht",
+          "value": 6,
+          "display": "6 / 9",
+          "status": "Matig",
+          "tone": "amber",
+          "text": "Een matige neiging tot ontsteking in de huid — een ontstekingsremmend dieet heeft een zichtbaar effect op uw huid.",
+          "table": {
+            "cols": ["Meting", "Bron", "Hoeveelheid / frequentie", "Effect"],
+            "rows": [
+              [
+                "Omega-3 vetzuren",
+                "zalm, lijnzaad, walnoten",
+                "vis 2× per week",
+                "Ondersteunt de huidbarrière"
+              ],
+              [
+                "Antioxidanten",
+                "bessen, kleurrijke groenten, groene thee",
+                "dagelijks",
+                "Tegenwerkt oxidatieve stress"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Antioxidantcapaciteit",
+          "intro": "NADPH AG (heterozygoot). Levert de reducerende kracht voor cellulaire antioxiderende systemen.",
+          "kind": "stoplicht",
+          "value": 4,
+          "display": "4 / 9",
+          "status": "Matig",
+          "tone": "amber",
+          "text": "Een matig verminderde antioxiderende capaciteit — antioxidanten via de voeding bieden hier extra ondersteuning.",
+          "table": {
+            "cols": ["Meting", "Bron", "Hoeveelheid / frequentie", "Effect"],
+            "rows": [
+              [
+                "Antioxidanten",
+                "bessen, kleurrijke groenten, groene thee",
+                "dagelijks",
+                "Ondersteunt de cellulaire verdediging tegen vrije radicalen"
+              ],
+              [
+                "UV-bescherming",
+                "zonnebrandcrème, hoofddeksel",
+                "bij blootstelling aan de zon",
+                "Beperkt UV-blootstelling van de huid"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-9"
+    },
+    {
+      "type": "table",
+      "caption": "Genetische basis",
+      "title": "Alle geanalyseerde genen.",
+      "lead": "De volledige lijst van onderzochte varianten samen met uw genotype. Deze waarden zijn erfelijk en blijven levenslang onveranderd — het herhalen van de genetische analyse heeft geen zin.",
+      "cols": ["Gen", "Uw genotype", "Functie"],
+      "rows": [
+        [
+          "FTO rs9939609",
+          "TT (homozygoot)",
+          "Risicoallel A. Geassocieerd met BMI, lichaamsvetmassa en tailleomvang bij een hoge inname van verzadigde vetzuren."
+        ],
+        [
+          "FTO rs1121980",
+          "AT (heterozygoot)",
+          "Risicoallel A. Reageert minder goed op gewichtsverlies door lichamelijke activiteit."
+        ],
+        [
+          "MTHFR",
+          "homozygote variant",
+          "Belangrijk enzym in folaat- en methylatiemetabolisme; beïnvloedt het homocysteïnegehalte."
+        ],
+        [
+          "FADS1",
+          "TT (homozygoot)",
+          "Reguleert de omzetting van plantaardige omega-3/-6-voorlopers in de actieve, langeketenvetzuren."
+        ],
+        [
+          "APOA5",
+          "AG (heterozygoot)",
+          "Reguleert de afbraak van triglyceriden in het bloed en beïnvloedt bloedlipiden."
+        ],
+        [
+          "LPL",
+          "AA (wildtype)",
+          "Breekt vetten uit het bloed af; beïnvloedt HDL-cholesterol en bloedlipiden."
+        ],
+        [
+          "PPARG2",
+          "CC (wildtype)",
+          "Reguleert vetcelvorming, vetopslag en insulinegevoeligheid; beïnvloedt eetlust en verzadiging."
+        ],
+        [
+          "PLIN",
+          "CT (heterozygoot)",
+          "Bekleedt vetdruppels in vetcellen en reguleert hun opbouw en afbraak."
+        ],
+        [
+          "ADRB3",
+          "GG (wildtype)",
+          "Reguleert vetverbranding in vetcellen en het gebruik van opgeslagen vet."
+        ],
+        [
+          "MC4R",
+          "CT (heterozygoot)",
+          "Centraal betrokken bij de regulatie van eetlust-, honger- en verzadigingssignalen in de hersenen."
+        ],
+        ["LEPR", "AA (homozygoot)", "Zendt het verzadigingssignaal van het hormoon leptine door."],
+        [
+          "SLC6A14",
+          "CA (heterozygoot)",
+          "Transporteert aminozuren; beïnvloedt eetlust, verzadiging en stress-eten."
+        ],
+        [
+          "TCF7L2",
+          "CT (heterozygoot)",
+          "Beïnvloedt insulineafgifte na koolhydraatrijke maaltijden."
+        ],
+        [
+          "TFAP2B",
+          "GG (wildtype)",
+          "Betrokken bij de regulatie van lichaamsgewicht en vetverdeling."
+        ],
+        [
+          "IL-6",
+          "CG (heterozygoot)",
+          "Centraal boodschapperstof in ontstekingsregulatie; beïnvloedt bloedlipiden, eetlust en stress-eten."
+        ],
+        ["GC", "GT (heterozygoot)", "Beïnvloedt het transport van vitamine D in het bloed."],
+        [
+          "ACE",
+          "GG (homozygoot)",
+          "Onderdeel van het bradykinine-aldosteronsysteem; beïnvloedt uithoudingsvermogen/kracht en zoutgevoeligheid."
+        ],
+        [
+          "ACTN3",
+          "TT (wildtype)",
+          "Beïnvloedt spiervezelsamenstelling (snelle versus langzame vezels)."
+        ],
+        ["AQPR", "CC (wildtype)", "Beïnvloedt waterretentie in de huid."],
+        [
+          "NADPH",
+          "AG (heterozygoot)",
+          "Draagt bij aan de antioxiderende capaciteit van de cellen."
+        ],
+        [
+          "SOD2",
+          "AG (heterozygoot)",
+          "Belangrijk antioxiderend enzym, beschermt cellen tegen oxidatieve stress."
+        ]
+      ],
+      "note": "21 varianten. Elke evaluatie in het hoofdstuk “Alle genetische evaluaties” is afgeleid van meerdere van deze genen samen; een enkel genotype op zichzelf laat geen conclusies toe.",
+      "id": "uebersicht-3"
+    },
+    {
+      "type": "summary",
+      "caption": "Samenvatting",
+      "title": "Uw drie aandachtsgebieden.",
+      "lead": "Uit 21 genen en vier epigenetische markers komen drie gebieden naar voren waarin inspanning en effect bij u het duidelijkst samenkomen.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Methylatiemetabolisme — folaat, B-vitamines, zink",
+          "text": "Drie waarden wijzen in dezelfde richting: LINE-1 2/9 (epigenetisch), miR-21 3/9 (epigenetisch) en folaat/MTHFR 2/9 (genetisch) — alle drie afhankelijk van hetzelfde metabolische pad. Dit gebied is tevens het enige waarvan het effect kan worden aangetoond in een vervolgmeting. Concreet: dagelijks groene bladgroenten en peulvruchten, B2/B6/B12 via eieren, kaas en gefermenteerde producten, zink via pompoenpitten, haver en linzen. Actief folaat (5-MTHF) gedurende twee maanden na overleg met een arts."
+        },
+        {
+          "num": "02",
+          "title": "Vetkwaliteit — EPA en DHA direct",
+          "text": "Bloedlipiden 2/9 en omega-3-aanvoer 2/9. Uw FADS1-variant maakt plantaardige omega-3-bronnen zoals lijnzaadolie en walnoten alleen onvoldoende. Vette zeevis twee keer per week of algenolie dagelijks omzeilt dit knelpunt direct; gebruik omega-6-rijke oliën spaarzaam."
+        },
+        {
+          "num": "03",
+          "title": "Bloedglucosekwaliteit in plaats van caloriehoeveelheid",
+          "text": "Bloedglucose- en insulinemetabolisme 3/9 naast gunstige lichaamsgewichtregulatie (7/9). Voor u telt de kwaliteit van koolhydraten meer dan de hoeveelheid: een lage glycemische index bij elke hoofdmaaltijd, 20–30 g eiwit per maaltijd en een korte wandeling na het eten. Omdat beweging alleen bij u langzamer werkt (FTO 2/9), is deze combinatie de effectievere route."
+        }
+      ],
+      "controlTitle": "Vervolg en volgende stap",
+      "controlItems": [
+        "Een vervolgmeting van de vier epigenetische markers is pas zinvol na minimaal 4 tot 6 maanden — eerder kunnen veranderingen niet betrouwbaar worden gemeten.",
+        "De genetische evaluaties blijven ongewijzigd en hoeven nooit te worden herhaald.",
+        "Een vergelijking van de meetpunten in de tijd wordt vanaf de tweede meting gerapporteerd."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Vragen over uw rapport?",
+      "text": "Bespreek de resultaten met de instelling die de monsterafname heeft uitgevoerd. Daar is de klinische context beschikbaar die nodig is voor interpretatie.",
+      "columns": [
+        {
+          "k": "Contact",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distributie",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Voorbeeldrapport",
+          "text": "Alle waarden, genotypen en persoonlijke gegevens in dit document zijn fictief en dienen uitsluitend ter illustratie van het rapportformaat. Dit is geen echt rapport."
+        },
+        {
+          "title": "Interpretatie",
+          "text": "Dit rapport is geen diagnose en vervangt geen medisch advies. Genetische evaluaties beschrijven predisposities, geen ziekten; epigenetische markers beschrijven een momentopname. Beide dienen in de individuele klinische context door gekwalificeerde professionals te worden beoordeeld."
+        },
+        {
+          "title": "Status van de analyses",
+          "text": "De analyses zijn laboratoriumdiensten die door onze samenwerkingspartner worden geleverd en zijn geen CE-gemarkeerde in-vitro diagnostische hulpmiddelen. Ze dienen ter consultatie en monitoring en vervangen geen klinische diagnostiek. De analyses worden uitsluitend aan professionele gebruikers geleverd."
+        },
+        {
+          "title": "Juridisch kader",
+          "text": "Genetisch onderzoek valt onder de Duitse Wet op Genetische Diagnostiek (GenDG); informatie en schriftelijke toestemming zijn vereist vóór monsterafname. De laboratoriumanalyse wordt uitgevoerd door onze samenwerkingspartner. Polaris Diagnostics Europe GmbH is verantwoordelijk voor distributie en ondersteuning. Dit document vormt geen genezingsbelofte in de zin van de Duitse Wet op de Reclame voor Geneesmiddelen (Heilmittelwerbegesetz)."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand per: augustus 2026",
+      "id": "kontakt"
+    }
+  ]
+}

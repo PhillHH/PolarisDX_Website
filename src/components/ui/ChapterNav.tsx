@@ -46,6 +46,8 @@ export interface NavAction {
   href?: string
   /** Nur zusammen mit href sinnvoll: Datei laden statt navigieren. */
   download?: boolean
+  /** Sprache eines verlinkten Dokuments, falls sie von der UI-Sprache abweicht. */
+  hrefLang?: string
 }
 
 interface ChapterNavProps {
@@ -386,7 +388,12 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
               <span className="truncate">{aktion.label}</span>
             </Link>
           ) : (
-            <a href={aktion.href} download={aktion.download} className={aktionKlasse}>
+            <a
+              href={aktion.href}
+              download={aktion.download}
+              hrefLang={aktion.hrefLang}
+              className={aktionKlasse}
+            >
               <span className="truncate">{aktion.label}</span>
             </a>
           )

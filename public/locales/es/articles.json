@@ -541,10 +541,20 @@
     "vc_category_label": "Categoría",
     "vc_date_label": "Publicado",
     "primary_cta": "Ver el servicio correspondiente",
+    "related_services": "Diagnóstico relacionado",
     "longread": "Lectura larga",
     "cta_title": "Calcula tu potencial de ahorro.",
     "cta_subtitle": "Calculadora de ROI o asesoramiento — en menos de un minuto.",
     "cta_secondary": "Calculadora de ROI",
     "read_time": "{{minutes}} min de lectura"
+  },
+  "ui": {
+    "home": "Inicio",
+    "articles": "Artículos",
+    "articleNotFound": "Artículo no encontrado",
+    "backToArticles": "Volver a la vista general",
+    "readMore": "Leer más",
+    "needHelp": "¿Necesita ayuda para elegir un producto?",
+    "contactText": "Nuestro equipo médico está disponible las 24 horas, los 7 días de la semana para responder preguntas urgentes y ayudarle a decidir qué hacer a continuación."
   }
 }

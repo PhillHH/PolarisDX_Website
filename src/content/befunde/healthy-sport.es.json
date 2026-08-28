@@ -1,0 +1,689 @@
+{
+  "slug": "healthy-sport",
+  "panel": "Healthy Sport",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Informe de muestra · Datos de ejemplo",
+      "panel": "Healthy Sport",
+      "subtitle": "Tu entrenamiento celular",
+      "claim": "Ocho microARN relevantes para el deporte a partir de una sola gota de sangre capilar, traducidos en siete evaluaciones que cubren nutrición, recuperación y rendimiento — complementados por cuatro variantes genéticas.",
+      "meta": [
+        {
+          "k": "Informe para",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Toma de muestra",
+          "v": "18.02.2026"
+        },
+        {
+          "k": "Material",
+          "v": "Tarjeta de gota de sangre seca"
+        },
+        {
+          "k": "Alcance",
+          "v": "8 miARN + 4 SNP"
+        }
+      ],
+      "id": "deckblatt",
+      "benefit": "Nutrición, recuperación, carga de entrenamiento: por dónde puede empezar tu cliente."
+    },
+    {
+      "type": "principle",
+      "caption": "El principio",
+      "title": "Cómo leer este informe.",
+      "lead": "El entrenamiento regular cambia el cuerpo hasta el nivel celular. Estos procesos dejan huellas en forma de microARN circulantes — pequeñas moléculas de ARN que regulan la intensidad con la que se expresan determinados genes. A diferencia de la genética, estos valores pueden cambiar, lo que los convierte en el componente de tendencia del análisis.",
+      "cards": [
+        {
+          "title": "Estado nutricional",
+          "text": "Requerimientos de vitaminas y micronutrientes, así como equilibrio hídrico. Evaluaciones: estado nutricional, estado de hidratación."
+        },
+        {
+          "title": "Recuperación",
+          "text": "Capacidad de recuperación, carga de entrenamiento y actividad inflamatoria. Evaluaciones: riesgo de lesión, nivel de carga, inflamación."
+        },
+        {
+          "title": "Rendimiento",
+          "text": "Capacidad de resistencia y estado de la musculatura. Evaluaciones: aptitud cardiovascular, estado muscular."
+        }
+      ],
+      "flowTitle": "El proceso",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Medida",
+          "text": "Tarjeta de gota seca de sangre, punta del dedo. Ocho microARN y cuatro variantes genéticas. No requiere ayuno."
+        },
+        {
+          "num": "02",
+          "title": "Evaluar",
+          "text": "Los microARN se integran en siete evaluaciones con semáforo 1–9. Cada evaluación combina varios marcadores."
+        },
+        {
+          "num": "03",
+          "title": "Ajustar",
+          "text": "Recomendaciones específicas sobre entrenamiento, recuperación y fitonutrientes — además de seguimiento."
+        }
+      ],
+      "scaleTitle": "¿Cómo leer la escala?",
+      "scaleLead": "Todas las evaluaciones y todos los marcadores individuales usan el mismo semáforo 1–9. Rojo a la izquierda, verde a la derecha — siempre es mejor un valor más alto: 1–3 rojo, 4–6 ámbar, 7–9 verde.",
+      "scaleKind": "traffic",
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "1–3 · Rojo",
+          "text": "Fuera del rango óptimo. Aquí es donde reside el mayor margen de mejora."
+        },
+        {
+          "tone": "amber",
+          "label": "4–6 · Ámbar",
+          "text": "Rango medio con margen de mejora."
+        },
+        {
+          "tone": "green",
+          "label": "7–9 · Verde",
+          "text": "Dentro del rango óptimo. Mantener las rutinas existentes."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Importante",
+      "text": "Este informe no sustituye un examen de medicina deportiva ni un diagnóstico de rendimiento.",
+      "items": [
+        "Las cuatro variantes genéticas son innatas y se determinan solo una vez. Se requiere información y consentimiento por escrito antes del análisis genético (Ley alemana de Diagnóstico Genético, GenDG). Las pruebas genéticas predictivas solo pueden realizarse bajo la responsabilidad de médicos debidamente cualificados; debe ofrecerse asesoramiento genético antes y después de la prueba (artículos 7 y 10 GenDG).",
+        "Solo los ocho valores de microARN pueden cambiar — ellos solos son adecuados para monitorear el progreso."
+      ],
+      "tone": "neutral",
+      "id": "hinweis"
+    },
+    {
+      "type": "evaluations",
+      "caption": "Resultados de un vistazo",
+      "title": "Tus siete evaluaciones.",
+      "lead": "Cada evaluación se deriva de varios microARN juntos. Ordenadas por valor — las áreas que requieren más acción aparecen al final.",
+      "items": [
+        {
+          "label": "Estado de hidratación",
+          "sub": "Dentro del rango óptimo",
+          "value": 8,
+          "display": "8 / 9",
+          "tone": "green"
+        },
+        {
+          "label": "Riesgo de lesión y recuperación",
+          "sub": "Promedio",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Aptitud cardiovascular",
+          "sub": "Promedio",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Estado muscular",
+          "sub": "Promedio",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Estado nutricional",
+          "sub": "Fuera de rango",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red"
+        },
+        {
+          "label": "Inflamación",
+          "sub": "Fuera de rango",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red"
+        },
+        {
+          "label": "Nivel de carga / estrés",
+          "sub": "Fuera de rango",
+          "value": 2,
+          "display": "2 / 9",
+          "tone": "red"
+        }
+      ],
+      "id": "auswertungen"
+    },
+    {
+      "type": "callout",
+      "title": "Qué significa esto",
+      "text": "Tres valores en el rango rojo — nivel de carga/estrés (2), estado nutricional (3) e inflamación (3). Dos de ellos — carga e inflamación — dependen de miR-146a-5p (microARN de sobrecarga, 2/9), el marcador individual más débil del perfil; en total influye en cuatro de las siete evaluaciones. El estado nutricional, en cambio, depende del segundo marcador más débil, miR-22-5p (3/9).",
+      "items": [
+        "Tres valores en rango medio — riesgo de lesión, aptitud cardiovascular y estado muscular están cada uno en 5/9 y pueden influirse directamente mediante el entrenamiento.",
+        "Un valor en rango verde — el estado de hidratación (8) es estable y debe mantenerse así.",
+        "El intervalo hasta la siguiente medición de seguimiento lo determina la instalación que te atiende; tus dos mediciones anteriores estuvieron separadas por aproximadamente tres meses."
+      ],
+      "tone": "accent",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "table",
+      "caption": "Base de las evaluaciones",
+      "title": "Los ocho microARN.",
+      "lead": "Los valores individuales a partir de los cuales se calculan las siete evaluaciones. También usan el semáforo 1–9; un valor más alto es mejor.",
+      "cols": ["Marcador", "Nombre", "Nivel de regulación", "Valor", "Función"],
+      "rows": [
+        [
+          "miR-378a-3p",
+          "MicroARN de ganancia muscular",
+          "Construcción muscular y adaptación al rendimiento",
+          "7 / 9",
+          "Regula la construcción muscular y la adaptación a los estímulos del entrenamiento."
+        ],
+        [
+          "miR-101-3p",
+          "MicroARN de vitalidad muscular",
+          "Protección celular de la musculatura",
+          "7 / 9",
+          "Regula la vitalidad muscular y la protección celular."
+        ],
+        [
+          "miR-505-3p",
+          "MicroARN de deporte y estilo de vida",
+          "Equilibrio del estilo de vida",
+          "5 / 9",
+          "Refleja la interacción entre ejercicio, nutrición y estilo de vida."
+        ],
+        [
+          "miR-19b-3p",
+          "MicroARN mental",
+          "Regulación neuronal y cognitiva",
+          "4 / 9",
+          "Regula vías de señalización neuronal, apoya la resiliencia cognitiva y el rendimiento de resistencia."
+        ],
+        [
+          "miR-20a-5p",
+          "MicroARN de renovación celular",
+          "Regeneración celular",
+          "4 / 9",
+          "Regula la renovación celular y los procesos de reparación tras el esfuerzo."
+        ],
+        [
+          "miR-30e-3p",
+          "miARN de fitness",
+          "Regulación de la resistencia muscular",
+          "4 / 9",
+          "Regula la resistencia muscular y la adaptación al fitness."
+        ],
+        [
+          "miR-22-5p",
+          "miARN para la quema de grasa",
+          "Regulación metabólica",
+          "3 / 9",
+          "Regula el metabolismo de las grasas y el suministro de energía."
+        ],
+        [
+          "miR-146a-5p",
+          "miARN de sobrecarga",
+          "Regulación de la inflamación bajo esfuerzo",
+          "2 / 9",
+          "Regula las vías de señalización inflamatoria bajo carga de entrenamiento."
+        ]
+      ],
+      "id": "uebersicht"
+    },
+    {
+      "type": "callout",
+      "title": "El marcador clave",
+      "text": "Con 2/9, miR-146a-5p es el valor individual más bajo y está presente en cuatro de las siete evaluaciones: nivel de carga/estrés, inflamación, riesgo de lesión y fitness cardiovascular. Por lo tanto, un solo marcador configura gran parte del panorama general.",
+      "items": [
+        "Los dos marcadores musculares miR-378a-3p y miR-101-3p están ambos en el rango verde con 7/9. La musculatura en sí no es el problema, sino la recuperación."
+      ],
+      "tone": "accent",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "markers",
+      "caption": "Sus evaluaciones",
+      "title": "Lo que tiene prioridad.",
+      "items": [
+        {
+          "name": "Nivel de carga / estrés",
+          "intro": "Basado en miR-146a-5p (2/9) y miR-20a-5p (4/9). El estrés altera la homeostasis en reposo y aumenta el gasto energético; lo importante es si la recuperación compensa la carga.",
+          "kind": "semáforo",
+          "value": 2,
+          "display": "2 / 9",
+          "sub": "Fuera de rango",
+          "tone": "red",
+          "text": "Su valor está fuera del rango óptimo, siendo el más bajo de las siete evaluaciones. Reduzca los factores estresantes cotidianos, evite la presión de tiempo, periodice su entrenamiento (1–2 días sin entrenamiento por semana, una semana de recuperación cada 2–4 semanas) y utilice técnicas de relajación como el entrenamiento autógeno o biofeedback."
+        },
+        {
+          "name": "Estado nutricional",
+          "intro": "Basado en miR-30e-3p (4/9), miR-22-5p (3/9) y miR-19b-3p (4/9). Indica requerimientos de vitaminas y micronutrientes, incluyendo vitaminas B, hierro y magnesio.",
+          "kind": "semáforo",
+          "value": 3,
+          "display": "3 / 9",
+          "sub": "Fuera de rango",
+          "tone": "red",
+          "text": "Su valor está fuera del rango óptimo. Preste especial atención a frutas, verduras y productos integrales, ricos en vitaminas B, magnesio, hierro y zinc. Magnesio proveniente de frutos secos y semillas de girasol, zinc de productos lácteos, quesos y legumbres."
+        },
+        {
+          "name": "Inflamación",
+          "intro": "Basado en cinco microARN: miR-505-3p, miR-30e-3p, miR-22-5p, miR-20a-5p y miR-146a-5p. Estos marcadores reflejan la regulación inflamatoria bajo carga de entrenamiento; al mismo tiempo, el esfuerzo físico libera hormonas del estrés.",
+          "kind": "semáforo",
+          "value": 3,
+          "display": "3 / 9",
+          "sub": "Fuera de rango",
+          "tone": "red",
+          "text": "Su valor está fuera del rango óptimo. Preste atención a la recuperación y al sueño suficiente, a la vitamina C y al zinc provenientes de frutas, verduras, brócoli y cítricos, así como a la relajación, ejercicio moderado y una dieta rica en fibra para la flora intestinal."
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "callout",
+      "title": "El denominador común",
+      "text": "Las tres evaluaciones incluyen miR-146a-5p o miR-22-5p, los dos marcadores individuales más débiles. Por lo tanto, gestionar la carga de entrenamiento y la recuperación actúa simultáneamente sobre los tres valores, no solo sobre uno.",
+      "tone": "accent",
+      "id": "hinweis-4"
+    },
+    {
+      "type": "markers",
+      "caption": "Sus evaluaciones",
+      "title": "Rendimiento y recuperación.",
+      "items": [
+        {
+          "name": "Riesgo de lesión y recuperación",
+          "intro": "Basado en cinco microARN: miR-30e-3p, miR-22-5p, miR-146a-5p, miR-20a-5p y miR-505-3p. La recuperación insuficiente aumenta el riesgo de lesión.",
+          "kind": "semáforo",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Promedio",
+          "tone": "amber",
+          "text": "Su valor está en el rango medio. Asegure fases de recuperación suficientes entre sesiones de entrenamiento y preste atención al calentamiento, estiramiento y enfriamiento. Su evaluación genética del riesgo de daño muscular en el capítulo “Tres evaluaciones genéticas adicionales” complementa este valor."
+        },
+        {
+          "name": "Aptitud cardiovascular",
+          "intro": "Basado en miR-20a-5p (4/9), miR-146a-5p (2/9) y miR-505-3p (5/9). Describe la eficiencia con la que el corazón bombea sangre y oxígeno por el cuerpo.",
+          "kind": "semáforo",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Promedio",
+          "tone": "amber",
+          "text": "Su valor está en el rango medio. Incluya entrenamiento de resistencia al menos dos veces por semana — correr, caminar rápido, ciclismo, natación o aquagym, según su nivel de fitness."
+        },
+        {
+          "name": "Estado muscular",
+          "intro": "Basado en miR-101-3p (7/9), miR-378a-3p (7/9), miR-19b-3p (4/9) y miR-30e-3p (4/9). La fuerza, potencia explosiva y resistencia dependen del estado de fatiga y recuperación muscular.",
+          "kind": "semáforo",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Promedio",
+          "tone": "amber",
+          "text": "Su valor está en el rango medio. Incluya entrenamiento de fuerza al menos dos veces por semana como rutina de cuerpo completo con pesas o peso corporal, cada vez con fase de calentamiento, enfriamiento y estiramiento."
+        },
+        {
+          "name": "Estado de hidratación",
+          "intro": "Basado en miR-101-3p (7/9) y miR-378a-3p (7/9). Las pérdidas de líquidos por sudor y respiración afectan las funciones corporales y el rendimiento.",
+          "kind": "semáforo",
+          "value": 8,
+          "display": "8 / 9",
+          "sub": "Óptimo",
+          "tone": "green",
+          "text": "Su valor está dentro del rango óptimo. Continúe asegurando al menos dos litros de líquido al día, incluso durante las sesiones de entrenamiento."
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "table",
+      "caption": "Genética · innata, determinada una vez",
+      "title": "Sus marcadores deportivos.",
+      "lead": "Cuatro variantes genéticas que complementan los valores cambiantes de microARN. Describen predisposiciones — no una evaluación ni un pronóstico de rendimiento — y se determinan solo una vez. Tipo de deporte · ACE y ACTN3: la combinación de ambas variantes determina la predisposición entre resistencia y fuerza.",
+      "cols": ["Gen", "Genotipo", "Predisposición", "Significado"],
+      "rows": [
+        [
+          "ACE",
+          "GG (homocigoto)",
+          "Tipo de fuerza",
+          "Influye en el sistema bradiquinina-aldosterona y, por tanto, en la utilización de oxígeno."
+        ],
+        [
+          "ACTN3",
+          "CT (heterocigoto)",
+          "Tipo mixto",
+          "Determina la composición de fibras musculares; la forma mixta combina fibras rápidas y lentas."
+        ]
+      ],
+      "note": "Su tipo deportivo en la escala tipo resistencia — tipo mixto — tipo fuerza: predominantemente tipo fuerza. Usted es predominantemente del tipo deporte de fuerza. Las actividades adecuadas son deportes de fuerza como halterofilia, powerlifting o culturismo.",
+      "id": "uebersicht-2"
+    },
+    {
+      "type": "table",
+      "caption": "Genética · innata, determinada una vez",
+      "title": "Tres evaluaciones genéticas adicionales.",
+      "cols": ["Gen", "Rasgo", "Escala", "Su resultado"],
+      "rows": [
+        [
+          "Gen FTO",
+          "Efecto del ejercicio sobre el peso corporal",
+          "Bajo · Moderado · Muy bueno",
+          "Muy bueno. Puede perder peso de forma muy efectiva mediante el ejercicio; la actividad física es una palanca particularmente eficaz para usted."
+        ],
+        [
+          "Gen BDNF",
+          "Motivación para hacer ejercicio",
+          "Baja · Moderada · Alta",
+          "No hay una motivación elevada. Las citas fijas, compañeros de entrenamiento o formatos de clase ayudan más que las buenas intenciones."
+        ],
+        [
+          "Gen ACTN3",
+          "Riesgo de daño muscular",
+          "Baja · Moderada · Alta",
+          "Ligeramente elevado. Preste especial atención al calentamiento y al enfriamiento o estiramiento posterior."
+        ]
+      ],
+      "note": "Las escalas de estas cuatro evaluaciones indican una posición entre dos polos, no un semáforo: un tipo deportivo no es ni bueno ni malo. Las variantes genéticas se determinan una sola vez y permanecen sin cambios durante toda la vida.",
+      "id": "uebersicht-3"
+    },
+    {
+      "type": "radar",
+      "caption": "Dónde se encuentra",
+      "title": "Hábitos nutricionales y de estilo de vida.",
+      "lead": "El gráfico radar muestra qué tan cercanos están sus hábitos actuales a los valores de referencia científicos. Cuanto más alejado esté un factor, más favorable — 10 es óptimo.",
+      "axes": [
+        "Actividad diaria",
+        "Ejercicio",
+        "Estrés",
+        "Tabaco",
+        "Alcohol",
+        "Aperitivos",
+        "Carne",
+        "Omega-3",
+        "Fibra",
+        "Frutas/verduras",
+        "Líquidos"
+      ],
+      "scores": [
+        {
+          "value": "4 de 10",
+          "label": "Estrés",
+          "text": "El factor más débil en su autoevaluación. Coincide con su valor de laboratorio más bajo (nivel de carga/estrés 2/9); ambos apuntan en la misma dirección."
+        },
+        {
+          "value": "5 cada uno",
+          "label": "Aperitivos y carne",
+          "text": "Ambos en rango medio: los dos factores dietéticos con mayor margen de mejora, en línea con el estado nutricional de 3/9."
+        },
+        {
+          "value": "9 · 8 · 8",
+          "label": "Tabaco · Frutas/verduras · Líquidos",
+          "text": "Claramente por encima del promedio. El valor de líquidos es coherente con su buen estado de hidratación (8/9)."
+        }
+      ],
+      "note": "Una evaluación de su situación basada en su autoevaluación, no un diagnóstico individual. En caso de enfermedad o durante etapas especiales de la vida, por favor, cualquier cambio dietético importante debe ser supervisado por un médico.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Todas las recomendaciones de un vistazo",
+      "title": "Sus intervenciones.",
+      "lead": "Cada recomendación se asigna al marcador microARN del que deriva, junto con el valor actual de dicho marcador. Ordenadas por urgencia: primero los marcadores más débiles.",
+      "cols": ["Sustancia activa", "Del marcador", "Fuente", "Cantidad", "Nota"],
+      "rows": [
+        [
+          "Kaempferol",
+          "miR-146a-5p · 2",
+          "Uvas rojas, pomelo, brócoli, coles de Bruselas, patatas, cebollas, calabaza",
+          "200–600 mg de extracto/día",
+          "Como extracto — difícil de alcanzar en esta cantidad solo con la dieta"
+        ],
+        [
+          "Vitamina D3",
+          "miR-146a-5p · 2",
+          "Aceite de hígado de bacalao, arenque, salmón, sardina, atún, caballa, huevo de gallina",
+          "tras evaluación médica de los niveles de vitamina D",
+          "Liposoluble — mejor tomar con aceite y comida"
+        ],
+        [
+          "Resveratrol",
+          "miR-146a-5p · 2, miR-19b-3p · 4, miR-378a-3p · 7",
+          "Piel de uvas, frambuesas, arándanos rojos, grosellas, fresas",
+          "150 mg de trans-resveratrol/día",
+          "Difícil de alcanzar en esta cantidad solo con la dieta"
+        ],
+        [
+          "Capsaicina",
+          "miR-22-5p · 3",
+          "Pimientos y chiles",
+          "0,8–1,5 mg/día (o 1 g de chile en polvo)",
+          "Liposoluble — mejor tomar junto con aceite"
+        ],
+        [
+          "Proantocianidina",
+          "miR-30e-3p · 4",
+          "Saúcos, arándanos, moras silvestres, escaramujos, semillas de uva",
+          "36 mg/día",
+          "La piel, el corazón y las semillas contienen cantidades elevadas"
+        ],
+        [
+          "Selenio",
+          "miR-30e-3p · 4",
+          "Carne, pescado, huevos, lácteos y cereales",
+          "60–75 µg/día",
+          "Contribuye a la protección de las células frente al estrés oxidativo"
+        ],
+        [
+          "Genisteína",
+          "miR-20a-5p · 4",
+          "Soja, frijoles rojos, garbanzos, chocolate negro",
+          "40–80 mg de extracto de trébol rojo/día",
+          "Más concentrado como extracto que en polvo"
+        ],
+        [
+          "Cúrcuma",
+          "miR-19b-3p · 4",
+          "Cúrcuma",
+          "máx. 300 mg/día (5–10 g de polvo)",
+          "Con pimienta negra y aceite; no durante el embarazo ni con cálculos biliares"
+        ],
+        [
+          "Quercetina",
+          "miR-505-3p · 5, miR-19b-3p · 4",
+          "Cebolla, alcaparras, levístico, cebollino",
+          "mín. 200 mg/día",
+          "Sensibles al calor — no calentar fuertemente"
+        ],
+        [
+          "EGCG (té verde)",
+          "miR-505-3p · 5",
+          "Té no fermentado (té blanco y verde)",
+          "máx. 800 mg/día (1 taza ≈ 165 mg)",
+          "La piperina, la vitamina C y el aceite de pescado mejoran la biodisponibilidad"
+        ],
+        [
+          "Sulforafano",
+          "miR-505-3p · 5",
+          "Verduras crucíferas, col, brócoli (brotes)",
+          "25 mg/día (250 g de brócoli)",
+          "Cocer al vapor solo brevemente o comer crudo; de lo contrario, se pierde la sustancia activa"
+        ],
+        [
+          "Betaína",
+          "miR-378a-3p · 7",
+          "Quinoa, quínoa blanca, brócoli, espinacas, remolacha",
+          "500–2.000 mg/día",
+          "Parcialmente sintetizada por el propio cuerpo"
+        ],
+        [
+          "Zinc",
+          "miR-101-3p · 7",
+          "Carne, productos lácteos, productos integrales",
+          "7–16 mg/día",
+          "Una ingesta alta de fitatos inhibe la absorción"
+        ]
+      ],
+      "note": "Por favor, revise los suplementos alimenticios individualmente y en consulta con un profesional cualificado — especialmente durante el embarazo, con condiciones preexistentes o cuando se toman medicamentos simultáneamente. Esta visión general no sustituye el consejo médico.",
+      "id": "uebersicht-4"
+    },
+    {
+      "type": "trend",
+      "caption": "Tendencia",
+      "title": "Dos mediciones comparadas.",
+      "lead": "Una comparación de sus dos mediciones hasta la fecha. Solo se muestran valores medidos — no una previsión.",
+      "firstLabel": "20.11.2025",
+      "secondLabel": "18.02.2026",
+      "kind": "semáforo",
+      "items": [
+        {
+          "label": "Estado nutricional",
+          "first": 2,
+          "second": 3,
+          "firstDisplay": "2 / 9",
+          "secondDisplay": "3 / 9",
+          "delta": "+1",
+          "tone": "red",
+          "status": "Fuera"
+        },
+        {
+          "label": "Estado de hidratación",
+          "first": 8,
+          "second": 8,
+          "firstDisplay": "8 / 9",
+          "secondDisplay": "8 / 9",
+          "delta": "±0",
+          "tone": "green",
+          "status": "Óptimo"
+        },
+        {
+          "label": "Riesgo de lesión y recuperación",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Promedio"
+        },
+        {
+          "label": "Nivel de carga / estrés",
+          "first": 3,
+          "second": 2,
+          "firstDisplay": "3 / 9",
+          "secondDisplay": "2 / 9",
+          "delta": "−1",
+          "tone": "red",
+          "status": "Fuera"
+        },
+        {
+          "label": "Aptitud cardiovascular",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Promedio"
+        },
+        {
+          "label": "Inflamación",
+          "first": 4,
+          "second": 3,
+          "firstDisplay": "4 / 9",
+          "secondDisplay": "3 / 9",
+          "delta": "−1",
+          "tone": "red",
+          "status": "Fuera"
+        },
+        {
+          "label": "Estado muscular",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Promedio"
+        }
+      ],
+      "note": "El intervalo entre las dos mediciones fue de aproximadamente tres meses. Si este intervalo es también adecuado para el próximo seguimiento lo determina el centro que le atiende.",
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "Lo que muestra la tendencia",
+      "text": "Una mejora: estado nutricional de 2 a 3 — la dirección es correcta, pero el valor aún está fuera del rango óptimo.",
+      "items": [
+        "Dos empeoramientos: nivel de carga/estrés (3 → 2) e inflamación (4 → 3). Ambos incluyen miR-146a-5p. Entre las dos mediciones, por tanto, fue el lado de la carga el que empeoró, no el del rendimiento.",
+        "Cuatro valores sin cambios: hidratación, riesgo de lesión, condición cardiovascular y estado muscular se han mantenido estables."
+      ],
+      "tone": "accent",
+      "id": "hinweis-5"
+    },
+    {
+      "type": "summary",
+      "caption": "Resumen",
+      "title": "Su enfoque: recuperación.",
+      "lead": "El perfil es inusualmente claro. Los marcadores musculares están en rango verde, los de carga e inflamación en rojo — y ambos empeoramientos desde la primera medición están en el mismo lado.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Controle su carga antes de entrenar más",
+          "text": "El marcador individual más débil, miR-146a-5p (2/9), influye en cuatro de las siete evaluaciones. Exactamente dos de ellas — nivel de carga/estrés e inflamación — han empeorado desde noviembre. Mientras este valor se mantenga alto, el entrenamiento adicional actúa en su contra en lugar de a favor. Específicamente: uno a dos días sin entrenamiento por semana, una semana de recuperación cada dos a cuatro semanas, técnicas de relajación en la vida cotidiana. Además, kaempferol y vitamina D3 de la lista de intervenciones."
+        },
+        {
+          "num": "02",
+          "title": "Micronutrientes provenientes de los alimentos, no de suplementos",
+          "text": "El estado nutricional (3/9) ha mejorado de 2 a 3 — la dirección es correcta. En el radar de estilo de vida, los snacks y la carne (5 de 10 cada uno) son las dos palancas con mayor margen de mejora. Enfóquese en frutas, verduras y cereales integrales para obtener vitaminas del grupo B, magnesio, hierro y zinc."
+        }
+      ],
+      "keepTitle": "Mantener",
+      "keepText": "El estado de hidratación (8/9) se ha mantenido estable desde la primera medición y coincide con su valor del radar para líquidos (8/10). Los dos marcadores musculares también están en rango verde con 7/9 cada uno — la musculatura no es el problema. Genéticamente, su gen FTO sugiere que la actividad física tiene un efecto particularmente fuerte sobre su peso corporal.",
+      "controlTitle": "Seguimiento y próximo paso",
+      "controlItems": [
+        "El intervalo hasta la próxima medición de seguimiento lo determina el centro que le atiende. Sus dos mediciones previas estuvieron separadas por aproximadamente tres meses.",
+        "Las cuatro variantes genéticas permanecen sin cambios y no se repiten.",
+        "Para mantener la comparabilidad, la toma de muestra, la hora del día y el intervalo desde la última sesión de entrenamiento deberían mantenerse similares."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "¿Preguntas sobre su informe?",
+      "text": "Discuta los resultados con el centro que realizó la toma de muestra. Allí se dispone del contexto de entrenamiento y salud necesario para interpretarlos.",
+      "columns": [
+        {
+          "k": "Contacto",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribución",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburgo"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Informe de muestra",
+          "text": "Todos los valores, genotipos y datos personales en este documento son ficticios y sirven únicamente para ilustrar el formato del informe. Este no es un informe real."
+        },
+        {
+          "title": "Interpretación",
+          "text": "Este informe no es un diagnóstico ni sustituye el consejo médico, un examen de medicina deportiva o un diagnóstico de rendimiento. Los valores de microARN describen una instantánea en el tiempo; las variantes genéticas describen predisposiciones, no enfermedades ni un pronóstico de rendimiento."
+        },
+        {
+          "title": "Estado de los análisis",
+          "text": "Los análisis son servicios de laboratorio proporcionados por nuestro socio colaborador y no son dispositivos de diagnóstico in vitro con marcado CE. Sirven para consulta y seguimiento y no sustituyen el diagnóstico clínico. Los análisis se suministran únicamente a usuarios profesionales."
+        },
+        {
+          "title": "Marco legal",
+          "text": "Las pruebas genéticas están sujetas a la Ley Alemana de Diagnóstico Genético (GenDG); se requiere información y consentimiento escrito antes de la toma de muestra. Las pruebas genéticas predictivas solo pueden realizarse bajo la responsabilidad de médicos debidamente cualificados; debe ofrecerse asesoramiento genético antes y después de la prueba (Secciones 7 y 10 GenDG). El análisis de laboratorio lo realiza nuestro socio colaborador. Polaris Diagnostics Europe GmbH es responsable de la distribución y soporte. Por favor, revise los suplementos alimenticios individualmente y en consulta con un profesional cualificado."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Actualizado en: agosto de 2026",
+      "id": "kontakt"
+    }
+  ]
+}

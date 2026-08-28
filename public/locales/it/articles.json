@@ -541,10 +541,20 @@
     "vc_category_label": "Categoria",
     "vc_date_label": "Pubblicato",
     "primary_cta": "Vedi il servizio corrispondente",
+    "related_services": "Diagnostica correlata",
     "longread": "Approfondimento",
     "cta_title": "Calcola il tuo potenziale di risparmio.",
     "cta_subtitle": "Calcolatore ROI o consulenza — in meno di un minuto.",
     "cta_secondary": "Calcolatore ROI",
     "read_time": "{{minutes}} min di lettura"
+  },
+  "ui": {
+    "home": "Home",
+    "articles": "Articoli",
+    "articleNotFound": "Articolo non trovato",
+    "backToArticles": "Torna alla panoramica",
+    "readMore": "Leggi di più",
+    "needHelp": "Hai bisogno di aiuto per scegliere un prodotto?",
+    "contactText": "Il nostro team medico è disponibile 24/7 per rispondere a domande urgenti e aiutarti a decidere cosa fare dopo."
   }
 }

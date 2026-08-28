@@ -24,6 +24,12 @@
   "cta_title": "Non trovi un documento?",
   "cta_text": "Il nostro team può fornirti ulteriori schede tecniche, certificati o una consulenza di prodotto personalizzata.",
   "cta_button": "Richiedi un preventivo",
+  "assetLanguage": { "pdf": "PDF in {{language}}", "zip": "ZIP con documenti in {{language}}", "languages": { "de": "tedesco", "en": "inglese" } },
+  "assets": {
+    "igloo": { "title": "Depliant del sistema IglooPro", "description": "Depliant di prodotto in tedesco sul lettore point-of-care IglooPro." },
+    "vitd3De": { "title": "Depliant dello spray Vitamin D3+K2", "description": "Depliant di prodotto in tedesco con uso e caratteristiche." },
+    "vitd3En": { "title": "Depliant dello spray Vitamin D3+K2", "description": "Depliant di prodotto in inglese con uso e caratteristiche." }
+  },
   "seo": {
     "title": "Download: flyer IglooPro e Vitamina D3+K2",
     "description": "Scarica gratis in PDF i flyer dell'IglooPro POC reader e dello spray Vitamina D3+K2, senza registrazione. Schede tecniche disponibili su richiesta."

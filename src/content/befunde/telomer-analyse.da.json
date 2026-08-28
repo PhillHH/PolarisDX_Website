@@ -1,0 +1,362 @@
+{
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Prøverapport · Eksempeldata",
+      "panel": "Telomere Analysis",
+      "subtitle": "Din cellulære reserve",
+      "claim": "Telomerer er de beskyttende hætter for enderne af dine kromosomer. Deres længde betragtes som en markør for kumulativ cellulær belastning og regenerativ kapacitet — målt ud fra en dråbe kapillærblod.",
+      "meta": [
+        {
+          "k": "Rapport for",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Prøvetagning",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Materiale",
+          "v": "Tørret bloddråbe-kort"
+        },
+        {
+          "k": "Metode",
+          "v": "qPCR, relativ"
+        }
+      ],
+      "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+      "id": "deckblatt",
+      "benefit": "Hvor din klients cellulære reserve står — og hvad i hverdagen påvirker den."
+    },
+    {
+      "type": "principle",
+      "caption": "Princippet",
+      "title": "Dine telomerer. Din cellulære reserve.",
+      "lead": "Telomerer stabiliserer DNA ved hver celledeling og forhindrer tab af genetisk information. Ved hver deling bliver de en smule kortere. Hvis de falder under en kritisk længde, mister cellerne evnen til at dele sig eller går i senescens — en central drivkraft for biologisk aldring.",
+      "cards": [
+        {
+          "title": "Beskyttelse",
+          "text": "Hvor stabilt dit DNA er beskyttet, og hvor effektivt reparationsmekanismerne fungerer."
+        },
+        {
+          "title": "Regenerering",
+          "text": "Hvor meget delingsreserve dine celler bevarer, og hvor modstandsdygtigt dit væv forbliver."
+        },
+        {
+          "title": "Kontekst",
+          "text": "Hvordan din telomerlængde sammenlignes med en alders- og kønsmatchende referencegruppe."
+        }
+      ],
+      "flowTitle": "Processen",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Måling",
+          "text": "Tørret bloddråbe på kort, fingerspids. Telomerlængde som relativ kvantificering ved qPCR. Ingen faste nødvendig."
+        },
+        {
+          "num": "02",
+          "title": "Sæt i kontekst",
+          "text": "Sammenligning med en alders- og kønsmatchende referencegruppe. 112 kbp svarer til referenceværdien (100 %)."
+        },
+        {
+          "num": "03",
+          "title": "Ændring",
+          "text": "Telomerer kan ikke forlænges isoleret. Det, der betyder noget, er at bremse de processer, der fremskynder deres forkortelse."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Hvor robust er denne værdi?",
+      "text": "Måling af telomerlængde ved qPCR varierer betydeligt — både mellem individuelle målinger og mellem laboratorier. DNA-ekstraktion, opbevaring og sammensætningen af blodceller påvirker systematisk resultatet. Fra tørret blod er denne variation større end fra venøst blod. Til diagnostiske formål anses flow-FISH for at være den overlegne metode.",
+      "items": [
+        "Hvad dette betyder i praksis: en afvigelse på få procent fra referenceværdien er af samme størrelsesorden som målevariationen og er ikke meningsfuld i sig selv. Analysen bliver først robust ved flere målinger under samme betingelser — samme laboratorium, samme materiale, sammenlignelig prøveudtagning.",
+        "Telomerlængde er en markør for kumulativ cellulær belastning. Det er ikke en diagnose, ikke en udtalelse om forventet levetid og ikke et mål for individuel sygdomsrisiko."
+      ],
+      "tone": "accent",
+      "id": "hinweis"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Dit resultat",
+      "title": "Din telomerlængde.",
+      "lead": "Telomerlængde · cellulær stabilitet. Relativ kvantificering mod referenceværdien på 112 kbp (= 100 %).",
+      "display": "108 kbp",
+      "sub": "96 % af referencen",
+      "kind": "procent",
+      "value": 96,
+      "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+      "tone": "amber",
+      "text": "Din telomerlængde er 4 % under den forventede værdi for din alder. Dette giver en telomerbaseret biologisk alder på 53 år, fem år over din kronologiske alder. Til sammenligning: en afvigelse på 4 % er af samme størrelsesorden som variationen, der ses ved qPCR-målinger fra tørret blod mellem målinger. Værdien bør derfor læses som et udgangspunkt for tendensen, ikke som en præcis enkeltbestemmelse.",
+      "id": "ergebnis"
+    },
+    {
+      "type": "ageDots",
+      "caption": "Biologisk versus kronologisk",
+      "title": "Telomeralder",
+      "chronological": 48,
+      "min": 35,
+      "max": 60,
+      "unit": "år",
+      "ticks": ["35", "40", "45", "50", "55", "60"],
+      "note": "48 år (kronologisk alder)",
+      "items": [
+        {
+          "label": "Telomeralder",
+          "age": 53,
+          "delta": "+5",
+          "display": "53 yrs · +5 years",
+          "tone": "red"
+        }
+      ],
+      "id": "biologisches-alter"
+    },
+    {
+      "type": "radar",
+      "caption": "Hvor du står",
+      "title": "Kost- og livsstilsvaner.",
+      "lead": "Radardiagrammet viser, hvor tæt dine nuværende vaner er på referenceværdierne. Jo længere ude en faktor ligger, desto mere gunstig — 10 er optimalt.",
+      "axes": [
+        "Daglig aktivitet",
+        "Motion",
+        "Stress",
+        "Tobak",
+        "Alkohol",
+        "Snacks",
+        "Kød",
+        "Omega-3",
+        "Fibre",
+        "Frugt/grønt",
+        "Væskeindtag"
+      ],
+      "seriesLabels": {
+        "profile": "Din profil",
+        "reference": "Referencegruppe"
+      },
+      "scores": [
+        {
+          "value": "72 / 100",
+          "label": "Kost",
+          "text": "God næringskombination, plads til forbedring i detaljerne.",
+          "ref": "Reference: ≥ 60"
+        },
+        {
+          "value": "65 / 100",
+          "label": "Livsstil",
+          "text": "Balanceret, med plads til mere motion og stressreduktion.",
+          "ref": "Reference: ≥ 60"
+        }
+      ],
+      "noticeTitle": "Relation til telomerlængde",
+      "notices": [
+        "Ikke-rygning (tobak 9 ud af 10) er den faktor med den stærkeste dokumenterede relation til telomerlængde — og i dit tilfælde allerede godt over gennemsnittet.",
+        "Stress (4 ud af 10) er din svageste livsstilsfaktor og det område med størst forbedringspotentiale.",
+        "Motion (7) og daglig aktivitet (6) har plads til forbedring; regelmæssig fysisk aktivitet er blandt de tiltag med dokumenteret relation til telomerbiologi."
+      ],
+      "note": "Vurdering baseret på dine egne selvrapporterede oplysninger, ikke en individuel diagnose. De nævnte sammenhænge er gruppefund fra litteraturen, ikke en forudsigelse for det enkelte tilfælde.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Alle anbefalinger samlet",
+      "title": "Dine tiltag.",
+      "lead": "Telomerer kan ikke forlænges bevidst. Alle tiltag sigter mod at bremse de processer, der fremskynder deres forkortelse — oxidativ belastning og nedsat metylering.",
+      "cols": ["Måling", "Kilde", "Mængde", "Bemærkning"],
+      "rows": [
+        [
+          "Livsstil",
+          "Undgå rygning, moderat alkoholforbrug, regelmæssig motion",
+          "150 min/uge",
+          "Den største påviselige påvirkningsfaktor på telomerlængde"
+        ],
+        [
+          "Folsyre",
+          "Grønne bladgrøntsager, spinat, grønkål, tomat, bælgfrugter, spirer",
+          "2 portioner/dag",
+          "Rå eller let dampede — varmesensitive. Om nødvendigt 2 måneder som methylfolat (5-MTHF)"
+        ],
+        ["Riboflavin (B2)", "Spirer, skud, ost", "dagligt", "Kofaktor for methylation"],
+        [
+          "Cobalamin (B12)",
+          "Æg, ost, fermenterede fødevarer",
+          "4 µg/dag",
+          "Specifikt tilskud ved vegansk kost"
+        ],
+        [
+          "Pyridoxin (B6)",
+          "Kål, grønne bønner, linser, bananer, hvedekim",
+          "1,5–2,0 mg/dag",
+          "Vigtigt for aminosyrestofskiftet"
+        ],
+        [
+          "Methionin",
+          "Brasilianske nødder, sesam, soja, ærter, grønne bladgrøntsager",
+          "2–3 paranødder/dag",
+          "På grund af selenindholdet højst 3–4 nødder dagligt"
+        ],
+        [
+          "EGCG (grøn te)",
+          "Grøn te, matcha, sencha",
+          "300–400 mg/dag (3–4 kopper)",
+          "Antioxidant; indtag ikke direkte sammen med jernrige måltider"
+        ],
+        [
+          "Fibre",
+          "Fuldkorn, grøntsager, bælgfrugter, frø (og frøskaller)",
+          "mindst 30 g/dag",
+          "Stabiliserer blodsukker, nedsætter oxidativ belastning"
+        ]
+      ],
+      "note": "Fem af disse otte tiltag — folat, B2, B12, B6 og methionin — virker via samme metaboliske vej: metylering. Gennemgå kosttilskud individuelt og i samråd med en specialist; dette overblik erstatter ikke medicinsk rådgivning.",
+      "id": "uebersicht"
+    },
+    {
+      "type": "trend",
+      "caption": "Udvikling",
+      "title": "Det faktiske fund.",
+      "lead": "Da en enkelt værdi ikke pålideligt overvinder metodens variation, ligger informationsværdien i tendensen. Kun målte værdier vises — ingen prognose.",
+      "firstLabel": "15.03.2026",
+      "secondLabel": "15.06.2026",
+      "cols": ["Analyse", "15.03.2026", "15.06.2026", "Ændring", "Afvigelse i dag"],
+      "items": [
+        {
+          "label": "Telomeralder",
+          "first": 55,
+          "second": 53,
+          "firstDisplay": "55 år",
+          "secondDisplay": "53 år",
+          "delta": "−2 år",
+          "deviation": "+5 i forhold til kronologisk alder",
+          "tone": "green"
+        }
+      ],
+      "kind": "år",
+      "unit": "år",
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "Hvad tendensen viser",
+      "text": "Den telomerbaserede alder er faldet med to år mellem de to målinger, fra 55 til 53 — mens den kronologiske alder samtidig steg med tre måneder. Retningen er rigtig.",
+      "items": [
+        "Samtidig gælder: telomerer forlænges ikke mærkbart. En forbedring af denne størrelse skyldes derfor sandsynligvis målevariation frem for reel forlængelse. Kun en tendens, der er stabil over flere målinger, tillader en konklusion.",
+        "Der gik cirka tre måneder mellem de to målinger. Intervallet til næste kontrol fastsættes af den ansvarlige institution. For sammenlignelighed bør laboratorium, prøvemateriale og prøveudtagning forblive de samme."
+      ],
+      "tone": "accent",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "summary",
+      "caption": "Resumé",
+      "title": "To håndtag, og det ene er det største.",
+      "lead": "Otte tiltag fremgår af denne rapport. De adskiller sig betydeligt i styrken af den evidens, der ligger bag — det bør afgøre rækkefølgen, du tager dem op i.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Livsstil — faktoren med den stærkeste evidens",
+          "text": "Ifølge din rapport er ikke-rygning, moderat alkoholforbrug og regelmæssig motion de største påviselige faktorer, der påvirker telomerlængden. To af disse er allerede velkendte i dit tilfælde: tobak scorer 9 ud af 10 på radaren, alkohol 6. Mere specifikt ligger nøglen i fysisk aktivitet — motion 7 ud af 10, daglig aktivitet 6 ud af 10. Mindst 150 minutter om ugen."
+        },
+        {
+          "num": "02",
+          "title": "Methylationsnæringsstoffer",
+          "text": "Fem af de otte målte — folat, B2, B12, B6 og methionin — virker via samme metaboliske vej. I praksis betyder det: to portioner grønne bladgrøntsager dagligt (rå eller let dampede, da folat er varmefølsomt), æg eller ost for B12, 2–3 paranødder. Plus 3–4 kopper grøn te og mindst 30 g fibre."
+        }
+      ],
+      "keepTitle": "Hvad der allerede virker",
+      "keepText": "Ikke-rygning (9/10), frugt og grøntsager (8/10) samt væskeindtag (8/10) ligger klart over referencegruppen, og kostscoren på 72/100 er solid. Og tendensen peger i den rigtige retning.",
+      "controlTitle": "Forbliv realistisk",
+      "controlItems": [
+        "Telomerer kan ikke bevidst forlænges gennem kost eller livsstil. Alle tiltag sigter mod at bremse forkortelsen. Om dette afspejles i din personlige værdi, kan på grund af målevariation kun vurderes over flere målinger — ikke ud fra den næste enkeltværdi."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "science",
+      "caption": "Hvad der er dokumenteret — og hvad der ikke er",
+      "title": "Videnskabelig kontekst.",
+      "lead": "Vi har åbent sat grænserne for denne analyse, fordi en ærlig fortolkning er mere værd end et imponerende tal.",
+      "cols": ["Punkt", "Kontekst"],
+      "items": [
+        {
+          "title": "Målemetode",
+          "text": "Relativ kvantificering ved qPCR"
+        },
+        {
+          "title": "Variation",
+          "text": "Betydelig — mellem målekørsler og mellem laboratorier"
+        },
+        {
+          "title": "Påvirkningsfaktorer",
+          "text": "DNA-ekstraktion, opbevaring og cellekomposition har en systematisk effekt"
+        },
+        {
+          "title": "Prøvemateriale",
+          "text": "Større variation fra tørret blod end fra venøst blod"
+        },
+        {
+          "title": "Til diagnostiske spørgsmål",
+          "text": "Flow-FISH anses for at være den overlegne metode"
+        },
+        {
+          "title": "Hvad analysen egner sig til",
+          "text": "Som rådgivnings- og trendværktøj: den sætter cellulær belastning på dagsordenen, skaber en konkret anledning til handling og giver gennem gentagne målinger under samme betingelser en trendlinje."
+        },
+        {
+          "title": "Hvad den ikke egner sig til",
+          "text": "Som diagnostik, som udsagn om forventet levetid eller individuel sygdomsrisiko — og som præcis enkeltbestemmelse, så længe afvigelsen er af samme størrelsesorden som målevariationen."
+        }
+      ],
+      "note": "Kilder til metodologi: Lin et al., PMC6363640 (qPCR telomermåling, kritiske faktorer); Olivieri et al., Mech Ageing Dev 2012. Dette dokument erstatter ikke en medicinsk vurdering og udgør ikke noget helbredelsesløfte i henhold til den tyske lov om reklame for terapeutiske produkter (Heilmittelwerbegesetz).",
+      "id": "einordnung"
+    },
+    {
+      "type": "callout",
+      "title": "Det underliggende princip",
+      "text": "Trenden har vægt, enkeltværdien har ikke. En indledende og en opfølgende måling under samme betingelser er den egentlige fordel ved denne analyse.",
+      "items": [
+        "For sammenlignelighed skal laboratorium, prøvemateriale og prøveudtagning forblive de samme — skift af laboratorium betyder, at to værdier ikke længere er sammenlignelige."
+      ],
+      "tone": "neutral",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "contact",
+      "title": "Spørgsmål om din rapport?",
+      "text": "Diskuter resultaterne med den institution, der har foretaget prøveudtagningen. Det er dér, den nødvendige kontekst til fortolkning findes.",
+      "columns": [
+        {
+          "k": "Kontakt",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribution",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Prøverapport",
+          "text": "Alle værdier og personlige oplysninger i dette dokument er fiktive og tjener udelukkende til at illustrere rapportformatet. Dette er ikke en ægte rapport."
+        },
+        {
+          "title": "Fortolkning",
+          "text": "Telomerlængde bestemmes ved qPCR som en relativ værdi. Denne metode varierer betydeligt mellem målekørsler og mellem laboratorier; variationen er større fra tørret blod end fra venøst blod. Rapporten er ikke en diagnose, ikke et udsagn om forventet levetid og ikke et mål for individuel sygdomsrisiko. Oplysningens værdi opstår kun over flere målinger under samme betingelser."
+        },
+        {
+          "title": "Status for analyserne",
+          "text": "Analyserne er laboratorietjenester leveret af vores samarbejdspartner og er ikke CE-mærkede in vitro-diagnostiske medicinsk udstyr. De tjener til rådgivning og overvågning og erstatter ikke klinisk diagnostik. Analyserne leveres kun til professionelle brugere."
+        },
+        {
+          "title": "Lovgivningsmæssigt grundlag",
+          "text": "Dette panel vurderer ingen genotyper; det måler epigenetiske markører. Hvor en analyse i porteføljen inkluderer genetisk testning, kræves information og skriftligt samtykke før prøveudtagning, og det må kun arrangeres under medicinsk ansvar (tysk lov om genetisk diagnostik). Laboratorieanalysen udføres af vores samarbejdspartner. Polaris Diagnostics Europe GmbH er ansvarlig for distribution og support. Vær venlig at gennemgå kosttilskud individuelt og i samråd med en specialist. Dette dokument udgør ikke noget helbredelsesløfte i henhold til den tyske lov om reklame for terapeutiske produkter (Heilmittelwerbegesetz)."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Pr. august 2026",
+      "id": "kontakt"
+    }
+  ],
+  "panel": "Telomere Analysis",
+  "slug": "telomer-analyse"
+}

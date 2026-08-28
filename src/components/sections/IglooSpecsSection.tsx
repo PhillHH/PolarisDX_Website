@@ -26,9 +26,7 @@ const IglooSpecsSection = () => {
       <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-24">
         <div className="mb-14 text-center">
           <Eyebrow>{t('specs.eyebrow', 'TECHNISCHE DATEN')}</Eyebrow>
-          <h2 className="mt-3 text-3xl lg:text-[42px] font-medium tracking-tight text-heading">
-            {t('specs.headline', 'Die Specs, die zählen')}
-          </h2>
+          <h2 className="mt-3 t-h2">{t('specs.headline', 'Die Specs, die zählen')}</h2>
           <p className="mt-4 max-w-2xl mx-auto text-gray-700">{t('specs.subtitle')}</p>
         </div>
 
@@ -80,6 +78,7 @@ const IglooSpecsSection = () => {
               href={IglooProFlyer}
               target="_blank"
               rel="noopener noreferrer"
+              hrefLang="de"
               className="mt-8 block rounded-md bg-accent-strong px-5 py-3 text-center font-medium text-white hover:brightness-110"
             >
               {t('specs.highlights.datasheet', 'Datenblatt (PDF)')}

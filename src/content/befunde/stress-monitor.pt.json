@@ -1,0 +1,578 @@
+{
+  "slug": "stress-monitor",
+  "panel": "Stress Monitor",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Relatório de amostra · Dados de exemplo",
+      "panel": "Stress Monitor",
+      "subtitle": "A sua regulação do stress",
+      "claim": "O que é medido não é o stress em si, mas quão bem o seu corpo o regula. Seis microRNAs a partir de uma única gota de sangue capilar dão uma visão do controlo celular da sua resposta ao stress.",
+      "meta": [
+        {
+          "k": "Relatório para",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Colheita da amostra",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Material",
+          "v": "Cartão de gota de sangue seco"
+        },
+        {
+          "k": "Âmbito",
+          "v": "6 microRNAs"
+        }
+      ],
+      "id": "deckblatt",
+      "benefit": "Como o corpo do seu cliente lida com o stress — e o que pode mudar."
+    },
+    {
+      "type": "principle",
+      "caption": "O princípio",
+      "title": "A sua regulação do stress. Não o seu nível de stress.",
+      "lead": "O stress não é uma quantidade única, mas uma rede de processos neuroendócrinos, imunológicos e metabólicos — controlados, entre outros, pelo eixo HPA, vias de sinalização inflamatória e adaptações mitocondriais. São analisados seis microRNAs: pequenas moléculas de RNA não codificante que ajudam a determinar quais os genes efetivamente lidos em condições de stress.",
+      "cards": [
+        {
+          "title": "Agudo & crónico",
+          "text": "Como está a correr atualmente a sua resposta ao stress e se está a surgir uma carga duradoura."
+        },
+        {
+          "title": "Regulação celular",
+          "text": "Quão bem o seu corpo equilibra os sinais de stress ao nível celular."
+        },
+        {
+          "title": "Regulação a longo prazo",
+          "text": "Como a regulação se manifesta a longo prazo — um bom nível atual de stress por si só não diz nada sobre isso."
+        }
+      ],
+      "flowTitle": "O processo",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Medida",
+          "text": "Cartão de gota de sangue seco, ponta do dedo. Seis microRNAs, normalizados ao gene de referência miR-24-3p. Não é necessário jejum."
+        },
+        {
+          "num": "02",
+          "title": "Avaliar",
+          "text": "Duas avaliações no semáforo 1–9: nível fisiológico de stress e regulação a longo prazo."
+        },
+        {
+          "num": "03",
+          "title": "Regular",
+          "text": "Recomendações direcionadas sobre compostos bioativos de origem vegetal e monitorização de acompanhamento ao longo do tempo."
+        }
+      ],
+      "scaleTitle": "Como ler a escala?",
+      "scaleLead": "Ambas as avaliações e todos os seis marcadores individuais são apresentados no semáforo 1–9. Quanto maior, melhor: 1–3 vermelho, 4–6 âmbar, 7–9 verde. Cada uma das duas avaliações tem ainda a sua própria rotulagem de zona.",
+      "scaleKind": "traffic",
+      "scaleTicks": ["1", "3", "5", "7", "9"],
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "1–3 · Vermelho",
+          "text": "Prioridade máxima."
+        },
+        {
+          "tone": "amber",
+          "label": "4–6 · Âmbar",
+          "text": "Tomar medidas direcionadas."
+        },
+        {
+          "tone": "green",
+          "label": "7–9 · Verde",
+          "text": "Manter o resultado."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Importante",
+      "text": "Este relatório não é um diagnóstico e não substitui aconselhamento médico ou psicoterapêutico. Se a tensão, exaustão ou problemas de sono persistirem, por favor procure aconselhamento médico.",
+      "items": [
+        "Os seis valores de microRNA descrevem um instantâneo no tempo e podem ser influenciados pelo estilo de vida — o que os torna adequados para monitorização ao longo do tempo."
+      ],
+      "tone": "neutral",
+      "id": "hinweis"
+    },
+    {
+      "type": "markers",
+      "caption": "Resultados de relance",
+      "title": "As suas duas avaliações.",
+      "items": [
+        {
+          "name": "Nível de stress fisiológico",
+          "category": "Sobrecarga aguda e crónica",
+          "kind": "semáforo",
+          "value": 7,
+          "display": "7 / 9",
+          "sub": "Favorável",
+          "tone": "green",
+          "text": "O seu corpo está a lidar bem com o stress atual.",
+          "zoneLabels": ["stress crónico", "stress agudo", "sem stress"]
+        },
+        {
+          "name": "Regulação a longo prazo",
+          "category": "Quatro microRNAs de quatro níveis de regulação",
+          "kind": "semáforo",
+          "value": 4,
+          "display": "4 / 9",
+          "sub": "Limitada",
+          "tone": "amber",
+          "text": "Regulação limitada ao nível mais lento.",
+          "zoneLabels": ["regulação fraca", "regulação moderada", "regulação estável"]
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "resultTable",
+      "caption": "Os seis marcadores individuais",
+      "title": "Todos os microRNAs de relance.",
+      "cols": ["microRNA", "Designação", "Nível de regulação", "Valor", "Contribui para"],
+      "rows": [
+        {
+          "cells": [
+            "miR-21-5p",
+            "Indicador de proteção celular",
+            "Mecanismos celulares de proteção e adaptação",
+            "8 / 9",
+            "Regulação a longo prazo"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "let-7a-5p",
+            "Indicador de stress agudo",
+            "Regulação inflamatória basal",
+            "7 / 9",
+            "Nível de stress"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "miR-16-5p",
+            "Indicador regulador da serotonina",
+            "Regulação serotoninérgica",
+            "6 / 9",
+            "Regulação a longo prazo"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "miR-15a-5p",
+            "Indicador neuronal",
+            "Estabilidade e adaptação neuronal",
+            "5 / 9",
+            "Regulação a longo prazo"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "let-7g-5p",
+            "Indicador de stress crónico",
+            "Regulação inflamatória e metabólica",
+            "4 / 9",
+            "Nível de stress"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "miR-106b-5p",
+            "Indicador de ativação do sinal imunitário",
+            "Ativação imunológica",
+            "3 / 9",
+            "Regulação a longo prazo"
+          ],
+          "tone": "red"
+        }
+      ],
+      "note": "As duas avaliações são calculadas pelo laboratório a partir dos microRNAs que lhes estão atribuídos; não correspondem à média destes valores individuais.",
+      "id": "ergebnis"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Avaliação 01",
+      "title": "Nível de stress fisiológico.",
+      "lead": "Composta pelo indicador de stress agudo e crónico (let-7a-5p, let-7g-5p).",
+      "display": "7 / 9",
+      "sub": "Favorável",
+      "kind": "semáforo",
+      "value": 7,
+      "tone": "green",
+      "zoneLabels": ["stress crónico", "stress agudo", "sem stress"],
+      "text": "A avaliação mostra onde a sua resposta atual ao stress se situa entre “sem stress” e “stress crónico”. O seu valor está na faixa favorável — o seu corpo está a lidar bem com o stress atual. A avaliação é sempre feita no contexto dos outros marcadores.",
+      "id": "ergebnis-2"
+    },
+    {
+      "type": "markers",
+      "caption": "Avaliação 01",
+      "title": "Os dois indicadores individuais.",
+      "items": [
+        {
+          "name": "let-7a-5p",
+          "category": "Indicador de stress agudo",
+          "kind": "semáforo",
+          "value": 7,
+          "display": "7 / 9",
+          "tone": "green",
+          "text": "Parte da família let-7; regula vias de sinalização inflamatória e está envolvido em processos de stress e imunitários. O valor mais favorável dos dois."
+        },
+        {
+          "name": "let-7g-5p",
+          "category": "Indicador de stress crónico",
+          "kind": "semáforo",
+          "value": 4,
+          "display": "4 / 9",
+          "tone": "amber",
+          "text": "Regula processos inflamatórios e metabólicos que influenciam a homeostase sistémica. Marcadamente mais fraco que o indicador agudo."
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "callout",
+      "title": "O que importa aqui",
+      "text": "Os dois indicadores individuais divergem bastante: agudo 7/9, crónico 4/9. A resposta ao stress agudo está a funcionar; o nível crónico é o mais fraco dos dois.",
+      "items": [
+        "Quatro das onze recomendações — quercetina, EGCG, oleuropeína e resveratrol — atuam precisamente no indicador crónico let-7g-5p."
+      ],
+      "tone": "accent",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "table",
+      "caption": "Recomendações",
+      "title": "Compostos para a avaliação 01.",
+      "cols": ["Composto", "Do marcador", "Fonte", "Quantidade", "Nota"],
+      "rows": [
+        [
+          "Butirato",
+          "let-7a-5p · 7",
+          "Pectina (maçã, rosa mosqueta), inulina (alcachofra, chicória)",
+          "pelo menos 30 g/dia",
+          "Formado durante a fermentação da fibra prebiótica no intestino"
+        ],
+        [
+          "Quercetina",
+          "let-7g-5p · 4",
+          "Cebola, alcaparras, levístico, cebolinho",
+          "pelo menos 200 mg/dia",
+          "Sensível ao calor — consumir cru ou preparar suavemente"
+        ],
+        [
+          "EGCG",
+          "let-7g-5p · 4",
+          "Chá branco ou verde (não fermentado)",
+          "máx. 800 mg/dia",
+          "Piperina, vitamina C e óleo de peixe melhoram a biodisponibilidade"
+        ],
+        [
+          "Oleuropeína",
+          "let-7g-5p · 4",
+          "Azeitonas, folha de oliveira, óleo de argão",
+          "100 mg/dia",
+          "As folhas são 3.000 vezes mais concentradas, mas muito amargas"
+        ]
+      ],
+      "id": "uebersicht"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Avaliação 02",
+      "title": "Regulação a longo prazo.",
+      "lead": "Calculada a partir de quatro microRNAs: miR-16-5p, miR-15a-5p, miR-106b-5p e miR-21-5p.",
+      "display": "4 / 9",
+      "sub": "Limitada",
+      "kind": "semáforo",
+      "value": 4,
+      "tone": "amber",
+      "zoneLabels": ["regulação fraca", "regulação moderada", "regulação estável"],
+      "text": "Ao nível agudo, a avaliação não mostra sobrecarga relacionada com o stress. O nível de regulação mais lento, por outro lado, situa-se em 4/9 na zona amarela — é o foco deste relatório e o ponto de partida para a conversa.",
+      "id": "ergebnis-3"
+    },
+    {
+      "type": "markers",
+      "caption": "Avaliação 02",
+      "title": "Os quatro microRNAs.",
+      "items": [
+        {
+          "name": "miR-106b-5p",
+          "category": "Sinal imunitário",
+          "kind": "semáforo",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red",
+          "text": "Regula as respostas imunitárias e as vias de sinalização inflamatória. O único valor individual em vermelho neste relatório; quatro das onze recomendações dirigem-se a este valor."
+        },
+        {
+          "name": "miR-15a-5p",
+          "category": "Neuronal",
+          "kind": "semáforo",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber",
+          "text": "Regula processos neuronais, apoptose e o ciclo celular; influencia a homeostase neuronal."
+        },
+        {
+          "name": "miR-16-5p",
+          "category": "Serotoninérgico",
+          "kind": "semáforo",
+          "value": 6,
+          "display": "6 / 9",
+          "tone": "amber",
+          "text": "Regula as vias de sinalização serotoninérgica e o transportador de serotonina; envolvido na plasticidade neuronal."
+        },
+        {
+          "name": "miR-21-5p",
+          "category": "Proteção celular",
+          "kind": "semáforo",
+          "value": 8,
+          "display": "8 / 9",
+          "tone": "green",
+          "text": "Regula a sobrevivência celular e a apoptose; envolvido em processos de stress e reparação. O melhor valor individual de todo o relatório."
+        }
+      ],
+      "id": "marker-3"
+    },
+    {
+      "type": "table",
+      "caption": "Recomendações",
+      "title": "Compostos para avaliação 02.",
+      "cols": ["Composto", "Do marcador", "Fonte", "Quantidade", "Nota"],
+      "rows": [
+        [
+          "Resveratrol",
+          "miR-106b-5p · 3",
+          "Casca de uva, framboesas, oxicocos, morangos",
+          "150 mg/dia",
+          "Difícil de alcançar apenas pela dieta"
+        ],
+        [
+          "Ómega-3 (AGPI)",
+          "miR-106b-5p · 3",
+          "Peixes gordos, nozes, algas, óleo de colza e linhaça",
+          "250–500 mg/dia",
+          "Manter o equilíbrio entre ómega-3 e ómega-6"
+        ],
+        [
+          "Berberina",
+          "miR-106b-5p · 3",
+          "Casca da raiz de bérberis, raiz de laranja",
+          "apenas após consulta profissional",
+          "Conhecida como chá da medicina ayurvédica"
+        ],
+        [
+          "Ácido fólico",
+          "miR-16-5p · 6",
+          "Verduras de folha verde, espinafres, couve, brócolos",
+          "300 µg/dia",
+          "O tabagismo reduz a absorção"
+        ]
+      ],
+      "id": "uebersicht-2"
+    },
+    {
+      "type": "table",
+      "caption": "Todas as recomendações de um olhar",
+      "title": "As suas intervenções.",
+      "lead": "Onze compostos, cada um atribuído ao marcador microRNA em que atua, juntamente com o valor atual desse marcador. Ordenados por urgência — os marcadores mais fracos primeiro.",
+      "cols": ["Composto", "Do marcador", "Fonte", "Quantidade", "Nota"],
+      "rows": [
+        [
+          "Resveratrol",
+          "miR-106b-5p · 3, let-7g-5p · 4, miR-15a-5p · 5",
+          "Casca de uva, framboesas, oxicocos, morangos",
+          "150 mg/dia",
+          "Difícil de alcançar em quantidade suficiente apenas pela dieta"
+        ],
+        [
+          "Berberina",
+          "miR-106b-5p · 3",
+          "Casca da raiz de bérberis, raiz de laranja",
+          "apenas após consulta profissional",
+          "Conhecida como chá da medicina ayurvédica"
+        ],
+        [
+          "Butirato",
+          "miR-106b-5p · 3, let-7a-5p · 7, miR-21-5p · 8",
+          "Pectina (maçã, rosa mosqueta), inulina (alcachofra, chicória)",
+          "pelo menos 30 g/dia",
+          "Formado durante a fermentação da fibra prebiótica no intestino"
+        ],
+        [
+          "Ómega-3 (AGPI)",
+          "miR-106b-5p · 3, miR-21-5p · 8",
+          "Peixes gordos, nozes, algas, óleo de colza e linhaça",
+          "250–500 mg/dia",
+          "Manter o equilíbrio entre ómega-3 e ómega-6"
+        ],
+        [
+          "Quercetina",
+          "let-7g-5p · 4",
+          "Cebola, alcaparras, levístico, cebolinho",
+          "pelo menos 200 mg/dia",
+          "Sensível ao calor — consumir cru ou preparar suavemente"
+        ],
+        [
+          "Oleuropeína",
+          "let-7g-5p · 4",
+          "Azeitonas, folha de oliveira, óleo de argão",
+          "100 mg/dia",
+          "As folhas são 3.000 vezes mais concentradas, mas muito amargas"
+        ],
+        [
+          "EGCG (chá verde)",
+          "let-7g-5p · 4, miR-15a-5p · 5",
+          "Chá branco ou verde (não fermentado)",
+          "máx. 800 mg/dia",
+          "Piperina, vitamina C e óleo de peixe melhoram a biodisponibilidade"
+        ],
+        [
+          "Ácido fólico",
+          "miR-16-5p · 6",
+          "Verduras de folha verde, espinafres, couve, brócolos",
+          "300 µg/dia",
+          "O tabagismo reduz a absorção"
+        ],
+        [
+          "Curcumina",
+          "miR-21-5p · 8",
+          "Cúrcuma",
+          "máx. 300 mg/dia",
+          "Consulte um médico em caso de gravidez ou pedras na vesícula"
+        ],
+        [
+          "Gingerol",
+          "miR-21-5p · 8",
+          "Raiz de gengibre",
+          "máx. 5 g/dia",
+          "Durante a gravidez, apenas após consulta"
+        ],
+        [
+          "Sulforafano",
+          "miR-21-5p · 8",
+          "Legumes crucíferos, couve, brócolos (brotos)",
+          "25 mg/dia",
+          "Melhor crus ou ligeiramente cozidos a vapor"
+        ]
+      ],
+      "note": "Por favor, analise os suplementos alimentares individualmente e em consulta com um profissional qualificado — especialmente em caso de gravidez, condições pré-existentes ou medicação concomitante. Esta visão geral não substitui aconselhamento médico.",
+      "id": "uebersicht-3"
+    },
+    {
+      "type": "trend",
+      "caption": "Tendência",
+      "title": "Comparação de duas medições.",
+      "lead": "Uma comparação das suas duas medições até à data. São apresentados apenas os valores medidos — sem prognóstico.",
+      "firstLabel": "15.03.2026",
+      "secondLabel": "15.06.2026",
+      "kind": "semáforo",
+      "items": [
+        {
+          "label": "Nível de stress fisiológico",
+          "first": 6,
+          "second": 7,
+          "firstDisplay": "6 / 9",
+          "secondDisplay": "7 / 9",
+          "delta": "+1",
+          "status": "Favorável",
+          "tone": "green"
+        },
+        {
+          "label": "Regulação a longo prazo",
+          "first": 5,
+          "second": 4,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "4 / 9",
+          "delta": "−1",
+          "status": "Limitada",
+          "tone": "amber"
+        }
+      ],
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "O que a tendência mostra",
+      "text": "As duas avaliações movem-se em direções opostas: o nível atual de stress melhorou de 6 para 7 e encontra-se agora na faixa verde. O valor da regulação a longo prazo caiu de 5 para 4 no mesmo período — e como aqui também um valor mais elevado significa regulação mais estável, isto indica que este nível piorou.",
+      "items": [
+        "Esta é a verdadeira conclusão desta medição: a tensão aguda está a ser melhor gerida, enquanto o nível regulatório a longo prazo deteriorou-se. Um bom nível de stress por si só não diz nada sobre o nível a longo prazo.",
+        "As duas medições foram feitas com cerca de três meses de intervalo. O intervalo até à próxima medição de acompanhamento é definido pela instituição responsável."
+      ],
+      "tone": "accent",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "summary",
+      "caption": "Resumo",
+      "title": "O seu foco: a visão a longo prazo.",
+      "lead": "O seu nível atual de stress é bom — e é precisamente aqui que este relatório chama a atenção: o nível que piorou é aquele que não consegue sentir.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "miR-106b-5p — o único valor individual em vermelho",
+          "text": "Com 3/9, o indicador de ativação do sinal imunitário é o valor mais fraco do relatório e contribui para a regulação a longo prazo. Quatro das onze recomendações destinam-se a ele: resveratrol, berberina, butirato e ómega-3. Em termos concretos: pelo menos 30 g de fibra diários para a formação de butirato no intestino, 250–500 mg de ómega-3 provenientes de peixes gordos, nozes ou óleo de algas, além de frutos vermelhos para o resveratrol."
+        },
+        {
+          "num": "02",
+          "title": "let-7g-5p — o nível crónico",
+          "text": "Com 4/9, o indicador de stress crónico situa-se bem abaixo do agudo (7/9) — embora a avaliação global esteja na faixa verde. O relatório não indica qual dos dois indicadores foi responsável pela melhoria de 6 para 7. Quercetina, EGCG, oleuropeína e resveratrol atuam ao nível crónico. As notas sobre preparações diferem de composto para composto — detalhes na tabela “As suas intervenções”."
+        }
+      ],
+      "keepTitle": "Manter",
+      "keepText": "miR-21-5p (8/9) e let-7a-5p (7/9) são os dois valores mais fortes — os mecanismos de proteção celular e a resposta ao stress agudo estão a funcionar bem. Curcumina, gingerol e sulforafano servem para manter aqui, não para corrigir.",
+      "controlTitle": "Seguimento e próximo passo",
+      "controlItems": [
+        "As suas duas medições até à data foram feitas com cerca de três meses de intervalo. O intervalo até ao próximo acompanhamento é definido pela instituição responsável.",
+        "Para garantir comparabilidade, a recolha da amostra e a hora do dia devem manter-se semelhantes.",
+        "Em casos de cansaço persistente, problemas de sono ou humor baixo, este relatório não substitui avaliação médica."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Dúvidas sobre o seu relatório?",
+      "text": "Discuta os resultados com a instituição que realizou a recolha da amostra. É aí que se encontra o contexto necessário para os interpretar.",
+      "columns": [
+        {
+          "k": "Contacto",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribuição",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburgo"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Relatório de amostra",
+          "text": "Todos os valores e dados pessoais neste documento são fictícios e servem apenas para ilustrar o formato do relatório. Este não é um relatório real."
+        },
+        {
+          "title": "Interpretação",
+          "text": "Este relatório não é um diagnóstico e não substitui aconselhamento médico ou psicoterapêutico. Os valores de microRNA descrevem um instantâneo da regulação celular; não são uma medida do stress percebido e não fazem qualquer afirmação sobre a presença ou desenvolvimento de uma doença. Se a tensão, exaustão, problemas de sono ou mau humor persistirem, por favor consulte um médico."
+        },
+        {
+          "title": "Estado das análises",
+          "text": "As análises são serviços laboratoriais prestados pelo nosso parceiro de cooperação e não são dispositivos médicos de diagnóstico in vitro com marcação CE. Servem para consulta e monitorização e não substituem o diagnóstico clínico. As análises são fornecidas apenas a utilizadores profissionais."
+        },
+        {
+          "title": "Enquadramento legal",
+          "text": "Este painel não avalia genótipos; mede marcadores epigenéticos. Quando uma análise do portfólio inclui testes genéticos, é necessária informação e consentimento escrito antes da recolha da amostra, e só pode ser realizada sob responsabilidade médica (Lei Alemã de Diagnóstico Genético). A análise laboratorial é realizada pelo nosso parceiro de cooperação. A Polaris Diagnostics Europe GmbH é responsável pela distribuição e suporte. Por favor, reveja suplementos alimentares individualmente e em consulta com um profissional qualificado."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Atualizado em: agosto de 2026",
+      "id": "kontakt"
+    }
+  ]
+}

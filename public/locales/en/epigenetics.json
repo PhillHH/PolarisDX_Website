@@ -703,7 +703,8 @@
     },
     "a11y": {
       "radar": "Radar chart with {{n}} factors"
-    }
+    },
+    "markersChapter": "Markers"
   },
   "consult": {
     "caption": "How this becomes a consultation",

@@ -31,6 +31,10 @@ import type { SupportedLanguage, Namespace } from './i18n'
 export interface I18nServerInstance {
   instance: ReturnType<typeof createInstance>
   language: SupportedLanguage
+  /** Namespaces, die für die Request-Locale technisch fehlten und auf EN fielen. */
+  fallbackNamespaces: readonly Namespace[]
+  /** Namespaces, die weder in der Request-Locale noch im EN-Fallback lesbar waren. */
+  missingNamespaces: readonly Namespace[]
 }
 
 // =============================================================================
@@ -65,7 +69,7 @@ function getLocalesBasePath(): string {
  * @param ns - Namespace (z.B. 'common')
  * @returns Die geladenen Übersetzungen oder ein leeres Objekt bei Fehler
  */
-function loadTranslation(lng: string, ns: string): Record<string, unknown> {
+function loadTranslation(lng: string, ns: string): Record<string, unknown> | null {
   const cacheKey = `${lng}:${ns}`
 
   // Aus Cache zurückgeben wenn vorhanden
@@ -85,31 +89,24 @@ function loadTranslation(lng: string, ns: string): Record<string, unknown> {
 
     return parsed
   } catch (error) {
-    // Fallback: Versuche englische Version
-    if (lng !== FALLBACK_LANGUAGE) {
-      console.warn(
-        `[i18n-server] Translation not found: ${filePath}, falling back to ${FALLBACK_LANGUAGE}`,
-      )
-      return loadTranslation(FALLBACK_LANGUAGE, ns)
-    }
-
-    // Kein Fallback mehr verfügbar
     console.error(`[i18n-server] Failed to load translation: ${filePath}`, error)
-    return {}
+    return null
   }
 }
 
 /**
- * Lädt alle Namespaces für eine Sprache
+ * Lädt alle vorhandenen Namespaces für eine Sprache. Fehlende Dateien werden
+ * bewusst nicht unter der angeforderten Sprache mit EN-Inhalt maskiert.
  */
-function loadAllNamespaces(lng: string): Record<Namespace, Record<string, unknown>> {
-  const resources: Record<string, Record<string, unknown>> = {}
+function loadAllNamespaces(lng: string): Partial<Record<Namespace, Record<string, unknown>>> {
+  const resources: Partial<Record<Namespace, Record<string, unknown>>> = {}
 
   for (const ns of NAMESPACES) {
-    resources[ns] = loadTranslation(lng, ns)
+    const resource = loadTranslation(lng, ns)
+    if (resource) resources[ns] = resource
   }
 
-  return resources as Record<Namespace, Record<string, unknown>>
+  return resources
 }
 
 // =============================================================================
@@ -142,8 +139,25 @@ export async function createI18nInstance(language: string): Promise<I18nServerIn
   // Normalisiere die Sprache (z.B. 'de-DE' -> 'de')
   const normalizedLang = normalizeLanguage(language)
 
-  // Lade alle Übersetzungen für die Sprache
+  // Die Request- und die defensive EN-Fallback-Sprache werden vor dem Rendern
+  // synchron und vollständig geladen. So kann i18next bei einem fehlenden Key
+  // wirklich in den EN-Bundle wechseln, statt EN-Inhalt fälschlich unter der
+  // Request-Locale zu registrieren.
   const namespaceResources = loadAllNamespaces(normalizedLang)
+  const fallbackResources =
+    normalizedLang === FALLBACK_LANGUAGE ? namespaceResources : loadAllNamespaces(FALLBACK_LANGUAGE)
+  const fallbackNamespaces = NAMESPACES.filter(
+    (namespace) => !namespaceResources[namespace] && Boolean(fallbackResources[namespace]),
+  )
+  const missingNamespaces = NAMESPACES.filter(
+    (namespace) => !namespaceResources[namespace] && !fallbackResources[namespace],
+  )
+
+  if (fallbackNamespaces.length > 0) {
+    console.warn(
+      `[i18n-server] ${normalizedLang} uses defensive ${FALLBACK_LANGUAGE} fallback for: ${fallbackNamespaces.join(', ')}`,
+    )
+  }
 
   // Erstelle eine NEUE Instanz (kein Singleton!)
   const instance = createInstance()
@@ -160,6 +174,7 @@ export async function createI18nInstance(language: string): Promise<I18nServerIn
     // Ressourcen direkt einbinden (kein HTTP Backend)
     resources: {
       [normalizedLang]: namespaceResources,
+      ...(normalizedLang === FALLBACK_LANGUAGE ? {} : { [FALLBACK_LANGUAGE]: fallbackResources }),
     },
 
     // Suspense auf Server deaktivieren
@@ -174,6 +189,8 @@ export async function createI18nInstance(language: string): Promise<I18nServerIn
   return {
     instance,
     language: normalizedLang,
+    fallbackNamespaces,
+    missingNamespaces,
   }
 }
 

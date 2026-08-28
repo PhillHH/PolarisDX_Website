@@ -7,6 +7,8 @@
  */
 
 import type { ReactNode } from 'react'
+import { useTranslation } from 'react-i18next'
+import type { TFunction } from 'i18next'
 import { Droplets, Feather, Heart, Sparkles } from 'lucide-react'
 
 import { SEOHead } from '../../components/seo'
@@ -31,98 +33,99 @@ import {
 import { OrderModalProvider, useOrderModal } from './OrderModal'
 import { PriceBadge } from './PriceBadge'
 import { useConsumerPageView } from './tracking'
+import { formatCurrency } from '../../lib/localeFormat'
 
 // Accent bars on the four ingredient cards — matches brief slide 13.
 const INGREDIENT_ACCENTS = ['teal', 'navy', 'green', 'blue'] as const
 
-const NAV = [
-  { label: 'Mask benefits', href: '#benefits' },
-  { label: 'Ingredients', href: '#ingredients' },
-  { label: 'How to use', href: '#how' },
-  { label: 'FAQ', href: '#faq' },
+const getNAV = (t: TFunction) => [
+  { label: t('mask.copy_001'), href: '#benefits' },
+  { label: t('mask.copy_002'), href: '#ingredients' },
+  { label: t('spray.copy_028'), href: '#how' },
+  { label: t('spray.copy_004'), href: '#faq' },
 ]
 
 const ICON_CLASS = 'h-6 w-6'
 
-const BENEFITS: { title: string; body: string; icon: ReactNode }[] = [
+const getBENEFITS = (t: TFunction): { title: string; body: string; icon: ReactNode }[] => [
   {
-    title: 'Hydration care',
-    body: 'A serum-soaked step that helps skin feel hydrated and cared for.',
+    title: t('mask.copy_003'),
+    body: t('mask.copy_004'),
     icon: <Droplets className={ICON_CLASS} strokeWidth={1.75} />,
   },
   {
-    title: 'Skin comfort',
-    body: 'Soothing botanicals for a calm, comfortable feel after use.',
+    title: t('mask.copy_005'),
+    body: t('mask.copy_006'),
     icon: <Heart className={ICON_CLASS} strokeWidth={1.75} />,
   },
   {
-    title: 'Softer-feeling skin',
-    body: 'Leaves skin feeling soft and supple once the serum is massaged in.',
+    title: t('mask.copy_007'),
+    body: t('mask.copy_008'),
     icon: <Feather className={ICON_CLASS} strokeWidth={1.75} />,
   },
   {
-    title: 'Refreshed appearance',
-    body: 'A simple way to give tired-looking skin a refreshed appearance.',
+    title: t('mask.copy_009'),
+    body: t('mask.copy_010'),
     icon: <Sparkles className={ICON_CLASS} strokeWidth={1.75} />,
   },
 ]
 
-const INGREDIENTS = [
+const getINGREDIENTS = (t: TFunction) => [
   {
-    title: 'Hydration-focused',
+    title: t('mask.copy_011'),
     items: ['Sodium Hyaluronate', 'Glycerin', 'Betaine', 'Trehalose', 'Propylene Glycol'],
   },
   {
-    title: 'Skin appearance',
+    title: t('mask.copy_012'),
     items: ['Niacinamide', 'Licorice Root Extract', 'Green Tea Extract', 'Soluble Collagen'],
   },
   {
-    title: 'Comfort botanicals',
+    title: t('mask.copy_013'),
     items: ['Centella Asiatica', 'Chamomile', 'Scutellaria Baicalensis', 'Rosemary Extract'],
   },
   {
-    title: 'Premium cosmetic',
+    title: t('mask.copy_014'),
     items: [
       'Palmitoyl Tripeptide-38',
       'Crithmum Maritimum Extract',
       'Hydroxypropyl Cyclodextrin',
-      'Serum-soaked 15 ml mask',
+      t('mask.serum_mask'),
     ],
   },
 ]
 
-const FAQ_ITEMS = [
+const getFAQ_ITEMS = (t: TFunction) => [
   {
-    q: 'How long should I leave it on?',
-    a: 'Apply to cleansed skin and leave for 15–30 minutes. Remove the mask and gently massage the remaining serum into the skin.',
+    q: t('mask.copy_015'),
+    a: t('mask.copy_016'),
   },
   {
-    q: 'How often can I use it?',
-    a: 'Use when your skin needs hydration or visible care. Frequency can be adjusted to your routine and skin tolerance.',
+    q: t('mask.copy_017'),
+    a: t('mask.copy_018'),
   },
   {
-    q: 'Which skin type is it for?',
-    a: 'The packaging states all skin types. It is positioned especially for dry, sensitive or mature skin. Patch test if your skin is very reactive.',
+    q: t('mask.copy_019'),
+    a: t('mask.copy_020'),
   },
   {
-    q: 'Is it scented?',
-    a: 'The formula does not include added perfume oil.',
+    q: t('mask.copy_021'),
+    a: t('mask.copy_022'),
   },
   {
-    q: 'What is in one box?',
-    a: 'One box contains 5 individually packed sheet masks. Each mask contains 15 ml of serum.',
+    q: t('mask.copy_023'),
+    a: t('mask.copy_024'),
   },
   {
-    q: 'Can I use it before an event?',
-    a: 'Yes — as a visible hydration care step before a meeting, event or evening routine. Do not use on irritated or broken skin.',
+    q: t('mask.copy_025'),
+    a: t('mask.copy_026'),
   },
   {
-    q: 'Is it cosmetic skincare?',
-    a: 'Yes. It is a cosmetic product for external use only. It is not intended to diagnose, treat or prevent skin disease.',
+    q: t('mask.copy_027'),
+    a: t('mask.copy_028'),
   },
   {
-    q: 'What is the key ingredient story?',
-    a: 'A hydration-focused base with sodium hyaluronate, glycerin, betaine and trehalose, plus niacinamide, botanicals, collagen and Palmitoyl Tripeptide-38.',
+    q: t('mask.copy_029'),
+    a: t('mask.copy_030'),
   },
 ]
 
@@ -135,54 +138,51 @@ export default function MaskPage() {
 }
 
 function MaskPageInner() {
+  const { t, i18n } = useTranslation('consumer')
+  const NAV = getNAV(t)
+  const BENEFITS = getBENEFITS(t)
+  const INGREDIENTS = getINGREDIENTS(t)
+  const FAQ_ITEMS = getFAQ_ITEMS(t)
   useConsumerPageView('masks')
   const orderModal = useOrderModal()
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-heading">
-      <SEOHead
-        title="Hydrating Hyaluronic Sheet Mask 5-Pack"
-        description="Intensive hydration for dry, sensitive or mature skin: 5 serum-soaked hyaluronic sheet masks, 15 ml each, with niacinamide and collagen. A calm 15–30 min care step."
-      />
+      <SEOHead title={t('mask.copy_031')} description={t('mask.copy_032')} />
 
-      <ConsumerHeader nav={NAV} cta={{ label: 'Buy 5-pack', href: '#order' }} page="masks" />
+      <ConsumerHeader nav={NAV} cta={{ label: t('mask.copy_033'), href: '#order' }} page="masks" />
 
       {/* 2 · HERO */}
       <Hero
         page="masks"
-        eyebrow="Hydrating Hyaluronic Mask"
-        title="Intensive hydration for skin in need of comfort and care"
-        sub="A serum-soaked sheet mask for a simple 15–30-minute skincare routine. Intensive + soothing care for all skin types."
-        primary={{ label: 'Buy 5-pack', href: '#order' }}
-        secondary={{ label: 'How to use', href: '#how' }}
+        eyebrow={t('mask.copy_034')}
+        title={t('mask.copy_035')}
+        sub={t('mask.copy_036')}
+        primary={{ label: t('mask.copy_033'), href: '#order' }}
+        secondary={{ label: t('spray.copy_028'), href: '#how' }}
         image={{
           src: maskHero,
-          alt: 'Multiple Hydrating Mask — De Legende Kosmetik box and sachet with botanicals',
+          alt: t('mask.copy_037'),
         }}
-        price={{ amount: '45 €', unit: '5-pack' }}
+        price={{ amount: formatCurrency(45, i18n.resolvedLanguage), unit: t('mask.copy_038') }}
         priceBadge={<PriceBadge product="masks" />}
-        highlights={['All skin types', 'No added perfume oil', 'External use only']}
-        floatingStat={{ value: '15 ml', label: 'serum per sheet mask' }}
+        highlights={[t('mask.copy_039'), t('mask.copy_040'), t('mask.copy_041')]}
+        floatingStat={{ value: '15 ml', label: t('mask.copy_042') }}
       />
       <FactStrip
-        items={[
-          '5 masks per box',
-          '15 ml per mask',
-          '15–30 min use',
-          'Niacinamide · hyaluronic acid · collagen · peptide · plant extracts',
-        ]}
+        items={[t('mask.copy_043'), t('mask.copy_044'), t('mask.copy_045'), t('mask.copy_046')]}
       />
 
       {/* 3 · SKIN NEED */}
       <Section
         id="skin-need"
         tone="tint"
-        eyebrow="Skin need"
-        title="For skin that is asking for a little more care."
-        lead="For skin that feels dry, tired, sensitive or simply in need of visible care — a calm, repeatable step that fits before an event or into an evening routine."
+        eyebrow={t('mask.copy_047')}
+        title={t('mask.copy_048')}
+        lead={t('mask.copy_049')}
       />
 
       {/* 4 · BENEFITS */}
-      <Section id="benefits" eyebrow="Benefits" title="What the mask step gives you">
+      <Section id="benefits" eyebrow={t('spray.copy_064')} title={t('mask.copy_050')}>
         <Grid cols={4}>
           {BENEFITS.map((b) => (
             <Card key={b.title} hover className="flex h-full flex-col">
@@ -198,9 +198,9 @@ function MaskPageInner() {
       <Section
         id="ingredients"
         tone="tint"
-        eyebrow="What is inside"
-        title="Ingredient architecture"
-        lead="A hydration-focused base, supported by skin-appearance actives, comfort botanicals and premium cosmetic ingredients."
+        eyebrow={t('spray.copy_069')}
+        title={t('mask.copy_051')}
+        lead={t('mask.copy_052')}
       >
         <Grid cols={4}>
           {INGREDIENTS.map((group, i) => (
@@ -220,67 +220,65 @@ function MaskPageInner() {
             </Card>
           ))}
         </Grid>
-        <p className="mt-8 text-center text-sm text-gray-500">
-          Helps skin feel hydrated, refreshed and cared for.
-        </p>
+        <p className="mt-8 text-center text-sm text-gray-500">{t('mask.copy_053')}</p>
       </Section>
 
       {/* 6 · HOW TO USE */}
-      <Section id="how" eyebrow="How to use" title="A simple 15–30-minute routine">
+      <Section id="how" eyebrow={t('spray.copy_028')} title={t('mask.copy_054')}>
         <Steps
           items={[
-            { title: 'Cleanse', body: 'Start with freshly cleansed skin.' },
+            { title: t('mask.copy_055'), body: t('mask.copy_056') },
             {
-              title: 'Apply the mask',
-              body: 'Unfold the sheet mask and smooth it onto the face.',
+              title: t('mask.copy_057'),
+              body: t('mask.copy_058'),
             },
             {
-              title: 'Leave 15–30 minutes',
-              body: 'Relax while the serum-soaked mask does its work.',
+              title: t('mask.copy_059'),
+              body: t('mask.copy_060'),
             },
             {
-              title: 'Remove & massage',
-              body: 'Remove the mask and gently massage the remaining serum into the skin.',
+              title: t('mask.copy_061'),
+              body: t('mask.copy_062'),
             },
           ]}
         />
       </Section>
 
       {/* 7 · WHO IT IS FOR */}
-      <Section tone="tint" eyebrow="Who it is for" title="All skin types — and especially these">
+      <Section tone="tint" eyebrow={t('spray.copy_066')} title={t('mask.copy_063')}>
         <div className="mx-auto max-w-2xl text-center">
           <div className="flex justify-center">
-            <Pills items={['All skin types', 'Dry skin', 'Sensitive skin', 'Mature skin']} />
+            <Pills
+              items={[
+                t('mask.copy_039'),
+                t('mask.copy_064'),
+                t('mask.copy_065'),
+                t('mask.copy_066'),
+              ]}
+            />
           </div>
-          <p className="mt-6 leading-relaxed text-gray-600">
-            The packaging states all skin types. It is positioned especially for dry, sensitive or
-            mature skin. Patch test first if your skin is very reactive, and do not use on irritated
-            or broken skin.
-          </p>
+          <p className="mt-6 leading-relaxed text-gray-600">{t('mask.copy_067')}</p>
         </div>
       </Section>
 
       {/* 8 · 5-PACK OFFER */}
-      <Section id="offer" eyebrow="The 5-pack" title="Five masks in one box">
+      <Section id="offer" eyebrow={t('mask.copy_068')} title={t('mask.copy_069')}>
         <Stats
           items={[
-            { value: '5', label: 'individually packed masks' },
-            { value: '15 ml', label: 'serum per mask' },
-            { value: '15–30', label: 'minutes per session' },
+            { value: '5', label: t('mask.copy_070') },
+            { value: '15 ml', label: t('mask.copy_071') },
+            { value: '15–30', label: t('mask.copy_072') },
           ]}
         />
         <div className="mx-auto mt-12 max-w-2xl text-center lg:mt-16">
-          <p className="text-lg leading-relaxed text-gray-600">
-            One folding box contains 5 individually packed 15 ml sheet masks — easy to keep on hand
-            and to reach for whenever skin needs a hydration step.
-          </p>
+          <p className="text-lg leading-relaxed text-gray-600">{t('mask.copy_073')}</p>
           <div className="mt-8">
             <CTA
               onClick={() => orderModal?.open('5-pack-offer')}
               variant="navy"
-              track={{ label: 'Buy 5-pack', page: 'masks', location: '5-pack-offer' }}
+              track={{ label: t('mask.copy_033'), page: 'masks', location: '5-pack-offer' }}
             >
-              Buy 5-pack
+              {t('mask.copy_033')}
             </CTA>
           </div>
         </div>
@@ -289,19 +287,19 @@ function MaskPageInner() {
       {/* 9 · PACKAGING MESSAGE */}
       <Section
         tone="dark"
-        eyebrow="On the packaging"
-        title="Multiple Hydrating Sheet Mask · Intensive + Soothing · All Skin Types"
-        lead="Everything you see on the box, at a glance — an intensive, soothing hydration step made for every skin type."
+        eyebrow={t('mask.copy_074')}
+        title={t('mask.copy_075')}
+        lead={t('mask.copy_076')}
       >
         <div className="flex justify-center">
           <Pills
             onDark
             items={[
-              'Intensive hydration',
-              'Soothing botanicals',
-              'All skin types',
-              '5 sheet masks',
-              '15 ml serum each',
+              t('mask.copy_077'),
+              t('mask.copy_078'),
+              t('mask.copy_039'),
+              t('mask.copy_079'),
+              t('mask.copy_080'),
             ]}
           />
         </div>
@@ -311,38 +309,38 @@ function MaskPageInner() {
       <Section
         tone="tint"
         align="left"
-        eyebrow="The other half of the routine"
-        title="Visible care from outside, daily support from within."
-        lead="The mask is the outside step. The Vitamin D3+K2 Spray is the inside step — one simple daily sublingual spray. Both come together in the Inside-Out Care Duo."
+        eyebrow={t('mask.copy_081')}
+        title={t('mask.copy_082')}
+        lead={t('mask.copy_083')}
       >
         <div className="flex flex-wrap gap-3">
           <CTA
             to="/consumer/inside-out-duo"
             variant="navy"
             track={{
-              label: 'Explore the Inside-Out Care Duo',
+              label: t('spray.copy_095'),
               page: 'masks',
               location: 'bridge',
             }}
           >
-            Explore the Inside-Out Care Duo
+            {t('spray.copy_095')}
           </CTA>
           <CTA
             to="/consumer/vitamin-d3-spray"
             variant="outline-navy"
             track={{
-              label: 'See the Vitamin D3+K2 Spray',
+              label: t('mask.copy_084'),
               page: 'masks',
               location: 'bridge',
             }}
           >
-            See the Vitamin D3+K2 Spray
+            {t('mask.copy_084')}
           </CTA>
         </div>
       </Section>
 
       {/* 10 · FAQ */}
-      <Section id="faq" eyebrow="FAQ" title="Practical questions, answered">
+      <Section id="faq" eyebrow={t('spray.copy_004')} title={t('spray.copy_096')}>
         <FAQ items={FAQ_ITEMS} />
       </Section>
 
@@ -350,19 +348,15 @@ function MaskPageInner() {
       <FinalCTA
         page="masks"
         id="order"
-        title="Order the 5-pack"
-        body="Five individually packed sheet masks for dry, sensitive or mature skin."
-        primary={{ label: 'Buy 5-pack', href: '#' }}
-        assurances={['All skin types', 'Fragrance-free formula', 'No payment on this page']}
-        note="No payment is taken on this page — sales confirms price and shipping."
+        title={t('mask.copy_085')}
+        body={t('mask.copy_086')}
+        primary={{ label: t('mask.copy_033'), href: '#' }}
+        assurances={[t('mask.copy_039'), t('mask.copy_087'), t('spray.copy_057')]}
+        note={t('spray.copy_100')}
       />
 
       {/* 11 · FOOTER */}
-      <Disclaimer>
-        The Hydrating Mask is a cosmetic product for external use only. It is not intended to
-        diagnose, treat, cure or prevent any skin disease. Avoid contact with the eyes and do not
-        use on irritated or broken skin. Discontinue use if irritation occurs.
-      </Disclaimer>
+      <Disclaimer>{t('mask.copy_088')}</Disclaimer>
 
       <Footer />
     </div>

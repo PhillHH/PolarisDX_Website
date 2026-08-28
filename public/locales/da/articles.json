@@ -1,183 +1,473 @@
 {
+  "green_practice": {
+    "title": "Den grønne praksis: Hvorfor bæredygtighed starter i venteværelset",
+    "excerpt": "Bæredygtighed i sundhedsvæsenet starter ikke med solpaneler, men med diagnostisk logistik. En opfordring til Point-of-Care.",
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Introduktion",
+        "paragraphs": [
+          "Bæredygtighed er ikke længere kun et livsstilstema. Det er en økonomisk og etisk nødvendighed, som nu har nået sundhedssektoren. Men mens der tales meget om papirløse kontorer og energibesparende belysning, overses ofte ’elefanten i rummet’ i det medicinske økologiske fodaftryk: Diagnostisk logistik. Hvorfor Point-of-Care (PoC) testning med enheder som IGLO-PRO ikke blot sparer tid, men er det afgørende skridt mod CO2-reduktion i moderne medicin.",
+          "Forestil dig en almindelig morgen i en tysk almen praksis. Klokken 11 er der taget dusinvis af blodprøver. Disse rør pakkes, forsegles i plastikposer, køles i flamingokasser og venter på kurer.",
+          "Klokken 12 ankommer en dieselvarevogn. Den har allerede besøgt ti andre praksisser og skal besøge ti mere, inden den kæmper sig tilbage til det centrale laboratorium gennem bytrafikken. Når den er fremme, starter en energikrævende analyseproces. Du modtager resultatet – i bedste fald – digitalt om aftenen, men ofte først næste dag via fax eller brev.",
+          "Denne proces er standarden. Den er bevist. Og set fra et økologisk perspektiv er den en katastrofe."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Det usynlige CO2-fodaftryk ved central diagnostik",
+        "paragraphs": [
+          "I diskussionen om ’Grøn Sundhed’ fokuserer vi ofte på åbenlyse faktorer: affaldssortering, grøn strøm eller digitale patientjournaler. Det er vigtige skridt. Men det logistiske arbejde bag en simpel blodprøve er gigantisk, når det ekstrapoleres til tusindvis af praksisser.",
+          "Hver prøve, der ikke analyseres i praksis, forårsager en kæde af emissioner:"
+        ],
+        "listItems": [
+          "Kurerkørsler: Daglige afhentninger løber op i millioner af kilometer om året, ofte i ineffektiv stop-og-kør-bytrafik.",
+          "Emballageaffald: Sikkerhedsregler kræver meget engangsplastik, køleelementer og transportemballage.",
+          "Energi: Store laboratorier er højtydende centre, der skal klimatiseres og drives døgnet rundt."
+        ]
+      },
+      {
+        "type": "infobox",
+        "heading": "Decentralisering som nøglen til bæredygtighed",
+        "content": "Enheder som IGLO-PRO fra Polaris DX markerer et paradigmeskifte. De flytter analysen fra det fjerne store laboratorium direkte til handlingens scene: til lægebordet eller direkte til patientens hjem. Den økologiske beregning er overraskende enkel: En analyse, der aldrig forlader praksis, forårsager ingen transporttrafik."
+      },
+      {
+        "type": "key_points",
+        "heading": "Når logistikken forsvinder",
+        "points": [
+          {
+            "title": "Ingen kurer",
+            "description": "Prøven bevæger sig direkte fra patientens finger ind i enheden. Afstand: 30 centimeter."
+          },
+          {
+            "title": "Intet emballageaffald",
+            "description": "Ingen transportglas, ingen etiketflod, ingen sikkerhedsposer."
+          },
+          {
+            "title": "Mikrometodologi",
+            "description": "I stedet for at behandle milliliter venøst blod er en enkelt dråbe kapillært blod tilstrækkeligt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "’Grøn Sundhed’ som konkurrencefordel",
+        "paragraphs": [
+          "Hvorfor skulle du som praksisejer eller klinikleder prioritere dette? Ud over etisk ansvar udvikler bæredygtighed sig til en reel konkurrencefordel – det såkaldte ’Green Practice’-mærke.",
+          "Patienter i dag er mere informerede og kritiske. En praksis, der ikke blot er medicinsk opdateret, men også viser ansvar for miljø og ressourcer, binder patienter mere følelsesmæssigt. Hvis du forklarer en patient: ’Vi har dit resultat på 5 minutter, og vi beskytter endda miljøet, fordi vi ikke behøver at sende kurerer gennem byen’, så er det en stærk fortælling. Det viser: Denne praksis er moderne, effektiv og ansvarlig.",
+          "Dette spiller også en rolle i 'Kampen om Talenter'. Unge medicinske assistenter (MFA) og læger i uddannelse søger arbejdsgivere, hvis værdier stemmer overens med deres egne. Meget moderne, bæredygtigt udstyr med digitale værktøjer som IGLO-PRO og DX365-forbindelse fremstår attraktivt og progressivt."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Effektivitet møder økologi: Den dobbelte gevinst",
+        "paragraphs": [
+          "Det stærkeste argument for at skifte til PoC-diagnostik er dog, at bæredygtighed her ikke betyder afkald. Tværtimod: Økologisk effektivitet fører til økonomisk effektivitet.",
+          "I den ’Grønne Praksis’ går processerne sømløst i spænd:"
+        ],
+        "listItems": [
+          "Patientforløb: Patienten kommer med symptomer.",
+          "Diagnose: Måling (fx CRP til skelnen mellem viral/bakteriel) foretages straks.",
+          "Terapi: Beslutningen træffes ved samme konsultation.",
+          "Resultat: Patienten går hjem med klarhed."
+        ]
+      },
+      {
+        "type": "text",
+        "paragraphs": [
+          "Sammenlign dette med den gamle metode: Patienten kommer -> Blodprøvetagning -> Patienten går -> Laboratoriebesøg -> Resultat kommer -> Lægen gennemgår resultat -> Praksis ringer til patient -> Patienten kommer igen til samtale.",
+          "Hver undgået anden konsultation sparer ikke kun dit personales tid i reception og telefon. Det sparer også patienten rejsen. Hvis vi undgår 100 unødvendige genbesøg pr. kvartal, har vi sparet 200 bilture (tur/retur). Det er aktiv CO2-reduktion gennem procesoptimering."
+        ]
+      },
+      {
+        "type": "infobox",
+        "heading": "Teknologien er moden",
+        "content": "I lang tid lød argumentet, at hurtigtests ikke når laboratorieværdiernes kvalitet og derfor ’kun’ er et supplement. Med den nye generation af enheder som IGLO-PRO er dette argument afvist. Vi taler om ’Laboratoriekvalitet to go’. Gennem integration i digitale økosystemer som DX365 Cloud dokumenteres data også straks sikkert."
+      },
+      {
+        "type": "text",
+        "heading": "Konklusion: Et lille stik for patienten, et stort skridt for miljøet",
+        "paragraphs": [
+          "Omstillingen af sundhedsvæsenet mod mere bæredygtighed lykkes ikke gennem én stor foranstaltning. Den lykkes gennem tusindvis af små procesændringer i lokale praksisser.",
+          "Beslutningen for mobil diagnostik er en sådan ændring. Det er en ’no-brainer’: Du sparer tid, forbedrer patientoplevelsen, aflaster dit team – og bidrager samtidig målbart til klimabeskyttelse ved at fjerne unødvendig logistik fra vejene.",
+          "’Den Grønne Praksis’ er ikke en trend, der forsvinder. Det er den nye guldstandard. Og med det rette udstyr er den lettere at nå, end du tror."
+        ]
+      }
+    ],
+    "keyStats": [
+      {
+        "value": "30%",
+        "label": "færre ture pr. resultat"
+      },
+      {
+        "value": "0 km",
+        "label": "transport med PoC"
+      },
+      {
+        "value": "200",
+        "label": "bilture sparet pr. kvartal"
+      }
+    ],
+    "seo": {
+      "title": "Grøn Praksis: Bæredygtighed starter her"
+    }
+  },
+  "invisible_patient": {
+    "title": "Den usynlige patient: Hvordan fjernovervågning frigør medicinen fra praksis",
+    "excerpt": "Patienten behøver ikke længere møde op hos lægen for at få stillet diagnosen. Hvordan IGLO-PRO og DX365 muliggør ’Hospital-at-Home’.",
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Introduktion",
+        "paragraphs": [
+          "Vi bevæger os mod en ’perfekt storm’ i sundhedsvæsenet. Et aldrende samfund møder en dramatisk lægemangel, især i landområder. Patienter tilbringer timer i bil og i fyldte venteværelser blot for at få kontrolleret rutineværdier. Men hvad hvis patienten slet ikke behøvede at komme til diagnose? Med kombinationen af mobil laboratorieteknologi og cloud-forbindelse bliver konceptet ’Hospital-at-Home’ endelig virkelighed.",
+          "Forestil dig ’Fru Müller’. Hun er 78 år, bor i en lille landsby og lider af type 2-diabetes og begyndende hjertesvigt. Hendes praktiserende læge har praksis i nabobyen – 25 kilometer væk. Til hver HbA1c-kontrol og blodtryksmåling er hun på farten en halv dag. Ofte udsætter hun aftaler, fordi belastningen er for stor. Hendes værdier forværres ubemærket. Hun bliver ’den usynlige patient’ – indtil næste akuttilfælde."
+        ]
+      },
+      {
+        "type": "infobox",
+        "heading": "Data rejser, ikke patienten",
+        "content": "Løsningen ligger i at adskille medicinsk ekspertise og fysisk tilstedeværelse. Vi kalder det Remote Patient Monitoring (RPM). Ideen er enkel: Dataindsamling sker, hvor patienten er. Analyse og beslutningstagning sker, hvor lægen er."
+      },
+      {
+        "type": "text",
+        "paragraphs": [
+          "Indtil nu er RPM ofte slået fejl på grund af to barrierer:",
+          "Manglende datakvalitet: Fitnessure er fine, men ingen læge ændrer insulindosis baseret på et smartwatch-estimat.",
+          "Manglende forbindelse: Professionelle medicinske apparater var ofte ’offline’ og krævede manuel overførsel af værdier (Fejlkilde nr. 1).",
+          "Her lukker Polaris DX-økosystemet hullet."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Det dynamiske duo: IGLO-PRO møder DX365",
+        "paragraphs": [
+          "Revolutionen inden for fjernovervågning bygger på sømløs sammensmeltning af hardware og software.",
+          "IGLO-PRO leverer den nødvendige laboratoriekvalitet. Vi taler ikke om livsstilsparametre, men hårde kliniske data: HbA1c, lipider, CRP. Værdier, der tidligere gjorde et laboratoriebesøg uundgåeligt. Da enheden er mobil og batteridrevet, passer den i tasken på enhver hjemmesygeplejerske, ethvert plejetilbud eller kan udlånes til kroniske patienter.",
+          "Men en værdi på en skærm er af begrænset nytte for den fjerne læge. Her kommer DX365 ind i billedet.",
+          "DX365 er den digitale bro. Så snart IGLO-PRO fastlægger en værdi, sendes den sikkert og krypteret til skyen (efter bekræftelse). Denne værdi vises i realtid på den behandlende læges dashboard – uanset om vedkommende er 500 meter eller 500 kilometer væk."
+        ]
+      },
+      {
+        "type": "key_points",
+        "heading": "Et scenarie fra fremtiden (muligt i dag)",
+        "points": [
+          {
+            "title": "Hjemmebesøg",
+            "description": "En gang om ugen kommer den mobile hjemmesygepleje eller en plejeassistent forbi."
+          },
+          {
+            "title": "Øjeblikkelig analyse",
+            "description": "En dråbe kapillært blod tages på stedet i stuen med IGLO-PRO."
+          },
+          {
+            "title": "Real-time data",
+            "description": "Mens fru Müller drikker sin kaffe, ser hendes praktiserende læge i byen de aktuelle HbA1c- og lipidværdier i sin DX365-portal."
+          },
+          {
+            "title": "Recept & Justering",
+            "description": "Han opdager en let forværring, justerer medicinen og sender den nye recept direkte som e-recept til fru Müllers landsbyapotek."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Sikkerhed som højeste prioritet",
+        "paragraphs": [
+          "Når sundhedsdata forlader praksis, ringer der med rette alarmklokker for mange. Databeskyttelse er ikke en mulighed, men fundamentet.",
+          "Løsninger som DX365 skal leve op til 'Security by Design'. Det betyder: Ende-til-ende-kryptering og serverplaceringer underlagt GDPR. Fordelen ved moderne cloud-løsninger frem for gamle faxmaskiner eller ukrypterede e-mails (som desværre stadig anvendes) er enorm. I et lukket økosystem som Polaris DX har uvedkommende ingen adgang. Lægen definerer, hvem der kan se hvad."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Fordele for den moderne praksis",
+        "paragraphs": [
+          "For læger og klinikker er RPM ikke blot en service til patienten, det er en massiv effektiviseringsfaktor."
+        ],
+        "listItems": [
+          "Aflastning af infrastruktur: Hver måling, der foretages eksternt, er én patient mindre i det overfyldte venteværelse. Det skaber plads og tid til akutte tilfælde, der virkelig har brug for fysisk undersøgelse.",
+          "Bedre terapijustering: I stedet for et 'øjebliksbillede' hver tredje måned modtager læger tættere datahistorik. Terapier kan justeres mere præcist, hvilket forebygger langtidskomplikationer.",
+          "Nye afregningsmodeller: Sundhedsvæsenet åbner sig langsomt for telemedicinske ydelser. Dem, der bygger infrastrukturen nu, står bedst rustet til kommende reformer."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Konklusion: Teknologi, der skaber menneskelig nærhed",
+        "paragraphs": [
+          "Det kan lyde paradoksalt, men mere teknologi kan føre til mere menneskelighed i medicinen. Hvis vi automatiserer og decentraliserer rutinemæssig dataindsamling, frigør vi læger og plejepersonale fra bureaukratiske byrder og logistiske barrierer.",
+          "Den 'usynlige patient' bliver synlig gennem data. Vi kan tage os af mennesker uden, at de behøver sidde foran os.",
+          "IGLO-PRO i kombination med DX365 er mere end et måleinstrument. Det er en forlænget arm af praksis, der rækker ind i patientens stue. Det er tid til at befri medicinen fra dens lænker."
+        ]
+      }
+    ],
+    "seo": {
+      "title": "Den usynlige patient: Fjernovervågning"
+    }
+  },
+  "five_minute_diagnosis": {
+    "title": "5-minutters diagnosen: Hvorfor Point-of-Care også er en økonomisk gamechanger",
+    "excerpt": "Tid er penge – især i praksis. En økonomisk analyse af, hvorfor IGLO-PRO er mere rentabel end det centrale laboratorium.",
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Introduktion",
+        "paragraphs": [
+          "Når læger taler om diagnostik, handler det som regel om sensitivitet, specificitet og klinisk relevans. Når praksisledere ser på diagnostik, ser de ofte kun en omkostningsfaktor. Men denne beregning er forældet. I moderne praksisøkonomi er prisen på teststrimlen ikke den afgørende variabel, men den ressource, vi ikke kan købe: tid. En analyse af, hvorfor IGLO-PRO i sidste ende er mere rentabel end det centrale laboratorium.",
+          "'Tid er penge.' Det er det ældste kliché inden for erhvervsøkonomi, men i medicinske praksisser har det aldrig været mere sandt end i dag. Budgetlofter, personalemangel og stigende patienttal tvinger praktiserende læger til at gentænke deres processer radikalt.",
+          "Den klassiske vej for laboratoriediagnostik er – set fra et forretningsperspektiv – et procesmareridt. Den er præget af mediebrud, ventetider og redundante arbejdstrin. Anvendelsen af moderne Point-of-Care (PoC) systemer som IGLO-PRO tilbyder en udvej, der betaler sig i hårde kontanter."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Det skjulte omkostningsisbjerg ved central diagnostik",
+        "paragraphs": [
+          "Mange læger sammenligner æbler og pærer: De sætter omkostningerne ved en laboratoriehenvisning (næsten nul for praksis, da det faktureres eksternt) op imod anskaffelses- og materialomkostningerne ved en PoC-test. Ved første øjekast virker det eksterne laboratorium altid billigere. Men det er en naiv beregning. Den ignorerer procesomkostninger."
+        ]
+      },
+      {
+        "type": "table",
+        "heading": "Sammenligning: Centralt laboratorium vs. IGLO-PRO arbejdsgang",
+        "headers": [
+          "Trin",
+          "Central diagnostik (klassisk)",
+          "IGLO-PRO (én-besøgs-model)"
+        ],
+        "rows": [
+          [
+            "Dag 1",
+            "Patient kommer, venøs blodprøve, logistisk prøveforberedelse (8 min)",
+            "Patient kommer, kapillært blod fra finger, analyse kører parallelt (3 min)"
+          ],
+          [
+            "Dag 2",
+            "Resultat ankommer (fax/dataoverførsel), lægen gennemgår, MFA ringer tilbage (10-15 min)",
+            "Ingen proces (alt færdigt)"
+          ],
+          [
+            "Dag 3",
+            "Ny aftale til drøftelse (receptionstid + lægetid)",
+            "Ingen proces (alt færdigt)"
+          ],
+          [
+            "Resultat",
+            "Journal berørt 3 gange, 2 aftaler blokeret, personale bundet",
+            "Journal berørt 1 gang, 1 aftale, patient går hjem med klarhed"
+          ]
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "ROI (Return on Investment) af MFA-tid",
+        "paragraphs": [
+          "Lad os regne konservativt. Hvis du sparer den efterfølgende opringning og administrative arbejde for blot 10 patienter om dagen ved at bruge øjeblikkelig diagnostik, og vi anslår kun 5 minutter pr. proces, sparer du 50 minutters MFA-arbejdstid dagligt.",
+          "Ekstrapoleret til måneden svarer det til ca. 16 timer. Det er to hele arbejdsdage for en specialist, der ikke bruges på telefonen, men på fakturerbare ydelser, patientpleje eller blot at kunne gå hjem til tiden (hvilket øger medarbejderfastholdelsen markant)."
+        ]
+      },
+      {
+        "type": "infobox",
+        "heading": "Likviditet gennem IGeL og check-ups",
+        "content": "Ud over omkostningsbesparelser gennem procesoptimering åbner IGLO-PRO op for nye indtægtskilder. En lipidprofil eller en HbA1c-værdi som forebyggende ydelse kan med fordel tilbydes som en IGeL-service. Mange patienter vælger den øjeblikkelige løsning. Værdiskabelsen forbliver 100 % i din praksis i stedet for at løbe ud til det store laboratorium."
+      },
+      {
+        "type": "text",
+        "heading": "DX365: Automatisering sparer bureaukrati",
+        "paragraphs": [
+          "Et almindeligt modargument mod PoC var tidligere dokumentationen. ’Så skal jeg manuelt indtaste værdien på PC’en.’ Med DX365-integrationen er dette argument fjernet. IGLO-PRO sender dataene sømløst ind i din digitale infrastruktur. Det eliminerer overførselsfejl og sikrer, at dokumentationen er revisionssikker. Automatisering er nøglen til skalerbarhed."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Konklusion: Investering i ro og orden",
+        "paragraphs": [
+          "Anskaffelsen af et moderne PoC-system er en investering. Men det er ikke en udgift til ’luksus’, men en investering i processtabilitet.",
+          "En praksis, der arbejder efter ’One-Visit-Model’, er mere rolig. Venteværelset er mindre fyldt, fordi patienterne ikke skal komme tilbage til 2-minutters samtaler. Telefonen ringer sjældnere, fordi patienterne ikke behøver at spørge efter deres værdier – de har dem allerede.",
+          "I tider med mangel på kvalificeret arbejdskraft er et stressfrit arbejdsmiljø det største økonomiske løftestang, du har. IGLO-PRO hjælper dig ikke kun med at praktisere bedre medicin – det hjælper dig også med at drive din praksis som en effektiv virksomhed."
+        ]
+      }
+    ],
+    "seo": {
+      "title": "Den 5-minutters diagnose: POC der betaler sig"
+    }
+  },
   "ecosystem_of_rapid_tests": {
-    "title": "Økosystemet af Hurtigtests: Hvorfor Kompatibilitet Skaber Sikkerhed",
-    "excerpt": "Fra CRP til TSH: Mestring af kompleksiteten ved kompatible Lateral Flow Tests.",
+    "title": "Økosystemet for hurtige tests: Hvorfor kompatibilitet skaber sikkerhed",
+    "excerpt": "Fra CRP til TSH: At mestre kompleksiteten ved kompatible Lateral Flow-tests.",
     "sections": [
       {
         "heading": "Introduktion",
         "paragraphs": [
-          "Point-of-Care Diagnostik (POC) trives på fleksibilitet. Et moderne multi-reader system, som IglooPro, tilbyder muligheden for at måle en bred vifte af parametre – fra infektionsmarkører som CRP til endokrine værdier som TSH – ved hjælp af Lateral Flow Tests (LFT). Denne alsidighed er en kæmpe fordel, men rummer en subtil, men kritisk udfordring: fælden med kompatibilitet og sikkerhed.",
-          "Den analytiske kvalitet af et måleresultat afhænger 100 procent af samspillet mellem POC-læseren og den specifikke LFT. Specialiseret rådgivning og en klar kompatibilitetsgaranti er essentiel for at eliminere risikoen for målefejl, forkert lagerbeholdning og fejlagtige diagnoser."
+          "Point-of-Care-diagnostik (POC) trives på fleksibilitet. Et moderne multi-reader-system som IglooPro tilbyder mulighed for at måle et bredt spektrum af parametre – fra infektionsmarkører som CRP til endokrine værdier som TSH – ved hjælp af Lateral Flow-tests (LFT). Denne alsidighed er en stor fordel, men rummer en subtil, men kritisk udfordring: kompatibilitets- og sikkerhedsfælden.",
+          "Den analytiske kvalitet af et måleresultat afhænger 100 procent af samspillet mellem POC-læseren og den specifikke LFT. Specialiseret rådgivning og en klar kompatibilitetsgaranti er afgørende for at eliminere risikoen for målefejl, forkert lagerbeholdning og fejldiagnoser."
         ]
       },
       {
-        "heading": "1. Den Skjulte Fare: Inkompatibilitet",
+        "heading": "1. Den skjulte fare: inkompatibilitet",
         "paragraphs": [
-          "Lateral Flow Tests er komplekse kromatografiske strimler. De adskiller sig ikke kun ved den analyt, der skal detekteres (f.eks. Troponin, D-Dimer), men også i deres fysiske og kemiske egenskaber, der er relevante for læseren:"
+          "Lateral Flow-tests er komplekse kromatografiske strimler. De adskiller sig ikke kun ved den analyte, der skal påvises (f.eks. Troponin, D-Dimer), men også i deres fysiske og kemiske egenskaber, som er relevante for læseren:"
         ],
         "listItems": [
-          "Batch-Specifik Kalibrering: Som forklaret i ARTIKEL 1 kræver hvert testbatch en specifik kalibreringskurve. Hvis en LFT fra et inkompatibelt eller ikke-valideret batch bruges, leverer læseren upræcise eller fuldstændigt forkerte kvantitative værdier.",
-          "Optiske Egenskaber: Membranstrukturen, farven på markørpartiklerne (f.eks. kolloidt guld eller fluorescensmarkører) og placeringen af testlinjerne kan variere meget fra producent til producent. En universel læser skal vide præcis, hvilke parametre der skal læses for hvilken type testkassette.",
-          "Defekte Testkassetter: Brug af den forkerte testkassette til den valgte analyt i læseren fører ofte til uspecifikke resultater eller tekniske fejl, der stopper det diagnostiske workflow."
+          "Batch-specifik kalibrering: Som forklaret i ARTIKEL 1 kræver hver testbatch en specifik kalibreringskurve. Hvis en LFT fra en inkompatibel eller ikke-valideret batch anvendes, leverer læseren upræcise eller helt forkerte kvantitative værdier.",
+          "Optiske egenskaber: Membranstrukturen, farven på markørpartiklerne (f.eks. kolloidalt guld eller fluorescensmarkører) og placeringen af testlinjerne kan variere meget fra producent til producent. En universel læser skal præcist vide, hvilke parametre der skal aflæses for hvilken type testkassette.",
+          "Fejlbehæftede testkassetter: Brug af forkert testkassette til den valgte analyte i læseren fører ofte til uspecifikke resultater eller tekniske fejl, der stopper den diagnostiske arbejdsgang."
         ]
       },
       {
-        "heading": "2. Økosystemprincippet: Rådgivning og Garanti",
+        "heading": "2. Økosystemprincippet: Rådgivning og garanti",
         "paragraphs": [
-          "Den sikreste måde at mestre denne kompleksitet på er at se POC-opsætningen som et lukket diagnostisk økosystem. Her tager leverandøren ansvaret for den perfekte koordinering af alle komponenter.",
-          "A. Rollen af Specialiseret Rådgivning: I stedet for at efterlade praksisser og apoteker alene med udvalget af hundredvis af LFT-produkter, er strategisk rådgivning afgørende. Disse eksperter hjælper med porteføljebeslutningen ved at identificere de nødvendige diagnostiske parametre (f.eks. inflammation, koagulation, kardiologi) og sammensætte de optimale, kompatible LFT'er.",
-          "Resultatet er et slankt, højsikkert workflow skræddersyet til facilitetens specifikke behov.",
-          "B. Kompatibilitetsgarantien som Sikkerhedsnet: Den vigtigste merværdi er garantien for funktionalitet. Det betyder, at POC-læseren ikke kun er teknisk i stand til at læse forskellige tests, men leverandøren sikrer også den analytiske validitet af hver specifik kombination af læser og testbatch."
+          "Den sikreste måde at mestre denne kompleksitet på er at betragte POC-opsætningen som et lukket diagnostisk økosystem. Her påtager leverandøren sig ansvaret for den perfekte koordinering af alle komponenter.",
+          "A. Specialiseret rådgivnings rolle: I stedet for at efterlade praksisser og apoteker alene med valget blandt hundredvis af LFT-produkter er strategisk rådgivning afgørende. Disse eksperter hjælper med porteføljevalget ved at identificere de nødvendige diagnostiske parametre (f.eks. inflammation, koagulation, kardiologi) og sammensætte de optimale, kompatible LFT’er.",
+          "Resultatet er en slank, meget sikker arbejdsgang, der er skræddersyet til institutionens specifikke behov.",
+          "B. Kompatibilitetsgarantien som sikkerhedsnet: Den vigtigste merværdi er garantien for funktionalitet. Det betyder, at POC-læseren ikke kun er teknisk i stand til at aflæse forskellige tests, men at leverandøren også sikrer den analytiske validitet af hver specifik kombination af læser og testbatch."
         ],
         "listItems": [
-          "Validering i Systemet: Bekræftelse af, at måleresultaterne fra LFT i forbindelse med den specifikke læser opfylder kliniske krav.",
-          "Automatisk Kontrol: Læseren skal være i stand til automatisk at detektere, hvilken test der er indsat (f.eks. via stregkode eller RFID) og kun udføre målingen med den tilsvarende, validerede kalibreringskurve. I tilfælde af inkompatibilitet opstår der en QC-lås eller advarselsbesked."
+          "Validering i systemet: Bekræftelse af, at måleresultaterne fra LFT i forbindelse med den specifikke læser opfylder kliniske krav.",
+          "Automatisk kontrol: Læseren bør automatisk kunne registrere, hvilken test der er indsat (f.eks. via stregkode eller RFID) og kun udføre målingen med den tilsvarende, validerede kalibreringskurve. Ved inkompatibilitet opstår en QC-lås eller advarselsmeddelelse."
         ]
       },
       {
-        "heading": "3. Effekter på Workflow og Patientsikkerhed",
+        "heading": "3. Effekter på arbejdsgang og patientsikkerhed",
         "paragraphs": [
-          "Strategisk udvælgelse og kompatibilitetsgarantien har direkte positive effekter på daglig praksis:",
-          "Fejlreduktion: Antallet af fejlagtige eller ugyldige målinger reduceres drastisk, da systemet proaktivt udelukker inkompatibiliteter.",
-          "Lagerstyring: Undgåelse af opbevaring af inkompatible eller ubrugelige testkassetter på grund af forkerte indkøb.",
-          "Ubrudt Præcisionskæde: Kun når LFT'er, læseren og IT-forbindelsen (som beskrevet i ARTIKEL 2) arbejder sammen problemfrit og garanteret, kan hurtig POC-diagnostik tilbyde samme sikkerhed og pålidelighed som det centrale laboratorium."
+          "Strategisk udvælgelse og kompatibilitetsgaranti har direkte positive effekter i den daglige praksis:",
+          "Fejlreduktion: Antallet af fejlbehæftede eller ugyldige målinger reduceres drastisk, da systemet proaktivt udelukker inkompatibiliteter.",
+          "Lagerstyring: Undgåelse af opbevaring af inkompatible eller ubrugelige testkassetter på grund af fejlkøb.",
+          "Ubrudt præcisionskæde: Kun når LFT’erne, læseren og IT-forbindelsen (som beskrevet i ARTIKEL 2) arbejder sammen sømløst og garanteret, kan hurtig POC-diagnostik tilbyde samme sikkerhed og pålidelighed som det centrale laboratorium."
         ]
       },
       {
-        "heading": "Konklusion: Sikkerhed gennem Synergi",
+        "heading": "Konklusion: Sikkerhed gennem synergi",
         "paragraphs": [
-          "Styrken ved en multi-reader ligger i dens evne til at dække et bredt diagnostisk spektrum. Men denne styrke kan kun frigøres gennem et omfattende, sikret økosystem af kompatible tests. De, der investerer i en POC-læser, bør samtidig investere i den ekspertise og garanti, der sikrer deres diagnostiske portefølje. Således bliver fleksibilitet ikke en risiko, men den højeste form for patientsikkerhed."
+          "Styrken ved en multi-reader ligger i dens evne til at dække et bredt diagnostisk spektrum. Denne styrke kan dog kun udfoldes gennem et omfattende, sikret økosystem af kompatible tests. Den, der investerer i en POC-læser, bør samtidig investere i den ekspertise og garanti, der sikrer deres diagnostiske portefølje. Således bliver fleksibilitet ikke en risiko, men den højeste form for patientsikkerhed."
         ]
       }
     ],
     "seo": {
-      "title": "Hurtigtests: kompatibilitet skaber sikkerhed"
+      "title": "Hurtige tests: Kompatibilitet skaber sikkerhed"
     }
   },
   "precision_point_of_care": {
-    "title": "Præcision i Point-of-Care: Nøglen til Patientsikkerhed",
-    "excerpt": "Hvorfor valideringen af Lateral Flow Tests (LFT) går ud over producentspecifikationer.",
+    "title": "Præcision i Point-of-Care: Nøglen til patientsikkerhed",
+    "excerpt": "Hvorfor validering af Lateral Flow Tests (LFT) går ud over producentens specifikationer.",
     "sections": [
       {
-        "heading": "Revolutionen af Point-of-Care Diagnostik",
+        "heading": "Revolutionen inden for Point-of-Care-diagnostik",
         "paragraphs": [
-          "Point-of-Care Diagnostik (POC) har revolutioneret lægehjælp. Det giver resultater på minutter, muliggør hurtige kliniske beslutninger og aflaster centrale laboratorier. Brugen af Lateral Flow Tests (LFT) – kendt som 'hurtigtests' – er blevet særligt populær. Deres enkelhed og hastighed er ubestridt, men deres pålidelighed afhænger i høj grad af korrekt, valideret evaluering.",
-          "Udfordringen er at overføre den analytiske præcision fra det centrale laboratorium til det decentrale miljø. Dette kræver, at valideringen af LFT'er går ud over producentens primære præstationsdata (såsom generel sensitivitet og specificitet) og tager højde for hele målekæden, inklusive læseren og brugeren."
+          "Point-of-Care-diagnostik (POC) har revolutioneret medicinsk behandling. Den leverer resultater på få minutter, muliggør hurtige kliniske beslutninger og aflaster centrale laboratorier. Anvendelsen af Lateral Flow Tests (LFT) – kendt som 'hurtigtests' – er blevet særligt populær. Deres enkelhed og hastighed er ubestridt, men deres pålidelighed afhænger i høj grad af korrekt, valideret evaluering.",
+          "Udfordringen er at overføre den analytiske præcision fra det centrale laboratorium til det decentrale miljø. Dette kræver, at valideringen af LFT går ud over producentens primære ydelsesdata (såsom generel sensitivitet og specificitet) og tager hele målekæden i betragtning, inklusive aflæseren og brugeren."
         ]
       },
       {
-        "heading": "1. Den Menneskelige Fejlkilde: Inter-Reader Variabilitet (IRV)",
+        "heading": "1. Den menneskelige fejlkilde: Variabilitet mellem aflæsere (IRV)",
         "paragraphs": [
-          "Oprindeligt blev Lateral Flow Tests udviklet til kvalitativ eller semikvantitativ evaluering: Den blotte fremkomst af en testlinje (T-linje) eller estimeringen af dens intensitet. Men denne visuelle fortolkning er præcisionens akilleshæl.",
-          "Subjektivitet og Intraobserver Variabilitet: Intensiteten af en farvelinje er subjektiv. Træthed, forskellige lysforhold, men også blot undersøgerens øjeblikkelige vurdering kan føre til forskellige diagnoser. Hvad der er en svag positiv for en person, kan være et negativt resultat for en anden.",
-          "Nødvendigheden af Kvantitative Resultater: Moderne terapibeslutninger, såsom administration af antibiotika for forhøjede CRP-niveauer (C-reaktivt protein), er baseret på nøjagtige numeriske tærskler. For at transformere en kvalitativ testudførelse til et kvantitativt, laboratoriekompatibelt resultat, er eliminering af subjektiv evaluering obligatorisk."
+          "Oprindeligt blev Lateral Flow Tests udviklet til kvalitativ eller semi-kvantitativ evaluering: Den blot forekomst af en testlinje (T-linje) eller vurdering af dens intensitet. Denne visuelle fortolkning er dog præcisionens akilleshæl.",
+          "Subjektivitet og intraobservatørvariabilitet: Intensiteten af en farvelinje er subjektiv. Træthed, forskellige lysforhold, men også den blot øjeblikkelige vurdering fra undersøgeren (intraobservatørvariabilitet) kan føre til forskellige diagnoser. Hvad der er et svagt positivt resultat for én person, kan være negativt for en anden.",
+          "Behovet for kvantitative resultater: Moderne behandlingsbeslutninger, såsom administration af antibiotika ved forhøjede CRP-niveauer (C-reaktivt protein), baseres på præcise numeriske grænser. For at omdanne en kvalitativ testudførelse til et kvantitativt, laboratoriekompatibelt resultat er det obligatorisk at eliminere subjektiv evaluering."
         ]
       },
       {
-        "heading": "2. Validering i Klinisk Kontekst: Mere End Bare et Datablad",
+        "heading": "2. Validering i klinisk kontekst: Mere end blot et datablad",
         "paragraphs": [
-          "Producenter leverer data om deres tests' ydeevne under idealiserede laboratorieforhold. Men faktisk brug i praksis eller på apotek, ofte i miljøer med lav prævalens eller asymptomatiske patienter, kræver applikationsspecifik validering.",
-          "Som praksis med COVID-19 tests har vist, afhænger en LFT's detektionsevne stærkt af patientens faktiske virusmængde. En LFT-validering, der går ud over producentens blotte specifikation, skal besvare følgende spørgsmål:"
+          "Producenter leverer data om testens ydeevne under idealiserede laboratoriebetingelser. Den faktiske anvendelse i praksis eller på apoteket, ofte i miljøer med lav prævalens eller asymptomatiske patienter, kræver applikationsspecifik validering.",
+          "Som praksis med COVID-19-tests har vist, afhænger en LFT’s detektionskapacitet i høj grad af patientens faktiske virusmængde. En LFT-validering, der går ud over producentens blot specifikation, skal besvare følgende spørgsmål:"
         ],
         "listItems": [
-          "Sammenligning med Guldstandard: Hvor nøjagtigt korrelerer LFT'ens kvantitative værdier med resultaterne fra guldstandarden (f.eks. PCR Ct-værdier eller centrale laboratorieenheder)?",
-          "Detektionsgrænse (LoD): Er den kritiske tærskel (LoD), som testen stadig pålideligt detekterer, reproducerbar i POC-miljøet?",
+          "Sammenligning med guldstandard: Hvordan korrelerer de kvantitative værdier fra LFT præcist med resultaterne fra guldstandarden (f.eks. PCR Ct-værdier eller centrale laboratorieapparater)?",
+          "Detektionsgrænse (LoD): Er den kritiske tærskel (LoD), som testen stadig pålideligt kan detektere, reproducerbar i POC-miljøet?",
           "Robusthed: Hvor stabilt er resultatet over hele måleområdet (lineært område)?"
         ]
       },
       {
-        "heading": "Rollen af Automatisering og Kalibrering",
+        "heading": "Automatiseringens og kalibreringens rolle",
         "paragraphs": [
-          "Kun ved at bekræfte disse analytiske kvalitetskriterier i klinisk virkelighed kan POC-diagnostik retfærdiggøre lægers og patienters tillid.",
-          "For at sikre laboratoriepræcision ved Point-of-Care er brugen af automatiserede LFT-læsere som IglooPro essentiel. Disse læsere udfører den nødvendige, objektive evaluering og placerer dermed analysen på et nyt fundament.",
-          "A. Eliminering af Variabilitet gennem Objektivitet: Moderne læsere bruger kamerasystemer eller fluorescensteknologi til objektivt at fange test- og kontrollinjer og digitalt kvantificere intensitetsforhold. Resultatet er en numerisk værdi med en lav variationskoefficient (CV), der fuldstændigt eliminerer IRV.",
-          "B. Den Nødvendige Kalibrering og Kvalitetssikring (QA): En læser er kun så god som dens kalibrering. For at sikre præcision på tværs af forskellige testbatches og over enhedens levetid, kræves strenge QA-procedurer:"
+          "Kun ved at bekræfte disse analytiske kvalitetskriterier i klinisk virkelighed kan POC-diagnostik retfærdiggøre tilliden hos læger og patienter.",
+          "For at sikre laboratoriepræcision ved Point-of-Care er brugen af automatiserede LFT-aflæsere som IglooPro afgørende. Disse aflæsere udfører den nødvendige, objektive evaluering og placerer dermed analysen på et nyt fundament.",
+          "A. Eliminering af variabilitet gennem objektivitet: Moderne aflæsere anvender kamerasystemer eller fluorescens-teknologi til objektivt at registrere test- og kontrollinjer og digitalt kvantificere intensitetsforhold. Resultatet er en numerisk værdi med lav variationskoefficient (CV), som fuldstændigt eliminerer IRV.",
+          "B. Den nødvendige kalibrering og kvalitetssikring (QA): En aflæser er kun så god som sin kalibrering. For at sikre præcision på tværs af forskellige testpartier og over apparatets levetid kræves strenge QA-procedurer:"
         ],
         "listItems": [
-          "Batch-Specifik Kalibrering: Hvert produktionsbatch af LFT'er kan vise små forskelle i reaktionskinetik eller membranegenskaber. Læseren skal indlæse disse batch-specifikke data – ofte automatisk via stregkode eller RFID-teknologi – for korrekt at konvertere det LFT-specifikke signal til koncentrationsværdien.",
-          "Kvalitetskontrol (QC Lås): Moderne systemer har mekanismer, der afviser måling, hvis intern eller ekstern kvalitetskontrol (f.eks. en kontrolkassette) ikke er udført med succes. Dette garanterer, at kun validerede måleresultater genereres."
+          "Partispecifik kalibrering: Hvert produktionsparti af LFT’er kan vise små forskelle i reaktionskinetik eller membranegenskaber. Aflæseren skal indlæse disse partispecifikke data – ofte automatisk via stregkode- eller RFID-teknologi – for korrekt at omregne det LFT-specifikke signal til koncentrationsværdien.",
+          "Kvalitetskontrol (QC-lås): Moderne systemer har mekanismer (analogt til RiliBÄK i det centrale laboratorium), som afviser måling, hvis intern eller ekstern kvalitetskontrol (f.eks. en kontrolkassette) ikke er blevet gennemført med succes. Dette garanterer, at kun validerede måleresultater genereres."
         ]
       },
       {
-        "heading": "Konklusion: Løftet om POC Diagnostik",
+        "heading": "Konklusion: Løftet fra POC-diagnostik",
         "paragraphs": [
-          "Hastigheden af POC-diagnostik er en uvurderlig fordel. Men tillid til denne hastighed kan kun sikres gennem kontinuerlig kvalitetssikring og validering. Point-of-Care diagnostik, der sigter mod laboratorieniveauer, skal obligatorisk stole på den automatiserede, kalibrerede og validerede evaluering af Lateral Flow Tests.",
-          "Kun gennem kombinationen af en robust, kalibreret læser og strenge valideringsprocedurer bliver en hurtigtest et pålideligt diagnostisk grundlag."
+          "Hastigheden ved POC-diagnostik er en uvurderlig fordel. Tillid til denne hastighed kan dog kun sikres gennem kontinuerlig kvalitetssikring og validering. Point-of-Care-diagnostik, der sigter mod laboratorieniveau, må obligatorisk basere sig på automatiseret, kalibreret og valideret evaluering af Lateral Flow Tests.",
+          "Kun gennem kombinationen af en robust, kalibreret aflæser og strenge valideringsprocedurer bliver en hurtigtest et pålideligt diagnostisk grundlag."
         ]
       }
     ],
     "seo": {
-      "title": "Præcision i Point-of-Care: patientsikkerhed"
+      "title": "Præcision i Point-of-Care: Patientsikkerhed"
     }
   },
   "first_checkup": {
-    "title": "Sådan forbereder du dig til dit første helbredstjek",
-    "excerpt": "En kort guide til at hjælpe dig med at føle dig sikker og forberedt til din allerførste omfattende lægeundersøgelse.",
+    "title": "Sådan forbereder du dig til din første lægeundersøgelse",
+    "excerpt": "En kort guide til at hjælpe dig med at føle dig tryg og forberedt til din allerførste omfattende lægeundersøgelse.",
     "sections": [
       {
-        "heading": "Bedre pleje starter med at være forberedt",
+        "heading": "Bedre behandling starter med forberedelse",
         "paragraphs": [
-          "Før dit første helbredstjek er det vigtigt at samle din sygehistorie, liste eventuelle nuværende medicin og notere symptomer, du har oplevet for nylig. Dette hjælper din læge med at danne et komplet billede og fokusere på det, der betyder mest for dit helbred."
+          "Før din første lægeundersøgelse er det vigtigt at indsamle din sygehistorie, liste eventuelle aktuelle medicineringer og notere symptomer, du har oplevet for nylig. Dette hjælper din læge med at danne et komplet billede og fokusere på det, der betyder mest for dit helbred."
         ]
       },
       {
-        "heading": "Hvad skal du medbringe til din aftale",
+        "heading": "Hvad du skal medbringe til din aftale",
         "paragraphs": [
-          "At ankomme forberedt sparer tid og sikrer en mere flydende samtale med din læge."
+          "At møde forberedt sparer tid og sikrer en mere gnidningsfri samtale med din læge."
         ],
         "listItems": [
-          "Identifikation og forsikringsinformation (hvis relevant).",
-          "En liste over al medicin, inklusive kosttilskud og vitaminer.",
+          "Identifikation og forsikringsoplysninger (hvis relevant).",
+          "En liste over alle medicin, inklusive kosttilskud og vitaminer.",
           "Tidligere laboratorieresultater eller rapporter, hvis du har dem.",
           "Spørgsmål, du ønsker at stille din læge."
         ]
       },
       {
-        "heading": "Under tjekket",
+        "heading": "Under undersøgelsen",
         "paragraphs": [
-          "Din læge vil normalt tjekke dine vitale tegn, diskutere din livsstil og udføre en fysisk undersøgelse. Vær ærlig omkring dine vaner og bekymringer — det er den bedste måde at modtage pleje, der virkelig passer til din situation.",
-          "Regelmæssige tjek er grundlaget for forebyggende medicin. Ved at fange potentielle problemer tidligt giver du dig selv flere muligheder, mere tid og bedre resultater."
+          "Din læge vil som regel tjekke dine vitale tegn, drøfte din livsstil og foretage en fysisk undersøgelse. Vær ærlig omkring dine vaner og bekymringer – det er den bedste måde at få en behandling, der virkelig passer til din situation.",
+          "Regelmæssige helbredsundersøgelser er grundlaget for forebyggende medicin. Ved at opdage potentielle problemer tidligt giver du dig selv flere muligheder, mere tid og bedre resultater."
         ]
       }
     ]
   },
   "managing_diabetes": {
     "title": "Håndtering af diabetes med enkle daglige rutiner",
-    "excerpt": "Opdag hvordan små, konsekvente vaner kan forbedre blodsukkerkontrollen og det generelle velvære dramatisk.",
+    "excerpt": "Opdag hvordan små, konsekvente vaner markant kan forbedre blodsukkerkontrollen og det generelle velbefindende.",
     "sections": [
       {
         "heading": "Start med din morgenrutine",
         "paragraphs": [
-          "En stabil morgenrutine sætter tonen for resten af dagen. For mennesker, der lever med diabetes, er dette især vigtigt."
+          "En stabil morgenrutine sætter tonen for resten af dagen. For personer med diabetes er dette særligt vigtigt."
         ]
       }
     ]
   },
   "home_care": {
-    "title": "Fordelene ved professionelle hjemmeplejetjenester",
-    "excerpt": "Hjemmeplejeteams kan bygge bro mellem hospital og hverdagsliv — her er hvordan de støtter patienter og familier.",
+    "title": "Fordelene ved professionel hjemmesygepleje",
+    "excerpt": "Hjemmesygeplejeteams kan bygge bro mellem hospital og hverdagsliv – sådan støtter de patienter og familier.",
     "sections": [
       {
-        "heading": "Pleje der kommer til dig",
+        "heading": "Omsorg, der kommer til dig",
         "paragraphs": [
-          "Professionelle hjemmeplejetjenester gør det lettere at komme sig efter operation eller håndtere kroniske tilstande uden konstante hospitalsbesøg."
+          "Professionelle hjemmesygeplejetjenester gør det lettere at komme sig efter operation eller håndtere kroniske sygdomme uden konstante hospitalsbesøg."
         ]
       }
     ]
   },
   "index": {
-    "eyebrow": "Faglig viden",
-    "caption": "Latest Posts",
-    "subtitle": "Insights, news, and expert knowledge on modern diagnostics and health.",
-    "title": "Our Magazine",
-    "heading": "Explore Our Articles",
+    "eyebrow": "Indsigter",
+    "title": "Vores magasin",
+    "subtitle": "Indsigter, nyheder og ekspertviden om moderne diagnostik og sundhed.",
+    "heading": "Udforsk vores artikler",
+    "caption": "Seneste indlæg",
     "featured": "Fremhævet",
-    "featured_title": "D3-vitamin og implantologi — evidens og en praksisguide",
-    "featured_excerpt": "Hvordan et optimalt D-vitaminniveau støtter osseointegration og reducerer implantattab. Videnskabeligt funderet med praktiske anbefalinger.",
+    "featured_title": "Vitamin D3 og implantologi – evidens og en praktisk guide",
+    "featured_excerpt": "Hvordan et optimalt vitamin D-niveau understøtter osseointegration og reducerer implantattab. Videnskabeligt funderet med praktiske anbefalinger til din arbejdsgang.",
     "featured_cta": "Læs artiklen",
     "hero_primary_cta": "Læs artiklerne",
     "hero_secondary_cta": "Udforsk diagnostik",
-    "stat_articles_label": "Fagartikler",
+    "stat_articles_label": "Ekspertartikler",
     "stat_topics_label": "Emneområder",
     "stat_languages_label": "Sprog",
     "vc_biomarker_label": "Biomarkører",
@@ -185,366 +475,86 @@
     "vc_precision_label": "Præcision",
     "browse_caption": "Emner i magasinet",
     "featured_tags": [
-      "25-OH D-vitamin",
+      "25-OH Vitamin D",
       "Osseointegration",
       "S3-retningslinje"
     ]
   },
-  "five_minute_diagnosis": {
-    "excerpt": "Time is money – especially in practice. An economic analysis of why the IGLO-PRO is more profitable than the central lab.",
-    "sections": [
-      {
-        "type": "text",
-        "heading": "Introduction",
-        "paragraphs": [
-          "When doctors talk about diagnostics, it's usually about sensitivity, specificity, and clinical relevance. When practice managers look at diagnostics, they often see only a cost factor. But this calculation is outdated. In modern practice economics, the price of the test strip is not the decisive variable, but the resource we cannot buy: Time. An analysis of why the IGLO-PRO is ultimately more profitable than the central laboratory.",
-          "'Time is money.' It is the oldest cliché in business administration, but in medical practices, it has never been as true as today. Budget caps, staff shortages, and rising patient numbers force practitioners to radically rethink their processes.",
-          "The classic path of laboratory diagnostics is – from a business perspective – a process nightmare. It is characterized by media breaks, waiting times, and redundant work steps. The use of modern Point-of-Care (PoC) systems like the IGLO-PRO offers a way out here that pays off in hard cash."
-        ]
-      },
-      {
-        "type": "text",
-        "heading": "The Hidden Cost Iceberg of Central Diagnostics",
-        "paragraphs": [
-          "Many doctors compare apples and oranges: They contrast the costs of a laboratory referral (almost zero for the practice as billed externally) with the acquisition and material costs of a PoC test. At first glance, the external laboratory always seems cheaper. But that is a naive calculation. It ignores process costs."
-        ]
-      },
-      {
-        "type": "table",
-        "heading": "Comparison: Central Lab vs. IGLO-PRO Workflow",
-        "headers": [
-          "Step",
-          "Central Diagnostics (Classic)",
-          "IGLO-PRO (One-Visit-Model)"
-        ],
-        "rows": [
-          [
-            "Day 1",
-            "Patient comes, venous puncture, prepare sample logistically (8 min)",
-            "Patient comes, capillary blood at finger, analysis runs parallel (3 min)"
-          ],
-          [
-            "Day 2",
-            "Finding arrives (Fax/Data transfer), doctor reviews, MFA calls back (10-15 min)",
-            "No process (All done)"
-          ],
-          [
-            "Day 3",
-            "New appointment for discussion (Reception time + Doctor time)",
-            "No process (All done)"
-          ],
-          [
-            "Result",
-            "File touched 3x, 2 appointments blocked, staff tied up",
-            "File touched 1x, 1 appointment, patient leaves with clarity"
-          ]
-        ]
-      },
-      {
-        "type": "text",
-        "heading": "The ROI (Return on Investment) of MFA Time",
-        "paragraphs": [
-          "Let's calculate conservatively. If you save the subsequent phone call and administrative work for only 10 patients a day by using instant diagnostics, and we estimate only 5 minutes per process, you save 50 minutes of MFA working time per day.",
-          "Extrapolated to the month, that's approx. 16 hours. That is two full working days of a specialist not spent on the phone, but on billable services, patient care, or simply finishing work on time (which massively increases employee retention)."
-        ]
-      },
-      {
-        "type": "infobox",
-        "heading": "Liquidity through IGeL and Check-ups",
-        "content": "In addition to cost savings through process optimization, the IGLO-PRO opens up new revenue streams. A lipid panel or an HbA1c value as a preventive service can be excellently offered as an IGeL service. Many patients choose the instant option. The value creation remains 100% in your practice instead of flowing out to the large laboratory."
-      },
-      {
-        "type": "text",
-        "heading": "DX365: Automation Saves Bureaucracy",
-        "paragraphs": [
-          "A common counter-argument to PoC used to be documentation. 'Then I have to type the value into the PC manually.' With the DX365 integration, this argument is off the table. The IGLO-PRO sends the data seamlessly into your digital infrastructure. This eliminates transmission errors and ensures that documentation is audit-proof. Automation is the key to scalability."
-        ]
-      },
-      {
-        "type": "text",
-        "heading": "Conclusion: Investment in Calm and Order",
-        "paragraphs": [
-          "The acquisition of a modern PoC system is an investment. But it is not an expense for 'luxury', but an investment in process stability.",
-          "A practice working in the 'One-Visit-Model' is calmer. The waiting room is less full because patients don't have to come back for 2-minute discussions. The phone rings less often because patients don't have to ask for their values – they already have them.",
-          "In times of skilled worker shortage, a stress-free working environment is the biggest economic lever you have. The IGLO-PRO helps you not only to practice better medicine – it helps you to run your practice as an efficient business."
-        ]
-      }
-    ],
-    "title": "The 5-Minute Diagnosis: Why Point-of-Care is a Gamechanger Economically Too",
-    "seo": {
-      "title": "The 5-Minute Diagnosis: POC That Pays Off"
-    }
-  },
   "rapid_setup_formula": {
-    "excerpt": "Effektivitet frem for lang oplæring: vejen til hurtig driftsklarhed i klinikken.",
+    "excerpt": "Effektivitet frem for oplæring: vejen til hurtig driftklarhed i praksis.",
+    "title": "Performance-formlen: Effektivitet i POC-diagnostik",
     "sections": [
       {
-        "heading": "Indledning",
+        "heading": "Introduktion",
         "paragraphs": [
-          "Beslutningen om at anskaffe nyt Point-of-Care (POC)-diagnostikudstyr er ofte det første skridt mod bedre patientbehandling. Men vejen fra anskaffelse til fuld driftsklarhed undervurderes ofte. Langvarig oplæring, administrative forhindringer og kompleks IT-integration æder værdifuld tid og binder personale, hvis fokus egentlig burde ligge på patienten.",
-          "Denne flaskehals hører fortiden til. Moderne supportkoncepter forandrer idriftsættelsen og reducerer arbejdet for klinikker og apoteker til et minimum. Nøglen er 'remote setup'-tilgangen, der garanterer øjeblikkelig driftsklarhed på meget kort tid."
+          "Beslutningen om at indføre nye point-of-care (POC) diagnostiske enheder er ofte det første skridt mod bedre patientpleje. Alligevel undervurderes vejen fra køb til fuld driftklarhed ofte. Langvarig oplæring, administrative barrierer og kompleks IT-integration optager værdifuld tid og binder personale, hvis fokus i virkeligheden burde være på patienten.",
+          "Denne flaskehals er nu fortid. Moderne supportkoncepter revolutionerer idriftsættelsen og reducerer indsatsen for praksisser og apoteker til et minimum. Nøglen er 'remote setup'-tilgangen, som garanterer øjeblikkelig driftklarhed på kortest mulig tid."
         ]
       },
       {
-        "heading": "1. Effektivitetsdilemmaet: hvorfor traditionel integration slår fejl",
+        "heading": "1. Effektivitetsdilemmaet: Hvorfor konventionel integration fejler",
         "paragraphs": [
-          "Traditionelt kræver integrationen af et nyt POC-system flere tidskrævende trin, som ofte tager uger:"
+          "Traditionelt kræver integration af et nyt POC-system flere tidskrævende trin, som ofte tager uger:"
         ],
         "listItems": [
-          "Administrativ og regulatorisk oplæring: uddannelse af personalet i kvalitetsstyring (f.eks. efter RiliBÄK eller Qualab) og interne protokoller.",
-          "Teknisk opsætning og kalibrering: manuel første idriftsættelse og batchspecifik kalibrering af enheden.",
-          "IT-tilkobling og dataudveksling: den komplekse bidirektionelle forbindelse mellem POC-readeren og klinik- eller apotekssystemet (PVS/AVS)."
+          "Administrativ og regulatorisk oplæring: uddannelse af personale i kvalitetsstyring (f.eks. i overensstemmelse med RiliBÄK eller Qualab) og interne protokoller.",
+          "Teknisk opsætning og kalibrering: manuel første idriftsættelse og batch-specifik kalibrering af enheden.",
+          "IT-forbindelse og dataudveksling: den komplekse tovejskommunikation mellem POC-læseren og praksis- eller apoteksstyringssystemet (PMS/AMS)."
         ]
       },
       {
-        "heading": "2. Remote-setup-tilgangen: IT-eksperter i baggrunden",
+        "heading": "2. Remote Setup-tilgangen: IT-eksperter bag kulisserne",
         "paragraphs": [
-          "Remote-setup-tilgangen bygger på moderne POC-readeres digitale konnektivitet. I stedet for at have brug for en servicetekniker på stedet bliver enheden opsat og valideret på afstand af specialiserede eksperter.",
-          "Kerneprocesser, der håndteres på afstand:"
+          "Remote setup-tilgangen bygger på den digitale tilslutning af moderne POC-læsere. I stedet for at kræve en servicetekniker på stedet konfigureres og valideres enheden eksternt af specialiserede eksperter.",
+          "Kerneprocesser håndteres eksternt:"
         ],
         "listItems": [
-          "Fuld kalibrering: den tekniske kalibrering af multi-readeren til de anvendte Lateral Flow Tests (LFT) foretages eksternt. Det sikrer analytisk præcision fra begyndelsen – uden at klinikpersonalet skal udføre komplekse tekniske trin.",
-          "Sømløs IT-integration: tilkoblingen til laboratorie- eller klinikinformationssystemet (LIS/PIS) sker via sikre, webbaserede grænseflader (f.eks. POC-IT-løsninger). Eksterne konsulenter sikrer, at alle måleværdier overføres automatisk, sikkert og fejlfrit til patientjournalen.",
-          "Firmware-opdateringer og systemtjek: softwareopdateringer, der sikrer kompatibilitet og overholdelse af nye standarder, kan installeres løbende på afstand uden at afbryde klinikkens drift."
+          "Fuld kalibrering: den tekniske kalibrering af multi-læseren til de anvendte lateral flow-tests (LFT’er) udføres eksternt. Dette sikrer analytisk præcision fra starten – uden at praksispersonale skal udføre komplekse tekniske trin.",
+          "Sømløs IT-integration: forbindelsen til laboratorie- eller praksisinformationssystemet (LIS/PIS) sker via sikre, webbaserede grænseflader (f.eks. POC IT-løsninger). Eksterne konsulenter sikrer, at alle aflæsninger automatisk, sikkert og fejlfrit overføres til patientjournalen.",
+          "Firmwareopdateringer og systemkontroller: softwareopdateringer, der sikrer kompatibilitet og overholdelse af nye standarder, kan anvendes eksternt, løbende og uden at forstyrre praksisdriften."
         ]
       },
       {
-        "heading": "3. Performance-formlen: konkurrencefordelen",
+        "heading": "3. Performance-formlen: Den konkurrencemæssige fordel",
         "paragraphs": [
-          "Ved at lægge den tekniske og administrative kompleksitet ud til specialiserede remote-services kan klinikker og apoteker reducere tidsforbruget fra uger til et minimum.",
-          "Effektivitetsgevinst og patienttilfredshed: POC-diagnostikudstyrets øjeblikkelige driftsklarhed gør det muligt for personalet at koncentrere sig direkte om patientbehandlingen. Tidsbesparelse ved diagnosticering, hurtigere behandlingsbeslutninger og bortfald af en ekstra konsultation fører til markant højere patienttilfredshed. De optimerede workflows forbedrer hele klinikkens økonomiske effektivitet."
+          "Ved at outsource teknisk og administrativ kompleksitet til specialiserede fjernservices kan praksisser og apoteker reducere den nødvendige tid fra uger til et minimum.",
+          "Effektivitetsgevinster og patienttilfredshed: den øjeblikkelige driftklarhed af POC-diagnostiske enheder gør det muligt for personalet at fokusere direkte på patientpleje. Tid sparet ved diagnosticering, hurtigere behandlingsbeslutninger og eliminering af en anden aftale fører til markant højere patienttilfredshed. De optimerede arbejdsgange forbedrer den økonomiske effektivitet i hele faciliteterne."
         ]
       },
       {
-        "heading": "Konklusion: en investering i tid og sikkerhed",
+        "heading": "Konklusion: Investering i tid og sikkerhed",
         "paragraphs": [
-          "Moderne Point-of-Care-diagnostik er mere end blot en enhed: det er et digitalt integreret system. Den, der satser på remote setup, investerer ikke kun i mere præcis og hurtigere diagnostik, men først og fremmest i sit personales værdifulde tid. Performance-formlen er dermed synonym med minimalt integrationsbesvær og maksimal driftsklarhed i det moderne sundhedsvæsen."
-        ]
-      }
-    ],
-    "title": "Performance-formlen: effektivitet i POC-diagnostikken",
-    "seo": {
-      "title": "Performance-formlen i POC-diagnostik"
-    }
-  },
-  "green_practice": {
-    "excerpt": "Sustainability in healthcare doesn't start with solar panels, but with diagnostic logistics. A plea for Point-of-Care.",
-    "title": "The 'Green Practice': Why Sustainability Starts in the Waiting Room",
-    "sections": [
-      {
-        "type": "text",
-        "heading": "Introduction",
-        "paragraphs": [
-          "Sustainability is no longer just a lifestyle topic. It is an economic and ethical necessity that has now reached the healthcare sector. But while there is much talk about paperless offices and energy-saving lighting, the 'elephant in the room' of the medical ecological footprint is often overlooked: Diagnostic Logistics. Why Point-of-Care (PoC) testing with devices like the IGLO-PRO not only saves time but is the decisive step towards CO2 reduction in modern medicine.",
-          "Imagine a normal morning in a German GP practice. By 11:00 AM, dozens of blood samples have been taken. These tubes are packed, sealed in plastic bags, cooled in styrofoam boxes, and wait for the courier.",
-          "At 12:00 PM, a diesel van pulls up. It has already visited ten other practices and will visit ten more before fighting its way back to the central laboratory through city traffic. Once there, an energy-intensive analysis process begins. You receive the result – in the best case – digitally in the evening, but often only the next day by fax or letter.",
-          "This process is the standard. It is proven. And from an ecological point of view, it is a disaster."
-        ]
-      },
-      {
-        "type": "text",
-        "heading": "The Invisible CO2 Footprint of Central Diagnostics",
-        "paragraphs": [
-          "In the discussion about 'Green Health', we often focus on obvious factors: waste separation, green electricity, or digital patient records. These are important steps. But the logistical effort behind a simple blood test is gigantic when extrapolated to thousands of practices.",
-          "Every sample not analyzed in the practice causes a chain of emissions:"
-        ],
-        "listItems": [
-          "Courier Trips: Daily pickups add up to millions of kilometers per year, often in inefficient stop-and-go city traffic.",
-          "Packaging Waste: Safety regulations require a lot of single-use plastic, cooling packs, and transport packaging.",
-          "Energy: Large laboratories are high-performance centers that must be air-conditioned and operated around the clock."
-        ]
-      },
-      {
-        "type": "infobox",
-        "heading": "Decentralization as the Key to Sustainability",
-        "content": "Devices like the IGLO-PRO from Polaris DX mark a paradigm shift. They shift the analysis from the distant large laboratory directly to the scene of action: to the doctor's desk or directly to the patient's home. The ecological calculation is startlingly simple: An analysis that never leaves the practice causes no transport traffic."
-      },
-      {
-        "type": "key_points",
-        "heading": "When Logistics Disappear",
-        "points": [
-          {
-            "title": "No Courier",
-            "description": "The sample moves from the patient's finger directly into the device. Distance: 30 centimeters."
-          },
-          {
-            "title": "No Packaging Waste",
-            "description": "No transport tubes, no flood of labels, no safety bags."
-          },
-          {
-            "title": "Micro-Methodology",
-            "description": "Instead of processing milliliters of venous blood, a single drop of capillary blood is sufficient."
-          }
-        ]
-      },
-      {
-        "type": "text",
-        "heading": "'Green Health' as a Competitive Advantage",
-        "paragraphs": [
-          "Why should you as a practice owner or clinic manager prioritize this? Besides ethical responsibility, sustainability is developing into a real competitive advantage – the so-called 'Green Practice' seal.",
-          "Patients today are more informed and critical. A practice that is not only medically up to date but also demonstrates responsibility for the environment and resources binds patients more emotionally. If you explain to a patient: 'We have your result in 5 minutes, and we even protect the environment because we don't have to send couriers through the city', then that is a strong narrative. It shows: This practice is modern, efficient, and responsible.",
-          "This also plays a role in the 'War for Talents'. Young medical assistants (MFA) and assistant doctors are looking for employers whose values align with their own. Highly modern, sustainable equipment with digital tools like the IGLO-PRO and DX365 connection appears attractive and progressive."
-        ]
-      },
-      {
-        "type": "text",
-        "heading": "Efficiency Meets Ecology: The Double Dividend",
-        "paragraphs": [
-          "However, the strongest argument for switching to PoC diagnostics is that sustainability here does not mean sacrifice. On the contrary: Ecological efficiency leads to economic efficiency.",
-          "In the 'Green Practice', processes interlock seamlessly:"
-        ],
-        "listItems": [
-          "Patient Journey: The patient comes with complaints.",
-          "Diagnosis: Measurement (e.g., CRP to distinguish viral/bacterial) takes place immediately.",
-          "Therapy: The decision is made in the same appointment.",
-          "Result: The patient goes home with clarity."
-        ]
-      },
-      {
-        "type": "text",
-        "paragraphs": [
-          "Compare this with the old way: Patient comes -> Blood draw -> Patient leaves -> Lab trip -> Finding comes -> Doctor reviews finding -> Practice calls patient -> Patient comes again for discussion.",
-          "Every avoided second appointment saves not only your staff's time at the reception and telephone. It also saves the patient the journey. If we avoid 100 unnecessary return visits per quarter, we have saved 200 car trips (round trip). That is active CO2 reduction through process optimization."
-        ]
-      },
-      {
-        "type": "infobox",
-        "heading": "The Technology is Mature",
-        "content": "For a long time, the argument was that rapid tests do not reach the quality of laboratory values and are therefore 'only' a supplement. With the new generation of devices like the IGLO-PRO, this argument is off the table. We are talking about 'Lab-Quality to Go'. Through integration into digital ecosystems like the DX365 Cloud, data is also immediately securely documented."
-      },
-      {
-        "type": "text",
-        "heading": "Conclusion: A Small Prick for the Patient, a Giant Step for the Environment",
-        "paragraphs": [
-          "The transformation of the healthcare system towards more sustainability will not succeed through a single huge measure. It succeeds through thousands of small process changes in local practices.",
-          "The decision for mobile diagnostics is such a change. It is a 'no-brainer': You save time, improve patient experience, relieve your team – and incidentally make a measurable contribution to climate protection by taking unnecessary logistics off the road.",
-          "The 'Green Practice' is not a trend that will disappear. It is the new gold standard. And with the right equipment, it is easier to achieve than you think."
-        ]
-      }
-    ],
-    "keyStats": [
-      {
-        "value": "30 %",
-        "label": "færre ture pr. resultat"
-      },
-      {
-        "value": "0 km",
-        "label": "transport ved POC"
-      },
-      {
-        "value": "200",
-        "label": "bilture sparet/kvartal"
-      }
-    ],
-    "seo": {
-      "title": "Green Practice: Sustainability Starts Here"
-    }
-  },
-  "invisible_patient": {
-    "title": "The Invisible Patient: How Remote Monitoring Frees Medicine from the Practice",
-    "excerpt": "The patient no longer has to come to the doctor for the diagnosis to be made. How IGLO-PRO and DX365 enable the 'Hospital-at-Home'.",
-    "sections": [
-      {
-        "type": "text",
-        "heading": "Introduction",
-        "paragraphs": [
-          "We are heading for a 'perfect storm' in healthcare. An aging society meets a dramatic shortage of doctors, especially in rural regions. Patients take on hours of driving and full waiting rooms just to have routine values checked. But what if the patient didn't have to come for diagnosis at all? With the combination of mobile laboratory technology and cloud connectivity, the concept of 'Hospital-at-Home' is finally becoming reality.",
-          "Imagine 'Mrs. Müller'. She is 78 years old, lives in a small village, and suffers from type 2 diabetes and incipient heart failure. Her GP practices in the next district town – 25 kilometers away. For every HbA1c check and every blood pressure check, she is on the road for half a day. Often she postpones appointments because the burden is too great. Her values deteriorate unnoticed. She becomes the 'invisible patient' – until the next emergency."
-        ]
-      },
-      {
-        "type": "infobox",
-        "heading": "Data Travels, Not the Patient",
-        "content": "The solution lies in decoupling medical expertise and physical presence. We call it Remote Patient Monitoring (RPM). The idea is simple: Data collection takes place where the patient is. Analysis and decision-making take place where the doctor is."
-      },
-      {
-        "type": "text",
-        "paragraphs": [
-          "So far, RPM has often failed due to two hurdles:",
-          "Lack of Data Quality: Fitness watches are nice, but no doctor changes an insulin dosage based on a smartwatch estimate.",
-          "Lack of Connectivity: Professional medical devices were often 'offline' and required manual transfer of values (Source of Error No. 1).",
-          "This is where the Polaris DX ecosystem closes the gap."
-        ]
-      },
-      {
-        "type": "text",
-        "heading": "The Dynamic Duo: IGLO-PRO Meets DX365",
-        "paragraphs": [
-          "The revolution in remote monitoring is based on the seamless fusion of hardware and software.",
-          "The IGLO-PRO delivers the necessary laboratory quality. We are not talking about lifestyle parameters here, but hard clinical data: HbA1c, lipids, CRP. Values that previously made a laboratory visit unavoidable. Since the device is mobile and battery-operated, it fits in the bag of every community nurse, every nursing service, or can be issued as a loaner device to chronic patients.",
-          "But a value on a display is of little use to the distant doctor. This is where DX365 comes into play.",
-          "DX365 is the digital bridge. As soon as the IGLO-PRO determines a value, it is transmitted securely and encrypted to the cloud (after confirmation). This value appears in real-time on the treating doctor's dashboard – regardless of whether they are 500 meters or 500 kilometers away."
-        ]
-      },
-      {
-        "type": "key_points",
-        "heading": "A Scenario of the Future (Possible Today)",
-        "points": [
-          {
-            "title": "Home Visit",
-            "description": "Once a week, the mobile nursing service or a care assistant comes by."
-          },
-          {
-            "title": "Immediate Analysis",
-            "description": "A drop of capillary blood is taken on-site in the living room with the IGLO-PRO."
-          },
-          {
-            "title": "Real-Time Data",
-            "description": "While Mrs. Müller drinks her coffee, her GP in the city sees the current HbA1c and lipid values in his DX365 portal."
-          },
-          {
-            "title": "Prescription & Adjustment",
-            "description": "He detects a slight deterioration, adjusts the medication, and sends the new prescription directly as an e-prescription to Mrs. Müller's village pharmacy."
-          }
-        ]
-      },
-      {
-        "type": "text",
-        "heading": "Security as Top Priority",
-        "paragraphs": [
-          "When health data leaves the practice, alarm bells rightfully ring for many. Data protection is not an option, but the foundation.",
-          "Solutions like DX365 must live 'Security by Design'. This means: End-to-end encryption and server locations subject to GDPR. The advantage of modern cloud solutions over old fax machines or unencrypted emails (which are unfortunately still used) is massive. In a closed ecosystem like that of Polaris DX, unauthorized persons have no access. The doctor defines who can see what."
-        ]
-      },
-      {
-        "type": "text",
-        "heading": "Advantages for the Modern Practice",
-        "paragraphs": [
-          "For doctors and clinics, RPM is not just a service to the patient, it is a massive efficiency lever."
-        ],
-        "listItems": [
-          "Relief of Infrastructure: Every measurement that takes place remotely is one less patient in the overcrowded waiting room. This creates space and time for acute cases that really need physical examination.",
-          "Better Therapy Adjustment: Instead of a 'snapshot' every three months, doctors receive tighter data histories. Therapies can be adjusted more finely, preventing long-term complications.",
-          "New Billing Models: The healthcare system is slowly opening up to telemedical services. Those who build the infrastructure now are best positioned for upcoming reforms."
-        ]
-      },
-      {
-        "type": "text",
-        "heading": "Conclusion: Technology That Creates Human Closeness",
-        "paragraphs": [
-          "It may sound paradoxical, but more technology can lead to more humanity in medicine. If we automate and decentralize routine data collection, we free doctors and nursing staff from bureaucratic burdens and logistical hurdles.",
-          "The 'invisible patient' becomes visible through data. We can take care of people without them having to sit in front of us.",
-          "The IGLO-PRO in combination with DX365 is more than a measuring device. It is an extended arm of the practice reaching into the patient's living room. It is time to free medicine from its shackles."
+          "Moderne point-of-care diagnostik er mere end bare en enhed: det er et digitalt integreret system. Dem, der satser på remote setup, investerer ikke kun i mere præcis og hurtigere diagnostik, men frem for alt i deres personales værdifulde tid. Performance-formlen er således synonym med minimal integrationsstress og maksimal driftklarhed i moderne sundhedspleje."
         ]
       }
     ],
     "seo": {
-      "title": "The Invisible Patient: Remote Monitoring"
+      "title": "Præstationsformlen for POC-diagnostik"
     }
   },
   "seo": {
-    "index_title": "Fagmagasin: POC-diagnostik & viden om kliniklaboratorier",
-    "index_description": "Fund, fagartikler om point-of-care-diagnostik, chairside-test og kliniklaboratorier – til tandlæger, læger og fagpersonale. Fra ROI til vitamin D3 i praksis."
+    "index_title": "Magasin: Point-of-Care Diagnostics Insights",
+    "index_description": "Ekspertartikler om point-of-care diagnostik, stolside-testning og laboratorier i praksis for tandlæger, læger og medicinsk personale. Fra ROI til kliniske praksisvejledninger."
   },
   "detail": {
     "vc_readtime_label": "Læsetid",
     "vc_category_label": "Kategori",
     "vc_date_label": "Udgivet",
-    "primary_cta": "Se den relevante ydelse",
-    "longread": "Long-read",
+    "primary_cta": "Se den matchende service",
+    "related_services": "Relateret diagnostik",
+    "longread": "Lang læsning",
     "cta_title": "Beregn dit besparelsespotentiale.",
-    "cta_subtitle": "ROI-beregner eller rådgivning — på under et minut.",
+    "cta_subtitle": "ROI-beregner eller en konsultation – på under et minut.",
     "cta_secondary": "ROI-beregner",
-    "read_time": "{{minutes}} min. læsetid"
+    "read_time": "{{minutes}} min læsning"
+  },
+  "ui": {
+    "home": "Hjem",
+    "articles": "Artikler",
+    "articleNotFound": "Artikel ikke fundet",
+    "backToArticles": "Tilbage til oversigten",
+    "readMore": "Læs mere",
+    "needHelp": "Brug for hjælp til at vælge et produkt?",
+    "contactText": "Vores medicinske team er tilgængeligt 24/7 for at besvare hastespørgsmål og hjælpe dig med at beslutte, hvad du skal gøre næste skridt."
   }
 }

@@ -16,7 +16,7 @@ import { Breadcrumbs, type BreadcrumbItem } from '../ui/Breadcrumbs'
  */
 export type HeroStat = { value: string; label: string }
 export type HeroValueChip = { value: string; label: string }
-export type HeroCta = { label: string; to?: string; href?: string }
+export type HeroCta = { label: string; to?: string; href?: string; hrefLang?: string }
 
 export type SubpageHeroProps = {
   breadcrumbs?: BreadcrumbItem[]
@@ -51,6 +51,7 @@ function HeroCtaButton({ cta, variant }: { cta: HeroCta; variant: 'primary' | 's
   ) : (
     <a
       href={cta.href}
+      hrefLang={cta.hrefLang}
       className={cls}
       target={cta.href?.startsWith('http') ? '_blank' : undefined}
       rel={cta.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
@@ -97,7 +98,7 @@ export function SubpageHero({
             </span>
           )}
 
-          <h1 className="mt-5 text-4xl font-medium tracking-tight lg:text-5xl">{title}</h1>
+          <h1 className="mt-5 t-h1">{title}</h1>
 
           {subtitle && <p className="mt-4 max-w-xl leading-relaxed text-white/80">{subtitle}</p>}
 

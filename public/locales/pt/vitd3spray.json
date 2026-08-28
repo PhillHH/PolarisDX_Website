@@ -68,7 +68,7 @@
   "order": {
     "caption": "Spray de Vitamina D3+K2",
     "title": "Encomendar agora",
-    "description": "Preencha o formulário e enviar-lhe-emos uma confirmação da encomenda com fatura por e-mail.",
+    "description": "Preencha o formulário. A nossa equipa analisará o pedido e entrará em contacto sobre preço, entrega e pagamento.",
     "quantity_label": "Quantidade da encomenda",
     "quantity_options": {
       "12": "12 sprays",
@@ -90,10 +90,10 @@
     "message_placeholder": "Opcional: instruções de entrega, endereço diferente, etc.",
     "submit": "Encomendar agora de forma vinculativa",
     "submitting": "A enviar a encomenda...",
-    "submit_note": "Ao enviar, receberá uma confirmação da encomenda por e-mail. Pagamento contra fatura.",
+    "submit_note": "Não é efetuado qualquer pagamento neste formulário. A nossa equipa confirma pessoalmente o preço e a entrega.",
     "reassurance": "Grátis e sem compromisso · Resposta < 24 h",
     "success_title": "Muito obrigado pela sua encomenda!",
-    "success_text": "Recebemos a sua encomenda e enviar-lhe-emos em breve uma confirmação por e-mail.",
+    "success_text": "Recebemos o seu pedido de encomenda. A nossa equipa entrará em contacto em breve com os próximos passos.",
     "error_text": "Ocorreu um erro. Tente novamente, por favor, ou contacte-nos por telefone."
   },
   "contact": {

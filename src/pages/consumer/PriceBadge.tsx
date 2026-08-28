@@ -22,8 +22,11 @@
 import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Info } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import type { TFunction } from 'i18next'
 
 import type { ConsumerOrderProduct } from '../../api/consumerOrder'
+import { formatCurrency } from '../../lib/localeFormat'
 
 // =============================================================================
 // PER-PRODUCT COPY
@@ -60,61 +63,62 @@ interface BadgeCopy {
   dialogLabel: string
 }
 
-const BADGE_COPY: Record<ConsumerOrderProduct, BadgeCopy> = {
+const getBadgeCopy = (
+  t: TFunction,
+  language: string | undefined,
+): Record<ConsumerOrderProduct, BadgeCopy> => ({
   spray: {
-    intro: 'Weekday support for',
-    highlight: '< €1',
-    trigger: 'per employee / week',
-    popoverEyebrow: 'How we get there',
+    intro: t('price_badge.copy_001'),
+    highlight: `< ${formatCurrency(1, language)}`,
+    trigger: t('price_badge.copy_002'),
+    popoverEyebrow: t('price_badge.copy_003'),
     derivation: [
-      '71 sprays per bottle — 1 / day',
-      'Weekday use (Mon–Fri) — ≈ 14 weeks / bottle',
-      '12-pack across the team — 12 people stocked',
+      t('price_badge.spray_line_1'),
+      t('price_badge.spray_line_2'),
+      t('price_badge.spray_line_3'),
     ],
-    resultLabel: 'Per employee / week',
-    resultValue: '< €1',
-    footnote: 'Based on the 12-pack list price. Indicative — not a per-person subscription.',
-    ariaShow: 'Show how the under-€1 per week figure is calculated',
-    ariaHide: 'Hide explanation of the under-€1 per week figure',
-    dialogLabel: 'How the under-€1 per week figure is built',
+    resultLabel: t('price_badge.copy_004'),
+    resultValue: `< ${formatCurrency(1, language)}`,
+    footnote: t('price_badge.copy_005'),
+    ariaShow: t('price_badge.copy_006'),
+    ariaHide: t('price_badge.copy_007'),
+    dialogLabel: t('price_badge.copy_008'),
   },
   masks: {
-    intro: 'A calm hydration ritual —',
-    highlight: '5 sessions',
-    trigger: 'per box',
-    popoverEyebrow: "What's in one box",
+    intro: t('price_badge.copy_009'),
+    highlight: t('price_badge.copy_013'),
+    trigger: t('price_badge.copy_010'),
+    popoverEyebrow: t('price_badge.copy_011'),
     derivation: [
-      '5 individually packed sachets',
-      '15 ml serum-soaked sheet mask per sachet',
-      '15–30 minutes per session — leave on, then massage in',
+      t('price_badge.mask_line_1'),
+      t('price_badge.mask_line_2'),
+      t('price_badge.mask_line_3'),
     ],
-    resultLabel: 'Per box',
-    resultValue: '5 sessions',
-    footnote:
-      'Frequency adjusts to your routine and skin tolerance. Cosmetic product, external use only.',
-    ariaShow: 'Show what each box contains',
-    ariaHide: 'Hide details about box contents',
-    dialogLabel: 'What is included in the 5-pack box',
+    resultLabel: t('price_badge.copy_012'),
+    resultValue: t('price_badge.copy_013'),
+    footnote: t('price_badge.copy_014'),
+    ariaShow: t('price_badge.copy_015'),
+    ariaHide: t('price_badge.copy_016'),
+    dialogLabel: t('price_badge.copy_017'),
   },
   duo: {
-    intro: 'Add daily D3+K2 for',
-    highlight: '< €2',
-    trigger: 'per month',
-    popoverEyebrow: 'How we get there',
+    intro: t('price_badge.copy_018'),
+    highlight: `< ${formatCurrency(2, language)}`,
+    trigger: t('price_badge.copy_019'),
+    popoverEyebrow: t('price_badge.copy_003'),
     derivation: [
-      'Hydrating Masks 5-pack — your masks order',
-      '+ Vitamin D3+K2 Spray 12-pack',
-      'Spray applied 1× daily — ≈ 71 days / bottle',
+      t('price_badge.duo_line_1'),
+      t('price_badge.duo_line_2'),
+      t('price_badge.duo_line_3'),
     ],
-    resultLabel: 'Add-on per month',
-    resultValue: '< €2',
-    footnote:
-      'Indicative price uplift vs. a masks-only order. Final price confirmed by sales at checkout.',
-    ariaShow: 'Show how the under-€2 per month figure is calculated',
-    ariaHide: 'Hide explanation of the under-€2 per month figure',
-    dialogLabel: 'How the under-€2 per month add-on figure is built',
+    resultLabel: t('price_badge.copy_020'),
+    resultValue: `< ${formatCurrency(2, language)}`,
+    footnote: t('price_badge.copy_021'),
+    ariaShow: t('price_badge.copy_022'),
+    ariaHide: t('price_badge.copy_023'),
+    dialogLabel: t('price_badge.copy_024'),
   },
-}
+})
 
 // =============================================================================
 // POSITIONING HELPERS
@@ -145,7 +149,8 @@ function computePosition(trigger: HTMLElement): PopoverPosition {
 // =============================================================================
 
 export function PriceBadge({ product }: { product: ConsumerOrderProduct }) {
-  const copy = BADGE_COPY[product]
+  const { t, i18n } = useTranslation('consumer')
+  const copy = getBadgeCopy(t, i18n.resolvedLanguage)[product]
 
   const [open, setOpen] = useState(false)
   const [pos, setPos] = useState<PopoverPosition | null>(null)

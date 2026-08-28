@@ -1,0 +1,427 @@
+{
+  "slug": "biologische-altersuhr",
+  "panel": "Biological Age Clock",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Prøverapport · Eksempeldata",
+      "panel": "Biological Age Clock",
+      "subtitle": "Baseret på microRNA",
+      "claim": "Tre cirkulerende microRNA’er — miR-21, miR-24 og miR-155 — afspejler inflammation, cellulær aldring og metabolisme. Deres samspil bruges til at beregne en biologisk alder, som derefter sættes i forhold til den kronologiske alder.",
+      "meta": [
+        {
+          "k": "Rapport for",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Prøvetagning",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Materiale",
+          "v": "Tørret bloddråbe-kort"
+        },
+        {
+          "k": "Omfang",
+          "v": "3 microRNA’er"
+        }
+      ],
+      "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+      "id": "deckblatt",
+      "benefit": "Et enkelt tal, der konkretiserer din samtale om motion, stress og kost."
+    },
+    {
+      "type": "principle",
+      "caption": "Princippet",
+      "title": "Ikke bare hvor gammel du er. Men hvor hurtigt du ældes.",
+      "lead": "microRNA’er er små RNA-molekyler, der regulerer, hvor stærkt individuelle gener aflæses. Tre af dem — miR-21, miR-24 og miR-155 — repræsenterer inflammation, cellulær aldring og metabolisme. En regressionsmodel bruger deres samspil til at beregne en biologisk alder og sætter den i forhold til den kronologiske alder. Fordi microRNA’er reagerer dynamisk, kan ændringer vise sig relativt hurtigt.",
+      "cards": [
+        {
+          "title": "Tre signaler",
+          "text": "miR-21 (inflammation), miR-24 (senescens og reparation) og miR-155 (immunsystemets balance og metabolisme)."
+        },
+        {
+          "title": "Dynamisk",
+          "text": "microRNA-niveauer ændres med kost, motion, søvn, stress og rygning."
+        },
+        {
+          "title": "Tendensorienteret",
+          "text": "Det, der har betydning, er udviklingen mellem to målinger under samme betingelser — ikke enkeltværdien."
+        }
+      ],
+      "flowTitle": "Processen",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Måling",
+          "text": "Tørret bloddråbekort fra fingerspidsen. microRNA-ekspression via qPCR, normaliseret mod miR-93. Ingen faste nødvendig."
+        },
+        {
+          "num": "02",
+          "title": "Fortolk",
+          "text": "En multivariat regressionsmodel bruger de tre signaler til at beregne den biologiske alder og dens afvigelse fra den kronologiske alder."
+        },
+        {
+          "num": "03",
+          "title": "Ændring",
+          "text": "Specifikke ernærings- og livsstilsindsatser for hvert signal samt opfølgningsmonitorering ved næste måling."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Hvor pålideligt er dette tal?",
+      "text": "Den underliggende model er publiceret som pilotstudie (n = 539). Den forklarer omkring 5 % af aldersvariansen, den gennemsnitlige absolutte fejl er 10,4 år, og to af de tre microRNA’er korrelerede ikke signifikant med kronologisk alder i den undersøgelse. Forfatterne opfordrer selv til validering før klinisk brug.",
+      "items": [
+        "Hvad dette betyder i praksis: den biologiske alder, der rapporteres her, er ikke en aldersbestemmelse og siger intet om forventet levetid eller sygdomsrisiko. Det, der har betydning, er ændringen mellem to målinger under samme betingelser — derfor fokuserer denne rapport på tendensen og ikke på enkeltværdien.",
+        "En sammenligning med aldersure baseret på methylation er ikke tilladt: forskellig metode, forskellig evidensgrundlag. Kilde: Schneider J. et al., miRNA-3Age, Frontiers in Nutrition 2025, doi:10.3389/fnut.2025.1659730."
+      ],
+      "tone": "neutral",
+      "id": "hinweis"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Dit resultat",
+      "title": "Dit biologiske alderur.",
+      "display": "+4 years",
+      "sub": "Afvigelse fra kronologisk alder",
+      "kind": "afvigelse",
+      "value": 4,
+      "unit": "år",
+      "ticks": ["+20 år", "+10", "0", "−10", "−20 år"],
+      "tone": "green",
+      "text": "Ud fra den samlede vurdering af miR-21, miR-24 og miR-155. Kronologisk alder 48 år. Din biologiske alder er 52 år, fire år over din kronologiske alder. Intervallet fra −5 til +5 år betragtes som alderssvarende — din værdi ligger derfor inden for dette interval. Til sammenligning: referencebåndet på ±5 år er smallere end modellens gennemsnitlige fejl på 10,4 år. En afvigelse af denne størrelse kan derfor ikke adskilles fra modellens spredning.",
+      "id": "ergebnis"
+    },
+    {
+      "type": "ageDots",
+      "caption": "Biologisk versus kronologisk",
+      "title": "Biologisk alder",
+      "lead": "Kronologisk alder 48 år.",
+      "chronological": 48,
+      "min": 35,
+      "max": 60,
+      "unit": "år",
+      "items": [
+        {
+          "label": "Biologisk alder",
+          "age": 52,
+          "delta": "+4",
+          "tone": "green"
+        }
+      ],
+      "id": "biologisches-alter"
+    },
+    {
+      "type": "callout",
+      "title": "Hvor du står",
+      "text": "To scorer baseret på dine selvrapporterede oplysninger, hver sammenlignet med referenceværdien.",
+      "items": [
+        "72 / 100 · Ernæring — God næringskombination med plads til forbedringer i detaljerne. Reference: ≥ 60.",
+        "65 / 100 · Livsstil — Afbalanceret, med plads til mere fysisk aktivitet og stressreduktion. Reference: ≥ 60."
+      ],
+      "tone": "neutral",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "markers",
+      "caption": "Grundlag for beregningen",
+      "title": "De tre mikroRNA'er.",
+      "lead": "De individuelle signaler på trafiklyset 1–9; højere er bedre. Det er kun deres samspil, der danner aldersuret — et enkelt signal alene tillader ingen konklusion.",
+      "items": [
+        {
+          "name": "miR-21",
+          "category": "Inflammation og vævsomdannelse",
+          "intro": "Ledende mikroRNA for ’inflammaging’. Stiger ved kronisk, lavgradig inflammation og er tæt forbundet med senescens og fibrose.",
+          "kind": "trafik",
+          "value": 3,
+          "display": "3 / 9",
+          "sub": "Uden for interval",
+          "tone": "red",
+          "text": "Det svageste af dine tre signaler. Alle otte anbefalinger i denne rapport retter sig mod miR-21-vejen."
+        },
+        {
+          "name": "miR-155",
+          "category": "Immunbalance og stofskifte",
+          "intro": "Central omkobling af immunresponsen. Forhøjede niveauer ledsager metabolisk stress og overaktiv inflammatorisk regulering.",
+          "kind": "trafik",
+          "value": 4,
+          "display": "4 / 9",
+          "sub": "Midt i intervallet",
+          "tone": "amber",
+          "text": "I den nedre midterste del af intervallet. Sammen med miR-21 peger dette signal i samme retning: inflammation og immunregulering er rapportens omdrejningspunkt."
+        },
+        {
+          "name": "miR-24",
+          "category": "Cellecyklus og senescens",
+          "intro": "Regulerer celledeling, DNA-reparation og apoptose. Afspejler cellers reparationskapacitet og senescensniveau.",
+          "kind": "trafik",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Midt i intervallet",
+          "tone": "amber",
+          "text": "Det stærkeste af dine tre signaler — præcis midt på skalaen. Reparationskapacitet og senescensniveau er uden anmærkninger."
+        }
+      ],
+      "note": "I publikationen, der beskriver modellen, korrelerede to af de tre mikroRNA'er ikke signifikant med kronologisk alder. De individuelle signaler bør derfor læses som udgangspunkter for interventioner, ikke som aldersmarkører i sig selv.",
+      "id": "marker"
+    },
+    {
+      "type": "radar",
+      "caption": "Hvor du står",
+      "title": "Ernæring og livsstilsvaner.",
+      "lead": "Radardiagrammet viser, hvor tæt dine nuværende vaner er på referenceværdierne. Jo længere ude en faktor ligger, desto mere gunstig — 10 er optimalt.",
+      "axes": [
+        "Daglig aktivitet",
+        "Motion",
+        "Stress",
+        "Tobak",
+        "Alkohol",
+        "Snacks",
+        "Kød",
+        "Omega-3",
+        "Fibre",
+        "Frugt/grønt",
+        "Væskeindtag"
+      ],
+      "seriesLabels": {
+        "profile": "Din profil",
+        "reference": "Referencegruppe"
+      },
+      "scores": [
+        {
+          "value": "72 / 100",
+          "label": "Ernæring",
+          "text": "God næringskombination, plads til forbedring i detaljerne.",
+          "ref": "Reference: ≥ 60"
+        },
+        {
+          "value": "65 / 100",
+          "label": "Livsstil",
+          "text": "Afbalanceret, med plads til mere fysisk aktivitet og stressreduktion.",
+          "ref": "Reference: ≥ 60"
+        }
+      ],
+      "noticeTitle": "Link til aldersuret",
+      "notices": [
+        "Stress (4 ud af 10) er din svageste livsstilsfaktor. I modelstudiet var stress og rygning blandt de faktorer, der var forbundet med en højere miRNA-alder.",
+        "Tobak (9 ud af 10) ligger derimod langt over gennemsnittet — så den anden af de to ugunstige faktorer i modellen gælder ikke for dig.",
+        "Omega-3 (6) og motion (7) har plads til forbedring; begge var blandt de faktorer, der i studiet var forbundet med en lavere miRNA-alder."
+      ],
+      "note": "Vurdering baseret på dine selvrapporterede oplysninger, ikke en individuel diagnose. De beskrevne sammenhænge stammer fra modelstudiet og er gruppefund, ikke en forudsigelse for det enkelte tilfælde.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Alle anbefalinger samlet",
+      "title": "Dine tiltag.",
+      "lead": "Otte indsatsområder, hver tildelt de mikroRNA-signaler, de påvirker, sammen med deres aktuelle værdier. Sorteret efter prioritet — det svageste signal først.",
+      "cols": ["Indsatsområde", "Påvirker", "Kilde", "Mængde", "Bemærkning"],
+      "rows": [
+        [
+          "Resveratrol",
+          "miR-21 · 3",
+          "Drueskaller, blåbær, jordnødder",
+          "150–500 mg/dag",
+          "Aktiverer sirtuiner, hæmmer NF-κB"
+        ],
+        [
+          "Omega-3-fedtsyrer",
+          "miR-21 · 3, miR-155 · 4",
+          "Laks, makrel, sild, hørfrø; alternativt algeolie",
+          "2×/uge, 150–200 g",
+          "Anti-inflammatorisk; forbundet med yngre miRNA-alder i modellen"
+        ],
+        [
+          "EGCG (grøn te)",
+          "miR-21 · 3, miR-155 · 4",
+          "Grøn te, matcha, sencha",
+          "300–400 mg/dag (3–4 kopper)",
+          "Antioxidant; gunstig livsstilsfaktor i modellen"
+        ],
+        [
+          "Curcumin",
+          "miR-21 · 3, miR-155 · 4",
+          "Gurkemeje med sort peber",
+          "1 tsk dagligt",
+          "Piperin øger markant optagelsen"
+        ],
+        [
+          "Sulforafan",
+          "miR-21 · 3, miR-155 · 4",
+          "Broccoli (og broccoli-spirer), blomkål, rosenkål, karse",
+          "25 mg/dag (ca. 250 g)",
+          "Opvarmning i 3–4 min ved 80 °C øger biotilgængeligheden"
+        ],
+        [
+          "Søvn og stress",
+          "miR-21 · 3, miR-155 · 4",
+          "Restorativ søvn, stressregulering, ikke-rygning",
+          "dagligt",
+          "Stress og rygning var forbundet med højere miRNA-alder i modellen"
+        ],
+        [
+          "Fysisk aktivitet",
+          "miR-21 · 3, miR-155 · 4, miR-24 · 5",
+          "Kombineret udholdenhed og styrke",
+          "≥ 150 min/uge",
+          "Regelmæssig aktivitet var forbundet med lavere miRNA-alder i modellen"
+        ],
+        [
+          "Quercetin",
+          "miR-21 · 3, miR-24 · 5",
+          "Løg, hvidløg, kapers, grønkål",
+          "500–1.000 mg/dag",
+          "Senolytisk; bedre biotilgængelighed med C-vitamin"
+        ]
+      ],
+      "note": "’Påvirker’-angivelsen betegner den vej, som det respektive indsatsområde retter sig mod. Det er ikke et løfte om målbar ændring i det enkelte tilfælde. Vurder kosttilskud individuelt og i samråd med kvalificeret fagperson; dette overblik erstatter ikke medicinsk rådgivning.",
+      "id": "uebersicht"
+    },
+    {
+      "type": "trend",
+      "caption": "Udvikling",
+      "title": "Det faktiske fund.",
+      "lead": "Da enkeltværdien ikke overvinder modellens spredning, ligger den informative værdi i denne analyse i udviklingen. Kun målte værdier vises — ingen prognose.",
+      "firstLabel": "15.03.2026",
+      "secondLabel": "15.06.2026",
+      "kind": "alder",
+      "items": [
+        {
+          "label": "Biologisk alder",
+          "first": 54,
+          "second": 52,
+          "firstDisplay": "54 år",
+          "secondDisplay": "52 år",
+          "delta": "−2 år",
+          "sub": "+4 vs. kronologisk alder",
+          "tone": "green"
+        }
+      ],
+      "note": "Evaluering: første måling 15.03.2026, opfølgning 15.06.2026, ændring −2 år, afvigelse i dag +4 sammenlignet med kronologisk alder.",
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "Hvad tendensen viser",
+      "text": "Den biologiske alder er faldet med to år mellem de to målinger, fra 54 til 52 — mens den kronologiske alder steg med tre måneder i samme periode. Retningen er rigtig.",
+      "items": [
+        "Samtidig ligger en forskel på to år godt inden for modellens spredning på omkring ti år. Et enkelt skridt af denne størrelse demonstrerer endnu ikke en effekt — kun en retning, der forbliver konsistent over flere målinger, gør det.",
+        "De to målinger var omkring tre måneder fra hinanden. Intervallet til næste kontrol fastsættes af den institution, der varetager din behandling; prøveudtagning og tidspunkt på dagen bør forblive sammenlignelige."
+      ],
+      "tone": "accent",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "summary",
+      "caption": "Resumé",
+      "title": "Dit fokus: inflammationsaksen.",
+      "lead": "To af dine tre signaler — miR-21 (3/9) og miR-155 (4/9) — beskriver inflammation og immunregulering, og begge ligger i den lave ende. miR-24, som afspejler reparation og senescens, ligger midt i feltet på 5/9. Det giver et klart billede af, hvor fokus bør være.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Spis en antiinflammatorisk kost",
+          "text": "Alle otte greb i denne rapport påvirker miR-21, seks af dem påvirker desuden miR-155. Overlappet er overskueligt og praktisk i hverdagen. Konkret: fed fisk fra havet to gange om ugen eller algolie dagligt, 3–4 kopper grøn te, gurkemeje med sort peber, broccoli kogt i 3–4 minutter ved 80 °C, bær for resveratrol."
+        },
+        {
+          "num": "02",
+          "title": "Stress og fysisk aktivitet",
+          "text": "Din livsstilsradar viser stress på 4 ud af 10 som den svageste faktor, med motion på 7 og omega-3 på 6, hvilket giver plads til forbedring. I modelstudiet var stress og rygning forbundet med en højere miRNA-alder, mens regelmæssig fysisk aktivitet og fisk var forbundet med en lavere. Fysisk aktivitet er det eneste greb, der påvirker alle tre signaler på én gang: mindst 150 minutter om ugen, kombineret udholdenhed og styrke."
+        }
+      ],
+      "keepTitle": "Hvad der allerede virker",
+      "keepText": "Ikke-rygning (tobak 9/10), frugt og grønt (8/10) og væskeindtag (8/10) ligger godt over referencegruppen. Ernæringsscoren på 72/100 er også solid. Og tendensen peger i den rigtige retning.",
+      "controlTitle": "Husk venligst",
+      "controlItems": [
+        "Alle de beskrevne sammenhænge mellem livsstil og miRNA-alder stammer fra modelstudiet og er gruppefund. Om din personlige værdi ændrer sig som følge af disse tiltag, kan kun vises ved din næste måling.",
+        "Denne rapport er ikke en diagnose og erstatter ikke medicinsk rådgivning."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "science",
+      "caption": "Hvad der er dokumenteret — og hvad der ikke er",
+      "title": "Videnskabelig kontekst.",
+      "lead": "Vi har åbent sat grænserne for denne analyse, fordi en ærlig fortolkning er mere værd end et imponerende tal.",
+      "items": [
+        {
+          "title": "Studietype",
+          "text": "Pilotstudie; validering efterlyses af forfatterne selv"
+        },
+        {
+          "title": "Prøve",
+          "text": "n = 539"
+        },
+        {
+          "title": "Forklaret varians i alder",
+          "text": "omkring 5 %"
+        },
+        {
+          "title": "Gennemsnitlig absolut fejl",
+          "text": "10,4 år"
+        },
+        {
+          "title": "Markører med signifikant alderskorrelation",
+          "text": "1 af 3"
+        },
+        {
+          "title": "Hvad analysen egner sig til",
+          "text": "Som et rådgivnings- og overvågningsværktøj: det skaber en konkret anledning, gør livsstilstemaer håndgribelige og giver gennem gentagne målinger under samme betingelser en tendenslinje."
+        },
+        {
+          "title": "Hvad den ikke egner sig til",
+          "text": "Som en aldersbestemmelse, som en udtalelse om forventet levetid eller sygdomsrisiko, som diagnostik — og som grundlag for sammenligning med metylationsbaserede alderstællere, der hviler på en anden metode og et andet evidensgrundlag.",
+          "source": "Schneider J. et al., miRNA-3Age: a microRNA-based biological age model and its modulation by lifestyle and nutrition. Frontiers in Nutrition (2025), doi:10.3389/fnut.2025.1659730"
+        }
+      ],
+      "note": "Dette dokument erstatter ikke medicinsk vurdering og udgør ikke noget helbredelsesløfte i henhold til den tyske lov om reklame for terapeutiske produkter (HWG).",
+      "id": "einordnung"
+    },
+    {
+      "type": "callout",
+      "title": "Det ledende princip",
+      "text": "Tendensen bærer meningen, den enkelte værdi gør ikke. En første og en opfølgende måling under samme betingelser er det reelle udbytte af denne analyse.",
+      "items": [
+        "En enkelt værdi inden for ±10 år af kronologisk alder kan ikke skilles fra modellens spredning."
+      ],
+      "tone": "accent",
+      "id": "hinweis-4"
+    },
+    {
+      "type": "contact",
+      "title": "Spørgsmål om din rapport?",
+      "text": "Diskuter resultaterne med den institution, der har foretaget prøveudtagningen. Det er dér, den nødvendige kontekst til fortolkning findes.",
+      "columns": [
+        {
+          "k": "Kontakt",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribution",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Prøverapport",
+          "text": "Alle værdier og personlige oplysninger i dette dokument er fiktive og tjener udelukkende til at illustrere rapportformatet. Dette er ikke en ægte rapport."
+        },
+        {
+          "title": "Fortolkning",
+          "text": "Den biologiske alder, der rapporteres her, er en modelværdi afledt af tre microRNA-signaler. Den underliggende model er publiceret som et pilotstudie; dens gennemsnitlige absolutte fejl er omkring ti år. Værdien er ikke en aldersbestemmelse, ikke en diagnose og ikke en udtalelse om forventet levetid eller sygdomsrisiko. Informationsværdien opstår kun over flere målinger under samme betingelser. En sammenligning med metylationsbaserede alderstællere er ikke tilladt."
+        },
+        {
+          "title": "Status for analyserne",
+          "text": "Analyserne er laboratorietjenester leveret af vores samarbejdspartner og er ikke CE-mærkede in vitro-diagnostiske medicinsk udstyr. De tjener til rådgivning og overvågning og erstatter ikke klinisk diagnostik. Analyserne leveres kun til professionelle brugere."
+        },
+        {
+          "title": "Lovgivningsmæssigt grundlag",
+          "text": "Dette panel vurderer ingen genotyper; det måler epigenetiske markører. Hvor en analyse i porteføljen inkluderer genetisk testning, kræves information og skriftligt samtykke før prøveudtagning, og det må kun arrangeres under medicinsk ansvar (tysk GenDG). Laboratorieanalysen udføres af vores samarbejdspartner. Polaris Diagnostics Europe GmbH er ansvarlig for distribution og support. Vurder venligst kosttilskud individuelt og i samråd med en kvalificeret fagperson. Dette dokument udgør ikke noget helbredelsesløfte i henhold til den tyske lov om reklame for terapeutiske produkter (HWG)."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Pr. august 2026",
+      "id": "kontakt"
+    }
+  ]
+}

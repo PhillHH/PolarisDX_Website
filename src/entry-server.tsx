@@ -17,6 +17,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import { I18nextProvider } from 'react-i18next'
 
 import { createI18nInstance } from './i18n.server'
+import { extractLanguageFromPathname, normalizeLanguage } from './i18n'
 import App from './App'
 
 import type { HelmetServerState } from 'react-helmet-async'
@@ -52,8 +53,19 @@ export interface RenderResult {
  * So bleibt es konsistent mit BrowserRouter basename im Client.
  */
 export async function render(url: string, lang: string): Promise<RenderResult> {
-  // Erstelle eine neue i18n-Instanz für diesen Request
-  const { instance: i18n } = await createI18nInstance(lang)
+  // Die Request-URL ist die primäre Locale-Wahrheit. Das vom Express-Layer
+  // übergebene Argument bleibt als Vertragskontrolle erhalten, darf die URL
+  // aber niemals überschreiben.
+  const urlLanguage = extractLanguageFromPathname(url)
+  const suppliedLanguage = normalizeLanguage(lang)
+  if (suppliedLanguage !== urlLanguage) {
+    console.warn(
+      `[i18n-ssr] Ignoring locale ${suppliedLanguage}; request URL requires ${urlLanguage}`,
+    )
+  }
+
+  // Erstelle eine neue i18n-Instanz für diesen Request.
+  const { instance: i18n } = await createI18nInstance(urlLanguage)
 
   // Helmet Context für Server-seitiges Head-Management
   const helmetContext: { helmet?: HelmetServerState } = {}
@@ -64,7 +76,7 @@ export async function render(url: string, lang: string): Promise<RenderResult> {
   const html = renderToString(
     <I18nextProvider i18n={i18n}>
       <HelmetProvider context={helmetContext}>
-        <StaticRouter location={url} basename={`/${lang}`}>
+        <StaticRouter location={url} basename={`/${urlLanguage}`}>
           <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
             <App />
           </Suspense>

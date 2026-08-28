@@ -118,9 +118,9 @@ Zusätzlich zu `ALWAYS_READ`. Kurznamen ohne `.md`; alle Dateien liegen im Root 
 | **AP02** | Zielarchitektur: SSR, Routing, Lead Platform, Betrieb      | RUNTIME-CONTRACT · ROUTING-CONTRACT · BACKEND-API-CONTRACT · LEAD-DATA-CONTRACT · DEPLOYMENT-CONTRACT · CONTENT-ASSET-CONTRACT   | SEO-CONTRACT · CRM-INTEGRATION · LEAD-DELIVERY-CONTRACT · REPO-BASELINE                             | Zielbild muss alle vier Architekturachsen konsistent zu den bestehenden Invarianten festschreiben.  |
 | **AP03** | Informationsarchitektur und Seiteninventar                 | ROUTING-CONTRACT · SEO-CONTRACT · I18N-CONTRACT · IA-INVENTORY                                                                   | REPO-BASELINE · QUALITY-GATES                                                                       | Inventar, Seitentypen und Navigation hängen an Route-Registry, Canonical-Regeln und 10 Sprachen.    |
 | **AP04** | Content-Strategie, Content-Modell, Launch-Readiness        | I18N-CONTRACT · SEO-CONTRACT · CONTENT-ASSET-CONTRACT                                                                            | QUALITY-GATES · ROUTING-CONTRACT · IA-INVENTORY                                                     | Content-Typen und Readiness sind an Sprach- und Metadaten-Parität gebunden.                         |
-| **AP05** | Sales-Machine Design-System, Light-Theme                   | QUALITY-GATES                                                                                                                    | BRANCH-RECONCILIATION-MAP · REPO-BASELINE · I18N-CONTRACT                                           | Visual-Regression-/A11y-Gates; `redesign/preview` liefert nur art-direction-neutrale Patterns.      |
-| **AP06** | App Shell, Header, Footer, globale Navigation              | ROUTING-CONTRACT · I18N-CONTRACT · QUALITY-GATES                                                                                 | SEO-CONTRACT · BRANCH-RECONCILIATION-MAP · IA-INVENTORY                                             | Header/Footer sind G3-Hotspots mit Route- und Sprachspiegelungen.                                   |
-| **AP07** | Suche und interne Findability                              | ROUTING-CONTRACT · I18N-CONTRACT · SEO-CONTRACT                                                                                  | QUALITY-GATES · IA-INVENTORY                                                                        | Suchindex und interne Links müssen Routen- und Sprachwahrheit abbilden.                             |
+| **AP05** | Sales-Machine Design-System, Light-Theme                   | DESIGN-SYSTEM-CONTRACT · QUALITY-GATES                                                                                           | BRANCH-RECONCILIATION-MAP · REPO-BASELINE · I18N-CONTRACT                                           | Visual-Regression-/A11y-Gates; `redesign/preview` liefert nur art-direction-neutrale Patterns.      |
+| **AP06** | App Shell, Header, Footer, globale Navigation              | ROUTING-CONTRACT · I18N-CONTRACT · QUALITY-GATES                                                                                 | DESIGN-SYSTEM-CONTRACT · SEO-CONTRACT · BRANCH-RECONCILIATION-MAP · IA-INVENTORY                    | Header/Footer sind G3-Hotspots mit Route- und Sprachspiegelungen.                                   |
+| **AP07** | Suche und interne Findability                              | ROUTING-CONTRACT · I18N-CONTRACT · SEO-CONTRACT · AP07-FINDABILITY-MATRIX                                                        | QUALITY-GATES · IA-INVENTORY · CONTENT-MATRIX                                                       | Suchindex und interne Links müssen Routen- und Sprachwahrheit abbilden.                             |
 | **AP08** | Internationalisierung, 10 Sprachen                         | I18N-CONTRACT · SEO-CONTRACT · ROUTING-CONTRACT                                                                                  | QUALITY-GATES · RUNTIME-CONTRACT · CONTENT-ASSET-CONTRACT                                           | Namespace-/Key-Parität, hreflang und Sprachrouten sind manuell gespiegelt.                          |
 | **AP09** | SEO-Plattformgrundlagen                                    | SEO-CONTRACT · ROUTING-CONTRACT · I18N-CONTRACT · RUNTIME-CONTRACT                                                               | QUALITY-GATES                                                                                       | SEOHead, Sitemap und Structured Data hängen an Route-Registry und SSR-Semantik.                     |
 | **AP10** | Redirect-, URL- und HTTP-Semantik                          | ROUTING-CONTRACT · SEO-CONTRACT · RUNTIME-CONTRACT · QUALITY-GATES                                                               | DEPLOYMENT-CONTRACT · REPO-BASELINE                                                                 | Status-Codes und `KNOWN_PATHS` sind zwischen App und Server gespiegelt.                             |
@@ -178,6 +178,27 @@ Zusätzlich zu `ALWAYS_READ`. Kurznamen ohne `.md`; alle Dateien liegen im Root 
   Launch-Blocker, bis sein Owner-AP es schließt. Ein AP darf sich nicht über einen späteren Owner-AP
   selbst blockieren — das erzeugt einen seriellen Zyklus und verletzt §3 („Ein AP-Dokument darf den
   Master-Scope nicht stillschweigend erweitern").
+- `AP07-FINDABILITY-MATRIX.md` ist seit dem **AP07-PLANNING-FIX** (2026-08-26) das **eine** kanonische
+  operative Artefakt von AP07 (`building-docs/AP07-FINDABILITY-MATRIX.md`). Es führt in genau einer
+  Datei: **Section A** Search Coverage Matrix, **Section B** Internal Findability Matrix,
+  **Section C** das gemeinsame Register der Deferred Search-/Internal-Link-Integrationen
+  (`DSI-xx` / `DLI-xx`) und **Section D** die AP07 Closure Evidence. Es ist **operative Such- und
+  Findability-Evidenz** — **ausdrücklich keine Routing-SSOT**: Route-Existenz, Pfad-Kanonizität und
+  Locale-Policy bleiben `ROUTING-CONTRACT.md`, **Owner der Route Registry bleibt AP10**. Ebenso keine
+  zweite IA-, Sprach- oder Content-Wahrheit (`IA-INVENTORY.md`, `I18N-CONTRACT.md`,
+  `CONTENT-MATRIX.md`). Section C folgt dem Deferred-Gate-Modell aus `work-packages/AP04.md` §11.0 und
+  ersetzt es nicht. Konkurrierende Einzelwahrheiten (`SEARCH-MATRIX.md`, `FINDABILITY.md`,
+  `SEARCH-COVERAGE.md`, `INTERNAL-LINKS.md`, `DEFERRED-SEARCH.md`) sind ausgeschlossen; kein
+  AP07-Primärtask legt eine zusätzliche Matrixdatei an. Nur laden, wo Such-/Findability-Status
+  gebraucht wird — kein globaler Pflichtkontext.
+- `DESIGN-SYSTEM-CONTRACT.md` ist seit **AP05 PT05.1** der kanonische Design-System-Vertrag
+  (`building-docs/DESIGN-SYSTEM-CONTRACT.md`). Er hält **Grenzen und Semantik**: Art-Direction-Grenze
+  (Sales-Machine only), Light-Theme-Regel, Tokenrollen und Kontrastrollen, Legacy-Alias-Politik,
+  Spacing-/Radius-/Shadow-Rollen, Motion-Token-Namen und die Guard-Verankerung. Er ist **keine zweite
+  Token-Wahrheit**: Farbwerte stehen in `tailwind.config.js`, die zulässige Hexmenge in
+  `scripts/check-color-tokens.mjs`. Bei Abweichung gewinnt der Code. `docs/design-system.md` ist ein
+  historischer Phase-1-Schnappschuss und ausdrücklich **nicht kanonisch**.
+
 - `REPO-BASELINE.md` und `BRANCH-RECONCILIATION-MAP.md` sind **Evidenz**, keine Entscheidung.
 - `BRANCH-RECONCILIATION-MAP.md` ist bei **jedem** branch-abgeleiteten Schritt Pflicht, auch wenn die
   AP-Zeile sie nur als optional führt (`AGENT-CONTRACT.md` §2).

@@ -703,7 +703,8 @@
     },
     "a11y": {
       "radar": "Netzdiagramm mit {{n}} Faktoren"
-    }
+    },
+    "markersChapter": "Marker"
   },
   "consult": {
     "caption": "So wird daraus eine Beratung",

@@ -55,6 +55,9 @@ const PALETTE_HEX = new Set([
   '#10b981', // success
   '#047857', // success.strong
   '#ecfdf5', // success.soft
+  '#f59e0b', // warning (Dekor)
+  '#b45309', // warning.strong
+  '#fffbeb', // warning.soft
   '#0077b5', // social.linkedin (Fremdmarke)
   '#e2e8f0', // ui.border
   '#cbd5e1', // ui.border-hover

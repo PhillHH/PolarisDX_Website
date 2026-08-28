@@ -5,6 +5,9 @@ import { FileText, Download, Calendar } from 'lucide-react'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import SubpageHero from '../components/sections/SubpageHero'
+import ResourceLanguageBadge from '../components/ui/ResourceLanguageBadge'
+import { formatDate } from '../lib/localeFormat'
+import type { ResourceLanguage } from '../lib/resourceLanguage'
 
 // CMS-managed document list (edited via the PolarisDX CMS, bundled at build time).
 // Static import is SSR-safe (no runtime fs read) and rebuilt on publish.
@@ -13,6 +16,8 @@ import downloadsData from '../content/downloads.json'
 type DownloadItem = {
   id: string
   title: string
+  description: string
+  language: ResourceLanguage
   size: string
   format: string
   date?: string
@@ -23,7 +28,9 @@ type DownloadItem = {
 // Shape of each entry in downloads.json (CMS-managed). `category` narrows to the union.
 type DownloadRecord = {
   id: string
-  title: string
+  titleKey: string
+  descriptionKey: string
+  language: ResourceLanguage
   category: 'tech' | 'info'
   file: string
   format: string
@@ -32,13 +39,15 @@ type DownloadRecord = {
 }
 
 const DownloadsPage = () => {
-  const { t, i18n } = useTranslation(['downloads', 'common'])
+  const { t, i18n } = useTranslation(['downloads', 'common', 'vitd3spray'])
 
   const records = (downloadsData as { items: DownloadRecord[] }).items
 
   const toItem = (rec: DownloadRecord): DownloadItem => ({
     id: rec.id,
-    title: rec.title,
+    title: t(rec.titleKey),
+    description: t(rec.descriptionKey),
+    language: rec.language,
     size: rec.size,
     format: rec.format,
     date: rec.date,
@@ -65,6 +74,7 @@ const DownloadsPage = () => {
                   <FileText className="h-5 w-5" aria-hidden />
                 </span>
                 <h3 className="mb-3 text-lg font-medium leading-snug text-heading">{item.title}</h3>
+                <p className="mb-4 text-sm leading-6 text-gray-600">{item.description}</p>
                 <div className="flex flex-wrap items-center gap-2 text-xs">
                   <span className="rounded-full bg-accent/10 px-2.5 py-0.5 font-medium text-accent">
                     {item.format}
@@ -72,10 +82,14 @@ const DownloadsPage = () => {
                   <span className="rounded-full bg-gray-100 px-2.5 py-0.5 font-medium text-gray-600">
                     {item.size}
                   </span>
+                  <ResourceLanguageBadge
+                    language={item.language}
+                    className="rounded-full bg-gray-100 px-2.5 py-0.5 font-medium text-gray-600"
+                  />
                   {item.date && (
                     <span className="inline-flex items-center gap-1 text-gray-500">
                       <Calendar className="h-3.5 w-3.5" aria-hidden />
-                      {item.date}
+                      {formatDate(item.date, i18n.language)}
                     </span>
                   )}
                 </div>
@@ -87,6 +101,7 @@ const DownloadsPage = () => {
                   download={item.openInBrowser ? undefined : true}
                   target="_blank"
                   rel="noopener noreferrer"
+                  hrefLang={item.language}
                   className="flex w-full items-center justify-center gap-2 rounded-lg border border-slate-200 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:border-accent hover:bg-accent-soft hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                 >
                   <Download className="h-4 w-4" aria-hidden />
@@ -202,6 +217,12 @@ const DownloadsPage = () => {
               className="font-semibold text-accent transition-colors hover:text-accent-strong"
             >
               {t('downloads:link_epigenetics', 'Epigenetik und Genetik')} →
+            </Link>
+            <Link
+              to="/vitamin-d3-spray"
+              className="font-semibold text-accent transition-colors hover:text-accent-strong"
+            >
+              {t('vitd3spray:hero.title', 'Vitamin D3+K2 Spray')} →
             </Link>
           </div>
         </div>

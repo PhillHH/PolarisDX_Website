@@ -93,7 +93,8 @@
     "pillar3": {
       "title": "Guidet opstart",
       "text": "Oplæring af jeres team og en fast kontaktperson sikrer, at den diagnostiske topkvalitet kan udnyttes med det samme."
-    }
+    },
+    "device_alt": "IglooPro POC-læser"
   },
   "doctors": {
     "caption": "DIAGNOSTIK-FOKUS",
@@ -283,7 +284,8 @@
     },
     "card_cta": "Læs mere",
     "video_label": "ANVENDELSESVIDEO",
-    "video_caption": "Sådan forløber testen i din klinik – på 3 minutter"
+    "video_caption": "Sådan forløber testen i din klinik – på 3 minutter",
+    "device_alt": "IglooPro POC-læser"
   },
   "final_cta": {
     "caption": "Klar til at komme i gang",

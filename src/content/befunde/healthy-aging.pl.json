@@ -1,0 +1,579 @@
+{
+  "slug": "healthy-aging",
+  "panel": "Healthy Aging",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Raport próbki · Przykładowe dane",
+      "panel": "Healthy Aging",
+      "subtitle": "Twój epigenetyczny zegar",
+      "claim": "Kilka kropel krwi pokazuje stan, w jakim działa Twoja regulacja komórkowa — i które dźwignie można wykorzystać do wpływu na wiek biologiczny.",
+      "meta": [
+        {
+          "k": "Raport dla",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Pobranie próbki",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Materiał",
+          "v": "Karta z wysuszonym plamką krwi"
+        },
+        {
+          "k": "Markery",
+          "v": "4 + styl życia"
+        }
+      ],
+      "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+      "id": "deckblatt",
+      "benefit": "Jak starzeje się Twój klient — w czterech oddzielnych wartościach i co może zmienić."
+    },
+    {
+      "type": "principle",
+      "caption": "Zasada",
+      "title": "Jak czytać ten raport.",
+      "lead": "Twoje ciało odnawia się codziennie: komórki dzielą się, naprawiają uszkodzenia DNA i reagują na stres, odżywianie, sen oraz środowisko. Procesy te pozostawiają ślady w metylacji DNA. Z tych wzorców raport odczytuje Twój wiek biologiczny — nie w latach kalendarzowych, lecz w stanie Twojej regulacji komórkowej.",
+      "cards": [
+        {
+          "title": "Ochrona",
+          "text": "Jak stabilnie chronione jest Twoje DNA i jak efektywnie działają mechanizmy naprawcze. Markery: telomery, LINE-1."
+        },
+        {
+          "title": "Regulacja",
+          "text": "Jak kontrolowane pozostają procesy zapalne i jak odporna jest równowaga komórkowa. Marker: IL-6."
+        },
+        {
+          "title": "Interpretacja",
+          "text": "Jak Twoje wartości wypadają na tle grupy referencyjnej dopasowanej pod względem wieku, płci i pochodzenia etnicznego."
+        }
+      ],
+      "flowTitle": "Proces",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Pomiar",
+          "text": "Karta z wysuszoną plamką krwi z opuszka palca. Długość telomerów i markery metylacji (LINE-1, IL-6, markery starzenia). Nie jest wymagane bycie na czczo."
+        },
+        {
+          "num": "02",
+          "title": "Interpretacja",
+          "text": "Porównanie z grupą referencyjną. 100% odpowiada wartości metylacji zdrowej grupy kontrolnej."
+        },
+        {
+          "num": "03",
+          "title": "Zmiana",
+          "text": "Dla każdego markera odpowiednia interwencja — co konkretnie jeść, czego unikać lub zmienić — oraz monitorowanie po wdrożeniu."
+        }
+      ],
+      "scaleCaption": "Orientacja",
+      "scaleTitle": "Jak czytać skalę?",
+      "scaleLead": "Wszystkie markery podane są jako procent wartości referencyjnej. 100% to zakres normy, a wyższe wartości są korzystniejsze. Długość telomerów dodatkowo podawana jest w kiloparach zasad (kbp).",
+      "scaleKind": "percent",
+      "scaleTicks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "Poniżej 90% · Czerwony",
+          "text": "Wymagana pilna interwencja."
+        },
+        {
+          "tone": "amber",
+          "label": "90–100% · Pomarańczowy",
+          "text": "Wymagana interwencja, działaj celowo."
+        },
+        {
+          "tone": "green",
+          "label": "Od 100% · Zielony",
+          "text": "Brak potrzeby działania, utrzymuj wynik."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Jak wiarygodna jest wartość telomerów?",
+      "text": "Pomiar długości telomerów wykazuje znaczne zróżnicowanie — między poszczególnymi pomiarami i laboratoriami. Ekstrakcja DNA, przechowywanie i skład komórek krwi systematycznie wpływają na wynik. Z wysuszonej krwi ta zmienność jest większa niż z krwi żylnej.",
+      "items": [
+        "Co to oznacza w praktyce: odchylenie o kilka procent od wartości referencyjnej jest na poziomie zmienności pomiarowej i samo w sobie nie ma znaczenia. Długość telomerów staje się wiarygodna dopiero przy kilku pomiarach wykonanych w tych samych warunkach — to samo laboratorium, ten sam materiał, porównywalne pobranie próbki.",
+        "Długość telomerów jest markerem kumulacyjnego obciążenia komórkowego. Nie jest diagnozą, nie stanowi informacji o oczekiwanej długości życia ani o indywidualnym ryzyku choroby."
+      ],
+      "tone": "accent",
+      "id": "hinweis"
+    },
+    {
+      "type": "resultTable",
+      "caption": "Wyniki w skrócie",
+      "title": "Przegląd wszystkich markerów.",
+      "cols": ["Marker", "Twoja wartość", "Wartość referencyjna", "Interpretacja"],
+      "rows": [
+        {
+          "cells": [
+            "Telomery · Stabilność komórkowa",
+            "108 kbp (96%)",
+            "112 kbp = 100%",
+            "Wymagana interwencja"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": ["LINE-1 · Stabilność DNA", "96 %", "≥ 100 %", "Wymagana interwencja"],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "Markery epigenetycznego starzenia · Wiek biologiczny",
+            "103 %",
+            "≥ 100 %",
+            "W zakresie normy"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": ["IL-6 · Regulacja zapalenia", "108 %", "≥ 100 %", "W zakresie normy"],
+          "tone": "green"
+        },
+        {
+          "cells": ["Odżywianie · Ocena wyjściowa", "72 / 100", "≥ 60", "W zakresie normy"],
+          "tone": "green"
+        },
+        {
+          "cells": ["Styl życia · Ocena wyjściowa", "65 / 100", "≥ 60", "W zakresie normy"],
+          "tone": "green"
+        }
+      ],
+      "id": "ergebnis"
+    },
+    {
+      "type": "ageDots",
+      "caption": "Wiek biologiczny",
+      "title": "Wiek specyficzny dla markera w porównaniu",
+      "lead": "Wiek chronologiczny: 48 lat. Każdy marker daje własny wiek biologiczny — celowo nie oblicza się wartości łącznej.",
+      "chronological": 48,
+      "min": 35,
+      "max": 60,
+      "unit": "lata",
+      "ticks": ["35", "40", "45", "50", "55", "60"],
+      "chronologicalLabel": "48 lat",
+      "note": "Linia przerywana oznacza wiek chronologiczny 48 lat. Po lewej: młodszy niż chronologiczny. Po prawej: starszy.",
+      "items": [
+        {
+          "label": "Telomery",
+          "age": 53,
+          "delta": "+5",
+          "display": "53 yrs · +5",
+          "tone": "red"
+        },
+        {
+          "label": "LINE-1",
+          "age": 50,
+          "delta": "+2",
+          "display": "50 yrs · +2",
+          "tone": "amber"
+        },
+        {
+          "label": "IL-6",
+          "age": 46,
+          "delta": "−2",
+          "display": "46 yrs · −2",
+          "tone": "green"
+        },
+        {
+          "label": "Markery epigenetycznego starzenia",
+          "age": 45,
+          "delta": "−3",
+          "display": "45 yrs · −3",
+          "tone": "green"
+        }
+      ],
+      "id": "biologisches-alter"
+    },
+    {
+      "type": "markers",
+      "caption": "Twoje markery",
+      "title": "Telomery i markery starzenia.",
+      "items": [
+        {
+          "name": "Telomery",
+          "category": "Stabilność komórkowa",
+          "intro": "Struktury ochronne na końcach chromosomów. Gdy ulegają nadmiernemu skróceniu, komórki tracą zdolność do podziału — to kluczowy czynnik starzenia biologicznego.",
+          "kind": "procent",
+          "value": 96,
+          "display": "96 %",
+          "sub": "108 kbp",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "amber",
+          "text": "Długość Twoich telomerów jest o 4% niższa od oczekiwanej dla Twojego wieku (108 zamiast 112 kbp). Odpowiada to biologicznemu wiekowi telomerów 53 lat, czyli o pięć lat powyżej wieku chronologicznego. Odchylenie tej wielkości mieści się w zakresie zmienności pomiarowej i samo w sobie nie ma znaczenia — wartość należy traktować jako punkt wyjścia do obserwacji trendu. Zalecenia w tej sekcji opierają się na markerze LINE-1; działają poprzez ten sam szlak metaboliczny.",
+          "table": {
+            "cols": ["Substancja czynna", "Źródło", "Ilość", "Uwaga"],
+            "rows": [
+              [
+                "Kwas foliowy",
+                "Szpinak, jarmuż, rośliny strączkowe, pomidory, kiełki",
+                "2 garście zielonych warzyw dziennie",
+                "Surowe lub krótko gotowane na parze — wrażliwe na ciepło"
+              ],
+              [
+                "Witamina B2 i B12",
+                "Jajka, sery, produkty fermentowane",
+                "1 porcja dziennie",
+                "Wegańska dieta: suplementuj B12"
+              ],
+              [
+                "Metionina",
+                "Sezam, soja, groch, orzechy brazylijskie",
+                "2–3 orzechy brazylijskie dziennie",
+                "Ze względu na selen nie więcej niż 3–4 orzechy"
+              ],
+              [
+                "EGCG",
+                "Zielona herbata, matcha",
+                "3–4 filiżanki dziennie",
+                "Nie spożywać z posiłkami bogatymi w żelazo"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Markery epigenetycznego starzenia",
+          "category": "Wiek biologiczny",
+          "intro": "Metylacja genów silnie związanych z wiekiem, porównana z grupą kontrolną dopasowaną pod względem wieku, płci i pochodzenia etnicznego.",
+          "kind": "procent",
+          "value": 103,
+          "display": "103 %",
+          "sub": "45 lat",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "green",
+          "text": "Nieco powyżej oczekiwanego zakresu — korzystny profil epigenetyczny. Wiek biologiczny wyliczony na tej podstawie to 45 lat, czyli o trzy lata mniej niż wiek chronologiczny.",
+          "table": {
+            "cols": ["Substancja czynna", "Źródło", "Ilość", "Uwaga"],
+            "rows": [
+              [
+                "Kawa",
+                "Kawa filtrowana, espresso",
+                "2–3 filiżanki dziennie",
+                "Nie po 14:00 — może zaburzać sen"
+              ],
+              [
+                "Zielone warzywa liściaste",
+                "Szpinak, jarmuż, boćwina",
+                "1 porcja dziennie",
+                "Dostarczają kwasu foliowego, wspierają metylację"
+              ],
+              [
+                "Sery i produkty mleczne",
+                "Sery twarde i miękkie, jogurt",
+                "z umiarem",
+                "Nadmierne spożycie może osłabić regulację"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "markers",
+      "caption": "Twoje markery",
+      "title": "LINE-1 i IL-6.",
+      "items": [
+        {
+          "name": "LINE-1",
+          "category": "Stabilność DNA",
+          "intro": "Elementy LINE-1 stanowią około 17% genomu. Ich metylacja jest uważana za marker globalnej regulacji DNA, a tym samym ogólnej stabilności genomu.",
+          "kind": "procent",
+          "value": 96,
+          "display": "96 %",
+          "sub": "50 lat",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "amber",
+          "text": "Nieco obniżona globalna regulacja DNA, do oceny w kontekście całego profilu. Wyliczony wiek biologiczny to 50 lat. Ten marker zależy od tego samego szlaku metabolicznego co telomery — oba reagują na te same donory metylowe.",
+          "table": {
+            "cols": ["Substancja czynna", "Źródło", "Ilość", "Uwaga"],
+            "rows": [
+              [
+                "Donory metylowe",
+                "Warzywa liściaste, rośliny strączkowe, jajka, orzechy, sezam, soja",
+                "codziennie w co najmniej 2 posiłkach",
+                "Przyjmuj kwas foliowy, B2, B6 i B12 razem"
+              ],
+              [
+                "Błonnik",
+                "Produkty pełnoziarniste, warzywa, rośliny strączkowe",
+                "co najmniej 30 g/dzień",
+                "Stabilizuje poziom cukru we krwi, obniża obciążenie oksydacyjne"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "IL-6",
+          "category": "Regulacja zapalenia",
+          "intro": "Interleukina-6 jest centralnym przekaźnikiem regulacji zapalenia. Oceniana jest metylacja DNA regionów genów związanych z IL-6 — nie poziom ostrej fazy we krwi.",
+          "kind": "procent",
+          "value": 108,
+          "display": "108 %",
+          "sub": "46 lat",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "green",
+          "text": "Wskazuje na stabilną regulację aktywności IL-6 — najlepszą wartość w Twoim profilu. Zalecenia służą utrzymaniu, a nie korekcie.",
+          "table": {
+            "cols": ["Substancja czynna", "Źródło", "Ilość", "Uwaga"],
+            "rows": [
+              [
+                "Aktywność fizyczna i waga",
+                "umiarkowana codzienna aktywność, regulacja masy ciała",
+                "30 min. dziennie",
+                "Tkanka tłuszczowa jest centralnym źródłem prozapalnych substancji sygnałowych"
+              ],
+              [
+                "Resweratrol",
+                "Skórki winogron, nasiona malin, borówki, orzeszki ziemne",
+                "1 porcja jagód/dzień",
+                "Hamuje szlak sygnałowy NF-κB"
+              ],
+              [
+                "Sulforafan",
+                "Brokuły, kalafior, brukselka, rzeżucha",
+                "250 g, 3–4×/tydzień",
+                "Krótka obróbka cieplna (3–4 min., 80 °C) zwiększa biodostępność"
+              ],
+              [
+                "Kurkumina",
+                "Kurkuma z czarnym pieprzem",
+                "1 łyżeczka dziennie",
+                "Piperyna znacznie zwiększa wchłanianie"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "radar",
+      "caption": "Ocena wyjściowa",
+      "title": "Nawyki żywieniowe i styl życia.",
+      "lead": "Radar pokazuje, jak bliskie są Twoje obecne nawyki wartościom referencyjnym opartym na badaniach naukowych. Im dalej czynnik znajduje się na zewnątrz, tym korzystniej — 10 to wartość optymalna.",
+      "axes": [
+        "Codzienna aktywność",
+        "Aktywność fizyczna",
+        "Stres",
+        "Tytoń",
+        "Alkohol",
+        "Przekąski",
+        "Mięso",
+        "Omega-3",
+        "Błonnik",
+        "Owoce/warzywa",
+        "Spożycie płynów"
+      ],
+      "seriesLabels": {
+        "profile": "Twój profil",
+        "reference": "Grupa odniesienia"
+      },
+      "scores": [
+        {
+          "value": "72 / 100",
+          "label": "Żywienie",
+          "text": "Dobre połączenie składników odżywczych, z możliwością poprawy w szczegółach.",
+          "ref": "Wartość referencyjna: ≥ 60."
+        },
+        {
+          "value": "65 / 100",
+          "label": "Styl życia",
+          "text": "Zrównoważony, z możliwością zwiększenia aktywności fizycznej i redukcji stresu.",
+          "ref": "Wartość referencyjna: ≥ 60."
+        }
+      ],
+      "noticeTitle": "Co się wyróżnia",
+      "notices": [
+        "Stres (4 na 10) jest najsłabszym czynnikiem i znajduje się poniżej poziomu grupy odniesienia. Przewlekły stres działa poprzez oś kortyzolu bezpośrednio na markery zapalenia i metylacji.",
+        "Przekąski i mięso (po 5) są na poziomie grupy odniesienia — tutaj tkwi największy niewykorzystany potencjał dla wartości telomerów i LINE-1.",
+        "Tytoń (9), owoce i warzywa (8) oraz spożycie płynów (8) są wyraźnie powyżej średniej i wspierają dobre wartości IL-6 oraz markerów starzenia."
+      ],
+      "note": "Ocena wyjściowa, nie diagnoza indywidualna. W przypadku choroby lub w szczególnych fazach życia większe zmiany dietetyczne należy konsultować z lekarzem.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Wszystkie zalecenia w skrócie",
+      "title": "Twoje interwencje.",
+      "lead": "Każde zalecenie przypisane jest do markera, z którego wynika, i oznaczone kolorem odpowiadającym rzeczywistemu wynikowi. Posortowane według pilności — najpierw markery wymagające działania.",
+      "cols": ["Substancja czynna", "Od markera", "Źródło pokarmowe", "Ilość", "Uwaga"],
+      "rows": [
+        [
+          "Kwas foliowy",
+          "Telomery · 96 %",
+          "Szpinak, jarmuż, rośliny strączkowe, pomidory, kiełki",
+          "2 garście zielonych warzyw dziennie",
+          "Surowe lub krótko gotowane na parze — wrażliwe na ciepło"
+        ],
+        [
+          "Witamina B2 i B12",
+          "Telomery · 96 %",
+          "Jajka, sery, produkty fermentowane (kapusta kiszona, ayran)",
+          "1 porcja dziennie",
+          "Przy diecie wegańskiej należy szczególnie suplementować B12"
+        ],
+        [
+          "Metionina",
+          "Telomery · 96 %",
+          "Sezam, soja, groch, orzechy brazylijskie",
+          "2–3 orzechy brazylijskie dziennie",
+          "Ze względu na zawartość selenu nie więcej niż 3–4 orzechy dziennie"
+        ],
+        [
+          "EGCG (zielona herbata)",
+          "Telomery · 96 %",
+          "Zielona herbata, matcha",
+          "3–4 filiżanki dziennie",
+          "Nie pić bezpośrednio przy posiłkach bogatych w żelazo"
+        ],
+        [
+          "Donory metylowe",
+          "LINE-1 · 96 %",
+          "Warzywa liściaste, rośliny strączkowe, jajka, orzechy, sezam, soja",
+          "codziennie w co najmniej 2 posiłkach",
+          "Przyjmować odpowiednią ilość kwasu foliowego, B2, B6 i B12 razem"
+        ],
+        [
+          "Błonnik",
+          "LINE-1 · 96 %",
+          "Produkty pełnoziarniste, warzywa, rośliny strączkowe",
+          "co najmniej 30 g/dzień",
+          "Stabilizuje poziom cukru we krwi, obniża obciążenie oksydacyjne"
+        ],
+        [
+          "Zielone warzywa liściaste",
+          "Markery starzenia · 103 %",
+          "Szpinak, jarmuż, boćwina",
+          "1 porcja dziennie",
+          "Dostarczają kwasu foliowego, wspierają metylację"
+        ],
+        [
+          "Kawa",
+          "Markery starzenia · 103 %",
+          "Kawa filtrowana, espresso",
+          "2–3 filiżanki dziennie",
+          "Nie po 14:00 — może zaburzać sen"
+        ],
+        [
+          "Sery i produkty mleczne",
+          "Markery starzenia · 103 %",
+          "Sery twarde i miękkie, jogurt",
+          "z umiarem",
+          "Nadmierne spożycie może osłabić regulację"
+        ],
+        [
+          "Aktywność fizyczna i waga",
+          "IL-6 · 108 %",
+          "umiarkowana codzienna aktywność, regulacja masy ciała",
+          "30 min. dziennie",
+          "Tkanka tłuszczowa jest źródłem prozapalnych substancji sygnałowych"
+        ],
+        [
+          "Resweratrol",
+          "IL-6 · 108 %",
+          "Skórki winogron, nasiona malin, borówki, orzeszki ziemne",
+          "1 porcja jagód/dzień",
+          "Hamuje szlak sygnałowy NF-κB"
+        ],
+        [
+          "Sulforafan",
+          "IL-6 · 108 %",
+          "Brokuły, kalafior, brukselka, rzeżucha",
+          "250 g, 3–4×/tydzień",
+          "Krótka obróbka cieplna (3–4 min., 80 °C) zwiększa biodostępność"
+        ],
+        [
+          "Kurkumina",
+          "IL-6 · 108 %",
+          "Kurkuma, najlepiej z czarnym pieprzem",
+          "1 łyżeczka dziennie",
+          "Piperyna z pieprzu znacznie zwiększa wchłanianie"
+        ]
+      ],
+      "rowTones": [
+        "bursztynowy",
+        "bursztynowy",
+        "bursztynowy",
+        "bursztynowy",
+        "bursztynowy",
+        "bursztynowy",
+        "zielony",
+        "zielony",
+        "zielony",
+        "zielony",
+        "zielony",
+        "zielony",
+        "zielony"
+      ],
+      "note": "Prosimy o indywidualną ocenę suplementów diety i konsultację z wykwalifikowanym specjalistą. Niniejszy przegląd nie zastępuje porady medycznej.",
+      "id": "uebersicht"
+    },
+    {
+      "type": "summary",
+      "caption": "Podsumowanie",
+      "title": "Twoje dwa obszary skupienia.",
+      "lead": "Dwa z czterech Twoich markerów znajdują się w zielonym zakresie i powinny tam pozostać. Dwa są na poziomie 96 % i zależą od tej samej ścieżki metabolicznej. LINE-1 jest tutaj wartością nośną: ze względu na zmienność pomiaru długość telomerów monitoruje się jedynie w czasie. Z tego wynika wyjątkowo prosty plan.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Dawcy grup metylowych — punkt wyjścia przy LINE-1",
+          "text": "LINE-1 na poziomie 96 % (biologicznie 50 lat) jest wartością nośną — markerem, na którym można wiarygodnie wykazać zmianę. Długość telomerów również wynosi 96 %, ale mieści się w granicach zmienności pomiaru i sama w sobie nie stanowi zalecenia; jest monitorowana w czasie. Oba zależą od tych samych składników odżywczych: kwasu foliowego, witamin B2, B6, B12 oraz metioniny. Sześć z trzynastu zaleceń dotyczy właśnie tego. Konkretnie: dwie garście zielonych warzyw liściastych dziennie, surowych lub krótko gotowanych na parze. Jajka, sery lub produkty fermentowane codziennie. 2–3 orzechy brazylijskie. Plus co najmniej 30 g błonnika i 3–4 filiżanki zielonej herbaty, nie przy posiłkach bogatych w żelazo."
+        },
+        {
+          "num": "02",
+          "title": "Stres — najsłabszy czynnik stylu życia",
+          "text": "Na poziomie 4 na 10 stres jest jedynym czynnikiem wyraźnie poniżej grupy odniesienia. Poprzez oś kortyzolu działa na markery metylacji, które w Twoim przypadku wymagają działania. Część żywieniowa jest już solidna na poziomie 72/100 — większy efekt tkwi tutaj. Dodatkowo: codzienna aktywność (6) i ćwiczenia (7) mają potencjał wzrostu; 30 minut dziennie wspiera również wartość IL-6."
+        }
+      ],
+      "keepTitle": "Utrzymuj, nie zmieniaj",
+      "keepText": "IL-6 na poziomie 108 % oraz epigenetyczne markery starzenia na poziomie 103 % mieszczą się w zakresie normy. Zalecenia dla tych dwóch markerów służą utrzymaniu. Tytoń (9/10), owoce i warzywa (8/10) oraz spożycie płynów (8/10) wspierają ten wynik — nic nie wymaga zmiany.",
+      "controlTitle": "Pomiar kontrolny i kolejny krok",
+      "controlItems": [
+        "Pomiar kontrolny jest przydatny najwcześniej po 4 do 6 miesiącach — wcześniej zmiany w markerach metylacji nie mogą być wiarygodnie zmierzone.",
+        "Od drugiego pomiaru raportowany jest trend zmiany dla każdego markera.",
+        "Do monitorowania kontrolnego pobranie próbki i pora dnia powinny pozostać porównywalne."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Masz pytania dotyczące swojego raportu?",
+      "text": "Omów wyniki z placówką, która przeprowadziła pobranie próbki. To tam dostępny jest kontekst kliniczny niezbędny do interpretacji.",
+      "columns": [
+        {
+          "k": "Kontakt",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Dystrybucja",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Raport próbki",
+          "text": "Wszystkie wartości i dane osobowe w tym dokumencie są fikcyjne i służą wyłącznie do zilustrowania formatu raportu. To nie jest rzeczywisty raport."
+        },
+        {
+          "title": "Interpretacja",
+          "text": "Niniejszy raport nie stanowi diagnozy i nie zastępuje porady medycznej. Podany wiek biologiczny jest wartością modelową wyliczoną na podstawie markerów epigenetycznych, a nie informacją o oczekiwanej długości życia czy ryzyku choroby. Markery opisują stan chwilowy i powinny być oceniane w indywidualnym kontekście klinicznym przez wykwalifikowanych specjalistów."
+        },
+        {
+          "title": "Status analiz",
+          "text": "Analizy są usługami laboratoryjnymi świadczonymi przez naszego partnera współpracującego i nie są oznakowanymi znakiem CE wyrobami do diagnostyki in vitro. Służą konsultacji i monitorowaniu i nie zastępują diagnostyki klinicznej. Analizy są dostarczane wyłącznie użytkownikom profesjonalnym."
+        },
+        {
+          "title": "Podstawa prawna",
+          "text": "Panel ten nie ocenia genotypów; mierzy markery epigenetyczne. Tam, gdzie analiza w portfolio obejmuje badania genetyczne, przed pobraniem próbki wymagane są informacje i pisemna zgoda, a badanie może być wykonane wyłącznie pod nadzorem medycznym (niemiecka ustawa o diagnostyce genetycznej – GenDG). Analiza laboratoryjna jest wykonywana przez naszego partnera współpracującego. Polaris Diagnostics Europe GmbH odpowiada za dystrybucję i wsparcie. Prosimy o indywidualną ocenę suplementów diety i konsultację z wykwalifikowanym specjalistą."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Ostatnia aktualizacja: sierpień 2026",
+      "id": "kontakt"
+    }
+  ]
+}

@@ -1,0 +1,689 @@
+{
+  "slug": "healthy-sport",
+  "panel": "Healthy Sport",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Ukázková zpráva · Ukázková data",
+      "panel": "Healthy Sport",
+      "subtitle": "Váš buněčný trénink",
+      "claim": "Osm sportovně relevantních microRNA z jediné kapky kapilární krve, převedených do sedmi hodnocení pokrývajících výživu, regeneraci a výkon — doplněno o čtyři genetické varianty.",
+      "meta": [
+        {
+          "k": "Zpráva pro",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Odběr vzorku",
+          "v": "18.02.2026"
+        },
+        {
+          "k": "Materiál",
+          "v": "Karta se sušenou kapkou krve"
+        },
+        {
+          "k": "Rozsah",
+          "v": "8 miRNA + 4 SNP"
+        }
+      ],
+      "id": "deckblatt",
+      "benefit": "Výživa, regenerace, tréninková zátěž: kde může váš klient začít."
+    },
+    {
+      "type": "principle",
+      "caption": "Princip",
+      "title": "Jak číst tuto zprávu.",
+      "lead": "Pravidelný trénink mění tělo až na buněčné úrovni. Tyto procesy zanechávají stopy ve formě cirkulujících microRNA — malých RNA molekul, které regulují, jak silně jsou určité geny skutečně exprimovány. Na rozdíl od genetiky se tyto hodnoty mohou měnit, což z nich činí trendovou složku analýzy.",
+      "cards": [
+        {
+          "title": "Nutriční stav",
+          "text": "Požadavky na vitaminy a mikronutrienty i rovnováha tekutin. Hodnocení: nutriční stav, stav hydratace."
+        },
+        {
+          "title": "Regenerace",
+          "text": "Schopnost regenerace, tréninková zátěž a zánětlivá aktivita. Hodnocení: riziko zranění, úroveň zátěže, zánět."
+        },
+        {
+          "title": "Výkon",
+          "text": "Vytrvalostní kapacita a stav svalstva. Hodnocení: kardiovaskulární kondice, stav svalů."
+        }
+      ],
+      "flowTitle": "Proces",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Měření",
+          "text": "Karta s vysušenou kapkou krve z konečku prstu. Osm microRNA a čtyři genetické varianty. Není nutný půst."
+        },
+        {
+          "num": "02",
+          "title": "Vyhodnotit",
+          "text": "MicroRNA vstupují do sedmi hodnocení na škále semaforu 1–9. Každé hodnocení kombinuje několik markerů."
+        },
+        {
+          "num": "03",
+          "title": "Upravit",
+          "text": "Cílená doporučení k tréninku, regeneraci a fytonutrientům — plus následné sledování."
+        }
+      ],
+      "scaleTitle": "Jak číst škálu?",
+      "scaleLead": "Všechna hodnocení i jednotlivé markery používají stejnou škálu semaforu 1–9. Červená vlevo, zelená vpravo — vyšší hodnota je vždy lepší: 1–3 červená, 4–6 oranžová, 7–9 zelená.",
+      "scaleKind": "traffic",
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "1–3 · Červená",
+          "text": "Mimo optimální rozsah. Zde je největší potenciál ke změně."
+        },
+        {
+          "tone": "amber",
+          "label": "4–6 · Oranžová",
+          "text": "Průměrné rozmezí s možností zlepšení."
+        },
+        {
+          "tone": "green",
+          "label": "7–9 · Zelená",
+          "text": "V optimálním rozmezí. Zachovejte stávající režim."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Důležité",
+      "text": "Tato zpráva nenahrazuje sportovně lékařské vyšetření ani diagnostiku výkonu.",
+      "items": [
+        "Čtyři genetické varianty jsou vrozené a určují se pouze jednou. Před genetickou analýzou je nutné poskytnout informace a písemný souhlas (německý zákon o genetické diagnostice, GenDG). Prediktivní genetické testování může provádět pouze lékař s příslušnou kvalifikací; před a po testu musí být nabídnuto genetické poradenství (§ 7 a 10 GenDG).",
+        "Měnit se mohou pouze hodnoty osmi microRNA — ty jsou jedině vhodné pro sledování pokroku."
+      ],
+      "tone": "neutral",
+      "id": "hinweis"
+    },
+    {
+      "type": "evaluations",
+      "caption": "Výsledky na první pohled",
+      "title": "Vašich sedm hodnocení.",
+      "lead": "Každé hodnocení je odvozeno ze souhrnu několika microRNA. Seřazeno podle hodnoty — oblasti vyžadující největší pozornost jsou uvedeny dole.",
+      "items": [
+        {
+          "label": "Stav hydratace",
+          "sub": "V optimálním rozmezí",
+          "value": 8,
+          "display": "8 / 9",
+          "tone": "green"
+        },
+        {
+          "label": "Riziko zranění a regenerace",
+          "sub": "Průměrné",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Kardiovaskulární kondice",
+          "sub": "Průměrné",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Stav svalů",
+          "sub": "Průměrné",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber"
+        },
+        {
+          "label": "Nutriční stav",
+          "sub": "Mimo rozsah",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red"
+        },
+        {
+          "label": "Zánět",
+          "sub": "Mimo rozsah",
+          "value": 3,
+          "display": "3 / 9",
+          "tone": "red"
+        },
+        {
+          "label": "Úroveň zátěže / stresu",
+          "sub": "Mimo rozsah",
+          "value": 2,
+          "display": "2 / 9",
+          "tone": "red"
+        }
+      ],
+      "id": "auswertungen"
+    },
+    {
+      "type": "callout",
+      "title": "Co to znamená",
+      "text": "Tři hodnoty v červené oblasti — úroveň zátěže/stresu (2), nutriční stav (3) a zánět (3). Dvě z nich — zátěž a zánět — závisí na miR-146a-5p (microRNA přetížení, 2/9), nejslabším jednotlivém markeru v profilu; celkem vstupuje do čtyř z celkových sedmi hodnocení. Nutriční stav naopak závisí na druhém nejslabším markeru, miR-22-5p (3/9).",
+      "items": [
+        "Tři hodnoty ve střední oblasti — riziko zranění, kardiovaskulární kondice a stav svalů jsou na 5/9 a lze je přímo ovlivnit tréninkem.",
+        "Jedna hodnota v zelené oblasti — stav hydratace (8) je stabilní a měla by zůstat taková.",
+        "Interval do dalšího kontrolního měření určuje zařízení, které o vás pečuje; vaše dvě předchozí měření byla přibližně ve tříměsíčních intervalech."
+      ],
+      "tone": "accent",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "table",
+      "caption": "Základ hodnocení",
+      "title": "Osm microRNA.",
+      "lead": "Jednotlivé hodnoty, ze kterých se počítá sedm hodnocení. I ony používají škálu semaforu 1–9; vyšší je lepší.",
+      "cols": ["Marker", "Název", "Úroveň regulace", "Hodnota", "Funkce"],
+      "rows": [
+        [
+          "miR-378a-3p",
+          "Muscle gain miRNA",
+          "Budování svalů a adaptace výkonu",
+          "7 / 9",
+          "Reguluje budování svalů a adaptaci na tréninkové podněty."
+        ],
+        [
+          "miR-101-3p",
+          "Muscle vitality miRNA",
+          "Ochrana svalstva na buněčné úrovni",
+          "7 / 9",
+          "Reguluje vitalitu svalů a buněčnou ochranu."
+        ],
+        [
+          "miR-505-3p",
+          "Sport & Lifestyle miRNA",
+          "Rovnováha životního stylu",
+          "5 / 9",
+          "Odráží vzájemné působení cvičení, výživy a životního stylu."
+        ],
+        [
+          "miR-19b-3p",
+          "Mind miRNA",
+          "Neuronální a kognitivní regulace",
+          "4 / 9",
+          "Reguluje neuronální signální dráhy, podporuje kognitivní odolnost a vytrvalostní výkon."
+        ],
+        [
+          "miR-20a-5p",
+          "Cell renewal miRNA",
+          "Obnova buněk",
+          "4 / 9",
+          "Reguluje obnovu buněk a opravné procesy po zatížení."
+        ],
+        [
+          "miR-30e-3p",
+          "Fitness miRNA",
+          "Regulace svalové vytrvalosti",
+          "4 / 9",
+          "Reguluje svalovou vytrvalost a adaptaci na kondici."
+        ],
+        [
+          "miR-22-5p",
+          "miRNA podporující spalování tuků",
+          "Metabolická regulace",
+          "3 / 9",
+          "Reguluje metabolismus tuků a zásobování energií."
+        ],
+        [
+          "miR-146a-5p",
+          "miRNA při přetížení",
+          "Regulace zánětu při zatížení",
+          "2 / 9",
+          "Reguluje zánětlivé signální dráhy při tréninkovém zatížení."
+        ]
+      ],
+      "id": "uebersicht"
+    },
+    {
+      "type": "callout",
+      "title": "Klíčový marker",
+      "text": "S hodnotou 2/9 je miR-146a-5p nejslabší jednotlivou hodnotou a ovlivňuje čtyři ze sedmi hodnocení: úroveň zátěže/stresu, zánět, riziko zranění a kardiovaskulární kondici. Jeden marker tedy formuje velkou část celkového obrazu.",
+      "items": [
+        "Dva svalové markery miR-378a-3p a miR-101-3p jsou oba v zeleném pásmu s hodnotou 7/9. Problém není ve svalstvu samotném — ale v regeneraci."
+      ],
+      "tone": "accent",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "markers",
+      "caption": "Vaše hodnocení",
+      "title": "Co má prioritu.",
+      "items": [
+        {
+          "name": "Úroveň zátěže / stresu",
+          "intro": "Z hodnot miR-146a-5p (2/9) a miR-20a-5p (4/9). Stres narušuje klidovou homeostázu a zvyšuje energetický obrat — důležité je, zda regenerace vyrovná zátěž.",
+          "kind": "semafor",
+          "value": 2,
+          "display": "2 / 9",
+          "sub": "Mimo rozsah",
+          "tone": "red",
+          "text": "Vaše hodnota je mimo optimální rozsah — nejslabší ze sedmi hodnocení. Snižte každodenní stresory, vyhněte se časovému tlaku, periodizujte trénink (1–2 dny bez tréninku týdně, regenerační týden každé 2–4 týdny) a využívejte relaxační techniky jako autogenní trénink nebo biofeedback."
+        },
+        {
+          "name": "Nutriční stav",
+          "intro": "Z hodnot miR-30e-3p (4/9), miR-22-5p (3/9) a miR-19b-3p (4/9). Indikuje potřebu vitamínů a mikronutrientů, včetně vitamínů skupiny B, železa a hořčíku.",
+          "kind": "semafor",
+          "value": 3,
+          "display": "3 / 9",
+          "sub": "Mimo rozsah",
+          "tone": "red",
+          "text": "Vaše hodnota je mimo optimální rozsah. Věnujte zvláštní pozornost ovoci, zelenině a celozrnným produktům — bohatým na vitamíny skupiny B, hořčík, železo a zinek. Hořčík z ořechů a slunečnicových semínek, zinek z mléčných výrobků, sýrů a luštěnin."
+        },
+        {
+          "name": "Zánět",
+          "intro": "Z pěti mikroRNA: miR-505-3p, miR-30e-3p, miR-22-5p, miR-20a-5p a miR-146a-5p. Tyto markery mapují regulaci zánětu při tréninkovém zatížení; zároveň fyzická námaha uvolňuje stresové hormony.",
+          "kind": "semafor",
+          "value": 3,
+          "display": "3 / 9",
+          "sub": "Mimo rozsah",
+          "tone": "red",
+          "text": "Vaše hodnota je mimo optimální rozsah. Dbejte na regeneraci a dostatek spánku, na vitamín C a zinek z ovoce, zeleniny, brokolice a citrusů, a na relaxaci, mírné cvičení a vlákninou bohatou stravu pro střevní mikroflóru."
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "callout",
+      "title": "Společný jmenovatel",
+      "text": "Všechna tři hodnocení zahrnují miR-146a-5p nebo miR-22-5p — dva nejslabší jednotlivé markery. Řízení tréninkové zátěže a regenerace tedy působí současně na všechny tři hodnoty, nejen na jednu.",
+      "tone": "accent",
+      "id": "hinweis-4"
+    },
+    {
+      "type": "markers",
+      "caption": "Vaše hodnocení",
+      "title": "Výkon a regenerace.",
+      "items": [
+        {
+          "name": "Riziko zranění a regenerace",
+          "intro": "Z pěti mikroRNA: miR-30e-3p, miR-22-5p, miR-146a-5p, miR-20a-5p a miR-505-3p. Nedostatečná regenerace zvyšuje riziko zranění.",
+          "kind": "semafor",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Průměrné",
+          "tone": "amber",
+          "text": "Vaše hodnota je v průměrném rozsahu. Zajistěte dostatečné regenerační fáze mezi tréninky a věnujte pozornost rozcvičení, strečinku a závěrečnému uklidnění. Vaše genetické hodnocení rizika svalového poškození v kapitole „Tři další genetická hodnocení“ tuto hodnotu doplňuje."
+        },
+        {
+          "name": "Kardiovaskulární kondice",
+          "intro": "Z hodnot miR-20a-5p (4/9), miR-146a-5p (2/9) a miR-505-3p (5/9). Popisuje, jak efektivně srdce pumpuje krev a kyslík do těla.",
+          "kind": "semafor",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Průměrné",
+          "tone": "amber",
+          "text": "Vaše hodnota je v průměrném rozsahu. Zařaďte vytrvalostní trénink alespoň dvakrát týdně — běh, svižnou chůzi, cyklistiku, plavání nebo aqua aerobik podle vaší kondice."
+        },
+        {
+          "name": "Stav svalů",
+          "intro": "Z hodnot miR-101-3p (7/9), miR-378a-3p (7/9), miR-19b-3p (4/9) a miR-30e-3p (4/9). Síla, výbušnost a vytrvalost závisí na stavu únavy a regenerace svalů.",
+          "kind": "semafor",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Průměrné",
+          "tone": "amber",
+          "text": "Vaše hodnota je v průměrném rozsahu. Zařaďte silový trénink alespoň dvakrát týdně jako komplexní trénink celého těla s činkami nebo vlastní vahou, vždy s rozcvičením, uklidněním a strečinkem."
+        },
+        {
+          "name": "Stav hydratace",
+          "intro": "Z hodnot miR-101-3p (7/9) a miR-378a-3p (7/9). Ztráty tekutin potem a dýcháním zhoršují tělesné funkce a výkon.",
+          "kind": "semafor",
+          "value": 8,
+          "display": "8 / 9",
+          "sub": "Optimální",
+          "tone": "green",
+          "text": "Vaše hodnota je v optimálním rozsahu. Pokračujte v zajišťování alespoň dvou litrů tekutin denně, včetně během tréninku."
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "table",
+      "caption": "Genetika · vrozená, určena jednou provždy",
+      "title": "Vaše sportovní markery.",
+      "lead": "Čtyři genetické varianty doplňující proměnlivé hodnoty mikroRNA. Popisují predispozice — nejde o hodnocení ani předpověď výkonu — a určují se pouze jednou. Typ sportu · ACE a ACTN3: kombinace obou variant určuje predispozici mezi vytrvalostí a silou.",
+      "cols": ["Gen", "Genotyp", "Predispozice", "Význam"],
+      "rows": [
+        [
+          "ACE",
+          "GG (homozygotní)",
+          "Typ síly",
+          "Ovlivňuje systém bradykinin–aldosteron a tím využití kyslíku."
+        ],
+        [
+          "ACTN3",
+          "CT (heterozygot)",
+          "Smíšený typ",
+          "Určuje složení svalových vláken; smíšená forma kombinuje rychlá a pomalá vlákna."
+        ]
+      ],
+      "note": "Váš sportovní typ na škále vytrvalostní typ — smíšený typ — silový typ: převážně silový typ. Jste převážně silovým sportovcem. Vhodné aktivity jsou silové sporty jako vzpírání, silový trojboj nebo kulturistika.",
+      "id": "uebersicht-2"
+    },
+    {
+      "type": "table",
+      "caption": "Genetika · vrozená, určena jednou provždy",
+      "title": "Tři další genetická hodnocení.",
+      "cols": ["Gen", "Vlastnost", "Škála", "Váš výsledek"],
+      "rows": [
+        [
+          "Gen FTO",
+          "Vliv cvičení na tělesnou hmotnost",
+          "Nízký · Střední · Velmi dobrý",
+          "Velmi dobrý. Můžete velmi efektivně zhubnout díky cvičení — fyzická aktivita je pro vás zvlášť účinným nástrojem."
+        ],
+        [
+          "Gen BDNF",
+          "Motivace ke cvičení",
+          "Nízká · Střední · Vysoká",
+          "Žádná zvýšená motivace. Pomáhají pevné termíny, tréninkoví partneři nebo skupinové lekce více než dobré úmysly."
+        ],
+        [
+          "Gen ACTN3",
+          "Riziko svalového poškození",
+          "Nízká · Střední · Vysoká",
+          "Mírně zvýšené. Věnujte zvláštní pozornost rozcvičení a následnému uklidnění nebo strečinku."
+        ]
+      ],
+      "note": "Měřítka těchto čtyř hodnocení ukazují pozici mezi dvěma póly, nikoli semafor: sportovní typ není ani dobrý, ani špatný. Genetické varianty se určují pouze jednou a zůstávají neměnné po celý život.",
+      "id": "uebersicht-3"
+    },
+    {
+      "type": "radar",
+      "caption": "Vaše aktuální pozice",
+      "title": "Stravovací a životní návyky.",
+      "lead": "Radar ukazuje, jak blízko jsou vaše současné návyky vědeckým referenčním hodnotám. Čím dále je faktor od středu, tím příznivější — 10 je optimální.",
+      "axes": [
+        "Každodenní aktivita",
+        "Cvičení",
+        "Stres",
+        "Tabák",
+        "Alkohol",
+        "Svačiny",
+        "Maso",
+        "Omega-3",
+        "Vláknina",
+        "Ovoce/zelenina",
+        "Tekutiny"
+      ],
+      "scores": [
+        {
+          "value": "4 z 10",
+          "label": "Stres",
+          "text": "Nejslabší faktor ve vašem sebehodnocení. Shoduje se s vaší nejslabší laboratorní hodnotou (úroveň zátěže/stresu 2/9) — oba ukazují stejným směrem."
+        },
+        {
+          "value": "5 každý",
+          "label": "Svačiny a maso",
+          "text": "Oba ve středním rozmezí — dva dietní faktory s největším prostorem pro zlepšení, v souladu s nutričním stavem 3/9."
+        },
+        {
+          "value": "9 · 8 · 8",
+          "label": "Tabák · Ovoce/zelenina · Tekutiny",
+          "text": "Výrazně nadprůměrné. Hodnota tekutin odpovídá vašemu dobrému stavu hydratace (8/9)."
+        }
+      ],
+      "note": "Hodnocení vaší pozice na základě sebehodnocení, nikoli individuální diagnóza. V případě nemoci nebo během zvláštních životních etap prosím nechte jakékoli zásadní změny stravy sledovat lékařem.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Všechna doporučení přehledně",
+      "title": "Vaše intervence.",
+      "lead": "Každé doporučení je přiřazeno k mikroRNA markeru, ze kterého vychází, spolu s aktuální hodnotou tohoto markeru. Seřazeno podle naléhavosti — nejprve nejslabší markery.",
+      "cols": ["Aktivní látka", "Z markeru", "Zdroj", "Množství", "Poznámka"],
+      "rows": [
+        [
+          "Kaempferol",
+          "miR-146a-5p · 2",
+          "Červené hrozny, grapefruit, brokolice, růžičková kapusta, brambory, cibule, dýně",
+          "200–600 mg extraktu/den",
+          "Jako extrakt — obtížně dosažitelné v tomto množství pouze stravou"
+        ],
+        [
+          "Vitamin D3",
+          "miR-146a-5p · 2",
+          "Tresčí játra, sleď, losos, sardinky, tuňák, makrela, slepičí vejce",
+          "po lékařském vyhodnocení hladiny vitaminu D",
+          "Lipidově rozpustný — nejlépe užívat s tukem a jídlem"
+        ],
+        [
+          "Resveratrol",
+          "miR-146a-5p · 2, miR-19b-3p · 4, miR-378a-3p · 7",
+          "Slupky hroznů, malin, brusinek, rybízu, jahod",
+          "150 mg trans-resveratrolu/den",
+          "Obtížně dosažitelné v tomto množství pouze stravou"
+        ],
+        [
+          "Kapsaicin",
+          "miR-22-5p · 3",
+          "Papriky a chilli papričky",
+          "0,8–1,5 mg/den (nebo 1 g chilli prášku)",
+          "Lipidově rozpustný — nejlépe užívat společně s tukem"
+        ],
+        [
+          "Proanthokyanidin",
+          "miR-30e-3p · 4",
+          "Bezinky, brusinky, divoké ostružiny, šípky, hroznová semena",
+          "36 mg/den",
+          "Slupka, dužina a semena obsahují zvláště vysoké množství"
+        ],
+        [
+          "Selen",
+          "miR-30e-3p · 4",
+          "Maso, ryby, vejce, mléčné výrobky a obiloviny",
+          "60–75 µg/den",
+          "Přispívá k ochraně buněk před oxidačním stresem"
+        ],
+        [
+          "Genistein",
+          "miR-20a-5p · 4",
+          "Sója, fazole ledvinové, cizrna, tmavá čokoláda",
+          "40–80 mg extraktu červeného jetelu/den",
+          "Koncentrovanější jako extrakt než v práškové formě"
+        ],
+        [
+          "Kurkumín",
+          "miR-19b-3p · 4",
+          "Kurkuma",
+          "max. 300 mg/den (5–10 g prášku)",
+          "S černým pepřem a tukem; ne během těhotenství nebo při žlučníkových kamenech"
+        ],
+        [
+          "Kvercetin",
+          "miR-505-3p · 5, miR-19b-3p · 4",
+          "Cibule, kapary, libeček, pažitka",
+          "min. 200 mg/den",
+          "Citlivý na teplo — nepřehřívat silně"
+        ],
+        [
+          "EGCG (zelený čaj)",
+          "miR-505-3p · 5",
+          "Nefiltrovaný čaj (bílý a zelený čaj)",
+          "max. 800 mg/den (1 šálek ≈ 165 mg)",
+          "Piperin, vitamín C a rybí olej zlepšují biologickou dostupnost"
+        ],
+        [
+          "Sulforafan",
+          "miR-505-3p · 5",
+          "Křížatá zelenina, zelí, brokolice (klíčky)",
+          "25 mg/den (250 g brokolice)",
+          "Pára jen krátce nebo jíst syrové — jinak se aktivní látka ztratí"
+        ],
+        [
+          "Betaín",
+          "miR-378a-3p · 7",
+          "Quinoa, merlík bílý, brokolice, špenát, červená řepa",
+          "500–2 000 mg/den",
+          "Částečně syntetizován i tělem samotným"
+        ],
+        [
+          "Zinek",
+          "miR-101-3p · 7",
+          "Maso, mléčné výrobky, celozrnné produkty",
+          "7–16 mg/den",
+          "Vysoký příjem fytátů brání vstřebávání"
+        ]
+      ],
+      "note": "Prosím, posuzujte doplňky stravy individuálně a v konzultaci s kvalifikovaným odborníkem — zejména během těhotenství, při předchozích onemocněních nebo současném užívání léků. Tento přehled nenahrazuje lékařskou radu.",
+      "id": "uebersicht-4"
+    },
+    {
+      "type": "trend",
+      "caption": "Trend",
+      "title": "Porovnání dvou měření.",
+      "lead": "Porovnání vašich dosavadních dvou měření. Zobrazují se pouze naměřené hodnoty — nikoli prognóza.",
+      "firstLabel": "20.11.2025",
+      "secondLabel": "18.02.2026",
+      "kind": "semafor",
+      "items": [
+        {
+          "label": "Nutriční stav",
+          "first": 2,
+          "second": 3,
+          "firstDisplay": "2 / 9",
+          "secondDisplay": "3 / 9",
+          "delta": "+1",
+          "tone": "red",
+          "status": "Mimo"
+        },
+        {
+          "label": "Stav hydratace",
+          "first": 8,
+          "second": 8,
+          "firstDisplay": "8 / 9",
+          "secondDisplay": "8 / 9",
+          "delta": "±0",
+          "tone": "green",
+          "status": "Optimální"
+        },
+        {
+          "label": "Riziko zranění a regenerace",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Průměrné"
+        },
+        {
+          "label": "Úroveň zátěže / stresu",
+          "first": 3,
+          "second": 2,
+          "firstDisplay": "3 / 9",
+          "secondDisplay": "2 / 9",
+          "delta": "−1",
+          "tone": "red",
+          "status": "Mimo"
+        },
+        {
+          "label": "Kardiovaskulární kondice",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Průměrné"
+        },
+        {
+          "label": "Zánět",
+          "first": 4,
+          "second": 3,
+          "firstDisplay": "4 / 9",
+          "secondDisplay": "3 / 9",
+          "delta": "−1",
+          "tone": "red",
+          "status": "Mimo"
+        },
+        {
+          "label": "Stav svalů",
+          "first": 5,
+          "second": 5,
+          "firstDisplay": "5 / 9",
+          "secondDisplay": "5 / 9",
+          "delta": "±0",
+          "tone": "amber",
+          "status": "Průměrné"
+        }
+      ],
+      "note": "Interval mezi dvěma měřeními byl přibližně tři měsíce. Zda je tento interval vhodný i pro další sledování, určuje zařízení, které o vás pečuje.",
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "Co trend ukazuje",
+      "text": "Jedno zlepšení: nutriční stav z 2 na 3 — směr je správný, ale hodnota je stále mimo optimální rozmezí.",
+      "items": [
+        "Dvě zhoršení: úroveň zátěže/stresu (3 → 2) a zánět (4 → 3). Obě zahrnují miR-146a-5p. Mezi dvěma měřeními se tedy zhoršila spíše zátěžová stránka než výkonnostní.",
+        "Čtyři nezměněné hodnoty: hydratace, riziko zranění, kardiovaskulární kondice a stav svalů zůstaly stabilní."
+      ],
+      "tone": "accent",
+      "id": "hinweis-5"
+    },
+    {
+      "type": "summary",
+      "caption": "Shrnutí",
+      "title": "Vaše priorita: regenerace.",
+      "lead": "Profil je neobvykle jasný. Svalové markery jsou v zeleném pásmu, markery zátěže a zánětu v červeném — a obě zhoršení od prvního měření jsou na stejné straně.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Řiďte svou zátěž, než začnete více trénovat",
+          "text": "Nejslabší jednotlivý marker, miR-146a-5p (2/9), se promítá do čtyř ze sedmi hodnocení. Přesně dvě z nich — úroveň zátěže/stresu a zánět — se od listopadu zhoršily. Dokud tato hodnota zůstává nízká, další trénink vám spíše škodí než pomáhá. Konkrétně: jeden až dva dny v týdnu bez tréninku, regenerační týden každé dva až čtyři týdny, relaxační techniky v běžném životě. K tomu navíc kaempferol a vitamin D3 ze seznamu intervencí."
+        },
+        {
+          "num": "02",
+          "title": "Mikronutrienty z potravy, nikoli z doplňků",
+          "text": "Nutriční stav (3/9) se zlepšil z 2 na 3 — směr je správný. Z životního stylu radar ukazuje, že svačiny a maso (každé 5 z 10) jsou dvě oblasti s největším potenciálem ke zlepšení. Zaměřte se na ovoce, zeleninu a celozrnné produkty pro vitamíny skupiny B, hořčík, železo a zinek."
+        }
+      ],
+      "keepTitle": "Udržovat",
+      "keepText": "Stav hydratace (8/9) je od prvního měření stabilní a odpovídá vašemu radarovému hodnocení tekutin (8/10). Dva svalové markery jsou také v zelené oblasti s hodnotou 7/9 každý — svalstvo není problém. Geneticky váš gen FTO naznačuje, že fyzická aktivita má zvlášť silný vliv na vaši tělesnou hmotnost.",
+      "controlTitle": "Následná péče a další krok",
+      "controlItems": [
+        "Interval do dalšího kontrolního měření určuje zařízení, které o vás pečuje. Vaše dvě předchozí měření byla přibližně ve tříměsíčních intervalech.",
+        "Čtyři genetické varianty zůstávají beze změny a nebudou opakovány.",
+        "Pro srovnatelnost by odběr vzorku, denní doba a interval od posledního tréninku měly zůstat podobné."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Máte otázky k vašemu výsledku?",
+      "text": "Výsledky konzultujte se zařízením, které provedlo odběr vzorku. Právě tam jsou k dispozici tréninkový a zdravotní kontext potřebný k jejich interpretaci.",
+      "columns": [
+        {
+          "k": "Kontakt",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribuce",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Ukázková zpráva",
+          "text": "Veškeré hodnoty, genotypy a osobní údaje v tomto dokumentu jsou fiktivní a slouží pouze k ilustraci formátu zprávy. Nejedná se o skutečnou zprávu."
+        },
+        {
+          "title": "Interpretace",
+          "text": "Tato zpráva není diagnózou a nenahrazuje lékařské poradenství, sportovně lékařské vyšetření ani výkonnostní diagnostiku. Hodnoty mikroRNA popisují momentální stav; genetické varianty popisují predispozice, nikoli nemoci ani prognózu výkonnosti."
+        },
+        {
+          "title": "Stav analýz",
+          "text": "Analýzy jsou laboratorní služby poskytované naším partnerským pracovištěm a nejsou označeny značkou CE jako in vitro diagnostické zdravotnické prostředky. Slouží k poradenství a monitoringu a nenahrazují klinickou diagnostiku. Analýzy jsou určeny pouze pro profesionální uživatele."
+        },
+        {
+          "title": "Právní rámec",
+          "text": "Genetické testování podléhá německému zákonu o genetické diagnostice (GenDG); před odběrem vzorku je nutné poskytnutí informací a písemný souhlas. Prediktivní genetické testování může být prováděno pouze pod odpovědností kvalifikovaných lékařů; genetické poradenství musí být nabídnuto před i po testu (paragrafy 7 a 10 GenDG). Laboratorní analýzu provádí náš partnerský subjekt. Polaris Diagnostics Europe GmbH je odpovědná za distribuci a podporu. Doporučujeme individuálně konzultovat doplňky stravy s kvalifikovaným odborníkem."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stav k: srpen 2026",
+      "id": "kontakt"
+    }
+  ]
+}

@@ -1,11 +1,10 @@
 /**
  * Metadaten der sechs Musterbefunde — OHNE die Inhalte.
  *
- * Warum getrennt von index.ts: dort haengen an jedem Befund zwei JSON-Dateien,
- * zusammen 322 KB Quelltext. Wer aus index.ts auch nur den Typ `Befund` oder
- * `RADAR_VALUES` importierte, zog alle zwoelf mit. Genau das war der Grund,
- * warum jede Musterbefund-Seite einen Client-Chunk von 287 KB lud, um 24 KB
- * anzuzeigen: Faktor 12.
+ * Warum getrennt von den Inhaltsdateien: Wer aus einem globalen Inhaltsindex
+ * auch nur den Typ `Befund` oder `RADAR_VALUES` importierte, zoege alle sechs
+ * Panels samt Sprachfassungen mit. Die Routenmodule importieren deshalb nur
+ * die zehn Dateien ihres eigenen Slugs.
  *
  * Diese Datei bleibt frei von JSON-Importen. Wer sie erweitert, achtet darauf.
  */
@@ -16,10 +15,18 @@ export interface Befund {
   blocks: { type: string; [key: string]: unknown }[]
 }
 
-/** Deutsche und englische Fassung eines Befunds. */
+/** Die zehn kanonischen Sprachfassungen eines Befunds. */
 export interface BefundSprachen {
   de: Befund
   en: Befund
+  pl: Befund
+  fr: Befund
+  it: Befund
+  es: Befund
+  pt: Befund
+  da: Befund
+  nl: Befund
+  cs: Befund
 }
 
 /** Reihenfolge wie die sechs Analysen auf /epigenetics (01–06). */

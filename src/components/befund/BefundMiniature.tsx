@@ -229,7 +229,7 @@ const BefundMiniature = ({ blocks }: { blocks: Block[] }) => {
   return (
     <div className="mt-6 rounded-3xl border border-slate-200 bg-white p-7">
       <p className="text-xs font-medium text-gray-600">{t('befund.mini.caption')}</p>
-      <h3 className="mt-1 text-lg font-semibold text-heading">{t('befund.mini.title')}</h3>
+      <h3 className="mt-1 t-h3">{t('befund.mini.title')}</h3>
       <p className="mt-2 max-w-[68ch] text-base leading-7 text-gray-700 lg:text-[17px] lg:leading-8">
         {t('befund.mini.lead')}
       </p>

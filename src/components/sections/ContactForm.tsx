@@ -8,7 +8,7 @@ import { Alert } from '../ui/Alert'
 import { cn } from '../../lib/utils'
 import { useContactForm } from '../../hooks/useContactForm'
 import { resolvePanelNames } from '../../content/befunde/panelNames'
-import { isEnglishFallback } from '../../lib/translationStatus'
+import { normalizeLanguage } from '../../i18n'
 
 const INTENT_KEYS = ['consultation', 'quote', 'product', 'support', 'other'] as const
 const FIELD_KEYS = [
@@ -27,14 +27,6 @@ type IntentKey = (typeof INTENT_KEYS)[number]
 type FieldKey = (typeof FIELD_KEYS)[number]
 
 /**
- * Die vier Feldoptionen, die mit der Epigenetik-Strecke dazugekommen sind.
- * Beschriftung und Hinweis liegen fuer sie in den acht Fallback-Sprachen nur
- * auf Englisch vor, waehrend die uebrigen Optionen uebersetzt sind — deshalb
- * bekommen genau diese die Sprachauszeichnung und nicht die ganze Auswahl.
- */
-const EPI_FIELD_KEYS = new Set<FieldKey>(['nutrition', 'sports', 'bgm', 'practice'])
-
-/**
  * Die Reihenfolge ist die Lesereihenfolge des Formulars. Sie entscheidet,
  * welches Feld nach einem fehlgeschlagenen Absenden den Fokus bekommt —
  * "erstes fehlerhaftes Feld" heisst: das oberste, nicht das zuerst geprüfte.
@@ -48,7 +40,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
  * field pills, contextual encouragement and a submit label that adapts to
  * the selected intent. Fully controlled so the meter + checkmarks stay live. */
 export const ContactForm = () => {
-  const { t } = useTranslation('contact')
+  const { t, i18n } = useTranslation('contact')
   const { isSubmitting, submitStatus, submit } = useContactForm()
 
   // Kontext aus der Epigenetik-Strecke. Bewusst als Startwert und NICHT per
@@ -83,23 +75,6 @@ export const ContactForm = () => {
   // damit nirgends, dass seine Auswahl mitgereist ist. Bleibt nach der
   // Pruefung nichts uebrig, entfaellt er — lieber kein Hinweis als Fremdtext.
   const showPanelContext = sourceParam === 'epigenetics' && panels.length > 0
-
-  // Ein Teil dieses Formulars liegt in den acht Fallback-Sprachen nur auf
-  // Englisch vor: der Panel-Hinweis, die vier mit der Epigenetik-Strecke
-  // dazugekommenen Feldoptionen samt Hinweis und die drei Feldfehler. Bisher
-  // lief dieser Text unter dem lang-Attribut der Seite — ein tschechischer
-  // Screenreader hat ihn mit tschechischer Phonetik vorgelesen (WCAG 3.1.2,
-  // Level AA). Erkannt wird das ueber denselben Marker wie auf der
-  // Epigenetik-Strecke, hier am Teilbaum `contact.form`; ausgezeichnet werden
-  // nur die betroffenen Knoten, nicht das Formular — daneben steht
-  // uebersetzter Text.
-  //
-  // OFFEN: Die Meldungen an Name und E-Mail rendert das Input-Atom selbst und
-  // reicht keine Sprache durch. Sie bleiben vorerst unausgezeichnet; die
-  // Einwilligungsmeldung steht hier im Formular und traegt die Auszeichnung.
-  const fallbackLang = isEnglishFallback(t('contact.form._translationStatus', { defaultValue: '' }))
-    ? 'en'
-    : undefined
 
   const [intent, setIntent] = useState<IntentKey>(initialIntent)
   const [field, setField] = useState<FieldKey | ''>('')
@@ -206,6 +181,7 @@ export const ContactForm = () => {
       source: submissionSource || undefined,
       consent,
       _hp: hp,
+      locale: normalizeLanguage(i18n.resolvedLanguage),
     })
 
     if (success) resetForm()
@@ -237,9 +213,7 @@ export const ContactForm = () => {
           overflow: 'hidden',
         }}
       >
-        <label htmlFor="contact-hp">
-          {t('common:a11y.honeypot', 'Dieses Feld bitte leer lassen')}
-        </label>
+        <label htmlFor="contact-hp">{t('common:a11y.honeypot')}</label>
         <input
           id="contact-hp"
           name="_hp"
@@ -256,7 +230,6 @@ export const ContactForm = () => {
         <p
           id="panel-context"
           data-testid="panel-context"
-          lang={fallbackLang}
           className="flex items-start gap-2 text-sm text-accent-strong"
         >
           <Check className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
@@ -394,7 +367,6 @@ export const ContactForm = () => {
                 clearError('field')
               }}
               aria-pressed={field === key}
-              lang={EPI_FIELD_KEYS.has(key) ? fallbackLang : undefined}
               className={pillClass(field === key)}
             >
               {t(`contact.form.field.options.${key}`)}
@@ -402,10 +374,7 @@ export const ContactForm = () => {
           ))}
         </div>
         {fieldHint && (
-          <div
-            lang={field !== '' && EPI_FIELD_KEYS.has(field) ? fallbackLang : undefined}
-            className="flex items-start gap-2 rounded-lg bg-accent-soft px-4 py-3 text-sm text-accent-strong"
-          >
+          <div className="flex items-start gap-2 rounded-lg bg-accent-soft px-4 py-3 text-sm text-accent-strong">
             <Check className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
             <span>{fieldHint}</span>
           </div>
@@ -478,7 +447,7 @@ export const ContactForm = () => {
           </label>
         </div>
         {errors.consent && (
-          <p id="consent-error" lang={fallbackLang} className="text-sm font-medium text-red-600">
+          <p id="consent-error" className="text-sm font-medium text-red-600">
             {errors.consent}
           </p>
         )}

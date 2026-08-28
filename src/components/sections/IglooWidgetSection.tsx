@@ -70,7 +70,7 @@ const IglooWidgetSection = () => {
           <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading sm:text-4xl lg:text-[42px]">
             {t('igloo_widget.title', 'Welche Praxis führen Sie?')}
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-gray-700">
+          <p className="mt-4 t-body">
             {t(
               'igloo_widget.subtitle',
               'Wählen Sie Ihren Bereich — wir zeigen die passenden Biomarker-Panels und Anwendungen für Ihre Fachrichtung.',
@@ -89,7 +89,7 @@ const IglooWidgetSection = () => {
                 {segment.icon}
               </span>
               <h3 className="mt-5 text-lg font-medium text-heading">{segment.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-gray-700">{segment.benefit}</p>
+              <p className="mt-2 t-small">{segment.benefit}</p>
               <p className="mt-4 text-sm font-medium text-gray-700">{segment.bio}</p>
               <Link
                 to={`/diagnostics/${segment.id}`}

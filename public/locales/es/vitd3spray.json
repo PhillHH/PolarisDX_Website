@@ -68,7 +68,7 @@
   "order": {
     "caption": "Espray de Vitamina D3+K2",
     "title": "Pedir ahora",
-    "description": "Rellene el formulario y le enviaremos una confirmación del pedido con la factura por correo electrónico.",
+    "description": "Rellene el formulario. Nuestro equipo revisará su solicitud y se pondrá en contacto con usted para informarle del precio, la entrega y el pago.",
     "quantity_label": "Cantidad del pedido",
     "quantity_options": {
       "12": "12 esprays",
@@ -90,10 +90,10 @@
     "message_placeholder": "Opcional: indicaciones de entrega, dirección distinta, etc.",
     "submit": "Realizar pedido en firme",
     "submitting": "Enviando el pedido...",
-    "submit_note": "Al enviar, recibirá una confirmación del pedido por correo electrónico. Pago contra factura.",
+    "submit_note": "En este formulario no se realiza ningún pago. Nuestro equipo confirma personalmente el precio y la entrega.",
     "reassurance": "Gratis y sin compromiso · Respuesta < 24 h",
     "success_title": "¡Muchas gracias por su pedido!",
-    "success_text": "Hemos recibido su pedido y en breve le enviaremos una confirmación por correo electrónico.",
+    "success_text": "Hemos recibido su solicitud de pedido. Nuestro equipo se pondrá en contacto con usted en breve para indicarle los siguientes pasos.",
     "error_text": "Se ha producido un error. Inténtelo de nuevo o llámenos."
   },
   "contact": {

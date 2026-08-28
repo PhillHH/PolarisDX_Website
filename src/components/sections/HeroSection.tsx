@@ -189,12 +189,21 @@ const HeroSection = () => {
                       n: index + 1,
                       defaultValue: 'Gehe zu Slide {{n}}',
                     })}
-                    className={`h-2.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 ${
-                      currentSlide === index
-                        ? 'w-8 bg-accent'
-                        : 'w-2.5 bg-white/30 hover:bg-white/50'
-                    }`}
-                  />
+                    // Die Trefferflaeche ist der Knopf (24px hoch), der sichtbare
+                    // Punkt der innere <span> (unveraendert 10px). Groesse des
+                    // Glyphs != Groesse des Ziels — dasselbe Prinzip wie bei
+                    // Checkbox/Radio in PT05.3. Vertikal ist Platz, horizontal
+                    // nicht: siehe DESIGN-SYSTEM-CONTRACT §6.8.
+                    className="group/dot flex items-center justify-center py-[7px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+                  >
+                    <span
+                      className={`block h-2.5 rounded-full transition-all duration-300 ${
+                        currentSlide === index
+                          ? 'w-8 bg-accent'
+                          : 'w-2.5 bg-white/30 group-hover/dot:bg-white/50'
+                      }`}
+                    />
+                  </button>
                 ))}
               </div>
               <button
@@ -205,7 +214,7 @@ const HeroSection = () => {
                     ? t('hero.aria.pause', 'Automatischen Wechsel pausieren')
                     : t('hero.aria.play', 'Automatischen Wechsel fortsetzen')
                 }
-                className="rounded text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+                className="inline-flex h-11 w-11 items-center justify-center rounded text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
               >
                 {isPlaying ? (
                   <Pause size={16} aria-hidden="true" />

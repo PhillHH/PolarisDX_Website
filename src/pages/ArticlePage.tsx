@@ -9,6 +9,7 @@ import { useArticles } from '../hooks/useArticles'
 import { articleDateIso, formatArticleDate, parseReadMinutes } from '../lib/articleMeta'
 import { LoadingSpinner } from '../components/ui/LoadingSpinner'
 import { Alert } from '../components/ui/Alert'
+import { services } from '../data/services'
 
 // Local UI types for the discriminated-union section rendering.
 type BaseSection = { heading?: string; image?: string }
@@ -31,7 +32,7 @@ const splitLeadTerm = (item: string): [string | null, string] => {
 }
 
 const ArticlePage = () => {
-  const { t, i18n } = useTranslation(['articles', 'shop', 'common', 'home'])
+  const { t, i18n } = useTranslation(['articles', 'common', 'home'])
   const { slug } = useParams<{ slug: string }>()
 
   const { article, loading, error } = useArticles(slug)
@@ -54,7 +55,7 @@ const ArticlePage = () => {
             eigenen Titel, robots noindex, follow, unterdrueckt canonical und
             hreflang und laesst server.ts einen echten 404 senden. */}
         <SEOHead
-          title={t('shop:shop.articleNotFound', 'Article not found')}
+          title={t('articles:ui.articleNotFound')}
           description={t(
             'common:notFound.seo.description',
             'Die angeforderte Seite konnte nicht gefunden werden.',
@@ -64,19 +65,19 @@ const ArticlePage = () => {
         <div className="flex h-screen flex-col items-center justify-center gap-4 bg-slate-50 p-4">
           {error ? (
             <div className="w-full max-w-md">
-              <Alert variant="destructive" title={t('common:error', 'Error')}>
-                {error.message || t('shop:shop.articleNotFound', 'Article not found')}
+              <Alert variant="destructive" title={t('common:errors.root.title')}>
+                {error.message || t('articles:ui.articleNotFound')}
               </Alert>
               <div className="mt-6 flex justify-center">
-                <Button to="/articles">{t('shop:shop.backToArticles', 'Back to Overview')}</Button>
+                <Button to="/articles">{t('articles:ui.backToArticles')}</Button>
               </div>
             </div>
           ) : (
             <>
               <h1 className="text-2xl font-semibold text-heading">
-                {t('shop:shop.articleNotFound', 'Article not found')}
+                {t('articles:ui.articleNotFound')}
               </h1>
-              <Button to="/articles">{t('shop:shop.backToArticles', 'Back to Overview')}</Button>
+              <Button to="/articles">{t('articles:ui.backToArticles')}</Button>
             </>
           )}
         </div>
@@ -86,7 +87,7 @@ const ArticlePage = () => {
 
   // (b) Sichtbare Breadcrumb und BreadcrumbList aus derselben Quelle speisen.
   const crumbHome = t('common:nav.home', 'Startseite')
-  const crumbArticles = t('shop:shop.articles', 'Artikel')
+  const crumbArticles = t('articles:ui.articles')
 
   // (d) Datum und Lesezeit stehen englisch in den Rohdaten. Sichtbar wird in
   //     der aktiven Locale formatiert, maschinenlesbar bleibt ISO-8601.
@@ -112,6 +113,9 @@ const ArticlePage = () => {
     defaultValue: [],
   })
   const keyStats: KeyStat[] = Array.isArray(keyStatsRaw) ? (keyStatsRaw as KeyStat[]) : []
+  const relatedServices = services.filter((service) =>
+    article.relatedServiceIds?.includes(service.id),
+  )
 
   const renderSection = (section: ArticleSection, index: number) => {
     const sType = section.type || 'text'
@@ -183,7 +187,7 @@ const ArticlePage = () => {
               {(section as KeyPointsSection).points.map((point, pIndex) => (
                 <div key={pIndex} className="rounded-xl border border-slate-200 bg-white p-7">
                   <h3 className="mb-2 font-medium text-heading">{point.title}</h3>
-                  <p className="text-sm leading-relaxed text-gray-700">{point.description}</p>
+                  <p className="t-small">{point.description}</p>
                 </div>
               ))}
             </div>
@@ -316,6 +320,33 @@ const ArticlePage = () => {
             <div className="mt-12 space-y-8">
               {Array.isArray(translatedSections) && translatedSections.map(renderSection)}
             </div>
+
+            {relatedServices.length > 0 && (
+              <section className="mt-14 border-t border-slate-200 pt-10">
+                <h2 className="text-2xl font-medium tracking-tight text-heading">
+                  {t('articles:detail.related_services', 'Passende Diagnostik')}
+                </h2>
+                <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                  {relatedServices.map((service) => (
+                    <Link
+                      key={service.id}
+                      to={`/diagnostics/${service.id}`}
+                      className="group rounded-xl border border-slate-200 bg-slate-50 p-5 transition-colors hover:border-accent/40 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                    >
+                      <span className="font-medium text-heading group-hover:text-accent-strong">
+                        {t(`home:services.${service.translationKey}.title`, service.title)}
+                      </span>
+                      <span className="mt-2 block text-sm leading-relaxed text-gray-600">
+                        {t(`home:services.${service.translationKey}.description`, '')}
+                      </span>
+                      <span className="mt-4 inline-flex text-sm font-semibold text-accent-strong">
+                        {t('articles:detail.primary_cta', 'Passende Leistung ansehen')} →
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
 
             {/* Navy Schluss-CTA-Karte */}
             <div className="mt-14 rounded-2xl bg-brand-deep p-7 text-center text-white lg:p-7">

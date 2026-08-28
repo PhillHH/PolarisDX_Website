@@ -24,6 +24,12 @@
   "cta_title": "Nie znalazłeś dokumentu?",
   "cta_text": "Nasz zespół udostępni dodatkowe karty danych, certyfikaty lub indywidualne doradztwo produktowe.",
   "cta_button": "Poproś o ofertę",
+  "assetLanguage": { "pdf": "PDF w języku {{language}}", "zip": "ZIP z dokumentami w języku {{language}}", "languages": { "de": "niemieckim", "en": "angielskim" } },
+  "assets": {
+    "igloo": { "title": "Ulotka systemu IglooPro", "description": "Niemiecka ulotka produktowa czytnika point-of-care IglooPro." },
+    "vitd3De": { "title": "Ulotka produktu Vitamin D3+K2 Spray", "description": "Niemiecka ulotka produktowa z informacjami o stosowaniu i właściwościach." },
+    "vitd3En": { "title": "Ulotka produktu Vitamin D3+K2 Spray", "description": "Angielska ulotka produktowa z informacjami o stosowaniu i właściwościach." }
+  },
   "seo": {
     "title": "Pliki do pobrania: ulotki IglooPro i Vitamin D3+K2",
     "description": "Pobierz bezpłatnie w PDF ulotki produktowe czytnika IglooPro POC i sprayu Vitamin D3+K2 – bez rejestracji. Karty techniczne na życzenie."

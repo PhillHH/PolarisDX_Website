@@ -1,365 +1,364 @@
 {
-  "_translationStatus": "English fallback — translation pending",
   "seo": {
-    "title": "Epigenetic and genetic analyses for your practice",
-    "description": "Six epigenetic and genetic analyses from one drop of capillary blood: what is measured, who it is for and what the evidence says. All sheets as PDF."
+    "title": "Epigenetické a genetické analýzy pro vaši praxi",
+    "description": "Šest epigenetických a genetických analýz z jediné kapky kapilární krve: co se měří, pro koho jsou určeny a co říkají důkazy. Všechny listy jako PDF."
   },
   "breadcrumb": {
-    "home": "Home",
-    "current": "Epigenetics and genetics"
+    "home": "Domů",
+    "current": "Epigenetika a genetika"
   },
   "hero": {
-    "eyebrow": "Partner programme · Epigenetics and genetics",
-    "title": "Epigenetic and genetic analyses from one drop",
-    "claim": "Six analyses from capillary blood, processed by our European cooperation partner — a measurable basis for your consultation.",
-    "ctaDocs": "The six analyses",
-    "ctaQuote": "Request a quote",
+    "eyebrow": "Partnerský program · Epigenetika a genetika",
+    "title": "Epigenetické a genetické analýzy z jediné kapky",
+    "claim": "Šest analýz z kapilární krve, zpracovaných naším evropským kooperačním partnerem — měřitelný základ pro vaši konzultaci.",
+    "ctaDocs": "Šest analýz",
+    "ctaQuote": "Požádejte o nabídku",
     "chips": [
       {
-        "label": "Sample",
-        "value": "Dried blood card, fingertip"
+        "label": "Vzorek",
+        "value": "Suchá krev na kartě, konec prstu"
       },
       {
-        "label": "Laboratory",
-        "value": "Cooperation partner, EU"
+        "label": "Laboratoř",
+        "value": "Kooperační partner, EU"
       },
       {
         "label": "Portfolio",
-        "value": "6 analyses, one route"
+        "value": "6 analýz, jedna cesta"
       },
       {
-        "label": "Pricing",
-        "value": "B2B on request"
+        "label": "Cenová nabídka",
+        "value": "B2B na vyžádání"
       }
     ],
-    "ctaSheets": "All 18 documents",
-    "chooseTitle": "Six analyses. Which one fits your institution?",
-    "consultLine": "Only the epigenetic level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress.",
-    "trustEvidence": "Evidence disclosed: {{established}} well-established and {{preliminary}} preliminary points."
+    "ctaSheets": "Všechny 18 dokumentů",
+    "chooseTitle": "Šest analýz. Která vyhovuje vaší instituci?",
+    "consultLine": "Pouze epigenetická úroveň reaguje na výživu, pohyb, spánek a zátěž — jen ona je vhodná pro sledování pokroku.",
+    "trustEvidence": "Důkazy zveřejněny: {{established}} dobře zavedených a {{preliminary}} předběžných bodů."
   },
   "principle": {
-    "caption": "The principle",
-    "title": "The layer a rapid test does not cover",
-    "lead": "The six analyses complement point-of-care testing on the Igloo reader with what it does not show: individual predisposition and regulatory processes that change over time.",
+    "caption": "Princip",
+    "title": "Vrstva, kterou rychlý test nepokrývá",
+    "lead": "Šest analýz doplňuje testování přímo u pacienta na čtečce Igloo o to, co nezobrazí: individuální predispozici a regulační procesy, které se v čase mění.",
     "cards": [
       {
-        "title": "Two layers: genetics and epigenetics",
-        "text": "Genetic variants describe unchangeable predisposition. Epigenetic markers show the regulatory state: messenger molecules in the blood (microRNA) and chemical marks on the DNA (DNA methylation). They follow lifestyle and can be measured over time. Only two of the six panels include a genetic analysis — Metabolic Health and the Plus variant of Healthy Sport; the other four are run without one."
+        "title": "Dvě vrstvy: genetika a epigenetika",
+        "text": "Genetické varianty popisují neměnnou predispozici. Epigenetické markery ukazují regulační stav: nosiče zpráv v krvi (microRNA) a chemické značky na DNA (metylace DNA). Ty sledují životní styl a lze je měřit v čase. Pouze dva z šesti panelů zahrnují genetickou analýzu — Metabolic Health a Plus varianta Healthy Sport; ostatní čtyři jsou prováděny bez ní."
       },
       {
-        "title": "Sample material: dried blood card",
-        "text": "A few drops of capillary blood from the fingertip go onto a dried blood card. No venipuncture, no centrifuge, no cold chain — sampling in the practice or at home."
+        "title": "Vzorkový materiál: suchá krev na kartě",
+        "text": "Několik kapek kapilární krve z konečku prstu se nanese na suchou krevní kartu. Žádná žilní punkce, žádná odstředivka, žádný chladový řetězec — odběr v ordinaci nebo doma."
       },
       {
-        "title": "Laboratory and reference data",
-        "text": "Analysis is carried out by our European cooperation partner: more than 15 years of research, more than 60,000 validated reference values, ISO 9001:2015. Those reference values are the yardstick against which a single result is placed — without them a figure from the laboratory cannot be read. ISO 9001:2015 certifies the quality management of the laboratory; it is not a CE marking and says nothing about the individual analysis."
+        "title": "Laboratoř a referenční data",
+        "text": "Analýzu provádí náš evropský kooperační partner: více než 15 let výzkumu, více než 60 000 validovaných referenčních hodnot, ISO 9001:2015. Tyto referenční hodnoty jsou měřítkem, vůči kterému se jednotlivý výsledek hodnotí — bez nich nelze laboratorní číslo interpretovat. ISO 9001:2015 certifikuje systém řízení kvality laboratoře; není to označení CE a nic neříká o jednotlivé analýze."
       }
     ],
     "practice": {
-      "title": "Key points for your practice",
+      "title": "Klíčové body pro vaši praxi",
       "items": [
-        "A consultation tool, not a diagnosis — these analyses do not replace clinical assessment.",
-        "An initial and a follow-up measurement form a plannable programme; the interval is set by the supervising institution — for Metabolic Health and Healthy Aging after 4 to 6 months at the earliest.",
-        "One sampling route, one card type, one cooperation partner for all six analyses."
+        "Nástroj pro konzultaci, nikoli diagnóza — tyto analýzy nenahrazují klinické vyšetření.",
+        "První a následné měření tvoří plánovatelný program; interval stanovuje dohlížející instituce — u Metabolic Health a Healthy Aging nejdříve po 4 až 6 měsících.",
+        "Jeden odběrový postup, jeden typ karty, jeden kooperační partner pro všech šest analýz."
       ]
     },
-    "pdfHint": "Prefer to read the programme first? The portfolio overview covers all six analyses, the workflow and the commercial terms on three pages."
+    "pdfHint": "Raději si nejprve přečtěte program? Přehled portfolia pokrývá všech šest analýz, pracovní postup a obchodní podmínky na třech stranách."
   },
   "analyses": {
     "caption": "Portfolio",
-    "title": "The six analyses",
-    "lead": "Every analysis runs through the same sampling route. What differs is scope, method and the question it answers. Every card carries the same five axes as the comparison table, plus who the panel is suitable for. From every card a route leads to the full sample report: the same structure as the later report, only with invented values.",
-    "whatLabel": "What is analysed",
-    "whoLabel": "Who it is for",
-    "pdfBtn": "Information sheet as PDF",
+    "title": "Šest analýz",
+    "lead": "Každá analýza probíhá stejnou odběrovou cestou. Liší se rozsah, metoda a otázka, na kterou odpovídá. Každá karta obsahuje stejných pět os jako srovnávací tabulka, plus pro koho je panel vhodný. Z každé karty vede cesta k plné vzorkové zprávě: stejná struktura jako pozdější zpráva, jen s vymyšlenými hodnotami.",
+    "whatLabel": "Co se analyzuje",
+    "whoLabel": "Pro koho je určeno",
+    "pdfBtn": "Informační list jako PDF",
     "items": [
       {
         "num": "01",
         "name": "Metabolic Health",
-        "subtitle": "Diet by predisposition — epigenetically verifiable.",
-        "what": "The analysis evaluates which distribution of macronutrients suits the individual predisposition, supported by specific portion and recipe suggestions. Because genetic variants do not explain weight behaviour on their own, epigenetic markers of DNA stability and inflammation are assessed in addition: only those respond to lifestyle and are suitable for tracking progress.",
+        "subtitle": "Strava podle predispozice — epigeneticky ověřitelná.",
+        "what": "Analýza hodnotí, jaké rozložení makroživin vyhovuje individuální predispozici, podpořené konkrétními doporučeními porcí a receptů. Protože genetické varianty samy o sobě nevysvětlují chování hmotnosti, hodnotí se navíc epigenetické markery stability DNA a zánětu: pouze ty reagují na životní styl a jsou vhodné pro sledování pokroku.",
         "who": [
-          "Nutritional counselling beyond standard plans",
-          "Prevention practices with weight programmes",
-          "Where previous dietary changes have not worked"
+          "Výživové poradenství nad rámec standardních plánů",
+          "Prevence s programy na váhu",
+          "Kde předchozí změny stravy nefungovaly"
         ],
         "file": "en/01_Metabolic_Health_PolarisDX.pdf"
       },
       {
         "num": "02",
         "name": "Healthy Aging",
-        "subtitle": "Biological age across four layers — traffic light, not one number.",
-        "what": "Telomere length, epigenetic ageing markers, inflammation and DNA stability are placed against age- and sex-related reference values and each rated green, amber or red. This shows which layer is driving the result — and where an intervention should start. Lifestyle data is recorded alongside and contrasted with the molecular findings.",
+        "subtitle": "Biologický věk ve čtyřech vrstvách — semafor, ne jedno číslo.",
+        "what": "Délka telomer, epigenetické markery stárnutí, zánět a stabilita DNA jsou porovnány s věkově a pohlavně specifickými referenčními hodnotami a hodnoceny jako zelené, oranžové nebo červené. Ukazuje to, která vrstva ovlivňuje výsledek — a kde by měla intervence začít. Vedle toho jsou zaznamenána data o životním stylu a porovnána s molekulárními nálezy.",
         "who": [
-          "Longevity centres and prevention practices",
-          "Nutritional counselling and preventive medicine",
-          "People aged roughly 40 and over tracking the trend"
+          "Centra dlouhověkosti a preventivní praxe",
+          "Výživové poradenství a preventivní medicína",
+          "Lidé přibližně od 40 let sledující trend"
         ],
         "file": "en/02_Healthy_Aging_PolarisDX.pdf"
       },
       {
         "num": "03",
-        "name": "Biological age clock",
-        "subtitle": "An exploratory lifestyle signal — not an age determination.",
-        "what": "Three microRNAs are determined by quantitative PCR, normalised against miR-93 and combined into a single value: the percentage deviation of biological from chronological age. The underlying model is published but declared a pilot study — the output is an exploratory signal, not a robust biological age.",
+        "name": "Biologické hodiny věku",
+        "subtitle": "Průzkumný signál životního stylu — nikoli určení věku.",
+        "what": "Tři microRNA jsou určeny kvantitativní PCR, normalizovány vůči miR-93 a sloučeny do jediné hodnoty: procentuální odchylky biologického od chronologického věku. Základní model je publikován, ale označen jako pilotní studie — výstup je průzkumný signál, nikoli robustní biologický věk.",
         "who": [
-          "Longevity and functional medicine practices",
-          "Health centres, coaching and workplace health",
-          "Where a full ageing panel would be too extensive"
+          "Praktiky dlouhověkosti a funkční medicíny",
+          "Zdravotní střediska, koučink a pracovní zdraví",
+          "Kde by byl plný panel stárnutí příliš rozsáhlý"
         ],
         "file": "en/03_Biological_Age_PolarisDX.pdf"
       },
       {
         "num": "04",
-        "name": "Telomere Analysis",
-        "subtitle": "The protective caps of the chromosomes — measured in kilobase pairs.",
-        "what": "Telomeres shorten with each cell division and are regarded as a marker of cellular ageing. Measurement is performed from dried capillary blood, reported in kilobase pairs and placed against an age- and sex-matched reference population. qPCR values vary considerably between runs and laboratories — the trend carries the message, not the single value.",
+        "name": "Analýza telomer",
+        "subtitle": "Ochranné čepičky chromozomů — měřené v kilobazových párech.",
+        "what": "Telomery se zkracují při každém dělení buňky a jsou považovány za marker buněčného stárnutí. Měření se provádí ze zaschlých kapilárních kapek krve, uvádí se v kilobazových párech a porovnává se s věkově a pohlavně odpovídající referenční populací. Hodnoty qPCR se mezi běhy a laboratořemi značně liší — důležitý je trend, nikoli jednotlivá hodnota.",
         "who": [
-          "Longevity programmes and preventive medicine",
-          "Nutritional counselling needing a baseline",
-          "Workplace programmes with a longevity focus"
+          "Programy dlouhověkosti a preventivní medicína",
+          "Výživové poradenství vyžadující výchozí hodnotu",
+          "Programy na pracovišti se zaměřením na dlouhověkost"
         ],
         "file": "en/04_Telomere_Analysis_PolarisDX.pdf"
       },
       {
         "num": "05",
-        "name": "Stress Monitor",
-        "subtitle": "Measured alongside perceived strain — four areas.",
-        "what": "Physiological strain, cell protection, serotonin regulation and immune signals are each reported as a traffic light and contrasted with the subjective stress experience recorded in a questionnaire. The discrepancy is what makes the conversation useful: people with high tolerance for strain frequently underestimate their own load.",
+        "name": "Monitor stresu",
+        "subtitle": "Měřeno spolu s vnímanou zátěží — čtyři oblasti.",
+        "what": "Fyziologická zátěž, ochrana buněk, regulace serotoninu a imunitní signály jsou každá hodnocena semaforovým systémem a porovnávána se subjektivním stresem zaznamenaným v dotazníku. Rozdíl je to, co činí rozhovor užitečným: lidé s vysokou tolerancí vůči zátěži často podceňují vlastní zátěž.",
         "who": [
-          "Workplace health management and resilience",
-          "Practices focused on stress prevention",
-          "People under sustained strain"
+          "Řízení zdraví na pracovišti a odolnost",
+          "Postupy zaměřené na prevenci stresu",
+          "Lidé vystavení dlouhodobé zátěži"
         ],
         "file": "en/05_Stress_Monitor_PolarisDX.pdf"
       },
       {
         "num": "06",
-        "name": "Healthy Sport",
-        "subtitle": "Eight microRNAs in seven assessments; Plus variant adds four variants.",
-        "what": "Nutrient status, hydration status, load and stress level, injury risk and recovery, cardiovascular fitness, inflammation and muscle status — seven assessments from eight microRNAs — form the variable monitoring part. The Plus variant adds four unchangeable genetic variants on sport type, training motivation, muscle damage risk and weight regulation — recorded once.",
+        "name": "Zdravý sport",
+        "subtitle": "Osm mikroRNA v sedmi hodnoceních; varianta Plus přidává čtyři varianty.",
+        "what": "Stav živin, hydratace, zátěž a úroveň stresu, riziko zranění a regenerace, kardiovaskulární kondice, zánět a stav svalů — sedm hodnocení z osmi mikroRNA tvoří proměnlivou monitorovací část. Varianta Plus přidává čtyři neměnné genetické varianty týkající se typu sportu, motivace k tréninku, rizika svalového poškození a regulace hmotnosti — zaznamenané jednorázově.",
         "who": [
-          "Sports medicine and performance diagnostics",
-          "Sports science and performance coaching",
-          "Recreational and competitive athletes"
+          "Sportovní medicína a diagnostika výkonu",
+          "Sportovní věda a koučink výkonu",
+          "Rekreační i soutěžní sportovci"
         ],
         "file": "en/06_Healthy_Sport_PolarisDX.pdf"
       }
     ],
-    "sampleBtn": "Sample report"
+    "sampleBtn": "Ukázková zpráva"
   },
   "docsBand": {
-    "title": "Every document in one place",
-    "text": "Nine information sheets per language: portfolio overview, the six analyses in detail, commercial terms and the full evidence base. Individually as PDF or bundled as an archive.",
-    "ctaZip": "All sheets as ZIP",
-    "ctaAll": "Browse the sheets"
+    "title": "Všechny dokumenty na jednom místě",
+    "text": "Devět informačních listů v každém jazyce: přehled portfolia, šest analýz podrobně, obchodní podmínky a kompletní vědecký základ. Jednotlivě jako PDF nebo v archivu.",
+    "ctaZip": "Všechny listy jako ZIP",
+    "ctaAll": "Prohlédnout listy"
   },
   "workflow": {
-    "caption": "Workflow",
-    "title": "How it works in your practice",
-    "lead": "Six steps, one sampling route — identical for all six analyses. Four of them take place in your organisation: information and consent before sampling, the sampling itself, sending the card, and the conversation about the report. In between come the laboratory analysis and the digital report. No cold chain, no fasting requirement and no laboratory appointment for your client.",
+    "caption": "Pracovní postup",
+    "title": "Jak to funguje ve vaší praxi",
+    "lead": "Šest kroků, jedna cesta odběru — stejná pro všechny šest analýz. Čtyři z nich probíhají ve vaší organizaci: informace a souhlas před odběrem, samotný odběr, odeslání karty a rozhovor o výsledné zprávě. Mezi tím probíhá laboratorní analýza a digitální zpráva. Není potřeba chladový řetězec, hladovění ani návštěva laboratoře pro klienta.",
     "steps": [
-      "Hold the consultation; document the information given and the consent obtained.",
-      "Sampling: prick the fingertip, apply blood to the card.",
-      "Send the card to the cooperation partner in the prepared envelope.",
-      "Laboratory analysis of the genetic or epigenetic markers.",
-      "Digital report with traffic-light rating and specific recommendations.",
-      "Review and action plan; the interval to the follow-up measurement is set by the supervising institution."
+      "Proveďte konzultaci; zdokumentujte poskytnuté informace a získaný souhlas.",
+      "Odběr: propíchněte koneček prstu, naneste krev na kartu.",
+      "Odešlete kartu partnerovi v připravené obálce.",
+      "Laboratorní analýza genetických nebo epigenetických markerů.",
+      "Digitální zpráva s hodnocením semaforem a konkrétními doporučeními.",
+      "Revize a plán opatření; interval k následnému měření stanovuje dozorující instituce."
     ]
   },
   "evidence": {
-    "caption": "Evidence base",
-    "title": "What is established — and what is not",
-    "lead": "This field is heavily over-promised. Anyone presenting these analyses should know the limits — with professionals, candour is an advantage, not a risk.",
-    "establishedTitle": "Well established",
+    "caption": "Vědecký základ",
+    "title": "Co je ověřené — a co není",
+    "lead": "Tato oblast je často nadsazována. Každý, kdo tyto analýzy prezentuje, by měl znát jejich limity — u profesionálů je upřímnost výhodou, nikoli rizikem.",
+    "establishedTitle": "Dobře ověřené",
     "established": [
       {
-        "title": "Lifestyle changes epigenetic markers",
-        "text": "Randomised pilot trial over 8 weeks: epigenetic age on average 3.2 years lower than in the control group (Fitzgerald et al., Aging 2021) — DNA methylation, not microRNA."
+        "title": "Životní styl mění epigenetické markery",
+        "text": "Randomizovaná pilotní studie po dobu 8 týdnů: epigenetický věk byl v průměru o 3,2 roku nižší než v kontrolní skupině (Fitzgerald et al., Aging 2021) — metylace DNA, nikoli mikroRNA."
       },
       {
-        "title": "Inflammation as an ageing axis",
-        "text": "\"Inflammaging\" is an established concept; miR-21 is described as a circulating inflammation marker (Olivieri et al. 2012)."
+        "title": "Zánět jako osa stárnutí",
+        "text": "„Inflammaging“ je zavedený koncept; miR-21 je popisován jako cirkulující marker zánětu (Olivieri et al. 2012)."
       },
       {
-        "title": "microRNAs are stable in dried blood",
-        "text": "microRNAs are considered more robust than mRNA and remain comparatively stable in dried samples — the sampling route itself is sound."
+        "title": "MikroRNA jsou stabilní v zaschlé krvi",
+        "text": "MikroRNA jsou považovány za odolnější než mRNA a zůstávají relativně stabilní v zaschlých vzorcích — samotná cesta odběru je tedy spolehlivá."
       },
       {
-        "title": "The established standard for biological age",
-        "text": "That is methylation clocks: Horvath, PhenoAge, GrimAge and DunedinPACE. DunedinPACE shows high test-retest reliability and associations with morbidity and mortality."
+        "title": "Zavedený standard pro biologický věk",
+        "text": "Jsou to metylové hodiny: Horvath, PhenoAge, GrimAge a DunedinPACE. DunedinPACE vykazuje vysokou spolehlivost opakovaných testů a souvislosti s morbiditou a mortalitou."
       }
     ],
-    "preliminaryTitle": "Preliminary",
+    "preliminaryTitle": "Předběžné",
     "preliminary": [
       {
-        "title": "microRNA age clock",
-        "text": "The published model (n = 539) explains about 5 % of the variance in age, mean absolute error 10.4 years; two of the three markers did not correlate significantly with chronological age."
+        "title": "Hodiny věku založené na mikroRNA",
+        "text": "Publikovaný model (n = 539) vysvětluje asi 5 % variance věku, průměrná absolutní chyba 10,4 roku; dva ze tří markerů nekorelovaly významně s chronologickým věkem."
       },
       {
-        "title": "Telomere length by qPCR",
-        "text": "The method varies between runs and laboratories; DNA extraction, storage and cell composition all contribute. From dried blood more than from venous blood."
+        "title": "Délka telomer metodou qPCR",
+        "text": "Metoda se liší mezi běhy a laboratořemi; přispívají extrakce DNA, skladování a složení buněk. Zaschlá krev vykazuje větší variabilitu než žilní krev."
       },
       {
-        "title": "Gene-based dietary advice",
-        "text": "The Food4Me study found no difference in weight loss between levels of personalisation including genetics. The benefit lies in structure, conversation and adherence."
+        "title": "Doporučení stravy založená na genech",
+        "text": "Studie Food4Me nezjistila rozdíl v úbytku hmotnosti mezi různými úrovněmi personalizace včetně genetiky. Přínos spočívá ve struktuře, rozhovoru a dodržování doporučení."
       },
       {
-        "title": "microRNA as stress markers",
-        "text": "There is work on individual microRNAs and acute as well as chronic stress, but no established cut-offs and no diagnostic validation."
+        "title": "MikroRNA jako markery stresu",
+        "text": "Existují studie o jednotlivých mikroRNA a akutním i chronickém stresu, ale nejsou stanoveny zavedené hranice ani diagnostická validace."
       }
     ],
-    "cta": "Full evidence base as PDF",
+    "cta": "Kompletní vědecký základ jako PDF",
     "file": "en/08_Evidence_Base_PolarisDX.pdf"
   },
   "faq": {
-    "caption": "Frequent questions",
-    "title": "What professional users ask",
-    "lead": "Eight answers from conversations with organisations. They also name the limits: which analysis is exploratory, where measured values vary considerably, where the line to clinical diagnostics runs, and what the Genetic Diagnostics Act requires before sampling.",
+    "caption": "Časté otázky",
+    "title": "Co se ptají profesionálové",
+    "lead": "Osm odpovědí z rozhovorů s organizacemi. Zároveň uvádějí limity: která analýza je průzkumná, kde se hodnoty výrazně liší, kde vede hranice ke klinické diagnostice a co před odběrem vyžaduje Zákon o genetické diagnostice.",
     "items": [
       {
-        "q": "What is the difference between genetics and epigenetics?",
-        "a": "Genetic variants are unchangeable for life and are recorded once; epigenetic markers describe the current regulatory state and can be measured over time. Only the epigenetic level is suitable for tracking progress — set out in full under “Understanding the values”."
+        "q": "Jaký je rozdíl mezi genetikou a epigenetikou?",
+        "a": "Genetické varianty jsou neměnné po celý život a zaznamenávají se jednou; epigenetické markery popisují aktuální regulační stav a lze je měřit v čase. Pouze epigenetická úroveň je vhodná pro sledování pokroku — podrobně vysvětleno v části „Porozumění hodnotám“."
       },
       {
-        "q": "How is the sample taken?",
-        "a": "A few drops of capillary blood from the fingertip go onto a dried blood card and dry there. No venipuncture, no centrifuge, no cold chain — sampling is possible in the practice or at home. The card is sent to the cooperation partner in the prepared envelope."
+        "q": "Jak se provádí odběr vzorku?",
+        "a": "Několik kapek kapilární krve z konečku prstu se nanese na kartu s vysušenou krví a nechá se uschnout. Žádná žilní punkce, žádná centrifuga, žádný chladový řetězec — odběr je možný v ordinaci nebo doma. Karta se odešle partnerovi v připravené obálce."
       },
       {
-        "q": "When does a follow-up measurement make sense?",
-        "a": "After 4 to 6 months at the earliest and under conditions as similar as possible. The trend carries the message, not the single value — an initial and a follow-up measurement together form a plannable programme. Acute infections shift inflammation markers, so the timing should be chosen deliberately."
+        "q": "Kdy má smysl následné měření?",
+        "a": "Ne dříve než za 4 až 6 měsíců a za co nejpodobnějších podmínek. Důležitý je trend, nikoli jednotlivá hodnota — počáteční a následné měření společně tvoří plánovatelný program. Akutní infekce posouvají markery zánětu, proto je třeba načasování pečlivě zvolit."
       },
       {
-        "q": "Do these analyses replace clinical diagnostics?",
-        "a": "No. They are consultation and monitoring tools, not a medical diagnosis and not a substitute for clinical assessment. Where findings suggest a condition requiring treatment, the person belongs in medical or psychotherapeutic assessment."
+        "q": "Nahrazují tyto analýzy klinickou diagnostiku?",
+        "a": "Ne. Jsou to nástroje pro konzultaci a monitorování, nikoli lékařská diagnóza a nenahrazují klinické vyšetření. Pokud nálezy naznačují stav vyžadující léčbu, osoba patří do lékařského nebo psychoterapeutického vyšetření."
       },
       {
-        "q": "What are the legal requirements?",
-        "a": "In Germany, genetic analyses are subject to the Genetic Diagnostics Act: the person examined must be informed and give written consent before sampling, and this must be documented. Predictive genetic testing may furthermore only be conducted under the responsibility of appropriately qualified physicians; genetic counselling must be offered before and after the test (Sections 7 and 10 GenDG). It applies to Metabolic Health and to the Plus variant of Healthy Sport."
+        "q": "Jaké jsou právní požadavky?",
+        "a": "V Německu podléhají genetické analýzy Zákonu o genetické diagnostice: vyšetřovaná osoba musí být před odběrem informována a dát písemný souhlas, který musí být zdokumentován. Prediktivní genetické testování může být navíc prováděno pouze pod odpovědností řádně kvalifikovaných lékařů; před a po testu musí být nabídnuto genetické poradenství (§ 7 a 10 GenDG). Platí to pro Metabolic Health i pro variantu Plus Healthy Sport."
       },
       {
-        "q": "How robust are the results?",
-        "a": "That differs by analysis, and we state it openly. The sampling route itself is sound, as is the monitoring approach. The microRNA age clock, by contrast, is exploratory, and qPCR telomere values vary considerably. The evidence sheet separates established from preliminary evidence and names the sources."
+        "q": "Jak spolehlivé jsou výsledky?",
+        "a": "Liší se podle analýzy a uvádíme to otevřeně. Samotný způsob odběru je spolehlivý, stejně jako přístup k monitorování. Naopak mikroRNA věkový hodinový ukazatel je průzkumný a hodnoty telomer qPCR se značně liší. List s důkazy odděluje zavedené od předběžných důkazů a uvádí zdroje."
       },
       {
-        "q": "What do the analyses cost?",
-        "a": "B2B terms on request, tiered by volume and contract model. There is no public consumer price list. Test cards, shipping material and report delivery are part of the offer."
+        "q": "Kolik analýzy stojí?",
+        "a": "Podmínky B2B na vyžádání, odstupňované podle objemu a modelu smlouvy. Neexistuje veřejný ceník pro spotřebitele. Testovací karty, přepravní materiál a doručení zprávy jsou součástí nabídky."
       },
       {
-        "q": "Which organisations is the programme suitable for?",
-        "a": "The analyses are supplied to professional users only: prevention and longevity practices, nutritional counselling, sports medicine and coaching, and workplace health management."
+        "q": "Pro které organizace je program vhodný?",
+        "a": "Analýzy jsou poskytovány pouze profesionálním uživatelům: praxe prevence a dlouhověkosti, výživové poradenství, sportovní medicína a koučink a řízení zdraví na pracovišti."
       }
     ]
   },
   "downloads": {
-    "caption": "Documents",
-    "title": "All sheets to take away",
-    "sub": "18 information sheets as PDF, nine each in German and English. As of August 2026.",
-    "zipLabel": "The nine info sheets as ZIP · 0.6 MB",
+    "caption": "Dokumenty",
+    "title": "Všechny informační listy ke stažení",
+    "sub": "18 informačních listů ve formátu PDF, po devíti v němčině a angličtině. Stav k srpnu 2026.",
+    "zipLabel": "Devět informačních listů jako ZIP · 0,6 MB",
     "zipFile": "PolarisDX_Unterlagen_EN.zip",
-    "btn": "Get PDF",
-    "samplesTitle": "Plus the six sample reports",
-    "samplesText": "A complete sample report for each analysis, along with the parameter overview and “Understanding the values” — in German.",
-    "samplesCta": "Go to the sample reports"
+    "btn": "Stáhnout PDF",
+    "samplesTitle": "Plus šest vzorových zpráv",
+    "samplesText": "Kompletní vzorová zpráva pro každou analýzu spolu s přehledem parametrů a „Porozuměním hodnotám“ — v němčině.",
+    "samplesCta": "Přejít na vzorové zprávy"
   },
   "sheets": [
     {
       "num": "00",
-      "title": "Portfolio overview",
-      "desc": "Programme, principle, analyses, workflow, terms.",
+      "title": "Přehled portfolia",
+      "desc": "Program, princip, analýzy, pracovní postup, podmínky.",
       "file": "en/00_Portfolio_Overview_PolarisDX.pdf",
-      "meta": "PDF · 3 pages · 78 KB",
+      "meta": "PDF · 3 stránky · 78 KB",
       "featured": true
     },
     {
       "num": "01",
       "title": "Metabolic Health",
-      "desc": "Metabolic type, eating behaviour, weight regulation.",
+      "desc": "Metabolický typ, stravovací chování, regulace hmotnosti.",
       "file": "en/01_Metabolic_Health_PolarisDX.pdf",
-      "meta": "PDF · 3 pages · 80 KB"
+      "meta": "PDF · 3 stránky · 80 KB"
     },
     {
       "num": "02",
       "title": "Healthy Aging",
-      "desc": "Biological ageing across four layers, rating per layer.",
+      "desc": "Biologické stárnutí ve čtyřech vrstvách, hodnocení podle vrstvy.",
       "file": "en/02_Healthy_Aging_PolarisDX.pdf",
-      "meta": "PDF · 2 pages · 73 KB"
+      "meta": "PDF · 2 stránky · 73 KB"
     },
     {
       "num": "03",
-      "title": "Biological age clock",
-      "desc": "Three microRNAs as an exploratory lifestyle signal.",
+      "title": "Biologické hodiny věku",
+      "desc": "Tři mikroRNA jako průzkumný signál životního stylu.",
       "file": "en/03_Biological_Age_PolarisDX.pdf",
-      "meta": "PDF · 3 pages · 79 KB"
+      "meta": "PDF · 3 stránky · 79 KB"
     },
     {
       "num": "04",
-      "title": "Telomere Analysis",
-      "desc": "Telomere length in kilobase pairs as a baseline.",
+      "title": "Analýza telomer",
+      "desc": "Délka telomer v kilobázových párech jako základní hodnota.",
       "file": "en/04_Telomere_Analysis_PolarisDX.pdf",
-      "meta": "PDF · 2 pages · 72 KB"
+      "meta": "PDF · 2 stránky · 72 KB"
     },
     {
       "num": "05",
-      "title": "Stress Monitor",
-      "desc": "Six microRNAs: measured alongside perceived strain.",
+      "title": "Monitor stresu",
+      "desc": "Šest mikroRNA: měřeno spolu s vnímanou zátěží.",
       "file": "en/05_Stress_Monitor_PolarisDX.pdf",
-      "meta": "PDF · 3 pages · 78 KB"
+      "meta": "PDF · 3 stránky · 78 KB"
     },
     {
       "num": "06",
-      "title": "Healthy Sport",
-      "desc": "Eight microRNAs in seven assessments; Plus adds four variants.",
+      "title": "Zdravý sport",
+      "desc": "Osm mikroRNA v sedmi hodnoceních; Plus přidává čtyři varianty.",
       "file": "en/06_Healthy_Sport_PolarisDX.pdf",
-      "meta": "PDF · 3 pages · 80 KB"
+      "meta": "PDF · 3 stránky · 80 KB"
     },
     {
       "num": "07",
-      "title": "Commercial terms and enquiry",
-      "desc": "Pricing logic and enquiry form, B2B terms on request.",
+      "title": "Obchodní podmínky a poptávka",
+      "desc": "Logika cen a poptávkový formulář, podmínky B2B na vyžádání.",
       "file": "en/07_Terms_Enquiry_PolarisDX.pdf",
-      "meta": "PDF · 2 pages · 70 KB"
+      "meta": "PDF · 2 stránky · 70 KB"
     },
     {
       "num": "08",
-      "title": "Evidence base and limits",
-      "desc": "What is established and what is not — with sources.",
+      "title": "Důkazy a limity",
+      "desc": "Co je zavedené a co není — se zdroji.",
       "file": "en/08_Evidence_Base_PolarisDX.pdf",
-      "meta": "PDF · 3 pages · 78 KB",
+      "meta": "PDF · 3 stránky · 78 KB",
       "featured": true
     }
   ],
   "contact": {
-    "caption": "Contact",
-    "title": "Request a quote",
-    "sub": "The analyses are supplied to professional users only. B2B terms on request, tiered by volume.",
-    "overview": "Overview as PDF",
+    "caption": "Kontakt",
+    "title": "Požádejte o nabídku",
+    "sub": "Analýzy jsou poskytovány pouze profesionálním uživatelům. Podmínky B2B na vyžádání, odstupňované podle objemu.",
+    "overview": "Přehled jako PDF",
     "overviewFile": "en/00_Portfolio_Overview_PolarisDX.pdf",
-    "note": "The analyses are laboratory services provided by our cooperation partner and are not CE-marked in vitro diagnostic devices. They serve consultation and monitoring and do not replace clinical diagnostics. Genetic analyses are subject to national genetic testing legislation. In Germany, predictive genetic testing may only be conducted under the responsibility of appropriately qualified physicians; genetic counselling must be offered before and after the test.",
-    "lab": "Laboratory analysis by our cooperation partner · ISO 9001:2015"
+    "note": "Analýzy jsou laboratorní služby poskytované naším partnerským laboratoří a nejsou CE značenými in vitro diagnostickými zařízeními. Slouží ke konzultaci a monitorování a nenahrazují klinickou diagnostiku. Genetické analýzy podléhají národní legislativě o genetickém testování. V Německu může být prediktivní genetické testování prováděno pouze pod odpovědností řádně kvalifikovaných lékařů; před a po testu musí být nabídnuto genetické poradenství.",
+    "lab": "Laboratorní analýza naším partnerským laboratoří · ISO 9001:2015"
   },
   "links": {
-    "longevity": "Longevity diagnostics",
-    "downloads": "All downloads",
-    "contact": "Request a quote"
+    "longevity": "Diagnostika dlouhověkosti",
+    "downloads": "Všechny ke stažení",
+    "contact": "Požádejte o nabídku"
   },
   "samples": {
-    "caption": "Sample reports",
-    "title": "What ends up on the table",
-    "lead": "Six complete sample reports, one for each analysis. Before you enquire, they show how the document is built that your clients finally receive.",
-    "note": "All six documents are sample reports: every value, genotype and personal detail is fictitious and serves solely to illustrate the report format. These are not real results.",
-    "badge": "PDF in German",
-    "btn": "View report",
+    "caption": "Vzorové zprávy",
+    "title": "Co nakonec dostanete",
+    "lead": "Šest kompletních vzorových zpráv, po jedné pro každou analýzu. Před poptávkou ukazují, jak je dokument sestaven, který vaši klienti nakonec obdrží.",
+    "note": "Všechny šest dokumentů jsou vzorové zprávy: každá hodnota, genotyp a osobní údaj je fiktivní a slouží pouze k ilustraci formátu zprávy. Nejedná se o skutečné výsledky.",
+    "badge": "PDF v němčině",
+    "btn": "Zobrazit zprávu",
     "items": [
       {
         "slug": "metabolic-health",
         "panel": "Metabolic Health",
         "pages": "15",
-        "what": "How one report brings both levels together — 17 genetic evaluations and four epigenetic markers on the same traffic light 1–9, including the reference to information and written consent under the German Genetic Diagnostics Act (GenDG).",
+        "what": "Jak jeden výsledek spojuje obě úrovně — 17 genetických hodnocení a čtyři epigenetické markery na stejném semaforu 1–9, včetně odkazu na informace a písemný souhlas podle německého zákona o genetické diagnostice (GenDG).",
         "bullets": [
-          "Four modifiable values, traffic light 1–9",
-          "17 genetic evaluations, 21 variants",
-          "Action plan with three focus areas"
+          "Čtyři modifikovatelné hodnoty, semafor 1–9",
+          "17 genetických hodnocení, 21 variant",
+          "Akční plán se třemi oblastmi zaměření"
         ],
         "file": "de/10_Musterbefund_Metabolic_Health_PolarisDX.pdf"
       },
@@ -367,11 +366,11 @@
         "slug": "healthy-aging",
         "panel": "Healthy Aging",
         "pages": "9",
-        "what": "How four markers are reported separately — telomeres, LINE-1, epigenetic ageing markers and IL-6, each as a percentage of the reference and each with its own biological age, deliberately without a combined score.",
+        "what": "Jak jsou čtyři markery uváděny samostatně — telomery, LINE-1, markery epigenetického stárnutí a IL-6, každý jako procento referenční hodnoty a každý s vlastním biologickým věkem, záměrně bez kombinovaného skóre.",
         "bullets": [
-          "Biological age for each marker",
-          "Lifestyle radar with eleven factors",
-          "13 recommendations, each assigned to a marker"
+          "Biologický věk pro každý marker",
+          "Radar životního stylu s jedenácti faktory",
+          "13 doporučení, každé přiřazeno k jednomu markeru"
         ],
         "file": "de/11_Musterbefund_Healthy_Aging_PolarisDX.pdf"
       },
@@ -379,11 +378,11 @@
         "slug": "biologische-altersuhr",
         "panel": "Biological Age Clock",
         "pages": "10",
-        "what": "How an exploratory result is presented: biological age 52 years against a chronological age of 48 — and the limits of the model set out on a page of its own.",
+        "what": "Jak je prezentován průzkumný výsledek: biologický věk 52 let vůči chronologickému věku 48 — a limity modelu uvedené na samostatné stránce.",
         "bullets": [
-          "The three microRNAs reported individually",
-          "Eight recommendations, mapped to the signals",
-          "Trend from two measured values"
+          "Tři mikroRNA uváděné jednotlivě",
+          "Osm doporučení, přiřazených ke signálům",
+          "Trend ze dvou naměřených hodnot"
         ],
         "file": "de/12_Musterbefund_Biologische_Altersuhr_PolarisDX.pdf"
       },
@@ -391,11 +390,11 @@
         "slug": "telomer-analyse",
         "panel": "Telomere Analysis",
         "pages": "9",
-        "what": "How a single value is put into context: 108 kbp against a reference value of 112 kbp, with the measurement variability of the qPCR stated explicitly as part of the report.",
+        "what": "Jak je jedna hodnota uvedena do kontextu: 108 kbp vůči referenční hodnotě 112 kbp, s explicitním uvedením variability měření qPCR jako součásti výsledku.",
         "bullets": [
-          "Eight recommendations with source and amount",
-          "Trend from two measured values",
-          "Scientific context for the method"
+          "Osm doporučení s uvedením zdroje a množství",
+          "Trend ze dvou naměřených hodnot",
+          "Vědecký kontext metody"
         ],
         "file": "de/13_Musterbefund_Telomer_Analyse_PolarisDX.pdf"
       },
@@ -403,11 +402,11 @@
         "slug": "stress-monitor",
         "panel": "Stress Monitor",
         "pages": "9",
-        "what": "How six microRNAs yield two separate evaluations — each from the markers assigned to it, with different results in the sample report.",
+        "what": "Jak šest mikroRNA poskytuje dvě samostatná hodnocení — každé z markerů k němu přiřazených, s různými výsledky ve vzorovém protokolu.",
         "bullets": [
-          "The six individual markers as a table",
-          "Eleven recommendations with source and amount",
-          "Two measurements compared over time"
+          "Šest jednotlivých markerů v tabulce",
+          "Jedenáct doporučení s uvedením zdroje a množství",
+          "Dvě měření porovnaná v čase"
         ],
         "file": "de/14_Musterbefund_Stress_Monitor_PolarisDX.pdf"
       },
@@ -415,112 +414,112 @@
         "slug": "healthy-sport",
         "panel": "Healthy Sport",
         "pages": "12",
-        "what": "How eight microRNAs feed into seven evaluations. The sample report shows the Plus variant, which adds four genetic variants once — including the reference to information and written consent under the German Genetic Diagnostics Act (GenDG).",
+        "what": "Jak osm mikroRNA vstupuje do sedmi hodnocení. Vzorový protokol ukazuje variantu Plus, která přidává jednorázově čtyři genetické varianty — včetně odkazu na informace a písemný souhlas podle německého zákona o genetické diagnostice (GenDG).",
         "bullets": [
-          "Seven evaluations, sorted by value",
-          "The eight microRNAs reported individually",
-          "14 recommendations, plus the measurement trend"
+          "Sedm hodnocení, seřazených podle hodnoty",
+          "Osm mikroRNA uváděných jednotlivě",
+          "14 doporučení, plus trend měření"
         ],
         "file": "de/15_Musterbefund_Healthy_Sport_PolarisDX.pdf"
       }
     ],
-    "pagesLabel": "{{pages}} pages",
-    "imgAlt": "Cover of the {{panel}} sample report",
-    "zipLabel": "All six as ZIP · 4.2 MB",
+    "pagesLabel": "{{pages}} stran",
+    "imgAlt": "Obálka vzorového protokolu {{panel}}",
+    "zipLabel": "Všechny šesti jako ZIP · 4,2 MB",
     "zipFile": "PolarisDX_Musterbefunde_DE.zip",
-    "pdfBtn": "Download PDF"
+    "pdfBtn": "Stáhnout PDF"
   },
   "compare": {
-    "caption": "At a glance",
-    "title": "The six panels compared",
-    "lead": "All six panels run from the same dried blood spot card, collected from a fingertip. What differs is scope, molecular level and result format. The “Molecular level” column names what a value is made of: microRNAs are messenger molecules in the blood, telomere length is the length of the protective caps at the ends of the chromosomes. The “For tracking over time” column names which values can change at all in a follow-up measurement.",
+    "caption": "Přehledně",
+    "title": "Porovnání šesti panelů",
+    "lead": "Všechny šesti panely jsou provedeny ze stejné karty se sušenou kapkou krve odebranou z konečku prstu. Liší se rozsah, molekulární úroveň a formát výsledku. Sloupec „Molekulární úroveň“ uvádí, z čeho se hodnota skládá: mikroRNA jsou nosné molekuly v krvi, délka telomer je délka ochranných čepiček na koncích chromozomů. Sloupec „Pro sledování v čase“ uvádí, které hodnoty se vůbec mohou změnit při následném měření.",
     "cols": [
       "Panel",
-      "Parameters",
-      "Molecular level",
-      "For tracking over time",
-      "Genetic analysis",
-      "Result format"
+      "Parametry",
+      "Molekulární úroveň",
+      "Pro sledování v čase",
+      "Genetická analýza",
+      "Formát výsledku"
     ],
     "rows": [
       [
         "Metabolic Health",
-        "4 epigenetic + 17 genetic",
-        "Epigenetics and genetics",
-        "the 4 epigenetic markers only",
-        "yes",
-        "Traffic light 1–9"
+        "4 epigenetické + 17 genetických",
+        "Epigenetika a genetika",
+        "pouze 4 epigenetické markery",
+        "ano",
+        "Semafor 1–9"
       ],
       [
         "Healthy Aging",
         "4",
-        "Epigenetics",
-        "all 4",
-        "no",
-        "% of reference, biological age"
+        "Epigenetika",
+        "všechny 4",
+        "ne",
+        "% referenční hodnoty, biologický věk"
       ],
       [
-        "Biological Age Clock",
+        "Biologický věk (Biological Age Clock)",
         "3",
         "microRNA",
-        "all 3",
-        "no",
-        "Deviation in years"
+        "všechny 3",
+        "ne",
+        "Odchylka v letech"
       ],
       [
-        "Telomere Analysis",
+        "Analýza telomer",
         "1",
-        "Telomere length",
-        "yes",
-        "no",
-        "% of reference, biological age"
+        "Délka telomer",
+        "ano",
+        "ne",
+        "% referenční hodnoty, biologický věk"
       ],
       [
-        "Stress Monitor",
+        "Monitor stresu",
         "6",
         "microRNA",
-        "all 6",
-        "no",
-        "Traffic light 1–9"
+        "všechny 6",
+        "ne",
+        "Semafor 1–9"
       ],
       [
-        "Healthy Sport",
+        "Zdravý sport",
         "8 (Plus: + 4)",
-        "microRNA (Plus: + genetics)",
-        "the 8 microRNAs only",
-        "Plus variant only",
-        "Traffic light 1–9"
+        "microRNA (Plus: + genetika)",
+        "pouze 8 mikroRNA",
+        "Pouze varianta Plus",
+        "Semafor 1–9"
       ]
     ],
     "shared": [
       {
-        "title": "Sample material",
-        "text": "Dried blood spot card from a fingertip — no refrigerated shipping, no fasting."
+        "title": "Vzorek materiálu",
+        "text": "Karta se sušenou kapkou krve z konečku prstu — bez chlazené přepravy, bez lačnění."
       },
       {
-        "title": "Lifestyle radar",
-        "text": "11 self-reported factors: Healthy Aging, Healthy Sport, Age Clock, Telomere Analysis."
+        "title": "Radar životního stylu",
+        "text": "11 faktorů hlášených samotným pacientem: Zdravé stárnutí, Zdravý sport, Hodiny věku, Analýza telomer."
       },
       {
-        "title": "Interventions",
-        "text": "Recommendations for every marker, with source and amount: 8 to 14 per panel in one summary table, 50 listed at the individual markers for Metabolic Health."
+        "title": "Intervence",
+        "text": "Doporučení pro každý marker, s uvedením zdroje a množství: 8 až 14 na panel v jedné souhrnné tabulce, 50 uvedených u jednotlivých markerů pro Metabolické zdraví."
       }
     ],
-    "caveatTitle": "Two panels where the methodology belongs in the conversation",
+    "caveatTitle": "Dva panely, kde metodika patří do diskuze",
     "caveats": [
       {
-        "title": "Biological Age Clock",
-        "text": "The underlying model is published as a pilot study (n = 539), with a mean absolute error of around 10 years. A single reading is not a determination of age; what holds up is the trend."
+        "title": "Biologický věk (Biological Age Clock)",
+        "text": "Základní model je publikován jako pilotní studie (n = 539) s průměrnou absolutní chybou kolem 10 let. Jedno měření není stanovením věku; co má význam, je trend."
       },
       {
-        "title": "Telomere Analysis",
-        "text": "qPCR measurement varies considerably between runs and laboratories, more so from dried blood than from venous blood. Here too it is the trend that carries the interpretation."
+        "title": "Analýza telomer",
+        "text": "Měření qPCR se značně liší mezi běhy a laboratořemi, více u sušené krve než u žilní krve. I zde je interpretace založena na trendu."
       }
     ],
-    "gendg": "Two panels include genetic analyses: Metabolic Health and the Plus variant of Healthy Sport. For these, the person concerned must be informed and give written consent before the sample is taken (German Genetic Diagnostics Act, GenDG). Predictive genetic testing may only be conducted under the responsibility of appropriately qualified physicians; genetic counselling must be offered before and after the test (Sections 7 and 10 GenDG).",
-    "cta": "Parameter overview as PDF (German)",
+    "gendg": "Dva panely zahrnují genetické analýzy: Metabolické zdraví a varianta Plus Zdravého sportu. U těchto musí být dotyčná osoba informována a dát písemný souhlas před odběrem vzorku (německý zákon o genetické diagnostice, GenDG). Prediktivní genetické testování může být prováděno pouze pod odpovědností řádně kvalifikovaných lékařů; genetické poradenství musí být nabídnuto před a po testu (§ 7 a 10 GenDG).",
+    "cta": "Přehled parametrů jako PDF (německy)",
     "file": "de/16_Parameteruebersicht_PolarisDX.pdf",
-    "scrollHint": "Table scrolls sideways",
+    "scrollHint": "Tabulka se posouvá do stran",
     "groups": [
       [
         "nutrition",
@@ -549,202 +548,201 @@
       ]
     ],
     "filter": {
-      "label": "What are you looking for?",
-      "all": "All six",
+      "label": "Co hledáte?",
+      "all": "Všechny šest",
       "options": {
-        "longevity": "Longevity and prevention",
-        "nutrition": "Nutritional counselling",
-        "sports": "Sports medicine",
-        "bgm": "Corporate health management",
-        "practice": "Practice and clinic"
+        "longevity": "Dlouhověkost a prevence",
+        "nutrition": "Výživové poradenství",
+        "sports": "Sportovní medicína",
+        "bgm": "Firemní zdravotní management",
+        "practice": "Praktický lékař a klinika"
       },
-      "empty": "No panel is listed for this selection."
+      "empty": "Pro tuto volbu není žádný panel uveden."
     }
   },
   "basics": {
-    "caption": "Understanding the values",
-    "title": "What the reports actually measure",
-    "lead": "The reports contain values from four levels. Once the distinction is clear, it is obvious which figures can change and which cannot — and predisposition can be separated from snapshot in the consultation. No value is a diagnosis.",
+    "caption": "Porozumění hodnotám",
+    "title": "Co vlastně zprávy měří",
+    "lead": "Zprávy obsahují hodnoty ze čtyř úrovní. Jakmile je rozlišení jasné, je zřejmé, které údaje se mohou měnit a které ne — a predispozice lze odlišit od momentálního stavu během konzultace. Žádná hodnota není diagnózou.",
     "concepts": [
       {
         "num": "01",
-        "title": "The genes — the blueprint",
-        "text": "The genes are the body’s blueprint: they set out how it uses fat and how it transports vitamin D. Small deviations in it are called gene variants, or SNPs — every person carries thousands of them, neither good nor bad. In Germany, genetic analyses fall under the Genetic Diagnostics Act (Gendiagnostikgesetz, GenDG) — information and written consent must be in place before the sample is taken.",
-        "key": "The blueprint never changes. A genetic analysis is carried out once in a lifetime; a second measurement would return exactly the same result."
+        "title": "Geny — plán",
+        "text": "Geny jsou plánem těla: určují, jak tělo využívá tuky a jak transportuje vitamín D. Malé odchylky se nazývají genové varianty nebo SNP — každý člověk jich nese tisíce, nejsou ani dobré, ani špatné. V Německu genetické analýzy spadají pod Zákon o genetické diagnostice (Gendiagnostikgesetz, GenDG) — před odběrem vzorku musí být k dispozici informace a písemný souhlas.",
+        "key": "Plán se nikdy nemění. Genetická analýza se provádí jednou za život; druhé měření by přineslo přesně stejný výsledek."
       },
       {
         "num": "02",
-        "title": "Methylation — the volume controls",
-        "text": "The blueprint says nothing about what is being built right now. That is governed by chemical markers sitting on the DNA, which turn individual genes up or down; this system is known as methylation. It responds to diet, exercise, sleep and stress.",
-        "key": "These values change. They do not show which genes someone has, but how active those genes currently are — which is what makes them suitable for tracking progress."
+        "title": "Methylace — ovladače hlasitosti",
+        "text": "Plán neříká nic o tom, co se právě staví. Ovládají to chemické markery na DNA, které jednotlivé geny zesilují nebo zeslabují; tento systém se nazývá methylace. Reaguje na stravu, pohyb, spánek a stres.",
+        "key": "Tyto hodnoty se mění. Neukazují, jaké geny někdo má, ale jak jsou tyto geny aktuálně aktivní — což je důvod, proč jsou vhodné pro sledování pokroku."
       },
       {
         "num": "03",
-        "title": "MicroRNAs — the messengers in the blood",
-        "text": "MicroRNAs are tiny molecules that circulate in the blood and fine-tune gene activity — short messages the body sends out continuously. Their quantity shifts faster than methylation, often within weeks.",
-        "key": "Their names always follow the same pattern: \"miR\" plus a number. The number is simply a catalogue number and says nothing about importance."
+        "title": "MicroRNA — poslové v krvi",
+        "text": "MicroRNA jsou drobné molekuly, které cirkulují v krvi a jemně regulují aktivitu genů — krátké zprávy, které tělo neustále vysílá. Jejich množství se mění rychleji než methylace, často během několika týdnů.",
+        "key": "Jejich názvy vždy následují stejný vzor: „miR“ plus číslo. Číslo je pouze katalogové a nevyjadřuje důležitost."
       },
       {
         "num": "04",
-        "title": "Telomeres — the protective caps",
-        "text": "At the ends of the chromosomes sit protective caps, much like the plastic tips on shoelaces. These telomeres keep genetic information from being lost when a cell divides — and grow a little shorter with every division.",
-        "key": "Telomeres cannot be deliberately lengthened. The only thing open to influence is how quickly they shorten."
+        "title": "Telomery — ochranné čepičky",
+        "text": "Na koncích chromozomů jsou ochranné čepičky, podobně jako plastové koncovky na tkaničkách. Tyto telomery zabraňují ztrátě genetické informace při dělení buněk — a s každým dělením se trochu zkracují.",
+        "key": "Telomery nelze cíleně prodloužit. Jediná věc, kterou lze ovlivnit, je rychlost jejich zkracování."
       }
     ],
-    "scaleTitle": "And the numbers?",
+    "scaleTitle": "A ta čísla?",
     "scales": [
       {
-        "k": "Traffic light 1–9",
-        "v": "The most common format. Red on the left, green on the right; higher is always better: 1–3 red, 4–6 yellow, 7–9 green."
+        "k": "Semafor 1–9",
+        "v": "Nejčastější formát. Červená vlevo, zelená vpravo; vyšší hodnota je vždy lepší: 1–3 červená, 4–6 žlutá, 7–9 zelená."
       },
       {
-        "k": "Percentages",
-        "v": "The value in comparison with a reference group. 100 % means: precisely within the expected range."
+        "k": "Procenta",
+        "v": "Hodnota ve srovnání s referenční skupinou. 100 % znamená: přesně v očekávaném rozmezí."
       },
       {
-        "k": "Years",
-        "v": "A “biological age” calculated from measured values, against chronological age — a calculation, not a determination of age."
+        "k": "Roky",
+        "v": "„Biologický věk“ vypočítaný z naměřených hodnot vůči chronologickému věku — výpočet, nikoli určení věku."
       }
     ],
-    "cta": "Understanding the values as PDF (German)",
+    "cta": "Porozumění hodnotám jako PDF (německy)",
     "file": "de/17_Werte_verstehen_PolarisDX.pdf"
   },
   "teaser": {
-    "eyebrow": "New in the portfolio · Sample reports",
-    "title": "Epigenetics and genetics from a drop of blood",
-    "text": "Alongside point-of-care testing on the Igloo reader, we offer six analyses from capillary blood, evaluated by our cooperation partner. A complete sample report is now available as a PDF for each of the six analyses — the values are invented example data, but the structure is identical to the report your clients ultimately receive. That way you see the full scope of the evaluation before you enquire.",
-    "cta": "View the six analyses",
-    "ctaSamples": "The six sample reports",
+    "eyebrow": "Novinky v portfoliu · Vzorové zprávy",
+    "title": "Epigenetika a genetika z kapky krve",
+    "text": "Kromě testování přímo na místě na čtečce Igloo nabízíme šest analýz z kapilární krve, které vyhodnocuje náš partnerský spolupracovník. Pro každou ze šesti analýz je nyní k dispozici kompletní vzorová zpráva ve formátu PDF — hodnoty jsou vymyšlená ukázková data, ale struktura je shodná se zprávou, kterou vaši klienti nakonec obdrží. Takto vidíte celý rozsah vyhodnocení předtím, než se zeptáte.",
+    "cta": "Zobrazit šest analýz",
+    "ctaSamples": "Šest vzorových zpráv",
     "facts": [
       {
         "label": "Portfolio",
-        "value": "6 analyses, one sample path"
+        "value": "6 analýz, jedna cesta vzorku"
       },
       {
-        "label": "Sample",
-        "value": "Dried blood card, fingertip"
+        "label": "Vzorek",
+        "value": "Suchá krev na kartě, konec prstu"
       },
       {
-        "label": "Sample reports",
-        "value": "6 PDFs with example data"
+        "label": "Vzorové zprávy",
+        "value": "6 PDF s ukázkovými daty"
       }
     ]
   },
   "befund": {
-    "seoTitle": "{{panel}} sample report",
-    "seoDescription": "The complete {{panel}} sample report to read online — every marker, scale and recommendation. Example data, not real patient data.",
+    "seoTitle": "Vzorová zpráva {{panel}}",
+    "seoDescription": "Kompletní vzorová zpráva {{panel}} k online prohlížení — každý marker, škála a doporučení. Ukázková data, nikoli skutečná data pacienta.",
     "seo": {
       "metabolic-health": {
-        "title": "Metabolic Health sample report: nutrition type",
-        "description": "Metabolic Health example report: metabotype, sport type and four modifiable values on nutrition and metabolism, explained page by page. Example data."
+        "title": "Vzorová zpráva Metabolic Health: typ výživy",
+        "description": "Ukázková zpráva Metabolic Health: metabotyp, typ sportu a čtyři modifikovatelné hodnoty týkající se výživy a metabolismu, vysvětlené stránku po stránce. Ukázková data."
       },
       "healthy-aging": {
-        "title": "Healthy Aging sample report: biological age",
-        "description": "Healthy Aging example report: four epigenetic values on biological age, each with the traffic light 1–9 and an explanation. Example data, not patient data."
+        "title": "Vzorová zpráva Healthy Aging: biologický věk",
+        "description": "Ukázková zpráva Healthy Aging: čtyři epigenetické hodnoty biologického věku, každá s barevným rozlišením 1–9 a vysvětlením. Ukázková data, nikoli data pacienta."
       },
       "biologische-altersuhr": {
-        "title": "Biological Age Clock sample report: microRNA",
-        "description": "Biological Age Clock example report: three microRNA as an exploratory lifestyle signal, explicitly not an age determination. Example data, each value explained."
+        "title": "Vzorová zpráva Biological Age Clock: microRNA",
+        "description": "Ukázková zpráva Biological Age Clock: tři microRNA jako průzkumný signál životního stylu, výslovně ne určení věku. Ukázková data, každá hodnota vysvětlena."
       },
       "telomer-analyse": {
-        "title": "Telomere Analysis sample report: telomere length",
-        "description": "Telomere Analysis example report: telomere length in kilobase pairs as a baseline value, with context and explanation. Example data, not patient data."
+        "title": "Vzorová zpráva Telomere Analysis: délka telomer",
+        "description": "Ukázková zpráva Telomere Analysis: délka telomer v kilobázových párech jako výchozí hodnota, s kontextem a vysvětlením. Ukázková data, nikoli data pacienta."
       },
       "stress-monitor": {
-        "title": "Stress Monitor sample report: six microRNA",
-        "description": "Stress Monitor example report: six microRNA across four areas put measured strain next to perceived strain. Example data, every value explained."
+        "title": "Vzorová zpráva Stress Monitor: šest microRNA",
+        "description": "Ukázková zpráva Stress Monitor: šest microRNA ve čtyřech oblastech porovnává naměřenou zátěž s vnímanou zátěží. Ukázková data, každá hodnota vysvětlena."
       },
       "healthy-sport": {
-        "title": "Healthy Sport sample report: training values",
-        "description": "Healthy Sport example report: eight microRNAs in seven assessments on current condition, plus four unchangeable genetic variants. Example data, everything explained."
+        "title": "Vzorová zpráva Healthy Sport: tréninkové hodnoty",
+        "description": "Ukázková zpráva Healthy Sport: osm microRNA v sedmi hodnoceních aktuální kondice, plus čtyři neměnné genetické varianty. Ukázková data, vše vysvětleno."
       }
     },
-    "notFoundTitle": "This sample report does not exist",
-    "notFoundText": "The report you requested is not available. Six sample reports are ready — one for each analysis.",
-    "backToAll": "All six sample reports",
-    "pdfCta": "This report as a PDF",
-    "othersTitle": "The other sample reports",
-    "navBack": "Overview",
-    "navChapters": "Chapters",
-    "noticeTitle": "Important notices",
-    "toTop": "Back to top",
-    "ctaPdf": "This report as PDF",
+    "notFoundTitle": "Tato vzorová zpráva neexistuje",
+    "notFoundText": "Požadovaná zpráva není k dispozici. K dispozici je šest vzorových zpráv — jedna pro každou analýzu.",
+    "backToAll": "Všechny šest vzorových zpráv",
+    "pdfCta": "Tuto zprávu jako PDF",
+    "othersTitle": "Ostatní vzorové zprávy",
+    "navBack": "Přehled",
+    "navChapters": "Kapitoly",
+    "noticeTitle": "Důležitá upozornění",
+    "toTop": "Zpět nahoru",
+    "ctaPdf": "Tuto zprávu jako PDF",
+    "overviewCaption": "Přehledně",
+    "overviewTitle": "Každá hodnota v této zprávě",
+    "overviewLead": "Každá hodnota s jejím zařazením. Jedním kliknutím přejdete k úplnému vysvětlení níže.",
+    "toneRed": "mimo rozsah",
+    "toneAmber": "hraniční",
+    "toneGreen": "v rozsahu",
+    "entryCount": "{{count}} hodnot",
+    "entryCount_one": "{{count}} hodnota",
+    "entryCount_other": "{{count}} hodnot",
     "mini": {
-      "caption": "The miniature",
-      "title": "The report in miniature.",
-      "lead": "This miniature shows in advance which result formats this report uses. It is calculated from the sample values on this page and is not a picture. Each mark stands for a format that reappears at full size further down — and whatever this panel does not use is missing here as well.",
-      "alt": "Schematic miniature of the report with numbered marks for the result formats of this panel.",
+      "caption": "Miniatura",
+      "title": "Zpráva v miniatuře.",
+      "lead": "Tato miniatura předem ukazuje, jaké formáty výsledků tato zpráva používá. Je vypočítána z hodnot vzorku na této stránce a není to obrázek. Každá značka představuje formát, který se znovu objeví ve skutečné velikosti níže — a co tento panel nepoužívá, zde také chybí.",
+      "alt": "Schématická miniatura zprávy s očíslovanými značkami pro formáty výsledků tohoto panelu.",
       "marks": {
         "traffic": {
-          "title": "The traffic light 1–9",
-          "text": "Every evaluation sits as a mark on the same traffic light 1–9. Red on the left, green on the right, higher is more favourable. How the marks spread across the band shows directly whether this panel sits more towards the red, amber or green range."
+          "title": "Semafor 1–9",
+          "text": "Každé hodnocení je jako značka na stejném semaforu 1–9. Červená vlevo, zelená vpravo, vyšší je příznivější. Jak se značky rozprostírají po pásmu, ukazuje přímo, zda se tento panel nachází spíše v červené, oranžové nebo zelené oblasti."
         },
         "percent": {
-          "title": "Per cent of the reference",
-          "text": "The markers are given as a percentage of a matched reference group. 100 % is the normal range, higher is more favourable. The marks on the band show where the values of this sample report sit against the reference."
+          "title": "Procento vůči referenci",
+          "text": "Ukazatele jsou uvedeny jako procento vůči odpovídající referenční skupině. 100 % je normální rozsah, vyšší je příznivější. Značky na pásmu ukazují, kde se hodnoty této vzorkové zprávy nacházejí vůči referenci."
         },
         "age": {
-          "title": "Biological against chronological",
-          "text": "The dashed line is the calendar age, the dot the biological age for each marker. The distance between the two is what the report states — not the single figure in years."
+          "title": "Biologický versus chronologický věk",
+          "text": "Přerušovaná čára je kalendářní věk, tečka je biologický věk pro každý ukazatel. Vzdálenost mezi nimi je to, co zpráva uvádí — nikoli samotné číslo v letech."
         },
         "trend": {
-          "title": "Two measurements compared",
-          "text": "Two measurements of the same value side by side: the open dot is the first, the filled one the second. Only what can actually change is compared — genetic variants stay the same. The interval between two measurements is set by the supervising institution."
+          "title": "Porovnání dvou měření",
+          "text": "Dvě měření stejné hodnoty vedle sebe: otevřená tečka je první, plná tečka druhá. Porovnává se pouze to, co se může skutečně změnit — genetické varianty zůstávají stejné. Interval mezi dvěma měřeními stanovuje dozorující instituce."
         }
       }
     },
     "a11y": {
-      "radar": "Radar chart with {{n}} factors"
+      "radar": "Radarový graf s {{n}} faktory"
     },
-    "entryCount": "{{count}} values",
-    "entryCount_one": "{{count}} value",
-    "entryCount_few": "{{count}} values",
-    "entryCount_many": "{{count}} values",
-    "entryCount_other": "{{count}} values",
-    "overviewCaption": "At a glance",
-    "overviewLead": "Each value with its classification. One click jumps to the full explanation below.",
-    "overviewTitle": "Every value in this report",
-    "toneAmber": "borderline",
-    "toneGreen": "within range",
-    "toneRed": "outside the range"
+    "markersChapter": "Markery"
   },
   "consult": {
-    "caption": "How this becomes a consultation",
-    "title": "A report is a programme, not a single value.",
+    "caption": "Jak se z toho stává konzultace",
+    "title": "Zpráva je program, nikoli jediná hodnota.",
     "before": {
-      "title": "Before the consultation",
-      "text": "The full report is available ahead of the appointment. Read it through and mark what stands out: the traffic-light ratings, their distribution across the evaluations, the starting points named. That way it is clear from the outset what to discuss."
+      "title": "Před konzultací",
+      "text": "Celá zpráva je k dispozici před schůzkou. Přečtěte si ji a označte, co vyniká: hodnocení semaforem, jejich rozložení mezi hodnoceními, pojmenované výchozí body. Tak je od začátku jasné, co je třeba prodiskutovat."
     },
     "during": {
-      "title": "During the consultation",
-      "general": "Genetic variants are determined once in a lifetime and describe the starting position. Only the epigenetic level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress.",
-      "metabolic-health": "Four values in this panel sit on the epigenetic level and can therefore be influenced. The genetic variants alongside them are determined once in a lifetime and remain unchanged; they describe the starting position. Only the epigenetic level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress.",
-      "healthy-aging": "All four values in this panel sit on the epigenetic level. Unlike genetic variants, which are determined once in a lifetime and remain unchanged, this level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress. The conversation therefore separates what is fixed from what can be worked on.",
-      "biologische-altersuhr": "All three values in this panel sit on the epigenetic level. Unlike genetic variants, which are determined once in a lifetime and remain unchanged, this level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress. The conversation therefore separates what is fixed from what can be worked on.",
-      "telomer-analyse": "This panel carries exactly one value on the epigenetic level. Unlike genetic variants, which are determined once in a lifetime and remain unchanged, it responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress. The conversation therefore separates what is fixed from what can be worked on.",
-      "stress-monitor": "All six values in this panel sit on the epigenetic level. Unlike genetic variants, which are determined once in a lifetime and remain unchanged, this level responds to nutrition, exercise, sleep and strain — it alone is suitable for tracking progress. The conversation therefore separates what is fixed from what can be worked on.",
-      "healthy-sport": "Eight values in this panel sit on the epigenetic level and can therefore be influenced. The genetic variants alongside them are determined once in a lifetime and remain unchanged — they describe the starting position, not a goal. Only the epigenetic level responds to nutrition, exercise, sleep and strain; it alone is suitable for tracking progress."
+      "title": "Během konzultace",
+      "general": "Genetické varianty se určují jednou za život a popisují výchozí pozici. Pouze epigenetická úroveň reaguje na výživu, pohyb, spánek a zátěž — ta jediná je vhodná pro sledování pokroku.",
+      "metabolic-health": "Čtyři hodnoty v tomto panelu jsou na epigenetické úrovni a lze je tedy ovlivnit. Genetické varianty vedle nich se určují jednou za život a zůstávají nezměněné; popisují výchozí pozici. Pouze epigenetická úroveň reaguje na výživu, pohyb, spánek a zátěž — ta jediná je vhodná pro sledování pokroku.",
+      "healthy-aging": "Všechny čtyři hodnoty v tomto panelu jsou na epigenetické úrovni. Na rozdíl od genetických variant, které se určují jednou za život a zůstávají nezměněné, tato úroveň reaguje na výživu, pohyb, spánek a zátěž — ta jediná je vhodná pro sledování pokroku. Rozhovor tedy odděluje to, co je pevné, od toho, na čem lze pracovat.",
+      "biologische-altersuhr": "Všechny tři hodnoty v tomto panelu jsou na epigenetické úrovni. Na rozdíl od genetických variant, které se určují jednou za život a zůstávají nezměněné, tato úroveň reaguje na výživu, pohyb, spánek a zátěž — ta jediná je vhodná pro sledování pokroku. Rozhovor tedy odděluje to, co je pevné, od toho, na čem lze pracovat.",
+      "telomer-analyse": "Tento panel obsahuje přesně jednu hodnotu na epigenetické úrovni. Na rozdíl od genetických variant, které se určují jednou za život a zůstávají nezměněné, tato hodnota reaguje na výživu, pohyb, spánek a zátěž — ta jediná je vhodná pro sledování pokroku. Rozhovor tedy odděluje to, co je pevné, od toho, na čem lze pracovat.",
+      "stress-monitor": "Všechny šest hodnot v tomto panelu jsou na epigenetické úrovni. Na rozdíl od genetických variant, které se určují jednou za život a zůstávají nezměněné, tato úroveň reaguje na výživu, pohyb, spánek a zátěž — ta jediná je vhodná pro sledování pokroku. Rozhovor tedy odděluje to, co je pevné, od toho, na čem lze pracovat.",
+      "healthy-sport": "Osm hodnot v tomto panelu je na epigenetické úrovni a lze je tedy ovlivnit. Genetické varianty vedle nich se určují jednou za život a zůstávají nezměněné — popisují výchozí pozici, nikoli cíl. Pouze epigenetická úroveň reaguje na výživu, pohyb, spánek a zátěž; ta jediná je vhodná pro sledování pokroku."
     },
     "after": {
-      "title": "Afterwards",
-      "general": "The interval to a follow-up measurement is set by the supervising institution. Laboratory, sample material and sampling should stay the same — and whatever happens in between belongs in the same documentation as the values.",
-      "methylation": "A follow-up measurement is meaningful at the earliest after four to six months; before that, changes cannot be measured reliably. The interval is set by the supervising institution. For comparability, the laboratory, sample material and sampling should stay the same — and whatever happens between the measurements belongs in the same documentation as the values."
+      "title": "Poté",
+      "general": "Interval k následnému měření stanovuje dozorující instituce. Laboratoř, materiál vzorku a odběr by měly zůstat stejné — a cokoli, co se mezi tím stane, patří do stejné dokumentace jako hodnoty.",
+      "methylation": "Následné měření má smysl nejdříve po čtyřech až šesti měsících; předtím nelze změny spolehlivě měřit. Interval stanovuje dozorující instituce. Pro srovnatelnost by laboratoř, materiál vzorku a odběr měly zůstat stejné — a cokoli, co se mezi měřeními stane, patří do stejné dokumentace jako hodnoty."
     }
   },
   "sidebar": {
-    "title": "Epigenetics and genetics",
-    "text": "Six laboratory analyses from a drop of capillary blood — complementing instant diagnostics at the reader.",
-    "cta": "View the portfolio"
+    "title": "Epigenetika a genetika",
+    "text": "Šest laboratorních analýz z kapky kapilární krve — doplňující okamžitou diagnostiku u čtečky.",
+    "cta": "Prohlédnout portfolio"
   },
   "merk": {
-    "add": "Save this panel",
-    "added": "Saved",
-    "addAria": "Save {{panel}} to your shortlist",
-    "removeAria": "Remove {{panel}} from your shortlist",
-    "caption": "Your shortlist",
-    "title": "Saved for your enquiry",
-    "lead": "These are the panels you have saved. The list stays in this browser only: nothing is transmitted or evaluated as long as you do not submit anything here. Only “Request a quotation” carries the names into the contact form — where they appear in the free-text field and can be changed or deleted before you send it.",
-    "clear": "Clear the list",
-    "note": "Stored in this browser's storage (localStorage) only, and only the name of the panel. No account, no server record, nothing passed on to third parties. “Clear the list” removes the entry completely."
+    "add": "Uložit tento panel",
+    "added": "Uloženo",
+    "addAria": "Uložit {{panel}} do vašeho výběru",
+    "removeAria": "Odstranit {{panel}} z vašeho výběru",
+    "caption": "Váš výběr",
+    "title": "Uloženo pro vaši poptávku",
+    "lead": "Toto jsou panely, které jste si uložili. Seznam zůstává pouze v tomto prohlížeči: nic se nepřenáší ani nevyhodnocuje, dokud zde nic neodešlete. Pouze „Požádat o nabídku“ přenáší názvy do kontaktního formuláře — kde se zobrazí v poli pro volný text a lze je před odesláním upravit nebo smazat.",
+    "clear": "Vymazat seznam",
+    "note": "Uloženo pouze v úložišti tohoto prohlížeče (localStorage) a pouze název panelu. Žádný účet, žádný záznam na serveru, nic není předáváno třetím stranám. „Vymazat seznam“ odstraní položku úplně."
   }
 }

@@ -15,7 +15,7 @@ import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import HttpBackend from 'i18next-http-backend'
 
-import { i18nConfig, extractLanguageFromPathname } from './i18n'
+import { i18nConfig, extractLanguageFromPathname, normalizeLanguage } from './i18n'
 
 // =============================================================================
 // LANGUAGE FROM URL (Source of Truth)
@@ -77,7 +77,7 @@ export const i18nReady = i18n
 // GtmPageview meldet eine falsche page_language. Initial + bei jedem Wechsel setzen.
 if (typeof document !== 'undefined') {
   const syncHtmlLang = (lng: string) => {
-    if (lng) document.documentElement.lang = lng
+    document.documentElement.lang = normalizeLanguage(lng)
   }
   syncHtmlLang(i18n.resolvedLanguage || urlLanguage)
   i18n.on('languageChanged', syncHtmlLang)

@@ -1,0 +1,362 @@
+{
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Voorbeeldrapport · Voorbeeldgegevens",
+      "panel": "Telomere Analysis",
+      "subtitle": "Uw cellulaire reserve",
+      "claim": "Telomeren zijn de beschermkapjes aan het einde van uw chromosomen. Hun lengte wordt gezien als een marker van cumulatieve cellulaire belasting en regeneratief vermogen — gemeten uit een druppel capillair bloed.",
+      "meta": [
+        {
+          "k": "Rapport voor",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Monsterafname",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Materiaal",
+          "v": "Gedroogde bloedvlekkaart"
+        },
+        {
+          "k": "Methode",
+          "v": "qPCR, relatief"
+        }
+      ],
+      "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+      "id": "deckblatt",
+      "benefit": "Waar de cellulaire reserve van uw cliënt staat — en wat er in het dagelijks leven op inwerkt."
+    },
+    {
+      "type": "principle",
+      "caption": "Het principe",
+      "title": "Uw telomeren. Uw cellulaire reserve.",
+      "lead": "Telomeren stabiliseren het DNA bij elke celdeling en voorkomen het verlies van genetische informatie. Bij elke deling worden ze iets korter. Als ze onder een kritische lengte komen, verliezen cellen hun vermogen tot delen of gaan ze in senescentie — een centrale drijfveer van biologische veroudering.",
+      "cards": [
+        {
+          "title": "Bescherming",
+          "text": "Hoe stabiel uw DNA wordt beschermd en hoe efficiënt de reparatiemechanismen werken."
+        },
+        {
+          "title": "Regeneratie",
+          "text": "Hoeveel delingsreserve uw cellen behouden en hoe veerkrachtig uw weefsel blijft."
+        },
+        {
+          "title": "Context",
+          "text": "Hoe uw telomeerlengte zich verhoudt tot een leeftijds- en geslachtsgematchte referentiegroep."
+        }
+      ],
+      "flowTitle": "Het proces",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Meting",
+          "text": "Gedroogde bloedspotkaart, vingertop. Telomeerlengte als relatieve kwantificatie via qPCR. Nuchter zijn is niet vereist."
+        },
+        {
+          "num": "02",
+          "title": "Contextualiseren",
+          "text": "Vergelijking met een leeftijds- en geslachtsgematchte referentiegroep. 112 kbp komt overeen met de referentiewaarde (100%)."
+        },
+        {
+          "num": "03",
+          "title": "Verandering",
+          "text": "Telomeren kunnen niet geïsoleerd worden verlengd. Wat telt, is het vertragen van de processen die hun verkorting versnellen."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Hoe betrouwbaar is deze waarde?",
+      "text": "De meting van telomeerlengte via qPCR varieert aanzienlijk — tussen individuele runs en tussen laboratoria. DNA-extractie, opslag en de samenstelling van de bloedcellen beïnvloeden het resultaat systematisch. Bij gedroogd bloed is deze variatie groter dan bij veneus bloed. Voor diagnostische vragen wordt flow-FISH als de superieure methode beschouwd.",
+      "items": [
+        "Wat dit in de praktijk betekent: een afwijking van enkele procenten ten opzichte van de referentiewaarde is van dezelfde orde van grootte als de meetvariatie en op zichzelf niet betekenisvol. De analyse wordt pas betrouwbaar bij meerdere metingen onder dezelfde omstandigheden — hetzelfde laboratorium, hetzelfde materiaal, vergelijkbare monsterafname.",
+        "Telomeerlengte is een marker van cumulatieve cellulaire belasting. Het is geen diagnose, geen uitspraak over levensverwachting en geen maat voor individueel ziekterisico."
+      ],
+      "tone": "accent",
+      "id": "hinweis"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Uw resultaat",
+      "title": "Uw telomeerlengte.",
+      "lead": "Telomeerlengte · cellulaire stabiliteit. Relatieve kwantificatie ten opzichte van de referentiewaarde van 112 kbp (= 100%).",
+      "display": "108 kbp",
+      "sub": "96% van de referentie",
+      "kind": "procent",
+      "value": 96,
+      "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+      "tone": "amber",
+      "text": "Uw telomeerlengte ligt 4% onder de waarde die verwacht wordt voor uw leeftijd. Dit geeft een telomeer-gebaseerde biologische leeftijd van 53 jaar, vijf jaar boven uw chronologische leeftijd. Ter context: een afwijking van 4% is van dezelfde orde van grootte als de variatie die qPCR-metingen van gedroogd bloed tussen runs laten zien. De waarde dient daarom gelezen te worden als een startpunt voor de trend, niet als een precieze enkele bepaling.",
+      "id": "ergebnis"
+    },
+    {
+      "type": "ageDots",
+      "caption": "Biologisch versus chronologisch",
+      "title": "Telomeerleeftijd",
+      "chronological": 48,
+      "min": 35,
+      "max": 60,
+      "unit": "jaar",
+      "ticks": ["35", "40", "45", "50", "55", "60"],
+      "note": "48 jaar (chronologische leeftijd)",
+      "items": [
+        {
+          "label": "Telomeerleeftijd",
+          "age": 53,
+          "delta": "+5",
+          "display": "53 yrs · +5 years",
+          "tone": "red"
+        }
+      ],
+      "id": "biologisches-alter"
+    },
+    {
+      "type": "radar",
+      "caption": "Waar u staat",
+      "title": "Voeding en leefgewoonten.",
+      "lead": "De radar toont hoe dicht uw huidige gewoonten bij de referentiewaarden liggen. Hoe verder een factor naar buiten ligt, hoe gunstiger — 10 is optimaal.",
+      "axes": [
+        "Dagelijkse activiteit",
+        "Lichaamsbeweging",
+        "Stress",
+        "Tabak",
+        "Alcohol",
+        "Tussendoortjes",
+        "Vlees",
+        "Omega-3",
+        "Vezels",
+        "Fruit/groenten",
+        "Vochtinname"
+      ],
+      "seriesLabels": {
+        "profile": "Uw profiel",
+        "reference": "Referentiegroep"
+      },
+      "scores": [
+        {
+          "value": "72 / 100",
+          "label": "Voeding",
+          "text": "Goede voedingscombinatie, ruimte voor verbetering in de details.",
+          "ref": "Referentie: ≥ 60"
+        },
+        {
+          "value": "65 / 100",
+          "label": "Leefstijl",
+          "text": "Gebalanceerd, met ruimte voor meer beweging en stressvermindering.",
+          "ref": "Referentie: ≥ 60"
+        }
+      ],
+      "noticeTitle": "Relatie tot telomeerlengte",
+      "notices": [
+        "Niet roken (tabak 9 van de 10) is de factor met de sterkst gedocumenteerde relatie tot telomeerlengte — en in uw geval al ruim boven gemiddeld.",
+        "Stress (4 van de 10) is uw zwakste leefstijlfactor en het gebied met de grootste verbeteringsmogelijkheden.",
+        "Beweging (7) en dagelijkse activiteit (6) kunnen beter; regelmatige fysieke activiteit behoort tot de maatregelen met een gedocumenteerde relatie tot telomeerbiologie."
+      ],
+      "note": "Beoordeling gebaseerd op uw eigen zelfgerapporteerde informatie, geen individuele diagnose. De genoemde relaties zijn groepsbevindingen uit de literatuur, geen voorspelling voor het individuele geval.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Alle aanbevelingen in één overzicht",
+      "title": "Uw interventies.",
+      "lead": "Telomeren kunnen niet bewust worden verlengd. Alle maatregelen zijn gericht op het vertragen van de processen die hun verkorting versnellen — oxidatieve belasting en verstoorde methylatie.",
+      "cols": ["Meting", "Bron", "Hoeveelheid", "Opmerking"],
+      "rows": [
+        [
+          "Leefstijl",
+          "Niet roken, matig alcoholgebruik, regelmatige lichaamsbeweging",
+          "150 min/week",
+          "Grootste aantoonbare beïnvloedende factor op telomeerlengte"
+        ],
+        [
+          "Folaat",
+          "Groene bladgroenten, spinazie, boerenkool, tomaat, peulvruchten, kiemen",
+          "2 porties per dag",
+          "Rauw of kort gestoomd — hittegevoelig. Indien nodig 2 maanden als methylfolaat (5-MTHF)"
+        ],
+        ["Riboflavine (B2)", "Kiemen, spruiten, kaas", "dagelijks", "Cofactor van methylatie"],
+        [
+          "Cobalamine (B12)",
+          "Ei, kaas, gefermenteerde voedingsmiddelen",
+          "4 µg/dag",
+          "Specifiek supplementeren bij een veganistisch dieet"
+        ],
+        [
+          "Pyridoxine (B6)",
+          "Kool, sperziebonen, linzen, bananen, tarwekiem",
+          "1,5–2,0 mg/dag",
+          "Belangrijk voor aminozuurstofwisseling"
+        ],
+        [
+          "Methionine",
+          "Paranoten, sesam, soja, erwten, groene bladgroenten",
+          "2–3 paranoten per dag",
+          "Vanwege het seleniumgehalte niet meer dan 3–4 noten per dag"
+        ],
+        [
+          "EGCG (groene thee)",
+          "Groene thee, matcha, sencha",
+          "300–400 mg/dag (3–4 koppen)",
+          "Antioxidant; niet direct innemen bij ijzerrijke maaltijden"
+        ],
+        [
+          "Vezels",
+          "Volkoren, groenten, peulvruchten, zaden (en zaadhuiden)",
+          "minimaal 30 g/dag",
+          "Stabiliseert bloedsuiker, verlaagt oxidatieve belasting"
+        ]
+      ],
+      "note": "Vijf van deze acht maatregelen — folaat, B2, B12, B6 en methionine — werken via hetzelfde metabole pad: methylatie. Beoordeel voedingssupplementen individueel en in overleg met een specialist; dit overzicht vervangt geen medisch advies.",
+      "id": "uebersicht"
+    },
+    {
+      "type": "trend",
+      "caption": "Trend",
+      "title": "De feitelijke bevinding.",
+      "lead": "Omdat een enkele waarde de variatie van de methode niet betrouwbaar overstijgt, ligt de informatieve waarde in de trend. Alleen gemeten waarden worden getoond — geen prognose.",
+      "firstLabel": "15.03.2026",
+      "secondLabel": "15.06.2026",
+      "cols": ["Analyse", "15.03.2026", "15.06.2026", "Verandering", "Afwijking vandaag"],
+      "items": [
+        {
+          "label": "Telomeerleeftijd",
+          "first": 55,
+          "second": 53,
+          "firstDisplay": "55 jaar",
+          "secondDisplay": "53 jaar",
+          "delta": "−2 jaar",
+          "deviation": "+5 ten opzichte van chronologische leeftijd",
+          "tone": "green"
+        }
+      ],
+      "kind": "jaar",
+      "unit": "jaar",
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "Wat de trend laat zien",
+      "text": "De telomeer-gebaseerde leeftijd is tussen de twee metingen met twee jaar gedaald, van 55 naar 53 — terwijl de chronologische leeftijd in dezelfde periode met drie maanden toenam. De richting is goed.",
+      "items": [
+        "Tegelijkertijd: telomeren verlengen zich niet merkbaar. Een verbetering van deze omvang is daarom waarschijnlijker toe te schrijven aan meetvariatie dan aan daadwerkelijke verlenging. Alleen een richting die bij meerdere metingen hetzelfde blijft, maakt een conclusie mogelijk.",
+        "Er zat ongeveer drie maanden tussen de twee metingen. Het interval tot de volgende controle wordt bepaald door de begeleidende instelling. Voor vergelijkbaarheid dienen laboratorium, materiaal en monsterafname hetzelfde te blijven."
+      ],
+      "tone": "accent",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "summary",
+      "caption": "Samenvatting",
+      "title": "Twee hefbomen, en één is de grootste.",
+      "lead": "In dit rapport verschijnen acht maatregelen. Ze verschillen aanzienlijk in de sterkte van het bewijs erachter — dat zou de volgorde moeten bepalen waarin u ze aanpakt.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Leefstijl — de factor met het sterkste bewijs",
+          "text": "Volgens uw rapport zijn niet roken, matig alcoholgebruik en regelmatige lichaamsbeweging de grootste aantoonbare beïnvloedende factoren op de telomeerlengte. Twee hiervan zijn in uw geval al goed vastgesteld: tabak scoort 9 van de 10 op de radar, alcohol 6. Concreet ligt de hefboom bij lichamelijke activiteit — beweging 7 van de 10, dagelijkse activiteit 6 van de 10. Minimaal 150 minuten per week."
+        },
+        {
+          "num": "02",
+          "title": "Methylatievoedingsstoffen",
+          "text": "Vijf van de acht maatregelen — folaat, B2, B12, B6 en methionine — werken via hetzelfde metabole pad. In de praktijk betekent dit: twee porties groene bladgroenten per dag (rauw of kort gestoomd, omdat folaat hittegevoelig is), eieren of kaas voor B12, 2–3 paranoten. Plus 3–4 koppen groene thee en minimaal 30 g vezels."
+        }
+      ],
+      "keepTitle": "Wat al werkt",
+      "keepText": "Niet roken (9/10), fruit en groenten (8/10) en vochtinname (8/10) liggen ruim boven de referentiegroep, en de dieetscore van 72/100 is solide. En de trend wijst de goede kant op.",
+      "controlTitle": "Realistisch blijven",
+      "controlItems": [
+        "Telomeren kunnen niet bewust worden verlengd door voeding of leefstijl. Alle maatregelen zijn gericht op het vertragen van de verkorting. Of dit zich in uw persoonlijke waarde weerspiegelt, kan gezien de meetvariatie alleen worden beoordeeld over meerdere metingen — niet aan de hand van de volgende enkele waarde."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "science",
+      "caption": "Wat is vastgesteld — en wat niet",
+      "title": "Wetenschappelijke context.",
+      "lead": "We hebben de grenzen van deze analyse openlijk aangegeven, omdat een eerlijke interpretatie meer waard is dan een indrukwekkend getal.",
+      "cols": ["Punt", "Context"],
+      "items": [
+        {
+          "title": "Meetmethode",
+          "text": "Relatieve kwantificatie via qPCR"
+        },
+        {
+          "title": "Variatie",
+          "text": "Aanmerkelijk — tussen runs en tussen laboratoria"
+        },
+        {
+          "title": "Beïnvloedende factoren",
+          "text": "DNA-extractie, opslag en celcompositie hebben een systematisch effect"
+        },
+        {
+          "title": "Monstermateriaal",
+          "text": "Hogere variatie bij gedroogd bloed dan bij veneus bloed"
+        },
+        {
+          "title": "Voor diagnostische vragen",
+          "text": "Flow-FISH wordt beschouwd als de superieure methode"
+        },
+        {
+          "title": "Waar de analyse geschikt voor is",
+          "text": "Als advies- en trendinstrument: het zet cellulaire belasting op de agenda, creëert een concreet aanleidingsmoment om te handelen en levert via herhaalde metingen onder dezelfde condities een trendlijn op."
+        },
+        {
+          "title": "Waar het niet geschikt voor is",
+          "text": "Als diagnostiek, als uitspraak over levensverwachting of individueel ziekterisico — en als precieze enkele bepaling, zolang de afwijking van dezelfde orde van grootte is als de meetvariatie."
+        }
+      ],
+      "note": "Bronnen over methodologie: Lin et al., PMC6363640 (qPCR telomeermeting, kritische factoren); Olivieri et al., Mech Ageing Dev 2012. Dit document vervangt geen medische beoordeling en vormt geen genezingsbelofte in de zin van het Duitse Heilmittelwerbegesetz.",
+      "id": "einordnung"
+    },
+    {
+      "type": "callout",
+      "title": "Het onderliggende principe",
+      "text": "De trend telt, de enkele waarde niet. Een initiële en een vervolgmeting onder dezelfde condities zijn het daadwerkelijke voordeel van deze analyse.",
+      "items": [
+        "Voor vergelijkbaarheid moeten laboratorium, materiaal en monsterafname hetzelfde blijven — bij wisseling van laboratorium zijn twee waarden niet langer vergelijkbaar."
+      ],
+      "tone": "neutral",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "contact",
+      "title": "Vragen over uw rapport?",
+      "text": "Bespreek de resultaten met de instelling die de monsterafname heeft uitgevoerd. Daar is de context beschikbaar die nodig is voor interpretatie.",
+      "columns": [
+        {
+          "k": "Contact",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distributie",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Voorbeeldrapport",
+          "text": "Alle waarden en persoonsgegevens in dit document zijn fictief en dienen uitsluitend ter illustratie van het rapportformaat. Dit is geen echt rapport."
+        },
+        {
+          "title": "Interpretatie",
+          "text": "De telomeerlengte wordt bepaald via qPCR als relatieve waarde. Deze methode varieert aanzienlijk tussen runs en tussen laboratoria; bij gedroogd bloed is de variatie hoger dan bij veneus bloed. Het rapport is geen diagnose, geen uitspraak over levensverwachting en geen maat voor individueel ziekterisico. Informatiewaarde ontstaat pas over meerdere metingen onder dezelfde condities."
+        },
+        {
+          "title": "Status van de analyses",
+          "text": "De analyses zijn laboratoriumdiensten die door onze samenwerkingspartner worden geleverd en zijn geen CE-gemarkeerde in-vitro diagnostische hulpmiddelen. Ze dienen ter consultatie en monitoring en vervangen geen klinische diagnostiek. De analyses worden uitsluitend aan professionele gebruikers geleverd."
+        },
+        {
+          "title": "Juridisch kader",
+          "text": "Dit panel evalueert geen genotypen; het meet epigenetische markers. Waar een analyse in het portfolio wel genetisch onderzoek omvat, zijn informatie en schriftelijke toestemming vereist vóór monsterafname, en mag dit alleen onder medische verantwoordelijkheid worden geregeld (Duitse GenDG). De laboratoriumanalyse wordt uitgevoerd door onze samenwerkingspartner. Polaris Diagnostics Europe GmbH is verantwoordelijk voor distributie en ondersteuning. Beoordeel voedingssupplementen individueel en in overleg met een specialist. Dit document vormt geen genezingsbelofte in de zin van het Duitse Heilmittelwerbegesetz."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stand per: augustus 2026",
+      "id": "kontakt"
+    }
+  ],
+  "panel": "Telomere Analysis",
+  "slug": "telomer-analyse"
+}

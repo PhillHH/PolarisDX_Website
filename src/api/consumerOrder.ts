@@ -4,11 +4,14 @@
  * the backend forwards the order to a fixed list of internal recipients.
  */
 
+import type { SupportedLanguage } from '../i18n'
+
 export type ConsumerOrderProduct = 'spray' | 'masks' | 'duo'
 
 export interface ConsumerOrderPayload {
   product: ConsumerOrderProduct
   quantity: string
+  quantityLabel: string
   // Contact (Ansprechpartner)
   name: string
   email: string
@@ -26,11 +29,22 @@ export interface ConsumerOrderPayload {
   consent: boolean
   /** Honeypot — must stay empty (humans don't see it). */
   _hp?: string
+  locale: SupportedLanguage
 }
+
+export type ConsumerOrderErrorCode =
+  | 'CONSENT_REQUIRED'
+  | 'REQUIRED_FIELDS'
+  | 'INVALID_EMAIL'
+  | 'UNKNOWN_PRODUCT'
+  | 'DELIVERY_FAILED'
+  | 'RATE_LIMITED'
+  | 'NETWORK_ERROR'
+  | 'UNKNOWN_ERROR'
 
 export interface ConsumerOrderResult {
   ok: boolean
-  error?: string
+  code?: ConsumerOrderErrorCode
 }
 
 export async function sendConsumerOrder(
@@ -43,18 +57,18 @@ export async function sendConsumerOrder(
       body: JSON.stringify(payload),
     })
     if (!res.ok) {
-      let error: string | undefined
+      let code: ConsumerOrderErrorCode | undefined
       try {
-        const body = (await res.json()) as { error?: string }
-        error = body?.error
+        const body = (await res.json()) as { code?: ConsumerOrderErrorCode }
+        code = body?.code
       } catch {
         /* ignore */
       }
-      return { ok: false, error: error ?? `HTTP ${res.status}` }
+      return { ok: false, code: code ?? 'UNKNOWN_ERROR' }
     }
     const body = (await res.json()) as { success?: boolean }
     return { ok: body?.success === true }
-  } catch (err) {
-    return { ok: false, error: err instanceof Error ? err.message : 'Network error' }
+  } catch {
+    return { ok: false, code: 'NETWORK_ERROR' }
   }
 }

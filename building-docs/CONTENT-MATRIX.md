@@ -86,41 +86,41 @@ nicht neu entschieden.
 
 ### 4.1 Teil A — Identität, Status, Quelle, Sprache
 
-| Content-ID | IA-ID       | Route / Seitenfamilie                              | Seitentyp | Content-Typ                   | Current Status       | Target Status | Quelle / Datei                                                     | Current Locale Coverage                             | Target |
-| ---------- | ----------- | -------------------------------------------------- | --------- | ----------------------------- | -------------------- | ------------- | ------------------------------------------------------------------ | --------------------------------------------------- | ------ |
-| **C-01**   | P-01        | `/`                                                | T1        | Hero · Proof · FAQ · CTA      | `PARTIAL`            | `READY`       | `public/locales/*/home.json` (243 Keys), 8 Home-Sections           | 10/10 Keys · 10/10 übersetzt, 4 EN-Sätze/Spr.       | 10     |
-| **C-02**   | P-02        | `/about`                                           | T2        | Story · Proof · CTA           | `PARTIAL`            | `READY`       | `public/locales/*/about.json` (66)                                 | 10/10 Keys · 1–2 EN-Sätze/Spr.                      | 10     |
-| **C-03**   | P-03        | `/contact`                                         | T8        | Form-/Success-/Error-Copy     | `PARTIAL`            | `READY`       | `public/locales/*/contact.json` (112)                              | 10/10 Keys · **2/10 übersetzt** (Formteil)          | 10     |
-| **C-04**   | P-04        | `/support`                                         | T10       | Form · Help · Success         | `PARTIAL`            | `READY`       | `public/locales/*/support.json` (87)                               | 10/10 Keys · ~3 EN-Sätze/Spr.                       | 10     |
-| **C-05**   | P-05        | `/events`                                          | T6        | Event-Liste · CTA             | `OUTDATED`           | `READY`       | `src/data/events.ts` + `public/locales/*/events.json` (55)         | 10/10 Keys · übersetzt                              | 10     |
-| **C-06**   | P-06        | `/downloads`                                       | T2        | Download/Resource · CTA       | `PARTIAL`            | `READY`       | `src/content/downloads.json` (3) + `*/downloads.json` (27)         | 10/10 Keys · übersetzt                              | 10     |
-| **C-07**   | P-07 · P-16 | `/articles`, `/articles/:slug`                     | T2 · T6   | Editorial · CTA               | `PARTIAL`            | `READY`       | `src/data/articles.ts` (6) + `*/articles.json` (272)               | 10/10 Keys · **6/10 übersetzt**                     | 10     |
-| **C-08**   | P-08        | `/igloo-pro`                                       | T4        | Product · Proof · CTA         | `PARTIAL`            | `READY`       | `public/locales/*/products.json` (96)                              | 10/10 Keys · übersetzt, CTA divergent               | 10     |
-| **C-09**   | P-09        | `/diagnostics`                                     | T2        | Hub · CTA                     | `PARTIAL`            | `READY`       | `public/locales/*/services.json` (356, Hub-Teil)                   | 10/10 Keys · übersetzt                              | 10     |
-| **C-10**   | P-11        | `/diagnostics/:slug` (9)                           | T3        | Feature/Leistung · FAQ        | `PARTIAL`            | `READY`       | `src/data/services.tsx` (9) + `*/services.json`                    | 10/10 Keys **außer** 5 `seo.title` in 8 Spr.        | 10     |
-| **C-11**   | P-10        | `/epigenetics`                                     | T2/T5     | Pillar-Hero · Proof · CTA     | `PARTIAL`            | `READY`       | `public/locales/*/epigenetics.json` (463)                          | 10/10 Keys · **2/10 übersetzt**                     | 10     |
-| **C-12**   | P-12–P-14   | `/epigenetics/{grundlagen,studienlage,unterlagen}` | T5        | Feature · Evidence · Resource | `PARTIAL`            | `READY`       | `*/epigenetics.json` + `src/pages/Epigenetics*Page.tsx`            | 10/10 Keys · **2/10 übersetzt**                     | 10     |
-| **C-13**   | P-15        | `/epigenetics/musterbefund/:slug` (6)              | T5        | Spezialisierte Content-Daten  | `PARTIAL`            | `READY`       | `src/content/befunde/*.{de,en}.json` (12)                          | **2/10** (`de`, `en`) — Inhalte fehlen ×8           | 10     |
-| **C-14**   | P-18        | `/consumer/vitamin-d3-spray`                       | T7        | Consumer-Landing · Order      | `PARTIAL`            | `READY`       | `src/pages/consumer/SprayPage.tsx` + `shell.tsx` (hartkodiert)     | **1/10** (`en`), 0 × `useTranslation`               | 10     |
-| **C-15**   | P-19        | `/consumer/hydrating-masks`                        | T7        | Consumer-Landing · Order      | `PARTIAL`            | `READY`       | `src/pages/consumer/MaskPage.tsx` (hartkodiert)                    | **1/10** (`en`)                                     | 10     |
-| **C-16**   | P-20        | `/consumer/inside-out-duo`                         | T7        | Consumer-Landing · Order      | `PARTIAL`            | `READY`       | `src/pages/consumer/DuoPage.tsx` (hartkodiert)                     | **1/10** (`en`)                                     | 10     |
-| **C-17**   | P-18–P-20   | Consumer Order Form                                | T7/T8     | Form-/Success-/Error-Copy     | `PARTIAL`            | `READY`       | `src/pages/consumer/OrderForm.tsx` · `OrderModal.tsx`              | **1/10** (`en`), Mengenoptionen als Freitext        | 10     |
-| **C-18**   | P-21–P-23   | `/privacy`, `/imprint`, `/terms`                   | T10       | Legal / Regulatory Notice     | `PARTIAL`            | `READY`       | `public/locales/*/legal.json` (256)                                | 10/10 Keys · 2 EN-Sätze/Spr.                        | 10     |
-| **C-19**   | P-26        | `/vitamin-d3-spray` (B2B)                          | T4        | Product · Disclaimer          | `PARTIAL`            | `READY`       | `public/locales/*/vitd3spray.json` (127)                           | 10/10 Keys · übersetzt inkl. Disclaimer             | 10     |
-| **C-20**   | —           | Globale UI / Navigation / Errors                   | —         | System-/Shell-Copy            | `PARTIAL`            | `READY`       | `public/locales/*/common.json` (113)                               | 10/10 Keys **außer** 7 `errors.*` in 8 Spr.         | 10     |
-| **C-21**   | —           | Artikel-UI (Breadcrumb, „Weiterlesen“)             | —         | System-Copy                   | `READY`              | `READY`       | `public/locales/*/shop.json` (7)                                   | 10/10 Keys · übersetzt                              | 10     |
-| **C-22**   | P-01        | Homepage-Testimonials (5)                          | T1        | Proof                         | `PARTIAL`            | `READY`       | `src/data/testimonials.ts` + `*/home.json` `testimonials.*`        | 10/10 Keys · übersetzt                              | 10     |
-| **C-23**   | P-06 · P-14 | Downloads-/Epigenetik-Dateien (32)                 | T9        | Download / Resource           | `ASSET_BLOCKED`      | `READY`       | `public/downloads/**`, Zuordnung in `*/epigenetics.json`           | `de` 17 · `en` 9 · **8 Sprachen ohne eigene Datei** | 10     |
-| **C-24**   | P-24        | `/s3_leitlinie`                                    | T6        | Knowledge-Landing             | `PARTIAL`            | `READY`       | `src/pages/S3LeitliniePage.tsx` (1 010 Z., hartkodiert `de`)       | 1/1 (`de`, deklariert einsprachig)                  | 1      |
-| **C-25**   | P-25        | `/vitamin-d3-implantologie`                        | T6        | Knowledge-Landing             | `PARTIAL`            | `READY`       | `src/pages/VitaminD3ImplantologyPage.tsx` (611 Z., hartkodiert)    | 1/1 (`de`, deklariert einsprachig)                  | 1      |
-| **C-26**   | —           | Systemmails / Autoresponder                        | —         | System-/Zustell-Copy          | `PARTIAL`            | `READY`       | `server/server.js` (5 Mailstrecken, hartkodiert `de`)              | **1/10** (`de`)                                     | 10     |
-| **C-27**   | —           | ROI-Report-PDF                                     | T9        | Download / Resource           | `PARTIAL`            | `READY`       | `server/server.js` PDF-Generator, `Intl.NumberFormat('de-DE')`     | **1/10** (`de`)                                     | 10     |
-| **C-28**   | N-01        | 404 / Fehlerzustände                               | —         | System-Copy                   | `PARTIAL`            | `READY`       | `src/pages/NotFoundPage.tsx`, `common.json` `errors.*`             | 10/10 Keys **außer** 7 `errors.*` in 8 Spr.         | 10     |
-| **C-29**   | —           | Chat-Copy (`common.chat.*`, 8 Keys)                | —         | Legacy                        | `LEGACY_REMOVE`      | entfernt      | `public/locales/*/common.json`, `src/components/ui/ChatWidget.tsx` | 10/10 vorhanden — **nicht** Zielinhalt              | —      |
-| **C-30**   | —           | `/api/chat` Mock-Antworten                         | —         | Legacy / Mock                 | `MOCK`               | entfernt      | `server/server.js` 492–534                                         | 1/1 (`de`, hartkodiert)                             | —      |
-| **C-31**   | —           | Case-Study-Copy `32reasons`                        | —         | Backlog                       | `BACKLOG_NOT_LAUNCH` | unverändert   | `public/locales/*/casestudies.json` (32) · `FeaturedCaseStudy.tsx` | 10/10 vorhanden, Namespace **unregistriert**        | —      |
-| **C-32**   | P-17        | Gated Lead-Magnet-Copy                             | T9        | Lead-Magnet-Gate              | `MISSING`            | `READY`       | existiert nicht                                                    | 0/10                                                | 10     |
-| **C-33**   | P-27        | Epigenetik-Inquiry-Copy                            | T8        | Form-/Success-/Error-Copy     | `PARTIAL`            | `READY`       | `*/epigenetics.json` `contact.*` + `*/contact.json`                | **2/10 übersetzt**                                  | 10     |
+| Content-ID | IA-ID       | Route / Seitenfamilie                              | Seitentyp | Content-Typ                   | Current Status       | Target Status | Quelle / Datei                                                                             | Current Locale Coverage                             | Target |
+| ---------- | ----------- | -------------------------------------------------- | --------- | ----------------------------- | -------------------- | ------------- | ------------------------------------------------------------------------------------------ | --------------------------------------------------- | ------ |
+| **C-01**   | P-01        | `/`                                                | T1        | Hero · Proof · FAQ · CTA      | `PARTIAL`            | `READY`       | `public/locales/*/home.json` (243 Keys), 8 Home-Sections                                   | 10/10 Keys · 10/10 übersetzt, 4 EN-Sätze/Spr.       | 10     |
+| **C-02**   | P-02        | `/about`                                           | T2        | Story · Proof · CTA           | `PARTIAL`            | `READY`       | `public/locales/*/about.json` (66)                                                         | 10/10 Keys · 1–2 EN-Sätze/Spr.                      | 10     |
+| **C-03**   | P-03        | `/contact`                                         | T8        | Form-/Success-/Error-Copy     | `PARTIAL`            | `READY`       | `public/locales/*/contact.json` (112)                                                      | 10/10 Keys · **2/10 übersetzt** (Formteil)          | 10     |
+| **C-04**   | P-04        | `/support`                                         | T10       | Form · Help · Success         | `PARTIAL`            | `READY`       | `public/locales/*/support.json` (87)                                                       | 10/10 Keys · ~3 EN-Sätze/Spr.                       | 10     |
+| **C-05**   | P-05        | `/events`                                          | T6        | Event-Liste · CTA             | `OUTDATED`           | `READY`       | `src/data/events.ts` + `public/locales/*/events.json` (55)                                 | 10/10 Keys · übersetzt                              | 10     |
+| **C-06**   | P-06        | `/downloads`                                       | T2        | Download/Resource · CTA       | `PARTIAL`            | `READY`       | `src/content/downloads.json` (3) + `*/downloads.json` (27)                                 | 10/10 Keys · übersetzt                              | 10     |
+| **C-07**   | P-07 · P-16 | `/articles`, `/articles/:slug`                     | T2 · T6   | Editorial · CTA               | `READY`              | `READY`       | `src/data/articles.ts` (6) + `*/articles.json`                                             | **10/10 echte Zielsprachen; G4-verifiziert**        | 10     |
+| **C-08**   | P-08        | `/igloo-pro`                                       | T4        | Product · Proof · CTA         | `PARTIAL`            | `READY`       | `public/locales/*/products.json` (96)                                                      | 10/10 Keys · übersetzt, CTA divergent               | 10     |
+| **C-09**   | P-09        | `/diagnostics`                                     | T2        | Hub · CTA                     | `PARTIAL`            | `READY`       | `public/locales/*/services.json` (356, Hub-Teil)                                           | 10/10 Keys · übersetzt                              | 10     |
+| **C-10**   | P-11        | `/diagnostics/:slug` (9)                           | T3        | Feature/Leistung · FAQ        | `PARTIAL`            | `READY`       | `src/data/services.tsx` (9) + `*/services.json`                                            | 10/10 inkl. **18/18 `services.*.seo.*`**            | 10     |
+| **C-11**   | P-10        | `/epigenetics`                                     | T2/T5     | Pillar-Hero · Proof · CTA     | `READY`              | `READY`       | `public/locales/*/epigenetics.json`                                                        | **10/10 echte Zielsprachen; kein Fallback-Marker**  | 10     |
+| **C-12**   | P-12–P-14   | `/epigenetics/{grundlagen,studienlage,unterlagen}` | T5        | Feature · Evidence · Resource | `READY`              | `READY`       | `*/epigenetics.json` + `src/pages/Epigenetics*Page.tsx`                                    | **10/10 echte Zielsprachen; G4-verifiziert**        | 10     |
+| **C-13**   | P-15        | `/epigenetics/musterbefund/:slug` (6)              | T5        | Spezialisierte Content-Daten  | `READY`              | `READY`       | `src/content/befunde/<slug>.<locale>.json` (60)                                            | **6/6 × 10/10**, slug-lokal lazy geladen            | 10     |
+| **C-14**   | P-18        | `/consumer/vitamin-d3-spray`                       | T7        | Consumer-Landing · Order      | `READY`              | `READY`       | `src/pages/consumer/SprayPage.tsx` + `*/consumer.json`                                     | **10/10**; Routing bleibt PT08.4-owned              | 10     |
+| **C-15**   | P-19        | `/consumer/hydrating-masks`                        | T7        | Consumer-Landing · Order      | `READY`              | `READY`       | `src/pages/consumer/MaskPage.tsx` + `*/consumer.json`                                      | **10/10**; Routing bleibt PT08.4-owned              | 10     |
+| **C-16**   | P-20        | `/consumer/inside-out-duo`                         | T7        | Consumer-Landing · Order      | `READY`              | `READY`       | `src/pages/consumer/DuoPage.tsx` + `*/consumer.json`                                       | **10/10**; Routing bleibt PT08.4-owned              | 10     |
+| **C-17**   | P-18–P-20   | Consumer Order Form                                | T7/T8     | Form-/Success-/Error-Copy     | `READY`              | `READY`       | `src/pages/consumer/{OrderForm,OrderModal}.tsx` + `*/consumer.json`                        | **10/10**, locale-aware Preis-/Zahlformatierung     | 10     |
+| **C-18**   | P-21–P-23   | `/privacy`, `/imprint`, `/terms`                   | T10       | Legal / Regulatory Notice     | `PARTIAL`            | `READY`       | `public/locales/*/legal.json` (256)                                                        | 10/10 Keys · 2 EN-Sätze/Spr.                        | 10     |
+| **C-19**   | P-26        | `/vitamin-d3-spray` (B2B)                          | T4        | Product · Disclaimer          | `PARTIAL`            | `READY`       | `public/locales/*/vitd3spray.json` (127)                                                   | 10/10 Keys · übersetzt inkl. Disclaimer             | 10     |
+| **C-20**   | —           | Globale UI / Navigation / Errors                   | —         | System-/Shell-Copy            | `READY`              | `READY`       | `public/locales/*/common.json`                                                             | **10/10 Keys und Zielsprachen; G4-verifiziert**     | 10     |
+| **C-21**   | —           | Artikel-UI (Breadcrumb, „Weiterlesen“)             | —         | System-Copy                   | `READY`              | `READY`       | `public/locales/*/articles.json` `ui.*` (7)                                                | 10/10 Keys · übersetzt; `shop` Backlog              | 10     |
+| **C-22**   | P-01        | Homepage-Testimonials (5)                          | T1        | Proof                         | `PARTIAL`            | `READY`       | `src/data/testimonials.ts` + `*/home.json` `testimonials.*`                                | 10/10 Keys · übersetzt                              | 10     |
+| **C-23**   | P-06 · P-14 | Downloads-/Epigenetik-Dateien (32)                 | T9        | Download / Resource           | `ASSET_BLOCKED`      | `READY`       | `public/downloads/**`, Zuordnung in `*/epigenetics.json`                                   | `de` 17 · `en` 9 · **8 Sprachen ohne eigene Datei** | 10     |
+| **C-24**   | P-24        | `/s3_leitlinie`                                    | T6        | Knowledge-Landing             | `READY`              | `READY`       | `src/pages/S3LeitliniePage.tsx` + `*/specialty.json`                                       | **10/10**; Routing-Abbau bleibt PT08.4-owned        | 10     |
+| **C-25**   | P-25        | `/vitamin-d3-implantologie`                        | T6        | Knowledge-Landing             | `READY`              | `READY`       | `src/pages/VitaminD3ImplantologyPage.tsx` + `*/specialty.json`                             | **10/10**; Routing-Abbau bleibt PT08.4-owned        | 10     |
+| **C-26**   | —           | Systemmails / Autoresponder                        | —         | System-/Zustell-Copy          | `READY`              | `READY`       | Support-Autoresponder und ROI-Nutzermail x10; interne Team-Mails nach LDV-19 mono zulässig | **10/10 nutzergerichtete Runtime**                  | 10     |
+| **C-27**   | —           | ROI-Report-PDF                                     | T9        | Download / Resource           | `READY`              | `READY`       | `server/server.js` + `server/system-i18n.js`, Runtime-Locale und locale-aware EUR          | **10/10 Runtime-PDF**                               | 10     |
+| **C-28**   | N-01        | 404 / Fehlerzustände                               | —         | System-Copy                   | `READY`              | `READY`       | `src/pages/NotFoundPage.tsx`, `common.json` `errors.*`                                     | **10/10**                                           | 10     |
+| **C-29**   | —           | Chat-Copy (`common.chat.*`, 8 Keys)                | —         | Legacy                        | `LEGACY_REMOVE`      | entfernt      | `public/locales/*/common.json`, `src/components/ui/ChatWidget.tsx`                         | 10/10 vorhanden — **nicht** Zielinhalt              | —      |
+| **C-30**   | —           | `/api/chat` Mock-Antworten                         | —         | Legacy / Mock                 | `MOCK`               | entfernt      | `server/server.js` 492–534                                                                 | 1/1 (`de`, hartkodiert)                             | —      |
+| **C-31**   | —           | Case-Study-Copy `32reasons`                        | —         | Backlog                       | `BACKLOG_NOT_LAUNCH` | unverändert   | `public/locales/*/casestudies.json` (32) · `FeaturedCaseStudy.tsx`                         | 10/10 vorhanden, Namespace **unregistriert**        | —      |
+| **C-32**   | P-17        | Gated Lead-Magnet-Copy                             | T9        | Lead-Magnet-Gate              | `MISSING`            | `READY`       | existiert nicht                                                                            | 0/10                                                | 10     |
+| **C-33**   | P-27        | Epigenetik-Inquiry-Copy                            | T8        | Form-/Success-/Error-Copy     | `READY`              | `READY`       | `*/epigenetics.json` `contact.*` + `*/contact.json`                                        | **10/10 Webcopy**; Journey bleibt AP15-owned        | 10     |
 
 ### 4.2 Teil B — Flags, CTA, Assets, Blocker, Owner
 
@@ -146,13 +146,13 @@ nicht neu entschieden.
 | **C-18**   | `NONE` — konform                                                                          | keine                                               | **ja**    | nein             | nein               | nein           | AP04 · AP20      | Gewährleistungs-/Export-Klauseln; Indexierungspolicy offen (`IAD-05`, AP20)                                                                                                                                                             |
 | **C-19**   | `QUOTE_REQUEST` — konform                                                                 | `VITAMIND_D3_SPRAY.jpg`, `og-vitd3-spray.jpg`       | **ja**    | nein             | nein               | nein           | AP04 · AP14      | Pflicht-Disclaimer Nahrungsergänzung in allen 10 Sprachen vorhanden und übersetzt — **positiv geprüft**                                                                                                                                 |
 | **C-20**   | Nav-Labels — konform                                                                      | Logo-Assets                                         | nein      | nein             | nein               | **ja**         | AP04 · AP08      | `errors.root.*` / `errors.segment.*` fehlen in 8 Sprachen → Key-String würde gerendert (`I-06`)                                                                                                                                         |
-| **C-21**   | —                                                                                         | keine                                               | nein      | nein             | **ja**             | nein           | AP04 · AP08      | Namespace heißt `shop`, enthält aber Artikel-UI und **wird aktiv geladen** — irreführender Name, kein Shop                                                                                                                              |
+| **C-21**   | —                                                                                         | keine                                               | nein      | nein             | **ja**             | nein           | AP04 · AP08      | **RESOLVED PT08.3:** Artikel-UI liegt unter `articles.ui`; `shop` ist unregistrierter Backlog und wird nicht reaktiviert                                                                                                                |
 | **C-22**   | `NONE`                                                                                    | 4 Avatarbilder; `martin_fischer` **ohne Avatar**    | teils     | nein             | nein               | nein           | AP04 · AP11      | `text: ''` in `testimonials.ts` ist totes Feld; echter Text liegt korrekt in Schicht B                                                                                                                                                  |
 | **C-23**   | `DOWNLOAD_PUBLIC`                                                                         | 26 PDFs + 3 ZIPs + 3 Root-PDFs                      | **ja**    | nein             | **ja**             | **ja**         | AP04 · AP19/AP08 | `CD-2`: **8 Sprachen** tragen englische Dateinamen; `en` erhält den **deutschen** `Musterbefunde_DE.zip`                                                                                                                                |
 | **C-24**   | `QUOTE_REQUEST` (3 × „Beratung buchen“ hartkodiert)                                       | 1 Bild                                              | **ja**    | nein             | nein               | **ja**         | AP04 · AP20      | S3-Leitlinien-/Vitamin-D-Aussagen; Abbau der Einsprachigkeit ist AP08 PT08.4.3 vorbehalten                                                                                                                                              |
 | **C-25**   | `QUOTE_REQUEST`                                                                           | 1 Bild                                              | **ja**    | nein             | **ja**             | **ja**         | AP04 · AP20      | verlinkt auf Redirect-Quelle `/services/dental` statt `/diagnostics/dental` (`IAD-18`)                                                                                                                                                  |
-| **C-26**   | —                                                                                         | keine                                               | nein      | nein             | nein               | **ja**         | AP04 · AP08/AP22 | Support-Autoresponder, ROI-Zustellung, Kontakt-, Bestell- und Betreffzeilen ausschließlich deutsch (`ID-7`)                                                                                                                             |
-| **C-27**   | `DOWNLOAD_PUBLIC` / Gate-Kandidat                                                         | zur Laufzeit erzeugtes PDF                          | **ja**    | nein             | nein               | **ja**         | AP04 · AP19/AP22 | Fußzeile trägt `CV < 2 %`; `Intl.NumberFormat('de-DE')` fest verdrahtet                                                                                                                                                                 |
+| **C-26**   | —                                                                                         | keine                                               | nein      | nein             | nein               | nein           | AP08 PT08.5      | Nutzergerichtete bestehende Mailruntime x10; künftige Mailplattformen bleiben ownergebunden und nicht als Runtime behauptet                                                                                                             |
+| **C-27**   | `DOWNLOAD_PUBLIC` / Gate-Kandidat                                                         | zur Laufzeit erzeugtes PDF                          | **ja**    | nein             | nein               | nein           | AP08 PT08.5      | Fußzeile behält `CV < 2 %`; Runtime-PDF und EUR-Format folgen der validierten Journey-Locale                                                                                                                                            |
 | **C-28**   | `NONE`                                                                                    | keine                                               | nein      | nein             | nein               | **ja**         | AP04 · AP08      | identische Ursache wie C-20                                                                                                                                                                                                             |
 | **C-29**   | —                                                                                         | externes Widget-Skript                              | nein      | **PLACEHOLDER**  | **ja**             | **ja**         | AP04 · AP06/AP23 | `welcome_prototype`: „Unser Chatbot ist noch nicht aktiv“ — sichtbarer Platzhalter × 10 (`DEC-RL-007`)                                                                                                                                  |
 | **C-30**   | —                                                                                         | keine                                               | nein      | **MOCK**         | **ja**             | **ja**         | AP22 · AP26      | Echo-Agent mit fest verdrahteten deutschen Antworten + Teams-/OpenAI-Roadmap-Kommentar                                                                                                                                                  |
@@ -474,14 +474,11 @@ AP04-Zuständigkeit; Widget, CSP und Endpunkt gehören AP06/AP22/AP23/AP26 (`IAD
 | Deal-/Voucher-Copy                    | **nicht auffindbar**                      | negativ geprüft — existiert auf der Baseline nicht                                                           |
 | Shop-Copy                             | **existiert nicht**                       | siehe Korrektur unten                                                                                        |
 
-**Korrektur einer dokumentierten Schuld.** `CONTENT-ASSET-CONTRACT.md` `CD-10` und
-`I18N-CONTRACT.md` `D-28` führen `shop.json` als „registriert, aber nie gelesen“. Die Messung
-widerspricht dem: `shop.json` enthält **keine Shop-Copy**, sondern Artikel-UI-Strings (`shop.home`,
-`shop.articles`, `shop.readMore`, `shop.articleNotFound`, `shop.backToArticles`) und wird von
-`ArticlesIndexPage.tsx` (3 ×) und `ArticlePage.tsx` (4 ×) **aktiv geladen und gerendert**. Der
-Namespace ist ein **Namens-Missverständnis, kein Shop-Backlog-Artefakt** — er darf weder entfernt noch
-als reaktivierbarer Shop behandelt werden (`C-21`). Ein Umbenennen ist Namespace-Arbeit und damit
-**Einzeleigentum von AP08** (`I18N-CONTRACT.md` M-01), nicht AP04.
+**PT08.3-Auflösung einer dokumentierten Schuld.** Die sieben produktiven Artikel-UI-Strings liegen
+jetzt in `articles.ui`; die Call-Sites lesen ausschließlich diesen produktiven Namespace. Die
+historischen `shop.json`-Dateien bleiben unverändert vorhanden, sind aber gemeinsam mit
+`casestudies` ausdrücklich als Backlog klassifiziert und werden nicht geladen. Das ist eine
+Namespace-Korrektur, keine Shop-Reaktivierung (`DEC-RL-015`).
 
 `DEC-RL-015` bleibt unangetastet: nichts davon wird als Launch-Content aktiviert.
 
@@ -523,25 +520,24 @@ Sitemap nur `/en/*` (`SD-3`, AP09) · keine interne Verlinkung (`IAD-19`, AP06/A
 
 ## 13. Epigenetik-Gap (`ST04.1.14`)
 
-| Bereich                    | Content-Sprachen                | Asset-Sprachen                        | Befund                                                                |
-| -------------------------- | ------------------------------- | ------------------------------------- | --------------------------------------------------------------------- |
-| Hub `/epigenetics`         | 10/10 Keys · **2/10 übersetzt** | ZIP: `de`+`en`, 8 × EN-Fallback       | 196 englische Sätze je Nicht-`de`/`en`-Sprache                        |
-| Grundlagen                 | wie Hub                         | —                                     | wie Hub                                                               |
-| Studienlage                | wie Hub                         | Evidence-PDF: `de`+`en`, 8 × EN       | Pflichthinweis `S-06` englisch in 8 Sprachen                          |
-| Unterlagen                 | wie Hub                         | 9 Sheets: `de`+`en`, 8 × EN           | zentrale Download-Seite der Säule                                     |
-| Musterbefunde × 6 (Seiten) | **2/10** (`de`,`en`)            | 6 PDFs **nur `de`**                   | `IAD-03`; PDF-Fallback auf `de` **auch für `en`**                     |
-| Befund-Metadaten           | `meta.ts` sprachneutral         | 12 Bilder (`@1x`/`@2x`) sprachneutral | Modell sauber; `BefundSprachen` ist **auf `de`/`en` typfixiert**      |
-| Inquiry-Copy               | 10/10 Keys · 2/10 übersetzt     | —                                     | `_translationStatus`: „panel context, field options and field errors“ |
-| Alt-/Asset-Metadaten       | `samples.imgAlt` über `t()`     | —                                     | einziger Epigenetik-Alt-Text ist lokalisiert — positiv                |
+| Bereich                    | Content-Sprachen             | Asset-Sprachen                           | Befund                                                          |
+| -------------------------- | ---------------------------- | ---------------------------------------- | --------------------------------------------------------------- |
+| Hub `/epigenetics`         | **10/10 echte Zielsprachen** | DE/EN-Asymmetrie sichtbar deklariert     | G4 + PT08.6 Asset-Guard PASS; kein regulärer Fallback           |
+| Grundlagen                 | **10/10 echte Zielsprachen** | —                                        | aktueller Webcontent vollständig                                |
+| Studienlage                | **10/10 echte Zielsprachen** | Evidence-PDF weiter asset-deferred       | Web-Pflichthinweise x10; PDF-Verfügbarkeit unverändert          |
+| Unterlagen                 | **10/10 echte Zielsprachen** | Sheets DE/EN; weitere Varianten deferred | Webcopy und Sprachhinweis x10; keine Verfügbarkeit vorgetäuscht |
+| Musterbefunde × 6 (Seiten) | **6/6 × 10/10**              | 6 PDFs **nur `de`**                      | Webcontent vollständig; PDF-Sprache x10 sichtbar deklariert     |
+| Befund-Metadaten           | `meta.ts` sprachneutral, x10 | 12 Bilder (`@1x`/`@2x`) sprachneutral    | `BefundSprachen` x10; slug-lokale Lazy-Grenze erhalten          |
+| Inquiry-Copy               | **10/10 Webcopy**            | —                                        | finale Journey bleibt AP15-owned                                |
+| Alt-/Asset-Metadaten       | `samples.imgAlt` über `t()`  | —                                        | einziger Epigenetik-Alt-Text ist lokalisiert — positiv          |
 
-**Zwei Lücken, die keine reine Übersetzungsarbeit sind:**
+**PT08.3-Status:** Die frühere zweisprachige Webcontent-/Modell-Lücke ist geschlossen. Zwei getrennte
+spätere Owner-Dimensionen bleiben offen:
 
-1. **`BefundSprachen` ist strukturell zweisprachig.** `src/content/befunde/meta.ts` deklariert
-   `interface BefundSprachen { de: Befund; en: Befund }`. Ein `pl`-Befund lässt sich damit nicht
-   abbilden, ohne den Typ zu ändern. Das ist eine **Modell-**, keine Content-Lücke (`CA-18`) und
-   gehört **AP16** — PT04.3 darf sie nicht durch Umtypisieren „nebenbei“ lösen.
+1. **Befund-PDFs/weitere sprachabhängige Assets:** PT08.6 hat Sprache, Auswahl und x10-Disclosure
+   geschlossen, ohne PDFs/Bilder zu erzeugen. Neue Fachvarianten bleiben AP15/AP16/AP19-owned.
 2. **Es existieren keine englischen Musterbefund-PDFs.** Die Lücke lässt sich nicht durch Umhängen
-   einer Referenz schließen; sie verlangt neue Assets → PT04.4 bzw. externe Erstellung.
+   einer Referenz schließen; sie verlangt neue Assets → externe fachliche Erstellung/AP19.
 
 ---
 
@@ -565,17 +561,17 @@ Sitemap nur `/en/*` (`SD-3`, AP09) · keine interne Verlinkung (`IAD-19`, AP06/A
 
 ### 14.2 Veraltete und redundante Aussagen (`ST04.1.6`)
 
-| ID       | Befund                                                                                                                           | Klasse             | Owner       |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------- |
-| **OR-1** | `App.tsx` 243–246 beschreibt Consumer als „unlisted, noindex, passwortgeschützt“ — widerspricht `DEC-RL-006` und dem Ist-Zustand | `OUTDATED`         | AP04 · AP21 |
-| **OR-2** | Hero-Slider-Texte doppelt in `useHeroSlider.ts` und `home.json`                                                                  | `REDUNDANT`        | AP04 · AP11 |
-| **OR-3** | Drei von fünf „kommenden“ Events sind abgelaufen; `upcoming.eyebrow` mit fester Jahreszahl                                       | `OUTDATED`         | AP04 · AP18 |
-| **OR-4** | Alter CTA-Wortlaut „Beratung buchen“ als Standard (15 × Locale + 10 × Quelltext-Default + 3 × hartkodiert)                       | `OUTDATED`         | AP04 · AP08 |
-| **OR-5** | Legacy-Route `/services/dental` im Content von `VitaminD3ImplantologyPage.tsx` (`IAD-18`)                                        | `OUTDATED`         | AP10 · AP20 |
-| **OR-6** | Tote Route `/casestudys/32reasons` in `FeaturedCaseStudy.tsx`                                                                    | `OUTDATED`         | Backlog     |
-| **OR-7** | `RoiCalculatorSection.tsx:108` behauptet einen nicht existierenden Endpunkt-Zustand                                              | `OUTDATED`         | AP04        |
-| **OR-8** | Doppelte PDF-Ablage `src/assets/downloads/` ↔ `public/downloads/` (`CD-7`)                                                       | `REDUNDANT`        | AP04 PT04.4 |
-| **OR-9** | `shop`-Namespace trägt Artikel-UI unter irreführendem Namen                                                                      | `REDUNDANT` (Name) | AP08        |
+| ID       | Befund                                                                                                                           | Klasse      | Owner       |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------- |
+| **OR-1** | `App.tsx` 243–246 beschreibt Consumer als „unlisted, noindex, passwortgeschützt“ — widerspricht `DEC-RL-006` und dem Ist-Zustand | `OUTDATED`  | AP04 · AP21 |
+| **OR-2** | Hero-Slider-Texte doppelt in `useHeroSlider.ts` und `home.json`                                                                  | `REDUNDANT` | AP04 · AP11 |
+| **OR-3** | Drei von fünf „kommenden“ Events sind abgelaufen; `upcoming.eyebrow` mit fester Jahreszahl                                       | `OUTDATED`  | AP04 · AP18 |
+| **OR-4** | Alter CTA-Wortlaut „Beratung buchen“ als Standard (15 × Locale + 10 × Quelltext-Default + 3 × hartkodiert)                       | `OUTDATED`  | AP04 · AP08 |
+| **OR-5** | Legacy-Route `/services/dental` im Content von `VitaminD3ImplantologyPage.tsx` (`IAD-18`)                                        | `OUTDATED`  | AP10 · AP20 |
+| **OR-6** | Tote Route `/casestudys/32reasons` in `FeaturedCaseStudy.tsx`                                                                    | `OUTDATED`  | Backlog     |
+| **OR-7** | `RoiCalculatorSection.tsx:108` behauptet einen nicht existierenden Endpunkt-Zustand                                              | `OUTDATED`  | AP04        |
+| **OR-8** | Doppelte PDF-Ablage `src/assets/downloads/` ↔ `public/downloads/` (`CD-7`)                                                       | `REDUNDANT` | AP04 PT04.4 |
+| **OR-9** | ~~`shop`-Namespace trägt Artikel-UI unter irreführendem Namen~~ — **RESOLVED PT08.3**, Copy unter `articles.ui`, `shop` Backlog  | `RESOLVED`  | AP08        |
 
 ---
 
@@ -1161,21 +1157,22 @@ PT04.1–PT04.4 alle `PASS` (§23, §25, §26), AP04-RECOVERY `PASS` (§24).
 
 **AP04 Closure `PASS` heißt NICHT, dass die Website in zehn Sprachen launchfertig ist.**
 
-Es heißt: die **AP04-eigene** Content- und Asset-Readiness ist abgeschlossen, und **10 Deferred Gates**
-(`DG-01`–`DG-09`, §24 und §26.8) bleiben **offen, ownergebunden und werden weitergetragen** — davon
-**9 Launch-Blocker**. Sie sind ausdrücklich **keine** AP05-Aufgaben.
+Es heißt: die **AP04-eigene** Content- und Asset-Readiness ist abgeschlossen. Von den ursprünglich
+**10 Deferred Gates** (`DG-01`–`DG-09`, §24 und §26.8) sind nach PT08.5 sieben belegt geschlossen;
+`DG-06b`, `DG-07` und `DG-08` bleiben ownergebunden offen. Sie sind ausdrücklich keine AP05-Aufgaben.
 
-| Zielbereich | Target | Ist | Gate | Owner |
-|---|---|---|---|---|
-| Consumer × 10 | REQUIRED | **DEFERRED** | `DG-03`, `DG-06a` | AP08 PT08.2 · AP21 |
-| Epigenetik × 10 | REQUIRED | **DEFERRED** | `DG-01` | Fachfreigabe · AP15 · AP08 PT08.3.1 |
-| Musterbefunde × 10 | REQUIRED | **DEFERRED** | `DG-02` | AP16 · AP08 PT08.3.2 |
-| Artikel × 10 | REQUIRED | **DEFERRED** | `DG-05` | Fachfreigabe · AP17 |
-| Systemmail × 10 | REQUIRED | **DEFERRED** | `DG-04` | AP22 · AP08 PT08.5 |
-| Sprachabhängige Assets | REQUIRED | **DEFERRED** | `DG-07`, `DG-08`, `DG-09` | AP08 PT08.6 · AP19 · AP21 · AP22 |
-| Consumer-Pflichthinweis | zu klären | **DEFERRED** | `DG-06b` | AP20 / AP21 · Fachfreigabe |
+| Zielbereich             | Target    | Ist                 | Gate              | Owner                               |
+| ----------------------- | --------- | ------------------- | ----------------- | ----------------------------------- |
+| Consumer × 10           | REQUIRED  | **DEFERRED**        | `DG-03`, `DG-06a` | AP08 PT08.2 · AP21                  |
+| Epigenetik × 10         | REQUIRED  | **DEFERRED**        | `DG-01`           | Fachfreigabe · AP15 · AP08 PT08.3.1 |
+| Musterbefunde × 10      | REQUIRED  | **DEFERRED**        | `DG-02`           | AP16 · AP08 PT08.3.2                |
+| Artikel × 10            | REQUIRED  | **DEFERRED**        | `DG-05`           | Fachfreigabe · AP17                 |
+| Systemmail × 10         | REQUIRED  | **RESOLVED PT08.5** | `DG-04`           | AP08 PT08.5; Future-Plattform AP22  |
+| Sprachabhängige Assets  | REQUIRED  | **DEFERRED**        | `DG-07`, `DG-08`  | AP08 PT08.6 · AP19 · AP21 · AP22    |
+| Consumer-Pflichthinweis | zu klären | **DEFERRED**        | `DG-06b`          | AP20 / AP21 · Fachfreigabe          |
 
-**Keiner dieser Bereiche ist `READY`.** False-Ready-Aussagen: **0**.
+`READY` gilt nur für die in der Tabelle belegten aktuellen Runtime-Dimensionen; Future-Flows und
+Assets bleiben separat ownergebunden. False-Ready-Aussagen: **0**.
 
 **Historische Befunde bleiben erhalten, sind aber als historisch markiert:** §23.3 enthält die
 `BLOCKED_CONTENT_APPROVAL`-Bewertung vom 2026-08-24. Sie ist durch §24 überholt und dort ausdrücklich
@@ -1356,7 +1353,7 @@ hier **nicht** entschieden und **nicht** erfunden. Prüfpunkt für **AP20/AP21**
 | Epigenetik-Webcontent (`C-11`/`C-12`) | 222 EN-Werte ×8                    | **unverändert 222 ×8**                        | **B-1**                                  |
 | Musterbefund-Inhalte (`C-13`)         | 2/10                               | **unverändert 2/10**                          | **B-2**                                  |
 | Consumer (`C-14`–`C-17`)              | 1/10, hartkodiert                  | **unverändert**                               | **B-3**                                  |
-| Systemmail (`C-26`/`C-27`)            | 1/10                               | **unverändert**                               | **B-4**                                  |
+| Systemmail (`C-26`/`C-27`)            | 10/10 bestehende Nutzer-Runtime    | **RESOLVED PT08.5**                           | **B-4 / DG-04 geschlossen**              |
 | Artikel-Volltexte (`C-07`)            | 4 Sprachen englisch                | **unverändert**                               | **B-5**                                  |
 
 ### 23.5 Sichtbare sprachabhängige Download-Lücken (ST04.3.10)
@@ -1405,19 +1402,19 @@ insbesondere `AP08 PT08.2` (Consumer `t()`-fähig machen), `AP08 PT08.3.1/.2` (E
 
 Da AP08 in **Welle 1**, AP16 in **Welle 3** und AP21/AP22 in **Welle 4** liegen — sämtlich nach AP04
 (**Welle 0**) — entstand ein serieller Zyklus. Das verletzte `CONTEXT-INDEX.md` §3:
-*„Ein AP-Dokument darf den Master-Scope nicht stillschweigend erweitern oder reduzieren."*
+_„Ein AP-Dokument darf den Master-Scope nicht stillschweigend erweitern oder reduzieren."_
 
 **Die Recovery ändert keine Zielanforderung.** Sie korrigiert ausschließlich, **wann** und **durch
 welchen AP** ein Gate geschlossen wird. Kein Gate wurde gelöscht, keines als erledigt markiert.
 
 ### 24.2 Gate-Typen
 
-| Typ | Bedeutung | AP04 Closure Blocker |
-|---|---|---|
-| `DEFERRED_IMPLEMENTATION_GATE` | technische Voraussetzung gehört einem späteren Owner-AP | nein |
-| `DEFERRED_CONTENT_APPROVAL_GATE` | fachliche/regulatorische Freigabe fehlt, Owner-AP liegt später | nein |
-| `DEFERRED_ASSET_GATE` | Sprach-/Formatvariante eines Assets fehlt, Owner liegt später | nein |
-| `AP04_CLOSURE_BLOCKER` | innerhalb AP04-Scope lösbar | **ja** |
+| Typ                              | Bedeutung                                                      | AP04 Closure Blocker |
+| -------------------------------- | -------------------------------------------------------------- | -------------------- |
+| `DEFERRED_IMPLEMENTATION_GATE`   | technische Voraussetzung gehört einem späteren Owner-AP        | nein                 |
+| `DEFERRED_CONTENT_APPROVAL_GATE` | fachliche/regulatorische Freigabe fehlt, Owner-AP liegt später | nein                 |
+| `DEFERRED_ASSET_GATE`            | Sprach-/Formatvariante eines Assets fehlt, Owner liegt später  | nein                 |
+| `AP04_CLOSURE_BLOCKER`           | innerhalb AP04-Scope lösbar                                    | **ja**               |
 
 ### 24.3 Register
 
@@ -1425,180 +1422,178 @@ welchen AP** ein Gate geschlossen wird. Kein Gate wurde gelöscht, keines als er
 
 #### `DG-01` — Epigenetik-Webcontent × 10
 
-| Feld | Inhalt |
-|---|---|
-| **Description** | Der launchrelevante Epigenetik-Webcontent liegt in acht Sprachen als englischer Fallback vor, einschließlich der Pflichthinweise `RN-01`–`RN-04`. |
-| **Current state** | 222 Volltextwerte je Sprache × 8 Sprachen = **1 776 Werte, ~240 000 Zeichen**. Betroffen: `hero`, `principle`, `analyses`, `workflow`, `evidence`, `faq`, `samples`, `compare`, `basics`, `sheets`, `consult`, `merk`. |
-| **Why AP04 cannot own completion** | (a) Die enthaltenen Pflichthinweise — medizinische Abgrenzung, regulatorischer Status („keine CE-gekennzeichneten IVD"), Synthetik-Hinweis — sind in acht EU-Rechtsräumen eine fachlich-regulatorische Frage; `AP04.md` §9.5 und `R04-04` verlangen *blockieren statt erfinden*. (b) Der technische Rollout ist wörtlich `AP08 PT08.3.1`. |
-| **Gate type** | `DEFERRED_CONTENT_APPROVAL_GATE` + `DEFERRED_IMPLEMENTATION_GATE` |
-| **Owner AP** | Fachfreigabe · **AP15** (Säulencontent) · **AP08 PT08.3.1** (Rollout) |
-| **Required before** | Launch-Gate 1 (Language) · Launch-Gate 6 (Epigenetics) |
-| **Safe current behavior** | Englischer Fallback wird ausgeliefert und ist über `_translationStatus` in allen acht Dateien deklariert; `I-08` zeichnet den Bereich als `lang="en"` aus. Keine falsche Verfügbarkeitszusage. |
-| **Launch blocker** | **ja** |
-| **AP04 closure blocker** | **nein** |
-| **Evidence** | Messung §23.3 B-1; `_translationStatus: "English fallback — translation pending"` in acht `epigenetics.json`; `MASTER-SCOPE.md` AP08 PT08.3.1. |
+| Feld                               | Inhalt                                                                                                                                                                                                                                                                                                                                    |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Description**                    | Historische x10-Lücke des launchrelevanten Epigenetik-Webcontents einschließlich `RN-01`–`RN-04`; durch PT08.3 geschlossen.                                                                                                                                                                                                               |
+| **Current state**                  | **RESOLVED PT08.3:** `epigenetics` liegt in zehn echten Zielsprachen vor; 10/10 JSONs sind schema-/key-paritätisch und ohne regulären `_translationStatus`-Marker.                                                                                                                                                                        |
+| **Why AP04 cannot own completion** | (a) Die enthaltenen Pflichthinweise — medizinische Abgrenzung, regulatorischer Status („keine CE-gekennzeichneten IVD"), Synthetik-Hinweis — sind in acht EU-Rechtsräumen eine fachlich-regulatorische Frage; `AP04.md` §9.5 und `R04-04` verlangen _blockieren statt erfinden_. (b) Der technische Rollout ist wörtlich `AP08 PT08.3.1`. |
+| **Gate type**                      | `DEFERRED_CONTENT_APPROVAL_GATE` + `DEFERRED_IMPLEMENTATION_GATE`                                                                                                                                                                                                                                                                         |
+| **Owner AP**                       | Fachfreigabe · **AP15** (Säulencontent) · **AP08 PT08.3.1** (Rollout)                                                                                                                                                                                                                                                                     |
+| **Required before**                | Launch-Gate 1 (Language) · Launch-Gate 6 (Epigenetics)                                                                                                                                                                                                                                                                                    |
+| **Safe current behavior**          | Webcontent rendert in der URL-Locale; der defensive EN-Fallback bleibt ausschließlich technischer Fehlerpfad. Asset-Asymmetrien bleiben separat PT08.6-owned.                                                                                                                                                                             |
+| **Launch blocker**                 | **nein für Webcontent-i18n**; Asset-/Journey-Gates bleiben separat offen                                                                                                                                                                                                                                                                  |
+| **AP04 closure blocker**           | **nein**                                                                                                                                                                                                                                                                                                                                  |
+| **Evidence**                       | `public/locales/*/epigenetics.json`; `npm run check:i18n -- --self-test`; `I18N-CONTRACT.md` G4-Evidenz.                                                                                                                                                                                                                                  |
+| **Status**                         | **RESOLVED (PT08.3, 2026-08-26)**                                                                                                                                                                                                                                                                                                         |
 
 **Von AP04 geliefert:** die 9 fehlenden `befund.*`-UI-Keys existieren jetzt in allen zehn Sprachen —
 zuvor renderten sie in acht Sprachen den Roh-Key (`I-06`).
 
-**Präzisierung aus dem PT04.3-Retry (2026-08-25) — Marker-Skopus.** Der Marker `_translationStatus` ist
-für `epigenetics` **wurzel-skopiert**, und die vier Konsumenten (`EpigeneticsPage.tsx:213`,
-`MusterbefundPage.tsx:380`, `EpiSubpage.tsx`, `EpigeneticsTeaserSection.tsx`) setzen daraufhin
-`lang="en"` auf den **gesamten** Inhaltscontainer. Jede lokalisierte Zeichenkette innerhalb dieses
-Containers würde von einem Screenreader mit englischer Phonetik vorgelesen — ein Verstoß gegen `I-08`
-und WCAG 3.1.2, den `N13` ausdrücklich schützt.
-
-Der erste PT04.3-Lauf hatte 12 Keys (9 × `befund.*`, 3 Inquiry-CTAs) in den acht Fallback-Sprachen
-übersetzt und damit genau diese Inkohärenz erzeugt. Der Retry hat sie **auf den englischen
-Namespace-Wert zurückgeführt** — die Keys bleiben vollständig vorhanden, es rendert kein Roh-Key mehr,
-und der Marker sagt wieder die Wahrheit.
-
-**Zusätzliche Owner-Aufgabe für AP08:** Soll die Epigenetik-Strecke teilweise übersetzt ausgeliefert
-werden, muss der Marker auf Teilbäume umgehängt werden — wie es `contact.form` bereits vormacht. Das
-verlangt Änderungen an den vier Konsumenten und ist **AP08 PT08.1.5/.6**; AP04 darf es nach `GM-05`
-nicht vorziehen.
+**Historische Marker-Evidenz aus PT04.3:** Der damalige wurzelweite Marker war für den vollständigen
+EN-Fallback korrekt und verhinderte falsche Sprachauszeichnung. PT08.3 hat keinen partiellen Zustand
+hergestellt, sondern den gesamten produktiven Namespace x10 lokalisiert; daher ist der Marker heute in
+allen zehn Dateien korrekt abwesend. Der defensive technische Fallbackvertrag aus PT08.1 bleibt bestehen.
 
 ---
 
 #### `DG-02` — Musterbefund-Inhalte × 10
 
-| Feld | Inhalt |
-|---|---|
-| **Description** | Die sechs Musterbefunde existieren nur in `de`/`en`; das Sprachmodell ist strukturell zweisprachig. |
-| **Current state** | `src/content/befunde/` führt 12 JSONs (6 Panels × 2 Sprachen, ~322 KB). Es fehlen **48 Dateien**. `meta.ts` deklariert `interface BefundSprachen { de: Befund; en: Befund }`. |
+| Feld                               | Inhalt                                                                                                                                                                                                                                                                                                                                                  |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Description**                    | Historische zweisprachige Content-/Modell-Lücke der sechs Musterbefunde; durch PT08.3 geschlossen.                                                                                                                                                                                                                                                      |
+| **Current state**                  | **RESOLVED PT08.3:** 60 JSONs (6 Slugs × 10 Sprachen); `BefundSprachen` x10; jedes Routenmodul importiert nur seinen Slug in zehn Sprachen.                                                                                                                                                                                                             |
 | **Why AP04 cannot own completion** | (a) **Strukturell:** das Modell kann keine neunte Sprache abbilden; seine Erweiterung ist `AP16 PT16.1.6` („10-sprachige Contentstruktur"), die inhaltliche Vervollständigung `AP08 PT08.3.2`. (b) **Inhaltlich:** vollständige medizinische Musterbefunde mit Messwerten, Genotypen und Interpretationen — ohne Freigabe ist deren Erzeugung `R04-04`. |
-| **Gate type** | `DEFERRED_IMPLEMENTATION_GATE` + `DEFERRED_CONTENT_APPROVAL_GATE` |
-| **Owner AP** | **AP16 PT16.1.6** (Modell) · **AP08 PT08.3.2** (Inhalte × 10) · Fachfreigabe |
-| **Required before** | Launch-Gate 1 · Launch-Gate 6 |
-| **Safe current behavior** | Die sechs Routen liefern `de`/`en`-Inhalte; die Befund-UI-Labels sind seit PT04.3 in allen zehn Sprachen vorhanden, sodass keine Roh-Keys mehr rendern. |
-| **Launch blocker** | **ja** |
-| **AP04 closure blocker** | **nein** |
-| **Evidence** | `src/content/befunde/meta.ts`; §23.3 B-2; `IA-INVENTORY.md` `IAD-03`; `CONTENT-ASSET-CONTRACT.md` §5.2 („Owner: AP16"). |
+| **Gate type**                      | `DEFERRED_IMPLEMENTATION_GATE` + `DEFERRED_CONTENT_APPROVAL_GATE`                                                                                                                                                                                                                                                                                       |
+| **Owner AP**                       | **AP16 PT16.1.6** (Modell) · **AP08 PT08.3.2** (Inhalte × 10) · Fachfreigabe                                                                                                                                                                                                                                                                            |
+| **Required before**                | Launch-Gate 1 · Launch-Gate 6                                                                                                                                                                                                                                                                                                                           |
+| **Safe current behavior**          | Jede der sechs Routen liefert die URL-Locale ohne globalen Eager-Load; `befund.*`-UI-Keys sind x10 vollständig. Die sechs DE-PDFs bleiben als getrennte Asset-Lücke offen.                                                                                                                                                                              |
+| **Launch blocker**                 | **nein für Webcontent-i18n**; PDF-Assets bleiben `DG-07`/PT08.6-owned                                                                                                                                                                                                                                                                                   |
+| **AP04 closure blocker**           | **nein**                                                                                                                                                                                                                                                                                                                                                |
+| **Evidence**                       | `src/content/befunde/meta.ts`; sechs `src/pages/musterbefund/*.tsx`; 60 JSONs; G4; Build-Chunk-Evidenz.                                                                                                                                                                                                                                                 |
+| **Status**                         | **RESOLVED (PT08.3, 2026-08-26)**                                                                                                                                                                                                                                                                                                                       |
 
 ---
 
 #### `DG-03` — Consumer × 10
 
-| Feld | Inhalt |
-|---|---|
-| **Description** | Die drei Consumer-Familien sind vollständig hartkodiert englisch und daher nicht lokalisierbar. |
-| **Current state** | `src/pages/consumer/**`: 7 Dateien, 2 884 Zeilen, **0 × `useTranslation`**. Copy liegt als JSX-Literal, nicht in einer Content-Schicht. 27 fehlende Locale-Varianten (3 Familien × 9 Sprachen). |
-| **Why AP04 cannot own completion** | `I18N-CONTRACT.md` **M-03**: *„Bei hartkodierten Flächen zuerst `t()`-fähig machen (AP08 PT08.2), dann die zehn Sprachen füllen. **Umgekehrt geht es nicht.**"* Ein eigener Namespace scheitert zusätzlich an **M-01** (`NAMESPACES` = AP08-Einzeleigentum) und `I-05`. Copy in einen fremden Namespace zu legen verstößt gegen `AP04.md` §9.6. |
-| **Gate type** | `DEFERRED_IMPLEMENTATION_GATE` |
-| **Owner AP** | **AP08 PT08.2.3–.7** (Spray, Masks, Duo, Shell, Order Form/Modal/Price UI) · **AP21** (Seitenabschluss × 10) |
-| **Required before** | Launch-Gate 1 · Launch-Gate 4 (SEO/Consumer indexierbar) |
-| **Safe current behavior** | Die Seiten liefern konsistentes Englisch. Kein Sprachversprechen wird gebrochen, weil keine lokalisierte Variante beworben wird. Der `/en/`-Zwangsredirect bleibt separat `IAD-01` (AP21/AP10). |
-| **Launch blocker** | **ja** (`REST-03`, `DEC-RL-006`) |
-| **AP04 closure blocker** | **nein** |
-| **Evidence** | §12, §23.3 B-3; `MASTER-SCOPE.md` AP08 PT08.2.3–.7; `I18N-CONTRACT.md` M-01/M-03, `ID-1`. |
+| Feld                               | Inhalt                                                                                                                                                                                                                                                                                                                                          |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Description**                    | Die drei Consumer-Familien waren vollständig hartkodiert englisch und daher nicht lokalisierbar.                                                                                                                                                                                                                                                |
+| **Current state**                  | **RESOLVED durch AP08 PT08.2:** `consumer` ist registriert; Spray, Masks, Duo, Shell, Order Form/Modal und Price UI verwenden 340/340 echte Locale-Keys in 10/10 Sprachen. 50/50 direkte SSR-Render-Smokes sind frei von Key-Leaks. Der getrennte `/en/`-Zwangsredirect bleibt unverändert bei PT08.4/AP10.                                     |
+| **Why AP04 cannot own completion** | `I18N-CONTRACT.md` **M-03**: _„Bei hartkodierten Flächen zuerst `t()`-fähig machen (AP08 PT08.2), dann die zehn Sprachen füllen. **Umgekehrt geht es nicht.**"_ Ein eigener Namespace scheitert zusätzlich an **M-01** (`NAMESPACES` = AP08-Einzeleigentum) und `I-05`. Copy in einen fremden Namespace zu legen verstößt gegen `AP04.md` §9.6. |
+| **Gate type**                      | `DEFERRED_IMPLEMENTATION_GATE`                                                                                                                                                                                                                                                                                                                  |
+| **Owner AP**                       | **AP08 PT08.2.3–.7** (Spray, Masks, Duo, Shell, Order Form/Modal/Price UI) · **AP21** (Seitenabschluss × 10)                                                                                                                                                                                                                                    |
+| **Required before**                | Launch-Gate 1 · Launch-Gate 4 (SEO/Consumer indexierbar)                                                                                                                                                                                                                                                                                        |
+| **Safe current behavior**          | Die Komponenten sind in allen zehn Sprachen renderbar; der bestehende `/en/`-Zwangsredirect bleibt bis PT08.4 separat `IAD-01`-gebunden.                                                                                                                                                                                                        |
+| **Launch blocker**                 | **nein für Content-i18n**; Routing-Freigabe bleibt separat PT08.4/AP10-owned                                                                                                                                                                                                                                                                    |
+| **AP04 closure blocker**           | **nein**                                                                                                                                                                                                                                                                                                                                        |
+| **Evidence**                       | `public/locales/*/consumer.json`; `server/pt08-2-i18n.test.ts`; `scripts/check-pt08-2-render.ts`; `I18N-CONTRACT.md` ID-1.                                                                                                                                                                                                                      |
+| **Status**                         | **RESOLVED (PT08.2, 2026-08-26)**                                                                                                                                                                                                                                                                                                               |
 
 ---
 
 #### `DG-04` — Systemmail- und Autoresponder-Copy × 10
 
-| Feld | Inhalt |
-|---|---|
-| **Description** | Fünf Mailstrecken sind hartkodiert deutsch; der Leadflow trägt keinen Sprachkontext. |
-| **Current state** | `server/server.js`: Kontakt, Support-Intern, Support-Autoresponder, Consumer-Bestellung, ROI-Report — alle deutsch, inklusive `Intl.NumberFormat('de-DE')` im ROI-PDF und des Pflichthinweises `RN-07`. **Kein Endpunkt empfängt ein `language`-Feld.** |
-| **Why AP04 cannot own completion** | `language` ist nach `LEAD-DATA-CONTRACT.md` §5.2 Pflichtfeld der Journey-Kategorie; §5.1: *„Über die endgültigen Lead-Typ-Bezeichner entscheidet AP22; kein anderes AP erfindet sie."* Das Feld einzuführen wäre eine Änderung des Lead-API-Vertrags und fällt unter die in `AP04.md` §13.2 untersagte Lead-Plattform-Arbeit. Eine unverdrahtete Copy-Ressource anzulegen wäre spekulativ. |
-| **Gate type** | `DEFERRED_IMPLEMENTATION_GATE` |
-| **Owner AP** | **AP22** (Sprachkontext im Leadflow) · **AP08 PT08.5.1–.5** (sprachliche Ausführung) |
-| **Required before** | Launch-Gate 1 · Launch-Gate 3 (CRM) |
-| **Safe current behavior** | Mails gehen konsistent deutsch heraus; die Absenderjourney ist eindeutig. Keine falsche Sprachzusage. Die Success-Copy im Frontend wurde in PT04.3 bereits auf die persistente Annahme umgestellt. |
-| **Launch blocker** | **ja** |
-| **AP04 closure blocker** | **nein** |
-| **Evidence** | §23.3 B-4; `server/server.js` (kein `language` in `req.body`); `MASTER-SCOPE.md` AP08 PT08.5; `LEAD-DATA-CONTRACT.md` §5.1/§5.2. |
+| Feld                               | Inhalt                                                                                                                                                                                                                                                                                                                                                                                     |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Description**                    | Historische Lücke: nutzergerichtete Mailstrecken und ROI-PDF waren deutsch fest verdrahtet; Request-Payloads trugen keinen Sprachkontext.                                                                                                                                                                                                                                                  |
+| **Current state**                  | **RESOLVED PT08.5:** Contact, Support, Consumer Order und ROI transportieren eine validierte `locale`; Support-Autoresponder sowie ROI-Nutzermail und Runtime-PDF sind x10. Interne Team-Mails dürfen nach LDV-19 mono-sprachig bleiben. Contact/Consumer haben keine Nutzer-Mailruntime, daher wird keine Bestätigung behauptet.                                                          |
+| **Why AP04 cannot own completion** | `language` ist nach `LEAD-DATA-CONTRACT.md` §5.2 Pflichtfeld der Journey-Kategorie; §5.1: _„Über die endgültigen Lead-Typ-Bezeichner entscheidet AP22; kein anderes AP erfindet sie."_ Das Feld einzuführen wäre eine Änderung des Lead-API-Vertrags und fällt unter die in `AP04.md` §13.2 untersagte Lead-Plattform-Arbeit. Eine unverdrahtete Copy-Ressource anzulegen wäre spekulativ. |
+| **Gate type**                      | `DEFERRED_IMPLEMENTATION_GATE`                                                                                                                                                                                                                                                                                                                                                             |
+| **Owner AP**                       | **AP22** (Sprachkontext im Leadflow) · **AP08 PT08.5.1–.5** (sprachliche Ausführung)                                                                                                                                                                                                                                                                                                       |
+| **Required before**                | Launch-Gate 1 · Launch-Gate 3 (CRM)                                                                                                                                                                                                                                                                                                                                                        |
+| **Safe current behavior**          | Gültige Journey-Locales steuern Subject, Body und PDF; ungültige Werte fallen defensiv vollständig auf `en`. Nicht existente Future-Flows sind im I18N-CONTRACT ausschließlich `READY_FOR_OWNER`.                                                                                                                                                                                          |
+| **Launch blocker**                 | **nein für bestehende Runtime**; spätere ownergebundene Flows werden vor Aktivierung erneut Gate-pflichtig                                                                                                                                                                                                                                                                                 |
+| **AP04 closure blocker**           | **nein**                                                                                                                                                                                                                                                                                                                                                                                   |
+| **Evidence**                       | `server/system-i18n.js`, `server/server.js`, Frontend-API-Payloads, `server/system-i18n.test.ts`, `src/system-i18n.test.ts`, `I18N-CONTRACT.md` §11.                                                                                                                                                                                                                                       |
+| **Status**                         | **RESOLVED (PT08.5, 2026-08-26)**                                                                                                                                                                                                                                                                                                                                                          |
 
 ---
 
 #### `DG-05` — Artikel-Volltexte in `fr`, `pt`, `da`, `nl`
 
-| Feld | Inhalt |
-|---|---|
-| **Description** | Vier Sprachen tragen die Artikel-Volltexte als englischen Fallback. |
-| **Current state** | 97 Volltextwerte je Sprache × 4 = **388 Werte, ~61 000 Zeichen**. `pl`, `it`, `es`, `cs` sind übersetzt. |
-| **Why AP04 cannot own completion** | Die Artikel enthalten klinische Aussagen (Antibiotika-Entscheidungen, CRP-/HbA1c-Interpretation, RiliBÄK-Qualitätskontrolle). Für diese vier Sprachen fehlt der freigegebene Übersetzungsweg; §9.5 verlangt *blockieren statt erfinden*. Owner des Artikelcontents ist **AP17**. |
-| **Gate type** | `DEFERRED_CONTENT_APPROVAL_GATE` |
-| **Owner AP** | Fachfreigabe · **AP17** |
-| **Required before** | Launch-Gate 1 |
-| **Safe current behavior** | Englischer Fallback; die Artikel-Metadaten und die CTA-Rolle sind seit PT04.3 in allen zehn Sprachen korrekt. **Bekannte Einschränkung aus dem Retry:** `articles.json` trägt **keinen** `_translationStatus`-Marker, und `ArticlePage.tsx` liest keinen — der englische Volltext läuft in `fr`/`pt`/`da`/`nl` unter dem jeweiligen Sprach-`lang`-Attribut (`I-08`-Lücke). Einen inerten Marker ohne Konsumenten legt AP04 bewusst **nicht** an; die Verdrahtung ist **AP08 PT08.1.5** mit **AP17**. |
-| **Launch blocker** | **ja** |
-| **AP04 closure blocker** | **nein** |
-| **Evidence** | §23.3 B-5; Messung §23.4; `CONTENT-ASSET-CONTRACT.md` §5.3 („Owner: AP17"). |
+| Feld                               | Inhalt                                                                                                                                                                                                                                                                           |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Description**                    | Historischer englischer Volltext-Fallback in `fr`, `pt`, `da`, `nl`; durch PT08.3 geschlossen.                                                                                                                                                                                   |
+| **Current state**                  | **RESOLVED PT08.3:** alle sechs veröffentlichten Artikel liegen in zehn echten Zielsprachen vor; die vier früheren Fallback-Dateien wurden übersetzt und unabhängig auf Rest-Englisch/Fachinvarianten geprüft.                                                                   |
+| **Why AP04 cannot own completion** | Die Artikel enthalten klinische Aussagen (Antibiotika-Entscheidungen, CRP-/HbA1c-Interpretation, RiliBÄK-Qualitätskontrolle). Für diese vier Sprachen fehlt der freigegebene Übersetzungsweg; §9.5 verlangt _blockieren statt erfinden_. Owner des Artikelcontents ist **AP17**. |
+| **Gate type**                      | `DEFERRED_CONTENT_APPROVAL_GATE`                                                                                                                                                                                                                                                 |
+| **Owner AP**                       | Fachfreigabe · **AP17**                                                                                                                                                                                                                                                          |
+| **Required before**                | Launch-Gate 1                                                                                                                                                                                                                                                                    |
+| **Safe current behavior**          | Artikel rendern in der URL-Locale; kein regulärer EN-Fallback und kein falsches `lang`-Attribut. Spätere Editorial-/Template-Arbeit bleibt AP17-owned.                                                                                                                           |
+| **Launch blocker**                 | **nein für aktuelle Artikel-Lokalisierung**                                                                                                                                                                                                                                      |
+| **AP04 closure blocker**           | **nein**                                                                                                                                                                                                                                                                         |
+| **Evidence**                       | `public/locales/{fr,pt,da,nl}/articles.json`; G4-Duplikatheuristik; unabhängige Restsprachenprüfung.                                                                                                                                                                             |
+| **Status**                         | **RESOLVED (PT08.3, 2026-08-26)**                                                                                                                                                                                                                                                |
 
 ---
 
 #### `DG-06a` — Consumer-Pflichthinweis, technischer Anteil
 
-| Feld | Inhalt |
-|---|---|
-| **Description** | Der für die Consumer-Spray- und Duo-Seite passende Pflichthinweis kann nicht platziert werden. |
-| **Current state** | `RN-05` (Nahrungsergänzungs-Disclaimer) existiert **freigegeben in 10 Sprachen** in `vitd3spray.json` und deckt dasselbe Produkt ab. Er ist **wiederverwendbar, nicht neu zu erfinden** — aber die Consumer-Seiten haben keine Content-Schicht. |
-| **Why AP04 cannot own completion** | Direkte Folge von `DG-03`: ohne `t()`-Fähigkeit existiert kein Ort für den Hinweis. |
-| **Gate type** | `DEFERRED_IMPLEMENTATION_GATE` |
-| **Owner AP** | **AP08 PT08.2** · **AP21** |
-| **Required before** | Launch-Gate 1 · Launch-Gate 4 |
-| **Safe current behavior** | Der freigegebene Text `RN-05` existiert und ist referenzierbar; es wird kein abweichender oder erfundener Hinweis ausgeliefert. |
-| **Launch blocker** | **ja** |
-| **AP04 closure blocker** | **nein** |
-| **Evidence** | §19.8 `RN-05`/`RN-08`; §23.3 B-6. |
+| Feld                               | Inhalt                                                                                                                                                                                   |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Description**                    | Der für die Consumer-Spray- und Duo-Seite passende Pflichthinweis konnte ohne Content-Schicht nicht platziert werden.                                                                    |
+| **Current state**                  | **RESOLVED durch AP08 PT08.2:** Spray und Duo rendern den bestehenden Nahrungsergänzungs-Hinweis in allen zehn Sprachen aus `consumer`; keine neue regulatorische Aussage wurde ergänzt. |
+| **Why AP04 cannot own completion** | Direkte Folge von `DG-03`: ohne `t()`-Fähigkeit existiert kein Ort für den Hinweis.                                                                                                      |
+| **Gate type**                      | `DEFERRED_IMPLEMENTATION_GATE`                                                                                                                                                           |
+| **Owner AP**                       | **AP08 PT08.2** · **AP21**                                                                                                                                                               |
+| **Required before**                | Launch-Gate 1 · Launch-Gate 4                                                                                                                                                            |
+| **Safe current behavior**          | Der freigegebene Hinweis wird auf beiden betroffenen Consumer-Seiten lokalisiert ausgeliefert.                                                                                           |
+| **Launch blocker**                 | **nein**                                                                                                                                                                                 |
+| **AP04 closure blocker**           | **nein**                                                                                                                                                                                 |
+| **Evidence**                       | `SprayPage.tsx`, `DuoPage.tsx`, `public/locales/*/consumer.json`, PT08.2 x10-Render-Smoke.                                                                                               |
+| **Status**                         | **RESOLVED (PT08.2, 2026-08-26)**                                                                                                                                                        |
 
 ---
 
 #### `DG-06b` — Consumer-Pflichthinweis, fachlicher Anteil (Maskenseite)
 
-| Feld | Inhalt |
-|---|---|
-| **Description** | Für das kosmetische Produkt der Maskenseite existiert **kein** freigegebener Pflichthinweis in irgendeiner Sprache. |
-| **Current state** | 0/10. PT04.1 hat die Lücke als Prüfpunkt benannt, **nicht** als belegte Rechtspflicht. |
+| Feld                               | Inhalt                                                                                                                                                                              |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Description**                    | Für das kosmetische Produkt der Maskenseite existiert **kein** freigegebener Pflichthinweis in irgendeiner Sprache.                                                                 |
+| **Current state**                  | 0/10. PT04.1 hat die Lücke als Prüfpunkt benannt, **nicht** als belegte Rechtspflicht.                                                                                              |
 | **Why AP04 cannot own completion** | Ob ein kosmetisches Produkt hier einen Pflichthinweis benötigt, ist eine fachlich-rechtliche Frage. AP04 formuliert keine neue regulatorische Aussage (`CT-08-K3`, §9.5, `R04-04`). |
-| **Gate type** | `DEFERRED_CONTENT_APPROVAL_GATE` |
-| **Owner AP** | **AP20** (Legal) / **AP21** (Consumer) · Fachfreigabe |
-| **Required before** | Launch-Gate 4 |
-| **Safe current behavior** | Es wird **kein** erfundener Hinweis ausgeliefert. Der Zustand ist als offener Prüfpunkt dokumentiert, nicht als erledigt. |
-| **Launch blocker** | **zu klären** — erst mit der fachlichen Bewertung entscheidbar |
-| **AP04 closure blocker** | **nein** |
-| **Evidence** | §10 `S-10`, `RN-08`; §23.3 B-6. |
+| **Gate type**                      | `DEFERRED_CONTENT_APPROVAL_GATE`                                                                                                                                                    |
+| **Owner AP**                       | **AP20** (Legal) / **AP21** (Consumer) · Fachfreigabe                                                                                                                               |
+| **Required before**                | Launch-Gate 4                                                                                                                                                                       |
+| **Safe current behavior**          | Es wird **kein** erfundener Hinweis ausgeliefert. Der Zustand ist als offener Prüfpunkt dokumentiert, nicht als erledigt.                                                           |
+| **Launch blocker**                 | **zu klären** — erst mit der fachlichen Bewertung entscheidbar                                                                                                                      |
+| **AP04 closure blocker**           | **nein**                                                                                                                                                                            |
+| **Evidence**                       | §10 `S-10`, `RN-08`; §23.3 B-6.                                                                                                                                                     |
 
 ---
 
 #### `DG-07` — Sprachabhängige Download-Assets
 
-| Feld | Inhalt |
-|---|---|
-| **Description** | Acht Sprachen haben keine eigenen Epigenetik-PDF-Varianten; die sechs Musterbefund-PDFs existieren nur auf Deutsch. |
-| **Current state** | `public/downloads/epigenetics/`: `de` **17** Dateien, `en` **9**, acht Sprachen **0**. Die Sprachzuordnung steht als übersetzbarer String in `epigenetics.json`; acht Sprachen tragen englische Dateinamen, **alle zehn** verweisen für die Musterbefunde auf die deutschen Dateien. **Referenzintegrität: 29/29 auflösbar, 0 verwaist.** |
-| **Why AP04 cannot own completion** | Die Dateien existieren nicht und lassen sich nicht durch Umhängen einer Referenz erzeugen. Der Owner sichtbarer Asset-Sprachlücken ist `AP08 PT08.6.2`; das Ressourcenmodell mit `assetByLanguage` gehört **AP19** (`CONTENT-ASSET-CONTRACT.md` §5.6, `CD-2`). |
-| **Gate type** | `DEFERRED_ASSET_GATE` + `DEFERRED_CONTENT_APPROVAL_GATE` |
-| **Owner AP** | **AP08 PT08.6** · **AP19** · Fachfreigabe für neue medizinische PDFs |
-| **Required before** | Launch-Gate 1 · Launch-Gate 6 |
-| **Safe current behavior** | Es wird eine existierende Datei ausgeliefert, kein toter Link (`CA-21` erfüllt). **Präzisierung aus dem Retry:** Der Fallback ist **nicht durchgehend still** — `samples.badge` („PDF in German") und `downloads.samplesText` („… — in German.") deklarieren die deutschen Musterbefund-PDFs in `en` und in den acht Fallback-Sprachen; die `compare.cta`/`basics.cta`-Labels tragen seit dem Retry ebenfalls den Hinweis „(German)" in allen zehn Sprachen (`CA-28`). Für die englischsprachigen Sheets deckt der namespace-weite FallbackNotice die Erwartung ab. **Die eigentliche Lücke ist das Fehlen der Sprachvarianten selbst**, nicht eine falsche Verfügbarkeitszusage. |
-| **Launch blocker** | **ja** (`CA-27`, `CA-28`, `I-13`, `S-03`) |
-| **AP04 closure blocker** | **nein** — mit einer Ausnahme: eine **gebrochene aktive Referenz** oder ein von AP04 auflösbares Duplikat (`CD-7`) bleibt ein echter PT04.4-Blocker. |
-| **Evidence** | §8.2, §8.3, §23.5; `MASTER-SCOPE.md` AP08 PT08.6.2; `CONTENT-ASSET-CONTRACT.md` `CD-2`, `CD-7`. |
+| Feld                               | Inhalt                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Description**                    | Acht Sprachen haben keine eigenen Epigenetik-PDF-Varianten; die sechs Musterbefund-PDFs existieren nur auf Deutsch.                                                                                                                                                                                                                                                                                                                                                 |
+| **Current state**                  | **PT08.6 Safe State hergestellt:** `public/downloads/epigenetics/`: `de` **17** PDFs, `en` **9** PDFs plus drei sprachklassifizierte ZIPs. Acht Locales erhalten bewusst die EN-Infoblätter; Musterbefunde/Zusatzblätter bleiben real DE. Jede fremdsprachige Einzel-/ZIP-Ressource trägt jetzt sichtbaren lokalisierten Sprachhinweis und `hrefLang`; **32/32 Gesamt-Downloads referenziert, 0 broken**. Fehlende neue Fachvarianten bleiben AP15/AP16/AP19-owned. |
+| **Why AP04 cannot own completion** | Die Dateien existieren nicht und lassen sich nicht durch Umhängen einer Referenz erzeugen. Der Owner sichtbarer Asset-Sprachlücken ist `AP08 PT08.6.2`; das Ressourcenmodell mit `assetByLanguage` gehört **AP19** (`CONTENT-ASSET-CONTRACT.md` §5.6, `CD-2`).                                                                                                                                                                                                      |
+| **Gate type**                      | `DEFERRED_ASSET_GATE` + `DEFERRED_CONTENT_APPROVAL_GATE`                                                                                                                                                                                                                                                                                                                                                                                                            |
+| **Owner AP**                       | **AP08 PT08.6** · **AP19** · Fachfreigabe für neue medizinische PDFs                                                                                                                                                                                                                                                                                                                                                                                                |
+| **Required before**                | Launch-Gate 1 · Launch-Gate 6                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| **Safe current behavior**          | **RESOLVED i18n/disclosure dimension:** reale Varianten werden deterministisch gewählt; jeder Fremdsprachen-Link ist in der UI-Locale sichtbar ausgewiesen; kein FallbackNotice wird als Contentstrategie benötigt; keine Fake-Datei. `npm run check:assets` erzwingt Existenz, x10-Metadaten und Disclosure.                                                                                                                                                       |
+| **Launch blocker**                 | **nein für AP08 Asset-Sprachwahrheit**; Herstellung weiterer fachlicher PDF-Varianten bleibt ownergebundenes späteres Freigabe-/Produktionsgate (`AP15/AP16/AP19`)                                                                                                                                                                                                                                                                                                  |
+| **AP04 closure blocker**           | **nein** — mit einer Ausnahme: eine **gebrochene aktive Referenz** oder ein von AP04 auflösbares Duplikat (`CD-7`) bleibt ein echter PT04.4-Blocker.                                                                                                                                                                                                                                                                                                                |
+| **Evidence**                       | §8.2, §8.3, §23.5; `MASTER-SCOPE.md` AP08 PT08.6.2; `CONTENT-ASSET-CONTRACT.md` `CD-2`, `CD-7`.                                                                                                                                                                                                                                                                                                                                                                     |
+| **Status**                         | **I18N-/DISCLOSURE-TEIL RESOLVED (PT08.6, 2026-08-26); echte fehlende Fachvarianten DEFERRED_OWNER**                                                                                                                                                                                                                                                                                                                                                                |
 
 ---
 
 ### 24.4 Bilanz
 
-| Kennzahl | Wert |
-|---|---|
-| Deferred Gates gesamt | **8** (`DG-01`–`DG-07`, davon `DG-06` zweigeteilt) |
-| davon `DEFERRED_IMPLEMENTATION_GATE` | 4 (`DG-02`, `DG-03`, `DG-04`, `DG-06a`) |
-| davon `DEFERRED_CONTENT_APPROVAL_GATE` | 4 (`DG-01`, `DG-02`, `DG-05`, `DG-06b`) |
-| davon `DEFERRED_ASSET_GATE` | 1 (`DG-07`) |
-| **AP04 Closure Blocker** | **0** |
-| **Launch Blocker weitergetragen** | **7** (`DG-06b` zu klären) |
-| als `READY` markiert | **0** — `GM-02` |
-| ohne eindeutigen Owner | **0** — `GM-04` |
-| unklassifizierte Lücken | **0** — `GM-03` |
+| Kennzahl                               | Wert                                                                                                          |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Deferred Gates gesamt                  | **8** (`DG-01`–`DG-07`, davon `DG-06` zweigeteilt)                                                            |
+| davon `DEFERRED_IMPLEMENTATION_GATE`   | 4 (`DG-02`, `DG-03`, `DG-04`, `DG-06a`)                                                                       |
+| davon `DEFERRED_CONTENT_APPROVAL_GATE` | 4 (`DG-01`, `DG-02`, `DG-05`, `DG-06b`)                                                                       |
+| davon `DEFERRED_ASSET_GATE`            | 1 (`DG-07`)                                                                                                   |
+| **AP04 Closure Blocker**               | **0**                                                                                                         |
+| **Durch PT08.2–PT08.6 resolved**       | **7 technische/i18n-Dimensionen** (`DG-01`, `DG-02`, `DG-03`, `DG-04`, `DG-05`, `DG-06a`, `DG-07` Disclosure) |
+| **Weiter ownergebunden offen**         | **2 Gates** (`DG-06b`; `DG-07` nur noch echte Fachasset-Produktion)                                           |
+| ohne eindeutigen Owner                 | **0** — `GM-04`                                                                                               |
+| unklassifizierte Lücken                | **0** — `GM-03`                                                                                               |
 
 **Owner-Verteilung:** AP08 trägt 6 der 8 Gates ganz oder teilweise — das ist erwartbar, denn AP08 ist
 laut Master-Scope der Eigentümer des 10-Sprachen-Rollouts. AP15, AP16, AP17, AP19, AP20, AP21 und AP22
 tragen je einen fachlichen oder plattformseitigen Anteil.
 
-**Keines dieser Gates ist geschlossen. Keines ist erledigt. Alle sind offen und werden weitergetragen.**
-Die Recovery hat ausschließlich ihre Gate-Art und ihren Zeitpunkt korrigiert.
+**Aktueller Handoff nach PT08.6:** Innerhalb dieses ursprünglichen Registers sind alle AP08-eigenen
+i18n-/Disclosure-Dimensionen belegt geschlossen. `DG-06b` und die reale fachliche Produktion weiterer
+`DG-07`-PDF-Varianten bleiben ownergebunden offen, ohne stillen Sprachfallback. Von den später
+ergänzten Asset-Gates ist `DG-09` durch das locale-aware Runtime-PDF geschlossen; `DG-08` bleibt bei
+AP21/AP09.
 
 ---
 
@@ -1616,65 +1611,66 @@ aus §23.1 sind unverändert erhalten und wurden gegen die neue Gate-Semantik ve
 
 ### 25.2 Verifikation des Bestands (nicht übernommen, neu gemessen)
 
-| Prüfung | Ergebnis |
-|---|---|
-| JSON parse · Duplicate Keys | **163 Dateien OK · 0 Duplicate Keys** |
-| Key-Parität gegen `de` | **0 fehlende Keys** über 15 Namespaces × 9 Sprachen |
-| Namespace-Registrierung | 14/15; einzige Ausnahme `casestudies` — dokumentiert und gewollt (`ID-5`, `DEC-RL-015`) |
-| Leere Werte | 1 (`testimonials.goran_stojanovic.practice` × 10) — optionales Feld, `TestimonialsSection.tsx:124` rendert es konditional; **kein Platzhalter** |
-| Chat-Copy in Locales | **0** — kein `chat`-Objekt, kein Chatbot/Concierge/HiHuman |
-| Garantie-Copy | **0** — kein „garantierte Performance"-Äquivalent, keine Hero-Garantiezusage, keine Band-Komponente |
-| GENERAL_SALES | **einheitlich in 10/10 Sprachen über 13 Keys** · alter Wortlaut „Beratung buchen" **0 ×** in Locales und Quelltext |
-| Spezialisierte CTA-Rollen | `SUPPORT`, `CONTENT_NEXT_STEP` (Artikel) und `EPIGENETICS_INQUIRY` in **10/10** Sprachen von GENERAL_SALES getrennt |
-| IglooPro-Claim | **184 × einheitlich `CV < 2 %`**, 0 × `< 5 %`, in allen 10 Locales präsent |
-| Placeholder/Mock | **0** — kein Lorem/Coming-soon/TBD/Dummy/Prototype in Locales, 0 TODO/FIXME/HACK in `src/**` |
-| Success-Semantik | **0** Mail-only-Formulierungen in Success-Keys; Kontakt und Support sagen „erhalten und registriert" |
-| Hartkodierte sichtbare Strings | außerhalb der AP08-eigenen Flächen nur Firmennamen und Postanschriften im Footer — korrekt sprachneutral |
+| Prüfung                        | Ergebnis                                                                                                                                        |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| JSON parse · Duplicate Keys    | **163 Dateien OK · 0 Duplicate Keys**                                                                                                           |
+| Key-Parität gegen `de`         | **0 fehlende Keys** über 15 Namespaces × 9 Sprachen                                                                                             |
+| Namespace-Registrierung        | 14/15; einzige Ausnahme `casestudies` — dokumentiert und gewollt (`ID-5`, `DEC-RL-015`)                                                         |
+| Leere Werte                    | 1 (`testimonials.goran_stojanovic.practice` × 10) — optionales Feld, `TestimonialsSection.tsx:124` rendert es konditional; **kein Platzhalter** |
+| Chat-Copy in Locales           | **0** — kein `chat`-Objekt, kein Chatbot/Concierge/HiHuman                                                                                      |
+| Garantie-Copy                  | **0** — kein „garantierte Performance"-Äquivalent, keine Hero-Garantiezusage, keine Band-Komponente                                             |
+| GENERAL_SALES                  | **einheitlich in 10/10 Sprachen über 13 Keys** · alter Wortlaut „Beratung buchen" **0 ×** in Locales und Quelltext                              |
+| Spezialisierte CTA-Rollen      | `SUPPORT`, `CONTENT_NEXT_STEP` (Artikel) und `EPIGENETICS_INQUIRY` in **10/10** Sprachen von GENERAL_SALES getrennt                             |
+| IglooPro-Claim                 | **184 × einheitlich `CV < 2 %`**, 0 × `< 5 %`, in allen 10 Locales präsent                                                                      |
+| Placeholder/Mock               | **0** — kein Lorem/Coming-soon/TBD/Dummy/Prototype in Locales, 0 TODO/FIXME/HACK in `src/**`                                                    |
+| Success-Semantik               | **0** Mail-only-Formulierungen in Success-Keys; Kontakt und Support sagen „erhalten und registriert"                                            |
+| Hartkodierte sichtbare Strings | außerhalb der AP08-eigenen Flächen nur Firmennamen und Postanschriften im Footer — korrekt sprachneutral                                        |
 
 ### 25.3 Im Retry geschlossene Klasse-A-Lücken
 
-| # | Befund | Korrektur |
-|---|---|---|
+| #       | Befund                                                                                                                                                                                                                                                                                                                                                                                                                  | Korrektur                                                                                                                                                                                                                                                                    |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **A-1** | **Inkohärenter EN-Fallback-Namespace.** Der erste Lauf hatte 12 Keys (9 × `befund.*`, 3 Inquiry-CTAs) in acht Sprachen übersetzt. Der Marker `_translationStatus` ist für `epigenetics` aber **wurzel-skopiert**; die Seiten setzen daraufhin `lang="en"` auf den gesamten Inhaltscontainer. Die 12 lokalisierten Strings wären mit englischer Phonetik vorgelesen worden — Verstoß gegen `I-08`, WCAG 3.1.2 und `N13`. | **100 Werte in 8 Sprachen** auf den englischen Namespace-Wert zurückgeführt. Die Keys bleiben vollständig vorhanden — der `I-06`-Defekt (Roh-Key-Rendering) bleibt behoben. Marker-Umhängung auf Teilbäume ist **AP08 PT08.1.5/.6** und wurde nach `GM-05` nicht vorgezogen. |
-| **A-2** | **Fehlender Sprachhinweis (`CA-28`).** `compare.cta` und `basics.cta` verlinken deutschsprachige PDFs (`de/16_…`, `de/17_…`). Die englische Fassung trägt den Hinweis „(German)", die acht Fallback-Sprachen trugen ihn **nicht** — ein stiller Fremdsprach-Download ohne Kennzeichnung. | **16 Werte in 8 Sprachen** auf die englische Fassung **mit** Sprachhinweis angeglichen. |
+| **A-2** | **Fehlender Sprachhinweis (`CA-28`).** `compare.cta` und `basics.cta` verlinken deutschsprachige PDFs (`de/16_…`, `de/17_…`). Die englische Fassung trägt den Hinweis „(German)", die acht Fallback-Sprachen trugen ihn **nicht** — ein stiller Fremdsprach-Download ohne Kennzeichnung.                                                                                                                                | **16 Werte in 8 Sprachen** auf die englische Fassung **mit** Sprachhinweis angeglichen.                                                                                                                                                                                      |
 
 **SSR-Nachweis nach der Korrektur:** `/pl/epigenetics` liefert genau **einen** `lang="en"`-Container,
 den FallbackNotice und **0** lokalisierte Rest-Strings darin. `/pl/epigenetics/musterbefund/metabolic-health`
 rendert **0** `befund.*`-Roh-Keys und zeigt das englische Label.
 
-### 25.4 Klasse-B/C-Prüfung: nichts vorgezogen
+### 25.4 Klasse-B/C-Prüfung und späterer Owner-Status
 
 Geprüft und **bewusst nicht** implementiert — jeweils registriert in §24:
 
-| Gate | Nicht getan | Owner |
-|---|---|---|
-| `DG-01` | Epigenetik-Fachtexte übersetzt · Marker auf Teilbäume umgehängt | Fachfreigabe · AP15 · AP08 PT08.3.1 / PT08.1.5 |
-| `DG-02` | `BefundSprachen` umtypisiert · Befundinhalte erzeugt | AP16 PT16.1.6 · AP08 PT08.3.2 |
-| `DG-03` | Consumer `t()`-fähig gemacht · Consumer-Namespace angelegt | AP08 PT08.2.3–.7 · AP21 |
-| `DG-04` | `language` in den Lead-Payload aufgenommen · Mail-Templates lokalisiert | AP22 · AP08 PT08.5 |
-| `DG-05` | Artikel-Volltexte übersetzt · inerten Fallback-Marker angelegt | Fachfreigabe · AP17 · AP08 PT08.1.5 |
-| `DG-06a/b` | Consumer-Pflichthinweis platziert · Maskenhinweis formuliert | AP08/AP21 · AP20 · Fachfreigabe |
-| `DG-07` | Sprachvarianten der PDFs erzeugt · Ressourcenmodell gebaut | AP08 PT08.6 · AP19 |
+| Gate       | Nicht getan                                                                                                                                   | Owner                                         |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| `DG-01`    | **RESOLVED PT08.3:** aktueller Webcontent x10; kein regulärer Marker                                                                          | AP08 PT08.3                                   |
+| `DG-02`    | **RESOLVED PT08.3:** `BefundSprachen` + 6 × 10 Inhalte, lazy erhalten                                                                         | AP08 PT08.3                                   |
+| `DG-03`    | **RESOLVED PT08.2:** Consumer `t()`-fähig · `consumer` × 10                                                                                   | AP08 PT08.2.3–.7                              |
+| `DG-04`    | **RESOLVED PT08.5:** `locale` in aktuellen Payloads; Nutzer-Mail-/PDF-Runtime x10                                                             | AP08 PT08.5; Future-Plattform AP22            |
+| `DG-05`    | **RESOLVED PT08.3:** aktuelle Volltexte x10, kein inertes Marker-Modell                                                                       | AP08 PT08.3; spätere Editorial-Plattform AP17 |
+| `DG-06a/b` | **DG-06a RESOLVED PT08.2** · Maskenhinweis weiterhin ungeklärt                                                                                | AP20 · AP21 · Fachfreigabe                    |
+| `DG-07`    | **PT08.6 i18n/disclosure RESOLVED:** 32/32 klassifiziert, 0 broken, sichtbare Sprache; neue Fachvarianten/Resource-Modell ownergebunden offen | Fachcontent AP15/AP16 · Plattform AP19        |
 
-`NAMESPACES` in `src/i18n.ts` ist unverändert. **Keine medizinische oder regulatorische Aussage
-erzeugt, übersetzt oder umformuliert.**
+PT08.3 hat ausschließlich vorhandene freigegebene Ausgangstexte fachlich treu lokalisiert. Es wurden
+keine neuen Claims, Fachkapitel, Assets, Journeys oder späteren Plattformen erzeugt.
 
 ### 25.5 Zielstatus je Bereich — ehrlich ausgewiesen
 
-| Bereich | Target | Current runtime readiness | Owner | AP04 Closure Blocker |
-|---|---|---|---|---|
-| Consumer × 10 | **REQUIRED** | **DEFERRED** — 1/10, 0 × `useTranslation` | AP08 PT08.2 · AP21 | nein |
-| Epigenetik × 10 | **REQUIRED** | **DEFERRED** — Namespace uniform EN-Fallback, Marker gesetzt | Fachfreigabe · AP15 · AP08 PT08.3.1 | nein |
-| Musterbefunde × 10 | **REQUIRED** | **DEFERRED** — 2/10, Sprachmodell zweisprachig | AP16 · AP08 PT08.3.2 | nein |
-| Systemmail × 10 | **REQUIRED** | **DEFERRED** — 1/10, kein `language` im Leadflow | AP22 · AP08 PT08.5 | nein |
-| Artikel × 10 | **REQUIRED** | **DEFERRED** — 6/10 übersetzt | Fachfreigabe · AP17 | nein |
-| Key-Parität | REQUIRED | **READY** — 0 Lücken | AP04 | — |
-| CTA-Standard | REQUIRED | **READY** — 10/10 | AP04 | — |
-| Chat-/Garantie-Copy | REQUIRED | **READY** — 0 Treffer | AP04 | — |
-| Success-Semantik | REQUIRED | **READY** — 10/10 | AP04 | — |
-| IglooPro-Claim | REQUIRED | **READY** — 184 × einheitlich | AP04 | — |
+| Bereich             | Target       | Current runtime readiness                                                       | Owner                               | AP04 Closure Blocker |
+| ------------------- | ------------ | ------------------------------------------------------------------------------- | ----------------------------------- | -------------------- |
+| Consumer × 10       | **REQUIRED** | **CONTENT-I18N READY** — 10/10; Routing-Freigabe bleibt PT08.4                  | AP08 PT08.4 · AP21                  | nein                 |
+| Epigenetik × 10     | **REQUIRED** | **READY (aktueller Webcontent)** — 10/10, kein regulärer Fallback               | AP08 PT08.3; Weiterentwicklung AP15 | nein                 |
+| Musterbefunde × 10  | **REQUIRED** | **READY (Webcontent)** — 6 × 10; PDFs bleiben asset-deferred                    | AP08 PT08.3; Assets PT08.6          | nein                 |
+| Systemmail × 10     | **REQUIRED** | **READY** — bestehende nutzergerichtete Runtime x10; Future-Flows ownergebunden | AP08 PT08.5 · Future-Plattform AP22 | nein                 |
+| Artikel × 10        | **REQUIRED** | **READY (aktuelle Volltexte)** — 10/10                                          | AP08 PT08.3; Plattform AP17         | nein                 |
+| Key-Parität         | REQUIRED     | **READY** — G4, 15 × 10, 0 Missing/Extra/Empty                                  | AP08 PT08.3                         | —                    |
+| CTA-Standard        | REQUIRED     | **READY** — 10/10                                                               | AP04                                | —                    |
+| Chat-/Garantie-Copy | REQUIRED     | **READY** — 0 Treffer                                                           | AP04                                | —                    |
+| Success-Semantik    | REQUIRED     | **READY** — 10/10                                                               | AP04                                | —                    |
+| IglooPro-Claim      | REQUIRED     | **READY** — 184 × einheitlich                                                   | AP04                                | —                    |
 
-**False-ready gaps: 0.** Kein Deferred Gate ist als `READY` ausgewiesen.
+**False-ready gaps: 0.** `READY` bezieht sich ausschließlich auf den jeweils belegten aktuellen
+Webcontent. Systemmail-, Asset-, Routing-, Journey- und spätere Fachplattform-Gates bleiben offen.
 
 ### 25.6 Qualitätsgates
 
@@ -1694,25 +1690,25 @@ widerspricht, gilt er.
 
 ### 26.1 Asset-Inventar
 
-| Klasse | Bestand | Ergebnis |
-|---|---|---|
-| Downloads `public/downloads/**` | **32 Dateien** — 3 Produkt-PDFs, `epigenetics/de` 17, `epigenetics/en` 9, 3 ZIPs | vollständig inventarisiert |
-| OG-/Social-Bilder `public/` | 3 (`og-image`, `og-epigenetics`, `og-vitd3-spray`), je **1200 × 630**, 80–84 KB | korrekte Social-Dimensionen |
-| Favicons/Manifest-Icons `public/` | 11 | unverändert |
-| Gebündelte Bilder `src/assets/**` | **51** nach der CD-7-Bereinigung (13 Epigenetik, 5 Consumer, 8 Testimonials, 25 sonstige) | inventarisiert |
-| `<img>`-Elemente im Quelltext | **21** | siehe §26.4 |
+| Klasse                            | Bestand                                                                                   | Ergebnis                    |
+| --------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------- |
+| Downloads `public/downloads/**`   | **32 Dateien** — 3 Produkt-PDFs, `epigenetics/de` 17, `epigenetics/en` 9, 3 ZIPs          | vollständig inventarisiert  |
+| OG-/Social-Bilder `public/`       | 3 (`og-image`, `og-epigenetics`, `og-vitd3-spray`), je **1200 × 630**, 80–84 KB           | korrekte Social-Dimensionen |
+| Favicons/Manifest-Icons `public/` | 11                                                                                        | unverändert                 |
+| Gebündelte Bilder `src/assets/**` | **51** nach der CD-7-Bereinigung (13 Epigenetik, 5 Consumer, 8 Testimonials, 25 sonstige) | inventarisiert              |
+| `<img>`-Elemente im Quelltext     | **21**                                                                                    | siehe §26.4                 |
 
 **Referenzquellen geprüft:** 29 PDF/ZIP-Referenzen aus 150 Locale-Dateien · 3 Katalogeinträge ·
 3 `public/`-Pfade im Quelltext · 36 Bundler-Importe.
 
 ### 26.2 Broken References
 
-| Messung | Ergebnis |
-|---|---|
-| Broken references **vor** PT04.4 | **0** |
-| Broken references **nach** PT04.4 | **0** |
-| Download-Smoke gegen laufendes SSR | **16/16 gerenderte Download-`href` liefern HTTP 200** mit realer Content-Length |
-| Absolute lokale Pfade / Casing-Fehler | 0 |
+| Messung                               | Ergebnis                                                                        |
+| ------------------------------------- | ------------------------------------------------------------------------------- |
+| Broken references **vor** PT04.4      | **0**                                                                           |
+| Broken references **nach** PT04.4     | **0**                                                                           |
+| Download-Smoke gegen laufendes SSR    | **16/16 gerenderte Download-`href` liefern HTTP 200** mit realer Content-Length |
+| Absolute lokale Pfade / Casing-Fehler | 0                                                                               |
 
 ### 26.3 `CD-7` — Asset-Duplikat aufgelöst (AP04-owned)
 
@@ -1722,11 +1718,11 @@ anderes: die drei PDFs unter `src/assets/downloads/` waren **byte-identisch** (m
 `public/downloads/`, aber **nicht verwaist** — fünf Produktionskomponenten importierten sie und
 lieferten dieselben Dokumente unter einer **zweiten, bundle-gehashten URL** aus:
 
-| Datei | zweite Auslieferung durch |
-|---|---|
-| `igloo-pro-flyer.pdf` | `IglooProHero.tsx:5` · `IglooSpecsSection.tsx:3` · `IglooProductFinalCta.tsx:3` |
-| `Polaris Vitamin D Spray  A4zuA5_DE_2025-01-20.pdf` | `VitaminD3SprayPage.tsx:25` |
-| `Polaris Vitamin D Spray  A4zuA5_EN(8).pdf` | `VitaminD3SprayPage.tsx:26` |
+| Datei                                               | zweite Auslieferung durch                                                       |
+| --------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `igloo-pro-flyer.pdf`                               | `IglooProHero.tsx:5` · `IglooSpecsSection.tsx:3` · `IglooProductFinalCta.tsx:3` |
+| `Polaris Vitamin D Spray  A4zuA5_DE_2025-01-20.pdf` | `VitaminD3SprayPage.tsx:25`                                                     |
+| `Polaris Vitamin D Spray  A4zuA5_EN(8).pdf`         | `VitaminD3SprayPage.tsx:26`                                                     |
 
 Dasselbe Dokument hatte damit **zwei Identitäten und zwei URLs** — Verstoß gegen `CA-19`
 (eine fachliche Asset-Identität) und `CA-22` (keine zweite Fassung in einem parallelen Baum). Die
@@ -1737,26 +1733,26 @@ Resource-ID, Version/Datum und die Sprachdeklaration. Die vier Komponenten refer
 Katalog-URL `/downloads/<file>`; danach war `src/assets/downloads/` nachweislich unreferenziert und
 wurde entfernt.
 
-| Nachweis | Ergebnis |
-|---|---|
-| Code-Referenzen auf `src/assets/downloads` nach Umstellung | **0** |
-| Backlog-Bestand (Deal/Voucher/Case-Study/Shop) im entfernten Verzeichnis | **0** |
-| kanonisches Evidence-/Source-Artefakt | nein — reine Produktflyer, im Katalog geführt |
-| Typecheck / Build nach Entfernung | **grün** |
-| Bundle-gehashte PDF-Duplikate in `dist/client/assets/` | vorher **3**, nachher **0** |
-| Download-Smoke der drei Produkt-PDFs | **200** · 494 862 / 1 045 006 / 1 014 799 Bytes |
+| Nachweis                                                                 | Ergebnis                                        |
+| ------------------------------------------------------------------------ | ----------------------------------------------- |
+| Code-Referenzen auf `src/assets/downloads` nach Umstellung               | **0**                                           |
+| Backlog-Bestand (Deal/Voucher/Case-Study/Shop) im entfernten Verzeichnis | **0**                                           |
+| kanonisches Evidence-/Source-Artefakt                                    | nein — reine Produktflyer, im Katalog geführt   |
+| Typecheck / Build nach Entfernung                                        | **grün**                                        |
+| Bundle-gehashte PDF-Duplikate in `dist/client/assets/`                   | vorher **3**, nachher **0**                     |
+| Download-Smoke der drei Produkt-PDFs                                     | **200** · 494 862 / 1 045 006 / 1 014 799 Bytes |
 
 **~2,4 MB doppelte Auslieferung entfernt.** `LB-18` und `OR-8` sind damit geschlossen.
 
 ### 26.4 Alt-Texte
 
-| Kategorie | Anzahl | Bewertung |
-|---|---|---|
-| fehlend | **0** | — |
-| lokalisiert über `t()` | 7 | konform |
-| dynamisch (`{title}`, `{name}`, `{image.alt}`) | 4 | konform |
-| dekorativ (`alt=""`) | 1 | konform |
-| Literal | 9 | siehe unten |
+| Kategorie                                      | Anzahl | Bewertung   |
+| ---------------------------------------------- | ------ | ----------- |
+| fehlend                                        | **0**  | —           |
+| lokalisiert über `t()`                         | 7      | konform     |
+| dynamisch (`{title}`, `{name}`, `{image.alt}`) | 4      | konform     |
+| dekorativ (`alt=""`)                           | 1      | konform     |
+| Literal                                        | 9      | siehe unten |
 
 Die neun Literale sind **kein** AP04-Defekt:
 
@@ -1775,38 +1771,38 @@ Der vollständige Accessibility-Audit bleibt **AP24**.
 
 **Zwei undeklarierte Fremdsprach-Downloads gefunden und geschlossen (AP04-owned, Klasse A):**
 
-| Fund | Vorher | Jetzt |
-|---|---|---|
+| Fund                                                                                               | Vorher                                                                  | Jetzt                                                                              |
+| -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | `/igloo-pro` liefert `igloo-pro-flyer.pdf` — laut Katalog **„(DE)"** — in **allen 10** Locales aus | Labels wie „Karta danych (PDF)", „Datový list (PDF)" ohne jeden Hinweis | **3 Keys × 9 Nicht-DE-Locales** tragen die Kennzeichnung: „Karta danych (PDF, DE)" |
-| `/vitamin-d3-spray` wählt DE nur für `de`, sonst **EN** (`VitaminD3SprayPage.tsx:35`) | „Pobierz PDF", „Stáhnout PDF" ohne Hinweis | **2 Keys × 8 Locales**: „Pobierz PDF (EN)" |
+| `/vitamin-d3-spray` wählt DE nur für `de`, sonst **EN** (`VitaminD3SprayPage.tsx:35`)              | „Pobierz PDF", „Stáhnout PDF" ohne Hinweis                              | **2 Keys × 8 Locales**: „Pobierz PDF (EN)"                                         |
 
 **43 Werte** angepasst. Die Konvention folgt dem kanonischen Katalog, der für genau diese drei Dateien
 bereits „(DE)"/„(EN)" verwendet.
 
 **Verifizierter Bestand — keine Nacharbeit nötig:**
 
-| Ressource | Offenlegung | Status |
-|---|---|---|
-| 6 Musterbefund-PDFs (nur `de`) | `samples.badge` = „PDF in German" in `en` **und allen 8 Fallback-Locales** | **bestätigt** — die PT04.3-Aussage trifft zu |
-| `compare.cta` / `basics.cta` → `de/16_`, `de/17_` | „… (German)" in allen 10 Locales | bestätigt (in PT04.3 geschlossen) |
-| Epigenetik-Sheets/ZIP (`en/…`) in 8 Locales | namespace-weiter `LanguageFallbackNotice` + `lang="en"` | ausreichend erkennbar |
-| `/downloads`-Katalogseite | Titel tragen „(DE)"/„(EN)" | bestätigt |
+| Ressource                                         | Offenlegung                                                                | Status                                       |
+| ------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------- |
+| 6 Musterbefund-PDFs (nur `de`)                    | `samples.badge` = „PDF in German" in `en` **und allen 8 Fallback-Locales** | **bestätigt** — die PT04.3-Aussage trifft zu |
+| `compare.cta` / `basics.cta` → `de/16_`, `de/17_` | „… (German)" in allen 10 Locales                                           | bestätigt (in PT04.3 geschlossen)            |
+| Epigenetik-Sheets/ZIP (`en/…`) in 8 Locales       | namespace-weiter `LanguageFallbackNotice` + `lang="en"`                    | ausreichend erkennbar                        |
+| `/downloads`-Katalogseite                         | Titel tragen „(DE)"/„(EN)"                                                 | bestätigt                                    |
 
 **Damit gilt: kein Nutzer erhält in einer nichtdeutschen Locale einen fremdsprachigen Download, ohne
 dass dessen Sprache vorher erkennbar ist.**
 
 ### 26.6 Download-Katalog, Versionierung, Public/Gated
 
-| Prüfung | Ergebnis |
-|---|---|
-| Katalogeintrag ohne Datei | **0** |
-| Datei ohne Katalogeintrag (`public/downloads/` Wurzel) | **0** |
-| Dateigröße deklariert vs. real | 0,5/1,0/1,0 MB gegen 0,47/1,00/0,97 MB — plausibel gerundet |
-| Version/Datum | alle drei `2025-01-20`, nachvollziehbar |
-| Dateinamen | nach der CD-7-Auflösung durchgehend ohne Leerzeichen/Sonderzeichen |
-| Leere Kategorie `tech` | **bestätigt** — UI zeigt „Tech-Broschüren", Katalog hat 0 Einträge · Owner **AP19** (`IAD-06`) |
-| Zugangsklasse im Katalog | **nicht vorhanden** · Owner **AP19 PT19.1/PT19.2** (`IAD-14`) |
-| Gating-Mechanismus im Repository | **0 Treffer** — alle Ressourcen sind faktisch `PUBLIC` (`CD-8`) · Owner **AP19 PT19.3** mit **AP22** |
+| Prüfung                                                | Ergebnis                                                                                             |
+| ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| Katalogeintrag ohne Datei                              | **0**                                                                                                |
+| Datei ohne Katalogeintrag (`public/downloads/` Wurzel) | **0**                                                                                                |
+| Dateigröße deklariert vs. real                         | 0,5/1,0/1,0 MB gegen 0,47/1,00/0,97 MB — plausibel gerundet                                          |
+| Version/Datum                                          | alle drei `2025-01-20`, nachvollziehbar                                                              |
+| Dateinamen                                             | nach der CD-7-Auflösung durchgehend ohne Leerzeichen/Sonderzeichen                                   |
+| Leere Kategorie `tech`                                 | **bestätigt** — UI zeigt „Tech-Broschüren", Katalog hat 0 Einträge · Owner **AP19** (`IAD-06`)       |
+| Zugangsklasse im Katalog                               | **nicht vorhanden** · Owner **AP19 PT19.1/PT19.2** (`IAD-14`)                                        |
+| Gating-Mechanismus im Repository                       | **0 Treffer** — alle Ressourcen sind faktisch `PUBLIC` (`CD-8`) · Owner **AP19 PT19.3** mit **AP22** |
 
 **Keine Gating-Implementierung vorgenommen.** Der aktuelle sichere Zustand ist: alle Downloads sind
 öffentlich und werden auch als öffentlich beworben („Kostenlos & ohne Anmeldung") — es besteht keine
@@ -1814,15 +1810,15 @@ falsche Schutzzusage (`CM-05`).
 
 ### 26.7 Orphan- und Legacy-Assets — klassifiziert, nicht gelöscht
 
-| Asset | Größe | Klasse | Begründung |
-|---|---|---|---|
-| `src/assets/hero_device.webp` | 17 KB | `INTENTIONAL UNUSED` | Hero-Variante; Homepage-Owner **AP11** |
-| `src/assets/igloo_explode.webp` | 15 KB | `INTENTIONAL UNUSED` | Produktrender; Owner **AP14** |
-| `src/assets/igloo_front.webp` | 15 KB | `INTENTIONAL UNUSED` | Produktrender; Owner **AP14** |
-| `src/assets/landingpages-consumer/spray-hero-office-single.jpeg` | 231 KB | `INTENTIONAL UNUSED` | Consumer-Bildvariante; Owner **AP21** (`DG-03`) |
-| `src/assets/polarisdx_logo.webp` | 11 KB | `INTENTIONAL UNUSED` | Markenasset-Variante |
-| 6 × PNG-Master (`green`, `homeclinic`, `makemoney`, `Testbild1`, `above_the_fold`, `Igloo-pro-frontal`) | 6,9 MB | `SOURCE MASTER` | **werden nicht ausgeliefert** — `articleImages.ts` importiert ausschließlich die `.webp`-Ableitungen (18–67 KB); die `.png`-Namen sind nur Map-**Schlüssel**. Als Quellmaster für eine spätere Bildpipeline relevant · Owner **AP25** |
-| `DoctorsSection.tsx`, `FeaturedCaseStudy.tsx` | — | `INTENTIONAL UNUSED` / `BACKLOG` | 0 Render-Stellen; Case Study ist `DEC-RL-015` |
+| Asset                                                                                                   | Größe  | Klasse                           | Begründung                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------- | ------ | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `src/assets/hero_device.webp`                                                                           | 17 KB  | `INTENTIONAL UNUSED`             | Hero-Variante; Homepage-Owner **AP11**                                                                                                                                                                                                |
+| `src/assets/igloo_explode.webp`                                                                         | 15 KB  | `INTENTIONAL UNUSED`             | Produktrender; Owner **AP14**                                                                                                                                                                                                         |
+| `src/assets/igloo_front.webp`                                                                           | 15 KB  | `INTENTIONAL UNUSED`             | Produktrender; Owner **AP14**                                                                                                                                                                                                         |
+| `src/assets/landingpages-consumer/spray-hero-office-single.jpeg`                                        | 231 KB | `INTENTIONAL UNUSED`             | Consumer-Bildvariante; Owner **AP21** (`DG-03`)                                                                                                                                                                                       |
+| `src/assets/polarisdx_logo.webp`                                                                        | 11 KB  | `INTENTIONAL UNUSED`             | Markenasset-Variante                                                                                                                                                                                                                  |
+| 6 × PNG-Master (`green`, `homeclinic`, `makemoney`, `Testbild1`, `above_the_fold`, `Igloo-pro-frontal`) | 6,9 MB | `SOURCE MASTER`                  | **werden nicht ausgeliefert** — `articleImages.ts` importiert ausschließlich die `.webp`-Ableitungen (18–67 KB); die `.png`-Namen sind nur Map-**Schlüssel**. Als Quellmaster für eine spätere Bildpipeline relevant · Owner **AP25** |
+| `DoctorsSection.tsx`, `FeaturedCaseStudy.tsx`                                                           | —      | `INTENTIONAL UNUSED` / `BACKLOG` | 0 Render-Stellen; Case Study ist `DEC-RL-015`                                                                                                                                                                                         |
 
 **0 Löschungen außer der belegten CD-7-Auflösung.** Kein Backlog-Asset aktiviert oder entfernt.
 
@@ -1834,53 +1830,55 @@ falsche Schutzzusage (`CM-05`).
 
 #### `DG-08` — Consumer OG-/Produktbilder
 
-| Feld | Inhalt |
-|---|---|
-| **Asset** | OG-/Social-Bild je Consumer-Familie |
-| **Current locale/state** | **0 von 3** Consumer-Seiten übergeben `SEOHead` ein `ogImage`; sie fallen auf das generische `og-image.jpg` zurück (`CD-9`) |
-| **Missing locale/variant** | drei produktspezifische OG-Bilder (1200 × 630) |
-| **Reason** | Fünf Consumer-Produktfotos existieren bereits unter `src/assets/landingpages-consumer/`, aber die OG-Verdrahtung ist SEO-Ausgabe und Seiten-Owner-Arbeit — der PT04.4-Prompt §7 stellt sie ausdrücklich AP09/AP21 zu |
-| **Gate type** | `DEFERRED_ASSET_GATE` |
-| **Owner** | **AP21 PT21.6.5** mit **AP09** |
-| **Required before** | Launch-Gate 4 (SEO) |
-| **Safe current behavior** | Generisches Marken-OG-Bild in korrekten Dimensionen; **kein totes Bild, keine falsche Produktdarstellung** |
-| **User-facing disclosure** | entfällt — betrifft nur Social-Vorschauen |
-| **Launch blocker** | **ja** |
-| **AP04 closure blocker** | **nein** |
-| **Evidence** | `grep ogImage src/pages/consumer/**` = 0 Treffer; `CONTENT-ASSET-CONTRACT.md` `CD-9` |
+| Feld                       | Inhalt                                                                                                                                                                                                               |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Asset**                  | OG-/Social-Bild je Consumer-Familie                                                                                                                                                                                  |
+| **Current locale/state**   | **0 von 3** Consumer-Seiten übergeben `SEOHead` ein `ogImage`; sie fallen auf das generische `og-image.jpg` zurück (`CD-9`)                                                                                          |
+| **Missing locale/variant** | drei produktspezifische OG-Bilder (1200 × 630)                                                                                                                                                                       |
+| **Reason**                 | Fünf Consumer-Produktfotos existieren bereits unter `src/assets/landingpages-consumer/`, aber die OG-Verdrahtung ist SEO-Ausgabe und Seiten-Owner-Arbeit — der PT04.4-Prompt §7 stellt sie ausdrücklich AP09/AP21 zu |
+| **Gate type**              | `DEFERRED_ASSET_GATE`                                                                                                                                                                                                |
+| **Owner**                  | **AP21 PT21.6.5** mit **AP09**                                                                                                                                                                                       |
+| **Required before**        | Launch-Gate 4 (SEO)                                                                                                                                                                                                  |
+| **Safe current behavior**  | Generisches Marken-OG-Bild in korrekten Dimensionen; **kein totes Bild, keine falsche Produktdarstellung**                                                                                                           |
+| **User-facing disclosure** | entfällt — betrifft nur Social-Vorschauen                                                                                                                                                                            |
+| **Launch blocker**         | **ja**                                                                                                                                                                                                               |
+| **AP04 closure blocker**   | **nein**                                                                                                                                                                                                             |
+| **Evidence**               | `grep ogImage src/pages/consumer/**` = 0 Treffer; `CONTENT-ASSET-CONTRACT.md` `CD-9`                                                                                                                                 |
 
 ---
 
 #### `DG-09` — ROI-Report-PDF nur deutsch
 
-| Feld | Inhalt |
-|---|---|
-| **Asset** | zur Laufzeit erzeugtes ROI-Report-PDF (`server/server.js`) |
-| **Current locale/state** | **1/10** — deutsch, inklusive `Intl.NumberFormat('de-DE')` und des Pflichthinweises `RN-07` |
-| **Missing locale/variant** | neun Sprachfassungen |
-| **Reason** | Das PDF entsteht im Lead-Flow, der **keinen Sprachkontext** empfängt — identische Ursache wie `DG-04` |
-| **Gate type** | `DEFERRED_ASSET_GATE` + `DEFERRED_IMPLEMENTATION_GATE` |
-| **Owner** | **AP22** (Sprachkontext) mit **AP08 PT08.5.3** (ROI-Zustellung × 10) |
-| **Required before** | Launch-Gate 1 · Launch-Gate 3 |
-| **Safe current behavior** | Zustellung per Mail, nicht als beworbener Download; keine Sprachzusage im UI |
-| **User-facing disclosure** | derzeit keine — das UI verspricht keine Sprachwahl |
-| **Launch blocker** | **ja** |
-| **AP04 closure blocker** | **nein** |
-| **Evidence** | `server/server.js` ROI-PDF-Generator; §24 `DG-04` |
+| Feld                       | Inhalt                                                                                          |
+| -------------------------- | ----------------------------------------------------------------------------------------------- |
+| **Asset**                  | zur Laufzeit erzeugtes ROI-Report-PDF (`server/server.js`)                                      |
+| **Current locale/state**   | **10/10** — Laufzeit-PDF folgt validierter Journey-Locale; `RN-07` bleibt erhalten              |
+| **Missing locale/variant** | keine für das dynamische PDF                                                                    |
+| **Reason**                 | Historische feste DE-Locale wurde in PT08.5 durch den kanonischen x10-Mail-/PDF-Vertrag ersetzt |
+| **Gate type**              | `DEFERRED_ASSET_GATE` + `DEFERRED_IMPLEMENTATION_GATE`                                          |
+| **Owner**                  | **AP22** (Sprachkontext) mit **AP08 PT08.5.3** (ROI-Zustellung × 10)                            |
+| **Required before**        | Launch-Gate 1 · Launch-Gate 3                                                                   |
+| **Safe current behavior**  | Zustellung per Mail in der validierten Journey-Locale; invalid locale fällt defensiv auf `en`   |
+| **User-facing disclosure** | derzeit keine — das UI verspricht keine Sprachwahl                                              |
+| **Launch blocker**         | **nein**                                                                                        |
+| **AP04 closure blocker**   | **nein**                                                                                        |
+| **Evidence**               | `server/server.js`, `server/system-i18n.js`, `server/system-i18n.test.ts`; §24 `DG-04`          |
+| **Status**                 | **RESOLVED (PT08.5, 2026-08-26)**                                                               |
 
 ---
 
 ### 26.9 Bilanz PT04.4
 
-| Kennzahl | Wert |
-|---|---|
-| Aktive Broken References | **0** |
-| AP04-eigene Asset-Fixes | **2** — CD-7 (Duplikat/Doppel-URL) · CA-28 (43 Sprachlabels) |
-| Unsichere Löschungen | **0** |
-| Gelöschte Dateien | 3 (nachweislich unreferenzierte, byte-identische Duplikate) |
-| Deferred Asset Gates | **3** — `DG-07`, `DG-08`, `DG-09` |
-| Deferred Gates gesamt (AP04) | **10** |
-| AP04-Closure-Blocker | **0** |
-| Launch-Blocker weitergetragen | **9** (`DG-06b` fachlich zu klären) |
-| False-Ready-Aussagen | **0** |
-| Backlog-Assets aktiviert | **0** |
+| Kennzahl                     | Wert                                                                                                                                            |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Aktive Broken References     | **0**                                                                                                                                           |
+| AP04-eigene Asset-Fixes      | **2** — CD-7 (Duplikat/Doppel-URL) · CA-28 (43 Sprachlabels)                                                                                    |
+| Unsichere Löschungen         | **0**                                                                                                                                           |
+| Gelöschte Dateien            | 3 (nachweislich unreferenzierte, byte-identische Duplikate)                                                                                     |
+| Deferred Asset Gates         | **2 ownergebunden offen** — `DG-07` nur reale neue Fachvarianten, i18n/disclosure resolved PT08.6; `DG-08` Consumer OG; `DG-09` resolved PT08.5 |
+| Deferred Gates gesamt (AP04) | **10**                                                                                                                                          |
+| AP04-Closure-Blocker         | **0**                                                                                                                                           |
+| Durch PT08.2–PT08.6 resolved | **8** — `DG-01`, `DG-02`, `DG-03`, `DG-04`, `DG-05`, `DG-06a`, `DG-07` (i18n/disclosure), `DG-09`                                               |
+| Offen weitergetragen         | **3** — `DG-06b`, `DG-07`, `DG-08`                                                                                                              |
+| False-Ready-Aussagen         | **0**                                                                                                                                           |
+| Backlog-Assets aktiviert     | **0**                                                                                                                                           |

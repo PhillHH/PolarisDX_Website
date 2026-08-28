@@ -36,8 +36,8 @@ import BefundOverview from '../components/befund/BefundOverview'
 import ConsultSteps, { CONSULT_ID } from '../components/befund/ConsultSteps'
 import { MerkButton, Merkliste } from '../components/befund/Merkliste'
 import ChapterNav, { type Chapter, type NavAction } from '../components/ui/ChapterNav'
-import { BEFUNDE } from '../content/befunde'
 import { BEFUND_ORDER, RADAR_VALUES, type BefundSprachen } from '../content/befunde/meta'
+import { normalizeLanguage } from '../i18n'
 import { useScrollDepth } from '../lib/useScrollDepth'
 import { BEFUND_IMAGES } from '../assets/epigenetics/befundImages'
 import { LEGACY_ANCHORS } from '../content/befunde/legacyAnchors'
@@ -89,8 +89,9 @@ interface MusterbefundPageProps {
   slug?: string
   /**
    * Inhalt aus dem Routenmodul. Nur so laedt Vite je Slug einen eigenen
-   * Chunk, statt alle zwoelf JSON-Dateien in einen gemeinsamen zu packen.
-   * Ohne Prop wird wie bisher in BEFUNDE nachgeschlagen.
+   * Chunk, statt alle sechzig JSON-Dateien in einen gemeinsamen zu packen.
+   * Der unbekannte Slug des Auffangpfads liefert bewusst keinen Inhalt und
+   * landet dadurch im HTTP-404-Zweig, ohne alle Befunddateien zu importieren.
    */
   befunde?: BefundSprachen
 }
@@ -151,17 +152,16 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
     return () => document.removeEventListener('click', aufklappen)
   }, [])
 
-  // Acht Sprachen zeigen hier englischen Text — das muss ausgezeichnet werden.
+  // Der Marker bleibt ein rein defensiver Vertrag für technische Fallbacks.
   const englishFallback = isEnglishFallback(t('_translationStatus', { defaultValue: '' }))
 
   // Vor dem fruehen Ausstieg fuer unbekannte Slugs: Hooks duerfen nicht hinter
   // einem return stehen.
   useScrollDepth('musterbefund', slug)
-  const lang = i18n.language?.startsWith('de') ? 'de' : 'en'
+  const lang = normalizeLanguage(i18n.language)
 
-  // Routenmodul-Inhalt hat Vorrang; der Auffangpfad schlaegt weiterhin nach.
-  const quelle = befunde ?? BEFUNDE[slug]
-  const befund = quelle?.[lang] ?? quelle?.de
+  const quelle = befunde
+  const befund = quelle?.[lang]
   const samples = Array.isArray(t('samples.items', { returnObjects: true }))
     ? (t('samples.items', { returnObjects: true }) as {
         slug: string
@@ -296,7 +296,7 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
 
   const others = BEFUND_ORDER.map((s) => ({
     slug: s,
-    panel: BEFUNDE[s]?.[lang]?.panel ?? BEFUNDE[s]?.de?.panel ?? s,
+    panel: samples.find((sample) => sample.slug === s)?.panel ?? s,
   }))
 
   /**
@@ -314,7 +314,14 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
     // Ohne Musterbefund-Metadaten faellt die mittlere Stufe weg; die Leiste
     // teilt dann in Haelften statt in Drittel.
     ...(meta
-      ? [{ href: `${ASSET_BASE}${meta.file}`, download: true, label: t('befund.pdfCta') }]
+      ? [
+          {
+            href: `${ASSET_BASE}${meta.file}`,
+            download: true,
+            hrefLang: 'de',
+            label: `${t('befund.pdfCta')} · ${t('samples.badge')}`,
+          },
+        ]
       : []),
     // Der Musterbefund gibt zusaetzlich mit, um welches Panel es geht — das
     // steht dann in der Benachrichtigung und im vorbelegten Freitext.
@@ -473,10 +480,11 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
                   <a
                     href={`${ASSET_BASE}${meta.file}`}
                     download
+                    hrefLang="de"
                     className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
                   >
                     <Download className="h-4 w-4" />
-                    {t('befund.pdfCta')}
+                    {t('befund.pdfCta')} · {t('samples.badge')}
                   </a>
                 ) : null}
                 {/* Die Zwischenstufe zwischen Lesen und Anfragen: dieses Panel

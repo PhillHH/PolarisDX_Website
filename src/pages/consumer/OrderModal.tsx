@@ -30,6 +30,8 @@ import {
   type ReactNode,
 } from 'react'
 import { X } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import type { TFunction } from 'i18next'
 
 import type { ConsumerOrderProduct } from '../../api/consumerOrder'
 import { OrderForm } from './OrderForm'
@@ -58,26 +60,25 @@ export function useOrderModal(): OrderModalApi | null {
 // PROVIDER + MODAL DIALOG
 // =============================================================================
 
-const PRODUCT_TITLES: Record<
-  ConsumerOrderProduct,
-  { eyebrow: string; title: string; sub: string }
-> = {
+const getProductTitles = (
+  t: TFunction,
+): Record<ConsumerOrderProduct, { eyebrow: string; title: string; sub: string }> => ({
   spray: {
-    eyebrow: 'Order request',
-    title: 'Vitamin D3+K2 Spray · 12-Pack',
-    sub: 'Tell us how many packs you need — we’ll come back with price and shipping.',
+    eyebrow: t('order_modal.copy_001'),
+    title: t('order_modal.copy_002'),
+    sub: t('order_modal.copy_003'),
   },
   masks: {
-    eyebrow: 'Order request',
-    title: 'Hydrating Masks · 5-Pack',
-    sub: 'Tell us how many boxes you need — we’ll come back with price and shipping.',
+    eyebrow: t('order_modal.copy_001'),
+    title: t('order_modal.copy_004'),
+    sub: t('order_modal.copy_005'),
   },
   duo: {
-    eyebrow: 'Order request',
-    title: 'Inside-Out Care Duo',
-    sub: 'One spray + one box of five masks. Let us know how many sets and we’ll be in touch.',
+    eyebrow: t('order_modal.copy_001'),
+    title: t('duo.copy_018'),
+    sub: t('order_modal.copy_006'),
   },
-}
+})
 
 function pushDataLayer(event: Record<string, unknown>): void {
   if (typeof window === 'undefined') return
@@ -156,9 +157,10 @@ function OrderModalDialog({
   onClose: () => void
   onSubmitted: () => void
 }) {
+  const { t } = useTranslation('consumer')
   const closeBtnRef = useRef<HTMLButtonElement | null>(null)
   const titleId = `order-modal-title-${product}`
-  const titleCopy = PRODUCT_TITLES[product]
+  const titleCopy = getProductTitles(t)[product]
 
   // Lock body scroll while the modal is open.
   useEffect(() => {
@@ -193,7 +195,7 @@ function OrderModalDialog({
       {/* Backdrop — fades in with a soft blur build-up */}
       <button
         type="button"
-        aria-label="Close order request"
+        aria-label={t('order_modal.copy_007')}
         onClick={onClose}
         tabIndex={-1}
         className="absolute inset-0 animate-modal-backdrop-in bg-brand-deep/70 backdrop-blur-sm motion-reduce:animate-none motion-reduce:opacity-100"
@@ -216,7 +218,7 @@ function OrderModalDialog({
             ref={closeBtnRef}
             type="button"
             onClick={onClose}
-            aria-label="Close order request"
+            aria-label={t('order_modal.copy_007')}
             className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-slate-100 hover:text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line"
           >
             <X className="h-5 w-5" aria-hidden />

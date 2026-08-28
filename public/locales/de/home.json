@@ -93,7 +93,8 @@
     "pillar3": {
       "title": "Begleiteter Start",
       "text": "Einweisung Ihres Teams und ein direkter Ansprechpartner sorgen dafür, dass die diagnostische Exzellenz sofort nutzbar ist."
-    }
+    },
+    "device_alt": "IglooPro POC-Reader"
   },
   "doctors": {
     "caption": "DIAGNOSTIK-FOKUS",
@@ -283,7 +284,8 @@
     },
     "card_cta": "Mehr erfahren",
     "video_label": "ANWENDUNGSVIDEO",
-    "video_caption": "So läuft der Test in Ihrer Praxis – in 3 Minuten"
+    "video_caption": "So läuft der Test in Ihrer Praxis – in 3 Minuten",
+    "device_alt": "IglooPro POC-Reader"
   },
   "final_cta": {
     "caption": "Bereit loszulegen",

@@ -21,7 +21,19 @@
     "badge_new": "Nowość",
     "epigenetics_desc": "Sześć analiz z jednej kropli krwi",
     "musterbefunde": "Przykładowe wyniki",
-    "musterbefunde_desc": "Sześć przykładowych wyników do przeczytania"
+    "musterbefunde_desc": "Sześć przykładowych wyników do przeczytania",
+    "cta_quote": "Poproś o ofertę",
+    "iglooPro": "IglooPro",
+    "praeventionsChecks": "Profilaktyczne badania kontrolne",
+    "infektionEntzuendung": "Infekcja i markery stanu zapalnego",
+    "stoffwechselHerz": "Metabolizm i zdrowie serca",
+    "hormonTests": "Testy hormonalne i endokrynologiczne",
+    "kompatibilitaetIntegration": "Kompatybilność między producentami",
+    "group_fields": "Obszary praktyki",
+    "group_analysis": "Obszary analiz",
+    "group_system": "System i integracja",
+    "diagnostics_all": "Wszystkie usługi diagnostyczne",
+    "group_crosslink": "Również istotne"
   },
   "badge": {
     "New": "Nowy",
@@ -61,7 +73,17 @@
     "pocSystems": "Systemy POC",
     "preventionChecks": "Badania profilaktyczne",
     "hormonTests": "Testy hormonalne",
-    "product_note": "IglooPro jest produktem firmy DX365 GmbH"
+    "product_note": "IglooPro jest produktem firmy DX365 GmbH",
+    "col_company": "Firma",
+    "col_product": "Produkt i wiedza",
+    "col_consumer": "Dla konsumentów",
+    "locations": "Lokalizacje",
+    "legal": "Informacje prawne",
+    "nav_label": "Nawigacja w stopce",
+    "epi_basics": "Podstawy",
+    "epi_evidence": "Badania",
+    "epi_docs": "Dokumenty",
+    "epi_samples": "Przykładowe wyniki"
   },
   "read_more": "Czytaj więcej",
   "cookie": {
@@ -104,6 +126,111 @@
       "beauty": "Analizy Dermatologiczne",
       "longevity": "Zdrowie i Długowieczność",
       "sports": "Diagnostyka Wydolnościowa dla Sportowców"
+    },
+    "resultTypes": {
+      "page": "Strona",
+      "service": "Usługa",
+      "article": "Artykuł",
+      "epigenetics": "Epigenetyka",
+      "befund": "Przykładowy raport",
+      "resource": "Materiał",
+      "event": "Wydarzenie",
+      "consumer": "Produkt konsumencki"
+    },
+    "modal": {
+      "title": "Przeszukaj witrynę",
+      "label": "Szukane hasło",
+      "placeholder": "Czego szukasz?",
+      "close": "Zamknij wyszukiwanie",
+      "escapeHint": "Naciśnij Escape, aby zamknąć",
+      "initialTitle": "Co chcesz znaleźć?",
+      "initialDescription": "Szukaj stron, diagnostyki, artykułów i materiałów.",
+      "loading": "Ładowanie wyników wyszukiwania",
+      "emptyTitle": "Brak wyników",
+      "emptyDescription": "Nie znaleziono treści pasujących do „{{query}}”. Sprawdź pisownię lub użyj ogólniejszego hasła.",
+      "errorTitle": "Wyszukiwanie niedostępne",
+      "errorDescription": "Nie udało się przeprowadzić wyszukiwania. Spróbuj ponownie.",
+      "results_zero": "Brak wyników",
+      "results_one": "{{count}} wynik",
+      "results_few": "{{count}} wyniki",
+      "results_many": "{{count}} wyników",
+      "results_other": "{{count}} wyniku",
+      "groups": {
+        "page": "Strony",
+        "service": "Diagnostyka",
+        "article": "Artykuły",
+        "epigenetics": "Epigenetyka",
+        "befund": "Przykładowe raporty",
+        "resource": "Materiały",
+        "event": "Wydarzenia",
+        "consumer": "Produkty konsumenckie"
+      }
+    },
+    "index": {
+      "epigenetics": {
+        "title": "Analizy epigenetyczne i genetyczne",
+        "description": "Sześć analiz z jednej kropli krwi włośniczkowej do zastosowania w praktyce."
+      },
+      "epigenetics-grundlagen": {
+        "title": "Podstawy epigenetyki",
+        "description": "Dowiedz się, co mierzą analizy i jak interpretować ich wyniki."
+      },
+      "epigenetics-studienlage": {
+        "title": "Stan badań nad epigenetyką",
+        "description": "Przegląd dowodów naukowych, ograniczeń i odpowiedzialnego zastosowania."
+      },
+      "epigenetics-unterlagen": {
+        "title": "Materiały o epigenetyce",
+        "description": "Pobierz arkusze informacyjne i dokumenty dotyczące sześciu analiz."
+      },
+      "befund-metabolic-health": {
+        "title": "Przykładowy raport Metabolic Health",
+        "description": "Przykładowy raport z danymi demonstracyjnymi i jasnymi objaśnieniami. Metabolic Health."
+      },
+      "befund-healthy-aging": {
+        "title": "Przykładowy raport Healthy Aging",
+        "description": "Przykładowy raport z danymi demonstracyjnymi i jasnymi objaśnieniami. Healthy Aging."
+      },
+      "befund-biologische-altersuhr": {
+        "title": "Przykładowy raport Biologische Altersuhr",
+        "description": "Przykładowy raport z danymi demonstracyjnymi i jasnymi objaśnieniami. Biologische Altersuhr."
+      },
+      "befund-telomer-analyse": {
+        "title": "Przykładowy raport Telomer-Analyse",
+        "description": "Przykładowy raport z danymi demonstracyjnymi i jasnymi objaśnieniami. Telomer-Analyse."
+      },
+      "befund-stress-monitor": {
+        "title": "Przykładowy raport Stress Monitor",
+        "description": "Przykładowy raport z danymi demonstracyjnymi i jasnymi objaśnieniami. Stress Monitor."
+      },
+      "befund-healthy-sport": {
+        "title": "Przykładowy raport Healthy Sport",
+        "description": "Przykładowy raport z danymi demonstracyjnymi i jasnymi objaśnieniami. Healthy Sport."
+      },
+      "article-green_practice": {
+        "title": "Zielona Praktyka: Dlaczego droga do zrównoważonego rozwoju zaczyna się w poczekalni",
+        "description": "Zrównoważony rozwój w opiece zdrowotnej nie zaczyna się od paneli słonecznych, ale od logistyki diagnostycznej. Apel o Point-of-Care."
+      },
+      "article-invisible_patient": {
+        "title": "Niewidzialny pacjent: Jak zdalne monitorowanie uwalnia medycynę z gabinetu",
+        "description": "Pacjent nie musi już przychodzić do lekarza, aby postawiono diagnozę. Jak IGLO-PRO i DX365 umożliwiają „szpital w domu”."
+      },
+      "article-five_minute_diagnosis": {
+        "title": "5-minutowa diagnoza: Dlaczego Point-of-Care to przełom nie tylko medyczny, ale i ekonomiczny",
+        "description": "Czas to pieniądz – zwłaszcza w praktyce. Analiza ekonomiczna, dlaczego IGLO-PRO jest bardziej opłacalne niż centralne laboratorium."
+      },
+      "article-ecosystem_of_rapid_tests": {
+        "title": "Ekosystem szybkich testów: Dlaczego kompatybilność tworzy bezpieczeństwo",
+        "description": "Od CRP do TSH: Opanowanie złożoności kompatybilnych testów przepływu bocznego."
+      },
+      "article-rapid_setup_formula": {
+        "title": "Formuła wydajności: efektywność w diagnostyce POC",
+        "description": "Efektywność zamiast długiego wdrażania: droga do szybkiej gotowości operacyjnej w gabinecie."
+      },
+      "article-precision_point_of_care": {
+        "title": "Precyzja w Point-of-Care: Klucz do bezpieczeństwa pacjenta",
+        "description": "Dlaczego walidacja testów przepływu bocznego (LFT) wykracza poza specyfikacje producenta."
+      }
     }
   },
   "notFound": {
@@ -130,7 +257,11 @@
   "a11y": {
     "search": "Otwórz wyszukiwanie",
     "toggle_nav": "Przełącz nawigację",
-    "honeypot": "Prosimy pozostawić to pole puste"
+    "honeypot": "Prosimy pozostawić to pole puste",
+    "select_language": "Wybierz język",
+    "main_nav": "Nawigacja główna",
+    "toggle_submenu": "{{name}} — podmenu",
+    "skip_to_content": "Przejdź do treści"
   },
   "languageFallback": {
     "notice": "Ta strona jest obecnie dostępna tylko w języku angielskim."

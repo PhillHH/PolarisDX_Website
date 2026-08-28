@@ -1,0 +1,574 @@
+{
+  "slug": "healthy-aging",
+  "panel": "Healthy Aging",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Ukázková zpráva · Ukázková data",
+      "panel": "Healthy Aging",
+      "subtitle": "Váš epigenetický biologický věk",
+      "claim": "Několik kapek krve ukáže stav, v jakém vaše buněčná regulace funguje — a jaké páky lze použít k ovlivnění biologického věku.",
+      "meta": [
+        {
+          "k": "Zpráva pro",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Odběr vzorku",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Materiál",
+          "v": "Karta se sušenou kapkou krve"
+        },
+        {
+          "k": "Markery",
+          "v": "4 + životní styl"
+        }
+      ],
+      "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+      "id": "deckblatt",
+      "benefit": "Jak váš klient stárne — ve čtyřech samostatných hodnotách a co může změnit."
+    },
+    {
+      "type": "principle",
+      "caption": "Princip",
+      "title": "Jak číst tuto zprávu.",
+      "lead": "Vaše tělo se každý den obnovuje: buňky se dělí, opravují poškození DNA a reagují na stres, výživu, spánek a prostředí. Tyto procesy zanechávají stopy v metylaci DNA. Z těchto vzorců zpráva čte váš biologický věk — nikoli v kalendářních letech, ale ve stavu vaší buněčné regulace.",
+      "cards": [
+        {
+          "title": "Ochrana",
+          "text": "Jak stabilně je vaše DNA chráněna a jak efektivně fungují opravné mechanismy. Markery: telomery, LINE-1."
+        },
+        {
+          "title": "Regulace",
+          "text": "Jak kontrolované zůstávají zánětlivé procesy a jak odolná je buněčná rovnováha. Marker: IL-6."
+        },
+        {
+          "title": "Interpretace",
+          "text": "Jak se vaše hodnoty srovnávají s referenční skupinou odpovídající věkem, pohlavím a etnickým původem."
+        }
+      ],
+      "flowTitle": "Proces",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Měření",
+          "text": "Karta s vysušenou kapkou krve z konečku prstu. Délka telomer a metylační markery (LINE-1, IL-6, markery stárnutí). Není nutný lačný stav."
+        },
+        {
+          "num": "02",
+          "title": "Interpretace",
+          "text": "Porovnání s referenční skupinou. 100 % odpovídá hodnotě metylace zdravé kontrolní skupiny."
+        },
+        {
+          "num": "03",
+          "title": "Změna",
+          "text": "Pro každý marker odpovídající zásah — co konkrétně jíst, čemu se vyhnout nebo co změnit — plus následné sledování."
+        }
+      ],
+      "scaleCaption": "Orientace",
+      "scaleTitle": "Jak číst škálu?",
+      "scaleLead": "Všechny markery jsou uvedeny v procentech vůči referenci. 100 % je normální rozsah, vyšší hodnota je lepší. Délka telomer je navíc uváděna v kilobázích (kbp).",
+      "scaleKind": "percent",
+      "scaleTicks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "Pod 90 % · Červená",
+          "text": "Nutná okamžitá akce."
+        },
+        {
+          "tone": "amber",
+          "label": "90–100 % · Oranžová",
+          "text": "Je třeba zasáhnout, cíleně protiopatřit."
+        },
+        {
+          "tone": "green",
+          "label": "Od 100 % · Zelená",
+          "text": "Není třeba zasahovat, udržujte výsledek."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Jak robustní je hodnota telomer?",
+      "text": "Měření délky telomer se značně liší — mezi jednotlivými běhy i mezi laboratořemi. Extrakce DNA, skladování a složení krevních buněk systematicky ovlivňují výsledek. U vysušené krve je tato variabilita vyšší než u žilní krve.",
+      "items": [
+        "Co to znamená v praxi: odchylka o několik procent od referenční hodnoty je ve stejné velikosti jako variabilita měření a sama o sobě není významná. Délka telomer je robustní až při několika měřeních provedených za stejných podmínek — stejná laboratoř, stejný materiál, srovnatelný odběr vzorku.",
+        "Délka telomer je marker kumulativního buněčného zatížení. Není to diagnóza, není to výrok o délce života a není to míra individuálního rizika onemocnění."
+      ],
+      "tone": "accent",
+      "id": "hinweis"
+    },
+    {
+      "type": "resultTable",
+      "caption": "Výsledky na první pohled",
+      "title": "Přehled všech markerů.",
+      "cols": ["Marker", "Vaše hodnota", "Reference", "Interpretace"],
+      "rows": [
+        {
+          "cells": [
+            "Telomery · Buněčná stabilita",
+            "108 kbp (96 %)",
+            "112 kbp = 100 %",
+            "Vyžaduje akci"
+          ],
+          "tone": "amber"
+        },
+        {
+          "cells": ["LINE-1 · Stabilita DNA", "96 %", "≥ 100 %", "Vyžaduje akci"],
+          "tone": "amber"
+        },
+        {
+          "cells": [
+            "Epigenetické markery stárnutí · Biologický věk",
+            "103 %",
+            "≥ 100 %",
+            "V normálním rozmezí"
+          ],
+          "tone": "green"
+        },
+        {
+          "cells": ["IL-6 · Regulace zánětu", "108 %", "≥ 100 %", "V normálním rozmezí"],
+          "tone": "green"
+        },
+        {
+          "cells": ["Výživa · Výchozí hodnocení", "72 / 100", "≥ 60", "V normálním rozmezí"],
+          "tone": "green"
+        },
+        {
+          "cells": ["Životní styl · Výchozí hodnocení", "65 / 100", "≥ 60", "V normálním rozmezí"],
+          "tone": "green"
+        }
+      ],
+      "id": "ergebnis"
+    },
+    {
+      "type": "ageDots",
+      "caption": "Biologický věk",
+      "title": "Věk podle jednotlivých markerů v porovnání",
+      "lead": "Chronologický věk: 48 let. Každý marker udává svůj vlastní biologický věk — celková kombinovaná hodnota není záměrně vypočítávána.",
+      "chronological": 48,
+      "min": 35,
+      "max": 60,
+      "unit": "let",
+      "ticks": ["35", "40", "45", "50", "55", "60"],
+      "chronologicalLabel": "48 let",
+      "note": "Přerušovaná čára označuje chronologický věk 48 let. Vlevo od ní: mladší než chronologický věk. Vpravo od ní: starší.",
+      "items": [
+        {
+          "label": "Telomery",
+          "age": 53,
+          "delta": "+5",
+          "display": "53 yrs · +5",
+          "tone": "red"
+        },
+        {
+          "label": "LINE-1",
+          "age": 50,
+          "delta": "+2",
+          "display": "50 yrs · +2",
+          "tone": "amber"
+        },
+        {
+          "label": "IL-6",
+          "age": 46,
+          "delta": "−2",
+          "display": "46 yrs · −2",
+          "tone": "green"
+        },
+        {
+          "label": "Epigenetické markery stárnutí",
+          "age": 45,
+          "delta": "−3",
+          "display": "45 yrs · −3",
+          "tone": "green"
+        }
+      ],
+      "id": "biologisches-alter"
+    },
+    {
+      "type": "markers",
+      "caption": "Vaše markery",
+      "title": "Telomery a markery stárnutí.",
+      "items": [
+        {
+          "name": "Telomery",
+          "category": "Stabilita buněk",
+          "intro": "Ochranné struktury na koncích chromozomů. Pokud se příliš zkrátí, buňky ztrácejí schopnost dělení — což je klíčový faktor biologického stárnutí.",
+          "kind": "procento",
+          "value": 96,
+          "display": "96 %",
+          "sub": "108 kbp",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "amber",
+          "text": "Délka vašich telomer je o 4 % nižší než očekávaná hodnota pro váš věk (108 místo 112 kbp). To odpovídá biologickému věku telomer 53 let, tedy o pět let více než chronologický věk. Odchylka tohoto rozsahu spadá do rozmezí měřicí variability a sama o sobě není významná — hodnota má sloužit jako výchozí bod pro sledování trendu. Doporučení v této sekci vycházejí z LINE-1; působí prostřednictvím stejné metabolické dráhy.",
+          "table": {
+            "cols": ["Aktivní látka", "Zdroj", "Množství", "Poznámka"],
+            "rows": [
+              [
+                "Kyselina listová",
+                "Špenát, kapusta, luštěniny, rajčata, klíčky",
+                "2 hrsti zeleniny denně",
+                "Syrové nebo krátce napařované — citlivé na teplo"
+              ],
+              [
+                "Vitaminy B2 a B12",
+                "Vejce, sýr, fermentované potraviny",
+                "1 porce denně",
+                "Vegani: specificky doplňovat B12"
+              ],
+              [
+                "Methionin",
+                "Sezam, sója, hrách, para ořechy",
+                "2–3 para ořechy denně",
+                "Kvůli selenu ne více než 3–4 ořechy"
+              ],
+              ["EGCG", "Zelený čaj, matcha", "3–4 šálky denně", "Ne s jídly bohatými na železo"]
+            ]
+          }
+        },
+        {
+          "name": "Epigenetické markery stárnutí",
+          "category": "Biologický věk",
+          "intro": "Methylace genů silně souvisejících s věkem, ve srovnání s kontrolní skupinou odpovídající věku, pohlaví a etniku.",
+          "kind": "procento",
+          "value": 103,
+          "display": "103 %",
+          "sub": "45 let",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "green",
+          "text": "Mírně nad očekávaným rozmezím — příznivý epigenetický profil. Z toho odvozený biologický věk je 45 let, tedy o tři roky méně než chronologický věk.",
+          "table": {
+            "cols": ["Aktivní látka", "Zdroj", "Množství", "Poznámka"],
+            "rows": [
+              [
+                "Káva",
+                "Filtrovaná káva, espresso",
+                "2–3 šálky denně",
+                "Ne po 14. hodině — může narušovat spánek"
+              ],
+              [
+                "Zelená listová zelenina",
+                "Špenát, kapusta, mangold",
+                "1 porce denně",
+                "Dodává folát, podporuje methylaci"
+              ],
+              [
+                "Sýry a mléčné výrobky",
+                "Tvrdé i měkké sýry, jogurt",
+                "s mírou",
+                "Nadměrná konzumace může snižovat regulaci"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "markers",
+      "caption": "Vaše markery",
+      "title": "LINE-1 a IL-6.",
+      "items": [
+        {
+          "name": "LINE-1",
+          "category": "Stabilita DNA",
+          "intro": "LINE-1 elementy tvoří přibližně 17 % genomu. Jejich methylace je považována za marker globální regulace DNA a tím i celkové genomové stability.",
+          "kind": "procento",
+          "value": 96,
+          "display": "96 %",
+          "sub": "50 let",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "amber",
+          "text": "Mírně snížená globální regulace DNA, je třeba posoudit v rámci celkového profilu. Odvozený biologický věk je 50 let. Tento marker závisí na stejné metabolické dráze jako telomery — oba reagují na stejné methylové dárce.",
+          "table": {
+            "cols": ["Aktivní látka", "Zdroj", "Množství", "Poznámka"],
+            "rows": [
+              [
+                "Methylové dárce",
+                "Listová zelenina, luštěniny, vejce, ořechy, sezam, sója",
+                "denně alespoň ve 2 jídlech",
+                "Užívejte folát, B2, B6 a B12 společně"
+              ],
+              [
+                "Vláknina",
+                "Celozrnné výrobky, zelenina, luštěniny",
+                "alespoň 30 g/den",
+                "Stabilizuje hladinu cukru v krvi, snižuje oxidační zátěž"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "IL-6",
+          "category": "Regulace zánětu",
+          "intro": "Interleukin-6 je centrální signální látkou regulace zánětu. Hodnotí se metylace DNA v oblastech genů spojených s IL-6 — nikoli akutní hladina v krvi.",
+          "kind": "procento",
+          "value": 108,
+          "display": "108 %",
+          "sub": "46 let",
+          "ticks": ["70 %", "85 %", "100 %", "115 %", "130 %"],
+          "tone": "green",
+          "text": "Naznačuje stabilní regulaci aktivity IL-6 — nejlepší hodnota ve vašem profilu. Doporučení slouží k udržení, nikoli ke korekci.",
+          "table": {
+            "cols": ["Aktivní látka", "Zdroj", "Množství", "Poznámka"],
+            "rows": [
+              [
+                "Pohyb a váha",
+                "mírná každodenní aktivita, regulace váhy",
+                "30 min. denně",
+                "Tuková tkáň je centrálním zdrojem prozánětlivých signálních látek"
+              ],
+              [
+                "Resveratrol",
+                "Slupky hroznů, semínka malin, borůvky, arašídy",
+                "1 porce bobulovin/den",
+                "Inhibuje signální dráhu NF-κB"
+              ],
+              [
+                "Sulforafan",
+                "Brokolice, květák, růžičková kapusta, řeřicha",
+                "250 g, 3–4× týdně",
+                "Krátké ohřátí (3–4 min., 80 °C) zvyšuje biologickou dostupnost"
+              ],
+              [
+                "Kurkumín",
+                "Kurkuma s černým pepřem",
+                "1 čajová lžička denně",
+                "Piperin výrazně zvyšuje vstřebávání"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "radar",
+      "caption": "Výchozí hodnocení",
+      "title": "Stravovací a životní návyky.",
+      "lead": "Radar ukazuje, jak blízko jsou vaše současné návyky vědeckým referenčním hodnotám. Čím dále je faktor od středu, tím příznivější — 10 je optimální.",
+      "axes": [
+        "Každodenní aktivita",
+        "Cvičení",
+        "Stres",
+        "Tabák",
+        "Alkohol",
+        "Svačiny",
+        "Maso",
+        "Omega-3",
+        "Vláknina",
+        "Ovoce/zelenina",
+        "Příjem tekutin"
+      ],
+      "seriesLabels": {
+        "profile": "Váš profil",
+        "reference": "Referenční skupina"
+      },
+      "scores": [
+        {
+          "value": "72 / 100",
+          "label": "Výživa",
+          "text": "Dobrá kombinace živin, prostor pro zlepšení v detailech.",
+          "ref": "Reference: ≥ 60."
+        },
+        {
+          "value": "65 / 100",
+          "label": "Životní styl",
+          "text": "Vyvážený, s prostorem pro více pohybu a snížení stresu.",
+          "ref": "Reference: ≥ 60."
+        }
+      ],
+      "noticeTitle": "Co vyniká",
+      "notices": [
+        "Stres (4 z 10) je nejslabší faktor a leží pod úrovní referenční skupiny. Chronický stres působí přes kortizolovou osu přímo na zánět a metylační markery.",
+        "Svačiny a maso (každé 5) jsou na úrovni referenční skupiny — zde je největší nevyužitý potenciál pro hodnoty telomer a LINE-1.",
+        "Tabák (9), ovoce a zelenina (8) a příjem tekutin (8) jsou výrazně nad průměrem a podporují dobré hodnoty IL-6 a markerů stárnutí."
+      ],
+      "note": "Výchozí hodnocení, nikoli individuální diagnóza. V případě nemoci nebo během speciálních životních fází nechte větší změny stravy konzultovat s lékařem.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Všechna doporučení přehledně",
+      "title": "Vaše intervence.",
+      "lead": "Každé doporučení je přiřazeno k markeru, ze kterého vychází, a označeno barvou aktuálního výsledku. Seřazeno podle naléhavosti — nejdříve markery vyžadující zásah.",
+      "cols": ["Aktivní látka", "Z markeru", "Zdroj potraviny", "Množství", "Poznámka"],
+      "rows": [
+        [
+          "Kyselina listová",
+          "Telomery · 96 %",
+          "Špenát, kapusta, luštěniny, rajčata, klíčky",
+          "2 hrsti zeleniny denně",
+          "Syrové nebo krátce napařované — citlivé na teplo"
+        ],
+        [
+          "Vitaminy B2 a B12",
+          "Telomery · 96 %",
+          "Vejce, sýr, fermentované potraviny (zelí, ayran)",
+          "1 porce denně",
+          "Při veganské stravě doplňte specificky B12"
+        ],
+        [
+          "Methionin",
+          "Telomery · 96 %",
+          "Sezam, sója, hrách, para ořechy",
+          "2–3 para ořechy denně",
+          "Kvůli obsahu selenu ne více než 3–4 ořechy denně"
+        ],
+        [
+          "EGCG (zelený čaj)",
+          "Telomery · 96 %",
+          "Zelený čaj, matcha",
+          "3–4 šálky denně",
+          "Nepijte přímo s jídly bohatými na železo"
+        ],
+        [
+          "Methylové dárce",
+          "LINE-1 · 96 %",
+          "Listová zelenina, luštěniny, vejce, ořechy, sezam, sója",
+          "denně alespoň ve 2 jídlech",
+          "Dostatečně přijímejte folát, B2, B6 a B12 společně"
+        ],
+        [
+          "Vláknina",
+          "LINE-1 · 96 %",
+          "Celozrnné výrobky, zelenina, luštěniny",
+          "alespoň 30 g/den",
+          "Stabilizuje hladinu cukru v krvi, snižuje oxidační zátěž"
+        ],
+        [
+          "Zelená listová zelenina",
+          "Stárnutí m. · 103 %",
+          "Špenát, kapusta, mangold",
+          "1 porce denně",
+          "Dodává folát, podporuje methylaci"
+        ],
+        [
+          "Káva",
+          "Stárnutí m. · 103 %",
+          "Filtrovaná káva, espresso",
+          "2–3 šálky denně",
+          "Ne po 14. hodině — může narušovat spánek"
+        ],
+        [
+          "Sýry a mléčné výrobky",
+          "Stárnutí m. · 103 %",
+          "Tvrdé i měkké sýry, jogurt",
+          "s mírou",
+          "Nadměrná konzumace může snižovat regulaci"
+        ],
+        [
+          "Pohyb a váha",
+          "IL-6 · 108 %",
+          "mírná každodenní aktivita, regulace váhy",
+          "30 min. denně",
+          "Tuková tkáň je zdrojem prozánětlivých signálních látek"
+        ],
+        [
+          "Resveratrol",
+          "IL-6 · 108 %",
+          "Slupky hroznů, semínka malin, borůvky, arašídy",
+          "1 porce bobulovin/den",
+          "Inhibuje signální dráhu NF-κB"
+        ],
+        [
+          "Sulforafan",
+          "IL-6 · 108 %",
+          "Brokolice, květák, růžičková kapusta, řeřicha",
+          "250 g, 3–4× týdně",
+          "Krátké ohřátí (3–4 min., 80 °C) zvyšuje biologickou dostupnost"
+        ],
+        [
+          "Kurkumín",
+          "IL-6 · 108 %",
+          "Kurkuma, ideálně s černým pepřem",
+          "1 čajová lžička denně",
+          "Piperin z pepře výrazně zvyšuje vstřebávání"
+        ]
+      ],
+      "rowTones": [
+        "jantarová",
+        "jantarová",
+        "jantarová",
+        "jantarová",
+        "jantarová",
+        "jantarová",
+        "zelená",
+        "zelená",
+        "zelená",
+        "zelená",
+        "zelená",
+        "zelená",
+        "zelená"
+      ],
+      "note": "Doplňky stravy posuzujte individuálně a v konzultaci s kvalifikovaným odborníkem. Tento přehled nenahrazuje lékařskou radu.",
+      "id": "uebersicht"
+    },
+    {
+      "type": "summary",
+      "caption": "Shrnutí",
+      "title": "Vaše dvě prioritní oblasti.",
+      "lead": "Dva ze čtyř vašich markerů jsou v zeleném pásmu a měly by tam zůstat. Dva jsou na 96 % a závisí na stejné metabolické dráze. LINE-1 je zde nosným markerem: kvůli variabilitě jeho měření se délka telomer sleduje pouze v čase. Výsledkem je pozoruhodně jednoduchý plán.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Dárci methylu – výchozí bod u LINE-1",
+          "text": "LINE-1 na 96 % (biologicky 50 let) je nosná hodnota – marker, u kterého lze spolehlivě prokázat změnu. Délka telomer je také na 96 %, ale to spadá do řádu velikosti měřicí variability a samo o sobě nepřináší žádné doporučení; sleduje se v čase. Oba závisí na stejných živinách: folát, vitaminy B2, B6, B12 a methionin. Šest z třinácti doporučení se přesně na to zaměřuje. Konkrétně: dvě hrsti zelené listové zeleniny denně, syrové nebo krátce dušené. Vejce, sýr nebo fermentované potraviny denně. 2–3 para ořechy. Plus alespoň 30 g vlákniny a 3–4 šálky zeleného čaje, ne při jídlech bohatých na železo."
+        },
+        {
+          "num": "02",
+          "title": "Stres – nejslabší faktor životního stylu",
+          "text": "Stres na 4 z 10 je jediným faktorem, který je výrazně pod referenční skupinou. Přes kortizolovou osu působí na methylace markerů, které ve vašem případě vyžadují zásah. Výživa je již solidní na 72/100 – větší efekt je zde. Navíc: každodenní aktivita (6) a cvičení (7) mají prostor pro zlepšení; 30 minut denně také podporuje hodnotu IL-6."
+        }
+      ],
+      "keepTitle": "Udržujte, neměňte",
+      "keepText": "IL-6 na 108 % a epigenetické markery stárnutí na 103 % jsou v normálním rozmezí. Doporučení pro tyto dva markery slouží k udržení stavu. Tabák (9/10), ovoce a zelenina (8/10) a příjem tekutin (8/10) tento výsledek podporují – zde není třeba nic měnit.",
+      "controlTitle": "Následná péče a další krok",
+      "controlItems": [
+        "Opakované měření je užitečné nejdříve po 4 až 6 měsících – předtím nelze spolehlivě změřit změny methylace markerů.",
+        "Od druhého měření se u každého markeru uvádí naměřený trend.",
+        "Pro následné sledování by měly zůstat odběr vzorku a čas dne srovnatelné."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Máte otázky k vašemu výsledku?",
+      "text": "Výsledky konzultujte s pracovištěm, které provedlo odběr vzorku. Právě tam jsou k dispozici klinické souvislosti potřebné k interpretaci.",
+      "columns": [
+        {
+          "k": "Kontakt",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribuce",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Ukázková zpráva",
+          "text": "Všechny hodnoty a osobní údaje v tomto dokumentu jsou fiktivní a slouží pouze k ilustraci formátu zprávy. Toto není skutečná zpráva."
+        },
+        {
+          "title": "Interpretace",
+          "text": "Tato zpráva není diagnózou a nenahrazuje lékařské poradenství. Uvedený biologický věk je modelová hodnota odvozená z epigenetických markerů, nikoli výrok o délce života nebo riziku onemocnění. Markery popisují momentální stav a mají být hodnoceny v individuálním klinickém kontextu kvalifikovanými specialisty."
+        },
+        {
+          "title": "Stav analýz",
+          "text": "Analýzy jsou laboratorní služby poskytované naším partnerským pracovištěm a nejsou označeny značkou CE jako in vitro diagnostické zdravotnické prostředky. Slouží k poradenství a monitoringu a nenahrazují klinickou diagnostiku. Analýzy jsou určeny pouze pro profesionální uživatele."
+        },
+        {
+          "title": "Právní rámec",
+          "text": "Tento panel nevyhodnocuje genotypy; měří epigenetické markery. Pokud analýza v portfoliu zahrnuje genetické testování, je před odběrem vzorku vyžadována informace a písemný souhlas a může být provedena pouze pod lékařskou odpovědností (německý zákon o genetické diagnostice – GenDG). Laboratorní analýzu provádí náš partnerský subjekt. Polaris Diagnostics Europe GmbH je odpovědná za distribuci a podporu. Doporučujeme individuálně konzultovat doplňky stravy s kvalifikovaným odborníkem."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Poslední aktualizace: srpen 2026",
+      "id": "kontakt"
+    }
+  ]
+}

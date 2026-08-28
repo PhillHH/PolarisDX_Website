@@ -242,7 +242,9 @@ const ServicePage = () => {
   const mapped = service.relatedArticleIds?.length
     ? articles.filter((a) => service.relatedArticleIds!.includes(a.id))
     : []
-  const relatedArticles = mapped.length > 0 ? mapped.slice(0, 3) : articles.slice(0, 3)
+  // Keine generischen Artikel auffuellen: nur die fachlich gepflegte
+  // Zuordnung darf als Vertiefung erscheinen.
+  const relatedArticles = mapped.slice(0, 3)
 
   // SEO head comes from the language files (services:<key>.seo.*) so every
   // locale ships its own title/description instead of the German one. The brand
@@ -516,19 +518,23 @@ const ServicePage = () => {
                     }
                   }),
                 },
-                {
-                  kind: 'articles',
-                  titleKey: 'articles:index.title',
-                  titleFallback: 'Unsere Artikel',
-                  variant: 'plain',
-                  items: relatedArticles.map((post) => ({
-                    id: post.id,
-                    slug: post.slug,
-                    category: post.category,
-                    readTime: post.readTime,
-                    date: post.date,
-                  })),
-                },
+                ...(relatedArticles.length > 0
+                  ? [
+                      {
+                        kind: 'articles' as const,
+                        titleKey: 'articles:index.title',
+                        titleFallback: 'Unsere Artikel',
+                        variant: 'plain' as const,
+                        items: relatedArticles.map((post) => ({
+                          id: post.id,
+                          slug: post.slug,
+                          category: post.category,
+                          readTime: post.readTime,
+                          date: post.date,
+                        })),
+                      },
+                    ]
+                  : []),
                 { kind: 'epigenetics' },
                 { kind: 'contact' },
               ] as SidebarWidget[]

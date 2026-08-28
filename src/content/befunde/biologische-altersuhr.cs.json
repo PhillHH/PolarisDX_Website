@@ -1,0 +1,427 @@
+{
+  "slug": "biologische-altersuhr",
+  "panel": "Biological Age Clock",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Ukázková zpráva · Ukázková data",
+      "panel": "Biological Age Clock",
+      "subtitle": "Na bázi microRNA",
+      "claim": "Tři cirkulující microRNA – miR-21, miR-24 a miR-155 – odrážejí zánět, buněčné stárnutí a metabolismus. Jejich vzájemná interakce se používá k výpočtu biologického věku, který je pak porovnán s chronologickým věkem.",
+      "meta": [
+        {
+          "k": "Zpráva pro",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Odběr vzorku",
+          "v": "15.06.2026"
+        },
+        {
+          "k": "Materiál",
+          "v": "Karta se sušenou kapkou krve"
+        },
+        {
+          "k": "Rozsah",
+          "v": "3 microRNA"
+        }
+      ],
+      "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+      "id": "deckblatt",
+      "benefit": "Jednotné číslo, které konkretizuje vaši diskusi o pohybu, stresu a stravě."
+    },
+    {
+      "type": "principle",
+      "caption": "Princip",
+      "title": "Nejen kolik je vám let. Ale jak rychle stárnete.",
+      "lead": "MicroRNA jsou malé RNA molekuly, které regulují, jak silně se jednotlivé geny čtou. Tři z nich – miR-21, miR-24 a miR-155 – reprezentují zánět, buněčné stárnutí a metabolismus. Regresní model využívá jejich vzájemnou interakci k výpočtu biologického věku a porovnává jej s chronologickým věkem. Protože microRNA reagují dynamicky, změny se mohou projevit relativně rychle.",
+      "cards": [
+        {
+          "title": "Tři signály",
+          "text": "miR-21 (zánět), miR-24 (senescence a oprava) a miR-155 (imunitní rovnováha a metabolismus)."
+        },
+        {
+          "title": "Dynamické",
+          "text": "Úrovně microRNA se mění podle stravy, cvičení, spánku, stresu a kouření."
+        },
+        {
+          "title": "Orientované na trend",
+          "text": "Význam má vývoj mezi dvěma měřeními za stejných podmínek – nikoli jednotlivá hodnota."
+        }
+      ],
+      "flowTitle": "Proces",
+      "flow": [
+        {
+          "num": "01",
+          "title": "Měření",
+          "text": "Karta s kapkou suché krve z konečku prstu. Exprese microRNA pomocí qPCR, normalizováno vůči miR-93. Není nutný půst."
+        },
+        {
+          "num": "02",
+          "title": "Interpretace",
+          "text": "Multivariační regresní model využívá tři signály k výpočtu biologického věku a jeho odchylky od chronologického věku."
+        },
+        {
+          "num": "03",
+          "title": "Změna",
+          "text": "Specifické výživové a životní stylové zásahy pro každý signál, plus následné sledování při dalším měření."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Jak spolehlivé je toto číslo?",
+      "text": "Základní model byl publikován jako pilotní studie (n = 539). Vysvětluje přibližně 5 % variance věku, průměrná absolutní chyba je 10,4 roku a dva ze tří microRNA v této práci nekorelovaly významně s chronologickým věkem. Autoři sami volají po validaci před klinickým použitím.",
+      "items": [
+        "Co to znamená v praxi: zde uváděný biologický věk není stanovení věku a nic neříká o délce života nebo riziku onemocnění. Význam má změna mezi dvěma měřeními za stejných podmínek – proto se tato zpráva soustředí na trend, nikoli na jednotlivé číslo.",
+        "Porovnání s věkovými hodinami založenými na methylaci není přípustné: odlišná metodologie, odlišná vědecká evidence. Zdroj: Schneider J. et al., miRNA-3Age, Frontiers in Nutrition 2025, doi:10.3389/fnut.2025.1659730."
+      ],
+      "tone": "neutral",
+      "id": "hinweis"
+    },
+    {
+      "type": "bigResult",
+      "caption": "Váš výsledek",
+      "title": "Váš biologický věkový ukazatel.",
+      "display": "+4 years",
+      "sub": "Odchylka od chronologického věku",
+      "kind": "odchylka",
+      "value": 4,
+      "unit": "let",
+      "ticks": ["+20 let", "+10", "0", "−10", "−20 let"],
+      "tone": "green",
+      "text": "Z kombinovaného vyhodnocení miR-21, miR-24 a miR-155. Chronologický věk 48 let. Váš biologický věk je 52 let, tedy o čtyři roky vyšší než chronologický věk. Rozmezí od −5 do +5 let je považováno za věku odpovídající – vaše hodnota tedy spadá do tohoto rozmezí. Pro kontext: referenční pásmo ±5 let je užší než průměrná chyba modelu 10,4 roku. Odchylku této velikosti proto nelze odlišit od rozptylu modelu.",
+      "id": "ergebnis"
+    },
+    {
+      "type": "ageDots",
+      "caption": "Biologický versus chronologický",
+      "title": "Biologický věk",
+      "lead": "Chronologický věk 48 let.",
+      "chronological": 48,
+      "min": 35,
+      "max": 60,
+      "unit": "let",
+      "items": [
+        {
+          "label": "Biologický věk",
+          "age": 52,
+          "delta": "+4",
+          "tone": "green"
+        }
+      ],
+      "id": "biologisches-alter"
+    },
+    {
+      "type": "callout",
+      "title": "Vaše aktuální pozice",
+      "text": "Dva skóre z vašich vlastních údajů, každé porovnané s referencí.",
+      "items": [
+        "72 / 100 · Výživa — Dobrá kombinace živin s možností zlepšení v detailech. Referenční hodnota: ≥ 60.",
+        "65 / 100 · Životní styl — Vyvážený, s prostorem pro více fyzické aktivity a snížení stresu. Referenční hodnota: ≥ 60."
+      ],
+      "tone": "neutral",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "markers",
+      "caption": "Základ výpočtu",
+      "title": "Tři mikroRNA.",
+      "lead": "Jednotlivé signály na semaforu 1–9; vyšší hodnota je lepší. Pouze jejich vzájemná interakce vytváří věkový ukazatel — samotný signál neumožňuje žádný závěr.",
+      "items": [
+        {
+          "name": "miR-21",
+          "category": "Zánět a přestavba tkáně",
+          "intro": "Hlavní mikroRNA „inflammagingu“. Stoupá při chronickém, nízkostupňovém zánětu a úzce souvisí se senescencí a fibrózou.",
+          "kind": "semafor",
+          "value": 3,
+          "display": "3 / 9",
+          "sub": "Mimo rozsah",
+          "tone": "red",
+          "text": "Nejslabší z vašich tří signálů. Všech osm doporučení v této zprávě se týká dráhy miR-21."
+        },
+        {
+          "name": "miR-155",
+          "category": "Imunitní rovnováha a metabolismus",
+          "intro": "Centrální spínač imunitní odpovědi. Zvýšené hladiny doprovázejí metabolický stres a nadměrnou zánětlivou regulaci.",
+          "kind": "semafor",
+          "value": 4,
+          "display": "4 / 9",
+          "sub": "Střední rozsah",
+          "tone": "amber",
+          "text": "V dolní střední části rozsahu. Spolu s miR-21 tento signál ukazuje stejným směrem: zánět a imunitní regulace jsou osou této zprávy."
+        },
+        {
+          "name": "miR-24",
+          "category": "Buněčný cyklus a senescence",
+          "intro": "Reguluje dělení buněk, opravu DNA a apoptózu. Odráží schopnost opravy a úroveň senescence buněk.",
+          "kind": "semafor",
+          "value": 5,
+          "display": "5 / 9",
+          "sub": "Střední rozsah",
+          "tone": "amber",
+          "text": "Nejsilnější z vašich tří signálů — přesně uprostřed škály. Schopnost opravy a úroveň senescence jsou bez zvláštností."
+        }
+      ],
+      "note": "V publikaci popisující model dvě ze tří mikroRNA nevykazovaly významnou korelaci s chronologickým věkem. Jednotlivé signály by proto měly být chápány jako výchozí body pro zásahy, nikoli jako samostatné věkové markery.",
+      "id": "marker"
+    },
+    {
+      "type": "radar",
+      "caption": "Vaše aktuální pozice",
+      "title": "Stravovací a životní návyky.",
+      "lead": "Radar ukazuje, jak blízko jsou vaše současné návyky k referenčním hodnotám. Čím dále je faktor od středu, tím příznivější — 10 je optimální.",
+      "axes": [
+        "Každodenní aktivita",
+        "Cvičení",
+        "Stres",
+        "Tabák",
+        "Alkohol",
+        "Svačiny",
+        "Maso",
+        "Omega-3",
+        "Vláknina",
+        "Ovoce/zelenina",
+        "Příjem tekutin"
+      ],
+      "seriesLabels": {
+        "profile": "Váš profil",
+        "reference": "Referenční skupina"
+      },
+      "scores": [
+        {
+          "value": "72 / 100",
+          "label": "Výživa",
+          "text": "Dobrá kombinace živin, prostor pro zlepšení v detailech.",
+          "ref": "Referenční hodnota: ≥ 60"
+        },
+        {
+          "value": "65 / 100",
+          "label": "Životní styl",
+          "text": "Vyvážený, s prostorem pro více fyzické aktivity a snížení stresu.",
+          "ref": "Referenční hodnota: ≥ 60"
+        }
+      ],
+      "noticeTitle": "Odkaz na věkový ukazatel",
+      "notices": [
+        "Stres (4 z 10) je váš nejslabší faktor životního stylu. Ve studii modelu byly stres a kouření mezi faktory spojenými s vyšším věkem podle miRNA.",
+        "Naopak tabák (9 z 10) je výrazně nad průměrem — takže druhý z dvou nepříznivých faktorů ve studii se vás netýká.",
+        "Omega-3 (6) a cvičení (7) mají prostor pro zlepšení; oba patří mezi faktory spojené s nižším věkem podle miRNA ve studii."
+      ],
+      "note": "Hodnocení založené na vašich vlastních údajích, nikoli individuální diagnóza. Popisované souvislosti vycházejí ze studie modelu a jsou skupinovými nálezy, nikoli predikcí pro jednotlivý případ.",
+      "id": "lebensstil"
+    },
+    {
+      "type": "table",
+      "caption": "Všechna doporučení přehledně",
+      "title": "Vaše intervence.",
+      "lead": "Osm opatření, každé přiřazené k mikroRNA signálům, na které působí, spolu s jejich aktuálními hodnotami. Seřazeno podle naléhavosti — nejslabší signál jako první.",
+      "cols": ["Opatření", "Působí na", "Zdroj", "Množství", "Poznámka"],
+      "rows": [
+        [
+          "Resveratrol",
+          "miR-21 · 3",
+          "Slupky hroznů, borůvky, arašídy",
+          "150–500 mg/den",
+          "Aktivuje sirtuiny, inhibuje NF-κB"
+        ],
+        [
+          "Omega-3 mastné kyseliny",
+          "miR-21 · 3, miR-155 · 4",
+          "Losos, makrela, sleď, lněné semínko; alternativně řasový olej",
+          "2× týdně, 150–200 g",
+          "Protizánětlivé; ve studii spojeno s nižším věkem podle miRNA"
+        ],
+        [
+          "EGCG (zelený čaj)",
+          "miR-21 · 3, miR-155 · 4",
+          "Zelený čaj, matcha, sencha",
+          "300–400 mg/den (3–4 šálky)",
+          "Antioxidant; příznivý faktor životního stylu ve studii"
+        ],
+        [
+          "Kurkumín",
+          "miR-21 · 3, miR-155 · 4",
+          "Kurkuma s černým pepřem",
+          "1 čajová lžička denně",
+          "Piperin výrazně zvyšuje vstřebávání"
+        ],
+        [
+          "Sulforafan",
+          "miR-21 · 3, miR-155 · 4",
+          "Brokolice (a brokolicové klíčky), květák, růžičková kapusta, řeřicha",
+          "25 mg/den (přibližně 250 g)",
+          "Ohřev 3–4 min při 80 °C zvyšuje biologickou dostupnost"
+        ],
+        [
+          "Spánek a stres",
+          "miR-21 · 3, miR-155 · 4",
+          "Regenerační spánek, regulace stresu, nekuřáctví",
+          "denně",
+          "Stres a kouření byly ve studii spojeny s vyšším věkem podle miRNA"
+        ],
+        [
+          "Fyzická aktivita",
+          "miR-21 · 3, miR-155 · 4, miR-24 · 5",
+          "Kombinace vytrvalosti a síly",
+          "≥ 150 min/týden",
+          "Pravidelná aktivita byla ve studii spojena s nižším věkem podle miRNA"
+        ],
+        [
+          "Kvercetin",
+          "miR-21 · 3, miR-24 · 5",
+          "Cibule, česnek, kapary, kapusta",
+          "500–1 000 mg/den",
+          "Senolytikum; lepší biologická dostupnost s vitamínem C"
+        ]
+      ],
+      "note": "Přiřazení „působí na“ označuje dráhu, na kterou dané opatření cílí. Nejde o záruku měřitelné změny v jednotlivém případě. Doporučujeme konzultovat doplňky stravy individuálně s kvalifikovaným odborníkem; tento přehled nenahrazuje lékařskou radu.",
+      "id": "uebersicht"
+    },
+    {
+      "type": "trend",
+      "caption": "Trend",
+      "title": "Aktuální nález.",
+      "lead": "Protože jednotlivá hodnota nepřekonává rozptyl modelu, informační hodnota této analýzy spočívá v trendu. Zobrazují se pouze naměřené hodnoty — žádná predikce.",
+      "firstLabel": "15.03.2026",
+      "secondLabel": "15.06.2026",
+      "kind": "věk",
+      "items": [
+        {
+          "label": "Biologický věk",
+          "first": 54,
+          "second": 52,
+          "firstDisplay": "54 let",
+          "secondDisplay": "52 let",
+          "delta": "−2 roky",
+          "sub": "+4 oproti chronologickému věku",
+          "tone": "green"
+        }
+      ],
+      "note": "Hodnocení: počáteční měření 15.03.2026, kontrolní měření 15.06.2026, změna −2 roky, odchylka dnes +4 oproti chronologickému věku.",
+      "id": "verlauf"
+    },
+    {
+      "type": "callout",
+      "title": "Co trend ukazuje",
+      "text": "Biologický věk mezi dvěma měřeními klesl o dva roky, z 54 na 52 — zatímco chronologický věk za stejné období vzrostl o tři měsíce. Směr je správný.",
+      "items": [
+        "Současně: rozdíl dvou let je dobře v rámci rozptylu modelu přibližně deseti let. Jediný krok této velikosti ještě neprokazuje efekt — pouze směr, který zůstává konzistentní napříč několika měřeními.",
+        "Obě měření byla od sebe vzdálena přibližně tři měsíce. Interval do další kontroly stanovuje instituce poskytující vaši péči; odběr vzorku a denní doba by měly zůstat srovnatelné."
+      ],
+      "tone": "accent",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "summary",
+      "caption": "Shrnutí",
+      "title": "Vaše zaměření: osa zánětu.",
+      "lead": "Dva z vašich tří signálů — miR-21 (3/9) a miR-155 (4/9) — popisují zánět a imunitní regulaci, a oba se nacházejí v dolní oblasti. miR-24, který odráží opravu a senescenci, je uprostřed na 5/9. To vytváří jasný obraz, na co se zaměřit.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Jezte protizánětlivou stravu",
+          "text": "Všechny osm pák v této zprávě působí na miR-21, šest z nich navíc na miR-155. Překryv je zvládnutelný a praktický pro každodenní život. Konkrétně: tučné mořské ryby dvakrát týdně nebo řasový olej denně, 3–4 šálky zeleného čaje, kurkuma s černým pepřem, brokolice vařená 3–4 minuty při 80 °C, bobule pro resveratrol."
+        },
+        {
+          "num": "02",
+          "title": "Stres a fyzická aktivita",
+          "text": "Váš životní radar ukazuje stres na 4 z 10 jako nejslabší faktor, přičemž cvičení na 7 a omega-3 na 6 ponechávají prostor pro zlepšení. V modelové studii byl stres a kouření spojován s vyšším věkem podle miRNA, zatímco pravidelná fyzická aktivita a ryby s nižším. Fyzická aktivita je jedinou pákou, která cílí na všechny tři signály najednou: alespoň 150 minut týdně, kombinace vytrvalosti a síly."
+        }
+      ],
+      "keepTitle": "Co již funguje",
+      "keepText": "Nekouření (tabák 9/10), ovoce a zelenina (8/10) a příjem tekutin (8/10) jsou výrazně nad referenční skupinou. Výživové skóre 72/100 je rovněž solidní. A trend směřuje správným směrem.",
+      "controlTitle": "Mějte prosím na paměti",
+      "controlItems": [
+        "Všechny popsané souvislosti mezi životním stylem a věkem podle miRNA vycházejí z modelové studie a jsou skupinovými zjištěními. Zda se vaše osobní hodnota změní v důsledku těchto opatření, může ukázat pouze vaše další měření.",
+        "Tato zpráva není diagnózou a nenahrazuje lékařskou konzultaci."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "science",
+      "caption": "Co je ověřené — a co není",
+      "title": "Vědecký kontext.",
+      "lead": "Omezení této analýzy uvádíme otevřeně, protože poctivá interpretace má větší hodnotu než působivé číslo.",
+      "items": [
+        {
+          "title": "Typ studie",
+          "text": "Pilotní studie; validace požadovaná samotnými autory"
+        },
+        {
+          "title": "Vzorek",
+          "text": "n = 539"
+        },
+        {
+          "title": "Vysvětlená variance věku",
+          "text": "přibližně 5 %"
+        },
+        {
+          "title": "Průměrná absolutní chyba",
+          "text": "10,4 roku"
+        },
+        {
+          "title": "Markery s významnou korelací s věkem",
+          "text": "1 z 3"
+        },
+        {
+          "title": "K čemu je analýza vhodná",
+          "text": "Jako konzultační a monitorovací nástroj: vytváří konkrétní příležitost, činí témata životního stylu hmatatelnými a opakovanými měřeními za stejných podmínek poskytuje trendovou linii."
+        },
+        {
+          "title": "K čemu není vhodná",
+          "text": "Jako určení věku, jako výrok o délce života nebo riziku onemocnění, jako diagnostika — a jako podklad pro srovnání s věkovými hodinami založenými na metylaci, které vycházejí z jiné metodologie a jiné důkazní základny.",
+          "source": "Schneider J. et al., miRNA-3Age: model biologického věku založený na microRNA a jeho modulace životním stylem a výživou. Frontiers in Nutrition (2025), doi:10.3389/fnut.2025.1659730"
+        }
+      ],
+      "note": "Tento dokument nenahrazuje lékařské posouzení a nepředstavuje žádný slib vyléčení ve smyslu německého zákona o reklamě léčivých přípravků (HWG).",
+      "id": "einordnung"
+    },
+    {
+      "type": "callout",
+      "title": "Vodítko",
+      "text": "Význam má trend, nikoli jednotlivá hodnota. Skutečným přínosem této analýzy je počáteční a kontrolní měření za stejných podmínek.",
+      "items": [
+        "Jednotlivá hodnota v rozmezí ±10 let od chronologického věku nelze odlišit od rozptylu modelu."
+      ],
+      "tone": "accent",
+      "id": "hinweis-4"
+    },
+    {
+      "type": "contact",
+      "title": "Máte otázky k vašemu výsledku?",
+      "text": "Výsledky konzultujte s institucí, která provedla odběr vzorku. Právě tam jsou k dispozici kontexty potřebné k interpretaci.",
+      "columns": [
+        {
+          "k": "Kontakt",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribuce",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Ukázková zpráva",
+          "text": "Všechny hodnoty a osobní údaje v tomto dokumentu jsou fiktivní a slouží pouze k ilustraci formátu zprávy. Toto není skutečná zpráva."
+        },
+        {
+          "title": "Interpretace",
+          "text": "Biologický věk uvedený zde je modelová hodnota odvozená ze tří microRNA signálů. Základní model byl publikován jako pilotní studie; jeho průměrná absolutní chyba je přibližně deset let. Hodnota není určením věku, diagnózou ani výrokem o délce života či riziku onemocnění. Významná je pouze přes několik měření za stejných podmínek. Srovnání s věkovými hodinami založenými na metylaci není přípustné."
+        },
+        {
+          "title": "Stav analýz",
+          "text": "Analýzy jsou laboratorní služby poskytované naším partnerským pracovištěm a nejsou označeny značkou CE jako in vitro diagnostické zdravotnické prostředky. Slouží k poradenství a monitoringu a nenahrazují klinickou diagnostiku. Analýzy jsou určeny pouze pro profesionální uživatele."
+        },
+        {
+          "title": "Právní rámec",
+          "text": "Tento panel nevyhodnocuje genotypy; měří epigenetické markery. Kde analýza v portfoliu zahrnuje genetické testování, je před odběrem vzorku vyžadována informace a písemný souhlas a může být provedena pouze pod lékařskou odpovědností (německý zákon o genetické diagnostice). Laboratorní analýzu provádí náš partnerský subjekt. Polaris Diagnostics Europe GmbH je odpovědná za distribuci a podporu. Doporučujeme individuální posouzení doplňků stravy ve spolupráci s kvalifikovaným odborníkem. Tento dokument nepředstavuje žádný slib vyléčení ve smyslu německého zákona o reklamě léčivých přípravků (HWG)."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stav k: srpen 2026",
+      "id": "kontakt"
+    }
+  ]
+}

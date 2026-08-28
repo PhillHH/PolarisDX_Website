@@ -11,9 +11,7 @@ export default function IglooProductFinalCta() {
         <h2 className="mx-auto max-w-3xl font-medium tracking-[-0.02em] text-[clamp(28px,5vw,48px)] leading-[clamp(34px,5.6vw,56px)]">
           {t('cta_bottom.title', 'Bereit, den IglooPro in Ihre Praxis zu holen?')}
         </h2>
-        <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/80">
-          {t('cta_bottom.description')}
-        </p>
+        <p className="mx-auto mt-5 max-w-2xl t-body-on-dark">{t('cta_bottom.description')}</p>
 
         <div className="mt-10 flex flex-wrap justify-center gap-4">
           <Button
@@ -28,6 +26,7 @@ export default function IglooProductFinalCta() {
             href={IglooProFlyer}
             target="_blank"
             rel="noopener noreferrer"
+            hrefLang="de"
             className="inline-flex items-center justify-center rounded-md border border-white/25 px-5 py-2.5 text-sm font-medium text-white hover:bg-white/10"
           >
             {t('cta_bottom.datasheet', 'Datenblatt (PDF)')}

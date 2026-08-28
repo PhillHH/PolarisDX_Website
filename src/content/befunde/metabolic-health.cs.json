@@ -1,0 +1,1108 @@
+{
+  "slug": "metabolic-health",
+  "panel": "Metabolic Health",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Ukázková zpráva · Ukázková data",
+      "panel": "Metabolic Health",
+      "subtitle": "Genetika a epigenetika",
+      "claim": "Váš metabolický profil na dvou úrovních: dědičná genetická predispozice a epigenetické markery, které lze ovlivnit stravou, cvičením, spánkem a stresem.",
+      "meta": [
+        {
+          "k": "Zpráva pro",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Odběr vzorku",
+          "v": "08.04.2026"
+        },
+        {
+          "k": "Materiál",
+          "v": "Karta se sušenou kapkou krve"
+        },
+        {
+          "k": "Hodnocení",
+          "v": "17 + 4 epigenetické"
+        }
+      ],
+      "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+      "id": "deckblatt",
+      "benefit": "Co váš klient jí, jak to zpracovává — a co může změnit."
+    },
+    {
+      "type": "principle",
+      "caption": "Princip",
+      "title": "Jak číst tuto zprávu.",
+      "lead": "Tato zpráva kombinuje dvě úrovně: vaši genetiku — dědičnou a neměnnou — a vaši epigenetiku, kterou lze ovlivnit životním stylem.",
+      "cards": [
+        {
+          "title": "Úroveň 1 · Genetika",
+          "text": "Vaše geny jsou plánem vašeho metabolismu: jak zpracováváte sacharidy, tuky a bílkoviny, jak funguje chuť k jídlu a pocit sytosti, jak vaše tělo nakládá s vitamíny a solí. Tyto predispozice se nemění.",
+          "items": [
+            "SNP — dobře prozkoumaná varianta ve vaší DNA.",
+            "Tři formy — divoký typ, heterozygotní nebo homozygotní; bez hodnotového hodnocení.",
+            "Váš profil — několik SNP dohromady tvoří váš metabolický typ a hodnocení."
+          ]
+        },
+        {
+          "title": "Úroveň 2 · Epigenetika",
+          "text": "Epigenetika neukazuje, které geny máte, ale jak jsou aktuálně aktivní. Tyto čtyři hodnoty lze změnit — a proto jsou jedinými, u kterých lze v průběhu času prokázat efekt zásahu.",
+          "items": [
+            "LINE-1 — globální regulace a stabilita DNA.",
+            "Regulace zánětu — kombinované skóre z IL-6 a TNF-α.",
+            "miR-21 · miR-155 — mikroRNA metabolické aktivity."
+          ]
+        }
+      ],
+      "scaleTitle": "Jak číst škálu?",
+      "scaleCaption": "Orientace",
+      "scaleLead": "Všechna hodnocení — genetická i epigenetická — používají stejný semafor 1–9. Červená vlevo, zelená vpravo: 1–3 červená, 4–6 oranžová, 7–9 zelená. Vyšší hodnota je vždy příznivější.",
+      "scaleKind": "traffic",
+      "scaleTicks": ["1", "3", "5", "7", "9"],
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "1–3 · Červená",
+          "text": "Mimo optimální rozsah. Zde je největší potenciál ke změně."
+        },
+        {
+          "tone": "amber",
+          "label": "4–6 · Oranžová",
+          "text": "Střední potřeba podpory. Sledujte specificky."
+        },
+        {
+          "tone": "green",
+          "label": "7–9 · Zelená",
+          "text": "V příznivém rozsahu. Zachovejte stávající režim."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Důležité",
+      "tone": "neutral",
+      "items": [
+        "Tato zpráva není diagnózou. Interpretace probíhá v konzultaci s kvalifikovanými odborníky a vždy v individuálním kontextu.",
+        "Před genetickou analýzou je vyžadována informace a písemný souhlas (německý zákon o genetické diagnostice, GenDG). Prediktivní genetické testování může být prováděno pouze pod odpovědností řádně kvalifikovaných lékařů; genetické poradenství musí být nabídnuto před i po testu (§ 7 a 10 GenDG).",
+        "Genetické hodnoty se nikdy nemění. Pouze čtyři epigenetické hodnoty jsou vhodné pro sledování v čase."
+      ],
+      "id": "hinweis"
+    },
+    {
+      "type": "resultTable",
+      "caption": "Výsledky na první pohled",
+      "title": "Vaše čtyři modifikovatelné hodnoty.",
+      "lead": "Tyto čtyři markery se mění vlivem stravy, cvičení, spánku a stresu — důvod pro následné měření.",
+      "cols": ["Marker", "Úroveň", "Vaše hodnota", "Optimální", "Interpretace"],
+      "rows": [
+        {
+          "cells": ["LINE-1 · Stabilita DNA", "Methylace", "2 / 9", "7–9", "Mimo rozsah"],
+          "tone": "red"
+        },
+        {
+          "cells": ["Regulace zánětu (IL-6 & TNF-α)", "Methylace", "7 / 9", "7–9", "Optimální"],
+          "tone": "green"
+        },
+        {
+          "cells": ["miR-21 · Zánět a mikronutrienty", "microRNA", "3 / 9", "7–9", "Mimo rozsah"],
+          "tone": "red"
+        },
+        {
+          "cells": ["miR-155 · Regulace FTO, tuková tkáň", "microRNA", "8 / 9", "7–9", "Optimální"],
+          "tone": "green"
+        }
+      ],
+      "id": "ergebnis"
+    },
+    {
+      "type": "callout",
+      "caption": "Genetická interpretace",
+      "title": "Váš metabolický typ: vyvážený typ",
+      "text": "Váš metabolismus nepřednostňuje žádnou ze tří makroživin. Rozdělení a vypočtená energetická potřeba jsou uvedeny v kapitole „Metabolický typ“.",
+      "tone": "neutral",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "callout",
+      "caption": "Genetická interpretace",
+      "title": "Váš typ cvičení: vytrvalostní typ",
+      "text": "Lépe vám vyhovuje delší, stálá zátěž než krátké výbuchy síly — přesto zůstává důležitá i složka síly.",
+      "tone": "neutral",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "callout",
+      "title": "Co z toho vyplývá",
+      "tone": "accent",
+      "items": [
+        "Dvě červené epigenetické hodnoty — LINE-1 (2/9) a miR-21 (3/9); genetická varianta MTHFR (2/9) závisí na stejné metabolické dráze. Toto je ústřední výchozí bod této zprávy.",
+        "Dvě zelené hodnoty — regulace zánětu (7/9) a miR-155 (8/9) jsou v optimálním rozsahu a měly by tam zůstat.",
+        "Smysluplné je kontrolní měření nejdříve za 4 až 6 měsíců."
+      ],
+      "id": "hinweis-4"
+    },
+    {
+      "type": "evaluations",
+      "caption": "Výsledky na první pohled",
+      "title": "Všechna genetická hodnocení.",
+      "lead": "Sedmnáct hodnocení na semaforu 1–9. Tyto hodnoty jsou dědičné a nemění se — popisují, kde váš metabolismus potřebuje více podpory než průměr.",
+      "items": [
+        {
+          "label": "Hydratace pokožky",
+          "sub": "AQPR",
+          "value": 9,
+          "display": "9 / 9",
+          "status": "Příznivé",
+          "tone": "green"
+        },
+        {
+          "label": "Obtíže s udržením váhy",
+          "value": 8,
+          "display": "8 / 9",
+          "status": "Příznivé",
+          "tone": "green"
+        },
+        {
+          "label": "Citlivost na sůl",
+          "value": 8,
+          "display": "8 / 9",
+          "status": "Příznivé",
+          "tone": "green"
+        },
+        {
+          "label": "Regulace tělesné hmotnosti",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Příznivé",
+          "tone": "green"
+        },
+        {
+          "label": "Vitamin D",
+          "sub": "Transport, GC",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Příznivé",
+          "tone": "green"
+        },
+        {
+          "label": "Oxidační ochrana buněk",
+          "sub": "SOD2",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Příznivé",
+          "tone": "green"
+        },
+        {
+          "label": "Chuť na jídlo",
+          "value": 6,
+          "display": "6 / 9",
+          "status": "Střední",
+          "tone": "amber"
+        },
+        {
+          "label": "Elasticita pokožky a zánět",
+          "sub": "IL-6",
+          "value": 6,
+          "display": "6 / 9",
+          "status": "Střední",
+          "tone": "amber"
+        },
+        {
+          "label": "Obtíže s hubnutím",
+          "value": 5,
+          "display": "5 / 9",
+          "status": "Střední",
+          "tone": "amber"
+        },
+        {
+          "label": "B vitaminy",
+          "sub": "Potřeba",
+          "value": 5,
+          "display": "5 / 9",
+          "status": "Střední",
+          "tone": "amber"
+        },
+        {
+          "label": "Regulace hladu/sytosti",
+          "value": 4,
+          "display": "4 / 9",
+          "status": "Střední",
+          "tone": "amber"
+        },
+        {
+          "label": "Antioxidační kapacita",
+          "sub": "NADPH",
+          "value": 4,
+          "display": "4 / 9",
+          "status": "Střední",
+          "tone": "amber"
+        },
+        {
+          "label": "Metabolismus cukru v krvi a inzulinu",
+          "value": 3,
+          "display": "3 / 9",
+          "status": "Zvýšená potřeba",
+          "tone": "red"
+        },
+        {
+          "label": "Krevní lipidy a metabolismus mastných kyselin",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Zvýšená potřeba",
+          "tone": "red"
+        },
+        {
+          "label": "Příjem omega-3",
+          "sub": "ALA → EPA/DHA",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Zvýšená potřeba",
+          "tone": "red"
+        },
+        {
+          "label": "Kyselina listová",
+          "sub": "MTHFR",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Zvýšená potřeba",
+          "tone": "red"
+        },
+        {
+          "label": "Hubnutí cvičením",
+          "sub": "FTO",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Zvýšená potřeba",
+          "tone": "red"
+        }
+      ],
+      "note": "Seřazeno podle hodnoty, nikoli podle tématu. Podrobná interpretace s genotypy a intervencemi následuje v kapitolách níže.",
+      "id": "auswertungen"
+    },
+    {
+      "type": "markers",
+      "caption": "Epigenetický stav",
+      "title": "Metylace.",
+      "lead": "Metylace DNA ukazuje, jak aktivní jsou vaše geny v současnosti. Na rozdíl od samotných genů lze tyto hodnoty měnit.",
+      "items": [
+        {
+          "name": "LINE-1",
+          "category": "Stabilita DNA",
+          "intro": "Elementy LINE-1 tvoří přibližně 17 % genomu. Jejich metylace je považována za marker globální regulace DNA.",
+          "kind": "semafor",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Mimo rozsah",
+          "tone": "red",
+          "text": "Tento marker je nejúčinněji podporován živinami zapojenými do metabolismu folátu — což nabývá na významu vzhledem k vaší variantě MTHFR (genetická 2/9).",
+          "table": {
+            "cols": ["Měření", "Zdroj", "Množství / frekvence", "Účinek"],
+            "rows": [
+              [
+                "Kyselina listová",
+                "zelená listová zelenina, rajče, luštěniny, ořechy, klíčky",
+                "denně",
+                "V případě potřeby 2 měsíce jako methylfolát (5-MTHF)"
+              ],
+              ["Riboflavin (B2)", "naklíčená semena, klíčky, sýr", "denně", "Kofaktor metylace"],
+              [
+                "Kobalamin (B12)",
+                "vejce, sýr, fermentované potraviny",
+                "denně",
+                "Regenerace aktivního folátu"
+              ],
+              [
+                "Methionin",
+                "para ořechy, sezam, sója, hrách, listová zelenina",
+                "denně",
+                "Přímý donor methylové skupiny"
+              ],
+              [
+                "Pyridoxin (B6)",
+                "zelí, zelené fazolky, čočka, banány",
+                "denně",
+                "Kofaktor metylace"
+              ],
+              [
+                "Vláknina",
+                "celá zrna, zelenina, luštěniny",
+                "alespoň 30 g/den",
+                "Biologická dostupnost fytochemikálií"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Regulace zánětu (IL-6 & TNF-α)",
+          "intro": "Kombinované skóre z metylace obou genových oblastí — nikoli akutní hladina v krvi. Jednotlivé hodnoty: IL-6 8/9 · TNF-α 6/9.",
+          "kind": "semafor",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Optimální",
+          "tone": "green",
+          "text": "Tuto oblast nadále podporuje rostlinně orientovaná, nízce zánětlivá strava.",
+          "table": {
+            "cols": ["Měření", "Zdroj", "Množství / frekvence", "Účinek"],
+            "rows": [
+              [
+                "Resveratrol",
+                "slupky hroznů, semena malin, borůvky, arašídy",
+                "1 porce bobulovin/den",
+                "Nachází se převážně ve slupkách a semenech"
+              ],
+              [
+                "Sulforafan",
+                "brokolice, květák, růžičková kapusta, řeřicha",
+                "3–4× týdně",
+                "Pára jen krátce nebo jíst syrové — jinak se aktivní látka ztratí"
+              ],
+              [
+                "Kvercetin",
+                "cibule, česnek, kapary, pažitka",
+                "denně",
+                "Nechte cibuli po nakrájení 10 minut stát"
+              ],
+              [
+                "Kurkumín",
+                "kurkuma s černým pepřem",
+                "1 čajová lžička denně",
+                "Olejem se zlepšuje vstřebávání; neužívat v těhotenství nebo při žlučníkových kamenech"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "markers",
+      "caption": "Epigenetický stav",
+      "title": "microRNA.",
+      "lead": "microRNA jemně ladí aktivitu vašich genů a odrážejí aktuální metabolickou a zánětlivou aktivitu. Stejně jako metylace je lze ovlivnit životním stylem.",
+      "items": [
+        {
+          "name": "miR-21",
+          "category": "Zánět a mikronutrienty",
+          "intro": "Zhoršuje se při výraznější zánětlivé aktivitě i při nedostatku zinku a folátu.",
+          "kind": "semafor",
+          "value": 3,
+          "display": "3 / 9",
+          "status": "Mimo rozsah",
+          "tone": "red",
+          "text": "Při červené nebo oranžové hodnotě by se mělo usilovat o normální BMI; navíc je vhodný cílený příjem zinku a folátu. Antioxidační mikronutrienty jako vitamín D, vitamín E, lykopen a resveratrol podporují imunitní regulaci.",
+          "table": {
+            "cols": ["Měření", "Zdroj", "Množství / frekvence", "Účinek"],
+            "rows": [
+              [
+                "Zinek",
+                "dýňová semínka, oves, čočka, sýr, hovězí maso",
+                "denně",
+                "Nedostatek zinku tuto hodnotu zhoršuje"
+              ],
+              [
+                "Kyselina listová",
+                "listová zelenina, luštěniny, rajčata, klíčky",
+                "denně",
+                "Nedostatek folátu tuto hodnotu zhoršuje"
+              ],
+              [
+                "Resveratrol",
+                "slupky hroznů, borůvky, arašídy",
+                "1 porce bobulovin/den",
+                "Inhibuje signální dráhu NF-κB"
+              ],
+              [
+                "Vitamin D",
+                "losos, máslo, vejce, avokádo, houby",
+                "pravidelně",
+                "Důležité pro imunitní regulaci"
+              ],
+              [
+                "Vitamín E",
+                "olej z pšeničných klíčků, ořechy, špenát, brokolice",
+                "denně",
+                "Antioxidant, chrání buněčné membrány"
+              ],
+              [
+                "Lykopen",
+                "rajčata, meloun, mrkev, papája",
+                "denně",
+                "Karotenoid s antioxidačním účinkem"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "miR-155",
+          "category": "Regulace FTO a tvorba tukové tkáně",
+          "intro": "Centrální regulátor imunitních a zánětlivých reakcí; ovlivňuje tvorbu hnědé a béžové tukové tkáně.",
+          "kind": "semafor",
+          "value": 8,
+          "display": "8 / 9",
+          "status": "Optimální",
+          "tone": "green",
+          "text": "Příznivě působí cvičení, půsty a chladové podněty — zvláště důležité, protože vaše genetické hodnocení FTO je 2/9.",
+          "table": {
+            "cols": ["Měření", "Zdroj", "Množství / frekvence", "Účinek"],
+            "rows": [
+              [
+                "Pravidelné cvičení",
+                "kombinace vytrvalosti a síly",
+                "150 min/týden",
+                "Má příznivý vliv na tuto hodnotu"
+              ],
+              [
+                "Chladové podněty",
+                "studené sprchy, koupání v ledové vodě, chladné místnosti",
+                "pravidelně, krátce",
+                "Aktivuje hnědou/béžovou tukovou tkáň"
+              ],
+              [
+                "Fáze půstu",
+                "prodloužená noční přestávka v jídle",
+                "po konzultaci",
+                "Podporuje aktivaci hnědé tukové tkáně"
+              ],
+              [
+                "Kvercetin",
+                "cibule, česnek, kapary, pažitka",
+                "alespoň 200 mg/den",
+                "Ovlivňuje mitochondriální biogenezi"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "table",
+      "caption": "Genetika · Makronutrienty",
+      "title": "Metabolický typ: vyvážený typ.",
+      "lead": "Váš metabolismus nepřednostňuje žádný ze tří makronutrientů zvlášť. Platí pro vás tedy obecné doporučení referenčních hodnot DACH. Důležitější je u vás kvalita potravin.",
+      "cols": ["Sdílet", "Makronutrient", "Poznámka"],
+      "rows": [
+        ["55 %", "Sacharidy", "Celá zrna, luštěniny a zelenina jako základ"],
+        ["20 %", "Bílkoviny", "20–30 g na hlavní jídlo"],
+        ["25 %", "Tuky", "Zaměřte se na nenasycené tuky"]
+      ],
+      "note": "Individuálně vypočtená denní energetická potřeba: 1 900 kcal.",
+      "id": "uebersicht"
+    },
+    {
+      "type": "table",
+      "caption": "Genetika · Cvičení",
+      "title": "Typ cvičení: vytrvalostní typ.",
+      "lead": "Jak ACE, tak ACTN3 ukazují na predispozici k vytrvalostnímu výkonu. Pro srovnání: genetika vysvětluje jen asi 20 % rozdílu mezi silovým a vytrvalostním výkonem — větší vliv mají trénink, strava a pravidelnost.",
+      "cols": ["Gen", "Váš genotyp", "Predispozice"],
+      "rows": [
+        [
+          "ACE",
+          "GG (homozygotní)",
+          "Spíše vytrvalost – varianta spojená s lepším využitím kyslíku a efektivitou."
+        ],
+        [
+          "ACTN3",
+          "TT (divoký typ)",
+          "Spíše vytrvalost – typ XX bez α-aktininu-3, více pomalých, vytrvalostně orientovaných svalových vláken."
+        ]
+      ],
+      "id": "uebersicht-2"
+    },
+    {
+      "type": "markers",
+      "caption": "Genetika · Cvičení",
+      "title": "Hubnutí pomocí cvičení.",
+      "items": [
+        {
+          "name": "Hubnutí cvičením",
+          "category": "FTO rs1121980",
+          "intro": "Genotyp AT (heterozygot). Jak moc samotné cvičení přispívá k úbytku hmotnosti.",
+          "kind": "semafor",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Zvýšená potřeba",
+          "tone": "red",
+          "text": "Ve vašem případě vede samotné cvičení k úbytku hmotnosti poněkud pomaleji než u jiných genotypů. Efekt na kondici a metabolické zdraví zůstává nezměněn – pro redukci váhy je zvláště vhodná kombinace cvičení a úpravy stravy.",
+          "table": {
+            "cols": ["Měření", "Zdroj", "Množství / frekvence", "Účinek"],
+            "rows": [
+              [
+                "Vytrvalostní složka",
+                "cyklistika, běh, plavání",
+                "2–3× týdně",
+                "Dodávka kyslíku, základní vytrvalost"
+              ],
+              [
+                "Silová složka",
+                "silový trénink celého těla",
+                "2× týdně",
+                "Udržuje svalovou hmotu a metabolickou aktivitu"
+              ],
+              [
+                "Kombinovat s dietou",
+                "viz doporučení metabolického typu",
+                "individuálně",
+                "U FTO nejúčinnější další páka"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-3"
+    },
+    {
+      "type": "markers",
+      "caption": "Genetika · Metabolismus",
+      "title": "Předpoklad: regulace tělesné hmotnosti a metabolismu cukru v krvi.",
+      "lead": "Genetická predispozice k regulaci tělesné hmotnosti a metabolismu cukru v krvi – jako výchozí bod pro cílenou výživu, nikoli jako predikce.",
+      "items": [
+        {
+          "name": "Regulace tělesné hmotnosti",
+          "intro": "Shrnutí variant spojených s regulací tělesné hmotnosti.",
+          "kind": "semafor",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Příznivé",
+          "tone": "green",
+          "text": "Vaše genetické pozadí zde nevykazuje nepříznivý vzorec. Struktura jídel, vláknina a pravidelný pohyb udržují tento výchozí stav.",
+          "sub": "Genotypy: FTO rs9939609 TT · PPARG2 CC (divoký typ) · MC4R CT · TCF7L2 CT · SLC6A14 CA · TFAP2B GG",
+          "table": {
+            "cols": ["Měření", "Zdroj", "Množství / frekvence", "Účinek"],
+            "rows": [
+              [
+                "Vláknina",
+                "celozrnné obiloviny, luštěniny, zelenina",
+                "alespoň 30 g/den",
+                "Prodlužuje pocit sytosti, stabilizuje hladinu cukru v krvi"
+              ],
+              [
+                "Bílkoviny na jídlo",
+                "vejce, luštěniny, ryby, maso",
+                "20–30 g/jídlo",
+                "Podporuje signály sytosti"
+              ],
+              ["Cvičení", "—", "150 min/týden", "Zmírňuje geneticky podmíněné účinky"]
+            ]
+          }
+        },
+        {
+          "name": "Metabolismus cukru v krvi a inzulinu",
+          "intro": "Geny ovlivňující sekreci inzulínu, citlivost na inzulín a metabolismus cukru v krvi.",
+          "kind": "semafor",
+          "value": 3,
+          "display": "3 / 9",
+          "status": "Zvýšená potřeba",
+          "tone": "red",
+          "text": "Vaše hodnota je mimo příznivý rozsah. Kvalita sacharidů a pravidelný pohyb jsou ve vašem případě nejúčinnější páky – a spolu s červenou hodnotou miR-21 druhým zaměřením této zprávy.",
+          "sub": "Genotypy: TCF7L2 CT · IL-6 CG · ADRB3 GG (divoký typ) · PPARG2 CC",
+          "table": {
+            "cols": ["Měření", "Zdroj", "Množství / frekvence", "Účinek"],
+            "rows": [
+              [
+                "Nízký glykemický index",
+                "celozrnné obiloviny, luštěniny, zelenina",
+                "každé hlavní jídlo",
+                "Zabraňuje prudkým výkyvům cukru v krvi"
+              ],
+              ["Pohyb po jídle", "krátká procházka", "10–15 min", "Zlepšuje citlivost na inzulín"]
+            ]
+          }
+        }
+      ],
+      "id": "marker-4"
+    },
+    {
+      "type": "markers",
+      "caption": "Genetika · Stravovací chování",
+      "title": "Typ výživy.",
+      "lead": "Sytost, chutě na jídlo a tendence k hubnutí či udržení váhy – vaše genetické páky kolem stravovacího chování.",
+      "items": [
+        {
+          "name": "Chuť na jídlo",
+          "sub": "MC4R CT · FTO rs9939609 TT · LEPR AA · SLC6A14 CA · PPARG2 CC",
+          "kind": "semafor",
+          "value": 6,
+          "display": "6 / 9",
+          "status": "Střední",
+          "tone": "amber",
+          "text": "Mírně zvýšená tendence ke spontánním impulzům k jídlu. Struktura jídel a příjem bílkovin jsou zde vaše nejúčinnější páky.",
+          "table": {
+            "cols": ["Měření", "Zdroj", "Množství / frekvence", "Účinek"],
+            "rows": [
+              [
+                "Bílkoviny při každém jídle",
+                "vejce, luštěniny, ryby, maso, tofu",
+                "20–30 g/jídlo",
+                "Nejsilnější známý signál sytosti"
+              ],
+              ["Pravidelná jídla", "—", "3 pevné časy/den", "Snižuje výkyvy cukru v krvi"]
+            ]
+          }
+        },
+        {
+          "name": "Regulace hladu a sytosti",
+          "sub": "MC4R, LEPR a FTO rs1121980 (AT) dohromady",
+          "kind": "semafor",
+          "value": 4,
+          "display": "4 / 9",
+          "status": "Střední",
+          "tone": "amber",
+          "text": "Poněkud opožděný signál sytosti – pomalé, vědomé jedení dává tomuto signálu čas, který potřebuje.",
+          "table": {
+            "cols": ["Měření", "Zdroj", "Množství / frekvence", "Účinek"],
+            "rows": [
+              ["Pomalé, vědomé jedení", "—", "alespoň 20 min/jídlo", "Dává opožděnému signálu čas"],
+              [
+                "Strava bohatá na vlákninu",
+                "zelenina, celozrnné obiloviny",
+                "alespoň 30 g/den",
+                "Prodlužuje pocit plnosti"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Hubnutí",
+          "sub": "ADRB3 GG · PLIN CT",
+          "kind": "semafor",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber",
+          "text": "Zvýšená potřeba podpory spánku a citlivosti na leptin. 7–9 hodin spánku a kombinovaný trénink 2–3× týdně."
+        },
+        {
+          "name": "Udržení váhy",
+          "sub": "TCF7L2 CT",
+          "kind": "semafor",
+          "value": 8,
+          "display": "8 / 9",
+          "tone": "green",
+          "text": "Příznivý výchozí stav proti jojo efektu. Stabilní časy jídel a 150 minut cvičení týdně jej udržují."
+        }
+      ],
+      "id": "marker-5"
+    },
+    {
+      "type": "markers",
+      "caption": "Genetika · Mikronutrienty",
+      "title": "Příjem vitamínů.",
+      "lead": "Jak dobře vaše tělo využívá vitamín D a přeměňuje folát na jeho aktivní formu – včetně výsledné potřeby vitamínů skupiny B.",
+      "items": [
+        {
+          "name": "Kyselina listová",
+          "category": "MTHFR",
+          "intro": "Genotyp homozygotní varianta. Klíčový enzym v metabolismu folátu.",
+          "kind": "semafor",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Zvýšená potřeba",
+          "tone": "red",
+          "text": "Vaše varianta MTHFR naznačuje výrazně omezenou přeměnu folátu na jeho aktivní formu (5-MTHF). Vaše potřeba folátu z potravy je vyšší než u jiných genotypů. Tato hodnota také vysvětluje červený marker LINE-1 na epigenetické úrovni – oba závisí na stejné metabolické dráze.",
+          "table": {
+            "cols": ["Měření", "Zdroj", "Množství / frekvence", "Účinek"],
+            "rows": [
+              [
+                "Folát z potravy",
+                "zelená listová zelenina, luštěniny, chřest",
+                "2–3 porce/den",
+                "Varianty MTHFR profitují z trvale vysokého příjmu"
+              ],
+              [
+                "Aktivní folát (5-MTHF)",
+                "v případě potřeby jako potravinový doplněk",
+                "po konzultaci s lékařem",
+                "Přímo obchází omezenou přeměnu"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Vitamin D",
+          "category": "Transport",
+          "intro": "GC (protein vážící vitamin D), genotyp GT (heterozygotní)",
+          "kind": "semafor",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Příznivé",
+          "tone": "green",
+          "text": "Transport vitaminu D ve vaší krvi je jen mírně omezený. To neznamená nedostatek, ale během měsíců s malým slunečním zářením je vhodné zkontrolovat hladinu v krvi.",
+          "table": {
+            "cols": ["Měření", "Zdroj", "Množství / frekvence", "Účinek"],
+            "rows": [
+              [
+                "Vitamin D",
+                "tučné ryby, vejce; sluneční záření",
+                "pravidelně 15–20 min/den, kontrola hladin",
+                "Kontrola je vhodná zejména v zimě"
+              ],
+              [
+                "Vitamin K2",
+                "fermentované potraviny, žloutek, tvrdý sýr",
+                "denně",
+                "Podporuje vitamin D v metabolismu kostí a cév"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "B vitaminy",
+          "category": "Potřeba",
+          "intro": "Vyplývá z varianty MTHFR přes methylaci.",
+          "kind": "semafor",
+          "value": 5,
+          "display": "5 / 9",
+          "status": "Střední",
+          "tone": "amber",
+          "table": {
+            "cols": ["Měření", "Zdroj", "Množství / frekvence", "Účinek"],
+            "rows": [
+              [
+                "Vitamin B2",
+                "vejce, mléčné výrobky, celozrnné produkty",
+                "denně",
+                "Přímý kofaktor enzymu MTHFR"
+              ],
+              ["Vitamin B6", "brambory, luštěniny, banány", "denně", "Metabolismus homocysteinu"],
+              ["Vitamin B12", "vejce, ryby, mléčné výrobky", "denně", "Regenerace aktivního folátu"]
+            ]
+          }
+        }
+      ],
+      "id": "marker-6"
+    },
+    {
+      "type": "markers",
+      "caption": "Genetika · Metabolismus lipidů",
+      "title": "Omega 3 a krevní lipidy.",
+      "lead": "Jak dobře využíváte rostlinné prekurzory omega-3 a jak jsou vaše hladiny krevních lipidů geneticky predisponovány.",
+      "items": [
+        {
+          "name": "Krevní lipidy a metabolismus mastných kyselin",
+          "sub": "FADS1 TT · APOA5 AG · LPL AA (divoký typ) · PPARG2 CC",
+          "kind": "semafor",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Zvýšená potřeba",
+          "tone": "red",
+          "text": "Vaše varianta FADS1 naznačuje, že tělo omezeně přeměňuje rostlinné prekurzory omega-3 (ALA) na aktivní formy EPA a DHA. Samostatné hodnocení „Příjem omega-3“ se zaměřuje výhradně na tento konverzní krok a je rovněž 2 / 9.",
+          "table": {
+            "cols": ["Měření", "Zdroj", "Množství / frekvence", "Účinek"],
+            "rows": [
+              [
+                "EPA a DHA přímo",
+                "tučné mořské ryby (losos, makrela, sleď); alternativně řasový olej",
+                "ryby 2× týdně nebo řasový olej denně",
+                "Obchází omezenou konverzi FADS1"
+              ],
+              [
+                "Rostlinné zdroje omega-3",
+                "lněný olej, vlašské ořechy, chia semínka",
+                "navíc, ne jako jediný zdroj",
+                "Ve vašem případě jen částečně přeměněné"
+              ],
+              [
+                "Omezte omega-6",
+                "slunečnicový, saflorový a kukuřičný olej střídmě",
+                "v běžném životě",
+                "Příznivý poměr omega-6 ku omega-3"
+              ],
+              [
+                "Snižte cukr a bílou mouku",
+                "v prospěch celozrnných produktů",
+                "v běžném životě",
+                "Vztahuje se k metabolismu triglyceridů (APOA5)"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-7"
+    },
+    {
+      "type": "markers",
+      "caption": "Genetika · Krevní tlak",
+      "title": "Citlivost na sůl.",
+      "items": [
+        {
+          "name": "Citlivost na sůl",
+          "sub": "ACE, genotyp GG (homozygotní)",
+          "kind": "semafor",
+          "value": 8,
+          "display": "8 / 9",
+          "status": "Příznivé",
+          "tone": "green",
+          "text": "Vaše varianta ACE neukazuje zvýšenou citlivost na sůl. Obecně platí: kdo jí slaněji, měl by vědomě více pít.",
+          "table": {
+            "cols": ["Měření", "Zdroj", "Množství / frekvence", "Účinek"],
+            "rows": [
+              [
+                "Dávejte pozor na příjem soli",
+                "zpracované potraviny, hotová jídla",
+                "max. 6 g soli/den",
+                "Snižuje zadržování vody"
+              ],
+              [
+                "Pijte dostatečně",
+                "voda, neslazený čaj",
+                "alespoň 1,5–2 l/den",
+                "Podporuje vylučování sodíku"
+              ],
+              [
+                "Draslík ze zeleniny a ovoce",
+                "banány, brambory, zelená zelenina",
+                "denně",
+                "Proti zadržování způsobenému solí"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-8"
+    },
+    {
+      "type": "markers",
+      "caption": "Genetika · Pleť a antioxidanty",
+      "title": "Nutrikosmetika.",
+      "lead": "Elasticita pleti, hydratace a antioxidační ochrana – jak strava podporuje vaši pleť zevnitř.",
+      "items": [
+        {
+          "name": "Hydratace pokožky",
+          "sub": "AQPR CC (divoký typ)",
+          "kind": "semafor",
+          "value": 9,
+          "display": "9 / 9",
+          "tone": "green",
+          "text": "Vaše pleť dobře zadržuje vlhkost – obvykle postačuje běžná péče. Podpůrné: alespoň 1,5–2 l vody denně."
+        },
+        {
+          "name": "Oxidační ochrana buněk",
+          "sub": "SOD2 AG (heterozygotní)",
+          "kind": "semafor",
+          "value": 7,
+          "display": "7 / 9",
+          "tone": "green",
+          "text": "Silná ochrana proti oxidačnímu stresu. Denní antioxidanty a důsledná UV ochrana udržují tento výchozí stav."
+        },
+        {
+          "name": "Elasticita pleti a zánět",
+          "intro": "IL-6 CG (heterozygotní). Zvýšená aktivita může urychlit rozklad kolagenu.",
+          "kind": "semafor",
+          "value": 6,
+          "display": "6 / 9",
+          "status": "Střední",
+          "tone": "amber",
+          "text": "Mírná tendence k zánětům v pleti – protizánětlivá strava má na vaši pleť viditelný efekt.",
+          "table": {
+            "cols": ["Měření", "Zdroj", "Množství / frekvence", "Účinek"],
+            "rows": [
+              [
+                "Omega-3 mastné kyseliny",
+                "losos, lněná semínka, vlašské ořechy",
+                "ryby 2× týdně",
+                "Podporuje kožní bariéru"
+              ],
+              [
+                "Antioxidanty",
+                "bobule, barevná zelenina, zelený čaj",
+                "denně",
+                "Proti oxidačnímu stresu"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Antioxidační kapacita",
+          "intro": "NADPH AG (heterozygot). Poskytuje redukční sílu pro buněčné antioxidační systémy.",
+          "kind": "semafor",
+          "value": 4,
+          "display": "4 / 9",
+          "status": "Střední",
+          "tone": "amber",
+          "text": "Mírně snížená antioxidační kapacita — antioxidanty z potravy zde poskytují dodatečnou podporu.",
+          "table": {
+            "cols": ["Měření", "Zdroj", "Množství / frekvence", "Účinek"],
+            "rows": [
+              [
+                "Antioxidanty",
+                "bobule, barevná zelenina, zelený čaj",
+                "denně",
+                "Podporuje buněčnou obranu proti volným radikálům"
+              ],
+              [
+                "Ochrana proti UV záření",
+                "opravné krémy, pokrývky hlavy",
+                "při vystavení slunci",
+                "Omezuje UV expozici kůže"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-9"
+    },
+    {
+      "type": "table",
+      "caption": "Genetický základ",
+      "title": "Všechny analyzované geny.",
+      "lead": "Úplný seznam zkoumaných variant spolu s vaším genotypem. Tyto hodnoty jsou dědičné a zůstávají neměnné po celý život — opakování genetické analýzy nemá smysl.",
+      "cols": ["Gen", "Váš genotyp", "Funkce"],
+      "rows": [
+        [
+          "FTO rs9939609",
+          "TT (homozygot)",
+          "Rizikový alel A. Spojen s BMI, tělesnou tukovou hmotou a obvodem pasu při vysokém příjmu nasycených mastných kyselin."
+        ],
+        [
+          "FTO rs1121980",
+          "AT (heterozygot)",
+          "Rizikový alel A. Méně reaguje na hubnutí prostřednictvím fyzické aktivity."
+        ],
+        [
+          "MTHFR",
+          "homozygotní varianta",
+          "Klíčový enzym v metabolismu folátu a methylace; ovlivňuje hladinu homocysteinu."
+        ],
+        [
+          "FADS1",
+          "TT (homozygot)",
+          "Řídí přeměnu rostlinných prekurzorů omega-3/-6 na aktivní dlouhořetězcové mastné kyseliny."
+        ],
+        [
+          "APOA5",
+          "AG (heterozygot)",
+          "Reguluje rozklad triglyceridů v krvi a ovlivňuje hladiny krevních lipidů."
+        ],
+        [
+          "LPL",
+          "AA (divoký typ)",
+          "Rozkládá tuky v krvi; ovlivňuje HDL cholesterol a hladiny krevních lipidů."
+        ],
+        [
+          "PPARG2",
+          "CC (divoký typ)",
+          "Reguluje tvorbu tukových buněk, ukládání tuku a citlivost na inzulín; ovlivňuje chuť k jídlu a pocit sytosti."
+        ],
+        [
+          "PLIN",
+          "CT (heterozygot)",
+          "Obaluje tukové kapénky v tukových buňkách a reguluje jejich tvorbu a rozklad."
+        ],
+        [
+          "ADRB3",
+          "GG (divoký typ)",
+          "Reguluje spalování tuků v tukových buňkách a využití uloženého tuku."
+        ],
+        [
+          "MC4R",
+          "CT (heterozygot)",
+          "Centrálně se podílí na řízení chuti k jídlu, hladu a pocitu sytosti v mozku."
+        ],
+        ["LEPR", "AA (homozygot)", "Přenáší signál sytosti hormonu leptinu."],
+        [
+          "SLC6A14",
+          "CA (heterozygot)",
+          "Transportuje aminokyseliny; ovlivňuje chuť k jídlu, sytost a stresové jedení."
+        ],
+        [
+          "TCF7L2",
+          "CT (heterozygot)",
+          "Ovlivňuje sekreci inzulínu po jídlech bohatých na sacharidy."
+        ],
+        ["TFAP2B", "GG (divoký typ)", "Podílí se na regulaci tělesné hmotnosti a rozložení tuku."],
+        [
+          "IL-6",
+          "CG (heterozygot)",
+          "Centrální signální látka regulace zánětu; ovlivňuje krevní lipidy, chuť k jídlu a stresové jedení."
+        ],
+        ["GC", "GT (heterozygot)", "Ovlivňuje transport vitamínu D v krvi."],
+        [
+          "ACE",
+          "GG (homozygotní)",
+          "Součást bradykinin-aldosteronového systému; ovlivňuje predispozici k vytrvalosti/síle a citlivost na sůl."
+        ],
+        [
+          "ACTN3",
+          "TT (divoký typ)",
+          "Ovlivňuje složení svalových vláken (rychlá vs. pomalá vlákna)."
+        ],
+        ["AQPR", "CC (divoký typ)", "Ovlivňuje zadržování vody v kůži."],
+        ["NADPH", "AG (heterozygot)", "Přispívá k antioxidační kapacitě buněk."],
+        [
+          "SOD2",
+          "AG (heterozygot)",
+          "Důležitý antioxidační enzym, chrání buňky před oxidačním stresem."
+        ]
+      ],
+      "note": "21 variant. Každé hodnocení v kapitole „Všechna genetická hodnocení“ vychází ze souhrnu několika těchto genů; samotný genotyp neumožňuje žádný závěr.",
+      "id": "uebersicht-3"
+    },
+    {
+      "type": "summary",
+      "caption": "Shrnutí",
+      "title": "Vaše tři prioritní oblasti.",
+      "lead": "Z 21 genů a čtyř epigenetických markerů se u vás jasně vyčleňují tři oblasti, kde se úsilí a efekt nejvíce potkávají.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Metabolismus methylace — folát, vitamíny B, zinek",
+          "text": "Tři hodnoty směřují stejným směrem: LINE-1 2/9 (epigenetický), miR-21 3/9 (epigenetický) a folát/MTHFR 2/9 (genetický) — všechny tři závisí na stejné metabolické dráze. Tato oblast je zároveň jedinou, jejíž efekt lze prokázat následným měřením. Konkrétně: denně zelená listová zelenina a luštěniny, vitamíny B2/B6/B12 z vajec, sýra a fermentovaných potravin, zinek z dýňových semínek, ovesných vloček a čočky. Aktivní folát (5-MTHF) po dobu dvou měsíců po konzultaci s lékařem."
+        },
+        {
+          "num": "02",
+          "title": "Kvalita tuků — EPA a DHA přímo",
+          "text": "Krevní lipidy 2/9 a zásoba omega-3 2/9. Vaše varianta FADS1 činí rostlinné zdroje omega-3, jako je lněný olej a vlašské ořechy, nedostatečnými. Tučné mořské ryby dvakrát týdně nebo řasový olej denně tento limit přímo obchází; oleje bohaté na omega-6 používejte střídmě."
+        },
+        {
+          "num": "03",
+          "title": "Kvalita krevního cukru spíše než množství kalorií",
+          "text": "Metabolismus krevního cukru a inzulínu 3/9 spolu s příznivou regulací tělesné hmotnosti (7/9). Pro vás je důležitější kvalita sacharidů než jejich množství: nízký glykemický index u každého hlavního jídla, 20–30 g bílkovin na jídlo a krátká procházka po jídle. Protože samotný pohyb u vás působí pomaleji (FTO 2/9), je tato kombinace účinnější cestou."
+        }
+      ],
+      "controlTitle": "Následná péče a další krok",
+      "controlItems": [
+        "Smysluplné je provést kontrolní měření čtyř epigenetických markerů nejdříve po 4 až 6 měsících — před tímto obdobím nelze změny spolehlivě změřit.",
+        "Genetická hodnocení zůstávají beze změny a není je třeba nikdy opakovat.",
+        "Porovnání naměřených hodnot v čase je uvedeno od druhého měření dále."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Máte otázky k vašemu výsledku?",
+      "text": "Výsledky konzultujte s pracovištěm, které provedlo odběr vzorku. Právě tam jsou k dispozici klinické souvislosti potřebné k interpretaci.",
+      "columns": [
+        {
+          "k": "Kontakt",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribuce",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburg"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Ukázková zpráva",
+          "text": "Veškeré hodnoty, genotypy a osobní údaje v tomto dokumentu jsou fiktivní a slouží pouze k ilustraci formátu zprávy. Nejedná se o skutečnou zprávu."
+        },
+        {
+          "title": "Interpretace",
+          "text": "Tato zpráva není diagnózou a nenahrazuje lékařskou konzultaci. Genetická hodnocení popisují predispozice, nikoli nemoci; epigenetické markery popisují momentální stav. Obě hodnocení je třeba posuzovat v individuálním klinickém kontextu kvalifikovanými odborníky."
+        },
+        {
+          "title": "Stav analýz",
+          "text": "Analýzy jsou laboratorní služby poskytované naším partnerským pracovištěm a nejsou označeny značkou CE jako in vitro diagnostické zdravotnické prostředky. Slouží k poradenství a monitoringu a nenahrazují klinickou diagnostiku. Analýzy jsou určeny pouze pro profesionální uživatele."
+        },
+        {
+          "title": "Právní rámec",
+          "text": "Genetické testování podléhá německému zákonu o genetické diagnostice (GenDG); před odběrem vzorku je vyžadována informace a písemný souhlas. Laboratorní analýzu provádí náš partnerský spolupracovník. Polaris Diagnostics Europe GmbH je odpovědná za distribuci a podporu. Tento dokument nepředstavuje žádný slib vyléčení ve smyslu německého zákona o reklamě léčivých přípravků (Heilmittelwerbegesetz)."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Stav k: srpen 2026",
+      "id": "kontakt"
+    }
+  ]
+}

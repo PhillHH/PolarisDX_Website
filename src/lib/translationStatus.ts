@@ -10,6 +10,8 @@
  * Feldoptionen und die Feldfehler englisch sind, der uebrige Namensraum aber
  * uebersetzt ist. Der Wert nennt den Umfang im Klartext.
  */
+export const ENGLISH_FALLBACK_STATUS = 'English fallback — translation pending'
+
 export function isEnglishFallback(status: unknown): boolean {
-  return typeof status === 'string' && status.length > 0
+  return status === ENGLISH_FALLBACK_STATUS
 }

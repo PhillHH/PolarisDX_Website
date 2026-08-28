@@ -93,7 +93,8 @@
     "pillar3": {
       "title": "Un démarrage accompagné",
       "text": "La formation de votre équipe et un interlocuteur dédié garantissent que l'excellence diagnostique est immédiatement exploitable."
-    }
+    },
+    "device_alt": "Lecteur POC IglooPro"
   },
   "doctors": {
     "caption": "FOCUS DIAGNOSTIC",
@@ -283,7 +284,8 @@
     },
     "card_cta": "En savoir plus",
     "video_label": "VIDÉO D'APPLICATION",
-    "video_caption": "Le déroulement du test dans votre cabinet – en 3 minutes"
+    "video_caption": "Le déroulement du test dans votre cabinet – en 3 minutes",
+    "device_alt": "Lecteur POC IglooPro"
   },
   "final_cta": {
     "caption": "Prêt à vous lancer",

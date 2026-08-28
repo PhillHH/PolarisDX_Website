@@ -7,6 +7,8 @@
  */
 
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import type { TFunction } from 'i18next'
 import { Droplets, Sun } from 'lucide-react'
 
 import { SEOHead } from '../../components/seo'
@@ -29,31 +31,32 @@ import {
 import { OrderModalProvider } from './OrderModal'
 import { PriceBadge } from './PriceBadge'
 import { useConsumerPageView } from './tracking'
+import { formatCurrency } from '../../lib/localeFormat'
 
-const NAV = [
-  { label: "What's included", href: '#included' },
-  { label: 'Routine', href: '#routine' },
-  { label: 'FAQ', href: '#faq' },
+const getNAV = (t: TFunction) => [
+  { label: t('duo.copy_001'), href: '#included' },
+  { label: t('duo.copy_002'), href: '#routine' },
+  { label: t('spray.copy_004'), href: '#faq' },
 ]
 
-const FAQ_ITEMS = [
-  { q: 'What is included?', a: '1 Vitamin D3+K2 Spray + 1 box with 5 Hydrating Masks.' },
-  { q: 'Is the spray a medicine?', a: 'No. It is a food supplement, not a medicine.' },
+const getFAQ_ITEMS = (t: TFunction) => [
+  { q: t('duo.copy_003'), a: t('duo.copy_004') },
+  { q: t('duo.copy_005'), a: t('duo.copy_006') },
   {
-    q: 'How often do I use the spray?',
-    a: 'Use 1 spray daily unless advised otherwise. Do not exceed the recommended intake.',
+    q: t('duo.copy_007'),
+    a: t('duo.copy_008'),
   },
   {
-    q: 'How often do I use the masks?',
-    a: 'Use when your skin needs hydration or visible care. Leave on for 15–30 minutes.',
+    q: t('duo.copy_009'),
+    a: t('duo.copy_010'),
   },
   {
-    q: 'Who is the Duo for?',
-    a: 'Adults who want a simple inside-out routine: daily supplement support plus visible hydration care.',
+    q: t('duo.copy_011'),
+    a: t('duo.copy_012'),
   },
   {
-    q: 'Can I buy separately?',
-    a: 'Yes. The spray as a 12-pack and masks as a 5-pack can be ordered separately, with the Duo designed as the complete inside-out routine to unlock preferred pricing.',
+    q: t('duo.copy_013'),
+    a: t('duo.copy_014'),
   },
 ]
 
@@ -66,69 +69,62 @@ export default function DuoPage() {
 }
 
 function DuoPageInner() {
+  const { t, i18n } = useTranslation('consumer')
+  const duoPrice = formatCurrency(49.9, i18n.resolvedLanguage)
+  const monthlyAddOn = formatCurrency(2, i18n.resolvedLanguage)
+  const NAV = getNAV(t)
+  const FAQ_ITEMS = getFAQ_ITEMS(t)
   useConsumerPageView('duo')
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-heading">
       <SEOHead
-        title="Inside-Out Care Duo: D3+K2 Spray + Masks"
-        description="Inside-Out Care Duo pairs a daily Vitamin D3+K2 spray with 5 hydrating sheet masks: one simple inside-and-outside routine at preferred bundle value of 49,90 €."
+        title={t('duo.copy_015')}
+        description={t('duo.seo_description', { price: duoPrice })}
       />
 
-      <ConsumerHeader nav={NAV} cta={{ label: 'Shop Duo', href: '#order' }} page="duo" />
+      <ConsumerHeader nav={NAV} cta={{ label: t('duo.copy_017'), href: '#order' }} page="duo" />
 
       {/* 2 · HERO */}
       <Hero
         page="duo"
-        eyebrow="Inside-Out Care Duo"
-        title="Support from within. Hydrating care from outside."
+        eyebrow={t('duo.copy_018')}
+        title={t('duo.copy_019')}
         sub={
           <>
-            A simple two-part care routine: one Vitamin D3+K2 Spray plus one box of five Hydrating
-            Masks.
-            <span className="mt-3 block font-semibold text-heading">
-              More care in the routine. More value in the set.
-            </span>
+            {t('duo.copy_020')}
+            <span className="mt-3 block font-semibold text-heading">{t('duo.copy_021')}</span>
           </>
         }
-        primary={{ label: 'Shop the Duo', href: '#order' }}
-        secondary={{ label: "What's included", href: '#included' }}
+        primary={{ label: t('duo.copy_022'), href: '#order' }}
+        secondary={{ label: t('duo.copy_001'), href: '#included' }}
         image={{
           src: duoHero,
-          alt: 'PolarisDX Inside-Out Care Duo — Vitamin D3+K2 spray and Hydrating Mask box together',
+          alt: t('duo.copy_023'),
         }}
-        price={{ amount: '49,90 €', unit: 'Duo set' }}
+        price={{ amount: duoPrice, unit: t('duo.copy_024') }}
         priceBadge={<PriceBadge product="duo" />}
-        highlights={['1 spray + 5 masks', 'Inside + outside routine', 'No payment on this page']}
-        floatingStat={{ value: '1 + 5', label: 'spray plus masks in the set' }}
+        highlights={[t('duo.copy_025'), t('duo.copy_026'), t('spray.copy_057')]}
+        floatingStat={{ value: '1 + 5', label: t('duo.copy_027') }}
       />
-      <FactStrip
-        items={[
-          '1 × Vitamin D3+K2 Spray',
-          '1 × Hydrating Mask box with 5 sachets',
-          'Simple inside + outside care routine',
-        ]}
-      />
+      <FactStrip items={[t('duo.copy_028'), t('duo.copy_029'), t('duo.copy_030')]} />
 
       {/* 3 · THE IDEA */}
       <Section
         tone="tint"
-        eyebrow="The idea"
-        title="You do not need a complicated routine."
-        lead="You need one that is easy to repeat. The Inside-Out Care Duo pairs a daily step from within with a hydration step from outside — two products, one simple routine."
+        eyebrow={t('duo.copy_031')}
+        title={t('duo.copy_032')}
+        lead={t('duo.copy_033')}
       />
 
       {/* 4 · WHAT'S INCLUDED */}
-      <Section id="included" eyebrow="What's included" title="Two products, one bundle">
+      <Section id="included" eyebrow={t('duo.copy_001')} title={t('duo.copy_034')}>
         <div className="grid gap-6 md:grid-cols-2">
           <Card hover className="flex h-full flex-col">
             <IconTile>
               <Sun className="h-6 w-6" strokeWidth={1.75} />
             </IconTile>
-            <h3 className="mt-5 text-xl font-semibold text-heading">1 × Vitamin D3+K2 Spray</h3>
-            <p className="mt-3 flex-grow leading-relaxed text-gray-600">
-              An orange-flavoured sublingual spray for daily Vitamin D3+K2 support — the inside step
-              of the routine.
-            </p>
+            <h3 className="mt-5 text-xl font-semibold text-heading">{t('duo.copy_028')}</h3>
+            <p className="mt-3 flex-grow leading-relaxed text-gray-600">{t('duo.copy_035')}</p>
             <Link
               to="/consumer/vitamin-d3-spray"
               data-gtm-event="consumer_cta_click"
@@ -137,7 +133,7 @@ function DuoPageInner() {
               data-gtm-location="included-card"
               className="group mt-6 inline-flex items-center gap-1.5 self-start rounded text-sm font-semibold text-accent-strong transition-colors hover:text-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line focus-visible:ring-offset-2"
             >
-              See the spray page
+              {t('duo.copy_036')}
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
                 →
               </span>
@@ -147,13 +143,8 @@ function DuoPageInner() {
             <IconTile>
               <Droplets className="h-6 w-6" strokeWidth={1.75} />
             </IconTile>
-            <h3 className="mt-5 text-xl font-semibold text-heading">
-              1 × box of 5 Hydrating Masks
-            </h3>
-            <p className="mt-3 flex-grow leading-relaxed text-gray-600">
-              Five individually packed serum-soaked sheet masks — the outside step, for when skin
-              needs visible hydration care.
-            </p>
+            <h3 className="mt-5 text-xl font-semibold text-heading">{t('duo.copy_037')}</h3>
+            <p className="mt-3 flex-grow leading-relaxed text-gray-600">{t('duo.copy_038')}</p>
             <Link
               to="/consumer/hydrating-masks"
               data-gtm-event="consumer_cta_click"
@@ -162,7 +153,7 @@ function DuoPageInner() {
               data-gtm-location="included-card"
               className="group mt-6 inline-flex items-center gap-1.5 self-start rounded text-sm font-semibold text-accent-strong transition-colors hover:text-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line focus-visible:ring-offset-2"
             >
-              See the mask page
+              {t('duo.copy_039')}
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
                 →
               </span>
@@ -172,40 +163,32 @@ function DuoPageInner() {
       </Section>
 
       {/* 5 + 6 · INSIDE STEP / OUTSIDE STEP */}
-      <Section id="routine" tone="tint" eyebrow="The routine" title="Two simple steps">
+      <Section id="routine" tone="tint" eyebrow={t('duo.copy_040')} title={t('duo.copy_041')}>
         <div className="grid gap-6 md:grid-cols-2">
           <Card hover accent="teal" className="h-full">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-              Step 1 · Inside
+              {t('duo.copy_042')}
             </p>
-            <h3 className="mt-2 text-2xl font-semibold text-heading">Daily support from within</h3>
-            <p className="mt-3 leading-relaxed text-gray-600">
-              Take the Vitamin D3+K2 Spray as part of a daily routine — one sublingual spray for
-              daily Vitamin D3+K2 support.
-            </p>
+            <h3 className="mt-2 text-2xl font-semibold text-heading">{t('duo.copy_043')}</h3>
+            <p className="mt-3 leading-relaxed text-gray-600">{t('duo.copy_044')}</p>
           </Card>
           <Card hover accent="navy" className="h-full">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-              Step 2 · Outside
+              {t('duo.copy_045')}
             </p>
-            <h3 className="mt-2 text-2xl font-semibold text-heading">
-              Hydrating care from outside
-            </h3>
-            <p className="mt-3 leading-relaxed text-gray-600">
-              Use a Hydrating Mask for 15–30 minutes when your skin needs care — a calm, occasional
-              hydration step.
-            </p>
+            <h3 className="mt-2 text-2xl font-semibold text-heading">{t('duo.copy_046')}</h3>
+            <p className="mt-3 leading-relaxed text-gray-600">{t('duo.copy_047')}</p>
           </Card>
         </div>
       </Section>
 
       {/* 7 · ROUTINE VISUAL */}
-      <Section eyebrow="The routine in a day" title="Daily spray, occasional mask ritual">
+      <Section eyebrow={t('duo.copy_048')} title={t('duo.copy_049')}>
         <div className="grid gap-6 md:grid-cols-2">
           <div className="group overflow-hidden rounded-section">
             <img
               src={sprayStill}
-              alt="Morning routine — Vitamin D3+K2 sublingual spray"
+              alt={t('duo.copy_050')}
               loading="lazy"
               decoding="async"
               className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
@@ -214,7 +197,7 @@ function DuoPageInner() {
           <div className="group overflow-hidden rounded-section">
             <img
               src={maskBotanical}
-              alt="Evening self-care — Hydrating Hyaluronic Mask"
+              alt={t('duo.copy_051')}
               loading="lazy"
               decoding="async"
               className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
@@ -227,25 +210,20 @@ function DuoPageInner() {
       {/* CONFIRM: €2/month — is this number final, and what's the basis? */}
       <Section
         tone="dark"
-        eyebrow="Why buy them together"
-        title="Two products, one simple routine."
-        lead="A smarter way to build the full Inside-Out Care routine: unlock the Duo value. Complete your masks order with the addition of daily D3+K2 support for just €2/month."
+        eyebrow={t('duo.copy_052')}
+        title={t('duo.copy_053')}
+        lead={t('duo.bundle_lead', { price: monthlyAddOn })}
       >
         <div className="flex justify-center">
           <Pills
             onDark
-            items={[
-              'Daily support from within',
-              'Hydrating care from outside',
-              'One simple routine',
-              'Preferred bundle value',
-            ]}
+            items={[t('duo.copy_043'), t('duo.copy_046'), t('duo.copy_055'), t('duo.copy_056')]}
           />
         </div>
       </Section>
 
       {/* 9 · FAQ */}
-      <Section id="faq" eyebrow="FAQ" title="Practical questions, answered">
+      <Section id="faq" eyebrow={t('spray.copy_004')} title={t('spray.copy_096')}>
         <FAQ items={FAQ_ITEMS} />
       </Section>
 
@@ -253,20 +231,15 @@ function DuoPageInner() {
       <FinalCTA
         page="duo"
         id="order"
-        title="Start with a simple inside-out routine."
-        body="Includes 1 Vitamin D3+K2 Spray + 1 box of 5 Hydrating Masks."
-        primary={{ label: 'Shop the Duo', href: '#' }}
-        assurances={['1 spray + 5 masks', 'Preferred bundle value', 'No payment on this page']}
-        note="No payment is taken on this page — sales confirms price and shipping."
+        title={t('duo.copy_057')}
+        body={t('duo.copy_058')}
+        primary={{ label: t('duo.copy_022'), href: '#' }}
+        assurances={[t('duo.copy_025'), t('duo.copy_056'), t('spray.copy_057')]}
+        note={t('spray.copy_100')}
       />
 
       {/* 11 · FOOTER */}
-      <Disclaimer>
-        The Inside-Out Care Duo combines a food supplement (Vitamin D3+K2 Spray) and a cosmetic
-        product (Hydrating Mask). The spray is not a medicine and should not replace a varied,
-        balanced diet; do not exceed the recommended daily intake. The mask is for external use only
-        and is not intended to diagnose, treat or prevent any skin disease.
-      </Disclaimer>
+      <Disclaimer>{t('duo.copy_059')}</Disclaimer>
 
       <Footer />
     </div>

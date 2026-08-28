@@ -24,6 +24,12 @@
   "cta_title": "Can't find a document?",
   "cta_text": "Our team can provide additional data sheets, certificates or individual product advice.",
   "cta_button": "Request a quote",
+  "assetLanguage": { "pdf": "PDF in {{language}}", "zip": "ZIP with documents in {{language}}", "languages": { "de": "German", "en": "English" } },
+  "assets": {
+    "igloo": { "title": "IglooPro system flyer", "description": "German product flyer for the IglooPro point-of-care reader." },
+    "vitd3De": { "title": "Vitamin D3+K2 spray product flyer", "description": "German product flyer covering use and product properties." },
+    "vitd3En": { "title": "Vitamin D3+K2 spray product flyer", "description": "English product flyer covering use and product properties." }
+  },
   "seo": {
     "title": "Downloads: IglooPro & Vitamin D3+K2 Product Flyers",
     "description": "Download product flyers for the IglooPro POC reader and the Vitamin D3+K2 spray as free PDFs, no sign-up required. Technical data sheets available on request."

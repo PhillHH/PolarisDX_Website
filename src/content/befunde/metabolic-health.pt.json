@@ -1,0 +1,1154 @@
+{
+  "slug": "metabolic-health",
+  "panel": "Metabolic Health",
+  "blocks": [
+    {
+      "type": "cover",
+      "badge": "Relatório de amostra · Dados de exemplo",
+      "panel": "Metabolic Health",
+      "subtitle": "Genética e Epigenética",
+      "claim": "O seu perfil metabólico em dois níveis: a predisposição genética herdada e os marcadores epigenéticos que podem ser alterados através da dieta, exercício, sono e stress.",
+      "meta": [
+        {
+          "k": "Relatório para",
+          "v": "Muster, Erika"
+        },
+        {
+          "k": "Colheita da amostra",
+          "v": "08.04.2026"
+        },
+        {
+          "k": "Material",
+          "v": "Cartão de gota de sangue seco"
+        },
+        {
+          "k": "Avaliações",
+          "v": "17 + 4 epigenéticas"
+        }
+      ],
+      "footer": "Polaris Diagnostics Europe GmbH · Hamburg · www.polarisdx.net",
+      "id": "deckblatt",
+      "benefit": "O que o seu cliente come, como o processa — e o que pode mudar."
+    },
+    {
+      "type": "principle",
+      "caption": "O princípio",
+      "title": "Como ler este relatório.",
+      "lead": "Este relatório combina dois níveis: a sua genética — herdada e imutável — e a sua epigenética, que pode ser influenciada pelo estilo de vida.",
+      "cards": [
+        {
+          "title": "Nível 1 · Genética",
+          "text": "Os seus genes são o plano do seu metabolismo: como processa hidratos de carbono, gorduras e proteínas, como funcionam o apetite e a saciedade, como o seu corpo lida com vitaminas e sal. Estas predisposições não mudam.",
+          "items": [
+            "SNP — uma variante bem estudada no seu ADN.",
+            "Três formas — tipo selvagem, heterozigótico ou homozigótico; sem qualquer juízo de valor.",
+            "O seu perfil — vários SNPs em conjunto produzem o seu tipo metabólico e avaliações."
+          ]
+        },
+        {
+          "title": "Nível 2 · Epigenética",
+          "text": "A epigenética não mostra quais os genes que tem, mas quão ativos estão atualmente. Estes quatro valores podem ser alterados — e são, portanto, os únicos em que o efeito de uma intervenção pode ser demonstrado ao longo do tempo.",
+          "items": [
+            "LINE-1 — regulação global do ADN e estabilidade.",
+            "Regulação da inflamação — pontuação combinada de IL-6 e TNF-α.",
+            "miR-21 · miR-155 — microRNAs da atividade metabólica."
+          ]
+        }
+      ],
+      "scaleTitle": "Como ler a escala?",
+      "scaleCaption": "Orientação",
+      "scaleLead": "Todas as avaliações — genéticas e epigenéticas — usam o mesmo semáforo 1–9. Vermelho à esquerda, verde à direita: 1–3 vermelho, 4–6 âmbar, 7–9 verde. Valores mais altos são sempre mais favoráveis.",
+      "scaleKind": "traffic",
+      "scaleTicks": ["1", "3", "5", "7", "9"],
+      "scaleZones": [
+        {
+          "tone": "red",
+          "label": "1–3 · Vermelho",
+          "text": "Fora do intervalo ótimo. É aqui que reside o maior potencial de intervenção."
+        },
+        {
+          "tone": "amber",
+          "label": "4–6 · Âmbar",
+          "text": "Necessidade moderada de apoio. Monitorizar especificamente."
+        },
+        {
+          "tone": "green",
+          "label": "7–9 · Verde",
+          "text": "No intervalo favorável. Manter as rotinas existentes."
+        }
+      ],
+      "id": "so-lesen"
+    },
+    {
+      "type": "callout",
+      "title": "Importante",
+      "tone": "neutral",
+      "items": [
+        "Este relatório não é um diagnóstico. A interpretação deve ser feita em consulta com profissionais qualificados e sempre no contexto individual.",
+        "São necessárias informações e consentimento escrito antes de uma análise genética (Lei Alemã de Diagnóstico Genético, GenDG). Testes genéticos preditivos só podem ser realizados sob responsabilidade de médicos devidamente qualificados; o aconselhamento genético deve ser oferecido antes e depois do teste (Artigos 7 e 10 do GenDG).",
+        "Os valores genéticos nunca mudam. Apenas os quatro valores epigenéticos são adequados para monitorização ao longo do tempo."
+      ],
+      "id": "hinweis"
+    },
+    {
+      "type": "resultTable",
+      "caption": "Resultados de relance",
+      "title": "Os seus quatro valores modificáveis.",
+      "lead": "Estes quatro marcadores mudam através da dieta, exercício, sono e stress — a razão para uma medição de acompanhamento.",
+      "cols": ["Marcador", "Nível", "O seu valor", "Ótimo", "Interpretação"],
+      "rows": [
+        {
+          "cells": [
+            "LINE-1 · Estabilidade do ADN",
+            "Metilação",
+            "2 / 9",
+            "7–9",
+            "Fora do intervalo"
+          ],
+          "tone": "red"
+        },
+        {
+          "cells": ["Regulação da inflamação (IL-6 & TNF-α)", "Metilação", "7 / 9", "7–9", "Ótimo"],
+          "tone": "green"
+        },
+        {
+          "cells": [
+            "miR-21 · Inflamação e micronutrientes",
+            "microRNA",
+            "3 / 9",
+            "7–9",
+            "Fora do intervalo"
+          ],
+          "tone": "red"
+        },
+        {
+          "cells": ["miR-155 · Regulação FTO, tecido adiposo", "microRNA", "8 / 9", "7–9", "Ótimo"],
+          "tone": "green"
+        }
+      ],
+      "id": "ergebnis"
+    },
+    {
+      "type": "callout",
+      "caption": "Interpretação genética",
+      "title": "O seu tipo metabólico: tipo equilibrado",
+      "text": "O seu metabolismo não favorece nenhum dos três macronutrientes. A distribuição e o cálculo das necessidades energéticas seguem no capítulo “Tipo metabólico”.",
+      "tone": "neutral",
+      "id": "hinweis-2"
+    },
+    {
+      "type": "callout",
+      "caption": "Interpretação genética",
+      "title": "O seu tipo de exercício: tipo de resistência",
+      "text": "Exercício prolongado e constante adequa-se melhor do que esforços curtos de força — embora um componente de força continue a ser importante.",
+      "tone": "neutral",
+      "id": "hinweis-3"
+    },
+    {
+      "type": "callout",
+      "title": "O que resulta disto",
+      "tone": "accent",
+      "items": [
+        "Dois valores epigenéticos vermelhos — LINE-1 (2/9) e miR-21 (3/9); a variante genética MTHFR (2/9) depende da mesma via metabólica. Este é o ponto de partida central deste relatório.",
+        "Dois valores verdes — regulação da inflamação (7/9) e miR-155 (8/9) estão no intervalo ótimo e devem ser mantidos assim.",
+        "Uma medição de acompanhamento só faz sentido após 4 a 6 meses, no mínimo."
+      ],
+      "id": "hinweis-4"
+    },
+    {
+      "type": "evaluations",
+      "caption": "Resultados de relance",
+      "title": "Todas as avaliações genéticas.",
+      "lead": "Dezessete avaliações no semáforo 1–9. Estes valores são herdados e não mudam — descrevem onde o seu metabolismo necessita de mais apoio do que a média.",
+      "items": [
+        {
+          "label": "Hidratação da pele",
+          "sub": "AQPR",
+          "value": 9,
+          "display": "9 / 9",
+          "status": "Favorável",
+          "tone": "green"
+        },
+        {
+          "label": "Dificuldade em manter o peso",
+          "value": 8,
+          "display": "8 / 9",
+          "status": "Favorável",
+          "tone": "green"
+        },
+        {
+          "label": "Sensibilidade ao sal",
+          "value": 8,
+          "display": "8 / 9",
+          "status": "Favorável",
+          "tone": "green"
+        },
+        {
+          "label": "Regulação do peso corporal",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Favorável",
+          "tone": "green"
+        },
+        {
+          "label": "Vitamina D",
+          "sub": "Transporte, GC",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Favorável",
+          "tone": "green"
+        },
+        {
+          "label": "Proteção celular antioxidante",
+          "sub": "SOD2",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Favorável",
+          "tone": "green"
+        },
+        {
+          "label": "Desejos alimentares",
+          "value": 6,
+          "display": "6 / 9",
+          "status": "Moderado",
+          "tone": "amber"
+        },
+        {
+          "label": "Elasticidade e inflamação da pele",
+          "sub": "IL-6",
+          "value": 6,
+          "display": "6 / 9",
+          "status": "Moderado",
+          "tone": "amber"
+        },
+        {
+          "label": "Dificuldade em perder peso",
+          "value": 5,
+          "display": "5 / 9",
+          "status": "Moderado",
+          "tone": "amber"
+        },
+        {
+          "label": "Vitaminas do complexo B",
+          "sub": "Necessidade",
+          "value": 5,
+          "display": "5 / 9",
+          "status": "Moderado",
+          "tone": "amber"
+        },
+        {
+          "label": "Regulação da fome/saciedade",
+          "value": 4,
+          "display": "4 / 9",
+          "status": "Moderado",
+          "tone": "amber"
+        },
+        {
+          "label": "Capacidade antioxidante",
+          "sub": "NADPH",
+          "value": 4,
+          "display": "4 / 9",
+          "status": "Moderado",
+          "tone": "amber"
+        },
+        {
+          "label": "Metabolismo da glicose e insulina",
+          "value": 3,
+          "display": "3 / 9",
+          "status": "Necessidade aumentada",
+          "tone": "red"
+        },
+        {
+          "label": "Lípidos sanguíneos e metabolismo dos ácidos gordos",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Necessidade aumentada",
+          "tone": "red"
+        },
+        {
+          "label": "Suprimento de Omega-3",
+          "sub": "ALA → EPA/DHA",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Necessidade aumentada",
+          "tone": "red"
+        },
+        {
+          "label": "Ácido fólico",
+          "sub": "MTHFR",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Necessidade aumentada",
+          "tone": "red"
+        },
+        {
+          "label": "Perda de peso através do exercício",
+          "sub": "FTO",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Necessidade aumentada",
+          "tone": "red"
+        }
+      ],
+      "note": "Ordenado por valor, não por tema. A interpretação detalhada com genótipos e intervenções segue nos capítulos abaixo.",
+      "id": "auswertungen"
+    },
+    {
+      "type": "markers",
+      "caption": "Estado epigenético",
+      "title": "Metilação.",
+      "lead": "A metilação do ADN mostra quão ativos estão atualmente os seus genes. Ao contrário dos próprios genes, estes valores podem ser alterados.",
+      "items": [
+        {
+          "name": "LINE-1",
+          "category": "Estabilidade do ADN",
+          "intro": "Os elementos LINE-1 constituem cerca de 17 % do genoma. A sua metilação é considerada um marcador da regulação global do ADN.",
+          "kind": "semáforo",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Fora do intervalo",
+          "tone": "red",
+          "text": "Este marcador é mais eficazmente apoiado através dos nutrientes envolvidos no metabolismo do folato — que ganha importância adicional dado o seu variante MTHFR (genético 2/9).",
+          "table": {
+            "cols": ["Medida", "Fonte", "Quantidade / frequência", "Efeito"],
+            "rows": [
+              [
+                "Ácido fólico",
+                "vegetais de folha verde, tomate, leguminosas, frutos secos, germinados",
+                "diariamente",
+                "Se necessário, 2 meses como metilfolato (5-MTHF)"
+              ],
+              [
+                "Riboflavina (B2)",
+                "sementes germinadas, germinados, queijo",
+                "diariamente",
+                "Cofator da metilação"
+              ],
+              [
+                "Cobalamina (B12)",
+                "ovo, queijo, alimentos fermentados",
+                "diariamente",
+                "Regeneração do folato ativo"
+              ],
+              [
+                "Metionina",
+                "castanhas-do-brasil, sésamo, soja, ervilhas, vegetais de folha verde",
+                "diariamente",
+                "Dador direto de grupos metilo"
+              ],
+              [
+                "Piridoxina (B6)",
+                "couve, feijão verde, lentilhas, bananas",
+                "diariamente",
+                "Cofator da metilação"
+              ],
+              [
+                "Fibra",
+                "cereais integrais, vegetais, leguminosas",
+                "pelo menos 30 g/dia",
+                "Biodisponibilidade de fitoquímicos"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Regulação da inflamação (IL-6 & TNF-α)",
+          "intro": "Pontuação combinada da metilação de ambas as regiões genéticas — não o nível sanguíneo agudo. Valores individuais: IL-6 8/9 · TNF-α 6/9.",
+          "kind": "semáforo",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Ótimo",
+          "tone": "green",
+          "text": "Uma dieta focada em plantas e com baixo potencial inflamatório continua a apoiar esta área.",
+          "table": {
+            "cols": ["Medida", "Fonte", "Quantidade / frequência", "Efeito"],
+            "rows": [
+              [
+                "Resveratrol",
+                "casca de uva, sementes de framboesa, mirtilos, amendoins",
+                "1 porção de frutos vermelhos/dia",
+                "Encontrado principalmente em cascas e sementes"
+              ],
+              [
+                "Sulforafano",
+                "brócolos, couve-flor, couves-de-bruxelas, agrião",
+                "3–4×/semana",
+                "Cozinhar a vapor apenas brevemente ou consumir cru — caso contrário, a substância ativa é perdida"
+              ],
+              [
+                "Quercetina",
+                "cebolas, alho, alcaparras, cebolinho",
+                "diariamente",
+                "Deixar a cebola repousar 10 min após picar"
+              ],
+              [
+                "Curcumina",
+                "cúrcuma com pimenta preta",
+                "1 colher de chá diária",
+                "O óleo melhora a absorção; não durante a gravidez ou em caso de cálculos biliares"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker"
+    },
+    {
+      "type": "markers",
+      "caption": "Estado epigenético",
+      "title": "microRNA.",
+      "lead": "Os microRNAs regulam finamente a atividade dos seus genes e refletem a atividade metabólica e inflamatória atual. Tal como a metilação, podem ser influenciados pelo estilo de vida.",
+      "items": [
+        {
+          "name": "miR-21",
+          "category": "Inflamação e micronutrientes",
+          "intro": "Piora com atividade inflamatória mais pronunciada, assim como com uma má oferta de zinco e folato.",
+          "kind": "semáforo",
+          "value": 3,
+          "display": "3 / 9",
+          "status": "Fora do intervalo",
+          "tone": "red",
+          "text": "Com um valor vermelho ou âmbar, deve visar-se um IMC normal; além disso, é recomendável uma ingestão direcionada de zinco e folato. Micronutrientes antioxidantes como a vitamina D, vitamina E e licopeno, bem como o resveratrol, apoiam a regulação imunitária.",
+          "table": {
+            "cols": ["Medida", "Fonte", "Quantidade / frequência", "Efeito"],
+            "rows": [
+              [
+                "Zinco",
+                "sementes de abóbora, aveia, lentilhas, queijo, carne de vaca",
+                "diariamente",
+                "Uma má oferta de zinco piora este valor"
+              ],
+              [
+                "Ácido fólico",
+                "vegetais folhosos, leguminosas, tomate, germinados",
+                "diariamente",
+                "Uma má oferta de folato piora este valor"
+              ],
+              [
+                "Resveratrol",
+                "casca de uva, mirtilos, amendoins",
+                "1 porção de frutos vermelhos/dia",
+                "Inibe a via de sinalização NF-κB"
+              ],
+              [
+                "Vitamina D",
+                "salmão, manteiga, ovo, abacate, cogumelos",
+                "regularmente",
+                "Importante para a regulação imunitária"
+              ],
+              [
+                "Vitamina E",
+                "óleo de gérmen de trigo, frutos secos, espinafres, brócolos",
+                "diariamente",
+                "Antioxidante, protege as membranas celulares"
+              ],
+              [
+                "Licopeno",
+                "tomates, melão, cenouras, papaia",
+                "diariamente",
+                "Carotenoide com efeito antioxidante"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "miR-155",
+          "category": "Regulação do FTO e formação de tecido adiposo",
+          "intro": "Regulador central das respostas imunitárias e inflamatórias; influencia a formação de tecido adiposo castanho e bege.",
+          "kind": "semáforo",
+          "value": 8,
+          "display": "8 / 9",
+          "status": "Ótimo",
+          "tone": "green",
+          "text": "Exercício, jejum e estímulos de frio têm um efeito favorável aqui e influenciam positivamente o efeito do FTO — particularmente relevante porque a sua avaliação genética do FTO é 2/9.",
+          "table": {
+            "cols": ["Medida", "Fonte", "Quantidade / frequência", "Efeito"],
+            "rows": [
+              [
+                "Exercício regular",
+                "resistência e força combinadas",
+                "150 min/semana",
+                "Tem um efeito favorável neste valor"
+              ],
+              [
+                "Estímulos de frio",
+                "duchas frias, banhos de gelo, ambientes frescos",
+                "regularmente, brevemente",
+                "Ativa o tecido adiposo castanho/bege"
+              ],
+              [
+                "Fases de jejum",
+                "pausa prolongada noturna sem comer",
+                "após consulta",
+                "Apoia a ativação do tecido adiposo castanho"
+              ],
+              [
+                "Quercetina",
+                "cebolas, alho, alcaparras, cebolinho",
+                "pelo menos 200 mg/dia",
+                "Influencia a biogénese mitocondrial"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-2"
+    },
+    {
+      "type": "table",
+      "caption": "Genética · Macronutrientes",
+      "title": "Tipo metabólico: tipo equilibrado.",
+      "lead": "O seu metabolismo não favorece particularmente nenhum dos três macronutrientes. Aplica-se-lhe, portanto, a recomendação geral dos valores de referência DACH. Mais importante no seu caso é a qualidade dos alimentos.",
+      "cols": ["Partilhar", "Macronutriente", "Nota"],
+      "rows": [
+        ["55 %", "Hidratos de carbono", "Cereais integrais, leguminosas e vegetais como base"],
+        ["20 %", "Proteína", "20–30 g por refeição principal"],
+        ["25 %", "Gordura", "Focar-se em gorduras insaturadas"]
+      ],
+      "note": "Necessidade energética diária calculada individualmente: 1.900 kcal.",
+      "id": "uebersicht"
+    },
+    {
+      "type": "table",
+      "caption": "Genética · Exercício",
+      "title": "Tipo de exercício: tipo resistência.",
+      "lead": "Tanto o ACE como o ACTN3 apontam para uma predisposição para desempenho de resistência. Para contexto: a genética explica apenas até cerca de 20 % da diferença entre desempenho de força e resistência — o treino, a dieta e a consistência têm de longe a maior influência.",
+      "cols": ["Gene", "O seu genótipo", "Predisposição"],
+      "rows": [
+        [
+          "ACE",
+          "GG (homozigótico)",
+          "Mais orientado para resistência — variante associada a melhor utilização e eficiência do oxigénio."
+        ],
+        [
+          "ACTN3",
+          "TT (tipo selvagem)",
+          "Mais orientado para resistência — tipo XX sem α-actinina-3, fibras musculares mais lentas e orientadas para resistência."
+        ]
+      ],
+      "id": "uebersicht-2"
+    },
+    {
+      "type": "markers",
+      "caption": "Genética · Exercício",
+      "title": "Perda de peso através do exercício.",
+      "items": [
+        {
+          "name": "Perda de peso através do exercício",
+          "category": "FTO rs1121980",
+          "intro": "Genótipo AT (heterozigótico). Quanto o exercício isolado contribui para a perda de peso.",
+          "kind": "semáforo",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Necessidade aumentada",
+          "tone": "red",
+          "text": "No seu caso, o exercício isolado conduz à perda de peso um pouco mais lentamente do que com outros genótipos. O efeito na aptidão física e saúde metabólica mantém-se inalterado — para a redução de peso, a combinação de exercício e ajuste dietético é particularmente recomendada.",
+          "table": {
+            "cols": ["Medida", "Fonte", "Quantidade / frequência", "Efeito"],
+            "rows": [
+              [
+                "Componente de resistência",
+                "ciclismo, corrida, natação",
+                "2–3×/semana",
+                "Fornecimento de oxigénio, resistência básica"
+              ],
+              [
+                "Componente de força",
+                "treino de força para o corpo inteiro",
+                "2×/semana",
+                "Mantém a massa muscular e a atividade metabólica"
+              ],
+              [
+                "Combinar com dieta",
+                "ver recomendação de tipo metabólico",
+                "individual",
+                "Com FTO, a alavanca adicional mais eficaz"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-3"
+    },
+    {
+      "type": "markers",
+      "caption": "Genética · Metabolismo",
+      "title": "Predisposição: regulação do peso corporal e metabolismo do açúcar no sangue.",
+      "lead": "Predisposição genética para a regulação do peso corporal e para o metabolismo do açúcar no sangue — como ponto de partida para uma nutrição direcionada, não como previsão.",
+      "items": [
+        {
+          "name": "Regulação do peso corporal",
+          "intro": "Resumo das variantes associadas à regulação do peso corporal.",
+          "kind": "semáforo",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Favorável",
+          "tone": "green",
+          "text": "O seu perfil genético não apresenta padrões desfavoráveis aqui. Estrutura das refeições, fibras e exercício regular mantêm esta posição inicial.",
+          "sub": "Genótipos: FTO rs9939609 TT · PPARG2 CC (tipo selvagem) · MC4R CT · TCF7L2 CT · SLC6A14 CA · TFAP2B GG",
+          "table": {
+            "cols": ["Medida", "Fonte", "Quantidade / frequência", "Efeito"],
+            "rows": [
+              [
+                "Fibra",
+                "cereais integrais, leguminosas, vegetais",
+                "pelo menos 30 g/dia",
+                "Prolonga a saciedade, estabiliza o açúcar no sangue"
+              ],
+              [
+                "Proteína por refeição",
+                "ovos, leguminosas, peixe, carne",
+                "20–30 g/refeição",
+                "Suporta sinais de saciedade"
+              ],
+              ["Exercício", "—", "150 min/semana", "Atenua efeitos geneticamente induzidos"]
+            ]
+          }
+        },
+        {
+          "name": "Metabolismo da glicose e insulina",
+          "intro": "Genes que influenciam a secreção de insulina, sensibilidade à insulina e metabolismo do açúcar no sangue.",
+          "kind": "semáforo",
+          "value": 3,
+          "display": "3 / 9",
+          "status": "Necessidade aumentada",
+          "tone": "red",
+          "text": "O seu valor está fora da faixa favorável. A qualidade dos hidratos de carbono e o exercício regular são as alavancas mais eficazes no seu caso — e, juntamente com o valor elevado de miR-21, o segundo foco deste relatório.",
+          "sub": "Genótipos: TCF7L2 CT · IL-6 CG · ADRB3 GG (tipo selvagem) · PPARG2 CC",
+          "table": {
+            "cols": ["Medida", "Fonte", "Quantidade / frequência", "Efeito"],
+            "rows": [
+              [
+                "Índice glicémico baixo",
+                "cereais integrais, leguminosas, vegetais",
+                "em cada refeição principal",
+                "Evita picos acentuados de açúcar no sangue"
+              ],
+              [
+                "Movimento após comer",
+                "caminhada curta",
+                "10–15 min",
+                "Melhora a sensibilidade à insulina"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-4"
+    },
+    {
+      "type": "markers",
+      "caption": "Genética · Comportamento alimentar",
+      "title": "Tipo de nutrição.",
+      "lead": "Saciedade, desejos alimentares e tendência para perder ou manter peso — as suas alavancas genéticas em torno do comportamento alimentar.",
+      "items": [
+        {
+          "name": "Desejos alimentares",
+          "sub": "MC4R CT · FTO rs9939609 TT · LEPR AA · SLC6A14 CA · PPARG2 CC",
+          "kind": "semáforo",
+          "value": 6,
+          "display": "6 / 9",
+          "status": "Moderado",
+          "tone": "amber",
+          "text": "Uma ligeira tendência aumentada para impulsos alimentares espontâneos. Estrutura das refeições e ingestão de proteína são as suas alavancas mais eficazes aqui.",
+          "table": {
+            "cols": ["Medida", "Fonte", "Quantidade / frequência", "Efeito"],
+            "rows": [
+              [
+                "Proteína em cada refeição",
+                "ovos, leguminosas, peixe, carne, tofu",
+                "20–30 g/refeição",
+                "O sinal de saciedade mais forte conhecido"
+              ],
+              [
+                "Refeições regulares",
+                "—",
+                "3 horários fixos/dia",
+                "Reduz flutuações do açúcar no sangue"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Regulação da fome e saciedade",
+          "sub": "MC4R, LEPR e FTO rs1121980 (AT) em conjunto",
+          "kind": "semáforo",
+          "value": 4,
+          "display": "4 / 9",
+          "status": "Moderado",
+          "tone": "amber",
+          "text": "Um sinal de saciedade algo atrasado — comer devagar e conscientemente dá tempo a este sinal.",
+          "table": {
+            "cols": ["Medida", "Fonte", "Quantidade / frequência", "Efeito"],
+            "rows": [
+              [
+                "Comer devagar e conscientemente",
+                "—",
+                "pelo menos 20 min/refeição",
+                "Dá tempo ao sinal atrasado"
+              ],
+              [
+                "Dieta rica em fibras",
+                "vegetais, cereais integrais",
+                "pelo menos 30 g/dia",
+                "Prolonga a sensação de saciedade"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Perda de peso",
+          "sub": "ADRB3 GG · PLIN CT",
+          "kind": "semáforo",
+          "value": 5,
+          "display": "5 / 9",
+          "tone": "amber",
+          "text": "Necessidade aumentada de apoio com sono e sensibilidade à leptina. 7–9 horas de sono e treino combinado 2–3×/semana."
+        },
+        {
+          "name": "Manutenção do peso",
+          "sub": "TCF7L2 CT",
+          "kind": "semáforo",
+          "value": 8,
+          "display": "8 / 9",
+          "tone": "green",
+          "text": "Posição inicial favorável contra o efeito ioiô. Horários de refeições estáveis e 150 min de exercício/semana mantêm-na."
+        }
+      ],
+      "id": "marker-5"
+    },
+    {
+      "type": "markers",
+      "caption": "Genética · Micronutrientes",
+      "title": "Absorção de vitaminas.",
+      "lead": "Quão bem o seu corpo utiliza a vitamina D e converte o folato na sua forma ativa — incluindo a necessidade resultante de vitaminas do complexo B.",
+      "items": [
+        {
+          "name": "Ácido fólico",
+          "category": "MTHFR",
+          "intro": "Genótipo variante homozigótica. Enzima chave no metabolismo do folato.",
+          "kind": "semáforo",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Necessidade aumentada",
+          "tone": "red",
+          "text": "A sua variante MTHFR indica uma conversão marcadamente limitada do folato na sua forma ativa (5-MTHF). A sua necessidade de folato proveniente da alimentação é superior à de outros genótipos. Este valor explica também o marcador vermelho LINE-1 ao nível epigenético — ambos dependem da mesma via metabólica.",
+          "table": {
+            "cols": ["Medida", "Fonte", "Quantidade / frequência", "Efeito"],
+            "rows": [
+              [
+                "Folato proveniente da alimentação",
+                "vegetais verdes folhosos, leguminosas, espargos",
+                "2–3 porções/dia",
+                "As variantes MTHFR beneficiam de uma ingestão consistentemente elevada"
+              ],
+              [
+                "Folato ativo (5-MTHF)",
+                "se necessário, como suplemento alimentar",
+                "após consulta médica",
+                "Ultrapassa diretamente a conversão limitada"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Vitamina D",
+          "category": "Transporte",
+          "intro": "GC (proteína ligadora da vitamina D), genótipo GT (heterozigótico)",
+          "kind": "semáforo",
+          "value": 7,
+          "display": "7 / 9",
+          "status": "Favorável",
+          "tone": "green",
+          "text": "O transporte de vitamina D no seu sangue está apenas ligeiramente limitado. Isto não significa uma deficiência, mas torna aconselhável a verificação dos níveis sanguíneos durante os meses com pouca luz solar.",
+          "table": {
+            "cols": ["Medida", "Fonte", "Quantidade / frequência", "Efeito"],
+            "rows": [
+              [
+                "Vitamina D",
+                "peixes gordos, ovos; luz solar",
+                "15–20 min/dia regularmente, verificar níveis",
+                "A verificação é especialmente recomendada no inverno"
+              ],
+              [
+                "Vitamina K2",
+                "alimentos fermentados, gema de ovo, queijo curado",
+                "diariamente",
+                "Suporta a vitamina D no metabolismo ósseo e vascular"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Vitaminas do complexo B",
+          "category": "Necessidade",
+          "intro": "Decorre da variante MTHFR através do ciclo da metilação.",
+          "kind": "semáforo",
+          "value": 5,
+          "display": "5 / 9",
+          "status": "Moderado",
+          "tone": "amber",
+          "table": {
+            "cols": ["Medida", "Fonte", "Quantidade / frequência", "Efeito"],
+            "rows": [
+              [
+                "Vitamina B2",
+                "ovos, lacticínios, cereais integrais",
+                "diariamente",
+                "Cofator direto da enzima MTHFR"
+              ],
+              [
+                "Vitamina B6",
+                "batatas, leguminosas, bananas",
+                "diariamente",
+                "Metabolismo da homocisteína"
+              ],
+              [
+                "Vitamina B12",
+                "ovos, peixe, lacticínios",
+                "diariamente",
+                "Regeneração do folato ativo"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-6"
+    },
+    {
+      "type": "markers",
+      "caption": "Genética · Metabolismo lipídico",
+      "title": "Ômega 3 e lípidos sanguíneos.",
+      "lead": "Quão bem utiliza os precursores vegetais de ômega-3 e como os seus níveis lipídicos sanguíneos são geneticamente predispostos.",
+      "items": [
+        {
+          "name": "Lípidos sanguíneos e metabolismo dos ácidos gordos",
+          "sub": "FADS1 TT · APOA5 AG · LPL AA (tipo selvagem) · PPARG2 CC",
+          "kind": "semáforo",
+          "value": 2,
+          "display": "2 / 9",
+          "status": "Necessidade aumentada",
+          "tone": "red",
+          "text": "A sua variante FADS1 indica que o corpo converte os precursores vegetais de ômega-3 (ALA) em formas ativas EPA e DHA apenas de forma limitada. A avaliação separada “Suprimento de ômega-3” analisa exclusivamente esta etapa de conversão e é igualmente 2 / 9.",
+          "table": {
+            "cols": ["Medida", "Fonte", "Quantidade / frequência", "Efeito"],
+            "rows": [
+              [
+                "EPA e DHA diretamente",
+                "peixes gordos do mar (salmão, cavala, arenque); alternativamente óleo de algas",
+                "peixe 2×/semana ou óleo de algas diariamente",
+                "Ultrapassa a conversão limitada da FADS1"
+              ],
+              [
+                "Fontes vegetais de ômega-3",
+                "óleo de linhaça, nozes, sementes de chia",
+                "em complemento, não como única fonte",
+                "No seu caso, apenas parcialmente convertido"
+              ],
+              [
+                "Limitar o ômega-6",
+                "usar com moderação óleo de girassol, cártamo e milho",
+                "no dia a dia",
+                "Rácio favorável de ômega-6 para ômega-3"
+              ],
+              [
+                "Reduzir açúcar e farinha branca",
+                "em favor dos cereais integrais",
+                "no dia a dia",
+                "Relaciona-se com o metabolismo dos triglicerídeos (APOA5)"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-7"
+    },
+    {
+      "type": "markers",
+      "caption": "Genética · Pressão arterial",
+      "title": "Sensibilidade ao sal.",
+      "items": [
+        {
+          "name": "Sensibilidade ao sal",
+          "sub": "ACE, genótipo GG (homozigótico)",
+          "kind": "semáforo",
+          "value": 8,
+          "display": "8 / 9",
+          "status": "Favorável",
+          "tone": "green",
+          "text": "A sua variante ACE não indica sensibilidade aumentada ao sal. Como regra geral: quem consome uma dieta mais salgada deve beber deliberadamente mais líquidos.",
+          "table": {
+            "cols": ["Medida", "Fonte", "Quantidade / frequência", "Efeito"],
+            "rows": [
+              [
+                "Controlar a ingestão de sal",
+                "alimentos processados, refeições prontas",
+                "máx. 6 g de sal/dia",
+                "Reduz a retenção de água"
+              ],
+              [
+                "Beber o suficiente",
+                "água, chá sem açúcar",
+                "pelo menos 1,5–2 l/dia",
+                "Suporta a excreção de sódio"
+              ],
+              [
+                "Potássio proveniente de vegetais e fruta",
+                "bananas, batatas, vegetais verdes",
+                "diariamente",
+                "Contraria a retenção relacionada com o sal"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-8"
+    },
+    {
+      "type": "markers",
+      "caption": "Genética · Pele e antioxidantes",
+      "title": "Nutricosmética.",
+      "lead": "Elasticidade, hidratação e proteção antioxidante da pele — como a alimentação apoia a sua pele desde o interior.",
+      "items": [
+        {
+          "name": "Hidratação da pele",
+          "sub": "AQPR CC (tipo selvagem)",
+          "kind": "semáforo",
+          "value": 9,
+          "display": "9 / 9",
+          "tone": "green",
+          "text": "A sua pele retém bem a humidade — uma rotina normal de cuidados é geralmente suficiente. Apoio: pelo menos 1,5–2 l de água diariamente."
+        },
+        {
+          "name": "Proteção celular antioxidante",
+          "sub": "SOD2 AG (heterozigótico)",
+          "kind": "semáforo",
+          "value": 7,
+          "display": "7 / 9",
+          "tone": "green",
+          "text": "Proteção sólida contra o stress oxidativo. Antioxidantes diários e proteção solar consistente mantêm esta posição inicial."
+        },
+        {
+          "name": "Elasticidade e inflamação da pele",
+          "intro": "IL-6 CG (heterozigótico). A atividade aumentada pode acelerar a degradação do colagénio.",
+          "kind": "semáforo",
+          "value": 6,
+          "display": "6 / 9",
+          "status": "Moderado",
+          "tone": "amber",
+          "text": "Tendência moderada para inflamação na pele — uma dieta anti-inflamatória tem um efeito visível na sua pele.",
+          "table": {
+            "cols": ["Medida", "Fonte", "Quantidade / frequência", "Efeito"],
+            "rows": [
+              [
+                "Ácidos gordos ômega-3",
+                "salmão, linhaça, nozes",
+                "peixe 2×/semana",
+                "Suporta a barreira cutânea"
+              ],
+              [
+                "Antioxidantes",
+                "bagas, legumes coloridos, chá verde",
+                "diariamente",
+                "Contraria o stress oxidativo"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Capacidade antioxidante",
+          "intro": "NADPH AG (heterozigótico). Fornece o poder redutor para os sistemas antioxidantes celulares.",
+          "kind": "semáforo",
+          "value": 4,
+          "display": "4 / 9",
+          "status": "Moderado",
+          "tone": "amber",
+          "text": "Capacidade antioxidante moderadamente reduzida — os antioxidantes através da dieta fornecem aqui suporte adicional.",
+          "table": {
+            "cols": ["Medida", "Fonte", "Quantidade / frequência", "Efeito"],
+            "rows": [
+              [
+                "Antioxidantes",
+                "bagas, legumes coloridos, chá verde",
+                "diariamente",
+                "Suporta a defesa celular contra radicais livres"
+              ],
+              [
+                "Proteção UV",
+                "protetor solar, cobertura para a cabeça",
+                "quando exposto ao sol",
+                "Limita a exposição da pele aos UV"
+              ]
+            ]
+          }
+        }
+      ],
+      "id": "marker-9"
+    },
+    {
+      "type": "table",
+      "caption": "Base genética",
+      "title": "Todos os genes analisados.",
+      "lead": "A lista completa das variantes examinadas juntamente com o seu genótipo. Estes valores são herdados e permanecem inalterados ao longo da vida — repetir a análise genética não tem qualquer propósito.",
+      "cols": ["Gene", "O seu genótipo", "Função"],
+      "rows": [
+        [
+          "FTO rs9939609",
+          "TT (homozigótico)",
+          "Alelo de risco A. Associado ao IMC, massa de gordura corporal e circunferência da cintura quando a ingestão de ácidos gordos saturados é elevada."
+        ],
+        [
+          "FTO rs1121980",
+          "AT (heterozigótico)",
+          "Alelo de risco A. Responde menos bem à perda de peso através da atividade física."
+        ],
+        [
+          "MTHFR",
+          "variante homozigótica",
+          "Enzima chave no metabolismo do folato e da metilação; influencia o nível de homocisteína."
+        ],
+        [
+          "FADS1",
+          "TT (homozigótico)",
+          "Controla a conversão dos precursores vegetais de ômega-3/-6 em ácidos gordos ativos de cadeia longa."
+        ],
+        [
+          "APOA5",
+          "AG (heterozigótico)",
+          "Regula a quebra de triglicerídeos no sangue e influencia os níveis de lípidos sanguíneos."
+        ],
+        [
+          "LPL",
+          "AA (tipo selvagem)",
+          "Decompõe gorduras do sangue; influencia o colesterol HDL e os níveis de lípidos sanguíneos."
+        ],
+        [
+          "PPARG2",
+          "CC (tipo selvagem)",
+          "Regula a formação de células adiposas, armazenamento de gordura e sensibilidade à insulina; influencia o apetite e a saciedade."
+        ],
+        [
+          "PLIN",
+          "CT (heterozigótico)",
+          "Reveste gotículas de gordura nas células adiposas e regula o seu acumular e decomposição."
+        ],
+        [
+          "ADRB3",
+          "GG (tipo selvagem)",
+          "Regula a queima de gordura nas células adiposas e a utilização da gordura armazenada."
+        ],
+        [
+          "MC4R",
+          "CT (heterozigótico)",
+          "Envolvido centralmente no controlo dos sinais de apetite, fome e saciedade no cérebro."
+        ],
+        ["LEPR", "AA (homozigótico)", "Transmite o sinal de saciedade da hormona leptina."],
+        [
+          "SLC6A14",
+          "CA (heterozigótico)",
+          "Transporta aminoácidos; influencia o apetite, saciedade e alimentação por stress."
+        ],
+        [
+          "TCF7L2",
+          "CT (heterozigótico)",
+          "Influência na secreção de insulina após refeições ricas em hidratos de carbono."
+        ],
+        [
+          "TFAP2B",
+          "GG (tipo selvagem)",
+          "Envolvido na regulação do peso corporal e distribuição de gordura."
+        ],
+        [
+          "IL-6",
+          "CG (heterozigótico)",
+          "Substância mensageira central na regulação da inflamação; influencia lípidos sanguíneos, apetite e alimentação por stress."
+        ],
+        ["GC", "GT (heterozigótico)", "Influência no transporte de vitamina D no sangue."],
+        [
+          "ACE",
+          "GG (homozigótico)",
+          "Parte do sistema bradicinina-aldosterona; influencia predisposição para resistência/força e sensibilidade ao sal."
+        ],
+        [
+          "ACTN3",
+          "TT (tipo selvagem)",
+          "Influência na composição das fibras musculares (rápidas vs. lentas)."
+        ],
+        ["AQPR", "CC (tipo selvagem)", "Influência na retenção de água na pele."],
+        ["NADPH", "AG (heterozigótico)", "Contribui para a capacidade antioxidante das células."],
+        [
+          "SOD2",
+          "AG (heterozigótico)",
+          "Enzima antioxidante importante, protege as células do stress oxidativo."
+        ]
+      ],
+      "note": "21 variantes. Cada uma das avaliações no capítulo “Todas as avaliações genéticas” deriva de vários destes genes em conjunto; um único genótipo isolado não permite qualquer conclusão.",
+      "id": "uebersicht-3"
+    },
+    {
+      "type": "summary",
+      "caption": "Resumo",
+      "title": "As suas três áreas de foco.",
+      "lead": "De 21 genes e quatro marcadores epigenéticos, emergem três áreas nas quais esforço e efeito se encontram mais claramente no seu caso.",
+      "focuses": [
+        {
+          "num": "01",
+          "title": "Metabolismo da metilação — folato, vitaminas B, zinco",
+          "text": "Três valores apontam na mesma direção: LINE-1 2/9 (epigenético), miR-21 3/9 (epigenético) e folato/MTHFR 2/9 (genético) — os três dependem da mesma via metabólica. Esta área é ao mesmo tempo a única cujo efeito pode ser demonstrado numa medição de seguimento. Em termos concretos: vegetais de folha verde e leguminosas diariamente, B2/B6/B12 via ovos, queijo e alimentos fermentados, zinco via sementes de abóbora, aveia e lentilhas. Folato ativo (5-MTHF) durante dois meses após consulta médica."
+        },
+        {
+          "num": "02",
+          "title": "Qualidade da gordura — EPA e DHA diretamente",
+          "text": "Lípidos sanguíneos 2/9 e fornecimento de ômega-3 2/9. A sua variante FADS1 torna insuficientes as fontes vegetais de ômega-3 como óleo de linhaça e nozes. Peixe gordo do mar duas vezes por semana ou óleo de algas diariamente ultrapassam diretamente este estrangulamento; use óleos ricos em ômega-6 com moderação."
+        },
+        {
+          "num": "03",
+          "title": "Qualidade do açúcar no sangue em vez da quantidade de calorias",
+          "text": "Metabolismo do açúcar no sangue e insulina 3/9 juntamente com regulação favorável do peso corporal (7/9). Para si, a qualidade dos hidratos de carbono conta mais do que a quantidade: um índice glicémico baixo em cada refeição principal, 20–30 g de proteína por refeição e uma curta caminhada após comer. Como o exercício sozinho funciona mais lentamente no seu caso (FTO 2/9), esta combinação é o caminho mais eficaz."
+        }
+      ],
+      "controlTitle": "Seguimento e próximo passo",
+      "controlItems": [
+        "Uma medição de acompanhamento dos quatro marcadores epigenéticos só é significativa após 4 a 6 meses — antes disso, as alterações não podem ser medidas de forma fiável.",
+        "As avaliações genéticas mantêm-se inalteradas e nunca precisam de ser repetidas.",
+        "A comparação dos pontos de medição ao longo do tempo é reportada a partir da segunda medição."
+      ],
+      "id": "zusammenfassung"
+    },
+    {
+      "type": "contact",
+      "title": "Dúvidas sobre o seu relatório?",
+      "text": "Discuta os resultados com a entidade que realizou a colheita da amostra. É aí que se encontra o contexto clínico necessário para a interpretação.",
+      "columns": [
+        {
+          "k": "Contacto",
+          "lines": ["contact@polarisdx.net", "+49 152 2858 0999", "www.polarisdx.net"]
+        },
+        {
+          "k": "Distribuição",
+          "lines": ["Polaris Diagnostics Europe GmbH", "Große Bleichen 1–3", "20354 Hamburgo"]
+        }
+      ],
+      "legal": [
+        {
+          "title": "Relatório de amostra",
+          "text": "Todos os valores, genótipos e dados pessoais neste documento são fictícios e servem apenas para ilustrar o formato do relatório. Este não é um relatório real."
+        },
+        {
+          "title": "Interpretação",
+          "text": "Este relatório não é um diagnóstico e não substitui aconselhamento médico. As avaliações genéticas descrevem predisposições, não doenças; os marcadores epigenéticos descrevem um estado momentâneo. Ambos devem ser avaliados no contexto clínico individual por profissionais qualificados."
+        },
+        {
+          "title": "Estado das análises",
+          "text": "As análises são serviços laboratoriais prestados pelo nosso parceiro de cooperação e não são dispositivos médicos de diagnóstico in vitro com marcação CE. Servem para consulta e monitorização e não substituem o diagnóstico clínico. As análises são fornecidas apenas a utilizadores profissionais."
+        },
+        {
+          "title": "Enquadramento legal",
+          "text": "Os testes genéticos estão sujeitos à Lei Alemã de Diagnóstico Genético (GenDG); são necessárias informações e consentimento escrito antes da colheita da amostra. A análise laboratorial é realizada pelo nosso parceiro de cooperação. A Polaris Diagnostics Europe GmbH é responsável pela distribuição e suporte. Este documento não constitui qualquer promessa de cura nos termos da Lei Alemã de Publicidade de Produtos Terapêuticos (Heilmittelwerbegesetz)."
+        }
+      ],
+      "copyright": "© 2026 Polaris Diagnostics Europe GmbH · Atualizado em: agosto de 2026",
+      "id": "kontakt"
+    }
+  ]
+}

@@ -11,14 +11,12 @@
  * ROUTING-AUFBAU:
  * - Die meisten Seiten laufen in der B2B-PolarisDX-Shell (<MainLayout>).
  * - Die Consumer-Landingpages unter /consumer/* haben bewusst KEINE B2B-Shell,
- *   sondern ihre eigene schlanke Consumer-Chrome. Sie sind "unlisted":
- *   nicht in der Navigation, nicht in der sitemap.xml, noindex und
- *   server-seitig per Passwort (Basic Auth) geschützt.
+ *   sondern ihre eigene schlanke Consumer-Chrome. PT08.4 routet sie in allen
+ *   zehn Locales; globale IA und die finale Sitemap bleiben spaetere Owner.
  */
 
 import { lazy, Suspense, useEffect } from 'react'
 import { Routes, Route, Navigate, Outlet, useParams, useLocation } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
 import Layout from './components/layout/Layout'
 import GtmPageview from './components/analytics/GtmPageview'
 
@@ -32,7 +30,6 @@ import HomePage from './pages/HomePage'
 // Layout-Komponenten bleiben eager (werden auf allen Seiten gebraucht)
 import { CookieBanner } from './components/ui/CookieBanner'
 import MobileCallButton from './components/ui/MobileCallButton'
-import ChatWidget from './components/ui/ChatWidget'
 
 // =============================================================================
 // LAZY IMPORTS - Werden erst bei Bedarf geladen
@@ -62,8 +59,8 @@ const EpigeneticsBasicsPage = lazy(() => import('./pages/EpigeneticsBasicsPage')
 const EpigeneticsEvidencePage = lazy(() => import('./pages/EpigeneticsEvidencePage'))
 const EpigeneticsDocsPage = lazy(() => import('./pages/EpigeneticsDocsPage'))
 // Musterbefunde: je Slug ein eigenes Routenmodul, damit Vite pro Befund
-// splittet. Ein gemeinsames Modul zog alle sechs Panels in beiden Sprachen in
-// einen 287-KB-Chunk, um 24 KB anzuzeigen.
+// splittet. Ein gemeinsames Inhaltsmodul wuerde alle sechs Panels und alle
+// Sprachfassungen in denselben Chunk ziehen.
 const MusterbefundMetabolicHealth = lazy(() => import('./pages/musterbefund/metabolic-health'))
 const MusterbefundHealthyAging = lazy(() => import('./pages/musterbefund/healthy-aging'))
 const MusterbefundAltersuhr = lazy(() => import('./pages/musterbefund/biologische-altersuhr'))
@@ -85,7 +82,7 @@ const ImprintPage = lazy(() => import('./pages/ImprintPage'))
 const DownloadsPage = lazy(() => import('./pages/DownloadsPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
-// Consumer-Landingpages (unlisted — eigene Chrome, kein B2B-Layout)
+// Consumer-Landingpages (eigene Chrome, kein B2B-Layout)
 // Eager imports for the consumer landing pages (not lazy).
 // Why: these are paid-traffic landing pages from Instagram/LinkedIn. The
 // page <title>, meta description and OG tags are SEO/share-preview-critical
@@ -118,34 +115,6 @@ function ServicesRedirect() {
 }
 
 /**
- * Guard for the two German-only landing pages (S3-Leitlinie, Vitamin D3 &
- * Implantologie). Their copy is hand-written German without t() calls.
- *
- * server.ts 301s /<lang>/... to /de/... on a full page load, but that never
- * fires for an in-app <Link>: client-side navigation stays inside the current
- * basename and would render German text at an /en/ URL. So trigger a real
- * navigation to the German URL when the page mounts under a foreign prefix.
- *
- * children render in every case on purpose - the server only ever renders
- * these pages under /de, so a second markup branch would cause a hydration
- * mismatch there. The redirect happens in an effect, i.e. after hydration.
- */
-function GermanOnlyPage({ children }: { children: React.ReactNode }) {
-  const { i18n } = useTranslation()
-  const location = useLocation()
-  const lang = i18n.language?.split('-')[0] || 'de'
-  const needsGermanUrl = lang !== 'de'
-
-  useEffect(() => {
-    if (needsGermanUrl) {
-      window.location.replace(`/de${location.pathname}`)
-    }
-  }, [needsGermanUrl, location.pathname])
-
-  return <>{children}</>
-}
-
-/**
  * Scrollt nach einer Navigation zum Ziel von location.hash.
  *
  * Warum das eine eigene Komponente braucht:
@@ -169,41 +138,117 @@ function ScrollToHash() {
     const id = decodeURIComponent(location.hash.slice(1))
     if (!id) return
 
-    // ~1s bei 60fps — genug Zeit fuer den Lazy-Chunk der Zielsektion.
-    const MAX_FRAMES = 60
+    // ~3s bei 60fps. Der Wert ist eine OBERGRENZE, kein Wartezeitraum: der
+    // Loop hoert auf, sobald die Position stimmt und der Offset steht (meist
+    // nach wenigen Frames), und bricht bei jeder Nutzereingabe sofort ab.
+    // 60 Frames waren zu knapp — auf tief liegenden Ankern montierte die
+    // Kapitelleiste je nach Viewport erst danach, und der Sprung blieb beim
+    // Header-Rueckfall stehen (gemessen: 1280x720 #analysen).
+    const MAX_FRAMES = 180
+    /** So viele Frames muss der Offset unveraendert sein, bevor wir loslassen. */
+    const STABLE_FRAMES = 10
+
     let frames = 0
     let raf = 0
+    let lastScrollY = -1
+    let lastOffset = -1
+    let stable = 0
+    let didInitialScroll = false
+    let aborted = false
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    /**
+     * Abstand, den das Ziel von der Oberkante haben soll.
+     *
+     * Auf Seiten mit Kapitelleiste steht unter dem Header noch eine zweite
+     * klebende Zeile. Sie schreibt ihre Gesamthoehe als --chapterbar-offset
+     * ans Wurzelelement. Wo es die Variable nicht gibt, bleibt es beim Header.
+     */
+    const wantedOffset = () => {
+      const leiste = parseFloat(
+        getComputedStyle(document.documentElement).getPropertyValue('--chapterbar-offset'),
+      )
+      if (Number.isFinite(leiste) && leiste > 0) return leiste
+      const header = document.querySelector('header')
+      return (header?.getBoundingClientRect().height ?? 0) + 16
+    }
+
+    /**
+     * NACHFUEHREN, BIS DER OFFSET STEHT — nicht nur bis er einmal passt.
+     *
+     * Beim Direktaufruf von `/epigenetics#analysen` ist die Kapitelleiste im
+     * Moment des Scrollens noch nicht montiert; `--chapterbar-offset` fehlt,
+     * und der Sprung nutzt den Header-Rueckfall (88 + 16 = 104px). Ein Loop,
+     * der aufhoert, sobald der AKTUELLE Offset erfuellt ist, hoert genau dort
+     * auf — und wenn die Leiste danach erscheint, liegt die Ueberschrift 39px
+     * dahinter. Genau das war in PT06.4 noch der Fall und ist erst bei einem
+     * zweiten Viewport aufgefallen: bei 1280x720 montierte die Leiste frueh
+     * genug, bei 1440x900 nicht. Ein Timing-Fehler, der sich als
+     * "funktioniert" tarnt.
+     *
+     * Deshalb wird erst losgelassen, wenn der Offset ueber mehrere Frames
+     * KONSTANT ist und die Position stimmt.
+     *
+     * Greift der Nutzer selbst ein (Rad, Wisch, Taste), brechen wir ab —
+     * niemand soll gegen die Seite anscrollen muessen.
+     */
+    const stopOnUserInput = () => {
+      aborted = true
+    }
+    window.addEventListener('wheel', stopOnUserInput, { passive: true, once: true })
+    window.addEventListener('touchstart', stopOnUserInput, { passive: true, once: true })
+    window.addEventListener('keydown', stopOnUserInput, { once: true })
 
     const scrollToTarget = () => {
+      if (aborted) return
+
       const target = document.getElementById(id)
       if (!target) {
         if (frames++ < MAX_FRAMES) raf = requestAnimationFrame(scrollToTarget)
         return
       }
-      // Der Header ist position:fixed — ohne Offset schoebe sich der Abschnitt
-      // darunter. Hoehe messen statt hartkodieren (Header schrumpft beim Scroll).
-      // Auf Seiten mit Kapitelleiste steht unter dem Header noch eine zweite
-      // klebende Zeile. Sie schreibt ihre Gesamthoehe als --chapterbar-offset
-      // ans Wurzelelement; ohne sie landete jedes angesprungene Kapitel rund
-      // 40 px hinter der Leiste. Wo es die Variable nicht gibt, bleibt es beim
-      // Header allein.
-      const header = document.querySelector('header')
-      const leiste = parseFloat(
-        getComputedStyle(document.documentElement).getPropertyValue('--chapterbar-offset'),
-      )
-      const offset =
-        Number.isFinite(leiste) && leiste > 0
-          ? leiste
-          : (header?.getBoundingClientRect().height ?? 0) + 16
-      const top = target.getBoundingClientRect().top + window.scrollY - offset
-      // Gleiches Muster wie Reveal/useHeroSlider: kein Smooth-Scroll, wenn der
-      // Nutzer reduzierte Bewegung eingestellt hat.
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      window.scrollTo({ top: Math.max(top, 0), behavior: reduceMotion ? 'auto' : 'smooth' })
+
+      const offset = wantedOffset()
+
+      if (!didInitialScroll) {
+        didInitialScroll = true
+        lastOffset = offset
+        const top = target.getBoundingClientRect().top + window.scrollY - offset
+        window.scrollTo({ top: Math.max(top, 0), behavior: reduceMotion ? 'auto' : 'smooth' })
+        raf = requestAnimationFrame(scrollToTarget)
+        return
+      }
+
+      // Erst wenn die Seite steht, ist ein Messwert belastbar.
+      const settled = Math.abs(window.scrollY - lastScrollY) < 1
+      lastScrollY = window.scrollY
+
+      stable = offset === lastOffset ? stable + 1 : 0
+      lastOffset = offset
+
+      if (settled) {
+        const delta = target.getBoundingClientRect().top - offset
+        if (Math.abs(delta) > 2) {
+          // Korrektur ohne Animation — sie soll nicht gegen den laufenden
+          // Smooth-Scroll arbeiten.
+          window.scrollTo({ top: Math.max(window.scrollY + delta, 0), behavior: 'auto' })
+          stable = 0
+        } else if (stable >= STABLE_FRAMES) {
+          return // Position stimmt und der Offset hat sich beruhigt.
+        }
+      }
+
+      if (frames++ < MAX_FRAMES) raf = requestAnimationFrame(scrollToTarget)
     }
 
     raf = requestAnimationFrame(scrollToTarget)
-    return () => cancelAnimationFrame(raf)
+    return () => {
+      cancelAnimationFrame(raf)
+      window.removeEventListener('wheel', stopOnUserInput)
+      window.removeEventListener('touchstart', stopOnUserInput)
+      window.removeEventListener('keydown', stopOnUserInput)
+    }
   }, [location])
 
   return null
@@ -215,14 +260,22 @@ function ScrollToHash() {
 
 /**
  * Layout-Route für die reguläre B2B-Website: rendert die PolarisDX-Shell
- * (Header/Footer), Mobile-Call-Button, Chat-Widget und Cookie-Banner.
- * Die einzelnen Seiten erscheinen über <Outlet />.
+ * (Header/Footer) und den Mobile-Call-Button. Die einzelnen Seiten erscheinen
+ * über <Outlet />; der Cookie-Banner haengt global unter <Routes>.
+ *
+ * KEIN CHAT (`DEC-RL-007`): Hier stand bis AP06 PT06.4 ein <ChatWidget />, das
+ * auf JEDER B2B-Seite unbedingt `https://widget.hihuman.co.uk/bundle.js`
+ * nachlud — ohne Bedingung, ohne Consent. Frontend-Rendering und Loader sind
+ * entfernt, die Datei geloescht.
+ *
+ * Ownership-Grenze, bewusst NICHT hier erledigt:
+ *   - `POST /api/chat` im Backend  -> AP22 PT22.7
+ *   - HiHuman-Domains in der CSP   -> AP26 PT26.2
  */
 function MainLayout() {
   return (
     <Layout>
       <MobileCallButton />
-      <ChatWidget />
       <Outlet />
     </Layout>
   )
@@ -240,9 +293,8 @@ function App() {
       <GtmPageview />
       <Routes>
         {/* ---------------------------------------------------------------------
-          UNLISTED CONSUMER-LANDINGPAGES
-          Eigene schlanke Consumer-Chrome (NICHT die B2B-Shell).
-          Nicht in Navigation/Sitemap, noindex, server-seitig passwortgeschützt.
+          CONSUMER-LANDINGPAGES
+          Eigene schlanke Consumer-Chrome (NICHT die B2B-Shell), locale-aware.
       --------------------------------------------------------------------- */}
         <Route
           path="/consumer/vitamin-d3-spray"
@@ -376,21 +428,17 @@ function App() {
           <Route
             path="/vitamin-d3-implantologie"
             element={
-              <GermanOnlyPage>
-                <LazyRoute>
-                  <VitaminD3ImplantologyPage />
-                </LazyRoute>
-              </GermanOnlyPage>
+              <LazyRoute>
+                <VitaminD3ImplantologyPage />
+              </LazyRoute>
             }
           />
           <Route
             path="/s3_leitlinie"
             element={
-              <GermanOnlyPage>
-                <LazyRoute>
-                  <S3LeitliniePage />
-                </LazyRoute>
-              </GermanOnlyPage>
+              <LazyRoute>
+                <S3LeitliniePage />
+              </LazyRoute>
             }
           />
           <Route
