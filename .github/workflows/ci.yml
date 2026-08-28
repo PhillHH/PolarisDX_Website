@@ -51,9 +51,6 @@ jobs:
       - name: Internal findability gate
         run: npm run check:internal-findability
 
-      - name: G3 SEO artifact coverage
-        run: npm run check:seo
-
       - name: Unit tests
         run: npm test
 
@@ -88,16 +85,57 @@ jobs:
         env:
           CI: true
 
-      - name: G3 SEO and sitemap runtime regression tests
-        run: npx playwright test e2e/seo-head.spec.ts e2e/sitemap.spec.ts
-        env:
-          CI: true
-
       - name: Upload visual diffs on failure
         if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
+          path: |
+            test-results/
+            playwright-report/
+          retention-days: 7
+
+  seo:
+    name: AP09 SEO gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: G3 SEO artifact and meta-quality coverage
+        run: npm run check:seo
+
+      - name: SEOHead, sitemap and Structured Data unit tests
+        run: >-
+          npx vitest run
+          src/components/seo/SEOHead.test.tsx
+          src/components/seo/sitemap.test.ts
+          src/components/seo/structuredData.test.ts
+
+      - name: Build production SSR artifacts
+        run: npm run build
+
+      - name: Install Playwright browser
+        run: npx playwright install chromium --with-deps
+
+      - name: SEO, Consumer, Structured Data and sitemap runtime regressions
+        run: npx playwright test e2e/seo-head.spec.ts e2e/sitemap.spec.ts
+        env:
+          CI: true
+
+      - name: Upload SEO traces on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-playwright-report
           path: |
             test-results/
             playwright-report/

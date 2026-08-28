@@ -695,3 +695,78 @@ Diese Matrix klassifiziert Seitentypen; sie ist ausdrücklich keine Route Regist
   Matrix **10/10 PASS**, darin **390/390** öffentliche Seiten.
 - `DG09-01 — ROUTE_REGISTRY_INTEGRATION` bleibt **READY_FOR_OWNER**, Owner **AP10 PT10.3**. PT09.5
   baute keine Route Registry und zog weder AP27 noch spätere Page-/Content-Arbeit vor.
+
+---
+
+## 16. AP09-CLOSURE — aktuelle unabhängige Evidence
+
+### 16.1 Git-, Source- und CI-Kontext
+
+- Verifiziert am: **2026-08-28**; Branch: `console/10-15-2026-08-28T08-18-27`; Closure-Start-HEAD:
+  `bbfb3bd71cc5bd12fc9281e8d5f2558f034fa19c`; Working Tree am Start vollständig clean; keine
+  Merge-/Rebase-/Cherry-Pick-/Revert-Situation.
+- Produktion verwendet **27 `SEOHead`-Call-Sites in 24 Page-/Epigenetics-Dateien**. Genau eine Datei,
+  `src/components/seo/SEOHead.tsx`, rendert direkt `<Helmet>`; konkurrierende Meta-Layer: **0**.
+- `.github/workflows/ci.yml` triggert für Pull Requests und Pushes auf `main`,
+  `feat/home-leadmagnet` und `console/**`. Der unabhängige Job `AP09 SEO gates` führt
+  `npm run check:seo`, die SEOHead-/Sitemap-/Structured-Data-Unit-Suiten, den Production Build und
+  `e2e/seo-head.spec.ts e2e/sitemap.spec.ts` aus. Damit bleiben diese Gates auch bei den separat hart
+  fehlschlagenden dokumentierten globalen Lint-/Format-Baselines real erreichbar; kein Gate wurde
+  abgeschwächt oder ignoriert.
+
+### 16.2 Aktuelle Route-, Meta- und Sitemap-Messung
+
+- Locale-Quelle: exakt `de`, `en`, `pl`, `fr`, `it`, `es`, `pt`, `da`, `nl`, `cs`; Default und
+  `x-default`: `de`; öffentlicher Host: exakt `https://polarisdx.net`.
+- Indexierbare öffentliche Menge: **40 Route Families / 400 Locale-URLs**. Davon stehen bewusst
+  **39 Families / 390 URLs** in der Sitemap; `/support` ist die zehnfach verifizierte indexierbare,
+  aber bewusst nicht sitemap-geführte Utility-Familie. Explizite noindex-Menge: **3 Legal Families /
+  30 Locale-URLs** (`privacy`, `imprint`, `terms`).
+- Frisch erzeugte Sitemap: valides namespace-korrektes XML; **390 URLs, 390 unique, 0 duplicates,
+  39 x10 Families**. Consumer **30**, Epigenetics gesamt **100** (Hub/Vertiefungen **40** plus
+  Musterbefunde **60**), Services **90** aus 9 realen IDs, Articles **60** aus 6 realen Slugs,
+  `lastmod` **60** ausschließlich aus realen Article-Publikationsdaten.
+- Produktions-SSR-Audit über alle 390 Sitemap-URLs: Status-/Redirect-, Canonical-, robots-,
+  hreflang-, `x-default`-, Self-Reference-, OG-URL-, Social-Alt-, Host- und Schema-Host-Anomalien:
+  jeweils **0**. Sitemap-404-, Redirect-Source-, noindex- und Preview-Ziele: jeweils **0**.
+- Vier neu gemessene unbekannte statische/dynamische Locale-URLs antworten HTTP 404 mit
+  `noindex, follow`, Canonical **0**, hreflang **0**, `x-default` **0**, Content-Schema **0** und
+  Preview-/Dev-Host **0**.
+- Meta-Quality: **290/290** explizite Locale-Records ohne Hard Finding; alle **390/390** Sitemap-
+  Seiten besitzen genau einen Title, eine Description, ein öffentliches OG-Bild sowie nicht leeren,
+  nicht dateinamenartigen OG-/Twitter-Alt. Eine natürliche französische Article-Index-Description
+  mit 216 Zeichen bleibt eine dokumentierte weiche Warnung.
+
+### 16.3 Structured Data, Robots und Scope
+
+- Coverage Matrix: **15/15 Seitentypen**. Repräsentativer Runtime-Gate deckt Organization/WebSite,
+  Breadcrumb, IglooPro/Consumer Product, sichtbares FAQ und Nicht-FAQ, Article, Event,
+  Epigenetics/Musterbefund, Download, Contact, Support und 404 ab. Claim-/Commercial-Erfindungen,
+  widersprüchliche Entity-Duplikate und Preview-/Dev-URLs: jeweils **0**.
+- Robots: parsebar, produktive Sitemap-Direktive korrekt; `/api` ist in Wildcard und allen
+  spezifischen Gruppen keine Indexfläche; `/assets/`, `/locales/` und Consumer bleiben crawlbar.
+  Alle 39 spezifischen Bot-Agents und deren bestehender Allow-Intent wurden erhalten.
+- Central Route Registry in AP09: **NO**. Der bestehende Sitemap-Adapter ist registry-ready;
+  `DG09-01` bleibt `CROSS_AP_ARCHITECTURE_INTEGRATION`, Owner **AP10 PT10.3**, Status
+  **READY_FOR_OWNER**, AP09-Closure-Blocker **NO**, Launch-Blocker **YES**.
+- Scope Audit: keine AP10-/AP11–AP23-/AP27-/AP29-/AP31-Großarbeit, kein finaler Crawl und keine
+  Backlog-Reaktivierung; False-ready Claims: **0**.
+
+### 16.4 Closure Gates, Invarianten und Risiken
+
+- Closure Matrix: **C09-01 bis C09-50 = 50/50 PASS**, einzeln gegen Repository-, Guard- und
+  Runtime-Evidenz geprüft.
+- SEO-Invarianten: **SEO-01 bis SEO-40 = 40/40 PASS**, einzeln geprüft; nicht nur die Anzahl wurde
+  verglichen.
+- Risikoklassifikation: `R09-01 ACCEPTED_OWNER_BOUND`; `R09-02`–`R09-09 MITIGATED`;
+  `R09-10 ACCEPTED_OWNER_BOUND`; `R09-11`–`R09-12 MITIGATED`. AP09-eigene kritische Blocker: **0**.
+- Quality: Typecheck PASS; Unit **285/285**; SEOHead **8/8**; Sitemap **13/13**; Structured Data
+  **7/7**; G3/Meta-Guard PASS; Production Client/SSR Build PASS; SEO-Playwright **10/10**;
+  unabhängiger HTTP-Audit **390/390** plus vier 404-Fälle PASS.
+- Repositoryweiter ESLint-/Prettier-Lauf bleibt als vorbestehende, außerhalb AP09 liegende Baseline
+  non-zero: ESLint **120 Errors / 3 Warnings** (aktiv: 11/1), Prettier **34 Dateien**. Der
+  AP09-relevante Satz ist lint-/format-sauber; der eine Befund in `AboutPage.tsx` liegt unverändert
+  seit vor AP09 in einem nicht von AP09 geänderten Anchor-Hunk. AP09 hat die Baseline nicht erhöht.
+- Closure-Fix: Die zuvor im seriellen `quality`-Job hinter diesen Baseline-Gates liegenden
+  AP09-Schritte wurden ohne Semantikänderung in den unabhängigen `seo`-Job verschoben. Dadurch ist
+  `G3 / CI ACTIVE` eine reale Job-Ausführung und keine bloße vorhandene, aber unerreichbare YAML-Zeile.
