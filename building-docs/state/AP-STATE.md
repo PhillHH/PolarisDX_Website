@@ -11,10 +11,10 @@ kein `work-packages/APxx-STATE.md`).
 - Work package: **AP10 — Redirect-, URL- und HTTP-Semantik-System**
 - Status: **IN_PROGRESS** <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
 - Predecessor: **AP09 COMPLETE / Closure PASS (50/50, 2026-08-28)**
-- Last completed task: **PT10.1 — Redirects absichern (PASS, 2026-08-28)**
-- PT10.1: **PASS** · PT10.2: **NOT STARTED** · PT10.3: **NOT STARTED** · PT10.4: **NOT STARTED** ·
+- Last completed task: **PT10.2 — Alt-URL-Migration (PASS, 2026-08-28)**
+- PT10.1: **PASS** · PT10.2: **PASS** · PT10.3: **NOT STARTED** · PT10.4: **NOT STARTED** ·
   AP10 Closure: **NOT STARTED**
-- Next task: **PT10.2 — Alt-URL-Migration**
+- Next task: **PT10.3 — Route Registry / Known Paths**
 - Redirect status contract: **PASS** — bekannte unpräfixierte Seiten, `/services*`, `/agb` und
   `/s3-leitlinie` liefern direkte locale-aware HTTP 301 mit Query-Erhalt; Ziel 200, Loops 0,
   unnötige Chains 0
@@ -23,12 +23,19 @@ kein `work-packages/APxx-STATE.md`).
 - Consumer/Specialty locale guard: **PASS 30/30** — Consumer, S3 und Implantology bleiben in derselben
   angeforderten Locale; keine EN-/DE-Zwangsumleitung
 - Client redirect bridge: **REMOVED** — `/services*` hängt nicht mehr von SSR 200 plus `<Navigate>` ab
-- Quality PT10.1: Typecheck PASS · taskbezogenes Lint/Prettier PASS · Unit/Component **285/285** ·
-  URL-/Redirect-Smoke **31/31** · AP08 Routing-/Locale-Regression **35/35** · reale Service-Migration
-  **9×10** · Spezialseiten **30/30** · Production Build PASS · G3/G4/Search/Findability PASS;
+- Legacy URL migration map: **COMPLETE FOR CURRENT REPOSITORY EVIDENCE** — 20 typisierte feste/
+  content-derived Redirect-Quellen plus die source-validierte `/services`-Familie; 9 explizite
+  ersatzlose/Backlog-Kandidaten direkte 404; alle vier Statusklassen dokumentiert; externe Discovery
+  `DEFERRED_MIGRATION_DISCOVERY`, Owner AP29, kein AP10-Closure-Blocker
+- Anchor compatibility: **PASS** — HTTP behauptet keine Fragment-Migration; alle 6 Befund-Familien
+  behalten ihre belegten Altanker clientseitig, repräsentativer realer Altanker browsergetestet
+- Quality PT10.2: Typecheck PASS · taskbezogenes Lint/Prettier PASS · Unit/Component **291/291** ·
+  URL-/Redirect-Smoke **54/54** · AP08 Routing-/Locale-Regression **35/35** · 20 Map-Quellen × 10
+  Locales plus unpräfixiertes DE · intentional 404 ohne Home-Softmigration · Production Build PASS ·
+  G3/Search/Findability PASS;
   repositoryweite unveränderte Baseline **120 ESLint errors + 3 warnings / 34 Prettier-Dateien**
-- ROUTING-CONTRACT: **current through PT10.1** · PT10.2 vollständige Alt-URL-Klassifikation:
-  **NOT STARTED** · zentrale Route Registry/DG09-01-Auflösung in PT10.3: **NOT STARTED**
+- ROUTING-CONTRACT: **current through PT10.2** · vollständige heute bekannte Alt-URL-Klassifikation:
+  **PASS** · zentrale Route Registry/DG09-01-Auflösung in PT10.3: **NOT STARTED**
 - AP11: **NOT STARTED** · Decision Locks: **18/18 LOCKED**
 
 ### AP09 (abgeschlossen, unverändert als Vorgänger-Handoff erhalten)
@@ -408,11 +415,11 @@ kein `work-packages/APxx-STATE.md`).
   legacy classification: recorded · final clean build evidence: recorded · **closure evidence: recorded**
   (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§9)
 - Current branch: `console/10-15-2026-08-28T08-18-27`
-- Current HEAD: `a52ba7ea3a3ba3b4ded45969eb48895b02bbd439` — empirischer PT10.1-Start-HEAD;
-  Working Tree war am PT10.1-Start vollständig clean und enthält ausschließlich die ungestagten
-  PT10.1-Implementierungs-, Test-, Contract- und State-Änderungen
+- Current HEAD: `89a6778901389705c5914477ef9d3705358e56a9` — empirischer PT10.2-Start-HEAD;
+  Working Tree war am PT10.2-Start vollständig clean und enthält ausschließlich die ungestagten
+  PT10.2-Implementierungs-, Test-, Contract- und State-Änderungen
 - Started: 2026-08-24 (AP02); AP01 gestartet und abgeschlossen 2026-08-24
-- Last updated: 2026-08-28 (AP10 IN_PROGRESS; PT10.1 PASS; next PT10.2)
+- Last updated: 2026-08-28 (AP10 IN_PROGRESS; PT10.1–PT10.2 PASS; next PT10.3)
 
 <!-- AP00-HEAD-Historie: f8692c0 = PT00.1, bf125d2 = PT00.2, cad9b6c = PT00.3, 0c58d44 = PT00.4,
      a0fac9c = Closure. Danach Pre-AP01-Hygiene: 9ee8199, d98a6b7, 5f6fc3b, Merge 4f70801.
@@ -423,6 +430,11 @@ kein `work-packages/APxx-STATE.md`).
 ## Completed Work
 
 <!-- Eine Zeile pro abgeschlossenem Primärtask: `PTxx.y — Ergebnis in einem Satz`. Keine Reports. -->
+
+- PT10.2 — alle aktuell repository-bekannten Alt-URLs als Redirect, intentional 404, current canonical
+  oder AP29-deferred klassifiziert; Article-ID-/Slug- und Service-Unterstrich-/Bindestrich-Wechsel als
+  locale-treue Ein-Hop-301 umgesetzt, Altanker realistisch clientseitig erhalten und Home-Softredirects
+  ausgeschlossen.
 
 - PT10.1 — bekannte primäre Migrationen als echte locale-aware HTTP 301 mit Query-Erhalt und genau
   einem Hop umgesetzt; reale Service-Slugs source-validiert, unbekannte Legacy-Slugs direkte 404,
@@ -1349,6 +1361,20 @@ tabIndex={-1}>` — ohne `tabIndex` scrollt der Browser nur, statt den Fokus zu 
 
 ## Files Changed by Current AP
 
+**PT10.2 — Alt-URL-Migration:**
+
+- `src/routing/legacyRedirects.ts` — kleine typisierte Redirect-Map aus Primäraliasen und realen
+  Article-/Service-Daten; explizite intentional-404-Kandidaten; keine Route Registry
+- `server.ts` — neue Map als aktive locale-/query-treue 301-Quelle; Directory-Redirect des statischen
+  `/downloads/`-Assetordners deaktiviert, damit die gleichnamige Seite ohne Slash-Kette direkt
+  canonicalisiert; reale Dateien bleiben direkt auslieferbar
+- `src/components/seo/sitemapGuard.ts` — alle aktuell bekannten Redirect-Quellen aus derselben Map von
+  der Sitemap ausgeschlossen
+- `src/routing/legacyRedirects.test.ts`, `e2e/url-smoke.spec.ts` — Datenparität, Alt-Katalog-
+  Klassifikation, AP29-Handoff, x10 Status/Target/Hop/Query/Locale, intentional 404 und Altanker gegated
+- `building-docs/ROUTING-CONTRACT.md`, `building-docs/state/AP-STATE.md` — vollständige aktuelle Map,
+  vier Statusklassen, Quellenevidenz, AP29-Handoff und serieller Handoff ausschließlich auf PT10.3
+
 **PT10.1 — Redirects absichern:**
 
 - `server.ts` — direkte permanente GET-/HEAD-Redirects für bekannte unpräfixierte Pfade,
@@ -1749,10 +1775,11 @@ referenzielle Korrektur war nicht erforderlich.
 
 <!-- Jeweils: ID/Kurztitel · was blockiert ist · was zur Auflösung gebraucht wird. -->
 
-- **Keine offenen PT10.1-Blocker.** Primäre Redirects sind echte, query-erhaltende Ein-Hop-301;
-  Ziele antworten 200, unbekannte Legacy-Service-Slugs direkt 404, x10-Spezialseiten bleiben
-  locale-treu. `DG09-01 — ROUTE_REGISTRY_INTEGRATION` bleibt bewusst `READY_FOR_OWNER`, Owner AP10
-  PT10.3 und Launch-Blocker; PT10.1 hat die Registry-Arbeit nicht vorgezogen.
+- **Keine offenen PT10.2-Blocker.** Alle heute repository-bekannten Altpfade sind entschieden;
+  reale Nachfolger antworten nach locale-/query-treuem Ein-Hop-301 mit 200, ersatzlose Quellen direkt
+  404 ohne Home-Softmigration. `DEFERRED_MIGRATION_DISCOVERY` bleibt ownergebunden bei AP29 und ist kein
+  AP10-Closure-Blocker. `DG09-01 — ROUTE_REGISTRY_INTEGRATION` bleibt bewusst `READY_FOR_OWNER`, Owner
+  AP10 PT10.3 und Launch-Blocker; PT10.3 wurde nicht vorgezogen.
 - **Ownergebundene Bot-Policy-Grenze, kein PT09.5-Blocker:** der bestehende Allow-Intent für die 39
   spezifischen Search-/Social-/AI-Bots ist technisch konsistent erhalten. Eine spätere strategische
   Änderung ist eine explizite Unternehmens-/Owner-Entscheidung und wurde in PT09.5 nicht erfunden.
@@ -1944,11 +1971,11 @@ referenzielle Korrektur war nicht erforderlich.
 
 <!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste Lauf braucht. -->
 
-- **Nächster Primärtask ist PT10.2 — Alt-URL-Migration.** PT10.1 ist `PASS`; AP10 bleibt
-  `IN_PROGRESS`. Verbindlich sind die initiale Redirect Map und Status-/Hop-Regeln in
-  `ROUTING-CONTRACT.md` §2.1 sowie die serverseitige Slug-Validierung. PT10.2 klassifiziert erst die
-  vollständige heute bekannte Alt-URL-Menge. PT10.3 und `DG09-01` wurden nicht vorgezogen; AP11 bleibt
-  `NOT STARTED`.
+- **Nächster Primärtask ist PT10.3 — Route Registry / Known Paths.** PT10.1 und PT10.2 sind `PASS`;
+  AP10 bleibt `IN_PROGRESS`. Verbindlich sind Redirect-/Statusregeln und die vollständige aktuelle
+  Map in `ROUTING-CONTRACT.md` §2.1–§2.2 sowie `src/routing/legacyRedirects.ts`. Externe, nur durch
+  Crawl/Search-Console/Backlinks auffindbare Quellen bleiben als `DEFERRED_MIGRATION_DISCOVERY` bei
+  AP29. PT10.3 wurde nicht vorgezogen; AP11 bleibt `NOT STARTED`.
 
 - **Nächstes Arbeitspaket ist AP08.** AP07 ist `COMPLETE`, Closure `PASS (43/43)`; AP08 bleibt bis zu
   seinem eigenen Start `NOT STARTED`. PT07.1-Index, PT07.2-SearchModal, PT07.3-Findability sowie
@@ -2005,14 +2032,14 @@ npx tsx server.ts`). `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-
 
 ## Handoff
 
-- **AP10: `IN_PROGRESS` · PT10.1 `PASS` · PT10.2–PT10.4 `NOT STARTED`.** Bekannte unpräfixierte
-  Seiten, `/services*`, `/agb` und `/s3-leitlinie` besitzen echte locale-aware HTTP 301 in genau
-  einem Hop mit Query-Erhalt und realem 200-Ziel. Die neun Service-Slugs werden aus
-  `src/data/services.tsx` validiert; unbekannte Legacy-Slugs liefern direkt 404. Die historische
-  clientseitige Services-`Navigate`-Brücke ist entfernt. Consumer, S3 und Implantology bleiben 30/30
-  in ihrer angeforderten Locale. Redirect-Loops und unnötige Chains: 0. `ROUTING-CONTRACT.md` §2.1 ist
-  die initiale PT10.1-Map; die vollständige Alt-URL-Entscheidung bleibt PT10.2, die Registry und
-  DG09-01 bleiben PT10.3. **Next task: PT10.2. AP11 bleibt NOT STARTED.**
+- **AP10: `IN_PROGRESS` · PT10.1–PT10.2 `PASS` · PT10.3–PT10.4 `NOT STARTED`.** Bekannte
+  unpräfixierte Seiten, `/services*`, Terms/S3-Aliase, sechs Article-ID-Wechsel und sechs alte
+  Service-Unterstrich-Slugs besitzen echte locale-aware HTTP 301 in genau einem Hop mit Query-Erhalt
+  und realem 200-Ziel. Alle aktuell repository-bekannten Altpfade tragen genau eine der vier
+  PT10.2-Entscheidungen; ersatzlose Artikel/Backlog-Pfade liefern direkt 404 ohne Home-Softmigration.
+  Befund-Fragmente bleiben realistisch clientseitig kompatibel; externe Discovery gehört AP29.
+  Redirect-Loops und unnötige Chains: 0. `ROUTING-CONTRACT.md` §2.1–§2.2 ist aktuell; Registry und
+  DG09-01 bleiben PT10.3. **Next task: PT10.3. AP11 bleibt NOT STARTED.**
 - **AP09: `COMPLETE` · AP09 Closure: `PASS (50/50, 2026-08-28)` · PT09.1–PT09.5 `PASS`.** SEOHead
   ist konsolidiert;
   Canonical Host

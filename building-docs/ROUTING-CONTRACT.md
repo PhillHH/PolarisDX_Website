@@ -43,8 +43,8 @@ verhandelt sie nicht.
 
 **Verified context:** Branch `console/10-15-2026-08-28T08-18-27`, start HEAD
 `a52ba7ea3a3ba3b4ded45969eb48895b02bbd439`, clean start tree, AP09 Closure `PASS`, Decision Locks
-`18/18`. AP10 is `IN_PROGRESS`; PT10.1 is the only AP10 task represented in this section. The central
-Route Registry and the complete legacy-discovery map remain PT10.3 and PT10.2 respectively.
+`18/18`. This subsection remains the PT10.1 primary-redirect baseline. The complete currently-known
+legacy classification is now recorded in §2.2; only the central Route Registry remains PT10.3.
 
 **Redirect status contract:** public migration sources answer `301 Moved Permanently` on `GET` and
 `HEAD`. Their `Location` is the final locale-aware canonical path; the request query string is retained
@@ -83,18 +83,160 @@ unprefixed→DE migrations. Production Playwright passed URL smoke 31/31 and the
 regression 35/35. The independent HTTP matrix passed all 10 representative redirect sources, 3 direct
 404 cases and 30/30 specialty routes. Loops: 0. Unnecessary chains: 0. Redirect targets below 200: 0.
 
+### 2.2 PT10.2 complete currently-known legacy URL map (2026-08-28)
+
+**Scope and status vocabulary.** This map classifies every relevant URL candidate found in the current
+repository, its canonical context documents, the stale prerender catalogue, the inactive Vercel
+configuration, route audits, content data and current link targets. It does not invent external
+backlinks. Each row has exactly one decision:
+
+- `REDIRECT_301` — a real predecessor has a truthful canonical successor and redirects there directly;
+- `GONE_OR_404_INTENTIONAL` — no truthful successor exists, so the source remains a direct 404;
+- `CURRENT_CANONICAL` — the investigated URL is already the current public path and is not a redirect
+  source;
+- `DEFERRED_MIGRATION_DISCOVERY` — discovery requires external crawl, Search Console or backlink data
+  that is not present in this repository. Owner: **AP29**.
+
+All path rows are locale families: a supported `/<locale>` prefix is preserved; an unprefixed source
+uses `de`. Redirects retain the request query and reach a 200 canonical target in one hop. A source not
+listed or not validated by its real data source is not accepted merely because it matches a dynamic
+pattern. No row redirects to `/` as a substitute for missing content.
+
+#### Evidence inventory and authority
+
+| Evidence source                                                           | Finding                                                                                               | Decision use                                                                 |
+| ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `server.ts` and `src/routing/legacyRedirects.ts`                          | active HTTP aliases, real-service validation, article-ID and service-key migrations                   | active `REDIRECT_301` execution                                              |
+| `src/App.tsx`                                                             | no remaining client `/services*` redirect; current canonical route patterns; `ScrollToHash`           | `CURRENT_CANONICAL`; HTTP remains primary                                    |
+| `scripts/prerender.mjs` plus `projektverzeichnis/10-befunde.md` §1        | 6 article IDs, 3 removed article IDs and 6 underscore service keys                                    | redirect or intentional-404 rows below                                       |
+| `vercel.json` plus `projektverzeichnis/10-befunde.md` §4                  | inactive pre-SSR `/services*` wildcard, not a current deploy path                                     | evidence for the known namespace only; it does not override slug validation  |
+| production static serving of `public/downloads/`                          | asset-directory name collides with the current `/downloads` page                                      | directory redirects disabled; page canonicalizes directly, files stay served |
+| `src/data/articles.ts`                                                    | 6 real ID→slug pairs; 3 stale IDs absent                                                              | article migration target truth                                               |
+| `src/data/services.tsx`                                                   | 9 real canonical IDs; 6 translation keys use old underscores                                          | service migration target truth                                               |
+| `src/content/befunde/meta.ts`, `legacyAnchors.ts`, `MusterbefundPage.tsx` | 6 canonical Befund slugs and explicit client-only old-anchor compatibility                            | path/fragment decisions below                                                |
+| `IA-INVENTORY.md`, `CONTENT-MATRIX.md`, AP07 findability guards           | Case Study, Shop, Deal and Voucher are locked backlog/non-routes; `/consumer` hub is not required     | intentional 404, never Home soft-migration                                   |
+| current content/locales and repository link sweep                         | no productive internal `/services*`, article-ID, underscore-route or obsolete Terms/S3 target remains | migration sources stay sources, not current links                            |
+
+`scripts/prerender.mjs` remains a non-authoritative, inactive legacy catalogue (`npm run build` and the
+Relaunch CI do not execute it). Making or removing that competing catalogue is PT10.3/AP28 work, not a
+PT10.2 route-registry pull-forward. `vercel.json` is likewise an inactive deployment remnant; the
+Express SSR path is authoritative for the current deployment.
+
+#### `REDIRECT_301` — complete active migration sources
+
+| Source path without locale                                                                                                                                     | Direct canonical target                                                   | Evidence                              | Hops |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------- | ---- |
+| `/agb`                                                                                                                                                         | `/terms`                                                                  | primary Terms alias                   | 1    |
+| `/s3-leitlinie`                                                                                                                                                | `/s3_leitlinie`                                                           | primary spelling alias                | 1    |
+| `/services`                                                                                                                                                    | `/diagnostics`                                                            | structural predecessor                | 1    |
+| `/services/{dental,beauty,longevity,poc-systemloesungen,praeventions-checks,infektion-entzuendung,stoffwechsel-herz,hormon-tests,kompatibilitaet-integration}` | matching `/diagnostics/<real-id>`                                         | 9 real `services.tsx` IDs             | 1    |
+| `/articles/green_practice`                                                                                                                                     | `/articles/die-gruene-praxis`                                             | `articles.ts` ID→slug                 | 1    |
+| `/articles/invisible_patient`                                                                                                                                  | `/articles/der-unsichtbare-patient`                                       | `articles.ts` ID→slug                 | 1    |
+| `/articles/five_minute_diagnosis`                                                                                                                              | `/articles/die-5-minuten-diagnose`                                        | `articles.ts` ID→slug                 | 1    |
+| `/articles/ecosystem_of_rapid_tests`                                                                                                                           | `/articles/the-ecosystem-of-rapid-tests-why-compatibility-creates-safety` | `articles.ts` ID→slug                 | 1    |
+| `/articles/rapid_setup_formula`                                                                                                                                | `/articles/die-performance-formel-effizienz-in-der-poc-diagnostik`        | `articles.ts` ID→slug                 | 1    |
+| `/articles/precision_point_of_care`                                                                                                                            | `/articles/precision-in-point-of-care-the-key-to-patient-safety`          | `articles.ts` ID→slug                 | 1    |
+| `/diagnostics/poc_systemloesungen` and `/services/poc_systemloesungen`                                                                                         | `/diagnostics/poc-systemloesungen`                                        | stale prerender key and old namespace | 1    |
+| `/diagnostics/praeventions_checks` and `/services/praeventions_checks`                                                                                         | `/diagnostics/praeventions-checks`                                        | stale prerender key and old namespace | 1    |
+| `/diagnostics/infektion_entzuendung` and `/services/infektion_entzuendung`                                                                                     | `/diagnostics/infektion-entzuendung`                                      | stale prerender key and old namespace | 1    |
+| `/diagnostics/stoffwechsel_herz` and `/services/stoffwechsel_herz`                                                                                             | `/diagnostics/stoffwechsel-herz`                                          | stale prerender key and old namespace | 1    |
+| `/diagnostics/hormon_tests` and `/services/hormon_tests`                                                                                                       | `/diagnostics/hormon-tests`                                               | stale prerender key and old namespace | 1    |
+| `/diagnostics/kompatibilitaet_integration` and `/services/kompatibilitaet_integration`                                                                         | `/diagnostics/kompatibilitaet-integration`                                | stale prerender key and old namespace | 1    |
+| any current public path without locale                                                                                                                         | same canonical path under `/de`                                           | PT10.1 locale canonicalization        | 1    |
+
+The executable fixed/content migration subset is the typed
+`LEGACY_REDIRECT_MIGRATIONS` array. Its source keys are unique, its targets are real current paths,
+and no target is itself a migration source. `/services/<real-id>` remains separately validated against
+the real service data source. This is a redirect SSOT only, not the central Route Registry owned by
+PT10.3.
+
+#### `GONE_OR_404_INTENTIONAL` — known candidates without a truthful successor
+
+| Source path without locale                            | Reason                                                                   | HTTP / redirect   |
+| ----------------------------------------------------- | ------------------------------------------------------------------------ | ----------------- |
+| `/articles/first_checkup`                             | stale prerender ID; absent from current article data; no named successor | direct 404 / none |
+| `/articles/managing_diabetes`                         | stale prerender ID; absent from current article data; no named successor | direct 404 / none |
+| `/articles/home_care`                                 | stale prerender ID; absent from current article data; no named successor | direct 404 / none |
+| `/services/<unknown-slug>`                            | pattern alone is not resource evidence                                   | direct 404 / none |
+| `/consumer`                                           | `CONSUMER_HUB = NOT_REQUIRED`; the 3 product pages remain current        | direct 404 / none |
+| `/shop`                                               | Decision Lock backlog, no current product route                          | direct 404 / none |
+| `/casestudys/32reasons` and `/case-studies/32reasons` | disabled/backlog Case Study spellings; no current page                   | direct 404 / none |
+| `/deal`, `/voucher`                                   | Decision Lock backlog, no current page                                   | direct 404 / none |
+| every other unknown static/dynamic path               | no repository-backed successor                                           | direct 404 / none |
+
+These decisions explicitly prohibit Homepage redirects and preserve the source locale on the 404
+request URL. They do not create `410 Gone`; the current runtime's truthful absent-resource semantic is 404.
+
+#### `CURRENT_CANONICAL` — investigated paths that stay current
+
+| Current family                                                                              | Canonical source of truth / decision                                  |
+| ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `/diagnostics` and all 9 `/diagnostics/<service.id>` paths                                  | current service routes from `services.tsx`; hyphen IDs stay canonical |
+| `/articles` and all 6 `/articles/<article.slug>` paths                                      | current article routes from `articles.ts`; IDs are not paths          |
+| `/terms`, `/s3_leitlinie`                                                                   | verified current App routes; alias spellings redirect to these        |
+| `/epigenetics`, its 3 deepening paths, and `/epigenetics/musterbefund/<6 real slugs>`       | current Epigenetics/Befund family from current route/content data     |
+| `/epigenetics#musterbefunde`, `#analysen`, `#vergleich`, `#studienlage`, `#werte-verstehen` | real current in-app anchors; fragments never reach HTTP               |
+| stable anchors emitted by the 6 current Musterbefund documents                              | current client targets; no path redirect                              |
+| the remaining active static paths in the stale prerender list                               | still current App paths; no migration is performed                    |
+
+The canonical `/downloads` page shares its first segment with the real public asset directory.
+Production `express.static` therefore runs with `redirect: false`: otherwise Express would emit an
+unrelated slash redirect before routing and create `/downloads` → `/downloads/` → `/de/downloads/`.
+The application URL now follows the normal one-hop locale rule; concrete `/downloads/<file>` assets
+remain directly readable.
+
+#### Epigenetics / Befund fragment compatibility
+
+HTTP sees only the path and query, never `#fragment`; therefore PT10.2 claims no server-side hash
+redirect. `src/content/befunde/legacyAnchors.ts` is the evidence-backed compatibility map for old DE/EN
+heading-derived anchors on all 6 real Befund slugs. `MusterbefundPage.tsx` replaces a known obsolete
+fragment with its stable current anchor after hydration and scrolls to the real target. Unknown
+fragments are left unchanged. A browser regression test covers a real old
+`metabolic-health#adipositas-und-diabetes-veranlagung-13` link becoming `#marker-4` while the path
+stays 200.
+
+#### `DEFERRED_MIGRATION_DISCOVERY` — AP29 handoff
+
+| Discovery set                                                                                                                                             | Status                         | Owner    | AP10 closure blocker |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | -------- | -------------------- |
+| URLs discoverable only through production crawl history, Search Console exports, access logs or external backlink datasets not present in this repository | `DEFERRED_MIGRATION_DISCOVERY` | **AP29** | **NO**               |
+
+AP29 must compare those external observations with this classified map and return genuinely new
+sources for an explicit redirect-or-gone decision. Absence of external data is not represented as a
+claim that no additional historic backlinks exist.
+
+#### PT10.2 regression contract
+
+`src/routing/legacyRedirects.test.ts` checks unique sources, real non-Home targets, all article ID→slug
+pairs, all 6 underscore service changes across both known namespaces, all active stale-prerender paths
+classified, all four decision statuses present and the AP29 owner handoff. `e2e/url-smoke.spec.ts`
+executes every `REDIRECT_301` content/alias source over all 10 locales plus its unprefixed DE form,
+asserts exact status and `Location`, query retention, direct target 200 and no target `Location`; it
+also asserts every explicit intentional-404 candidate stays a direct non-Home 404 and verifies one
+real old Befund anchor in the browser. Therefore loops and unnecessary redirect chains are both hard
+failures.
+
+**Measured PT10.2 result:** typed map/unit plus sitemap parity **19/19** in the targeted run and
+**291/291** in the complete test run; production URL/redirect matrix **54/54**; unchanged AP08
+locale/specialty matrix **35/35**; Typecheck, task-file ESLint/Prettier, production build, G3 SEO,
+Search and internal-findability guards `PASS`. Every map target returned 200 without `Location`;
+redirect loops **0**, unnecessary chains **0**, Home soft-migrations **0**, locale distortions **0**.
+The repository-wide pre-existing quality baseline remains exactly **120 ESLint errors + 3 warnings**
+and **34 Prettier files**; no changed PT10.2 file contributes a finding.
+
 ---
 
 ## 3. Current Participating Files
 
 **Die vier Handspiegel** — heute führt jede von ihnen einen Teil der Routenwahrheit:
 
-| Datei                            | Rolle                                                                                                                                                                                            | Guard  |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ |
-| `src/App.tsx`                    | 33 `<Route>` elements, Layout-Zuordnung, Lazy-Grenzen, `ScrollToHash`, Catch-all; keine `/services*`-Route und keine clientseitige primäre Redirect-Brücke                                       | **G3** |
-| `server.ts`                      | echte 301-Ausführung, validierte Legacy-Service-Slugs, `LEGACY_PATH_REDIRECTS`, vorläufige `EXTRA_KNOWN_PATHS`/`KNOWN_PATHS`, `isKnownPath`, `NOT_FOUND_MARKER`; Registry-Ablösung bleibt PT10.3 | **G3** |
-| `src/hooks/useSearch.ts`         | Such-Index (`staticPages`, `services`) — **vierter Spiegel**                                                                                                                                     | G2     |
-| `src/components/seo/SEOHead.tsx` | pfadlistenfreier SEO-Route-Source-Adapter, Canonical-/hreflang-Ableitung, `notFound` → `prerender-status-code`; Registry-Konsum bleibt DG09-01/PT10.3                                            | **G3** |
+| Datei                            | Rolle                                                                                                                                                                                             | Guard  |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| `src/App.tsx`                    | 33 `<Route>` elements, Layout-Zuordnung, Lazy-Grenzen, `ScrollToHash`, Catch-all; keine `/services*`-Route und keine clientseitige primäre Redirect-Brücke                                        | **G3** |
+| `server.ts`                      | echte 301-Ausführung über `legacyRedirects.ts`, validierte Legacy-Service-Slugs, vorläufige `EXTRA_KNOWN_PATHS`/`KNOWN_PATHS`, `isKnownPath`, `NOT_FOUND_MARKER`; Registry-Ablösung bleibt PT10.3 | **G3** |
+| `src/routing/legacyRedirects.ts` | typisierte PT10.2-Redirect-Quellen aus Primäraliasen und realen Article-/Service-Daten; bewusste 404-Kandidaten; **keine Route Registry**                                                         | **G3** |
+| `src/hooks/useSearch.ts`         | Such-Index (`staticPages`, `services`) — **vierter Spiegel**                                                                                                                                      | G2     |
+| `src/components/seo/SEOHead.tsx` | pfadlistenfreier SEO-Route-Source-Adapter, Canonical-/hreflang-Ableitung, `notFound` → `prerender-status-code`; Registry-Konsum bleibt DG09-01/PT10.3                                             | **G3** |
 
 **Mitbeteiligt:**
 `e2e/url-smoke.spec.ts` (HTTP-Status-/Hop-/Query-Redirect-Guard) · `e2e/pt08-4-routing.spec.ts`
@@ -456,7 +598,7 @@ Ist-Zustand aus §3.1. **Kein zulässiges Zielverhalten**; in PT02.2 bewusst **n
 | **RD-10** | **Acht Routenspiegel statt vier** — zu `App.tsx`, `server.ts`, `useSearch.ts` und `SEOHead.tsx` (`RD-1`) kommen die drei Sitemap-Tabellen, `Header.tsx`/`Footer.tsx` und `e2e/url-smoke.spec.ts`. Eine neue Route verlangt heute bis zu acht koordinierte Handeingriffe.                 | R-24, R-25         | **AP10** mit AP06/AP07/AP27     |
 | **RD-11** | **Epigenetik hängt navigatorisch unter Diagnostik** — `Header.tsx` führt `/epigenetics` und `/epigenetics#musterbefunde` als Kinder des `/diagnostics`-Menüpunkts. Die **Routen** sind bereits eigenständig; der Widerspruch zu `DEC-RL-005` besteht auf IA-/Navigationsebene.           | R-53, `DEC-RL-005` | **AP03**/**AP06** mit AP15      |
 | **RD-12** | **Search führt einen eigenen Pfadkatalog** — sechs handgeschriebene statische Pfade, ein auskommentierter `/casestudys/32reasons` und der tote Service `sports` ohne Route (bereits `RD-5`).                                                                                             | R-50               | **AP07 PT07.1**                 |
-| **RD-13** | **PARTIALLY RESOLVED PT10.1** — `e2e/url-smoke.spec.ts` prüft primäre Redirects mit exaktem Status/Location/Hop/Ziel sowie unbekannte Service-Slugs; die vollständige Registry-generierte Testmatrix bleibt PT10.3/PT10.4.                                                               | R-25, T-11         | **AP10 PT10.3/PT10.4**          |
+| **RD-13** | **PARTIALLY RESOLVED PT10.2** — `e2e/url-smoke.spec.ts` prüft alle aktuell bekannten Redirect-Map-Quellen mit exaktem Status/Location/Hop/Ziel, x10-Locale-Erhalt, Query, intentional 404 und Altanker; nur die vollständige Registry-generierte Testmatrix bleibt PT10.3/PT10.4.        | R-25, T-11         | **AP10 PT10.3/PT10.4**          |
 | **RD-14** | **Musterbefund-Daten decken die beworbene Locale-Menge nicht** — `src/content/befunde/` führt sechs Panels in **`de` und `en`**, während die sechs Routen × 10 in der Sitemap stehen und hreflang × 10 tragen. Locale-Policy und Datenlage weichen auseinander (`SEO-CONTRACT.md` S-03). | R-44, `DEC-RL-001` | **AP08**/**AP16**               |
 
 Auch diese Schulden sind **Ist-Zustand**, kein erlaubtes Zielverhalten. Die ehemals zugehörigen

@@ -2,12 +2,16 @@ import { SaxesParser } from 'saxes'
 import { BEFUND_ORDER } from '../../content/befunde/meta'
 import { articles } from '../../data/articles'
 import { services } from '../../data/services'
+import { LEGACY_REDIRECT_MIGRATIONS } from '../../routing/legacyRedirects'
 import { SEO_ROUTE_SOURCE } from './seoRouteSource'
 import { CONSUMER_SITEMAP_PATHS, getSitemapRouteFamilies, type SitemapRouteFamily } from './sitemap'
 
 const PUBLIC_ORIGIN = 'https://polarisdx.net'
 const NOINDEX_PATHS = new Set(['/privacy', '/imprint', '/terms'])
-const REDIRECT_SOURCE_PATHS = new Set(['/services', '/agb', '/s3-leitlinie'])
+const REDIRECT_SOURCE_PATHS = new Set([
+  '/services',
+  ...LEGACY_REDIRECT_MIGRATIONS.map((migration) => migration.sourcePath),
+])
 
 export interface SitemapGuardResult {
   routeFamilyCount: number

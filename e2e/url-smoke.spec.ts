@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test'
 import { getSitemapRouteFamilies } from '../src/components/seo/sitemap'
 import { services } from '../src/data/services'
+import { INTENTIONAL_404_PATHS, LEGACY_REDIRECT_MIGRATIONS } from '../src/routing/legacyRedirects'
 
 const ROUTES = [
   { path: '/' },
@@ -127,6 +128,65 @@ test.describe('301 Redirects', () => {
       expect(response.status(), source).toBe(404)
       expect(response.headers().location, source).toBeUndefined()
     }
+  })
+
+  for (const migration of LEGACY_REDIRECT_MIGRATIONS) {
+    test(`${migration.sourcePath} ist locale-treu als bekannte Alt-URL klassifiziert`, async ({
+      request,
+    }) => {
+      for (const locale of LOCALES) {
+        const source = `/${locale}${migration.sourcePath}?utm_source=pt10_2`
+        const target = `/${locale}${migration.targetPath}?utm_source=pt10_2`
+        const response = await request.get(source, { maxRedirects: 0 })
+        expect(response.status(), source).toBe(301)
+        expect(response.headers().location, source).toBe(target)
+
+        const finalResponse = await request.get(target, { maxRedirects: 0 })
+        expect(finalResponse.status(), target).toBe(200)
+        expect(finalResponse.headers().location, target).toBeUndefined()
+      }
+
+      const unprefixedSource = `${migration.sourcePath}?utm_source=pt10_2`
+      const deTarget = `/de${migration.targetPath}?utm_source=pt10_2`
+      const unprefixedResponse = await request.get(unprefixedSource, { maxRedirects: 0 })
+      expect(unprefixedResponse.status(), unprefixedSource).toBe(301)
+      expect(unprefixedResponse.headers().location, unprefixedSource).toBe(deTarget)
+    })
+  }
+
+  test('bekannte Pfade ohne Nachfolger bleiben direkte 404 statt Homepage-Soft-Migration', async ({
+    request,
+  }) => {
+    for (const path of INTENTIONAL_404_PATHS) {
+      for (const source of [path, `/pl${path}`]) {
+        const response = await request.get(`${source}?utm_source=pt10_2`, { maxRedirects: 0 })
+        expect(response.status(), source).toBe(404)
+        expect(response.headers().location, source).toBeUndefined()
+      }
+    }
+  })
+
+  test('bekannter alter Musterbefund-Anker wird clientseitig auf den stabilen Anker migriert', async ({
+    page,
+  }) => {
+    const response = await page.goto(
+      '/de/epigenetics/musterbefund/metabolic-health#adipositas-und-diabetes-veranlagung-13',
+    )
+    expect(response?.status()).toBe(200)
+    await expect(page).toHaveURL(/#marker-4$/)
+    await expect(page.locator('#marker-4')).toBeAttached()
+  })
+
+  test('/downloads-Seite kollidiert nicht mit realen Dateien im gleichnamigen Asset-Ordner', async ({
+    request,
+  }) => {
+    const pageResponse = await request.get('/downloads?utm_source=pt10_2', { maxRedirects: 0 })
+    expect(pageResponse.status()).toBe(301)
+    expect(pageResponse.headers().location).toBe('/de/downloads?utm_source=pt10_2')
+
+    const assetResponse = await request.get('/downloads/igloo-pro-flyer.pdf', { maxRedirects: 0 })
+    expect(assetResponse.status()).toBe(200)
+    expect(assetResponse.headers().location).toBeUndefined()
   })
 
   test('Consumer, S3 und Implantology bleiben in allen zehn Locales direkt', async ({

@@ -17,6 +17,7 @@ import { createProxyMiddleware } from 'http-proxy-middleware'
 import { DEFAULT_LANGUAGE, getLanguageFromPathname, type SupportedLanguage } from './src/i18n'
 import { generateSitemapXml, getSitemapRouteFamilies } from './src/components/seo/sitemap'
 import { services } from './src/data/services'
+import { getLegacyRedirectTarget } from './src/routing/legacyRedirects'
 
 import type { Request, Response, NextFunction } from 'express'
 import type { ViteDevServer } from 'vite'
@@ -117,22 +118,6 @@ function isStaticAsset(pathname: string): boolean {
 // =============================================================================
 // LEGACY PATHS AND ROUTE KNOWLEDGE
 // =============================================================================
-
-/**
- * Old / mistyped URLs that must 301 onto their canonical counterpart.
- * Keys and values are written WITHOUT language prefix; the supported prefix
- * of the request is reused.
- *
- *   /agb           the German terms page used to live here and is still linked
- *   /s3-leitlinie  hyphen spelling; the route is /s3_leitlinie (underscore)
- *
- * Without these both paths fall through to the catch-all and render the 404
- * page under a URL that looks perfectly valid.
- */
-const LEGACY_PATH_REDIRECTS: Record<string, string> = {
-  '/agb': '/terms',
-  '/s3-leitlinie': '/s3_leitlinie',
-}
 
 const SITEMAP_ROUTE_FAMILIES = getSitemapRouteFamilies()
 const LEGACY_SERVICE_SLUGS = new Set<string>(services.map((service) => service.id))
@@ -243,6 +228,12 @@ async function createServer() {
     app.use(
       express.static(path.resolve(__dirname, 'dist/client'), {
         index: false, // Kein automatisches index.html serving
+        // Public asset directories may share a name with an application route
+        // (currently /downloads). Express' default directory redirect would
+        // otherwise run before the locale middleware and create
+        // /downloads -> /downloads/ -> /de/downloads/. Real files below the
+        // directory are still served normally with this disabled.
+        redirect: false,
         maxAge: '1h', // Kürzeres Caching für nicht-gehashte Assets
       }),
     )
@@ -348,13 +339,14 @@ async function createServer() {
     const langPrefix = extractLanguageFromUrl(pathname)
 
     // -------------------------------------------------------------------------
-    // Legacy paths (/agb, /s3-leitlinie) for every language prefix, resolved in
-    // one hop while preserving the requested supported locale.
+    // Repository-known legacy paths for every language prefix, resolved in one
+    // hop while preserving the requested supported locale. The map includes
+    // primary aliases, old article IDs and old underscore service slugs.
     // /en/s3-leitlinie -> /en/s3_leitlinie, /agb -> /de/terms.
     // -------------------------------------------------------------------------
     const pathWithoutLang = langPrefix ? pathname.slice(3) || '/' : pathname
     const normalizedPathWithoutLang = normalizeRoutePath(pathWithoutLang)
-    const legacyTarget = LEGACY_PATH_REDIRECTS[normalizedPathWithoutLang]
+    const legacyTarget = getLegacyRedirectTarget(normalizedPathWithoutLang)
     if (legacyTarget) {
       const targetLang = langPrefix || DEFAULT_LANGUAGE
       res.redirect(301, `/${targetLang}${legacyTarget}${query}`)
