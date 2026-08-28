@@ -33,7 +33,7 @@
     "check:i18n": "TSX_TSCONFIG_PATH=tsconfig.app.json tsx scripts/check-i18n.ts",
     "check:i18n:contract": "npm run check:i18n -- --write-contract",
     "check:assets": "TSX_TSCONFIG_PATH=tsconfig.app.json tsx scripts/check-resource-assets.ts",
-    "check:seo": "TSX_TSCONFIG_PATH=tsconfig.app.json tsx scripts/check-seo.ts"
+    "check:seo": "node scripts/check-meta-descriptions.mjs && TSX_TSCONFIG_PATH=tsconfig.app.json tsx scripts/check-seo.ts"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.8",

@@ -22,6 +22,24 @@ function jsonLdSchemas(html: string): Array<Record<string, unknown>> {
   return Array.isArray(parsed) ? parsed : [parsed]
 }
 
+test('PT09.5 robots keeps public assets and Consumer crawlable while excluding APIs', async ({
+  request,
+}) => {
+  const response = await request.get('/robots.txt', { maxRedirects: 0 })
+  expect(response.status()).toBe(200)
+  expect(response.headers()['content-type']).toContain('text/plain')
+  const robots = await response.text()
+  expect(robots.match(/^User-agent:/gm)).toHaveLength(40)
+  expect(robots.match(/^Disallow: \/api$/gm)).toHaveLength(4)
+  expect(robots).toContain('Sitemap: https://polarisdx.net/sitemap.xml')
+  expect(robots).not.toMatch(/^Disallow:\s*\/(?:assets|locales|[^\n]*consumer)/gm)
+  expect(robots).not.toMatch(/preview\.polarisdx\.net|localhost|127\.0\.0\.1/)
+
+  expect((await request.get('/sitemap.xml')).status()).toBe(200)
+  expect((await request.get('/locales/de/home.json')).status()).toBe(200)
+  expect((await request.get('/og-image.jpg')).status()).toBe(200)
+})
+
 test('PT09.1 unknown route keeps the SSR 404 and emits no valid-page SEO claims', async ({
   request,
 }) => {

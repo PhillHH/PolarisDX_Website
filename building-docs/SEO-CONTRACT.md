@@ -627,3 +627,71 @@ Diese Matrix klassifiziert Seitentypen; sie ist ausdrücklich keine Route Regist
 - `DG09-01 — ROUTE_REGISTRY_INTEGRATION` bleibt unverändert **READY_FOR_OWNER**, Owner **AP10
   PT10.3**. Diese Matrix und die Helper sind keine Route Registry. PT09.5, AP10 und spätere
   Page-/Content-APs wurden nicht vorgezogen.
+
+---
+
+## 15. PT09.5 — Robots-/Bot-Policy und Meta-Quality-Evidence
+
+### 15.1 Robots- und Crawl-Vertrag
+
+- `public/robots.txt` ist die einzige produktive Robots-Datei. Die Sitemap-Direktive zeigt exakt auf
+  `https://polarisdx.net/sitemap.xml`; Preview-, Localhost- oder relative Sitemap-Ziele: **0**.
+- Der reale technische Präfix `/api` ist in der Wildcard- sowie jeder spezifischen Bot-Gruppe als
+  Crawlfläche ausgeschlossen. Das ist ausschließlich Crawl Guidance, **keine** Authentifizierungs-
+  oder Security-Maßnahme. Die aktuellen Anwendungspfade `/api/contact`, `/api/support`,
+  `/api/consumer-order`, `/api/chat` und `/api/roi-report` fallen deterministisch unter diese Regel.
+- Renderkritische `/assets/`- und `/locales/`-Ressourcen bleiben ausdrücklich crawlbar. Es gibt kein
+  globales Asset-, JavaScript-, CSS-, Bild- oder Consumer-Disallow.
+- Consumer bleibt für `de`, `en`, `pl`, `fr`, `it`, `es`, `pt`, `da`, `nl` und `cs` vollständig
+  crawlbar. Der Runtime-Gate bestätigt weiterhin 3 Families × 10, `index, follow`, Self-Canonical,
+  Sitemap-Mitgliedschaft und keine EN-Zwangskanonisierung.
+
+### 15.2 Bot-spezifischer Policy-Intent
+
+- Die vor PT09.5 vorhandenen **39 spezifischen User Agents** wurden vollständig erhalten und nur in
+  technisch konsistente Gruppen zusammengeführt: **12 SEARCH_ENGINE**, **9 SOCIAL_PREVIEW bzw.
+  user-triggered fetch** und **18 AI_CRAWLER**. Hinzu kommt die Wildcard-Gruppe.
+- Der vorhandene Allow-Intent für Search-, Social- und AI/LLM-Crawler bleibt unverändert; zugleich
+  gilt `/api` nun aufgrund der Regeln in jeder spezifischen Gruppe konsistent auch für diese Bots.
+  Agent-Inventar vorher/nachher: **39/39, hinzugefügt 0, entfernt 0**.
+- PT09.5 trifft keine neue strategische Unternehmensentscheidung zu AI-/LLM-Crawling. Eine spätere
+  Änderung dieses Allow-Intents benötigt eine explizite Owner-Entscheidung; aktuell besteht keine
+  technische Policy-Ambiguität und daraus kein AP09-Closure-Blocker.
+
+### 15.3 Meta-, Social-Alt- und Host-Guards
+
+- Kanonischer Befehl bleibt `npm run check:seo`. Er führt zuerst den erweiterten bestehenden
+  `scripts/check-meta-descriptions.mjs` und danach G3 (`scripts/check-seo.ts`) aus; es entstand kein
+  paralleles Guard-System.
+- Der statische Meta-Guard entdeckt die expliziten SEO-Title-/Description-Paare aus allen zehn
+  Locale-Bäumen. Aktuelle Messung: **290 Records**, Missing 0, Empty 0, Translation Keys 0,
+  Placeholder/Preview Copy 0, problematische exakte Locale-Duplikate 0 und bekannte DE-/EN-
+  Sprachkopien 0. Längen sind eine Heuristik: eine bestehende natürliche französische Article-Index-
+  Description mit 216 Zeichen ist eine Warnung, kein Hard Failure; harte groteske Grenzen bleiben
+  regressionsgesichert.
+- Die CI-aktive Runtime-Matrix prüft zusätzlich alle **390** indexierbaren Sitemap-Seiten auf genau
+  einen nicht leeren Title und eine nicht leere Description, Translation-Key-/Placeholder-Freiheit,
+  unpassende gleiche Locale-Duplikate sowie bekannte DE-/EN-Kopierregressionen.
+- Dieselben 390 Seiten besitzen ein öffentliches OG-Bild sowie einen nicht leeren,
+  nicht dateinamenartigen `og:image:alt`; `twitter:image:alt` ist vorhanden und konsistent.
+  Missing OG Alts, Filename-only Alts und falsche Host-Ziele: jeweils **0**.
+- G3 führt einen produktiven Host-Sweep über robots, `index.html`, SEO-Konfiguration/Helper,
+  **42** produktive Source-/Page-Dateien und die generierte Sitemap aus. Preview-, localhost-,
+  127.0.0.1- und Dev-Port-Leakage in Canonical, hreflang, Sitemap, OG/Twitter, Structured Data und
+  robots Sitemap: **0**. Eindeutig abgegrenzte Testfixtures sind keine produktiven Treffer.
+
+### 15.4 Hard Failures, CI und Regressionsevidenz
+
+- Non-Zero-Hard-Failures umfassen missing/empty Required Title oder Description, sichtbare
+  Translation Keys/Placeholder, produktive Preview-/Dev-Hosts, ungültigen Canonical-/Sitemap-Host,
+  Consumer noindex/robots block, fehlenden produktiven Social Alt und Robots-/Bot-Gruppen-Drift.
+  Die reine Längenheuristik bleibt bewusst Warning-Semantik.
+- `.github/workflows/ci.yml` erreicht auf Pull Requests sowie Pushes nach `main`,
+  `feat/home-leadmagnet` und `console/**` den bestehenden `npm run check:seo`-Schritt und danach
+  `e2e/seo-head.spec.ts e2e/sitemap.spec.ts`. PT09.5 verändert die CI-Plattform nicht; die neuen
+  Prüfungen liegen in bereits erreichbaren Befehlen/Dateien.
+- PT09.5-Evidence unter Node 22: Typecheck PASS; Meta-Guard **290/290** ohne Hard Finding; G3 PASS;
+  Production Build PASS; SEO/robots/404/Structured-Data/Consumer plus vollständige Sitemap-Runtime-
+  Matrix **10/10 PASS**, darin **390/390** öffentliche Seiten.
+- `DG09-01 — ROUTE_REGISTRY_INTEGRATION` bleibt **READY_FOR_OWNER**, Owner **AP10 PT10.3**. PT09.5
+  baute keine Route Registry und zog weder AP27 noch spätere Page-/Content-Arbeit vor.

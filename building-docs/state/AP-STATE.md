@@ -11,10 +11,10 @@ kein `work-packages/APxx-STATE.md`).
 - Work package: **AP09 — SEO-Plattformgrundlagen**
 - Status: **IN_PROGRESS** <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
 - Predecessor: **AP08 COMPLETE / Closure PASS (50/50, 2026-08-26)**
-- Last completed PT: **PT09.4 — Structured Data (PASS, 2026-08-28)**
+- Last completed PT: **PT09.5 — Robots/Bot-Policy und Meta-Qualität (PASS, 2026-08-28)**
 - PT09.1: **PASS** · PT09.2: **PASS** · PT09.3: **PASS** · PT09.4: **PASS** ·
-  PT09.5: **NOT STARTED** · AP09 Closure: **NOT STARTED**
-- Next primary task: **PT09.5 — Robots, Bot-Policy, Meta-/Social-Audit**
+  PT09.5: **PASS** · AP09 Closure: **NOT STARTED**
+- Next primary task: **AP09-CLOSURE**
 - SEOHead: **consolidated** — eindeutige Meta-Ausgabeschicht; Title/Description/Robots/Canonical,
   x10-hreflang, `x-default=de`, Open Graph und Twitter folgen dem aktuellen URL-/Locale-Vertrag
 - Canonical host: **`https://polarisdx.net`** · Canonical Contract: **PASS** · hreflang Contract:
@@ -38,6 +38,11 @@ kein `work-packages/APxx-STATE.md`).
   Organization/WebSite, Breadcrumb, selektives Product, visible-only FAQ, Article und Event PASS;
   Medical-Schema defensiv · Claim Amplification 0 · Preview-/Dev-Host-Leakage 0 · widersprüchliche
   Duplikate 0 · Schema Coverage Matrix aktuell
+- Robots Policy Technical Consistency: **PASS** · API Crawl Policy: **PASS** · Asset Crawl Policy:
+  **PASS** · Consumer Crawl Policy: **PASS** · Bot Policy Intent: **PRESERVED**
+- Meta Description Guard: **PASS (290/290 Records, 0 Hard Findings)** · OG Alt Guard:
+  **PASS (390/390 Runtime-Seiten)** · Preview Domain Guard: **PASS** · Preview Domain Leakage: **0** ·
+  Consumer Noindex Regression: **0**
 - Consumer Internal Findability: **PASS** über reale locale-aware gegenseitige Inlinks;
   `CONSUMER_HUB = NOT_REQUIRED`; AP07 `DSI-04` bleibt OPEN / Owner AP21 ohne False Ready
 - SEO route-source: **registry-ready** — pfadlistenfreier SEOHead-Adapter plus der bestehende, aus
@@ -45,12 +50,12 @@ kein `work-packages/APxx-STATE.md`).
   keine zentrale oder fünfte Route Registry gebaut
 - DG09-01 `ROUTE_REGISTRY_INTEGRATION`: **READY_FOR_OWNER** · Owner **AP10 PT10.3** · AP09 Closure
   blocker **NO** bei grünen AP09-Gates · Launch blocker **YES**
-- SEO-CONTRACT: **current for PT09.4** · G3: **PASS / CI ACTIVE** · Decision Locks: **18/18 LOCKED** ·
+- SEO-CONTRACT: **current for PT09.5** · G3: **PASS / CI ACTIVE** · SEO Guards CI: **ACTIVE** ·
+  Decision Locks: **18/18 LOCKED** ·
   AP10: **NOT STARTED**
-- Quality PT09.4: Typecheck PASS · taskbezogener Lint/Prettier PASS · gesamte Unit-Suite unter
-  `NODE_ENV=test`/Node 22 **285/285** · Structured-Data-Unit **7/7** · G3 inklusive Schema-
-  Source-/Coverage-/Claim-Safety-Evidenz und Hard-Failure-Self-Test PASS · Production-SSR SEO/
-  Structured Data **8/8** inklusive Consumer-Matrix **30/30** · Client/SSR Build PASS · CI-Pfad aktiv
+- Quality PT09.5: Typecheck PASS · taskbezogener Lint/Prettier PASS · Meta-Guard 290/290 ohne Hard
+  Finding · G3 inklusive Robots-/Bot-/Host-/Consumer-Hard-Gates PASS · Production-SSR SEO/robots/
+  Structured Data/404 plus 390-URL-Sitemap-Matrix **10/10** · Client/SSR Build PASS · CI-Pfad aktiv
 
 ### AP08 (abgeschlossen, unverändert als Vorgänger-Handoff erhalten)
 
@@ -384,11 +389,11 @@ kein `work-packages/APxx-STATE.md`).
   legacy classification: recorded · final clean build evidence: recorded · **closure evidence: recorded**
   (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§9)
 - Current branch: `console/10-15-2026-08-28T08-18-27`
-- Current HEAD: `6493bcd18de89efb7887876042be869d143037fb` — empirischer PT09.4-Start-HEAD;
-  Working Tree war am Start vollständig clean und enthält ausschließlich die ungestagten PT09.4-
+- Current HEAD: `a2bf2f76d7d5543721f342e7ad8010c0b57add77` — empirischer PT09.5-Start-HEAD;
+  Working Tree war am Start vollständig clean und enthält ausschließlich die ungestagten PT09.5-
   Änderungen
 - Started: 2026-08-24 (AP02); AP01 gestartet und abgeschlossen 2026-08-24
-- Last updated: 2026-08-28 (PT09.4 PASS; next PT09.5)
+- Last updated: 2026-08-28 (PT09.5 PASS; next AP09-CLOSURE)
 
 <!-- AP00-HEAD-Historie: f8692c0 = PT00.1, bf125d2 = PT00.2, cad9b6c = PT00.3, 0c58d44 = PT00.4,
      a0fac9c = Closure. Danach Pre-AP01-Hygiene: 9ee8199, d98a6b7, 5f6fc3b, Merge 4f70801.
@@ -399,6 +404,11 @@ kein `work-packages/APxx-STATE.md`).
 ## Completed Work
 
 <!-- Eine Zeile pro abgeschlossenem Primärtask: `PTxx.y — Ergebnis in einem Satz`. Keine Reports. -->
+
+- PT09.5 — robots.txt technisch konsolidiert, `/api` für Wildcard und 39 unverändert erhaltene
+  spezifische Bots als Crawlfläche ausgeschlossen, Assets/Locales/Consumer crawlbar gehalten und den
+  bestehenden Meta-/G3-Guard um Title/Description, OG-/Twitter-Alt, Host- und Robots-Checks erweitert;
+  CI-aktive 390-URL-Runtime-Matrix ohne Preview-Leakage oder Consumer-Regression grün.
 
 - PT09.4 — Structured Data in einer kanonischen Helper-/Renderer-Schicht konsolidiert:
   Organization/WebSite, reale Breadcrumbs, selektives Product, visible-only FAQ, Article/Event-
@@ -1312,6 +1322,19 @@ tabIndex={-1}>` — ohne `tabIndex` scrollt der Browser nur, statt den Fokus zu 
 
 <!-- AP04. Beim Start von AP05 leeren (siehe `Benutzung`). -->
 
+**PT09.5 — Robots/Bot-Policy und Meta-Qualität:**
+
+- `public/robots.txt` — 39 bestehende spezifische Bots intent-treu in Search-, Social- und AI-Gruppen
+  konsolidiert; `/api` gruppenübergreifend disallowed, renderkritische Assets/Locales und Consumer
+  crawlbar, produktive Sitemap-Direktive
+- `scripts/check-meta-descriptions.mjs`, `scripts/check-seo.ts`, `package.json` — bestehenden
+  `check:seo`-Pfad um x10 Meta-Coverage, Duplicate-/Copy-/Placeholder-Heuristik, Robots-Syntax und
+  effektive Bot-Regeln, Consumer Crawlability sowie produktiven Host-Sweep erweitert
+- `e2e/seo-head.spec.ts`, `e2e/sitemap.spec.ts` — CI-aktive robots/Asset-Smokes und vollständige
+  390-URL-Runtime-Matrix für Title, Description, OG-/Twitter-Alt, Host und Sprachkopie
+- `building-docs/SEO-CONTRACT.md`, `building-docs/state/AP-STATE.md` — PT09.5-Vertrag, Evidence und
+  serieller Handoff ausschließlich auf AP09-CLOSURE
+
 **PT09.4 — Structured Data / JSON-LD Coverage und Claim Safety:**
 
 - `src/components/seo/{structuredData.ts,SEOHead.tsx,index.ts}` — eine kanonische Builder-,
@@ -1678,9 +1701,15 @@ referenzielle Korrektur war nicht erforderlich.
 
 <!-- Jeweils: ID/Kurztitel · was blockiert ist · was zur Auflösung gebraucht wird. -->
 
-- **Keine offenen PT09.4-Blocker.** `DG09-01 — ROUTE_REGISTRY_INTEGRATION` ist bewusst
+- **Keine offenen PT09.5-Blocker.** `DG09-01 — ROUTE_REGISTRY_INTEGRATION` ist bewusst
   `READY_FOR_OWNER`, Owner AP10 PT10.3, kein AP09-Closure-Blocker bei grünen AP09-eigenen Gates, aber
-  Launch-Blocker. PT09.5 und AP09-CLOSURE sind nicht gestartet und keine PT09.4-Blocker.
+  Launch-Blocker. AP09-CLOSURE ist nicht gestartet und kein PT09.5-Blocker.
+- **Ownergebundene Bot-Policy-Grenze, kein PT09.5-Blocker:** der bestehende Allow-Intent für die 39
+  spezifischen Search-/Social-/AI-Bots ist technisch konsistent erhalten. Eine spätere strategische
+  Änderung ist eine explizite Unternehmens-/Owner-Entscheidung und wurde in PT09.5 nicht erfunden.
+- **Meta-Heuristik, kein PT09.5-Blocker:** `fr/articles.json:seo.index` ist mit 216 Zeichen natürlich
+  und vollständig, liegt aber oberhalb der weichen 200-Zeichen-Heuristik. Missing/Empty/Key/
+  Placeholder/Duplicate-Befunde sind 0; finale Article-Copy bleibt bei AP17.
 - **Ownergebunden, kein PT09.3-Blocker:** neue sprachneutrale oder x10 freigegebene Consumer-Social-
   Crops bleiben AP21. Die aktuellen drei produktspezifischen sichtbaren Hero-Assets sind technisch
   korrekt, enthalten jedoch eingebettete englische Copy und werden nicht als locale-spezifisch behauptet.
@@ -1866,11 +1895,11 @@ referenzielle Korrektur war nicht erforderlich.
 
 <!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste Lauf braucht. -->
 
-- **Nächster Primärtask ist PT09.5 — Robots, Bot-Policy, Meta-/Social-Audit.** AP09 bleibt
-  `IN_PROGRESS`; PT09.1–PT09.4 sind `PASS`. Zusätzlich zum normalen AP09-Kontext sind unmittelbar
-  relevant: `SEO-CONTRACT.md` §11–§14, die zentrale Structured-Data-Safe-State-Regel und `DG09-01`.
-  PT09.5 darf die zentrale AP10-Route-Registry oder spätere Page-/Content-Arbeit nicht vorziehen;
-  AP09-CLOSURE und AP10 bleiben bis zu ihrem jeweiligen seriellen Start unberührt.
+- **Nächster Task ist AP09-CLOSURE.** AP09 bleibt `IN_PROGRESS`; PT09.1–PT09.5 sind `PASS`.
+  Zusätzlich zum normalen AP09-Kontext sind `SEO-CONTRACT.md` §11–§15, G3/CI, die 390-URL-
+  Runtime-Matrix und `DG09-01` unmittelbar relevant. Die Closure muss AP09 breit abnehmen, darf aber
+  die zentrale AP10-Route-Registry nicht vorziehen; AP10 bleibt bis zu seinem seriellen Start
+  `NOT STARTED`.
 
 - **Nächstes Arbeitspaket ist AP08.** AP07 ist `COMPLETE`, Closure `PASS (43/43)`; AP08 bleibt bis zu
   seinem eigenen Start `NOT STARTED`. PT07.1-Index, PT07.2-SearchModal, PT07.3-Findability sowie
@@ -1927,7 +1956,7 @@ npx tsx server.ts`). `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-
 
 ## Handoff
 
-- **AP09: `IN_PROGRESS` · PT09.1–PT09.4 `PASS` (2026-08-28).** SEOHead ist konsolidiert;
+- **AP09: `IN_PROGRESS` · PT09.1–PT09.5 `PASS` (2026-08-28).** SEOHead ist konsolidiert;
   Canonical Host
   `https://polarisdx.net`; x10-hreflang und `x-default=de`; OG/Twitter und 404-SEO-Vertrag PASS;
   Sitemap 39 Families/390 eindeutige x10-URLs, Consumer 3×10, Epigenetics/Befunde x10, dynamische
@@ -1938,7 +1967,10 @@ npx tsx server.ts`). `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-
   selektives Product, visible-only FAQ, Article/Event-Datenintegrität und Medical-/Claim-Safety PASS;
   Claim Amplification und Preview-/Dev-Host-Leakage jeweils 0, Coverage Matrix aktuell. `DG09-01` ist
   `READY_FOR_OWNER` für AP10 PT10.3 (kein AP09-Closure-Blocker, Launch-Blocker). Keine zentrale Route
-  Registry gebaut. **Next: PT09.5. AP10 bleibt NOT STARTED.**
+  Registry gebaut. Robots/Sitemap/API-/Asset-/Consumer-Crawlregeln sind technisch konsistent, der
+  bestehende Allow-Intent für 39 spezifische Bots ist erhalten; Meta-Guard 290/290 ohne Hard Finding,
+  OG-/Twitter-Alt und produktive Hosts sind über 390/390 Sitemap-Seiten grün. G3 und Relaunch-CI sind
+  aktiv. **Next: AP09-CLOSURE. AP10 bleibt NOT STARTED.**
 - **AP07: `COMPLETE` · AP07 Closure: `PASS` (43/43, `C07-01`–`C07-43`)**. PT07.1–PT07.3 alle
   `PASS`; Search Index, SearchModal und Internal Findability sind ready. Die sieben offenen
   `DSI-01`–`DSI-04`/`DLI-01`–`DLI-03` bleiben ownergebunden und ohne False Ready erhalten.

@@ -1,67 +1,168 @@
 #!/usr/bin/env node
-// scripts/check-meta-descriptions.mjs
-// Meta-Guard fuer den home-Namespace. Pruefung pro Locale:
-//   - seo.title vorhanden + nicht leer
-//   - seo.description vorhanden + nicht leer + Laenge in [DESC_MIN, DESC_MAX]
-//   - (non-de) seo.description NICHT byte-identisch zu de  -> Schutz vor
-//     untranslated DE-Platzhaltern, die nach Prod lecken (Phase 3 nutzt
-//     bewusst DE-Platzhalter, die spaetestens in Phase 5 ersetzt werden).
-//   - (non-de) seo.title identisch zu de -> nur WARNUNG (Titel sind oft
-//     brand-/zahlenlastig und koennen legitim aehneln).
-//
-// HINWEIS: Bewusst NICHT die im alten Playbook erwaehnte "DE-Gleichheit" —
-// Ground Truth (Phase 0): Descriptions sind je Locale echt uebersetzt, ein
-// "muss == de"-Check waere falsch. Gebaut in Phase 2.3 (kein Vorbild im Repo).
-import { readFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const LOCALES_DIR = join(__dirname, '..', 'public', 'locales');
-const REF = 'de';
-const LANGS = ['de', 'en', 'pl', 'fr', 'it', 'es', 'pt', 'da', 'nl', 'cs'];
-const DESC_MIN = 40;
-const DESC_MAX = 185;
+import { readdirSync, readFileSync } from 'node:fs'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-function loadSeo(lang) {
-  const p = join(LOCALES_DIR, lang, 'home.json');
-  const j = JSON.parse(readFileSync(p, 'utf8'));
-  return j.seo || {};
+const scriptDirectory = dirname(fileURLToPath(import.meta.url))
+const localesDirectory = join(scriptDirectory, '..', 'public', 'locales')
+const locales = ['de', 'en', 'pl', 'fr', 'it', 'es', 'pt', 'da', 'nl', 'cs']
+const translationKeyPattern = /^[a-z][\w-]*(?::[\w-]+)?(?:\.[\w-]+)+$/i
+const placeholderPattern = /\b(?:lorem ipsum|tbd|placeholder|preview copy|coming soon)\b/i
+const nonPublicHostPattern = /(?:preview\.polarisdx\.net|localhost|127\.0\.0\.1)(?=[:/]|$)/i
+
+function valueAtPath(value, path) {
+  return path.split('.').reduce((current, segment) => current?.[segment], value)
 }
 
-const ref = loadSeo(REF);
-const refTitle = (ref.title || '').trim();
-const refDesc = (ref.description || '').trim();
-let failed = false;
+function discoverExplicitSeoRecords(value, path = [], records = []) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return records
 
-function fail(msg) {
-  failed = true;
-  console.error('  ✖ ' + msg);
-}
-
-for (const lang of LANGS) {
-  let seo;
-  try {
-    seo = loadSeo(lang);
-  } catch (e) {
-    fail(`${lang}: home.json nicht lesbar/parsebar — ${e.message}`);
-    continue;
+  const id = path.join('.') || 'root'
+  if (
+    path.includes('seo') &&
+    typeof value.title === 'string' &&
+    typeof value.description === 'string'
+  ) {
+    records.push({
+      id,
+      titlePath: [...path, 'title'].join('.'),
+      descriptionPath: [...path, 'description'].join('.'),
+    })
   }
-  const t = (seo.title || '').trim();
-  const d = (seo.description || '').trim();
-  console.log(`— ${lang}: title ${t.length} chars, description ${d.length} chars`);
-  if (!t) fail(`${lang}: seo.title fehlt/leer`);
-  if (!d) fail(`${lang}: seo.description fehlt/leer`);
-  if (d && (d.length < DESC_MIN || d.length > DESC_MAX))
-    fail(`${lang}: seo.description Laenge ${d.length} ausserhalb [${DESC_MIN}, ${DESC_MAX}]`);
-  if (lang !== REF) {
-    if (d && d === refDesc) fail(`${lang}: seo.description identisch zu de (untranslated Platzhalter?)`);
-    if (t && t === refTitle) console.warn(`  ⚠ ${lang}: seo.title identisch zu de (pruefen, ob beabsichtigt)`);
+  if (typeof value.index_title === 'string' && typeof value.index_description === 'string') {
+    records.push({
+      id: `${id}.index`,
+      titlePath: [...path, 'index_title'].join('.'),
+      descriptionPath: [...path, 'index_description'].join('.'),
+    })
+  }
+  if (typeof value.seo_title === 'string' && typeof value.seo_description === 'string') {
+    records.push({
+      id: `${id}.seo`,
+      titlePath: [...path, 'seo_title'].join('.'),
+      descriptionPath: [...path, 'seo_description'].join('.'),
+    })
+  }
+
+  for (const [key, child] of Object.entries(value)) {
+    discoverExplicitSeoRecords(child, [...path, key], records)
+  }
+  return records
+}
+
+function fail(message) {
+  console.error(`  ✖ ${message}`)
+  return 1
+}
+
+const localeFiles = readdirSync(join(localesDirectory, 'de'))
+  .filter((filename) => filename.endsWith('.json'))
+  .sort()
+const referenceFiles = new Map()
+const definitions = []
+
+for (const filename of localeFiles) {
+  const value = JSON.parse(readFileSync(join(localesDirectory, 'de', filename), 'utf8'))
+  referenceFiles.set(filename, value)
+  for (const record of discoverExplicitSeoRecords(value)) definitions.push({ filename, ...record })
+}
+
+let failures = 0
+let warnings = 0
+let checked = 0
+let shortWarnings = 0
+let longWarnings = 0
+
+for (const locale of locales) {
+  const localizedFiles = new Map()
+  for (const filename of localeFiles) {
+    try {
+      localizedFiles.set(
+        filename,
+        JSON.parse(readFileSync(join(localesDirectory, locale, filename), 'utf8')),
+      )
+    } catch (error) {
+      failures += fail(`${locale}/${filename}: not readable JSON — ${error.message}`)
+    }
+  }
+
+  const descriptions = new Map()
+  for (const definition of definitions) {
+    const localized = localizedFiles.get(definition.filename)
+    if (!localized) continue
+    const title = String(valueAtPath(localized, definition.titlePath) ?? '').trim()
+    const description = String(valueAtPath(localized, definition.descriptionPath) ?? '').trim()
+    const label = `${locale}/${definition.filename}:${definition.id}`
+    checked += 1
+
+    if (!title) failures += fail(`${label}: title missing/empty`)
+    if (!description) failures += fail(`${label}: description missing/empty`)
+    if (translationKeyPattern.test(title) || translationKeyPattern.test(description)) {
+      failures += fail(`${label}: visible translation key in metadata`)
+    }
+    if (
+      placeholderPattern.test(title) ||
+      placeholderPattern.test(description) ||
+      /\bTODO\b/.test(title) ||
+      /\bTODO\b/.test(description)
+    ) {
+      failures += fail(`${label}: preview/placeholder metadata`)
+    }
+    if (nonPublicHostPattern.test(title) || nonPublicHostPattern.test(description)) {
+      failures += fail(`${label}: preview/dev host in metadata`)
+    }
+    if (description && description.length < 20) {
+      failures += fail(`${label}: grotesquely short description (${description.length})`)
+    } else if (description.length < 50) {
+      warnings += 1
+      shortWarnings += 1
+      console.warn(`  ⚠ ${label}: short description heuristic (${description.length})`)
+    }
+    if (description.length > 500) {
+      failures += fail(`${label}: grotesquely long description (${description.length})`)
+    } else if (description.length > 200) {
+      warnings += 1
+      longWarnings += 1
+      console.warn(`  ⚠ ${label}: long description heuristic (${description.length})`)
+    }
+
+    const reference = referenceFiles.get(definition.filename)
+    const germanDescription = String(
+      valueAtPath(reference, definition.descriptionPath) ?? '',
+    ).trim()
+    const englishFile = JSON.parse(
+      readFileSync(join(localesDirectory, 'en', definition.filename), 'utf8'),
+    )
+    const englishDescription = String(
+      valueAtPath(englishFile, definition.descriptionPath) ?? '',
+    ).trim()
+    if (locale !== 'de' && description && description === germanDescription) {
+      failures += fail(`${label}: description is byte-identical to German`)
+    }
+    if (locale !== 'de' && locale !== 'en' && description && description === englishDescription) {
+      failures += fail(`${label}: description is byte-identical to English`)
+    }
+
+    const duplicateIds = descriptions.get(description) ?? []
+    duplicateIds.push(`${definition.filename}:${definition.id}`)
+    descriptions.set(description, duplicateIds)
+  }
+
+  for (const [description, ids] of descriptions) {
+    if (description && ids.length > 1) {
+      failures += fail(`${locale}: exact description duplicate across ${ids.join(', ')}`)
+    }
   }
 }
 
-if (failed) {
-  console.error('\n❌ Meta-Guard FEHLGESCHLAGEN.');
-  process.exit(1);
+if (failures) {
+  console.error(
+    `\nMeta Quality Guard FAIL: ${checked} explicit locale records checked, ${failures} hard findings, ${warnings} length warnings.`,
+  )
+  process.exit(1)
 }
-console.log('\n✅ Meta-Guard gruen (title+description in 10 Locales vorhanden, uebersetzt, Laenge ok).');
+
+console.log(
+  `Meta Quality Guard PASS: ${checked} explicit locale records checked; missing/empty/translation-key/placeholder/duplicate findings 0; ${warnings} length warnings (${shortWarnings} short, ${longWarnings} long). Dynamic and Consumer metadata remain covered by G3 SSR/source checks.`,
+)

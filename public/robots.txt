@@ -1,196 +1,75 @@
 # robots.txt for polarisdx.net
-# PolarisDX - POCT Diagnostics & Medical Technology
-# Last updated: 2026-06-04
+# Technical crawl policy verified by AP09 PT09.5 on 2026-08-28.
 #
-# Policy:
-#   - Google search + Google AI training (Google-Extended) are explicitly
-#     allowed full site access.
-#   - AI training/search crawlers (OpenAI, Anthropic, Perplexity, Apple,
-#     Meta, Amazon, ByteDance, Mistral, Cohere, Common Crawl, …) are
-#     explicitly allowed.
-#   - Technical paths (/api/, /locales/, /_, *.json) are blocked for the
-#     wildcard `*` group only — bots with their own group below ignore
-#     these wildcard disallows (per RFC 9309: most-specific group wins).
-#   - Consumer landing pages (/consumer/*) are now site-wide-indexable
-#     for all crawlers; the wildcard rules below no longer disallow them.
+# Intent preservation:
+# - Public pages remain crawlable for the existing search, social-preview and
+#   AI/LLM user agents listed below.
+# - /api is a technical application surface, not website index content. This
+#   robots rule is crawl guidance only; it is not authentication or security.
+# - Render-critical /assets and /locales resources remain crawlable.
 
-# =============================================================================
-# GENERAL CRAWLER RULES (fallback for unnamed bots)
-# =============================================================================
-
+# General crawlers
 User-agent: *
 Allow: /
 Allow: /assets/
-Allow: /*.js$
-Allow: /*.css$
-Disallow: /api/
-Disallow: /locales/
-Disallow: /_
-Disallow: /*.json$
+Allow: /locales/
+Disallow: /api
 
-# =============================================================================
-# SEARCH ENGINE BOTS (full access)
-# =============================================================================
-
-# Google Search
+# Search engines
 User-agent: Googlebot
-Allow: /
-
-# Google AdsBot (landing-page quality check)
 User-agent: AdsBot-Google
-Allow: /
-
 User-agent: AdsBot-Google-Mobile
-Allow: /
-
-# Google Images
 User-agent: Googlebot-Image
-Allow: /
-
-# Google News
 User-agent: Googlebot-News
-Allow: /
-
-# Google Video
 User-agent: Googlebot-Video
-Allow: /
-
-# Bing
 User-agent: Bingbot
-Allow: /
-
-# Bing AdsBot
 User-agent: AdIdxBot
-Allow: /
-
-# DuckDuckGo
 User-agent: DuckDuckBot
-Allow: /
-
-# Yandex (Eastern European traffic)
 User-agent: Yandex
-Allow: /
-
-# Baidu (Chinese traffic)
 User-agent: Baiduspider
-Allow: /
-
-# Apple Search
 User-agent: Applebot
 Allow: /
+Allow: /assets/
+Allow: /locales/
+Disallow: /api
 
-# =============================================================================
-# AI CRAWLERS — TRAINING + SEARCH + ASSISTANT FETCH
-# Explicitly allowed across the board, per current policy.
-# =============================================================================
-
-# --- Google AI (Bard / Gemini training + assistant) ---
-User-agent: Google-Extended
-Allow: /
-
-User-agent: GoogleOther
-Allow: /
-
-# --- OpenAI ---
-# GPTBot = training crawler
-User-agent: GPTBot
-Allow: /
-
-# ChatGPT-User = user-triggered fetch (when ChatGPT browses on a user's behalf)
-User-agent: ChatGPT-User
-Allow: /
-
-# OAI-SearchBot = ChatGPT search
-User-agent: OAI-SearchBot
-Allow: /
-
-# --- Anthropic / Claude ---
-# anthropic-ai = legacy training UA
-User-agent: anthropic-ai
-Allow: /
-
-# ClaudeBot = current Anthropic crawler
-User-agent: ClaudeBot
-Allow: /
-
-# Claude-Web = Claude search
-User-agent: Claude-Web
-Allow: /
-
-# claude-user = Claude assistant user-fetch
-User-agent: claude-user
-Allow: /
-
-# --- Apple Intelligence ---
-User-agent: Applebot-Extended
-Allow: /
-
-# --- Meta / Facebook AI ---
-User-agent: Meta-ExternalAgent
-Allow: /
-
-User-agent: Meta-ExternalFetcher
-Allow: /
-
-# FacebookBot (link previews on Facebook / Instagram / WhatsApp)
+# Social previews and user-triggered link fetchers
 User-agent: FacebookBot
-Allow: /
-
 User-agent: facebookexternalhit
-Allow: /
-
-# --- Amazon (Alexa, Rufus) ---
-User-agent: Amazonbot
-Allow: /
-
-# --- ByteDance / TikTok ---
-User-agent: Bytespider
-Allow: /
-
-# --- Mistral ---
+User-agent: Meta-ExternalFetcher
+User-agent: LinkedInBot
+User-agent: Twitterbot
+User-agent: ChatGPT-User
+User-agent: claude-user
+User-agent: Perplexity-User
 User-agent: MistralAI-User
 Allow: /
+Allow: /assets/
+Allow: /locales/
+Disallow: /api
 
-# --- Perplexity ---
+# AI/LLM training, search and research crawlers — existing allow intent kept
+User-agent: Google-Extended
+User-agent: GoogleOther
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: anthropic-ai
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: Applebot-Extended
+User-agent: Meta-ExternalAgent
+User-agent: Amazonbot
+User-agent: Bytespider
 User-agent: PerplexityBot
-Allow: /
-
-User-agent: Perplexity-User
-Allow: /
-
-# --- Cohere ---
 User-agent: cohere-ai
-Allow: /
-
 User-agent: cohere-training-data-crawler
-Allow: /
-
-# --- Common Crawl (data source for many open AI projects) ---
 User-agent: CCBot
-Allow: /
-
-# --- DuckDuckGo Assist ---
 User-agent: DuckAssistBot
-Allow: /
-
-# --- LinkedIn (link previews + research) ---
-User-agent: LinkedInBot
-Allow: /
-
-# --- X / Twitter (link cards) ---
-User-agent: Twitterbot
-Allow: /
-
-# --- Diffbot (knowledge graph / AI research) ---
 User-agent: Diffbot
-Allow: /
-
-# --- YouBot (You.com) ---
 User-agent: YouBot
 Allow: /
-
-# =============================================================================
-# SITEMAP REFERENCE
-# =============================================================================
+Allow: /assets/
+Allow: /locales/
+Disallow: /api
 
 Sitemap: https://polarisdx.net/sitemap.xml

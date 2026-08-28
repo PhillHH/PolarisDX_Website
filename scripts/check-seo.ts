@@ -11,6 +11,212 @@ const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url))
 const families = getSitemapRouteFamilies()
 const xml = generateSitemapXml()
 
+const BOT_POLICY = {
+  SEARCH_ENGINE: [
+    'Googlebot',
+    'AdsBot-Google',
+    'AdsBot-Google-Mobile',
+    'Googlebot-Image',
+    'Googlebot-News',
+    'Googlebot-Video',
+    'Bingbot',
+    'AdIdxBot',
+    'DuckDuckBot',
+    'Yandex',
+    'Baiduspider',
+    'Applebot',
+  ],
+  SOCIAL_PREVIEW: [
+    'FacebookBot',
+    'facebookexternalhit',
+    'Meta-ExternalFetcher',
+    'LinkedInBot',
+    'Twitterbot',
+    'ChatGPT-User',
+    'claude-user',
+    'Perplexity-User',
+    'MistralAI-User',
+  ],
+  AI_CRAWLER: [
+    'Google-Extended',
+    'GoogleOther',
+    'GPTBot',
+    'OAI-SearchBot',
+    'anthropic-ai',
+    'ClaudeBot',
+    'Claude-Web',
+    'Applebot-Extended',
+    'Meta-ExternalAgent',
+    'Amazonbot',
+    'Bytespider',
+    'PerplexityBot',
+    'cohere-ai',
+    'cohere-training-data-crawler',
+    'CCBot',
+    'DuckAssistBot',
+    'Diffbot',
+    'YouBot',
+  ],
+} as const
+
+interface RobotsRule {
+  directive: 'allow' | 'disallow'
+  value: string
+}
+
+interface RobotsGroup {
+  agents: string[]
+  rules: RobotsRule[]
+}
+
+function parseRobots(value: string): { groups: RobotsGroup[]; sitemaps: string[] } {
+  const groups: RobotsGroup[] = []
+  const sitemaps: string[] = []
+  let agents: string[] = []
+  let rules: RobotsRule[] = []
+
+  const finishGroup = () => {
+    if (agents.length) groups.push({ agents, rules })
+    agents = []
+    rules = []
+  }
+
+  for (const [index, originalLine] of value.split(/\r?\n/).entries()) {
+    const line = originalLine.replace(/\s+#.*$/, '').trim()
+    if (!line || line.startsWith('#')) continue
+    const separator = line.indexOf(':')
+    if (separator < 1) throw new Error(`robots.txt invalid syntax at line ${index + 1}`)
+    const directive = line.slice(0, separator).trim().toLowerCase()
+    const directiveValue = line.slice(separator + 1).trim()
+    if (!directiveValue) throw new Error(`robots.txt empty directive at line ${index + 1}`)
+
+    if (directive === 'user-agent') {
+      if (rules.length) finishGroup()
+      agents.push(directiveValue)
+    } else if (directive === 'allow' || directive === 'disallow') {
+      if (!agents.length) throw new Error(`robots.txt rule without user-agent at line ${index + 1}`)
+      rules.push({ directive, value: directiveValue })
+    } else if (directive === 'sitemap') {
+      finishGroup()
+      sitemaps.push(directiveValue)
+    } else {
+      throw new Error(`robots.txt unsupported directive at line ${index + 1}: ${directive}`)
+    }
+  }
+  finishGroup()
+  return { groups, sitemaps }
+}
+
+function robotsPatternMatches(pattern: string, pathname: string): boolean {
+  const endsAtPathEnd = pattern.endsWith('$')
+  const source = (endsAtPathEnd ? pattern.slice(0, -1) : pattern)
+    .replace(/[.+?^${}()|[\]\\]/g, '\\$&')
+    .replaceAll('*', '.*')
+  return new RegExp(`^${source}${endsAtPathEnd ? '$' : ''}`).test(pathname)
+}
+
+function robotsAllows(groups: RobotsGroup[], userAgent: string, pathname: string): boolean {
+  const normalizedAgent = userAgent.toLowerCase()
+  const matchingGroups = groups.filter((group) =>
+    group.agents.some((agent) => agent === '*' || agent.toLowerCase() === normalizedAgent),
+  )
+  const specificity = Math.max(
+    ...matchingGroups.flatMap((group) =>
+      group.agents
+        .filter((agent) => agent === '*' || agent.toLowerCase() === normalizedAgent)
+        .map((agent) => (agent === '*' ? 0 : agent.length)),
+    ),
+  )
+  const rules = matchingGroups
+    .filter((group) =>
+      group.agents.some(
+        (agent) =>
+          (agent === '*' ? 0 : agent.toLowerCase() === normalizedAgent ? agent.length : -1) ===
+          specificity,
+      ),
+    )
+    .flatMap((group) => group.rules)
+    .filter((rule) => robotsPatternMatches(rule.value, pathname))
+    .sort((left, right) => right.value.length - left.value.length)
+  if (!rules.length) return true
+  const longest = rules[0].value.length
+  return rules
+    .filter((rule) => rule.value.length === longest)
+    .some((rule) => rule.directive === 'allow')
+}
+
+function assertRobotsAndMetaEvidence(): { botCount: number; hostFiles: number } {
+  const robots = fs.readFileSync(path.join(repositoryRoot, 'public/robots.txt'), 'utf8')
+  const parsed = parseRobots(robots)
+  if (parsed.sitemaps.length !== 1 || parsed.sitemaps[0] !== `${PUBLIC_ORIGIN}/sitemap.xml`) {
+    throw new Error('robots.txt must contain exactly the productive sitemap directive')
+  }
+  const expectedBots = Object.values(BOT_POLICY).flat()
+  const actualBots = parsed.groups.flatMap((group) => group.agents).filter((agent) => agent !== '*')
+  if (
+    new Set(actualBots).size !== expectedBots.length ||
+    expectedBots.some((agent) => !actualBots.includes(agent))
+  ) {
+    throw new Error('robots.txt changed the existing bot-specific policy inventory')
+  }
+
+  for (const userAgent of ['unnamed-crawler', ...expectedBots]) {
+    for (const apiPath of ['/api', '/api/contact', '/api/consumer-order']) {
+      if (robotsAllows(parsed.groups, userAgent, apiPath)) {
+        throw new Error(`robots.txt exposes technical API path to ${userAgent}: ${apiPath}`)
+      }
+    }
+    for (const publicPath of [
+      '/de/',
+      '/de/consumer/vitamin-d3-spray',
+      '/assets/application.js',
+      '/locales/de/home.json',
+    ]) {
+      if (!robotsAllows(parsed.groups, userAgent, publicPath)) {
+        throw new Error(`robots.txt blocks public/render path for ${userAgent}: ${publicPath}`)
+      }
+    }
+  }
+
+  const seoHead = fs.readFileSync(
+    path.join(repositoryRoot, 'src/components/seo/SEOHead.tsx'),
+    'utf8',
+  )
+  for (const marker of [
+    'SEOHead requires a non-empty title and description',
+    'SEOHead received a visible translation key',
+    'SEOHead requires visible social-image alternative text',
+    '<meta property="og:image:alt" content={cleanOgImageAlt}',
+    '<meta name="twitter:image:alt" content={cleanOgImageAlt}',
+  ]) {
+    if (!seoHead.includes(marker))
+      throw new Error(`Meta-quality runtime evidence missing: ${marker}`)
+  }
+
+  const productiveHostFiles = [
+    'public/robots.txt',
+    'index.html',
+    'src/components/seo/SEOHead.tsx',
+    'src/components/seo/seoRouteSource.ts',
+    'src/components/seo/sitemap.ts',
+    'src/components/seo/structuredData.ts',
+    ...fs
+      .readdirSync(path.join(repositoryRoot, 'src/pages'), { recursive: true })
+      .filter((entry): entry is string => typeof entry === 'string' && entry.endsWith('.tsx'))
+      .map((entry) => `src/pages/${entry}`),
+  ]
+  for (const filename of productiveHostFiles) {
+    const source = fs.readFileSync(path.join(repositoryRoot, filename), 'utf8')
+    if (/preview\.polarisdx\.net|https?:\/\/(?:localhost|127\.0\.0\.1)(?=[:/]|$)/i.test(source)) {
+      throw new Error(`Preview/dev SEO host found in productive source: ${filename}`)
+    }
+  }
+  if (/preview\.polarisdx\.net|localhost|127\.0\.0\.1/i.test(xml)) {
+    throw new Error('Preview/dev SEO host found in generated sitemap')
+  }
+  return { botCount: expectedBots.length, hostFiles: productiveHostFiles.length }
+}
+
 const CONSUMER_PAGES = [
   {
     path: '/consumer/vitamin-d3-spray',
@@ -255,9 +461,10 @@ const PUBLIC_ORIGIN = 'https://polarisdx.net'
 assertSourceEvidence()
 assertConsumerSeoEvidence()
 assertStructuredDataEvidence()
+const robotsAndMeta = assertRobotsAndMetaEvidence()
 const result = validateSitemapArtifact(xml, families)
 runHardFailureSelfTests()
 
 console.log(
-  `G3 SEO artifact coverage PASS: ${result.routeFamilyCount} families, ${result.urlCount} URLs, ${result.uniqueUrlCount} unique, ${result.lastmodCount} truthful lastmod entries; Consumer 3x10 and PT09.4 Structured Data source/coverage/claim-safety evidence PASS; hard-failure self-tests PASS`,
+  `G3 SEO artifact coverage PASS: ${result.routeFamilyCount} families, ${result.urlCount} URLs, ${result.uniqueUrlCount} unique, ${result.lastmodCount} truthful lastmod entries; Consumer 3x10, PT09.4 Structured Data and PT09.5 robots/meta/host evidence PASS (${robotsAndMeta.botCount} specific bot agents, ${robotsAndMeta.hostFiles} productive host-sweep files); hard-failure self-tests PASS`,
 )
