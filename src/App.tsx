@@ -16,7 +16,7 @@
  */
 
 import { lazy, Suspense, useEffect } from 'react'
-import { Routes, Route, Navigate, Outlet, useParams, useLocation } from 'react-router-dom'
+import { Routes, Route, Outlet, useLocation } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 import GtmPageview from './components/analytics/GtmPageview'
 
@@ -106,12 +106,6 @@ import ConsumerDuoPage from './pages/consumer/DuoPage'
  */
 function LazyRoute({ children }: { children: React.ReactNode }) {
   return <Suspense fallback={null}>{children}</Suspense>
-}
-
-// Redirect helper for /services/:slug → /diagnostics/:slug
-function ServicesRedirect() {
-  const { slug } = useParams<{ slug: string }>()
-  return <Navigate to={`/diagnostics/${slug}`} replace />
 }
 
 /**
@@ -546,10 +540,6 @@ function App() {
               </LazyRoute>
             }
           />
-
-          {/* 301 Redirects: /services → /diagnostics */}
-          <Route path="/services" element={<Navigate to="/diagnostics" replace />} />
-          <Route path="/services/:slug" element={<ServicesRedirect />} />
 
           {/* Catch-all 404 route - must be last */}
           <Route

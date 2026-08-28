@@ -16,6 +16,7 @@ import express from 'express'
 import { createProxyMiddleware } from 'http-proxy-middleware'
 import { DEFAULT_LANGUAGE, getLanguageFromPathname, type SupportedLanguage } from './src/i18n'
 import { generateSitemapXml, getSitemapRouteFamilies } from './src/components/seo/sitemap'
+import { services } from './src/data/services'
 
 import type { Request, Response, NextFunction } from 'express'
 import type { ViteDevServer } from 'vite'
@@ -133,6 +134,9 @@ const LEGACY_PATH_REDIRECTS: Record<string, string> = {
   '/s3-leitlinie': '/s3_leitlinie',
 }
 
+const SITEMAP_ROUTE_FAMILIES = getSitemapRouteFamilies()
+const LEGACY_SERVICE_SLUGS = new Set<string>(services.map((service) => service.id))
+
 /**
  * Routes that exist but are deliberately not in the sitemap source.
  * Everything else is derived from the sitemap, so a new sitemap entry is known
@@ -141,14 +145,13 @@ const LEGACY_PATH_REDIRECTS: Record<string, string> = {
  */
 const EXTRA_KNOWN_PATHS: string[] = [
   '/support', // reachable from the header, intentionally unlisted
-  '/services', // client-side redirect to /diagnostics
   '/privacy', // noindex legal route; excluded from sitemap
   '/imprint', // noindex legal route; excluded from sitemap
   '/terms', // noindex legal route; excluded from sitemap
 ]
 
 const KNOWN_PATHS = new Set<string>([
-  ...getSitemapRouteFamilies().map((route) => route.path),
+  ...SITEMAP_ROUTE_FAMILIES.map((route) => route.path),
   ...EXTRA_KNOWN_PATHS,
 ])
 
@@ -156,15 +159,37 @@ const KNOWN_PATHS = new Set<string>([
  * True when the path (WITHOUT language prefix) matches a route of the React
  * app. Used to answer a real 404 instead of 200 for unknown URLs.
  *
- * /services/:slug is matched by pattern because it only renders a redirect to
- * /diagnostics/:slug — the target then decides whether it is a 404.
+ * Legacy redirect sources are deliberately not known application paths. The
+ * redirect middleware validates them separately before SSR.
  */
 function isKnownPath(pathWithoutLangPrefix: string): boolean {
   const p = pathWithoutLangPrefix.replace(/\/+$/, '') || '/'
   if (KNOWN_PATHS.has(p)) {
     return true
   }
-  return p.startsWith('/services/') && p.split('/').length === 3
+  return false
+}
+
+function normalizeRoutePath(pathname: string): string {
+  return pathname.replace(/\/+$/, '') || '/'
+}
+
+/**
+ * Maps only real, currently known legacy service URLs to canonical routes.
+ * Unknown slugs intentionally return null so they become a real 404 instead of
+ * a misleading 301 whose target is a 404.
+ */
+function getLegacyServiceTarget(pathWithoutLang: string): string | null {
+  const normalized = normalizeRoutePath(pathWithoutLang)
+  if (normalized === '/services') {
+    return '/diagnostics'
+  }
+
+  const match = /^\/services\/([^/]+)$/.exec(normalized)
+  if (!match || !LEGACY_SERVICE_SLUGS.has(match[1])) {
+    return null
+  }
+  return `/diagnostics/${match[1]}`
 }
 
 /**
@@ -299,8 +324,8 @@ async function createServer() {
   // NICHT redirected: /assets/*, /locales/*, /api/*, statische Dateien
   // ---------------------------------------------------------------------------
   app.use((req: Request, res: Response, next: NextFunction) => {
-    // Nur GET-Requests redirecten (POST, PUT etc. durchlassen)
-    if (req.method !== 'GET') {
+    // Nur sichere Seitenabrufe redirecten (POST, PUT etc. durchlassen).
+    if (req.method !== 'GET' && req.method !== 'HEAD') {
       return next()
     }
 
@@ -328,10 +353,20 @@ async function createServer() {
     // /en/s3-leitlinie -> /en/s3_leitlinie, /agb -> /de/terms.
     // -------------------------------------------------------------------------
     const pathWithoutLang = langPrefix ? pathname.slice(3) || '/' : pathname
-    const legacyTarget = LEGACY_PATH_REDIRECTS[pathWithoutLang.replace(/\/$/, '')]
+    const normalizedPathWithoutLang = normalizeRoutePath(pathWithoutLang)
+    const legacyTarget = LEGACY_PATH_REDIRECTS[normalizedPathWithoutLang]
     if (legacyTarget) {
       const targetLang = langPrefix || DEFAULT_LANGUAGE
       res.redirect(301, `/${targetLang}${legacyTarget}${query}`)
+      return
+    }
+
+    // /services is a hard migration. Resolve the hub and real service slugs
+    // directly to /diagnostics in one hop; never redirect an unknown slug.
+    const serviceTarget = getLegacyServiceTarget(normalizedPathWithoutLang)
+    if (serviceTarget) {
+      const targetLang = langPrefix || DEFAULT_LANGUAGE
+      res.redirect(301, `/${targetLang}${serviceTarget}${query}`)
       return
     }
 
@@ -340,9 +375,17 @@ async function createServer() {
       return next()
     }
 
-    // Kein gültiges Prefix → 301 Redirect auf /de{path}
-    const redirectPath = `/${DEFAULT_LANGUAGE}${pathname === '/' ? '/' : pathname}${query}`
-    res.redirect(301, redirectPath)
+    // Only known public pages are canonicalized to DE. Unknown paths are
+    // internally rendered in the default locale so their original URL answers
+    // 404 directly instead of becoming a 301 -> 404 soft migration.
+    if (isKnownPath(normalizedPathWithoutLang)) {
+      const redirectPath = `/${DEFAULT_LANGUAGE}${pathname === '/' ? '/' : pathname}${query}`
+      res.redirect(301, redirectPath)
+      return
+    }
+
+    req.url = `/${DEFAULT_LANGUAGE}${pathname}${query}`
+    next()
   })
 
   // ---------------------------------------------------------------------------

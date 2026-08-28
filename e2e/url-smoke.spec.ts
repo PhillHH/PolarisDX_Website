@@ -1,4 +1,6 @@
 import { test, expect } from '@playwright/test'
+import { getSitemapRouteFamilies } from '../src/components/seo/sitemap'
+import { services } from '../src/data/services'
 
 const ROUTES = [
   { path: '/' },
@@ -24,9 +26,25 @@ const DYNAMIC_ROUTES = [
 ]
 
 const REDIRECTS = [
-  { from: '/services', to: '/diagnostics' },
-  { from: '/services/dental', to: '/diagnostics/dental' },
-]
+  { from: '/about', to: '/de/about' },
+  { from: '/services', to: '/de/diagnostics' },
+  { from: '/services/dental', to: '/de/diagnostics/dental' },
+  { from: '/pl/services', to: '/pl/diagnostics' },
+  { from: '/cs/services/dental', to: '/cs/diagnostics/dental' },
+  { from: '/agb', to: '/de/terms' },
+  { from: '/fr/agb', to: '/fr/terms' },
+  { from: '/s3-leitlinie', to: '/de/s3_leitlinie' },
+  { from: '/it/s3-leitlinie', to: '/it/s3_leitlinie' },
+] as const
+
+const SPECIAL_ROUTES = [
+  '/consumer/vitamin-d3-spray',
+  '/s3_leitlinie',
+  '/vitamin-d3-implantologie',
+] as const
+
+const LOCALES = ['de', 'en', 'pl', 'fr', 'it', 'es', 'pt', 'da', 'nl', 'cs'] as const
+const UNSITEMAPPED_KNOWN_PATHS = ['/support', '/privacy', '/imprint', '/terms'] as const
 
 test.describe('URL Smoke Tests', () => {
   for (const route of ROUTES) {
@@ -47,19 +65,88 @@ test.describe('URL Smoke Tests', () => {
 
 test.describe('301 Redirects', () => {
   for (const redirect of REDIRECTS) {
-    test(`${redirect.from} leitet nach ${redirect.to}`, async ({ page }) => {
-      await page.goto(redirect.from)
-      await page.waitForURL((url) => url.pathname.endsWith(redirect.to), {
-        timeout: 10000,
-      })
-      expect(page.url()).toContain(redirect.to)
+    test(`${redirect.from} liefert direkt 301 auf ${redirect.to}`, async ({ request }) => {
+      const source = `${redirect.from}?utm_source=pt10`
+      const target = `${redirect.to}?utm_source=pt10`
+      const response = await request.get(source, { maxRedirects: 0 })
+
+      expect(response.status()).toBe(301)
+      expect(response.headers().location).toBe(target)
+
+      const finalResponse = await request.get(target, { maxRedirects: 0 })
+      expect(finalResponse.status()).toBe(200)
+      expect(finalResponse.headers().location).toBeUndefined()
+
+      const headResponse = await request.head(source, { maxRedirects: 0 })
+      expect(headResponse.status()).toBe(301)
+      expect(headResponse.headers().location).toBe(target)
     })
   }
+
+  test('jede aktuell bekannte unpräfixierte Seite erreicht direkt ihr kanonisches DE-Ziel', async ({
+    request,
+  }) => {
+    const knownPaths = [
+      ...getSitemapRouteFamilies().map((family) => family.path),
+      ...UNSITEMAPPED_KNOWN_PATHS,
+    ]
+    for (const path of knownPaths) {
+      const source = `${path}?utm_source=pt10`
+      const target = `/de${path === '/' ? '/' : path}?utm_source=pt10`
+      const response = await request.get(source, { maxRedirects: 0 })
+      expect(response.status(), source).toBe(301)
+      expect(response.headers().location, source).toBe(target)
+
+      const finalResponse = await request.get(target, { maxRedirects: 0 })
+      expect(finalResponse.status(), target).toBe(200)
+      expect(finalResponse.headers().location, target).toBeUndefined()
+    }
+  })
+
+  test('alle realen Service-Slugs migrieren locale-treu auf ein direktes 200-Ziel', async ({
+    request,
+  }) => {
+    for (const locale of LOCALES) {
+      for (const service of services) {
+        const source = `/${locale}/services/${service.id}?utm_source=pt10`
+        const target = `/${locale}/diagnostics/${service.id}?utm_source=pt10`
+        const response = await request.get(source, { maxRedirects: 0 })
+        expect(response.status(), source).toBe(301)
+        expect(response.headers().location, source).toBe(target)
+
+        const finalResponse = await request.get(target, { maxRedirects: 0 })
+        expect(finalResponse.status(), target).toBe(200)
+        expect(finalResponse.headers().location, target).toBeUndefined()
+      }
+    }
+  })
+
+  test('unbekannte Legacy-Service-Slugs bleiben direkte 404', async ({ request }) => {
+    for (const source of ['/de/services/not-a-real-service', '/services/not-a-real-service']) {
+      const response = await request.get(`${source}?utm_source=pt10`, { maxRedirects: 0 })
+      expect(response.status(), source).toBe(404)
+      expect(response.headers().location, source).toBeUndefined()
+    }
+  })
+
+  test('Consumer, S3 und Implantology bleiben in allen zehn Locales direkt', async ({
+    request,
+  }) => {
+    for (const locale of LOCALES) {
+      for (const route of SPECIAL_ROUTES) {
+        const response = await request.get(`/${locale}${route}`, { maxRedirects: 0 })
+        expect(response.status(), `${locale}${route}`).toBe(200)
+        expect(response.headers().location, `${locale}${route}`).toBeUndefined()
+      }
+    }
+  })
 })
 
 test.describe('404 Page', () => {
   test('unbekannter Pfad zeigt NotFoundPage', async ({ page }) => {
-    await page.goto('/diese-seite-existiert-nicht')
+    const response = await page.goto('/diese-seite-existiert-nicht')
+    expect(response?.status()).toBe(404)
+    expect(new URL(page.url()).pathname).toBe('/diese-seite-existiert-nicht')
     await expect(page.locator('body')).toContainText(/404|nicht gefunden|not found/i)
   })
 })

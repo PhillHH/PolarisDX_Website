@@ -39,21 +39,66 @@ AP10-/AP15-/AP16-/AP21-/AP27-Arbeit vorgezogen. Der SSR-/Rendering-Vertrag aus *
 `DEC-RL-001` (10 Sprachen), `DEC-RL-006` (Consumer indexierbar) und `REST-03` (Consumer × 10) um, er
 verhandelt sie nicht.
 
+### 2.1 PT10.1 operational redirect contract (2026-08-28)
+
+**Verified context:** Branch `console/10-15-2026-08-28T08-18-27`, start HEAD
+`a52ba7ea3a3ba3b4ded45969eb48895b02bbd439`, clean start tree, AP09 Closure `PASS`, Decision Locks
+`18/18`. AP10 is `IN_PROGRESS`; PT10.1 is the only AP10 task represented in this section. The central
+Route Registry and the complete legacy-discovery map remain PT10.3 and PT10.2 respectively.
+
+**Redirect status contract:** public migration sources answer `301 Moved Permanently` on `GET` and
+`HEAD`. Their `Location` is the final locale-aware canonical path; the request query string is retained
+byte-for-byte. Targets answer 200 without another `Location`. Redirect sources are not app routes,
+canonical URLs, sitemap entries, search targets, or Known Paths. HTTP never receives fragments, so no
+server-side fragment migration is claimed.
+
+**Initial primary redirect map:**
+
+| Source pattern                                            | Decision / direct target                    | Status | Hops | Target evidence                      |
+| --------------------------------------------------------- | ------------------------------------------- | ------ | ---- | ------------------------------------ |
+| `/`                                                       | `/de/`                                      | 301    | 1    | 200                                  |
+| `/<known-public-path>`                                    | `/de/<known-public-path>`                   | 301    | 1    | 200                                  |
+| `/services`                                               | `/de/diagnostics`                           | 301    | 1    | 200                                  |
+| `/<locale>/services`                                      | `/<locale>/diagnostics`                     | 301    | 1    | 200                                  |
+| `/services/<real-service-slug>`                           | `/de/diagnostics/<real-service-slug>`       | 301    | 1    | 200                                  |
+| `/<locale>/services/<real-service-slug>`                  | `/<locale>/diagnostics/<real-service-slug>` | 301    | 1    | 200                                  |
+| `/agb`                                                    | `/de/terms`                                 | 301    | 1    | 200                                  |
+| `/<locale>/agb`                                           | `/<locale>/terms`                           | 301    | 1    | 200                                  |
+| `/s3-leitlinie`                                           | `/de/s3_leitlinie`                          | 301    | 1    | 200                                  |
+| `/<locale>/s3-leitlinie`                                  | `/<locale>/s3_leitlinie`                    | 301    | 1    | 200                                  |
+| `/services/<unknown-slug>` and locale-prefixed equivalent | intentional direct 404; no migration target | 404    | 0    | no `Location`, no soft-home redirect |
+
+`<real-service-slug>` is validated against `src/data/services.tsx`; a URL is not accepted merely
+because it matches `/services/:slug`. Unknown unprefixed paths are internally rendered in the default
+locale and answer 404 at their original URL, avoiding 301-to-404 chains.
+
+**Locale and specialty hard guards:** the canonical Consumer families, `/s3_leitlinie`, and
+`/vitamin-d3-implantologie` answer 200 directly in each of `de en pl fr it es pt da nl cs`. No
+Consumer-to-EN or S3/Implantology-to-DE force redirect exists. A locale prefix is never duplicated.
+
+**PT10.1 evidence:** `e2e/url-smoke.spec.ts` now asserts status, exact `Location`, query retention,
+one-hop target 200, all 9 real service slugs × 10 locales, unknown-service 404, and 30/30 direct
+specialty cases. It also verifies all 39 sitemap families plus 4 unsitemapped known paths as direct
+unprefixed→DE migrations. Production Playwright passed URL smoke 31/31 and the unchanged AP08 routing
+regression 35/35. The independent HTTP matrix passed all 10 representative redirect sources, 3 direct
+404 cases and 30/30 specialty routes. Loops: 0. Unnecessary chains: 0. Redirect targets below 200: 0.
+
 ---
 
 ## 3. Current Participating Files
 
 **Die vier Handspiegel** — heute führt jede von ihnen einen Teil der Routenwahrheit:
 
-| Datei                            | Rolle                                                                                                                                                                                       | Guard  |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| `src/App.tsx`                    | einzige Route-Registry (22 `<Route>`), Layout-Zuordnung, Lazy-Grenzen, `ScrollToHash`, `GermanOnlyPage`, `ServicesRedirect`, Catch-all                                                      | **G3** |
-| `server.ts`                      | `SITEMAP_ROUTES`, `CONSUMER_SITEMAP_ROUTES`, `GERMAN_ONLY_SITEMAP_ROUTES`, `LEGACY_PATH_REDIRECTS`, `EXTRA_KNOWN_PATHS`, `KNOWN_PATHS`, `isKnownPath`, `NOT_FOUND_MARKER`, Locale-301-Kette | **G3** |
-| `src/hooks/useSearch.ts`         | Such-Index (`staticPages`, `services`) — **vierter Spiegel**                                                                                                                                | G2     |
-| `src/components/seo/SEOHead.tsx` | `GERMAN_ONLY_PATHS`, Canonical-/hreflang-Ableitung, `notFound` → `prerender-status-code`                                                                                                    | **G3** |
+| Datei                            | Rolle                                                                                                                                                                                            | Guard  |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ |
+| `src/App.tsx`                    | 33 `<Route>` elements, Layout-Zuordnung, Lazy-Grenzen, `ScrollToHash`, Catch-all; keine `/services*`-Route und keine clientseitige primäre Redirect-Brücke                                       | **G3** |
+| `server.ts`                      | echte 301-Ausführung, validierte Legacy-Service-Slugs, `LEGACY_PATH_REDIRECTS`, vorläufige `EXTRA_KNOWN_PATHS`/`KNOWN_PATHS`, `isKnownPath`, `NOT_FOUND_MARKER`; Registry-Ablösung bleibt PT10.3 | **G3** |
+| `src/hooks/useSearch.ts`         | Such-Index (`staticPages`, `services`) — **vierter Spiegel**                                                                                                                                     | G2     |
+| `src/components/seo/SEOHead.tsx` | pfadlistenfreier SEO-Route-Source-Adapter, Canonical-/hreflang-Ableitung, `notFound` → `prerender-status-code`; Registry-Konsum bleibt DG09-01/PT10.3                                            | **G3** |
 
 **Mitbeteiligt:**
-`e2e/url-smoke.spec.ts` (einziger Routen-Guard) · `src/components/layout/Header.tsx` (`navItems`) ·
+`e2e/url-smoke.spec.ts` (HTTP-Status-/Hop-/Query-Redirect-Guard) · `e2e/pt08-4-routing.spec.ts`
+(x10 Locale-/Spezialseiten-Regression) · `src/components/layout/Header.tsx` (`navItems`) ·
 `src/components/layout/Footer.tsx` (hartkodierte Links) · `src/data/services.tsx` (9 Service-IDs) ·
 `src/data/articles.ts` (6 Artikel-Slugs) · `src/content/befunde/index.ts` (6 Panel-Slugs) ·
 `src/content/befunde/legacyAnchors.ts` (Alt-Anker) · `public/robots.txt`.
@@ -137,8 +182,9 @@ stress-monitor, healthy-sport}` — alle × 10 Sprachen. _(`DEC-RL-005`, AP15 PT
 (9), Artikel aus `src/data/articles.ts` (6), Musterbefunde aus `src/content/befunde/` (6). Ein Slug
 ohne Datensatz **muss** 404 liefern. _(AP02 PT02.3.2)_
 
-**R-12 · Legacy-Pfade bleiben bedient.** `/agb` → `/[lang]/terms`; `/s3-leitlinie` → `/de/s3_leitlinie`.
-Beide in einem Hop. Entfernen ist nur nach AP29 PT29.2 zulässig. _(AP10 PT10.2)_
+**R-12 · Legacy-Pfade bleiben bedient.** `/[lang]/agb` → `/[lang]/terms`;
+`/[lang]/s3-leitlinie` → `/[lang]/s3_leitlinie`; unpräfixierte Quellen gehen direkt auf das jeweilige
+DE-Ziel. Alle in einem Hop. Entfernen ist nur nach AP29 PT29.2 zulässig. _(AP10 PT10.1/PT10.2)_
 
 **R-13 · `/services*` wird eine echte serverseitige 301-Brücke** auf `/[lang]/diagnostics*`.
 _(AP10 PT10.1.2, Master-Scope §5 Altlast 1)_
@@ -147,9 +193,10 @@ _(AP10 PT10.1.2, Master-Scope §5 Altlast 1)_
 aus übersetzten Überschriften erzeugte Sprungmarken auf feste IDs ab. Nicht ersatzlos entfernen.
 _(AP16 PT16.3.7)_
 
-**R-15 · German-only-Sonderfälle sind synchron zu halten.** `GERMAN_ONLY_PATHS`
-(`/s3_leitlinie`, `/vitamin-d3-implantologie`) steht identisch in `server.ts:141` **und**
-`SEOHead.tsx:103`. Der Abbau dieser Sonderlogik ist **AP08 PT08.4.3 vorbehalten** — nicht eigenmächtig.
+**R-15 · Spezialseiten bleiben locale-treu.** Seit AP08 PT08.4 existieren `/s3_leitlinie` und
+`/vitamin-d3-implantologie` in allen zehn Locales. Weder Runtime noch Redirects dürfen diese Seiten
+auf DE zwingen; Consumer darf entsprechend nicht auf EN gezwungen werden. PT10.1 bestätigt 30/30
+direkte Locale-Antworten.
 
 **R-16 · Jede navigierbare Seite hat einen Einstieg.** Eine Route ohne Eintrag in Navigation, Footer
 oder Suche ist nur per Direkt-URL erreichbar; das schließt AP07 DoD aus. Bewusste Ausnahmen werden im
@@ -187,29 +234,28 @@ _(`RUNTIME-CONTRACT.md` RT-20/RT-21)_
 **R-23 · Jede Route gehört genau einer Klasse an, und die Klasse bestimmt ihre Policies.** Eine Route
 ohne Klasse ist keine beschlossene Route.
 
-| #      | Klasse                           | Pfadform (Ist-Beispiel)                                       | Locale-Policy                 | Sitemap                                | Status                        |
-| ------ | -------------------------------- | ------------------------------------------------------------- | ----------------------------- | -------------------------------------- | ----------------------------- |
-| **1**  | reguläre B2B-Seite               | `/[lang]/about`, `/[lang]/diagnostics`                        | 10                            | ja                                     | 200                           |
-| **2**  | dynamische Service-Route         | `/[lang]/diagnostics/:slug`                                   | 10                            | ja, aus der Slug-Quelle                | 200 · **404** bei unbek. Slug |
-| **3**  | Artikel-Route                    | `/[lang]/articles/:slug`                                      | 10 (Umfang AP08/AP17)         | ja, aus der Slug-Quelle                | 200 · **404** bei unbek. Slug |
-| **4**  | Epigenetik-Hub                   | `/[lang]/epigenetics`                                         | 10                            | ja                                     | 200                           |
-| **5**  | Epigenetik-Vertiefung            | `/[lang]/epigenetics/{grundlagen,studienlage,unterlagen}`     | 10                            | ja                                     | 200                           |
-| **6**  | Musterbefund                     | `/[lang]/epigenetics/musterbefund/:slug`                      | 10                            | ja, aus der Slug-Quelle                | 200 · **404** bei unbek. Slug |
-| **7**  | Consumer-Landingpage             | `/[lang]/consumer/:produkt`                                   | **10** (`REST-03`)            | ja, × 10                               | 200                           |
-| **8**  | Legal                            | `/[lang]/{privacy,imprint,terms}`                             | 10                            | folgt der Indexierbarkeits-Policy      | 200                           |
-| **9**  | Support-/sonstige bekannte Seite | `/[lang]/support`                                             | 10                            | **bewusst nein** — bleibt trotzdem 200 | 200                           |
-| **10** | sprachgebundene Sonderseite      | `/de/s3_leitlinie`, `/de/vitamin-d3-implantologie`            | **single-locale**, deklariert | einmalig, ohne Alternates              | 200                           |
-| **11** | Legacy Redirect Source           | `/agb`, `/s3-leitlinie`, `/services`, `/services/:slug`       | n/a                           | **nie**                                | **301**                       |
-| **12** | technischer Nicht-Seitenpfad     | `/api/*`, Assets, Locale-Dateien, `robots.txt`, `sitemap.xml` | n/a                           | **nie**                                | eigene Semantik               |
-| **13** | unbekannter Pfad                 | alles übrige                                                  | n/a                           | **nie**                                | **404**                       |
+| #      | Klasse                           | Pfadform (Ist-Beispiel)                                       | Locale-Policy         | Sitemap                                | Status                        |
+| ------ | -------------------------------- | ------------------------------------------------------------- | --------------------- | -------------------------------------- | ----------------------------- |
+| **1**  | reguläre B2B-Seite               | `/[lang]/about`, `/[lang]/diagnostics`                        | 10                    | ja                                     | 200                           |
+| **2**  | dynamische Service-Route         | `/[lang]/diagnostics/:slug`                                   | 10                    | ja, aus der Slug-Quelle                | 200 · **404** bei unbek. Slug |
+| **3**  | Artikel-Route                    | `/[lang]/articles/:slug`                                      | 10 (Umfang AP08/AP17) | ja, aus der Slug-Quelle                | 200 · **404** bei unbek. Slug |
+| **4**  | Epigenetik-Hub                   | `/[lang]/epigenetics`                                         | 10                    | ja                                     | 200                           |
+| **5**  | Epigenetik-Vertiefung            | `/[lang]/epigenetics/{grundlagen,studienlage,unterlagen}`     | 10                    | ja                                     | 200                           |
+| **6**  | Musterbefund                     | `/[lang]/epigenetics/musterbefund/:slug`                      | 10                    | ja, aus der Slug-Quelle                | 200 · **404** bei unbek. Slug |
+| **7**  | Consumer-Landingpage             | `/[lang]/consumer/:produkt`                                   | **10** (`REST-03`)    | ja, × 10                               | 200                           |
+| **8**  | Legal                            | `/[lang]/{privacy,imprint,terms}`                             | 10                    | folgt der Indexierbarkeits-Policy      | 200                           |
+| **9**  | Support-/sonstige bekannte Seite | `/[lang]/support`                                             | 10                    | **bewusst nein** — bleibt trotzdem 200 | 200                           |
+| **10** | locale-aware Spezialseite        | `/[lang]/s3_leitlinie`, `/[lang]/vitamin-d3-implantologie`    | 10                    | ja, × 10                               | 200                           |
+| **11** | Legacy Redirect Source           | `/agb`, `/s3-leitlinie`, `/services`, `/services/:slug`       | n/a                   | **nie**                                | **301**                       |
+| **12** | technischer Nicht-Seitenpfad     | `/api/*`, Assets, Locale-Dateien, `robots.txt`, `sitemap.xml` | n/a                   | **nie**                                | eigene Semantik               |
+| **13** | unbekannter Pfad                 | alles übrige                                                  | n/a                   | **nie**                                | **404**                       |
 
 Zu Klasse **8**: ob Legal indexierbar ist, ist eine offene Produktentscheidung — der heutige Widerspruch
 (Sitemap-Eintrag bei gesetztem `noindex`) ist `SEO-CONTRACT.md` SD-2, Owner **AP20 PT20.4.8**. PT02.2
 verlangt nur, dass die Policy **deklariert** ist und Sitemap und Indexierbarkeit ihr gemeinsam folgen.
 
-Zu Klasse **10**: die Sonderlogik besteht heute als Pfadliste in zwei Dateien (R-15, `SEO-CONTRACT.md`
-S-17). Im Zielmodell ist sie eine deklarierte Locale-Policy der Route (R-45). Ihr Abbau bleibt
-**AP08 PT08.4.3** vorbehalten — PT02.2 entscheidet ihn nicht.
+Zu Klasse **10**: die historische German-only-Sonderlogik wurde in AP08 PT08.4 entfernt. Die beiden
+Seiten folgen heute derselben x10 Locale-Policy wie andere vollständig veröffentlichte Familien.
 
 ### Route Registry als Single Source of Truth (AP02 PT02.2)
 
@@ -275,16 +321,15 @@ eine Datendatei **und** eine Handliste in der Sitemap — sind verboten. _(schä
 
 **R-34 · Redirects gehören genau einer Klasse an:**
 
-| Klasse | Zweck                        | Beispiel (Ist)                        |
-| ------ | ---------------------------- | ------------------------------------- |
-| **A**  | Locale-Canonicalization      | `/about` → `/de/about`                |
-| **B**  | Legacy Route Migration       | `/agb` → `/[lang]/terms`              |
-| **C**  | Alias-/Schreibweisen-URL     | `/s3-leitlinie` → `/de/s3_leitlinie`  |
-| **D**  | Struktur-Brücke              | `/services*` → `/[lang]/diagnostics*` |
-| **E**  | sprachpolitischer Sonderfall | German-only-Seiten → `/de/…`          |
+| Klasse | Zweck                    | Beispiel (Ist)                                  |
+| ------ | ------------------------ | ----------------------------------------------- |
+| **A**  | Locale-Canonicalization  | `/about` → `/de/about`                          |
+| **B**  | Legacy Route Migration   | `/agb` → `/[lang]/terms`                        |
+| **C**  | Alias-/Schreibweisen-URL | `/[lang]/s3-leitlinie` → `/[lang]/s3_leitlinie` |
+| **D**  | Struktur-Brücke          | `/services*` → `/[lang]/diagnostics*`           |
 
-Klasse **E** besteht nur, solange der Master-Scope den Sonderfall trägt; der Consumer-Zwang auf `/en/`
-gehört **nicht** dazu und ist im Zielmodell unzulässig (R-52).
+Ein sprachpolitischer Zwangsredirect ist keine aktive Redirect-Klasse: Consumer→EN sowie
+S3/Implantology→DE sind unzulässig (R-15/R-52).
 
 **R-35 · Jeder Redirect deklariert Quelle, Ziel, Status und das Verhalten für Query und Fragment
 ausdrücklich.** Kein implizites Verschlucken, kein implizites Anhängen.
@@ -335,10 +380,9 @@ Routentabelle in der SEO-Schicht. _(`SEO-CONTRACT.md` S-01)_
 **R-44 · hreflang bewirbt genau die Locale-Varianten, die die Locale-Policy der Route zusagt und die
 tatsächlich ausgeliefert werden.** _(`SEO-CONTRACT.md` S-02/S-03)_
 
-**R-45 · Sprachliche Sonderfälle sind deklarierte Policies, keine implizite Sonderlogik.** Eine
-einsprachige Route trägt eine erklärte Locale-Policy — nicht eine Pfadliste, die in zwei Dateien
-synchron gehalten werden muss. _(löst konzeptionell R-15 / `SEO-CONTRACT.md` S-17 ab; Abbau der heutigen
-Liste bleibt AP08 PT08.4.3)_
+**R-45 · Sprachliche Sonderfälle sind deklarierte Policies, keine implizite Sonderlogik.** Die
+historischen S3-/Implantology-Sonderfälle sind seit AP08 x10. Eine künftig wirklich einsprachige Route
+müsste eine erklärte Locale-Policy tragen — nie eine verdeckte Redirect-/SEO-Pfadliste.
 
 **R-46 · 404-Antworten und Redirect-Quellen publizieren keinen Canonical und kein hreflang.**
 _(`SEO-CONTRACT.md` S-04, hier R-37)_
@@ -391,15 +435,15 @@ R-10; `RUNTIME-CONTRACT.md` RT-69; Owner **AP15**/**AP16**, IA-Seite **AP03**/**
 | ID       | Schuld                                                                                                                                                                                            | Beleg                              |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
 | **RD-1** | **Vier manuelle Routenspiegel** ohne Erzwingung: `App.tsx` ↔ `server.ts` ↔ `useSearch.ts` ↔ `SEOHead.tsx`. `server.ts:287` sagt selbst _„MIRRORS src/App.tsx"_                                    | `IMPLEMENTATION-HOTSPOTS.md` §6    |
-| **RD-2** | **`/services*` ist keine echte Brücke.** Gemessen: `/services` → 301 `/de/services` → **200**; die Umleitung nach `/diagnostics` macht ein clientseitiges `<Navigate>` (`App.tsx:414-415`)        | `QUALITY-BASELINE-LIVE.md` §13.3 C |
-| **RD-3** | **E2E prüft Statussemantik nicht verlässlich.** `toBeLessThan(400)` akzeptiert Redirects als Erfolg; der 404-Test prüft **Text**, nicht Status — eine Soft-404 mit HTTP 200 bestünde ihn          | `QUALITY-BASELINE-LIVE.md` §13.4   |
+| **RD-2** | **RESOLVED PT10.1.** `/services*` liefert für den Hub und reale Service-Slugs direkte serverseitige 301 auf locale-aware `/diagnostics*`; die Client-`Navigate`-Brücke ist entfernt.              | `e2e/url-smoke.spec.ts`            |
+| **RD-3** | **PARTIALLY RESOLVED PT10.1.** Redirect-Status, `Location`, Query, Hop, Ziel-200 und unbekannte Service-404 sind exakt gegated; die breite Route-/404-Statusmatrix bleibt PT10.4.                 | `e2e/url-smoke.spec.ts`            |
 | **RD-4** | **`reuseExistingServer: !process.env.CI`** in `playwright.config.ts`: auf jeder Maschine mit Dienst auf Port 3000 läuft die Suite gegen eine fremde Anwendung — auf dem Analyse-Host nachgewiesen | `QUALITY-BASELINE-LIVE.md` §13.2   |
 | **RD-5** | **Such-Index unvollständig und mit totem Ziel.** `useSearch.ts` führt 6 statische Pfade gegen 38 Sitemap-Pfade und den Service `sports` (`:87`), den `services.tsx` nicht kennt                   | AP07 PT07.1.9                      |
-| **RD-6** | **Consumer wird auf `/en/` zwangsumgeleitet** (`server.ts`, zwei 301-Zweige) und steht nur einsprachig in der Sitemap — gegen `REST-03`                                                           | AP21 PT21.1.8                      |
+| **RD-6** | **RESOLVED AP08/AP09; PT10.1 regressionsgeprüft.** Consumer bleibt x10 locale-treu, indexierbar und sitemap-geführt; kein EN-Zwang.                                                               | `e2e/pt08-4-routing.spec.ts`       |
 | **RD-7** | **Veralteter Codekommentar:** `server.ts` spricht von _„27 routes × 10 = 270 URLs"_; gemessen sind **335 `<loc>`**                                                                                | `QUALITY-BASELINE-LIVE.md` §13.3 F |
 
-Diese Schulden sind **Ist-Zustand**, kein erlaubtes Zielverhalten. Sie werden von AP10 (RD-1, RD-2, RD-7),
-AP07 (RD-5), AP21/AP08 (RD-6) und AP27 (RD-3, RD-4) aufgelöst.
+Offene Zeilen sind **Ist-Zustand**, kein erlaubtes Zielverhalten. RD-2 und RD-6 sind geschlossen;
+RD-3 ist für Redirects geschlossen und bleibt für die breite Statusmatrix bei PT10.4.
 
 ### 5.1 Routing-Schulden aus AP02 PT02.2 (erhoben 2026-08-24)
 
@@ -412,12 +456,12 @@ Ist-Zustand aus §3.1. **Kein zulässiges Zielverhalten**; in PT02.2 bewusst **n
 | **RD-10** | **Acht Routenspiegel statt vier** — zu `App.tsx`, `server.ts`, `useSearch.ts` und `SEOHead.tsx` (`RD-1`) kommen die drei Sitemap-Tabellen, `Header.tsx`/`Footer.tsx` und `e2e/url-smoke.spec.ts`. Eine neue Route verlangt heute bis zu acht koordinierte Handeingriffe.                 | R-24, R-25         | **AP10** mit AP06/AP07/AP27     |
 | **RD-11** | **Epigenetik hängt navigatorisch unter Diagnostik** — `Header.tsx` führt `/epigenetics` und `/epigenetics#musterbefunde` als Kinder des `/diagnostics`-Menüpunkts. Die **Routen** sind bereits eigenständig; der Widerspruch zu `DEC-RL-005` besteht auf IA-/Navigationsebene.           | R-53, `DEC-RL-005` | **AP03**/**AP06** mit AP15      |
 | **RD-12** | **Search führt einen eigenen Pfadkatalog** — sechs handgeschriebene statische Pfade, ein auskommentierter `/casestudys/32reasons` und der tote Service `sports` ohne Route (bereits `RD-5`).                                                                                             | R-50               | **AP07 PT07.1**                 |
-| **RD-13** | **Der einzige Routen-Guard prüft keine Statuscodes** — `e2e/url-smoke.spec.ts` listet 15 statische, 2 dynamische Routen und 2 Redirects von Hand und sichert `status < 400` bzw. „URL enthält Ziel" zu. Ein 301 statt 200 und eine Soft-404 bestünden ihn (verschärft `RD-3`).           | R-25, T-11         | **AP27 PT27.5**                 |
+| **RD-13** | **PARTIALLY RESOLVED PT10.1** — `e2e/url-smoke.spec.ts` prüft primäre Redirects mit exaktem Status/Location/Hop/Ziel sowie unbekannte Service-Slugs; die vollständige Registry-generierte Testmatrix bleibt PT10.3/PT10.4.                                                               | R-25, T-11         | **AP10 PT10.3/PT10.4**          |
 | **RD-14** | **Musterbefund-Daten decken die beworbene Locale-Menge nicht** — `src/content/befunde/` führt sechs Panels in **`de` und `en`**, während die sechs Routen × 10 in der Sitemap stehen und hreflang × 10 tragen. Locale-Policy und Datenlage weichen auseinander (`SEO-CONTRACT.md` S-03). | R-44, `DEC-RL-001` | **AP08**/**AP16**               |
 
-Auch diese Schulden sind **Ist-Zustand**, kein erlaubtes Zielverhalten. `RD-2` (`/services*` ist keine
-echte HTTP-Brücke) und `RD-6` (Consumer-Zwang auf `/en/`) bleiben unverändert bestehen und sind mit
-R-38 bzw. R-52 nun ausdrücklich als Zielverletzung benannt.
+Auch diese Schulden sind **Ist-Zustand**, kein erlaubtes Zielverhalten. Die ehemals zugehörigen
+Laufzeitverletzungen RD-2 (`/services*`) und RD-6 (Consumer→EN) sind inzwischen aufgelöst; die
+Registry-/Spiegel-Schulden bleiben bis PT10.3 ausdrücklich offen.
 
 ---
 
