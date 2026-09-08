@@ -436,3 +436,152 @@ Widerspruch wäre ein Wahrheitsfehler, kein Formulierungsproblem.
 
 **Drift-Signale:** Änderungen an `shell.tsx`, `products.ts`, `check-seo.ts` oder
 `CONSUMER_PRODUCT_LABELS`.
+
+---
+
+## 11. Delta PT21.4 — Inside-Out Care Duo ×10 (2026-09-08)
+
+**HEAD:** `ebf4380146d6cd3b57c4a62a466004e71ff7c5be` · Branch `console/19-25-2026-09-02T08-36-17`
+
+### 11.1 Ausgangsmessung
+
+`duo.*` umfasst **61 Schlüssel in allen zehn Locales**, identische Struktur. Sechs Strings sind in
+einzelnen Sprachen mit dem Deutschen identisch — jeder einzeln geprüft und begründet:
+
+| Schlüssel                            | Locales    | Grund                                                         |
+| ------------------------------------ | ---------- | ------------------------------------------------------------- |
+| `copy_002` "Routine"                 | en, fr, it | dasselbe Wort in allen vier Sprachen                          |
+| `copy_017` "Shop Duo"                | en, da     | "Shop" ist im Deutschen und Dänischen gebräuchliches Lehnwort |
+| `copy_028` "1 × Vitamin D3+K2 Spray" | en, da     | Ziffer plus Produktname                                       |
+
+Kein Fallback. Die Lücke lag wie bei Spray und Masken im Code.
+
+### 11.2 Was gefunden und behoben wurde
+
+| ID      | Befund                                                                                                                                                                                 | Behebung                                                                          |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `DU-01` | `Product.name` war `copy_019` = die H1-Marketingzeile ("Unterstützung von innen. Feuchtigkeitsspendende Pflege von außen.") — **zum dritten Mal dasselbe Muster** nach Spray und Masks | Schema und Breadcrumb nennen `copy_018` = "Inside-Out-Pflege-Duo"                 |
+| `DU-02` | `formatCurrency(49.9)` und `formatCurrency(2)` standen als Literale im JSX                                                                                                             | beide aus dem Produktmodell, jeweils mit Beleg bzw. ausdrücklicher Nicht-Belegung |
+| `DU-03` | `'1 + 5'` als Literal in der Kennzahl                                                                                                                                                  | `duo.stats.bundle_value` × 10                                                     |
+| `DU-04` | OG-Maße als Literale `1122`/`1402`                                                                                                                                                     | aus dem Modell, gegen die Datei gemessen (duo-hero: 1122×1402)                    |
+
+**Gemessen, nicht angenommen:** horizontaler Überlauf bei 390/768/1440 in de/pl/cs = **0** und Axe
+serious/critical = **0** — beides war bereits in Ordnung und musste nicht geändert werden.
+
+### 11.3 Der erste belegte Preis der Consumer-Strecke
+
+Anders als bei Spray (169 €) und Masks (45 €), wo der Preis **nur** im Quelltext stand und deshalb
+entfernt wurde, ist der Duo-Paketpreis **echt belegt**: **49,90 € stehen in `duo.copy_016` in
+allen zehn Locales** — derselbe Text dient als SEO-Beschreibung.
+
+Das Produktmodell wurde deshalb erweitert: `listPrice` war bis PT21.3 schlicht der Typ `null`,
+weil es keinen belegten Preis gab. Jetzt trägt jeder Preis seinen Nachweis mit sich
+(`ConsumerPrice` mit `evidence` und `evidenceKey`). Der Test prüft, dass der Betrag aus dem
+Modell **tatsächlich in der freigegebenen Copy jeder Locale vorkommt**.
+
+**Ehrlich als ungedeckt geführt — `DUO_MONTHLY_ADD_ON` (2 €/Monat):** dieser Betrag füllt
+`duo.bundle_lead` ("… für nur {{price}} pro Monat") und stammt **ausschließlich aus dem
+Quelltext**. Zwei Stellen im Repository flaggen ihn selbst als offen: der CONFIRM-Kommentar in
+`PriceBadge.tsx\* ("final figure for the Duo add-on per month?") und ein
+`{/_ CONFIRM: €2/month … _/}`direkt über dem Abschnitt in`DuoPage.tsx`.
+
+Er wird **weiter angezeigt** — er ist bestehender Bestand und keine Erfindung dieses Tasks —, ist
+aber im Modell als `CODE_ONLY_UNVERIFIED` markiert und owner-bound. Ein Test hält beides fest:
+die Markierung und dass das CONFIRM-Flag noch offen steht.
+
+**Kein `offers` im Schema.** Auch der belegte Preis wandert nicht in `Product.offers`, solange
+Verfügbarkeit und Konditionen nicht belegt sind — ein `offers`-Block ohne `availability` wäre
+eine Aussage, die niemand deckt.
+
+### 11.4 Bundle-Wahrheit
+
+Das Duo enthält **1 Spray-Flasche** (nicht den 12er-Pack) **+ 1 Box mit 5 Masken**. Diese Aussage
+ist an drei unabhängigen Stellen deckungsgleich:
+
+- freigegebene Copy: `copy_004`, `copy_025`, `copy_058`
+- Server-Allowlist: `CONSUMER_PRODUCT_LABELS.duo = 'Inside-Out Care Duo (1 spray + 5 masks)'`
+- Produktmodell: `components: [{ of: 'spray', quantity: 1 }, { of: 'masks', quantity: 5 }]`
+
+Das Modell wurde dafür um `ConsumerBundleComponent` erweitert (erlaubter Delta: "small shared
+product model delta if bundle semantics require it"). Jeder Bestandteil verweist auf die
+**Produktkennung**, aus der er stammt — damit eine Aussage über den Packungsinhalt nicht der
+Wahrheit des Einzelprodukts widersprechen kann. Der Test prüft zusätzlich, dass die sichtbare
+Zusammensetzung **keinen 12er-Pack** als Bundle-Inhalt behauptet; `copy_014` erwähnt den 12er-Pack
+korrekt nur als **separat bestellbare** Alternative.
+
+### 11.5 Claim-Sicherheit
+
+Alle 61 Schlüssel × 10 geprüft: **kein Rabatt, keine Ersparnis, keine Verfügbarkeits- oder
+Lieferzusage, keine Bewertung, kein GTIN/SKU** — und keine medizinische Aussage außerhalb der zwei
+Pflichthinweise `duo.copy_008` und `duo.copy_059`, die dort ihre eigene Anwendung verneinen.
+Das Prüfmuster ist wie in PT21.3 sprachbewusst.
+
+### 11.6 Bestellkontext
+
+Der Client sendet `product: 'duo'` — stabil und serverseitig allowlistet. Die bekannte Abweichung
+zwischen Bestell-ID (`duo`) und Route-Slug (`inside-out-duo`) bleibt **PT21.5**.
+
+### 11.7 Nachweise
+
+`npx vitest run src/content/consumer/products.test.ts` → **26/26** (8 Spray + 9 Masks + 9 Duo):
+Vollständigkeit ×10 · Struktur · kein DE-Fallback mit drei begründeten Kognaten · **Bundle
+deckungsgleich mit Einzelprodukten und Server-Allowlist** · belegter Paketpreis gegen die Copy jeder
+Locale · ungedeckter Zusatzbetrag ehrlich markiert · keine medizinische Aussage außerhalb der
+Pflichthinweise · stabile Identität · Medienmaße aus dem JPEG.
+
+`npx playwright test --config e2e/pt21.4.config.ts` → **8/8**: Schema ×10 ohne `offers` ·
+**genau zwei Euro-Beträge im Dokument** (49,90 € und 2 €), kein Rabatt-/Verfügbarkeitsversprechen ·
+Bundle sichtbar als 1 + 5 ×10 · sichtbarer Inhalt ×10 · Bestellkontext mit abgefangenem Request ·
+Überlauf 0 · Axe 0 · Hero eager, übrige Bilder lazy.
+
+Ohne Regression: Spray-Suite 8/8 · Masks-Suite 8/8 · Shell-Suite 8/8 · Unit/Node **283/283** ·
+`check:routes` · `check:i18n` · `check:seo` (G3: Consumer 3×10) · `check:colors` ·
+`check:search-index` · `typecheck` · ESLint · Prettier. **Kein voller Produktionsbuild.**
+
+### 11.8 Offene, ownergebundene Punkte
+
+| ID      | Sachverhalt                                                                                                                                                                                                                                                                                                                                                                                    | Owner               |
+| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `DU-05` | **2 €/Monat Zusatzbetrag unbelegt** — zwei CONFIRM-Flags im Repository stehen offen                                                                                                                                                                                                                                                                                                            | Marketing           |
+| `DU-06` | `duo.copy_016` schreibt "49,90 €" in **allen** Locales, während die Oberfläche über `Intl` lokal formatiert (en "€49.90", pt/nl "€ 49,90"). Auf derselben Seite erscheinen dadurch in en/pt/nl zwei Schreibweisen desselben Betrags. Der **Betrag** ist identisch und belegt; nur die Schreibweise divergiert — eine Copy-Korrektur über zehn Locales gehört dem Copy-Owner, nicht diesem Task | Copy-Owner / PT21.6 |
+
+### 11.9 Handoff PT21.5 — Consumer Ordering
+
+**Primary Write Set:** `server/server.js` (`/api/consumer-order`) · `server/lead-foundation/**` ·
+`src/api/consumerOrder.ts` · `src/pages/consumer/OrderForm.tsx` / `OrderModal.tsx` ·
+`src/content/consumer/products.ts` (Varianten-/Mengen-Allowlist) · PT21.5-eigene Tests.
+
+**ORDERING CURRENT PATH — Ist-Zustand (aus PT21.1 §4, unverändert gültig):**
+
+| Aspekt            | Ist                                                                    | Bewertung                 |
+| ----------------- | ---------------------------------------------------------------------- | ------------------------- |
+| UI                | `OrderModal` + `OrderForm`                                             | vorhanden                 |
+| Client-API        | `src/api/consumerOrder.ts` → `POST /api/consumer-order`                | vorhanden                 |
+| Endpunkt          | `server/server.js`                                                     | **Legacy-Mailendpunkt**   |
+| Persistenz        | **keine** — 0 Aufrufe von `LeadRepository`/`createLead`                | **fehlt**                 |
+| CRM/Outbox        | **keine** — nur `sgMail.send`                                          | **fehlt**                 |
+| Retry             | **keiner**                                                             | **fehlt**                 |
+| Idempotency       | **keine** — kein `Idempotency-Key`                                     | **fehlt**                 |
+| Rate Limit        | **keiner** — ohne `formLimiter` montiert                               | **fehlt**                 |
+| Honeypot          | `_hp`, stilles 200                                                     | vorhanden                 |
+| Consent           | `consent !== true` → 400; **keine** Trennung Processing/Marketing      | **unvollständig**         |
+| Produkt-Allowlist | `CONSUMER_PRODUCT_LABELS` (spray/masks/duo)                            | vorhanden                 |
+| Mengen-Allowlist  | **keine** — `quantity`/`quantityLabel` kommen ungeprüft aus dem Client | **fehlt**                 |
+| Tracking          | `tracking.ts` schreibt direkt in `window.dataLayer`                    | **nicht consent-geprüft** |
+
+**Die Journey existiert bereits in der Foundation:** `consumer_order` steht in
+`LEAD_JOURNEYS` und hat in `crm.js` das CRM-Ziel `consumer`. Der Endpunkt benutzt beides
+nicht. **Konsumieren, nicht neu bauen** — AP22 bleibt Owner der Cross-Journey-Plattform.
+
+**Direkt zu konsumieren, nicht neu erheben:** Route-Baseline (§1) · Shell (§2) · SEO-Baseline (§5) ·
+Produktmodell samt Preis-, Provenienz- und Bundle-Semantik (§9.3, §11.3, §11.4) · die drei
+bewiesenen Produkt-Suiten.
+
+**Offenes PT21.5-Delta:** Persistenz vor externem Handoff · durable Idempotency · Retry/Outbox ·
+Rate Limit · **Mengen-/Varianten-Allowlist serverseitig** · Processing- getrennt von
+Marketing-Consent · Ordering ohne Analytics-Consent lauffähig · pre-consent Provider-Requests 0 ·
+Bestell-ID vs. Route-Slug entscheiden (`spray`/`masks`/`duo` gegen `vitamin-d3-spray`/
+`hydrating-masks`/`inside-out-duo`).
+
+**Drift-Signale:** Änderungen an `products.ts`, `CONSUMER_PRODUCT_LABELS`,
+`server/lead-foundation/**` oder `check-seo.ts`.

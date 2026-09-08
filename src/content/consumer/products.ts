@@ -49,6 +49,23 @@ export interface ConsumerProductFact {
   readonly evidence: FactEvidence
 }
 
+/**
+ * Ein Preis, der wirklich freigegeben ist.
+ *
+ * Bis PT21.3 war `listPrice` schlicht `null` — weder Spray noch Masken hatten
+ * einen belegten Preis, beide trugen nur ein Literal im JSX. Das Duo ist der
+ * erste Fall mit echter Quelle: der Paketpreis steht in `duo.copy_016` in
+ * allen zehn Locales. Deshalb traegt jeder Preis hier seinen Beleg mit sich.
+ */
+export interface ConsumerPrice {
+  /** Betrag in der angegebenen Waehrung. Formatierung macht die Oberflaeche. */
+  readonly amount: number
+  readonly currency: 'EUR'
+  readonly evidence: FactEvidence
+  /** i18n-Schluessel, in dem der Betrag freigegeben steht — oder `null`. */
+  readonly evidenceKey: string | null
+}
+
 export interface ConsumerProduct {
   /** Kanonischer Route-Slug: `/{locale}/consumer/<slug>`. */
   readonly slug: string
@@ -78,7 +95,23 @@ export interface ConsumerProduct {
    * Listenpreis. `null` heisst: es gibt keinen belegten Preis — und dann wird
    * auch keiner gerendert. Kein Platzhalter, keine Schaetzung.
    */
-  readonly listPrice: null
+  readonly listPrice: ConsumerPrice | null
+  /**
+   * Bestandteile eines Bundles. Leer bei Einzelprodukten. Jeder Bestandteil
+   * verweist auf die Produktkennung, aus der er stammt — damit eine Aussage
+   * ueber den Packungsinhalt nicht der Wahrheit des Einzelprodukts
+   * widersprechen kann.
+   */
+  readonly components: readonly ConsumerBundleComponent[]
+}
+
+export interface ConsumerBundleComponent {
+  /** Bestell-ID des enthaltenen Produkts. */
+  readonly of: ConsumerProductKey
+  /** Stueckzahl dieses Bestandteils im Bundle. */
+  readonly quantity: number
+  /** i18n-Schluessel der sichtbaren Beschreibung. */
+  readonly labelKey: string
 }
 
 export const SPRAY_PRODUCT: ConsumerProduct = {
@@ -153,6 +186,7 @@ export const SPRAY_PRODUCT: ConsumerProduct = {
     },
   ],
   listPrice: null,
+  components: [],
 }
 
 export const MASKS_PRODUCT: ConsumerProduct = {
@@ -198,11 +232,71 @@ export const MASKS_PRODUCT: ConsumerProduct = {
   // Wahrheit, kein Platzhalter.
   specs: [],
   listPrice: null,
+  components: [],
 }
 
-export const CONSUMER_PRODUCTS: Readonly<Record<'spray' | 'masks', ConsumerProduct>> = {
+export const DUO_PRODUCT: ConsumerProduct = {
+  slug: 'inside-out-duo',
+  orderId: 'duo',
+  // Zum dritten Mal dasselbe Muster: `copy_019` ist die H1-Marketingzeile
+  // ("Unterstuetzung von innen. Feuchtigkeitsspendende Pflege von aussen."),
+  // `copy_018` der Produktname.
+  nameKey: 'duo.copy_018',
+  headlineKey: 'duo.copy_019',
+  seoTitleKey: 'duo.copy_015',
+  seoDescriptionKey: 'duo.seo_description',
+  hero: {
+    src: '',
+    altKey: 'duo.copy_023',
+    width: 1122,
+    height: 1402,
+  },
+  gallery: [],
+  stats: [
+    {
+      labelKey: 'duo.copy_027',
+      valueKey: 'duo.stats.bundle_value',
+      evidence: 'APPROVED_LOCALE_COPY',
+    },
+  ],
+  specs: [],
+  // Der Paketpreis ist der erste belegte Preis der Consumer-Strecke: er steht
+  // in `duo.copy_016` in allen zehn Locales, nicht nur im Quelltext.
+  listPrice: {
+    amount: 49.9,
+    currency: 'EUR',
+    evidence: 'APPROVED_LOCALE_COPY',
+    evidenceKey: 'duo.copy_016',
+  },
+  // 1 Spray-Flasche (nicht der 12er-Pack) plus eine Box mit 5 Masken —
+  // deckungsgleich mit `CONSUMER_PRODUCT_LABELS.duo` auf dem Server und mit
+  // der freigegebenen Copy (`copy_004`, `copy_025`, `copy_058`).
+  components: [
+    { of: 'spray', quantity: 1, labelKey: 'duo.copy_028' },
+    { of: 'masks', quantity: 5, labelKey: 'duo.copy_029' },
+  ],
+}
+
+export const CONSUMER_PRODUCTS: Readonly<Record<ConsumerProductKey, ConsumerProduct>> = {
   spray: SPRAY_PRODUCT,
   masks: MASKS_PRODUCT,
+  duo: DUO_PRODUCT,
+}
+
+/**
+ * Der monatliche Zusatzpreis, mit dem `duo.bundle_lead` befuellt wird.
+ *
+ * ACHTUNG, bewusst als ungedeckt gefuehrt: die Zahl stammt aus dem Quelltext,
+ * nicht aus freigegebener Copy. `PriceBadge.tsx` traegt dazu ein offenes
+ * CONFIRM-Flag ("final figure for the Duo add-on per month?"). Sie wird weiter
+ * angezeigt, weil sie bestehender Bestand ist — aber sie ist owner-bound und
+ * darf nicht als bestaetigt gelten.
+ */
+export const DUO_MONTHLY_ADD_ON: ConsumerPrice = {
+  amount: 2,
+  currency: 'EUR',
+  evidence: 'CODE_ONLY_UNVERIFIED',
+  evidenceKey: null,
 }
 
 /** Alle i18n-Schluessel eines Produkts — Grundlage der x10-Vollstaendigkeitspruefung. */

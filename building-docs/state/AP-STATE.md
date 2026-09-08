@@ -11,9 +11,9 @@ kein `work-packages/APxx-STATE.md`).
 - Work package: **AP21 — Consumer-Landingpages als 10-sprachiger SEO-Bereich**
 - Status: **IN_PROGRESS** <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
 - Predecessor: **AP20 COMPLETE / Closure PASS (CORP 40/40 · C20 50/50, 2026-09-08)**
-- Last completed task: **PT21.3 (PASS, 2026-09-08)**
-- Last completed PT: **PT21.3 (PASS, 2026-09-08)**
-- Next task: **PT21.4**
+- Last completed task: **PT21.4 (PASS, 2026-09-08)**
+- Last completed PT: **PT21.4 (PASS, 2026-09-08)**
+- Next task: **PT21.5**
 - PT20.1: **PASS** · PT20.2: **PASS** · PT20.3: **PASS** · PT20.4: **PASS** ·
   AP20 Closure: **PASS (CORP 40/40 · C20 50/50, 2026-09-08)**
 - PT19.1: **PASS** · PT19.2: **PASS** · PT19.3: **PASS** · PT19.4: **PASS** ·
@@ -26,9 +26,31 @@ kein `work-packages/APxx-STATE.md`).
 - AP20: **COMPLETE (Closure PASS, 2026-09-08)** — About, Contact, Support und Legal fertig;
   unabhaengiger finaler Gate neu gemessen: CORP-01..40 PASS, C20-01..50 PASS, DoD 54/54.
   Details siehe PT20.1–PT20.4-Eintraege und Contract §13 unten.
-- AP21: **IN_PROGRESS (PT21.1 PASS · PT21.2 PASS · PT21.3 PASS, 2026-09-08)** — PT21.4: **NOT
+- AP21: **IN_PROGRESS (PT21.1–PT21.4 PASS, 2026-09-08)** — PT21.5: **NOT
   STARTED** · PT21.4: **NOT STARTED** · PT21.5: **NOT STARTED** · PT21.6: **NOT STARTED** ·
   PT21.7: **NOT STARTED** · AP21 Closure: **NOT STARTED**
+- Inside-Out-Care-Duo: **ACTIVE / PT21.4 PASS** — 61 `duo.*`-Schluessel x10 mit identischer
+  Struktur; sechs Strings sind in einzelnen Sprachen mit DE identisch und wurden einzeln begruendet
+  ("Routine" in de/en/fr/it, das Lehnwort "Shop Duo" in de/da, "1 × Vitamin D3+K2 Spray" als Ziffer
+  plus Produktname) — kein Fallback. Zum dritten Mal nannte das Product-Schema die
+  H1-Marketingzeile als `Product.name`; es nennt jetzt den realen Produktnamen. `formatCurrency`
+  mit den Literalen 49.9 und 2, die Kennzahl `'1 + 5'` und die OG-Masse lagen fest im JSX und
+  kommen jetzt aus dem Produktmodell. Wichtigster Unterschied zu Spray und Masken: der Duo-
+  Paketpreis ist ECHT BELEGT — 49,90 EUR stehen in `duo.copy_016` in allen zehn Locales, weshalb er
+  anders als die unbelegten 169 EUR und 45 EUR NICHT entfernt, sondern mit Nachweis ins Modell
+  aufgenommen wurde; ein Test prueft, dass der Betrag in der freigegebenen Copy JEDER Locale
+  wirklich vorkommt. Der monatliche Zusatzbetrag von 2 EUR dagegen stammt nur aus dem Quelltext:
+  das Repository flaggt ihn an zwei Stellen selbst als offen (CONFIRM in `PriceBadge.tsx` und ein
+  CONFIRM-Kommentar in `DuoPage.tsx`). Er bleibt sichtbar, weil bestehender Bestand, ist aber als
+  `CODE_ONLY_UNVERIFIED` markiert und owner-bound. Kein `offers` im Schema, solange Verfuegbarkeit
+  und Konditionen unbelegt sind. Bundle-Wahrheit an drei Stellen deckungsgleich geprueft: die
+  freigegebene Copy, die Server-Allowlist und das neue `components`-Feld im Modell nennen
+  uebereinstimmend 1 Spray-Flasche plus 1 Box mit 5 Masken — ausdruecklich NICHT den 12er-Pack,
+  der in `copy_014` korrekt nur als separat bestellbare Alternative erscheint. Ueberlauf bei
+  390/768/1440 und Axe serious/critical wurden gemessen und waren bereits 0. Tests: Inhaltstest
+  26/26 (Spray+Masks+Duo), Browsertest 8/8, alle drei Produkt-Suiten und die Shell-Suite ohne
+  Regression, Unit/Node 283/283, alle Guards gruen. Kein voller Produktionsbuild. AP21 bleibt
+  IN_PROGRESS, PT21.5 ist die naechste Aufgabe und AP22 bleibt NOT STARTED.
 - Hydrating-Masks: **ACTIVE / PT21.3 PASS** — die Locale-Dateien waren wie beim Spray sauber
   (89 `mask.*`-Schluessel x10, identische Struktur); genau ein nl-String ist mit DE identisch,
   "Reinigen" ist im Niederlaendischen aber dasselbe Wort — ein echtes Kognat, kein Fallback, und

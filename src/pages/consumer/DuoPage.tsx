@@ -32,6 +32,7 @@ import {
   Pills,
   Section,
 } from './shell'
+import { DUO_MONTHLY_ADD_ON, DUO_PRODUCT } from '../../content/consumer/products'
 import { OrderModalProvider } from './OrderModal'
 import { PriceBadge } from './PriceBadge'
 import { useConsumerPageView } from './tracking'
@@ -74,8 +75,13 @@ export default function DuoPage() {
 
 function DuoPageInner() {
   const { t, i18n } = useTranslation('consumer')
-  const duoPrice = formatCurrency(49.9, i18n.resolvedLanguage)
-  const monthlyAddOn = formatCurrency(2, i18n.resolvedLanguage)
+  // Beide Betraege kommen jetzt aus dem Produktmodell und tragen dort ihren
+  // Beleg: der Paketpreis ist durch `duo.copy_016` in allen zehn Locales
+  // gedeckt, der monatliche Zusatzbetrag ist ausdruecklich NICHT gedeckt und
+  // als `CODE_ONLY_UNVERIFIED` markiert (offenes CONFIRM-Flag in PriceBadge).
+  const duoPrice = formatCurrency(DUO_PRODUCT.listPrice!.amount, i18n.resolvedLanguage)
+  const monthlyAddOn = formatCurrency(DUO_MONTHLY_ADD_ON.amount, i18n.resolvedLanguage)
+  const productName = t(DUO_PRODUCT.nameKey)
   const seoTitle = t('duo.copy_015')
   const seoDescription = t('duo.seo_description', { price: duoPrice })
   const socialImageAlt = t('duo.copy_023')
@@ -90,20 +96,22 @@ function DuoPageInner() {
         ogType="product"
         ogImage={duoHero}
         ogImageAlt={socialImageAlt}
-        ogImageWidth={1122}
-        ogImageHeight={1402}
+        ogImageWidth={DUO_PRODUCT.hero.width}
+        ogImageHeight={DUO_PRODUCT.hero.height}
         structuredData={[
           createProductSchema({
-            name: t('duo.copy_019'),
+            // `copy_019` ist die H1-Marketingzeile, nicht der Produktname —
+            // derselbe Befund wie bei Spray und Masken.
+            name: productName,
             description: seoDescription,
             image: duoHero,
-            url: '/consumer/inside-out-duo',
+            url: `/consumer/${DUO_PRODUCT.slug}`,
             language: i18n.resolvedLanguage,
           }),
           createBreadcrumbSchema(
             [
               { name: t('common:nav.home'), url: '/' },
-              { name: t('duo.copy_019'), url: '/consumer/inside-out-duo' },
+              { name: productName, url: `/consumer/${DUO_PRODUCT.slug}` },
             ],
             i18n.resolvedLanguage,
           ),
@@ -129,12 +137,15 @@ function DuoPageInner() {
         secondary={{ label: t('duo.copy_001'), href: '#included' }}
         image={{
           src: duoHero,
-          alt: t('duo.copy_023'),
+          alt: t(DUO_PRODUCT.hero.altKey),
         }}
         price={{ amount: duoPrice, unit: t('duo.copy_024') }}
         priceBadge={<PriceBadge product="duo" />}
         highlights={[t('duo.copy_025'), t('duo.copy_026'), t('spray.copy_057')]}
-        floatingStat={{ value: '1 + 5', label: t('duo.copy_027') }}
+        floatingStat={{
+          value: t(DUO_PRODUCT.stats[0].valueKey),
+          label: t(DUO_PRODUCT.stats[0].labelKey),
+        }}
       />
       <FactStrip items={[t('duo.copy_028'), t('duo.copy_029'), t('duo.copy_030')]} />
 

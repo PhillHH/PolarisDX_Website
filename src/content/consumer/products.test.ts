@@ -3,7 +3,14 @@ import { describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
 
 import { SUPPORTED_LANGUAGES } from '../../i18n'
-import { MASKS_PRODUCT, SPRAY_PRODUCT, productContentKeys } from './products'
+import {
+  CONSUMER_PRODUCTS,
+  DUO_MONTHLY_ADD_ON,
+  DUO_PRODUCT,
+  MASKS_PRODUCT,
+  SPRAY_PRODUCT,
+  productContentKeys,
+} from './products'
 
 /**
  * AP21 PT21.2 — Produktwahrheit des Vitamin-D3-Sprays.
@@ -307,5 +314,160 @@ describe('PT21.3 Hydrating Masks — Inhalt', () => {
       (fact) => fact.evidence === 'CODE_ONLY_UNVERIFIED',
     )
     expect(unverified).toEqual([])
+  })
+})
+
+describe('PT21.4 Inside-Out Care Duo — Inhalt', () => {
+  const duoKeys = (locale: string) => namespaceKeys(locale, 'duo.')
+
+  it('kennt alle Produktschluessel in allen zehn Locales, nicht leer', () => {
+    for (const locale of SUPPORTED_LANGUAGES) {
+      for (const key of productContentKeys(DUO_PRODUCT)) {
+        expect(text(locale, key).trim(), `${locale}: ${key}`).not.toBe('')
+      }
+      for (const component of DUO_PRODUCT.components) {
+        expect(
+          text(locale, component.labelKey).trim(),
+          `${locale}: ${component.labelKey}`,
+        ).not.toBe('')
+      }
+    }
+  })
+
+  it('hat in allen zehn Locales dieselbe Schluesselstruktur', () => {
+    const reference = duoKeys('de').sort()
+    expect(reference.length).toBeGreaterThan(60)
+    for (const locale of SUPPORTED_LANGUAGES) {
+      expect(duoKeys(locale).sort(), locale).toEqual(reference)
+    }
+  })
+
+  it('reicht keine deutsche Fassung als Fallback durch', () => {
+    // Drei Strings sind in einzelnen Sprachen mit dem Deutschen identisch —
+    // geprueft und begruendet, nicht uebersehen:
+    //  - `copy_002` "Routine" ist in de, en, fr und it dasselbe Wort.
+    //  - `copy_017` "Shop Duo" nutzt das im Deutschen und Daenischen
+    //    gebraeuchliche Lehnwort "Shop".
+    //  - `copy_028` "1 × Vitamin D3+K2 Spray" ist Ziffer plus Produktname.
+    const neutral = new Set(['duo.stats.bundle_value'])
+    const cognates: Record<string, Set<string>> = {
+      en: new Set(['duo.copy_002', 'duo.copy_017', 'duo.copy_028']),
+      fr: new Set(['duo.copy_002']),
+      it: new Set(['duo.copy_002']),
+      da: new Set(['duo.copy_017', 'duo.copy_028']),
+    }
+    for (const locale of SUPPORTED_LANGUAGES) {
+      if (locale === 'de') continue
+      const copied = duoKeys('de').filter(
+        (key) =>
+          !neutral.has(key) &&
+          !cognates[locale]?.has(key) &&
+          text('de', key).length > 3 &&
+          text(locale, key) === text('de', key),
+      )
+      expect(copied, `${locale}: DE-Kopien`).toEqual([])
+    }
+  })
+
+  it('beschreibt das Bundle deckungsgleich mit den Einzelprodukten', () => {
+    // Das Duo enthaelt EINE Spray-Flasche — nicht den 12er-Pack — und eine Box
+    // mit fuenf Masken. Ein Widerspruch waere ein Wahrheitsfehler.
+    expect(DUO_PRODUCT.components.map((component) => component.of)).toEqual(['spray', 'masks'])
+    expect(DUO_PRODUCT.components.map((component) => component.quantity)).toEqual([1, 5])
+    for (const component of DUO_PRODUCT.components) {
+      expect(CONSUMER_PRODUCTS[component.of], `${component.of} existiert`).toBeTruthy()
+    }
+    // Der Server beschreibt dasselbe Bundle.
+    const server = readFileSync('server/server.js', 'utf8')
+    const start = server.indexOf('const CONSUMER_PRODUCT_LABELS')
+    const allowlist = server.slice(start, start + 400)
+    expect(allowlist).toContain('1 spray + 5 masks')
+
+    for (const locale of SUPPORTED_LANGUAGES) {
+      // Die sichtbare Zusammensetzung nennt beide Zahlen.
+      const summary = `${text(locale, 'duo.copy_004')} ${text(locale, 'duo.copy_058')}`
+      expect(summary, `${locale}: 1 Spray`).toMatch(/\b1\b/u)
+      expect(summary, `${locale}: 5 Masken`).toMatch(/\b5\b/u)
+      // Und behauptet nirgends einen 12er-Pack als Bundle-Inhalt.
+      expect(text(locale, 'duo.copy_004'), `${locale}: kein 12er-Pack im Inhalt`).not.toMatch(
+        /\b12\b/u,
+      )
+    }
+  })
+
+  it('nennt nur den belegten Paketpreis und keinen erfundenen Rabatt', () => {
+    // Anders als Spray und Masken hat das Duo einen ECHTEN Preis: er steht in
+    // `duo.copy_016` in allen zehn Locales.
+    expect(DUO_PRODUCT.listPrice).not.toBeNull()
+    expect(DUO_PRODUCT.listPrice?.evidence).toBe('APPROVED_LOCALE_COPY')
+    expect(DUO_PRODUCT.listPrice?.evidenceKey).toBe('duo.copy_016')
+    const amount = DUO_PRODUCT.listPrice!.amount
+    for (const locale of SUPPORTED_LANGUAGES) {
+      const evidence = text(locale, DUO_PRODUCT.listPrice!.evidenceKey as string)
+      // Der Betrag muss in der freigegebenen Copy wirklich vorkommen.
+      expect(evidence.replace(/\s/gu, ''), `${locale}: Preisbeleg`).toContain(
+        amount.toFixed(2).replace('.', ','),
+      )
+    }
+    // Kein Rabatt-, Ersparnis- oder Verfuegbarkeitsversprechen.
+    const forbidden =
+      /\b(rabatt|discount|ersparnis|savings?|spare[nd]?\b|sconto|descuento|desconto|korting|sleva|zniżk\w*|réduction|auf lager|in stock|lieferzeit|delivery time)\b/i
+    for (const locale of SUPPORTED_LANGUAGES) {
+      for (const key of duoKeys(locale)) {
+        expect(forbidden.test(text(locale, key)), `${locale}: ${key}`).toBe(false)
+      }
+    }
+  })
+
+  it('fuehrt den monatlichen Zusatzbetrag ehrlich als ungedeckt', () => {
+    // Die 2 € stammen aus dem Quelltext; `PriceBadge` traegt dazu ein offenes
+    // CONFIRM-Flag. Sie werden weiter angezeigt (bestehender Bestand), aber
+    // nicht als bestaetigt ausgewiesen.
+    expect(DUO_MONTHLY_ADD_ON.evidence).toBe('CODE_ONLY_UNVERIFIED')
+    expect(DUO_MONTHLY_ADD_ON.evidenceKey).toBeNull()
+    const badge = readFileSync('src/pages/consumer/PriceBadge.tsx', 'utf8')
+    expect(badge, 'CONFIRM-Flag noch offen').toContain('final figure for the Duo add-on per month?')
+  })
+
+  it('verstaerkt den Nutzen nicht zu einer medizinischen Aussage', () => {
+    const disclaimers = new Set(['duo.copy_008', 'duo.copy_059'])
+    const shared = 'diagnos\\w*|ekzem|eczema|psoria\\w*|dermatit\\w*'
+    const perLocale: Record<string, string> = {
+      de: 'heilt|heilen|kuriert|therapiert|krankheit|erkrankung',
+      en: 'cures?|treats|treatment|disease|illness',
+      pl: 'lecz\\w*|choroba|choroby',
+      fr: 'guéri\\w*|maladie',
+      it: 'guaris\\w*|guarire|malattia',
+      es: 'curar|enfermedad',
+      pt: 'curar|doença',
+      da: 'helbred\\w*|sygdom',
+      nl: 'genees\\w*|ziekte',
+      cs: 'léčb\\w*|léčí|nemoc',
+    }
+    for (const locale of SUPPORTED_LANGUAGES) {
+      const medical = new RegExp(`\\b(${shared}|${perLocale[locale]})`, 'i')
+      for (const key of duoKeys(locale)) {
+        if (disclaimers.has(key)) continue
+        expect(medical.test(text(locale, key)), `${locale}: ${key}`).toBe(false)
+      }
+      for (const key of disclaimers) {
+        expect(text(locale, key).trim(), `${locale}: ${key}`).not.toBe('')
+      }
+    }
+  })
+
+  it('haelt Identitaet und Bestellkontext stabil', () => {
+    expect(DUO_PRODUCT.slug).toBe('inside-out-duo')
+    const server = readFileSync('server/server.js', 'utf8')
+    const start = server.indexOf('const CONSUMER_PRODUCT_LABELS')
+    expect(server.slice(start, start + 300)).toContain(`${DUO_PRODUCT.orderId}:`)
+    expect(DUO_PRODUCT.orderId).not.toContain(' ')
+  })
+
+  it('bindet Medien an gemessene Dateiabmessungen', () => {
+    expect(jpegSize('src/assets/landingpages-consumer/duo-hero-products-together.jpeg')).toEqual({
+      width: DUO_PRODUCT.hero.width,
+      height: DUO_PRODUCT.hero.height,
+    })
   })
 })

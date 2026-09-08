@@ -264,6 +264,13 @@ const CONSUMER_PAGES = [
     descriptionKey: 'duo.seo_description',
     altKey: 'duo.copy_023',
     asset: 'duo-hero-products-together.jpeg',
+    // AP21 PT21.4: Bildmasse und Slug kommen aus dem Produktmodell; die Masse
+    // werden in `products.test.ts` aus dem JPEG gelesen.
+    markers: [
+      'ogImageWidth={DUO_PRODUCT.hero.width}',
+      'ogImageHeight={DUO_PRODUCT.hero.height}',
+      'url: `/consumer/${DUO_PRODUCT.slug}`',
+    ],
   },
 ] as const
 
