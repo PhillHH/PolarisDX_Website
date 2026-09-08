@@ -230,6 +230,16 @@ const CONSUMER_PAGES = [
     descriptionKey: 'spray.copy_047',
     altKey: 'spray.copy_053',
     asset: 'spray-hero-12pack-office.jpeg',
+    // AP21 PT21.2: die Seite bezieht Bildmasse und Slug aus dem
+    // Produktmodell statt aus Literalen. Die Aussage bleibt dieselbe — die
+    // Masse sind deklariert und stimmen mit der Datei ueberein; belegt wird
+    // das jetzt zusaetzlich in `src/content/consumer/products.test.ts`, wo
+    // sie aus dem JPEG gelesen werden.
+    markers: [
+      'ogImageWidth={SPRAY_PRODUCT.hero.width}',
+      'ogImageHeight={SPRAY_PRODUCT.hero.height}',
+      'url: `/consumer/${SPRAY_PRODUCT.slug}`',
+    ],
   },
   {
     path: '/consumer/hydrating-masks',
@@ -266,13 +276,15 @@ function assertConsumerSeoEvidence(): void {
         path.join(repositoryRoot, 'src/pages/consumer', page.file),
         'utf8',
       )
+      const pageMarkers =
+        'markers' in page
+          ? (page.markers as readonly string[])
+          : ['ogImageWidth={1122}', 'ogImageHeight={1402}', `url: '${page.path}'`]
       for (const marker of [
         'ogType="product"',
         'ogImageAlt={socialImageAlt}',
-        'ogImageWidth={1122}',
-        'ogImageHeight={1402}',
         'createProductSchema({',
-        `url: '${page.path}'`,
+        ...pageMarkers,
       ]) {
         if (!source.includes(marker)) {
           throw new Error(`Consumer SEO source evidence missing in ${page.file}: ${marker}`)

@@ -203,3 +203,118 @@ oder Medical Claims.
 
 **Drift-Signale, bei denen neu zu messen ist:** Änderungen an `routeRegistry.ts`,
 `legacyRedirects.ts`, `App.tsx`, `LanguageSwitcher`, `CookieBanner` oder `Footer`.
+
+---
+
+## 9. Delta PT21.2 — Vitamin D3+K2 Spray ×10 (2026-09-08)
+
+**HEAD:** `f569989a715aea6289d11e140706410a32b2b093` · Branch `console/19-25-2026-09-02T08-36-17`
+
+### 9.1 Ausgangsmessung
+
+`spray.*` umfasst **109 Schlüssel in allen zehn Locales**, identische Struktur, und **0 Strings
+identisch mit der deutschen Fassung**. In den Locale-Dateien gab es also **keinen** kopierten
+Fallback. Die Lücke lag woanders — im Code.
+
+### 9.2 Was gefunden und behoben wurde
+
+| ID      | Befund                                                                                                                                                                                                                                                                             | Behebung                                                                                                         |
+| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `SP-01` | `'1000 IU Vitamin D3 + 25 µg Vitamin K2'` stand als Literal im JSX und wurde damit in **allen zehn Locales englisch** ausgeliefert — obwohl die freigegebene Copy die Einheit lokalisiert (`copy_061`: IE, UI, j.m, IU)                                                            | Wert in i18n überführt: `spray.facts.dosage_value` × 10, Einheit je Locale aus der freigegebenen Copy abgeleitet |
+| `SP-02` | Dieselbe feste Einheit in der Kennzahlenreihe (`'1000 IU'`), dazu `'12'`, `'71'`, `'25 µg'` als Literale                                                                                                                                                                           | `spray.stats.*` × 10; die Reihe kommt jetzt aus dem Produktmodell                                                |
+| `SP-03` | **Listenpreis 169 € im JSX ohne jeden Beleg** — die Zahl kommt in keiner der zehn Locale-Dateien vor, und `PriceBadge` hält für diese Strecke ausdrücklich fest: _"No list price is rendered in the DOM"_; die CONFIRM-Flags dort fragen den finalen 12er-Pack-Listenpreis noch ab | Entfernt. `SPRAY_PRODUCT.listPrice = null` — kein Platzhalter, keine Schätzung                                   |
+| `SP-04` | `Product.name` im Schema war `copy_050` = die H1-Marketingzeile ("Tägliche Unterstützung mit Vitamin D3+K2 leicht gemacht."), nicht der Produktname                                                                                                                                | Schema und Breadcrumb nennen jetzt `copy_049` = "Vitamin D3+K2-Spray"                                            |
+| `CD-01` | 26px horizontaler Überlauf bei 390px (aus PT21.1 übergeben)                                                                                                                                                                                                                        | Spezifikationstabelle stapelt unter `sm`, schmaleres Padding; gemessen 0 bei 390/768/1440 in de/pl/cs            |
+| `CD-02` | Kontrast 3,22:1 im Dosierungshinweis (aus PT21.1 übergeben)                                                                                                                                                                                                                        | `text-gray-600`; Axe serious/critical 0 auf der **ganzen** Seite                                                 |
+
+### 9.3 Gemeinsames Produktmodell
+
+Neu: `src/content/consumer/products.ts` — erste Produktmigration, ausdrücklich für PT21.3/PT21.4
+wiederverwendbar. Es trennt drei Dinge, die vorher im JSX vermischt waren:
+
+- **Identität:** `slug: 'vitamin-d3-spray'` (Route) und `orderId: 'spray'` (Bestellpfad).
+- **Medien:** `width`/`height` **aus der Datei gemessen** (1122×1402), nicht geschätzt; der
+  Inhaltstest liest die Maße zur Laufzeit aus dem JPEG.
+- **Fakten:** ausschließlich i18n-Schlüssel, weil Zahlen lokalisierte Einheiten tragen.
+
+**Provenienz je Zahl** wird ausgewiesen — `APPROVED_LOCALE_COPY` oder
+`CODE_ONLY_UNVERIFIED`. Zwei Werte sind ehrlich als ungedeckt markiert:
+
+| Wert                                         | Status                 | Bemerkung                                                                                                               |
+| -------------------------------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| 1000 IE/IU/UI/j.m                            | `APPROVED_LOCALE_COPY` | durch `spray.copy_061` in allen zehn Locales gedeckt                                                                    |
+| 25 µg K2 (`spray.stats.k2_value`)            | `CODE_ONLY_UNVERIFIED` | stand nur im Quelltext; **weiter sichtbar**, weil bestehender Bestand und keine Erfindung von PT21.2 — aber owner-bound |
+| Dosierungszeile (`spray.facts.dosage_value`) | `CODE_ONLY_UNVERIFIED` | enthält den K2-Wert und erbt dessen Status                                                                              |
+
+**Preis, Angebot, Verfügbarkeit, Lieferzeit, Bewertung, GTIN/SKU und Zertifikat stehen bewusst
+nicht im Modell.** `createProductSchema` gibt konstruktionsbedingt keine `offers`,
+`aggregateRating`, `review`, `gtin` oder `sku` aus.
+
+### 9.4 Claim-Sicherheit
+
+Alle 109 Schlüssel × 10 Locales wurden gegen Muster für Heilaussagen, Vorbeugung, Krankheit,
+Immunwirkung, Garantie, Preis/Angebot, Bewertung, Verfügbarkeit und Zertifikat geprüft:
+**0 echte Treffer**. Drei Regex-Treffer waren Fehlalarme (italienisch "centri benessere",
+französisch "sauf avis contraire") und keine Aussagen im Sinne der Regel.
+
+### 9.5 Bestellkontext
+
+Der Client sendet `product: 'spray'` — eine **stabile, serverseitig in
+`CONSUMER_PRODUCT_LABELS` allowlistete Kennung**, kein freier Produktname. Der Browsertest
+fängt den echten Request ab und prüft die Nutzlast.
+
+**Bekannte Abweichung, bewusst nicht angefasst:** die Bestell-ID (`spray`) unterscheidet sich vom
+Route-Slug (`vitamin-d3-spray`). Ein Angleich würde die Server-Allowlist ändern und gehört damit
+zum Bestell-Backend — **PT21.4/PT21.5**, hier ausdrücklich out of scope.
+
+### 9.6 Nachweise
+
+`npx vitest run src/content/consumer/products.test.ts` → **8/8**: Schlüsselvollständigkeit ×10 ·
+identische Struktur ×10 · kein DE-Fallback · lokalisierte Dosierungseinheit gegen die freigegebene
+Copy · kein Preis/Angebot/Verfügbarkeit/Bewertung · stabile Identität und allowlistete Bestell-ID ·
+Medienmaße aus dem JPEG gelesen · ungedeckte Zahlen als solche ausgewiesen.
+
+`npx playwright test --config e2e/pt21.2.config.ts` → **8/8** gegen einen isolierten Client-/
+SSR-Build: Schema nennt den Produktnamen und kein erfundenes Angebot (×10) · kein Listenpreis im
+Dokument (×10) · Einheiten lokalisiert (×10) · sichtbarer Inhalt ×10 mit einer H1, Dosierungshinweis,
+Disclaimer und acht FAQ-Einträgen · Bestellkontext mit abgefangenem Request · CD-01 behoben ·
+CD-02 und Axe serious/critical 0 · Hero eager, Galerie lazy, Alternativtexte gesetzt.
+
+Ohne Regression: PT21.1-Shell-Suite 8/8 · direkte Abhängigkeitssuiten 102/102 · Unit/Node 265/265 ·
+`check:routes` · `check:i18n` · `check:seo` (G3: Consumer 3×10) · `check:colors` ·
+`check:search-index` · `check:internal-findability` · `typecheck` · ESLint · Prettier.
+**Kein voller Produktionsbuild.**
+
+**Ein Guard nachgezogen:** `scripts/check-seo.ts` prüfte die OG-Maße als Literal
+`ogImageWidth={1122}`. Die Spray-Seite bezieht sie jetzt aus dem Modell; der Marker ist deshalb
+pro Seite überschreibbar. Die Aussage bleibt dieselbe und ist zusätzlich durch die Messung am
+JPEG gedeckt. Masks und Duo behalten unverändert die Literalprüfung. Kontrolliert: alle drei
+Hero-Bilder sind tatsächlich 1122×1402.
+
+### 9.7 Offene, ownergebundene Punkte
+
+| ID      | Sachverhalt                                                                                                                                                                                | Owner                 |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------- |
+| `SP-05` | Listenpreis fehlt jetzt sichtbar. Sobald Marketing den finalen 12er-Pack-Preis freigibt, kommt er als `listPrice` ins Produktmodell — nicht zurück ins JSX                                 | Marketing / PT21.7    |
+| `SP-06` | 25 µg Vitamin K2 ist durch keine freigegebene Copy gedeckt (`CODE_ONLY_UNVERIFIED`)                                                                                                        | Marketing / Produkt   |
+| `SP-07` | Die CONFIRM-Flags in `PriceBadge.tsx` ("< €1" gegen den finalen Listenpreis) sind weiterhin offen                                                                                          | Marketing             |
+| `SP-08` | `contact@polarisdx.net` ist in vier Seiten dupliziert, ohne zentrale Konstante — Konfiguration, kein Produktinhalt                                                                         | AP-übergreifend       |
+| `SP-09` | Die Schlüsselnamen `spray.copy_0xx` sind bedeutungsfrei. Eine Umbenennung über 109 Schlüssel × 10 Locales ist ein eigenes Vorhaben mit Übersetzungsrisiko und war nicht Teil der Akzeptanz | PT21.6 / eigener Task |
+
+### 9.8 Handoff PT21.3 — Hydrating Masks
+
+**Primary Write Set:** `src/pages/consumer/MaskPage.tsx` ·
+`public/locales/<10>/consumer.json` (Namensraum `mask.*`, 88 Schlüssel) ·
+`src/content/consumer/products.ts` (`MASKS_PRODUCT` ergänzen) · PT21.3-eigene Tests.
+
+**Direkt zu konsumieren, nicht neu erheben:** Route-Baseline (§1) · Shell (§2) · SEO-Baseline (§5) ·
+das Produktmodell und sein Provenienzschema (§9.3) · das Testmuster aus
+`products.test.ts` und `consumer-spray.spec.ts`.
+
+**Offenes Masks-Delta, das nach dem Spray-Muster zu prüfen ist:** Literale im JSX von
+`MaskPage.tsx` (Zahlen, Einheiten, Preise) · `Product.name` gegen die H1-Headline · Media-Maße
+gegen die Datei · Claim-Scan über `mask.*` × 10 · Überlauf und Kontrast messen, nicht annehmen.
+`PriceBadge` trägt für Masks **bewusst keine €-Angabe** — das ist so dokumentiert und beizubehalten.
+
+**Drift-Signale:** Änderungen an `shell.tsx`, `products.ts`, `check-seo.ts` oder
+`CONSUMER_PRODUCT_LABELS`.

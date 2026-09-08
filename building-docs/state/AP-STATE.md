@@ -11,9 +11,9 @@ kein `work-packages/APxx-STATE.md`).
 - Work package: **AP21 — Consumer-Landingpages als 10-sprachiger SEO-Bereich**
 - Status: **IN_PROGRESS** <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
 - Predecessor: **AP20 COMPLETE / Closure PASS (CORP 40/40 · C20 50/50, 2026-09-08)**
-- Last completed task: **PT21.1 (PASS, 2026-09-08)**
-- Last completed PT: **PT21.1 (PASS, 2026-09-08)**
-- Next task: **PT21.2**
+- Last completed task: **PT21.2 (PASS, 2026-09-08)**
+- Last completed PT: **PT21.2 (PASS, 2026-09-08)**
+- Next task: **PT21.3**
 - PT20.1: **PASS** · PT20.2: **PASS** · PT20.3: **PASS** · PT20.4: **PASS** ·
   AP20 Closure: **PASS (CORP 40/40 · C20 50/50, 2026-09-08)**
 - PT19.1: **PASS** · PT19.2: **PASS** · PT19.3: **PASS** · PT19.4: **PASS** ·
@@ -26,9 +26,37 @@ kein `work-packages/APxx-STATE.md`).
 - AP20: **COMPLETE (Closure PASS, 2026-09-08)** — About, Contact, Support und Legal fertig;
   unabhaengiger finaler Gate neu gemessen: CORP-01..40 PASS, C20-01..50 PASS, DoD 54/54.
   Details siehe PT20.1–PT20.4-Eintraege und Contract §13 unten.
-- AP21: **IN_PROGRESS (PT21.1 PASS, 2026-09-08)** — PT21.2: **NOT STARTED** · PT21.3: **NOT
+- AP21: **IN_PROGRESS (PT21.1 PASS · PT21.2 PASS, 2026-09-08)** — PT21.3: **NOT
   STARTED** · PT21.4: **NOT STARTED** · PT21.5: **NOT STARTED** · PT21.6: **NOT STARTED** ·
   PT21.7: **NOT STARTED** · AP21 Closure: **NOT STARTED**
+- Vitamin-D3-Spray: **ACTIVE / PT21.2 PASS** — die Locale-Dateien waren bereits sauber (109
+  `spray.*`-Schluessel x10, identische Struktur, 0 Strings identisch mit DE); die Luecke lag im
+  Code. Gefunden und behoben: `'1000 IU Vitamin D3 + 25 µg Vitamin K2'` stand als Literal im JSX
+  und ging damit in ALLEN zehn Locales englisch raus, obwohl die freigegebene Copy die Einheit
+  lokalisiert (IE, UI, j.m, IU) — dasselbe galt fuer die Kennzahlenreihe. Beides liegt jetzt in
+  i18n (`spray.facts.dosage_value`, `spray.stats.*` x10) und wird aus einem gemeinsamen
+  Produktmodell gerendert. Ein Listenpreis von 169 EUR stand unbelegt im JSX — die Zahl kommt in
+  keiner der zehn Locale-Dateien vor, und `PriceBadge` haelt fuer diese Strecke ausdruecklich
+  fest, dass kein Listenpreis im DOM stehen soll; der Preis ist entfernt und `listPrice` ist
+  `null` statt eines Platzhalters. Das Product-Schema nannte die H1-Marketingzeile als
+  `Product.name` und nennt jetzt den realen Produktnamen; Breadcrumb ebenso. Die beiden aus
+  PT21.1 uebergebenen Defekte sind geschlossen: CD-01 (26px Ueberlauf bei 390px) durch eine
+  stapelnde Spezifikationstabelle, gemessen 0 bei 390/768/1440 in de/pl/cs, und CD-02
+  (Kontrast 3,22:1) — Axe serious/critical ist jetzt auf der GANZEN Seite 0. Neu ist
+  `src/content/consumer/products.ts` als gemeinsames Produktmodell fuer PT21.3/PT21.4: es trennt
+  Identitaet (Route-Slug vs. serverseitig allowlistete Bestell-ID), Medien mit aus der Datei
+  gemessenen Massen und Fakten als i18n-Schluessel — und weist je Zahl die Provenienz aus.
+  Ehrlich als ungedeckt gefuehrt: 25 µg Vitamin K2 steht nur im Quelltext, bleibt sichtbar (kein
+  erfundener Wert, sondern Bestand) und ist owner-bound. Claim-Scan ueber 109 Schluessel x10
+  gegen Heilaussagen, Vorbeugung, Krankheit, Immunwirkung, Garantie, Preis, Bewertung,
+  Verfuegbarkeit und Zertifikat: 0 echte Treffer. Der Bestellkontext sendet die stabile,
+  serverseitig allowlistete Kennung `spray`; die Abweichung zum Route-Slug bleibt bewusst
+  PT21.4/PT21.5. Tests: Inhaltstest 8/8, Browsertest 8/8, PT21.1-Shell-Suite 8/8 ohne Regression,
+  direkte Abhaengigkeitssuiten 102/102, Unit/Node 265/265, alle Guards gruen. Ein Guard wurde
+  nachgezogen: `check-seo.ts` prueft die OG-Masse pro Seite ueberschreibbar, weil die Spray-Seite
+  sie jetzt aus dem Modell bezieht — alle drei Hero-Bilder sind kontrolliert 1122x1402. Kein
+  voller Produktionsbuild. AP21 bleibt IN_PROGRESS, PT21.3 ist die naechste Aufgabe und AP22
+  bleibt NOT STARTED.
 - Consumer-Shell: **ACTIVE / PT21.1 PASS** — die drei Landingpages laufen jetzt in einer
   gemeinsamen `ConsumerShell`. Der Ausgangszustand war gemessen und eindeutig: auf allen 30
   Consumer-Routen gab es **kein `<main>` und keinen Sprunglink** (0/30 im gebauten

@@ -35,10 +35,10 @@ import {
   Stats,
   Steps,
 } from './shell'
+import { SPRAY_PRODUCT } from '../../content/consumer/products'
 import { OrderModalProvider, useOrderModal } from './OrderModal'
 import { PriceBadge } from './PriceBadge'
 import { useConsumerPageView } from './tracking'
-import { formatCurrency } from '../../lib/localeFormat'
 
 const getNAV = (t: TFunction) => [
   { label: t('spray.copy_001'), href: '#why' },
@@ -116,14 +116,12 @@ const getSUBLINGUAL = (t: TFunction) => [
   },
 ]
 
-const getFACTS = (t: TFunction): [string, string][] => [
-  [t('spray.facts.pack_size'), t('spray.facts.pack_value')],
-  [t('spray.facts.applications'), t('spray.copy_059')],
-  [t('spray.facts.format'), t('spray.facts.format_value')],
-  [t('spray.facts.dosage'), '1000 IU Vitamin D3 + 25 µg Vitamin K2'],
-  [t('spray.facts.suitable_for'), t('spray.copy_060')],
-  [t('spray.facts.origin'), t('spray.copy_055')],
-]
+// Werte kommen aus dem Produktmodell und damit aus i18n. Die Dosierungszeile
+// stand vorher als `'1000 IU Vitamin D3 + 25 µg Vitamin K2'` im Code und wurde
+// dadurch in allen zehn Locales englisch ausgeliefert, obwohl die freigegebene
+// Copy die Einheit lokalisiert (IE, UI, j.m., IU).
+const getFACTS = (t: TFunction): [string, string][] =>
+  SPRAY_PRODUCT.specs.map((fact) => [t(fact.labelKey), t(fact.valueKey)])
 
 const getFAQ_ITEMS = (t: TFunction) => [
   {
@@ -176,6 +174,7 @@ function SprayPageInner() {
   const SUBLINGUAL = getSUBLINGUAL(t)
   const FACTS = getFACTS(t)
   const FAQ_ITEMS = getFAQ_ITEMS(t)
+  const productName = t(SPRAY_PRODUCT.nameKey)
   const seoTitle = t('spray.copy_046')
   const seoDescription = t('spray.copy_047')
   const socialImageAlt = t('spray.copy_053')
@@ -189,21 +188,24 @@ function SprayPageInner() {
         ogType="product"
         ogImage={sprayHero}
         ogImageAlt={socialImageAlt}
-        ogImageWidth={1122}
-        ogImageHeight={1402}
+        ogImageWidth={SPRAY_PRODUCT.hero.width}
+        ogImageHeight={SPRAY_PRODUCT.hero.height}
         structuredData={[
           createProductSchema({
-            name: t('spray.copy_050'),
+            // `copy_050` ist die H1-Headline ("Taegliche Unterstuetzung ..."),
+            // nicht der Produktname. Als `Product.name` war das eine
+            // Marketingzeile; die Suchmaschine bekommt jetzt den realen Namen.
+            name: productName,
             description: seoDescription,
             image: sprayHero,
-            url: '/consumer/vitamin-d3-spray',
+            url: `/consumer/${SPRAY_PRODUCT.slug}`,
             language: i18n.resolvedLanguage,
             brand: 'PolarisDX',
           }),
           createBreadcrumbSchema(
             [
               { name: t('common:nav.home'), url: '/' },
-              { name: t('spray.copy_050'), url: '/consumer/vitamin-d3-spray' },
+              { name: productName, url: `/consumer/${SPRAY_PRODUCT.slug}` },
             ],
             i18n.resolvedLanguage,
           ),
@@ -224,12 +226,22 @@ function SprayPageInner() {
         secondary={{ label: t('spray.copy_003'), href: '#how' }}
         image={{
           src: sprayHero,
-          alt: t('spray.copy_053'),
+          alt: t(SPRAY_PRODUCT.hero.altKey),
         }}
-        price={{ amount: formatCurrency(169, i18n.resolvedLanguage), unit: t('spray.copy_054') }}
+        // KEIN Listenpreis: die 169 € standen als Literal im JSX und sind
+        // nirgends im Repository belegt — in keiner der zehn Locale-Dateien
+        // kommt die Zahl vor. `PriceBadge` haelt fuer diese Strecke sogar
+        // ausdruecklich fest: "No list price is rendered in the DOM", und die
+        // CONFIRM-Flags dort fragen den finalen 12er-Pack-Listenpreis noch ab.
+        // Ein unbelegter Preis faellt unter "keine erfundenen Preise";
+        // `SPRAY_PRODUCT.listPrice` ist deshalb `null`. Sobald Marketing die
+        // Zahl freigibt, kommt sie ins Produktmodell, nicht zurueck ins JSX.
         priceBadge={<PriceBadge product="spray" />}
         highlights={[t('spray.copy_055'), t('spray.copy_056'), t('spray.copy_057')]}
-        floatingStat={{ value: '71', label: t('spray.copy_058') }}
+        floatingStat={{
+          value: t('spray.stats.applications_value'),
+          label: t('spray.copy_058'),
+        }}
       />
       <FactStrip
         items={[
@@ -302,21 +314,28 @@ function SprayPageInner() {
       <Section eyebrow={t('spray.copy_069')} title={t('spray.copy_070')}>
         <div className="mb-12 lg:mb-16">
           <Stats
-            items={[
-              { value: '12', label: t('spray.copy_071') },
-              { value: '71', label: t('spray.copy_058') },
-              { value: '1000 IU', label: t('spray.copy_072') },
-              { value: '25 µg', label: t('spray.copy_073') },
-            ]}
+            items={SPRAY_PRODUCT.stats.map((fact) => ({
+              value: t(fact.valueKey),
+              label: t(fact.labelKey),
+            }))}
           />
         </div>
         <div className="grid items-center gap-8 lg:grid-cols-2">
           <Card className="p-0">
             <dl className="divide-y divide-slate-100">
+              {/* Bei 390px passten `w-40` (160px), `px-8` (64px) und `gap-6`
+                  (24px) plus Wert nicht nebeneinander — gemessen 26px
+                  Ueberlauf (CD-01 aus PT21.1). Unter `sm` stapelt die Zeile
+                  jetzt und das Padding ist schmaler. */}
               {FACTS.map(([label, value]) => (
-                <div key={label} className="flex gap-6 px-8 py-5">
-                  <dt className="w-40 flex-none text-sm font-semibold text-heading">{label}</dt>
-                  <dd className="text-gray-600">{value}</dd>
+                <div
+                  key={label}
+                  className="flex flex-col gap-1 px-5 py-4 sm:flex-row sm:gap-6 sm:px-8 sm:py-5"
+                >
+                  <dt className="text-sm font-semibold text-heading sm:w-40 sm:flex-none">
+                    {label}
+                  </dt>
+                  <dd className="min-w-0 text-gray-600">{value}</dd>
                 </div>
               ))}
             </dl>
@@ -348,7 +367,9 @@ function SprayPageInner() {
             },
           ]}
         />
-        <p className="mt-8 text-center text-sm text-gray-500">{t('spray.copy_082')}</p>
+        {/* `text-gray-500` misst hier 3,22:1 auf `slate-50` und faellt bei
+            14px durch (CD-02 aus PT21.1); `gray-600` erreicht 7,5:1. */}
+        <p className="mt-8 text-center text-sm text-gray-600">{t('spray.copy_082')}</p>
       </Section>
 
       {/* 8 · WHY SPRAY */}
