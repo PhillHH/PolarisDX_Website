@@ -248,6 +248,14 @@ const CONSUMER_PAGES = [
     descriptionKey: 'mask.copy_032',
     altKey: 'mask.copy_037',
     asset: 'mask-hero-botanical.jpeg',
+    // AP21 PT21.3: wie die Spray-Seite bezieht auch diese Seite Bildmasse und
+    // Slug aus dem Produktmodell. Die Aussage bleibt; die Masse werden in
+    // `products.test.ts` zusaetzlich aus dem JPEG gelesen.
+    markers: [
+      'ogImageWidth={MASKS_PRODUCT.hero.width}',
+      'ogImageHeight={MASKS_PRODUCT.hero.height}',
+      'url: `/consumer/${MASKS_PRODUCT.slug}`',
+    ],
   },
   {
     path: '/consumer/inside-out-duo',

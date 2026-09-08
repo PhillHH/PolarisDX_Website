@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
 
 import { SUPPORTED_LANGUAGES } from '../../i18n'
-import { SPRAY_PRODUCT, productContentKeys } from './products'
+import { MASKS_PRODUCT, SPRAY_PRODUCT, productContentKeys } from './products'
 
 /**
  * AP21 PT21.2 — Produktwahrheit des Vitamin-D3-Sprays.
@@ -24,9 +24,33 @@ const text = (locale: string, key: string): string => {
   return typeof value === 'string' ? value : ''
 }
 
-/** Alle sichtbaren Spray-Schluessel — die Locale-Datei ist flach gehalten. */
-const sprayKeys = (locale: string): string[] =>
-  Object.keys(bundle(locale)).filter((key) => key.startsWith('spray.'))
+/** Alle sichtbaren Schluessel eines Namensraums — die Locale-Datei ist flach. */
+const namespaceKeys = (locale: string, prefix: string): string[] =>
+  Object.keys(bundle(locale)).filter((key) => key.startsWith(prefix))
+
+const sprayKeys = (locale: string): string[] => namespaceKeys(locale, 'spray.')
+
+/** JPEG-Abmessungen aus der Datei lesen — keine Annahme, keine Schaetzung. */
+const jpegSize = (file: string): { width: number; height: number } => {
+  const data = readFileSync(file)
+  let offset = 2
+  while (offset < data.length) {
+    if (data[offset] !== 0xff) {
+      offset += 1
+      continue
+    }
+    const marker = data[offset + 1]
+    if (marker === 0xc0 || marker === 0xc1 || marker === 0xc2) {
+      return { height: data.readUInt16BE(offset + 5), width: data.readUInt16BE(offset + 7) }
+    }
+    if (marker === 0xd8 || marker === 0xd9 || (marker >= 0xd0 && marker <= 0xd7)) {
+      offset += 2
+      continue
+    }
+    offset += 2 + data.readUInt16BE(offset + 2)
+  }
+  return { width: 0, height: 0 }
+}
 
 describe('PT21.2 Vitamin-D3-Spray — Inhalt', () => {
   it('kennt alle Produktschluessel in allen zehn Locales, nicht leer', () => {
@@ -125,28 +149,7 @@ describe('PT21.2 Vitamin-D3-Spray — Inhalt', () => {
   })
 
   it('bindet Medien an gemessene Dateiabmessungen', () => {
-    const file = readFileSync('src/assets/landingpages-consumer/spray-hero-12pack-office.jpeg')
-    let offset = 2
-    let width = 0
-    let height = 0
-    while (offset < file.length) {
-      if (file[offset] !== 0xff) {
-        offset += 1
-        continue
-      }
-      const marker = file[offset + 1]
-      if (marker === 0xc0 || marker === 0xc1 || marker === 0xc2) {
-        height = file.readUInt16BE(offset + 5)
-        width = file.readUInt16BE(offset + 7)
-        break
-      }
-      if (marker === 0xd8 || marker === 0xd9 || (marker >= 0xd0 && marker <= 0xd7)) {
-        offset += 2
-        continue
-      }
-      offset += 2 + file.readUInt16BE(offset + 2)
-    }
-    expect({ width, height }).toEqual({
+    expect(jpegSize('src/assets/landingpages-consumer/spray-hero-12pack-office.jpeg')).toEqual({
       width: SPRAY_PRODUCT.hero.width,
       height: SPRAY_PRODUCT.hero.height,
     })
@@ -159,5 +162,150 @@ describe('PT21.2 Vitamin-D3-Spray — Inhalt', () => {
       .filter((fact) => fact.evidence === 'CODE_ONLY_UNVERIFIED')
       .map((fact) => fact.valueKey)
     expect(unverified).toEqual(['spray.stats.k2_value', 'spray.facts.dosage_value'])
+  })
+})
+
+describe('PT21.3 Hydrating Masks — Inhalt', () => {
+  const maskKeys = (locale: string) => namespaceKeys(locale, 'mask.')
+
+  it('kennt alle Produktschluessel in allen zehn Locales, nicht leer', () => {
+    for (const locale of SUPPORTED_LANGUAGES) {
+      for (const key of productContentKeys(MASKS_PRODUCT)) {
+        expect(text(locale, key).trim(), `${locale}: ${key}`).not.toBe('')
+      }
+    }
+  })
+
+  it('hat in allen zehn Locales dieselbe Schluesselstruktur', () => {
+    const reference = maskKeys('de').sort()
+    expect(reference.length).toBeGreaterThan(85)
+    for (const locale of SUPPORTED_LANGUAGES) {
+      expect(maskKeys(locale).sort(), locale).toEqual(reference)
+    }
+  })
+
+  it('reicht keine deutsche Fassung als Fallback durch', () => {
+    // Sprachneutrale Kurzwerte und ein echtes Kognat: "Reinigen" heisst auf
+    // Niederlaendisch genauso wie auf Deutsch. Alle uebrigen 88 nl-Strings
+    // unterscheiden sich, es ist also kein Fallback.
+    const neutral = new Set([
+      'mask.stats.masks_value',
+      'mask.stats.serum_value',
+      'mask.stats.minutes_value',
+    ])
+    const cognates: Record<string, Set<string>> = { nl: new Set(['mask.copy_055']) }
+    for (const locale of SUPPORTED_LANGUAGES) {
+      if (locale === 'de') continue
+      const copied = maskKeys('de').filter(
+        (key) =>
+          !neutral.has(key) &&
+          !cognates[locale]?.has(key) &&
+          text('de', key).length > 3 &&
+          text(locale, key) === text('de', key),
+      )
+      expect(copied, `${locale}: DE-Kopien`).toEqual([])
+    }
+  })
+
+  it('schreibt die Zahlenspanne so, wie es die freigegebene Copy tut', () => {
+    // Fest im JSX stand '15–30' mit Gedankenstrich — it, da und nl schreiben
+    // in ihrer freigegebenen Copy einen Bindestrich.
+    const dash: Record<string, string> = {
+      // Aus der freigegebenen Copy gemessen (alle `mask.*`-Strings, nicht nur
+      // zwei): de, en, pl, pt und cs schreiben die Spanne mit
+      // Halbgeviertstrich, it, da und nl mit Bindestrich. fr und es fuehren in
+      // ihrer Copy ueberhaupt keine Zahlenspanne ("de 15 à 30 minutes") —
+      // dort gilt die typografische Standardform.
+      de: '–',
+      en: '–',
+      pl: '–',
+      pt: '–',
+      cs: '–',
+      fr: '–',
+      es: '–',
+      it: '-',
+      da: '-',
+      nl: '-',
+    }
+    for (const locale of SUPPORTED_LANGUAGES) {
+      const value = text(locale, 'mask.stats.minutes_value')
+      expect(value, `${locale}`).toBe(`15${dash[locale]}30`)
+      // Die Zahlen selbst muessen in der freigegebenen Copy vorkommen.
+      const approved = `${text(locale, 'mask.copy_032')} ${text(locale, 'mask.copy_036')}`
+      expect(approved, `${locale}: 15 belegt`).toContain('15')
+      expect(approved, `${locale}: 30 belegt`).toContain('30')
+    }
+  })
+
+  it('nennt keinen Preis, kein Angebot, keine Verfuegbarkeit und keine Bewertung', () => {
+    const forbidden =
+      /(\d+[.,]?\d*\s*(€|eur\b|euro)|\brabatt\b|\bdiscount\b|\bin stock\b|auf lager|lieferzeit|\bdelivery time\b|\bsterne\b|\bstars?\b|\brating\b|\bgtin\b)/i
+    for (const locale of SUPPORTED_LANGUAGES) {
+      for (const key of maskKeys(locale)) {
+        expect(forbidden.test(text(locale, key)), `${locale}: ${key}`).toBe(false)
+      }
+    }
+    expect(MASKS_PRODUCT.listPrice).toBeNull()
+  })
+
+  it('verstaerkt den kosmetischen Nutzen nicht zu einer medizinischen Aussage', () => {
+    // Die Pflichthinweise DUERFEN medizinische Begriffe tragen — sie
+    // verneinen sie ja gerade ("nicht zur Diagnose, Behandlung oder
+    // Vorbeugung"). Ausserhalb dieser beiden Schluessel darf keiner
+    // vorkommen.
+    const disclaimers = new Set(['mask.copy_028', 'mask.copy_088'])
+    // Sprachspezifisch, weil dieselbe Buchstabenfolge nicht ueberall dasselbe
+    // heisst: italienisch "cure" ist der Plural von "cura" (Pflege) und steht
+    // in "bisognosa di cure visibili" fuer sichtbare PFLEGE — nicht fuer das
+    // englische Verb "to cure". Ein gemeinsames Muster hatte hier zwei
+    // Fehlalarme erzeugt.
+    const shared = 'diagnos\\w*|ekzem|eczema|psoria\\w*|dermatit\\w*'
+    const perLocale: Record<string, string> = {
+      de: 'heilt|heilen|kuriert|therapiert|krankheit|erkrankung',
+      en: 'cures?|treats|treatment|disease|illness',
+      pl: 'lecz\\w*|choroba|choroby',
+      fr: 'guéri\\w*|maladie',
+      it: 'guaris\\w*|guarire|malattia',
+      es: 'curar|cura\\s+de\\s+la\\s+enfermedad|enfermedad',
+      pt: 'curar|doença',
+      da: 'helbred\\w*|sygdom',
+      nl: 'genees\\w*|ziekte',
+      cs: 'léčb\\w*|léčí|nemoc',
+    }
+    for (const locale of SUPPORTED_LANGUAGES) {
+      const medical = new RegExp(`\\b(${shared}|${perLocale[locale]})`, 'i')
+      for (const key of maskKeys(locale)) {
+        if (disclaimers.has(key)) continue
+        expect(medical.test(text(locale, key)), `${locale}: ${key}`).toBe(false)
+      }
+      // Und die Pflichthinweise muessen wirklich da sein.
+      for (const key of disclaimers) {
+        expect(text(locale, key).trim(), `${locale}: ${key}`).not.toBe('')
+      }
+    }
+  })
+
+  it('haelt Identitaet und Bestellkontext stabil', () => {
+    expect(MASKS_PRODUCT.slug).toBe('hydrating-masks')
+    const server = readFileSync('server/server.js', 'utf8')
+    const start = server.indexOf('const CONSUMER_PRODUCT_LABELS')
+    expect(server.slice(start, start + 300)).toContain(`${MASKS_PRODUCT.orderId}:`)
+    expect(MASKS_PRODUCT.orderId).not.toContain(' ')
+  })
+
+  it('bindet Medien an gemessene Dateiabmessungen', () => {
+    expect(jpegSize('src/assets/landingpages-consumer/mask-hero-botanical.jpeg')).toEqual({
+      width: MASKS_PRODUCT.hero.width,
+      height: MASKS_PRODUCT.hero.height,
+    })
+  })
+
+  it('fuehrt keine ungedeckte Produktzahl', () => {
+    // Anders als beim Spray sind alle Masken-Zahlen durch freigegebene Copy
+    // gedeckt; es gibt hier nichts owner-bound zu melden.
+    const unverified = [...MASKS_PRODUCT.stats, ...MASKS_PRODUCT.specs].filter(
+      (fact) => fact.evidence === 'CODE_ONLY_UNVERIFIED',
+    )
+    expect(unverified).toEqual([])
   })
 })

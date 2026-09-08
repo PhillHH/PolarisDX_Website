@@ -11,9 +11,9 @@ kein `work-packages/APxx-STATE.md`).
 - Work package: **AP21 — Consumer-Landingpages als 10-sprachiger SEO-Bereich**
 - Status: **IN_PROGRESS** <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
 - Predecessor: **AP20 COMPLETE / Closure PASS (CORP 40/40 · C20 50/50, 2026-09-08)**
-- Last completed task: **PT21.2 (PASS, 2026-09-08)**
-- Last completed PT: **PT21.2 (PASS, 2026-09-08)**
-- Next task: **PT21.3**
+- Last completed task: **PT21.3 (PASS, 2026-09-08)**
+- Last completed PT: **PT21.3 (PASS, 2026-09-08)**
+- Next task: **PT21.4**
 - PT20.1: **PASS** · PT20.2: **PASS** · PT20.3: **PASS** · PT20.4: **PASS** ·
   AP20 Closure: **PASS (CORP 40/40 · C20 50/50, 2026-09-08)**
 - PT19.1: **PASS** · PT19.2: **PASS** · PT19.3: **PASS** · PT19.4: **PASS** ·
@@ -26,9 +26,33 @@ kein `work-packages/APxx-STATE.md`).
 - AP20: **COMPLETE (Closure PASS, 2026-09-08)** — About, Contact, Support und Legal fertig;
   unabhaengiger finaler Gate neu gemessen: CORP-01..40 PASS, C20-01..50 PASS, DoD 54/54.
   Details siehe PT20.1–PT20.4-Eintraege und Contract §13 unten.
-- AP21: **IN_PROGRESS (PT21.1 PASS · PT21.2 PASS, 2026-09-08)** — PT21.3: **NOT
+- AP21: **IN_PROGRESS (PT21.1 PASS · PT21.2 PASS · PT21.3 PASS, 2026-09-08)** — PT21.4: **NOT
   STARTED** · PT21.4: **NOT STARTED** · PT21.5: **NOT STARTED** · PT21.6: **NOT STARTED** ·
   PT21.7: **NOT STARTED** · AP21 Closure: **NOT STARTED**
+- Hydrating-Masks: **ACTIVE / PT21.3 PASS** — die Locale-Dateien waren wie beim Spray sauber
+  (89 `mask.*`-Schluessel x10, identische Struktur); genau ein nl-String ist mit DE identisch,
+  "Reinigen" ist im Niederlaendischen aber dasselbe Wort — ein echtes Kognat, kein Fallback, und
+  als solches im Test dokumentiert. Die Luecke lag erneut im Code. Behoben: ein Listenpreis von
+  45 EUR stand unbelegt im JSX, obwohl `PriceBadge` fuer die Masken bewusst gar keine EUR-Angabe
+  traegt — entfernt, `listPrice` ist `null`. Das Product-Schema nannte die H1-Marketingzeile als
+  `Product.name` und nennt jetzt den realen Produktnamen; Breadcrumb ebenso. `'5'`, `'15 ml'` und
+  `'15–30'` standen als Literale im JSX: die Zahlenspanne schreibt nicht jede Sprache gleich, it,
+  da und nl nutzen in ihrer freigegebenen Copy einen Bindestrich, de/en/pl/pt/cs einen
+  Halbgeviertstrich — gemessen ueber ALLE mask-Strings, nachdem eine erste Messung an zwei
+  Schluesseln ein falsches Bild ergeben hatte. Die Werte liegen jetzt lokalisiert in i18n und
+  kommen aus dem gemeinsamen Produktmodell (`MASKS_PRODUCT`). Kontrast 3,22:1 im
+  Anwendungshinweis behoben; Axe serious/critical 0 auf der ganzen Seite. Ueberlauf bei
+  390/768/1440 wurde gemessen und war bereits 0 — anders als bei der Spray-Seite gibt es hier
+  keine Spezifikationstabelle. Alle Masken-Zahlen sind durch freigegebene Copy gedeckt; anders als
+  beim Spray (25 µg K2) gibt es nichts owner-bound zu melden, was ein Test ausdruecklich
+  festhaelt. Claim-Sicherheit: saemtliche medizinischen Begriffe stehen ausschliesslich in den
+  zwei kosmetischen Pflichthinweisen und verneinen dort ihre eigene Anwendung — das Muster ist
+  sprachbewusst, weil italienisch "cure" Pflege heisst und zwei Fehlalarme erzeugt hatte. Der
+  Bestellkontext sendet die allowlistete Kennung `masks`. Tests: Inhaltstest 17/17 (Spray+Masks),
+  Browsertest 8/8 zweimal stabil, Spray-Suite 8/8 und Shell-Suite 8/8 ohne Regression, Unit/Node
+  274/274, alle Guards gruen. Ein Testdefekt behoben: der Sprunglink-Test aus PT21.1 verlor unter
+  Last den Fokuswechsel vor der Hydration. Kein voller Produktionsbuild. AP21 bleibt IN_PROGRESS,
+  PT21.4 ist die naechste Aufgabe und AP22 bleibt NOT STARTED.
 - Vitamin-D3-Spray: **ACTIVE / PT21.2 PASS** — die Locale-Dateien waren bereits sauber (109
   `spray.*`-Schluessel x10, identische Struktur, 0 Strings identisch mit DE); die Luecke lag im
   Code. Gefunden und behoben: `'1000 IU Vitamin D3 + 25 µg Vitamin K2'` stand als Literal im JSX

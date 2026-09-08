@@ -155,8 +155,54 @@ export const SPRAY_PRODUCT: ConsumerProduct = {
   listPrice: null,
 }
 
-export const CONSUMER_PRODUCTS: Readonly<Record<'spray', ConsumerProduct>> = {
+export const MASKS_PRODUCT: ConsumerProduct = {
+  slug: 'hydrating-masks',
+  orderId: 'masks',
+  // `copy_034` ist der Produktname, `copy_035` die H1-Marketingzeile. Das
+  // Product-Schema nannte bisher die Marketingzeile — derselbe Befund wie beim
+  // Spray, hier mit anderen Schluesseln.
+  nameKey: 'mask.copy_034',
+  headlineKey: 'mask.copy_035',
+  seoTitleKey: 'mask.copy_031',
+  seoDescriptionKey: 'mask.copy_032',
+  hero: {
+    src: '',
+    altKey: 'mask.copy_037',
+    width: 1122,
+    height: 1402,
+  },
+  gallery: [],
+  stats: [
+    // Alle drei Zahlen sind durch freigegebene Copy gedeckt: `copy_038`
+    // (5er-Pack), `copy_032`/`serum_mask` (15 ml) und `copy_036` (15 bis 30
+    // Minuten). Neu ist nur, dass sie lokalisiert statt fest im JSX stehen —
+    // die Zahlenspanne schreibt nicht jede Sprache mit demselben Trennzeichen.
+    {
+      labelKey: 'mask.copy_070',
+      valueKey: 'mask.stats.masks_value',
+      evidence: 'APPROVED_LOCALE_COPY',
+    },
+    {
+      labelKey: 'mask.copy_071',
+      valueKey: 'mask.stats.serum_value',
+      evidence: 'APPROVED_LOCALE_COPY',
+    },
+    {
+      labelKey: 'mask.copy_072',
+      valueKey: 'mask.stats.minutes_value',
+      evidence: 'APPROVED_LOCALE_COPY',
+    },
+  ],
+  // Die Masken-Seite fuehrt keine Spezifikationstabelle; die Produktfakten
+  // stehen im FactStrip und in den Abschnitten. Eine leere Liste ist hier die
+  // Wahrheit, kein Platzhalter.
+  specs: [],
+  listPrice: null,
+}
+
+export const CONSUMER_PRODUCTS: Readonly<Record<'spray' | 'masks', ConsumerProduct>> = {
   spray: SPRAY_PRODUCT,
+  masks: MASKS_PRODUCT,
 }
 
 /** Alle i18n-Schluessel eines Produkts — Grundlage der x10-Vollstaendigkeitspruefung. */

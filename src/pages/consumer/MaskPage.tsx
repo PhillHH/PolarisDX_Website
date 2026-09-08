@@ -34,10 +34,10 @@ import {
   Stats,
   Steps,
 } from './shell'
+import { MASKS_PRODUCT } from '../../content/consumer/products'
 import { OrderModalProvider, useOrderModal } from './OrderModal'
 import { PriceBadge } from './PriceBadge'
 import { useConsumerPageView } from './tracking'
-import { formatCurrency } from '../../lib/localeFormat'
 
 // Accent bars on the four ingredient cards — matches brief slide 13.
 const INGREDIENT_ACCENTS = ['teal', 'navy', 'green', 'blue'] as const
@@ -147,6 +147,7 @@ function MaskPageInner() {
   const BENEFITS = getBENEFITS(t)
   const INGREDIENTS = getINGREDIENTS(t)
   const FAQ_ITEMS = getFAQ_ITEMS(t)
+  const productName = t(MASKS_PRODUCT.nameKey)
   const seoTitle = t('mask.copy_031')
   const seoDescription = t('mask.copy_032')
   const socialImageAlt = t('mask.copy_037')
@@ -160,21 +161,23 @@ function MaskPageInner() {
         ogType="product"
         ogImage={maskHero}
         ogImageAlt={socialImageAlt}
-        ogImageWidth={1122}
-        ogImageHeight={1402}
+        ogImageWidth={MASKS_PRODUCT.hero.width}
+        ogImageHeight={MASKS_PRODUCT.hero.height}
         structuredData={[
           createProductSchema({
-            name: t('mask.copy_035'),
+            // `copy_035` ist die H1-Marketingzeile, nicht der Produktname.
+            // Als `Product.name` war das eine Werbezeile.
+            name: productName,
             description: seoDescription,
             image: maskHero,
-            url: '/consumer/hydrating-masks',
+            url: `/consumer/${MASKS_PRODUCT.slug}`,
             language: i18n.resolvedLanguage,
             brand: 'De Legende Kosmetik',
           }),
           createBreadcrumbSchema(
             [
               { name: t('common:nav.home'), url: '/' },
-              { name: t('mask.copy_035'), url: '/consumer/hydrating-masks' },
+              { name: productName, url: `/consumer/${MASKS_PRODUCT.slug}` },
             ],
             i18n.resolvedLanguage,
           ),
@@ -195,12 +198,16 @@ function MaskPageInner() {
         secondary={{ label: t('spray.copy_028'), href: '#how' }}
         image={{
           src: maskHero,
-          alt: t('mask.copy_037'),
+          alt: t(MASKS_PRODUCT.hero.altKey),
         }}
-        price={{ amount: formatCurrency(45, i18n.resolvedLanguage), unit: t('mask.copy_038') }}
+        // KEIN Listenpreis: die 45 € standen als Literal im JSX und sind in
+        // keiner der zehn Locale-Dateien belegt. `PriceBadge` traegt fuer die
+        // Masken ausserdem bewusst gar keine €-Angabe — ein Preis im Hero
+        // widerspraeche dieser dokumentierten Haltung direkt.
+        // `MASKS_PRODUCT.listPrice` ist deshalb `null`.
         priceBadge={<PriceBadge product="masks" />}
         highlights={[t('mask.copy_039'), t('mask.copy_040'), t('mask.copy_041')]}
-        floatingStat={{ value: '15 ml', label: t('mask.copy_042') }}
+        floatingStat={{ value: t('mask.stats.serum_value'), label: t('mask.copy_042') }}
       />
       <FactStrip
         items={[t('mask.copy_043'), t('mask.copy_044'), t('mask.copy_045'), t('mask.copy_046')]}
@@ -254,7 +261,9 @@ function MaskPageInner() {
             </Card>
           ))}
         </Grid>
-        <p className="mt-8 text-center text-sm text-gray-500">{t('mask.copy_053')}</p>
+        {/* `text-gray-500` misst 3,22:1 auf `slate-50` und faellt bei 14px
+            durch — derselbe Befund wie CD-02 auf der Spray-Seite. */}
+        <p className="mt-8 text-center text-sm text-gray-600">{t('mask.copy_053')}</p>
       </Section>
 
       {/* 6 · HOW TO USE */}
@@ -298,11 +307,13 @@ function MaskPageInner() {
       {/* 8 · 5-PACK OFFER */}
       <Section id="offer" eyebrow={t('mask.copy_068')} title={t('mask.copy_069')}>
         <Stats
-          items={[
-            { value: '5', label: t('mask.copy_070') },
-            { value: '15 ml', label: t('mask.copy_071') },
-            { value: '15–30', label: t('mask.copy_072') },
-          ]}
+          // Vorher standen '5', '15 ml' und '15–30' fest im JSX. Die
+          // Zahlenspanne schreibt nicht jede Sprache mit Gedankenstrich —
+          // it, da und nl nutzen in der freigegebenen Copy einen Bindestrich.
+          items={MASKS_PRODUCT.stats.map((fact) => ({
+            value: t(fact.valueKey),
+            label: t(fact.labelKey),
+          }))}
         />
         <div className="mx-auto mt-12 max-w-2xl text-center lg:mt-16">
           <p className="text-lg leading-relaxed text-gray-600">{t('mask.copy_073')}</p>

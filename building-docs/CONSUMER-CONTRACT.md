@@ -318,3 +318,121 @@ gegen die Datei · Claim-Scan über `mask.*` × 10 · Überlauf und Kontrast mes
 
 **Drift-Signale:** Änderungen an `shell.tsx`, `products.ts`, `check-seo.ts` oder
 `CONSUMER_PRODUCT_LABELS`.
+
+---
+
+## 10. Delta PT21.3 — Hydrating Masks ×10 (2026-09-08)
+
+**HEAD:** `4785baf18402f0882f5bbf2f571739b8400fd557` · Branch `console/19-25-2026-09-02T08-36-17`
+
+### 10.1 Ausgangsmessung
+
+`mask.*` umfasst **89 Schlüssel in allen zehn Locales**, identische Struktur. Genau **ein** String
+ist identisch mit der deutschen Fassung: `mask.copy_055` = "Reinigen" — im Niederländischen
+dasselbe Wort wie im Deutschen. Die übrigen 88 nl-Strings unterscheiden sich, es ist also ein
+echtes Kognat und **kein Fallback**. Die Lücke lag wie beim Spray im Code.
+
+### 10.2 Was gefunden und behoben wurde
+
+| ID      | Befund                                                                                                                                                                                                                                     | Behebung                                                                               |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------- |
+| `MK-01` | **Listenpreis 45 € im JSX ohne jeden Beleg** — die Zahl kommt in keiner der zehn Locale-Dateien vor. `PriceBadge` trägt für die Masken laut Kopfkommentar **bewusst gar keine €-Angabe**; ein Hero-Preis widersprach dieser Haltung direkt | entfernt, `MASKS_PRODUCT.listPrice = null`                                             |
+| `MK-02` | `Product.name` im Schema war `copy_035` = die H1-Marketingzeile ("Intensive Feuchtigkeitsversorgung für die Haut, die Komfort und Pflege benötigt"), nicht der Produktname                                                                 | Schema und Breadcrumb nennen jetzt `copy_034` = "Feuchtigkeitsspendende Hyaluronmaske" |
+| `MK-03` | `'5'`, `'15 ml'` und `'15–30'` standen als Literale im JSX. Die **Zahlenspanne** wird in der freigegebenen Copy nicht überall gleich geschrieben — it, da und nl nutzen einen Bindestrich, de/en/pl/pt/cs einen Halbgeviertstrich          | `mask.stats.*` × 10, Trennzeichen je Locale aus der Copy gemessen                      |
+| `MK-04` | Kontrast 3,22:1 im Anwendungshinweis (`text-gray-500` auf `slate-50`) — derselbe Befund wie CD-02 auf der Spray-Seite                                                                                                                      | `text-gray-600`; Axe serious/critical 0 auf der ganzen Seite                           |
+| `MK-05` | OG-Maße als Literale `1122`/`1402`                                                                                                                                                                                                         | aus dem Produktmodell, gegen die Datei gemessen                                        |
+
+**Gemessen, nicht angenommen** (der Handoff verlangte das ausdrücklich): horizontaler Überlauf bei
+390/768/1440 in de/pl/cs = **0**, ohne dass etwas zu ändern war — anders als bei der Spray-Seite,
+wo eine Spezifikationstabelle 26px überlief. Die Masken-Seite führt keine solche Tabelle.
+
+### 10.3 Produktmodell erweitert
+
+`MASKS_PRODUCT` in `src/content/consumer/products.ts` nach dem in PT21.2 bewiesenen Muster.
+Ein Unterschied ist ausgewiesen statt kaschiert: `specs: []`, weil die Masken-Seite keine
+Spezifikationstabelle führt — eine leere Liste ist hier die Wahrheit, kein Platzhalter.
+
+**Provenienz:** **alle** Masken-Zahlen sind `APPROVED_LOCALE_COPY` — 5 aus `copy_038`
+(5er-Pack), 15 ml aus `copy_032`/`serum_mask`, 15–30 aus `copy_036`. Anders als beim Spray
+(25 µg K2) gibt es hier **nichts owner-bound zu melden**; ein Test hält das ausdrücklich fest.
+
+### 10.4 Claim-Sicherheit — kosmetisch bleibt kosmetisch
+
+Alle 89 Schlüssel × 10 wurden gegen medizinische Wirkung, Krankheit/Diagnose, Vorbeugung,
+klinische Prüfung, Preis/Angebot, Bewertung, Verfügbarkeit, GTIN/SKU/Zertifikat und Garantie
+geprüft.
+
+**Alle medizinischen Begriffe stehen ausschließlich in den beiden Pflichthinweisen
+`mask.copy_028` und `mask.copy_088` — und dort verneinen sie ihre eigene Anwendung**
+("nicht zur Diagnose, Behandlung oder Vorbeugung von Hautkrankheiten"). Das ist die korrekte
+kosmetische Absicherung, das Gegenteil eines Heilversprechens. Der Test prüft beides: außerhalb
+dieser zwei Schlüssel darf kein medizinischer Begriff stehen, und die zwei Hinweise müssen in
+allen zehn Locales vorhanden sein.
+
+**Sprachbewusste Prüfung:** ein gemeinsames Regex-Muster erzeugte zwei Fehlalarme — italienisch
+"cure" ist der Plural von "cura" (**Pflege**) und steht in "bisognosa di cure visibili" für
+sichtbare Pflege, nicht für das englische Verb "to cure". Das Muster ist deshalb je Sprache
+definiert. Ebenso war "sku" ein Treffer innerhalb des polnischen "skupiająca".
+
+### 10.5 Bestellkontext
+
+Der Client sendet `product: 'masks'` — stabil und serverseitig in `CONSUMER_PRODUCT_LABELS`
+allowlistet, kein freier Produktname. Der Browsertest fängt den echten Request ab. Die bekannte
+Abweichung zwischen Bestell-ID (`masks`) und Route-Slug (`hydrating-masks`) bleibt wie beim
+Spray **PT21.4/PT21.5** und wurde hier nicht angefasst.
+
+### 10.6 Nachweise
+
+`npx vitest run src/content/consumer/products.test.ts` → **17/17** (8 Spray + 9 Masks):
+Schlüsselvollständigkeit ×10 · identische Struktur · kein DE-Fallback (mit dokumentiertem
+nl-Kognat) · Zahlenspanne in der Schreibweise der jeweiligen Locale, Zahlen gegen die freigegebene
+Copy belegt · kein Preis/Angebot/Verfügbarkeit/Bewertung · **kosmetisch bleibt kosmetisch** ·
+stabile Identität und allowlistete Bestell-ID · Medienmaße aus dem JPEG gelesen · keine ungedeckte
+Produktzahl.
+
+`npx playwright test --config e2e/pt21.3.config.ts` → **8/8**, zweimal hintereinander stabil:
+Schema mit Produktnamen und ohne erfundenes Angebot ×10 · kein Listenpreis und **kein €-Zeichen**
+im Dokument ×10 · Zahlenspanne je Locale in der Kennzahlkachel · sichtbarer Inhalt ×10 mit einer
+H1, Sicherheitsantwort, Pflichtdisclaimer und FAQ · Bestellkontext mit abgefangenem Request ·
+Überlauf 0 · Axe serious/critical 0 · Hero eager, Galerie lazy, Alternativtexte gesetzt.
+
+Ohne Regression: PT21.2-Spray-Suite 8/8 · PT21.1-Shell-Suite 8/8 · Unit/Node **274/274** ·
+`check:routes` · `check:i18n` · `check:seo` (G3: Consumer 3×10) · `check:colors` ·
+`check:search-index` · `typecheck` · ESLint · Prettier. **Kein voller Produktionsbuild.**
+
+**Ein Testdefekt behoben:** der Sprunglink-Test aus PT21.1 drückte Tab und Enter, bevor die Seite
+hydriert war; unter Last verlor er den Fokuswechsel, in Einzelläufen nie. Der Fokus wird jetzt vor
+jedem Versuch zurückgesetzt, die Schleife ist damit idempotent. Produktcode unverändert.
+
+### 10.7 Offene, ownergebundene Punkte
+
+| ID      | Sachverhalt                                                                                                                                                           | Owner              |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `MK-06` | Listenpreis fehlt jetzt sichtbar. Sobald Marketing den 5er-Pack-Preis freigibt, kommt er als `listPrice` ins Produktmodell                                            | Marketing / PT21.7 |
+| `MK-07` | Die Marken-Angabe im Schema ist `De Legende Kosmetik`, nicht PolarisDX — real und belegt durch `copy_037`, aber die Markenführung der Consumer-Strecke gehört geprüft | Marketing / PT21.6 |
+
+### 10.8 Handoff PT21.4 — Inside-Out Care Duo
+
+**Primary Write Set:** `src/pages/consumer/DuoPage.tsx` ·
+`public/locales/<10>/consumer.json` (Namensraum `duo.*`, 61 Schlüssel) ·
+`src/content/consumer/products.ts` (`DUO_PRODUCT` ergänzen) · `scripts/check-seo.ts`
+(Marker der Duo-Seite) · PT21.4-eigene Tests.
+
+**Direkt zu konsumieren, nicht neu erheben:** Route-Baseline (§1) · Shell (§2) · SEO-Baseline (§5) ·
+Produktmodell samt Provenienzschema (§9.3) · das zweifach bewiesene Testmuster aus
+`products.test.ts` und `consumer-spray.spec.ts`/`consumer-masks.spec.ts`.
+
+**Erwartetes Duo-Delta nach dem gleichen Muster — jeweils zu MESSEN, nicht anzunehmen:**
+Literale im JSX von `DuoPage.tsx` (die Duo-Seite rendert laut PT21.1-Discovery ebenfalls eine
+`price`-Angabe) · `Product.name` gegen die H1-Headline (bei Spray und Masks war es beidemal die
+Marketingzeile) · Media-Maße gegen die Datei · Claim-Scan über `duo.*` × 10 **mit
+sprachbewusstem Muster** · Überlauf und Kontrast messen. `PriceBadge` führt für das Duo eine
+`< €2`-Positionierung mit offenem CONFIRM-Flag — beibehalten, nicht in einen Listenpreis
+umdeuten.
+
+**Besonderheit:** das Duo bündelt Spray und Masken. Aussagen über Packungsinhalt müssen mit den
+in PT21.2/PT21.3 belegten Zahlen zusammenpassen (12er-Pack Spray, 5er-Pack Masken); ein
+Widerspruch wäre ein Wahrheitsfehler, kein Formulierungsproblem.
+
+**Drift-Signale:** Änderungen an `shell.tsx`, `products.ts`, `check-seo.ts` oder
+`CONSUMER_PRODUCT_LABELS`.

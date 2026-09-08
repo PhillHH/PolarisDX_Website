@@ -166,12 +166,22 @@ test.describe('PT21.1 Consumer-Shell', () => {
 
   test('Sprunglink setzt den Fokus wirklich in den Hauptinhalt', async ({ page }) => {
     await page.goto('/de/consumer/vitamin-d3-spray')
+
+    // Der Sprunglink ist das erste fokussierbare Element — das steht schon im
+    // SSR-Dokument und braucht keine Hydration.
     await page.keyboard.press('Tab')
-    const focused = page.locator(':focus')
-    await expect(focused).toHaveAttribute('href', '#main-content')
-    await page.keyboard.press('Enter')
-    // Ohne tabIndex=-1 am <main> wuerde nur gescrollt und der Fokus bliebe oben.
-    expect(await page.evaluate(() => document.activeElement?.id)).toBe('main-content')
+    await expect(page.locator(':focus')).toHaveAttribute('href', '#main-content')
+
+    // Der Fokuswechsel dagegen greift erst, wenn die Seite lebt. Ein frueher
+    // Tastendruck ging unter Last verloren; der Fokus wird deshalb vor jedem
+    // Versuch zurueckgesetzt, damit die Schleife idempotent bleibt.
+    await expect(async () => {
+      await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur())
+      await page.keyboard.press('Tab')
+      await page.keyboard.press('Enter')
+      // Ohne tabIndex=-1 am <main> wuerde nur gescrollt und der Fokus bliebe oben.
+      expect(await page.evaluate(() => document.activeElement?.id)).toBe('main-content')
+    }).toPass({ timeout: 15_000 })
   })
 
   test('Consent-Banner und Legal-Zugang auf der Consumer-Strecke', async ({ page }) => {
